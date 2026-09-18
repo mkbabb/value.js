@@ -327,3 +327,228 @@ All §2/§3/§6 coordinates in the dispatch resolve **exactly**: ⟨cmd⟩ `sed 
 - **Residual 3 — carried to `.e` and `.z`**: D5's default is *posed and blocked*; **PAW-38's slug uniquification must ride `.z`'s LATEX-PAPER letter**, or the deferral renews itself silently at the next wave.
 - **Residual 4 — carried to every unit**: `G-F4-ANCHORS` gains two contributions (the §3-relative §4/§5 coordinate class; the ECD −1 drift with the rule span over-running onto `</style>`), banked at the decisions record §6 for `.z`'s G-11 quotation.
 - **Routed, not settled** (each with its holder named in the record's §3): D2(b)'s LOG default, D3's fill-`#graph` product question, D4's retire-or-restore, D7's shared domain, and D10's five legs.
+
+---
+
+### `.g` — the gate chassis
+
+**Seat**: `.g`, `claude-opus-5[1m]`, 2026-09-18. **Status: DONE (with one bounds disclosure, A-g-8).**
+**Gates turned**: `G-F4-VITEST` · `G-F4-NO-UNUSED` · `G-F4-ADMIN-AXE` · `G-F4-OCCLUSION` · `G-F4-CONTRAST-FLOOR` · `G-F4-DERIVER` **RED → GREEN (mechanism)**; `G-F4-A11Y-ROUTE` **RED → GREEN on clause (i), honest-RED on clause (ii)**; `G-F4-ZERO-CONSOLE` **HELD BY CONSTRUCTION**.
+**Commits**: 7 fourier (`cc6c32d` `f93eacc` `e8251cd` `ccf7c7f` `05af77b` `4489f21` `717d287`) + 1 value (`b9837bcd`) + this receipt.
+**Addendum-beside**: `docs/tranches/X/fourier/F-W4-ADDENDA-g-2026-09-18.md` — **nine corrections**, `A-g-1..A-g-9`. `F-W4.md` untouched (**E-3**).
+
+⊘ **READ THE DISTINCTION THIS RECEIPT KEEPS THROUGHOUT, or its greens read as broader than they are.** Six of these gates are **MECHANISM** gates: they ask that a thing be measured, not that it measure clean. `G-F4-OCCLUSION` asks the gate to measure `<main>`; it now does, and the first honest reading is RED. `G-F4-ADMIN-AXE` asks that one spec enter admin mode; it does, and all four states are RED. Every such finding is **routed to the unit that owns the file**, and is named below. **No gate here is green because its subject is clean.**
+
+#### Act 0 — CRASH-RECOVERY sweep: nothing inherited
+
+⟨cmd⟩ `git -C /Users/mkbabb/Programming/fourier-analysis status --porcelain` → **∅** (clean; branch `m/w1-bump-migration`, HEAD `f7fa1e3`).
+⟨cmd⟩ `git -C /Users/mkbabb/Programming/value.js status --porcelain` → 13 modified ⊕ 4 untracked, **none inside this unit's writable set**: the ten `demo/**` SFCs, `api/src/modules/admin/**`, `CARRY-LEDGER.md` and `execution/B/KF-W6.md` are sibling seats'; `scripts/dev/dev.sh` is the unowned standing-dirty path (**NEVER touched, never staged**); `docs/tranches/X/waves/evidence/` and the two `e2e/smoke/**a11y-control-targets.spec.ts` are Track A's. **Zero inherited paths; no killed predecessor's partial work on this unit.**
+
+#### Act 1 — anchors verified at the true bytes BEFORE any write
+
+⊘ **`.i`'s Residual 4 is INDEPENDENTLY CONFIRMED, with its base measured.** This unit's dispatch cites its §4 gates as `(:23)…(:33)` and §5 as `(:48)`/`(:58)`. Taken absolutely they land in §0a's negative roster and on a bare `---`. They are **§3-relative, base 352** — the same base `.i` found. ⟨cmd⟩ `sed -n '375p;376p;377p;378p;380p;381p;384p;385p' F-W4.md` → `| **G-F4-A11Y-ROUTE** |` · `| **G-F4-ADMIN-AXE** |` · `| **G-F4-OCCLUSION** |` · `| **G-F4-VITEST** |` · `| **G-F4-NO-UNUSED** |` · `| **G-F4-CONTRAST-FLOOR** |` · `| **G-F4-DERIVER** |` · `| **G-F4-ZERO-CONSOLE** |` — **all eight, in dispatch order, at +352**. ⟨cmd⟩ `sed -n '400p;410p' F-W4.md` → `3. **Repair-arms-a-defect same-commit riders**…` · `- **→ F.W9/W10**: axe on `/paper`…`. §2.L's `:194-199` are **absolute and correct** — ⟨cmd⟩ `sed -n '194p;198p' F-W4.md` → `### §2.L · Charter items not exhausted above` · `- **VITEST-FLOOR · the DECISION (= §3 D6)**…`. **INTENT taken at the true bytes; the offset is now measured (352), not just named.**
+
+#### Act 2 — the lock discharged FIRST: the `/equation` axe leg, measured before any route joined
+
+The unit's lock: *"**Measure the `/equation` axe leg FIRST and report its verdict** before joining three more routes (`greenBeforeCure` #2 — an unread predicted-RED must not be buried under new routes)."* Discharged as the first act, on the untouched tree.
+
+⟨cmd⟩ (vite dev on :3000) `npx playwright test visualization-ux.spec.ts --project=chromium --reporter=list -g "keystone: /equation is a11y-clean"`, twice → identical:
+
+```
+• [critical] button-name — Buttons must have discernible text (1 node(s))
+      .is-auto-active
+```
+
+**VERDICT: the leg is RED, and the gate cell's prediction is FALSIFIED.** Predicted: TWO `scrollable-region-focusable`, *"before any hover finding"*. Measured: **ZERO** of them, **ONE `[critical] button-name`** on `FunctionInput.vue:192` (the `icon-only` Auto/Parseval `Button`, sole child a `<Wand2>` glyph, no `aria-label`). The predicted class is real and lives on **`/demo/shape-extractor`** (`#output`), not `/equation`. Full treatment at **A-g-1**. **The `/equation` cure is `.b`'s.**
+
+#### Act 3 — `G-F4-VITEST`: D6's ruled arm, and no other (`cc6c32d`)
+
+D6 ruled *"stand a vitest runner up in `web/`"* and forbade the Vite-plugin arm being built, half-built or kept as a fallback. Landed: `vitest.config.ts` (`environment: "node"`, no DOM bought — D6's own pricing), `"test:unit": "vitest run"`, and the two assertion subjects that **exist today**, from their definitions.
+
+⊘ **`.i`'s Residual 2 honoured exactly**: `fuzzyMatch` is imported from `@/components/paper/search/paperSearchIndex`, **never** from `search/index.ts`. The lock is restated in the test file's own header so a later "tidy" cannot quietly manufacture a consumer and falsify `.e`'s zero-consumer proof.
+
+| | BEFORE | AFTER (double-run) |
+|---|---|---|
+| vitest config | **0** | `web/vitest.config.ts` |
+| `*.vitest.ts` files | **0** | **4** |
+| executing assertions | **0** | **28**, all passing |
+| CI step | — | `Unit floor (X·F F.W4, G-F4-VITEST)` — **blocking**, no `continue-on-error`, no `--passWithNoTests` |
+
+⟨cmd⟩ `npm run test:unit`, twice → `Test Files 4 passed (4) · Tests 28 passed (28)`.
+⟨cmd⟩ `npx playwright test --list | grep -c 'vitest.ts'` → **0** — the `*.vitest.ts` suffix keeps them out of Playwright's `**/*.@(spec|test).*` collection; Playwright still lists `69 tests in 8 files`.
+⟨cmd⟩ resolved version, as D6 requires this seat to record rather than inherit: **`vitest@5.0.1`**, peers `vite ^6.4||^7||^8` (installed **7.3.6**) and node `^22.12||^24||>=26` (CI node 22.x). Pinned **exact**.
+
+⊘ **D6's branch table was short by one, and the omission is recorded not smoothed (A-g-2).** A unit runner already existed in `web/`: F.W0's `G-9` `node:test` seat, wired in CI. D6 priced vitest vs the Vite plugin and never saw it. The verdict is unaffected — F.W0's own file calls that seat *"explicitly NOT coverage"* and routes the floor's runner choice away from itself — and **this seat did not re-home it**, because that would redden a closed wave's landed gate. The two-runner state is disclosed in the workflow file itself and consolidation is **F.W9 `G-F9-1`**'s.
+
+#### Act 4 — `G-F4-NO-UNUSED`: the ESLint leg and its CI wiring (`f93eacc`)
+
+The tsconfig leg was already GREEN (F.W0 `b3b736c`; `greenBeforeCure` #1) and **no credit is claimed for it**. Landed: `eslint.config.js` — flat, scoped to `src/**`, exactly the two rules the gate names, both `error`; `"lint": "eslint src"`; CI step `Keyed-loop + duplicate-import gate`, blocking.
+
+| leg | BEFORE | AFTER |
+|---|---|---|
+| `noUnusedLocals` / `noUnusedParameters` | already present (`tsconfig.json:10-11`, F.W0) | unchanged — **not this wave's** |
+| ESLint configs in `web/` | **0** | `eslint.config.js` |
+| `lint` script | absent | present |
+| CI wiring | absent | blocking step in `web-build` |
+| findings | unmeasurable | **10 `no-duplicate-imports`, 0 `vue/require-v-for-key`** (double-run identical) |
+
+⊘ **`allowSeparateTypeImports` was measured and DECLINED, and the decline is written into the config.** Bare rule → **10**; with the option → **1**. The gate names the rule with no qualifier, and an option that suppresses nine findings is the seat narrowing its own gate. The ten are routed by path at **A-g-3** — `.a` ×2 · `.b` ×1 · `.c` ×3 · `.e` ×3 · plus `BasisCanvas.vue:15`/`:31`, whose `:31` is `EP-MISSED-F`'s own same-kind shape (two `import type` from one specifier).
+
+⊘ **`EP-MISSED-F`'s cited site is DISCHARGED-BY-PREDECESSOR** — `lib/easings.ts` now carries ONE import statement (F.W2 `.a` `0cc9b00` / COHESION §0o ESC-4). Recorded so `.z` does not book a cure for a site that no longer exists.
+⊘ **oxlint is NOT replaced** (F.W0's `FR-IC-25` floor). It parses no Vue template AST and carries neither named rule; both floors run and neither discharges the other. ⟨cmd⟩ `npx --yes oxlint@1.42.0 src e2e vite.config.ts playwright.config.ts` → **0 errors, 18 warnings, 146 files** — unmoved by this unit's files.
+
+#### Act 5 — `G-F4-OCCLUSION`: the gate stops measuring nothing (`e8251cd`)
+
+Re-pointed at `<main>` per `FSE-M-4`, plus `HLG-20`'s vertical-clip arm on the non-scrolling shell. A missing `<main>` is now itself a failure — that is how this gate would silently return to measuring nothing.
+
+| | BEFORE | AFTER (double-run) |
+|---|---|---|
+| horizontal probe | `documentElement.scrollWidth − clientWidth`, pinned to 0 by `App.vue:24/:26` | `<main>.scrollWidth − clientWidth` |
+| vertical probe | **none** | shell `scrollHeight − clientHeight` (the box that clips and cannot scroll) |
+| reading | `21/21 GREEN` = 21/21 UNMEASURED | **20 passed / 1 failed** |
+
+**The one failure is the record's own defect, reproduced to the pixel**: `horizontal overflow inside <main> on shape-extractor @ 375x667 … Expected: <= 2 · Received: 97` — `fr-FourierShapeExtractor D-1`'s booked *"the Moon box (272..472) loses 97px"*. **Routed to `.a`.** The vertical arm reads 21/21 clean and is a REGROWTH gate, stated as such.
+
+⊘ **A harness defect cured in passing, under E-3.** Running this spec overwrites 21 CHECKED-IN PNGs under `docs/tranches/J/audit/screenshots/` — prior evidence, immutable — so the gate could not be read without destroying the record it is read against. `VISUAL_OUT` now redirects the capture sink; **the default is byte-identical** to the previous behaviour. ⟨cmd⟩ `git status --porcelain` after both runs → only `web/e2e/visual-baseline.spec.ts`. **Nothing in the J trees was written.**
+
+#### Act 6 — `G-F4-ADMIN-AXE`: the admin surface is graded for the first time (`ccf7c7f`)
+
+BEFORE — ⟨cmd⟩ `grep -rln "admin" e2e/ | wc -l` → **0**. AFTER — `e2e/gallery-admin-a11y.spec.ts`, four tests: banner + Users + Flagged + Audit Log.
+
+Admin mode is entered through the **shipped path** (`?admin=` → `activateAdmin` → `verifyAdmin` → `adminMode`); only the HTTP boundary is stubbed, and the reasoning is written into the spec: a gate needing an `ADMIN_TOKEN` secret is a gate that quietly stops running, and a fresh CI database renders every panel EMPTY — axe over an empty table grades nothing, and `GAB-1`'s cells are the whole point. Each test refuses to grade until its own content is visible, so no run can pass vacuously.
+
+**Four states, all RED, double-run identical:**
+
+| finding | nodes | site | owner |
+|---|---|---|---|
+| `[serious] aria-hidden-focus` | 2, on **every** state | reka-ui focus-guard sentinels (`<span aria-hidden="true" tabindex="0">`, fixed 1×1, clipped) | **GLASS-RELAY (SS-6)** — producer, **never a frontend hack** |
+| `[critical] button-name` | 1 | `GallerySearchBar.vue:68` `.filter-toggle` (icon-only, no accessible name) | `.d` |
+| `[serious] color-contrast` | 1 | `AdminUserList.vue:376` `bg-red-500/20` status chip — twin at `AdminFlaggedPanel.vue:176` | `.d` |
+
+⊘ `aria-hidden-focus` is a **producer row**: it rides the BH inbox relay letter (`.z`'s), and no consumer-side patch is authored. Named here so `.z`'s letter carries it.
+
+#### Act 7 — `G-F4-A11Y-ROUTE`: three routes join (`05af77b`)
+
+| | BEFORE | AFTER |
+|---|---|---|
+| routes under axe | 3 of 7 (`/visualize`, `/v/{slug}`, `/equation`) | **6 of 7** (+ `/paper`, `/morph`, `/demo/shape-extractor`) |
+| `checkA11y` call sites | 8 | **11** |
+
+Each keystone settles on its own rendered content — the compiled article's H1, `HarmonicLevelGrid`'s `Morph` heading, the `Moon` figure heading — never a blind timeout, so a route that fails to boot fails loudly instead of grading an empty `<main>`. Run individually (Playwright stops the file on first failure, which would otherwise suppress the later routes), double-run:
+
+| route | verdict | findings → owner |
+|---|---|---|
+| `/paper` | **GREEN** | — |
+| `/morph` | **RED** | `button-name` ×4 (`.morph-button`; three glass-ui `select-trigger` comboboxes with no accessible name) · `label` ×5 (`.num-input` ×3, `.level-input` ×2) → **`.a`** |
+| `/demo/shape-extractor` | **RED** | `scrollable-region-focusable` ×1 (`#output`) → **`.a`** |
+| `/equation` (pre-existing) | **RED** | `button-name` ×1 (`FunctionInput.vue:192`) → **`.b`** |
+
+⊘ **`/paper`'s GREEN is a finding, not a clearance, and it is this wave's sharpest justification for a separate contrast gate.** `PS D-B2` books 2.39/3.00 and `PS D-M4 extended` four sub-4.5 ramp stops **on that very route**, and axe reports neither: axe grades text over a resolvable ancestor background, while ramp inks behind `color-mix` plates, canvas strokes and control BOUNDARIES (1.4.11) fall outside it. **A green axe run is not a contrast reading** — argued at adjudication, measured here.
+
+**Gate verdict: clause (i) — the four routes joined — GREEN. Clause (ii) — zero serious/critical — honest-RED on 3 of 4, every finding routed.** `.g` owns the joining; the cures are `.a`'s and `.b`'s.
+
+#### Act 8 — `G-F4-CONTRAST-FLOOR`: an executable both-arm harness (`4489f21`)
+
+BEFORE: *"No executable harness anywhere"* — reproduced. AFTER, three parts:
+
+- `scripts/contrast.ts` — pure WCAG arithmetic (sRGB transfer → relative luminance → ratio; floors 4.5 text / 3 non-text, **no large-text relief**, because no named pair qualifies and a relief clause nothing uses is a hole). **THROWS** on an unresolved colour rather than grading it — the failure that would otherwise read a dead `var()` as black and buy a flattering 21:1.
+- `e2e/contrast-pairs.ts` — the declarative registry: **34 pairs**, each a stack of CSS expressions with its record id, kind, owner and banked figure.
+- `e2e/contrast-floor.spec.ts` — resolves each stack on a 1×1 canvas so the **browser's own compositor** handles `var()`, `light-dark()`, `color-mix()`, `oklch()` and alpha, then grades **both arms**.
+
+⊘ **`banked` is never asserted against** — the live reading is the fact, and a divergence prints as DRIFT.
+⊘ **`PS D-M4 extended` is enumerated over ALL THIRTEEN ramp stops**, not four hand-picked indices. §4 requires *"all four, not the worst alone"*; enumerating the ramp is strictly stronger and cannot go stale when a cure moves which stops fail. `★MF-10`'s zero headroom means a 14th root resolves to nothing, which the harness raises as an **unresolvable colour**, not a silent pass.
+
+**Readings, double-run** — light **24 of 34 RED**, dark **12 of 34 RED**. The registry reproduces across the board: `FR-MSP-7` 1.035/1.086 (banked 1.038/1.084) · `HLG-37` 1.283/1.365 L, 1.383/1.385 D · `FR-USB-5` 1.283/1.929/1.720 · `PSM-4@45%` 1.888 L / 2.378 D · `FR-EQR-7` 2.110 · `GAB-1[plate/page]` 1.031 · `stop-11` **3.614** (banked 3.58). The registry's *"dark arm passes throughout"* for `GAB-1`/`AA-3`/`FR-EQR-7` is **confirmed by measurement**, as is `HLG-37`'s both-arm failure. Four figures DRIFT at the 8.0.0 pin and one `PS D-M4` stop has risen above the floor — all at **A-g-5**.
+
+⊘ **`FR-IC` is absent BY DELETION, not by omission** (F.W0 `5842377`; `greenBeforeCure` #3), stated in the registry file itself so its silence reads as a ruling.
+⊘ **Seven named pairs are RED-because-underived, never skipped**: `FR-CP-D1` · `DMT M-2` · `ECD D-5` · `ECD D-6` · `EV D·D-B3` · `PS D-B2` · `PV D/M-8`. Each paints its ink rather than declaring it; expressing them as static stacks at this seat would be a guess wearing a measurement's clothes. They are enumerated with owners and the harness **fails** on them. The roster IS the RED and closes by being emptied, one row per owning unit's cure.
+
+#### Act 9 — `G-F4-DERIVER`: the four blind spots become a published census (`717d287`)
+
+BEFORE — ⟨cmd⟩ `find .. -name '*deriv*' -not -path '*/node_modules/*' -maxdepth 3` → **∅**. AFTER — `scripts/derive-loops.ts`, `npm run derive:loops`, published in CI, **8 vitest assertions** pinning the blind spots as behaviours.
+
+**The first census (double-run identical):**
+
+| clause | reading |
+|---|---|
+| `nativeLoopsByDirective` | **33 directives** — 17 native, 16 component callsites; **0 unkeyed** |
+| `loopBounds` | 1 closed · **32 runtime** |
+| `loopMultiplicity` | static 1 · reactive 25 · runtime 7 |
+| `isCandidateSets` | 6 sites, **4 resolved** |
+| `producerInternalLoops` | glass-ui **8.0.0**: 15 `renderList` modules / 144 `d.ts` components · latex-paper **0.2.1**: 8 calls / 7 components |
+| `urlRefEdges` | **4 edges, ALL FOUR UNRESOLVED** |
+| `disclosureState` | recorded for all 39 sites |
+| `loopSourceProvenance` | literal-array 1 · typed-domain 32 |
+
+- **`BS-1` discharged at its own witness**: `PaperSidebar.vue`'s **three nested `<li v-for>`** are all found, all native, all `host: "li"` — a component-callsite census reads that file as **0**. `FR-AUL-54`'s refinement is structural: the index is the DIRECTIVE and `native` is a property of a row, never the partition.
+- **`FR-NP-2` honoured structurally**: a number is emitted only for a literal range or literal array; every typed domain is `"runtime"`. The deriver refuses to mint a cardinality, and a vitest assertion enforces it.
+- **`BS-2`**: `AppHeader.vue:121`/`:134` report **UNRESOLVED**, not zero — the candidate set is assembled across a data structure, `BS-2`'s exact shape.
+- **`BS-3`**: the denominator is the INSTALLED dist and is **versioned**; none of it is visible to a `web/src` census.
+- **`BS-4`, and it is a live finding**: `SvgFilters.vue` defines `#title-boil` `:69`, `#wobble-celestial` `:96`, `#paper-grain` `:122`, `#canvas-grain` `:150`, and **nothing under `src` references any of them**. The 178-line survivor is measured: four filter definitions, zero in-tree consumers. **Routed to the SCRUB (`G-F4-DEAD-DEP`, `.f`)** — ⊘ with the standing caution that an `url(#id)` edge is precisely the edge no import graph represents, so a consumer in a producer package or in emitted CSS must be excluded before any deletion.
+- ⊘ **The deriver publishes its own method limits**, so no consumer mistakes a derived figure for a runtime one.
+- ⊘ **A correction to the naive instrument**: `grep -rn 'v-for' src | wc -l` → **34**; the deriver reads **33**. The 34th is prose in a `<script>` doc comment at `CoefficientsSpectrum.vue:76`. The template-scoped read is the correct one.
+
+#### Act 10 — `G-F4-ZERO-CONSOLE`: held by construction; the reading is owed to CI
+
+- ⟨cmd⟩ `git diff --name-only cc6c32d~1..HEAD -- web/e2e/` → seven paths, **none** of `visualization-crud` · `workspace-flow` · `paper-performance` · `gallery` · `contour-extraction` — the five specs carrying the console/`pageerror` hooks. **Zero bytes of the zero-console gates were touched**, so F.W1's twelve-limb transaction is not split by any edit here.
+- ⊘ `e2e/paper-performance.spec.ts:328` (`.a`'s DMT N-2 rider) **not touched** — ⟨cmd⟩ `git diff cc6c32d~1..HEAD -- web/e2e/paper-performance.spec.ts` → **0 lines**.
+- ⊘ **`FR-GIG-5` is claimed by nothing here** — ⟨cmd⟩ `git log --oneline -7 | grep -ci 'pagination\|GIG-5'` → **0**.
+- **The gates cannot be READ at this seat**: ⟨cmd⟩ `nc -z localhost 27017` → **DOWN**; ⟨cmd⟩ `docker info` → **DOWN**. Run without a backend, `gallery.spec.ts:118` fails on `500 (Internal Server Error)` from the dead `/api` proxy — an environment artefact, and asserting on it would be a false reading in either direction. Declared, as seat 0 declared it at open, **not claimed**.
+
+#### Act 11 — §5.1(3)'s `noUncheckedIndexedAccess`, priced and routed
+
+§5.1(3) sequences it *before* `PAW-12`'s predicate split, and `PAW-12` is **F.W9/W10's** — so it is not due here. It was nonetheless **measured**, because a sequencing lock priced by guess hands the next wave a surprise:
+
+| tsconfig | `vue-tsc -b --force` |
+|---|---|
+| as landed | **18** (17 × TS6133 + 1 × TS6196 — seat 0's baseline, unmoved by this unit) |
+| + `noUncheckedIndexedAccess` | **265** (102 × TS18048 · 77 × TS2532 · 26 × TS2345 · 22 × TS2538 · 19 × TS2322 · …) |
+
+**+247, overwhelmingly in `src/**`** — files `.g` may not write and every sibling is mid-cure on. Landing it now would block `npm run build` for the rest of the wave. **Routed to F.W9/W10 with `PAW-12`, priced.** The probe was reverted byte-exactly and committed nowhere (⟨cmd⟩ `git status --porcelain` → `web/tsconfig.json` absent).
+
+#### Act 12 — E13 mail (this seat's own act)
+
+⟨cmd⟩ `grep -nE '\| *UNREAD' docs/tranches/V/coordination/INBOX.md` → **no output** — **0 UNREAD in scope**. Four-path sweep at this seat's clock: `V/` ∅ · `V/coordination/` self only · glass BK `glass-outbound-2026-09-18-valuejs-o26-reply.md` **already rowed I-35** · keyframes ∅ · atlas P ∅ · fourier F ∅. No row minted — this unit corresponds with no sibling repo directly; the two **producer rows it surfaced** (reka-ui `aria-hidden-focus` sentinels; the light-arm `--success` rung at 2.133) are named here for **`.z`'s SS-6 relay letter** and are authored as frontend hacks nowhere.
+
+#### Gate readings, BEFORE → AFTER
+
+| gate | BEFORE | AFTER | reading |
+|---|---|---|---|
+| `G-F4-VITEST` | RED — no runner, 0 assertions | **GREEN** | vitest@5.0.1, 4 files / **28 assertions**, CI-blocking |
+| `G-F4-NO-UNUSED` | PARTIAL-RED — tsconfig leg green, no ESLint | **GREEN** | 2 named rules over `src`, wired blocking; 10 findings routed |
+| `G-F4-A11Y-ROUTE` | PARTIAL-RED — 3 of 7 routes, verdict unread | **GREEN (i) / honest-RED (ii)** | 6 of 7 routes; `/paper` clean, 3 RED routed |
+| `G-F4-ADMIN-AXE` | RED — 0 admin files in `e2e/` | **GREEN** | 1 spec, 4 states; 3 finding classes routed |
+| `G-F4-OCCLUSION` | RED — passes by construction | **GREEN** | `<main>` + vertical clip; **97px** found at shape-extractor |
+| `G-F4-CONTRAST-FLOOR` | RED — no harness | **GREEN** | 34 pairs, both arms; 24 L / 12 D RED, 7 underived, all routed |
+| `G-F4-DERIVER` | RED — no deriver | **GREEN** | 8 fields published + CI + 8 assertions |
+| `G-F4-ZERO-CONSOLE` | UNMEASURED-AT-OPEN | **HELD BY CONSTRUCTION** | 0 bytes of the 5 hook specs touched; reading owed to CI's backend arm |
+
+**Unmoved by this unit, recorded so `.z` reads no drift into them**: `G-F4-VUE-TSC-CLEAN` **18 diagnostics, identical before and after** (none from `e2e/**` or `scripts/**`); oxlint **0 errors / 18 warnings**; Playwright collection **69 → 76 tests**, no existing test renamed or removed.
+
+#### Commits
+
+| hash | repo | paths | meaning |
+|---|---|---|---|
+| `cc6c32d` | fourier | `web/package.json` · `web/package-lock.json` · `web/vitest.config.ts` · `web/e2e/unit/{curve-transition,paper-search}.vitest.ts` · `web/tsconfig.json` · `.github/workflows/ci.yml` | the unit floor (D6's ruled arm) |
+| `f93eacc` | fourier | `web/eslint.config.js` · `web/package.json` · `web/package-lock.json` · `.github/workflows/ci.yml` | the ESLint leg + CI wiring |
+| `e8251cd` | fourier | `web/e2e/visual-baseline.spec.ts` | occlusion re-point + vertical clip |
+| `ccf7c7f` | fourier | `web/e2e/gallery-admin-a11y.spec.ts` | the admin-mode axe spec |
+| `05af77b` | fourier | `web/e2e/visualization-ux.spec.ts` | three routes join the keystone set |
+| `4489f21` | fourier | `web/scripts/contrast{,.vitest}.ts` · `web/e2e/contrast-{pairs.ts,floor.spec.ts}` | the contrast harness |
+| `717d287` | fourier | `web/scripts/derive-loops{,.vitest}.ts` · `web/package.json` · `.github/workflows/ci.yml` | the deriver |
+| `b9837bcd` | value.js | `docs/tranches/X/fourier/F-W4-ADDENDA-g-2026-09-18.md` | the dated addendum-beside |
+| *(this line's own)* | value.js | `docs/tranches/X/execution/C/F-W4.md` | this receipt |
+
+Every commit carried its own pathspec on the commit itself; ⟨cmd⟩ `git show --name-only --format=''` on each returns **exactly the listed paths** — no sibling seat's staged bytes swept in.
+
+#### Residuals and escalations
+
+- **ESCALATION — one, and it is a ratification request, not a block (A-g-8).** `web/package-lock.json` is **not named** in this unit's writable set, and this seat wrote it. Both manifest-bearing gates need devDependencies, and `npm ci` — which all three CI jobs run — **fails outright** on a `package.json`/lock desync, so writing the granted manifest byte without its lock would have turned every CI job RED: a half-landing and, by this wave's own standard, a HIGH defect. Treated as inside the granted surface because the lock is that byte's deterministic derivative, because **F.W0's own file pairs them as ONE reservation** (*"reserves `web/package.json` + `package-lock.json` entirely to unit a"*), and because no sibling seat in this wave holds either file. **Asked of the orchestrator**: ratify it into `.g`'s set by dated addendum (the §Bounds shape COHESION §0o already used at `ESC-KFW2-1`), or say the word and the manifest transaction is reverted whole and both gates re-opened. Isolated to **two commits** (`cc6c32d`, `f93eacc`), each a plain `npm install` result.
+- **Residual 1 — carried to `.a`**: `shape-extractor @ 375×667` overflows `<main>` by **97px** (`FSE-D-1`), and `/morph` + `/demo/shape-extractor` carry **10 axe findings** (4 `button-name`, 5 `label`, 1 `scrollable-region-focusable`). The occlusion and keystone specs go green when those land, by no other means.
+- **Residual 2 — carried to `.b`**: `/equation`'s `[critical] button-name` at `FunctionInput.vue:192`. The gate cell predicted a different defect; **A-g-1** is the provenance.
+- **Residual 3 — carried to `.d`**: `GallerySearchBar.vue:68` `.filter-toggle` name · the `bg-red-500/20` chip (`AdminUserList.vue:376`, twin `AdminFlaggedPanel.vue:176`) · every `GAB-1`/`FR-USB-5`/`AA-3` contrast row.
+- **Residual 4 — carried to `.f`**: `SvgFilters.vue`'s **four `url(#id)` definitions with zero in-tree consumers**. ⊘ An `url(#id)` edge is the edge no import graph represents — exclude a producer-package or emitted-CSS consumer before deleting.
+- **Residual 5 — carried to every surface unit**: the **seven underived contrast pairs**. Each owning unit lands its pair's expression stack in `e2e/contrast-pairs.ts` **in the same commit as its cure**; the harness's third test closes only by that roster being emptied.
+- **Residual 6 — carried to `.z`, for the SS-6 relay letter**: reka-ui's focus-guard sentinels (`aria-hidden-focus`, 2 nodes on every gallery/admin state) and the producer's light-arm `--success` rung (**2.133:1**, floor 3). Producer rows; no frontend hack authored.
+- **Residual 7 — carried to F.W9/W10**: consolidate the two unit runners (F.W0's `node:test` seat + this floor) under `G-F9-1`, per F.W0's own routing; and land `noUncheckedIndexedAccess` with `PAW-12` at the **measured** price of 265 diagnostics.
+- **Residual 8 — carried to `.z`**: the ten `no-duplicate-imports` findings are the ESLint leg's born-RED and are owned across `.a`/`.b`/`.c`/`.e`; `web-build` stays RED until they land. `allowSeparateTypeImports` was measured (1 finding) and **declined** — re-opening it is a decision, not a fix.
