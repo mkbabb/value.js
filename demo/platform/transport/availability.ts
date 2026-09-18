@@ -9,8 +9,9 @@
  *   - while latched, transport calls short-circuit with a typed
  *     `ApiUnavailableError` instead of issuing repeated doomed requests
  *     (and re-polluting the console with CORS/network noise);
- *   - after `RETRY_COOLDOWN_MS` the next call is allowed through as the
- *     recovery probe — success flips the latch back to `available`;
+ *   - after `RETRY_COOLDOWN_MS` the next call — exactly one, the admission
+ *     re-arms the window (X.W3.7 · AP-17) — is allowed through as the recovery
+ *     probe; success flips the latch back to `available`;
  *   - `apiAvailability` is a reactive cell the save/publish surfaces read
  *     for the "backend offline — saved locally" affordance (a designed
  *     state in the instrument's register, never an apologetic toast).
@@ -184,12 +185,31 @@ export function markApiReachable(): void {
  * degrades to the misleading `unavailable`). Otherwise: inside the cooldown
  * window of a tripped latch, throw `ApiUnavailableError`; past the window, let
  * ONE probe through.
+ *
+ * ── X.W3.7 · AP-17 (CONFIRMED MAJOR) ─────────────────────────────────────────
+ * "ONE probe" is now true in fact, not only in prose. Admitting the probe
+ * RE-ARMS the window in the same breath, so the callers queued behind it wait a
+ * full `RETRY_COOLDOWN_MS` instead of streaming through: against a slow-failing
+ * backend the allow branch previously admitted EVERY caller between window-open
+ * and the first failure's resolution (N doomed requests + N console errors per
+ * cycle — precisely the burst the latch exists to prevent), because re-arming
+ * happened only on failure in `markApiUnreachable`. The window still OPENS on
+ * schedule: one probe per cooldown, every cooldown, until one of them resolves.
  */
 export function assertApiAttemptAllowed(): void {
     if (apiAvailability.value === "misconfigured") {
         throw new DevMisconfigError();
     }
     if (apiAvailability.value !== "unavailable") return;
-    if (Date.now() - unavailableSince >= RETRY_COOLDOWN_MS) return;
+    if (Date.now() - unavailableSince >= RETRY_COOLDOWN_MS) {
+        // The probe is admitted AND the window re-arms: this caller is the one
+        // probe, and the next is a cooldown away. A failure re-arms again
+        // (`markApiUnreachable`); a success releases the latch outright
+        // (`markApiReachable`). No in-flight flag is held — a flag that a
+        // never-settling request leaves set would wedge the latch shut, which
+        // is the failure mode this cure must not trade for.
+        unavailableSince = Date.now();
+        return;
+    }
     throw new ApiUnavailableError();
 }
