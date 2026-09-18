@@ -2375,3 +2375,139 @@ the count is unmoved.⟩
 |---|---|---|
 | keyframes.js | **`15c95de1`** | `fix(kf/timeline-a11y): G9 — the tooltip announces what it shows (KF.W7 .h, ONE family)` — the family whole, three files, unsplit |
 | value.js | (this commit) | `evidence/W7/G9-A11Y-LANDING.md` + these receipts |
+
+### X.KF.W7.i
+
+SERVED MODEL: `claude-opus-5[1m]` · **2026-09-18** · Resume group 3 — **G14's L-11 CONSUMER BYTE, its
+fifth and last**. Sections executed: §Gates **G14** (`:317-319`) · **G4** (`:273-275`, the row this cure
+must not trade away) · §Sequencing's *"the posture ruling (G14's consumers, one ruling)"* family line
+(`:340`).
+**Status: DONE.** **G14 · L-11 RED → GREEN · G4 GREEN → GREEN (unmoved, measured not assumed).**
+Evidence: `evidence/W7/G14-L11-CONSUMER-BYTE.md` (opens `SERVED MODEL: claude-opus-5[1m]`).
+
+**Substrate**: kf `master` ≡ `origin/master` ≡ **`15c95de1`** (`.h`'s landing) at open.
+**CRASH-RECOVERY**: ⟨cmd⟩ `git -C ../keyframes.js status --porcelain` at open → **2 lines, both the
+untracked `docs/tranches/V/coordination/VALUEJS-INBOUND-*.md`** every seat of this wave has recorded —
+**0 paths inside this unit's writable set; nothing inherited, nothing rewritten, nothing stashed**. vjs:
+the 17 dirty paths are siblings' (api/, demo/palettes, `scripts/dev/dev.sh`) — **none touched**, and no
+dirty path under `docs/tranches/X/keyframes/evidence/W7/` or `execution/B/KF-W7.md`.
+
+**Step 0 (E13, seat-level)**: COHESION §0j read to the file end through **§0q** — ⟨cmd⟩
+`grep -n 'KF\.W7' COHESION.md` → **one hit, `:1108`** (§0o's runner-dead paragraph — chassis, not cargo);
+**no KF.W7 ruling, nothing owner-gated away from this unit**. Four-path sweep at this seat's own clock
+(**18:5x EDT**), classification from each `INBOX.md` row's **Status cell**, `INBOX.md` self-excluded:
+⟨cmd⟩ `/usr/bin/find <the four paths> -maxdepth 1 -type f -name '*.md' -newermt '2026-09-18 18:37'` →
+**no output**; against 17:16 the only hit is `glass-outbound-2026-09-18-valuejs-o26-reply.md`, **already
+rowed I-35, `READ + CONSUMED WHOLE`**, its third-revision delta routed to `.j` by seat 0. Counts: `V/` 10
+· `V/coordination/` 18 · BK coordination 9 · kf coordination **12 `.md` + `vnext/`** · atlas
+`P/coordination/` 28. ⟨**A counting reconciliation, declared rather than swallowed**: prior sweeps record
+kf coordination as **13 *entries*** — 12 `.md` files **plus the `vnext/` directory**; ⟨cmd⟩
+`/bin/ls -1 …/*.md | wc -l` → **12** and ⟨cmd⟩ `/bin/ls -lt` shows `vnext/` at the head. Same tree, two
+units of count; **nothing left or arrived**.⟩ **0 unrowed · 0 new `I-n` · 0 UNREAD in this unit's scope**
+(I-35's §2 clause binds `.h`'s `TooltipContent` and `.j`'s O-28 re-read — it names no ops-layer byte).
+
+#### Act 0 — anchors re-derived at the bytes (D-19), and the ONE drift
+
+Three of four EXACT at `15c95de1`: ops `rebuild: () => void` **`:19`** · the latched `rebuild()` **`:42`**
+inside the rAF at **`:40`** · `toast.success` **`:59`**. **DRIFTED: the builder's async rebuild.** The
+brief's `useTimelineBuild.ts:43` is the pre-`.g` coordinate — `.g`'s preview-cache rules block now stands
+above it — and ⟨cmd⟩ `grep -n 'const rebuild = async (): Promise<void>' useTimelineBuild.ts` → **`134`**,
+one hit. **INTENT taken at the true bytes** (*the builder's `Promise<void>` must become visible to the ops
+layer*); `useTimelineBuild.ts` is **outside this unit's writable set and was not written**.
+
+#### Act 1 — the consumer byte, ONE commit: kf `16f58d54`
+
+`useTimelineOps.ts` + the two fixtures' stubs (the typechecker's own demand, §Act 2). ⟨cmd⟩
+`git show --stat` → **3 files changed, 44 insertions(+), 10 deletions(-)**.
+
+1. **The type.** `rebuild: () => void` → **`rebuild: () => Promise<void>`**. The erasure was the defect:
+   the builder had been `async (): Promise<void>` all along and this parameter threw it away, so no caller
+   of the ops layer could tell a finished build from a started one.
+2. **The settlement, latch RETAINED.** `scheduleRebuild` now returns `Promise<void>`: the same
+   `rebuildFrame` guard, the same single `requestAnimationFrame`, and inside the callback
+   `void rebuild().then(settle, settle)`. **Callers coalesced into one frame receive the SAME promise** —
+   the coalescing survives in the settlement as well as in the build. **Nothing is un-latched**, which is
+   this unit's governing lock.
+3. **The order.** `const snapshot = async (percent?: number): Promise<void>`; `await scheduleRebuild()`
+   (`:87`) **precedes** `toast.success` (`:89`). The posture's third clause is now a fact of the control
+   flow rather than a comment about it.
+4. **`useTimeline.ts:54` NOT re-pointed** — it already passes the builder's `rebuild`, which IS
+   `() => Promise<void>`; zero typecheck errors in that file before or after. In-bounds, unwritten: *a
+   wider edit than the typechecker requires is not this seat's to make*.
+
+**Why the settlement RESOLVES on settle rather than rejecting** (the one design judgement, stated so it
+can be argued with): `rebuild` is **P3-bound at the builder** — its `catch` publishes `buildError`, toasts
+with a Retry (★ S-7's shape) and leaves a state the owner renders. Re-throwing here would give
+`addKeyframe` · `removeKeyframe` · `moveKeyframe` (at pointer rate) · `updateKeyframeProperty` an
+unobserved rejection for a failure that had **already spoken** — a SECOND failure channel, minted at the
+one gate whose whole subject is that there be one. The success toast's claim (*a keyframe was captured at
+this percent*) is true either way, and a failed build speaks in its own voice at the same moment.
+
+#### Act 2 — the two fixtures, and the authority for each line
+
+- **The stubs: the typechecker's demand, discharged inside this unit.** `npm run check`'s legs are
+  `&&`-chained and leg 1 is RED at the frontier, so **`tsc -p tsconfig.test.json` never runs under it**.
+  Run directly, the signature change raises exactly two errors — ⟨cmd⟩ `npx tsc --noEmit -p
+  tsconfig.test.json` → `timeline-mount-keyboard.test.ts(236,60)` and
+  `timeline-mount-projection.test.ts(272,60)`, both TS2345 *"Argument of type `() => void` is not
+  assignable to parameter of type `() => Promise<void>`"*. Cured by `async () => {}` / `async () => {
+  builds++; }`; the counter still increments **synchronously on entry**, so no assertion's timing moves.
+  **25 errors BEFORE → 23 AFTER**, ⟨cmd⟩ `diff` naming those two and nothing else.
+- **The dead `previewCache: {}` / `previewLoading: {}` keys — an inherited residual, its OWN commit
+  (`1fa98a5d`, 4 deletions, 0 insertions).** Inert fallthrough attributes describing a contract `.g`
+  replaced with the optional `previews` Map. **Routed here by name, twice** — `.g`'s residual 1 and `.h`'s
+  residual 2 (*"Owner: `.i` — one line each"*). **The tension with this unit's lock is DECLARED**: the lock
+  says the fixtures are touched only as the typechecker demands, and this is four lines more than that —
+  taken because both preceding seats assigned it to this unit by name, it is inside the hard writable
+  bound, it removes bytes rather than adding any, and the alternative was a four-line cleanup carried into
+  a verify-only `.j` and out to KF.W10. **A separate commit precisely so the two meanings read apart.**
+- **Formatting**: ⟨cmd⟩ `npx prettier --check` → the ops file **clean**; both fixtures carry **pre-existing**
+  divergences whose line numbers (f1 `58 · 138 · 177`; f2 `25 · 80 · 83 · 123 · 132-134 · 145-146 · 309 ·
+  361 · 394 · 399 · 412 · 433 · 435 · 437 · 440 · 443-445 · 450`) **intersect none of this unit's hunks**
+  (f1 `@@ -110,2 +109,0 @@` · `@@ -272 +270,5 @@`; f2 `@@ -97,2 +96,0 @@` · `@@ -236 +234 @@`). Reformatting
+  either file whole is the wider edit the lock forbids.
+
+#### Gate readings BEFORE → AFTER (settled bytes, ONE script over `git show <ref>:<path>` so both ends run
+the SAME probes; double-run — ⟨cmd⟩ `diff run1 run2` → no output)
+
+| gate | BEFORE (`15c95de1`) | AFTER (`1fa98a5d`) | witness |
+|---|---|---|---|
+| **G14 · L-11** | **RED** — the builder is async and the ops layer declares it `void`; acknowledgement precedes outcome at exactly one site | **GREEN** | ops param `() => void` **1 → 0**, `() => Promise<void>` **0 → 1** · `const scheduleRebuild = (): Promise<void>` **0 → 1** · `const snapshot = async (` **0 → 1** · `await scheduleRebuild()` / `toast.success` lines **— / 59 → 87 / 89** (the await PRECEDES the toast) · builder decl unwritten at `:134` |
+| **G4** | **GREEN** | **GREEN — unmoved** | `scheduleRebuild` CALL SITES **5 → 5** · the only `rebuild(` invocation (excl. the prose line `:27`) **`:42` → `:66`, inside the rAF at `:40` → `:64`** · latch guard `if (rebuildFrame !== null) return` **1 → 1** · dirty check `if (next === kf.percent) return;` **1 → 1** · `clamp(newPercent, 0, 100)` **1 → 1** · fixture 1's two G4 assertions RUNNING |
+
+**Tests** — ⟨cmd⟩ `npx vitest run --project demo` over the four W7 fixtures → **65 passed**, run **twice**,
+identical; ⟨cmd⟩ `npx vitest run` → **147 files passed | 5 skipped · 1518 passed · 3 expected fail · 14
+skipped** — byte-for-byte `.h`'s figure, **+0**, the right number for a type-seam cure that adds no
+assertion. ⟨cmd⟩ `grep -cE '^\s*(test|it|describe)\.skip'` over the four fixtures → **0**.
+**Typecheck** — ⟨cmd⟩ `npm run check` → exit **2**; `error TS` → **54** over **22** files; ⟨cmd⟩
+`… | grep -c 'instrument/timeline'` → **0**; ⟨cmd⟩ `diff` against the pre-edit run → **ERROR SET
+IDENTICAL**. The 54 are the frontier's, the same 54-over-22 `.g` and `.h` measured.
+
+#### Residuals, each with a named owner
+
+1. **G14 has no RUNNING witness for the ordering.** The gate is read at the bytes (the table above) plus
+   `.c`'s ruling artifact — exactly as `.e`'s three consumer bytes were read. An executable assertion
+   (*the success toast does not fire until the awaited build settles*) needs a new test with a vue-sonner
+   double: an addition neither this unit's brief nor its lock authorises. **Declared so `.j` reads the gate
+   for what it is. Owner: `.j`'s close residuals / KF.W10.**
+2. **P3's channel is still structurally unpainted** (`G14-POSTURE-RULING.md` §0.1: the vue-sonner
+   stylesheet is imported nowhere). **Owner: `kf-DemoGlobalChrome` D-1/L-1/C-1, NO-WAVE-OWNER**, glass
+   `./toast` at the S-9 swap; M-1 binds any interim. This unit imports nothing and files nothing.
+3. **`.g`'s residual 1 / `.h`'s residual 2 — DISCHARGED here** (`1fa98a5d`). Nothing carried forward.
+
+#### Escalations
+
+**NONE.** No write outside the writable set — `useTimelineBuild.ts`, `KeyframeTimeline.vue`,
+`TimelineTrack.vue` and all twelve tracked `test/demo/instrument/` witnesses are untouched. No un-latching,
+no `test.skip`, no try/catch around a defect, no allowlist, no producer selector copied, no `node_modules`
+patch; glass-ui READ-ONLY and no row filed; `scripts/dev/dev.sh` in zero commits; pathspec ON both commits,
+each carrying only its own paths; ⟨cmd⟩ `git status --porcelain` after each → only the two pre-existing
+untracked INBOUND letters.
+
+#### Commits (3 — 2 keyframes.js, 1 value.js; pathspec on every one)
+
+| repo | sha | meaning |
+|---|---|---|
+| keyframes.js | **`16f58d54`** | `fix(kf/timeline-ops): G14 L-11 — the acknowledgement waits for the outcome (KF.W7 .i)` — the consumer byte, with the two stub re-points the typechecker demanded |
+| keyframes.js | **`1fa98a5d`** | `test(kf/timeline-fixtures): drop the two mounts' dead previewCache/previewLoading keys (KF.W7 .i — .g residual 1 / .h residual 2)` |
+| value.js | (this commit) | `evidence/W7/G14-L11-CONSUMER-BYTE.md` + these receipts |
