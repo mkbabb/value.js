@@ -1,0 +1,106 @@
+SERVED MODEL: claude-opus-5[1m]
+
+[boot-smoke] mode=prod-preview origin=http://127.0.0.1:61674 seeds=8
+[boot-smoke] artifact census (R42): 122 assets · entry ./assets/index-Bzkubr2p.js (446664 B) · 5 modulepreload · vendor-katex chunks 2 (in modulepreload set: false)
+
+[boot-smoke] PASS · default · http://127.0.0.1:61674/
+             the W1.md literal — a cold boot with no seed at all
+             ok   A1 #app has >= 1 element child
+                  #app is <BODY> with 6 element child(ren): [DIV, DIV, SPAN, DIV, DIV, DIV]
+             ok   A2 a role=main landmark exists
+                  1 landmark(s): [Color tool panes]
+             ok   A3 pageerror collected []
+                  []
+             ok   A4 >= 1 desktop utility class in the emitted CSS
+                  47 desktop utility rule(s) across 8 sheet(s) — e.g. .lg\:grid-cols-\[1fr_18rem\] @ (width >= 64rem), .lg\:border-t-0 @ (width >= 64rem), .lg\:border-r @ (width >= 64rem)
+
+[boot-smoke] FAIL · deep-link-black · http://127.0.0.1:61674/#/?space=rgb&color=black
+             R16 — `?color=black` at minimum; grey 0 is hsv-powerless
+             FAIL A1 #app has >= 1 element child
+                  #app is <BODY> with 0 element child(ren): []
+             FAIL A2 a role=main landmark exists
+                  0 landmark(s): []
+             ok   A3 pageerror collected []
+                  []
+             ok   A4 >= 1 desktop utility class in the emitted CSS
+                  47 desktop utility rule(s) across 5 sheet(s) — e.g. .lg\:grid-cols-\[1fr_18rem\] @ (width >= 64rem), .lg\:border-t-0 @ (width >= 64rem), .lg\:border-r @ (width >= 64rem)
+             console.error (2):
+                  • [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:61674 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette
+                  • PickerColorError: Missing hsv.h
+
+[boot-smoke] FAIL · deep-link-grey-333333 · http://127.0.0.1:61674/#/?space=hex&color=%23333333
+             R16 — grey 51, a member of the 28/256 hsv-powerless set
+             FAIL A1 #app has >= 1 element child
+                  #app is <BODY> with 0 element child(ren): []
+             FAIL A2 a role=main landmark exists
+                  0 landmark(s): []
+             ok   A3 pageerror collected []
+                  []
+             ok   A4 >= 1 desktop utility class in the emitted CSS
+                  47 desktop utility rule(s) across 5 sheet(s) — e.g. .lg\:grid-cols-\[1fr_18rem\] @ (width >= 64rem), .lg\:border-t-0 @ (width >= 64rem), .lg\:border-r @ (width >= 64rem)
+             console.error (2):
+                  • [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:61674 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette
+                  • PickerColorError: Missing hsv.h
+
+[boot-smoke] PASS · deep-link-grey-808080 · http://127.0.0.1:61674/#/?space=hex&color=%23808080
+             CONTROL — grey 128 is NOT hsv-powerless; a matrix that reds this row is reporting something other than the seed class
+             ok   A1 #app has >= 1 element child
+                  #app is <BODY> with 6 element child(ren): [DIV, DIV, SPAN, DIV, DIV, DIV]
+             ok   A2 a role=main landmark exists
+                  1 landmark(s): [Color tool panes]
+             ok   A3 pageerror collected []
+                  []
+             ok   A4 >= 1 desktop utility class in the emitted CSS
+                  47 desktop utility rule(s) across 8 sheet(s) — e.g. .lg\:grid-cols-\[1fr_18rem\] @ (width >= 64rem), .lg\:border-t-0 @ (width >= 64rem), .lg\:border-r @ (width >= 64rem)
+
+[boot-smoke] PASS · deep-link-lch-none · http://127.0.0.1:61674/#/?space=lch&color=lch(50%25%200%20none)
+             R17 — the legal `none` hue reaching the picker through the URL
+             ok   A1 #app has >= 1 element child
+                  #app is <BODY> with 5 element child(ren): [DIV, DIV, SPAN, DIV, DIV]
+             ok   A2 a role=main landmark exists
+                  1 landmark(s): [Color tool panes]
+             ok   A3 pageerror collected []
+                  []
+             ok   A4 >= 1 desktop utility class in the emitted CSS
+                  47 desktop utility rule(s) across 8 sheet(s) — e.g. .lg\:grid-cols-\[1fr_18rem\] @ (width >= 64rem), .lg\:border-t-0 @ (width >= 64rem), .lg\:border-r @ (width >= 64rem)
+
+[boot-smoke] PASS · deep-link-oklch-none · http://127.0.0.1:61674/#/?space=oklch&color=oklch(0.5%200%20none)
+             R17 — the same in oklch; 256/256 greys emit `none` in both
+             ok   A1 #app has >= 1 element child
+                  #app is <BODY> with 5 element child(ren): [DIV, DIV, SPAN, DIV, DIV]
+             ok   A2 a role=main landmark exists
+                  1 landmark(s): [Color tool panes]
+             ok   A3 pageerror collected []
+                  []
+             ok   A4 >= 1 desktop utility class in the emitted CSS
+                  47 desktop utility rule(s) across 8 sheet(s) — e.g. .lg\:grid-cols-\[1fr_18rem\] @ (width >= 64rem), .lg\:border-t-0 @ (width >= 64rem), .lg\:border-r @ (width >= 64rem)
+
+[boot-smoke] FAIL · persisted-black · http://127.0.0.1:61674/
+             R16 — the self-perpetuating arm: the seed that crashed the last session is still in localStorage on the next one
+             FAIL A1 #app has >= 1 element child
+                  #app is <BODY> with 0 element child(ren): []
+             FAIL A2 a role=main landmark exists
+                  0 landmark(s): []
+             ok   A3 pageerror collected []
+                  []
+             ok   A4 >= 1 desktop utility class in the emitted CSS
+                  47 desktop utility rule(s) across 5 sheet(s) — e.g. .lg\:grid-cols-\[1fr_18rem\] @ (width >= 64rem), .lg\:border-t-0 @ (width >= 64rem), .lg\:border-r @ (width >= 64rem)
+             console.error (2):
+                  • [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:61674 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette
+                  • PickerColorError: Missing hsv.h
+
+[boot-smoke] PASS · persisted-oklch-none · http://127.0.0.1:61674/
+             R17 — a persisted none-hue string, the returning-user path
+             ok   A1 #app has >= 1 element child
+                  #app is <BODY> with 5 element child(ren): [DIV, DIV, SPAN, DIV, DIV]
+             ok   A2 a role=main landmark exists
+                  1 landmark(s): [Color tool panes]
+             ok   A3 pageerror collected []
+                  []
+             ok   A4 >= 1 desktop utility class in the emitted CSS
+                  47 desktop utility rule(s) across 8 sheet(s) — e.g. .lg\:grid-cols-\[1fr_18rem\] @ (width >= 64rem), .lg\:border-t-0 @ (width >= 64rem), .lg\:border-r @ (width >= 64rem)
+
+[boot-smoke] report → /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/wf/g16-run1.json
+
+[boot-smoke] prod-preview: 5/8 seed cases passed
+[boot-smoke] FAIL — 3 case(s): deep-link-black, deep-link-grey-333333, persisted-black
