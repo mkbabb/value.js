@@ -354,3 +354,195 @@ implementation units, and are dispatched after IMPLEMENTED.
 
 *(empty at open — each unit appends its own section here, dated, with its served model on its first
 line and its gate verdicts quoted by command.)*
+
+---
+
+### X.W3.1
+
+SERVED MODEL: `claude-opus-5[1m]` · **Track A · wave X-W3 · unit X.W3.1 (Policy kernel, X.A1)**
+**Sitting**: 2026-09-18, `17:32:34` → `17:41` EDT ⟨cmd⟩ `date "+%Y-%m-%d %H:%M:%S %Z"`.
+**HEAD at open**: `9455dc8f` ⟨cmd⟩ `git rev-parse --short=8 HEAD` · branch `tranche-u`.
+(HEAD moved `c753d924` → `9455dc8f` between seat 0's open and this seat — sibling tracks share the
+index; nothing this seat measured moved with it.)
+**Status returned: PARTIAL.** G-1 · G-2 · G-3 GREEN at the bytes; **G-4 RED and RETURNED** as
+`ESC-W3.1-G4-BOUNDS` — its one remaining byte is outside this unit's writable set.
+
+#### 0. Crash-recovery (standing law) — no inherited work
+
+⟨cmd⟩ `git status --porcelain` at open → 12 modified + 3 untracked. **Not one path is inside this
+unit's writable set.** The ten `demo/palettes/**` · `demo/picker/**` · `demo/shell/dock/layers/**`
+rows and the two `e2e/smoke/**a11y-control-targets**` untracked specs are **X-W4 unit `a`'s**;
+`docs/tranches/V/reformation/CARRY-LEDGER.md` and `docs/tranches/X/waves/evidence/` are sibling
+seats'; `scripts/dev/dev.sh` is the standing unowned dirty row (DR-24, COHESION §0j.A — **never
+touched, never staged**). **Nothing stashed, restored or reverted.** X.W3.1 inherited **no** partial
+work. During this seat X.W3.6 became visibly live in the same tree (`demo/color-picker/router/` ·
+`demo/shell/` · `e2e/smoke/admin/` + two `W3-6-*` artefacts) — **untouched**; every commit below is
+pathspec'd on the commit itself and carries **only** this unit's paths (verified by
+⟨cmd⟩ `git show --stat --oneline HEAD`).
+
+#### 1. Anchors verified at true bytes before any edit
+
+| spec anchor | true bytes | verdict |
+|---|---|---|
+| `service/visibility.ts:31-38` `isActivePublic` | `:31` `export function isActivePublic(` | **EXACT** |
+| `service/crud.ts:44-69` `getPaletteBySlug` | `:44` `export async function getPaletteBySlug(`; Gone arm `:56-58`; `currentUserSlug` consumed only at `:61-62` | **EXACT** |
+| `routes/versions.ts:25-41` revision list | `:25` `versionsRouter.get("/:slug/versions", …)`, no auth/ownership/visibility check | **EXACT** |
+| `service/forks.ts:171-222` provenance | `:181` `getProvenance(services, slug)`, `:201` `isActivePublic(doc)` per hop | **EXACT** |
+| §7 `cd api && npm run lint` | **DRIFTED — the script does not exist.** ⟨cmd⟩ `node -e "…api/package.json…"` → `{dev, build, start, test}` only | **INTENT at the true bytes** (below) |
+
+**§7 drift, recorded not papered over.** `api/package.json` has no `lint` script; the repo's eslint
+lives at the root (`npm run lint` = `eslint . --max-warnings=0`). The cadence was executed **at its
+intent**: ⟨cmd⟩ `npx eslint <the four touched paths> --max-warnings=0` → **exit 0**, and the api's
+own type gate ⟨cmd⟩ `cd api && npx tsc --noEmit -p tsconfig.json` → **exit 0**. No rule was added
+and none was disabled (§7's own instruction).
+
+#### 2. Acts, in order
+
+**Act 1 — the artefact home and this seat's own baselines.** `docs/tranches/X/waves/artefacts/W3/`
+created. `born-red-baseline.txt` (§8 artefact 1) and `api-test-before.txt` (§8 artefact 3)
+**re-produced at this seat's clock, not inherited from seat 0's read-only open**. All four born-RED
+baselines reproduce: ⟨cmd⟩ `grep -rn "assertReadable" api/src | wc -l` → **0**;
+⟨cmd⟩ `grep -rn "isActivePublic" api/src` → **3 lines** (1 definition + 1 import + **1** caller,
+`service/forks.ts:201`); the Gone arm at `crud.ts:56` sits **above** every ownership test; the
+version-list route performs no check; the provenance walk authorizes no target.
+⟨cmd⟩ `cd api && npm test` **run twice** → `Test Files 38 passed (38)` · `Tests 213 passed (213)`,
+exit **0** (14.99 s / 13.48 s) — byte-identical readings.
+
+**Act 2 — the spec BEFORE the cure (born-RED, S-11 / L-18).**
+`api/src/modules/palette/__tests__/palette-policy.test.ts` authored first and run against the
+**uncured** bytes: ⟨cmd⟩ `npx vitest run …/palette-policy.test.ts` →
+**`Tests 7 failed | 2 passed (9)`**. The two passing rows are deliberate **both-sides controls**
+("still serves a public palette to a stranger" · "still serves a public palette's revision list
+anonymously") so that a cure which **walls** the surface instead of authorizing it reads RED. No
+`test.skip`, no `test.fail()`, no allowlist.
+
+**Act 3 — the kernel (`service/visibility.ts`, +79 lines).** `ReadableSubject` (the three facts the
+policy reads, structurally — so the same predicate serves a detail read, a provenance hop and a
+version's addressing palette, and no caller can smuggle a decision in on a field the policy never
+inspects); `isReadable(doc, viewer)`; `assertReadable(doc, viewer)`; `assertPaletteReadable(services,
+slug, viewer)`.
+
+- **owner-any-state**: `if (viewer && doc.userSlug === viewer) return true;` — the viewer is tested
+  for **presence** before it is compared, so a null-owned row (`userSlug: null`) is nobody's and an
+  absent viewer never matches it. Asserted explicitly in the spec.
+- **active-public-moderation-clear**: `isActivePublic(doc) && (doc.moderation ?? "clear") === "clear"`.
+  The single definition of "active public" is **reused, never re-spelled** (the drift this gate
+  exists to close). The `moderation` clock is D9's separate axis; the FIELD is minted on `Palette`
+  at **X.W3.5 / G-15** and `model.ts` is outside this unit's bounds, so the subject type carries it
+  as `readonly moderation?: "clear" | "withdrawn"` — absent reads `clear`, which is the same answer
+  the two-field model gives. **X.W3.5 therefore adds the field and amends no predicate.** Recorded
+  here so the optionality is read as a dated hand-off, not as slack.
+- **Refusal is ALWAYS `NotFoundError`** — a refusal that distinguished *exists but is not yours*
+  from *does not exist* would be the existence oracle the wave is removing.
+- `assertPaletteReadable` resolves + authorizes in one act and returns the doc, so a surface
+  addressed by a palette need not read it twice. It exists because **D-6 is already closed** (routes
+  call services, never repositories): the revision-list route therefore cannot fetch its own
+  addressing palette, and the resolve half belongs beside the predicate.
+
+**Act 4 — `getPaletteBySlug` (`service/crud.ts`, G-1 + G-2).** `findBySlug` + null-check replaced by
+`assertPaletteReadable(services, slug, currentUserSlug)`; the `GoneError` arm moved **behind** it.
+I.W2's contract is intact for the party it was written for (owner → `410` with the explicit `gone`
+code, distinguishable from `404`; after the reaper, `findBySlug` → null → `404`); a stranger no
+longer reaches that line at all.
+
+**Act 5 — the revision list (`routes/versions.ts`, G-3).**
+`await assertPaletteReadable(c.var.services, slug, c.var.userSlug);` before `listVersions`, i.e.
+before a single item is read, let alone formatted. **`listVersions`'s signature is deliberately
+unchanged**: `service/versions.ts` is shared with X.W3.2, and its existing spec
+(`__tests__/palette-versions.test.ts:74`, X.W3.2's file, outside this unit's bounds) calls it with
+four arguments — a signature change here would have broken a sibling unit's file to cure my own
+gate. **`service/versions.ts` was in this unit's Files list and needed zero bytes**; none were
+written.
+
+**Act 6 — L-19 falsifiers, each applied to the cured tree, measured, reverted.** Reverts verified by
+⟨cmd⟩ `git diff --stat` + re-reading the restored bytes; the restored bytes are the committed bytes.
+
+| falsifier | edit | reading | reads |
+|---|---|---|---|
+| **F-1 (G-2)** | hoist the Gone arm back **above** the predicate, predicate left in place | `Tests 1 failed \| 8 passed (9)` | the **one** failure is G-2. G-1 and G-3 stay GREEN → G-2 measures the **order** and nothing else |
+| **F-2 (G-1)** | replace `assertPaletteReadable` with HEAD's bare `findBySlug` + null check | `Tests 3 failed \| 6 passed (9)` | G-1's two refusal rows + G-2 (which cannot hold without the predicate it sits behind). G-3 GREEN → a different byte |
+| **F-3 (G-3)** | delete the single authorize line from the `/:slug/versions` handler | `Tests 2 failed \| 7 passed (9)` | both G-3 rows, and **only** those |
+
+#### 3. Gate readings — BEFORE → AFTER (every figure double-run, byte-identical)
+
+| gate | BEFORE (this seat's own baseline) | AFTER | verdict |
+|---|---|---|---|
+| **G-1** (P0) | ⟨cmd⟩ `grep -rn "assertReadable" api/src \| wc -l` → **0**; `crud.ts:44-69` has no visibility predicate | predicate defined + reached from the detail read; ⟨cmd⟩ `grep -rn "assertPaletteReadable" api/src` → **5 lines** (1 definition `visibility.ts:108`, 2 imports, 2 call sites: `crud.ts:53` · `routes/versions.ts:40`). Runtime: private palette + `currentUserSlug: undefined` → `NotFoundError`; a **different** authenticated user → `NotFoundError`; the owner reads it | **GREEN** |
+| **G-2** | `crud.ts:56-58` emits `GoneError` **before** any ownership test | stranger → `404`, owner → `410`, both asserted; F-1 proves the gate measures the order alone | **GREEN** |
+| **G-3** | `routes/versions.ts:25-41` — no auth, ownership or visibility check | wire-level: anonymous → **404** and the response body carries **no** `#ff0000`; a stranger → **404**; the owner → **200** with `total: 1`; a non-existent slug → **404** (it used to answer **200** with an empty list — a free existence oracle, now closed). Fold **S-4** adopted verbatim in the file's header | **GREEN** |
+| **G-4** | `service/forks.ts:171-222` — target never authorized, no viewer reaches the per-hop predicate | **UNMOVED.** ⟨cmd⟩ `grep -n "getProvenance" api/src/modules/palette/routes/forks.ts` → `:15` import · `:74` `const chain = await getProvenance(c.var.services, slug);` | **RED — ESCALATED** |
+
+⟨cmd⟩ `cd api && npm test` **run twice** → `Test Files 39 passed (39)` · `Tests 222 passed (222)`,
+exit **0** (12.63 s / 12.83 s). **Delta vs. the 38/213 baseline: +1 file, +9 tests — exactly this
+unit's new spec — and 0 regressions.** ⟨cmd⟩ `cd api && npx tsc --noEmit -p tsconfig.json` → exit
+**0**. ⟨cmd⟩ `npm run typecheck` (repo root; `vue-tsc` lib + demo + test, `tsc` e2e) → exit **0**.
+⟨cmd⟩ `npx eslint <4 paths> --max-warnings=0` → exit **0**.
+
+#### 4. Escalation returned — `ESC-W3.1-G4-BOUNDS`
+
+**The measured fact.** G-4's cure is `getProvenance(services, slug, viewer)` — the target authorized
+before the walk, the viewer reaching the per-hop predicate so an owner's own private hops resolve to
+`palette` steps. The viewer exists **only** on the request context, and `getProvenance`'s sole
+non-test caller is `api/src/modules/palette/routes/forks.ts:74`. That file is listed **modify** in
+`W3.md` §4 File Bounds (`:127`) but is **not** in X.W3.1's §5 Files list (`W3.md:199-200`) nor in
+this unit's writable set. **One line is owed and it is outside the bound.**
+
+**Why nothing was half-landed.** An optional `viewer` would have kept the tree compiling while the
+route passed nothing: the target would then be authorized **anonymously**, so an owner requesting
+provenance of their own private palette would get `404`, and G-4's second clause would be unreachable
+over HTTP while the unit test alone read GREEN — **a gate passing for the wrong reason**, which is
+the masking-fallback shape the standing law forbids. A **required** parameter with the call site left
+alone breaks `routes/forks.ts` at `tsc` and poisons the serial chain X.W3.2..X.W3.5 (§7 requires a
+green tree at each unit). So `service/forks.ts` was **left byte-unchanged** and the limb is returned
+whole. **D-5 is honoured either way**: the provenance *redaction* half (V·W45 item 4) was not
+rebuilt, not touched, not re-litigated.
+
+**The cheapest lawful ruling** (for the orchestrator or the close seat — **not taken here**): a dated
+E-3 addendum-beside adding `api/src/modules/palette/routes/forks.ts` to X.W3.1's §5 Files list, then
+a redispatch of this unit's G-4 limb alone. **There is no concurrent writer**: X.W3.4 also modifies
+that file but runs strictly later in §4a's forced serial order, and X.W3.6 shares no path with it.
+The edit is one argument at one call site plus the service's own viewer thread.
+
+**Prior docket, unchanged by this seat**: `ESC-W3-G21` and `ESC-W3-FOLD-A` stand as seat 0 banked
+them; this unit neither discharged nor widened either.
+
+#### 5. E13 mail — swept at this seat's own clock, 0 UNREAD in scope
+
+⟨cmd⟩ `/usr/bin/find <the four coordination paths> -maxdepth 1 -type f -name '*.md' -newermt
+"2026-09-18 17:10"` → **2 hits**: `docs/tranches/V/coordination/INBOX.md` (**self-excluded**, SELF-COUNT
+law) and `../glass-ui/docs/tranches/BK/coordination/glass-outbound-2026-09-18-valuejs-o26-reply.md`
+(already rowed **I-35**, routed **X·KF / Track B**; its mtime moved `14:41` → `17:18`, its row did
+not). Vocabulary-checked against this unit's scope ⟨cmd⟩ `grep -ciE
+"assertReadable|palette policy|X-W3|X\.W3|getPaletteBySlug|revision list|provenance|soft-delete"` →
+**0**. The four rows whose Status cells read `UNREAD` are **I-32 · I-33 · I-34** (routed X-W0 / the X
+formation mail seat) and **I-35** (Track B) — **none is X.W3.1's**. No obligation minted, none
+discharged; no letter written; `glass-ui` stayed **READ-ONLY**.
+
+#### 6. Commits — pathspec on the commit itself, one meaning each
+
+| # | sha | scope | paths |
+|---|---|---|---|
+| 1 | **`326dbe57`** | `feat(api/palette-policy): assertReadable kernel + owner-only trashed arm (X.A1)` — §9 commit 1, body naming the four read paths as §9 requires | `service/visibility.ts` · `service/crud.ts` · `routes/versions.ts` · `__tests__/palette-policy.test.ts` (4 files, +361 −6) |
+| 2 | **`58351d53`** | `docs(X·W3): §8 artefacts 1 and 3 — X.W3.1's born-RED baseline, falsifiers, before/after suites` | `artefacts/W3/born-red-baseline.txt` · `api-test-before.txt` · `api-test-after-X-W3-1.txt` (3 files, +339) |
+
+⟨cmd⟩ `git show --stat --oneline <sha>` confirms each commit carries **only** the listed paths — no
+sibling seat's staged work was swept in (the X-W0 contamination shape, COHESION §0k.1).
+**§9's P0 lock stands and is this unit's outstanding obligation to the wave**: the **G-1 half of
+commit 1** (`326dbe57`) must reach the same integration as commits 2 and 7 before X-W3 reports.
+
+#### 7. Residuals
+
+1. **G-4 / `ESC-W3.1-G4-BOUNDS`** — §4 above. The wave's §2a goal is **not** met on the provenance
+   surface until it is ruled: `GET /:slug/provenance` still answers every caller.
+2. **`prettier --check`** — `visibility.ts` and `crud.ts` were **already** non-conformant at HEAD
+   (⟨cmd⟩ `git show HEAD:<path> \| npx prettier --check --stdin-filepath <path>` → dirty for both,
+   **clean** for `routes/versions.ts`). CI runs no prettier job (⟨cmd⟩ `grep -rn "prettier"
+   .github/workflows/*.yml` → **0**). This seat formatted **the file it created** (now clean) and did
+   **not** reflow two pre-existing files, which would have buried a 99-line security cure in a
+   whole-file reformat. Recorded as a **pre-existing** condition, not cured, not hidden.
+3. **`isReadable` has one in-file caller today.** It is exported as the boolean surface the
+   provenance walk needs; it stops being a one-caller export the moment `ESC-W3.1-G4-BOUNDS` is
+   ruled. Named here so no later seat reads it as dead code and deletes the G-4 cure's landing pad.
+4. **`isActivePublic` survives** with its original caller (`service/forks.ts:201`) — it is composed
+   **into** `isReadable`, not duplicated by it. X.W3.5 owns its prose (`visibility.ts:7,29`, the
+   `unlisted` sentences); this seat left that prose byte-unchanged (E-3, and it is G-15's).
