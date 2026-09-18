@@ -1120,3 +1120,230 @@ ruling's own branch; no third diagnose→edit→re-measure occurred on any gate.
 as a PORT**, with the port itself homed at **F.W8**), six rows with **FR-AFP-66 ⊕ FR-AFP-33 in ONE commit**,
 **R6 KEEP** the hard-delete arm, **R7 CODEGEN**, **K9's five `?? item.slug` fallbacks STAY**, β's
 428-escalation still killed, and **K-1's 45/30/13** carried forward from this unit's Act 7 measurement.
+
+---
+
+### e — the moderation band, ADMITTED not retired
+
+**SERVED MODEL: claude-opus-5[1m]** · seat clock **2026-09-17** · engine **`/usr/bin/grep`** (BSD, the spec's
+pinned binary; bare `grep` is ugrep in this shell). Sections executed, exactly as briefed: **§2.4**
+(`:193-203` — `FR-AFP-1` ‡⊙ · `FR-AFP-66` · `FR-AFP-7` · `FR-AFP-33` · `FR-AFP-36` ⊕ D17 · `FR-GV-9`) ·
+**§3 `FW6-G8`** (`:517`), **`FW6-G10`** (`:519`), **`FW6-G12`** (`:521`) · **§4 locks 3–4** (`:544-545`).
+Writes confined to the two paths of the unit's writable set. **Zero fourier bytes · zero value-tree product
+bytes.**
+
+#### Acts, in order
+
+**Act 1 — substrate re-measured before any citation (D-19 MEASURE-AT-OPEN).** ⟨cmd⟩ `git -C $F rev-parse
+--short=8 HEAD` → **`3bac3d52`** · ⟨cmd⟩ `git -C $F status --porcelain | wc -l` → **0**, both double-run and
+re-run again after the last commit. **Unmoved from units `a`–`d`**, so §0.1c's anchor re-resolution holds at
+this clock and this unit re-derives none of it. The F.W0 pre-gate is unit `a`'s and was not re-litigated.
+
+**Act 2 — the admission gate consumed as RULED, never re-opened.** COHESION §0j.D **`F-PRODRET` (R3 ≡ D3 ≡
+G11): PRODUCER, as a PORT** of value.js's shipped verb, **homed at F.W8**, F.W5 writing the clause. Two
+consequences were obeyed rather than interpreted: the band **opens** (§2.4's *"F.W6 may not open the
+moderation band unruled"* is discharged **by the ruling**), and **F.W6 does not ship the flag-write
+operation** — §2.4's *"If PRODUCER: F.W6 ships the flag-write operation"* is superseded **ON THE HOMING
+ONLY**, which is exactly how this record's Owner-gated table already reads it. ⚑ **A seat reading §2.4 alone
+would have shipped the port here**, so the supersession is written **in the row**, not only in this receipt.
+
+**Act 3 — `FR-AFP-1` entered ADMITTED-and-ROUTED, its producer-absence ENUMERATED (S-8), not queried.** Five
+limbs, each read: the declared request model referenced **nowhere** (`api/models/admin.py:57`, one source
+site); **every `db.flags` write repo-wide a migration or a fixture** — the only non-test write is
+`api/scripts/migrate_flags_field.py:104`, and the live surface is **read-and-delete only** (`admin.py:530`
+aggregate · `:219`/`:358`/`:469`/`:607` delete_many · `janitor.py:234` delete_many); **no client posts a
+flag** (`web/src/lib/api.ts` carries the two admin calls `:547`/`:558` and nothing else); **FR-AFP-18
+cited** — no total in the `{items, next_cursor, has_more}` envelope (`:587`) and **no `flagged` member** in
+`AdminStatsResponse` (`api/models/gallery.py:31-38`); and **value.js HAS the verb**
+(`api/src/modules/palette/routes/flags.ts:15`, service + suite named, **read only**). ⚑ **Sharpening for the
+F.W8 port seat: there is no route to add a producer *beside* — the collection's entire live surface is two
+admin verbs, and §D3's own lock makes `FR-AFP-7`'s identity settlement a PRECONDITION of the port** (*"a
+producer that lands with a different flag identity re-opens §D4 at the moment it ships"*).
+
+**Act 4 — `FR-AFP-66` ⊕ `FR-AFP-33` booked as ONE CUT, with the docstring's falsity measured three ways.**
+The grace hard-delete is `janitor.py:125 db.visualizations.delete_many({"deleted_at": {"$lt": grace_cutoff}})`
+and its pass (`:118-136`) **touches `db.flags` zero times**; the only flags delete in the janitor is `:234`,
+**reporter-keyed**, which cannot reach a flag whose reporter is alive. The `softdelete.py:3-4` docstring is
+false in **three** distinct ways, and this seat measured each rather than repeating the spec's one:
+**(a)** `pinned_cron` carries **zero flags-collection code** (⟨cmd⟩ `grep -c 'flag'` → **1**, and that one
+line is `:1`, the module summary's own word — *the count and the fact disagree, which is why the line is
+printed rather than the digit*); **(b)** ⚑ **`cron_prune` is not even the function that hard-deletes
+visualizations past grace** — that is `janitor.py:125`'s inline `delete_many`, while `cron_prune` runs on
+`db.contours` (`:153`) and `db.images` (`:157`); **(c)** ⚑ the docstring's third name **does not exist**:
+⟨cmd⟩ `/usr/bin/grep -rn 'def hard_delete_past_grace' $F | wc -l` → **0** — it is *not un-exported, it is
+unwritten*. And ⚑ **the cure's shape is already in tree ~100 lines above the defect**: `admin.py:214-219`,
+the admin `?hard=true` grace-bypass, is the **only** `content_hash`-keyed flag cascade in the repo — **lift
+it, do not invent one** (KISS). `FR-AFP-33`'s two halves were read at the same bytes: the pipeline is a
+**single `$group`** with a `$push` at `:537` and **no `$slice` anywhere in the API** (**0**, double-run), and
+**no `$match`** — the whole `flags` collection is grouped *before* the page join at `:552`, so the cost is
+**O(|flags|) per page request**; the counterweight `550: if not flagged:` is preserved by command, which is
+why the producer ruling changes the row's **weight**, not its content.
+
+**Act 5 — `FR-AFP-7` booked; the fan-out exhibited rather than asserted.** `:590` declares a slug-labelled
+route; `:600` resolves the entity **and discards it**; `:607` executes `delete_many({"content_hash": …})`.
+The index makes the fan-out by design — `database.py:140` unique on **(digest, reporter)** while the
+entity's own digest index is **plain** (`:98`) — and the listing then hands **each** of the N siblings the
+whole count (`:552` `$in` join → `:572`/`:576`). ⚑ **Sharpening: nothing has to be decided about what a
+digest IS — both ends already say it.** `api/models/visualization.py:113` *"substrate, never identity"* and
+`web/src/lib/types.ts:211` *"dedup key, never identity (§1)"*; the flags collection keys on it anyway.
+**FR-AFP-8's arm is CITED and measured, never claimed** — the five asset-FK spends at `:175`/`:202`/`:212`/
+`:222`/`:224` — and **K9 was observed to the letter: this seat deleted nothing and prescribed no deletion.**
+
+**Act 6 — `FR-AFP-36` ⊕ the D17 serializer clause booked; the dead-model set measured by REFERENCE.** The
+checked-shape split reproduces exactly (**1** `response_model` against **13** admin decorators, the one
+being `/stats` and **neither of this row's two operations**). The three dead models were not copied from the
+clause — each was traced: **`FlagRequest`** and **`FlaggedListResponse`** have **zero references of any
+kind**, and **`FlaggedEntryInfo`** (`:69`) ⊕ **`FlagInfo`** (`:62`) are reachable **only** from
+`FlaggedListResponse`, so the **deletion closure of the flagged family is four**, not three (v2 A4's *three*
+is the root count plus the rotted field-carrier). ⚑ **And the twins drifted in OPPOSITE directions**: the
+wire emits `content_hash` (`:577`) and the **client** twin omits it (`types.ts:152-161`; 81 server sites vs
+2 client sites) while the **server's** dead model says `user_slug` where the wire says `owner_slug` and
+`total/page/pages` where the wire ships the cursor envelope the client's own comment already describes
+correctly. **The client is right about the envelope and wrong about the join key; the server's models are
+wrong about both** — A4's structural-cause limb exhibited, not asserted.
+
+**Act 7 — `FR-GV-9` booked with the FR-GFC-20 server rider travelling IN the cure.** The unconditional
+`$set` is `:436-439` (filter = slugs ⊕ liveness, **never the current tier**); `set_tier` writes
+`:181-183` and nothing else; and the flagged listing's only `"tier"` is the **emitted field** `:577`, never
+a predicate (⟨cmd⟩ over the handler's own bytes → **1**). The rider was measured, not recited: the batch
+handler returns `:448 {"ok": True, "affected": affected}` while the wire twin declares
+`errors?: string[]` (`types.ts:191-195`) and the server **has never heard of the field** (⟨cmd⟩
+`BatchResponse|errors=` over the API, non-test → **0**, double-run); the delete arm's per-slug loop
+(`:425-428`) counts successes and drops failures silently. ⚑ **Same batch write, same cure — a conditioned
+`$set` that silently drops rows while the envelope reports success is not a stated transition**, which is
+why the rider is burned WITH FW6-G10 and **not re-booked** (it is banked at `fr-AdminUserList FR-AUL-13`).
+
+**Act 8 — the six rows, §1.e and the `e` stamp appended to `F-W6/burn-register.md`; five commits.** Settled
+bytes re-measured **after** the last write and **double-run identical**: **728 lines / 169,241 B**; line 1
+still `SERVED MODEL: claude-opus-5[1m]`. Table integrity checked mechanically — **every row of §1 carries
+exactly 5 cells** under an unescaped-pipe count (rows 349–364 checked, **zero** deviations), and the `id`
+column FW6-G17 greps now holds **sixteen** entries (1 unit-`a` placeholder + 3 `b` + 2 `c` + 4 `d` +
+**6 `e`**).
+
+#### Commits
+
+| commit | meaning | pathspec |
+|---|---|---|
+| **`ef284298`** | `docs(x-f/w6.e): FR-AFP-1 entered ADMITTED-and-ROUTED — the band opens under F-PRODRET and the flag-write PORT is homed at F.W8, producer-absence enumerated at the bytes` | `docs/tranches/X/fourier/waves/F-W6/burn-register.md` |
+| **`01d36470`** | `docs(x-f/w6.e): FR-AFP-66 ⊕ FR-AFP-33 booked as ONE CUT — content_hash cascade at grace hard-delete ⊕ the docstring correction ⊕ the $slice/scoped aggregate; FW6-G8's three conjuncts installed as one act` | same |
+| **`f411a369`** | `docs(x-f/w6.e): FR-AFP-7 booked — flags key the ENTITY and the dismiss scope follows; FR-AFP-8's identity arm cited with K9's five fallbacks measured and kept` | same |
+| **`39c02c50`** | `docs(x-f/w6.e): FR-AFP-36 ⊕ the D17 serializer clause booked — one generated/checked shape under R7, the dead models' deletion closure measured, one serializer; FW6-G12's act installed` | same |
+| **`af053a3b`** | `docs(x-f/w6.e): FR-GV-9 booked — a tier-conditioned $set plus the listing's tier predicate, with FR-GFC-20's server rider travelling in the same cure; FW6-G10's act installed` | same |
+| **`121dd4f1`** | `docs(x-f/w6.e): §1.e seat block — the band's counts double-run with their honest readings, the one-cut rationale, the five undecided questions named; unit e stamped` | same |
+
+**One commit per meaning, and the family did not split.** §4 lock 3's **`FR-AFP-66` ⊕ `FR-AFP-33`** landed
+in **one** commit (`01d36470`) — *cascade without bound leaves the cost; bound without cascade leaves the
+growth* — and the other four meanings (the band's admission-and-routing · flag identity · the contract
+shape ⊕ serializer · the tier transition ⊕ its rider) are each a commit of their own, because each is a
+separate obligation with a separate stating clause. ⟨cmd⟩ `git status --porcelain --
+docs/tranches/X/fourier/waves/F-W6/` → **0**. **`scripts/dev/dev.sh` untouched and unstaged** — it remains
+` M` in the tree and appears in **no** commit of this unit (⟨cmd⟩ `git show --stat HEAD --name-only |
+/usr/bin/grep -c 'dev.sh'` → **0**, run on each). ⟨*a concurrent Track seat committed `62ccf4a1`
+(`ci(release): …`) between this unit's fifth and sixth commits — other tracks write this tree beside us by
+pathspec, which is why `-A` is never used*⟩
+
+#### Gate readings — BEFORE → AFTER
+
+Every AFTER witness was **re-run post-commit**; all reproduce unchanged, as they must while fourier is
+read-only (HEAD `3bac3d52`, **0** dirty, measured again after the last landing).
+
+| gate | BEFORE (baseline, this record) | AFTER (this unit) | reading |
+|---|---|---|---|
+| **FW6-G8** flag cascade at hard delete | **RED-AS-EXPECTED** — `grep -c "flags" pinned_cron.py` → **0**; the softdelete docstring names that module as cascade owner; the only live cascade is the reporter-keyed `janitor.py:234` | **RED — commissioned act installed; landing pending** | §3's split verdict applied literally. The act carries **all three** of G8's GREEN conjuncts — cascade ⊕ **docstring correction** ⊕ **a test covering the entity-keyed path** — and the third is installed as a **stamping bar**: §2.4's *"Coverage obligation → F.W9/W10"* routes the coverage **programme**, so a landing that ships the cascade and defers the entity-keyed fixture leaves **G8 RED by its own words**. Two findings sharpen the docstring arm beyond the spec's: `cron_prune` is the **wrong owner** for the grace pass (`janitor.py:125` is the real one), and `hard_delete_past_grace` is **unwritten**, not un-exported. Post-commit re-measure: `pinned_cron` flags code **0**; `:125` unchanged |
+| **FW6-G10** tier transitions are stated transitions | **RED-AS-EXPECTED** — `:438 {"$set": {"tier": "normal", …}}` unconditional inside the batch `update_many`; `set_tier` writes `{tier, updated_at}` only; the flagged listing carries no tier predicate | **RED — commissioned act installed; landing pending** | Act = the server **states the transition**: a `$set` **conditioned on the current tier** ⊕ **the inverse verb** ⊕ **the listing's tier predicate**, with **FR-GFC-20's server rider in the same cure** (partial batch failures must stop reporting green). **β's 428-escalation stays killed** and is named as unreachable-for: `set_tier`'s existing `require_if_match` (`:179`) is real and is **not** the missing predicate — recorded so a landing seat does not sell the ETag guard as the cure. No mechanism was chosen between a filter-side predicate and a read-then-write. Post-commit re-measure: `:438` unchanged; the handler's only `"tier"` is still the emitted field |
+| **FW6-G12** one checked shape / one serializer | **RED-AS-EXPECTED** — exactly **1** `response_model` (`:110 /stats`) against **13** admin decorators; the flagged listing hand-built through `:92 json.dumps(body, default=str)` while audit returns the Pydantic `AuditListResponse` | **RED — commissioned act installed; landing pending** | Act = **ONE generated/checked shape ⊕ the dead models deleted ⊕ ONE serializer**, as **one act** under A4's lock (*"The generation and the deletion are one act"*) and D17's (*"the cure is a posture in the contract, not a guard in each consumer"*). **R7 = CODEGEN lifts the ⊙ for the codegen half only**; **`FR-AFP-71`'s module-split half stays ⊙ and is recorded open, never presumed**. **K9 observed**: the five `?? item.slug` fallbacks **STAY**, and the row says why (`:578` emits `doc.get("image_slug")` through an unvalidated body). The dead set was measured by reference-closure (**four** in the flagged family) rather than copied. Post-commit re-measure: **1 / 13** reproduces; `:92` and `:652` unchanged |
+
+**Three of this unit's six rows turn NO gate, and that is stated in the rows rather than left to inference.**
+`FR-AFP-1` is **ADMITTED-and-ROUTED** — the ruling opens the band and homes the port at **F.W8**, so there
+is no F.W6 act and no F.W6 gate, and its evidence cell carries **N/A**, not *PENDING*, because there is
+nothing for **this** wave to await. `FR-AFP-33` rides **FW6-G8**'s one-cut commit (§3 opens no gate for the
+bound). `FR-AFP-7` settles an identity that **§D3's lock makes a precondition of the F.W8 port** rather than
+a gate of this wave. All three are read by **FW6-G17**.
+
+**No other gate was touched, and none was read as GREEN.** The standing FW6-G16 condition holds at this
+seat's clock — ⟨cmd⟩ `git diff --stat -- api/src src` → **empty** and ⟨cmd⟩ `git status --porcelain --
+api/src src | wc -l` → **0**, before and after every commit.
+
+#### Locks observed, each with the act that observed it
+
+- **Admission gate RULED PRODUCER — and the PORT is F.W8's** (Acts 2–3). The band opened; **the flag-write
+  operation was NOT shipped here**, and §2.4's contrary sentence is marked **superseded on the homing only**
+  in the row itself, because a seat reading §2.4 alone would have shipped it.
+- **ONE-CUT `FR-AFP-66` ⊕ `FR-AFP-33`** (Act 4, commit `01d36470`). One commit, and **both evidence cells
+  carry the same stamping bar** — *one landing, or neither cell is stamped.*
+- **K9 — the five `?? item.slug` fallbacks STAY** (Acts 5–6). ⟨cmd⟩ → **5**, measured; **this seat deleted
+  none and prescribed no deletion**, and the FW6-G12 evidence cell bars a landing that removes them under a
+  *"the generated type says it is non-null"* argument while `:578` still emits the field unvalidated.
+- **R6 KEEP the hard-delete arm** (Act 4). The cascade is burned **as a build, not a deletion**; D6's lock
+  is carried verbatim — *"Truthful copy is the cure; deletion would have been the workaround."*
+- **R7 CODEGEN** (Act 6). The ⊙ is lifted **for the codegen half only**; A4 limb 3 is cited as *"an
+  amendment stated in the open"*, never as a silent reversal of inv-26, and **the module split stays ⊙**.
+- **β's 428-escalation stays killed** (Act 7). Named as unreachable-for, with `require_if_match` (`:179`)
+  disclosed so the existing ETag guard is not mistaken for the missing predicate.
+- **FR-GFC-20's server rider travels with the G10 cure and is never re-booked** (Act 7). It is banked at
+  `fr-AdminUserList FR-AUL-13` (R-5 one-home law) and enters as a **rider** in `FR-GV-9`'s id cell.
+- **One home, two citations — the FR-GIG-5 standing bar.** Every client/display arm this unit touched is
+  **EMITTED, never claimed**: FR-AFP-8's one-token label, FR-AFP-9 / FR-GV-34's truthful copy, FR-AFP-33's
+  collapse (F.W1/W3), FR-AFP-70's reflect-and-disable, FR-AFP-59's tier render, FR-GFC-20's stale-slug
+  pruning (F.W4), `FR-AUL-17`'s shared formatter (banked → F.W3, **not re-booked**), and **`FR-GFC-4`'s
+  `tier` param, which is F.W8's and is explicitly NOT fused with this row's listing predicate**.
+- **Record-qualification (R-5).** `fr-GalleryFeaturedCarousel FR-GFC-20` · `fr-AdminUserList FR-AUL-13` ·
+  `fr-AdminUserList FR-AUL-17` · `fr-GalleryCard L·M-4 / D-13 / C-8(a) + L·D-2 / C-12` · `fr-ContourSettings
+  B-1 / L-B1 / C-2` — the last spelled with its record precisely because `L-B1` also names
+  `fr-FourierShapeExtractor`'s TRIPWIRE identity (unit `g`'s) and `fr-FunctionInput`'s.
+- **K-1 counting lock.** The *"1 of 13"* figure is **admin-scoped by name**; the repo total **45** (30 bare
+  ⊕ 13 admin ⊕ 1 `@app.` ⊕ 1 `@gallery_router.`) is carried from unit `d`'s Act 7 — **45/30/13, never 30
+  alone and never zero**.
+- **E-3 addenda-beside.** Two coordinate readings recorded **beside**, never over: FR-AFP-9's *"restore
+  route live at `:430`"* resolves in `visualizations.py`, not `admin.py` (§0.1c's addendum **consumed, not
+  re-derived**), and the batch delete loop is `:425-428` where a first reading said `:426-429`. The spec was
+  not edited.
+
+#### Disclosures — measured after the commits, recorded rather than smoothed
+
+1. **The dead-model count is a ROOT count, and the deletion closure is larger.** v2 A4 names three
+   (`FlagRequest` · `FlaggedEntryInfo` · `FlaggedListResponse`). At the bytes, `FlaggedEntryInfo` and
+   `FlagInfo` are reachable **only** from `FlaggedListResponse`, so the flagged family's deletion closure is
+   **four**. Beyond it, **`GalleryCursorResponse` (`:118`) → `CursorInfo` (`:113`) are dead by the identical
+   measure** and sit **outside this clause's named set** — **cited for the landing seat, NOT booked, and NOT
+   added to the act's scope by this seat**, because expanding a clause's deletion set is a ruling, not a
+   measurement.
+2. **A naive grep convicts two of this unit's own figures, so both are published with their readings.**
+   `FlagRequest` unfiltered returns **2** (the second a `__pycache__` **binary**); `pinned_cron`'s `flag`
+   count returns **1** (the module summary's own word). A landing seat re-running either bare probe would
+   read the model as bound and the module as flags-aware; both are false.
+3. **This seat spent no browser probe and no live run.** FR-AFP-33's aggregate magnitude and β's sort-index
+   note stay **SS-13's and UNPROVEN**; every witness above is a static read of shipped bytes — a pipeline
+   with no `$match`, an index declaration, a docstring naming a function that does not exist, and a wire
+   twin missing its own join key.
+
+#### Residuals carried forward (none blocking)
+
+1. **FW6-G8's third conjunct must reach unit `i`'s letter as an ASK, not a note.** G8's GREEN names a test
+   over the **entity-keyed** path; the repo's only orphan-flag test is **reporter-keyed**
+   (`test_janitor_audit.py:306`/`:319`/`:327`). A courier that asks for the cascade and the docstring and
+   drops the fixture leaves the gate RED **by the gate's own words**, and §2.4's *"Coverage obligation →
+   F.W9/W10"* does not cover it — that clause routes the programme, not this conjunct.
+2. **`FR-AFP-7`'s settlement gates the F.W8 port.** §D3's lock is explicit: *"a producer that lands with a
+   different flag identity re-opens §D4 at the moment it ships."* Unit `i`'s letter should say so in the
+   **port's** paragraph, not only in the flag-identity one, or F.W8 may write the port first.
+3. **The cure for `FR-AFP-66` is a LIFT, and the letter should name the source.** `admin.py:214-219` is the
+   only `content_hash`-keyed cascade in the repo. An ask phrased as *"add a flags cascade to the janitor"*
+   invites a second, divergent implementation of a shape that already exists twenty files away.
+4. **The docstring correction has three falsehoods to cure, not one.** Wrong owner (`cron_prune` vs the
+   janitor's inline grace pass), no cascade at all, and a named function (`hard_delete_past_grace`) that
+   does not exist. A landing that fixes only the third sentence leaves the module still teaching the wrong
+   model — which is the §B3 indictment D8's lock names, appearing in a different file.
+5. **`FR-AFP-71`'s module split is still ⊙ and is now the band's only unruled question.** R7 answered the
+   codegen half; the split half sits under a measured god-module pair (**672** / **391**) and **no design
+   exists for it in this wave**. A close seat reading *"R7 ruled"* must not read the split as ruled with it.
+
+**Escalations: none.** No write was attempted outside the writable set (the two paths the brief names); **no
+specified cure was impossible at the bytes** — all five burned rows are commissioned asks authored exactly
+as §2.4 and v2's D3/D4/D5/D6/D7/D8/D17/A4 word them, and `FR-AFP-1` books no act by the ruling's own homing;
+no third diagnose→edit→re-measure occurred on any gate.
+
+**Unit `e` CLOSED. Unit `f` opens** — the audit actor (**FW6-G9**), one row, with **AA-10 CITED to F.W4 and
+never booked**, **AA-23 a KILL-ONLY carry** whose host row is held at F.W5, and ▲ **K-6's METHOD LOCK**:
+`grep "log_audit("` is structurally **blind** to the inlined second writer at `janitor.py:59-99` — enumerate
+with S-8, exactly as this unit enumerated the flags producer rather than querying for one name.
