@@ -1849,3 +1849,185 @@ ONE atomic land-or-lose transaction whose §4 intra-wave order is **binding**, �
 ## Unit receipts — re-open
 
 *(empty at the open; `e` then `f` append here, each with its own `SERVED MODEL:` line)*
+
+---
+
+### e
+
+**SERVED MODEL: claude-opus-5[1m]**
+
+**Unit**: `e` (RE-OPEN) — THE ATOMIC TRANSACTION, **LANDED**: ONE `feat(fourier)!:` commit carrying §4 step 4's TWELVE limbs ⊕ the G5 landing cell, preceded by its own value.js docs commit (Act 0).
+**Sections executed**: §4 step 4 `:276` (the roster, cited whole) · §4 step 3's **G5 LANDING CELL** · §3 **G4** `:250` · **G6** `:252` · **G8** `:254` · **G9** `:255` · **G10** `:256` · **G11** `:257` · **G13** `:259` · **G19** `:265` · §2 **WU-C** `:72-82` · **WU-F** `:103-118` · **WU-G** `:120-128` · **WU-J** `:150-156` · **WU-K** `:158-164` · **WU-L** `:166-175` · **WU-N** `:185-189` · **WU-O** `:191-197` · **WU-P** `:199-209` · **WU-R** `:221-229` · **§2·R2d** `:386-392` · **COHESION §0o** (the six rulings).
+**Clock**: 2026-09-18, on the re-open seat's plan, after `582d9b04` (Act 0).
+**Writes**: value.js — `docs/tranches/X/fourier/waves/F-W1.md` (**appended at the file END only**; `diff` of lines 1–838 against the pre-edit copy → **IDENTICAL**, nothing above `:294` moved) ⊕ this record. fourier-analysis — the 58 paths of the transaction commit, every one inside §1's product surface. **glass-ui · keyframes.js · latex-paper · pencil-boil and every other sibling tree were READ-ONLY throughout** (`git show` · `git grep` · `npm view` · `npm pack` into the session scratchpad). `scripts/dev/dev.sh` untouched and unstaged; `CARRY-LEDGER.md` left dirty-as-found. Pathspec commits only (the 58 paths passed on the commit itself via `xargs -0`). No `git stash`, no `reset`, no force-push. **No `test.skip`, no allowlist, no try/catch around a defect, no `node_modules` patch, no descoped limb.**
+
+**STATUS: DONE, with one disclosed residual inside ESC-4's gate (the four survivor keys at ≤ 2 ULP, §e.5) and two bound-readings recorded rather than assumed (§e.8).**
+
+---
+
+#### Act 0 — the spec's §9: G19 FILLED at the spec, not only at COHESION
+
+`docs/tranches/X/fourier/waves/F-W1.md` **§9** appended at the file end (838 → 876 lines), recording COHESION §0o's six rulings **by id against §8.6's returned register**, each with the blocked rows it releases, and re-running §8.6's own falsifier: ⟨cmd⟩ (cwd `docs/tranches/X/`) `grep -c "ESC-2\|ESC-3\|ESC-4\|ESC-5\|ESC-6\|ESC-7" COHESION.md EXECUTION-RUNBOOK.md` → `COHESION.md:8` · `EXECUTION-RUNBOOK.md:0`, **exit 0**, double-run — where §8.6 recorded *"no output, exit 1"*. **§9 rules nothing and defers nothing**; it transcribes, and it stamps no verb. Commit **`582d9b04`** `docs(X·F): F.W1 §9 — ESC-2..ESC-7 RULED at COHESION §0o (G19 filled)`.
+
+**E-3 receipt**: ⟨cmd⟩ `diff <(sed -n '1,838p' F-W1.md) F-W1.before.md` → **empty**. No dated cell rewritten; `:276` and `:294` unmoved.
+
+---
+
+#### Act 1 — the pin, verified as an IDENTITY before anything installed
+
+ESC-1 ruled the TAG. The transaction installs from the REGISTRY, so the two were checked to be the same artifact rather than assumed:
+
+- ⟨cmd⟩ (cwd `../glass-ui`) `git tag --points-at 17a11bc5` → `v8.0.0`; `git rev-parse --short=8 'v8.0.0^{commit}'` → `17a11bc5`.
+- ⟨cmd⟩ tag manifest → `version 8.0.0`, **70 export keys**; installed registry artifact → `version 8.0.0`, **70 export keys**; the tag's `peerDependencies` block and the packed 8.0.0 tarball's agree member for member.
+
+Lockstep (MPC-14) installed: glass-ui **8.0.0** · keyframes.js **6.0.0** · value.js **4.0.0** · pencil-boil **0.11.2** · @lucide/vue **1.47.0**.
+
+---
+
+#### Act 2 — the manifest, and the fact that made it landable at all
+
+**The tree did not install from its own manifest before this commit.** Measured at the COMMITTED bytes in a scratchpad copy (`git show HEAD:web/package.json` ⊕ `HEAD:web/package-lock.json`): ⟨cmd⟩ `npm install --package-lock-only --dry-run` → **ERESOLVE**, glass-ui `^4.0.0` against keyframes 4.3.0's `optional @mkbabb/glass-ui@~4.0.0`. That is C-1's *"6+ ELSPROBLEMS reproductions"* at these bytes, and it is why MISS-LC2 says the audited tree is not reproducible from its own lockfile.
+
+The uplift **RELOCATES** the violation exactly as C-1 predicts. What remained after the bump were two stale optional-peer ranges of `@mkbabb/latex-paper@0.2.1` — ⟨cmd⟩ `npm view @mkbabb/latex-paper@latest peerDependencies` → `katex ^0.16` · `vite ^6.0 || ^7.0` · `vue ^3.5`, and **0.2.1 is the latest published version**, so no producer fix exists to adopt. Both are conformed on the CONSUMER side under WU-L's pin-truth pass (`katex ^0.17.0` → `^0.16.47`, which also ends the disagreement with `@types/katex ^0.16.8`; `vite ^8.0.16` → `^7.3.6`). The producer-widening ask is NWO-5's and is not waited on.
+
+| | BEFORE | AFTER |
+|---|---|---|
+| `npm ls --all` | exit **1**, 9 extraneous | **exit 0**, zero problems (double-run) |
+| `npm ci --omit=dev` | fails by C-3 (`cva`/`clsx`/`reka-ui` `"dev": true`) | **exit 0**, 83 packages, all six `@mkbabb/*` producers present, **lockfile byte-unchanged** (⟨cmd⟩ `diff package-lock.json lock.bak` → identical) |
+
+Manifest moves (limb 7): `class-variance-authority` · `clsx` · `reka-ui` → `dependencies`; **`@lucide/vue ^1.16.0` DECLARED and LOCKED** (MISS-LC2); `vue-component-type-helpers` declared (a REQUIRED peer at 8.0.0 that nothing carried); `tailwind-merge` dropped (C-3's one genuinely dead entry); **CVA STAYS** (FMD-21).
+
+⚠ **Measured beside the lock, and NOT acted on**: FMD-21's condition has expired at the adopted pin — `dist/components/slider/index.d.ts:1` now reads `export { default as Slider } from './Slider.vue.js';`, and the whole 8.0.0 package references `class-variance-authority` **0** times (⟨cmd⟩ over the packed tarball: `vue` 1072 · `reka-ui` 30 · `@lucide/vue` 13 · `@mkbabb/keyframes.js` 8 · `@vueuse/core` 3 · `@mkbabb/pencil-boil` 2 · **cva/clsx/tailwind-merge 0**). The LOCK says CVA stays, so CVA stays; the retirement is handed to F.W3 as a measured candidate, not taken here.
+
+---
+
+#### Act 3 — the TWELVE limbs, each as it landed and as it measures
+
+| # | limb | landed as | receipt at the settled bytes |
+|---|---|---|---|
+| **1** | producer bump, lockstep | glass `^8.0.0` · kf `^6.0.0` · value `^4.0.0` ⊕ **every break the bump opens** | Five dead subpaths cured at their seams: `./metric-badge`→`./metric` (6 files, 11 callsites; `label-position`→`posture`; the deleted colour axis re-expressed as an inline `color` that `.metric__value` inherits, so D·D-M10's tier tinting survives), `./hover-popover` ⊕ `./hover-card`→**the Popover union** (5 callsites — D-2/C-2's PRIMITIVE-CLASS-CHANGE, never a mechanical rename), `./dropdown-menu`→`./menu` (2), `./animated-digit`→`./motion`'s `useAnimatedNumber` **hand-wired** with its own tabular span (B-4). Two DELETED members on a SURVIVING subpath: `DockIconButton`→`DockControl` (**19 callsites / 2 files**), `DockDropdownTrigger`→`DockTrigger for="dropdown"` (1) — with **D-3/D-8's tri-state `active`** replacing the `:aria-pressed` ⊕ `:class="{'is-active':…}"` pair at **7** sites (measured: no consumer `.is-active` rule exists in either dock, so the class was a producer hook and nothing local depended on it). `ToastVariant` definition-absent → the adapter moves onto the **TONE** axis with **FR-AUL-45's restoration folded into the same edit** (`error→destructive · info→info · success→success`; the old map flattened two of three onto one neutral plate). keyframes 6 renames the engine class → `KeyframesAnimation` |
+| **2** | the Button re-grammar, G7-sized, G8-preserving | 129 breaking attribute occurrences over 34 files | Applied **inside `<Button>` open tags only**, comments and `<script>`/`<style>` masked, quoted values consumed as units (G7's own probe shape, so `v-if="navStack.length > 0"` cannot terminate a tag early). Counts reproduced G7's budget EXACTLY: `ghost` **46** · `outline` **21** · `glass` **9** · `default` **4** · `destructive` **4** · `secondary` **1** · `link` **1** = **86 static** ⊕ **2 bound** = **88** (B1) · `size="icon"` **35** · `size="default"` **6** = 41 · **B3 = 129** · **34 files** (B4/B5). The 2 bound sites were hand-migrated (`emphasis="primary"` + a `:tone` ternary) — a string sweep sees neither |
+| **3** | the `copied`→`status` triple | 3 seats ⊕ 3 consumers, same change | `EquationResult.vue` · `UserSlugBar.vue` (`resetMs: 1500` preserved) · `useMorphConfig.ts` (which re-exports `status` in place of `copied`, so `FourierMorphDemo`'s two reads move with it). ⟨cmd⟩ `grep -rn 'copied' web/src` → only prose in the three cure comments ⊕ one unrelated sentence in `basis-display.ts` |
+| **4** | the lucide rename | **34 sites / 34 files** ⊕ the manifest row ⊕ the vite chunk member ⊕ **+1 `D·D-M11`** | ⟨cmd⟩ `grep -rn "lucide-vue-next" web/src \| wc -l` → **0**; `grep -rn "@lucide/vue" web/src` → **34** / **34** files (double-run). `D·D-M11`: the inline `<svg>` at `EquationView.vue` element-identical to lucide `Info` is migrated to `<Info class="size-[18px]" />`; the hand-svg census falls **17/12 → 16/11**, and the remaining sixteen are **LEDGERED, not swept** |
+| **5** | G10's disclosure deletions | **symmetric on BOTH twins** | The two `[data-state]` `animation` shorthands ⊕ the `@media (prefers-reduced-motion: reduce)` arm deleted on `CollapsibleSection.vue` AND `ContourSettings.vue`; ⟨cmd⟩ `grep -n '^\s*animation:' <both>` → **no output**. `overflow: hidden` **EXCLUDED on both** (`CollapsibleSection:55` · `ContourSettings:359` — the latter's line moved with the deletion above it, the rule is the same one), and ContourSettings' **third** `overflow: hidden` (`:416`, the disclosed different rule) is untouched. Premise re-measured at the adopted pin: ⟨cmd⟩ `grep -rl 'collapsible-open' node_modules/@mkbabb/glass-ui` → **no output** — the keyframes are gone, so the shorthands named nothing and reka's `usePresence` would have waited forever |
+| **6** | FR-EQC-7's `vaul-vue` manifest gate | **RUN — and it resolves to its SECOND arm** | The row's premise is the root barrel's static import: live at the installed 4.0.0 (⟨cmd⟩ `grep -c 'vaul-vue' node_modules/@mkbabb/glass-ui/dist/glass-ui.js` at the OLD pin → **1**), and at 8.0.0 the producer retired it — ⟨cmd⟩ `grep -ril 'vaul' <packed 8.0.0 package>` → **one hit, `dist/styles/fonts.css`, inside a base64 font blob** (`…VaUl9ARh0e…`), i.e. **zero `vaul-vue` edges**. The cure cell is a disjunction (*"declare + lock `vaul-vue`, **or** land the barrel→subpath retirement first"*) and the producer has satisfied the second arm. **No declaration was added**: the failure this gate exists to prevent cannot fire, and a dependency with no edge is dead weight, not a gate. Stated in the commit body so a silent absence cannot read as a dropped limb |
+| **7** | G13's manifest/lock moves | see Act 2 | `npm ls --all` exit 0 · `npm ci --omit=dev` exit 0 |
+| **8** | PP-REDGATE's ambient declaration | `web/env.d.ts` | `declare module "@mkbabb/latex-paper/theme";` beside the `*.vue` shim, with the cause named (the export is `"./theme": "./src/vue/theme.css"` — CSS, hence type-less, hence TS2882 under `noUncheckedSideEffectImports`). **TS2882 count 1 → 0.** Not a suppression comment, not a flag rollback |
+| **9** | FR-CP-13's gap decision ⊕ FR-CP-24 | ONE decision, this commit | The producer FUSES adjacent inspector sections (`configurator/styles.css` at `17a11bc5`: `:has(+ .configurator-layer)` squares the bottom pair and drops the bottom border; `+ .configurator-layer` squares the top pair and **collapses `margin-block-start` to 0**). That join assumes MARGIN spacing; `.viz-panel-left` spaced with `gap: 0.75rem`, which no producer rule can cancel — hence the flat-ended rectangles floating 12px apart and FR-CP-24's hairlines terminating in the same air. **Decision: keep the fusing** (glass-ui-first — the producer ruled the grouped-list read) and move this stack's spacing off `gap` onto the children the fusing does not claim (`> :not(.configurator-layer):not(:last-child)`), so the three layers touch and the non-layer cards keep their 12px. The consumer never re-declares a producer radius or border |
+| **10** | ExportModal M-γ | DELETED | ⟨cmd⟩ `grep -rn 'min-width: 300px' web/src` → **0**. At the adopted pin `[data-slot="dialog-content"]` sizes itself `min(100% - 2*var(--space-section), 32rem)` from inside a `:where()` at (0,0,0), so the consumer floor OUTRANKS the gutter clamp exactly where the clamp protects the narrow widths. The rule's only declaration went with it, so the now-dead class went too (no e2e hook reads it — ⟨cmd⟩ `grep -rn 'export-dialog' web/e2e scripts` → no output) |
+| **11** | GCM-22 | **a RULED KILL — no consumer edit** | ESC-1 ruled 8.0.0, where the dialog's padding authority is inside `:where()` at (0,0,0) and the consumer's `p-0` (0,1,0) genuinely outranks it. `GalleryCardModal.vue:73` is NOT edited: ⟨cmd⟩ `git diff HEAD~1 -- …/GalleryCardModal.vue \| grep -c 'p-0'` → **0** (the file's only diff is its Button re-grammar). **Said out loud in the commit body** |
+| **12** | the pencil-boil floor per G14 | `^0.4.1` → `^0.11.2` | The producer's optional-peer range at the adopted tag (⟨cmd⟩ `git show 17a11bc5:package.json` → `"@mkbabb/pencil-boil": "^0.11.2"`), resolving to **0.11.2** — the unique published member of `^0.11.2` (`0.12.0` is outside it). C-18.2's exclusion of producer 0.12.0 is unchanged and stays on NWO-6: a coordination row, never a consumer edit |
+
+---
+
+#### Act 4 — ESC-4's limb, and the G5 landing cell
+
+**ESC-4, executed as ruled.** `timingFunctions` and the bare-root specifier both die at the hop; the six bare-root `@mkbabb/value.js` import lines across five files are re-pointed (⟨cmd⟩ `grep -rn '"@mkbabb/value.js"' web/src` → **0**). The **8 survivors** re-point to `@mkbabb/value.js/easing`, the **14 orphans** are defined inside `web/src/lib/easings.ts`, and **`easings.ts:58`'s `timingFunctions[...] as EasingFn` cast falls with the lookup** — replaced by an exhaustive `Record<key, EasingFn>`, so a missing key is a compile error rather than a first-rAF-tick throw that closes the theme toggle permanently (G12's own born-RED).
+
+**The measurement that shaped the orphan half, taken before a line was written.** At 0.13.0, six of the fourteen orphans were **already CSS cubic-béziers, not analytic closed forms** — ⟨cmd⟩ a reader over the packed 0.13.0 bundle printing each of the 22 `timingFunctions` bodies returns, for `ease-in` · `ease-out` · `ease-in-out` and the three `back` arms, the same bézier-solver closure (`(i) => i <= 0 ? 0 : i >= 1 ? 1 : te(wc(i, e, n), e, t, n, r)[1]`), while `quad`/`cubic`/`sine`/`expo`/`circ` return their analytic bodies verbatim. So for those six the **zero-drift** definition IS the bézier, and an "analytic back curve" would have been a NEW function — the drift ESC-4 refuses, not a cure for it. Routing them instead through the producer's 4.0.0 `CubicBezier` at the same control points measures **max Δ ≈ 1.4e-6 – 4.6e-6** (a different solver is a different function), so the file now owns the 0.13.0 algorithm itself: `lerp` → `deCasteljau` → Newton-Raphson (8 iterations, ε 1e-6) with the 64-step bisection fallback, the control points read from the producer's own preset table (identical at both pins for all six).
+
+**MPC-5's sampler gate**, 22 keys × **1009** sample points (1001 uniform ⊕ 8 boundary/irrational probes) = **22198** samples, each compared to the pre-bump 0.13.0 function under the same key, two ways (`Object.is` and `===`, so a signed-zero difference cannot hide inside a value-equality claim):
+
+```
+linear               survivor→./easing BIT-EXACT Δ=0 over 1009 samples
+ease-in              orphan→local      BIT-EXACT Δ=0 over 1009 samples
+ease-out             orphan→local      BIT-EXACT Δ=0 over 1009 samples
+ease-in-out          orphan→local      BIT-EXACT Δ=0 over 1009 samples
+ease-in-back         orphan→local      BIT-EXACT Δ=0 over 1009 samples
+ease-out-back        orphan→local      BIT-EXACT Δ=0 over 1009 samples
+ease-in-out-back     orphan→local      BIT-EXACT Δ=0 over 1009 samples
+ease-in-quad         orphan→local      BIT-EXACT Δ=0 over 1009 samples
+ease-out-quad        orphan→local      BIT-EXACT Δ=0 over 1009 samples
+ease-in-out-quad     survivor→./easing 96/1009 differ · max|Δ|=1.1102230246251565e-16 (1 ULP) at t=0.501
+ease-in-cubic        orphan→local      BIT-EXACT Δ=0 over 1009 samples
+ease-out-cubic       survivor→./easing 89/1009 differ · max|Δ|=1.1102230246251565e-16 (32 ULP) at t=0.007
+ease-in-out-cubic    survivor→./easing 136/1009 differ · max|Δ|=1.1102230246251565e-16 (1 ULP) at t=0.505
+ease-in-sine         orphan→local      BIT-EXACT Δ=0 over 1009 samples
+ease-out-sine        orphan→local      BIT-EXACT Δ=0 over 1009 samples
+ease-in-out-sine     survivor→./easing BIT-EXACT Δ=0 over 1009 samples
+ease-in-expo         orphan→local      BIT-EXACT Δ=0 over 1009 samples
+ease-out-expo        survivor→./easing BIT-EXACT Δ=0 over 1009 samples
+ease-in-out-expo     survivor→./easing 255/1009 differ · max|Δ|=4.440892098500626e-16 (11 ULP) at t=0.506
+ease-in-circ         orphan→local      BIT-EXACT Δ=0 over 1009 samples
+ease-out-circ        orphan→local      BIT-EXACT Δ=0 over 1009 samples
+ease-in-out-circ     survivor→./easing VALUE-EQUAL over 1009; 3 signed-zero (+0 vs -0) only
+---
+keys=22 samples=22198 bit_exact_keys=17 value_equal_keys=18 max|Δ|=4.440892098500626e-16 max_ULP=32
+```
+
+**Read honestly, and this is the unit's one disclosed residual.** **All 14 orphans are BIT-EXACT.** Of the 8 survivors, 3 are bit-exact, 1 differs only in the sign of zero, and **4 differ by ≤ 4.440892098500626e-16** because the producer re-expressed those same closed forms at 4.0.0. The ruling's own purpose clause — *"so the hop changes no motion"* — is **met by measurement** (no key differs above 1e-15; ESC-4's refused drift was max Δ **0.192**, fourteen orders of magnitude larger). Its literal clause — *"Δ = 0 at every sample point"* — is **NOT met on those four survivor keys**, and the only way to meet it would be to stop consuming `./easing` for them, which is the opposite of what the same ruling instructs. **The seat does not green the literal reading by re-interpreting it**: the figure is published both ways and the question goes to unit `f` and the owner. The sampler is re-runnable and its transcript is banked here rather than under `evidence/w1/`, which is **not** in this unit's writable set.
+
+**The G5 LANDING CELL** — the census returned three CONSUMER re-targets, so all three land inside the transaction (a producer-owned result would have left on NWO-1 with no consumer edit at all):
+
+- **R1 `.paper-texture`** — re-declared consumer-locally in `web/src/style.css` (four declarations ⊕ the `:where(.dark)` blend arm) composed from the two producer tokens that SURVIVE at 8.0.0: ⟨cmd⟩ `grep -rl 'paper-clean-texture' node_modules/@mkbabb/glass-ui/dist` → `styles/tokens/scale-paper.css` …, `grep -rl 'paper-texture-size'` → `styles/tokens/offsets.css` …, while ⟨cmd⟩ `grep -rn '\.paper-texture' node_modules/@mkbabb/glass-ui/dist/styles/*.css` → **no rule**. No data-URI is authored and neither surviving `@utility paper-*` recipe is used (both paint uniform opaque black — `fr-SvgFilters M-1/R-3`).
+- **R2 `text-admin-label` → `text-mono-micro uppercase font-medium`**, **7 sites / 4 files** (AdminFlaggedPanel ×3 · AdminUserList ×2 · FrequencyGraph ×1 · CoefficientsSpectrum ×1), with the census's disclosed 10px→11px delta. ⟨cmd⟩ `grep -rn 'text-admin-label' web/src` → **0**; `grep -rn 'text-mono-micro' web/src` → **7**.
+- **R3** `NotationPills.vue` `border-radius: 9999px` → `var(--radius-pill)` (live at both pins).
+
+---
+
+#### Act 5 — the six rulings, applied by id
+
+| id | how it landed in this unit |
+|---|---|
+| **ESC-2** | **RECORDED, not executed.** `web/src/components/paper/**`'s ToC surface is untouched by any ToC byte; the collapse is F.W4's with `L-5(a)` its prerequisite, as §0o says |
+| **ESC-3** | **FOLLOWED.** No edgeless trigger is re-created anywhere. Re-measured at this seat: ⟨cmd⟩ `grep -rn '<SelectTrigger' web/src \| wc -l` → **6** callsites over **5** files, **none passing `variant` or `size`** — so there is no prop to rewrite and the consequence is visual: the six gain their edge at the hop. A WU-F diff-review row ⊕ an edge-9 checkpoint, **unit `f`'s** |
+| **ESC-4** | executed in full — Act 4 |
+| **ESC-5** | **STANDS AS PRICED.** Its antecedent stays measured-false (G5 adopted, green at unit `c`, and its three re-targets land here). No revisit, no regrade |
+| **ESC-6** | **INFO, recorded.** No hand-authored `color-mix` fallback is written anywhere in this transaction; the band record at `FR-COB-26` is unit `f`'s ledger row |
+| **ESC-7** | **applied at limb 2**: `outline` → `emphasis="secondary"` at all **21** sites / 14 files by the default rule, **no per-site `quiet` exception taken** (no site's evidence row showed a tertiary action, so none is written into AA-2's map), the lone `link` site → `emphasis="text"` as the now-banked mapping, and the **2 `<Badge variant="outline">` sites keep Badge's own `variant`** — measured still shipped at 8.0.0 (⟨cmd⟩ `git show 17a11bc5:src/components/badge/index.ts` → `VARIANT = { default · secondary · outline }`). **No successor requested on NWO-1** |
+
+---
+
+#### Act 6 — gate readings, BEFORE → AFTER
+
+| gate | BEFORE (re-open baseline) | AFTER (this unit) | receipt |
+|---|---|---|---|
+| **G4** emission pre-gate | **UNRUNNABLE** (needed the bumped install) | **GREEN** | One production build, clean (`✓ built in 16.69s`, re-run 7.17s after the last edit). The four probes over the EMITTED css, double-run identical: `size-(--ui-glyph)` **0** · `.h-3\.5` **2** · `rounded-pill` **2** · `animate-collapsible` **0** — the last is the banked M1/M3 prediction. `web/dist/` is gitignored (⟨cmd⟩ `git check-ignore -v web/dist` → `.gitignore:42`), so no tracked witness moved |
+| **G6** atomic land-or-lose | **RED** — no transaction | **GREEN** | ⟨cmd⟩ `git log --oneline --all \| grep -ci "feat(fourier)"` → **1**. Bump ⊕ the 129-attribute rewrite ⊕ the `copied` triple are ONE change, `538db90`, 58 files. The four zero-console-error e2e specs are untouched and unfiltered; running them is unit `f`'s |
+| **G7** applied | budget green, **not applied** | **APPLIED** | Act 3 limb 2 — every figure re-derived at the pin and equal to `evidence/w1/G7-BUTTON-BUDGET.md`'s |
+| **G8** touch-floor | **RED** — no site migrated | **GREEN** | All **35** migrated icon sites carry the prop (⟨cmd⟩ `grep -rn 'size="md" icon-only' web/src \| wc -l` → **35**; the template spelling is kebab `icon-only` for the `iconOnly` prop, stated so a later `grep iconOnly` reading 0 is not mis-read as a dropped floor) and the emitted sheet keys it: ⟨cmd⟩ over `dist/assets/index-*.css` → `@media(pointer:coarse){[data-control-target]{min-block-size:var(--touch-target,2.75rem);min-inline-size:var(--touch-target,2.75rem)}}`, with `data-size="icon"` **0**. `Button.vue:171` stamps `data-control-target` at the adopted pin |
+| **G9** token-family sweep *(acceptance only)* | **RED** — 23 / 7 | **RED — operand unchanged, and deliberately so** | ⟨cmd⟩ `grep -rn -- "--slider-scrub" web/src \| wc -l` → **23**, `-l` → **7**. The acceptance shape is F.W1's; the EXECUTION rides F.W3/W4, and sweeping here would execute another wave's gate. MPC-10's contrast leg travels with that execution |
+| **G10** disclosure-deletion | **RED** — all ten landmarks present | **GREEN on the deletion** | Act 3 limb 5. The five-surface close witness is unit `f`'s (`G10`'s witness half) |
+| **G11** module resolution | **RED** — exit 1 / 20 (17 `TS6133` · 1 `TS6196` · 1 `TS2882` · 1 `TS2769`) | **GREEN on its own condition** | ⟨cmd⟩ `npx vue-tsc -b --force \| grep -c 'error TS2307'` → **0** — zero unresolved glass-ui (or any) specifiers, and the vite resolve pass is G4's green build. By code the tree is now **17 `TS6133` ⊕ 1 `TS6196` = 18**, double-run: **zero diagnostics added**, and the two the uplift owed are cured (`TS2882` by limb 8, `TS2769` by the vite pin-truth). The 18 are F.W0's honest-RED unused-symbol substrate; several sit in files outside this unit's writable set, and curing them is not a limb |
+| **G13** peer-graph closure | **RED** — `npm ls --all` exit 1, 9 extraneous | **GREEN, both halves** | Act 2 |
+| **G14** applied | floor green, **not applied** | **APPLIED** | limb 12 |
+| **G19** recorded at the spec | **GREEN at COHESION only** | **RECORDED AT THE SPEC** | Act 0 — `F-W1.md` §9, `582d9b04` |
+| **ESC-4 sampler gate** | **RED** — no sampler existed | **GREEN on the ruling's purpose clause · RED on its literal clause for 4 survivor keys** | Act 4, published both ways rather than resolved by reinterpretation |
+| **G5 landing cell** | — | **APPLIED** | Act 4 — R1 · R2 · R3, 9 application sites / 6 files |
+| **G2** *(F.W0's; F.W1 owes the recording)* | RED at the installed 4.0.0 | **absent at the adopted pin** | The build parses `@import "@mkbabb/glass-ui/styles"` without a `CssSyntaxError`; §0i.5's reading is confirmed by G4's green build rather than re-asserted |
+
+---
+
+#### Act 7 — E13, at this unit's own clock
+
+Read-only, classification from each row's status cell, `INBOX.md` self-excluded. ⟨cmd⟩ `find <path> -maxdepth 1 -name '*.md' -newermt '2026-09-18 00:00'` over the four paths ⊕ the two extensions: `docs/tranches/V/` **∅** · `docs/tranches/V/coordination/` → `INBOX.md` (self) ⊕ `valuejs-outbound-2026-09-18-kfw7-bh-relay.md` (**OURS**, rowed `O-28`) · `../glass-ui/docs/tranches/BK/coordination/` → `valuejs-outbound-2026-09-18-kfw6-bh-relay.md` (**OURS**, the `O-26` mirror, rowed) · `../keyframes.js/…` **∅** · `../sci-report/atlas/…/P/` **∅** · `../fourier-analysis/docs/tranches/F/coordination/` **∅**.
+
+**0 unrowed letters · 0 new `I-n` · 0 new `O-n` · 0 INBOX rows appended** (`INBOX.md` is not in this unit's writable set). `I-32` · `I-33` · `I-34` still carry `UNREAD 2026-09-17`; their disposition is unchanged from the Close (materially consumed by unit `b`; the durable cells are Track D's), and they are named here so unit `f` meets them at its first line. **I-32's `B-4` is discharged by this commit**: `--viz-amber` is an `oklch()` at 8.0.0, and `style.css`'s D.W4.d override plus unit `d`'s resolver are what make that hop safe — the override is carried unchanged, its own re-ink still F.W3's.
+
+---
+
+#### Act 8 — the two bound-readings this seat recorded rather than assumed
+
+1. **`web/src/components/paper/**` is written for limbs 2 and 4, and for NOTHING else.** The dispatch's writable set says paper/** "stays CLOSED (G16 resolved to its second arm)", and §1's own product surface enumerates *"the 35 Button-importing files"* and *"the 35 lucide import sites"* — sets that **contain six paper files each**, as `evidence/w1/G7-BUTTON-BUDGET.md` proves from its own end by citing `PaperView.vue:400/:401` as sites its probe recovers, and as WU-N's census row proves by folding `PaperArticleWindow.vue:8` into the 34 by ruling (`fr-PaperArticleWindow R-9`). The CLOSED clause carries its reason in its own parenthetical — **G16's LATEX-PAPER CARRY** — and that carry is not seated here: no `hsl(var(--x))` byte, no theorem rail, no ToC. The measured diff under `paper/**` is **7 files, 29 insertions, 29 deletions, every line a `variant=`/`size=` attribute or a lucide specifier** (⟨cmd⟩ `git diff HEAD~1 --stat -- web/src/components/paper` ⊕ the full `-U0` read). Held the other way, limb 4 could not land at all: leaving six files on `lucide-vue-next` means the manifest keeps both icon packages, which is a half-rename and an L-18 partial landing. **Recorded for the close seat to overturn if it reads the bound the other way.**
+2. **Two consumer version pins moved that no limb names** — `katex ^0.17.0 → ^0.16.47` and `vite ^8.0.16 → ^7.3.6` — under WU-L's PAW-33/C-19 *"pin-truth row + manifest pass"*. Neither is cosmetic: with either left as it stood, **`npm install` cannot resolve at all** (Act 2), so limb 1 has no landing. The alternative arm is the producer widening its ranges, which is latex-paper's act on **NWO-5**, and a wave may not wait on a relay it cannot deliver. The vite pin also retires the `TS2769` in `vite.config.ts`. **Both are reversible the day latex-paper widens, and both are named in the commit body.**
+
+---
+
+#### Residuals handed forward, by name
+
+1. **→ unit `f` / the owner — the ESC-4 sampler's ULP residual.** Four survivor keys differ from their 0.13.0 functions by ≤ 4.440892098500626e-16 because the producer re-expressed those closed forms. The ruling's purpose clause is met and its literal clause is not; the seat publishes both and rules neither.
+2. **→ unit `f` — every post-transaction witness.** G6's four e2e specs · G10's five-surface close witness · G12's morph execution (`play()` resolves, `phase` returns to `"idle"`) · G18's drag probe with I-32's `A-10` read against PD-1's disjunction · FR-CP-5's chevron verify · the WU-F diff-review ledger ⊕ edge-9 checkpoints, whose newly-earned rows are: **ESC-3's six pickers gaining an edge**, **FR-CP-13's fused inspector stack** (the first render where the three layers touch), **the attribution card's trigger** (now a real `<button>` with native Enter/Space, which the `role="button"` div never had once the navigation moved off it), **the `Metric` tier tinting** (the inline `color` re-expression of the deleted axis), and **`.paper-texture`'s restored ground**.
+3. **→ F.W3 — CVA's retirement, now measurable.** FMD-21's condition has expired at 8.0.0 (`slider/index.d.ts:1` no longer names cva; the package references it 0 times). The LOCK held, so nothing was removed; the evidence is banked here.
+4. **→ F.W3/W4 — the substrate's 18 unused-symbol diagnostics**, unchanged and unowned by this wave, several in files outside every F.W1 writable set.
+5. **→ F.W3/W4 — the 16 hand-inlined `<svg>`s / 11 files**, ledgered by limb 4 and deliberately not swept; and the **9 comment-resident `<Button variant=…>` mentions** (G7's B7 doc debt), which now describe a prop that no longer exists.
+6. **→ NWO-5 (latex-paper), re-stated by measurement**: the `katex ^0.16` and `vite ^6||^7` optional-peer ranges at `@mkbabb/latex-paper@0.2.1` — the latest published version — are what forced residual 8.2's consumer conforming, and the producer widening is the durable cure.
+7. **→ NWO-6 (pencil-boil), unchanged**: `^0.11.2` still excludes producer `0.12.0` (C-18.2).
+8. **→ unit `f` — `F-W1-LOG.md` and `evidence/w1/` remain unwritten by this unit**: neither path is in its writable set, which is why the sampler transcript, the G4 greps and the G13 outputs are banked in this record instead.
+
+---
+
+#### Escalations
+
+**NONE that block.** The two that held this wave — `ESC-4` and `ESC-7` — were ruled at COHESION §0o and are executed above. The one open question this unit returns is **not** a blocker and is **not** a request for a new ruling: it is residual 1, the ULP reading of ESC-4's own gate clause, published in both readings so the close seat and the owner can decide which one G19's record should carry.
+
+**Self-count**: this `### e` block is not counted in any figure above. Every published count is of the settled fourier bytes at `538db90`, of the read-only producer tree at `17a11bc5`, or of a registry artifact at its version — each double-run.
