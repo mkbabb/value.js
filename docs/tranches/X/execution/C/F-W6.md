@@ -1884,3 +1884,305 @@ plan set when it called this the wave's one ungated unit.
    booked, no id minted** — tabulated at §1.h so the closure reads it rather than re-deriving it.
 6. **E13 mail**: nothing arrived in this unit's scope and nothing is owed by it. The wave's four-path sweep
    is seat 0's at open and unit `i`'s at close; **this unit minted no letter and no `I-n` row.**
+
+---
+
+### i — the routing receipt, the carry closure, the courier, and the close
+
+**SERVED MODEL: claude-opus-5[1m]** · seat clock **2026-09-18 01:1x–01:3x EDT** ⟨the wave's sitting date is
+**2026-09-17**; unit `e`'s date erratum applies here too and is not re-litigated⟩ · bases per spec §0.2 ·
+engine **`/usr/bin/grep`** (the pinned binary; bare `grep` is ugrep in this shell) · **every published
+figure double-run at the settled bytes.**
+
+**What this unit executed**: spec **§2.10** (`:237-247` — V-α · V-β · V-γ · ⊙ TA-4) · **§2.11 / §2.11a /
+§2.11b / §2.11c / §2.11d** (`:248-501`) · **§3 FW6-G16** (`:525`) and **FW6-G17** (`:526`) · **§4
+cross-edges** (`:553-570`) · **§5** (`:573-596`) · **the close act** (`:630`).
+
+---
+
+#### Act 1 — the value-side routing receipt (bounds #3) · **FW6-G16**
+
+**Product**: `docs/tranches/X/fourier/waves/F-W6/value-side-routing-receipt.md` — ⟨cmd⟩ `wc -l -c` →
+**318 L / 20,839 B**. Commit **`5ed4eb91`**.
+
+**Measured before written, at the LIVE bytes, read-only.** Every §2.10 mechanism was re-read at the value
+tree rather than copied from the spec's paste:
+
+| row | what reproduced | what drifted |
+|---|---|---|
+| **V-α** | `versions.ts:38` hash-at-creation · `:40` `findByHash` · `:137` `newHash = computeContentHash(version.name, version.colors)` · `:148` `createVersionRecord` · `:172` `$inc: { versionCount: 1 }` · the suite's only revert case still the negative one at `__tests__/palette-versions.test.ts:83` | **nothing — all six anchors exact** |
+| **V-β** | `model.ts:85-86` (`/** _id is the content-hash. */` · `_id: string;`) · `hash.ts:8` folds `(name, colors)` only · `repository/paletteVersion.ts:13` `findByHash` with **no slug scope** | the early-return window `:44-47` brackets a line the live file puts at **`:47`** |
+| **V-γ** | `model.ts:60` `userSlug: string \| null;` exact · `versions.ts:147` exact · `crud.ts:204` exact **and compound** (`if (contentChanged && userSlug)`) | the spec's **`crud.ts:119`** is **`crud.ts:118`** at the live bytes — one line up |
+| **TA-4** | ⟨cmd⟩ `grep -rln 'atomdiff\|atomDiff' api/src src` → **one hit, a test comment** · `ls api/src/lib` → *No such file or directory* · `format.ts:45`/`:87` still emit `atomSetHash` · `hash.ts:41-42` says so in the tree's own words | **nothing — all four anchors exact** |
+
+⌧ **Both drifts recorded as dated addenda-beside in the receipt and in the register's §1.i.1; the spec is
+IMMUTABLE and was not edited (E-3). The INTENT is recorded at the true bytes** — three guards, three sites,
+mechanism unchanged.
+
+**The gate's three substantive conjuncts, each answered by measurement, not by assertion:**
+
+1. **TWO authorities, cited separately, never fused.** (a) ⟨cmd⟩ `/usr/bin/grep -n 'value.js API row'
+   $W/F-W5.md` → the `F.W5 → value.js API row` edge row, which itemizes *"V-β compound version `_id` + the
+   two-histories test (G2) · V-γ attribution (`userSlug` null ⇒ no version row, E18) · TA-4 per G4's
+   ruling…"*. (b) ⟨cmd⟩ `/usr/bin/sed -n '161p' $M/formation/fourier/lane-crud.md` → *"**value.js defect
+   V-α — revert writes no version row but still increments the counter.**"*
+2. **V-α's NON-MEMBERSHIP, asserted and measured three ways.** Per-token at the edge row, double-run:
+   `V-β` **1** · `V-γ` **1** · `TA-4` **1** · **`V-α` 0**. The phantom leg stays struck — ⟨cmd⟩
+   `/usr/bin/grep -l '§6c' waves/F-W5.md` → **no output, exit 1 — F-W5 is not a member of the matching
+   set** (set-membership, never a banked count of a moving file: R3-3.10). **No membership is manufactured,
+   and the citation is dropped rather than re-addressed to a nearby heading.**
+3. **ZERO VALUE-TREE BYTES.** ⟨cmd⟩ `git diff --stat -- api/src src | wc -l` → **0** · ⟨cmd⟩
+   `git status --porcelain -- api/src src | wc -l` → **0**, double-run, and re-run **after** every commit of
+   this unit: **0 · 0 · 0 · 0**. Empty at the fold (2026-08-28), at the wave's open (22:56 EDT), and here.
+
+**TA-4 is recorded as RULED RE-SCOPE, never as a restoration ask.** ⟨cmd⟩ `/usr/bin/sed -n '688,690p'
+COHESION.md` → **F-SS4REST R1** — *"**RE-SCOPE value.js out of the diff clause** (a one-sided §6 verdict,
+stated explicitly) — `atomdiff.ts` is wholly excised from value.js…"*. Four consequences, all stated in the
+receipt's §4: the excision **is the ruled state**, not a pending defect; **no probe is manufactured over an
+absent file**; the spec's *"UNFALSIFIABLE until G4 closes"* hedge is **retired by the ruling** (value.js has
+no `/diff` surface to reach, **by decree** — inapplicable rather than unfalsifiable); and SS-4's standing
+edict discharges in the **RE-SCOPE** disjunct, **explicitly**, which is the disjunct's own requirement.
+▲ **The one act that follows is the contract's, not value.js's** — re-authoring `J-diff-shape-v2.md` §6 to
+the one-sided verdict — and it travels as a **commissioned ask** in the courier, because §6 is F.W5's
+surface and outside this wave's §1 bounds.
+
+⌧ **ADDENDUM-BESIDE — two of §0.3's three "immutable" pins have MOVED, and this seat re-ran rather than
+trusted** (which is §0.3's own law): `lane-crud.md` **`3bcc387cbb2a`** — **character-match, unmoved**, and
+it is the one authority V-α leans on alone; `CENSUS-2026-08-03.md` pinned `684de3d8a8a0` → live
+**`4f9d9f72140a`**, moved at `ca5b7441` (2026-09-17, *"CENSUS + lane-frontend errata addenda"*), an
+**addenda-beside** landing — **and its routing-law quotation at `:200-202` reproduces BYTE-TRUE at the moved
+file**, so no operand moves; `INTAKE-ADJUDICATION-2026-08-03.md` pinned `c61b3ed01141` → live
+**`7188830b5164`**, moved, **and read by this unit nowhere**.
+
+**FW6-G16: RED → GREEN.** BEFORE (baseline): *"no receipt exists"* — ⟨cmd⟩ `ls waves/F-W6/` → *No such file
+or directory*. AFTER: the artefact exists, names the value.js API row per obligation, cites the authority
+that **actually holds** each, asserts V-α's non-membership by measurement, and the value tree is unmoved.
+▲ **This is the wave's ONLY self-executable GREEN** — it commissions nothing and waits on no fourier
+landing, which is exactly why it is the only GREEN this unit claims.
+
+---
+
+#### Act 2 — **FW6-G17**, the set-difference RUN in both directions
+
+**The operand is named before it is used, and it is not this file's to derive** (§0.1, R4-5/R4-10): the
+census of record is `../conformance/CENSUS-CANONICAL.md`, re-measured at this seat — ⟨cmd⟩
+`shasum -a 256 $C | cut -c1-12` → **`f44362757458`**, a **character-match** to the spec's frozen pin.
+**No roster integer is re-derived; the enumeration is the operand.** Band denominator read from the
+canonical's own headings — ⟨cmd⟩ `/usr/bin/grep -nE '^### F\.W5(-W8)? — ' $C` → `### F.W5 — **27 rows**` ·
+`### F.W5-W8 — **89 rows**`; the pair extraction returns **116** `(record, id)` pairs, double-run **116**,
+which confirms `27 ⊕ 89` **by enumeration rather than by addition**.
+
+##### (a) FORWARD — 116 probed · **116 landed** · **0 silent drops**
+
+Every id the canonical homes at `F.W5` or `F.W5-W8` was probed against `F-W6.md` and classified by the
+**line range of the section its hit falls in** — §2.1–§2.10 **BOOKED** · §2.11 / §2.11c **CITED** · §2.11d
+**HOLDER-CITED** · §5 **EXCLUDED-with-reason**. The probe is the **bare id token** except at the **ten
+colliders** §4 lock 10 record-qualifies (`M-13 · L-B1 · L-M3 · C-17 · C-18 · B-1 · B-2 · C-2 · M-10 · M-9`)
+**⊕ `C-7`**, a fourth homonym pair the run must qualify too (`fr-ConvergencePlot C-7` vs
+`fr-FourierShapeExtractor C-7` vs `fr-BasisCanvas C-7`) — there the probe is the **(record, id) pair**.
+
+⊘ **A method note worth its line, because the first pass got it wrong and the correction is the finding.**
+This seat's first collider probe matched the pattern `` `<record>` <id> `` and returned **13 NONE**s — every
+one a collider. The file spells those pairs several ways (` ``fr-X` L-B1` ` · `**fr-X L-B1**` ·
+`` `fr-X L-B1` ``), so a single-spelling pair probe is **shape-restricted** — the exact defect R2-9 decrees
+against, committed by the run rather than by the gate. Re-cut to `<record>[^A-Za-z0-9]{1,4}<id>`: **0 NONE.**
+*A detector enumerated by the spellings the author happens to know reproduces K-6 at every round* — and it
+did, one more time, here.
+
+**Result, double-run identical:**
+
+| landing profile | count |
+|---|---|
+| `CITED(§2.11)` alone | 23 |
+| `BOOKED` ⊕ `CITED(§2.11c)` | 22 |
+| `BOOKED` ⊕ `CITED(§2.11c)` ⊕ `EXCLUDED(§5)` | 14 |
+| **`HOLDER(§2.11d)` alone** | 13 |
+| `CITED(§2.11c)` ⊕ `EXCLUDED(§5)` | 8 |
+| `BOOKED` ⊕ `CITED(§2.11)` ⊕ `CITED(§2.11c)` ⊕ `EXCLUDED(§5)` | 8 |
+| `BOOKED` ⊕ `CITED(§2.11)` ⊕ `CITED(§2.11c)` | 7 |
+| `CITED(§2.11c)` alone · `BOOKED`⊕`CITED(§2.11)`⊕`CITED(§2.11c)`⊕`HOLDER(§2.11d)` | 4 · 4 |
+| the remaining seven profiles | 1–3 each, **13** total |
+| **no qualifying landing** | **0** |
+
+⊘ **ONE ADDRESS-FORM DIVERGENCE in 116, disclosed rather than smoothed.** `fr-ImageUpload` **`C:C-12`**
+returns **∅** on a bare-token probe, because `F-W6.md` addresses that identity **by ROW NUMBER** — ⟨cmd⟩
+`/usr/bin/grep -nF 'fr-ImageUpload` row 26' waves/F-W6.md` → **one hit**, §2.11c BLOCK C, **branch 2**,
+*"cited at §2.2 FR-AFP-4 (INFO)"*; and it is the same identity — ⟨cmd⟩ `/usr/bin/sed -n '60p'
+$G/fr-ImageUpload.md` → `| 26 | C:C-12 | INFO | …`. **The disposition exists and is legible; only its
+ADDRESS is a row number where the canonical's is a token.** Not a silent drop, not a fabrication — a
+probe-form fact a successor needs, because the bare-token reverse probe is **unrunnable** there exactly as
+§2.11c already says it is at `M-10`/`M-9`. Routed to the courier as a citation-form note; **no id moves and
+no landing changes.**
+
+⚑ **Why a forward escape is impossible by construction — stated so the GREEN is not read as luck**: ⟨cmd⟩
+`/usr/bin/grep -o 'F\.W6., .F\.W8. and .F\.W10. are likewise named by \*\*no record\*\*' $C` → *"F.W6`,
+`F.W8` and `F.W10` are likewise named by **no record**"*. **The canonical homes ZERO record-side rows at
+F.W6.** The forward walk can therefore prove *coverage* and cannot catch *fabrication* — which is what the
+reverse direction is for, and why running only one direction is the L-18 base this gate exists to fail on.
+
+##### (b) REVERSE — every identity printed here resolves; nothing is manufactured
+
+1. **Carrier landings hold: 40 checks · 0 failures.** Every §2.11c BLOCK C cell naming a `§2.N` carrier was
+   re-read against that section's own line range. Three raw MISSes on the mechanical pass are **extraction
+   artefacts**, each resolved at the bytes: `FR-GV-9's` (the possessive — ⟨cmd⟩ §2.4 `grep -c 'FR-GV-9'` →
+   **1**) and two cells naming a section with **no** carrier token (*"carried at §2.6 (boundary cardinality
+   on the write path)"*, *"named fold at §2.4 (re-landed this round)"*) — both sections exist and hold the
+   fold. **0 true failures.**
+2. **§2.11d's FIFTEEN are all canonically F.W5-held, exactly as §2.11d asserts.** `FR-AUL-3 · -11 · -12 ·
+   -14 · -20 · -21 · -25 · -31 · -46 · -59` ⊕ `AA-23 · AA-31 · AA-32` ⊕ `GAB-15 · GAB-16` → **15 of 15
+   return `F.W5`.** None appears in the register's §1 id column; none is counted into any denominator.
+3. **NO DOUBLE-CREDIT (falsifier b).** Fourteen booked ids resolve to **F.W5-W8** — the band, where *F.W5
+   STATES and F.W6 BURNS* makes the burn an execution, not a second home. **Four resolve elsewhere, and
+   every one carries an explicit CITED disposition rather than a booking**: `fr-GalleryDraftsSection B-2`
+   (canonical **F.W3**, CITED to F-W3, REST-17) · `fr-AdminAuditLog AA-10` (canonical **F.W4**, CITED,
+   REST-16) · `fr-EquationModeToggle FR-EMT-20` (canonical **F.W5**, CITED, REST-15) ·
+   `fr-GalleryCardModal GCM-1` (canonical **F.W4**, routed to F.W4 at BLOCK C; its *"no `fork_of` recorded"*
+   **server arm** is booked at §2.8 under the **distinct** identity `R-5`/`G5` ⊕ `E4`, never under `GCM-1`).
+   **Zero ids credited both to F.W6 and to F.W1 / F.W3 / F.W4 / F.W5 / F.W8.**
+4. **NOTHING MANUFACTURED INTO THE SEVEN NEGATIVE-ROSTER RECORDS (falsifier c).** ⟨cmd⟩
+   `/usr/bin/grep -cF '<record>' burn-register.md`, double-run → `fr-App` **0** · `fr-CollapsibleSection`
+   **0** · `fr-MobileFloatingToc` **0** · `fr-PaperSearch` **0** · `fr-PaperSearchDropdown` **0** ·
+   `fr-PaperSearchInput` **0** · `fr-MorphShapePreview` **0**. **B5 holds: negative controls are EVIDENCE,
+   never a denominator.**
+5. **THE FABRICATION TEST over BLOCK C's 63 rows: 58 resolve to a canonical home; the five that do not are
+   every one a branch-2 NAMED FOLD whose CARRIER is canonically homed** — `FR-AFP-40` and `FR-AFP-69` inside
+   `FR-AFP-32` (F.W3) · `fr-CanvasControlsDock C-28` at F.W5 **B1** (its record's band row `R6-8` is F.W5) ·
+   `fr-GalleryCard D-13` inside the `L·M-4` compound (F.W3) · `fr-ContourPreview` row 28 at §2.6. **This is
+   exactly what the counting rule predicts** — *"a named fold is transcribed at its carrier and is NOT a
+   separate roster member"* — and none of the five is credited to F.W6, counted, or placed in a negative
+   record. **No fabrication found.**
+
+⊘ **ONE MEASURED OBSERVATION, disclosed because a later seat should not meet it as a surprise.** Four of
+BLOCK A's ten census escapes are canonically **F.W4**-held rather than F.W5 or the band — `FR-EQR-4` (E-4) ·
+`fr-ConvergenceLegend D-L4` (E-7) · `fr-ConvergencePlot L-M7` (E-8) · `fr-ConvergencePlot L-m13` (E-10) —
+while BLOCK A lands each as **3-CITE to an `F-W5.md` CLAUSE**. **A clause is a rule; the canonical homes a
+ROW**, and §2.11b's own round-3 amendment says so (*"one rule is instantiated by many rows whose cures land
+in different waves"*). **F.W6 books none of the four and claims no credit**, so no double-credit arises.
+Recorded and routed; **not resolved here**, because resolving it would be re-homing rows this wave does not
+own.
+
+**FW6-G17: RED → GREEN.** BEFORE (baseline): the gate's operand — the register's id column — **did not
+exist** (⟨cmd⟩ `ls waves/F-W6/` → *No such file or directory*). AFTER: both directions run **from this
+file**, neither resting on a count, neither deriving its own roster — **forward 116/116, 0 silent drops** ·
+**reverse 40/40 carrier landings, 15/15 holder-cites, 0 double-credits, 0 manufactured rows, 0
+fabrications**, with two disclosures carried beside rather than absorbed. Commit **`9e00635e`**.
+
+---
+
+#### Act 3 — the courier (bounds #4), the only vehicle by which fourier receives this burn-down
+
+**Product**: `docs/tranches/X/coordination/value-to-fourier-2026-09-17-provenance-burndown-F.W6.md`.
+Commit **`9a864285`**. `DD` **resolved to the execution date and was never back-dated** (divergence D-5).
+
+**What it carries, against the brief's four requirements:**
+
+1. **Every commissioned ask by gate id AND clause id** — FW6-G1/G2/G3/G4 (`E2` · `E7`, the PATCH/chain
+   **ONE CUT**) · G5/G11 (`C5` · `C1`/`C2`, the **ONE PRIVACY LIMB**) · G6/G7 (`E6` · `E5`) · G8/G10/G12
+   (`D6` · `D8` · `A4`⊕`D17`) · G9 (`E18`⊕`D16`) · G13/G14/G15 (`E13` · `E14`⊕`E17` · `§G`) · the ungated
+   E10 pair (`B4`/`E10`) — **named**, with each ask's full text **held at the register and cited, never
+   restated**, so no seat can land a paraphrase and believe itself conformant. The contract set was
+   re-verified at the bytes: ⟨cmd⟩ `grep -cE '^### [A-G][0-9]+c? (—|⊙)' J-diff-shape-v2.md` → **71**
+   (double-run 71); every clause F.W6 names returns `grep -c` **1**; ⟨cmd⟩ `grep -c '^| \*\*R[1-9]\*\*'
+   OWNER-RULINGS-F.W5.md` → **9**.
+2. **The TRIPWIRE and the M-10 rider VERBATIM**, each with its ⟨cmd⟩ and its **cut disclosed** — the
+   TRIPWIRE bound re-cut to `.{0,95}` so the paste ends where the clause ends, and the `FW6-G15` bound to
+   `.{0,110}` with the continuation (*"…before anything else | **F.W6 / build lane**"*) named so nothing
+   past the window is quoted. The M-10 rider comes from the **frozen corpus** (`fr-FourierShapeExtractor.md:96`),
+   where a line coordinate is the one address form that cannot stale: *"…any "cure" that skips the
+   innerPoly work re-rolls the canonical sun."* ⊘ **One self-caught defect on the way**: this seat's first
+   E10 quotation read *"produced-and-unconsumed fields"* where v2 reads *"produced-and-unconsumed **response**
+   fields"* — an unmarked truncation inside quotation marks, the exact class §2.2 convicts. Re-cut to the
+   instrument's own output before commit; **the paste is now the command's output**.
+3. **R3's port homed at F.W8, explicitly and prominently** — `F-PRODRET` ruled **PRODUCER-as-port**, and
+   spec §2.4's *"If PRODUCER: F.W6 ships the flag-write operation"* is flagged **superseded ON THE HOMING
+   ONLY** (*the branch is live, its address moved*), with the instruction not to read the letter as
+   commissioning it. `FR-AFP-7`'s settlement is named as **gating** that port.
+4. **This end of all thirteen §4 cross-edges declared, the reciprocal REQUESTED** — F.W0 (G-11/G-12 **by
+   gate id, never by line**; the born-RED `cd26c653`/28-dirty witness **no longer reproduces**) · F.W5 ·
+   F.W1 (the one exception, now **discharged by ruling**) · F.W3/F.W4 (**emitted, never claimed**) · F.W7
+   (the ∅ posture stated, **nothing asserted against it**) · F.W8 · F.W9/W10 · the value.js API row · SS-4
+   (incl. the `MF-9` strike, with *"striking a dangling cite is not disposing of the identity"* preserved) ·
+   **SS-6 DECLARED EMPTY** (zero producer rows; glass-ui **READ-ONLY always**) · X·parse-that **FORBIDDEN** ·
+   SS-13 (**magnitude only, never used to close a gate**) · the fourier tree **READ-ONLY, ALWAYS**.
+   **COHESION is bounds-excluded and this wave does not write the spine.**
+
+---
+
+#### Act 4 — E13, and the close
+
+**One append-only row**: `docs/tranches/V/coordination/INBOX.md` **O-27** — the F.W6 courier, `SENT
+2026-09-17 — AWAITING RECIPROCAL`, three asks (row it · reply **by gate/clause id, never by line** · land
+the acts under COMMISSION §2 and report the landing evidence). Commit **`eb7a414b`**. ⟨cmd⟩
+`git diff --numstat -- INBOX.md` → **3 insertions, 0 deletions** — **append-only, no existing row
+rewritten**, which is spec §1 bounds row 5's whole requirement.
+
+**Close sweep (four paths ⊕ the Track-C fourier mail-ledger surface)**, read-only at this seat's clock,
+delta against the **22:56** open sweep, classification from each row's **status cell** and never from a bare
+`grep -i unread` (X.P.W0 CHECK 1 **D-1**), `INBOX.md` self-excluded (SELF-COUNT law):
+
+1. `docs/tranches/V/` + `V/coordination/` — newest is this ledger (self); next is **ours** (O-21, rowed I-26).
+2. `../glass-ui/docs/tranches/BK/coordination/` — **BK re-confirmed the newest glass tranche dir**; the one
+   entry newer than the open sweep is `valuejs-outbound-2026-09-18-kfw6-bh-relay.md`@00:31, **OURS** (the
+   O-26 mirror, rowed). The three 09-17 17:43 letters remain **I-32 · I-33 · I-34**.
+3. `../keyframes.js/docs/tranches/V/coordination/` — every `VALUEJS-INBOUND-*` is **ours (outbound)**.
+4. `../sci-report/atlas/docs/tranches/{P,Q}/coordination/` — newest are **O-12 (ours)** and **I-27 (rowed)**.
+5. *(Track-C extension, COHESION §0k.1)* `../fourier-analysis/docs/tranches/F/coordination/` — `INBOX.md`
+   plus three May files; **no reciprocal to O-22 yet**, consistent with its own cell, and **O-27 now joins
+   it awaiting the same**.
+
+**Result: 0 unrowed · 0 new `I-n` · 1 `O-n` minted (O-27) · 0 UNREAD in F.W6's scope.** The three `UNREAD`
+status cells are **out of this wave's scope by their own routing cells** — I-32/I-34 → **X-W0.j /
+X-EXT-1**, I-33 → **the X formation mail seat** — and **I-32 ⊕ I-33 were READ IN FULL and CONSUMED at F.W1
+unit `b`** (the ledger's own consumption line); I-34 *"mints no obligation"* in its own words. **No wave
+closes with UNREAD mail in its scope, and F.W6 does not.**
+
+---
+
+#### Gate readings, BEFORE → AFTER
+
+| gate | BEFORE (baseline, 2026-09-17) | AFTER (this unit) |
+|---|---|---|
+| **FW6-G16** | **RED** — *"no receipt exists"*; standing zero-byte condition held | **GREEN** — receipt at 318 L, two authorities, V-α non-membership measured (`0` at the edge row; `§6c` set-membership **empty, exit 1**), TA-4 **RULED RE-SCOPE**, value tree **unmoved (0 · 0, double-run, re-run post-commit)** |
+| **FW6-G17** | **RED** — the operand (the register's id column) did not exist | **GREEN** — forward **116/116, 0 silent drops** · reverse **40/40 · 15/15 · 0 double-credits · 0 manufactured · 0 fabrications**; two disclosures carried beside |
+
+**The other seventeen gates are untouched by this unit and stay RED with their commissioned acts installed**
+— §3's split verdict in its own words: *"it goes GREEN only when the named landing occurs. **F.W6 never
+claims a GREEN it did not execute.**"* **FW6-G15 is RED BY DESIGN** and the TRIPWIRE held: **no
+regeneration was attempted, proposed, or implied** anywhere in this unit's four products.
+
+#### Residuals — carried, not closed
+
+1. **`fr-ImageUpload C:C-12`'s row-number address** — the identity is disposed and legible; the **bare-token
+   probe is unrunnable** at that id. Routed in the courier as a citation-form note. **No id moves.**
+2. **Four BLOCK A escapes canonically F.W4-held while cited to an F-W5 clause** (`FR-EQR-4` · `D-L4` ·
+   `L-M7` · `L-m13`). **Clause ≠ home**; F.W6 books none of the four, so no double-credit. Recorded; not
+   re-homed by this wave.
+3. **Two §0.3 "immutable" pins have moved** (`CENSUS-2026-08-03.md` · `INTAKE-ADJUDICATION-2026-08-03.md`);
+   both re-run, the census's quoted routing law **byte-true at the moved file**, the intake **read nowhere
+   here**. The V-α authority `lane-crud.md` is **character-matched and unmoved**.
+4. **Two spec §2.10 anchor drifts** (V-γ's `crud.ts:119` → `:118`; V-β's `:44-47` → the return at `:47`),
+   INTENT recorded at the true bytes as dated addenda-beside. **Mechanisms unchanged.**
+5. **The §6 one-sided re-authoring under R1 is COMMISSIONED, not performed** — `J-diff-shape-v2.md` is
+   F.W5's surface and outside this wave's bounds.
+6. **Seventeen RED gates awaiting fourier landings** under COMMISSION §2. That is the wave's designed
+   shape, not a shortfall.
+
+#### Escalations
+
+**None.** No write outside the §1 bounds writable set; no fourier byte (`3bac3d52`, **0** dirty at open and
+at close, double-run); no value-tree byte (**0 · 0**, double-run, re-run after every commit);
+`scripts/dev/dev.sh` untouched and never staged; no third diagnose→edit→re-measure on any gate; no
+allowlist, no skip, no masking fallback, no near-cure substituted for a specified one.
+
+#### Stamp
+
+**F.W6 — IMPLEMENTED 2026-09-18** ⟨the wave's sitting date is 2026-09-17⟩. ▲ **This unit stamps
+`IMPLEMENTED`, never `CLOSED` and never `VERIFIED`** — **L-18's two fresh-Fable gestalt passes follow the
+IMPLEMENTED stamp**, as F.W5's CHECK 1 / CHECK 2 did, and the bases they must meet are named at the spec's
+close act: *a burn credited to a wave that did not perform it · a "cure" that is really a client arm · a
+gate argued green over an unruled owner question · a redaction that leaves the asset leaf open · a
+projection strike that was a compression decision · a set-difference declared empty without running both
+directions.*
+
+**Unit `i` commits**: `5ed4eb91` (receipt) · `9a864285` (courier) · `9e00635e` (register closure) ·
+`eb7a414b` (E13) · this record · the ledger.
