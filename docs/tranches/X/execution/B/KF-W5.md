@@ -705,3 +705,217 @@ own pathspec **on the commit itself**, each carrying the session trailer.
   letter, and leaves **0 UNREAD in its scope**.
 - **No escalation.** Every anchor resolved at the true bytes and every specified act was reachable as
   specified.
+
+### X.KF.W5.c — Arm B, LIBRARY RULINGS AND CURES — **DONE-WITH-ESCALATIONS · 8 of 9 gates GREEN**
+
+**Seat**: Opus (`claude-opus-5[1m]`). **Substrate**: kf `master`, from this wave's HEAD `8bc83753`
+(arm 0's last commit) to `99834edc`. **Evidence**: `docs/tranches/X/keyframes/evidence/W5/ARM-B-unit-c.md`
+(the full receipt sheet — every BEFORE→AFTER, both escalations' measurements, the errata).
+Every figure below is read from the settled bytes and **double-run**; both runs agree.
+
+**THE SHARED WORKTREE, STATED FIRST.** A concurrent **X.KF.W2** seat wrote the same keyframes.js
+worktree and index throughout this unit's window and committed four times inside my range
+(`f7cbc41c` · `49cd647b` · `46f0b77b` · `36b4615a`), holding `compile/emit/format/format.ts`,
+`compile/emit/view-transition.ts`, `ingest/cssom.ts` and the new `compile/parse-facade.ts` mid-edit at
+various points. Every commit below carries **its own pathspec on the commit itself**; nothing of a
+sibling's was ever staged (verified per landing with `git show --stat`). Where an instrument reading
+moved under a sibling's edit it is attributed, never absorbed.
+
+**Acts, in order.**
+
+1. **S-2 RULE-BEFORE-FIX — the four KF-W5R4 rulings, cited and never re-opened.**
+   - **(1) `fromString` REPLACES — ESCALATED, no byte in bounds.** Measured first, reproducing the
+     bank exactly: **3 template frames → a second `fromString`+`parse` → 6** with duplicated
+     selectors; a second ingest of DIFFERENT text → **5**, the union. The sole declaration is
+     ⟨`git grep -n 'fromString' -- src`⟩ → `src/animation/engine/css/animation.ts:166`, **outside
+     `.c`'s writable set** (it is `.d`'s), and no other seam exists — the loop calls `this.addFrame`
+     directly and `addFrame` only pushes. Escalated per METHOD rather than substituted for.
+   - **(2) `delay` is PER-PLAY — `1c481b09`** (`engine/play-lifecycle/frame.ts`). `onEnd` clears
+     `startTime` every iteration and `advanceTo` re-entered `onStart`, which re-slept the whole delay
+     AND re-offset `startTime` → a JS period of `duration + delay` (27 %/cycle unbounded drift) plus
+     corrupt `iteration` bookkeeping. One predicate now decides both the sleep and the phase, read
+     BEFORE `onStart` runs so the two cannot disagree. WAAPI agrees: a native delay is one offset.
+   - **(3) the PRM default INVERTED engine-wide — `d002ce7e`** (`group/group.ts` ·
+     `sequence/sequence.ts` · `internal/reduced-motion.ts` · `orchestration/view-transition/`).
+     `view-transition` defaulted `true` while `AnimationGroup` and `Sequence` defaulted `false` — "the
+     honest default exists in-house and is used nowhere". The two are inverted to match the third;
+     `false` is now the explicit opt-out; the policy docblock stops calling `false` "the conservative
+     default". **Bounded residual, declared**: four seeds of `respectReducedMotion: false` remain, all
+     outside the writable set — `constants/defaults.ts:87` (the animation-level default),
+     `physics/smooth.ts:43`, `physics/numeric.ts:89`, `physics/spring/types.ts:119`.
+   - **(4) `singleTarget` gains a SUPPORTED opt-out — `0b593743`**, ONE commit serving four rows.
+     Assignment DECLARES; the ctor derive and the `setTargets` recompute share ONE private derivation
+     that no-ops while a declaration stands; `deriveSingleTarget()` is the inverse. **Reading
+     recorded**: KF-CB-15's ctor mis-derivation is discharged *by the opt-out being honoured*, as the
+     ruling says it is discharged "for free" — the `every()` formula is NOT changed, because changing
+     it would flip `test/group/group.test.ts:71-76`, a tracked spec outside this unit's bounds, and
+     turn a free discharge into a second escalation.
+
+2. **The split-text motion — `2549c133`**, B-1+B-2+B-3 in ONE landing as S-4 requires (one file, one
+   motion), with its three created specs. B-1: the role guard now asks whether the element has a
+   naming-capable role AT ALL — written or IMPLICIT — so an `<h1>` keeps its heading role, and
+   `role: null` is the supported opt-out. B-2: measurability is decided BEFORE any node is written
+   (connected + own box + a throwaway absolutely-positioned probe child, the only way a laid-out
+   container yields boxless children) — **not** restored in a catch, which the gate's falsifier
+   forbids; the ResizeObserver's "keep the last good map" comment is true for the first time. B-3:
+   both `aria-label` and `role` are snapshotted explicitly (`innerHTML` carries neither) and restored
+   exactly — not a blanket attribute rollback. **Born-RED measured against the un-cured file: 11
+   failed | 10 passed → 21 passed.**
+
+3. **G-PRM-FLIP — `685ca13f`** (`waapi/delegation.ts` + `engine/play-lifecycle/strategies.ts` + the
+   spec), then **`99834edc`** (the R6 follow-through). On the lane the library SHIPS, a live flip was
+   never observed: `snapToReducedMotion`'s only caller was `playFrame`, which a delegated animation
+   never runs, while the docblock asserted "The WAAPI lane snaps via the same path" for a path with no
+   caller. The shadow tick — that lane's one per-tick observation point — now consults the SAME
+   detector and takes the SAME snap, with the snap **INJECTED** (`WAAPIDelegationHooks`, a required
+   parameter) because importing it into `waapi/` would close a `waapi ↔ engine` ring `no-cycle`
+   forbids. depcruise stayed at **0 violations**. **2 failed | 3 passed (both failures "wedged" — a
+   blind lane cannot end an infinite animation) → 5 passed.**
+
+4. **G-DELAY's gate — `f0f86ed8`.** Asserts the ruling through `advanceTo`'s own mechanism rather than
+   wall-clock: iteration 1 async + `startTime = t + delay`; iterations 2..N **sync** with
+   `startTime === t` and local time starting at 0, never at `−delay`; the play costs
+   `delay + N·duration`; a fresh play takes the delay again; `delay: 0` untouched.
+   **2 failed | 3 passed → 5 passed.**
+
+5. **G-FROMSTRING's gate — `e9b64342`, BORN-RED BY BOUNDS.** The two ruled assertions ride the repo's
+   own documented born-RED idiom (`it.fails`, as `test/group/group-snapshot-identity.test.ts` uses
+   it): executed, failing, and they FLIP the day the cure lands. Not a skip, not an allowlist, and
+   they pin the RULING, never the defect. **1 passed | 2 expected fail.**
+
+6. **The option-setter letter — `24bbeda2`**, B-13+B-14+B-15 in ONE commit (four legs, do not split).
+   Leg 1+2: `applyTimingFunction` propagates BY IDENTITY — an inherited frame holds the previous
+   `Easing` object (what `addFrame` stored), an author-declared one is a different object and is never
+   touched — so the setter reaches the compiled frames instead of no-opping, and the compiler's own
+   "No setter silently no-ops a change to compiled state" becomes true. Leg 3: `KeyframesAnimation.compiled`
+   makes the per-frame precondition OBSERVABLE (`frames` yields `[]` both pre-parse and for a
+   segment-less animation — the caller could "neither assert nor observe" which). Leg 4: the emit
+   posture is symmetric — the `@keyframes` block emitters join the shorthand inside ONE designed
+   refusal, and the catch is NARROWER than the bare one it replaces (only
+   `AnimationOptionError("timingFunction")` is absorbed; anything else propagates). No blanket outer
+   guard was added. **9 failed | 2 passed → 11 passed.**
+
+7. **S-3 · THE PUBLICATION DECISION — `2e0d91ae`** (`public.ts` · `load-engine.ts` ·
+   `compile/emit/index.ts` + the spec). ONE ruling over THREE library names + KF-ET-32's registry, and
+   it is PUBLISH, not relocate. RED at open reproduced the bank exactly: ⟨`git grep -c … -- index.ts
+   public.ts load-engine.ts`⟩ → **0/0/0** for each of the three, nine pairs every one zero. Heavy
+   surface only (all five carry value.js by specifier; the LIGHT barrel's boundary is not spent on a
+   convenience re-export, and the spec asserts that exclusion as a DECLARED decision).
+   `compile/emit/css-text.ts` is NOT edited — reserved to KF.W2/KF.W3 — the two serializers ride out
+   through the emit sub-zone barrel. `debounce`/`convertPixelsToCh` are struck from the oracle (zero
+   declarations under `src/` makes the assertion a tautology). **5 failed | 2 passed → 7 passed**;
+   `proof:publish` **PASS**.
+
+8. **G-STAGGER-DOC, both legs — `c0727002`.** Leg 1: `stagger.ts`'s canonical example (and
+   `split-text.ts`'s twin) did not typecheck — `{ animation, options: { delay } }` into a VARIADIC
+   constructor, against an `AnimationGroupInput` with no `options` field. **The docs now describe the
+   type** (the delay rides the CHILD, where `toWAAPIOptions` reads it); the group-rewrite cure stays
+   SEVERED. Both examples are lifted VERBATIM into the fixture that `tsc -p tsconfig.test.json`
+   compiles, and the old shape is pinned by two `@ts-expect-error`s in a compiled-never-executed body
+   — because the array form does not merely fail to typecheck, it THROWS inside the constructor
+   (measured). Leg 2 (**P-8**) is ANSWERED by measurement, prescribing nothing: a multi-target group
+   is derived non-single-target and the WAAPI fast lane refuses it by name; **per-child `delay` IS
+   honoured through the group's advance** (one tick → `startTime` 1000/1120/1240 for
+   `stagger(3,{each:120})`); infinite children keep the group un-done and it reads their state; a
+   managed child's `play()` throws. So N per-instance rAF loops is not the only shape available — the
+   component-side evaluation stays KF.W6's.
+
+9. **B-21 doc-rot — `9e5aec60`.** Three comments (`entries.ts:16`, `group.ts:170`/`:264` banked;
+   `:228`/`:325` after this wave's landings) directed the reader to a `./scheduler` module that does
+   not exist in `group/`. Corrected to the same-directory `./yield-batch`. The sibling-basename trap
+   is censused, not reasoned about: the REAL `internal/scheduler.ts` has four live consumers and
+   **none is repointed**; no import is touched, all three edits are comment text.
+
+10. **B-20 — `95d91c53`.** `Partial<InputAnimationOptions>` is a tautology; the four in-bounds
+    signatures drop it and the declaration now says so where a reader meets it. Type-identical by
+    construction. Five sites keep it, all outside the writable set (named in the evidence sheet).
+    `constants/types.ts:195`'s `| string` arm is KF.W4's and already landed at `0c52152a`; this wave
+    took `:182` (today `:234`, the anchor re-derived by name) only.
+
+11. **B-17 — `5a494429`.** `loadAnimationEngine`'s `??=` memoized the REJECTED promise, so one failed
+    chunk poisoned the heavy surface for the mount's lifetime with an unhandled rejection on the LCP
+    node as its only surface. The memo is dropped on failure and the error re-thrown to its caller —
+    a retry, not a swallow; the success path's shared in-flight load is unchanged. Lands before, and
+    constrains, the kin row KF-SKEL-5.
+
+**Gate readings, BEFORE → AFTER (all double-run).**
+
+| gate | before | after |
+|---|---|---|
+| **G-ROLE** | RED by absence (spec ABSENT) | **GREEN — 8 passed / 8 passed** |
+| **G-REFUSE** | RED by absence | **GREEN — 7 / 7** |
+| **G-REVERT** | RED by absence | **GREEN — 6 / 6** |
+| **G-STAGGER-DOC leg 1** | RED — fixture ABSENT, example does not typecheck | **GREEN — 0 diagnostics attributable to the fixture / 0** |
+| **G-STAGGER-DOC leg 2 (P-8)** | RED by absence — "no evidence either way" | **GREEN — 5 / 5, the answer recorded** |
+| **G-PRM-FLIP** | RED — 7 lines / 3 files, `delegation.ts` absent from the `withReducedMotion` census | **GREEN — 5 / 5** |
+| **G-DELAY** | RED by absence; ruling taken | **GREEN — 5 / 5** |
+| **G-FROMSTRING** | RED — 3 → 6 frames, selectors duplicated | **RED — 1 passed \| 2 expected fail · ESCALATED (bounds)** |
+| **G-CSSIDENT** | RED — 0/0/0 across the three published entries | **GREEN — 7 / 7** |
+| **G-OPTSET** | RED — four legs, none met | **GREEN — 11 / 11** |
+
+**Instruments at close (this unit's attribution measured, not assumed).**
+⟨`npx vitest run --project library`⟩ → **110 files passed | 5 skipped · 1211 passed | 3 expected fail
+| 14 skipped** (the 3 = the repo's 1 pre-existing + this unit's 2 born-RED rows).
+⟨`npx depcruise --config .dependency-cruiser.cjs src`⟩ → **✔ 0 violations, 160 modules, 702 deps**
+(159/687 at open; +1 module is the sibling's `parse-facade.ts`).
+⟨`npx tsc --noEmit -p tsconfig.lib.json`⟩ → **3**, the banked pre-existing `TS6133` floor, unmoved.
+⟨`npx tsc --noEmit -p tsconfig.test.json`⟩ → **28** against the record's banked **24**; ⟨`… | grep -cE
+'<this unit's ten spec filenames>'`⟩ → **0** twice and ⟨`… | grep '^src/'`⟩ names only the three
+pre-existing rows — **no diagnostic names a file this unit wrote**; the +4 arrived with the sibling's
+mid-edit `format.ts`/`view-transition.ts`. FINDING 3's reading rule is honoured: no pre-existing
+diagnostic was deleted to green a leg.
+⟨`node scripts/gates/structure/index.mjs`⟩ → **1 violation**, `ingest/cssom.ts` 530 L — the sibling's
+file. This unit's three (`engine/animation.ts` 507 L, `group/group.ts` 502 L, and R6
+`WAAPIDelegationHooks has no consumer`) were **caused and cured inside the unit**, by trimming this
+unit's own prose to 497/498 L and naming the hook type at its call site — never by editing an
+allowlist and never by carving a module, which is `.e`'s act under S-6.
+⟨`node scripts/gates/surface/index.mjs`⟩ (`proof:publish`) → **PASS**; `llms.txt`/`llms-full.txt`
+byte-identical to a fresh generation.
+
+**Commits (13, each with its own pathspec on the commit, each carrying the session trailer).**
+`1c481b09` · `d002ce7e` · `0b593743` · `2549c133` · `685ca13f` · `f0f86ed8` · `e9b64342` · `24bbeda2` ·
+`2e0d91ae` · `c0727002` · `9e5aec60` · `95d91c53` · `5a494429` · `99834edc` ⟨fourteen shas, thirteen
+meanings: `99834edc` is `685ca13f`'s R6 follow-through and is booked with it⟩.
+
+**ESCALATIONS (2).**
+1. **`fromString` REPLACES (B-9 / G-FROMSTRING)** — the cure's only site is
+   `src/animation/engine/css/animation.ts:166`, outside `.c`'s writable set (it is `.d`'s), and no
+   in-bounds seam exists. RED measured (3 → 6 / 3 → 5) and pinned by an executable gate. **The wave
+   must route one act to the seat that owns that file**: clear the template set (and the compiled
+   frames with it) before the ingest loop, then unwrap the two `it.fails` rows to plain `it`.
+2. **the `setTargets` element contract (B-19 / KF-CB-30)** — the widening cannot stop at the three
+   declarations: the field `engine/animation.ts:63` and the ctor param `:175` carry it. Measured
+   twice at a clean tree: **9 new diagnostics across 5 files**, 3 of them outside this unit's bounds
+   (`engine/compile-bridge.ts` ×2 — `.d`'s file · `engine/interpolate.ts` ×3 ·
+   `resolve/element-resolve.ts` ×2). **A finding rides it**: `element-resolve.ts(191,38)` is
+   `Property 'style' does not exist on type 'Element'` — a genuine HTML-only member reach that
+   **refutes** B-19's INFO rationale ("grep-verified HTML-only members → 0"). Nothing was written: no
+   cast, no partial widening, no substitute contract.
+
+**Residuals / carries.**
+- **B-16 is not armed** (OP-4 resolved demo-side → KF.W8's shadow-name row), exactly as the lock says.
+- **B-22's two riders are RELAYED verbatim, never re-booked** — value.js needs a lossless
+  timing-function serializer twin for `parseTimingFunction`, and `easing()`'s analytic-first
+  resolution order documented in the `.d.ts`. The row itself is NO-WAVE-OWNER and CURE-LOCKED by
+  KF-ET-2; no byte was written for it.
+- **B-5 and B-18 are records, not bytes** — B-5 is carried beside B-4 as the account of how B-4 was
+  reached; B-18's magnitude is KF.W9's one `performance.measure`.
+- **Two errata, declared** (full text in the evidence sheet): `24bbeda2`'s body lost the two words
+  **`frames`** and **`KeyframesAnimation.compiled`** to zsh command substitution inside a
+  double-quoted `-m` — the commit is NOT amended (a shared index makes an amend a contamination risk)
+  and the correction travels as this dated note (E-3); and the `singleTarget` docblock's 5-line trim,
+  made for the R4 line ceiling after `0b593743` had landed, rode into `9e5aec60` instead of a commit
+  of its own — this unit's own bytes in this unit's own file, no sibling's work touched.
+- **A vacuity this unit caught in its own gate**: G-OPTSET leg 4's first fixtures asserted a
+  `custom-renderer` refusal over hand-authored animations, which `probeChildRefusal` refuses UP FRONT
+  for an unrelated reason (`NOOP_TRANSFORM` ≠ the instance's default renderer) — they PASSED against
+  the un-cured file, i.e. a green gate measuring nothing (this wave's own G-L7d class). Re-cut onto
+  CSS-ingested fixtures. Recorded because the discipline that caught it — run every new gate against
+  the un-cured bytes before trusting it — is the transferable part.
+- **`test/_root/public-surface.test.ts` needed `git add -f`**: `.gitignore:9` is the bare rule `_*`,
+  which matches the tree's own `test/_root/` zone directory; the tracked sibling
+  `test/_root/resolve-easing.test.ts` carries the identical exemption. `.gitignore` is not edited.
+- **Nothing pushed.** Under KF-WRITE the push of `origin HEAD` is the WAVE's close, not a unit's; the
+  fourteen commits sit on kf `master` ahead of `origin/master` awaiting it.
+- **E13**: the record's open-time four-path sweep stands; this unit minted no mail, consumed no routed
+  letter, and leaves **0 UNREAD in its scope**.
