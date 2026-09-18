@@ -2186,3 +2186,229 @@ directions.*
 
 **Unit `i` commits**: `5ed4eb91` (receipt) · `9a864285` (courier) · `9e00635e` (register closure) ·
 `eb7a414b` (E13) · this record · the ledger.
+
+---
+
+## Close
+
+**SERVED MODEL: claude-opus-5[1m]** · **CLOSE SEAT — VERIFY-ONLY, cures nothing** · seat clock
+**2026-09-18** ⟨the wave's sitting date is **2026-09-17**; unit `e`'s date erratum stands and is not
+re-litigated⟩ · engine **`/usr/bin/grep`** (the spec's pinned binary, §0.2; bare `grep` is ugrep in this
+shell) · bases per §0.2's base block · **every figure below double-run at the settled bytes, and not one is
+copied from a unit receipt** — where a unit's number is reproduced here it was re-measured first and the two
+agreed.
+
+⊘ **A measured negative first, so no reader hunts for it**: the spec carries **no `§Verification
+Artefacts` section** — ⟨cmd⟩ `/usr/bin/grep -c 'Verification' waves/F-W6.md` → **0**. The artefact set this
+seat verified is therefore the one the spec's **close act** (`:630`) names — *"F.W6 stamps its burn register,
+lands the routing receipt, relays the commissioned-ask letter, and ledgers it in INBOX"* — plus the two
+evidence surfaces §1 bounds rows 2–3 declare. All four are verified at §Close.3.
+
+---
+
+### §Close.1 — the commit audit: every unit's commits exist, and touch only that unit's writable set
+
+⟨cmd⟩ `git log --format='%h|%s' -150 | /usr/bin/grep -cE '^[0-9a-f]+\|docs\(x-f/w6'` → **28**, double-run 28.
+Every commit resolves; every one carries the `Claude-Session:` trailer (⟨cmd⟩ a `%B` grep over all 28 →
+**0 missing**).
+
+**The union of every path any F.W6 commit touched** — ⟨cmd⟩ `for c in …; do git show --name-only --format= $c;
+done | sort -u` → **exactly six paths**:
+
+```
+docs/tranches/V/coordination/INBOX.md                                        (bounds row 5, append-only)
+docs/tranches/X/coordination/value-to-fourier-2026-09-17-…-F.W6.md           (bounds row 4, the courier)
+docs/tranches/X/execution/C/F-W6.md                                          (this record — apparatus)
+docs/tranches/X/execution/LEDGER.md                                          (the ledger — apparatus)
+docs/tranches/X/fourier/waves/F-W6/burn-register.md                          (bounds row 2)
+docs/tranches/X/fourier/waves/F-W6/value-side-routing-receipt.md             (bounds row 3)
+```
+
+**Nothing outside the bound moved, measured rather than asserted:**
+
+| law | probe | reading |
+|---|---|---|
+| **ZERO fourier bytes** (§1, §4's last cross-edge) | union of the 28 commits ∩ anything outside `docs/tranches/{X,V/coordination}` | **0** · fourier `git -C $F status --porcelain \| wc -l` → **0** at close, HEAD **`3bac3d52`** — unmoved from open |
+| **ZERO value-tree bytes** (FW6-G16's standing condition) | `git show --name-only … -- api/src src` summed over all 28 | **0 files** · working tree `git diff --stat -- api/src src \| wc -l` → **0** · `git status --porcelain -- api/src src \| wc -l` → **0** |
+| **`scripts/dev/dev.sh` NEVER staged** | the same union, grepped for the path | **0 of 28** |
+| **spec immutable (E-3)** | `waves/F-W6.md` in the union | **absent** — bounds row 1 was the authoring act; this execution moved none of its bytes |
+| **INBOX append-only** (bounds row 5) | ⟨cmd⟩ `git show --numstat --format= eb7a414b -- …/INBOX.md` | **`3  0`** — three insertions, **zero deletions**, no existing row rewritten |
+
+**Commit families the spec declares must not split — all intact:**
+
+- **§2.1's ONE COMMIT** (F-α ⊕ F-β ⊕ SS-C-1, ⊕ §4 lock 3's one-cut): unit `b`'s three register rows land in
+  **one** commit — ⟨cmd⟩ `git show --numstat 4e65aa76` → **`68  0`** on `burn-register.md`, one file, one act.
+- **§4 lock 3's ONE PRIVACY LIMB** (F-γ ⊕ FR-AFP-4): unit `c`'s two rows in **one** commit (`d4cd2392`).
+- **§4 lock 3's FR-AFP-66 ⊕ FR-AFP-33**: **one** commit — ⟨cmd⟩ `git show --numstat 01d36470` → **`2  0`**,
+  the pair landing together, cascade and bound in the same cut.
+
+**Landed wrong: NONE.** No unit wrote outside its declared writable set; no unit's commit touched another
+unit's file; no commit family split.
+
+---
+
+### §Close.2 — every gate of §3 re-run by this seat, against the spec's own GREEN definitions
+
+Read-only, at the live fourier bytes (`3bac3d52`, clean) and the settled value.js bytes. **The spec's §3
+split verdict governs the reading**: *"a gate closes for F.W6 when the commissioned act is authored with its
+evidence row in the burn register; it goes GREEN only when the named landing occurs. F.W6 never claims a
+GREEN it did not execute."*
+
+| gate | this seat's re-run | AFTER |
+|---|---|---|
+| **FW6-G1** chain depth (F-α) | `_write_root_version` → **3** source sites (`visualizations.py:110` def · `:220` create · `:592` remix), sole writer; the constructor still reads `parent_hash=None,` · `root_hash=set_hash_value,` · `depth=0,`; `visualization_versions` non-test sites → **8** | **RED — act installed, landing pending** |
+| **FW6-G2** `set_hash` on atom PATCH (F-β) | `:381` still `updates = {k: v … if v is not None}` → `update_one({"slug": slug}, {"$set": updates})`; `_head_set_hash` still returns `doc.get("set_hash") or …` | **RED — act installed** |
+| **FW6-G3** `palette_slug` clearable | the same `if v is not None` comprehension; the remix arm at `:520-528` still tri-states through `model_fields_set` twenty lines away | **RED — act installed** |
+| **FW6-G4** PATCH set = atom set | `VisualizationUpdate` = **five** fields (`visibility·title·description·tags·palette_slug`), `extra="forbid"`; the atom tuple carries **`animation_settings`** — the sets still differ | **RED — act installed** |
+| **FW6-G5** breadcrumb redaction parity (F-γ) | `_readable_or_none` at `:466·:507·:744·:816·:869` — **absent from the ancestor walk**, which is still a bare `find_one({"slug": parent_slug})` feeding `ProvenanceResponse` | **RED — act installed** |
+| **FW6-G6** unsafe GET / counter provenance | `find_one` → `{"$inc": {"views": 1}, …}` → `body = _public_doc(doc)`: the **pre-increment** doc still serialises; `viewed_ips` → **0** against `liked_ips` → **7** | **RED — act installed** |
+| **FW6-G7** create idempotency / dedupe | `idempotency.py` still `if not key: return await handler()`; `createVisualization` still posts with no `Idempotency-Key`; `database.py:98` `create_index("content_hash")` **plain** against flags' `:140` `unique=True` | **RED — act installed** |
+| **FW6-G8** flag cascade at hard delete | `grep -c "flags" pinned_cron.py` → **0**; the `softdelete.py:3-4` docstring still names `pinned_cron.cron_prune` as cascade owner and still says `hard_delete_past_grace` is NOT — while the real grace pass is `janitor.py:125`'s `delete_many({"deleted_at": {"$lt": grace_cutoff}})`, and `hard_delete_past_grace` occurs **only** in that docstring (unit `e`'s two sharpenings reproduce exactly) | **RED — act installed** |
+| **FW6-G9** the actor field | `_JANITOR_ACTOR = "system:janitor"` at `:56`, written into `"ip_hash"` at `:95`; `models/admin.py` `actor` → **0**; `log_audit(` in `janitor.py` → **0** (the K-6-killed probe's zero, reproduced) | **RED — act installed** |
+| **FW6-G10** tier transitions | `admin.py:438` still `{"$set": {"tier": "normal", "updated_at": …}}` inside the unconditional batch `update_many` | **RED — act installed** |
+| **FW6-G11** image remediation | `images.py` → **7** ops, **0** DELETE; `max-age=86400` at `:145` (blob) · `:164` (thumbnail) · `:205`, none behind a `Depends` | **RED — act installed** |
+| **FW6-G12** one checked shape / one serializer | `response_model` in `admin.py` → **1** (`:110 /stats`) against **13** route decorators — **1 of 13**, and not one of the two the row is about | **RED — act installed** |
+| **FW6-G13** cache identity ⊇ consumed fields | the `extraction_cache_key` literal re-read whole: `_v` ⊕ ten parameters, `ml_threshold` → **0** in the window ⟨*D-1 confirmed by this seat too: **eleven** keys, not the spec's "10-field" — a reading correction, substance unchanged*⟩ | **RED — act installed** |
+| **FW6-G14** contour provenance / bounds on write | `contours.py` still calls `store_contour_asset(xs, ys, req.image_slug, source="editor")` with neither `image_bounds` nor `extraction_cache_key_value`; both still default `None` at `image_storage.py:285-291` | **RED — act installed** |
+| **FW6-G15** canonical-geometry TRIPWIRE | `def order_contours` repo-wide → **0**; `.gitignore:53 scripts/*`; `moon.json` still tracked. **TRIPWIRE HELD**: fourier HEAD `3bac3d52` and **0** dirty at open and at close — **no regeneration was attempted, proposed or implied** in any of this wave's six files | **RED BY DESIGN** |
+| **FW6-G16** value-side routing receipt | receipt present (**318 L / 20,839 B**, line 1 `SERVED MODEL`); **two authorities** carried separately (`lane-crud` ×8 · the `value.js API row` edge row ×17) and **never fused**; **V-α's non-membership re-measured by this seat** — on the edge row, `V-β` **4** · `TA-4` **3** · `V-γ` **1** · **`V-α` 0**, and ⟨cmd⟩ `/usr/bin/grep -l '§6c' waves/F-W5.md` → **no output, exit 1**; value tree **0 · 0** at close | **GREEN — falsifier met** |
+| **FW6-G17** no double-booking / span closure | **run independently by this seat, not read from unit `i`** — see §Close.2a | **GREEN — falsifier met** |
+| **FW6-G18** owner rulings before any conditioned burn | **falsifier MET at the settled bytes** — see §Close.2b | **GREEN AT CLOSE** ⟨*the wave's own stamp reads RED; disclosed, never rewritten*⟩ |
+| **FW6-G19** F.W0 re-grounding | receipt present (`SUBSTRATE-LEDGER.md`, **201,985 B**, Sep 17 15:03); substrate re-grounded (`3bac3d52`, **0** dirty, against the born-RED `cd26c653` / **28**); the anchor re-resolution **spot-audited at the fourier bytes** — see §Close.2c | **GREEN — falsifier met** |
+
+**Tally at close: 4 GREEN · 15 RED**, of which **14 are RED-with-the-commissioned-act-installed** (the
+landing is fourier's, under COMMISSION §2) and **one is RED BY DESIGN** (FW6-G15). **Zero gates argued green
+over bytes that did not move.**
+
+#### §Close.2a — FW6-G17 RE-RUN INDEPENDENTLY, both directions
+
+The operand was taken from the canonical, never from the wave's receipt: ⟨cmd⟩ `shasum -a 256 $C | cut -c1-12`
+→ **`f44362757458`**, double-run — a character-match to the spec's frozen pin. The two roster headings read
+**`### F.W5 — **27 rows**`** and **`### F.W5-W8 — **89 rows**`**; this seat **expanded the two blocks into
+`(record, id)` pairs rather than adding the integers** → **116** pairs, double-run **116**.
+
+**FORWARD.** Each of the 116 probed against `waves/F-W6.md` with a boundary-anchored `-E` pattern, the
+**eleven** colliders (`M-13 · L-B1 · L-M3 · C-17 · C-18 · B-1 · B-2 · C-2 · M-10 · M-9 · C-7`) probed as
+**(record, id)** pairs, and each hit classified by the **line range of the section it falls in**
+(§2.1–§2.10 = BOOKED · §2.11/§2.11c/§2.11d = CITED · §5 = EXCLUDED). **Result, double-run byte-identical
+(`cmp` → IDENTICAL): BOOKED 62 · CITED 53 · NONE 1.** The single NONE is **`fr-ImageUpload` `C:C-12`**,
+and it is **the exact divergence unit `i` disclosed** — the spec addresses that identity by ROW NUMBER
+(⟨cmd⟩ `/usr/bin/grep -c 'fr-ImageUpload\` row 26' waves/F-W6.md` → **1**, §2.11c BLOCK C). **115 land on
+their id token, 1 lands on a row-number address, 0 land nowhere. Zero silent drops, confirmed from the
+canonical side by a seat that wrote none of the wave's bytes.**
+
+**REVERSE / (b) / (c).**
+
+- **the register's id column against the spec** — every id extracted from §1's table resolves inside a
+  landing range of `F-W6.md` (e.g. `FR-AFP-1` → `:193` §2.4 · `FR-GV-9` → `:202` · `SS-C-1` → `:176-177`
+  §2.1 · `FR-AFP-36` → `:201`). **No id is booked in the register that the spec does not carry** — zero
+  fabrications.
+- **(c) the seven-record negative roster** — ⟨cmd⟩ a boundary-anchored count of each over
+  `burn-register.md`: `fr-App` **1** · `fr-CollapsibleSection` **1** · `fr-MobileFloatingToc` **1** ·
+  `fr-PaperSearch` **1** · `fr-PaperSearchDropdown` **1** · `fr-PaperSearchInput` **1** ·
+  `fr-MorphShapePreview` **1** — and **all seven occurrences are the same line (`:1256`), the reverse-check
+  cell that publishes each as a measured `0`.** **No row is manufactured into any negative-roster record**;
+  the only thing written into them is the zero B5 requires.
+- **record existence** — every `fr-<Record>` token the register names (**38**) resolves to a file in the
+  frozen 66, with **one spelling exception carried as a residual**: `fr-GFC-3` at `:247` is the identity
+  `fr-GalleryFeaturedCarousel FR-GFC-3` written in a hybrid short form. **No identity moves and no set
+  difference collapses** — the canonical id is spelled correctly elsewhere in the same file — but it is a
+  citation-form nick against §4 lock 10 and is rowed below.
+
+#### §Close.2b — FW6-G18: the falsifier, run against the rows that now exist
+
+The gate's GREEN is *"**each conditioned row** either carries its ruling or is explicitly deferred with its
+honest default recorded."* Unit `a` reported it **RED deliberately and correctly at its own clock** — the
+conditioned rows did not yet exist — and **no later unit re-read it**: unit `i` states in its own words that
+*"the other seventeen gates are untouched by this unit."* **The close seat's duty is exactly to re-read it at
+the settled bytes, and the falsifier is MET:**
+
+⟨cmd⟩ every `⊙`-marked row of §1's register table, scanned for a COHESION §0j.D ruling id — **7 conditioned
+rows, 7 carrying their ruling**: `FR-AFP-1` → **F-PRODRET (R3)** · `FR-AFP-66` → **F-SS4REST R6** ·
+`FR-AFP-36`/`FR-AFP-71` → **R7**, with the module-split half *"named open, never presumed"* (the gate's
+second disjunct, explicitly used) · §2.8 born-visibility → **R8** · `FR-GFC-3` → **R4**, re-homed to F.W4 ·
+`PP-DEADSEAM` → **F-TRIE (R2)** · `FR-GV-12`/`FR-GV-24` → **F-SS4REST**. The two the gate names as
+**load-bearing and dropped at the first pass** are both carried: **R5** on the cited `fr-BasisSelector M-9`
+row (`:248`, *"a **cited** row, not a booked one… no F.W6 booking"*) and **R9** with its ⊙ **attached** to
+`FR-USB-23` travelling to F.W8 (`:252` in the register, `:187`/`:231` in the courier — *"F.W6 neither wires
+nor deletes it"*).
+
+⊘ **This seat publishes the reading and rewrites nothing.** The divergence runs in the **conservative**
+direction — the wave under-claimed a gate rather than over-claimed one — so it is **not** an L-18 base
+(*"a gate argued green over…"*); its mirror image would be. Unit `a`'s receipt stands unedited under E-3;
+the reading is recorded here and appended to the ledger row as an addendum beside the wave's own count.
+
+#### §Close.2c — FW6-G19's anchor re-resolution, spot-audited at the fourier bytes
+
+Unit `a` published **16 ⟨beside⟩ corrections** and claimed *"NOT ONE ANCHOR IS FALSE."* This seat re-ran the
+four load-bearing ones at `3bac3d52`, and **all four reproduce exactly**:
+
+| unit `a`'s correction | this seat's read |
+|---|---|
+| the restore route is `visualizations.py:430`, not `admin.py:430` | ⟨cmd⟩ `sed -n '430p' admin.py` → `result = await db.visualizations.update_many(` · `sed -n '430p;445p' visualizations.py` → `@router.post("/{slug}/restore")` · `result = await softdelete.restore(…)` — **the collision is real and the correction is right** |
+| `GalleryView.vue:128` is a REACHABILITY claim, not syntax | `:128` → `result.liked ? s.add(hash) : s.delete(hash);` · `gallery.ts:195` → `const liked = true;` — **the delete arm IS present and IS unreachable**; unit `d` must not cure the ternary |
+| `reconstructed_points` strikes at `equations.py:114·:128` ⊕ `models/equations.py:33` | all three sites reproduce verbatim — the spec's `:100-106` is the compute, not the field |
+| §4 lock 9's WAVE-LOCK normaliser at `GalleryCard.vue:39` | `const key = b.startsWith("fourier") ? "fourier" : b;` — **character-match** |
+
+---
+
+### §Close.3 — the close act's four artefacts, verified at the bytes
+
+| artefact | spec authority | verified |
+|---|---|---|
+| `waves/F-W6/burn-register.md` | bounds row 2 · **FW6-G17's operand** | **1,323 L / 288,543 B**; line 1 = `SERVED MODEL: claude-opus-5[1m]`; §0 preconditions ⊕ §1's id-column table ⊕ **§2 unit stamps, all NINE units stamped `a`…`i`** |
+| `waves/F-W6/value-side-routing-receipt.md` | bounds row 3 · **FW6-G16's whole artefact** | **318 L / 20,839 B**; line 1 `SERVED MODEL`; §2.1/§2.2 the two authorities apart, §2.3 V-α's non-membership, §4 TA-4 **RULED RE-SCOPE**, §5 the zero-byte condition |
+| `coordination/value-to-fourier-2026-09-17-provenance-burndown-F.W6.md` | bounds row 4 · the **only** courier | **265 L / 33,021 B**; line 1 `SERVED MODEL`; dated at the execution day — **not back-dated into August**, which bounds row 4's own clause forbids (minuted D-5) |
+| `docs/tranches/V/coordination/INBOX.md` | bounds row 5 · **append-only** | **O-27** rowed, `SENT 2026-09-17 — AWAITING RECIPROCAL`; `--numstat` **3 / 0** |
+
+---
+
+### §Close.4 — E13, swept again by this seat at close
+
+Four paths ⊕ the Track-C fourier mail surface (COHESION §0k.1), read-only, classification from each row's
+**status cell** and never from a bare `grep -i unread` (X.P.W0 CHECK 1 **D-1**); `INBOX.md` self-excluded.
+
+1. `docs/tranches/V/` + `V/coordination/` — newest non-self is **ours** (`…-o8-o11-amendment-addendum.md`, rowed **I-26**).
+2. `../glass-ui/docs/tranches/BK/coordination/` — **BK re-confirmed the newest glass tranche dir**; the single entry newer than the wave's own close sweep is `valuejs-outbound-2026-09-18-kfw6-bh-relay.md`, **OURS** (the O-26 mirror). The three 09-17 letters remain **I-32 · I-33 · I-34**, rowed.
+3. `../keyframes.js/docs/tranches/V/coordination/` — every `VALUEJS-INBOUND-*` is **ours (outbound)**; nothing addressed to value.js.
+4. `../sci-report/atlas/docs/tranches/{P,Q}/coordination/` — newest are **O-12 (ours)** and **I-27 (rowed)**.
+5. *(Track-C extension)* `../fourier-analysis/docs/tranches/F/coordination/` — `INBOX.md` ⊕ three May files; **O-22 and now O-27 both awaiting their reciprocal**, consistent with their own cells.
+
+**`UNREAD` measured honestly, not by a bare grep**: the token occurs on **5** `| I-` rows (`I-30 · I-31 ·
+I-32 · I-33 · I-34`), and on **every one of them it is body prose, never the status cell** — this seat read
+the terminal cell of all five: they are **Routing** cells, sending I-30/I-32/I-34 to **X-W0.j / X-EXT-1**,
+I-31 to the **X-W0 close**, I-33 to the **X formation mail seat**. **0 unrowed letters · 0 new `I-n` ·
+0 UNREAD in F.W6's scope. The wave does not close with UNREAD mail.**
+
+---
+
+### §Close.5 — residuals, each with a named owner
+
+| # | residual | owner |
+|---|---|---|
+| **R-C1** | **Seventeen gates RED awaiting fourier landings** (G1–G14 acts installed, G15 RED by design, plus the two the split verdict holds open in form). **The wave's designed shape, not a shortfall** — the landings are fourier's under **COMMISSION §2**, asked by courier **O-27** | **fourier sub-session** (COMMISSION §2); receipt tracked at O-27 |
+| **R-C2** | **FW6-G18 reads GREEN at close** while the wave's stamp reads RED (§Close.2b). Conservative divergence, disclosed; no receipt rewritten | **L-18 CHECK 1 / CHECK 2** (fresh-Fable) to adjudicate the count |
+| **R-C3** | **`fr-GFC-3` hybrid spelling** at `burn-register.md:247` — a citation-form nick against §4 lock 10's record-qualification. **No identity moves**; the set-difference is unaffected (verified) | **F.W6's own register**, correctable by dated addendum-beside; non-blocking |
+| **R-C4** | **`fr-ImageUpload C:C-12` is addressed by row number**, so a bare-token probe is unrunnable at that id (independently reproduced by this seat: the one NONE in 116) | routed in the courier as a citation-form note; **F.W5/F.W8 citation hygiene** |
+| **R-C5** | **Two §0.3 "immutable" pins have moved** (`CENSUS-2026-08-03.md` · `INTAKE-ADJUDICATION-2026-08-03.md`); the census's quoted routing law is **byte-true at the moved file**, the intake is read nowhere here, and `lane-crud.md` is **character-matched and unmoved** | **the purge/pin seat** under R4-8.1 LAW E; no operand of this wave moves |
+| **R-C6** | **Two spec §2.10 anchor drifts** (V-γ `crud.ts:119` → `:118`; V-β's `:44-47` window), recorded as dated addenda-beside with the INTENT at the true bytes | **the value.js API row**, on receipt of the routing receipt |
+| **R-C7** | **Four BLOCK A escapes canonically F.W4-held while cited to an F-W5 clause** (`FR-EQR-4` · `D-L4` · `L-M7` · `L-m13`). **Clause ≠ home**; F.W6 books none of the four, so no double-credit | **F.W4** |
+| **R-C8** | **The §6 one-sided re-authoring under R1** (`J-diff-shape-v2.md`) is **COMMISSIONED, not performed** — F.W5's surface, outside this wave's bounds | **F.W5** |
+
+### §Close.6 — escalations, and landed-wrong findings
+
+**Escalations: NONE.** **Landed wrong: NONE.** Every write of all 28 commits falls inside the wave's §1
+bounds writable set plus the record and the ledger; zero fourier bytes; zero value-tree bytes; `dev.sh` in
+**0** of 28; commit families intact; no `stash`, no `reset --hard`, no force-push; no allowlist, no skip, no
+masking fallback, no near-cure substituted for a specified one; the spec's own bytes unmoved (E-3).
+
+### §Close.7 — the four-verb line, moved exactly as the spec says it moves
+
+Spec `:69`: *"AUDITED **YES** … SPECIFIED **YES — by this file** · IMPLEMENTED **NO** · VERIFIED **NO**
+(stamped only at the X·F release close; **no wave stamps VERIFIED at its own close**)."*
+
+**AUDITED YES · SPECIFIED YES · IMPLEMENTED YES (this close, 2026-09-17 sitting / stamped 2026-09-18) ·
+VERIFIED NO** — and **VERIFIED is not this seat's to stamp**: it is the X·F release close's, after L-18's
+two fresh-Fable gestalt passes. This close seat verifies; it does not accept.
+
+**F.W6 — IMPLEMENTED. Close verified by a seat that authored none of the wave's bytes.**
