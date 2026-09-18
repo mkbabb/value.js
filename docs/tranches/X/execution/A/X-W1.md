@@ -764,3 +764,201 @@ an unstaged `demo/App.vue` sorting first arrives as `emo/App.vue`, matches no
   unit's scope.
 - `scripts/dev/dev.sh` untouched and unstaged throughout; both commits carry their own
   pathspec on the commit itself; no sibling seat's path entered either index.
+
+### X.W1.d
+
+**Deploy dependency truth (CC-034) + the `release.yml` ride-in · G-15 · G-16 ·
+opus (`claude-opus-5[1m]`) · worktree `/Users/mkbabb/Programming/value-js-x-w1-d`** — 2026-09-18.
+Gates read at **`2e1fd65f`**, which contains X.W1.c's `cad51f9e` (the LOCK: G-13 and G-16 on ONE
+commit). Commits: **`62ccf4a1`** · **`8a7792b9`** (the §0j.F(3) ride-in, one file, verbatim) ·
+**`7bc72838`** · **`2e1fd65f`** (Commit Plan row 4, `ci(deploy-pages/glass-pin)`) ·
+**`01d38273`** (row 6, evidence). Full record:
+`docs/tranches/X/evidence/w1/deploy-pin/G15-G16-2026-09-18.md`.
+
+#### Act 0 — the worktree (the spec's, not yet made)
+
+`W1.md:196` assigns this unit `/Users/mkbabb/Programming/value-js-x-w1-d`; at dispatch it did not
+exist (the open baseline says so at `:170-172`). ⟨`git worktree add --detach … 7bc72838`⟩, later
+⟨`git checkout --detach 2e1fd65f`⟩ when the census correction landed — **every published figure was
+re-measured at `2e1fd65f`**, none inherited from the first mint. Detached, never a branch: the
+commits land on `tranche-u` from the primary tree by pathspec.
+
+#### Act 1 — the `release.yml` ride-in, this unit's FIRST commits (COHESION §0j.F(3), WO-4)
+
+Two commits, one file, **verbatim** — replayed and then compared blob-for-blob, not re-authored:
+
+| step | receipt |
+|---|---|
+| the base is the patches' own parent | ⟨`git rev-parse e2652f1c^:.github/workflows/release.yml`⟩ → `76379dda` = ⟨`git rev-parse HEAD:…`⟩ at open → `76379dda`; zero fuzz, zero conflict |
+| `62ccf4a1` | blob `4d5c490e` = `e2652f1c`'s `4d5c490e` |
+| `8a7792b9` | blob `4f9cd042` = `44ddaff7`'s `4f9cd042`; ⟨`git diff HEAD:… 44ddaff7:… \| wc -l`⟩ → **`0`** |
+
+Each carries its original subject + body, `(cherry picked from commit …)`, and the session trailer.
+**Recorded so the log is not misread:** the two are **not adjacent** — a Track C seat committed
+`121dd4f1` between them. Four tracks share this index; the pathspec-on-the-commit discipline is what
+makes that harmless.
+
+#### Act 2 — the cure (`7bc72838`, corrected at `2e1fd65f`)
+
+⟨`git diff --stat 7bc72838^ HEAD -- .github/workflows/deploy-pages.yml`⟩ → **52 insertions, 29
+deletions**; **11 steps → 8**. Removed: the `actions/checkout` of `mkbabb/glass-ui` at its
+`tranche/BG` branch (`:80`) and its build step; the keyframes.js checkout and its build step. Added:
+one assertion step. `npm ci` — already present — **is** the registry install the declared `^7.0.0`
+implies. The stale *"un-pin at the 5.0.0 master landing"* comment is retired and replaced by what is
+true at the bytes, including why the old text was false (the waypoint was skipped; glass went
+4.2.0 → 7.0.0).
+
+⟨`git diff 7bc72838^ HEAD -- … | grep -E '^[-+]' | grep -icE 'wrangler|O-25|CLOUDFLARE'`⟩ → **`0`**,
+and the same for `workflow_run|conclusion|head_branch|permissions|concurrency` → **`0`**: **the
+trigger gate and the shipping half are untouched.**
+
+Two departures, both stated rather than slipped in:
+
+- **The keyframes.js checkout went with glass's**, though `W1.md:258-259` names only glass. Identical
+  dead premise, measured by the same instrument (`@mkbabb/keyframes.js: ^6.0.0`, registry-pinned in
+  the same lock), and it is what makes the amended job reproducible for G-16 **without writing into a
+  sibling repo** — READ-ONLY to this seat. A stated extension of the spec's cure, never a substitute.
+- **The nested-workspace layout is kept byte-for-byte**, its comment corrected. It is orthogonal to
+  the provenance defect, it is the shape every recorded successful deploy ran under, and unwinding it
+  is a structural change no local run can verify while X.W1.e's G-19 depends on this workflow's first
+  push-arm success. **Booked as a residual for the X-W11 release close**, not left with a false
+  justification.
+
+**WRITE-THEN-MEASURE caught this seat's own error, recorded rather than quietly fixed.** `7bc72838`
+wrote B13's census into the comment verbatim (*"`./blob` ×5 sites incl. `useAtmosphere.ts`"*).
+Re-measured in a fresh install at the settled bytes, the six-row family has **split across two
+subpaths** and the files have moved: `./blob` **2** (`demo/picker/visual/HeroBlob.vue:34,:35`) ·
+`./blob-config` **3** (`demo/scenes/blob/BlobPane.vue:12,:13`,
+`demo/color-picker/composables/boot/useAtmosphere.ts:36`) · `./chip` **1**
+(`…/EasingSpecimenStrip.vue:14`). Fold R56's count and site list hold; the **subpath split** is what
+drifted. `2e1fd65f` corrects the comment and widens the assertion to `./blob-config`, so the file's
+prose and its code state the same measured thing. **B13 itself is not edited** (E-3) — this is the
+dated correction beside it. Also measured: the demo imports **20** glass-ui subpaths (B13 read 18);
+**20 of 20 resolve**; the 7.0.0 exports map holds **74** entries.
+
+#### Act 3 — the amended workflow's EXACT steps, run from the file's own bytes
+
+A driver parses `deploy-pages.yml`, takes each build step's `run:` **verbatim**, prints it and
+executes it — so *"exact steps"* is a fact, not a transcription
+(`deploy-pin/workflow-exact-steps-2026-09-18.txt`). The two shipping steps (wrangler, O-25) are
+deliberately not run: they need CF credentials and would cut a **Production** deployment, which
+would destroy X.W1.e's G-20 before/after asset-hash probe.
+
+`rm -rf node_modules` → ⟨`npm ci`⟩ **added 438 packages**, rc 0 → ⟨assert step⟩ **exit 0** →
+⟨`npm run build`⟩ `✓ built in 2.18s` → ⟨`npm run gh-pages`⟩ `✓ built in 3.29s` → `dist/gh-pages`,
+**130 files** (45 JS · 17 CSS), entry `assets/index-Bzkubr2p.js`.
+**DIVERGENCE recorded:** node **v26.0.0** locally against the workflow's `node-version: 24` — this
+host has no node 24 toolchain (`/opt/homebrew/opt/node@24` is itself v26). The steps reproduce; the
+runner's node major does not.
+
+#### Act 4 — `./blob` and `./chip` resolve in the deploy build (the sub-gate, `W1.md:264`)
+
+Proved twice — once by the resolver, once **in the emitted bytes of the artifact that would ship**:
+
+| probe | reading |
+|---|---|
+| the workflow's assert step | `./blob` → `…/dist/blob.js` · `./blob-config` → `…/dist/blob-config.js` · `./chip` → `…/dist/chip.js` · `@mkbabb/glass-ui 7.0.0 <- https://registry.npmjs.org/…-7.0.0.tgz` · exit **0** |
+| ⟨`ls -ld node_modules/@mkbabb/glass-ui`⟩ | a real directory, **not** a symlink; hidden-lockfile `link` unset |
+| ⟨`grep -rl '#version 300 es' dist/gh-pages/`⟩ — the `./blob` graph's GLSL | **2 files**: `assets/HeroBlob-ATp0M0T-.js` (the async chunk of the only `./blob` importer) + the entry |
+| ⟨`grep -rl 'glass-chip__remove focus-ring' dist/gh-pages/assets/`⟩ — a literal from `dist/chip-*.js` | **1 file**, `assets/_plugin-vue_export-helper-BY3JwTuk.js` |
+
+#### Act 5 — G-15's falsifier, executed on the REAL branch bytes
+
+`tranche/BG` re-measured at this clock: ⟨`gh api 'repos/mkbabb/glass-ui/commits?sha=tranche/BG&per_page=1'`⟩
+→ **`f3f3c097`, 2026-07-11**; ⟨`gh api '…/contents/package.json?ref=tranche/BG'`⟩ → **`5.0.0`**, 93
+exports entries, `./blob` · `./blob-config` · `./chip` **all false**. The step body is **extracted
+from the workflow's own YAML**; each arm is a package root in the session scratchpad — **no sibling
+tree is written to and no `node_modules` inside any repo is patched** (glass-ui READ-ONLY, always):
+
+| arm | one knob | exit | message |
+|---|---|---|---|
+| 1 | resolution reverts to a **linked** sibling | **1** | `… is a link to file:../glass-ui — the deploy must build against the registry` |
+| 2 | a non-registry resolution | **1** | `… resolved from file:/some/sibling/tree — not the registry` |
+| 3 | **the branch checkout** — the real `f3f3c097` map | **1** | `ERR_PACKAGE_PATH_NOT_EXPORTED: Package subpath './blob' is not defined by "exports"` |
+| control | registry 7.0.0 | **0** | all three subpaths resolve |
+
+**THE FINDING THAT CHANGES WHAT THIS DEFECT WAS — stated loud.** The branch checkout was already
+**INERT**: `package-lock.json` pins the registry tarball, so `npm ci` installs 7.0.0 **regardless of
+the checked-out sibling**. Measured at the strongest available witness — this worktree sits directly
+beside `/Users/mkbabb/Programming/glass-ui`, whose working tree is at **9.0.0**, and `npm ci` still
+resolved **7.0.0 from the registry**. So DR-22's defect is **not** *"the deploy builds against
+5.0.0"*; it is (i) a **false provenance claim** in a step name (the FM-19 shape) and (ii) **wasted
+runner minutes**. That is why no live red could be staged by re-adding the checkout — the measurement
+*is* the finding — and why arm 3 demonstrates the falsifier's **mechanism** on the true bytes instead
+of faking one. **This independently agrees with X.W1.c's withdrawal** of the pin's claim to be NV-7's
+root (`X-W1.md:496-504`): a step that changes no resolution cannot be the root of a build-shape
+defect. **CC-034 is not retired by that** — the provenance defect is real and is what G-15 cures.
+
+#### Act 6 — G-16, and the paired G-13 reading on ONE commit
+
+| run | build provenance | result |
+|---|---|---|
+| **G-16 run 1** | the amended workflow's exact steps | **5/8** seed cases |
+| **G-16 run 2** (double-run) | the same artifact, untouched | **5/8**, same seeds |
+| **G-13 (paired)** | `boot-smoke --build` at the **same commit** | **5/8**, same seeds |
+
+`default` **PASS 4/4** on both builds; `deep-link-grey-808080`, `deep-link-lch-none`,
+`deep-link-oklch-none`, `persisted-oklch-none` PASS; `deep-link-black`, `deep-link-grey-333333`,
+`persisted-black` FAIL on both — the **same three** R16 hsv-powerless greys X.W1.c measured at
+`cad51f9e`, seed for seed.
+
+**The two builds are the same BYTES, not merely the same verdicts.** ⟨`find dist/gh-pages -type f |
+sort | xargs shasum -a 256`⟩ over both, then ⟨`diff`⟩ → **BYTE-IDENTICAL, 130/130 files**
+(`deploy-pin/artifact-sha256-2026-09-18.txt`). The paired-lock falsifier — *"passing this while G-13
+is red on the same commit means the two builds differ"* — is discharged in its strongest form.
+⟨`diff`⟩ of the artifact hashes before and after the probe → **IDENTICAL**: the probe does not mutate
+what it measures.
+
+**The three seed REDs are the fold's born-RED arm and are NOT masked.** R16/R17's cures are routed to
+**X-W9** and **X-W5 + X-W9** (`X-W1.md:562-569`); `boot-smoke.mjs` exits non-zero and names them.
+This unit added no `test.skip`, no allowlist, no try/catch, no filtered assertion, no widened bar.
+Their presence is the proof the matrix discriminates: the same three, and only those three, on both
+builds.
+
+**GATE READINGS, BEFORE → AFTER**
+
+| gate | BEFORE (open baseline, `X-W1.md:137-138`) | AFTER | basis |
+|---|---|---|---|
+| **G-15** — `deploy-pages.yml` resolves glass from the registry; no `ref: tranche/BG` | **RED** — `grep -n 'ref:' …` → `:80 ref: tranche/BG`; remote head re-verified **5.0.0** | **GREEN** — ⟨`grep -c 'ref: tranche/BG'`⟩ **1 → 0** · ⟨`grep -c 'repository: mkbabb'`⟩ **2 → 0**; the 2 surviving `tranche/BG` strings are **prose** recording what was retired. Registry resolution proven positively (7.0.0 ← registry tarball, not a link, 20/20 subpaths resolve) and made **structural**: the new step reds the deploy **before** the build. Read per fold R56(b)(c) on the resolution clause + the branch-checkout falsifier, **never** on the exports-map cell | `deploy-pin/G15-G16-2026-09-18.md` §2, §5 |
+| **G-15 · the born-RED exports-map *citation*** | **GREEN-BEFORE-CURE** at the installed pin (open finding 1) | **unchanged, and re-measured at the pin of the day** — 7.0.0 exports `./blob` · `./blob-config` · `./chip`; the **branch head** (`f3f3c097`, 5.0.0, 93 entries) exports none of the three. R56(e)'s re-measure-at-repin clause restated for X-W0.j/X-W4.g | §3, §5 |
+| **G-16** — the prod-preview probe against a build from the amended workflow's exact steps, GREEN | **RED** — never run post-pin (the pin was live) | **GREEN** on its W1.md condition — `default` **4/4** against a build made by the workflow's own step bytes; **byte-identical (130/130)** to G-13's build at the same commit; **5/8** three times | §6 |
+| **G-16 · fold R16/R17 seed-matrix arm** | RED (no instrument, no post-pin build) | **BORN-RED, as the fold declares it** — 3 of 8 fail, identically on both builds; routed to X-W5/X-W9, named, unmasked | `boot-smoke-g16-run{1,2}` |
+
+#### Residuals and escalations
+
+- **NONE at ESCALATION level.** No Triumvirate trigger fired: no write under `src/`, `demo/` or
+  `api/`; **boot-smoke prod-preview is GREEN on its condition *after* the pin landed** (the trigger
+  is a RED there, which would have falsified the leading NV-7 root — X.W1.c already withdrew that
+  claim on other evidence); no diagnostic loop reached a second iteration, let alone a third.
+- **RESIDUAL 1 — the nested-workspace layout carries no sibling any more.** Kept byte-for-byte with a
+  corrected comment; booked for the **X-W11 release close**. Act 2 states why it was not unwound here.
+- **RESIDUAL 2 — the `node-version: 24` divergence** (node v26 locally). Recorded, not papered over.
+- **CONSUMED, not cured — X.W1.c's R1 hand-off** (`X-W1.md:576-583`, the undeclared `gh-pages` build
+  input). The amended workflow is **immune by construction**: `npm ci` runs `prepare` (which builds
+  the library dist) and the explicit `Build value.js dist` step follows it, both before
+  `npm run gh-pages`; this seat's runs began from `rm -rf node_modules`. The `pregh-pages` hook lives
+  in `package.json`, which is **X.W1.a's** — not cured here.
+- **NOT this unit's act — the repin.** ⟨`npm view @mkbabb/glass-ui version`⟩ → **9.0.0**, which does
+  not satisfy the declared `^7.0.0`. X-W0.j / X-W4.g own it; R56(e) requires the exports map be
+  re-measured **before** any citation of B12/B13 after it.
+- **Lint cadence.** **actionlint 1.7.12 installed at this seat** (ABSENT at open) → **exit 0, 0
+  findings** on both workflow files and over the whole directory, with `shellcheck` present so the
+  `run:` bodies were linted too; ⟨`npx prettier --check`⟩ green on both; ⟨`git diff --check`⟩ rc 0
+  before every commit. **The §Format-And-Lint fallback is refused with its reason**: `deploy-pages`'s
+  only manual arm is `workflow_dispatch` and wrangler is hard-coded to `--branch=master`, so a
+  scratch-branch dispatch cuts a **Production** deployment and would destroy X.W1.e's G-20
+  before/after probe. Every `run:` body this unit touched was **executed** from the file's own bytes,
+  which is stronger evidence than a lint.
+- **HAND-OFF to X.W1.a and X.W1.e.** (i) `deploy-pages.yml` no longer checks out or builds any
+  sibling; a CI job that wires the deploy-age check (WO-3, G-21) needs nothing from this file.
+  (ii) X.W1.e: the trigger gate, the `if` triple, and the wrangler/O-25 steps are **byte-unchanged**,
+  so G-19's push arm fires exactly as authored — what changed is only what the build links.
+  (iii) `release.yml` is reconciled with `origin/master` (`8a7792b9` = `44ddaff7`'s bytes), so
+  §0j.F(2)'s both-changed-path resolution has nothing left to decide there.
+- **E13 mail**: four paths swept read-only at this seat's clock. The newest glass **BK** file is
+  `valuejs-outbound-2026-09-18-kfw6-bh-relay.md` — **our own outbound** (Track B's KF.W6 `.b`); the
+  newest inbound rows remain **I-32 · I-33 · I-34**, rowed by Track D and routed elsewhere. **0
+  unrowed · 0 new `I-n` minted · 0 UNREAD in this unit's scope**; not one row names
+  `.github/workflows/**`.
+- `scripts/dev/dev.sh` untouched and unstaged throughout; all five commits carry their own pathspec
+  **on the commit itself**; no sibling seat's path entered any index of mine.
