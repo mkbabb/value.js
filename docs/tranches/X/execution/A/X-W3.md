@@ -1291,3 +1291,268 @@ body plus its spec. Both commits compile and both are green in isolation. Stated
 7. **`npm run lint` is absent in `api/`** — §7's cadence names a script the package does not
    carry (X.W3.6 measured the same). Root eslint over the touched paths stands in, exit 0.
    A wave-level fact for the close seat.
+
+---
+
+### X.W3.3
+
+**SERVED MODEL**: `claude-opus-5[1m]` · **unit**: Write contract (X.A3) · **Track A** ·
+**wall clock** `2026-09-18 18:33` → `18:52 EDT` ⟨cmd⟩ `date "+%Y-%m-%d %H:%M:%S %Z"`.
+**HEAD at open**: `3a7aa908` ⟨cmd⟩ `git rev-parse --short=8 HEAD` · branch `tranche-u`.
+**Gates**: G-8 · G-9 · G-10 · G-11. **Status returned: ESCALATED** — **G-9 · G-10 · G-11 GREEN**
+at the bytes; **G-8 RED by BOUNDS** (its mechanism landed and measured at this unit's own file,
+its three product call sites out of set); and `W3.md` **§3a's named triumvirate trigger FIRED**
+and is returned, not absorbed.
+
+#### 0. Crash-recovery (standing law) — no inherited work
+
+⟨cmd⟩ `git status --porcelain` at open → 12 modified + 3 untracked. Checked path by path against
+this unit's ten writable entries: ⟨cmd⟩
+`git status --porcelain api/ docs/tranches/X/contracts/ docs/tranches/V/PALETTE-CONTRACT.md docs/tranches/X/waves/artefacts/`
+→ **empty**. **Not one dirty path is inside this unit's set.** The ten `demo/**` rows and the two
+`e2e/smoke/**a11y-control-targets**` specs are X-W4 unit `a`'s; `docs/tranches/V/reformation/CARRY-LEDGER.md`
+and `docs/tranches/X/waves/evidence/` are sibling seats'; `scripts/dev/dev.sh` is the standing
+unowned dirty row (DR-24, COHESION §0j.A — never touched, never staged). **Nothing stashed,
+restored or reverted.** X.W3.3 inherited **no** partial work.
+
+#### 1. Anchors verified at true bytes before any edit
+
+| spec anchor | true bytes | verdict |
+|---|---|---|
+| `repository/palette.ts:107-115` `update()` | `:107-115`, `updateOne({slug}, update).then(() => undefined)` | **EXACT** |
+| `etag.ts:37-51` `assertIfMatch` | `:37-51` | **EXACT** |
+| `routes/crud.ts:122` · `routes/publish.ts:39` (the two existing call sites) | `:122` · `:39` | **EXACT** |
+| `idempotency.ts:94-99` opt-in branch | `:92-99` (the export opens at `:92`; the branch is `:95-99`) | **DRIFTED — INTENT at `:92-99`** |
+| `routes/versions.ts:66` revert returns 200 | `:82` (X.W3.1 added the list authorization, X.W3.2 the joined detail read above it) | **DRIFTED — INTENT at `:82`** |
+| §5's *"callers assert `matchedCount === 1`"* | the callers are **services**, not routes: `service/crud.ts:224` · `service/versions.ts:215` · `service/visibility.ts:174` (routes never touch a repository — `inv-L-5`, `routes/crud.ts:92`) | **OUT OF SET → `ESC-W3.3-CAS-CALLERS`** |
+| §7 `cd api && npm run lint` | the script does not exist (X.W3.1/.2/.6 measured the same); root eslint stands in | **INTENT at the true bytes** |
+
+#### 2. Acts, in order
+
+**Act 1 — the spec BEFORE the cure (S-11 / L-18).** `__tests__/palette-write-contract.test.ts`
+(create) run against the uncured bytes: ⟨cmd⟩ `npx vitest run …/palette-write-contract.test.ts`
+→ **`Tests 11 failed | 3 passed (14)`**. The three passing rows are deliberate **both-sides
+controls** (the fork happy path; CC-039's existing replay, which the requirement rides on and
+must not break; and the scoping row a blanket rule would redden). Transcript
+`W3-3-born-red-baseline.txt`; commit **`7bdce2b7`**. No `test.skip`, no `test.fail()`, no
+allowlist.
+
+**Act 2 — the ETag becomes a WRITE PREDICATE (G-8).** `etag.ts` gains `paletteETagFilter(p)`
+(the same two fields `paletteETag` reads, in the same order, as a Mongo filter clause) and
+`assertFenceHeld(result)` (`matchedCount !== 1` → `412`), beside the `assertIfMatch` they
+complete. `repository/palette.ts` `update()` returns `UpdateResult<Palette>` and takes the
+expectation as a FOURTH parameter, after `session`, so the out-of-set service callers keep
+compiling untouched.
+
+> **The mapping lives in `etag.ts`, not in the repository, deliberately.** No repository in this
+> codebase imports `platform/http/errors` (⟨cmd⟩
+> `grep -rn "errors/index.js" api/src/modules/*/repository/*.ts` → **0 hits**), and the one
+> existing CAS — `color/repository/proposedName.ts:73-79` — guards in the filter and returns the
+> outcome. This unit follows the house shape rather than making the repository the first thrower.
+
+**Act 3 — revert gets the precondition the other two mutating verbs have had since I.W4 (G-9).**
+`assertIfMatch(ifMatch, paletteETag(current))` on `routes/versions.ts` revert, against the doc
+`requireOwnership`'s extractor already stashed (`c.var.palette`, N.W3.E) — **exactly** as
+`routes/crud.ts:122` and `routes/publish.ts:39` do, including the RFC 7232 `*` arm. The `*`
+downgrade is a CLIENT defect and is recorded in canon (§4 below), not "fixed" by making this
+server's `*` handling non-standard.
+
+**Act 4 — `Idempotency-Key` REQUIRED on the two APPENDING operations (G-10).**
+`IDEMPOTENCY_REQUIRED` in `platform/http/idempotency.ts` declares `POST …/revert` and
+`POST …/forks?`; absent key → `400` before the handler runs. The rule is declared beside the
+store it arms rather than mounted per-route **because the mount is already global**
+(`app.ts:73`, ahead of routing) — and because `routes/forks.ts` is **X.W3.4's** file: a
+per-route mount would have needed an out-of-bounds write to arm half the gate. `forks?` covers
+the singular route mounted today AND the plural X.W3.4 renames it to, so G-12 cannot silently
+disarm G-10 (falsifier **F-5** measures exactly that).
+
+> **Stated, not discovered later**: that middleware runs before routing, so a keyless request to
+> those two operations reads `400` before its auth guards run (an anonymous keyless revert is
+> `400`, not `401`). The refusal is computed from method+path alone and discloses nothing. The
+> alternative — the rule copied into each route after its guards — is the per-route drift this
+> contract exists to prevent. `palettes-ownership.test.ts`'s 401/403 rows are **unaffected**
+> (those test apps do not mount the middleware) and stay green.
+
+**Act 5 — revert answers `201` CARRYING the appended revision (G-11, fold §CrossEdges §B).**
+The release is the palette's head (`listVersions` sorts `{revisionNo: -1, _id: -1}`, X.W3.2 ·
+S-6), emitted in the same `{hash: _id, …row}` envelope the list and detail routes use, **beside**
+the palette fields so an existing `FormattedPalette` consumer keeps reading one. A bare `201`
+would have closed the gate and stranded X-W7's `VHD-4`; falsifier **F-4** proves the payload
+clause is measured.
+
+> **The head read is the in-bounds shape, and its successor act is named.** `revertToVersion`
+> returns `{ palette }` only; returning the row it just inserted needs `service/versions.ts`
+> (out of set) — `ESC-W3.3-REVERT-RETURNS-RELEASE`, hunk banked. The head IS the appended
+> release for an attributable caller (`requireOwnership` guarantees one), and the empty-head
+> branch throws a **server** error rather than a client one, because an empty head there would
+> mean the palette and its release log disagree.
+
+**Act 6 — the canon (D-3 / §11 / the fold's G-9 rider).**
+`docs/tranches/X/contracts/WRITE-CONTRACT.md` (create, 212 lines) + `PALETTE-CONTRACT.md §5`.
+Commit **`47ea1029`**.
+
+**Act 7 — L-19 falsifiers, five arms, each applied to the cured tree, measured, restored.**
+Transcript `W3-3-falsifiers.txt`. Restores are `cp` from a scratchpad copy; **the git index was
+never touched** (no stash, no `checkout --`, no reset) and ⟨cmd⟩ `git status --porcelain api/`
+is **empty** after the last arm.
+
+| falsifier | edit | reading | reads |
+|---|---|---|---|
+| **F-1 (G-8)** | `update()`'s filter forced back to `{ slug }` | `2 failed \| 13 passed` | only the two fence rows; the `UpdateResult` return and `assertFenceHeld` stay green — independent bytes |
+| **F-2 (G-9)** | `assertIfMatch` deleted from revert | `2 failed \| 13 passed` | the 428 and 412 rows; the "proceeds" row stays green — it is the control, not the gate |
+| **F-3 (G-10)** | `/revert` removed from `IDEMPOTENCY_REQUIRED` | `1 failed \| 14 passed` | exactly the revert row; fork create stays green — separately armed, not one blanket rule |
+| **F-4 (G-11)** | `c.json({…palette, revision}, 201)` → a **bare** `201` | `2 failed \| 13 passed` | both payload rows; every status row green — fold §B is measured, not decorative |
+| **F-5 (G-10)** | fork matcher `/forks?$/` → `/forks$/` | `1 failed \| 14 passed` | the `s?` is load-bearing today AND is what carries the rule across X.W3.4's rename |
+
+#### 3. Gate readings — BEFORE → AFTER (every figure double-run, byte-identical)
+
+SELF-COUNT: this unit's own spec file lives under `api/src` and names `matchedCount`/`UpdateResult`,
+so every count below excludes `__tests__` and is a **production-byte** count — the denominator
+`W3.md:309` used. Undisambiguated the same greps read `matchedCount=4` · `UpdateResult=3`, and
+3 of those 4 are this seat's own test rows.
+
+| gate | BEFORE (this seat's own baseline at `3a7aa908`) | AFTER | verdict |
+|---|---|---|---|
+| **G-8** | ⟨cmd⟩ `grep -rn "matchedCount" api/src \| grep -v __tests__ \| wc -l` → **1** (`color/repository/proposedName.ts:79`), **0** in the palette domain; `repository/palette.ts:112-114` `updateOne({slug}, update).then(() => undefined)` | `matchedCount` production hits → **3** (`proposedName.ts:79` + `etag.ts:73,74`); palette domain → **2**; `UpdateResult` → **3**. The fence is measured at the repository: a stale expectation matches **0** and `assertFenceHeld` throws `412`, the winner's bytes stand; a held expectation matches **1**. **The three product writes still pass no expectation** — `service/crud.ts:224`, `service/versions.ts:215`, `service/visibility.ts:174` | **RED — mechanism landed, wiring RETURNED (`ESC-W3.3-CAS-CALLERS`)** |
+| **G-9** | ⟨cmd⟩ `grep -rn "assertIfMatch(" api/src \| grep -v "export function" \| grep -v __tests__` → **2 call sites** (`routes/crud.ts:122` · `routes/publish.ts:39`), **none** on `/revert` | **3 call sites**, `routes/versions.ts:86` added. Wire: revert with no `If-Match` → **428** (`urn:contract:precondition-required`); stale → **412** with `name`/`currentHash`/`versionCount` byte-unchanged; current → proceeds | **GREEN** |
+| **G-10** | `idempotency.ts:95-99` — absent key ⇒ `await next()` unconditionally, under *"Opt-in: no key → never replay, never capture."* | Wire: revert without a key → **400**; fork create without a key → **400**; fork create with one → **201**; a replayed key → the **same body**, `Idempotency-Replayed: true`, and ⟨cmd⟩ `countForksOf("source")` → **1** (the handler did not re-run); PATCH without a key → **200** (scoped, not blanket). Canon: `WRITE-CONTRACT.md §5` | **GREEN** |
+| **G-11** | `routes/versions.ts:82` `return c.json(formatPalette(palette));` → **200** | **201**, and the body carries `revision: {hash, revisionNo: 3, payloadHash, name, colors, paletteSlug}` — the row `GET /:slug/versions` then lists **first** (asserted equal), with `palette_versions` holding 3 rows | **GREEN** |
+
+⟨cmd⟩ `cd api && npm test` **run twice** → `Test Files 3 failed | 37 passed (40)` ·
+`Tests 3 failed | 241 passed (244)` — **byte-identical both runs**. Open baseline was
+**39 files / 229 tests with 2 red**; the delta is **+1 file / +15 tests (this unit's spec, 15/15
+GREEN)** and **+1 red**, named in §5. ⟨cmd⟩ `cd api && npx tsc --noEmit -p tsconfig.json` → exit
+**0**. ⟨cmd⟩ `npm run typecheck` (lib · demo · test · e2e) → exit **0**. ⟨cmd⟩
+`npx eslint <5 touched paths> --max-warnings=0` → exit **0**. ⟨cmd⟩ `npx prettier --check` → the
+four files this unit reflowed are clean; `repository/palette.ts` is the one warn and its **3**
+hunks are **pre-existing** (⟨cmd⟩ `npx prettier … | diff -u` → `:44`, `:93-107`, `:240` — none
+inside `update()` at `:109-146`), the same condition X.W3.1 and X.W3.2 recorded and left alone.
+⟨cmd⟩ `git diff --check` → clean.
+
+#### 4. Behaviour deltas this unit chose, stated rather than discovered later
+
+1. **A keyless revert or fork create is `400` before its auth guards run** (Act 4's note). The
+   status is computed from method+path and discloses nothing about the resource.
+2. **The revert response grew a key, it did not change shape.** `revision` rides beside the
+   `FormattedPalette` fields; the demo's `revertPalette(): Promise<Palette>` still type-checks
+   against the body it receives — its break is the two missing HEADERS (§5), not the payload.
+3. **`update()`'s expectation is the fourth parameter, after `session`.** Ugly ordering, chosen
+   so the three out-of-set callers keep compiling byte-untouched; when `ESC-W3.3-CAS-CALLERS` is
+   ruled they pass `session, palette` and the argument list reads in write order.
+4. **The server's RFC 7232 `*` arm is UNCHANGED.** The `undefined → "*"` downgrade is a client
+   default (`useTagEdit.ts:54`), recorded in canon §4(2); bending the server's wildcard to cover
+   a client's default would have been the masking fallback.
+
+#### 5. Escalations returned — not taken
+
+**`ESC-W3.3-CAS-CALLERS`** (artefact `W3-3-ESC-CAS-CALLERS.md`), carrying
+**`ESC-W3.3-REVERT-RETURNS-RELEASE`**. §5's *"callers assert `matchedCount === 1` and map 0 →
+412"* names three **service** files; the spec's own `Files` list for this unit contains none of
+them, because it reads the routes as the callers and `inv-L-5` forbids that. All three are in
+the WAVE's §4 (`modify`); none is in this unit's set. Owners measured: `service/crud.ts` →
+X.W3.1 (closed) · `service/versions.ts` → X.W3.1, X.W3.2 (both closed) · `service/visibility.ts`
+→ X.W3.1 (closed) **and X.W3.5, which has not yet run**. Exact hunks banked for all three.
+**The cure was not bent to read green**: the fence is measured where it exists (the repository,
+5 spec rows) and G-8's wire arm is reported **RED**.
+
+**`ESC-W3.3-DEMO-WRITE-CONTRACT` — `W3.md` §3a's NAMED TRIUMVIRATE TRIGGER, fired**
+(artefact `W3-3-ESC-DEMO-AND-TESTS.md`). §3a (`:103-106`) lists *"the `Idempotency-Key`
+requirement (G-10) **breaking an existing consumer of `POST /:slug/fork`**"* as a **mandatory**
+triumvirate. Measured: ⟨cmd⟩ `grep -rn "idempotencyKey\|ifMatch" demo/palettes/api/versions.ts`
+→ **0 hits** — `forkPalette` (`:43-51`) and `revertPalette` (`:34-38`) send neither header, so
+both shipped calls now answer `400` (and revert `428` after a key). `demo/palettes/api/*.ts` is
+in **no** X-W3 unit's set and the fold books it under *"Not proposed, deliberately"*
+(`X-W3-FOLD.md:704-708`), so the client half is not locally recoverable inside this wave. The
+api cure landed **as specified** — no allowlist, no user-agent exemption, no warn-only mode, no
+grace window — and the break is returned with its hunks. Per `ORCHESTRATION.md`, this seat may
+not be redispatched alone on it.
+
+**`ESC-W3.3-PRECONDITION-TESTS`** (same artefact, §3). Two api test rows encode the OLD contract
+and are in other units' sets, so **neither was touched, not even in the working tree**:
+`palette-versions.test.ts:315-320` (X.W3.2's; G-6's wire row now meets `428` before the join it
+measures — one line adds `"If-Match": paletteETag(before!)`) and `palettes-forks.test.ts:145-169`
+(**already red at this unit's open** for X.W3.2's reason; now `428` rather than `404` — its full
+repair is X.W3.2's release-address hunk + the `If-Match` + `200 → 201`). Both shapes are already
+measured GREEN in this unit's own spec, so the ruling seat is not handed an unproven patch.
+
+**Prior docket, unchanged by this seat**: `ESC-W3-G21`, `ESC-W3-FOLD-A`, `ESC-W3.1-G4-BOUNDS`,
+`ESC-W3.2-PAYLOAD-ADDRESSED-TESTS`, `ESC-W3.2-FIXTURE-TYPE` stand exactly as banked; this unit
+neither discharged nor widened any.
+
+#### 6. Locks honored, each by name
+
+- **D-3 / §11 (CC-039)** — the single-replica LRU relaxation is canon at `WRITE-CONTRACT.md §5`,
+  with its reopening condition stated as a **DEPLOYMENT FACT** — *"if and only if a second api
+  replica is deployed"* — and explicitly **not** as a future wave: *"there is nothing to build,
+  nothing to schedule, and no future wave carries this row."* The source comment
+  (`idempotency.ts:41-46`) now points at the canon, so neither location can become the only one
+  that knows. **The row does not carry again.**
+- **fold §CrossEdges §B** — G-11's `201` **carries the appended revision**; F-4 measures it. X-W7's
+  `VHD-4` has its input.
+- **fold G-9 rider** — canon §4 names all four demo-side deviations at their true bytes
+  (leaf-owned derivation `demo/palettes/api/palettes.ts:172-178` + `TagEditPopover.vue:74`; the
+  `undefined → "*"` downgrade `useTagEdit.ts:54` → `etag.ts:96` skips the check; the discarded
+  PATCH response `TagEditPopover.vue:77`; the stale `updatedAt` re-cache `:76`) and **corrects
+  the phantom cite**: ⟨cmd⟩ `ls api/src/middleware` → *No such file or directory*; ⟨cmd⟩
+  `find api/src -name "etag.ts"` → `api/src/modules/palette/etag.ts`. No gate predicate changed;
+  the document got truer.
+- **§3a** — checked and **TRIGGERED** (§5), returned rather than absorbed. Nothing improvised.
+- **`inv-L-5`** — routes still never touch a repository; the fence is offered where the services
+  can reach it.
+- **No-legacy law** — no alias, no deprecation shim, no compatibility flag for the old keyless
+  revert/fork.
+
+#### 7. E13 mail sweep at this unit's own clock (`2026-09-18 18:49 EDT`)
+
+Four paths swept: value.js `V/coordination` **18** · glass `BK/coordination` **9** · keyframes
+`V/coordination` **13** · atlas `P/coordination` **28** — the same four counts X.W3.2 measured.
+(A first probe of this sweep read the last two as **0** because it used
+`Programming/keyframes/` and `Programming/atlas/`; the true roots are
+`Programming/keyframes.js/` and `Programming/sci-report/atlas/`. Corrected at the bytes before
+publication — recorded loud rather than quietly re-run, because a mail sweep that reads 0 for the
+wrong reason is exactly how mail goes unread.) ⟨cmd⟩
+`/usr/bin/find <the four true paths> -maxdepth 1 -type f -name '*.md' -newermt "2026-09-18 18:21"`
+→ **0 hits**: no mail has landed since X.W3.2 swept. The rows whose Status reads `UNREAD` are
+**I-32 · I-33 · I-34** (routed *X formation mail seat / X-W0.j*) and **I-35** (routed *X·KF,
+Track B*) — none is X.W3.3's. Each vocabulary-checked against this unit's scope ⟨cmd⟩
+`grep -ciE "idempotenc|If-Match|ETag|matchedCount|write contract|revert|fork create|WRITE-CONTRACT|X\.W3\.3|412|428"`
+→ **0 · 0 · 0 · 0**. **No obligation minted on this unit, none discharged.** No letter written;
+`glass-ui` stayed **READ-ONLY**.
+
+#### 8. Commits — pathspec on the commit itself, one meaning each
+
+| # | sha | scope | paths |
+|---|---|---|---|
+| born-RED (S-11) | **`7bdce2b7`** | `test(api/palette-write-contract): born-RED spec — CAS fence, strong If-Match on revert, required Idempotency-Key, 201-with-appended-revision (X.W3.3 · G-8 · G-9 · G-10 · G-11)` | `__tests__/palette-write-contract.test.ts` · `artefacts/W3/W3-3-born-red-baseline.txt` |
+| §9 commit 4 | **`cbf178ce`** | `feat(api/write-contract): CAS + strong If-Match + required Idempotency-Key; revert → 201 (X.A3)` | `repository/palette.ts` · `etag.ts` · `routes/versions.ts` · `platform/http/idempotency.ts` · `__tests__/palette-write-contract.test.ts` |
+| §9 commit 9 (this unit's share) | **`47ea1029`** | `docs(X·W3): WRITE-CONTRACT canon + PALETTE-CONTRACT §5 — the fence, the two required preconditions, CC-039 as a deployment fact (X.A3 · D-3)` | `contracts/WRITE-CONTRACT.md` (create) · `docs/tranches/V/PALETTE-CONTRACT.md` |
+| escalations | **`21dff6ce`** | `docs(X·W3): X.W3.3 escalations returned — CAS callers, the demo write-contract break (§3a triumvirate trigger), two precondition test rows` | two files under `artefacts/W3/` |
+| artefacts | *(this commit)* | `docs(X·W3): X.W3.3 §8 artefacts + receipt — after-suite, five L-19 falsifiers` | `artefacts/W3/W3-3-api-test-after.txt` · `W3-3-falsifiers.txt` · this record |
+
+⟨cmd⟩ `git show --stat --oneline <sha>` on each: **no commit carries a path outside this unit's
+writable set**, and `scripts/dev/dev.sh` was never staged. **Commit 4 is one family and was not
+split**: the fence (`repository` + `etag`), its two route preconditions and the middleware rule
+do not compile — or measure — apart.
+
+**§8 artefacts banked by this unit** (under `docs/tranches/X/waves/artefacts/W3/`):
+`W3-3-born-red-baseline.txt` · `W3-3-api-test-after.txt` · `W3-3-falsifiers.txt` ·
+`W3-3-ESC-CAS-CALLERS.md` · `W3-3-ESC-DEMO-AND-TESTS.md`.
+
+#### 9. Residuals carried out of this unit
+
+1. **`ESC-W3.3-CAS-CALLERS`** — G-8's wire arm. Until ruled, PATCH/publish/revert keep the
+   route-level `If-Match` pre-check and the narrow TOCTOU window behind it (ledger #16). The
+   canon says so in its own §2.2 rather than implying coverage.
+2. **`ESC-W3.3-DEMO-WRITE-CONTRACT`** — a **mandatory triumvirate** (§3a). The shipped fork and
+   revert buttons are `400` until a client hunk lands; this is the one residual with a live
+   product consequence, and it is the one the spec pre-named as needing three seats, not one.
+3. **`ESC-W3.3-PRECONDITION-TESTS`** — two out-of-bounds test rows; `cd api && npm test` carries
+   **exactly** these plus X.W3.2's inherited one, and no others.
+4. **`ESC-W3.3-REVERT-RETURNS-RELEASE`** — the route reads the head to find what the service just
+   appended; correct, but a second round-trip and racy under a concurrent second revert (a race
+   residual 1's fence would close).
+5. **The ETag does not cover `tags`** — two concurrent tag-only PATCHes carry the same validator,
+   so the fence admits both (canon §2.1). A contract-level decision, recorded, not scheduled, and
+   **not** silently widened at the filter.
+6. **`npm run lint` is absent in `api/`** — the fourth unit to measure it. A wave-level fact for
+   the close seat.
