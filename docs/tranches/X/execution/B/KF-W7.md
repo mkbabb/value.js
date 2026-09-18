@@ -2030,3 +2030,164 @@ single-file cure and `.j` is verify-only — **all four Opus solo**. Receipts ev
 
 ## Resume unit receipts
 
+
+### X.KF.W7.g
+
+SERVED MODEL: `claude-opus-5[1m]` · **2026-09-18** · Resume group 1 — **THE GHOST/CACHE FAMILY,
+RE-HOMED WHOLE (G10)**. Sections executed: §Carry **P7** (`:198-219`) · §Gates **G10** (`:297-299`),
+**G11** (`:301-307`, fixture 3's half) · §Sequencing's commit-families line (`:340`) · §Bounds'
+witness-freshness (`:82`) and disjointness (`:84`) paragraphs.
+**Status: DONE.** **G10 RED → GREEN · G11 fixture 3's four G10 assertions STATED → RUNNING.**
+Evidence: `evidence/W7/G10-GHOST-CACHE-LANDING.md` (opens `SERVED MODEL: claude-opus-5[1m]`).
+
+**Substrate**: kf `master` ≡ `origin/master` ≡ **`41a7ebb6`** at open, clean of product bytes.
+**CRASH-RECOVERY**: ⟨cmd⟩ `git -C ../keyframes.js status --porcelain` at open → **2 lines, both the
+untracked `docs/tranches/V/coordination/VALUEJS-INBOUND-*.md`** the resume seat already recorded —
+**0 paths inside this unit's writable set, nothing inherited, nothing rewritten**. vjs likewise: no
+dirty path under `docs/tranches/X/keyframes/evidence/W7/` or `execution/B/KF-W7.md`.
+
+**Step 0 (E13, seat-level)**: COHESION §0j read to the file end through **§0q** — no KF.W7 ruling,
+nothing owner-gated away from this unit; the only KF.W7 mention is §0o's runner-dead paragraph and its
+erratum (the rate-limit cause), which is chassis, not cargo. ⟨cmd⟩
+`/usr/bin/find <the four paths> -maxdepth 1 -type f -name '*.md' -newermt '2026-09-18 17:54'` →
+**`INBOX.md` alone (self-excluded)** — nothing new since the resume seat's own sweep. The three live
+UNREAD status cells (**I-32 · I-33 · I-34**) reproduce and all three route to **X-W0.j**; **I-35** is
+`READ + CONSUMED WHOLE` with its third-revision delta already routed to `.j`. **0 unrowed · 0 `I-n`
+minted · 0 UNREAD in this unit's scope. E13 MET by routing.**
+
+#### Act 0 — every G10 anchor re-derived at `41a7ebb6` BEFORE a byte (D-19)
+
+The resume table's four anchors all verify EXACT at the true bytes: `getGhostStyle` declared
+**`TimelineTrack.vue:320`**, the composition **`:324`** (`scale(0.3) ${vars["transform"]}`);
+`previewCache` passed **`KeyframeTimeline.vue:187`** (`:188` `:preview-loading`), declared **`:445`**,
+guarded **`:449`**, written **`:454`**. Three DESIGN coordinates had moved under KF.W6 and are recorded
+as **INTENT at the true bytes**, not followed as numbers: design §0's `getGhostStyle` *"`:151-158`"* →
+**`:320-327`** (byte-identical function; the file is **730 L**, not 246); design §1.3's
+`scrubAndCapture` *"`:89-117`"* with null arms *":93 / :111"* → declared **`:106`**, arms **`:116`**
+(no target) and **`:134`** (the swallowing catch) — ⟨cmd⟩
+`git show 41a7ebb6:…/useTimelineBuild.ts | grep -n 'const scrubAndCapture\|return null'` →
+`106: / 116: / 134:`; THP is **128 L** (spec 38, OPEN seat 44) with every cited construct present —
+the `v-else-if="Object.keys(ghostStyle).length > 0"` ghost with **no terminal `v-else`**, `Capturing...`
+still undissolved, the required `ghostStyle` prop.
+
+**The two obligations discharged at `85b3c8fa` were re-read and NOT re-spent**: the capture re-point
+(`animation.value?.targets[0] ?? targets.value[0]`) survives byte-identical inside this unit's rewrite
+of the surrounding function, and m-7/m-8's parse-boundary validation is untouched — no validation is
+written at the ghost, which is the same lock from the other side.
+
+#### Act 1 — ONE commit, the family whole: kf `4e2a715f`
+
+Five files, one meaning, **no split** (the split is exactly what `## Close` escalated):
+`KeyframeTimeline.vue` · `components/TimelineHoverPreview.vue` · `components/TimelineTrack.vue` ·
+`composables/useTimelineBuild.ts` · `test/demo/instrument/timeline-hover-preview.test.ts`.
+⟨cmd⟩ `git diff --stat` → **5 files changed, 685 insertions(+), 80 deletions(-)**. Pathspec on the
+commit itself; ⟨cmd⟩ `git status --porcelain` after → **only the two pre-existing untracked INBOUND
+letters**, `dev.sh` in zero commits, no sibling path touched.
+
+1. **D-4/L-4/C-5 — the cache becomes a cache.** Two write-once maps keyed on a mutation-stable id with
+   **no `delete` anywhere** → ONE `Map<id, PreviewEntry>` whose every entry carries `key` = the CONTENT
+   it is a preview of. `evictStalePreviews` under one deep `watch` on `state.value.keyframes` covers
+   **edit · move · remove · clear · import-over · undo**, and is content-keyed, so an undo restoring the
+   exact prior vars **keeps** a capture that is still true.
+2. **A failing capture STOPS and SAYS SO.** `scrubAndCapture` REJECTS (`Promise<string>`) — both
+   `return null` arms gone, `toDataURL` moved inside the boundary so a tainted-canvas `SecurityError`
+   is a failure like any other, the `finally` scrub-restore untouched. `failed` is an entry, so the
+   re-entry guard ends the forever-retry; the message is **rendered** (`Preview unavailable — …`), and
+   it un-sticks when the keyframe changes. The `// KEEP:` comment rides the cure (KF-CE-41), naming the
+   three visible modes and the one that is not (WebGL blank-resolve → SS-13 #1).
+3. **The ghost redesign, whole** (D-7 + MISSED-4 + GHOST-PLATE + L-D8/C-4(a) + L-D4/C-4(b)):
+   `getGhostStyle` and the `ghostStyle` prop **deleted** (L-D8 verbatim — *derive locally; delete the
+   prop*); three boxes — a **fixed plate**, a **wrapper** carrying only the decomposed
+   `rotate`/`skewX`/`scale` (value.js `decomposeMatrix2D`/`decomposeMatrix3D`, the demo's first
+   `@mkbabb/value.js/transform` consumer), a **swatch** carrying the paint. Translation dropped rather
+   than composed inside a clipping scaled frame; `transform` read **only** in the UA-normalised
+   `matrix()`/`matrix3d()` form, anything else → no wrapper transform and **no hand-rolled parser**;
+   `opacity: "0"` paints an invisible payload on a **visible** plate. **Reserved media box**
+   (`w-36 h-24`, M9's rung lock honoured — cured, not re-rung) and a **terminal bare `v-else`**, so no
+   keyframe renders an empty slot.
+4. **Same-family riders** (G10's own Carries): D-2/L-D9 (`:title` per row) · D-12 + D-15 (one alignment
+   rule; the panel bounded by reka's published `--reka-tooltip-content-available-height`) · L-D14 (one
+   rounded percent) · L-D15 (`<img @error>` → the owner records `failed`) · MISSED-6 (`overflow-x-clip`
+   on the rows scroller). **MISSED-3's box law is NOT engaged — this unit moves no type rung**;
+   KF.W6's `text-mono-small` + `max-h-[12.6em]` pair stands untouched. **I-35 §2 honoured: nothing is
+   re-filed under `/timeline`** — the height bound is written on THP's own root, the demo half of D-15.
+5. **G11 fixture 3 — STATED → RUNNING.** The four assertions X.KF.W7.e could only write out are four
+   `describe` blocks: **(a)** eviction on edit / move / remove / clear / import-over, and the undo that
+   KEEPS a valid capture; **(b)** ONE `failed` entry, no second attempt (3 hovers → **1** capture call),
+   the message rendered, the in-flight state announced once politely, and the un-stick on edit;
+   **(c)** the terminal state's own words with the plate still present; **(d)** the plate carries no
+   `transform` while the wrapper carries `rotate(1.5707963267948966rad) … scale(1, 1)` with the 300px
+   translate **dropped** and no `scale(0.3)` anywhere. **25 tests, 25 green**; ⟨cmd⟩
+   `grep -cE '^\s*(test|it|describe)\.skip'` → **0**. **None of the twelve tracked
+   `test/demo/instrument/` files was edited.**
+
+#### Gate readings BEFORE → AFTER (settled bytes, double-run — ⟨`diff run1 run2`⟩ → no output)
+
+| gate | BEFORE (§Resume baseline, `41a7ebb6`) | AFTER (`4e2a715f`) | witness |
+|---|---|---|---|
+| **G10** | **RED** — write-once cache, no eviction, no retry ceiling, ghost composed on the bordered element | **GREEN** | `previews.delete` → **1** (`useTimelineBuild.ts:64`, inside `evictStalePreviews`) · `:preview-cache`/`previewCache[`/`previewLoading[` in `demo/`+`test/` → **0** · `return null` in `useTimelineBuild.ts` (code) → **0**, `} finally {` → **1** · `:ghost-style`/`getGhostStyle(`/`ghostStyle:` → **0** · `scale(0.3) ${vars` in TT → **1 → 0** (the sole survivor is the comment at `:339` that convicts it) · bare `v-else` in THP → **1**, `No previewable properties` → **1** · reserved box `w-36 h-24 grid place-items-center` → **1** · `Preview unavailable` → **1** · `const scrubAndCapture = async (percent: number): Promise<string>` → **1** |
+| **G11** (fixture 3's G10 half) | **RED** — the four assertions STATED in the header, running nowhere | **GREEN** | ⟨cmd⟩ `npx vitest run --project demo test/demo/instrument/timeline-hover-preview.test.ts` → **25 passed**, twice · leg (i) still returns **exactly the four W7 fixtures and only those** (⟨cmd⟩ `git grep -lE 'TimelineHoverPreview\|previewCache\|previews\|SequenceScrubber' HEAD -- test/` → 4 files) |
+
+**Typecheck** — ⟨cmd⟩ `npm run check` → **exit 0**; `error TS` → **54**, ⟨cmd⟩ `… | grep -cE
+'instrument/timeline'` → **0**. The 54 are the frontier's pre-existing set over 22 files (OrbitalDrag,
+EasingSidebar, ChannelControls, three `src/` TS6133s …), **not one of them this unit's**.
+**Suite** — ⟨cmd⟩ `npx vitest run` → **147 files passed | 5 skipped · 1507 passed · 3 expected fail ·
+0 failed**. Siblings' fixtures 1–2 re-run at the settled bytes → **23 passed**.
+
+#### The one declared deviation, with the measurement that forced it
+
+`.c`'s design §1 places the cache at `KeyframeTimeline.vue:217-218`. **The reactive map, the eviction
+watcher and the hover handler are there.** What moved is the three pure RULES — `previewKey`,
+`evictStalePreviews`, `capturePreview` — now exported from `composables/useTimelineBuild.ts`, beside the
+`scrubAndCapture` they memoize. **The cure's shape is unchanged in every particular.**
+
+The forcing measurement, not a preference: fixture 3 must assert (a) and (b), which are properties of
+the cache, and **`KeyframeTimeline.vue` cannot be mounted in this test realm at all** — ⟨cmd⟩ a probe
+mount → `Error: Cannot find package '@mkbabb/keyframes.js' imported from
+…/node_modules/@mkbabb/glass-ui/dist/useSpring-BCHxLjwv.js`: the glass root barrel (`Button`/`Card`/
+`CardContent`/`Separator`) resolves its own peer through node from **inside `node_modules`**, where
+vitest's `resolve.alias` does not reach (the `/tooltip` subpath fixture 1 uses is unaffected, which is
+why fixture 1 mounts `TimelineTrack` and this one cannot mount its owner). Two alternatives were
+measured and rejected: **mocking the glass barrel** (four doubles to reach logic that touches none of
+them — contrivance, against probe parsimony), and **exporting the rules from the SFC** (⟨cmd⟩
+`tsc --noEmit -p tsconfig.test.json` → `error TS2614: Module '"*.vue"' has no exported member
+'PreviewEntry'` — `demo/env.d.ts`'s ambient shim gives leg 2 a default export only, and
+`timelineTypes.ts` is `.b`'s serial file, outside this unit's §Bounds). The fixture therefore exercises
+**the same functions the component calls**, with the capture — the one thing a test must be able to
+make fail — as the only injected seam. It is also `feedback_no_god_modules` read straight.
+
+#### Residuals, each with a named owner
+
+1. **`timeline-mount-projection.test.ts` / `timeline-mount-keyboard.test.ts` still pass
+   `previewCache: {}` / `previewLoading: {}`** to `TimelineTrack` — dead props since `4e2a715f`, inert
+   (both files: **23 tests green** at the settled bytes) and **outside this unit's writable set**.
+   **Owner: `.i`** (both files are its) — one line each, drop the two keys. Not a gate, and not a thing
+   this seat may reach.
+2. **The ghost's source narrows from the merged `stop.vars` to the head keyframe's `vars`** — the direct
+   consequence of L-D8's *"derive locally; delete the prop"* (the prop was *"a pure function of prop
+   #1"*). The rows have always rendered `keyframe.vars`, so ghost and text now agree where a
+   multi-member stop could previously make them disagree. **Declared, not hidden.** Owner: `.j`, to
+   record; no banked row asks for the merged set at the ghost.
+3. **`snapshotCapture.ts` is in this unit's writable set and was not written** — N-8's widening landed at
+   `.e` (`53abdf29`) and G10 asks nothing further there. No residue.
+4. **The 3D branch renders rotation + scale only**; perspective is not represented in a 64px plate
+   (design §5, carried verbatim). Stated, not owed.
+5. **WebGL blank-resolve** is undetectable at the capture seam — a successful capture of nothing. Stays
+   **SS-13 residue #1**; the code comment now says so at the site.
+6. **`.h` inherits settled bytes**: `TimelineTrack.vue`'s `TooltipContent` is at **`:193`** with
+   `class="max-w-56"` and still **no `:aria-label`**; THP now exposes a `computed` **`altText`** that
+   re-derives on the ghost→image swap — the §3 hand-off `.c` designed, ready for `.h`'s `:aria-label`
+   to carry the same sentence. G9 is untouched by this unit and stays honestly RED.
+
+#### Escalations
+
+**NONE.** No write outside the writable set; no gate greened by editing a tracked witness; no
+`test.skip`, no try/catch around a defect, no allowlist, no producer selector copied, no
+`node_modules` patch.
+
+#### Commits (2 — 1 keyframes.js, 1 value.js; pathspec on every one)
+
+| repo | sha | meaning |
+|---|---|---|
+| keyframes.js | **`4e2a715f`** | `fix(kf/timeline-preview): G10 — the cache is a cache and the ghost tells the truth (KF.W7 .g, ONE family)` — the family whole, five files, unsplit |
+| value.js | (this commit) | `evidence/W7/G10-GHOST-CACHE-LANDING.md` + these receipts |
