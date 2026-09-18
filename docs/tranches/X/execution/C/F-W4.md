@@ -523,7 +523,7 @@ BEFORE — ⟨cmd⟩ `find .. -name '*deriv*' -not -path '*/node_modules/*' -max
 | `G-F4-DERIVER` | RED — no deriver | **GREEN** | 8 fields published + CI + 8 assertions |
 | `G-F4-ZERO-CONSOLE` | UNMEASURED-AT-OPEN | **HELD BY CONSTRUCTION** | 0 bytes of the 5 hook specs touched; reading owed to CI's backend arm |
 
-**Unmoved by this unit, recorded so `.z` reads no drift into them**: `G-F4-VUE-TSC-CLEAN` **18 diagnostics, identical before and after** (none from `e2e/**` or `scripts/**`); oxlint **0 errors / 18 warnings**; Playwright collection **69 → 76 tests**, no existing test renamed or removed.
+**Unmoved by this unit, recorded so `.z` reads no drift into them**: `G-F4-VUE-TSC-CLEAN` **18 diagnostics, identical before and after** (none from `e2e/**` or `scripts/**`); oxlint **0 errors / 18 warnings**; Playwright collection **69 tests in 8 files → 79 in 10** (⟨cmd⟩ `npx playwright test --list | tail -1` → `Total: 79 tests in 10 files`; +3 route keystones, +4 admin, +3 contrast), **no existing test renamed or removed**. ⊘ This figure was first written as 76 from arithmetic and corrected against the settled bytes before the receipt closed — the count follows the operand.
 
 #### Commits
 
