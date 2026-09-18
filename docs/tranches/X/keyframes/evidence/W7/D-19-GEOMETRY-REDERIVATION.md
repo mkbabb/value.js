@@ -98,3 +98,19 @@ NOT enlarged — the caret/diamond spacing circles already intersect (D-12/C-12/
 editor's box without the marker-vs-marker spacing decision would trade one 2.5.8 failure for
 another. Owner: the P4 spacing decision at `.f`'s close residuals / KF.W10, with D-12/C-12's dissent
 (RR-A's MAJOR, restored at repair round 4) still preserved.
+
+---
+
+## §4 · ERRATUM, dated 2026-09-18, same seat, same sitting — beside, never above (E-3)
+
+§2's sentence *"and `+1.686px` when it is not [selected]"* is **WRONG in its numeral and wrong in the
+inference it carried.** Re-run by command at the settled arithmetic —
+⟨cmd⟩ `node -e "const c=16*Math.SQRT2/2; console.log((37-(23+c)).toFixed(3))"` → **`2.686`**.
+
+The correction matters because it INVERTS the reading: **2.686 ≈ the banked `2.69`**, so the D-17
+table's collapsed cell is **CONFIRMED at these bytes, not superseded** — it is the *unselected*
+clearance, computed off either box (the ~1px correction cancels in the difference). What remains
+unreproduced by this seat is only K-13's *"≈1.7"*, and it is recorded as unreproduced rather than
+explained away: no combination of the measured inputs yields it, and nothing in §3's cure depends on
+it — the cure is computed against the **selected** vertices (`37.1421` / `84.2132`), both of which
+reproduce exactly. Direction unchanged; both tables still say the diamond reaches the caret.
