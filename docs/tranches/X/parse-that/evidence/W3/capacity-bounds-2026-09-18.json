@@ -1,0 +1,1101 @@
+{
+  "servedModel": "claude-fable-5-1",
+  "schema": "x-p-w3.f.capacity-bounds/1",
+  "generatedBy": "docs/tranches/X/parse-that/evidence/W3/capacity-bounds-2026-09-18.mjs",
+  "subject": "<p2> typescript/src/css after the X.P.W3.f cure (round 4), rebuilt with `node src/css/build.mjs`",
+  "theta": {
+    "depthBound": 64,
+    "input": 65458,
+    "marks": 32768,
+    "recoveries": 4096,
+    "D": 4096,
+    "C": 65536,
+    "P": 65536,
+    "vstack": 65536,
+    "arena": 7208960,
+    "expsnap": 32
+  },
+  "class3Proof": {
+    "input": 65458,
+    "vstack": {
+      "ceiling": 65536,
+      "cap": 65536,
+      "K": 1,
+      "unit": "code unit",
+      "S": 78
+    },
+    "arena": {
+      "ceiling": 6414930,
+      "cap": 7208960,
+      "K": 98,
+      "unit": "code unit",
+      "S": 46
+    },
+    "expsnap": {
+      "ceiling": 1,
+      "cap": 32,
+      "K": 0,
+      "unit": "depth level",
+      "S": 1
+    }
+  },
+  "ceilings": {
+    "perEntry": {
+      "P:color": {
+        "rate": 58.666666666666664,
+        "verts": [
+          {
+            "num": 88,
+            "mw": 3
+          },
+          {
+            "num": 224,
+            "mw": 4
+          },
+          {
+            "num": 272,
+            "mw": 5
+          },
+          {
+            "num": 336,
+            "mw": 8
+          },
+          {
+            "num": 352,
+            "mw": 9
+          },
+          {
+            "num": 416,
+            "mw": 10
+          },
+          {
+            "num": 448,
+            "mw": 11
+          },
+          {
+            "num": 488,
+            "mw": 12
+          },
+          {
+            "num": 520,
+            "mw": 13
+          },
+          {
+            "num": 552,
+            "mw": 14
+          },
+          {
+            "num": 584,
+            "mw": 15
+          },
+          {
+            "num": 616,
+            "mw": 16
+          }
+        ],
+        "mw": 3,
+        "fixed": 0,
+        "cells": 71,
+        "cellsVia": -1,
+        "mwVia": null,
+        "exp": 1,
+        "expVia": -1
+      },
+      "P:timing-function": {
+        "rate": 98,
+        "verts": [
+          {
+            "num": 56,
+            "mw": 4
+          },
+          {
+            "num": 176,
+            "mw": 8
+          },
+          {
+            "num": 430,
+            "mw": 10
+          }
+        ],
+        "mw": 4,
+        "fixed": 0,
+        "cells": 14,
+        "cellsVia": -1,
+        "mwVia": null,
+        "exp": 1,
+        "expVia": -1
+      },
+      "P:stylesheet": {
+        "rate": 96.83333333333333,
+        "verts": [
+          {
+            "num": 46,
+            "mw": 0
+          }
+        ],
+        "mw": 0,
+        "fixed": 46,
+        "cells": 78,
+        "cellsVia": -1,
+        "mwVia": null,
+        "exp": 1,
+        "expVia": -1
+      }
+    },
+    "vstack": {
+      "K": 1,
+      "unit": "code unit",
+      "S": 78
+    },
+    "arena": {
+      "K": 98,
+      "unit": "code unit",
+      "S": 46
+    },
+    "expsnap": {
+      "K": 0,
+      "unit": "depth level",
+      "S": 1
+    }
+  },
+  "labels": {
+    "input": {
+      "label": "input <= 65458",
+      "index": 51,
+      "production": "<input-window> (at most 65458 code units)"
+    },
+    "marks": {
+      "label": "marks <= 32768",
+      "index": 52,
+      "production": "<mark-journal> (at most 32768 marks)"
+    },
+    "recoveries": {
+      "label": "recoveries <= 4096",
+      "index": 53,
+      "production": "<recovery-journal> (at most 4096 recoveries)"
+    },
+    "D": {
+      "label": "D <= 4096",
+      "index": 54,
+      "production": "<diagnostic-journal> (at most 4096 diagnostics)"
+    },
+    "C": {
+      "label": "C <= 65536",
+      "index": 55,
+      "production": "<complement-journal> (at most 65536 entries)"
+    },
+    "P": {
+      "label": "P <= 65536",
+      "index": 56,
+      "production": "<provenance-journal> (at most 65536 entries)"
+    },
+    "vstack": {
+      "label": "vstack <= 65536",
+      "index": 57,
+      "production": "<value-stack> (at most 65536 slots)"
+    },
+    "arena": {
+      "label": "arena <= 7208960",
+      "index": 58,
+      "production": "<arena> (at most 7208960 bytes)"
+    },
+    "expsnap": {
+      "label": "expsnap <= 32",
+      "index": 59,
+      "production": "<expectation-snapshots> (at most 32 frames)"
+    }
+  },
+  "labelSurface": {
+    "L": 60,
+    "rows": 60,
+    "stringAt": 50
+  },
+  "witnesses": [
+    {
+      "name": "input AT",
+      "prod": "P:stylesheet",
+      "len": 65458,
+      "js": {
+        "sha256": "406908f2e22ea2182ea90f35127a1550e0b6e7b90e14c2a80c17365eda2343c4",
+        "length": 77,
+        "head": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}"
+      },
+      "wasm": {
+        "sha256": "406908f2e22ea2182ea90f35127a1550e0b6e7b90e14c2a80c17365eda2343c4",
+        "length": 77,
+        "head": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}"
+      },
+      "jsAll": {
+        "sha256": "406908f2e22ea2182ea90f35127a1550e0b6e7b90e14c2a80c17365eda2343c4",
+        "length": 77,
+        "head": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}"
+      },
+      "wasmAll": {
+        "sha256": "406908f2e22ea2182ea90f35127a1550e0b6e7b90e14c2a80c17365eda2343c4",
+        "length": 77,
+        "head": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}"
+      },
+      "sixTupleIdentical": true,
+      "allIssuesIdentical": true,
+      "diagnostics": 0,
+      "shieldDelta": 0,
+      "wasmReadings": {
+        "ovf": 0,
+        "markn": 8,
+        "recn": 0,
+        "dlen": 0,
+        "arenaHigh": 224,
+        "cHigh": 2,
+        "pHigh": 1,
+        "vstackPeak": 9,
+        "expsnapPeak": 0
+      }
+    },
+    {
+      "name": "input PAST",
+      "prod": "P:stylesheet",
+      "len": 65459,
+      "js": {
+        "sha256": "370aba31cc20f23934e653bb21570fed3834f49ee7951f6e3c48d16eeb0a11e5",
+        "length": 65582,
+        "head": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":65459,\"expected\":[\"<input-window> (at most 65458 code units)\"],\"actual\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "wasm": {
+        "sha256": "370aba31cc20f23934e653bb21570fed3834f49ee7951f6e3c48d16eeb0a11e5",
+        "length": 65582,
+        "head": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":65459,\"expected\":[\"<input-window> (at most 65458 code units)\"],\"actual\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "jsAll": {
+        "sha256": "47295ac8635e3393c028d76e1e6bb28ba7081177a8ab60839885b30658bcfae3",
+        "length": 65584,
+        "head": "[{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":65459,\"expected\":[\"<input-window> (at most 65458 code units)\"],\"actual\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "wasmAll": {
+        "sha256": "47295ac8635e3393c028d76e1e6bb28ba7081177a8ab60839885b30658bcfae3",
+        "length": 65584,
+        "head": "[{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":65459,\"expected\":[\"<input-window> (at most 65458 code units)\"],\"actual\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "sixTupleIdentical": true,
+      "allIssuesIdentical": true,
+      "diagnostics": 1,
+      "shieldDelta": 0,
+      "wasmReadings": {
+        "ovf": 0,
+        "markn": 8,
+        "recn": 0,
+        "dlen": 0,
+        "arenaHigh": 0,
+        "cHigh": 0,
+        "pHigh": 0,
+        "vstackPeak": 0,
+        "expsnapPeak": 0
+      }
+    },
+    {
+      "name": "marks AT (a{}×16381)",
+      "prod": "P:stylesheet",
+      "len": 49143,
+      "js": {
+        "sha256": "406908f2e22ea2182ea90f35127a1550e0b6e7b90e14c2a80c17365eda2343c4",
+        "length": 77,
+        "head": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}"
+      },
+      "wasm": {
+        "sha256": "406908f2e22ea2182ea90f35127a1550e0b6e7b90e14c2a80c17365eda2343c4",
+        "length": 77,
+        "head": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}"
+      },
+      "jsAll": {
+        "sha256": "406908f2e22ea2182ea90f35127a1550e0b6e7b90e14c2a80c17365eda2343c4",
+        "length": 77,
+        "head": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}"
+      },
+      "wasmAll": {
+        "sha256": "406908f2e22ea2182ea90f35127a1550e0b6e7b90e14c2a80c17365eda2343c4",
+        "length": 77,
+        "head": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}"
+      },
+      "sixTupleIdentical": true,
+      "allIssuesIdentical": true,
+      "diagnostics": 0,
+      "shieldDelta": 0,
+      "wasmReadings": {
+        "ovf": 0,
+        "markn": 32768,
+        "recn": 0,
+        "dlen": 0,
+        "arenaHigh": 3014144,
+        "cHigh": 32762,
+        "pHigh": 16381,
+        "vstackPeak": 16389,
+        "expsnapPeak": 0
+      }
+    },
+    {
+      "name": "marks PAST (a{}×16382)",
+      "prod": "P:stylesheet",
+      "len": 49146,
+      "js": {
+        "sha256": "36813ea84fbc86659034fdb1aa4b9812cb5d2899705aeaa823ff9820c4ac2303",
+        "length": 49264,
+        "head": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":49146,\"expected\":[\"<mark-journal> (at most 32768 marks)\"],\"actual\":\"a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a"
+      },
+      "wasm": {
+        "sha256": "36813ea84fbc86659034fdb1aa4b9812cb5d2899705aeaa823ff9820c4ac2303",
+        "length": 49264,
+        "head": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":49146,\"expected\":[\"<mark-journal> (at most 32768 marks)\"],\"actual\":\"a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a"
+      },
+      "jsAll": {
+        "sha256": "4ac43f9c31ff6a6343122982e312969d08b5a1beea6a1e5c9bfe01ae846a042f",
+        "length": 49266,
+        "head": "[{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":49146,\"expected\":[\"<mark-journal> (at most 32768 marks)\"],\"actual\":\"a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}"
+      },
+      "wasmAll": {
+        "sha256": "4ac43f9c31ff6a6343122982e312969d08b5a1beea6a1e5c9bfe01ae846a042f",
+        "length": 49266,
+        "head": "[{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":49146,\"expected\":[\"<mark-journal> (at most 32768 marks)\"],\"actual\":\"a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}"
+      },
+      "sixTupleIdentical": true,
+      "allIssuesIdentical": true,
+      "diagnostics": 1,
+      "shieldDelta": 0,
+      "wasmReadings": {
+        "ovf": 1,
+        "markn": 32770,
+        "recn": 0,
+        "dlen": 0,
+        "arenaHigh": 3014320,
+        "cHigh": 32764,
+        "pHigh": 16382,
+        "vstackPeak": 16390,
+        "expsnapPeak": 0
+      }
+    },
+    {
+      "name": "recoveries+D AT (a{c}×4096)",
+      "prod": "P:stylesheet",
+      "len": 16384,
+      "js": {
+        "sha256": "b5322646931f871d0976d9f2027170026c57907b81cbd428f95fbeb35f79428b",
+        "length": 89,
+        "head": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":4,\"expected\":[\"<colon>\"],\"actual\":\"a{c}\"}"
+      },
+      "wasm": {
+        "sha256": "b5322646931f871d0976d9f2027170026c57907b81cbd428f95fbeb35f79428b",
+        "length": 89,
+        "head": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":4,\"expected\":[\"<colon>\"],\"actual\":\"a{c}\"}"
+      },
+      "jsAll": {
+        "sha256": "3e6e992b2ee09e21b742864ee2983508bce79242da09dac6fe076f6ddbcdda16",
+        "length": 395857,
+        "head": "[{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":4,\"expected\":[\"<colon>\"],\"actual\":\"a{c}\"},{\"ok\":false,\"code\":\"css_syntax\",\"start\":4,\"end\":8,\"expected\":[\"<colon>\"],\"actual\":\"a{c}\"},{\"ok\":false,\"code\":\"css_syntax\",\"start\":8,\"end\":12,\"expecte"
+      },
+      "wasmAll": {
+        "sha256": "3e6e992b2ee09e21b742864ee2983508bce79242da09dac6fe076f6ddbcdda16",
+        "length": 395857,
+        "head": "[{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":4,\"expected\":[\"<colon>\"],\"actual\":\"a{c}\"},{\"ok\":false,\"code\":\"css_syntax\",\"start\":4,\"end\":8,\"expected\":[\"<colon>\"],\"actual\":\"a{c}\"},{\"ok\":false,\"code\":\"css_syntax\",\"start\":8,\"end\":12,\"expecte"
+      },
+      "sixTupleIdentical": true,
+      "allIssuesIdentical": true,
+      "diagnostics": 4096,
+      "shieldDelta": 0,
+      "wasmReadings": {
+        "ovf": 0,
+        "markn": 16390,
+        "recn": 4096,
+        "dlen": 4096,
+        "arenaHigh": 213024,
+        "cHigh": 4097,
+        "pHigh": 2,
+        "vstackPeak": 4101,
+        "expsnapPeak": 0
+      }
+    },
+    {
+      "name": "recoveries+D PAST (a{c}×4097)",
+      "prod": "P:stylesheet",
+      "len": 16388,
+      "js": {
+        "sha256": "1f8c42d6b41eb0bf29d84bcf2d31fee44299433309a23f8e0b56acc7787af118",
+        "length": 16514,
+        "head": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":16388,\"expected\":[\"<recovery-journal> (at most 4096 recoveries)\"],\"actual\":\"a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}"
+      },
+      "wasm": {
+        "sha256": "1f8c42d6b41eb0bf29d84bcf2d31fee44299433309a23f8e0b56acc7787af118",
+        "length": 16514,
+        "head": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":16388,\"expected\":[\"<recovery-journal> (at most 4096 recoveries)\"],\"actual\":\"a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}"
+      },
+      "jsAll": {
+        "sha256": "f04b817f4b814564f1554e35938a219e7420dbf423ea671e0b63a24d6fdfe075",
+        "length": 33034,
+        "head": "[{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":16388,\"expected\":[\"<recovery-journal> (at most 4096 recoveries)\"],\"actual\":\"a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c"
+      },
+      "wasmAll": {
+        "sha256": "f04b817f4b814564f1554e35938a219e7420dbf423ea671e0b63a24d6fdfe075",
+        "length": 33034,
+        "head": "[{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":16388,\"expected\":[\"<recovery-journal> (at most 4096 recoveries)\"],\"actual\":\"a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c"
+      },
+      "sixTupleIdentical": true,
+      "allIssuesIdentical": true,
+      "diagnostics": 2,
+      "shieldDelta": 0,
+      "wasmReadings": {
+        "ovf": 1,
+        "markn": 16394,
+        "recn": 4097,
+        "dlen": 4097,
+        "arenaHigh": 213080,
+        "cHigh": 4098,
+        "pHigh": 2,
+        "vstackPeak": 4102,
+        "expsnapPeak": 0
+      }
+    },
+    {
+      "name": "ESC-e1 a{color:red}×8190",
+      "prod": "P:stylesheet",
+      "len": 98280,
+      "js": {
+        "sha256": "ba9335c6501fac8b4f39d81f0de933f7f54f3778abfbcf1bfcbf54f19e8c0ba6",
+        "length": 98403,
+        "head": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":98280,\"expected\":[\"<input-window> (at most 65458 code units)\"],\"actual\":\"a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red"
+      },
+      "wasm": {
+        "sha256": "ba9335c6501fac8b4f39d81f0de933f7f54f3778abfbcf1bfcbf54f19e8c0ba6",
+        "length": 98403,
+        "head": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":98280,\"expected\":[\"<input-window> (at most 65458 code units)\"],\"actual\":\"a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red"
+      },
+      "jsAll": {
+        "sha256": "efe16d9207c0a041b5b800e34c16f1326c355c6cd91784138a19604f4774ea09",
+        "length": 98405,
+        "head": "[{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":98280,\"expected\":[\"<input-window> (at most 65458 code units)\"],\"actual\":\"a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:re"
+      },
+      "wasmAll": {
+        "sha256": "efe16d9207c0a041b5b800e34c16f1326c355c6cd91784138a19604f4774ea09",
+        "length": 98405,
+        "head": "[{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":98280,\"expected\":[\"<input-window> (at most 65458 code units)\"],\"actual\":\"a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:re"
+      },
+      "sixTupleIdentical": true,
+      "allIssuesIdentical": true,
+      "diagnostics": 1,
+      "shieldDelta": 0,
+      "wasmReadings": {
+        "ovf": 1,
+        "markn": 16394,
+        "recn": 4097,
+        "dlen": 4097,
+        "arenaHigh": 0,
+        "cHigh": 0,
+        "pHigh": 0,
+        "vstackPeak": 0,
+        "expsnapPeak": 0
+      }
+    },
+    {
+      "name": "ESC-e1 a{color:red}×8191",
+      "prod": "P:stylesheet",
+      "len": 98292,
+      "js": {
+        "sha256": "9bac23669a79eff4c3edb6ee3290d44a524f1afac968f80e90b27e08ac6783e3",
+        "length": 98415,
+        "head": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":98292,\"expected\":[\"<input-window> (at most 65458 code units)\"],\"actual\":\"a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red"
+      },
+      "wasm": {
+        "sha256": "9bac23669a79eff4c3edb6ee3290d44a524f1afac968f80e90b27e08ac6783e3",
+        "length": 98415,
+        "head": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":98292,\"expected\":[\"<input-window> (at most 65458 code units)\"],\"actual\":\"a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red"
+      },
+      "jsAll": {
+        "sha256": "97d8dda5763439d7072de5ec6ff834d59cbc05acbb25491b07477cb99e2daa56",
+        "length": 98417,
+        "head": "[{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":98292,\"expected\":[\"<input-window> (at most 65458 code units)\"],\"actual\":\"a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:re"
+      },
+      "wasmAll": {
+        "sha256": "97d8dda5763439d7072de5ec6ff834d59cbc05acbb25491b07477cb99e2daa56",
+        "length": 98417,
+        "head": "[{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":98292,\"expected\":[\"<input-window> (at most 65458 code units)\"],\"actual\":\"a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:red}a{color:re"
+      },
+      "sixTupleIdentical": true,
+      "allIssuesIdentical": true,
+      "diagnostics": 1,
+      "shieldDelta": 0,
+      "wasmReadings": {
+        "ovf": 1,
+        "markn": 16394,
+        "recn": 4097,
+        "dlen": 4097,
+        "arenaHigh": 0,
+        "cHigh": 0,
+        "pHigh": 0,
+        "vstackPeak": 0,
+        "expsnapPeak": 0
+      }
+    },
+    {
+      "name": "§0q ruled witness a×(INPUT_CAP−1)+{}",
+      "prod": "P:stylesheet",
+      "len": 1048577,
+      "js": {
+        "sha256": "2b9dedecf3b7513a43b63ce7834d277425d292e123c16dd02cb16ef6be50c0fb",
+        "length": 1048702,
+        "head": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":1048577,\"expected\":[\"<input-window> (at most 65458 code units)\"],\"actual\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "wasm": {
+        "sha256": "2b9dedecf3b7513a43b63ce7834d277425d292e123c16dd02cb16ef6be50c0fb",
+        "length": 1048702,
+        "head": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":1048577,\"expected\":[\"<input-window> (at most 65458 code units)\"],\"actual\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "jsAll": {
+        "sha256": "a319deba5f72b8ed4ae4f4b755418cf3f4ccff015459d63ffc3f9296a5ce63bf",
+        "length": 1048704,
+        "head": "[{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":1048577,\"expected\":[\"<input-window> (at most 65458 code units)\"],\"actual\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "wasmAll": {
+        "sha256": "a319deba5f72b8ed4ae4f4b755418cf3f4ccff015459d63ffc3f9296a5ce63bf",
+        "length": 1048704,
+        "head": "[{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":1048577,\"expected\":[\"<input-window> (at most 65458 code units)\"],\"actual\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "sixTupleIdentical": true,
+      "allIssuesIdentical": true,
+      "diagnostics": 1,
+      "shieldDelta": 0,
+      "wasmReadings": {
+        "ovf": 1,
+        "markn": 16394,
+        "recn": 4097,
+        "dlen": 4097,
+        "arenaHigh": 0,
+        "cHigh": 0,
+        "pHigh": 0,
+        "vstackPeak": 0,
+        "expsnapPeak": 0
+      }
+    },
+    {
+      "name": "trap family a{}×40000",
+      "prod": "P:stylesheet",
+      "len": 120000,
+      "js": {
+        "sha256": "bf035f1de94587895f18960be883d1c206c43d9db0d982ed5f6bcd420f31b763",
+        "length": 120124,
+        "head": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":120000,\"expected\":[\"<input-window> (at most 65458 code units)\"],\"actual\":\"a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a"
+      },
+      "wasm": {
+        "sha256": "bf035f1de94587895f18960be883d1c206c43d9db0d982ed5f6bcd420f31b763",
+        "length": 120124,
+        "head": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":120000,\"expected\":[\"<input-window> (at most 65458 code units)\"],\"actual\":\"a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a"
+      },
+      "jsAll": {
+        "sha256": "63f5324978f647ca3b05ecf705fd74c3cc85a347fb72230646397c0e4c54a232",
+        "length": 120126,
+        "head": "[{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":120000,\"expected\":[\"<input-window> (at most 65458 code units)\"],\"actual\":\"a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}"
+      },
+      "wasmAll": {
+        "sha256": "63f5324978f647ca3b05ecf705fd74c3cc85a347fb72230646397c0e4c54a232",
+        "length": 120126,
+        "head": "[{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":120000,\"expected\":[\"<input-window> (at most 65458 code units)\"],\"actual\":\"a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}"
+      },
+      "sixTupleIdentical": true,
+      "allIssuesIdentical": true,
+      "diagnostics": 1,
+      "shieldDelta": 0,
+      "wasmReadings": {
+        "ovf": 1,
+        "markn": 16394,
+        "recn": 4097,
+        "dlen": 4097,
+        "arenaHigh": 0,
+        "cHigh": 0,
+        "pHigh": 0,
+        "vstackPeak": 0,
+        "expsnapPeak": 0
+      }
+    },
+    {
+      "name": "trap family linear(0, )×70000",
+      "prod": "P:timing-function",
+      "len": 210009,
+      "js": {
+        "sha256": "62be404ca2738f8bece6c1e074b5096b35657486c9c4525878fc09eb2eb8b2ae",
+        "length": 210133,
+        "head": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":210009,\"expected\":[\"<input-window> (at most 65458 code units)\"],\"actual\":\"linear(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "
+      },
+      "wasm": {
+        "sha256": "62be404ca2738f8bece6c1e074b5096b35657486c9c4525878fc09eb2eb8b2ae",
+        "length": 210133,
+        "head": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":210009,\"expected\":[\"<input-window> (at most 65458 code units)\"],\"actual\":\"linear(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "
+      },
+      "jsAll": {
+        "sha256": "d38f433f3f69a2a5447e4004ae612cb6f9ed259b51afcdff80584a3adef64efc",
+        "length": 210135,
+        "head": "[{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":210009,\"expected\":[\"<input-window> (at most 65458 code units)\"],\"actual\":\"linear(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,"
+      },
+      "wasmAll": {
+        "sha256": "d38f433f3f69a2a5447e4004ae612cb6f9ed259b51afcdff80584a3adef64efc",
+        "length": 210135,
+        "head": "[{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":210009,\"expected\":[\"<input-window> (at most 65458 code units)\"],\"actual\":\"linear(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,"
+      },
+      "sixTupleIdentical": true,
+      "allIssuesIdentical": true,
+      "diagnostics": 1,
+      "shieldDelta": 0,
+      "wasmReadings": {
+        "ovf": 1,
+        "markn": 16394,
+        "recn": 4097,
+        "dlen": 4097,
+        "arenaHigh": 0,
+        "cHigh": 0,
+        "pHigh": 0,
+        "vstackPeak": 0,
+        "expsnapPeak": 0
+      }
+    },
+    {
+      "name": "trap family ;×70000",
+      "prod": "P:stylesheet",
+      "len": 70000,
+      "js": {
+        "sha256": "199b3bf7a6d6f6c57001fee5ef040d49b057db70262a7bf284e610fe58f885fe",
+        "length": 70123,
+        "head": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":70000,\"expected\":[\"<input-window> (at most 65458 code units)\"],\"actual\":\";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+      },
+      "wasm": {
+        "sha256": "199b3bf7a6d6f6c57001fee5ef040d49b057db70262a7bf284e610fe58f885fe",
+        "length": 70123,
+        "head": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":70000,\"expected\":[\"<input-window> (at most 65458 code units)\"],\"actual\":\";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+      },
+      "jsAll": {
+        "sha256": "f1f466c4431f4d8ed8dc6e398d0dd80a3bf031127fd10be76aeacf6e3bbc02cc",
+        "length": 70125,
+        "head": "[{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":70000,\"expected\":[\"<input-window> (at most 65458 code units)\"],\"actual\":\";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+      },
+      "wasmAll": {
+        "sha256": "f1f466c4431f4d8ed8dc6e398d0dd80a3bf031127fd10be76aeacf6e3bbc02cc",
+        "length": 70125,
+        "head": "[{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":70000,\"expected\":[\"<input-window> (at most 65458 code units)\"],\"actual\":\";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+      },
+      "sixTupleIdentical": true,
+      "allIssuesIdentical": true,
+      "diagnostics": 1,
+      "shieldDelta": 0,
+      "wasmReadings": {
+        "ovf": 1,
+        "markn": 16394,
+        "recn": 4097,
+        "dlen": 4097,
+        "arenaHigh": 0,
+        "cHigh": 0,
+        "pHigh": 0,
+        "vstackPeak": 0,
+        "expsnapPeak": 0
+      }
+    },
+    {
+      "name": "census a{color:red}×n @window",
+      "prod": "P:stylesheet",
+      "len": 65448,
+      "js": {
+        "sha256": "406908f2e22ea2182ea90f35127a1550e0b6e7b90e14c2a80c17365eda2343c4",
+        "length": 77,
+        "head": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}"
+      },
+      "wasm": {
+        "sha256": "406908f2e22ea2182ea90f35127a1550e0b6e7b90e14c2a80c17365eda2343c4",
+        "length": 77,
+        "head": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}"
+      },
+      "jsAll": {
+        "sha256": "406908f2e22ea2182ea90f35127a1550e0b6e7b90e14c2a80c17365eda2343c4",
+        "length": 77,
+        "head": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}"
+      },
+      "wasmAll": {
+        "sha256": "406908f2e22ea2182ea90f35127a1550e0b6e7b90e14c2a80c17365eda2343c4",
+        "length": 77,
+        "head": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}"
+      },
+      "sixTupleIdentical": true,
+      "allIssuesIdentical": true,
+      "diagnostics": 0,
+      "shieldDelta": 0,
+      "wasmReadings": {
+        "ovf": 0,
+        "markn": 21822,
+        "recn": 0,
+        "dlen": 0,
+        "arenaHigh": 2574320,
+        "cHigh": 16362,
+        "pHigh": 16362,
+        "vstackPeak": 5469,
+        "expsnapPeak": 1
+      }
+    },
+    {
+      "name": "census a{}×n @window",
+      "prod": "P:stylesheet",
+      "len": 65457,
+      "js": {
+        "sha256": "30a33968559a21c3d8e21eb3b2bfa688cb8a691aabfba26058d108a11e81b44c",
+        "length": 65575,
+        "head": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":65457,\"expected\":[\"<mark-journal> (at most 32768 marks)\"],\"actual\":\"a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a"
+      },
+      "wasm": {
+        "sha256": "30a33968559a21c3d8e21eb3b2bfa688cb8a691aabfba26058d108a11e81b44c",
+        "length": 65575,
+        "head": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":65457,\"expected\":[\"<mark-journal> (at most 32768 marks)\"],\"actual\":\"a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a"
+      },
+      "jsAll": {
+        "sha256": "58fdc5774dabf49e09d652ae73b23328d0730776adf972a17738a4aa3e010998",
+        "length": 65577,
+        "head": "[{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":65457,\"expected\":[\"<mark-journal> (at most 32768 marks)\"],\"actual\":\"a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}"
+      },
+      "wasmAll": {
+        "sha256": "58fdc5774dabf49e09d652ae73b23328d0730776adf972a17738a4aa3e010998",
+        "length": 65577,
+        "head": "[{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":65457,\"expected\":[\"<mark-journal> (at most 32768 marks)\"],\"actual\":\"a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}a{}"
+      },
+      "sixTupleIdentical": true,
+      "allIssuesIdentical": true,
+      "diagnostics": 1,
+      "shieldDelta": 0,
+      "wasmReadings": {
+        "ovf": 1,
+        "markn": 43644,
+        "recn": 0,
+        "dlen": 0,
+        "arenaHigh": 4014736,
+        "cHigh": 43638,
+        "pHigh": 21819,
+        "vstackPeak": 21827,
+        "expsnapPeak": 0
+      }
+    },
+    {
+      "name": "census a{c:r;×n} @window",
+      "prod": "P:stylesheet",
+      "len": 65455,
+      "js": {
+        "sha256": "764395cac8869538f6ca3c1bd6f1cb05be918373a1965aec3fd23bc310ef5d31",
+        "length": 65581,
+        "head": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":65455,\"expected\":[\"<recovery-journal> (at most 4096 recoveries)\"],\"actual\":\"a{c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:"
+      },
+      "wasm": {
+        "sha256": "764395cac8869538f6ca3c1bd6f1cb05be918373a1965aec3fd23bc310ef5d31",
+        "length": 65581,
+        "head": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":65455,\"expected\":[\"<recovery-journal> (at most 4096 recoveries)\"],\"actual\":\"a{c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:"
+      },
+      "jsAll": {
+        "sha256": "6ef925a042c9809191ca192a4377d76e5c034373881b4c73aa19b8e3e3f74828",
+        "length": 131168,
+        "head": "[{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":65455,\"expected\":[\"<recovery-journal> (at most 4096 recoveries)\"],\"actual\":\"a{c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c"
+      },
+      "wasmAll": {
+        "sha256": "6ef925a042c9809191ca192a4377d76e5c034373881b4c73aa19b8e3e3f74828",
+        "length": 131168,
+        "head": "[{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":65455,\"expected\":[\"<recovery-journal> (at most 4096 recoveries)\"],\"actual\":\"a{c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c:r;c"
+      },
+      "sixTupleIdentical": true,
+      "allIssuesIdentical": true,
+      "diagnostics": 2,
+      "shieldDelta": 0,
+      "wasmReadings": {
+        "ovf": 1,
+        "markn": 16379,
+        "recn": 16364,
+        "dlen": 16364,
+        "arenaHigh": 850944,
+        "cHigh": 16364,
+        "pHigh": 2,
+        "vstackPeak": 16365,
+        "expsnapPeak": 1
+      }
+    },
+    {
+      "name": "census a{c}×n @window",
+      "prod": "P:stylesheet",
+      "len": 65456,
+      "js": {
+        "sha256": "0d0a0399b66cc7398d0dd7b4cdbd601544946b2ddfada28f44273c90f871fcb5",
+        "length": 65574,
+        "head": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":65456,\"expected\":[\"<mark-journal> (at most 32768 marks)\"],\"actual\":\"a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}"
+      },
+      "wasm": {
+        "sha256": "0d0a0399b66cc7398d0dd7b4cdbd601544946b2ddfada28f44273c90f871fcb5",
+        "length": 65574,
+        "head": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":65456,\"expected\":[\"<mark-journal> (at most 32768 marks)\"],\"actual\":\"a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}"
+      },
+      "jsAll": {
+        "sha256": "0222d1e2bab0a8e35780851b541c5bd8e2d692c31175caef3e61d532acf57e84",
+        "length": 196745,
+        "head": "[{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":65456,\"expected\":[\"<mark-journal> (at most 32768 marks)\"],\"actual\":\"a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c"
+      },
+      "wasmAll": {
+        "sha256": "0222d1e2bab0a8e35780851b541c5bd8e2d692c31175caef3e61d532acf57e84",
+        "length": 196745,
+        "head": "[{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":65456,\"expected\":[\"<mark-journal> (at most 32768 marks)\"],\"actual\":\"a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c}a{c"
+      },
+      "sixTupleIdentical": true,
+      "allIssuesIdentical": true,
+      "diagnostics": 3,
+      "shieldDelta": 0,
+      "wasmReadings": {
+        "ovf": 1,
+        "markn": 65462,
+        "recn": 16364,
+        "dlen": 16364,
+        "arenaHigh": 850960,
+        "cHigh": 16365,
+        "pHigh": 2,
+        "vstackPeak": 16369,
+        "expsnapPeak": 0
+      }
+    },
+    {
+      "name": "census linear(0, ×n) @window",
+      "prod": "P:timing-function",
+      "len": 65457,
+      "js": {
+        "sha256": "406908f2e22ea2182ea90f35127a1550e0b6e7b90e14c2a80c17365eda2343c4",
+        "length": 77,
+        "head": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}"
+      },
+      "wasm": {
+        "sha256": "406908f2e22ea2182ea90f35127a1550e0b6e7b90e14c2a80c17365eda2343c4",
+        "length": 77,
+        "head": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}"
+      },
+      "jsAll": {
+        "sha256": "406908f2e22ea2182ea90f35127a1550e0b6e7b90e14c2a80c17365eda2343c4",
+        "length": 77,
+        "head": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}"
+      },
+      "wasmAll": {
+        "sha256": "406908f2e22ea2182ea90f35127a1550e0b6e7b90e14c2a80c17365eda2343c4",
+        "length": 77,
+        "head": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}"
+      },
+      "sixTupleIdentical": true,
+      "allIssuesIdentical": true,
+      "diagnostics": 0,
+      "shieldDelta": 0,
+      "wasmReadings": {
+        "ovf": 0,
+        "markn": 21818,
+        "recn": 0,
+        "dlen": 0,
+        "arenaHigh": 2792672,
+        "cHigh": 43634,
+        "pHigh": 21818,
+        "vstackPeak": 21826,
+        "expsnapPeak": 1
+      }
+    },
+    {
+      "name": "census linear(0 1% 2%, ×n) @window",
+      "prod": "P:timing-function",
+      "len": 65457,
+      "js": {
+        "sha256": "406908f2e22ea2182ea90f35127a1550e0b6e7b90e14c2a80c17365eda2343c4",
+        "length": 77,
+        "head": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}"
+      },
+      "wasm": {
+        "sha256": "406908f2e22ea2182ea90f35127a1550e0b6e7b90e14c2a80c17365eda2343c4",
+        "length": 77,
+        "head": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}"
+      },
+      "jsAll": {
+        "sha256": "406908f2e22ea2182ea90f35127a1550e0b6e7b90e14c2a80c17365eda2343c4",
+        "length": 77,
+        "head": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}"
+      },
+      "wasmAll": {
+        "sha256": "406908f2e22ea2182ea90f35127a1550e0b6e7b90e14c2a80c17365eda2343c4",
+        "length": 77,
+        "head": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}"
+      },
+      "sixTupleIdentical": true,
+      "allIssuesIdentical": true,
+      "diagnostics": 0,
+      "shieldDelta": 0,
+      "wasmReadings": {
+        "ovf": 0,
+        "markn": 2,
+        "recn": 0,
+        "dlen": 0,
+        "arenaHigh": 1978208,
+        "cHigh": 43634,
+        "pHigh": 21818,
+        "vstackPeak": 7282,
+        "expsnapPeak": 1
+      }
+    },
+    {
+      "name": "census a { color : red ; } ×n @window",
+      "prod": "P:stylesheet",
+      "len": 65440,
+      "js": {
+        "sha256": "406908f2e22ea2182ea90f35127a1550e0b6e7b90e14c2a80c17365eda2343c4",
+        "length": 77,
+        "head": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}"
+      },
+      "wasm": {
+        "sha256": "406908f2e22ea2182ea90f35127a1550e0b6e7b90e14c2a80c17365eda2343c4",
+        "length": 77,
+        "head": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}"
+      },
+      "jsAll": {
+        "sha256": "406908f2e22ea2182ea90f35127a1550e0b6e7b90e14c2a80c17365eda2343c4",
+        "length": 77,
+        "head": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}"
+      },
+      "wasmAll": {
+        "sha256": "406908f2e22ea2182ea90f35127a1550e0b6e7b90e14c2a80c17365eda2343c4",
+        "length": 77,
+        "head": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}"
+      },
+      "sixTupleIdentical": true,
+      "allIssuesIdentical": true,
+      "diagnostics": 0,
+      "shieldDelta": 0,
+      "wasmReadings": {
+        "ovf": 0,
+        "markn": 9822,
+        "recn": 0,
+        "dlen": 0,
+        "arenaHigh": 1649120,
+        "cHigh": 32720,
+        "pHigh": 9816,
+        "vstackPeak": 3287,
+        "expsnapPeak": 1
+      }
+    },
+    {
+      "name": "census ;×n @window (1 cell per code unit)",
+      "prod": "P:stylesheet",
+      "len": 65458,
+      "js": {
+        "sha256": "2f296b5dd1276b6dc7265d7b9df44a9ca3108135f6e29e2e86200e3f499fe5a1",
+        "length": 65576,
+        "head": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":65458,\"expected\":[\"<mark-journal> (at most 32768 marks)\"],\"actual\":\";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+      },
+      "wasm": {
+        "sha256": "2f296b5dd1276b6dc7265d7b9df44a9ca3108135f6e29e2e86200e3f499fe5a1",
+        "length": 65576,
+        "head": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":65458,\"expected\":[\"<mark-journal> (at most 32768 marks)\"],\"actual\":\";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+      },
+      "jsAll": {
+        "sha256": "0f356d5c0f5e678000fdf8004dd9a93ac76fb018cf4a9d44d02818af701de053",
+        "length": 196751,
+        "head": "[{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":65458,\"expected\":[\"<mark-journal> (at most 32768 marks)\"],\"actual\":\";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+      },
+      "wasmAll": {
+        "sha256": "0f356d5c0f5e678000fdf8004dd9a93ac76fb018cf4a9d44d02818af701de053",
+        "length": 196751,
+        "head": "[{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":65458,\"expected\":[\"<mark-journal> (at most 32768 marks)\"],\"actual\":\";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+      },
+      "sixTupleIdentical": true,
+      "allIssuesIdentical": true,
+      "diagnostics": 3,
+      "shieldDelta": 0,
+      "wasmReadings": {
+        "ovf": 1,
+        "markn": 130922,
+        "recn": 65458,
+        "dlen": 65458,
+        "arenaHigh": 2356520,
+        "cHigh": 65458,
+        "pHigh": 0,
+        "vstackPeak": 65459,
+        "expsnapPeak": 0
+      }
+    },
+    {
+      "name": "census a,×n{} @window",
+      "prod": "P:stylesheet",
+      "len": 65458,
+      "js": {
+        "sha256": "406908f2e22ea2182ea90f35127a1550e0b6e7b90e14c2a80c17365eda2343c4",
+        "length": 77,
+        "head": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}"
+      },
+      "wasm": {
+        "sha256": "406908f2e22ea2182ea90f35127a1550e0b6e7b90e14c2a80c17365eda2343c4",
+        "length": 77,
+        "head": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}"
+      },
+      "jsAll": {
+        "sha256": "406908f2e22ea2182ea90f35127a1550e0b6e7b90e14c2a80c17365eda2343c4",
+        "length": 77,
+        "head": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}"
+      },
+      "wasmAll": {
+        "sha256": "406908f2e22ea2182ea90f35127a1550e0b6e7b90e14c2a80c17365eda2343c4",
+        "length": 77,
+        "head": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}"
+      },
+      "sixTupleIdentical": true,
+      "allIssuesIdentical": true,
+      "diagnostics": 0,
+      "shieldDelta": 0,
+      "wasmReadings": {
+        "ovf": 0,
+        "markn": 8,
+        "recn": 0,
+        "dlen": 0,
+        "arenaHigh": 1309320,
+        "cHigh": 2,
+        "pHigh": 1,
+        "vstackPeak": 65462,
+        "expsnapPeak": 0
+      }
+    },
+    {
+      "name": "census var nested at depth 64",
+      "prod": "P:color",
+      "len": 131,
+      "js": {
+        "sha256": "2a6789ff169938b7483eff43e43daf297ed24f0964347b74b6d4e7409b9ab3a4",
+        "length": 173,
+        "head": "{\"ok\":false,\"code\":\"color_context_required\",\"start\":131,\"end\":131,\"expected\":[\"<context-free-color> (a context colour has no value outside a computed style)\"],\"actual\":null}"
+      },
+      "wasm": {
+        "sha256": "2a6789ff169938b7483eff43e43daf297ed24f0964347b74b6d4e7409b9ab3a4",
+        "length": 173,
+        "head": "{\"ok\":false,\"code\":\"color_context_required\",\"start\":131,\"end\":131,\"expected\":[\"<context-free-color> (a context colour has no value outside a computed style)\"],\"actual\":null}"
+      },
+      "jsAll": {
+        "sha256": "d850297b6c93f56d07d41b5a7dfda8bb0f3ad42f8f2d70e1f76626163226b05f",
+        "length": 175,
+        "head": "[{\"ok\":false,\"code\":\"color_context_required\",\"start\":131,\"end\":131,\"expected\":[\"<context-free-color> (a context colour has no value outside a computed style)\"],\"actual\":null}]"
+      },
+      "wasmAll": {
+        "sha256": "d850297b6c93f56d07d41b5a7dfda8bb0f3ad42f8f2d70e1f76626163226b05f",
+        "length": 175,
+        "head": "[{\"ok\":false,\"code\":\"color_context_required\",\"start\":131,\"end\":131,\"expected\":[\"<context-free-color> (a context colour has no value outside a computed style)\"],\"actual\":null}]"
+      },
+      "sixTupleIdentical": true,
+      "allIssuesIdentical": true,
+      "diagnostics": 1,
+      "shieldDelta": 0,
+      "wasmReadings": {
+        "ovf": 0,
+        "markn": 196,
+        "recn": 0,
+        "dlen": 1,
+        "arenaHigh": 3080,
+        "cHigh": 128,
+        "pHigh": 1,
+        "vstackPeak": 68,
+        "expsnapPeak": 1
+      }
+    }
+  ],
+  "identical": 22,
+  "shield": {
+    "before": 0,
+    "after": 0,
+    "faults": []
+  }
+}

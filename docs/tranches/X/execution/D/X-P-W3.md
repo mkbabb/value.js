@@ -5240,7 +5240,136 @@ eight seats' measurements, which E-3 forbids and no orchestration convention out
 
 ### X.P.W3.f (round 4)
 
-*(owed — the unit seat writes here)*
+**Seat: `claude-fable-5-1` (served, probed) · 2026-09-18 · `<p2>` = `/Users/mkbabb/Programming/parse-that-css-totality-p2` · status DONE.**
+Authorities read whole: `W3.md` §ADDENDUM `.f` (L677–687) + the second ADDENDUM (L697), COHESION §0p (L1116–1169) and §0q
+(L1171–1202), this record's RESUME (FOURTH) R4.4–R4.5 and the round-3 receipt f.3–f.7. **F-o4.1 acknowledged**: the
+class-2 appender lives in `lowering-wasm/runtime.mjs` (§0q's `lowering-js/runtime.mjs` is the typo the seat named);
+the JS-side sites are `lowering-js/js-alg.mjs`'s push sites. Both were in the writable set and both are where the
+high-water landed.
+
+**f.0 — crash-recovery + baseline, READ-ONLY.** ⟨cmd⟩ `git -C <p2> status --porcelain` → `?? .worktrees/` only (not
+mine, never touched); the value.js sibling dirty rows (`scripts/dev/dev.sh`, the ten demo/palette rows, the two e2e
+specs, `docs/tranches/X/waves/evidence/`) untouched throughout. Baseline re-taken at this seat (R4.5's readings
+reproduced): G-3 proof leg **RED** — `SHIELD.caught` 0→1→2 on ESC-e1's 8191-rule witness and §0q's ruled 1 MB witness;
+G-9 boundary project `Tests 2 failed | 116 passed (118)` (the latch pair `latch.test.ts:147/:157`, ESC-c1); G-5
+`79674 · 0 · 0 · threw 0` EXIT=0; `ac1.wasm` 187,131 B sha256 `7ce0382b22716585`.
+
+**f.1 — the decisive measurement before any cure (banked in the round-3 triple, re-taken here).** The module's
+appenders refuse-and-flag (`G.ovf`) but the run never stops; `alloc` past `ARENA_CAP` and `vstack` past
+`VSTACK_CAP` **TRAP** (`RuntimeError: memory access out of bounds`) — three valid-input families trap between 70 KB
+and 400 KB: `a{}×40000` (120,000 B), `linear(0, ×70000)` (210,009 B), `;×70000` (70,000 B). Therefore the only
+run-stopping bound is the **pre-run input window**, and §0q's *"lower the declared class-1 bound in Θ"* is
+**Θ.input**, derived (f.3), never a CAP move. `wasm-alg.mjs` is READ-ONLY for this unit and was not opened for
+writing; no in-module stop was added (see residual R-f1).
+
+**f.2 — class 1 (input · marks · recoveries · D).** `bounds.mjs`: `CAPACITY_REGIONS` (nine rows `{region, cls, cap,
+unit, production, when}`, VALUEs imported from `lowering-wasm/layout.mjs` — **no CAP moved**, `layout.mjs` unchanged),
+`CAPACITY`/`THETA = Object.freeze({ depthBound: DEPTH_BOUND, ...CAPACITY })`, `capacityLabel(region) = "<region> <=
+<cap>"`, `capacityIssue` (`code:"css_syntax", start:0, end:source.length, expected:[label], actual:source`),
+`capacityBreaches(counters)` = the breached regions **in §0q's listing order** (marks, recoveries, D, C, P; input
+pre-run), `capacityProduct(regions, source, peaks)` (`ok:false`, one `D` row per breached region, `far.labels` the
+same list, `marks:[] recoveries:[]`, `peaks`). `algebra/tables.mjs`: nine label literals appended in `collectLabels`
+**AFTER `"<string>"`** — measured ⟨cmd⟩ `node -e '…L.indexOf("<string>")…'` → `"<string>"` at **L[50]**, capacity
+labels **L[51..59]**, **`L.length` 60**, no prior index moved (K-10). `diagnostics.mjs`: nine `PRODUCTION_LABELS` rows
+appended after `"<string>"` (60 rows; `promoteLabel("input <= 65458")` → `"<input-window> (at most 65458 code
+units)"`). `lowering-js/index.mjs` + `lowering-wasm/index.mjs`: `DEFAULT_THETA` frozen with `depthBound` + the nine;
+`parse` returns `capacityProduct(["input"], …)` when `source.length > DEFAULT_THETA.input` (the Wasm's former input
+**throw** deleted — entry.mjs's T-1b census unchanged, ⟨cmd⟩ `git diff src/css/entry.mjs | grep -cE '^[+-].*throw'`
+→ **0**, `grep -c "throw new" entry.mjs` → **1**); after Π/`ex.run`, `capacityBreaches` over
+`{marks, recoveries, D, C:peak, P:peak}` → `capacityProduct(breached, …)`. The Wasm lowering **HALTs** (throws, into
+the shield) if `W_OVF` is set with no declared region over its bound — the class-3 proof's runtime witness, never a
+mask. `entry.mjs` `makePublicSurface` now calls `assertCapacityBounds(lowering)` at load (theta read-back ≤ layout
+cap, `L.includes(label)`, promoted production) and publishes `surface.capacity`, `surface.theta`; exports `CAPACITY ·
+CAPACITY_LABELS · CLASS3_PROOF`.
+
+**f.3 — class 3 (vstack · arena · expsnap) — derived, asserted at load, shadow counters REFUSED.** `bounds.mjs`
+`walkCeilings(grammar, dispatch, depthBound)` walks the reified grammar (`reify/term-alg.mjs`) with the emitter's node
+table (`mkSpan/mkStr/mkNum` 16 · `mkFold` n+15 · `mkSeqNode` 4n+15 · `mkRec` 8p+8; `CTOR_ALLOC` per constructor row;
+`CTOR_SCRATCH_CELLS`), keyword/dispatch minimum key widths from `R_kw`/`R_disp`, a Pareto front of (nodes, min-width)
+per term, REF cycles charged per level up to `depthBound`. `deriveClass3Ceilings()` → per entry
+`P:color 58.67 B/cu · P:timing-function 98.00 · P:stylesheet 96.83 (fixed 46, cells 78)`; **K_arena=98 S=46 ·
+K_vstack=1 S=78 · expsnap static 1**. `INPUT_BOUND = min(INPUT_CAP, VSTACK_CAP − 78, ⌊(ARENA_CAP − 46)/98⌋)` =
+**min(1,048,576 · 65,458 · 73,560) = 65,458** — the vstack binds. `assertClass3Unreachable()` runs at module load and
+HALTs if any `cap₃ < K×Θ.input + S`; `CLASS3_PROOF = {input:65458, vstack:{ceiling 65536 cap 65536}, arena:{ceiling
+6414930 cap 7208960}, expsnap:{ceiling 1 cap 32}}`. Measured against the derivation (capacity.test.ts §6, 22 census
+families regenerated at the window, Wasm memory scanned): every family's vstack peak ≤ 1·len+78 (worst `a,×n{}` →
+**65,462** of 65,536), arena peak ≤ 98·len+46 (worst measured 61 B/cu), expsnap peak **1** at depth 64 — the proof
+holds with margin and no family reaches a class-3 region under Θ.input.
+
+**f.4 — class 2 (C · P) — high-water at the appenders, final count REFUSED.** `lowering-wasm/runtime.mjs`: globals
+`chigh`/`phigh`; the shared appender, after its increment, `if (len > high) high = len` for `appendC`/`appendP` only;
+`reset` zeroes both; `lowering-wasm/index.mjs` exports `cHighWater`/`pHighWater`. `lowering-js/js-alg.mjs`:
+`newSigma` gains `Chw/Phw`, `noteC(sg)`/`noteP(sg)` after every `sg.C.push`/`sg.P.push` (NUM · DIGITS · TEXT · KW ·
+DISPATCH · DROP · RECOVER · the residue push in `index.mjs`). Both products carry `peaks:{C,P}`; the 26,785×3 corpus
+sweep (capacity.test.ts §5) reads the peaks **identical across lowerings**, `peak ≥ final` everywhere, `peakAboveFinal
+> 0` (the final count would have under-read), and **each journal's peak ≤ source length** — the tiling corollary,
+corrected from round 3's `C+P ≤ len` (a 1-char sheet reaches C=1 and P=1 at different moments). Hence with
+Θ.input = 65,458 < 65,536 the C and P labels are **declared, carried and asserted but unreachable** (INFO-f2).
+
+**f.5 — E-f3, the capacity leg.** `test/css-recovery/boundary/capacity.test.ts` (line 1 `// SERVED MODEL:
+claude-fable-5-1`; `pool: "forks"` under the boundary project): §1 declared (Θ key order; the nine layout values
+pinned; `assertCapacityBound` ×2 lowerings; labels after `"<string>"`; negatives) · §2 class-3 proof (deterministic;
+`INPUT_BOUND` is the max: `+1` fails the assertion) · §3 class 1 at/past pairs found by binary search
+(`input 65,459` · `marks a{}×16382` · `recoveries a{c}×4097`), raw products `toEqual` across lowerings, breach order ·
+§4 **G-3 proof leg** (ESC-e1's pair · the ruled 1 MB witness · the three trap families → input-window rejections,
+identical, `SHIELD.caught` delta 0) · §5 class 2 (above) · §6 class 3 (above) · §7 **G-5 band**: `BAND_ROWS = 37`
+(self-count 3·2+2+1+3+3+22) × 2 lowerings through G-5's `canonical()` idiom (fixed key order, no array sorted),
+`canonicalAll`/`canonicalValue` identical · §8 shield delta 0 over the whole file. ⟨cmd⟩ `npx vitest run --config
+test/css-recovery/boundary/vitest.config.ts capacity` → **`Tests 50 passed (50)` EXIT=0, run twice, identical.**
+
+**f.6 — rebuild + K-9 reproducibility.** ⟨cmd⟩ `node src/css/build.mjs` ×2 → `ac1.wasm` **187,214 B** (1268
+functions), sha256 **`80a04a5a1200b1f2…`** on both builds; `ac1.js`/`ac1.d.ts` byte-unchanged.
+
+**f.7 — the gates, WRITE-THEN-MEASURE, double-run on settled bytes.**
+
+| gate | BEFORE (R4.5) | AFTER (this seat, ×2) | reading |
+|---|---|---|---|
+| **G-3 proof leg** | `SHIELD.caught` 0→2 on the capacity witnesses (8191-rule · 1 MB) | ESC-e1 8190/8191 · ruled 1 MB · `a{}×40000` · `linear(0, ×70000)` · `;×70000` all → `ok:false css_syntax [<input-window> (at most 65458 code units)]`, identical both lowerings, **`SHIELD.caught` 0→0** | **GREEN** |
+| **G-9** capacity leg | absent | `capacity.test.ts` **50/50** ×2 | **GREEN** |
+| **G-9** boundary project | `2 failed \| 116 passed (118)` (4 files) | ⟨cmd⟩ `npx vitest run --config test/css-recovery/boundary/vitest.config.ts` → **`1 failed \| 4 passed (5)` · `2 failed \| 166 passed (168)`** ×2, the two = `latch.test.ts` L-3 RESETTABLE + "whole reading" | **SPLIT unchanged — latch pair stays ESC-c1** |
+| **G-5** (floor) | 79,674 / 0 / 0 / threw 0 | ⟨cmd⟩ `node scripts/css-dual-target-identity.mjs` → `26551 cells ×3 · six-tuple differ 0 · full-diagnostics 0 · value 0 · threw 0` + boundary 21 identical = **79,674 / 0 / 0**, EXIT=0, ×2 (second with `--out`); wasm sha `80a04a5a1200b1f2` | **FLOOR HELD** — reported beside, not turned |
+| G-5 capacity band (beside) | — | 37 rows × 2 lowerings byte-identical; the 22-row post-cure probe **22/22 identical, SHIELD 0→0** | GREEN beside |
+| G-8 · G-6 · G-4 · G-7 | 2/2 · 72/72 · 8/10 (C-3/C-4) · 5,890 | unchanged, single-run (not this unit's gates) | unchanged |
+
+Also: ⟨cmd⟩ `git -C <p2> diff --check` → clean. ⟨cmd⟩ `npx tsc --noEmit -p .` → EXIT=2 with **497** errors, **all
+pre-existing classes** (`TS2580 process`/`TS2584 console` in `src/parse/**`, `TS2307` benchmark deps, and **TS7016
+"no declaration file for …mjs"** — the same class `boundary.test.ts:21–24` already carries; `capacity.test.ts:37–59`
+carries it for the same `.mjs` imports and no other error); vitest runs the file untyped exactly as its siblings.
+eslint: no `eslint.config.*` in `<p2>/typescript` → not runnable at this root (recorded, not worked around).
+
+**f.8 — commit (ONE, pathspec).** `<p2>` **`6e584bafdba531cad0a84bcb11cd83fa9add2230`** `feat(x-p-w3/.f): the nine
+W_OVF regions become Θ capacities (§0q) …` — 10 files, +1,280/−19: `bounds.mjs` · `entry.mjs` · `algebra/tables.mjs`
+· `diagnostics.mjs` · `lowering-js/index.mjs` · `lowering-js/js-alg.mjs` · `lowering-wasm/index.mjs` ·
+`lowering-wasm/runtime.mjs` · `build/ac1.wasm` · `test/css-recovery/boundary/capacity.test.ts`. `git status
+--porcelain` after → `?? .worktrees/` only. `layout.mjs` · `wasm-alg.mjs` · `corpus.json` ·
+`css-dual-target-identity.mjs` · the five sealed evidence JSONs · the round-3 triple: **untouched** (E-3).
+
+**f.9 — evidence banked BESIDE (E-3), `docs/tranches/X/parse-that/evidence/W3/`, each line 1 = `SERVED MODEL:
+claude-fable-5-1` (JSONs carry `servedModel` as their first key, the round-3 precedent):**
+`capacity-bounds-2026-09-18.mjs` (`aaa01c13c296f506…`, the probe) · `.txt` (`d945b66c25e62c8d…`, run 1 of 2, `cmp`
+identical) · `.json` (`c95d2318672a49b0…`, Θ · CLASS3_PROOF · per-entry ceilings · label indices · 22 witness rows
+per lowering as sha256+length+head of G-5's canonical strings, the identity decided over the full strings in-process ·
+Wasm region peaks · SHIELD ledger) · `boundary-suite-post-f-2026-09-18.txt` (`700dc3f09680ba0e…`) ·
+`dual-target-identity-post-f-2026-09-18.json` (`e9d8b594d9b9f8ee…`, the `--out` of G-5 run 2) · `.txt`
+(`95923593f5401811…`).
+
+**f.10 — E13.** The 17:11 RESUME-4 sweep stands: 0 UNREAD in X.P.W3's scope; ⟨cmd⟩ `grep -nE '\| *UNREAD'
+INBOX.md` at 18:03 → the standing Track-A/B rows only; nothing consumed or minted by this unit.
+
+**Residuals (returned to this formation, none laundered):**
+- **R-f1 (INFO → X.P.W4 / the close seat).** Θ.input = **65,458** of a 1,048,576-code-unit layout window. Restoring
+  the full window requires **either** an in-module stop at the first overflow (`wasm-alg.mjs`, READ-ONLY here) **or**
+  a `VSTACK_CAP`/`ARENA_CAP` resize (a CAP move, refused by §0q). Neither is this unit's; the derivation
+  (`CLASS3_CEILINGS`) tells the next seat exactly which region binds and by how much.
+- **INFO-f2.** C/P (class 2) are declared, carried and asserted but **unreachable** under Θ.input (each peak ≤ length
+  < 65,536) — the high-water discipline is in place for any future window.
+- **INFO-f3.** On stylesheets `D` is never the *first* breached region (D = recoveries), so a `D` breach is always
+  named beside `recoveries`; it is a real second row, never elided.
+- **INFO-f4.** ESC-e1's 8190/8191 witnesses and §0q's ruled 1 MB witness now read as input-window rejections; the
+  8191-rule `[<stylesheet>]` Wasm-only divergence of round 3 is gone because the input never enters the module.
+- G-9's latch pair (ESC-c1) and the G-4 C-3/C-4, G-7 5,890 readings are unchanged and not this unit's.
+
+**Escalations: none.** Writes outside the set: **0**. Iterations per gate: ≤2.
 
 ### X.P.W3.g
 

@@ -1,0 +1,47 @@
+SERVED MODEL: claude-fable-5-1 · X.P.W3.f capacity-bounds probe (post-cure) · 2026-09-18
+── A. Θ, the nine capacities, the class-3 proof
+  THETA {"depthBound":64,"input":65458,"marks":32768,"recoveries":4096,"D":4096,"C":65536,"P":65536,"vstack":65536,"arena":7208960,"expsnap":32}
+  CLASS3_PROOF {"input":65458,"vstack":{"ceiling":65536,"cap":65536,"K":1,"unit":"code unit","S":78},"arena":{"ceiling":6414930,"cap":7208960,"K":98,"unit":"code unit","S":46},"expsnap":{"ceiling":1,"cap":32,"K":0,"unit":"depth level","S":1}}
+  ceiling P:color: rate 58.67 B/code unit · fixed 0 · mw 3 · cells 71 · expects 1
+  ceiling P:timing-function: rate 98.00 B/code unit · fixed 0 · mw 4 · cells 14 · expects 1
+  ceiling P:stylesheet: rate 96.83 B/code unit · fixed 46 · mw 0 · cells 78 · expects 1
+  layout CAPs: {"INPUT_CAP":1048576,"MARK_CAP":32768,"REC_CAP":4096,"D_CAP":4096,"C_CAP":65536,"P_CAP":65536,"VSTACK_CAP":65536,"ARENA_CAP":7208960,"EXPSNAP_CAP":32}
+
+── B. the label surface, asked mechanically
+  input       cls 1 · L[51] = "input <= 65458" → "<input-window> (at most 65458 code units)"
+  marks       cls 1 · L[52] = "marks <= 32768" → "<mark-journal> (at most 32768 marks)"
+  recoveries  cls 1 · L[53] = "recoveries <= 4096" → "<recovery-journal> (at most 4096 recoveries)"
+  D           cls 1 · L[54] = "D <= 4096" → "<diagnostic-journal> (at most 4096 diagnostics)"
+  C           cls 2 · L[55] = "C <= 65536" → "<complement-journal> (at most 65536 entries)"
+  P           cls 2 · L[56] = "P <= 65536" → "<provenance-journal> (at most 65536 entries)"
+  vstack      cls 3 · L[57] = "vstack <= 65536" → "<value-stack> (at most 65536 slots)"
+  arena       cls 3 · L[58] = "arena <= 7208960" → "<arena> (at most 7208960 bytes)"
+  expsnap     cls 3 · L[59] = "expsnap <= 32" → "<expectation-snapshots> (at most 32 frames)"
+  L.length = 60 · PRODUCTION_LABELS rows = 60 · "<string>" at L[50]
+
+── C. the witnesses, both lowerings, G-5's canonical six-tuple
+  input AT                                   len=  65458 js=ok:true | wasm=ok:true | identical=true SHIELD+0 · wasm vstack 9 arena 224 expsnap 0 C^ 2 P^ 1
+  input PAST                                 len=  65459 js=ok:false css_syntax ×1 [<input-window> (at most 65458 code units)] | wasm=ok:false css_syntax ×1 [<input-window> (at most 65458 code units)] | identical=true SHIELD+0 · wasm vstack 0 arena 0 expsnap 0 C^ 0 P^ 0
+  marks AT (a{}×16381)                       len=  49143 js=ok:true | wasm=ok:true | identical=true SHIELD+0 · wasm vstack 16389 arena 3014144 expsnap 0 C^ 32762 P^ 16381
+  marks PAST (a{}×16382)                     len=  49146 js=ok:false css_syntax ×1 [<mark-journal> (at most 32768 marks)] | wasm=ok:false css_syntax ×1 [<mark-journal> (at most 32768 marks)] | identical=true SHIELD+0 · wasm vstack 16390 arena 3014320 expsnap 0 C^ 32764 P^ 16382
+  recoveries+D AT (a{c}×4096)                len=  16384 js=ok:false css_syntax ×4096 [<colon> | <colon> | <colon> | …(+4093)] | wasm=ok:false css_syntax ×4096 [<colon> | <colon> | <colon> | …(+4093)] | identical=true SHIELD+0 · wasm vstack 4101 arena 213024 expsnap 0 C^ 4097 P^ 2
+  recoveries+D PAST (a{c}×4097)              len=  16388 js=ok:false css_syntax ×2 [<recovery-journal> (at most 4096 recoveries) | <diagnostic-journal> (at most 4096 diagnostics)] | wasm=ok:false css_syntax ×2 [<recovery-journal> (at most 4096 recoveries) | <diagnostic-journal> (at most 4096 diagnostics)] | identical=true SHIELD+0 · wasm vstack 4102 arena 213080 expsnap 0 C^ 4098 P^ 2
+  ESC-e1 a{color:red}×8190                   len=  98280 js=ok:false css_syntax ×1 [<input-window> (at most 65458 code units)] | wasm=ok:false css_syntax ×1 [<input-window> (at most 65458 code units)] | identical=true SHIELD+0 · wasm vstack 0 arena 0 expsnap 0 C^ 0 P^ 0
+  ESC-e1 a{color:red}×8191                   len=  98292 js=ok:false css_syntax ×1 [<input-window> (at most 65458 code units)] | wasm=ok:false css_syntax ×1 [<input-window> (at most 65458 code units)] | identical=true SHIELD+0 · wasm vstack 0 arena 0 expsnap 0 C^ 0 P^ 0
+  §0q ruled witness a×(INPUT_CAP−1)+{}       len=1048577 js=ok:false css_syntax ×1 [<input-window> (at most 65458 code units)] | wasm=ok:false css_syntax ×1 [<input-window> (at most 65458 code units)] | identical=true SHIELD+0 · wasm vstack 0 arena 0 expsnap 0 C^ 0 P^ 0
+  trap family a{}×40000                      len= 120000 js=ok:false css_syntax ×1 [<input-window> (at most 65458 code units)] | wasm=ok:false css_syntax ×1 [<input-window> (at most 65458 code units)] | identical=true SHIELD+0 · wasm vstack 0 arena 0 expsnap 0 C^ 0 P^ 0
+  trap family linear(0, )×70000              len= 210009 js=ok:false css_syntax ×1 [<input-window> (at most 65458 code units)] | wasm=ok:false css_syntax ×1 [<input-window> (at most 65458 code units)] | identical=true SHIELD+0 · wasm vstack 0 arena 0 expsnap 0 C^ 0 P^ 0
+  trap family ;×70000                        len=  70000 js=ok:false css_syntax ×1 [<input-window> (at most 65458 code units)] | wasm=ok:false css_syntax ×1 [<input-window> (at most 65458 code units)] | identical=true SHIELD+0 · wasm vstack 0 arena 0 expsnap 0 C^ 0 P^ 0
+  census a{color:red}×n @window              len=  65448 js=ok:true | wasm=ok:true | identical=true SHIELD+0 · wasm vstack 5469 arena 2574320 expsnap 1 C^ 16362 P^ 16362
+  census a{}×n @window                       len=  65457 js=ok:false css_syntax ×1 [<mark-journal> (at most 32768 marks)] | wasm=ok:false css_syntax ×1 [<mark-journal> (at most 32768 marks)] | identical=true SHIELD+0 · wasm vstack 21827 arena 4014736 expsnap 0 C^ 43638 P^ 21819
+  census a{c:r;×n} @window                   len=  65455 js=ok:false css_syntax ×2 [<recovery-journal> (at most 4096 recoveries) | <diagnostic-journal> (at most 4096 diagnostics)] | wasm=ok:false css_syntax ×2 [<recovery-journal> (at most 4096 recoveries) | <diagnostic-journal> (at most 4096 diagnostics)] | identical=true SHIELD+0 · wasm vstack 16365 arena 850944 expsnap 1 C^ 16364 P^ 2
+  census a{c}×n @window                      len=  65456 js=ok:false css_syntax ×3 [<mark-journal> (at most 32768 marks) | <recovery-journal> (at most 4096 recoveries) | <diagnostic-journal> (at most 4096 diagnostics)] | wasm=ok:false css_syntax ×3 [<mark-journal> (at most 32768 marks) | <recovery-journal> (at most 4096 recoveries) | <diagnostic-journal> (at most 4096 diagnostics)] | identical=true SHIELD+0 · wasm vstack 16369 arena 850960 expsnap 0 C^ 16365 P^ 2
+  census linear(0, ×n) @window               len=  65457 js=ok:true | wasm=ok:true | identical=true SHIELD+0 · wasm vstack 21826 arena 2792672 expsnap 1 C^ 43634 P^ 21818
+  census linear(0 1% 2%, ×n) @window         len=  65457 js=ok:true | wasm=ok:true | identical=true SHIELD+0 · wasm vstack 7282 arena 1978208 expsnap 1 C^ 43634 P^ 21818
+  census a { color : red ; } ×n @window      len=  65440 js=ok:true | wasm=ok:true | identical=true SHIELD+0 · wasm vstack 3287 arena 1649120 expsnap 1 C^ 32720 P^ 9816
+  census ;×n @window (1 cell per code unit)  len=  65458 js=ok:false css_syntax ×3 [<mark-journal> (at most 32768 marks) | <recovery-journal> (at most 4096 recoveries) | <diagnostic-journal> (at most 4096 diagnostics)] | wasm=ok:false css_syntax ×3 [<mark-journal> (at most 32768 marks) | <recovery-journal> (at most 4096 recoveries) | <diagnostic-journal> (at most 4096 diagnostics)] | identical=true SHIELD+0 · wasm vstack 65459 arena 2356520 expsnap 0 C^ 65458 P^ 0
+  census a,×n{} @window                      len=  65458 js=ok:true | wasm=ok:true | identical=true SHIELD+0 · wasm vstack 65462 arena 1309320 expsnap 0 C^ 2 P^ 1
+  census var nested at depth 64              len=    131 js=ok:false color_context_required ×1 [<context-free-color> (a context colour has no value outside a computed style)] | wasm=ok:false color_context_required ×1 [<context-free-color> (a context colour has no value outside a computed style)] | identical=true SHIELD+0 · wasm vstack 68 arena 3080 expsnap 1 C^ 128 P^ 1
+
+  rows 22 · identical across both lowerings 22 · SHIELD.caught 0 → 0 (delta 0)
+  faults: []
