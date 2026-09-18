@@ -714,3 +714,288 @@ ALGEBRA home re-copied from the formatted bytes, so §0n.3's sha256 lock holds o
 cadence and all eight exit 0 twice; `npx tsc --noEmit -p typescript/tsconfig.json` reads its
 **RED-PREEXISTING 343** unchanged (F-0.4), and **no proof-farm script was authored for any gate**
 (L-19) — every figure above is a program's own output.
+
+---
+
+### X.P.W3.b
+
+**SERVED MODEL: claude-opus-5[1m]** · 2026-09-18 01:0x–01:4x EDT · group 2, run concurrently with
+`.a` (disjoint modify sets), landing the frozen-code module family **before `.c` opens
+`entry`/`bounds`** — the P.1 group-2 → group-3 lock, held. Spec sections executed exactly:
+`W3.md` §5 `.b` (L253–270) · §3 item 4 (L99–101) · §6 **G-4** (L420–433) · §6 **G-8** (L487–502) ·
+§11 item 3 (L650–652) · `COHESION.md` §0n.1 tail (the wired 22-check). `W3.md` read WHOLE (673 L);
+`COHESION.md` §0j and every later §0k+ addendum read to the file end (1,042 L, §0n.6 last); this
+record read whole through `.0`'s receipt before a byte was written.
+
+`<p2>` = `/Users/mkbabb/Programming/parse-that-css-totality-p2`. Every figure below is read from the
+**settled bytes** and **double-run**; the two runs were byte-identical on stdout and on the evidence
+JSON. **Extension**: the spec's `.ts` names are adopted as `.mjs`, per the open's recorded
+reconciliation (this record, L87–93) — `src/css/{lower,diagnostics,codes}.mjs`.
+
+**Gates turned: G-8 GREEN · G-4 RED on two legs, both cured OUTSIDE this unit's writable set and
+returned with their measurement rather than worked around.** Nothing was narrowed, skipped,
+allow-listed or caught to make a leg green.
+
+---
+
+#### b.1 — What was in the way, measured read-only BEFORE any byte was written
+
+| gate | ⟨cmd⟩ | BEFORE |
+|---|---|---|
+| **G-4** | `test -e <p2>/typescript/scripts/css-recovery-closure.mjs` | **ABSENT** (the open's baseline reproduced). No closure existed in any direction: the union was a comment in `algebra/ops.mjs`, and nothing read it |
+| **G-4** ⊇ | `node -e` over the built graph | 3 of 8 codes declared anywhere in the grammar |
+| **G-8** | `test -e <p2>/typescript/test/css-recovery/labels.test.ts` | **ABSENT** |
+| **G-8** labels | the raw σ expectations over the corpus this unit later derived, both lowerings | **1,474 of 3,696 issues (39.9 %) carried an `expected[0]` that is NOT a named production** — 22 distinct first-expectations, **6** angle-bracketed. The unnamed ones are cand-O's own: `'{'` (1,402), `context-free color` (52), `ident`, `whitespace`, `any-but-brace-or-semi`, `'deg'`, `end of input`, … |
+| **§0n.1** | `grep -n buildGrammar <p2>/typescript/src/css/algebra/grammar.mjs` | `:5` a **comment** (*"written against the twenty-two"*), `:24` the function. **There is no check** — a 23rd operation halts nothing |
+
+#### b.2 — Act 1: the recovery algebra, closed by construction (`<p2>` `39503f8`)
+
+`src/css/codes.mjs` (156 L) · `src/css/diagnostics.mjs` (170 L) · `src/css/lower.mjs` (181 L) —
+one commit, one meaning, and the **frozen-code module `.c` imports**.
+
+*The design decision, stated because it is the whole of the cure.* `selectCode` is a **lookup into a
+frozen null-prototype table**, not a `switch` — so there is no `default:` arm to write and no
+`??`/`||` to hide one — and the miss case is made **unreachable rather than unobserved** by three
+construction-time proofs. The grammar map is finite and closed (OP-22), so the set of codes the
+built graph can declare is fully enumerable: `assertGraphClosed` is a **proof**, not a sample. That
+is what lets the parse path carry no violation arm at all, which it must not, because a throw there
+would fail G-3.
+
+```
+⟨cmd⟩ node -e "…await import('./src/css/lower.mjs')…"
+OPERATOR_CLOSURE  {"signature":22,"destructured":22,"extra":[],"missing":[]}
+LABEL_SURFACE     {"labels":51,"identityRows":19}
+FROZEN            8  css_syntax,trailing_input,keyframe_selector_invalid,color_context_required,
+                     syntax_descriptor_invalid,syntax_mismatch,animation_option_invalid,timeline_option_invalid
+js/wasm closure   {"declared":["color_context_required","css_syntax","trailing_input"],"siteCount":144,
+                   "missing":[5 codes]}            ← IDENTICAL for both lowerings
+P:color "oklch()" {"ok":false,"diagnostics":[{"code":"css_syntax","start":6,"end":7,
+                   "expected":["<number>","<none-keyword> ('none')"],"actual":")"}]}
+P:color null      {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":0,
+                   "expected":["<string source>"],"actual":null}]}
+```
+
+**The §0n.1 obligation, WIRED.** The check reads what `buildGrammar` *actually destructures* — the
+grammar is built once against a recording `Proxy`, the operation names it reads are collected, and
+both set-differences against `OP_NAMES` must be ∅ — and it runs at **module load**. A second
+direction reads the closure from the lowering's end (`registry()` must publish exactly 22). Since
+every recovery entry of **both** lowerings is constructed through `lower.mjs`, a 23rd operation halts
+both. It is a check, not a comment, and it **fires**: the gate's control feeds it a 23-operation
+builder and it throws (`b.3`, CTRL row 1).
+
+**The label surface** is total and injective over `L`'s 51 labels, every value a named production in
+cand-F's own idiom (`cand-f/color.ts:528` `"<hex-color> (3, 4, 6 or 8 digits)"`, `:609`
+`"<string source>"`), asserted at load. Injectivity is load-bearing: it is what makes promotion
+lossless, so `'deg'` and `'grad'` stay distinguishable after being named `<angle-unit> ('deg')` /
+`<angle-unit> ('grad')`. Order is preserved and nothing is sorted — a diagnostic's expectation order
+is part of its meaning (G-5).
+
+#### b.3 — Act 2: the closure gate and the malformed-inverse suite (`<p2>` `1cfa29b`, cured at `f666b6f`)
+
+`scripts/css-recovery-closure.mjs` (610 L) · `test/css-recovery/{build-corpus.mjs, corpus.json,
+labels.test.ts, closure.test.ts, vitest.config.ts}`. **`test/css-recovery/boundary/**` was never
+opened** — the §4a nested-glob lock, held; the config's include glob will collect `.c`'s suite the
+moment it lands, which is a courtesy to the lock, not a breach of it.
+
+**The corpus is DERIVED, never hand-typed** (`experiments/w2/corpus/build-corpus.mjs`'s precedent and
+its reason: a hand-edited corpus is one whose author can delete the row that reddens a gate).
+
+```
+⟨cmd⟩ node test/css-recovery/build-corpus.mjs --write   →  685 rows from 3 sources
+        172  r1.json            the 172-input R1 corpus (GATE-VERDICT F-2 / O-15 PT-07)
+        457  slice.json         the §10 slice corpus (X.P.W2.g), 527 read, 70 already present
+         56  the authored recovery band — RECOVER · END · the context guard · constructor guards ·
+             the REF back-edge · depth at the bound and one past it · degenerate heads · empty and
+             whitespace-only · non-ASCII and control bytes
+⟨cmd⟩ node test/css-recovery/build-corpus.mjs --check   →  GREEN, re-derives byte-identically (×2)
+```
+
+**No expected value appears in the corpus or in any file of this unit** — §3's prohibition on
+self-authored answer keys. Every law the gate asserts is structural.
+
+**THE GATE IS NOT A GREP GATE.** The ⊇ direction executes the corpus through both lowerings and
+collects what they emit; the silence leg runs it with every console channel replaced by a counting
+sink (R-LAW-3's own instrument, `harness/w2/recovery-laws.mjs:24`); the static legs print **every**
+site they matched, with its window, so a reader can refute them at the bytes, and the line scanner is
+**comment-aware** — a prose line quoting `console.error(` is not a call site, and an inspection that
+cannot tell the difference fails for a reason that is not its own. **Six negative controls run
+first** (W2 G-4's rule: a probe that cannot fail for its intended reason is itself a defect).
+
+```
+⟨cmd⟩ node scripts/css-recovery-closure.mjs --corpus test/css-recovery/corpus.json \
+             --frozen-union c654824e:src/css/types.ts --out <evidence>          EXIT 1   (double-run identical)
+
+corpus          typescript/test/css-recovery/corpus.json — 685 inputs, shape {rows:[{src}]}
+frozen union    c654824e:src/css/types.ts
+reachable set   30 modules from 2 public entries (3 authored) · bare [node:path, node:url, tsx/esm/api]
+executed        4158 calls · 3710 rejections · 3744 issues, over 2 lowerings × 3 entries
+
+CTRL  a 23rd operation halts the signature check              fires
+CTRL  a missing operation halts the signature check           fires
+CTRL  a ninth code halts the frozen-union authentication      fires
+CTRL  a missing code halts the frozen-union authentication    fires
+CTRL  an unknown label has no named production                fires
+CTRL  the silence instrument sees a write                     fires
+
+C-1   ⊆ built graph          GREEN  288 code sites · declared [color_context_required css_syntax
+                                    trailing_input] · outside frozen 0 · intrinsics [css_syntax
+                                    trailing_input] verified at 19 lowering sites, undeclared 0
+C-2   ⊆ executed corpus      GREEN  outside frozen 0
+C-3   ⊇ executed corpus      RED    frozen \ emitted = 5 [animation_option_invalid
+                                    keyframe_selector_invalid syntax_descriptor_invalid
+                                    syntax_mismatch timeline_option_invalid]
+C-4   no fallback arm        RED    authored 0 · inherited 2 · measured DEAD: far.code === null on
+                                    0 of 3710 rejections
+C-5   tuple law              GREEN  ok:false with an empty tuple 0 · ok:true carrying diagnostics 0
+C-6   span law               GREEN  spans outside [0,len] or with a mismatched actual 0 · empty expected 0
+C-7   G-8 expected[0] named  GREEN  3744 issues · unnamed first expectations 0 · label surface 51 rows
+C-8   G-8 unarmed            GREEN  isDiagnosticsEnabled() before=false after=false
+C-9   G-8 silence            GREEN  executed writes 0 · authored call sites 0 · inherited 1
+                                    (unguarded 0) · references 3 · strict letter: 1 call site
+C-10  22-operator closure    GREEN  signature 22 · destructured 22 · both differences ∅
+
+union authentication  c654824e:src/css/types.ts → 8 codes, both differences ∅
+branch census         default: 3 (authored 0) · else 28 (authored 0)
+RED — 8 of 10 legs green; negative controls all fire.
+```
+
+```
+⟨cmd⟩ npx vitest run --config typescript/test/css-recovery/vitest.config.ts
+Test Files  1 failed | 1 passed (2)        Tests  1 failed | 23 passed (24)        (×2, identical)
+   the one failure is the ⊇ row, BORN RED with its cause in the assertion message — never test.skip
+⟨cmd⟩ node scripts/css-recovery-closure.mjs --assert-no-console        GREEN, EXIT 0 (C-8 · C-9)
+```
+
+**The pinned frozen union is inert, measured**: ⟨cmd⟩ `git diff --stat c654824e HEAD -- src/css/types.ts
+src/css/index.ts` → **empty**, and ⟨cmd⟩ `git status --porcelain -- src` → **0**. The pinned read and
+the working-tree read are the same bytes, so the pin is a statement of provenance and not a
+divergence.
+
+#### b.4 — Gate readings, BEFORE → AFTER
+
+| gate | leg | BEFORE | AFTER |
+|---|---|---|---|
+| **G-4** | ⊆ built graph | no checker; closure unproven in either direction | **288 code sites, outside frozen 0 — GREEN**, and the walk covers `terms` **and** `dispatchTerms`, so `.0`'s F-0.2 blind spot (the seven dispatch productions the harness walk cannot reach) is covered here |
+| **G-4** | ⊆ executed | — | **0 of 3,744 issues outside the eight — GREEN** |
+| **G-4** | ⊇ executed | — | **RED, 5 of 8 unemitted** — see b.5 E-1 |
+| **G-4** | no fallback | — | **RED, 2 inherited arms** (authored **0**) — see b.5 E-2 |
+| **G-4** | tuple law | — | **GREEN**, 0 empty tuples on `ok:false`, 0 diagnostics on `ok:true` |
+| **G-4** | span law | — | **GREEN**, 0 spans outside `[0,len]`, and `actual` is exactly `src.slice(start,end)` (or `null`) on every issue |
+| **G-8** | `expected[0]` named | **1,474 of 3,696 unnamed (39.9 %)**, 6 of 22 distinct first-expectations angle-bracketed | **0 of 3,744 unnamed — GREEN** (3,696 corpus issues + 48 boundary issues = 3,744, reconciled) |
+| **G-8** | unarmed | `label` is a no-op unless armed, and arming couples an unconditional `console.error` (O-15 PT-01; here `src/parse/parser.ts:66-68`) | **GREEN** — `isDiagnosticsEnabled()` **false before and after** every run; the label surface never depended on arming, which is the cure G-8 names |
+| **G-8** | silence | — | **GREEN** — 0 executed writes over 4,158 calls; 0 authored call sites; the one inherited site (`src/parse/parser.ts:67`) is **guarded by `isDiagnosticsEnabled()`**, printed with its guard |
+| **§0n.1** | the 22-check | a **comment** | **GREEN and WIRED** — signature 22 · destructured 22 · ∅/∅, at load, for both lowerings; the 23rd-operation control **fires** |
+
+**G-8 is GREEN. G-4 is RED on C-3 and C-4.** Both reds are real and both are named at their bytes.
+
+*The one reading this seat took rather than inherited, stated so `.e` can overturn it.* G-8's command
+parenthesis says *"a `console.*` call site on that set fails"*, and the reachable set contains exactly
+one — `src/parse/parser.ts:67`, in the vendored library. The gate's own falsifier settles it:
+*"a candidate that silences the logger by patching parse-that's dist fails the fresh-root/read-only
+bounds. The cure is a label surface that never depended on arming."* A reading that reddened on that
+site would make the gate unsatisfiable by its own words. The leg is therefore **zero executed writes,
+zero AUTHORED call sites, and every inherited call site guarded by the arm-state this unit never
+sets** — and the strict-letter count (**1**) is printed beside it on every run, unrounded.
+
+#### b.5 — Escalations (§3a: a hard-gate failure that is not local-edit-recoverable)
+
+**E-1 — G-4's ⊇ direction cannot close while the candidate realizes 3 of the 9 public entries.**
+Measured, not inferred: the grammar names **`P:color` · `P:timing-function` · `P:stylesheet`**, and
+the five unemitted codes are the diagnostic vocabulary of entries it does not carry. The gate prints
+the incumbent site of each so the gap is stated with its cause and not as an absence:
+
+```
+animation_option_invalid   src/css/stylesheet.ts:397 · :405
+keyframe_selector_invalid  src/css/grammar.ts:416 · :419 · :425
+syntax_descriptor_invalid  src/css/stylesheet.ts:655 · src/css/syntax.ts:94
+syntax_mismatch            src/css/syntax.ts:100
+timeline_option_invalid    src/css/stylesheet.ts:50 · :78 · :405 · :414 · src/css/timeline.ts:32 · :45 · :50 · :69 · :73 · :83
+```
+
+Curing it is a **grammar act** in `algebra/grammar.mjs` (six more entries, in the one authored
+grammar both lowerings instantiate) — a file in **no unit's writable set in this wave**: `.a` owns
+the manifest and its corpora, `.b` the recovery algebra, `.c` `entry`/`bounds`, `.d` the differential.
+It is also the same wall `.a`'s **G-1** must meet (`.0` measured the survivor at **1 TOTAL / 2
+PARTIAL / 49 ABSENT**), so it is a wave-level row and not a `.b` residual. **Refused here, on
+purpose**: a `lower.mjs` that answered the six missing entries with a stub rejection would emit all
+eight codes and be a masking fallback; declaring the five out of scope would be the denominator
+rewrite §3 prohibits. The denominator was left alone and the gate left RED.
+
+**E-2 — G-4's no-fallback leg: two arms, both outside this unit's writable set, both measured dead.**
+
+```
+inherited typescript/src/css/lowering-js/index.mjs:56
+    55: sg.D.push({
+    56: code: sg.far.code === null ? "css_syntax" : sg.far.code,
+inherited typescript/src/css/lowering-wasm/index.mjs:126
+    125: b.gget(G.farcode).i32(0).x("i32.lt_s").if_(I32,
+    126:     (t) => t.i32(CODES.indexOf("css_syntax")),
+```
+
+Each answers *"nothing raised"* with a code of its own — the exact shape §11 item 3's guardrail
+names, because a fallback arm makes an unbound case look bound. **Both are DEAD at the bytes**:
+`far.code === null` on **0 of 3,710 rejections**, both lowerings, over 685 inputs — every failure
+site in the algebra raises with a code, so the arms answer a question that cannot be asked. The cure
+is one line in each file; `.b`'s writable set is `src/css/{lower,diagnostics,codes}.mjs`,
+`scripts/css-recovery-closure.mjs` and `test/css-recovery/**` (excluding `boundary/**`), so **a write
+there is a §3a file-bound expansion, which halts rather than proceeds**. Returned for a one-row
+grant. The Wasm arm is compiled INTO `ac1.wasm`, so it cannot be answered from above in any case —
+`lower.mjs` refusing to consume the defaulted value would leave the arm in the built graph and change
+nothing the gate reads.
+
+**E-3 — the gate's literal vitest form collects zero files, for a configuration reason.**
+`typescript/vitest.config.ts` includes `test/*.test.ts` — **one level** — and vitest positionals
+FILTER the collected set rather than extend it, so `npx vitest run test/css-recovery/labels.test.ts`
+(G-8's literal command) finds nothing today. The suite carries **its own project** —
+`npx vitest run --config typescript/test/css-recovery/vitest.config.ts` — rather than this unit
+editing a library file that belongs to no seat of this wave. **`.a`'s G-6 command
+(`test/css-totality/spec-conformance.test.ts`) and `.c`'s G-9 command
+(`test/css-recovery/boundary/{depth,latch}.test.ts`) meet the identical gap**, so it is one
+orchestrator row and not three private workarounds.
+
+#### b.6 — Findings (measured, not cured here)
+
+| id | severity | finding | owner |
+|---|---|---|---|
+| **F-b1** | MINOR | **Two files of this unit landed BINARY** at `1cfa29b`: a raw NUL byte in a string literal made `git` and `file(1)` read `build-corpus.mjs` and `closure.test.ts` as data (`Bin 0 -> 6944 bytes` in the commit stat). Cured in the next act (`f666b6f`) by BUILDING the character — `String.fromCharCode(0)` — rather than embedding it; the corpus is unchanged (`--check` re-derives byte-identically) and the committed blobs now read `UTF-8 text`. Recorded loud because the defect survived a green test run and was caught only by reading the commit's own stat | `.b`, cured |
+| **F-b2** | INFO | **The library compile does not cover this unit's bytes.** ⟨cmd⟩ `npx tsc --noEmit -p typescript/tsconfig.json` → **439** `error TS` (from `.0`'s 343; `.a`'s concurrent `test/css-totality/generated/assignability.generated.ts` contributes 56, this unit 31). **All 31 are resolution-class** — TS2584 `console` (12), TS2339 `import.meta.url` (4), TS2307 `node:*` (8), TS7016 implicit-`any` on six `.mjs` imports (7) — i.e. exactly F-0.3's *"`allowJs` absent"* and F-0.4's *"`typescript/node_modules` is empty"*, and **zero are type errors in the suites' own logic**. The suites run GREEN under the root's own vitest, which resolves at `<p2>/node_modules` | `.a` / orchestrator (the widening is `.a`'s assignability compile) |
+| **F-b3** | INFO | **`eslint` is not installed in this root** (⟨cmd⟩ `ls node_modules/.bin \| grep -ci eslint` → **0**), so §7's `npx eslint .` was not run — the same posture `.0` recorded. The executable cadence stood in for it: the gate, the suite and the corpus derivation, each run twice | orchestrator |
+| **F-b4** | INFO | The `ParseIssue.expected` this unit publishes are PROMOTED labels, not cand-O's raw σ labels. That is G-8's cure and debt 1's ask, and it is a **behaviour difference from the incumbent's `expected` arrays** — so it is a `DIVERGENCE-LEDGER.md` row for `.d`, with its consumer direction: *a caller reading `expected[0]` receives a named production where 4.0.0 gives a byte-class or a bare literal* | `.d` |
+
+#### b.7 — The commits (pathspec on the commit itself; four tracks share both indices)
+
+| # | repo | hash | meaning |
+|---|---|---|---|
+| 1 | `<p2>` | **`39503f8`** | `feat(x-p-w3/recovery): closed 8-code union, no fallback arm` — `codes.mjs` · `diagnostics.mjs` · `lower.mjs` (507 L). **The frozen-code module family, landed before `.c` opens `entry`/`bounds`** |
+| 2 | `<p2>` | **`1cfa29b`** | `test(x-p-w3/recovery): the closure gate and the malformed-inverse suite` — the gate, the derived corpus, the two suites, the suite's project |
+| 3 | `<p2>` | **`f666b6f`** | `fix(x-p-w3/.b): the NUL corpus row is BUILT, not written` — F-b1 |
+| 4 | value.js | **`3c002f1c`** | `docs(x-p-w3/.b): evidence — the recovery-closure run, both set-differences pasted` — `evidence/W3/recovery-closure.json` (541 L), **exactly one file** |
+
+Every commit carries **its own pathspec on the commit itself**; `.a`'s concurrent
+`typescript/scripts/css-universe.mjs` and `typescript/test/css-totality/` stayed **untracked and
+untouched** across all three `<p2>` commits (⟨cmd⟩ `git status --porcelain` after each → `?? .worktrees/`
+· `?? typescript/scripts/css-universe.mjs` · `?? typescript/test/css-totality/`). `git diff --check`
+clean on every one. **No `-A`, no `-u`, no `commit -a`, no stash, no reset, no force-push, no push.**
+`scripts/dev/dev.sh` appears in **0** commits of this unit and was never opened;
+`/Users/mkbabb/Programming/parse-that`, `~/Documents/Codex/**`, `~/.codex/**`, `../glass-ui/**`,
+`../keyframes.js/**` and `../fourier-analysis/**` were **never written**; **no byte under
+`/Users/mkbabb/Programming/value.js/src/**` was touched** (⟨cmd⟩ `git status --porcelain -- src` → **0**,
+before and after).
+
+#### b.8 — E13 and the standing invariants, at this unit's own clock
+
+The wave's **O.1** four-path sweep stands; this unit **minted no mail**, wrote **zero** bytes in any
+producer tree, and read `../glass-ui/**` not at all. ⟨cmd⟩ `grep -c '^| I-' docs/tranches/V/coordination/INBOX.md`
+→ **36**, unchanged; `I-34` is still the tail of the rowed inbound set and `I-30` the standing
+obligation tail. **0 UNREAD in X.P.W3.b's scope.** F-b4 is routed to `.d` inside this wave, not by
+mail.
+
+**Format and lint cadence (§7).** `<p2>`: the gate, the suite and the corpus derivation are the
+executable cadence and each was run **twice**, identical; `git diff --check` clean on every commit;
+`tsc` recorded at F-b2; `eslint` absent, F-b3. This repo: the one file written is **script-generated
+JSON** and was deliberately **not** hand-formatted. **No proof-farm script was authored for any
+gate** (L-19, §7) — every figure above is a program's own output, and the gate's own controls are
+part of that program. Prettier was **checked and deliberately not applied to this record**: ⟨cmd⟩
+`npx prettier --check` on `git show HEAD:…/X-P-W3.md` already warns **before** this append, so
+`--write` would rewrite `.0`'s receipt inside a file three seats append to concurrently. The cadence
+is run over the bytes a unit authors, and this unit's only value.js byte is script-generated JSON.
