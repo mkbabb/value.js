@@ -29,13 +29,41 @@ import {
  *
  * ── W2-3 RE-MEASURE (the overture landed; T.W2 §Hard gate 7, HONESTLY RED):
  *    post-overture built-bundle numbers — median 25.0ms · dropped 5.3%
- *    (≤10% — THE PILE-UP LEG IS GREEN: the five-clock race + About/blob pops
+ *    (≤10% — THE PILE-UP LEG WAS GREEN: the five-clock race + About/blob pops
  *    are gone, appearance is beat-gated) · max spike 399.9ms = 16× median —
- *    THE SPIKE LEG STAYS RED. The surviving hole is the ONE eager-payload
- *    mount task (the 347.9 KiB gz eager index — RP-2), not a choreography
- *    clock: the overture cannot spread a synchronous framework mount; the
- *    payload cure is W7's (L20 `/blob/config` + GAP-L5 — the Q14 chain).
- *    Re-measure at the W7 adopt; flip then. A red stays red with its cite.
+ *    THE SPIKE LEG STAYED RED, booked then to the ONE eager-payload mount task
+ *    (the 347.9 KiB gz eager index — RP-2) and to a payload cure "W7" would
+ *    bring. That W7 was V-prime's and is dead. THE PAYLOAD CURE LANDED HERE,
+ *    at X-W2 unit a (13f4ddc2): the glass blob barrel left the eager graph and
+ *    the eager JS set fell 32,790 B gz to 280,811 B (274.2 KiB), under its
+ *    untouched 286,720 B bar. The prophecy is discharged; the numbers below
+ *    replace it.
+ *
+ * ── X-W2 RE-MEASURE, 2026-09-17 (post-payload-cure; STILL HONESTLY RED).
+ *    Built bundle on :8091, headless SwiftShader, pin recorded in
+ *    docs/tranches/X/evidence/W2/AFTER.json. Ten sittings of this spec;
+ *    the one that reached the assertion read:
+ *      median 140.7ms · MAX SPIKE 2625.0ms = 18.7× median (bar 3×) — SPIKE LEG
+ *      RED · dropped 25.0% (bar ≤10%) — THE PILE-UP LEG IS RED TOO NOW.
+ *    TODAY'S CAUSE IS NOT THE PAYLOAD. Measured, four probes of the same
+ *    collector plus a longtask census (receipt:
+ *    docs/tranches/X/evidence/W2/o5-remeasure.txt):
+ *      • the whole 4,000ms window holds exactly ONE main-thread long task,
+ *        139–238ms — the Vue mount, ending by 250ms;
+ *      • ZERO long tasks lie INSIDE the 2,450–2,733ms max frame gap, 4 of 4;
+ *      • the gap is stable ±6% across host load 22.8→46.6, so it is not host
+ *        noise either;
+ *      • the hero engine is not a candidate — its chunk is not fetched and
+ *        `goo-blob-canvas` is absent before 4,000ms; both arrive at 4–8s.
+ *    So the surviving spike is a ~2.5s presentation-side rAF/BeginFrame stall
+ *    carrying NO main-thread work, on a software-GL compositor. §ENV: "the
+ *    real-GPU oracle is CC-029 / X-W1, not this wave." X-W1 (CC-031) rules the
+ *    DISPOSITION of this `test.fail()` as a class; X-W2 supplied the payload
+ *    cure and this measurement. A red stays red with its cite.
+ *
+ *    (Recorded beside it, not cured: this window yields only 7–12 rAF frames
+ *    on SwiftShader, so `frames.length > 10` below fails in 9 of 10 sittings.
+ *    Lowering that guard would be a narrowed assertion and is forbidden.)
  */
 
 const SPIKE_RATIO = 3; // no delta > 3× median
@@ -43,8 +71,10 @@ const DROP_RATIO = 2; // a "dropped" frame is > 2× median
 const DROP_FRACTION_MAX = 0.1; // ≤ 10% dropped
 
 test("O-5 boot pacing — no jitter spike over the boot window", async ({ page }) => {
-    // HONESTLY RED (W2-3 re-measure): the pile-up leg is green; the spike leg
-    // reds on the ONE eager-payload mount task (RP-2 → W7). Remove at W7.
+    // HONESTLY RED (X-W2 re-measure, 2026-09-17): both legs red, and the cause
+    // is NOT the payload — the payload cure landed at X-W2 unit a (13f4ddc2)
+    // and the 2.5s gap holds zero main-thread long tasks. Disposition of this
+    // marker is X-W1's class-wide ruling (CC-031), not this spec's.
     test.fail();
     test.setTimeout(30_000);
 
@@ -70,7 +100,7 @@ test("O-5 boot pacing — no jitter spike over the boot window", async ({ page }
 
     expect(
         maxDelta,
-        `boot jitter spike ${maxDelta.toFixed(1)}ms = ${(maxDelta / median).toFixed(1)}× median (> ${SPIKE_RATIO}×) — the 44→315ms hole class, cured at W2-3`,
+        `boot jitter spike ${maxDelta.toFixed(1)}ms = ${(maxDelta / median).toFixed(1)}× median (> ${SPIKE_RATIO}×) — the 44→315ms hole class; re-measured at X-W2 (2026-09-17), cause is presentation-side, not payload`,
     ).toBeLessThanOrEqual(SPIKE_RATIO * median);
     expect(
         dropFraction,
