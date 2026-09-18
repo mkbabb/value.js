@@ -1361,3 +1361,183 @@ act, re-read post-commit — but an un-measured figure is precisely what this wa
 correction is published rather than smoothed. **Read every in-row *2026-09-17* of §1.e and the `e` stamp's
 *CLOSED 2026-09-17* as the SEAT-OPEN clock; the SETTLE clock is 2026-09-18.** Nothing above is rewritten.
 
+---
+
+### f — the audit actor: the FIELD and the SEAM, one act
+
+**SERVED MODEL: claude-opus-5[1m]** · seat clock **2026-09-18** · engine **`/usr/bin/grep`** (BSD, the
+spec's pinned binary; bare `grep` is ugrep in this shell). Sections executed, exactly as briefed: **§2.5**
+(`:204-209` — `AA-10` **CITED** ⊕ `AA-5`'s server arm; `AA-6` · `AA-23` · `AA-24` cited) · **§3 `FW6-G9`**
+(`:518`). Writes confined to the two paths of the unit's writable set. **Zero fourier bytes · zero
+value-tree product bytes.**
+
+⌧ **The clock is stated from this seat's own measurement, not inherited.** Unit `e`'s erratum above found
+its in-row *2026-09-17* was the wave's OPEN clock while the unit actually sat after midnight. This unit
+**measured first and stamped after**: its register commit is ⟨cmd⟩ `git log -1 --format='%h %ad'
+--date=format:'%Y-%m-%d %H:%M'` → **`69e5333e` 2026-09-18 00:33**, so **2026-09-18** is the settle clock
+and the seat clock both, in the row, in §1.f and in the §2 stamp. No correction-beside is owed.
+
+#### Acts, in order
+
+**Act 1 — substrate re-measured before any citation (D-19 MEASURE-AT-OPEN).** ⟨cmd⟩ `git -C $F rev-parse
+--short=8 HEAD` → **`3bac3d52`** · ⟨cmd⟩ `git -C $F status --porcelain | wc -l` → **0**, both double-run
+and re-run again after the commit. **Unmoved from units `a`–`e`**, so §0.1c's anchor re-resolution holds at
+this clock: its janitor row (`:56` sentinel · `:95` the write · `:59` the second writer · `:133`/`:285` two
+of the nine actions) and its `AdminAuditLog.vue:146` row were **consumed** from that table and re-read at
+the bytes — **never re-derived as a rival act** (§4's F.W0 edge, R-9.1). The F.W0 pre-gate is unit `a`'s
+and was not re-litigated.
+
+**Act 2 — the carry read as the canonical homes it, before anything was written.** `AA-10` is **CITED to
+F.W4 and booked nowhere**; what travels is the **`F.W5–W8` actor-field contract leg, under the holder's
+id** (R4-6.1). ⟨cmd⟩ `/usr/bin/grep -oE '`AA-10`.*legs: F\.W5-W8</sub>' "$C"` → the canonical row homing it
+**F.W4 <sub>legs: F.W5-W8</sub>**, and ⟨cmd⟩ `/usr/bin/grep -o 'the actor-field contract question \*\*→
+F\.W5–W8\*\*\.' $G/fr-AdminAuditLog.md` → *"the actor-field contract question **→ F.W5–W8**."* — the record
+naming the split in its own hand. The identity this row **BOOKS** is therefore `fr-AdminAuditLog` **AA-5**'s
+**server arm**, whose canonical home is the band itself (⟨cmd⟩ `… '`AA-5`.*legs: F\.W4</sub>'` →
+**F.W5-W8 <sub>legs: F.W4</sub>**) with the **display leg at F.W4**. `AA-6` · `AA-24` are cited; `AA-23` is
+**kill-only**, its host row held at **F.W5** (⟨cmd⟩ `… '`AA-23`.*`F\.W5` \| \*\*F\.W5\*\*'` → the canonical
+row, **no band leg at all**). **R-5 observed**: ⟨cmd⟩ a per-id `grep -rlE` loop over the 66 frozen records
+returns **one** file for each of the five — `fr-AdminAuditLog.md` — so **no homonym exists** and the
+qualification is exact rather than decorative.
+
+**Act 3 — the absence-proof written to the S-8 bar, not to the killed one.** The `actor` field's absence
+was proved by **enumerating the surface**: the model's whole shape (⟨cmd⟩ `sed -n '94,98p'
+models/admin.py` → four fields, `timestamp · action · target · ip_hash`), the **wire twin's** whole shape
+(`types.ts:173-178`, the same four), and then the token itself across the entire server tree — ⟨cmd⟩
+`/usr/bin/grep -rnE '(^|[^a-zA-Z_])actor([^a-zA-Z_]|$)' $F/api --include='*.py' | wc -l` → **5**
+(double-run), **every one of them prose** (two janitor comments, two test assertion messages, one
+comment). **Not one is an identifier, a field, a column or a query key on either side of the wire.**
+
+**Act 4 — K-6 demonstrated at the bytes rather than asserted.** ⟨cmd⟩ `grep -c 'log_audit('
+services/janitor.py` → **0** over a file that inserts an audit row at `:92`; the same probe over the admin
+router → **11**. **A seat trusting the killed method concludes the collection has one writer.** The
+blindness is **lexical**: `_log_janitor_audit` does not contain the substring `log_audit(`. The S-8 form —
+⟨cmd⟩ `grep -rnE 'admin_audit\.(insert_one|insert_many|update_one|update_many|replace_one|bulk_write)'` —
+returns **three** sites, **two** of them production (`admin.py:75` inside `log_audit`, `janitor.py:92`
+inside the inlined writer) plus one fixture.
+
+**Act 5 — the vocabulary measured whole, both writers.** Nine `janitor:*` action **literals** (⟨cmd⟩
+`grep -o '"janitor:[a-z_]*"' | sort -u | wc -l` → **9**, double-run), **including the audit log pruning its
+own history** (`:276`, the 90-day window at `:274-275`); the admin writer emits **ten more forms from ten
+call sites** (**7** single-line ⊕ **3** multi-line at `:366`/`:444`/`:497`). **Nineteen action forms, two
+writers, declared in no single place** — and the reader's tone map (`AdminAuditLog.vue:67-80`) has four
+arms plus a default and **no `janitor:` arm at all**, so all nine destructive sweeps render benign.
+
+**Act 6 — the commissioned act authored as ONE act with two limbs.** **(1) THE FIELD** — `AuditEntry`
+gains an `actor` field of its own, the system actor becomes a **value** of it, **both writers populate
+it**, `ip_hash` stops carrying identity, and the **wire twin moves in the same act** (R7 = CODEGEN cited
+**for the twin's shape only**; `FR-AFP-36`'s codegen row is unit `e`'s and is **not re-booked**).
+**(2) THE SEAM** — the janitor's inlined writer routed through the shared `log_audit` seam and its nine
+actions through **D16's declared taxonomy**. The two do not separate, and the row's *Not stamped by* cell
+says so first. ⚑ **The finding that makes this act landable rather than merely correct**: the test suite
+**pins the defect** — ⟨cmd⟩ `sed -n '88,93p' test_janitor_audit.py` → `:91 assert set(fields) ==
+{"timestamp", "action", "target", "ip_hash"}`, an **exact set equality that adding `actor` turns RED by
+construction** — and ⟨cmd⟩ `grep -n '== "system:janitor"'` → `:213` and `:350` pin the sentinel in the
+privacy column. **The act carries the test's migration as part of itself**, because a green test asserting
+the defect is not evidence, and leaving it green is precisely how this seam stayed one-sided (AA-44).
+
+**Act 7 — the kill carried, and a measurement published that does not revive it.** AA-23's regex-action
+cure stays **REJECTED**: the collection ships exactly **2** indexes (⟨cmd⟩ `grep -c
+'admin_audit.create_index' database.py` → **2** — `[("timestamp", -1)]` and `[("action", 1),
+("timestamp", -1)]`), and an unanchored `$options:"i"` regex cannot use the second. ⊘ **Disclosed rather
+than smoothed**: the collection is **not** unbounded — `janitor.py:274-276` prunes at **90 days** — and
+**the kill stands regardless**, because the index argument is size-independent and the retention sweep is
+itself one of the nine un-declared actions. **AA-6's order (a) → (b) → (c) is carried as an ORDER, not a
+menu.**
+
+**Act 8 — the receipts run before they were banked; two of this seat's own did not reproduce.** **(i)** the
+record's routing sentence, first cut with the period pulled **inside** the emphasis, returned **EMPTY** —
+the exact drift class §2.5 convicts — and was re-cut to the bytes' form (period **outside**); **(ii)** the
+test's sentinel assertion, first cut as `'ip_hash. == .system:janitor'`, returned **EMPTY** (`ip_hash"] ==
+"` carries **two** characters where the pattern allowed one). ⊕ **a third class caught before it banked**:
+three canonical citations first written as bare `**F.W4** <sub>legs: …</sub>` patterns are **not
+row-specific** — each matches every census row with that homing — and all three were re-cut **row-scoped**.
+All corrections are **published in the register beside the cured commands**, never silently.
+
+#### Commit
+
+| commit | meaning |
+|---|---|
+| **`69e5333e`** | `docs(x-f/w6.f · AA-5 server arm)` — the register's §1 row, §1.f's commentary (the identity table · the 12-figure double-run table · K-6 demonstrated · the two receipt cures · the two errata-beside · the five non-decisions · the V-γ composition) and the §2 `f` stamp, **one commit, one meaning**: the FIELD and the SEAM are one act under E18 ⊕ D16 and do not split |
+
+Pathspec only (`docs/tranches/X/fourier/waves/F-W6/burn-register.md`); other tracks were writing
+`INBOX.md`, `CARRY-LEDGER.md` and two untracked evidence dirs concurrently and **not one of them was
+staged**. `scripts/dev/dev.sh` untouched.
+
+#### Gate readings — BEFORE → AFTER
+
+The AFTER witness was **re-run post-commit**; it reproduces unchanged, as it must while fourier is
+read-only (HEAD `3bac3d52`, **0** dirty, measured again after the landing).
+
+| gate | BEFORE (baseline, this record) | AFTER (this unit) | reading |
+|---|---|---|---|
+| **FW6-G9** the actor field | **RED-AS-EXPECTED** — `janitor.py:56` `_JANITOR_ACTOR = "system:janitor"` written into `ip_hash` at `:95`, rendered `system:jan` by `AdminAuditLog.vue:146`'s unconditional `.slice(0, 10)`; `admin_audit` carries **no** actor field; the second writer at `janitor.py:59-99` bypasses `log_audit` entirely | **RED — commissioned act installed; landing pending** | §3's split verdict applied literally. The gate's GREEN is *"An `actor` field exists and **both** writers populate it"* — **neither conjunct is satisfiable without a fourier byte**, and this wave moves none, so the honest reading is RED-with-the-act-installed. Post-commit re-measure, double-run: the model still carries **4** fields and **0** `actor` (⟨cmd⟩ `sed -n '95,98p' models/admin.py \| grep -c ': '` → 4; `\| grep -c 'actor'` → 0) and `grep -c 'log_audit(' janitor.py` → **0**. ▲ **Both of the gate's own method locks were obeyed and are visible in the row**: the writer set was enumerated by **S-8** (`admin_audit` write verbs), never by the **K-6-killed** `grep "log_audit("`, and that killed probe's failure is published as a figure rather than described; and **AA-23's regex-action cure is carried as a KILL**, with AA-6's (a)→(b)→(c) order intact |
+
+**No other gate was touched, and none was read as GREEN.** The standing FW6-G16 condition holds at this
+seat's clock — ⟨cmd⟩ `git diff --stat -- api/src src` → **empty** and ⟨cmd⟩ `git status --porcelain --
+api/src src | wc -l` → **0**, before and after the commit.
+
+#### Locks observed, each with the act that observed it
+
+- **AA-10 CITED to F.W4, never booked** (Act 2). The row's id cell opens with the citation and the
+  canonical receipt; **only the `F.W5–W8` leg travels, under the holder's id**, and the §2 stamp repeats it
+  so no close seat infers a booking from the gate's title.
+- **AA-23 KILL-ONLY, host row held at F.W5** (Acts 2, 7). Marked as a citation *in the cell that carries
+  it*, with the canonical row showing **F.W5 and no band leg** — *a killed sub-claim never kills its host
+  row*, and the regex cure stays rejected on the index argument.
+- **K-6 METHOD LOCK** (Act 4). The killed probe was **run and published as a zero** beside the S-8
+  enumeration that sees the writer — the lock demonstrated, not paraphrased.
+- **Display arms are F.W4's** (Act 6, and the row's ⊘ cell). The sentinel-aware branch, the legend, the
+  display taxonomy and the placeholder's wording are **emitted, never claimed**; the placeholder
+  sharpening (`delete` hits exactly, `set_tier` can never hit) is entered **as evidence for F.W4**.
+- **AA-44 → F.W9/W10** (the row's ⊘ cell). The coverage obligation is emitted with its canonical homing
+  receipt and claimed nowhere here.
+- **V-γ composed, not booked** (the row's tail, §1.f's closing paragraph). `lane-crud §R-7` is **one**
+  clause with two burn seats; the fourier seat is this row, and the value half leaves at **unit `i`'s**
+  routing receipt. **No double-booking** (§4 lock 2).
+- **Census freeze** — the canonical at `f44362757458` was the only census operand; **no roster integer was
+  re-derived**, and the three multiplicities behind the row-scoping cure were deliberately **not banked**
+  (R3-3.10 admits a banked count only over the frozen `fr-*.md` corpus).
+- **Probe parsimony** — **zero** browser/DevTools probes. Every witness is a static read of shipped bytes;
+  the one cost question in reach is answered by index shape, which is size-independent, so **SS-13 was not
+  invoked**.
+
+#### Disclosures — measured after the commit, recorded rather than smoothed
+
+- **D-6 · v2 §D16's janitor ⟨cmd⟩ returns TEN lines, not nine.** `grep -o 'janitor:[a-z_]*' | sort -u`
+  picks up the bare `janitor:` of the docstring's ``janitor:<sweep>`` at `:71` (the `<` falls outside
+  `[a-z_]`). **The clause's FIGURE — nine emitted actions — is true and reproduces**; only its command's
+  raw output is not nine lines, and the quoted-literal form (`'"janitor:[a-z_]*"'`) prints exactly the
+  nine. **The clause set is F.W5's and this seat does not edit it** (E-3); the correction is an
+  addendum-beside in the register row and in §1.f.
+- **D-7 · the e2e denominator is EIGHT at today's bytes, not nine.** `fr-AdminAuditLog.md:87` and §4's
+  F.W9/W10 cross-edge both read *"nine e2e specs"*; ⟨cmd⟩ `find $F/web -name '*.spec.ts' -not -path
+  '*/node_modules/*' | wc -l` → **8** (double-run). **The record is frozen and is not amended here.** The
+  substance reproduces exactly: the record's *"4 prose-only `audit` hits"* is a **character-match** to
+  today's **4**, and **0** spec files name the audit tab — so AA-44's finding is unchanged on either
+  denominator and only the denominator drifted.
+- **D-8 · two of this seat's own receipts did not reproduce and were cured before the commit** (Act 8),
+  with a third class — non-row-specific canonical patterns — caught before it banked. All three cures are
+  published beside the cured commands, because *the law is discharged by running it, not by wearing it*.
+
+#### Residuals carried forward (none blocking)
+
+1. **The landing itself.** `FW6-G9` stays **RED** until the fourier sub-session lands the field ⊕ the seam
+   (COMMISSION §2). The evidence cell reads **PENDING** and its *Not stamped by* list is the acceptance
+   bar — including **the test migration**, so a landing that leaves `test_janitor_audit.py:91`'s set
+   equality green has **not** turned this gate.
+2. **The field's schema is unchosen and deliberately so** — name, type, nullability, and what the admin
+   writer puts in it for an authenticated operator are the fourier API row's under its own contract. The
+   row states the obligation, never the schema.
+3. **`log_audit`'s signature** (10 call sites) and the **taxonomy's mechanism** (enum / constant table /
+   generated module) are unchosen; **R7 is cited for the WIRE TWIN's shape only**.
+4. **AA-6's (a) placeholder arm and every other display arm are F.W4's**, carried as emissions in the row
+   and owed a reciprocal in F.W4's own record, not here.
+5. **AA-44's coverage programme is F.W9/W10's**, and the one-sided seam it names is now **documented with
+   its cause** (the backend pins the janitor's half; the tab has no test at all) so the coverage wave
+   inherits the diagnosis rather than re-deriving it.
+6. **For unit `i`'s FW6-G17 closure**, this row's identities resolve as: `AA-5` **booked** · `AA-10`
+   **cited-to-holder (F.W4)** · `AA-6` **cited** · `AA-23` **cited-to-holder (F.W5), kill-only** · `AA-24`
+   **cited (F.W4)** · `AA-44` **emitted (F.W9/W10)** — tabulated at §1.f so the closure reads it rather
+   than re-deriving it.
+
