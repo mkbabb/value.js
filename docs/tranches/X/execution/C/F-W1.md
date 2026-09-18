@@ -1532,3 +1532,320 @@ packets are authored and rowed, and **ten of the twelve transaction limbs are me
 their true bytes**. The wave stops one ruling-round short of its own centre. **The unpaid debts
 that are NOT blocked are G17's ordering ruling and G20's closure run** — both belong to the unrun
 unit `f` and both are runnable today.
+
+---
+
+## RE-OPEN 2026-09-18 — the ESC docket is RULED at COHESION §0o; units `e` and `f` are re-dispatched
+
+**SERVED MODEL: claude-opus-5[1m]** — seat 0 (RE-OPEN), Track C. This seat **cured nothing and
+wrote no product byte**: it re-verified the preconditions, swept E13, re-ran the wave's own gates
+READ-ONLY at its own clock, and re-planned the two units the wave still owes.
+**Clock**: 2026-09-18. **Writable set honoured**: this record (**appended only** — E-3; no dated
+cell above is rewritten) · `docs/tranches/X/execution/LEDGER.md` (Track C row's status cell +
+one appended event-log line). **No other path written.** fourier-analysis · glass-ui ·
+latex-paper · pencil-boil and the npm registry were **READ-ONLY** throughout.
+`scripts/dev/dev.sh` untouched and unstaged. Pathspec commit only. No `git stash`, no `reset`,
+no force-push.
+
+### Why this section exists, and what it does NOT do
+
+The `## Close` above holds this wave at **BLOCKED-ON**, and names the reason exactly: *"SIX owner
+rulings — `ESC-2` … `ESC-7` — UNRULED and UNDEFERRED … Two of the six (`ESC-4`, `ESC-7`) BLOCK the
+atomic transaction at limbs 1 and 2."* **That condition is now discharged**, at
+`docs/tranches/X/COHESION.md` **§0o** (2026-09-18) — *"G19's condition — 'ESC-1..ESC-7 each carry a
+ruling or an explicit deferral with blocked rows named' — is met by this addendum; ESC-1 stays as
+ruled at §0i.3."*
+
+This section is a **dated addendum-beside**. Units `a` · `b` · `c` · `d` LANDED and are **never
+re-dispatched**; their receipts, the `## Baseline` table and the `## Close` above are IMMUTABLE and
+are not edited by one byte. What is added: the re-verified preconditions, this seat's own E13
+sweep, a **re-open baseline** read at this seat's clock, and the plan for the **two** units the
+wave still owes — `e` (the atomic transaction) and `f` (witnesses + close).
+
+### Preconditions, re-verified at the BYTES and in the LEDGER
+
+| conjunct | ledger | bytes (this seat's own commands) | verdict |
+|---|---|---|---|
+| **F.W0 CLOSED** | Track C row: `CLOSED 2026-09-17 (honest-RED: G-4 · G-5 · G-8 · G-15(d))` | fourier `m/w1-bump-migration` HEAD `3bac3d5` (unit `d`'s cure, atop F.W0's `5842377`) | **MET** |
+| **begin-word** | `COHESION.md` §0j, 2026-09-17 | §0j present at the bytes | **MET** |
+| **ESC-1 ruled (G1)** | §0i.3 | ⟨cmd⟩ (cwd `../glass-ui`) `git tag --points-at 17a11bc5` → `v8.0.0` · `git rev-parse --short=8 'v8.0.0^{commit}'` → `17a11bc5` · `git show 17a11bc5:package.json \| grep -m1 '"version"'` → `    "version": "8.0.0",` | **MET** |
+| **ESC-2 … ESC-7 ruled** (the condition that HELD this wave) | COHESION **§0o**, 2026-09-18 | ⟨cmd⟩ (cwd `docs/tranches/X/`) `grep -c "ESC-2\|ESC-3\|ESC-4\|ESC-5\|ESC-6\|ESC-7" COHESION.md EXECUTION-RUNBOOK.md` → `COHESION.md:8` · `EXECUTION-RUNBOOK.md:0`, **exit 0** — run **twice**, identical. Per-id presence in COHESION, all seven: `ESC-1:1 ESC-2:1 ESC-3:1 ESC-4:1 ESC-5:1 ESC-6:1 ESC-7:1`. ⟨cmd⟩ `grep -n "§0o ADDENDUM" COHESION.md` → `1044:## §0o ADDENDUM 2026-09-18 — THE F.W1 DOCKET (WU-R ESC-2..ESC-7, G19) AND THE KF.W2 ESCALATION, RULED …` | **MET — the block is CLEARED** |
+
+**The falsifier that was RED at the Close is GREEN here, and it is the same command.** The Close ran
+`grep -n "ESC-2\|…\|ESC-7" COHESION.md EXECUTION-RUNBOOK.md` → *"no output, exit 1"*. At this seat
+the identical command returns 8 hits in `COHESION.md` and exit 0. **G19's own condition is met by
+the addendum, not by this seat's reading of it** — nothing is presumed and nothing re-opened.
+
+**The six rulings, transcribed by id so the successor units execute against them and not against a
+memory of them** (authority: COHESION §0o's table; the wording is the ruling's, quoted):
+
+- **ESC-2** (ToC model ownership) — **ONE owner**: a single `useSidebarFollow` owned by the paper
+  view, provided through a **typed `InjectionKey`**; second instance + untyped `defineExpose` seam
+  retired. *"Ruled at F.W1 as WU-R says; **F.W4 executes the collapse**; L-5(a) is its
+  prerequisite."* Released: `fr-PaperSidebar L-4` · `M6`. **F.W1 RECORDS; it does not execute.**
+- **ESC-3** (the invisible picker) — **FOLLOW THE PRODUCER.** No edgeless trigger re-created
+  downstream. *"The six pickers gain an edge at the hop — a WU-F diff-review row and edge-9
+  checkpoint, not a port."* Released: `U-2`. **Lands in unit `f`'s ledger, not as a product edit.**
+- **ESC-4** (easing drift) — **DRIFT REFUSED — no acceptance, silent or explicit.** The 14 orphans
+  are *"defined analytically inside the corpus's own `web/src/lib/easings.ts`"*, the 8 survivors
+  re-point to `@mkbabb/value.js/easing`, and *"`easings.ts:58`'s `as EasingFn` cast falls with the
+  `timingFunctions` lookup."* **The gate is MPC-5's sampler re-run: every one of the 22 samples
+  EQUAL (Δ = 0 at every sample point) to the pre-bump 0.13.0 function under the same key.** *"RD-5
+  RESTORE is thereby executed, not re-priced. No CubicBezier approximation is admitted for any
+  key."* Released: `L/B-1` · `MPC-5/RD-5` · the six bare-root import lines · limb 1's lockstep half.
+- **ESC-5** (B-2's regrade) — **STANDS AS PRICED.** The antecedent *"if G5 is not adopted"* is
+  measured false (G5 adopted and GREEN at unit `c`). Released: `B-2`. **No revisit.**
+- **ESC-6** (`color-mix` band) — **INFO.** Band = Baseline 2023 (Chromium 111 · Safari 16.2 ·
+  Firefox 113); **no hand-authored fallback**; `FR-COB-26` records the band and the 1.00:1 paint.
+  Released: `FR-MSP-12 → FR-COB-26`.
+- **ESC-7** (the `outline` register) — **RETIRE the register; successor by rule, per-site exception
+  by evidence.** Default `variant="outline"` → `emphasis="secondary"`; a site re-selects `quiet`
+  **only** where its own evidence row shows a tertiary action, *"and the re-selection is written
+  into AA-2's map as that site's row."* The lone `link` site → `emphasis="text"` (*"the G7
+  evidence's 'nearest' reading is ADOPTED as the banked mapping by this ruling"*). **"No successor
+  is requested on NWO-1"** — asking the producer to re-mint what it retired inverts
+  glass-ui-first-class. *"G7 sizes the 21/14 (+2 `Badge` sites, which keep `Badge`'s own `variant`
+  if the producer still ships it, else `secondary` likewise); G6's limb 2 is bounded."* Released:
+  the 21 sites / 14 files (register 30/16) · AA-2's sweep · G7's application · `fr-BasisSelector
+  M-1` · G6's atomicity · the `link` site.
+
+**The `Close` §Residuals item 1 asked for a two-answer round to unblock and a six-answer round to
+close G19. §0o answered six.** Both are paid.
+
+### E13 Step-0 — the four-path sweep, at this seat's own clock
+
+Read-only, classification taken from each row's **status cell**, never from a bare `grep -i unread`;
+`INBOX.md` self-excluded (SELF-COUNT law). Delta taken against **2026-09-17 22:50**, the F.W1 Close
+sweep's clock. ⟨cmd⟩ `/usr/bin/find <path> -maxdepth 1 -name '*.md' -newermt '2026-09-17 22:50'`:
+
+| # | path | newer than the Close sweep | classification |
+|---|---|---|---|
+| 1 | `docs/tranches/V/` | **∅** | — |
+| 1b | `docs/tranches/V/coordination/` | `INBOX.md` (self) · `valuejs-outbound-2026-09-18-kfw7-bh-relay.md` | **OURS — outbound**, already rowed **O-28** |
+| 2 | `../glass-ui/docs/tranches/BK/coordination/` | `valuejs-outbound-2026-09-18-kfw6-bh-relay.md` | **OURS — outbound**, the O-26 mirror, already rowed |
+| 3 | `../keyframes.js/docs/tranches/V/coordination/` | **∅** | — |
+| 4 | `../sci-report/atlas/docs/tranches/P/coordination/` | **∅** | — |
+| 4b | *(extension)* `../sci-report/atlas/docs/tranches/Q/coordination/` | **∅** | — |
+| 5 | *(Track-C extension, COHESION §0k.1)* `../fourier-analysis/docs/tranches/F/coordination/` | **∅** (newest `INBOX.md`@2026-09-17 13:13) | no reciprocal to O-22/O-27 yet, consistent with their own `AWAITING RECIPROCAL` cells |
+
+**BK re-confirmed the newest glass tranche dir** — ⟨cmd⟩ `ls -dlt ../glass-ui/docs/tranches/*/ | head -4`
+→ `BK/` (Sep 17 20:15) · `BJ/` (Aug 3) · `BI/` (Jul 28) · `IOS27-MICRO/` (Jul 19).
+
+**Result: 0 unrowed letters · 0 new `I-n` minted · 0 new `O-n` · no INBOX row added, so
+`INBOX.md` is NOT in this seat's commit.** `I-32` · `I-33` · `I-34` still carry `UNREAD 2026-09-17`
+and their disposition is **unchanged from the Close**: materially consumed by unit `b` (read in
+full, roster struck, consumption recorded at the INBOX's foot), and their durable status cells
+belong to Track D / the X formation mail seat, which no F.W1 seat may flip. **They are named here
+so unit `f` meets them at its first line — no wave closes with UNREAD mail in scope, and `f` is
+the seat that closes.**
+
+### Re-open baseline — read-only at this seat's clock, double-run where load-bearing
+
+**R.2 declaration up front.** Three greens below are **NOT this dispatch's cures** and are declared
+rather than quietly enjoyed: **G3** is green **by predecessor** (F.W0's G-1 landing); **G19** is
+green **by COHESION §0o's ruling**, an orchestrator act outside this wave; and **G1 · G5 · G7 ·
+G14(condition) · G16** are green **by units `a`–`c`, which already landed** and are listed in this
+wave's `alreadyDone`. Nothing below was moved by this seat.
+
+| gate | reading at this seat (⟨cmd⟩ → output) | verdict |
+|---|---|---|
+| **G1** RE-PIN | `grep -c "17a11bc5" docs/tranches/X/fourier/waves/F-W1.md` → **18**, **18** (double-run); producer inverse re-verified above | **GREEN** (unit `a`) |
+| **G2** corrupt-dist *(F.W0's; F.W1 owes the RECORDING)* | `wc -c < web/node_modules/@mkbabb/glass-ui/dist/styles/index.css` → **13949** · `grep -c "@source" …` → **3** · installed `"version": "4.0.0"` | **RED at the installed pin — unchanged; RECORDING discharged at `F-W1.md` §8.3.** Absent at the adopted pin (§0i.5: 1,514 B) |
+| **G3** substrate settle | `git -C ../fourier-analysis status --porcelain \| wc -l` → **0**, **0** | **GREEN** ⚠ green-before-cure, **by predecessor** |
+| **G4** emission pre-gate | not run — needs the bumped install (limb 1) and its `npm run build` **writes `web/dist`**, a §1 read-only witness | **UNRUNNABLE-AT-REOPEN** — routed to unit `e` |
+| **G5** P0 CSS-class census | `evidence/w1/G5-CSS-CLASS-CENSUS.md` present, **25,617 B** | **GREEN** (unit `c`) |
+| **G6** atomic land-or-lose | (cwd fourier) `git log --oneline --all \| grep -ci "feat(fourier)"` → **0**, **0** | **RED — the transaction does not exist** |
+| **G7** Button budget | `evidence/w1/G7-BUTTON-BUDGET.md` present, **15,402 B**; its ESC-7 operand **21 / 14** against the register's raw **30 / 16** | **GREEN** (unit `c`); its **application** is unit `e`'s |
+| **G8** touch-floor | no site migrated; the 44px floor neither preserved nor dropped | **RED** |
+| **G9** token-family sweep *(acceptance only)* | `grep -rn -- "--slider-scrub" web/src \| wc -l` → **23**, `-l` → **7** — double-run identical | **RED — operand reproduced; execution is F.W3/W4** |
+| **G10** disclosure-deletion | `CollapsibleSection.vue` → `55: overflow: hidden` · `61`/`64`/`69` `animation:` · `66` PRM; `ContourSettings.vue` → `362` **and `425`** `overflow: hidden` · `365`/`368`/`373` `animation:` · `370` PRM | **RED — all ten landmarks reproduce; the R4-4.1 over-correction has not crept back** |
+| **G11** module resolution | (cwd `web/`) `npx vue-tsc -b --force` → exit **1**; `grep -o "error TS[0-9]*" \| sort \| uniq -c` → **17 `TS6133` · 1 `TS6196` · 1 `TS2882` · 1 `TS2769`** (20). Run **twice**; `diff run1 run2` → **EMPTY** | **RED — byte-identical to the Close's reading** |
+| **G12** easing re-point by execution | `easings.ts:9` `import { timingFunctions } from "@mkbabb/value.js"` (root, no `"."` export at 4.0.0) · `:58` `as EasingFn` · `:10-16` the five named in-out imports. Probe needs post-uplift execution | **RED · probe UNRUNNABLE pre-uplift** |
+| **G13** peer-graph closure | (cwd `web/`) `npm ls --all` → exit **1**; **9** extraneous (`@emnapi/core` · `@emnapi/runtime` · `@emnapi/wasi-threads` · `@napi-rs/wasm-runtime` · `@tybys/wasm-util` · `embla-carousel` · `embla-carousel-vue` · `embla-carousel-reactive-utils` · `perfect-freehand`). `grep -n "lucide\|vaul-vue" web/package.json` → **one hit**, `:35 "lucide-vue-next": "^1.0.0"` — **`@lucide/vue` and `vaul-vue` still have no row** | **RED** (limbs 6 · 7 · 8) |
+| **G14** pencil-boil floor | condition discharged at `evidence/w1/G14-PENCIL-BOIL-FLOOR.md`; the adopted tag reads `git show 17a11bc5:package.json \| grep -n "pencil-boil"` → `:513 "^0.11.2"` (optional peer) · `:540 "0.11.2"` (devDep). **Application NOT landed**: `grep -n "pencil-boil" web/package.json` → `:17 "^0.4.1"` | **GREEN on the condition · RED on the application** (limb 12) |
+| **G15** non-credit discharge | (b) GREEN · (c) GREEN · **(a) RED — the conjunction's commit-body half has no commit** | **RED** |
+| **G16** latex-paper sufficiency | `grep -rn "hsl(var(" web/src \| wc -l` → **0** (the 42 are producer bytes in `node_modules`); seated on arm 2 with NWO-5's named owner | **GREEN on the second arm** (unit `c`/`b`) |
+| **G17** cartoon-card order | the written ordering does not exist; the gate's seat is **`f`** (the wave's only design seat) | **RED — an unpaid debt, not a blocked one** |
+| **G18** binding-verification probe | needs a real post-uplift drag; I-32's `A-10` disposition against PD-1's disjunction remains **unstated by design** (it is `f`'s to state) | **RED · probe UNRUNNABLE pre-uplift** |
+| **G19** owner rulings recorded | the falsifier above: **`COHESION.md:8` · exit 0**, double-run; all seven ids present; §0o names the blocked rows each ruling releases | **GREEN — by COHESION §0o (declared under R.2)** |
+| **G20** closure, both sources | leg (b)'s frozen operand `shasum -a 256 conformance/CENSUS-CANONICAL.md \| cut -c1-12` → **`f44362757458`**, **`f44362757458`** (double-run) — the pinned digest, unmoved; leg (a)'s operand `carry/F-W1-CARRY.md` present (119,365 B). **The two set-differences were NOT run** | **RED — `f`'s act, still unpaid** |
+
+**Tally at the re-open — 20 gates: 7 GREEN (G1 · G3 · G5 · G7 · G14-condition · G16 · **G19**) ·
+13 RED**, of which 3 are UNRUNNABLE by construction (G4 · G12 · G18) and 2 structurally await the
+transaction (G6 · G15(a)). **The delta against the Close is exactly one gate — G19 — and it moved
+by a ruling, not by a cure.**
+
+#### The ESC-4 sampler gate, born-RED at this seat (new obligation, minted by §0o)
+
+§0o makes the easing hop's gate *"MPC-5's sampler re-run: every one of the 22 samples EQUAL
+(Δ = 0 at every sample point) to the pre-bump 0.13.0 function under the same key."* Born-RED,
+measured here:
+
+- The catalogue is the **22 keys** of `EASING_LABELS` (`linear` · `ease-in`/`-out`/`-in-out` · and
+  `back` · `quad` · `cubic` · `sine` · `expo` · `circ` × in/out/in-out). ⟨cmd⟩
+  `grep -n "^const EASING_LABELS\|^};" web/src/lib/easings.ts | head -4` → `29:const EASING_LABELS:
+  Record<string, string> = {` · `52:};` · `84:};`, so the body is `:30-51`; ⟨cmd⟩
+  `sed -n '30,51p' web/src/lib/easings.ts | grep -c ':'` → **22**, **22** (double-run).
+- ⟨cmd⟩ `grep -n "as EasingFn\|timingFunctions\|@mkbabb" web/src/lib/easings.ts` → `:9 import
+  { timingFunctions } from "@mkbabb/value.js";` · `:16 } from "@mkbabb/value.js";` · `:58 { label,
+  fn: timingFunctions[name as keyof typeof timingFunctions] as EasingFn }`.
+- **`timingFunctions` has no home at the target**: ⟨cmd⟩ (cwd `/Users/mkbabb/Programming/value.js`)
+  `grep -rn "timingFunctions" src/` → **no output**, and the exports map carries **no `"."` key**
+  (`./color` · `./value` · `./css` · `./easing` · `./math` · `./transform` · `./quantize`). Both
+  halves of `easings.ts:9` — the symbol and the bare-root specifier — die at the hop.
+- **No sampler exists.** ⟨cmd⟩ `ls web/src/lib | grep -i sampl` → **no output, exit 1**. The gate is
+  RED because its instrument is unwritten, which is the honest born-RED shape.
+
+**Counting-unit note, stated so unit `e` does not average two objects**: §0o's *"8 analytic
+survivors"* is a count of **value.js's published 4.0.0 `./easing`**, and unit `e` **re-measures it
+at the published tarball**, never at this repo's working tree. This seat read the tree only to
+establish that `timingFunctions` is gone; it publishes no survivor count.
+
+### Unit plan (re-open) — TWO units, STRICTLY SERIAL, peak concurrency 1
+
+`[["e"], ["f"]]` — the shape is forced by the same three facts as the original plan: the wave is
+ONE atomic land-or-lose transaction whose §4 intra-wave order is **binding**, §3.4's first lock says
+*"a partial landing is the L-18 failure"*, and both units write this record. **Units `a` · `b` ·
+`c` · `d` are DONE and are never re-dispatched** (`c05fc57e` · `59bd88b9` · `70a87e7e` ·
+`2a84bd5a` · `dcc266f2` · `473a8098` in value.js; **`3bac3d5`** in fourier-analysis).
+
+#### Unit `e` — THE ATOMIC TRANSACTION (ONE `feat(fourier)!:` commit, TWELVE limbs), now UNBLOCKED
+
+- **Model**: opus. **Sections**: §4 step 4 `:276` (the roster, **cited whole, never restated**) ·
+  §4 step 3's **G5 LANDING CELL** · §3 **G4** `:250` · **G6** `:252` · **G8** `:254` · **G9** `:255`
+  · **G10** `:256` · **G11** `:257` · **G13** `:259` · **G19** `:265` · §2 WU-C · WU-F · WU-G ·
+  WU-J `:150-156` · WU-K `:158-164` · WU-L `:166-175` · WU-N `:185-189` · WU-O `:191-197` ·
+  WU-P `:199-209` · WU-R `:221-229` · **§2·R2d** `:386-392` · **COHESION §0o** (the six rulings).
+- **Writable** — **value.js**: `docs/tranches/X/fourier/waves/F-W1.md` (**dated addendum-beside
+  ONLY, APPENDED AT THE FILE END** — E-3; no dated cell rewritten, and **no row inserted above
+  `:294`**, which would re-key four pinned coordinates in nine sibling files) ·
+  `docs/tranches/X/execution/C/F-W1.md`. **fourier-analysis** (§1 product surface):
+  `web/package.json` · `web/package-lock.json` · `web/tsconfig.json` · `web/vite.config.ts` ·
+  `web/env.d.ts` · `web/src/style.css` · `web/src/App.vue` · `web/src/lib/easings.ts` ·
+  `web/src/composables/useToast.ts` · `web/src/composables/useMorphConfig.ts` ·
+  `web/src/components/ui/CollapsibleSection.vue` ·
+  `web/src/components/visualization/ContourSettings.vue` ·
+  `web/src/components/equation/EquationResult.vue` ·
+  `web/src/components/visualization/gallery/UserSlugBar.vue` · and the Button / lucide / metric /
+  dock / tooltip consumer files **as §1 enumerates them** under `web/src/components/`.
+  **`web/src/components/paper/**` stays CLOSED** — G16 resolved to its SECOND arm (NWO-5), so no
+  ruling seats its carry here. **`PathPreview.vue` is certified nil — the one file not opened.**
+- **Gates turned**: **G4** · **G6** · **G8** · **G9** (acceptance only) · **G10** · **G11** ·
+  **G13** · the **ESC-4 sampler gate (Δ = 0 at every sample point, all 22 keys)** · G7 · G14 and
+  the G5 landing cell APPLIED · **G19** recorded at the spec by dated addendum.
+- **Locks**: the **TWELVE-limb roster** is cited whole and nothing is added by a later reading;
+  **ONE `feat(fourier)!:` commit — a partial landing is the L-18 failure (§3.4)**; **G6's
+  atomicity** (bump ⊕ the G7-sized prop rewrite ⊕ the `copied`→`status` triple in one change);
+  **G8-preserving** (every migrated icon site carries `iconOnly`; a mechanical `size="md"` sweep
+  silently drops the 44px floor); **G10's twin symmetry** — the two `[data-state]` `animation`
+  shorthands ⊕ the PRM arm die on **both** twins at corresponding scope and **`overflow: hidden` is
+  EXCLUDED ON BOTH** (`:55` / `:362`; the `:425` hit is a different rule and is not touched);
+  **D/M-8** cure HOST import breaks FIRST; **MPC-31's ONE-CUT law**; **FR-CP-13's gap decision made
+  ONCE, jointly with FR-CP-24's hairline row, in the same commit**; **M-γ's deletion is a sequenced
+  prerequisite, not a tidy-up**; **AA-1's toast cure routes through `useToast` FIRST**;
+  **MPC-21/BR-1 is delete-don't-rename**; **`./confirm-dialog` / MetricPill /
+  `Metric`-as-AnimatedDigit-cure are KILLS, not options**; **CVA stays (FMD-21)** — `slider/index.d.ts:1`
+  is a type-level hard edge; **MPC-14 lockstep** (glass ⊕ keyframes ⊕ value bump together);
+  **ESC-4: no CubicBezier approximation is admitted for any key**; **ESC-7: no successor is
+  requested on NWO-1**; commit #3 (`3bac3d5`) is **SEVERABLE and is not reverted**.
+- **Brief**: **Act 0 (value.js, its own commit)** — append `F-W1.md` **§9**, a dated
+  addendum-beside recording COHESION §0o's six rulings verbatim-by-id against §8.6's returned
+  register, naming the blocked rows each releases, so **G19's cell is filled at the spec and not
+  only at COHESION**; append at the END of the file, insert nothing above `:294`; commit
+  `docs(X·F): F.W1 §9 — ESC-2..ESC-7 RULED at COHESION §0o (G19 filled)`.
+  **Then the transaction (fourier, ONE commit)** — execute §4 step 4's twelve limbs at glass
+  `v8.0.0` @ `17a11bc5` / kf `^6.0.0` / value `^4.0.0` (lockstep, MPC-14): producer bump · the
+  G7-sized Button re-grammar (`ghost`→`emphasis="quiet"`, `destructive`→`emphasis="primary"
+  tone="destructive"`, `default`→`emphasis="primary"`, `size="icon"`→`size="md" iconOnly`, and
+  **`outline`→`emphasis="secondary"` by ESC-7's rule** — the `link` site → `emphasis="text"`, the
+  **2 `Badge` sites** keep `Badge`'s own `variant` if 8.0.0 still ships it else `secondary`, and any
+  per-site `quiet` re-selection carries **its own evidence row written into AA-2's map**) · the
+  `copied`→`status` triple (`EquationResult.vue:15` · `UserSlugBar.vue:23` ·
+  `useMorphConfig.ts:58`) · the lucide rename to `@lucide/vue` (**34 sites / 34 files at the
+  settled bytes**, +1 `D·D-M11` inline at `EquationView.vue:277-279`; the 17 hand-svgs **ledgered
+  not swept**) · G10's symmetric disclosure deletions · FR-EQC-7's `vaul-vue` declare+lock ·
+  G13's manifest/lock moves (cva/clsx/reka-ui/lucide out of devDeps; `@lucide/vue` declared+locked)
+  · PP-REDGATE's ambient `declare module "@mkbabb/latex-paper/theme"` in `web/env.d.ts` (the
+  TS2882 of record) · FR-CP-13's gap decision · ExportModal M-γ's deletion · **GCM-22's `p-0`
+  retirement is a RULED KILL at 8.0.0** (the `:where()` clamp supersedes it —
+  `GalleryCardModal.vue:73` must NOT be edited, **and the commit body must say so**, since a silent
+  no-op reads as a dropped limb) · the pencil-boil floor per G14 (an in-range **0.11.x**, uniquely
+  `{0.11.2}`, never the excluded 0.12.0). **ESC-4's limb, in full**: define the **14 analytic
+  orphans** as closed forms inside `web/src/lib/easings.ts` itself (one line each), re-point the
+  **8 survivors** to `@mkbabb/value.js/easing` (re-measured at the published 4.0.0, not at a
+  sibling's tree), **delete the `timingFunctions` lookup and the `as EasingFn` cast at `:58` with
+  it**, and **write the MPC-5 sampler** that proves **Δ = 0 at every sample point for all 22 keys**
+  against the pre-bump 0.13.0 function under the same key — the sampler's transcript is banked
+  under `evidence/w1/`. **G5's landing cell**: any consumer re-targets the census returned land
+  INSIDE this commit; producer-owned results leave on NWO-1 and no consumer edit exists to land
+  (a frontend workaround for a producer defect is a wave defect). Run `npx vue-tsc -b --force` and
+  G4's `npm run build` before the cut, grepping the EMITTED css for `size-\(--ui-glyph\)` ·
+  `\.h-3\\.5` · `rounded-pill` · `animate-collapsible`; `git diff --check`. **Body carries** the
+  adopted hash, the G7 figure with its counting unit, the G5 census result, the **six ESC rulings
+  applied by id**, G15's non-credit **stated in terms**, and the GCM-22 kill said out loud. Commit
+  `feat(fourier)!: the atomic tri-package uplift`.
+
+#### Unit `f` — post-transaction witnesses, the design ledger, and the close
+
+- **Model**: **fable**. The wave's only judgment-and-design seat: it authors the WU-F **diff-review
+  ledger with before/after screenshot rows**, the cross-edge-9 **visual-regression checkpoint set**,
+  and **G17's written ordering ruling**. Under M-12 TRI-FOLD design work is Fable's while censuses,
+  greps and mechanical cures are Opus's. It must also be a seat that authored neither unit `a`'s
+  bytes nor this file's, because **G20 runs "by a seat that is not this file's author"**.
+- **Sections**: §4 step 5 `:277` · commit-plan step 5 `:284` · §3 **G6** `:252` · **G10** `:256` ·
+  **G12** `:258` · **G15** `:261` · **G16** `:262` · **G17** `:263` · **G18** `:264` · **G20**
+  `:266` · §6 / §6·R1 / §6·R4 / §6·R5 · cross-edge 9 `:302` · **COHESION §0o** (ESC-3's WU-F row
+  and edge-9 checkpoint; ESC-6's `FR-COB-26` band record; ESC-2's F.W4 hand-off).
+- **Writable**: `docs/tranches/X/fourier/evidence/w1/` (incl. `F-W1-LOG.md`, twice deferred) ·
+  `docs/tranches/X/execution/C/F-W1.md` · `docs/tranches/X/execution/LEDGER.md` (its OWN row's
+  cells + one appended event-log line) · `docs/tranches/V/coordination/INBOX.md` (**append-only**).
+- **Gates turned**: **G6** (four zero-console-error e2e specs green post-cut, unfiltered) ·
+  **G10** (close COMPLETES **and** ANIMATES on all five disclosure surfaces) · **G12** (run the
+  morph; `play()` resolves and `phase` returns to `"idle"`) · **G18** (a real drag fires
+  `anim.startScrub()`, `anim.scrubbing === true` mid-drag — **read I-32's A-10 answer and state
+  whether it discharges, narrows, or leaves PD-1's disjunction; never presume**) · **G15 (a)** ·
+  **G16**'s seating re-stated · **G17**'s ruling · **G20** both legs · FR-CP-5's chevron verify.
+- **Locks**: **probe parsimony (§5.2)** — ONE bounded Playwright session declared as a single shared
+  capture family covering G10's five surfaces, G12's morph run, G18's drag, FR-CP-5's chevron, the
+  **six `SelectTrigger` callsites across five files** ESC-3 sends to the ledger, and the edge-9
+  screenshot rows; **no probe double-spent**. **G15 is NOT satisfiable by prose alone** — the close
+  report **and** the transaction's commit body must each state the non-credit in terms (unit `e`
+  owes the second half; `f` verifies it landed). **G20's operand is the frozen canonical at
+  `f44362757458` and nothing else** — a closure denominator copied from a check file FAILS BY
+  CONSTRUCTION; the detector is **retained as stated**, never re-cut; a run reporting materially
+  below the highest honest prior run has mis-stated its detector. **No VERIFIED stamp anywhere** —
+  that verb is the X·F sub-tranche close's, and IMPLEMENTED stamps only at G1–G20 green + close
+  report. **ESC-2 is RECORDED and handed to F.W4 (L-5(a) first); it is NOT executed here.**
+- **Brief**: Run the five post-transaction witnesses in ONE declared capture family; author the
+  WU-F diff-review ledger (with **ESC-3's six pickers gaining an edge at the hop** as a diff-review
+  row, never a port) and the edge-9 checkpoint set; write **G17's ordering ruling** (FR-EQC-3 retire
+  vs AA-4 adopt) as prose F.W3/F.W4 can execute against, consuming unit `c`'s finding that
+  `.cartoon-card` is a **design** ordering and not a break ordering; re-state G16's seating with its
+  named owner; record **ESC-6's band** (Baseline 2023, no hand-authored fallback) at `FR-COB-26`
+  and **ESC-2's collapse** as F.W4's with L-5(a) named; state G15's non-credit in terms and verify
+  the commit body's half landed; then run **G20** both legs at the frozen operand and publish the
+  escape/fabrication sets. Hand the residues to F.W3/W4/W9/W10 by name — including the **seven
+  residuals the Close already booked**, of which item 7 (unit `d`'s three out-of-bounds WU-E repair
+  sites: `fr-BasisCanvas C-4` · `m-9` at `DarkModeToggle.vue:30,31,49,50,53,54` · `M-α5` at
+  `canvas-drawing/epicycles.ts:289`) is **returned as a bound question, never as a revert**. Sweep
+  E13 at its own clock — **no wave closes with UNREAD mail in scope**, and `I-32` · `I-33` · `I-34`
+  are named above. Move the Track C row and append the event-log line. Commit
+  `docs(X·F): F.W1 close report`.
+
+#### What this re-open plan does not decide
+
+- **`ESC-1` is not re-opened.** §0i.3 stands; the §0i.2 glass-**9.0.0** re-trigger stays recorded
+  and routed to its owner (Close finding 8), and no seat of this wave elects a different pin.
+- **F.W1 stamps neither IMPLEMENTED nor VERIFIED.** IMPLEMENTED stamps at G1–G20 green + close
+  report (`f`'s reading, at its own clock); VERIFIED stamps at the X·F sub-tranche close, never
+  here.
+- **The three relay packets stay AUTHORED-AND-ROWED, NOT DELIVERED** (Close residual 4) — the hop
+  into each producer's coordination dir is the X formation mail seat's act, because
+  `../glass-ui/**` is READ-ONLY always and the latex-paper / pencil-boil trees sit outside every
+  F.W1 writable set.
+
+---
+
+## Unit receipts — re-open
+
+*(empty at the open; `e` then `f` append here, each with its own `SERVED MODEL:` line)*
