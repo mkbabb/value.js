@@ -727,3 +727,201 @@ was replaced by a structural cure rather than a third patch).
 `_readable_or_none`'s five call sites and the bare ancestor-walk `find_one` at `:784` holding as unit `a`
 re-resolved them, and value.js's `service/forks.ts:167-179` `{kind:"unavailable", ordinal}` shape standing
 as the adoption target rather than a design question.
+
+---
+
+### c — the privacy limb (F-γ + FR-AFP-4), ONE CUT
+
+**Seat**: Opus 5 (1M), 2026-09-17. **Sections executed exactly as ordered**: spec **§2.2** (F-γ ·
+FR-AFP-4 ‡ ⊕ `fr-GalleryDraftsSection F-4` ⊕ `fr-GalleryDraftsSection m-15` ⊕ `fr-GalleryCardModal GCM-52`)
+· **§3 FW6-G5 · FW6-G11** · **§4 lock 3** (the ONE-CUT laws). **Writes**: the two paths of the unit's
+writable set and nothing else — `waves/F-W6/burn-register.md` (append) and this record. **Zero fourier
+bytes · zero value-tree product bytes.** Engine `/usr/bin/grep` (§0.2's pin).
+
+#### Acts, in order
+
+**Act 1 — the spec read WHOLE, then §2.2 / §3 G5 + G11 / §4 lock 3 read again at their own bytes.** The two
+rows of §2.2 were read as one table (the head declares *"one privacy cut (2 rows)"*), and both gate rows
+were read with their owner cells. **The spec was not edited** (E-3). Units `a`'s §0 and `b`'s §1.b were read
+whole first: §0.1c is the coordinate source for every citation below and **no anchor was re-derived**.
+
+**Act 2 — substrate re-measured at this seat's clock before any citation** (D-19). ⟨cmd⟩ `git -C $F
+rev-parse --short=8 HEAD` → **`3bac3d52`** · ⟨cmd⟩ `git -C $F status --porcelain | wc -l` → **0**, both
+double-run — **unmoved from units `a` and `b`**, so §0.1c holds at this clock and the F.W0 pre-gate is not
+re-litigated.
+
+**Act 3 — F-γ's witness, the provenance handler read WHOLE rather than at its three cited lines.** ⟨cmd⟩
+`/usr/bin/sed -n '733,791p' $F/api/routers/visualizations.py`: the entry row **is** gated (`:744 doc = await
+_readable_or_none(db, slug, viewer)`) and the `fork_of` walk is **not** — `:764` the crumb list · `:765 seen:
+set[str] = set()` · `:767 while cur is not None and len(breadcrumb) < 50:` · `:770 break  # cycle-guard` ·
+`:781 parent_slug = cur.get("fork_of")` · **`:784 cur = await db.visualizations.find_one({"slug":
+parent_slug})`**, with **no viewer, no `visibility` predicate, no `deleted_at` predicate**. The handler was
+read whole for the same reason unit `b` read the PATCH body whole: an absence-proof over three cited lines
+proves nothing about the other fifty-six (K-6/S-8's method law). ⟨cmd⟩ `/usr/bin/grep -rn
+'_readable_or_none' $F/api --include='*.py' | wc -l` → **5**, double-run **5** — `:466` def · `:507` remix ·
+`:744` provenance · `:816` diff · `:869` versions, **none inside the walk**.
+
+**Act 4 — TWO SHARPENINGS AT THE BYTES THAT CHANGE WHAT A LANDING MUST DO.** (1) The emitted crumb is
+**five** fields, not the four §2.2 names: `class ForkCrumb` (`api/models/visualization.py:326`) declares
+`slug · set_hash · author_slug · fork_of · created_at` (⟨cmd⟩ `/usr/bin/sed -n '331,335p' … |
+/usr/bin/grep -c ':'` → **5**, double-run 5) — and **`fork_of` IS the next ancestor's slug**, so a *child*
+crumb publishes its private parent's identifier even where the parent's own crumb is redacted. A cure that
+swaps only the non-public hops leaves the leak open from the other end. (2) **The cure's own sentence names
+two different predicates.** `_readable_or_none`'s body (`:466-474`) returns `None` on `deleted_at is not
+None` and on `visibility == "draft" and not is_owner` — **it admits `unlisted`** (`:34 Visibility =
+Literal["draft", "unlisted", "public"]`) — while §2.2's same sentence says *"collapse **non-public**
+ancestors"*, and value.js's adoption target is strictly public: `isActivePublic`
+(`api/src/modules/palette/service/visibility.ts:31-38`) is `visibility === "public" && deletedAt == null`,
+its in-source guarantee at `service/forks.ts:163-169` enumerating *"a private / **unlisted** / trashed /
+purged ancestor collapses to a non-correlatable `unavailable` step carrying ONLY its ordinal"*. **This seat
+did not resolve the divergence by fiat**: the act names `isActivePublic`-equivalence **by citation** (§2.2
+orders *"adoption, not design"*, and adoption is of value.js's predicate as well as its shape) and **flags
+the precision INLINE** so a landing seat cannot take the looser reading silently.
+
+**Act 5 — FR-AFP-4's four limbs, each measured separately, because C2 rules them as one unit.** (i) ⟨cmd⟩
+`/usr/bin/grep -cE '^@[a-z_]*router\.(get|post|put|patch|delete)' images.py` → **7** ops · ⟨cmd⟩ `-cE
+'^@[a-z_]*router\.delete'` → **0**. (ii) ⚑ **sharpened past the banked row**: ⟨cmd⟩ `/usr/bin/grep -c
+'Depends' images.py` → **0** — *not one `Depends` anywhere in the router*, so F-4's *"one router, one
+identity"* is measured at the router rather than inferred from two handlers; ⟨cmd⟩ `-c 'Cache-Control'` →
+**4** = three header sites (`:145` blob · `:164` thumbnail · `:205` overlay) ⊕ one comment (`:138`). (iii)
+⚑ **the reward surface is FOUR handlers, not one**: the touch rides `get_image_asset`
+(`api/dependencies.py:75`, unconditional), whose call sites are blob `:140` · thumbnail `:151` · overlay
+`:177` · extract-contour `:214` (⟨cmd⟩ `-c 'asset = await get_image_asset'` → **4**) — so a predicate fix at
+the blob route alone leaves three paths bumping the clock. The predicate it feeds: `database.py:163-165`
+`$set`s **`last_accessed_at`**; `janitor.py:168` reaps on `{"pinned": False, "last_accessed_at": {"$lt":
+cutoff}}`. (iv) `web/src/lib/api.ts:293` is the bare, unversioned thumbnail URL while the regeneration
+branch (`image_storage.py:105-128`) rewrites the **same** path `fs:{slug}.thumb` — regenerated bytes,
+identical URL, 24 h public cache.
+
+**Act 6 — GCM-52's entropy re-derived at the DATA, and a fifth sharpening booked.** Image slugs are minted
+by the **same** generator as viz slugs (`image_storage.py:204` → `slugs.py:62` → `:40-42`), and the four
+word lists measure **128 · 128 · 128 · 128** at `api/lib/crud/slug_words.json` — **128⁴ = 2²⁸ exactly**, the
+arithmetic F-4 banks, confirmed rather than quoted. ⚑ **But the guard is looser than the data**:
+`_load_word_lists` rejects only `len(words) < 64` (`slugs.py:29`), so **2²⁸ is a property of today's JSON,
+not an invariant** (2²⁴ at the floor). **Recorded as a finding, not as a new cure** — GCM-52's cure is the
+visibility gate, never a longer slug. ⚑ **And the fifth**: the blob handler's own comment (`images.py:136-138`)
+calls the 404/410 shim *"auth"* — `get_image_asset` performs **no viewer check** — the same false-in-source
+class as unit `b`'s `VisualizationUpdate` docstring find, and part of the cure surface.
+
+**Act 7 — the honesty locks discharged as measurements, not as concessions.** §2.2's ▲ orders *"soft-delete
+DOES de-list from browse — the cure may not overstate the hole"*, so it was **measured**:
+`api/routers/gallery.py:53 base_query = softdelete.with_not_deleted({"visibility": "public"})`; the detail
+read refuses a deleted row to a non-owner (`visualizations.py:263`); and `_recompute_pin_flags` **unpins** a
+soft-deleted viz's blob (`janitor.py:351 {"$match": {"deleted_at": None}}`, its own docstring saying so).
+**The entity de-lists, the soft-delete arm works, and what survives is the ASSET LEAF plus the RECENCY arm an
+anonymous fetch resets** — which is the exact statement, neither larger nor smaller. The second lock: **the
+deployment auth-proxy question stays UNPROVEN (SS-13 defer #5) in BOTH directions** — this seat ran **no**
+live probe (probe parsimony, §5.2) and asserts no proxy present or absent; FW6-G11 may not close by assuming
+one **and** may not be argued RED harder by assuming its absence.
+
+**Act 8 — the branch question, checked and found already answered, so nothing was chosen.** Unlike unit
+`b`'s F-α, **neither of this unit's dispositions is open**: v2 **C5** states redaction parity (*"Redaction
+applies to **every** hop of a chain, never to the entry row alone"*) and v2 **C2** states the image contract
+as ONE unit, with **C1** deciding the class-and-cache act the gate limb executes. The brief's order is
+therefore obeyed literally — **cite the clause, do not re-choose the branch** — and **FW6-G5's second
+branch (G6's *"stated asymmetry with its reason"*) is SPENT, not declined**: C5 rules *"If the two ends do
+not adopt one shape, v2 states the asymmetry and its reason — silence is not a posture"*, and **v2 adopted
+the shape**. COHESION §0j.D was re-read for this unit: **F-PRODRET ADMITS the band** (PRODUCER, port homed
+at **F.W8**), which is why this row opens at all — and the **port is not this row's act**; no other ruling
+reaches F-γ or the image contract's shape.
+
+**Act 9 — the two register rows written as ONE commit, and the notation trap avoided rather than re-sprung.**
+Two rows appended to §1 (the `id` column FW6-G17 greps), plus **§1.c** carrying the receipts, the instrument
+disclosure, the five sharpenings, the two honesty locks and the *what-this-seat-did-not-decide* block, plus
+the unit stamp in §2. ▲ **Unit `b`'s self-count lesson applied rather than re-learned**: this unit's
+coordinate note carries a **marker of its own** and **this seat publishes NO count of it**; the register's
+countable operand is the `id` column. Unit `a`'s beside-marker figure is **unmoved at 18** after this
+landing (⟨cmd⟩ `/usr/bin/grep -c '⟨besid[e]' burn-register.md` → **18**, measured post-commit), and unit
+`b`'s bracketed probe remains the only place that figure is taken.
+
+#### Commit
+
+| commit | meaning | pathspec |
+|---|---|---|
+| **`d4cd2392`** | `docs(x-f/w6.c): the ONE privacy limb booked — F-γ · FR-AFP-4 (⊕ F-4 ⊕ m-15 ⊕ GCM-52) in ONE COMMIT, FW6-G5/G11's commissioned acts installed` | `docs/tranches/X/fourier/waves/F-W6/burn-register.md` |
+
+**ONE PRIVACY LIMB honoured** (§2.2's head ⊕ §4 lock 3's *"F-γ ⊕ FR-AFP-4 as one privacy limb"*): both rows,
+§1.c and the stamp landed together — ⟨cmd⟩ `git show --stat d4cd2392` → **1 file changed, 97 insertions(+)**.
+Settled bytes of the register: **522 lines / 81,620 B**, double-run identical; line 1 still `SERVED MODEL:
+claude-opus-5[1m]`. ⟨cmd⟩ `git status --porcelain -- docs/tranches/X/fourier/waves/F-W6/` → **0**.
+**`scripts/dev/dev.sh` untouched and unstaged** — it remains ` M` in the tree and appears in no commit of
+this unit (⟨cmd⟩ `git show --stat HEAD --name-only | /usr/bin/grep -c 'dev.sh'` → **0**).
+
+#### Gate readings — BEFORE → AFTER
+
+Every AFTER witness was **re-run post-commit**; both reproduce unchanged, as they must while fourier is
+read-only (HEAD `3bac3d52`, **0** dirty, measured again after the landing).
+
+| gate | BEFORE (baseline, this record) | AFTER (this unit) | reading |
+|---|---|---|---|
+| **FW6-G5** breadcrumb redaction parity (F-γ) | **RED-AS-EXPECTED** — `_readable_or_none` at the entry row only (`:744`); the ancestor walk is a bare `find_one` at `:784` | **RED — commissioned act installed; landing pending** | §3's split verdict applied literally. Act = per-hop gate ⊕ collapse to value.js's `{kind:"unavailable", ordinal}`, **cited from C5 rather than re-chosen**, with the cycle-guard (`:765`/`:770`) and the ≤50 cap (`:767`) **carried as survivals**, `fork_of` named as the fifth leaking field, and the `unlisted` predicate divergence **flagged inline**. Post-commit re-measure: ⟨cmd⟩ `/usr/bin/sed -n '767,785p' … \| /usr/bin/grep -c '_readable_or_none'` → **0** — the walk is still ungated, which is why the gate is RED and not green |
+| **FW6-G11** image remediation executed | **RED-AS-EXPECTED** — 7 ops / 0 DELETE; blob + thumbnail public-cached with no `Depends`; `touch_document` on the fetch paths | **RED — commissioned act installed; landing pending** | Act = C2's **four limbs as ONE unit** (asset-level delete/quarantine · blob **and** thumbnail — **and overlay** — visibility gate decided *with* the cache directive per C1 · janitor predicate fixed at `get_image_asset`'s convergence point · versioned thumbnail URL), with **F-4 (WHO) ⊕ m-15 (WHAT) cross-referenced and NOT merged**, the de-listing honesty lock measured, and **SS-13 left UNPROVEN in both directions**. Post-commit re-measure: **7 / 0 / 0** reproduce exactly |
+
+**No other gate was touched, and none was read as GREEN.** The standing FW6-G16 condition holds at this
+seat's clock — ⟨cmd⟩ `git status --porcelain -- api/src src | wc -l` → **0**, before and after the commit.
+
+#### Locks observed, each with the act that observed it
+
+- **ONE PRIVACY LIMB, ONE COMMIT (§2.2 head ⊕ §4 lock 3)** — one commit, one file, 97 insertions (Act 9 /
+  Commit). Both rows' landing-evidence cells **forbid a stamp from a split landing, in either direction**:
+  §2.2's ▲ (*"a breadcrumb redaction that leaves a draft/unlisted viz's source image world-readable by slug
+  has not cured the leak"*) and C5's own LOCK (*"A cure at either surface that leaves the other is not
+  parity"*) are quoted into the rows, one per direction.
+- **The cycle-guard and the ≤50 cap survive** — named as survivals in the act, with value.js's own walk
+  (`visited` set ⊕ `chain.length < 50`) cited to show **adoption preserves them rather than costing them**.
+- **F-4 books WHO can fetch; m-15 books WHAT they see — cross-referenced, NEVER merged** — quoted from the
+  record's own hand (⟨cmd⟩ `/usr/bin/grep -n 'm-15' fr-GalleryDraftsSection.md` → `:80 … cross-referenced,
+  not merged.`), with the consequence stated: **a cache-versioning cure discharges neither the auth cure nor
+  vice-versa.**
+- **SS-13 UNPROVEN, both directions** — Act 7. No live probe was run and no proxy is asserted, present or
+  absent (probe parsimony, runbook §5.2).
+- **C's scope discipline** — Act 7. Soft-delete's de-listing is **measured**, so the hole is stated at its
+  true extent: the asset leaf and the recency arm, not the listing.
+- **§4 lock 2, F.W5 STATES / F.W6 BURNS** — each row cites its stating clause (**C5** for F-γ, **C2** ⊕
+  **C1** for FR-AFP-4) and **claims no F.W1/F.W3/F.W4/F.W5/F.W8 credit**; `FR-AFP-1`'s port is left at
+  **F.W8** by F-PRODRET's homing and the panel's client/copy arms at **F.W3/W4**, emitted and not claimed —
+  so FW6-G17 has no double-booking to find in these rows.
+- **R-5 record-qualification (§4 lock 10)** — every folded token is written with its record:
+  **`fr-GalleryDraftsSection F-4`** · **`fr-GalleryDraftsSection m-15`** · **`fr-GalleryCardModal GCM-52`** ·
+  **`fr-ImageUpload row 26`**. ⚑ Measured reason, not ceremony: ⟨cmd⟩ `/usr/bin/grep -ln 'm-15' fr-*.md` →
+  **7** records and `-ln 'F-4\b'` → **5**, so both tokens collide across the frozen corpus exactly as the
+  ten named ones do; a bare probe on either would span identities.
+- **K-1** — the authority denominator is cited **45 / 30 / 13** with C1's measured `0/45` documented against
+  `26/45` enforced; **never 30 alone**.
+- **D-19 MEASURE-AT-OPEN** — every figure above is this seat's own read at `3bac3d52`, double-run; unit `a`'s
+  §0.1c supplied the coordinates and **none was re-derived**.
+- **READ-ONLY fourier** — every witness is `grep`/`sed`/`git status`/one read-only `json.load` of a data
+  file. **Zero fourier bytes**: HEAD and dirty count measured before and after the commit, both unmoved.
+  glass-ui untouched; no producer row rides this unit; SS-6 stays **DECLARED EMPTY**.
+- **E-3** — the spec, the 66 `fr-*.md`, the census, the F.W5 contract set and units `a`/`b`'s rows were read
+  and not written. Every correction is an addendum **beside**; nothing of another seat's is rewritten.
+
+#### Residuals carried forward
+
+1. **`ForkCrumb.fork_of` is inside F-γ's cure surface, not beside it.** A landing that installs the redacted
+   member and leaves the child crumb's parent pointer has published the private ancestor's slug anyway.
+   Unit `i`'s letter must carry this as part of the F-γ ask, not as a footnote.
+2. **The `unlisted` predicate divergence is UNRESOLVED BY DESIGN and must be written down by whoever lands
+   it.** `_readable_or_none` admits `unlisted`; `isActivePublic` does not; §2.2's cure cell names both. The
+   act names the strict target by citation and flags the choice — **a landing that takes the loose reading
+   silently has resolved a stated precision by shipping.**
+3. **The janitor-predicate limb must land at `get_image_asset`, not at the blob route.** Four handlers bump
+   `last_accessed_at` through that one dependency; a route-local fix is a three-quarters cure that C2's own
+   rule ("*each of the other three independently restores the artifact*") already forbids.
+4. **The overlay GET (`images.py:168`, `:205`) shares the blob/thumbnail posture** and is named in the act.
+   The spec's G11 falsifier says *"blob **and** thumbnail"*; the third route carries the identical header and
+   the identical absence of `Depends`, so a two-route gate leaves the leaf reachable. Recorded so the close
+   seat reads the act's third name as deliberate, not as scope creep.
+5. **2²⁸ has no invariant behind it.** The word-list floor is 64. If a later wave wants the entropy figure to
+   be load-bearing anywhere, the guard — not the data — is what would have to say so. **No cure is proposed
+   here**; GCM-52's cure remains the visibility gate.
+
+**Escalations: none.** No write was attempted outside the writable set (the two paths the brief names); **no
+specified cure was impossible at the bytes** — both acts are commissioned asks and both are authored exactly
+as §2.2 and v2's C1/C2/C5 word them; no third diagnose→edit→re-measure occurred on any gate.
+
+**Unit `c` CLOSED. Unit `d` opens** — counters, idempotency, lineage and the ruled-away like verb
+(FW6-G6/FW6-G7), with `viewedHashes`' **no re-open-increment** lock (FR-GV-24) standing, **K12**'s static
+close for `fr-GalleryDraftsSection B-2`, the record's **D-2** minute (the create path already wraps the
+idempotency envelope; the key and the unique index are what is missing) and **R8 = REMIX + BORN-PRIVATE**
+with the fourier half already conforming at `models/visualization.py:277`.
