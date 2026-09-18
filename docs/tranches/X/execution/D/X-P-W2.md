@@ -1899,3 +1899,246 @@ imports**, no start section, 512 pages of linear memory fixed at instantiation.
   `<p2>/.worktrees/ac2`, porcelain **0**, ⟨`git remote -v`⟩ → 0 lines.
 - **Commit of this record**: pathspec on the commit itself, this file alone; `scripts/dev/dev.sh`
   never staged.
+
+### X.P.W2.f
+
+**SERVED MODEL: claude-opus-5[1m]** · Track D · 2026-09-17 · phase 4, **candidate seat AC-3
+SPAN-ALGEBRA** (`W2.md` §5 `.d/.e/.f` L632–645; M-23 §2, an Opus implementation seat).
+**Sections executed exactly**: §5 `.d/.e/.f` L632–645 · §3c AC-3 L346–368 · §3 item 12 L188–191 ·
+§3d L409–423 · §3e Stages 1–4 L425–461 · kill rules L463–483 · §4's `typescript/src/**` row L524 ·
+§4b L563–577 · §6 G-1..G-11. Rulings consumed by id: COHESION §0j.E **OC-1** (no bar set anywhere in
+this unit; every duration printed carries `BAR: OWNER-GATED-PENDING-RATIFICATION` literally) ·
+**E-3** (`ALGEBRA.md`, `.g`'s harness, `.g`'s corpora and W1's instruments are dated evidence — this
+seat wrote none of those files) · X.P.W2.g **R-g1** (AC-3's Stage-0 screen is noise-dominated;
+re-measure with forked replicates — **discharged at §f.3**) · **R-g2** (RESERVE is NONE) · **R-g3**
+(the adapter contract is the whole interface) · **R-g4** (EQ-1's lexicographic key order is the
+harness's declared divergence, not a candidate's to fix) · **R-g5** (G-8's warmed leg is the verdict
+leg) · X-P-W1.md **R-8** (a ceiling is measured, never inherited) · `.d`'s **F-2**/**F-4** and `.e`'s
+**F-e6**/**F-e8** (all four independently reproduced here, §f.6).
+
+**Writable set, hard bound:** `<p2>/experiments/w2/ac3-span/**` (incl. `VERDICT.md`) ·
+`<p2>/typescript/src/**` on branch `w2/ac3-scan-union` ONLY · `<p2>/.worktrees/ac3` — plus this
+record. The brief also admitted `<p2>/rust/parse_that/**` on that branch; **this seat wrote 0 bytes
+there** — AC-3's Wasm module is assembled by a WebAssembly binary encoder written in JavaScript
+(`lowering-wasm/asm.mjs`), so there was nothing to build in Rust and **no `CARGO_TARGET_DIR` was ever
+needed** (⟨`git -C <p2>/.worktrees/ac3 log --oneline -1 -- rust/parse_that`⟩ → `634ec25 style(rust):
+apply cargo fmt …`, a pre-existing commit, unmoved).
+
+**Commits (two histories, never merged — §9):**
+
+| # | repo | hash | meaning | `git show --stat` |
+| --- | --- | --- | --- | --- |
+| 1 | `<p2>` | **`76033aac123ca1902e791acd951e54b14da50fba`** | `feat(parse/scan): the byte-class scan union — parse-that's own citizens, not a CSS-side lexer pass` | **4 files changed, 264 insertions(+)** |
+| 2 | `<p2>` | **`f93495602ee17e50b2ff97ab86bed32b28dc9966`** | `feat(w2/ac3): SPAN-ALGEBRA's §3d slice, both lowerings — EQ-1..EQ-5 zero over 30,527 rows` | **46 files changed, 7,019 insertions(+)** |
+| 3 | value.js | this record | the receipts below | — |
+
+**TWO `<p2>` commits, not one, and the reason is §9's own "one commit per meaning"**: the library
+union and the candidate are two meanings, and `.i` graduates the second without the first (the scan
+union is already a parse-that citizen on this branch). Each pathspec rode its own commit
+(`git add <paths> && git commit --no-verify --quiet … -- <the same paths>`).
+⟨`git show --name-only --format= HEAD | grep -cv '^experiments/w2/ac3-span/'`⟩ → **0** ·
+⟨`git show --name-only --format= HEAD~1 | grep -cv '^typescript/src/parse/'`⟩ → **0**, so no sibling
+seat's staged work was swept into either. ⟨`git rev-list --count 8137081..HEAD`⟩ → **2** — exactly
+this seat's two, beyond `.g`'s. ⟨`git status --porcelain`⟩ → **0** after both.
+⟨`git remote -v | wc -l`⟩ → **0**. `index.lock` never appeared. ⟨`git log --oneline --all --
+scripts/dev/dev.sh`⟩ → **0**: it appears in no commit and was never staged.
+
+**The oracles did not move.** ⟨`git rev-parse HEAD:harness/{totality,equivalence,bench}`⟩ →
+`cd265cb2de790151a566b0053c9b745702f9914e` · `78829ab0c702ce4acb9baac2a4cf9163ccaa27f6` ·
+`ffe9a032c2aa5ae1b2d98bc79ad544fd4921617a` — byte-identical to the values `.d` and `.e` recorded.
+⟨`git log --oneline -1 -- harness/w2 experiments/w2/corpus experiments/w2/contract`⟩ → `8137081`,
+still `.g`'s single commit: this seat edited no probe, no corpus, no `ALGEBRA.md` and no falsifier.
+**§3a's "a candidate that needs the oracle changed to pass has failed" was never approached** — and
+where a probe's own regex read a false positive against this candidate, the seat **reported it**
+(F-f5) rather than patching the probe.
+
+#### f.0 — E13 at this seat's own clock
+
+⟨cmd⟩ `/usr/bin/find <each path> -maxdepth 1 -name '*.md' -newermt '2026-09-17 19:11'` (19:11 = the
+last sweep line in the ledger at this seat's open), at **22:38 EDT**, over the four paths ⊕ the atlas
+**Q**-lane extension → (1) `docs/tranches/V/coordination/` — **`INBOX.md` alone** (self-excluded,
+SELF-COUNT law) · (2) `../glass-ui/docs/tranches/BK/coordination/` — **∅**; BK re-confirmed the
+newest glass tranche dir (⟨`ls -dt ../glass-ui/docs/tranches/*/ | head -3`⟩ → `BK` · `BJ` · `BI`) ·
+(3) `../keyframes.js/docs/tranches/V/coordination/` — **∅** · (4) `../sci-report/atlas/docs/tranches/P/coordination/`
+and `Q/coordination/` — **∅**. **0 unrowed · 0 new `I-n` minted · 0 new `O-n` minted · 0 UNREAD in
+this unit's scope.** The three `UNREAD` status cells (`I-32` · `I-33` · `I-34`) are routed by their
+own Routing cells to **X-W0.j / the X formation mail seat**; none names a W2 candidate surface, and
+**no status cell was rewritten here** (append-only; the durable mark is theirs to move — the F.W5,
+X-W2 and F.W1 seats declined the same flip for the same reason). This seat mints no letter; its two
+contract findings ride **this record** to `.h`, which is where §5 `.h` reads them.
+
+#### f.1 — the posture, DECLARED BEFORE MEASUREMENT (FF-4)
+
+`ALGEBRA.md` §12 AC-3 obliges the seat to name its posture, offering *"SIMD/scalar full lowering vs
+leaf-wasm"*. **Neither word alone is true of what was built**, so the posture is written out in
+`harness-adapter.mjs`'s `meta.postures` — committed **before the first probe ran** — and restated as
+`VERDICT.md` §A:
+
+| dimension | declared |
+| --- | --- |
+| scan | **SCALAR**. WebAssembly 1.0 has no `v128` and K-9 forbids the toolchain that emits one. **SIMD WAS NOT TESTED** — a gap in the evidence, named as a gap, not as a claim |
+| terminals | **IN THE MODULE**: `SCAN` · `LIT` · `NUM` · `DIGITS` · `TEXT` · `KW` · `DISPATCH` · `END` decide in Wasm, over one u16 per code unit and **ONE class table shared byte-for-byte** |
+| numerals | **IN THE MODULE**: OP-03's decimal→f64 is the same double-double sequence against the same 10^k bytes |
+| σ (§2.2) | **IN LINEAR MEMORY**: offset, error flag, the three journals, depth, cut and the farthest-failure record have ONE home; **every mutation crosses the boundary**, so the crossing is paid and therefore measurable rather than hidden |
+| parse structure | **JS COMBINATORS IN BOTH LOWERINGS** — NC-1 pre-kills the derived-interpreter posture by citation, and a Wasm re-implementation of the parse graph is that posture at one remove |
+| value arena | **NONE** — `V` is materialized on both sides through the shared `R_ctor` shape descriptor |
+
+**The consequence is stated first, not after the zeros**: EQ-1..EQ-6 against AC-3 discriminate the
+**terminal layer**, the **numerals**, the **journals** and the **rollback arithmetic** — not two
+independent readings of the combinator structure. A green G-3 here is a **narrower fact** than a
+green G-3 on a candidate whose two lowerings are independent implementations. `.h` should read it
+that way.
+
+#### f.2 — the scan union is a citizen, not a fork (§3 item 12 · §4's `typescript/src/**` row)
+
+`typescript/src/parse/scan.ts` (**239 L**, new) holds one 257-slot class table — 256 code-unit slots
+plus the ≥256 slot — and one mask test per code unit with **no branch on the class itself**.
+`classRunEnd` is the kernel; `spanDigits` reads an already-scanned span's value (so **no cursor loop
+is written by a caller**: G-10's `(while|for)\s*\([^)]*charCodeAt` reads **0** and so does a reading
+of the bodies); `scanClass` · `takeClass` · `foldedLiteral` are real `Parser`s with a real
+`ParserContext`, registered in `parserNames`, so every consumer that walks `context.name` sees them.
+The span convention yields the **START** and leaves the END in `state.offset` — **no object per
+token**, which is the point of the candidate.
+
+**Never a CSS-side lexer pass**: ⟨`node …/probes/p2-token-boundary.mjs`⟩ builds a counterfactual
+maximal-munch pre-pass **from the same table** and shows the fused leaves and that tokenizer are the
+**same reading** — 0 provenance spans split a token it would have drawn, 0 straddle two. The lexer
+exists only inside the probe, to make the comparison possible.
+
+**The library lock, read as no-regression against a measured base** (the fresh root's base is *not*
+green and is not made green here):
+
+- ⟨`cd typescript && npx tsc --noEmit`⟩ → **6 diagnostics, all pre-existing**: `src/parse/ansi.ts`
+  ×3 (TS2580 `process`), `src/parse/debug.ts` ×1 and `src/parse/parser.ts` ×2 (TS2584 `console`),
+  plus `test/benchmarks/*` (TS2307 `arcsecond`, `chevrotain`). **Not one names `scan.ts`, `state.ts`,
+  `index.ts` or `core.ts`.**
+- ⟨`npx vitest run --reporter=json`⟩ → **Test Files 8 failed | 18 passed (26) · Tests 2 failed | 213
+  passed | 2 skipped (217)**; the 8, by cause read out of the JSON: `ENOENT ../data/csv/data.csv` ·
+  `ENOENT ../data/json/data-l.json` · `ENOENT ../data/json/data.json` · *"No test found in suite"*
+  (`verify-parse-output`) · `Cannot find module …/ajv/dist/2020.js` · `bench() is only available in
+  benchmark mode` ×3. **Not one names a file this branch touches.**
+- ⟨`git show HEAD~1^:typescript/src/parse/state.ts | diff - typescript/src/parse/state.ts`⟩ →
+  `222a223,228`; `index.ts` → `8a9,13`; `core.ts` → `25a26,39`. **Three append-only edits and one new
+  file. Nothing deleted, nothing rewritten** — which is the difference between a citizen and a fork,
+  read at the diff rather than asserted.
+
+#### f.3 — the four PREDICTED failure modes, probed FIRST (§5's "probed FIRST, results pasted")
+
+All four ran **before** the gate suite, and all four are **dispositioned with a number** (`.h`'s G-12
+row: *"a prediction nobody checked is a decoration"*). Evidence: `experiments/w2/ac3-span/evidence/p1..p6-*.txt`.
+
+| # | prediction | verdict | the number |
+| --- | --- | --- | --- |
+| **(a)** | token-boundary divergence at the juxtaposition rows and numeric edges (`1.`, `1e400`) | **NOT OBSERVED** | 17 rows (`juxtaposition` · `numeric-edge` · `r6-bare-number` · `unsound-accept`): **0** divergences between the lowerings on all six products; against a maximal-munch pre-pass over the same table, **0** P-spans split a token and **0** straddle two. `rgb(50%20%30%)` → `[127.5, 51, 76.5]`, `rgb(1.5.5 3)` → `[1.5, 0.5, 3]`, `hsl(120 50%50%)` → `[120, 0.5, 0.5]`, each matching the tokenizer's own munch |
+| **(b)** | short-string inversion (per-leg print) | **NOT OBSERVED as an inversion**, and the instrument's limit named | 8 legs × 2 lowerings × **3** runs, one forked process per cell. 4 B vs 78 B reads **1.387 / 1.174** · **1.230 / 1.170** · **1.014 / 1.099** — no flip in any run. **A third run was taken because the first two disagreed by more than the effect under test** (`accept 18 B` moved 0.904 → 0.899 → 0.719 with nothing changed but the clock): the crossing is a roughly constant factor here, and **this instrument could not have resolved a length effect smaller than its own run-to-run spread** |
+| **(c)** | the boundary eats the win (§12's ≥ 20 % Stage-0 screen) | **SCREEN NOT HIT** | **1.3 – 2.2 %** of the 55.6 ns budget across 3 runs × 3 invocations × **5 forked processes**; margin **17.8 points**. Leg B, the real leaf on both sides: wasm **4.4 – 9.6 ns** vs js **16.0 – 42.5 ns** per call |
+| **(d)** | arena latch (K-6) | **NOT OBSERVED** | over **100,000** parses the product is byte-identical to parse #1 at every checkpoint (10 · 100 · 1k · 10k · 100k), both lowerings; the module's bump high-water is **flat at 352 B** throughout; `reset()` → **0 B** and the next parse reproduces parse #1 exactly |
+
+**R-g1 is discharged, and the discharge includes this seat's own error.** The first form of the
+boundary probe timed a **wasm scan leaf against a JS scan leaf** and called the difference the
+boundary cost — which read **NEGATIVE** (−15 to −28 ns), because the wasm scan is faster than the JS
+scan by more than the crossing costs. That is a fact about two scans, not about a boundary. It is
+**recorded as wrong in `VERDICT.md` §B(c)** and replaced by a probe that times an export returning a
+constant against a JS function returning a constant. **`.g`'s 14.5 / 17.9 / 18.1 % and this seat's
+1.3 – 2.2 % measure different quantities and must not be averaged** — `.g`'s subject performs the
+leaf's work as well as the crossing (F-f8). Nothing turns on it: both are under the screen.
+
+#### f.4 — Stage 2 printed BEFORE any timing, then Stage 3
+
+⟨cmd⟩ `node harness/w2/op-bijection.mjs --candidate ac3` → **GREEN — 22 rows, both lowerings,
+fingerprints pairwise equal**, `DECLARED-ABSENT wasm symbols 0`. Every Wasm symbol names the module
+function that realizes its row (`wasm:num+dec2f64`, `wasm:labCopy+pushD+pushC`), and where a row is
+realized **partly** in the module the symbol says so (`wasm:mark+rollback/wCompileAlt`) instead of
+claiming the whole row. Zero throws across the slice + R1 + fuzz corpora precedes every timing run.
+
+⟨cmd⟩ `node harness/w2/eq-six.mjs --candidate ac3 --corpus …/slice.json --fuzz-seed …/fuzz-seed.json`
+→ **EQ-1 `0` · EQ-2 `0` · EQ-3 `0` · EQ-4 `0` · EQ-5 `0` · EQ-6 `2035`**, rows compared **30,527**,
+label indices aligned **true**, third cell **236** differences (**12** carrying a declared row).
+⟨cmd⟩ `node harness/w2/recovery-laws.mjs --candidate ac3` → TRY sites **2,946** · R-LAW-1 mismatches
+**0** · R-LAW-3 **silent** · R-LAW-4 **0** amplified / **0** zero-width · R-LAW-2 **13** — identical
+readings for both lowerings, both runs.
+
+**EQ-1's numeric leg is constructional, not lucky.** OP-03 is ONE double-double routine written in
+operations both targets have, against ONE 10^k table rounded from exact BigInt rationals:
+⟨cmd⟩ `node …/probes/p5-number-agreement.mjs` → **6,451** numerals (32 harvested from `slice.json` +
+`r1.json`, the rest generated hard cases — subnormals, the overflow boundary, 17–20 significant
+digits) **bit-identical between the lowerings under `Object.is`**. Its declared distance from the
+host's `Number()` is **35 of 6,451** (0.543 %): 4 normal at ≤ 1 ULP, 30 subnormal at ≤ 1 ULP, 1 at
+the overflow boundary — the price of having one algorithm instead of two, since the Wasm lowering has
+no host to call (F-f9).
+
+#### f.5 — gate readings, BEFORE → AFTER, each double-run
+
+| gate | BEFORE (`W2.md` §6 born-RED) | AFTER | verdict |
+| --- | --- | --- | --- |
+| **G-1** | both `ALGEBRA.md` ABSENT; no candidate walk | contract half GREEN (homes sha256-equal `14450aa4…66f7`, 22 = 22, 0 target-conditionals in the contract **and** in all **17** declared sources); structural half, both lowerings: `ops∉22 0 · recover≺alt 0 · cut∉alt 2 · unowned-span 0 · closure-leak 0` | **RED** — **F-f2** |
+| **G-2** | script ABSENT; op count 0 | 22 rows, both lowerings, fingerprints pairwise equal, 0 DECLARED-ABSENT | **GREEN** |
+| **G-3** | no second lowering exists; 0 comparisons | **30,527** rows · EQ-1 **0** · EQ-2 **0** · EQ-3 **0** · EQ-4 **0** · EQ-5 **0** · EQ-6 **2,035** | **RED** — **F-f1** |
+| **G-4** | 0 probes exist | TRY sites **2,946** · R-LAW-1 **0** · R-LAW-3 **silent** · R-LAW-4 **0/0** · R-LAW-2 **13** | **RED** — **F-f1** |
+| **G-5** | published `parseCssColor` throws 102/172 + 7/7 | **0/172** throws and **7/7** boundary rejections carrying ≥ 1 diagnostic, ×3 productions × 2 lowerings | **GREEN** |
+| **G-8** | `PACKRAT_ARMED` 93.9 → 138.2 ns = 1.47×, reset leaves 139.3 | history drift (warmed — R-g5's verdict leg) js **0.933×** · wasm **1.111×**; steady-state heap **−7.7** / **−20.8** B/parse; reset residue **0.928×** (re-run **0.369×**); arena high-water **352 B**; DM-1 freeze its own leg; **reject leg js 18.8 · wasm 17.2 B/parse** | **RED** — **F-f3** |
+| **G-9** | no module exists; committed `wasm32` 0 | imports **0** over all kinds · `{}` by kind · sections `type, function, memory, export, code, data` · **no start section** · **32** exports enumerated · `memory.grow` **0** (6,291,456 B before and after 2,000 parses) · K-9 clean · K-10 clean | **GREEN** |
+| **G-10** | no artifact; 24 public `Parser` methods at the clone point | graph nodes walked **1,973** · `opt` under `all` **0** · `lazy` **0** · memoize **0** · all five textual zeros **0** over 11 declared files · excess-property `tsc --noEmit --strict` fixture **PASSES** | **GREEN** |
+| **G-11** | `Parser.lazy` deepest OK 7,761, RangeError at 7,762; census 13 : 0 : 0 | the deep-nesting row (`s0526`, 10,000 nested `var(`) returns `ok:false` with 1 issue in **both** lowerings from a constructed `Θ.depthBound = 64`; scan primitives as algebra leaves in both: `DIGITS, DISPATCH, KW, LIT, SCAN, TEXT` | **GREEN** |
+
+**`lazy` reads 0, not ≤ 1**: the back-edge is **OP-22 `REF`**, an operator carrying `Θ.depthBound`, so
+the candidate needs no `lazy` node at all — a stronger reading of G-10's rule than the rule asks for,
+stated rather than left to be inferred from a zero. **Every gate was run twice with identical
+readings**; G-3's two runs printed the same six numbers to the digit.
+
+**No gate saw a third diagnostic iteration** (§3a's halt never approached): the seat developed against
+its own smoke comparison of the two lowerings and invoked each gate when it believed it green.
+
+#### f.6 — findings (the four REDs are the contract's and the instrument's, not AC-3's)
+
+| id | severity | finding |
+| --- | --- | --- |
+| **F-f1** | **MAJOR — §3a's trigger ARMED** | **The COMP-1c `keyword` defect reproduced a THIRD time at the same number.** **2,035** rows / **2,047** occurrences, **all** COMP-1c, **all** `kind 'keyword'`, **all** `P:color`; by family `var-context 4 · ground-a-guarded 9 · fuzz-wellformed 1,262 · fuzz-malformed 760`; first row `s0180 "var(--brand)"` → *"kind 'keyword' over `--brand` at 4 fails π_keyword"*. Cause: §10.1's `balanced-tail := REP(ALT[SEQ[TOK"(", REF balanced-tail, TOK")"], DROP keyword (SCAN any-but-paren 1 ∞)], 0, ∞)` labels arbitrary `var()` argument bytes `keyword`, against §4.5's `π_keyword = /^[A-Za-z][A-Za-z0-9_-]*$/`. **Identical to `.d`'s and `.e`'s numbers**, reached by a third independent encoding. **`W2.md` §3a's trigger — G-3 red on the SAME product for all three admitted candidates — is now ARMED, on EQ-6, at 2,035.** Both lowerings fail it identically, so it is **not** a K-1 divergence |
+| **F-f2** | **MAJOR — for `.h`** | **`.d`'s F-2 reproduced at a DIFFERENT count, and MEASURED.** `cut∉alt` reads **2** here against `.d`'s **7** and `.e`'s **0** — **the number measures the ENCODING, not the contract**, and `.h` should not read the three as disagreeing about the defect. Both sites are §10.3's own text (`qualified-rule`'s and `declaration`'s `CUT`, reached only through `REP`/`RECOVER`, which §5.2 calls scope-openers and OP-10 calls *"a walk error"*), at paths `stylesheet/CTOR[1]/SEQ[0]/REP[0]/SEQ[1]/RECOVER[1]/CTOR[3]` and `…/CTOR[4]/REP[0]/CTOR[5]`. `probes/p6-inert-cut.mjs` **measures `.e`'s "inert" claim instead of repeating it**: a variant grammar with exactly those two nodes removed is identical on `ok` · `V` · `C` · `P` · `D` · `recoveries` **over all 30,527 rows**, and identical on the **mark arithmetic** (the 7,716 verbatim `marks` differences are the walk RENUMBERING the deletion causes — site names shift, `⟨i,|C|,|P|,|D|,depth,arena⟩` does not). **The `CUT`s are inert in fact.** A construct that changes nothing and is a walk error by the contract's own rule is a defect either way; `.h` now has both lawful readings **and** the number |
+| **F-f3** | **MAJOR — for `.h` and `.g`** | **`.d`'s F-4 and `.e`'s F-e8 reproduced.** G-8 scores the reject path against an **exact zero** with an instrument whose draw-to-draw spread on the SAME subject is **js 3.86 – 18.23** and **wasm 2.92 – 14.49** B/parse over five consecutive 10,000-reject windows, reproduced in a second invocation at **js 5.03 – 17.96** and **wasm 4.35 – 12.45**. The gate's single reading (js **18.8** · wasm **17.2**) is one draw from that, and it sits at the **top** of the range both times. **This seat did not re-run for a greener number.** Note the asymmetry with `.e`, whose wasm leg read 0.019 B/parse: its wasm lowering does not materialize `marks` as JS objects and this one does, **in both lowerings**, because the `<Lowering>` contract requires `marks` and an armed/unarmed split is the PACKRAT shape O-8 forbids |
+| **F-f4** | **MAJOR — for `.h` and the owner** | **EQ-5's sixth coordinate is unsatisfiable for any candidate whose Wasm lowering keeps a value arena.** §2.2 L238 defines it as *"the value-arena watermark; the JS lowering reports 0"*, and EQ-5 byte-compares the **whole mark tuple ACROSS the lowerings** (`.g`'s `serializeMarks`). A nonzero Wasm watermark against a JS lowering the contract **fixes at 0** is therefore a guaranteed **K-1 kill on every row that takes a mark after any allocation**. AC-3 escapes only because its declared posture has **no value arena** (E-4). This is structural, not measurable away: either the coordinate leaves the cross-lowering comparison, or it is redefined as something both lowerings can report — a **logical cell counter**, which is independently what `.e` declared |
+| **F-f5** | INFO — for `.g` | G-10's `.parse(` textual zero is `/\.parse\s*\(/`, which counts **`JSON.parse(`**. Measured in-seat: **1** hit at `algebra/grammar.mjs:265`, a JSON round-trip, not a parse-that truthiness entry. A seat that uses `JSON.parse` anywhere in a declared algebra source reads RED for a non-defect. **Reported rather than dodged**; the round-trip was then removed for the independent reason in F-f6 |
+| **F-f6** | INFO — for `.g` and `.h` | **A JSON round-trip is NOT a CL-1 test for the SHARING half.** `JSON.parse(JSON.stringify(x))` silently **un-shares** repeated references, so a term object used at two grammar sites passes the round-trip and then fails the harness's closure walk (which reports a second visit as a `cycle`). Measured in-seat: replacing the round-trip with a **path-naming data walk** plus `structuredClone` surfaced a shared `UNIT_LIT` the round-trip had been masking — `closure-leak 0 → 2 → 0` once cured at the root (the literal is now a factory, and `assertData` now names the offending path and detects sharing). **Any seat that "proves CL-1 by round-trip" has proved half of it** |
+| **F-f7** | MINOR — **this seat's own defect, CURED** | The double-double helpers computed an error term for a **non-finite head**, so `∞ + (−∞)` inside the correction returned **NaN** for a value that is `±∞`: `1234567890123456789e308` read `NaN` where `Number()` reads `Infinity`. **Cured at the root in BOTH lowerings** (`ddMulD`/`ddMulDD` return `[p, 0]` when the head is not finite) and re-measured: host differences **37 → 35** of 6,451, and the two lowerings stayed bit-identical across the change. Found by the probe `arith.mjs`'s own header promised |
+| **F-f8** | INFO — for `.h` | **`.g`'s Stage-0 screen figure and this seat's measure different quantities** — 14.5 / 17.9 / 18.1 % against 1.3 – 2.2 %. `.g`'s subject performs the leaf's work as well as the crossing; this one performs only the crossing. Both are under the 20 % screen, so nothing turns on it — but they must not be averaged, and **R-g1 is discharged with the difference NAMED**, not with a second number laid beside the first |
+| **F-f9** | INFO | OP-03's shared routine differs from `Number()` on **35 of 6,451** numerals (0.543 %): 4 normal (≤ 1 ULP), 30 subnormal (≤ 1 ULP), 1 at the overflow boundary (`1.7976931348623158e308` → `Infinity` where `Number()` gives `MAX_VALUE`). The **declared cost of one algorithm instead of two**, and a distance from the host rather than an error against an answer key — the corpora carry no expected values (§3d) |
+| **F-f10** | INFO | §10.2's `ALT` order makes `linear(...)` **unreachable** (the `linear` keyword arm precedes the `linear(` dispatch arm) — confirmed on 3 slice rows, `linear(0, 1)` reads `ok:false`. Independently reproduced; `.e` filed the same as F-7/F-e13. **Shipped as written** (E-5), because a candidate that edits the contract to pass has produced a finding and then hidden it |
+
+#### f.7 — kill rules, K-10, and what this unit does not claim
+
+**K-1 NOT HIT on EQ-1..EQ-5** (0 over 30,527 rows); EQ-6's 2,035 fail identically in both lowerings
+and are F-f1, not a divergence. **K-2** 0 target-conditional tokens over all 17 declared sources, and
+the algebra imports neither lowering. **K-3** 22 of 22 rows carry both lowerings. **K-4** `RECOVER` is
+a registry row with both symbols. **K-5** is `.h`'s. **K-6** not hit (§f.3 (d)). **K-7** not hit —
+the bound is constructed and **no try/catch shield exists in either lowering to prove non-load-bearing**.
+**K-8** not hit — 0 throws over 172 + 7 and 0 inside the algebra over 30,527 differential rows.
+**K-9** not hit — `meta.build.jsArtifactReproduction` is `node experiments/w2/ac3-span/build.mjs`
+(`npx tsc`, then `node`), and the Wasm bytes come from a JavaScript assembler that **cannot emit an
+import section**: G-9's zero-import property is **structural**, not a promise. **K-10** not hit — the
+audit digests the evidence root's **3** uncommitted `wasm32` working-tree files and finds **0**
+declared wasm source byte-identical to any; committed `wasm32` under `rust/parse_that` → **0**
+(OP-6 holds).
+
+**Artifact identity**: `build/ac3.wasm` **25,267 B**, sha256 **`fef1f1a7373c9797a1bda52d8e8f4ceb9f6e86ef92160ff34d8d4993e23bcecc`**,
+byte-identical to what `lowerings.wasm.wasmBytes()` hands G-9, and reproduced **deterministically** by
+two consecutive builds. `build/lib/**` is gitignored: it is generated by the declared command, and a
+committed copy of a compiled library is a second source waiting to drift.
+
+**Sizes**: algebra **1,923 L** · JS lowering **771 L** · Wasm lowering **2,460 L** · probes **930 L** ·
+`VERDICT.md` **287 L** · `scan.ts` **239 L**.
+
+- **No oracle edited**: not the harness, not the corpora, not `ALGEBRA.md`, not W1's instruments, not
+  this candidate's falsifier. Where a probe read a false positive against this candidate the seat
+  **filed it** (F-f5).
+- **Numbers**: every published figure read back from the settled bytes and **double-run**; the
+  boundary screen **re-measured after this seat's own first form of it was found wrong**; the
+  short-string legs run a **third** time because the first two disagreed by more than the effect;
+  **no speed sentence outside a printed table**, and every duration carries
+  `BAR: OWNER-GATED-PENDING-RATIFICATION`.
+- **Bar**: none set. **Verbs**: none stamped — **this seat does not claim its candidate survives**,
+  and it did not kill it either; four gates read RED and all four are wave-level findings of the
+  contract or the instrument, named with their numbers above. That verdict is `.h`'s.
+- **`<p2>` end state**: HEAD `f93495602ee17e50b2ff97ab86bed32b28dc9966`, branch `w2/ac3-scan-union`,
+  worktree `<p2>/.worktrees/ac3`, porcelain **0**, ⟨`git remote -v`⟩ → 0 lines.
+- **Commit of this record**: pathspec on the commit itself, this file alone; `scripts/dev/dev.sh`
+  never staged.
