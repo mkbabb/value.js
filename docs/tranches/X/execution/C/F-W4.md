@@ -552,3 +552,162 @@ Every commit carried its own pathspec on the commit itself; ⟨cmd⟩ `git show 
 - **Residual 6 — carried to `.z`, for the SS-6 relay letter**: reka-ui's focus-guard sentinels (`aria-hidden-focus`, 2 nodes on every gallery/admin state) and the producer's light-arm `--success` rung (**2.133:1**, floor 3). Producer rows; no frontend hack authored.
 - **Residual 7 — carried to F.W9/W10**: consolidate the two unit runners (F.W0's `node:test` seat + this floor) under `G-F9-1`, per F.W0's own routing; and land `noUncheckedIndexedAccess` with `PAW-12` at the **measured** price of 265 diagnostics.
 - **Residual 8 — carried to `.z`**: the ten `no-duplicate-imports` findings are the ESLint leg's born-RED and are owned across `.a`/`.b`/`.c`/`.e`; `web-build` stays RED until they land. `allowSeparateTypeImports` was measured (1 finding) and **declined** — re-opening it is a decision, not a fix.
+
+---
+
+### `.a` — the shell, the morph chain, and the global sheet
+
+**Seat**: `.a`, `claude-opus-5[1m]`, 2026-09-18. **Status: PARTIAL** (every act below landed and measured; the unbooked residue is enumerated at *Residuals*, never dropped).
+**Commits**: 12 in fourier (`e4599ec` … `e365203`), 1 in value.js (`fff145da`), ⊕ this receipt. **Writable set honoured exactly**; ⊘ `scripts/dev/dev.sh` never touched; ⊘ `web/e2e/**` touched at **one line only**, the granted `paper-performance.spec.ts:328`.
+
+#### Act 0 — CRASH-RECOVERY sweep (standing law): nothing inherited
+
+⟨cmd⟩ `git -C /Users/mkbabb/Programming/fourier-analysis status --porcelain` → **∅** (clean; branch `m/w1-bump-migration`, HEAD `717d287` = `.g`'s last).
+⟨cmd⟩ `git -C /Users/mkbabb/Programming/value.js status --porcelain` → 12 modified ⊕ 3 untracked, **none inside this unit's writable set** (the ten `demo/**` SFCs and `CARRY-LEDGER.md` are sibling seats'; `scripts/dev/dev.sh` is the unowned standing-dirty path; `docs/tranches/X/waves/evidence/` and the two `e2e/smoke/**` specs are Track A's). `docs/tranches/X/fourier/F-W4-ADDENDA-a-2026-09-18.md` **ABSENT** before this seat wrote it. **Zero inherited paths.**
+
+#### Act 1 — anchors verified at the true bytes BEFORE any write
+
+Every §2.F / §2.0 / §2.K coordinate in the dispatch resolves: ⟨cmd⟩ `sed -n '120p;122p;125p;86p;90p;99p;188p;353p'` over `waves/F-W4.md` → `### §2.F · the shell/morph chain…` · `**⟨R-2a adoptions…⟩**` · `- **FR-AH-24 · L-14 …**` · `- **SP-6 · unlayered-scoped cascade clobbers…**` · `- **SP-10 · font truth…**` · `- **SP-19 · the silent-degradation asset chain…**` · `### §2.K · the /visualize + /morph authoring surfaces` · `## §3 Decisions this wave authors…`. ⊘ `.i`'s **Residual 4** applies as banked: the `§4 (:31)` / `§5.1(3) (:48)` coordinates are §-relative, and INTENT was taken at the true bytes (`G-F4-CENSUS-CELLS` in the §4 table; §5.1 item 3 at `:400`).
+
+#### Act 2 — SP-6, the ONE cascade decision (`e4599ec`) — **and a second route to `FR-AH-30`'s dead outcome**
+
+The adjudicated cure-shape is *"`@layer glass-overrides` appended after `utilities`"*, and ⊘ `@layer components` **reverses** it. **This seat reached the reversal anyway, by a route the record does not name, and measured it before shipping.** Vite emits SFC `<style>` output **before** the entry stylesheet (`main.ts` imports `App.vue` above `./style.css`), so the first `@layer glass-overrides { … }` block in a **component** registers the layer FIRST — at the BOTTOM of the order. ⟨cmd⟩ over the emitted bundle, before the fix: `glass-overrides` at byte **4193** · `properties` **33911** · `theme` **36806** · `base` **41501** · `components` **45523** · `utilities` **235579**.
+
+**Cure**: ONE `@layer theme, base, components, utilities, glass-overrides;` statement in the document head, which is first in document order in **both** modes (the build appends its `<link>` at the end of `<head>`; the dev server injects `<style>` at the end too). ⟨cmd⟩ `dist/index.html`: statement at **2874**, bundled CSS link at **4144** → statement first. `style.css` carries a "do not add a rival statement here" note so the next seat cannot silently re-invert it.
+
+**Verified in a real browser at the built bytes** (`.nav-dropdown-item`, after): `min-block-size: 44px` (the producer's coarse-pointer floor, **restored**) · `transition-property: background-color, color, border-color, box-shadow, translate, scale` (the six-leg list **restored** — `MISS-3`'s truncation to two legs gone, so `--menu-row-lift: -1px` springs instead of snapping) · `gap: 10px` (the layered consumer divergence, **surviving**).
+
+Landed in the same commit: `FR-AH-11` (the base re-skin, the `:hover` re-skin and the `outline:none` **deleted**, not layered) · `FMD-13` (both Button re-skins deleted; `emphasis` governs) · `FMD-N3` ⊕ `FMD-27` (the hover `box-shadow` **composes** the `cartoon-surface` stamp instead of replacing it) · `HLG-3`/`FMD-3` (the dead `--slider-scrub-*` block) · `HLG-6` (shorthand truncation) · `HLG-40` (the focus indicator's transition listed one of the two properties it changes) · `HLG-34` · `FMD-18`'s top gutter and state ORDER (`.is-bound:not(.active)`; boot state is always a bound tile, so *selected* was overpainted by *bound* at every idle rest) · `FMD-28` · `FMD-35` · SP-15/`DMT N-16` hover gating.
+
+#### Act 3 — SP-10, the font decision, RULED (`a3f1fc2`) — §3 D10's font leg, STATED
+
+**COMMIT TO THE CM IDENTITY**, on arithmetic: ⟨cmd⟩ `wc -c dist/styles/fonts.css` → **132,840 B**; ⟨cmd⟩ `grep -o 'font-family: *"[^"]*"' … | sort -u` → `"Fira Code"` · `"Plus Jakarta Sans"` — two families, one already self-hosted by this app, the other with **zero** application sites in an app whose `@theme` fork exists to reject it. The alternative would ship a third of a megabyte of CSS to cure a phantom.
+
+⊘ **A fork-point that read elegantly and silently did not take, recorded because the failure mode is the row's own.** `--font-stack-text` (the producer's single bridge head) was tried first: `@theme` beats `bridges.css`'s leaf declarations but **loses** against the stack head, leaving `--font-serif`/`--font-text` on Plus Jakarta and `--font-sans` resolving to **nothing**. Four declarations that are proven to win replaced it. ⊘ `--font-text` is the one the PRODUCER's own `body { font-family: var(--font-text) }` reads, and that rule beats this app's `@layer base` binding — forking the leaves without it left the page's own body copy on an unloaded sans while every branded element moved, and the omission was invisible because the fallback is also a serif.
+
+**Browser-verified at the built bytes**: `--font-sans`/`--font-serif`/`--font-text`/`--font-serif-math` all → Computer Modern · `--font-display` → Fraunces · `body` → Computer Modern (was Plus Jakarta) · masthead ℱ = Fraunces and wordmark = CM (**one identity**, not two unrelated fallbacks) · `Plus Jakarta Sans Fallback` **stops loading entirely** · all **four** CM faces now requested (the italic face was absent before). `FR-AH-36`: the three preloads gain `crossorigin` — a `@font-face` fetch is always CORS-anonymous, so a bare preload occupies a different cache key and can never match — and both halves of that row's alternative are now met, so they live.
+
+#### Act 4 — COHESION §0j.D `G-15(b)` (`6b628a5`)
+
+`html{font-size:1.125rem}` under 768px **GONE**. It inflated every rem by 12.5% on exactly the viewports where `--ui-scale` is already scaling, and minted a third breakpoint 128px from the app's own 640px — the band that made the `/morph` title render LARGER below 768 than above it (`FMD-29` · `HLG-19`) and the header toggle's ladder non-monotonic at 45 → 49.5 → 44 px (`FM-21`). ⊘ `FM-21`'s own scaling-system question is **POSED at D10, not answered**.
+
+#### Act 5 — `FM-2`'s ring rider (`2e41c00`) — a finding no banked row carries
+
+⟨cmd⟩ `grep -roh -- '--[a-z-]*ring[a-z-]*: *[^;}]*' node_modules/@mkbabb/glass-ui/dist --include='*.css' | sort -u` → `--focus-ring-color` · `--focus-ring-shadow` · `--focus-ring-width` · `--control-edge-ring` · `--dock-ring` · `--dot-ring-*`, and **no `--ring`, no `--color-ring`**; ⟨cmd⟩ `grep -rn -- '--ring *:\|--color-ring *:' src public` → **∅**. So `outline: 2px solid var(--ring)` is invalid at computed-value time and **dropped**: six read sites across five files — exactly `FM-2`'s banked extent — were painting **no focus ring at all** at HEAD. Three cured; **three NAMED, not written** (`ImageUpload.vue:200` → `.c`; `GalleryCard.vue:222`/`:223` → `.d`). Riding: `DMT N-5` · `N-6` · `N-7` (`--scale-hover`) · `N-8` (the reduced arm nulled `transition` only, so the hover transform became an instantaneous snap — motion reduction inverted into **sharpening**) · `N-9` · `N-16`.
+
+#### Act 6 — SP-3, the palette re-route (`f32e912`)
+
+`FR-AH-23` **before** `DMT M-2` and before the SUN/MOON re-route, as the lock sequences it; the precondition (`fr-BasisCanvas D-1`'s resolver cure — *"else it lerps `#888888`"*) landed at F.W2, verified: `cssVarToHex` and both `#888888` returns are gone from `lib/colors.ts`. Two hard-coded sRGB triples → `--viz-amber` / `--viz-legendre`, and the channel lerp → `color-mix(in oklab, …)`, which kills `DMT N-13`'s ~37% chroma collapse with the engine doing the work and **nothing added to the boot path**. The idle branch stops recomputing two constants through a lerp at t=0 and t=1.
+
+**Colour model validated three times against banked figures before any edit**: `#E88845` on `--background` → **2.513** (banked `DMT M-2` **2.51**) · `--foreground`@12% on `--card` → **1.275 L / 1.395 D** (banked `HLG-37` **1.275 / 1.398**) · `#60a5fa` on `--background` → **2.446** (banked `FMD-19` **2.45**).
+
+#### Act 7 — SP-4, the PRM gate (`e022edf`) ⊕ the census correction (`fff145da`)
+
+`FMD-22` ⊕ `FR-AH-31` ⊕ `DMT D-M1/L-7/C-5` are ONE ungated clock seen from two components, so all three close at `morphTo()`. ⊘ The reduced arm seeds the **TERMINAL** frame — `setShape(to)` at `highLevel`, `morphProgress = 1` — never t=0 and never blank (SP-4's M-D1 clause, and the census cell's own `proposed` arm verbatim). The early return also skips the dynamic engine import. `FR-AH-6` is **not pre-empted**: the router's second predicate stays and both sites carry the note, because F.W5's rider owns which home survives.
+
+**`G-F4-CENSUS-CELLS`**: the 06-16 M-deep-audit run's `B5-01` evidence line (`raw-findings.json:1393`, **path-qualified**; anchor re-resolved — `:1390` `"id"`, `:1391` `"title"`, `:1392` `"severity"`, `:1393` `"evidence"`) names `DarkModeToggle` among *"10 components [that] do honour it"*. **False**: its at-rule nulled `transition` alone, and its actual clock consulted the preference nowhere. Corrected by dated addendum-beside, entry **A-a-1**. ⊘ **Cross-repo disclosure**: the lock says *same commit* and the two live in different repositories, so one commit cannot hold both — they are one act landed adjacently, and **each names the other** (`e022edf`'s message cites the addendum; A-a-1 cites `e022edf`).
+
+**PRM arm verified in a browser** (`reducedMotion: "reduce"`): after the toggle the glyph's `d` is **19,534 chars — non-empty** and the moon, `aria-pressed="true"`, `dark=true`. The terminal frame, not a blank one.
+
+#### Act 8 — SP-7, the `/morph` BLOCKER (`5081b37`)
+
+`FM-1` (= `FMD-2`): the leaf's contract is now **decorative by default, nameable on request** — a host with its own name mounts it `aria-hidden` (that is also `DMT N-4`), a host without passes `title` and it becomes a named `role="img"`. The host carries a **transaction-stable** name, honouring `FR-MSP-10`'s NAME-CURE LOCK: a name built from the current shape inverts the instant the control is used. `FMD-14` (`for`/`id`, `useId`-derived because the phase card mounts three times) · `FMD-15` (three sliders announced one byte-identical name; each card is now a named `role="group"`) · `HLG-8` · `DMT N-2`/`N-3`/`N-17`.
+
+⊘ **RIDER LOCK discharged by construction**: ⟨cmd⟩ `grep -rn -i 'switch to dark\|switch to light\|sun-moon-toggle' e2e/` → **exactly one hit, `paper-performance.spec.ts:328`** — the single line this unit is granted. It moved in the same commit to the stronger `{ name, pressed: false }` form; ⟨cmd⟩ `git diff --numstat` on that file → **1 1**.
+
+#### Act 9 — §2.K's FSE rows (`362b210`)
+
+`FSE-D-1` ⊕ `FSE-M-4`: the page was framed by inline literals — 2rem root padding and a non-wrapping flex row with 2rem gap holding two fixed 200px subjects = 496px of incompressible content in a 375px viewport. The row wraps and the subjects shrink; the extraction geometry is untouched because `extractContours` reads user-space coordinates through `viewBox`. `FSE-D-8` (named, focusable region with a polite status line announcing the OUTCOME, not reading a 128-point dump aloud; named `role="img"` subjects) · `FSE-D-9` (⊘ `stroke="red"` deliberately **LEFT**: it is a debug instrument's tracing ink and must not follow a theme) · `FSE-L-M4` · `FSE-M-5` · `FSE-M-12`.
+
+⊘ **`FSE-L-B1` DO-NOT-REGENERATE honoured**: the extractor was never re-run, `moon.json` is untouched, and **`M-10`'s RNG rider is not engaged because no `L-B1`/`L-B2` cure was attempted** — the generator calls, their order and their discarded draws are untouched, so the canonical sun cannot re-roll. ⊘ **`FM-19` FROZEN-FOREVER** (§0j.D `G-15(c)`) respected; **`HLG-44` stays blocked**.
+
+#### Act 10 — the epoch/cancellation family (`0a5c028`)
+
+The engine's `stop()` **RESOLVES** the pending `play()`, and `morphTo` is a three-await coroutine, so every superseding act — `stopAnim`, `setShape`, `setLevel`, Reset, a second morph, `onUnmounted` — **ADVANCED** the dead coroutine instead of killing it, and it kept writing points, level and phase on top of whatever replaced it. A monotonic **epoch**, checked after each await and inside each tick, makes a superseded run do nothing. `DMT M-3`/`FMD-6`: `phase` was first written AFTER the dynamic import, so the re-entry guard was exactly as wide as the chunk fetch and widest on the cold path it protects — the phase is now claimed **before** the await. `FR-AH-20`: a throw past that point left `phase` non-idle **forever** and bricked both consumers' guards for the life of the page; `try/finally` restores idle, and only when the run is still live, so a teardown cannot report itself as a completion. `FMD-9`: the engine memo was poisoned **on existence** rather than on success; it clears in the catch and re-throws. `DMT M-1`'s watcher lands **with** the cancellation, as the lock requires, because before the epoch a watcher firing mid-morph would have handed the glyph to two writers.
+
+**Behaviour verified in a browser**: six rapid activations inside the import window run **exactly one** morph and settle to `idle`; a further activation still works (**not bricked**); `aria-pressed` tracks the class; **zero** console errors.
+
+#### Act 11 — SP-19's chain, `FM-20` and the 17-digit text (`6a0e842`)
+
+`DMT N-15` **WITH** `FM-23` — they catch different things by construction (nothing-present vs present-but-mismatched, the one link emptiness misses) and **neither can fire on the shipped assets**: ⟨cmd⟩ over `sun.json`/`moon.json` → both `levels [1,2,3,5,8,12,18,25,35,50]`, `n_harmonics 50`, **every** `partial_sums` entry exactly **512** points. `FM-22` (= `FR-AH-53`) ⊘ with `HLG-43`'s hazard respected — only the EDGE dies, `pencil-boil` keeps two live consumers. `FR-AH-37` · `FMD-26`.
+
+`FM-20` (= `FMD-1`) **lifted whole**: the ladder hard-coded 75/100 while both assets top out at 50 — two cells painted byte-identical paths to n=50, one click gave two highlight answers, the readout ran over a frozen glyph, and Export serialised an unhonourable `highLevel`. The ceiling is the **shape's own table**, named by the caller that knows which shape it is previewing, so a regenerated asset re-derives the UI domain (the pairing `FM-19`'s golden-file ask wants).
+
+`FM-3` (= `FMD-10`) **WITH** `FMD-N6` and `DMT N-14`'s 2dp emission. ⊘ **The precision leg was landed WRONG first and re-landed**: rounding the INPUT points leaves full float64 in the emitted string, because the Catmull-Rom control points are computed FROM them — ⟨cmd⟩ browser, after the first attempt: `maxDecimals: 15`. Moved to emission; after: **2**.
+
+**Measured at the built bytes**: strip cells **12 → 10** · identical paths **3 → 0** · High input `max` **100 → 50** · resident `d`-text **684,348 → 199,306 chars (−70.9%)** · the toggle's per-frame `d` **57,029 → 19,972 (−65.0%)** · decimals **17 → 2** · zero console errors.
+
+#### Act 12 — `FR-AH-7` ⊕ `FR-AH-24 · L-14` (`afc40b4`), and a banked claim falsified
+
+The static `@/lib/easings` edge put the easing catalog on every route's boot path; `getEasingFn` is needed inside `morphTo` alone, which already awaits a dynamic import, so it rides that same window. ⊘ **CURE-COMPLETENESS is the half that matters**: striking the import alone would have left the colocation re-export beneath it re-creating the identical static edge — that re-export is `FR-AH-24 · L-14`'s independent leg, its surface is `EASING_PRESETS`/`EASING_PRESET_NAMES` + two types and **not** `getEasingFn`, and it had zero consumers.
+
+⊘ **`FR-AH-7`'s banked claim is FALSIFIED and recorded, not smoothed.** The row books this edge as the reason `vendor-math` rides the eager bundle. Measured after the cut: the easing chunk **leaves** the eager set (six modulepreloads → five; entry chunk **493.49 → 485.03 kB**) but **`vendor-math` is STILL eagerly preloaded**, on an independent and deliberate edge — `lib/colors.ts` imports `@mkbabb/value.js/color` and `/css`, and `main.ts` calls `installVizColors()` before mount precisely so no child wins the palette race. That file is outside this unit's writable set; the residue is named for `.f`/F.W5 and is **not half-landed here**. `FR-AH-19` in the same commit.
+
+#### Act 13 — `no-duplicate-imports` (`e365203`)
+
+Three of the eleven are on this unit's files; **one of the three was minted by this seat** two commits earlier and is recorded that way rather than folded into the other two. **11 → 8**.
+
+#### Act 14 — E13 mail (this seat's own act)
+
+⟨cmd⟩ `grep -nE '\| *UNREAD' docs/tranches/V/coordination/INBOX.md` → **no output — 0 UNREAD in scope.** No row minted; this unit corresponds with no sibling repo directly. The **two producer rows it surfaced** are named for `.z`'s SS-6 relay letter at *Residuals* and are authored as frontend hacks nowhere.
+
+#### Gate readings, BEFORE → AFTER (this unit's contribution)
+
+| gate | BEFORE (seat 0 / `.g`) | AFTER (this unit) | reading |
+|---|---|---|---|
+| `G-F4-CENSUS-CELLS` | RED — no correction landed for any of the six named cells | **one cell CLOSED** (still RED overall) | `raw-findings.json:1393` corrected by dated addendum **A-a-1**, in the same act as `FMD-22`'s PRM edit. The other five belong to `.b`/`.c`/`.e` |
+| `G-F4-PRM-CLOCK` | RED — 5 ungated clock owners | **the morph clock GATED** (still RED overall) | `morphTo` consults PRM and seeds the TERMINAL frame; browser-verified in the reduced arm. The other four (`stores/animation.ts` · `useScrollNavigation.ts` · `useCanvasHover.ts` · `ConvergencePlot.vue` · `useCurveTransition.ts`) are `.b`/`.c`/`.e`/`.f`'s |
+| `G-F4-CONTRAST-FLOOR` | RED — 24 L / 12 D of 34 pairs | **22 L / 10 D of 38 pairs** | 4 pairs ADDED by this unit (`FMD-18`, `FMD-19`, `DMT M-2[sun]`, `DMT M-2[moon]`) and **all four pass in both arms**; `HLG-37`'s two boundary pairs cured in both arms; `DMT M-2` moved out of `PAIRS_AWAITING_THEIR_OWNER` (7 → 6). ⊘ **`HLG-37[grid-cell-fill]` stays RED BY DESIGN** — `--card` ≡ `--background` in the light arm (1.035:1 measured, banked 1.000 reproduced) is a producer palette fact and rides the SS-6 relay, not a frontend hack |
+| `G-F4-DEAD-DEP` | RED on the remainder | **advanced, still RED** | deleted with zero-consumer proofs: the `catmullRomToBezier` edge (⊘ package retained, `HLG-43`), `xyToPoints`'s export, `updateField`, the easings barrel re-export, `useWorkspaceStore()`, the `--slider-scrub-*` block, two Button re-skins, `.btn-icon`. Bundle diff recorded at Act 12 |
+| `G-F4-VUE-TSC-CLEAN` | RED — **18** diagnostics | **RED — 17**, and **zero are this unit's** | `AppHeader.vue(49,7)` cured; the remaining 17 are `.b`/`.c`/`.e`'s |
+
+**Unmoved by this unit, recorded so `.z` reads no drift**: `G-F4-VITEST` **28 assertions, 4 files, all passing** before and after · `G-F4-NO-UNUSED`'s ESLint leg **11 → 8** errors · axe serious/critical at the built bytes, six routes: `/paper` **CLEAN** · `/morph` **CLEAN** (was 4 `button-name` + 5 `label` across the two morph routes) · `/demo/shape-extractor` **CLEAN**, `<main>` horizontal overflow **97px → 0** at 375×667 · `/visualize` **CLEAN** · `/equation` 1 `button-name` (`.b`'s) · `/gallery` 2 `aria-hidden-focus` (producer) + 1 `button-name` (`.d`'s). ⊘ The two `500`s in the console log are the dead `/api` proxy with no backend at this seat — the environment artefact `.g` declared, not a code error, and `G-F4-ZERO-CONSOLE`'s five hook specs were not touched.
+
+#### Commits
+
+| hash | repo | paths | meaning |
+|---|---|---|---|
+| `e4599ec` | fourier | `index.html` · `style.css` · `AppHeader.vue` · `FourierMorphDemo.vue` · `MorphShapePreview.vue` · `HarmonicLevelGrid.vue` | SP-6 — the ONE cascade decision |
+| `a3f1fc2` | fourier | `style.css` · `index.html` | SP-10 — the CM identity, ruled |
+| `6b628a5` | fourier | `style.css` | `G-15(b)` — the root-size fork |
+| `2e41c00` | fourier | `style.css` · `AppHeader.vue` · `DarkModeToggle.vue` | `FM-2`'s ring rider ⊕ `DMT N-5..N-9/N-16` |
+| `f32e912` | fourier | `DarkModeToggle.vue` · `HarmonicLevelGrid.vue` · `e2e/contrast-pairs.ts` | SP-3 — the palette re-route |
+| `e022edf` | fourier | `useFourierMorph.ts` · `router/index.ts` | SP-4 — the PRM gate |
+| `fff145da` | value.js | `docs/tranches/X/fourier/F-W4-ADDENDA-a-2026-09-18.md` | the dated addenda-beside (A-a-1's half of the lock) |
+| `5081b37` | fourier | `FourierMorphSvg.vue` · `MorphShapePreview.vue` · `DarkModeToggle.vue` · `HarmonicLevelGrid.vue` · `MorphPhaseConfig.vue` · `e2e/paper-performance.spec.ts` | SP-7 — the `/morph` BLOCKER ⊕ the locator rider |
+| `362b210` | fourier | `FourierShapeExtractor.vue` | §2.K's FSE rows |
+| `0a5c028` | fourier | `useFourierMorph.ts` · `DarkModeToggle.vue` · `FourierMorphDemo.vue` | the epoch/cancellation family |
+| `6a0e842` | fourier | `svg-fourier.ts` · `useMorphConfig.ts` · `HarmonicLevelGrid.vue` · `FourierMorphDemo.vue` | SP-19's chain ⊕ `FM-20` ⊕ `FM-3` |
+| `afc40b4` | fourier | `useFourierMorph.ts` · `AppHeader.vue` | `FR-AH-7` ⊕ `FR-AH-24 · L-14` ⊕ `FR-AH-19` |
+| `e365203` | fourier | `useFourierMorph.ts` · `HarmonicLevelGrid.vue` · `FourierMorphDemo.vue` | `no-duplicate-imports` |
+| *(this line's own)* | value.js | `docs/tranches/X/execution/C/F-W4.md` | this receipt |
+
+⟨cmd⟩ `git show --name-only --format=''` on each returns **exactly the listed paths** — no sibling seat's staged bytes swept in. ⊘ `6a0e842` was **amended once** before anything landed on top: an unquoted backtick in the first message let the shell substitute two words out of one sentence. Disclosed rather than left as a silently short receipt.
+
+#### Same-commit families — discharge register
+
+| family | discharged |
+|---|---|
+| `FMD-18` ⊕ `19` | ✔ `e4599ec` (gutter + state order) and `f32e912` (the tokenised bound colour) — ⊘ **split across two commits by MEANING**, structure and contrast; both landed, neither half shipped alone |
+| `FMD-22`'s PRM edit **WITH** `FR-AH-31`'s path-qualified census correction | ✔ `e022edf` ⊕ `fff145da`, **one act in two repositories** (a single commit is impossible across the seam); each names the other. The MAJOR regrade does **not** reopen |
+| `DMT N-2`'s label **WITH** the e2e locator | ✔ `5081b37`, one commit, and the locator is the tree's only one |
+| `FR-AH-23`'s palette **BEFORE** `DMT M-2` and the SUN/MOON re-route | ✔ `f32e912` — one expression carries all three |
+| `FR-AH-8`'s cancellation **WITH-OR-BEFORE** `DMT M-1`'s watcher | ✔ `0a5c028`, one commit |
+| `HLG-41`'s two dead `:style` deletions **BEFORE/WITH** the `cssVarToHex` cure | ✔ **discharged by predecessor** — both bindings already absent and `cssVarToHex` already gone (F.W2). Recorded at addenda §2 |
+| `FM-3`'s memo **WITH** fixed precision | ✔ `6a0e842`, one commit (the precision at emission, per the re-landing above) |
+| `DMT N-15`'s `size===0` throw **WITH** `FM-23`'s UNIFORM-LENGTH assertion | ✔ `6a0e842`, one commit |
+| `M-10`'s RNG rider with EVERY `L-B1`/`L-B2` cure | ✔ **vacuous and stated** — no `L-B1`/`L-B2` cure was attempted, so the rider has nothing to travel with and the canonical sun cannot re-roll |
+
+#### Residuals and escalations
+
+- **ESCALATION — ONE, and it is a bounds seam, not a block (A-a-5).** `MorphPhaseConfig.vue` and `MorphShapePreview.vue` are in **`.a`'s writable set** while their `MPC-*` and `FR-MSP-*`/`MSP-*` rows are in **`.c`'s sections**. `.a` wrote only its own sections' rows on those files (`FMD-14`, `FMD-15`, `FMD-3`, `FMD-N3`, `FMD-27`); the `MPC-*`/`FR-MSP-*` rows are **NOT landed and NOT dropped**. ⊘ **`MPC-31` is declared a ONE CUT spanning F.W1+F.W4 — it cannot be half-landed across a bounds seam.** ⊘ A second face of the same seam: `.g`'s contrast registry names **`owner: ".a"`** on `FR-MSP-7` (measured today at **1.038 L / 1.086 D**, the banked figures reproduced), which the unit plan gives to `.c`. **Asked of the orchestrator**: either a dated bounds addendum moving the two files into `.c`'s writable set, or a dispatch giving `.a` those sections. Either resolves it; neither seat should widen its own bounds.
+- **Residual 1 — carried to `.c`**: `FM-2`'s ring rider at `ImageUpload.vue:200` (`outline: 2px solid var(--ring)`, invalid and dropped). One token swap to `--focus-ring-color`.
+- **Residual 2 — carried to `.d`**: the same at `GalleryCard.vue:222` (`border-color`) and `:223` (a `color-mix` over it) — the card's focus affordance is **doubly** absent.
+- **Residual 3 — carried to `.f` / F.W5**: `FR-AH-7`'s banked claim that the easings edge is why `vendor-math` is eager is **false**. The live edge is `lib/colors.ts`'s `@mkbabb/value.js/color` + `/css`, held eagerly **by design** (`installVizColors()` before mount). Whether that 307.58 kB cluster can be deferred without losing the palette race is a real question this seat did not answer and did not pretend to.
+- **Residual 4 — carried to `.f`**: `FMD-22`'s second half, the false `scheduler.ts:13-15` off-screen-gate comment. `lib/scheduler.ts` is Shared, outside this unit's set.
+- **Residual 5 — carried to `.z`, for the SS-6 relay letter**: (a) **`--card` ≡ `--background` in the light arm** — the `HLG-37[grid-cell-fill]` 1.000:1 separation is a producer palette fact no consumer edit can cure without re-minting a token app-wide; (b) **`@utility cm-serif` reads `var(--font-serif-math, serif)` against a variable glass-ui never declares**, so it silently no-ops for every consumer that does not know to declare it (`FR-AH-2`'s own GLASS-RELAY ask, now measured at 8.0.0).
+- **Residual 6 — carried to `.z`/SS-13**: figures this wave POSES rather than answers — `FM-21`/`FR-AH-16`'s scaling-system owner (§3 D10, F.W0-adjacent; the 768×1024 coarse witness) and `FMD-16`'s `--ui-scale` coarse-growth residue (⊘ its banked *overflow* premise is dead at 8.0.0 — addenda §2).
+- **Residual 7 — carried to `.z`**: **§3 D7 (`HLG-35`) is POSED, not answered.** `.i` ruled it DEFERRED-WITH-DEFAULT and §3 forecloses a rename in terms; this unit renamed nothing, collapsed no domain and adopted no two-thumb range. What it did land (`HLG-37`'s boundary contrast, `FMD-18`'s state order) survives whichever way D7 falls.
+- **Residual 8 — carried to F.W9/W10 and `.z`**: `FR-AH-1`'s BLOCKER (async boundary + per-shape field/level prune, ~450 kB of eager JSON) is **NOT landed**. `FM-20`'s cure removes the *domain* lie above level 50 but not the *payload*: the eight ballast levels still ship. ⊘ `HLG-44`'s `--minimal` regeneration — the cheapest form of that cure — is **blocked by ruling** behind `FSE-L-B1`'s provenance decision and `FM-19`'s FROZEN-FOREVER (§0j.D `G-15(c)`), so the prune cannot be taken by regenerating and must be taken at the reader.
+- **Residual 9 — carried to `.z`**: §2.F rows this unit did **not** reach, named so the closure gate counts them rather than inferring them — `FR-AH-3`(+`-44`/`-56`) the route→tab source · `FR-AH-4` · `FR-AH-6`'s collapse (F.W5's) · `FR-AH-10`(+`-17`) real-sticky-or-drop · `FR-AH-12`(+`-18`) · `FR-AH-14` (nav landmark + skip link) · `FR-AH-15`(+`-55`) · `FR-AH-26` · `FR-AH-43` (SS-13 readback FIRST) · `FMD-4`'s BLOCKER (the starved duration slider at 640-767) · `FMD-7` (ONE config home) · `FMD-8` · `FMD-N4`⊕`N-2` · `FMD-N5` · `FMD-N1` · `FMD-12` · `FMD-23`'s clipboard arm · `FMD-24` · `FMD-30`..`34` · `HLG-13`'s degenerate-range find · `HLG-14` · `HLG-21` · `HLG-25`/`26` · `HLG-42` · `FM-4..FM-16`'s band (⊘ **the band is LIFTED but NOT swept**: its members' mechanisms are re-derived per-id at wave-open by the record's own terms, and `FM-14`'s split disposition is **STATED not merged** — the F.W3 leg is cited, never booked here) · `DMT N-1`'s flash-rewind · `N-10`/`N-11`/`N-12`'s remaining halves · the FSE rows beyond Act 9 (`D-3`..`D-7`, `L-M6`, `L-i1`, `M-6`).
+- ⊘ **`G-F4-NEG-ROSTER` held throughout**: no §2 cure, ledger row or census cell grew a leaf on a §0a component; `GM-19` was never certified; the CP KILL-6 migration was never executed; `moon.json` was never regenerated.
