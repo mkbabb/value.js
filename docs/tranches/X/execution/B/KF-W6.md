@@ -730,3 +730,128 @@ Delta sweep at this unit's close (02:2x EDT) over the four paths. (1) `docs/tran
 **None.** Every act this unit was given was available at the bytes and executed as specified, at its own anchor, in the spec's families. Where a literal instruction did not meet the bytes the deviation is a **measured one inside the spec's own census or lock**, stated in the commit, in the source and here — `EH-4`'s two spend sites in one commit; the `#anchor` button carrying **no** handler because the producer's wrapper owns the click; `--select-dot-color` bound to `currentColor` rather than to the row the bank names, because the named token measures an invisible wash at this dock's orientation; MM-4 landed as a **labelled** interim that names the producer fix it yields to.
 
 **No quick fix, no workaround, no masking fallback.** Zero `try/catch` around a defect, zero `test.skip`, zero allowlist, zero copied producer selector (D-23 resolves through the **demo's** `.hero-aurora`), zero `node_modules` patch (the `preserveDrawingBuffer` half was routed to `.j` instead). glass-ui was read-only throughout; no sibling tree was written; `scripts/dev/dev.sh` was never touched and appears in zero commits; no `git stash`, no `reset --hard`, no force-push, no `git add -A`/`-u`.
+
+---
+
+#### §15 · SECOND SITTING — independent re-verification (2026-09-18, dated addendum beside §0–§14)
+
+SERVED MODEL: claude-opus-5[1m]
+
+**E-3: this is an addendum beside the KF.W6.d receipt above, not a correction of it.** The unit was
+re-entered at a fresh seat after its acts had settled; **no byte of keyframes.js was written at this
+sitting** and nothing above is edited. Every verdict was re-derived from the bytes rather than read
+from the record, and **every one reproduces**.
+
+**`G-W6-15`, re-run whole at the settled HEAD, twice, byte-identical both times:**
+
+| clause | re-measured | verdict |
+|---|---|---|
+| file deleted | ⟨`test -f demo/components/instrument/shell/EditorHeader.vue`⟩ → **ABSENT** | GREEN |
+| `git grep EditorHeader` (`demo/ test/ src/`) | **0** (exit 1, no match) | GREEN |
+| mounts `<EditorHeader` | **0** | GREEN |
+| `git grep header-items-max-w` (`demo/`) | **0** (exit 1, no match) | GREEN |
+| barrel == {EditorShell, EditorStartScreen, SharePopover} | **exactly 3 exports**, nothing else | GREEN |
+| `App.vue` barrel import resolves | `:146 import { EditorShell, EditorStartScreen }`; mount intact at `:44`/`:110` | GREEN |
+| `MbabbMenu.vue` shell import resolves | `:189 import { SharePopover }` | GREEN |
+
+**`G-W6-15`: GREEN — reproduced, not re-asserted.**
+
+**The roster and the bound, re-measured independently.** All ten commits resolve at the object
+store ⟨`git cat-file -t`⟩ → 10/10 present. Their **path union** ⟨`git show --name-only` over the
+ten, `sort -u`⟩ is **exactly six paths**, every one inside this unit's writable set:
+`app/dock/ChromeDock.vue` · `app/dock/MbabbMenu.vue` · `shell/EditorHeader.vue` (deleted) ·
+`shell/EditorShell.vue` · `shell/index.ts` · `styles/layout.css`. **Zero bytes outside the bound.**
+`scripts/dev/dev.sh` appears in **0** of the ten ⟨`git show --name-only … | grep -c dev.sh`⟩ → `0`.
+
+**R4-1's atomicity re-proved at the object, not at the prose**: ⟨`git show --stat 4b909ed2`⟩ → **3
+files changed, 110 deletions(-)**, one commit — the limbs did not split.
+
+**The record's own commit**: `9c563069`, **one path** (`docs/tranches/X/execution/B/KF-W6.md`),
+worktree clean at that path.
+
+**E13, re-swept at this sitting's clock over the four paths — delta since §13 is ∅.** (1) value.js
+`V/coordination/` newest non-self = `valuejs-outbound-2026-09-18-kfw7-bh-relay.md` (**O-28**, already
+rowed). (2) glass **BK** newest = `valuejs-outbound-2026-09-18-kfw6-bh-relay.md` — **our own**
+outbound, the O-26 mirror. (3) keyframes.js `V/coordination/` newest = the 2026-09-17 O-8/O-11
+amendment addendum; the two untracked `VALUEJS-INBOUND-2026-07-24/-27` files remain **pre-existing
+survivors**. (4) atlas `P/coordination/` — unmoved. **0 new inbound · 0 new `I-n` · 0 `O-n` minted ·
+0 UNREAD in KF.W6 scope.**
+
+**Unchanged and restated so no later seat reads this re-run as discharging them**: the four producer
+findings of §12.9 are still **owed to the wave's close/relay seat** (O-26 is immutable, glass-ui is
+read-only); **C-22's D-27 and RR-2 M7 remain NO-WAVE-OWNER**; D-23's completing half
+(`preserveDrawingBuffer`) is still **`.j`'s**; MM-12 is still **recorded-not-cured** for bounds;
+the ten commits are still **NOT PUSHED** (§0m.1 — a wave pushes at close, a unit does not).
+
+**Escalations at this sitting: none.**
+
+---
+
+## Resume — seat 0, second dispatch (2026-09-18)
+
+SERVED MODEL: claude-opus-5[1m]
+
+**E-3: an append beside the Open / Baseline / Unit-plan blocks above — not one byte of them is
+edited.** The wave was re-entered at a fresh seat-0 after the first dispatch's units settled; the
+ledger row still reads **OPEN 2026-09-17** and is left exactly as it stands (see *ledger note*
+below). Nothing here re-opens a ruling and nothing here re-plans: the twelve-unit plan of record is
+the one above, unchanged.
+
+### What has landed, verified at the commits and not read from prose
+
+⟨cmd⟩ `git -C ../keyframes.js log --oneline -200 | grep -c 'w6\.<u>'` (per unit) →
+`a` **1** · `b` **0** (value.js-side by construction) · `c` **7** · `d` **11** ·
+`e` `f` `g` `h` `i` `j` `k` `l` → **0** each.
+
+| unit | commits | evidence |
+|---|---|---|
+| `KF.W6.a` | kf `77d0e0b1` | the **KF.W4∥KF.W6 atomic bundle**, one commit, both seats named (`fix(kf · X.KF.W4.d ∥ X.KF.W6.a)`); census A-11(4) MEASURED-EMPTY. Receipt at §KF.W6.a; record commit `011075a9` |
+| `KF.W6.b` | value.js `f90dbc97` (+ receipt `58d6f731`); glass-ui `edccdc44` (mirror, MAIL DELIVERY) | `docs/tranches/X/keyframes/relay/KF-W6-BH-COMMUNIQUE.md` present (27,384 B), mirror byte-identical at `../glass-ui/docs/tranches/BK/coordination/valuejs-outbound-2026-09-18-kfw6-bh-relay.md`, rowed **O-26** (`INBOX.md:112`). **G-W6-14 GREEN**; §Sequencing 7 discharged |
+| `KF.W6.c` | kf `46b0d1c7` · `5c930a33` · `8e7a6ff8` · `e1c596a0` · `252a8248` · `8a744b5f` · `344f2049` | the **S-1 delete family** whole in one act, the shim delete + repoint atomic, the T.G9 warm re-homed before the strip died, the 7-case gate **migrated** onto the published motion-core door. **G-W6-3 GREEN · G-W6-2 honest-RED at distance 2**. Record commit `d23a0371` |
+| `KF.W6.d` | kf `4b909ed2` · `998124e1` · `fe6e5dfa` · `f1324983` · `412b8324` · `4cf174eb` · `e64103be` · `7b721d10` · `3cc7e126` · `ac30976f` | **R4-1 one atomic commit, three limbs** (`4b909ed2`: 3 files, 110 deletions); the LIVE EH rows spent at their OWN anchors; the four ChromeDock rows + the MbabbMenu motion family. **G-W6-15 GREEN**, re-verified independently at the §15 second sitting. Record commit `9c563069` (+ the §15 addendum, committed here) |
+
+**These four units are NEVER re-dispatched** (runbook §5: a unit whose commits exist is done). The
+eight still owed are `.e` · `.f` ∥ `.g` · `.h` · `.i` · `.j` · `.k` · `.l`, in the plan's own groups
+5 → 11, unchanged in sections, bounds, gates and locks.
+
+**The §15 addendum above (KF.W6.d, second sitting) was found UNCOMMITTED in the worktree**, last
+written **2026-09-18 03:42** and unattended for **> 7 h** at this seat's clock (10:56 EDT) — an
+orphan of a preempted seat (COHESION **§0o**: runner-dead seats are rate-limit/ceiling preemption,
+not agent failure). It is complete through its own *"Escalations at this sitting: none."* line and
+is **committed here as found — zero bytes of it edited**, so the wave's record is not left carrying
+unbanked verification.
+
+### Ledger note — why this seat performs NO ledger edit
+
+`docs/tranches/X/execution/LEDGER.md` carries an **uncommitted sibling edit** at this clock:
+⟨cmd⟩ `git diff --numstat -- docs/tranches/X/execution/LEDGER.md` → `1 1`, and the hunk is
+**KF.W7's** row (`PARTIAL 2026-09-18 …`), Track B's other wave, owned by another seat. KF.W6's own
+row already reads **OPEN 2026-09-17** and needs no cell changed on a resume. A pathspec commit of
+that file would therefore sweep in a sibling's row — exactly the contamination measured at X-W0
+(three contaminated commits) — so **the ledger is left untouched and unstaged**, and the resume is
+recorded here instead. KF.W6's row moves next at its close seat (`.l`).
+
+### E13 Step-0 — the four-path sweep at this seat's clock
+
+Swept read-only at **2026-09-18 10:56 EDT**, delta against the KF.W7-close sweep (01:36), compared
+against **every row** of `docs/tranches/V/coordination/INBOX.md`, classification from each row's
+**status cell**, never from a bare `grep -i unread` (X.P.W0 CHECK 1 **D-1**); `INBOX.md`
+self-excluded (SELF-COUNT law).
+
+⟨cmd⟩ `/usr/bin/find <each path> -maxdepth 1 -type f -name '*.md' -newermt "2026-09-18 01:10"` →
+(1) `docs/tranches/V/` **∅**; `V/coordination/` → `INBOX.md` (**self**) + `valuejs-outbound-2026-09-18-kfw7-bh-relay.md` (**OUR OWN OUTBOUND**, rowed **O-28**) ·
+(2) `../glass-ui/docs/tranches/BK/coordination/` **∅** — **BK re-confirmed the newest glass tranche dir** ⟨`ls -1dt ../glass-ui/docs/tranches/*/ | head -3`⟩ → `BK/` · `BJ/` · `BI/` ·
+(3) `../keyframes.js/docs/tranches/V/coordination/` **∅** ·
+(4) `../sci-report/atlas/docs/tranches/P/coordination/` **∅**.
+
+**Result: 0 unrowed · 0 new `I-n` minted · 0 `O-n` minted · 0 UNREAD in KF.W6's scope.** The three
+`UNREAD` rows (`I-32` · `I-33` · `I-34`) route by their own Routing cells to the X formation mail
+seat / X-W0.j / X-EXT-1..6 — **out of KF.W6's scope**, as at open.
+
+### Baseline — not re-banked
+
+The §Baseline block above stands as the wave's BEFORE (all fifteen RED at kf `ae83da07`,
+**greenBeforeCure = ∅**). R.2 is a property of the *pre-cure* reading, and no gate is re-declared
+here: the three gates since turned (**G-W6-14** `.b` · **G-W6-3** `.c` · **G-W6-15** `.d`) are
+**cured**, not green-before-cure, and each is receipted at its unit above. The eight owed units
+re-measure their own gates at their own opens, against this Baseline.
