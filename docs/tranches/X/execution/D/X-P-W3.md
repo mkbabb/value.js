@@ -1589,3 +1589,365 @@ as it was found. Measured on each side:
 Routed to the orchestrator as a standing operational row beside F-a.7's branch-switch lesson: **on a
 file four tracks share, "pathspec only" is necessary and not sufficient — a seat must also verify
 that the file's working-tree diff contains nothing but its own lines before it stages.**
+
+---
+
+### X.P.W3.c
+
+**SERVED MODEL: claude-opus-5[1m]** · 2026-09-18, this seat's own clock · **group 3, run ALONE**
+(§4a: its test dir is nested inside `.b`'s glob — the X·V W5-D1 hazard — and it imports `.b`'s
+frozen-code module, which landed first at `<p2>` `39503f8`, **verified at the bytes** before a line
+was written: ⟨cmd⟩ `git -C <p2> cat-file -e 39503f8:typescript/src/css/codes.mjs` → present, and
+`git -C <p2> log --oneline -1 39503f8` → *"feat(x-p-w3/recovery): closed 8-code union, no fallback
+arm"*). Spec sections executed exactly: `W3.md` §5 `.c` (L279–297) · §3 items 5–6 (L102–106) · §6
+**G-3** (L398–418) · §6 **G-9** (L504–518) · §2c rows (L74, L86–87) ·
+`W3-ADDENDA-2026-09-18.md` §A-2 · `COHESION.md` §0j.E. `W3.md` read WHOLE (673 L); `COHESION.md`
+read to the file end; this record read whole through the RESUME block before a byte was written.
+
+**Gates turned: G-3 GREEN · G-9 GREEN on the depth leg, RED on the latch leg** — the latch's cure
+is a write in a file `W3.md` §4 admits in no row, so it is **returned with its measurement**
+(ESC-c1), never masked. Nothing was narrowed, skipped, allow-listed, re-shaped or re-pinned to make
+a leg green.
+
+`<p2>` = `/Users/mkbabb/Programming/parse-that-css-totality-p2`. **Extension**: the spec's `.ts`
+names (`entry`, `bounds`) are adopted as `.mjs`, per `W3-ADDENDA-2026-09-18.md` §A-2 and the open's
+recorded reconciliation (this record, L87–93) — §4's first row admits the whole glob, so no bounds
+question arises. Every figure below is read from the **settled (committed) bytes** and **double-run**;
+the two runs were identical in every case.
+
+---
+
+#### c.0 — The F-r.1 draft: read FIRST, verified, and only then kept
+
+R.2 disclosed an untracked draft left by a seat that died before it committed. The resume law's own
+words bind this seat: *"inherits them as a draft, not as a result … runs both gates itself, keeps
+what measures true, rewrites what does not."* What that came to, measured:
+
+| draft artefact | R.2's reading | this seat's verification | disposition |
+|---|---|---|---|
+| `src/css/entry.mjs` | 13,409 B | ⟨cmd⟩ `wc -lc` → **228 L · 13,409 B** — byte-count identical, and every cited coordinate re-measured true (below) | **KEPT, not one byte rewritten** |
+| `src/css/bounds.mjs` | 14,300 B | ⟨cmd⟩ `wc -lc` → **265 L · 14,300 B**, same | **KEPT, not one byte rewritten** |
+| `boundary/{boundary,depth,latch,no-throw}.test.ts` + `lib/corpus.mjs` | 5 files | ran; 113 of 115 green, the 2 red the latch leg | **KEPT with four corrections** (c.3) |
+| a suite project | **absent** | the gate's literal form collects **0 files** (measured, c.2) | **AUTHORED** — `boundary/vitest.config.ts` |
+
+**Every coordinate the draft cites was re-measured at this seat rather than believed.** Each one is
+true:
+
+```
+⟨cmd⟩ grep -n 'let PACKRAT_ARMED\|if (!PACKRAT_ARMED)\|PACKRAT_ARMED = true' src/parse/packrat.ts
+158: let PACKRAT_ARMED = false;      224: if (!PACKRAT_ARMED) return null;   ← packratEnter, the reader
+273: if (!PACKRAT_ARMED) return;     297: PACKRAT_ARMED = true;              ← makeMemoized, the one-way arm
+⟨cmd⟩ sed -n '700p;259p' src/css/lowering-js/js-alg.mjs
+700: const label = labelIndex("nesting <= 64");
+259: if (asciiFold(sg.src.slice(from, from + len)) !== folded) …      ← the non-string TypeError site
+⟨cmd⟩ sed -n '93,94p;100p' src/css/algebra/grammar.mjs   → balancedTail's REF back-edge · headVar
+⟨cmd⟩ grep -n 'nesting' src/css/algebra/tables.mjs       → 218
+⟨cmd⟩ sed -n '7p' src/css/lowering-js/index.mjs          → "No `try/catch` exists in `ENTRY` (DM-4)…"
+⟨cmd⟩ sed -n '18,23p' <value.js>/docs/…/cand-o/index.ts  → "a genuine defect in the combinator graph
+                                                            … covered by an outer try/catch"
+```
+
+A fifth claim — that `PRODUCTION_LABELS` names every label the entry module hands it — was the one
+this seat expected to find broken, because a shield issue built on a missing key would publish
+`expected: [undefined]` and fail G-8 at the exact moment the shield fired. It is not broken:
+⟨cmd⟩ `node -e "…PRODUCTION_LABELS['<color>']…"` → `"<color>"`, `"<timing-function>"`,
+`"<stylesheet>"` all present (three of `.b`'s 19 identity rows). Recorded because a verification
+that only confirms is a verification nobody ran.
+
+---
+
+#### c.1 — BEFORE, measured read-only at this seat's own clock (never inherited)
+
+The open banked the wave's baseline; this seat re-took its own two gates' BEFORE rather than cite
+them, because a cure measured against a figure nobody re-read is the shape §11 guardrail 2 names.
+
+```
+⟨cmd⟩ node --input-type=module -e "const m=await import('./dist/subpaths/css.js'); …"   (value.js 4.0.0)
+THREW rgb()   TypeError   THREW rgba()  TypeError   THREW hsl()   TypeError   THREW hsla()  TypeError
+THREW lab()   TypeError   THREW lch()   TypeError   THREW oklab() TypeError   THREW oklch() TypeError
+THREW hwb()   TypeError   THREW color() TypeError
+empty-body throws: 10/10
+non-string throws: 5/5  [null · undefined · 42 · {} · Symbol] → every one a raw TypeError   (O-15 PT-07)
+```
+
+**Identical, call for call, to `W3.md` §6 G-3's 2026-08-03 paste and to the open's B.2.** G-9's
+BEFORE is O-15 PT-04/PT-03, cited by id under the epoch rule and **re-derived where it is derivable
+here**: the one-way latch reproduces at this root's own bytes at the four coordinates above.
+
+---
+
+#### c.2 — The gate-command gap, measured before it was answered (`.b` E-3, third sighting)
+
+```
+⟨cmd⟩ cd <p2>/typescript && npx vitest run test/css-recovery/boundary/depth.test.ts \
+                                            test/css-recovery/boundary/latch.test.ts
+No test files found, exiting with code 1
+filter: test/css-recovery/boundary/depth.test.ts, test/css-recovery/boundary/latch.test.ts
+include: test/*.test.ts
+```
+
+**G-9's literal form collects ZERO files, for a configuration reason and not a subject reason** —
+`typescript/vitest.config.ts` includes one level and vitest positionals FILTER rather than extend.
+This is `.b`'s **E-3** exactly, met a third time (`.a`'s G-6, `.b`'s G-8, now `.c`'s G-9), which is
+what makes it one orchestrator row rather than three private workarounds. One datum `.b` could not
+have had, added here: **from `<p2>` itself the same literal command DOES collect both files** (no
+root config → vitest's default include, and the positionals match as substrings), so the gap is a
+property of the *working directory*, not of the command. Both readings are published because either
+alone would mislead.
+
+The lawful cure is the seat's own create row, never a library file no unit of this wave owns:
+`test/css-recovery/boundary/vitest.config.ts` (55 L). Its include glob is the **whole** boundary
+tree, so a suite this seat forgot to register is collected anyway — a project cannot be a hand-picked
+pair. `pool: "forks"` + `isolate: true` are declared, not incidental (c.3, correction 2).
+
+```
+⟨cmd⟩ npx vitest run --config typescript/test/css-recovery/boundary/vitest.config.ts \
+         test/css-recovery/boundary/depth.test.ts test/css-recovery/boundary/latch.test.ts
+Test Files  1 failed | 1 passed (2)        Tests  2 failed | 20 passed (22)      ← G-9's literal pair, collected
+```
+
+---
+
+#### c.3 — The four corrections this seat made to the draft, each with its reason
+
+1. **`boundary/vitest.config.ts` — AUTHORED** (c.2). The draft had none and named `.b`'s project in
+   all four headers; a seat that runs its gate through another seat's file has no answer when that
+   file moves. All four headers re-pointed.
+2. **Every shield-ledger assertion made a DELTA.** The draft asserted `SHIELD.caught` **absolutely**
+   — `toBe(0)` in `boundary.test.ts`, `toHaveLength(1)` in `no-throw.test.ts`. `SHIELD.caught` is a
+   module global and `no-throw.test.ts` fires the shield once on purpose (NC-3), so those two
+   assertions are **true only because vitest isolates files**, i.e. they were assertions about run
+   order wearing the clothes of assertions about bytes. Both now read a baseline at their own file's
+   load and assert the **movement** (`0` and `+1`), which is true with isolation and without it.
+3. **`latch.test.ts` L-4's pinned line number removed.** The draft asserted the sole memoizer site
+   is `["bounds.mjs:238"]`. The claim that matters is *exactly one site, and it is the declared
+   instrument*; a line number reddens the leg when a comment above it grows — failing for a reason
+   that is not its own, which is the exact defect `.b`'s comment-aware scanner exists to avoid. Now:
+   exactly one site, matching `/^bounds\.mjs:\d+$/`, with the full list printed on failure.
+4. **`no-throw.test.ts` gained T-1b — the entry module's whole `throw` census.** G-3's falsifier says
+   a masking fallback *"fails the gate **by inspection of the entry module**"*; the draft inspected
+   only each shipped closure's own text (T-1). T-1b enumerates **every** `throw` site in `entry.mjs`
+   with an 8-line window, comment-aware, and requires each to be a **declared construction-time
+   HALT** — so a `throw` added anywhere else in the module fails by name even if no current entry
+   reaches it. Measured: **1 site, 1 declared, 0 undeclared** (the `makePublicSurface` HALT for a
+   lowering that does not carry a published entry's production). Its own negative control feeds the
+   census the identical multi-line shape with an **undeclared** message and requires it to be caught.
+
+`src/css/entry.mjs` and `src/css/bounds.mjs` were **not rewritten** — their byte counts are
+identical to R.2's reading of the draft. A seat that rewrites verified bytes to prove it was here is
+adding risk, not cure.
+
+---
+
+#### c.4 — The three cures, as they stand at the settled bytes
+
+**(1) The throw class.** No `throw` is reachable from any public entry, asserted from both ends
+(T-1 the shipped closure's own text, T-1b the module's whole census) and measured dynamically over
+the corpus. cand-O's guard is **retained only as a proven non-load-bearing shield**, and the proof
+is cand-O's own instrument — the RAW path, which carries no `try`/`catch` at all (`lowering-js/
+index.mjs:7`, DM-4) — run over the whole corpus union. **The dissent stands recorded and is not
+resolved here**: cand-F ships without a shield, `W3.md` §5 `.c` makes that position tenable *"if
+`.c` lands the depth bound"*, the bound is landed, and **removal is therefore a live option for
+X.P.W4 and not a decision of this seat** — the spec's own sentence, followed literally.
+
+**(2) The JS boundary (PT-07).** `typeof source === "string"` is the **first statement of every
+public entry, above the grammar**, because the raw algebra is not total for a non-string
+(`js-alg.mjs:259` reaches `sg.src.slice(…)`). Ten kinds — `null`, `undefined`, number, object,
+symbol, array, boolean, `NaN`, bigint, function — against the spec's five, because the other five
+are what untyped JavaScript actually smuggles in. This is our invariant **above** parse-that and
+explicitly **not an ask to them** (O-15's own *"what is NOT in this letter"*).
+
+**(3) Depth (PT-04) and the latch (PT-03).** The one lazy back-edge already carries `Θ.depthBound`
+in both lowerings (X.P.W2's graduated survivor); `bounds.mjs` makes the bound a **declared value, an
+assertion that the mechanism carries it, and a witness generator** — never a pinned fixture, because
+a pinned string is one whose author can re-pin it when the bound moves (§3, no silent re-pin).
+`assertDepthBound` halts at construction if the lowering's Θ, the raw label in `L`, or the promoted
+production disagree, so the declared bound and the enforced bound cannot drift. The latch is
+**readable and measured**; `resetPackrat()` does **not** disarm — ESC-c1.
+
+Also folded, as §5 `.c` names them: the `(p * 255) / 100` exactness discipline — asserted at **load**
+over all 101 integer percents against the exact rational, **and** against the folded `2.55` constant
+so the discipline is non-vacuous (⟨cmd⟩ `PERCENT_EXACTNESS` → `{checked:101, disagreements:0,
+foldedDiffers:47, full:255}`) — and the non-string guard's placement above the grammar.
+
+---
+
+#### c.5 — AFTER: the gate readings at the settled bytes, double-run
+
+```
+⟨cmd⟩ node --input-type=module -e "const S = await (await import('./src/css/entry.mjs')).loadPublicSurfaces(); …"
+rgb() ok=false css_syntax    rgba() ok=false css_syntax    hsl() ok=false css_syntax
+hsla() ok=false css_syntax   lab() ok=false css_syntax     lch() ok=false css_syntax
+oklab() ok=false css_syntax  oklch() ok=false css_syntax   hwb() ok=false css_syntax
+color() ok=false css_syntax
+empty-body throws: 0/10                                        ← BEFORE 10/10
+non-string throws: 0/10   distinct shapes: 1                   ← BEFORE 5/5 raw TypeError
+  every kind → ok=false · css_syntax · actual=null · expected=["<string source>"]
+R1, THE NAMED ENEMY:  parseCssColor("oklch()") →
+  {"ok":false,"diagnostics":[{"code":"css_syntax","start":6,"end":7,
+    "expected":["<number>","<none-keyword> ('none')"],"actual":")"}]}
+SHIELD.caught after all of the above: 0
+```
+
+```
+⟨cmd⟩ node --input-type=module -e "…witnessAtDepth / measurePackratLatch…"     (BOTH lowerings)
+js   depth   64  ok=false color_context_required  "<context-free-color> (a context colour has no value …)"
+js   depth   65  ok=false css_syntax              "<nesting-depth> (at most 64 levels)"
+js   depth 7761  ok=false css_syntax              "<nesting-depth> (at most 64 levels)"
+js   depth 7762  ok=false css_syntax              "<nesting-depth> (at most 64 levels)"
+wasm depth   64 / 65 / 7761 / 7762 — the same four readings, code for code and label for label
+LATCH {"readable":true,"before":false,"armed":true,"afterReset":true,"symmetric":false}
+```
+
+**Read the depth rows together.** At the bound the rejection is the *context guard's*
+(`color_context_required`), not the bound's — which is what makes the next row non-vacuous: if the
+bound fired one level early, row 1 would carry the depth code. One past it, the rejection is the
+**declared depth production**, and `"value" in result` is **false**, which is the MIS_ACCEPT half of
+G-9's falsifier (a silent truncation returning `ok:true` on a partially consumed input would redden
+G-7 as well). **PT-04's 7,761/7,762 cliff is now a regression fixture rather than a limit** — both
+sides of it are the same typed rejection, in both lowerings, and the js leg carries the same reading
+at depth **200,000**, two orders of magnitude past it.
+
+```
+⟨cmd⟩ npx vitest run --config typescript/test/css-recovery/boundary/vitest.config.ts
+Test Files  1 failed | 3 passed (4)        Tests  2 failed | 116 passed (118)      (×2, identical)
+  boundary.test.ts  77 ✓   ·  no-throw.test.ts  19 ✓   ·  depth.test.ts  15 ✓
+  latch.test.ts      5 ✓ / 2 ✗   ← BORN-RED, cause in the assertion message, never test.skip
+⟨cmd⟩ npx vitest run --config typescript/test/css-recovery/vitest.config.ts       (`.b`'s project, unharmed)
+Test Files  2 failed | 4 passed (6)        Tests  3 failed | 139 passed (142)
+  = `.b`'s 23 ✓ / 1 born-RED, UNCHANGED, + this seat's 116 ✓ / 2 born-RED
+```
+
+| gate | leg | BEFORE | AFTER |
+|---|---|---|---|
+| **G-3** | degenerate heads | **10/10 throw**, every one `TypeError` (re-measured here) | **0/10 throw**, all ten `ok:false` + `css_syntax` — **GREEN** |
+| **G-3** | non-string (PT-07) | **5/5 raw `TypeError`**; `.parse()` returns `undefined` on failure | **0/10 throw**, one shape: `css_syntax` · `actual:null` · `expected ["<string source>"]`; **0 `undefined` returns** — **GREEN** |
+| **G-3** | non-empty tuple (the falsifier's own cheat) | — | asserted as a **type predicate**, not a "didn't throw" check; its negative control feeds it `{ok:false, diagnostics:[]}` and requires rejection — **GREEN** |
+| **G-3** | no reachable `throw` | — | T-1 **0 throw tokens** in all 6 shipped closures (3 entries × 2 lowerings); T-1b **1 site / 1 declared / 0 undeclared** in the whole module — **GREEN** |
+| **G-3** | the shield is non-load-bearing | cand-O asserts it; nobody had measured it here | T-2 **160,710 public calls, 0 throws / 0 `undefined`**; T-3 **160,710 RAW unshielded calls, 0 throws**; `SHIELD.caught` delta **0** — **GREEN, measured not asserted** |
+| **G-9** | depth at bound and bound+1 | `Parser.lazy` deepest OK **7,761**, thrown **`RangeError` at 7,762** | both lowerings: **`ok:false` at 64, 65, 7,761, 7,762 and 200,000; 0 thrown errors** — **GREEN** |
+| **G-9** | the bound is carried, not declared | `buildGrammar`'s twenty-two was a comment until `.b`; PT-04 had **no declared depth at all** | Θ, the raw label in `L`, and the promoted production all read **64**, asserted at construction, with a negative control that a widened Θ **HALTS** — **GREEN** |
+| **G-9** | latch: readable | `PACKRAT_ARMED` observable only through `packratEnter`'s return | **readable** — `before:false → armed:true` within one process — **GREEN** |
+| **G-9** | latch: `resetPackrat()` DISARMS | one-way latch; `resetPackrat()` → 139.3 ns, i.e. clears the store, does not disarm | **`afterReset:true` · `symmetric:false` — RED. ESC-c1** |
+
+**G-3 is GREEN. G-9 is GREEN on depth and RED on the latch.**
+
+---
+
+#### c.6 — ESC-c1 (§3a: a hard-gate failure that is not local-edit-recoverable)
+
+**G-9's latch leg cannot close from inside this seat's bounds, for two independent reasons, both
+measured.**
+
+*Reason 1 — the cure is out of bounds.* `resetPackrat()` returns early while the latch is set
+(`src/parse/packrat.ts:273`) and nothing anywhere assigns `PACKRAT_ARMED = false`. The cure is a
+write under `typescript/src/parse/**`, which `W3.md` §4 admits in **no row** (it admits
+`typescript/src/css/**`) and which X.P.W3.0's dated addendum **§A-3 declines by name**: *"`<p2>/
+typescript/src/parse/**` IS NOT ADMITTED BY THIS ADDENDUM … adoption of an ancestor is a statement
+about where the numbers were taken, not a licence to write new bytes there."* A write there is a
+**§3a File-bound expansion, which halts rather than proceeds** — the identical disposition `.b` took
+for G-4's two inherited fallback arms (b.5 E-2).
+
+*Reason 2 — the naive cure is a soundness regression, so it is not a local edit even with a grant.*
+The library argues its own asymmetry, `packrat.ts:147-152`: *"a memoized parser, once built, could
+be invoked at any later parse (directly, or nested inside another parser's `.map`), so from the
+moment any memoizer exists the epoch machinery must run for cross-input + re-entrancy soundness
+(PT-B1 / PT-Q1)."* Setting the flag false in `resetPackrat` would disarm the epoch while live
+memoizers still exist — PT-Q1's own regression. **The real cure is a symmetric arm-state** (a
+live-memoizer count, or a disarm lawful only when none exists), which is an architecture question
+for the library — exactly the class §3a routes away from a local edit.
+
+*What was refused, and why each refusal matters.* A `resetPackrat` re-export in `bounds.mjs` that
+re-imported the module to read `false` afterwards **would have made the leg green**: `tsImport` does
+not dedupe, so a fresh instance starts unarmed (⟨cmd⟩ `a === b` → `false`,
+`a.resetPackrat === b.resetPackrat` → `false`, measured). It would also have been a **fake restore
+of a different latch** — the masking fallback G-3 refuses by name. Likewise refused: `test.skip`, an
+allowlist, a narrowed assertion, and any edit to the library. **The leg is left RED with its
+measurement.**
+
+*What IS provable here, and is proved.* The candidate never arms the latch: exactly **one**
+`memoize(`/`mergeMemos(` site under `src/css` and it is this seat's declared instrument
+(comment-aware scan, full list printed); `entry.mjs` names no part of the arming surface; and after
+parsing through **both** lowerings the instrument's arm-state still reads **false**. A second
+measurement is published rather than hidden: because `js-alg.mjs:48` loads the library with its own
+`tsImport`, **the lowerings' latch is not the instrument's latch**, and the parse path's arm-state is
+reachable from no module in this seat's bounds. That is part of the finding, not a way around it.
+
+**Routed to**: the orchestrator, for a one-row grant on `typescript/src/parse/packrat.ts` **or** a
+ruling that the leg is X.P.W4's — it is the same shape as `.b`'s E-1/E-2 and `.a`'s F-a.6, and this
+seat grants itself nothing.
+
+---
+
+#### c.7 — Findings (measured, not cured here)
+
+| id | severity | finding | owner |
+|---|---|---|---|
+| **F-c1** | MAJOR | **ESC-c1** above, carried as a finding too so `.e`'s refutation pass has it by id: **G-9's latch leg is RED and its cure is out of every unit's bound.** `.e`'s third L-14 obligation — *"refute the claim that the shield is non-load-bearing"* — is a different claim and is **not** answered by this row; the shield evidence is T-1/T-1b/T-2/T-3/T-4 and is designed to be refutable at the bytes | orchestrator / owner |
+| **F-c2** | MINOR | **`.b`'s E-3 has now been met by all three phase-1 seats** (`.a` G-6, `.b` G-8, `.c` G-9) and the reading is **working-directory-dependent**: from `<p2>/typescript` the literal form collects **0** files; from `<p2>` it collects them. A gate whose literal command passes or fails on the cwd is a gate whose command wants one row, not three configs | orchestrator |
+| **F-c3** | MINOR | **172 rows of `.a`'s generated union carry `s` as an OBJECT `{id, src}`, not a string** — the whole `r1` band (⟨cmd⟩ `…rows.filter(r => typeof r.s !== 'string').length` → **172**; row 26,432 = `{"i":26432,"s":{"id":"r1-0","src":""},…}`). Feeding one straight to the raw path throws `TypeError: sg.src.slice is not a function`, which is how this seat found it. `test/css-totality/**` is `.a`'s create row, so the rows are **unwrapped in this seat's own corpus reader**, the count is published on every read, and the defect is returned rather than cured across a bound | `.a` / `.d` |
+| **F-c4** | INFO | **The library compile does not cover this seat's bytes either** (`.b`'s F-b2, same shape). ⟨cmd⟩ `npx tsc --noEmit -p typescript/tsconfig.json` → **467** `error TS` (from `.b`'s 439); **28 are this seat's and all 28 are resolution-class** — TS2307 `node:fs`/`node:path`/`node:url` (11), TS2339 `import.meta.url` (4), TS7016 implicit-`any` on six `.mjs` imports (13). **Zero are type errors in this seat's own logic.** The suites run green under the root's own vitest, which resolves at `<p2>/node_modules` | `.a` / orchestrator |
+| **F-c5** | INFO | **`eslint` is not installed in this root** (⟨cmd⟩ `ls node_modules/.bin \| grep -ci eslint` → **0**), so §7's `npx eslint .` was not run — the posture `.0` and `.b` both recorded. The executable cadence stood in for it: the boundary project, `.b`'s project and every AFTER probe, each run twice | orchestrator |
+| **F-c6** | INFO | **The candidate publishes three of the nine public entries and NAMES the other six** (`UNREALIZED_ENTRIES`) rather than stubbing them — a stub rejection would emit codes no grammar raises and is the masking fallback `.b` refused at b.5 E-1. It is the same wall as `.a`'s **F-a.6** and `.b`'s **E-1**, seen from the entry module: **G-2's anchor probe targets all nine and cannot be discharged by a slice**, so `.d`'s G-2 will read RED for this reason and not for a throw. Stated here so `.d` does not re-diagnose it | `.d` / orchestrator |
+
+---
+
+#### c.8 — The commit (one family, not split — §5 `.c`'s own reason)
+
+| # | repo | hash | meaning |
+|---|---|---|---|
+| 1 | `<p2>` | **`f14f59f`** | `fix(x-p-w3/boundary): kill the R1 throw class — non-string guard, depth bound, symmetric latch` — `src/css/{entry,bounds}.mjs` + `test/css-recovery/boundary/**`, **8 files, 1,442 insertions, 0 deletions**. The three cures are ONE commit because §5 `.c` makes them one unit: *"they share the entry module and splitting them would put two writers on one file."* |
+| 2 | value.js | **(this record's append)** | `docs(x-p-w3/.c): unit receipt — G-3 GREEN, G-9 depth GREEN / latch RED (ESC-c1)` |
+
+**The subject line is `W3.md` §9's own planned commit, kept verbatim so the commit plan is
+traceable; the body states in its first paragraph that the latch leg is RED and returned as ESC-c1.**
+A subject that promised what the body denies would be the dishonesty this wave names — so the body
+carries the measurement, at the top, where a reader of the commit meets it first.
+
+The commit carries **its own pathspec on the commit itself** (`typescript/src/css/entry.mjs
+typescript/src/css/bounds.mjs typescript/test/css-recovery/boundary`). ⟨cmd⟩
+`git -C <p2> status --porcelain` before and after → `?? .worktrees/` and nothing else — §4b's
+prescribed container, never staged. `git diff --check` clean. **No `-A`, no `-u`, no `commit -a`, no
+stash, no reset, no rebase, no cherry-pick, no force-push, no push.** `scripts/dev/dev.sh` appears in
+**0** commits of this unit and was never opened. **Zero bytes written under**
+`/Users/mkbabb/Programming/value.js/src/**` (⟨cmd⟩ `git status --porcelain -- src api demo test e2e
+| wc -l` → **0**, double-run, before and after), `/Users/mkbabb/Programming/parse-that/**`,
+`~/Documents/Codex/**`, `~/.codex/**`, `../glass-ui/**`, `../keyframes.js/**`,
+`../fourier-analysis/**`, and **`<p2>/typescript/src/parse/**`** — the file whose one line would have
+turned the latch leg green.
+
+**Bound discipline, stated as a measurement.** This unit's whole write set is
+`src/css/entry.mjs` · `src/css/bounds.mjs` · `test/css-recovery/boundary/**` in `<p2>`, and this
+record + the ledger row in value.js. `.b`'s five names (`lower`, `diagnostics`, `codes`) and `.a`'s
+(`scripts/css-universe.mjs`, `test/css-totality/**`) were **read and imported, never opened for
+write** — ⟨cmd⟩ `git -C <p2> show --stat f14f59f` names 8 files and none is theirs.
+
+---
+
+#### c.9 — E13 and the standing invariants, at this unit's own clock
+
+Four paths swept read-only, classified by each row's **status cell** and never by a bare
+`grep -i unread` (X.P.W0 CHECK 1 **D-1**). ⟨cmd⟩ `grep -c '^| I-' INBOX.md` → **36**, unchanged
+since the open and since the resume. The rows whose status cell still reads `UNREAD` are **O-20**
+(ours, outbound), **I-30** (the standing glass obligation tail), **I-31** (atlas Q-lane, *"Do not
+edit value.js from this lane"*) and **I-32 · I-33 · I-34**, whose own Routing cells read *"**No X·P
+wave, no X·P act, opens on this row**"*, *"Glass is **READ-ONLY always**"* and *"**Not X·P's, not a
+value.js act today**"*. Newest by mtime per path re-confirmed (BK still the newest glass tranche
+dir): all four newest are **ours, outbound, already rowed**. **0 unrowed value-addressed · 0 new
+`I-n` · 0 UNREAD in X.P.W3.c's scope.** This seat **minted no mail**, wrote **zero** bytes in any
+producer tree, and read `../glass-ui/**` not at all.
+
+**Format and lint cadence (§7).** `<p2>`: the boundary project, `.b`'s project and every AFTER probe
+are the executable cadence and each was run **twice**, identical; `git diff --check` clean;
+`npx tsc --noEmit` recorded at F-c4; `eslint` absent, F-c5. **No proof-farm script was authored for
+any gate** (L-19, §7) — every figure above is a program's own output, and the suite's six negative
+controls are part of that program. Prettier was **checked and deliberately not applied to this
+record**: `npx prettier --check` already warns on the file **before** this append, so `--write` would
+rewrite three other seats' receipts inside a file four seats append to concurrently — the cadence
+runs over the bytes a unit authors, and this unit's value.js bytes are this block.
+
+**Gate 27**: ⟨cmd⟩ `git --no-optional-locks status --porcelain -- src api demo test e2e | wc -l` →
+**0**, double-run, at this seat's open and at its close. `scripts/dev/dev.sh` reads ` M`, unstaged
+and untouched; `docs/tranches/V/reformation/CARRY-LEDGER.md` and the `docs/tranches/X/evidence/w1/**`
+untracked files are **sibling tracks' bytes**, read and left exactly as found (the tranche-wide
+reading `.b`'s addendum-beside taught).
