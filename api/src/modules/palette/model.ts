@@ -82,8 +82,31 @@ export interface Palette {
 // ---------------------------------------------------------------
 
 export interface PaletteVersion {
-    /** _id is the content-hash. */
+    /**
+     * X-W3 · G-7: `_id` is the **release hash** — the identity of the EVENT
+     * (`computeReleaseHash`: palette slug + `revisionNo` + payload + parent +
+     * author). It is NOT the content hash: before X-W3 payload identity was
+     * membership identity, which made every row a content-addressed door
+     * between palettes. Rows written before the X-W3 migration carry a
+     * legacy content-hash `_id`; `_id` is opaque to every reader, so those
+     * rows stay addressable and are NOT rewritten (W3 §3a).
+     */
     _id: string;
+    /**
+     * X-W3 · G-7: the **payload hash** — the identity of WHAT this revision
+     * is (`computeContentHash`: name + every stop's `css`, `name`, position,
+     * domain-framed). Two releases of the same content share this value and
+     * differ in `_id`. Mirrors `Palette.currentHash`.
+     */
+    payloadHash: string;
+    /**
+     * X-W3 · fold S-6: the palette-scoped, monotone, 1-based ordinal. It is
+     * the version list's TOTAL-ORDER key (with `_id` as tiebreak) and the
+     * ordinal a client renders — `createdAt` is not injective, so ordering on
+     * it alone put equal-timestamp rows in an arbitrary order and forced the
+     * client to reinvent the ordinal from a separate count round-trip.
+     */
+    revisionNo: number;
     name: string;
     colors: PaletteColor[];
     /** Hash of immediate parent version (null = root). */

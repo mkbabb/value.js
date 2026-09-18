@@ -2,8 +2,12 @@
  * Versions routes for `/palettes` (D.W2 Lane A).
  *
  *   GET  /:slug/versions          — paginated version list
- *   GET  /:slug/versions/:hash    — single version by content-hash
+ *   GET  /:slug/versions/:hash    — single revision, JOINED to `:slug` (X-W3 · G-5)
  *   POST /:slug/revert            — revert palette to a prior version (owner only)
+ *
+ * X-W3 · X.W3.2: a revision's identity is the pair `(paletteSlug, hash)`. The
+ * `hash` is the RELEASE id (`palette_versions._id`); the content identity is
+ * the row's `payloadHash`, and the list carries both plus `revisionNo`.
  */
 
 import { Hono } from "hono";
@@ -14,7 +18,7 @@ import { ValidationError } from "../../../platform/http/errors/index.js";
 import { requireOwnership } from "../require-ownership.js";
 import { formatPalette } from "../format.js";
 import {
-    getVersionByHash,
+    getPaletteVersion,
     listVersions,
     revertToVersion,
 } from "../service/versions.js";
@@ -49,8 +53,12 @@ versionsRouter.get("/:slug/versions", async (c) => {
 });
 
 versionsRouter.get("/:slug/versions/:hash", async (c) => {
+    // X-W3 · G-5: the route reads BOTH parameters. It used to read `:hash`
+    // alone and drop `:slug` on the floor, so `/palettes/A/versions/<hash-of-B>`
+    // served B's content under A's address.
+    const slug = c.req.param("slug");
     const hash = c.req.param("hash");
-    const version = await getVersionByHash(c.var.services, hash);
+    const version = await getPaletteVersion(c.var.services, slug, hash, c.var.userSlug);
     return c.json({ hash: version._id, ...version, _id: undefined });
 });
 

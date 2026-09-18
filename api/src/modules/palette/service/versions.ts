@@ -10,7 +10,8 @@ import type { ClientSession, WithId } from "mongodb";
 import type { Services } from "../../../platform/http/inject-services.js";
 import type { OklabTriple, Palette, PaletteColor, PaletteVersion } from "../model.js";
 import { NotFoundError } from "../../../platform/http/errors/index.js";
-import { computeContentHash } from "../hash.js";
+import { computeContentHash, computeReleaseHash } from "../hash.js";
+import { assertPaletteReadable } from "./visibility.js";
 import { computeOklabColors } from "./oklab.js";
 
 export interface CreateVersionInput {
@@ -23,8 +24,24 @@ export interface CreateVersionInput {
 }
 
 /**
- * Idempotent version creation (content-hash dedup). Walks the parent chain
- * to compute `rootHash`/`depth`. Returns the content hash.
+ * Append a release to a palette's version log. Returns the RELEASE hash — the
+ * new row's `_id`.
+ *
+ * X-W3 · G-7 splits the two identities this function used to conflate:
+ *
+ *   - `payloadHash` (`computeContentHash`) says WHAT the revision is.
+ *   - `_id` (`computeReleaseHash`) says WHICH EVENT it is — palette slug +
+ *     `revisionNo` + payload + parent + author.
+ *
+ * Consequences, both deliberate: releasing the same payload twice now appends
+ * two rows (before, the second silently vanished into the content-hash dedup
+ * while the palette's `versionCount` was incremented anyway), and a release id
+ * is palette-scoped, so it cannot address a row in another palette.
+ * `insertIfAbsent` still makes a re-entrant write of the SAME event a no-op.
+ *
+ * The chain is resolved by MEMBERSHIP — the palette's own head release —
+ * rather than by looking up the caller-supplied `parentHash`, which is a
+ * payload reference (`Palette.currentHash`) and therefore no longer an `_id`.
  *
  * Accepts an optional `session` (E.W2 Lane B) so the call can participate in
  * a caller's transaction (currently: `forkPalette`'s cross-collection write).
@@ -35,30 +52,36 @@ export async function createVersionRecord(
     session?: ClientSession,
 ): Promise<string> {
     const { paletteSlug, name, colors, authorSlug, parentHash, forkedFromHash } = input;
-    const hash = computeContentHash(name, colors);
+    const payloadHash = computeContentHash(name, colors);
 
-    const existing = await services.repositories.paletteVersions.findByHash(
-        hash,
+    const head = await services.repositories.paletteVersions.findHeadByPaletteSlug(
+        paletteSlug,
         session,
     );
-    if (existing) return hash;
+    const revisionNo = (head?.revisionNo ?? 0) + 1;
 
-    let rootHash = hash;
-    let depth = 0;
-    const parentRef = parentHash ?? forkedFromHash;
-    if (parentRef) {
-        const parent = await services.repositories.paletteVersions.findByHash(
-            parentRef,
-            session,
-        );
-        if (parent) {
-            rootHash = parent.rootHash ?? parentRef;
-            depth = (parent.depth ?? 0) + 1;
-        }
-    }
+    const releaseHash = computeReleaseHash({
+        paletteSlug,
+        revisionNo,
+        payloadHash,
+        parentHash,
+        forkedFromHash,
+        authorSlug,
+    });
+
+    // Lineage bookkeeping. A palette's first release roots its own chain; each
+    // successor extends the palette's head. (A fork's first release roots its
+    // own chain rather than continuing the source's: resolving the source's
+    // row would need the source SLUG, which only `service/forks.ts` holds.
+    // Both fields are write-only — `db.ts:64-66` dropped their indexes as
+    // "ZERO query consumers" — and `forkedFromHash` still records the edge.)
+    const rootHash = head?.rootHash ?? releaseHash;
+    const depth = head === null ? 0 : (head.depth ?? 0) + 1;
 
     const version: PaletteVersion = {
-        _id: hash,
+        _id: releaseHash,
+        payloadHash,
+        revisionNo,
         name,
         colors,
         parentHash,
@@ -71,7 +94,7 @@ export async function createVersionRecord(
     };
 
     await services.repositories.paletteVersions.insertIfAbsent(version, session);
-    return hash;
+    return releaseHash;
 }
 
 // ---------------------------------------------------------------
@@ -96,11 +119,32 @@ export async function listVersions(
     return { data, total };
 }
 
-export async function getVersionByHash(
+/**
+ * X-W3 · G-5 — read ONE revision through the palette that addresses it.
+ *
+ * Replaces the global `getVersionByHash`, which took a hash alone: any caller
+ * holding any hash read any revision of any palette, and hashes are handed out
+ * freely by the version list and by `currentHash` on every detail envelope.
+ * Here the addressing palette is authorized first (so a private palette's
+ * revisions are not a side door around the detail route), and the revision is
+ * then read JOINED to that palette, so a hash belonging to another object
+ * resolves to nothing.
+ *
+ * Both refusals are `NotFoundError`: distinguishing "exists but is not
+ * addressed by this palette" from "does not exist" would be an existence
+ * oracle over other people's objects.
+ */
+export async function getPaletteVersion(
     services: Services,
+    paletteSlug: string,
     hash: string,
+    viewer: string | undefined,
 ): Promise<PaletteVersion> {
-    const version = await services.repositories.paletteVersions.findByHash(hash);
+    await assertPaletteReadable(services, paletteSlug, viewer);
+    const version = await services.repositories.paletteVersions.findByPaletteAndHash(
+        paletteSlug,
+        hash,
+    );
     if (!version) throw new NotFoundError("Version not found");
     return version;
 }
@@ -131,7 +175,16 @@ export async function revertToVersion(
     const palette = await services.repositories.palettes.findBySlug(slug);
     if (!palette) throw new NotFoundError("Palette not found");
 
-    const version = await services.repositories.paletteVersions.findByHash(hash);
+    // X-W3 · G-6 (P0) — the source revision is read JOINED to the palette
+    // being reverted. Unjoined, `findByHash(hash)` let an owner name any
+    // revision of any palette and have its `name`+`colors` written into their
+    // own document: a content transplant across an object boundary, driven by
+    // a hash the version list hands out for free. The refusal is `404` and it
+    // happens BEFORE the transaction, so the target is byte-unchanged.
+    const version = await services.repositories.paletteVersions.findByPaletteAndHash(
+        slug,
+        hash,
+    );
     if (!version) throw new NotFoundError("Version not found");
 
     const newHash = computeContentHash(version.name, version.colors);
