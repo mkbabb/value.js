@@ -1972,3 +1972,610 @@ left to be discovered, and it restates the lesson `.b` drew: **in a working tree
 gate 27 is a tranche-wide reading and not a per-seat one.** Both value.js commits verified on the
 right branch — ⟨cmd⟩ `git branch --contains 31f65d56` / `8a21ea8c` → `* tranche-u` (the F-a.7 /
 F-b5 scratch-branch hazard, re-checked and closed at this seat too).
+
+---
+
+### X.P.W3.d
+
+**SERVED MODEL: claude-opus-5[1m]** · 2026-09-18, this seat's own clock · **group 4, run SERIAL**
+(§5 phase 2: *"needs `.a`–`.c` landed"* — verified at the bytes before a line was written:
+⟨cmd⟩ `git -C <p2> log --oneline -5` → `f14f59f` (`.c`) · `bd10e5c` (`.a`) · `f666b6f` · `1cfa29b` ·
+`39503f8` (`.b`), and ⟨cmd⟩ `git -C <p2> status --porcelain` → `?? .worktrees/` alone, so `.c`'s
+draft residue F-r.1 disclosed is fully landed and nothing is in flight). Spec sections executed
+exactly: `W3.md` §5 `.d` (L299–317) · §3 items 7–10 (L107–117) · §6 **G-2** (L372–396) · **G-5**
+(L435–449) · **G-7** (L468–485) · **G-10** (L520–548) · §2c (L75–76, L80) · §2b **OP-5** (L64) ·
+`COHESION.md` §0j.E **OC-1** · §0n.4 (**E-6**, both lowerings, two runs). `W3.md` read WHOLE (673 L);
+`COHESION.md` read to the file end (§0o and its erratum are the last headings); this record read
+whole — the open, the baseline, the unit plan, `.0`/`.a`/`.b`/`.c`'s receipts and the RESUME
+block — before a byte was written.
+
+**Gates turned: G-5 GREEN · G-10 WELL-FORMED (no verdict, by law) · G-7 RED at a measured distance ·
+G-2 RED, reproduced twice, for a structural reason in the probe's own bytes.** Nothing was narrowed,
+skipped, allow-listed, re-shaped, re-pinned or reconciled to move a reading. Every figure below is
+read from the **settled (committed) bytes** and **double-run**; the two runs were identical in every
+case, and where a file is generated the two generations were **byte-identical**.
+
+`<p2>` = `/Users/mkbabb/Programming/parse-that-css-totality-p2`. Pin: value.js
+`6aca86020b6b2605e7d0f04fccb6601746e387f7` — `.a`'s, adopted unchanged, because two seats reading two
+universes would be two waves.
+
+---
+
+#### d.0 — Method note, stated before the numbers
+
+**The one judgement this seat makes, declared BEFORE the run and not after it.** Two of the P-1
+taxonomy's three RED classes are defined against the CSS **specification** as well as against the
+incumbent — *"(B) MIS_ACCEPT — C14 accepts an input the live parser **and spec** reject"*, *"(C)
+FALSE_REJECT_IN_SHAPE — C14 rejects an input **unambiguously valid** within its own declared shape"*
+— and this wave ships no executable specification oracle. For the sixteen inputs `parser-band.md`
+adjudicated, the adjudication **is** the spec reading and is used. For every other input the
+discriminator is missing, and the missing discriminator is resolved in **one** direction:
+
+> **Where the spec reading is missing, the cell is counted AGAINST the candidate.**
+
+The opposite convention — reading every unadjudicated disagreement as `LIVE_STRICTER`, which the
+taxonomy also licenses in principle — would drive the defect count toward zero on an argument nobody
+measured, and that is precisely the move W1.md §6 G-2's falsifier names (*"widen the taxonomy … and
+the count goes to zero for the wrong reason"*). Every such cell carries `specUndecided: true` so `.e`
+can see exactly how much of the count rests on a reading this wave does not own, and can overturn it
+with a spec citation rather than with a preference. **3,982 of the 5,890 are so flagged and printed.**
+
+**`COVERAGE_NARROWING` is the one declared NON-defect this seat applies**, and only where the
+candidate's own grammar registry — `algebra/tables.mjs`'s `R_disp`, authored at X.P.W2 and committed
+before this seat opened — carries no such function head. A shape written after the measurement is a
+description of the result; this one has a commit date. It is **read**, never listed:
+⟨cmd⟩ → colour heads `[hsl, hsla, oklch, rgb, rgba, var]` · timing heads `[cubic-bezier, linear,
+steps]`. Anything that is not a function call — a hex literal, a bare identifier, a stylesheet, the
+empty string — is **inside** the shape by default, deliberately, so that declining `#ff0` could never
+become a coverage fact.
+
+**The taxonomy is imported, never restated.** `harness/equivalence/taxonomy.ts` is carried verbatim
+from `apotheosis/parser-proof/equivalence.md` §1 and re-reads its authority at run time;
+`runFullSurface()` asserts it **UNMOVED byte-for-byte before it classifies a single cell**
+(sha256 `554c2993…`, the banked value).
+
+**Extension.** As `.b` and `.c` recorded: the spec's `.ts` names against the tree's `.mjs`. §4's
+first row admits the whole glob, so no bounds question arises.
+
+---
+
+#### d.1 — BEFORE, measured read-only at this seat's own clock (never inherited)
+
+| gate | subject | BEFORE, at this seat's clock |
+|---|---|---|
+| **G-2** | the unmodified anchor probe | ⟨cmd⟩ `node docs/tranches/V/megatranche/audit/probes/r1-published-totality.mjs` → **RED, exit 1, 324 throws / 1548 calls, 1 failure mode, 4 of 9 entry points RED** — the 08-03 baseline and the open's §B.1 reading, to the call |
+| **G-5** | the comparator | ⟨cmd⟩ `test -e <p2>/typescript/scripts/css-dual-target-identity.mjs` → **ABSENT**. The open's reading stands: RED *"for want of the comparator, not for want of the artifact"* |
+| **G-7** | the graduated harness + the ledger | ⟨cmd⟩ `test -d <p2>/typescript/test/css-equivalence` → **ABSENT**; ⟨cmd⟩ `test -e docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md` → **ABSENT**; ⟨cmd⟩ `node typescript/scripts/css-universe.mjs --cross-check-ledger …` → **RED — the ledger is ABSENT**, with all sixteen printed `UNROWED` |
+| **G-10** | the bench table | ⟨cmd⟩ `test -e <p2>/typescript/scripts/css-bench-three-leg.mjs` → **ABSENT**; no candidate table exists |
+
+**4 of 4 RED before cure. 0 GREEN-BEFORE-CURE.**
+
+---
+
+#### d.2 — The oracle: the vendored sha-pinned tarball did not exist, and was not invented
+
+`W3.md` §5 `.d` names the oracle in words that admit no substitute: *"the **vendored, sha-pinned
+published 4.0.0 tarball** — never `dist/` in the working tree (cand-O's dist-drift finding …)."*
+**Measured at the open: no tarball existed anywhere in either tree.** ⟨cmd⟩ `find / -maxdepth 8 -name
+'*parse-that*.tgz' -o -name 'value-js-4.0.0*'` returned only `cand-o/vendor/value-js-4.0.0/`, an
+**unpacked directory** — a copy somebody made, which is a different thing from the bytes npm ships,
+and the difference is exactly what the dist-drift finding is about.
+
+**Recovered, not fabricated.** The published tarball is in npm's own content-addressed cache with the
+**registry's** integrity beside it:
+
+```
+⟨cmd⟩ (cacache index) make-fetch-happen:request-cache:https://registry.npmjs.org/@mkbabb/value.js/-/value.js-4.0.0.tgz
+      sha512-Z8ywb4htSxJlRFvoU1DNtvzr9Bsuaw9ahT/hvNlKbnRj6fTnLuXjn0itKq1Q5s6rwg24ct0zcLZ04BuR3/SzGw==   37290 B
+⟨cmd⟩ shasum -a 256 typescript/test/css-equivalence/vendor/value.js-4.0.0.tgz
+      7f80658ca4e16e99ccbb41ad6c9d8c08b2e5f86a7c951d2a833c97f89fb303ae
+```
+
+Three independent handles are asserted **in-test before any comparison runs** — byte count, this
+seat's sha256, and the registry's own sha512 — and `loadOracle()` hashes **before** it invokes `tar`,
+so no path through the suite reaches a comparison with an unverified oracle: not by reordering tests,
+not by `.only`, not by a later editor moving a block. The archive is expanded into an `mkdtemp`
+directory and removed; **no byte of any repository is written by the oracle module**.
+
+**And the two halves of this wave are proved to have measured ONE 4.0.0**, rather than assumed to:
+
+```
+⟨cmd⟩ crossCheckUnpacked()  tarball package/dist/subpaths/css.js    8b5381305ea26236…  == cand-o/vendor  AGREE
+                            tarball package/dist/subpaths/css.d.ts  c81d095213d112c6…  == cand-o/vendor  AGREE
+```
+
+`.a`'s pin reads the unpacked tree as its SHAPE oracle; this seat reads the tarball as its
+DIFFERENTIAL oracle; they are byte-identical. That reading is an assertion in the suite, not a note.
+
+---
+
+#### d.3 — G-7: the graduated differential, and the distance it measures
+
+**The graduation actually happened.** From the pilot's `{oklch(), cubic-bezier(), qualified
+stylesheets}` / 403 strings to **26,551 distinct sources × 3 realized entries × 2 lowerings**, plus
+the 52-row surface census. The suite asserts `corpus.run === corpus.distinct` so a future edit cannot
+quietly make it a pilot again.
+
+```
+⟨cmd⟩ node typescript/test/css-equivalence/run-full-surface.mjs --pinned-value-commit 6aca8602
+oracle     value.js-4.0.0.tgz — 37290 B · sha256 7f80658c…03ae
+           cross-check vs the unpacked cand-o vendor tree: AGREE (css.js + css.d.ts byte-identical)
+taxonomy   UNMOVED · sha256 554c2993cebd3ed3 · classes A DIVERGENT_VALUE / B MIS_ACCEPT / C FALSE_REJECT_IN_SHAPE
+corpus     26604 rows → 26551 distinct · run 26551 · F-c3 unwrapped 172 · replay pin AGREES
+universe   19 runtime + 33 types = 52
+
+  parseCssColor         COMPARED  26551 cells × 2 lowerings · mirror-defects 4027 · lowerings AGREE
+                          DIVERGENT_VALUE  1566 · MIS_ACCEPT 1200 · FALSE_REJECT_IN_SHAPE 1261
+                          COVERAGE_NARROWING 2320 · FIXTURE_R1 4585 · DECLARED_DIVERGENCE 15
+  parseTimingFunction   COMPARED  26551 cells × 2 lowerings · mirror-defects  170 · lowerings AGREE
+                          MIS_ACCEPT 23 · FALSE_REJECT_IN_SHAPE 147
+  parseStylesheet       COMPARED  26551 cells × 2 lowerings · mirror-defects 1693 · lowerings AGREE
+                          DIVERGENT_VALUE 342 · MIS_ACCEPT 236 · FALSE_REJECT_IN_SHAPE 1115
+  + 5 type rows COMPARED (re-exported from the pinned declaration) · 44 rows NO-PEER
+
+rows       52 · COMPARED 8 · NO-PEER 44
+ledger     29 rows — ADJUDICATED 16 · DISSENT 4 · FIXTURE 5 · LABEL 1 · NARROWING 3
+           empty consumer-direction fields: 0 · GATE-VERDICT anchors present: 5/5
+MIRROR-DEFECTS  5890   (of which spec-undecided 3982)
+
+RED — the equivalence floor is NOT held at full surface.
+```
+
+**Exit 1. Double-run: the evidence JSON is byte-identical on two consecutive generations**
+(sha256 `d03b458c0f095c7b201c17ded478fcfcfdf7c53b54f48668450b6c4166e41595`, both times).
+
+**The suite, twice, identical:**
+
+```
+⟨cmd⟩ npx vitest run --config typescript/test/css-equivalence/vitest.config.ts
+ Test Files  1 failed (1)      Tests  1 failed | 23 passed (24)        (×2, identical)
+   × G-7 — ZERO mirror-defects across all 52 exports    ← BORN-RED, cause in the assertion message
+```
+
+**The one failing test is the gate itself and it is born-RED by design.** Its message carries the
+whole reading — the per-export A/B/C breakdown, the spec-undecided count, the declared convention,
+and the named wall that owns the cure. There is no `test.skip`, no narrowed corpus, no allowlist and
+no re-pinned expectation anywhere in the suite; the other 23 assertions are the gate's preconditions
+and every one of them is GREEN.
+
+**The `.a`/`.d` family is CLOSED by measurement** (§P.1: *"every conflict `.a` resolves … MUST appear
+as a `.d` row"*):
+
+```
+⟨cmd⟩ node typescript/scripts/css-universe.mjs --cross-check-ledger docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md
+rows     16 adjudicated conflicts, 0 not carried
+GREEN — every adjudicated conflict is rowed.
+```
+
+and the harness's own reading of the same family is the complement: **`ADJUDICATION_UNHONOURED` = 0**
+on every row and in both lowerings, i.e. `.a`'s resolution and this seat's independent measurement of
+the same twenty-two inputs agree.
+
+##### d.3.1 — What the 5,890 actually is: a sub-census, measured, that reclassifies NOTHING
+
+G-7's reading stands at **5,890**. This sub-census does not move it by one cell; it answers the
+question `.e` and X.P.W4 will have to ask anyway — *are these 5,890 independent defects?* — with a
+mechanical predicate declared before it was run:
+
+> a `DIVERGENT_VALUE` cell is **PB-03/PB-04 CLASS GENERALIZED** iff, for **every** channel `i`,
+> `candidate[i] === clamp_i(incumbent[i])` **or** `candidate[i] === clamp_i(incumbent[i] / 100)`,
+> a non-numeric (`none`) channel is identical on both sides, and the alpha agrees.
+
+The two arms are exactly the two adjudications: **PB-04** (out-of-range channels clamp) and **PB-03**
+(a bare number and a percentage are the same value, so a bare number in a percentage slot is `/100`).
+
+```
+⟨cmd⟩ node (scratchpad) subcensus3.mjs
+parseCssColor DIVERGENT_VALUE           1566
+  PB-03/PB-04 CLASS GENERALIZED        1566  (100.00%)
+  residue, neither arm                    0
+```
+
+**Every one of `parseCssColor`'s 1,566 DIVERGENT_VALUE cells is one of the two adjudicated behaviours
+meeting an input no adjudication row names.** (A first pass with a strict `Object.is` alpha
+comparison read 1,494 / 95.40%; the 72-cell residue was **entirely** `-0` vs `0` alpha — a signed-zero
+artifact of the PREDICATE, not of either engine — and relaxing that one comparison closes it to 100%.
+Both readings are recorded so the correction is visible rather than silent.) The script was run from
+the scratchpad and is **not committed**: it is a reading, not a gate, and authoring a third script
+under `scripts/` would be a §3a file-bound expansion.
+
+**This is not an argument that G-7 should be green.** The adjudications were rowed per INPUT, and
+`--cross-check-ledger` checks them per input; generalizing them to a class is a decision with a real
+consumer direction and it belongs to `.e` and the owner, not to the seat that measured it. It is
+recorded here so nobody re-derives it, and so that the 5,890 is read as *structure* rather than as
+five thousand separate diagnoses.
+
+---
+
+#### d.4 — G-5: dual-target recovery identity — GREEN
+
+The wave's one **MEASURE-AT-OPEN** gate. On 2026-08-03 it had no subject at all (*"zero project
+artifacts"*); the open re-measured that the subject now EXISTS and recorded the gate RED *"for want
+of the comparator"*. This seat wrote the comparator.
+
+```
+⟨cmd⟩ node typescript/scripts/css-dual-target-identity.mjs --js src/css/build/ac1.js \
+        --wasm src/css/build/ac1.wasm --corpus test/css-totality/corpus.json
+js artifact    src/css/build/ac1.js   — sha256 5f300b7ea43e1d38
+wasm artifact  src/css/build/ac1.wasm — sha256 7ce0382b22716585
+canonical      keys [ok, code, start, end, expected, actual] in FIXED order · NO array sorted · NO number rounded
+
+  parseCssColor         26551 cells · six-tuple differ 0 · full-diagnostics differ 0 · value differ 0 · threw 0
+  parseTimingFunction   26551 cells · six-tuple differ 0 · full-diagnostics differ 0 · value differ 0 · threw 0
+  parseStylesheet       26551 cells · six-tuple differ 0 · full-diagnostics differ 0 · value differ 0 · threw 0
+  boundary (7 declared non-string values × 3 entries = 21 cells) — identical across both targets: ALL
+
+cells                       79674
+six-tuple differing cells   0   (differing bytes 0)
+GREEN — the two targets produce byte-identical {ok, code, start, end, expected, actual} for every corpus input.
+```
+
+**Exit 0. Double-run: the output is identical and the evidence JSON byte-identical**
+(sha256 `b68bab94c01cd2eae24a3b74b0b8096a1bbd30b12d8d75e04233b26dd5686216`).
+
+**The falsifier is the design, not a comment on it.** *"A difference in `expected` ORDERING counts,
+because canonicalization sorts nothing"* — `canonical()` fixes the six-tuple's **key** order (so the
+two targets cannot differ merely by property insertion order, a serialization artifact) and touches
+array order not at all. The one normalization is `undefined → null`, symmetric across both targets,
+so that "absent" and "present as undefined" cannot read as different bytes for the same meaning.
+
+**Two readings are taken beyond the gate's letter, and both are named as additions rather than
+folded into the verdict.** (i) The **full** diagnostics list of every rejection, not just `[0]` — a
+target that agreed on the first issue and diverged at the second would be a divergence: **0**.
+(ii) The **value** of every accepted parse: **0** differing cells. A gate that proved the rejections
+identical while the acceptances disagreed would be true and useless.
+
+**The §3a tripwire this gate carries did not fire.** *"G-5 failing in a direction rooted in the Wasm
+numeric or memory model is an architecture question for X.P.W1/W2, not a patch here."* G-5 did not
+fail; nothing was routed and nothing was patched.
+
+---
+
+#### d.5 — G-2: the anchor probe, unmodified, twice — RED, and RED structurally
+
+```
+⟨cmd⟩ node docs/tranches/V/megatranche/audit/probes/r1-published-totality.mjs        (run 1, and again as run 2)
+RED  parseCssColor   102/172 · RED parseCssScalar 102/172 · RED parseCssValue 60/172 · RED parseCssValues 60/172
+ok   parseKeyframeSelector · parseStylesheet · parseTimingFunction · parseAnimationTimeline · parseAnimationRange  0/172
+TOTAL 324 throws / 1548 calls · DISTINCT FAILURE MODES: 1
+  324x  TypeError: Cannot read properties of undefined (reading 'replace')
+RED — 324 totality violations.                                                      exit 1
+⟨cmd⟩ diff (run 1 signal lines) (run 2 signal lines)   → no output; the two runs are IDENTICAL
+⟨cmd⟩ git status --porcelain -- docs/tranches/V/megatranche/audit/probes/   → empty, before and after both runs
+```
+
+**Not one byte of the probe was changed** — *"Modifying the probe voids the gate."*
+
+**Two independent structural reasons, both measured; either alone keeps the gate RED at this wave.**
+
+1. **The probe's subject is the INCUMBENT, which this wave writes zero bytes of.** Read at the
+   probe's own bytes: `const REPO = new URL("../../../../../..", import.meta.url)` resolves to
+   `/Users/mkbabb/Programming/value.js`; it then `npm pack`s **there**, installs into an `mkdtemp`
+   dir, and imports `node_modules/@mkbabb/value.js/dist/subpaths/css.js`. The candidate lives in the
+   fresh root and the probe cannot see it without being modified. `W3.md` §3/§4 forbid this wave from
+   writing under value.js `src/**` — *"A totality wave that edits the incumbent to make its own
+   differential pass has inverted the experiment"* — and §10 puts adoption at X.P.W4's seam.
+2. **The candidate realizes 3 of the probe's 9 entry points.** G-2's own falsifier: *"a candidate
+   that cures `parseCssColor` alone stays red — which is the point; this gate cannot be discharged by
+   a slice."* `.c` stated this in advance as **F-c6** so this seat would not re-diagnose it.
+
+**A SHADOW reading is published beside the gate and labelled NOT THE GATE.** The probe's own corpus —
+the `r1` band of `.a`'s union, 172 rows, whose provenance line reads *"derived from
+`audit/probes/r1-published-totality.mjs:38-43`"* — through the candidate's public surface:
+
+```
+ok  parseCssColor  0/172 · ok parseStylesheet 0/172 · ok parseTimingFunction 0/172
+SKIP the six named in UNREALIZED_ENTRIES
+TOTAL 0 throws / 516 calls over 3 realized entries (6 of 9 NOT REALIZED)
+wasm lowering, same corpus, same three entries: 0 throws/undefined over 516 calls
+```
+
+On the corpus that produces 324 incumbent throws, the candidate throws **zero** and returns
+`undefined` **zero** times, in **both** lowerings. On the six it does not publish there is nothing to
+read, and that absence is the gate's distance — rowed as **CN-1**.
+
+---
+
+#### d.6 — G-10: the three-leg table — WELL-FORMED, and carrying no verdict at all
+
+**The bar was not set, not inferred, not reconciled.** §0j.E OC-1 ruled the table
+**RECORDED-NOT-GATING**; §6 G-10 says *"inventing a bar is a defect"* and *"this gate reports and
+cannot fail on a bar"*. The generator therefore prints the literal
+**`BAR: OWNER-GATED-PENDING-RATIFICATION`** and `VERDICT: none`, and its exit code reports
+**well-formedness only** — G-10's own four falsifier conditions, checked by the program **on its own
+output**:
+
+| falsifier condition | how it is checked | reading |
+|---|---|---|
+| a ratio published outside the three legs | every table row's `leg` against the declared three | **0** |
+| a budget citing the UNCITABLE denominator or its derivatives | the printed text scanned **literally** for all four numerals | **0 found** |
+| a row omitting its arm-state | every row, both the short label and the full statement | **0** |
+| a pass/fail verdict the owner has not ratified | `verdict: null`, and the word printed as `none` | **none asserted** |
+
+**The denominator is a law with one value, not an option with a default**: `--denominator` anything
+but `1636680` is **REFUSED** with a non-zero exit (M-22 ¶4; §3's PRUNE prohibition on denominator
+rewrite).
+
+**Two runs, both lowerings** (§0n.4), both pasted in `evidence/W3/bench-three-leg.md`, both exiting
+0 on well-formedness:
+
+```
+  leg              arm                run 1 ns/op   ratio      run 2 ns/op   ratio    arm-state
+  shared-accepted  published 4.0.0         2274.8       1           2264.6       1    N/A — published bundle carries no packrat [a]
+  shared-accepted  candidate js            4960.1   0.459           4912.2   0.461    UNARMED — before & after [b]
+  shared-accepted  candidate wasm          3071.7   0.741           3074.7   0.737    UNARMED — before & after [b]
+  reject           published 4.0.0         1032.3       1           1012.4       1    N/A [a]
+  reject           candidate js              3682   0.280             3620   0.280    UNARMED [b]
+  reject           candidate wasm          2201.5   0.469             2150   0.471    UNARMED [b]
+  R1-class         published 4.0.0        81286.9       1          78019.5       1    N/A [a]
+  R1-class         candidate js            3026.5  26.859           3150.2  24.767    UNARMED [b]
+  R1-class         candidate wasm          1841.5  44.142           1866.8  41.794    UNARMED [b]
+```
+
+Method, declared before the numbers: three legs partitioned by the **published** engine's own
+behaviour before any timing (R1-class timed **with the caller's catch**, the only way a caller
+survives it); **interleaved** — within each round every arm runs once and the arm order **rotates by
+round**, so drift lands on every arm; **median** of the 30 kept rounds of 40; a **printed sink**
+(580,440-class fold) so no arm's work can be eliminated as dead; cell 192 inputs; node v26.0.0,
+darwin/arm64.
+
+**The arm-state is on every row, in two forms** — the short label inside the column so it cannot be
+truncated, the full statement printed beneath. `[a]` is a **measurement**, not an omission: the
+published 4.0.0 bundle carries **zero** occurrences of `PACKRAT_ARMED` / `packratEnter` /
+`resetPackrat` / `memoize` across its **whole** dist, so it has no arm-state to read. `[b]` carries
+`.c`'s own disclosure **unaltered**: `tsImport` does not dedupe, so the instrument reads the latch in
+its own library instance and the lowerings' parse path holds another — the reading is *"this process
+never armed a latch"*, not *"the parse path's latch was inspected"*.
+
+**Nothing was reconciled.** The 07-20 *"LIVE regex measured FASTEST ~1.8×"* reading is printed as row
+**C-1** with all three prior readings and this table as a fourth, and ruled on by none of them. And
+the inherited `parser-band.md` cross-bench numbers are printed beside this table's own, **including
+where they disagree**: the R1-class baseline reproduces almost exactly (inherited 82,559 / 78,034 ns;
+measured here 81,286.9 / 78,019.5 on a different machine), while the accept and reject legs do **not**
+reproduce parser-band's parity reading for the cand-O drop-in — a different candidate (AC-1
+TAGLESS-TWIN), machine, node and cell. **Nothing is concluded from that here**, and in particular it
+is not read as a verdict on admission: §0j.E OC-1 decided admission on CORRECTNESS and this seat has
+no standing to reopen it.
+
+---
+
+#### d.7 — The divergence ledger: 29 rows, five families, both halves measured
+
+`docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md` — **56,079 B · 631 lines · sha256
+`957f54f4c994e97ce0cc525990348a074fc55be29e85b2034fd8795dae084eba`**, generated by
+`test/css-equivalence/emit-divergence-ledger.mjs` and **byte-identical on two consecutive
+generations**.
+
+| § | family | rows | authority |
+|---|---|---|---|
+| §1 | ADJUDICATED | **16** | `parser-band.md` via `.a`'s `lib/adjudications.mjs` — **imported, not re-typed**, so the `.a`/`.d` family cannot drift apart |
+| §2 | PRESERVED DISSENT | **4** | token juxtaposition · non-finite numerals · try/catch posture · bench epistemics, each anchored by text in `parser-band.md` |
+| §3 | REGRESSION FIXTURE | **5** | `GATE-VERDICT.md` F-2's R1–R5; each anchor **re-read in the authority at generation** (5/5 present) |
+| §4 | LABEL SURFACE | **1** | `.b`'s **F-b4**, routed to this seat inside the wave |
+| §5 | DECLARED COVERAGE NARROWING | **3** | generated from the candidate's own `UNREALIZED_ENTRIES` × the pinned barrel |
+| | **total** | **29** | **empty consumer-direction fields: 0** |
+
+**The two result columns are MEASURED.** Every input is run, at generation, through the vendored
+tarball and through **both** candidate lowerings; a ledger whose "incumbent" column was written from
+memory would be the self-authored answer key §3 prohibits, one level up.
+
+**Three of the five fixtures are NOT met by this wave and say so in their own rows.** R2 (ten
+over-rejected qualified rules) and R4 (the selector range check) are not reached — their productions
+are unrealized; R5 (comment trivia in declaration names) has **no corpus cell at all**, which is a
+measurement gap and is disclosed as such rather than reported as agreement (**F-d6**). A fixture
+recorded as met when it was not is the dishonesty §11 guardrail 2 names.
+
+**NO NINTH `ParseIssue` CODE IS PROPOSED ANYWHERE IN THE FILE.** ADJ-3's `parser-band` spelling
+`color_non_finite` is cand-O's vocabulary and is not one of the frozen eight; it is carried at its
+**meaning** and the naming difference is ADJ-3's own field — `.a`'s disposition, adopted unchanged.
+
+**§6 Adjudication is left deliberately EMPTY for `.e`** (§4a gives it the sole write there; §5 `.e`
+gives the reason — *"an author cannot adjudicate his own union"*). Three rows are **named** in it as
+the ones whose spec reading is most load-bearing and least settled, so `.e`'s L-14 refutation
+obligation is not left to convenience: **S-1** (token juxtaposition — the widening the owner may
+overrule), **ADJ-3 / S-2** (non-finite numerals — the GROUND-C contract question `W3.md` §10 does not
+open), **PB-03** (the two `hsl` spellings — the largest value change in the file, and the row that
+claims the **incumbent** is the defective reading).
+
+---
+
+#### d.8 — Gate readings, BEFORE → AFTER, at the settled bytes, double-run
+
+| gate | leg | BEFORE | AFTER |
+|---|---|---|---|
+| **G-2** | the probe, unmodified, exit 0 | **324 throws / 1548 calls · 1 mode · 4 of 9 RED**, exit 1 | **UNCHANGED, reproduced twice, exit 1 — RED.** Two structural causes measured at the probe's own bytes (d.5); the candidate's own shadow reading over the same 172 inputs is **0 throws / 516 calls**, both lowerings |
+| **G-5** | six-tuple byte identity | comparator **ABSENT** | **79,674 cells · 0 differing bytes · 0 throws — GREEN**, exit 0, double-run byte-identical |
+| **G-5** | full diagnostics (beside the letter) | — | **0 differing cells — GREEN** |
+| **G-5** | accepted `value` (beside the letter) | — | **0 differing cells — GREEN** |
+| **G-5** | the 7 declared non-string boundary values | — | **21 of 21 identical across both targets — GREEN** |
+| **G-7** | the oracle pin | no vendored tarball existed | **sha256 + bytes + registry sha512 asserted in-test before any comparison; agrees byte-for-byte with `.a`'s unpacked tree — GREEN** |
+| **G-7** | the taxonomy unmoved | — | **UNMOVED, byte-for-byte, before a cell is classified — GREEN** |
+| **G-7** | ledger completeness | ledger **ABSENT**, 16 `UNROWED` | **29 rows · 0 empty directions · `--cross-check-ledger` GREEN, 0 not carried** |
+| **G-7** | totality of the candidate over the graduated corpus | — | **0 `CANDIDATE_THREW` · 0 `CANDIDATE_SHAPE`** over 159,306 candidate calls — GREEN |
+| **G-7** | the two lowerings agree, cell for cell | — | **GREEN** on every compared row |
+| **G-7** | adjudications honoured | — | **0 `ADJUDICATION_UNHONOURED`**, both lowerings — GREEN |
+| **G-7** | **ZERO mirror-defects, full surface** | never run against the 52; GREEN at 403-string pilot only | **RED — 5,890** over 8 compared rows; 44 of 52 have no candidate peer. `parseCssColor` 4,027 (A 1566 / B 1200 / C 1261) · `parseTimingFunction` 170 (A 0 / B 23 / C 147) · `parseStylesheet` 1,693 (A 342 / B 236 / C 1115). **3,982 spec-undecided and counted against the candidate by the declared convention** |
+| **G-10** | three legs, interleaved, median-of-rounds, printed sink | table **ABSENT** | **PRESENT, both lowerings, two runs pasted — WELL-FORMED, exit 0** |
+| **G-10** | arm-state on every row | — | **9 of 9 rows, in two forms — GREEN** |
+| **G-10** | budgets against 1,636,680 µs only | — | **GREEN**; the UNCITABLE denominator and its three derivatives appear **nowhere** in the document, scanned literally |
+| **G-10** | `BAR: OWNER-GATED-PENDING-RATIFICATION`, no verdict | — | **printed 3× · `verdict: null` · no bar set, inferred or reconciled** |
+
+**G-5 GREEN · G-10 WELL-FORMED (no verdict, by law) · G-7 RED · G-2 RED.**
+
+---
+
+#### d.9 — Escalations (§3a: a hard-gate failure that is not local-edit-recoverable)
+
+**ESC-d1 — G-7 cannot be closed from inside any unit's bound, and the cure is a grammar act nobody
+owns.** The 5,890 decompose into exactly two walls, both already standing:
+
+* **44 of 52 exports have no candidate peer at all.** Six are the parse entries the grammar does not
+  carry (`.b`'s **E-1**: the cure is six more entries in `algebra/grammar.mjs`, *"a file in no unit's
+  writable set in this wave"*); ten are the collectors, the coercer and the serializers, which no
+  unit was asked to author; 28 are frozen types. Rowed as **CN-1 / CN-2 / CN-3** rather than left to
+  be discovered, and identical in substance to `.a`'s **F-a.6** (*"§5 assigns G-1 to `.a` but assigns
+  the IMPLEMENTATION of the surface to no unit"*) and `.c`'s **F-c6**.
+* **The 5,890 cells on the 3 realized entries are grammar behaviour**, and the DIVERGENT_VALUE arm is
+  **100 % the two adjudicated behaviours generalized** (d.3.1). Closing it is a write under
+  `<p2>/typescript/src/css/**`, which §4a gives to `.b` and `.c` for *their* named cures and to
+  nobody for this.
+
+**Refused here, on purpose, and each refusal matters.** Widening the declared shape until the
+FALSE_REJECT class emptied would be the taxonomy widening W1.md §6 G-2's falsifier names. Reading
+every unadjudicated disagreement as `LIVE_STRICTER` would zero class B on an argument nobody measured.
+Generalizing the sixteen adjudications from inputs to classes would make ~1,566 cells vanish and is a
+**decision with a consumer direction** that belongs to `.e` and the owner. Adding a stub for the six
+unrealized entries would be the masking fallback `.b` and `.c` both refused. **None was taken. The
+gate is left RED with its measurement.**
+
+*Is this the §3a "newly discovered incumbent defect (a sixth R-class)" trigger?* **Measured, and the
+answer is no — but the measurement is handed up rather than swallowed.** The `MIS_ACCEPT` samples are
+inputs like `rgb(255 0 153 / 095)` and `rgb(255-0 153 / 0.5)`, where the incumbent rejects and the
+candidate accepts; the `FALSE_REJECT_IN_SHAPE` samples are `oklch(,0% 0.15 50deg)` and
+`hsl(120, 500, 50%)`, where the incumbent accepts what looks unsound. Several of those are the **same
+shape** as `parser-band.md`'s already-adjudicated published-parser defects (P-037's unsound accepts;
+the comma/space rewrite), i.e. **more instances of R-classes already recorded, not a sixth one**. No
+new R-class is declared by this seat, and none is silently folded either: the classes and their
+samples are in `equivalence-full-surface.json` for `.e` and X·V to read.
+
+**Routed to**: the orchestrator and `.e`, as a wave-level row. This seat grants itself nothing.
+
+**ESC-d2 — G-2 cannot move at this wave, by the probe's own construction.** The probe packs and
+imports **value.js's** artifact; this wave writes zero bytes there by law, and modifying the probe
+voids the gate. G-2's GREEN is therefore reachable only after adoption — **X.P.W4's seam and X·V's
+bytes** — and not by any act available to X.P.W3. Stated as an escalation rather than as a finding
+because it is a **gate whose close condition no unit of this wave can satisfy**, which is exactly the
+shape §3a asks to be returned. `.c` predicted it as F-c6; this seat measured it at the probe's bytes
+and publishes both readings (the gate's, and the candidate's shadow) in
+`evidence/W3/r1-anchor-after.txt`.
+
+---
+
+#### d.10 — Findings (measured, not cured here)
+
+| id | severity | finding | owner |
+|---|---|---|---|
+| **F-d1** | **MAJOR** | **The "vendored sha-pinned published 4.0.0 tarball" the spec names as G-7's oracle did not exist in either tree.** All that existed was `cand-o/vendor/value-js-4.0.0/`, an **unpacked** copy. The published archive was recovered from npm's content-addressed cache **with the registry's own sha512 integrity**, vendored at `test/css-equivalence/vendor/` (this unit's create row), and proved byte-identical to the unpacked tree on both `css.js` and `css.d.ts`. Recorded loud because the gap was silent: every prior seat's "sha-pinned 4.0.0" was in fact a directory nobody had hashed against the registry | `.e` / orchestrator — the recovery is landed; the **record** that it had to be recovered is the finding |
+| **F-d2** | **MAJOR** | **ESC-d1 above, carried as a finding so `.e`'s refutation pass has it by id**: G-7 is RED at 5,890 and the cure is out of every unit's bound. `.e`'s second L-14 obligation — *"refute at least one divergence row's spec reading"* — is a different claim and is **not** answered by this row; §6 of the ledger names the three rows most worth refuting | orchestrator / `.e` |
+| **F-d3** | **MAJOR** | **ESC-d2 above**: G-2's close condition is unsatisfiable by any act of this wave, because the probe's subject is the incumbent | orchestrator / X.P.W4 |
+| **F-d4** | MINOR | **The published 4.0.0 bundle carries NO packrat machinery at all** — 0 occurrences of `PACKRAT_ARMED` / `packratEnter` / `resetPackrat` / `memoize` across its whole `dist`. O-15 PT-03's one-way latch is **parse-that's**, and value.js's shipped artifact does not contain it. This does not weaken `.c`'s ESC-c1 (the latch is real in the library the candidate builds on) but it does bound the blast radius: no consumer of published value.js 4.0.0 has ever been able to arm it | `.e` / X·V — a fact for the adoption packet |
+| **F-d5** | MINOR | **The bench's accept and reject legs do not reproduce `parser-band.md`'s parity reading for the cand-O drop-in** (measured 0.46× / 0.28× js here against ×1.01–1.02 there), while the R1-class leg reproduces almost exactly. Different candidate, machine, node and cell. **Printed in the table, reconciled with nothing**; recorded because a later reader meeting only one of the two numbers would draw a conclusion neither supports | owner (OC-1) / `.e` |
+| **F-d6** | MINOR | **R5's fixture has no executed cell**: the graduated corpus union carries no comment-bearing declaration row, so "comment trivia folded into declaration names" is neither met nor contradicted by this wave. Adding inputs is a write in `.a`'s create row, so the gap is **returned, not repaired**. Its ledger row says so in its own bytes | `.a` / X.P.W4 |
+| **F-d7** | MINOR | **`.b`'s E-3 is now met by ALL FOUR seats** — `.a` (G-6), `.b` (G-8), `.c` (G-9) and this seat (G-7). G-7's literal `npx vitest run test/css-equivalence/` collects **zero** files from `<p2>/typescript` for the same configuration reason (`include: test/*.test.ts`, one level; a positional FILTERS the collected set). The lawful cure was taken a fourth time — a project inside this seat's own create row, collecting **every** `*.test.ts` under it, narrowing nothing. **One orchestrator row, four sightings, zero private workarounds** | orchestrator |
+| **F-d8** | INFO | **F-c3 confirmed and carried**: 172 rows of `.a`'s union arrive as `{id, src}` objects. Unwrapped losslessly in this seat's own reader, the count published on every read and asserted in the suite, the defect returned rather than cured across a bound | `.a` |
+| **F-d9** | INFO | **The library compile does not cover this seat's bytes either** (`.b`'s F-b2, `.c`'s F-c4, same shape). ⟨cmd⟩ `npx tsc --noEmit -p typescript/tsconfig.json` → **479** `error TS` (from `.c`'s 467); **12 are this seat's and all 12 are resolution-class** — TS2307 `node:*` (4), TS2339 `import.meta.url` (1), TS7016 implicit-`any` on `.mjs` imports (7). **Zero are type errors in this seat's own logic** — the three `TS7006` the first reading showed WERE this seat's and were annotated away before commit | `.a` / orchestrator |
+| **F-d10** | INFO | **`eslint` is not installed in this root** (the posture `.0`, `.b` and `.c` all recorded), so §7's `npx eslint .` was not run. The executable cadence stood in for it | orchestrator |
+| **F-d11** | INFO | **The generated ledger landed with a blank line at EOF on its first emission**, caught by `git diff --check` at commit time (`new blank line at EOF`) and cured **in the generator**, not by hand (`<p2>` `dc52ed5`). Recorded because the cadence caught a defect a green test run did not — the same lesson `.b` drew from F-b1's NUL bytes | `.d`, cured |
+
+---
+
+#### d.11 — The commits (pathspec on the commit itself; four tracks share both indices)
+
+| # | repo | hash | meaning |
+|---|---|---|---|
+| 1 | `<p2>` | **`d8d7169`** | `test(x-p-w3/equivalence): graduate the differential harness to the full 52-export surface` — §9's own planned subject for `.d`, kept verbatim. 11 files, 1,907 insertions, all under `typescript/test/css-equivalence/` (incl. the vendored 37,290-B tarball) |
+| 2 | `<p2>` | **`2e1b006`** | `feat(x-p-w3/identity): the dual-target recovery comparator — G-5's missing subject` |
+| 3 | `<p2>` | **`dde249d`** | `feat(x-p-w3/bench): the three-leg table, recorded and never gating` |
+| 4 | `<p2>` | **`dc52ed5`** | `fix(x-p-w3/.d): the emitted ledger ends with one newline and no blank line before it` — F-d11 |
+| 5 | value.js | **`0e9bac30`** | `docs(x-p-w3/.d): divergence ledger — 29 rows, both halves measured against the sha-pinned 4.0.0` — 1 file, 631 insertions |
+| 6 | value.js | **`3a9baee4`** | `docs(x-p-w3/.d): evidence — G-2 anchor after, G-5 identity, G-7 full surface, G-10 bench` — 4 files, 12,502 insertions |
+| 7 | value.js | **(this record's append)** | `docs(x-p-w3/.d): unit receipt — G-5 GREEN, G-10 well-formed, G-7 RED at 5,890, G-2 RED structurally` |
+
+**Why four `<p2>` commits and not the one §9 names.** §9's list gives `.d` the equivalence-harness
+commit and names it verbatim above; the G-5 comparator and the G-10 bench are **different meanings**
+that §9's commit plan does not mention at all, so they are not part of the declared family and
+splitting them splits nothing the spec declared. The precedent is the wave's own: `.0` landed six,
+`.b` three, `.c` one. **One commit per meaning, and no declared family split.**
+
+Every commit carries **its own pathspec on the commit itself**. `git diff --check` clean on all seven
+(the one it caught is F-d11, cured in the generator before the commit landed). **No `-A`, no `-u`, no
+`commit -a`, no stash, no reset, no rebase, no cherry-pick, no force-push, no push.**
+`scripts/dev/dev.sh` appears in **0** commits of this unit and was never opened.
+
+**Bound discipline, as a measurement.** This unit's whole write set is
+`typescript/test/css-equivalence/**` · `typescript/scripts/css-dual-target-identity.mjs` ·
+`typescript/scripts/css-bench-three-leg.mjs` in `<p2>`, and `DIVERGENCE-LEDGER.md` + the four
+`evidence/W3/` artifacts + this record + the ledger row in value.js — **the writable set exactly, and
+no path outside it**. `.a`'s, `.b`'s and `.c`'s files were **read and imported, never opened for
+write**: ⟨cmd⟩ `git -C <p2> show --stat` over the four commits names 14 files and none is theirs.
+**Zero bytes written under** `/Users/mkbabb/Programming/value.js/src/**` — measured not by the shared
+gate-27 reading, which moved under this seat while it worked (d.12), but by this unit's own commits:
+⟨cmd⟩ `git show --stat --format= 0e9bac30 3a9baee4` names **5 files, every one under
+`docs/tranches/X/`** —
+`/Users/mkbabb/Programming/parse-that/**`, `~/Documents/Codex/**`, `~/.codex/**`, `../glass-ui/**`,
+`../keyframes.js/**`, `../fourier-analysis/**`, and **`<p2>/typescript/src/**`** — the whole candidate
+source tree, which this seat read constantly and wrote not once.
+
+**The probe, and the third script that was not written.** `audit/probes/r1-published-totality.mjs` is
+`execute, no write` and was executed twice and written zero times. The sub-census of d.3.1 wanted a
+program; authoring it under `scripts/` would have been a §3a file-bound expansion, so it was run
+**from the scratchpad** and is deliberately **not committed** — a reading, not a gate.
+
+---
+
+#### d.12 — E13 and the standing invariants, at this unit's own clock
+
+Four paths swept read-only, classification taken from each row's **status cell** and never from a
+bare `grep -i unread` (X.P.W0 CHECK 1 **D-1**).
+
+| path | newest by mtime | verdict |
+|---|---|---|
+| `docs/tranches/V/` + `V/coordination/` | `valuejs-outbound-2026-09-18-kfw7-bh-relay.md` | **ours, outbound** — rowed **O-28** |
+| `../glass-ui/docs/tranches/BK/coordination/` (**BK re-confirmed newest by mtime**: ⟨cmd⟩ `ls -dt ../glass-ui/docs/tranches/*/` → `BK/` · `BJ/` · `BI/` · `IOS27-MICRO/`) | `valuejs-outbound-2026-09-18-kfw6-bh-relay.md` | **ours, outbound** — rowed **O-26** |
+| `../keyframes.js/docs/tranches/V/coordination/` | `VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md` | ours, outbound; rowed |
+| `../sci-report/atlas/docs/tranches/P/coordination/` | `valuejs-inbound-2026-07-27-library-band-export-delta.md` | rowed since 07-27 |
+
+⟨cmd⟩ `grep -c '^| I-' docs/tranches/V/coordination/INBOX.md` → **36**, unchanged since the open, the
+resume and `.c`. The rows whose status cell still reads `UNREAD` are **O-20** (ours, outbound),
+**I-30** (the standing glass obligation tail), **I-31** (atlas Q-lane, *"Do not edit value.js from
+this lane"*) and **I-32 · I-33 · I-34**, each re-read row by row at this seat and each stating in its
+own Routing cell that it is not X·P's (*"No X·P wave, no X·P act, opens on this row"* · *"Glass is
+READ-ONLY always"* · *"Not X·P's, not a value.js act today"*). **0 unrowed value-addressed · 0 new
+`I-n` · 0 UNREAD in X.P.W3.d's scope.** This seat **minted no mail**, wrote **zero** bytes in any
+producer tree, and read `../glass-ui/**` only to list one directory's mtimes.
+
+**Format and lint cadence (§7).** `<p2>`: ⟨cmd⟩ `node --check` on all **9** authored `.mjs` → **9/9
+ok**; the four gate programs and the suite are the executable cadence and each was run **twice**,
+identical; `git diff --check` on every commit; `tsc` recorded at F-d9; `eslint` absent, F-d10. **No
+proof-farm script was authored for any gate** (L-19, §7) — every figure above is a program's own
+output, each program executes a corpus and its output *is* the evidence, and G-2 re-runs an existing
+probe unmodified. Prettier was **checked and deliberately not applied to this record**: it already
+warns on the file **before** this append, so `--write` would rewrite four other seats' receipts inside
+a file five seats append to concurrently; the cadence runs over the bytes a unit authors, and this
+unit's value.js bytes are this block, the ledger (generated) and four evidence artifacts (three
+generated, one composed from two verbatim program outputs).
+
+**Gate 27, and it MOVED under this seat while this seat wrote — reported at both readings rather than
+at the convenient one.** ⟨cmd⟩ `git --no-optional-locks status --porcelain -- src api demo test e2e
+| wc -l` read **2** at this seat's open and immediately before each of its two value.js commits (the
+X·V W1.a seat's two untracked `e2e/smoke/a11y-control-targets.spec.ts` files, exactly as `.c`'s
+addendum-beside recorded). Re-measured once more while this receipt was being written it reads
+**12**, double-run:
+
+```
+⟨cmd⟩ git --no-optional-locks status --porcelain -- src api demo test e2e
+ M demo/palettes/PalettesPane.vue                       M demo/palettes/browser/admin/AdminAuditPanel.vue
+ M demo/palettes/browser/admin/AdminFlaggedPanel.vue    M demo/palettes/browser/admin/AdminNamesPanel.vue
+ M demo/palettes/browser/admin/AdminTagsPanel.vue       M demo/palettes/browser/admin/AdminUsersPanel.vue
+ M demo/palettes/browser/dialog/VersionHistoryDrawer.vue
+ M demo/palettes/browser/search/SearchFilterBar.vue
+ M demo/picker/controls/ComponentSliders/ConsoleRail.vue
+ M demo/shell/dock/layers/SlugEditLayer.vue
+?? e2e/smoke/a11y-control-targets.spec.ts               ?? e2e/smoke/mobile/a11y-control-targets.spec.ts
+```
+
+**All ten new rows are the concurrent X·V W1.a seat's** — the control-target/a11y surface whose two
+untracked spec files have been in the tree since `.b`'s and `.c`'s sittings, now joined by the
+`demo/**` edits that suite exists for. **Not one of them is this unit's**: this unit's whole value.js
+write set is `docs/tranches/X/parse-that/**` and `docs/tranches/X/execution/**`, and ⟨cmd⟩
+`git show --stat --format= 0e9bac30 3a9baee4` names 5 files, every one under `docs/tranches/X/`.
+The correction is recorded rather than left to be discovered, and it is the **third** sighting of the
+same lesson: **in a working tree four tracks share, gate 27 is a tranche-wide reading and not a
+per-seat one** (`.b` drew it, `.c` restated it, this seat watched it move mid-sitting).
+
+`scripts/dev/dev.sh` reads ` M`, unstaged and untouched;
+`docs/tranches/V/reformation/CARRY-LEDGER.md`, `docs/tranches/X/evidence/w1/**` and
+`docs/tranches/X/waves/{W1-LOG.md,evidence/}` are **sibling tracks' bytes**, read and left exactly as
+found — the tranche-wide reading `.b` taught and `.c` restated. Both value.js commits verified on the
+right branch: ⟨cmd⟩ `git branch --contains 0e9bac30` / `3a9baee4` → `* tranche-u` (the F-a.7 / F-b5
+scratch-branch hazard, re-checked and closed at this seat too).
