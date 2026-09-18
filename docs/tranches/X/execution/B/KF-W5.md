@@ -425,3 +425,283 @@ each carrying the session trailer; nothing staged that was not this unit's.
   routed letter, and leaves **0 UNREAD in its scope**.
 - **No escalation.** Every anchor resolved at the true bytes and the specified cure was reachable
   as specified.
+
+### X.KF.W5.b — Arm A, THE CENSUS — **DONE · G-BASIS · G-TAX (relay) · G-SCOPE GREEN · G-ID GREEN-at-the-probe's-unit with 2 published residues**
+
+**Seat**: Opus (`claude-opus-5[1m]`). **Bounds**: value.js docs only — `docs/tranches/X/keyframes/evidence/W5/CENSUS-unit-b.md`
+(create) and this record. **Zero code paths, either repo. Zero `registry/adjudicated/` bytes**
+(G-TAX performs no registry edit — all 58 `kf-*.md` were read-only witnesses, ⟨`ls
+registry/adjudicated/kf-*.md | wc -l`⟩ → 58, none written). glass-ui read only at
+`node_modules/`, never modified. **Evidence**: `docs/tranches/X/keyframes/evidence/W5/CENSUS-unit-b.md`
+(689 L, the full receipt sheet; every figure below is derived there with its command). Every figure
+is read from the settled bytes and **double-run**; both runs agree (sheet §7).
+
+**Substrate.** kf `origin/master` **`7d958f21`**; kf HEAD `8bc83753` = `master`, **6 commits ahead**,
+all of them `.a`'s S-0 front-load, **none under `src/`** — so B0 is measured at `7d958f21` as the
+record declares, and the choice is stated rather than assumed (⟨`git ls-tree -r HEAD --name-only --
+src | grep -c '\.ts$'`⟩ returns the same 153).
+
+**Acts, in order.**
+
+1. **THE SPEC'S OWN BYTES, CHECKED AGAINST THE CONFORMANCE SEAL — a divergence, found and explained.**
+   ⟨`shasum -a 256 waves/KF-W5.md`⟩ → `216a9102…`; ⟨`grep -n 'waves/KF-W5.md'
+   conformance/PASS-8/CHECK.md`⟩ → `:22 153eb206…`. **The live spec is not the pass-8 sealed spec.**
+   Cause measured: ⟨`git log --oneline -5 -- …/KF-W5.md`⟩ → head **`ba6dcdb3`** (X·union repair r1,
+   2026-08-30), *after* `3c4807d0` (X·KF CONFORMANT pass 8, 2026-08-29); ⟨`git show
+   3c4807d0:…/KF-W5.md | shasum -a 256`⟩ → **`153eb206…`, the pass-8 hash exactly**; ⟨`git diff -U0
+   3c4807d0 ba6dcdb3 -- …/KF-W5.md | grep -E '^@@'`⟩ → **`@@ -353 +353 @@`** and **`@@ -445 +445 @@`**
+   — **two lines, changed in place, no line-number shift**, and they are the **X-union S-5 cure**
+   (`4.0.0 → V at RC-P(V)`, the dated addendum-beside at §Carry B-16 and the KF.W2/KF.W3 bullet) that
+   this record's own precondition row verified PRESENT at both sites. **Lawful under E-3.**
+   **Consequence measured, not assumed**: ⟨`git show 3c4807d0:… | grep -cE 'KF-ES-[0-9]+|(^|[^-])\bL-2\b'`⟩
+   → **22** (= live) and ⟨`… | awk 'NR>=309 && NR<=379 && /^\| \*\*/' | wc -l`⟩ → **46** (= live).
+   **Every figure this unit publishes is invariant across the seal→live delta**, and both substrates
+   are stated.
+
+2. **G-BASIS — B0 declared with its probe, and all five rivals closed.**
+   **B0 = ⟨`git ls-tree -r 7d958f21 --name-only -- src | grep -c '\.ts$'`⟩ → 153** (153/153);
+   ⟨`… grep -c '\.d\.ts$'`⟩ → **0** (measured and excluded **as a cause**, not assumed). Unmoved by
+   KF.W4: the same probe at `81a56990` → **153**.
+   - **139 — DERIVED**: B0's own probe at the disqualified `8281638c` → **139**, exact. A dated
+     reading of the same basis, not a rival.
+   - **145 — DERIVED AND NOW EXTINCT**: the lane's `find src -type f -name '*.ts' | wc -l` walks the
+     worktree where `ls-tree` reads the tree. **Run today it returns 153**, and ⟨`git status
+     --porcelain -- src`⟩ → **0 rows**. The `139 − 2 deleted + 8 untracked` delta *was* the
+     uncommitted WIP and **§B-12 settled it** — the two instruments now agree, which is the
+     reconciliation completing rather than being argued.
+   - **153 — ADOPTED**, and corroborated by the binding census itself: ⟨`grep -n 'KF.W5'
+     CENSUS-2026-08-03.md`⟩ → `:194` *"per-component D/L/C over the **14 zones / 153+**"* — **both
+     numerals re-derived from the tree at act 3**.
+   - **"159 modules" — DERIVED, AND ITS ATTRIBUTION STRUCK.** §0 R-2 owed this figure to
+     `scripts/gates/structure/index.mjs`'s own definition. **Read out of the script**: `SCOPES.src =
+     { roots: ["src"], fileExtensions: [".ts"] }` (`:70-78`) with `!n.endsWith(".d.ts")` (`:142`) —
+     **B0's predicate, character for character** — and its reporter (`:598-622`) prints violations,
+     **never a module tally**; run live, ⟨`npm run proof:structure`⟩ → `PASS: scope=src clean (0
+     violations across R1–R6)`, **no "159" anywhere in it**. The figure is **depcruise's**
+     (⟨`npx depcruise --config .dependency-cruiser.cjs src`⟩ → `✔ … (159 modules, 687 dependencies
+     cruised)`), and it **derives from B0 exactly**: the JSON graph partitions **159 = 153 under
+     `src/` + 6 external `@mkbabb/value.js/{color,css,easing,math,transform,value}`**, with the 153
+     **SET-EQUAL** to `git ls-tree`'s (both `comm` directions empty, **both runs** — cardinality was
+     not enough). **FINDING: `FOLD-FORWARD §C` credits "159 modules" to `proof:structure`, and that
+     attribution is FALSE at the bytes** — which is why the figure read as a disagreement for three
+     rounds: it was credited to the one instrument that could not have produced it. Dated
+     addendum-beside; no authority patched.
+   - **80 — STRUCK, and now STRUCK-TERMINAL.** §0 R-2's sole recovery path was *"if B18's rule is
+     found in its own text"*; **COHESION §0j.C KF-OGKF1 closes it** — *"the five conditional TCC
+     re-reads never open"*. **This seat opened no Codex root.** The strike carries a measurement
+     rather than a refusal: reconstructing *"public library surfaces"* as published export **names**
+     over the three entries gives **141 + 79 + 3 → 178 distinct, +1 namespace export = 179**, plus an
+     unexpanded `export * from "./engine"` — **2.2× over 80**, counting rule stated at the
+     enumeration. No filtered subset of B0 lands on 80.
+
+3. **G-BASIS — the zone census and the D/L/C matrix, denominated in B0.**
+   ⟨`git ls-tree -r 7d958f21 … | awk -F/ …`⟩ → **14 zones summing to 153** (the census's *"14 zones /
+   153+"*, reproduced from the tree). **The lane's 145 is explained zone by zone**, not just
+   arithmetically: compile **+6** · engine **+4** · group **+1** · presets **−3** = **+8**, the four
+   named carve/delete commits and nothing else.
+   **Axes declared at the scoring site** — **D** design (API shape, defaults, refusals) · **L**
+   library-contract truth (docblocks, types, published surface) · **C** code (structure, coupling,
+   zone hygiene). **Coverage in the B10-21 shape, with OWNED defined at the enumeration** (a B0
+   module named by a KF.W5 disposition that opens or reads it by path: §Bounds access rows ∪ rename
+   subjects ∪ god-module roster ∪ presets floor ∪ `ingest/cssom.ts`; created `test/**` specs are not
+   B0 modules and are excluded by construction). All 53 existence-checked: ⟨`git cat-file -e
+   7d958f21:<path>` ×53⟩ → **53 OK / 0 MISS**, ⟨`comm -23 owned b0`⟩ → ∅.
+
+   > **53 owned + 100 unowned = 153.** **Non-conflation lock live**: B18's `39 + 114 = 153` is a
+   > **LEAF** count over a harness; mine is a **module** count over B0. The denominators coincide, the
+   > subjects do not, and the agreement **must never be cited as corroboration**.
+
+   | zone | owned/total | D (gates) | L (reach · contract defects) | C (god · stutter · allowlist) |
+   |---|---|--:|---|---|
+   | compile | 7/29 · 24.1% | 2 | 29/29 · 1 | 2 · 3 · 0 |
+   | physics | 9/22 · 40.9% | 1 | 22/22 · 0 | 1 · 1 · 13 |
+   | orchestration | 7/20 · 35.0% | 4 | **19/20** · 3 | 1 · 4 · 10 |
+   | engine | 9/17 · 52.9% | 5 | 17/17 · 1 | 1 · 0 · 0 |
+   | group | 5/15 · 33.3% | 1 | 15/15 · 0 | 1 · 1 · 0 |
+   | internal | 1/9 · 11.1% | 1 | 9/9 · 0 | 0 · 0 · 0 |
+   | resolve | 1/8 · 12.5% | 0 | 8/8 · 0 | 0 · 1 · 0 |
+   | scroll | 0/7 · 0.0% | 0 | 7/7 · 0 | 0 · 0 · 0 |
+   | waapi | 3/6 · 50.0% | 1 | 6/6 · 0 | 0 · 0 · 0 |
+   | svg | 2/6 · 33.3% | 0 | 6/6 · 0 | 0 · 2 · 0 |
+   | (root) | 4/5 · 80.0% | 1 | 5/5 · 1 | 0 · 0 · 1 |
+   | presets | 3/3 · 100.0% | 0 | 3/3 · 0 (floor, `7e9ddf49`) | 1 · 0 · 0 |
+   | ingest | 1/3 · 33.3% | 0 (KF.W2's boundary) | 3/3 · 0 | 1 · 0 · 0 |
+   | constants | 1/3 · 33.3% | 0 | 3/3 · 0 | 0 · 0 · 0 |
+   | **TOTAL** | **53/153 · 34.6%** | **11 distinct · 16 incidences** | **151/153 · 6** | **8 · 12 · 24** |
+
+   **Both of the total row's counting rules are printed at the table** (5 gates land in 2–3 zones, so
+   16 incidences over 11 distinct gates; 11 + G-XSS + 4 docs-side + 4 arm-D structural = **20**, the
+   roster partitioned without remainder). Every denominator carries its probe: **g = 8** (the ≥437 L
+   loop, no new entrant) · **s = 12** (the corrected D-6 predicate, act 4) · **a = 24** (`:62-88`,
+   existence-asserted **24 OK / 0 DEAD**, confirming the record's FINDING 1 — D-1 CURED-AT-FRONTIER
+   `fb509edd`, the live half is the assertion, which is `.e`'s to install) · **reach = 151/153** by
+   transitive closure over the depcruise graph from the three published entries; **the two
+   unreachable modules are the zone barrels `orchestration/index.ts` and `physics/index.ts`**.
+
+   > **THE L-AXIS WARNING, recorded so no seat cites the matrix against the contract.** `reach` is a
+   > **module-graph** metric and reads **98.7% GREEN**. The real defect is **symbol-level**:
+   > `cssIdent` sits in a 100%-reachable module and ⟨`git grep -c 'cssIdent' 7d958f21 --
+   > src/animation/{index,public,load-engine}.ts`⟩ → **0 / 0 / 0**. A module-reach metric scores that
+   > zone perfect. **That is the G-L7d class one level up** — and it is the same failure mode arm A's
+   > own KF-ES-20 row carries. **The L axis is scored at the SYMBOL; G-CSSIDENT is its instrument.**
+
+   Reading, one line each: **engine** is the densest surface (5 of 11 gates, 52.9% owned) and holds
+   the one *false* docblock; **orchestration** is the widest (4 gates · 4 of 12 stutters · 3 of 6
+   contract defects) and the only zone whose barrel is unpublished; **compile** is the deepest unowned
+   surface (24.1%) while holding the publication BLOCKER; **scroll is 0/7** — the one zone this wave
+   does not touch, recorded as a fact (no registry row routes there), not as a gap.
+
+4. **FINDING — the D-6 stutter predicate, AS WORDED, returns 10, not 12.** Taken literally
+   (*"a basename token equal to its parent directory token"*, hyphen-tokenised) the probe returns
+   **10** and drops **`orchestration/split-text/split-text.ts`** and
+   **`orchestration/view-transition/view-transition.ts`** — precisely because their parent dirs are
+   themselves hyphenated. With the **eponymous whole-name arm** added (`basename == parent` **OR**
+   some hyphen-token of basename `== parent`) it returns **12/12**, a set **identical to D-6's
+   enumeration, member for member**. **The SET is right; the WORDING is under-specified.** Dated
+   addendum-beside (E-3, the spec is not patched) and **routed to `.e`**, which executes the rename
+   programme against this predicate under S-7 — a literal reading would drop the two subjects S-7
+   itself singles out as most hazardous (`split-text.ts` is *"last of all"*).
+
+5. **G-ID — the gate's own probe, run, and audited at BOTH units.**
+   ⟨`grep -cE 'KF-ES-[0-9]+|(^|[^-])\bL-2\b' KF-W5.md`⟩ → **22 / 22**, the record's banked figure;
+   lines `3 · 30 · 32 · 260 · 276 · 297 · 328 · 329 · 330 · 358 · 365 · 374 · 386 · 412 · 417 · 442 ·
+   456 · 458 · 469 · 478 · 481 · 484`. **COUNTING RULE AT THE ENUMERATION**: `grep -c` counts
+   **LINES**; the file carries **58 OCCURRENCES** (34 `KF-ES-n` — `-1`×4 · `-8`×7 · `-20`×11 ·
+   `-34`×4 · `-36`×4 · `-43`×4 — plus 24 `L-2`). **The gate's probe is stated at the LINE and its
+   pass condition (*"fails on any bare …"*) at the OCCURRENCE. Both readings are published; neither
+   is buried.**
+   - **The two declared exception cells verified at their sites**: **E1 = `:417`** (the §Gates G-ID
+     row's command/witness cells) · **E2 = `:456`** (RD-1's statement of the collision).
+   - **LINE unit: 22 / 22 QUALIFIED.** The other twenty lines each name a record for every distinct id
+     they carry (table in the sheet, line by line).
+   - **OCCURRENCE unit**: a re-runnable ±80-char proximity probe over the record token set
+     {`lane-library`, `kf-SquareScene`, `kf-EasingSidebar`, `kf-EasingScene`} → **58 · 51 qualified ·
+     7 residue**, adjudicated by hand: **2 QUALIFIED by short-form attribution** (`:330`'s
+     `(Sidebar)`/`(Scene)`) · **3 MENTION-OF-THE-DEFECT** · **2 genuinely BARE AT SITE**.
+
+6. **FINDING — the round-3 G-ID cure was written BESIDE the defect, not AT it, and the probe's unit has hidden that for three passes.**
+   `:386`'s ⟨ID QUALIFIED, repair round 3⟩ note says the bare `L-2` *"is now **lane-library `L-2`**"*.
+   **At the bytes it is not**: occurrence 1 on that same line still reads `G-DEPCRUISE's L-2 leg ← the
+   honest comment`, unqualified. The repair added the qualification **in a note on the same grep
+   line**, so `grep -cE` has read the line as carrying its record ever since. `:412` occurrence 3 is
+   the same shape in miniature (*"and for L-2 (cured, `81a56990`)"*, qualified two clauses earlier on
+   the same line). **Fourth generation of the class the gate's own cell narrates**, and its mechanism
+   is now named: **the probe and the pass condition are stated at different units**, so a cure that
+   satisfies the line satisfies the probe while leaving the occurrence bare. **Durable cure, one
+   sentence: state the probe at the occurrence (`grep -oE`) so the units cannot diverge again.**
+   **No spec byte written** — the spec is IMMUTABLE (E-3) and outside this unit's writable set;
+   **routed to KF.W10** as a doc-authority addendum, the destination §0 R-1.4's own ruling names.
+
+7. **FINDING — a THIRD G-ID exception class exists de facto and is undeclared.** Three residue
+   occurrences (`:330` once, `:386` twice) are **mentions of the defect** — a repair note or gate cell
+   quoting the bare token in order to say it was bare. The gate's rationale already blesses the shape
+   (*"a gate must be able to NAME the pattern it forbids"*) but its **exception set is drawn at two
+   cells** and these sit outside both. **Booked as a named class rather than waived in silence**; the
+   honest cure is to declare the third cell, not to widen the blessing informally. Routed to KF.W10
+   with act 6. **RD-1 itself is re-verified and stands as written** — this seat adds nothing and
+   subtracts nothing.
+
+8. **G-TAX — the RD-2 relay row, which is this wave's WHOLE act at this end.**
+   **Born state re-measured**: ⟨`grep -rn 'KF.W5-PARTIALS' registry/adjudicated/`⟩ → **3 lines, both
+   runs** — `kf-AnimationControlsGroup.md:17` (**the mint**) · `kf-DemoGlobalChrome.md:17` (inherits,
+   *"as fixed in the kf-AnimationControlsGroup record"*) · `kf-ControlsPaneWrapper.md:6` (inherits,
+   *"as instantiated by the parent record"*); ⟨`grep -c 'SUPERSEDED\|superseded'` over the three⟩ →
+   **0 · 1 · 0**, the single hit being `kf-DemoGlobalChrome.md:154`, whose subject is a **dead
+   `dist/gh-pages` byte-offset coordinate** — a different subject, read at the bytes; **0 row hits**.
+   **THE RELAY ROW** names all three records with their coordinates, the **superseded** authority
+   `formation/keyframes/lane-frontend.md §10` and the **binding** one
+   `formation/keyframes/CENSUS-2026-08-03.md §(a):177-206`, and requests a dated **E-3 addendum under
+   each record's original id — an addendum, never an edit, never authored from this wave**.
+   **What the relay ADDS is the mechanism, measured**: ⟨`grep -n '^## 10' lane-frontend.md`⟩ →
+   **`:610 ## 10. Recommended wave order`**, whose **item 5** reads *"**S-6, S-7, S-5** — low-risk
+   partials (skeleton plate, button shell, typewriter)"*; ⟨`grep -n 'KF.W5'
+   CENSUS-2026-08-03.md`⟩ → **`:194` *"KF.W5 · D/L/C Tri-Fold Library Audit"***. **The superseded
+   authority indexes waves by POSITION in a recommendation; the binding census names them by
+   SUBJECT** — position 5 became "KF.W5" and its cargo became "KF.W5-PARTIALS". Not a typo: two
+   naming schemes over one token, the older one calling itself *Recommended* in its own heading.
+   **Reciprocated from the other end**, re-read at the bytes: `carry/KF-W6-CARRY.md:9` (*"…is
+   **SUPERSEDED** by `CENSUS-2026-08-03 §(a)`"*) and `:13` (*"**KF.W5-PARTIALS ⇒ THIS WAVE**"*).
+   **Third-party corroboration from a seat that inherited nothing**: `conformance/PASS-8/CHECK.md:65`
+   re-homes five further bare tokens (`L-17` · `N-1` · `N-3` · `SUP-4` · `L-8`) as *"bare-token
+   candidates from records using the **superseded `lane-frontend.md §10` seven-wave numbering**"* —
+   **the mis-routing class is live beyond these three records**, which is why the relay earns its row.
+
+9. **G-SCOPE — enumerate, then compare.**
+   ⟨`awk 'NR>=309 && NR<=379 && /^\| \*\*/' KF-W5.md | wc -l`⟩ → **46 / 46**, and **each arm counted
+   over its own sub-range** so the sum is five independent measurements: Arm 0 `309-320` **7** · Arm A
+   `321-333` **8** · Arm B `334-360` **22** · Arm C `361-368` **3** · Arm D `369-379` **6**.
+   §Excluded: ⟨`awk … /^[0-9]+\. \*\*/`⟩ → **6 numbered items**; ⟨`awk … /^   - \*\*/ | wc -l`⟩ → **7
+   sub-bullets**, all under item 1 (`KF-SS-6` · `KF-SS-31` · `KF-SS-38` · `KF-SS-4` · `KF-ET-33` ·
+   `KF-ET-35` · `KF-ES-36`). **7 + 5 = 12 re-homes**, destinations **KF.W6 ×11 · KF.W7 ×1** (KAD-13,
+   whole). **46 + 12 = 58**, at the live bytes *and* at the pass-8 sealed bytes.
+   **THE COMPARISON, which is the act the spec reserves to `.b`.** Freshest whole-corpus census =
+   `conformance/PASS-8/CHECK.md` + `VERDICT.md` (2026-08-29): **CONFORMANT**, *"Census **CLEAN — 0
+   escapes**"*, 2,633 rows · 58/58 records · 20 residuals adjudicated. ⟨`ls -d conformance/PASS-*/`⟩ →
+   PASS-1…PASS-8, **no PASS-9**, so the citation needs no re-pointing at this seat. Freshest
+   wave-specific = `PASS-6/KF-W5-CHECK.md`: **43 routed · 43 booked · 0 escaped**. **Re-derived here
+   from bytes, inheriting neither figure**: the 43 routed ids were lifted from PASS-6 §1.2's by-record
+   table and each counted in the spec — ⟨`grep -o -- "$id" KF-W5.md | wc -l` ×43⟩ → **every one ≥ 1,
+   zero escaped** (densest `KAD-1` 36 · `C-8` 21 · `KAD-14` 16; singletons `KF-CB-36` · `KF-KC-27` ·
+   `KF-TD-5` · `KF-TD-8` · `S★-2`). **One counting rule the comparison forced, and it is RD-1's own
+   defect class one level up**: the loop has **42 rows, not 43** — kf-KeyframesStringControls and
+   kf-TimelineHoverPreview each mint `C-8`, so **43 record-qualified routed ids = 42 distinct id
+   TOKENS**. A byte-level check can only measure tokens; the 43 lives at the record. **Measured now,
+   not described.**
+
+10. **The two census-truth arms, SCORED — findings only, the bytes are KF.W6's (§0 R-1.3).**
+    - **KF-ET-27** ⟨kf-EasingTarget⟩ **CONFIRMED at the frontier, both limbs.** `BALL_SIZE` encoded
+      **three times across two languages** — `EasingTarget.css:163 --ball-size: 14px` ·
+      `EasingTarget.vue:235 const BALL_SIZE = 14` (consumed at `:257`, the rail computed for 14) ·
+      `design-idioms.css:180-182 var(--ball-size, **36px**)`, the shared fallback at **2.6×** the
+      rail's own value. And the **FALSE CONTRACT naming this exact file**: `design-idioms.css:163`
+      asserts *"is the seam EasingTarget reads via `getComputedStyle`"* while ⟨`git grep -c
+      'getComputedStyle' 7d958f21 -- demo/scenes/easing/`⟩ → **0 hits** (the demo's nine live sites
+      are in `instrument/timeline`, `scenes/amiga`, `scenes/spring`, `scenes/square` — **none under
+      `scenes/easing/`**). **SCORE: L = FALSE** (an authority asserts a seam, by name, against a
+      component that never opens it) · **D = SPLIT** (one geometry, three declarations, two languages,
+      a default that renders against the wrong rail) · **C = benign**.
+    - **kf-EasingSidebar `KF-ES-20`** **CONFIRMED, and it is the G-L7d class.** `font-roles.json:43`
+      binds the `control-label` role to selector **`.labeled-field-label`**; `style.css:276-279`
+      carries a demo `@layer demo-typography` override plus the prose claim *"glass-ui binds
+      `.labeled-field-label` …"*. At the installed producer — ⟨glass-ui **7.0.0**⟩ —
+      ⟨`grep -rl 'labeled-field-label' node_modules/@mkbabb/glass-ui/dist/ | wc -l`⟩ → **0**, while
+      ⟨`grep -rl 'glass-label' …`⟩ → **2** (`dist/label-DJA3eNLS.js` · `dist/glass-ui.css`).
+      **SCORE: L = FALSE twice over** (the JSON `note` and the CSS comment both assert a bind the dist
+      does not make) · **D = VACUOUS** (*"a font census that matches zero elements is a green gate
+      measuring nothing"*) · **C = dead** (unreachable override). **Cure is at the CENSUS, not the
+      component** — the one-line role re-point `.labeled-field-label` → `.glass-label` — **riding
+      KF.W6's demo sweep**, declared here so the identity is never re-booked.
+    - **One motion, and the reason they score together**: both are **authorities that name something
+      the tree does not contain** — a seam and a class. **SS-6 posture honoured**: KF-ES-20 is a
+      *demo-side census defect naming a producer class*, not a producer defect; **no glass-ui byte was
+      written or proposed**, and glass-ui was read only.
+
+**Gate readings, BEFORE → AFTER (double-run).**
+
+| gate | before (record §Baseline) | after (run 1 / run 2) |
+|---|---|---|
+| **G-BASIS** | **RED — the reconciliation is unwritten**; B0 = 153, the fifth rival owed to `scripts/gates/structure/index.mjs` | **GREEN** — B0 = 153 with its probe and ref; 139 · 145 derived; **159 derived as 153 + 6 externals with set-equality proven**, and its `proof:structure` attribution **struck as false**; 80 **STRUCK-TERMINAL** under §0j.C KF-OGKF1 with a 179-name measurement beside it; 14-zone census + D/L/C matrix in the B10-21 shape, **53 + 100 = 153** / identical |
+| **G-ID** | **RED — the audit is unrun at open** (22 hits) | **GREEN at the LINE unit, 22/22** (the unit its own probe counts) — **RED by exactly 2 at the OCCURRENCE unit** (`:386` occ-1 · `:412` occ-3), + 3 qualified-by-mention under an undeclared class; both readings published / identical |
+| **G-TAX** (relay leg) | **RED** — 3 header hits · 0 SUPERSEDED annotations · 0 row hits | **RELAY LEG GREEN** — the row names all three records, the superseded and binding authorities, the measured mechanism and two independent corroborations. **Annotation leg RED and unobservable by design** (SS-1/SS-2's act); **0 registry bytes written** / identical |
+| **G-SCOPE** | **GREEN on the arithmetic, RED on the act** | **GREEN on both** — 46 (7·8·22·3·6) + 12 (7 + 5) = **58**, at live *and* sealed bytes; compared against PASS-8 (0 escapes, whole corpus) and PASS-6 (43/43/0), the latter **re-derived here from the spec's bytes**: 42 tokens, all ≥ 1, **0 escaped** / identical |
+
+**Bounds.** Two value.js paths written — `docs/tranches/X/keyframes/evidence/W5/CENSUS-unit-b.md`
+(create) and this record. **No keyframes.js byte, no `src/` byte, no `.vue` byte, no
+`registry/adjudicated/` byte, no glass-ui byte, no `scripts/dev/dev.sh`.** Two commits, each with its
+own pathspec **on the commit itself**, each carrying the session trailer.
+
+**Residuals / carries.**
+- **`.e` consumes the D-6 predicate correction (act 4)** — the SET (12) is unchanged; a literal
+  reading of the wording drops `split-text/split-text.ts` and `view-transition/view-transition.ts`.
+- **KF.W10 receives acts 6 and 7** as doc-authority addenda (two G-ID citation-form residues + one
+  undeclared exception class). **No spec byte written here.**
+- **SS-1/SS-2 receive RD-1 and RD-2** (acts 7 and 8). **No registry byte written here.**
+- **`FOLD-FORWARD §C`'s "159 modules" attribution is FALSE** (act 2) — dated addendum-beside.
+- **The pass-8 seal and the live spec differ by exactly the two X-union S-5 lines** (act 1); every
+  figure published here is invariant across that delta, measured at both substrates.
+- **Nothing pushed.** Under KF-WRITE the push is the **wave's close**, not a unit's; this unit wrote
+  no keyframes.js byte in any case.
+- **E13**: the record's open-time four-path sweep stands; this unit minted no mail, consumed no routed
+  letter, and leaves **0 UNREAD in its scope**.
+- **No escalation.** Every anchor resolved at the true bytes and every specified act was reachable as
+  specified.
