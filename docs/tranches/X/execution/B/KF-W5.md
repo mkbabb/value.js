@@ -1056,3 +1056,172 @@ exactly as at open. Both created files carry `// SERVED MODEL: claude-opus-5[1m]
   gate clauses (c1)/(c2) holding the floor.
 - **E13**: this unit minted no mail, consumed no routed letter, and leaves **0 UNREAD in its scope**;
   `INBOX.md` is outside this unit's writable set and was read-only here.
+
+### X.KF.W5.e — Arm D, STRUCTURE (serial and alone, LAST) — **PARTIAL · 4 of 4 gates GREEN · 1 bounds ESCALATION**
+
+**Seat**: Opus (`claude-opus-5[1m]`). **Substrate**: kf `master`, opened at `d7f68225` (arm `.d`'s last
+commit), closed at **`e325018f`**; a concurrent **X.KF.W2** seat landed `0b747396` inside the window.
+**Evidence**: `docs/tranches/X/keyframes/evidence/W5/ARM-D-unit-e.md` (657 L — the 45-ring disposition
+table, the 10×god / 12×stutter matrices with their probes, the falsifier transcript, the double-run
+block, four relays and the escalation). Every figure below is read from the settled bytes and
+**double-run**; both runs agree.
+
+**THE SHARED WORKTREE, STATED FIRST.** X.KF.W2 wrote this worktree throughout. Both of this unit's
+commits carry **their own pathspec on the commit itself** (`git show --stat` verified per landing: one
+file each, nothing of a sibling's staged). Two sibling readings crossed my instruments and are
+**attributed, never absorbed**: a transient 2-fail library run caused by that seat's mid-edit
+`test/compile/grammar-fuzz.test.ts` (green once it committed), and **B0 153 → 154** (its new
+`compile/parse-facade.ts`).
+
+**Acts, in order.**
+
+1. **G-RING opened the unit, as the seat brief requires — the inventory measured, never inherited.**
+   The gate's own command is green by construction (the rule exempts type-only edges), so the exemption
+   was **lifted to measure and restored to judge**, via a read-only overlay in the scratchpad that
+   `require`s the repo config and reuses its `options` verbatim. ⟨`npx depcruise --config
+   .dependency-cruiser.cjs src --output-type err-long`⟩ → **✔ 0 violations, 160 modules, 705
+   dependencies** (runtime cycles **0**); ⟨same cruise, `viaOnly` lifted⟩ → **x 45 violations** =
+   **RING COUNT 45 at `e325018f`**, run twice, `cmp -s` byte-identical. The **banked 17 is VOID as a
+   denominator** and is not compared against, not delta'd, not re-asserted. **The exemption is proved,
+   not asserted**: every one of the 45 rings was re-walked edge-by-edge against depcruise's own
+   `dependencyTypes` and **45/45 carry at least one `type-only` edge** — which is exactly why rule 1
+   greens. **45 per-ring dispositions, never en bloc**, each row naming its own erasing edge and its
+   own kill cost: Zone W engine↔waapi **14** · Zone E engine-core **12** · Zone G group **4** · Zone S
+   sequence **1** · Zone V constants↔compile/value **14** = **45**. **ACCEPT 32 · ACCEPT-PENDING
+   (relayed) 13 · KILL 0**, and the zero is measured rather than chosen: **in all 45 rows the erasing
+   edge's source file lies outside this unit's writable set** (the evidence's "in set" column is `✗`
+   45/45, self-counted). The closest call is recorded as such — ring 27
+   (`engine/animation ↔ resolve/element-resolve`) has its *file* in the set, but the edge is
+   `import type { KeyframesAnimation }` at `element-resolve.ts:34` feeding the S.B2 carve, so killing
+   it re-types `engine/animation.ts`'s surface, which is `.c`/`.d`'s live cure file this wave.
+
+2. **G-DEPCRUISE — D-1 + D-2 + D-4 as ONE motion (S-4) — `e325018f`.** Three claims the config made
+   about itself were false; none was deleted, all three were made true.
+   - **D-1 booked CURED-AT-FRONTIER with the sibling's sha and never claimed.** ⟨`git log --oneline -S
+     'physics/spring/solver/duration' -- .dependency-cruiser.cjs`⟩ → **`fb509edd`** (X.KF.W4). All
+     **24** entries existence-swept: **24 resolve, 0 DEAD**. What was still live is the half the
+     spec's own falsifier names — *"Fails if the four paths are re-pointed **without** the existence
+     assertion"* — and **the assertion had never been written**, while the block's closing sentence
+     asserted *"every entry is existence-checked against `src/animation/<entry>.ts`"*. It is written
+     now (`:116-131`), at **load time** on purpose: rule 3's `from` set IS that list, so a dead entry
+     subtracts a LIGHT module from the boundary check while every run stays green. **Falsifier
+     exercised, not asserted** — inject one dead name → the throw fires with the repoint instruction;
+     restore → `shasum` byte-identical (`6513a669…` before and after) and ✔ 0 violations. The gate is
+     non-vacuous by demonstration.
+   - **D-2 / the record's FINDING 2 cured by CORRECTION.** ⟨`git show HEAD:package.json | grep -n
+     '"lint"'`⟩ → `:44 "lint": "depcruise --config .dependency-cruiser.cjs src demo && eslint demo"`.
+     The `no-cycle` comment's *"(`lint` is a bare `depcruise src`…)"* is corrected to the live script,
+     naming `fb509edd`; **the honest baseline sentence is kept whole and KF.W4 is not reverted**. The
+     three-clause oracle re-run: (i) `knownViolations` → **0** · (ii) no `--known-violations` flag →
+     **0** · (iii) baseline file **ABSENT**.
+   - **A THIRD false claim, found by the same sweep and cured in the same motion**: the file's header
+     read *"eslint is NOT installed … adding eslint would be a second toolchain"*. Refuted three ways
+     — `devDependencies.eslint` **^10.10.0**, `eslint.config.js` **tracked**, `lint` runs `eslint
+     demo`. Corrected with the KILL-DOWN's substance preserved (eslint owns the demo SFC lane,
+     dep-cruiser owns the source graph, the tiers are disjoint by surface).
+   - **G-RING's second clause landed here too**: the rule's `comment` said only *"type-only edges are
+     exempt"* — the **head-edge** reading, which is not what the rule does. It now names the real
+     mechanism, `viaOnly.dependencyTypesNot`, states that a ring closing through even one `import
+     type` is exempt, and says plainly that **the exempt rings are real coupling**. **No numeral was
+     written into the config** — a ring count in a source comment is the stale-figure class this
+     tranche exists to kill, so the comment carries **the probe** and points at the evidence sheet.
+   - **D-4's two pass-throughs served, no byte owed**: `physics/spring/{css,solver}/index.ts` front
+     exactly the zones D-1's dead allowlist pointed into, and four of the 24 entries now resolve
+     through them under the assertion. Both read, both true at the bytes (pure re-export barrels).
+   - **Anchors re-resolved by RULE NAME** (FINDING 5's idiom, and this unit's spellings will date too):
+     file **316 L** · `LIGHT_BARREL_MODULES` `:82-107` · assertion `:116-131` · `LIGHT_FROM` `:136` ·
+     `no-cycle` `:165` · `viaOnly.dependencyTypesNot` `:211-212` · rule 2 `:226` · rule 3 `:266`.
+
+3. **G-SHIM — the floor held, and this unit claims none of the cure.** ⟨`git ls-tree -r HEAD
+   --name-only -- src/animation/presets`⟩ → **exactly 3** (`catalog.ts` · `classic-data.ts` ·
+   `index.ts`) · ⟨`git grep -c 'split by kind' HEAD -- src/`⟩ → **0** · ⟨`npx vitest run --project
+   library`⟩ → **112 files passed | 5 skipped; 1252 passed | 3 expected fail | 14 skipped** ·
+   ⟨`npm run build`⟩ → **✓ exit 0**. Booked **CURED-AT-FRONTIER (`7e9ddf49`)**, a floor and not a
+   born-RED, which is the gate's own falsifier.
+
+4. **G-STRUCT — the dispositions, and the finding that governs them.** The unit read
+   `scripts/gates/structure/index.mjs` — the spec's unread *"159 modules"* owner — and it is **not a
+   module counter**: it is `proof:structure`, the standing six-rule structural gate inside `npm run
+   check`, and **two of its rules are this arm's subjects**. **R1** names the eponymous primary *"the
+   allowed grammar, NOT a stutter"* and **cites `group/group.ts` as its example**; **R2**'s fragment
+   arm `continue`s on eponymous by code. Gate state: **PASS, R1–R6 clean, 0 violations**; R1 alone 0,
+   R2 alone 0, R4 alone 0.
+   - **The roster RE-DERIVED at this unit's ref is 10, not 8** — same probe, same ≥437 L floor, moved
+     tree: **NEW ENTRANTS** `orchestration/split-text/split-text.ts` **345 → 442** (`X.KF.W5.c`'s
+     split-text motion) and `compile/emit/view-transition.ts` **387 → 438** (X.KF.W2 `0cfd3b5f`), plus
+     `ingest/cssom.ts` 466→499, `group/group.ts` 437→498, `engine/animation.ts` 478→497. **No row was
+     reduced by this unit** — shrinking a sibling's module to restore the banked 8 is moving a
+     sibling's RED, which FINDING 3's reading rule calls a HIGH defect.
+   - **10 god modules × split-or-keep**: **SPLIT 0 · KEEP 7 · READ+DISPOSITION-ONLY 1** (`cssom.ts`,
+     KF.W2's façade boundary, declared not taken) **· NOT-OURS 2** (`engine/animation.ts`,
+     `compile/emit/view-transition.ts` — outside the set, relayed). The keeps rest on a measurement,
+     not on caution: **the tree's own ceiling is 500 raw lines with an EMPTY allowlist and R4 reports
+     zero** — no module in the roster is over any line the repo actually draws. Three rows are KEEP on
+     **S-6** specifically (`group/group.ts`, `engine/animation.ts`, `split-text/split-text.ts` all
+     carry arm-B/arm-C rulings landed this wave; S-7 additionally puts split-text *last of all*).
+   - **12 stutters × rename-or-keep**: set re-measured at open with its predicate printed — **12**, the
+     same members; the **2 structural instances stay DECLINED-WHOLE at KF.W8 R-4 and are not in this
+     denominator** (a stutter-set-of-18 predicate would fail the gate and is not used). The twelve
+     split into two classes the wave's predicate merges and the repo's grammar separates: **Class A ·
+     EPONYMOUS (8) → KEEP**, because R1 blesses the shape by name and — for
+     `orchestration/view-transition/` (one barrel, one module) — a rename **provably fires R2's
+     fragment arm** and reds `npm run check`; **Class B · SUFFIX (4) → RENAME**
+     (`compiled-frame→compiled` · `element-resolve→element` · `draw-svg→draw` · `morph-svg→morph`),
+     the exact `1412ed8e` idiom, and **the class R1's prefix-only predicate cannot see** — this arm's
+     real finding. Measured, not asserted: **only 3 of the 12 have an import site that actually
+     stutters** (`./format/format` ×2, `./solver/solver` ×1), and every other importer already reads
+     its barrel.
+
+**Gate readings, BEFORE → AFTER.**
+
+| gate | BEFORE (`d7f68225`) | AFTER (`e325018f`) |
+|---|---|---|
+| **G-DEPCRUISE** | **RED** — assertion absent while the comment claimed it; `lint` parenthetical FALSE; header "eslint is NOT installed" FALSE | **GREEN** — assertion present + falsifier exercised; both sentences true; 24/24 resolve, 0 DEAD; oracle (i) 0 · (ii) 0 · (iii) absent; ✔ 0 violations |
+| **G-RING** | **RED** — inventory un-dispositioned (unmeasured at open) | **GREEN** — 45 rings measured with the invocation and ref printed, 45 per-ring dispositions, exemption stated honestly in the rule's own comment and proved 45/45 at the edges |
+| **G-SHIM** (floor) | **GREEN** (declared floor, `7e9ddf49`) | **GREEN** — 3 files · 0 `split by kind` · vitest 1252 · build exit 0; cure not claimed |
+| **G-STRUCT** | **RED** — 8 × 12 un-dispositioned at the wave's open | **GREEN on its stated GREEN condition** — 10 × split-or-keep and 12 × rename-or-keep, both re-derived with probes printed, each row D/L/C-scored; the `git log … <old> <new>` clause **vacuously satisfied, zero renames landed**, said plainly in §5 rather than hidden behind the vacuity |
+
+**Commits** (pathspec on the commit itself, one file each):
+`e325018f` — kf `.dependency-cruiser.cjs` (D-1+D-2+D-4, one motion).
+`dc015540` — vjs `docs/tranches/X/keyframes/evidence/W5/ARM-D-unit-e.md`.
+`<this record>` — vjs `docs/tranches/X/execution/B/KF-W5.md`.
+
+**ESCALATION · ESC-e-1 — the arm-D bounds gap. The rename programme cannot execute inside this unit's
+writable set.** §Bounds grants the twelve stutter paths `rename + migrate imports **in one commit
+each**`, but a rename's migration rewrites the **importers**, and **no importer is in the set** — every
+stutter is imported by its own `index.ts` barrel, and no barrel was granted. Across the four Class-B
+renames the surface is **12 import sites, 11 of them outside the set, 1 inside**:
+`compiled-frame` → `compile/frame/{index,numeric-plan}.ts`; `element-resolve` → `engine/animation.ts`;
+`draw-svg`/`morph-svg` → `src/animation/index.ts`, `src/animation/svg/index.ts`,
+`test/svg/{draw-svg,morph-svg}.test.ts`. **Not one of the twelve is completable in one lawful commit.**
+Per METHOD the specified cure was **not substituted for**: no write outside the set; no rename split
+from its migration (S-4 forbids it and a half-landed rename is a broken build); **no re-export shim at
+the old path** (a hollow shim, which `proof:structure` R2 reds *by name* and the standing law calls a
+masking fallback); and **no quiet re-disposition of the four to KEEP** to make the gate look clean. To
+execute, the writable set needs the **eleven importer paths** above — two of which
+(`engine/animation.ts`, `src/animation/index.ts`) are live sibling surfaces, so the grant needs a
+sequencing decision, not just a path list. **Returned, not taken.**
+
+**Residues and relays declared from this unit** (all with their measurements, in the evidence §7):
+- **RD-e-1** — the one-edge ring kill: removing **`constants/types.ts ⇢ compile/value/index.ts`**
+  retires **13 of the 45 rings**. That file is outside this set and its `:195` `\| string` line is
+  already reserved to **KF.W4's KF-CB-18+24+29 bundle** by this spec's own §Sequencing. → **KF.W8**.
+- **RD-e-2** — **`npm run lint` is RED at HEAD over `demo`**: ⟨`npx depcruise --config
+  .dependency-cruiser.cjs src demo`⟩ → **4 genuine runtime cycles** in
+  `demo/scenes/cube/orbital-drag/`, entered the gate's scope when `fb509edd` widened `lint`.
+  **Reproduced against the COMMITTED config** to prove it is not this unit's. No arm of this wave
+  writes `.vue`. → **KF.W6**, structural terminus **KF.W8**.
+- **RD-e-3** — **the 500-line ceiling is two lines from firing**: `cssom.ts` **499**, `group/group.ts`
+  **498**, `engine/animation.ts` **497** against R4's 500 with an **empty allowlist**, all three moved
+  there by cures landed *this wave*. The next seat to add a line to any of them is the seat that reds
+  CI. → **KF.W8**; `cssom.ts` to **KF.W2**.
+- **RD-e-4** — `compile/emit/view-transition.ts` (438 L, new entrant) and its two `./format/format`
+  stuttering sites: X.KF.W2's live surface, observed not absorbed. → **X.KF.W2**.
+- **Courtesy to `.b` / G-BASIS — the fifth rival is DERIVED**: *"159 modules"* is **`depcruise src`'s
+  module count**, not `proof:structure`'s (which emits none) — measured here as **160 = 154 src
+  modules + 6 `@mkbabb/value.js` subpath externals**, i.e. exactly **159** at `.b`'s ref where B0 was
+  153. Recorded, not claimed; G-BASIS is `.b`'s gate.
+
+**E13**: this unit minted no mail, consumed no routed letter, and leaves **0 UNREAD in its scope**;
+`INBOX.md` is outside this unit's writable set and was read-only here. **`scripts/dev/dev.sh` was
+never touched or staged, in either repo.**
