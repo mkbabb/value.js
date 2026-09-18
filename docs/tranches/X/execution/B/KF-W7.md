@@ -1587,3 +1587,16 @@ landed in the kf index while this seat measured, and the kf tree's dirty `Chrome
 untracked `VALUEJS-INBOUND-*.md` survivors sat beside every read — **not one was ever staged, and this
 seat made no kf commit at all.** The record was re-read (⟨`wc -l`⟩ → **1197**, last entry
 `### X.KF.W7.d`, working tree clean for it) immediately before this append.
+
+**Addendum beside (same seat, same sitting, 2026-09-18) — the two placeholder shas in the commit
+table above, RESOLVED at the bytes rather than left as forward references**: row 3 *(these receipts +
+the SWAP verdict table)* = **`ab267e2d`**; row 4 *(the `LEDGER.md` row + event line)* = **`917892a3`**.
+**Four commits, all value.js, pathspec on every one** — `c13b7ea3` · `312a5068` · `ab267e2d` ·
+`917892a3`; ⟨cmd⟩ `git show --stat --format= --name-only` on all four returns **exactly four paths**,
+each inside this unit's writable set: the relay letter · `INBOX.md` · this record · `LEDGER.md`.
+**The LEDGER edit is the prescribed minimal in-place replacement of THIS wave's own row plus one
+appended event line** — ⟨cmd⟩ `git diff --numstat` for that file at this seat → **3 insertions, 1
+deletion**, and the single deleted line is ⟨cmd⟩ `git diff | grep '^-[^-]'` → **the KF.W7 row itself**
+and nothing else; **no other track's row was touched, and the file was never rewritten.** The two
+figures this addendum's parent publishes are re-measured here at the settled bytes: the record is
+⟨cmd⟩ `wc -l` → **1,589 L** and the evidence directory holds ⟨cmd⟩ `ls … | wc -l` → **10** files.
