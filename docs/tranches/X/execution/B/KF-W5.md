@@ -919,3 +919,140 @@ meanings: `99834edc` is `685ca13f`'s R6 follow-through and is booked with it⟩.
   fourteen commits sit on kf `master` ahead of `origin/master` awaiting it.
 - **E13**: the record's open-time four-path sweep stands; this unit minted no mail, consumed no routed
   letter, and leaves **0 UNREAD in its scope**.
+
+### X.KF.W5.d — Arm C, THE ENGINE SEAM — **DONE · G-RENDERER · G-RAF GREEN**
+
+**Seat**: Opus (`claude-opus-5[1m]`). **Substrate**: kf `master`, from this wave's HEAD **`55347314`**
+(the concurrent X.KF.W2 seat's last landing) to **`d7f68225`**. **Evidence**:
+`docs/tranches/X/keyframes/evidence/W5/ARM-C-unit-d.md` (the full sheet — every anchor re-measurement,
+both born-RED runs, the two vacuity findings, the instrument attribution).
+Every figure below is read from the settled bytes and **double-run**; both runs agree.
+
+**Sections executed, whole and only**: §Bounds *Arm C* (`:246-253`) · §Carry *Arm C* (`:361-367`) ·
+§Gates **G-RENDERER · G-RAF** (`:410-411`) · §Sequencing **S-4** (the engine-seam packet) **· S-5**
+(`:433-434`) · §Disjointness the `.d` clause (`:297-299`). **S-5 honoured**: `.c`'s `singleTarget`
+ruling (`0b593743`) is **consumed and never re-ruled**, and `group/group.ts` / `group/waapi.ts` were
+**not opened** by this seat.
+
+**Bounds, re-verified at true bytes before any edit.** The three `src` files PRESENT
+(`compile-bridge.ts` **113 L** · `engine/css/animation.ts` **253 L** · `physics/playback.ts` **250 L**);
+both created specs ABSENT at `55347314` (⟨`git cat-file -e`⟩ ×2), so the `create` verb is real.
+
+**ANCHOR DRIFT — one file, recorded, not smoothed over.** `compile-bridge.ts:85-104`/`:95-99`
+**reproduces** (`:88` decl · `:94-95` the transplant · `:98` `anim.unflatten = source.unflatten`).
+`playback.ts` **reproduces exactly**: `_run` **`:113`**, `const result = step(now)` **`:139`**,
+`void (…).then(reschedule)` **`:144`** — one argument, no rejection arm.
+**`engine/css/animation.ts` has DRIFTED BY 3 (up)**: `resolveTransform` declared **`:107`** (spec
+`:110`), called **`:115`/`:132`/`:167`** (spec `:118`/`:135`/`:170`), the *"reference comparison
+(`usesDefaultRenderer`)"* comment at **`:105`** (spec `:108`). **INTENT taken at the true bytes**; the
+drift is KF.W4's landing (`81a56990` → `7d958f21`) and later, beside the spec's own round-2 re-path of
+this file. The call COUNT is the spec's three and it reproduces.
+
+**Acts, in order.**
+
+1. **C-1 / G-RENDERER — the cure is LIBRARY-side, keyed on the named instrument.** `adoptCompiled`
+   transplanted the compiler whole **and** copied `source.unflatten`, so the RENDERER rode along with
+   the compiled state. `usesDefaultRenderer(fn)` is `fn === this._defaultTransform` against a
+   **per-instance** field (`engine/animation.ts:155`/`:159-161`), so an adoption leaves the receiver
+   holding a **foreign instance's** function. **Two faces, both measured at the un-cured bytes**: (i)
+   the row's — a receiver's custom `transformFunc` is replaced by the throwaway's default, `unflatten`
+   goes `false`, and the renderer is **never called again** for the mount's lifetime; (ii) one the row
+   did not have to name and the same bytes produce — a receiver on the **DEFAULT** renderer also ends
+   up holding a foreign default, so `usesDefaultRenderer` answers **false** (the WAAPI fast lane then
+   refuses the animation for a renderer nobody supplied — `waapi/eligibility.ts:130`,
+   `compile/emit/entry.ts:279`, `refusal-probes.ts:32`) **and the default paint writes the SOURCE's
+   element** from the receiver's play (measured: `destinationTarget.style.opacity` stayed `""`). The
+   pre-existing seam spec rebinds the computed SLOTS to the receiver and asserts `at()`, never a paint,
+   so face (ii) was invisible to it. **The cure is one rule**: *the renderer is the RECEIVER's unless
+   the SOURCE declared one of its own* — read through `usesDefaultRenderer` (the reference test
+   `engine/css/animation.ts:105`'s own comment already names) off the frames, taken BEFORE the
+   transplant, and re-pointed onto the adopted **template** frames as well as the compiled ones,
+   because `FrameCompiler.createFrame` re-derives transforms from `templateFrames`
+   (`compile/frame/compiler.ts:197-209`) and the next `parse()` would otherwise **re-derive the loss**.
+   `unflatten` travels with the renderer it describes. **The forbidden shape was not taken**: no
+   `demo/` byte is in the commit, and `useKeyframeOps.ts` stays a read-only witness.
+   **One honest addendum-beside in bounds**: `resolveTransform`'s docblock claim *"keeps WAAPI
+   eligibility a reference comparison"* was **false across `adoptCompiled`** and is true again only
+   because a second site upholds it — the docblock now names that site. No behaviour rides that edit.
+   **`engine/animation.ts` was NOT opened** (it is `.c`'s): `_defaultTransform` is `protected`, so the
+   receiver's own default is recovered through the **public** reference test rather than by adding an
+   accessor out of bounds.
+
+2. **C-2 / G-RAF — degrade, never wedge; a swallow fails the gate.** `_run`'s frame had **no failure
+   path in either shape**: a sync throw skipped `reschedule`, and an async rejection met a `.then` with
+   no rejection arm. In both, `_cleanup` never ran, `_rafId` stayed populated, **`running` stayed true
+   for the driver's lifetime**, and a pending `play()` promise never settled — so every consumer
+   guarding on `!playback.running` became a **permanent no-op**. A failed frame now winds the loop down
+   **through `reschedule`** (so the generation guard still decides whether this frame owns the driver,
+   and a stale failure cannot strand the loop that replaced it) and then **RE-RAISES the failure
+   unchanged** — the caller sees the error its own `step` produced. One `failFrame` serves both arms so
+   they cannot diverge.
+
+3. **Both gates written, and both AUDITED FOR VACUITY BEFORE BEING TRUSTED** (the discipline `.c`
+   recorded as the transferable part of its G-OPTSET leg-4 finding). **G-RENDERER's headline wording —
+   *"`usesDefaultRenderer` still false"* — is VACUOUS at the un-cured bytes** (a receiver asked about a
+   FOREIGN default answers `false` too); it is kept and named in the file as the gate's **letter**, and
+   every bite is an identity, a flag or a value the un-cured seam cannot produce. **G-RAF's *"it
+   throws"* is likewise vacuous** — the un-cured frame throws as well, that being the defect's delivery
+   — so every bite there is a **recovery** assertion. G-RENDERER is written against the SEAM: both
+   animations are built from the library's own entry points and **nothing in either spec reaches
+   `demo/`**; `SquareScene` appears twice, both in the header docblock (the provenance citation and the
+   falsifier itself), **zero times in the body**.
+
+**Gate readings, BEFORE → AFTER (both double-run; each born-RED measured with the FINAL spec bytes
+against the un-cured source file, restored into the worktree by `git show HEAD:<path> > <path>` over a
+scratchpad copy and put back — no `git stash`, no `reset`).**
+
+| gate | before | after |
+|---|---|---|
+| **G-RENDERER** | RED — spec ABSENT; `adoptCompiled` transplants the compiler whole and copies the flag. With the spec present: **5 failed \| 1 passed (6)** ×2 (the 1 pass is a **regression lock**, not a bite) | **GREEN — 6 passed (6)** ×2 |
+| **G-RAF** | RED — spec ABSENT; `:139` `const result = step(now)` with no try/catch and `:144` a one-argument `.then`. With the spec present: **5 failed \| 2 passed (7)** ×2 (the 2 passes are the loudness/guard locks) | **GREEN — 7 passed (7)** ×2 |
+
+**Instruments at close (attribution measured, not assumed).**
+⟨`npx vitest run --project library`⟩ → **112 files passed | 5 skipped · 1224 passed | 3 expected fail |
+14 skipped** — `.c` closed at 110/1211, so **+2 files and +13 tests, this unit's two specs exactly**
+(6 + 7). **The 3 expected fail are UNMOVED** (1 pre-existing + `.c`'s 2 born-RED G-FROMSTRING rows):
+this unit added none and unwrapped none.
+⟨`npx vitest run --project demo`⟩ → **31 files | 195 passed**, unmoved (no `demo/` byte written).
+⟨`npx tsc --noEmit -p tsconfig.lib.json`⟩ → **3**, the banked `TS6133` floor, unmoved.
+⟨`npx tsc --noEmit -p tsconfig.test.json`⟩ → **24**, the record's own open baseline; ⟨`… | grep -cE
+'adopt-compiled-renderer|raf-degrade|compile-bridge|physics/playback|engine/css/animation'`⟩ → **0** —
+**no diagnostic names a file this unit wrote**, and none was deleted to green a leg (FINDING 3's rule).
+The 28→24 against `.c`'s reading is the sibling's mid-edit files leaving the worktree.
+⟨`npx depcruise --config .dependency-cruiser.cjs src`⟩ → **✔ 0 violations, 160 modules, 705 deps**
+(160/702 at `.c`'s close). **This unit adds 0 modules and 0 module-pairs**: `engine/compile-bridge →
+constants` was already an edge (`import type { Vars }`) and is only widened to a runtime import
+(`NOOP_TRANSFORM`); the +3 deps arrive with the sibling's two commits in this window (`0cfd3b5f`,
+`55347314`) — attributed, not absorbed.
+⟨`node scripts/gates/structure/index.mjs`⟩ → **PASS, 0 violations across R1–R6** (this unit's three
+`src` files settle at 186 / 263 / 280 L; no allowlist edited, no module carved — `.e`'s act under S-6).
+⟨`node scripts/gates/surface/index.mjs`⟩ (`proof:publish`) → **PASS**; `llms.txt`/`llms-full.txt`
+byte-identical to a fresh generation.
+
+**Commit (1 — the engine-seam packet, which S-4 forbids splitting).**
+`d7f68225` *fix(kf/w5.d): the renderer belongs to the RECEIVER, and a failed frame degrades instead of
+wedging (G-RENDERER + G-RAF)*. ⟨`git show --numstat --format= d7f68225`⟩ → **5 files, 567 insertions,
+13 deletions** — `compile-bridge.ts` 84/11 · `engine/css/animation.ts` 10/0 · `physics/playback.ts`
+32/2 · `test/engine/adopt-compiled-renderer.test.ts` 207/0 · `test/physics/raf-degrade.test.ts` 234/0.
+The pathspec rides the commit itself; **nothing of a sibling's is in it**, and ⟨`git status
+--porcelain`⟩ after the landing shows only the two untracked I-26 mail survivors (the §0m.0 class),
+exactly as at open. Both created files carry `// SERVED MODEL: claude-opus-5[1m]` as line 1.
+**Nothing pushed** — under KF-WRITE the push of `origin HEAD` is the **WAVE's** close, not a unit's.
+
+**ESCALATIONS: none.** The specified cure was reachable at the bytes for both rows.
+
+**Residuals / carries.**
+- **`.c`'s ESCALATION 1 (`fromString` REPLACES / G-FROMSTRING) is NOT taken here, and the reason is
+  BOUNDS, not reluctance.** Its cure site — `engine/css/animation.ts:166`, today **`:176`**, re-derived
+  by name this seat — **is** in `.d`'s writable set, but **G-FROMSTRING is not one of `.d`'s gates and
+  `test/engine/fromstring-idempotence.test.ts` is not in `.d`'s writable set**. Landing only the
+  in-bounds half would be **actively harmful**: `.c` pinned the ruling with two `it.fails` rows, and an
+  `it.fails` that starts passing is a **test FAILURE** — the cure alone turns the library suite RED.
+  **Routing, stated for the wave**: the act needs ONE seat holding **both** files — clear the template
+  set (and the compiled frames with it) before the ingest loop, **then** unwrap the two rows to plain
+  `it`. Carried, not performed.
+- **A defect this unit cured that its row did not name**: the adopted-default face (ii) above. Same
+  seam, same rule, same line of cure; booked so a later census does not read it as scope creep, with
+  gate clauses (c1)/(c2) holding the floor.
+- **E13**: this unit minted no mail, consumed no routed letter, and leaves **0 UNREAD in its scope**;
+  `INBOX.md` is outside this unit's writable set and was read-only here.
