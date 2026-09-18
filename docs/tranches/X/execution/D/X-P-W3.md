@@ -3418,3 +3418,188 @@ moves them to X.P.W4 with G-1/G-4/G-7's REDs carried forward by id. Until one of
 wave is **PARTIAL and correctly so**.
 
 **Check 1 stamps no verb, cures no gate, and writes no byte in `<p2>`.**
+
+---
+
+## Repair 1
+
+**SERVED MODEL: claude-opus-5[1m]** · X.P.W3 **REPAIR SEAT, round 1** (Track D, X·P) ·
+2026-09-18, this seat's own clock; the sitting's date of record stays **2026-09-17**. Register: the
+**## Check 1** section above — 1 CRITICAL (G-1), 2 HIGH (G-7 · G-4's ⊇ leg), 1 MINOR with a
+one-command cure (F-k1). `W3.md` read WHOLE (673 L) and `W3-ADDENDA-2026-09-18.md` beside it;
+`W4.md` §2 read; the ## Close and ## Check 1 read whole.
+
+**CRASH-RECOVERY, first act.** ⟨cmd⟩ `git status --porcelain` in both repos before any other act.
+Inside this seat's writable set — **nothing dirty, no predecessor residue, nothing inherited**.
+`<p2>`: `?? .worktrees/` alone. Outside the set and never opened: ten `demo/**` + two `e2e/**` rows,
+`CARRY-LEDGER.md`, `execution/C/F-W1.md` (a sibling seat's), the untracked Track-A/C evidence dirs,
+and `scripts/dev/dev.sh` (` M`, unowned, unstaged, **never touched** — in 0 of this seat's commits).
+
+**Outcome: 1 cured · 3 escalated · 1 new finding that CORRECTS the register's stated cure for two
+of the three escalations.**
+
+### R1.1 — F-k1 **CURED** at the bytes (`<p2>` `ab6d694`)
+
+`W3.md` §6 G-4 names `--corpus test/css-totality/corpus.json` — `.a`'s 26,604-row union. Every seat
+of this wave, and the Close, ran `.b`'s own 685-row `test/css-recovery/corpus.json`, and the spec's
+literal command did not merely disagree, it **crashed**.
+
+```
+⟨cmd⟩ node scripts/css-recovery-closure.mjs --corpus test/css-totality/corpus.json \
+        --frozen-union c654824e:src/css/types.ts                                   [BEFORE]
+TypeError: Cannot read properties of undefined (reading 'length')
+    at Parser.parser (…/src/css/lowering-js/js-alg.mjs:236:75)
+    at runCorpus (…/scripts/css-recovery-closure.mjs:357:35)
+EXIT=1, unhandled
+```
+
+**The cure is the KEY, not a guard.** `.a`'s rows key the source as **`s`**
+(`{"i":0,"s":"rgb()","bands":["ground-a"],"prods":[]}`); `readCorpus` knew `src` and `input` only,
+so `undefined` reached `sg.src.length` on the RAW path. `s` is now read beside `src` and `input`,
+and `.a`'s 172 `r1` rows whose `s` is the `{id, src}` pair (**F-c3**) are unwrapped by **`.d`'s own
+published idiom**, cited at the bytes (`test/css-equivalence/lib/corpus.mjs:52-66`) rather than
+invented here: lossless, **counted and printed**, and **HALTing on a third shape**. No skipped cell,
+no defaulted `""`, no `String(row)` coercion — each of the three would let the ⊇ direction report a
+closure it never executed, which is the masking fallback this gate exists to forbid.
+
+```
+⟨cmd⟩ (the same command)                                                            [AFTER]
+corpus   typescript/test/css-totality/corpus.json — 26604 inputs, shape {rows:[{src}]}
+         · F-c3 {id,src} rows unwrapped 172
+executed 159672 calls · 144640 rejections · 154328 issues, over 2 lowerings × 3 entries
+C-1 GREEN (288 code sites · outside frozen 0)   C-2 GREEN
+C-3 RED   frozen \ emitted = 5 [animation_option_invalid keyframe_selector_invalid
+          syntax_descriptor_invalid syntax_mismatch timeline_option_invalid]
+C-4 RED   authored 0 · inherited 2 · measured DEAD: far.code === null on 0 of 144640 rejections
+C-5…C-10 GREEN · CTRL ×6 fires · EXIT=1        two runs byte-identical (diff -q empty)
+```
+
+**The verdict is UNMOVED and that is the point.** G-4 is RED under either operand (E-1, E-2); what
+the literal operand buys is a **39× stronger** reading of C-4's own claim — the two inherited
+fallback arms are measured dead over **144,640** rejections instead of 3,710 — and a gate that now
+runs the command its spec prints.
+
+**E-3 held, measured both ways.** The default-operand run is byte-unchanged and the committed
+evidence still regenerates equal:
+
+```
+⟨cmd⟩ node … --corpus test/css-recovery/corpus.json … --out <scratch>/rc-default.json   (×2)
+25fa6a4b08653334ed506a0b38aa690c96fa6e92d500f08473056bd5ebfc9240   <scratch>/rc-default.json
+25fa6a4b08653334ed506a0b38aa690c96fa6e92d500f08473056bd5ebfc9240   evidence/W3/recovery-closure.json
+      EQUAL — the Close's and Check 1's published figure survives this repair untouched
+```
+
+The literal-operand run is banked **beside** the original, never over it (E-3):
+`docs/tranches/X/parse-that/evidence/W3/recovery-closure-spec-literal-operand.json`, sha256
+`240473b17fff1e6f5a836a360a0a27ebfcb3b0c7781fbca00c71fbf2bee791b4`.
+
+**Falsifier exercised, not asserted.** ⟨cmd⟩ a corpus row whose `s` is `42`:
+`Error: HALT: … row 1 resolves to no string source — keys=[i, s], src/input/s=42. A row this gate
+cannot read is a HALT, never a skipped cell` — the new reader **can fail for its intended reason**.
+Re-runs of every gate this cure could move: **G-8** `--assert-no-console` → `GREEN — 2 of 2 legs
+green`, EXIT=0; **G-1** → `ALL 5 of 52 TOTAL`, EXIT=1 (unmoved); **G-7** → `rows 52 · COMPARED 8 ·
+NO-PEER 44 · MIRROR-DEFECTS 5890`, EXIT=1 (unmoved); `css-recovery` suite `139 passed | 3 failed`,
+all three pre-existing and named (closure.test.ts's born-RED **E-1**; latch.test.ts ×2 **ESC-c1**).
+`git diff --check` clean. The fresh root carries **no** `eslint.config.*`, so §7's `npx eslint .` is
+unrunnable there — stated, not silently skipped; it is not a defect this seat may cure in bounds.
+
+### R1.2 — **F-r1 (NEW, CRITICAL): G-1's TOTAL rule and G-6 are MUTUALLY UNSATISFIABLE**
+
+This is the finding that changes what the owner must rule, and it was reached by trying to cure
+G-1 rather than by re-reading the Check.
+
+**The rule, at the bytes.** `test/css-totality/lib/matrix.mjs:494-495` marks a runtime row TOTAL
+**iff** `result.misses.length === 0 && result.cellsRun > 0 && !corpusEmpty`, and the expectation
+each cell is measured against is **the published 4.0.0 module's own answer**
+(`matrix.mjs:115-138`, `partition`), with **only the 22 adjudicated LITERALS** overridden
+(`index.get(row.s)` — a literal-string lookup). So `TOTAL` means *bug-compatibility with the
+incumbent over 26,551 distinct sources*, less 22.
+
+**G-6 orders the opposite, by name.** ⟨cmd⟩ read-only probe, double-run identical:
+
+```
+G-6 row d   parseCssColor("rgb(300 -20 3)") → {"space":"rgb","channels":[255,0,3],"alpha":1}
+            incumbent 4.0.0                 → {"space":"rgb","channels":[300,-20,3],"alpha":1}
+```
+
+Every corpus row of that same class which is **not** one of the 22 literals is therefore a G-1
+**miss** *because the candidate obeys G-6*. Attributed over all 26,551 distinct sources
+(⟨cmd⟩ `node <scratch>/repair1-g1-attribution.mjs`, ×2 byte-identical):
+
+| count | class, and the rule that REQUIRES it |
+|---:|---|
+| 1150 | FALSE_REJECT · **G-6 row l** — trailing-dot numeral (`rgb(1. 2 3)`) rejected |
+| 1132 | VALUE · **G-6 row d** — out-of-range channel CLAMPED |
+| 552 | MIS_ACCEPT · **G-6 row e** — alpha outside [0,1] CLAMPED (`rgb(1 2 3 / 1.5)`) |
+| 439 | MIS_ACCEPT · **G-6 rows a/b** — legacy 4-arg `rgba()` / `hsla()` accepted |
+| 419 | VALUE · **G-6 row c** — unitless `hsl` S/L read as a percentage |
+| 182 | MIS_ACCEPT · **ADJ-3** — non-finite numeral |
+| 42 | FALSE_REJECT · **G-6 row h** — mixed comma/space separators rejected |
+| 26 | FALSE_REJECT · **G-6 row i** — percentage hue rejected |
+| 20 | MIS_ACCEPT · **ADJ-2** — token juxtaposition |
+| 10 | FALSE_REJECT · **G-6 rows f/g** — empty trailing argument rejected |
+| **3972** | **attributed to a G-6 row or a `parser-band` adjudication the candidate MUST honour** |
+| 74 | FALSE_REJECT whose head is outside `R_disp` — **COVERAGE_NARROWING**, a *declared non-defect* |
+| 65 | genuinely unattributed (43 false-reject in-shape · 7 mis-accept · 15 value at `hsl` S/L magnitudes the predicate missed) |
+| **4111** | parseCssColor's total G-1 misses, excluding the 22 adjudicated literals |
+
+**3,972 + 74 = 4,046 of 4,111 — 98.4%.** The remaining **65** are the only cells where the
+candidate's behaviour is unruled, and their samples are inputs on which the *incumbent* accepts
+visibly malformed syntax (`rgb(/55 0 153 / 0.5)`, `hsl(120,,50%, 50%)`, `rgb(255 0 153// 0.5)`).
+
+**What follows, and it is not what the register says.** Driving `parseCssColor` to TOTAL requires
+un-clamping, un-dividing, accepting `rgb(1. 2 3)`, and rejecting the two legacy 4-arg forms — each
+the exact inverse of a G-6 row this wave measures **GREEN** (`Tests 72 passed (72)`), and each the
+inverse of §5 `.d`'s own law: *"the mirror preserves spec-correctness, never bug-compatibility"*.
+**No byte a seat may write makes G-1 GREEN while G-6 stands.**
+
+Therefore the Check's stated cure for the CRITICAL — *"a dated addendum-beside … dispatching a seat
+for the six unrealized public entries"* — is **INSUFFICIENT, measured**. Dispatching it can move
+the 16 ABSENT runtime rows to **PARTIAL** and cannot move **one** row to TOTAL: the three realized
+rows are PARTIAL for a reason no new entry touches, and every new parser entry inherits the same
+oracle-as-expectation rule. The register's G-7 cure — *"realize the six absent entries so the 44
+NO-PEER rows gain a peer"* — is worse than insufficient: each new peer **adds** its own cells to
+the differential; `parseCssColor`'s peer alone contributes 4,027 of the 5,890.
+
+The true residue is **not** one fact wearing three gate numbers. It is **two**:
+
+1. **A dispatch gap** (F-a.6, correctly named by `.a` and by Check 1) — 16 runtime + 28 type rows
+   have no implementing seat. Curable by dispatch; moves rows ABSENT → PARTIAL.
+2. **A gate contradiction** (F-r1, new) — G-1's verdict rule and G-6's conformance rows cannot both
+   be satisfied. Curable **only by a ruling**: either G-1's TOTAL legend reads an adjudicated-class
+   divergence as covered (a change to a gate's GREEN condition, which
+   `W3-ADDENDA-2026-09-18.md` §A-3 states an addendum **may not** make), or G-1's expectation stops
+   being the incumbent's answer, or G-6 yields. All three are the owner's.
+
+### R1.3 — Escalations, each with its measured reason
+
+| id | gate | severity | why no cure landed here | owner |
+|---|---|---|---|---|
+| **ESC-r1** | **G-1** — 5 of 52 TOTAL | **CRITICAL** | **F-r1**: the gate's own TOTAL rule contradicts G-6 on 3,972 measured cells. The cure is a **ruling**, not bytes — and the register's proposed dispatch, executed in full, still yields 0 TOTAL runtime rows. Inside §4's bounds and outside every seat's authority: an addendum *"adds **no unit**"* and *"widens **no gate's GREEN condition**"* (`W3-ADDENDA-2026-09-18.md` §A-3) | the owner · X.P.W4 |
+| **ESC-d1** (carried) | **G-7** — 5,890 mirror-defects | **HIGH** | Same measurement, seen from the differential: `lib/differential.mjs:31` declares *"where the spec reading is missing, the cell is counted **against** the candidate"*, and 3,982 of the 5,890 carry `specUndecided: true`. Flipping that convention, or widening the literal adjudication index to class-level attribution, is **precisely** W1.md §6 G-2's named falsifier (*"widen the taxonomy … and the count goes to zero for the wrong reason"*) — a masking fallback, refused here. The 3,982 want the **GROUND-C** ruling `W3.md` §10 puts *"not opened here"*; the 1,908 DIVERGENT_VALUE cells want F-r1's ruling | the owner · X.P.W4 · X·V |
+| **E-1** (carried) | **G-4's ⊇ leg** — 5 of 8 codes unemitted | **HIGH** | Re-measured at the **spec's own operand** (26,604 inputs, 154,328 issues) and **unmoved**: the five codes are the diagnostic vocabulary of six public entries the grammar does not realize, and the checker prints the incumbent emission site of each. `.b`'s and `.c`'s refusal to stub them is **correct and is not reversed here** — a stub rejection emits codes no grammar raises. The cure is authoring six parsers, which §4's glob admits and §4a assigns to **no unit**; seating myself would mint the dispatch the register says only the owner gives | the owner · X.P.W4 |
+
+Nothing at ≥MEDIUM was cured by a workaround, and no gate was reported green on a narrative.
+
+### R1.4 — E13, swept at this seat's clock
+
+Four paths, read-only. ⟨cmd⟩ `find <the four paths> -type f -newermt '2026-09-18 14:55'` → **three
+files, all glass's own execution records** (`BK/EXECUTION-PROGRESS.md` and two
+`BK/execution/2026-09-18-o26-cure/*/RECORD.md`) — **not coordination letters, none value-addressed**.
+The newest BK coordination letter is `glass-outbound-2026-09-18-valuejs-o26-reply.md`, already rowed
+**I-35**. ⟨cmd⟩ `grep -c '^| I-'` → **37** rows; the five whose Status cell reads UNREAD (I-30 ·
+I-32 · I-33 · I-34 · I-35) each route away from X·P in their own Routing cells, verified in full at
+Check 1 §K1.2 and re-read here. **0 unrowed value-addressed · 0 UNREAD in X.P.W3's scope.**
+`INBOX.md` is outside this seat's writable set and carries a sibling's uncommitted hunk; no line was
+appended there — this paragraph is the sweep's receipt.
+
+### R1.5 — Verbs and the LEDGER row
+
+This repair **stamps no verb**. F-k1's cure moves no gate; G-1, G-4 and G-7 stay RED at exactly the
+figures the Close and Check 1 published, re-derived here. Four gates RED, G-9's latch leg RED and
+G-3's proof leg refuted means `W3.md` §2's *"gates green"* condition for **IMPLEMENTED** is still
+unmet, and **VERIFIED is X.P.W4's alone** (R-A). **The LEDGER status stays `PARTIAL 2026-09-17`**
+and this seat does not move it; the row gains this repair's commits and ESC-r1 by id.
+
+**Repair 1 cured one defect at the bytes, refuted the register's cure for two more with a
+measurement, and invented no bar, no relief and no green.**
