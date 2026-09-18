@@ -233,3 +233,97 @@ EXIT=1
 ## Unit receipts
 
 *(empty at open — each unit appends its own receipt here, line 1 of any file it creates being `SERVED MODEL: <its model id>`)*
+
+### `.i` — the decisions record
+
+**Seat**: `.i`, `claude-opus-5[1m]`, 2026-09-18. **Status: DONE.** **Gate turned: `G-F4-DECISIONS` — RED → GREEN.**
+**Commit**: `aacf5f28` (one commit, one path). **Writable set honoured exactly**: `docs/tranches/X/fourier/DECISIONS-F.W4.md` (new) ⊕ this receipt. **⊘ No fourier byte written** — every fourier-side reading below is a read.
+
+#### Act 0 — CRASH-RECOVERY sweep (standing law): nothing inherited
+
+⟨cmd⟩ `git -C /Users/mkbabb/Programming/fourier-analysis status --porcelain` → **∅** (clean, both runs).
+⟨cmd⟩ `git -C /Users/mkbabb/Programming/value.js status --porcelain` → 12 modified ⊕ 3 untracked, **none inside this unit's writable set**: the ten `demo/**` SFCs and `docs/tranches/V/reformation/CARRY-LEDGER.md` are sibling seats'; `scripts/dev/dev.sh` is the unowned standing-dirty path (**NEVER touched, never staged**); `docs/tranches/X/waves/evidence/` and the two `e2e/smoke/**a11y-control-targets.spec.ts` are Track A's.
+⟨cmd⟩ `ls docs/tranches/X/fourier/DECISIONS-F.W4.md` → **ABSENT** before this seat wrote it. **Zero inherited paths; no killed predecessor's partial work on this unit.**
+
+#### Act 1 — anchors verified at the true bytes BEFORE any write (the unit's own sections)
+
+All §2/§3/§6 coordinates in the dispatch resolve **exactly**: ⟨cmd⟩ `sed -n '353p;168p;114p;142p;127p;120p;198p;418p' F-W4.md` → `## §3 Decisions this wave authors…` · `⊘ FR-GFC-9 / GM-F1 — **THE DELETE-OR-REVIVE RULING (= §3 D1)…` · `### §2.E · the two docks…` · `### §2.I · the /paper route` · `### §2.G · the /equation convergence instrument` · `### §2.F · the shell/morph chain…` · `- **VITEST-FLOOR · the DECISION (= §3 D6)**…` · `## §6 Excluded…`.
+
+**⊘ ONE ANCHOR CLASS DRIFTED, and it is recorded rather than silently re-pointed.** The §4/§5 coordinates in the dispatch (`G-F4-DECISIONS (:39)` · `§5.1(3) riders (:48)` · `§5.2 →NO-WAVE-OWNER (:62)`) are **§3-relative offsets (base 352), not absolute**. Taken as absolute they land on a table separator, a §0a negative-roster row and a bare `---`: ⟨cmd⟩ `sed -n '39p;48p;62p' F-W4.md` → `|---|---|---|` · `| SvgFilters | 16 native / 0 callsites…` · `---`. Resolved: ⟨cmd⟩ `sed -n '391p;400p;414p' F-W4.md` (double-run, identical) → `| **G-F4-DECISIONS** | \`DECISIONS-F.W4.md\` carries D1..D10, each RULED…` · `3. **Repair-arms-a-defect same-commit riders** (the sharpest class): P…` · `- **→ NO-WAVE-OWNER / SS-3/SS-4 spec authoring** (consumed, not settle…`. **INTENT taken at the true bytes 391 / 400 / 414**, and the class is banked at the decisions record §6.1 so `.g`–`.z` do not each re-discover it. ⊘ Every §4/§5 gate coordinate in the unit plan reads the same way; this is a reading rule, not a defect in the plan.
+
+#### Act 2 — the born-RED reading (double-run, before the write)
+
+| probe | reading (both runs) |
+|---|---|
+| ⟨cmd⟩ `ls docs/tranches/X/fourier/DECISIONS-F.W4.md` | **ABSENT** |
+| ⟨cmd⟩ `grep -c '^### \.' docs/tranches/X/execution/C/F-W4.md` | **0** — no dependent cluster has opened |
+| ⟨cmd⟩ `git -C ../fourier-analysis status --porcelain \| wc -l` | **0** |
+
+`G-F4-DECISIONS`'s witness reproduces as written, **with one limb already relieved and the relief cited, not claimed**: the cell reads *"D9 is OWNER-GATED and unauthorable unruled"*, which was true at authoring and is **false today** — COHESION **§0o ESC-2** ruled it 2026-09-18. Recorded as a witness-moved disclosure in the same spirit as seat-0's gate 6.
+
+#### Act 3 — evidence gathered for the rulings (all read-only, all double-run)
+
+**D6's substrate and its four assertions, located at the bytes** — this is what decided the branch, and it is measurement, not preference:
+
+⟨cmd⟩ (from `fourier-analysis/web`) `grep -nA8 '"scripts"' package.json` → exactly `dev` · `build` (`vue-tsc -b && vite build`) · `preview` · `test:e2e` · `test:e2e:ui`.
+⟨cmd⟩ `grep -nE '"vite"|vitest|jsdom|happy-dom|"@vue/test-utils"' package.json` → **`"vite": "^7.3.6"` and nothing else**; ⟨cmd⟩ `ls node_modules/vitest` → absent; ⟨cmd⟩ `grep -m1 '"version"' node_modules/vite/package.json` → `7.3.6`. Repo-root `package.json` carries `@playwright/test` alone.
+⟨cmd⟩ `grep -rn 'snapshotForTransition' src` → **defined `components/equation/composables/useCurveTransition.ts:57`** (already importable pure TS).
+⟨cmd⟩ `grep -rn 'fuzzyMatch' src/components/paper/search/` → **defined `paperSearchIndex.ts:70`**, re-exported by **`search/index.ts:2`**.
+⟨cmd⟩ `grep -n 'resolveFigure' src/components/paper/PaperArticleWindow.vue` → `:44 function resolveFigure(filename: string)` — SFC-local, unimportable, exactly as PAW-50 states.
+⟨cmd⟩ `grep -rln 'contourBounds' src` → **∅** — the function does not exist until `CP-ROW-40`'s extraction mints it.
+
+⊘ **A lock this unit minted from that measurement, because nothing else would have caught it**: `fuzzyMatch`'s assertion must import from **`./paperSearchIndex`**, never from **`search/index.ts`** — the barrel is the **zero-consumer file the SCRUB deletes** (`G-F4-DEAD-DEP`; §2.L *"PSM's zero-consumer `search/index.ts`"*; `.e` step 8). A test importing the barrel **manufactures a consumer and falsifies `.e`'s zero-consumer proof** — a green gate bought by reddening another. Banked at the decisions record D6 and in `.g`'s and `.e`'s path.
+
+**D8's premise re-measured at the LIVE pin, because the record states it at 4.0.0 and F.W1 moved the tree to 8.0.0:**
+
+⟨cmd⟩ `grep -m1 '"version"' node_modules/@mkbabb/glass-ui/package.json` → `"version":"8.0.0"`.
+⟨cmd⟩ `grep -roh -- '--slider-scrub[a-z-]*' node_modules/@mkbabb/glass-ui/dist | sort -u` → **∅** (both runs) · ⟨cmd⟩ `grep -roh -- '--slider-[a-z0-9-]*' … | sort -u | wc -l` → **6** (the 4.0.0 census read ten, zero `scrub`). **The premise HOLDS at 8.0.0 and is stronger there** — the retint block is dead at both pins, so its deadness is not an artefact of the version the census ran on.
+⟨cmd⟩ `grep -n -- '--slider-scrub\|magnet-slider-track\|glass-scrubber\|VIZ_COLORS' src/components/visualization/EditorControlsDock.vue` → `:8` import edge · `:48`/`:221` the two stale `glass-scrubber` comments · `:121` class · `:122` `:style` binding · `:222-228` rule (`:229` = `</style>`).
+⊘ **A sub-limb disclosed rather than smoothed**: K-8's *"`w-full` is in the slider's cva base, seat byte-verified"* was taken at 4.0.0. ⟨cmd⟩ `grep -c 'w-full' node_modules/@mkbabb/glass-ui/dist/slider-gsc8jDIo.js` → **0** (both runs) — the record's own probe does not reproduce at 8.0.0's dist layout. **This does not falsify K-8 and the verdict does not move** (the block is dead on the namespace measurement alone), but **`.c` re-earns the "zero visual delta today" claim at 8.0.0 before deleting `width: 100%`**, rather than inheriting it. Chased no further at this seat — probe parsimony; the cure site is `.c`'s.
+⟨cmd⟩ `grep -rl -- '--slider-scrub' src` → **seven files** (`ConvergenceTimeline` · `HarmonicLevelGrid` · `MorphPhaseConfig` · `SliderControl` · `BasisSelector` · `EditorControlsDock` · `GlassTimeline`) — banked as **D8's scope boundary**: the verdict rules the ECD unit only, and the other six keep their own rows and their own `C-1⊕C-2` coupling.
+
+**Dissents pulled from their own records for verbatim preservation**: ⟨cmd⟩ `grep -n 'GM-F1' fr-GalleryMarquee.md` → `:29` (*"MAJOR banked; **D/C BLOCKER dissents preserved**"*) and `:159` (*"BLOCKER dissents preserved again"*) — **both recordings carried**; ⟨cmd⟩ `grep -n 'minority position' fr-CoefficientsPanel.md` → `:130` (the D-axis LOG minority, *"preserved so the F.W4 spec inherits the argument, not just the disposition"*) — carried in full, not summarised; D4's design dissent carried in §3's own sentence; `FSE-L-B1`'s *"reader-1's BLOCKER preserved in DISSENT"* carried at D10.5.
+
+#### Act 4 — the landing
+
+`DECISIONS-F.W4.md` authored: §0 reading law · §1 verdict table · §2 D1..D10 (each: §3's bytes quoted, mechanism at the corpus by ⟨cmd⟩, **cost of EACH branch**, verdict, dependent cluster, dissents) · §3 what is NOT decided (with holders) · §4 the gate reading · §5 the fifteen double-run measurements · §6 the anchor notes.
+
+**The verdicts**: **D1 RULED DELETE** (§3's own stated default, adopted on GM-24's static proof) · **D2(a) RULED DELETE / D2(b) DEFERRED-WITH-DEFAULT** (keep the shipped linear arm, wire no control; the touch constraint binds under both arms and is *not* deferred) · **D3 RULED RE-WORD, not fill** (and the record states why the routed half and the ruled half are different questions) · **D4 DEFERRED-WITH-DEFAULT** (neither restore nor retire; PAW-47's constant authored once against the inert geometry under LAW-4) · **D5 DEFERRED-WITH-DEFAULT** (posed and blocked; PAW-38 named and relayed) · **D6 RULED — vitest runner in `web/`** · **D7 DEFERRED-WITH-DEFAULT** (posed to SS-3/SS-4; **no rename**, which §3 forecloses in terms) · **D8 RULED DELETE WHOLE** · **D9 RULED — transcribed from COHESION §0o ESC-2** with its id, `fr-PaperSidebar L-4`/`M6` named released, `L-5(a)` named prerequisite, `.e` named executor · **D10 DEFERRED-WITH-DEFAULT ×5**, defaults stated and **not** answered.
+
+⊘ **D6's declined arm is priced with its real advantage first** (zero new dependencies; `vite@7.3.6` installed) before its three costs — build-coupling, no per-assertion report, and a hand-rolled evaluation harness for two subjects that are already importable pure TS. A branch dismissed without its strongest case is not priced.
+
+#### Act 5 — gate reading, AFTER (double-run at the settled bytes)
+
+| probe | AFTER (both runs) |
+|---|---|
+| ⟨cmd⟩ `ls docs/tranches/X/fourier/DECISIONS-F.W4.md` | **PRESENT** |
+| ⟨cmd⟩ `grep -c '^### D[0-9]' DECISIONS-F.W4.md` | **10** — D1..D10, all present |
+| ⟨cmd⟩ `grep -c '^\*\*VERDICT' DECISIONS-F.W4.md` | **11** (D2 splits into its two arms) |
+| ⟨cmd⟩ `grep -oE '^\*\*VERDICT[^—]*— [A-Z-]+( WITH-DEFAULT)?'` | `RULED \| (a) RULED \| (b) DEFERRED-WITH-DEFAULT \| RULED \| DEFERRED-WITH-DEFAULT \| DEFERRED-WITH-DEFAULT \| RULED \| DEFERRED-WITH-DEFAULT \| RULED \| RULED \| DEFERRED-WITH-DEFAULT` — **every one lands on one of the two lawful words** |
+| ⟨cmd⟩ `grep -c '^### \.' docs/tranches/X/execution/C/F-W4.md` | **0** at the moment of the write — no dependent cluster had opened |
+| ⟨cmd⟩ `head -1 DECISIONS-F.W4.md` | `SERVED MODEL: claude-opus-5[1m]` |
+
+**`G-F4-DECISIONS`: RED → GREEN**, on both of its clauses, and the three gating relations the cell names are discharged in the direction it asks — D1 gates every GalleryMarquee row (RULED, `.d` may open) · D4 gates PAW-47/PAW-54 (default executable, `.e` opens on the default arm and no other) · D6 gates PAW-12's rider (RULED, `.g`'s precondition met; PAW-12 itself stays F.W9/W10's).
+⊘ **Stated so `.z` does not read this green as broader than it is**: the gate's second clause is a **standing obligation across the wave**, not a one-time reading. It is satisfied at this instant by measurement, and **`.z` re-reads it at close** — a unit that executes an arm this record did not rule reddens it retroactively.
+
+#### Act 6 — E13 mail (this seat's own act)
+
+⟨cmd⟩ `grep -nE '\| *UNREAD' docs/tranches/V/coordination/INBOX.md` → **no output** — 0 UNREAD in scope. No row minted (this unit corresponds with no sibling repo); the four-path sweep and the close sweep are seat-0's and `.z`'s respectively.
+
+#### Commits
+
+| hash | paths | meaning |
+|---|---|---|
+| `aacf5f28` | `docs/tranches/X/fourier/DECISIONS-F.W4.md` | the decisions record (one commit, as the unit's lock requires) |
+| *(this line's own)* | `docs/tranches/X/execution/C/F-W4.md` | this receipt |
+
+⟨cmd⟩ `git show --name-only --format='' aacf5f28` → **exactly one path** — no sibling seat's staged bytes swept in.
+
+#### Residuals and escalations
+
+- **Escalations: NONE.** No write was attempted outside the writable set; `F-W4.md` untouched (**E-3**); no fourier byte written; `scripts/dev/dev.sh` untouched.
+- **Residual 1 — carried to `.c`**: D8's K-8 sub-limb (`width: 100%` no-op) does not reproduce at 8.0.0 with the record's own probe. `.c` re-measures before asserting zero visual delta; the DELETE-WHOLE verdict is unaffected.
+- **Residual 2 — carried to `.g` and `.e`**: the `fuzzyMatch` import-home lock (definition, never the barrel), or `.e`'s zero-consumer deletion of `search/index.ts` is falsified by `.g`'s own test.
+- **Residual 3 — carried to `.e` and `.z`**: D5's default is *posed and blocked*; **PAW-38's slug uniquification must ride `.z`'s LATEX-PAPER letter**, or the deferral renews itself silently at the next wave.
+- **Residual 4 — carried to every unit**: `G-F4-ANCHORS` gains two contributions (the §3-relative §4/§5 coordinate class; the ECD −1 drift with the rule span over-running onto `</style>`), banked at the decisions record §6 for `.z`'s G-11 quotation.
+- **Routed, not settled** (each with its holder named in the record's §3): D2(b)'s LOG default, D3's fill-`#graph` product question, D4's retire-or-restore, D7's shared domain, and D10's five legs.
