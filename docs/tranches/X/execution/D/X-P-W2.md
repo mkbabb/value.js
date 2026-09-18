@@ -2713,3 +2713,199 @@ in hope. value.js's `origin` is `https://github.com/mkbabb/value.js.git` and the
 | `<p2>` | `git -C <p2> push origin HEAD` | **FAILS, as its standing condition requires**: `fatal: 'origin' does not appear to be a git repository` / `fatal: Could not read from remote repository.` ⟨`git -C <p2> remote -v \| wc -l`⟩ → **0**. The fresh writer root has had no remote since X.P.W0 opened it (X.P.W1's LEDGER row records the same: *"in `<p2>` (no remote, R-2)"*). **Its seven commits are durable on local branches `w2/harness` · `w2/ac1` · `w2/ac2` · `w2/ac3-scan-union`, and nothing was force-pushed, reset, or stashed anywhere.** Giving `<p2>` a remote is an owner act, not a close seat's. |
 
 *Close sealed 2026-09-17 by the X.P.W2 VERIFY-ONLY close seat (`claude-opus-5[1m]`).*
+
+---
+
+# X.P.W2 — SECOND SITTING (RELAUNCH), opened 2026-09-17 on COHESION §0n.1's E-1 word
+
+**SERVED MODEL: claude-opus-5[1m]** · Track D seat 0 (OPEN), RESUME MODE.
+
+Everything above this line is the FIRST sitting's record and is **dated evidence — unrewritten,
+E-3**. This sitting appends beside it. It exists because the one act the first sitting could not
+lawfully perform — `.i`'s mechanical graduation — acquired its input: **COHESION §0n.1 rules E-1
+word (a), AC-1 TAGLESS-TWIN is the survivor**, and **§0n.6** ends *"Track D relaunched fresh; seat 0
+RESUME MODE dispatches `.i` on this word."*
+
+## Open — second sitting
+
+**Date**: 2026-09-17, 23:3x EDT. **Seat**: 0 (OPEN), Track D, Opus 5 (`claude-opus-5[1m]`).
+**Acts**: E13 Step-0 · preconditions at the bytes AND in the ledger · the relaunch BEFORE baseline
+run READ-ONLY · the unit plan (ONE unit owed) · this block · the LEDGER row.
+**This seat wrote no product byte, no `<p2>` byte, and no gate cure.**
+
+### R.0 — RESUME MODE: what already exists, and is therefore NEVER re-dispatched
+
+Nine units ran in the first sitting and every one of them has its commits on disk. Verified at the
+bytes in both histories, not from this record's prose:
+
+```
+⟨cmd⟩ git -C <p2> log --oneline -3 w2/harness
+4afad90 docs(w2/contract): re-land the §Selected append … (F-h7 / R-c6)
+8137081 feat(w2/harness): dual-target probes + replayable corpora over W1's instruments
+9bf2da5 docs(w2/contract): the ratified ALGEBRA.md — execution copy, sha256-equal to the docs original
+⟨cmd⟩ git -C <p2> log --oneline -1 w2/ac1            → af40fb2 X.P.W2.d(ac1): AC-1 TAGLESS-TWIN …
+⟨cmd⟩ git -C <p2> log --oneline -1 w2/ac2            → a7ac4ea feat(w2/ac2): AC-2 CLOSED-IR …
+⟨cmd⟩ git -C <p2> log --oneline -1 w2/ac3-scan-union → f934956 feat(w2/ac3): SPAN-ALGEBRA's §3d slice …
+⟨cmd⟩ git log --oneline -3 -- docs/tranches/X/parse-that/algebra/
+562077ad docs(x-p/w2): blind algebra drafts — Fable and Opus arms (F-h6 …)
+ba01b405 docs(x-p/w2.h): kill ledger + close report opened + evidence fold; §Selected appended …
+b5a0cb1f docs(x-p/w2): contract apotheosis — the one algebra ratified; candidate field fixed
+```
+
+**alreadyDone (9, never re-dispatched)**: `.0` · `.a` · `.b` · `.c` · `.g` · `.d` · `.e` · `.f` ·
+`.h`. **Owed (1)**: `.i`.
+
+Two orchestrator acts landed between the sittings and are read here as **facts, not claims**
+(COHESION §0n.6): **F-h6** — the phase-1 drafts are now tracked (⟨`git ls-files
+docs/tranches/X/parse-that/algebra/`⟩ → `ALGEBRA.md` · `draft-fable.md` · `draft-opus.md`), and
+**F-h7** — `<p2>/experiments/w2/contract/ALGEBRA.md` re-landed byte-equal at `4afad90`.
+
+### R.1 — E13 Step-0, the four-path sweep at this seat's own clock
+
+Classification taken from each row's **status cell**, never from a bare `grep -i unread` (X.P.W0
+CHECK 1 **D-1**); `INBOX.md` self-excluded (SELF-COUNT law). Delta taken against **22:56**, the
+clock of the most recent sweep line at the file's foot (F.W6 OPEN, Track C):
+
+```
+⟨cmd⟩ /usr/bin/find <path> -maxdepth 1 -name '*.md' -newermt '2026-09-17 22:56' | wc -l
+docs/tranches/V                                                         0
+docs/tranches/V/coordination                                            1   → INBOX.md itself (self-excluded)
+../glass-ui/docs/tranches/BK/coordination                               0
+../keyframes.js/docs/tranches/V/coordination                            0
+../sci-report/atlas/docs/tranches/P/coordination                        0
+⟨cmd⟩ ls -1dt ../glass-ui/docs/tranches/*/ | head -3   → BK/ · BJ/ · BI/     (BK re-confirmed newest)
+⟨cmd⟩ grep -cE "^\| I-[0-9]+ " docs/tranches/V/coordination/INBOX.md   → 34
+```
+
+**Result: 0 unrowed · 0 new `I-n` minted · 0 new `O-n` minted.** The three `UNREAD 2026-09-17` rows
+are **I-32 · I-33 · I-34** — minted by *this wave's own* seat 0 at the first sitting, and each row's
+**Routing** cell sends it elsewhere: I-32 → *"the X formation mail seat / X-W0.j … and X-EXT-1..6"*,
+I-33 → *"the X formation mail seat, which relays each sibling's section"*, I-34 → *"X-W0.j / X-EXT-1,
+beside I-32. **Not X·P's, not a value.js act today**"*. None names a parse-that byte, and no glass,
+demo or frontend byte is inside this wave's §File Bounds. **UNREAD in X.P.W2's scope: 0.** No status
+cell flipped (the durable mark moves at the consuming seat, not at a sweep); one dated line appended
+at the file's end.
+
+### R.2 — Preconditions, verified at the bytes AND in the ledger
+
+| # | condition | reading at this seat | verdict |
+|---|---|---|---|
+| **OP-1** | the owner's begin-word for X·P execution | COHESION **§0j** (2026-09-17) opened execution; **§0j.E** gives OP-1 for this lane by name | **MET** |
+| **E-1** | *the* blocking condition of the first sitting — the owner's word naming the survivor | COHESION **§0n.1**: *"**E-1 — THE TIE: word (a). AC-1 TAGLESS-TWIN is the survivor.**"* ⟨cmd⟩ `grep -c "AC-1 TAGLESS-TWIN is the survivor" docs/tranches/X/COHESION.md` → **1** (the first sitting's `.i` measured **0** at its clock and escalated; the word now exists). **§0n.2**: *"`.i` opens on this word"* | **MET — this is what re-opens the wave** |
+| **OP-2** | X.P.W0 closed GREEN; fresh root at `f5757082`, detached, clean | LEDGER row **X.P.W0 CLOSED**; `<p2>` present, 4 worktrees, porcelain `?? .worktrees/` alone (§4b's container) | **MET** |
+| **OP-3** | X.P.W1 IMPLEMENTED — the three instruments in `<p2>` | LEDGER row **X.P.W1 CLOSED 2026-09-17**; ⟨`ls <p2>/harness`⟩ → `README.md bench equivalence totality w2` | **MET** |
+| **§5 `.i` input** | `.h`'s ruling exists and names a source | `W2-KILL-LEDGER.md` **505 L**, sha256 `3c567b2b…4e16c16f`; §11.1 names AC-1's source `<p2>/.worktrees/ac1/experiments/w2/ac1-tagless/**` **at `af40fb2d`** — ⟨`git -C <p2> worktree list`⟩ prints `.worktrees/ac1  af40fb2 [w2/ac1]`, porcelain **0** | **MET, at the named commit** |
+| **E-3** | the spec is immutable | ⟨`shasum -a 256 …/W2.md`⟩ → `248eb0889f7ef101591435bd6bd2b6b5efc7e571cf9955a6360338507b29a4cd` — **string-equal** to the first sitting's §Open pin, 999 L | **HOLDS** |
+
+### R.3 — What COHESION rules for this sitting (cited by id; never presumed, never re-opened)
+
+- **§0n.1 · E-1 word (a)** — AC-1 TAGLESS-TWIN survives, on four named asymmetries (hypothesis
+  literalness · correctly-rounded numerics vs a declared 3-ULP fallback · §10.2 ruled DISPATCH-first
+  by E-4 · a grammar-agnostic Wasm runtime). **E-1(b) Stage 4 is NOT ordered**; K-5 stays
+  recorded-not-gating under OC-1. AC-2's worktree `a7ac4ea4` **stays** — nothing is deleted.
+- **§0n.2 · `.i` opens** — mechanical execution of `W2-KILL-LEDGER.md` §11 for AC-1; **ESC-i2 ruled**:
+  the sub-gate's subject is the library workspace's own project — `npm ci` in `<p2>/typescript`, then
+  `npx tsc --noEmit -p typescript/tsconfig.json`; **no root `<p2>/tsconfig.json` is minted**; errors
+  outside `typescript/src/css/**` are recorded **RED-PREEXISTING** with counts by code. G-3 reads
+  **EQ-6 = 2,035** at the graduated location and is recorded **honest-RED with E-2's id**. The wave
+  closes **IMPLEMENTED-with-carried-REDs (G-3 · G-4 · G-7 · G-8)**, never GREEN-by-assertion.
+- **§0n.3 · the contract addenda (E-2 · E-3 · E-4 · E-5 · E-8)** land as **X.P.W3's first act**, ONE
+  dated addendum-beside to `ALGEBRA.md`, **never by `.i`**. `.i` does not touch the grammar.
+- **§0n.4 · E-6** — W1's bench `--engine` widening is **X.P.W3's**, not `.i`'s. G-7 stays RED here.
+- **§0n.5 · E-7 / OP-7** — the clone point's three `typescript/src/parse/**` commits are ADOPTED as
+  the base; the seed's one import specifier is re-pointed **by W3's first act (§11.3)**, not here.
+- **§0n.2 (tail) · the relaunch's close** also performs C.6's remaining §4a acts — the evidence fold
+  beyond `h/**`, the `x-p-w2.json` harvest, the `DEFECT-LEDGER.md` append, the COHESION §5 carve, and
+  the candidate-branch merge (`w2/ac1` → the root's working branch `w2/harness`, **after** the ledger
+  commit, §9's *"merged … only after phase 5"*). **These are close acts, not `.i`'s** — recorded here
+  so the close cannot mislay them (§4a: *"single-owner acts at close"*).
+
+## Baseline — second sitting, run READ-ONLY before any cure
+
+The first sitting's §Baseline (12 of 12 RED) and its §C.2 close table (6 GREEN · 5 RED · 1 SPLIT)
+stand unrewritten above. This table is the **relaunch's own BEFORE**, taken at this seat's clock;
+where a reading is inherited it says so and cites, never re-derives (epoch rule).
+
+| gate | relaunch BEFORE, at this seat | verdict |
+|---|---|---|
+| **G-1** | Run from `<p2>` (branch `w2/harness`): *"homes sha256-equal: **YES**"* — both `67c8253abaecb29a0b16a862bf63ad25ff1140d91f06248c843b9c253fc537de`, 157,010 B each; operators enumerated **22** == stated **22**; target-conditional tokens in the contract text **0**; the R-LAW-5 negative control fires (**1**); per-candidate walk **ABSENT 0 of 4** (the candidates live in worktrees) → *"GREEN — contract half"*. Run from `<p2>/.worktrees/ac1`: `ac1/js` and `ac1/wasm` **29 terms**, `ops∉22` **0** · `recover≺alt` **0** · **`cut∉alt` 7** · `unowned-span` 0 · `closure-leak` 0, and the verdict line reads *"RED — the two ALGEBRA.md homes are not sha256-equal \| ac1/js: CUT outside an ALT arm's scope (§5.2)"* — **the ac1 worktree carries the pre-F-h7 contract copy on its own branch**, which the close's `w2/ac1 → w2/harness` merge resolves, and `cut∉alt` is **E-3, the owner's, cured by W3's addendum** | **SPLIT — contract half GREEN (see greenBeforeCure) · structural half RED (E-3), owner-owed** |
+| **G-2** | inherited GREEN at the candidate location (§C.2, double-run byte-identical). **At the graduated location it is ABSENT**: ⟨`node harness/w2/op-bijection.mjs --candidate ac1 --at typescript/src/css`⟩ → `contract rows: 22` / *"ABSENT — candidate ac1: candidate directory ABSENT (…/typescript/src/css) — phase 4 has not run"*; **double-run byte-identical** (⟨`diff -q run1 run2`⟩ silent) | **RED at the graduated location** — `.i`'s subject |
+| **G-3** | inherited: **EQ-1..EQ-5 = 0**, **EQ-6 = 2,035**, identical in both lowerings, over 30,527 rows (§C.2). §0n.2 rules it **honest-RED with E-2's id** at the graduated location too | **RED — contract-owned (E-2), not `.i`'s to cure** |
+| **G-4** | inherited: R-LAW-1 mismatches 0 over 2,951 TRY sites (ac1), R-LAW-3 silent, R-LAW-4 amplified 0; **R-LAW-2's 13 COMP-1 rows** are the same E-2 cause | **RED — carried (E-2)** |
+| **G-5** | **MEASURE-AT-OPEN, re-taken at this sitting's HEAD `80fb42b9`**, probe run unmodified (R-E): `parseCssColor` **102/172** · `parseCssScalar` 102/172 · `parseCssValue` 60/172 · `parseCssValues` 60/172 · five parsers 0/172 · **TOTAL 324 throws / 1,548 calls** · **DISTINCT FAILURE MODES 1** (`TypeError: Cannot read properties of undefined (reading 'replace')`), exit 1 — **reproduces §6's header to the digit; R1 is still live in the incumbent**. Candidate half inherited GREEN (0/172 × 3 productions × 2 lowerings, boundary 7/7) | **GREEN at the candidate location; the graduated-location run is `.i`'s** |
+| **G-6** | inherited GREEN (report half): 52 rows, ∅ both ways, map digest `334fa95778e00727b945f66bac7af5dd`, verbs `{"TOTAL":0,"PARTIAL":0,"ABSENT":52}`, subject line *"p2-native — no CSS surface exists under `<p2>/typescript/src/css`"* — **that sentence is exactly what `.i` moves** | **GREEN (report half)** |
+| **G-7** | inherited RED-STRUCTURAL (**E-6**): ⟨`grep -c 'w2' harness/bench/bench.ts`⟩ → **0**; registering a cell is a write under `harness/bench/**` (execute-no-write, §3a halt). §0n.4 assigns the widening to **W3** | **RED — carried, not this sitting's** |
+| **G-8** | inherited RED, instrument-owned (F-4 · F-e8 · F-f3 · F-h3): ac1 wasm reject path **2.1 B/parse** against an exact-zero condition inside a ±10 B/parse band | **RED — carried** |
+| **G-9** | inherited GREEN at the candidate location: `imports by kind {}`, start section absent, 5 enumerated exports, memory bytes before == after over 2,000 parses, K-9/K-10 intact | **GREEN; the graduated-location run is `.i`'s** |
+| **G-10** | inherited GREEN: graph clean (`opt` under `all` 0 · `lazy` 0 · memoize 0), five textual zeros, excess-property fixture *"PASSES"* under `tsc --noEmit --strict` | **GREEN; the graduated-location run is `.i`'s** |
+| **G-11** | inherited GREEN: the deep-nesting row returns `ok:false, 1 issue(s)` from a constructed bound in both lowerings, never a `RangeError`; every scan primitive an algebra leaf | **GREEN** |
+| **G-12** | **ledger half GREEN** — `W2-KILL-LEDGER.md` 505 L, `3c567b2b…`, 4 of 4 terminal (AC-1 SURVIVES-TO-W3 · AC-2 SURVIVES-TO-W3 · AC-3 KILLED(K-3) · AC-4 KILLED(K-2)); the tie **is now ruled** by §0n.1. **Graduation half RED** — ⟨`ls <p2>/typescript/src`⟩ → **`parse`** only; ⟨`ls <p2>/typescript/src/css`⟩ → `No such file or directory`, **read twice** | **SPLIT — ledger GREEN · graduation RED**; the graduation half is the whole subject of this sitting |
+
+**R.2 self-check (GREEN-BEFORE-CURE)**: one entry — **G-1's contract half**, which reads GREEN at
+this open although no unit of *this* sitting has acted. The cause is named and is not a defect of
+measurement: the orchestrator landed **F-h7** between the sittings (COHESION §0n.6), re-landing the
+`<p2>` execution copy byte-equal at `4afad90`. It is listed as a finding because R.2 says a GREEN
+before its cure is one, not because the reading is doubted. The gate as a whole is **not** GREEN: run
+from the seat's own worktree it exits RED on `cut∉alt` **7** (E-3, owner-owed, W3's addendum).
+
+### B.3 — ESC-i2's subject, measured before dispatch so `.i` cannot improvise it
+
+```
+⟨cmd⟩ ls <p2>/typescript/                → CHANGELOG.md CLAUDE.md package-lock.json package.json
+                                            scripts src test tsconfig.json vite.config.ts vitest.config.ts
+⟨cmd⟩ ls -la <p2>/typescript/package-lock.json   → 118,801 B
+⟨cmd⟩ ls -d  <p2>/typescript/node_modules        → No such file or directory   (the 343 TS errors' cause)
+⟨cmd⟩ ls     <p2>/tsconfig.json                  → No such file or directory   (none is minted — §0n.2)
+⟨cmd⟩ grep -n node_modules <p2>/.gitignore       → 2:node_modules/
+```
+
+### B.4 — the promotion source, enumerated at the bytes
+
+⟨cmd⟩ `ls <p2>/.worktrees/ac1/experiments/w2/ac1-tagless` → `VERDICT.md` · `algebra/`
+(`grammar.mjs` `ops.mjs` `tables.mjs`) · `build/` (`ac1.d.ts` `ac1.js` `ac1.wasm`) · `build.mjs` ·
+`harness-adapter.mjs` · `lowering-js/` (`index.mjs` `js-alg.mjs` `values.mjs`) · `lowering-wasm/`
+(`asm.mjs` `index.mjs` `layout.mjs` `runtime.mjs` `wasm-alg.mjs`) · `probes/` · `reify/`
+(`term-alg.mjs`).
+
+Two readings handed to `.i` rather than left for it to trip over — **neither is a decision this seat
+takes**: (1) §11.1's promoted set names `algebra/** + lowering-js/** + lowering-wasm/** + build.mjs +
+harness-adapter.mjs + the built artifact and its .d.ts`, and **`reify/term-alg.mjs` is imported by
+both lowerings** (⟨`grep -rn 'reify/term-alg' lowering-js/ lowering-wasm/`⟩ → 2 hits) — `.i` reads
+`harness-adapter.mjs`'s `meta` to settle whether it is a source, and records the reading either way;
+(2) the only depth-sensitive specifier is `"../../../../harness/bench/lib/engines.mjs"`
+(`lowering-js/index.mjs:12` · `lowering-js/js-alg.mjs:25`) — **and both source and destination sit
+four levels below `<p2>`**, so the move may force **zero** edits; `.i` lists what it changed one by
+one, or records **zero** with the command that proves it.
+
+## Unit plan — second sitting
+
+**ONE unit in ONE group; peak concurrency 1.** `W2.md` §2 declares 9 units across 6 phases; nine ran
+in the first sitting and are in `alreadyDone` above. Phase 6 alone is owed. No unit is minted that
+the spec does not name: §0n.2's remaining §4a acts are **the close's**, per §4a's *"single-owner acts
+at close"*, and are docketed in **R.3** so the close seat inherits them in writing.
+
+| group | units | why this shape |
+|---|---|---|
+| 1 | `.i` | phase 6, serial — mechanical graduation on §0n.1's word; nothing else is owed |
+
+| unit | model | spec sections | writable set | gates | brief |
+|---|---|---|---|---|---|
+| **X.P.W2.i** | opus | `W2.md` §5 `.i` L660–670 · §3 item 10 L183–185 · §6 G-12 L839–852 · §10 alias table L921–929 · `W2-KILL-LEDGER.md` §11 L434–465 · COHESION §0n.1 L961–988, §0n.2 L990–992 | `<p2>/typescript/src/css/**` (create), in the worktree `<p2>/.worktrees/ac1` on branch `w2/ac1` | G-12 graduation half; re-runs G-2 · G-3 · G-5 · G-9 · G-10 at the graduated location | Execute `W2-KILL-LEDGER.md` §11 **mechanically for AC-1 TAGLESS-TWIN** (COHESION §0n.1 word (a)) — **no redesign, no "improvements in passing"**; the diff between candidate dir and graduated tree is G-12's own falsifier check. Source `<p2>/.worktrees/ac1/experiments/w2/ac1-tagless/**` at `af40fb2d`; destination `typescript/src/css/**` in that worktree; promote `algebra/**` + `lowering-js/**` + `lowering-wasm/**` + `build.mjs` + `harness-adapter.mjs` + `build/` artifact + `.d.ts` (settle `reify/` by `meta`); `probes/**`, `dev/**`, `VERDICT.md` stay behind. **Only move-forced relative-import edits, listed one by one (or ZERO, proven).** The published-1.0.0 import is **carried, never re-pointed** (§11.3 / E-7 is W3's). Build both lowerings at the graduated location; re-run `node harness/w2/op-bijection.mjs --candidate survivor --at typescript/src/css`, then G-3 · G-5 · G-9 · G-10 with `--at`, and paste — **invoke the ac1 worktree's OWN copy of each probe**: `harness/w2/lib/contract.mjs:15` sets `P2_ROOT = path.resolve(HARNESS_W2_DIR, "..", "..")`, so running `<p2>/harness/w2/*.mjs` from the worktree would resolve `--at` against the wrong root and read ABSENT. **ESC-i2 (§0n.2)**: `npm ci` in `<p2>/typescript` (lockfile-pinned, digest recorded, no tracked byte), then `npx tsc --noEmit -p typescript/tsconfig.json`; **mint no root `tsconfig.json`**; errors outside `typescript/src/css/**` are **RED-PREEXISTING** with counts by code, errors inside are `.i`'s. **G-3 will read EQ-6 = 2,035 — record honest-RED with E-2's id and do NOT touch the grammar** (§0n.3: the addenda are W3's first act). ⟨`git -C <p2>/.worktrees/ac1 status --porcelain`⟩ shows only the graduated paths before the commit; commit on `w2/ac1` (`feat(w2/graduate): …`), body = the mechanical-promotion diff summary. Do **not** merge branches (the close's act), do **not** write `harness/**`, `experiments/**`, or any value.js byte but this record's `## Unit receipts` block. |
+
+### P.3 — locks binding this sitting
+
+- **`.i` runs only after `.h` commits** (§4a) — `.h` committed at `ba01b405` in the first sitting.
+- **`.i` touches nothing but `typescript/src/css/**`** (§4a, verbatim). W1's
+  `harness/{totality,equivalence,bench}/**` stay execute-no-write; `harness/w2/**` is `.g`'s and is
+  **invoked, never edited** — a graduation that "needs" a probe changed has failed, not the probe.
+- **No branch merge in `.i`** — §11.2 merges `w2/ac1` to the root's working branch *after* the ledger
+  commits, and §0n.2 assigns that merge to **the relaunch's close**.
+- **The two histories are never merged** (§9), and **no commit in this wave touches
+  `/Users/mkbabb/Programming/parse-that`** — *"a wave-invalidating event, not a mistake to amend"*.
+- **Bar law**: no bench bar is set or implied anywhere; `OWNER-GATED-PENDING-RATIFICATION` stands.
+- **§3a halt conditions** (first sitting's §P.2) are quoted to `.i` unchanged. A third
+  diagnose→edit→re-measure iteration on one gate → halt.
+
+## Unit receipts — second sitting
+
+*(empty at open; `.i` appends its block here)*
