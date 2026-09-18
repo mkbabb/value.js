@@ -948,3 +948,65 @@ transcribed without this measurement; that is the defect, and it was this sittin
   `safari:useSimulator` refused) — recorded, never inferred from webkit-engine (I-20's law).
 - `.d` (contrast / forced-colors / AT — the AT arm per §0j.C) and `.e` (the 13 addenda write-back +
   the fold of `.c`'s 27 rows) are dispatched at the relaunch; OD-V3/OD-V5 stay as §0j.C ruled.
+
+## §0n ADDENDUM 2026-09-17 — THE X.P.W2 DOCKET (`W2-KILL-LEDGER.md` §9 E-1..E-8, ESC-i2, C.6), RULED UNDER THE BEGIN-WORD'S DELEGATION
+
+The kill ledger escalated to the owner by name, as `W2.md` §3e told it to. The owner's standing
+instruction for this execution is the §0j begin-word — *"do not relinquish control back to me until
+you have completed the plan IN TOTALITY"* — under which §0k, §0l and §0m already ruled owner-named
+dockets. These rulings are the orchestrator's (served model `claude-fable-5-1`), recorded so the owner
+can overturn any of them at read; every one is reversible (the graduation is a copy on a branch; the
+unnamed survivor's worktree is preserved, never deleted).
+
+### §0n.1 · E-1 — THE TIE: word (a). **AC-1 TAGLESS-TWIN is the survivor.**
+
+Not by preference and not by averaging: the ledger's §7.1 names the three asymmetries that are neither
+encoding- nor instrument-dependent, and each is read here against what W3 must build (the 52, total,
+on the library's own surface):
+
+1. **The hypothesis's own words.** The surviving hypothesis asks for a JS lowering *"source-direct on
+   the combinator library's own surface"*. In AC-1 *the interpretation IS the parser*: `buildGrammar(A)`
+   instantiated over parse-that's `Parser` — the grammar is combinator code, typed by the 22-op
+   signature. AC-2's grammar is a data object read by a compiler; source-direct one layer down. Both
+   passed G-10; AC-1 satisfies the sentence literally, and W3's grammar authors read and write
+   combinator code, not an IR.
+2. **Numerics.** AC-1: a correctly-rounded path, **0** mismatches over 520k tokens, undecidables
+   flagged. AC-2: exact path on corpus numerals, a **declared non-correctly-rounded fallback (3 ULP
+   worst)**. Over the 52's full numeral surface EQ-1 is a K-1 hazard for AC-2 and not for AC-1 — the one
+   asymmetry that bears on a kill rule's *future* reading.
+3. **§10.2, ruled below (E-4) as DISPATCH-first**: AC-1's one acceptance-changing deviation becomes the
+   contract; AC-2 as shipped rejects `linear(…)`. D-2 dissolves in AC-1's favour by the addendum, not by
+   taste.
+4. A grammar-agnostic Wasm runtime (`run · setTheta · highWater · reset`) versus per-production entries
+   over a 32 MiB constant memory — the shape W3's 52 entries need.
+
+**What AC-2 had that W3 keeps (carried as W3 open-seat obligations, not lost):** the closed-union
+enforcement — W3 wires a gate that a 23rd operation halts *both* lowerings (AC-1's analog: the
+`buildGrammar` destructure of exactly 22, made a wired check); the stripped-`PATH` / scratch-`HOME` /
+different-node K-9 recipe becomes W3's K-9 procedure; AC-2's worktree `<p2>/.worktrees/ac2` at `a7ac4ea4`
+stays. **E-1(b) Stage 4 is NOT ordered** — K-5 is recorded-not-gating under OC-1, and the mirror-image
+G-8 legs make a mixed reading the likely outcome, which the ledger itself routes back to (a).
+
+### §0n.2 · `.i` opens on this word — and ESC-i2
+
+`.i` executes `W2-KILL-LEDGER.md` §11 mechanically for AC-1 (source `<p2>/.worktrees/ac1/experiments/w2/ac1-tagless/**` at `af40fb2d`; destination `<p2>/typescript/src/css/**`; only move-forced relative-import edits, listed one by one; the 1.0.0 import carried, not re-pointed — §0n.7). **ESC-i2 ruled**: the sub-gate's subject is the library workspace's own project — `.i` runs `npm ci` in `<p2>/typescript` (lockfile-pinned install; no tracked byte written; recorded with the lockfile's digest) and then `npx tsc --noEmit -p typescript/tsconfig.json`. No root `<p2>/tsconfig.json` is minted. Errors that remain and sit outside `typescript/src/css/**` are recorded **RED-PREEXISTING** with their counts by code; errors inside the graduated tree are `.i`'s. G-3 reads EQ-6 = 2,035 at the graduated location and is recorded honest-RED with E-2's id (§11.5). The wave closes IMPLEMENTED-with-carried-REDs (G-3 · G-4 · G-7 · G-8), never GREEN-by-assertion. The relaunch's close also performs C.6's remaining §4a acts: the evidence fold beyond `h/**`, the `x-p-w2.json` harvest, the `DEFECT-LEDGER.md` append, the COHESION §5 carve, and the candidate-branch merge (`w2/ac1` → the root's working branch, after the ledger commit — §9 *"merged … only after phase 5"*).
+
+### §0n.3 · The contract addenda (E-2 · E-3 · E-4 · E-5 · E-8) — landed by X.P.W3's first act as ONE dated addendum-beside to `ALGEBRA.md` (both homes, sha256-equal), never by `.i`
+
+- **E-2 (G-3's cause, §4.5 × §10.1).** Cure **(3)**: the `balanced-tail` `DROP` is re-kinded to `skipped` — the dropped tail of an unknown function is skipped opaque text, not a keyword and not a seventh kind. W3's open seat re-measures the cure on the promoted seed (population 2,035 → 0, no other product moved); if it can cite an OP-13 invariant that (3) breaks, it falls back to **(1)** the seventh kind `opaque` and re-indexes `.g`'s serializer. (2) widening `π_keyword` is REFUSED — it admits non-identifiers as keywords.
+- **E-3 (the `CUT` idiom).** `DISPATCH` joins §5.2's pass-through list; §10.3's two inert `CUT`s are struck (measured inert over 30,527 rows, `.f`). G-1's structural walk then measures the contract, not an encoding.
+- **E-4 (§10.2).** The `DISPATCH` arm first — the minimal reorder, measured by `.d` and `.e` as moving exactly 3 slice rows REJECT → ok.
+- **E-5 (EQ-5's sixth coordinate).** Dropped from the cross-lowering tuple; the arena watermark is printed as a G-8 row (AC-1's bytes already read so: 0 in both + `arenaHighWater()`).
+- **E-8 (F-8).** `color-body` inlined in the letter; §8 D-3's two-`REF` count stands.
+
+### §0n.4 · E-6 — W1's bench bounds, widened by dated addendum (an owner act, taken under delegation)
+
+`harness/bench/lib/engines.mjs` may gain an `--engine=<adapter>` registration path (a closed chain becomes a chain plus one declared external cell); landed by **X.P.W3** under a dated E-3 addendum to W1's §Bounds, so G-7 has a subject. K-5 stays recorded-not-gating (OC-1); the table is printed for both lowerings of the graduated seed, two runs pasted. Not `.i`'s.
+
+### §0n.5 · E-7 / OP-7 — the substrate
+
+W3 builds the 52 on `<p2>/typescript/src/parse/**` — the fresh root's own library — never on another repository's `node_modules`. The clone point's three unadjudicated `typescript/src/parse/**` commits are **ADOPTED as the base** (R-13 stated `f5757082` as W2's base; reverting them would move the base every W2 number was taken on). The seed's one import specifier is re-pointed by W3's first act (§11.3); the scan union `w2/ac3-scan-union` `76033aac` (F-h8) is consumed at W3's open **by measurement** (library `tsc` + `vitest` unchanged-or-better), else left on its branch.
+
+### §0n.6 · Orchestrator acts performed at this sitting
+
+F-h6: the two blind drafts committed `562077ad`. F-h7: `<p2>/experiments/w2/contract/ALGEBRA.md` re-landed byte-equal (`67c8253a…`) at p2 `4afad90`. `?? .worktrees/` stays (§4b's container). Track D relaunched fresh; seat 0 RESUME MODE dispatches `.i` on this word.
