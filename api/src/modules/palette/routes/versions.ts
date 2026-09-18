@@ -119,9 +119,14 @@ versionsRouter.post(
             // disagree — a server-side invariant break.
             throw new Error(`revert appended no revision for palette ${slug}`);
         }
+        // X-W3 · G-14: revert is owner-gated, so this is the owner's count.
+        const forkCount = await c.var.services.repositories.palettes.countForksOf(
+            slug,
+            c.var.userSlug,
+        );
         return c.json(
             {
-                ...formatPalette(palette),
+                ...formatPalette(palette, { forkCount }),
                 revision: { hash: appended._id, ...appended, _id: undefined },
             },
             201,

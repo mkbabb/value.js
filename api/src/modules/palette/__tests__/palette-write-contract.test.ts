@@ -278,7 +278,7 @@ describe("palette write contract (X-W3 · X.W3.3)", () => {
     });
 
     it("G-10: fork create without Idempotency-Key → 400", async () => {
-        const res = await app.request("/palettes/source/fork", {
+        const res = await app.request("/palettes/source/forks", {
             method: "POST",
             headers: alice,
         });
@@ -286,7 +286,7 @@ describe("palette write contract (X-W3 · X.W3.3)", () => {
     });
 
     it("G-10: fork create with an Idempotency-Key → 201", async () => {
-        const res = await app.request("/palettes/source/fork", {
+        const res = await app.request("/palettes/source/forks", {
             method: "POST",
             headers: { ...alice, ...key() },
         });
@@ -296,7 +296,7 @@ describe("palette write contract (X-W3 · X.W3.3)", () => {
     it("G-10: a replayed key returns the stored response and does not re-run the handler", async () => {
         const headers = { ...jsonAlice, ...key() };
         const body = JSON.stringify({ slug: "twice" });
-        const first = await app.request("/palettes/source/fork", {
+        const first = await app.request("/palettes/source/forks", {
             method: "POST",
             headers: { ...headers, "Content-Length": String(Buffer.byteLength(body)) },
             body,
@@ -304,7 +304,7 @@ describe("palette write contract (X-W3 · X.W3.3)", () => {
         expect(first.status).toBe(201);
         const firstBody = await first.text();
 
-        const second = await app.request("/palettes/source/fork", {
+        const second = await app.request("/palettes/source/forks", {
             method: "POST",
             headers: { ...headers, "Content-Length": String(Buffer.byteLength(body)) },
             body,
@@ -314,7 +314,7 @@ describe("palette write contract (X-W3 · X.W3.3)", () => {
         expect(second.headers.get("Idempotency-Replayed")).toBe("true");
 
         // One fork, not two — the handler never ran the second time.
-        const forks = await services.repositories.palettes.countForksOf("source");
+        const forks = await services.repositories.palettes.countForksOf("source", "alice");
         expect(forks).toBe(1);
     });
 

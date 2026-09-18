@@ -35,6 +35,15 @@ export interface FormattedPalette {
     currentHash: string | null;
     forkOf: string | null;
     forkOfHash: string | null;
+    /**
+     * X-W3 · G-14 — the viewer-filtered count of this palette's live children,
+     * computed at format time from the same filtered join the fork list pages
+     * over. It is NOT `palettes.forkCount`: that stored counter is maintained
+     * by blind `$inc`/`$dec`, counts children the viewer may not see, and is
+     * documented APPROXIMATE (`repository/palette.ts`) — it survives only as
+     * the `most-forked` sort key. Publishing it here made the envelope disclose
+     * the existence of private children the fork list correctly refuses to name.
+     */
     forkCount: number;
     versionCount: number;
     /** J.W1c derived convenience: true ⟺ visibility === "public". NEVER a
@@ -48,18 +57,35 @@ export interface FormattedPalette {
 }
 
 /**
+ * The read-time facts the envelope carries that the DOCUMENT does not hold —
+ * X-W3 · G-14.
+ *
+ * `forkCount` is REQUIRED, deliberately and with no default: an optional one
+ * would fall back to the stored approximation at every call site that forgot
+ * it, which is precisely the gate's defect wearing a nicer signature. Every
+ * caller states which viewer's count it is publishing, so the question "whose
+ * count is this?" always has an answer at the call site.
+ */
+export interface FormatPaletteContext {
+    /** The viewer-filtered live child count — see `FormattedPalette.forkCount`. */
+    forkCount: number;
+    /** paletteSlugs the current user has voted on; omitted ⇒ `voted` is undefined. */
+    votedSlugs?: Set<string> | undefined;
+}
+
+/**
  * Format a palette document for API response.
  *
  * @param doc - the Palette document (with the driver-supplied `_id`) as returned
  *   by the repository read boundary (`WithId<Palette>`).
- * @param votedSlugs - optional set of paletteSlugs the current user has voted on;
- *   when supplied, `voted` is set to true/false; when omitted, `voted` is undefined.
+ * @param ctx - the read-time facts the document does not carry.
  */
 export function formatPalette(
     doc: WithId<Palette>,
-    votedSlugs?: Set<string>,
+    ctx: FormatPaletteContext,
 ): FormattedPalette {
     const { _id, ...rest } = doc;
+    const { forkCount, votedSlugs } = ctx;
 
     // Lane D F1: every field below is guaranteed-present by the
     // `assertMigrationsApplied` smoke probe at startup. The previous `??`
@@ -71,7 +97,8 @@ export function formatPalette(
         colors: rest.colors,
         tags: rest.tags,
         versionCount: rest.versionCount,
-        forkCount: rest.forkCount,
+        // X-W3 · G-14: the computed count, never `rest.forkCount`.
+        forkCount,
         forkOf: rest.forkOf,
         forkOfHash: rest.forkOfHash,
         currentHash: rest.currentHash,

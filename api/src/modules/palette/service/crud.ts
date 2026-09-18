@@ -69,7 +69,15 @@ export async function getPaletteBySlug(
         voted = vote !== null;
     }
 
-    const result = formatPalette(doc);
+    // X-W3 · G-14: the detail envelope's `forkCount` is THIS caller's count —
+    // the same filtered join `GET /:slug/forks` pages over — so the number and
+    // the list it summarises can never disagree about which children exist.
+    const forkCount = await services.repositories.palettes.countForksOf(
+        slug,
+        currentUserSlug,
+    );
+
+    const result = formatPalette(doc, { forkCount });
     result.voted = voted;
     return result;
 }
@@ -145,7 +153,14 @@ export async function createPalette(
 
     const saved = await services.repositories.palettes.findBySlug(body.slug);
     if (!saved) throw new NotFoundError("Palette missing after insert");
-    return formatPalette(saved);
+    // X-W3 · G-14 — counted, not assumed `0`: a slug freed by the reaper can be
+    // re-created while children that named it survive, and the envelope must
+    // report what the fork list would actually show its author.
+    const forkCount = await services.repositories.palettes.countForksOf(
+        body.slug,
+        userSlug,
+    );
+    return formatPalette(saved, { forkCount });
 }
 
 // ---------------------------------------------------------------
@@ -226,7 +241,13 @@ export async function patchPalette(
 
     const updated = await services.repositories.palettes.findBySlug(slug);
     if (!updated) throw new NotFoundError("Palette missing after update");
-    return formatPalette(updated);
+    // X-W3 · G-14. PATCH is owner-gated (`requireOwnership`), so the envelope
+    // is the owner's reading of their own row.
+    const forkCount = await services.repositories.palettes.countForksOf(
+        slug,
+        userSlug ?? updated.userSlug,
+    );
+    return formatPalette(updated, { forkCount });
 }
 
 // ---------------------------------------------------------------

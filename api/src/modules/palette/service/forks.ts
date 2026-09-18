@@ -12,7 +12,7 @@ import { ConflictError, NotFoundError, ValidationError } from "../../../platform
 import { computeContentHash } from "../hash.js";
 import { computeOklabColors } from "./oklab.js";
 import { createVersionRecord } from "./versions.js";
-import { assertPaletteReadable, isReadable } from "./visibility.js";
+import { assertPaletteReadable, assertReadable, isReadable } from "./visibility.js";
 
 const SLUG_PATTERN = /^[a-z0-9][a-z0-9-]*$/;
 
@@ -47,8 +47,14 @@ export async function forkPalette(
 
     // Source fetch + input validation is read-only and pure — keep OUTSIDE the
     // transaction so we fail fast (404 / 400) without a session.
-    const source = await services.repositories.palettes.findBySlug(sourceSlug);
-    if (!source) throw new NotFoundError("Palette not found");
+    //
+    // X-W3 · G-12 — the source is AUTHORIZED here, at the pre-flight read.
+    // Fork is a read of someone else's palette followed by a write of its
+    // whole payload into a row the forker owns: without this line it was the
+    // widest read surface in the domain, and it answered everyone. The refusal
+    // is `assertPaletteReadable`'s `NotFoundError`, identical to the detail
+    // route's, so fork cannot be used as an existence oracle either.
+    const source = await assertPaletteReadable(services, sourceSlug, userSlug);
 
     const forkName = input.name ?? `${source.name} (remix)`;
     const forkSlug =
@@ -73,7 +79,12 @@ export async function forkPalette(
         tags: source.tags ?? [],
         voteCount: 0,
         userSlug,
-        visibility: "public",
+        // X-W3 · G-12 (class 2) — the child is born PRIVATE. A fork was
+        // published on creation, so forking any palette silently minted a new
+        // public row carrying a copy of its payload; the forker had no step at
+        // which they chose to publish. Publication is now the explicit
+        // `POST /:slug/publish` verb, as it is for every other palette.
+        visibility: "private",
         tier: "standard",
         deletedAt: null,
         createdAt: now,
@@ -103,6 +114,12 @@ export async function forkPalette(
         if (!sourceInTxn) {
             throw new NotFoundError("Palette not found");
         }
+        // X-W3 · G-12 — and it is AUTHORIZED again here, not merely proven to
+        // exist. The race this re-read closes is not only "the source was
+        // deleted": it is "the source was UNPUBLISHED", between the pre-flight
+        // read and this write. An existence-only recheck would let that fork
+        // commit, copying a payload the owner had just withdrawn.
+        assertReadable(sourceInTxn, userSlug);
 
         try {
             await services.repositories.palettes.insert(newDoc, session);
@@ -144,15 +161,32 @@ export interface ForkListResult {
     total: number;
 }
 
+/**
+ * X-W3 · G-13 (class 3) — the fork list, filtered per child by the read
+ * policy, with `total` derived from the SAME filtered join the page is drawn
+ * from.
+ *
+ * Classes 2 and 3 are one cure, not two (`W3.md:248-249`): birthing the child
+ * private without filtering this list would have moved the leak rather than
+ * closed it — every private child would still have been enumerated here, in
+ * full, to anybody who could name the parent.
+ *
+ * The addressing palette is authorized first. The list is a disclosure ABOUT
+ * the parent (its child count and their identities), so a parent this viewer
+ * may not read has no readable fork list either — and the refusal is the same
+ * `404` every other palette-addressed surface gives.
+ */
 export async function listForks(
     services: Services,
     slug: string,
     skip: number,
     limit: number,
+    viewer: string | null | undefined,
 ): Promise<ForkListResult> {
+    await assertPaletteReadable(services, slug, viewer);
     const [data, total] = await Promise.all([
-        services.repositories.palettes.findForksOf(slug, skip, limit),
-        services.repositories.palettes.countForksOf(slug),
+        services.repositories.palettes.findForksOf(slug, skip, limit, viewer),
+        services.repositories.palettes.countForksOf(slug, viewer),
     ]);
     return {
         data,

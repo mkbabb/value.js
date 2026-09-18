@@ -88,33 +88,69 @@ describe("routes.palettes forks/provenance + revert (N.W3.H-tests)", () => {
 
     // ---- AUTH GATES ----
 
-    it("POST /:slug/fork → 401 problem+json when unauthenticated", async () => {
-        const res = await app.request("/palettes/source/fork", { method: "POST" });
+    it("POST /:slug/forks → 401 problem+json when unauthenticated", async () => {
+        const res = await app.request("/palettes/source/forks", { method: "POST" });
         expect(res.status).toBe(401);
         const body = (await res.json()) as { type: string };
         expect(body.type).toBe("urn:contract:session-invalid");
     });
 
-    // ---- FORK (optional-body path) ----
-
-    it("POST /:slug/fork (no body) → 201 + FormattedPalette; forkOf tracks source", async () => {
+    it("POST /:slug/fork — the singular spelling is GONE, not aliased (X-W3 · G-12)", async () => {
         const res = await app.request("/palettes/source/fork", {
             method: "POST",
             headers: alice,
         });
+        expect(res.status).toBe(404);
+        // And nothing was created under the retired path.
+        const forks = await app.request("/palettes/source/forks", {
+            method: "GET",
+            headers: alice,
+        });
+        expect(((await forks.json()) as { total: number }).total).toBe(0);
+    });
+
+    // ---- FORK (optional-body path) ----
+
+    it("POST /:slug/forks (no body) → 201 + FormattedPalette; forkOf tracks source; child is private", async () => {
+        const res = await app.request("/palettes/source/forks", {
+            method: "POST",
+            headers: alice,
+        });
         expect(res.status).toBe(201);
-        const body = (await res.json()) as { slug: string; forkOf: string };
+        const body = (await res.json()) as {
+            slug: string;
+            forkOf: string;
+            visibility: string;
+        };
         expect(body.forkOf).toBe("source");
         expect(body.slug).toMatch(/^source-remix-/);
+        // X-W3 · G-12 class 2, on the wire.
+        expect(body.visibility).toBe("private");
     });
 
     // ---- LIST FORKS + PROVENANCE ----
 
-    it("GET /:slug/forks → 200 {data, total, limit, offset}; lists direct forks", async () => {
-        await app.request("/palettes/source/fork", { method: "POST", headers: alice });
-        const res = await app.request("/palettes/source/forks", { method: "GET" });
-        expect(res.status).toBe(200);
-        const body = (await res.json()) as {
+    it("GET /:slug/forks → 200 {data, total, limit, offset}; discloses no child the caller may not read (X-W3 · G-13)", async () => {
+        await app.request("/palettes/source/forks", { method: "POST", headers: alice });
+
+        // The child is born private, so an anonymous caller gets an EMPTY page
+        // AND a `total` that agrees with it. Before the cure this answered
+        // `{total: 1, data: [<the whole child envelope>]}`.
+        const anon = await app.request("/palettes/source/forks", { method: "GET" });
+        expect(anon.status).toBe(200);
+        const anonBody = (await anon.json()) as {
+            data: { forkOf: string }[];
+            total: number;
+        };
+        expect(anonBody.total).toBe(0);
+        expect(anonBody.data).toHaveLength(0);
+
+        const owner = await app.request("/palettes/source/forks", {
+            method: "GET",
+            headers: alice,
+        });
+        expect(owner.status).toBe(200);
+        const body = (await owner.json()) as {
             data: { forkOf: string }[];
             total: number;
             limit: number;
@@ -125,14 +161,38 @@ describe("routes.palettes forks/provenance + revert (N.W3.H-tests)", () => {
         expect(typeof body.limit).toBe("number");
     });
 
+    it("GET /:slug detail `forkCount` is the viewer's own count (X-W3 · G-14)", async () => {
+        await app.request("/palettes/source/forks", { method: "POST", headers: alice });
+
+        // The stored counter was bumped by the fork write…
+        const stored = await services.repositories.palettes.findBySlug("source");
+        expect(stored?.forkCount).toBe(1);
+
+        // …but the envelope publishes what the viewer may actually see. The
+        // falsifier: restore `forkCount: rest.forkCount` in `format.ts` and the
+        // anonymous row alone fails, disclosing the private child's existence.
+        const anon = await app.request("/palettes/source", { method: "GET" });
+        expect(((await anon.json()) as { forkCount: number }).forkCount).toBe(0);
+
+        const owner = await app.request("/palettes/source", {
+            method: "GET",
+            headers: alice,
+        });
+        expect(((await owner.json()) as { forkCount: number }).forkCount).toBe(1);
+    });
+
     it("GET /:slug/provenance → 200 ancestry chain (child → source)", async () => {
-        const fork = await app.request("/palettes/source/fork", {
+        const fork = await app.request("/palettes/source/forks", {
             method: "POST",
             ...withBody(JSON.stringify({ slug: "child" })),
         });
         expect(fork.status).toBe(201);
 
-        const res = await app.request("/palettes/child/provenance", { method: "GET" });
+        // The child is private, so its own owner walks it (G-4).
+        const res = await app.request("/palettes/child/provenance", {
+            method: "GET",
+            headers: alice,
+        });
         expect(res.status).toBe(200);
         const chain = (await res.json()) as { slug: string; isFork: boolean }[];
         expect(chain.map((e) => e.slug)).toEqual(["child", "source"]);
@@ -140,14 +200,24 @@ describe("routes.palettes forks/provenance + revert (N.W3.H-tests)", () => {
         expect(chain[1]?.isFork).toBe(false);
     });
 
-    // ---- REVERT → 200 (the E4 revert-200 gap) ----
+    // ---- REVERT → 201 with the appended release (X-W3 · G-9 · G-11) ----
 
-    it("POST /:slug/revert → 200 FormattedPalette (owner reverts to a prior version)", async () => {
+    it("POST /:slug/revert → 201 FormattedPalette (owner reverts to a prior version)", async () => {
         // Edit the source to create a second version, then revert to the first.
         const get0 = await app.request("/palettes/source", { method: "GET" });
         const etag0 = get0.headers.get("ETag") ?? "";
-        const get0Body = (await get0.json()) as { currentHash: string };
-        const firstHash = get0Body.currentHash;
+
+        // ESC-W3.2-PAYLOAD-ADDRESSED-TESTS, taken at Repair 1: a revision is
+        // addressed by its RELEASE id (`_id`, what `/versions` emits as `hash`)
+        // and never by the palette's `currentHash`, which is a PAYLOAD identity
+        // since G-7 split the two. The shipped client already sends the release
+        // id — it reads `data[].hash` off the version list.
+        const rows = await services.repositories.paletteVersions.findByPaletteSlug(
+            "source",
+            0,
+            10,
+        );
+        const firstRelease = rows[rows.length - 1]?._id as string;
 
         const patch = await app.request("/palettes/source", {
             method: "PATCH",
@@ -156,16 +226,30 @@ describe("routes.palettes forks/provenance + revert (N.W3.H-tests)", () => {
         });
         expect(patch.status).toBe(200);
 
+        // G-9: revert carries a strong `If-Match` like every other mutating
+        // verb on this resource. The ETag is re-read AFTER the PATCH, because
+        // the PATCH moved it.
+        const etag1 =
+            (await app.request("/palettes/source", { method: "GET" })).headers.get(
+                "ETag",
+            ) ?? "";
+
         const revert = await app.request("/palettes/source/revert", {
             method: "POST",
-            headers: jsonAlice,
-            body: JSON.stringify({ hash: firstHash }),
+            headers: { ...jsonAlice, "If-Match": etag1 },
+            body: JSON.stringify({ hash: firstRelease }),
         });
-        expect(revert.status).toBe(200);
-        const body = (await revert.json()) as { name: string; slug: string };
+        // G-11: a revert CREATES a release, so it answers 201 and carries it.
+        expect(revert.status).toBe(201);
+        const body = (await revert.json()) as {
+            name: string;
+            slug: string;
+            revision: { hash: string };
+        };
         expect(body.slug).toBe("source");
         // Reverting to the first version restores its name.
         expect(body.name).toBe("Source");
+        expect(typeof body.revision.hash).toBe("string");
     });
 
     it("POST /:slug/revert → 401 when unauthenticated", async () => {

@@ -15,7 +15,7 @@
  * `deletedAt` (§5.4 orthogonality).
  */
 
-import type { WithId } from "mongodb";
+import type { Filter, WithId } from "mongodb";
 import type { Palette, PaletteVisibility } from "../model.js";
 import { PALETTE_VISIBILITIES } from "../model.js";
 import type { Services } from "../../../platform/http/inject-services.js";
@@ -97,6 +97,32 @@ export function assertReadable(
 }
 
 /**
+ * THE query-side spelling of `isReadable` (X-W3 · X.A4 · G-13). Same rule,
+ * expressed as a `Filter<Palette>` so a COLLECTION of palettes can be filtered
+ * — and, critically, COUNTED — in the database instead of being fetched whole
+ * and sieved in memory, which is what let a page's `total` disagree with the
+ * rows it carried.
+ *
+ * It lives here, beside the predicate, and nowhere else: a fork list, a browse
+ * page and a detail read that each invented their own visibility clause is the
+ * exact drift G-1 and G-13 exist to close. `palette-policy.test.ts` pins the
+ * two spellings to each other over a fixture matrix — every document in it is
+ * judged by both, and any divergence fails that row alone.
+ *
+ * The LIVENESS axis is deliberately NOT folded in: `deletedAt` is orthogonal
+ * to visibility (`model.ts: Palette.deletedAt`, CRUD-CONTRACT v2.0.0 §4), and
+ * the owner arm of this predicate admits a trashed row on purpose. A caller
+ * that wants live rows only composes `{ deletedAt: null, ...this }`, which is
+ * what the fork list does.
+ */
+export function paletteReadableFilter(
+    viewer: string | null | undefined,
+): Filter<Palette> {
+    const activePublic: Filter<Palette> = { visibility: "public", deletedAt: null };
+    return viewer ? { $or: [{ userSlug: viewer }, activePublic] } : activePublic;
+}
+
+/**
  * Resolve a palette by slug and authorize the viewer against it, returning the
  * document so the caller need not read it twice.
  *
@@ -166,9 +192,17 @@ export async function setVisibility(
 
     assertVisibilityTransition(palette.visibility, target);
 
+    // X-W3 · G-14 — publish/unpublish is owner-gated at the route
+    // (`routes/publish.ts` mounts `requireOwnership`), so the envelope this
+    // service returns is always read by the row's owner; the count is theirs.
+    const forkCount = await services.repositories.palettes.countForksOf(
+        slug,
+        palette.userSlug,
+    );
+
     if (palette.visibility === target) {
         // Idempotent no-op: already at target. Same row, no new document.
-        return formatPalette(palette);
+        return formatPalette(palette, { forkCount });
     }
 
     await services.repositories.palettes.update(slug, {
@@ -177,5 +211,5 @@ export async function setVisibility(
 
     const updated = await services.repositories.palettes.findBySlug(slug);
     if (!updated) throw new NotFoundError("Palette not found after publish");
-    return formatPalette(updated);
+    return formatPalette(updated, { forkCount });
 }

@@ -1,9 +1,16 @@
 /**
  * Forks routes for `/palettes` (D.W2 Lane A).
  *
- *   POST /:slug/fork         — fork a palette (cross-collection write)
+ *   POST /:slug/forks        — fork a palette (cross-collection write)
  *   GET  /:slug/forks        — list direct forks
  *   GET  /:slug/provenance   — ancestry chain (up to depth 50)
+ *
+ * X-W3 · G-12: the create verb is `POST /:slug/forks` — the plural collection
+ * the sibling GET already names. The singular `POST /:slug/fork` is GONE, with
+ * no alias and no redirect: a legacy spelling kept alive "for existing
+ * clients" is exactly the compatibility shim the no-legacy law forbids, and it
+ * would mean two paths whose idempotency + policy rules must be kept in step
+ * forever. Consumers are migrated at the consumer.
  */
 
 import { Hono } from "hono";
@@ -16,7 +23,7 @@ import { forkPalette, getProvenance, listForks } from "../service/forks.js";
 
 export const forksRouter = new Hono<AppEnv>();
 
-forksRouter.post("/:slug/fork", async (c) => {
+forksRouter.post("/:slug/forks", async (c) => {
     const sourceSlug = c.req.param("slug");
     const sessionToken = c.var.sessionToken;
     const userSlug = c.var.userSlug;
@@ -48,7 +55,13 @@ forksRouter.post("/:slug/fork", async (c) => {
         slug: parsed.data.slug,
         userSlug,
     });
-    return c.json(formatPalette(palette), 201);
+    // X-W3 · G-14: the child's own viewer-filtered child count, for the caller
+    // who just created it and owns it.
+    const forkCount = await c.var.services.repositories.palettes.countForksOf(
+        palette.slug,
+        userSlug,
+    );
+    return c.json(formatPalette(palette, { forkCount }), 201);
 });
 
 forksRouter.get("/:slug/forks", async (c) => {
@@ -60,9 +73,19 @@ forksRouter.get("/:slug/forks", async (c) => {
     const limit = Math.max(1, Math.min(parsed.data.limit ?? 20, 100));
     const offset = Math.max(0, parsed.data.offset ?? 0);
 
-    const { data, total } = await listForks(c.var.services, slug, offset, limit);
+    // X-W3 · G-13: the viewer decides which children exist for this response —
+    // rows AND `total` come from the one filtered join.
+    const viewer = c.var.userSlug;
+    const { data, total } = await listForks(c.var.services, slug, offset, limit, viewer);
+    // X-W3 · G-14: each listed child's own filtered child count, in one join.
+    const forkCounts = await c.var.services.repositories.palettes.countForksOfMany(
+        data.map((r) => r.slug),
+        viewer,
+    );
     return c.json({
-        data: data.map((r) => formatPalette(r)),
+        data: data.map((r) =>
+            formatPalette(r, { forkCount: forkCounts.get(r.slug) ?? 0 }),
+        ),
         total,
         limit,
         offset,

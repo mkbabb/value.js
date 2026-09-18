@@ -42,7 +42,11 @@ import {
     toResponseEnvelope,
 } from "../../../platform/http/errors/index.js";
 import { createPalette, deletePalette, getPaletteBySlug } from "../service/crud.js";
-import { assertReadable, isReadable } from "../service/visibility.js";
+import {
+    assertReadable,
+    isReadable,
+    paletteReadableFilter,
+} from "../service/visibility.js";
 import type { PaletteColor } from "../model.js";
 import type { AppEnv } from "../../../types.js";
 import type { Services } from "../../../platform/http/inject-services.js";
@@ -260,6 +264,42 @@ describe("palette read policy (X-W3 · X.A1)", () => {
             const app = buildTestApp(services);
             const res = await app.request("/palettes/ghost/versions");
             expect(res.status).toBe(404);
+        });
+    });
+
+    // -----------------------------------------------------------------
+    // The query-side spelling — pinned to the predicate, not trusted beside it.
+    // -----------------------------------------------------------------
+
+    describe("paletteReadableFilter agrees with isReadable, row for row", () => {
+        it("selects exactly the documents the predicate admits", async () => {
+            // One row per interesting (owner, visibility, deletedAt) tuple.
+            const rows = [
+                { slug: "a-pub", userSlug: "alice", visibility: "public", deletedAt: null },
+                { slug: "a-priv", userSlug: "alice", visibility: "private", deletedAt: null },
+                { slug: "a-trash", userSlug: "alice", visibility: "public", deletedAt: new Date() },
+                { slug: "b-pub", userSlug: "bob", visibility: "public", deletedAt: null },
+                { slug: "b-priv", userSlug: "bob", visibility: "private", deletedAt: null },
+                { slug: "anon-priv", userSlug: null, visibility: "private", deletedAt: null },
+            ];
+            await db.collection("palettes").insertMany(rows.map((r) => ({ ...r })));
+
+            for (const viewer of [undefined, "alice", "bob", "carol"]) {
+                const selected = await db
+                    .collection("palettes")
+                    .find(paletteReadableFilter(viewer) as Record<string, unknown>)
+                    .map((d) => String(d.slug))
+                    .toArray();
+                const admitted = rows
+                    .filter((r) =>
+                        isReadable(
+                            r as unknown as Parameters<typeof isReadable>[0],
+                            viewer,
+                        ),
+                    )
+                    .map((r) => r.slug);
+                expect(selected.sort()).toEqual(admitted.sort());
+            }
         });
     });
 

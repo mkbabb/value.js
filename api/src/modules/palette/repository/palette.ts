@@ -23,6 +23,7 @@ import type {
 } from "mongodb";
 import type { Palette } from "../model.js";
 import { paletteETagFilter, type PaletteETagSource } from "../etag.js";
+import { paletteReadableFilter } from "../service/visibility.js";
 
 export class PaletteRepository {
     constructor(private readonly col: Collection<Palette>) {}
@@ -68,20 +69,72 @@ export class PaletteRepository {
         return this.col.countDocuments({ userSlug, deletedAt: null });
     }
 
-    findForksOf(slug: string, skip: number, limit: number): Promise<WithId<Palette>[]> {
+    /**
+     * X-W3 · G-13 — the live children of `slug` THIS VIEWER MAY READ.
+     *
+     * The filter is `{forkOf, deletedAt: null}` ∧ `paletteReadableFilter(viewer)`:
+     * the liveness axis this listing has always carried, composed with the
+     * policy's OWN query spelling. The clause is imported, never re-derived —
+     * a second spelling of "who may see this row" is the drift the policy
+     * kernel exists to close, and it is how an unfiltered `find({forkOf})`
+     * came to disclose every private child to an anonymous caller.
+     */
+    findForksOf(
+        slug: string,
+        skip: number,
+        limit: number,
+        viewer: string | null | undefined,
+    ): Promise<WithId<Palette>[]> {
         return this.col
-            .find({ forkOf: slug, deletedAt: null })
+            .find({ forkOf: slug, deletedAt: null, ...paletteReadableFilter(viewer) })
             .sort({ createdAt: -1 })
             .skip(skip)
             .limit(limit)
             .toArray();
     }
 
-    countForksOf(slug: string, session?: ClientSession): Promise<number> {
+    /**
+     * The count of the SAME filtered join `findForksOf` pages over, so a
+     * response's `total` can never exceed what its rows are allowed to show.
+     */
+    countForksOf(
+        slug: string,
+        viewer: string | null | undefined,
+        session?: ClientSession,
+    ): Promise<number> {
         return this.col.countDocuments(
-            { forkOf: slug, deletedAt: null },
+            { forkOf: slug, deletedAt: null, ...paletteReadableFilter(viewer) },
             session ? { session } : undefined,
         );
+    }
+
+    /**
+     * X-W3 · G-14 — the same viewer-filtered count for MANY parents in one
+     * round trip, keyed by parent slug. A page of palettes each needs its
+     * `forkCount` computed at format time; doing that with one
+     * `countForksOf` per row would be an N+1 the browse list cannot afford,
+     * and publishing the stored approximation instead is the drift G-14
+     * refuses. Parents with zero readable children are simply absent from the
+     * map — the caller reads a miss as `0`.
+     */
+    async countForksOfMany(
+        slugs: string[],
+        viewer: string | null | undefined,
+    ): Promise<Map<string, number>> {
+        if (slugs.length === 0) return new Map();
+        const rows = await this.col
+            .aggregate<{ _id: string; n: number }>([
+                {
+                    $match: {
+                        forkOf: { $in: slugs },
+                        deletedAt: null,
+                        ...paletteReadableFilter(viewer),
+                    },
+                },
+                { $group: { _id: "$forkOf", n: { $sum: 1 } } },
+            ])
+            .toArray();
+        return new Map(rows.map((r) => [r._id, r.n]));
     }
 
     /** All palette slugs — used by cron to detect orphaned vote rows. */
@@ -233,8 +286,15 @@ export class PaletteRepository {
     }
 
     /**
-     * Set `forkCount` to an absolute value — used by the restore path to
-     * recompute the count from `countForksOf` truth rather than blind-bumping.
+     * Set the STORED, approximate `forkCount` to an absolute value — used by
+     * the restore path to recompute it rather than blind-bumping.
+     *
+     * X-W3 · G-14: the stored field is no longer an authority. It is the
+     * `most-forked` sort key and nothing else (`service/crud-list.ts:
+     * sortSpecFor`); what a response PUBLISHES as `forkCount` is the
+     * viewer-filtered count computed at format time. Recomputing it here from
+     * the unfiltered live-child count is therefore still right for its one
+     * remaining job — a ranking must not vary by who is looking.
      * The blind `incrementForkCount` is safe at fork-CREATION (one genuinely
      * new live fork) but NOT on restore: the soft-delete decrement is gated
      * `{forkCount: {$gt: 0}}`, so a delete→restore round-trip that hit the
