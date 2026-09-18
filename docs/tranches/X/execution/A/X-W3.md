@@ -2002,3 +2002,164 @@ no spec byte.**
 
 Pathspec on the commit itself; `scripts/dev/dev.sh` never staged; no sibling seat's path added,
 reset or unstaged.
+
+---
+
+## Repair 1
+
+**SERVED MODEL**: `claude-opus-5[1m]` · **seat**: the **REPAIR SEAT, round 1** over Check 1's defect
+register · **Track A** · **wall clock** `2026-09-18 19:1x → 19:4x EDT`
+⟨cmd⟩ `date "+%Y-%m-%d %H:%M:%S %Z"`. **HEAD at open**: `e9ab3579` (Check 1's own commit) · branch
+`tranche-u`. HEAD moved under this seat — Track C committed `9caed304` (F.W4) mid-run — and **not
+one byte of `api/**` moved with it** ⟨cmd⟩ `git log --oneline e9ab3579..HEAD -- api/` → this seat's
+six commits and no other.
+
+**VERDICT: 10 of Check 1's 11 registered defects CURED; 1 relieved unchanged (G-21, the honest-RED);
+3 rows RETURNED as escalations with their measured reason and their exact bytes.** `cd api && npm
+test` is **GREEN for the first time since the wave opened its cut** — `Test Files 40 passed (40)` ·
+`Tests 257 passed (257)`, double-run byte-identical, against the wave-open baseline of 38 files /
+213 tests and the close's `3 failed | 241 passed`. §6 now reads **21 GREEN · 1 RED**, the RED being
+G-21 alone.
+
+### 0. Crash-recovery (standing law) — no inherited work on this seat
+
+⟨cmd⟩ `git status --porcelain` at open → **12 modified + 3 untracked**. This seat's writable set is
+`W3.md` §4 File Bounds (as widened by X.W3.7's dated addendum) + the §8 artefact home + this record
++ `LEDGER.md`; ⟨cmd⟩ `git status --porcelain api/ docs/tranches/X/execution/` → **empty**. **Not one
+dirty path is mine.** The ten `demo/palettes/**` · `demo/picker/**` ·
+`demo/shell/dock/layers/SlugEditLayer.vue` rows and the two `e2e/smoke/**a11y-control-targets**`
+specs are **X-W4 unit `a`'s**; `docs/tranches/V/reformation/CARRY-LEDGER.md` and
+`docs/tranches/X/waves/evidence/` are sibling seats'; `scripts/dev/dev.sh` is the standing unowned
+dirty row (**DR-24**, COHESION §0j.A — never touched, never staged; ⟨cmd⟩
+`git log --oneline e9ab3579..HEAD -- scripts/dev/dev.sh` → **0 commits**). **Nothing stashed,
+restored or reverted.** ⟨cmd⟩ the same command at this seat's close lists the SAME ten `demo/` rows and **zero** `api/` rows — every byte this seat wrote is committed.
+
+### 1. Defect → cure → commit → gate re-reading
+
+| # | severity | defect (Check 1 §6) | cure | commit | gate |
+|---|---|---|---|---|---|
+| **D-1** | CRITICAL | `X.W3.4` never sat; the fork surface discloses private children | §5's mechanism, **classes 2 and 3 in ONE commit** (`W3.md:248-249`): `POST /:slug/forks` with no alias · child born `private` · source authorized at BOTH the pre-flight and in-transaction reads · list + `total` from one viewer-filtered join · `forkCount` computed at format time | `22d2eb65` | **G-12 · G-13 · G-14 → GREEN** |
+| **D-2** | HIGH | `X.W3.5` never sat; 3-state enum, no clock, no migration arm, G-16 undisposed | `PALETTE_VISIBILITIES = ["public","private"]` · `moderation` minted as a separate axis · migration step 4 maps `unlisted`→`private` + backfills the clock · `check.ts` retires the branch outright | `fcf51523` | **G-15 → GREEN** |
+| | | G-16's terminal disposition | **RETIRED-BY-RECORD**, stamped into `W3.md` as a dated E-3 addendum-beside | *(docs commit)* | **G-16 → DISPOSED** |
+| **D-3** | HIGH | the wave shipped a RED api suite | both banked escalations landed: `ESC-W3.2-PAYLOAD-ADDRESSED-TESTS` (2 rows, with D-1) and `ESC-W3.3-PRECONDITION-TESTS` (1 row) | `22d2eb65` · `fe5e1ff0` | **G-22 → GREEN** |
+| **D-4** | HIGH | a live product regression closed over §3a's mandatory triumvirate | **NOT CURED — out of bounds, RETURNED**: `ESC-W3.3-DEMO-WRITE-CONTRACT`, **WIDENED** by the route rename | — | see §3 |
+| **D-5** | HIGH | G-8: the fence exists, no product write reaches it | `ESC-W3.3-CAS-CALLERS` landed exactly as banked — PATCH · revert · publish each pass their read document and assert through `assertFenceHeld`; three wire rows drive a real concurrent writer into the window | `d7e5f30c` | **G-8 → GREEN** |
+| **D-6** | HIGH | G-4: provenance answers every caller | `ESC-W3.1-G4-BOUNDS` ruled in-bounds and taken — target authorized by the same `assertPaletteReadable` the detail read takes; `isReadable(doc, viewer)` per hop | `66537044` | **G-4 → GREEN** |
+| **D-7** | MEDIUM | G-6 (P0) has no probe that can reach its own clause | the one line §4 allows: `"If-Match": paletteETag(before!)` — predicate untouched | `fe5e1ff0` | **G-6 → GREEN by evidence** |
+| **D-8** | MEDIUM | `unlisted` read semantics changed live without its migration | **retired by D-2's cure**: the at-rest rows are mapped, so the divergence has no rows left to divide. The consequence is recorded here as the check asked | `fcf51523` | — |
+| **D-9** | MINOR | published figure: *"24 commits"* against a 25-row roster | corrected in §2 below (the close's roster **is** 25) | *(this record)* | — |
+| **D-10** | MINOR | published figure: the bare `grep -c "return ColorPicker;"` | corrected in §2 below to the anchored form the unit receipt used | *(this record)* | — |
+| **D-11** | INFO | §8 artefacts 2 and 4 absent under their §8 names | unchanged and still INFO; artefact 2's *before* half is unrecoverable post-cut and the route surface is no longer unmoved (the plural rename ran), so it is now unrecoverable by construction. Artefact 4's substance stands at 17 L-19 arms + this seat's own | — | — |
+
+**D-2's second half, stated plainly**: `moderation` is **not** emitted on the wire. L-19 governs it
+exactly as it governs the diff class — no shipped client reads it — and the reason is written at
+`format.ts` beside the field it omits. G-15's clause asks that the field EXIST and be separately
+clocked, which it does and is.
+
+### 2. The two published figures Check 1 could not reproduce — corrected here
+
+- **D-9.** The close's *"24 commits"* is **25**. ⟨cmd⟩
+  `git show --name-only --format="" <the 25 roster hashes> | sort -u | wc -l` → **53** distinct
+  paths, exactly as the close published; the path union reproduces over 25 hashes and not 24. The
+  close's own §1 roster is the authority and it lists 25.
+- **D-10.** ⟨cmd⟩ `grep -c "return ColorPicker;" demo/shell/usePaneRouter.ts` → **1**, not 0. The
+  true zero is the anchored form X.W3.6's unit receipt published: ⟨cmd⟩
+  `grep -c '^    return ColorPicker;$' demo/shell/usePaneRouter.ts` → **0**. The single unanchored
+  hit is a docstring QUOTING the retired tail. G-19's substance is unaffected — `componentFor` is
+  total over a `Record` and ⟨cmd⟩ `npm run typecheck` → exit 0 across four bands.
+
+These are corrections to a published figure, landed as an addendum-beside in this record. **No byte
+of the close's §Close or of Check 1 is edited** (E-3).
+
+### 3. Escalations — RETURNED, never taken
+
+Full text, with the exact bytes owed, at `docs/tranches/X/waves/artefacts/W3/W3-R1-ESCALATIONS.md`.
+
+| id | grade | why it is out of bounds | owner |
+|---|---|---|---|
+| **`ESC-W3.3-DEMO-WRITE-CONTRACT`** (WIDENED) | **§3a MANDATORY TRIUMVIRATE, UNDISCHARGED** | its three cure files (`demo/palettes/api/versions.ts` · `useVersionHistory.ts` · `BrowsePane.vue`) appear in **no** row of §4, whose `Do NOT touch` line binds *"any `demo/` path not named above"*. Repair 1 **widens** it: G-12 retires `POST /:slug/fork`, so the shipped fork button's break moves from `400` to `404` beside the `Idempotency-Key` one | the triumvirate (research + plan augment + redress). Per §3a the orchestrator may **NOT** redispatch X.W3.3 alone |
+| **`ESC-W3-G21`** | the wave's one honest-RED | `W5.md` / `X-W5-FOLD.md` are in no §4 row, and E-3 makes another wave's dated spec immutable to this one | the X-W5 authoring seat / the sitting |
+| **`ESC-W3.5-MODERATION-REQUIRED`** | MINOR, NEW | `api/src/modules/admin/service/import.ts` builds a whole `Palette` literal and is not in §4 (which grants `admin/policy.ts` + `admin/service/palettes.ts` only). Requiring the field would break that file's compile — and G-22 with it — or force an out-of-bounds write | whichever wave takes §4's next widening; one line |
+
+**Nothing was masked to avoid an escalation.** ⟨cmd⟩
+`grep -rnE 'test\.skip|test\.fail|it\.skip|describe\.skip|\.only\(' api/src | wc -l` → **0**. No
+`catch` was added around a defect, no allowlist, no user-agent exemption, no warn-only mode, no
+grace window, no legacy alias for the retired route, no `node_modules` path in any commit. The one
+new test mechanism — the concurrent-writer seam in `palette-write-contract.test.ts` — **widens** what
+is measured rather than narrowing it: it makes a race reachable that a single-threaded caller cannot
+otherwise reach, every byte under test stays production code, and removing the fence turns each of
+its three rows from `412` into a silent overwrite.
+
+### 4. Gate re-readings — the full §6 table at the settled bytes
+
+Double-run, ⟨cmd⟩ `sh <scratchpad>/gates.sh` ×2 → `diff` **empty**. Transcript banked at
+`artefacts/W3/W3-R1-gate-readings.txt`.
+
+| gate | close | Repair 1 | this seat's own reading |
+|---|---|---|---|
+| G-1 (P0) · G-2 · G-3 | GREEN | **GREEN** | `palette-policy.test.ts` **13/13 passed** (was 9 — three G-4 rows and the filter-agreement matrix added) |
+| **G-4** | RED | **GREEN** | `grep -c 'getProvenance(c.var.services, slug, c.var.userSlug)' routes/forks.ts` → **1**; `isActivePublic` in `service/forks.ts` → **1**, and it is the comment at `:245` naming what the hop branch stopped calling — the branch itself now calls `isReadable` |
+| G-5 · G-7 | GREEN | **GREEN** | unchanged bytes |
+| **G-6** (P0) | RED (evidence) | **GREEN** | `npm test` → the cross-object revert row passes; A's `name`·`colors`·`currentHash`·`versionCount` all byte-unchanged after the refusal |
+| **G-8** | RED | **GREEN** | `grep -rn 'assertFenceHeld(' api/src \| grep -v __tests__` → **3**: `service/crud.ts:251` · `service/versions.ts:223` · `service/visibility.ts:233`. Three wire rows (PATCH · publish · revert) each answer **412** with the winner's bytes standing |
+| G-9 · G-10 · G-11 | GREEN | **GREEN** | `palette-write-contract.test.ts` **18/18 passed** (was 15) |
+| **G-12** | RED | **GREEN** | `forksRouter.post("/:slug/fork"` → **0** · `…/forks"` → **1**; `visibility: "public"` in `service/forks.ts` → **0**, `"private"` → **1**; `assertReadable(sourceInTxn, userSlug)` → **1** |
+| **G-13** | RED | **GREEN** | `paletteReadableFilter` in `repository/palette.ts` → **5**; the wire row proves anonymous `{total: 0, data: []}` against the owner's `{total: 1}` on the same parent |
+| **G-14** | RED | **GREEN** | `grep -c 'forkCount: rest.forkCount' format.ts` → **0**; the wire row proves stored `forkCount` **1** against an anonymous envelope's **0** and the owner's **1** |
+| **G-15** | RED | **GREEN** | `PALETTE_VISIBILITIES` → `["public", "private"]` (`model.ts:33`); `moderation` in `model.ts` → **4**; **zero** executable `unlisted` occurrences outside the migration that kills it and its test — `check.ts`'s two hits are both PROSE |
+| **G-16** | UNDISPOSED | **DISPOSED** | **RETIRED-BY-RECORD** in `W3.md`'s new dated addendum §A; `grep -rn "diff" demo/palettes/api/*.ts \| grep -vi different` → **0** (no named consumer); `grep -c diff routes/index.ts` → **0** |
+| G-17 · G-18 (P0) · G-19 · G-20 | GREEN | **GREEN** | `npx playwright test --project=smoke-admin e2e/smoke/admin/route-guard.spec.ts` → **3 passed**, this seat's own run |
+| **G-21** | RED | **RED — honest, relieved** | `grep -c Stub W5.md` → **0** · `X-W5-FOLD.md` → **0** · `grep -c "component: Stub" router/index.ts` → **14**. Out of §4 entirely |
+| **G-22** | RED | **GREEN** | `cd api && npm test` ×2 → `Test Files 40 passed (40)` · `Tests 257 passed (257)`, byte-identical; `npm run typecheck` → exit 0 (four bands); `npx eslint api/src --max-warnings=0` → exit 0 |
+
+**Totals after Repair 1: 21 GREEN · 1 RED (G-21, honest).**
+
+**Prettier, measured rather than assumed** (§7 cadence): of the 17 `api/src` files this seat wrote,
+**nine were ALREADY prettier-dirty at `e9ab3579`** — the whole api tree is, including files this
+seat never touched (`service/oklab.ts`, `repository/vote.ts`) — and **exactly two** were clean and
+were made dirty by this seat's own hunks. Only those two were rewritten (`5333518d`), so no
+unrelated reformatting rides in and no pre-existing condition is silently adopted.
+
+### 5. Bounds, mail, and this seat's own defect
+
+- **Bounds.** ⟨cmd⟩ `git show --name-only --format="" <this seat's 6 hashes> | sort -u` → **17
+  distinct paths**, every one an `api/src` row of `W3.md` §4. ⟨cmd⟩ the same list
+  `| grep -cE "dev\.sh|api-contract\.source\.json|^src/|demo/@/components/ui/"` → **0**. Plus three
+  docs paths in the final commit (`W3.md` — pure append, `0` deletions — this record, the ledger
+  row, and five new §8 artefacts). **Zero out of bounds.**
+- **E-3.** ⟨cmd⟩ `git diff --numstat e9ab3579..HEAD -- docs/tranches/X/waves/W3.md` → **67 insertions
+  · 0 deletions**. Both prior addenda and every authored byte above them are untouched; the two
+  published-figure corrections (D-9, D-10) are stated in §2 of this record, never patched into the
+  close's bytes.
+- **Mail (E13).** Swept at this seat's own clock. The four `UNREAD` rows are **I-32 · I-33 · I-34**
+  (Routing: *"the X formation mail seat / X-W0.j"*, *"X-W0.j / X-EXT-1"*) and **I-35** (Routing:
+  *"X·KF, Track B"*). **None is routed to X-W3. 0 UNREAD in scope.**
+- **This seat's own defect, self-reported.** Commit `66537044` carries **no `Claude-Session`
+  trailer** — the standing law's two-`-m` form was collapsed into one on that first commit. Every
+  subsequent commit carries it. It is **not** amended: `66537044` is no longer HEAD, four tracks
+  share this index, and rewriting shared history to fix a trailer would be a far larger act than the
+  omission. Recorded rather than quietly corrected.
+
+### 6. Commits landed by this seat
+
+| # | sha | scope |
+|---|---|---|
+| 1 | `66537044` | `fix(api/palette-policy)`: authorize the provenance target and thread the viewer through every hop (X.A1 · G-4) |
+| 2 | `22d2eb65` | `fix(api/palette-forks)`: plural route, private child, both-boundary source auth, viewer-filtered list, computed forkCount (X.A4) |
+| 3 | `fcf51523` | `feat(api/palette-visibility)`: unlisted dies, moderation clock lands (X.A5) |
+| 4 | `d7e5f30c` | `fix(api/write-contract)`: fence PATCH, publish and revert on the ETag predicate (X.A3 · G-8) |
+| 5 | `fe5e1ff0` | `fix(api/palette-versions)`: let G-6's own probe reach the join it measures (ESC-W3.3-PRECONDITION-TESTS) |
+| 6 | `5333518d` | `style(api/palette-tests)`: prettier over the two files Repair 1 made non-conformant |
+| 7 | *(this commit)* | `docs(x-w3/repair-1)`: the repair record, G-16's terminal disposition, five artefacts, the ledger row |
+
+§9's commits **5** and **6** — UNLANDED at close — are landed as #2 and #3. Pathspec on every commit
+itself; `scripts/dev/dev.sh` never staged; no sibling seat's path added, reset or unstaged; no
+`git add -A`, no `-u`, no `commit -a`, no stash, no reset, no force-push.
+
+### 7. What Repair 1 does NOT claim
+
+**The wave is not IMPLEMENTED by this seat's act.** §2's four-verb table is untouched and remains
+AUDITED YES · SPECIFIED YES · IMPLEMENTED **NO** · VERIFIED **NO** — those verbs move at a close
+seat and at **§L-18's two quartet passes**, which stand **UNSERVED**. **§3a's triumvirate has fired
+and is undischarged**, so a successor seat must convene it before X-W3 can report; this seat widened
+that row and could not take it. And **G-21 is still RED** — honestly, by id, with its owner named.
