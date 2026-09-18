@@ -39,7 +39,13 @@ test("browse mid-fetch renders developing-plate skeletons, never a spinner", asy
     // The wall then develops into the real page-1 cards.
     const cards = main.getByRole("article").filter({ visible: true });
     await expect(cards).toHaveCount(PAGE1_COUNT, { timeout: 15_000 });
-    await expect(skeletons).toHaveCount(0);
+    // X-W1 · G-7 DELIBERATE BREAK — scratch branch `x-w1-g7-falsifier` ONLY,
+    // never merged. The true assertion is `toHaveCount(0)`: once the wall has
+    // developed into PAGE1_COUNT real cards, zero skeletons remain. Asserting
+    // `1` inverts a proposition the product satisfies, so this spec must fail
+    // in CI. If the `e2e-smoke` job concludes anything but `failure` on this
+    // branch, the job is decorative and G-7 is REFUTED.
+    await expect(skeletons).toHaveCount(1);
 
     expect(consoleErrors).toEqual([]);
 });
