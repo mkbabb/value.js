@@ -1225,3 +1225,228 @@ sequencing decision, not just a path list. **Returned, not taken.**
 **E13**: this unit minted no mail, consumed no routed letter, and leaves **0 UNREAD in its scope**;
 `INBOX.md` is outside this unit's writable set and was read-only here. **`scripts/dev/dev.sh` was
 never touched or staged, in either repo.**
+
+---
+
+## Close
+
+**Seat**: the KF.W5 CLOSE SEAT, Opus (`claude-opus-5[1m]`), **VERIFY-ONLY** — this seat cured nothing,
+wrote no product byte in either repo, and authored none of the five units' bytes. **Every reading
+below is this seat's own command at this seat's own clock, double-run**; no figure is inherited from a
+unit receipt, and where a unit's figure did not reproduce it is said so and reconciled by measurement.
+**Substrate**: kf `master` **`e325018fb257540d6103950c3ab3c6195f51c5e2`**; ⟨`git status --porcelain`⟩ →
+**2 rows, both untracked**, the two §0m.0 I-26 survivors, exactly as at open. **Zero tracked
+modifications.**
+
+### 1 · Commit roster and the bounds audit — every unit's commits exist and touch only its writable set
+
+⟨`git log --oneline 7d958f21..e325018f`⟩ → **35 commits**, of which **22 are this wave's** and 13 are
+the concurrent **X.KF.W2** seat's (`f7cbc41c` · `49cd647b` · `46f0b77b` · `36b4615a` · `0cfd3b5f` ·
+`55347314` · `02a87f7a` · `a461c78c` · `0ecaadb3` · `6e371fd4` · `5083c3f8` · `0b747396` · `6941e833`)
+— named so the interleave is attributed, never absorbed.
+
+| unit | kf commits | paths touched (⟨`git show --name-only`⟩, per commit) | in the unit's writable set |
+|---|--:|---|---|
+| `.a` | 6 | `demo/…/composables/useHighlightCSS.ts` ×5 · `test/demo/instrument/highlight-css-roundtrip.test.ts` ×1 | **YES** — exactly the two granted paths, nothing else |
+| `.c` | 14 | `engine/play-lifecycle/{frame,strategies}.ts` · `group/{group,entries}.ts` · `internal/reduced-motion.ts` · `orchestration/{sequence/sequence,view-transition/view-transition,split-text/split-text,stagger}.ts` · `waapi/delegation.ts` · `compile/emit/{index,backward/backward}.ts` · `engine/{animation,option-setters}.ts` · `load-engine.ts` · `public.ts` · `constants/types.ts` · the **10 created specs** | **YES** — every path is named in §Bounds *Arm B*; `src/animation/index.ts` never opened; no `.vue` byte |
+| `.d` | 1 | `engine/compile-bridge.ts` · `engine/css/animation.ts` · `physics/playback.ts` · `test/engine/adopt-compiled-renderer.test.ts` · `test/physics/raf-degrade.test.ts` | **YES** — the five granted paths, the engine-seam packet unsplit (S-4) |
+| `.e` | 1 | `.dependency-cruiser.cjs` | **YES** — one file, one motion (D-1+D-2+D-4) |
+
+**value.js side, 8 commits**: `dea4dd4e` (OPEN: record + LEDGER + INBOX) · `f536b907` (`.a`) ·
+`396232f7` + `be2aaa66` (`.b`) · `b1cbb8e6` (`.c`) · `2b693c41` (`.d`) · `dc015540` + `ccae5ffb`
+(`.e`). Every one touches only `docs/tranches/X/execution/B/KF-W5.md`,
+`docs/tranches/X/keyframes/evidence/W5/**`, and — at open alone — `LEDGER.md` + `INBOX.md`.
+**Zero `registry/adjudicated/` bytes** (G-TAX's falsifier), **zero glass-ui bytes**, **zero
+`src/**` bytes in value.js**, and ⟨`git status --porcelain`⟩ shows `scripts/dev/dev.sh` still dirty
+and **never staged** by any commit of this wave (⟨`git log --format=%H 7d958f21..HEAD -- scripts/dev/dev.sh`⟩
+→ empty, both repos).
+
+**Shared-directory discipline verified at the bytes**: ⟨`git diff --stat 7d958f21..HEAD --
+test/demo/instrument/`⟩ → **1 file changed, 215 insertions(+)** — the one created fixture, **zero
+modifications to any tracked file** in the four-party directory.
+
+**Evidence sheets, self-counted at this seat**: five files under
+`docs/tranches/X/keyframes/evidence/W5/` (`G-XSS-unit-a` · `CENSUS-unit-b` · `ARM-B-unit-c` ·
+`ARM-C-unit-d` · `ARM-D-unit-e`), **line 1 of each = `SERVED MODEL: claude-opus-5[1m]`** (⟨`head -1`⟩
+×5). The arm-D ring table carries **45 disposition rows, ids 1..45 contiguous** (⟨`grep -oE '^\| *[0-9]+ *\|' | sort -n | uniq`⟩).
+
+### 2 · Every gate re-run at this seat, BEFORE → AFTER
+
+Each AFTER cell is this seat's own command, **run twice, both runs identical**.
+
+| # | gate | BEFORE (record §Baseline, `7d958f21`) | AFTER at this seat (`e325018f`), double-run | verdict |
+|---|---|---|---|---|
+| 1 | **G-XSS** observable | 2 lines (`:111` sink · `:123` escaped writer); property form **1** | ⟨`git grep -n 'innerHTML' HEAD -- …/useHighlightCSS.ts`⟩ → **exactly ONE line**, `:198 el.innerHTML = h.value`, sitting under `const h = hljs.highlight(source, { language: "css" })` (read at the bytes); property form **0 / 0**. `setHighlightingString` reads `el.textContent = s` at `:183` | **GREEN** |
+| 2 | **G-XSS** round-trip | fixture ABSENT; demo 30 files / 191 tests | ⟨`npx vitest run --project demo …/highlight-css-roundtrip.test.ts`⟩ → **4 passed (4)**; whole project **31 files / 195 passed / 195** | **GREEN** |
+| 3 | **G-ROLE** | RED by absence | `split-text-implicit-role.test.ts` → **8 passed (8)** | **GREEN** |
+| 4 | **G-REFUSE** | RED by absence | `split-text-refuse.test.ts` → **7 passed (7)** | **GREEN** |
+| 5 | **G-REVERT** | RED by absence | `split-text-revert.test.ts` → **6 passed (6)** | **GREEN** |
+| 6 | **G-STAGGER-DOC** leg 1 | fixture ABSENT; floor 24 | ⟨`npx tsc --noEmit -p tsconfig.test.json \| grep -c 'error TS'`⟩ → **24 / 24**, and ⟨`… \| grep -cE '<the 13 created fixtures>'`⟩ → **0**: zero diagnostics attributable, **floor carried, not reduced** | **GREEN** |
+| 7 | **G-STAGGER-DOC** leg 2 (P-8) | RED by absence | `group-viability.test.ts` → **5 passed (5)**; `stagger-doc-example.test.ts` → **3 passed (3)** | **GREEN** |
+| 8 | **G-PRM-FLIP** | RED — 7 lines / 3 files, `delegation.ts` absent from the census | `prm-engagement.test.ts` → **5 passed (5)** | **GREEN** |
+| 9 | **G-DELAY** | RED by absence | `delay-semantics.test.ts` → **5 passed (5)** | **GREEN** |
+| 10 | **G-FROMSTRING** | RED — 3 frames → 6, selectors duplicated | `fromstring-idempotence.test.ts` → **1 passed \| 2 expected fail (3)**. The two ruled assertions are **executed and still failing**: the REPLACES cure is **NOT landed** | **RED — honest, escalated (bounds)** |
+| 11 | **G-CSSIDENT** | RED — 0/0/0 at the three published entries | `public-surface.test.ts` → **7 passed (7)**; ⟨`git grep -c '<name>' HEAD -- public.ts load-engine.ts`⟩ → **2/2** for each of `cssIdent` · `reverseCSSTime` · `serializeTimingFunction` | **GREEN** (see §5 — the publication has a landed consequence) |
+| 12 | **G-OPTSET** | RED — four legs, none met | `option-setter-propagation.test.ts` → **11 passed (11)** | **GREEN** |
+| 13 | **G-RAF** | RED — `step(now)` with no failure path | `raf-degrade.test.ts` → **7 passed (7)** | **GREEN** |
+| 14 | **G-RENDERER** | RED — `adoptCompiled` transplants the compiler whole | `adopt-compiled-renderer.test.ts` → **6 passed (6)** | **GREEN** |
+| 15 | **G-DEPCRUISE** | SPLIT — L-1 CURED-AT-FRONTIER, the existence assertion unwritten, the `lint` parenthetical FALSE | ⟨`npx depcruise --config .dependency-cruiser.cjs src`⟩ → **✔ 0 violations (160 modules, 705 deps) / identical**; allowlist **24 entries, 24 resolve, 0 DEAD** (existence-swept at this seat); three-clause oracle **(i) `knownViolations` 0 · (ii) `lint` carries no `--known-violations` flag (`package.json:44`) · (iii) baseline file ABSENT**; the honest sentence is **kept whole and now TRUE** (it names the live `lint` and `fb509edd`). **Falsifier exercised independently, no repo byte written**: the config source was loaded with one allowlist name mutated to `physics/spring/solver/duration-GONE` → **THROW**, *"LIGHT_BARREL_MODULES names 1 module(s) that do not exist"*; pristine loads clean. The assertion is **non-vacuous by demonstration at a second seat** | **GREEN** |
+| 16 | **G-RING** | RED — inventory un-dispositioned (unmeasured at open) | ⟨same cruise with the rule's type-only exemption lifted⟩ → **45 violations / 45**, i.e. **RING COUNT 45 at `e325018f`**, against **45 per-ring dispositions** in the evidence (ids 1..45, self-counted here). **RECONCILIATION, published rather than smoothed**: lifting **`viaOnly` alone** returns **38 / 38**; lifting **both** type-only clauses (head edge *and* `viaOnly`) returns **45 / 45**. The gate's own wording is *"with type-only edges **counted**"*, which is the both-clauses reading, so **`.e`'s 45 reproduces at an independent seat**; the 38 is the head-edge-only reading and is recorded so the two are never confused | **GREEN** |
+| 17 | **G-SHIM** (floor) | GREEN (floor, `7e9ddf49`) | ⟨`git ls-tree -r HEAD --name-only -- src/animation/presets`⟩ → **exactly 3** (`catalog.ts` · `classic-data.ts` · `index.ts`) · ⟨`git grep -c 'split by kind' HEAD -- src/`⟩ → **0** · ⟨`npx vitest run --project library`⟩ → **112 files passed \| 5 skipped · 1256 passed \| 3 expected fail \| 14 skipped**, identical on the second run · ⟨`npm run build`⟩ → **✓ exit 0** | **GREEN — floor held** |
+| 18 | **G-STRUCT** | RED — 8 × 12 un-dispositioned | roster re-derived at this seat with the gate's own probe → **10 god modules** (`cssom.ts` 499 · `group/group.ts` 498 · `engine/animation.ts` 497 · `progress.ts` 484 · `draggable.ts` 470 · `compiler.ts` 461 · `entry.ts` 459 · `classic-data.ts` 458 · `split-text.ts` 442 · `emit/view-transition.ts` 438), **matching `.e`'s 10 exactly**; stutter predicate re-run → **12**, split **8 EPONYM + 4 SUFFIX**, the same members `.e` scored. `git log … <old> <new>` clause **vacuously satisfied — zero renames landed** | **GREEN on its stated GREEN condition** (the disposition table) — **but see ESC-e-1: the rename programme §Bounds grants is UNEXECUTED** |
+| 19 | **G-BASIS** | RED — the reconciliation unwritten; B0 = 153 | ⟨`git ls-tree -r 7d958f21 --name-only -- src \| grep -c '\.ts$'`⟩ → **153 / 153**, `.d.ts` **0**; at `e325018f` the same probe → **154**, the +1 being the concurrent seat's `compile/parse-facade.ts` (attributed, not absorbed). `depcruise`'s **160 modules** at this ref = 154 src + 6 `@mkbabb/value.js` subpath externals — the same derivation `.b` proved set-equal at 153 + 6 = 159 | **GREEN** |
+| 20 | **G-ID** | RED — the audit unrun (22 hits) | ⟨`grep -cE 'KF-ES-[0-9]+\|(^\|[^-])\bL-2\b' waves/KF-W5.md`⟩ → **22 / 22** (LINE unit, the gate's own probe — **qualified 22/22**); ⟨`grep -oE …\| wc -l`⟩ → **58** occurrences, of which **exactly 2 are BARE at site** and outside the two declared exception cells — `:386` occurrence 1 (*"G-DEPCRUISE's L-2 leg ← the honest comment"*) and `:412`'s last (*"and for L-2 (cured, `81a56990`)"*), both re-cut from the bytes at this seat. **The gate's pass condition is stated at the OCCURRENCE** (*"Fails on any bare … L-2"*) | **RED — honest.** `.b`'s finding reproduces exactly; the cure is a **spec byte**, IMMUTABLE under E-3 and outside every seat's writable set → **KF.W10** |
+| 21 | **G-TAX** relay leg | RED — 3 headers · 0 annotations · 0 rows | ⟨`grep -rn 'KF.W5-PARTIALS' registry/adjudicated/`⟩ → **3 header hits** (`kf-DemoGlobalChrome:17` · `kf-AnimationControlsGroup:17` · `kf-ControlsPaneWrapper:6`), **0 row hits**; the RD-2 relay row is present in the record and names all three records, the superseded authority (`lane-frontend.md §10`) and the binding one (`CENSUS-2026-08-03 §(a)`). **0 registry bytes written by this wave** (falsifier honoured) | **RELAY LEG GREEN** |
+| 22 | **G-TAX** annotation leg | RED, unobservable by design | ⟨`grep -c 'SUPERSEDED\|superseded'` over the three⟩ → **0 · 1 · 0**, the single hit being `kf-DemoGlobalChrome:154`, a dead `dist/gh-pages` byte-offset coordinate — **a different subject, read at the bytes**. The annotations are **SS-1/SS-2's act**, as the gate's own rider declares | **RED — unobservable by design, not this wave's to turn** |
+| 23 | **G-SCOPE** | GREEN on the arithmetic, RED on the act | ⟨`awk 'NR>=309 && NR<=379 && /^\| \*\*/' \| wc -l`⟩ → **46 / 46**; §Excluded **6 numbered items** + **7 sub-bullets** = **12 re-homes**; **46 + 12 = 58**; compared by `.b` against PASS-8 (whole corpus, 0 escapes) and PASS-6 (43 routed / 43 booked / 0 escaped), the latter re-derived from the spec's own bytes | **GREEN** |
+
+**Twenty gates + G-SHIM's floor, counted as the spec counts them: 17 GREEN · 3 RED (G-FROMSTRING ·
+G-ID · G-TAX's annotation leg) · G-TAX's relay leg GREEN beside its RED second leg.**
+
+### 3 · Verification artefacts — the spec declares no `§Verification Artefacts` section, and that is said rather than glossed
+
+⟨`grep -c 'Verification' waves/KF-W5.md`⟩ → **0**. This wave's verification artefacts are (a) each
+gate's own named instrument, every one re-run above, and (b) the five evidence sheets, self-counted in
+§1. The repo-wide instruments were also run whole at this seat, and their attribution measured:
+
+| instrument | reading at `e325018f` (double-run) | attribution |
+|---|---|---|
+| `npx vitest run --project library` | **112 files passed \| 5 skipped · 1256 passed \| 3 expected fail \| 14 skipped** | open was 99 files / 1124 passed / 1 expected fail. **This wave's own contribution is 12 created spec files carrying 73 tests** (8+7+6+3+5+5+5+3+11+7+6+7, self-counted from the twelve single-file runs above), **2 of them the ruled born-RED `it.fails` rows**; the remainder of the delta is the concurrent X.KF.W2 seat's and is **not claimed** |
+| `npx vitest run --project demo` | **31 files / 195 passed / 195** | +1 file / +4 tests over the open baseline (30/191) — **exactly `.a`'s fixture** |
+| `npx tsc --noEmit -p tsconfig.test.json` | **24 / 24** | the record's banked FINDING-3 floor, **unmoved**; 0 diagnostics name any file this wave wrote |
+| `npx tsc --noEmit -p tsconfig.lib.json` | **3 / 3** | the banked `TS6133` floor, unmoved |
+| `node scripts/gates/structure/index.mjs` (`proof:structure`) | **PASS — scope=src clean (0 violations across R1–R6)** | green; `.c`'s two self-caused R6/line-count violations were cured inside `.c` |
+| `npm run build` | **✓ exit 0** | green |
+| `npm run lint` | **x 4 dependency violations (435 modules, 1557 deps)** — four `no-cycle` rings, all in `demo/scenes/cube/orbital-drag/**` | **NOT this wave's**: no arm wrote a `.vue` or a `demo/scenes/**` byte; the rings entered `lint`'s scope when KF.W4's `fb509edd` widened it to `src demo`. This is `.e`'s **RD-e-2**, reproduced independently here |
+| `node scripts/gates/surface/index.mjs` (`proof:publish`) | **FAIL — exit 1, both runs** | **THIS WAVE'S. See §5 — the one landed-wrong this close publishes** |
+
+### 4 · E13 — the four paths re-swept at the close seat's own clock
+
+Swept read-only, classification taken from each row's **status cell** of
+`docs/tranches/V/coordination/INBOX.md` (self-excluded under SELF-COUNT).
+
+1. `docs/tranches/V/` (10 `.md`) + `V/coordination/` (17 `.md`) — newest is `INBOX.md` itself; the
+   newest letter, `value-inbox-2026-09-17-o8-o11-amendment-addendum.md`, is **OUR OWN OUTBOUND**, read
+   at its first line (*"RETAINED COPY (C-11 KF-MAIL-COPY): delivered as …VALUEJS-INBOUND-2026-09-17…"*)
+   and **rowed `O-21`**.
+2. `../glass-ui/docs/tranches/BK/coordination/` — **BK re-confirmed newest** (⟨`ls -dt ../glass-ui/docs/tranches/*/ | head -1`⟩);
+   the three 2026-09-17 letters are rowed **I-32 · I-33 · I-34**.
+3. `../keyframes.js/docs/tranches/V/coordination/` — newest is the `VALUEJS-INBOUND-2026-09-17-…`
+   delivery of O-21, our own outbound.
+4. `../sci-report/atlas/docs/tranches/P/coordination/` — newest is 2026-08-03, **unmoved since open**.
+
+**Result: 0 unrowed · 0 new `I-n` minted at this seat.** Three rows carry status **UNREAD** program-wide
+(**I-32 · I-33 · I-34**) and **none routes here** — their routing cells read *"the X formation mail
+seat / X-W0.j"*, *"X-EXT-1..6"* and *"X-W0.j / X-EXT-1"*. **0 UNREAD mail in KF.W5's scope**, so the
+wave closes lawfully under E13.
+
+### 5 · LANDED WRONG — one, found by this seat and published, not smoothed over
+
+**`proof:publish` is RED at HEAD, and this wave made it so.**
+
+⟨`node scripts/gates/surface/index.mjs`; `echo $?`⟩ → **exit 1, both runs**, with exactly one finding:
+
+> `proof:published-surface — FAIL (1 finding(s); the published surface lies):`
+> `✗ (b) 5 public export(s) are NEITHER README-taught NOR manifested — an API a npm i user reaches that the docs cannot teach:`
+> `` `cssIdent` (HEAVY), `resolveTimingFunction` (HEAVY), `reverseCSSTime` (HEAVY), `serializeTimingFunction` (HEAVY), `timingFunctionEntries` (HEAVY) ``
+
+**Attribution, measured**: those five names are **precisely** the exports `2e0d91ae` (X.KF.W5.c, the
+S-3 publication decision) added to `src/animation/public.ts` — ⟨`git show 2e0d91ae -- src/animation/public.ts`⟩
+shows the block that publishes `cssIdent`, `reverseCSSTime`, `serializeTimingFunction` and the
+KF-ET-32 registry pair. ⟨`grep -c '<name>' README.md docs/published-surface.md` ×5⟩ → **0 / 0 for every
+one of the five**. Before the wave the clause had no subject (the names reached no published entry —
+the gate's own born-RED witness), so the RED is this wave's, not a pre-existing floor.
+
+**Why four seats read `proof:publish` PASS and this one reads FAIL, stated as a mechanism**: the gate
+measures **`dist/` AS BUILT** (its own header: *"the gate measures dist AS BUILT"*; `dist/` is
+gitignored at `.gitignore:10`). `.c` and `.d` ran it against a `dist/` built **before** `2e0d91ae`
+landed the five exports; this seat ran ⟨`npm run build`⟩ first, and the gate then saw the real
+published surface. **The unit receipts' `proof:publish PASS` lines are therefore stale-artifact
+readings, and are corrected here as a dated addendum-beside (E-3) — the receipts themselves are not
+rewritten.**
+
+**Why it matters, measured rather than asserted**: ⟨`grep -rn 'proof:publish' .github/workflows/`⟩ →
+**`ci.yml:78`**, **`ci.yml:109`** and **`release.yml:49`** — a **blocking CI job** and the release
+path. The wave has published an API the docs cannot teach.
+
+**The cure is NOT taken here** (this seat is VERIFY-ONLY, and README/`docs/published-surface.md` are
+in no arm's writable set): the honest fix is the gate's own — **teach the five in README §Beyond CSS
+or enumerate them in `docs/published-surface.md`**, one commit, at a seat granted those two paths.
+**Owner: X·KF — the next wave with a docs surface in bounds (KF.W6), terminus KF.W10.** It is emphatically
+**not** a licence to un-publish the three library names: S-3 is a RULING and G-CSSIDENT is GREEN on it.
+
+### 6 · Escalations carried out of this wave, with named owners
+
+| id | escalation | measured statement | owner |
+|---|---|---|---|
+| **ESC-c-1** | **`fromString` REPLACES is unperformed** — G-FROMSTRING stays RED | the only cure site is `engine/css/animation.ts` (today `:176`), which is `.d`'s file, while the gate spec is `.c`'s; **no single seat of this wave held both**. `.c` pinned the ruling with two executed `it.fails` rows — verified live here, **1 passed \| 2 expected fail** | **X·KF — one seat granted BOTH `src/animation/engine/css/animation.ts` and `test/engine/fromstring-idempotence.test.ts`**; the act is: clear the template set (and the compiled frames) before the ingest loop, **then** unwrap the two rows to plain `it`. **KF.W10** if no earlier wave takes it |
+| **ESC-c-2** | **the `setTargets` element contract (B-19 / KF-CB-30) is unwidened** | measured twice at a clean tree: **9 new diagnostics across 5 files**, 3 outside `.c`'s bounds; and `element-resolve.ts(191,38)` *"Property 'style' does not exist on type 'Element'"* **refutes B-19's INFO rationale**. Nothing was written — no cast, no partial widening | **X·KF / KF.W8** (the seat granted `engine/interpolate.ts` + `resolve/element-resolve.ts` beside `engine/animation.ts`) |
+| **ESC-e-1** | **the rename programme cannot execute inside arm D's writable set** | §Bounds grants the twelve stutter paths *"rename + migrate imports in one commit each"*, but **no importer is in the set**: across the four Class-B renames the surface is **12 import sites, 11 outside the set**. Verified here by re-deriving the same 12-member stutter set and confirming **zero renames landed**. No shim, no split, no quiet re-disposition was taken | **X·KF — a grant of the eleven importer paths plus a sequencing decision** (two of them, `engine/animation.ts` and `src/animation/index.ts`, are live sibling surfaces). → **KF.W8** |
+| **ESC-close-1** | **`proof:publish` RED (§5)** — the published surface lies about five names | exit 1, double-run; five names, 0 README/manifest hits each; blocking CI at `ci.yml:78`/`:109` | **X·KF — the next wave holding `README.md` / `docs/published-surface.md` (KF.W6), terminus KF.W10** |
+
+### 7 · Residuals, each with a named owner
+
+- **G-ID's 2 bare-at-site `L-2` occurrences** (`:386` occ-1 · `:412` occ-3) and the **third, undeclared
+  exception class** (mention-of-the-defect, 3 occurrences) → **KF.W10**, as doc-authority addenda. The
+  spec is IMMUTABLE (E-3); no seat here may cure them at the site.
+- **G-TAX's annotation leg** → **SS-1/SS-2**: three E-3 dated addenda under the original ids, never
+  edits. `PASS-8/CHECK.md:65` shows the mis-routing class is live beyond these three records.
+- **`FOLD-FORWARD §C`'s "159 modules" attribution is FALSE** (`.b` act 2, re-derived independently
+  here: the figure is `depcruise`'s, not `proof:structure`'s) → dated addendum-beside; **KF.W10**.
+- **The D-6 stutter-predicate wording returns 10, not 12, taken literally** (`.b` act 4) — the SET is
+  right, the wording under-specified. Reproduced at this seat: the eponymous whole-name arm is required
+  to keep `split-text/split-text.ts` and `view-transition/view-transition.ts` in the set. → **KF.W8**
+  with the rename grant.
+- **RD-e-1** — one edge (`constants/types.ts ⇢ compile/value/index.ts`) retires **13 of the 45** rings;
+  that line is reserved to KF.W4's bundle → **KF.W8**.
+- **RD-e-2** — `npm run lint` RED over `demo/scenes/cube/orbital-drag/**` (4 rings), reproduced here
+  against the committed config → **KF.W6**, structural terminus **KF.W8**.
+- **RD-e-3** — the 500-line ceiling is **one line** from firing: `cssom.ts` **499**, `group/group.ts`
+  **498**, `engine/animation.ts` **497** (all three re-measured at this seat), empty allowlist →
+  **KF.W8**; `cssom.ts` to **KF.W2**.
+- **RD-e-4** — `compile/emit/view-transition.ts` (438 L, new god-module entrant) → **X.KF.W2**.
+- **B-22's two rider letters** (a lossless timing-function serializer twin; `easing()`'s
+  analytic-first resolution order in the `.d.ts`) → relayed verbatim, **NO-WAVE-OWNER**, CURE-LOCKED by
+  KF-ET-2.
+- **KAD-14(c)** (SFC-side) → **KF.W6**, riding KAD-17's packet. **KAD-13 whole** → **KF.W7**.
+- **The four `respectReducedMotion: false` seeds outside arm B's bounds**
+  (`constants/defaults.ts:87` · `physics/smooth.ts:43` · `physics/numeric.ts:89` ·
+  `physics/spring/types.ts:119`) → **X·KF**, wherever those files are next granted.
+
+### 8 · The four-verb line — NOT moved, and the reason is bounds, not modesty
+
+The spec's §State reads **IMPLEMENTED | NO | *"gates green + bytes landed at the named execution site
+stamps this"*** and **VERIFIED | NO | *"stamped only at X·KF's close (KF.W10)"***.
+
+**Neither verb is stamped by this seat.** (i) **IMPLEMENTED's own condition is not met** — three gates
+are RED at this seat's own commands (G-FROMSTRING · G-ID · G-TAX's annotation leg) and a fourth
+obligation, arm D's rename programme, is unexecuted. (ii) **The spec file is in no arm's writable set**
+and is IMMUTABLE under E-3 (§Bounds lists it nowhere as writable; the wave's write surfaces are
+`src/**`, the named demo annex, the created specs, the evidence home and this record). A close seat
+that edited §State would be writing outside bounds to record that it had stayed inside them.
+**VERIFIED is KF.W10's alone**, by the spec's own words, and is not touched. The wave's status is
+carried in the **LEDGER row** instead, which is the surface the orchestrator's law grants this seat.
+
+### 9 · Push
+
+⟨`git -C ../keyframes.js push origin HEAD`⟩ and ⟨`git -C . push origin HEAD`⟩ run at this seat; outputs
+recorded in the LEDGER row. **Note, measured rather than assumed**: at this seat's clock kf `HEAD` was
+**already `== origin/master`** (⟨`git rev-list --count origin/master..HEAD`⟩ → **0**;
+⟨`git reflog show origin/master`⟩ → `e325018f … update by push`) — the concurrent **X.KF.W2 close**
+pushed the shared `master` and carried this wave's 22 commits with it. The push here is therefore
+idempotent, and the fact is written down so no later census reads "already pushed" as this seat's
+omission. **No force, no stash, no reset, anywhere.**
+
+### 10 · Verdict
+
+**PARTIAL.** Seventeen of the wave's gates are GREEN at an independent seat's own double-run commands,
+including every born-RED library repair the wave was convened for — the split-text triad, the four
+rulings, the publication decision, the option-setter letter, the engine seam, the depcruise motion and
+the ring inventory. What remains is bounded, named and owned: **one ruled cure unperformed for want of
+one seat holding two files** (G-FROMSTRING / ESC-c-1), **one contract widening measured and returned**
+(ESC-c-2), **one rename programme that no lawful commit inside arm D's grant could land** (ESC-e-1),
+**two doc-authority residues in an IMMUTABLE spec** (G-ID → KF.W10), **one gate leg that is another
+owner's act** (G-TAX), and **one CI-RED this wave created and this close publishes** (ESC-close-1,
+`proof:publish`). Nothing was masked: no `test.skip`, no allowlist, no swallow, no shim, no
+sibling's RED moved to green a leg — the three instrument floors (24 · 3 · 4) are carried at their
+open values, measured here.
