@@ -2014,7 +2014,9 @@ register · **Track A** · **wall clock** `2026-09-18 19:1x → 19:4x EDT`
 one byte of `api/**` moved with it** ⟨cmd⟩ `git log --oneline e9ab3579..HEAD -- api/` → this seat's
 six commits and no other.
 
-**VERDICT: 10 of Check 1's 11 registered defects CURED; 1 relieved unchanged (G-21, the honest-RED);
+**VERDICT: 9 of Check 1's 11 registered defects CURED — every one at MEDIUM or above bar the one
+whose cure is out of bounds, plus both MINOR figure corrections; 1 relieved unchanged (G-21, the
+honest-RED);
 3 rows RETURNED as escalations with their measured reason and their exact bytes.** `cd api && npm
 test` is **GREEN for the first time since the wave opened its cut** — `Test Files 40 passed (40)` ·
 `Tests 257 passed (257)`, double-run byte-identical, against the wave-open baseline of 38 files /
@@ -2163,3 +2165,19 @@ AUDITED YES · SPECIFIED YES · IMPLEMENTED **NO** · VERIFIED **NO** — those 
 seat and at **§L-18's two quartet passes**, which stand **UNSERVED**. **§3a's triumvirate has fired
 and is undischarged**, so a successor seat must convene it before X-W3 can report; this seat widened
 that row and could not take it. And **G-21 is still RED** — honestly, by id, with its owner named.
+
+### 8. Erratum, dated 2026-09-18 — the cured count is **9 of 11**, not 10
+
+SELF-COUNT LAW, applied to this seat's own record. The verdict line first published **10** and the
+figure does not reproduce against §1's own table. Counted row by row:
+
+**CURED (9)**: D-1 · D-2 (with G-16's disposition, its second half — one defect, not two) · D-3 ·
+D-5 · D-6 · D-7 · D-8 · D-9 · D-10.
+**NOT CURED (2)**: **D-4** — HIGH, the only ≥MEDIUM defect left standing, because its whole cure is
+out of §4 and it is a §3a MANDATORY TRIUMVIRATE this seat may not convene; **D-11** — INFO, below
+the repair bar and unchanged (artefact 2's *before* half is unrecoverable, and now unrecoverable by
+construction: the plural rename moved the route surface).
+
+The corrected figure is written into the verdict line above and into both `LEDGER.md` rows. The
+commit message of `4e1a918e` carries the superseded **10** and is **not** rewritten — four tracks
+share this index — so it is corrected here, at the record that is read.
