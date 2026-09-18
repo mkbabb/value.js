@@ -29,9 +29,19 @@ import {
     ScrollText,
     Flag,
     Droplets,
+    Compass,
 } from "@lucide/vue";
 
-/** Every named view the demo exposes; the route name AND the `VIEW_MAP` key. */
+/**
+ * Every named view the demo exposes; the route name AND the `VIEW_MAP` key.
+ *
+ * `not-found` (X-W3 · G-20) is a full member, not a special case: the router's
+ * catch-all resolves to it, so `useViewManager`'s `isViewId` clamp must accept
+ * it or an unknown address would fall back to the picker exactly as the retired
+ * `redirect: "/"` did. It is deliberately absent from the dock's `userViews` /
+ * `adminViews` lists (`useDockAdminMode.ts:26-27`) — a destination, never a
+ * place to navigate TO.
+ */
 export type ViewId =
     | "picker"
     | "palettes"
@@ -46,7 +56,8 @@ export type ViewId =
     | "admin-names"
     | "admin-audit"
     | "admin-flagged"
-    | "admin-tags";
+    | "admin-tags"
+    | "not-found";
 
 /** The component rendered in the left pane. */
 export type LeftPane =
@@ -60,7 +71,8 @@ export type LeftPane =
     | "admin-names"
     | "admin-audit"
     | "admin-flagged"
-    | "admin-tags";
+    | "admin-tags"
+    | "not-found";
 
 /** The component rendered in the right pane, or `null` for single-pane views. */
 export type RightPane = "about" | "palettes" | "mix" | "blob" | null;
@@ -228,6 +240,19 @@ export const VIEW_MAP: Record<ViewId, PaneConfig> = {
         leftLabel: "Tags",
         rightLabel: "Palettes",
         icon: Tag,
+        accentHueShift: 0,
+    },
+    // X-W3 · G-20 — the terminal view for an address that names no route, and
+    // the destination `router/guards.ts` fail-closes an unauthenticated admin
+    // deep-link to. Single-pane (no right slot): a dead end shows one thing.
+    // No hue turn — it is not a place in the 40°-step dock fan.
+    "not-found": {
+        left: "not-found",
+        right: null,
+        label: "Not Found",
+        leftLabel: "Not Found",
+        rightLabel: null,
+        icon: Compass,
         accentHueShift: 0,
     },
 };

@@ -19,8 +19,17 @@ import {
 } from "vue";
 
 import { ColorPicker } from "../picker";
+// X-W3 · G-20 — the not-found pane is STATIC, unlike the ten lazy panes below.
+// It is the fail-closed terminal: the view an unknown address resolves to and
+// the one `router/guards.ts` refuses an admin deep-link to. A lazily-loaded
+// terminal can fail to arrive, and a fallback that can fail is not a fallback.
+// Being static also keeps it a single import shape — `router/index.ts` names the
+// same component on the catch-all record, and a module that is both statically
+// and dynamically imported is one module in two chunk shapes (the bundler says
+// so: INEFFECTIVE_DYNAMIC_IMPORT).
+import NotFoundPane from "../scenes/notfound/NotFoundPane.vue";
 import type { ColorModel, EditTarget } from "../color-session/color-model";
-import type { ViewManager } from "./useViewManager";
+import type { LeftPane, RightPane, ViewManager } from "./useViewManager";
 import {
     RefreshCw,
     Copy,
@@ -77,21 +86,46 @@ const AdminPane = defineAsyncComponent(() => import("../palettes/admin/AdminPane
 const AuroraPane = defineAsyncComponent(() => import("../scenes/atmosphere/AuroraPane.vue"));
 const BlobPane = defineAsyncComponent(() => import("../scenes/blob/BlobPane.vue"));
 
-/** Maps a view-config slot name to its component. `null` for an unknown name. */
-function componentFor(name: string | null): Component | null {
-    if (name === null) return null;
-    if (name === "color-picker") return ColorPicker;
-    if (name === "browse") return BrowsePane;
-    if (name === "extract") return ExtractPane;
-    if (name === "generate") return GeneratePane;
-    if (name === "gradient") return GradientPane;
-    if (name === "atmosphere") return AuroraPane;
-    if (name === "about") return AboutPane;
-    if (name === "palettes") return PalettesPane;
-    if (name === "mix") return MixPane;
-    if (name === "blob") return BlobPane;
-    if (name.startsWith("admin-")) return AdminPane;
-    return ColorPicker;
+/**
+ * The one name→component map this module's header promises — now TOTAL over the
+ * schema's pane unions.
+ *
+ * X-W3 · G-19 (fold S-8). The predecessor was an `if`-chain over
+ * `name: string | null` ending `return ColorPicker;`. That tail was a
+ * fail-OPEN default: a pane name the schema grew without a component here
+ * silently rendered the picker, and `usePaneRouter.ts:80`'s own doc comment
+ * ("`null` for an unknown name") contradicted it. The gate is STRUCTURAL rather
+ * than runtime because the tail was also provably unreachable — both call sites
+ * pass `currentConfig.value.left/right`, already typed `LeftPane`/`RightPane`,
+ * and `useViewManager.ts:43-45` clamps the route name through `isViewId` — so no
+ * runtime probe could reach it. `Record<Exclude<…, null>, Component>` is what
+ * makes the totality checkable: `vue-tsc` rejects this table the moment
+ * `viewSchema.ts` names a pane it does not carry, and rejects a key the unions
+ * do not name. The fail-closed answer for a genuinely unknown view now comes
+ * from the schema instead — `not-found` is a real view with a real component.
+ */
+const PANE_COMPONENTS: Record<Exclude<LeftPane | RightPane, null>, Component> = {
+    "color-picker": ColorPicker,
+    browse: BrowsePane,
+    extract: ExtractPane,
+    generate: GeneratePane,
+    gradient: GradientPane,
+    atmosphere: AuroraPane,
+    about: AboutPane,
+    palettes: PalettesPane,
+    mix: MixPane,
+    blob: BlobPane,
+    "admin-users": AdminPane,
+    "admin-names": AdminPane,
+    "admin-audit": AdminPane,
+    "admin-flagged": AdminPane,
+    "admin-tags": AdminPane,
+    "not-found": NotFoundPane,
+};
+
+/** Maps a view-config slot name to its component. `null` only for an empty slot. */
+function componentFor(name: LeftPane | RightPane): Component | null {
+    return name === null ? null : PANE_COMPONENTS[name];
 }
 
 export interface PaneRouterDeps {

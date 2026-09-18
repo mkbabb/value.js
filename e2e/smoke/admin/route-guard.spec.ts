@@ -103,7 +103,5 @@ test("G-18 falsifier — the guard fail-closes on the TOKEN, not on the admin ro
     await page.goto("/#/admin/users");
 
     await expect(page.getByRole("heading", { name: "Users" }).first()).toBeVisible();
-    await expect(
-        page.getByRole("heading", { name: NOT_FOUND_HEADING }),
-    ).toHaveCount(0);
+    await expect(page.getByRole("heading", { name: NOT_FOUND_HEADING })).toHaveCount(0);
 });

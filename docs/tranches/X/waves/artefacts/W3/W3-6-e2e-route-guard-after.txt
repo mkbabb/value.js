@@ -1,0 +1,44 @@
+SERVED MODEL: claude-opus-5[1m]
+
+X.W3.6 — e2e/smoke/admin/route-guard.spec.ts, AFTER the cure. Double-run.
+
+⟨cmd⟩ npx playwright test --project=smoke-admin e2e/smoke/admin/route-guard.spec.ts --reporter=list
+
+  RUN 1 (before the static-import repair)
+  ✓ 1 G-18 — anonymous deep-link to every admin route fail-closes; AdminPane never mounts (4.7s)
+  ✓ 2 G-20 — an unknown URL renders the source-realized not-found route, not a redirect (1.9s)
+  ✓ 3 G-18 falsifier — the guard fail-closes on the TOKEN, not on the admin route (1.1s)
+  3 passed (14.5s)
+
+  RUN 1 emitted a rolldown warning that named a real defect and was cured, not silenced:
+    [INEFFECTIVE_DYNAMIC_IMPORT] demo/scenes/notfound/NotFoundPane.vue is dynamically
+    imported by demo/shell/usePaneRouter.ts but also statically imported by
+    demo/color-picker/router/index.ts, dynamic import will not move module into
+    another chunk.
+  Cure: the not-found pane is STATIC in both places. It is the fail-closed terminal —
+  a lazily-loaded fallback can fail to arrive, and a fallback that can fail is not a
+  fallback. One import shape, one chunk, and no eleventh bare `defineAsyncComponent`
+  loader added to the ten X-W5 inherits (fold §CrossEdges §C(b), F-18).
+
+  RUN 2 (after the repair) — the warning is gone
+  ✓ 1 G-18 — anonymous deep-link to every admin route fail-closes; AdminPane never mounts (4.8s)
+  ✓ 2 G-20 — an unknown URL renders the source-realized not-found route, not a redirect (1.8s)
+  ✓ 3 G-18 falsifier — the guard fail-closes on the TOKEN, not on the admin route (1.2s)
+  3 passed (9.6s)
+
+⟨cmd⟩ npx playwright test --project=smoke-admin --reporter=list   (the WHOLE project — no
+regression in the eighteen pre-existing admin specs the new guard now fences)
+  21 passed (29.8s)
+
+REGRESSION A/B — the four `smoke` failures are PRE-EXISTING, measured, not assumed.
+⟨cmd⟩ npx playwright test --project=smoke e2e/smoke/walk.spec.ts e2e/smoke/page-load.spec.ts e2e/smoke/views
+  at the CURE     → 4 failed · 11 passed.  walk.spec.ts (the router-sensitive view walk) PASSED.
+  at the BASELINE → the same four fail, with byte-identical error signatures:
+     gradient.spec.ts:38  · :102 · :252  ·  mix.spec.ts:28
+  Method: the five files of this unit were replaced in the WORKING TREE ONLY with their
+  `git show 9455dc8f:` bytes (guards.ts and NotFoundPane.vue moved aside), the specs re-run,
+  then the cure restored and `diff -q`'d against the banked copies — five identical, demo
+  typecheck exit 0. The git index was never touched: no stash, no checkout, no reset.
+
+⟨cmd⟩ npx vue-tsc -p tsconfig.demo.json --noEmit  →  exit 0
+⟨cmd⟩ npm run typecheck (lib · demo · test · e2e bands)  →  exit 0
