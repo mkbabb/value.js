@@ -1,0 +1,193 @@
+SERVED MODEL: claude-opus-5[1m]
+
+X.P.W3 — ## Repair 2 — round 4 (the repair pass of `## Check 2 — round 4`)
+THIRTEENTH seat on this wave. Clock: Fri Sep 18 19:44–19:52 EDT 2026. Date of record: 2026-09-17.
+
+Register read: the five defects of `## Check 2 — round 4` K2R4.4/K2R4.5 —
+  CRITICAL  G-1 (UNIVERSE-52-TOTAL, 5 of 52)                 → ESCALATED (Triumvirate Dispatch + owner ruling)
+  HIGH      G-7 (EQUIVALENCE FLOOR, 5,883 mirror-defects)     → ESCALATED (same dispatch + GROUND-C ruling)
+  HIGH      G-4's ⊇ leg (5 of 8 frozen codes unemitted)       → ESCALATED (same dispatch)
+  MEDIUM    F-y1 (two CAPACITY rows contradict their table)   → CURED, and at three rows, not two
+  INFO      F-y2 (the `.e` §6 carry is path-dependent)        → CURED
+
+════════════════════════════════════════════════════════════════════════════════════════════════
+0. CRASH-RECOVERY, first act — `git status --porcelain` in every repo this seat may write
+════════════════════════════════════════════════════════════════════════════════════════════════
+
+$ git -C /Users/mkbabb/Programming/parse-that-css-totality-p2 status --porcelain
+?? .worktrees/                                  ← the standing state; NO inherited partial work
+
+$ git -C /Users/mkbabb/Programming/value.js status --porcelain
+ M demo/** (10)  ← Track-A/frontend siblings, NOT OPENED
+ M docs/tranches/V/reformation/CARRY-LEDGER.md  ← a sibling's, NOT OPENED
+ M scripts/dev/dev.sh                           ← unowned, NEVER opened, never staged
+?? docs/tranches/X/waves/evidence/, e2e/smoke/**(2)  ← sibling artefacts, NOT OPENED
+
+$ git -C /Users/mkbabb/Programming/parse-that log --oneline -1
+ef10d5b …                                       ← the frozen root, byte-unmoved
+
+Nothing stashed, restored or reverted. No sibling path staged. No inherited edit inside this
+seat's writable set, so nothing was inherited, finished or rewritten.
+
+════════════════════════════════════════════════════════════════════════════════════════════════
+1. F-y1 — RED BEFORE, at this seat's own new falsifier
+════════════════════════════════════════════════════════════════════════════════════════════════
+
+The new assertion reads each `### CAP-n` section's incumbent column BY POSITION (cell 3 of the
+row's own witness table) and fails when the section's prose says the incumbent "returns a value"
+while its cells do not all read `ok:true`.
+
+$ npx vitest run --config test/css-equivalence/vitest.config.ts     [ledger NOT yet re-emitted]
+FAIL  G-7 · DIVERGENCE-LEDGER.md > F-y1 — no CAPACITY row claims an incumbent verdict its OWN
+      measured table denies
+  + [ "CAP-3", "CAP-4", "CAP-9" ]
+Tests  2 failed | 26 passed (28)          ← F-y1 + the born-RED G-7 floor
+
+THE REGISTER NAMED TWO ROWS. THE MEASUREMENT FOUND THREE. CAP-9 (`expsnap`) carries the same
+false incumbent sentence — its window witness reads
+`ok:false · 1 diagnostic(s): color_context_required [0,131) "context-free color"` — and the
+register's claim did not reach it because the class-3 consumer direction ("NO CHANGE at this
+region") was sound. A hand-patch of the two named rows would have left the third standing; a cure
+at the generator could not.
+
+The contradicted cells, read at the committed ledger before the cure:
+  CAP-3 `recoveries`  AT 4,096 → incumbent ok:false css_syntax [0,1) "declaration"
+                      PAST 4,097 → incumbent ok:false css_syntax [0,1) "declaration"
+  CAP-4 `D`           the same two witnesses, the same two answers (D shares the family)
+  CAP-9 `expsnap`     window 64 → incumbent ok:false color_context_required [0,131)
+  …while all three rows' prose read "on the inputs measured below it returns a value", and CAP-3
+  and CAP-4's direction read "a size published 4.0.0 parses and returns a value for".
+
+════════════════════════════════════════════════════════════════════════════════════════════════
+2. THE CURE — at the generator, driven by the cell the generator already measures
+════════════════════════════════════════════════════════════════════════════════════════════════
+
+`lib/ledger.mjs`
+  + `accepted(res)`                      — ok:true and nothing else; read off the result object,
+                                            never off `capacityOutcome`'s prose
+  + `capacityCell` records `incumbentAccepted` beside `incumbent`
+  + `capacityMeasuredReading(row, m)`     — returns {incumbentPosture, consumerDirection}
+                                            UNCHANGED, byte for byte, when every witness was
+                                            accepted; re-scoped from `m` when one was not
+  + `CANONICAL_LEDGER_PATH`               — the one artefact `.e`'s §6 block lives in (F-y2)
+
+`emit-divergence-ledger.mjs`
+  ~ the §7 row template prints `reading.incumbentPosture` / `reading.consumerDirection`
+  ~ the carry reads CANONICAL_LEDGER_PATH, not `--out` (F-y2)
+
+`equivalence.test.ts`
+  + the F-y1 falsifier above
+  ~ LEDGER_PATH = CANONICAL_LEDGER_PATH (one canonical path, named once — F-y2)
+
+What the corrected class-1 direction now says, and does not say: it says the bound is a narrowing
+of the DECLARED SHAPE that 4.0.0 does not declare; that on this row's own witness family the
+narrowing is not observable as a verdict change, because 4.0.0 answers ok:false there too; that
+what changes is the DIAGNOSTIC (the candidate spans the whole input and names the region where
+4.0.0 named the first construct it could not parse); and — in the sentence the defect was about —
+that **whether an input exists that published 4.0.0 ACCEPTS and this bound refuses is NOT
+established by these witnesses, and is not claimed here**.
+
+════════════════════════════════════════════════════════════════════════════════════════════════
+3. WRITE-THEN-MEASURE — the settled artefact, double-run and triple-run
+════════════════════════════════════════════════════════════════════════════════════════════════
+
+$ node test/css-equivalence/emit-divergence-ledger.mjs --out <canonical> --pinned-value-commit 6aca8602   [×3, IN PLACE]
+wrote … — 104745 B · 928 lines · 39 rows · empty directions 0 · `.e`'s §6 block carried 47 lines   [×3]
+$ shasum -a 256 <canonical>
+f28276b46ad058b9c03201229d2982aba11578f3cbbbe6afd72203078f91eeb1   [×3 — IDEMPOTENT]
+$ wc -lc <canonical>
+     928  104745            (before: 928 lines · 103,029 B · daf8cbb7…)
+
+$ git diff --stat -- docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+   → 5 cells over 3 rows (CAP-3 incumbent+direction · CAP-4 incumbent+direction · CAP-9 incumbent)
+     + 1 line of §6's preamble naming the canonical carry. NOTHING ELSE MOVED. Line count unmoved.
+
+F-y2, proved rather than asserted:
+$ node test/css-equivalence/emit-divergence-ledger.mjs --out <A FRESH PATH> --pinned-value-commit 6aca8602
+wrote … — 104745 B · 928 lines · 39 rows · empty directions 0 · `.e`'s §6 block carried 47 lines
+$ grep -c "### §6.1" <the fresh file>     → 1        (before this cure: 0, and 92,412 B)
+$ diff -q <the fresh file> <canonical>    → IDENTICAL
+
+════════════════════════════════════════════════════════════════════════════════════════════════
+4. GATES RE-RUN — every gate a cure could move, and the two it did move nothing in
+════════════════════════════════════════════════════════════════════════════════════════════════
+
+$ node test/css-equivalence/run-full-surface.mjs --pinned-value-commit 6aca8602      [twice]
+rows       52 · COMPARED 8 · NO-PEER 44
+ledger     39 rows — ADJUDICATED 16 · DISSENT 4 · FIXTURE 5 · LABEL 1 · NARROWING 3 · CAPACITY 9 · SPEC-DIVERGENCE 1
+           empty consumer-direction fields: 0
+           GATE-VERDICT anchors present: 5/5
+MIRROR-DEFECTS  5883   (of which spec-undecided 3975)
+RED — the equivalence floor is NOT held at full surface.                      EXIT=1  [both runs]
+$ diff <run A> <run B>   → one line, node's PID in the MODULE_TYPELESS_PACKAGE_JSON warning
+
+  5,883 BEFORE THIS REPAIR AND 5,883 AFTER. A correction to a declaration is not a suppression of
+  a count, and the field this repair rewrote is the one field G-7 grades for EMPTINESS — which
+  reproduces at 0 either way.
+
+$ npx vitest run --config test/css-equivalence/vitest.config.ts
+ ✓ F-L1 — EVERY declared capacity region carries a row, generated from `bounds.mjs`
+ ✓ F-y1 — no CAPACITY row claims an incumbent verdict its OWN measured table denies    ← NEW, green
+ ✓ F-e7 — `.e`'s hand-written §6 block SURVIVES re-emission
+Tests  1 failed | 27 passed (28)                                                       EXIT=1
+  the one failure: the born-RED `G-7 — ZERO mirror-defects` floor at 5,883, untouched.
+  (26 passed of 27 before this pass; the delta is this seat's own added assertion.)
+
+$ node scripts/css-universe.mjs --cross-check-ledger <canonical>
+rows     16 adjudicated conflicts, 0 not carried
+GREEN — every adjudicated conflict is rowed.                                           EXIT=0
+
+$ node scripts/css-universe.mjs --check --pinned-value-commit 6aca8602
+tally  runtime 0 TOTAL / 3 PARTIAL / 16 ABSENT · types 5 / 0 / 28 · ALL 5 of 52 TOTAL
+RED — 47 of 52 rows are not TOTAL (3 PARTIAL, 44 ABSENT).                              EXIT=1
+
+G-2 · G-3 · G-5 · G-6 · G-8 · G-9 · G-10 are untouched BY CONSTRUCTION and their subjects are
+proved unmoved rather than assumed:
+$ shasum -a 256 src/css/build/ac1.wasm src/css/build/ac1.js
+2d61ad40bc1b37f8eacfda631df96a9cc9e39e42c5cfc29fe5bbe5d30a675200  ac1.wasm   ← Check 2's digits
+5f300b7ea43e1d38fde7a91fc1a924a1b566d92382e031b9b520c8a599091c64  ac1.js     ← Check 2's digits
+$ git -C <p2> show --pretty=format: --name-only b10f62e | grep -c '^typescript/src/'   → 0
+
+TALLY UNMOVED: 4 RED (G-1 · G-2 · G-4 · G-7) · 1 SPLIT (G-9) · 5 GREEN. This repair turns no gate
+and claims none.
+
+════════════════════════════════════════════════════════════════════════════════════════════════
+5. BOUNDS · MASKING · FAMILIES · MAIL
+════════════════════════════════════════════════════════════════════════════════════════════════
+
+BOUNDS.  `<p2>` b10f62e → 3 paths, all `typescript/test/css-equivalence/**` (`W3.md` §4 create).
+value.js → `docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md` (§4 create),
+`docs/tranches/X/parse-that/evidence/W3/**` (§4 create), `docs/tranches/X/execution/D/X-P-W3.md`
+and `docs/tranches/X/execution/LEDGER.md` (this seat's record rows).
+0 paths under value.js `src/**`, `demo/**`, `api/**`, `e2e/**`, `test/**`, `scripts/**`.
+`scripts/dev/dev.sh` appears in 0 commits and is ` M` untouched at this seat's exit.
+
+MASKING.  $ git -C <p2> diff 715f8fa..b10f62e -- typescript/ | grep '^+' |
+            grep -Eic 'try *\{|catch *\(|\.skip|\.only|todo\(|eslint-disable|@ts-ignore|
+            @ts-expect-error|allowlist|whitelist'
+          → 0.  No assertion was weakened; one was ADDED, and it is adversarial (it fails if
+          `capacityMeasuredReading` is removed — measured RED at §1 above before the cure landed).
+          G-7's `toBe(0)` is untouched and still failing at 5,883.
+
+FAMILIES.  One meaning per commit, pathspec on the commit itself: `<p2>` b10f62e is the
+mechanism; this record's value.js commit carries the settled artefact, the banked evidence and
+the receipt. Neither sweeps a sibling's staged path.
+
+MAIL (E13).  $ date → Fri Sep 18 19:48:20 EDT 2026. Four-path sweep, classified from each row's
+Status cell, never a bare grep. `grep -c '^| I-'` → 37 rows, 0 minted here. UNREAD: I-30 · I-31 ·
+I-32 · I-33 · I-34 · I-35 — six, each read at its Routing cell here: I-30 "No reply owed" ·
+I-31 → X-W0 close · I-32 → X-W0.j / X-EXT-1..6 · I-33 → the X formation mail seat · I-34 "Not
+X·P's, not a value.js act today" · I-35 "Routing: X·KF (Track B), NOT X-W1".
+0 UNREAD IN X.P.W3's SCOPE. This pass does not close with unread mail.
+
+════════════════════════════════════════════════════════════════════════════════════════════════
+6. WHAT THIS REPAIR DOES NOT DO
+════════════════════════════════════════════════════════════════════════════════════════════════
+
+It stamps no verb. G-1 · G-2 · G-4 · G-7 stay RED and G-9 SPLIT, so `W3.md` §2's "gates green"
+conjunct for IMPLEMENTED is unmet and VERIFIED is X.P.W4's alone (R-A). The LEDGER status stays
+`PARTIAL 2026-09-17`. The three unrelieved gates of K2R4.5 are returned unchanged and unrounded:
+their cure is a Triumvirate Dispatch of the nine ABSENT runtime rows, a ruling on G-1's
+expectation oracle, and the owner's GROUND-C ±Infinity contract ruling — three acts, none of them
+a seat's.

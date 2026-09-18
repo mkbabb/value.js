@@ -6576,3 +6576,207 @@ across rounds 3 and 4, a grant issued is a gate leg turned.
 
 **Check 2 of round 4 stamps no verb, cures no gate, writes no byte in `<p2>`, and does not touch the
 LEDGER row.**
+
+## Repair 2 — round 4 (the repair pass of `## Check 2 — round 4` above)
+
+SERVED MODEL: claude-opus-5[1m] · **THIRTEENTH seat** on this wave, the repair pass of the
+round-4 `## Check 2` · clock **2026-09-18 19:44–19:52 EDT**; the sitting's date of record stays
+**2026-09-17**. Dated **beside** `## Repair 1` (round 2) and `## Repair 1 — round 4`, never over
+either — E-3. Read whole at this seat: `W3.md` (698 L, both dated ADDENDA), `## Check 2 — round 4`
+K2R4.1–K2R4.7, `## Repair 1 — round 4` RR.1–RR.8, and the three programs this repair touches
+(`emit-divergence-ledger.mjs` 474 L · `lib/ledger.mjs` 529 L · `equivalence.test.ts` 338 L).
+
+**CRASH-RECOVERY, first act.** ⟨cmd⟩ `git status --porcelain` in every repo this seat may write,
+before anything else. `<p2>` → **`?? .worktrees/` alone** — the standing state, **no inherited
+partial work for this seat**. value.js → 16 paths, **not one inside this seat's writable set**: ten
+`demo/**` (a sibling's, in flight), `docs/tranches/V/reformation/CARRY-LEDGER.md`,
+`scripts/dev/dev.sh` (` M`, unowned, **never opened, never staged**), and three untracked sibling
+artefacts. ⟨cmd⟩ `git -C ../parse-that log --oneline -1` → **`ef10d5b`**, the frozen root unmoved.
+**Nothing stashed, restored or reverted; no inherited hunk to judge; no sibling path touched.**
+
+**Outcome: 2 of the 5 register defects CURED at the bytes · 3 ESCALATED unchanged · no gate
+turned · no verb stamped · no mechanism byte written.** The register's own disposition holds: the
+three RED gates are a dispatch and two rulings, and the two this seat could reach were both inside
+one generator.
+
+### R2.1 — F-y1 **CURED**, and at **three** rows rather than the two the register named
+
+**The defect, re-derived here rather than read.** `capacityRows()` writes the incumbent sentence
+and the class-1 consumer direction from **one template across all nine regions, before anything is
+measured**. ⟨cmd⟩ reading the committed ledger's own §7 cells at this seat:
+
+```
+CAP-3 `recoveries`  AT 4,096  → incumbent  ok:false · css_syntax [0,1) "declaration"
+                    PAST 4,097 → incumbent ok:false · css_syntax [0,1) "declaration"
+CAP-4 `D`           the same two witnesses, the same two answers (D shares the family)
+CAP-9 `expsnap`     window 64 → incumbent  ok:false · color_context_required [0,131) "context-free color"
+```
+
+against prose reading *"on the inputs measured below **it returns a value**"* on all three, and
+*"a size published 4.0.0 parses and **returns a value** for"* on CAP-3 and CAP-4. `W3.md` §6 G-7
+makes the second field load-bearing — *"that field is what the KF and glass packets quote"* — so a
+packet quoting CAP-3 or CAP-4 would have told a consumer that published 4.0.0 accepts inputs it in
+fact refuses.
+
+**The register named two rows. The measurement found three.** K2R4.4 could not reach CAP-9 because
+its class-3 *consumer direction* is sound (*"NO CHANGE at this region"*); only its **incumbent**
+sentence is false. A hand-patch of the two named rows would have left the third standing. **The
+cure at the generator could not leave it standing**, which is the argument for curing there.
+
+**The cure, in the spec's own idiom — the row reads its own measurement back.** `lib/ledger.mjs`
+gains `accepted(res)` (ok:true and nothing else, read off the result object rather than off
+`capacityOutcome`'s prose), `capacityCell` records `incumbentAccepted` beside `incumbent`, and
+`capacityMeasuredReading(row, m)` returns the two sentences **re-scoped from `m`** — the very cells
+the emitter prints two lines beneath them. `emit-divergence-ledger.mjs`'s §7 template prints that
+reading. **It cannot widen a claim**: where every witness was accepted both sentences are returned
+**byte for byte unchanged**, and the six sound rows did not move a character.
+
+**What the corrected class-1 direction now says, and refuses to say.** It says the bound narrows
+the **declared shape** 4.0.0 does not declare; that on this row's own witness family the narrowing
+is **not observable as a verdict change**, because 4.0.0 answers `ok:false` there too; that what
+changes is the **diagnostic**, not the verdict (the candidate spans the whole input and names the
+region where 4.0.0 named the first construct it could not parse); and — the sentence the defect was
+about — that **whether an input exists that published 4.0.0 ACCEPTS and this bound refuses is NOT
+established by these witnesses, and is not claimed here**. An over-declaration replaced by a
+measurement, not by a second over-declaration in the other direction.
+
+**The falsifier, added and RED before the cure.** A new assertion reads each `### CAP-n` section's
+incumbent column **by position** (cell 3 of the row's own witness table, never by search) and fails
+when the section's prose says the incumbent *"returns a value"* while its cells do not all read
+`ok:true`. ⟨cmd⟩ `npx vitest run --config test/css-equivalence/vitest.config.ts`, run against the
+**un-re-emitted** ledger → `FAIL … F-y1` with `+ [ "CAP-3", "CAP-4", "CAP-9" ]`, `Tests 2 failed |
+26 passed (28)`. After the re-emission → `✓ F-y1`, `Tests 1 failed | 27 passed (28)`, the one
+failure the born-RED `G-7 — ZERO mirror-defects` floor. **Remove `capacityMeasuredReading` and this
+assertion goes red again**; it is additive and adversarial, never a narrowing.
+
+### R2.2 — F-y2 **CURED** in the same act: the carry addresses the artefact, not the flag
+
+K2R4.4's INFO read: *"the emitter lifts `.e`'s §6 block out of the artefact it replaces, so an
+emission to a fresh path drops it."* That is **F-e7 returning through the door its own cure left
+open** — the block lives in exactly one artefact, and a carry keyed on `--out` is a carry keyed on
+where the bytes are going rather than on where the block is. `lib/ledger.mjs` gains
+`CANONICAL_LEDGER_PATH` beside the established `GATE_VERDICT_PATH` idiom; the emitter reads the
+carry from it and `--out` now decides **only where the bytes land**; and `equivalence.test.ts`
+imports the same constant in place of a second literal of the same path — two literals of one
+canonical file is how a carry starts reading a file that is not the artefact.
+
+**Measured, not asserted.** ⟨cmd⟩ `node test/css-equivalence/emit-divergence-ledger.mjs --out <A
+FRESH PATH> --pinned-value-commit 6aca8602` → `104745 B · 928 lines · 39 rows · empty directions 0
+· '.e''s §6 block carried 47 lines`; ⟨cmd⟩ `grep -c "### §6.1"` on that output → **1** (K2R4.4
+measured **0**, at 92,412 B); ⟨cmd⟩ `diff -q <the fresh file> <the canonical ledger>` →
+**IDENTICAL**. The generator is now path-independent, and a successor who emits to a scratch path
+to compare gets the comparison rather than a false negative.
+
+### R2.3 — WRITE-THEN-MEASURE on the settled artefact
+
+⟨cmd⟩ the emitter against the canonical path, **three times in place** → `104745 B · 928 lines · 39
+rows · empty directions 0 · '.e''s §6 block carried 47 lines` on all three; ⟨cmd⟩ `shasum -a 256` →
+**`f28276b46ad058b9c03201229d2982aba11578f3cbbbe6afd72203078f91eeb1`** ×3 — **idempotent**, F-q1's
+lesson held. Before: 928 lines · 103,029 B · `daf8cbb7…`. ⟨cmd⟩ `git diff --stat` on the ledger →
+**`6 insertions(+), 6 deletions(-)`**: five cells over three rows (CAP-3 incumbent + direction ·
+CAP-4 incumbent + direction · CAP-9 incumbent) and one line of §6's preamble naming the canonical
+carry. **The line count did not move and nothing else in 928 lines did.**
+
+### R2.4 — The three that remain: escalated unchanged, with the register's own owners
+
+| id | gate | severity | this seat's own re-measurement | why NO seat can cure it inside `W3.md` §4 | owner |
+|---|---|---|---|---|---|
+| **ESC-r1 / F-a.6 / F-r1** | **G-1** — 5 of 52 TOTAL | **CRITICAL** | ⟨cmd⟩ `node scripts/css-universe.mjs --check --pinned-value-commit 6aca8602` → `tally runtime 0 TOTAL / 3 PARTIAL / 16 ABSENT · types 5 / 0 / 28 · ALL 5 of 52 TOTAL` · `RED — 47 of 52 rows are not TOTAL` · **EXIT=1** | The cure is `W3.md` §3 items 2–3 **entire** — the nine ABSENT runtime rows realized. That is a **Triumvirate Dispatch** (§3a), and §3a's third trigger is now literally met (rounds 2, 3 and 4 each held at 5, no monotone rise), which makes *"the universe is mis-specified, not under-implemented"* the spec's own reading and a **ruling**, not a seat's act. Neither is dispatchable from inside a repair pass | the orchestrator · the owner |
+| **ESC-d1** | **G-7** — 5,883 mirror-defects | **HIGH** | ⟨cmd⟩ `node test/css-equivalence/run-full-surface.mjs --pinned-value-commit 6aca8602` → `rows 52 · COMPARED 8 · NO-PEER 44` · `ledger 39 rows` · `empty consumer-direction fields: 0` · `MIRROR-DEFECTS 5883 (of which spec-undecided 3975)` · **EXIT=1**, run **twice**, ⟨cmd⟩ `diff` → one line, node's PID | 3,975 cells wait on the **GROUND-C ±Infinity** ruling `W3.md` §10 puts under *"Not opened here"*; the other 1,908 are the 44 NO-PEER rows, i.e. G-1's dispatch again. §3a routes only a **newly discovered incumbent defect (a sixth R-class)** to X·V and that trigger did not fire | the owner · the orchestrator · X·V |
+| **E-1 / F-p1** | **G-4's ⊇ leg** — 5 of 8 frozen codes unemitted | **HIGH** | ⟨cmd⟩ `node scripts/css-recovery-closure.mjs --corpus test/css-recovery/corpus.json --frozen-union c654824e:src/css/types.ts` → `C-3 RED frozen \ emitted = 5 [animation_option_invalid keyframe_selector_invalid syntax_descriptor_invalid syntax_mismatch timeline_option_invalid]` · `RED — 8 of 10 legs green` · **EXIT=1** | The script names the root in its own output: the candidate realizes 3 of 9 public entries, so five codes are the vocabulary of entries **nobody dispatched**. §4's glob admits the path — it is a **dispatch gap**, and a dispatch gap is none of axis 10's three reliefs | the orchestrator |
+
+**None of the three is relieved by this round, and none is rounded up.** This seat cured the two
+the register placed inside a seat's reach and returned the three it did not, unchanged.
+
+### R2.5 — The ten gates, BEFORE (K2R4.1, the twelfth seat) → AFTER (this seat's own commands)
+
+| gate | K2R4.1 | this seat, after both cures | moved? |
+|---|---|---|---|
+| **G-1** | RED, 5 of 52, EXIT=1 | RED, `ALL 5 of 52 TOTAL`, EXIT=1 | no |
+| **G-1 `--cross-check-ledger`** | GREEN, `16 … 0 not carried`, EXIT=0 | GREEN, `rows 16 adjudicated conflicts, 0 not carried`, EXIT=0 — **re-run because the ledger changed** | no |
+| **G-2** | RED, 324/1,548, EXIT=1 | untouched by construction; ⟨cmd⟩ `git show --name-only b10f62e \| grep -c '^typescript/src/'` → **0** | no |
+| **G-3** | GREEN | untouched by construction (same receipt; `ac1.wasm` `2d61ad40…` / `ac1.js` `5f300b7e…` unmoved to the digit) | no |
+| **G-4** | RED, 8 of 10 legs, EXIT=1 | RED, `C-3 RED frozen \ emitted = 5`, `RED — 8 of 10 legs green`, EXIT=1 | no |
+| **G-5** | GREEN, `79674 · differing 0`, EXIT=0 | untouched by construction (artefact shas unmoved) | no |
+| **G-6** | GREEN 72/72, EXIT=0 | untouched by construction | no |
+| **G-7** | RED **5,883**, EXIT=1; suite `1 failed \| 26 passed (27)` | RED **5,883**, EXIT=1, double-run; suite **`1 failed \| 27 passed (28)`** — the delta is this seat's own added assertion, the failure the same born-RED floor | **count unmoved** |
+| **G-8** | GREEN 2 of 2, EXIT=0 | untouched by construction | no |
+| **G-9** | SPLIT — `2 failed \| 166 passed (168)`, EXIT=1 | untouched by construction | no |
+| **G-10** | well-formed, no verdict, EXIT=0 | untouched by construction | no |
+
+**Tally unchanged: 4 RED · 1 SPLIT · 5 GREEN.** **MIRROR-DEFECTS 5,883 before this repair and 5,883
+after**, at this seat's own double run — the temptation this pass carried was the same one Repair 1
+refused, and the field it rewrote is the one G-7 grades for **emptiness**, which reproduces at
+`empty consumer-direction fields: 0` either way. **A correction to a declaration is not a
+suppression of a count.**
+
+### R2.6 — Bounds, masking and families, measured at this seat
+
+**Bounds.** ⟨cmd⟩ `git -C <p2> show --pretty=format: --name-only b10f62e` → **3** paths, all
+`typescript/test/css-equivalence/**` — `W3.md` §4's own `create` row, and the same glob `## Check 2
+— round 4`'s K2R4.2 graded clean for `715f8fa` on the §4-over-§4a reading. In value.js: the
+canonical `DIVERGENCE-LEDGER.md` (§4 create), `evidence/W3/repair-2-round-4-2026-09-18.txt` (§4
+create), this record and `LEDGER.md`. ⟨cmd⟩ both commits piped through
+`grep -E '^(src|demo|api|e2e|test|scripts)/|package.json'` → **0 lines**; **`scripts/dev/dev.sh`
+appears in 0 of them** and is ` M` untouched at this seat's exit. ⟨cmd⟩
+`ls -d ~/Programming/parse-that*` → no `-p2-w3*` sibling; `../parse-that` at `ef10d5b`, unmoved.
+
+**Masking.** ⟨cmd⟩ `git -C <p2> diff 715f8fa..b10f62e -- typescript/ | grep '^+' | grep -Eic
+'try *\{|catch *\(|\.skip|\.only|todo\(|eslint-disable|@ts-ignore|@ts-expect-error|allowlist|
+whitelist'` → **0**. Read at the diff rather than at the grep: **no assertion was weakened and one
+was added**, adversarial by construction (measured RED at `[CAP-3, CAP-4, CAP-9]` before the cure
+landed). `differential.mjs` and `adjudications.mjs` — the only two programs that can suppress a
+cell — are **not in the commit**, and G-7's `toBe(0)` is untouched and still failing.
+
+**Families.** One meaning per commit, pathspec **on the commit itself**: `<p2>` **`b10f62e`** is the
+mechanism (F-y1 and F-y2 are two defects but one act in three interleaved files — splitting them
+would require partial staging of the same files, which the pathspec law does not permit); this
+record's value.js commit carries the settled artefact, the banked evidence and this receipt.
+Neither sweeps a sibling's staged path.
+
+### R2.7 — E13, swept at this seat's own clock
+
+⟨cmd⟩ `date` → **`Fri Sep 18 19:48:20 EDT 2026`**. Four paths, read-only, classified from **each
+row's Status cell** and never a bare grep (the **F-w1** trap). ⟨cmd⟩ `find … -newermt '2026-09-18
+19:34'` → **two files, both accounted for** (`INBOX.md`, a sibling's committed edit, and the
+`DIVERGENCE-LEDGER.md` this seat just wrote — SELF-COUNT). ⟨cmd⟩ `grep -c '^| I-'` → **37** rows,
+**0 minted here**. Status cells reading UNREAD: **I-30 · I-31 · I-32 · I-33 · I-34 · I-35** — six,
+each read here **at its own Routing cell**: I-30 *"No reply owed"* · I-31 → X-W0's close · I-32 →
+X-W0.j / X-EXT-1..6 · I-33 → the X formation mail seat · I-34 *"Not X·P's, not a value.js act
+today"* · I-35 *"Routing: X·KF (Track B), NOT X-W1"*. **0 UNREAD in X.P.W3's scope; this pass does
+not close with unread mail.**
+
+### R2.8 — Verbs, residuals and the LEDGER row
+
+This repair **stamps no verb**. G-1 · G-2 · G-4 · G-7 stay RED and G-9 SPLIT, so `W3.md` §2's
+*"gates green"* conjunct for **IMPLEMENTED** is unmet and **VERIFIED is X.P.W4's alone** (R-A).
+**The LEDGER status stays `PARTIAL 2026-09-17`**; the row gains this round's two commits.
+
+| id | before this pass | after |
+|---|---|---|
+| **F-y1** | MEDIUM, mitigated, owner named as X.P.W4's `.d`-successor | **CURED at the bytes, and at three rows rather than two** — `capacityMeasuredReading` + a falsifier that was RED at `[CAP-3, CAP-4, CAP-9]` and is green (R2.1) |
+| **F-y2** | INFO, owner named as X.P.W4 | **CURED at the bytes** — the carry addresses `CANONICAL_LEDGER_PATH`; a fresh-path emission is now byte-identical to the canonical one (R2.2) |
+| **G-1 · G-7 · G-4's ⊇ leg** | RED, unrelieved | **ESCALATED unchanged** — a dispatch, a ruling on the expectation oracle, and the GROUND-C ruling; none of the three is a seat's act (R2.4) |
+| **F-w1 · F-w2 · F-w3 · F-w4 · F-L2 · R-f1 · INFO-f2..f4 · INFO-g1..g3 · ESC-c1 · ESC-d2 · E-2/F-e10** | carried | **carried unmoved** — none is reached by a generator edit, and this seat opened none of their files |
+
+**Evidence banked** (§4 `evidence/W3/**` create):
+`repair-2-round-4-2026-09-18.txt` — the crash-recovery sweep, the F-y1 RED-before with its three
+named rows, the cure's three files, the three in-place emitter runs with their shas, the
+fresh-path proof, every re-run gate with its exit code, the bounds/masking/mail scans, and the
+artefact shas proving no mechanism byte moved.
+
+**§7 cadence, measured and declined where declining is the cure.** ⟨cmd⟩ `npx prettier --check`
+over the two touched `.md` → both **[warn]**; ⟨cmd⟩ the same check over their **HEAD** bytes, extracted
+read-only to a scratch path → **both [warn] as well**. The non-conformance is a standing condition of
+every prior round and was not introduced here, and `--write` is refused in both directions: the
+ledger is a **generated artefact** whose reproduction-from-its-generator this pass just proved to the
+byte (reflowing it would make the emitter and the file disagree at the next run), and this record
+carries **immutable prior sections** (E-3). ⟨cmd⟩ `git diff --check` on every path this seat wrote →
+clean, and `npx tsc --noEmit` over the fresh root reports the same 504 root-wide pre-existing
+diagnostics as before the cure, with **no new class** on the three touched files (their TS2307/TS7016
+import rows are unchanged — this seat added a name to an existing import, never an import).
+Recorded as a residual rather than silently skipped.
+
+**This repair cures the two register defects a seat could reach, finds a third instance of one of
+them the register's claim did not name, escalates the three that no seat can, moves no gate
+reading, stamps no verb, writes no byte under `typescript/src/**`, and touches no sibling's path.**
