@@ -1,0 +1,52 @@
+SERVED MODEL: claude-opus-5[1m]
+
+X.W3.6 — G-17 RUNTIME PROBE + FALSIFIER. The ADMIN-POLICY branch reaches the audit row.
+
+WHERE THIS RAN, AND WHY NOT IN THE REPO. This unit's writable set carries no api test
+path, and `W3.md` §4 assigns `admin/__tests__/**` to no unit at all. A write there would
+be an ESCALATION, so the probe is SCRATCHPAD-RESIDENT and run against the api's own
+vitest globalSetup (the ephemeral single-node replica set) via an external config whose
+`root` is the api tree. Nothing was written into `api/` but the two files §4 grants.
+
+⟨cmd⟩ cd api && npx vitest run --config <scratchpad>/g17/vitest.g17.config.ts
+
+  ✓ a PUBLIC palette audits branch=public
+      target  = slug=mod featured=true tier=featured policy=ADMIN-POLICY:public
+      payload = {"policy":"ADMIN-POLICY","branch":"public"}
+  ✓ a PRIVATE palette audits branch=admin-override (the reviewable event)
+      target  = slug=mod featured=true tier=featured policy=ADMIN-POLICY:admin-override
+      payload = {"policy":"ADMIN-POLICY","branch":"admin-override"}
+  ✓ admin DELETE of a private palette audits branch=admin-override
+      target  = slug=mod policy=ADMIN-POLICY:admin-override
+      payload = {"policy":"ADMIN-POLICY","branch":"admin-override"}
+      (and the row is SOFT-deleted — deletedAt not null)
+  ✓ a missing palette is refused by the policy, not by a repository reach
+      (NotFoundError; zero audit rows written)
+
+  Test Files 1 passed · Tests 4 passed (171ms)
+
+FALSIFIER (L-19). The gate fails for exactly one reason. Pin the branch to a constant:
+
+⟨cmd⟩ const branch: AdminPolicyBranch = "public";   // in admin/policy.ts
+
+  ✓ a PUBLIC palette audits branch=public
+  × a PRIVATE palette audits branch=admin-override
+      → expected 'slug=mod featured=true tier=featured …' to contain 'policy=ADMIN-POLICY:admin-override'
+  × admin DELETE of a private palette audits branch=admin-override
+      → expected 'slug=mod policy=ADMIN-POLICY:public' to contain 'policy=ADMIN-POLICY:admin-override'
+  ✓ a missing palette is refused by the policy
+  Tests 2 failed | 2 passed (4)
+
+⟨cmd⟩ (restored)  →  Tests 4 passed (4)
+
+READING. Exactly the two private-palette rows red under the substitution. The branch is
+therefore DERIVED at runtime from the class-1 predicate (`isReadable`, X.A1), not asserted
+by a literal, and the `admin-override` row — the reviewable moderation event — is the one
+that disappears when the derivation is removed.
+
+LIVE ADMIN SURFACE, re-measured (L-9 recorded command; the G-17 baseline's other half):
+⟨cmd⟩ app.request("/openapi.json") against the ephemeral replica set
+  TOTAL path rows  = 45      ADMIN path rows  = 21
+  TOTAL operations = 51      ADMIN operations = 23
+Byte-identical to the W3.md G-17 baseline — this cut adds no route. Full path list at
+W3-6-openapi-admin-after.json.
