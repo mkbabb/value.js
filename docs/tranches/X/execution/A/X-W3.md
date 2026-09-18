@@ -1793,3 +1793,212 @@ downstream of IMPLEMENTED and cannot be dispatched over a PARTIAL wave.
 
 Pathspec on the commit itself; `scripts/dev/dev.sh` never staged; no sibling seat's path added,
 reset or unstaged.
+
+---
+
+## Check 1
+
+**SERVED MODEL**: `claude-opus-5[1m]` · **seat**: the **L-20 fresh adversarial pass 1** over
+X-W3's close · **VERIFY-ONLY — this seat cured nothing and wrote no byte into any `§4 File
+Bounds` path** · **Track A** · **wall clock** `2026-09-18 19:0x → 19:2x EDT`
+⟨cmd⟩ `date "+%Y-%m-%d %H:%M:%S %Z"`. **HEAD at this seat**: `058af07c`
+⟨cmd⟩ `git log --oneline -1` · branch `tranche-u`. (HEAD moved `fff145da` → `d854c296` →
+`058af07c` under this seat — Track B and Track D commit into the same index; **not one byte of
+`api/src/**`, `demo/**` or `e2e/**` moved with it** ⟨cmd⟩ `git log --oneline fff145da..HEAD --
+demo/shell/usePaneRouter.ts` → empty.)
+
+**VERDICT: NOT-CONFORMANT.** Every one of the close's 22 published verdicts reproduces at this
+seat's own commands — **12 GREEN · 9 RED · 1 DECISION UNDISPOSED**, double-run byte-identical —
+and the close's honesty is not in question: nothing landed wrong, nothing was masked, bounds are
+clean, E-3 holds and mail is clean. The wave fails its bar for a different reason: **eight of its
+nine RED gates have NO relief under axis (10)**. Their cures are not producer-owned, are not
+routed to a successor by the spec's own bytes, and are not honest-REDs the spec names by id —
+every one of them sits **inside `W3.md` §4 File Bounds** and was simply never taken, because two
+of seven units never sat and three in-bounds limbs were returned as unit-scoped escalations that
+no seat was then dispatched to take. **Exactly one RED is relieved: G-21.**
+
+### 0. Crash-recovery (standing law) — no inherited work on this seat
+
+⟨cmd⟩ `git status --porcelain` → **11 modified + 3 untracked**. This seat's writable set is
+`docs/tranches/X/execution/A/X-W3.md` + `docs/tranches/X/execution/LEDGER.md`; ⟨cmd⟩
+`git status --porcelain docs/tranches/X/execution/` → **empty**. **Not one dirty path is mine.**
+The ten `demo/palettes/**` · `demo/picker/**` · `demo/shell/dock/layers/SlugEditLayer.vue` rows
+and the two `e2e/smoke/**a11y-control-targets**` specs are **X-W4 unit `a`'s**;
+`docs/tranches/V/reformation/CARRY-LEDGER.md` and `docs/tranches/X/waves/evidence/` are sibling
+seats'; `scripts/dev/dev.sh` is the standing unowned dirty row (**DR-24**, COHESION §0j.A —
+**never touched, never staged**). **Nothing stashed, restored or reverted.**
+
+### 1. Axes 1 · 9 — reproduction. 22 of 22 verdicts reproduce; two published figures do not
+
+All counts below are **double-run** ⟨cmd⟩ `sh <scratchpad>/w3-check1.sh` ×2 → `diff` **empty**.
+
+| gate | close's verdict | this seat's own command → reading | reproduces? |
+|---|---|---|---|
+| G-1 (P0) | GREEN | `grep -rn "assertReadable" api/src \| wc -l` → **7**; `assertPaletteReadable` → **7**; `npx vitest run …/palette-policy.test.ts` → **9/9 passed** | **YES** |
+| G-2 | GREEN | `grep -n "assertPaletteReadable\|GoneError" service/crud.ts` → predicate `:53`, `GoneError` `:63` — the Gone arm is **behind** the predicate | **YES** |
+| G-3 | GREEN | `routes/versions.ts:48` `await assertPaletteReadable(…)` sits above `listVersions` at `:50` | **YES** |
+| G-4 | RED | `grep -c 'getProvenance(c.var.services, slug)' routes/forks.ts` → **1** — two arguments, no viewer; `service/forks.ts:181` unchanged | **YES** |
+| G-5 | GREEN | `grep -rn "getVersionByHash" api/src \| grep -v __tests__ \| grep -vE ':[[:space:]]*\*'` → **0 in code** (the one hit is the `service/versions.ts:125` docstring); `findByPaletteAndHash` → **5** | **YES** |
+| G-6 (P0) | RED | `cd api && npm test` → `palette-versions.test.ts` *"G-6 … expected 404, received 428"*. Read at the byte: the join **is** present (`service/versions.ts:184`, before the transaction) | **YES** |
+| G-7 | GREEN | `payloadHash` **38** · `revisionNo` **42**; `ls -1 api/src/platform/migrations/` → `check.ts` · `x-w3-visibility-payloadhash.ts` | **YES** |
+| G-8 | RED | `matchedCount` executable in the palette domain → **1** (`etag.ts:73`); `service/crud.ts:224` · `service/versions.ts:215` · `service/visibility.ts:174` pass no expectation | **YES** |
+| G-9 | GREEN | `assertIfMatch(` call sites → **3**: `routes/versions.ts:86` · `crud.ts:122` · `publish.ts:39` | **YES** |
+| G-10 | GREEN | `IDEMPOTENCY_REQUIRED` at `idempotency.ts:91`, matched `:97`, enforced `:140`; `palette-write-contract.test.ts` **15/15 passed** at this seat's own run | **YES** |
+| G-11 | GREEN | `routes/versions.ts:127` → `201` with `revision: {hash, …}` beside the palette fields | **YES** |
+| G-12 | RED | `grep -c 'forksRouter.post("/:slug/fork"'` → **1** (singular); `grep -c 'visibility: "public"' service/forks.ts` → **1** | **YES** |
+| G-13 | RED | `repository/palette.ts:71-86` — `findForksOf`/`countForksOf` = `{forkOf, deletedAt:null}`, `grep -A3 findForksOf … \| grep -c viewer` → **0**; `routes/forks.ts:54-70` formats every row | **YES** |
+| G-14 | RED | `grep -n forkCount format.ts` → `:38` · `:74`, the stored field, unmoved | **YES** |
+| G-15 | RED | `model.ts:19` → `["public", "unlisted", "private"]`; `grep -c moderation model.ts` → **0**; `check.ts:58` live | **YES** |
+| G-16 | UNDISPOSED | `grep -c diff routes/index.ts` → **0** (class absent, the default's reading) and `W3.md` carries no terminal disposition | **YES** |
+| G-17 | GREEN | `ADMIN-POLICY` in `api/src` → **3**; `grep -c "palettes.findBySlug" admin/service/palettes.ts` → **0**; `authorizeAdminPaletteOp` → **4** | **YES** |
+| G-18 (P0) | GREEN | **this seat's own run** ⟨cmd⟩ `npx playwright test --project=smoke-admin e2e/smoke/admin/route-guard.spec.ts` → **3 passed (14.7 s)**, the L-19 token falsifier among them | **YES** |
+| G-19 | GREEN (structural) | `componentFor(name: LeftPane \| RightPane)` over a total `Record`; ⟨cmd⟩ `npm run typecheck` → **exit 0** (four bands) | **YES** (figure below) |
+| G-20 | GREEN | `router/index.ts:45` named `not-found` over `NotFoundPane`; `grep -c "component: Stub"` → **14** (D-4 exact); zero live redirects | **YES** |
+| G-21 | RED (handoff) | `grep -c Stub W5.md` → **0** · `grep -c Stub X-W5-FOLD.md` → **0** | **YES** |
+| G-22 | RED | `cd api && npm test` **run twice** → `Test Files 3 failed \| 37 passed (40)` · `Tests 3 failed \| 241 passed (244)`, byte-identical; `npm run typecheck` → exit 0 | **YES** |
+
+**Two published figures do NOT reproduce** (axis 9, both MINOR, register rows D-9 and D-10):
+the close's *"24 commits"* against a roster that lists **25**, and its
+⟨cmd⟩ `grep -c "return ColorPicker;" usePaneRouter.ts` → **0** against a true **1**.
+
+### 2. Axes 2 · 3 · 4 · 5 · 6 · 7 — all CLEAN, and said so plainly
+
+- **Bounds (axis 2).** ⟨cmd⟩ `git show --name-only --format="" <the 25 unit hashes> | sort -u` →
+  **53 distinct paths**; with the close commit `493791d6`, **57**. Every one is inside `W3.md` §4
+  (as widened by X.W3.7's dated addendum-beside), the §8 artefact home, the execution record or
+  the ledger. ⟨cmd⟩ the same list `| grep -cE "dev\.sh|api-contract\.source\.json|^src/|demo/@/components/ui/"`
+  → **0 · 0 · 0 · 0**. ⟨cmd⟩ `git log --oneline c753d924..HEAD -- scripts/dev/dev.sh` → **0
+  commits**. `routes/publish.ts` — named in X.W3.3's §5 Files but **absent** from §4's table —
+  was never written, so the one path that could have been an out-of-bounds write is not one.
+- **Masking (axis 3): NONE.** ⟨cmd⟩ `grep -rn "test\.skip\|test\.fail\|it\.skip\|describe\.skip\|\.only(" api/src e2e/smoke/admin/route-guard.spec.ts \| wc -l` → **0**. Every `catch` in the
+  twelve wave-written source files is **pre-existing** — verified one by one against
+  ⟨cmd⟩ `git show c753d924:<path> \| grep -n catch` (`crud.ts:133→139`, `client.ts:79→81`,
+  `availability.ts:90→118`); no new one wraps a defect. **0** `node_modules` paths in any commit.
+  No allowlist, no user-agent exemption, no warn-only mode, no grace window: X.W3.3 landed the
+  `Idempotency-Key` requirement as specified and **returned** the client break rather than
+  bending the server (read at `idempotency.ts:91-140`). The rewrite of `palette-versions.test.ts`
+  (4 rows → 11) drops exactly three rows and each is dropped for a stated reason at the byte —
+  the content-dedup row (dedup is deliberately gone, receipt §4.1), the `getVersionByHash` row
+  (the export is deleted) and the `createdAt`-order row (superseded by the `revisionNo`
+  total-order row) — **not a narrowed assertion**.
+- **Commit families (axis 4).** X.W3.3's commit 4 `cbf178ce` carries the fence + both route
+  preconditions + the middleware rule as **one** family, as §5 requires. §9's commit 9 landed in
+  two halves (`47ea1029` canon · `493791d6` status+artefacts) and X.W3.2 re-cut §9's commits 2/3
+  at the compile boundary; **both re-cuts are stated in the receipts, both halves compile and
+  measure in isolation**, and neither is a family the spec locks. §9's P0 lock verified
+  independently: ⟨cmd⟩ `git merge-base --is-ancestor <sha> HEAD` → YES for `326dbe57`,
+  `9b3e6923`, `504819ea`. **One meaning per commit** across all 25.
+- **E-3 (axis 5).** ⟨cmd⟩ `git diff --stat c753d924..HEAD -- docs/tranches/V/megatranche/registry/
+  docs/tranches/X/waves/W1.md W4.md W5.md W7.md docs/tranches/X/COHESION.md docs/tranches/X/refinement/`
+  → **prints nothing**. Both `W3.md` writes are **pure appends**: ⟨cmd⟩ `git show --stat --format="" 02238dbb -- …/W3.md`
+  → `105 insertions(+)`, and `493791d6` → `56 insertions(+)`, **0 deletions each**. The dated
+  spec's authored bytes are untouched.
+- **Mail (axis 6).** The four rows whose Status cells read `UNREAD` are **I-32 · I-33 · I-34**
+  (Routing cell, read at the bytes: *"the X formation mail seat / X-W0.j"*, *"X-W0.j / X-EXT-1"*)
+  and **I-35** (*"X·KF, Track B"*). **None is routed to X-W3.** **0 UNREAD in scope.**
+- **Four-verb line (axis 7): moved LAWFULLY — that is, not moved.** §2's table still reads
+  AUDITED YES · SPECIFIED YES · IMPLEMENTED **NO** · VERIFIED **NO**, its bytes unedited, with
+  the close's status landed as a dated addendum-beside under §4's close-seat grant. For a wave
+  whose two unrun units leave five gates at their born-RED baselines, **NO** is the true reading.
+
+### 3. Axis 8 — the spec's own goal criterion is NOT met at the bytes
+
+§2a (`W3.md:51-54`) requires that **"no palette surface answers a caller it has not authorized,
+and no route grants a privilege it has not checked"**. Three surfaces still answer everyone:
+
+1. ⟨cmd⟩ `sed -n '54,70p' api/src/modules/palette/routes/forks.ts` — `GET /:slug/forks` calls
+   `listForks` with no viewer and `formatPalette`s **every** child in full (G-13).
+2. ⟨cmd⟩ `sed -n '72,76p' …/routes/forks.ts` — `GET /:slug/provenance` calls
+   `getProvenance(c.var.services, slug)` with no viewer and authorizes no target (G-4).
+3. `revert` / `PATCH` / `publish` still read-then-write with no fence reaching the repository
+   (G-8), so "every state-changing write is fenced" is false.
+
+The record says the first half of this itself (X.W3.1 §7 residual 1: *"The wave's §2a goal is
+**not** met on the provenance surface"*). **Axis 8 FAILS.**
+
+### 4. Axis 10 — honest-RED adjudication, gate by gate, at the spec's bytes
+
+**The test applied**: a RED is relieved only if the spec's own bytes make it producer-owned, route
+it to a successor, or name it an honest-RED by id. A cure that lies **inside `W3.md` §4** and was
+merely not dispatched is **not** relieved — a unit's narrower §5 `Files` list bounds a *seat*, not
+the *wave*, and §4 is what the standing law makes lawful to write.
+
+| gate | the cure's home | is it in §4? | relief? |
+|---|---|---|---|
+| **G-4** | `routes/forks.ts` + `service/forks.ts` | **YES** — `W3.md:125,127`, both `modify` | **NONE** |
+| **G-6** | `__tests__/palette-versions.test.ts` (one `If-Match` line) | **YES** — `W3.md:141` | **NONE** |
+| **G-8** | `service/crud.ts` · `service/versions.ts` · `service/visibility.ts` | **YES** — `W3.md:120,121,123` | **NONE** |
+| **G-12 · G-13 · G-14** | `routes/forks.ts` · `service/forks.ts` · `repository/palette.ts` · `format.ts` · `crud-list.ts` · two test files | **YES** — all seven in §4 | **NONE** — X.W3.4 never sat |
+| **G-15** | `model.ts` · `format.ts` · `service/visibility.ts` · `service/forks.ts` · `migrations/check.ts` · the migration | **YES** — all six in §4 | **NONE** — X.W3.5 never sat |
+| **G-16** | `docs/tranches/X/waves/W3.md` | **YES** — `W3.md:153` | **NONE** — the spec demands the disposition *in this file at close* |
+| **G-22** | the three failing test files | **YES** — `W3.md:141,142,143` | **NONE** |
+| **G-21** | `docs/tranches/X/waves/W5.md` / `X-W5-FOLD.md` | **NO** — neither appears in §4's table | **RELIEVED** |
+
+**THE HONEST-RED SET IS `{G-21}`** — one gate, relieved because its only cure home is outside the
+wave's writable set, escalated by id as **`ESC-W3-G21`** at wave-open and again at close, with the
+owner named in the close's §5 docket (**the X-W5 authoring seat / the sitting**) and the exact
+byte owed written out. Every other RED is a real defect and is registered below. **Nothing is
+laundered here: the close seat did not claim these were relieved — it called the wave PARTIAL and
+named owners for all of them. This check agrees with the close's facts and disagrees only with
+promoting the row.**
+
+### 5. Successor conjuncts — `Opens after` measured against this wave
+
+⟨cmd⟩ `grep -rn "Opens after" docs/tranches/X/waves/*.md | grep -i w3` → **one successor names
+X-W3**: `W7.md:6` — *"**Opens after**: X-W3 (API policy kernel), X-W4 (typed `SceneActionSet`),
+and **X-W6**… X-W1 supplies the visual-golden harness for G11"*.
+
+| conjunct | measurement | verdict |
+|---|---|---|
+| **X-W3** | ledger row **PARTIAL**, not CLOSED/IMPLEMENTED; and W7 §2's own basis — *"The API surface this wave reads is already cured by X-W3"* — is **false at the bytes** (fork list unfiltered, enum unmigrated, provenance unauthorized) | **RED** |
+| **X-W4** | ⟨cmd⟩ ledger → **`OPEN 2026-09-17`**, unit `a` still dirty in the tree | **RED** |
+| **X-W6** | ⟨cmd⟩ ledger → **`planned`** | **RED** |
+| **X-W1** (harness) | ⟨cmd⟩ ledger → **`CLOSED 2026-09-17 (honest-RED: G-17 · G-19 · G-20)`** | **GREEN** |
+
+**X-W7 is lawfully BLOCKED**, on three of its four conjuncts — and would be blocked on X-W4 and
+X-W6 even if X-W3 were CLOSED. No other X wave's `Opens after` names X-W3, so **no successor is
+blocked by this check that was not already blocked**. §10's *"Does **not** block
+X-W4/X-W5/X-W6"* holds. R-10 (AdminGate) and R-11 (AP-12) stand: **neither X-W3 nor X-W7 reports
+either identity closed alone.**
+
+### 6. Defect register — severity · claim · receipt · cure
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| **D-1** | **CRITICAL** | **`X.W3.4` never sat and the fork surface still discloses private children to an anonymous caller** — the wave's own class-3 leak, with every cure file inside §4 | `routes/forks.ts:54-70` applies no policy and `formatPalette`s every row; ⟨cmd⟩ `grep -A3 findForksOf repository/palette.ts \| grep -c viewer` → **0**; `service/forks.ts:76 visibility: "public"`; `routes/forks.ts:19` still `"/:slug/fork"`. §2a is false at this surface | Dispatch `X.W3.4` as §5 writes it — **classes 2 and 3 in ONE commit** (`W3.md:248-249`), source authorized at **both** the pre-flight and in-transaction reads, `total` from the filtered join, `forkCount` computed at format time |
+| **D-2** | **HIGH** | **`X.W3.5` never sat**: `PALETTE_VISIBILITIES` is still 3-state, `moderation` is unmodelled, the `unlisted`→`private` at-rest migration arm was never appended, and **G-16 has no terminal disposition though §6 demands one *in this file at close*** | ⟨cmd⟩ `grep -c '"public", "unlisted", "private"' model.ts` → **1**; `grep -c moderation model.ts` → **0**; `check.ts:58` carries the live `unlisted` branch; `W3.md`'s only `RETIRED-BY-RECORD` occurrence is §6's own gate-row text | Dispatch `X.W3.5`; it appends its visibility arm to `x-w3-visibility-payloadhash.ts` (authored for a second author) and stamps G-16's terminal disposition into `W3.md` as a dated addendum |
+| **D-3** | **HIGH** | **The wave shipped a RED api suite.** §6 G-22 and §7's cadence both require `cd api && npm test` green; the open baseline was **38 files / 213 tests, exit 0** | ⟨cmd⟩ `cd api && npm test` **run twice** → `Test Files 3 failed \| 37 passed (40)` · `Tests 3 failed \| 241 passed (244)`, byte-identical. All three failing files are §4 `modify` paths (`palette-forks.test.ts` · `palettes-forks.test.ts` · `palette-versions.test.ts`) | Land `ESC-W3.2-PAYLOAD-ADDRESSED-TESTS` (X.W3.4's two rows, hunks banked at `W3-2-ESC-REVERT-ADDRESS.md`) and `ESC-W3.3-PRECONDITION-TESTS` (X.W3.2's one `If-Match` line) — both inside §4 |
+| **D-4** | **HIGH** | **A live product regression shipped, and the wave closed over the spec's OWN mandatory triumvirate, undischarged.** The shipped fork and revert buttons answer `400`/`428` | ⟨cmd⟩ `grep -c 'idempotencyKey\|ifMatch' demo/palettes/api/versions.ts` → **0**; `W3.md:103-106` names *"the `Idempotency-Key` requirement (G-10) breaking an existing consumer of `POST /:slug/fork`"* a **mandatory** triumvirate. **The api cure is correct and was not masked** — the defect is closing with the consumer half assigned to no seat | Convene the triumvirate §3a names (research + plan augment + redress) over `ESC-W3.3-DEMO-WRITE-CONTRACT`; the orchestrator **may not** redispatch X.W3.3 alone (`ORCHESTRATION.md §Triumvirate Auto-Triggers`) |
+| **D-5** | **HIGH** | **G-8: the CAS fence exists and no product write reaches it** — the gate's own clause (*"Revert / PATCH / publish assert `matchedCount === 1`"*) is false at the bytes | ⟨cmd⟩ executable `matchedCount` in the palette domain → **1**, `etag.ts:73` inside `assertFenceHeld`; `service/crud.ts:224` · `service/versions.ts:215` · `service/visibility.ts:174` call `update()` with no expectation. All three are §4 `modify` | Land `ESC-W3.3-CAS-CALLERS` (hunks banked at `W3-3-ESC-CAS-CALLERS.md`): the three services pass `paletteETagFilter(palette)` and map `matchedCount === 0` → `412` |
+| **D-6** | **HIGH** | **G-4: the provenance surface still answers every caller**, and the cure is **inside §4** — only X.W3.1's narrower §5 `Files` list omitted it, and no seat was dispatched to take it | ⟨cmd⟩ `grep -c 'getProvenance(c.var.services, slug)' routes/forks.ts` → **1**; `W3.md:127` lists `routes/forks.ts` as `modify` | Rule `ESC-W3.1-G4-BOUNDS` by the dated addendum the record itself drafts, then redispatch the G-4 limb alone: `getProvenance(services, slug, viewer)` + the viewer threaded to the per-hop predicate. **There is no concurrent writer** |
+| **D-7** | **MEDIUM** | **G-6 (P0) has no probe that can measure its own clause, and the one that tries is RED.** The P0 triad is met by *landing* and not by *evidence* | ⟨cmd⟩ `cd api && npm test` → *"G-6 … expected 404, received 428"*. Read at the byte, the substance holds: `service/versions.ts:184` joins **before** the transaction and a well-formed revert (valid `If-Match`) refuses `404` with the target byte-unchanged — so this is an **evidence** defect, not a live hole | The one line in §4: `"If-Match": paletteETag(before!)` at `palette-versions.test.ts:315-320` |
+| **D-8** | **MEDIUM** | **The `unlisted` read semantics changed live without the migration the spec pairs them with, and no receipt names the consequence.** Before the wave `getPaletteBySlug` applied **no** predicate, so an `unlisted` palette was readable by anyone holding its slug; `isReadable` now composes `isActivePublic`, which excludes `unlisted` — at-rest `unlisted` rows answer **404** to every non-owner while the enum still offers the state and no migration has run (G-15 RED) | `service/visibility.ts:84-85` `return isActivePublic(doc) && …`, whose own docstring reads *"`unlisted`/`private` and trashed rows are NOT active-public"*; `model.ts:19` still 3-state. Blast radius **measured, and it is why this is MEDIUM**: `crud-list.ts:115` already forces `visibility: "public"` for anonymous browse, and the demo exposes no unlisted control (`demo/palettes/api/palettes.ts:130` — *"The `unlisted` middle state is untouched"*) | X.W3.5's migration maps the at-rest rows, which retires the divergence; until then the fact belongs in the close record rather than only in this check |
+| **D-9** | **MINOR** | Published figure: the close's *"24 commits"* | its own §1 roster lists **25** hashes, and the 53-path union reproduces **only** over those 25 ⟨cmd⟩ `git show --name-only --format="" <25> \| sort -u \| wc -l` → **53** (26 hashes with the close commit → **57**) | a dated addendum-beside correcting 24 → 25 |
+| **D-10** | **MINOR** | Published figure: ⟨cmd⟩ `grep -c "return ColorPicker;" usePaneRouter.ts` → **0** | true reading is **1** — `usePaneRouter.ts:94`, the docstring **quoting** the retired tail. X.W3.6's own receipt published the disambiguated anchored form (`^    return ColorPicker;$` → **0**) and was right; the close re-published the bare grep carrying the anchored value (SELF-COUNT law). **G-19's substance is unaffected** — `npm run typecheck` exit 0 over a total `Record` | publish the anchored form, as the unit receipt did |
+| **D-11** | **INFO** | §8 artefacts **2** (`openapi-before/after.json`) and **4** (`falsifier-demonstration.txt`) absent under their §8 names | close §3, booked **R-5** / **R-6**; artefact 4's substance is banked across **17** L-19 arms and artefact 2's *before* half is unrecoverable post-cut, with the route surface measurably unmoved | a docs seat; does not block |
+
+**Superlatives, recorded because an adversarial pass that reports only defects is not honest.**
+The bounds discipline is **exact** across 25 commits and 53 paths with four tracks sharing one
+index — the X-W0 contamination shape did not recur once. Every unit landed its **born-RED spec
+before its cure** and banked **17** L-19 falsifier arms. X.W3.2 **caught and corrected its own
+gate row** (`6e5b6e32`) for claiming more than it could fail for — exactly what L-19 exists to
+produce. X.W3.3 refused four separate chances to bend a cure to keep a test green and returned
+the break whole. X.W3.7 sequenced AP-33 **before** AP-24 so no commit in the history carries the
+reachable seat without its guard. And the close seat found the sharpest defect in the wave (F-1,
+G-6's relocated probe) **against its own units' green readings**.
+
+### 7. Ledger and status
+
+**The row is NOT promoted.** `LEDGER.md`'s X-W3 cell keeps **`PARTIAL 2026-09-17`** — the true
+reading — with this check's verdict appended to that cell by minimal in-place replacement, and an
+event line appended to the dated event log. **This seat cured nothing, moved no gate, and edited
+no spec byte.**
+
+### 8. Commits landed by this seat
+
+| # | sha | scope | paths |
+|---|---|---|---|
+| 1 | *(this commit)* | `docs(x-w3/check-1)`: L-20 pass 1 — NOT-CONFORMANT; 22 of 22 verdicts reproduce, honest-RED set is `{G-21}` alone | `docs/tranches/X/execution/A/X-W3.md` · `docs/tranches/X/execution/LEDGER.md` |
+
+Pathspec on the commit itself; `scripts/dev/dev.sh` never staged; no sibling seat's path added,
+reset or unstaged.
