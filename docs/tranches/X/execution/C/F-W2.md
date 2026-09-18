@@ -145,3 +145,54 @@ All 20 gates are declared **born RED** by §5. Every figure below was measured a
 ## Unit receipts
 
 *(empty at open — each unit appends its own receipt here)*
+
+### `.c` — the rulings record
+
+**Seat**: unit `.c`, `claude-opus-5[1m]`, sitting 2026-09-17 (wall clock 2026-09-18, 15:0x–15:5x EDT). **Writable set (hard bound)**: `docs/tranches/X/fourier/RULINGS-F.W2.md` — one path, one commit. **Strictly first and alone** (§6a *Author-before-choose*): nothing of `.a` or `.b` is authored, and no fourier byte was written — every fourier-side witness below is a read (`grep` · `sed` · `ls` · node module read).
+
+**CRASH-RECOVERY sweep (standing law).** ⟨cmd⟩ `git -C /Users/mkbabb/Programming/fourier-analysis status --porcelain` → **∅**. ⟨cmd⟩ `git -C /Users/mkbabb/Programming/value.js status --porcelain` → 12 modified ⊕ 4 untracked, **none inside this unit's writable set**: `RULINGS-F.W2.md` was **ABSENT** (⟨cmd⟩ `/bin/ls /Users/mkbabb/Programming/value.js/docs/tranches/X/fourier/` → `carry` · `conformance` · `contract` · `evidence` · `waves`, no `RULINGS-F.W2.md`). **No killed predecessor seat's partial work exists on this unit; nothing inherited, nothing stashed, nothing restored.** `scripts/dev/dev.sh` untouched.
+
+**E13 (unit-level).** Swept at this seat's clock, delta against the X-W1-resume sweep (14:2x) — ⟨cmd⟩ `/usr/bin/find <each of the four paths ⊕ `../fourier-analysis/docs/tranches/F/coordination`> -maxdepth 1 -type f -name '*.md' -newermt "2026-09-18 14:30"` → `docs/tranches/V/coordination/INBOX.md` (**self**, SELF-COUNT law) and `../glass-ui/docs/tranches/BK/coordination/glass-outbound-2026-09-18-valuejs-o26-reply.md` (**already rowed I-35**; Routing cell *"X·KF (Track B), NOT X-W1"*). **0 unrowed · 0 new `I-n` · 0 UNREAD in `.c`'s scope.** `INBOX.md` not written by this seat.
+
+#### Acts, in order
+
+**ACT 1 — measure before writing (D-19 / MEASURE-AT-OPEN).** Every predicate the three rulings rest on re-measured at today's bytes, each double-run:
+
+- corpus quotations reproduced at the frozen bank — ⟨cmd⟩ (base `…/registry/adjudicated/`) `/usr/bin/sed -n '57p' fr-AdminAuditLog.md` (AA-20) · `'46p' fr-MorphPhaseConfig.md` (MPC-2) · `'58p' fr-EasingCurvePreview.md` (CENSUS-MC) · `'72p' fr-EquationView.md` (M-RTC) · `'52p' fr-EasingPicker.md` (L/B-1 + C/B-1) · `'23p'`+`'50p'` `fr-EquationPanel.md` · `'41p' fr-InfoCard.md` · `'47p' fr-ImageUpload.md` · `'55p' fr-ContourPreview.md` — **all reproduce byte-exactly**.
+- the six G7 authorities enumerated live in the fourier tree at `538db90`: `actionTone` `AdminAuditLog.vue:67`/`:135` · `energyColor` `notation.ts:44` with consumers `EquationPanel.vue:6`/`:38` ⊕ `EquationView.vue:7`/`:70` · `spectrumColor` **4 declarations** (`transforms.ts:3` · `harmonics.ts:81` · `FrequencyGraph.vue:42` · `CoefficientsSpectrum.vue:55`) · the NotationPills triad `notation.ts:15-17` → `NotationPills.vue:24` → `:43-45` · ImageUpload's six hexes over seven coordinates `:150-156` ≡ `colors.ts:28-29` · the amber **1 + 8 = 9** at `ContourPreview.vue:45` ⊕ `ContourEditorCanvas.vue:261,:307,:308,:315,:319,:328,:329,:333`.
+- the G8 facility at the **ADOPTED** pin: glass-ui **8.0.0**, `./dom` present, `resolveTokenColor`/`createTokenColorCache`/`useTokenColor` in `dist/dom.js`, both `composables/dom/*.d.ts` present; **the seat already ships at `colors.ts:20`** and the three regex arms are gone from the file.
+- the G2/G15 mapping at both landed ends: `easing(name): Result<…>` `src/easing.ts:166`, DIRECT-then-PRESETS order, `DIRECT_EASINGS` `:94-114` **19 entries**, `./easing` **16 exports**, `bezierPresets` **30 keys**; the 22 catalogue keys partitioned **by identity** → **8 DIRECT / 14 fall-through**, enumerated; fourier's landed `easings.ts` imports exactly those **8** and defines the **14** (6 bézier-authored ⊕ 8 analytic), `EASING_FNS` exhaustive, the `as EasingFn` cast gone.
+
+**ACT 2 — author `RULINGS-F.W2.md`.** §0 substrate · **§1 R-i** (WIDEN, the complete six-authority roster, each **widened WITH its reason**, zero exclusions, cures homed, zero minted; §1.3 answers the seventh-authority question at the bank — `TIER_INFO` folds into **M-N1**, not a new row; §1.4 records two banked-figure divergences; §1.5 records two drifted anchors) · **§2 R-ii** (producer facility = presumptive seat; ACT(2)'s `parseCssColor` route narrowed to **non-token STRINGS**; **SS-6 and SS-13 both escalated and INTACT**, measured unanswered; **§2.3 handles finding F-2** — a ruling on its own reasons, never a ratification of the landing, with G8's RED input measured *not* to have occurred) · **§3 R-iii** (MPC-2 quoted at `fr-MorphPhaseConfig.md:46` and CENSUS-MC at `fr-EasingCurvePreview.md:58`, each with **F.W1** named as home; the **§2a-rows-1–4 collision** stated; **G1's 5-of-5 `ERR_PACKAGE_PATH_NOT_EXPORTED`** on the record; **no pre-emption**; **§3.3 minutes that COHESION §0o ESC-4 has since answered it at F.W1's end**, quoted with two disclosed cuts, cited by id and never re-opened; §3.4 minutes one emphasis divergence in the dated spec as a note **beside**, never a patch) · **§4** the `easing()` mapping **re-derived at the landed bytes** · §5 gate readings · §6 residuals.
+
+**ACT 3 — lawfulness pass over the settled bytes, double-run.** ⟨cmd⟩ `/usr/bin/grep -oE '⟨cmd⟩ `[^`]*\$[^`]*`' RULINGS-F.W2.md` → **no output** (no command consumes a shell variable) · ⟨cmd⟩ `/usr/bin/grep -o '…/[a-zA-Z@]' RULINGS-F.W2.md` → **no output** (no elided command path; two were found on the first pass, at §4.3's `sed` and §5's G7 cell, and **completed to literal absolute paths** before commit — the R3-9.1 unrunnable-machinery class, caught by the file's own law) · ⟨cmd⟩ `/usr/bin/grep -n 'grep -[a-z]*P' RULINGS-F.W2.md` → **no output** (BSD-portable; no PCRE, no lookaround) · ⟨cmd⟩ `/usr/bin/grep -noE 'F-W[0-9]+\.md:[0-9]|COHESION\.md:[0-9]' RULINGS-F.W2.md` → **no output** (no line coordinate into a live sibling; siblings cited by §-heading, gate id or row label). The §4.2 partition command was re-run **from a neutral cwd** to prove it carries no implicit base → `DIRECT 8 …` · `FALLTHROUGH 14 …`, identical both runs.
+
+**ACT 4 — commit (one commit, pathspec on the commit itself).** `b469b989` — *docs(x-f-w2/.c): RULINGS-F.W2 — R-i WIDEN (six-authority G7 roster) · R-ii M-RTC presumptive seat · R-iii routed, ESC-4 minuted · the G2/G15 easing() mapping re-derived at the landed bytes*. ⟨cmd⟩ `git show --stat --oneline b469b989` → **1 file changed, 239 insertions(+)**, the file being `docs/tranches/X/fourier/RULINGS-F.W2.md` and nothing else — **no sibling seat's staged path swept in**.
+
+#### Gate readings — BEFORE → AFTER
+
+| gate | BEFORE (wave open) | AFTER (this unit) | witness |
+|---|---|---|---|
+| **G7** | **RED** — `/bin/ls …/RULINGS-F.W2.md` → *No such file or directory*; six authorities against a charter naming one | **GREEN** | the record's **§1**: R-i recorded with the complete six-authority roster, each **widened with its reason**, zero exclusions, cures homed at F.W4 / F.W3 / F.W3 `.d`+F.W4 / `.b`, **zero minted** |
+| **G8** | **RED** — ruling absent; facility verified live (and already shipping at `colors.ts:20`, finding F-2) | **GREEN** | the record's **§2**: R-ii recorded; ACT(2) narrowed to non-token strings; **SS-6 · SS-13 intact**; the landing ruled on, not ratified; the gate's RED input (*re-implements a producer surface*) measured **false** at the landed bytes |
+| **G20** | **RED** — `/bin/ls …/RULINGS-F.W2.md` → absent; the locks had no record | **GREEN** | the record's **§3**: both locks quoted at their coordinates with **F.W1** named, the §2a-rows-1–4 collision stated, **G1's 5/5** on the record, no pre-emption, ESC-4 minuted as the answer |
+| **G2** | **RED** — both prescribed symbols 0 hits; the mapping had no record | **record leg GREEN**; gate closure stays `.a`'s | the record's **§4**: the mapping re-derived at both ends (8/14 by identity, resolution order, landed catalogue) |
+| **G15** | **RED** — and RE-SHAPED: the banked `14/22 · 8/22 · max Δ 0.192` superseded by **ESC-4** (Δ = 0, all 22) | **record leg GREEN**; the Δ = 0 sampler re-run stays `.a`'s | **§3.3** cites ESC-4 by id and never re-opens it; **§4.2** enumerates the partition |
+
+**No other gate is touched, and no GREEN of F.W0/F.W1/F.W3/F.W4/W.L6 is claimed** (FR-GIG-5).
+
+#### Findings this unit adds to the record
+
+- **F-5 · `energyColor`'s banked blast radius is 3 consumers / 2 routes; the tree has 2 / 2.** `InfoCard.vue` was DELETED under **COHESION §0j.D's `G-10`** at fourier `5842377`, so `InfoCard.vue:5/:14` is no longer part of F.W4's regression surface. **Grade, identity and cure home untouched** — a divergence recorded, never a re-grade or a re-book.
+- **F-6 · `fr-ContourPreview` row 22 disagrees with itself** — its ADJUDICATED cell says *cure ten sites*, its description cell says *9 sites*, and the tree says **nine** (1 + 8). `.b` cures nine and mints no eleventh interpretation.
+- **F-7 · two roster anchors drifted under `3bac3d5`** — `CoefficientsSpectrum.vue:47 → :55`, `STATIC.rainbow colors.ts:13-16 → :27-30` (hexes `:28-29`). INTENT resolves at the true bytes; **no dated spec is patched** (E-3).
+- **F-8 · `TIER_INFO` is not a seventh colour authority** — the bank folds its three literals into **M-N1** with `energyColor`'s three (`fr-InfoCard.md:41`'s `:26/:32/:38 ≡ :45/:46/:47`, reproducing byte-for-byte at HEAD). The widened charter reaches them through roster member 2; **no row minted**.
+- **F-9 · the dated spec's §4 R-iii renders MPC-2's parenthetical bold-and-italic where the bank sets no emphasis** — the R4-7.1 class the spec polices elsewhere. Minuted at the record's §3.4, **beside**, never propagated and never patched.
+
+#### Residuals and escalations
+
+**Escalations: none.** Every act the unit's sections prescribe was performed as specified, at the bytes.
+
+Residuals carried to their owners: **SS-6** and **SS-13** remain OPEN (unit `.d`'s relay; glass-ui READ-ONLY always) · **G15's Δ = 0 sampler re-run** and **G2's cure-side reading** are `.a`'s · the **dated addenda-beside** the measurements imply (G15's ESC-4 re-shape; glass-ui 80 → 70 keys; `colors.ts` 117 → 182 lines; the two drifted anchors; `energyColor` 3 → 2 consumers) land as **addenda, never patches** · `fr-ContourPreview`'s banked *ten* stands as a banked divergence against the tree's nine.
+
+**Ordering law discharged**: R-iii exists before `.a` authors ACT(1), and the whole record exists before `.b` authors ACT(2) — both by this commit.
