@@ -180,12 +180,16 @@ export class PaletteRepository {
      * guards `{_id, status: from}` and returns the result); HTTP semantics stay
      * in the domain/HTTP layer, and the repository stays free of `ApiError`.
      *
-     * `expect` is the FOURTH parameter, after `session`, so the three product
-     * call sites — `service/crud.ts:224` (PATCH), `service/versions.ts:215`
-     * (revert), `service/visibility.ts:174` (publish) — keep compiling
-     * unchanged while they are outside X.W3.3's writable set; wiring them is
-     * `ESC-W3.3-CAS-CALLERS`, and until it is ruled those three writes remain
-     * unfenced (the gate reads RED, not green-by-apparatus).
+     * `expect` is the FOURTH parameter, after `session`, because X.W3.3 could
+     * not reach the three product call sites from its own writable set and
+     * returned them as `ESC-W3.3-CAS-CALLERS` rather than leaving the gate
+     * green-by-apparatus. That escalation is DISCHARGED at Repair 1: PATCH
+     * (`service/crud.ts`), revert (`service/versions.ts`) and publish
+     * (`service/visibility.ts`) all pass their read document and assert the
+     * result through `assertFenceHeld`. The remaining un-fenced writes are the
+     * ones the gate does not name — the soft-delete stamp, the fork-count
+     * counters, the admin verbs — and each is single-field, commutative, or
+     * carries no `If-Match` contract.
      */
     update(
         slug: string,

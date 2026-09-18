@@ -22,6 +22,7 @@ import type { Palette } from "../model.js";
 import { ConflictError, GoneError, NotFoundError } from "../../../platform/http/errors/index.js";
 import { computeContentHash } from "../hash.js";
 import { formatPalette, type FormattedPalette } from "../format.js";
+import { assertFenceHeld } from "../etag.js";
 import type {
     createPaletteBody,
     updatePaletteBody,
@@ -239,7 +240,22 @@ export async function patchPalette(
                 session,
             );
         }
-        await services.repositories.palettes.update(slug, { $set }, session);
+        // X-W3 · G-8 — the write is FENCED on the state the route validated
+        // `If-Match` against (`routes/crud.ts:120-123` read this same doc).
+        // `assertIfMatch` compares at the route; between that comparison and
+        // this line any other writer may land, and the result used to be
+        // discarded, so a lost race committed silently. `matchedCount === 0`
+        // now means someone else wrote first and becomes the same `412` a stale
+        // `If-Match` produces. The throw is INSIDE `withTransaction`, so the
+        // version row appended above rolls back with it.
+        assertFenceHeld(
+            await services.repositories.palettes.update(
+                slug,
+                { $set },
+                session,
+                palette,
+            ),
+        );
     });
 
     const updated = await services.repositories.palettes.findBySlug(slug);

@@ -11,6 +11,7 @@ import type { Services } from "../../../platform/http/inject-services.js";
 import type { OklabTriple, Palette, PaletteColor, PaletteVersion } from "../model.js";
 import { NotFoundError } from "../../../platform/http/errors/index.js";
 import { computeContentHash, computeReleaseHash } from "../hash.js";
+import { assertFenceHeld } from "../etag.js";
 import { assertPaletteReadable } from "./visibility.js";
 import { computeOklabColors } from "./oklab.js";
 
@@ -212,19 +213,29 @@ export async function revertToVersion(
             );
         }
 
-        await services.repositories.palettes.update(
-            slug,
-            {
-                $set: {
-                    name: version.name,
-                    colors: version.colors,
-                    oklabColors: newOklab,
-                    currentHash: newHash,
-                    updatedAt: new Date(),
+        // X-W3 · G-8 — revert REPLACES a palette's whole payload, so it is the
+        // write with the most to lose to a concurrent writer. The fence is the
+        // state read at `:175`, which is also the state the route validated
+        // `If-Match` against (`routes/versions.ts`, G-9). A lost race is a
+        // `412`, never a silent overwrite of whatever landed in between; the
+        // throw is inside `withTransaction`, so the release appended above is
+        // rolled back with it and neither half survives.
+        assertFenceHeld(
+            await services.repositories.palettes.update(
+                slug,
+                {
+                    $set: {
+                        name: version.name,
+                        colors: version.colors,
+                        oklabColors: newOklab,
+                        currentHash: newHash,
+                        updatedAt: new Date(),
+                    },
+                    $inc: { versionCount: 1 },
                 },
-                $inc: { versionCount: 1 },
-            },
-            session,
+                session,
+                palette,
+            ),
         );
     });
 

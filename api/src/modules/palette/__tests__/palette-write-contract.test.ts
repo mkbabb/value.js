@@ -12,10 +12,13 @@
  *         carries the ETag the caller read, mapping a lost race to `412`.
  *         **Bounds note, stated rather than implied**: the three product call
  *         sites that must pass that predicate (`service/crud.ts` PATCH,
- *         `service/versions.ts` revert, `service/visibility.ts` publish) are
- *         OUTSIDE X.W3.3's writable set, so this file measures the fence at
- *         the repository — the byte this unit owns — and the wire arm of G-8
- *         is RETURNED as `ESC-W3.3-CAS-CALLERS`, never faked green here.
+ *         `service/versions.ts` revert, `service/visibility.ts` publish) were
+ *         OUTSIDE X.W3.3's writable set, so that unit measured the fence at
+ *         the repository — the byte it owned — and RETURNED the wire arm as
+ *         `ESC-W3.3-CAS-CALLERS` rather than faking it green. Repair 1 takes
+ *         it: all three files are §4 `modify` rows of the wave, and the three
+ *         `G-8 (verb)` rows below drive a real concurrent writer into the
+ *         window between each handler's read and its write.
  *   G-9   revert requires a strong `If-Match`: absent → `428`, stale → `412`,
  *         current → the write proceeds (the `routes/crud.ts:122` /
  *         `routes/publish.ts:39` precedent, now on the third mutating verb).
@@ -208,6 +211,118 @@ describe("palette write contract (X-W3 · X.W3.3)", () => {
         );
         expect(held.matchedCount).toBe(1);
         expect(() => assertFenceHeld(held)).not.toThrow();
+    });
+
+    // -----------------------------------------------------------------
+    // G-8 — the WIRE arm: the three product writes reach the fence.
+    // Landed at Repair 1 (`ESC-W3.3-CAS-CALLERS` discharged).
+    // -----------------------------------------------------------------
+
+    /**
+     * Land `mutate()` in the window the gate names — after a handler's read of
+     * `slug` and before its write — by wrapping the repository read the way a
+     * second connection would land between them. This is a SEAM, not a stub:
+     * every byte under test is production code, the real fenced `updateOne`
+     * runs against the real post-race state, and removing the fence (drop
+     * `palette` from any of the three `update(...)` calls) turns each row below
+     * from `412` into a silent overwrite. Without it the race is not
+     * reachable from a single-threaded test — one request is atomic from the
+     * caller's side — and an unreachable race is an unmeasured gate.
+     */
+    function raceAfterRead(
+        slug: string,
+        mutate: () => Promise<void>,
+        /**
+         * WHICH read of `slug` the writer lands behind, 1-based. The window the
+         * fence guards is the one between the read whose ETag becomes the write
+         * predicate and the write itself. PATCH fences on the read
+         * `requireOwnership` threads in (`input.palette`, N.W3.E) — the first.
+         * publish and revert re-read inside the service, so their predicate is
+         * the SECOND read and a writer landing behind the first would simply be
+         * seen by it.
+         */
+        afterNth = 1,
+    ): void {
+        const repo = services.repositories.palettes;
+        const read = repo.findBySlug.bind(repo);
+        let seen = 0;
+        repo.findBySlug = async (s, session) => {
+            const doc = await read(s, session);
+            if (s === slug && ++seen === afterNth) await mutate();
+            return doc;
+        };
+    }
+
+    /** The concurrent writer: moves the ETag by changing the content hash. */
+    function concurrentWrite(slug: string): () => Promise<void> {
+        return async () => {
+            await db
+                .collection("palettes")
+                .updateOne(
+                    { slug },
+                    { $set: { name: "Concurrent", currentHash: "f".repeat(64) } },
+                );
+        };
+    }
+
+    it("G-8 (PATCH): a concurrent write between read and write yields 412, not an overwrite", async () => {
+        const etag = await currentETag();
+        raceAfterRead("source", concurrentWrite("source"));
+
+        const res = await app.request("/palettes/source", {
+            method: "PATCH",
+            headers: { ...jsonAlice, "If-Match": etag },
+            body: JSON.stringify({ name: "Loser" }),
+        });
+        expect(res.status).toBe(412);
+
+        const after = await services.repositories.palettes.findBySlug("source");
+        expect(after?.name).toBe("Concurrent");
+    });
+
+    it("G-8 (publish): a concurrent write between read and write yields 412, not an overwrite", async () => {
+        const etag = await currentETag();
+        raceAfterRead("source", concurrentWrite("source"), 2);
+
+        const res = await app.request("/palettes/source/unpublish", {
+            method: "POST",
+            headers: { ...jsonAlice, "If-Match": etag },
+        });
+        expect(res.status).toBe(412);
+
+        const after = await services.repositories.palettes.findBySlug("source");
+        expect(after?.name).toBe("Concurrent");
+        // The visibility flip did NOT land on the winner's row.
+        expect(after?.visibility).toBe("public");
+    });
+
+    it("G-8 (revert): a concurrent write between read and write yields 412, and no release is appended", async () => {
+        const hash = await firstReleaseHash();
+        await patchPalette(services, {
+            slug: "source",
+            body: { name: "Edited" },
+            userSlug: "alice",
+        });
+        const etag = await currentETag();
+        const versionsBefore =
+            await services.repositories.paletteVersions.countByPaletteSlug("source");
+
+        raceAfterRead("source", concurrentWrite("source"), 2);
+
+        const res = await app.request("/palettes/source/revert", {
+            method: "POST",
+            headers: { ...jsonAlice, ...key(), "If-Match": etag },
+            body: JSON.stringify({ hash }),
+        });
+        expect(res.status).toBe(412);
+
+        const after = await services.repositories.palettes.findBySlug("source");
+        expect(after?.name).toBe("Concurrent");
+        // The fence throws INSIDE `withTransaction`, so the release the revert
+        // had already appended rolls back with it — neither half survives.
+        expect(
+            await services.repositories.paletteVersions.countByPaletteSlug("source"),
+        ).toBe(versionsBefore);
     });
 
     // -----------------------------------------------------------------

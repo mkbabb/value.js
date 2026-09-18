@@ -26,6 +26,7 @@ import { PALETTE_VISIBILITIES } from "../model.js";
 import type { Services } from "../../../platform/http/inject-services.js";
 import { GoneError, NotFoundError, UnprocessableEntityError } from "../../../platform/http/errors/index.js";
 import { formatPalette, type FormattedPalette } from "../format.js";
+import { assertFenceHeld } from "../etag.js";
 
 /**
  * The single active-public predicate (V·W45 item 4). A palette is publicly
@@ -223,9 +224,20 @@ export async function setVisibility(
         return formatPalette(palette, { forkCount });
     }
 
-    await services.repositories.palettes.update(slug, {
-        $set: { visibility: target, updatedAt: new Date() },
-    });
+    // X-W3 · G-8 — this write is single-collection and deliberately
+    // un-transacted (the docstring above), so the fence is the WHOLE of its
+    // concurrency control: `routes/publish.ts` validates `If-Match` against the
+    // doc read at `:161`, and the same state is required here for the `$set` to
+    // apply. The narrow TOCTOU window `routes/publish.ts` records as accepted
+    // (ledger #16) closes with it.
+    assertFenceHeld(
+        await services.repositories.palettes.update(
+            slug,
+            { $set: { visibility: target, updatedAt: new Date() } },
+            undefined,
+            palette,
+        ),
+    );
 
     const updated = await services.repositories.palettes.findBySlug(slug);
     if (!updated) throw new NotFoundError("Palette not found after publish");
