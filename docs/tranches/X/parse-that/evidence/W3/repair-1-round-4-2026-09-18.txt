@@ -1,0 +1,60 @@
+SERVED MODEL: claude-opus-5[1m]
+X.P.W3 — ## Repair 1 (round 4): the F-L1 / ESC-g1 / F-e7 cure, measured.
+Every line below is captured from a run at this seat's clock, never transcribed.
+clock: Fri Sep 18 19:22:22 EDT 2026
+
+== A. the emitter run THREE times IN PLACE, against the artefact it replaces ==
+   (the carry-forward is the part that must be idempotent; a fresh --out cannot test it)
+wrote /Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md — 103029 B · 928 lines · 39 rows · empty directions 0 · `.e`'s §6 block carried 47 lines
+wrote /Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md — 103029 B · 928 lines · 39 rows · empty directions 0 · `.e`'s §6 block carried 47 lines
+wrote /Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md — 103029 B · 928 lines · 39 rows · empty directions 0 · `.e`'s §6 block carried 47 lines
+daf8cbb72931a0215eca8eeae26b20df24a6bd752f9af3a051427a4848374699  inplace-1.md
+daf8cbb72931a0215eca8eeae26b20df24a6bd752f9af3a051427a4848374699  inplace-2.md
+daf8cbb72931a0215eca8eeae26b20df24a6bd752f9af3a051427a4848374699  inplace-3.md
+
+== B. G-7, run TWICE after the cure ==
+EXIT=1
+EXIT=1
+rows       52 · COMPARED 8 · NO-PEER 44
+ledger     39 rows — ADJUDICATED 16 · DISSENT 4 · FIXTURE 5 · LABEL 1 · NARROWING 3 · CAPACITY 9 · SPEC-DIVERGENCE 1
+           empty consumer-direction fields: 0
+           GATE-VERDICT anchors present: 5/5
+MIRROR-DEFECTS  5883   (of which spec-undecided 3975)
+
+RED — the equivalence floor is NOT held at full surface. 5883 mirror-defects over 8 compared rows.
+--- the two runs differ only in node's PID warning line:
+2
+
+== C. .e's hand-written §6.1 block, before the cure and after the re-emission (F-e7) ==
+lines before:       42   lines after:       42
+sha256 before: 05269997cd04d194dd8f881057069a3cfd301790113fc4a4a2386ee6090cda69
+sha256 after:  05269997cd04d194dd8f881057069a3cfd301790113fc4a4a2386ee6090cda69
+VERBATIM — 0 differing lines
+
+== D. every other gate a cure could move, re-run at this seat ==
+G-1 EXIT=1  RED — 47 of 52 rows are not TOTAL (3 PARTIAL, 44 ABSENT).  ·  tally  runtime 0 TOTAL / 3 PARTIAL / 16 ABSENT · types 5 / 0 / 28 · ALL 5 of 52 TOTAL
+G-1 --cross-check-ledger EXIT=0  GREEN — every adjudicated conflict is rowed.  ·  rows     16 adjudicated conflicts, 0 not carried
+G-4 EXIT=1  RED — 8 of 10 legs green; negative controls all fire.
+G-5 EXIT=0  GREEN — the two targets produce byte-identical {ok, code, start, end, expected, actual} for every corpus input.
+G-8 EXIT=0  GREEN — 2 of 2 legs green (--assert-no-console: C-8 · C-9); negative controls all fire.
+G-6 EXIT=0  Tests  72 passed (72)
+G-9 EXIT=1  Tests  2 failed | 166 passed (168)
+css-equivalence suite EXIT=1  Tests  1 failed | 26 passed (27)
+
+== E. bounds and posture ==
+written in <p2>:
+ M typescript/test/css-equivalence/emit-divergence-ledger.mjs
+ M typescript/test/css-equivalence/equivalence.test.ts
+ M typescript/test/css-equivalence/lib/ledger.mjs
+ M typescript/test/css-equivalence/run-full-surface.mjs
+?? .worktrees/
+masking constructs added anywhere in the diff:
+0
+
+== F. the settled artefact and its generator ==
+     928  103029 /Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md
+daf8cbb72931a0215eca8eeae26b20df24a6bd752f9af3a051427a4848374699  /Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md
+9380a681bc9a933cc278a251e747218195cc06811b08fd2506744635649c9b74  test/css-equivalence/lib/ledger.mjs
+47c2760c416f994f047216242cb52d94a00cb74cda6019f0628918071b2ccb77  test/css-equivalence/emit-divergence-ledger.mjs
+5c46a57c4f3e3a8bc0f0d4d55090233a0212ba8a6e080d7cbad9077007718944  test/css-equivalence/run-full-surface.mjs
+b6a3f9e624825e3020b344cd4c806e3ddcfc1e0d06066a43ff788efd364cf196  test/css-equivalence/equivalence.test.ts

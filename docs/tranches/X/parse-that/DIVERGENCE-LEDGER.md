@@ -23,9 +23,11 @@ engines did is what is printed. Nothing in those two columns was typed from a do
 **The adjudication and direction columns are CARRIED.** §1's sixteen are `.a`'s, out of
 `registry/adjudicated/parser-band.md`; §2's four DISSENTS and §3's five fixtures come from their own
 authorities; §4 is `.b`'s F-b4, routed to this seat inside the wave; §5 is generated from the
-candidate's own `UNREALIZED_ENTRIES` against the pinned barrel. **This seat adjudicates nothing.**
-§6 is reserved for `.e`, the fresh Fable adjudicator (M-23 §1) — *an author cannot adjudicate his own
-union* — and is deliberately left empty by this program.
+candidate's own `UNREALIZED_ENTRIES` against the pinned barrel; **§7** is generated from `bounds.mjs`'s
+own `CAPACITY_REGIONS` and carries §0p/§0q as its authority; **§8** carries css-color-4 §7.1 and the
+fields `.g` banked for it. **This seat adjudicates nothing.** §6 is reserved for `.e`, the fresh Fable
+adjudicator (M-23 §1) — *an author cannot adjudicate his own union* — is deliberately left empty by
+this program, and is now CARRIED VERBATIM across re-emissions instead of being destroyed by them.
 
 ### §0.1 Provenance, measured
 
@@ -49,7 +51,7 @@ union* — and is deliberately left empty by this program.
 | §3 | REGRESSION FIXTURE | 5 | `apotheosis/parser-proof/GATE-VERDICT.md` F-2 |
 | §4 | LABEL SURFACE | 1 | `X-P-W3.md` `.b` F-b4 |
 | §5 | DECLARED COVERAGE NARROWING | 3 | the candidate's `UNREALIZED_ENTRIES` × the pinned barrel |
-| | **total** | **29** | |
+| | **total** | **39** | |
 
 **Empty consumer-direction fields: 0.** (G-7 fails on any.)
 **`GATE-VERDICT.md` anchors present: 5/5** — each fixture's anchor re-read in its authority at generation.
@@ -630,6 +632,14 @@ A fourth claim, outside the ledger but named in `.e`'s own obligations, is `.c`'
 shield is non-load-bearing. Its evidence is `.c`'s T-1/T-1b/T-2/T-3/T-4 and it is designed to be
 refutable at the bytes.
 
+**`.e`'s block below is CARRIED, not regenerated** (F-e7, cured at the generator): this program reads
+the file it is about to replace, lifts every `### §6.x` subsection out of it verbatim, and emits it
+here unaltered. It authors none of it and it no longer destroys it, so no seat has to remember to
+re-append it. `.e`'s own warning — *"If the emitter is re-run, it will drop this section"* — is the
+sentence this cure retires; it is left standing in the block because the block is `.e`'s and E-3
+makes it immutable. The block predates **§7** and **§8** below, which are therefore **NOT**
+adjudicated by it.
+
 ### §6.1 — Adjudication, X.P.W3.e (SERVED MODEL: claude-fable-5-1 · 2026-09-18 14:29–14:40 EDT)
 
 **Standing.** This section is the one hand-written block in a generated file, by `W3.md` §4a's grant
@@ -677,3 +687,242 @@ css-syntax*; ADJ-3/S-2 — *the REJECT half is not spec-backed for hue; the spec
 except in one respect recorded here: the rejection the shield emits (`css_syntax [0,len) ["<stylesheet>"]`
 for a valid 8,191-rule stylesheet) is a **FALSE_REJECT of a valid input** that no row of this ledger
 declares, because no corpus cell reaches it.
+
+---
+
+## §7 The declared capacity bounds
+
+**Landed by this emission, after `.e`'s L-14 pass — so §6 does NOT adjudicate these rows.** They
+answer **F-L1**, raised against the round-4 close: X.P.W3.f gave both lowerings a set of capacity
+rejections that NARROW the accepted language relative to published 4.0.0, on the shipped JS target,
+and no row of this file declared them. G-7 does not grade intent — *"an **unrowed** intentional
+difference … identical to a defect"* — and CN-2 set the wave's own standard: *"an absence nobody
+declared is exactly what G-7 treats as a defect. Rowed rather than left to be discovered."*
+
+**Not one byte of the candidate is wrong here, and nothing below asks for one to change.** The bounds
+are ordained and the labels promote; what was owed was the declaration. The rows are **generated from
+`bounds.mjs`'s own `CAPACITY_REGIONS`** — 9 regions, in the order the boundary names a breach — so they
+cannot drift from Θ: a region added, renamed or re-capped moves these rows at the next emission.
+
+**Authority.** COHESION §0p — "both lowerings reject at the bound … with `css_syntax` and a label naming it" — and §0q's E-f2 per-class ruling (class 1 boundary-visible · class 2 peak-with-grant · class 3 unreachable-by-construction), carried into `W3.md`'s two dated 2026-09-18 ADDENDA as unit `.f`. Every bound VALUE is read from the built module's own layout constants (`layout.mjs`), and `Θ.input` is DERIVED (`INPUT_BOUND`) rather than pinned; no CAP was moved by this wave.
+
+**The witness coordinates are FOUND, not pinned.** For every class-1 region this program binary-searches
+the smallest witness that names the region's own promoted production (`.f`'s census method) and prints
+the pair either side of it; a moved bound therefore moves the pair instead of falsifying a fixture.
+Classes 2 and 3 have no such coordinate under the derived window — that absence *is* the claim — so
+they carry the densest declared family AT the window and record that it does not name them.
+
+### CAP-1 — the `input` region — Θ.input = 65,458 code units (class 1)
+
+| field | value |
+|---|---|
+| **region / class** | `input` · class 1 · checked before the run |
+| **declared capacity Θ.input** | 65,458 code units (DERIVED; the layout CAP is 1,048,576) |
+| **raw label → promoted production** | `input <= 65458` → `<input-window>` |
+| **incumbent** | published 4.0.0 declares NO capacity of any kind on this axis: it parses until it runs out of host memory, and on the inputs measured below it returns a value. |
+| **candidate** | REJECTS at the bound on the parse path, in BOTH lowerings, as an ordinary `ok:false` — `css_syntax` with `expected[0]` the promoted production `<input-window>` (raw label `input <= 65458`, checked before the run). Θ.input = 65,458 code units of the region's layout CAP 1,048,576. |
+| **spec citation** | COHESION §0p — "both lowerings reject at the bound … with `css_syntax` and a label naming it" — and §0q's E-f2 per-class ruling (class 1 boundary-visible · class 2 peak-with-grant · class 3 unreachable-by-construction), carried into `W3.md`'s two dated 2026-09-18 ADDENDA as unit `.f`. Every bound VALUE is read from the built module's own layout constants (`layout.mjs`), and `Θ.input` is DERIVED (`INPUT_BOUND`) rather than pinned; no CAP was moved by this wave. |
+| **adjudication** | DECLARED CAPACITY BOUND, rowed here for the first time (**F-L1**, raised by the round-4 `## Check 1`). The P-1 taxonomy's COVERAGE_NARROWING sentence — "C14 declines an input outside its **declared shape** that the live superset accepts is **not** a defect — `status.json` declares it" — is the governing one, and Θ **is** the declared shape; this row is that declaration for the `input` axis. Not discharged and not repaired here: the bound is correct and ordained, and what was owed was the declaration. |
+| **consumer direction** | NARROWS acceptance, and it is consumer-visible on the shipped JS target. An input whose code units exceed **65,458** — a size published 4.0.0 parses and returns a value for — is answered `ok:false` with `expected[0] = "<input-window> …"`. A consumer whose stylesheets can exceed that size must chunk its input or read the diagnostic; it will not receive a partial value and it will not receive a throw. The direction is strictly safer than the state it replaced (a Wasm trap on one target and an untyped acceptance on the other), and strictly narrower than 4.0.0. |
+| **witness family** | `witnessAtCapacity("input", n)` under `P:stylesheet`, driven through `parseStylesheet` |
+
+| witness | code units | incumbent (published 4.0.0, MEASURED) | candidate js (MEASURED) | candidate wasm (MEASURED) | js ≡ wasm |
+|---|---|---|---|---|---|
+| **AT the bound** — `witnessAtCapacity("input", 65,458)` | 65,458 | ok:true · 1 top-level item(s) · 0 diagnostic(s) | ok:true · 1 top-level item(s) · 0 diagnostic(s) | ok:true · 1 top-level item(s) · 0 diagnostic(s) | YES |
+| **ONE PAST the bound** — `witnessAtCapacity("input", 65,459)` | 65,459 | ok:true · 1 top-level item(s) · 0 diagnostic(s) | ok:false · 1 diagnostic(s): css_syntax [0,65459) "<input-window> (at most 65458 code units)" | ok:false · 1 diagnostic(s): css_syntax [0,65459) "<input-window> (at most 65458 code units)" | YES |
+
+_Coordinate found by binary search at this generation: the region is first named at n = 65,459._
+
+### CAP-2 — the `marks` region — Θ.marks = 32,768 marks (class 1)
+
+| field | value |
+|---|---|
+| **region / class** | `marks` · class 1 · checked after the run |
+| **declared capacity Θ.marks** | 32,768 marks (the layout CAP itself) |
+| **raw label → promoted production** | `marks <= 32768` → `<mark-journal>` |
+| **incumbent** | published 4.0.0 declares NO capacity of any kind on this axis: it parses until it runs out of host memory, and on the inputs measured below it returns a value. |
+| **candidate** | REJECTS at the bound on the parse path, in BOTH lowerings, as an ordinary `ok:false` — `css_syntax` with `expected[0]` the promoted production `<mark-journal>` (raw label `marks <= 32768`, checked after the run). Θ.marks = 32,768 marks. |
+| **spec citation** | COHESION §0p — "both lowerings reject at the bound … with `css_syntax` and a label naming it" — and §0q's E-f2 per-class ruling (class 1 boundary-visible · class 2 peak-with-grant · class 3 unreachable-by-construction), carried into `W3.md`'s two dated 2026-09-18 ADDENDA as unit `.f`. Every bound VALUE is read from the built module's own layout constants (`layout.mjs`), and `Θ.input` is DERIVED (`INPUT_BOUND`) rather than pinned; no CAP was moved by this wave. |
+| **adjudication** | DECLARED CAPACITY BOUND, rowed here for the first time (**F-L1**, raised by the round-4 `## Check 1`). The P-1 taxonomy's COVERAGE_NARROWING sentence — "C14 declines an input outside its **declared shape** that the live superset accepts is **not** a defect — `status.json` declares it" — is the governing one, and Θ **is** the declared shape; this row is that declaration for the `marks` axis. Not discharged and not repaired here: the bound is correct and ordained, and what was owed was the declaration. |
+| **consumer direction** | NARROWS acceptance, and it is consumer-visible on the shipped JS target. An input whose marks exceed **32,768** — a size published 4.0.0 parses and returns a value for — is answered `ok:false` with `expected[0] = "<mark-journal> …"`. A consumer whose stylesheets can exceed that size must chunk its input or read the diagnostic; it will not receive a partial value and it will not receive a throw. The direction is strictly safer than the state it replaced (a Wasm trap on one target and an untyped acceptance on the other), and strictly narrower than 4.0.0. |
+| **witness family** | `witnessAtCapacity("marks", n)` under `P:stylesheet`, driven through `parseStylesheet` |
+
+| witness | code units | incumbent (published 4.0.0, MEASURED) | candidate js (MEASURED) | candidate wasm (MEASURED) | js ≡ wasm |
+|---|---|---|---|---|---|
+| **AT the bound** — `witnessAtCapacity("marks", 16,381)` | 49,143 | ok:true · 16,381 top-level item(s) · 0 diagnostic(s) | ok:true · 16,381 top-level item(s) · 0 diagnostic(s) | ok:true · 16,381 top-level item(s) · 0 diagnostic(s) | YES |
+| **ONE PAST the bound** — `witnessAtCapacity("marks", 16,382)` | 49,146 | ok:true · 16,382 top-level item(s) · 0 diagnostic(s) | ok:false · 1 diagnostic(s): css_syntax [0,49146) "<mark-journal> (at most 32768 marks)" | ok:false · 1 diagnostic(s): css_syntax [0,49146) "<mark-journal> (at most 32768 marks)" | YES |
+
+_Coordinate found by binary search at this generation: the region is first named at n = 16,382._
+
+### CAP-3 — the `recoveries` region — Θ.recoveries = 4,096 recoveries (class 1)
+
+| field | value |
+|---|---|
+| **region / class** | `recoveries` · class 1 · checked after the run |
+| **declared capacity Θ.recoveries** | 4,096 recoveries (the layout CAP itself) |
+| **raw label → promoted production** | `recoveries <= 4096` → `<recovery-journal>` |
+| **incumbent** | published 4.0.0 declares NO capacity of any kind on this axis: it parses until it runs out of host memory, and on the inputs measured below it returns a value. |
+| **candidate** | REJECTS at the bound on the parse path, in BOTH lowerings, as an ordinary `ok:false` — `css_syntax` with `expected[0]` the promoted production `<recovery-journal>` (raw label `recoveries <= 4096`, checked after the run). Θ.recoveries = 4,096 recoveries. |
+| **spec citation** | COHESION §0p — "both lowerings reject at the bound … with `css_syntax` and a label naming it" — and §0q's E-f2 per-class ruling (class 1 boundary-visible · class 2 peak-with-grant · class 3 unreachable-by-construction), carried into `W3.md`'s two dated 2026-09-18 ADDENDA as unit `.f`. Every bound VALUE is read from the built module's own layout constants (`layout.mjs`), and `Θ.input` is DERIVED (`INPUT_BOUND`) rather than pinned; no CAP was moved by this wave. |
+| **adjudication** | DECLARED CAPACITY BOUND, rowed here for the first time (**F-L1**, raised by the round-4 `## Check 1`). The P-1 taxonomy's COVERAGE_NARROWING sentence — "C14 declines an input outside its **declared shape** that the live superset accepts is **not** a defect — `status.json` declares it" — is the governing one, and Θ **is** the declared shape; this row is that declaration for the `recoveries` axis. Not discharged and not repaired here: the bound is correct and ordained, and what was owed was the declaration. |
+| **consumer direction** | NARROWS acceptance, and it is consumer-visible on the shipped JS target. An input whose recoveries exceed **4,096** — a size published 4.0.0 parses and returns a value for — is answered `ok:false` with `expected[0] = "<recovery-journal> …"`. A consumer whose stylesheets can exceed that size must chunk its input or read the diagnostic; it will not receive a partial value and it will not receive a throw. The direction is strictly safer than the state it replaced (a Wasm trap on one target and an untyped acceptance on the other), and strictly narrower than 4.0.0. |
+| **witness family** | `witnessAtCapacity("recoveries", n)` under `P:stylesheet`, driven through `parseStylesheet` |
+
+| witness | code units | incumbent (published 4.0.0, MEASURED) | candidate js (MEASURED) | candidate wasm (MEASURED) | js ≡ wasm |
+|---|---|---|---|---|---|
+| **AT the bound** — `witnessAtCapacity("recoveries", 4,096)` | 16,384 | ok:false · 1 diagnostic(s): css_syntax [0,1) "declaration" | ok:false · 4,096 diagnostic(s): css_syntax [0,4) "<colon>" · css_syntax [4,8) "<colon>" …(+4094) | ok:false · 4,096 diagnostic(s): css_syntax [0,4) "<colon>" · css_syntax [4,8) "<colon>" …(+4094) | YES |
+| **ONE PAST the bound** — `witnessAtCapacity("recoveries", 4,097)` | 16,388 | ok:false · 1 diagnostic(s): css_syntax [0,1) "declaration" | ok:false · 2 diagnostic(s): css_syntax [0,16388) "<recovery-journal> (at most 4096 recoveries)" · css_syntax [0,16388) "<diagnostic-journal> (at most 4096 diagnostics)" | ok:false · 2 diagnostic(s): css_syntax [0,16388) "<recovery-journal> (at most 4096 recoveries)" · css_syntax [0,16388) "<diagnostic-journal> (at most 4096 diagnostics)" | YES |
+
+_Coordinate found by binary search at this generation: the region is first named at n = 4,097._
+
+### CAP-4 — the `D` region — Θ.D = 4,096 diagnostics (class 1)
+
+| field | value |
+|---|---|
+| **region / class** | `D` · class 1 · checked after the run |
+| **declared capacity Θ.D** | 4,096 diagnostics (the layout CAP itself) |
+| **raw label → promoted production** | `D <= 4096` → `<diagnostic-journal>` |
+| **incumbent** | published 4.0.0 declares NO capacity of any kind on this axis: it parses until it runs out of host memory, and on the inputs measured below it returns a value. |
+| **candidate** | REJECTS at the bound on the parse path, in BOTH lowerings, as an ordinary `ok:false` — `css_syntax` with `expected[0]` the promoted production `<diagnostic-journal>` (raw label `D <= 4096`, checked after the run). Θ.D = 4,096 diagnostics. |
+| **spec citation** | COHESION §0p — "both lowerings reject at the bound … with `css_syntax` and a label naming it" — and §0q's E-f2 per-class ruling (class 1 boundary-visible · class 2 peak-with-grant · class 3 unreachable-by-construction), carried into `W3.md`'s two dated 2026-09-18 ADDENDA as unit `.f`. Every bound VALUE is read from the built module's own layout constants (`layout.mjs`), and `Θ.input` is DERIVED (`INPUT_BOUND`) rather than pinned; no CAP was moved by this wave. |
+| **adjudication** | DECLARED CAPACITY BOUND, rowed here for the first time (**F-L1**, raised by the round-4 `## Check 1`). The P-1 taxonomy's COVERAGE_NARROWING sentence — "C14 declines an input outside its **declared shape** that the live superset accepts is **not** a defect — `status.json` declares it" — is the governing one, and Θ **is** the declared shape; this row is that declaration for the `D` axis. Not discharged and not repaired here: the bound is correct and ordained, and what was owed was the declaration. |
+| **consumer direction** | NARROWS acceptance, and it is consumer-visible on the shipped JS target. An input whose diagnostics exceed **4,096** — a size published 4.0.0 parses and returns a value for — is answered `ok:false` with `expected[0] = "<diagnostic-journal> …"`. A consumer whose stylesheets can exceed that size must chunk its input or read the diagnostic; it will not receive a partial value and it will not receive a throw. The direction is strictly safer than the state it replaced (a Wasm trap on one target and an untyped acceptance on the other), and strictly narrower than 4.0.0. |
+| **witness family** | `witnessAtCapacity("D", n)` under `P:stylesheet`, driven through `parseStylesheet` |
+
+| witness | code units | incumbent (published 4.0.0, MEASURED) | candidate js (MEASURED) | candidate wasm (MEASURED) | js ≡ wasm |
+|---|---|---|---|---|---|
+| **AT the bound** — `witnessAtCapacity("D", 4,096)` | 16,384 | ok:false · 1 diagnostic(s): css_syntax [0,1) "declaration" | ok:false · 4,096 diagnostic(s): css_syntax [0,4) "<colon>" · css_syntax [4,8) "<colon>" …(+4094) | ok:false · 4,096 diagnostic(s): css_syntax [0,4) "<colon>" · css_syntax [4,8) "<colon>" …(+4094) | YES |
+| **ONE PAST the bound** — `witnessAtCapacity("D", 4,097)` | 16,388 | ok:false · 1 diagnostic(s): css_syntax [0,1) "declaration" | ok:false · 2 diagnostic(s): css_syntax [0,16388) "<recovery-journal> (at most 4096 recoveries)" · css_syntax [0,16388) "<diagnostic-journal> (at most 4096 diagnostics)" | ok:false · 2 diagnostic(s): css_syntax [0,16388) "<recovery-journal> (at most 4096 recoveries)" · css_syntax [0,16388) "<diagnostic-journal> (at most 4096 diagnostics)" | YES |
+
+_Coordinate found by binary search at this generation: the region is first named at n = 4,097._
+
+### CAP-5 — the `C` region — Θ.C = 65,536 entries (class 2)
+
+| field | value |
+|---|---|
+| **region / class** | `C` · class 2 · checked after the run (peak) |
+| **declared capacity Θ.C** | 65,536 entries (the layout CAP itself) |
+| **raw label → promoted production** | `C <= 65536` → `<complement-journal>` |
+| **incumbent** | published 4.0.0 declares NO capacity of any kind on this axis: it parses until it runs out of host memory, and on the inputs measured below it returns a value. |
+| **candidate** | DECLARED and ASSERTED (§0q class 2, peak-with-grant: the JS lowering keeps a high-water on the journal it already appends, the same quantity the module guards), and measured UNREACHABLE under the derived Θ.input — C ⊔ P tiles the consumed input, so C + P ≤ Θ.input = 65,458 < 65,536. The raw label `C <= 65536` exists and promotes to `<complement-journal>`, so the bound is readable even though no input reaches it. |
+| **spec citation** | COHESION §0p — "both lowerings reject at the bound … with `css_syntax` and a label naming it" — and §0q's E-f2 per-class ruling (class 1 boundary-visible · class 2 peak-with-grant · class 3 unreachable-by-construction), carried into `W3.md`'s two dated 2026-09-18 ADDENDA as unit `.f`. Every bound VALUE is read from the built module's own layout constants (`layout.mjs`), and `Θ.input` is DERIVED (`INPUT_BOUND`) rather than pinned; no CAP was moved by this wave. |
+| **adjudication** | DECLARED CAPACITY BOUND, rowed here for the first time (**F-L1**, raised by the round-4 `## Check 1`). The P-1 taxonomy's COVERAGE_NARROWING sentence — "C14 declines an input outside its **declared shape** that the live superset accepts is **not** a defect — `status.json` declares it" — is the governing one, and Θ **is** the declared shape; this row is that declaration for the `C` axis. Not discharged and not repaired here: the bound is correct and ordained, and what was owed was the declaration. |
+| **consumer direction** | NO CHANGE TODAY. The bound is declared so that a consumer can read it and so that a later Θ.input restoration (R-f1) cannot make it silent, but no input under the present window breaches it — measured at the window on this family, below. Rowed rather than left undeclared: an unreachable bound that nobody declared is still an undeclared bound. |
+| **witness family** | `witnessAtCapacity("C", n)` under `P:timing-function`, driven through `parseTimingFunction` |
+
+| witness | code units | incumbent (published 4.0.0, MEASURED) | candidate js (MEASURED) | candidate wasm (MEASURED) | js ≡ wasm |
+|---|---|---|---|---|---|
+| **AT the full window** — `witnessAtCapacity("C", 21,816)` | 65,457 | ok:true · one value · 0 diagnostic(s) | ok:true · one value · 0 diagnostic(s) | ok:true · one value · 0 diagnostic(s) | YES |
+
+_No coordinate exists under Θ.input: the densest declared family at the window (n = 21,816) names this region in neither lowering (js does not name it · wasm does not name it), which is what "unreachable" means here._
+
+### CAP-6 — the `P` region — Θ.P = 65,536 entries (class 2)
+
+| field | value |
+|---|---|
+| **region / class** | `P` · class 2 · checked after the run (peak) |
+| **declared capacity Θ.P** | 65,536 entries (the layout CAP itself) |
+| **raw label → promoted production** | `P <= 65536` → `<provenance-journal>` |
+| **incumbent** | published 4.0.0 declares NO capacity of any kind on this axis: it parses until it runs out of host memory, and on the inputs measured below it returns a value. |
+| **candidate** | DECLARED and ASSERTED (§0q class 2, peak-with-grant: the JS lowering keeps a high-water on the journal it already appends, the same quantity the module guards), and measured UNREACHABLE under the derived Θ.input — C ⊔ P tiles the consumed input, so C + P ≤ Θ.input = 65,458 < 65,536. The raw label `P <= 65536` exists and promotes to `<provenance-journal>`, so the bound is readable even though no input reaches it. |
+| **spec citation** | COHESION §0p — "both lowerings reject at the bound … with `css_syntax` and a label naming it" — and §0q's E-f2 per-class ruling (class 1 boundary-visible · class 2 peak-with-grant · class 3 unreachable-by-construction), carried into `W3.md`'s two dated 2026-09-18 ADDENDA as unit `.f`. Every bound VALUE is read from the built module's own layout constants (`layout.mjs`), and `Θ.input` is DERIVED (`INPUT_BOUND`) rather than pinned; no CAP was moved by this wave. |
+| **adjudication** | DECLARED CAPACITY BOUND, rowed here for the first time (**F-L1**, raised by the round-4 `## Check 1`). The P-1 taxonomy's COVERAGE_NARROWING sentence — "C14 declines an input outside its **declared shape** that the live superset accepts is **not** a defect — `status.json` declares it" — is the governing one, and Θ **is** the declared shape; this row is that declaration for the `P` axis. Not discharged and not repaired here: the bound is correct and ordained, and what was owed was the declaration. |
+| **consumer direction** | NO CHANGE TODAY. The bound is declared so that a consumer can read it and so that a later Θ.input restoration (R-f1) cannot make it silent, but no input under the present window breaches it — measured at the window on this family, below. Rowed rather than left undeclared: an unreachable bound that nobody declared is still an undeclared bound. |
+| **witness family** | `witnessAtCapacity("P", n)` under `P:timing-function`, driven through `parseTimingFunction` |
+
+| witness | code units | incumbent (published 4.0.0, MEASURED) | candidate js (MEASURED) | candidate wasm (MEASURED) | js ≡ wasm |
+|---|---|---|---|---|---|
+| **AT the full window** — `witnessAtCapacity("P", 21,816)` | 65,457 | ok:true · one value · 0 diagnostic(s) | ok:true · one value · 0 diagnostic(s) | ok:true · one value · 0 diagnostic(s) | YES |
+
+_No coordinate exists under Θ.input: the densest declared family at the window (n = 21,816) names this region in neither lowering (js does not name it · wasm does not name it), which is what "unreachable" means here._
+
+### CAP-7 — the `vstack` region — Θ.vstack = 65,536 slots (class 3)
+
+| field | value |
+|---|---|
+| **region / class** | `vstack` · class 3 · checked unreachable by construction |
+| **declared capacity Θ.vstack** | 65,536 slots (the layout CAP itself) |
+| **raw label → promoted production** | `vstack <= 65536` → `<value-stack>` |
+| **incumbent** | published 4.0.0 declares NO capacity of any kind on this axis: it parses until it runs out of host memory, and on the inputs measured below it returns a value. |
+| **candidate** | UNREACHABLE BY CONSTRUCTION (§0q class 3). Θ declares the capacity from `layout.mjs` and `bounds.mjs` ASSERTS AT LOAD that `cap₃ ≥ K × bound₁ + S` — for this region K = 1 code unit, S = 78, ceiling 65,536 ≤ cap 65,536 — so a class-1 rejection always fires first and this region cannot be the one that answers. |
+| **spec citation** | COHESION §0p — "both lowerings reject at the bound … with `css_syntax` and a label naming it" — and §0q's E-f2 per-class ruling (class 1 boundary-visible · class 2 peak-with-grant · class 3 unreachable-by-construction), carried into `W3.md`'s two dated 2026-09-18 ADDENDA as unit `.f`. Every bound VALUE is read from the built module's own layout constants (`layout.mjs`), and `Θ.input` is DERIVED (`INPUT_BOUND`) rather than pinned; no CAP was moved by this wave. |
+| **adjudication** | DECLARED CAPACITY BOUND, rowed here for the first time (**F-L1**, raised by the round-4 `## Check 1`). The P-1 taxonomy's COVERAGE_NARROWING sentence — "C14 declines an input outside its **declared shape** that the live superset accepts is **not** a defect — `status.json` declares it" — is the governing one, and Θ **is** the declared shape; this row is that declaration for the `vstack` axis. Not discharged and not repaired here: the bound is correct and ordained, and what was owed was the declaration. |
+| **consumer direction** | NO CHANGE at this region, and the narrowing it CAUSES is rowed at CAP-1: Θ.input is **65,458** rather than the layout's own 1,048,576 precisely because `cap₃ ≥ K × Θ.input + S` must hold for this region among the three. Restoring the full window is R-f1, owned by X.P.W4; it is a capacity question, never a correctness one. |
+| **witness family** | `witnessAtCapacity("vstack", n)` under `P:stylesheet`, driven through `parseStylesheet` |
+
+| witness | code units | incumbent (published 4.0.0, MEASURED) | candidate js (MEASURED) | candidate wasm (MEASURED) | js ≡ wasm |
+|---|---|---|---|---|---|
+| **AT the full window** — `witnessAtCapacity("vstack", 65,458)` | 65,458 | ok:true · 0 top-level item(s) · 0 diagnostic(s) | ok:false · 3 diagnostic(s): css_syntax [0,65458) "<mark-journal> (at most 32768 marks)" · css_syntax [0,65458) "<recovery-journal> (at most 4096 recoveries)" …(+1) | ok:false · 3 diagnostic(s): css_syntax [0,65458) "<mark-journal> (at most 32768 marks)" · css_syntax [0,65458) "<recovery-journal> (at most 4096 recoveries)" …(+1) | YES |
+
+_No coordinate exists under Θ.input: the densest declared family at the window (n = 65,458) names this region in neither lowering (js does not name it · wasm does not name it), which is what "unreachable" means here._
+
+### CAP-8 — the `arena` region — Θ.arena = 7,208,960 bytes (class 3)
+
+| field | value |
+|---|---|
+| **region / class** | `arena` · class 3 · checked unreachable by construction |
+| **declared capacity Θ.arena** | 7,208,960 bytes (the layout CAP itself) |
+| **raw label → promoted production** | `arena <= 7208960` → `<arena>` |
+| **incumbent** | published 4.0.0 declares NO capacity of any kind on this axis: it parses until it runs out of host memory, and on the inputs measured below it returns a value. |
+| **candidate** | UNREACHABLE BY CONSTRUCTION (§0q class 3). Θ declares the capacity from `layout.mjs` and `bounds.mjs` ASSERTS AT LOAD that `cap₃ ≥ K × bound₁ + S` — for this region K = 101 code unit, S = 46, ceiling 6,611,304 ≤ cap 7,208,960 — so a class-1 rejection always fires first and this region cannot be the one that answers. |
+| **spec citation** | COHESION §0p — "both lowerings reject at the bound … with `css_syntax` and a label naming it" — and §0q's E-f2 per-class ruling (class 1 boundary-visible · class 2 peak-with-grant · class 3 unreachable-by-construction), carried into `W3.md`'s two dated 2026-09-18 ADDENDA as unit `.f`. Every bound VALUE is read from the built module's own layout constants (`layout.mjs`), and `Θ.input` is DERIVED (`INPUT_BOUND`) rather than pinned; no CAP was moved by this wave. |
+| **adjudication** | DECLARED CAPACITY BOUND, rowed here for the first time (**F-L1**, raised by the round-4 `## Check 1`). The P-1 taxonomy's COVERAGE_NARROWING sentence — "C14 declines an input outside its **declared shape** that the live superset accepts is **not** a defect — `status.json` declares it" — is the governing one, and Θ **is** the declared shape; this row is that declaration for the `arena` axis. Not discharged and not repaired here: the bound is correct and ordained, and what was owed was the declaration. |
+| **consumer direction** | NO CHANGE at this region, and the narrowing it CAUSES is rowed at CAP-1: Θ.input is **65,458** rather than the layout's own 1,048,576 precisely because `cap₃ ≥ K × Θ.input + S` must hold for this region among the three. Restoring the full window is R-f1, owned by X.P.W4; it is a capacity question, never a correctness one. |
+| **witness family** | `witnessAtCapacity("arena", n)` under `P:timing-function`, driven through `parseTimingFunction` |
+
+| witness | code units | incumbent (published 4.0.0, MEASURED) | candidate js (MEASURED) | candidate wasm (MEASURED) | js ≡ wasm |
+|---|---|---|---|---|---|
+| **AT the full window** — `witnessAtCapacity("arena", 21,816)` | 65,457 | ok:true · one value · 0 diagnostic(s) | ok:true · one value · 0 diagnostic(s) | ok:true · one value · 0 diagnostic(s) | YES |
+
+_No coordinate exists under Θ.input: the densest declared family at the window (n = 21,816) names this region in neither lowering (js does not name it · wasm does not name it), which is what "unreachable" means here._
+
+### CAP-9 — the `expsnap` region — Θ.expsnap = 32 frames (class 3)
+
+| field | value |
+|---|---|
+| **region / class** | `expsnap` · class 3 · checked unreachable by construction |
+| **declared capacity Θ.expsnap** | 32 frames (the layout CAP itself) |
+| **raw label → promoted production** | `expsnap <= 32` → `<expectation-snapshots>` |
+| **incumbent** | published 4.0.0 declares NO capacity of any kind on this axis: it parses until it runs out of host memory, and on the inputs measured below it returns a value. |
+| **candidate** | UNREACHABLE BY CONSTRUCTION (§0q class 3). Θ declares the capacity from `layout.mjs` and `bounds.mjs` ASSERTS AT LOAD that `cap₃ ≥ K × bound₁ + S` — for this region K = 0 depth level, S = 1, ceiling 1 ≤ cap 32 — so a class-1 rejection always fires first and this region cannot be the one that answers. |
+| **spec citation** | COHESION §0p — "both lowerings reject at the bound … with `css_syntax` and a label naming it" — and §0q's E-f2 per-class ruling (class 1 boundary-visible · class 2 peak-with-grant · class 3 unreachable-by-construction), carried into `W3.md`'s two dated 2026-09-18 ADDENDA as unit `.f`. Every bound VALUE is read from the built module's own layout constants (`layout.mjs`), and `Θ.input` is DERIVED (`INPUT_BOUND`) rather than pinned; no CAP was moved by this wave. |
+| **adjudication** | DECLARED CAPACITY BOUND, rowed here for the first time (**F-L1**, raised by the round-4 `## Check 1`). The P-1 taxonomy's COVERAGE_NARROWING sentence — "C14 declines an input outside its **declared shape** that the live superset accepts is **not** a defect — `status.json` declares it" — is the governing one, and Θ **is** the declared shape; this row is that declaration for the `expsnap` axis. Not discharged and not repaired here: the bound is correct and ordained, and what was owed was the declaration. |
+| **consumer direction** | NO CHANGE at this region, and the narrowing it CAUSES is rowed at CAP-1: Θ.input is **65,458** rather than the layout's own 1,048,576 precisely because `cap₃ ≥ K × Θ.input + S` must hold for this region among the three. Restoring the full window is R-f1, owned by X.P.W4; it is a capacity question, never a correctness one. |
+| **witness family** | `witnessAtCapacity("expsnap", n)` under `P:color`, driven through `parseCssColor` |
+
+| witness | code units | incumbent (published 4.0.0, MEASURED) | candidate js (MEASURED) | candidate wasm (MEASURED) | js ≡ wasm |
+|---|---|---|---|---|---|
+| **AT the full window** — `witnessAtCapacity("expsnap", 64)` | 131 | ok:false · 1 diagnostic(s): color_context_required [0,131) "context-free color" | ok:false · 1 diagnostic(s): color_context_required [131,131) "<context-free-color> (a context colour has no value outside a computed style)" | ok:false · 1 diagnostic(s): color_context_required [131,131) "<context-free-color> (a context colour has no value outside a computed style)" | YES |
+
+_No coordinate exists under Θ.input: the densest declared family at the window (n = 64) names this region in neither lowering (js does not name it · wasm does not name it), which is what "unreachable" means here._
+
+---
+
+## §8 Spec-cited divergences on REALIZED entries
+
+**Landed by this emission, after `.e`'s L-14 pass — so §6 does NOT adjudicate these rows.** This is
+the family `.e` asked for and `.g` could not reach (**ESC-g1**): a difference on an entry the
+candidate DOES realize, where the specification's own text says the candidate is right and the
+incumbent is wrong. It is not §2 (`W3.md` §2c routes exactly four `parser-band.md` dissents there by
+name), not §3 (`GATE-VERDICT.md` carries no anchor for this subject), and not §5 (the entry is
+realized), which is why it needed a family of its own rather than a borrowed heading.
+
+`.e`'s instruction is honoured literally: *"Returned as F-e2 for a `.d`-emitted row … not hand-added
+here"* — the two result columns below are re-measured at every emission, never typed.
+
+### SP-1 — `<legacy-hsl-syntax>` admits no `<number>`: the incumbent mis-accepts `hsl(120, 50, 50)`
+
+| field | value |
+|---|---|
+| **input(s)** | `"hsl(120, 50, 50)"` · `"hsl(120, 50%, 50)"` |
+| **entry** | `parseCssColor` |
+| **incumbent** | ACCEPTS both. `hsl(120, 50, 50)` → `{space:"hsl", channels:[120,50,50], alpha:1}` — and the channels are UNSCALED, so this row carries the PB-03 100× defect a second time; `hsl(120, 50%, 50)` → `{hsl,[120,0.5,50]}`. |
+| **candidate** | REJECTS both, identically in BOTH lowerings: `ok:false css_syntax [11,16) expected ["<percent-sign>"]` on the first, `[16,17)` on the second. |
+| **spec citation** | css-color-4 §7.1 — `<legacy-hsl-syntax> = hsl( <hue>, <percentage>, <percentage>, <alpha-value>? )`. The legacy COMMA form admits no `<number>` for saturation or lightness; only `<modern-hsl-syntax>` does (`[<percentage> \| <number> \| none]`). The candidate's rejection is spec-correct and the incumbent's acceptance is an R-class mis-accept. |
+| **adjudication** | SPEC-CORRECT, and the candidate is REQUIRED to differ. Discovered by `.e` under L-14 refutation (ledger §6.1, PB-03 attempt (b)), re-measured by `.g`, and NOT created by `.g`'s dimension-token cure — the pre-cure probe already read the identical rejection. `.e` routed it as **F-e2** for a `.d`-EMITTED row; this is that row, and both result columns above are re-measured at every emission rather than typed. |
+| **consumer direction** | NARROWS acceptance. A consumer that fed `hsl(120, 50, 50)` received a colour — and a wrong one, whose saturation and lightness were 100× the spec's value — and now receives `ok:false`. That is the intended direction: the input is not valid CSS and the value it returned was not the value the string names. A consumer emitting unitless saturation/lightness in the COMMA form must be fixed, not accommodated; the same consumer's SPACE form (`hsl(120 50 50)`) keeps working and is adjudicated separately at PB-03. |
+
+| input | incumbent (published 4.0.0, MEASURED) | candidate js (MEASURED) | candidate wasm (MEASURED) |
+|---|---|---|---|
+| `"hsl(120, 50, 50)"` | {"ok":true,"value":{"space":"hsl","channels":[120,50,50],"alpha":1},"diagnostics":[]} | {"ok":false,"diagnostics":[{"code":"css_syntax","start":11,"end":16,"expected":["<percent-sign>"],"actual":", 50)"}]} | {"ok":false,"diagnostics":[{"code":"css_syntax","start":11,"end":16,"expected":["<percent-sign>"],"actual":", 50)"}]} |
+| `"hsl(120, 50%, 50)"` | {"ok":true,"value":{"space":"hsl","channels":[120,0.5,50],"alpha":1},"diagnostics":[]} | {"ok":false,"diagnostics":[{"code":"css_syntax","start":16,"end":17,"expected":["<percent-sign>"],"actual":")"}]} | {"ok":false,"diagnostics":[{"code":"css_syntax","start":16,"end":17,"expected":["<percent-sign>"],"actual":")"}]} |
