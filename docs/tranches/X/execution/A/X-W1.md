@@ -965,6 +965,160 @@ builds.
 
 ---
 
+### X.W1.e — Landing and deploy-of-record (CC-033) · **`claude-opus-5[1m]`** · primary tree
+
+*(Appended after the RESUME block's dispatch, per its §Unit plan group 4. Inserted inside
+`## Unit receipts`; not one byte of a sibling unit's receipt or of the RESUME record was rewritten.)*
+
+#### Act 0 — CRASH-RECOVERY sweep, before any other act (standing law)
+
+⟨cmd⟩ `git status --porcelain` at `/Users/mkbabb/Programming/value.js` → 15 `M` + 10 `??`, judged
+path-by-path against THIS unit's writable set. **Inherited and adopted** (ESC-W1R-1, re-homed to this
+unit because a is retired): `docs/tranches/X/waves/W1-LOG.md` (92 L) ·
+`docs/tranches/X/evidence/w1/baseline/g3-full-suite-2026-09-18.md` (203 L) ·
+`…/baseline/typecheck-born-red-2026-09-18.md` (270 L) · `…/slate/slate-2026-09-18.md` (35 L).
+Each was **read whole and judged against `W1.md` §Verification Artefacts before adoption**, and not
+one byte was rewritten — each is a killed seat's authored measurement (E-3). ⟨cmd⟩
+`git check-ignore -v <the four>` → rc 1 (none ignored); ⟨cmd⟩ `head -1` on each → `SERVED MODEL:
+claude-opus-5[1m]`.
+
+**Deliberately NOT adopted**, and named: `e2e/smoke/a11y-control-targets.spec.ts` and
+`e2e/smoke/mobile/a11y-control-targets.spec.ts` are **product test surface, not evidence** — outside
+this unit's bound, left untracked, returned to the close seat. Every other dirty path (ten
+`demo/**` files, `scripts/dev/dev.sh`, the shared ledgers, Track C/D evidence trees) belongs to a
+sibling seat: **untouched, never staged**. No stash, no restore, no reset, no `git add -A`.
+
+**Commit `80fe6c75`** — 4 files, 600 insertions, clearly labelled inherited-orphan.
+
+#### Acts 1–4 — the landing (Commit Plan row 7, unsplit)
+
+Performed in an **isolated worktree on `master`** so the primary tree's sibling dirt was never
+checked out or staged.
+
+1. ⟨cmd⟩ `git push origin tranche-u` → `eb1b21eb..80fe6c75`; `origin/tranche-u..HEAD` → **0**.
+2. ⟨cmd⟩ `git fetch origin master:master` → `6abef800..44ddaff7` — **fast-forward, 140 commits, no
+   `+`**, taken FIRST as §0j.F(2) requires. **Option D (rebase) refused, never attempted.**
+3. ⟨cmd⟩ `git merge --no-commit --no-ff tranche-u` → **90 conflicts** (10 `UU` · 4 `AA` · 76 `DU`;
+   zero `UD`/`DD`), each checked out from `tranche-u`. **Then three more both-changed paths that git
+   auto-merged CLEANLY** — `test/math.test.ts`, `…/rescued/deposed-full/src/math.ts`,
+   `…/rescued/deposed-full/src/subpaths/CLAUDE.md` — were caught by diffing the merge result against
+   `tranche-u` and resolved the same way. §0j.F(2) binds *both-changed* paths, not *conflicted* ones,
+   and the distinction was load-bearing: the `test/math.test.ts` blend had produced a **duplicated
+   `describe("lerpArray")`**, a merge artifact that would have redded `npm test` for a cause that is
+   neither the pack step nor a product defect — the exact false G-17 signal `W1.md:317` forbids.
+   Every other §0j.F(2) clause verified **at the blob**: the two `scripts/ci` probes `tranche-u`
+   deleted are base==master (`a80e66ee`/`caa1f898`) and stay deleted · `boot-smoke.mjs` base==master
+   `197be1b2`, X.W1.c's `70a5e0af` **survives** · `release.yml` base `e60230ca`, master **and**
+   `tranche-u` both `4f9cd042` (unit d's `8a7792b9` confirmed identical — nothing left to decide) ·
+   word (2)'s `src/v4` relocation is **the entire class** of master-side adds `tranche-u` lacks
+   (measured: 13 files, nothing else) and is dropped.
+   **Result**: ⟨cmd⟩ `git diff --name-status tranche-u` → **0 paths**; `master^{tree}` ==
+   `80fe6c75^{tree}` == `a39ed281`. The merged tree **is** `tranche-u`'s tree.
+   **Merge `04d2d808`**, parents `44ddaff7` ⊕ `80fe6c75`.
+4. ⟨cmd⟩ `git push origin master` → `44ddaff7..04d2d808`, 2026-09-18T18:41:52Z.
+
+**795 commits** — authored 234 (B16) · open sitting 559 · resume 790 · **this seat 795**.
+The merge commit is **not pathspec-scoped, lawfully**: a merge commit cannot take one, the standing
+law's rationale is index contamination between the four tracks, and this merge ran in an isolated
+index holding nothing but itself. Every other commit of this unit carries its pathspec **on the
+commit itself**.
+
+#### Gate readings, BEFORE → AFTER
+
+| gate | before | after | basis |
+|---|---|---|---|
+| **G-17** | RED (B14) | **RED — ESCALATED** | run `35381701436`; `producer` ×2 die at `npm run lint`, **`pack producer bytes` `skipped`**; structural half PASSES (step `:59`, verify `:71`, **0 live `continue-on-error`**) |
+| **G-18** | RED (B16) | **GREEN** | `04d2d808`; `master..HEAD` → **0**; `merge-base --is-ancestor 80fe6c75 master` → YES |
+| **G-19** | RED (B15) | **RED** | the `if` triple's success conjunct is false; **no dispatch fired** |
+| **G-20** | RED (B17) | **RED** | entry still `index-D9U9KwTn.js`; **R38 settled** — production = `80c58885`, value **3.1.0**, `demo/@` **alive (227)**, glass **`file:../glass-ui`** |
+| **G-21** | RED | **GREEN as gate · RED as condition** | 3 arms on the job's own extracted bytes (sha256 `e57e3f5f…`): live exit 1 · back-dated exit 1 · inverted control exit 0 |
+| **NG-13** | RED | **exported-equality GREEN · currency RED** | `verify-packed-surface.mjs` exit **0**; `^export` 53 = 53 with **identical name sets**; byte delta = **25 private `_2`** vs 0 |
+
+#### Escalations returned
+
+- **ESC-W1E-1 — G-17/G-19/G-20 unreachable; §Triumvirate Dispatch trigger (i) met exactly.** Master
+  is red after the merge for causes outside `.github/workflows/` and the pack step, and **the pack
+  step is GREEN when actually run**. Roots measured at master's bytes: `npx eslint .` →
+  `55 problems (23 errors, 32 warnings)`, all 23 errors `'return' outside of function` under
+  `docs/**` (18 `docs/tranches/V` + **5 `docs/tranches/X` execution chassis from `69987a73`, which
+  post-date a's count of 30**). `eslint.config.js` is **X-W8's** modify-carve (fold R48 BOUNDARY
+  LOCK). All three routes to a green are forbidden here: the ignore is out of bounds and
+  allowlist-shaped; softening fails G-2/G-17 by construction; a `workflow_dispatch` is barred by
+  G-19's own falsifier and would destroy G-20's comparison. **Returned with options, not cured.**
+- **ESC-W1E-2 — a's G-5 receipt is STALE, and the slate is RED on the shipped tree.**
+  `slate-2026-09-18.md` records `SLATE CLEAN — 0 findings` over 80 specs at `ec654158`; the merged
+  tree measures **`SLATE RED — 3 finding(s)`** over 81. Cause: `e2e/smoke/crash-battery.spec.ts` was
+  added by **`a0df89d9`, X.W1.a's own LAST commit**, after its slate run. Not a merge artifact —
+  master's tree hash is identical to `tranche-u@80fe6c75`'s and the concurrent run `35381213268`
+  reds identically. NG-8's born-RED battery and G-5/NG-1 **collide by construction**; that is
+  X.W1.a's to resolve. **G-5 not re-claimed green by inheritance.**
+- **ESC-W1E-3 — G-19's anchor has drifted and reads unsatisfiable.** No `deploy-pages` run can carry
+  `event: push`: the workflow's only triggers are `workflow_run` and `workflow_dispatch`, so `gh`'s
+  `event` reads `workflow_run` on every gated run. Recorded at the true bytes with the satisfiable
+  INTENT (a `workflow_run` run whose **triggering** `ci` run was a master push) so no later seat
+  waives it or reaches for a dispatch.
+- **ESC-W1R-2 / ESC-W1R-3 stand untouched**: G-7's falsifier evidence and a's per-gate receipt block
+  are still owed, are X.W1.a's, and are **not** greened by this unit's adoption of a's artefacts.
+
+#### E13 mail
+
+Four paths swept read-only at this seat's clock (**14:46 EDT**); delta against the 14:2x RESUME
+sweep = the O-26 reply alone, **already rowed I-35**. 68 rows; 7 carry `UNREAD` (O-20 · I-30 · I-31 ·
+I-32 · I-33 · I-34 · I-35), classification from each row's **status cell**, never a bare
+`grep -i unread`; **not one routes to X-W1**. Cross-checked by vocabulary over all four live letters
+⟨cmd⟩ `grep -Eic 'deploy-pages|color\.babb\.dev|wrangler|Cloudflare|merge to master|tranche-u|rev-list|deploy-of-record|deploy age'`
+→ **0 · 0 · 0 · 0**. **0 UNREAD in this unit's scope**; no status changed, no `I-n`/`O-n` minted.
+
+#### Residuals
+
+- `git diff --check` flags trailing whitespace at `g3-full-suite-2026-09-18.md` `:138 :146 :148 :150
+  :152 :174`, every one inside a fence reproducing the Playwright reporter's own bytes. **Not
+  trimmed** — altering a quoted measurement to satisfy a whitespace linter falsifies evidence.
+- ⟨cmd⟩ `npm pack` was run with `--pack-destination <scratchpad>` rather than ci.yml's bare form,
+  solely so no `.tgz` was left untracked in the repo; ⟨cmd⟩
+  `git status --porcelain --untracked-files=all -- '*.tgz'` → empty.
+- `master..tranche-u` now reads **6**, not 0: three sibling tracks committed to the shared branch
+  after the merge. The durable G-18 proof is the ancestry check, not the count.
+- `scripts/dev/dev.sh` untouched and unstaged throughout (CC-021). No force-push anywhere. The
+  merge worktree was removed at close.
+
+#### A finding AGAINST this seat, recorded loud (E-3) — two defects of my own
+
+**(1) A zsh command substitution polluted commit `730aa9a8`'s message.** Its body was passed in a
+double-quoted `-m` string containing backticked terms; zsh executed `` `npm run lint` `` and spliced
+**eslint's entire output** into the message. The five staged paths are byte-correct and unaffected —
+⟨cmd⟩ `git show --stat 730aa9a8` → 5 files, 508 insertions — but the message is not what it says it
+is. **It is NOT repaired by rewrite**: `730aa9a8` is now the parent of a sibling track's commit
+`00f473e7`, so amending it would re-hash theirs and break any citation of that SHA. Per E-3 the
+correction is **this dated addendum-beside**; the intended message is preserved verbatim in the
+amended body carried by this seat's scratchpad and restated in `W1-LOG.md`'s X.W1.e block, whose gate
+table is the authoritative record of what that commit landed.
+
+**(2) The attempted `--amend` destroyed a sibling seat's commit message, and was repaired exactly.**
+Between `730aa9a8` and the amend, **Track D committed `00f473e7`** (X.P.W3 check-1). `HEAD` had
+therefore moved, and `git commit --amend` rewrote **their** commit, replacing their 4-line message
+with mine (producing `cb5b62f0`).
+
+Measured before repairing, so the blast radius is stated rather than guessed:
+⟨cmd⟩ `git rev-parse 00f473e7^{tree}` == `git rev-parse cb5b62f0^{tree}` == `955b2dd0` — **identical;
+not one byte of their work was altered**, and both carried the same parent. Only the message was lost.
+
+Repaired by restoring **the exact original object**, not by re-creating it: ⟨cmd⟩
+`git update-ref -m "…" refs/heads/tranche-u 00f473e7 cb5b62f0` — a **compare-and-swap** ref move,
+which fails safely had a sibling advanced the branch meanwhile. Chosen over a second `--amend`
+precisely because an amend would have minted a *new* SHA and stranded any citation of `00f473e7`.
+Preconditions checked first: `HEAD == cb5b62f0`, index-vs-HEAD **0 paths**, and `cb5b62f0` present on
+**0 remote branches** (never published). After: ⟨cmd⟩ `git log --oneline -1` → **`00f473e7`** with its
+own message, index-vs-HEAD **0 paths**, and the sibling seats' **16 dirty worktree paths preserved**.
+**No `reset`, no `stash`, no force-push, and no byte of any sibling's tree touched at any point.**
+
+**The lesson, stated for every later seat on this four-track branch.** The standing law's pathspec
+rule protects `git commit` — **`git commit --amend` takes no pathspec and has no such protection**,
+and on a shared branch `HEAD` can move between your commit and your amend. **Do not `--amend` here.**
+If a message must be corrected, land a dated addendum-beside, which is what E-3 already requires.
+
+---
+
 ## RESUME — 2026-09-18 (Track A seat 0, second sitting)
 
 **SERVED MODEL (this seat): `claude-opus-5[1m]`.** This section is **appended, never a rewrite**:
