@@ -284,3 +284,143 @@ with the Tier-C roster.
 
 *(empty at open; each unit appends its own section here — SERVED MODEL line, acts in order, the gate
 readings at its own clock double-run, and its commit hashes)*
+
+### `KF.W2.a` — census · reconciliation · both registries
+
+**SERVED MODEL: claude-opus-5[1m]** · phase 1, serial · **status PARTIAL (honest)** — every act the
+unit owns landed; the two gates it turns have arms owned by `.b` and `.d` that remain RED and are
+**not** claimed here.
+
+**Sections read at the bytes before writing** (D-19 · METHOD): §Carry F0 (329–472) · F3 (522–577) ·
+F6 (596–642) · §Gates G-W2-1 (647–654) · G-W2-2b (694–704) · G-W2-5 (717–735) · §Sequencing
+(782–800). The spec is 1,006 lines / 353.6 KB and **exceeds the whole-file read cap** — read in
+slices; recorded so the next seat does not rediscover it.
+
+#### Acts, in order
+
+**A-0 · E13 unit-level mail sweep** (the four paths ⊕ the atlas **Q**-lane, read-only, at this seat's
+own clock; classification from each row's **status cell**, never a bare `grep -i unread`):
+
+```
+$ ls -t docs/tranches/V/coordination/ | head -3        → INBOX.md (self-excluded, SELF-COUNT)
+                                                         value-inbox-2026-09-17-o8-o11-amendment-addendum.md  (ours, outbound)
+$ ls -t ../glass-ui/docs/tranches/BK/coordination/ | head -3
+      → glass-outbound-2026-09-17-{constellation-o20-relay, bbnf-lang-9.0.0-addendum, valuejs-o20-disposition}.md
+        = I-33 · I-34 · I-32, all rowed
+$ ls -t ../keyframes.js/docs/tranches/V/coordination/ | head -3 → vnext/ · VALUEJS-INBOUND-* (letters WE sent)
+$ ls -t ../sci-report/atlas/docs/tranches/P/coordination/ | head -3 → unchanged since 2026-08-03, all pre-rowed
+```
+
+**0 unrowed · 0 new `I-n` minted · `INBOX.md` NOT touched by this act** (it is outside this unit's
+writable set). The live marks **I-32 / I-33** were READ AND CONSUMED at F.W1 unit `b` (INBOX row
+`:167`); **I-34** is addressed to bbnf-lang. **None is mail addressed to KF.W2's scope**, so E13's
+*"no wave closes with UNREAD mail in scope"* is not armed at this unit, and no status cell is flipped
+by this seat.
+
+**A-1 · The basis, measured before any write** (G-W2-1's falsifier is a directory listing):
+
+```
+$ ls docs/tranches/V/megatranche/registry/adjudicated/kf-*.md | wc -l    → 58
+```
+
+Every one of the 58 was then **READ CELL BY CELL** — roster bullets, ruled-disagreement rows,
+killed-claims rows, superlatives and routing summaries extracted mechanically
+(`grep -n '^- \*\*\|^| \*\*'` per record, **all 58 yielding**) and read; any cell touching the
+register's subject vocabulary printed **in full**, every other cell read at its **claim head**.
+**A cell was excluded only after its CLAIM was read.** Coverage proven by set-difference, not asserted:
+
+```
+$ <batch separators> | sort  vs  ls …/adjudicated/ | xargs -n1 basename | sort   → diff empty ("IDENTICAL"), 58
+```
+
+**A-2 · `POSTURES.md` published** — floor **20**, six positive reference rows outside the count,
+posture 1's unreachable-on-R1 footnote carried, per-record cell-by-cell basis table over **58 of 58**,
+the eight hardest non-carries named with their read grounds, carriage per LAW B with **no completeness
+claim in this file's voice**. Commit **`da0fbc22`** (pathspec, one file).
+
+**A-3 · `INGRESS-CENSUS.md` + `GATE-VERDICT-F2-ADDENDUM-2026-09-17.md` published in ONE commit** —
+the wave's declared commit family, **not split**. Commit **`500c13fd`**, exactly two files
+(`git show --stat` → 145 + 375 insertions).
+
+The entry-point matrix was **RE-EXECUTED by this seat**, not quoted, against
+`node_modules/@mkbabb/value.js/dist/subpaths/{css,easing}.js` (`version` → **4.0.0**), **run twice,
+`diff` empty**. It reproduces F0's matrix cell for cell, and adds the readings this unit owns:
+
+```
+"oklch()"|"rgb()"|"hsl()"|"lab()"|"color()"   parseCssColor / parseCssValues / parseCssScalar → THROW TypeError
+                                              parseTimingFunction → ok:false[css_syntax]
+                                              parseKeyframeSelector → ok:false[keyframe_selector_invalid]
+parseStylesheet("@keyframes a{from{color:oklch()}}")                → THROW TypeError   ← posture 1 unreachable
+parseStylesheet(42)      → {"ok":true,"value":[],"diagnostics":[]}
+parseCssScalar("500m")   → {"ok":true,…{"type":"number","value":500,"unit":"m"}}        ← Z7 confirmed
+parseKeyframeSelector("from") → {"ok":true,"value":{"kind":"percent","value":0}}
+parseTimingFunction("step-start"|"step-end") → ok:true {"kind":"steps","count":1,"position":"jump-start"|"jump-end"}
+easing("step-start"|"step-end"|"steps"|"cubic-bezier") → ok:false {"code":"easing_name_unknown"}   ← Z5 confirmed
+easing("bounceInEase") → ok:false easing_name_unknown ; easing("easeInBounce") → ok:true           ← KF-CB-1/EE-01
+steppedEase(1,"jump-none") → ok:false {"code":"step_count_invalid"}                                ← row 17's ruled datum
+```
+
+**A-4 · The §F-2 witness re-walked byte-exact at `7d958f21`** (`git show <ref>:<path>`, read-only, in
+the sibling tree): `KeyframeTimeline.vue` `:239-244` emitter · `:251-261` hand-rolled scanner (no
+grammar, no validation) · `:263` `kf.vars = newVars` · `:264` **un-awaited** `rebuild()`;
+`useTimelineBuild.ts` `:34` `async` · `:40` `try` · `:47-50` `catch → console.error + animation.value
+= null`. **All five links exact.**
+
+#### Gate readings — BEFORE → AFTER, each double-run
+
+| gate | BEFORE (at `7d958f21`, pre-write) | AFTER (post-commit, double-run identical) | verdict at this unit |
+|---|---|---|---|
+| **G-W2-1** | `ls …/keyframes/registries/` → **No such file or directory**; **0-of-19 enumerated**; 21 out-of-façade parse-surface call sites | `ls …/registries/` → `INGRESS-CENSUS.md POSTURES.md`; floor rows → **20**; basis rows → **58**; corpus → **58**; `git ls-tree 7d958f21 src/animation/compile/ \| grep -c parse-facade` → **0** | **ENUMERATION ARM GREEN · SITE ARM RED** — the registry exists, is single-sourced, spans `src/` **and** `demo/`, and enumerates **20 over 58-of-58 read cell by cell**. The assertion's third limb (*"zero Tier-A sites handle a parse failure outside the façade"*) is **`.b`'s**: no `parse-facade.ts` exists yet. **The gate is NOT claimed green by this unit.** |
+| **G-W2-5** | `grep -n "no known consumer feeds the crash shape" GATE-VERDICT.md` → `42:…`; `ls parser-proof/ \| grep -i addendum` → **(no output)**; fuzz docblock → *"random VALID @keyframes fragments from MODEL grammars (not raw-string fuzz)"* | `:42` **unchanged** (E-3 — the authority is not rewritten); `ls parser-proof/ \| grep -i addendum` → **`GATE-VERDICT-F2-ADDENDUM-2026-09-17.md`**; fuzz docblock **unchanged** | **CLAUSES 1–2 GREEN · CLAUSE 3 RED** — the census names, per ingress, the exact entry and the **executed** outcome over both organs; the boundary set is enumerated over the whole 58 (**32 banked negative cells over 32 distinct records**); §F-2 is corrected **by addendum, beside**. The **malformed-fuzz-corpus** clause is **`.d`'s** and is untouched. |
+| **G-W2-2b** (MONITOR) | 7 files · 6 runtime modules · 8 runtime specifiers, module-for-module identical to §Carry F1 | **7 · 6 · 8**, re-measured at `7d958f21` and **FROZEN** module-for-module at `INGRESS-CENSUS.md` §4 | **TRUE AND FROZEN.** Falsifier armed: a ninth runtime specifier or a seventh runtime module under `demo/` while the wave is open |
+
+#### Anchor drift measured and recorded (D-19 — `81a56990` → `7d958f21`)
+
+| spec anchor | at the ref of record | note |
+|---|---|---|
+| `demo/scenes/square/useSquareDemo.ts` call `:82` | **`:107`** | drifted 25 lines; import `:4` exact; symbol/module unchanged |
+| `demo/utils/reference-data/animationDescriptions.ts` import `:128` | **`:113`** | drifted 15 lines upward; call `:76` exact |
+| `kf-KeyframesStringControls` **C-2** ⟨`:63`⟩ (F3 row 10's anchor) | row head at **`:62`**; the quoted evidence sentence is at **`:63`** | the spec's anchor points at the evidence line inside the cell; recorded, not moved (anti-rename) |
+| the other six demo-arm anchors · all 20 floor anchors · all 6 positive anchors | **exact** | each resolved by command at the corpus/tree bytes |
+
+#### Residuals and escalations
+
+- **ESCALATIONS: none.** No write outside the unit's §File-Bounds writable set; four files touched,
+  all four declared. `scripts/dev/dev.sh` untouched.
+- **R-1 · A real spec drift, resolved at the true bytes and recorded rather than patched (E-3).** The
+  unit brief and **G-W2-1**'s assertion line, its second footnote and its carriage sentence all read
+  **19 / five** — **round-5 text**. §Carry **F3**'s tail reads **20** (*"19 → 20 at repair round 6,
+  PASS-6 D-4 · escape E3 — `KF-KE-58` booked as row 20"*) and its positive block carries **six**
+  bullets (the sixth *"added at repair round 6, PASS-6 D-3 · escape E2"*). **The register is the gate**
+  and the latest repair round governs within it, so **20 / 6** is published; a registry publishing 19
+  while F3 enumerates 20 would red **G-W2-1** by construction (*"the gate reds on an unenumerated
+  posture"*). The round-4 failure the file convicted itself of over KAD-10 — *the row was added and
+  the sentence it falsifies was not re-read* — reproduced once more at the gate line. **No spec byte
+  edited.** For the next repair round or check to reconcile in the gate's own voice.
+- **R-2 · `KF-HA-13`'s register home** (F0 vs F3). Its shape is floor row 17's — a producer bridge
+  converting a spec-correct value.js Result into a throw, unguarded at the consumer. It is enumerated
+  by banked id at F0 as **Y3**, deliberately, and three passes let that stand, **so it is not an
+  escape**; recorded as a register-SHAPE question with its ground, not minted as a row.
+- **R-3 · Subject-width.** `KF-SST-12` (kf's own `entry.ts` refusal taxonomy discarded) and
+  `KF-TFP-24`'s vendor-invariant arm enter the floor **only** if a later ruling widens the register's
+  subject from *value.js Result* to *any parse-or-compile Result at a value.js-bearing consumer*.
+  **This seat did not widen the subject.**
+- **R-4 · The `useTimelineBuild.ts:40-50` double reading.** kf-TimelineTrack `SUP-3` calls that
+  wrapper **containment** (F0 negative, F6 #10); kf-KeyframeTimeline `C-7` calls the same bytes **the
+  file's only silent failure** (floor row 8). Both are true and are booked **once each, by subject**
+  — topology vs handling. Recorded so no later seat reads the pair as a contradiction and re-books
+  either.
+- **`KF-TFP-24` measured, not assumed**: `cubicBezierEasing` is **kf's own demo helper**
+  (`demo/utils/reference-data/timingCurveUtils.ts:25`, imported at `TimingFunctionPanel.vue:55`), not
+  a value.js entry — which is why its unguarded bare `Error` is not a floor row.
+
+#### Commits
+
+| hash | contents |
+|---|---|
+| **`da0fbc22`** | `docs/tranches/X/keyframes/registries/POSTURES.md` |
+| **`500c13fd`** | `docs/tranches/X/keyframes/registries/INGRESS-CENSUS.md` **+** `docs/tranches/V/apotheosis/parser-proof/GATE-VERDICT-F2-ADDENDUM-2026-09-17.md` — **the declared commit family, not split** |
+| *(this section)* | `docs/tranches/X/execution/B/KF-W2.md` — the unit receipt, pathspec, one file |
+
+**Hard order 2 is satisfied**: both registries are committed **before any cure commit**; `.b` and `.c`
+may start.
