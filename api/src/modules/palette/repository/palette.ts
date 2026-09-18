@@ -17,10 +17,12 @@ import type {
     Filter,
     Sort,
     UpdateFilter,
+    UpdateResult,
     WithId,
     WithoutId,
 } from "mongodb";
 import type { Palette } from "../model.js";
+import { paletteETagFilter, type PaletteETagSource } from "../etag.js";
 
 export class PaletteRepository {
     constructor(private readonly col: Collection<Palette>) {}
@@ -104,14 +106,43 @@ export class PaletteRepository {
         return palette.slug;
     }
 
+    /**
+     * Update one palette by slug, OPTIONALLY fenced against the state the
+     * caller read (X-W3 · G-8).
+     *
+     * The driver's `UpdateResult` is RETURNED, not discarded: `matchedCount`
+     * is the only honest answer to "did my write land?", and throwing it away
+     * (`.then(() => undefined)`) is what made every palette write unable to
+     * tell a committed update from a lost race.
+     *
+     * Pass `expect` — the palette document the caller read — to fence the
+     * write: `paletteETagFilter` turns that read into a filter clause, so the
+     * update applies only while the document still carries the ETag the caller
+     * validated `If-Match` against, and `matchedCount === 0` means another
+     * writer won. Callers map that zero to `412` with `assertFenceHeld`
+     * (`../etag.js`), beside the `assertIfMatch` it completes.
+     *
+     * The guard is a filter clause rather than a repository throw because that
+     * is this codebase's existing CAS shape (`color/repository/proposedName.ts:73-79`
+     * guards `{_id, status: from}` and returns the result); HTTP semantics stay
+     * in the domain/HTTP layer, and the repository stays free of `ApiError`.
+     *
+     * `expect` is the FOURTH parameter, after `session`, so the three product
+     * call sites — `service/crud.ts:224` (PATCH), `service/versions.ts:215`
+     * (revert), `service/visibility.ts:174` (publish) — keep compiling
+     * unchanged while they are outside X.W3.3's writable set; wiring them is
+     * `ESC-W3.3-CAS-CALLERS`, and until it is ruled those three writes remain
+     * unfenced (the gate reads RED, not green-by-apparatus).
+     */
     update(
         slug: string,
         update: UpdateFilter<Palette>,
         session?: ClientSession,
-    ): Promise<void> {
-        return this.col
-            .updateOne({ slug }, update, session ? { session } : undefined)
-            .then(() => undefined);
+        expect?: PaletteETagSource,
+    ): Promise<UpdateResult<Palette>> {
+        const filter: Filter<Palette> =
+            expect === undefined ? { slug } : { slug, ...paletteETagFilter(expect) };
+        return this.col.updateOne(filter, update, session ? { session } : undefined);
     }
 
     updateManyBySlugs(

@@ -41,7 +41,7 @@ import {
     PreconditionFailedError,
     toResponseEnvelope,
 } from "../../../platform/http/errors/index.js";
-import { paletteETag } from "../etag.js";
+import { assertFenceHeld, paletteETag } from "../etag.js";
 import type { AppEnv } from "../../../types.js";
 import type { Services } from "../../../platform/http/inject-services.js";
 
@@ -153,7 +153,7 @@ describe("palette write contract (X-W3 · X.W3.3)", () => {
         expect(after?.tags).toEqual(["fenced"]);
     });
 
-    it("G-8: a fenced update whose ETag predicate went stale throws 412 and writes NOTHING", async () => {
+    it("G-8: a fenced update whose ETag predicate went stale matches NOTHING and maps to 412", async () => {
         const read = await services.repositories.palettes.findBySlug("source");
         expect(read).toBeDefined();
 
@@ -162,14 +162,14 @@ describe("palette write contract (X-W3 · X.W3.3)", () => {
             $set: { name: "Concurrent", currentHash: "0".repeat(64) },
         });
 
-        await expect(
-            services.repositories.palettes.update(
-                "source",
-                { $set: { name: "Loser" } },
-                undefined,
-                read!,
-            ),
-        ).rejects.toBeInstanceOf(PreconditionFailedError);
+        const lost = await services.repositories.palettes.update(
+            "source",
+            { $set: { name: "Loser" } },
+            undefined,
+            read!,
+        );
+        expect(lost.matchedCount).toBe(0);
+        expect(() => assertFenceHeld(lost)).toThrow(PreconditionFailedError);
 
         const after = await services.repositories.palettes.findBySlug("source");
         // The losing write is not a silent overwrite: the winner's bytes stand.
@@ -188,14 +188,26 @@ describe("palette write contract (X-W3 · X.W3.3)", () => {
             $set: { updatedAt: new Date(read!.updatedAt.getTime() + 1000) },
         });
 
-        await expect(
-            services.repositories.palettes.update(
-                "source",
-                { $set: { name: "Loser" } },
-                undefined,
-                read!,
-            ),
-        ).rejects.toBeInstanceOf(PreconditionFailedError);
+        const lost = await services.repositories.palettes.update(
+            "source",
+            { $set: { name: "Loser" } },
+            undefined,
+            read!,
+        );
+        expect(lost.matchedCount).toBe(0);
+        expect(() => assertFenceHeld(lost)).toThrow(PreconditionFailedError);
+    });
+
+    it("G-8: assertFenceHeld passes a held fence through and refuses a lost one", async () => {
+        const read = await services.repositories.palettes.findBySlug("source");
+        const held = await services.repositories.palettes.update(
+            "source",
+            { $set: { tags: ["held"] } },
+            undefined,
+            read!,
+        );
+        expect(held.matchedCount).toBe(1);
+        expect(() => assertFenceHeld(held)).not.toThrow();
     });
 
     // -----------------------------------------------------------------

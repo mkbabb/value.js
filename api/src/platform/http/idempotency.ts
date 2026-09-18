@@ -5,8 +5,11 @@
  * I-window (see `demo/@/lib/palette/api/client.ts`), but no middleware read
  * it. This closes that gap.
  *
- * Semantics (opt-in, mirroring the If-Match-required-only-on-mutations shape):
- *   - Header ABSENT  → `next()` unconditionally (opt-in).
+ * Semantics (opt-in by default; REQUIRED on the appending operations — X-W3 · G-10):
+ *   - Header ABSENT on an operation in `IDEMPOTENCY_REQUIRED` (revert + fork
+ *     create) → `400`, before the handler runs. Those two writes APPEND, so a
+ *     retry without a key is a duplicate release / duplicate palette.
+ *   - Header ABSENT anywhere else → `next()` unconditionally (opt-in).
  *   - Header PRESENT on a NON-mutating method → `next()` (only mutations replay).
  *   - Header PRESENT on POST/PATCH/PUT/DELETE:
  *       scoped key = `${sessionToken|userSlug|"anon"}:${method}:${path}:${key}`
@@ -35,6 +38,13 @@
  * LRU is the sanctioned single-replica KISS relaxation — D2 §3 P2 — and the
  * body-hash conflict response is now contract-faithful regardless of backing.)
  *
+ * X-W3 · G-10 / CC-039 (DR-33): that relaxation is no longer disclosed only
+ * here. It is CANON in `docs/tranches/X/contracts/WRITE-CONTRACT.md §5`, which
+ * states the deployment fact that would reopen it — a SECOND REPLICA, at which
+ * point the store must move to a shared backing — and states it as a
+ * deployment fact rather than a future wave. Single-replica, this store is the
+ * contract; it is not a deferred promise.
+ *
  * Error semantics: the 409 conflict is the ONLY throw this middleware raises;
  * Hono's `app.onError` maps it to the problem+json envelope. A replayed
  * response is reconstructed directly. A handler that `throw`s an `ApiError` is
@@ -48,13 +58,46 @@
 import { type MiddlewareHandler } from "hono";
 import { createHash } from "node:crypto";
 import { LRU } from "../cache/lru.js";
-import { IdempotencyConflictError } from "./errors/index.js";
+import { IdempotencyConflictError, ValidationError } from "./errors/index.js";
 
 const IDEMPOTENCY_WINDOW_MS = 24 * 60 * 60 * 1000; // 24h
 const IDEMPOTENCY_CAP = 50_000;
 
 /** Methods whose responses participate in idempotent replay. */
 const MUTATING_METHODS = new Set(["POST", "PATCH", "PUT", "DELETE"]);
+
+/**
+ * X-W3 · G-10 — the operations on which `Idempotency-Key` is REQUIRED.
+ *
+ * Opt-in replay is enough for a write that is naturally idempotent (publish
+ * `$set`s a value; PATCH sets the fields it is given). It is NOT enough for a
+ * write that APPENDS: a retried revert releases a second revision, and a
+ * retried fork creates a second palette — a duplicate the client cannot undo
+ * and the owner did not ask for. Those two are therefore required to name the
+ * attempt they are retrying, and a request without a key is refused `400`
+ * rather than silently executed a second time.
+ *
+ * The rule is declared HERE, beside the store it arms, rather than mounted
+ * per-route: the middleware is already app-global (`app.ts:73`) and runs ahead
+ * of routing, so one table is the whole answer to "which operations require a
+ * key" — and a route file cannot acquire the requirement, or lose it, by
+ * accident.
+ *
+ * `forks?` matches the fork-create operation under BOTH spellings: the
+ * singular `POST /:slug/fork` mounted today, and the plural `POST /:slug/forks`
+ * that X.W3.4 (G-12) renames it to. The plural GET is unaffected — only
+ * mutating methods are tested.
+ */
+const IDEMPOTENCY_REQUIRED: readonly { method: string; path: RegExp }[] = [
+    { method: "POST", path: /^\/palettes\/[^/]+\/revert$/ },
+    { method: "POST", path: /^\/palettes\/[^/]+\/forks?$/ },
+];
+
+function requiresIdempotencyKey(method: string, path: string): boolean {
+    return IDEMPOTENCY_REQUIRED.some(
+        (op) => op.method === method && op.path.test(path),
+    );
+}
 
 interface StoredResponse {
     /** sha256 of the raw request body that produced this response — the CS3.2
@@ -92,8 +135,15 @@ function scopedKey(
 export const idempotency: MiddlewareHandler = async (c, next) => {
     const idempotencyKey = c.req.header("Idempotency-Key");
 
-    // Opt-in: no key → never replay, never capture.
     if (!idempotencyKey || idempotencyKey.trim() === "") {
+        // X-W3 · G-10: REQUIRED on the appending operations (see
+        // `IDEMPOTENCY_REQUIRED`) — absent key → 400, before the handler runs.
+        if (requiresIdempotencyKey(c.req.method, c.req.path)) {
+            throw new ValidationError(
+                `Idempotency-Key header is required for ${c.req.method} ${c.req.path}`,
+            );
+        }
+        // Everywhere else: opt-in — no key → never replay, never capture.
         await next();
         return;
     }
