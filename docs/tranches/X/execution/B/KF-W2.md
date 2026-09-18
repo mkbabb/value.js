@@ -665,3 +665,240 @@ dated §Bounds addendum-beside naming the path, not a seat's own widening.
 **Hygiene**: all three commits verified by `git show --name-only` to contain **exactly** their declared
 paths — **0 sibling files swept in** across four concurrent seats on one index. `scripts/dev/dev.sh`
 appears in **0 of 3**. **No push** — a wave's close pushes its own `origin HEAD`, and that is `.d`'s act.
+
+---
+
+### `KF.W2.c` — Tier-C extirpation · the cssom injection cure
+
+**SERVED MODEL: claude-opus-5[1m]** · phase 2, ∥ `.b` · **status DONE** — both gates this unit turns
+are **GREEN at its own clock**, the six Tier-C members are all dispositioned, the three
+delete-or-declare tails are DECLARED at their sites, and **one bounds gap is RETURNED, not widened**.
+
+**Sections read at the bytes before writing** (D-19 · METHOD): §Carry **F2** (509–521) · §Bounds LAW-A
+censuses **A-2**/**A-3** (132–233, with A-4/A-5 read for the tails) · §Gates **G-W2-3** (705–711) ·
+**G-W2-4** (712–716) · §Sequencing hard orders **3–4** + the Tier-C and cssom commit families
+(782–800), plus §Bounds' Owned-files table (97–128) and §Gates **G-W2-2** (655–693) — the last so this
+unit could prove it does not red `.b`'s gate. COHESION **§0j** (whole) and every later addendum to the
+file end were read; §0j.C **KF-WRITE** is this seat's write authority. This record's Open, Baseline,
+Unit plan and `.a`'s receipt were read whole before the first byte.
+
+#### Substrate
+
+⟨`git rev-parse HEAD`⟩ at open → `2549c133` (the record's ref `7d958f21` plus KF.W5.c's landings; every
+anchor below was **re-resolved at the true bytes**, not inherited). **Hard order 2 satisfied at open**:
+`.a`'s `da0fbc22` + `500c13fd` precede every cure commit here. **Hard order 3 satisfied**: `.b`'s
+façade landed at **`49cd647b`** (`git log --oneline -- src/animation/compile/parse-facade.ts`) **before
+this unit's first Tier-C commit** `0cfd3b5f`; the cssom cure (`f7cbc41c`) is neither a Tier-A repoint
+nor a Tier-C deletion and is not bound by that order. **Hard order 4 honoured**: `emit/format/format.ts`
+is written by `.c` only — ⟨`git log --oneline --name-only -- src/animation/compile/emit/format/format.ts`⟩
+shows no `w2.b` commit on that path.
+
+**Anchor re-resolution at the true bytes (D-19)** — all six spec anchors hold EXACTLY, and the drift
+table's `view-transition.ts:146` reading is reproduced:
+
+```
+$ <the six, read verbatim at 2549c133>
+  presets/catalog.ts:15-16      const bare = … /^\s*@keyframes\s+[^\s{]+\s*\{([\s\S]*)\}\s*$/.exec(css)?.[1] ?? css
+  emit/view-transition.ts:136   const CQ_UNIT_RE = /\b-?\d*\.?\d+cq(w|h|i|b|min|max)\b/i;     (consumers :202, :207)
+  emit/view-transition.ts:146   for (const m of body.matchAll(/([\w-]+)\s*:\s*([^;]+);/g)) {  ← the serialize→regex-reparse
+  engine/composition.ts:175     const nums = raw.match(/-?\d*\.?\d+(?:e[+-]?\d+)?/gi);
+  emit/format/format.ts:136/137/146   signature SURVIVES · `let s = keyframe` span head · `return s;` span tail
+  svg/draw-svg.ts:89            if (!/^\s*\d*\.?\d+\s*%\s*$/.test(v)) {
+  emit/format/format.ts:341     the candidate 7th (de-paren), present
+$ git show 2549c133:src/animation/ingest/cssom.ts | awk 'NR>=214 && NR<=216'
+  214|        const nameRe = new RegExp(
+  215|            `\\banimation(?:-name)?\\s*:[^;}]*\\b${name}\\b`,
+  216|        );
+$ git show 2549c133:src/animation/ingest/cssom.ts | wc -l   → 466
+```
+
+#### Acts, in order
+
+**C-0 · E13 unit-level mail sweep** (four paths ⊕ the atlas **Q** lane, read-only, at this seat's own
+clock; classification from each row's status cell). Newest-by-mtime in each path is unchanged from
+`.a`'s A-0 sweep at this sitting: `INBOX.md` self-excluded (SELF-COUNT); glass `BK/coordination/`
+newest three = **I-32 · I-33 · I-34**, all rowed; kf `V/coordination/` = `VALUEJS-*` letters WE sent;
+atlas unchanged since 2026-08-03. **0 unrowed · 0 new `I-n` minted · `INBOX.md` NOT touched** (outside
+this unit's writable set). None is mail addressed to KF.W2's scope; no status cell flipped.
+
+**C-1 · The cssom identifier injection, CURED AT THE ROOT — `f7cbc41c`, the declared commit family, NOT
+SPLIT** (cure + fixture + the `:28-33` comment, exactly two files).
+
+The defect, measured before the cure rather than quoted: the linkage built
+`new RegExp(\`\\banimation(?:-name)?\\s*:[^;}]*\\b${name}\\b\`)` from the `@keyframes` rule's own
+identifier. Both failure limbs were **executed**, not inferred:
+
+```
+$ <jsdom CSSOM probe, 7 escaped names installed as real <style> sheets>
+  every one returns rule.name RAW (escapes included) and the interpolated pattern
+  MIS-MATCHES its own sibling rule — 7 of 7 `re.test(styleRule.cssText)` → false
+  e.g. `@keyframes pu\+lse` → /\banimation(?:-name)?\s*:[^;}]*\bpu\+lse\b/ looks for `pu+lse`
+$ <browser reading, rule.name UNESCAPED, via the module's documented DOM-free injection seam>
+  `pu(lse` → THROW SyntaxError: Invalid regular expression: … Unmatched ')'  ← out of walkSheet,
+  ABOVE reconstructFromRule's per-rule try/catch and outside the per-sheet one (which wraps only
+  the `sheet.cssRules` read) — an uncaught throw out of `resolveLiveKeyframes` itself
+```
+
+The cure removes the construction rather than escaping its input: `declaredAnimationNames` reads the
+identifiers the CSSOM has **already parsed** out of each style rule's declaration block
+(`animation-name` ∪ the `animation` shorthand — both, because jsdom's CSSOM expands no shorthand and a
+browser serializes the name into the shorthand) and the linkage is **string EQUALITY** over its tokens.
+A false positive dies with the hazard: `\b` treated the `-` in `my-pulse` as a boundary, so a rule
+naming a different animation answered to `pulse`; equality does not.
+
+The `:28-33` **VJ-9 tripwire comment is corrected IN PLACE in the same commit** (§Carry F2's declared
+rule). What it asserted was an invariant over the PARSE, read as one over the WALK — and the
+construction above was a walk-level uncaught-throw path owing nothing to value.js. It now names that,
+points at the fixture, and keeps the VJ-9 widening clause.
+
+**C-2 · The Tier-C six, each with its replacement in the same commit.** Every member was **re-censused
+by A-2's command shape at open before it was touched**, and the census changed one disposition:
+
+| # | member | census at open | act |
+|---|---|---|---|
+| 1 | `catalog.ts:15-16` `bare` | module-private, **0 barrels** — but the invariant it enforces carries a **TEST PIN**: `test/presets/spring-presets.test.ts` asserts every `PRESET_SPECS.css` does not match `/@keyframes\s/` | **RE-CUT** (A-2's rule: a member returning a test pin is re-cut, not deleted) — `55347314` |
+| 2 | `view-transition.ts:146` `declaredDecls` | 1 consumer, module-private | **DELETED** — replaced by the structural projection, `0cfd3b5f` |
+| 3 | `view-transition.ts:136` `CQ_UNIT_RE` | **A-3 reproduced exactly**: declaration + `:202` + `:207`, 0 barrels, 0 test pins | **DELETED WHOLE** — `0cfd3b5f` |
+| 4 | `composition.ts:175` | `captureUnderlyingBase` — 1 internal call site, 1 test pin (`c6-correctness.test.ts`), 0 barrels | **DELETED** — replaced by the façade, `a461c78c` |
+| 5 | `format.ts:137-146` | **A-2 reproduced exactly**: 4 barrels incl. `public.ts:170`, the lazy engine surface, `KeyframeCardList.vue:60` | **BODY RE-IMPLEMENTED**, symbol/signature/brace stand — `0cfd3b5f` |
+| 6 | `draw-svg.ts:89` | `asFraction` module-private; `fromDrawSVG`'s pins are on the numeric arm | **DELETED** — replaced by the façade, `0ecaadb3` |
+
+Each cure was **measured before it landed**, and three of them are behaviour statements this seat owes:
+
+```
+$ <member 1: bare() over all 38 preset strings, old regex vs new positional cut>
+  38 preset strings + 9 adversarial shapes (no wrapper · no name · leading/trailing ws ·
+  text after the close · empty · two blocks · a lone @keyframes) → 43 cases, 0 diffs
+  and: the strip is LIVE on 4 of 38 (warpLeft, warpRight, jumpUp, jumpDown), a no-op on 34
+  and: all 34 classic-data strings reconstruct IDENTICALLY (stops · parsed vars ·
+       @property registry · diagnostics) whether `fromString` is handed the stripped or
+       the authored text — the parser needs NONE of it (its own contract says so)
+$ <member 5: formatCSSKeyframeString, old body vs new positional trim, 13 inputs>
+  13 cases, 0 diffs — card shapes and the degenerate ones (no brace, empty, trailing text,
+  an inner `{` inside a url())
+$ <member 6: asFraction, old pattern vs parseCssScalar, 14 shapes>
+  identical on "50%" " 50% " ".5%" "50.5%" "500%" "50" "50px" "abc" "" "%"
+  DELTA, and it is the grammar correcting the hand-written token: "50 %" was ACCEPTED by the
+  regex and is not a percentage token (now refused); "+5%" and "1e2%" were REFUSED and are
+  (now accepted). The non-negative check is kept EXPLICITLY — `-5%` is well-formed CSS and is
+  not a draw position, so that is this function's domain, not the grammar's
+```
+
+**Precision on G-W2-3's second clause, stated rather than glossed.** The assertion reads *"each
+deletion lands in the same commit as the façade call that replaces it"*. Per member: **4** and **6**
+land a real façade call (`parseCssValues`+`swallowParsed`, `parseCssScalar`) in the same commit;
+**2** and **3** land a STRUCTURAL replacement in the same commit — and that is the stronger cure, not a
+weaker one, because the emitter was re-parsing a string **it had just written from an AST it still
+held**: the right answer there is to stop parsing, not to parse correctly. **1** and **5** are the
+A-2 re-cut class, where the replacement is the parse that was already there (`fromString` at
+`catalog.ts:316`) or a presentation trim that must stay value.js-free (the demo's own comment declares
+`formatCSSKeyframeString` *"a value.js-free pure-string trim"*, at a call site this wave does not own).
+**The falsifier holds in every case: no deletion landed without its replacement in the same commit.**
+
+**C-3 · `proof:structure` R4, reddened by C-1 and cured at the root — `02a87f7a`.** The cure took
+`cssom.ts` from **466** to **530** raw lines and broke the repo's 500-line ceiling, whose allowlist is
+EMPTY by policy. **No allowlist entry was added** (that is the masking this wave forbids). What shrank
+is the cure's PROSE: the VJ-9 paragraph is corrected in place instead of carrying an appended
+correction beside it, the helper's docblock states the defect/cure/retired-false-positive and stops,
+and the forensic account lives where it is executable — the fixture. ⟨`wc -l` → **500**⟩ ·
+⟨`npm run proof:structure`⟩ → **PASS clean across R1–R6**.
+
+**C-4 · The three delete-or-declare tails, DECLARED at their sites — `5083c3f8`.** Declared in the
+code, not only here, so the choice is inherited rather than re-litigated:
+
+- **`format.ts:341`, the candidate 7th.** MEASURED: instrumented over **both** vitest projects it fires
+  **ZERO** times — no live path produces the `({` / `})` artifact it erases. That is absence of
+  coverage, **not** proof of death, and the file's own rule is that only genuinely dead surface is
+  excised; the artifact's only possible producer is the value serializer this block composes, which is
+  the **Tier-D collapse subject owned by KF.W8 (MISS-β2)**. Deleted there with the producer census.
+- **`resolve/conditional.ts:102`** — whitespace COLLAPSING for a text comparison; the Tier-C class's
+  neighbour, never a member. The act that retires it (compare the two values PARSED, not serialized)
+  changes what `style(--prop: value)` answers for every input value.js refuses. Not on this mandate.
+- **`resolve/conditional.ts` `legacyClauses` (`:27`/`:52`)** — no regex and no hand-written grammar; it
+  splits the legacy `if(cond: v; cond: v)` form **structurally over parsed items**. Deleting it is a
+  FEATURE removal.
+- **`resolve/function.ts` `coerceToSyntax`** — A-4's net-new stray, one live call site, neither grammar
+  entry nor collector nor serializer, so outside G-W2-2's denominator and deliberately **not** routed
+  through the façade (the façade publishes the parse surface; mirroring every value.js export through
+  it would make it a package mirror). A delete removes the `@function` parameter-syntax coercion
+  feature **and** falsifies the two test comments A-4 names — *"a delete leaves them false"*. Declared,
+  so they stay true.
+
+#### Gate readings — BEFORE → AFTER, each double-run
+
+| gate | BEFORE (at the pre-cure bytes) | AFTER (post-commit, double-run identical) | verdict |
+|---|---|---|---|
+| **G-W2-3** | **6 of 6** regex bodies present. Witness re-run as a COMMENT-STRIPPED scan (a prose mention of a dead pattern is not a survivor) over the five files at `7d958f21` → **6 SURVIVES lines**, one per member | the same scan at HEAD → **0 SURVIVES lines**, run twice identical. The only textual hits left are PROSE: `CQ_UNIT_RE` named once in a docblock that says it was replaced, and the old catalog pattern quoted once as the thing that died | **GREEN.** 0 of 6 regex bodies survive in CODE; each deletion landed with its replacement in the same commit; `formatCSSKeyframeString` keeps its export, signature, brace, four barrels, engine-surface declaration and demo consumer |
+| **G-W2-4** | `new RegExp(` in `cssom.ts` CODE (comments stripped) → **1**; `test/ingest/keyframes-name-escapes.test.ts` against the un-cured file → **13 failed \| 4 passed (17)** | → **0**, twice; the fixture → **17 passed (17)**, twice | **GREEN on both clauses this seat owns** — zero constructed-`RegExp` identifier interpolation remains, and the linkage links. **One arm is RED-BY-PRODUCER and is stated at the gate, not hidden** — see the residual below |
+| *(not this unit's, measured so it is not disturbed)* | value.js/css runtime specifier lines in this unit's 8 files at `7d958f21` → **2** (`format.ts:2` type-only `KeyframeSelector`; `function.ts` the declared stray) | → **2**, the same two | **G-W2-2 UNMOVED by `.c`.** Zero `@mkbabb/value.js/css` edges added or removed; the two new grammar consumers (`composition.ts:26`, `draw-svg.ts:48`) import **`../compile/parse-facade`** |
+| *(tree health)* | — | `npm run check:lib` → **3 errors, all pre-existing** (`group/composite/compositor.ts:79` · `group/waapi.ts:9` · `physics/smooth.ts:194`, last touched at `c821ddd0`, none in this unit's files) · `npm run proof:structure` → **PASS** · full `library` project → **1211 passed \| 3 expected fail \| 14 skipped (1228)**, run twice identical | **no regression introduced** |
+
+#### Residuals and escalations
+
+- **ESCALATION (returned, not widened) · the `emit/format/index.ts` barrel.** The emit-side cure
+  publishes two new symbols from `emit/format/format.ts` (`declaredDeclarationsFor`,
+  `DeclaredDeclaration`) and `view-transition.ts` consumes them. That barrel is in **NEITHER this
+  unit's writable set NOR the spec's §Bounds Owned-files table** (rows 97–128; only `emit/index.ts`
+  appears, and it is `modify-carve`, **ACT is KF.W8's**), so the two symbols are imported **from the
+  file** (`./format/format`) and the barrel is left untouched. Consequence, named rather than left to
+  be found: `emit/format/index.ts`'s docblock sentence *"This PURE barrel is the module's single
+  cross-boundary surface … the sibling `../view-transition` emitter … reach the surface here"* is now
+  imprecise for those two symbols. **The owed act is one export line plus that sentence.** It is
+  recorded at the import site in `view-transition.ts` as well, so it cannot be lost.
+- **RESIDUAL, RED-BY-PRODUCER · value.js 4.0.0 refuses a CSS escape — and any non-ASCII identifier —
+  in the DECLARATION-VALUE position.** Measured at the installed pin (OP-5 forbids a repin), executed
+  twice: `parseCssValues("pu\\+lse")` → `ok:false [css_syntax] expected ["scalar"]`;
+  `parseCssValues("puélse")` → the same; while the `@keyframes` **name** position accepts both
+  (`parseStylesheet("@keyframes pu\\+lse { … }")` → `ok:true`). The kf-side injection is cured and the
+  linkage now finds the sibling, but the linked text is then refused by the grammar, so an
+  escaped-name animation surfaces a citable `PARSE_ERROR` naming the identifier instead of riding its
+  options — **the module's own VJ-9 tripwire biting, not a kf defect**. Clause (c) of the fixture pins
+  that state DELIBERATELY: when value.js accepts escaped idents the assertion goes RED, which is the
+  signal to re-cut the row rather than rediscover the fact. **Routed to X·V / the value.js parser
+  layer; it is the same R1/VJ-9 class `.a`'s ingress census books.**
+- **RESIDUAL · cross-engine identifier spelling is NOT normalized, on purpose.** A browser's
+  `CSSKeyframesRule.name` is UNESCAPED while a declaration value serializes ESCAPED, so the two sides
+  of the equality can disagree in a browser for an escaped name. **This is not a regression** — the
+  old pattern failed there too (and could throw). The only correct normalization is a spec-faithful
+  CSS ident unescaper, which is grammar work belonging with value.js, never hand-rolled in an ingest
+  module. Recorded, not smuggled.
+- **BEHAVIOUR CORRECTIONS CARRIED, all three measured and none of them silent**: (i) the linkage no
+  longer matches a foreign rule by substring (`animation: my-pulse` ≠ `@keyframes pulse`); (ii)
+  `asFraction` now agrees with CSS on `"50 %"`, `"+5%"` and `"1e2%"`; (iii) `declaredDecls` hands
+  `topLevelProp` the key as the emitter holds it — `[\w-]+` could never carry a `.`, so that function's
+  dotted-key split was unreachable through the regex path. No test in the tree asserted any of the
+  three old behaviours.
+- **SPLIT DECLARED (a miss, recorded loud).** `a461c78c` changed `captureUnderlyingBase` and left
+  `composition.ts`'s module docblock — *"Value4 is reached through the structural slots compiled by the
+  frame pipeline"* — standing beside it: true before that commit, incomplete after it. Under this
+  wave's own commit-family rule the correction was owed IN that commit. It landed at **`6e371fd4`**
+  instead, as a separate commit rather than an amend, because four seats share this index and
+  rewriting a landed commit is the more dangerous act. The miss is the finding.
+- **NOT PERFORMED, and why**: no push (a wave's close pushes its own `origin HEAD` — `.d`'s act); no
+  `INBOX.md` edit; no LEDGER edit (this unit owns no row cell); `scripts/dev/dev.sh` untouched.
+  Prettier state of the seven `src/` files is **unchanged** — six were already non-conforming at
+  `7d958f21` and remain so, `catalog.ts` was clean and stays clean; no whole-file reformat was done,
+  because unmandated churn across four concurrent seats is how an index gets contaminated.
+
+#### Commits
+
+| hash | contents |
+|---|---|
+| **`f7cbc41c`** | `ingest/cssom.ts` **+** `test/ingest/keyframes-name-escapes.test.ts` — **the declared commit family, NOT split**: the cure, its fixture, and the `:28-33` VJ-9 comment correction |
+| **`0cfd3b5f`** | `emit/format/format.ts` **+** `emit/view-transition.ts` — Tier-C members **2 · 3 · 5** on one declared-stop projection (two of them the same file; git stages files whole) |
+| **`55347314`** | `presets/catalog.ts` — Tier-C member **1**, RE-CUT on the test pin the re-census found |
+| **`02a87f7a`** | `ingest/cssom.ts` — the R4 line-ceiling cure (prose, never the cure) |
+| **`a461c78c`** | `engine/composition.ts` — Tier-C member **4**, through the façade |
+| **`0ecaadb3`** | `svg/draw-svg.ts` — Tier-C member **6**, through the façade; its BOUNDARY clause corrected in the same commit |
+| **`6e371fd4`** | `engine/composition.ts` — the docblock correction `a461c78c` owed (declared split) |
+| **`5083c3f8`** | `emit/format/format.ts` · `resolve/conditional.ts` · `resolve/function.ts` — the three delete-or-declare tails DECLARED at their sites |
+| *(this section)* | `docs/tranches/X/execution/B/KF-W2.md` — the unit receipt, pathspec, one file |
+
+**Hygiene**: every commit above carries its own pathspec **on the commit itself** and was verified by
+`git show --stat` to contain **exactly** its declared paths — **0 sibling files swept in** across four
+concurrent seats on one index, with `.b`'s staged rows sitting in that index throughout.
+`scripts/dev/dev.sh` appears in **0 of 8**. No `git add -A`/`-u`, no `commit -a`, no reset, no stash,
+no amend, no force. Transient probe files this seat used for measurement (`test/probe6`, `probe11`,
+`probe12`, repo-root `.probe*.mjs`) were deleted at the end of each measurement and appear in **0
+commits**; ⟨`ls`⟩ → none survives. ⟨`git status --porcelain`⟩ does carry one untracked
+`test/engine/zz-probe.test.ts` — **a sibling seat's, not this one's, and NOT touched**.
