@@ -2205,3 +2205,114 @@ facts the killed seat's death created:
 re-runs the four-path sweep at its own clock rather than trusting this table** — `I-35` arrived
 inside this seat's own read-to-write window, which is the best available proof that a banked sweep
 goes stale within the hour.
+
+---
+
+## Unit receipts — resume
+
+### f
+
+**SERVED MODEL: claude-fable-5-1** — F.W1 unit `f` (successor seat; the first `f` seat was killed by the 2026-09-18
+host restart), Track C. Appended only (E-3). The close report of record is
+**`docs/tranches/X/fourier/evidence/w1/F-W1-LOG.md`** (committed **`31e082ce`** with `G20-CLOSURE.md`, the two
+instruments and `shots/`); this receipt is the act-by-act record and does not restate its tables.
+
+#### Act 0 — crash-recovery sweep (STANDING LAW), before any other act
+
+⟨cmd⟩ `git status --porcelain -- <the four writable paths>` → `M INBOX.md` (a sibling's uncommitted `I-35` row —
+left out) · `M LEDGER.md` (siblings' cells — left out) · `?? evidence/w1/g20-join.mjs` · `?? evidence/w1/shots/`
+(**the killed `f` seat's partial work — INHERITED**). fourier: `git status --porcelain | wc -l` → **0**.
+**Judged whole**: `g20-join.mjs` (91 lines) implements the retained `(record, id)` join and re-cuts no denominator —
+KEPT; its line-2 shebang below the line-1 `SERVED MODEL` comment made the file un-runnable under ESM
+(`SyntaxError`, twice) — the one line deleted, nothing else touched. `shots/` (11 JPGs, `capture-records.json`
+"sitting 4", `capture-transcript.json`) — the capture SCRIPT that produced them died with the host, so they are
+KEPT as a **named prior run** and every verdict they carry was re-measured by this seat's own instrument before
+being relied on. No inherited byte counted until my gates measured it.
+
+#### Act 1 — G6, the four zero-console-error e2e gates (fourier's own suite, DEV server)
+
+Stack: `scripts/e2e.sh --no-tests` + a scratchpad-homed `mongod`. ⟨cmd⟩ (cwd `web/`, twice)
+`BASE_URL=http://localhost:3000 ADMIN_TOKEN=dev npx playwright test --project=chromium --reporter=list --workers=1 -g "no console errors|full lifecycle" e2e/visualization-crud.spec.ts e2e/workspace-flow.spec.ts e2e/contour-extraction.spec.ts e2e/gallery.spec.ts`
+→ **`6 passed (26.4s)`** ×2, byte-identical. Anchors re-resolved at the true bytes (`:439/:482/:612` · `:175` ·
+`:139` · `:118`); no spec edited, no filter added. Disclosed: (i) the four FILES under default `fullyParallel` →
+`26 passed · 3 failed` — the three = CRUD lifecycle at three viewports timing out inside a raw
+`fetch('/api/…/extract-contour')` under backend contention (`api/` untouched by `538db90`/`3bac3d5`; serial they pass
+in 3.7–7.7 s) → finding F-3; (ii) `a11y keystone: ExportModal Dialog-open @ mobile` RED — axe contrast **4.33:1** on
+8.0.0's `.segmented-tab` rest ink (producer `color-mix`, `17a11bc5:src/components/tabs/styles/segmented.css:267`),
+not one of G6's four gates → finding **F-1**, a producer row (rides mail, never a frontend hack).
+
+#### Act 2 — the ONE declared capture family (§5.2), `evidence/w1/capture-family.mjs`, run as `run3` and `run4`
+
+READ-ONLY against the product (click · hover · drag · computed-style). Two instrument-correction runs (`run1`,
+`run2`: a chevron sampler window too short for Playwright's actionability wait; a pencil selector) preceded them and
+their outputs were removed before commit. Per-run console verdict lines (identical across `run3`/`run4` in every
+verdict): **G10** 5/5 surfaces `completes=true animates=true` (`disclosure-close`, 188–233 ms) · **G12** 2/2 morphs
+`idle>settle-out>morph>settle-in>idle`, `morphProgress` 1, 0 page errors (452–510 ms) · **G18**
+`startScrub=true scrubbingMid=true(8/8) falseAfter=true endScrub=true calls=26` · **FR-CP-5**
+`rotatesNotSnaps=true distinct=10 transitionProperty=rotate` · **ESC-3** 8/8 rendered `SelectTrigger`s carry
+`glass-control-edge` (6 callsites / 5 files, incl. `AdminUserList.vue:252` via the store's own `activateAdmin`) ·
+`console.error` lines **0** · `pageErrors` **1** (F-2, the pre-uplift router View-Transition abort on `/visualize→/w/`).
+G18's action order (`seek` → `startScrub` → `seek(scrubbing:true)…`) reproduces **I-32 A-10** to the tenth of a
+millisecond — **PD-1's disjunction is DISCHARGED on arm 2 (the producer docblock was false; A-10 already CURE-NOW)**,
+never presumed. The prior run's five-surface / morph / drag / chevron verdicts agree.
+
+#### Act 3 — G20, both legs, at the frozen operand (`G20-CLOSURE.md`)
+
+⟨cmd⟩ `shasum -a 256 conformance/CENSUS-CANONICAL.md | cut -c1-12` → **`f44362757458`** ×2. Roster 65 lines · 330 ids
+(both derivations) · paste `:550-614` byte-identical to the roster in every live id · spec-minus-paste 811 lines ·
+carry 105 rows. Run ×2 (`diff` → ∅): **leg (a) 105/105** (the one tokenizer miss, `.dock-separator`, present at §5 and
+§6 — `grep -c` → 3); **leg (b)** 235 record-qualified · 60 token-unique · 34 homonym-tail read cell by cell (21
+BOOKED-by-identity · 12 CITED-by-fold · **1 escape-by-reading `fr-ContourSettings M-4`**) · **1 escape by bytes
+`fr-ExportModal R2-1`** (folded by substance at §2·R2a.1, token absent) · **0 fabrications** (all 20 regex hits are
+CITED/DISPOSED/STRUCK rows, read one by one). **Verdict: leg (a) GREEN · leg (b) RED by TWO named rows**, cure sized at
+two spec rows — `waves/F-W1.md` is outside this unit's writable set → **ESCALATED to the spec seat (F-6)**. No
+detector re-cut; no check file consulted as an operand.
+
+#### Act 4 — the design and record acts (all in `F-W1-LOG.md`)
+
+WU-F diff-review ledger 16 rows with shot citations (§6) · **CP-1 … CP-14** minted for F.W9/F.W10, CP-8/CP-9
+BASELINE OWED (0 published cards in a fresh DB) · **G17's ordering ruling** written (§9: FR-EQC-3/FR-IC-19 retire at
+F.W3 FIRST onto the surviving `cartoon-surface`, KILL-6 honoured, no consumer hover-lift; AA-4 `<Card>` adoption at
+F.W4 SECOND, per-site by evidence) · **G16** re-stated on arm 2 with the latex-paper producer as named owner via
+NWO-5, LAW-3 carried as bytes (§8) · **ESC-3** as a WU-F row + CP-11, not a port · **ESC-6** recorded at
+`FR-COB-26` (Baseline 2023, INFO, no hand-authored fallback, 1.00:1 consequence) · **ESC-2** recorded and handed to
+F.W4 with `L-5(a)` first, NOT executed · **G15(a)** stated in terms in the report AND verified in the transaction's
+commit body (`538db90` body `:147-151`, ⟨cmd⟩ `git show 538db90 --format=%B --no-patch | grep -n "pagination\|AA-11"`
+→ `:148` · `:151`) — and stated again in `31e082ce`'s body · **ESC-4 ULP** disposed (§10): EXECUTED on the purpose
+clause, literal clause NOT met on four keys at ≤ 4.44e-16, returned to the owner as a one-line ask.
+
+#### Act 5 — E13 at this seat's clock
+
+Four paths + the Track-C extension swept (`find … -newermt '2026-09-18 00:00'`): 0 unrowed letters (every BK letter
+has ≥ 1 INBOX row; the `o26-reply` is `I-35`, Track B's scope); 0 `I-n`/`O-n` minted; **`INBOX.md` NOT written and
+NOT in any commit of this seat** (dirty with a sibling's `I-35` hunk). Wave-scoped mail: `I-32 A-10` READ and
+consumed (Act 2). Status cells of `I-32..I-35` are Track D's.
+
+#### Gate readings, BEFORE → AFTER (this unit's gates)
+
+| gate | BEFORE | AFTER |
+|---|---|---|
+| G6 | atomicity GREEN · e2e UNRUN | **GREEN** — 6/6 ×2 |
+| G10 | deletion GREEN · witness UNRUN | **GREEN** — 5/5 complete + animate ×2 |
+| G12 | RED | **GREEN** — 4 morphs, `idle`, no throw |
+| G15(a) | half (commit body only) | **GREEN** — both halves |
+| G16 | GREEN arm 2 (unstated) | **GREEN** — re-stated, owner named |
+| G17 | RED — unwritten | **GREEN** — ruling written |
+| G18 | RED | **GREEN** — real drag; PD-1 discharged on I-32 A-10 |
+| FR-CP-5 | unverified | **verified** — rotates, no snap |
+| G20 | RED — unrun | **leg (a) GREEN · leg (b) RED by 2 named rows, 0 fabrications** |
+
+Wave tally at the close: **17 GREEN · G2 DISCHARGED-as-owed · 2 RED (G9 by design → F.W3/W4; G20(b) two rows →
+the spec seat)**. **The four-verb line does not move** — IMPLEMENTED stamps at G1–G20 green + close report, and
+G20 is RED by two rows; no VERIFIED anywhere.
+
+#### Residuals, escalations, commits
+
+Residuals by owner: `F-W1-LOG.md` §11–§12 (F-1 producer/F.W3-W4 · F-2 F.W3/W4 · F-3 harness · F-4 F.W9/W10 ·
+F-5 unit `d`'s bound question re-handed as a question · F-6 spec seat · F-7 census; the three relay packets stay
+AUTHORED-AND-ROWED, NOT DELIVERED). **Escalation (ONE, non-blocking on any product byte)**: G20 leg (b)'s two rows
+— `fr-ExportModal R2-1` (one CITED token at §2·R2a.1) · `fr-ContourSettings M-4` (a CITED row held F.W3/W4 beside
+`m-17`, or a canonical errata) — writes to `waves/F-W1.md`/the census, outside this unit's bound. **Commits**:
+`31e082ce` (evidence family, `docs(X·F): F.W1 close report`) · this record's append · the LEDGER row move (next).
+Paths written: the four in the writable set minus `INBOX.md`; `dev.sh` untouched; fourier tree clean before and
+after (`0`). **Self-count**: this block counts nothing of itself.
