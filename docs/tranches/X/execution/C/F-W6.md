@@ -1347,3 +1347,17 @@ no third diagnose→edit→re-measure occurred on any gate.
 never booked**, **AA-23 a KILL-ONLY carry** whose host row is held at F.W5, and ▲ **K-6's METHOD LOCK**:
 `grep "log_audit("` is structurally **blind** to the inlined second writer at `janitor.py:59-99` — enumerate
 with S-8, exactly as this unit enumerated the flags producer rather than querying for one name.
+
+#### Erratum — the seat clock, measured after the fact
+
+⌧ **DATE ERRATUM — corrected BESIDE, never over (E-3), because a stamp is a figure and WRITE-THEN-MEASURE
+binds the clock too.** Every cell of this unit reads *seat clock **2026-09-17***, which is the **wave's OPEN**
+clock (seat 0, 22:56 EDT) carried forward from units `a`–`d`. Measured at the settled bytes, **unit `e` sat
+entirely after midnight**: ⟨cmd⟩ `git show -s --format='%h %ad' --date=format:'%Y-%m-%d %H:%M' <sha>` →
+`ef284298` **2026-09-18 00:09** · `01d36470` **00:11** · `f411a369` **00:11** · `39c02c50` **00:12** ·
+`af053a3b` **00:13** · `121dd4f1` **00:14** (and this unit's record receipt `e3e2aaf3` **00:17**). **No
+measurement is affected** — fourier stood at `3bac3d52` with **0** dirty paths before, during and after every
+act, re-read post-commit — but an un-measured figure is precisely what this wave's laws convict, so the
+correction is published rather than smoothed. **Read every in-row *2026-09-17* of §1.e and the `e` stamp's
+*CLOSED 2026-09-17* as the SEAT-OPEN clock; the SETTLE clock is 2026-09-18.** Nothing above is rewritten.
+

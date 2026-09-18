@@ -715,6 +715,17 @@ distinction is written **in each row** rather than left to the close seat to inf
 `fr-AdminUserList FR-AUL-17` · `fr-GalleryCard L·M-4 / D-13 / C-8(a) + L·D-2 / C-12` · `fr-ContourSettings
 B-1 / L-B1 / C-2` (**not** `fr-FourierShapeExtractor L-B1`, which is unit `g`'s TRIPWIRE row).
 
+⌧ **DATE ERRATUM — corrected BESIDE, never over (E-3), because a stamp is a figure and WRITE-THEN-MEASURE
+binds the clock too.** Every cell of this unit reads *seat clock **2026-09-17***, which is the **wave's OPEN**
+clock (seat 0, 22:56 EDT) carried forward from units `a`–`d`. Measured at the settled bytes, **unit `e` sat
+entirely after midnight**: ⟨cmd⟩ `git show -s --format='%h %ad' --date=format:'%Y-%m-%d %H:%M' <sha>` →
+`ef284298` **2026-09-18 00:09** · `01d36470` **00:11** · `f411a369` **00:11** · `39c02c50` **00:12** ·
+`af053a3b` **00:13** · `121dd4f1` **00:14** (and this unit's record receipt `e3e2aaf3` **00:17**). **No
+measurement is affected** — fourier stood at `3bac3d52` with **0** dirty paths before, during and after every
+act, re-read post-commit — but an un-measured figure is precisely what this wave's laws convict, so the
+correction is published rather than smoothed. **Read every in-row *2026-09-17* of §1.e and the `e` stamp's
+*CLOSED 2026-09-17* as the SEAT-OPEN clock; the SETTLE clock is 2026-09-18.** Nothing above is rewritten.
+
 ---
 
 ## §2 Unit stamps
