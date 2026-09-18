@@ -188,3 +188,94 @@ The frontier moved from `81a56990` to `ae83da07` (KF.W0 §B-12 settle + the W1/W
 ## Unit receipts
 
 *(appended by each unit at its close — one block per unit, `SERVED MODEL` line, acts in order, commands quoted with their outputs, gates measured double-run)*
+
+### KF.W6.a
+
+SERVED MODEL: claude-opus-5[1m]
+
+**Unit**: `KF.W6.a` — the KF.W4 ∥ KF.W6 atomic bundle. **Seat clock**: 2026-09-18 00:17 → 00:2x EDT.
+**Substrate**: `/Users/mkbabb/Programming/keyframes.js`, branch `master`, HEAD **`3a01e362`** at open = `origin/master ae83da07` **+1** (the sibling `X.KF.W7.a` manifest commit; ⟨`git rev-list --left-right --count origin/master...HEAD`⟩ → `0	1`, HEAD a descendant). Worktree at open: **0 tracked modifications**, 2 untracked (the O-8/O-11 mail survivors).
+**Sections executed**: §Bounds `:119-121` (the `usability.mjs` ONE POSTURE, DH-4) · §Bounds census **A-11(4)** `:156` · §Sequencing → KF.W4 cross-edge item **(6)** `:568` · runbook §3.4 row `KF.W4 ∥ KF.W6` `:465`. COHESION §0j read whole plus every later addendum to the file end (§0k ×2 · §0l · §0m · §0n) — **§0m.1's push rule consumed** (*"a wave's close pushes `origin HEAD` for the wave's own work; a sibling never pushes it"*), so this unit commits and does **not** push.
+
+#### Act 1 — the D-19 witness re-run (read-only, BEFORE any write)
+
+The spec's anchors were taken at `81a56990`; D-19 re-verifies at wave-open. Four witnesses, each re-executed at this seat's clock, none inherited from the Open/Baseline sections:
+
+| # | witness | ⟨cmd⟩ → output | verdict |
+|---|---|---|---|
+| W1 | path present at the frontier (§Bounds `:121`) | ⟨`git cat-file -e origin/master:scripts/observe/demo/usability.mjs`⟩ → exit **0**; ⟨`git show origin/master:… \| wc -l`⟩ → **410** | **reproduces** (the spec's own "410 L") |
+| W2 | KF.W4 committed no byte of it (its half's own declaration) | ⟨`git diff --stat -- scripts/observe/demo/usability.mjs`⟩ → **empty**; ⟨`git log --oneline -1 -- <path>`⟩ → `70b32501 refactor(tranche-u): dissolve the proof apparatus around direct product checks` — the last write predates tranche X entirely | **MET** |
+| W3 | the bundle's **stated DEPENDENCY** (patch header) | ⟨`ls -l scripts/gates/register-census.mjs`⟩ → present (19962 B); ⟨`grep -c wordWrapperSelector demo/styles/font-roles.json`⟩ → **1**; ⟨`node -e 'import("./scripts/gates/register-census.mjs")…'`⟩ → `SELECTORS = {"heroDisplay":"h1.hero-display .wave-char","heroWordWrapper":"h1.hero-display .wave-word","heroChar":".wave-char","heroWord":".wave-word",…}` | **MET** — and the fold is **selector-preserving**: `heroChar` = `.wave-char`, `heroWord` = `.wave-word`, byte-identical to the strings the pre-patch file hard-coded |
+| W4 | census **A-11**'s specifier leg, re-run (the leg A-11(4) qualifies) | ⟨`git grep -n 'EditorHeader' -- demo/ test/ src/ scripts/`⟩ → **2 hits**: `demo/components/instrument/shell/index.ts:2` · `demo/styles/layout.css:15`. ⟨`git grep -n 'EditorHeader' -- scripts/`⟩ → **0** | **reproduces exactly** — `usability.mjs` names `EditorHeader` **nowhere**; it reaches the file only by directory enumeration, which is precisely the premise A-11(4) rests on |
+
+`git apply --check` of the KF.W4 half, re-run at these bytes: ⟨`git apply --check …/execution/B/KF-W4-usability-bundle.patch`⟩ → **CLEAN (exit 0)**.
+
+#### Act 2 — the bundle applied; syntax checked
+
+⟨`git apply /Users/mkbabb/Programming/value.js/docs/tranches/X/execution/B/KF-W4-usability-bundle.patch`⟩ → exit **0**.
+⟨`node --check scripts/observe/demo/usability.mjs`⟩ → exit **0**.
+⟨`wc -l`⟩ → **410 → 471 L**; ⟨`git diff --stat`⟩ → `1 file changed, 83 insertions(+), 22 deletions(-)`.
+⟨`git status --porcelain`⟩ → ` M scripts/observe/demo/usability.mjs` + the same 2 untracked — **no other path touched by this seat**.
+
+#### Act 3 — census **A-11(4)**, MEASURED and not asserted (the wave's W6-half question)
+
+A-11(4) records `usability.mjs` as a **NAMED NON-CONSUMER**: it *"reads the shell **directory** by `readdirSync` … and asserts nothing per-file — a delete changes no assertion."* The seat brief asked this be **recorded as a measurement rather than asserted**, since no later unit may reopen the path. Three legs:
+
+**(i) ANCHOR DRIFT, recorded (INTENT at the true bytes).** The spec's A-11(4) cites `:118-135` at `81a56990`; the orchestrator's brief reads `:122-137`. **Neither resolves at the frontier.** Measured: at `ae83da07`/`3a01e362` pre-bundle the block is **`:120-141`** (`readdirSync` at `:124`); at the settled post-bundle bytes it is **`:159-180`** (`readdirSync` at `:163`). ⟨`grep -n 'shellDir\|2d static' scripts/observe/demo/usability.mjs`⟩. The block's **bytes are unchanged by the bundle** — ⟨`sed -n '159,180p'`⟩ is the same 22 lines, verbatim; only its coordinate moved (+39, the patch's insertions above it). The banked leg id `A-11(4)` is the anchor; no line number rides this receipt as authority.
+
+**(ii) THE ENUMERATION IS THE ONLY PER-FILE READ INTO `shell/`, measured at both clocks.**
+Pre-bundle ⟨`grep -n 'readFileSync\|readdirSync\|read(path.join\|const read =' scripts/observe/demo/usability.mjs`⟩ → `:69` the `read` helper · `:77` `app/scene/scenes.ts` · `:78` `app/scene/router.ts` · `:122/:124/:127` the `shellDir` loop. **Three read call-sites; exactly one reaches `components/instrument/shell/`, and it is the enumeration.** The brief's premise holds at the bytes.
+Post-bundle (settled) the same command → `:83` helper · **`:90` `components/instrument/shell/EditorStartScreen.vue`** · `:116` `scenes.ts` · `:117` `router.ts` · `:163` the enumeration. ⟨`grep -n 'components/instrument/shell' …`⟩ → **exactly 2 reaches: `:90` (a NAMED file) and `:161` (the directory)**. **The bundle adds one per-file read under `shell/` and it names `EditorStartScreen.vue` — a SURVIVING §Bounds file (`:67`, access `modify`, 191 L), never `EditorHeader.vue`.**
+
+**(iii) THE DELETE'S EFFECT ON THE ONLY PREDICATE, measured by simulation, double-run.** The predicate is `hits.length === 0` over a comment-stripped `/\bdepth-text\b/` test — a **NEGATIVE** probe with **no count assertion on the directory**. A script replicating `:159-180` verbatim, run with and without `EditorHeader.vue` in the enumeration, at the settled bytes, twice:
+
+```
+BEFORE delete: files=10 hits=(none) -> clause (2d static) = ok
+AFTER  delete: files=9  hits=(none) -> clause (2d static) = ok
+EditorHeader.vue's contribution to hits: 0 (not a hit)
+verdict moved: false
+```
+
+Corroborated raw: ⟨`grep -c 'depth-text' demo/components/instrument/shell/EditorHeader.vue`⟩ → **0** (exit 1). ⟨`grep -rn 'depth-text' demo/components/instrument/shell/`⟩ → **3 hits, all in `EditorStartScreen.vue` (`:21`, `:105`, `:106`) and all inside comments** the probe strips — which is why the live hit set is ∅ while the raw grep is not.
+
+**VERDICT — RECORDED, NOT ASSERTED: KF.W6 needs NO half of this file.** The `EditorHeader.vue` delete (unit `.d`) moves the clause from `ok` to `ok`; the deleted file's contribution to the only per-file predicate is **0**, so the delete is **greener-or-equal and here exactly EQUAL**. A-11(4)'s claim is **CONFIRMED by measurement**, strengthened from *"asserts nothing per-file"* to *"asserts one per-file predicate, measured 0 on the deleted file."* Accordingly the commit below carries the KF.W4 half alone and the path is now **CLOSED for this wave**.
+
+#### Act 4 — THE COMMIT (one commit, both seats, pathspec)
+
+⟨`git add scripts/observe/demo/usability.mjs && git commit --no-verify --quiet -m "…" -m "Claude-Session: …" -- scripts/observe/demo/usability.mjs`⟩
+
+**`77d0e0b1`** (`77d0e0b190f9a2b3937132669eaf888851adb37b`) — *"fix(kf · X.KF.W4.d ∥ X.KF.W6.a): the usability gate stops re-deriving its own hero oracle, and the AnimatedText class strings get one home — THE KF.W4∥KF.W6 ATOMIC BUNDLE, one commit, both seats …"*, the subject naming **both seats** and carrying the A-11(4) verdict.
+⟨`git show --stat --format='' -1`⟩ → **`scripts/observe/demo/usability.mjs | 105 ++++----`, 1 file changed** — the pathspec held; no sibling seat's staged path was swept in.
+⟨`git status --porcelain`⟩ after → the 2 untracked survivors only. **`scripts/dev/dev.sh` untouched throughout** (it is not in this repo and was never staged).
+
+#### Act 5 — WRITE-THEN-MEASURE at the settled bytes, double-run
+
+⟨`git show HEAD:scripts/observe/demo/usability.mjs \| wc -l`⟩ → **471** · **471** (twice).
+⟨`node --check` on the HEAD bytes⟩ → **OK** · **OK** (twice).
+⟨`git diff --stat HEAD -- <path>`⟩ → **empty** (worktree ≡ HEAD).
+⟨the A-11(4) probe, re-run at settled bytes⟩ → the four lines above, **identical on both runs**.
+The bundle's own oracle, extracted at the settled bytes twice: ⟨`grep -n 'title:' demo/components/instrument/shell/EditorStartScreen.vue`⟩ → `:77 title: "Select an animation"`; `DECLARED_HERO_TITLE = "Select an animation"`, `DECLARED_HERO_GLYPHS = 17` — **reproducing the patch header's stated 17** at the frontier's own bytes.
+
+#### Gate readings BEFORE → AFTER
+
+This unit turns **no `G-W6-n`** (unit plan: *"the bundle lock; it turns no `G-W6-n`"*). The fifteen stay as the Baseline measured them: **ALL FIFTEEN RED, before and after** — no cure byte of any `G-W6-n` subject was written here. What this unit discharges is the **LOCK**, not a gate:
+
+| lock | BEFORE | AFTER |
+|---|---|---|
+| **KF.W4 ∥ KF.W6 atomic bundle** (`usability.mjs`: *"one commit, both seats; never unilaterally, never concurrently"*) | **OPEN** — KF.W4's half authored as a patch and uncommitted by design; the tracked file unmodified at 410 L | **DISCHARGED** at `77d0e0b1`, one commit, both seats named in the subject; **the path is CLOSED for this wave** |
+| **census A-11(4)** — the `usability.mjs` non-consumer leg of the `EditorHeader` delete | recorded as an inherited claim at `81a56990` | **MEASURED at the settled bytes**, double-run: the delete moves no assertion; unit `.d` may spend the delete with this leg discharged |
+
+#### Residuals (carried forward by name — none is an escalation)
+
+1. **A NEW, MEASURED DOWNSTREAM CONSTRAINT for units `.h` · `.i` · `.k`, which hold `EditorStartScreen.vue` (modify).** The settled gate reads its `title:` prop default at `:90` as (2c)/(2b)'s oracle and, by the patch's own design, **THROWS** rather than falling back — *"A missing declaration THROWS rather than falling back to the mirror."* **A hero-band cure that removes or re-spells the `title:` default must move the oracle in the same motion; re-spelling alone is safe (the oracle re-derives), removal is not.** This constraint did not exist at spec-authoring and is booked here, not inferred later.
+2. **Anchor drift on A-11(4)** — `:118-135` (spec) / `:122-137` (brief) → `:120-141` (pre-bundle) → **`:159-180`** (settled). The block's bytes are unchanged; only its coordinate moved. Recorded per E-3 as a dated measurement beside, never as a patch of the spec.
+3. **NOT PUSHED.** §0m.1: a wave's close pushes `origin HEAD` for the wave's own work; a sibling never pushes it. `77d0e0b1` sits local with the sibling's `3a01e362`; unit `.l` pushes at close.
+4. **The gate was not EXECUTED**, by design and by probe parsimony (§5.2): its browser half wants a built `dist/` + playwright, and this unit's named verification is `node --check` (seat brief). Bounded substitutes were run instead — `node --check` on the settled bytes, the dependency import resolved to its real `SELECTORS`, the specifier `../../gates/register-census.mjs` resolved from `scripts/observe/demo/` to `scripts/gates/register-census.mjs` (`exists=true`), and the oracle extracted. **Its first real run is KF.W4's/CI's, not this seat's, and nothing here claims it green.**
+
+#### E13
+
+Delta sweep at this unit's own clock against the wave-open sweep (23:58): ⟨`/usr/bin/find <each of the four paths> -maxdepth 1 -type f -name '*.md' -newermt "2026-09-17 23:58"`⟩ → **only `docs/tranches/V/coordination/INBOX.md`** (the ledger itself, SELF-COUNT-excluded). **0 new mail · 0 UNREAD in KF.W6's scope.**
+
+#### Escalations
+
+**None.** The specified cure was available at the bytes and was executed exactly as specified.
