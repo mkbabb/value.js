@@ -1415,3 +1415,15 @@ f7954997 docs(x-p-w3/.b): evidence — RE-LANDED on tranche-u
 landed between this unit's commits): ⟨cmd⟩ the closure gate → **exit 1, 8 of 10 legs GREEN, evidence
 byte-identical**; ⟨cmd⟩ `npx vitest run --config typescript/test/css-recovery/vitest.config.ts` →
 **23 passed / 1 born-RED**, unchanged. Nothing `.a` landed moved a figure this unit published.
+
+**Addendum-beside to X.P.W3.a, same sitting (2026-09-18 01:5x EDT), never a rewrite of the block
+above.** The gate-27 reading pasted in *The commits* (`git status --porcelain -- src api demo test
+e2e | wc -l` → **0**, double-run) was true at this unit's own clock and is **no longer true at the
+file's clock**: a re-measure at the close of this receipt reads **1**, the single line
+` M e2e/smoke/admin/a11y-authed-admin.spec.ts`. It is a **sibling track's** byte — the X·V W1.a seat
+whose whole brief is the Playwright/e2e verification surface (`ci(x-v/w1.a)` · `test(x-v/w1.a)`, at
+`ec654158`/`ca1a4459`/`49306a1d`) — and **none of this unit's three value.js commits
+(`12564399` · `007d3820` · `d7eb2e33`) touches any path under `src/`, `api/`, `demo/`, `test/` or
+`e2e/`**, which `git show --stat` on each confirms. Stated rather than left to be discovered: a
+shared working tree makes gate 27 a *tranche-wide* reading, not a per-seat one, which is the same
+lesson F-a.7 draws from the branch switch.
