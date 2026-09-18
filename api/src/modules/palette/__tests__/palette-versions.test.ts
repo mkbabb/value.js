@@ -31,6 +31,7 @@ import {
 } from "../service/versions.js";
 import { createPalette, patchPalette } from "../service/crud.js";
 import { computeContentHash } from "../hash.js";
+import { paletteETag } from "../etag.js";
 import {
     describeMigration,
     migrateXW3PayloadHash,
@@ -313,9 +314,16 @@ describe("service.palette.versions", () => {
         );
         const bHash = bRows[0]?._id as string;
 
+        // ESC-W3.3-PRECONDITION-TESTS, taken at Repair 1. G-9 made a strong
+        // `If-Match` a PRECONDITION of revert, so this request was refused
+        // `428` before it could reach the join it exists to measure. The row's
+        // predicate is untouched — it just satisfies the precondition first, on
+        // the `before` document read one statement above. (No
+        // `Idempotency-Key`: this test app mounts the routes without the global
+        // replay middleware.)
         const res = await app.request("/palettes/a/revert", {
             method: "POST",
-            headers: jsonAlice,
+            headers: { ...jsonAlice, "If-Match": paletteETag(before!) },
             body: JSON.stringify({ hash: bHash }),
         });
         expect(res.status).toBe(404);
