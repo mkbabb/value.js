@@ -711,3 +711,104 @@ allowlist pressure.
 **Index hygiene**: every commit carried its own pathspec on the commit itself; no `git add -A`, no `-u`, no
 `commit -a`, no reset/unstage of another seat's paths; the record was re-read (⟨`wc -l`⟩ → 628, last entry
 `### X.KF.W7.a`, working tree clean for it) immediately before this append.
+
+---
+
+### X.KF.W7.b
+
+SERVED MODEL: claude-fable-5-1 · **2026-09-18** · Fable design seat, **serial over the shared files**; the
+ONE seam commit family. Sections executed: §Carry P1 (:128-141) · P2 (:142-148) · P3 (:149-156) · §Gates G2
+(:265-267) · G3 (:269-271) · G4 (:273-275) · G5 (:277-279) · G13 (:313-315) · §Bounds' disjointness
+paragraph (:84) · §Sequencing 5 (:334). **Status: DONE — G2 RED → GREEN · G5 RED → GREEN**; G3 · G4 · G13
+DESIGNED (published; `.d` implements). Writable set honoured — **no write outside it → no escalation**.
+
+**Substrate at open**: kf `HEAD` = `origin/master` = **`77d0e0b1`** (the KF.W4∥KF.W6 bundle, after `.a`'s
+`3a01e362`); ⟨cmd⟩ `git diff --stat ae83da07 77d0e0b1 -- demo/components/instrument/timeline
+demo/utils/keyframeSelector.ts src/animation/engine/animation.ts src/animation/engine/interpolate.ts` →
+**empty** — every timeline anchor of the G12 pin resolves unchanged; all re-read at the bytes before any
+edit (`timelineEngine.ts` `:37-47` · `:38` · `:40` · `:49-51` · `:66` · `TimelineTrack.vue` `:24` · `:27-34`
+· `:62` · `:97-98` · `:160-161` · `:168-172` · `:182` · `:192-196` · `KeyframeTimeline.vue` `:83` · `:194-210`
+· `useTimelineBuild.ts` `:46` · `:53-61` · `:112-115` · `useTimelineOps.ts` `:28` · `:56-62` · engine
+`animation.ts:155-156` (`_defaultTransform` reads `this.targets` LIVE) · `:485-490` (`setTargets` →
+`bindTargets`) — **all EXACT**). Consumed: `.a`'s G1 (six KEEP-BESPOKE; both triggers ARMED) and
+OP-0/OP-1 (portal KEPT; G2's AnimationControlsGroup arm UNBLOCKED); `.c`'s receipts read after its append
+(its G10 design keeps `scrubAndCapture`'s finally-restore and its G9 `describeKeyframe` becomes the marker's
+accessible name — the stop count landed here must survive in it, noted for `.d`/`.e`).
+
+**Step 0 (E13, seat-level)**: ⟨cmd⟩ `/usr/bin/find <the four paths> -maxdepth 1 -name '*.md' -newermt
+'2026-09-18 00:31'` (the clock of KF.W6.b's foot sweep) → `../glass-ui/docs/tranches/BK/coordination/
+valuejs-outbound-2026-09-18-kfw6-bh-relay.md` (**our own outbound**, rowed by that seat) ·
+`../glass-ui/docs/tranches/BK/EXECUTION-PROGRESS.md` (glass's execution ledger, not mail) · `INBOX.md`
+(self). **0 new inbound in KF.W7's scope; 0 `I-n` minted; no INBOX row added.**
+
+#### Acts, in order (one commit per meaning; pathspec on the commit itself)
+
+| # | commit | repo | meaning |
+|---|---|---|---|
+| 1 | `5657f69f` | value.js | **THE RULING, in writing, before any byte** — `evidence/W7/SEAM-DESIGN.md` (line 1 `SERVED MODEL: claude-fable-5-1`): §0 the seam is **LIVE** (the rail's whole affordance is a scrubber; `snapshot()` is keyed on the playhead, `useTimelineOps.ts:28`); **the D-1/C-1 dissent trigger FIRES** — {C-1, C-6, L-3, L-5, M-3/C-4} carry BLOCKER weight as one cluster; **the M-3/C-4 inverse trigger does NOT fire** (MAJOR stands). §1 the single-engine arm = the **detached preview subject** (C-6's first arm; the AnimationControlsGroup arm declined for this landing — its files are outside every seat's §Bounds and its shape is a product change). §2 the pointer policy. §3 **G5 RULED COALESCED-AND-SAID-SO** (minimum separation declined with reasons). §4/§5 the designs `.d`/`.e` implement (grabDx + L-m-14 · rebuild economics · wheel policy · D-1 keyboard route · M2 caret half · the `useTimeline` source/subject split · capture-the-subject · L-5 generation counter). §6 the roster table. |
+| 2 | `f9e15f8e` | keyframes.js | **G5 — the collision decision, written into both shared files in ONE act**: `timelineTypes.ts` +53 (`TimelineStop { key; percent; keyframes; vars }` + `coalesceKeyframes` — stable percent sort, group by `selectorText(kf.selector)`, `vars` later-wins, i.e. exactly the order and policy the build had) · `timelineEngine.ts` (the `:37-47` merge loop DELETED; the build iterates `coalesceKeyframes(state.keyframes)` and compiles `stop.vars` under `stop.key` — no second merge exists; the now-unused `selectorText` import removed). **The merge KEY is byte-identical** (MISS-β2's float artefact is KF.W8's; `29` → `28.999999999999996%` measured and left). |
+| 3 | `f77b152d` | keyframes.js | **G2 — THE SEAM, ONE commit** (4 files, 258+/59−): `KeyframeTimeline.vue` — `scrub` and `animation` destructured; `@update:scrub-t="scrub"` (the engine, not a bare ref); the **preview stage** (`.timeline-preview-stage`, `aria-hidden`, `h-24`/`h-40`) and the **two watchers**: subject minted per source×stage (`flush: "post"`), and **the invariant** `watch([animation, previewSubject], ([anim, subject]) => anim?.setTargets(...(subject ? [subject] : [])), { immediate: true, flush: "sync" })` — every built animation is rebound to the subject in the same synchronous step that publishes it; with no subject the engine is bound to NOTHING. `timelineEngine.ts` — `createPreviewSubject` (deep clone; `id`/`tabindex` stripped from the subtree; `inert`; `aria-hidden`; `pointer-events: none`; `data-timeline-preview-subject`) + the build's contract docblock. `TimelineTrack.vue` — the pointer policy (explicit `gesture` latch; `acceptsPress = isPrimary && button === 0`; `activePointers` set — a second contact ends the live gesture and suppresses until all lift; capture on the RAIL; `getPercentFromPointer(): number \| null`; the `buttons > 0` proxy, its lying comment and the dead re-test GONE; `@lostpointercapture` wired), and the marker + caret loops re-keyed to **stops** (`:key="stop.keyframes[0].id"`, `aria-label` *"N keyframes at P% (one rule in the animation) — …"*, a `×N` badge, ghost from `stop.vars`, a stop drags/arrow-moves as one, selection keeps the stop's already-selected member). `timelineTypes.ts` — `keyframes: [TimelineKeyframe, ...TimelineKeyframe[]]` (never-empty encoded in the type, no `!`). |
+| 4 | (this commit) | value.js | these receipts + `SEAM-DESIGN.md` §7 addendum (capture-on-rail supersedes §2's `currentTarget` row; the two findings below). |
+
+**§Sequencing 5 honoured**: the pointer guard SHIPS WITH the seam (one commit, `f77b152d`). **§Disjointness
+honoured**: `timelineEngine.ts`/`timelineTypes.ts` written here and nowhere else; both commits landed
+**before `.d`/`.e` dispatch**. **LP-1**: no write→render edge — `scrub` runs from handlers only; the subject
+mount is post-flush; the rebind writes no DOM.
+
+#### Gate readings BEFORE → AFTER (settled bytes, run twice — `diff run1 run2` → DOUBLE-RUN IDENTICAL)
+
+| gate | BEFORE (Baseline) | AFTER | witness |
+|---|---|---|---|
+| **G2** | RED — `scrub` in none of `:78 :83 :197 :202 :224`; `isPrimary\|pointerType` **0**; `:49-51` a second engine over spread scene targets | **GREEN** | ⟨cmd⟩ `grep -n scrub KeyframeTimeline.vue` → `:94 :scrub-t` · **`:99 @update:scrub-t="scrub"`** · `:215 scrubT` · **`:220 scrub,`** · `:221 scrubAndCapture` · `:276`; ⟨cmd⟩ `grep -c 'isPrimary\|pointerType' TimelineTrack.vue` → **2**; the rebind at `KeyframeTimeline.vue:259` (`setTargets`) under `:261 flush: "sync"`; `createPreviewSubject` at `:192`/`:243`. **Assertion, executed** (probe `g2.probe.ts`, mounted `KeyframeTimeline` over a scene `<div>` with `opacity: 0.9`, two snapshots at 0.2/0.9, a primary scrub to 75%): scene `style.opacity` **`0.9` before and after** (never written); the stage's subject `opacity` **in (0.2, 0.9)** (painted); `id` stripped, `aria-hidden="true"`, `data-timeline-preview-subject` present. Right-button press → **0** scrubs, **0** captures; non-primary contact → 0; button-held pointer entering → 0; primary press → `[0.25]` + captured; second contact (pinch) → capture released, both fingers' moves → still `[0.25]`; one lifts, primary re-presses → still `[0.25]`; all lift, fresh press → `[0.25, 0.5]`. |
+| **G5** | RED — merge loop `:37-47` keyed `:38`, admitted `:40`; both render loops per keyframe (`:62`, `:97-98`) | **GREEN** | ⟨cmd⟩ `grep -n coalesceKeyframes` → `timelineEngine.ts:69` (the build's ONLY partition), `timelineTypes.ts:48` (the definition), `TimelineTrack.vue:153` (the render's ONLY partition); ⟨cmd⟩ `grep -n v-for TimelineTrack.vue` → `:39 tick` · **`:67 stop in stops`** · **`:111 stop in stops`**. **Assertion, executed** (`g5.probe.ts` + `g2.probe.ts` test 3): three keyframes, two at one key → `coalesceKeyframes` → **2** stops, `vars` later-wins `{opacity: "1", color: "red"}`, key `"42%"`; the build's `templateFrames.length` **== stops.length (2)**, selectors equal per stop; the export contains `42%` **once**; the track renders **2** markers, the merged one labelled *"2 keyframes at 50% (one rule in the animation) — …"* with a `×2` badge, and its drag emits `moveKeyframe` for **both** members (`[["a",75],["b",75]]`). |
+| G3 · G4 · G13 | RED | **RED — DESIGNED** (SEAM-DESIGN §4.1–§4.3), `.d` implements | not this seat's to turn; nothing stamped |
+
+**Typecheck (OP-2 is live)**: ⟨cmd⟩ `npm run check 2>&1 \| grep -c 'error TS'` → **34 BEFORE · 34 AFTER**
+(the frontier's pre-existing errors, none in this seat's files; the two `timeline`-scoped hits are the
+SAME two before and after: `KeyframeTimeline.vue` the `<Input v-model>` TS2379 at `:105`→`:121` — N-2's
+`.e` row — and `snapshotCapture.ts:34` TS6133 — `.e`'s). **Tests**: ⟨cmd⟩ `npx vitest run --project demo`
+→ **31 files · 195 tests passed** after the seam (the read-only witnesses `timeline-undo.test.ts` and
+`value4-editor-boundary.test.ts` among them, unedited: **0** of the twelve tracked files touched).
+
+#### Findings (measured; owners named; no cure spent outside bounds)
+
+1. **The SFC-mount fixtures cannot render glass-ui under the repo's `vitest.config.ts`** (SEAM-DESIGN §7.2):
+   glass's `useSpring-*.js` chunk imports `@mkbabb/keyframes.js` bare; externalized under vitest it never
+   resolves (nothing inlines it — `grep -c deps vitest.config.ts` → 0); reka `Tooltip` also needs a
+   `TooltipProvider` ancestor. This seat's probes used a scratchpad config (`server.deps.inline:
+   [/@mkbabb\/glass-ui/]`) and a `TooltipProvider` wrapper. **The `vitest.config.ts` write is STRUCK for
+   this wave** → **ORCHESTRATOR**: a dated E-3 widening (one `server.deps.inline` line) or the G11 fixtures
+   stay unrunnable for `KeyframeTimeline`/`TimelineTrack` mounts even after `@vue/test-utils` installs.
+2. **A snapshot's legacy `rgba(r, g, b, a)` is refused by the compile** (SEAM-DESIGN §7.3): `rgba(0, 0, 0,
+   0)` and `rgba(0, 0, 0, 0.5)` → *"Invalid CSS value for "backgroundColor" … expected scalar"*; the slash
+   form and `transparent` compile. Browsers return the comma form for every transparent/translucent
+   computed color, so `snapshot()` on any unstyled-background target feeds `rebuild` a refused value and the
+   failure lands on G14's ONE silent path (`useTimelineBuild.ts:47-50`). Owner: the color-parse seam
+   (library band), never a `snapshotCapture` filter → `.f`'s residuals + KF.W10, cross-ref G14.
+
+#### Residuals, each with a named owner (the seam family's `.e`/`.d` members, SEAM-DESIGN §1.5/§4/§5)
+
+1. **R-b1** construction-time targets — `useTimeline` source/subject split (`.e`); the build's third
+   argument then carries the subject and the owner rebind retires.
+2. **R-b2** `scrubAndCapture` captures `targets.value[0]` (the scene) — until `.e` re-points it to
+   `animation.value.targets[0]`, the hover thumbnail shows the scene's pose, not the keyframe's
+   (thumbnail-truth regression bounded to G10's surface, stated so it is never read as unexplained).
+3. **R-b3** L-5 generation counter (`.e`); **R-b4** canvas subjects clone blank (SS-13 residue #1, routed).
+4. `.d`: grabDx + L-m-14 (§4.1; a drag whose stop head changes mid-merge is the case capture-on-rail
+   already survives) · G4 dirty check + rAF coalescing (§4.2; a stop drag today emits N `moveKeyframe` → N
+   builds until this lands) · G13 wheel policy (§4.3) · M2 caret `@pointerdown.stop` (until then a primary
+   press on the caret's display div still bubbles and scrubs) · D-1 keyboard route · C-10 rename · G7.
+5. `.e`: THP receives the stop (or a `count`) so the tooltip says what the marker says; L-8/C-9.
+6. `@vue/test-utils` install residual — `.a`'s; unchanged.
+
+**Escalations**: none — no write outside the writable set; the specified cure was possible at the bytes
+and was landed as specified (the C-6 arm chosen is the spec's first-named arm).
+
+**Index hygiene**: ⟨cmd⟩ `git show --stat --format=%H f9e15f8e` → 2 files (the two shared files);
+`f77b152d` → 4 files (`KeyframeTimeline.vue` · `TimelineTrack.vue` · `timelineTypes.ts` ·
+`timelineEngine.ts`), nothing else — a sibling seat's dirty `ChannelControls.vue` (` M`, appeared during
+this unit; KF.W6's in-flight work) and the two untracked `VALUEJS-INBOUND-*.md` survivors were **never
+staged**; `scripts/dev/dev.sh` in **zero** commits, either repo; no `git add -A`/`-u`, no `commit -a`, no
+reset/unstage of another seat's paths; kf HEAD moved under this unit (`77d0e0b1` → `252a8248` → mine),
+each of my commits made on the then-HEAD with its own pathspec. The record was re-read (⟨`wc -l`⟩ → 713,
+last entry `### X.KF.W7.c`, clean) immediately before this append.

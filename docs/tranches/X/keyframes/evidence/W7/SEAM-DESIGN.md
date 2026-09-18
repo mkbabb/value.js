@@ -322,3 +322,53 @@ selected member or its first.
 | RR-B missed-2 | MAJOR | dirty check + rAF coalescing | `.d` (G4) |
 | M5 ≡ RR-B-3 · M-7+missed-4 · D-11 · L-11 (caret) · L-m-10 | as banked | one wheel policy | `.d` (G13) |
 | ARB-1 | INFO | needs the pan writer | `.d` (with G13) |
+
+---
+
+## §7 · ADDENDUM 2026-09-18 (same seat, after the landing) — three things the bytes taught, recorded beside, never above
+
+**§7.1 · Capture is on the RAIL, not on `currentTarget` (§2's table row "capture on the handler's element"
+is superseded by this entry, E-3).** As landed, `beginGesture` calls `setPointerCapture` on `trackEl` for
+BOTH the scrub and the marker drag. Reason found at the bytes: markers are now keyed by the stop's head id
+(§3.2), and a drag that merges its stop into a neighbour whose member sorts first would move the head —
+Vue would re-create the marker and `lostpointercapture` would end the drag mid-gesture. The rail is the one
+node in the handler set that no keyed re-render moves, and it owns every gesture; capturing there is the
+stronger form of M2's *"never a transient node"*. The caret half of M2 (`@pointerdown.stop`, `.d`) is
+unchanged.
+
+**§7.2 · Mount tests cannot render a glass-ui component under this repo's `vitest.config.ts` (a G11
+finding for `.d`/`.e`, measured, not cured).** ⟨cmd⟩ `grep -l 'keyframes.js'
+node_modules/@mkbabb/glass-ui/dist/useSpring-*.js` → `useSpring-BCHxLjwv.js` — glass's dist chunk imports
+`@mkbabb/keyframes.js` by BARE specifier; under vitest that chunk is externalized (node_modules) and Node
+resolution cannot find the self-package (`grep -c deps vitest.config.ts` → **0**: nothing inlines it).
+Mounting `KeyframeTimeline`/`TimelineTrack` (they render glass `Tooltip`/`Button`) dies at import with
+*"Cannot find package '@mkbabb/keyframes.js' imported from …/useSpring-BCHxLjwv.js"*; and reka's
+`Tooltip` further requires a `TooltipProvider` ancestor (the app supplies it at `demo/app/App.vue:8`). This
+seat's probes ran under a scratchpad config that adds `server.deps.inline: [/@mkbabb\/glass-ui/]` and
+wraps the mount in `TooltipProvider`. **The `vitest.config.ts` write is STRUCK for this wave (§Bounds)** —
+the four G11 fixtures need the inline registration and it is nobody's in KF.W7. **→ ORCHESTRATOR**: a
+dated E-3 §Bounds widening (one `server.deps.inline` line, KF.W4's file) or a per-fixture wrapper; without
+it, G11 stays unrunnable for the SFC-mounting fixtures even after `@vue/test-utils` installs.
+
+**§7.3 · The engine refuses a snapshot's legacy `rgba(r, g, b, a)` (a latent defect on the instrument's
+authoring path, measured; owner named, not cured here).** Probe at the engine (`scratchpad/probe/
+engine-rgba.probe.ts`, `fromKeyframes` with one property at a time): `rgba(0, 0, 0, 0)`→`rgba(0, 0, 0,
+0)` **FAIL** *"Invalid CSS value for "backgroundColor" at 0-16: expected scalar."* · `rgba(0, 0, 0,
+0.5)`→`rgba(0, 0, 0, 1)` **FAIL** (same) · `rgb(0 0 0 / 0)`→`rgb(10 20 30 / 1)` **OK** ·
+`transparent`→`rgb(10, 20, 30)` **OK** · `rgb(0, 0, 0)` **OK** · `medium` **OK** · `0` **OK**. Browsers'
+`getComputedStyle` returns the LEGACY comma form for every color with alpha < 1 and `rgba(0, 0, 0, 0)` for
+every transparent background — so a `snapshot()` of any unstyled-background target (the common case) feeds
+the build a value the compile refuses, and `rebuild` fails on the ONE non-toasting path (`useTimelineBuild.ts:47-50`, G14's sole silent failure): **the instrument is dead for such targets and says nothing.**
+Reproduced at the composable level (`g2b.probe.ts`: default `captureProperties` → *"Failed to rebuild
+timeline animation: TypeError: Invalid CSS value for "backgroundColor"…"*; `captureProperties =
+["opacity"]` → GREEN). **Owner**: the color-parse seam (value.js `parseCssColor` legacy-alpha arm / the kf
+compile's `compileValuePair`) — a library-band row, not this wave's; `snapshotCapture` MUST NOT filter it
+away (a masking allowlist). → `.f`'s residuals + the KF.W10 ledger, cross-ref G14's precondition.
+
+**§7.4 · Probe receipts (scratchpad, not product bytes)**: `g5.probe.ts` (2 tests) · `g2.probe.ts` (3
+tests: subject painted / scene byte-identical; right-button · non-primary · button-held-entering · pinch
+· post-pinch suppression · fresh press; one marker for two same-key keyframes with `×2` and the label, a
+stop drag emitting `moveKeyframe` for both members) · `g2b.probe.ts` (1 test, the composable path) —
+**6 of 6 GREEN, run twice, identical** (⟨cmd⟩ `npx vitest run --config <scratchpad>/vitest.probe.config.ts`
+→ `Test Files 3 passed (3) · Tests 6 passed (6)`, both runs). These are this seat's evidence; the G11
+fixtures of record are `.d`'s/`.e`'s.
