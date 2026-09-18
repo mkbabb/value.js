@@ -925,3 +925,198 @@ as §2.2 and v2's C1/C2/C5 word them; no third diagnose→edit→re-measure occu
 close for `fr-GalleryDraftsSection B-2`, the record's **D-2** minute (the create path already wraps the
 idempotency envelope; the key and the unique index are what is missing) and **R8 = REMIX + BORN-PRIVATE**
 with the fourier half already conforming at `models/visualization.py:277`.
+
+---
+
+### d — counters, idempotency, lineage, and the ruled-away like verb
+
+**SERVED MODEL: claude-opus-5[1m]** · seat clock **2026-09-17** · engine **`/usr/bin/grep`** (BSD, the spec's
+pinned binary; bare `grep` is ugrep in this shell). Sections executed, exactly as briefed: **§2.3** (`:186-192`
+— `FR-GV-12` ⊕ `FR-GV-24` ⊕ `VV-R2-A` cited · `fr-GalleryDraftsSection B-2` ‡) · **§2.8** (`:225-230`) ·
+**§2.9** (`:231-236`) · **§3 `FW6-G6`** (`:515`), **`FW6-G7`** (`:516`). Writes confined to the two paths the
+brief names. **Zero fourier bytes · zero value-tree product bytes.**
+
+#### Acts, in order
+
+**Act 1 — substrate re-measured before any citation (D-19 MEASURE-AT-OPEN).** ⟨cmd⟩ `git -C $F rev-parse
+--short=8 HEAD` → **`3bac3d52`** · ⟨cmd⟩ `git -C $F status --porcelain | wc -l` → **0**, both double-run.
+**Unmoved from units `a`, `b` and `c`**, so §0.1c's anchor re-resolution holds at this clock and this unit
+re-derives none of it. The F.W0 pre-gate is unit `a`'s and was not re-litigated.
+
+**Act 2 — every anchor of §2.3 / §2.8 / §2.9 verified at true bytes before it was cited.** Results, with the
+two drifts recorded **beside** (E-3), never over:
+
+| spec/record anchor | at the live bytes | verdict |
+|---|---|---|
+| §2.3 `visualizations.py:256` `find_one` | `:256 doc = await db.visualizations.find_one({"slug": slug})` | **reproduces** |
+| §2.3 `:268-270` `$inc {"views": 1}` | the statement spans `:268-270`, literal on `:269` | **reproduces** |
+| §2.3 `:272` `_public_doc(doc)` | `:272 body = _public_doc(doc)` | **reproduces** |
+| §2.3 `gallery.ts:207-208` write-back | `:207 const idx = …` / `:208 if (idx !== -1) entries.value[idx] = {…, views: data.views}` | **reproduces** |
+| §2.3 `gallery.ts:167, :223` ETag capture | both are `etags.get(slug) ?? (await api.getVisualization(slug)).etag` | **reproduces** |
+| §2.3 `api.ts:371-380` `createVisualization` | declaration opens at **`:372`**, closes `:380`; `:371` is the JSDoc line | **DRIFT (1 line), recorded beside** |
+| §2.3 `api.ts:138-140` `coreFetch` key support | `:138-140 if (options?.idempotencyKey) { headers["Idempotency-Key"] = … }` | **reproduces** |
+| §2.3 `idempotency.py:68-70` passthrough | `:68 key = …` / `:69 if not key:` / `:70 return await handler()` | **reproduces** |
+| §2.3 `database.py:98` plain / `:140` unique | `:98` plain on visualizations; `:140` unique compound on flags | **reproduces** ⟨+`:141` disclosed below⟩ |
+| §2.3 `:612` remix `replay_or_record` | `:612` — **and `:236` create**, the D-2 site | **reproduces ⊕ extended** |
+| §2.8 `visualization.py:277` remix born `draft` | `api/models/visualization.py:277 visibility: Visibility = "draft"` | **reproduces exactly** |
+| §2.8 `forks.ts:76` value-side `"public"` | `api/src/modules/palette/service/forks.ts:76 visibility: "public",` | **reproduces** ⟨routed OUT⟩ |
+| record `fr-GalleryView.md:63` `viewedHashes (:46, :117-121)` | `:46` decl ⊕ `:118-119` inside `openModal` (`:117-122`) | **both true at their own grain; neither corrected** |
+
+**Act 3 — `FR-GV-12` ⊕ `FR-GV-24` (⊙ `VV-R2-A` cited) booked against FW6-G6.** The witness was taken in
+**statement order** rather than by coordinate, so the defect is exhibited rather than asserted: `:256` read →
+two 404 gates → `:268-270` `$inc` → `:272` serialise **the pre-`$inc` `doc`**. ⚑ Sharpened at the bytes: the
+gates above the `$inc` **gate NOT-FOUND only**, so an owner's own draft GET increments a row nobody else can
+read. The commissioned act carries **both** of E6's branches — explicit view verb **or** the mutating-GET
+policy stated against **RFC 9110 §9.2.1** naming every operation it covers — and neither was chosen here.
+
+**Act 4 — `fr-GalleryDraftsSection B-2` ‡ booked against FW6-G7, statically.** Five limbs, each read: no key
+on the create call (`api.ts:372-380`) though the transport carries one (`:138-140`, declared twice at `:98`
+and `:210`); the envelope's own docstring declining (`idempotency.py:65`, executed `:68-70`); the plain index
+(`database.py:98`) against flags' deliberate `unique=True` (`:140`); **D-2 extended** — `replay_or_record` has
+**two** non-test router sites, `:236` **create** and `:612` remix, so the envelope is already installed and
+**the key and the index are what is missing**; and the third mechanism, the invariantly-true client gate
+(`workspace.ts:102` the only writer, `GalleryView.vue:78-79` the two readers), **cited to F.W3/W4, not
+claimed**. **K12 honoured: no probe was spent.**
+
+**Act 5 — §2.8's `R-5`/`G5` ⊕ `E4` row entered under R8, with the open conjunct found by enumeration.** The
+fourier half's **shape** conjunct is **already met** (`models/visualization.py:277` remix-child default
+`"draft"`, `:183` create default `"draft"`) — stated as conformance, not smoothed into a defect. What this
+seat measured that the wave had not: **the EVIDENCE conjunct is absent.** E4 rules *"the rule is not adopted
+until both tests exist."* The remix surface is exactly two test files (⟨cmd⟩ `/usr/bin/grep -rln 'remix'
+api/tests --include='*.py'`); **neither is a member of the set asserting a visibility** (⟨cmd⟩ `grep -l
+'assert.*visibility'` over both → no output); corpus-wide, **zero** files assert a child's visibility; and of
+the **12** `_remix(` sites, **8** pass `visibility=` explicitly while the four that do not (`:80` · `:101` ·
+`:111` · `:126`) assert `image_slug`/`contour_hash`/`animation_data`, a **401**, a **422** and a **404**.
+**The `"draft"` default R8 rules is exercised four times and asserted nowhere.** The create side's
+`test_visibility.py:38-46 test_default_draft` is a **MODEL** assertion — no route, no persisted document, no
+child — recorded as *existing at the wrong altitude*, never as satisfying G5. The lineage arm was sharpened
+the same way: `VisualizationCreate` carries **no `fork_of` field** under `extra="forbid"`, the entity model
+holds the slot (`:146`), the only writer is the remix route (`:578-579`), and ⟨cmd⟩ `/usr/bin/grep -c 'remix'
+web/src/lib/api.ts` → **0** — **a closed create contract beside an uncalled verb**, not a missing `if`.
+
+**Act 6 — §2.9's `fr-GalleryFeaturedCarousel FR-GFC-3` ⊙ entered RULED-AND-ROUTED, with no act and no
+gate.** **F-SS4REST R4 = REMOVE THE AFFORDANCE**, and §2.9's own branch reads *"If DELETE: F.W4's."* — so
+**F.W6 books nothing.** The routing was nevertheless stated on **re-measured bytes** so it is falsifiable:
+zero like routes by the **non-blind** method; `cursors.py:17`/`:22` and `database.py:111` shipping the sort
+key and compound index; `liked_ips` **7 lines over 3 files, every one an exclusion, zero writers**;
+`gallery.ts:195 const liked = true;`. ⚑ **Sharpening for whoever lands the retirement: there is no route to
+delete** — the fourier-side residue is the counter, the index and the sort key.
+
+**Act 7 — K-1 discharged by arithmetic, not by recitation.** Both decompositions run at this seat, each arm
+double-run: bare `@router.` → **30** · `@admin_router.` → **13** · `@app.` → **1** · `@gallery_router.` →
+**1** ⇒ **45**; independent total, all-prefix decorators under `api/routers/` → **44** plus the one `@app`
+route ⇒ **45**. **The blind form's 30 is published BESIDE the true 45** so the trap is visible rather than
+described. **Every absence this unit states is stated over 45 — never 30 alone, never zero.**
+
+**Act 8 — the four rows, §1.d and the `d` stamp appended to `F-W6/burn-register.md`; commit.** Settled bytes
+re-measured **after** the write and **double-run identical**: **639 lines / 125,684 B**; line 1 still `SERVED
+MODEL: claude-opus-5[1m]`. Table integrity checked mechanically — every one of §1's **10** rows carries
+exactly **5** cells under an unescaped-pipe count, and the `id` column FW6-G17 greps now holds **ten** entries
+(1 unit-`a` placeholder + 3 `b` + 2 `c` + **4 `d`**).
+
+#### Commit
+
+| commit | meaning | pathspec |
+|---|---|---|
+| **`087fc5d8`** | `docs(x-f/w6.d): four rows booked — FR-GV-12(+FR-GV-24) · fr-GalleryDraftsSection B-2 · R-5/G5+E4 · FR-GFC-3 ruled-and-routed; FW6-G6/G7 commissioned acts installed` | `docs/tranches/X/fourier/waves/F-W6/burn-register.md` |
+
+⟨cmd⟩ `git show --stat 087fc5d8` → **1 file changed, 117 insertions(+)**. **One commit per meaning**: §2.3
+declares no ONE-COMMIT family (only §2.1 does, and §4 lock 3 for the privacy limb), so unit `d`'s four rows —
+which are one meaning, *this unit's booking* — land together and this record lands beside. ⟨cmd⟩ `git status
+--porcelain -- docs/tranches/X/fourier/waves/F-W6/` → **0**. **`scripts/dev/dev.sh` untouched and unstaged**
+— it remains ` M` in the tree and appears in no commit of this unit (⟨cmd⟩ `git show --stat HEAD --name-only |
+/usr/bin/grep -c 'dev.sh'` → **0**).
+
+#### Gate readings — BEFORE → AFTER
+
+Every AFTER witness was **re-run post-commit**; all reproduce unchanged, as they must while fourier is
+read-only (HEAD `3bac3d52`, **0** dirty, measured again after the landing).
+
+| gate | BEFORE (baseline, this record) | AFTER (this unit) | reading |
+|---|---|---|---|
+| **FW6-G6** unsafe GET / counter provenance | **RED-AS-EXPECTED** — `find_one` → `$inc` → `_public_doc(doc)` serialises the pre-increment doc; `viewed_ips` → **0** while `liked_ips` → **7** | **RED — commissioned act installed; landing pending** | §3's split verdict applied literally. Act = E6's **two named branches**, neither chosen here, with three bounds carried: the publish self-count is **collateral, not the intended increment** (E6's own ▲); **FR-GV-24's no-re-open-increment lock** is carried into the act *and* into the stamping bar on the evidence cell; and this seat's own bar — **a `viewed_ips` cure may not justify itself by symmetry with `liked_ips`, a surface R4 is retiring**. VV-R2-A's client arm **emitted and measured** (`setVisibility` → 2 hits, **zero call sites**), never claimed. Post-commit re-measure: `:268-270` → `:272` order unchanged; `viewed_ips` → **0** — the read still writes, which is why the gate is RED and not green |
+| **FW6-G7** create-path idempotency / dedupe | **RED-AS-EXPECTED** ⟨D-2 minuted⟩ — no `Idempotency-Key` on create; `if not key: return await handler()`; `content_hash` a plain index against flags' `unique=True` | **RED — commissioned act installed; landing pending** | Act = E5's **and/or** — make the standing envelope effective (the key reaches the create call) **and/or** make `content_hash` unique — with **E5's LOCK quoted into the row** (*"a cure that lands one of the three and reports the clause closed has measured the mechanism it chose, not the outcome"*) and installed as a **stamping bar** on the evidence cell. **K12 honoured: closed STATICALLY, zero probes.** D-2 **extended by measurement** — `replay_or_record` at `:236` **create** as well as `:612` remix. Post-commit re-measure: `idempotency.py:68-70` and `database.py:98` reproduce verbatim |
+
+**Two of this unit's four rows turn NO gate, and that is stated in the rows rather than left to inference.**
+§2.8's born-visibility/lineage row: **the wave's §3 opens no born-visibility gate** — its GREEN condition is
+**F.W5's `G5`** and its evidence is read by **FW6-G17**. §2.9's `FR-GFC-3`: **ruled-and-routed under R4**, so
+it turns no gate, books no act, and carries **N/A** — not *PENDING* — in its evidence cell, because there is
+nothing for this wave to await.
+
+**No other gate was touched, and none was read as GREEN.** The standing FW6-G16 condition holds at this
+seat's clock — ⟨cmd⟩ `git status --porcelain -- api/src src | wc -l` → **0** and ⟨cmd⟩ `git diff --stat --
+api/src src` → **empty**, before and after the commit.
+
+#### Locks observed, each with the act that observed it
+
+- **FR-GV-24 — a repair test may NOT assert a re-open view increment** (Act 3). This seat **wrote no test and
+  prescribed none.** The lock is carried into the commissioned act **verbatim from v2's bytes** and again
+  into the landing-evidence cell as a stamping bar: *"This evidence cell may NOT be stamped from a landing
+  whose repair test asserts a re-open increment."* **The defect is SCOPE, not absence** — `viewedHashes`
+  works within a session (`GalleryView.vue:46`, `:118-119`), and the row says so.
+- **K12 — `fr-GalleryDraftsSection B-2` closes STATICALLY; SS-13 spends no probe** (Act 4). **Zero probes
+  were run by this seat on either gated row.** Every limb of FW6-G7's witness is a static read of shipped
+  bytes, and the two mechanisms K12 names — the no-header passthrough and the plain index — were read at
+  `idempotency.py:69` and `database.py:98`, never observed live.
+- **R8 (F-SS4REST) — REMIX + BORN-PRIVATE, fourier half only** (Act 5). The value half (`forks.ts:76`) is
+  **named and routed OUT** at unit `i`; **GCM-1's `/v/` routing cure is F.W4's** and is emitted with its
+  mechanism measured (`GalleryCardModal.vue:185` emits the asset FK; `GalleryView.vue:396` routes `/w/`);
+  the D9 reconciliation is **v2's disclosure and the value.js API row's debt**, not this seat's to re-open.
+- **R4 (F-SS4REST) — the like affordance goes to F.W4** (Act 6). **F.W6 books no server act**, turns no gate
+  and stamps nothing; the row exists so FW6-G17's **reverse** direction resolves `FR-GFC-3` and its three
+  folded witnesses to a wave rather than to silence.
+- **K-1 counting lock — cite 45/30/13, never 30 alone or zero** (Act 7). Discharged by **running both
+  decompositions**, with the blind form's **30** published beside the true **45**.
+- **One home, two citations — the FR-GIG-5 standing bar.** Every client/display arm this unit touched is
+  **EMITTED, never claimed**: VV-R2-A's `setVisibility` adoption (F.W4), FR-GV-24's component-local reset,
+  E5's client gate and `publishedHashes` misnomer (F.W3/W4), GCM-1's routing repair (F.W4), and D2's
+  `aria-pressed` + re-click guard (F.W3/W4). **No F.W1 / F.W3 / F.W4 / F.W5 / F.W8 credit is claimed on any
+  of the four rows** — FW6-G17, both directions.
+- **Record-qualification (R-5).** `B-2` is written **`fr-GalleryDraftsSection B-2`** in every cell, with the
+  homonym `fr-EquationView B-2` named as a DISTINCT identity cited at spec §2.11 row 25, so no
+  set-difference collapses the two.
+- **E-3 addenda-beside.** Two coordinate drifts recorded **beside** the spec's and the record's spellings
+  (`api.ts:371`→`:372`; `viewedHashes` block-vs-statements), **neither corrected over**, and the spec was not
+  edited.
+
+#### Disclosures — measured after the commit, recorded rather than smoothed
+
+1. **`database.py:141` exists and is disclosed.** Flags carry **both** the unique compound index (`:140`)
+   **and** a plain single-field `content_hash` index (`:141`). The row as written cites `:98` (plain, on
+   visualizations) against `:140` (`unique=True`, on flags) and is **accurate as written** — the uniqueness
+   lives on the compound — but the honest shape of the contrast is *uniqueness-bearing vs not
+   uniqueness-bearing at all*, not *unique vs plain*. Disclosed here so a landing seat reading `:141` does
+   not think the row overstated its case.
+2. **This seat spent no browser probe and no live run.** FW6-G6's observable magnitude (VV-R2-A probe 4,
+   *"born at 1"*) stays **SS-13's and UNPROVEN-NEEDS-LIVE**; FW6-G7 is closed statically by K12. Both REDs
+   rest on source-certain reads — a statement order, a store boundary, a docstring executed two lines below
+   itself, and an index declaration.
+
+#### Residuals carried forward (none blocking)
+
+1. **The E4 test conjunct is the sharpest thing this unit found and it must reach unit `i`'s letter as an
+   ASK, not as a note.** R8's shape is shipped on the fourier side; **the assertion is not**. A courier that
+   carries the lineage slot and drops the remix-child born-visibility test leaves R8 **un-adopted by E4's own
+   words** (*"the rule is not adopted until both tests exist"*).
+2. **`test_default_draft` must not be cited downstream as satisfying G5.** It is a `model_validate_json`
+   assertion — no route, no persisted document, no child. Recorded so a close seat greping for
+   *"create-visibility test"* does not find it and stop.
+3. **D-2's extension changes the SIZE of the B-2 ask, and unit `i` should say so.** The idempotency envelope
+   is **already installed on the create path** (`:236`); the ask is a key and an index. A letter that asks
+   fourier to "add idempotency to create" mis-describes the tree.
+4. **FR-GFC-3's retirement residue has no route in it.** Whoever lands R4 should expect to delete a counter
+   field, a compound index (`database.py:111`) and a sort key (`cursors.py:17`, `:22`) — **not** a route,
+   because there is none. D2's rule that the four retire together is why the residue matters.
+5. **The `viewed_ips`-by-symmetry trap is recorded as a bar, not a design.** `liked_ips` is the obvious model
+   for a view dedup and is simultaneously the thing R4 retires. No design was authored here; the bar is in
+   the row so the landing seat does not reach for the retiring surface as precedent.
+
+**Escalations: none.** No write was attempted outside the writable set (the two paths the brief names); **no
+specified cure was impossible at the bytes** — both gated acts are commissioned asks authored exactly as
+§2.3 and v2's E5/E6 word them, §2.8's act is authored as E4/R8 word it, and §2.9 books nothing by the
+ruling's own branch; no third diagnose→edit→re-measure occurred on any gate.
+
+**Unit `d` CLOSED. Unit `e` opens** — the moderation band, **admitted not retired** (F-PRODRET: **PRODUCER,
+as a PORT**, with the port itself homed at **F.W8**), six rows with **FR-AFP-66 ⊕ FR-AFP-33 in ONE commit**,
+**R6 KEEP** the hard-delete arm, **R7 CODEGEN**, **K9's five `?? item.slug` fallbacks STAY**, β's
+428-escalation still killed, and **K-1's 45/30/13** carried forward from this unit's Act 7 measurement.
