@@ -1,0 +1,36 @@
+SERVED MODEL: claude-fable-5-1
+# X.P.W2.h re-measurement · 2026-09-17 · cwd /Users/mkbabb/Programming/parse-that-css-totality-p2/.worktrees/ac3
+# ⟨cmd⟩ node harness/w2/op-bijection.mjs --candidate ac3
+
+=== X.P.W2.g — op-bijection --candidate ac3 (G-2) ===
+contract  name      js row          jsSymbol         wasm row        wasmSymbol                      pairing
+--------  --------  --------------  ---------------  --------------  ------------------------------  -------
+OP-01     SCAN      OP-01 SCAN      compileScan      OP-01 SCAN      wasm:scan                       ok
+OP-02     LIT       OP-02 LIT       compileLit       OP-02 LIT       wasm:lit                        ok
+OP-03     NUM       OP-03 NUM       compileNum       OP-03 NUM       wasm:num+dec2f64                ok
+OP-04     DIGITS    OP-04 DIGITS    compileDigits    OP-04 DIGITS    wasm:take+spanDigits            ok
+OP-05     TEXT      OP-05 TEXT      compileText      OP-05 TEXT      wasm:scan                       ok
+OP-06     KW        OP-06 KW        compileKw        OP-06 KW        wasm:scan+kw                    ok
+OP-07     END       OP-07 END       compileEnd       OP-07 END       wasm:atEnd                      ok
+OP-08     SEQ       OP-08 SEQ       compileSeq       OP-08 SEQ       wasm:setErr/wCompileSeq         ok
+OP-09     ALT       OP-09 ALT       compileAlt       OP-09 ALT       wasm:mark+rollback/wCompileAlt  ok
+OP-10     CUT       OP-10 CUT       compileCut       OP-10 CUT       wasm:setCut                     ok
+OP-11     PURE      OP-11 PURE      compilePure      OP-11 PURE      wasm:setErr/wCompilePure        ok
+OP-12     REP       OP-12 REP       compileRep       OP-12 REP       wasm:mark+rollback/wCompileRep  ok
+OP-13     DROP      OP-13 DROP      compileDrop      OP-13 DROP      wasm:pushC                      ok
+OP-14     DISPATCH  OP-14 DISPATCH  compileDispatch  OP-14 DISPATCH  wasm:scan+kw                    ok
+OP-15     FAIL      OP-15 FAIL      compileFail      OP-15 FAIL      wasm:raise                      ok
+OP-16     EXPECT    OP-16 EXPECT    compileExpect    OP-16 EXPECT    wasm:setFar+raise               ok
+OP-17     CLAMP     OP-17 CLAMP     compileClamp     OP-17 CLAMP     wasm:clamp                      ok
+OP-18     SCALE     OP-18 SCALE     compileScale     OP-18 SCALE     wasm:scale                      ok
+OP-19     CTOR      OP-19 CTOR      compileCtor      OP-19 CTOR      wasm:guard                      ok
+OP-20     TRY       OP-20 TRY       compileTry       OP-20 TRY       wasm:mark+rollback              ok
+OP-21     RECOVER   OP-21 RECOVER   compileRecover   OP-21 RECOVER   wasm:labCopy+pushD+pushC        ok
+OP-22     REF       OP-22 REF       compileRef       OP-22 REF       wasm:setDepth                   ok
+contract rows                 22
+js rows                       22
+wasm rows                     22
+DECLARED-ABSENT wasm symbols  0
+GREEN — 22 rows, both lowerings, fingerprints pairwise equal
+
+# exit 0

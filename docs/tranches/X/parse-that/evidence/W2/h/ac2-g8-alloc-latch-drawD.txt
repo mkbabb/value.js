@@ -1,0 +1,25 @@
+SERVED MODEL: claude-fable-5-1
+# X.P.W2.h re-measurement · 2026-09-17 · cwd /Users/mkbabb/Programming/parse-that-css-totality-p2/.worktrees/ac2
+# ⟨cmd⟩ node --expose-gc harness/w2/alloc-latch.mjs --candidate ac2
+
+=== X.P.W2.g — alloc-latch --candidate ac2 (G-8) ===
+lowering  leg                                            reading                               reading                               note
+--------  ---------------------------------------------  ------------------------------------  ------------------------------------  -----------------------------------------------------------------------------
+js        history invariance (literal §6 reading)        parses 1–10000 median 1875.0 ns       late window median 1625.0 ns          drift 0.867x — a value < 1 is V8 tier-up, the opposite direction from a latch
+js        history invariance (warmed — the verdict leg)  early warmed window median 1667.0 ns  parses 90000–100000 median 1625.0 ns  drift 0.975x
+js        steady-state heap                              -161,832 B over 10000 parses          -16.2 B/parse                         after gc()
+js        reject-path heap                               132,608 B over 10000 rejects          13.3 B/parse                          NONZERO
+js        sink (printed so nothing is optimized away)    40000
+js        reset residue                                  3500.0 ns → 2292.0 ns                 0.655x                                a reset that leaves timing residue is the PT-03 shape
+js        DM-1 Object.freeze leg                         frozen 1917.0 ns                      unfrozen 1666.0 ns                    the mark measured as its own leg, never folded into another
+wasm      history invariance (literal §6 reading)        parses 1–10000 median 1500.0 ns       late window median 917.0 ns           drift 0.611x — a value < 1 is V8 tier-up, the opposite direction from a latch
+wasm      history invariance (warmed — the verdict leg)  early warmed window median 1000.0 ns  parses 90000–100000 median 917.0 ns   drift 0.917x
+wasm      steady-state heap                              -128,736 B over 10000 parses          -12.9 B/parse                         after gc()
+wasm      reject-path heap                               -80 B over 10000 rejects              -0.0 B/parse                          zero (or reclaimed)
+wasm      sink (printed so nothing is optimized away)    40000
+wasm      arena high-water                               0 B                                                                         wasm only; the JS lowering reports 0
+wasm      reset residue                                  958.0 ns → 958.0 ns                   1.000x                                a reset that leaves timing residue is the PT-03 shape
+wasm      DM-1 Object.freeze leg                         frozen 958.0 ns                       unfrozen 834.0 ns                     the mark measured as its own leg, never folded into another
+RED — js: the reject path allocates 13.3 B/parse
+
+# exit 0

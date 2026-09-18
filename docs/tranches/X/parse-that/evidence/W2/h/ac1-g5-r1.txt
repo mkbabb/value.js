@@ -1,0 +1,16 @@
+SERVED MODEL: claude-fable-5-1
+# X.P.W2.h re-measurement · 2026-09-17 · cwd /Users/mkbabb/Programming/parse-that-css-totality-p2/.worktrees/ac1
+# ⟨cmd⟩ node harness/w2/r1-candidates.mjs --candidate ac1
+
+=== X.P.W2.g — r1-candidates --candidate ac1 (G-5) ===
+lowering  production         throws  empty-diagnostic rejections  boundary ok:false+issue
+--------  -----------------  ------  ---------------------------  -----------------------
+js        P:color            0/172   0                            7/7
+js        P:timing-function  0/172   0                            7/7
+js        P:stylesheet       0/172   0                            7/7
+wasm      P:color            0/172   0                            7/7
+wasm      P:timing-function  0/172   0                            7/7
+wasm      P:stylesheet       0/172   0                            7/7
+GREEN — zero throws over 172 + 7, every rejection carrying ≥1 diagnostic, both lowerings
+
+# exit 0

@@ -1,0 +1,36 @@
+SERVED MODEL: claude-fable-5-1
+# X.P.W2.h re-measurement · 2026-09-17 · cwd /Users/mkbabb/Programming/parse-that-css-totality-p2/.worktrees/ac2
+# ⟨cmd⟩ node harness/w2/op-bijection.mjs --candidate ac2
+
+=== X.P.W2.g — op-bijection --candidate ac2 (G-2) ===
+contract  name      js row          jsSymbol         wasm row        wasmSymbol    pairing
+--------  --------  --------------  ---------------  --------------  ------------  -------
+OP-01     SCAN      OP-01 SCAN      compileScan      OP-01 SCAN      emitScan      ok
+OP-02     LIT       OP-02 LIT       compileLit       OP-02 LIT       emitLit       ok
+OP-03     NUM       OP-03 NUM       compileNum       OP-03 NUM       emitNum       ok
+OP-04     DIGITS    OP-04 DIGITS    compileDigits    OP-04 DIGITS    emitDigits    ok
+OP-05     TEXT      OP-05 TEXT      compileText      OP-05 TEXT      emitText      ok
+OP-06     KW        OP-06 KW        compileKw        OP-06 KW        emitKw        ok
+OP-07     END       OP-07 END       compileEnd       OP-07 END       emitEnd       ok
+OP-08     SEQ       OP-08 SEQ       compileSeq       OP-08 SEQ       emitSeq       ok
+OP-09     ALT       OP-09 ALT       compileAlt       OP-09 ALT       emitAlt       ok
+OP-10     CUT       OP-10 CUT       compileCut       OP-10 CUT       emitCut       ok
+OP-11     PURE      OP-11 PURE      compilePure      OP-11 PURE      emitPure      ok
+OP-12     REP       OP-12 REP       compileRep       OP-12 REP       emitRep       ok
+OP-13     DROP      OP-13 DROP      compileDrop      OP-13 DROP      emitDrop      ok
+OP-14     DISPATCH  OP-14 DISPATCH  compileDispatch  OP-14 DISPATCH  emitDispatch  ok
+OP-15     FAIL      OP-15 FAIL      compileFail      OP-15 FAIL      emitFail      ok
+OP-16     EXPECT    OP-16 EXPECT    compileExpect    OP-16 EXPECT    emitExpect    ok
+OP-17     CLAMP     OP-17 CLAMP     compileClamp     OP-17 CLAMP     emitClamp     ok
+OP-18     SCALE     OP-18 SCALE     compileScale     OP-18 SCALE     emitScale     ok
+OP-19     CTOR      OP-19 CTOR      compileCtor      OP-19 CTOR      emitCtor      ok
+OP-20     TRY       OP-20 TRY       compileTry       OP-20 TRY       emitTry       ok
+OP-21     RECOVER   OP-21 RECOVER   compileRecover   OP-21 RECOVER   emitRecover   ok
+OP-22     REF       OP-22 REF       compileRef       OP-22 REF       emitRef       ok
+contract rows                 22
+js rows                       22
+wasm rows                     22
+DECLARED-ABSENT wasm symbols  0
+GREEN — 22 rows, both lowerings, fingerprints pairwise equal
+
+# exit 0

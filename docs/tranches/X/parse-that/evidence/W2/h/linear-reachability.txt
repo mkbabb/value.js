@@ -1,0 +1,19 @@
+SERVED MODEL: claude-fable-5-1
+# X.P.W2.h — F-7/F-e13/F-f10 reproduced on the live candidates' own adapters (P:timing-function)
+
+## ac2-closed-ir
+js "linear(0, 1)" ok=false {"code":"trailing_input","start":6,"end":12,"expected":["end of input"],"actual":"(0, 1)"}
+js "linear" ok=true {"kind":"keyword","name":"linear"}
+js "linear(0 0%, 1 100%)" ok=false {"code":"trailing_input","start":6,"end":20,"expected":["end of input"],"actual":"(0 0%, 1 100%)"}
+wasm "linear(0, 1)" ok=false {"code":"trailing_input","start":6,"end":12,"expected":["end of input"],"actual":"(0, 1)"}
+wasm "linear" ok=true {"kind":"keyword","name":"linear"}
+wasm "linear(0 0%, 1 100%)" ok=false {"code":"trailing_input","start":6,"end":20,"expected":["end of input"],"actual":"(0 0%, 1 100%)"}
+
+## ac1-tagless
+js "linear(0, 1)" ok=true {"kind":"linear-function","stops":[{"output":0,"input":[]},{"output":1
+js "linear" ok=true {"kind":"keyword","name":"linear"}
+js "linear(0 0%, 1 100%)" ok=true {"kind":"linear-function","stops":[{"output":0,"input":[0]},{"output":
+wasm "linear(0, 1)" ok=true {"kind":"linear-function","stops":[{"output":0,"input":[]},{"output":1
+wasm "linear" ok=true {"kind":"keyword","name":"linear"}
+wasm "linear(0 0%, 1 100%)" ok=true {"kind":"linear-function","stops":[{"output":0,"input":[0]},{"output":
+
