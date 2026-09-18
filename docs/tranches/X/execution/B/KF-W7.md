@@ -1784,3 +1784,249 @@ nothing the units did not earn, and moved the four-verb line no further than IMP
 KEEP on all six surfaces with ZERO SWAP**, the scrub seam is **LIVE at the bytes** in one guarded
 single-engine commit, the **discharge set is EMPTY** and stated so in KF.W10's own terminal alphabet,
 and the two RED gates are returned **ESCALATED for a plan seam, not a design defect**.
+
+---
+
+## Resume — 2026-09-18 · SEAT 0 RE-PARTITION
+
+**SERVED MODEL: `claude-opus-5[1m]`** · **RESUME MODE, not a re-open of a closed wave.** The LEDGER
+row reads **PARTIAL 2026-09-18 — IMPLEMENTED with carried REDs**, not CLOSED, and this record exists —
+so this seat resumes rather than opens. **Nothing above this line is rewritten** (E-3 in its sense:
+prior evidence is immutable; corrections are dated addenda-beside). The six units `.a`..`.f` are
+**DONE and are never re-dispatched** — every one of their **19 keyframes.js + 24 value.js** commits
+verified present at this seat: ⟨cmd⟩ `git cat-file -e <sha>^{commit}` over the `## Close` roster →
+**19 of 19 OK** (kf) and **24 of 24 OK** (vjs), zero MISSING.
+
+**What this seat is for.** `## Close` returned exactly one escalation to *"seat 0 / the orchestrator"*:
+**G9 + G10, the `.d`/`.e` FILE-CROSSING**, with its own cure prescribed — *"no bounds widening — only a
+different partition of the SAME §Bounds: re-home each family whole to ONE seat and serialize."* This
+seat executes that prescription, and carries **G14's L-11** (the one consumer byte of five that did not
+land, owner *"`.d`'s file / seat 0 / KF.W10"*) into the same re-partition, because it is the same class
+of miss: a family whose cure site sat in a seat that did not own the family.
+
+### Substrate — it has MOVED again, and the anchors with it
+
+| | at `## Close` (2026-09-18, early) | at this seat |
+|---|---|---|
+| keyframes.js `HEAD` | `ac30976f` | **`41a7ebb6`** (`origin/master` ≡ `41a7ebb6`, clean) |
+| commits since kf `3cc7e126` | 1 | **99** |
+| value.js `HEAD` | `8cbe0317` | **`42381e83`** |
+
+**WITNESS-FRESHNESS IS NOT DISCHARGED THIS TIME — it is CONVICTED, and that is a binding input to the
+plan.** §Bounds' own invariant: *"no KF.W7 gate may be read against … any tracked file at bytes a
+neighbour has since changed … A witness whose bytes moved under a gate is not a witness."* ⟨cmd⟩
+`git log --format='%h|%s' 3cc7e126..HEAD -- demo/components/instrument/timeline/ …` → **20 commits**,
+every one **KF.W6's** (`kf-w6.f` · `.g` · `.h` · `.j` · `.k` and the W6-C prose rows), and KF.W6 is
+**CLOSED 2026-09-17** at the LEDGER, so the movement is finished rather than in flight. The three owed
+gates' anchors all moved under it:
+
+| | `## Close` anchor | anchor at `41a7ebb6` |
+|---|---|---|
+| G9 | `TimelineTrack.vue:143` `<TooltipContent … class="p-2 max-w-56">` | **`:193`** `<TooltipContent side="top" :side-offset="8" class="max-w-56">` — the `p-2` deleted by KF.W6's `8c958a85` (TimelineTrack **m-17**) |
+| G10 | `TimelineTrack.vue:274` `getGhostStyle` | **`:320`** declared, **`:324`** the `scale(0.3) ${vars["transform"]}` composition |
+| G10 | `KeyframeTimeline.vue` `previewCache` `:97 :323 :327 :332` | **`:187` passed · `:445` declared · `:449` read · `:454` written** |
+| G14 L-11 | `useTimelineOps.ts:19 / :56 / :59` | **`:19` `rebuild: () => void` · `:57` `scheduleRebuild()` · `:59` `toast.success`** |
+
+**Every resume unit re-derives its own anchors at the bytes before it writes one (D-19, OP-3's law
+applied to this seat's own substrate). The table above is an input, not a substitute.**
+
+### Preconditions, re-verified at the bytes AND in the LEDGER
+
+| condition | receipt |
+|---|---|
+| **KF.W2 (posture registry)** — the wave's only "Opens after" | ⟨cmd⟩ LEDGER `:48` → **`CLOSED 2026-09-17`**; the named artefact present: `docs/tranches/X/keyframes/registries/POSTURES.md` |
+| **G14's ruling already landed** (this seat lands its consumer byte, not a second ruling) | `evidence/W7/G14-POSTURE-RULING.md` **152 L**, cross-referenced both ends at `## Close` |
+| **`.c`'s ghost/cache design already published** (`.g` implements, it does not re-design) | `G10-GHOST-CACHE-DESIGN` cited by fixture 3's own header at `:29-31` |
+| **KF.W10 has not consumed the RED** | LEDGER `:54` → `planned`; the re-partition is still this wave's to spend |
+| **kf worktree clean of product bytes** | ⟨cmd⟩ `git -C ../keyframes.js status --porcelain` → **2 lines, both untracked `docs/tranches/V/coordination/VALUEJS-INBOUND-*.md`** (value.js's own outbound copies) — **0 product paths, 0 inherited partial work on any KF.W7 path**. CRASH-RECOVERY law: nothing to inherit, nothing rewritten |
+
+### E13 Step-0 — the four-path mail sweep, at this seat's own clock
+
+Swept read-only at **2026-09-18 17:54 EDT**, compared against **every row** of `INBOX.md`,
+classification taken from each row's **Status cell**, never from a bare `grep -i unread`; `INBOX.md`
+**self-excluded** (SELF-COUNT law). ⟨cmd⟩ `/bin/ls -dlt ../glass-ui/docs/tranches/*/ | head -4` →
+**`BK/`** (Sep 18 17:53) · `BJ/` · `BI/` · `IOS27-MICRO/` — **BK is still the newest glass tranche
+dir**. Counts: `docs/tranches/V/` **10** `.md` · `V/coordination/` **18** · BK coordination **9** ·
+`../keyframes.js/docs/tranches/V/coordination/` **13** · atlas `P/coordination/` **28**. ⟨cmd⟩
+`/usr/bin/find <the four paths> -maxdepth 1 -type f -name '*.md' -newermt '2026-09-18 17:16'` →
+**`INBOX.md` (self)** and **`glass-outbound-2026-09-18-valuejs-o26-reply.md`** — and the second is
+**already rowed `I-35`, status `READ + CONSUMED WHOLE`**. **0 unrowed · 0 new `I-n` minted · 0 UNREAD in
+KF.W7's scope.**
+
+**One delta is DECLARED rather than swallowed.** I-35's letter has been **revised a third time**:
+⟨cmd⟩ `/bin/ls -l` → **43,967 B**, ⟨cmd⟩ `shasum -a 256 | cut -c1-16` → **`fe75887ccb505eee`**,
+committed at glass **`6e5a35bc`** ("lane M2 — three rulings re-ruled after lane M's disk facts").
+The row was minted at 41,738 B and consumed by KF.W6 `.l` at 42,776 B. **The row is not re-minted — a
+revision of an already-rowed, already-read letter is not unrowed mail** — but the byte delta is
+**routed to `.j`**, because one clause of §2 lands inside this wave's owed work and cuts against a
+convenient reading: *"A-9 is `TooltipContent`'s block ceiling and is NOT cured at 9.0.0 … If you
+re-file A-9 under `/timeline` at W7 the row will go missing."* **`.h` is bound by it** (G9's cure is
+authored at exactly that `TooltipContent`) and **`.j` re-reads it against O-28**, this wave's already-
+sent relay, to decide whether O-28 needs a dated addendum-beside.
+
+## Resume baseline — the three owed gates, re-measured READ-ONLY at `41a7ebb6`
+
+Read with `git show HEAD:<f>` rather than the worktree, one script, **double-run**: ⟨cmd⟩
+`diff run1 run2` → **no output — DOUBLE-RUN IDENTICAL**. **All three reproduce RED at the moved
+bytes** — the escalation was a plan seam and the plan seam is still open.
+
+| gate | probe (⟨cmd⟩ … → output) | reading |
+|---|---|---|
+| **G9** | `grep -n 'aria-label'` TimelineTrack → **3 hits, `:32` pan · `:89` playhead · `:164` marker** — and the `:193` `TooltipContent` carries **none** · `git grep -c describeKeyframe HEAD -- demo/` → **0 files** · `grep -c 'role="group"'` → **0** | **RED** — the accessible description is still reka's untracked once-captured `textContent`, and the rail still has no accessible container |
+| **G10** | `grep -n 'delete '` KeyframeTimeline, minus the label line → **0** (the only `delete` is `:477 if (value === "") delete kf.label;`, N-2's label control) · `grep -c 'scale(0.3) ${vars'` TimelineTrack → **1** (`:324`) · `grep -c 'previewFailed\|previewAttempts\|captureFailed'` KT → **0** | **RED** — write-once cache, no eviction, no retry ceiling, ghost still composed on the bordered element |
+| **G14 · L-11** | `grep -c 'rebuild: () => void'` useTimelineOps → **1** (`:19`) · `sed -n '52,60p' \| grep -c 'await scheduleRebuild'` → **0** · `grep -c 'const rebuild = async (): Promise<void>'` useTimelineBuild → **1** | **RED** — the builder IS async and the ops layer still declares it `void`; acknowledgement precedes outcome at exactly one site |
+
+**Masking check at the baseline, so the resume starts from a measured floor**: ⟨cmd⟩
+`git grep -n 'test\.skip\|it\.skip\|describe\.skip' HEAD -- <the four fixtures>` → **ONE hit, and it
+is the PROSE line** `timeline-hover-preview.test.ts:38 * They are stated, not skipped: no \`test.skip\`
+stands in for a cure this seat`. **G10's four assertions are STATED at the mount and running nowhere —
+`.g` converts them to RUNNING; no seat of this resume may convert them to skipped.**
+
+### GREEN-BEFORE-CURE (R.2)
+
+**NONE.** All three owed readings are RED before their cure. The twelve gates `## Close` stamped GREEN
+are **not re-opened here** — they are `.j`'s BEFORE→AFTER subject, read once more at the end.
+
+## Resume unit plan — the SAME §Bounds, a different partition
+
+**Four units, `.g` `.h` `.i` `.j`, FULLY SERIAL.** Concurrency **1**, below the spec's own peak of 2
+and below the owner's four-workflow cap. **The serialization is the cure, not caution**: the escalation
+was manufactured by two concurrent seats owning halves of one commit family, and `.g` and `.h` both
+need `TimelineTrack.vue` + `TimelineHoverPreview.vue` + `KeyframeTimeline.vue` + fixture 3. Running
+them side by side would rebuild the exact seam `## Close` returned. `.i` is file-disjoint and *could*
+run beside `.g`; it does not, because `## Close`'s prescription is *"re-home each family whole to ONE
+seat **and serialize**"* and a single-file family is not worth re-opening the question for.
+
+**No bounds widening.** Every path below already sits in this wave's §Bounds or is one of its own four
+created fixtures. ⟨cmd⟩ the union of the four units' writable sets minus §Bounds ∪ {the four fixtures}
+→ **∅**.
+
+**Model tiering (M-12 TRI-FOLD, runbook §5.1)**: the spec's two design-author seats were phases 2's
+`.b`/`.c` and **both have landed their designs**; `.g` and `.h` implement published designs, `.i` is a
+single-file cure and `.j` is verify-only — **all four Opus solo**. Receipts every seat: line 1 =
+`SERVED MODEL: <id>`.
+
+| group | unit | why here |
+|---|---|---|
+| 1 | `.g` | the ghost/cache family FIRST — G9's assertion says the description *"re-derives on the ghost→image swap"*, so the swap's shape must exist before the description that reads it |
+| 2 | `.h` | the a11y family, over bytes `.g` has settled |
+| 3 | `.i` | G14's last consumer byte; file-disjoint, serialized by prescription |
+| 4 | `.j` | re-close: all fifteen re-run BEFORE→AFTER, roster audit, I-35 delta, push, LEDGER |
+
+### `.g` — THE GHOST/CACHE FAMILY, RE-HOMED WHOLE (G10)
+
+- **Model**: opus.
+- **Sections**: §Carry **P7** (`:198-219`) · §Gates **G10** (`:297-299`), **G11** (`:301-307`, fixture
+  3's half) · §Sequencing's commit-families line (`:340`) · §Bounds' witness-freshness paragraph
+  (`:82`) and disjointness paragraph (`:84`).
+- **Writable** (kf, under `/Users/mkbabb/Programming/keyframes.js/`):
+  `demo/components/instrument/timeline/components/TimelineTrack.vue` ·
+  `demo/components/instrument/timeline/components/TimelineHoverPreview.vue` ·
+  `demo/components/instrument/timeline/KeyframeTimeline.vue` ·
+  `demo/components/instrument/timeline/composables/useTimelineBuild.ts` ·
+  `demo/components/instrument/timeline/utils/snapshotCapture.ts` ·
+  `test/demo/instrument/timeline-hover-preview.test.ts`; (vjs)
+  `docs/tranches/X/keyframes/evidence/W7/**` · `docs/tranches/X/execution/B/KF-W7.md`.
+- **Gates**: **G10** · **G11** (fixture 3's G10 assertions, STATED → RUNNING).
+- **Locks**: the ghost redesign is **ONE commit family** (D-7 + MISSED-4 + GHOST-PLATE + L-D8/C-4(a) +
+  L-D4/C-4(b)) and **must not split** — that split is what `## Close` escalated; m-7/m-8's validation
+  half stays sequenced **after** L-6/C-4's delegation; **two obligations are ALREADY DISCHARGED at
+  `85b3c8fa` and MUST NOT BE RE-SPENT** (the capture re-point and the parse-boundary validation);
+  MISSED-3's **same-commit box law** — no register swap without its box resize in the same commit; the
+  twelve tracked `test/demo/instrument/` files are **READ-ONLY** and no gate is greened by editing one;
+  **no `test.skip`, no try/catch around the defect, no allowlist** — fixture 3's stated assertions
+  become real or the gate stays honestly RED.
+- **Brief**: (0) re-derive every G10 anchor at `41a7ebb6` — KF.W6 moved all of them (`getGhostStyle`
+  `:274`→`:320/:324`; `previewCache` →`:187/:445/:449/:454`) and a witness whose bytes moved is not a
+  witness. Then **ONE commit**, the family whole: (1) **evict** — the cached thumbnail is gone or
+  regenerated after a keyframe's edit, and no orphan base64 survives remove / clear / import-over;
+  (2) a **repeatedly-failing capture stops and says so** (a retry ceiling with a surfaced state, never
+  a silent forever-retry); (3) the **ghost renders decomposed** — the scale on a wrapper, never
+  `scale(0.3) ${vars["transform"]}` composed onto the bordered element — with a terminal `v-else` and a
+  **reserved box**; (4) fixture 3's four stated assertions run at the mount they belong to.
+  `npm run check` (vue-tsc is live) before the commit; G10 re-read at the settled bytes, double-run.
+
+### `.h` — THE A11Y FAMILY, RE-HOMED WHOLE (G9) — serial after `.g`
+
+- **Model**: opus.
+- **Sections**: §Carry **P5** (`:171-181`) · **P7** (`:198-219`) · §Gates **G9** (`:293-295`), **G11**
+  (`:301-307`, fixture 3's half) · §Sequencing's commit-families line (`:340`).
+- **Writable** (kf): `…/timeline/components/TimelineTrack.vue` ·
+  `…/timeline/components/TimelineHoverPreview.vue` · `…/timeline/KeyframeTimeline.vue` ·
+  `test/demo/instrument/timeline-hover-preview.test.ts`; (vjs)
+  `docs/tranches/X/keyframes/evidence/W7/**` · `docs/tranches/X/execution/B/KF-W7.md`.
+- **Gates**: **G9** · **G11** (fixture 3's G9 assertions).
+- **Locks**: the a11y commit is **ONE family** (MISSED-1 + D-10 (KeyframeTimeline) + M7 + RR-A missed-1
+  (TimelineTrack)) and must not split; **M7's MM-29/MISSED-3 cure guards and DISSENT-4's
+  verbatim-element law** bind the derived text; the reka witness is load-bearing —
+  `TooltipContentImpl.js:87` reads `props.ariaLabel || currentElement.value?.textContent`
+  **untracked and captured once**, so the description is **PASSED**, never left to `textContent`;
+  **no copied producer selector and no local patch of `node_modules`**; **A-9 is `TooltipContent`'s
+  block ceiling and is NOT a `/timeline` row** (I-35 §2, verbatim: *"If you re-file A-9 under
+  `/timeline` at W7 the row will go missing"*) — this seat files nothing there; tracked fixtures
+  READ-ONLY.
+- **Brief**: (0) re-derive anchors at the bytes `.g` settled. Then **ONE commit**: (1) pass an explicit
+  `:aria-label` at `TimelineTrack.vue`'s `TooltipContent` (`:193` at this reading) carrying the
+  **derived alt, punctuated at row boundaries**, **re-derived on the ghost→image swap** `.g` landed,
+  and **not force-uppercased** (the `text-admin-label` caps register is the convicted mechanism);
+  (2) give the rail an **accessible container** and make the graduations **AT-hidden**; (3) fixture 3's
+  G9 assertions run. `npm run check` before the commit; G9 re-read at the settled bytes, double-run.
+
+### `.i` — G14's L-11 CONSUMER BYTE — serial after `.h`
+
+- **Model**: opus.
+- **Sections**: §Gates **G14** (`:317-319`) · **G4** (`:273-275`, the row this cure must not trade
+  away) · §Sequencing's *"the posture ruling (G14's consumers, one ruling)"* family line (`:340`).
+- **Writable** (kf): `…/timeline/composables/useTimelineOps.ts` ·
+  `…/timeline/composables/useTimeline.ts` · `test/demo/instrument/timeline-mount-projection.test.ts` ·
+  `test/demo/instrument/timeline-mount-keyboard.test.ts`; (vjs)
+  `docs/tranches/X/keyframes/evidence/W7/**` · `docs/tranches/X/execution/B/KF-W7.md`.
+- **Gates**: **G14** (its fifth and last consumer byte) — and **G4 must stay GREEN**.
+- **Locks**: **the cure is AWAIT THE LATCHED BUILD, never UN-LATCH IT** — un-latching trades G14's row
+  for G4's, and `## Close` named that trade in advance; **G4's shape is measured, not assumed**:
+  `scheduleRebuild` ×**6** and the file's **only** bare `rebuild();` stays **inside the rAF latch**;
+  the **posture ruling is already landed** (`G14-POSTURE-RULING.md`, 152 L) — this is its consumer
+  byte, **not a second ruling** and not a re-open; `useTimeline.ts` and fixtures 1/2 are touched **only
+  if `vue-tsc` demands it** (they are in-bounds, but a wider edit than the typechecker requires is not
+  this seat's to make).
+- **Brief**: (1) at `useTimelineOps.ts`, type `rebuild` so the builder's `Promise<void>`
+  (`useTimelineBuild.ts:43 const rebuild = async (): Promise<void>`) is **visible to the ops layer**
+  rather than erased to `void` at `:19`; (2) make `scheduleRebuild` hand back a settlement the caller
+  can await — the rAF latch **retained**, the promise resolving when the latched `rebuild()` resolves;
+  (3) `await` it in `snapshot` before the `:59` success toast, so the **outcome precedes the
+  acknowledgement** — the posture's own third clause; (4) re-point `useTimeline.ts:54`'s wiring and
+  fixtures 1/2's `() => {}` rebuild stubs **only if** the typecheck requires it. `npm run check`; both
+  **G14 and G4** re-read at the settled bytes, double-run.
+
+### `.j` — RE-CLOSE (serial, last)
+
+- **Model**: opus.
+- **Sections**: §Gates all fifteen (BEFORE→AFTER) · §Sequencing's cross-edges (`:349-362`) ·
+  §Excluded (`:369-382`).
+- **Writable** (vjs only): `docs/tranches/X/execution/B/KF-W7.md` ·
+  `docs/tranches/X/execution/LEDGER.md` (**its own row's cells + appended event lines only**) ·
+  `docs/tranches/X/keyframes/evidence/W7/**` · `docs/tranches/V/coordination/INBOX.md` ·
+  `docs/tranches/V/coordination/<a dated outbound addendum-beside, only if §2 requires one>`.
+- **Gates**: all fifteen, re-run at this seat's own double-run commands; stamps nothing the units did
+  not earn.
+- **Locks**: **glass-ui is READ-ONLY always** — anything owed the producer rides as an outbound letter
+  plus its INBOX row, never a write into the glass tree and never a demo-side patch of a producer seam;
+  **E-3** — O-28 is SENT and immutable; a correction is a dated **addendum-beside**, never an edit;
+  **E13** — the wave does not close with UNREAD mail in scope; **IMPLEMENTED remains the ceiling**
+  (*"VERIFIED … stamped only at sub-tranche close"* — no seat of this wave may stamp it); the
+  **KF-AV-28 verdict is SETTLED and is not re-opened** — six surfaces, six KEEP-BESPOKE, **zero SWAP**,
+  discharge set **EMPTY**, KF.W10 carries every governed row naming the surface.
+- **Brief**: (1) re-run **all fifteen** gates and publish BEFORE→AFTER against **both** this record's
+  original Baseline **and** §Resume's re-measured RED three; (2) audit every resume commit against its
+  own unit's writable set (four tracks share the index — no contaminated commit, `dev.sh` in **zero**
+  commits, pathspec on the commit itself); (3) consume **I-35's third-revision delta** (43,967 B ·
+  `fe75887c…` · glass `6e5a35bc`) and rule in writing whether **O-28** needs a dated addendum-beside —
+  §2's A-9 clause is the live one; (4) re-sweep the four paths and append the dated sweep line;
+  (5) push kf `origin HEAD` if this resume's commits are unpublished, disclosing any sibling commits the
+  one linear history necessarily carries; (6) **minimal in-place** LEDGER row edit + appended event
+  line; (7) restate **every** residual with a named owner, including residual 15 (the two sibling-owned
+  non-deterministic fixtures — **owner KF.W4 / the orchestrator**, never cured by raising another
+  wave's `testTimeout`).
+
+## Resume unit receipts
+
