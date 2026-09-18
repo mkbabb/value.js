@@ -1,0 +1,140 @@
+SERVED MODEL: claude-opus-5[1m]
+X-W3 · X.W3.2 — §8 artefact 3: api suite AFTER the cure (double-run)
+HEAD: c1e883fc   clock: 2026-09-18 18:19:11 EDT
+Open baseline at this seat: 39 files / 222 tests passed, exit 0.
+
+⟨cmd⟩ cd api && npm test   (RUN 1)
+
+> palette-api@2.0.0 test
+> vitest run
+
+
+ RUN  v3.2.4 /Users/mkbabb/Programming/value.js/api
+
+ ❯ src/modules/palette/__tests__/palette-forks.test.ts (7 tests | 1 failed) 451ms
+   ✓ service.palette.forks > forkPalette creates a child palette and increments source forkCount 63ms
+   × service.palette.forks > forkPalette copies the source colors and records the provenance edge 103ms
+     → expected undefined to be 'b12243d56c48d7e572e7687ccdf0e4e104eff…' // Object.is equality
+   ✓ service.palette.forks > forkPalette on missing source throws NotFoundError 41ms
+   ✓ service.palette.forks > forkPalette validates slug shape 38ms
+   ✓ service.palette.forks > listForks returns the children paginated 71ms
+   ✓ service.palette.forks > getProvenance walks the fork chain (public hops carry minimal identity) 35ms
+   ✓ service.palette.forks > getProvenance collapses a private+trashed ancestor to {kind:'unavailable',ordinal} (V·W45 item 4) 45ms
+ ❯ src/modules/palette/__tests__/palettes-forks.test.ts (6 tests | 1 failed) 178ms
+   ✓ routes.palettes forks/provenance + revert (N.W3.H-tests) > POST /:slug/fork → 401 problem+json when unauthenticated 25ms
+   ✓ routes.palettes forks/provenance + revert (N.W3.H-tests) > POST /:slug/fork (no body) → 201 + FormattedPalette; forkOf tracks source 24ms
+   ✓ routes.palettes forks/provenance + revert (N.W3.H-tests) > GET /:slug/forks → 200 {data, total, limit, offset}; lists direct forks 27ms
+   ✓ routes.palettes forks/provenance + revert (N.W3.H-tests) > GET /:slug/provenance → 200 ancestry chain (child → source) 24ms
+   × routes.palettes forks/provenance + revert (N.W3.H-tests) > POST /:slug/revert → 200 FormattedPalette (owner reverts to a prior version) 39ms
+     → expected 404 to be 200 // Object.is equality
+   ✓ routes.palettes forks/provenance + revert (N.W3.H-tests) > POST /:slug/revert → 401 when unauthenticated 18ms
+stdout | src/modules/meta/__tests__/meta.test.ts > routes.meta — GET /health (real readiness: reachable + primary) > returns 200 ok with mongo reachable AND a primary elected
+Connected to MongoDB
+
+ ✓ src/modules/meta/__tests__/meta.test.ts (8 tests) 653ms
+   ✓ routes.meta — GET /health (real readiness: reachable + primary) > returns 200 ok with mongo reachable AND a primary elected  631ms
+ ✓ test/conformance/sessions-colors.test.ts (12 tests) 462ms
+ ✓ test/conformance/withTransaction-rollback-h-w1.test.ts (9 tests) 397ms
+ ✓ test/conformance/txn-right-sizing.test.ts (5 tests) 344ms
+ ✓ src/modules/palette/__tests__/palette-list.test.ts (4 tests) 668ms
+   ✓ service.palette.list pagination (N.W3.D) > color filter active: a full page (== limit) even when matches are sparse across underlying pages (honest, never short-with-hasMore)  318ms
+ ✓ src/modules/palette/__tests__/palettes-publish.test.ts (11 tests) 768ms
+ ✓ src/modules/palette/__tests__/palette.test.ts (10 tests) 420ms
+stdout | src/modules/palette/__tests__/palette-versions.test.ts > service.palette.versions > G-7: the migration backfills payloadHash + revisionNo and re-stamps currentHash
+[x-w3-migration] palettes scanned:        1
+[x-w3-migration] version rows scanned:    2
+[x-w3-migration] payloadHash written:     2
+[x-w3-migration] revisionNo written:      2
+[x-w3-migration] currentHash re-stamped:  1
+
+ ✓ src/modules/palette/__tests__/palette-versions.test.ts (11 tests) 536ms
+ ✓ test/conformance/crud.test.ts (8 tests) 226ms
+ ✓ src/modules/palette/__tests__/vote.test.ts (8 tests) 241ms
+ ✓ src/modules/palette/__tests__/palettes-votes-flags.test.ts (7 tests) 442ms
+ ✓ test/conformance/idempotency.test.ts (8 tests) 243ms
+ ✓ src/modules/palette/__tests__/palette-policy.test.ts (9 tests) 310ms
+ ✓ src/modules/admin/__tests__/admin-users.test.ts (5 tests) 844ms
+ ✓ src/modules/palette/__tests__/palette-votes.test.ts (4 tests) 297ms
+ ✓ src/modules/palette/__tests__/palettes-ownership.test.ts (7 tests) 660ms
+ ✓ src/modules/admin/__tests__/admin-palettes.test.ts (4 tests) 279ms
+ ✓ src/modules/palette/__tests__/palette-crud.test.ts (6 tests) 360ms
+ ✓ src/modules/session/__tests__/user.test.ts (5 tests) 664ms
+   ✓ repository.user > touchLastSeen updates the timestamp  313ms
+ ✓ src/modules/session/__tests__/session.test.ts (5 tests) 277ms
+ ✓ src/modules/admin/__tests__/admin-tags.test.ts (4 tests) 220ms
+ ✓ src/modules/color/__tests__/proposedName.test.ts (5 tests) 242ms
+ ✓ src/modules/admin/__tests__/admin-impersonate.test.ts (5 tests) 202ms
+ ✓ src/modules/palette/__tests__/palette-flags.test.ts (4 tests) 191ms
+ ✓ src/modules/palette/__tests__/flag.test.ts (4 tests) 287ms
+ ✓ src/modules/color/__tests__/tag.test.ts (4 tests) 135ms
+ ✓ src/modules/admin/__tests__/admin-colors.test.ts (5 tests) 188ms
+ ✓ src/modules/admin/__tests__/adminAudit.test.ts (3 tests) 144ms
+ ✓ src/modules/palette/__tests__/paletteVersion.test.ts (3 tests) 82ms
+ ✓ test/conformance/withTransaction-rollback.test.ts (2 tests) 66ms
+ ✓ src/modules/palette/__tests__/palettes-patch-readcount.test.ts (1 test) 48ms
+ ✓ src/modules/palette/__tests__/palette-ownership.test.ts (2 tests) 41ms
+ ✓ src/modules/session/__tests__/session-token-at-rest.test.ts (1 test) 36ms
+stdout | test/conformance/db-indexes.test.ts > db.ts index topology
+Connected to MongoDB
+
+ ✓ test/conformance/db-indexes.test.ts (5 tests) 22ms
+ ✓ test/conformance/envelope.test.ts (18 tests) 2ms
+ ✓ test/hono-advisory-floor.test.ts (2 tests) 2ms
+ ✓ test/config-truth.test.ts (2 tests) 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/modules/palette/__tests__/palette-forks.test.ts > service.palette.forks > forkPalette copies the source colors and records the provenance edge
+AssertionError: expected undefined to be 'b12243d56c48d7e572e7687ccdf0e4e104eff…' // Object.is equality
+
+[32m- Expected:[39m 
+"b12243d56c48d7e572e7687ccdf0e4e104eff0820f7cf37f088828822556184a"
+
+[31m+ Received:[39m 
+undefined
+
+ ❯ src/modules/palette/__tests__/palette-forks.test.ts:71:46
+     69|             palette.currentHash as string,
+     70|         );
+     71|         expect(childVersion?.forkedFromHash).toBe(source?.currentHash …
+       |                                              ^
+     72|     });
+     73| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  src/modules/palette/__tests__/palettes-forks.test.ts > routes.palettes forks/provenance + revert (N.W3.H-tests) > POST /:slug/revert → 200 FormattedPalette (owner reverts to a prior version)
+AssertionError: expected 404 to be 200 // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- 200[39m
+[31m+ 404[39m
+
+ ❯ src/modules/palette/__tests__/palettes-forks.test.ts:164:31
+    162|             body: JSON.stringify({ hash: firstHash }),
+    163|         });
+    164|         expect(revert.status).toBe(200);
+       |                               ^
+    165|         const body = (await revert.json()) as { name: string; slug: st…
+    166|         expect(body.slug).toBe("source");
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed | 37 passed (39)
+      Tests  2 failed | 227 passed (229)
+   Start at  18:19:12
+   Duration  34.55s (transform 621ms, setup 0ms, collect 6.59s, tests 11.63s, environment 5ms, prepare 2.41s)
+
+
+⟨cmd⟩ cd api && npm test   (RUN 2)
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed | 37 passed (39)
+      Tests  2 failed | 227 passed (229)
+   Start at  18:19:49
+   Duration  16.20s (transform 527ms, setup 0ms, collect 2.78s, tests 6.45s, environment 2ms, prepare 1.01s)
+

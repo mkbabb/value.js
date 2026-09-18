@@ -1,0 +1,22 @@
+SERVED MODEL: claude-opus-5[1m]
+X-W3 · X.W3.2 — §8 artefact 5: migration-run (payloadHash + revisionNo + currentHash re-stamp)
+clock: 2026-09-18 18:20:06 EDT
+
+⟨cmd⟩ npx vitest run -t "the migration backfills" src/modules/palette/__tests__/palette-versions.test.ts
+
+ RUN  v3.2.4 /Users/mkbabb/Programming/value.js/api
+
+stdout | src/modules/palette/__tests__/palette-versions.test.ts > service.palette.versions > G-7: the migration backfills payloadHash + revisionNo and re-stamps currentHash
+[x-w3-migration] palettes scanned:        1
+[x-w3-migration] version rows scanned:    2
+[x-w3-migration] payloadHash written:     2
+[x-w3-migration] revisionNo written:      2
+[x-w3-migration] currentHash re-stamped:  1
+
+ ✓ src/modules/palette/__tests__/palette-versions.test.ts (11 tests | 10 skipped) 108ms
+
+ Test Files  1 passed (1)
+      Tests  1 passed | 10 skipped (11)
+   Start at  18:20:07
+   Duration  1.28s (transform 79ms, setup 0ms, collect 154ms, tests 108ms, environment 0ms, prepare 21ms)
+
