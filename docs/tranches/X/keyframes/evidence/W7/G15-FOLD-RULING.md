@@ -246,3 +246,15 @@ falsifier at close.
 
 **Carried by this gate** (the spec's list): R-7 ≡ KAD-F3 · KAD-6 · KAD-13 · R-17 / R-19 / R-21 / R-22 / R-23 /
 KAD-21 · N-2 · L-16/L-17's sequencing.
+
+---
+
+## Addendum 2026-09-18 (X.KF.W7.c, same seat, after the self-count) — §1's count line corrected
+
+§1's *"Count discipline: 20 rows dispositioned"* was written before the table was counted from the settled
+bytes. Measured (double-run identical):
+⟨`awk '/^## §1/{f=1} /^## §2/{f=0} f && /^\| \*\*/' G15-FOLD-RULING.md | wc -l`⟩ → **18** table rows;
+⟨`… | cut -d'|' -f2 | grep -o 'R-[0-9]*\|KAD-F\?[0-9]*\|N-2\|L-1[67]' | sort -u | wc -l`⟩ → **40** distinct
+residue ids dispositioned across them. The line stands as written (E-3: no in-place rewrite of a committed
+ruling); read "18 rows / 40 ids" for it. The three §Excluded ids remain named by id: ⟨`grep -o 'KAD-15\|KAD-16\|KAD-20' | sort -u`⟩
+→ `KAD-15 KAD-16 KAD-20`. No other cell changes.
