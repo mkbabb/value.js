@@ -2191,3 +2191,187 @@ make fail — as the only injected seam. It is also `feedback_no_god_modules` re
 |---|---|---|
 | keyframes.js | **`4e2a715f`** | `fix(kf/timeline-preview): G10 — the cache is a cache and the ghost tells the truth (KF.W7 .g, ONE family)` — the family whole, five files, unsplit |
 | value.js | (this commit) | `evidence/W7/G10-GHOST-CACHE-LANDING.md` + these receipts |
+
+### X.KF.W7.h
+
+SERVED MODEL: `claude-opus-5[1m]` · **2026-09-18** · Resume group 2 — **THE A11Y FAMILY, RE-HOMED
+WHOLE (G9)**. Sections executed: §Carry **P5** (`:171-181`) · **P7** (`:198-219`) · §Gates **G9**
+(`:293-295`), **G11** (`:301-307`, fixture 3's G9 half) · §Sequencing's commit-families line
+(`:340`).
+**Status: DONE.** **G9 RED → GREEN · G11 fixture 3's G9 assertions STATED-NOWHERE → RUNNING (11).**
+Evidence: `evidence/W7/G9-A11Y-LANDING.md` (opens `SERVED MODEL: claude-opus-5[1m]`).
+
+**Substrate**: kf `master` ≡ `origin/master` ≡ **`4e2a715f`** (`.g`'s landing) at open.
+**CRASH-RECOVERY**: ⟨cmd⟩ `git -C ../keyframes.js status --porcelain` at open → **2 lines, both the
+untracked `docs/tranches/V/coordination/VALUEJS-INBOUND-*.md`** every prior seat has recorded —
+**0 paths inside this unit's writable set, nothing inherited, nothing rewritten**. vjs likewise: no
+dirty path under `docs/tranches/X/keyframes/evidence/W7/` or `execution/B/KF-W7.md`.
+
+**Step 0 (E13, seat-level)**: COHESION §0j read to the file end through **§0q** — ⟨cmd⟩
+`grep -n 'KF\.W7' COHESION.md` → **one hit, `:1108`**, §0o's runner-dead paragraph (chassis, not
+cargo); **no KF.W7 ruling, nothing owner-gated away from this unit**. ⟨cmd⟩
+`/usr/bin/find <the four paths> -maxdepth 1 -type f -name '*.md' -newermt '2026-09-18 18:15'` →
+**nothing**. `INBOX.md`'s status cells reproduce `.g`'s reading: **I-32 · I-33 · I-34** UNREAD, all
+three routed to **X-W0.j**; **I-35** `READ + CONSUMED WHOLE`, its third-revision delta routed to
+`.j`. **0 unrowed · 0 `I-n` minted · 0 UNREAD in this unit's scope. E13 MET by routing.**
+
+#### Act 0 — anchors re-derived at the bytes `.g` settled (D-19)
+
+All four EXACT at `4e2a715f`: `TooltipContent` **`TimelineTrack.vue:193`** (`class="max-w-56"`, no
+`:aria-label`) · marker `@mouseenter` **`:174`** · the tick band **`:107-120`** · `stopLabel`
+**`:307`**; THP's `altText` — `.g`'s §3 hand-off — **`:222`**. The reka witness re-quoted from the
+installed package, not inherited: ⟨cmd⟩ `sed -n '87p' reka-ui/dist/Tooltip/TooltipContentImpl.js` →
+`const ariaLabel = computed(() => props.ariaLabel || currentElement.value?.textContent);` — and its
+render builds `VisuallyHidden { id: contentId, role: "tooltip" }` around `ariaLabel.value`, which is
+what makes the end-to-end assertion below possible at all. **The producer forwards the prop**: glass
+`TooltipContent` declares `ariaLabel: {}` and hands everything but `class`/`surface` to reka through
+`useForwardPropsEmits` ⟨`glass-ui/dist/tooltip-OxciiZm6.js`, the `__name: "TooltipContent"` block⟩ —
+so the cure is a prop the producer already supports, and **no relay is owed and none is filed**.
+
+**TWO DRIFTS, recorded as INTENT at the true bytes rather than followed as numbers:**
+
+1. **RR-A missed-1's cure element has taken another role.** The row prescribes `role="group"` +
+   `aria-label` on the rail; the rail now carries **`role="slider"`** (G8's scrub cure, `.d`'s), and
+   ⟨cmd⟩ `timeline-mount-keyboard.test.ts:183` `expect(t.rail.getAttribute("role")).toBe("slider")`
+   pins it from a file **outside this unit's writable set**. One element carries one role, so the
+   two attributes land on **the rail's CONTAINER** — which is what G9's assertion asks for in its
+   own words (*"the rail has an accessible container"*) and what `.d`'s residual 1 called it.
+2. **The description's head cannot be `Keyframe at ${pct}%`.** The design predates **C-5 (THP)**;
+   saying `Keyframe at 25%` for an authored `entry 100%` would re-commit C-5 in the AT channel on
+   the panel just cured for the eye. The head reads the **authored** selector, resolution secondary:
+   `Keyframe at entry 100% (25%).`
+
+#### Act 1 — ONE commit, the family whole: kf `15c95de1`
+
+Three files, one meaning, **no split**: `components/TimelineHoverPreview.vue` ·
+`components/TimelineTrack.vue` · `test/demo/instrument/timeline-hover-preview.test.ts`.
+⟨cmd⟩ `git diff --stat` → **3 files changed, 448 insertions(+), 43 deletions(-)**. Pathspec on the
+commit itself; ⟨cmd⟩ `git status --porcelain` after → **only the two pre-existing untracked INBOUND
+letters**, `dev.sh` in zero commits, no sibling path touched.
+
+1. **MISSED-1 — the panel's name is PASSED, never scraped.** `:aria-label="describeStop(stop)"` at
+   the `TooltipContent` mount takes reka's FIRST arm, so the untracked once-captured `textContent`
+   read is never reached. The string is **derived** from the data that renders the panel,
+   **punctuated at every boundary** (`. ` per sentence, `; ` between declaration rows, terminal `.`)
+   and **re-derived** by construction — it is a pure function of the keyframe and its preview entry,
+   so the ghost→image swap changes the string, which changes the prop, which reka's own `computed`
+   re-evaluates.
+2. **Its placement is declared, and it is a placement and not a shape.** `describeKeyframe` is a
+   named export of **THP's plain `<script>` block**, not of the track. The design's own next
+   sentence forbids re-deriving `hasGhost` by hand in TT; after C-5 the description has **two** such
+   inputs (the ghost predicate **and** the authored caption) and both live in THP. Placing it there
+   collapses a duplication instead of creating one: the caption, the `<img alt>` and the ghost arm
+   now read the **same six exported derivations**, so the description and the panel cannot disagree.
+   `vue-tsc` resolves the SFC's real type; the `*.vue` ambient shim is scoped to `check`'s second
+   leg, which parses no SFC ⟨`demo/env.d.ts`'s own narrowing comment⟩.
+3. **D-10 (KeyframeTimeline) — one capture seam, both modalities.** `@focus` beside `@mouseenter` on
+   the marker. The tooltip opens on focus (reka wires it straight to `onOpen`), so a keyboard user
+   opened the panel and got the ghost branch forever: their keyframe's preview was never requested,
+   by anything. The emit NAME is kept — renaming it is not the cure.
+4. **RR-A missed-1 — the two-attribute cure, at the container.** `role="group"
+   aria-label="Keyframe timeline"` on the rail's container, and `aria-hidden="true"` on the tick
+   band (~5-15 bare percent strings that interleaved into the AT tree as **content**, saying nothing
+   the marks do not announce through `aria-valuetext`, and changing count with zoom). Reader 3 rides
+   the same family: `stopLabel` now **leads with the typed label**, so N sliders are told apart by
+   the author's word before the number.
+5. **M7 — DISCHARGED BY MEASUREMENT, not re-spent.** DISSENT-4 binds the judgement to the verbatim
+   element, so: ⟨cmd⟩ `grep -A1 'text-mono-small' THP` → `class="text-mono-small
+   text-muted-foreground max-h-[12.6em] overflow-x-clip overflow-y-auto w-full"
+   data-register="code"`; ⟨cmd⟩ `grep -c 'text-admin-label' THP` → **0**. The registers, from the
+   installed producer: `text-admin-label {… **text-transform: uppercase**; letter-spacing:
+   var(--type-tracking-caps) …}` vs `text-mono-small { font-family; font-size; line-height }` —
+   **no transform, no caps tracking**. **KF.W6's D-4 performed the swap under MISSED-3's law**, box
+   re-denominated `max-h-[12.6em]` in the same commit. **MM-29's pairing rider has no caps register
+   left to pair with**, so `normal-case tracking-normal` is NOT written — it would undo nothing and
+   would be inert class noise standing in for a cure a closed wave already landed. **M7's AT half is
+   cured here by construction**: a prop is a string and no type register reaches it.
+6. **G11 fixture 3 — 11 assertions, RUNNING.** The prop is passed; `; `-separated rows with a
+   terminal `.`; label-first; the authored selector, never a fabricated percent; the authored CASE
+   (`var(--myVar)` present, `VAR(--MYVAR)` absent); ghost → ready → failed re-derivation across
+   `nextTick`; **the end-to-end reading — focus the marker, then assert the `role="tooltip"` node
+   reka actually builds equals the string we passed**, so the fallback is proven not to fire rather
+   than assumed not to; `@focus` arms the capture and `@mouseenter` still does; the group's name;
+   every tick inside an `aria-hidden` ancestor; the marker's own label-led name. **36 tests, 36
+   green** (25 of `.g`'s + 11); ⟨cmd⟩ `grep -cE '^\s*(test|it|describe)\.skip'` → **0**. **None of
+   the nine tracked `test/demo/instrument/` witnesses was edited.**
+
+#### The one declared contract change, with the measurement that forced it
+
+`TimelineTrack`'s `previews` prop becomes **optional**, as the leaf's own `entry` already is.
+`.g` replaced `previewCache`/`previewLoading` with a single **required** `previews` Map and could
+not update the two sibling fixtures that mount this component (outside its writable set — its
+residual 1, owner `.i`). The only read of that map sat inside `TooltipContent`'s **slot**, which
+renders only while the tooltip is open, so the stale mounts never touched it. **This unit's
+`:aria-label` is a prop of `TooltipContent` itself**, evaluated on every render of the panel's mount
+— which turned the latent break into ⟨cmd⟩ `TypeError: Cannot read properties of undefined (reading
+'get')` × **16 failures across fixtures 1 and 2** at the first run.
+
+**The cure is the contract, not a guard**: a cache's absence is a **cold cache**, not an error. Every
+mark, gesture and keyboard route works without one, and a cacheless mount renders the ghost branch
+throughout — which is exactly what the description then says. The read is **total at both sites**
+(`previewFor`), never guarded at one of them; no `?.` is scattered through the template and no empty
+Map is fabricated. Nothing of the old two-map API survives, so this is not a compat shim: the dead
+`previewCache`/`previewLoading` keys in fixtures 1 and 2 remain `.i`'s one-line-each cleanup,
+unchanged. **The alternative — editing those two fixtures — is outside this unit's hard bound and
+was not taken.**
+
+#### Gate readings BEFORE → AFTER (settled bytes, double-run — ⟨`diff run1 run2`⟩ → no output)
+
+| gate | BEFORE (§Resume baseline, `41a7ebb6`) | AFTER (`15c95de1`) | witness |
+|---|---|---|---|
+| **G9** | **RED** — the description is reka's untracked once-captured `textContent`; the rail has no accessible container | **GREEN** | `TooltipContent` at `:252-257` carries **`:aria-label="describeStop(stop)"`** · `describeKeyframe` in `demo/` → **2 files** (was 0) · `role="group"` in TT → **1**, named `aria-label="Keyframe timeline"` (was 0) · tick band `aria-hidden="true"` → **1** · marker `@focus`/`@mouseenter` → **1 / 1** · `text-admin-label` in THP → **0** · `^export const` in THP → **6** · `aria-label` in TT → **6 hits enumerated whole** (`:10` prose · **`:16` group** · `:46` pan · `:114` rail · `:206` marker · **`:256` TooltipContent**) |
+| **G11** (fixture 3's G9 half) | **RED** — no assertion named the description, the group or the focus seam | **GREEN** | ⟨cmd⟩ `npx vitest run --project demo test/demo/instrument/timeline-hover-preview.test.ts` → **36 passed**, twice · the four fixtures together → **65 passed**, twice · leg (i) still returns exactly the four W7 fixtures |
+
+**Typecheck** — ⟨cmd⟩ `npm run check` → **exit 2**; `error TS` → **54** over **22 files**; ⟨cmd⟩
+`… | grep -cE 'instrument/timeline'` → **0** and `grep -c 'timeline-hover-preview'` → **0**. The 54
+are the frontier's pre-existing set, the same 54-over-22 `.g` measured, **not one of them this
+unit's**. ⟨**A correction to `.g`'s receipt, recorded rather than smoothed (E-3: addendum-beside)**:
+that receipt published this command as *"exit 0"*. Measured directly rather than through a pipe it
+is **2**, and it was **2 before this unit wrote a byte** — the pre-existing 54 fail `check`'s first
+leg. The COUNT, not the exit, is the reading that separates a unit's work from the frontier's, and
+the count is unmoved.⟩
+**Suite** — ⟨cmd⟩ `npx vitest run` → **147 files passed | 5 skipped · 1518 passed · 3 expected fail
+· 0 failed**. `.g` left **1507**; **+11** is exactly this unit's new assertions.
+
+#### Residuals, each with a named owner
+
+1. **The nested-slider structure the drift leaves behind.** The rail is `role="slider"` (G8's) and
+   CONTAINS the N marker sliders and their carets; `slider` is a Children-Presentational role, so a
+   strict user agent may prune them. Neither cure is this gate's: moving the playhead role off
+   `.timeline-track` breaks `timeline-mount-keyboard.test.ts:183` (outside this unit's bound) and
+   G8 with it, and lifting the markers out of the rail moves them out of the element whose scoped
+   block declares `--timeline-hit-floor` and `--timeline-caret-offset` **for them** — an ARIA fix
+   traded for a geometry regression. **DECLARED in the file**, at the rail, not swallowed.
+   **Owner: `.j`'s close residuals / KF.W10**, as a single design question (which element is the
+   playhead slider), never as a per-seat patch.
+2. **Fixtures 1 and 2 still pass the dead `previewCache: {}` / `previewLoading: {}` keys.** Inert
+   since `4e2a715f` and now inert against an optional prop; **23 tests green** at the settled bytes.
+   **Owner: `.i`** — unchanged from `.g`'s residual 1, one line each.
+3. **The caption's own register is `text-mono-caption`, which IS a caps register** ⟨producer:
+   `text-mono-caption { …; letter-spacing: var(--type-tracking-caps); text-transform: uppercase; }`⟩,
+   so a named scroll phase renders `ENTRY 100%` to the eye while the AT description says
+   `entry 100%`. **Out of M7's scope by its own words** (M7's subject is the declaration dump) and
+   the register is **KF.W6's landed role-(c) numeric decision on a CLOSED wave** — re-cutting it
+   here would re-open a closed ruling on this seat's taste. **Declared, not cured. Owner: `.j`'s
+   close residuals / KF.W10.**
+4. **`KeyframeTimeline.vue` is in this unit's writable set and was not written.** D-10's ROW is
+   record-qualified to kf-KeyframeTimeline; its BYTES are the marker's, in `TimelineTrack.vue`. The
+   owner's handler (`onDiamondHover` → `capturePreview`, `:483-484`) already does the right thing
+   for whichever modality asks. **No residue.**
+5. **The description says `Preview unavailable: <error>` where the panel renders `Preview
+   unavailable — <error>`.** The design's punctuation for the AT channel, the panel's for the eye;
+   both derive from the same `entry.kind` and the same `entry.error`, so neither can drift from the
+   state. **Stated, not owed.**
+
+#### Escalations
+
+**NONE.** No write outside the writable set; no gate greened by editing a tracked witness; no
+`test.skip`, no try/catch around a defect, no allowlist, no producer selector copied, no
+`node_modules` patch; nothing filed under `/timeline` (I-35 §2) and no new producer row opened.
+
+#### Commits (2 — 1 keyframes.js, 1 value.js; pathspec on every one)
+
+| repo | sha | meaning |
+|---|---|---|
+| keyframes.js | **`15c95de1`** | `fix(kf/timeline-a11y): G9 — the tooltip announces what it shows (KF.W7 .h, ONE family)` — the family whole, three files, unsplit |
+| value.js | (this commit) | `evidence/W7/G9-A11Y-LANDING.md` + these receipts |
