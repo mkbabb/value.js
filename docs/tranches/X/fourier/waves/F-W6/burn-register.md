@@ -1114,6 +1114,200 @@ is exactly what FW6-G17's reverse direction will grep at unit `i`.
 
 ---
 
+### §1.i Unit `i` — **the carry closure**: no burned identity, and the set-difference RUN in both directions
+
+**SERVED MODEL: claude-opus-5[1m]** · seat clock **2026-09-18** (the wave's sitting date is 2026-09-17;
+the unit-`e` date erratum applies) · bases per §0.2 · engine **`/usr/bin/grep`** · every figure double-run.
+
+**This unit books ZERO identities into §1's table, and that is a finding, not an omission.** §2.10's four
+rows are **branch 1** — *routed OUT to the value.js API row; zero value-tree bytes* — and §2.11c BLOCK B
+prints them as `1 ×4` for exactly that reason. The unit's products are **the routing receipt** (bounds #3,
+`FW6-G16`), **the courier letter** (bounds #4), **one INBOX row** (bounds #5), and **the run below**
+(`FW6-G17`). Adding a §1 row for a routed obligation would be the credit-claim §2.10's own first paragraph
+forbids: *"it stamps nothing on the value tree and **takes no credit for any cure**"*.
+
+#### §1.i.1 FW6-G16 — the receipt exists, and the value tree did not move
+
+**Artefact**: `docs/tranches/X/fourier/waves/F-W6/value-side-routing-receipt.md` — ⟨cmd⟩
+`wc -l -c …/value-side-routing-receipt.md` → **318 L / 20,839 B**. The born-RED witness (*"No receipt
+exists"*; ⟨cmd⟩ `ls docs/tranches/X/fourier/waves/F-W6/` → *No such file or directory* at baseline) **no
+longer reproduces**.
+
+**The gate's GREEN has three conjuncts and each is answered at the receipt's own section:**
+
+| conjunct (FW6-G16 GREEN) | where answered | reading |
+|---|---|---|
+| *"names the value.js API row per obligation"* | receipt §3 | four rows — `V-α` · `V-β` · `V-γ` · ⊙ `TA-4`, each with its **Routed to** cell reading *the value.js API row* |
+| *"cites the authority that actually holds each one — the F-W5 §4 edge row for V-β/V-γ/TA-4, lane-crud §V-α for V-α"* | receipt §2.1 / §2.2 | **TWO authorities, quoted separately, never fused.** `F-W5.md:405` membership, measured per token and double-run: `V-β` **1** · `V-γ` **1** · `TA-4` **1** · `V-α` **0**. lane-crud `:161` byte-true, and its `shasum` **`3bcc387cbb2a`** is a **character-match** to §0.3's immutable pin — **the one authority V-α leans on alone has not moved** |
+| *"asserting no list membership for V-α"* | receipt §2.3 | asserted three ways: the `:405` count is **0**; ⟨cmd⟩ `/usr/bin/grep -l '§6c' waves/F-W5.md` → **no output, exit 1** (set-membership, never a banked count of a moving file — R3-3.10), so the round-1 phantom leg stays **struck** rather than re-addressed; and the fused single-operand *"F.W5's obligation list"* is not used |
+| *"`git diff --stat` over `$V/api/src` + `$V/src` shows **zero** bytes moved by this wave (measured empty at the fold — it must still be empty at close)"* | receipt §5 | ⟨cmd⟩ `git diff --stat -- api/src src \| wc -l` → **0** · ⟨cmd⟩ `git status --porcelain -- api/src src \| wc -l` → **0**; **double-run identical**. Empty at the fold (2026-08-28), empty at the wave's open (22:56 EDT), empty here |
+
+▲ **Every value-side measurement in the receipt is a READ** — `grep` · `sed` · `ls` · `shasum`. The routing
+law forbids **edits**, not reads (D-19 requires the reads), and none was made.
+
+⌧ **ADDENDUM-BESIDE (dated 2026-09-18) — two anchor drifts in spec §2.10, INTENT recorded at the true
+bytes, the spec NOT edited (E-3).** (1) **V-γ**: the spec reads *"an `if (userSlug)` guard fronts the
+version write at crud.ts:119, crud.ts:204 and versions.ts:147"*; at the live bytes the three guards are
+**`crud.ts:118`** (one line up), **`crud.ts:204`** (exact — and in the **compound** form
+`if (contentChanged && userSlug)`), **`versions.ts:147`** (exact). Three guards, three sites, **mechanism
+unchanged**. (2) **V-β**: the spec's `repository/paletteVersion.ts:44-47` window brackets an early return
+the live file puts at **`:47`**. Every other §2.10 anchor — V-α's six, V-β's `model.ts:85-86` /
+`hash.ts:8-17` / `:13-15`, TA-4's four — **reproduces exactly**.
+
+⌧ **ADDENDUM-BESIDE (dated 2026-09-18) — two of §0.3's three "immutable" pins have MOVED, and the
+quotations were RE-RUN rather than trusted.** §0.3's own law is *"A later reader whose `shasum` differs
+knows the sibling moved and re-runs rather than trusting"*. Measured, double-run:
+
+| operand | §0.3 pin | live | verdict |
+|---|---|---|---|
+| `formation/fourier/lane-crud.md` | `3bcc387cbb2a` | **`3bcc387cbb2a`** | **character-match — unmoved** (the V-α authority) |
+| `formation/fourier/CENSUS-2026-08-03.md` | `684de3d8a8a0` | **`4f9d9f72140a`** | **MOVED** at ⟨cmd⟩ `git log --oneline -1 -- …/CENSUS-2026-08-03.md` → `ca5b7441` 2026-09-17 *"docs(X·F): CENSUS + lane-frontend errata addenda; COHESION §1/§2"* — an **addenda-beside** landing, which is what E-3 prescribes. **The routing-law quotation at `:200-202` reproduces BYTE-TRUE at the moved file**, so no operand of the receipt moves |
+| `audit/codex-provenance/INTAKE-ADJUDICATION-2026-08-03.md` | `c61b3ed01141` | **`7188830b5164`** | **MOVED**; **this wave's unit `i` reads it nowhere**, so the stamp is recorded for the next seat and nothing here rests on it |
+
+**FW6-G16: BEFORE = RED** (no receipt; standing condition held) **→ AFTER = GREEN** — the artefact exists,
+cites two authorities, asserts V-α's non-membership by measurement, and the value tree is unmoved. ▲ **This
+is the one gate of this wave whose GREEN is F.W6's to execute in full** — it commissions nothing and waits
+on no fourier landing, which is why it is the only GREEN this unit claims.
+
+#### §1.i.2 FW6-G17 — the set-difference, RUN, both directions, record-qualified
+
+**The operand, named before it is used.** §0.1 is binding: *"`../conformance/CENSUS-CANONICAL.md` is THE
+census of record. A gate in this file that cites any other census operand is DEFECTIVE on sight."* Pin
+re-measured at this seat: ⟨cmd⟩ `shasum -a 256 $C | cut -c1-12` → **`f44362757458`**, a **character-match**
+to the spec's frozen pin. **No roster integer is re-derived here** (R4-5); the enumeration is the operand.
+
+**The band's record-side denominator, read from the canonical, not from this file's arithmetic** — ⟨cmd⟩
+`/usr/bin/grep -nE '^### F\.W5(-W8)? — ' $C` → `5078:### F.W5 — **27 rows**` · `5092:### F.W5-W8 — **89
+rows**`. **27 ⊕ 89 = 116**, and the extraction confirms it by enumeration rather than by addition:
+⟨cmd⟩ *(the roster lines split into `(record, id)` pairs)* → **116 pairs**, double-run **116**.
+
+##### FORWARD — every canonical-homed id in the band is printed here, at a qualifying landing
+
+**Procedure, as FW6-G17's face now states it**: read every id the canonical homes at `F.W5` or `F.W5-W8`
+and confirm it is printed at §2.1–§2.10 (**booked**), §2.11 / §2.11c (**cited / folded**), §2.11d
+(**cited-to-holder**) or §5 (**excluded-with-reason**). The probe is the **bare id token**, except for the
+**ten colliders** §4 lock 10 record-qualifies (`M-13 · L-B1 · L-M3 · C-17 · C-18 · B-1 · B-2 · C-2 · M-10 ·
+M-9`) ⊕ `C-7` (a fourth homonym pair the run must also qualify), where it is the **(record, id) pair**.
+
+**Result, double-run identical: 116 probed · 116 landed · ZERO with no qualifying landing section.**
+
+| landing profile (a pair may print in more than one) | count |
+|---|---|
+| `CITED(§2.11)` alone | 23 |
+| `BOOKED(§2.1–§2.10)` ⊕ `CITED(§2.11c)` | 22 |
+| `BOOKED` ⊕ `CITED(§2.11c)` ⊕ `EXCLUDED(§5)` | 14 |
+| **`HOLDER(§2.11d)` alone** | 13 |
+| `CITED(§2.11c)` ⊕ `EXCLUDED(§5)` | 8 |
+| `BOOKED` ⊕ `CITED(§2.11)` ⊕ `CITED(§2.11c)` ⊕ `EXCLUDED(§5)` | 8 |
+| `BOOKED` ⊕ `CITED(§2.11)` ⊕ `CITED(§2.11c)` | 7 |
+| `CITED(§2.11c)` alone | 4 |
+| `BOOKED` ⊕ `CITED(§2.11)` ⊕ `CITED(§2.11c)` ⊕ `HOLDER(§2.11d)` | 4 |
+| the remaining nine profiles (1–3 each) | 13 |
+| **no qualifying landing** | **0** |
+
+⊘ **ONE ADDRESS-FORM DIVERGENCE, recorded rather than smoothed — and it is the only one in 116.**
+`fr-ImageUpload` **`C:C-12`** returns **∅** on a bare-id probe of `F-W6.md`, because the spec addresses that
+identity **by ROW NUMBER**: ⟨cmd⟩ `/usr/bin/grep -nF 'fr-ImageUpload` row 26' waves/F-W6.md` → **one hit**,
+§2.11c BLOCK C, branch **2**, *"cited at §2.2 FR-AFP-4 (INFO)"*. The identity is the same one — ⟨cmd⟩
+`/usr/bin/sed -n '60p' $G/fr-ImageUpload.md` → `| 26 | C:C-12 | INFO | …` — so **the disposition exists and
+is legible; only its ADDRESS is a row number where the canonical's is a token.** This is **not a silent
+drop** (the gate's failure condition), and it is **not a fabrication**; it is a probe-form fact a successor
+must know, because a bare-token reverse probe at that id is **unrunnable** exactly as it is at `M-10`/`M-9`.
+Routed to the letter as a citation-form note; no id moves, no landing changes.
+
+⚑ **And the structural reason a forward escape is impossible here, stated so the GREEN is not mistaken for
+luck**: **the canonical homes ZERO record-side rows at F.W6** — ⟨cmd⟩ `/usr/bin/grep -o 'F\.W6., .F\.W8.
+and .F\.W10. are likewise named by \*\*no record\*\*' $C` → *"F.W6`, `F.W8` and `F.W10` are likewise named
+by **no record**"*. What the forward walk can therefore prove is *coverage*; what it cannot catch is
+*fabrication* — which is what the reverse direction is for.
+
+##### REVERSE — every identity printed here resolves, and nothing is manufactured
+
+**(i) The landing sections named actually hold their carriers.** Every §2.11c BLOCK C cell that names a
+`§2.N` carrier was re-read against that section's own line range: **40 carrier-landing checks run · 0
+failures.** (Three cells returned a raw MISS on a mechanical first pass and all three are extraction
+artefacts, resolved at the bytes: `FR-GV-9's` — the possessive — with ⟨cmd⟩ §2.4 `grep -c 'FR-GV-9'` →
+**1**; and two cells that name a section with **no** carrier token, *"carried at §2.6 (boundary cardinality
+on the write path)"* and *"named fold at §2.4 (re-landed this round)"*, both of whose sections exist and
+hold the fold.)
+
+**(ii) §2.11d's FIFTEEN are all canonically F.W5-held, as §2.11d asserts.** Probed one by one against the
+canonical's rosters: `FR-AUL-3 · -11 · -12 · -14 · -20 · -21 · -25 · -31 · -46 · -59` (10) ⊕ `AA-23 · AA-31
+· AA-32` (3) ⊕ `GAB-15 · GAB-16` (2) → **15 of 15 return `F.W5`**. The section's own duty — *"CITE THE
+HOLDER BY NAME — never to book, never to count, and never to route"* — is met: none appears in §1's id
+column, none is counted into any denominator here.
+
+**(iii) NO DOUBLE-CREDIT — falsifier (b), run over the booked set against the canonical's homes.** Every id
+booked at §2.1–§2.10 was resolved to the wave the canonical homes it at:
+
+| booked id | canonical home | reading |
+|---|---|---|
+| `fr-SpeedSelect SS-C-1` · `FR-AFP-4` · `FR-GV-12` · `FR-AFP-1` · `FR-AFP-66` · `FR-AFP-7` · `FR-AFP-33` · `FR-AFP-36` · `FR-GV-9` · `fr-ContourSettings B-4` · `fr-ContourSettings M-13` · `fr-FourierShapeExtractor L-B1` · `PP-DEADSEAM` · `FR-GFC-3` | **F.W5-W8** | the band. **F.W5 STATES, F.W6 BURNS** — the burn is the band execution, not a second home |
+| `fr-GalleryDraftsSection B-2` | **F.W3** | entered **CITED to F-W3** (REST-17) — **not booked as F.W6's home** |
+| `fr-AdminAuditLog AA-10` | **F.W4** | entered **CITED to F.W4** (REST-16) — **not booked** |
+| `fr-EquationModeToggle FR-EMT-20` | **F.W5** | entered **CITED to F.W5** (REST-15) — **not booked** |
+| `fr-GalleryCardModal GCM-1` | **F.W4** | **routed to F.W4** at BLOCK C (branch 1); the *"no `fork_of` recorded"* **server arm** is booked at §2.8 under the distinct identity `R-5`/`G5` ⊕ `E4`, never under `GCM-1` |
+
+**Zero ids credited both to F.W6 and to F.W1 / F.W3 / F.W4 / F.W5 / F.W8.** The three REST conversions are
+what make that true, and they are named rather than assumed.
+
+**(iv) NOTHING MANUFACTURED INTO THE SEVEN NEGATIVE-ROSTER RECORDS — falsifier (c).** Probed by record
+against **this register**, double-run: ⟨cmd⟩ `/usr/bin/grep -cF '<record>' burn-register.md` →
+`fr-App` **0** · `fr-CollapsibleSection` **0** · `fr-MobileFloatingToc` **0** · `fr-PaperSearch` **0** ·
+`fr-PaperSearchDropdown` **0** · `fr-PaperSearchInput` **0** · `fr-MorphShapePreview` **0**. **B5 holds:
+negative controls are EVIDENCE, never a denominator** — they bound the difference from below and this wave
+added nothing to them.
+
+**(v) THE FABRICATION TEST, run over BLOCK C's 63 rows.** Each printed identity was resolved against the
+canonical (**any** wave). **58 resolve to a canonical home.** **Five do not, and every one of the five is a
+branch-2 NAMED FOLD whose CARRIER is canonically homed** — which is precisely what the counting rule
+predicts (*"a named fold is transcribed at its carrier and is **NOT** a separate roster member"*):
+
+| printed sub-id | branch | carrier, and the carrier's canonical home |
+|---|---|---|
+| `fr-AdminFlaggedPanel FR-AFP-40` | 2 | fold inside `FR-AFP-32` — canonical **F.W3** |
+| `fr-AdminFlaggedPanel FR-AFP-69` | 2 | fold inside `FR-AFP-32` (= β-miss-5 extension) — canonical **F.W3** |
+| `fr-CanvasControlsDock C-28` | 2 | fold-by-reference at F.W5 **B1**; the record's own band row `R6-8` is canonical **F.W5** |
+| `fr-GalleryCard D-13` | 2 | inside the compound `L·M-4 / D-13 / C-8(a) + L·D-2 / C-12`, whose head `L·M-4` is canonical **F.W3** |
+| `fr-ContourPreview` row 28 | 2 | carried at §2.6 (`fr-ContourSettings M-13`, canonical **F.W5-W8**); a row-number address, like `fr-ImageUpload` row 26 |
+
+**None of the five is credited to F.W6**, none is counted into a denominator, and none enters a
+negative-roster record. **No fabrication found.**
+
+⊘ **ONE MEASURED OBSERVATION, disclosed because it is the kind of thing a later seat should not re-discover
+as a surprise.** Four of §2.11c BLOCK A's ten census escapes are canonically **F.W4**-held, not F.W5 or the
+band: `fr-EquationResult FR-EQR-4` (E-4) · `fr-ConvergenceLegend D-L4` (E-7) · `fr-ConvergencePlot L-M7`
+(E-8) · `fr-ConvergencePlot L-m13` (E-10). **BLOCK A lands each as `3-CITE` to an `F-W5.md` CLAUSE**, and a
+clause is a rule while the canonical homes a ROW — the spec makes that distinction itself at §2.11b's
+round-3 amendment (*"A clause is a rule, and one rule is instantiated by many rows whose cures land in
+different waves"*). **F.W6 books none of the four and claims no credit for any**, so no double-credit
+arises; the observation is recorded and routed, not resolved here.
+
+**FW6-G17: BEFORE = RED** (the operand — this register's id column — did not exist; ⟨cmd⟩ `ls
+waves/F-W6/` → *No such file or directory* at baseline) **→ AFTER = GREEN.** Both directions run from this
+file, neither resting on a count, neither deriving its own roster: **forward 116/116 landed, 0 silent
+drops** · **reverse: 40/40 carrier landings hold · 15/15 holder-cites correct · 0 double-credits ·
+0 manufactured rows · 0 fabrications**, with **one address-form divergence** and **one clause-vs-home
+observation** disclosed rather than absorbed.
+
+#### §1.i.3 The close acts, and what this unit did NOT stamp
+
+- **The courier letter**: `docs/tranches/X/coordination/value-to-fourier-2026-09-17-provenance-burndown-F.W6.md`
+  — the **only vehicle** by which the fourier side receives this burn-down (bounds #4). It carries every
+  commissioned ask **by gate id and clause id**, the **TRIPWIRE** and the **M-10 innerPoly anti-cure rider**
+  **verbatim** (each with its ⟨cmd⟩ and its cut disclosed), **R3's port homed explicitly at F.W8** with
+  spec §2.4's superseded homing named as superseded-on-the-homing-only, **this end of all thirteen §4
+  cross-edges** with the reciprocal **requested**, and the three asks back. ▲ **`DD` resolved to the
+  execution date (2026-09-17, the wave's sitting) and was never back-dated** (divergence D-5).
+- **The E13 row + close sweep**: one append-only row in `docs/tranches/V/coordination/INBOX.md`, and the
+  four-path sweep ⊕ the Track-C fourier mail-ledger surface re-run at this seat's clock.
+- ⊘ **This unit stamps `IMPLEMENTED`, never `CLOSED` and never `VERIFIED`.** L-18's **two fresh-Fable
+  gestalt passes follow the IMPLEMENTED stamp**, as F.W5's CHECK 1 / CHECK 2 did. **Seventeen of this
+  wave's nineteen gates remain RED with their commissioned acts installed** — the split verdict — and
+  claiming otherwise is the *"burn credited to a wave that did not perform it"* base L-18 names.
+
+---
+
 ## §2 Unit stamps
 
 | unit | gates turned | commit | stamp |
@@ -1126,3 +1320,4 @@ is exactly what FW6-G17's reverse direction will grep at unit `i`.
 | **f** | **FW6-G9 — RED with the commissioned act installed** (§3's split verdict; **no landing claimed**). ⊘ **The row books ONE identity and it is not the one in the gate's title**: `AA-10` is **CITED to F.W4** and travels here only as its `F.W5–W8` actor-field leg **under the holder's id**, so what this row **books** is `fr-AdminAuditLog AA-5`'s **server arm**; `AA-6` · `AA-24` are **cited**, `AA-23` is a **kill-only citation** whose host row is **F.W5's**, and `AA-44` is **emitted to F.W9/W10** — each stated **in the row** and tabulated at §1.f | *(this commit — **one row, one meaning**: the FIELD and the SEAM are one act under E18 ⊕ D16 and do not split)* | **CLOSED 2026-09-18** |
 | **g** | **FW6-G13 · FW6-G14 — RED with the commissioned act installed** (§3's split verdict; no landing claimed) · **FW6-G15 — RED BY DESIGN**, the only gate of this wave whose RED is a conformance result: §3 declares it *"stays RED by design"* and its GREEN is unreachable from a wave that moves **zero fourier bytes**; the TRIPWIRE was **checked, not recited** — `git -C $F status --porcelain \| wc -l` → **0** at open and at close, `moon.json` / `sun.json` byte-untouched. ⊘ **Eleven identities travel and THREE heads are booked**: `fr-ContourSettings B-4` · `fr-ContourSettings M-13` · `fr-FourierShapeExtractor L-B1`; `i-7` **folds**, `m-18` is **cited to F-W3 (prohibition only)**, `fr-CoefficientsSpectrum M-13` is **a distinct identity booked nowhere**, and `M-10`'s innerPoly rider is **a prohibition, not an identity** — each stated **in its row** and tabulated at §1.g | *(this commit — **the unit's ONE meaning**: §2.6 is a single section, *"contour, cache identity, and canonical geometry"*, and the spec declares **no** one-cut family inside it and none across it; unit `d`'s four-rows-one-commit shape is followed, and the three rows, §1.g and this stamp land together)* | **CLOSED 2026-09-18** |
 | **h** | **NONE — the wave's one ungated unit.** §3 carries no gate for §2.7; this unit's evidence is its **two register rows**, which **FW6-G17** reads at unit `i`. ⊘ **Its standing lock was DISCHARGED, not waived**: §4 lock 8 holds a projection strike *"until G7/E16 rules"*, and **`F-TRIE` (COHESION §0j.D) ruled NO TRIE** — the antecedent is satisfied at the ruling, so the strikes are E10 liveness dispositions and not compression decisions in disguise. **No trie, no variant store and no compression scheme is designed here** (§5's exclusion stands; `atomdiff.py:12-14` re-read and unchanged). ⊙ **One head BOOKED** (`fr-PathPreview PP-DEADSEAM`), **three carried on it** (`fr-BasisCanvas M-β4` · `fr-EquationView L·m-6` · `fr-GalleryMarquee GM-M4`), **two CITED to their holders** (`fr-VisualizationView VV-R2-B` → F.W4 · `fr-EquationModeToggle FR-EMT-20` → F.W5) — **and the GM-M4 branch is NOT taken here**: the `softDelete`/`restore` wiring is VV-R2-B's single F.W4 unit and this seat emitted three sharpened findings to it rather than scattering the cure | *(this commit)* | **CLOSED 2026-09-18** |
+| **i** | **FW6-G16 → GREEN** (the wave's only self-executable GREEN: the receipt exists, cites TWO authorities, asserts V-α's non-membership by measurement, and the value tree is unmoved — `git diff --stat -- api/src src` **0**, double-run) · **FW6-G17 → GREEN** (set-difference RUN both directions over the canonical `f44362757458`, **27 ⊕ 89 = 116**: forward **116/116 landed, 0 silent drops**; reverse **40/40 carrier landings · 15/15 holder-cites · 0 double-credits · 0 rows manufactured into the seven negative-roster records · 0 fabrications**). ⊘ **Books ZERO identities into §1** — §2.10's four rows are branch-1 routings and booking one would be the credit-claim §2.10 forbids. ⊘ **Two disclosures, neither absorbed**: `fr-ImageUpload C:C-12` is addressed **by row number** in the spec, so a bare-token probe is unrunnable at that one id of 116 (the disposition exists and is legible — BLOCK C, branch 2, cited at §2.2); and four BLOCK A escapes (`FR-EQR-4` · `D-L4` · `L-M7` · `L-m13`) are canonically **F.W4**-held while cited to an F-W5 **clause** — clause ≠ home, F.W6 books none of the four. ⊘ **Seventeen gates stay RED with their commissioned acts installed** (§3's split verdict); this unit claims no landing it did not execute | *(this commit — the close family: register closure ⊕ unit stamp; the receipt, the letter and the INBOX row are their own meanings and their own commits)* | **IMPLEMENTED 2026-09-18** ⟨never `CLOSED`, never `VERIFIED` — L-18's two fresh-Fable gestalt passes follow the IMPLEMENTED stamp⟩ |
