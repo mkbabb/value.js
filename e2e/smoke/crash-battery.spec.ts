@@ -77,10 +77,21 @@ test("R14 · pressing Retry on a dead Browse wall leaves a plate behind", async 
     ).toBeVisible({ timeout: 8000 });
 
     // …and it recovers when the backend does, rather than holding the blank.
+    //
+    // R2 · DEAD-LOCATOR RULING (X-W1 repair 1, Check 1 D-4). This bound
+    // `"article, [data-palette-card], .palette-card"` — a three-member union in
+    // which EVERY member was dead, so the recovery leg could not pass however
+    // the product behaved. Measured: `[data-palette-card]` appears in 0 bytes of
+    // `demo/`, `src/` or the installed `@mkbabb/glass-ui`; the only class in the
+    // tree is `.palette-card-grid` (`PaletteCardGrid.vue:4`), which `.palette-card`
+    // does not match, class tokens being exact; and ⟨`grep -rn '<article' demo/
+    // --include='*.vue'`⟩ → **0** — `PaletteCard.vue:22` carries `role="article"`
+    // on a `<div>`, which the CSS tag selector `article` never matches. The live
+    // hook is the ROLE, which is also what `views/browse-loading.spec.ts` binds.
     abort = false;
     await retry.click();
     await expect(
-        main(page).locator("article, [data-palette-card], .palette-card").first(),
+        main(page).getByRole("article").first(),
         "the wall never repopulated after the backend recovered — KeepAlive is holding a stranded leave",
     ).toBeVisible({ timeout: 15_000 });
 });
@@ -286,10 +297,18 @@ test("R18 · a real image file develops a palette", async ({ page }) => {
         "the drop zone never showed the uploaded image — the file path itself is broken",
     ).toBeVisible({ timeout: 15_000 });
 
+    // R2 · DEAD-LOCATOR RULING (X-W1 repair 1, Check 1 D-4). This bound
+    // `".extract-swatch, [data-extract-swatch], [data-palette-swatch]"`, and all
+    // three members are dead: ⟨`grep -rl` each literal over `demo/ src/` and the
+    // installed `@mkbabb/glass-ui`⟩ → **0 files** apiece. A developed extract
+    // palette renders through `ExtractWorkbench.vue:145`'s `<PaletteCard>` →
+    // `PaletteCardSwatches.vue:25` → `SwatchHoverMenu.vue:18/:33`, whose swatch
+    // carries `aria-label="Color swatch <css>"`. That is the live hook, so that
+    // is what this arm binds. The arm's RED must come from R18's mechanism —
+    // the extract flow no gate had ever handed a file — never from a selector
+    // that could not have matched under any behaviour.
     await expect(
-        main(page)
-            .locator(".extract-swatch, [data-extract-swatch], [data-palette-swatch]")
-            .first(),
+        main(page).locator('[aria-label^="Color swatch "]').first(),
         "no palette developed from a valid image: no gate had ever handed this route a file (setInputFiles was 0 repo-wide), so the whole flow was unmeasured",
     ).toBeVisible({ timeout: 20_000 });
 
