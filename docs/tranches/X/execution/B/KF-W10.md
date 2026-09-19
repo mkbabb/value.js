@@ -192,3 +192,158 @@ Held in escrow against OP-6's ruling. Order is `.a → .b → .c → .d → .e �
 ## Unit receipts
 
 *(empty — no unit was dispatched; the wave is BLOCKED-ON OP-6)*
+
+---
+
+# SITTING 2 — THE OPEN ACT (2026-09-18, later) · OP-6 CURED AT COHESION §0t · **THE WAVE OPENS**
+
+**Seat**: SEAT 0 (OPEN), `claude-opus-5[1m]`, 2026-09-18 23:1x EDT (⟨cmd⟩ `date` → `Fri Sep 18 23:16:06 EDT 2026`).
+**Sitting date of record stays 2026-09-17** (the owner's begin-word, COHESION §0j).
+**E-3 posture**: sitting 1's bytes above are **SEALED and not rewritten**. Its `BLOCKED-ON OP-6` verdict was
+true at its own clock and is **superseded at its own predicate**, never erased. **The `## Unit receipts`
+section of record for the dispatched wave is the LAST one in this file** (below); sitting 1's identically
+headed section records only that nothing was dispatched at that sitting.
+
+> ## VERDICT OF THIS SITTING — **OPEN**. Seven gates re-run READ-ONLY and **all seven born-RED**; **0 GREEN-BEFORE-CURE**; the seven-unit plan stands **unchanged**; **no §4 path was written by this seat**.
+> §2a's sixth precondition is **GREEN at the bytes**: COHESION **§0t** — *"**KF.W10 belongs to SS-2**"* —
+> landed at `f7dae874` (⟨cmd⟩ `git log -1 --format=%ad --date=iso f7dae874` → `2026-09-18 23:00:55 -0400`),
+> the root session's act, exactly the shape §6.C-E prescribed and RULINGS **R-18** recommended. All six open
+> preconditions now measure GREEN or RULED.
+
+**Dated observation, recorded not re-dated (E-3).** §0t's heading carries **2026-09-19** while its commit's
+own clock reads **2026-09-18 23:00:55 -0400** — the same heading-vs-commit drift §0r and §0s carry. The
+addendum's *authority* is its landed bytes; this seat records the drift and re-dates nothing.
+
+---
+
+## Open — sitting 2
+
+### Crash-recovery sweep (STANDING LAW, first act, re-run at this seat's clock)
+
+⟨cmd⟩ `git status --porcelain` in both repos this seat may write:
+
+- **value.js — 15 rows, every one OUTSIDE this seat's writable set**: `demo/palettes/**` ×6 ·
+  `demo/palettes/browser/{dialog,search}/**` ×2 · `demo/picker/controls/ComponentSliders/ConsoleRail.vue` ·
+  `demo/shell/dock/layers/SlugEditLayer.vue` · `docs/tranches/V/reformation/CARRY-LEDGER.md` ·
+  `scripts/dev/dev.sh` (**unowned, NEVER touched, never staged**) · untracked
+  `docs/tranches/X/waves/evidence/W4/` and two `e2e/smoke/**a11y-control-targets.spec.ts`.
+  **Nothing touched, nothing stashed.**
+- **keyframes.js — 2 rows**, both untracked value-authored letters
+  (`docs/tranches/V/coordination/VALUEJS-INBOUND-2026-07-{24,27}-*.md`) — O-8/O-11's delivered bytes.
+  Outside this seat's writable set; left in place.
+- **Inherited work on KF.W10**: **NONE that is uncommitted.** `execution/B/KF-W10.md` is **tracked and clean**
+  at `9101f343` (⟨cmd⟩ `shasum` → `828e524f…d841`); `docs/tranches/X/keyframes/close/` does not exist; no unit
+  commit exists in either tree (⟨cmd⟩ `git log --oneline --all | grep -iE 'KF W10'` in value → only the two
+  ledger/addendum commits `9101f343`, `f7dae874`; ⟨cmd⟩ same in kf → **no rows**).
+
+### E13 Step-0 — the four-path mail sweep, re-run at this seat's clock
+
+Classification taken from **each row's own Status cell**, never from a bare `grep -i unread`; `INBOX.md`
+**self-excluded** (SELF-COUNT law).
+
+| # | path | newest member | rowed as |
+|---|---|---|---|
+| 1 | `docs/tranches/V/` + `docs/tranches/V/coordination/` | the five `*-inbox-2026-09-18-value-4.1-*` letters (parse-that · fourier · glassui · atlas · keyframes) | **O-34 · O-35 · O-36 · O-37 · O-38** — each ⟨cmd⟩ `grep -cE '^\| O-3n \|'` → **1**; `valuejs-outbound-2026-09-18-kfw7-bh-relay{,-ADDENDUM-A9}.md` = **O-28 / O-31**, both rowed |
+| 2 | `../glass-ui/docs/tranches/BK/coordination/` — **BK re-confirmed newest** ⟨cmd⟩ `ls -1dt ../glass-ui/docs/tranches/*/ \| head -5` → `BK/` · `BJ/` · `BI/` · `IOS27-MICRO/` · `BH/` | `glass-outbound-2026-09-18-valuejs-o26-reply.md` | **I-35**, rowed 2026-09-18 |
+| 3 | `../keyframes.js/docs/tranches/V/coordination/` | `VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md` | **O-21** (`INBOX.md:104`) — ours, delivered; present at kf `origin/master` (OP-3) |
+| 4 | `../sci-report/atlas/docs/tranches/P/coordination/` | `valuejs-inbound-2026-07-27-library-band-export-delta.md` | **O-12** — ours; path UNMOVED |
+
+**Delta command** ⟨cmd⟩ `find docs/tranches/V -maxdepth 2 -type f -name '*.md' -newermt "2026-09-18 12:00"`
+→ **9** members: the five rowed O-34..O-38 letters, the two rowed relay letters (O-28/O-31), `INBOX.md`
+(self) and `ARCHITECTURE.md` (not mail). Paths 2–4 produced no member newer than their already-rowed newest.
+
+**Result: ZERO unrowed letters addressed to value.js · ZERO UNREAD status rows** — ⟨cmd⟩
+`awk -F'|' '/^\| [IO]-[0-9]+ \|/ {print $NF}' INBOX.md | grep -ci 'UNREAD'` → **0** over ⟨cmd⟩
+`grep -cE '^\| [IO]-[0-9]+ \|' INBOX.md` → **74** rows (`wc -c` → **237,857 B**). **No I-n minted.** A dated
+sweep line for this OPEN sitting is appended at `INBOX.md`'s file end.
+
+### Preconditions — §1 `Opens after` and §2a OP-1..OP-6, measured at the bytes AND in the ledger
+
+**§1 `Opens after` — MET.** Ledger status cells, read immediately before this write (⟨cmd⟩
+`awk -F'|' '/^\| KF\.W[0-9]+ \|/ {print $2" => "$4}' execution/LEDGER.md`): **KF.W0 · W1 · W2 · W4 · W5 ·
+W6 · W7 · W8 · W9 all CLOSED 2026-09-17** (five of them CLOSED-honest-RED, which is CLOSED); **CLOSED ⊇
+IMPLEMENTED**, so the seven schedulable siblings' verb condition holds. **KF.W3 is carved out by name**
+(§1's round-2 carve-out): `KF-W3.md` present, **190,569 B**, bounds block present, ledger status
+**GATE-KEYED** — bounds-FINAL + gate-state, never its verb. ✔
+
+| OP | verdict | receipt (this seat's clock; double-run where a figure is published) |
+|---|---|---|
+| **OP-1** — kf write authority named (**hard**) | **GREEN — RULED** | COHESION **§0j.C KF-WRITE** at `:657`, re-read whole this seat: *"after §B-12, the sacred checkout on `master` (= `origin/master`) is the **execution substrate for KF.W2 · W4 · W5 · W6 · W7 · W8 · W9 · W10**, every wave pushing `origin HEAD` at close … **Under whose hand:** the value.js orchestrator under the owner's 2026-09-17 grant."* |
+| **OP-2** — KF.W0 §B-12 has acted (**hard**) | **GREEN — MEASURED** | ⟨cmd⟩ in `/Users/mkbabb/Programming/keyframes.js`: branch **`master`** · `HEAD` **`69095552`** · `origin/master` **`69095552`** · `git rev-list --left-right --count HEAD...origin/master` → **0 0** · porcelain → **2** untracked value letters. Snapshot ref present: ⟨cmd⟩ `git branch --list 'kf-sacred-snapshot*'` → **`kf-sacred-snapshot-2026-09-17`**. The authoring-time reading (1 ahead / 41 behind / 252 dirty) is **superseded**. |
+| **OP-3** — O-21 exec-visible | **GREEN — MEASURED AT THE FRONTIER** | ⟨cmd⟩ `git cat-file -e origin/master:docs/tranches/V/coordination/VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md` → **present**; ledger row `INBOX.md:104` = `O-21 · 2026-09-17 · keyframes (V, exec clone)`. The spec's *"UNLANDED · ledger maximum still O-20"* reading is superseded by KF.W1's close. |
+| **OP-4** — KF.W9/SS-13 capture packet | **RED AT THE BYTES · RULED IN ADVANCE (not hard)** | `docs/tranches/V/megatranche/audit/visual/safari-real/SS-13-CAPTURE-RECEIPT.md`, **15,669 B**, states its own row honestly at `:35`: *"### (a) THE OD-V3 CAPTURE PACKET — **INCOMPLETE · 0 of 16 required cells**"*. **COHESION §0j.C KF-ODV3** rules this state in advance: *"the transport-home ruling is taken by the orchestrator **from the OD-V3 packet** at KF.W10 `.g`'s sitting under this delegation, and **if the packet does not exist by then KF.W10 closes `complete_with_misses` on that row citing its exact precondition**."* **OD-V5 stays DEFERRED** (same ruling, `complete_with_misses` authorized in advance). PACKET-FIRST is **not** breached: nothing is proxied; `.c` carries the receipt's §1(a) text verbatim as the exact precondition. |
+| **OP-5** — KF.W2..W9 bounds FINAL (re-measure-at-open, **R2-5(d)**) | **GREEN — RE-MEASURED AT THE WORKTREE** | ⟨cmd⟩ `ls docs/tranches/X/keyframes/waves/` → **16 `KF-W*.md`**: the **eleven W0..W10**, the **three AUTHORED successors** (`KF-W11` 95,691 · `KF-W12` 76,270 · `KF-W13` 72,034) and two KF.W8 artefacts (`KF-W8-CLOSE.md` 28,881 · `KF-W8-census.md` 92,667). Worktree `wc -c`, never `git show`: **W0 259,685 · W1 254,747 · W2 362,133 · W3 190,569 · W4 250,775 · W5 305,775 · W6 306,972 · W7 261,120 · W8 269,803 · W9 280,059 · W10 263,074**. Bounds blocks, ⟨cmd⟩ `grep -c 'Bounds'`: **W0 17 · W1 12 · W2 53 · W3 4 · W4 40 · W5 43 · W6 59 · W7 36 · W8 46 · W9 49 · W10 12**; successors **W11 8 · W12 4 · W13 6**. ⟨cmd⟩ `git status --porcelain -- docs/tranches/X/keyframes/` → **zero lines** — **zero modified sibling specs at open**. The packet-home leg (R4-8 item 3) is satisfied **both ways**. |
+| **OP-6** — COHESION names this wave's owner (**hard**) | **GREEN — CURED AT §0t, MEASURED** | The round-5 predicate is over the **ASSIGNMENT, whatever letter it takes** (R5-12(2); PASS-5/KF-W10-CHECK D-1). ⟨cmd⟩ `grep -n '^## §0' COHESION.md` → the register now ends **`:1269` §0t ADDENDUM 2026-09-19 — KF.W10 OWNERSHIP CURED; THE X·KF SUB-TRANCHE STAMP UNBLOCKS**. ⟨cmd⟩ `grep -cE 'KF\.W10.*SS-[12]\|SS-[12].*KF\.W10' COHESION.md` → **1** (run 1) · **1** (run 2), the hit at `:1273`. §0t reads: *"**KF.W10 belongs to SS-2** — it is the coordination-terminal wave whose hardest dependency is KF.W1's Mail Cure (O-21, edge 6) and whose content is ledger/mail terminalization … the X·KF sub-tranche-scope SPECIFIED stamp, withheld at KF-W10.md §State pending this line, is no longer withheld by COHESION; the 7-unit plan banked at `execution/B/KF-W10.md` dispatches unchanged."* **Spelling counts, stated at the enumeration (unit = LINE)**: `grep -c 'KF\.W10'` → **5** · `grep -c 'KF-W10'` → **6** · `grep -cE 'KF[.-]W10'` → **10** (sitting 1 measured 2 · 2 · 4; the delta is §0t's own six lines). **The withhold is lifted; G-2's set-difference is now an OWNED assertion.** |
+
+**Consequences of the cure, read as the spec reads them (§0t's own three)**: (i) `.b`'s set-difference is an
+owned assertion — `.f`/`.g` consume it; (ii) **X·KF sub-tranche-scope SPECIFIED is no longer withheld by
+COHESION**; (iii) the banked plan dispatches **unchanged**. §0d's minted-wave boundary and §0b's KF.W3 GATED
+posture are **untouched**.
+
+### The second finding of sitting 1, re-affirmed at this clock (not a blocker)
+
+`KF.W11 · KF.W12 · KF.W13` are **AUTHORED** (`f208ff31`) with real bounds blocks (**8 · 4 · 6**), so the
+spec's *MINTED-UNAUTHORED* premise at §1's R-A quote, §2a OP-5, §6.D and G-2's right hand is **stale at the
+bytes**. Two consequences handed to the units, neither re-ruled here (E-3): **(1)** R-A's scope is unchanged
+in substance — *"stamps the AUTHORED ELEVEN only"* (the orchestrator's dispatch says the same); the three
+*"never gated this close and were never required to be IMPLEMENTED"*, so they take **no verb**, and §3.6's
+re-cut sentence (R5-12(1)) is the imperative `.f` reads. **(2)** G-2's right hand is computable two ways that
+must agree — `authored bounds ∪ §6.D cargo` (the spec's form, which `.b` computes) reconciled against the
+successors' own bounds blocks as the **9 · 6 · 2** partition; a §6.D row whose cargo does not sum to its
+wave's partition figure fails **naming the wave**. The spec's falsifier still binds: a right hand computed
+from authored bounds alone, dropping §6.D's cargo, **fails**.
+
+---
+
+## Baseline — sitting 2: the seven born-RED gates, re-run READ-ONLY at this seat's clock (R.2 BEFORE baseline)
+
+Substrate of record: **keyframes.js `origin/master` `69095552`** (the spec's `81a56990` is superseded by
+KF.W0's §B-12 settle; §6.B's re-baseline law re-anchors it here) and **value.js `tranche-u`** at the current
+tree bytes.
+
+| gate | probe, re-executed read-only at this seat | reading | verdict |
+|---|---|---|---|
+| **G-1** — FOLD-FORWARD §B discharge 15/15 | `git show origin/master:docs/tranches/V/FOLD-FORWARD.md` (**9,289 B · 54 lines**) → `grep -n '^## §'` · `awk 'NR>=30 && NR<48 && /^[0-9]+\./' \| wc -l` · `grep -ci 'addendum'` | **§A `:12` · §B `:30` · §C `:48`; §B carries exactly **15** numbered rows**; ⟨cmd⟩ `grep -ci 'addendum'` → **0** — **no dated discharge addendum exists**. The only closed-vocabulary tokens in the file are **two §A prose cells** (`:22` *"NOT IMPLEMENTED — folds whole"*, `:25` *"Pre-rail subset LANDED"*), neither of them a §B row verb: **0 of 15 §B rows carry a terminal verb** | **RED — AS DECLARED** |
+| **G-2** — NO-WAVE-OWNER ∅ both directions | `ls kf-*.md \| wc -l` · `grep -l 'NO-WAVE-OWNER' \| wc -l` · `grep -o 'NO-WAVE-OWNER' \| wc -l` over `megatranche/registry/adjudicated/`, **double-run** | **58 records · 57 carrying · 1,218 occurrences** (run 1 ≡ run 2; sitting 1 read the same). The spec's **1,216** is a dated 2026-08-28 observation, superseded by **+2**; membership (58/57) reproduces exactly. **No set-difference table exists** — ⟨cmd⟩ `ls docs/tranches/X/keyframes/close/` → **no such directory** | **RED — AS DECLARED** |
+| **G-3** — owner block, three rulings | `git show origin/master:docs/tranches/V/OWNER-DECISIONS.md` rows `:7` / `:9` | **OD-V3 `:7` = *"THE TRANSPORT-HOME RULING IS HELD FOR CAPTURE REVIEW"*** · **OD-V5 `:9` = *"THE AT-REST REOPEN QUESTION IS DEFERRED PENDING GLASS'S DOCK MARK"*** — both still HELD/DEFERRED at the frontier; **no owner block exists**. **OG-KF1 is RULED** at COHESION **§0j.C KF-OGKF1** (*"STALE-BY-SUBSTRATE … citable only as `345 exact / 12 partial / 57 unresolved @ 8281638c`"*): the gate's three-part acceptance is **1 ruled-quotable + 2 `complete_with_misses`-authorized**, never 0 | **RED — AS DECLARED** |
+| **G-4** — never-cite register, 7 entries | `grep -rlE '357/414\|86\.23\|0/5 slots' docs/tranches/X/ docs/tranches/V/megatranche/` with all three units printed, **double-run** | **34 files · 77 lines · 108 occurrences** (run 1 ≡ run 2). Sitting 1 measured **33 · 76 · 106**; the delta is **this file's own sitting-1 probe cell** — ⟨cmd⟩ `grep -coE '357/414\|86\.23\|0/5 slots' execution/B/KF-W10.md` → **2 occurrences on 1 line in 1 file** = exactly `+1 · +1 · +2`. **SELF-COUNT law honoured: the field is moving because the measurement is in it**, which is the spec's own property (i) — *the partition, not the count, is the criterion*; this sitting-2 block moves it again. **The register does not exist** (⟨cmd⟩ `grep -rl 'never-cite register' docs/tranches/X/keyframes/` → the spec + three PASS-n checks only) | **RED — AS DECLARED** |
+| **G-5** — four doc-truth addenda | `git cat-file -e origin/master:<each>` over the five bound documents · `git ls-tree -r --name-only origin/master \| grep -icE 'addend'` | **all five present** at the frontier: `docs/tranches/G/audit/r-animation-sota.md` · `docs/tranches/U/audit/lane-22-perf-demo-runtime.md` · `docs/tranches/U/waves/U.D.md` · `docs/tranches/T/stage-manifests/home.json` · `docs/frontend-design/demo/home.md`. **Zero addenda exist**: the frontier's **7** `addend`-named files are the O/V-lane letters and the five `vnext/OWNER-ADDENDUM-*` pages — **none beside any of the five** — and `docs/tranches/T/stage-manifests/` holds **no sidecar** (⟨cmd⟩ `git ls-tree` → 9 manifests, `home.json` among them, no `home.*.md`) | **RED — AS DECLARED** |
+| **G-6** — both coordination ledgers terminal | `wc -c` + Status-cell classification on value `INBOX.md`; `git cat-file -s` on both kf ledgers; `grep -ci` for the two converged rows | value `INBOX.md` **237,857 B · 74 rows · 0 UNREAD status cells**. kf `coordination/INBOUND-LEDGER.md` **8,865 B** · `DISPOSITIONS.md` **19,605 B**, both present at `origin/master`. **Neither carries the closing verb set**: `D-GAP-6` appears at INBOUND-LEDGER `:35`/`:36` as prose inside the IN-VALUE-1/-2 rows and at `DISPOSITIONS.md:106` as **`FOLD W12`** — an open routing, not a terminal word; ⟨cmd⟩ `grep -ci 'O-8'` on `DISPOSITIONS.md` → **0**, so O-8's vehicle question has **no closing line**. `close/FINAL-KF.md` does not exist | **RED — AS DECLARED** |
+| **G-7** — `v/w9-staging` land-or-kill | `git ls-remote --heads origin \| grep w9` + `git merge-base --is-ancestor` | **`b920b1902b4854c1bc7c5778d1674436dd51dce6  refs/heads/v/w9-staging`** — live; ⟨cmd⟩ `git merge-base --is-ancestor b920b190 origin/master` → **UNMERGED**. The authoring-time *"41 behind / 252 dirty"* clause is superseded by OP-2's settle (0/0), so **the §B-12 gating condition on this gate is satisfied** — the branch is rebaseable at last | **RED — AS DECLARED** |
+
+**R.2 — GREEN-BEFORE-CURE: NONE.** All seven are RED at their own probes, exactly as §5 declares. The three
+moving figures found (G-2's `1,216 → 1,218`; G-4's field `33/76/106 → 34/77/108`; the successors' authoring)
+are **dated observations moving**, never greens.
+
+---
+
+## Unit plan — sitting 2: 6 Opus serial + `.g` fresh-Fable · **DISPATCHABLE**
+
+The plan banked at sitting 1 is **re-verified at this clock and stands unchanged** — §0t's own words: *"the
+7-unit plan banked at `execution/B/KF-W10.md` dispatches unchanged."* Order `.a → .b → .c → .d → .e → .f →
+.g` (§6.A, binding); **peak concurrency 1** — no two units share a write path (§4 Disjointness); **G-KFW4-1**
+precedes every unit and is satisfied transitively (KF.W4 CLOSED). Spec anchors re-resolved at this seat:
+§3.1 `:192-266` · §3.2 `:268-282` · §3.3 `:284-289` · §3.4 `:291-300` · §3.5 `:302-330` · §3.6 `:332-334` ·
+§3.7 `:336-338` · §4 `:342-366` · §5 `:368-499` · §6.A `:505-511` · §6.B `:513-524` · §10 `:660-673`
+(⟨cmd⟩ `grep -n '^#\{1,4\} '` over the spec; spec `shasum` at this seat **`ffc9feff…f190`**, last written at
+`ba6dcdb3` — **E-3: unchanged by this seat**).
+
+| unit | model | spec sections | writable set (§4) | gates | locks / same-commit family |
+|---|---|---|---|---|---|
+| `KF.W10.a` | opus | §3.1 `:192-266` (+ §5 G-1 `:384-394`) | kf `docs/tranches/V/FOLD-FORWARD.md` (**append-only**, ONE dated addendum) | **G-1** | §6.A ordering 3 — the CARRY-FORWARD block closes **after** KF.W0's C-17 mint (else `STANDING-CARRIED — pending the KF.W0 C-17 mint`); **denominator locks 15 / 4**; E-3 (§A/§B byte-unchanged); the three W8 R-4 re-open triggers carried **verbatim**; §10 commit 1 |
+| `KF.W10.b` | opus | §3.2 `:268-282` (+ §5 G-2 `:396-419`) | value `docs/tranches/X/COHESION.md` **§4 register drain** (modify-carve; §1/§3/§5 legs per §4) | **G-2** | OP-5 re-measured at its own open; right hand = **authored bounds ∪ §6.D cargo**, reconciled **9 · 6 · 2** against W11/W12/W13's now-real bounds; **§0t is RECORDED, never re-minted** (ownership is already assigned); all **seven** §3.2 sequencing locks survive verbatim incl. **KF-AV-28**'s rider as a SWEEP INPUT; zero re-bookings; §10 commit 2 |
+| `KF.W10.c` | opus | §3.3 `:284-289` (+ G-3 `:421-431`, G-4 `:433-457`) | kf `docs/tranches/V/OWNER-DECISIONS.md` (**append-only, conditional**) | **G-3 · G-4** | `.c` **before** `.d` (§6.A ordering 2); **OG-KF1 = RULED, quoted from COHESION §0j.C**; **OD-V3 / OD-V5 = `complete_with_misses`** citing the exact preconditions (SS-13-CAPTURE-RECEIPT `:35`'s *0 of 16 cells*; glass's dock mark) per §0j.C KF-ODV3 — **never proxied**; register **ordinals 1..7 binding**, entry (7) carries the REPO-SCOPED restatement; §10 commit 3 |
+| `KF.W10.d` | opus | §3.4 `:291-300` (+ G-5 `:459-469`) | kf `docs/tranches/G/audit/r-animation-sota.md` · `docs/tranches/U/audit/lane-22-perf-demo-runtime.md` · `docs/tranches/U/waves/U.D.md` · `docs/tranches/T/stage-manifests/home.json` (**sidecar**) · `docs/frontend-design/demo/home.md` — all **append-only addenda** | **G-5** | **E-3 addenda-not-patch**: `git diff` empty on all four originals; anchors **re-resolved at the landing substrate** (`:109` not `:107`; `:253`; `:110-112`; `:194`; `:9` + `:2`/`:13`/`:16`; `:67`/`:187-191`/`:367`); KF-EST-23's **correction-boundary lock** (exactly two claims, reinstate neither); KF-HA-4 states KF.W4's oracle fate **by reference**; addenda 1+2+4 are **ONE motion**; §10 commit 4 |
+| `KF.W10.e` | opus | §3.5 `:302-330` (+ G-7 `:489-499`) | kf branch `v/w9-staging` @ `b920b190` — **the only branch this wave touches** | **G-7** | **LAW A import-graph census RE-DERIVED at the landing tree** (six-module prune set; specifier + symbol/runner legs; never inherited from the spec's `81a56990` paste); LAND ⇒ rebase over `deploy-pages.yml` + four CI-run witnesses + TC-5 + MR4 red-once + §B-9's MR2 observation; KILL ⇒ tombstone naming **8** units. *"Leaving the branch as-is is not a third option."* §10 commit 5 |
+| `KF.W10.f` | opus | §3.6 `:332-334` (+ G-6 `:471-487`, §10 `:660-673`) | value `docs/tranches/V/coordination/INBOX.md` (mail rows) · kf `docs/tranches/V/coordination/INBOUND-LEDGER.md` · kf `docs/tranches/V/DISPOSITIONS.md` · value `docs/tranches/X/keyframes/close/FINAL-KF.md` (create) · one four-verb row in **each AUTHORED sibling spec** | **G-6** | **AUTHORED ELEVEN ONLY** (R-A as re-cut at §3.6, R5-12(1)) — the three successors take **no verb**; D-GAP-6 = *"not adopted — 4.1 declines it permanently"*, O-8 = *"pre-empted by CC-084"*, **neither dressed as an adoption**; already-terminal rows recorded, not re-opened; **L-6** (every letter `FINAL-KF.md` cites must `git cat-file -e`); §10 commit 6 |
+| `KF.W10.g` | **fable** (fresh, M-23 §1 — mirrors X.P.W4 `.d`) | §3.7 `:336-338` + all of §5 `:368-499` | **none** (VERIFY-ONLY; writes only its adjudication into this record) | adjudicates all seven | Assumes the close is wrong; named probable finds: a §B row verbed with a status word · a set-difference built on a stale sibling bounds block · an owner row closed `complete_with_misses` without its exact precondition · an addendum that patched. **The OD-V3 transport-home sitting happens here** (§0j.C KF-ODV3) |
+
+**Dispatch groups**: `[[KF.W10.a], [KF.W10.b], [KF.W10.c], [KF.W10.d], [KF.W10.e], [KF.W10.f], [KF.W10.g]]`
+— seven ordered groups of one, per §1's `Agents` line (*"6 Opus units, **serial**, plus `.g`, a fresh Fable
+adjudicator"*) and §6.A. The owner's max-4 concurrent-workflow cap is respected by construction.
+
+---
+
+## Unit receipts
+
+*(empty at OPEN — the live receipts section; each dispatched unit appends its own block here)*
