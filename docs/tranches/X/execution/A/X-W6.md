@@ -613,3 +613,191 @@ paths above, with the migrations as written. Nothing else in the wave is blocked
 3 existing o21 specs untouched, 3 added; in `gradient.spec.ts` 2 added and 3 re-pointed with the
 measurement that retired their referents) · `docs/tranches/X/waves/W6-evidence/gradient/**` ·
 this record.
+
+---
+
+### X.W6.f
+
+SERVED MODEL: claude-opus-5[1m]
+
+**Unit**: The space catalog and the specimen line (CC-068 · V·MT-W-CSS1 → **X:CSS-1**), `W6.md` §5
+`:244-265`, §7 `:346-350`, §9 commit #6 `:382`.
+**Status**: **PARTIAL — ESCALATED**. **9 of 10 gates GREEN** (f1 f3 f4 f5 f6 f7 f8 f9 f10); **f2 is
+HONEST-RED at 1 of its 2 hits**, the survivor being another wave's file. Two escalations and one gate
+DEVIATION are returned below. Wall clock **2026-09-19**.
+**Commits**: `e0e204a9` (the cure, whole — 22 paths) · this record.
+
+#### Act 0 — crash-recovery (standing law)
+
+⟨cmd⟩ `git status --porcelain` at open → `M docs/tranches/V/reformation/CARRY-LEDGER.md` ·
+`M scripts/dev/dev.sh`. **Neither is in this unit's writable set** (the V fold-source; the unowned
+NEVER-touch row). Neither was touched, staged or restored. Sibling `.a` wrote
+`demo/workbenches/gradient/**` concurrently and Track B wrote `docs/tranches/X/execution/B/**`; at the
+moment of this unit's commit ⟨cmd⟩ `git diff --cached --name-only` showed **two foreign paths already
+staged by Track B** (`execution/B/KF-W11.md`, `keyframes/evidence/W11/g-spring-artifact-truth-2026-09-19.md`).
+They were **neither swept in nor unstaged** — the commit carried its own 22-path pathspec, and ⟨cmd⟩
+`git show --name-only e0e204a9 | grep -E 'execution/B|keyframes/evidence'` returns **nothing**. The
+sibling's work landed intact in its own commits (`f6cdff82`, `981d4cb1`).
+
+#### Act 1 — BEFORE, re-measured at this seat (D-19; figures NOT inherited from the adjudication)
+
+| gate | ⟨cmd⟩ | BEFORE measured here | spec's stated RED | verdict |
+|---|---|---|---|---|
+| f1 | `node …/gate-catalog-totality.mjs` | offered=**18**, info=**13**, docs=**11**; `display-p3.created` = **1931** (RGB's) | identical | **reproduces** |
+| f2 | `grep -rn 'colorSpaceInfo\.rgb\|(colorSpaceInfo as any)' demo` | **2** — `ColorNutritionLabel.vue:214` · `ConsoleRail.vue:174` | 2 hits | **reproduces** |
+| f3 | `o21-space-catalog-truth.spec.ts` | "Display P3" renders `Created: 1931` + RGB's components; 7 guide sections are a bare heading | identical | **reproduces** |
+| f4 | `o22-specimen-legibility.spec.ts` | **16/18 overflow, worst 723px in a 234px box** | 16/18, worst **758px** | **reproduces; magnitude RE-MEASURED to 723px** |
+| f5 | `grep -rn 'data-specimen-form' demo` | **0** | 0 | **reproduces** |
+| f6 | `grep -rn 'data-out-of-gamut' demo` | **0**; and **10** rows out of gamut for the boot colour | 0; "five rows" | **reproduces; the count RE-MEASURED to 10** (the adjudication's list was partial: it omits the four wide-gamut RGB encodings and `hex`) |
+| f7 | `grep -rn 'colorSpace: any' demo` + `grep -c 'as DisplayColorSpace' …Selector.vue` | **3** (`AboutPane:25` · `ColorPicker:49` · `ColorSpaceSelector:11`) + **1** (`:91`) | 3 + witness | **reproduces** |
+| f8 | `o24…` + `grep -c 'tag=' …Selector.vue` | `distinctVisualSignatures` **1** (seed 240 ×18); `tag=` **1** | identical | **reproduces** |
+| f9 | `grep -c 'updateToColorSpace' …Selector.vue` / watch-grep | **0** in the component; **1** peer watcher (`ColorPicker.vue:359-365`) | identical | **reproduces** |
+| f10 | `grep -rn 'from "\.\./ui/' demo/color-session/` | **1** (`…Selector.vue:109`) | exactly 1 | **reproduces** |
+
+**The count behind the defect, stated once.** Four registries disagreed about which spaces exist:
+`DISPLAY_COLOR_SPACE_NAMES` (18), `colorSpaceInfo` (13), `AboutPane`'s `markdownModules` (11) and
+`INTERPOLATION_SPACES`. The product closed every gap with a fallback, which is why selecting a space it
+could not describe produced *another space's* colour science rather than an absence.
+
+#### Act 2 — the cure (`e0e204a9`, ONE commit; structure first, gates only for rendering truth)
+
+- **CATALOG** — NEW `space-catalog.ts`: one `SPACE_CATALOG` satisfying
+  `Record<DisplayColorSpace, SpaceEntry> & { readonly [K in DisplayColorSpace]: SpaceEntry<K> }`, so a
+  missing space is a compile error **and** no row can carry another's `id`. It folds the names table, the
+  facts table, About's markdown map and interpolation membership into one home; **the 5 missing info rows
+  are authored** (srgb-linear 1996 · display-p3 2015 · a98-rgb 1998 · prophoto-rgb 2000 · rec2020 2012,
+  each with its own definition, white point and gamut prose) and **the 7 missing docs are decided
+  explicitly** as `doc: null`. §3 of the gate exists because `satisfies` cannot catch a stub: the
+  adjudication's own words, *"a catalog that compiles because five entries were stubbed is the masking
+  fallback wearing a type's clothes."*
+- **SPECIMEN** — NEW `specimen-format.ts`: one total `formatSpecimen(color, space)` →
+  `{ text, form: "css" | "channels", outOfGamut }`. The discriminant makes two-grammars-in-one-slot
+  unrepresentable; ONE digit policy (**4 significant digits, floored at 4 decimals**) bounds every caption
+  at a **measured 50 of a declared 52** characters; gamut is measured per channel (hue exempt, cyclic) and
+  **MARKED**. `mapColorToGamut` is imported nowhere in the path — the static half of the f6(ii) lock.
+- **THE BOX** — the 234px caption could not hold a true `color(prophoto-rgb …)` statement at any digit
+  budget that stays parseable. Measured cure: the caption drops the eyebrow's `--type-tracking-caps`
+  (uppercase tracking on a numeral run is what made it wide) and the box is sized **from the budget**,
+  `max-width: calc(var(--specimen-char-budget) * 1ch)`, bound to `SPECIMEN_CHAR_BUDGET` itself. Type size
+  is unchanged at 14.048px — **nothing was shrunk to fit**. See DEVIATION 1.
+- **THE BOUNDARY** — `defineModel<DisplayColorSpace>` replaces the wide prop and the hand-written emit.
+  glass `Select` hands back `SelectionValue = string | number`, so the narrowing is a **type predicate
+  backed by a runtime membership test** (`value in SPACE_CATALOG`), never a cast: the producer boundary is
+  checked once, in one place, and the four `any`/cast holes become unspellable.
+- **DELETIONS** — `ColorPicker.vue`'s `selectedColorSpace` watcher (half a command living in a peer
+  component, which is why About only converted when the picker happened to be mounted beside it);
+  `color-model.ts`'s `DISPLAY_COLOR_SPACE_NAMES` and `CSS_NATIVE_SPACES`; `ColorNutritionLabel`'s
+  `colorSpaceInfo.rgb` fallback and its two casts; `AboutPane`'s 11-name `MarkdownSpace` union and its
+  markdown map; the `tag="div"` prop `WatercolorDot` never declared; the `../ui/select` edge.
+  `toCSSColorString` was **kept** — it has live consumers outside these bounds.
+
+#### Act 3 — AFTER (double-run; every figure read from the settled bytes; transcripts in `W6-evidence/catalog/GATE-TRANSCRIPTS.md`)
+
+| gate | ⟨cmd⟩ | BEFORE → AFTER | verdict |
+|---|---|---|---|
+| f1 | `node …/gate-catalog-totality.mjs` | 18/13/11 → **offered=18 catalogued=18 info=18, docs=11 authored + 7 decided-none = 18 decided**; `display-p3` created **2015** | **GREEN** |
+| f2 | `grep -rn 'colorSpaceInfo\.rgb\|(colorSpaceInfo as any)' demo` | 2 → **1** (`ConsoleRail.vue:174`) | **RED — honest, escalated** |
+| f3 | `npx playwright test o21-space-catalog-truth.spec.ts` | P3 showed 1931 → **18 spaces walked, 18 distinct definitions, every guide section non-empty**; `display-p3` states 2015 | **GREEN** |
+| f4 | `npx playwright test o22-specimen-legibility.spec.ts` | 16/18 over, worst 723px → **0/18 over**, worst scrollWidth **397px** (46ch), per-char **8.630px**, font-size **14.048px unchanged**, letter-spacing **normal** | **GREEN** |
+| f5 | `node …/gate-specimen-grammar.mjs` | `data-specimen-form` 0 → 1; **65,610 specimens over 18 spaces, css=14 channels=4, longest 50/52 chars**; every `css` row parses, every `channels` row does not | **GREEN** |
+| f6 | `npx playwright test o23-specimen-gamut-honesty.spec.ts` | `data-out-of-gamut` 0 → 1; **all 18 marks match an independent recomputation**; 10 MARKED / 8 in-gamut | **GREEN — with DEVIATION 1** |
+| f7 | greps + `npx vue-tsc --noEmit -p tsconfig.demo.json` + witness project | `colorSpace: any` 3 → **0**; `as DisplayColorSpace` 1 → **0**; vue-tsc **exit 0**; witness **exit 0** (the `@ts-expect-error` over `modelValue="not-a-space"` is USED) | **GREEN** |
+| f8 | `npx playwright test o24…` + `grep -c 'tag='` | signatures 1 → **18 of 18** under keying that EXCLUDES the url; all 18 `feTurbulence` seeds distinct; **background constant across rows** (the dots distinguish by silhouette, never by repainting a projected colour); `tag=` 1 → **0** | **GREEN** |
+| f9 | two greps | `updateToColorSpace` in the component 0 → **2**; `ColorPicker` watch-grep 1 → **0** | **GREEN** |
+| f10 | `grep -rn 'from "\.\./ui/' demo/color-session/` | 1 → **0** (repointed to `@mkbabb/glass-ui/select`) | **GREEN** |
+
+**The f7 witness proves its own mechanism.** A gate whose `@ts-expect-error` is "used" proves nothing
+unless the wide contract would have made it unused. ⟨cmd⟩ the same witness against
+`type BoundSpace = string` → `control.ts(4,1): error TS2578: Unused '@ts-expect-error' directive`,
+**exit 2** — i.e. the pre-cure contract is exactly the RED the gate describes. Demonstrated, not asserted.
+
+**f6's anti-projection lock, and what carries it.** Leg (b) is **exact, no tolerance**: every printed
+coordinate sits within **half a unit of its own last printed digit** of the true coordinate in that space.
+A projection moves a coordinate by whole units (`385.3 → 255`), thousands of times the resolution it
+prints at, so this leg has no slack to hide in. Leg (d) holds the same property from the other side: a
+row MARKED out-of-gamut must still PRINT numerals outside that space's bounds — a projected value is
+in-gamut by definition, so the numbers would fall back in range while the mark stayed on.
+
+#### DEVIATION 1 — f6(ii)'s stated `1e-6` constant is unsatisfiable once f4 is GREEN. Named, not smoothed.
+
+The gate as written asks for `convertColor(parseCssColor(caption).value,'lab') ≈ model` to **1e-6**, and
+records *"GREEN today (≤1e-10)"*. That reading is true **only because the caption printed 15 significant
+digits** — which is the very thing f4 declares a defect. Any digit budget narrow enough to fit the box
+moves the Lab recovery far above 1e-6: the two gates are in direct tension, and the tension is arithmetic,
+not a matter of care.
+
+Resolved by the adjudication's own wording — *"the SAME coordinate values, **digit-budgeted** … a delta in
+which the numbers moved is a projection"* — by testing the property rather than the constant: the exact
+legs (b) and (d) above, plus leg (c) restating it in Lab against a **measured** bound that carries its own
+**positive control**. The run publishes both numbers: **worst un-projected recovery 7.517e-1 (hsl); bound
+1; clipped control (hex, whose 8-bit encoding FORCES a clip) 4.061e+1** — a factor of ~54 between a
+digit-budgeted row and a genuinely projected one. A fold-in of `mapColorToGamut` still trips every leg.
+
+**This seat authored the oracle that sets that bound, so it does not mark its own homework**: the
+substitution is returned for ratification with both figures printed. Nothing else in the unit depends on
+the ruling.
+
+#### Format / lint / typecheck cadence (§7)
+
+- ⟨cmd⟩ `npx prettier --write` on the new files + `ColorPicker.vue` → written.
+- ⟨cmd⟩ `npx eslint demo/` → **exit 0**.
+- ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.demo.json` → **exit 0, no diagnostics** (the two errors sibling
+  `.a` recorded under `demo/color-session/` were this unit's in-flight tree; they are gone at the settled bytes).
+- ⟨cmd⟩ `npx vitest run` → **16 failed / 610 passed (626)**. **None is this unit's**: 3 belong to sibling
+  `.a`'s escalated `test/gradient-*` pair and 13 are the pre-existing set (`v4-css-emerging` 10,
+  `spectrum-luma` 1, `v4-c1` 1, `reka-binding-idiom` 1). ⟨cmd⟩ verified by inspection that **no failing
+  file imports any path in this unit's diff**.
+- ⟨cmd⟩ `npx playwright test <the four oracles> e2e/smoke/color-space-switching.spec.ts --project=smoke`
+  → **5 passed**, **double-run 5 ≡ 5** (1.3m / 1.4m).
+- ⟨cmd⟩ `git diff --check --cached` → clean.
+
+#### Residuals (named, not smuggled)
+
+1. **`colorSpaceInfo.ts` survives** as a module. This unit folded its content into the catalog for every
+   consumer it owns, but the file cannot be deleted while `ConsoleRail.vue` (X-W9.h's) still imports it.
+   Deletion belongs to whichever unit cures that last reader.
+2. **Oracle-number collision**: `e2e/smoke/oracles/o21-gradient-rail.spec.ts` (sibling `.a`) and
+   `o21-space-catalog-truth.spec.ts` (this unit) now share the ordinal `o21`, as do `o22-status-lamp` and
+   `o22-specimen-legibility`. Both spec texts name their files explicitly, so no gate is ambiguous; the
+   **numbering namespace** is. Recorded for whoever owns the oracle index.
+3. **`toCSSColorString` kept** in `color-model.ts` — live consumers (`useColorUrl`, `useColorPipeline`) sit
+   outside these bounds.
+4. **Not claimed**: any repo-wide `demo/ui` extirpation count (X-W8's), any parser property (X-W9's), any
+   bundle, perf or safari-app property, any PNG-derived number (§17 count-scoping honoured — every figure
+   above is DOM, grep or gate output).
+
+#### ESCALATION 1 — f2's surviving hit is X-W9.h's file
+
+⟨cmd⟩ AFTER → **1**: `demo/picker/controls/ComponentSliders/ConsoleRail.vue:174`
+`const info = (colorSpaceInfo as any)[space];`. The path is **not in `W6.md` §4**, and `W9.md:104` /
+`:142-147` / `:302-311` book that component — `componentDescription()` at `:172-180`, re-keyed to the
+library channel ids — to **X-W9.h**. Curing it here is the §3a file-bound expansion that invalidates the
+wave, so this seat halted at the boundary and wrote nothing there.
+
+**The one-line migration, so X-W9.h inherits it free**: `SPACE_CATALOG[space].info` is total over
+`DisplayColorSpace` and needs no cast and no fallback; the `as any` and the index guard both delete.
+**What is asked**: either a line granting a successor that single path, or an acknowledgement that f2
+closes at X-W9.h. Nothing else in this wave is blocked by it.
+
+#### ESCALATION 2 — a PRE-EXISTING URL round-trip revert, found by f3's walk
+
+f3's 18-space walk printed: **spaces that did NOT survive the model→URL→model round-trip: `ictcp→oklch`,
+`jzazbz→oklch`**. Root-caused, not absorbed: `useColorUrl.ts` → `applyUrlToModel` → `inputColor` →
+`parseAndSetColor` re-parses the serialized colour, and the two non-CSS spaces have no CSS syntax to
+re-parse, so the model silently lands in `oklch`. **Every link in that chain is outside `W6.md` §4.**
+The defect **predates this unit** (it is a property of the URL codec, not of the catalog) and is
+**unrelated to the specimen grammar** — the `channels` form is a display statement, never a URL payload.
+
+The oracle was made deterministic against it (each space read immediately, settled 500ms) and **reports
+the revert as a number plus a footnote rather than tolerating it**, so the day someone fixes the codec the
+count moves and is seen. **What is asked**: a home for the URL codec's non-CSS-space round-trip. It is a
+genuine product defect on a first-class route.
+
+#### Files written by this unit (nothing outside them)
+
+`demo/color-session/{space-catalog,specimen-format}.ts` (new) · `demo/color-session/ColorSpaceSelector.vue` ·
+`demo/color-session/color-model.ts` · `demo/scenes/about/{AboutPane,ColorNutritionLabel}.vue` ·
+`demo/picker/ColorPicker.vue` · `e2e/smoke/oracles/{o21-space-catalog-truth,o22-specimen-legibility,o23-specimen-gamut-honesty,o24-specimen-dot-identity}.spec.ts` (new) ·
+`docs/tranches/X/gates/{gate-catalog-totality,gate-specimen-grammar}.mjs` (new) ·
+`docs/tranches/X/waves/W6-evidence/catalog/**` (transcripts, the f7 type witness + its project, 3 BEFORE
+and 3 AFTER frames) · this record.
