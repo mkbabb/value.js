@@ -2452,3 +2452,228 @@ full decision) **· INFO recorded** (D-m5 · D-m6 residue — `will-change` kept
 domain asserted by test · L-i-2 died with the prop · SPF-33). Gate **G-KFW11-5 GREEN 18/18 ×2**;
 ratchet **24 → 24**, this unit's rows **0 → 0** at the settled bytes; demo suite **46/405 GREEN + 1 RED
 returned as KF11-E(f1)**.
+
+---
+
+### KF.W11.i
+
+SERVED MODEL: claude-opus-5[1m]
+
+**Unit**: `KF.W11.i` — the **drag-seam packet** (Track B · X·KF · phase 3, group 7) · **Date** 2026-09-19
+**Repo** `/Users/mkbabb/Programming/keyframes.js` @ `master` · **open `d479f394`** (`.f`'s close; `.d`'s
+declared open point `ba12b2ba` — every `.i` file byte-identical to it, measured below)
+**Spec** `KF-W11.md` §Agent Units `:267-271` · §Carry P9 `:209-211` · §B.1 row 4 `:84` · §Bounds rows
+`:110-114` · §Gates G-KFW11-9 `:305` · §Sequencing 3/4 `:319-320` · §Commit plan 6 `:381`.
+**Evidence** `docs/tranches/X/keyframes/evidence/W11/i-drag-seam-packet-2026-09-19.md`.
+
+#### Act 0 — the KF-AV-28 verdict, STATED before the first byte (§Sequencing 4)
+
+⟨cmd⟩ `git -C /Users/mkbabb/Programming/value.js cat-file -t 4c03ceda` → `commit` (2026-09-18, a
+value.js record commit). `execution/B/KF-W7.md` `.a` G1, quoted: **"six surfaces, six KEEP-BESPOKE,
+ZERO SWAP"**; the `.f` verdict table's row 4 (`SequenceScrubber`) and row 5 (`AnimationVisualizer`)
+both read **KEEP-BESPOKE · CARRY**. **The drag-seam packet is UN-GATED and every row of it is live —
+this unit inherited work, not a deletion.** The alphabet of verdict-discharge receipts KF.W7 could
+have emitted **has no members; it is empty**, and this seat emitted none: ⟨cmd⟩ a grep of this record
+and of the evidence file for the receipt string G-KFW11-10 forbids → **0** and **0** (the pattern is
+stated in words here and never spelled, because the gate greps this very file).
+
+#### Crash-recovery (standing law, first act)
+
+⟨cmd⟩ `git -C ../keyframes.js status --porcelain` → two untracked `docs/tranches/V/coordination/
+VALUEJS-INBOUND-*` mail packets — outside every `.i` path, untouched. ⟨cmd⟩ `git -C
+/Users/mkbabb/Programming/value.js status --porcelain` → sibling-seat rows (`CARRY-LEDGER.md`, the
+fourier/parse-that/W6 evidence trees, `test/gradient-v4-consume.test.ts`) plus `scripts/dev/dev.sh`
+(**unowned, never staged, never touched**). ⟨cmd⟩ `git status --porcelain --` this unit's five kf
+product paths, its test path, its evidence path and this record → **empty**. **ZERO inherited hunks
+on any path this unit may write.**
+
+#### Anchors re-resolved at the open sha (KF-AT-28 / D-19)
+
+⟨cmd⟩ `git diff --stat ba12b2ba..d479f394 --` the five `.i` paths → **empty**: every one is
+byte-identical to `.d`'s stated open point, so §B.1 row 4 binds unchanged. Measured at `d479f394`:
+`useDragScrub.ts` acquire **`:116`**, `setPointerCapture(e.pointerId)` **`:120`** (⟨cmd⟩ `grep -c
+'pointerId'` → **1**, a mention and not a latch, exactly as the gate says), the false *"the rail
+scenes leave them unset"* at **`:27`** and the false *"Nesting-safe"* claim at **`:37-38`**;
+`useDragCapture.ts` `isDragging` gates **`:39`/`:44`**, release **`:47`**, acquire **`:56`**, the
+`tryOnScopeDispose` docblock **`:20`**; `gestureSelectSuppression.ts` **23 L**. **ONE DRIFT,
+recorded (E-3 — RULINGS/the spec are not amended)**: the banked coast-emit anchor
+*"`AnimationVisualizer.vue:185-190` → `:119`"* now reads `applyProgress` at **`:136-144`** (the emit
+at `:143`) driven per frame from `coastPlayback.drive(…)` at **`:209-214`**. The mechanism the row
+describes is unchanged; the cure landed at the true bytes.
+
+#### THE DECISION — C·C-1 ≡ KF-AV-16, ONE throttle-vs-decouple decision, written BEFORE the patch
+
+**DECOUPLE.** The machine-bound write is decoupled from the sample stream and bound to the animation
+frame that will paint it. A wall-clock throttle was **REFUSED** for the defect it is named for — it
+drops the terminal sample, and the terminal sample is precisely the one the machine must persist — so
+the decoupling carries an unconditional synchronous flush at every gesture boundary. One rule, three
+consequences:
+
+1. **Pointer** — `useDragCapture` holds the latest sample and delivers it from one
+   `requestAnimationFrame`; a release flushes the pending sample synchronously **before** `onEnd` (the
+   release hook reads the position the user let go at); a scope disposal cancels it unsent. At 240 Hz
+   the consumer, and the scene machine behind it, sees **one** delivery per frame instead of four.
+2. **Coast** — `AnimationVisualizer`'s coast reaches `applyProgress` once per frame BY CONSTRUCTION,
+   so it already obeyed that half. It did not obey the other: a decay-to-rest coast pins to its target
+   boundary for the last frames of its flight and re-dispatched an identical `t` on each, which the
+   machine cannot elide itself (its reducer allocates a fresh context per call — the row's own
+   *"the dispatch echo-guard cannot fire"*). The seam no longer sends them; the paint still runs every
+   frame; the latch re-arms on `onStart` because the ribbon's Slider can move the clock between
+   gestures.
+3. **Sequence** — the identical rule's landing byte is `useSequenceDemo.ts`'s `scrub()`
+   (⟨cmd⟩ `grep -n 'machine.dispatch({ type: "SCRUB"' …` → `:310` · `:368`), a `.d` §Bounds row.
+   **KF11-E(i2)**, below.
+
+**Why the policy is NOT in `useDragScrub`**: `.d` landed a RULED gesture spec whose witness asserts
+that EVERY admitted sample reaches `demo.scrub` synchronously — `sequence-scrubber-mount.test.ts:119-121`
+(`window.dispatchEvent(at(2)); expect(stub.scrub).toHaveBeenLastCalledWith(1)`) and `:189-191`
+(`expect(stub.scrub).toHaveBeenCalledTimes(3)`). Coalescing above `demo.scrub` weakens a sibling's
+landed witness (forbidden); coalescing below it is a write outside this set. Both arms closed ⇒
+returned, never substituted.
+
+**Why the guard is NOT at the token**: §Bounds `:113` permits the `gestureSelectSuppression.ts` carve
+*"only if the guard belongs at the token"*. It does not — the reference count is correct and symmetric
+at the bytes; the asymmetry was entirely in the CALLERS (two acquires against one release), and a
+token that second-guesses its callers would mask their defect. ⟨cmd⟩ `git diff d479f394..HEAD --stat
+-- demo/utils/gestureSelectSuppression.ts` → **empty**. `SequenceScrubber.vue` likewise untouched
+(same command → empty): the seam rows this unit owns there needed no byte once the cure landed in the
+composable both it and the square/spring rails share.
+
+#### Acts in order — three families, three commits, each by exact pathspec with the session trailer
+
+| # | sha | meaning | files |
+|---|---|---|---|
+| 1 | **`4ab4c4db`** | **KF-SCR-1 + L·D-1 + KF-AV-15 — ONE guard family, BOTH composables (MUST NOT SPLIT)**: a re-entrancy guard (a second pointer on a live gesture acquires nothing and latches nothing), a `pointerId` latch (samples and releases admitted from the opening pointer alone), a scope-disposal release (the document-wide token outlives the scope, so the scope returns it) — landed **identically** in each seam; plus **KF-SCR-5's prose half** riding the same seam edit | `useDragScrub.ts` · `useDragCapture.ts` |
+| 2 | **`383bcf3b`** | **C·C-1 ≡ KF-AV-16 — one machine-write policy**: the seam's frame-coalesced delivery with the exact terminal flush, and the coast's carve (no re-dispatch of a `t` the machine already holds) | `useDragCapture.ts` · `AnimationVisualizer.vue` |
+| 3 | **`bf4a9a9c`** | **G-KFW11-9's born-RED witness**, committed last, GREEN against the cures it was born RED against | `test/demo/instrument/drag-scrub-reentrancy.test.ts` (create, 9 cases) |
+
+**The false docblocks, both corrected in commit 1 (travelling lock 3 — a comment-stated invariant is
+an assertion).** `useDragScrub.ts`'s *"Nesting-safe: a small reference count guards against two
+concurrent gestures clearing the token early"* asserted the OPPOSITE of the shipped behaviour; the
+count is real and correct, what was absent was any guard on its callers. `useDragCapture.ts:20-21`'s
+*"vueuse's `tryOnScopeDispose` cleans up any listener still live at unmount"* is false against the
+installed bytes — ⟨cmd⟩ `node -e "…@vueuse/core/package.json.version"` → **14.3.0**; ⟨cmd⟩
+`awk '/^function useEventListener\(/,/^}$/' node_modules/@vueuse/core/dist/index.js` → the whole body
+is a `watchImmediate(…, { flush: "post" })` whose `onCleanup` removes the listeners and which calls
+**no `tryOnScopeDispose` at all**; its cleanup is the ACTIVE EFFECT SCOPE's, and the seam called it
+from inside a DOM event handler where none is active. The cure is the root one: the listeners are now
+registered ONCE, in the composable's own scope, on `window` (with pointer capture the events are
+retargeted to the capture element and bubble, so both forms see the same stream and only the window
+form survives an unmount). `KF-SCR-5`'s prose half — the three PRUNED-MotionPath paragraphs
+(`useSceneMachine.ts:255` verbatim: *"a PRUNED scene — compose/morph/motion-path per OD-1"*) and the
+`:26-27` *"the rail scenes leave them unset"* claim, false of `SequenceScrubber.vue` which sets both
+hooks — landed with the four LIVE consumers named at the bytes (⟨cmd⟩ `grep -rn 'useDragScrub' demo |
+grep -v 'useDragScrub.ts:'` → `SquareScene.vue` · `SpringTarget.vue` · `SequenceScrubber.vue` ·
+`SequenceTarget.vue`).
+
+#### Gates — BEFORE → AFTER, double-run
+
+| gate | BEFORE | AFTER | verdict |
+|---|---|---|---|
+| **G-KFW11-9** runtime | `No test files found` at `d479f394` (seat 0's baseline); with the witness written and no cure: `Tests 9 failed (9)`, `Errors 6` · same twice | after `4ab4c4db`: `2 failed \| 7 passed (9)` (exactly the two machine-write cases); after `383bcf3b`: **`Test Files 1 passed (1)` · `Tests 9 passed (9)`** · same twice | **GREEN** |
+| **G-KFW11-9** byte clauses (RECORDED) | acquire(scrub) `1`·`1` · acquire(capture) `1`·`1` · `pointerId`(scrub) `1`·`1` | `1`·`1` · `1`·`1` · **`4`·`4`** (the mention plus the latch's declaration, admission test and write) | recorded |
+| `npm run test:demo` | `.f`'s close figure (record): 46 files / 405 tests + 1 RED | **`47 passed \| 1 failed (48)` · `414 passed \| 1 failed (415)`**, both passes | GREEN save the inherited RED below |
+| skip/only ⟨cmd⟩ `git diff d479f394..HEAD -- test \| grep -c 'test.skip\|it.skip\|\.only('` | — | **`0` · `0`** | GREEN |
+| `git diff --check` at each landing | — | clean | GREEN |
+| eslint over this unit's four files | — | exit **0**, no output | GREEN |
+| **§0u ratchet** ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.json 2>&1 \| grep -c 'error TS'` | **24** at open | **24** after each of the three commits; **24 · 24** double-run at close — **never rose**; this unit's five rows **0 · 0**; no cast, no `@ts-expect-error`, no `eslint-disable` written | GREEN |
+
+**The one demo RED is not this unit's**: `test/demo/scenes/spring-trace-truth.test.ts > (4b) the floor
+the heatmap declares is not below the one the plot pins` — an `.e`/`.f` seam residual over
+`SpringHeatmap.vue`'s `DAMPING_MIN` declaration, **reproduced in isolation BEFORE this unit's first
+commit** (⟨cmd⟩ `npx vitest run --project demo test/demo/scenes/spring-trace-truth.test.ts` →
+`1 failed | 11 passed (12)`), on two files that are `.e`'s and `.f`'s §Bounds rows. Not caused here,
+not cured here, named here.
+
+#### Cross-edge to KF.W13 — `useDragCapture`'s exported surface is UNCHANGED
+
+The handler bag `{ onStart?, onMove?, onEnd? }` and the return `{ isDragging, onPointerDown }` are
+byte-identical: ⟨cmd⟩ a `d479f394..HEAD` diff of that file filtered to those declarations → **0**
+changed lines. `PlaybackRibbon.vue` was never edited (⟨cmd⟩ `git diff d479f394..HEAD --stat -- …
+PlaybackRibbon.vue` → **empty**) and **passes NO `onMove`** (⟨cmd⟩ `sed -n '148,151p'` →
+`useDragCapture({ onStart: () => emit("scrubStart"), onEnd: () => emit("scrubEnd") })`), so the
+frame-coalesced move delivery does not reach it at the bytes. Two internal changes KF.W13 re-measures
+at its own open: the listener registration moved from the capture target inside the pointer-down
+handler to `window` in the composable's own scope; and `onMove` is delivered once per animation frame
+with the terminal sample flushed at release.
+
+#### Escalations — two, both bounded, neither a write
+
+1. **KF11-E(i1) — KF-SCR-5's dead-API deletion (the PROSE half LANDED at `4ab4c4db`).** LAW A census,
+   run before the act: ⟨cmd⟩ `grep -rn 'releasePolicy\|onRelease' demo test src` → `releasePolicy` has
+   **ONE** consumer, `SquareScene.vue:425`, passing the DEFAULT `"persist"` (plus prose citations at
+   `:345`/`:364`); `onRelease` has **ZERO**; the `"recenter"` branch is unreachable. The deletion is
+   therefore one seam edit **plus** a byte in `SquareScene.vue` — `.b`'s §Bounds row (`KF-W11.md:121`)
+   — and landing the seam half alone leaves an object literal with an excess property: a NEW TS2353
+   diagnostic, a RISE the §0u ratchet refuses. **Nothing of the deletion landed; it was not
+   substituted.** Cure shape for whichever seat holds `SquareScene.vue`: delete `:425`'s option and
+   the two prose citations, then delete `ReleasePolicy`, `releasePolicy`, `onRelease` and the
+   `if (releasePolicy === "recenter")` branch from `useDragScrub.ts` in the SAME sha.
+2. **KF11-E(i2) — C·C-1's sequence half.** `useSequenceDemo.scrub()` dispatches `{type:"SCRUB", t}`
+   per admitted sample at `:310`/`:368`, each dispatch rebuilding and synchronously serialising the
+   persisted context. The §Decision's rule applies unchanged; its landing byte is `.d`'s §Bounds row
+   (`KF-W11.md:109`) and the path above it is pinned per-sample by `.d`'s landed witness (quoted
+   above), so neither arm is open to this seat. **Not written, not substituted.** Cure shape, ready to
+   land in one commit for whichever seat holds `demo/scenes/sequence/**`: hold the latest `p` in
+   `scrub()`, keep `sequence.progress`/`syncFromSequence()` per sample, and coalesce ONLY the
+   `machine.dispatch` into one `requestAnimationFrame` with a synchronous flush from
+   `setScrubbing(false)` and from `reseatRow`/`reset` — `.d`'s witness is untouched by construction.
+
+**Adjacent observation, recorded not re-booked**: `SequenceTarget.vue`'s `onRowDown(index, e)` writes
+`activeRow.value = index` BEFORE calling the shared seam, so a second handle pressed during a live row
+drag still re-points the FIRST gesture's projector even though the seam now rejects the second
+pointer. The seam-level cure (L·D-1) is complete; the consumer-side latch is `SequenceTarget.vue`'s, a
+`.d` §Bounds row. No id minted.
+
+#### Residuals — declared, not dropped
+
+**LANDED**: KF-SCR-1 · L·D-1 · KF-AV-15 (one family, one sha, both composables) · KF-AV-16's coast and
+pointer halves at this packet's own consumer · KF-SCR-5's prose half · the two false docblocks.
+**RETURNED**: KF-SCR-5's dead-API deletion (KF11-E(i1)) · C·C-1's sequence-side dispatch
+(KF11-E(i2)). **NOT EXERCISED, with the reason stated**: the `gestureSelectSuppression.ts` carve (the
+guard does not belong at the token) and the `SequenceScrubber.vue` seam rows (the cure landed in the
+composable it shares with the square and spring rails). **GREEN-BEFORE-CURE**: none — G-KFW11-9 was
+RED at this seat's own clock, twice, before the witness was written and again with it.
+
+#### Locks — all honoured
+
+The guard family is **ONE sha in BOTH composables** (`4ab4c4db`; L-18 base (iii) cannot be raised
+against it — ⟨cmd⟩ `git show --stat 4ab4c4db` names both files). `useDragCapture`'s exported surface
+is unchanged and `PlaybackRibbon.vue` was never edited. The KF-AV-28 KEEP verdict was stated before
+the first byte and **zero** verdict-discharge receipts were emitted. Own-set paths only: ⟨cmd⟩
+`git show --stat` on each of the three shas → **four distinct paths**, every one a `.i` §Bounds row,
+**zero** outside it; `src/**`, glass-ui, `CubeAxisLines.vue`, `TimelineTrack.vue`,
+`KeyframeTimeline.vue`, `vitest.config.ts` and `node_modules/**` never written; `scripts/dev/dev.sh`
+never staged; no stash, no reset, no force-push; E-3 honoured (no dated artefact edited — this receipt
+is appended, the evidence file created); no index.lock encountered.
+
+#### E13 mail sweep at this seat's clock
+
+Four paths swept read-only, Status cell by position, `INBOX.md` self-excluded: (1) `V/coordination/`
+newest → the four 2026-09-18 `*-inbox-2026-09-18-value-4.1-*` letters, ours and rowed; (2) glass-ui
+`BK/coordination/` newest → `glass-outbound-2026-09-18-valuejs-o26-reply.md` = **I-35, rowed**; (3)
+keyframes `V/coordination/` newest inbound → `VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md`
+= **O-21, ours**; (4) atlas `P/coordination/` newest → `valuejs-inbound-2026-07-27-library-band-
+export-delta.md` = **O-12, ours**. ⟨cmd⟩ `grep -cE '^\| [IO]-[0-9]+[a-z]? \|' INBOX.md` → **79** rows;
+the positional UNREAD scan → **0**. **Zero unrowed letters, zero UNREAD.**
+
+#### Inherited-paths clause
+
+**None.** ⟨cmd⟩ `git status --porcelain --` this unit's writable set at open → empty in both repos: no
+killed predecessor seat had touched a `.i` path. `useDragScrub.ts`, `useDragCapture.ts` and
+`AnimationVisualizer.vue` were inherited from the registry's adjudicated state at `d479f394` (itself
+byte-identical to `.d`'s `ba12b2ba` on every `.i` path); the test file is this unit's creation. No
+sibling's test was modified, extended or weakened by this unit — ⟨cmd⟩ `git diff --stat
+d479f394..HEAD -- test` names **one** file, the created one.
+
+#### SELF-COUNT
+
+⟨cmd⟩ `git log --oneline d479f394..HEAD | wc -l` → **3**; three shas listed, three described.
+⟨cmd⟩ `grep -c 'it(' test/demo/instrument/drag-scrub-reentrancy.test.ts` → **9**; the gate run reports
+`Tests 9 passed (9)` — the counts agree. Files touched: **4** in keyframes.js (`useDragScrub.ts`,
+`useDragCapture.ts`, `AnimationVisualizer.vue`, the created test), **2** in value.js (this record; the
+evidence file). Escalations: **2**. Ids LANDED: **6**. Ids RETURNED: **2**.
+
+**The unit's verdict: G-KFW11-9 GREEN 9/9 ×2; the guard family whole in one sha across both seams; the
+machine-write decision made and landed at this packet's own consumer; two bounded escalations
+returned by name.**
