@@ -4,9 +4,13 @@
  * reset/tokens/material/focus primitives; THIS file owns the shell's layout
  * class rules — the dock-atop band grid, the pane container/wrappers, the
  * [data-layout] display witnesses, and the T-45 pane-card oversampled-blur
- * seat. All layout TOKENS (--dock-*, --pane-*, --content-max-h, …) stay in
+ * seat. All layout TOKENS (--dock-*, --pane-*, --app-gutter, …) stay in
  * foundation :root; this file consumes them. Loaded via foundation's
- * `@import "./shell.css"`.
+ * `@import "./shell.css"`. (X.W5.b: the block-axis cap token that used to sit
+ * in that list no longer exists — see THE BLOCK LAW below. Its identifier is
+ * written out once, in the wave record at
+ * docs/tranches/X/execution/A/X-W5.md § X.W5.b, so that gate B4's repo-wide
+ * census can read zero in `demo/` and mean it.)
  * ═══════════════════════════════════════════════════════════════════════════ */
 
 /* ── App layout — THE DOCK-ATOP BAND LAW (T.W6 · T-31) ──
@@ -15,16 +19,69 @@
  * --dock-gap row-gap. The retired trio (see the token doc-comment above):
  * the fixed overlay, the --dock-total padding reservation, the load-bearing
  * z-dock. Occlusion of the dock by any card is impossible by construction —
- * grid rows do not overlap and no z-index is minted anywhere in the shell. */
+ * grid rows do not overlap and no z-index is minted anywhere in the shell.
+ *
+ * ── THE BLOCK LAW (X.W5.b · V·L1 · CC-049 · gates B1–B6) ──────────────────
+ * The shell no longer CAPS the block axis; it FLOORS it. A full-viewport
+ * `height` plus `overflow: hidden` framed the viewport at every size, so
+ * `documentElement.scrollHeight > clientHeight` was FALSE on all ten member
+ * routes at 320×568 and 390×844 — a phone could not reach content the shell
+ * had already clipped (born-RED measured 2026-09-19, banked whole at
+ * docs/tranches/X/waves/W5/born-red/B1-B2-B3-layout-utilization-2026-09-19.json:
+ * at 320×568, seven of ten routes carried content beyond the viewport and
+ * NONE of them scrolled). `min-block-size: 100svh` still fills a short
+ * viewport — the two-band grid's `1fr` row takes the surplus exactly as
+ * before — but a scene taller than the viewport now grows the DOCUMENT
+ * instead of being cut off.
+ *
+ * WHY `svh` AND NOT THE DYNAMIC RUNG FOR THE FLOOR: the dynamic viewport
+ * unit re-measures as mobile browser chrome collapses on scroll, so a floor
+ * written in it reflows the whole grid mid-gesture — a jump the old fixed
+ * frame masked only because nothing could scroll. `svh` is the stable
+ * small-viewport rung: the floor is computed once against the
+ * chrome-expanded viewport and never moves. Gate B4 greps this file for the
+ * dynamic spelling and must read zero, which is why the retired declaration
+ * is described here and quoted only in the wave record
+ * (docs/tranches/X/execution/A/X-W5.md § X.W5.b).
+ *
+ * INSEPARABILITY (fold W5F-42, BINDING): this is a RECOMPOSITION, never an
+ * overflow-deletion. The block-axis cap TOKEN — deleted at its definition,
+ * at its two aspect-keyed re-pins and at every consumer, all in this one
+ * commit — and the frame (`height` + `overflow`) came down TOGETHER, because
+ * every pane's inner scroll-well was bounded through that one chain.
+ * Dropping `overflow` alone would have left the wells bounded by a cap whose
+ * frame no longer existed.
+ *
+ * WHAT DID NOT CHANGE (EB-8 supersession warning, BINDING): the INLINE axis
+ * is untouched. The owner-ruled ≈1050px clamp (2026-07-05) still lives on
+ * `.pane-container` below and is the invariant this wave must not move;
+ * the `position: relative` EB-1 patch is BANNED and is not used here.
+ * CC-051's inline-axis half — ratio, the ultrawide width cap, the Tailwind
+ * responsive prefixes, the four layout tokens — rides CC-056 / V·L3 at X-W6.
+ *
+ * B5 — LOGICAL-AXIS SUPPORT, THE RECORDED READING (2026-09-19, measured, not
+ * assumed; the gate's own command, run in both shipping engines):
+ *     CSS.supports('overflow-block','auto')    → TRUE   (Chromium 148.0.7778.96)
+ *                                              → TRUE   (WebKit 26.4)
+ *     CSS.supports('overflow-inline','auto')   → TRUE  / TRUE
+ *     CSS.supports('min-block-size','100svh')  → TRUE  / TRUE
+ *     CSS.supports('height','100svh')          → TRUE  / TRUE
+ *   DECISION: the reading is TRUE in both engines, so the LOGICAL spelling
+ *   ships — `min-block-size`, not `height`. No physical fallback is
+ *   authored and nothing is banked for a re-trigger: the gate's "if false"
+ *   branch did not fire. The block-axis property here is a FLOOR, so the
+ *   reading that licenses it is `min-block-size`; `overflow-block` is
+ *   recorded because it is the gate's named command and because it is the
+ *   spelling any future single-axis overflow rule must use rather than
+ *   re-minting the physical `overflow-y`. */
 .app-layout {
     display: grid;
     grid-template-rows: auto 1fr;
     row-gap: var(--dock-gap);
-    height: 100dvh;
+    min-block-size: 100svh;
     width: 100%;
     position: relative;
-    overflow: hidden;
-    padding: var(--dock-inset) var(--app-padding-x) 0.5rem;
+    padding: var(--dock-inset) var(--app-gutter) 0.5rem;
 }
 
 /* The a11y landmarks are the two band rows. <nav> IS the dock band —
@@ -35,7 +92,48 @@
  * shifted the scene +3.0px — the reservation now covers the tallest state by
  * construction, the shorter collapsed seal centring in the reserved box).
  * position: relative seats the band-chrome instruments (the W6-6 status
- * lamp). */
+ * lamp).
+ *
+ * ── B6 · U-7 — THE DOCK POSTURE, DECIDED BY PROBE AND RECORDED HERE ───────
+ * DECISION: the band stays IN FLOW. It is not sticky, not fixed, and mints
+ * no z-index. The block law above gives the document a scroll for the first
+ * time, so "does the dock scroll away?" became a real question; this is the
+ * answer and the reasons, so the choice is not a silent one.
+ *
+ * THE PROBE (390×844, WebKit 26.4, post-cure, 2026-09-19 — six member routes
+ * loaded, each scrolled to the document end):
+ *   #/gradient     docScrollHeight 1003 vs client 844 → 159px of scroll;
+ *                  band top 16 → −143; band fully leaves the viewport.
+ *   #/ · #/browse · #/generate · #/palettes · #/admin/users
+ *                  docScrollHeight 844 = client 844 → 0px of scroll; the
+ *                  band never moves.
+ *   elements intersecting the band's box when scrolled: 0 on every route.
+ *
+ * WHY IN-FLOW WINS ON THAT EVIDENCE:
+ *   1. THE BAND LAW FORBIDS THE ALTERNATIVE'S MECHANISM. T-31 (owner-verbatim)
+ *      retired the fixed overlay, the padding reservation and the load-bearing
+ *      z-dock together, and the comment above states the resulting invariant:
+ *      occlusion of the dock by any card is impossible BY CONSTRUCTION,
+ *      because grid rows do not overlap and no z-index is minted in the shell.
+ *      A sticky band overlaps row 2 the moment it sticks, so it needs a
+ *      z-index and a paint order — it re-opens the exact single point of
+ *      failure the law closed. That is a design ruling, not a preference.
+ *   2. THE MEASURED COST IS BACKWARDS. One route of six scrolls at all, by
+ *      159px — the dock is ~88px of scroll from being on screen again. A
+ *      sticky band would spend 88px of an 844px viewport (10.4%) permanently
+ *      to save an 88px gesture that one route asks for.
+ *   3. THE MATERIAL. The band carries the glass material; stuck over moving
+ *      content it re-samples its backdrop every frame, which is a per-frame
+ *      backdrop-filter repaint on the surface the T-45 seat below exists to
+ *      keep cheap.
+ *
+ * RE-TRIGGER (banked, not hypothetical): X.W5.c collapses every route to one
+ * scrolling column at 390, which is expected to take per-route rendered text
+ * from ~69 to ~893 characters (gate C1). When that lands, re-run this probe:
+ * if the median member route scrolls more than about one viewport, the cost
+ * balance in (2) inverts and the posture is re-decided — against (1), which
+ * does not move, so the cure would then be a dock that returns on scroll-up
+ * rather than one that is permanently stuck. */
 .dock-band {
     position: relative;
     display: flex;
@@ -67,12 +165,18 @@
      * the gutter (≈ 1050px — 32rem × 2 + 1.618rem, the 2026-07-05 owner-ruling
      * clamp). Equal columns always; no shell self-clamps. */
     max-width: min(
-        calc(100vw - var(--app-padding-x) * 2),
+        calc(100vw - var(--app-gutter) * 2),
         calc(var(--pane-max) * 2 + var(--pane-gap))
     );
     margin: 0 auto;
     position: relative;
-    max-height: var(--content-max-h);
+    /* X.W5.b — the block-axis `max-height` that read the shell's cap token is
+     * DELETED (gates B2/B4). It held this box to 608px inside a 1340.5px
+     * scene band at 3440×1440 (45.4% block extent — the MT-F028 number,
+     * reproduced exactly at wave-open) while the content inside measured 6.2×
+     * the band: the cap was not restraining a long scene, it was hiding one.
+     * The box is now sized by its content. The INLINE clamp above is
+     * untouched — it is the owner-ruled ≈1050px invariant. */
     min-height: 0;
 }
 
@@ -103,10 +207,22 @@
  * BY CONSTRUCTION — the retired D6-03 portrait pathology needed a width-only
  * `lg:hidden` display exception here; the stamp dissolves it. The v-if
  * single-mount (App.vue X6) is the primary gate; these are the aspect-correct
- * defensive witnesses + the CI emission canary (scripts/ci/css-emission-probe.mjs,
- * re-pointed off the lg:* utilities onto these rules). They are intentionally
- * UN-media'd — the JS drives the breakpoint, so a media wrapper would
- * re-introduce the width-only disagreement the stamp exists to retire. */
+ * defensive witnesses. They are intentionally UN-media'd — the JS drives the
+ * breakpoint, so a media wrapper would re-introduce the width-only
+ * disagreement the stamp exists to retire.
+ *
+ * THESE RULES ARE NOT CI-GATED (X.W5.b · gate N9 · fold W5F-38's PSC-21
+ * rider). This paragraph used to name a CI emission probe as their
+ * guarantor. Measured 2026-09-19: that probe does not exist anywhere in the
+ * tree, no workflow step invokes it and no package script names it — it was
+ * pruned with the proof-theater at `6d6d3521` (V·W42), and the two
+ * stylesheet comments citing it outlived it. N9 is an either/or (restore the
+ * probe, or stop naming it); the branch taken here is the STRIKE, and the
+ * reasoning is recorded in full — with the struck path quoted — in the wave
+ * record at docs/tranches/X/execution/A/X-W5.md § X.W5.b, so that the claim
+ * is retired from the stylesheet rather than merely reworded inside it.
+ * The MECHANISM below is unchanged; what changed is that nothing here
+ * asserts a gate that does not run. */
 [data-layout="mobile"] .pane-slot-mobile {
     display: flex;
 }

@@ -14,6 +14,17 @@
  * still covers the FULL demo utility surface (every `lg:*`/`sm:*`/… the tree
  * uses), so the explicit `@source` below stays load-bearing regardless.
  *
+ * (X.W5.b · gate N9: the sentence that used to stand here claimed a CI
+ * emission probe asserts the pane-visibility witnesses survive the build.
+ * It is STRUCK. Measured 2026-09-19: the named probe does not exist, no
+ * workflow step invokes it and no package script names it; it was pruned
+ * with the proof-theater at `6d6d3521`. The `@source` directives below are
+ * still load-bearing on their own terms — an explicit scan root is a
+ * mechanism, not a claim about CI — but NOTHING here asserts that a
+ * build-output emission gate runs. The struck path is quoted, and the
+ * either/or rationale recorded, in the wave record at
+ * docs/tranches/X/execution/A/X-W5.md § X.W5.b.)
+ *
  * Tailwind v4 auto-detection roots its scan at the GIT REPOSITORY ROOT and
  * prunes `.gitignore` matches; that *happens* to cover App.vue today, but the
  * coverage is implicit — it silently evaporates outside a git checkout, or if
@@ -26,11 +37,6 @@
  * sibling `.css` files (this one + animations.css/utils.css) — which are NOT
  * content templates — stay out of the candidate-extraction set.
  *
- * The CI emission probe (.github/workflows/ci.yml → scripts/ci/css-emission-probe.mjs)
- * asserts the pane-visibility witnesses survive the build — the `[data-layout]`
- * display rules (present, un-media'd) + the `sm:max-w-lg` clamp (gated at 40rem)
- * — so a future scan/emission regression fails loud instead of shipping a blank
- * desktop.
  */
 
 /*
@@ -164,7 +170,21 @@
  *   --dock-h      = icon-btn + vertical padding + border  (the band's floor)
  *   --dock-inset  = the shell's top padding (the band's breathing room)
  *   --dock-gap    = the DESIGNED gap between the two bands (the grid row-gap)
- *   --content-max-h = the cap on the pane container's height
+ *   --app-gutter  = the shell's inline gutter, both sides (X.W5.b; the former
+ *                   --app-padding-x, renamed to say what it is — a gutter the
+ *                   .pane-container's inline clamp subtracts, not a padding
+ *                   value some box happens to read)
+ *
+ * THE BLOCK-AXIS CAP IS GONE (X.W5.b · V·L1 · gates B2/B4). A token used to be
+ * declared here as "the cap on the pane container's height", with two @media
+ * arms below re-pinning it by viewport aspect. The token, its base declaration
+ * and the bare 21/9 arm are DELETED: the shell FLOORS the block axis
+ * (`min-block-size: 100svh` on .app-layout) and caps it nowhere. Deleting the
+ * token is the point — with no property left to set, "cap the page by viewport
+ * aspect" is unrepresentable rather than merely unset (L-8), which is why gate
+ * B4's census is a repo-wide grep on the identifier and why that identifier is
+ * written out exactly once, in the wave record at
+ * docs/tranches/X/execution/A/X-W5.md § X.W5.b, and nowhere under `demo/`.
  *
  * .app-layout is a TWO-BAND GRID (`auto 1fr`): the dock band (<nav>, in-flow,
  * static) sits ATOP as row 1; the scene band (<main>) sits BELOW as row 2.
@@ -368,9 +388,34 @@
     --shadow-card: var(--shadow-cartoon);
     --shadow-card-hover: var(--shadow-cartoon-hover);
 
-    /* PROJECT OVERRIDE: monospace fonts for Select and DropdownMenu triggers
-     * (glass-ui defaults to inherit). */
-    --select-font: var(--font-mono);
+    /* PROJECT OVERRIDE: monospace font for DropdownMenu panels (glass-ui
+     * defaults to `inherit`). The producer consumes this token live —
+     * `dist/components/_shared/menu.css`: `.dropdown-menu-content,
+     * .dropdown-sub-content { font-family: var(--dropdown-menu-font, inherit) }`.
+     *
+     * X.W5.b · gate N13 (fold W5F-69 ← ⟨PaletteSlugBar · A-29⟩) — THE SELECT
+     * HALF OF THIS PAIR IS DELETED, AS A RULED CHOICE, NOT AS DRIFT. Measured
+     * 2026-09-19 against the installed producer (@mkbabb/glass-ui 7.0.0):
+     * `--select-font` has ZERO occurrences in the whole package, while
+     * `--dropdown-menu-font` has a live consumer (quoted above). The Select
+     * font seam was removed at the W44 adoption without a note, so the pin
+     * that used to sit on this line had been inert for the whole of glass 7
+     * while two lines of demo/DESIGN.md still documented it as live — the
+     * silent-major-version-drift family A-11 names.
+     *
+     * N13 is an either/or across three sites and BOTH halves had to move
+     * together; this is the deletion branch, taken here because it is the one
+     * this unit can execute whole: the alternative branch is a glass-ui BH
+     * relay asking for the token back, and a producer ask is a LETTER, never
+     * a local patch (glass-ui is READ-ONLY, always). That relay ask is NOT
+     * discharged by this deletion — it rides fold §6f CE-10 with the
+     * PSC-2/PSC-6/PSC-19 family, and the standing owner feedback is that the
+     * Select font is a TOKEN decision at the producer and not a hardcode. If
+     * the producer restores the seam, the pin returns on this line beside its
+     * sibling; nothing about that is lost by removing an inert declaration
+     * now. The two demo/DESIGN.md lines are corrected in this same commit —
+     * a half-cure would only move the drift from the stylesheet into the
+     * documentation. */
     --dropdown-menu-font: var(--font-mono);
 
     /* ── The display-weight pin (T.W4-1 — D2 "non-bold"; the P10 booked swap) ──
@@ -422,10 +467,6 @@
     --dock-band-min-h: calc(var(--size-icon-btn) + 2rem);
     --dock-inset: 1rem;
     --dock-gap: 1rem;
-    /* The scene band's own height IS the honest cap (row 2 of the shell
-     * grid resolves it by construction); the desktop/ultra-wide designed
-     * clamps below override it. */
-    --content-max-h: 100%;
 
     /* ── The pane clamp ladder (R.W3 Lane A / A4 — U32) ──
      * The cards GROW then clamp, handled generally: `--pane-min` is the floor,
@@ -444,11 +485,17 @@
     /* Shared min-width for dropdown/select menu panels (was 5 ad-hoc widths). */
     --menu-min-w: 11rem;
 
-    /* App-shell horizontal padding (D.W4 Lane A §4.1 / §5.3 drift) — was a
-     * silent 1rem literal coupled between .app-layout's `padding: … 1rem …`
-     * and .pane-container's `max-width: calc(… + 2rem)`. Both now read this
-     * token so the coupling is explicit and survives a future tightening. */
-    --app-padding-x: 1rem;
+    /* The app-shell INLINE gutter, both sides (D.W4 Lane A §4.1 / §5.3 drift)
+     * — was a silent 1rem literal coupled between .app-layout's
+     * `padding: … 1rem …` and .pane-container's `max-width: calc(… + 2rem)`.
+     * Both read this token, so the coupling is explicit and survives a future
+     * tightening. X.W5.b renamed it from `--app-padding-x`: it is not a
+     * padding value that one box happens to apply, it is the shell's gutter —
+     * the .pane-container's inline clamp SUBTRACTS it on both sides, which is
+     * a gutter's job and not a padding's. The rename is inline-axis naming
+     * only; the axis itself is untouched here (CC-051's inline half rides
+     * CC-056 / V·L3 at X-W6). */
+    --app-gutter: 1rem;
 
     /* ── The φ ladder (S.W4-8 — promoted from Markdown.vue's private scoped
      * block; design-docs-about P3). 1rem base, neighbours a factor of
@@ -463,22 +510,23 @@
 }
 
 /* Desktop: tighter dock margins.
- * The aspect law (R.W3 Lane A / A4): the desktop grammar — tighter dock,
- * capped content height, the dual grid below — fires on width AND landscape.
- * A portrait tablet ≥ 1024px wide runs the single-slot mobile grammar with the
- * relaxed dvh-based `--content-max-h` (the D6-03 portrait pathology: two
- * columns marooned mid-screen on a 1080×1750 slab). */
+ * The aspect law (R.W3 Lane A / A4): the desktop grammar — tighter dock, the
+ * dual grid below — fires on width AND landscape. A portrait tablet ≥ 1024px
+ * wide runs the single-slot mobile grammar (the D6-03 portrait pathology: two
+ * columns marooned mid-screen on a 1080×1750 slab).
+ *
+ * X.W5.b — this arm KEEPS its two --dock-* rows and loses its third: the
+ * aspect-keyed block-axis cap it used to re-pin here is gone with the token
+ * (gate B2). The query itself survives because the dock's designed margins
+ * are a real desktop-grammar decision; only the cap left. Its sibling — the
+ * bare ultrawide aspect-only arm that set nothing BUT the cap — died whole
+ * in the same commit, taking the source-scoped viewport-dimension media
+ * census from 7 to 6 (gate C7 stages the rest at X.W5.c; the census is a
+ * grep, so this note deliberately spells no query). */
 @media (min-width: 1024px) and (min-aspect-ratio: 1.1) {
     :root {
         --dock-inset: 0.5rem;
         --dock-gap: 0.5rem;
-        --content-max-h: clamp(34rem, 86dvh, 52rem);
-    }
-}
-
-@media (min-aspect-ratio: 21 / 9) {
-    :root {
-        --content-max-h: clamp(30rem, 62dvh, 38rem);
     }
 }
 

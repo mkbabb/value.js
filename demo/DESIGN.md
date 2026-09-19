@@ -8,7 +8,7 @@ Tokens live in two places, in this cascade order (style.css:1-4):
 
 1. `@import "tailwindcss"` → `@import "tw-animate-css"` → `@import "@mkbabb/glass-ui/styles"` — glass-ui ships the full contract surface (durations, easings, z-tiers, radii, shadows, glass tiers, type scale, layout/sizing — see glass-ui DESIGN.md §Token Architecture). Consume by name, not by re-declaring.
 2. `@import "./animations.css"` — project-specific keyframes + `prefers-reduced-motion` carve-out.
-3. `:root` in `style.css` — the demo's narrow override surface: the font root (`--font-stack-display` → Fraunces — the SOURCE cure, R.W3 Lane A), the accent axis (`--accent-live` + the `--primary` re-point + the glass tint feed), the `--card-edge` hairline mint (§ Depth), `--shadow-cartoon` / `--shadow-cartoon-hover` (heavier rung) with `--shadow-card` routed through cartoon, `--select-font` / `--dropdown-menu-font` pinned to mono, the layout tokens (§ Layout), and the `.dark` shadow re-pin. Add new project tokens here under a commented rationale; do NOT spin up a parallel `design-idioms.css` (see § Idioms NOT used).
+3. `:root` in `style.css` — the demo's narrow override surface: the font root (`--font-stack-display` → Fraunces — the SOURCE cure, R.W3 Lane A), the accent axis (`--accent-live` + the `--primary` re-point + the glass tint feed), the `--card-edge` hairline mint (§ Depth), `--shadow-cartoon` / `--shadow-cartoon-hover` (heavier rung) with `--shadow-card` routed through cartoon, `--dropdown-menu-font` pinned to mono, the layout tokens (§ Layout), and the `.dark` shadow re-pin. Add new project tokens here under a commented rationale; do NOT spin up a parallel `design-idioms.css` (see § Idioms NOT used).
 
 ## § Type
 
@@ -34,8 +34,14 @@ compiled utilities paint) and are deleted.
   fallback ships and the body paints system-ui). `--font-serif` resolves to the
   body voice via the glass-ui bridge (the demo no longer aliases serif→Fraunces).
 - **Fira Code — the readout/annotation voice.** Numeric readouts, code, admin
-  labels, plate captions/eyebrows. `--select-font` + `--dropdown-menu-font`
-  pin Select + DropdownMenu triggers to mono so numeric values read cleanly.
+  labels, plate captions/eyebrows. `--dropdown-menu-font` pins DropdownMenu
+  panels to mono so numeric values read cleanly. **The Select half of that
+  pair is gone** (X.W5.b · gate N13): glass-ui 7.0.0 ships no `--select-font`
+  seam — zero occurrences in the installed package, measured 2026-09-19 —
+  so the demo's pin was inert and this line documented a token that did
+  nothing. Restoring the seam is a producer ask on the glass-ui BH relay
+  (fold §6f CE-10), never a local override; until it lands, Select triggers
+  speak the body voice.
   **Mono on a FIELD is a statement about the content, never a default**
   (T.W3-3 / T-12): a prose search field speaks the body voice (the seated
   register strips the producer recipe's baked `--font-mono` — ASK-B's seam
@@ -288,9 +294,13 @@ the R.W3 close blocker. This is the general lesson worth carrying: a
 `vite build`-only verification can pass while `vite` dev is broken — the honest
 instrument is the committed dev `webServer` posture, and it must stay dev. The
 default mode mounts the incoming pane immediately and cross-fades the two slides
-(the Lane-E space-switch intent), identical in dev and build; the slots stay
-height-bounded (`min-h-0` + `--content-max-h`) so the brief co-mount never jumps
-the layout. See `docs/tranches/R/audit/R.W3-visual-runtime/DELTA.md`.
+(the Lane-E space-switch intent), identical in dev and build. See
+`docs/tranches/R/audit/R.W3-visual-runtime/DELTA.md`. (X.W5.b: the sentence that
+used to end this paragraph — "the slots stay height-bounded so the brief
+co-mount never jumps the layout" — is struck. It was already false when it was
+written, for the reason `demo/shell/PaneSlot.vue`'s own correction block states:
+the block-axis cap it named capped `.pane-container`, not the slot. The cap
+itself is now deleted, so the claim has no mechanism left to mis-describe.)
 
 ## § Z-tier
 
@@ -355,11 +365,12 @@ Layout tokens (style.css `:root`):
 
 - `--dock-inset` (1rem mobile, 0.5rem ≥1024 px) — the shell's top padding (the band's breathing room).
 - `--dock-h` — the dock band's `min-height` floor; `--dock-gap` — the DESIGNED gap between the two bands (the grid row-gap). (`--dock-total` died with the padding reservation at T-31.)
-- `--content-max-h: 100%` — the cap on the pane container; the scene band's own height is the honest base (row 2 resolves it by construction), with the desktop/ultra-wide designed clamps overriding.
-- `--pane-min: 25rem` / `--pane-max: 32rem` / `--pane-gap: clamp(0.5rem, 1.25vw, 1.618rem)` — the pane clamp ladder (R.W3 Lane A / A4; the 44/30 → 32/25 re-cut is **S FINAL.md Ruling #1** "card width ~1/3 smaller", landed `52c5fd4`). The GRID owns the clamp: `.pane-container` is `max-width: min(100vw − 2·--app-padding-x, 2·--pane-max + --pane-gap)` and the dual grid is `repeat(2, minmax(var(--pane-min), 1fr))` — cards grow fluidly 1024→1536 then clamp, equal columns always. **Pane shells never self-clamp** (`w-full` only; the 10 `lg:max-w-desktop-pane` forks are deleted). No per-width media staircase.
+- `--app-gutter: 1rem` — the shell's INLINE gutter, both sides: `.app-layout`'s horizontal padding and the amount `.pane-container`'s inline clamp subtracts. Renamed from `--app-padding-x` at X.W5.b (it is a gutter, not one box's padding).
+- **There is no block-axis cap token.** X.W5.b (V·L1 · gates B2/B4) deleted the pane-container height cap, its `:root` base declaration and both aspect-keyed `@media` re-pins. The shell FLOORS the block axis — `.app-layout { min-block-size: 100svh }` — and caps it nowhere, so a scene taller than the viewport grows the document instead of being clipped. The token is deliberately absent rather than merely unset: with no property left to set, "cap the page by viewport aspect" is unrepresentable (L-8).
+- `--pane-min: 25rem` / `--pane-max: 32rem` / `--pane-gap: clamp(0.5rem, 1.25vw, 1.618rem)` — the pane clamp ladder (R.W3 Lane A / A4; the 44/30 → 32/25 re-cut is **S FINAL.md Ruling #1** "card width ~1/3 smaller", landed `52c5fd4`). The GRID owns the clamp: `.pane-container` is `max-width: min(100vw − 2·--app-gutter, 2·--pane-max + --pane-gap)` and the dual grid is `repeat(2, minmax(var(--pane-min), 1fr))` — cards grow fluidly 1024→1536 then clamp, equal columns always. **Pane shells never self-clamp** (`w-full` only; the 10 `lg:max-w-desktop-pane` forks are deleted). No per-width media staircase.
 - `--menu-min-w: 11rem` — shared dropdown/select panel width (collapsed from 5 ad-hoc widths at A.W7).
 
-**The aspect law.** The desktop grammar (dual grid, tight dock, capped content height) fires on `(min-width: 1024px) and (min-aspect-ratio: 1.1)` — width AND landscape. A portrait tablet ≥ 1024px wide runs the single-slot mobile grammar; App.vue's `isDesktop` breakpoint shares the same compound query so JS mount and CSS grid can never disagree (the `.pane-slot-mobile` exception rule covers the CI-pinned width-only `lg:hidden` witness on the portrait band).
+**The aspect law.** The desktop grammar (dual grid, tight dock) fires on `(min-width: 1024px) and (min-aspect-ratio: 1.1)` — width AND landscape. (X.W5.b: "capped content height" left this list with the cap token; the bare `(min-aspect-ratio: 21/9)` arm that set nothing but the cap died whole in the same commit.) A portrait tablet ≥ 1024px wide runs the single-slot mobile grammar; App.vue's `isDesktop` breakpoint shares the same compound query so JS mount and CSS grid can never disagree (the `.pane-slot-mobile` exception rule covers the CI-pinned width-only `lg:hidden` witness on the portrait band).
 
 **Container queries.** The pane slot wrappers (`.pane-wrapper`) are `container-type: inline-size`; in-card sizing rides `cqi` (e.g. the picker card's `px-[clamp(0.75rem,4cqi,1.5rem)]` gutters), never `vw` — structurally immune to the viewport-variant kill class. Display type rungs are the named exception (viewport-fluid `clamp()`s by design).
 
@@ -367,11 +378,11 @@ Consumer sites (post-D.W4 Lane A surfaces these as utilities — `min-w-menu` et
 
 | Token | Consumed at | Idiom |
 |---|---|---|
-| `--dock-inset` | `.app-layout` padding (style.css) | direct CSS — the shell owns its band inset |
-| `--pane-min` / `--pane-max` / `--pane-gap` | `.pane-container` (style.css) | direct CSS — the grid owns the clamp |
+| `--dock-inset` | `.app-layout` padding (shell.css) | direct CSS — the shell owns its band inset |
+| `--app-gutter` | `.app-layout` padding + `.pane-container` inline clamp (shell.css) | direct CSS — one token, both sides of the coupling |
+| `--pane-min` / `--pane-max` / `--pane-gap` | `.pane-container` (shell.css) | direct CSS — the grid owns the clamp |
 | `--menu-min-w` | every DropdownMenuContent + SelectContent | `min-w-[var(--menu-min-w)]` |
-| `--content-max-h` | `.pane-container` (style.css) | `max-h-[var(--content-max-h)]` |
-| `--dock-h` / `--dock-gap` | `.dock-band` min-height / `.app-layout` row-gap (style.css) | direct CSS — the band grid owns them |
+| `--dock-h` / `--dock-gap` | `.dock-band` min-height / `.app-layout` row-gap (shell.css) | direct CSS — the band grid owns them |
 
 The pane-shell layout (`panes/PaneHeader.vue` + `.pane-container` / `.app-layout` in `style.css`, driven by the pane clamp ladder + `--dock-inset` tokens above) is the live visual-hierarchy reference for the app viewport: a title-row + scroll-faded content region that every pane (`BrowsePane`, `ExtractPane`, `MixPane`, …) composes. It is type-clean and reduced-motion-correct (the WebGL RAF loops fence on `prefers-reduced-motion` in their composables — see the §Reduced-motion carve-out above).
 
