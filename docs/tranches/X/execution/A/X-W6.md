@@ -1470,3 +1470,284 @@ Carried unchanged from `## Close`: the `ictcp`/`jzazbz` URL round-trip revert (*
 **VERIFIED** no. Gates **25 of 50 GREEN** (24 + j4). `W6.md:7` `**Status**: planned` and `:10`
 `IMPLEMENTED no` are **byte-untouched**: E-3 binds, and a PARTIAL wave has no IMPLEMENTED to stamp.
 **The LEDGER row stays PARTIAL and is not promoted.** Four successors stay lawfully blocked.
+
+---
+
+## Check 2
+
+SERVED MODEL: claude-opus-5[1m]
+
+**Seat**: L-20 FRESH ADVERSARIAL CHECK, **pass 2** — **VERIFY-ONLY**. An independent
+`claude-opus-5[1m]` that authored no cure byte, no unit receipt, and no line of `## Close`,
+`## Check 1` or `## Repair 1`. Wall clock **2026-09-19**.
+**Verdict**: **NOT-CONFORMANT** — 0 BLOCKER · **1 CRITICAL** · **1 HIGH** · 2 MINOR · 3 INFO.
+
+**All 25 claimed GREENs reproduce at this seat's own commands** — 25 of 25, zero divergences of
+verdict, every figure re-read from the settled bytes rather than inherited, the cheap gates
+double-run. The wave still does not fail on what it did. It fails on the **21 of its 25 RED gates
+that carry no relief** — Check 1's 22 less j4, which Repair 1 moved GREEN with its measurement.
+
+### Crash-recovery (standing law)
+
+⟨cmd⟩ `git status --porcelain` at open → `M docs/tranches/V/reformation/CARRY-LEDGER.md` ·
+`M scripts/dev/dev.sh`. **Neither is inside this seat's writable set** (the V fold-source · the
+unowned NEVER-touch row). **No inherited hunk on any W6 path**; nothing stashed, reset or restored.
+Mid-seat a sibling's `docs/tranches/X/execution/D/X-P-W4.md` and its own `LEDGER.md` row went dirty
+and then committed — read, never staged, never restored. At close the dirty set is the same two
+standing rows.
+
+### Axis 1 — every claimed GREEN re-run at this seat (25 of 25 reproduce)
+
+| gate | ⟨cmd⟩ at this seat | reading | verdict |
+|---|---|---|---|
+| a1 | `npx vite-node …/evidence/parse-probe.ts` + `npx vitest run test/gradient-order-invariant.test.ts` | probe prints `parseCssColor("oklch()") -> reject` (no throw), `parseGradientCSS -> reject: stop positions must be non-decreasing` on the descending literal and `-> ok` on the ascending one; **13 passed (13)** | **GREEN — reproduces** |
+| a2 | `node …/WBGSE-O-r3-crossdrag-forcedcolors.mjs` (fresh :9000, STALE-SERVER law) | emitted `linear-gradient(90deg, … 50%, … 84.4%, … 100%)` — **ascending**; three `calc(var(--rail-inset) + var(--rail-track) * f)` lefts | **GREEN — reproduces** |
+| a3 | o21 `:143` *"one axis: every handle centre sits where the ramp paints its own ordinal"* | passed | **GREEN — reproduces** |
+| a4 | o21 `:185` *"the forward and inverse maps are inverse"* | passed | **GREEN — reproduces** |
+| a5–a11 | `node …/W6-evidence/gradient/gate-a-gesture-paint.mjs` | `travel@1px=0.00px travel@120px=120.00px` · `activeElement=BUTTON/stop-2-mu8a1r5o [27.4,100]→[27.4,98]` · `before=2 middle=2 right=2 cancel=2` · **5** `aria-valuenow` writes over 5 pointermoves · chip band `[256.7,280.7]` rules intersected **0** · white ramp `innerRatio 15.08 / 14.59`, `outerRatio 1 / 1.04` · a9 rows claimed `[]`, chip `3 → 2` — `GATE X.W6.a (gesture + paint) — GREEN`, exit 0 | **GREEN — reproduces, figure for figure** |
+| a7 (second arm) | `node …/WBGSE-O-r3-gestures.mjs` | `C14 buttons: {"beforeMid":2,"afterMid":2,"afterRight":2}` | **GREEN — reproduces** |
+| a12 | `node …/WBGSE-D-probe2.mjs` + o21 `:238` | `beforeOverhangPx: 0` · `afterOverhangPx: 0`; handleLeftEdge ≡ barLeftEdge at **224≡224** (rootFS 16) and **102≡102** (rootFS 20) | **GREEN — reproduces** |
+| a13 | `npx playwright test e2e/smoke/views/gradient.spec.ts e2e/smoke/oracles/o21-gradient-rail.spec.ts --project=smoke` | **17 passed (1.3m)**, every spec named in the list reporter | **GREEN — reproduces** |
+| f1 | `node docs/tranches/X/gates/gate-catalog-totality.mjs` | `GATE f1 — GREEN  offered=18 catalogued=18 info=18  docs=11 authored + 7 decided-none = 18 decided`; `display-p3` created **2015**. **Double-run identical** | **GREEN — reproduces** |
+| f3 f4 f6 f8 | `npx playwright test o21-space-catalog-truth o22-specimen-legibility o23-specimen-gamut-honesty o24-specimen-dot-identity --project=smoke` | **4 passed (1.4m)**; f6 prints `worst un-projected Lab recovery 7.517e-1 (hsl); bound 1; clipped control (hex) 4.061e+1`; f8 prints `distinctVisualSignatures = 18 of 18` with 18 distinct `feTurbulence` seeds and `bg=lab(92 88.8 20 / 0.827)` **constant across all 18 rows** | **GREEN — reproduces, figure for figure** |
+| f5 | `node docs/tranches/X/gates/gate-specimen-grammar.mjs` | `GATE f5 — GREEN  65610 specimens over 18 spaces; css=14 channels=4; longest 50/52 chars`. **Double-run identical** | **GREEN — reproduces** |
+| f7 | `grep -rn 'colorSpace: any' demo` → **0** · `grep -c 'as DisplayColorSpace' …Selector.vue` → **0** · `npx vue-tsc --noEmit -p tsconfig.demo.json` → **exit 0, no diagnostics** · `npx vue-tsc --noEmit -p …/catalog/tsconfig.f7-witness.json` → **exit 0** | all four legs | **GREEN — reproduces** |
+| f9 | two greps | `updateToColorSpace` in the component → **2**; `ColorPicker` watch-grep → **0** | **GREEN — reproduces** |
+| f10 | `grep -rn 'from "\.\./ui/' demo/color-session/ \| wc -l` | **0** | **GREEN — reproduces** |
+| **H1** | `node docs/tranches/X/gates/gate-no-chassis.mjs` | **positive control fires first** (`dead-name ✓  stage+inspector+action ✓`), then over **14 demo/ files across 3 commits** and **2 new modules**: `GATE H1 — GREEN`. **Double-run identical** | **GREEN — reproduces** |
+| **H3** | `node -e "…parseCssColor('oklch()')…"` → **`NO THROW`, exit 0**, `{"ok":false,"diagnostics":[{"code":"css_syntax",…}]}` · packed glass exports matching `rail\|slider\|gradient` → **`./slider` only** · installed **7.0.0**, `./watercolor-dot` **published** | all three sweeps | **GREEN — reproduces** |
+| **j4** | `node …/W6-evidence/j4-shortlandscape-720x450.mjs` | `GATE j4 (short landscape 720×450) — GREEN  4 of 4 routes reachable on both arms`, exit 0; every box re-printed (gradient tile `{top:360,h:129}`, mix canvas `{top:105,h:336}`, blob `{top:70,h:180}`, atmosphere `{top:0,h:450}`), `docScrollHeight=450 innerHeight=450` on all four | **GREEN — reproduces** |
+
+Also re-verified at this seat: ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.demo.json` **exit 0** ·
+⟨cmd⟩ `npx eslint demo/` **exit 0** · ⟨cmd⟩ `npx vitest run` **15 failed / 611 passed (626), 5 files**
+— Repair 1's post-cure figure exactly, enumerated per file (`gradient-parse` 2 · `v4-css-emerging` 10 ·
+`spectrum-luma` 1 · `v4-c1` 1 · `reka-binding-idiom` 1), with `gradient-v4-consume` **gone from the
+failing set**. ⟨cmd⟩ `git diff --check HEAD` → nothing.
+
+**Three readings added, so no successor re-derives them:**
+
+1. **`gate-axis.mjs` has TWO failure faces, one defect.** On a server that has just been restarted it
+   dies earlier — ⟨cmd⟩ `TypeError: null is not an object (evaluating 'bar.getBoundingClientRect')` at
+   `:35` — and on a settled server it reproduces the published error exactly, ⟨cmd⟩
+   `TypeError: null is not an object (evaluating 'h.getAttribute("aria-label").match(/([\d.]+)%/)[1]')`
+   at `:35`. Both runs taken here. The published citation is correct; the earlier face is a boot
+   condition, **not a second defect**. `gate-gesture.mjs` times out at `:21` in both.
+2. **The f7 witness is a `vue-tsc` project, never `tsc`.** ⟨cmd⟩ `npx tsc --noEmit -p …/tsconfig.f7-witness.json`
+   → **exit 2, 5 errors** including `f7-witness.ts(29,1): error TS2578: Unused '@ts-expect-error' directive`
+   — because plain `tsc` cannot type an SFC default export, so `InstanceType<typeof ColorSpaceSelector>["$props"]`
+   degrades and the directive goes unused. The witness's own header names `vue-tsc`, and `vue-tsc` is
+   **exit 0** here. **No successor may read a `tsc` run of this project as a RED witness.**
+3. **The vacuity falsifier is real** (L-18 target 1). Read at the banked transcript
+   `…/gradient/gates/a13-vacuity-falsifier.txt`, not re-mutated at this seat (a mutation is a write to a
+   product path this seat may not make): MUTATION 1 *delete the `.sort()`* → **5 failed | 8 passed (13)**,
+   MUTATION 2 *the axis map becomes a plain percent* → **1 failed | 12 passed (13)**, both restored with
+   their site counts re-printed. The suite reds under both named mutations; it is not vacuous.
+
+### Axis 2 — bounds (CLEAN)
+
+⟨cmd⟩ `git show --name-only` over all **twelve** wave commits (`f90aeb02` `c222542d` `e77650e1`
+`e0e204a9` `7e5b9512` `7630cc48` `a0a2c4da` `c2f17bad` `1155fd1f` `77f80e83` `6dfdd8d2` `fc1f1a0e`),
+de-duplicated → **68 paths**, each checked against `W6.md` §4 and `X-W6-FOLD.md` §3:
+
+- the three §4 deviations are **ruled errata, not widenings** — ⟨`X-W6-FOLD.md:1016`⟩ **n.1**
+  `GradientVisualizer/GradientEasingEditor.vue` (*"the `easing/` segment does not exist"*),
+  ⟨`:1017`⟩ **n.2** `demo/scenes/about/ColorNutritionLabel.vue` (*"measured absent at that path,
+  present at this one"*), ⟨`:1049`⟩ **n.34** `test/gradient-v4-consume.test.ts` `modify`;
+- ⟨cmd⟩ `scripts/dev/dev.sh` across all twelve → **0**; `src/` **0** · `api/` **0** ·
+  `node_modules/` **0** · `demo/color-picker/App.vue` **0** · `demo/color-picker/router/` **0** ·
+  `demo/ui/` **0** · `demo/palettes/` **0** · `.github/workflows/` **0** · sibling tracks'
+  `execution/B|C|D` **0** · `registry/adjudicated/` **0**;
+- all twelve carry the `Claude-Session` trailer (⟨cmd⟩ → `1` each).
+
+**Zero writes outside bounds.**
+
+### Axis 3 — masking fallbacks (NONE)
+
+Added-line sweep over the five product/evidence-bearing commits (`f90aeb02` `c222542d` `e0e204a9`
+`1155fd1f` `6dfdd8d2`) for `try {` / `catch` / `test.skip` / `.skip(` / `.only(` / `xit(` /
+`allowlist` / `eslint-disable` / `@ts-ignore`: **every hit read at the bytes is prose in a comment**
+(one is the line stating an assertion was *"DELETED with the measurement, never `test.skip()`"*; one
+is `.a`'s own ban restated at `useGradientModel.ts:190-193`). The single real `try/catch` in the diff
+is ⟨`gate-specimen-grammar.mjs:111-118`⟩ and it **converts a throw into `fail(...)`** — the opposite
+of a mask, read here. `setStopsFromColors` branches on `parseCssColor(...).ok` at
+⟨`useGradientModel.ts:199-202`⟩ rather than wrapping it — read at the bytes, which also confirms the
+close's caveat that `gate-structure.mjs`'s G4c narration *"with no validity check"* is **stale prose,
+not a live defect**. `1155fd1f`'s migration **widens no assertion** (⟨cmd⟩ `git show 1155fd1f`: the
+`intervals:` literal drops, each stop gains `easing: linearInterval()`, and the only other hunks are
+prettier line-wraps). **0 `@ts-expect-error` used to silence a defect** — the one in the tree is f7's
+own RED-able witness. **0 allowlists · 0 copied producer selectors · 0 patched node_modules.**
+
+### Axis 4 — commit families (CLEAN)
+
+GRADSTOP-A §14's family is **whole** in `f90aeb02` (model ⊕ axis ⊕ gesture ⊕ paint ⊕ tests ⊕ oracles,
+one commit, body required and present). `c222542d` is the a9 gutter — a **second meaning** discovered
+by the first AFTER run. §9 #6 is `e0e204a9` with its body; #11 `docs(x-w6 close)` is `7630cc48`.
+Repair 1's four cures are **four meanings in four commits** (tombstone · test migration · f6(ii)
+addendum · j4 baseline), none split, none merged. **One commit per meaning throughout.**
+
+### Axis 5 — E-3 (HELD)
+
+⟨cmd⟩ `git diff --stat f90aeb02^..HEAD --` over `docs/tranches/V/megatranche/registry/adjudicated/`,
+`docs/tranches/X/waves/W6.md`, `W5.md`, `W7.md`, `W8.md`, `W9.md`, `W10.md`, `W11.md`,
+`…/audit/probes/`, `…/audit/components/` → **prints nothing**. Extended to
+`docs/tranches/V/audit/REFORMATION-2026-07-16.md`, `docs/tranches/X/CONFORMANCE-2026-08-03.md`,
+`EXECUTION-RUNBOOK.md`, `refinement/`, `REFINEMENT-FOLD-2026-08-28.md`, `scripts/dev/dev.sh` →
+**prints nothing**. The one file in that extended set that moved in the commit *range* is
+`COHESION.md` (+22), and ⟨cmd⟩ `git log --oneline f90aeb02^..HEAD -- …/COHESION.md` → **`2613953b`
+`abbed3f6`, both Track C (`x-f-w3`)** — **no W6 commit touches it.** The dated spec, the adjudicated
+registry, every sibling spec and all twelve `execute, no write` instruments are **byte-untouched by
+this wave**, and RF-26's misdating was corrected by addendum-beside rather than by edit.
+
+### Axis 6 — mail (CLEAN)
+
+⟨cmd⟩ `grep -nE '\|[[:space:]]*(\*\*)?UNREAD' docs/tranches/V/coordination/INBOX.md` → **one hit, at
+`:226`, and it is prose** in a sweep note, not a table row. ⟨cmd⟩ row census → **79** `I-`/`O-` rows;
+⟨cmd⟩ max ids → **I-35 / O-39**, the register tail unmoved. ⟨cmd⟩ `find` over the landing paths
+`-newermt "2026-09-19 00:00"` → **two** members, `V/coordination/INBOX.md` (**self**, excluded by
+SELF-COUNT) and keyframes' `INBOUND-LEDGER.md` (not addressed to value.js, mints no row).
+**0 UNREAD in scope. This check closes with no UNREAD mail.**
+
+### Axis 7 — the four-verb line moved LAWFULLY
+
+⟨cmd⟩ `sed -n '7p;10p' docs/tranches/X/waves/W6.md` → `**Status**: planned` and
+`… IMPLEMENTED no · VERIFIED no`, **byte-untouched** (axis 5's diff prints nothing over `W6.md`).
+Correct twice over: E-3 binds the dated spec, and a PARTIAL wave has no IMPLEMENTED to stamp.
+Nothing was flipped that the bytes do not support.
+
+### Axis 8 — the spec's own §2a goal criterion is NOT MET at the bytes
+
+`W6.md:17` asks that **each** of six live instruments — Gradient, the space catalog, Easing,
+HeroBlob, Blob/Atmosphere, Mix — own its stage, inspector and action contract **as a routed scene**,
+tell one geometric **and** one colour-science truth, and carry its motion under the shared
+field/motion law, with no chassis rebuilt. Measured here:
+
+- **Gradient** has its geometric truth (`.a`, a3/a4/a12 GREEN) but **no inspector** (`.b` unwritten:
+  ⟨cmd⟩ `gate-seat.mjs` → `GATE G3 (stop seat) — RED`, no numeric entry in the tree) and **no routed
+  scene** (⟨cmd⟩ `grep -c 'component: Stub' demo/color-picker/router/index.ts` → **14**);
+- **the space catalog** has its colour-science truth (`.f`, 9 of 10);
+- **Easing · HeroBlob · Blob/Atmosphere · Mix** are untouched — ⟨cmd⟩ none of `EasingAuthoringStage.vue`,
+  `easingCatalogue.ts`, `HeroBlob.vue`, `useContrastSafeColor.ts`, `AuroraPane.vue`, `BlobPane.vue`,
+  `useAtmosphere.ts`, `atmosphere-calibration.ts`, `MixPane.vue`, `MixConfigBar.vue`,
+  `MixSourceSelector.vue`, `MixAnimationCanvas.vue`, `useMixingAnimation.ts` appears in the 68-path census;
+- **the motion clause is unmet** — ⟨cmd⟩ `grep -rn requestAnimationFrame demo/workbenches/gradient/`
+  → **2**, neither PRM-gated, and no aurora declaration on the ramp;
+- only *no chassis-shaped abstraction rebuilt* is satisfied outright, and H1 measures it.
+
+**One of seven clauses true.** Per `W6.md:342` a wave whose goal is unmet closes
+`complete_with_misses` — and this wave has not even reached that, because its gates do not all pass.
+
+### Axis 9 — the record's published figures reproduce
+
+Every figure re-read here reproduces, **including both figures Repair 1 corrected**: ⟨cmd⟩
+`ls -1 …/W6-evidence/gradient/gates/ | wc -l` → **25** (the close's "26" is corrected, and `e77650e1`
+carries 27 files = 25 transcripts + the instrument + the record); ⟨cmd⟩
+`grep -c 'try {' demo/workbenches/gradient/` → `demo/workbenches/gradient/GradientPane.vue:0`,
+**exit 1** — malformed on a directory, exactly as Repair 1 states, and the recursive form → **1**, in
+`GradientVisualizer/GradientCodeEditor.vue`, **not in the 68-path census**. Repair 1's own figures
+reproduce: vitest **15 failed / 611 passed (626), 5 files**; ⟨cmd⟩
+`find …/W6-evidence -name '*.png'` → **6, all under `catalog/`**; the tombstone's predicate is
+**verbatim** ⟨`docs/tranches/A/audit/W6-deferred.md:22`⟩, its `e32111c7` citation re-measured here at
+⟨cmd⟩ `grep -rn deriveAurora demo/` → **8**. **No figure in `## Close`, `## Check 1` or `## Repair 1`
+fails to reproduce at this seat.**
+
+### Axis 10 — HONEST-RED ADJUDICATION, gate by gate
+
+**RELIEVED — the honest-RED set (4), each re-derived at the spec bytes here:**
+
+| gate | relief, cited at the spec bytes | owner named in the record |
+|---|---|---|
+| **f2** | **A later wave owns the surviving hit by the spec's own routing.** The one remaining site is ⟨cmd⟩ `demo/picker/controls/ComponentSliders/ConsoleRail.vue:174` — `const info = (colorSpaceInfo as any)[space];` — and ⟨`W9.md:104`⟩ books that exact path `modify` for X-W9, ⟨`W9.md:8`⟩ *"X-W9.h follows X-W4 on `ConsoleRail.vue`"*, ⟨`:142`⟩ is the cross-wave hold and ⟨`:304-311`⟩ routes `componentDescription()` at `:172-180` to **X-W9.h**. The path is in no `W6.md` §4 row; curing it here is the §3a expansion that invalidates the wave. Verified RED here: grep → **1** | **R-2 → X-W9.h**, with the one-line migration (`SPACE_CATALOG[space].info`, total, no cast) written free by `.f` |
+| **j1 · j2 · j3** | **A predecessor wave owns the contract `.j` adopts.** ⟨`W6.md:313`⟩ — *"this unit **adopts** the X-W5 scene contract for the route"* — and ⟨`W6.md:397`⟩ §10 Depends-on X-W5, *"`.j` adopts that contract route by route; it does not author it"*. ⟨`W5.md:12`⟩ **Status: planned**; LEDGER X-W5 row **planned**; verified at the bytes here: **14 `component: Stub` routes**. A `.j` dispatched today returns BLOCKED-ON X-W5 without writing a product byte | **R-1** (`.j` BLOCKED-ON X-W5); Repair 1's `j4-blob-preview-nav-loss` finding is banked to `.j` and is explicitly **not** relief for j2/j3 |
+
+**UNRELIEVED (21)** — `b1 b2 b3 b4 · c1 c2 c3 c4 · d1 d2 · e1 e2 · g1 g2 · h1 h2 · i1 i2 i3 · H2 · H4`.
+Each was **re-measured RED at this seat**, not assumed:
+
+- **b1 · b2 · b4** — ⟨cmd⟩ `node …/gate-seat.mjs` → `GATE G3 (stop seat) — RED`: `aria-pressed`/`aria-selected`
+  both absent; `Home` and `ArrowDown` no-ops **against `style.left`** (`calc(var(--rail-inset) + var(--rail-track) * 0)`
+  unchanged); a click 3px inside the rail mints nothing; with 12 stops only **149px of 462px (32.3%)**
+  can still mint. **b3** — no numeric-entry control exists.
+- **c1** — ⟨cmd⟩ `node …/gate-structure.mjs` → `GATE G4 (structure) — RED`, seven live conditions
+  (`model/sample.ts` and `model/types.ts` **ABSENT** by ⟨cmd⟩ `ls demo/workbenches/gradient/model/`;
+  8 emitted gradient strings with no ` in <space>` clause; the 7-name dead re-export door with zero
+  consumers). **c2 · c3 · c4** — `gate-literal-dialect.mjs` and `test/interpolation-subset.test.ts` **ABSENT**.
+- **d1 · d2** — ⟨cmd⟩ `ls docs/tranches/V/megatranche/audit/probes/x-w6/` → **ABSENT**;
+  `W6-glass-ask-easing-readout.md` **ABSENT**. d2 closes *either* by the glass primitive *or* by a
+  dated ask — and ⟨`W6.md:103`⟩ makes that ask **this wave's own `create` row**, so the branch does
+  not relieve the gate, it assigns it.
+- **e1 · e2** — 2 ungated rAF, `gate-prm-idiom.mjs` **ABSENT**, no aurora declaration on the ramp.
+- **g1 · g2** — `gate-card-rhythm.mjs` **ABSENT**.
+- **h1 · h2** — `gate-blob-pipeline.mjs` and `W6-blob-pipeline-census.md` **ABSENT**.
+- **i1 · i2 · i3** — `o25-atmosphere-response.spec.ts`, `o26-atmosphere-coldload.spec.ts`,
+  `gate-lband-door.mjs`, `W6-lband-letter.md`, `W6-evidence/atmosphere/` **all ABSENT**;
+  ⟨cmd⟩ `grep -rn armRuntime demo/` → **0**. The tombstone landed (`c2f17bad`) and **relieves no gate**
+  by its own words — it discharges `.i`'s FIRST ACT and `W6.md:362`'s artefact row only.
+- **H2** — the `test -f` leg is GREEN (`motion-quarantine.md` present, tracked `9812f951`); the
+  citation leg has **no assertions to audit** because `.e`/`.j` never ran. Read **conservatively RED**,
+  as `## Close` read it and as `W6.md:338`'s addendum directs (*"H2's citation legs stay born-RED"*).
+  A vacuous-true reading would move it GREEN and is **not taken here** — that is the laundering
+  direction, and this seat refuses it.
+- **H4** — **eleven CC rows leave with no disposition** (CC-056 · 057 · 059 · 060 · 061 · 062 · 063 ·
+  064 · 065 · 066 · 067) against ⟨`W6.md:340`⟩ *"exactly one disposition, ids for life, zero silent
+  drops"*. CC-065's tombstone limb discharged; its X:ATMO-1 limb did not.
+
+**Nothing in `W6.md` relieves these 21.** Each is assigned to a unit of **this** wave; every
+instrument each needs sits inside **this** wave's own `create` rows; and every dependency each names
+is MET — X-W0/X-W1/X-W2/X-W3/X-W4 **CLOSED** in the LEDGER, installed glass **7.0.0** with `./aurora`,
+`./select`, `./labeled-field`, `./blob`, `./blob-config` published (re-read here). The only owner the
+record can name is **R-1, re-dispatch of this same wave** — undone work, not relief.
+
+**SELF-COUNT.** 46 sub-gates + 4 wave conditions = **50**. GREEN **25** = a1–a13 (13) ⊕ f1 f3 f4 f5
+f6 f7 f8 f9 f10 (9) ⊕ j4 ⊕ H1 ⊕ H3. RED **25** = f2 ⊕ b1–b4 ⊕ c1–c4 ⊕ d1–d2 ⊕ e1–e2 ⊕ g1–g2 ⊕
+h1–h2 ⊕ i1–i3 ⊕ j1–j3 ⊕ H2 ⊕ H4. 25 + 25 = 50. Of `W6.md:333`'s **45 born-RED sub-gates**, **22 are
+GREEN** (j4 is not born-RED; H1 and H3 are not sub-gates). Relieved 4, unrelieved **21**.
+
+### Defect register — Check 2
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| **1** | **CRITICAL** | **21 of the 25 RED gates carry no relief.** Eight of ten units (`.b .c .d .e .g .h .i .j`) are undispatched — `.i` served only its docs-only first act — so 19 born-RED sub-gates ⊕ H2 ⊕ H4 stay RED with no producer, no successor and no spec-named honest-RED id. ⟨`W6.md:335`⟩ closes the wave only when **all 45** born-RED sub-gates are GREEN by their own commands; **22 of 45** are. H4's eleven undispositioned CC rows ride inside it | every gate above re-measured RED at this seat (`gate-seat.mjs` → `GATE G3 — RED`, `gate-structure.mjs` → `GATE G4 — RED`, the `x-w6/` probe dir · `o25`/`o26`/`o27` · the blob census · the lband gate · the easing ask **all ABSENT**); §2a **one of seven clauses true** | Re-dispatch the seven units whose every dependency is MET (`.b .c .d .e .g .h` ⊕ `.i` resuming at i1). `.j` alone waits on X-W5. This is the orchestrator's act, not a check seat's |
+| **2** | **HIGH** | **The cure-shipped regression's surviving half is still live.** `.a` deleted `ParsedGradientModel.intervals` — correctly, it is the defect — and **2 assertions in `test/gradient-parse.test.ts` fail at the settled bytes**. ⟨`W6.md:348`⟩ §7 requires `npx vitest run` after each unit lands **and again before wave close**; it is RED. This is L-18 skeptic target **2** landing live | ⟨cmd⟩ `npx vitest run` → **15 failed / 611 passed (626), 5 files**, the two named `parseGradientCSS — complete-model acceptance` cases enumerated; ⟨cmd⟩ `git diff --stat f90aeb02^..HEAD -- test/gradient-parse.test.ts` → **nothing** (the file is untouched, so the breakage is the cure's) | **Mitigation is real, measured, and halves the defect**: Repair 1 landed `.a`'s migration verbatim on `gradient-v4-consume.test.ts` under FOLD n.34 (`1155fd1f`) and that file is **gone from the failing set**, re-measured here. The residual is **one dated bounds grant** — ⟨cmd⟩ `grep -rn 'gradient-parse' docs/tranches/X/ docs/tranches/V/megatranche/` returns no bounds row, so §3a orders a halt, and `.a`'s second migration is already written verbatim. **It does not erase the red suite** |
+| **3** | MINOR | **The spec's named commands for a3–a7 are satisfied by nothing.** ⟨`W6.md:105-106`⟩ binds a3/a4 to `gate-axis.mjs` and a5/a6/a7 to `gate-gesture.mjs`, both `execute, no write`; both are **UNRUNNABLE**, re-run twice here. §6 asks for GREEN *"by the same commands that are RED today"* — unrunnable is a different state from RED-for-the-defect | ⟨cmd⟩ `node …/gate-axis.mjs` → `TypeError: null is not an object (evaluating 'h.getAttribute("aria-label").match(/([\d.]+)%/)[1]')` at `:35`; ⟨cmd⟩ `node …/gate-gesture.mjs` → `Timeout 30000ms` at `:21`. Cause re-confirmed to **pre-date** the wave: the live names read `Gradient stop 1 of 2` with the ordinal on `aria-valuenow` (⟨cmd⟩ the gestures probe's `C6/D2-13 attrs` block, read here) | **Not the wave's to cure** — §4's Bounds law forbids editing those instruments and §3a orders a halt (Repair 1 **E3**). The substitutes read `aria-valuenow`/`style.left`, strictly more precise than the whole-percent name. **Standing warning holds: no successor may read "a3 GREEN" as "`gate-axis.mjs` GREEN"** |
+| **4** | MINOR | **§8's artefact roster is unmet on six of eight rows.** The seven gradient `{before,after}` PNG pairs, `owner-marks/`, `atmosphere/`, `W6-blob-pipeline-census.md`, `W6-glass-ask-easing-readout.md` / `W6-lband-letter.md` do not exist | ⟨cmd⟩ `find …/W6-evidence -name '*.png'` → **6, all `catalog/`**; the five doc rows **ABSENT** at ⟨cmd⟩ `ls` | Five of the six rows are owned by the undispatched units and discharge with defect 1. The gradient PNG row was given an owner at Repair 1 (the close seat) with the measured qualification that its BEFORE half is reachable only from a worktree at `f90aeb02^`. **Mitigated and non-load-bearing**: verified across every AFTER reading reproduced at this seat that **no figure `.a` cites is PNG-derived** |
+| **5** | INFO | **§7's `prettier --check` leg is RED on the touched set and was never published by the close.** 13 of the 22 touched product/test paths fail, including one file this wave created (`test/gradient-order-invariant.test.ts`) | ⟨cmd⟩ `npx prettier --check <the 22 touched paths>` → `Code style issues found in 13 files`. **Measured pre-existing, not a regression**: the 10 extractable *modified* files all fail at `f90aeb02^` too (⟨cmd⟩ pre-wave blobs checked under the same `.prettierrc`), four untouched files (`HeroBlob.vue` · `AuroraPane.vue` · `MixPane.vue` · `useAtmosphere.ts`) fail, and `package.json` declares **no format script** | Repo-wide condition; recorded so no successor reads this leg as a W6 breakage. The one wave-created offender is a one-command fix inside `.a`'s own bounds at re-dispatch |
+| **6** | INFO | **Oracle non-hermeticity reproduced.** Running `o21-space-catalog-truth` / `o24-specimen-dot-identity` rewrites two committed AFTER frames, so any challenger who re-runs f3/f8 dirties the wave's own evidence | ⟨cmd⟩ `git status --porcelain` after this seat's oracle batch → `M …/after-catalog-open.png` · `M …/after-specimen-dots.png`; restored byte-identical by single-path ⟨cmd⟩ `git checkout -- …`, tree verified clean afterwards. Repair 1's added reading holds: **o23 is hermetic** and was re-run twice here with no frame touched | As Check 1 states: write to a scratch path and compare, or declare the frames regenerated-by-design in §8 |
+| **7** | INFO | **LEDGER ⇄ `W7.md` opens-after divergence, carried unchanged.** ⟨`LEDGER.md:35`⟩ X-W7's row reads its predecessor as X-W1; ⟨`W7.md:6`⟩ reads *"X-W3 …, X-W4 …, and **X-W6**"* | both read at the bytes here | X-W7's cell, not this wave's. Materially moot today: under either reading X-W7 is blocked, since ⟨`W7.md:12`⟩ is `planned` and X-W6 is PARTIAL |
+
+### Successor "Opens after" conjuncts, measured against this wave
+
+| successor | conjuncts at the spec bytes | state | lawfully blocked? |
+|---|---|---|---|
+| **X-W7** | ⟨`W7.md:6`⟩ X-W3 · X-W4 · **X-W6** | X-W3 **CLOSED** ✓ · X-W4 **CLOSED** ✓ · **X-W6 PARTIAL ✗** | **YES — blocked on X-W6.** Materially: ⟨`W7.md:150-156`⟩ makes X-W6 write four shared paths first, and only **1 of 4** landed (`ColorSpaceSelector.vue`); `AuroraPane.vue`, `MixConfigBar.vue`, `MixSourceSelector.vue` are absent from the 68-path census. The one conjunct whose substance **did** arrive is `formatSpecimen`'s digit policy |
+| **X-W8** | ⟨`W8.md:6`⟩ X-W5 · **X-W6** · X-W7 stabilize destination ownership | X-W5 `planned` ✗ · **X-W6 PARTIAL ✗** · X-W7 `planned` ✗ | **YES — three conjuncts RED.** ⟨`W6.md:402`⟩ is explicit that X-W8's subtraction needs `.a`/`.c`'s destinations stable; `.c` never ran, so `model/types.ts` and `model/sample.ts` do not exist and the 7 dead re-export doors survive (re-measured here) |
+| **X-W10** | ⟨`W10.md:6`⟩ X-W5 · **X-W6** · X-W7 · X-W8 · X-W9 stable | **X-W6 not stable ✗** (plus four others; X-W9 is PARTIAL in the LEDGER) | **YES** — and the LEDGER row already reads `BLOCKED-ON X-W5 · X-W6 · X-W7 · X-W8 · X-W9` |
+| **X-W11** | ⟨`W11.md:6`⟩ X-W0 … X-W10 **IMPLEMENTED** | **X-W6 IMPLEMENTED = no ✗** | **YES** |
+
+**No successor is unlawfully unblocked**, and it is the close's and Repair 1's shared refusal to flip
+the four-verb line (R-9) that keeps all four correctly blocked.
+
+### Verdict
+
+**NOT-CONFORMANT.** The bar is *zero BLOCKER/CRITICAL/HIGH and every claimed GREEN reproduces*. The
+second half is **fully met — 25 of 25, with the cheap gates double-run and every substantive figure
+re-read from the settled bytes, including both figures Repair 1 corrected.** The first half is not:
+one CRITICAL (21 unrelieved REDs) and one HIGH (the surviving half of the cure-shipped regression).
+
+The honest-RED route is **unavailable**: CONFORMANT-HONEST-RED requires *every* remaining RED gate to
+be relieved and owner-named, and only **4 of 25** are (`f2` → X-W9.h · `j1 j2 j3` → X-W5). The other
+**21** are RED because eight of ten units were never dispatched — undone work, which is not relief,
+and this seat will not launder it as such.
+
+**What Repair 1 genuinely bought** (measured, not conceded): j4 moved RED-UNMEASURED → GREEN with its
+measurement pasted and double-run; DR-01's eighteenth carry closed with the predicate quoted verbatim
+and RF-26's misdating corrected by addendum-beside; f6(ii) ratified with the arithmetic that makes the
+substitution forced rather than chosen; the HIGH halved at the bytes; and two wrong citations corrected
+rather than carried. **The wave remains incomplete, not dishonest** — every RED it carries it names,
+and the three greens it could have taken quietly (a3–a7's command substitution, f6(ii)'s constant, the
+vacuous-true reading of H2) are all still refused.
+
+**Cure, shortest path to CONFORMANT-HONEST-RED**: dispatch `.b .c .d .e .g .h` and resume `.i` at i1
+— all seven have every dependency MET at the bytes today — issuing the one-line dated bounds grant for
+`test/gradient-parse.test.ts` on the way so defect 2 closes. `.j` alone waits on X-W5, and j1–j3 are
+already relieved and owner-named.
+
+**The LEDGER row stays `PARTIAL 2026-09-19`. It is not promoted.**
