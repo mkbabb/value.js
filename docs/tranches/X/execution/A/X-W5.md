@@ -610,3 +610,274 @@ region is a route-settlement node and is asserted as nothing else. **BD-21 DO-NO
 `GenericActionBar.vue`, `ActionBarLayer.vue`, `ActionButton.vue` untouched. **§9** — the born-RED
 JSON entered git in the same commit as the cure. **DR-24** — `scripts/dev/dev.sh` never touched,
 never staged.
+
+### X.W5.b
+
+SERVED MODEL: claude-opus-5[1m]
+
+**Unit**: The block law — the shell stops capping the block axis.
+**Status**: **DONE** with one named honest-RED gate (B3) and three residuals, each
+measured and each with a stated owner. **Commits**: `adc312f6` (§9 commit 2 — unit b +
+the born-RED JSON in the same commit) · this record.
+
+#### Act 0 — crash-recovery (STANDING LAW)
+
+⟨cmd⟩ `git status --porcelain` at open →
+`M docs/tranches/V/reformation/CARRY-LEDGER.md` · `M docs/tranches/X/execution/D/X-P-W4S.md` ·
+`M docs/tranches/X/keyframes/evidence/W12/KF-W12-d-born-red.md` · `M scripts/dev/dev.sh`.
+**Zero of the four is inside this unit's writable set.** The two `docs/tranches/X/…` rows are
+Track D's and the keyframes band's (sibling seats — untouched, and both had been committed by
+their owners before this unit's commit); `CARRY-LEDGER.md` is in no unit's set; `scripts/dev/dev.sh`
+is the unowned standing-dirty row (§0j.A **DR-24** — NEVER touched, never staged). **No inherited
+partial work on X.W5.b exists**; nothing was stashed, restored or reverted.
+
+#### Act 1 — E13 Step-0, the four-path mail sweep
+
+⟨cmd⟩ `find <each of the four paths> -maxdepth 1 -type f -newermt "2026-09-19 09:00"` → **zero
+hits on all four** (unit a's 08:00 delta had found exactly one, its own `INBOX.md` sweep line).
+Register arithmetic ⟨cmd⟩ `grep -cE '^\| [IO]-[0-9]+[a-z]? \|' INBOX.md` → **80**; tail unmoved at
+**I-35 / O-40** ⟨cmd⟩ `grep -oE '^\| [IO]-[0-9]+[a-z]? \|' INBOX.md | tail -3` → `O-38 · O-39 · O-40`.
+⟨cmd⟩ `grep -nE '\| \*{0,2}UNREAD' INBOX.md` → **4**, all four at lines 221 · 227 · 231 · 241 and all
+four **prose inside `**Sweep …**` paragraphs, not Status cells** — seat 0's and unit a's reading
+reproduced a third time. **0 unrowed · 0 UNREAD in X.W5.b's scope · 0 `I-n` minted · `INBOX.md`
+unedited by this unit.**
+
+#### Act 2 — MEASURE-AT-OPEN (B3), one bounded probe session, before any byte moved
+
+The instrument's identity was preserved on purpose: `layout-utilization.mjs` runs **WebKit** and the
+MT-F028 / M-13 baseline its numbers are compared against was taken on WebKit, so switching engine
+would have moved the baseline silently. Engine of record **WebKit 26.4**, `PROBE_BASE=http://localhost:9000`.
+
+1. ⟨cmd⟩ `node docs/…/probes/layout-utilization.mjs` (**unmodified**, the M-13 table) — run first,
+   so the extension could not be accused of manufacturing the baseline.
+2. The A-5 extension was then written (instrument bytes only — no product byte had moved), and
+   ⟨cmd⟩ `node …/layout-utilization.mjs --json` banked the born-RED at
+   `docs/tranches/X/waves/W5/born-red/B1-B2-B3-layout-utilization-2026-09-19.json` (80 cells).
+
+**B3's RED of record reproduces byte-for-byte.** At 3440×1440, `.pane-container` measures
+**608 × 1340.5** → `608 ÷ 1340.5 = ` **45.4 %** — the number `W5.md:259` carries, and the token
+behind it read `clamp(30rem, 62dvh, 38rem)` from the bare 21/9 arm, exactly as the fold states.
+Independently confirmed before the extension existed, by a one-off read of the same boxes
+(`pane-container 1050 × 608`, `main 1341`, uncapped natural height 1317).
+
+The two arms A-5 added earned their place at once: **320×568** showed **7 of 10 routes carrying
+content beyond the viewport with NONE of them scrolling**, a far sharper B1 witness than 390×844
+(which had exactly **1**); **720×450@2** showed all ten routes content-exceeding and none scrolling.
+
+#### Act 3 — the cure (`adc312f6`)
+
+Every anchor was verified at the true bytes first; two had drifted and are recorded with INTENT
+applied at the true bytes (W5.md's `foundation.css:471/:479` are `:484/:492` today; `DESIGN.md`'s
+three cap lines are `:298/:364/:379`, not `:292/:358/:373`).
+
+1. **`.app-layout` (B1).** `height: <full-viewport dynamic unit>` and `overflow: hidden` **deleted**;
+   **`min-block-size: 100svh`** added; `padding` re-pointed to `--app-gutter`. `svh` and not the
+   dynamic rung, with the reason written at the site: the dynamic unit re-measures as mobile chrome
+   collapses, so a floor written in it reflows the grid mid-gesture.
+2. **The cap token (B2/B4).** Deleted at its `:root` definition, at **both** `@media` re-pins and at
+   its consumer `max-height` on `.pane-container`. `foundation.css`'s width+aspect arm **keeps its two
+   `--dock-*` rows**; the bare ultrawide aspect-only arm, which set nothing but the cap, **dies whole**.
+3. **`--app-padding-x` → `--app-gutter`**, at the definition and at both consumers.
+4. **N9 — the canary comments struck**, both sites, in the same edit that touches the rules (the
+   PSC-21 rider's own requirement).
+5. **N13 — the `--select-font` pin deleted**, both `DESIGN.md` lines corrected, in one commit.
+6. **B5 and B6 written in at their sites** with the reading and the rationale.
+
+**The inline axis was not touched.** `.pane-container`'s `max-width: min(…)` clamp — the owner-ruled
+≈1050px invariant — stands byte-for-byte apart from the token rename inside it, and the banned
+`position: relative` EB-1 patch is not used anywhere. CC-051's inline half was not entered.
+
+#### The locks, each by name
+
+**W5F-42 INSEPARABILITY RIDER** — honoured as a **recomposition**: the cap and the frame came down
+in **one commit**, because every pane's inner scroll-well was bounded through that single chain.
+Deleting `overflow` alone would have left the wells bounded by a cap whose frame no longer existed.
+The reflow the rider predicts was then **measured** (residual 1 below), not assumed.
+**EB-8 SUPERSESSION WARNING** — the ≈1050px inline clamp survives; the `position:relative` EB-1
+patch is banned and unused. **CC-051's inline half** — untouched: ratio, the ultrawide width cap, the
+Tailwind responsive prefixes and the four layout tokens were not entered; `--app-gutter` is a rename
+of an existing token at its own definition, not a new inline-axis decision.
+**B5/B6 close only by a written recorded reading/rationale** — both are written into `shell.css` at
+the site they govern, not into this record alone.
+**N9 either/or with the honest branch recorded** — recorded at the site and in full below.
+**N13 either/or across all three sites, glass half never a local patch** — all three moved together;
+`node_modules/@mkbabb/glass-ui/**` was read and **never written**.
+**DR-24** — `scripts/dev/dev.sh` never touched, never staged. **Pathspec** — `adc312f6` names its six
+paths on the commit itself; ⟨cmd⟩ `git show --stat` lists exactly those six and no sibling path.
+
+#### B5 — the recorded reading (the gate's own command, both shipping engines)
+
+⟨cmd⟩ `node -e "…CSS.supports('overflow-block','auto')…"` run in both engines at `about:blank`:
+
+| reading | Chromium 148.0.7778.96 | WebKit 26.4 |
+|---|---|---|
+| `CSS.supports('overflow-block','auto')` | **TRUE** | **TRUE** |
+| `CSS.supports('overflow-inline','auto')` | TRUE | TRUE |
+| `CSS.supports('min-block-size','100svh')` | TRUE | TRUE |
+| `CSS.supports('height','100svh')` | TRUE | TRUE |
+
+**DECISION: the logical spelling ships** — `min-block-size`, not `height`. The gate's "if false"
+branch (physical spellings ship, logical form BANKED with a re-trigger) **did not fire**, so nothing
+is banked and no physical fallback is authored. The reading is pasted into `shell.css` at the
+`.app-layout` site, not only here. The same reading is carried per-cell in the born-RED JSON
+(`b5Support`), so it is re-derivable from the artefact rather than only quoted.
+
+#### B6 — the recorded posture, decided by probe at 390 with a scrolled document
+
+⟨cmd⟩ a bounded WebKit run at **390×844**, six member routes, each loaded and then scrolled to the
+document end:
+
+| route | doc scrollHeight / clientHeight | scroll available | band top before → after | band leaves viewport |
+|---|---|---|---|---|
+| `#/gradient` | 1003 / 844 | **159 px** | 16 → **−143** | **yes** |
+| `#/` · `#/browse` · `#/generate` · `#/palettes` · `#/admin/users` | 844 / 844 | 0 px | 16 → 16 | no |
+
+Elements intersecting the band's box when scrolled: **0 on every route**. Computed band posture
+today: `position: relative`, `z-index: auto`.
+
+**DECISION: the dock band stays IN FLOW** — not sticky, not fixed, minting no z-index. Three reasons,
+written into `shell.css` at the `.dock-band` site: (1) T-31's band law (owner-verbatim) retired the
+fixed overlay, the padding reservation and the load-bearing z-dock together, and the invariant it
+bought is that *occlusion of the dock by any card is impossible by construction* — a sticky band
+overlaps row 2 the moment it sticks, needs a z-index and a paint order, and re-opens the exact
+single point of failure the law closed; (2) the measured cost is backwards — one route of six scrolls
+at all, by 159 px, so a sticky band would spend ~88 px of an 844 px viewport permanently to save an
+88 px gesture; (3) the band carries the glass material, and stuck over moving content it re-samples
+its backdrop every frame, on the very surface the T-45 seat exists to keep cheap.
+**A RE-TRIGGER IS BANKED at the site**: X.W5.c collapses every route to one scrolling column at 390
+(gate C1 expects per-route text ~69 → ~893 chars); when that lands the probe is re-run, and if the
+median route then scrolls more than about one viewport, reason (2) inverts — reason (1) does not
+move, so the cure would be a dock that returns on scroll-up, never one permanently stuck.
+
+#### N9 — the honest branch, recorded (B6's idiom)
+
+⟨cmd⟩ `ls scripts/ci/` → `boot-smoke.mjs · oracle-slate.mjs · verify-packed-surface.mjs`. ⟨cmd⟩
+`find . -name 'css-emission-probe.mjs' -not -path './node_modules/*'` → **nothing**. ⟨cmd⟩
+`grep -n 'css-emission' .github/workflows/*.yml` → **no hit**. ⟨cmd⟩ package scripts → no
+`css-emission-probe` entry. ⟨cmd⟩ `git log --diff-filter=D -- scripts/css-emission-probe.mjs
+scripts/ci/css-emission-probe.mjs` → **`6d6d3521`** (`chore(v-w42)!: prune proof-theater, orphaned
+probes, design residue`). The probe was pruned with the proof-theater; the two stylesheet comments
+citing it as the guarantor of these rules outlived it.
+
+**BRANCH TAKEN: STRIKE.** Two measured reasons: (i) the restore branch's *"and runs in CI"* half is
+**unreachable from this unit's writable set** — `.github/workflows/ci.yml` and `package.json` are
+outside it, so a restored file would be a script nothing runs, which is the same ungated claim in a
+new place, and writing those two files would have been an out-of-set write (an escalation, not a
+cure); (ii) the rules the canary claimed to guard are themselves **scheduled to die** — the
+`[data-layout]` display witnesses go with the breakpoint fork at X.W5.c (C3/C7), so a probe minted
+now would gate bytes the next unit deletes. `scripts/ci/css-emission-probe.mjs` was in this unit's
+writable set and was **deliberately not created**; the create-or-strike row BD-09 closes on strike.
+The struck path is quoted **here**, in the record, and deliberately **not** re-spelled in either
+stylesheet, so that the claim is retired from the CSS rather than reworded inside it; both comments
+now say what is true — these are defensive witnesses, and nothing gates them.
+⟨cmd⟩ `grep -rn 'css-emission-probe' demo/` → **2 → 0**. **The mechanism was not touched.**
+
+#### N13 — the ruled choice, with the measurement it rests on
+
+⟨cmd⟩ `grep -rl 'select-font' node_modules/@mkbabb/glass-ui/` → **0 files** (installed
+**@mkbabb/glass-ui 7.0.0**). ⟨cmd⟩ `grep -rn 'dropdown-menu-font'
+node_modules/@mkbabb/glass-ui/dist/components/_shared/menu.css` → **live**:
+`.dropdown-menu-content, .dropdown-sub-content { font-family: var(--dropdown-menu-font, inherit); … }`.
+So the pair had split: one half consumed by the producer, the other **inert for the whole of glass 7**
+while `demo/DESIGN.md:11` and `:37` still documented both as live — A-11's silent-major-version-drift
+family, exactly as ⟨`PaletteSlugBar` · A-29⟩ filed it.
+
+**BRANCH TAKEN: DELETION, across all three sites in one commit** — `foundation.css`'s pin deleted,
+both `DESIGN.md` lines corrected; `--dropdown-menu-font` **kept**, because it has a live consumer.
+A half-cure would only have moved the drift from the stylesheet into the documentation, which is the
+gate's stated falsifier. **The RULING is not W5's to make and was not made here**: the relay ask —
+restore the Select seam at the producer, per the standing owner feedback that the Select font is a
+token decision and not a hardcode — **rides fold §6f CE-10** with the PSC-2/PSC-6/PSC-19 family and
+is **NOT discharged** by this deletion. It is carried as residual 3 below because the outbound letter
+path is outside this unit's writable set. `glass-ui` was read and never written. If the seam returns,
+the pin returns on the same line beside its sibling.
+
+#### Gate readings BEFORE → AFTER
+
+Every static figure double-run (both passes identical); the live figures are the born-RED JSON and
+the paired post-cure run of the same extended probe, same engine, same base.
+
+| gate | BEFORE | AFTER | verdict |
+|---|---|---|---|
+| **B1** | 390: 1 route content-exceeding, **0 scrollable**. 320: **7** exceeding, **0 scrollable**. Root confirmed at `shell.css:23/:26` | 390: the one exceeding route scrolls (**1003/844**). 320: **7 of 7** exceeding routes scroll (687 · 1019 · 687 · 584 · 763 · 808 · 677 over 568). Routes that genuinely fit are excluded **by the predicate**, never by an exception | **GREEN** |
+| **B2** | `.pane-container` computed `max-height` **832px** at 16/9 and **608px** at 21/9, on all ten routes | **`none`** on `<main>` **and** on `.pane-container`, at **both** 16/9 and 21/9, all ten routes; the token resolves to the empty string in the browser | **GREEN** |
+| **B3** | **45.4 %** at 3440×1440 (`608 ÷ 1340.5`) — the RED of record, reproduced exactly | `#/` **99.7 %** · `#/blob` **99.2 %** · gradient 70.7 · atmosphere 53.9 · mix 51.1 · palettes 51.1 · extract 45.6 · browse 39.6 · generate 39.6 · admin/users 20.0 | **honest-RED, 2 of 10 ≥ 90 %** (see below) |
+| **B4** | `100dvh` in `shell.css` **1** · `svh` **0** files · cap token **13** hits / **4** files | **0** · **3** files · **3** hits / **1** file — all three comment-only, in `demo/shell/PaneSlot.vue`, outside this unit's writable set | **arms 1 & 2 GREEN; arm 3 honest-RED at 3** (residual 2) |
+| **B5** | no recorded output existed | the reading pasted at the site **and** carried per-cell in the artefact; decision stated | **GREEN by record** |
+| **B6** | no rationale comment at the site | posture decided by probe, unchanged, with three-reason rationale **and a banked re-trigger** at the site | **GREEN by record** |
+| **N9** | probe absent; **2** stylesheet comments naming it as guarantor | **0**; both comments state the truth; branch and reasons recorded | **GREEN** |
+| **N13** | **3** live sites (1 CSS pin + 2 doc lines) asserting a token with **0** producer occurrences | **0**; all three moved in one commit; sibling token kept on its live consumer | **GREEN** |
+
+Token truth, read from the browser after the cure: cap token `""` · `--app-padding-x` `""` ·
+`--app-gutter` `"1rem"`.
+
+#### B3 — why it is honest-RED, and what would actually close it
+
+The cap is **gone** and the extent it was hiding is now visible: `#/` moves **45.4 % → 99.7 %** and
+`#/blob` **45.4 % → 99.2 %**. The eight routes still under 90 % are under it because their **content
+is short**, not because anything caps them — measured: the rack and the occupied-content extent agree
+within ~2 points on every route (e.g. browse rack 39.6 % / occupied 41.4 %), so the rack is not
+stretched and the reading is honest content occupancy.
+
+**The one in-bounds lever that would have turned the number is the gate's own stated falsifier** —
+stretching `.pane-container` / `.pane-main` to the band would report ≥ 90 % while the same short
+content sat inside a padded box, which is precisely *"the surplus is absorbed by a stretched rack
+instead of the scene"*. It was refused; a false green is worse than an honest RED. The probe was
+**hardened against it instead**: `occupiedExtentPct` was added and B3's assert now requires **both**
+arms, so that cure cannot pass this gate in any later wave either.
+
+Closing B3 needs the **scene recomposition**, which is downstream by construction: `regions[]` and
+the one-column collapse at **X.W5.c**, and the rack/inline sizing at **X-W6** (CC-056 / V·L3). Unit
+b owned the block-axis **cap**, and the cap is dead.
+
+#### Residuals — RED, each measured, each with an owner
+
+1. **The inner scroll-wells reflowed, exactly as W5F-42 predicted — measured, not assumed.** At
+   1440×900, `#/` now renders an **8151 px** document and `#/blob` a **2810 px** one. Located
+   exactly: the inspector pane's `.glass-resting.card` on `#/` declares `overflow-y: auto` over a
+   `.card-content` of **6785 px** (a `.markdown-body` of 6636 px); `#/blob`'s `.pane-scroll-fade
+   … overflow-y-auto` holds **2605 px**. Those wells drew their bound from the cap chain; with the
+   cap dead they are `height: 8025px` with `scrollHeight ≈ clientHeight`, i.e. **declared scrollers
+   that no longer scroll**. This is the direction V·L2 asks for (one scrolling column, the document
+   scrolls), and the content was never reachable before — pre-cure the same route measured
+   **618 % occupied against the band**, i.e. the cap was clipping ~6× its own height with no way to
+   reach it. What remains is retiring the now-inert `overflow-y` declarations and composing those
+   scenes: `demo/picker/**`, `demo/shell/PaneSlot.vue` and the pane card classes are **all outside
+   this unit's writable set**. Owner: **X.W5.c** (the wrapper re-carve) and **X-W6** (CC-056).
+2. **B4's third arm sits at 3, all comments, one file.** `demo/shell/PaneSlot.vue:46/:54/:55` —
+   a paragraph plus the E-3 correction block X.W5.a appended beside it. The file is outside this
+   unit's writable set and was not touched. **Zero of the three is a live consumer**: the consumer
+   B4's own falsifier names (`shell.css:75`) is deleted here, and the definition and both re-pins are
+   deleted in `foundation.css`. Both the paragraph and its correction now describe a mechanism that
+   no longer exists, so the cure is deleting **both**, by whoever next holds that file under the
+   **D-1 coupled-architecture lock** (which is why this unit could not simply re-word it).
+   Owner: **X.W5.c/X.W5.d** (next holders of `PaneSlot.vue`).
+3. **N13's relay ask is OWED and undischarged.** Deleting an inert pin removes the drift; it does not
+   ask the producer for the seam back. The ask rides **fold §6f CE-10**, and the outbound letter path
+   (`docs/tranches/V/coordination/**`) is outside this unit's writable set. Owner: the CE-10 relay
+   at the next glass-ui BH letter. Recorded so the ruled choice is not read as the ruling.
+4. **A stated divergence, not a ruling: C7 stages 7 → 5 after unit b; the bytes give 7 → 6.** Unit
+   b's specified cure retires exactly one viewport-dimension query (the bare ultrawide aspect-only
+   arm); the sibling width+aspect arm is ordered by the same spec line to **keep** its `--dock-*`
+   rows and therefore survives as a query. The endpoint of **3** after unit c is unaffected. Recorded
+   as a fact for unit c, which owns C7. Capability queries measured **28 before and after** — the
+   27-that-must-survive are untouched.
+
+#### Cadence (§7)
+
+⟨cmd⟩ `npx vue-tsc -p tsconfig.demo.json --noEmit` → **exit 0**. ⟨cmd⟩ `npx eslint
+docs/tranches/V/megatranche/audit/probes/layout-utilization.mjs` → **exit 0** (the CSS and Markdown
+paths are outside eslint's configured surface and are reported as ignored, not as failures).
+⟨cmd⟩ `npx vitest run` → **15 failures / 613 passing**, and the failing set is the **same five files,
+byte-identical to unit a's reading** (`test/gradient-parse` · `test/spectrum-luma` · `test/v4-c1` ·
+`test/v4-css-emerging` · `demo/test/shell/reka-binding-idiom`) — **the library suite did not move**,
+which is the arm that proves this unit stayed in its bounds. `npm run gh-pages` NOT run (X-W1's).
+
+#### Artefacts
+
+`docs/tranches/X/waves/W5/born-red/B1-B2-B3-layout-utilization-2026-09-19.json` (80 cells, the live
+born-RED for B1/B2/B3 plus the B5 support reading) and
+`docs/tranches/X/waves/W5/born-red/STATIC-B-2026-09-19.md` (the static slate, double-run, BEFORE and
+AFTER) — **both entered git in `adc312f6`, the same commit as the cure** (§9). The paired post-cure
+JSON is quoted above rather than banked: `waves/W5/green/` is the wave close's artefact (§8, commit
+6) and is outside this unit's writable set.
