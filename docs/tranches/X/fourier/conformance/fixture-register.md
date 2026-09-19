@@ -186,6 +186,57 @@ fourier-measured and has no declared-owner member (§9.1 R-3).
 
 ---
 
+## §3a The **C31 isolation controls** — the `F8-C31*` rows (appended by unit `c`, 2026-09-19)
+
+**Added by unit `c` under the §2c serial lock**; unit `b`'s bytes above are untouched, and this
+section renumbers nothing. Unit `b`'s §13 hands the `F8-C31*` namespace here and §11.2 records that it
+minted none of it; the register's own `F8-FIX-*` space is disjoint, so unit `b`'s published self-counts
+(all anchored `^| \*\*F8-FIX-`) and its ordering probe (scoped `F8-FIX-[A-Z][0-9][0-9]`) are unaffected
+by construction — **not by this seat's care**.
+
+**These two rows are CONTROLS, not fixtures**, and the distinction is why they sit in their own
+section rather than in §2. A fixture row is *generated FROM an operation model* and asserts a wire
+shape (§1.1's direction law). A control **mutates one leaf of the model and asserts which leaves
+fail** — its cell shape is therefore *sole mutable target · owner result · non-owner result*, not
+*source model · bounds · byte-match posture*. ▲ **The direction law is not evaded, it is inapplicable
+by kind**: §1.2's falsifier voids a row *sourced* under `web/src/` or `demo/`, and neither row below
+carries a source-model cell at all. The `web/src/lib/api.ts` naming in `F8-C31A` is the control's
+**mutation target** — the byte it edits — which is the opposite of a source of truth.
+
+**Full specification**: `C31-two-sided-reproduction.md` (unit `c`) — §4 (`F8-C31A`), §5 (`F8-C31B`),
+§6 (the isolation predicate, stated once for both), §7 (the owner-frozen denominator).
+
+| id | kind | sole mutable target | the mutation, addressed by STRING never by line | required OWNER result | required NON-OWNER result | owner-only bypass run | preconditions (measured) | bytes owner | gate |
+|---|---|---|---|---|---|---|---|---|---|
+| **F8-C31A** | control — client leaf | `client.method.visualization-update` | client source only: `PATCH` → `PUT` in `updateVisualization`'s request options. Target string at fourier `21e11b0`: `{ method: "PATCH", body: { ...patch }, headers }` — present **exactly once** (`grep -c -F` → 1, double-run), at `web/src/lib/api.ts:507`, **drifted +77 from the intake's `:430`** under one unrelated commit (`dabbb17`, X.F.W4 `.f`) | `normal.errors[]` **equals** the singleton `["client.method.visualization-update"]` — *equals*, never *contains*: C31's errors **contained** its owning leaf and still failed | `operation.method.visualization-update` **evaluates and passes**, and every other predicate equals its **unmutated baseline** value | owning leaf suppressed ⇒ `closure: true`, `errors[]` **empty**. ▲ **The run C31 failed**: *"Owner suppression retains the operation leaf"* | **P-1 ABSENT** (no `client.method.*` leaf exists in the successor model — the join sits inside the operation row, §3.3 of the C31 file) · **P-3 ABSENT** (no production validator at HEAD) · **P-5 NOT-THIS-WAVE** (the run environment is F.W9/W10's) · **P-4 MET** | **fourier API row** (construction + execution, under the owner's freeze). **F.W8 owns no product source and writes zero fourier bytes** | **G3** |
+| **F8-C31B** | control — operation leaf (the mirror) | `operation.method.visualization-update` | operation source only: the update route's decorator verb. Target at `21e11b0`: `api/routers/visualizations.py:350` `@router.patch("/{slug}")` — **byte-exact at its published line**, handler `update_visualization` at `:351`; **zero commits to that file since 2026-08-01** | `normal.errors[]` **equals** the singleton `["operation.method.visualization-update"]` | `client.method.visualization-update` **evaluates and passes**, unmoved by an operation-side edit; all other predicates equal baseline | owning **operation** leaf suppressed ⇒ `closure: true`, `errors[]` **empty** | **P-2 PARTIAL** (the `method` cell is operation-derived, but the client join is stored **inside** the operation row and the separation law is unnamed in `operation-register.md`) · **P-1/P-3/P-5** as above | **fourier API row** | **G3** |
+
+**The five verbatim constraints bind BOTH rows in the same words** — *raw receipts · the same
+production validator · an owner-only bypass · all-non-owner retention · **no caller-supplied expected
+code*** — discharged member by member at `C31-two-sided-reproduction.md` §4.2, and adopted, not
+restated, at §5.2. ▲ The fifth is the one a register can hide: the plan declares a **target** and
+carries **no expected code, no expected error string, no expected exit status**; the acceptance
+predicate is **derived from the isolation law** (*the mutated leaf set equals the declared sole
+mutable target's leaf, as a set*), never from a caller-supplied literal.
+
+▲ **Why the PAIR, and not one successor control.** C31's failure was one-directional — a *client*
+edit reached the operation leaf because that leaf's disposition was `CLIENT_MATCH_SOURCE_DERIVED`.
+**A single control would test only the broken direction and report the seam repaired while the
+derivation still stood, inverted.** The clause the pair asserts is bidirectional (`J-diff-shape-v2.md`
+§B, *"operation identity independent of client identity (bidirectional)"*), so the acceptance is too.
+
+▲ **DENOMINATOR — OWNER-FROZEN, and NOT replaced by these rows.** **30/37 terminal stands**;
+**32/38 only if C31 is lawfully replaced** by the pair *constructed, run and accepted*. **0 of 2 are
+constructed**; three preconditions are unmet. **No re-cut denominator on any unit's authority, and no
+percentage is published** (X-9).
+
+**Ordering** — `UTF8_BYTEWISE_CODEPOINT`: `F8-C31A` < `F8-C31B`, written in that order.
+⟨cmd⟩ `grep -o '^| \*\*F8-C31[AB]' fixture-register.md | grep -o 'F8-C31[AB]' > /tmp/c31rows` ·
+`LC_ALL=C sort /tmp/c31rows | diff - /tmp/c31rows` → **no output** (the rows are in bytewise order);
+⟨cmd⟩ `grep -c '^| \*\*F8-C31' fixture-register.md` → **2**, double-run `2 ≡ 2`.
+
+---
+
 ## §4 J3 — structurally-untyped operations: **typed at F.W5, or NAMED AND STRUCK with the reason**
 
 The spec's J3 act cell, verbatim — ⟨cmd⟩
