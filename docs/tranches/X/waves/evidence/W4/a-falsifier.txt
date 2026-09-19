@@ -1,0 +1,97 @@
+SERVED MODEL: claude-opus-5[1m]
+
+W4.md §8 artefact 3 (A-half) — a-falsifier.txt  ·  gate A5  ·  X.W4.a  ·  2026-09-18
+====================================================================================
+
+THE GATE, verbatim (W4.md:382):
+
+  A5 | the target gate bites | one-time: pin a 20×20 button into a fixture route,
+     run A1 → must exit non-zero; revert; paste both outputs into §8
+     | not RED — one-time falsifier demonstration
+     | Fails if the spec stays green with a 20×20 control mounted — i.e. the gate is
+       decorative. ABSENCE OF THE RECORDED PAIR IS ITSELF THE FAILURE.
+
+WHERE IT WAS PINNED, and why there: `demo/shell/dock/layers/SlugEditLayer.vue` — a file
+in THIS UNIT'S §4 writable set, mounted on BOTH probed routes. No out-of-bounds byte was
+written, and the pin was reverted from a pristine copy taken before it (verified below by
+count, not by memory).
+
+  PIN (transient, never staged, never committed):
+
+      <!-- A5 FALSIFIER — PINNED, RUN, REVERTED. Not committed. -->
+      <button
+          type="button"
+          aria-label="A5 falsifier control"
+          style="width: 20px; height: 20px"
+      />
+
+  The control is NAMED on purpose: a nameless one would also trip A4, and the pair must
+  demonstrate that A1 bites on SIZE alone.
+
+────────────────────────────────────────────────────────────────────────────────────
+RUN 1 — PINNED
+────────────────────────────────────────────────────────────────────────────────────
+
+  ⟨cmd⟩ npx playwright test --project=smoke e2e/smoke/a11y-control-targets.spec.ts -g "A1"
+  → EXIT 1 (non-zero, as the gate requires)
+
+  [W4-A1] undersized=5
+  / · <button> "A5 falsifier control" 20×20 [class=""] attributedTo=self
+  /#/gradient · <button> "A5 falsifier control" 20×20 [class=""] attributedTo=self
+  /#/gradient · <button> "Gradient stop at 0%" 20×20 [class="rail-handle absolute top-1/2 w-5 h-5 rounded-full border-2 cursor-grab active:cursor-grabbing border-white/80 z-0"] attributedTo=self
+  /#/gradient · <button> "Gradient stop at 100%" 20×20 [class="rail-handle absolute top-1/2 w-5 h-5 rounded-full border-2 cursor-grab active:cursor-grabbing border-white/80 z-0"] attributedTo=self
+  /#/gradient · <span> "Gradient direction" 354×20.1 [class="slider-thumb glass-specular-track"] attributedTo=span.glass-slider
+  
+    1 failed
+    2 passed (1.1m)
+
+────────────────────────────────────────────────────────────────────────────────────
+REVERT
+────────────────────────────────────────────────────────────────────────────────────
+
+  ⟨cmd⟩ cp <pristine copy> demo/shell/dock/layers/SlugEditLayer.vue
+  ⟨cmd⟩ grep -c 'A5 falsifier' demo/shell/dock/layers/SlugEditLayer.vue   → 0
+
+────────────────────────────────────────────────────────────────────────────────────
+RUN 2 — REVERTED
+────────────────────────────────────────────────────────────────────────────────────
+
+  ⟨cmd⟩ npx playwright test --project=smoke e2e/smoke/a11y-control-targets.spec.ts -g "A1"
+  → EXIT 1 — see THE READING below; the exit code is carried by rows this unit does not own
+
+  [W4-A1] undersized=2
+  /#/gradient · <button> "Gradient stop at 0%" 20×20 [class="rail-handle absolute top-1/2 w-5 h-5 rounded-full border-2 cursor-grab active:cursor-grabbing border-white/80 z-0"] attributedTo=self
+  /#/gradient · <button> "Gradient stop at 100%" 20×20 [class="rail-handle absolute top-1/2 w-5 h-5 rounded-full border-2 cursor-grab active:cursor-grabbing border-white/80 z-0"] attributedTo=self
+  
+────────────────────────────────────────────────────────────────────────────────────
+THE READING — what the pair proves, stated exactly and not more
+────────────────────────────────────────────────────────────────────────────────────
+
+  undersized WITH the pin     = 5
+  undersized WITHOUT the pin  = 2
+  DELTA                       = 2 — exactly one row per probed route, each naming the
+                                pinned control by its own accessible name and its own
+                                20×20 box:
+
+      / · <button> "A5 falsifier control" 20×20 [class=""] attributedTo=self
+      /#/gradient · <button> "A5 falsifier control" 20×20 [class=""] attributedTo=self
+
+  So the gate BITES: a 20×20 control mounted anywhere on a probed route is found,
+  named, measured and made to fail. It is not decorative.
+
+  HONESTY ABOUT THE EXIT CODE. A1 exits non-zero in BOTH runs, because at this unit's
+  close A1 still carries rows whose cure is another unit's:
+
+      2 × `.rail-handle` 20×20 — `GradientStopEditor.vue`, X.W4.c's file, and the exact
+        subject of gate **C4** ("handle attributed target ≥ 24×24"), which W4.md §6 books
+        to unit c. This unit may not touch that file (§4a: "c owns GradientStopEditor.vue"),
+        and curing it here would be the bounds breach §3a forbids.
+
+  The A5 demonstration therefore rests on the DELTA, not on a green-to-red flip: a
+  green-to-red flip is unavailable while a sibling unit's rows are legitimately open,
+  and manufacturing one (by excluding those rows, skipping the test, or narrowing the
+  census) would be the masking move this wave forbids. The delta is the stronger
+  reading in any case — it shows WHICH row the pin added and that the gate found it.
+
+  A2's coarse twin is not re-demonstrated: A5 names A1, once, and probe parsimony
+  (§5.2) forbids spending a second bounded run to re-prove the same instrument.
