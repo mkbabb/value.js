@@ -715,3 +715,271 @@ closes WITH EVIDENCE, on the opposite verdict from the one the spec anticipated.
 A4, A5 GREEN**; **A1 and A2 RED-CARRIED on two rows each that §4a assigns to unit c and §6 books to
 gate C4**. One §3a escalation carried out (a.7). No bounds were widened, no gate was narrowed, and
 no assertion was relaxed.
+
+---
+
+### X.W4.b
+
+**SERVED MODEL: claude-opus-5[1m]** · Opus implementation seat (M-23, `W4.md:219`) ·
+**Track A · wave X-W4 · unit b**. Sitting date of record stays **2026-09-17**. Wall clock at this
+seat `2026-09-19 00:08:22 EDT` → `00:36:59 EDT` ⟨cmd⟩ `date "+%Y-%m-%d %H:%M:%S %Z"`.
+**HEAD at entry** `bda34afa` ⟨cmd⟩ `git log --oneline -1` · branch `tranche-u`
+⟨cmd⟩ `git rev-parse --abbrev-ref HEAD`.
+
+**Sections executed**: `W4.md` §3 Scope 4–5 (`:57-63`) · §5 `### X.W4.b` (`:239-253`) · §6 unit-b
+gate table (`:384-390`) · §9 commit rows 3–4 · §8 artefacts 4, 8.
+**Rulings consumed**: COHESION **§0j.A** — **U-F12 Pole B** (no dark-accent work; none done) and
+**DR-24** `scripts/dev/dev.sh` NEVER touched, never staged. COHESION re-read to the file end
+(**1,540 lines**) ⟨cmd⟩ `grep -n "X-W4\|X\.W4" docs/tranches/X/COHESION.md` → six hits, all on
+**`X.W4.g`**'s trigger-gated cut (`:72`, `:669`, `:675-676`, `:690`, `:759`, `:804`) plus **§0j.A**'s
+U-F12 row (`:869`) and **§1104**'s S-8 row, which states CC-105's `--slider-track-bg` wait is
+*"X-W4.g's own"*. **No later addendum rules on this unit.** `X.W4.g` is CLOSED by X-W0.j's dated
+census **FAIL (1 of 4 at the elected 8.0.0)**, so none of those rows opens an act here.
+
+---
+
+#### b.0 CRASH-RECOVERY — the writable set was CLEAN, and the sibling rows were left alone
+
+⟨cmd⟩ `git status --porcelain` at entry → **2 rows**, and ⟨cmd⟩ `git status --porcelain --` over
+**every one of this unit's seven writable paths** → *(empty)*. **There was no inherited work on unit
+b**: the 2026-09-18 restart's partial work was unit a's, and unit a landed it in five commits
+(`8934de85` · `cf5409e7` · `b4e47d0c` · `5f5fc89f`, + the receipt `c2692eea`) before this seat sat.
+The two dirty rows — `scripts/dev/dev.sh` (DR-24, never touched, never staged) and
+`docs/tranches/V/reformation/CARRY-LEDGER.md` (a sibling's) — were **left exactly as found**, as were
+the rows that appeared mid-unit from concurrent seats (`docs/tranches/V/coordination/INBOX.md`,
+`docs/tranches/X/execution/C/F-W3.md`, `docs/tranches/X/execution/LEDGER.md`). Nothing was stashed,
+reset, restored or unstaged. `stash@{0}` was never popped.
+
+#### b.1 The LOCK discharged FIRST — B3's receipt before any product byte
+
+`W4.md:390` is explicit: *"CC-046's condition is explicitly **before any schema fold**, so a receipt
+filed at close is a failure, not a pass."* So §9 **row 4 landed before row 3, and before every other
+byte of this unit**: `ea0fdca8`, `docs/tranches/X/waves/evidence/W4/a16-retest-receipt.md`, filed at
+⟨cmd⟩ `git status --porcelain -- demo/` → *(empty)*. The receipt records, at the installed bytes:
+
+- **glass 7.0.0** (double-run), declared `^7.0.0`;
+- `SliderProps` `dist/components/slider/types.d.ts:11-12` — `dir?: Direction;` / `inverted?: boolean;`
+  — and both as **runtime-declared props** in the packed `Slider`, not merely as types;
+  `Direction = "ltr" | "rtl"` (`_shared/primitive.d.ts:5`);
+- `--slider-range-origin` = **0** in `demo` + `src`, both runs;
+- **a re-runnable definition of "producer-internal"**, measured rather than asserted: a variable the
+  producer **declares** is its own state, one it only **reads** through `var()` is a consumer feed
+  seam. Of the producer's **15** slider variables, **3** are declared (`--slider-range-origin`,
+  `--slider-track-height`, `--slider-thumb-size`) and consumer reads of all three = **0**. The three
+  the demo does read are feed seams the producer never declares; the `--slider-track-bg` sites are
+  **CC-105's**, booked to `X.W4.g` — *"never before, never by shim"* (`W4.md:89-90`).
+
+**Zero slider props were edited by this unit**, and §5's clause is conditional (*"express **any**
+direction/inversion need"*). The need was **measured absent** at all three in-bounds `<Slider>` seats
+before the clause was honoured, so B3(ii) closes as the spec calls it — a **regression fence** — and
+the fence is made permanent as a test rather than left as a one-time grep.
+
+#### b.2 Born-RED, then the cure — in that order, with the numbers
+
+The gate spec `e2e/smoke/a11y-select-title.spec.ts` (`c18de089`, 571 L, line 1
+`// SERVED MODEL: claude-opus-5[1m]`) was authored and run **before one product byte moved**:
+
+```text
+⟨cmd⟩ npx playwright test --project=smoke e2e/smoke/a11y-select-title.spec.ts --reporter=line
+BORN-RED → EXIT 1 · 2 failed, 1 passed
+[W4-B1] asserted=7 excluded=1 defects=14
+[W4-B2] asserted=7 defects=14
+[W4-B3] producerSliderVars=15 declaredInternal=3 consumerReads=0
+```
+
+Then the cure (`58371516`): the **eight** Select compositions in `MixConfigBar.vue` (3),
+`GenerateControls.vue` (2) and `GradientVisualizer.vue` (3) adopt `@mkbabb/glass-ui/labeled-field`
+— `label` + `:control-labelable="false"` + the slot's `labelledBy` on the trigger, the sibling
+caption retired **into** the field's own title, the now-duplicate literal `aria-label` deleted, and
+`class="h-9"` replaced by the published `size="sm"` rung.
+
+```text
+AFTER, run 1 → EXIT 0 · 3 passed        AFTER, run 2 (double-run) → EXIT 0 · 3 passed
+[W4-B1] asserted=7 excluded=1 defects=0     [W4-B1] asserted=7 excluded=1 defects=0
+[W4-B2] asserted=7 defects=0                [W4-B2] asserted=7 defects=0
+[W4-B3] …declaredInternal=3 consumerReads=0 [W4-B3] …declaredInternal=3 consumerReads=0
+```
+
+| gate | BEFORE (born-RED, pre-byte) | AFTER (double-run) | verdict |
+|---|---|---|---|
+| **B1** composed trigger title | 7 triggers · **14** defects (a literal `aria-label` **and** no `aria-labelledby`, per trigger) | **0** | **GREEN** |
+| **B2** trigger height rides the size axis | 7 triggers · **14** defects (`h-9` survives **and** the coarse rung does not lift) | **0** | **GREEN** |
+| **B3** slider seam consumed as published | receipt owed; fence green | receipt filed **first**; fence **0** reads of **3** declared internals | **GREEN** |
+
+Source counts, double-run, both runs identical:
+`selectTrigger 13→13` (count unchanged; **8** re-composed) · `h-9 15→7` · `section-label 17→9`
+(class uses `16→8`) · `<label>` without `for` `9→6` · `<LabeledField> 0→8` ·
+`--slider-range-origin 0→0`.
+
+#### b.3 The coarse lift — measured twice, by two independent mechanisms
+
+§4 admits this unit **one** spec path, in `e2e/smoke/` — so there is no `smoke-mobile` twin and none
+was invented. B2's second falsifier arm (*"when the coarse rung does not lift — the trigger is a touch
+target too"*) is therefore measured **in-project**, by installing exactly what the producer's own
+`@media (pointer: coarse)` block installs (`--ui-scale: 1.5`, `--control-floor: 2.75rem`) and
+re-measuring: token **36 → 54** with `blockSize` following it. Before the cure the same probe read
+token 54 against a `blockSize` frozen at **36**.
+
+That mechanism test was then **confirmed in a real coarse context** at the artefact-8 capture (a
+Pixel 7 browser context): trigger `blockSize` **36 · 36 · 36 before → 54 · 54 · 54 after**. The 44px
+`--touch-target` floor clears with 10px to spare, and the lift cost no consumer byte.
+
+#### b.4 The scope, stated rather than hidden
+
+The census is scoped to **the pane the route names**, resolved structurally at run time from the
+pane's own `h3.pane-header-title` — never an element allowlist, never an element named to be skipped.
+`W4.md:389` names B2's population in its own words (*"all Select triggers in mix / generate /
+gradient"*) and §4 gives unit b exactly those three SFCs. Every excluded trigger is **counted and
+printed on every run** (`excluded=1`): `ColorSpaceSelector.vue`'s, mounted in the picker pane that
+`/#/mix` seats beside the mix pane at 1280×720, and in **no** open-partition W4 row — it sits only in
+§4's trigger-gated `X.W4.g` table, which the census FAIL keeps closed.
+
+**Record d-3 honoured to the letter**: of the seven files holding `section-label`, this unit cured
+its **three**. `AdminTagsPanel.vue` and `SearchFilterBar.vue` are **unit a's**, `MixSourceSelector.vue`
+is **`.g`'s**, `TagEditPopover.vue` is in **no** W4 table. No repo-wide reading was taken.
+
+#### b.5 §7 cadence
+
+```text
+⟨cmd⟩ npx eslint <the 4 touched paths>               → EXIT 0
+⟨cmd⟩ npx eslint demo e2e                            → EXIT 0
+⟨cmd⟩ npx vue-tsc -p tsconfig.demo.json --noEmit     → EXIT 0
+⟨cmd⟩ npx tsc -p tsconfig.e2e.json --noEmit          → EXIT 0
+⟨cmd⟩ git diff --check -- demo e2e                   → EXIT 0
+⟨cmd⟩ npx prettier --check e2e/smoke/a11y-select-title.spec.ts → CLEAN
+```
+
+**`prettier --check demo e2e` is RED over 202 files and was NOT cured — pre-existing, not this
+unit's debt.** All three touched `.vue` files are unclean **at HEAD too**: their HEAD blobs were
+extracted to a scratch tree and checked ⟨cmd⟩ `npx prettier --check <scratch>/demo/**/*.vue` → **3 of
+3 warn**. The one file this unit created is prettier-clean, so **no new format debt is introduced**.
+Recorded for X-W11's hygiene walk (unit a booked the same row). `npm run typecheck` is unaffected —
+this unit wrote **no `src/` byte**.
+
+#### b.6 Commits — pathspec on the commit itself, one meaning each
+
+| # | sha | scope | paths |
+|---|---|---|---|
+| §9 row 4 | **`ea0fdca8`** | `docs(x-w4/a16-receipt)` B3's receipt, **before every product byte** | `evidence/W4/a16-retest-receipt.md` |
+| born-RED | **`c18de089`** | `test(x-v/w4.b)` the gate spec, RED before the cure | `e2e/smoke/a11y-select-title.spec.ts` (571 L) |
+| §9 row 3 | **`58371516`** | `fix(demo/select-composition)` the cure | the 3 `demo/**` SFCs, +50/−32 |
+| beside | **`3d548669`** | `test(x-v/w4.b)` the gate instrument made navigation-safe | the same spec, +31/−37 |
+| beside | **`6fdb57ee`** | `docs(x-v/w4.b)` the §8 evidence bank + artefact 8 | `b-select-composition.md` + 4 PNGs |
+
+⟨cmd⟩ `git show --stat` on each returns **exactly** its own paths and no sibling seat's (1 · 1 · 3 ·
+1 · 5 files). `scripts/dev/dev.sh`, `CARRY-LEDGER.md`, `INBOX.md`, `execution/C/F-W3.md` and
+`execution/LEDGER.md` were **never staged**. The four PNGs needed `git add -f` and it is **disclosed,
+not quiet**: `.gitignore:34` ignores `*.png` repo-wide and `:35` negates only `demo/**/*.png`;
+force-adding evidence PNGs under `docs/tranches/**` is the repo's own established idiom (435 tracked
+PNGs), `.gitignore` is not in this unit's §4 set and was not touched.
+
+**The gate instrument was hardened once, mid-unit, with a measured cause.** The first AFTER run failed
+B1 on `page.evaluate: Execution context was destroyed, most likely because of a navigation` — this
+unit's new `@mkbabb/glass-ui/labeled-field` import is a dependency the dev server had not pre-bundled,
+so vite's optimizer re-bundled and forced a **full page reload** mid-poll. Every wait is now
+navigation-safe (`waitForFunction` re-installs in the new context; the view threads as an argument
+instead of a `<body>` stamp). **Not one assertion changed**, and the born-RED verdict was taken before
+the hardening and stands.
+
+#### b.7 Escalation CARRIED OUT (§3a file bounds) — two stale name-bindings outside every W4 row
+
+The cure retires seven literal `aria-label`s, which is what `W4.md:248` orders. Three out-of-bounds
+specs bind Select triggers by name; all three were **run after the cure** ⟨cmd⟩
+`npx playwright test --project=smoke e2e/smoke/walk.spec.ts e2e/smoke/oracles/o20-generate-plate.spec.ts e2e/smoke/oracles/o14-preview-truth.spec.ts`
+→ **4 failed, 6 passed**, and the two causes were **separated by measurement**:
+
+- **CAUSED BY THIS CURE — 2 tests**: `walk.spec.ts:89` and `o20-generate-plate.spec.ts:71` both bind
+  `getByRole("combobox", { name: "Generation preset" })`. The composed name is now **`"Preset"`** —
+  the caption the user reads — so Playwright's default substring match cannot reach it.
+- **PRE-EXISTING, NOT THIS CURE — 2 tests**: `o14-preview-truth.spec.ts`'s two failures are at
+  `:397-401`, the `.add-slot-ghost` assertion, **upstream of its combobox loop**. The control proves
+  it ⟨cmd⟩ `npx playwright test --project=smoke e2e/smoke/views/mix.spec.ts` → **1 failed**, at the
+  *identical* assertion with the identical message (the X-W1-documented live WatercolorDot blocker,
+  CC-044, routed to the closed `X.W4.g`), and ⟨cmd⟩
+  `git status --porcelain -- demo/workbenches/mix/MixSourceSelector.vue` → *(empty)*. o14's own
+  combobox bindings use `{ name: "Color space" | "Hue method", exact: true }` and **survive verbatim**
+  — the mix captions already said what their `aria-label` said.
+
+**Not one byte was written for the two:** `e2e/smoke/walk.spec.ts` and
+`e2e/smoke/oracles/o20-generate-plate.spec.ts` are in **no** `W4.md` §4 row, for any unit
+⟨cmd⟩ `grep -c "walk.spec\|o20-generate-plate" docs/tranches/X/waves/W4.md` → **0**. Recommended
+repair **stated, not taken** — both lines should read `{ name: "Preset", exact: true }`. The
+alternative, padding the visible caption to *"Generation preset"* so a stale selector keeps matching,
+would change shipped product copy to fit a test: the masking move this wave forbids. The orchestrator
+owns the two-line repair, or a dated E-3 bounds addendum admitting the two paths.
+
+#### b.8 Residuals, recorded so nothing is silently dropped
+
+1. **The B2 population premise is FALSE and is recorded as such.** The spec's *"15 h-9 sites, all
+   Select triggers in mix / generate / gradient"* reproduces as 15, but **only 8 are triggers in this
+   unit's files**. The remainder: **`AuroraPane.vue:122,142,156,170`** — four Select triggers with a
+   literal `aria-label` and a pinned `h-9`, i.e. **exactly the defect this unit cured, in a file that
+   is in NO W4 §4 row** ⟨cmd⟩ `grep -c 'AuroraPane' docs/tranches/X/waves/W4.md` → **0**; plus
+   `GenerateControls.vue:165` (a glass `<Button>`, not a trigger) and `:211` (`w-9 h-9`, a
+   WatercolorDot swatch — **`X.W4.g`'s** seat, `W4.md:162`); plus `PaletteSlugBar.vue:2` `min-h-9`, a
+   grep-shape hit (`\bh-9\b` matches inside `min-h-9`). **Home stated, not taken.**
+2. **`GenerateControls.vue:165`'s `h-9` Button** — in this unit's file, outside this unit's named
+   mechanism (`W4.md:248` moves *trigger* height; the `h-7` family was unit a's Scope 3). Booked for
+   the size-axis law **X-W7** inherits (`W4.md:481`).
+3. **A fourth Gradient-pane Select trigger exists and is PRODUCER-OWNED** — `aria-label="Easing
+   preset"`, `blockSize` 40 fine / 60 coarse, from `@mkbabb/glass-ui/easing`'s `EasingPicker`
+   ⟨cmd⟩ `grep -rln 'Easing preset' node_modules/@mkbabb/glass-ui/dist/` → `dist/easing.js`; the
+   string appears **nowhere** in `demo/`. Invisible to the gate (the easing accordion is closed at
+   rest) and correctly out of scope either way: a producer control naming itself is not a consumer
+   defect. Recorded so no later seat reads it as a miss.
+4. **The visible caption register CHANGED, and it is evidenced rather than smoothed.** `.section-label`
+   is a **producer** typography class (mono, uppercase, tracked, muted); `LabeledField` renders the
+   producer's own `Label` (sans, `--type-small`, weight 500, `--foreground`) and publishes **no seam
+   for a caption class**. So the gradient band reads `TYPE · SPACE · HUE` before and
+   `Type · Space · Hue` after — see `gradient-select-composition-{fine,coarse}-{before,after}.png`.
+   **`demo/styles/utils.css` took ZERO bytes deliberately**: a demo rule re-skinning the producer's
+   label through its `data-slot="label"` stamp would be a per-instance costume over a root vocabulary,
+   which the standing glass-ui-first law routes to the producer. **A `LabeledField` label-register /
+   label-class seam is a BH-inbox ask, stated here and not taken** — mail paths are not in this unit's
+   bounds.
+5. **`GradientVisualizer.vue:232`'s `<span class="section-label">Direction</span>` survives**, so that
+   column now carries two caption voices. `Direction` titles a **`<Slider>`**, and §3 Scope 4 scopes
+   this unit to *"each affected **Select**"*; converting it would be invention. Booked.
+6. **`ComponentSliders.vue` took ZERO bytes** — no direction/inversion need exists at any in-bounds
+   `<Slider>` seat (b.1). Its three `--slider-*` reads are feed seams the producer never declares.
+7. **`prettier --check demo e2e` RED over 202 files**, pre-existing at HEAD (b.5).
+8. **`X.W4.g` untouched and CLOSED** — ⟨cmd⟩ `grep -rn 'watercolor-dot' demo | wc -l` → **11**, the
+   bank intact. Artefact 9 is correctly **absent**.
+
+#### b.9 Locks discharged
+
+- **B3's `a16-retest-receipt.md` landed BEFORE the first slider prop edit** — in fact before **every**
+  byte of this unit, at `git status --porcelain -- demo/` → *(empty)*. §9 **row 4 before row 3**.
+  Zero slider props were edited at all.
+- **Born-RED first** — the gate spec landed and ran RED (`c18de089`) before the cure (`58371516`).
+- **B1's cure surface = this unit's THREE files only** (record d-3) — honoured; the four other
+  `section-label` files were never opened (b.4).
+- **Direction / inversion expressed only through published `dir` / `inverted`** — vacuously and
+  honestly: no direction mechanism was needed, none was invented, and **no producer-internal variable
+  is read** (the fence reads the producer's declared set at run time, so it cannot go stale).
+- **U-F12 Pole B** — no dark-accent work; the cure touches composition, naming and the size axis only.
+- **`scripts/dev/dev.sh`** — never opened, never staged.
+- **glass-ui and every sibling tree READ-ONLY** — `node_modules/@mkbabb/glass-ui/**` was read for the
+  premises and never written; no producer row was hacked demo-side; the one producer ask is routed,
+  not taken (residual 4).
+- **No masking move** — no `try/catch` around a defect, no `test.skip`, no allowlist, no copied
+  producer selector, no `node_modules` patch. The census scope is structural and prints its exclusions.
+- **E13** — four-path sweep re-run at this seat's clock (`2026-09-19 00:36:59 EDT`) ⟨cmd⟩
+  `/usr/bin/find <each path> -maxdepth 1 -type f -name '*.md' -newermt "2026-09-18 23:52"` → only
+  `docs/tranches/V/coordination/INBOX.md` (self-excluded, SELF-COUNT law) and keyframes'
+  `INBOUND-LEDGER.md` (a sibling's ledger, not a letter). **0 new letters · 0 new `I-n` · 0 UNREAD in
+  this unit's scope**: the five rows whose Status cells read UNREAD — **O-20 · I-30 · I-31 · I-32 ·
+  I-35** — route by their own Routing cells to the X formation mail seat / X-W0.j / X-EXT-1..6 / X-W0
+  / X·KF, and the one naming this wave (**X-EXT-1**) routes to **`X.W4.g`**, which the census FAIL
+  keeps closed. Measured against this unit's vocabulary ⟨cmd⟩
+  `grep -Eic "labeled-field|LabeledField|SelectTrigger|control-h-sm|slider-range-origin|aria-labelledby|section-label|size axis"` over
+  `V/coordination/**` → the sole non-zero file is `CONSTELLATION.md` (the component manifest, not
+  mail, and its line names `ColorInput.vue` / `PaletteSlugBar.vue` — X-W7/X-W8 surfaces).
+
+**STATUS: PARTIAL.** **B1 · B2 · B3 all GREEN**, double-run, and every byte of §3 Scope 4–5 and §5's
+mechanism is landed and committed in §9's own order (row 4 before row 3). The unit is **PARTIAL and
+not DONE** for one reason, stated loudly: the spec-ordered `aria-label` retirement leaves **two
+out-of-bounds `smoke`-project tests RED** (`walk.spec.ts:89`, `o20-generate-plate.spec.ts:71`), and
+`e2e-smoke` is a HARD CI job (CC-031). The repair is named to the byte in b.7 and **was not taken**,
+because neither path is in any W4 §4 row. No bounds were widened, no gate was narrowed, and no
+assertion was relaxed.
