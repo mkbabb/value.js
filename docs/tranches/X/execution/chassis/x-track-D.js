@@ -91,7 +91,8 @@ const rec = (w) => EXEC + '/' + TRACK.dir + '/' + w.id.replace(/\./g, '-') + '.m
 
 const sleep = (ms) => (typeof setTimeout === 'function' ? new Promise(res => setTimeout(res, ms)) : Promise.resolve())
 // A dead agent() = the harness killed all 6 attempts (measured 2026-09-19: synchronized kills across workflows = a shared 429 storm with silent SDK retries, not the seat's fault). Wait out the storm, then re-seat — up to 3 more times — before the wave is declared dead.
-const withRetry = async (label, f) => { let r = await f(); for (let i = 1; !r && i <= 3; i++) { log(label + ' died — waiting 300 s for the storm to pass, then retry ' + i + ' of 3'); await sleep(300000); r = await f() } return r }
+// agent() THROWS (not null) when all 6 harness attempts stall — measured 2026-09-19 22:2x on X.P.W4S: the throw escaped withRetry, parallel() swallowed it, and the wave died without a single re-seat. Catch it.
+const withRetry = async (label, f) => { const once = async () => { try { return await f() } catch (e) { log(label + ' threw: ' + ((e && e.message) || String(e))); return null } }; let r = await once(); for (let i = 1; !r && i <= 3; i++) { log(label + ' died — waiting 300 s for the storm to pass, then retry ' + i + ' of 3'); await sleep(300000); r = await once() } return r }
 const STAGGER_MS = 120000
 const staggered = (thunks, ms) => thunks.map((t, i) => async () => { if (i) await sleep(i * ms); return t() })
 
