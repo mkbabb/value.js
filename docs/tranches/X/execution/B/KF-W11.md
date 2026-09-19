@@ -1437,3 +1437,45 @@ The reel's running state is the shipped Button `loading` contract — `:loading=
 #### The mount bound, stated before the test is written
 
 ⟨cmd⟩ a scratch mount of `SequenceTarget` under `npx vitest run --project demo` → `Error: Cannot find package '@mkbabb/keyframes.js' imported from node_modules/@mkbabb/glass-ui/dist/useSpring-9u2_shxV.js` — `.b`'s blocker reproduced: `SequenceTarget` imports glass-ui `Button`/`Card`/`Metric`; the fix is the alias in `vitest.config.ts`, a §Bounds Do-NOT-touch row; no mock, no `node_modules` patch, no skip. **Consequence**: G-KFW11-2's runtime file mounts the import-free leaves (`SequenceAxis`, `SequencePlayhead`, `SequenceScrubber`) against the REAL `useSequenceDemo` (warmed engine), and witnesses the Target-only clauses (ST-4's binding; the three-rect equality) at the settled bytes — the rect equality as a **grid-model invariant over the parsed stylesheets** (parent gap ≡ subgrid gap ≡ `var(--col-gap)`; axis, track and playhead track each on `grid-column: 2`; no transcribed `left:` offset) with the pixel witness named to SS-13 #1/#10. **Ask (repeating `.b`'s)**: the unit that owns `vitest.config.ts` adds the alias; every scene-level Target mount in this wave is blocked on it.
+
+#### Acts in order — thirteen families, thirteen commits, each by exact pathspec with the session trailer
+
+Evidence: `docs/tranches/X/keyframes/evidence/W11/d-sequence-packet-2026-09-19.md` (the double-run transcripts, the full id roster, the commit audit). ⟨cmd⟩ `git log --oneline 2c5f8c04..HEAD` → **A** `36ec392e` canonical domain + instrument-truth core (N-1 · N-2 · N-14 · N-4 · L-10/C-4 · C-11) · **B** `b235ab03` SC-2 (reset EXPOSED, nine names DELETED, D19(a)) · **C** `e8f973cf` reel packet (D7 · SC-3/L-5 · ST-7/L-9 · L-8/ST-6 · SA-5/N-17) · **D** `e15eb9ed` geometry after OP-3 (D-1 ruling 1 `gap: 0.5rem var(--col-gap)`; the playhead track PLACED on the grid — `grid-column: 2; grid-row: 2 / -1; inset: 0` — D-2/L-4/C-5 · D-10/L-2 · D-13/L-12 · N-8; the ruler's placement hoisted; the label column + register; ST-9 · D-22 · D-8) · **E** `26467cf2` stacking, one deletion (D-3/L-3) · **F** `d09e1911` property hygiene (D-11 · L-9/C-6 · D-14 · N-9 · N-5/N-6/N-7/N-15 · D-17/D-18 · D-12) · **G** `f4249cb0` ST-1 — the one word `kf-focus-ring` on the row slider + the `.seq-handle:focus-visible` deletion in ONE sha (⟨cmd⟩ `grep -c 'focus-ring' SequenceTarget.vue` → `1`; ⟨cmd⟩ `grep -c 'box-shadow: var(--focus-ring-shadow)' SequenceTarget.css` → `0`, double-run) · **H** `da8281df` ST-4 — `:loading="demo.isReeling.value"` (D-9.2 · D-15 · ST-2/SC-7 · ST-10 · C-2/D22 · D9 · D20) · **I** `344c0ba2` the gesture spec — ONE `applyScrub(p, {gesture})` for pointer samples and the four keyboard verbs, every scrub lights the well through `demo.setScrubbing` (the local shadow ref deleted, C-5/L-D-3), key-up/blur cool it, direction latched per admitted sample with C-12's deadband, `SCRUB_KEY_STEP` named beside `ROW_AT_STEP`, the projector's zero-width guard, `kf-focus-ring` + `touch-action: none` + `h-12` on the rail, the eyebrow at the one caption rung with `.seq-eyebrow` deleted, the comet grows in/out (D-6/C-8); mount witness 6 → 10 cases, none weakened · **J** `dd3eb6eb` the Axis trio — its own two-pitch tick band driven by an inline `--tick-count` (L-2), labels `q × duration` ms, the unit legend once on the terminal label (D-3/D-2/D-4), legend posture (SA-2), edge-hug by `:nth-child(1 of S)` (D-8a/L-10), an `@container` fold under 260px (SA-4), tranche ids out of the comments (D-13); the boot arm gains the playhead (N-20) with its PRM arm · **K** `f26966a5` prose-truth sweep + store hygiene — SC-1/D23 both lines gone with the `@state` import, the scene docblock's `scenePlayback`/`CONTROL_SURFACES`/transport claims corrected (L-6/C-5 · L-11/C-4), the target is the scene's root (D21), the playhead docblock's `--track-inset`/"no per-frame JS"/"master red" corrected (N-19/D-4/D-5/L-7), the Target stylesheet's "clock green" header → the master authority, `seq-root` + one-child `gap-4` deleted (L-8), the scene name an `h2` (D-5); DESIGN.md's two sequence statements checked true, nothing written · **L** `a83f2df8` the gate file committed last, GREEN against the cures it was born RED against · **M** `ba12b2ba` `sequence-scene.test.ts` extended (SC-2's census as a witness; D7's guard) — 4 → 6 cases.
+
+#### Gates — BEFORE → AFTER, double-run
+
+| gate | BEFORE (at `2c5f8c04`) | AFTER (at `a83f2df8` / `ba12b2ba`) | verdict |
+|---|---|---|---|
+| **G-KFW11-2** runtime | ⟨cmd⟩ `npx vitest run --project demo test/demo/scenes/sequence-instrument-truth.test.ts` → `5 failed (5)` · `5 failed (5)` | `5 passed (5)` · `5 passed (5)` | **GREEN** |
+| **G-KFW11-2** byte clauses | `focus-ring` in `SequenceTarget.vue` `0`; the ring-shadow decl in `SequenceTarget.css` `1` | `1` · `1` ; `0` · `0` — flipped in ONE sha `f4249cb0` | **GREEN** |
+| mount witness | `6 passed (6)` | `10 passed (10)` · `10 passed (10)` | GREEN |
+| `sequence-scene.test.ts` | `4 passed (4)` | `6 passed (6)` · `6 passed (6)` | GREEN |
+| `npm run test:demo` | `.b`'s close figure at this sha (record :598): 39 files / 286 tests — not re-measured by this seat | `42 / 337` · `42 / 337` at `a83f2df8`; `42 / 339` · `42 / 339` at `ba12b2ba` | GREEN |
+| skip-grep ⟨cmd⟩ `git diff 2c5f8c04..HEAD -- test \| grep -c 'test.skip\|it.skip\|\.only('` | — | `0` · `0` | GREEN |
+| `git diff --check 2c5f8c04..HEAD -- demo/scenes/sequence test/demo` | — | clean | GREEN |
+| **§0u ratchet** ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.json 2>&1 \| grep -c 'error TS'` | `25` whole tree · `0` in `scenes/sequence` | `25` · `25` whole tree · `0` · `0` in `scenes/sequence` — never rose; no cast/`@ts-expect-error`/`eslint-disable` written | GREEN |
+
+Positively: this seat wrote **zero** of the discharge receipt strings G-KFW11-10 forbids (the pattern is stated in words here, never spelled).
+
+#### Locks — all honoured
+
+Own-set paths only (⟨cmd⟩ `git show --stat` on each of the 13 shas → every path under the `.d` writable set); `useSweepScene.ts`, `vitest.config.ts`, `src/**`, glass-ui, `design-idioms.css` never written (the loop-seam family and the mount alias returned as escalations, above); `scripts/dev/dev.sh` never staged; no stash/reset/force; E-3 honoured (no dated artefact edited — this receipt and the evidence file are appended/created); the record's `.d` head untouched, this receipt appended beneath it; no index.lock met.
+
+#### Escalations — two, both bounded, neither a write
+
+1. **KF11-E(d1)** (stated in the head, unchanged at close): the loop-seam family L-3 + L-10 + SC-5 + SC-6 needs `SweepSceneOptions.loop?: {start, stop, running}` in `demo/composables/scene-runtime/useSweepScene.ts` — out of bounds; nothing of it landed, the family not split; `useSequenceDemo.ts` still builds its `scenePlayback` adapter internally for `facility.playback`, exactly as at open. Owner: the unit that holds `demo/composables/scene-runtime/**` (KF.W12 by the spec's roster).
+2. **The vitest alias** (`.b`'s ask, repeated): `vitest.config.ts` — every scene-level Target mount in this wave is blocked on it; G-KFW11-2's Target clauses are witnessed at the bytes and through the real composable meanwhile.
+
+#### Residuals — declared, not dropped (the full roster is evidence §4)
+
+KILLED-with-rationale: SA-3 (axis) · D16 (target). Carried by path: D-9 (axis; the breakpoint-token family, T.F's gate) · L-11/C-4's other two instances (`EasingScene.vue:24` → KF.W12 OPTIONS-UNIT; `SpringScene.vue:74-77` → `.c`) · D-10/L-11 scene-token rename (idiom-owned names) · N-12 (the diamond is declared NOT an affordance by the gesture spec) · ST-8 (error posture: throws by C-11's ruling) · C-13 (the default projector, `.i`'s) · D21 partial (the target's own width bound is the cell's question, KF.W12). GREEN-BEFORE-CURE: D25 LANDED-BY `3c8a5525`. Two corrections to commit prose, stated here because a commit message is a record: family I's "9 → 15 cases" is truly **6 → 10**; family L's "the sha `.i` opens on" is superseded by family M.
+
+#### Inherited-paths clause
+
+`SequenceScrubber.vue` was this unit's first writer; every other `.d` row was inherited from the registry's adjudicated state at `2c5f8c04` (byte-identical to `69095552` at open, per the head). `test/demo/instrument/sequence-scrubber-mount.test.ts` extended only (6 → 10), never weakened: the C·C-4 guard, the 0.55/0.45 keyboard figures and the `[1, 1, -1]` latch assertions are unchanged at the bytes.
+
+#### SELF-COUNT
+
+13 families declared in this receipt, 13 shas listed, 13 in ⟨cmd⟩ `git log --oneline 2c5f8c04..HEAD | wc -l` → `13`. Files touched: 11 in keyframes.js (10 at `a83f2df8` + `sequence-scene.test.ts`), 2 in value.js (this record; the evidence file). SFC line counts at close all ≤ 317 (evidence §5).
+
+**The sha KF.W11.i opens on: `ba12b2ba`** (keyframes.js `master`).
