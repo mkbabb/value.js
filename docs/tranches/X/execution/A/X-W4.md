@@ -476,3 +476,242 @@ NOT adopted** — `W4.md` §4 is the whole writable set and widening is an escal
 
 *(empty at open — each unit appends its own section here, dated, with its served model on its first
 line and its gate verdicts quoted by command.)*
+
+### X.W4.a
+
+**SERVED MODEL: claude-opus-5[1m]** · Opus implementation seat (M-23, `W4.md:219`) ·
+**Track A · wave X-W4 · unit a** · redispatched after the **2026-09-18 host restart killed the
+predecessor seat mid-work**. Sitting date of record stays **2026-09-17**. Wall clock at this seat
+`2026-09-19 00:05:02 EDT` ⟨cmd⟩ `date "+%Y-%m-%d %H:%M:%S %Z"`. **HEAD at entry** `849206f0`
+⟨cmd⟩ `git log --oneline -1` · branch `tranche-u`.
+
+**Sections executed**: `W4.md` §3 Scope 1–3 (`:49-56`) · §5 `### X.W4.a` (`:223-237`) · §6 unit-a
+gate table (`:374-382`) · §9 commit rows 1–2 (`:456-457`) · §8 artefacts 1, 2, 3, 7, 8.
+**Rulings consumed**: COHESION §0j.A — **U-F12 Pole B** (no dark-accent work; none done) and
+**DR-24** `scripts/dev/dev.sh` NEVER touched. COHESION re-read to the file end (**1,540 lines**,
+§0p–§0t new since the open); ⟨cmd⟩ `awk 'NR>=1376' docs/tranches/X/COHESION.md | grep -cE 'X-W4|X\.W4'`
+→ **0** — no later addendum rules on this unit.
+
+---
+
+#### a.0 CRASH-RECOVERY — the inheritance, read WHOLE and judged hunk by hunk
+
+⟨cmd⟩ `git status --porcelain` at entry → **15 rows**; **13 inside this unit's writable set**, all
+a killed predecessor seat's partial work on **this** unit. Nothing was stashed, reset, restored or
+blanket-adopted. The two rows OUTSIDE the set — `scripts/dev/dev.sh` (DR-24) and
+`docs/tranches/V/reformation/CARRY-LEDGER.md` (a sibling's) — were **left exactly as found**, and
+`stash@{0}` was **never popped** (its 17 paths are in no W4 bound).
+
+⟨cmd⟩ `git diff --stat -- demo/` → **10 files, +98/−28**, read in full before one byte was written.
+The two untracked specs (**426 L** + **418 L**) and the 19-entry `evidence/W4/` were read whole.
+
+| inherited path | judged against | verdict |
+|---|---|---|
+| `demo/shell/dock/layers/SlugEditLayer.vue` | §5 "producer's own sizing tokens" + §3 Scope 2 | **CONFORMS** — `--dock-compact-control-size` and `--control-floor` verified as real producer properties at the installed bytes (below); `aria-label`, not `placeholder`, carries the name |
+| `demo/picker/controls/ComponentSliders/ConsoleRail.vue` | §3 Scope 1 (fine floor + coarse floor) | **CONFORMS IN EFFECT, ONE HUNK REWRITTEN** — see a.2 |
+| `demo/palettes/PalettesPane.vue` | §3 Scope 2 + the open's §A4 note | **CONFORMS** — and the §A4 note is now *measured true at runtime*, not merely read off `dist/search.js` (below) |
+| the five admin panels · `SearchFilterBar.vue` · `VersionHistoryDrawer.vue` | §3 Scope 3 (`h-7` → `size="xs"`) | **CONFORM** — and `variant=` correctly left untouched everywhere (the dead emphasis axis is **X-W8's**, `W4.md:86-88`) |
+| `e2e/smoke/a11y-control-targets.spec.ts` · `e2e/smoke/mobile/…` | §6 census rule · attribution rule · name rule · CC-019 gate FORM | **CONFORM** — verified line by line against `W4.md:354-367`; no `test.skip`, no allowlist, no narrowed census, no relaxed assertion |
+| `evidence/W4/` (6 text artefacts + 12 PNGs) | §8 artefacts 1, 2, 3, 7, 8 | **CONFORM** — every text artefact carries `SERVED MODEL` on line 1, both JSON artefacts a `servedModel` key |
+
+**Nothing was treated as done until the gates this unit owns measured green at this seat's own
+clock** (a.3). The inherited paths are named again in a.6.
+
+#### a.1 Producer premises re-verified at the installed bytes (never assumed from the record)
+
+- ⟨cmd⟩ `grep -rn 'dock-compact-control-size' node_modules/@mkbabb/glass-ui/dist/` →
+  `components/dock/styles/controls/icon-button.css`:
+  `.dock-icon-button--compact { width: var(--dock-compact-control-size, auto); height: var(--dock-compact-control-size, auto); … }`
+  — **one property drives BOTH axes**, which is why the `.slug-control` cure is a single declaration.
+- ⟨cmd⟩ `grep -rho -- '--dock-touch-target:[^;]*;' node_modules/@mkbabb/glass-ui/dist/` → `2.75rem;`
+  (declared in `dist/styles/tokens/sizing.css`) — the rail rung's token is the **producer's**, not a
+  demo literal.
+- `ButtonProps` publishes `size?: Extract<Size,"xs"|"sm"|"md"|"lg">`
+  (`dist/components/button/Button.vue.d.ts:5`) and `dist/components/button/styles.css` carries
+  `.button[data-size="xs"] { --button-size: var(--control-h-xs); … }` — `size="xs"` **is** the
+  published rung, and `demo/ui/button/index.ts` is one line: `export { Button } from "@mkbabb/glass-ui";`,
+  so every cured site is a **producer** control. `demo/ui/**` was read, never written.
+
+#### a.2 The one hunk this seat REWROTE, with its reason
+
+`ConsoleRail.vue`'s inherited fine-pointer floor was stated in the **logical** pair
+(`min-inline-size` / `min-block-size`) while the touch rung fourteen rules below states the same
+floor in the **physical** pair (`min-height` / `min-width`, `:342-343`). The used value is identical
+in `horizontal-tb` and the coarse rung still won — but it won only through the logical↔physical
+resolution rule rather than by two rules declaring the same property in plain cascade order, which
+is a subtlety a later reorder could silently invert. Rewritten to `min-width` / `min-height`, the
+file's own convention, with the reason recorded in the declaration's comment.
+**Re-measured after the rewrite** (a.3, run 3): every box byte-identical — `l`/`a`/`b` 24×24.4 fine,
+31.7×44 coarse. A no-op on behaviour, by design.
+
+#### a.3 Gate readings — BEFORE → AFTER, at this seat's own clock, DOUBLE-RUN
+
+Commands, verbatim:
+⟨cmd⟩ `npx playwright test --project=smoke e2e/smoke/a11y-control-targets.spec.ts`
+⟨cmd⟩ `npx playwright test --project=smoke-mobile e2e/smoke/mobile/a11y-control-targets.spec.ts`
+
+Run 2 and run 3 (run 3 = after the a.2 rewrite) printed **identical** readings:
+
+```text
+[W4-A1] undersized=2            [W4-A2] undersized=2
+[W4-A3] measured=4 mismatches=0 [W4-A3-COARSE] measured=0 mismatches=0 unlifted=0
+[W4-A4] nameless=0              [W4-A4-COARSE] nameless=0
+```
+
+| gate | BEFORE (`reopen-baseline.json`, born-RED, pre-byte) | AFTER (this seat, double-run) | verdict |
+|---|---|---|---|
+| **A1** fine | undersized **13** | **2** | **RED-CARRIED** — see a.4 |
+| **A2** coarse | undersized **10** | **2** | **RED-CARRIED** — the same two rows |
+| **A3** fine | measured 4 / mismatches 0; source `h-7` **18** | measured 4 / mismatches 0; source `h-7` **3** | **GREEN** |
+| **A3** coarse | population 0 | population 0 / mismatches 0 / unlifted 0 | **GREEN (empty population, recorded)** |
+| **A4** | nameless **3** fine / **2** coarse | **0** / **0** | **GREEN** |
+| **A5** | owed | `a-falsifier.txt`, delta **5 → 2** with the pin named on both routes | **DEMONSTRATED** |
+
+⟨cmd⟩ (double-run) `grep -rn 'class="[^"]*\bh-7\b' demo --include='*.vue' | grep -v 'w-7 h-7' | wc -l`
+→ **3** · `git grep` of the same at HEAD → **18**. `run1: h7_worktree=3 h7_HEAD=18` /
+`run2: h7_worktree=3 h7_HEAD=18`.
+
+**The cured boxes, read out of the census rows of run 3 (not from the predecessor's record):**
+
+| element | fine (smoke 1280×720) | coarse (smoke-mobile Pixel 7) | name |
+|---|---|---|---|
+| `input.slug-input` | 160 × **28** | 160 × **44** | `Slug or admin token` |
+| 3 × `DockControl compact .slug-control` | **24 × 24** | **44 × 44** | Switch to slug · Generate new slug · Cancel |
+| `.channel-rail-item` l · a · b | **24** × 24.4 | 31.7 × **44** | `l/a/b channel` |
+| `.channel-rail-item` alpha | 24.5 × 25.4 | 31.7 × **44** | `alpha channel` |
+| `input.input-bar-field` (palettes search) | 414 × **24** | not mounted | `Search your palettes` |
+
+**The §A4 note is now measured, not inferred.** The open recorded from `dist/search.js` that an
+`aria-label` on `<SearchBar>` would reach the inner `<input>` because the producer sets
+`inheritAttrs: false` and splits only `class` off `$attrs`. At runtime the census row reads
+`tag=input · cls="input-bar-field" · name="Search your palettes"` — **the attribute lands on the
+input itself.** No producer byte, no wrapper, no copied selector; A4's desktop-only second site is
+closed from the consumer, exactly as the note predicted.
+
+#### a.4 A1 / A2 — RED-CARRIED, and precisely why this unit may not close them
+
+Both matrices carry **the same two rows and only those**:
+
+```text
+/#/gradient · <button> "Gradient stop at 0%"   20×20 [class="rail-handle … w-5 h-5 …"] attributedTo=self
+/#/gradient · <button> "Gradient stop at 100%" 20×20 [class="rail-handle … w-5 h-5 …"] attributedTo=self
+```
+
+They live in `demo/workbenches/gradient/GradientVisualizer/GradientStopEditor.vue` — **X.W4.c's**
+file (`W4.md` §4a: *"c owns `GradientStopEditor.vue`"*) and the **literal subject of gate C4**
+(*"handle attributed target ≥ 24×24"*, `W4.md:399`, RED-measured there as `.rail-handle` **20×20**).
+`W4.md` §6 books them into A1's and A2's own RED counts *and* into C4 — the wave is authored so A1/A2
+go fully green **only after unit c lands**. Curing them here is the bounds breach §3a forbids.
+
+**This is NOT §3a's A1/A2 escalation trigger.** That trigger reads *"means the target is owned by a
+producer box we cannot reach from a consumer"* — these are consumer bytes in a sibling unit's file,
+reachable and already owned. Recorded, not escalated; **A1 and A2 turn on unit c's landing, and the
+same two spec files re-measure them with no edit.**
+
+#### a.5 §7 cadence
+
+```text
+⟨cmd⟩ npx eslint <the 12 touched paths>              → EXIT 0
+⟨cmd⟩ npx vue-tsc -p tsconfig.demo.json --noEmit     → EXIT 0
+⟨cmd⟩ npx tsc -p tsconfig.e2e.json --noEmit          → EXIT 0
+⟨cmd⟩ git diff --check -- demo e2e                   → EXIT 0
+⟨cmd⟩ npx prettier --check <the 2 new spec files>    → CLEAN
+```
+
+**`prettier --check demo e2e` is RED and was NOT cured — measured as pre-existing, not inherited
+debt of this unit.** ⟨cmd⟩ `npx prettier --check demo e2e` → *"Code style issues found in **202**
+files"*. All **ten** touched `.vue` files are unclean **at HEAD too**: their HEAD blobs were
+extracted to a scratch tree and checked — ⟨cmd⟩ `npx prettier --check <scratch>/demo` → **10 of 10
+warn**. Reformatting 202 files (or even the 10) would bury this unit's meaning in churn and is not
+its scope. The two files this unit **created** are prettier-clean, so **no new format debt is
+introduced**. Recorded for X-W11's hygiene walk.
+
+`npm run typecheck` (library `vue-tsc`) is unaffected — this unit wrote **no `src/` byte**.
+
+#### a.6 Commits — pathspec on the commit itself, one meaning each
+
+| # | sha | scope | paths |
+|---|---|---|---|
+| §9 row 1 | **`8934de85`** | `fix(x-v/w4.a)` the cure | the 10 `demo/**` files, +106/−28 |
+| §9 row 2 | **`cf5409e7`** | `test(x-v/w4.a)` the gate pair + A5 record | the 2 specs (426+418 L) + `a-falsifier.txt` |
+| beside | **`b4e47d0c`** | `docs(x-v/w4.a)` the §8 evidence bank | artefacts 1, 2, 7, 8-text + `a-h7-cascade.md` |
+| beside | **`5f5fc89f`** | `docs(x-v/w4.a)` artefact 8's 12 PNGs | `evidence/W4/*.png` |
+
+The two `docs` commits are a separate **meaning** from rows 1 and 2 and split no family §9 declares;
+§9 gives unit a no evidence row, while §8 requires the artefacts to exist. Every commit carried its
+own pathspec — ⟨cmd⟩ `git show --stat` on each returns **exactly** its own paths and no sibling
+seat's (rows 1: 10 files · 2: 3 files · 3: 5 files · 4: 12 files). `scripts/dev/dev.sh`,
+`CARRY-LEDGER.md` and (appearing mid-unit) `docs/tranches/X/execution/C/F-W3.md` were never staged.
+
+**The PNGs needed `git add -f` and it is disclosed, not quiet.** `.gitignore:34` ignores `*.png`
+repo-wide and `:35` negates only `demo/**/*.png`. Force-adding evidence PNGs under `docs/tranches/**`
+is **the repo's own established idiom** — ⟨cmd⟩ `git ls-files '*.png' | wc -l` → **435** tracked,
+among them the whole of `docs/tranches/K/audit/visual-evidence-2026-06-04/`. `.gitignore` is **not**
+in this unit's §4 set and was **not** touched; force-adding paths that **are** in the set is the
+in-bounds act, editing the ignore file would not be.
+
+#### a.7 Escalation CARRIED OUT (§3a file bounds) — `ColorInput.vue`'s nameless seat
+
+Artefact 7's row anticipated MT-F005's nameless dock button was dead at HEAD. `navprobe.mjs` was
+re-run **once** (`execute, no write`; one webkit launch, one page, one navigation — §5.2 parsimony;
+the probe file's git status stayed clean) and **measures the premise FALSE**: the nameless button
+**survives** — `<button class="send-btn btn-interactive">` at `demo/shell/dock/ColorInput.vue:67-81`
+(two sibling seats, `v-if="proposeMode"` / `v-else`), **24×24** — *it passes A1/A2; the defect is the
+NAME* — empty under navprobe's rule **and** under `W4.md` §6's.
+
+Invisible to this wave's gates for a **measured** reason: `send-btn` rows in all four census cells =
+**0**, because the seat is inside the dock's ColorInput `PopoverTrigger` and is not
+mounted-and-visible at either project viewport; navprobe's matrix (webkit, 1440×900) reaches it and
+the two gate projects do not — A2's own law that neither matrix may be inferred from the other,
+honoured in the other direction. ⟨cmd⟩ `grep -c "ColorInput.vue" docs/tranches/X/waves/W4.md` → **0**:
+the file sits in **no** W4 §4 row, open partition or `.g` table. **Not one byte was written for it.**
+Recommended home **stated, not taken** — a dated E-3 bounds addendum, decided by the orchestrator.
+The probe's second row also closes: `TOOLS MENU ITEMS: []`, so the "menu-gated instance" the row asks
+after is not reachable at HEAD and the surviving nameless button is **not** menu-gated. **Artefact 7
+closes WITH EVIDENCE, on the opposite verdict from the one the spec anticipated.**
+
+#### a.8 Residuals, recorded so nothing is silently dropped
+
+1. **A1 / A2 carry 2 rows each** — unit c's, gate C4's (a.4). No edit needed to re-measure.
+2. **The A3 premise is FALSE and the cure is not free** (`a-h7-cascade.md`): the producer states its
+   rung as `min-block-size`, so `h-7` was **inert** and these controls were 36 px fine / 54 px
+   coarse. Moving the rung to `xs` is a real **shrink** to 28 / 44. 44 px is exactly
+   `--touch-target`, and both A1/A2 clear their floor with 20 px to spare, so **no gate moves** —
+   but it is a visible change and is stated as one. **X-W7 inherits A3's size-axis law** (`W4.md:481`)
+   and should inherit this finding with it.
+3. **Three surviving `h-7` sites**, classified in `a-h7-cascade.md` §6: two `<Skeleton>`s (not
+   controls; §3 routes Skeleton to **X-W8**, and `AdminListSkeleton.vue` is out of every W4 bound)
+   and one **native** `<button>` whose 28×28 square shape is its meaning. That native button stays
+   28×28 under coarse and never reaches `--control-floor` — recorded as a residual.
+4. **`prettier --check demo e2e` RED over 202 files**, pre-existing at HEAD (a.5).
+5. **A5 rests on a delta, not a green-to-red flip**, and `a-falsifier.txt` says so in its own bytes —
+   a flip is unavailable while residual 1 stands, and manufacturing one would be the masking move
+   this wave forbids.
+6. **`X.W4.g` untouched and CLOSED** — X-W0.j's dated census **FAIL (1 of 4 at the elected 8.0.0)**.
+   ⟨cmd⟩ `grep -rn 'watercolor-dot' demo | wc -l` → **11**, the bank intact. Artefact 9 is correctly
+   **absent**.
+
+#### a.9 Locks discharged
+
+- **Commit rows 1 + 2** landed as the family (a.6), cure then specs, in §9's own order.
+- **A5's falsifier pair** pinned **then reverted**, both outputs pasted (`a-falsifier.txt`); ⟨cmd⟩
+  `grep -c 'A5 falsifier' demo/shell/dock/layers/SlugEditLayer.vue` → **0** at close.
+- **A-1-before-A-3** — recorded and **inert** in this partition (§1.4): the SLUG-CHAIN cure surface
+  is in no §4 row, and **no SLUG-CHAIN byte was needed** — `SlugEditLayer.vue` was touched for target
+  geometry and a name only. No §3a escalation on that axis.
+- **`navprobe.mjs`** — `execute, no write`, **spent once** (a.7).
+- **U-F12 Pole B** — no dark-accent work; the cure touches geometry and names only.
+- **`scripts/dev/dev.sh`** — never opened, never staged.
+- **glass-ui and every sibling tree READ-ONLY** — `node_modules/@mkbabb/glass-ui/**` was read for the
+  premises in a.1 and never written; no producer row was hacked demo-side.
+- **E13** — four-path sweep re-run at this seat's clock ⟨cmd⟩
+  `/usr/bin/find <each path> -maxdepth 1 -type f -name '*.md' -newermt "2026-09-18 23:52"` → **only
+  `INBOX.md` itself** (self-excluded, SELF-COUNT law). **0 new letters · 0 new `I-n` · 0 UNREAD in
+  this unit's scope**; the UNREAD rows (I-30 · I-31 · I-32 · I-33 · I-34 · I-35 · O-20) route by
+  their own cells to the X formation mail seat / X-W0.j / X-EXT / X·KF, and X-EXT-1 routes to
+  `X.W4.g`, which the census FAIL keeps closed.
+
+**STATUS: PARTIAL.** Every byte of §3 Scope 1–3 and §5's mechanism is landed and committed; **A3,
+A4, A5 GREEN**; **A1 and A2 RED-CARRIED on two rows each that §4a assigns to unit c and §6 books to
+gate C4**. One §3a escalation carried out (a.7). No bounds were widened, no gate was narrowed, and
+no assertion was relaxed.
