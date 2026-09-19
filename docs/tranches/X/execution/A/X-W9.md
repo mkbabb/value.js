@@ -2515,3 +2515,282 @@ because a pathspec commit also carries the **unstaged working-tree edits of the 
 `LEDGER.md` is written concurrently by four tracks, so the safe idiom on it is **write → `git add`
 → `git commit` in one uninterrupted step**, never write-then-measure-then-commit. This seat left a
 measuring gap and a sibling's act landed in it.
+
+---
+
+## Check 2
+
+SERVED MODEL: `claude-opus-5[1m]` · **FRESH ADVERSARIAL L-20 PASS 2, VERIFY-ONLY** — this seat
+authored **no cure byte, no unit receipt, no line of `## Close`, `## Check 1` or `## Repair 1`**.
+Every one of the **33** gates was re-run at this seat's own commands against the settled bytes of
+`tranche-u` @ **`f7dae874` → `14b25279`** (a Track-B chassis commit landed mid-pass; ⟨cmd⟩
+`git diff --stat f7dae874..HEAD -- src/ test/ scripts/ fixtures/ eslint.config.js package.json
+docs/tranches/X/waves/W9.md docs/tranches/X/execution/A/X-W9.md docs/tranches/V/ARCHITECTURE.md
+docs/tranches/V/coordination/ docs/tranches/V/megatranche/` → **prints nothing**, so **no subject of
+any reading below moved under this seat**), node **v26.0.0**, darwin arm64, 2026-09-18 23:0x–23:1x
+EDT. `dist/subpaths/` was verified to BE the settled bytes' build before any surface gate ran
+(⟨cmd⟩ `find src -name '*.ts' -newer dist/subpaths/css.d.ts` → **nothing**). Both probes and the
+coverage command were **double-run** (⟨cmd⟩ `diff -q run1 run2` → silent, three times).
+
+**VERDICT: NOT-CONFORMANT.** **All 33 gate verdicts reproduce — 19 GREEN · 14 RED, zero divergence
+from the close, from Check 1, and from Repair 1's re-readings.** Bounds are clean over **28**
+commits and **75** paths, no masking construct exists anywhere in the diff, E-3 holds to the byte,
+the four-verb line moved lawfully, and the record is honest about every figure it publishes —
+including the four it corrects against itself. The row is **NOT promoted**, for the two reasons
+Check 1 named and Repair 1 could not retire: **D-1** (seven RED gates whose only owner is this
+wave's own `X-W9.f`/`X-W9.h`, still precondition-blocked on X-W4) and **D-2** (§Format And Lint
+Cadence unmet — the tree at HEAD does not typecheck and eleven of this wave's own artifacts are
+RED). Both are HIGH; the bar admits zero. **Incomplete, not wrong** — and this pass adds four
+independent measurements that make the *incompleteness* sharper rather than the *wrongness*.
+
+### CH2.0 CRASH-RECOVERY sweep (standing law)
+
+⟨cmd⟩ `git status --porcelain` at entry → **15 rows**. ⟨cmd⟩ `git status --porcelain --
+docs/tranches/X/execution/A/X-W9.md docs/tranches/X/execution/LEDGER.md` → **empty**; ⟨cmd⟩
+`git diff --cached --name-only` → **empty**. **No killed predecessor's partial work on the check-2
+seat exists; nothing inherited, nothing stashed, nothing restored, no blanket anything.**
+`scripts/dev/dev.sh` is among the fifteen — ⟨cmd⟩ `git status --porcelain -- scripts/dev/dev.sh` →
+` M scripts/dev/dev.sh`, **never touched, never staged, never read for edit**. The ten dirty
+`demo/**` rows (X-W4 / X-W7 seats), `CARRY-LEDGER.md` and the three untracked X-W1 / X-W4-evidence
+paths are sibling seats' and were left exactly as found.
+
+### CH2.1 Every gate re-run at this seat's own commands — 33 of 33 verdicts reproduce
+
+| # | this seat's command → reading | close / Check 1 verdict | reproduces |
+|---|---|---|---|
+| G1 | ⟨cmd⟩ `node …/probes/src-surface-totality.mjs` ×2, byte-identical → exit 1, dies at `:74` `TypeError: TR.decomposeMatrix3D is not a function`; ⟨cmd⟩ `grep -c '^ok'` → **22**, ⟨cmd⟩ `grep -c '^RED'` → **0** before the crash | RED | **YES** |
+| G2 | ⟨cmd⟩ `npx vitest run test/parser-totality.test.ts` → **123 passed (123)** | GREEN | **YES** |
+| G3 | LIB-02 → **30** (`value=1 css=19 easing=1 math=6 transform=3`) | RED | **YES** |
+| G4 | `ok LIB-01 easing(name) is total over the Object.prototype key set`; control `ease` ok, unknown → `easing_name_unknown` | GREEN | **YES** |
+| G5 | ⟨cmd⟩ `npx eslint 'src/css/**/*.ts' --rule '{"@typescript-eslint/no-non-null-assertion":"error"}'` → **4 problems**, all `src/css/timeline.ts:23:36 :38:36 :71:51 :72:49` | RED | **YES** |
+| G6 | ⟨cmd⟩ `npx vitest run test/transform/path-geometry.test.ts` → **43 passed (43)**; probe `ok MTS-03` 4/4 | GREEN | **YES** |
+| G7 | probe `ok MTS-04 compact == expanded (31.403311569547547)`, \|Δ\| = **0** | GREEN | **YES** |
+| G8 | `getTotalLength` over the four truncated runs → `0 · 0 · 0 · 5`; ⟨cmd⟩ `typeof` → `number` 4/4, `Number.isFinite` → `true` 4/4 | GREEN | **YES** |
+| G9 | the guard read at its own commit: ⟨cmd⟩ `git show 474846ce -- src/transform/decompose.ts` → `if (scaleX === 0 \|\| scaleY === 0 \|\| scaleZ === 0) return null;` added above the row-2 division, joining the module's existing null ladder. At the settled bytes the subject is retired by `4be22189` | GREEN at its own commit; SUPERSEDED-BY-G27 | **YES** |
+| G10 | ⟨cmd⟩ `npx eslint 'src/transform/**/*.ts' 'src/foundation/**/*.ts' --rule …` → **0 problems** | GREEN | **YES** |
+| G11 | ⟨cmd⟩ `npx vitest run test/math.test.ts` → **70 passed (70)** | GREEN | **YES** |
+| G12 | ⟨cmd⟩ `node …/probes/consumer-surface-compile.mjs` → exit 1 · **2**; `ok LEG1 public return types are nameable from their own subpath`; both LEG2 rows stand (TS2307 + `ERR_PACKAGE_PATH_NOT_EXPORTED`, the 5 fourier sites named) | RED, LEG1 GREEN | **YES** |
+| G13 | ⟨cmd⟩ `grep -c '^declare ' dist/subpaths/*.d.ts` → **20** (`css 6 · value 6 · quantize 6 · easing 2 · color 0 · math 0 · transform 0`) | RED | **YES** |
+| G14 | ⟨cmd⟩ `grep -o '_2' dist/subpaths/css.d.ts \| wc -l` → **60**; ⟨cmd⟩ `grep -c` → **26** lines; probe names the same 5 mangles | RED (redder) | **YES** |
+| G15 | `'serializeCssValue' in CSS` → **true**; `serializeCssValue(parseCssValue("a : b").value)` → **`{"ok":true,"value":"a: b"}`** | GREEN | **YES** |
+| G16 | ⟨cmd⟩ `find src -name '*.ts' -exec wc -l {} + \| sort -rn` → max **672** (`src/transform/path.ts`); then 539 · 519 · 476 · 377 · 331 | GREEN (ratchet falls 899 → 672) | **YES** |
+| G17 | `ok LIB-04 colour types cross src/color/'s boundary through the barrel only` — **0** modules | GREEN | **YES** |
+| G18 | `test/v4-color-behavior.test.ts` **8** + `test/color-anchors.test.ts` **12** = **20 passed** | GREEN in bounds | **YES** |
+| G19 | ⟨cmd⟩ `node …/evidence/W9/coverage-by-export.mjs` ×2, `diff -q` silent → exit 0, `TOTAL 74 / 75 = 98.7%` and `TOTAL 71 / 75 = 94.7%`, each printed beside its own denominator command | GREEN | **YES** |
+| G20 | ⟨cmd⟩ `npm pack --ignore-scripts --pack-destination <scratch>` (dist verified fresh, so the tarball is the settled build) → `node scripts/ci/verify-packed-surface.mjs <tarball>` → exit 1, **4× TS2305** (`DecomposedMatrix2D` `DecomposedMatrix3D` `Mat4` `Vec4`) + **6× TS2339** on `fixtures/public-types/value-v4.ts` | RED | **YES** |
+| G21 | ⟨cmd⟩ `grep -rn 'sampleColorRamp\|mixColorsInto\|toRgba8Into' src/` → **0** | RED — UNATTEMPTED | **YES** |
+| G22 | `'toHex' in color` → **false** · `'easingNames' in easing` → **false** | RED — UNATTEMPTED | **YES** |
+| G23 | `easing(k) === easing(k)` and `.value` identity over the four CSS keywords → **false 4/4, both spellings** | RED — UNATTEMPTED | **YES** |
+| G24 | ⟨cmd⟩ `node …/probes/fourier-value-import-drift.mjs` → **`ERR_MODULE_NOT_FOUND`** on `…/fourier-analysis/web/node_modules/@mkbabb/value.js/dist/value.js` | RED, escalation unrelieved | **YES** |
+| G25 | `Object.keys(bezierPresets).length` → **30** | GREEN (declared fence) | **YES** |
+| G26 | ⟨cmd⟩ `grep -rn 'colorScale\|sampleToSVGPath' src/` → **0** | GREEN (declared fence) | **YES** |
+| G27 | `./transform` keys → **`PathGeometry, getPointAtLength, getTotalLength`**; **0** of the six present. Other direction measured at the consumers' own bytes: ⟨cmd⟩ `grep -rn '<the six>' ../keyframes.js/src demo/` → **0**, and `PathGeometry` is imported at `../keyframes.js/src/animation/svg/morph-svg.ts:45` and `morph-geometry.ts:18` | GREEN | **YES** |
+| G28 | R1 leg re-run wider than any prior seat (CH2.7 ①): **949 calls · 0 throws from every entry that declares a string parameter**. ⟨cmd⟩ `ls …/evidence/W9/bench-table-4.1.md` → **No such file or directory**; accepted/reject legs unmeasured | RED | **YES** |
+| G29 | ⟨cmd⟩ `node -e 'require("./package.json").version'` → **`4.0.0`**; ⟨cmd⟩ `git tag -l \| grep -c 4.1.0` → **0**; ⟨cmd⟩ `grep -n '@mkbabb/value.js' ../keyframes.js/package.json` → `:71 "4.0.0"` | RED — UNATTEMPTED | **YES** |
+| G30 | ⟨cmd⟩ `grep -c 'src/parsing' docs/tranches/V/ARCHITECTURE.md` → **0** | GREEN | **YES** |
+| G31 | dependencies **exactly** `{"@mkbabb/glass-ui":"^7.0.0","@mkbabb/keyframes.js":"^6.0.0"}`; `@mkbabb/parse-that` absent from `dependencies` **and** `devDependencies` | GREEN | **YES** |
+| G32 | ⟨cmd⟩ `sed -n '170,182p'` on the working tree **and** ⟨cmd⟩ `git show HEAD:…` on the committed blob — **identical**, both still `c.startsWith(upper) \|\| c.startsWith(component)`; `demo/color-session/colorSpaceInfo.ts` still keys `ictcp` `:261` / `jzazbz` `:287` by prose labels | RED — UNATTEMPTED | **YES** |
+| G33 | ⟨cmd⟩ `ls docs/tranches/V/coordination/*-inbox-2026-09-18-*.md` → **5**; ⟨cmd⟩ `grep -cE '^\| *O-3[4-8] ' INBOX.md` → **5**; the keyframes packet quotes the exact pin and states *"The 4.1 tag has NOT been cut yet"* at `:17` | GREEN on its three readable legs | **YES** |
+
+**33 of 33 verdicts reproduce. Zero divergence.** No GREEN any prior seat claimed failed at this
+seat's hand, and no RED any prior seat claimed was secretly green.
+
+### CH2.2 The clean axes — measured here, not inherited
+
+- **Bounds (axis 2).** ⟨cmd⟩ `git show --name-only --format=''` over **all 28** commits of this wave
+  (11 substance ⊕ 9 unit receipts ⊕ close ⊕ ledger ⊕ close-correction ⊕ check-1 ⊕ 3 repair-1 ⊕ the
+  R1.8 correction), unioned and sorted → **75 paths**. Check 1's 74-over-23 reproduces exactly; the
+  one new path is Repair 1's `coverage-by-export.addendum-2026-09-18.md`. ⟨cmd⟩ the union filtered
+  through `dev\.sh|eslint\.config|package\.json|CHANGELOG|node_modules|^demo/|^api/|^e2e/|^\.github/|src/color/model\.ts|fixtures/`
+  → **0 hits**. Every `src/`, `test/` and `scripts/ci/` path sits in a §File Bounds `modify`/`create`
+  row — including the two declared split products `src/css/rules.ts` and `src/css/serialize.ts`, whose
+  *"exact names bind at open"*. ⟨cmd⟩ `scripts/dev/dev.sh` summed across all 28 commits → **0
+  appearances**.
+- **No masking fallback (axis 3).** ⟨cmd⟩ over the **added** lines of all twelve cure commits,
+  `test\.skip|it\.skip|describe\.skip|\.only\(|@ts-ignore|@ts-expect-error|eslint-disable|xit\(|xdescribe\(|as any|as never|allowlist|skipIf`
+  → **two hits, both about the same deleted cast**: `c18a78f8` added `easing(name) as never` and
+  `4a27a65d` **deleted it**, the second hit being the prose that records the deletion. ⟨cmd⟩
+  `grep -rn 'catch' src/` at HEAD → **0**: the product tree carries **zero** try/catch. The three
+  `try` blocks in the diff were read whole at this seat: `test/parser-totality.test.ts` and
+  `test/math.test.ts` capture the throw **so it can be asserted**, and
+  `scripts/ci/verify-packed-surface.mjs` carries three — `:232` the workspace install, `:304` which
+  **rethrows with the export's name** (`/${entry} ${name} threw on a valid invocation: …`) and `:320`
+  which **rethrows anything that is not `ERR_PACKAGE_PATH_NOT_EXPORTED`**. Not one swallows a defect.
+  ⟨cmd⟩ `git status --porcelain \| grep -c node_modules` → **0**: no patched dependency. **No
+  allowlist, no copied producer selector, no silently narrowed assertion** — Repair 1's helper
+  re-annotation was read at the bytes and every assertion in the file is still `threw(...)` /
+  `toHaveProperty("ok")` / `toMatchObject`, and it **deleted** a type lie rather than adding one.
+- **E-3 (axis 5).** ⟨cmd⟩ `git diff --stat ba4e1de5..HEAD -- docs/tranches/V/megatranche/registry/
+  docs/tranches/V/megatranche/audit/probes/ eslint.config.js package.json CHANGELOG.md
+  scripts/dev/dev.sh` and the nine sibling specs `W1..W8 W10 W11` → **prints nothing**. The
+  adjudicated registry, all four probes, every sibling spec and the three cut-bearing manifests are
+  **byte-untouched across the entire wave window**, not merely by this wave's own commits. `W9.md`
+  moved **3 lines for 3** (⟨cmd⟩ `git diff -U0 ba4e1de5..HEAD -- …/W9.md \| grep '^@@'` →
+  `@@ -17,3 +17,3 @@`, one hunk; ⟨cmd⟩ `wc -l` → **522**), which is §File Bounds' own named
+  exception and leaves every `W9.md:NNN` coordinate this record and the successors cite undisplaced.
+- **Commit families (axis 4).** Every §Commit Plan row maps to exactly one commit except row 5
+  (`a692069f` ⊕ `5ba934fc`, the second a truthfulness correction of the first's *error message*
+  wording — its own meaning, and `--amend` on an already-shared tip is forbidden by the standing law:
+  **INFO, lawful**) and row 13 (`c23e1795` ⊕ `bac0d467`, close report ⊕ ledger row — *"the evidence
+  transcript and this section ride one commit; the LEDGER row rides its own"*, which is the standing
+  one-commit-per-meaning rule, not a split family). **Rows 9 and 11 were never taken** — absent, not
+  split (CH2.3 D-1). Row 12's declared family is intact in one commit (`8f0a0e79` → 5 packets ⊕ 5
+  `INBOX.md` rows ⊕ the evidence file, 7 files / 978 insertions). Runbook §3.4's lock table names no
+  X-W9 row beyond the spec's own row 9.
+- **No peer-repo byte (RD-11).** ⟨cmd⟩ `/usr/bin/find ../keyframes.js/docs ../glass-ui/docs
+  ../sci-report/atlas/docs ../fourier-analysis/docs -name '*2026-09-1[89]*'` → four hits, **all
+  glass-ui's own** (`glass-outbound-…-valuejs-o26-reply.md`, already rowed I-35; a KF.W6 BH relay we
+  sent through the standing mail path; two of glass's own execution dirs). **No packet of this wave
+  is copied into a peer tree**, exactly as RD-11 orders and R-6 books.
+- **E13 mail (axis 6).** A **per-row status-cell** `awk` over `INBOX.md` — never a bare line grep
+  (LW-5's own lesson) — returns **3 UNREAD of 35 `I-` rows: I-32 · I-33 · I-34**. Each row was read
+  whole here: I-32 is glass-ui's O-20 disposition (*"the bump is yours, in your tranche … Nothing in
+  this letter asks you to hold"*), I-33 its constellation relay, I-34 a bbnf-lang letter *"addressed
+  to bbnf-lang, not to us"* whose own cell says **"no obligation is minted here"**. **None names the
+  library band, the 4.1 cut, the parser, `./transform`, `./math` or the five packets.** **0 UNREAD in
+  X-W9's scope — this wave does not close with unread mail.**
+- **The four-verb line (axis 7).** AUDITED `yes` and SPECIFIED `yes` unmoved; IMPLEMENTED at
+  **PARTIAL 2026-09-17** with its reason and its gate tally; **VERIFIED unmoved at `no`**. ⟨cmd⟩
+  `grep -n -A6 '^\*\*Opens after\*\*' docs/tranches/X/waves/W11.md` confirms X-W11 is *"the release
+  and verified close"*, so the close was right not to reach for that stamp. **Moved lawfully.**
+- **The record's published figures (axis 9).** Re-measured independently: the **55** `npm run lint`
+  problems with **0** carriers outside `docs/tranches/**`; `npm run typecheck` **exit 2, 1 error**
+  (Repair 1's 3 → 1 reproduces exactly, and the survivor is the out-of-bounds carrier it named); the
+  vitest tally **`Test Files 4 failed | 32 passed (36)` · `Tests 13 failed | 600 passed (613)`** with
+  the per-file split re-derived by ⟨cmd⟩ `grep -c 'FAIL  <file>'` → `v4-css-emerging` **10** ·
+  `v4-c1` **1** · `spectrum-luma` **1** (inherited) · `reka-binding-idiom` **1** (inherited); the
+  union's path count; the `_2` 60/26; the bare-`declare` 20; the max-LoC 672; the coverage 74/75 and
+  71/75. **Every one reproduces.**
+
+### CH2.3 Defect register
+
+| id | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| **D-1** | **HIGH** (carried, **UNCURED**) | **Seven RED gates have no relief of the kind the bar admits — G21 · G22 · G23 · G24 · G28 · G29 · G32** — and with them the spec's own **Goal criterion clause 4** is FALSE at the bytes. §Disjointness §4a's sequencing is real and was obeyed correctly, but it defers a *time*, not an *owner*: all three reliefs the bar admits transfer ownership **away** from the wave (producer / later wave / spec-named honest-RED id), and §4a transfers nothing. §COMPLETABLE 2 says in the spec's own words *"No producer dependency … no Glass-8 trigger gates any unit"*; X-W11 **consumes** the 4.1.0 tuple, it does not author it. §Dispositions CC-088 reads *"a ninth carry may not happen"* — the ninth carry happened | ⟨cmd⟩ `version` → **4.0.0**, `git tag -l \| grep -c 4.1.0` → **0** · `grep -rn '<SCI-1>' src/` → **0** · `'toHex' in color` → false · `easing` identity **false 4/4** · `bench-table-4.1.md` **absent** · `ConsoleRail.vue` still prefix-matches **at HEAD's own blob** · G24 `ERR_MODULE_NOT_FOUND`. **Precondition re-read at this seat, immediately before this act**: ⟨cmd⟩ `awk -F'\|' '/^\| X-W4 \|/{print $4}' …/LEDGER.md` → **`**OPEN 2026-09-17**`**; ⟨cmd⟩ same for X-W8 → `planned`. §4a's disjunct *"or runs while neither is open"* therefore still fails on X-W4 alone | **A repair round behind X-W4's close, not a rewrite.** Re-dispatch `X-W9.f` and `X-W9.h` under the unchanged spec (**ESC-W9R1-SEQUENCING**), carrying **ESC-W9R1-BOUNDS-GRANT**, then CHECK 3. Three independent seats (close · Check 1 · Repair 1) read the deferral the same way; this is the fourth reading and it agrees at its own command |
+| **D-2** | **HIGH** (carried, **PARTIALLY CURED**) | **§Format And Lint Cadence is not met: the tree at HEAD does not typecheck and eleven of the thirteen RED tests are this wave's own** — correct cures colliding with artifacts that assert the pre-cure shape. The spec requires a green `npm run lint`, `npm run typecheck` and `npm test` *"after each integration batch and before close"* | ⟨cmd⟩ `npm run typecheck` → **exit 2**, `test/v4-css-emerging.test.ts(12,10): error TS2459` (Repair 1's 3 → 1 reproduces) · ⟨cmd⟩ `npx vitest run` → **`Tests 13 failed \| 600 passed (613)`**, of which `v4-css-emerging` **10** and `v4-c1` **1** are this wave's · ⟨cmd⟩ `npm run lint` → **55**, every carrier under `docs/tranches/**` (X-W8 G-6's ignore), **0** under `src/` or `test/` | **ONE bounds grant, unchanged.** Repair 1 cured the single carrier §File Bounds admits (`test/parser-totality.test.ts`, `4a27a65d`) and escalated the other three by name. `test/v4-css-emerging.test.ts`, `test/v4-c1.test.ts` and `fixtures/public-types/value-v4.ts` are **absent from §File Bounds entirely** (⟨cmd⟩ `grep -c` each in `W9.md` → **0 · 0 · 0**); each takes one mechanical edit, and the third also unblocks **G20**. **No seat masked any of it: four units and two verify seats raised it and not one wrote a `test.skip`** |
+| **D-3** | MINOR (carried) | **G14 moved REDDER over a wave that owns it** — `_2` occurrences 58 → **60**, lines 25 → **26** | ⟨cmd⟩ `grep -o '_2' dist/subpaths/css.d.ts \| wc -l` → **60** (double-run) | Mitigated, unchanged: declared as **LW-1**, root measured by X-W9.d (the dts rollup keys its entity cache on the **import-specifier string**, so the copy rides in under `src/value.ts`'s `"./color/index"` spelling, which no module under `src/css/` can reproduce), three re-export variants measured ineffective, and the +2 is the forced consequence of publishing `serializeCssValue`, which **G15 required**. Carriers `src/value.ts` / `src/quantize.ts` are absent from §File Bounds. **Does not block** |
+| **D-4** | MINOR → **CURED, verified here** | Check 1's *"`coverage-by-export.md` publishes a denominator the settled bytes no longer carry"* | ⟨cmd⟩ `node …/coverage-by-export.mjs` ×2 → `74 / 75 = 98.7%` and `71 / 75 = 94.7%`; ⟨cmd⟩ `ls …/coverage-by-export.addendum-2026-09-18.md` → present, `e4d98aca`, **1 file**; the committed `coverage-by-export.md` is **byte-untouched** (E-3 honoured, addendum-beside not rewrite) | **Nothing owed.** The cure is the wave's own dated-addendum idiom and it reproduces |
+| **D-8** | **MINOR** (**NEW at this pass**) | **§Archaeology's fourth new guardrail did not land.** The spec's own anti-recurrence clause reads *"The lint rule is **scoped and enabled in-tree**, so the crash **shape** — not just the instance — is prevented; the crash was authored by a `!` that silenced `noUncheckedIndexedAccess`, and until this wave `eslint` had no rule that could see it."* At HEAD it still has none: G5 and G10 are GREEN/RED only under an **explicit `--rule` flag**, so a new `!` under `src/css/`, `src/transform/` or `src/foundation/` would **not** redden `npm run lint` and CI would not see it | ⟨cmd⟩ `grep -n 'no-non-null-assertion' eslint.config.js` → **no match**; ⟨cmd⟩ `npm run lint` → 55 problems, **none** of them a non-null assertion | **Rides D-1, and is one more thing D-1 costs.** §4a makes `X-W9.f` the file's **sole writer** and §Commit Plan row 9 binds both rule objects into the cut commit, so no in-bounds seat could have landed it. Named here because the close's G5/G10 cells report the `--rule` readings without saying that the *shape* guardrail behind them is still absent from the repo. **Does not block on its own** |
+| D-5 · D-6 · D-7 | INFO (carried) | the `672 > 609` receipt slip (already corrected in-record as **LW-2**, and `.b` booked it first and correctly) · three receipts' `0 UNREAD` from a pattern the bold `**UNREAD` spelling defeats (**LW-5**; the conclusion survives at this seat's own per-row scan) · G33's *"sent"* = AUTHORED + ROWED (**RD-11's own mechanism**, booked as R-6) | re-measured at CH2.1/CH2.2 | Nothing owed |
+| **D-9** | INFO (**NEW at this pass**) | **G33 is tallied GREEN with one of its three declared legs unreadable** — the post-window `npm ls @mkbabb/value.js` in keyframes and fourier — because the window never opened | ⟨cmd⟩ `grep -n '4\.0\.0' …/keyframes-inbox-2026-09-18-value-4.1-cut-notice.md` → `:17` *"The 4.1 tag has NOT been cut yet"* | **Disclosed in-cell by the close itself** (*"GREEN on its three readable legs; the post-window `npm ls` leg is unreadable because the window never opened"*). The unmeasured leg is downstream of D-1, not a separate debt. Nothing owed |
+
+**Zero BLOCKER. Zero CRITICAL. Two HIGH.** The bar admits zero HIGH, so the row is not promoted.
+
+### CH2.4 Honest-RED adjudication — seven relieved, seven not
+
+**Relieved at the spec's own bytes, owner named, NOT counted against the wave:**
+
+| gate | relief, cited at the bytes | owner named |
+|---|---|---|
+| **G1** | **Spec-internal mutual exclusion, not a library defect.** §Hard Gate G27 orders the six symbols **deleted** (*"no shim, no forwarding export"*); §File Bounds orders this probe **`execute, no write (re-run unmodified)`**; the probe calls `TR.decomposeMatrix3D` unconditionally at `:74`. Both cannot hold, and no unit may lawfully write the probe. This seat's own run reaches **22 `ok` / 0 RED** before the crash — the wave's cures pass every assertion the instrument survives to make | ESC-W9a-PROBE-UNRUNNABLE → the sitting, two named options; read staged per **CC-096**, which §Dispositions FOLDS into this wave |
+| **G3** | **The gate's name and its cited leg measure different classes.** This seat re-measured the remainder itself rather than inheriting the diagnosis (CH2.7 ①): **all 14 throwing exports** are (a) arity/shape violations of the published `.d.ts` (11), (b) the ES class-constructor rule (`PathGeometry` called without `new`), or (c) the **spec-ordered** `./math` precondition policy §Scope 4 / G11 demanded. **Not one is an entry that declares a string parameter throwing on a string** | ESC-W9a-G3-LEG-SCOPE → the sitting; carriers include `src/css/syntax.ts`, absent from §File Bounds |
+| **G5** | **90 of 94 retired** (grammar 72 → 0, stylesheet 18 → 0). The 4 survivors are all `src/css/timeline.ts`, which §File Bounds lists at wave level but **no unit's writable set contains** — a seat that wrote it would have written outside *its* bounds. Read at the bytes here, none is a live crash (CH2.7 ③) | ESC-W9a-TIMELINE-NNA → the sitting, to assign the file; the cure is four lines |
+| **G12** | **LEG1 — the leg the barrels own — is GREEN**, the exact two names the falsifier lists. LEG2 is the **root specifier**, which lives in `package.json` (X-W9.f's file) and whose absence is a position this repo **already SENT** as **O-12**. §Triumvirate Dispatch names this exact shape an **adjudication, not an edit** | ESC-W9d-ROOT-AND-SYNTAX (a) → the sitting, two named options |
+| **G13** | **33 → 20, thirteen retired.** The remaining 20 arrive under `src/value.ts` / `src/quantize.ts` spellings the dts rollup's entity cache keys on; **both files are absent from §File Bounds**, and three in-bounds re-export variants were *measured* ineffective | ESC-W9d-DTS-SPELLING → the sitting |
+| **G14** | Same root as G13, plus the +2 that **G15 required** (D-3) | ESC-W9d-DTS-SPELLING → same |
+| **G20** | **The behavioural half landed and the hardcoded `strictTypes: 62` is gone** (⟨cmd⟩ `grep -n 'strictTypes'` → one **comment** recording the deletion, no emission; the smoke harness rethrows per export name at `:304-307`). The command dies **before** reaching that half, on `fixtures/public-types/value-v4.ts`, **absent from §File Bounds entirely** | ESC-W9e-FIXTURE-V4TYPES → the sitting; 14 stale lines, one deletion |
+
+**Unrelieved — G21 · G22 · G23 · G24 · G28 · G29 · G32.** Every one is owned by `X-W9.f` or
+`X-W9.h`, units of **this wave**; none is producer-owned, none is routed to a successor by the spec,
+and none is named honest-RED by id anywhere in `W9.md`. G24 belongs here too and not with the
+relieved set: its substrate escalation names **X-W9.f** as the hand that obtains 0.13.0 from the
+registry into a scratch directory, *and* the analytic arms it measures were never restored, so both
+halves of it wait on the same unrun unit. **That is D-1, and it is why this pass does not promote.**
+
+### CH2.5 The successors' `Opens after` conjuncts, measured against this wave
+
+| successor | its conjunct naming X-W9 | state at these bytes | verdict |
+|---|---|---|---|
+| **X-W10** | *"X-W5, X-W6, X-W7, X-W8, X-W9 **stable** (surviving structure fixed) AND the CC-104 precondition ruled"* (⟨cmd⟩ `W10.md:6-7`) | X-W9's **library structure** is fixed and measured here (PSL-1 derived · boundary `ok` · the god module split behaviour-neutrally · the ratchet fallen 899 → 672); its **published surface** is not. ⟨cmd⟩ the ledger reads **X-W5 `planned` · X-W6 `planned` · X-W7 `planned` · X-W8 `planned`** | **LAWFULLY BLOCKED — and not by this wave alone.** Four of the five conjuncts are `planned` and X-W10's own row already reads `BLOCKED-ON`. This check moves nothing for it |
+| **X-W11** | *"X-W0 … X-W10 are **IMPLEMENTED** (four-verb law; not 'closed', not 'reported')"* (⟨cmd⟩ `W11.md:6`), and §Dependencies makes *"the 4.1.0 tuple its input"* | `W9.md` §State reads **IMPLEMENTED: PARTIAL**; ⟨cmd⟩ `version` → `4.0.0`, no tag | **LAWFULLY BLOCKED on this wave**, and the block is load-bearing: it is the structural guard that keeps the un-taken cut from being inherited as done |
+
+Both successors are correctly blocked, and neither block is manufactured by this check.
+
+### CH2.6 The spec's own Goal criterion, at the bytes (axis 8)
+
+| clause | reading at this seat | verdict |
+|---|---|---|
+| 1 — *"no public entry throws on a string"* | **949 calls** — every exported function of all seven subpaths × a 13-string corpus (empty · whitespace · the nine empty-body colour functions · `__proto__` · `constructor`) — **0 throws from any entry that declares a string parameter**; the 14 that do throw are shape/arity violations, the `new`-less class, or the spec-ordered `./math` policy (CH2.7 ①) | **TRUE** |
+| 2 — *"no public signature returns a value its own `.d.ts` forbids"* | G8 `0 · 0 · 0 · 5` all finite `number` · G9's null ladder read at its own commit · G11 70 passed · G15 `Result`-typed | **TRUE on every leg the wave touched** |
+| 3 — *"every type a subpath returns is nameable from that subpath"* | **TRUE at the consumer** (G12 LEG1 `ok`) · **FALSE in the emitted bytes** (20 bare `declare`, G13) | **SPLIT** |
+| 4 — *"ships as one dated 4.1.0 cut whose exact-pin consumers were notified by packet before the tag"* | the **packets were sent** (5 authored · 5 rowed · the exact pin quoted before any tag) · the **cut was not taken** (`4.0.0`, no tag, no CHANGELOG entry, no bench table) | **FALSE** |
+
+**The goal criterion is NOT met**, which the close states in its own words — *"The wave delivered the
+surface and withheld the event"* — and which this second independent measurement confirms.
+
+### CH2.7 What this pass measured that pass 1 did not
+
+① **The clause-1 sweep, run at four times pass 1's width.** Pass 1 measured 0 throws *"from the
+eleven public parse/serialize/easing entries"*. This seat ran **every** exported function of all
+seven subpaths against the same 13-string corpus — **949 calls, 180 throws, 14 distinct exports** —
+and then read each of the fourteen at its own signature: `coerceToSyntax` (arity 2, called with 1),
+the four `collect*` readers (declared `Declaration[]`/rule arrays, not text), `serializeCssValue`
+(declared `CssValue`), `linearEasing` (declared numeric array), five `math` entries under the policy
+X-W9.c was **ordered** to enforce, `math.scale`'s stated equal-bounds refusal, and `PathGeometry`
+called without `new`. **Not one is a string entry throwing on a string.** This is the first
+independent confirmation of G3's relief *at a corpus wider than the gate's own*, and it holds.
+
+② **The retirement verified in the direction that can only fail at a consumer.** G27's falsifier has
+two arms; every prior seat measured the first. ⟨cmd⟩ `grep -rn '<the six>' ../keyframes.js/src demo/`
+→ **0**, and ⟨cmd⟩ `grep -rn 'value.js/transform' ../keyframes.js/src` → `morph-svg.ts:45` and
+`morph-geometry.ts:18`, **both importing `PathGeometry` alone**. **No MorphSVG seam is broken.**
+
+③ **G5's four survivors are shape, not crash.** Read at the bytes: `scroll[1]!` and `view[1]!` sit
+behind a successful `input.match(/^(scroll|view)\((.*)\)$/i)` whose group is `(.*)` — defined
+whenever the match is truthy — and `comma[0]!` / `comma[1]!` behind `comma.length === 2`. The
+clause-1 sweep confirms it: no timeline entry appears among the 14. **G5's RED is real and its cure
+is four lines, but it hides no live defect** — stated so a later seat neither over-reads nor
+under-reads it.
+
+④ **The split's seam drift was disclosed, not hidden.** The spec banked `265/381/153`; the tree
+carries **476 / 519 / 50**. ⟨cmd⟩ `psl-seam.md:29-38` names both causes at X-W9.d's own measurement —
+X-W9.a's cure landed 21 lines in first (899 → 920) and each product carries its own header (25 · 35 ·
+59) the banked 799-line sum never included — while **the edge property the seam was chosen for
+reproduces exactly**: two cross-seam edges, both out of `stylesheet.ts`, leaves elsewhere, acyclic by
+construction. Behaviour neutrality was proven before the cut landed (**933 cases · 0 mismatches**, 59
+round-trips · 0 failures). A divergence declared with its two measured causes is not a defect.
+
+⑤ **The de-circularised oracle is a cure, not a rename** — the failure mode §Archaeology says this
+class survived three times. `test/v4-color-behavior.test.ts` now asserts the IEC 61966-2-1 **shape**
+(a straight line through the origin below the knee at encoded `0.04045`, so bytes 1..10 are on the
+line and byte 11 is not) and **quotes no constant of either branch**; the independent vectors moved
+to `test/color-anchors.test.ts` (12 passed). ⟨cmd⟩ `grep -rn '12.92' test/` shows the old expression
+survives only inside a **comment that records what it was and why it was false**.
+
+### CH2.8 Superlatives, reported with the same provenance duty as defects (L-18)
+
+- **The RED-first guardrail held, and this pass re-proves it at the bytes**: ⟨cmd⟩ `git show
+  c18a78f8 --stat` → `test/parser-totality.test.ts` (222 +) ⊕ its 496-line failing capture, **and no
+  `src/` byte**. After three prior closures of this class against surfaces that did not hold it, the
+  instrument preceded the cure in the history for the first time.
+- **Zero try/catch in the entire product tree** at HEAD. Every cure is a narrowing or a typed
+  failure; `grammar.ts:181` returns `failure(source, "css_syntax", ["color components"])` where a
+  `slash[0]!` used to sit.
+- **Escalation discipline remains the wave's best feature, and Repair 1 extended it**: the repair
+  seat found **one** of Check 1's four carriers actually in bounds, cured it at the root (deleting a
+  type lie rather than adding one), and escalated the other three **by name with their one-edit
+  cures** rather than reaching for them. It also **corrected Check 1 at the bytes** (`parser-totality`
+  *is* in §File Bounds, `:91` and `:195`) instead of inheriting the error, and disclosed that its own
+  ledger act had been swept into a sibling's pathspec commit (**R1.8**) rather than letting a later
+  seat find three hashes where four acts happened. Four units and three verify seats, and **not one
+  masking construct in 75 paths**.
+
+### CH2.9 Disposition
+
+**NOT-CONFORMANT.** The row **stays `PARTIAL 2026-09-17`**; this seat sets no `CLOSED` stamp, moves
+no verb, and edits no spec. All 33 gate verdicts reproduce, bounds and E-3 are clean, mail is clean,
+and every published figure re-measures — but **two HIGH defects stand**, and the bar admits zero.
+Both are the same shape and neither is a fault of the units that ran: **the wave is incomplete
+because two of its nine units are precondition-blocked on a sibling wave that is still OPEN, and
+because the artifacts that assert on this wave's cures were never granted to any unit that could
+repair them.**
+
+What is owed, unchanged and now measured three times: **X-W4 closes → ESC-W9R1-SEQUENCING**
+(re-dispatch `X-W9.f` and `X-W9.h` under the unchanged spec) **carrying ESC-W9R1-BOUNDS-GRANT** (the
+three test/fixture paths) → **CHECK 3**. `ESC-W9-G24-SUBSTRATE`, `ESC-W9d-DTS-SPELLING`,
+`ESC-W9a-TIMELINE-NNA`, `ESC-W9a-PROBE-UNRUNNABLE`, `ESC-W9a-G3-LEG-SCOPE`,
+`ESC-W9d-ROOT-AND-SYNTAX`, `ESC-W9e-SHARMA-NO-SUBJECT` and `ESC-W9e-FIXTURE-V4TYPES` ride into that
+round unrelieved, every one naming a file or a ruling this wave may not write.
+
+**This check wrote no cure byte, moved no gate, and edited no spec.** Its only writes are this
+section and one appended ledger event line.
