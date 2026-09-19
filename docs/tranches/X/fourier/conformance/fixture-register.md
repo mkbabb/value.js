@@ -237,6 +237,184 @@ percentage is published** (X-9).
 
 ---
 
+## §3b The **walk assertions** — the §R / §M / §P7 / §D rows (appended by unit `d`, 2026-09-19)
+
+**Added by unit `d` under the §2c serial lock**; units `b`'s and `c`'s bytes above are untouched and
+this section renumbers nothing. The identity space is **`F8-WALK-*`**, disjoint from `F8-FIX-*` (unit
+`b`) and `F8-C31*` (unit `c`), so every published probe of both siblings is unaffected **by
+construction** — and re-measured after the append anyway, at §14.3 (SELF-COUNT law: a claim of
+non-interference that is not re-measured is a hope).
+
+**These rows are ASSERTIONS, not fixtures and not controls**, and the three kinds are kept apart
+because their cells are not the same shape. A **fixture** row (§2/§3) is *generated FROM an operation
+model* and asserts a wire shape. A **control** row (§3a) mutates one leaf and asserts which leaves
+fail. An **assertion** row *walks the live union and asserts a contract property across the round
+trip* — its cells are therefore *the assertion · its source operation model · the measured witness ·
+today's reading · the owner*. ▲ **The direction law (§1.1) is honoured in substance, not evaded**:
+every row below names the **operation model** its assertion is written against, and client-side
+coordinates appear **only** in the `measured witness` cell — as the site of the divergence being
+asserted over, never as a source of truth. §1.2's falsifier is anchored on `^| **F8-FIX-` and so does
+not reach these rows; the substantive rule does, and each row satisfies it.
+
+**EXECUTED BY**: `conformance/walk/union-walk.mjs` — **AUTHORED at F.W8 unit `d`, EXECUTED at
+F.W9/W10**, on F.W9's deploy spine. **No run under this wave, in any mode.** The script mutates
+fourier and value.js *data* in a non-production environment (that mutation is the instrument, is
+declared, and is subtracted — §3b.4); it writes **zero bytes** of either tree, in any verb, ever.
+Every assertion id below is the id the script records, so the register and the run report difference
+against each other rather than being read side by side.
+
+**Anchors**: every coordinate in this section was re-resolved at **fourier `21e11b0`** (worktree 0
+dirty) and value.js **`tranche-u`** on **2026-09-19** by this seat (D-19). The full drift table is
+§14.1. A coordinate is an address, not an identity.
+
+### 3b.1 §R — round-trip, persistence and cache identity (gates **G6 · G7 · G8 · G13**)
+
+| id | spec row | the assertion the walk executes | source operation model | measured witness (2026-09-19) | today's reading | owner | gate |
+|---|---|---|---|---|---|---|---|
+| **F8-WALK-R01** | §R **R1** (`BC-9 / C-6 / D-20 ⊕ SS-C-2`) | a gallery replay **reproduces its own frame**: every persisted `AnimationSettings` field round-trips **in the server's declared unit**, and every client constant that disagrees is **reported, not reconciled** | `AnimationSettings` — `api/models/shared.py:65` (fps `:66` · duration `:67` · max_circles `:68` · easing `:69` · speed `:70` · active_bases `:71`) | server `30 / 30.0 s / 80` ⟂ client `60 / 5000 / 100` (`web/src/lib/defaults.ts:24-28`) ⟂ renderer `maxCircles = ref(80)` (`BasisCanvas.vue:51`) and `duration = ref(20000)` *"// ms per full cycle"* (`stores/animation.ts:77`) | ⊘ **RED at authoring**: `duration` is declared **SECONDS** server-side against **5000 ms** and **20000 ms** client-side — a **1000× fork across three declarations**, which must be reconciled **in the contract before the fixture can assert anything**. `speed` agrees **by luck** — unconstrained on both sides (`shared.py:70`, no validator) | **F.W5** (the three-way reconciliation, with units) · **fourier API row** | **G6** |
+| **F8-WALK-R02** | §R **R2** (`SS-C-1`, write leg) | the update verb reaches **every atom of the version-identity set**, **or** the atom set is **re-declared** — stated either way, never left divergent. Two limbs: the unreachability must be **OBSERVABLE** (a refusal whose diagnostic **names the field**, never a silent drop), and the re-declaration must stand **in this register** | `VisualizationUpdate` — `api/models/visualization.py:198` (five fields, `extra="forbid"` `:209`) ⊕ the atom set `ATOM_KEY_ORDER` — `api/lib/crud/atomdiff.py:29` | the five patchable fields are `visibility · title · description · tags · palette_slug`; `animation_settings` is **atom 4 of 5** and is **not among them**. The client twin `VisualizationPatch` (`web/src/lib/types.ts:262-268`) is the same five | ⊘ **RED at authoring**: a preference the control claims to set is **silently non-persistent** after create. **THE RE-DECLARATION, STATED HERE SO IT IS NOT LEFT DIVERGENT**: while `VisualizationUpdate` stands at five fields, the **update-reachable** atom set is `{palette_slug}` and the **create/fork-only** atoms are `{active_bases, n_harmonics, contour_settings, animation_settings}`. Either the verb gains them or the contract says this — F.W8 says it | **F.W5** (the atom set) · **fourier API row** (the verb) | **G6** |
+| **F8-WALK-R03** ⊙ | §R **R3** (`fr-BasisSelector M-9` = L-M4 / C-20) | a minted off-state `[]` is **REFUSED WITH A DIAGNOSTIC naming `active_bases`**, and the refusal **creates nothing** — never laundered, never silently substituted. The value-side mirror asserts the same cardinality law on `colors: []` | `VisualizationCreate.active_bases` — `api/models/visualization.py:186` (`Field(min_length=1, max_length=16)`) ⊕ the remix/patch arm `:280` ⊕ value.js `colorsArraySchema` — `api/src/modules/palette/schema.ts:33` | the mint still stands: `BasisSelector.vue:102` *"Go to \"off\" — allow empty selection (canvas handles it gracefully)"*; the laundering still stands at **two** store sites — `stores/workspace.ts:362-365` and `stores/gallery.ts:338-340` (`active_bases?.length ? … : ["fourier-epicycles"]`) — and the loader both **refuses to restore** an empty set (`useWorkspaceLoader.ts:72-73`, gated on `?.length`) and **force-prepends** on first data (`:150-153`) | ⊙ **RULED — and the ruled branch is the only one authored** (COHESION **§0j.D F-SS4REST R5**: *"**STOP MINTING** the off-state `[]`; the contract does not admit it (no silent rewrite)"*). The **server half** is already conformant (`min_length=1`); the **client half** — the mint and the two laundering sites — stands at HEAD and is **F.W3/W4's cure, claimed by no part of F.W8** | **owner ruled** · **F.W3/W4** (stop minting) | **G7** |
+| **F8-WALK-R04** ‡ | §R **R4** (`fr-ContourSettings B-4` = C-1 ∘ C-25/R6-8, ⊕ `i-7` folds) | the derive leg asserts **`contour_hash` INSTABILITY** across an **ML-threshold change**: two derives differing **only** in `ml_threshold` (0.50 → 0.85) must return **different** hashes — *an operation's cache identity must be a superset of the request fields the operation consumes* | `ContourSettings` — `api/models/shared.py:10-20` (`ml_threshold` `:19` · `ml_detail_threshold` `:20`), consumed by `extraction_cache_key(image_sha256, settings)` — `api/services/image_storage.py:248` | the cache key is a **CLOSED literal over ten settings fields plus `_v`** (`:250-265`) — `strategy · resize · blur_sigma · n_classes · min_contour_length · min_contour_area · max_contours · smooth_contours · n_points` — **omitting both ML fields**; `api/routers/images.py:220` `find_one` → `:221-226` `return contour_response(existing)` **short-circuits BEFORE** `compute_contours` (`:230`). `auto` is the shipped default (`web/src/lib/defaults.ts:9`), so the control is live on every fresh workspace | ⊘ **RED at authoring, and the RED is the point**: today the hash is **STABLE** across the change — the user drags 0.50→0.85, waits out the debounce and receives the 0.50 contour **with no signal**. **The derive step cannot be trusted while a cache key under-determines its own operation** | **fourier API row** | **G8** |
+| **F8-WALK-R05** | §R **R5** (`MISSED-E`, the EasingPicker save-race) | **the last value the client sent is the value persisted** — asserted at the verb that actually accepts the atom (create/fork, per R02), under its **own** idempotency key, because a replay of an earlier key would return the FIRST body and assert nothing about the last value | `AnimationSettings.easing` — `api/models/shared.py:69`, carried on `VisualizationCreate.animation_settings` | the write reaches persistence through a **500 ms `watchDebounced`** (`VisualizationView.vue:53-64`, writing `active_bases`/`easing`/`speed` into `store.animationSettings`) while `saveVisualization` reads `toRaw(animationSettings.value)` **synchronously** (`stores/workspace.ts:356-369`, the atom at `:368`) | ⊘ **FINDING — THE BANKED SEAM'S NAME DOES NOT EXIST AT HEAD.** The lock says *"the flush seam is the banked L-12/C-25 `setEasing` action — **do not invent a second seam**"*; ⟨cmd⟩ (base `$F`) `grep -rn "setEasing" web/src` → **no output**, double-run. The walk therefore asserts the **observable** property and **invents no seam**; the naming question is **routed, never resolved here**. ▲ **The UI-timing half is DECLARED UNASSERTABLE by this instrument, not skipped**: *"the last **user-visible** value"* is a property of the debounce window and belongs to **F.W3/W4's e2e**. Composes with **SS-C-8** (F.W4's repair seat, SS-13's ordering witness) | **F.W3/W4** (the seam) · **F.W5** (the name) | **G6** |
+| **F8-WALK-R06** | §R **R6** (`M-β4` ⊕ `L·m-6 = C·D-14` ⊕ `PP-DEADSEAM = C-12`) | **THE LIVENESS PREDICATE**: the traversal **touches every envelope field** the walk observed and **reports the unconsumed set**, each member carrying a **drop-or-consume** disposition. A field with **no** disposition is **UNDECLARED**, which is a RED — *every field in the envelope has a PRODUCER and a CONSUMER, or it is dropped* | the envelopes of every leg, labelled at the call site (`visualization` · `palette` · `diff` · `versions` · `palette_versions`), against the script's `CONSUMPTION_MAP` | three fields measured **dead in one direction or both**: `EpicycleData.trace` — produced `api/services/computation.py:127`, declared `web/src/lib/types.ts:25`, ⟨cmd⟩ `grep -rn "\.trace\b" web/src` → **no readers**, yet `structuredClone`d into every IndexedDB draft (`stores/workspace.ts:109-117`) · `reconstructed_points` — `api/routers/equations.py:114`/`:128`, model `api/models/equations.py:33`, declared `web/src/lib/equation/types.ts:31`, **read by nothing** · `preview_path` — written `""` at **all three** server sites (`api/models/assets.py:85` · `api/services/image_storage.py:318` · `api/responses.py:22`), client leaf unreachable | ⊘ **RED at authoring by design (§3b.6)**: the map is **seeded, not complete** — the first run's UNDECLARED remainder **is** the work item, and each member takes a disposition **by dated addendum-beside** before this row can go GREEN. ▲ **An empty traversal is BLOCKED, never GREEN** | **F.W5** (the predicate) · **F.W8** (the measurement) · **fourier API row** (drop or consume) | **G13** |
+
+### 3b.2 §P7 — the create leg: **idempotent-or-declared on BOTH sides**, and which half each repo holds (gate **G10**)
+
+| id | the assertion the walk executes | source operation model | today's reading |
+|---|---|---|---|
+| **F8-WALK-P07-F** | two fourier creates under **ONE** `Idempotency-Key` yield **ONE** resource (same slug) | `VisualizationCreate` — `api/models/visualization.py:177`, at `POST /api/visualizations` (`@router.post("")`, `api/routers/visualizations.py:164`) | the server **HOLDS** replay: `idempotency.replay_or_record(request, _store(), f"user:{owner_slug}", _handler)` at **`:236`** (create) and **`:612`** (remix) |
+| **F8-WALK-P07-V1** | a value.js **APPENDING** write **without** a key is **REFUSED `400`**, never silently executed twice | the app-global requirement table — `api/src/platform/http/idempotency.ts:90-93`, mounted `api/src/app.ts:73` | **REQUIRED** on exactly two operations: `POST /palettes/:slug/revert` and `POST /palettes/:slug/forks?` — the rule declared *"beside the store it arms, rather than mounted per-route"* |
+| **F8-WALK-P07-V2** | two value.js forks under **ONE** key yield **ONE** child | `forkPaletteBody` — `api/src/modules/palette/schema.ts:59`, at `routes/forks.ts:26` | the write is **transactional** with an **in-txn source re-read** (`service/forks.ts:105-128`) **and** key-guarded |
+| **F8-WALK-P07-DIV** | the two divergences are **STATED, never harmonised** | — | the remix child is born **`draft`** (`api/models/visualization.py:277`); the fork child is born **`private`** (`service/forks.ts:87`). fourier runs **no transaction by deliberate choice**; value.js's fork **is** transactional |
+
+**Which half each repo holds — the row G10 asks for, measured at HEAD:**
+
+| repo | idempotency | transaction | reachable from the shipped client? |
+|---|---|---|---|
+| **fourier** | **server-side replay, OPT-IN** — honoured on create (`:236`) and remix (`:612`), keyed `user:{owner_slug}` | **NONE**, and deliberately so (*"standalone-topology-honest"*) | ⊘ **NO.** The channel is declared (`web/src/lib/api.ts:123-124`, applied `:208-209`) and ⟨cmd⟩ `grep -rn "idempotencyKey:" web/src` → **no output**: **not one call site passes a key** — `createVisualization` (`:449-457`) among them |
+| **value.js** | **REQUIRED, refused `400` without** — on the two appending verbs (revert, fork) | **YES** on the fork write, with an in-txn source re-read | yes (the demo client has sent the header on mutating requests since the K.W2 store) |
+
+⊘ **FINDING OF THIS SEAT — the spec's G10 cell says *"Neither side holds both today"*, and at HEAD
+that is TRUE OF FOURIER AND FALSE OF VALUE.JS.** value.js holds **both halves on one verb**: the fork
+is transactional **and** key-required. The requirement did not exist when the spec was sealed; it
+landed at value.js **`cbf178ce`** (2026-09-18) *"feat(api/write-contract): CAS + strong If-Match +
+required Idempotency-Key; revert → 201 (X.A3)"* — an **X·V** act, named from the git record. **F.W8
+claims no credit for it** (FR-GIG-5 mirror), re-books nothing, and records the correction **beside**
+the spec's sentence rather than over it (E-3). The fourier half is unchanged and is now **sharper
+than the spec's C-6/C-7 reading**: it is not only the contour write that declines the channel — **no
+client call site passes a key at all**. ▲ **K12 holds**: `fr-GalleryDraftsSection B-2`'s duplicate-row
+outcome closes **STATICALLY**; there is no repeat-publish loop anywhere in the script, and SS-13
+spends no probe here. ▲ The `:disabled` cure is **F.W3/W4's** and F.W8 claims no part of it.
+
+### 3b.3 §M — measurement integrity (gate **G9**, and the rows it carries for **G2 · G15**)
+
+| id | spec row | the assertion | today's reading | gate |
+|---|---|---|---|---|
+| **F8-WALK-M01** | §M **M1** (`FR-GV-12` ⊕ `VV-R2-A` ⊕ `FR-GV-24` rides) | **the walk's perturbation is fully accounted**: Δ`views` observed over the leg **minus** the ledger's declared read count for that slug is **ZERO**; a remainder is **UNSUBTRACTABLE** and is published as a RED, never smoothed | the full declaration is **§3b.4**. Value-side reads are **provably non-mutating** and re-proved per run with an **empty** volatile set; the fourier read verb is **UNSAFE-DECLARED** and subtracted | **G9** |
+| **F8-WALK-M01-V** | §M **M1** (value half) | `GET /palettes/:slug/versions` is **pure**: two reads, **byte-identical**, with the declared volatile set **NONE** | the only `$inc`s in the palette module are on **write** verbs — `voteCount` (`repository/palette.ts:246`/`:266`), `forkCount` (`:276`/`:286`), `versionCount` (`service/versions.ts:234`). **No read path mutates**, so the claim is provable rather than asserted | **G9** |
+| **F8-WALK-M02** | §M **M2** (`FR-USB-24 ⊕ FR-USB-23`) | **auth mutations pass `retryOn429: false`** — this instrument **never** sleeps through a `429`; every wait is **surfaced** with its `Retry-After` | the product client defaults to `retryOn429 ?? true` (`web/src/lib/api.ts:232`) with `MAX_RATE_LIMIT_RETRIES = 2` (`:137`) and the retry branch at `:243` — *a horizon probe that silently retries manufactures false timings and false greens*. The walk has **no retry branch at all**. ▲ The dead session subsystem is **RULED DELETE** (§0j.D **F-SS4REST R9**): `clearSession` is defined `stores/auth.ts:112`, exported `:141` and **called from nowhere**; `logout` (`:60-70`) ends at `setSessionToken(null)` (`:70`); the `else if (sessionToken.value)` bootstrap arm (`:29`) would re-attach an anonymous identity on reload if revived — **an identity-mixing bootstrap poisons every attribution the history walk records**. The value-side mirror is **V-γ** (`service/crud.ts:92` nullable `userSlug`, gated `:136`; `service/versions.ts:201`, with `$inc versionCount` at `:234` regardless) — **VALUE-SIDE, never re-booked as a fourier defect**. ▲ Session-token-at-rest is the one place **value.js is strictly ahead** (digest as `_id` vs a plaintext UUID) — **recorded so the union does not regress it** | **G9** |
+| **F8-WALK-M03** | §M **M3** (`FR-GV-9`) | a batch **Unfeature** preserves an orthogonal **SAVED** tier — *tier is a state machine, not a scalar collapse* | `api/routers/admin.py:436-440` — `update_many({slug: {$in: …}}, {"$set": {"tier": "normal"}})` **unconditionally**, against the feature arm at `:430-433`. **F.W8 owns only the assertion**; the gate is **G2** (the walk map's admin leg, unit `a`) and the **semantics** ruling is F.W5/F.W6's — one home, two citations, nothing re-booked | G2 (asserted here) |
+| **F8-WALK-M04** | §M **M4** (`R3-7b`; `fr-GalleryDraftsSection F-4` ⊕ `fr-AdminFlaggedPanel FR-AFP-4`) | the authenticated leg asserts, **per operation**, the **authority class** F.W5's register declares | **CONSUMED** from `contract/operation-register.md`, never re-derived. A call whose class is undeclared is a RED **at the register**, not a silent pass in the run | G2 · **G15** |
+| **F8-WALK-M05** | §M **M5** (`R3-7c ⊕ X-3`) | the **denominator of record** is **cited, never re-cut** | `45 = 30 + 13 + 1 + 1` (F.W5's register) and C31's **30/37 terminal**, **OWNER-FROZEN** under **OG-F1** — 32/38 only if lawfully replaced. ▲ **X-9 honoured by construction: no percentage is published by this unit, in this register or in the script.** ▲ Ordering is **`UTF8_BYTEWISE_CODEPOINT`**, never `localeCompare`, for every identity list and any digest | G2 · **G15** |
+
+### 3b.4 **THE NON-PERTURBATION DECLARATION** (gate **G9**) — stated whole, with its subtraction
+
+G9 clears when *"the walk's **reads** are provably non-mutating, **or** the perturbation is **declared
+and subtracted** in the walk record; auth mutations pass `retryOn429: false` or surface the wait."*
+**Both limbs are discharged here, and they are discharged differently on the two sides** — which is
+itself the finding:
+
+1. **VALUE.JS — PROVABLY NON-MUTATING, and proved per run.** No palette **read** path carries a
+   mutation: the module's only `$inc`s sit on the vote, fork and version **write** verbs (measured
+   above). The walk does not rest on that reading: `proveSafeRead` reads **twice** and diffs, with the
+   row's volatile field set declared **by name** — and for these rows it is **empty**, which is the
+   strongest form the claim has. ▲ **No blanket allowlist exists anywhere in the instrument**; a
+   volatile field that is not named is a difference, and a difference is a RED.
+2. **FOURIER — ONE UNSAFE READ, DECLARED AND SUBTRACTED.** `GET /api/visualizations/{slug}` is an
+   unsafe read that **cannot observe its own side effect**: `find_one` (`api/routers/visualizations.py:256`)
+   → `$inc {"views": 1}` with `last_accessed_at` (`:269`) → `_public_doc` serialising the **pre**-increment
+   document (`:272`), and `_public_doc` itself strips only `_id`/`liked_ips` (`:80`). The same verb is
+   the **ETag-capture path** (`stores/gallery.ts:255`, `:293`, `:311`; a freshly minted draft's ETag
+   lives in a different store — `stores/workspace.ts:47`, written `:222`/`:371`/`:396` — so the map
+   **always misses**), which is why every ETag cache-miss on publish or soft-delete **adds a phantom
+   view to the row being mutated**. There is **no `viewed_ips` dedup** while `liked_ips` exists.
+   **RFC 9110 §9.2.1**: a mutating GET is unsafe against any proxy or prefetch — so the walk treats an
+   unaccounted delta as a defect, not as noise.
+3. **THE SUBTRACTION, made falsifiable.** Every UNSAFE read declares `{target, field, delta, reason,
+   rfc}` into the ledger **at the moment it happens**; the measurement leg then reads the counter and
+   asserts `observed − declared === 0`. ▲ **A remainder is not absorbed**: it is published as
+   `UNSUBTRACTABLE` with its figure, and the assertion is RED — because a remainder means *another*
+   reader (a proxy, a prefetch, a second client) touched the row under measurement, which is exactly
+   the condition that makes a horizon probe's numbers fiction.
+4. **THE TWO PROBE-SUPPRESSION LOCKS, honoured rather than cited.** ▲ **FR-GV-24** — *repair tests
+   must NOT assert a re-open view increment; the guard DOES work within a session, the defect is
+   SCOPE*: the **only** view assertion in the instrument is the ledger equality above, and no
+   assertion anywhere claims a re-open increment. ▲ **K12** — B-2's duplicate-row outcome closes
+   **STATICALLY**: **SS-13 spends no probe here**, and no F.W8 gate is discharged by an SS-13 probe.
+5. **THE AUTH LIMB.** The instrument's client has **no retry branch**: `retryOn429` is false **by
+   construction**, a `429` is recorded with its `Retry-After` into `rateLimitWaits`, and `F8-WALK-M02`
+   asserts that no wait was hidden. ▲ **Per-call abort (M-CK class)**: every request owns its own
+   `AbortController` — there is no shared abort key in this instrument — and **no leg enumerates a
+   chain through a list endpoint**, because the list contract returns an intersection of a filter and
+   a page window and the product's `resetAndFetch`/`fetchNextPage` share **one** abort key. **Fixing
+   the per-call key is the fourier API row's act, not the walk's**, and the walk neither depends on it
+   nor claims it.
+
+### 3b.5 §D — the **D2 geometry tripwire**, as a lock **on the instrument** (`F8-WALK-D02`)
+
+**The tripwire is banked at F-W5 G16 and F.W8 does NOT re-book it** (spec §D D2). It is carried here
+**only** as a binding lock on the prototype, and the instrument enforces it on itself:
+
+- ▲ **DO-NOT-REGENERATE on `master`** — *"if any wave attempts regeneration before F.W5–W8 lands the
+  pipeline, **L-B1** and **L-B2/C-2** REVIVE AT BLOCKER with the DO-NOT-REGENERATE rider as the
+  tripwire."* The revival condition is **carried untouched**; nothing here demotes or discharges it.
+- `assertGeometryTripwire` reads the walk's **own call log** and asserts that **no request** touched a
+  generator, a tracked contour artefact or a `scripts/` path (`precompute_svg_fourier` ·
+  `raw-contours.json` · `moon.json` · `/scripts/`). **A guard that reads the log cannot be satisfied
+  by intention**; it is satisfied by the run or it is RED.
+- The derive leg derives **only** from an **ephemeral image the runner supplies**, never from a
+  tracked asset; with no image the leg is **BLOCKED**, not skipped and not re-pointed at a fixture
+  asset.
+- ▲ **`fr-FourierShapeExtractor C-3` — NO CLOSURE HEURISTIC**: `F8-WALK-R04-FLAG` asserts the
+  closed/open flag is **CARRIED on the response**, and the instrument **infers it nowhere** (the
+  44.08-closed / 44.97-open overlap is exactly why a heuristic would be a fabrication).
+- The report path is refused if it resolves **inside either repository**
+  (`assertReportPathOutsideRepos`), so a run of this instrument cannot write a byte of the fourier
+  tree even by accident — the read-only law made mechanical.
+
+### 3b.6 G13's liveness — why the consumption map is **seeded, not complete**
+
+The map carries a disposition for every field this seat could **measure**: the three dead ones above
+(`DROP`, each with the site that produces it and the absence that damns it) and the live ones with
+their named consumer. It is **not** a complete enumeration of the wire, and it does not pretend to be
+— completing it requires **running** the walk, which is **F.W9/W10's act**. So the gate's shape is
+written into the instrument: the first run publishes the **UNDECLARED** remainder, each member takes a
+**drop-or-consume** disposition by **dated addendum-beside** (E-3), and only then can the row go
+GREEN. ▲ **Two false greens are foreclosed by construction**: an **empty** traversal returns
+**BLOCKED**, never GREEN (a walk that observed nothing satisfying *"no undeclared field"* is the
+exact shape this law exists to stop), and the traversal is fed **by the client on every call** rather
+than by each leg remembering to hand it a body. ▲ The three ids are **deduped by mechanism with all
+three preserved** — `M-β4` is *"the R6-8 seam's converse: server computes, nobody consumes"*, the
+third direction of one seam.
+
+### 3b.7 G7's ruled branch — what the fixture may **not** do
+
+⊙ **RULED** at COHESION **§0j.D F-SS4REST R5**: **STOP MINTING**. The consequences, stated so no later
+seat reads the register as neutral: **(i)** the fixture proves **that** branch and no other — F.W8 may
+not author on a guessed branch and, since the ruling landed, no longer needs to; **(ii)** *admitting*
+`[]` in the contract is **dead**, so no row here relaxes `min_length=1`; **(iii)** the **silent
+rewrite must not survive either way** — which is why `F8-WALK-R03-LAUNDER` asserts the refusal
+**creates nothing**, and why the two store substitutions and the mint are **named at their bytes**
+above rather than left as prose; **(iv)** the client half is **F.W3/W4's cure** and **F.W8 claims no
+credit for it** (FR-GIG-5 mirror). ▲ **The anchor divergence the spec booked is DISCHARGED here**:
+§R R3 recorded *"the corpus cites `:184/:279`, a read-only seat inspection gives `:186/:280`"* as a
+**re-resolve obligation after F.W0 (D-19)**, adopting neither pair. Measured at fourier `21e11b0` by
+this seat, double-run: ⟨cmd⟩ `grep -n "min_length=1" api/models/visualization.py` → **`:186`** (the
+create arm) and **`:280`** (the remix/patch arm). The obligation is discharged **at the bytes**, and
+the spec's own cell is left unrewritten (E-3).
+
+---
+
 ## §4 J3 — structurally-untyped operations: **typed at F.W5, or NAMED AND STRUCK with the reason**
 
 The spec's J3 act cell, verbatim — ⟨cmd⟩
@@ -591,3 +769,155 @@ zero runs, zero writes outside the one writable path.**
   stays **SKIPPED-sanctioned** — nothing here re-opens it, which G14 requires.
 - **to F.W9/W10** — every row's assertion is written to be asserted **against this document**, never
   against the sibling repo (inv-26: no cross-repo read, ever).
+
+---
+
+## §14 Unit `d` — D-19 re-resolution, the assertion roster, self-count and gate readings (appended 2026-09-19)
+
+Appended by unit **`d`** under the §2c serial lock. **Nothing above this line was rewritten**: §3b is
+an insertion before §4 and this section is an append, so units `b`'s and `c`'s bytes stand
+byte-for-byte and their published self-counts are re-measured at §14.3 rather than assumed.
+
+### 14.1 D-19 — the anchors this unit's rows rest on, re-resolved BEFORE any citation
+
+F.W0's `SUBSTRATE-LEDGER.md` §2.1/§2.2 do not reach api/py coordinates (the record's open seat quotes
+§2.1.3 row 5: *"RECORD (api/py coordinates are outside F.W0's bounds)"*), so the obligation lands
+here, exactly as it landed on unit `b`. Measured at **fourier `21e11b0`** (worktree 0 dirty) and
+value.js **`tranche-u`**, read-only, 2026-09-19.
+
+| # | witness, as the spec states it | measured at this seat | state |
+|---|---|---|---|
+| 1 | server `AnimationSettings` `shared.py:65-71` (`30 / 30.0 s / 80`) | `api/models/shared.py:65` class · `:66` `fps: int = 30` · `:67` `duration: float = 30.0` · `:68` `max_circles: int = 80` · `:69` easing · `:70` `speed: float = 1.0` · `:71` active_bases | **HOLDS, byte-exact** |
+| 2 | client `defaults.ts` (`60 / 5000 ms / 100`) — **no path in the spec** | `web/src/lib/defaults.ts:24-28` — `fps: 60` · `duration: 5000` · `max_circles: 100` · easing · `speed: 1` | **HOLDS**; the path is recorded here |
+| 3 | renderer `ref(80)` (`:47`) | `web/src/components/visualization/BasisCanvas.vue:51` `const maxCircles = ref(80);` | **DRIFTED, holds** |
+| 4 | `animation.ts:23` → `20000 ms` | `web/src/stores/animation.ts:77` `const duration = ref(20000); // ms per full cycle` | **DRIFTED, holds** (BC-20's subject — **not re-booked**) |
+| 5 | `animation_settings` is atom 4-of-5 (`atomdiff.py:38`) | `api/lib/crud/atomdiff.py:29` `ATOM_KEY_ORDER` — `active_bases · n_harmonics · contour_settings · animation_settings · palette_slug`; the path is `api/lib/crud/`, not `api/services/` | **DRIFTED + path-qualified, holds** |
+| 6 | `VisualizationUpdate` `visualization.py:198-210` | `api/models/visualization.py:198` class · five fields `:203-207` · `model_config = ConfigDict(extra="forbid")` `:209` | **HOLDS** (the span ends `:209`) |
+| 7 | `VisualizationPatch` `types.ts:256-262` | `web/src/lib/types.ts:262-268` | **DRIFTED +6, holds** |
+| 8 | the off-state mint, `:103-104` | `BasisSelector.vue:102` — *"Go to \"off\" — allow empty selection (canvas handles it gracefully)"* | **DRIFTED, holds** |
+| 9 | `min_length=1` at `:184/:279` **or** `:186/:280` — the spec adopts **neither** (a booked re-resolve obligation) | `api/models/visualization.py:186` (create arm) · `:280` (remix/patch arm), double-run | ⌧ **OBLIGATION DISCHARGED**: `:186/:280` |
+| 10 | the store substitution `workspace.ts:351-353` | `web/src/stores/workspace.ts:362-365` | **DRIFTED, holds** |
+| 11 | the second substitution `gallery.ts:252` | `web/src/stores/gallery.ts:338-340` | **DRIFTED, holds** |
+| 12 | the loader refuses to restore `[]` (`:53`) | `useWorkspaceLoader.ts:72-73` — the restore is gated on `as?.active_bases?.length` | **DRIFTED, holds** |
+| 13 | the loader force-prepends on first data (`:109-114`) | `useWorkspaceLoader.ts:150-153` | **DRIFTED, holds** |
+| 14 | `extraction_cache_key` closed literal `image_storage.py:250-266` | `api/services/image_storage.py:248` def · `:250-265` the literal (ten settings fields ⊕ `_v`, `sort_keys=True`) · `:266` the digest | **HOLDS** |
+| 15 | `images.py:219-226` short-circuits **before** `compute_contours` | `:219` key · `:220` `find_one` · `:221-226` `return contour_response(existing)` · `:230` `compute_contours` | **HOLDS, byte-exact** |
+| 16 | `auto` is the shipped default (`defaults.ts:4`) | `web/src/lib/defaults.ts:9` `strategy: "auto"` | **DRIFTED, holds** |
+| 17 | the 500 ms writer `VisualizationView:53-64` | `VisualizationView.vue:53` `watchDebounced(` … `:64` `{ debounce: 500, deep: true }` | **HOLDS, byte-exact** |
+| 18 | `saveVisualization` reads `toRaw(...)` synchronously (`workspace.ts:344-357`) | `stores/workspace.ts:356` `async function saveVisualization()` · `:368` `animation_settings: toRaw(animationSettings.value)` | **DRIFTED, holds** |
+| 19 | the flush seam **is** the banked `setEasing` action (L-12/C-25) | ⟨cmd⟩ `grep -rn "setEasing" web/src` → **no output**, double-run | ⊘ **NOT HOLDING** (§3b.1 R05) |
+| 20 | `EpicycleData.trace`: 3000 samples, **zero readers**, `structuredClone`d (`workspace.ts:95-104`) | produced `api/services/computation.py:127` · declared `web/src/lib/types.ts:25` · ⟨cmd⟩ `grep -rn "\.trace\b" web/src` → **no output** · cloned `stores/workspace.ts:109-117` (`epicycleData` at `:114`) | **DRIFTED, holds** |
+| 21 | `reconstructed_points` (`equations.py:114`/`:128`), read by nothing | both byte-exact; model `api/models/equations.py:33`; client type `web/src/lib/equation/types.ts:31`; no reader | **HOLDS, byte-exact ×2** |
+| 22 | `preview_path` written `""` at `assets.py:85`, `image_storage.py:318`, `responses.py:22` | all three byte-exact; client type `web/src/lib/types.ts:77` | **HOLDS, byte-exact ×3** |
+| 23 | `find_one :256` → `$inc {views:1}` `:268-270` → `_public_doc` `:272` | `api/routers/visualizations.py:256` · `:269` `{"$inc": {"views": 1}, "$set": {"last_accessed_at": …}}` · `:272` `body = _public_doc(doc)` | **HOLDS** (the `$inc` sits at `:269`, inside the cited span) |
+| 24 | no `viewed_ips` dedup while `liked_ips` exists | `liked_ips` at `visualizations.py:80`/`:318`/`:705`, `admin.py:87`/`:555`, `gallery.py:34`; `viewed_ips` → **no output** | **HOLDS** |
+| 25 | the ETag map always misses (`workspace.ts:359`; `gallery.ts:167`/`:223`) | `stores/workspace.ts:47` declares `visualizationETag`, written `:222`/`:371`/`:396`; the gallery's own map at `stores/gallery.ts:78`, captured `:255`/`:293`/`:311` | **DRIFTED, holds** |
+| 26 | the silent ≤60 s retry (`retryOn429 ?? true`) | `web/src/lib/api.ts:232` default true · `:137` `MAX_RATE_LIMIT_RETRIES = 2` · `:243` the retry branch · `:252` `abortableSleep` | **HOLDS** (the spec gives no line) |
+| 27 | batch Unfeature `$set tier normal` (`admin.py:435-440`) | `api/routers/admin.py:436-440` `update_many(...)`, feature arm `:430-433` | **HOLDS** (span starts `:436`) |
+| 28 | fourier's idempotency counter-witness (`visualizations.py:612`) | `:612` byte-exact — **and a SECOND site the spec does not name: `:236`, the CREATE route** (`@router.post("")` `:164`) | **HOLDS + one unstated site** (§3b.2) |
+| 29 | value.js's transactional fork (`forks.ts:94-137`) | `api/src/modules/palette/service/forks.ts:105-128` (`withTransaction`, in-txn source re-read, `incrementForkCount` `:149`) | **DRIFTED, holds** |
+| 30 | **V-γ** (`crud.ts:119`, `crud.ts:204`, `versions.ts:147`) | `service/crud.ts:92` `userSlug: string \| null` · `:136` `if (userSlug)` gate · `service/versions.ts:201` the same gate · `:234` `$inc: { versionCount: 1 }` regardless | **DRIFTED, holds in substance** |
+
+**Nothing above is re-booked as a defect of either repo**, and **nothing drifted was written into a
+banked file** (E-3): a drifted address is a re-resolve obligation, a **non-holding** witness is a
+finding stated with its receipt (row 19 → §3b.1 R05), and row 9 is an obligation the spec explicitly
+declined to settle and this seat discharges **at the bytes**.
+
+### 14.2 The assertion roster — every id the script records is named in this register
+
+⟨cmd⟩ (base `docs/tranches/X/fourier/conformance`)
+`grep -oE 'register\.(assert|record|blocked)\("F8-WALK-[A-Z0-9-]+"' walk/union-walk.mjs | grep -o 'F8-WALK-[A-Z0-9-]*' | LC_ALL=C sort -u`
+→ **26 ids**, ⊕ **`F8-WALK-M01-V`**, which that probe **cannot** see and which is disclosed rather
+than lost: it reaches `register.assert` through `proveSafeRead`'s `assertionId` **parameter**, not as
+a literal at the call. **27 recorded ids.** Two further spellings — **`F8-WALK-P07`** and
+**`F8-WALK-R03`** — are **family labels in comments**, not assertions, and are named here so a later
+seat does not read them as missing rows.
+
+| id | home | why it is / is not a §3b row |
+|---|---|---|
+| `F8-WALK-R01` · `R02` · `R04` · `R04-FLAG` · `R05` · `R06` | §3b.1 | **ROWED** — §R's own rows, gates G6/G8/G13 |
+| `F8-WALK-R03-F` · `R03-LAUNDER` · `R03-V` | §3b.1 (R03) ⊕ §3b.7 | **ROWED as one row with three limbs** — the ruled G7 branch: refusal-with-diagnostic (F), creates-nothing (LAUNDER), the value-side cardinality mirror (V) |
+| `F8-WALK-P07-F` · `P07-V1` · `P07-V2` · `P07-DIV` | §3b.2 | **ROWED** — G10, both sides, plus the divergence row |
+| `F8-WALK-M01` · `M01-V` · `M02` · `M03` · `M04` · `M05` | §3b.3 | **ROWED** — G9 and the rows it carries for G2/G15 |
+| `F8-WALK-D02` | §3b.5 | **ROWED as a LOCK**, not a gate: the tripwire read off the walk's own call log |
+| `F8-WALK-DIFF-F` · `DIFF-F404` · `DIFF-V` | the script's diff leg | **NOT a §3b row**: the diff leg's disposition is **G1's** (ruled one-sided, §0j.D F-SS4REST R1) and its fixture is **`F8-FIX-F04`** (unit `b`). The walk executes it; F.W8.d books nothing of it |
+| `F8-WALK-REMIX-F` · `REMIX-V` | the script's remix leg | **NOT a §3b row**: the remix verb's walk cell is **unit `a`'s** (§P, gate G2). The assertion carries the born-`draft` ⟂ born-`private` divergence and re-books nothing |
+| `F8-WALK-HIST-F` · `HIST-V` | the script's history leg | **NOT a §3b row**: the history cell is **unit `a`'s** (G2); the round-trip property it feeds is R02/R05 above |
+
+▲ **The difference that matters is ∅**: every id the script records is named in this register, with
+its home. The reverse difference is **not** ∅ and must not be — nine of the ids belong to legs whose
+**gates other units own**, and rowing them here would be exactly the double-booking R-5 and the
+one-home rule forbid.
+
+### 14.3 The siblings' published probes, RE-MEASURED after this append
+
+| sibling claim | probe, re-run at the settled bytes | reading |
+|---|---|---|
+| unit `b` §11.1 — fourier-direction fixture rows | `grep -c '^\| \*\*F8-FIX-F' fixture-register.md` | **9** (unchanged) |
+| unit `b` §11.1 — value-direction fixture rows | `grep -c '^\| \*\*F8-FIX-V' fixture-register.md` | **8** (unchanged) |
+| unit `b` §1.2 / §11.1 — the direction-law falsifier | `awk -F'\|' '/^\| \*\*F8-FIX-/ {print $5}' fixture-register.md \| grep -n 'web/src/\|demo/'` | **no output** (unchanged) |
+| unit `b` §10 — bytewise ordering of the fixture rows | `grep -o '^\| \*\*F8-FIX-[A-Z][0-9][0-9]' … \| LC_ALL=C sort \| diff - …` | **no output** (unchanged) |
+| unit `b` §1.3 X-3 — the K-3 set-membership claim (*"two lines, both of them this file's own law"*) | `grep -c` over that term | **2** (unchanged) — **this unit writes the term nowhere**, which is why the claim still holds |
+| unit `c` §3a — the control rows | `grep -c '^\| \*\*F8-C31' fixture-register.md` | **2** (unchanged) |
+
+▲ **Unaffected BY CONSTRUCTION, and then measured anyway.** Every sibling probe is anchored on a row
+prefix (`^| **F8-FIX-`, `^| **F8-C31`) and this unit's namespace is **`F8-WALK-*`**, disjoint from
+both; the insertion renumbers nothing and rewrites no byte above it. ▲ **The K-3 row is the one a
+careless append could have falsified** — a single use of that term anywhere in this file would have
+turned unit `b`'s *"two lines"* into three and convicted it for this seat's prose. It is used nowhere
+here, and no row below cites the refuted scenario.
+
+### 14.4 Self-count — read from the SETTLED bytes, double-run (SELF-COUNT law)
+
+| figure | probe | reading |
+|---|---|---|
+| §3b.1 §R assertion rows | `grep -c '^\| \*\*F8-WALK-R0' fixture-register.md` | **6** (`R01`…`R06`) |
+| §3b.2 §P7 rows | `grep -c '^\| \*\*F8-WALK-P07' fixture-register.md` | **4** |
+| §3b.3 §M rows | `grep -c '^\| \*\*F8-WALK-M0' fixture-register.md` | **6** |
+| ids recorded by the script | §14.2's probe ⊕ the disclosed `M01-V` | **27** ⊕ **2** comment-only family labels |
+| the instrument | `wc -l walk/union-walk.mjs` | **1074 lines** |
+| the instrument PARSES | `node --check walk/union-walk.mjs` | **exit 0**, run twice |
+| percentages published by this unit | `grep -c '[0-9]%' fixture-register.md walk/union-walk.mjs` | **none** (X-9: one member-scope law before any percentage, and this unit publishes no ratio of coverage at all) |
+
+▲ **`node --check` is a PARSE, not a RUN, and the distinction is the whole of the lock's meaning.** It
+executes no statement, opens no socket, reads no environment and writes no byte; the walk itself was
+**not run**, in any mode, under this wave. It is reported because handing F.W9/W10 a syntactically
+broken instrument would be the defect this wave exists to avoid — and because a claim that a file is
+runnable, made without measurement, is the class this tranche convicts.
+
+### 14.5 Gate readings — BEFORE → AFTER, with split verdicts
+
+| gate | BEFORE (record §B.2) | AFTER, at these bytes | verdict |
+|---|---|---|---|
+| **G6** round-trip replay reproduces its own frame | **RED** — no round-trip assertion exists | Three assertions authored with their dispositions: **R01** (every `AnimationSettings` field round-trips **in the server's declared unit**, with the 1000× `duration` fork named at three declarations), **R02** (the atom set's reachability, **with the re-declaration written out** rather than left divergent), **R05** (the last value sent is the value persisted, **with the UI-timing half declared unassertable by this instrument and routed**) | **CLOSED FOR F.W8 — split verdict.** **NOT product-GREEN**: the three-way unit fork stands unreconciled and `animation_settings` is still unreachable by the update verb. GREEN owners **F.W5** (units · atom set) · **fourier API row** (the verb) · **F.W3/W4** (the seam) |
+| **G7** ⊙ off-state / cardinality admission | **RED** (ruled, unproven) | The ruled branch — **STOP MINTING** (§0j.D F-SS4REST R5) — is the **only** branch authored: **R03-F** (refused with a diagnostic **naming the field**), **R03-LAUNDER** (the refusal creates nothing), **R03-V** (the value-side cardinality mirror). The mint and both laundering sites are named **at their bytes**, and the spec's booked `:184/:279` ⟂ `:186/:280` obligation is **discharged by measurement** | **CLOSED FOR F.W8 — split verdict.** **NOT product-GREEN**: the server half is already conformant; the **client half stands at HEAD** (mint + two substitutions + the loader's two arms). GREEN owner **F.W3/W4** — and **F.W8 claims no credit for that cure** |
+| **G8** cache identity ⊇ consumed request fields | **RED** — no derive-leg fixture asserts `contour_hash` instability | **R04** authored in full: two derives differing **only** in `ml_threshold`, asserting **INSTABILITY**; the closed 10-field key and the pre-`compute_contours` short-circuit measured at their bytes; **R04-FLAG** carries the closed/open flag rather than inferring it (**C-3**); the leg is **BLOCKED, not skipped**, without an ephemeral image (**D2**) | **CLOSED FOR F.W8 — split verdict.** **NOT product-GREEN**: the hash is **stable today, and that stability is the defect**. GREEN owner **fourier API row** |
+| **G9** the probe does not perturb what it measures | **RED** — no walk record ⇒ no declared-and-subtracted perturbation | **§3b.4 is the declaration, whole**: one side **provably non-mutating** (and re-proved per run with an **empty** volatile set, no blanket allowlist anywhere), one read **UNSAFE-DECLARED** with **RFC 9110 §9.2.1** cited and **subtracted**, the remainder asserted **ZERO** and an unsubtractable remainder published as a RED. Auth mutations pass **`retryOn429: false` by construction** — the instrument has no retry branch — and every 429 wait is surfaced. **FR-GV-24** and **K12** honoured: no re-open increment is asserted anywhere, and SS-13 spends no probe | **CLOSED FOR F.W8 — split verdict.** **NOT product-GREEN**: the read verb still mutates and the ETag map still misses, so the perturbation is *subtracted*, not *absent*. GREEN owners **fourier API row** ⊕ **F.W4** |
+| **G10** create leg idempotent-or-declared, both sides | **RED** — register ABSENT ⇒ neither half recorded | **§3b.2 records which half each repo holds, measured at HEAD**: fourier holds server-side replay on **two** routes (`:236` create — a site the spec does not name — and `:612` remix) that **no shipped client call site can reach**; value.js holds **both** halves on the fork verb (key **REQUIRED**, 400 without, ⊕ transactional with an in-txn re-read). Four assertions authored, including the **`400`-without-a-key** limb and the born-`draft` ⟂ born-`private` divergence **stated, never harmonised** | **CLOSED FOR F.W8 — split verdict.** **NOT product-GREEN**: the fourier client passes a key **from nowhere**. ▲ **The spec's *"neither side holds both"* is CORRECTED for the value side by addendum-beside**, naming the X·V commit that landed it (**`cbf178ce`**) and claiming **no credit**. GREEN owners **fourier API row** (pass the key) · **value.js API row** (holds its half today) |
+| **G13** liveness — every envelope field has a producer AND a consumer | **RED** — the walk does not exist ⇒ the unconsumed set is unmeasured | **R06** authored: the traversal is fed **by the client on every call**, each field takes a **drop-or-consume** disposition, an **UNDECLARED** field is a RED, and an **empty traversal is BLOCKED, never GREEN**. The three measured dead fields are seeded with their producing sites and their absent consumers | **CLOSED FOR F.W8 — split verdict.** **NOT product-GREEN**: three fields are **proven dead** and the UNDECLARED remainder is unmeasurable until the walk runs (F.W9/W10). GREEN owners **F.W5** (the predicate) · **fourier API row** (drop or consume) |
+
+**No gate measured GREEN before its cure. No gate is discharged by an SS-13 probe** — this unit ran
+none, and spent no live probe of any kind. **Probe parsimony (§5.2): bounded `grep`/`sed`/`awk`/`git
+log` reads across both trees, and two `node --check` parses of this unit's own file — zero live
+probes, zero browser, zero runs of the walk, zero writes outside the two writable paths, and zero
+fourier bytes in any verb.**
+
+### 14.6 What this unit hands on
+
+- **to unit `e`** — four items travel in the FN-6 relay letter beside unit `b`'s three: **(i)** the
+  **G10 correction** (value.js holds both halves at HEAD; fourier's client passes a key from nowhere —
+  the ask is the client-side key, not a server change); **(ii)** the **`setEasing` seam-name absence**
+  (the banked L-12/C-25 name does not exist at HEAD — a naming question for F.W5/F.W3-W4, and the
+  reason the walk invents no seam); **(iii)** the **G13 consumption map** as the artefact fourier's
+  side must complete or contest, field by field; **(iv)** the **run contract** — `UNION_WALK_ENV=nonprod`,
+  the two base URLs, the tokens, and an **ephemeral image**, because without one the derive leg is
+  BLOCKED by the D2 tripwire rather than re-pointed at a tracked asset.
+- **to F.W9/W10** — the instrument is **authored and parse-checked, never run**. Its exit code is
+  non-zero on **any** RED **or** BLOCKED and there is **no flag that changes that**; its report carries
+  the perturbation ledger with its subtraction, the rate-limit waits it refused to sleep through, and
+  the full call log the D2 tripwire is asserted against. The first run's **UNDECLARED** envelope-field
+  set is the G13 work item and takes its dispositions **by dated addendum-beside**, never by rewriting
+  a row above.
+- **to the census and the keystone** — the **`:186/:280`** discharge (§14.1 row 9) and the **second
+  idempotency site** (`visualizations.py:236`, §14.1 row 28) are recorded readings, not re-gradings.
+  **F.W8 books no canonical row.**
