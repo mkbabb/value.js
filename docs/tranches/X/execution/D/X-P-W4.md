@@ -892,3 +892,227 @@ above (3 entries, all inside); `.b` adds its own and no `<p2>-w4*` sibling is ev
 ### Unit receipts (third sitting)
 
 *(empty at open — the four units dispatch after this record and the LEDGER row land.)*
+
+---
+
+## Unit receipts
+
+### X.P.W4.b — the packed-release protocol and the Wasm admission
+
+**SERVED MODEL: claude-opus-5[1m]** · dispatched at the third sitting's plan, unchanged.
+**Status: PARTIAL — G-4 GREEN, G-3 honest-RED with three measured causes, escalated by name.**
+
+**Substrate, measured not assumed.** value.js `/Users/mkbabb/Programming/value.js`, branch
+`tranche-u` — ⟨cmd⟩ `git log --oneline -1` → **`fecca648`** at this unit's open. Fresh writer root
+`<p2>` — ⟨cmd⟩ `git -C <p2> log --oneline -1` → **`3b81c52`** (`.n`'s third commit). Frozen
+read-only root — ⟨cmd⟩ `git -C /Users/mkbabb/Programming/parse-that log --oneline -1` → **`ef10d5b`**,
+unmoved and never written.
+
+**Crash-recovery (standing law, first act).** ⟨cmd⟩ `git -C <p2> status --porcelain` → **`?? .worktrees/`
+alone**; ⟨cmd⟩ `git status --porcelain` in value.js → 5 rows, **none inside this seat's writable set**
+(`M docs/tranches/V/reformation/CARRY-LEDGER.md` · `M scripts/dev/dev.sh` — unowned, NEVER touched,
+never staged — and three `docs/tranches/X/fourier/evidence/w3/` files, Track C's). ⟨cmd⟩ `ls
+docs/tranches/X/parse-that/evidence/W4/` → *No such file or directory*; ⟨cmd⟩ `ls
+<p2>/typescript/scripts/packed-candidate-surface.mjs <p2>/typescript/scripts/wasm-admission.mjs` →
+*No such file or directory* (both). **Zero dirty paths inside this unit's writable set · zero
+inherited hunks · nothing stashed, nothing restored, no sibling path touched · no inherited path to
+name.**
+
+### Acts, in order
+
+**1 · §4b — the worktree, inside the fresh root.** ⟨cmd⟩ `git -C <p2> worktree add --detach
+.worktrees/w4b HEAD` → *"Preparing worktree (detached HEAD 3b81c52)"*. ⟨cmd⟩ `git -C <p2> worktree
+list` → **5 entries, every one under `<p2>`** (`.worktrees/ac1 · ac2 · ac3 · w4b`); ⟨cmd⟩ `ls -d
+/Users/mkbabb/Programming/parse-that-*` shows **no `<p2>-w4*` sibling** — §4b's ONE-root law held
+(*"worktrees **inside** the fresh root, never beside it"*). Detached rather than branched so the
+scripts of record land on the branch of record (`w2/harness`) at the §4 File Bounds path, and the
+worktree stays what §4b makes it: a build sandbox. `CARGO_TARGET_DIR=<p2>/target/w4b` exported for
+every run in it; no cargo invocation was reached (the Wasm emitter is `lowering-wasm/index.mjs`,
+pure node), and that is recorded rather than implied.
+
+**2 · G-4 — the Wasm admission. GREEN.**
+
+The spec's **verbatim** inspection command (§6 G-4, L405–416), run unaltered against the graduated
+subject — ⟨cmd⟩ `node --input-type=module -e "…" -- src/css/build/ac1.wasm`:
+
+```
+{
+ "total": 0,
+ "functionKind": 0,
+ "imports": []
+}
+VERBATIM EXIT=0
+```
+
+`scripts/wasm-admission.mjs` reproduces that object **verbatim per artifact** before its fuller
+record, so an auditor comparing this run to the spec's one-liner compares like with like. It adds
+exactly the two things the gate's prose demands and the one-liner cannot carry: the **accounting** of
+every printed import (a `memory`/`table`/`global` import is accounted, a `function`-kind import never
+is, any other kind is UNACCOUNTED and fails), and the artifact's **identity** — path, byte length,
+sha256 — because F-o1 measured the on-disk copy stale against the emitter.
+
+**F-o1 reproduced exactly and discharged by measuring both, never by choosing one.** ⟨cmd⟩ in the
+w4b worktree, `buildModule()` in memory → `{"emitBytes": 662339, "onDiskBytes": 636753, "emitSha256":
+"f0d063d6…", "onDiskSha256": "04fbb80e…", "identical": false}`. Both were then admitted.
+
+Reading over **all six project Wasm artifacts** (⟨cmd⟩ `find <p2> value.js -name '*.wasm' -not -path
+'*/node_modules/*'` → 8 hits = 6 project ⊕ 2 unrelated Chrome-profile TTS binaries):
+
+| artifact | bytes | sha256 | imports | fn-kind | empty-import instantiation | admitted |
+|---|---|---|---|---|---|---|
+| `typescript/src/css/build/ac1.wasm` (**the graduated subject**) | 636,753 | `04fbb80e…` | 0 | 0 | ok | YES |
+| the fresh in-worktree emit (F-o1's live bytes) | 662,339 | `f0d063d6…` | 0 | 0 | ok | YES |
+| `experiments/w2/ac1-tagless/build/ac1.wasm` | 187,341 | `049b9904…` | 0 | 0 | ok | YES |
+| `.worktrees/ac1/experiments/w2/ac1-tagless/build/ac1.wasm` | 187,341 | `049b9904…` | 0 | 0 | ok | YES |
+| `.worktrees/ac2/experiments/w2/ac2-closed-ir/artifacts/ac2.wasm` | 117,544 | `d70449e8…` | 0 | 0 | ok | YES |
+| `.worktrees/ac3/experiments/w2/ac3-span/build/ac3.wasm` | 25,267 | `fef1f1a7…` | 0 | 0 | ok | YES |
+
+`tally` → **`artifacts 6 · admitted 6 · functionKindImportsTotal 0 · unaccountedImportsTotal 0`**;
+`verdict GREEN`; **EXIT=0, double-run, byte-identical with `generatedAt` excluded**. The graduated
+artifact **exports** `{function 6, memory 1}` and imports nothing — it owns its memory rather than
+asking for one, which is the "closed memory/reification accounting" clause read as a property of the
+module and not merely of its import list. Both of §6's legs are separately measured: the falsifier's
+*"a passing static count paired with an instantiation that needs a non-empty import object"* cannot
+hide here, because `emptyImportInstantiation` is its own field and is never inferred from the count.
+
+Banked: `docs/tranches/X/parse-that/evidence/W4/wasm-imports.json` (282 L, sha256 `e10c123f…`).
+
+**3 · G-3 — the packed candidate. RED, honestly, and the protocol is not what is red.**
+
+`scripts/packed-candidate-surface.mjs` executes five legs, each measured and none inferred from
+another: **PACK** (`npm pack --ignore-scripts --json`, tarball named/sized/sha256'd, entry list
+recorded) · **DECLARATION** (every packed entry checked against the manifest's own `files` field — the
+*"ships more than it declares"* falsifier, run as a set difference) · **INSTALL** (a clean `mkdtemp`
+consumer, one attempt, its own npm cache; the **installed** manifest re-read from
+`node_modules/<name>/package.json`, never the source one) · **RESOLVE** (runtime names off a real
+dynamic `import()` inside the consumer; type names compiled against the **installed** `.d.ts` by a
+strict `tsc` consumer) · **REFUSALS** (the forbidden deep specifiers imported, each required to throw
+`ERR_PACKAGE_PATH_NOT_EXPORTED`).
+
+⟨cmd⟩ `node scripts/packed-candidate-surface.mjs --seam docs/tranches/X/parse-that/SEAM-CONTRACT.md
+--package <p2>/.worktrees/w4b/typescript` — **the gate's literal command**, run once `.a`'s contract
+landed mid-sitting:
+
+```
+ "candidate": "@mkbabb/parse-that@1.0.0",
+ "tarball": "mkbabb-parse-that-1.0.0.tgz",
+ "tarballSha256": "efc11936d361820526a93ada2145012d0c58cec48cee9ccb9a19c22c66e74cda",
+ "entryCount": 1,
+ "symbolSource": "seam-contract",
+ "symbolCounts": { "runtime": 19, "types": 33, "total": 52 },
+ "symbolCrossCheck": true,
+ "seamSubpathDeclared": false,
+ "resolved": "0 of 52",
+ "refusals": 5,
+ "verdict": { "pack": true, "declaration": true, "install": true,
+              "resolve": false, "refusals": true, "G3": "RED" }
+```
+
+**EXIT=1, double-run identical.** The contract's 52 rows were cross-checked against
+`evidence/W3/universe-52.json` **in both directions**: `inSeamNotUniverse []` · `inUniverseNotSeam []`
+· `agree true`.
+
+**THE POSITIVE CONTROL, so the RED is attributed to the candidate and not to this instrument.** A
+staged copy of the same tree **outside both repositories** (no repository byte modified to obtain it)
+whose manifest declares `"./css"` and ships `src/css` packs **26 entries**, installs — and still
+resolves **0 of 52**. That is how causes C2 and C3 below were located rather than guessed.
+
+**The three causes, each measured, none curable inside this unit's bounds:**
+
+| id | leg | measured | cure address |
+|---|---|---|---|
+| **C1** HIGH | pack / declaration | `typescript/package.json` declares `files: ["./dist"]` — gitignored build output that does not exist in the tree — and an `exports` map of five subpaths (`.` `./core` `./diagnostics` `./packrat` `./utils`) with **no `./css`**. `npm pack` ships `entryCount 1`: package.json alone. The consumer's `node_modules` holds no code, so 0 of 52 is arithmetic, not opinion | `<p2>/typescript/package.json` |
+| **C2** HIGH | resolve / runtime | with the subpath declared and `src/css` shipped, the installed runtime still fails: `ERR_MODULE_NOT_FOUND: Cannot find package 'tsx' imported from node_modules/@mkbabb/parse-that/src/css/lowering-js/js-alg.mjs`. ⟨cmd⟩ `grep -rn tsx src/css/` → `js-alg.mjs:23: import { tsImport } from "tsx/esm/api"` and `bounds.mjs:834: require_("tsx/esm/api")`. **`tsx` is a devDependency of the FRESH ROOT** (§0l E-1, `tsx@4.23.13`) and is declared nowhere in `@mkbabb/parse-that`. This is precisely G-3's reason for existing — *"a symbol that resolves in the source tree and not in the tarball"* | `<p2>/typescript/src/css/lowering-js/js-alg.mjs` · `src/css/bounds.mjs` |
+| **C3** HIGH | resolve / types | the strict installed-consumer compile returns `ac1.d.ts(7,589): error TS2834`. `build/ac1.d.ts` re-exports all **33** frozen types through `../../../../../value.js/docs/tranches/V/megatranche/prototypes/css-parser/cand-o/vendor/value-js-4.0.0/dist/subpaths/css` — a relative specifier that **escapes the package root** into value.js's vendored tree. Even with an extension it cannot resolve from a consumer's `node_modules`; the declaration is not self-contained | `<p2>/typescript/src/css/build.mjs` (the generator) and its emitted `build/ac1.d.ts` |
+
+**The value-side cross-check leg** (§4's execute-no-write row, §6 G-3's *"cross-checked against the
+value-side idiom"*). ⟨cmd⟩ `npm view @mkbabb/value.js version` → **4.0.0**; ⟨cmd⟩ `npm view
+@mkbabb/value.js@4.0.0 dist.shasum` → `ccb962e5…`; ⟨cmd⟩ `npm pack @mkbabb/value.js@4.0.0
+--pack-destination <scratch>` → 20 entries, sha256 `7f80658c…`; ⟨cmd⟩ `node
+scripts/ci/verify-packed-surface.mjs <tarball>` → **EXIT=1**, first error *"`/transform` exports
+["PathGeometry","decomposeMatrix2D","decomposeMatrix3D","getPointAtLength","getTotalLength",
+"interpolateDecomposed","recomposeMatrix2D","recomposeMatrix3D","slerp"]"*. **This is not a defect of
+this unit and not a defect of 4.0.0**: the script carries `tranche-u`'s post-X-W9 expectation set, in
+which X.W9.b retired the matrix family, and published 4.0.0 predates that cut. The idiom refusing a
+tarball whose surface differs from the expected one is exactly the property G-3 borrows — **live and
+discriminating**. Recorded for **`.c`**: RC-P conjunct 1 `PUBLISHED(V)` is measured **FALSE at
+V=4.0.0** by that very command, at this seat's clock.
+
+Banked: `docs/tranches/X/parse-that/evidence/W4/packed-surface.json` (2,539 L, sha256 `0bcef64e…`),
+carrying the subject run, the positive control, the literal `--seam` run **beside** the
+universe-sourced ones (E-3 — nothing erased, the two sources shown to agree rather than asserted to),
+the value-side cross-check, the three causes and the residuals.
+
+**4 · G-2, the wave-level invariant, per commit.** Each of this unit's two value.js commits carries a
+pathspec holding only paths under `docs/tranches/X/parse-that/evidence/W4/`; neither holds a byte
+under `src/**`, `demo/**`, `api/**`, `test/**` or `e2e/**`. The **tree-wide** leg is **not** empty at
+this clock: ⟨cmd⟩ `git status --porcelain -- src api demo test e2e` → **1 line**,
+`M test/gradient-v4-consume.test.ts`, modified at 06:40 **during this sitting** and carrying X-W6
+`.a`'s own migration comment in its diff — **a Track A seat's live work, declared and not touched**.
+This is the same shape the first sitting declared and the second found discharged; it is not X·P's,
+and curing it would be the *"a seat that breaks a working tree to satisfy a gate"* failure G-7 names.
+`evidence/W4/value-source-untouched.txt` is **`.a`'s** leg under §4a and was not written by this seat.
+
+**5 · Format and lint cadence (§7), measured rather than claimed.** ⟨cmd⟩ `git diff --check` → clean
+in both roots. ⟨cmd⟩ `node --check` → OK on both scripts. §7's fresh-root `npx tsc --noEmit` / `npx
+eslint .` have **no subject** for these two files and the reason is measured, not assumed: the fresh
+root has **no eslint configuration and no eslint install** (and `npx eslint` would install packages
+into a root this unit may not write), `typescript/tsconfig.json` includes only `src/` and `test/`, and
+⟨cmd⟩ `ls <p2>/node_modules/@types/` → `chai · deep-eql · estree` — **no `@types/node` anywhere in the
+root**, so a direct `tsc --allowJs --checkJs` over the two `.mjs` files returns 23 diagnostics of
+which **all 23** are `Cannot find module 'node:*'` / `Cannot find name 'process'`. Recorded as
+**R-w4b-2**, a measured environment fact, not a skipped check.
+
+### Commits
+
+| repo | sha | meaning |
+|---|---|---|
+| `<p2>` | **`ca615a6`** | `feat(x-p-w4/packed): pack-install-resolve the candidate; prove the Wasm zero-function-import admission` — the two scripts |
+| value.js | **`f92a3f32`** | same message — the two evidence banks |
+| `<p2>` | **`00806a8`** | `fix(x-p-w4/packed): the seam reader locates the name, and the contract-vs-universe set-difference is measured in both directions` |
+| value.js | **`046bc176`** | same message — the evidence updated with the literal `--seam` run beside |
+
+Pathspec on every commit, on the commit itself; `scripts/dev/dev.sh` never touched, never staged; no
+sibling seat's path staged, reset or unstaged.
+
+### Gate readings — BEFORE → AFTER
+
+| gate | at this unit's open | at its close | receipt |
+|---|---|---|---|
+| **G-4** | **RED** — the gate had a subject and no inspector (`wasm-admission.mjs` ABSENT) | **GREEN** | 6 of 6 project artifacts admitted · 0 function-kind imports · 0 unaccounted · empty-import instantiation clean on every one · EXIT=0 double-run |
+| **G-3** | **RED** — `packed-candidate-surface.mjs` ABSENT; no packed candidate exists | **RED — honestly, with the protocol whole** | pack · declaration · install · refusals all GREEN; **resolve 0 of 52**; three measured causes, every cure address outside §4 |
+
+### Escalation — F-w4b-3 (the bounds gap on G-3's cure)
+
+**Returned, not substituted for.** W4.md §4 File Bounds grants X.P.W4 exactly three creatable paths
+in the fresh root — the three `scripts/*.mjs` — and **no unit of this wave may write
+`<p2>/typescript/package.json` or anything under `<p2>/typescript/src/css/**`**. All three causes of
+G-3's RED live at those addresses. G-3 cannot be turned GREEN by any act available to `.b`, and
+substituting a different subject for the gate would be the *"a claim about a source tree that happens
+to be on disk"* failure the gate was written to refuse.
+
+**Trigger**: §3a — *"Hard-gate failure that is not local-edit-recoverable."* The shape is the one §3a
+gives for G-4 verbatim (*"that is an X.P.W2 architecture question, not a link-flag tweak"*): the
+candidate has never been **packaged** for release, and packaging it is an X.P.W2 question.
+
+**Admissible cures, surfaced UNRULED — a triumvirate act, not a seat's:** (a) one dated
+addendum-beside to `W4.md` §4 (E-3) naming `<p2>/typescript/package.json`, `src/css/build.mjs`,
+`src/css/lowering-js/js-alg.mjs` and `src/css/bounds.mjs` as writable for a named unit; or (b) a
+successor X.P.W2 packaging unit that owns them. Either way the work is three cures, not one: the
+manifest (C1), the `tsx/esm/api` runtime dependency (C2), and the self-containment of the emitted
+declaration (C3) — and C2/C3 would still be RED after C1 alone, which is why the control was run.
+
+### Residuals and findings
+
+| id | state |
+|---|---|
+| **F-w4b-3** the bounds gap on G-3's cure | **ESCALATED**, above |
+| **F-w4b-4** (LOW, instrument, **cured here**) the contract's row carries an ordinal before the name, so a column-0 reader parses the ordinal as the name and yields zero rows | cured at the reader: it locates the first adjacent (identifier, kind) pair. Recorded because a silently-empty denominator is the defect class this gate exists to refuse in others, and one loud throw is not a margin |
+| **R-w4b-1** the gate's literal `--seam` form had no subject at this unit's open | **DISCHARGED** — `.a`'s contract landed mid-sitting, the literal command was run, and the set-difference against `universe-52.json` is empty in both directions |
+| **R-w4b-2** §7's fresh-root `tsc`/`eslint` cadence has no subject for `.mjs` scripts in this root | **CARRIED**, measured: no eslint config or install, no `@types/node`, `scripts/` outside tsconfig `include`. `node --check` + `git diff --check` are what was run and both are green |
+| **F-o1** the stale `build/ac1.wasm` | **DISCHARGED** — both the on-disk copy and a fresh emit named, hashed and admitted; the admission verdict is identical for both, so staleness does not change it |
+| **G-2 tree-wide divergence** | declared: one Track A `test/**` row, dirty through no act of X·P, not touched |
+| **`.c` inherits** | RC-P conjunct 1 measured FALSE at V=4.0.0 by `verify-packed-surface.mjs` at this seat's clock (exit 1, `/transform`); conjunct 4 ADMITTED(V) has its command and a GREEN reading for the X.P.W2 artifact |
+
+**E13**: ⟨cmd⟩ the by-position UNREAD scan over `INBOX.md` → **0**, over **79** register rows (of 85
+`^| ` rows), tail `I-35` / `O-39` — unmoved since seat 0's sweep. No row minted by this unit.
