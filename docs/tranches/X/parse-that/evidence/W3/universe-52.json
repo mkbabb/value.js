@@ -288,7 +288,7 @@
                 "id": "r1",
                 "declared": 172,
                 "read": 172,
-                "provenance": "/Users/mkbabb/Programming/parse-that-css-totality-p2/experiments/w2/corpus/r1.json — 172 inputs + 7 declared non-string boundary cases, derived from audit/probes/r1-published-totality.mjs:38-43"
+                "provenance": "/Users/mkbabb/Programming/parse-that-css-totality-p2/experiments/w2/corpus/r1.json — 172 inputs (the `src` string of each {id, src} pair — BND-1, §0w) + 7 declared non-string boundary cases, derived from audit/probes/r1-published-totality.mjs:38-43"
             },
             {
                 "id": "stylesheet-band",
@@ -299,11 +299,11 @@
         ],
         "counts": {
             "armTotal": 35403,
-            "union": 27074,
-            "overlap": 8329,
+            "union": 27021,
+            "overlap": 8382,
             "boundary": 7
         },
-        "rowsSha256": "49be0f9885615d31f2cd8ee1c5a3cf0039aa5c28236f329a4408034329140eea",
+        "rowsSha256": "e119d81be0d088ec6bd061c7079242f8443b7e1651e1abdebca3eba7c20ca094",
         "path": "typescript/test/css-totality/corpus.json"
     },
     "assignability": {
@@ -652,16 +652,16 @@
             "id": "PB-08",
             "kind": "reject",
             "title": "the comma→space rewrite makes an invalid separator structure invisible",
-            "pinned": 2220,
-            "measured": 2220,
+            "pinned": 2272,
+            "measured": 2272,
             "agrees": true
         },
         {
             "id": "PB-11",
             "kind": "reject",
             "title": "the css-color-4 functions have no comma form",
-            "pinned": 0,
-            "measured": 0,
+            "pinned": 1,
+            "measured": 1,
             "agrees": true
         },
         {
@@ -670,6 +670,14 @@
             "title": "`<legacy-hsl-syntax>` admits no `<number>` for saturation or lightness",
             "pinned": 6,
             "measured": 6,
+            "agrees": true
+        },
+        {
+            "id": "ID-5",
+            "kind": "reject",
+            "title": "the legacy comma form takes THREE arguments of ONE type and no `none`",
+            "pinned": 1501,
+            "measured": 1501,
             "agrees": true
         },
         {
@@ -684,122 +692,134 @@
             "id": "PB-12",
             "kind": "reject",
             "title": "`1.` is not a CSS number",
-            "pinned": 5391,
-            "measured": 5391,
+            "pinned": 5428,
+            "measured": 5428,
             "agrees": true
         },
         {
             "id": "ADJ-2",
             "kind": "repair",
             "title": "token juxtaposition is accepted",
-            "pinned": 990,
-            "measured": 990,
+            "pinned": 995,
+            "measured": 995,
             "agrees": true
         },
         {
             "id": "ADJ-3",
             "kind": "repair",
             "title": "non-finite numerals — clamp where a clamp exists, reject where none does",
-            "pinned": 630,
-            "measured": 630,
+            "pinned": 635,
+            "measured": 635,
             "agrees": true
         },
         {
             "id": "PB-04/05",
             "kind": "repair",
             "title": "out-of-range channels and alphas CLAMP rather than passing through or rejecting",
-            "pinned": 7939,
-            "measured": 7939,
+            "pinned": 8002,
+            "measured": 8002,
             "agrees": true
         },
         {
             "id": "PB-01/02",
             "kind": "repair",
             "title": "the legacy four-argument rgba()/hsla() forms parse",
-            "pinned": 1110,
-            "measured": 1110,
+            "pinned": 1122,
+            "measured": 1122,
             "agrees": true
         },
         {
             "id": "PB-03",
             "kind": "value",
             "title": "the two spec-identical hsl spellings agree — a bare number IS a percentage there",
-            "pinned": 2991,
-            "measured": 2991,
+            "pinned": 3022,
+            "measured": 3022,
             "agrees": true
         }
     ],
     "classCensus": {
         "parseCssColor": {
-            "PB-12": 4902,
-            "PB-04/05": 4203,
-            "PB-08": 2220,
+            "PB-12": 4509,
+            "PB-04/05": 3779,
+            "PB-08": 2272,
+            "ID-5": 1487,
             "PB-03": 565,
-            "PB-01/02": 429,
-            "ADJ-3": 227,
-            "PB-09/10": 124,
+            "ADJ-3": 208,
+            "PB-01/02": 199,
+            "PB-09/10": 119,
             "ADJ-2": 48,
-            "SP-1": 6
+            "SP-1": 6,
+            "PB-11": 1
         },
         "parseCssScalar": {
-            "PB-12": 4902,
-            "PB-04/05": 4203,
-            "PB-08": 2220,
+            "PB-12": 4509,
+            "PB-04/05": 3779,
+            "PB-08": 2272,
+            "ID-5": 1487,
             "PB-03": 565,
-            "PB-01/02": 429,
-            "ADJ-3": 227,
-            "PB-09/10": 124,
+            "ADJ-3": 208,
+            "PB-01/02": 199,
+            "PB-09/10": 119,
             "ADJ-2": 48,
-            "SP-1": 6
+            "SP-1": 6,
+            "PB-11": 1
         },
         "parseCssValue": {
-            "PB-12": 4902,
-            "PB-04/05": 4207,
-            "PB-08": 2220,
+            "PB-12": 4509,
+            "PB-04/05": 3783,
+            "PB-08": 2272,
+            "ID-5": 1487,
             "PB-03": 565,
-            "PB-01/02": 429,
-            "ADJ-3": 227,
-            "PB-09/10": 124,
+            "ADJ-3": 208,
+            "PB-01/02": 199,
+            "PB-09/10": 119,
             "ADJ-2": 48,
-            "SP-1": 6
+            "SP-1": 6,
+            "PB-11": 1
         },
         "parseCssValues": {
-            "PB-12": 4902,
-            "PB-04/05": 4207,
-            "PB-08": 2220,
+            "PB-12": 4509,
+            "PB-04/05": 3783,
+            "PB-08": 2272,
+            "ID-5": 1487,
             "PB-03": 565,
-            "PB-01/02": 429,
-            "ADJ-3": 227,
-            "PB-09/10": 124,
+            "ADJ-3": 208,
+            "PB-01/02": 199,
+            "PB-09/10": 119,
             "ADJ-2": 48,
-            "SP-1": 6
+            "SP-1": 6,
+            "PB-11": 1
         },
         "parseKeyframeSelector": {
-            "PB-12": 5391
+            "PB-12": 5428
         },
         "parseTimingFunction": {
-            "PB-12": 5391
+            "PB-12": 5428
         },
         "coerceToSyntax": {
-            "PB-12": 4902,
-            "PB-08": 2220,
-            "PB-04/05": 186,
-            "PB-09/10": 124,
-            "PB-01/02": 34,
-            "ADJ-3": 16,
+            "PB-12": 4509,
+            "PB-08": 2272,
+            "ID-5": 1487,
+            "PB-04/05": 162,
+            "PB-09/10": 119,
+            "PB-01/02": 15,
+            "ADJ-3": 13,
             "SP-1": 6,
-            "ADJ-2": 1
+            "ADJ-2": 1,
+            "PB-11": 1
         },
         "parseStylesheet": {
-            "PB-12": 4902,
-            "PB-08": 2220,
-            "PB-04/05": 1188,
-            "PB-03": 176,
-            "PB-01/02": 131,
-            "PB-09/10": 124,
-            "ADJ-3": 60,
+            "PB-12": 4509,
+            "PB-08": 2272,
+            "ID-5": 1487,
+            "PB-04/05": 1043,
+            "PB-03": 168,
+            "PB-09/10": 119,
+            "PB-01/02": 59,
+            "ADJ-3": 50,
             "SP-1": 6,
-            "ADJ-2": 2
+            "ADJ-2": 2,
+            "PB-11": 1
         }
     },
     "declaredObservations": [
@@ -1463,9 +1483,9 @@
             "assertion": "typescript/test/css-totality/universe.test.ts :: runtime row `parseCssColor`",
             "family": "parser",
             "accept": {
-                "count": 5993,
+                "count": 5418,
                 "r1": 0,
-                "declared": 2673,
+                "declared": 2327,
                 "sample": [
                     "rgb(255 0 153 / 0.5)",
                     "color(display-p3 1 0.5 0)",
@@ -1478,9 +1498,9 @@
                 ]
             },
             "reject": {
-                "count": 21081,
-                "r1": 329,
-                "declared": 7253,
+                "count": 21603,
+                "r1": 211,
+                "declared": 8395,
                 "sample": [
                     "rgb()",
                     "rgb( )",
@@ -1493,94 +1513,41 @@
                 ]
             },
             "verdict": "PARTIAL",
-            "cellsRun": 27074,
+            "cellsRun": 27021,
             "missing": [
-                "MIS_ACCEPT ×10"
+                "MIS_ACCEPT ×1"
             ],
             "missClasses": [
                 {
                     "signature": "MIS_ACCEPT:rgb",
-                    "count": 10
+                    "count": 1
                 }
             ],
             "remainder": {
-                "F-k2 the candidate ACCEPTS a legacy comma form the spec forbids — mixed <number>/<percentage> arguments, or `none` (css-color-4 §8.1); the cure is in src/css/**, outside this unit's writable set": 9,
-                "GROUND-C ±Infinity (owner-owed; W3.md §10 'not opened here')": 1
+                "GROUND-C": 1
             },
             "census": {
-                "PB-12": 4902,
-                "PB-04/05": 4203,
-                "PB-08": 2220,
+                "PB-12": 4509,
+                "PB-04/05": 3779,
+                "PB-08": 2272,
+                "ID-5": 1487,
                 "PB-03": 565,
-                "PB-01/02": 429,
-                "ADJ-3": 227,
-                "PB-09/10": 124,
+                "ADJ-3": 208,
+                "PB-01/02": 199,
+                "PB-09/10": 119,
                 "ADJ-2": 48,
-                "SP-1": 6
+                "SP-1": 6,
+                "PB-11": 1
             },
             "misses": [
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(none, 6e167, 27%, 6e316)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
-                },
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(none, -0, -0, 5e357)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
-                },
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(.205, 65%, 8e354, 9e445)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
-                },
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(-0, 37.734, 42%, 9e347)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
-                },
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(91%, 99.248, 1e48, 7e380)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
-                },
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(none, 0, -0, 3e448)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
-                },
                 {
                     "kind": "MIS_ACCEPT",
                     "input": "rgb(.843, -0, +54, 5e498)",
                     "why": "oracle rejects; candidate accepts",
                     "declared": null
-                },
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(9e-443, 93%, 9%, 2e493)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
-                },
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(80%, .55, -17, 2e371)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
-                },
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(55%, -199, -67.34886833000928, 8e352)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
                 }
             ],
-            "missesTotal": 10
+            "missesTotal": 1
         },
         {
             "name": "parseCssScalar",
@@ -1591,9 +1558,9 @@
             "assertion": "typescript/test/css-totality/universe.test.ts :: runtime row `parseCssScalar`",
             "family": "parser",
             "accept": {
-                "count": 6472,
+                "count": 5900,
                 "r1": 0,
-                "declared": 2673,
+                "declared": 2327,
                 "sample": [
                     "rgb(255 0 153 / 0.5)",
                     "hsl",
@@ -1606,9 +1573,9 @@
                 ]
             },
             "reject": {
-                "count": 20602,
-                "r1": 329,
-                "declared": 7252,
+                "count": 21121,
+                "r1": 211,
+                "declared": 8394,
                 "sample": [
                     "rgb()",
                     "rgb( )",
@@ -1621,94 +1588,41 @@
                 ]
             },
             "verdict": "PARTIAL",
-            "cellsRun": 27074,
+            "cellsRun": 27021,
             "missing": [
-                "MIS_ACCEPT ×10"
+                "MIS_ACCEPT ×1"
             ],
             "missClasses": [
                 {
                     "signature": "MIS_ACCEPT:rgb",
-                    "count": 10
+                    "count": 1
                 }
             ],
             "remainder": {
-                "F-k2 the candidate ACCEPTS a legacy comma form the spec forbids — mixed <number>/<percentage> arguments, or `none` (css-color-4 §8.1); the cure is in src/css/**, outside this unit's writable set": 9,
-                "GROUND-C ±Infinity (owner-owed; W3.md §10 'not opened here')": 1
+                "GROUND-C": 1
             },
             "census": {
-                "PB-12": 4902,
-                "PB-04/05": 4203,
-                "PB-08": 2220,
+                "PB-12": 4509,
+                "PB-04/05": 3779,
+                "PB-08": 2272,
+                "ID-5": 1487,
                 "PB-03": 565,
-                "PB-01/02": 429,
-                "ADJ-3": 227,
-                "PB-09/10": 124,
+                "ADJ-3": 208,
+                "PB-01/02": 199,
+                "PB-09/10": 119,
                 "ADJ-2": 48,
-                "SP-1": 6
+                "SP-1": 6,
+                "PB-11": 1
             },
             "misses": [
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(none, 6e167, 27%, 6e316)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
-                },
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(none, -0, -0, 5e357)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
-                },
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(.205, 65%, 8e354, 9e445)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
-                },
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(-0, 37.734, 42%, 9e347)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
-                },
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(91%, 99.248, 1e48, 7e380)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
-                },
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(none, 0, -0, 3e448)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
-                },
                 {
                     "kind": "MIS_ACCEPT",
                     "input": "rgb(.843, -0, +54, 5e498)",
                     "why": "oracle rejects; candidate accepts",
                     "declared": null
-                },
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(9e-443, 93%, 9%, 2e493)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
-                },
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(80%, .55, -17, 2e371)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
-                },
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(55%, -199, -67.34886833000928, 8e352)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
                 }
             ],
-            "missesTotal": 10
+            "missesTotal": 1
         },
         {
             "name": "parseCssValue",
@@ -1719,9 +1633,9 @@
             "assertion": "typescript/test/css-totality/universe.test.ts :: runtime row `parseCssValue`",
             "family": "parser",
             "accept": {
-                "count": 9753,
+                "count": 9183,
                 "r1": 0,
-                "declared": 2675,
+                "declared": 2329,
                 "sample": [
                     "rgb(255 0 153 / 0.5)",
                     "hsl",
@@ -1734,9 +1648,9 @@
                 ]
             },
             "reject": {
-                "count": 17321,
-                "r1": 272,
-                "declared": 7252,
+                "count": 17838,
+                "r1": 120,
+                "declared": 8394,
                 "sample": [
                     "rgb()",
                     "rgb( )",
@@ -1749,94 +1663,41 @@
                 ]
             },
             "verdict": "PARTIAL",
-            "cellsRun": 27074,
+            "cellsRun": 27021,
             "missing": [
-                "MIS_ACCEPT ×10"
+                "MIS_ACCEPT ×1"
             ],
             "missClasses": [
                 {
                     "signature": "MIS_ACCEPT:rgb",
-                    "count": 10
+                    "count": 1
                 }
             ],
             "remainder": {
-                "F-k2 the candidate ACCEPTS a legacy comma form the spec forbids — mixed <number>/<percentage> arguments, or `none` (css-color-4 §8.1); the cure is in src/css/**, outside this unit's writable set": 9,
-                "GROUND-C ±Infinity (owner-owed; W3.md §10 'not opened here')": 1
+                "GROUND-C": 1
             },
             "census": {
-                "PB-12": 4902,
-                "PB-04/05": 4207,
-                "PB-08": 2220,
+                "PB-12": 4509,
+                "PB-04/05": 3783,
+                "PB-08": 2272,
+                "ID-5": 1487,
                 "PB-03": 565,
-                "PB-01/02": 429,
-                "ADJ-3": 227,
-                "PB-09/10": 124,
+                "ADJ-3": 208,
+                "PB-01/02": 199,
+                "PB-09/10": 119,
                 "ADJ-2": 48,
-                "SP-1": 6
+                "SP-1": 6,
+                "PB-11": 1
             },
             "misses": [
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(none, 6e167, 27%, 6e316)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
-                },
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(none, -0, -0, 5e357)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
-                },
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(.205, 65%, 8e354, 9e445)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
-                },
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(-0, 37.734, 42%, 9e347)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
-                },
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(91%, 99.248, 1e48, 7e380)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
-                },
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(none, 0, -0, 3e448)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
-                },
                 {
                     "kind": "MIS_ACCEPT",
                     "input": "rgb(.843, -0, +54, 5e498)",
                     "why": "oracle rejects; candidate accepts",
                     "declared": null
-                },
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(9e-443, 93%, 9%, 2e493)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
-                },
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(80%, .55, -17, 2e371)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
-                },
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(55%, -199, -67.34886833000928, 8e352)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
                 }
             ],
-            "missesTotal": 10
+            "missesTotal": 1
         },
         {
             "name": "parseCssValues",
@@ -1847,9 +1708,9 @@
             "assertion": "typescript/test/css-totality/universe.test.ts :: runtime row `parseCssValues`",
             "family": "parser",
             "accept": {
-                "count": 9753,
+                "count": 9183,
                 "r1": 0,
-                "declared": 2675,
+                "declared": 2329,
                 "sample": [
                     "rgb(255 0 153 / 0.5)",
                     "hsl",
@@ -1862,9 +1723,9 @@
                 ]
             },
             "reject": {
-                "count": 17321,
-                "r1": 272,
-                "declared": 7252,
+                "count": 17838,
+                "r1": 120,
+                "declared": 8394,
                 "sample": [
                     "rgb()",
                     "rgb( )",
@@ -1877,94 +1738,41 @@
                 ]
             },
             "verdict": "PARTIAL",
-            "cellsRun": 27074,
+            "cellsRun": 27021,
             "missing": [
-                "MIS_ACCEPT ×10"
+                "MIS_ACCEPT ×1"
             ],
             "missClasses": [
                 {
                     "signature": "MIS_ACCEPT:rgb",
-                    "count": 10
+                    "count": 1
                 }
             ],
             "remainder": {
-                "F-k2 the candidate ACCEPTS a legacy comma form the spec forbids — mixed <number>/<percentage> arguments, or `none` (css-color-4 §8.1); the cure is in src/css/**, outside this unit's writable set": 9,
-                "GROUND-C ±Infinity (owner-owed; W3.md §10 'not opened here')": 1
+                "GROUND-C": 1
             },
             "census": {
-                "PB-12": 4902,
-                "PB-04/05": 4207,
-                "PB-08": 2220,
+                "PB-12": 4509,
+                "PB-04/05": 3783,
+                "PB-08": 2272,
+                "ID-5": 1487,
                 "PB-03": 565,
-                "PB-01/02": 429,
-                "ADJ-3": 227,
-                "PB-09/10": 124,
+                "ADJ-3": 208,
+                "PB-01/02": 199,
+                "PB-09/10": 119,
                 "ADJ-2": 48,
-                "SP-1": 6
+                "SP-1": 6,
+                "PB-11": 1
             },
             "misses": [
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(none, 6e167, 27%, 6e316)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
-                },
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(none, -0, -0, 5e357)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
-                },
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(.205, 65%, 8e354, 9e445)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
-                },
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(-0, 37.734, 42%, 9e347)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
-                },
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(91%, 99.248, 1e48, 7e380)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
-                },
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(none, 0, -0, 3e448)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
-                },
                 {
                     "kind": "MIS_ACCEPT",
                     "input": "rgb(.843, -0, +54, 5e498)",
                     "why": "oracle rejects; candidate accepts",
                     "declared": null
-                },
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(9e-443, 93%, 9%, 2e493)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
-                },
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(80%, .55, -17, 2e371)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
-                },
-                {
-                    "kind": "MIS_ACCEPT",
-                    "input": "rgb(55%, -199, -67.34886833000928, 8e352)",
-                    "why": "oracle rejects; candidate accepts",
-                    "declared": null
                 }
             ],
-            "missesTotal": 10
+            "missesTotal": 1
         },
         {
             "name": "parseKeyframeSelector",
@@ -1990,9 +1798,9 @@
                 ]
             },
             "reject": {
-                "count": 27054,
-                "r1": 172,
-                "declared": 5391,
+                "count": 27001,
+                "r1": 0,
+                "declared": 5428,
                 "sample": [
                     "rgb()",
                     "rgb( )",
@@ -2005,12 +1813,12 @@
                 ]
             },
             "verdict": "TOTAL",
-            "cellsRun": 27074,
+            "cellsRun": 27021,
             "missing": [],
             "missClasses": [],
             "remainder": {},
             "census": {
-                "PB-12": 5391
+                "PB-12": 5428
             },
             "misses": [],
             "missesTotal": 0
@@ -2039,9 +1847,9 @@
                 ]
             },
             "reject": {
-                "count": 26717,
-                "r1": 172,
-                "declared": 5391,
+                "count": 26664,
+                "r1": 0,
+                "declared": 5428,
                 "sample": [
                     "rgb()",
                     "rgb( )",
@@ -2054,7 +1862,7 @@
                 ]
             },
             "verdict": "PARTIAL",
-            "cellsRun": 27074,
+            "cellsRun": 27021,
             "missing": [
                 "FALSE_REJECT_IN_SHAPE ×1",
                 "MIS_ACCEPT ×23"
@@ -2074,11 +1882,11 @@
                 }
             ],
             "remainder": {
-                "GROUND-C ±Infinity (owner-owed; W3.md §10 'not opened here')": 23,
-                "F-k4 the incumbent accepts an EMPTY argument (`steps(1e43,, start)`); css-syntax-3 §5.4.1 gives a comma-separated list no empty part — UNADJUDICATED, M-23 §1": 1
+                "GROUND-C": 23,
+                "ID-2": 1
             },
             "census": {
-                "PB-12": 5391
+                "PB-12": 5428
             },
             "misses": [
                 {
@@ -2211,9 +2019,9 @@
             "assertion": "typescript/test/css-totality/universe.test.ts :: runtime row `coerceToSyntax`",
             "family": "coercer",
             "accept": {
-                "count": 634,
+                "count": 580,
                 "r1": 0,
-                "declared": 202,
+                "declared": 174,
                 "sample": [
                     "\"rgb(285 0 153 / 0.5)\" @ <color>",
                     "\"h\" @ <custom-ident>",
@@ -2226,9 +2034,9 @@
                 ]
             },
             "reject": {
-                "count": 32800,
-                "r1": 3536,
-                "declared": 8452,
+                "count": 32225,
+                "r1": 1560,
+                "declared": 10194,
                 "sample": [
                     "\"rgb()\" @ <angle>",
                     "\"rgb()\" @ <color>",
@@ -2241,19 +2049,21 @@
                 ]
             },
             "verdict": "TOTAL",
-            "cellsRun": 33434,
+            "cellsRun": 32805,
             "missing": [],
             "missClasses": [],
             "remainder": {},
             "census": {
-                "PB-12": 4902,
-                "PB-08": 2220,
-                "PB-04/05": 186,
-                "PB-09/10": 124,
-                "PB-01/02": 34,
-                "ADJ-3": 16,
+                "PB-12": 4509,
+                "PB-08": 2272,
+                "ID-5": 1487,
+                "PB-04/05": 162,
+                "PB-09/10": 119,
+                "PB-01/02": 15,
+                "ADJ-3": 13,
                 "SP-1": 6,
-                "ADJ-2": 1
+                "ADJ-2": 1,
+                "PB-11": 1
             },
             "misses": [],
             "missesTotal": 0
@@ -2282,8 +2092,8 @@
                 ]
             },
             "reject": {
-                "count": 27033,
-                "r1": 172,
+                "count": 26980,
+                "r1": 0,
                 "declared": 0,
                 "sample": [
                     "rgb()",
@@ -2297,7 +2107,7 @@
                 ]
             },
             "verdict": "TOTAL",
-            "cellsRun": 27074,
+            "cellsRun": 27021,
             "missing": [],
             "missClasses": [],
             "remainder": {},
@@ -2314,19 +2124,23 @@
             "assertion": "typescript/test/css-totality/universe.test.ts :: runtime row `parseAnimationTimeline`",
             "family": "parser",
             "accept": {
-                "count": 4,
+                "count": 12,
                 "r1": 0,
                 "declared": 0,
                 "sample": [
                     "scroll()",
                     "scroll(block root)",
                     "view()",
-                    "view(inline 10% 20%)"
+                    "view(inline 10% 20%)",
+                    "scroll( )",
+                    "scroll(,)",
+                    "scroll(,,)",
+                    "scroll( ,)"
                 ]
             },
             "reject": {
-                "count": 27070,
-                "r1": 172,
+                "count": 27009,
+                "r1": 0,
                 "declared": 0,
                 "sample": [
                     "rgb()",
@@ -2340,7 +2154,7 @@
                 ]
             },
             "verdict": "TOTAL",
-            "cellsRun": 27074,
+            "cellsRun": 27021,
             "missing": [],
             "missClasses": [],
             "remainder": {},
@@ -2725,9 +2539,9 @@
             "assertion": "typescript/test/css-totality/universe.test.ts :: runtime row `parseStylesheet`",
             "family": "parser",
             "accept": {
-                "count": 2545,
+                "count": 2190,
                 "r1": 0,
-                "declared": 732,
+                "declared": 613,
                 "sample": [
                     "",
                     "a, b { background-color: #dbD }",
@@ -2740,9 +2554,9 @@
                 ]
             },
             "reject": {
-                "count": 24529,
+                "count": 24831,
                 "r1": 0,
-                "declared": 7252,
+                "declared": 8394,
                 "sample": [
                     "rgb()",
                     "rgb( )",
@@ -2755,20 +2569,20 @@
                 ]
             },
             "verdict": "PARTIAL",
-            "cellsRun": 27074,
+            "cellsRun": 27021,
             "missing": [
-                "FALSE_REJECT_IN_SHAPE ×185",
+                "FALSE_REJECT_IN_SHAPE ×7",
                 "DIVERGENT_VALUE ×2",
-                "MIS_ACCEPT ×19"
+                "MIS_ACCEPT ×7"
             ],
             "missClasses": [
                 {
                     "signature": "FALSE_REJECT_IN_SHAPE:(other)",
-                    "count": 185
+                    "count": 7
                 },
                 {
                     "signature": "MIS_ACCEPT:(other)",
-                    "count": 19
+                    "count": 7
                 },
                 {
                     "signature": "DIVERGENT_VALUE:(other)",
@@ -2776,32 +2590,24 @@
                 }
             ],
             "remainder": {
-                "BND-1 non-string boundary": 172,
-                "SH-1 blocks()'s signed paren counter (escalated by .j)": 11,
-                "F-k1 the incumbent's UNANCHORED component read (trailing garbage inside a component value); UNADJUDICATED — a fresh-adjudicator act, M-23 §1": 7,
-                "F-k2 the candidate ACCEPTS a legacy comma form the spec forbids — mixed <number>/<percentage> arguments, or `none` (css-color-4 §8.1); the cure is in src/css/**, outside this unit's writable set": 6,
-                "E-j1 at-rule family (unauthored, escalated by .j)": 5,
-                "unattributed": 3,
-                "GROUND-C ±Infinity (owner-owed; W3.md §10 'not opened here')": 2
+                "ID-1b": 9,
+                "ID-4": 5,
+                "GROUND-C": 2
             },
             "census": {
-                "PB-12": 4902,
-                "PB-08": 2220,
-                "PB-04/05": 1188,
-                "PB-03": 176,
-                "PB-01/02": 131,
-                "PB-09/10": 124,
-                "ADJ-3": 60,
+                "PB-12": 4509,
+                "PB-08": 2272,
+                "ID-5": 1487,
+                "PB-04/05": 1043,
+                "PB-03": 168,
+                "PB-09/10": 119,
+                "PB-01/02": 59,
+                "ADJ-3": 50,
                 "SP-1": 6,
-                "ADJ-2": 2
+                "ADJ-2": 2,
+                "PB-11": 1
             },
             "misses": [
-                {
-                    "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": "\t { border-color: hsl(5.deg 4e-169 5. / 10%) }",
-                    "why": "oracle accepts; candidate rejects with css_syntax",
-                    "declared": null
-                },
                 {
                     "kind": "FALSE_REJECT_IN_SHAPE",
                     "input": "b { col!r: rgb(9. none -76 / 0.) }",
@@ -2811,18 +2617,6 @@
                 {
                     "kind": "FALSE_REJECT_IN_SHAPE",
                     "input": "b { background-color: #74173d96 } a { border-colo!r: hsl(50% 1e-366 67.310) }",
-                    "why": "oracle accepts; candidate rejects with css_syntax",
-                    "declared": null
-                },
-                {
-                    "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": ".c { border-color: #ee584b } .c}{ color: rgb(4e258 -0 1. / 71%) } b { border-color: var(--x-y) }",
-                    "why": "oracle accepts; candidate rejects with css_syntax",
-                    "declared": null
-                },
-                {
-                    "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": "a, b { color: #f65 } #d { background-color: hsl(.336turn 7. .413) }  { border-color: currentcolor }",
                     "why": "oracle accepts; candidate rejects with css_syntax",
                     "declared": null
                 },
@@ -2857,25 +2651,37 @@
                     "declared": null
                 },
                 {
-                    "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": {
-                        "id": "r1-0",
-                        "src": ""
-                    },
-                    "why": "oracle accepts; candidate rejects with css_syntax",
+                    "kind": "DIVERGENT_VALUE",
+                    "input": "  @property --ratio { syntax: \"<number>\"; inherits: false; initial-value: 1 } h1, h2 {/* c */ img { @container (width > 400px) { nav { margin: 0 auto; animation-name: slide; margin: 0; } } transition: opacity 200ms } & > span { margin: 1em 2em !important;\n  & > span { font-weight: bold; padding: 2px 4px 6px 8px } } @document url(x) { #b {  } }} /* note */",
+                    "why": "oracle [{\"kind\":\"property\",\"name\":\"--ratio\",\"descriptor\":{\"syntax\":\"<number>\",\"inherits\":false,\"i vs candidate [{\"kind\":\"property\",\"name\":\"--ratio\",\"descriptor\":{\"syntax\":\"<number>\",\"inherits\":false,\"i",
                     "declared": null
                 },
                 {
-                    "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": {
-                        "id": "r1-1",
-                        "src": "  "
-                    },
-                    "why": "oracle accepts; candidate rejects with css_syntax",
+                    "kind": "DIVERGENT_VALUE",
+                    "input": "  @property --ratio { syntax: \"<number>\"; inherits: false; initial-value: 1 } h1, h2 {/* c */ img { @container (width > 400px) { nav { margin: 0 auto; animation-name: slide; margin: 0; } } transition: opacity 200ms } & > span { margin: 1em 2em !important;\n  & > span { font-weight: bold; padding: 2px 4pxx 6px 8px } } @document url(x) { #b {  } }} /* note */",
+                    "why": "oracle [{\"kind\":\"property\",\"name\":\"--ratio\",\"descriptor\":{\"syntax\":\"<number>\",\"inherits\":false,\"i vs candidate [{\"kind\":\"property\",\"name\":\"--ratio\",\"descriptor\":{\"syntax\":\"<number>\",\"inherits\":false,\"i",
+                    "declared": null
+                },
+                {
+                    "kind": "MIS_ACCEPT",
+                    "input": ".c ){ color: #28cA }",
+                    "why": "oracle rejects; candidate accepts",
+                    "declared": null
+                },
+                {
+                    "kind": "MIS_ACCEPT",
+                    "input": "a{ color: rgb(-232, 52.305, 67, 1e327) }",
+                    "why": "oracle rejects; candidate accepts",
+                    "declared": null
+                },
+                {
+                    "kind": "MIS_ACCEPT",
+                    "input": ".c { color: rgb(98.741 .536 .74 / 16%) } .c { color: rgb(7e456, 157.19748854171485, 67.109, 9e480) } a { nonebackground-color: oklch(none -41.30891829263419 -0deg / 3e-396) }",
+                    "why": "oracle rejects; candidate accepts",
                     "declared": null
                 }
             ],
-            "missesTotal": 206
+            "missesTotal": 16
         },
         {
             "name": "AnimationRangeValue",

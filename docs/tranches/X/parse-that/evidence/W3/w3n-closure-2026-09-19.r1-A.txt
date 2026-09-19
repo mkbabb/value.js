@@ -1,0 +1,44 @@
+X.P.W3.m — R1 ANCHOR, CANDIDATE SIDE (--at typescript/src/css)
+────────────────────────────────────────────────────────────────────────────────
+probe      docs/tranches/V/megatranche/audit/probes/r1-published-totality.mjs — sha256 77678a574d7c6b11448b19b6ab8fc0686dddf405a01cd7ea16757bc0837ad4ec
+           corpus LIFTED from it: 9 entries × 172 inputs = 1548 calls per lowering
+candidate  typescript/src/css/entry.mjs — sha256 570ab836f56a58638713d26eb33ba4516f962012ea11de84002bd549a5d8363e
+unrealized NONE — all nine frozen parsers are published
+
+js lowering
+────────────────────────────────────────────────────────────────────────────────
+ok   parseCssColor               0/172 throw
+ok   parseCssScalar              0/172 throw
+ok   parseCssValue               0/172 throw
+ok   parseCssValues              0/172 throw
+ok   parseKeyframeSelector       0/172 throw
+ok   parseStylesheet             0/172 throw
+ok   parseTimingFunction         0/172 throw
+ok   parseAnimationTimeline      0/172 throw
+ok   parseAnimationRange         0/172 throw
+
+TOTAL 0 throws / 1548 calls
+DISTINCT FAILURE MODES: 0
+UNDEFINED RETURNS: 0
+
+wasm lowering
+────────────────────────────────────────────────────────────────────────────────
+ok   parseCssColor               0/172 throw
+ok   parseCssScalar              0/172 throw
+ok   parseCssValue               0/172 throw
+ok   parseCssValues              0/172 throw
+ok   parseKeyframeSelector       0/172 throw
+ok   parseStylesheet             0/172 throw
+ok   parseTimingFunction         0/172 throw
+ok   parseAnimationTimeline      0/172 throw
+ok   parseAnimationRange         0/172 throw
+
+TOTAL 0 throws / 1548 calls
+DISTINCT FAILURE MODES: 0
+UNDEFINED RETURNS: 0
+
+────────────────────────────────────────────────────────────────────────────────
+js    0 throws · 0 undefined / 1548 calls
+wasm  0 throws · 0 undefined / 1548 calls
+
+GREEN — every public parser of the candidate surface is total, in BOTH lowerings.

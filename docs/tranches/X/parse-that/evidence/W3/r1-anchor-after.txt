@@ -174,3 +174,71 @@ CONSEQUENCE, stated and not ruled here (M-23 §1 — this seat is not the adjudi
       which the cure does NOT move, so G-7's mirror-defect count is untouched by it.
   (c) X.P.W4's seam contract is authored against a value.js surface that has since gained
       `serializeCssValue` and twelve type re-exports AND this cure. Routed, unchanged, to X.P.W4.
+
+================================================================================
+ADDENDUM 2026-09-19 (X.P.W3.n, beside — E-3; COHESION §0w)
+================================================================================
+
+WHY THIS BLOCK EXISTS.  The block above is X.P.W3.m's, banked at `92ed4cc9`'s mechanism and
+            IMMUTABLE (E-3: dated evidence is corrected by an addendum beside it, never over it).
+            X.P.W3.n moved the mechanism in four commits — BND-1's r1 arm, css-color-4 §8.1 with
+            ID-5, E-j1's component-value prelude, and the residual classes — so OP-2's third
+            artefact is RE-RUN here, at this unit's final HEAD, by the same generator and with the
+            same corpus lift. Nothing above is edited.
+
+COMMAND     ⟨cmd⟩ node typescript/scripts/r1-anchor-candidate.mjs --at typescript/src/css
+            from /Users/mkbabb/Programming/parse-that-css-totality-p2/typescript, 2026-09-19,
+            run TWICE; ⟨cmd⟩ `diff` between the two outputs → no output (byte-identical).
+
+THE VALUE.JS PROBE IS UNTOUCHED.  It is `execute, no write` (W3.md §4, R-E) and this program does
+            not run it: it PARSES the probe's source to lift `FNS`, `NAMES`, `BODIES` and the ten
+            seed strings, and HALTs if that corpus ever moves.
+
+--------------------------------------------------------------------------------
+RUN, at X.P.W3.n's final HEAD
+--------------------------------------------------------------------------------
+
+X.P.W3.m — R1 ANCHOR, CANDIDATE SIDE (--at typescript/src/css)
+────────────────────────────────────────────────────────────────────────────────
+probe      docs/tranches/V/megatranche/audit/probes/r1-published-totality.mjs — sha256 77678a574d7c6b11448b19b6ab8fc0686dddf405a01cd7ea16757bc0837ad4ec
+           corpus LIFTED from it: 9 entries × 172 inputs = 1548 calls per lowering
+candidate  typescript/src/css/entry.mjs — sha256 570ab836f56a58638713d26eb33ba4516f962012ea11de84002bd549a5d8363e
+unrealized NONE — all nine frozen parsers are published
+
+js lowering
+────────────────────────────────────────────────────────────────────────────────
+ok   parseCssColor               0/172 throw
+ok   parseCssScalar              0/172 throw
+ok   parseCssValue               0/172 throw
+ok   parseCssValues              0/172 throw
+ok   parseKeyframeSelector       0/172 throw
+ok   parseStylesheet             0/172 throw
+ok   parseTimingFunction         0/172 throw
+ok   parseAnimationTimeline      0/172 throw
+ok   parseAnimationRange         0/172 throw
+
+TOTAL 0 throws / 1548 calls
+DISTINCT FAILURE MODES: 0
+UNDEFINED RETURNS: 0
+
+wasm lowering
+────────────────────────────────────────────────────────────────────────────────
+ok   parseCssColor               0/172 throw
+ok   parseCssScalar              0/172 throw
+ok   parseCssValue               0/172 throw
+ok   parseCssValues              0/172 throw
+ok   parseKeyframeSelector       0/172 throw
+ok   parseStylesheet             0/172 throw
+ok   parseTimingFunction         0/172 throw
+ok   parseAnimationTimeline      0/172 throw
+ok   parseAnimationRange         0/172 throw
+
+TOTAL 0 throws / 1548 calls
+DISTINCT FAILURE MODES: 0
+UNDEFINED RETURNS: 0
+
+────────────────────────────────────────────────────────────────────────────────
+js    0 throws · 0 undefined / 1548 calls
+wasm  0 throws · 0 undefined / 1548 calls
+
+GREEN — every public parser of the candidate surface is total, in BOTH lowerings.

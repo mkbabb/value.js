@@ -115,19 +115,19 @@
   },
   "corpus": {
     "path": "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/test/css-totality/corpus.json",
-    "rows": 27074,
+    "rows": 27021,
     "distinct": 27021,
     "run": 27021,
-    "unwrappedForFc3": 172,
-    "rowsSha256": "49be0f9885615d31f2cd8ee1c5a3cf0039aa5c28236f329a4408034329140eea",
+    "unwrappedForFc3": 0,
+    "rowsSha256": "e119d81be0d088ec6bd061c7079242f8443b7e1651e1abdebca3eba7c20ca094",
     "rowsSha256Agrees": true,
     "bands": {
       "ground-a": 210,
+      "r1": 172,
       "p1": 403,
       "fuzz-f": 1769,
       "fuzz-o": 23942,
       "named": 148,
-      "r1": 172,
       "stylesheet-band": 470
     }
   },
@@ -179,8 +179,8 @@
     "rows": 52,
     "compared": 24,
     "noPeer": 28,
-    "mirrorDefects": 98,
-    "specUndecided": 96
+    "mirrorDefects": 44,
+    "specUndecided": 42
   },
   "redTriggers": [
     "DIVERGENT_VALUE",
@@ -201,14 +201,14 @@
         "js": {
           "cellsRun": 27021,
           "tally": {
-            "AGREE": 24338,
+            "AGREE": 24252,
             "DIVERGENT_VALUE": 0,
-            "MIS_ACCEPT": 10,
+            "MIS_ACCEPT": 1,
             "FALSE_REJECT_IN_SHAPE": 0,
             "CANDIDATE_THREW": 0,
             "CANDIDATE_SHAPE": 0,
             "COVERAGE_NARROWING": 0,
-            "DECLARED_DIVERGENCE": 2462,
+            "DECLARED_DIVERGENCE": 2557,
             "ADJUDICATION_UNHONOURED": 0,
             "FIXTURE_R1": 211
           },
@@ -218,14 +218,16 @@
                 "input": "rgb()",
                 "why": "incumbent throws TypeError; candidate returns ok:false",
                 "bands": [
-                  "ground-a"
+                  "ground-a",
+                  "r1"
                 ]
               },
               {
                 "input": "rgb( )",
                 "why": "incumbent throws TypeError; candidate returns ok:false",
                 "bands": [
-                  "ground-a"
+                  "ground-a",
+                  "r1"
                 ]
               },
               {
@@ -253,7 +255,8 @@
                 "input": "rgb(/)",
                 "why": "incumbent throws TypeError; candidate returns ok:false",
                 "bands": [
-                  "ground-a"
+                  "ground-a",
+                  "r1"
                 ]
               }
             ],
@@ -303,42 +306,7 @@
             ],
             "MIS_ACCEPT": [
               {
-                "input": "rgb(none, 6e167, 27%, 6e316)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(none, -0, -0, 5e357)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(.205, 65%, 8e354, 9e445)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(-0, 37.734, 42%, 9e347)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(91%, 99.248, 1e48, 7e380)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(none, 0, -0, 3e448)",
+                "input": "rgb(.843, -0, +54, 5e498)",
                 "why": "incumbent rejects with css_syntax; candidate accepts",
                 "bands": [
                   "fuzz-o"
@@ -346,20 +314,20 @@
               }
             ]
           },
-          "mirrorDefects": 10,
-          "specUndecided": 10
+          "mirrorDefects": 1,
+          "specUndecided": 1
         },
         "wasm": {
           "cellsRun": 27021,
           "tally": {
-            "AGREE": 24338,
+            "AGREE": 24252,
             "DIVERGENT_VALUE": 0,
-            "MIS_ACCEPT": 10,
+            "MIS_ACCEPT": 1,
             "FALSE_REJECT_IN_SHAPE": 0,
             "CANDIDATE_THREW": 0,
             "CANDIDATE_SHAPE": 0,
             "COVERAGE_NARROWING": 0,
-            "DECLARED_DIVERGENCE": 2462,
+            "DECLARED_DIVERGENCE": 2557,
             "ADJUDICATION_UNHONOURED": 0,
             "FIXTURE_R1": 211
           },
@@ -369,14 +337,16 @@
                 "input": "rgb()",
                 "why": "incumbent throws TypeError; candidate returns ok:false",
                 "bands": [
-                  "ground-a"
+                  "ground-a",
+                  "r1"
                 ]
               },
               {
                 "input": "rgb( )",
                 "why": "incumbent throws TypeError; candidate returns ok:false",
                 "bands": [
-                  "ground-a"
+                  "ground-a",
+                  "r1"
                 ]
               },
               {
@@ -404,7 +374,8 @@
                 "input": "rgb(/)",
                 "why": "incumbent throws TypeError; candidate returns ok:false",
                 "bands": [
-                  "ground-a"
+                  "ground-a",
+                  "r1"
                 ]
               }
             ],
@@ -454,42 +425,7 @@
             ],
             "MIS_ACCEPT": [
               {
-                "input": "rgb(none, 6e167, 27%, 6e316)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(none, -0, -0, 5e357)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(.205, 65%, 8e354, 9e445)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(-0, 37.734, 42%, 9e347)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(91%, 99.248, 1e48, 7e380)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(none, 0, -0, 3e448)",
+                "input": "rgb(.843, -0, +54, 5e498)",
                 "why": "incumbent rejects with css_syntax; candidate accepts",
                 "bands": [
                   "fuzz-o"
@@ -497,198 +433,58 @@
               }
             ]
           },
-          "mirrorDefects": 10,
-          "specUndecided": 10
+          "mirrorDefects": 1,
+          "specUndecided": 1
         }
       },
       "misses": {
         "js": [
           {
-            "input": "rgb(none, 6e167, 27%, 6e316)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(none, -0, -0, 5e357)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(.205, 65%, 8e354, 9e445)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(-0, 37.734, 42%, 9e347)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(91%, 99.248, 1e48, 7e380)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(none, 0, -0, 3e448)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
             "input": "rgb(.843, -0, +54, 5e498)",
             "verdict": "MIS_ACCEPT",
             "why": "incumbent rejects with css_syntax; candidate accepts",
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(9e-443, 93%, 9%, 2e493)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(80%, .55, -17, 2e371)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(55%, -199, -67.34886833000928, 8e352)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           }
         ],
         "wasm": [
           {
-            "input": "rgb(none, 6e167, 27%, 6e316)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(none, -0, -0, 5e357)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(.205, 65%, 8e354, 9e445)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(-0, 37.734, 42%, 9e347)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(91%, 99.248, 1e48, 7e380)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(none, 0, -0, 3e448)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
             "input": "rgb(.843, -0, +54, 5e498)",
             "verdict": "MIS_ACCEPT",
             "why": "incumbent rejects with css_syntax; candidate accepts",
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(9e-443, 93%, 9%, 2e493)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(80%, .55, -17, 2e371)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(55%, -199, -67.34886833000928, 8e352)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           }
         ]
       },
+      "rulingAttribution": {
+        "js": {
+          "misses": 1,
+          "inSet": 1,
+          "notInSet": 0,
+          "byId": {
+            "GROUND-C": 1
+          }
+        },
+        "wasm": {
+          "misses": 1,
+          "inSet": 1,
+          "notInSet": 0,
+          "byId": {
+            "GROUND-C": 1
+          }
+        }
+      },
       "cellsRun": 54042,
-      "mirrorDefects": 10,
+      "mirrorDefects": 1,
       "lowerAgree": true
     },
     {
@@ -701,14 +497,14 @@
         "js": {
           "cellsRun": 27021,
           "tally": {
-            "AGREE": 24338,
+            "AGREE": 24252,
             "DIVERGENT_VALUE": 0,
-            "MIS_ACCEPT": 10,
+            "MIS_ACCEPT": 1,
             "FALSE_REJECT_IN_SHAPE": 0,
             "CANDIDATE_THREW": 0,
             "CANDIDATE_SHAPE": 0,
             "COVERAGE_NARROWING": 0,
-            "DECLARED_DIVERGENCE": 2462,
+            "DECLARED_DIVERGENCE": 2557,
             "ADJUDICATION_UNHONOURED": 0,
             "FIXTURE_R1": 211
           },
@@ -718,14 +514,16 @@
                 "input": "rgb()",
                 "why": "incumbent throws TypeError; candidate returns ok:false",
                 "bands": [
-                  "ground-a"
+                  "ground-a",
+                  "r1"
                 ]
               },
               {
                 "input": "rgb( )",
                 "why": "incumbent throws TypeError; candidate returns ok:false",
                 "bands": [
-                  "ground-a"
+                  "ground-a",
+                  "r1"
                 ]
               },
               {
@@ -753,7 +551,8 @@
                 "input": "rgb(/)",
                 "why": "incumbent throws TypeError; candidate returns ok:false",
                 "bands": [
-                  "ground-a"
+                  "ground-a",
+                  "r1"
                 ]
               }
             ],
@@ -803,42 +602,7 @@
             ],
             "MIS_ACCEPT": [
               {
-                "input": "rgb(none, 6e167, 27%, 6e316)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(none, -0, -0, 5e357)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(.205, 65%, 8e354, 9e445)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(-0, 37.734, 42%, 9e347)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(91%, 99.248, 1e48, 7e380)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(none, 0, -0, 3e448)",
+                "input": "rgb(.843, -0, +54, 5e498)",
                 "why": "incumbent rejects with css_syntax; candidate accepts",
                 "bands": [
                   "fuzz-o"
@@ -846,20 +610,20 @@
               }
             ]
           },
-          "mirrorDefects": 10,
-          "specUndecided": 10
+          "mirrorDefects": 1,
+          "specUndecided": 1
         },
         "wasm": {
           "cellsRun": 27021,
           "tally": {
-            "AGREE": 24338,
+            "AGREE": 24252,
             "DIVERGENT_VALUE": 0,
-            "MIS_ACCEPT": 10,
+            "MIS_ACCEPT": 1,
             "FALSE_REJECT_IN_SHAPE": 0,
             "CANDIDATE_THREW": 0,
             "CANDIDATE_SHAPE": 0,
             "COVERAGE_NARROWING": 0,
-            "DECLARED_DIVERGENCE": 2462,
+            "DECLARED_DIVERGENCE": 2557,
             "ADJUDICATION_UNHONOURED": 0,
             "FIXTURE_R1": 211
           },
@@ -869,14 +633,16 @@
                 "input": "rgb()",
                 "why": "incumbent throws TypeError; candidate returns ok:false",
                 "bands": [
-                  "ground-a"
+                  "ground-a",
+                  "r1"
                 ]
               },
               {
                 "input": "rgb( )",
                 "why": "incumbent throws TypeError; candidate returns ok:false",
                 "bands": [
-                  "ground-a"
+                  "ground-a",
+                  "r1"
                 ]
               },
               {
@@ -904,7 +670,8 @@
                 "input": "rgb(/)",
                 "why": "incumbent throws TypeError; candidate returns ok:false",
                 "bands": [
-                  "ground-a"
+                  "ground-a",
+                  "r1"
                 ]
               }
             ],
@@ -954,42 +721,7 @@
             ],
             "MIS_ACCEPT": [
               {
-                "input": "rgb(none, 6e167, 27%, 6e316)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(none, -0, -0, 5e357)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(.205, 65%, 8e354, 9e445)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(-0, 37.734, 42%, 9e347)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(91%, 99.248, 1e48, 7e380)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(none, 0, -0, 3e448)",
+                "input": "rgb(.843, -0, +54, 5e498)",
                 "why": "incumbent rejects with css_syntax; candidate accepts",
                 "bands": [
                   "fuzz-o"
@@ -997,198 +729,58 @@
               }
             ]
           },
-          "mirrorDefects": 10,
-          "specUndecided": 10
+          "mirrorDefects": 1,
+          "specUndecided": 1
         }
       },
       "misses": {
         "js": [
           {
-            "input": "rgb(none, 6e167, 27%, 6e316)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(none, -0, -0, 5e357)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(.205, 65%, 8e354, 9e445)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(-0, 37.734, 42%, 9e347)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(91%, 99.248, 1e48, 7e380)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(none, 0, -0, 3e448)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
             "input": "rgb(.843, -0, +54, 5e498)",
             "verdict": "MIS_ACCEPT",
             "why": "incumbent rejects with css_syntax; candidate accepts",
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(9e-443, 93%, 9%, 2e493)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(80%, .55, -17, 2e371)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(55%, -199, -67.34886833000928, 8e352)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           }
         ],
         "wasm": [
           {
-            "input": "rgb(none, 6e167, 27%, 6e316)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(none, -0, -0, 5e357)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(.205, 65%, 8e354, 9e445)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(-0, 37.734, 42%, 9e347)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(91%, 99.248, 1e48, 7e380)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(none, 0, -0, 3e448)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
             "input": "rgb(.843, -0, +54, 5e498)",
             "verdict": "MIS_ACCEPT",
             "why": "incumbent rejects with css_syntax; candidate accepts",
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(9e-443, 93%, 9%, 2e493)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(80%, .55, -17, 2e371)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(55%, -199, -67.34886833000928, 8e352)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           }
         ]
       },
+      "rulingAttribution": {
+        "js": {
+          "misses": 1,
+          "inSet": 1,
+          "notInSet": 0,
+          "byId": {
+            "GROUND-C": 1
+          }
+        },
+        "wasm": {
+          "misses": 1,
+          "inSet": 1,
+          "notInSet": 0,
+          "byId": {
+            "GROUND-C": 1
+          }
+        }
+      },
       "cellsRun": 54042,
-      "mirrorDefects": 10,
+      "mirrorDefects": 1,
       "lowerAgree": true
     },
     {
@@ -1201,14 +793,14 @@
         "js": {
           "cellsRun": 27021,
           "tally": {
-            "AGREE": 23642,
+            "AGREE": 23556,
             "DIVERGENT_VALUE": 0,
-            "MIS_ACCEPT": 10,
+            "MIS_ACCEPT": 1,
             "FALSE_REJECT_IN_SHAPE": 0,
             "CANDIDATE_THREW": 0,
             "CANDIDATE_SHAPE": 0,
             "COVERAGE_NARROWING": 0,
-            "DECLARED_DIVERGENCE": 3249,
+            "DECLARED_DIVERGENCE": 3344,
             "ADJUDICATION_UNHONOURED": 0,
             "FIXTURE_R1": 120
           },
@@ -1218,14 +810,16 @@
                 "input": "rgb()",
                 "why": "incumbent throws TypeError; candidate returns ok:false",
                 "bands": [
-                  "ground-a"
+                  "ground-a",
+                  "r1"
                 ]
               },
               {
                 "input": "rgb( )",
                 "why": "incumbent throws TypeError; candidate returns ok:false",
                 "bands": [
-                  "ground-a"
+                  "ground-a",
+                  "r1"
                 ]
               },
               {
@@ -1253,7 +847,8 @@
                 "input": "rgb(/)",
                 "why": "incumbent throws TypeError; candidate returns ok:false",
                 "bands": [
-                  "ground-a"
+                  "ground-a",
+                  "r1"
                 ]
               }
             ],
@@ -1303,42 +898,7 @@
             ],
             "MIS_ACCEPT": [
               {
-                "input": "rgb(none, 6e167, 27%, 6e316)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(none, -0, -0, 5e357)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(.205, 65%, 8e354, 9e445)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(-0, 37.734, 42%, 9e347)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(91%, 99.248, 1e48, 7e380)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(none, 0, -0, 3e448)",
+                "input": "rgb(.843, -0, +54, 5e498)",
                 "why": "incumbent rejects with css_syntax; candidate accepts",
                 "bands": [
                   "fuzz-o"
@@ -1346,20 +906,20 @@
               }
             ]
           },
-          "mirrorDefects": 10,
-          "specUndecided": 10
+          "mirrorDefects": 1,
+          "specUndecided": 1
         },
         "wasm": {
           "cellsRun": 27021,
           "tally": {
-            "AGREE": 23642,
+            "AGREE": 23556,
             "DIVERGENT_VALUE": 0,
-            "MIS_ACCEPT": 10,
+            "MIS_ACCEPT": 1,
             "FALSE_REJECT_IN_SHAPE": 0,
             "CANDIDATE_THREW": 0,
             "CANDIDATE_SHAPE": 0,
             "COVERAGE_NARROWING": 0,
-            "DECLARED_DIVERGENCE": 3249,
+            "DECLARED_DIVERGENCE": 3344,
             "ADJUDICATION_UNHONOURED": 0,
             "FIXTURE_R1": 120
           },
@@ -1369,14 +929,16 @@
                 "input": "rgb()",
                 "why": "incumbent throws TypeError; candidate returns ok:false",
                 "bands": [
-                  "ground-a"
+                  "ground-a",
+                  "r1"
                 ]
               },
               {
                 "input": "rgb( )",
                 "why": "incumbent throws TypeError; candidate returns ok:false",
                 "bands": [
-                  "ground-a"
+                  "ground-a",
+                  "r1"
                 ]
               },
               {
@@ -1404,7 +966,8 @@
                 "input": "rgb(/)",
                 "why": "incumbent throws TypeError; candidate returns ok:false",
                 "bands": [
-                  "ground-a"
+                  "ground-a",
+                  "r1"
                 ]
               }
             ],
@@ -1454,42 +1017,7 @@
             ],
             "MIS_ACCEPT": [
               {
-                "input": "rgb(none, 6e167, 27%, 6e316)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(none, -0, -0, 5e357)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(.205, 65%, 8e354, 9e445)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(-0, 37.734, 42%, 9e347)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(91%, 99.248, 1e48, 7e380)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(none, 0, -0, 3e448)",
+                "input": "rgb(.843, -0, +54, 5e498)",
                 "why": "incumbent rejects with css_syntax; candidate accepts",
                 "bands": [
                   "fuzz-o"
@@ -1497,198 +1025,58 @@
               }
             ]
           },
-          "mirrorDefects": 10,
-          "specUndecided": 10
+          "mirrorDefects": 1,
+          "specUndecided": 1
         }
       },
       "misses": {
         "js": [
           {
-            "input": "rgb(none, 6e167, 27%, 6e316)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(none, -0, -0, 5e357)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(.205, 65%, 8e354, 9e445)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(-0, 37.734, 42%, 9e347)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(91%, 99.248, 1e48, 7e380)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(none, 0, -0, 3e448)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
             "input": "rgb(.843, -0, +54, 5e498)",
             "verdict": "MIS_ACCEPT",
             "why": "incumbent rejects with css_syntax; candidate accepts",
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(9e-443, 93%, 9%, 2e493)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(80%, .55, -17, 2e371)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(55%, -199, -67.34886833000928, 8e352)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           }
         ],
         "wasm": [
           {
-            "input": "rgb(none, 6e167, 27%, 6e316)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(none, -0, -0, 5e357)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(.205, 65%, 8e354, 9e445)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(-0, 37.734, 42%, 9e347)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(91%, 99.248, 1e48, 7e380)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(none, 0, -0, 3e448)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
             "input": "rgb(.843, -0, +54, 5e498)",
             "verdict": "MIS_ACCEPT",
             "why": "incumbent rejects with css_syntax; candidate accepts",
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(9e-443, 93%, 9%, 2e493)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(80%, .55, -17, 2e371)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(55%, -199, -67.34886833000928, 8e352)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           }
         ]
       },
+      "rulingAttribution": {
+        "js": {
+          "misses": 1,
+          "inSet": 1,
+          "notInSet": 0,
+          "byId": {
+            "GROUND-C": 1
+          }
+        },
+        "wasm": {
+          "misses": 1,
+          "inSet": 1,
+          "notInSet": 0,
+          "byId": {
+            "GROUND-C": 1
+          }
+        }
+      },
       "cellsRun": 54042,
-      "mirrorDefects": 10,
+      "mirrorDefects": 1,
       "lowerAgree": true
     },
     {
@@ -1701,14 +1089,14 @@
         "js": {
           "cellsRun": 27021,
           "tally": {
-            "AGREE": 23642,
+            "AGREE": 23556,
             "DIVERGENT_VALUE": 0,
-            "MIS_ACCEPT": 10,
+            "MIS_ACCEPT": 1,
             "FALSE_REJECT_IN_SHAPE": 0,
             "CANDIDATE_THREW": 0,
             "CANDIDATE_SHAPE": 0,
             "COVERAGE_NARROWING": 0,
-            "DECLARED_DIVERGENCE": 3249,
+            "DECLARED_DIVERGENCE": 3344,
             "ADJUDICATION_UNHONOURED": 0,
             "FIXTURE_R1": 120
           },
@@ -1718,14 +1106,16 @@
                 "input": "rgb()",
                 "why": "incumbent throws TypeError; candidate returns ok:false",
                 "bands": [
-                  "ground-a"
+                  "ground-a",
+                  "r1"
                 ]
               },
               {
                 "input": "rgb( )",
                 "why": "incumbent throws TypeError; candidate returns ok:false",
                 "bands": [
-                  "ground-a"
+                  "ground-a",
+                  "r1"
                 ]
               },
               {
@@ -1753,7 +1143,8 @@
                 "input": "rgb(/)",
                 "why": "incumbent throws TypeError; candidate returns ok:false",
                 "bands": [
-                  "ground-a"
+                  "ground-a",
+                  "r1"
                 ]
               }
             ],
@@ -1803,42 +1194,7 @@
             ],
             "MIS_ACCEPT": [
               {
-                "input": "rgb(none, 6e167, 27%, 6e316)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(none, -0, -0, 5e357)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(.205, 65%, 8e354, 9e445)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(-0, 37.734, 42%, 9e347)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(91%, 99.248, 1e48, 7e380)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(none, 0, -0, 3e448)",
+                "input": "rgb(.843, -0, +54, 5e498)",
                 "why": "incumbent rejects with css_syntax; candidate accepts",
                 "bands": [
                   "fuzz-o"
@@ -1846,20 +1202,20 @@
               }
             ]
           },
-          "mirrorDefects": 10,
-          "specUndecided": 10
+          "mirrorDefects": 1,
+          "specUndecided": 1
         },
         "wasm": {
           "cellsRun": 27021,
           "tally": {
-            "AGREE": 23642,
+            "AGREE": 23556,
             "DIVERGENT_VALUE": 0,
-            "MIS_ACCEPT": 10,
+            "MIS_ACCEPT": 1,
             "FALSE_REJECT_IN_SHAPE": 0,
             "CANDIDATE_THREW": 0,
             "CANDIDATE_SHAPE": 0,
             "COVERAGE_NARROWING": 0,
-            "DECLARED_DIVERGENCE": 3249,
+            "DECLARED_DIVERGENCE": 3344,
             "ADJUDICATION_UNHONOURED": 0,
             "FIXTURE_R1": 120
           },
@@ -1869,14 +1225,16 @@
                 "input": "rgb()",
                 "why": "incumbent throws TypeError; candidate returns ok:false",
                 "bands": [
-                  "ground-a"
+                  "ground-a",
+                  "r1"
                 ]
               },
               {
                 "input": "rgb( )",
                 "why": "incumbent throws TypeError; candidate returns ok:false",
                 "bands": [
-                  "ground-a"
+                  "ground-a",
+                  "r1"
                 ]
               },
               {
@@ -1904,7 +1262,8 @@
                 "input": "rgb(/)",
                 "why": "incumbent throws TypeError; candidate returns ok:false",
                 "bands": [
-                  "ground-a"
+                  "ground-a",
+                  "r1"
                 ]
               }
             ],
@@ -1954,42 +1313,7 @@
             ],
             "MIS_ACCEPT": [
               {
-                "input": "rgb(none, 6e167, 27%, 6e316)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(none, -0, -0, 5e357)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(.205, 65%, 8e354, 9e445)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(-0, 37.734, 42%, 9e347)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(91%, 99.248, 1e48, 7e380)",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(none, 0, -0, 3e448)",
+                "input": "rgb(.843, -0, +54, 5e498)",
                 "why": "incumbent rejects with css_syntax; candidate accepts",
                 "bands": [
                   "fuzz-o"
@@ -1997,198 +1321,58 @@
               }
             ]
           },
-          "mirrorDefects": 10,
-          "specUndecided": 10
+          "mirrorDefects": 1,
+          "specUndecided": 1
         }
       },
       "misses": {
         "js": [
           {
-            "input": "rgb(none, 6e167, 27%, 6e316)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(none, -0, -0, 5e357)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(.205, 65%, 8e354, 9e445)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(-0, 37.734, 42%, 9e347)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(91%, 99.248, 1e48, 7e380)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(none, 0, -0, 3e448)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
             "input": "rgb(.843, -0, +54, 5e498)",
             "verdict": "MIS_ACCEPT",
             "why": "incumbent rejects with css_syntax; candidate accepts",
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(9e-443, 93%, 9%, 2e493)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(80%, .55, -17, 2e371)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(55%, -199, -67.34886833000928, 8e352)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           }
         ],
         "wasm": [
           {
-            "input": "rgb(none, 6e167, 27%, 6e316)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(none, -0, -0, 5e357)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(.205, 65%, 8e354, 9e445)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(-0, 37.734, 42%, 9e347)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(91%, 99.248, 1e48, 7e380)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(none, 0, -0, 3e448)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
             "input": "rgb(.843, -0, +54, 5e498)",
             "verdict": "MIS_ACCEPT",
             "why": "incumbent rejects with css_syntax; candidate accepts",
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(9e-443, 93%, 9%, 2e493)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(80%, .55, -17, 2e371)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "rgb(55%, -199, -67.34886833000928, 8e352)",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           }
         ]
       },
+      "rulingAttribution": {
+        "js": {
+          "misses": 1,
+          "inSet": 1,
+          "notInSet": 0,
+          "byId": {
+            "GROUND-C": 1
+          }
+        },
+        "wasm": {
+          "misses": 1,
+          "inSet": 1,
+          "notInSet": 0,
+          "byId": {
+            "GROUND-C": 1
+          }
+        }
+      },
       "cellsRun": 54042,
-      "mirrorDefects": 10,
+      "mirrorDefects": 1,
       "lowerAgree": true
     },
     {
@@ -2238,6 +1422,20 @@
       "misses": {
         "js": [],
         "wasm": []
+      },
+      "rulingAttribution": {
+        "js": {
+          "misses": 0,
+          "inSet": 0,
+          "notInSet": 0,
+          "byId": {}
+        },
+        "wasm": {
+          "misses": 0,
+          "inSet": 0,
+          "notInSet": 0,
+          "byId": {}
+        }
       },
       "cellsRun": 54042,
       "mirrorDefects": 0,
@@ -2492,7 +1690,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(.95, +99, 5e325)",
@@ -2501,7 +1701,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(17.833 .896%, 8e440, -0)",
@@ -2510,7 +1712,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "cubic-bezier(.319, 1e389, .334, 28.136)",
@@ -2519,7 +1723,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(-361 4e495%, 166.1066859262064, -223 -17.386972857639194%, -0 9.254%)",
@@ -2528,7 +1734,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "steps(1e43,, start)",
@@ -2537,7 +1745,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "ID-2",
+            "rulingInSet": true
           },
           {
             "input": "linear(+84 8e328%, 3.880178038962185)",
@@ -2546,7 +1756,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(46.108, +98 33.651%, 9e313, +52 +26%)",
@@ -2555,7 +1767,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(5e425, -0, 77.123,.272)",
@@ -2564,7 +1778,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "cubic-bezier(-0, 8e458, .893, +31)",
@@ -2573,7 +1789,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(7e324 102.8985577110201%, .27, 29 190.33129245508462%, 147 40.640%)",
@@ -2582,7 +1800,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "cubic-bezier(.135, 9e337,.744, 4e424)",
@@ -2591,7 +1811,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(5e499, -0 -0%)",
@@ -2600,7 +1822,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(-0, 8e472, .147 130%, -0)",
@@ -2609,7 +1833,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(3e399 64.899%, +92, .700 64%)",
@@ -2618,7 +1844,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "cubic-bezier(.557, 6e345, .590, -0)",
@@ -2627,7 +1855,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(.855 -0%, -0 9e390%, -26.280247420072556)",
@@ -2636,7 +1866,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(-7.41244088858366 5e492%, 164.92977514863014)",
@@ -2645,7 +1877,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(5e312, 41.272, 91)",
@@ -2654,7 +1888,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(8e478 +73%, +79 28.644%)",
@@ -2663,7 +1899,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(.235, 7e424)",
@@ -2672,7 +1910,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(8e317, 78.70270570274442)",
@@ -2681,7 +1921,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(-102, 4e429 3e283%, -277)",
@@ -2690,7 +1932,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(94.750 79.25%, 9e441, 15.846)",
@@ -2699,7 +1943,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           }
         ],
         "wasm": [
@@ -2710,7 +1956,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(.95, +99, 5e325)",
@@ -2719,7 +1967,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(17.833 .896%, 8e440, -0)",
@@ -2728,7 +1978,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "cubic-bezier(.319, 1e389, .334, 28.136)",
@@ -2737,7 +1989,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(-361 4e495%, 166.1066859262064, -223 -17.386972857639194%, -0 9.254%)",
@@ -2746,7 +2000,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "steps(1e43,, start)",
@@ -2755,7 +2011,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "ID-2",
+            "rulingInSet": true
           },
           {
             "input": "linear(+84 8e328%, 3.880178038962185)",
@@ -2764,7 +2022,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(46.108, +98 33.651%, 9e313, +52 +26%)",
@@ -2773,7 +2033,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(5e425, -0, 77.123,.272)",
@@ -2782,7 +2044,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "cubic-bezier(-0, 8e458, .893, +31)",
@@ -2791,7 +2055,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(7e324 102.8985577110201%, .27, 29 190.33129245508462%, 147 40.640%)",
@@ -2800,7 +2066,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "cubic-bezier(.135, 9e337,.744, 4e424)",
@@ -2809,7 +2077,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(5e499, -0 -0%)",
@@ -2818,7 +2088,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(-0, 8e472, .147 130%, -0)",
@@ -2827,7 +2099,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(3e399 64.899%, +92, .700 64%)",
@@ -2836,7 +2110,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "cubic-bezier(.557, 6e345, .590, -0)",
@@ -2845,7 +2121,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(.855 -0%, -0 9e390%, -26.280247420072556)",
@@ -2854,7 +2132,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(-7.41244088858366 5e492%, 164.92977514863014)",
@@ -2863,7 +2143,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(5e312, 41.272, 91)",
@@ -2872,7 +2154,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(8e478 +73%, +79 28.644%)",
@@ -2881,7 +2165,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(.235, 7e424)",
@@ -2890,7 +2176,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(8e317, 78.70270570274442)",
@@ -2899,7 +2187,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(-102, 4e429 3e283%, -277)",
@@ -2908,7 +2198,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "linear(94.750 79.25%, 9e441, 15.846)",
@@ -2917,9 +2209,31 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           }
         ]
+      },
+      "rulingAttribution": {
+        "js": {
+          "misses": 24,
+          "inSet": 24,
+          "notInSet": 0,
+          "byId": {
+            "GROUND-C": 23,
+            "ID-2": 1
+          }
+        },
+        "wasm": {
+          "misses": 24,
+          "inSet": 24,
+          "notInSet": 0,
+          "byId": {
+            "GROUND-C": 23,
+            "ID-2": 1
+          }
+        }
       },
       "cellsRun": 54042,
       "mirrorDefects": 24,
@@ -2973,6 +2287,20 @@
         "js": [],
         "wasm": []
       },
+      "rulingAttribution": {
+        "js": {
+          "misses": 0,
+          "inSet": 0,
+          "notInSet": 0,
+          "byId": {}
+        },
+        "wasm": {
+          "misses": 0,
+          "inSet": 0,
+          "notInSet": 0,
+          "byId": {}
+        }
+      },
       "cellsRun": 800,
       "mirrorDefects": 0,
       "lowerAgree": true
@@ -2987,14 +2315,14 @@
         "js": {
           "cellsRun": 27021,
           "tally": {
-            "AGREE": 26708,
+            "AGREE": 26693,
             "DIVERGENT_VALUE": 0,
             "MIS_ACCEPT": 0,
             "FALSE_REJECT_IN_SHAPE": 0,
             "CANDIDATE_THREW": 0,
             "CANDIDATE_SHAPE": 0,
             "COVERAGE_NARROWING": 0,
-            "DECLARED_DIVERGENCE": 193,
+            "DECLARED_DIVERGENCE": 208,
             "ADJUDICATION_UNHONOURED": 0,
             "FIXTURE_R1": 120
           },
@@ -3004,14 +2332,16 @@
                 "input": "rgb() @ <angle>",
                 "why": "incumbent throws TypeError; candidate returns ok:false",
                 "bands": [
-                  "ground-a"
+                  "ground-a",
+                  "r1"
                 ]
               },
               {
                 "input": "rgb( ) @ <color>",
                 "why": "incumbent throws TypeError; candidate returns ok:false",
                 "bands": [
-                  "ground-a"
+                  "ground-a",
+                  "r1"
                 ]
               },
               {
@@ -3039,7 +2369,8 @@
                 "input": "rgb(/) @ <length>",
                 "why": "incumbent throws TypeError; candidate returns ok:false",
                 "bands": [
-                  "ground-a"
+                  "ground-a",
+                  "r1"
                 ]
               }
             ],
@@ -3059,6 +2390,13 @@
                 ]
               },
               {
+                "input": "rgb(-0, -25.092650204896927, none) @ <color>",
+                "why": "ID-5 honoured (reject)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
                 "input": "rgb(-0 3. 270%) @ <color>",
                 "why": "PB-12 honoured (reject)",
                 "bands": [
@@ -3066,22 +2404,15 @@
                 ]
               },
               {
+                "input": "rgb(none, 70%, 9e-357) @ <color>",
+                "why": "ID-5 honoured (reject)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
                 "input": "hsl(2e261turn -13 181.2522914726287 / 296) @ <color>",
                 "why": "PB-04/05 honoured (accept)",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(.480 7. -0 / -0) @ <color>",
-                "why": "PB-12 honoured (reject)",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "oklch(none -0 0.rad) @ <color>",
-                "why": "PB-12 honoured (reject)",
                 "bands": [
                   "fuzz-o"
                 ]
@@ -3094,14 +2425,14 @@
         "wasm": {
           "cellsRun": 27021,
           "tally": {
-            "AGREE": 26708,
+            "AGREE": 26693,
             "DIVERGENT_VALUE": 0,
             "MIS_ACCEPT": 0,
             "FALSE_REJECT_IN_SHAPE": 0,
             "CANDIDATE_THREW": 0,
             "CANDIDATE_SHAPE": 0,
             "COVERAGE_NARROWING": 0,
-            "DECLARED_DIVERGENCE": 193,
+            "DECLARED_DIVERGENCE": 208,
             "ADJUDICATION_UNHONOURED": 0,
             "FIXTURE_R1": 120
           },
@@ -3111,14 +2442,16 @@
                 "input": "rgb() @ <angle>",
                 "why": "incumbent throws TypeError; candidate returns ok:false",
                 "bands": [
-                  "ground-a"
+                  "ground-a",
+                  "r1"
                 ]
               },
               {
                 "input": "rgb( ) @ <color>",
                 "why": "incumbent throws TypeError; candidate returns ok:false",
                 "bands": [
-                  "ground-a"
+                  "ground-a",
+                  "r1"
                 ]
               },
               {
@@ -3146,7 +2479,8 @@
                 "input": "rgb(/) @ <length>",
                 "why": "incumbent throws TypeError; candidate returns ok:false",
                 "bands": [
-                  "ground-a"
+                  "ground-a",
+                  "r1"
                 ]
               }
             ],
@@ -3166,6 +2500,13 @@
                 ]
               },
               {
+                "input": "rgb(-0, -25.092650204896927, none) @ <color>",
+                "why": "ID-5 honoured (reject)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
                 "input": "rgb(-0 3. 270%) @ <color>",
                 "why": "PB-12 honoured (reject)",
                 "bands": [
@@ -3173,22 +2514,15 @@
                 ]
               },
               {
+                "input": "rgb(none, 70%, 9e-357) @ <color>",
+                "why": "ID-5 honoured (reject)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
                 "input": "hsl(2e261turn -13 181.2522914726287 / 296) @ <color>",
                 "why": "PB-04/05 honoured (accept)",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "rgb(.480 7. -0 / -0) @ <color>",
-                "why": "PB-12 honoured (reject)",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "oklch(none -0 0.rad) @ <color>",
-                "why": "PB-12 honoured (reject)",
                 "bands": [
                   "fuzz-o"
                 ]
@@ -3202,6 +2536,20 @@
       "misses": {
         "js": [],
         "wasm": []
+      },
+      "rulingAttribution": {
+        "js": {
+          "misses": 0,
+          "inSet": 0,
+          "notInSet": 0,
+          "byId": {}
+        },
+        "wasm": {
+          "misses": 0,
+          "inSet": 0,
+          "notInSet": 0,
+          "byId": {}
+        }
       },
       "cellsRun": 54042,
       "mirrorDefects": 0,
@@ -3255,6 +2603,20 @@
         "js": [],
         "wasm": []
       },
+      "rulingAttribution": {
+        "js": {
+          "misses": 0,
+          "inSet": 0,
+          "notInSet": 0,
+          "byId": {}
+        },
+        "wasm": {
+          "misses": 0,
+          "inSet": 0,
+          "notInSet": 0,
+          "byId": {}
+        }
+      },
       "cellsRun": 54042,
       "mirrorDefects": 0,
       "lowerAgree": true
@@ -3306,6 +2668,20 @@
       "misses": {
         "js": [],
         "wasm": []
+      },
+      "rulingAttribution": {
+        "js": {
+          "misses": 0,
+          "inSet": 0,
+          "notInSet": 0,
+          "byId": {}
+        },
+        "wasm": {
+          "misses": 0,
+          "inSet": 0,
+          "notInSet": 0,
+          "byId": {}
+        }
       },
       "cellsRun": 54042,
       "mirrorDefects": 0,
@@ -3359,6 +2735,20 @@
         "js": [],
         "wasm": []
       },
+      "rulingAttribution": {
+        "js": {
+          "misses": 0,
+          "inSet": 0,
+          "notInSet": 0,
+          "byId": {}
+        },
+        "wasm": {
+          "misses": 0,
+          "inSet": 0,
+          "notInSet": 0,
+          "byId": {}
+        }
+      },
       "cellsRun": 400,
       "mirrorDefects": 0,
       "lowerAgree": true
@@ -3410,6 +2800,20 @@
       "misses": {
         "js": [],
         "wasm": []
+      },
+      "rulingAttribution": {
+        "js": {
+          "misses": 0,
+          "inSet": 0,
+          "notInSet": 0,
+          "byId": {}
+        },
+        "wasm": {
+          "misses": 0,
+          "inSet": 0,
+          "notInSet": 0,
+          "byId": {}
+        }
       },
       "cellsRun": 800,
       "mirrorDefects": 0,
@@ -3463,6 +2867,20 @@
         "js": [],
         "wasm": []
       },
+      "rulingAttribution": {
+        "js": {
+          "misses": 0,
+          "inSet": 0,
+          "notInSet": 0,
+          "byId": {}
+        },
+        "wasm": {
+          "misses": 0,
+          "inSet": 0,
+          "notInSet": 0,
+          "byId": {}
+        }
+      },
       "cellsRun": 800,
       "mirrorDefects": 0,
       "lowerAgree": true
@@ -3514,6 +2932,20 @@
       "misses": {
         "js": [],
         "wasm": []
+      },
+      "rulingAttribution": {
+        "js": {
+          "misses": 0,
+          "inSet": 0,
+          "notInSet": 0,
+          "byId": {}
+        },
+        "wasm": {
+          "misses": 0,
+          "inSet": 0,
+          "notInSet": 0,
+          "byId": {}
+        }
       },
       "cellsRun": 800,
       "mirrorDefects": 0,
@@ -3567,6 +2999,20 @@
         "js": [],
         "wasm": []
       },
+      "rulingAttribution": {
+        "js": {
+          "misses": 0,
+          "inSet": 0,
+          "notInSet": 0,
+          "byId": {}
+        },
+        "wasm": {
+          "misses": 0,
+          "inSet": 0,
+          "notInSet": 0,
+          "byId": {}
+        }
+      },
       "cellsRun": 800,
       "mirrorDefects": 0,
       "lowerAgree": true
@@ -3618,6 +3064,20 @@
       "misses": {
         "js": [],
         "wasm": []
+      },
+      "rulingAttribution": {
+        "js": {
+          "misses": 0,
+          "inSet": 0,
+          "notInSet": 0,
+          "byId": {}
+        },
+        "wasm": {
+          "misses": 0,
+          "inSet": 0,
+          "notInSet": 0,
+          "byId": {}
+        }
       },
       "cellsRun": 800,
       "mirrorDefects": 0,
@@ -3671,6 +3131,20 @@
         "js": [],
         "wasm": []
       },
+      "rulingAttribution": {
+        "js": {
+          "misses": 0,
+          "inSet": 0,
+          "notInSet": 0,
+          "byId": {}
+        },
+        "wasm": {
+          "misses": 0,
+          "inSet": 0,
+          "notInSet": 0,
+          "byId": {}
+        }
+      },
       "cellsRun": 800,
       "mirrorDefects": 0,
       "lowerAgree": true
@@ -3723,6 +3197,20 @@
         "js": [],
         "wasm": []
       },
+      "rulingAttribution": {
+        "js": {
+          "misses": 0,
+          "inSet": 0,
+          "notInSet": 0,
+          "byId": {}
+        },
+        "wasm": {
+          "misses": 0,
+          "inSet": 0,
+          "notInSet": 0,
+          "byId": {}
+        }
+      },
       "cellsRun": 800,
       "mirrorDefects": 0,
       "lowerAgree": true
@@ -3737,14 +3225,14 @@
         "js": {
           "cellsRun": 27021,
           "tally": {
-            "AGREE": 26253,
+            "AGREE": 26249,
             "DIVERGENT_VALUE": 2,
-            "MIS_ACCEPT": 19,
-            "FALSE_REJECT_IN_SHAPE": 13,
+            "MIS_ACCEPT": 7,
+            "FALSE_REJECT_IN_SHAPE": 7,
             "CANDIDATE_THREW": 0,
             "CANDIDATE_SHAPE": 0,
             "COVERAGE_NARROWING": 0,
-            "DECLARED_DIVERGENCE": 734,
+            "DECLARED_DIVERGENCE": 756,
             "ADJUDICATION_UNHONOURED": 0,
             "FIXTURE_R1": 0
           },
@@ -3780,14 +3268,14 @@
               },
               {
                 "input": "#d { background-color: oklch(5. 62.24 90.00796838663518grad) } #d { border-color: rgb(none, 8e-460, 367) !important } #d { color: rgb(.355 -0 -0) }",
-                "why": "PB-12 honoured (reject)",
+                "why": "ID-5 honoured (reject)",
                 "bands": [
                   "fuzz-o"
                 ]
               },
               {
                 "input": "#d { background-color: rgb(11.653, 7., 1e-8%) }",
-                "why": "PB-12 honoured (reject)",
+                "why": "ID-5 honoured (reject)",
                 "bands": [
                   "fuzz-o"
                 ]
@@ -3802,20 +3290,6 @@
                 ]
               },
               {
-                "input": "a, b { background-color: rgb(15.229 .635 -0) !important } .c { background-color: rgb(+12, none, 40.121382917277515, 46.14) } a, b { background!color: var(--a) }",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": ".c { border-color: rgb(126.97154495399445, 0e423, 0e255, 4e416) } a, b { border-color: aliceblue } .c { background-color: rgb(none, -6.371314148418605, -0) }",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
                 "input": "a{ color: rgb(-232, 52.305, 67, 1e327) }",
                 "why": "incumbent rejects with css_syntax; candidate accepts",
                 "bands": [
@@ -3823,14 +3297,28 @@
                 ]
               },
               {
-                "input": "(c { color: rgb(9e219 97% 1e-174 / .704) !important }",
+                "input": ".c { color: rgb(98.741 .536 .74 / 16%) } .c { color: rgb(7e456, 157.19748854171485, 67.109, 9e480) } a { nonebackground-color: oklch(none -41.30891829263419 -0deg / 3e-396) }",
                 "why": "incumbent rejects with css_syntax; candidate accepts",
                 "bands": [
                   "fuzz-o"
                 ]
               },
               {
-                "input": "b ({ border-color: #928618E2 }",
+                "input": "a, b { color: hsl(85.89643812738359turn 23.763 .396) } b ) color: #0e8 } a, b { border-color: var(--z) }",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "b { background-color: oklch(.369 3e53 7e202turn / -137) } a { backgr!ound-color: rgb(42.187 none -0 / -116) } #d { color: #Ef9 }",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "a { border-color: oklch}-0 139 -160deg) !important } a { border-color: #Fdd5dF } b { border-color: hsl(-249rad -0 100% / 15%) !important }",
                 "why": "incumbent rejects with css_syntax; candidate accepts",
                 "bands": [
                   "fuzz-o"
@@ -3838,13 +3326,6 @@
               }
             ],
             "FALSE_REJECT_IN_SHAPE": [
-              {
-                "input": "\t { border-color: hsl(5.deg 4e-169 5. / 10%) }",
-                "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
               {
                 "input": "b { col!r: rgb(9. none -76 / 0.) }",
                 "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
@@ -3860,21 +3341,28 @@
                 ]
               },
               {
-                "input": ".c { border-color: #ee584b } .c}{ color: rgb(4e258 -0 1. / 71%) } b { border-color: var(--x-y) }",
-                "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "a, b { color: #f65 } #d { background-color: hsl(.336turn 7. .413) }  { border-color: currentcolor }",
-                "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
                 "input": "b { backgr!und-color: oklch(3e-440 7e-206 4.deg) }",
+                "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "b { background-color: hsl(141.1656975513324turn 2. 53.62424335908145) !important } a, b { border-!olor: rgb(+16 -0 395) }",
+                "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": ".c { background-color: rgb(-0 .504 6e-128 / 9e-415) } GARBAGE ) ;(#d { background-color: #eFEbC78B }",
+                "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "b { background-color: var(--brand) -!important }",
                 "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
                 "bands": [
                   "fuzz-o"
@@ -3898,20 +3386,20 @@
               }
             ]
           },
-          "mirrorDefects": 34,
-          "specUndecided": 32
+          "mirrorDefects": 16,
+          "specUndecided": 14
         },
         "wasm": {
           "cellsRun": 27021,
           "tally": {
-            "AGREE": 26253,
+            "AGREE": 26249,
             "DIVERGENT_VALUE": 2,
-            "MIS_ACCEPT": 19,
-            "FALSE_REJECT_IN_SHAPE": 13,
+            "MIS_ACCEPT": 7,
+            "FALSE_REJECT_IN_SHAPE": 7,
             "CANDIDATE_THREW": 0,
             "CANDIDATE_SHAPE": 0,
             "COVERAGE_NARROWING": 0,
-            "DECLARED_DIVERGENCE": 734,
+            "DECLARED_DIVERGENCE": 756,
             "ADJUDICATION_UNHONOURED": 0,
             "FIXTURE_R1": 0
           },
@@ -3947,14 +3435,14 @@
               },
               {
                 "input": "#d { background-color: oklch(5. 62.24 90.00796838663518grad) } #d { border-color: rgb(none, 8e-460, 367) !important } #d { color: rgb(.355 -0 -0) }",
-                "why": "PB-12 honoured (reject)",
+                "why": "ID-5 honoured (reject)",
                 "bands": [
                   "fuzz-o"
                 ]
               },
               {
                 "input": "#d { background-color: rgb(11.653, 7., 1e-8%) }",
-                "why": "PB-12 honoured (reject)",
+                "why": "ID-5 honoured (reject)",
                 "bands": [
                   "fuzz-o"
                 ]
@@ -3969,20 +3457,6 @@
                 ]
               },
               {
-                "input": "a, b { background-color: rgb(15.229 .635 -0) !important } .c { background-color: rgb(+12, none, 40.121382917277515, 46.14) } a, b { background!color: var(--a) }",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": ".c { border-color: rgb(126.97154495399445, 0e423, 0e255, 4e416) } a, b { border-color: aliceblue } .c { background-color: rgb(none, -6.371314148418605, -0) }",
-                "why": "incumbent rejects with css_syntax; candidate accepts",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
                 "input": "a{ color: rgb(-232, 52.305, 67, 1e327) }",
                 "why": "incumbent rejects with css_syntax; candidate accepts",
                 "bands": [
@@ -3990,14 +3464,28 @@
                 ]
               },
               {
-                "input": "(c { color: rgb(9e219 97% 1e-174 / .704) !important }",
+                "input": ".c { color: rgb(98.741 .536 .74 / 16%) } .c { color: rgb(7e456, 157.19748854171485, 67.109, 9e480) } a { nonebackground-color: oklch(none -41.30891829263419 -0deg / 3e-396) }",
                 "why": "incumbent rejects with css_syntax; candidate accepts",
                 "bands": [
                   "fuzz-o"
                 ]
               },
               {
-                "input": "b ({ border-color: #928618E2 }",
+                "input": "a, b { color: hsl(85.89643812738359turn 23.763 .396) } b ) color: #0e8 } a, b { border-color: var(--z) }",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "b { background-color: oklch(.369 3e53 7e202turn / -137) } a { backgr!ound-color: rgb(42.187 none -0 / -116) } #d { color: #Ef9 }",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "a { border-color: oklch}-0 139 -160deg) !important } a { border-color: #Fdd5dF } b { border-color: hsl(-249rad -0 100% / 15%) !important }",
                 "why": "incumbent rejects with css_syntax; candidate accepts",
                 "bands": [
                   "fuzz-o"
@@ -4005,13 +3493,6 @@
               }
             ],
             "FALSE_REJECT_IN_SHAPE": [
-              {
-                "input": "\t { border-color: hsl(5.deg 4e-169 5. / 10%) }",
-                "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
               {
                 "input": "b { col!r: rgb(9. none -76 / 0.) }",
                 "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
@@ -4027,21 +3508,28 @@
                 ]
               },
               {
-                "input": ".c { border-color: #ee584b } .c}{ color: rgb(4e258 -0 1. / 71%) } b { border-color: var(--x-y) }",
-                "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
-                "input": "a, b { color: #f65 } #d { background-color: hsl(.336turn 7. .413) }  { border-color: currentcolor }",
-                "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
-                "bands": [
-                  "fuzz-o"
-                ]
-              },
-              {
                 "input": "b { backgr!und-color: oklch(3e-440 7e-206 4.deg) }",
+                "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "b { background-color: hsl(141.1656975513324turn 2. 53.62424335908145) !important } a, b { border-!olor: rgb(+16 -0 395) }",
+                "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": ".c { background-color: rgb(-0 .504 6e-128 / 9e-415) } GARBAGE ) ;(#d { background-color: #eFEbC78B }",
+                "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "b { background-color: var(--brand) -!important }",
                 "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
                 "bands": [
                   "fuzz-o"
@@ -4065,8 +3553,8 @@
               }
             ]
           },
-          "mirrorDefects": 34,
-          "specUndecided": 32
+          "mirrorDefects": 16,
+          "specUndecided": 14
         }
       },
       "misses": {
@@ -4078,34 +3566,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
-          },
-          {
-            "input": "\t { border-color: hsl(5.deg 4e-169 5. / 10%) }",
-            "verdict": "FALSE_REJECT_IN_SHAPE",
-            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "a, b { background-color: rgb(15.229 .635 -0) !important } .c { background-color: rgb(+12, none, 40.121382917277515, 46.14) } a, b { background!color: var(--a) }",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": ".c { border-color: rgb(126.97154495399445, 0e423, 0e255, 4e416) } a, b { border-color: aliceblue } .c { background-color: rgb(none, -6.371314148418605, -0) }",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
+            ],
+            "rulingId": "ID-4",
+            "rulingInSet": true
           },
           {
             "input": "b { col!r: rgb(9. none -76 / 0.) }",
@@ -4114,7 +3577,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "ID-1b",
+            "rulingInSet": true
           },
           {
             "input": "a{ color: rgb(-232, 52.305, 67, 1e327) }",
@@ -4123,16 +3588,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
-          },
-          {
-            "input": "(c { color: rgb(9e219 97% 1e-174 / .704) !important }",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "b { background-color: #74173d96 } a { border-colo!r: hsl(50% 1e-366 67.310) }",
@@ -4141,52 +3599,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
-          },
-          {
-            "input": "b ({ border-color: #928618E2 }",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": ".c({ color: #DdDB }",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": ".c }{ border-color: rgb(-0 -0 -0) } b { color: rgb(.468, none, 33, 0e-306) !important }",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": ".c( { border-color: var(--x-y) }",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": ".c { border-color: #ee584b } .c}{ color: rgb(4e258 -0 1. / 71%) } b { border-color: var(--x-y) }",
-            "verdict": "FALSE_REJECT_IN_SHAPE",
-            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
+            ],
+            "rulingId": "ID-1b",
+            "rulingInSet": true
           },
           {
             "input": ".c { color: rgb(98.741 .536 .74 / 16%) } .c { color: rgb(7e456, 157.19748854171485, 67.109, 9e480) } a { nonebackground-color: oklch(none -41.30891829263419 -0deg / 3e-396) }",
@@ -4195,16 +3610,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
-          },
-          {
-            "input": "a, b { color: #f65 } #d { background-color: hsl(.336turn 7. .413) }  { border-color: currentcolor }",
-            "verdict": "FALSE_REJECT_IN_SHAPE",
-            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "a, b { color: hsl(85.89643812738359turn 23.763 .396) } b ) color: #0e8 } a, b { border-color: var(--z) }",
@@ -4213,16 +3621,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
-          },
-          {
-            "input": "#d { color: rgb(183 4e24 18.179 / +43) }@@ ; #d { border-color: var(--x-y, currentcolor) }",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
+            ],
+            "rulingId": "ID-4",
+            "rulingInSet": true
           },
           {
             "input": "b { backgr!und-color: oklch(3e-440 7e-206 4.deg) }",
@@ -4231,25 +3632,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
-          },
-          {
-            "input": "( { border-color: #26FA }",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "#d { border-color: rgb(.875, -0, 12%,-3e469) }",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
+            ],
+            "rulingId": "ID-1b",
+            "rulingInSet": true
           },
           {
             "input": "b { background-color: hsl(141.1656975513324turn 2. 53.62424335908145) !important } a, b { border-!olor: rgb(+16 -0 395) }",
@@ -4258,7 +3643,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "ID-1b",
+            "rulingInSet": true
           },
           {
             "input": "b { background-color: oklch(.369 3e53 7e202turn / -137) } a { backgr!ound-color: rgb(42.187 none -0 / -116) } #d { color: #Ef9 }",
@@ -4267,7 +3654,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "ID-1b",
+            "rulingInSet": true
           },
           {
             "input": "a { border-color: oklch}-0 139 -160deg) !important } a { border-color: #Fdd5dF } b { border-color: hsl(-249rad -0 100% / 15%) !important }",
@@ -4276,7 +3665,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "ID-4",
+            "rulingInSet": true
           },
           {
             "input": ".c { background-color: rgb(-0 .504 6e-128 / 9e-415) } GARBAGE ) ;(#d { background-color: #eFEbC78B }",
@@ -4285,7 +3676,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "ID-4",
+            "rulingInSet": true
           },
           {
             "input": "b { background-color: var(--brand) -!important }",
@@ -4294,25 +3687,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
-          },
-          {
-            "input": " { background-color: rgb(none, 8e144, 80%, .86) }",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "b { background-color: blue !important } a, b { color: rgb(24.745, 171.2787213968113, 41%) } a ({ background-color: chocolate !important }",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
+            ],
+            "rulingId": "ID-1b",
+            "rulingInSet": true
           },
           {
             "input": "#d { background-color: hsl(73.416 -338 -290)!important } .c { border-color: var(--x-y) }",
@@ -4321,7 +3698,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "ID-1b",
+            "rulingInSet": true
           },
           {
             "input": "#d ){ background-color: var(--a, rebeccapurple) }",
@@ -4330,7 +3709,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "ID-4",
+            "rulingInSet": true
           },
           {
             "input": "  @property --ratio { syntax: \"<number>\"; inherits: false; initial-value: 1 } h1, h2 {/* c */ img { @container (width > 400px) { nav { margin: 0 auto; animation-name: slide; margin: 0; } } transition: opacity 200ms } & > span { margin: 1em 2em !important;\n  & > span { font-weight: bold; padding: 2px 4px 6px 8px } } @document url(x) { #b {  } }} /* note */",
@@ -4339,7 +3720,9 @@
             "specUndecided": false,
             "bands": [
               "stylesheet-band"
-            ]
+            ],
+            "rulingId": "ID-1b",
+            "rulingInSet": true
           },
           {
             "input": "  @property --ratio { syntax: \"<number>\"; inherits: false; initial-value: 1 } h1, h2 {/* c */ img { @container (width > 400px) { nav { margin: 0 auto; animation-name: slide; margin: 0; } } transition: opacity 200ms } & > span { margin: 1em 2em !important;\n  & > span { font-weight: bold; padding: 2px 4pxx 6px 8px } } @document url(x) { #b {  } }} /* note */",
@@ -4348,34 +3731,9 @@
             "specUndecided": false,
             "bands": [
               "stylesheet-band"
-            ]
-          },
-          {
-            "input": "/* c */ @view-timeline --v { axis: x; inset: 10px 20px } @namespace svg url(http{://www.w3.org/2000/svg);/* c */ ",
-            "verdict": "FALSE_REJECT_IN_SHAPE",
-            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
-            "specUndecided": true,
-            "bands": [
-              "stylesheet-band"
-            ]
-          },
-          {
-            "input": ";@view-timeline --viewer { subject: none; inset: 10px } ; @charset \"utf-8\"; ; @namespace svg url(http://www.w3.org/2000/s;vg);",
-            "verdict": "FALSE_REJECT_IN_SHAPE",
-            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
-            "specUndecided": true,
-            "bands": [
-              "stylesheet-band"
-            ]
-          },
-          {
-            "input": "@namespace svg url(http://www.w;.org/2000/svg); /* note */",
-            "verdict": "FALSE_REJECT_IN_SHAPE",
-            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
-            "specUndecided": true,
-            "bands": [
-              "stylesheet-band"
-            ]
+            ],
+            "rulingId": "ID-1b",
+            "rulingInSet": true
           }
         ],
         "wasm": [
@@ -4386,34 +3744,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
-          },
-          {
-            "input": "\t { border-color: hsl(5.deg 4e-169 5. / 10%) }",
-            "verdict": "FALSE_REJECT_IN_SHAPE",
-            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "a, b { background-color: rgb(15.229 .635 -0) !important } .c { background-color: rgb(+12, none, 40.121382917277515, 46.14) } a, b { background!color: var(--a) }",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": ".c { border-color: rgb(126.97154495399445, 0e423, 0e255, 4e416) } a, b { border-color: aliceblue } .c { background-color: rgb(none, -6.371314148418605, -0) }",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
+            ],
+            "rulingId": "ID-4",
+            "rulingInSet": true
           },
           {
             "input": "b { col!r: rgb(9. none -76 / 0.) }",
@@ -4422,7 +3755,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "ID-1b",
+            "rulingInSet": true
           },
           {
             "input": "a{ color: rgb(-232, 52.305, 67, 1e327) }",
@@ -4431,16 +3766,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
-          },
-          {
-            "input": "(c { color: rgb(9e219 97% 1e-174 / .704) !important }",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "b { background-color: #74173d96 } a { border-colo!r: hsl(50% 1e-366 67.310) }",
@@ -4449,52 +3777,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
-          },
-          {
-            "input": "b ({ border-color: #928618E2 }",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": ".c({ color: #DdDB }",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": ".c }{ border-color: rgb(-0 -0 -0) } b { color: rgb(.468, none, 33, 0e-306) !important }",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": ".c( { border-color: var(--x-y) }",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": ".c { border-color: #ee584b } .c}{ color: rgb(4e258 -0 1. / 71%) } b { border-color: var(--x-y) }",
-            "verdict": "FALSE_REJECT_IN_SHAPE",
-            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
+            ],
+            "rulingId": "ID-1b",
+            "rulingInSet": true
           },
           {
             "input": ".c { color: rgb(98.741 .536 .74 / 16%) } .c { color: rgb(7e456, 157.19748854171485, 67.109, 9e480) } a { nonebackground-color: oklch(none -41.30891829263419 -0deg / 3e-396) }",
@@ -4503,16 +3788,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
-          },
-          {
-            "input": "a, b { color: #f65 } #d { background-color: hsl(.336turn 7. .413) }  { border-color: currentcolor }",
-            "verdict": "FALSE_REJECT_IN_SHAPE",
-            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
+            ],
+            "rulingId": "GROUND-C",
+            "rulingInSet": true
           },
           {
             "input": "a, b { color: hsl(85.89643812738359turn 23.763 .396) } b ) color: #0e8 } a, b { border-color: var(--z) }",
@@ -4521,16 +3799,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
-          },
-          {
-            "input": "#d { color: rgb(183 4e24 18.179 / +43) }@@ ; #d { border-color: var(--x-y, currentcolor) }",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
+            ],
+            "rulingId": "ID-4",
+            "rulingInSet": true
           },
           {
             "input": "b { backgr!und-color: oklch(3e-440 7e-206 4.deg) }",
@@ -4539,25 +3810,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
-          },
-          {
-            "input": "( { border-color: #26FA }",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "#d { border-color: rgb(.875, -0, 12%,-3e469) }",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
+            ],
+            "rulingId": "ID-1b",
+            "rulingInSet": true
           },
           {
             "input": "b { background-color: hsl(141.1656975513324turn 2. 53.62424335908145) !important } a, b { border-!olor: rgb(+16 -0 395) }",
@@ -4566,7 +3821,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "ID-1b",
+            "rulingInSet": true
           },
           {
             "input": "b { background-color: oklch(.369 3e53 7e202turn / -137) } a { backgr!ound-color: rgb(42.187 none -0 / -116) } #d { color: #Ef9 }",
@@ -4575,7 +3832,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "ID-1b",
+            "rulingInSet": true
           },
           {
             "input": "a { border-color: oklch}-0 139 -160deg) !important } a { border-color: #Fdd5dF } b { border-color: hsl(-249rad -0 100% / 15%) !important }",
@@ -4584,7 +3843,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "ID-4",
+            "rulingInSet": true
           },
           {
             "input": ".c { background-color: rgb(-0 .504 6e-128 / 9e-415) } GARBAGE ) ;(#d { background-color: #eFEbC78B }",
@@ -4593,7 +3854,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "ID-4",
+            "rulingInSet": true
           },
           {
             "input": "b { background-color: var(--brand) -!important }",
@@ -4602,25 +3865,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
-          },
-          {
-            "input": " { background-color: rgb(none, 8e144, 80%, .86) }",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
-          },
-          {
-            "input": "b { background-color: blue !important } a, b { color: rgb(24.745, 171.2787213968113, 41%) } a ({ background-color: chocolate !important }",
-            "verdict": "MIS_ACCEPT",
-            "why": "incumbent rejects with css_syntax; candidate accepts",
-            "specUndecided": true,
-            "bands": [
-              "fuzz-o"
-            ]
+            ],
+            "rulingId": "ID-1b",
+            "rulingInSet": true
           },
           {
             "input": "#d { background-color: hsl(73.416 -338 -290)!important } .c { border-color: var(--x-y) }",
@@ -4629,7 +3876,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "ID-1b",
+            "rulingInSet": true
           },
           {
             "input": "#d ){ background-color: var(--a, rebeccapurple) }",
@@ -4638,7 +3887,9 @@
             "specUndecided": true,
             "bands": [
               "fuzz-o"
-            ]
+            ],
+            "rulingId": "ID-4",
+            "rulingInSet": true
           },
           {
             "input": "  @property --ratio { syntax: \"<number>\"; inherits: false; initial-value: 1 } h1, h2 {/* c */ img { @container (width > 400px) { nav { margin: 0 auto; animation-name: slide; margin: 0; } } transition: opacity 200ms } & > span { margin: 1em 2em !important;\n  & > span { font-weight: bold; padding: 2px 4px 6px 8px } } @document url(x) { #b {  } }} /* note */",
@@ -4647,7 +3898,9 @@
             "specUndecided": false,
             "bands": [
               "stylesheet-band"
-            ]
+            ],
+            "rulingId": "ID-1b",
+            "rulingInSet": true
           },
           {
             "input": "  @property --ratio { syntax: \"<number>\"; inherits: false; initial-value: 1 } h1, h2 {/* c */ img { @container (width > 400px) { nav { margin: 0 auto; animation-name: slide; margin: 0; } } transition: opacity 200ms } & > span { margin: 1em 2em !important;\n  & > span { font-weight: bold; padding: 2px 4pxx 6px 8px } } @document url(x) { #b {  } }} /* note */",
@@ -4656,39 +3909,36 @@
             "specUndecided": false,
             "bands": [
               "stylesheet-band"
-            ]
-          },
-          {
-            "input": "/* c */ @view-timeline --v { axis: x; inset: 10px 20px } @namespace svg url(http{://www.w3.org/2000/svg);/* c */ ",
-            "verdict": "FALSE_REJECT_IN_SHAPE",
-            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
-            "specUndecided": true,
-            "bands": [
-              "stylesheet-band"
-            ]
-          },
-          {
-            "input": ";@view-timeline --viewer { subject: none; inset: 10px } ; @charset \"utf-8\"; ; @namespace svg url(http://www.w3.org/2000/s;vg);",
-            "verdict": "FALSE_REJECT_IN_SHAPE",
-            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
-            "specUndecided": true,
-            "bands": [
-              "stylesheet-band"
-            ]
-          },
-          {
-            "input": "@namespace svg url(http://www.w;.org/2000/svg); /* note */",
-            "verdict": "FALSE_REJECT_IN_SHAPE",
-            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
-            "specUndecided": true,
-            "bands": [
-              "stylesheet-band"
-            ]
+            ],
+            "rulingId": "ID-1b",
+            "rulingInSet": true
           }
         ]
       },
+      "rulingAttribution": {
+        "js": {
+          "misses": 16,
+          "inSet": 16,
+          "notInSet": 0,
+          "byId": {
+            "ID-1b": 9,
+            "ID-4": 5,
+            "GROUND-C": 2
+          }
+        },
+        "wasm": {
+          "misses": 16,
+          "inSet": 16,
+          "notInSet": 0,
+          "byId": {
+            "ID-1b": 9,
+            "ID-4": 5,
+            "GROUND-C": 2
+          }
+        }
+      },
       "cellsRun": 54042,
-      "mirrorDefects": 34,
+      "mirrorDefects": 16,
       "lowerAgree": true
     },
     {
