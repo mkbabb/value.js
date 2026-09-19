@@ -1,0 +1,259 @@
+{
+  "predicate": "RC-P",
+  "version": "4.0.0",
+  "evaluatedAt": "2026-09-19T11:59:09.627Z",
+  "package": "@mkbabb/value.js",
+  "valueRepo": "/Users/mkbabb/Programming/value.js",
+  "p2Root": "/Users/mkbabb/Programming/parse-that-css-totality-p2",
+  "universePin": "6aca8602",
+  "verdict": "FALSE",
+  "trueCount": 3,
+  "falseConjuncts": [
+    1,
+    3,
+    4
+  ],
+  "conjuncts": [
+    {
+      "n": 1,
+      "name": "PUBLISHED(V)",
+      "measured": true,
+      "value": false,
+      "documentRead": false,
+      "reason": "verify-packed-surface.mjs exited 1 against V's registry tarball — the packed surface does not resolve",
+      "commands": [
+        {
+          "cmd": "npm view @mkbabb/value.js@4.0.0 dist.shasum",
+          "cwd": "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript",
+          "exit": 0,
+          "signal": null,
+          "error": null,
+          "ms": 568,
+          "stdoutTail": "ccb962e592fb42e6602fc2bb6afbfb1763788b9d",
+          "stderrTail": ""
+        },
+        {
+          "cmd": "npm pack @mkbabb/value.js@4.0.0 --silent --pack-destination /var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/rc-p-8V3NOO/pack",
+          "cwd": "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript",
+          "exit": 0,
+          "signal": null,
+          "error": null,
+          "ms": 725,
+          "stdoutTail": "mkbabb-value.js-4.0.0.tgz",
+          "stderrTail": ""
+        },
+        {
+          "cmd": "node /Users/mkbabb/Programming/value.js/scripts/ci/verify-packed-surface.mjs /var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/rc-p-8V3NOO/pack/mkbabb-value.js-4.0.0.tgz",
+          "cwd": "/Users/mkbabb/Programming/value.js",
+          "exit": 1,
+          "signal": null,
+          "error": null,
+          "ms": 701,
+          "stdoutTail": "",
+          "stderrTail": "Error: /transform exports [\"PathGeometry\",\"decomposeMatrix2D\",\"decomposeMatrix3D\",\"getPointAtLength\",\"getTotalLength\",\"interpolateDecomposed\",\"recomposeMatrix2D\",\"recomposeMatrix3D\",\"slerp\"]\n    at file:///private/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/value-v4-consumer-9ka1bQ/runtime.mjs:10:15\nNode.js v26.0.0\n    at run (file:///Users/mkbabb/Programming/value.js/scripts/ci/verify-packed-surface.mjs:223:15)\n    at file:///Users/mkbabb/Programming/value.js/scripts/ci/verify-packed-surface.mjs:331:43\nNode.js v26.0.0"
+        }
+      ],
+      "notes": [],
+      "registryIdentity": {
+        "tarball": "/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/rc-p-8V3NOO/pack/mkbabb-value.js-4.0.0.tgz",
+        "sha1": "ccb962e592fb42e6602fc2bb6afbfb1763788b9d",
+        "registryShasum": "ccb962e592fb42e6602fc2bb6afbfb1763788b9d",
+        "identical": true
+      }
+    },
+    {
+      "n": 2,
+      "name": "TOTALITY(V)",
+      "measured": true,
+      "value": true,
+      "documentRead": false,
+      "reason": null,
+      "commands": [
+        {
+          "cmd": "tar -xzf /var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/rc-p-8V3NOO/pack/mkbabb-value.js-4.0.0.tgz -C /var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/rc-p-8V3NOO/mirror",
+          "cwd": "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript",
+          "exit": 0,
+          "signal": null,
+          "error": null,
+          "ms": 11,
+          "stdoutTail": "",
+          "stderrTail": ""
+        },
+        {
+          "cmd": "node docs/tranches/V/megatranche/audit/probes/r1-published-totality.mjs",
+          "cwd": "/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/rc-p-8V3NOO/mirror/package",
+          "exit": 0,
+          "signal": null,
+          "error": null,
+          "ms": 6347,
+          "stdoutTail": "ok   parseCssColor               0/172 throw\nok   parseCssScalar              0/172 throw\nok   parseCssValue               0/172 throw\nok   parseCssValues              0/172 throw\nok   parseKeyframeSelector       0/172 throw\nok   parseStylesheet             0/172 throw\nok   parseTimingFunction         0/172 throw\nok   parseAnimationTimeline      0/172 throw\nok   parseAnimationRange         0/172 throw\nTOTAL 0 throws / 1548 calls\nDISTINCT FAILURE MODES: 0\nGREEN — every public parser is total.",
+          "stderrTail": "(node:10278) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.\n(Use `node --trace-deprecation ...` to show where the warning was created)"
+        }
+      ],
+      "notes": [],
+      "probe": {
+        "path": "docs/tranches/V/megatranche/audit/probes/r1-published-totality.mjs",
+        "sha256": "77678a574d7c6b11448b19b6ab8fc0686dddf405a01cd7ea16757bc0837ad4ec",
+        "modified": false,
+        "mechanism": "symlinked into a scratch mirror of V's unpacked registry tarball"
+      }
+    },
+    {
+      "n": 3,
+      "name": "EQUIVALENCE(V)",
+      "measured": true,
+      "value": false,
+      "documentRead": false,
+      "reason": "the harness exited 1 with 44 mirror-defects",
+      "commands": [
+        {
+          "cmd": "node /Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/test/css-equivalence/run-full-surface.mjs --pinned-value-commit 6aca8602",
+          "cwd": "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript",
+          "exit": 1,
+          "signal": null,
+          "error": null,
+          "ms": 4257,
+          "stdoutTail": "ledger     38 rows — ADJUDICATED 16 · DISSENT 4 · FIXTURE 5 · LABEL 1 · NARROWING 3 · CAPACITY 9\n           empty consumer-direction fields: 0\n           GATE-VERDICT anchors present: 5/5\nMIRROR-DEFECTS  44   (of which spec-undecided 42)\nRULING-ID       44 of 44 miss entries carry a rulingId from {ID-3 · ID-1b · ID-4 · ID-5 · GROUND-C · ID-2 · ID-1 · PB-11 · R-f1 · E-k2} · NOT IN THE SET 0\n  parseCssColor            1× GROUND-C\n  parseCssScalar           1× GROUND-C\n  parseCssValue            1× GROUND-C\n  parseCssValues           1× GROUND-C\n  parseTimingFunction      23× GROUND-C · 1× ID-2\n  parseStylesheet          9× ID-1b · 5× ID-4 · 2× GROUND-C\nRED — the equivalence floor is NOT held at full surface. 44 mirror-defects over 24 compared rows.",
+          "stderrTail": "(node:10469) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/mkbabb/Programming/parse-that-css-totality-p2/harness/equivalence/taxonomy.ts is not specified and it doesn't parse as CommonJS.\nReparsing as ES module because module syntax was detected. This incurs a performance overhead.\nTo eliminate this warning, add \"type\": \"module\" to /Users/mkbabb/Programming/parse-that-css-totality-p2/package.json.\n(Use `node --trace-warnings ...` to show where the warning was created)"
+        }
+      ],
+      "notes": [],
+      "mirrorDefects": 44,
+      "instrumentNote": "DECLARED, and it does not soften this reading: the harness's subject side is the CANDIDATE's `<p2>/typescript/src/css/**` lowering read at pin 6aca8602, not V's packed bytes. The two coincide only once an adoption wave lands the candidate in V (OP-4/G-9). Until then a GREEN here would prove equivalence of the candidate, not of V, and whether that suffices for conjunct 3 is an OWNER RULING this evaluator does not presume. Recorded, never inferred."
+    },
+    {
+      "n": 4,
+      "name": "ADMITTED(V)",
+      "measured": false,
+      "value": false,
+      "documentRead": false,
+      "reason": "V's installed bytes contain zero .wasm artifacts, so the admission has no subject — FALSE, not vacuously true",
+      "commands": [
+        {
+          "cmd": "npm i --silent --no-audit --no-fund /var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/rc-p-8V3NOO/pack/mkbabb-value.js-4.0.0.tgz",
+          "cwd": "/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/rc-p-8V3NOO/consumer",
+          "exit": 0,
+          "signal": null,
+          "error": null,
+          "ms": 184,
+          "stdoutTail": "",
+          "stderrTail": ""
+        }
+      ],
+      "notes": [],
+      "artifactsInV": [],
+      "openQuestion": "Whether a release that ships NO Wasm target satisfies ADMITTED vacuously is UNRULED. This evaluator reads it FALSE — a conjunct with no subject is not a conjunct that passed — and routes the question to the owner rather than resolving it silently in either direction."
+    },
+    {
+      "n": 5,
+      "name": "BAR-DISCHARGED",
+      "measured": true,
+      "value": true,
+      "documentRead": true,
+      "reason": null,
+      "commands": [
+        {
+          "cmd": "grep -n OC-1 (OP-3) /Users/mkbabb/Programming/value.js/docs/tranches/X/COHESION.md",
+          "cwd": "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript",
+          "exit": 0,
+          "signal": null,
+          "error": null,
+          "ms": 4,
+          "stdoutTail": "1032:**OC-1 (OP-3) — ADMISSION IS DECIDED ON CORRECTNESS; the bench table is RECORDED-NOT-GATING**, with the",
+          "stderrTail": ""
+        },
+        {
+          "cmd": "ls -l /Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W3/bench-three-leg.md",
+          "cwd": "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript",
+          "exit": 0,
+          "signal": null,
+          "error": null,
+          "ms": 6,
+          "stdoutTail": "-rw-r--r--  1 mkbabb  staff  16916 Sep 18 11:48 /Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W3/bench-three-leg.md",
+          "stderrTail": ""
+        }
+      ],
+      "notes": [],
+      "ruling": "1032:**OC-1 (OP-3) — ADMISSION IS DECIDED ON CORRECTNESS; the bench table is RECORDED-NOT-GATING**, with the",
+      "threeLegTable": "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W3/bench-three-leg.md"
+    },
+    {
+      "n": 6,
+      "name": "ROUTED(V)",
+      "measured": true,
+      "value": true,
+      "documentRead": true,
+      "reason": null,
+      "commands": [
+        {
+          "cmd": "ls /Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/RELEASE-PACKET.md",
+          "cwd": "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript",
+          "exit": 0,
+          "signal": null,
+          "error": null,
+          "ms": 3,
+          "stdoutTail": "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/RELEASE-PACKET.md",
+          "stderrTail": ""
+        },
+        {
+          "cmd": "grep -n RC-P /Users/mkbabb/Programming/value.js/docs/tranches/V/coordination/INBOX.md",
+          "cwd": "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript",
+          "exit": 0,
+          "signal": null,
+          "error": null,
+          "ms": 4,
+          "stdoutTail": "127:| O-40 | 2026-09-19 | **X·KF / keyframes.js** (KF.W3 is gate-keyed on `RC-P`; its pin today is `\"@mkbabb/value.js\": \"4.0.0\"` in `keyframes.js@6.0.0`) — copied to **X·F** (a declared NON-EDGE) and to **X·V** (the seam's consumer-to-be) | **THE X·P RELEASE PACKET.** **Delivery point — `docs/tranches/X/parse-that/RELEASE-PACKET.md`, in THIS repo, and that path IS the delivery point** (`W4.md` §4: *\"This in-repo path **is** the delivery point the INBOX row names; SS-6 carries it outward\"*). **Cross-repo carriage rides the standing batched courier — COHESION.md §1 `SS-6`**, quoted never rewritten: *\"Glass communique assembly … ONE batched BJ letter at the next boundary … root-authored (Fable); E13\"* — **ACCRETING**; the packet is handed to that batch and to no channel of its own. X·P wrote **no byte** under `keyframes.js/**`, `fourier-analysis/**` or `glass-ui/**` (`W4.md` §4 Do-NOT-touch; §6 G-8's cure arm stays in-wave). **Contents**: the 52-row seam summary (`identical` **7** · `PENDING-ADJUDICATION` **45** · `not-provided` **0**, both set-differences ∅); the **four** `declared-divergence` rows' consumer-direction fields verbatim (`parseCssColor` · `parseCssValue` · `parseTimingFunction` · `parseStylesheet`); and **`RC-P(V)`'s six conjuncts quantified over `V`, with no version literal** (`W4.md` §3's prohibition). **Operative reading**: `RC-P` is **FALSE** at the only coordinate published to date — 3 of 6 conjuncts TRUE (2 TOTALITY · 5 BAR-DISCHARGED · 6 ROUTED), 3 FALSE (1 PUBLISHED · 3 EQUIVALENCE · 4 ADMITTED) — so **KF.W3 does NOT open** and the X·V adoption re-trigger does NOT fire. Evaluated by `<p2>/typescript/scripts/rc-p-evaluate.mjs --version <V>`, EXIT=1; banked at `docs/tranches/X/parse-that/evidence/W4/rc-p-evaluation-after-packet-2026-09-19.json`. **Asks nothing, of anyone**: no reply, no repin, no schedule, no decision. **O-15 is NOT converted into an ask** (it stays *\"no ask, no bug claim, no dependency on a reply\"*). The 45 `PENDING-ADJUDICATION` cells are **unruled** and are `X.P.W4.d`'s fresh-Fable adjudication, which has not been performed — a consumer may not read them as settled behaviour. **Seat disclosure**: authored by the X.P.W4 **repair-2** seat (`claude-opus-5[1m]`), transcriptively; it rules no cell and stamps no verb. | **SENT — no reply owed.** The E13 obligation this row creates on our side is discharged by the row itself (a letter does not owe a letter back). **Cross-repo placement PENDING the SS-6 batch's next boundary**, which is the root session's act, not this wave's |",
+          "stderrTail": ""
+        },
+        {
+          "cmd": "grep -n RELEASE-PACKET /Users/mkbabb/Programming/value.js/docs/tranches/V/coordination/INBOX.md",
+          "cwd": "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript",
+          "exit": 0,
+          "signal": null,
+          "error": null,
+          "ms": 5,
+          "stdoutTail": "127:| O-40 | 2026-09-19 | **X·KF / keyframes.js** (KF.W3 is gate-keyed on `RC-P`; its pin today is `\"@mkbabb/value.js\": \"4.0.0\"` in `keyframes.js@6.0.0`) — copied to **X·F** (a declared NON-EDGE) and to **X·V** (the seam's consumer-to-be) | **THE X·P RELEASE PACKET.** **Delivery point — `docs/tranches/X/parse-that/RELEASE-PACKET.md`, in THIS repo, and that path IS the delivery point** (`W4.md` §4: *\"This in-repo path **is** the delivery point the INBOX row names; SS-6 carries it outward\"*). **Cross-repo carriage rides the standing batched courier — COHESION.md §1 `SS-6`**, quoted never rewritten: *\"Glass communique assembly … ONE batched BJ letter at the next boundary … root-authored (Fable); E13\"* — **ACCRETING**; the packet is handed to that batch and to no channel of its own. X·P wrote **no byte** under `keyframes.js/**`, `fourier-analysis/**` or `glass-ui/**` (`W4.md` §4 Do-NOT-touch; §6 G-8's cure arm stays in-wave). **Contents**: the 52-row seam summary (`identical` **7** · `PENDING-ADJUDICATION` **45** · `not-provided` **0**, both set-differences ∅); the **four** `declared-divergence` rows' consumer-direction fields verbatim (`parseCssColor` · `parseCssValue` · `parseTimingFunction` · `parseStylesheet`); and **`RC-P(V)`'s six conjuncts quantified over `V`, with no version literal** (`W4.md` §3's prohibition). **Operative reading**: `RC-P` is **FALSE** at the only coordinate published to date — 3 of 6 conjuncts TRUE (2 TOTALITY · 5 BAR-DISCHARGED · 6 ROUTED), 3 FALSE (1 PUBLISHED · 3 EQUIVALENCE · 4 ADMITTED) — so **KF.W3 does NOT open** and the X·V adoption re-trigger does NOT fire. Evaluated by `<p2>/typescript/scripts/rc-p-evaluate.mjs --version <V>`, EXIT=1; banked at `docs/tranches/X/parse-that/evidence/W4/rc-p-evaluation-after-packet-2026-09-19.json`. **Asks nothing, of anyone**: no reply, no repin, no schedule, no decision. **O-15 is NOT converted into an ask** (it stays *\"no ask, no bug claim, no dependency on a reply\"*). The 45 `PENDING-ADJUDICATION` cells are **unruled** and are `X.P.W4.d`'s fresh-Fable adjudication, which has not been performed — a consumer may not read them as settled behaviour. **Seat disclosure**: authored by the X.P.W4 **repair-2** seat (`claude-opus-5[1m]`), transcriptively; it rules no cell and stamps no verb. | **SENT — no reply owed.** The E13 obligation this row creates on our side is discharged by the row itself (a letter does not owe a letter back). **Cross-repo placement PENDING the SS-6 batch's next boundary**, which is the root session's act, not this wave's |",
+          "stderrTail": ""
+        },
+        {
+          "cmd": "grep -n SS-6 /Users/mkbabb/Programming/value.js/docs/tranches/V/coordination/INBOX.md",
+          "cwd": "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript",
+          "exit": 0,
+          "signal": null,
+          "error": null,
+          "ms": 4,
+          "stdoutTail": "175:**Sweep 2026-09-17 (F.W5 CLOSE, Track C unit *e* — the fresh adjudicator, `claude-fable-5-1`; E13 close sweep)**: the four paths ⊕ the atlas Q-lane extension re-swept read-only at this seat's own clock (**18:02 EDT**) and compared against **every row above**, classification taken from each row's **status cell**, never from a bare `grep -i unread` (X.P.W0 CHECK 1 **D-1**). ⟨cmd⟩ `/usr/bin/find <each path> -maxdepth 1 -name '*.md' -newermt '2026-09-17 17:43'` → (1) `docs/tranches/V/coordination/` — **`INBOX.md` alone** (self-excluded, SELF-COUNT law); `docs/tranches/V/*.md` newest is `DECISIONS.md`@Jul 17. (2) `../glass-ui/docs/tranches/BK/coordination/` — **BK re-confirmed the newest glass tranche dir** (⟨cmd⟩ `ls -1dt ../glass-ui/docs/tranches/*/ | head -3` → `BK` · `BJ` · `BI`); **three files at mtime 17:43** — `…-valuejs-o20-disposition.md` (13,687 B) · `…-constellation-o20-relay.md` (11,021 B) · `…-bbnf-lang-9.0.0-addendum.md` (3,965 B) — **the same three letters unit c handed up mid-wave and Track D's X.P.W2 seat rowed at 17:13–17:15 as I-32 · I-33 · I-34**; the 17:43 mtime and the +120/−35/+116 B deltas against those rows' sizes are a **producer-side re-save of already-rowed letters**, named, not tripped (the row is the durable mark — D37). (3) `../keyframes.js/docs/tranches/V/coordination/` and `../keyframes-v-exec/docs/tranches/V/coordination/` — **nothing newer**. (4) `../sci-report/atlas/docs/tranches/P/coordination/` and `Q/coordination/` — **nothing newer**. **Result: 0 unrowed · 0 new `I-n` minted · ONE `O-n` minted (O-22, the co-signature relay, F.W5 G20) · 0 UNREAD in F.W5's scope.** **Scope reading, stated so nothing is inherited silently**: this seat **READ I-33 §1** (the fourier-analysis section, the row's own Routing cell names *\"fourier → X·F's mail-ledger surface\"*) row by row — PD-1/DISSENT-6 (the Slider `$attrs.onPointerdown` drop claim FALSE at both pins → F.W3 g6) · A-12 `FR-MSP-12` routed to fourier's own SFC · the F.W3/W4 border-channel awareness note RETIRE · B-6 cursor · B-4 `style.css:116-123` override · B-5 `useClipboard` shape · B-3 `text-admin-label` · B-7 L-10 · the A-3 Dialog class — **every one is an F.W0/F.W3/F.W4 render- or consumer-side row and NOT ONE touches a `J-diff-shape-v2` clause**; F.W5 folds nothing and rules nothing on them, and the relay into `fourier-analysis/docs/tranches/F/coordination/INBOX.md` is the **X formation mail seat's act per I-33's Routing cell** (glass READ-ONLY always; producer rows ride SS-6 — S-17). I-32 (value-addressed: producer bytes, `demo/` product source and the bump → X-W0.j / X-W4.g / X-W7) and I-34 (bbnf-lang's; the value-naming clause already budgeted at X-EXT-1) name **no F.W5 surface**. **The three UNREAD status cells are Track D's rows and are NOT rewritten here** (append-only, §1a; the durable mark is theirs to move). Two standing items carried unchanged, neither F.W5's: **K-R1** (I-30's stale digest) and the **9.0.0 re-trigger** (`npm view @mkbabb/glass-ui version` → 9.0.0, per the X-W1 OPEN sweep) — both the orchestrator's. Record: `docs/tranches/X/execution/C/F-W5.md` §e ⊕ §Close.\n185:**Sweep 2026-09-17 (KF.W5 OPEN, Track B seat 0 — E13 Step-0)**: the four paths swept read-only at this seat's own clock and compared against **every row above**, classification taken from each row's **status cell**, never from a bare `grep -i unread` (X.P.W0 CHECK 1 **D-1**); `INBOX.md` self-excluded (SELF-COUNT law). (1) `docs/tranches/V/` (11 `.md`) + `V/coordination/` (17 `.md`) — the unrowed root files are **authority documents, not mail**, and the four unrowed `value-inbox-2026-07-20-*.md` are **OUR OWN OUTBOUND**, read at their bytes (*\"FROM: the value.js union-apotheosis program … → the active V-next Codex fleet\"*), never classified from the filename stem. (2) `../glass-ui/docs/tranches/BK/coordination/` — **BK re-confirmed the newest tranche dir** ⟨`ls -dt ../glass-ui/docs/tranches/*/ | head -1`⟩ → `BK/`; 7 files, the three 2026-09-17 letters rowed **I-32 · I-33 · I-34** (routing cells: the X formation mail seat / X-W0.j / X-EXT-1..6 — **none routes to KF.W5**), the 08-29 ACK rowed **I-30**, the two `ATLAS-*` files atlas→glass, `valuejs-outbound-2026-08-28-…` = **O-20**. (3) `../keyframes.js/docs/tranches/V/coordination/` — 12 files; `VALUEJS-INBOUND-*` are our own outbound (the I-26 delivery cure, and its two survivors are the tree's only untracked rows at open), `ATLAS-/GLASS-/SPEEDTEST-INBOUND-*` are keyframes-addressed. (4) `../sci-report/atlas/docs/tranches/P/coordination/` — 28 files, all 2026-07-15…08-03; the value.js-addressed pair is rowed, the remainder are atlas's own P-lane records. **0 unrowed · 0 new `I-n` minted here · 0 UNREAD addressed to KF.W5's scope.** The wave's own mail obligations are outbound-only and land at close (RD-1/RD-2 to SS-1/SS-2, the SS-6 BH relay rows, the KF.W9/SS-13 outbound residue) — none is owed at open.\n201:**Sweep 2026-09-18 (KF.W7 CLOSE, Track B unit `.f` — the close seat, `claude-opus-5[1m]`; E13 close sweep)**: the four paths ⊕ the atlas **Q**/**P**-lane extension re-swept read-only at this seat's own clock (**01:36 EDT**) and compared against **every row above**, classification taken from each row's **status cell**, never from a bare `grep -i unread` (X.P.W0 CHECK 1 **D-1**); `INBOX.md` **self-excluded** (SELF-COUNT law). **BK re-confirmed the newest glass tranche dir** — ⟨cmd⟩ `ls -dlt ../glass-ui/docs/tranches/*/ | head -3` → `BK` (Sep 17 20:15) · `BJ` (Aug 3) · `BI` (Jul 28), ⟨cmd⟩ `ls -d …/tranches/*/ | wc -l` → **45**. Delta taken against **2026-09-18 01:00 EDT**, the clock of KF.W7 `.d`'s seat-level sweep: ⟨cmd⟩ `/usr/bin/find <each of the five surfaces> -maxdepth 1 -name '*.md' -newermt '2026-09-18 01:00'` → **`docs/tranches/V/coordination/INBOX.md` alone** (self-excluded); **nothing on `docs/tranches/V/`, nothing in `../glass-ui/docs/tranches/BK/coordination/`, nothing in `../keyframes-v-exec/…/coordination/`, nothing in `../keyframes.js/…/coordination/` (READ-ONLY / NEVER-DELIVER), nothing in `../sci-report/atlas/docs/tranches/P/coordination/`.** **Result: 0 unrowed · 0 new `I-n` minted · 0 UNREAD in KF.W7's scope.** The three live UNREAD status cells — **I-32** (`…-valuejs-o20-disposition.md`), **I-33** (`…-constellation-o20-relay.md`), **I-34** (`…-bbnf-lang-9.0.0-addendum.md`) — reproduce and **all three route to X-W0.j / the X formation mail seat by their own Routing cells**, exactly as KF.W2's CHECK 2, KF.W7's OPEN sweep and `.e`'s seat sweep each found; **not one names a keyframes timeline byte**. **E13 is MET by routing, not by silence, and this wave does not close with UNREAD mail in its scope.** **One row added by this seat: `O-28`**, the KF.W7 glass-ui BH relay letter (the wave's SS-6 obligation), whose delivery is by path-of-record in THIS tree plus that row — **no byte was written into the glass tree**, because KF.W7's unit plan makes glass-ui READ-ONLY *always* for every seat of this wave. No existing row rewritten (append-only); ⟨cmd⟩ `git diff --numstat` for this ledger at this seat → **insertions only, 0 deletions**.\n229:**Sweep 2026-09-18 (KF.W8 OPEN — Track B · X·KF, SEAT 0 — E13 Step-0; `claude-opus-5[1m]`; 20:0x EDT)**: the four paths swept read-only at this seat's own clock, delta against the F.W4 `.c` close sweep (19:4x) and the KF.W7 `.j` re-close sweep (19:00), compared against **every row above**, classification taken from each row's **Status cell**, never from a bare `grep -i unread` (X.P.W0 CHECK 1 **D-1**); `INBOX.md` **self-excluded** (SELF-COUNT law). ⟨cmd⟩ `ls -latd ../glass-ui/docs/tranches/*/ | head -3` → **`BK/`** (Sep 18 17:53) · `BJ/` (Aug 3) · `BI/` (Jul 28) — **BK re-confirmed newest**, never a pinned letter. Counts: (1) `docs/tranches/V/` **10** `.md` (newest `PALETTE-CONTRACT.md` 18:43 — an architecture doc, not mail) + `V/coordination/` **18** entries, newest `valuejs-outbound-2026-09-18-kfw7-bh-relay-ADDENDUM-A9.md` 19:00 = **O-31**, rowed; (2) `../glass-ui/docs/tranches/BK/coordination/` **9** entries, newest `glass-outbound-2026-09-18-valuejs-o26-reply.md` 17:18 / **43,967 B** (the third revision) = **I-35**, whose Status cell reads *\"READ + CONSUMED WHOLE 2026-09-18 17:1x EDT (KF.W6 unit `.l`)\"* and whose third revision is answered by **O-31**'s addendum-beside; (3) `../keyframes.js/docs/tranches/V/coordination/` **12** `.md` + `vnext/`, newest Sep 17 19:08 (the §B-12 restore) plus our own two delivered letters (Jul 24 · Jul 27), all rowed; (4) `../sci-report/atlas/docs/tranches/P/coordination/` **28** entries, newest Aug 3 15:01, rowed. **Result: 0 unrowed · 0 UNREAD addressed to value.js in KF.W8's scope** — no row is minted by this sweep and `INBOX.md` carries no edit but this line. The wave's own outbound obligation is **NEGATIVE** by its spec: `KF-W8.md §Sequencing` → *\"**→ glass-ui BH relay (SS-6): NEGATIVE.** This wave routes **zero** producer rows, and none may become a demo-side hack.\"*\n233:**Sweep 2026-09-18 (X.KF.W8 CLOSE, Track B seat `i` — E13 close sweep; `claude-opus-5[1m]`)**: the four paths swept read-only at this seat's own clock, classification taken from each row's **Status cell**, never from a bare `grep -i unread`; `INBOX.md` **self-excluded** (SELF-COUNT law). Newest per path: (1) `docs/tranches/V/coordination/` **19** entries, newest non-self `valuejs-outbound-2026-09-18-kfw7-bh-relay-ADDENDUM-A9.md` **19:00** = **O-31**, rowed; (2) ⟨cmd⟩ `ls -latd ../glass-ui/docs/tranches/*/ | head -3` → **`BK/`** (Sep 18 17:53) · `BJ/` (Aug 3) · `BI/` (Jul 28) — **BK re-confirmed newest**; `BK/coordination/` **9** entries, newest `glass-outbound-2026-09-18-valuejs-o26-reply.md` **17:18** = **I-35**, rowed; (3) `../keyframes.js/docs/tranches/V/coordination/` newest **Sep 17 19:08**, unmoved; (4) `../sci-report/atlas/docs/tranches/P/coordination/` newest **Aug 3 15:01**, unmoved. **I-35 is the only row routed to X·KF (Track B)** and its Status cell reads **READ + CONSUMED WHOLE 2026-09-18 17:1x EDT (KF.W6 unit `.l`)** — its §4(2) answered, its §4(1) registry-re-install ask **escalated to seat 0 / KF.W0** and **not KF.W8's to spend**. The three live `UNREAD` cells (**I-32 · I-33 · I-34**) re-read at their own Routing cells route to **X-W0.j** · **the X formation mail seat** · **X-EXT-1 / X-W4.g**, and **not one names a keyframes byte**. **Result: 0 unrowed · 0 new `I-n` · 0 UNREAD in X.KF.W8's scope — the wave does not close with UNREAD mail**; `INBOX.md` carries no edit but this line. X.KF.W8's outbound obligation is **NEGATIVE** by its own §Sequencing: **zero glass-ui bytes** were written by any seat of the wave and **no letter was sent** (glass-ui is READ-ONLY always; producer rows ride SS-6, never frontend hacks). Wave verdict recorded at the ledger: **PARTIAL** — units `a`·`b`·`c`·`d` DONE, units `e`·`f`·`g`·`h` never ran.\n239:**Sweep 2026-09-18 (X.F.W4 CLOSE — Track C · X·F, unit `.z`, the closure seat; E13 close sweep; `claude-opus-5[1m]`; 22:0x EDT)**: six paths swept read-only at this seat's own clock — the four landing paths ⊕ the atlas **P**-lane ⊕ the Track-C fourier mail-ledger surface (COHESION §0k.1) — ⟨cmd⟩ `/usr/bin/find <each> -maxdepth 1 -type f -name '*.md' -newermt \"2026-09-18 21:24\"` (the delta is taken against `.f`'s sweep clock) → **∅ on all six except `INBOX.md` itself**, **self-excluded** under the SELF-COUNT law. Classification taken from each row's **Status** cell, never from a bare `grep -i unread` (X.P.W0 CHECK 1 **D-1**): ⟨cmd⟩ `/usr/bin/grep -nE '\\| \\*\\*UNREAD' INBOX.md` → **three** rows, `I-32` · `I-33` · `I-34`, every one routed at its own **Routing** cell to **X-W0.j / the X formation mail seat**, and **not one names a fourier `web/` byte, a `/paper`, `/equation`, `/gallery`, `/visualize` or `/morph` surface, or any F.W4 row**. **0 unrowed · 0 UNREAD in F.W4's scope · 2 rows minted** (**O-32** the consolidated glass-ui BH/SS-6 relay, **O-33** the latex-paper relay), which is the wave's own act and not a unit's — `.b`, `.c`, `.e` and `.f` each **declared** their producer rows and **sent nothing**, exactly as the ONE-LETTER law requires. ⊘ **X.F.W4 therefore closes with NO UNREAD MAIL IN SCOPE (E13).** ⊘ `../glass-ui` and `../fourier-analysis/docs/tranches/F/coordination/` were **read** and never written; glass-ui is READ-ONLY always.\n243:**Sweep 2026-09-18 (F.W3 OPEN — Track C · X·F, seat 0; E13 Step-0; `claude-opus-5[1m]`)**: the four landing paths swept read-only at this seat's own clock and compared against **every row above**, classification taken from each row's own STATUS cell. (1) `docs/tranches/V/` + `V/coordination/` — `INBOX.md` **self-excluded** (SELF-COUNT law); ⟨cmd⟩ `find docs/tranches/V -maxdepth 2 -type f -name '*.md' -newermt \"2026-09-01\"` → 17 members, of which the five 22:0x `*-inbox-2026-09-18-value-4.1-*` (keyframes · atlas · glassui · fourier · parse-that) and the two `valuejs-outbound-2026-09-18-kfw7-bh-relay*` are **value.js-AUTHORED OUTBOUND**, addressed to siblings and therefore not inbound mail; the only value.js-addressed members are the `value-inbox-*` set, **all rowed**. (2) `../glass-ui/docs/tranches/BK/coordination/` — **BK confirmed still the newest tranche dir** (⟨cmd⟩ `ls -dt ../glass-ui/docs/tranches/*/ | head -1` → `BK/`); its post-09-01 members are `glass-outbound-2026-08-29-valuejs-o20-ack.md` (**I-30**) · `…-2026-09-17-valuejs-o20-disposition.md` (**I-32**) · `…-2026-09-17-constellation-o20-relay.md` (**I-33**) · `…-2026-09-17-bbnf-lang-9.0.0-addendum.md` (**I-34**) · `…-2026-09-18-valuejs-o26-reply.md` (**I-35**), plus two `valuejs-outbound-*` of ours — **0 unrowed**. (3) `../keyframes.js/docs/tranches/V/coordination/` — 12 members, every one either `VALUEJS-INBOUND-*` (ours, outbound to them) or a third party's inbound to keyframes; **nothing addressed to value.js**. (4) `../sci-report/atlas/docs/tranches/P/coordination/` — nothing newer than 2026-08-03; newest value-facing member is `valuejs-inbound-2026-07-24-*`, ours. **RESULT: 0 unrowed · 0 rows minted · 0 UNREAD in F.W3's scope** — I-30(c)'s two owed limbs are discharged at their owning ends (F.W1 PIN-LAW per COHESION §0o; F.W0's FR-NP-32 producer-side terminus per RUNBOOK §1.3's dated addendum), I-32/I-33/I-34 route to X-W0.j / X-EXT-1..6 / the X formation mail seat, and I-35 is Track B's. **Standing note carried into F.W3's `.f` (g20/S-5, beside S-15)**: O-20 re-pinned byte-identical at this seat (⟨cmd⟩ `shasum -a 256 ../glass-ui/docs/tranches/BK/coordination/valuejs-outbound-2026-08-28-o20-authoring-block-batch.md | cut -c1-12` → **`f6e04c86ddb8`**), and F.W4's close additionally dispatched **O-32/O-33** — the F.W3 residual cargo accretes to the SS-6 register only after reconciling against **both**, so no producer row is sent twice.\n267:**Sweep 2026-09-19 (F.W3 RESUME — Track C · X·F, SEAT 0; E13 Step-0; `claude-opus-5[1m]`; sitting of record 2026-09-17, the owner's begin-word, COHESION §0j; re-opened on §0x)**: the four landing paths swept read-only at this seat's own clock and compared against **every row above**; classification taken from each row's **Status cell by position** (escaped pipes restored: ⟨cmd⟩ `sed 's/\\\\|/@PIPE@/g' INBOX.md | awk -F'|' '/^\\| [IO]-[0-9]+[a-z]? \\|/ {s=$6; gsub(/^ +| +$/,\"\",s); if (s ~ /^\\*\\*?UNREAD/) c++} END {print c+0}'` → **0**, double-run `0 ≡ 0` over **79** rows, ⟨cmd⟩ `grep -cE '^\\| [IO]-[0-9]+[a-z]? \\|'` → **79**), never from a bare `grep -i unread`; this file **self-excluded** (SELF-COUNT law). **(1)** `docs/tranches/V/` + `V/coordination/` — **10** depth-1 `.md` ⊕ **24** coordination entries. **(2)** `../glass-ui/docs/tranches/BK/coordination/` — **BK re-confirmed the newest tranche dir** (⟨cmd⟩ `ls -1dt ../glass-ui/docs/tranches/*/ | head -3` → `BK/` · `BJ/` · `BI/`); **9** entries, newest `glass-outbound-2026-09-18-valuejs-o26-reply.md` = **I-35**, rowed (**25** citations of it above). **(3)** `../keyframes.js/…/V/coordination/` — **13** entries; newest inbound-grammar letter `VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md` = **O-21**, ours, delivered. **(4)** `../sci-report/atlas/…/P/coordination/` — **28** entries, path UNMOVED. **Movement since the previous sweep**: ⟨cmd⟩ `find <the four paths> -type f -name '*.md' -newermt \"2026-09-19 00:00\"` → exactly **two** members — this file (**self**) and `../keyframes.js/…/INBOUND-LEDGER.md`, **keyframes' own inbound ledger, not a letter addressed to value.js** (mints no row). **ZERO unrowed letters addressed to value.js · ZERO new `I-n`/`O-n` minted (register tail unmoved at I-35 / O-39) · ZERO UNREAD Status cells.** F.W3 re-opens with **no UNREAD mail in scope**. Outbound obligation at this re-open: **OWED BUT NOT THIS SEAT'S** — g20's SS-6 cargo is `.f`'s act and the verb is **ACCRETES to the SS-6 register** (COHESION §4a) against the dispatched **O-20** (⟨cmd⟩ `shasum -a 256 …/valuejs-outbound-2026-08-28-o20-authoring-block-batch.md | cut -c1-12` → **`f6e04c86ddb8`**, unmoved), never a new letter and never a re-send; it is not pre-rowed here. This line is this seat's only byte in this file.\n269:**Sweep 2026-09-19 (X.F.W3.f — the wave's close seat; Track C · X·F; E13 Step-0 at open and at close; `claude-fable-5-1`; sitting of record 2026-09-17, the owner's begin-word, COHESION §0j)**: the four landing paths swept read-only at this seat's own clock and compared against **every row above**; classification taken from each row's **Status cell by position** (escaped pipes restored: ⟨cmd⟩ `sed 's/\\\\|/@PIPE@/g' INBOX.md | awk -F'|' '/^\\| [IO]-[0-9]+[a-z]? \\|/ {s=$6; gsub(/^ +| +$/,\"\",s); if (s ~ /^\\*\\*?UNREAD/) c++} END {print c+0}'` → **0**, double-run `0 ≡ 0` over ⟨cmd⟩ `grep -cE '^\\| [IO]-[0-9]+[a-z]? \\|'` → **79** rows), never from a bare `grep -i unread`. **(1)** `docs/tranches/V/` — **10** depth-1 `.md` ⊕ `coordination/` **24** entries. **(2)** `../glass-ui/docs/tranches/BK/coordination/` — **BK re-confirmed the newest tranche dir** (⟨cmd⟩ `ls -1dt ../glass-ui/docs/tranches/*/ | head -3` → `BK/` · `BJ/` · `BI/`); **9** entries, newest `glass-outbound-2026-09-18-valuejs-o26-reply.md` = **I-35**, rowed (**26** citations above); every one of the 9 is cited by at least one row. **(3)** `../keyframes.js/…/V/coordination/` — **13** entries. **(4)** `../sci-report/atlas/…/P/coordination/` — **28** entries, path UNMOVED. **Movement since the previous sweep**: ⟨cmd⟩ `find <the four paths> -type f -name '*.md' -newermt \"2026-09-19 00:00\"` → exactly **two** members — this file (**self**, SELF-COUNT law) and `../keyframes.js/…/INBOUND-LEDGER.md`, **keyframes' own inbound ledger, not a letter addressed to value.js** (mints no row). **ZERO unrowed letters addressed to value.js · ZERO new `I-n`/`O-n` minted (register tail unmoved at I-35 / O-39) · ZERO UNREAD Status cells.** **S-11's three S-6 flags are FILED-AS-RULED by citation, not minted**: (a) MISSED-D → ROUTE 1 · (b) i-3 → COLLAPSED by default, recorded not executed · (c) P-10 → §0i.3 `v8.0.0` @ `17a11bc5` — all three at COHESION **§0x** (2026-09-19); a ruled flag mints no row. **The SS-6 \"letter row\" S-11 names is NOT minted, by the spec's own S-15 addendum (`F-W3.md:417`/`:435`)**: the verb is **ACCRETES** — g20's cargo landed at COHESION **§4a rows F3-1..F3-13**, reconciled against the dispatched **O-20** (⟨cmd⟩ `shasum -a 256 …/valuejs-outbound-2026-08-28-o20-authoring-block-batch.md | cut -c1-12` → **`f6e04c86ddb8`**, unmoved) ⊕ I-32/I-33 ⊕ NWO-1 ⊕ O-32/O-33 — **eight STATUS-NOTES never re-sent** (the addendum's five ⊕ `AX-1`/`CU-1` at O-20 B-6, `FR-COB-7` at O-20 A-11, `AA-3` withdrawn at O-32 §1.2 — the partition refuted at the packet bytes, recorded at `F-W3-DO-NOT-EXECUTE.md` §5) and **thirteen residual rows accreted**; the next root-authored boundary letter carries them, no channel opened here. F.W3 closes with **no UNREAD mail in scope**. This line is this seat's only byte in this file.\n273:### SS-6 ACCRETION — KF.W11 (X.KF.W11 `.j`, 2026-09-19): eight producer rows, for the next batched BJ/BK communique\n292:**Routed with their owning waves, NOT to SS-6** (recorded here only so the batch assembler does not sweep them in): `EasingTarget.css`'s `.specimen-grid` track reset is INERT at the bytes for W11-P5's reason, measured live → **KF.W12** · KF-CO-47's decision is what SPF-13 / KF-SS-24 wait on → **KF.W12 OPTIONS-UNIT** · D-B3's full decision, SPF-3/-5's delivered-pixel cells, D-M5's touch outcome, C-m-6's clipping re-measure → **KF.W9 / SS-13** · MISSED-F's house-wide `touch-action: pinch-zoom` idiom at five further scene sites → the owning units.\n298:**Sweep 2026-09-19 (X.P.W4 REPAIR 2, Track D · X·P — E13 Step-0 at open and at close; `claude-opus-5[1m]`; sitting of record 2026-09-17, the owner's begin-word, COHESION §0j)**: the four landing paths swept read-only at this seat's own clock, status taken from each register row's cell by **position**, never a bare `grep -i unread`; `INBOX.md` self-excluded from its own denominator. ⟨cmd⟩ the by-position scan → **UNREAD 0** over **79** register rows, double-run `0 ≡ 0`. Four-path census: `docs/tranches/V/` **10** · `docs/tranches/V/coordination/` **24** · `../glass-ui/docs/tranches/BK/coordination/` **9** · `../keyframes.js/docs/tranches/V/coordination/` **12** · `../sci-report/atlas/docs/tranches/P/coordination/` **28** — byte-identical to Repair 1's and to Check 2's. **0 unrowed letters addressed to value.js.** This seat minted exactly **one** row, **O-40** — the X·P release packet's dated sent-row, naming its in-repo delivery point and the SS-6 batch that carries it (`W4.md` §6 G-8) — and changed **no** other row's status cell. Register tail moves `I-35` / **`O-40`**. **X.P.W4's repair round closes with no UNREAD mail in scope.**",
+          "stderrTail": ""
+        },
+        {
+          "cmd": "grep -c parse-that /Users/mkbabb/Programming/fourier-analysis/package.json",
+          "cwd": "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript",
+          "exit": 1,
+          "signal": null,
+          "error": null,
+          "ms": 4,
+          "stdoutTail": "0",
+          "stderrTail": ""
+        },
+        {
+          "cmd": "grep -c parse-that /Users/mkbabb/Programming/fourier-analysis/web/package.json",
+          "cwd": "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript",
+          "exit": 1,
+          "signal": null,
+          "error": null,
+          "ms": 3,
+          "stdoutTail": "0",
+          "stderrTail": ""
+        }
+      ],
+      "notes": [],
+      "packetExists": true,
+      "inboxRow": {
+        "rcp": true,
+        "inRepoPath": true,
+        "ss6Batch": true
+      },
+      "forbiddenEdgeAbsent": true
+    }
+  ]
+}
