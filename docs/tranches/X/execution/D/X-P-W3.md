@@ -9430,3 +9430,131 @@ same cell plus an event-log line. `IMPLEMENTED` stays **NO** until `.m` stamps i
 cell attributed to a ruling id; **`VERIFIED` is X.P.W4's alone (R-A)**.
 
 ## Unit receipts — round 7 (`.l` · `.m`)
+
+### X.P.W3.l
+
+**Seat: Fable (`W3.md` L726).** SERVED MODEL: claude-fable-5-1. Gates: **G-1** (the count must MOVE
+from 46/52) · **G-2** · **G-3** · **G-5** · **G-9** (Θ reported); also G-4 (C-3 stays GREEN; C-4
+carried to W4), G-6, G-8, the recovery/totality projects, `git diff --check`. Repo
+`parse-that-css-totality-p2` branch `w2/harness`, opened at `44c6583`.
+
+**Commit.** ONE, by pathspec on the commit itself: **`92ed4cc9`**
+`feat(x-p-w3/.l): the at-rule and nesting families in the algebra — …` (20 files, +1927/−104;
+`value-grammar.test.ts` was byte-restored after the F-k2 revert and carried no diff).
+`build/ac1.wasm` sha256 `04fbb80ee92575f7c497a69feb4b8da0927c4de8981c5e2cb3085f4028ce9c8d`
+(636753 bytes · 5998 functions · 70919 static; `ac1.js` UNCHANGED at `1a51470d…`). K-9 — ⟨cmd⟩
+`shasum -a 256 src/css/build/ac1.wasm && node src/css/build.mjs && shasum -a 256 src/css/build/ac1.wasm`
+→ `04fbb80e…` / `build EXIT=0` / `04fbb80e…` (double-build identical).
+
+**Acts, in order.**
+
+1. **The ten shapes, in the algebra.** `algebra/grammar/stylesheet.mjs` rewritten around ONE flat
+   `rule(prelude)` ALT — seven `SEQ(TOK("@"), <arm>)` at-rule arms (`atKeyframes`,
+   `atDeclarations` over the `at-rule-name` keyword table `property/function/scroll-timeline/
+   view-timeline`, `atScope`, `atStartingStyle`, `atStartingStyleStatement`, `atUnknownBlock`,
+   `atUnknownStatement`), then `styleRule`, then `styleRuleMixed` (declarations ∪ nested rules via
+   `REF("nested-rule")`). The flattening is load-bearing: CUT commits the NEAREST enclosing ALT
+   only (§5.2), so with the at-rules nested one ALT deeper, `@keyframes k { from { color: red; /* c
+   */ } }` fell through to a style rule. Nested preludes are `any-but-brace-or-semi` (a nested
+   prelude admitting `}` swallowed the parent's closing brace). Unknown at-rule bodies are read
+   RAW (`raw-text`/`raw-block`, brace-balanced, quote-aware) and the grammar answers the RAW item
+   tree; `entry.mjs` `completerOver(surface)` completes and validates it into the frozen
+   `Stylesheet` as E-h3 surface compositions (`completeKeyframes/Property/Function/Timeline/
+   Scope/StartingStyle/Unknown/Style`, `checkDeclaration` = the incumbent's declaration
+   rejections; unknown-at-rule children via a recursive `parse(body)`). **Never a re-parse inside
+   the grammar.** Grammar terms added: `nested-rule`, `qualified-rule`, `at-rule`, `raw-block`,
+   `animation-declaration-body` (`value.mjs` — a blank comma part is `FAIL("animation_option_
+   invalid", …)`, the incumbent's `emptyComma`, L-6); `STYLESHEET_REF_TARGETS = ["nested-rule",
+   "raw-block"]` joins `REF_TARGETS`.
+2. **Eleven CTOR rows, four places, one commit (E-h1, N=N=N=N at load).** `style-rule-mixed`
+   `at-keyframes` `keyframe-rule` `at-declarations` `at-scope` `at-starting-style`
+   `at-unknown-block` `at-unknown-stmt` `raw-text` `raw-block` `animation-property` in
+   `tables.mjs` R_ctor · `js-alg.mjs` CTORS · `wasm-alg.mjs` emitCtors · `bounds.mjs`
+   CTOR_ALLOC/CTOR_SCRATCH_CELLS. ⟨cmd⟩ `node -e '…R_ctor since X.P.W3.l…'` → `11`. Six R_cls
+   rows and the `at-rule-name` R_kw table beside. Labels APPENDED after `"<string>"` (K-10):
+   `'@'` `'keyframes'` `'scope'` `'starting-style'` `<starting-style-body>` at L[121..125];
+   18 `diagnostics.mjs` production rows; **the eight frozen codes only; `layout.mjs` and every
+   CAP untouched; Θ UNCHANGED** (`depthBound 64 · input 14107 · marks 32768 · recoveries 4096 ·
+   D 4096 · C 65536 · P 65536 · vstack 65536 · arena 7208960 · expsnap 32`; L = 126 rows).
+3. **E-j2 (GRANTED) in BOTH lowerings.** `lowering-js/values.mjs` `splitSelectors` drops empty
+   trimmed parts; `lowering-wasm/runtime.mjs` `F.splitSelectors` pushes a part only when its
+   trimmed length > 0. E-j2 misses 8 → 0.
+4. **F-k3 cured.** Every declaration now ends on `declEnd = DROP("keyword", SCAN("any-but-semi-or-
+   close", 0, 0))` — the value must reach `;`/`}` whole — and `!important` admits no whitespace
+   between `!` and `important`, which is the incumbent's reading (SH-3 DISCHARGED: `!important x:
+   y` refused). F-k3 misses 2 → 0. SH-2 DISCHARGED with it: `a { x { } color: red } b { }` is a
+   nested body, the child `x` a rule, the `.j` assertion moved to the accept (`stylesheet-grammar.
+   test.ts`, minimal edit, noted).
+5. **F-k2 — two cures LANDED and WITHDRAWN, then RE-CHARACTERIZED (F-l1).** (1) §8.1's homogeneous
+   legacy form (numbers XOR percentages) → G-1 grew **575 new misses per colour row** and
+   `coerceToSyntax` lost TOTAL — the oracle accepts mixed forms wholesale; withdrawn. (2) the
+   oracle's own comma→space reading (exactly three channels, alpha only via `/`) → G-1 **46 → 45**
+   (PB-08 · SP-1 · PB-01/02 populations violated, `0 drifted` broken); withdrawn. `.h`'s
+   `legacyRgb/legacyHsl` restored VERBATIM (the terms `modern-rgb/legacy-rgb/modern-hsl/
+   legacy-hsl` with them); the measurement note stands in `grammar.mjs` beside the forms.
+   **What the nine F-k2 cells ARE, measured:** every one is a four-argument legacy form whose
+   FOURTH argument is a non-finite spelling (`1e999`-class); the candidate accepts it as alpha
+   where the incumbent's `Number.isFinite` drops the whole value. That is **GROUND-C per cell**
+   (overflow is not a syntax error; the range is the production's), not a legacy-form defect —
+   `<finite-number>` as a rejection label REFUSED as ruled. Routed to X.P.W4 under GROUND-C; the
+   F-k2 tag on the nine is left so `.m` can re-attribute rather than lose them.
+6. **The stylesheet band — the seventh arm.** `test/css-totality/lib/stylesheet-band.mjs`
+   (seeded `0x3c1b7a5d`, `PER_SHAPE 24`, `DECLARED 470`): ten shape composers, each row an
+   ORACLE-accepted witness (the oracle is CALLED on every candidate row; nothing hand-pinned)
+   plus one class-free mutation (`CLASSES.matches` = `.k`'s predicates, so no band row lands
+   inside a ruled class). Measured 235 witnesses (nested-style 19 — the composer's own oracle
+   filter) + 235 mutations = 470 distinct; registered in `corpus.mjs`; corpus 26604 → **27074**
+   rows (`corpus.json` sha `49be0f9885615d31`; `no-throw.test.ts` and `universe.test.ts` pins
+   moved by exactly the arm, minimal edits, noted). ⟨cmd⟩ `node l-band-probe.mjs` → every shape
+   `n 24 oracleAccept 24`, `465/470 agree · 0 dual differing` (the five: SH-1/SH-4 shapes the
+   band reaches, attributed).
+7. **Fixture.** `test/css-recovery/at-rule-grammar.test.ts` — 32 tests, every parser row through
+   BOTH lowerings, byte-identical, SHIELD read before/after. ⟨cmd⟩ `npx vitest run --config
+   test/css-recovery/vitest.config.ts test/css-recovery/at-rule-grammar.test.ts` → `Test Files 1
+   passed (1) · Tests 32 passed (32)`.
+
+**Gates (final build; every published count is a double run, A==B by sha).**
+
+| gate | reading | verdict |
+|---|---|---|
+| G-1 | ⟨cmd⟩ `node scripts/css-universe.mjs --check --pinned-value-commit 6aca8602 --no-tsc` → `tally runtime 13 TOTAL / 6 PARTIAL / 0 ABSENT · types 33 / 0 / 0 · ALL 46 of 52 TOTAL` · `10 class predicates · 13217 cells governed · 0 census OVER · 0 population drifted` · `EXIT=1`; A==B `55c8a65a…`. **The tally did NOT move.** parseStylesheet misses **242 → 206** = 172× BND-1 · 11× SH-1 (was 17) · 7× F-k1 · 6× F-k2 · 5× E-j1 (was 16; the band's SH-1/SH-4 shapes) · 3× unattributed · 2× GROUND-C; E-j2 8→0 · F-k3 2→0; colour rows 10 each UNCHANGED (9 F-k2 + 1); coerceToSyntax TOTAL. | **RED — 46/52, unchanged** |
+| G-2 | ⟨cmd⟩ the unmodified anchor probe (sha `77678a57…`) → `TOTAL 0 throws / 1548 calls` | GREEN |
+| G-3 | ⟨cmd⟩ `node l-g3-probe.mjs` → `SHIELD.caught at open 0 · rows 27074 · entries 9 · calls 487458 · throws 0 · boundary cells 126 · distinct boundary shapes 1 · SHIELD.caught at exit 0 faults []` | GREEN |
+| G-4 | ⟨cmd⟩ `node scripts/css-recovery-closure.mjs` → `C-3 ⊇ executed corpus GREEN frozen \ emitted = 0` · `C-4 no fallback arm RED authored 0 · inherited 2` · `C-7 GREEN 18254 issues · unnamed 0 · label surface 126 rows` · `EXIT=1`; A==B `53daf621…` | C-3 GREEN · **C-4 RED (inherited, carried to W4)** |
+| G-5 | ⟨cmd⟩ the dual-target leg → nine entries × `27021 cells · six-tuple differ 0 · full-diagnostics differ 0 · value differ 0 · threw 0` + boundary `63 cells identical` = 243252 cells · 0 differing · 0 threw; A==B `382b590a…` | GREEN |
+| G-6 | ⟨cmd⟩ the equivalence project → `Test Files 3 passed (3) · Tests 80 passed (80)` | GREEN |
+| G-9 | ⟨cmd⟩ the boundary project → `7 failed \| 255 passed`; Θ read `64` on js, wasm and the label, NEGATIVE CONTROL halts, parametric Θ 8 moves the cliff to 8/9. The 7 = the pre-existing depth ×4 · latch ×2 · boundary ×1 (present in the round-7 baseline, untouched here). Θ REPORTED above, unchanged. | capacity leg GREEN · 7 pre-existing RED carried |
+| recovery | ⟨cmd⟩ `npx vitest run --config test/css-recovery/vitest.config.ts` → `Test Files 6 failed \| 6 passed (12) · Tests 9 failed \| 416 passed (425)`; baseline `9 failed \| 384`: the SAME nine (closure BORN-RED · value-grammar `L's tail` (`.h`'s pin, drifted since `.i`) · boundary six-unrealized · depth ×4 · latch ×2) + `capacity.test.ts` file-level; +32 of this unit's own, all passing | unchanged set |
+| `git diff --check` | ⟨cmd⟩ → `EXIT=0` | GREEN |
+
+**Findings.**
+
+- **F-l1** — see act 5: the nine F-k2 cells are GROUND-C per-cell (non-finite fourth argument), not
+  a legacy-form class. Owner: X.P.W4 (the GROUND-C reading).
+- **F-l2 — BND-1 (172) is the r1 arm's OBJECT inputs.** The r1 arm feeds `{id, src}` objects to
+  parseStylesheet; the oracle ACCEPTS a non-string as an empty sheet (`e.length` undefined → `[]`),
+  the candidate refuses it with `<string source>` (G-3's one boundary shape). **No grammar act can
+  move parseStylesheet to TOTAL under this instrument**: 172 of its 206 misses are the incumbent's
+  own non-string acceptance, already the known BND-1 class. Needs a ruling (adjudicate BND-1 as a
+  class, or make r1 hand `src`) — routed to `.m`/W4 seat 0; INFO here.
+- **F-l3 — hwb comma form.** ⟨cmd⟩ `node l-probe.mjs` → the oracle ACCEPTS `hwb(10, 10%, 10%)`;
+  PB-11's prose claims the reverse. Reported only; no predicate touched (`.k`'s file, not mine).
+- **INFO-l1** — the 73-input probe: `73 inputs · 7 differing · SHIELD.caught=0`, the seven ALL
+  declared classes (SH-1 ×3 · SH-4 ×2 · L-6 ×1 · E-j1 ×1), none new.
+- **Minimal edits outside my own files, each noted:** `stylesheet-grammar.test.ts` (`.j`, SH-2
+  assertion → accept), `no-throw.test.ts` (`.c`, corpus pin 26604 → 27074), `universe.test.ts`
+  (`.a`, the seventh arm's `[470, 470]`), `value-grammar.test.ts` (`.h`, restored byte-for-byte).
+
+**Evidence, beside (never over), line 1 `SERVED MODEL: claude-fable-5-1`:**
+`docs/tranches/X/parse-that/evidence/W3/at-rule-family-2026-09-19.{mjs,txt,json}` (the 73-input
+probe · every gate output on the final build, 1575 lines · the emitted G-1 matrix),
+`stylesheet-band-probe-2026-09-19.mjs`, `at-rule-family-g3-probe-2026-09-19.mjs`.
+
+**E13 mail.** ⟨cmd⟩ `grep -c "| UNREAD" docs/tranches/V/coordination/INBOX.md` → `0`. No UNREAD
+cell at open or at close.
+
+**Status: PARTIAL.** Every ordered act landed and every gate but G-1's tally is GREEN or carried by
+ruling; G-1's count did not move because its remainder is now BND-1 (172, F-l2) + the ruled
+residuals (SH-1/F-k1/F-k2→GROUND-C/E-j1/GROUND-C) + 3 unattributed — none reachable by a grammar
+act inside this unit's writable set. No §3a halt fired (no third iteration on any one gate: F-k2
+was two cures, then a re-characterization, not a third cure).
