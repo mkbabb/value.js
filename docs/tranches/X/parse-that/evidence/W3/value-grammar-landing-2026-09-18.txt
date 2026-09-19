@@ -1,0 +1,55 @@
+SERVED MODEL: claude-fable-5-1 · X.P.W3.h value-grammar-landing probe · sitting 2026-09-18
+SHIELD.caught at open = 0
+
+── A. the settled bytes
+  src/css/algebra/grammar/value.mjs                 20032 B  sha256 e8d25c6770a55ae1
+  src/css/algebra/grammar.mjs                       22547 B  sha256 86d997a5c07eb31d
+  src/css/algebra/tables.mjs                        28227 B  sha256 33aa3249d986a2ab
+  src/css/diagnostics.mjs                           10084 B  sha256 7bf924b9b58510ee
+  src/css/lowering-js/js-alg.mjs                    34345 B  sha256 c7e9a73712e02481
+  src/css/lowering-wasm/wasm-alg.mjs                49298 B  sha256 d94b80840e84c77f
+  src/css/bounds.mjs                                49969 B  sha256 dc844b26c23c9bd7
+  src/css/entry.mjs                                 24954 B  sha256 bdb77904fa2ea6fa
+  src/css/build.mjs                                  3401 B  sha256 d000ed208f9d7703
+  src/css/harness-adapter.mjs                        3901 B  sha256 d244b046ec1d291b
+  test/css-recovery/value-grammar.test.ts           17501 B  sha256 e1df37cc3601dc5f
+  src/css/build/ac1.js                                418 B  sha256 9e75a4054b7ea649
+  src/css/build/ac1.wasm                           347727 B  sha256 7a4c21b97d5c9d82
+  src/css/build/ac1.d.ts                              595 B  sha256 2e632a422e988b4f
+  oracle docs/tranches/V/megatranche/prototypes/css-parser/cand-o/vendor/value-js-4.0.0/dist/subpaths/css.js sha256 8b5381305ea26236
+
+── B. Θ per entry (bounds.mjs's ceiling walk) beside the MEASURED arena high-water
+  INPUT_BOUND 14107 · arena {"K":511,"unit":"code unit","S":46} · vstack {"K":1,"unit":"code unit","S":863} · THETA {"depthBound":64,"input":14107,"marks":32768,"recoveries":4096,"D":4096,"C":65536,"P":65536,"vstack":65536,"arena":7208960,"expsnap":32}
+  P:color              walked rate   72 B/code unit · cells 71 · fixed 0 · exp 1
+  P:timing-function    walked rate   98 B/code unit · cells 14 · fixed 0 · exp 1
+  P:stylesheet         walked rate  101 B/code unit · cells 78 · fixed 46 · exp 1
+  P:scalar             walked rate  136 B/code unit · cells 17 · fixed 0 · exp 1
+  P:value              walked rate  463 B/code unit · cells 863 · fixed 0 · exp 1
+  P:values             walked rate  511 B/code unit · cells 863 · fixed 0 · exp 1
+  measured on the Wasm lowering, P:value, 400 items per family (arena = arenaHighWater() after the parse):
+    space list (idents)    len   800 ok true · arena  48208 B = 60.26 B/code unit · marks/item 17.06 → items before `marks <= 32768` ≈ 1920
+    comma list             len   801 ok true · arena 105928 B = 132.24 B/code unit · marks/item 39.1 → items before `marks <= 32768` ≈ 838
+    slash list             len   801 ok true · arena  83528 B = 104.28 B/code unit · marks/item 37.1 → items before `marks <= 32768` ≈ 883
+    space list (calls)     len  2000 ok true · arena 176208 B = 88.1 B/code unit · marks/item 34.06 → items before `marks <= 32768` ≈ 962
+    space list (numbers)   len  1600 ok true · arena  57808 B = 36.13 B/code unit · marks/item 5.06 → items before `marks <= 32768` ≈ 6475
+    space list (colours)   len  1600 ok true · arena  57808 B = 36.13 B/code unit · marks/item 1.06 → items before `marks <= 32768` ≈ 30913
+    one token              len     3 ok true · arena    320 B = 106.67 B/code unit · marks/item 0.07 → items before `marks <= 32768` ≈ 451972
+  the walk's P:values rate 511 B/code unit vs the worst measured 132.24 B/code unit → the model over-reads by ×3.9 (E-h5)
+
+── C. G-1 two-number form: raw misses / misses inside the declared classes, per entry, over the union corpus
+  corpus 26604 rows → 26604 distinct · rowsSha256 559e84bfb632b140
+  parseCssColor    cells 26604 · RAW misses 4042 (FALSE_REJECT 1272 · MIS_ACCEPT 1200 · DIVERGENT_VALUE 1570 · ORACLE_THREW 0) · IN declared classes 4042 (COLOR 4042) · OUTSIDE 0
+  parseCssScalar   cells 26604 · RAW misses 4042 (FALSE_REJECT 1272 · MIS_ACCEPT 1200 · DIVERGENT_VALUE 1570 · ORACLE_THREW 0) · IN declared classes 4042 (COLOR 4042) · OUTSIDE 0
+  parseCssValue    cells 26604 · RAW misses 4830 (FALSE_REJECT 2058 · MIS_ACCEPT 1201 · DIVERGENT_VALUE 1571 · ORACLE_THREW 0) · IN declared classes 4830 (COLOR 4046 · PB-12 784) · OUTSIDE 0
+  parseCssValues   cells 26604 · RAW misses 4830 (FALSE_REJECT 2058 · MIS_ACCEPT 1201 · DIVERGENT_VALUE 1571 · ORACLE_THREW 0) · IN declared classes 4830 (COLOR 4046 · PB-12 784) · OUTSIDE 0
+  (coerceToSyntax composes parseCssValue on the surface and adds no parse of its own: its G-1 misses are parseCssValue's over the coercer's pairs — read raw from the G-1 report, not re-derived here)
+
+── D. the CTOR family at the bytes: N = N = N = N
+  R_ctor 39 · js CTORS 39 · wasm emitCtors 39 · bounds CTOR_ALLOC 39 · CTOR_SCRATCH_CELLS 39
+  R_ctor ≡ js true · R_ctor ≡ wasm true · R_ctor ≡ alloc true · R_ctor ≡ scratch true
+  rows since X.P.W3.h: 19 of 39
+  L.length 76 · labels after "expsnap <= 32": ["token boundary","ident start","<unit>","<operator>","double quote","single quote","string text","<color-space>","concrete xyz-d50","<function-arguments>","<value-list>","<value>","<scalar>","'\\'","'\"'","'''"]
+
+SHIELD.caught at exit = 0
+
+emitted docs/tranches/X/parse-that/evidence/W3/value-grammar-landing-2026-09-18.json
