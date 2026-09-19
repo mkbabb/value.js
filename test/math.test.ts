@@ -11,6 +11,124 @@ import {
     cubicBezierToString,
 } from "../src/foundation/math";
 
+/**
+ * X-W9.c · G11 — `./math` states ONE precondition policy and enforces it in
+ * code: a violated size precondition throws a `RangeError` naming the function
+ * and the constraint, and nothing is written, returned or silently poisoned.
+ *
+ * Every case below is a shape the module used to ABSORB (W9.md :353):
+ * `deCasteljau(0.5, [])` returned `undefined` while its `.d.ts` declared
+ * `number`; `interpBezier(0.5, [])` returned `[undefined, undefined]`; a
+ * mis-sized `lerpArray` wrote `[2.5, 3.5, NaN]` — a silent NaN frame in
+ * keyframes' `FrameCompiler` hot loop.
+ */
+describe("precondition policy (G11)", () => {
+    describe("deCasteljau", () => {
+        it("rejects an empty control polygon instead of returning undefined", () => {
+            expect(() => deCasteljau(0.5, [])).toThrow(RangeError);
+            expect(() => deCasteljau(0.5, [])).toThrow(/deCasteljau: points must hold/);
+        });
+
+        it("still accepts the smallest legal polygon", () => {
+            expect(deCasteljau(0.5, [5])).toBe(5);
+        });
+    });
+
+    describe("interpBezier", () => {
+        it("rejects an empty control polygon instead of returning [undefined, undefined]", () => {
+            expect(() => interpBezier(0.5, [])).toThrow(RangeError);
+            expect(() => interpBezier(0.5, [])).toThrow(
+                /interpBezier: points must hold/,
+            );
+        });
+
+        it("names itself, not the primitive it delegates to", () => {
+            expect(() => interpBezier(0.5, [])).not.toThrow(/deCasteljau/);
+        });
+
+        it("still accepts the smallest legal polygon", () => {
+            expect([...interpBezier(0.5, [[1, 2]])]).toEqual([1, 2]);
+        });
+    });
+
+    describe("lerpArray", () => {
+        const cases: ReadonlyArray<
+            readonly [label: string, from: number, to: number, out: number]
+        > = [
+            ["stop shorter than start", 3, 2, 3],
+            ["stop longer than start", 2, 3, 2],
+            ["out shorter than start", 2, 2, 1],
+            ["out longer than start", 2, 2, 3],
+            ["all three different", 4, 3, 2],
+        ];
+
+        it.each(cases)("rejects a %s", (_label, from, to, out) => {
+            const start = Float64Array.from({ length: from }, (_, i) => i + 1);
+            const stop = Float64Array.from({ length: to }, (_, i) => i + 10);
+            const buffer = new Float64Array(out);
+            expect(() => lerpArray(start, stop, 0.5, buffer)).toThrow(RangeError);
+            expect(() => lerpArray(start, stop, 0.5, buffer)).toThrow(
+                /lerpArray: start, stop and out must share one length/,
+            );
+        });
+
+        it("writes nothing when the precondition fails — the check precedes the loop", () => {
+            const start = Float64Array.of(1, 2, 3);
+            const stop = Float64Array.of(4, 5);
+            const out = Float64Array.of(-1, -1, -1);
+            expect(() => lerpArray(start, stop, 0.5, out)).toThrow(RangeError);
+            expect([...out]).toEqual([-1, -1, -1]);
+        });
+
+        it("no longer produces the silent NaN frame the gate was born on", () => {
+            const out = new Float64Array(3);
+            expect(() =>
+                lerpArray(Float64Array.of(1, 2, 3), Float64Array.of(4, 5), 0.5, out),
+            ).toThrow(RangeError);
+            expect([...out].some(Number.isNaN)).toBe(false);
+        });
+
+        it("still accepts an empty buffer triple", () => {
+            const out = new Float64Array(0);
+            expect(lerpArray(new Float64Array(0), new Float64Array(0), 0.5, out)).toBe(
+                out,
+            );
+        });
+    });
+
+    it("is ONE policy: every violation is a RangeError that names its function", () => {
+        const violations: ReadonlyArray<readonly [name: string, call: () => unknown]> =
+            [
+                ["scale", () => scale(5, 5, 5, 0, 10)],
+                ["deCasteljau", () => deCasteljau(0.5, [])],
+                ["interpBezier", () => interpBezier(0.5, [])],
+                [
+                    "lerpArray",
+                    () =>
+                        lerpArray(
+                            Float64Array.of(1, 2, 3),
+                            Float64Array.of(4, 5),
+                            0.5,
+                            new Float64Array(3),
+                        ),
+                ],
+            ];
+
+        for (const [name, call] of violations) {
+            let thrown: unknown;
+            try {
+                call();
+            } catch (error) {
+                thrown = error;
+            }
+            expect(thrown, `${name} must reject`).toBeInstanceOf(RangeError);
+            expect(String((thrown as RangeError).message)).toMatch(
+                new RegExp(`^${name}: `),
+            );
+        }
+    });
+});
+
 describe("lerpArray", () => {
     it("matches scalar lerp across channel counts and progress samples", () => {
         for (const length of [1, 2, 5, 16, 64]) {
@@ -113,6 +231,9 @@ describe("scale", () => {
         expect(() => scale(5, 5, 5, 0, 10)).toThrow(
             "fromMax and fromMin cannot be equal",
         );
+        // The guard sits ABOVE the division it exists for, so the module never
+        // computes a slope from an empty input range (X-W9.c).
+        expect(() => scale(5, 5, 5)).toThrow(RangeError);
     });
 
     it("should handle fractional values", () => {

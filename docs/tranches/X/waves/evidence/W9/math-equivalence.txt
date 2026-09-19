@@ -1,0 +1,120 @@
+SERVED MODEL: claude-opus-5[1m]
+X-W9.c — BIT-IDENTITY WITNESS. The cured deCasteljau / interpBezier / lerpArray
+against the PRE-CURE bodies (transcribed verbatim from HEAD's src/foundation/math.ts),
+over every VALID input. G11 must cure the rejected inputs and move nothing else.
+
+⟨cmd⟩ MATH_SRC=<tree>/src/foundation/math.ts npx vite-node equiv-probe.mts   run 1:
+cases=33169  mismatches=0
+BIT-IDENTICAL on every valid input
+                                                                             run 2:
+cases=33169  mismatches=0
+BIT-IDENTICAL on every valid input
+
+Coverage: deCasteljau degree 1..12 x 40 random polygons x 41 t samples (t in [-0.125, 1.125],
+so extrapolation is witnessed too); interpBezier degree 1..8 likewise; lerpArray K in
+{0,1,2,3,4,8,16,33,64} x 41 t. Comparison is Object.is, i.e. BIT equality, not toBeCloseTo.
+
+================ harness source (equiv-probe.mts), so the reading is re-runnable ================
+// X-W9.c — bit-identity witness: the cured `deCasteljau` / `interpBezier` /
+// `lerpArray` against the PRE-CURE algorithms, over every valid input.
+// The pre-cure bodies are transcribed here verbatim from `41450f02`'s
+// src/foundation/math.ts (:86-96, :105-111, :60-72).
+const SRC = process.env.MATH_SRC;
+if (!SRC) throw new Error("MATH_SRC must name src/foundation/math.ts");
+const M: Record<string, (...a: any[]) => any> = await import(SRC);
+
+const lerp = (start: number, end: number, t: number) => (1 - t) * start + t * end;
+
+// PRE-CURE deCasteljau (in-place triangle, three non-null assertions)
+const oldDeCasteljau = (t: number, points: readonly number[]) => {
+    const n = points.length - 1;
+    const b = [...points];
+    for (let i = 1; i <= n; i++) {
+        for (let j = 0; j <= n - i; j++) {
+            b[j] = lerp(b[j]!, b[j + 1]!, t);
+        }
+    }
+    return b[0]!;
+};
+// PRE-CURE interpBezier
+const oldInterpBezier = (t: number, points: readonly (readonly [number, number])[]) =>
+    [
+        oldDeCasteljau(
+            t,
+            points.map((xy) => xy[0]!),
+        ),
+        oldDeCasteljau(
+            t,
+            points.map((xy) => xy[1]!),
+        ),
+    ] as const;
+// PRE-CURE lerpArray
+const oldLerpArray = (start: Float64Array, stop: Float64Array, t: number, out: Float64Array) => {
+    const n = start.length;
+    const u = 1 - t;
+    for (let i = 0; i < n; i++) out[i] = u * start[i]! + t * stop[i]!;
+    return out;
+};
+
+// Deterministic LCG so the witness is reproducible across runs.
+let seed = 0x9e3779b9;
+const rand = () => {
+    seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
+    return seed / 0x1_0000_0000;
+};
+
+let cases = 0;
+let mismatches = 0;
+const note = (what: string, a: unknown, b: unknown) => {
+    mismatches += 1;
+    console.log(`MISMATCH ${what}: new=${String(a)} old=${String(b)}`);
+};
+
+// deCasteljau — every degree 1..12, 41 t samples incl. out-of-[0,1]
+for (let degree = 1; degree <= 12; degree++) {
+    for (let trial = 0; trial < 40; trial++) {
+        const points = Array.from({ length: degree }, () => rand() * 200 - 100);
+        for (let k = -4; k <= 36; k++) {
+            const t = k / 32;
+            const a = M.deCasteljau!(t, points);
+            const b = oldDeCasteljau(t, points);
+            cases += 1;
+            if (!Object.is(a, b)) note(`deCasteljau d=${degree} t=${t}`, a, b);
+        }
+    }
+}
+
+// interpBezier — every degree 1..8
+for (let degree = 1; degree <= 8; degree++) {
+    for (let trial = 0; trial < 40; trial++) {
+        const points = Array.from(
+            { length: degree },
+            () => [rand() * 200 - 100, rand() * 200 - 100] as [number, number],
+        );
+        for (let k = -4; k <= 36; k++) {
+            const t = k / 32;
+            const a = M.interpBezier!(t, points);
+            const b = oldInterpBezier(t, points);
+            cases += 1;
+            if (!Object.is(a[0], b[0]) || !Object.is(a[1], b[1]))
+                note(`interpBezier d=${degree} t=${t}`, a.join(","), b.join(","));
+        }
+    }
+}
+
+// lerpArray — K = 0..64, 41 t samples
+for (const K of [0, 1, 2, 3, 4, 8, 16, 33, 64]) {
+    const start = Float64Array.from({ length: K }, () => rand() * 200 - 100);
+    const stop = Float64Array.from({ length: K }, () => rand() * 200 - 100);
+    for (let k = -4; k <= 36; k++) {
+        const t = k / 32;
+        const a = M.lerpArray!(start, stop, t, new Float64Array(K));
+        const b = oldLerpArray(start, stop, t, new Float64Array(K));
+        cases += 1;
+        for (let i = 0; i < K; i++)
+            if (!Object.is(a[i], b[i])) note(`lerpArray K=${K} t=${t} i=${i}`, a[i], b[i]);
+    }
+}
+
+console.log(`cases=${cases}  mismatches=${mismatches}`);
+console.log(mismatches === 0 ? "BIT-IDENTICAL on every valid input" : "DIVERGENT");

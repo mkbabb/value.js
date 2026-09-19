@@ -1,9 +1,31 @@
+/**
+ * `src/foundation/math` — the numeric primitives published as
+ * `@mkbabb/value.js/math`.
+ *
+ * **Precondition policy — one policy, stated here once, enforced in code.**
+ *
+ * Every export states its own size preconditions and checks them itself, before
+ * it computes anything from the offending argument. A violated precondition
+ * throws a `RangeError` naming the function and the constraint it broke. No
+ * export absorbs a violation into `undefined`, into `NaN`, or into a short
+ * write: a mis-sized buffer is a caller defect, and it is reported at the call
+ * that made it rather than as a poisoned frame several layers downstream.
+ *
+ * Each check is O(1) — a length comparison, never a per-element scan — so the
+ * bulk path (`lerpArray`) keeps its hot-loop shape.
+ *
+ * Handing an export a value its published signature forbids (a `string` where
+ * the `.d.ts` declares a `Float64Array`) is NOT this policy's subject: the
+ * signature is the contract there.
+ */
+
 // Constrains a value between a lower and upper bound
 export function clamp(value: number, min: number, max: number): number {
     return Math.min(Math.max(value, min), max);
 }
 
-// Linear mapping of a value from one range to another
+// Linear mapping of a value from one range to another.
+// Precondition: `fromMin !== fromMax` — an empty input range has no slope.
 export function scale(
     value: number,
     fromMin: number,
@@ -11,13 +33,14 @@ export function scale(
     toMin: number = 0,
     toMax: number = 1,
 ) {
+    // Guarded ABOVE the division it exists for, so no infinite or NaN slope is
+    // ever computed from an empty input range.
+    if (fromMax === fromMin) {
+        throw new RangeError("scale: fromMax and fromMin cannot be equal");
+    }
+
     // Calculate slope of the linear function
     const slope = (toMax - toMin) / (fromMax - fromMin);
-
-    // Check for division by zero
-    if (fromMax === fromMin) {
-        throw new Error("fromMax and fromMin cannot be equal");
-    }
 
     // Apply linear transformation
     return (value - fromMin) * slope + toMin;
@@ -39,8 +62,9 @@ export function lerp(start: number, end: number, t: number) {
  * **This is a *consumer-facing* SoA carrier, not an internal interpolation
  * primitive.** value.js's own multi-channel paths cannot adopt it: the color
  * path (`lerpColorValue`) has a per-channel hue special-case + heterogeneous
- * destination writes, and `interpolateDecomposed` is a one-shot. The substrate
- * that *does* consume it is **keyframes.js** — its `FrameCompiler` packs every
+ * destination writes. (The matrix family this note once also named retired with
+ * `src/transform/decompose.ts` at `4be22189`.) The substrate that *does* consume
+ * it is **keyframes.js** — its `FrameCompiler` packs every
  * plain-numeric channel of a compiled segment into parallel `Float64Array`s and
  * drives one `lerpArray` call per playhead sample (the J.W6 S2 ADOPT; the
  * consume-edge contract is locked by `keyframes.js/test/lerparray-adopt.test.ts`
@@ -51,11 +75,13 @@ export function lerp(start: number, end: number, t: number) {
  *
  * It is pixel-identical to K independent `lerp()` calls. MEASURE-FIRST (the
  * charter's land bar): SLOWER at K=1, BITES from K≥2 — measured on this machine
- * (bench/numeric-soa.mjs) at 1.56× (K=2) → 4.25× (K=64), so callers use it only
- * for multi-channel (K≥2) frames. D1 monomorphization is NOT shipped (a measured
- * non-win, r-interpolation-carrier).
+ * at 1.56× (K=2) → 4.25× (K=64), so callers use it only for multi-channel (K≥2)
+ * frames. (Its harness, `bench/numeric-soa.mjs`, retired with the pre-v4 trees
+ * at `164343c1`; the figures are the reading of record, not a live command.) D1
+ * monomorphization is NOT shipped (a measured non-win, r-interpolation-carrier).
  *
- * `start`, `stop`, `out` must share the same length; only `out` is written.
+ * Precondition: `start`, `stop` and `out` share one length; only `out` is
+ * written, and nothing is written when the precondition does not hold.
  */
 export function lerpArray(
     start: Float64Array,
@@ -64,9 +90,27 @@ export function lerpArray(
     out: Float64Array,
 ): Float64Array {
     const n = start.length;
+    if (stop.length !== n || out.length !== n) {
+        throw new RangeError(
+            `lerpArray: start, stop and out must share one length; received ${n}, ${stop.length}, ${out.length}`,
+        );
+    }
+
     const u = 1 - t;
     for (let i = 0; i < n; i++) {
-        out[i] = u * start[i]! + t * stop[i]!;
+        // The check above pins all three lengths, so both reads are in bounds;
+        // narrowing them — rather than asserting them away — is what lets this
+        // module carry no non-null assertion, and it is free: measured at
+        // 1.00-1.01x the un-narrowed body for K >= 2, the multi-channel band
+        // this carrier exists for (evidence/W9/math-lerparray-shapes.txt).
+        const from = start[i];
+        const to = stop[i];
+        if (from === undefined || to === undefined) {
+            throw new RangeError(
+                `lerpArray: read past the end of a buffer at index ${i} of ${n}`,
+            );
+        }
+        out[i] = u * from + t * to;
     }
     return out;
 }
@@ -82,17 +126,40 @@ export function logerp(start: number, end: number, t: number) {
     return start * Math.pow(end / start, t);
 }
 
-// De Casteljau's algorithm for Bézier curve evaluation
-export function deCasteljau(t: number, points: readonly number[]) {
+// De Casteljau's algorithm for Bézier curve evaluation.
+// Precondition: `points` holds at least one control point.
+export function deCasteljau(t: number, points: readonly number[]): number {
+    if (points.length === 0) {
+        throw new RangeError(
+            "deCasteljau: points must hold at least one control point; received an empty array",
+        );
+    }
+
     const n = points.length - 1;
     const b = [...points];
-    // Iteratively interpolate points
+    // Iteratively interpolate points. Every read below is inside the polygon the
+    // check above pinned; narrowing says so in the types, where the retired
+    // non-null assertions only silenced the question.
     for (let i = 1; i <= n; i++) {
         for (let j = 0; j <= n - i; j++) {
-            b[j] = lerp(b[j]!, b[j + 1]!, t);
+            const left = b[j];
+            const right = b[j + 1];
+            if (left === undefined || right === undefined) {
+                throw new RangeError(
+                    `deCasteljau: read past the end of a ${b.length}-point control polygon at index ${j + 1}`,
+                );
+            }
+            b[j] = lerp(left, right, t);
         }
     }
-    return b[0]!;
+
+    const value = b[0];
+    if (value === undefined) {
+        throw new RangeError(
+            `deCasteljau: read past the end of a ${b.length}-point control polygon at index 0`,
+        );
+    }
+    return value;
 }
 
 // Cubic Bézier curve evaluation
@@ -101,11 +168,18 @@ export function cubicBezier(t: number, x1: number, y1: number, x2: number, y2: n
     return [deCasteljau(t, [0, x1, x2, 1]), deCasteljau(t, [0, y1, y2, 1])] as const;
 }
 
-// Generalized Bézier curve interpolation
+// Generalized Bézier curve interpolation.
+// Precondition: `points` holds at least one control point.
 export function interpBezier(t: number, points: readonly (readonly [x: number, y: number])[]) {
-    // Separate x and y coordinates
-    const xCoords = points.map((xy) => xy[0]!);
-    const yCoords = points.map((xy) => xy[1]!);
+    if (points.length === 0) {
+        throw new RangeError(
+            "interpBezier: points must hold at least one control point; received an empty array",
+        );
+    }
+    // Separate x and y coordinates — each point is a pair by type, so neither
+    // read needs an assertion
+    const xCoords = points.map((xy) => xy[0]);
+    const yCoords = points.map((xy) => xy[1]);
     // Interpolate x and y separately
     return [deCasteljau(t, xCoords), deCasteljau(t, yCoords)] as const;
 }

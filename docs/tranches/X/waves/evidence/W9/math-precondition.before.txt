@@ -1,0 +1,75 @@
+SERVED MODEL: claude-opus-5[1m]
+X-W9.c — G11 BEFORE reading (W9.md :353), worktree value.js-x-w9-c @ fdebfef5b65ee7672af82fbfe9cadeddeddb00af
+cmd: MATH_SRC=<worktree>/src/foundation/math.ts npx vite-node <harness>
+
+--- G11 legs (W9.md :353) ---
+deCasteljau(0.5, [])                        ->  undefined (typeof undefined)
+interpBezier(0.5, [])                       ->  [null,null] (typeof object)
+lerpArray(len3, len2, .5, out3)             ->  [2.5, 3.5, NaN]
+lerpArray(len2, len2, .5, out1)             ->  [2]
+lerpArray(len2, len3, .5, out2)             ->  [2, 3]
+--- scale: equal-bounds guard vs its own division ---
+scale(5, 5, 5, 0, 10)                       ->  THROW Error: fromMax and fromMin cannot be equal
+scale(5, 5, 5)          (slope computed?)   ->  THROW Error: fromMax and fromMin cannot be equal
+--- the arms that must NOT move ---
+deCasteljau(0.5, [5])                       ->  5 (typeof number)
+deCasteljau(0.5, [0, 0.5, 0.5, 1])          ->  0.5 (typeof number)
+deCasteljau(0, [3,7,2,9,1]) / (1, …)        ->  [3,1] (typeof object)
+cubicBezier(0.5, .25,.1,.25,1)              ->  [0.3125,0.5375000000000001] (typeof object)
+interpBezier(0.5, [[0,0],[5,10],[10,0]])    ->  [5,5] (typeof object)
+interpBezier(0.5, [[1,2]])                  ->  [1,2] (typeof object)
+lerpArray(len2, len2, .5, out2)             ->  [50, 15]
+lerpArray(len0, len0, .5, out0)             ->  []
+scale(5, 0, 10, 0, 100)                     ->  50 (typeof number)
+clamp(5, 0, 10) / lerp(10,20,.5) / logerp   ->  [5,15,10] (typeof object)
+
+cmd: npx eslint 'src/foundation/**/*.ts' --rule '{"@typescript-eslint/no-non-null-assertion":"error"}'
+
+/Users/mkbabb/Programming/value.js-x-w9-c/src/foundation/math.ts
+   69:22  error  Forbidden non-null assertion  @typescript-eslint/no-non-null-assertion
+   69:38  error  Forbidden non-null assertion  @typescript-eslint/no-non-null-assertion
+   92:25  error  Forbidden non-null assertion  @typescript-eslint/no-non-null-assertion
+   92:32  error  Forbidden non-null assertion  @typescript-eslint/no-non-null-assertion
+   95:12  error  Forbidden non-null assertion  @typescript-eslint/no-non-null-assertion
+  107:40  error  Forbidden non-null assertion  @typescript-eslint/no-non-null-assertion
+  108:40  error  Forbidden non-null assertion  @typescript-eslint/no-non-null-assertion
+
+✖ 7 problems (7 errors, 0 warnings)
+
+
+================ G11's own command, with the cure REMOVED ================
+Measured by restoring src/foundation/math.ts to HEAD (fdebfef5) while keeping the
+cured test/math.test.ts — i.e. G11's falsifier, run: 'remove the boundary check'.
+⟨cmd⟩ npx vitest run test/math.test.ts
+     → expected function to throw an error, but it didn't
+     → expected function to throw an error, but it didn't
+     → expected function to throw an error, but it didn't
+     → expected function to throw an error, but it didn't
+     → expected function to throw an error, but it didn't
+     → expected function to throw an error, but it didn't
+     → expected function to throw an error, but it didn't
+     → expected function to throw an error, but it didn't
+     → expected function to throw an error, but it didn't
+     → scale must reject: expected Error: fromMax and fromMin cannot be equal to be an instance of RangeError
+     → expected error to be instance of RangeError
+⎯⎯⎯⎯⎯⎯ Failed Tests 11 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/math.test.ts > precondition policy (G11) > deCasteljau > rejects an empty control polygon instead of returning undefined
+AssertionError: expected function to throw an error, but it didn't
+ FAIL  test/math.test.ts > precondition policy (G11) > interpBezier > rejects an empty control polygon instead of returning [undefined, undefined]
+AssertionError: expected function to throw an error, but it didn't
+ FAIL  test/math.test.ts > precondition policy (G11) > lerpArray > rejects a stop shorter than start
+ FAIL  test/math.test.ts > precondition policy (G11) > lerpArray > rejects a stop longer than start
+ FAIL  test/math.test.ts > precondition policy (G11) > lerpArray > rejects a out shorter than start
+ FAIL  test/math.test.ts > precondition policy (G11) > lerpArray > rejects a out longer than start
+ FAIL  test/math.test.ts > precondition policy (G11) > lerpArray > rejects a all three different
+AssertionError: expected function to throw an error, but it didn't
+ FAIL  test/math.test.ts > precondition policy (G11) > lerpArray > writes nothing when the precondition fails — the check precedes the loop
+AssertionError: expected function to throw an error, but it didn't
+ FAIL  test/math.test.ts > precondition policy (G11) > lerpArray > no longer produces the silent NaN frame the gate was born on
+AssertionError: expected function to throw an error, but it didn't
+ FAIL  test/math.test.ts > precondition policy (G11) > is ONE policy: every violation is a RangeError that names its function
+AssertionError: scale must reject: expected Error: fromMax and fromMin cannot be equal to be an instance of RangeError
+ FAIL  test/math.test.ts > scale > should throw when fromMin equals fromMax
+AssertionError: expected error to be instance of RangeError
+ Test Files  1 failed (1)
+      Tests  11 failed | 58 passed (69)
