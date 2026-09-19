@@ -1,0 +1,141 @@
+{
+  "servedModel": "claude-opus-5[1m]",
+  "probe": "X.W5.c gate N11 — the three blind state matrices, ≤639 px arm",
+  "takenAt": "2026-09-19T13:57:45.881Z",
+  "origin": "http://localhost:9010",
+  "instrumentNote": "docs/tranches/V/megatranche/audit/visual/states.mjs is READ/EXECUTE, NO WRITE (BD-24); its MATRICES array pins forced-colors / reduced-motion / keyboard-focus at 1440x900. This run produces the captures that arm would have produced. The instrument's own arm is NOT added here and stays owed to the audit lane.",
+  "rows": [
+    {
+      "matrix": "forced-colors-mobile390",
+      "engine": "chromium",
+      "driver": "playwright-chromium",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "route": "#/",
+      "shot": "forced-colors-mobile390.png",
+      "sha256": "6dc34eee3245ff8bcae50ef2fac4928c50f85239e3b00f606c2257965267a90d",
+      "control": {
+        "present": true,
+        "display": "block",
+        "visible": true,
+        "rect": {
+          "w": 112,
+          "h": 36
+        },
+        "options": [
+          {
+            "label": "Picker",
+            "pressed": "true",
+            "role": null,
+            "color": "rgb(0, 0, 0)",
+            "background": "rgba(255, 255, 255, 0)",
+            "borderColor": "rgba(5, 0, 73, 0.8)",
+            "outline": "none"
+          },
+          {
+            "label": "About",
+            "pressed": "false",
+            "role": null,
+            "color": "rgb(0, 0, 0)",
+            "background": "rgba(255, 255, 255, 0)",
+            "borderColor": "rgb(0, 0, 0)",
+            "outline": "none"
+          }
+        ],
+        "focusedPath": "",
+        "focusInControl": false
+      },
+      "tabsToReach": null
+    },
+    {
+      "matrix": "reduced-motion-mobile390",
+      "engine": "chromium",
+      "driver": "playwright-chromium",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "route": "#/",
+      "shot": "reduced-motion-mobile390.png",
+      "sha256": "967047ff07c483dbea4f96fd577f05229c69d6e8ab70b8ca00770a5702eaa8e8",
+      "control": {
+        "present": true,
+        "display": "block",
+        "visible": true,
+        "rect": {
+          "w": 104,
+          "h": 32
+        },
+        "options": [
+          {
+            "label": "Picker",
+            "pressed": "true",
+            "role": null,
+            "color": "rgb(28, 25, 23)",
+            "background": "rgba(0, 0, 0, 0)",
+            "borderColor": "rgb(28, 25, 23)",
+            "outline": "none"
+          },
+          {
+            "label": "About",
+            "pressed": "false",
+            "role": null,
+            "color": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "borderColor": "rgb(0, 0, 0)",
+            "outline": "none"
+          }
+        ],
+        "focusedPath": "",
+        "focusInControl": false
+      },
+      "tabsToReach": null
+    },
+    {
+      "matrix": "keyboard-focus-mobile390",
+      "engine": "chromium",
+      "driver": "playwright-chromium",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "route": "#/",
+      "shot": "keyboard-focus-mobile390.png",
+      "sha256": "d2908b449684c3b3f934d46be9aefda8218207fecb9ee5feadaf0def44e25d86",
+      "control": {
+        "present": true,
+        "display": "block",
+        "visible": true,
+        "rect": {
+          "w": 104,
+          "h": 32
+        },
+        "options": [
+          {
+            "label": "Picker",
+            "pressed": "true",
+            "role": null,
+            "color": "rgb(28, 25, 23)",
+            "background": "rgba(0, 0, 0, 0)",
+            "borderColor": "rgb(28, 25, 23)",
+            "outline": "auto"
+          },
+          {
+            "label": "About",
+            "pressed": "false",
+            "role": null,
+            "color": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "borderColor": "rgb(0, 0, 0)",
+            "outline": "none"
+          }
+        ],
+        "focusedPath": "div > div.app-layout > nav.dock-band.overture-dock-land > div > div.glass-dock.horizontal > div.dock-controls > div.dock-layers > div.dock-layer.dock-layer--full > div.dock-layer-group.horizontal > div.dock-crossfade > div.dock-face.is-active > div.dock-face-content > div.dock-mobile-panes > div.pane-segmented-control.flex > div.segmented-tabs.segmented-tabs--pill > button.segmented-tab",
+        "focusInControl": true
+      },
+      "tabsToReach": 3
+    }
+  ]
+}
