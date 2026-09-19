@@ -1271,3 +1271,267 @@ that the landing neither caused nor worsened. Claiming them would be exactly the
   contributes **0 files · 0 lines · 0 occurrences**, and re-reading it cannot move the number.
 - **No write landed outside this unit's writable set.** `scripts/dev/dev.sh` untouched; glass-ui untouched;
   no sibling seat's path staged, reset or unstaged; no stash, no force-push, no branch rewrite.
+
+---
+
+### KF.W10.f
+
+**SERVED MODEL**: `claude-opus-5[1m]` · **Unit** `KF.W10.f` · group 6 of 7 (alone) · **sections executed**
+§3.6 `:332-334` + §5 **G-6** `:471-487` + §10 `:660-673`. **Seat clock** 2026-09-19 00:3x → 01:0x EDT
+(⟨cmd⟩ `date` → `Sat Sep 19 00:32:05 EDT 2026` at open). **Sitting of record stays 2026-09-17.**
+**Status: DONE — G-6 turns RED → GREEN at the landing bytes**, with two declared misses inside the unit's
+own scope (KF.W6's absent four-verb table · KF.W3's refused advance), both measured and both recorded here
+rather than papered. **Writable set honoured exactly**: value `INBOX.md` · kf `INBOUND-LEDGER.md` · kf
+`DISPOSITIONS.md` · value `close/FINAL-KF.md` (created) · one row in each of ten sibling specs. **No ledger
+edit** (the wave's close moves the row, not a unit).
+
+#### Act 0 — crash-recovery sweep (STANDING LAW, first act)
+
+⟨cmd⟩ `git status --porcelain` in both repos this seat may write, read before any other act:
+
+- **value.js — 14 rows, and the ONLY one inside this unit's writable set is `docs/tranches/V/coordination/INBOX.md`,
+  which was CLEAN at open** (it appears in the list only after this seat's own writes). The others are
+  sibling-owned or unowned: `docs/tranches/V/reformation/CARRY-LEDGER.md` · `scripts/dev/dev.sh`
+  (**unowned, NEVER touched, never staged**) · a staged `e2e/smoke/a11y-select-title.spec.ts` that a sibling
+  seat committed during this unit's run · the `demo/**` rows. **Nothing touched, nothing stashed, nothing
+  unstaged.**
+- **keyframes.js — 2 rows**, both untracked value-authored letters
+  (`VALUEJS-INBOUND-2026-07-{24,27}-*.md`, O-8/O-11's delivered bytes, the §B-12 reset's survivors).
+  **Outside this unit's writable set; left in place**, and named again in the kf addendum as evidence rather
+  than repaired.
+- **Inherited work on THIS unit: NONE.** `docs/tranches/X/keyframes/close/` did not exist
+  (⟨cmd⟩ `ls docs/tranches/X/keyframes/close/` → `No such file or directory`); the two kf ledgers were
+  byte-identical to `origin/master`; `INBOX.md` carried no partial terminalization. **No predecessor hunk
+  was inherited, so none is claimed.**
+
+#### Act 1 — BEFORE baseline, measured at THIS seat's bytes and double-run (never inherited)
+
+| probe | run 1 | run 2 |
+|---|---|---|
+| ⟨V⟩ `wc -c INBOX.md` | **244,122 B** | 244,122 |
+| ⟨V⟩ `grep -cE '^\| [IO]-[0-9]+ \|' INBOX.md` | **74** rows | 74 |
+| ⟨V⟩ per-row **Status-cell** classification (cell taken by position, escaped pipes restored) | **3 UNREAD — `I-32` · `I-33` · `I-34`** | 3 |
+| ⟨V⟩ `ls docs/tranches/X/keyframes/close/` | **no such directory** | — |
+| ⟨K⟩ `wc -c INBOUND-LEDGER.md` · `DISPOSITIONS.md` | **8,865 B** · **19,605 B** | identical |
+| ⟨K⟩ `grep -cE '^\| IN-' INBOUND-LEDGER.md` | **9** rows | 9 |
+| ⟨K⟩ `grep -cE '^\| [^-\|]' DISPOSITIONS.md` − `grep -cE '^\| Row \|'` | **58 − 6 = 52** rows | 52 |
+| ⟨K⟩ `grep -c 'CC-084' INBOUND-LEDGER.md` · `grep -ci 'O-8' DISPOSITIONS.md` | **0** · **0** | 0 · 0 |
+
+**THE BASELINE THIS SEAT INHERITED WAS WRONG, AND THE CORRECTION IS PUBLISHED RATHER THAN ABSORBED.**
+Sitting 2's G-6 row above reads *"value `INBOX.md` **237,857 B · 74 rows · 0 UNREAD status cells**"*. The
+probe printed beside it is ⟨cmd⟩ `awk -F'|' '/^\| [IO]-[0-9]+ \|/ {print $NF}' INBOX.md | grep -ci 'UNREAD'`
+— and for a row ending in `|`, **`$NF` is the EMPTY FIELD AFTER the trailing pipe**, so that command
+returns **0 for any input whatsoever**. It is not a reading of the ledger; it is a reading of nothing.
+The true figure at this seat's clock is **3**, and the three rows are named above. **WRITE-THEN-MEASURE
+means this unit measures its own gate**, and a baseline that cannot fail is the same class of defect as
+the `exit 0` landing **L-2** forbids one gate over. ⟨The byte figure also moved, 237,857 → 244,122, as
+Track A appended two sweep lines between the open and this unit — a dated observation moving, not a green.⟩
+
+**A SECOND MIS-COUNT, IN A SIBLING TRACK'S SWEEP LINE, CORRECTED WITHOUT REWRITING ITS BYTES (E-3).**
+`INBOX.md`'s last sweep line (X-W4 RESUME PROBE, Track A) reads *"the **five** Status cells still reading
+UNREAD (I-30 · I-31 · I-32 · I-33 · I-34)"*. Measured at this seat: **`I-30`'s `UNREAD` is a quotation of
+the E13 law** inside its disposition cell (*"a wave may not CLOSE with UNREAD mail"*) and **`I-31`'s is
+*"Prior status, kept: **UNREAD 2026-09-17**"*** beneath a Status cell reading **FOLDED 2026-09-17 at the
+X-W0 close**. The true figure was **3**. That is precisely the bare-`grep -i unread` class this ledger's
+own **D-1** law forbids, firing in the sweep line that cites the law. **The sibling's bytes are not
+touched**; the correction is dated and written beside, in this unit's terminalization block.
+
+#### Act 2 — value `INBOX.md`: the three UNREAD rows terminalized, and the two converged rows given their closing lines
+
+**(a) `I-32` · `I-33` · `I-34` → terminal.** Each Status cell advances to a terminal MAIL verb
+(**READ IN FULL + ROUTED** / **READ IN FULL + RELAYED** / **READ + NO OBLIGATION MINTED**), dated
+**2026-09-19**, and each states two things in its own cell: (i) **the reading is already on the record** —
+F.W1 unit `b` read I-32 (§A `A-1`..`A-14` · §B `B-1`..`B-7` · §C `C-1` · §D) and I-33 (§1) **row by row on
+2026-09-17**, in this same file's `Consumption 2026-09-17` block; (ii) **the verb is the MAIL status and
+nothing more — the routed work at `X-W0.j` / `X-EXT-1` is NOT discharged by it**, and **every Routing cell
+is byte-untouched**. **Why this seat flips what three earlier seats declined**: their own words are
+*"this ledger is **append-only** in unit `b`'s writable bound … the durable mark is theirs to move"* —
+a bounds statement, never a prohibition. This unit's bound **is the ledger**, under the wave COHESION
+**§0t** assigns *"whose content is ledger/mail terminalization"*. A close that left three stale `UNREAD`
+marks standing would fail **G-6**'s own *"zero UNREAD at close"* on the bytes.
+
+**(b) The two converged rows, one honest closing line each** (§3.6's HONESTLY, and G-6's falsifier read
+as a constraint on the WORD):
+
+| row | closing line, as written | evidence, by letter |
+|---|---|---|
+| **D-GAP-6 / `sampleBezier`** (at `I-10`, where the conditional lives) | *"**NOT ADOPTED — 4.1 DECLINES IT PERMANENTLY**"*; *"a decline recorded as a decline"*; nothing owed by keyframes; the asymmetry **recorded, not re-litigated** | `O-21 §D` — *"`sampleBezier` is DECLINED permanently on measured zero demand … **no 4.1 of ours will ship it**"* · `O-34` (the 4.1 cut notice, `:224`) — *"**Declined permanently**: `sampleBezier` (measured zero demand, matching your own I-10 answer)"* |
+| **`O-8`'s delivery-vehicle question** (at `O-8`) | *"**TERMINAL BY PRE-EMPTION, never by an answer**"* — the decision *"no longer exists to be made"*; **no cut date promised**; *"their silence is neither its cause nor consent to it"* | carry-cut row **`CC-084`** — *"no emergency `4.0.1` — ruled"* · `O-21 §C`, which **WITHDRAWS** the question in those words |
+
+**Neither is dressed as an adoption**: one is a decline, the other a withdrawal — and the words *adopted*,
+*accepted* and *agreed* appear in neither cell.
+
+**(c) Already-terminal rows: RECORDED, NOT RE-OPENED.** `I-6` / `IN-VALUE-1` / `IN-VALUE-2` / `W12` are
+**TERMINAL both sides** (`lane-docs.md:376`, quoted). The **`IN-ATLAS-3` TimingFunction fence is STANDING
+and was re-verified AT THE BYTES by this seat**, not inherited: ⟨cmd⟩
+`grep -n 'TimingFunction' keyframes.js/src/animation/constants/types.ts` → **`:57 export type TimingFunction = (t: number) => number;`**;
+⟨cmd⟩ `grep -n 'type TimingFunction\b' dist/keyframes.d.ts` → **`:4200 export declare type TimingFunction = (t: number) => number;`**
+— **published home, name and signature all intact**. ⟨The two id spellings (`IN-ATLAS-3` at lane-docs,
+`IN-ATLAS-5` at §B-6) are carried as a dated observation; **re-keying is not this wave's act** — `.a`'s
+residual 4, honoured.⟩
+
+**(d) One dated terminalization block appended at the file end**, carrying the four-path sweep, both
+mis-count corrections, the row census, the two closing lines, the already-terminal rows and G-6's reading.
+
+#### Act 3 — the E13 four-path sweep at this seat's own clock (no wave closes with UNREAD mail in scope)
+
+⟨cmd⟩ `date` → `Sat Sep 19 00:33:35 EDT 2026`. Classification from each row's **Status cell**;
+`INBOX.md` **self-excluded** (SELF-COUNT law).
+
+| # | path | newest member | rowed as |
+|---|---|---|---|
+| 1 | `docs/tranches/V/` + `V/coordination/` | ⟨cmd⟩ `find … -newermt "2026-09-18 23:10"` → **1 member, `INBOX.md` (self)** | — |
+| 2 | `../glass-ui/docs/tranches/BK/coordination/` — BK re-confirmed newest ⟨cmd⟩ `/bin/ls -dt ../glass-ui/docs/tranches/*/ \| head -3` → `BK/` · `BJ/` · `BI/`; **9** `.md` | `glass-outbound-2026-09-18-valuejs-o26-reply.md` | **I-35**, rowed |
+| 3 | `../keyframes.js/…/V/coordination/` **and** `../keyframes-v-exec/…/V/coordination/` | `VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md` at **both** | **O-21** — ours, delivered |
+| 4 | `../sci-report/atlas/docs/tranches/P/coordination/` | `valuejs-inbound-2026-07-27-library-band-export-delta.md` | **O-12** — ours; path UNMOVED |
+
+**ZERO unrowed letters addressed to value.js · ZERO new `I-n`/`O-n` minted** (register tail stays
+**I-35 / O-38**).
+
+#### Act 4 — the keyframes half: two dated addenda-beside, never a patch (E-3)
+
+⟨cmd⟩ `git diff --numstat` before the commit:
+**`53  0  docs/tranches/V/coordination/INBOUND-LEDGER.md`** · **`126  0  docs/tranches/V/DISPOSITIONS.md`**
+— **zero deletions in both, which IS the E-3 proof**; the 2026-07-17 rows are byte-unchanged and both
+denominators are unmoved (**9** rows · **52** rows, each double-run before and after).
+
+- **`INBOUND-LEDGER.md`** — all **9** rows verbed, with a **verb law declared before the table**
+  (*"each verb names where the row now lives, and never a cure this seat did not measure"*). Measured, not
+  asserted: **IN-ATLAS-2**'s owed durable line **LANDED** — ⟨cmd⟩ `grep -n 'exact' docs/published-surface.md`
+  → **`:16-21`** (*"The value.js consume-edge is exact-pinned by design…"*), pin re-read at
+  **`package.json:71 "@mkbabb/value.js": "4.0.0"`**; **IN-ATLAS-3** STANDING — **VERIFIED HELD** (the two
+  commands above); **IN-ATLAS-4** STANDING-CARRIED — **UNFIRED** (⟨cmd⟩ `"version": "6.0.0"`, CHANGELOG head
+  `## 6.0.0`, **no `Unreleased`** — no V-era cut shipped, so the evidence-tuple trigger never fired and a
+  trigger that never fired is **not** a discharge). **IN-ATLAS-5** and **IN-VALUE-1** close on their own
+  stated condition — *"W12 terminalizes"* / *"terminalizes at W12 when the WL verdict letters land"* —
+  **and this act IS that terminalization**; the letters landed (`O-4`, `O-21`), so **nothing is recorded
+  MISSING**. **No `IN-VALUE-3`/`IN-VALUE-4` is minted**: O-21 §F asks for those rows in **keyframes' own
+  grammar and numbering**, which is their call, not the sender's.
+- **`DISPOSITIONS.md`** — the defect is named exactly (*"a routing into a wave that never ran is an open
+  routing, not a terminal word"*; the gate's exemplar `:106` `FOLD W12`) and the **52** rows' routings are
+  closed under a **four-word alphabet declared before use**: `DISCHARGED-AT-V.<wave>` · `DISCHARGED-AT-LANDING`
+  · `FOLDED-FORWARD` · `RECORDED-TERMINAL`. **Six discharges are measurements taken at the frontier by this
+  seat, not readings of a wave's name**: `CH-03` (⟨cmd⟩ `grep -c 'BlendMode' README.md docs/published-surface.md`
+  → **0 · 0**) · `CH-06` (`docs/dogfood-inversion.md:48` now **past tense**) · **`BV-2`** — the ledger's one
+  `UNVERIFIED` row — (⟨cmd⟩ `test/group/static-weight-composite-golden.test.ts` **present** on the landed
+  tree; `.e` measured `test:lib` **112→113 files / 1256→1259 tests**, the `+1` being exactly this golden) ·
+  `XB-05` (⟨cmd⟩ `grep -c 'taxonomy'` over the four bench files → **0 · 0 · 0 · 0** after the prune —
+  **no stale reference to a deleted file survives**) · `XB-06` (MR4 **converged** into X.KF.W4's identical
+  step) · `FAM-11` (the `published-surface.md:16-21` line). **One row is stated RED-honest rather than
+  closed on its wave's name**: **`CH-05` FOLDED-FORWARD — ⟨cmd⟩ `grep -c 'nightly' .github/workflows/ci.yml`
+  → **4**, still mislabelling a `dow=1` cron.** `RG-1`/`RG-2`/`CC-04` are **split and stated** (kf-side limb
+  discharged at V.W2, **producer limb STANDING on the successor SS-6 batch** — glass-ui is READ-ONLY, always).
+  **`CC-01` — the row the gate names — is TERMINAL: D-GAP-6 NOT ADOPTED**, with the same two letters as
+  evidence, and **`O-8`'s vehicle question gets its closing line on this side too** (⟨cmd⟩ `grep -ci 'O-8'`
+  read **0** before this write).
+
+#### Act 5 — `close/FINAL-KF.md`: commits and pasted commands only (L-6)
+
+Created at `docs/tranches/X/keyframes/close/FINAL-KF.md` (**205 lines**). **It cites no document this close
+authored** — not a spec, not an addendum, not this record — *"because a close that proves itself by pointing
+at its own prose has proved nothing"*. Its content is **seven commits**, **seven gates each read by its own
+command**, the frontier state, **the misses with their exact preconditions**, the verb stamps as a
+`git diff --numstat`, and a closing section on **what a reader must not take from it**. **L-6 battery, run
+whole**: **12** `git cat-file -e` checks over every letter it relies on (7 at kf `origin/master`, 5 at value
+`HEAD`) → **all PRESENT**, pasted in the file.
+
+#### Act 6 — the R-A stamps: ten row edits, nine advances, and two refusals that are measurements
+
+⟨cmd⟩ `git diff --numstat -- docs/tranches/X/keyframes/waves/` → **10 files, `1 1` each** =
+**10 insertions / 10 deletions — one row edit per file, no prose reflowed, no sibling's table rebuilt.**
+
+- **NINE advance to VERIFIED** — `KF.W0` · `KF.W1` · `KF.W2` · `KF.W4` · `KF.W5` · `KF.W7` · `KF.W8` ·
+  `KF.W9` · `KF.W10` — each cell carrying (i) the close's basis **by commit** (G-1 `025e894c` · G-2
+  `15da439f` · G-3/G-4 `27ec9c37` · G-5 `b50a23de` · G-6 `dd28da55` · **G-7 LAND `0a329c57` but RED-HONEST
+  on two CI-dependent clauses, ESC-e1**), (ii) its own **IMPLEMENTED basis cited from `execution/LEDGER.md`,
+  never re-asserted** — R-A permits **one** row edit, so the IMPLEMENTED row is left exactly as its own wave
+  left it — and (iii) **the honest-RED gate ids printed inside the stamp** for the five waves that closed
+  with them, plus KF.W9's **PARTIAL — 6 of 13** and its **`0 of 16` capture cells**. **A sub-tranche stamp
+  is a statement about the CLOSE's three gates, never a re-verdict on a wave's own**, and every cell says so.
+- **`KF.W3` takes NO advance, and its row says why**: ⟨ledger⟩ **GATE-KEYED · *"never scheduled; opens or it
+  does not"***. R-A advances **FROM IMPLEMENTED**; this wave is not, and §1 carves it out by name
+  (*"bounds-FINAL + gate-state, **never its verb**"*). **Stamping it would be closure by omission** — the
+  failure this sub-tranche convicts at three altitudes. The row is **edited rather than left silent**, so a
+  later reader cannot mistake a refusal for an oversight.
+- **`KF.W6` HAS NO FOUR-VERB TABLE AT ITS BYTES — MEASURED, DOUBLE-RUN**: ⟨cmd⟩
+  `grep -cE '^\| (SPECIFIED\|IMPLEMENTED\|VERIFIED\|ACCEPTED) *\|' KF-W6.md` → **0** (every sibling returns
+  **3**); the file states its verb as a header field, **`status: planned`**, under its own execution gate
+  *"every status field stays `planned`"*. **The specified cure is impossible at these bytes and this seat did
+  NOT substitute one**: creating a table is not *"a row edit … nothing more"*, and editing that header field
+  would breach that file's own lock. **KF.W6's stamp is recorded at `FINAL-KF.md` §5 instead**, on the same
+  basis as its nine siblings, with the absence printed. **Declared as a miss, not smoothed.**
+- **The three MINTED successors take NO verb** — `KF.W11` · `KF.W12` · `KF.W13`. Their 2026-09-18 authoring
+  (`f208ff31`) does not change it: they never gated this close and were never required to be IMPLEMENTED;
+  **§6.D's register row is their terminal disposition.**
+
+#### Act 7 — commits (§10 commit 6), pathspec on the commit itself
+
+**Commit 6 is ONE meaning carried by TWO commits, and the split is declared rather than hidden**: the unit's
+writable set spans two repositories and a commit cannot cross a repository boundary.
+
+| # | repo | hash | scope |
+|---|---|---|---|
+| 6a | keyframes.js | **`dd28da55`** | `docs(X·KF W10 close): both keyframes coordination ledgers terminal (G-6, the kf half of commit 6)` — pathspec `docs/tranches/V/coordination/INBOUND-LEDGER.md docs/tranches/V/DISPOSITIONS.md` **on `git add` AND on `git commit … --`**; ⟨cmd⟩ `git show --stat` → **2 files changed, 179 insertions(+)**, **0 deletions**; the two untracked value letters untouched |
+| 6b | value.js | **`d84727fc`** | `docs(X·KF W10 close): FINAL-KF + ledgers terminal + IMPLEMENTED→VERIFIED stamps (the AUTHORED eleven)` — pathspec of **12 exact paths** on add and on commit; ⟨cmd⟩ `git show --stat` → **12 files changed, 222 insertions(+), 15 deletions(-)**; ⟨cmd⟩ `git show --name-only \| grep -c 'dev.sh'` → **0**; `CARRY-LEDGER.md` and the sibling `demo/**` rows **not staged** |
+
+**PUSH — and why it is lawful here.** ⟨cmd⟩ `git push origin master` (keyframes.js) → **`0a329c57..dd28da55`**;
+⟨cmd⟩ `git rev-list --left-right --count HEAD...origin/master` → **`0 0`**. §0j.C **KF-WRITE** has each wave
+*"pushing `origin HEAD` at close"*, and `.f` is this wave's **final writing unit** (`.g` is VERIFY-ONLY and
+writes only into this record). **A terminalized ledger that exists only in a local checkout is not
+delivered** — that is the exact I-26 / OP-3 defect this gate was built against, so the kf half is pushed
+rather than left invisible to the sibling it belongs to.
+
+#### Act 8 — G-6, BEFORE → AFTER, double-run at the settled bytes
+
+| clause | BEFORE (this seat's own Act 1) | AFTER (settled bytes, ×2) |
+|---|---|---|
+| value `INBOX.md` rows | 74 | **74 — unmoved** (74 ≡ 74) |
+| value `INBOX.md` **UNREAD status cells** | **3** (`I-32` · `I-33` · `I-34`) | **0** (0 ≡ 0) |
+| value rows carrying a terminal verb | 71 of 74 | **74 of 74** ⟨counting rule at the enumeration: the Status cell is read **by position**; **2** rows (`O-26`, `O-32`) carry an unescaped `\|` inside a code span, so their Status is read at their true last cell — **SENT + MIRRORED** and **AUTHORED + ROWED** respectively⟩ |
+| D-GAP-6 closing line | absent | **present** at `I-10` — *"NOT ADOPTED — 4.1 DECLINES IT PERMANENTLY"* |
+| O-8 vehicle closing line | absent (⟨K⟩ `grep -ci 'O-8' DISPOSITIONS.md` → 0) | **present on BOTH sides** — `INBOX.md` `O-8` and the kf `DISPOSITIONS.md` addendum |
+| kf `INBOUND-LEDGER.md` | 8,865 B · 9 rows · no terminal verb set | **17,376 B · 9 rows · all 9 verbed** (53 insertions / **0 deletions**) |
+| kf `DISPOSITIONS.md` | 19,605 B · 52 rows · `:106` `FOLD W12` open | **30,691 B · 52 rows · routings closed** (126 insertions / **0 deletions**) |
+| `close/FINAL-KF.md` | **does not exist** | **exists**, ⟨cmd⟩ `git cat-file -e HEAD:docs/tranches/X/keyframes/close/FINAL-KF.md` → **PRESENT** |
+| terminal addenda visible at kf `origin/master` | — | ⟨cmd⟩ `git show origin/master:<each> \| grep -c 'ADDENDUM 2026-09-19'` → **1 · 1** |
+
+**G-6 = GREEN.** Acceptance met clause by clause: *terminal verb + dated row on every entry* (74/74 value,
+9/9 + 52/52 kf, every verb carrying **2026-09-19**); *D-GAP-6 = "not adopted (4.1 declines permanently)"*;
+*O-8 = pre-empted by CC-084*; **neither dressed as an adoption**. The gate's OP-3 precondition —
+*"terminalization performed before OP-3's packet lands records a false close"* — is satisfied and was
+re-proven at this seat: `O-21` is tracked at kf `origin/master`. **L-6** holds: 12 of 12 cited letters
+`git cat-file -e`.
+
+#### Act 9 — residuals and escalations (named, none hidden)
+
+- **R-f1 — `KF.W6` has no four-verb table**, so the AUTHORED ELEVEN took **ten** row edits, not eleven.
+  Measured (⟨cmd⟩ → 0 verb rows) and recorded at `FINAL-KF.md` §5; **no table was fabricated into a sibling
+  spec and no header field was flipped**. `.g` should test this as a declared miss rather than discover it.
+- **R-f2 — `KF.W3` refused the advance** (GATE-KEYED, never opened). A literal reading of R-A's *"the eleven
+  specs on disk"* would stamp it; the spec's own §1 carve-out and R-A's *"from IMPLEMENTED"* both forbid it.
+  **The refusal is the finding**, and it is in the row rather than only in this record.
+- **R-f3 — the VERIFIED stamps sit over a `complete_with_misses` close.** **G-7 is LAND-stamped and
+  RED-HONEST**; the L-18 rider makes VERIFIED rest on *"G-1/G-2/G-7's receipts"*, and G-7's receipt exists
+  and stamps **LAND**, so the stamp is set — **with the two undischarged clauses and ESC-e1 printed inside
+  every cell**. **If `.g` rules that a RED-HONEST G-7 cannot carry a VERIFIED stamp, ten row edits revert as
+  cleanly as they landed** (`1 1` each). This seat states the reasoning rather than burying the choice.
+- **R-f4 — ESC-e1 is INHERITED, UNCURED and OUT OF BOUNDS** (kf `package-lock.json` desync;
+  `3a01e362` newer than `fb509edd`). It blocks MR4's red-once witness and §B-9's MR2 parity observation.
+  **Routed to the manifest owner; not patched, not skipped, not allowlisted.** §B-9's watch row is **NOT**
+  discharged and must not be stamped as such (`.e`'s R-1, carried).
+- **R-f5 — three mail rows are terminal AS MAIL while their routed work is live** (`X-W0.j` / `X-EXT-1`).
+  Every cell says so explicitly. **A reader who takes the mail verb for a discharge has read a word these
+  cells refuse to say.**
+- **R-f6 — `CH-05` is uncured at the kf frontier** (4 `nightly` hits against a `dow=1` cron) and is verbed
+  **FOLDED-FORWARD with its count printed**, not closed on its wave's name.
+- **R-f7 (SELF-COUNT law).** This receipt lands **inside** G-4's witness field (value.js `docs/tranches/X/`)
+  and carries **none** of its three never-cite tokens (`357/414`, `86.23`, `0/5 slots`) — **0 files · 0
+  lines · 0 occurrences**; re-reading it cannot move that number. The terminalization block this unit
+  appended to `INBOX.md` contains the word `UNREAD` **12** times, none of them in an `| I-n |` row's Status
+  cell, so the gate's own per-row probe is unaffected — **stated because the measurement lives in the file
+  it measures**.
+- **ESCALATIONS: none.** Every act landed inside the declared writable set; where the specified cure was
+  impossible at the bytes (KF.W6's absent table) **nothing was substituted** — the miss is declared. No
+  workaround, no masking fallback, no `test.skip`, no allowlist, no `node_modules` patch, no stash, no
+  reset, no force-push, no sibling path staged or unstaged. `scripts/dev/dev.sh` untouched; glass-ui
+  untouched.
