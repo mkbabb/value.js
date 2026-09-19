@@ -1040,3 +1040,196 @@ rebuild and never before. **Out-of-bounds count: 0.** `scripts/dev/dev.sh` never
 **`.e2` reads `G3 GREEN`.** §0aa's condition — *"`.f` opens iff `.e2` reads `G3 GREEN`"* — is **MET**,
 and G-10's own falsifier (*a stamp performed while any of G-1..G-9 is red fails*) no longer bites on
 G-3. `.f` re-runs G-1..G-10 at **its own** clock; nothing here is inherited as a claim.
+
+### X.P.W4.f
+
+**SERVED MODEL**: `claude-fable-5-1` · **FRESH** (M-23 §1 — this seat authored no byte of X.P.W4, `.e` or
+`.e2`) · **status**: **ESCALATED** (every in-bounds act performed; the R-A stamp **WITHHELD by gate id
+G-1**, whose cure is one file outside this unit's grant — E-w4f-1) · 2026-09-19.
+
+**CRASH-RECOVERY (standing law, host restart 2026-09-18).** ⟨cmd⟩ `git -C /Users/mkbabb/Programming/value.js status --porcelain`
+→ 6 `M` + 1 `??` (`demo/DESIGN.md` · `demo/styles/foundation.css` · `demo/styles/shell.css` ·
+`docs/tranches/V/megatranche/audit/probes/layout-utilization.mjs` · `docs/tranches/V/reformation/CARRY-LEDGER.md`
+· `scripts/dev/dev.sh` · `docs/tranches/X/waves/W5/born-red/…json`) — **none inside this unit's writable
+set** (Track A's, V-reformation's, the unowned `dev.sh`). ⟨cmd⟩ `git -C <p2> status --porcelain` → `?? .worktrees/`
+only; `scripts/rc-p-evaluate.mjs` byte-clean. **Zero inherited edits; nothing stashed, restored or touched
+outside the set; `dev.sh` never staged.** The serial lock was read at the bytes before opening: `.e2`'s
+receipt above reads `G3 GREEN`, and this seat re-measured it (A-1) before any write.
+
+#### Acts, in order
+
+**A-0 · Measure before editing — every anchor at the true bytes.** `W4.md` third addendum at line 678, the
+`X.P.W4.f` clause — verbatim as the plan quotes it; §6 G-10 shape (a) in the same addendum. ⟨cmd⟩ `grep -c '^### Four-verb status' waves/W[0-4].md`
+→ `1 1 1 1 1` (OP-6). ⟨cmd⟩ `grep -c PENDING-ADJUDICATION SEAM-CONTRACT.md` → **47** = 45 rows inside
+`<!-- SEAM-ROWS -->` + the §3a census's 2 label rows (the Open's OA-4, reproduced). `ADJUDICATION-W4.md`
+ABSENT; `harvest/x-p-w4s.json` ABSENT; `harvest/x-p-w3.json` **PRESENT, 129579 B**, schema
+`x-p-w3.e.harvest-fold/2`, seatCount **5 of 6** (`.e` structurally absent). **None drifted.**
+
+**A-1 · The ten gates BEFORE any write, at this seat's clock, double-run** (both writing scripts given `--out`
+into the session scratchpad; `evidence/W4/**` is in no row of this grant and was not touched):
+
+| gate | reading |
+|---|---|
+| G-1 | ⟨cmd⟩ `seam-contract-check.mjs …` → `VERDICT: GREEN`, set-differences ∅/∅, census `PENDING-ADJUDICATION 45 · identical 7`, `(COHESION §0v carried: 44 cells over 6 rows)`, EXIT=0 |
+| G-2 | ⟨cmd⟩ `git status --porcelain -- src api demo test e2e` → **3 lines**, all `demo/**`, a concurrent Track-A seat's — X·P wrote none |
+| G-3 | ⟨cmd⟩ `node scripts/packed-candidate-surface.mjs --seam …/SEAM-CONTRACT.md --out <scratch>` ×2 → `tarballSha256 f8aede1176d0…` · `entryCount 91` · `seamSubpathDeclared true` · **`resolved 52 of 52`** · `refusals 5` · `verdict {pack, declaration, install, resolve, refusals: all true, G3: "GREEN"}` · **EXIT=0**; identity modulo the clock and the ephemeral consumer root → `true` |
+| G-4 | ⟨cmd⟩ `node scripts/wasm-admission.mjs src/css/build/ac1.wasm` → `artifacts 1 · admitted 1 · functionKindImportsTotal 0 · unaccountedImportsTotal 0 · "verdict": "GREEN"`, EXIT=0; ⟨cmd⟩ `shasum -a 256 src/css/build/ac1.wasm` → **`f0d063d6…`**, 662339 B — **the sha `.e`'s dated `evidence/W4/wasm-imports-2026-09-19-w4e.json` records: R-4 is DISCHARGED AT THE BYTES by that file** (this grant has no `evidence/W4/**` row; nothing re-banked) |
+| G-5 | ⟨cmd⟩ `node scripts/rc-p-evaluate.mjs --version 4.0.0 --out <scratch>` → `RC-P(4.0.0) = FALSE — 3 of 6: 1 PUBLISHED · 3 EQUIVALENCE (the harness, 44) · 4 ADMITTED`, EXIT=1 — conjunct 3 still bound to the candidate tree (Q-RC-1, this unit's arm) |
+| G-6 | ⟨cmd⟩ `grep -rn 'RC-P' docs/tranches/X/{keyframes,fourier}/waves/ \| wc -l` → **25** |
+| G-7 | ⟨cmd⟩ `grep -c 'parse-that' ../fourier-analysis/package.json` → **0**; `web/package.json` → **0** |
+| G-8 | `RELEASE-PACKET.md` 23017 B; INBOX `RELEASE-PACKET` 1 · `RC-P` 1 · `SS-6` 25; positional Status-cell awk → `ROWS=80 UNREAD=0` |
+| G-9 | `W4-CLOSE.md` §4 disposition **(C)**, quoted by id from COHESION §0i.1 |
+| G-10 (a) | ⟨cmd⟩ the awk-narrowed sum → **5**; ⟨cmd⟩ `grep -rn VERIFIED waves/W[0-3]-CLOSE.md` → every hit defers the stamp to X.P.W4 |
+
+**The serial lock is OPEN at this seat's own reading (G-3 GREEN), and G-1..G-9 read GREEN before the ruling.**
+
+**A-2 · The adjudication — measured, then ruled (L-14).** Every one of the 44 carried cells was re-run through
+the sha-pinned vendored 4.0.0 `css.js` (sha256 `8b538130…`, 43,972 B) and BOTH candidate lowerings
+(⟨cmd⟩ `node <scratch>/probe-cells.mjs`, twice, byte-identical; `js ≡ wasm` on 44 of 44 —
+`ADJUDICATION-W4.md` Appendix A). The `ID-1b`/`ID-4`-tagged cells were reduced to minimal variants (name
+alone, value alone; ⟨cmd⟩ `probe-id1b.mjs` + `probe-name.mjs`, twice each — Appendix B). **Refutations
+that landed**: (i) **both engines accept a non-ident run as a declaration NAME** — `a { col!r: red }` →
+name `col!r` from 4.0.0 and from both candidate lowerings (12 forms) — so `ID-1b`'s `candidate` field
+(*"REJECTS the first two in BOTH lowerings"*) is refuted as stated: those rejections were `PB-12`'s
+(`9.`, `0.`) and the `!important`-adjacency defect's — **F-w4f-1** (shared, not a divergence);
+(ii) **the candidate requires whitespace before `!important`** — `#d { color: red!important }` → 4.0.0
+`important: true`, candidate REJECT in both lowerings (`red !important` accepted) — **F-w4f-2, a
+CANDIDATE DEFECT (HIGH)**, css-syntax-3 §5.4.7; 2 of the 44 cells (`#40`, `#41`) are its. Rulings:
+**`GROUND-C` ×29** (§0v — the candidate accepts, clamps where css-color-4 declares a range — measured
+`rgb(-1e400 0 0)` → `[0,0,0]`, alpha `5e498` → 1 — and carries `±Infinity` where none exists — measured
+`cubic-bezier` `y1: Infinity`, `typeof number`; no cell overflows an abscissa) · `ID-2` ×1 · `ID-4` ×5
+(css-syntax-3 §5.4.3/§5.4.9; the FALSE_REJECT cell's `(` opens a block consumed to EOF) · `ID-1b` ×2 (the
+nested at-rule, §5.4.4) · five re-attributed to `PB-12` ×3 · `PB-09` · `PB-05` (alpha `-137`: 4.0.0's own
+`color_out_of_range` rejection vs the candidate's clamp to 0) · **2 candidate-defect (F-w4f-2)** → **42
+declared-divergence, candidate correct; 2 candidate defects; 0 PENDING.** The 39 premise rows: `CN-2` ·
+`CN-3` · `R4` **RETIRED as coverage claims** (F-w4a-1 — 19 of 19 runtime and 33 of 33 types resolved
+from the installed tarball at G-3), 38 → `identical`, `coerceToSyntax` → `declared-divergence`
+inherited (its 208 declared cells honour `SP-1 · ADJ-2 · ID-5 · PB-12 · PB-04/05 · PB-08`, read from the
+differential's own `why` fields). The whole-sheet refusal ruled the SEAM's posture (§5). Written:
+`ADJUDICATION-W4.md` (create, 62,711 B, appendices embedded), the 45 rows' two cells in
+`SEAM-CONTRACT.md` (⟨cmd⟩ a node script rewriting cells 6–7 of exactly those rows; `git diff --stat` →
+45 insertions / 45 deletions; ⟨cmd⟩ `awk` over the SEAM-ROWS block `\| grep -c PENDING` → **0**; the
+file's 12 remaining hits are §3a's census labels, §3b's rule and §9's prose — outside the grant, not
+rewritten), and `DIVERGENCE-LEDGER.md` **§10** (appended; `#### §10.x` subheadings so the checker's
+`^### id — ` row reader does not mint them as rows — a first draft with `###` made check J fire on four
+phantom rows, measured and corrected before commit).
+
+**A-3 · G-1 AFTER the ruling — RED, double-run identical.** ⟨cmd⟩ `seam-contract-check.mjs …` → rows
+`52 · 52 · ledger 47`; set-differences ∅/∅; no blank field (C); no unknown id (F — a first draft
+carried `` `ADJUDICATION-W4.md` `` in backticks inside disposition cells, which the checker reads as ids;
+corrected: only ledger/ruling ids are backticked there); census **`identical 45 · declared-divergence 7`**;
+**`VERDICT: RED — 2 check(s) failed`**: **[E] 37** — every `CN-2`/`CN-3`-bound row reads `identical`
+while the ledger's `subjects` fields still bind them (the checker has no notion of a retired row, and the
+emitter cannot re-emit `CN-3` truthfully until `F-ab1`'s five-name literal at `run-full-surface.mjs:60`
+is cured); **[G] 6** — the six carried rows publish a terminal head while `universe-52.json` (immutable
+W3 evidence) marks them PARTIAL: check G is §0v's *"publishes the carried cells as PENDING-ADJUDICATION"*
+rider, encoded for the state BEFORE the adjudication §0y ordered. **Both fires are the instrument's
+vocabulary; neither is a defect of the contract's content. The gate is read as it measures: RED.**
+`scripts/seam-contract-check.mjs` is `.a`'s file, in **no row** of this unit's writable set — the cure is
+returned as **E-w4f-1**, not taken (a write there is an ESCALATION by the standing law).
+
+**A-4 · Q-RC-1 — the V-tarball arm, landed in `rc-p-evaluate.mjs`.** ⟨cmd⟩ `grep -n 'import.*entry.mjs' run-full-surface.mjs`
+→ `:25` — the CLI's candidate side is a static import of `<p2>/src/css/entry.mjs`; the CLI takes only
+`--pinned-value-commit`, `--out`, `--limit`. The arm therefore runs the harness's **library**
+(`lib/differential.mjs` `runFullSurface`, `lib/ledger.mjs` for §6a's direction half, `lib/oracle.mjs`,
+`css-totality/lib/pin.mjs`, `harness/totality/lib/surface.mjs`) in-process with
+`surfaces = { V: import(<consumer>/node_modules/@mkbabb/value.js/<exports["./css"].import>) }` from the
+registry-identical tarball, over the pinned universe and the whole corpus, no limit; the clean consumer
+install is hoisted and shared with conjunct 4; only arm V's reading is the value; the CLI (arm C) is
+recorded beside it. ⟨cmd⟩ `node --check` OK; ⟨cmd⟩ semver-literal grep → only the prose mentions of the
+4.0.0 oracle; ⟨cmd⟩ `git diff --check` clean. **RC-P(4.0.0) AFTER, ×2**: table identical line for line —
+`3 EQUIVALENCE(V) yes FALSE — arm V read 20962 mirror-defects over V's installed /css (full corpus, no limit)`;
+`RC-P(4.0.0) = FALSE — 3 of 6: 1 PUBLISHED · 3 EQUIVALENCE · 4 ADMITTED`, EXIT=1. Arm V's subject printed:
+tarball sha1 `ccb962e5…` ≡ `dist.shasum`; `/css` entry `./dist/subpaths/css.js` sha256 **`8b538130…` — the
+oracle's own bytes, so the arm demonstrably read V and not a tree**; 19/19 entries, 33/33 types, corpus
+27,021/27,021, `emptyConsumerDirections` ∅; classes `ADJUDICATION_UNHONOURED 13,797 · DIVERGENT_VALUE 6,383
+· CANDIDATE_THREW 782 · MIS_ACCEPT 0 · FALSE_REJECT 0` — 4.0.0 fails exactly where the adjudications ruled
+against 4.0.0, which is the reading a V-bound conjunct must give. Arm C in the same runs: 44. **Negative
+control** `--version 0.0.0-does-not-exist` → conjuncts 1–4 `MEASURED: NO`, conjunct 3's reason names the
+missing tarball; no conjunct TRUE unmeasured. **Q-RC-2** unchanged at the bytes (*"FALSE, not vacuously
+true"*). `RELEASE-CONDITION.md` gains the dated §2.3 addendum with this evaluation of record.
+
+**A-5 · The close artefacts.** `waves/W4-CLOSE.md` **§12** appended (gates BEFORE→AFTER, the ruling, the
+withheld stamp, residuals with owners); `RELEASE-PACKET.md` dated addendum (§6 item 3 superseded beside:
+the cells are ruled; the consumer-facing table; RC-P re-read); `INBOX.md` **O-41** appended directly after
+`O-40` — the adjudication relay to the same recipients, delivery point `ADJUDICATION-W4.md` + the packet's
+addendum in THIS repo, cross-repo carriage on the SS-6 batch, **SENT — no reply owed**, O-15 not converted
+into an ask; ⟨cmd⟩ the positional Status-cell awk → **`ROWS=81 UNREAD=0`**, double-run; `RELEASE-PACKET` 2 ·
+`RC-P` 2 · `SS-6` 27. **INBOX shared-file discipline**: ⟨cmd⟩ `git status --porcelain -- INBOX.md` → clean
+before the write; one row inserted by line, nothing rewritten; `git diff --check` clean.
+
+**A-6 · The harvests (§0p scratch-mirror, F-w4c-2).** ⟨cmd⟩ the UNMODIFIED harvester (sha256 `77a6e04c…`,
+last commit `c0078d96`, `git status --porcelain -- workflows/` → 0 lines) run in **two** fresh mirrors with
+the script symlinked → EXIT=0 each, 155 files each, the five run files of interest **sha256-equal across
+the two runs**; the mirror's `DEFECT-LEDGER.md` reads 120,302 lines vs the repo's 120,188 (sha
+`9092e062…` both runs) — **NOT written to the repo**: `registry/DEFECT-LEDGER.md` is in no row of this
+grant (residual, owner named). **`x-p-w3.json` — MEASURED before written**: the existing fold/2 (X.P.W3.e,
+129579 B, sha256 `f657d114…`, commit `c2bc7f5a`) satisfies the scratch-mirror procedure and does NOT
+satisfy §0p ESC-e2's *"the successor harvests (6 of 6)"* — `wf_a9980aef-425` has grown from 4,191 B /
+4 results to 74,892 B / 11 results since it was written, and now carries **X.P.W3.e's own row**
+(resultIndex 4, commits `313d5bac · c2bc7f5a · 984d2c27 · d166abc5 · 422537b8`). Written as
+**fold/3** with the predecessor embedded **whole and verbatim** (`predecessor.document`, its sha256 and
+byte count, its commit) and the three run files re-embedded as the harvester wrote them at this clock:
+**seatCount 6 of 6 — GREEN under L-13's letter**. **`x-p-w4s.json`** created (fold/1): runs
+`wf_a25d7c23-90d` (`.e`, ESCALATED) + `wf_7afdc968-28c` (`.e2`, DONE); **2 of 3 — RED under L-13's
+letter, structurally**: this seat cannot appear in its own harvest.
+
+**A-7 · E13, four paths at this seat's clock.** V/ **10** depth-1 ⊕ **24** coordination · glass-ui **BK**
+still the newest tranche dir, **9** entries, newest `glass-outbound-2026-09-18-valuejs-o26-reply.md` =
+I-35 (rowed, ⟨cmd⟩ `grep -c o26-reply` → 33) · keyframes.js **13**, newest by mtime the ledger file
+`INBOUND-LEDGER.md` (no new letter; O-21 ours) · atlas **28** UNMOVED. ⟨cmd⟩ `find <the four paths> -maxdepth 1 -type f -name '*.md' -newermt "2026-09-19 09:30" \| grep -v INBOX.md`
+→ **no member**. **ZERO unrowed letters addressed to value.js; ZERO UNREAD (81 rows); one row minted (O-41).**
+
+**A-8 · The stamp — WITHHELD by gate id G-1; the carves not performed.** §6 G-10's falsifier and COHESION
+§0y bind. ⟨cmd⟩ the shape-(a) sum after every write → **5 ≡ 5**; `git status --porcelain -- waves/W0.md
+waves/W1.md waves/W2.md waves/W3.md waves/W4.md docs/tranches/X/COHESION.md` → **0 lines** — no four-verb
+row and no COHESION cell was written. Both or neither: neither.
+
+#### Gate readings — BEFORE → AFTER (this seat's own commands, every reading double-run)
+
+| gate | BEFORE (A-1) | AFTER | verdict |
+|---|---|---|---|
+| **G-1** | GREEN (`PENDING 45 · identical 7`) | **RED — [E] 37 · [G] 6**; census `identical 45 · declared-divergence 7`, 0 PENDING, ∅/∅ | **RED (instrument vocabulary — E-w4f-1)** |
+| **G-2** | 3 foreign `demo/**` lines | ⟨cmd⟩ `git show --name-only --format= 6be73f38 04d5ed04 e456c2ff \| grep -cE '^(src\|demo\|api\|test\|e2e)/'` → **0** | **GREEN for X·P** |
+| **G-3** | `52 of 52` · `G3 GREEN` · exit 0 | unchanged (no `<p2>` packaging byte moved) | **GREEN** |
+| **G-4** | GREEN, `f0d063d6…` | unchanged | **GREEN** |
+| **G-5** | honestly FALSE (conjunct 3 on the candidate tree) | honestly FALSE, conjunct 3 on **V's bytes** (20,962), negative control clean | **GREEN** |
+| **G-6** | 25 | 25 | **GREEN** |
+| **G-7** | 0 / 0 | 0 / 0 | **GREEN — floor held** |
+| **G-8** | packet · 0 UNREAD / 80 | packet + addendum · O-41 · **0 UNREAD / 81** | **GREEN** |
+| **G-9** | (C) recorded | unchanged; 0 paths under `docs/tranches/X/waves/` in this unit's commits | **GREEN** |
+| **G-10** (a) | 5 | 5 — the act **not performed**, withheld by gate id G-1 | **RED (withheld)** |
+
+#### Commits (pathspec on the commit itself; `dev.sh` never staged; a sibling's staged `D demo/shell/PaneSegmentedControl.vue` left exactly as found)
+
+| repo | hash | meaning |
+|---|---|---|
+| value.js | **`6be73f38`** | `docs(x-p-w4.f/adjudication)` — `ADJUDICATION-W4.md` (create) · `SEAM-CONTRACT.md` (the 45 rows' two cells) · `DIVERGENCE-LEDGER.md` (§10 appended). **One family**: the cells cite the adjudication and the ledger carries the same ids |
+| `<p2>` | **`f3c389c`** | `feat(x-p-w4.f/rc-p)` — `typescript/scripts/rc-p-evaluate.mjs`, the V-tarball arm (local-only root, no remote — R-6) |
+| value.js | **`04d5ed04`** | `docs(x-p-w4.f/release-condition)` — `RELEASE-CONDITION.md` §2.3 dated addendum |
+| value.js | **`e456c2ff`** | `docs(x-p-w4.f/close)` — `waves/W4-CLOSE.md` §12 · `RELEASE-PACKET.md` addendum · `INBOX.md` O-41 · `harvest/x-p-w3.json` (fold/3) · `harvest/x-p-w4s.json` (create). The §9 `.d` family's stamp members (five VERIFIED rows, two COHESION cells) are absent **because the act was withheld**, not because the family was split |
+| value.js | *this receipt* | `docs(x-p-w4.f)` — this section, append-only |
+
+#### Residuals and escalations
+
+- **E-w4f-1 (ESCALATION — the reason this unit is not DONE).** `scripts/seam-contract-check.mjs` reads
+  RED after a ruling it was built before: check **G** encodes §0v's pre-adjudication rider against the
+  immutable `universe-52.json`; check **E** binds `CN-2`/`CN-3`'s `subjects` fields against the
+  `identical` rows they no longer describe. The file is `.a`'s and in no row of this grant. **Cure, for the
+  triumvirate**: the checker learns the post-adjudication vocabulary (a carried row whose cells are
+  ruled in `ADJUDICATION-W4.md` is terminal; a row retired in `DIVERGENCE-LEDGER.md` §10 does not bind),
+  OR the ledger is regenerated without the stale subjects — which waits on `F-ab1`. Until one lands, the
+  R-A stamp stays **WITHHELD by gate id G-1** and the two COHESION carves unperformed.
+- **F-w4f-2 (HIGH, candidate defect)**: `!important` without a preceding space is refused by the
+  candidate in both lowerings; 2 carried cells are candidate mirror-defects; a grammar act at
+  `<p2>/typescript/src/css/**`, outside this grant — returned by id.
+- **F-w4f-1 (MEDIUM, shared)**: both engines accept a non-ident declaration NAME; no cell; a candidate
+  grammar act and a 4.0.0 defect for X·V.
+- **The ledger's §10 is outside the emitter's `§6.x` carry** — a regeneration must re-append it (the
+  emitter's owner). **`DEFECT-LEDGER.md`'s append** (+114 lines, measured) not written — outside the grant.
+- **R-4 DISCHARGED at the bytes** by `.e`'s dated listing (A-1); **R-5 · R-w4b-2 · SEAM-DRIFT · F-ae1/F-p1
+  · the W3 rounds-6–8 set** handed to X-W11's OUT-OF-WAVE roster by id (`ADJUDICATION-W4.md` §8); **R-6**
+  by construction; **F-e3** carried (shared hue-overflow rejection).
+- **No workaround anywhere**: no `try/catch` around a defect, no `test.skip`, no allowlist, no producer
+  selector, no `node_modules` patch, no re-worded `PENDING` head to satisfy a grep, no edit to the
+  checker, no edit to `evidence/W4/**`, no COHESION or four-verb byte.
