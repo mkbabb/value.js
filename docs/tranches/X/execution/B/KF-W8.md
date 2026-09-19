@@ -428,3 +428,220 @@ no `-u`, no `commit -a`, no reset, no stash.** Zero paths outside the writable s
 
 **Escalations raised by this unit: NONE.** Its writable set was sufficient, its gates are turned, and
 every out-of-bounds fact above is **recorded with its owner** rather than acted on.
+
+### b
+
+**SERVED MODEL**: `claude-opus-5[1m]`. **Date**: 2026-09-18. **Unit**: `b` — ratify the colocation
+idiom (**KF.W8-I**); re-derive all nine banked colocation rows against it; apply it to the two
+inbound colocation questions as riders. **Gates**: *directions of G5 / G7*. **Writable set**:
+`docs/tranches/X/keyframes/waves/KF-W8-census.md` (one path, append-only into it). **No product
+byte.** **Status: DONE.**
+
+#### Act 1 — crash-recovery sweep (STANDING LAW), before any other act
+
+⟨cmd⟩ `git status --porcelain` in `/Users/mkbabb/Programming/value.js` → **15 rows**, **none** inside
+this unit's writable set (X·V demo rows · `CARRY-LEDGER.md` · `LEDGER.md` · the unowned
+`scripts/dev/dev.sh` · `docs/tranches/X/waves/evidence/` · two e2e specs · a sibling track's
+`execution/A/X-W9.md`). ⟨cmd⟩ same in `/Users/mkbabb/Programming/keyframes.js` → **2 rows, both
+`??`** (the two delivered V letters). ⟨cmd⟩ `git show HEAD:…/KF-W8-census.md | cmp -` against the
+pre-act copy → **identical to `fa2417d7`'s bytes**: the file carried **no uncommitted predecessor
+work**. **Nothing inherited, nothing stashed, no dirty path outside the set touched**;
+`scripts/dev/dev.sh` never opened.
+
+#### Act 2 — the substrate and the sections, read whole
+
+Spec read whole in slices (476 L / 263 KB): §Units row `b` (`:57`) · §Scope 2 (`:72`) · §Carry *The
+ratified idiom* (`:193-208`) · §Rows `L-17` (`:243`), `ingest/cssom.ts` (`:255`), `B-16` (`:256`) ·
+plus the sections those rows turn on: G5 (`:297-300`) · G6 (`:302-305`) · G7 (`:307-322`) ·
+§Sequencing R-1 (`:397-403`) · §Rows `C-8` (`:228`) · §Bounds. Wave record read whole
+(`docs/tranches/X/execution/B/KF-W8.md`, baseline + plan + unit `a`'s receipt). `COHESION.md` §0j and
+every §0k+ addendum read to the file end — ⟨cmd⟩ `grep -n 'KF\.W8\|KF-W8' docs/tranches/X/COHESION.md`
+→ **2 hits, both `§0o ESC-KFW2-1`** (`:1105`/`:1106`), which lands at **unit d**, not here. **No
+§0k+ ruling binds unit b.**
+
+**Substrate**: ⟨cmd⟩ `git rev-parse HEAD origin/master master` (kf) →
+**`1fa98a5d8fa53cd6b408b3094195b9f8c12ab32f`** three times. Every figure re-derived there, double-run.
+
+#### Act 3 — the ratification (census §6.0)
+
+**KF.W8-I adopted WHOLE and unaltered.** The paragraph was written into the census **by command** —
+⟨cmd⟩ `sed -n '195p' docs/tranches/X/keyframes/waves/KF-W8.md >> …/KF-W8-census.md` — so it is
+byte-exact by construction, and the receipt re-proves it at the settled bytes: ⟨cmd⟩
+`grep -Fxc "$(sed -n '195p' …/KF-W8.md)" …/KF-W8-census.md` → **1**. Two consequences ratified with
+it: the idiom is **cited, never re-minted** (where a gate's falsifier and the idiom's literal
+predicate disagree at a file, this unit records and rules no cure), and **a direction is not an act**
+(a direction stated for a path no §Bounds row grants is an escalation, never a licence).
+
+#### Act 4 — the nine banked colocation rows, re-derived at `1fa98a5d` (census §6.1–§6.2)
+
+**Counting rules stated AT the receipt (R5-11)**: *consumer* = any importer, **static or dynamic**
+(the import graph, never one regex's shape); *product consumer* = an importer under `demo/`, a test
+importer being recorded beside and never setting a home (README:127-130 / L-20); prose, template
+tags, CSS comments and **literal path strings in tooling** are named, not counted; **the nine** = the
+seven banked id-clusters of the spec's own re-derivation sentence (`:197`) + the `AnimatedText`-stays
+disposition + the `L-17` anchor (`:193`/§Rows `:243`) = **9**, with `C-8` carried **separately** as
+the tenth (§Rows `:228` assigns its banked word to this unit).
+
+| # | row | measured consumers | verdict | direction |
+|---|---|---|---|---|
+| 1 | **L-17** | 1 — `KeyframesEditor.vue:235` | CONFORMANT (below) | none — the container is the blessing |
+| 2 | **KC-30** | 1 — `KeyframeCardList.vue:46` | CONVICTED (above) | **down** → `keyframes/components/` (f) |
+| 3 | **N-11/m-15/L-8** | 1 product `TimelineTrack.vue:296` + 1 test `timeline-mount-keyboard.test.ts:28` | CONVICTED | **down** → `timeline/components/` + m-7 rename; **two** files repoint (f) |
+| 4 | **KF-AT-26(c)/KF-HA-14** | 1 product `App.vue:163-164` (**dynamic**) + 1 test (dynamic) + 1 path string `scripts/gates/census.mjs:528` | CONVICTED | **beside** `demo/app/App.vue` (f) |
+| 5 | **AnimatedText stays** | 1 — `EditorStartScreen.vue:137`, same dir | CONFORMANT | **no move** — discharged by staying |
+| 6 | **KF-CB-37** | **4** across **3** dirs (`:133`·`:233`·`:181`·`:150`) | one-consumer clause does **not** bind; G6 convicts | **owner-named dir** `demo/components/CopyButton/CopyButton.vue` (f) |
+| 7 | **m-4** | RibbonBar 1 — `ControlsPaneWrapper.vue:159`, same dir | RibbonBar CONFORMANT; **CPW CONVICTED** | one directory settle, rides M-4 — **spec input, zero bytes** (h) |
+| 8 | **KF-AV-26** | 1 by construction | direction well-formed | **beside/below** `AnimationVisualizer.vue` — **no create grant** (h) |
+| 9 | **R-10** | 1 by construction | CONFORMANT **and granted** | **beside** → `shell/groupShortcuts.ts` (g) |
+
+**Three findings the re-derivation adds** (each measured, none acted on):
+
+1. **m-4's banked clause REPRODUCES**, at a pair no prior reading tested. Banked
+   (`registry/adjudicated/kf-RibbonBar.md:59`): *"CPW **D-m8/mi-1** (three homes; the directory named
+   for the component doesn't contain it)"*. ⟨cmd⟩ `git ls-tree -r --name-only HEAD -- demo | grep -i
+   'controlspanewrapper\|controls-pane'` → **5 files / 2 directories**:
+   `transport/ControlsPaneWrapper/{useControlsLayout,usePaneHover,usePaneRegister}.ts` **and**
+   `transport/controls-pane/{ControlsPaneWrapper.vue,ControlsPaneWrapper.css}`. **The directory named
+   for the component does not contain it** — live, word for word. Stated **beside** unit `a`'s
+   D-19-7 (E-3, unedited): that cell measured `controls-pane/`'s contents and is correct about them;
+   the clause's subject at this substrate is the **other** directory, which its command did not
+   reach.
+2. **KF-AV-26's cited mirror does not exist at EITHER ref.** ⟨cmd⟩ `git ls-tree --name-only HEAD --
+   demo/components/playback/` → 2 SFCs; ⟨cmd⟩ the same at **`81a56990`** → **the same two files**;
+   `use*.ts` population **0** at both. The spec's *"mirroring the already-colocated `use*.ts`
+   population"* had no referent at its own dated ref (E-3: recorded, never struck) — and the
+   direction does not need it, resting on KF.W8-I's own clause instead.
+3. **R-1's cited live idiom is short by one member at HEAD.** ⟨cmd⟩ `git ls-tree -r --name-only HEAD
+   -- demo/components/instrument/transport/` → owner-named directories are
+   `AnimationControlsGroup/` · `TransportDock/` · `ControlsPaneWrapper/` = **THREE**, where R-1 named
+   four — **`KfPillTabs/` died with `KfPillTabs.vue`** in KF.W6's S-1/KPT-SUP-4 family. **The law
+   stands and is applied as written** (`demo/components/CopyButton/CopyButton.vue`); a second dated
+   observation is recorded for unit f — all three of those directories hold `use*.ts` children only,
+   so no owner-named directory contains its own SFC today.
+
+#### Act 5 — the two directions turned (census §6.3)
+
+**G5 — direction: the parent moves DOWN; nothing else is a cure.** RED at **2** at HEAD (⟨cmd⟩
+`git grep -cn 'from "\.\./[A-Z][A-Za-z]*\.vue"' HEAD -- demo` → `KeyframeCardList.vue:46` ·
+`TimelineTrack.vue:296`); the spec's third member (`ChannelControls.vue:229` → `../KfPillTabs.vue`)
+is **enumerated as discharged with its file**, never dropped. Ruled: cure by moving the imported
+parent **down into the `components/` container the cluster already has**, specifier to `./`; **not**
+by moving the child up, **not** by a re-export stub at the old path (the gate's own falsifier),
+**not** by a specifier rewrite that leaves the file above. Pure-move commits; row 3 carries m-7's
+rename and the test repoint in the same edit. **TURNED.**
+
+**G7 — direction: leg (iv) is reached by SUBTRACTION from the directory, never by ADDITION to the
+barrel.** ⟨cmd⟩ `git ls-tree --name-only HEAD -- demo/components/instrument/shell/ | grep -c '\.vue$'`
+→ **7**; ⟨cmd⟩ `git show HEAD:…/shell/index.ts | grep -c '^export '` → **3** (KF.W6's R4-1 atomic
+commit landed). The wave's **one owed act** is row 4's `HeroAurora` move; **no export added, none
+deleted, no byte of `shell/index.ts` written by any seat of this wave** (§Bounds' barrel row is
+STRUCK to NO ACCESS). **TURNED.**
+
+⟨**the one disagreement measured and NOT cured — `TypingDots` (record F-2)**⟩ two importers:
+`EditorStartScreen.vue:138` (product, directory-internal) and
+`test/demo/instrument/typing-dots-engine-seam.test.ts:39` (KF.W4 create, **outside** `shell/`).
+Literally, KF.W8-I's *external = an importing module outside that directory* makes it externally
+consumed and the *"exactly"* word would demand an export; **G7's own falsifier names this very file
+as internal-only and fails a green reached by adding that export**. Two clauses of the wave's own
+instrument disagree at one file. **Direction ruled: no export is added.** The residual predicate
+conflict is **recorded, not resolved by widening** — unit f's, with G7, exactly as F-2 books it.
+
+#### Act 6 — the two inbound riders, applied with their blockers (census §6.4)
+
+**(iii) `ingest/cssom.ts`** — ⟨cmd⟩ `git show HEAD:src/animation/ingest/cssom.ts | wc -l` → **499**
+(the spec's basis was 466: it **grew by 33 and was not split**). ⟨cmd⟩ `git grep -nE 'from
+"[^"]*ingest/cssom"|from "\./cssom"' HEAD -- src test demo` → **two consumers, both inside the
+module's own directory** (`ingest/adopt.ts:48/:57/:62` · `ingest/index.ts:13/:18`); **nothing outside
+`src/animation/ingest/` reaches it.** **Verdict: CONFORMANT AS SITED — the colocation rules NO
+MOVE.** Blockers: the **KF.W5 god-module split has not landed**; the **KF.W2 façade decision has** —
+⟨cmd⟩ `git ls-tree -r --name-only HEAD -- src/animation/compile | grep facade` →
+`src/animation/compile/parse-facade.ts`. Per the row's own words, if either upstream ruling dissolves
+or relocates the module the row closes with that note and is **not re-minted as a move**.
+
+**(iv) B-16's conditional shadow-name** — arming condition: *iff KF.W0's OP-4 locus probe resolves
+demo-side*. KF.W0 ran the probe and **stated no home**, leaving B-16 to arm on the measurement.
+Re-run here: ⟨cmd⟩ `git grep -c 'parseAnimationCSS' HEAD -- src` → **exit 1, ZERO**; `… -- demo` →
+**3 files**, declaration at `demo/components/instrument/keyframes/utils/parseAnimationCSS.ts:26`.
+**The probe resolves DEMO-SIDE → KF.W5's pre-stated disposition (ii) holds** (*"a demo row and a
+net-new shadow-name finding routed to KF.W8's colocation decision"*) → **THE RIDER IS ARMED BY
+MEASUREMENT.** Colocation applied: **two consumers in two different clusters** —
+`keyframes/composables/useKeyframeOps.ts:7` (in-cluster) and `timeline/utils/timelineEngine.ts:11`
+(`../../keyframes/utils/parseAnimationCSS`, a **cross-cluster reach into another cluster's private
+`utils/`**); the one-consumer clause does not bind, the **cluster-root clause** convicts the siting,
+and the direction is the **existing** owner-neutral home the tree already has, `demo/utils/` (9
+files) — never a new `shared/`, never a wrapper. Shadow-name half: the demo module carries a
+library-level operation's name while the library publishes none, and its body deep-reaches `@src/` at
+`:7`. **BLOCKERS — and they are why NO BYTE LANDS**: §Bounds grants exactly
+`keyframes/utils/parseAnimationCSS.ts (:7) | modify-carve` (one line, unit c's) and **no move, no
+rename** — executing the direction would be a write outside the writable set, an **ESCALATION, not a
+cure**; the row limits what may land here to the naming/colocation half; the remainder touches
+KF.W3's seam, which this wave may not pre-empt. **Disposition: ARMED · DIRECTION RULED · UNEXECUTED
+BY BOUNDS.**
+
+**Neither rider gates this unit** (§State COMPLETABLE; the LOCK is honoured as written).
+
+#### Act 7 — C-8's banked word (census §6.5)
+
+§Rows `:228` assigns the banked **colocation** word to unit b. ⟨cmd⟩ `git grep -n
+'KeyframesStringControls' HEAD -- demo test` → `channel-controls/ChannelControls.vue:206` (dynamic,
+**cross-cluster**) · `demo/app/dock/ChromeDock.vue:267` (a `void import(…)` prefetch, a third
+directory) · `keyframes/index.ts:8-9` (a **dead-barrel** member, G4 clause 2). **More than one
+directory consumes it**, so the idiom's second clause puts exactly that at the cluster root:
+**CONFORMANT AS SITED, no move.** What remains at the file is unit c's `@src/` repoint and unit e's
+barrel ruling — named so neither is re-read as a colocation defect.
+
+#### Act 8 — WRITE-THEN-MEASURE + SELF-COUNT
+
+⟨cmd⟩ a **21-figure double-run harness** over the settled bytes → **`SAME` on all twenty-one**
+(pasted at census §6.7). **SELF-COUNT**, read back from the settled bytes with each counting rule
+stated at the figure: §6.2 table rows **9** (numbered 1…9, no gap) · `§6.0`…`§6.7` = **8**
+subsections · §6.6 residual items **6** · harness figures **21** across **11** lines (the 22nd
+`SAME |` is the `run()` echo string) · `⟨cmd⟩` receipts at §6.0–§6.6 **19** (the self-count
+subsection excluded from its own count, so the figure cannot move when it is written) · the ratified
+paragraph present **once** and **byte-identical** to `KF-W8.md:195`.
+**Unit `a`'s §0–§5 are unedited**: ⟨cmd⟩ `git diff --numstat` → **`364  0`** — insertions only, **0
+deletions** — and ⟨cmd⟩ `cmp` of the file's first **637** lines against the pre-act copy (itself
+`cmp`-equal to `git show fa2417d7:…`) → **identical**. ⟨**WRITE-THEN-MEASURE, applied to this seat's
+own receipt**: the first print of the numstat figure was `358  0`, taken **before** two self-count
+corrections were written; it was re-measured and **replaced, not carried** — and the two corrected
+figures (the harness's 21-across-11, the numstat) were each fixed by a **line-count-preserving** edit
+so the published number could not move itself again.⟩
+
+#### Commits
+
+| hash | meaning | pathspec |
+|---|---|---|
+| `ac251a38` | census **§6** — KF.W8-I ratified, the nine re-derived, G5/G7 directions, the two riders | `docs/tranches/X/keyframes/waves/KF-W8-census.md` |
+| *(this record)* | unit `b` receipt | `docs/tranches/X/execution/B/KF-W8.md` |
+
+⟨cmd⟩ `git show --stat ac251a38` → **1 file changed, 364 insertions(+)** — **zero paths outside the
+writable set staged**. Pathspec on the commit itself, `--no-verify --quiet`, `-- <the same exact
+paths>`. No `git add -A`, no `-u`, no `commit -a`, no reset, no stash, no `LEDGER.md` edit (the close
+seat's).
+
+#### Gate readings BEFORE → AFTER
+
+| gate | before | after |
+|---|---|---|
+| **direction of G5** | RED at 2 with **no ruled direction**: the gate's grep is satisfiable by a stub or by moving the child up, both of which fail KF.W8-I | **TURNED** — the parent moves **down** into the existing `components/` container, specifier to `./`, **no stub**, pure-move; the discharged third member enumerated, not dropped |
+| **direction of G7** | leg (iv) had two live cure-shapes (add exports vs. move the SFC out) and the spec's own two clauses disagreed at `TypingDots` | **TURNED** — green by **subtraction** (row 4's `HeroAurora` move), **no export added or deleted, no barrel byte**; the `TypingDots` predicate conflict recorded and handed to f with G7, cured by no widening here |
+
+#### Residuals — measured, handed on, none cured here
+
+1. **Row 3's test importer** `test/demo/instrument/timeline-mount-keyboard.test.ts:28` — the move
+   repoints **two** files and that path has **no §Bounds row**. **Unit f** (independently agrees with
+   unit `a`'s residual 3).
+2. **Row 4's tooling path string** `scripts/gates/census.mjs:528` — a KF.W4-owned gate script holds
+   `HeroAurora.vue`'s literal path. **Unit f, escalation-shaped** (agrees with unit `a`'s residual 4).
+3. **Row 8 has no landing grant** — §Bounds gives unit h a `modify-carve` and **no `create`** for the
+   extracted composable, where R-10's twin is granted explicitly. **Unit h's escalation**; the
+   direction is ruled, so the escalation is about the grant, not the shape.
+4. **G7's `TypingDots` predicate conflict** — the barrel clause's literal *external* vs. the gate's
+   falsifier. **Unit f, with G7.**
+5. **Rider (iv) is ARMED and ungranted** — direction ruled, act needs a §Bounds widening this wave
+   does not hold. For the close seat and `KF-W10 §6.D` (anchor-only).
+6. **m-4's settle is specified, not executed** — it rides M-4, G15 spec input only, **zero bytes**.
+
+**Escalations raised by this unit: NONE.** Its writable set was sufficient, both directions are
+turned, and every out-of-bounds fact is **recorded with its owner** rather than acted on. **No
+product byte, no widened grant, no `LEDGER.md` edit.**
