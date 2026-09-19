@@ -1,0 +1,1297 @@
+{
+    "servedModel": "claude-opus-5[1m]",
+    "gate": "G-3",
+    "wave": "X.P.W4",
+    "unit": "X.P.W4.b",
+    "spec": "docs/tranches/X/parse-that/waves/W4.md \u00a73 item 3 \u00b7 \u00a75 X.P.W4.b \u00b7 \u00a76 G-3 (L383-397)",
+    "date": "2026-09-19",
+    "substrate": {
+        "valueJsHead": "fecca648 docs(x-f-w3/.e): receipt \u2014 the vocabulary and the shim contract are published before anything is swept, g10 and g15 turn, and the three things this unit may not write are named",
+        "freshRootHead": "3b81c52 feat(x-p-w3/.n): every miss entry of the differential carries a rulingId \u2014 OP-2's biconditional becomes a number",
+        "frozenRootHead": "ef10d5b docs(coordination): VALUEJS-PT-E \u2014 value.js S.W1 1.1.0+ ask letter (diagnostics HIGH \u00b7 inference MED \u00b7 Pratt-dormant record)",
+        "worktree": "/Users/mkbabb/Programming/parse-that-css-totality-p2/.worktrees/w4b",
+        "worktreeLaw": "W4.md \u00a74b: the worktree lives INSIDE the fresh root, never beside it. `git -C <p2> worktree list` carries 5 entries, all under <p2>; no `<p2>-w4*` sibling was created by this unit.",
+        "cargoTargetDir": "/Users/mkbabb/Programming/parse-that-css-totality-p2/target/w4b"
+    },
+    "verdict": "RED",
+    "verdictSummary": "The packed candidate resolves 0 of the 52 seam symbols from the installed path. The protocol, the pack, the install, the declaration check and the five deep-specifier refusals all execute and agree across a double run; what is RED is the CANDIDATE, and it is RED for three structural reasons, each measured and each curable only OUTSIDE this unit's \u00a74 writable set.",
+    "subject": {
+        "what": "the candidate package as it stands at <p2> HEAD, packed from the w4b worktree with `npm pack --ignore-scripts`",
+        "report": {
+            "servedModel": "claude-opus-5[1m]",
+            "gate": "G-3",
+            "wave": "X.P.W4",
+            "unit": "X.P.W4.b",
+            "generatedAt": "2026-09-19T10:47:33.508Z",
+            "node": "v26.0.0",
+            "npm": "11.12.1",
+            "label": "SUBJECT",
+            "candidate": {
+                "packageDir": "/Users/mkbabb/Programming/parse-that-css-totality-p2/.worktrees/w4b/typescript",
+                "name": "@mkbabb/parse-that",
+                "version": "1.0.0",
+                "declaredFiles": [
+                    "./dist"
+                ],
+                "declaredExports": {
+                    ".": {
+                        "types": "./dist/index.d.ts",
+                        "import": "./dist/parse.js",
+                        "require": "./dist/parse.cjs"
+                    },
+                    "./core": {
+                        "types": "./dist/core.d.ts",
+                        "import": "./dist/core.js",
+                        "require": "./dist/core.cjs"
+                    },
+                    "./diagnostics": {
+                        "types": "./dist/diagnostics.d.ts",
+                        "import": "./dist/diagnostics.js",
+                        "require": "./dist/diagnostics.cjs"
+                    },
+                    "./packrat": {
+                        "types": "./dist/packrat-entry.d.ts",
+                        "import": "./dist/packrat.js",
+                        "require": "./dist/packrat.cjs"
+                    },
+                    "./utils": {
+                        "types": "./dist/utils-entry.d.ts",
+                        "import": "./dist/utils.js",
+                        "require": "./dist/utils.cjs"
+                    }
+                },
+                "seamSubpath": "./css"
+            },
+            "symbolSource": {
+                "kind": "universe-52",
+                "path": "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W3/universe-52.json",
+                "sha256": "fb1aa2a6d8cedf4b53dc718cddc2b67fb3a3c062f7a45d54755b2a1b11cdbf46",
+                "note": "X.P.W4.a's SEAM-CONTRACT.md was absent at this run; the 52 rows are read from the artefact the contract is generated from (W4.md \u00a73 item 1). Re-run with --seam once the contract lands; the symbol set is the same 52 by construction."
+            },
+            "symbolCounts": {
+                "runtime": 19,
+                "types": 33,
+                "total": 52
+            },
+            "legs": {
+                "pack": {
+                    "ok": true,
+                    "command": "npm pack --ignore-scripts --json",
+                    "filename": "mkbabb-parse-that-1.0.0.tgz",
+                    "bytes": 834,
+                    "sha256": "efc11936d361820526a93ada2145012d0c58cec48cee9ccb9a19c22c66e74cda",
+                    "npmShasum": "a4a8592dab2709d5455024b37fd0e7bcb78efffa",
+                    "npmIntegrity": "sha512-qYigooIjam35XOcM8FAbf9F4kvY67w1uo2ahmIvwArCXkwuN8ceKzjZJsm8UT6H6VnZE0bOgE+orSdmOei1dsg==",
+                    "entryCount": 1,
+                    "unpackedSize": 2772,
+                    "entries": [
+                        "package.json"
+                    ]
+                },
+                "declaration": {
+                    "ok": true,
+                    "declaredFiles": [
+                        "dist"
+                    ],
+                    "undeclaredEntries": [],
+                    "declaredButAbsent": [
+                        "dist"
+                    ],
+                    "note": "the manifest declares a path the tarball does not carry \u2014 the declaration names build output that was never built, so the consumer receives less than the manifest promises"
+                },
+                "install": {
+                    "ok": true,
+                    "attempts": 1,
+                    "command": "npm install --ignore-scripts --no-audit --no-fund --package-lock=false <tarball>",
+                    "status": 0,
+                    "stderr": null,
+                    "installedFiles": [
+                        "package.json"
+                    ],
+                    "installedManifest": {
+                        "name": "@mkbabb/parse-that",
+                        "version": "1.0.0",
+                        "description": "Parser combinators for TypeScript",
+                        "type": "module",
+                        "sideEffects": false,
+                        "exports": {
+                            ".": {
+                                "types": "./dist/index.d.ts",
+                                "import": "./dist/parse.js",
+                                "require": "./dist/parse.cjs"
+                            },
+                            "./core": {
+                                "types": "./dist/core.d.ts",
+                                "import": "./dist/core.js",
+                                "require": "./dist/core.cjs"
+                            },
+                            "./diagnostics": {
+                                "types": "./dist/diagnostics.d.ts",
+                                "import": "./dist/diagnostics.js",
+                                "require": "./dist/diagnostics.cjs"
+                            },
+                            "./packrat": {
+                                "types": "./dist/packrat-entry.d.ts",
+                                "import": "./dist/packrat.js",
+                                "require": "./dist/packrat.cjs"
+                            },
+                            "./utils": {
+                                "types": "./dist/utils-entry.d.ts",
+                                "import": "./dist/utils.js",
+                                "require": "./dist/utils.cjs"
+                            }
+                        },
+                        "scripts": {
+                            "test": "NODE_OPTIONS='--max-old-space-size=8192' vitest run",
+                            "test:watch": "vitest",
+                            "build": "vite build",
+                            "bench": "vitest bench",
+                            "proof:manifest": "node test/manifest-gate.mjs",
+                            "proof:no-css-surface": "node scripts/proof-no-css-surface.mjs",
+                            "proof:subpath": "node test/subpath-gate.mjs",
+                            "proof:packrat-cross-input": "node scripts/proof-packrat-cross-input.mjs",
+                            "proof:packrat-reentrant": "node scripts/proof-packrat-reentrant.mjs",
+                            "proof:packrat-large-offset": "node scripts/proof-packrat-large-offset.mjs",
+                            "proof:packrat-armed": "node scripts/proof-packrat-armed.mjs",
+                            "proof:no-span-surface": "node scripts/proof-no-span-surface.mjs",
+                            "proof:no-dead-combinator": "node scripts/proof-no-dead-combinator.mjs",
+                            "proof:perf": "NODE_OPTIONS='--expose-gc' node scripts/proof-perf.mjs",
+                            "proof:all": "npm run proof:manifest && npm run proof:no-css-surface && npm run proof:subpath && npm run proof:packrat-cross-input && npm run proof:packrat-reentrant && npm run proof:packrat-large-offset && npm run proof:packrat-armed && npm run proof:no-span-surface && npm run proof:no-dead-combinator && npm run proof:perf"
+                        },
+                        "files": [
+                            "./dist"
+                        ],
+                        "devDependencies": {
+                            "@types/node": "^22.0.0",
+                            "@types/parsimmon": "^1.10.9",
+                            "arcsecond": "^5.0.0",
+                            "chevrotain": "^11.1.1",
+                            "moo": "^0.5.2",
+                            "nearley": "^2.20.1",
+                            "ohm-js": "^17.5.0",
+                            "parjs": "^1.3.9",
+                            "parsimmon": "^1.18.1",
+                            "peggy": "^5.0.6",
+                            "typescript": "^5.8.0",
+                            "vite": "^7.0.0",
+                            "vite-plugin-dts": "^4.5.0",
+                            "vitest": "^3.2.0"
+                        }
+                    }
+                },
+                "types": {
+                    "ok": false,
+                    "ran": false,
+                    "reason": "the installed export map declares no \"./css\" subpath",
+                    "tsc": "/Users/mkbabb/Programming/parse-that-css-totality-p2/node_modules/typescript/bin/tsc"
+                },
+                "resolve": {
+                    "ok": false,
+                    "seamSpecifier": "@mkbabb/parse-that/css",
+                    "seamSubpathDeclared": false,
+                    "installedExports": {
+                        ".": {
+                            "types": "./dist/index.d.ts",
+                            "import": "./dist/parse.js",
+                            "require": "./dist/parse.cjs"
+                        },
+                        "./core": {
+                            "types": "./dist/core.d.ts",
+                            "import": "./dist/core.js",
+                            "require": "./dist/core.cjs"
+                        },
+                        "./diagnostics": {
+                            "types": "./dist/diagnostics.d.ts",
+                            "import": "./dist/diagnostics.js",
+                            "require": "./dist/diagnostics.cjs"
+                        },
+                        "./packrat": {
+                            "types": "./dist/packrat-entry.d.ts",
+                            "import": "./dist/packrat.js",
+                            "require": "./dist/packrat.cjs"
+                        },
+                        "./utils": {
+                            "types": "./dist/utils-entry.d.ts",
+                            "import": "./dist/utils.js",
+                            "require": "./dist/utils.cjs"
+                        }
+                    },
+                    "runtimeImport": {
+                        "ok": false,
+                        "code": "ERR_PACKAGE_PATH_NOT_EXPORTED",
+                        "message": "Package subpath './css' is not defined by \"exports\" in <consumer>/node_modules/@mkbabb/parse-that/package.json imported from <consumer>/resolve-runtime.mjs"
+                    },
+                    "resolved": 0,
+                    "unresolved": 52,
+                    "of": 52,
+                    "rows": [
+                        {
+                            "name": "AnimationRangeValue",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the installed export map declares no \"./css\" subpath"
+                        },
+                        {
+                            "name": "AnimationTimelineValue",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the installed export map declares no \"./css\" subpath"
+                        },
+                        {
+                            "name": "AnimationTriggerValue",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the installed export map declares no \"./css\" subpath"
+                        },
+                        {
+                            "name": "coerceToSyntax",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                        },
+                        {
+                            "name": "collectAnimationOptions",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                        },
+                        {
+                            "name": "collectCustomFunctions",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                        },
+                        {
+                            "name": "collectDeclarations",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                        },
+                        {
+                            "name": "CollectedRule",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the installed export map declares no \"./css\" subpath"
+                        },
+                        {
+                            "name": "collectKeyframes",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                        },
+                        {
+                            "name": "collectPropertyDescriptors",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                        },
+                        {
+                            "name": "collectStyleRules",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                        },
+                        {
+                            "name": "collectTimelineOptions",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                        },
+                        {
+                            "name": "CSSAnimationOptions",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the installed export map declares no \"./css\" subpath"
+                        },
+                        {
+                            "name": "CssColor",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the installed export map declares no \"./css\" subpath"
+                        },
+                        {
+                            "name": "CssColorSpace",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the installed export map declares no \"./css\" subpath"
+                        },
+                        {
+                            "name": "CssLinearStop",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the installed export map declares no \"./css\" subpath"
+                        },
+                        {
+                            "name": "CSSPropertyDescriptor",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the installed export map declares no \"./css\" subpath"
+                        },
+                        {
+                            "name": "CSSTimelineOptions",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the installed export map declares no \"./css\" subpath"
+                        },
+                        {
+                            "name": "CssTimingFunction",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the installed export map declares no \"./css\" subpath"
+                        },
+                        {
+                            "name": "CustomFunctionDescriptor",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the installed export map declares no \"./css\" subpath"
+                        },
+                        {
+                            "name": "CustomFunctionParameter",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the installed export map declares no \"./css\" subpath"
+                        },
+                        {
+                            "name": "CustomFunctionRule",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the installed export map declares no \"./css\" subpath"
+                        },
+                        {
+                            "name": "Declaration",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the installed export map declares no \"./css\" subpath"
+                        },
+                        {
+                            "name": "KeyframeRule",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the installed export map declares no \"./css\" subpath"
+                        },
+                        {
+                            "name": "KeyframesBlock",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the installed export map declares no \"./css\" subpath"
+                        },
+                        {
+                            "name": "KeyframeSelector",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the installed export map declares no \"./css\" subpath"
+                        },
+                        {
+                            "name": "parseAnimationRange",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                        },
+                        {
+                            "name": "parseAnimationTimeline",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                        },
+                        {
+                            "name": "parseCssColor",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                        },
+                        {
+                            "name": "parseCssScalar",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                        },
+                        {
+                            "name": "parseCssValue",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                        },
+                        {
+                            "name": "parseCssValues",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                        },
+                        {
+                            "name": "ParseIssue",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the installed export map declares no \"./css\" subpath"
+                        },
+                        {
+                            "name": "parseKeyframeSelector",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                        },
+                        {
+                            "name": "ParseResult",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the installed export map declares no \"./css\" subpath"
+                        },
+                        {
+                            "name": "parseStylesheet",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                        },
+                        {
+                            "name": "parseTimingFunction",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                        },
+                        {
+                            "name": "PropertyRule",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the installed export map declares no \"./css\" subpath"
+                        },
+                        {
+                            "name": "RangeBoundary",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the installed export map declares no \"./css\" subpath"
+                        },
+                        {
+                            "name": "RangePhase",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the installed export map declares no \"./css\" subpath"
+                        },
+                        {
+                            "name": "ScrollerKeyword",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the installed export map declares no \"./css\" subpath"
+                        },
+                        {
+                            "name": "ScrollTimelineDescriptor",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the installed export map declares no \"./css\" subpath"
+                        },
+                        {
+                            "name": "serializeCssColor",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                        },
+                        {
+                            "name": "serializeTimelineOptions",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                        },
+                        {
+                            "name": "StyleRule",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the installed export map declares no \"./css\" subpath"
+                        },
+                        {
+                            "name": "Stylesheet",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the installed export map declares no \"./css\" subpath"
+                        },
+                        {
+                            "name": "StylesheetItem",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the installed export map declares no \"./css\" subpath"
+                        },
+                        {
+                            "name": "TimelineAxis",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the installed export map declares no \"./css\" subpath"
+                        },
+                        {
+                            "name": "TimelineScopeValue",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the installed export map declares no \"./css\" subpath"
+                        },
+                        {
+                            "name": "TriggerType",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the installed export map declares no \"./css\" subpath"
+                        },
+                        {
+                            "name": "ViewInset",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the installed export map declares no \"./css\" subpath"
+                        },
+                        {
+                            "name": "ViewTimelineDescriptor",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the installed export map declares no \"./css\" subpath"
+                        }
+                    ]
+                },
+                "refusals": {
+                    "ok": true,
+                    "rows": [
+                        {
+                            "specifier": "@mkbabb/parse-that/src/css/entry.mjs",
+                            "refused": true,
+                            "code": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                        },
+                        {
+                            "specifier": "@mkbabb/parse-that/src/css/build/ac1.js",
+                            "refused": true,
+                            "code": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                        },
+                        {
+                            "specifier": "@mkbabb/parse-that/src/css/build/ac1.d.ts",
+                            "refused": true,
+                            "code": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                        },
+                        {
+                            "specifier": "@mkbabb/parse-that/dist/parse.js",
+                            "refused": true,
+                            "code": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                        },
+                        {
+                            "specifier": "@mkbabb/parse-that/package.json",
+                            "refused": true,
+                            "code": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                        }
+                    ],
+                    "note": "a refusal carrying ERR_PACKAGE_PATH_NOT_EXPORTED is the export map refusing; any other code is a missing file refusing, which is a weaker property and is recorded as such"
+                }
+            },
+            "ephemeral": {
+                "consumerRoot": "/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/candidate-packed-WG0saT",
+                "removed": true
+            },
+            "verdict": {
+                "pack": true,
+                "declaration": true,
+                "install": true,
+                "resolve": false,
+                "refusals": true,
+                "G3": "RED"
+            }
+        },
+        "doubleRun": "identical, generatedAt and the ephemeral mkdtemp path excluded"
+    },
+    "positiveControl": {
+        "what": "NEVER THE GATE'S SUBJECT. A staged copy of the same tree OUTSIDE both repositories whose manifest declares the seam subpath and ships `src/css`, run so that the RED above is attributed to the candidate rather than to this instrument. It packs 26 entries, installs, and still resolves 0 of 52 \u2014 which is how causes C2 and C3 below were located. No repository byte was modified to obtain it.",
+        "stagedManifestDelta": {
+            "files": [
+                "./dist",
+                "./src/css"
+            ],
+            "exports./css": {
+                "types": "./src/css/build/ac1.d.ts",
+                "import": "./src/css/build/ac1.js"
+            }
+        },
+        "report": {
+            "servedModel": "claude-opus-5[1m]",
+            "gate": "G-3",
+            "wave": "X.P.W4",
+            "unit": "X.P.W4.b",
+            "generatedAt": "2026-09-19T10:47:34.188Z",
+            "node": "v26.0.0",
+            "npm": "11.12.1",
+            "label": "CONTROL",
+            "candidate": {
+                "packageDir": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/control/typescript",
+                "name": "@mkbabb/parse-that",
+                "version": "1.0.0",
+                "declaredFiles": [
+                    "./dist",
+                    "./src/css"
+                ],
+                "declaredExports": {
+                    ".": {
+                        "types": "./dist/index.d.ts",
+                        "import": "./dist/parse.js",
+                        "require": "./dist/parse.cjs"
+                    },
+                    "./core": {
+                        "types": "./dist/core.d.ts",
+                        "import": "./dist/core.js",
+                        "require": "./dist/core.cjs"
+                    },
+                    "./diagnostics": {
+                        "types": "./dist/diagnostics.d.ts",
+                        "import": "./dist/diagnostics.js",
+                        "require": "./dist/diagnostics.cjs"
+                    },
+                    "./packrat": {
+                        "types": "./dist/packrat-entry.d.ts",
+                        "import": "./dist/packrat.js",
+                        "require": "./dist/packrat.cjs"
+                    },
+                    "./utils": {
+                        "types": "./dist/utils-entry.d.ts",
+                        "import": "./dist/utils.js",
+                        "require": "./dist/utils.cjs"
+                    },
+                    "./css": {
+                        "types": "./src/css/build/ac1.d.ts",
+                        "import": "./src/css/build/ac1.js"
+                    }
+                },
+                "seamSubpath": "./css"
+            },
+            "symbolSource": {
+                "kind": "universe-52",
+                "path": "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W3/universe-52.json",
+                "sha256": "fb1aa2a6d8cedf4b53dc718cddc2b67fb3a3c062f7a45d54755b2a1b11cdbf46",
+                "note": "X.P.W4.a's SEAM-CONTRACT.md was absent at this run; the 52 rows are read from the artefact the contract is generated from (W4.md \u00a73 item 1). Re-run with --seam once the contract lands; the symbol set is the same 52 by construction."
+            },
+            "symbolCounts": {
+                "runtime": 19,
+                "types": 33,
+                "total": 52
+            },
+            "legs": {
+                "pack": {
+                    "ok": true,
+                    "command": "npm pack --ignore-scripts --json",
+                    "filename": "mkbabb-parse-that-1.0.0.tgz",
+                    "bytes": 221347,
+                    "sha256": "9dd132ce4d3a9c84958f75b63e7ccd30f929a1185851e9d848ad68fd2370fc01",
+                    "npmShasum": "f2d100b8967393ef7aee97fb0535659619630753",
+                    "npmIntegrity": "sha512-Hc1VTs66KLn6NXeO7joAg2aH00+P2nyYyeqdEKX7sbIfHxCvqnPShv+wreCVtX+N7Jvxm/O8xRxANBkmjxaTFg==",
+                    "entryCount": 26,
+                    "unpackedSize": 1192491,
+                    "entries": [
+                        "package.json",
+                        "src/css/algebra/grammar.mjs",
+                        "src/css/algebra/grammar/animation.mjs",
+                        "src/css/algebra/grammar/stylesheet.mjs",
+                        "src/css/algebra/grammar/value.mjs",
+                        "src/css/algebra/ops.mjs",
+                        "src/css/algebra/tables.mjs",
+                        "src/css/bounds.mjs",
+                        "src/css/build.mjs",
+                        "src/css/build/ac1.d.ts",
+                        "src/css/build/ac1.js",
+                        "src/css/build/ac1.wasm",
+                        "src/css/codes.mjs",
+                        "src/css/diagnostics.mjs",
+                        "src/css/entry.mjs",
+                        "src/css/harness-adapter.mjs",
+                        "src/css/lower.mjs",
+                        "src/css/lowering-js/index.mjs",
+                        "src/css/lowering-js/js-alg.mjs",
+                        "src/css/lowering-js/values.mjs",
+                        "src/css/lowering-wasm/asm.mjs",
+                        "src/css/lowering-wasm/index.mjs",
+                        "src/css/lowering-wasm/layout.mjs",
+                        "src/css/lowering-wasm/runtime.mjs",
+                        "src/css/lowering-wasm/wasm-alg.mjs",
+                        "src/css/reify/term-alg.mjs"
+                    ]
+                },
+                "declaration": {
+                    "ok": true,
+                    "declaredFiles": [
+                        "dist",
+                        "src/css"
+                    ],
+                    "undeclaredEntries": [],
+                    "declaredButAbsent": [
+                        "dist"
+                    ],
+                    "note": "the manifest declares a path the tarball does not carry \u2014 the declaration names build output that was never built, so the consumer receives less than the manifest promises"
+                },
+                "install": {
+                    "ok": true,
+                    "attempts": 1,
+                    "command": "npm install --ignore-scripts --no-audit --no-fund --package-lock=false <tarball>",
+                    "status": 0,
+                    "stderr": null,
+                    "installedFiles": [
+                        "package.json",
+                        "src/css/algebra/grammar.mjs",
+                        "src/css/algebra/grammar/animation.mjs",
+                        "src/css/algebra/grammar/stylesheet.mjs",
+                        "src/css/algebra/grammar/value.mjs",
+                        "src/css/algebra/ops.mjs",
+                        "src/css/algebra/tables.mjs",
+                        "src/css/bounds.mjs",
+                        "src/css/build.mjs",
+                        "src/css/build/ac1.d.ts",
+                        "src/css/build/ac1.js",
+                        "src/css/build/ac1.wasm",
+                        "src/css/codes.mjs",
+                        "src/css/diagnostics.mjs",
+                        "src/css/entry.mjs",
+                        "src/css/harness-adapter.mjs",
+                        "src/css/lower.mjs",
+                        "src/css/lowering-js/index.mjs",
+                        "src/css/lowering-js/js-alg.mjs",
+                        "src/css/lowering-js/values.mjs",
+                        "src/css/lowering-wasm/asm.mjs",
+                        "src/css/lowering-wasm/index.mjs",
+                        "src/css/lowering-wasm/layout.mjs",
+                        "src/css/lowering-wasm/runtime.mjs",
+                        "src/css/lowering-wasm/wasm-alg.mjs",
+                        "src/css/reify/term-alg.mjs"
+                    ],
+                    "installedManifest": {
+                        "name": "@mkbabb/parse-that",
+                        "version": "1.0.0",
+                        "description": "Parser combinators for TypeScript",
+                        "type": "module",
+                        "sideEffects": false,
+                        "exports": {
+                            ".": {
+                                "types": "./dist/index.d.ts",
+                                "import": "./dist/parse.js",
+                                "require": "./dist/parse.cjs"
+                            },
+                            "./core": {
+                                "types": "./dist/core.d.ts",
+                                "import": "./dist/core.js",
+                                "require": "./dist/core.cjs"
+                            },
+                            "./diagnostics": {
+                                "types": "./dist/diagnostics.d.ts",
+                                "import": "./dist/diagnostics.js",
+                                "require": "./dist/diagnostics.cjs"
+                            },
+                            "./packrat": {
+                                "types": "./dist/packrat-entry.d.ts",
+                                "import": "./dist/packrat.js",
+                                "require": "./dist/packrat.cjs"
+                            },
+                            "./utils": {
+                                "types": "./dist/utils-entry.d.ts",
+                                "import": "./dist/utils.js",
+                                "require": "./dist/utils.cjs"
+                            },
+                            "./css": {
+                                "types": "./src/css/build/ac1.d.ts",
+                                "import": "./src/css/build/ac1.js"
+                            }
+                        },
+                        "scripts": {
+                            "test": "NODE_OPTIONS='--max-old-space-size=8192' vitest run",
+                            "test:watch": "vitest",
+                            "build": "vite build",
+                            "bench": "vitest bench",
+                            "proof:manifest": "node test/manifest-gate.mjs",
+                            "proof:no-css-surface": "node scripts/proof-no-css-surface.mjs",
+                            "proof:subpath": "node test/subpath-gate.mjs",
+                            "proof:packrat-cross-input": "node scripts/proof-packrat-cross-input.mjs",
+                            "proof:packrat-reentrant": "node scripts/proof-packrat-reentrant.mjs",
+                            "proof:packrat-large-offset": "node scripts/proof-packrat-large-offset.mjs",
+                            "proof:packrat-armed": "node scripts/proof-packrat-armed.mjs",
+                            "proof:no-span-surface": "node scripts/proof-no-span-surface.mjs",
+                            "proof:no-dead-combinator": "node scripts/proof-no-dead-combinator.mjs",
+                            "proof:perf": "NODE_OPTIONS='--expose-gc' node scripts/proof-perf.mjs",
+                            "proof:all": "npm run proof:manifest && npm run proof:no-css-surface && npm run proof:subpath && npm run proof:packrat-cross-input && npm run proof:packrat-reentrant && npm run proof:packrat-large-offset && npm run proof:packrat-armed && npm run proof:no-span-surface && npm run proof:no-dead-combinator && npm run proof:perf"
+                        },
+                        "files": [
+                            "./dist",
+                            "./src/css"
+                        ],
+                        "devDependencies": {
+                            "@types/node": "^22.0.0",
+                            "@types/parsimmon": "^1.10.9",
+                            "arcsecond": "^5.0.0",
+                            "chevrotain": "^11.1.1",
+                            "moo": "^0.5.2",
+                            "nearley": "^2.20.1",
+                            "ohm-js": "^17.5.0",
+                            "parjs": "^1.3.9",
+                            "parsimmon": "^1.18.1",
+                            "peggy": "^5.0.6",
+                            "typescript": "^5.8.0",
+                            "vite": "^7.0.0",
+                            "vite-plugin-dts": "^4.5.0",
+                            "vitest": "^3.2.0"
+                        }
+                    }
+                },
+                "types": {
+                    "ok": false,
+                    "ran": true,
+                    "tsc": "/Users/mkbabb/Programming/parse-that-css-totality-p2/node_modules/typescript/bin/tsc",
+                    "status": 2,
+                    "diagnostics": [
+                        "node_modules/@mkbabb/parse-that/src/css/build/ac1.d.ts(7,589): error TS2834: Relative import paths need explicit file extensions in ECMAScript imports when '--moduleResolution' is 'node16' or 'nodenext'. Consider adding an extension to the import path."
+                    ]
+                },
+                "resolve": {
+                    "ok": false,
+                    "seamSpecifier": "@mkbabb/parse-that/css",
+                    "seamSubpathDeclared": true,
+                    "installedExports": {
+                        ".": {
+                            "types": "./dist/index.d.ts",
+                            "import": "./dist/parse.js",
+                            "require": "./dist/parse.cjs"
+                        },
+                        "./core": {
+                            "types": "./dist/core.d.ts",
+                            "import": "./dist/core.js",
+                            "require": "./dist/core.cjs"
+                        },
+                        "./diagnostics": {
+                            "types": "./dist/diagnostics.d.ts",
+                            "import": "./dist/diagnostics.js",
+                            "require": "./dist/diagnostics.cjs"
+                        },
+                        "./packrat": {
+                            "types": "./dist/packrat-entry.d.ts",
+                            "import": "./dist/packrat.js",
+                            "require": "./dist/packrat.cjs"
+                        },
+                        "./utils": {
+                            "types": "./dist/utils-entry.d.ts",
+                            "import": "./dist/utils.js",
+                            "require": "./dist/utils.cjs"
+                        },
+                        "./css": {
+                            "types": "./src/css/build/ac1.d.ts",
+                            "import": "./src/css/build/ac1.js"
+                        }
+                    },
+                    "runtimeImport": {
+                        "ok": false,
+                        "code": "ERR_MODULE_NOT_FOUND",
+                        "message": "Cannot find package 'tsx' imported from <consumer>/node_modules/@mkbabb/parse-that/src/css/lowering-js/js-alg.mjs"
+                    },
+                    "resolved": 0,
+                    "unresolved": 52,
+                    "of": 52,
+                    "rows": [
+                        {
+                            "name": "AnimationRangeValue",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the strict consumer compile failed"
+                        },
+                        {
+                            "name": "AnimationTimelineValue",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the strict consumer compile failed"
+                        },
+                        {
+                            "name": "AnimationTriggerValue",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the strict consumer compile failed"
+                        },
+                        {
+                            "name": "coerceToSyntax",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_MODULE_NOT_FOUND"
+                        },
+                        {
+                            "name": "collectAnimationOptions",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_MODULE_NOT_FOUND"
+                        },
+                        {
+                            "name": "collectCustomFunctions",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_MODULE_NOT_FOUND"
+                        },
+                        {
+                            "name": "collectDeclarations",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_MODULE_NOT_FOUND"
+                        },
+                        {
+                            "name": "CollectedRule",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the strict consumer compile failed"
+                        },
+                        {
+                            "name": "collectKeyframes",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_MODULE_NOT_FOUND"
+                        },
+                        {
+                            "name": "collectPropertyDescriptors",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_MODULE_NOT_FOUND"
+                        },
+                        {
+                            "name": "collectStyleRules",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_MODULE_NOT_FOUND"
+                        },
+                        {
+                            "name": "collectTimelineOptions",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_MODULE_NOT_FOUND"
+                        },
+                        {
+                            "name": "CSSAnimationOptions",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the strict consumer compile failed"
+                        },
+                        {
+                            "name": "CssColor",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the strict consumer compile failed"
+                        },
+                        {
+                            "name": "CssColorSpace",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the strict consumer compile failed"
+                        },
+                        {
+                            "name": "CssLinearStop",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the strict consumer compile failed"
+                        },
+                        {
+                            "name": "CSSPropertyDescriptor",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the strict consumer compile failed"
+                        },
+                        {
+                            "name": "CSSTimelineOptions",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the strict consumer compile failed"
+                        },
+                        {
+                            "name": "CssTimingFunction",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the strict consumer compile failed"
+                        },
+                        {
+                            "name": "CustomFunctionDescriptor",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the strict consumer compile failed"
+                        },
+                        {
+                            "name": "CustomFunctionParameter",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the strict consumer compile failed"
+                        },
+                        {
+                            "name": "CustomFunctionRule",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the strict consumer compile failed"
+                        },
+                        {
+                            "name": "Declaration",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the strict consumer compile failed"
+                        },
+                        {
+                            "name": "KeyframeRule",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the strict consumer compile failed"
+                        },
+                        {
+                            "name": "KeyframesBlock",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the strict consumer compile failed"
+                        },
+                        {
+                            "name": "KeyframeSelector",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the strict consumer compile failed"
+                        },
+                        {
+                            "name": "parseAnimationRange",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_MODULE_NOT_FOUND"
+                        },
+                        {
+                            "name": "parseAnimationTimeline",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_MODULE_NOT_FOUND"
+                        },
+                        {
+                            "name": "parseCssColor",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_MODULE_NOT_FOUND"
+                        },
+                        {
+                            "name": "parseCssScalar",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_MODULE_NOT_FOUND"
+                        },
+                        {
+                            "name": "parseCssValue",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_MODULE_NOT_FOUND"
+                        },
+                        {
+                            "name": "parseCssValues",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_MODULE_NOT_FOUND"
+                        },
+                        {
+                            "name": "ParseIssue",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the strict consumer compile failed"
+                        },
+                        {
+                            "name": "parseKeyframeSelector",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_MODULE_NOT_FOUND"
+                        },
+                        {
+                            "name": "ParseResult",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the strict consumer compile failed"
+                        },
+                        {
+                            "name": "parseStylesheet",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_MODULE_NOT_FOUND"
+                        },
+                        {
+                            "name": "parseTimingFunction",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_MODULE_NOT_FOUND"
+                        },
+                        {
+                            "name": "PropertyRule",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the strict consumer compile failed"
+                        },
+                        {
+                            "name": "RangeBoundary",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the strict consumer compile failed"
+                        },
+                        {
+                            "name": "RangePhase",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the strict consumer compile failed"
+                        },
+                        {
+                            "name": "ScrollerKeyword",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the strict consumer compile failed"
+                        },
+                        {
+                            "name": "ScrollTimelineDescriptor",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the strict consumer compile failed"
+                        },
+                        {
+                            "name": "serializeCssColor",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_MODULE_NOT_FOUND"
+                        },
+                        {
+                            "name": "serializeTimelineOptions",
+                            "kind": "runtime",
+                            "resolved": false,
+                            "reason": "ERR_MODULE_NOT_FOUND"
+                        },
+                        {
+                            "name": "StyleRule",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the strict consumer compile failed"
+                        },
+                        {
+                            "name": "Stylesheet",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the strict consumer compile failed"
+                        },
+                        {
+                            "name": "StylesheetItem",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the strict consumer compile failed"
+                        },
+                        {
+                            "name": "TimelineAxis",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the strict consumer compile failed"
+                        },
+                        {
+                            "name": "TimelineScopeValue",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the strict consumer compile failed"
+                        },
+                        {
+                            "name": "TriggerType",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the strict consumer compile failed"
+                        },
+                        {
+                            "name": "ViewInset",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the strict consumer compile failed"
+                        },
+                        {
+                            "name": "ViewTimelineDescriptor",
+                            "kind": "types",
+                            "resolved": false,
+                            "reason": "the strict consumer compile failed"
+                        }
+                    ]
+                },
+                "refusals": {
+                    "ok": true,
+                    "rows": [
+                        {
+                            "specifier": "@mkbabb/parse-that/src/css/entry.mjs",
+                            "refused": true,
+                            "code": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                        },
+                        {
+                            "specifier": "@mkbabb/parse-that/src/css/build/ac1.js",
+                            "refused": true,
+                            "code": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                        },
+                        {
+                            "specifier": "@mkbabb/parse-that/src/css/build/ac1.d.ts",
+                            "refused": true,
+                            "code": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                        },
+                        {
+                            "specifier": "@mkbabb/parse-that/dist/parse.js",
+                            "refused": true,
+                            "code": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                        },
+                        {
+                            "specifier": "@mkbabb/parse-that/package.json",
+                            "refused": true,
+                            "code": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                        }
+                    ],
+                    "note": "a refusal carrying ERR_PACKAGE_PATH_NOT_EXPORTED is the export map refusing; any other code is a missing file refusing, which is a weaker property and is recorded as such"
+                }
+            },
+            "ephemeral": {
+                "consumerRoot": "/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/candidate-packed-Iylsvo",
+                "removed": true
+            },
+            "verdict": {
+                "pack": true,
+                "declaration": true,
+                "install": true,
+                "resolve": false,
+                "refusals": true,
+                "G3": "RED"
+            }
+        },
+        "doubleRun": "identical, generatedAt and the ephemeral mkdtemp path excluded"
+    },
+    "valueSideCrossCheck": {
+        "what": "W4.md \u00a76 G-3's cross-check leg and \u00a74's execute-no-write row: the value-side idiom this gate mirrors one repo upstream, run unmodified against the published 4.0.0 tarball. Its purpose here is to witness that the idiom is LIVE and DISCRIMINATING.",
+        "commands": [
+            "npm view @mkbabb/value.js version -> 4.0.0",
+            "npm view @mkbabb/value.js@4.0.0 dist.shasum -> ccb962e592fb42e6602fc2bb6afbfb1763788b9d",
+            "npm pack @mkbabb/value.js@4.0.0 --pack-destination <scratch>",
+            "node scripts/ci/verify-packed-surface.mjs <tarball>"
+        ],
+        "tarball": {
+            "filename": "mkbabb-value.js-4.0.0.tgz",
+            "sha256": "7f80658ca4e16e99ccbb41ad6c9d8c08b2e5f86a7c951d2a833c97f89fb303ae",
+            "entryCount": 20
+        },
+        "exit": 1,
+        "firstError": "Error: /transform exports [\"PathGeometry\",\"decomposeMatrix2D\",\"decomposeMatrix3D\",\"getPointAtLength\",\"getTotalLength\",\"interpolateDecomposed\",\"recomposeMatrix2D\",\"recomposeMatrix3D\",\"slerp\"]",
+        "reading": "NOT a defect of this unit and NOT a defect of 4.0.0. `scripts/ci/verify-packed-surface.mjs` carries `tranche-u`'s post-X-W9 expectation set, in which X.W9.b retired the matrix family from /transform; published 4.0.0 predates that cut and still ships nine names. The idiom refusing a tarball whose surface differs from the expected one is exactly the property G-3 borrows. Recorded for X.P.W4.c: RC-P conjunct 1 PUBLISHED(V) is measured FALSE at V=4.0.0 by this very command, at this seat's clock."
+    },
+    "causes": [
+        {
+            "id": "C1",
+            "severity": "HIGH",
+            "leg": "pack / declaration",
+            "measured": "`typescript/package.json` declares `files: [\"./dist\"]` and an `exports` map of five subpaths \u2014 `.`, `./core`, `./diagnostics`, `./packrat`, `./utils`. There is no `./css` subpath, and `dist/` is gitignored build output that does not exist in the tree. `npm pack --ignore-scripts` therefore ships entryCount 1: package.json alone. 0 of 52 symbols can resolve because the consumer's node_modules holds no code at all.",
+            "cureAddress": "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/package.json",
+            "insideUnitBounds": false
+        },
+        {
+            "id": "C2",
+            "severity": "HIGH",
+            "leg": "resolve / runtime",
+            "measured": "With the subpath declared and `src/css` shipped (the positive control), the installed runtime still fails to load: `ERR_MODULE_NOT_FOUND: Cannot find package 'tsx' imported from node_modules/@mkbabb/parse-that/src/css/lowering-js/js-alg.mjs`. `src/css/lowering-js/js-alg.mjs:23` holds `import { tsImport } from \"tsx/esm/api\"` and `src/css/bounds.mjs:834` holds `require_(\"tsx/esm/api\")`. `tsx` is a devDependency of the FRESH ROOT's own manifest (COHESION \u00a70l E-1, tsx@4.23.13) and is declared nowhere in `@mkbabb/parse-that`'s dependencies, so it is present in the source tree and absent from any consumer's install. This is precisely G-3's reason for existing: a symbol that resolves in the source tree and not in the tarball.",
+            "cureAddress": "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/lowering-js/js-alg.mjs + src/css/bounds.mjs (the tsx-loader seam), or a declared runtime dependency",
+            "insideUnitBounds": false
+        },
+        {
+            "id": "C3",
+            "severity": "HIGH",
+            "leg": "resolve / types",
+            "measured": "The strict consumer compile against the installed declaration returns `node_modules/@mkbabb/parse-that/src/css/build/ac1.d.ts(7,589): error TS2834: Relative import paths need explicit file extensions in ECMAScript imports when '--moduleResolution' is 'node16' or 'nodenext'`. `build/ac1.d.ts` re-exports all 33 frozen types through the specifier `../../../../../value.js/docs/tranches/V/megatranche/prototypes/css-parser/cand-o/vendor/value-js-4.0.0/dist/subpaths/css` \u2014 a relative path that ESCAPES the package root into value.js's vendored tree. Even with an extension it cannot resolve from a consumer's node_modules; the declaration is not self-contained.",
+            "cureAddress": "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build.mjs (the generator) and its emitted src/css/build/ac1.d.ts",
+            "insideUnitBounds": false
+        }
+    ],
+    "boundsFinding": {
+        "id": "F-w4b-3",
+        "statement": "W4.md \u00a74 File Bounds grants X.P.W4 exactly three creatable paths in the fresh root \u2014 `scripts/packed-candidate-surface.mjs`, `scripts/wasm-admission.mjs`, `scripts/rc-p-evaluate.mjs` \u2014 and no unit of this wave may write `typescript/package.json` or anything under `typescript/src/css/**`. All three causes of G-3's RED live at those addresses. G-3 cannot be turned GREEN by any act available to X.P.W4.b, and substituting a different subject for the gate would be the 'a claim about a source tree that happens to be on disk' failure the gate was written to refuse.",
+        "trigger": "W4.md \u00a73a \u2014 'Hard-gate failure that is not local-edit-recoverable.' The candidate has never been packaged for release; that is an X.P.W2 packaging/architecture question, in the exact shape \u00a73a gives for G-4 ('not a link-flag tweak').",
+        "cure": "One dated addendum-beside to W4.md \u00a74 (E-3) naming `<p2>/typescript/package.json` and `<p2>/typescript/src/css/build.mjs` + `src/css/lowering-js/js-alg.mjs` + `src/css/bounds.mjs` as writable for a named unit, or a successor X.P.W2 packaging unit. A triumvirate act, not a seat's."
+    },
+    "residuals": [
+        {
+            "id": "R-w4b-1",
+            "statement": "The gate's literal command is `node scripts/packed-candidate-surface.mjs --seam docs/tranches/X/parse-that/SEAM-CONTRACT.md`. X.P.W4.a runs in parallel (\u00a74a) and its contract had not landed at this unit's last check; the runs above read the 52 rows from `evidence/W3/universe-52.json`, the artefact W4.md \u00a73 item 1 generates the contract FROM, with the source and its sha256 recorded in every report. The script's `--seam` branch is implemented and is an ERROR, never a silent fall-through, when a named contract is absent without an explicit `--universe`. Re-running under `--seam` once the contract lands changes no symbol: the set is the same 52 by construction, and `.a`'s own G-1 checker asserts both set-differences against the same file."
+        },
+        {
+            "id": "R-w4b-2",
+            "statement": "W4.md \u00a77's fresh-root cadence reads `npx tsc --noEmit` and `npx eslint .`. Measured at this clock: the fresh root has NO eslint configuration and no eslint install, and `npx eslint` would install packages into a root this unit may not write; `typescript/tsconfig.json` includes only `src/` and `test/`, and no `@types/node` exists anywhere in the root, so a direct `tsc --allowJs --checkJs` over the two new `.mjs` scripts returns 23 diagnostics, ALL of them 'Cannot find module node:*' / 'Cannot find name process' \u2014 i.e. the absent @types/node and nothing about the scripts. What was run instead, and is green: `node --check` on both files, and `git diff --check` in both repositories. Recorded as a measured environment fact, not a skipped check."
+        }
+    ]
+}
