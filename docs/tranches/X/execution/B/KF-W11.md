@@ -2274,3 +2274,181 @@ LANDED · 1 DECIDED-KEPT (D-7) · 1 LANDED-BY sibling (N-5) · 1 CARRIED by the 
 DECLARED to the library (C-3) · 2 RECORDED (D-16 · C-10) · 1 died with the cure (L-11)** — the
 per-id table is evidence §8. Gate **G-KFW11-4 GREEN 12/12 ×2**; ratchet **24 → 24**, this row **0 →
 0**; demo suite **45/376 → 46/388**.
+
+---
+
+### KF.W11.f
+
+SERVED MODEL: claude-fable-5-1
+
+**Unit**: `KF.W11.f` — the spring-physics-facet packet (P5; phase 3, ∥ `.e`). Spec `KF-W11.md` §Agent
+Units `:249-253` · §Carry P5 `:191-193` · §Bounds `:119` · G-KFW11-5 `:297` · §Sequencing 8 `:324` ·
+§Commit plan 5 `:380`. **Status: DONE — G-KFW11-5 GREEN (both clauses, double-run); SPF-13 and
+KF-SS-24 `complete_with_misses` by the spec's own lock (KF-CO-47 unrecorded at KF.W12); ONE
+escalation returned (KF11-E(f1), a sibling test's re-bind, not a write).**
+**Evidence**: `docs/tranches/X/keyframes/evidence/W11/f-spring-physics-facet-2026-09-19.md` (§0
+crash-recovery · §1 the anchors at true bytes · **§2 THE DECISION, committed at `f6d05a5c` BEFORE the
+first product byte** · §3–§7 the specs · §8 the token battery · §9 the plan · §10 the execution record)
+(the one bounded probe's two captures are NOT filed — `*.png` is gitignored under `docs/`; their
+sha256 prefixes and every DOM reading are in §10 instead).
+
+**Seat shape, disclosed.** The dispatch names a tri-fold for the field encoding; this seat is one Fable
+seat without a spawn tool and no sibling draft existed in `evidence/W11/` — the decision is this
+seat's alone, written first, and no arbitration is claimed.
+
+#### Crash-recovery (standing law, first act)
+
+kf porcelain → 2 untracked `VALUEJS-INBOUND-*` packets (not this unit's); value.js porcelain →
+`CARRY-LEDGER.md` (a sibling's) · `scripts/dev/dev.sh` (unowned, never touched) · 3 untracked
+`fourier/evidence/w3/*` (Track C's). **Zero inherited hunks in this unit's set** — `SpringHeatmap.vue`
+and `SpringPhysicsFacet.vue` clean, the test file absent, `evidence/W11/f-*` absent. Substrate at open
+`0e604af8` (== the merged `.c`/`.g`/`.h` roster; `origin/master` `2b649a1d`, behind).
+
+#### THE DECISION — what the field encodes, on which axes, at what scale, with what legend (before the family; §Sequencing 8)
+
+**Encodes** ONE quantity — the exact analytic peak overshoot `exp(−ζπ/√(1−ζ²))`, a function of ζ
+ALONE — and **says so** (D-M8 cured by declaration, the record's "declared 1-D ramp" form): painted
+as horizontal bands, one per damping node, with the legend *"peak overshoot 0 → 53 % · varies with ζ
+only (response sets tempo, not peak)"*. Settle time on x DECLINED with its reason (the corpus's only
+closed form is the envelope approximation P.W6 measured at 26 % error; an approximate second channel
+in an instrument whose one virtue is exactness costs more truth than it buys; it stays reserved for
+T-SPR-6). **Axes** x = response 0.1 → 1.2 s (navigation-only, declared); y = ζ 1.5 top → 0.2 bottom;
+a drawn ζ = 1 critical line at its true y with the regimes labelled ON THE VERTICAL AXIS either side
+of it (D-B1); ζ ticks in a left gutter; a response axis under the field. **Scale** linear in
+overshoot, normalised to the field's own max (ζ = 0.2 → 0.527 → 100 %), `color-mix(in oklab,
+--color-progress mix%, --background)`; the 27-node table `0 ×13 · 1 · 3 · 5 · 9 · 13 · 18 · 24 · 31 ·
+39 · 48 · 59 · 71 · 84 · 100` (%). **Legend** the swatch (`linear-gradient(in oklab …)` of the same
+two colours = the banded field's continuous form) with `0 → 53 %`, the critical line + regime labels,
+the four presets plotted and NAMED (N-SH-5), the lattice pitch stated, the readout as the field's
+`aria-describedby`. **Geometry (D-M1 + rider)** the "true scale" aspect DELETED, not restored
+(seconds and ζ share no unit); the field is a stated layout choice: rail width × 16rem. **Route** the
+canvas DISSOLVES into a CSS background (C-M-4, the record's third honest form; KF.W6's canvas
+discipline was right for a canvas and is not needed without one; `fillStyle` count in the file → 0).
+
+#### The input-integrity core, the contract, N-SH-3, the paint (one spec each — evidence §3–§6)
+
+**One lattice** pitch 0.05 on both axes, every node on the hundredths grid → **no re-quantisation
+exists**; arrows step in integer hundredths; **tolerance = 0.025 exactly**, published in the legend,
+the label and the exported `LATTICE`. **One gesture spec** `touch-action: none`, a latched primary
+pointer (`button === 0 && isPrimary`, re-entrancy refused), capture, the sweep, one content-box
+coordinate space (L-m-3 cured by construction). **One focus spec** pointer-granted focus DISCLOSED
+with the same ring (`:focus:not(:focus-visible)` on the demo's token). **One key spec** modified
+arrows left alone; a taken bare arrow is claimed (`preventDefault` + `stopPropagation`, the KF-SS-30
+precedent at `SpringTarget.vue:475-483`); the producer registry seam rides SS-6 as banked. **The
+contract** two `defineModel`s (`response`, `dampingFraction`); the facet binds `v-model:response` /
+`v-model:damping-fraction` and its sliders take their bounds from the field's exported axes (L-M-5,
+one home inside the set). **N-SH-3** the glide is switched off during a STREAM of writes (a write
+within one glide-duration of the last) and kept for isolated ones; the duration read once from the
+token via computed style, never a literal. **D-M4** a 50 % foreground boundary — the smallest mix
+clearing 3:1 vs the field's 0 % fill AND the card in both themes (3.32/3.20 light · 4.49/3.16 dark).
+**D-M7** the hover cell surfaces the lattice before the click. **D-B3's lattice-gated half** a live
+region + `aria-describedby`; the full D-B3 decision stays KF.W9's.
+
+#### The facet — SPF-3 · SPF-4 · SPF-5 · SPF-7 · SPF-13 · KF-SS-24/-25/-28/-37
+
+**SPF-3 LANDED** — `ballTravel(v) = (clamp(v, −0.25, 1.25) + 0.25) / 1.5`, rest at 1/6, target at 5/6,
+the rail inset to exactly [0, 1]; the four peaks 1.005/1.068/1.205/1.000 → 83.7/87.9/97.0/83.3 %,
+distinct, monotone, unclamped (the bound is geometric; the tracks retarget both ways so the headroom
+is symmetric). K-10 honoured. **SPF-4 LANDED (the port)** — one `ToggleGroup type="single"`:
+`role="group"` + `aria-label="Spring presets"`, an exclusive model DERIVED from the params (a
+deselect emits `undefined` and is refused), roving focus; **what the port does NOT deliver, stated**:
+reka renders the items as `aria-pressed` buttons inside the group, not radios — the radio half is
+the producer's and rides SS-6 as a rider on KF-ET-4's letter. **SPF-5 LANDED** — active wash 12 % →
+8 % (muted readout 4.465 → **4.70** light AA · 7.01 dark), hover 8 % → 6 % (4.83 / 7.20). **SPF-7 ≡
+KF-SS-25 LANDED** — ⟨cmd⟩ `grep -c '!important' SpringPhysicsFacet.vue` → **2 · 2** → **0 · 0**.
+**KF-SS-37 LANDED** — `.spring-pane` gone. **SPF-13 + KF-SS-24 `complete_with_misses`** — ⟨cmd⟩
+`grep -n 'CO-47' execution/B/KF-W12.md` → `:318` only (the plan line); no OPTIONS-UNIT receipt exists,
+so `:title` stays and the tooltip-vs-slotted-copy decision is spent when W12 records it (the lock).
+**KF-SS-28 CARRIED with rationale** — `.keyframes-editor-scroll` holds the editor's focusable per-stop
+controls; the probe is SS-13's; the `<code>` half is `.g`'s file. **SPF-15 CARRIED** (the extraction
+needs a new file outside the set). **SPF-33 INFO recorded.**
+
+#### Acts in order — five commits, each by exact pathspec with the session trailer
+
+`f6d05a5c` (value.js — THE DECISION, first) → `065008e9` **the field decision + the two-model
+contract** (ONE sha, `SpringHeatmap.vue` whole + the facet's binding/axes hunk — the record calls the
+core one decision and the contract one commit) → `8b0f89ea` **SPF-3** → `7ba8e7dc` **the preset cell
+surface** (SPF-4 + SPF-5 + SPF-7 + KF-SS-37) → `cad6c7a9` **G-KFW11-5's witness** (18 cases) →
+`d479f394` **the §0u ratchet** (the port's one diagnostic cured at the root — `NO_PRESET = ""`, the
+controlled group's explicit empty selection; no cast, no suppression). SELF-COUNT ⟨cmd⟩ `git log
+--format=%s 0e604af8..HEAD | grep -c 'X.KF.W11.f'` → **5 · 5**; every sha's `--stat` names only this
+unit's paths (`.e`'s `SpringTrace.vue` shas interleave on the same `master` and touch none of ours).
+
+#### Gates BEFORE → AFTER (double-run)
+
+**G-KFW11-5** runtime: `No test files found` ×2 → **18 passed (18)** ×2 (L-m-5's reversibility over
+111 + 131 grid values × 2 directions · tolerance ≤ 0.025 tight on a 10 008-point sweep · the 27-node
+mix table frozen inline and the field's own `background-image` asserted to carry those bands; the
+painter's peaks pure AND on the real registered painter; the contract on a real parent; D-B1's
+vertical legend; SPF-4 on the REAL producer ToggleGroup; SPF-7/SPF-5 at the bytes). Byte clause
+`clamp(values[i] ?? 0, 0, 1)` → **1 · 1 → 0 · 0**. No skip / only (→ 0). **§0u ratchet** 24 · 24 at
+open (0 ours) → 25 at `7ba8e7dc` (1 ours, TS2379) → **24 · 24** at `d479f394` (**0 ours**, the same
+24 files as at open — `diff` of the sorted rows empty). **Demo suite** 46/47 files · 405/406 tests
+×2 — the one RED is `.e`'s (below). `npm run check` exit 2 on KF11-E2's three `src/**` rows only
+(unchanged, not ours). eslint over `demo/scenes/spring` + the test → 0. `git diff --check` clean.
+
+#### The bounded probe (§5.2)
+
+One dev-server session, three captures, one DOM read (evidence §10): the field, marker, pips, border,
+`touch-action`, the transition token, a centre click (`0.65 s / ζ 0.85`) and an ArrowRight (`0.70 s`)
+behaved as specified; the group computed `grid` / radius 0 / padding 0 / `backdrop-filter: none`; the
+active cell's wash read the 8 % mix; **zero console errors or warnings on the route**. The two
+captures are gitignored (`*.png`) and NOT filed — their sha256 prefixes are in evidence §10; nothing
+else photographed.
+
+#### ESCALATION KF11-E(f1) — `.e`'s (4b) reads this unit's file by regex; the re-bind is theirs
+
+`test/demo/scenes/spring-trace-truth.test.ts:269-281` (`.e`'s create row, outside this set) greps
+`SpringHeatmap.vue` for `DAMPING_MIN = <number>`; this unit's contract re-homed that constant as the
+exported `DAMPING_AXIS.min` (one home for the coordinate space the field and the sliders share). The
+test fails EXPLICITLY with `.e`'s own message ("re-bind the plot's PLOT_DAMPING_FLOOR witness to the
+new declaration"), exactly as e-R3 foresaw ("`.j` should read such a red as a re-bind, never a
+skip"). **No byte was kept in `SpringHeatmap.vue` to satisfy a sibling's regex** — that would be a
+workaround aimed at a test. The re-bind, for the owner of that file (`.j` at close, or `.e` if
+re-opened): replace the `readFileSync` + regex of (4b) with `import { DAMPING_AXIS } from
+"../../../demo/scenes/spring/SpringHeatmap.vue"` and `expect(DAMPING_AXIS.min).toBeGreaterThanOrEqual(PLOT_DAMPING_FLOOR)`
+— stronger than the regex (it reads the shipped export, not a byte pattern) and it is the coupling
+L-14 asked to enforce. Until it lands, G-KFW11-10's `test:demo` clause reads 405/406.
+
+#### Findings surfaced, not cured here (for `.j`'s SS-6 relay and the owning waves)
+
+1. **Producer (glass-ui, SS-6 / the KF-ET-4 rider)**: (a) the Chip's selectable filter strips
+   `role`/`aria-pressed` (the banked SPF-4 constraint); (b) the ToggleGroup single-mode items ship
+   `aria-pressed` buttons in a `role="group"` — the radio half needs the producer; (c)
+   `ToggleGroupProps.modelValue` is typed without `undefined` while the runtime accepts it (the
+   controlled-empty case under `exactOptionalPropertyTypes`); (d) the ToggleGroup ROOT reaches the
+   DOM through reka's `as-child` without the consumer's scope attribute, so no consumer's scoped rule
+   can reach its track plate — the track opt-out ask KF.W7's easing port already mailed is the cure;
+   (e) LabeledSlider ships no `valueCommit` seam (N-SH-3's banked datum); (f) the window shortcut
+   registry checks neither `defaultPrevented` nor composite-widget ownership (N-SH-2, carrier #2).
+2. **KF.W12 (easing)**: `EasingTarget.css`'s `.specimen-grid` track reset is INERT at the bytes for
+   reason 1(d) — measured live on `#/easing` (`display: inline-flex`, radius `10003px`); that file's
+   receipt claimed the reset outranks the track. A finding for that file's owner, not this unit's.
+3. **KF.W12 OPTIONS-UNIT**: KF-CO-47's decision is what SPF-13 / KF-SS-24 wait on.
+4. **KF.W9 / SS-13**: D-B3's full decision; SPF-3/-5's delivered-pixel cells; D-M5's touch outcome
+   (`touch-action: none` now declares it); C-m-6's clipping (the overflow is gone — re-measure).
+
+#### E13 sweep at this seat's clock
+
+Positional Status-cell scan → **0 · 0** UNREAD over **79** rows; BK newest, 9 entries, unmoved; no
+letter newer than 03:00 on any path but `INBOX.md` (self). Nothing minted; no row touched.
+
+#### Inherited-paths clause
+
+None — every path in this unit's set was clean at open.
+
+#### SELF-COUNT
+
+**5 keyframes.js commits** (⟨cmd⟩ above → 5 · 5) + **2 value.js commits** (`f6d05a5c` the decision;
+this receipt's). **Files written: 3 in keyframes.js** (`SpringHeatmap.vue` 616 L · `SpringPhysicsFacet.vue`
+333 L · `spring-heatmap-reversibility.test.ts` 535 L — the `:119` row and the `:132` create row; zero
+writes outside the set; zero `src/**` bytes) **+ 2 in value.js** (this record · the evidence file; the two PNG captures
+are gitignored and stay in the seat's scratchpad). **P5 rows: 30 LANDED** (D-B1 · D-B2 · D-M8 · D-M1+rider · D-M4 ·
+D-M5 · D-M7 · L-M-1 · L-M-2 · L-M-5 · L-M-6 · L-M-7/C-M-2 · C-M-3 · N-SH-1 · N-SH-2(site) · N-SH-3 ·
+N-SH-4 · N-SH-5 · N-SH-6(site) · L-m-1 · L-m-2 · L-m-3 · C-m-6 · L-m-5 · SPF-3 · SPF-4 · SPF-5 · SPF-7 ·
+KF-SS-25 · KF-SS-37) **· 3 LANDED-BY KF.W6** (D-M2 · D-M3 · C-M-1, consumed) **· 2
+`complete_with_misses`** (SPF-13 · KF-SS-24, the lock) **· 3 CARRIED** (SPF-15 · KF-SS-28 · D-B3's
+full decision) **· INFO recorded** (D-m5 · D-m6 residue — `will-change` kept, earned · N-SH-7 — the
+domain asserted by test · L-i-2 died with the prop · SPF-33). Gate **G-KFW11-5 GREEN 18/18 ×2**;
+ratchet **24 → 24**, this unit's rows **0 → 0** at the settled bytes; demo suite **46/405 GREEN + 1 RED
+returned as KF11-E(f1)**.
