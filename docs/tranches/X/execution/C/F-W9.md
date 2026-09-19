@@ -2005,3 +2005,109 @@ close **+ fresh check CONFORMANT**"*, and this check is not that. One dated even
 **no row cell is rewritten**, no other seat's row is read for write. This seat **cured nothing**:
 HIGH-1's one-line cure is named and left for the repair seat, because a check that fixes what it
 grades is no longer an independent instrument.
+
+---
+
+## Check 1 — ADDENDUM A (2026-09-19, the SECOND pass-1 seat)
+
+**SERVED MODEL: `claude-opus-5[1m]`.** VERIFY-ONLY, Track C · X·F. A second independent pass-1 seat,
+dispatched after the first pass-1 seat's bytes had already landed at `61aafe41`. This seat authored
+**no** byte of `F-W9.md`, of any unit receipt, of `## Close`, of `## Check 1`, or of the `LEDGER.md`
+row it reads; it wrote **zero** fourier bytes, **zero** glass-ui bytes and **zero** product bytes
+anywhere. **E-3 held in the direction that matters here: `## Check 1` is NOT rewritten.** Everything
+below is an addendum **beside** it, and where this seat corrects a receipt it says so by name.
+
+**CRASH-RECOVERY (standing law), performed first.** ⟨cmd⟩ `git status --porcelain` in
+`/Users/mkbabb/Programming/fourier-analysis` → **`?? .worktrees/`** alone. In value.js → fourteen
+dirty rows, **none in this seat's writable set** (`execution/C/F-W9.md` ⊕ `execution/LEDGER.md`);
+`D demo/shell/PaneSegmentedControl.vue` is **staged by a sibling seat** and was left exactly as
+found (hence this seat's own pathspec commit); `scripts/dev/dev.sh` **NEVER touched**. **Zero
+killed-predecessor bytes inherited; nothing stashed, restored or reverted.**
+
+### A.1 VERDICT — SUSTAINED, independently: **NOT-CONFORMANT**; the row stays `PARTIAL`
+
+Re-measured from the settled bytes at this seat's own clock, nothing inherited: ⟨cmd⟩ `npm test` →
+**`Test Files 13 passed (13)` · `Tests 84 passed (84)`** · ⟨cmd⟩ `npm run lint` → **exit 1**, three
+`no-duplicate-imports`, all `web/src/**` · ⟨cmd⟩ `grep -c 'conclusion\|workflow_run\|gh run\|inv-28'
+scripts/deploy-hook.sh` → **15 · 15** against ⟨cmd⟩ `git show 1b46465:scripts/deploy-hook.sh | grep
+-c …` → **0** · ⟨cmd⟩ `grep -cE 'modal|dialog|card|Open Visualizer' web/e2e/gallery.spec.ts` → **16**
+· ⟨cmd⟩ `grep -n 'name: "' web/playwright.config.ts` → **`:64 chromium` · `:107 mobile-chromium`** ·
+⟨cmd⟩ `npx playwright test --list` → **`Total: 107 tests in 18 files`**, `--project=mobile-chromium`
+→ **`Total: 5 tests in 2 files`** · ⟨cmd⟩ `postcss.parse(node_modules/@mkbabb/glass-ui/dist/styles/
+index.css)` → **top 40 · atrule 40 · `@source` 1 · garbage 0**, package **8.0.0** · ⟨cmd⟩ `git
+ls-files | grep -cE 'InfoCard\.vue|CanvasOverlayButton\.vue'` → **0** · ⟨cmd⟩ `grep -rln admin
+web/e2e/ | wc -l` → **5** · ⟨cmd⟩ `grep -c '^\s*continue-on-error:' .github/workflows/ci.yml` →
+**0, exit 1** · ⟨cmd⟩ `ls web/e2e/*.spec.ts | wc -l` → **18** against ⟨cmd⟩ `git ls-tree --name-only
+1b46465 web/e2e/ | grep -c 'spec.ts'` → **12**. **ELEVEN OF ELEVEN GREENS REPRODUCE at a second
+seat's own commands.** The covering run re-read here — ⟨cmd⟩ `gh run view --repo mkbabb/fourier-
+analysis --job 105904338325 --log` → **`17 failed` · `7 skipped` · `3 did not run` · `80 passed
+(8.7m)`**, and the seventeen-row roster prints **identically** to the close's partition.
+
+Axes 2–7 and 9 re-measured and **sustained**: ⟨cmd⟩ `git diff --name-only 1b46465..a6f50c8` → **30
+paths, every one a §1b row**, ⟨cmd⟩ `… -- web/src/` → **0 files**, ⟨cmd⟩ `… | grep -cE '^web/src/|
+^docs/tranches/M/|deploy-pages\.yml|dev\.sh'` → **0**; value.js touches **exactly three §1a paths**
+across every F.W9 commit; masking census over the whole diff → the only `continue-on-error` /
+`--allow` / allowlist strings added are **prose forbidding the practice**, and `web/e2e/.gitignore`
+re-includes `*-snapshots/` **only** (⟨cmd⟩ `git check-ignore -v web/e2e/screenshots/foo.png` →
+still `web/.gitignore:1:*.png`); ⟨cmd⟩ `git diff --name-only 16c9bd5d~1..HEAD --` over the six
+frozen authorities (`F-W9.md` · `F-W10.md` · `registry/adjudicated/` · `fourier/conformance/` ·
+`formation/fourier/` · `fourier/carry/`) → **0 files, E-3 held as an absence**; INBOX ⟨cmd⟩ narrow
+**77** / wide **81** with a **positional** status scan → **0 UNREAD** (the three rows whose status
+cell carries the *word* are `O-20` **SENT**, `I-35` quoting its own history, `O-39` **SENT**); the
+four-verb line is lawfully **UNMOVED**. ⟨cmd⟩ `grep -rn "test.fixme" web/e2e/` → **nine lines, FIVE
+call sites** (`crud:664` · `ux:151` · `ux:178` · `ux:249` · `ux:371`); the other four are prose, and
+**not one was added by this wave**.
+
+### A.2 ONE CORRECTION, to HIGH-1's RECEIPT — not to its verdict
+
+**`HIGH-1`'s receipt is FALSE at the bytes in one load-bearing clause and is corrected here.** It
+reads *"dies at `getByLabel(/Display terms/i)` … **before its first assertion**"* and *"The spec is
+180 lines and **asserts nothing in any of them**."* Both are wrong:
+
+- The CI stack names the failing byte itself — ⟨cmd⟩ the job log → *"at /home/runner/work/fourier-
+  analysis/fourier-analysis/web/e2e/**equation-interaction.spec.ts:141:30**"*, three times, one per
+  attempt. Line **141** is `await expect(budget).toBeVisible();`, the **third** leg.
+- ⟨cmd⟩ `grep -n 'expect(' web/e2e/equation-interaction.spec.ts | awk -F: '$1<141'` returns
+  **thirteen** sites — `:68` inside `openEquation` plus `:84 · :88 · :96 · :102 · :103 · :105 ·
+  :110 · :112 · :113 · :119 · :121 · :123` in the test body — and the `expect.poll` at `:128-133`
+  sits among them. **Every one is ahead of `:141`, so every one EXECUTED AND PASSED in the covering
+  run** (the attempt runs 4.6s, a live compute round-trip).
+
+So leg **1 (compute)** and leg **2 (notation)** are live and green in CI: the `200`-status assertion
+(`B-2`'s cold-start shape), the POST-payload knob assertions (`B-1` / `M-CK`), and the
+notation-re-render poll (`D-07`) all run. Legs **3 (budget — `FR-EQR-31` / `D-14`)** and **4
+(reload)** never execute. **The instrument is HALF-LIVE, not dead**, and a repair seat inheriting
+*"asserts nothing"* would re-author 180 lines of which two thirds are correct and passing.
+
+**The HIGH stands, unsoftened.** `G-F9-6`'s falsifier is *"The ONE interaction spec (compute →
+notation → budget → reload) exists **and asserts** — mechanically catching **B-1, B-2, C-29, D-07,
+D-14**"*: the covering run is RED, and `D-14` ⊕ the reload leg are caught by nothing. The RED still
+fits **none** of the three relief heads — not producer-owned, not routed to a successor by the
+spec's own words (§5 routes *product-source* cures to F.W3/W4 and *producer* rows to SS-6; neither
+covers a defect in F.W9's own instrument), and named by no honest-RED id. `web/e2e/**` is **§1b's
+own row**, assigned to unit `b`, and no repair round was dispatched.
+
+**The mechanism, named at the bytes** (so the repair seat does not mis-route it): ⟨cmd⟩ `grep -rn
+'Display terms' web/src/` → **one site**, `src/components/equation/FunctionInput.vue:263`
+`label="Display terms"`, passed to `src/components/ui/SliderControl.vue`, whose template wraps the
+`.inline-number` `<input>` inside `<label class="slider-label">` **and** gives the sibling
+`<Slider :aria-label="label">` host the same accessible name — with the `role="slider"` thumb that
+makes three. **Any** `getByLabel(…)` against **any** `SliderControl` resolves 3 by construction.
+That shape lives in `web/src`, which F.W9 may not edit — **and it does not relieve the gate**,
+because the in-bounds cure is the *locator*, not the component: `getByRole("spinbutton", { name:
+/display terms/i })` in `web/e2e/equation-interaction.spec.ts`, one line, then re-grade `G-F9-6`
+**on the measurement**.
+
+### A.3 SUSTAINED WITHOUT CHANGE
+
+`MINOR-2` (re-read at the log: attempt 1 fails at `:63` *"element(s) not found"*; the retry
+**resolves** `<button aria-label="Exit fullscreen" … class="… fs-close">` and then cannot click it —
+the split cure is right) · `MINOR-3` · `MINOR-4` · `MINOR-5` · `INFO-6` · the **ten** relieved and
+owner-named honest-REDs (G-F9-3 · -5 · -8 · -15 · -18 · -19 · -21 · -22 · -23(a) · -23(b)), with
+**G-F9-17 relieved in part** and **G-F9-11 relieved in part** · the goal criterion **NOT MET at the
+bytes** (1 MET · 1 RELIEVED-UNMET · 2 UNMET) · **F.W10 is NOT blocked** (⟨cmd⟩ `grep -n "Opens
+after" docs/tranches/X/fourier/waves/F-W10.md` → **∅**; F.W10 is the relief for E-F9-1 and E-F9-2,
+and G-F9-21 binds the *stamp*, not the open).
+
+**This seat cured nothing and moved no verb.** `LEDGER` status **UNCHANGED at `PARTIAL`**; one dated
+event line appended beside the first pass-1 seat's, no row cell rewritten.
