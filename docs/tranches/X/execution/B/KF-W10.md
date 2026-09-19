@@ -1030,3 +1030,244 @@ reference ✔ · the set is four and did not grow ✔.
 
 **Escalations: NONE.** The specified cure was possible at the bytes in every one of its four limbs; nothing
 was substituted, and no write landed outside the unit's §4 bounds.
+
+---
+
+### KF.W10.e
+
+**Seat**: `claude-opus-5[1m]`, 2026-09-19 (⟨cmd⟩ `date` → `Sat Sep 19 00:2x EDT 2026`). **Spec sections
+executed**: §3.5 `:302-330` (incl. LAW A's census block) + §5 G-7 `:489-499`. **Gate owned**: **G-7**.
+**Writable set**: kf branch `v/w9-staging` @ `b920b190` — the only branch this wave touches; landing
+substrate kf `origin/master` `69095552`. **Verb: LAND.**
+
+#### Act 0 — crash-recovery sweep (STANDING LAW, first act)
+
+⟨cmd⟩ `git status --porcelain` in both repos this seat may write.
+**keyframes.js — 2 rows**, both untracked value-authored letters
+(`docs/tranches/V/coordination/VALUEJS-INBOUND-2026-07-{24,27}-*.md`), outside this seat's writable set,
+**left in place and never staged** (the final merge index was verified to be exactly 19 paths, all the
+merge's own — see Act 6). **value.js — 5 rows**, every one outside this seat's writable set, including
+`scripts/dev/dev.sh` (**unowned, NEVER touched**). **Inherited uncommitted work on KF.W10 `.e`: NONE** —
+no source path in the branch's touch-set was dirty in either tree.
+
+#### Act 1 — BEFORE baseline at the landing tree, read-only, double-run where published
+
+Substrate: kf local `master` == source-identical to `origin/master 69095552` (the 3 commits ahead are
+`.a`/`.c`/`.d`'s docs-only landings; ⟨cmd⟩ `git diff --stat origin/master HEAD -- ':!docs/'` → empty).
+
+| probe | reading |
+|---|---|
+| `git ls-remote --heads origin \| grep w9` | **`b920b1902b4854c1bc7c5778d1674436dd51dce6  refs/heads/v/w9-staging`** — live |
+| `git merge-base --is-ancestor b920b190 origin/master` | **UNMERGED** |
+| `git rev-list --left-right --count origin/v/w9-staging...origin/master` | **2 229** — 2 ahead, **229 behind** (the spec's *"41 behind"* is superseded) |
+| `npm run test:lib` | **112 passed \| 5 skipped (117)**; **1256 passed \| 3 expected-fail \| 14 skipped (1273)** |
+| `npm run test:demo` | **39 files \| 286 tests passed** |
+| `npx vitest run --project measure` | **2 files \| 3 tests passed** |
+| `npx tsc -p tsconfig.test.json --noEmit` | **23 errors** |
+| `npm run check:lib` | **3 errors** (TS6133; KF.W5-owned) |
+| `npm run lint` | **4 dependency violations** (429 modules, 1553 deps) |
+| `npm run proof:structure` | **PASS — 0 violations** |
+| `npm run proof:publish` | **FAIL** — `proof:published-surface` 1 finding |
+| kf CI at `69095552` (run **35413127952**) | **failure**, both jobs, at step **`npm ci`** |
+
+**R.2 — GREEN-BEFORE-CURE: none.** G-7 RED at its own probe, as declared.
+
+#### Act 2 — LAW A: the import-graph census, RE-DERIVED at the landing tree (never inherited)
+
+The spec's census is dated to `origin/master 81a56990` and G-7's falsifier is explicit — *"A LAND that
+prunes on this file's pasted census rather than re-deriving it at the landing tree fails on LAW A, naming
+the module."* Re-derived here against **`69095552`**, both legs, with outputs.
+
+**Leg 1 — specifier.** ⟨cmd⟩ `git grep -nF '<path-tail>' origin/master -- . ':!docs/'` for each of the six,
+then the **basename-tail** spelling for each. **Zero import specifiers, all six.** Every non-`docs/` hit
+found is **resolved and disqualified by name**: the module's own header/usage comments
+(`bench/taxonomy.json:3` · `bench/typed-om-validate.mjs:1,26,124,163,164,180` ·
+`scripts/probe-webkit-linear-accel.mjs:36`); a `$note` string **inside another member of the same prune
+set** (`bench/taxonomy.json:90` → `typed-om-validate.mjs`); and three docblocks naming a **different,
+`test/`-rooted** path (`bench/sync-step.bench.ts:129` · `test/physics/sync-step.test.ts:24` ·
+**`CHANGELOG.md:359`** — the third was **not in the spec's enumeration** and is booked here).
+
+**Alias roots enumerated, not assumed.** `tsconfig.json#paths` → **`@src/*`**, **`@mkbabb/keyframes.js`**.
+`vitest.config.ts#resolve.alias` → **`@src` · `@mkbabb/keyframes.js` · `@styles` · `@state` ·
+`@components` · `@composables` · `@utils` · `@kf-engine` · `@assets` · `@app`**. All twelve resolve into
+`src/`, `demo/` or `assets/`; **none can reach `bench/` or `scripts/`**.
+
+**Leg 2 — symbol / runner, read AT the frontier. THIS LEG VETOED TWO OF THE SIX.** The spec's census states
+of both `.measure.test.ts` members: *"`vitest.config.ts:35` `benchmark.include = ["bench/*.bench.ts"]` —
+**neither `.measure.test.ts` file is matched** (the 'no runner glob' reading reproduces)."* **It does not
+reproduce.** `vitest.config.ts` has moved — `benchmark.include` now sits at **`:47`**, and at **`:84-91` a
+THIRD declared project exists**: `{ name: "measure", include: ["bench/**/*.measure.test.ts"], environment:
+"jsdom" }`, landed by **X.KF.W8 `.g`, commit `422c16c1`** — *"the two bench measure-test orphans are adopted
+in place by a third declared project"*, whose own message reads *"Before this,
+`bench/d3-changed-keys.measure.test.ts` and `bench/sync-step.measure.test.ts` were collected by nothing."*
+**Four commits before this landing, inside this same tranche.** Measured, not inferred: ⟨cmd⟩
+`npx vitest run --project measure` → **`Test Files 2 passed (2)` · `Tests 3 passed (3)`** (double-run,
+identical). The glob `bench/**/*.measure.test.ts` matches **exactly** the two prune-set members and nothing
+else on the tracked tree.
+
+| module | consumer set at `69095552` | disposition |
+|---|---|---|
+| `bench/d3-changed-keys.measure.test.ts` | **`vitest.config.ts:84-91`, project `measure`** | **DELETE VETOED** |
+| `bench/sync-step.measure.test.ts` | **`vitest.config.ts:84-91`, project `measure`** | **DELETE VETOED** |
+| `bench/group-soa-integration.mjs` | ∅ | pruned |
+| `bench/taxonomy.json` | ∅ | pruned |
+| `bench/typed-om-validate.mjs` | ∅ | pruned |
+| `scripts/probe-webkit-linear-accel.mjs` | ∅ | pruned |
+
+The staging seat's own rule is what fires: its tombstone reads *"a live consumer would have vetoed the
+delete (none did)"*. **One does now.** The only repoint that would make the delete safe is removing X.KF.W8's
+`measure` project — undoing a sibling wave's landed cure, and out of this unit's bounds. **Four of six
+deletions land; two are dropped and named.** `tsconfig.test.json:17` `include: ["test/", "bench/",
+"demo/env.d.ts"]` still holds, so `bench/` remains inside the typecheck project — measured at Act 5, not
+elided. **Post-landing re-check**: ⟨cmd⟩ `grep -rIF` over the merged tree excluding `docs/` → **0 live
+references** to any of the four pruned modules.
+
+#### Act 3 — the eight units' novelty, measured at the landing tree (the LAND/KILL decision)
+
+*"Leaving the branch as-is is not a third option."* Both arms were priced at the bytes before choosing.
+
+| unit | at `69095552` | verdict |
+|---|---|---|
+| **MR1** pageerror render assert | `grep -c pageerror` over the 3 observe scripts → **0 · 0 · 0** | **LIVE — lands** |
+| **MR2** browser oracles | `grep -c 'browser oracles'` in `ci.yml` → **0**; all 5 oracle paths **PRESENT**, each still **`skipIf`**-gated | **LIVE — lands** |
+| **MR3** `require_demo_green` | `deploy-pages.yml:12` `workflow_dispatch: {}`; both asserts still `if: … != 'workflow_dispatch'` — **the AV-4 bypass is still open** | **LIVE — lands** |
+| **MR4** demo lane in CI | `package.json:47` already carries `"test:demo"` **verbatim**; `ci.yml` already runs it as **`demo correctness suite`** (X.KF.W4) | **CONVERGED — recorded, not wired twice** |
+| **relabel** GS-03 | `package.json:53` still `proof:owner-golden`; 6 self-labels in `gates/visual/index.mjs` | **LIVE — lands** |
+| **TC-5** trio | `test/support/withSetup.ts` **ABSENT** | **LIVE — lands** |
+| **BV-2** golden | `test/group/static-weight-composite-golden.test.ts` **ABSENT** | **LIVE — lands** |
+| **prune set** | all **6** paths **PRESENT** | **4 land · 2 vetoed (Act 2)** |
+
+**Seven of eight units are still live at the landing tree.** A KILL would tombstone seven live cures —
+including the only instrument that keys the blank-demo P0 on `pageerror` and the only closure of the AV-4
+dispatch bypass. **VERB: LAND.**
+
+#### Act 4 — the landing, with every staged premise re-derived at the moved bytes
+
+⟨cmd⟩ `git merge --no-ff --no-commit origin/v/w9-staging` → **one conflict only**
+(`.github/workflows/ci.yml`); everything else auto-merged. A **merge**, not a rebase-and-replay: it is the
+form G-7's Statement measures (*"branch `v/w9-staging` is **merged**"*), it preserves `b920b190`'s ancestry
+so the gate's own probe can flip, and it needs no force-push anywhere.
+
+1. **`ci.yml` conflict — re-derived mechanically.** The conflict is exactly MR4's `demo suite` step against
+   X.KF.W4's `demo correctness suite`, **the identical command**. X.KF.W4's step is kept; MR4's duplicate is
+   **dropped** and the convergence is **recorded at the bytes** beside the surviving step. A second identical
+   run is waste and a false second signal.
+2. **The census veto executed** — ⟨cmd⟩ `git checkout HEAD -- bench/d3-changed-keys.measure.test.ts
+   bench/sync-step.measure.test.ts`. Both present on the landed tree (**2,927 B · 7,068 B**).
+3. **MR3 auto-merged onto the drifted file and was read whole**: `workflow_dispatch.inputs.require_demo_green`
+   (default **true**) at `:19-24`, both asserts guarded `!= 'workflow_dispatch' || inputs.require_demo_green`
+   at `:56`/`:59`, master's own job-level `if:` blocks at `:37-41`/`:73-77` intact.
+4. **MR1 auto-merged** into the live `withPage`/`ok`/`fail` harness; ⟨cmd⟩ `node --check` on all four merged
+   `.mjs` → **OK ×4**; ⟨cmd⟩ `python3 yaml.safe_load` on both workflows → **OK ×2**.
+5. **Relabel complete**: ⟨cmd⟩ `grep -rn 'proof:owner-golden' package.json scripts/ .github/` → **0 hits**;
+   `review:owner-golden` at `package.json:53` + 6 self-labels.
+6. **TC-6's staged premise RE-DERIVED TRUE** — ⟨cmd⟩ `git grep -nE '\b(serialize|hydrate)\b' HEAD --
+   src/animation/group/` → **0 hits**. The seam is still absent, so the `it.fails` fold is still correct and
+   the positive control still carries the HANDOFF signal.
+7. **TC-3's staged premise RE-DERIVED TRUE** — ⟨cmd⟩ `git grep -n 'expose-gc' HEAD -- . ':!docs/'` →
+   **3 hits, all comments**; no runner, script or workflow wires the flag. The gc arm is still a tautology.
+8. **BV-2 — the one cure the landing owed.** Its three layer factories were typed `AnimationLayerConfig`,
+   whose `weight` and `enabled` became **required** in the intervening 229 commits: **+3 `tsc -p
+   tsconfig.test.json` errors (23 → 26)**, all three in that file, measured before the cure. Cured at root —
+   typed **`Partial<AnimationLayerConfig>`**, the constructor's own declared parameter type (`group.ts:182`,
+   `AnimationGroupInput.layer`), over which the engine merges `defaultLayerConfig`
+   (`{ zIndex: 0, weight: 1, op: "replace", enabled: true }`). **No value changed**: `addPlain` still omits
+   `weight` so the default 1 fills it — the exact arm the golden's *"`weight` is inert on op:add"* row
+   measures. **No cast, no skip, no allowlist.** Typecheck returns to **23**, the pre-landing baseline.
+9. **The landing addendum** was appended to `docs/tranches/V/audit/W9-tombstones.md` under a dated
+   2026-09-19 rule (**71 → 216 lines · 4,201 → 12,915 B**); **E-3: the staging seat's text above the rule is
+   byte-unchanged**.
+
+#### Act 5 — gates at the landed tree, BEFORE → AFTER, double-run
+
+| probe | BEFORE | AFTER | reading |
+|---|---|---|---|
+| `npm run test:lib` | 112/5 files · 1256 + 3 xfail + 14 skip | **113/5 files · 1259 + 2 xfail + 14 skip** | **+1 file** = BV-2; **+3 tests**; **−1 expected-fail** = TC-6's fold. Exactly the landed cargo |
+| `npm run test:demo` | 39 files · 286 tests | **39 · 286 — IDENTICAL** (≡ run 2) | **TC-5 VERIFICATION GREEN**: the `withSetup` mount harness + the three scene-composable migrations are **behaviour-preserving** |
+| `npx vitest run --project measure` | 2 files · 3 tests | **2 · 3** (≡ run 2) | the veto held; the prune would have emptied this project's glob |
+| `npx tsc -p tsconfig.test.json` | 23 errors | **23** (≡ run 2) | **zero landing-introduced typecheck errors**; `bench/` still in-program |
+| `npm run check:lib` | 3 | **3** (≡ run 2) | unmoved |
+| `npm run lint` | 4 violations | **4** | unmoved |
+| `npm run proof:structure` | PASS, 0 | **PASS, 0** | unmoved |
+| `npm run build:lib` | built | **built 1.55s** | — |
+
+#### Act 6 — commit and push (§10 commit 5)
+
+Merge index verified **exactly 19 paths, all the merge's own** before committing (⟨cmd⟩ `git diff --cached
+--name-only`); the two untracked value letters stayed untracked. A merge commit cannot take a partial
+pathspec, so the index itself is the pathspec and it was measured first.
+
+- **`0a329c57`** — `chore(X·KF W10): v/w9-staging LANDED @ b920b190 — 7 of 8 units land, 2 deletes vetoed by
+  the re-derived census` (the merge commit; body carries the census, the veto, MR4's convergence, the BV-2
+  cure and the full battery).
+- ⟨cmd⟩ `git push origin master` → **`69095552..0a329c57`**.
+- **G-7's own probe, re-run at the remote**: ⟨cmd⟩ `git merge-base --is-ancestor b920b190 origin/master` →
+  **origin/master CONTAINS `b920b190` — LANDED**. The branch ref is **left standing at `b920b190`** as the
+  immutable staging record (E-3); it is now an ancestor of `master`, so the downstream ambiguity §6.B's
+  W9-STAGING lock names is **dissolved by the merge**, not by deleting provenance.
+
+#### Act 7 — the four CI-run witnesses, with IDs (L-2: never an `exit 0`)
+
+| # | witness | id | conclusion |
+|---|---|---|---|
+| 1 | **ci** @ `0a329c57` · job *library gates (library tests + proof:publish)* | run **35421021299** · job **105838624630** | **failure at step `npm ci`** |
+| 2 | **ci** @ `0a329c57` · job *demo correctness (browser roster)* | run **35421021299** · job **105838624704** | **failure at step `npm ci (demo consumer graph)`** |
+| 3 | **deploy-pages** (workflow_run) · job *preflight (library CI + last-demo-green ancestry)* | run **35421048324** · job **105838704425** | **skipped** — ci did not conclude success |
+| 4 | **deploy-pages** (workflow_run) · job *build demo + ship → Cloudflare Pages* | run **35421048324** · job **105838704801** | **skipped** |
+| — | **control, PRE-landing** @ `69095552` | run **35413127952** | **failure at step `npm ci`**, both jobs — **identical colour and identical failure step** |
+
+**The landing did not change CI's colour or its failure point**, and the control proves it at the
+pre-landing SHA.
+
+#### Act 8 — RED-PREEXISTING, named and routed, NOT cured here
+
+⟨cmd⟩ `gh run view 35421021299 --log-failed`: *"`npm ci` can only install packages when your package.json
+and package-lock.json … are in sync … **Missing: `@vue/test-utils@2.5.1` from lock file**"* — plus 14
+transitives (`js-beautify`, `vue-component-type-helpers`, `config-chain`, `editorconfig`, `glob`,
+`js-cookie`, `nopt`, `ini`, `proto-list`, `@one-ini/wasm`, `commander`, `minimatch`, `minipass`,
+`path-scurry`, `abbrev`). **Origin measured**: ⟨cmd⟩ `git log --oneline -1 origin/master -- package.json` →
+**`3a01e362`** *"build(kf · X.KF.W7.a): +@vue/test-utils ^2.5.1 devDependency — OP-4's residue (b), the
+wave's ONE manifest add"*; ⟨cmd⟩ `git log --oneline -1 origin/master -- package-lock.json` → **`fb509edd`**,
+an **earlier** commit. The manifest add never touched the lock.
+
+`package-lock.json` is **not in this unit's writable set** (§4: *"EXPLICITLY NOT IN BOUNDS: any product
+source in either repo"*), and regenerating it is a material dependency act belonging to the manifest's owner.
+**It is named and routed, never quietly patched** — no `|| true`, no `continue-on-error`, no allowlist.
+
+#### G-7 — gate reading, BEFORE → AFTER, clause by clause
+
+| G-7 acceptance clause | reading |
+|---|---|
+| merge commit | **✔ `0a329c57`**, `b920b190` an ancestor of `origin/master` |
+| LAW A census re-derived at the landing tree, pasted with outputs, both legs, alias roots enumerated | **✔ Act 2** — and it **changed the act**, vetoing two deletes by name |
+| TC-5 verification | **✔** — `test:demo` **39/286 → 39/286 identical**, double-run |
+| four CI-run witnesses | **✔ present with run + job IDs** (Act 7) — **all four RED/skipped**, at a failure point measured pre-existing and identical at the pre-landing SHA |
+| MR4's CI red-once witness **at landing** | **✘ NOT OBTAINABLE** — the job terminates at `npm ci` before any test step; and MR4 itself **converged** into X.KF.W4's step, which landed declared-RED with its own history |
+| §B-9's MR2 runner-parity observation (system Chrome vs pinned revision on the Linux runner) | **✘ UNDISCHARGED** — the `browser oracles` step never executed. **Recorded as a carried watch, never claimed** |
+
+**G-7 = RED-HONEST (`complete_with_misses` shape).** The **landing act is complete** — verb stamped **LAND**,
+seven live units landed, two deletes lawfully vetoed, zero regressions in any local probe. **Two of the six
+acceptance clauses are CI-dependent and are blocked by a RED-PREEXISTING, out-of-bounds lockfile defect**
+that the landing neither caused nor worsened. Claiming them would be exactly the falsifier G-7 names.
+
+#### Residuals and escalations
+
+- **ESC-e1 — `package-lock.json` out of sync at kf `origin/master`** (origin `3a01e362`, X.KF.W7.a). Blocks
+  `npm ci` in **every** CI job, hence MR4's red-once witness and §B-9's MR2 runner-parity observation.
+  **Out of this unit's §4 bounds; routed to the orchestrator / `.f` / `.g`.** Cure is the manifest owner's:
+  sync the lock, re-run `ci`, then read the MR2 step's first real execution for the parity observation.
+- **R-1 (carried, for `.f`/`.g`).** The **§B-9 watch row is NOT discharged** at this landing and must not be
+  stamped as such. Its precondition is ESC-e1.
+- **R-2 (banked, the census's own second proof).** The spec's LAW A census — the file's own **exemplar** for
+  the law — was **stale at execution on two of its six modules**, and the staleness was created by a sibling
+  wave of this same tranche four commits before the landing. The law's clause *"the next seat re-runs the
+  census rather than inheriting this one"* is what caught it. Recorded, not re-ruled here.
+- **R-3 (found and disqualified, never counted).** `CHANGELOG.md:359` names `test/d3-changed-keys.measure.test.ts`
+  — a **different, `test/`-rooted** path, in a changelog. Not in the spec's enumeration; booked as non-import
+  context. *"Found and disqualified"* is the only reading a census may claim.
+- **R-4 (SELF-COUNT law).** This unit's product writes are all in **keyframes.js**, outside G-4's witness
+  field (value.js `docs/tranches/X/` + `docs/tranches/V/megatranche/`). This receipt lands **inside** that
+  field and carries **none** of G-4's three never-cite tokens (`357/414`, `86.23`, `0/5 slots`) — it
+  contributes **0 files · 0 lines · 0 occurrences**, and re-reading it cannot move the number.
+- **No write landed outside this unit's writable set.** `scripts/dev/dev.sh` untouched; glass-ui untouched;
+  no sibling seat's path staged, reset or unstaged; no stash, no force-push, no branch rewrite.
