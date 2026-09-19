@@ -1691,3 +1691,230 @@ GREEN at every artefact with both legs measured separately.
 X·P wave file, of `COHESION.md`, of `INBOX.md` or of the registry was written by this seat; the
 four-verb line is untouched. This check wrote exactly two paths: this section and the LEDGER's
 appended event line.
+
+---
+
+## Repair 1
+
+**SERVED MODEL: claude-opus-5[1m]** — REPAIR SEAT, round 1, Track D. Wall clock **2026-09-19**;
+sitting of record **2026-09-17** (the owner's begin-word, COHESION §0j). Every reading below was
+produced by a command this seat ran itself against the settled bytes, double-run; nothing is
+inherited from `## Close` or from `## Check 1`.
+
+**VERDICT: PARTIAL REPAIR — `X.P.W4.c` SAT AND IS DONE; `X.P.W4.d` COULD NOT SIT AT THIS SEAT.**
+**1 of 3 HIGH defects CURED IN FULL · 1 HIGH advanced 1-of-3 and still open · 1 HIGH + 2 MINOR
+ESCALATED.** **Gates move 4 GREEN / 6 RED → 6 GREEN / 4 RED.** G-5 and G-6 turn GREEN at this
+seat's own commands; G-3 reproduces RED byte-identically with its cure address still outside §4;
+G-8 · G-9 · G-10 are unmoved because they are `.d`'s and `.d` is not this seat's to be.
+**No four-verb line moves. No wave file was touched.**
+
+### Crash-recovery (standing law, first act)
+
+⟨cmd⟩ `git -C /Users/mkbabb/Programming/value.js status --porcelain` at this seat's open → **2 rows**:
+`M docs/tranches/V/reformation/CARRY-LEDGER.md` (a sibling's / the owner's) · `M scripts/dev/dev.sh`
+(**unowned, NEVER touched, never staged**). ⟨cmd⟩ `git status --porcelain --
+docs/tranches/X/parse-that/ docs/tranches/X/execution/D/X-P-W4.md
+docs/tranches/X/execution/LEDGER.md docs/tranches/V/coordination/INBOX.md
+docs/tranches/X/COHESION.md docs/tranches/V/megatranche/registry/` → **no output**.
+⟨cmd⟩ `git -C <p2> status --porcelain` → `?? .worktrees/` alone. ⟨cmd⟩ `git -C
+/Users/mkbabb/Programming/parse-that status --porcelain` → **31 rows** under `rust/**` in the
+**frozen read-only** root — none of it this wave's, that root is §4 Do-NOT-touch, and not one byte
+of it was touched, stashed or restored.
+
+**Zero dirty paths inside this seat's writable set · zero inherited hunks · no killed predecessor's
+partial work to finish, rewrite or name.** Nothing was stashed; nothing was restored; no sibling's
+dirty path was touched.
+
+### Defect → cure → commit
+
+| # | defect (Check 1) | disposition | cure that landed |
+|---|---|---|---|
+| **HIGH-1** | `X.P.W4.c` never dispatched; G-5 RED with no relief; two landed reciprocity sentences cite `RELEASE-CONDITION.md` by path and the path does not exist | **CURED IN FULL** | `.c` sat at this seat (Opus 5, serial, after `.a ∥ .b`). All four of its artefacts landed: `RELEASE-CONDITION.md` · `<p2>/typescript/scripts/rc-p-evaluate.mjs` · `evidence/W4/rc-p-evaluation.json` · `evidence/W4/reciprocity-grep.txt`. Commits `541754c` ⊕ `76f4a921` |
+| **HIGH-2** | `X.P.W4.d` never dispatched: G-8's packet leg, G-9's recording, G-10's stamp, §3 items 7–10, §8's four `.d` artefacts | **ESCALATED — E-r1-1** | Not curable at this seat. `.d` is a **fresh Fable adjudicator** (M-23 §1, §5); this seat is `claude-opus-5[1m]` and, having just authored `.c`, is **not fresh** — *"a seat that authored a gate cannot certify it."* Three triumvirate rulings (F-w4b-3 · F-w4c-1 · F-w4c-2) remain unmade and F-w4c-1 is a **halt condition on `.d` itself** |
+| **HIGH-3** | §2a's goal criterion NOT MET on all three questions | **ADVANCED 1 of 3; still open** | *"When may the consumer act"* is now **answerable from one document** — `RELEASE-CONDITION.md`, by a predicate with six commands and an evaluator, not by a status word. *"What does value.js receive"* still publishes **45 of 52** rows `PENDING-ADJUDICATION` (the adjudicator is `.d`). *"How does it arrive"* still answers **RED** (`entryCount 1` · `resolved 0 of 52`; the cure address is F-w4b-3's). Rides **E-r1-1 ⊕ F-w4b-3** |
+| **MINOR-1** | the wave opened against a failed G-10 open-state assertion (sum 7, spec requires 5) | **ESCALATED — F-w4c-1, unmoved** | No one-command cure exists: the two admissible shapes are both **dated addenda to an E-3 file**, i.e. triumvirate acts. Re-measured at this seat: **7**, double-run `7 ≡ 7`. The act G-10 halts (the R-A stamp) was again **not performed**, so the halt is honoured in substance a second time |
+| **MINOR-2** | ESC-e2's W3 harvest measured and unlandable; W4's own L-13 harvest absent | **ESCALATED — F-w4c-2, unmoved** | The write target `docs/tranches/V/megatranche/registry/harvest/x-p-w3.json` is in **no row of `W4.md` §4**, and `x-p-w4.json` is `.d`'s close-time act. ⟨cmd⟩ `git status --porcelain -- docs/tranches/V/megatranche/` → **no output** before and after this seat's work: the registry was not written from outside bounds |
+
+### What `.c` produced — four artefacts, every figure read from the settled bytes
+
+| path | bytes | sha256 |
+|---|---|---|
+| `docs/tranches/X/parse-that/RELEASE-CONDITION.md` | **26,049** | `a61f564520e9d369f3a01e0e14e4e71f07aa4d3c395b43b445eeaeda0b55c3db` |
+| `<p2>/typescript/scripts/rc-p-evaluate.mjs` | **25,873** | `895e089bfd42368deaa1e27cc2654841f884653729757d8f79c86dc35412d8ba` |
+| `docs/tranches/X/parse-that/evidence/W4/rc-p-evaluation.json` | **33,938** | `444d864a0718f3f5c1e8601100ae2e2af57c056614b09c3d231fc5b92ecab3b4` |
+| `docs/tranches/X/parse-that/evidence/W4/reciprocity-grep.txt` | **3,951** | `0622e63973ce82112292b631e1befc53fc9590594b502f69198ee46bc648402b` |
+
+**The evaluation of record — `RC-P(4.0.0)` = FALSE, 4 of 6 conjuncts FALSE**, ⟨cmd⟩ `node
+scripts/rc-p-evaluate.mjs --version 4.0.0 --out …`, **EXIT=1**:
+
+```
+#  conjunct          MEASURED  VALUE   reading
+1  PUBLISHED(V)      yes       FALSE   verify-packed-surface.mjs exited 1 against V's registry tarball — the packed surface does not resolve
+2  TOTALITY(V)       yes       TRUE    TRUE
+3  EQUIVALENCE(V)    yes       FALSE   the harness exited 1 with 44 mirror-defects
+4  ADMITTED(V)       NO        FALSE   V's installed bytes contain zero .wasm artifacts, so the admission has no subject — FALSE, not vacuously true
+5  BAR-DISCHARGED    yes       TRUE    TRUE
+6  ROUTED(V)         yes       FALSE   RELEASE-PACKET.md does not exist at its in-repo path — the packet has no delivery point
+
+RC-P(4.0.0) = FALSE — 4 of 6 conjuncts are FALSE: 1 PUBLISHED(V) · 3 EQUIVALENCE(V) · 4 ADMITTED(V) · 6 ROUTED(V)
+KF.W3 does NOT open. The X·V adoption wave's re-trigger does NOT fire.
+```
+
+**Double-run.** ⟨cmd⟩ `diff` of the two printed tables with the `evaluated at` line excluded → the
+**single** line that differs is the `--out` destination. The banked JSON re-run and compared field by
+field → **one** non-volatile path differs, `conjuncts[0].registryIdentity.tarball`, which is the
+`mkdtemp` workspace the registry tarball was fetched into; **verdict · trueCount · falseConjuncts ·
+probe sha256 · registry sha1 · mirrorDefects all identical** (`FALSE ≡ FALSE`, `2 ≡ 2`,
+`[1,3,4,6] ≡ [1,3,4,6]`, `77678a57… ≡ 77678a57…`, `44 ≡ 44`).
+
+**The registry-identity bridge, measured.** ⟨cmd⟩ `npm view @mkbabb/value.js@4.0.0 dist.shasum` →
+`ccb962e592fb42e6602fc2bb6afbfb1763788b9d`; ⟨cmd⟩ `shasum -a 1` over `npm pack
+@mkbabb/value.js@4.0.0` → **the same digest**. The bytes conjuncts 2 and 4 inspected are `V`'s
+published bytes, proven rather than assumed — which is what `§6a`'s *"against the registry coordinate
+`V`"* demands and what no prior reading in this wave had established.
+
+**Negative control, run at this seat.** ⟨cmd⟩ `node scripts/rc-p-evaluate.mjs --version
+0.0.0-does-not-exist` → conjuncts **1 · 2 · 4** print `MEASURED  NO` / `VALUE  FALSE` with
+`npm view exit 1` named, 3 and 5 still measure, 6 reads FALSE on the absent packet, **EXIT=1**.
+§6 G-5's primary falsifier — *"an evaluator that returns TRUE with any conjunct unmeasured fails"* —
+is discharged by demonstration, not by assertion. ⟨cmd⟩ `node scripts/rc-p-evaluate.mjs` with no
+`--version` → refuses, **EXIT=2**, so the predicate cannot be run without a coordinate.
+
+**No version literal in any code path.** ⟨cmd⟩ `grep -nE '[0-9]+\.[0-9]+\.[0-9]+'
+scripts/rc-p-evaluate.mjs` → **2 hits, both inside comment blocks quoting the spec verbatim**
+(`W4.md` §3's own `4.1.0` prohibition at L25; §6a's *"the sha-pinned 4.0.0 tarball"* at L290).
+**0 in code.** `--version` is required and has no default.
+
+### TWO CONJUNCTS DIVERGE FROM §6a's 2026-08-03 BASELINE — stated beside it, never over it (E-3)
+
+`W4.md` §6a's pasted baseline is immutable and **was not touched**. Two of its six readings no longer
+reproduce, and both are findings rather than corrections:
+
+| conjunct | §6a baseline, 2026-08-03 | measured here, 2026-09-19 | cause |
+|---|---|---|---|
+| **2 TOTALITY** | *"the anchor probe reports **324 throws / 1548 calls**, 4 of 9 entry points RED"* | **TRUE** — ⟨cmd⟩ the probe **unmodified** against `V`'s unpacked registry tarball → `TOTAL 0 throws / 1548 calls`, `DISTINCT FAILURE MODES: 0`, all nine entries `ok`, **EXIT=0** | **An instrument divergence, not a repair.** The probe resolves its repository six directories above itself and packs **that**; the baseline therefore measured a working tree, while §6a binds the subject to *"`V`'s registry tarball"*. Run against the registry bytes through the COHESION §0p scratch-mirror idiom — tarball unpacked, probe **symlinked** at its six-deep path, sha256 recorded on every run — the published parsers are total. **Two different subjects; the registry one is the conjunct's.** No byte of the probe was modified: ⟨cmd⟩ its sha256 `77678a574d7c6b11448b19b6ab8fc0686dddf405a01cd7ea16757bc0837ad4ec`, identical on both runs |
+| **5 BAR-DISCHARGED** | *"OC-1 has been unruled since 2026-07-20"* | **TRUE** | The owner ruled it at COHESION **§0j.E**, dated 2026-09-17 — admission decided on correctness, bench table recorded-not-gating. The ruling's own further condition is met: ⟨cmd⟩ `ls -l evidence/W3/bench-three-leg.md` → present, non-empty. This conjunct is the **one** §6 G-5 permits to be a document read, and it is flagged `documentRead: true` in the banked JSON |
+
+The other four reproduce the baseline's direction. Conjunct 1 is FALSE for a **newly measured**
+reason: ⟨cmd⟩ `node scripts/ci/verify-packed-surface.mjs <4.0.0 tarball>` → **EXIT 1** on
+`/transform exports ["PathGeometry","decomposeMatrix2D",…]` — the published 4.0.0 surface does not
+satisfy the current packed-surface law. The baseline's reason (*"the only published version is
+4.0.0"*, i.e. no candidate coordinate exists) is a different sentence about the same FALSE.
+
+### The ten gates, RE-RUN BY THIS SEAT after the cure — **6 GREEN · 4 RED** (was 4 · 6)
+
+| gate | before this repair | this seat's own command, at the settled bytes | after |
+|---|---|---|---|
+| **G-1** | GREEN | the spec's literal command → `VERDICT: GREEN — both set-differences ∅, no disposition contradicts the ledger, every carried cell publishes PENDING-ADJUDICATION, no field is blank`, **EXIT=0**; double-run identical | **GREEN** (unmoved) |
+| **G-2** | GREEN | ⟨cmd⟩ `git status --porcelain -- src api demo test e2e` → **0 lines**, double-run `0 ≡ 0`. Per-commit leg over this repair's value.js commits → `0` paths under those roots | **GREEN** (held) |
+| **G-3** | RED | ⟨cmd⟩ `node scripts/packed-candidate-surface.mjs --seam …/SEAM-CONTRACT.md` → `tarballSha256 efc11936d361820526a93ada2145012d0c58cec48cee9ccb9a19c22c66e74cda` (**byte-identical to `.b`'s bank and to Check 1's**) · `entryCount 1` · `seamSubpathDeclared false` · `resolved "0 of 52"` · `refusals 5` · `G3 "RED"`, **EXIT=1** | **RED — unmoved, honestly.** All three cure addresses remain outside §4 → **F-w4b-3 stays ESCALATED** |
+| **G-4** | GREEN | ⟨cmd⟩ `node scripts/wasm-admission.mjs <9 project artefacts>` → `tally {artifacts 9 · admitted 9 · functionKindImportsTotal 0 · unaccountedImportsTotal 0}` · `"verdict": "GREEN"`, **EXIT=0**; double-run ⟨cmd⟩ `diff` with `generatedAt` excluded → **no output** | **GREEN** (unmoved) |
+| **G-5** | **RED** — evaluator absent | ⟨cmd⟩ `ls <p2>/typescript/scripts/rc-p-evaluate.mjs` → **present, 25,873 B**. ⟨cmd⟩ `node scripts/rc-p-evaluate.mjs --version 4.0.0` prints the **six-row table of §6a** and **exits 1 naming which conjuncts are FALSE** (`1 PUBLISHED(V) · 3 EQUIVALENCE(V) · 4 ADMITTED(V) · 6 ROUTED(V)`). Falsifiers checked one by one: returns TRUE with a conjunct unmeasured — **impossible**, `value` is `measured && pass` at the single assignment site, demonstrated by the negative control; reads a status word outside conjuncts 5 and 6 — **no**, conjunct 2 runs the probe, 3 runs the harness, 1 packs from the registry; *"a previous run said so"* — **no cached artefact is read as a verdict** | **GREEN** |
+| **G-6** | **RED** on leg 3 **and** on the cited file's existence | ⟨cmd⟩ `grep -rn 'RC-P' docs/tranches/X/{keyframes,fourier}/waves/ \| wc -l` → **25** over 5 files, so the stated falsifier (*"fewer than two hits"*) **does not fire**, double-run `25 ≡ 25`. ⟨cmd⟩ `sed -n '9p' KF-W3.md` and the F-W0.md:459 extraction → both far-end sentences **verbatim, by predicate name, no wave number** (⟨cmd⟩ the wave-number cross-grep → **0**). ⟨cmd⟩ `ls -l …/RELEASE-CONDITION.md` → **present** — the file both landed sentences cite by path now exists. `evidence/W4/reciprocity-grep.txt` **banked** | **GREEN on its stated falsifier**, and the cited-file half is CURED. **Leg 3 stays ABSENT** — ⟨cmd⟩ `grep -rn 'SEAM-CONTRACT' docs/tranches/X/waves/` → **0** — and is **spec-relieved by §6 G-6's own baseline** (*"the third sentence has no file to live in at all — that is G-9"*). **The tension is disclosed, not smoothed**: the gate's headline says three sentences in three files and only two exist; its falsifier is explicit and does not fire; its baseline routes the third to G-9 |
+| **G-7** | GREEN (floor) | ⟨cmd⟩ `grep -c 'parse-that' ../fourier-analysis/package.json` → **0**; over `web/package.json` → **0**; double-run `0 ≡ 0` both. The transitive copies were **not** touched | **GREEN — floor held** |
+| **G-8** | RED (packet leg) | ⟨cmd⟩ `ls …/RELEASE-PACKET.md` → **No such file or directory**. Mail leg by **position** → **UNREAD 0**, double-run `0 ≡ 0` | **RED — `.d`'s. E-r1-1** |
+| **G-9** | RED | ⟨cmd⟩ `ls waves/W4-CLOSE.md` → **No such file or directory** — the disposition is pre-ruled (C) at COHESION §0i.1 and still has no gate artefact to be recorded in | **RED — `.d`'s. E-r1-1** |
+| **G-10** | RED | ⟨cmd⟩ `cat waves/W[0-4].md \| grep -c 'VERIFIED \| \*\*NO\*\*'` → **7**, double-run `7 ≡ 7`; close-state must read 0. **No wave file was touched by this seat** | **RED — `.d`'s, and halted behind F-w4c-1** |
+
+**GREEN: G-1 · G-2 · G-4 · G-5 · G-6 · G-7. RED: G-3 · G-8 · G-9 · G-10.**
+**Every remaining RED is either the one honest-RED whose cure address is out of bounds (G-3) or one
+of `.d`'s three (G-8 · G-9 · G-10).**
+
+### §8 Verification Artefacts — re-counted over the same twelve rows
+
+**7 PRESENT · 1 PARTIAL · 4 ABSENT** (was 4 · 1 · 7). The three that moved are exactly `.c`'s:
+`RELEASE-CONDITION.md`, `rc-p-evaluation.json`, `reciprocity-grep.txt`. The commit roster stays
+**PARTIAL** — phases 1 and 2 have commits, **phase 3 has none**. The four still ABSENT are exactly
+`.d`'s: `W4-CLOSE.md` · `RELEASE-PACKET.md` · the INBOX packet sent-row · `registry/harvest/x-p-w4.json`.
+**`evidence/W4/value-source-untouched.txt` is `.a`'s bank and was NOT rewritten** (E-3); this seat's
+own G-2 readings are recorded here instead, at this seat's own site.
+
+### Escalations — returned, not substituted for
+
+1. **E-r1-1 (HIGH, seat-identity + unruled halt) — `X.P.W4.d` cannot sit at a repair seat.** `W4.md`
+   §5 and M-23 §1 require a **fresh Fable adjudicator**, *"and the adjudicator must be fresh — a seat
+   that authored a gate cannot certify it."* This seat is `claude-opus-5[1m]` and has just authored
+   `.c`; it is disqualified on **both** counts. Independently, three triumvirate rulings are owed and
+   **F-w4c-1 is a halt condition on `.d` itself** — the close's own sequencing note is right that
+   putting the only seat that may stamp VERIFIED in front of an unruled halt is the failure mode.
+   **Owner**: the orchestrator, after F-w4b-3 · F-w4c-1 · F-w4c-2 are ruled.
+2. **F-w4b-3 (HIGH, bounds) — unmoved.** G-3's three causes (C1 `files:["./dist"]` + no `./css` in
+   `exports`; C2 `tsx/esm/api` undeclared; C3 `build/ac1.d.ts` escaping the package root) all live at
+   `<p2>/typescript/package.json` and `<p2>/typescript/src/css/**`, which **no unit of this wave may
+   write** — §4 grants exactly three `<p2>` script paths and this seat created the third
+   (`rc-p-evaluate.mjs`) and not one byte more. A consumer-side patch would itself be the bounds
+   violation §3a names.
+3. **F-w4c-1 (MEDIUM, instrument) — unmoved, re-measured 7.** Both admissible shapes are dated
+   addenda to E-3 files; neither is a seat's act.
+4. **F-w4c-2 (MEDIUM, bounds) — unmoved.** `registry/harvest/x-p-w3.json` is in no §4 row.
+
+**Carried forward unchanged**, each already owned in the close's residual register: `U-d` ·
+`F-w4a-1` · `SEAM-DRIFT` · `R-w4b-2` · `F-ae1 / F-p1` · the W3 rounds-6–8 id set. **`U-c` is
+DISCHARGED** by this repair. **`F-w4a-2`** — the differential's `noPeer 28` being exactly `CN-3`'s 28
+— was routed to `.c`; it is discharged **as a reading**: `RELEASE-CONDITION.md` §2.3 records the
+instrument note by name (**Q-RC-1**) so conjunct 3 can never be read as a producer gap, and the
+banked JSON carries the same text under `conjuncts[2].instrumentNote`.
+
+**Two open contract questions minted and routed, neither resolved** (`RELEASE-CONDITION.md` §6):
+**Q-RC-1** conjunct 3's subject binding — the harness measures the candidate's lowering, §6a binds
+the conjunct to `V`, and the two coincide only after the G-9 adoption; **Q-RC-2** conjunct 4's
+vacuity — the evaluator reads a Wasm-free release **FALSE**, which makes `RC-P` unsatisfiable by
+such a release, and whether that is right is the owner's. Both are recorded rather than chosen,
+because §3a halts on *"any pressure to relax RC-P"* and inventing an answer is the mirror-image fault.
+
+### E13 — the four-path mail sweep at this seat's own clock
+
+| path | `*.md` at depth 1 | unrowed addressed to value.js |
+|---|---|---|
+| `docs/tranches/V/` | 10 | 0 |
+| `docs/tranches/V/coordination/` | 24 | 0 |
+| `../glass-ui/docs/tranches/BK/coordination/` | 9 | 0 |
+| `../keyframes.js/docs/tranches/V/coordination/` | 12 | 0 |
+| `../sci-report/atlas/docs/tranches/P/coordination/` | 28 | 0 |
+
+⟨cmd⟩ the by-position scan (never a bare `grep -i unread`) → **UNREAD 0**, double-run `0 ≡ 0`, over
+the file's **94** `^| ` rows. Register tail **`O-39`**, unmoved. ⟨cmd⟩ `find <the four paths>
+-maxdepth 1 -type f -name '*.md' -newermt "2026-09-19 07:00"` → **one member, `INBOX.md` itself**
+(self-excluded from its own denominator; a sibling track appended to it while this seat measured).
+**0 unrowed · 0 `I-n`/`O-n` minted by this seat · 0 UNREAD.** `INBOX.md` is in none of this seat's
+pathspecs. **The packet's own sent-row is `.d`'s act and is NOT forged here** — writing a row for a
+packet that does not exist would be the delivery-point falsifier §6 G-8 names.
+
+### Format and lint cadence (§7)
+
+⟨cmd⟩ `prettier --write` then `--check` twice over `RELEASE-CONDITION.md` → *"All matched files use
+Prettier code style!"* on both, i.e. **idempotent**; the published 26,049 B and sha256 are read from
+the **post-format** bytes (write-then-measure). ⟨cmd⟩ `node --check scripts/rc-p-evaluate.mjs` →
+clean. ⟨cmd⟩ `git diff --check` → clean in value.js and in `<p2>`. **`R-w4b-2` is carried unchanged**:
+§7's fresh-root `npx tsc --noEmit` / `npx eslint .` cadence still has no subject for a `scripts/*.mjs`
+file — no eslint config or install in that root, `typescript/tsconfig.json` includes only `src/` and
+`test/`, no `@types/node` anywhere — so `node --check` + `git diff --check` is what was run, exactly
+as `.b` recorded. No settled artefact of another seat was re-formatted; this append is not
+Prettier-formatted, and must not be, because formatting it would rewrite seven seats' immutable bytes.
+
+### Commits
+
+Pathspec on the commit itself, one meaning each, four tracks sharing one index in value.js:
+
+| # | root | sha | message | paths |
+|---|---|---|---|---|
+| 1 | `<p2>` | `541754c` | `docs(x-p-w4/release-condition): RC-P — six conjuncts, six commands, three reciprocity sentences` | `typescript/scripts/rc-p-evaluate.mjs` |
+| 2 | value.js | `76f4a921` | same message | `docs/tranches/X/parse-that/RELEASE-CONDITION.md` · `evidence/W4/rc-p-evaluation.json` · `evidence/W4/reciprocity-grep.txt` |
+| 3 | value.js | this section's own commit — sha published in the LEDGER event line | `docs(x-p-w4/repair-1): .c SAT — RC-P landed and evaluated; G-5 and G-6 GREEN; .d escalated on seat identity and an unruled halt` | `docs/tranches/X/execution/D/X-P-W4.md` |
+| 4 | value.js | the LEDGER row's own commit, taken last | `docs(x-p-w4/repair-1): LEDGER — 6 of 10 gates GREEN; RC-P(4.0.0) FALSE at 2 of 6 TRUE; four escalations stand` | `docs/tranches/X/execution/LEDGER.md` |
+
+**SELF-COUNT.** This seat wrote **five** paths and no others: the four artefacts above plus this
+record section and the LEDGER row. **`scripts/dev/dev.sh` was never touched and never staged.** No
+byte of `W0.md`–`W4.md`, of `COHESION.md`, of `INBOX.md`, of the registry, of `SEAM-CONTRACT.md`, of
+either of `.b`'s scripts, of any sibling repo or of the frozen `parse-that` root was written. The
+shared-index hazard the close recorded was honoured: ⟨cmd⟩ `git diff -U0 -- <the path>` was re-run
+immediately before each commit and each pathspec names exactly its own file.
+
+### What the next sitting does
+
+`.a`, `.b` and `.c` have now sat. **`.d` is the whole remainder**, and it must not be dispatched
+before F-w4b-3 · F-w4c-1 · F-w4c-2 are ruled — F-w4c-1 by construction, because it halts the act
+`.d` exists to perform. When `.d` sits it is a **fresh Fable adjudicator**, and its inheritance is
+now materially larger than the close's: the 45 `PENDING-ADJUDICATION` seam rows, `RC-P`'s two newly
+open contract questions (Q-RC-1 · Q-RC-2), the G-9 recording, the packet and its row, the L-13
+harvest, and the single R-A stamp act — which G-10's falsifier still forbids while G-3 is RED.
