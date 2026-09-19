@@ -3825,3 +3825,297 @@ here rather than quietly, because a self-count that would have been off by two i
 this record convicts elsewhere. **Standing hazard, named for the next seat**: the LEDGER is edited
 concurrently by four tracks, so `git add <LEDGER>` is a whole-file act — a seat that needs its commit
 to carry only its own row must stage the hunk, not the file.
+
+---
+
+## Check 1 — THE RESUME CLOSE (fresh adversarial L-20 pass 1, VERIFY-ONLY, 2026-09-19)
+
+SERVED MODEL: claude-opus-5[1m] — an **append** below the two `## Close` blocks of the RESUME sitting
+(E-3); every prior byte of this record keeps its bytes, `waves/F-W3.md` was not written, and no
+fourier source file was opened for writing. This seat authored **no cure**, integrated **nothing**,
+and is independent of `.a`–`.f`, of both RESUME close blocks, and of `## Check 1`/`## Repair 1`/`##
+Check 2`/`## Repair 2`/`## Check 3` above (those adjudicate the FIRST close, `21e11b0`-era; this pass
+adjudicates the **RESUME close** and the **VERIFY close seat**).
+
+**Crash-recovery sweep (standing law, first act)** — ⟨cmd⟩ `git status --porcelain` in both repos:
+value.js → `M docs/tranches/V/reformation/CARRY-LEDGER.md` (a sibling seat's, outside this seat's
+writable set — untouched) and `M scripts/dev/dev.sh` (unowned, NEVER touched); fourier → `??
+.worktrees/` alone, §5b's own declared residue. **No inherited partial work exists inside this seat's
+writable set** (`execution/C/F-W3.md` + `execution/LEDGER.md` were both clean), so nothing was
+finished, rewritten or discarded.
+
+### VERDICT — **NOT-CONFORMANT**
+
+**0 BLOCKER · 1 CRITICAL · 2 HIGH · 4 MINOR · 1 INFO.** **All 20 gate readings reproduce** at this
+seat's own commands — and two of them were upgraded here from *reported* to *run*: g4/g5 were
+executed live against a vite dev server this seat started (`6 passed`, twice) and g2's contrast leg
+likewise (`2 passed`, twice). Nothing in the close's arithmetic is wrong. **What blocks promotion is
+not a mis-measurement; it is that the wave's own bytes are not on its own line of development, and
+that four of the six honest-REDs are not relieved by anything the spec routes elsewhere.**
+
+The close seats say this themselves — *"integration is the act that moves them, and it is owed"*, and
+*"the shortest path to CONFORMANT-HONEST-RED is … the §9 integration ⊕ a one-commit `.e` rider ⊕ a
+bounds ruling"*. **This pass agrees with that sentence and declines to promote a row it describes.**
+
+### Axis 1 — every claimed GREEN reproduced (20 of 20, this seat's own double-run commands)
+
+| gate | this seat's command and reading | verdict here |
+|---|---|---|
+| g1 | `git show <ref>:…/PaperSearch.vue \| awk '/<style scoped>/…'` → **2** rule blocks at **`0a16b83`** AND at `21e11b0` AND at `8aa9252` | **GREEN at its witness**; the VERIFY seat's provenance correction is CONFIRMED — the 43-dead-rule collapse pre-dates this wave's RESUME baseline, so the credit is F.W4's. Tree-wide arm unmeasured (D-8) |
+| g2 | `git grep -l -- "--slider-scrub" <ref> -- web/src` → **∅ (exit 1)** at all three refs; contrast leg **RUN**: `playwright e2e/slider-scrub-contrast.spec.ts` → **2 passed**, twice | **GREEN** |
+| g3 | `glass-ui/timeline` → **0**; `pointercancel` → **5**; `wc -l` 135/165 → **356/176**, `GlassTimeline.vue:1-20` declares the one composition and names SR-1's refusal | **GREEN** |
+| g4 | **RUN LIVE, twice**, vite `:5199`: `K-4 (a)`, `K-4 (b)`, the latch test — inside `6 passed (2.5s)` / `6 passed (1.8s)` | **GREEN (behavioural), re-run here** |
+| g5 | **RUN LIVE, twice**: arrow-survives-frames, Home/End, harmonic announcement — same two runs | **GREEN (behavioural), re-run here** |
+| g6 | `node -e "…@mkbabb/glass-ui/package.json).version"` → **8.0.0** (≡ `17a11bc5`) | **CONSUMED** |
+| g7 | @ `b9995b3` bare-token `easing-preview` → **0**, `glass-ui/easing` → **2**; @ `21e11b0` → **4 occurrences / 2 files** and **0** adoptions, `EasingCurvePreview.vue` **present** | **GREEN on branch · RED on main** |
+| g8 | @ `b9995b3` `DropdownMenuRadioItem` ×3 in `EasingPicker.vue` (imported from `./menu`), `EasingCurvePreview.vue` **deleted**, `ToggleChip` refused in prose at `:31-34`; @ `21e11b0` → **0** | **GREEN on branch · RED on main** |
+| g9 | `git grep -c is-active` → main **7 files / 22 sites**; `8aa9252` **6 / 20**; `b9995b3` **7 / 20** | **HONEST-RED**, reading exact |
+| g10 | `SliderControl.vue` @ main: `inheritAttrs:false` `:84` ⊕ `chassisAttrs = {class, style}` `:88` ⊕ `v-bind="chassisAttrs"` `:135` ⊕ `emit("valueCommit",…)` `:116` — the anti-rule's own prescribed shape; `ui/tooltip/Tooltip.vue` @ `8aa9252`: `inheritAttrs:false` `:51` ⊕ pre-placed `v-bind="$attrs"` `:144`; @ main **0** | **GREEN at `8aa9252` · PARTIAL at main** |
+| g11 | `@/components/ui/tooltip/Tooltip.vue` deep identity still **1** (`PaperSidebar.vue:2`, `.c`'s closed file); measure knob landed (`max-width` over `ui/tooltip` → 2 + 3) | **HONEST-RED** |
+| g12 | `./fading-scroll` (a) **3** @ `8aa9252`, **1** @ main (`ConvergenceLegend.vue`, F.W4's); `./forms` (b) + `./search` (b), both id-keyed rows with reason + seat + date in the register | **GREEN 3 of 3 at BOTH refs** — g12 is the one branch-green cell that is also green on main |
+| g13 | `git show --stat 21e11b0` → **ONE** commit, **8** files, eight riders named in the body, none deferred | **GREEN** |
+| g14 | leg 2 RED — `style.css` @ `8aa9252` `:208-211` still *"14 application sites (13 files; one uses it 5 times)"*; leg 3 RED — `VisualizationView.vue:216-221` claims the `cartoon-card` retirement while `:191` still paints one | **HONEST-RED**, and see D-4 |
+| g15 | main **5** `timeAgo` files / **7** `startsWith("fourier")` files; @ `8aa9252` `timeAgo` → `lib/time.ts` ⊕ **2** residual (`AdminFlaggedPanel`, `GalleryDraftsSection` — `.d`'s), `startsWith("fourier")` → **6** occurrences | **`.e`-scoped GREEN · HONEST-RED tree-wide** |
+| g16 | the wave adds **exactly one** `@layer` block (`+@layer glass-overrides {`, the only `^\+@layer` in `0a16b83..8aa9252`); **0 naive wraps**; `web/eslint.config.js` exists, `grep -c layer` → **0** | **anti-cure GREEN · lint half HONEST-RED**, receipt corrected at D-6 |
+| g17 | `docs/tranches/F/SUBSTRATE-LEDGER.md` §2.2 G-12 — **15 reconciled rows, none the shadow aggregate**; condition (2) MET, the inline separator-agnostic detector over both close blocks → **0** | **HONEST-RED (F.W0 publishes)** |
+| g18 | fourier porcelain = `?? .worktrees/` alone | **GREEN** |
+| g19 | §8's artefact re-run **verbatim** (`tail -n +2 g19-comm.sh \| sh`), **twice**: canonical sha256 `f44362757458`, **LHS 919/59 == RHS 919/59**, `comm -3` → **0 lines**, duplicates **0/0** | **GREEN** |
+| g20 | register present (29 875 B) carrying the four anti-cures, the 18 kills and g12's two (b) rows; `O-20` rowed in INBOX with a **SENT** status cell | **GREEN (S-15 form)** |
+
+**Cadence, re-run here**: `vue-tsc -b --noEmit` → **exactly one** diagnostic,
+`ContourEditorCanvas.vue(42,9) TS6133`, a file in no §1 bounds row — error-for-error the pristine
+baseline the close published. The reading was taken on the **CLEARED** side of `FR-NP-32`: installed
+pin **8.0.0**, not the corrupt `4.0.0` dist the RED baseline names (OP-5's disclosure sentence,
+answered again).
+
+### Axes 2–7, 9 — each measured at this seat
+
+- **Axis 2 (bounds)**. `git diff --name-only` over the three ranges: `.b`'s 5 paths all in §5b Files;
+  `.a`/`.c`'s 21 paths all in §5a/§5c Files (`web/e2e/**` is `.a`'s by §1's own row); `.d`/`.e`'s 50
+  paths — **49 in bounds, ONE not**: `web/src/lib/colors.ts` (D-2). `scripts/dev/dev.sh` appears in
+  **0** of the 38 fourier commits and **0** of the value.js commits (⟨cmd⟩ `git log --oneline
+  498b2085^..HEAD -- scripts/dev/dev.sh` → **0**). `node_modules` in **0** commits.
+- **Axis 3 (masking)**. Added-line sweep for `test.skip` · `describe.skip` · `xit` · `.only` ·
+  `@ts-ignore` · `@ts-expect-error` · `eslint-disable` · `as any` across all three ranges → **∅**.
+  Three constructs were read whole rather than pattern-matched, and **none is a mask**: (i) the
+  `catch (e)` in `slider-scrub-contrast.spec.ts:157` **pushes to `failures` and continues**, and
+  `failures` is hard-asserted at `:192`; (ii) `index.html`'s pre-paint `try{…}catch(_){}` guards a
+  `localStorage` read that throws by specification in blocked-storage contexts — the canonical
+  pre-paint idiom, not a defect wrapper; (iii) `globalThis as unknown as {requestAnimationFrame?…}`
+  is a fake-clock installer in `e2e/unit/animation-clock.vitest.ts`. The **pre-existing**
+  `test.fixme` keystones were NOT added by this wave (they sit on context lines) and `.d` did not
+  quietly keep them — it refuted their rationale on all three clauses in-file and booked the
+  deletion as `E-d2`. The `checkA11y(..., {include:'[role="dialog"]'})` narrowing is **the spec's own
+  prescribed cure**, quoted at §C.H's `LC-1` row — *"scope `checkA11y` with `.include()` per surface;
+  ASSERT `results.incomplete`"* — and `e2e/a11y.ts:63-77` does assert the suppressed set. **No
+  masking fallback anywhere in the diff.**
+- **Axis 4 (commit families)**. g13's family is ONE commit (`21e11b0`, 8 files) — verified. MPC-31's
+  one-cut is `77b9bc0` alone. `.f`'s five value.js commits are one-meaning each. **One receipts
+  defect survives**: D-5.
+- **Axis 5 (E-3)**. ⟨cmd⟩ `git diff --stat 498b2085^..HEAD -- docs/tranches/V/megatranche/registry/adjudicated/
+  docs/tranches/X/fourier/waves/ docs/tranches/X/fourier/conformance/` → **prints nothing**. The dated
+  spec, the adjudicated registry, the conformance artefacts and every sibling wave spec are
+  byte-untouched by this wave. `.f` correctly wrote its close into this execution record rather than
+  into §5f's nominal `waves/F-W3.md` close block — the E-3-correct resolution.
+- **Axis 6 (mail)**. ⟨cmd⟩ `/usr/bin/grep -cE '^\| [IO]-[0-9]+[a-z]? \|' INBOX.md` → **79**, twice —
+  the close's published figure reproduces under its own stated detector. Classifying **by position**
+  (last cell, leading verb): **0 rows whose Status cell is UNREAD**; the six rows carrying the token
+  carry it as prose under **SENT · Routing · Routing · Routing · (I-35 body) · SENT**. **E13 MET.**
+- **Axis 7 (four verbs)**. The line moved **nothing**, and that is lawful and honest: §State's
+  IMPLEMENTED condition is *"gates green + bytes landed"* and neither half holds; VERIFIED is
+  reserved to the sub-tranche release close. A wave whose one movable verb cannot move is a wave that
+  has not finished — the verb table is the close's own most accurate sentence.
+- **Axis 9 (published figures)**. 38 fourier commits (`21e11b0..8aa9252` → **32**; `..b9995b3` → **2**;
+  `.a` 3 ⊕ `.c` 1) — reproduces. 919/59 — reproduces. 79 INBOX rows / 0 UNREAD — reproduces. 15 G-12
+  rows — reproduces. `colors.ts` 214 lines at `21e11b0` — reproduces. Two published receipts do NOT
+  reproduce as written: D-6 and D-7.
+
+### Axis 8 — the spec's own Goal criterion, tested at the bytes
+
+The criterion has six clauses. The close tests them at *"the union of `8aa9252` ⊕ `b9995b3`, a
+trivial merge"* — **an object that does not exist in the repository**. Tested where the repository
+actually is (`m/w1-bump-migration` @ `21e11b0`):
+
+| clause | at main `21e11b0` | at the branch heads |
+|---|---|---|
+| no surface hand-rolls a component the producer ships | **FALSE** — `EasingCurvePreview.vue` present, 4 bare-token sites, **0** `glass-ui/easing` imports; `FadingScroll` adopted at 1 of 3 sites | TRUE |
+| no scrub or search surface arms its own cure | TRUE (g4 · g5 run live here; g13 landed) | TRUE |
+| one vocabulary names the active state | **FALSE** — 7 files / 22 sites, the publication itself absent | published, partly applied |
+| one law governs every wrapper | **PARTIAL** — SliderControl cured, the Tooltip shim untouched | TRUE |
+| every producer-owned defect on the SS-6 register, not patched locally | TRUE — 13 rows, **0** local producer hacks, glass-ui porcelain 0 | TRUE |
+| every do-not-execute cure recorded | TRUE — 18 kills · 4 anti-cures · 12 no-ops | TRUE |
+
+**Three of six clauses are false or partial at the bytes a reader, a build or a deploy would see.**
+Axis 8 asks for the criterion at the bytes, *not merely its gates*, and at the bytes it is **NOT
+MET**. This is D-1, and it is the finding that decides this pass.
+
+### Axis 10 — HONEST-RED ADJUDICATION, decided at the spec bytes
+
+**RELIEVED — honest-RED, owner named by the spec itself (2):**
+
+- **g16 (lint half)** — §7 verbatim: *"there is no eslint config and no `noUnusedLocals`, so g1's S-4
+  checker and g16's `@layer` rule … **are both F.W0 additions this wave consumes**"*. The gate's own
+  GREEN adds *"the durable fix is a LINT RULE, not a per-component edit"*. A consumer-side per-file
+  rule would be the anti-cure the gate forbids. **Owner: F.W0.** The anti-cure half is GREEN at the
+  bytes (0 naive wraps, 1 lawful `glass-overrides` block added).
+- **g17** — the gate's own title is **"SHADOW AGGREGATE — F.W3 QUOTES, F.W0 PUBLISHES"**, and
+  condition (1) is *"the corrected aggregate exists as a row of F.W0's G-12 denominator table"*.
+  Measured here: 15 rows, none the aggregate. Condition (2), the only F.W3-side condition, is MET at
+  **0** detector hits. **Owner: F.W0.** F.W0 having closed 2026-09-17 without publishing it does not
+  transfer the act — it makes the residual a Track-C coordination item, which is what it is.
+
+**NOT RELIEVED — RED with an in-wave owner and an available in-wave cure (4):**
+
+- **g9** — the gate's own CLOSURE clause orders *"`.e` publishes the vocabulary; **each owning unit
+  applies it in its own files**"*. `.e` published (`style.css:352-386`); `.a` and `.c` never applied
+  (main: `EquationModeToggle` 4 · `AppHeader` 3 · `PaperSidebar` 5 · `MobileFloatingToc` 3 ·
+  `FunctionInput` 2 · `GallerySearchBar` 2 · `EasingPicker` 3). No producer owns it; §10's *Blocks*
+  hands F.W4 **g1 and g16 only**, and F.W4 is CLOSED 2026-09-17. **Mitigation, stated honestly**:
+  `.a`/`.c` closed on 2026-09-18, a day before the §0x re-open dispatched `.e` — the sequencing that
+  stranded the sweep is the wave's two-sitting history, not a seat's negligence. It is still undone
+  work of this wave, and nothing in the spec routes it out.
+- **g11** — partly relieved and partly not. *Relieved*: the 35/9 per-site naming sweep is routed by
+  §C.G's FR-TT-2 row — *"Per-site focusable-host/naming work → F.W4"*. *Not relieved*: **FR-TT-20**,
+  whose own words are *"normalize the TWO import identities **BEFORE** the migration"*, is this
+  wave's and is unmet — `PaperSidebar.vue:2`'s deep SFC import survives, in `.c`'s file.
+- **g14 legs 2/3** — both are single comments inside `.e`'s own §5e files (`style.css`,
+  `VisualizationView.vue`). The gate's GREEN says *"the shim's stale comment corrected **in the wave
+  that touches it**"*, and this wave touched both files. Escalated as `ESC-W3f-2` by a docs-side
+  adjudicator who could not lawfully write them — the escalation is correct; the work is still owed
+  here.
+- **g15 tree-wide** — 9 sites, owners `.a`/`.d`, both in-wave. **3 of the 9 are genuinely relieved**
+  (`ESC-W3e-1`: `BasisCanvas.vue:254` and `stores/gallery.ts:33-34` are in no §1 row — a bounds
+  ruling, correctly escalated rather than breached). **6 are not.**
+
+**The honest-RED set this pass can certify is therefore `{g16, g17}` — two, not six.** A wave cannot
+reach CONFORMANT-HONEST-RED with four unrelieved REDs and its product bytes off its own branch.
+
+### Successor "Opens after" conjuncts, checked against this wave
+
+- **F.W9** — *"Opens after: F.W0 (hard) → F.W1 (atomic) → **F.W3/W4** (the cures this wave gates)"*.
+  F.W0 · F.W1 · F.W4 conjuncts are **GREEN** (all CLOSED). The **F.W3 conjunct is NOT GREEN**: F.W9
+  owns *"the checkpoint never the cure"* and would build, CI and deploy `m/w1-bump-migration`, where
+  the easing retirement, the tooltip wrapper law and the util consolidation do not exist. **F.W9
+  (status `planned`) is LAWFULLY BLOCKED on this wave — and is unblocked by the §9 integration
+  alone**, not by any further cure.
+- **F.W10** — *"Opens after F.W9"* — transitively blocked, and it is the TERMINAL wave that
+  reconciles against dispatched `O-20`, which g20 leaves in good order.
+- **F.W4** (§10 *Blocks*: *"inherits g1/g16"*) — already CLOSED 2026-09-17, ahead of this wave; g1 is
+  GREEN and g16's lint half is F.W0's. Nothing this pass finds re-opens it.
+- **F.W5–W8 / SS-4** (the `basisFilter` WAVE-LOCK) — all four are CLOSED; `lib/basis.ts` exists only
+  on `x/f3e`, so the lock is a forward constraint on a consumer that has already shipped. Recorded as
+  INFO for the integration seat, not as a block.
+
+### Register — severity · claim · receipt · cure
+
+**D-1 · CRITICAL · THE WAVE IS UNINTEGRATED, AND THAT IS NOT A BOOKKEEPING FACT — IT IS THE GOAL
+CRITERION FAILING AT THE BYTES.**
+*Receipt*: ⟨cmd⟩ `git merge-base --is-ancestor b9995b3 21e11b0` → **NO**; same for `8aa9252` and
+`74084fa`. **34 of the wave's 38 fourier commits** are on `x-f-w3-b` and `x/f3e`, neither an ancestor
+of `m/w1-bump-migration`. At main, double-run: `easing-preview` **4 / 2 files**, `glass-ui/easing`
+**0**, `EasingCurvePreview.vue` **present**, `DropdownMenuRadioItem` in `EasingPicker.vue` **0**,
+`inheritAttrs` in `ui/tooltip/Tooltip.vue` **0**, `timeAgo` **5 files**, `startsWith("fourier")` **7
+files**. Three of the Goal criterion's six clauses are false or partial there.
+*Why it is not relieved*: §9's own words — *"**Orchestrator** integration commits sequenced `.a` →
+`.b` (store seam) and `.a` → `.d` (e2e)"* — assign the act **inside this wave**, to its orchestrator.
+That is neither a producer nor a successor wave, so axis (10) offers it no relief. The close seats
+concede exactly this (*"integration is the act that moves them, and it is owed"*).
+*Cure*: the orchestrator takes §9's two integration commits. This seat re-measured the cost a third
+time: changed-path intersection `comm -12` → **0**, `git merge-tree 21e11b0 8aa9252 b9995b3` →
+**0** conflict markers. Then g7 · g8 · g10's Tooltip leg · g15's `.e` legs are re-read **at main**
+and the row moves.
+
+**D-2 · HIGH · A WRITE OUTSIDE §1 FILE BOUNDS, FOUND BY THE CLOSE AND STILL UNCURED (`LW-W3-1`).**
+*Receipt*: ⟨cmd⟩ `git show --stat 9fd0684` → `web/src/lib/colors.ts | 61 +++…`; ⟨cmd⟩ `git show
+21e11b0:web/src/lib/colors.ts | wc -l` → **214** (pre-existing, no rename); ⟨cmd⟩ `/usr/bin/grep -c
+'colors\.ts' docs/tranches/X/fourier/waves/F-W3.md` → **0, exit 1**. §1's **Creates** clause admits
+*new* files only, and only under `web/src/lib/**` or `web/src/composables/**`; a modify of a
+pre-existing file is not reached by it, and no §1 Bounds row or §5e Files line names the path.
+*Aggravation*: the same unit escalated **twice** on bounds edges it declined to cross
+(`ESC-W3e-1`'s `BasisCanvas.vue:254` / `stores/gallery.ts:33-34`, `ESC-W3e-3`'s
+`vitest.config.ts`) — so the law was known at the seat and breached once, and `.e`'s self-count
+(*"26 paths, every one inside this unit's writable set"*) is overbroad by exactly this path. The
+standing law's words are *"any write outside it is an ESCALATION — stop and return it"*, and §6 line
+1 makes a mid-wave bounds row a triumvirate event, never an edit.
+*Cure*: either a triumvirate ruling adding the row as a **dated addendum-beside** (E-3 — the spec is
+immutable), or revert the `colors.ts` hunk of `9fd0684` and re-home `MG-γ`'s runtime half inside a §1
+path. The code is sound; the room is wrong.
+
+**D-3 · HIGH · FOUR GATES ARE LEFT RED WITH IN-WAVE OWNERS AND NO SPEC RELIEF (g9 · g11's FR-TT-20
+leg · g14 legs 2/3 · g15's six unescalated sites).**
+*Receipt*: the four adjudications under Axis 10, each quoted from the spec cell that assigns the act
+— g9's *"each owning unit applies it in its own files"*, FR-TT-20's *"normalize the TWO import
+identities BEFORE the migration"*, g14's *"corrected in the wave that touches it"*, g15's nine with
+`ESC-W3e-1` covering only three. §10's *Blocks* routes **g1 and g16 only** to F.W4, and F.W4 closed
+2026-09-17.
+*Cure*: one rider inside the owning units' existing bounds — the `.e` sweep already scoped as
+`ESC-W3f-2`, plus `PaperSidebar.vue:2`'s import identity and the `.a`/`.c` vocabulary sites — or a
+dated addendum-beside that routes them to a named successor. Until one of the two exists they are
+**unrelieved REDs, and they may not be laundered as honest**.
+
+**D-4 · MINOR · g14's two legs are a two-comment act escalated rather than taken.** *Receipt*:
+`style.css` @ `8aa9252` `:208-211` still reads *"14 application sites (13 files; one uses it 5
+times)"*; `VisualizationView.vue:216-221` still says the `cartoon-card` panel backgrounds *"retire
+for the substrate's layered chassis"* while `:191` paints one. Both files are `.e`'s. *Mitigation*:
+`.f` is a docs-side adjudicator and could not lawfully write them; the escalation is the correct act
+for that seat. Folded into D-3's cure; listed separately because it is the cheapest unrelieved RED in
+the wave.
+
+**D-5 · MINOR · `d-R1` reproduces — four `.d` commits carry no `Claude-Session` trailer.** *Receipt*:
+⟨cmd⟩ a trailer sweep over `git rev-list 21e11b0..8aa9252` returns **4** bodies without it —
+`be623d93` · `aa9e12c1` · `11a03518` · `caca3cfb`; the other 28, all of `.a`/`.b`/`.c` and all seven
+value.js commits carry it. Disclosed by `.d` and re-disclosed by both close seats; **not amended**,
+which is right (an amend rewrites a sibling-visible history for a receipt). *Cure*: none owed — the
+disclosure is the cure, and it is already in the record twice.
+
+**D-6 · MINOR · the VERIFY close's g16 receipt states a universal that is false at the bytes.**
+*Receipt*: the cell reads *"every `@layer` **declaration** is `@layer glass-overrides` (3 sites)"*.
+⟨cmd⟩ `git grep -n "@layer" 8aa9252 -- web/src` shows `web/src/style.css:97 @layer base {` and
+`:327 @layer components {` beside the three `glass-overrides` blocks — five declarations, not three.
+**The gate verdict is unmoved**: both are **pre-existing** (identical at `0a16b83`), and the wave
+adds exactly one `@layer` block, `+@layer glass-overrides {` — the only `^\+@layer` in the whole
+range. *Cure*: restate the cell as *"the wave introduces one `@layer` block and it is
+`glass-overrides`; the two pre-existing `base`/`components` declarations are untouched"*.
+
+**D-7 · MINOR · the VERIFY close's bounds table claims a create is authorised "by name" when the name
+is not in the spec.** *Receipt*: the `.d` row reads *"the ONE create §5a split (5) authorises by name
+(`BatchActionBar.vue`)"*; ⟨cmd⟩ `grep -n 'BatchActionBar' docs/tranches/X/fourier/waves/F-W3.md` →
+**no match**. The create **is** authorised in substance — §1 **Creates** names *"one shared admin
+toolbar (I)"* and §5a split (5) orders it authored once in `.d` as *"its extracted module"* — but not
+by name, and its path (`web/src/components/visualization/gallery/`) sits outside the Creates clause's
+stated roots (`web/src/lib/**` / `web/src/composables/**`), which the clause's own *"no new `shared/`
+dirs — KISS"* rationale arguably intends. *Cure*: restate the row as *"authorised in substance by §1
+Creates ⊕ §5a split (5); the path deviates from the Creates clause's roots and rides the same bounds
+ruling as `LW-W3-1`"*.
+
+**D-8 · INFO · g1's tree-wide arm is unmeasured and both close blocks say so.** The S-4 checker is an
+F.W0 addition that does not exist (`eslint.config.js` present, `grep -c layer` → 0); §6's
+three-iteration halt was respected after two hand-rolled iterations returned false-positive classes.
+GREEN stands **at the gate's named witness** (`PaperSearch.vue`, measured 2 rule blocks here at three
+refs). Never blocks.
+
+### L-14 — what this pass attacked, and what it found
+
+Three refutation attempts, recorded because a check that only confirms is not a check. **(1) Against
+g19** — the strongest GREEN in the wave, and the one a seat could most easily fake by quoting its own
+artefact. This seat ran `g19-comm.sh` **verbatim from the evidence bank**, twice, in a fresh
+scratchpad: `919/59 == 919/59`, `comm -3` empty in **both** columns, 0 duplicates, canonical digest
+`f44362757458` identical to the digest §0's census freeze pins. **The gate is real and the artefact
+is runnable by a stranger** — which is exactly what §8 promised and rarely gets. **(2) Against the
+"GREEN on branch" family** — the hypothesis was that at least one branch-green cell would also be
+green on main, making the integration claim softer than stated. It found the opposite for g7/g8/g10
+and the *reverse* for **g12**, which is green at BOTH refs because its (b) rows are keyed to ids, not
+to a ref — so the close **understated** one of its own cells rather than overstating it. **(3)
+Against the masking axis** — `test.fixme` in an e2e suite is the single highest-yield place to hide a
+failure, and this wave's diff contains two. Both are **context lines, not additions**: the suppression
+pre-dates the wave, `.d` refuted its rationale on all three clauses in-file, and booked the deletion
+as `E-d2` behind a stack it cannot stand up. That is the opposite of masking.
+
+**What this pass refutes**: nothing in the close's measurements. **What it confirms**: that the close
+seats read their own wave accurately, named their own bounds breach, and declined to promote a row
+they could not honestly promote — and this pass declines it for the same reasons, said once more with
+its own commands. **The row stays `PARTIAL 2026-09-19`.** The shortest path to
+CONFORMANT-HONEST-RED is unchanged and now measured a third time: **§9's integration** (D-1) ⊕ **a
+bounds ruling or revert on `colors.ts`** (D-2) ⊕ **one rider inside the owning units' bounds** for
+g9 · g11's FR-TT-20 leg · g14's two comments · g15's six (D-3/D-4). Nothing else in this wave is
+undone work, and every gate it left RED thereafter is `{g16, g17}` — F.W0's, both of them.
