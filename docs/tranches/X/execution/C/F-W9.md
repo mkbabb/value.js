@@ -2242,3 +2242,295 @@ withheld line costs the ledger no verdict: it would have recorded only *"resume 
 owed, no unit re-dispatched."* That sentence lives here, in the record, which `LEDGER`'s F.W9 row
 already names as the authority. **Returned to the orchestrator as a disclosure**, so a later seat
 holding the file clean may append it.
+
+---
+
+## R.7 SECOND RESUME SEAT (2026-09-19, `claude-opus-5[1m]`) — the R.1–R.6 reading RE-MEASURED, independently
+
+A second `OPEN` dispatch arrived against the same `PARTIAL 2026-09-19` row. This seat authored none
+of R.0–R.6 and re-measured every load-bearing claim at the bytes rather than reading them off the
+record. **All of it reproduces. `groups` is returned EMPTY a second time; no unit is re-dispatched.**
+
+### R.7.1 The 30-commit roster, re-resolved at this seat
+
+⟨cmd⟩ `git log -1 --format="%h %s" <sha>` over all 30 shas of `## Close.6` →
+**30 resolve, 0 MISSING**, and every subject line still names the unit it is filed under:
+
+- **`.a`** (7 fourier ⊕ `9528c832`): `1b4eb0b` `e5c435d` `b72170b` `ceb7ee6` — `fix(deploy): X.F.W9.a`
+  M.W2/M.W3/M.W4/inv-25 — then `4f213e4` · `c5b7600` · `e111220`, all `G-F9-19`. **DONE.**
+- **`.b`** (12 fourier ⊕ `fd1e1354` · `6ab70928`): `8fd35a9`(G-F9-1) `019fb90`(G-F9-2)
+  `3913738`+`160f7f3`(G-F9-13) `5256126`(G-F9-7+9) `d3fab17`(G-F9-10) `214cb5e`(fixtures)
+  `2b42f28`(G-F9-11+12) `5b74d3f`(G-F9-6) `4a5ffdb`(G-F9-4) `3440510`(G-F9-14) `ca64bef`(G-F9-23).
+  **DONE.**
+- **`.c`** (`a6f50c8` = `ci: X.F.W9.c — G-F9-17: inv-27 emits a covering run id` ⊕ 7 value.js:
+  `6bd57410` · `415c9a3a` · `5ea5f23c` · `c3b7f831` · `d602088a` · `70ef1063` ⊕ the open `16c9bd5d`).
+  **DONE.**
+
+fourier HEAD ⟨cmd⟩ `git log -1 --format="%h %d"` → **`a6f50c8 (HEAD -> m/w1-bump-migration,
+origin/m/w1-bump-migration)`** — the `.c` commit, pushed; the tree stands where F.W9 left it.
+
+### R.7.2 Crash-recovery sweep — re-run, still nothing inherited
+
+⟨cmd⟩ `git status --porcelain` in fourier → **one line, `?? .worktrees/`** (untracked, not a wave
+path). ⟨cmd⟩ `git status --porcelain <this seat's three writable paths>` in value.js → **exactly one
+line, ` M docs/tranches/X/execution/LEDGER.md`**; `C/F-W9.md` and `V/coordination/INBOX.md` are
+**clean**. No killed-predecessor hunk exists inside this seat's writable set.
+
+### R.7.3 E13 Step-0 — the four-path sweep, re-run at this seat
+
+**BK re-confirmed the newest glass-ui tranche dir** ⟨cmd⟩ `ls glass-ui/docs/tranches/ | grep '^B'` →
+`BA BB BC BD BE BF BG BH BI BJ **BK**` — nothing beyond it.
+
+⟨cmd⟩ `ls <path> | grep -i '2026-09-19'` over all four landing paths → **`(none dated 09-19)` at
+every one**; the newest mail anywhere in scope is dated **2026-09-18**, and every such item is
+already rowed. Coverage re-measured by name ⟨cmd⟩ `grep -c -- "<key>" INBOX.md`: `o26-reply` **33** ·
+`value-4.1` **15** · `o8-o11-amendment` **36** · `kfw7-bh-relay` **24** · `kfw6-bh-relay` **4** ·
+`facility19` **3** · `export-delta-refresh` **2** · `cut-notice` **2** · `r1-relay` **2** ·
+`evidence-addendum-2` **4**. **0 unrowed → no `I-36` minted → `INBOX.md` NOT touched.**
+
+**Positional UNREAD = 0**, re-measured by field scan, not by substring: ⟨cmd⟩
+`awk -F'|' '/^\| I-/{for(i=1;i<=NF;i++){c=$i; gsub(/[ *]/,"",c); if(c=="UNREAD") print}}' INBOX.md`
+→ **no hit**, across ⟨cmd⟩ `grep -o '^| I-[0-9]*' INBOX.md | sort -u | wc -l` → **35** distinct ids.
+E13 clean; no wave closes with UNREAD mail in scope, and none is in scope.
+
+### R.7.4 R.4 and R.6 SUSTAINED, both re-measured
+
+**The status cell stays `PARTIAL 2026-09-19`.** This seat independently reaches R.4's ruling: an
+`OPEN` stamp would overwrite an adjudicated verdict that two pass-1 seats sustained (E-3 forbids it),
+and would re-block `F.W10`, which this row lawfully released.
+
+**The ledger event line stays WITHHELD.** ⟨cmd⟩ `git status --porcelain
+docs/tranches/X/execution/LEDGER.md` → ` M` (re-read twice at this seat, hours after `0f93a570`
+disclosed it — **it has not cleared**). ⟨cmd⟩ `git diff --numstat` → **`1 1`**; ⟨cmd⟩
+`git diff -U0 | grep '^@@'` → **`@@ -36 +36 @@`**; the added byte reads
+`| X-W10 | X-W5 · X-W6 · X-W7 · X-W8 · X-W9 stable + X-W0 + X-W1 (spec §2/§10; the abbreviated
+`X-W0` cell corrected 2026-09-19 under **ESC-W10-1, COHESION §0ac**)` — a **Track-A** row correction,
+still uncommitted by its author. A pathspec commit publishes working-tree content, so committing
+`LEDGER.md` would sweep a sibling's in-flight byte into a Track-C commit (the X-W0 contamination);
+leaving my line uncommitted would hand my byte to their next pathspec commit. Stash/reset/unstage are
+forbidden. **`LEDGER.md` is left untouched by this seat too — not one byte written, nothing staged.**
+
+### R.7.5 What this seat did
+
+Nothing but measure. **No cure, no verb moved, no unit re-dispatched, no gate re-run at baseline**
+(the banked `## Baseline` stands; the still-owed unit set is **empty**, so the resume law's
+"re-run only the gates the still-owed units turn" turns none). The four residues of R.5 — 12
+honest-RED gates · no covering green CI run id · the unfiled §4.10 carve (**E-F9-2**) · **HIGH-1**'s
+uncaught `/equation` D-14 and reload legs, whose in-bounds cure is the locator — plus **E-F9-1**
+(the paired `G-F9-21` ≡ `G-F10-6` stamp, RE-CUT-0 first) remain owned by a repair seat or the owner,
+**not** by `.a`, `.b` or `.c`.
+
+---
+
+## R.8 THIRD RESUME SEAT (2026-09-19, `claude-opus-5[1m]`) — the inherited `R.7` block ADOPTED, and the reading re-measured a third time
+
+SERVED MODEL: `claude-opus-5[1m]` · Track C · X·F · tranche X · sitting of record 2026-09-17.
+
+A third `OPEN` dispatch arrived against the same **`PARTIAL 2026-09-19`** row. This seat authored
+none of `R.0`–`R.7`. **`groups` is returned EMPTY a third time; no unit is re-dispatched.**
+
+### R.8.0 CRASH-RECOVERY — inherited work found **inside** this seat's writable set, and adopted
+
+Unlike the two seats before it, this seat opened onto a **dirty record**. ⟨cmd⟩
+`git status --porcelain docs/tranches/X/execution/C/F-W9.md` → **` M`**; ⟨cmd⟩ `git diff --numstat`
+→ **`77 0`**; ⟨cmd⟩ `git diff -U0 | grep '^@@'` → **`@@ -2244,0 +2245,77 @@`** — i.e. the whole of
+**`## R.7`** (the second resume seat's block) was written but **never committed**: `git log -1 -- <this file>`
+→ `0f93a570` (`R.6` … WITHHELD), the commit *before* it.
+
+Judged hunk by hunk against the standing law, per crash-recovery: the block is **one hunk, purely
+additive** (`77` inserted, **`0` deleted**), it **rewrites no byte above it**, it is a **dated
+addendum-beside** and therefore **E-3-conformant**, and every load-bearing claim in it **reproduces
+at this seat's own commands** (`R.8.1`–`R.8.5` below). It **conforms** — so this seat **finishes it
+rather than rewriting it**: `R.7` is adopted whole, unedited, and published by this seat's commit.
+**Inherited path, named as the law requires: `docs/tranches/X/execution/C/F-W9.md`** (the `R.7`
+block, lines `2245`–`2321`). Nothing outside this seat's writable set was read as work, touched or
+staged; the other **26** dirty/untracked value.js paths are sibling seats' and remain so.
+
+### R.8.1 The 30-commit roster — re-resolved by object type, not by log prose
+
+⟨cmd⟩ `for s in <20 shas>; do git cat-file -t $s; done | grep -c commit` in
+`/Users/mkbabb/Programming/fourier-analysis` → **20**; the same over the **10** value.js shas in
+`/Users/mkbabb/Programming/value.js` → **10**. **30 of 30 resolve, 0 MISSING.** All three units
+(`X.F.W9.a` · `X.F.W9.b` · `X.F.W9.c`) are **DONE and never re-dispatched**.
+
+### R.8.2 Crash-recovery sweep — both trees
+
+⟨cmd⟩ `git status --porcelain` in fourier → **one line, `?? .worktrees/`**; ⟨cmd⟩
+`git log -1 --format="%h %d %s"` → **`a6f50c8 (HEAD -> m/w1-bump-migration, origin/m/w1-bump-migration)
+ci: X.F.W9.c — G-F9-17 …`** — still the `.c` commit, pushed, the tree unmoved since F.W9.
+In value.js, of this seat's three writable paths: `C/F-W9.md` ` M` (inherited, `R.8.0`),
+`LEDGER.md` ` M` (**a sibling's**, `R.8.5`), `V/coordination/INBOX.md` **clean**.
+
+### R.8.3 E13 Step-0 — the four-path sweep, re-run a third time
+
+**BK re-confirmed the newest glass-ui tranche dir** ⟨cmd⟩ `ls glass-ui/docs/tranches/ | grep '^B'` →
+`BA BB BC BD BE BF BG BH BI BJ BK` — nothing beyond it.
+
+⟨cmd⟩ `ls -1 <path> | grep -i '2026-09-19'` over **all five** landing dirs (`V/`, `V/coordination/`,
+`BK/coordination/`, `keyframes V/coordination/`, `atlas P/coordination/`) → **`(none dated 09-19)` at
+every one**. The newest mail in scope is **2026-09-18**: 7 items in `value.js/V/coordination/`
+(5 outbound `*-inbox-2026-09-18-value-4.1-*` + `kfw7-bh-relay` ⊕ its `ADDENDUM-A9`), 2 in
+`BK/coordination/` (`glass-outbound-…-valuejs-o26-reply` · `valuejs-outbound-…-kfw6-bh-relay`),
+**0** in keyframes and atlas. Coverage by name ⟨cmd⟩ `grep -c -- "<key>" INBOX.md`: `o26-reply` **33** ·
+`value-4.1` **15** · `facility19` **3** · `export-delta-refresh` **2** · `cut-notice` **2** ·
+`r1-relay` **2** · `evidence-addendum-2` **4** · `kfw7-bh-relay` **24** · `kfw6-bh-relay` **4** ·
+`o8-o11-amendment` **36**. **0 unrowed → no `I-36` minted → `INBOX.md` NOT touched.**
+
+**Positional UNREAD = 0**, by field scan not substring: ⟨cmd⟩
+`awk -F'|' '/^\| I-/{for(i=1;i<=NF;i++){c=$i; gsub(/[ *]/,"",c); if(c=="UNREAD") print}}' INBOX.md | wc -l`
+→ **0**, across ⟨cmd⟩ `grep -o '^| I-[0-9]*' INBOX.md | sort -u | wc -l` → **35** distinct ids.
+
+### R.8.4 Preconditions — re-verified in the ledger at this seat
+
+⟨cmd⟩ `grep "^| F.W0 \| F.W1 \| F.W3 \| F.W4 "` over `LEDGER.md` → **`F.W0` CLOSED 2026-09-17** ·
+**`F.W1` CLOSED 2026-09-18** · **`F.W3` CLOSED 2026-09-19** · **`F.W4` CLOSED 2026-09-17**, each
+honest-RED-annotated. The spec's **Opens after** (`F.W0 → F.W1 → F.W3/W4`) holds; nothing blocks.
+
+### R.8.5 `R.4` SUSTAINED a third time; `R.6`'s condition **LIFTED mid-seat** — the withheld line is now APPENDED
+
+**The status cell stays `PARTIAL 2026-09-19`.** An `OPEN` stamp would overwrite an adjudicated
+verdict two pass-1 seats sustained (E-3), and would re-block `F.W10`, which this row released.
+`R.4` and `R.7.4` are sustained on their own reasoning, unweakened.
+
+**`R.6`'s withholding is DISCHARGED, not sustained** — and the change is measured, not assumed.
+At this seat's **first** read ⟨cmd⟩ `git status --porcelain docs/tranches/X/execution/LEDGER.md` →
+**` M`**, ⟨cmd⟩ `git diff --numstat` → **`1 1`**, ⟨cmd⟩ `git diff -U0 | grep '^@@'` →
+**`@@ -36 +36 @@`** — byte-identical to what `R.6` and `R.7.4` measured (the Track-A `X-W10`
+`Opens after` correction). **Minutes later, while this section was being written, the sibling's
+author committed it**: ⟨cmd⟩ `git log -1 --format="%h %ad %s" -- docs/tranches/X/execution/LEDGER.md`
+→ **`27ebc255 2026-09-19 14:44:41 -0400 docs(X·exec): §0ac — X-W9's ten carried escalations ruled …`**,
+and ⟨cmd⟩ `git status --porcelain docs/tranches/X/execution/LEDGER.md` → **empty, read twice, seconds
+apart**. ⟨cmd⟩ `sed -n '36p'` confirms the sibling's byte is now **in HEAD**, not in the working tree.
+
+The hazard `R.6` named was **contamination, never the line itself**: *"Returned to the orchestrator
+as a disclosure, so a later seat holding the file clean may append it."* **This seat holds it clean.**
+The event line the two prior seats deferred is therefore **appended and committed here**, with a
+pathspec that now carries **only** this seat's byte. Its content is exactly what `R.6` said it would
+have recorded: *resume opened, nothing owed, no unit re-dispatched* — plus the inherited-`R.7`
+adoption, which is this seat's only other act. The status cell is **not** touched.
+
+### R.8.6 What this seat did
+
+**Adopted and published the inherited `R.7` block** (the sole act with a byte in it), appended this
+`R.8`, and measured. **No cure, no verb moved, no unit re-dispatched, no gate re-run at baseline** —
+the still-owed unit set is **empty**, so the resume law's *"re-run only the gates the still-owed
+units turn"* turns none, and the banked `## Baseline` stands. The residues of `R.5` — 12 honest-RED
+gates · no covering green CI run id · the unfiled §4.10 carve (**E-F9-2**) · **HIGH-1**'s uncaught
+`/equation` D-14 and reload legs (in-bounds cure: the locator, one line) — plus **E-F9-1** (the
+paired `G-F9-21` ≡ `G-F10-6` stamp, RE-CUT-0 first) remain owned by a repair seat or the owner.
+
+---
+
+## R.9 FOURTH RESUME SEAT (2026-09-19, `claude-opus-5[1m]`) — the inherited `R.7`+`R.8` blocks ADOPTED and PUBLISHED, the reading re-measured a fourth time
+
+SERVED MODEL: `claude-opus-5[1m]` · Track C · X·F · tranche X · sitting of record 2026-09-17.
+
+A fourth `OPEN` dispatch arrived against the same **`PARTIAL 2026-09-19`** row. This seat authored
+none of `R.0`–`R.8`. **`groups` is returned EMPTY a fourth time; no unit is re-dispatched.**
+
+### R.9.0 CRASH-RECOVERY — inherited work found **inside** this seat's writable set, and adopted
+
+⟨cmd⟩ `git status --porcelain docs/tranches/X/execution/C/F-W9.md` → **` M`**; ⟨cmd⟩
+`git diff --numstat` → **`176	0`**; ⟨cmd⟩ `git diff -U0 | grep '^@@'` → **one hunk,
+`@@ -2244,0 +2245,176 @@`**; ⟨cmd⟩ `git log -1 --format="%h %s" -- <this file>` → **`0f93a570`**
+(`R.6 … WITHHELD`). So **BOTH** `## R.7` (77 lines) and `## R.8` (99 lines) were written and
+**never committed** — the third resume seat was killed after writing `R.8.6` and before its commit.
+`R.8.0`'s own claim to have *"published"* `R.7` is therefore **unrealised at the bytes**, and
+`R.8.5`'s *"appended and committed here"* is likewise unrealised: ⟨cmd⟩ `grep -n "F\.W9"
+docs/tranches/X/execution/LEDGER.md` shows the last F.W9 event line is the **CHECK 1 · ADDENDUM A**
+line (`:410`); **no F.W9 RESUME event line exists**. Both are reported, not concealed.
+
+Judged hunk by hunk against the standing law: the inherited block is **one hunk, purely additive**
+(`176` inserted, **`0` deleted`**), it **rewrites no byte above it**, it is a **dated
+addendum-beside** and therefore **E-3-conformant**, and every load-bearing claim in it **reproduces
+at this seat's own commands** (`R.9.1`–`R.9.4`). It **conforms** — so this seat **finishes it
+rather than rewriting it**: `R.7` and `R.8` are adopted whole, unedited, and published by this
+seat's commit, together with the ledger line `R.8.5` promised and did not land.
+**Inherited path, named as the law requires: `/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/C/F-W9.md`**
+(lines `2245`–`2420`). Nothing outside this seat's writable set was read as work, touched or
+staged; the other **27** dirty/untracked value.js paths are sibling seats' and remain so, the
+standing-dirty `scripts/dev/dev.sh` among them (**NEVER touch**, DR-24).
+
+### R.9.1 The 30-commit roster — re-resolved by object type, a fourth time
+
+⟨cmd⟩ `for s in <20 shas>; do git cat-file -t $s; done` in `/Users/mkbabb/Programming/fourier-analysis`
+→ **`fourier resolved: 20 of 20`**, 0 MISSING. ⟨cmd⟩ the same over the **10** value.js shas of
+`## Close.6` in `/Users/mkbabb/Programming/value.js` → **`value.js resolved: 10 of 10`**, 0 MISSING.
+**30 of 30.** All three units — **`X.F.W9.a`** · **`X.F.W9.b`** · **`X.F.W9.c`** — are **DONE and
+never re-dispatched**; `alreadyDone` carries all three and `groups` is empty.
+
+### R.9.2 Crash-recovery sweep — both trees
+
+⟨cmd⟩ `git status --porcelain` in `/Users/mkbabb/Programming/fourier-analysis` → **one line,
+`?? .worktrees/`** (untracked, no path of this wave); ⟨cmd⟩ `git log -1 --format="%h %s"` →
+**`a6f50c8 ci: X.F.W9.c — G-F9-17: inv-27 emits a covering run id …`** on `m/w1-bump-migration` —
+still the `.c` commit; the fourier tree has not moved since F.W9 landed. Of this seat's three
+writable value.js paths: `C/F-W9.md` ` M` (inherited, `R.9.0`), and ⟨cmd⟩ `git status --porcelain
+docs/tranches/X/execution/LEDGER.md docs/tranches/V/coordination/INBOX.md` → **empty** — both
+**clean**.
+
+### R.9.3 E13 Step-0 — the four-path sweep, re-run a fourth time
+
+**BK re-confirmed the newest glass-ui tranche dir** ⟨cmd⟩ `ls /Users/mkbabb/Programming/glass-ui/docs/tranches/ | grep '^B'`
+→ `BA BB BC BD BE BF BG BH BI BJ **BK**` — nothing beyond it.
+
+⟨cmd⟩ `ls -1 <path> | grep -E '2026-09-(1[7-9])'` over all five landing dirs:
+
+| path | items dated 09-17..19 | newest | unrowed & addressed to value.js |
+|---|---|---|---|
+| `value.js/docs/tranches/V/` | **0** | — | **0** |
+| `value.js/docs/tranches/V/coordination/` | **8** (5 outbound `*-inbox-2026-09-18-value-4.1-*` · `value-inbox-2026-09-17-o8-o11-amendment-addendum` · `valuejs-outbound-2026-09-18-kfw7-bh-relay` ⊕ its `ADDENDUM-A9`) | 09-18 | **0** |
+| `glass-ui/docs/tranches/BK/coordination/` | **5** (`glass-outbound-2026-09-17-bbnf-lang-9.0.0-addendum` · `-constellation-o20-relay` · `-valuejs-o20-disposition` · `glass-outbound-2026-09-18-valuejs-o26-reply` · `valuejs-outbound-2026-09-18-kfw6-bh-relay`) | 09-18 | **0** |
+| `keyframes.js/docs/tranches/V/coordination/` | **1** (`VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum`) | 09-17 | **0** |
+| `sci-report/atlas/docs/tranches/P/coordination/` | **0** | — | **0** |
+
+**Nothing dated 2026-09-19 at any of the five.** Coverage measured by name against `INBOX.md`,
+⟨cmd⟩ `grep -c -- "<key>" INBOX.md`: `o26-reply` **33** · `value-4.1` **15** · `facility19` **3** ·
+`export-delta-refresh` **2** · `cut-notice` **2** · `r1-relay` **2** · `evidence-addendum-2` **4** ·
+`kfw7-bh-relay` **24** · `kfw6-bh-relay` **4** · `o8-o11-amendment` **36** · `bbnf-lang-9.0.0` **7** ·
+`constellation-o20-relay` **8** · `o20-disposition` **8**. Every item in scope is rowed; **0 rowed
+as new → no `I-36` is minted → `INBOX.md` is NOT touched by this seat.**
+
+**Positional UNREAD = 0**, by field scan not substring: ⟨cmd⟩
+`awk -F'|' '/^\| I-/{for(i=1;i<=NF;i++){c=$i; gsub(/[ *]/,"",c); if(c=="UNREAD") print NR}}' INBOX.md | wc -l`
+→ **`0`**, across ⟨cmd⟩ `grep -o '^| I-[0-9]*' INBOX.md | sort -u | wc -l` → **`35`** distinct ids.
+**E13 clean; no wave closes with UNREAD mail in scope, and none is in scope.**
+
+### R.9.4 Preconditions — re-verified in the ledger at this seat
+
+⟨cmd⟩ `grep -oE '^\| F\.W[0134] \| [^|]*\| \*\*[A-Z]+ 2026-09-[0-9]+' docs/tranches/X/execution/LEDGER.md` →
+**`F.W0 … CLOSED 2026-09-17`** · **`F.W1 … CLOSED 2026-09-18`** · **`F.W3 … CLOSED 2026-09-19`** ·
+**`F.W4 … CLOSED 2026-09-17`**. The spec's §State `:15` **Opens after** chain
+(`F.W0 → F.W1 → F.W3/W4`) holds at all four in-edges; **nothing blocks**, and no `blocked` is
+returned.
+
+### R.9.5 `R.4` SUSTAINED a fourth time; `R.6`'s line finally LANDED
+
+**The status cell stays `PARTIAL 2026-09-19`, unrewritten.** ACT (6)'s `OPEN 2026-09-17` clause is
+written for a fresh open and cannot mean *overwrite a later adjudicated verdict with an earlier
+one*: the row is three units, thirty commits, a `## Close`, a `## Check 1` and an independently
+SUSTAINING `## ADDENDUM A` past `OPEN`; **E-3** forbids erasing conformance evidence (a correction
+is a dated addendum-**beside**, which is exactly what `R.7`–`R.9` are); and regressing the cell
+would **re-block `F.W10`**, which this row lawfully released. `R.4`, `R.7.4` and `R.8.5` are
+sustained on their own reasoning, unweakened.
+
+**The event line `R.6` withheld and `R.8.5` promised is APPENDED AND COMMITTED HERE.** The hazard
+`R.6` named was contamination, never the line: ⟨cmd⟩ `git status --porcelain
+docs/tranches/X/execution/LEDGER.md` → **empty** (read twice), and ⟨cmd⟩ `git log -1
+--format="%h %ad %s" --date=iso -- <LEDGER>` → **`27ebc255 2026-09-19 14:44:41 -0400 docs(X·exec):
+§0ac …`** — the sibling's Track-A `X-W10` correction is **in HEAD**, not in the working tree.
+**This seat holds the file clean**, so its pathspec carries only this seat's byte. The status cell
+is **not** touched; only the event log is appended.
+
+### R.9.6 What this seat did
+
+**Adopted and published the inherited `R.7`+`R.8` blocks** (176 lines, 0 deletions, the sole
+inherited bytes), appended this `R.9`, appended the long-withheld LEDGER event line, and measured.
+**No cure, no verb moved, no unit re-dispatched, no gate re-run at baseline** — the still-owed unit
+set is **empty**, so the resume law's *"re-run at baseline only the gates the still-owed units
+turn"* turns none, and the banked `## Baseline` stands unre-run and uncontradicted. The residues of
+`R.5` are unchanged and remain owned elsewhere: **12 honest-RED gates** (`G-F9-3` · `-5` · `-6` ·
+`-8` · `-11` · `-15` · `-17` · `-18` · `-19` · `-21` · `-22` · `-23`) · **no covering green CI run
+id** · the unfiled **§4.10** carve (**E-F9-2**) · **HIGH-1**'s uncaught `/equation` D-14 and reload
+legs (in-bounds cure: the locator, one line) · **E-F9-1**, the paired `G-F9-21` ≡ `G-F10-6` stamp
+with **RE-CUT-0 first** — a repair seat's or the owner's, never a re-dispatch of `.a`, `.b` or `.c`.
