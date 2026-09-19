@@ -1,0 +1,28 @@
+SERVED MODEL: claude-opus-5[1m]
+# X-W9.b — ./transform totality, AFTER commits 474846ce + 4be22189 (integrated tranche-u)
+# double-run: run 1 and run 2 byte-identical (diff -q silent)
+
+G6  M-less totality: GREEN — 0/10 throw-or-nonfinite
+  ok    "L 10 10" -> 0
+  ok    "l 10 10" -> 0
+  ok    "H 50" -> 0
+  ok    "V 50" -> 0
+  ok    "C 1 1 2 2 3 3" -> 0
+  ok    "Q 1 1 2 2" -> 0
+  ok    "A 5 5 0 0 1 10 10" -> 0
+  ok    "T 10 10" -> 0
+  ok    "S 1 1 2 2" -> 0
+  ok    "   L 10 10" -> 0
+  ok    probe MTS-04 circle: expanded=31.403311569547547 compact=31.403311569547547 |Δ|=0
+  ok    SVGO convertPathData (noSpaceAfterFlags) circle icon: expanded=62.80662313909506 compact=62.80662313909506 |Δ|=0
+  ok    SVGO convertPathData (spaced flags) circle icon: expanded=62.80662313909506 compact=62.80662313909506 |Δ|=0
+G7  arc flag spelling: GREEN — 0/3 fixtures diverge
+  ok    getTotalLength("M 0 0 L 10") -> 0 (typeof number, want 0)
+  ok    getTotalLength("M 0 0 C 1 1 2 2 3") -> 0 (typeof number, want 0)
+  ok    getTotalLength("M 0 0 Q 1 1 2") -> 0 (typeof number, want 0)
+  ok    getTotalLength("M 0 0 L 3 4 L 5") -> 5 (typeof number, want 5)
+  ok    getTotalLength("M 0 0 A 5 5 0 0 1 10") -> 0 (typeof number, want 0)
+G8  truncated runs: GREEN — 0/5
+G9  singular 3D -> null: SUBJECT RETIRED — decomposeMatrix3D is not exported (see G27)
+G27 retirement: GREEN — of the six still exported: none; preserved missing: none
+  ./transform export list (3): PathGeometry, getPointAtLength, getTotalLength

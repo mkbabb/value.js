@@ -1,0 +1,20 @@
+SERVED MODEL: claude-opus-5[1m]
+# X-W9.b — library-band-gates.mjs on the INTEGRATED tree (tranche-u, X-W9.a + X-W9.b landed)
+# Distinct from library-band-gates.after.txt, which is X-W9.a's WORKTREE reading (33 / transform=8).
+# cmd: node docs/tranches/V/megatranche/audit/probes/library-band-gates.mjs
+# Deltas owed to this unit: LIB-02 transform 8 -> 3; LIB-05 loses src/transform/decompose.ts=609.
+
+ok   LIB-01  easing(name) is total over the Object.prototype key set
+ok   LIB-01  control: easing('ease') ok, unknown name -> easing_name_unknown
+RED  LIB-02  28 published functions throw on a JS-boundary value (7-value corpus, all 7 subpaths)
+RED  LIB-02  by subpath: value=1 css=18 easing=1 math=5 transform=3
+RED  LIB-02  G1 (r1-published-totality.mjs) names 9 ./css parsers only — 10 of these are outside its FNS list
+RED  LIB-03  33 bare `declare` in the emitted subpath d.ts — unnameable from the subpath that returns them (color=1 value=6 css=18 easing=2 quantize=6)
+RED  LIB-03  ./css exports serializeCssColor but withholds the general serializers: serializeCssValue (src/css/stylesheet.ts:81), serializeKeyframeSelector (src/css/grammar.ts:429)
+RED  LIB-03  ColorFactory exported at src/color/index.ts, dropped by src/subpaths/color.ts — the type of 23 factories is unnameable
+RED  LIB-03  ./css returns but cannot name: CssValue, CssScalar, CssCall, CssList — a consumer must take a second dependency on ./value
+RED  LIB-04  css.d.ts emits 5 duplicated colour declarations under mangled names (Alpha_2, Channel_2, ChannelsBySpace_2, Color_2, SpaceId_2), 58 references
+RED  LIB-04  2 module(s) outside src/color/ reach colour types past the barrel: src/css/grammar.ts, src/css/types.ts
+RED  LIB-05  4 src files over the 350-LoC cap: src/css/stylesheet.ts=920 src/transform/path.ts=672 src/css/grammar.ts=539 src/color/anchors.ts=377
+
+RED — 10 failing assertion(s)

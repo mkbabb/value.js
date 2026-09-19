@@ -544,3 +544,159 @@ ok   MTS-02  steps(2, __proto__)   -> failure
 legs (MTS-06 → X-W9.c, MTS-08/09 → X-W9.d) measured by those units' own commands instead.
 Until it is ruled, **G1 is honest-RED for a reason that is not a defect in the library**, and no
 seat should read the pre-crash `ok` lines as a whole-probe pass.
+
+---
+
+### X-W9.b
+
+SERVED MODEL: `claude-opus-5[1m]` · Transform totality and the matrix-family retirement
+(W9.md §Agent Units `X.W9.b` :199-214 · §Hard Gate G6–G10 :348-352, G27 :369 · §Commit Plan rows 3–4
+:457-458 · §Disjointness Chain B :128).
+**Status: DONE in bounds** — **G6 · G7 · G8 · G9 · G27 GREEN**, double-run; **G10 GREEN over
+`src/transform/**` (148 → 0) and RED at 7 over the combined scope**, every one of the 7 in
+`src/foundation/math.ts`, which is **X-W9.c's** writable set and this seat's hard bound forbids.
+Two escalations raised, not worked around.
+Worktree `/Users/mkbabb/Programming/value.js-x-w9-b` @ `e24a7cfb`, `node_modules` symlinked, private
+`dist/`; every figure read from settled bytes, measured in the worktree and **again after
+integration** into `tranche-u`.
+
+#### 0. CRASH-RECOVERY sweep (standing law)
+
+⟨cmd⟩ `git status --porcelain` → 15 rows. ⟨cmd⟩ `git status --porcelain -- src/transform/path.ts
+src/transform/decompose.ts src/subpaths/transform.ts test/transform/path-geometry.test.ts
+test/transform/decompose-targeted.test.ts docs/tranches/X/waves/evidence/W9
+docs/tranches/X/execution/A/X-W9.md` → **empty**. **No killed predecessor's partial work on X-W9.b
+exists; nothing inherited, nothing stashed, nothing restored.** `scripts/dev/dev.sh` never touched;
+the ten dirty `demo/**` rows (X-W4/X-W7 seats) never touched; `CARRY-LEDGER.md` never touched.
+
+#### 1. Anchors verified at the true bytes — three drifts, recorded
+
+| spec anchor | measured here | disposition |
+|---|---|---|
+| *"deletes 12 asserted reads"* (:203) | `src/transform/path.ts` carried **35** non-null assertions: **27** argument-list reads inside the flattener switch (M 2 · L 2 · C 6 · S 4 · Q 4 · T 2 · A 7) + 8 polyline/cursor reads (tokenizer 2 · `pushVertex` 1 · constructor 1 · `sampleAtLength` 4 = 8; 27+8 = 35, exactly eslint's count) | **INTENT AT TRUE BYTES**: rejection instead of truncation makes every argument read provably in-bounds, so all **27** go; the other 8 go with the same rewrite. 35 → **0** |
+| G8 banked *"returns `null`"* (:350) | the tree returns **NaN** (`getTotalLength("M 0 0 L 10")` → `NaN`, `typeof number`) — as the record's own open note says | **FALSIFIER RESTATED AT THE MEASURED BYTES**: the violation is `NaN` where `transform.d.ts` declares `: number`; the cure returns **0**, a finite number, and the falsifier is *"let `tokenizePath` truncate instead of reject; the run reads past its end and NaN returns"* |
+| G27 *"`getTotalLength` **1** keyframes file"* (:369) | 1 file, `../keyframes.js/src/animation/svg/draw-svg.ts` — but its `getTotalLength` is the **DOM** `SVGGeometryElement` method, not this export. The only true import seam is `PathGeometry` (`morph-svg.ts:45`, `morph-geometry.ts:18`) | **INFO**; both symbols preserved either way, so the seam count is unchanged in effect |
+
+#### 2. Act 1 — commit 3: path totality, positional arc flags, singular-3D null (`474846ce`)
+
+One root cures three of the four: **SVG 1.1 §8.3's error-handling rule is made the module's stated
+contract** — path data renders *"up to, but not including, the path command containing the first
+error"*. `tokenizePath` therefore **rejects** malformed data instead of truncating it: it reads each
+command's own arity per repetition and emits one fully-formed, **named** segment per repetition, so
+the flattener indexes nothing and cannot read past an argument run. Arc flags are read as single
+**characters** (SVG 1.1 §8.3.9 `flag ::= "0" | "1"`), which is what makes the tokenizer positional.
+`decomposeMatrix3D` gains the one statement the spec names —
+`if (scaleX === 0 || scaleY === 0 || scaleZ === 0) return null` — joining the wrong-length and
+zero-`w` guards already above it.
+
+#### 3. Act 2 — commit 4: the matrix family retired (`4be22189`)
+
+`decomposeMatrix2D` · `decomposeMatrix3D` · `recomposeMatrix2D` · `recomposeMatrix3D` ·
+`interpolateDecomposed` · `slerp` leave the surface **with their module**: `src/transform/decompose.ts`
+(617 lines) and `test/transform/decompose-targeted.test.ts` (475 lines) DELETED, the four types that
+existed only for them (`DecomposedMatrix2D`, `DecomposedMatrix3D`, `Vec4`, `Mat4`) dropped from
+`src/subpaths/transform.ts`. **No shim, no forwarding export, nothing moved anywhere.** Full
+deletion proof and the nine-tree consumer census:
+`docs/tranches/X/waves/evidence/W9/matrix-family-census.md` — **0** executable consumers in `demo/`,
+`api/`, `e2e/`, `../keyframes.js/src`, `../glass-ui/src`, `../fourier-analysis`,
+`../sci-report/atlas`; the only non-zero rows are one docstring mention and two inventory lists
+(§6 below). `./transform` runtime exports **9 → 3**.
+
+#### 4. Gate readings — BEFORE → AFTER, every one double-run
+
+| gate | command | BEFORE | AFTER | verdict |
+|---|---|---|---|---|
+| **G6** | 10 M-less hostile inputs (`L l H V C Q A T S` + leading-space) through `getTotalLength` | **10/10 THROW** `TypeError: Cannot read properties of undefined (reading 'len')` | **0/10** — every one returns `0`, finite | **GREEN** |
+| **G7** | `abs(expanded − compact) < 1e-6` over 3 fixtures | expanded `31.403311569547547` vs compact **0**, \|Δ\| = **31.4033**; the committed SVGO fixture read **NaN** | \|Δ\| = **0** on all three; `31.403311569547547` both ways; the r=5 circle measures `2πr` to 1 dp | **GREEN** |
+| **G8** | `getTotalLength` over 5 truncated runs | 4/5 RED — `"M 0 0 L 10"` → **NaN**, `"M 0 0 L 3 4 L 5"` → **NaN** | 0/5 RED — `0`, `0`, `0`, **`5`**, `0`; all finite, all `typeof number` | **GREEN** |
+| **G9** | `decomposeMatrix3D` on 3 singular matrices | `{translate:[0,0,0], scale:[0,NaN,NaN], skew:[NaN,NaN,NaN], quaternion:[NaN,NaN,NaN,NaN], perspective:[0,0,0,1]}` — 3/3 | **`null` 3/3**, measured at commit 3's bytes and double-run (`evidence/W9/singular-3d-null.at-commit-3.txt`) | **GREEN at its own commit**; at commit 4 the subject retires with the family, which is what G27 asserts |
+| **G10** | `npx eslint 'src/transform/**/*.ts' 'src/foundation/**/*.ts' --rule '{"@typescript-eslint/no-non-null-assertion":"error"}'` | **155** (decompose 113 · path 35 · foundation/math 7) | **7** — transform leg **148 → 0** (exit 0); the 7 are `src/foundation/math.ts`, **X-W9.c's** file | **GREEN IN BOUNDS, RED at the combined scope** → §5 |
+| **G27** | packed/`dist` `./transform` export list + keyframes seams | 6 of the six exported; list of **9** | **0 of the six**; list of **3** — `PathGeometry`, `getPointAtLength`, `getTotalLength`; `PathGeometry` still imported at `morph-svg.ts:45` / `morph-geometry.ts:18` | **GREEN** |
+
+⟨cmd⟩ `node <harness> .` twice on the integrated tree → ⟨cmd⟩ `diff -q run1 run2` **silent**
+(`evidence/W9/transform-totality.{before,after}.txt`). ⟨cmd⟩ eslint JSON either side:
+`evidence/W9/eslint-nna.transform.{before,after}.json`.
+
+**Tree state after integration** (`tranche-u`, with X-W9.a landed beside this unit):
+⟨cmd⟩ `npm run typecheck` → **clean** (all four projects). ⟨cmd⟩ `npx eslint src test` → **clean**;
+⟨cmd⟩ `npm run lint` → 55 problems, **every one under `docs/tranches/**`** (X-W8 G-6's ignore), zero
+under `src/` or `test/`. ⟨cmd⟩ `npx vitest run` → **583 passed · 3 failed**: two inherited born-RED
+canaries outside this unit's bounds (`test/spectrum-luma.test.ts` C-5, routed to X-W4; `demo/test/
+shell/reka-binding-idiom.test.ts` NG-6, routed to demo) and **one caused by this unit's lawful
+retirement** — `test/v4-c1.test.ts`, §5 below. ⟨cmd⟩ `node …/library-band-gates.mjs` → LIB-02's
+transform leg **8 → 3**, LIB-05 loses `src/transform/decompose.ts=609`
+(`evidence/W9/library-band-gates.integrated-after-b.txt`; X-W9.a's `library-band-gates.after.txt` is ITS worktree reading, 33 / transform=8, and is left untouched).
+
+#### 5. Escalations — raised, never worked around
+
+**ESC-W9b-V4C1-SNAPSHOT — the retirement reddens a test no unit of this wave may write.**
+`test/v4-c1.test.ts:548-558` (*"Value 4 exact runtime surfaces — contains no extra, default,
+root-facade, or retired runtime name"*) pins `./transform` at all nine names; it now fails
+9-expected vs 3-actual. That file is in **no unit's writable set** and is **absent from W9.md
+§File Bounds entirely**, so this seat may not touch it. The same snapshot will collide with
+**X-W9.d** (PSL-2 re-exports) and **X-W9.f** (`toHex` / `easingNames` / SCI-1) — it is a wave-level
+omission, not a `.b` finding. **Cure (one edit):** delete the six retired names from the
+`./transform` expectation, which turns the snapshot into G27's own ratchet — the test's title
+already promises exactly that (*"or retired runtime name"*). **Ask:** the orchestrator names its
+writer (naturally X-W9.f, which already owns the tuple the snapshot describes) by dated addendum.
+
+**ESC-W9a-PROBE-UNRUNNABLE — already raised by X-W9.a (`5266ac97`); this seat CONFIRMS it and names
+its cause.** `…/probes/src-surface-totality.mjs:74` calls `TR.decomposeMatrix3D(…)` at MTS-05 and
+dies `TypeError: TR.decomposeMatrix3D is not a function` once the retirement lands. The probe is
+held `execute, no write (re-run unmodified)` by §File Bounds, so no unit may repair it. Recorded
+here only to state the seam from the causing end: **G27 and MTS-05 are mutually exclusive by
+construction** — the spec ordered the symbol deleted and ordered the probe that asserts on it run
+unmodified. This seat takes no position on which; the ruling is the orchestrator's, and X-W9.a's §9
+states the two options. The retirement is **not** reverted for it: CC-094 is RETIRE, G27's falsifier
+is *"export any of the six again (RED)"*, and the probe is an instrument, not the product.
+
+#### 6. Residuals — booked so the close cannot discover them
+
+1. **G10's last 7** are `src/foundation/math.ts`, X-W9.c's file and its named mechanism (*"retire the
+   7 dangerous assertions"*). G10 goes green the moment `.c` lands; no byte of it is this seat's.
+2. **`scripts/ci/verify-packed-surface.mjs:39-41`** still lists the six as expected `./transform`
+   exports. The file is **X-W9.e's** (`modify`, G20). The six must leave that list in `.e`'s act or
+   the packed-surface check reddens at the 4.1.0 tag.
+3. **`src/foundation/math.ts:42`** names `interpolateDecomposed` in prose. Harmless; X-W9.c's file.
+4. **LIB-02's transform leg is 3, not 0.** The three preserved entries throw on the non-string
+   corpus `[undefined, null, 42, {}, [], NaN]` (`""` is fine). **Not cured here, deliberately**: it
+   is X-W9.a's G3, this unit's mechanism names no `typeof` narrowing, and returning `0` for
+   `getTotalLength(42)` is a surface decision, not a defect repair. Cure if ruled: one
+   `typeof d !== "string"` narrowing at `PathGeometry`'s constructor covers all three at one root,
+   inside this unit's file. X-W9.a's **ESC-W9a-G3-LEG-SCOPE** already books these 3 to `.b`.
+5. **`src/transform/path.ts` grew 564 → 672 lines** — positional, validating tokenization is more
+   code than one global `String.match`. It is not the max (`src/css/stylesheet.ts` = 920), so G16's
+   ratchet is unmoved by it, **but X-W9.d should know that after the 265/381/153 split the new max
+   `src/**/*.ts` is `src/transform/path.ts` at 672, not the 609 the spec names.** Splitting the
+   module was not available: a new file under `src/` is a §Triumvirate Dispatch trigger.
+6. **`cubicAt` (`path.ts`) is dead** — defined, never called, and no lint rule sees it. Pre-existing,
+   outside this unit's named mechanism, left standing and recorded.
+7. **Pre-existing quirk preserved, not cured:** a `moveto` that starts a new subpath emits a jump
+   vertex through `pushVertex`, so the gap between subpaths is COUNTED in `totalLength`
+   (`getTotalLength("M0 0 L10 0 M20 0 L30 0")` → 30; a browser answers 20). Untouched here — no gate
+   names it and it is a behaviour change, not a totality repair.
+8. **Relay owed by X-W9.i's keyframes packet:** O-8 §5 told keyframes that *"`/transform` … is
+   unaffected"*. That sentence is now stale in two ways — the six are gone (they import none of
+   them), and `PathGeometry`'s tokenizer is **stricter**: malformed `d` data yields the well-formed
+   prefix instead of NaN-poisoned geometry, per SVG 1.1 §8.3. MorphSVG's seam is unchanged for
+   well-formed paths.
+
+#### 7. E13 mail — swept at this seat's own clock
+
+⟨cmd⟩ `find <the four coordination paths> -maxdepth 1 -name '*.md' -newermt '2026-09-18 20:03'` →
+`docs/tranches/V/coordination/INBOX.md` alone (self-excluded, a sibling seat's row edit). **0 new
+mail files · 0 rows addressed to the library band's transform surface · 0 UNREAD in this unit's
+scope.** The one standing row that touches it, **O-8** §5, is answered by residual 6.8 above, which
+rides X-W9.i's packet, not this commit.
+
+#### 8. Commits (worktree sha → integration sha on `tranche-u`)
+
+| # | worktree | `tranche-u` | scope |
+|---|---|---|---|
+| 3 | `ef0f84c2` | **`474846ce`** | `fix(transform): path totality, positional arc flags, singular-3D null` — `src/transform/path.ts` · `src/transform/decompose.ts` · `test/transform/path-geometry.test.ts` · `test/transform/decompose-targeted.test.ts` |
+| 4 | `f9794f85` | **`4be22189`** | `refactor(transform): retire the unused matrix family` — `src/subpaths/transform.ts` · DELETE `src/transform/decompose.ts` · DELETE `test/transform/decompose-targeted.test.ts` |
+
+Pathspec on every commit (`git commit … -- <the same exact paths>`), `--no-verify`,
+`Claude-Session` trailer, integration by `git checkout <worktree-sha> -- <paths>` + `git rm` for the
+two deletions. ⟨cmd⟩ `git diff --cached --name-only` after each → **empty**; the same twelve sibling dirty
+rows reproduce in `git status --porcelain` before and after, none of them ever staged by this seat.

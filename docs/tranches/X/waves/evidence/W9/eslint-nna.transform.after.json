@@ -1,0 +1,118 @@
+{
+ "SERVED MODEL": "claude-opus-5[1m]",
+ "gate": "G10 — @typescript-eslint/no-non-null-assertion under src/transform/ + src/foundation/",
+ "command": "npx eslint 'src/transform/**/*.ts' 'src/foundation/**/*.ts' --rule '{\"@typescript-eslint/no-non-null-assertion\":\"error\"}' -f json",
+ "when": "4be22189 (integrated tranche-u)",
+ "note": "7 — ALL in src/foundation/math.ts, X-W9.c's writable set. The src/transform/** leg alone reads 0 (exit 0).",
+ "totals": {
+  "src/foundation/math.ts": 7
+ },
+ "total": 7,
+ "results": [
+  {
+   "filePath": "/Users/mkbabb/Programming/value.js/src/foundation/math.ts",
+   "messages": [
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 69,
+     "column": 22,
+     "messageId": "noNonNull",
+     "endLine": 69,
+     "endColumn": 31
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 69,
+     "column": 38,
+     "messageId": "noNonNull",
+     "endLine": 69,
+     "endColumn": 46
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 92,
+     "column": 25,
+     "messageId": "noNonNull",
+     "endLine": 92,
+     "endColumn": 30
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 92,
+     "column": 32,
+     "messageId": "noNonNull",
+     "endLine": 92,
+     "endColumn": 41
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 95,
+     "column": 12,
+     "messageId": "noNonNull",
+     "endLine": 95,
+     "endColumn": 17
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 107,
+     "column": 40,
+     "messageId": "noNonNull",
+     "endLine": 107,
+     "endColumn": 46
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 108,
+     "column": 40,
+     "messageId": "noNonNull",
+     "endLine": 108,
+     "endColumn": 46
+    }
+   ],
+   "suppressedMessages": [],
+   "errorCount": 7,
+   "fatalErrorCount": 0,
+   "warningCount": 0,
+   "fixableErrorCount": 0,
+   "fixableWarningCount": 0,
+   "source": "// Constrains a value between a lower and upper bound\nexport function clamp(value: number, min: number, max: number): number {\n    return Math.min(Math.max(value, min), max);\n}\n\n// Linear mapping of a value from one range to another\nexport function scale(\n    value: number,\n    fromMin: number,\n    fromMax: number,\n    toMin: number = 0,\n    toMax: number = 1,\n) {\n    // Calculate slope of the linear function\n    const slope = (toMax - toMin) / (fromMax - fromMin);\n\n    // Check for division by zero\n    if (fromMax === fromMin) {\n        throw new Error(\"fromMax and fromMin cannot be equal\");\n    }\n\n    // Apply linear transformation\n    return (value - fromMin) * slope + toMin;\n}\n\n// Linear interpolation between two values.\n// Canonical (a, b, t) — value-pair first, parameter last.\nexport function lerp(start: number, end: number, t: number) {\n    // t is the interpolation factor [0, 1]\n    return (1 - t) * start + t * end;\n}\n\n/**\n * SoA (struct-of-arrays) bulk lerp (Wave D2). Interpolates `K` numeric channels\n * in one flat loop over contiguous `Float64Array`s, writing into a caller-owned\n * `out` buffer — eliminating the AoS pointer-chase and the per-channel closure\n * dispatch of K independent `{value}` carriers.\n *\n * **This is a *consumer-facing* SoA carrier, not an internal interpolation\n * primitive.** value.js's own multi-channel paths cannot adopt it: the color\n * path (`lerpColorValue`) has a per-channel hue special-case + heterogeneous\n * destination writes, and `interpolateDecomposed` is a one-shot. The substrate\n * that *does* consume it is **keyframes.js** — its `FrameCompiler` packs every\n * plain-numeric channel of a compiled segment into parallel `Float64Array`s and\n * drives one `lerpArray` call per playhead sample (the J.W6 S2 ADOPT; the\n * consume-edge contract is locked by `keyframes.js/test/lerparray-adopt.test.ts`\n * — API + `(1-t)·from + t·to` semantics + a K=8 cube-transform equivalence\n * witness). So `lerpArray` is NOT an orphan: it generalized to the downstream\n * animation engine it was built for, not to value.js's own interp loops. The\n * N.W7.B perf-truth lane's verdict is therefore KEEP-and-document (E1.N1).\n *\n * It is pixel-identical to K independent `lerp()` calls. MEASURE-FIRST (the\n * charter's land bar): SLOWER at K=1, BITES from K≥2 — measured on this machine\n * (bench/numeric-soa.mjs) at 1.56× (K=2) → 4.25× (K=64), so callers use it only\n * for multi-channel (K≥2) frames. D1 monomorphization is NOT shipped (a measured\n * non-win, r-interpolation-carrier).\n *\n * `start`, `stop`, `out` must share the same length; only `out` is written.\n */\nexport function lerpArray(\n    start: Float64Array,\n    stop: Float64Array,\n    t: number,\n    out: Float64Array,\n): Float64Array {\n    const n = start.length;\n    const u = 1 - t;\n    for (let i = 0; i < n; i++) {\n        out[i] = u * start[i]! + t * stop[i]!;\n    }\n    return out;\n}\n\n// Logarithmic (geometric) interpolation between two values.\n// Canonical (a, b, t) — value-pair first, parameter last, mirroring `lerp`.\n// The pre-3.0.0 order was `logerp(t, start, end)`; the t-first form was a\n// public-surface footgun against its t-last `lerp` sibling (S.W1 / Q2 reorder).\nexport function logerp(start: number, end: number, t: number) {\n    // Prevent division by zero or log(0)\n    start = start === 0 ? 1e-9 : start;\n    // Interpolate in logarithmic space\n    return start * Math.pow(end / start, t);\n}\n\n// De Casteljau's algorithm for Bézier curve evaluation\nexport function deCasteljau(t: number, points: readonly number[]) {\n    const n = points.length - 1;\n    const b = [...points];\n    // Iteratively interpolate points\n    for (let i = 1; i <= n; i++) {\n        for (let j = 0; j <= n - i; j++) {\n            b[j] = lerp(b[j]!, b[j + 1]!, t);\n        }\n    }\n    return b[0]!;\n}\n\n// Cubic Bézier curve evaluation\nexport function cubicBezier(t: number, x1: number, y1: number, x2: number, y2: number) {\n    // Evaluate x and y components separately\n    return [deCasteljau(t, [0, x1, x2, 1]), deCasteljau(t, [0, y1, y2, 1])] as const;\n}\n\n// Generalized Bézier curve interpolation\nexport function interpBezier(t: number, points: readonly (readonly [x: number, y: number])[]) {\n    // Separate x and y coordinates\n    const xCoords = points.map((xy) => xy[0]!);\n    const yCoords = points.map((xy) => xy[1]!);\n    // Interpolate x and y separately\n    return [deCasteljau(t, xCoords), deCasteljau(t, yCoords)] as const;\n}\n\nexport function cubicBezierToString(x1: number, y1: number, x2: number, y2: number) {\n    const formatNumber = (n: number) => {\n        let s = n.toFixed(2);\n        return s;\n    };\n\n    return `cubic-bezier(${formatNumber(x1)}, ${formatNumber(y1)}, ${formatNumber(x2)}, ${formatNumber(y2)})`;\n}\n",
+   "usedDeprecatedRules": []
+  },
+  {
+   "filePath": "/Users/mkbabb/Programming/value.js/src/foundation/result.ts",
+   "messages": [],
+   "suppressedMessages": [],
+   "errorCount": 0,
+   "fatalErrorCount": 0,
+   "warningCount": 0,
+   "fixableErrorCount": 0,
+   "fixableWarningCount": 0,
+   "usedDeprecatedRules": []
+  },
+  {
+   "filePath": "/Users/mkbabb/Programming/value.js/src/transform/path.ts",
+   "messages": [],
+   "suppressedMessages": [],
+   "errorCount": 0,
+   "fatalErrorCount": 0,
+   "warningCount": 0,
+   "fixableErrorCount": 0,
+   "fixableWarningCount": 0,
+   "usedDeprecatedRules": []
+  }
+ ]
+}

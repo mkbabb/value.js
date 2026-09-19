@@ -1,0 +1,32 @@
+SERVED MODEL: claude-opus-5[1m]
+# X-W9.b — ./transform totality, BEFORE the cure
+# tree: value.js-x-w9-b @ e24a7cfb (spec substrate 41450f02; src/ unmoved between them)
+# cmd:  node w9b-gates.mjs <tree>   — G6 hostile leg, G7 arc fixtures, G8 truncated runs, G9 singular 3D, G27 export list
+
+G6  M-less totality: RED — 10/10 throw-or-nonfinite
+  THROW "L 10 10" -> TypeError: Cannot read properties of undefined (reading 'len')
+  THROW "l 10 10" -> TypeError: Cannot read properties of undefined (reading 'len')
+  THROW "H 50" -> TypeError: Cannot read properties of undefined (reading 'len')
+  THROW "V 50" -> TypeError: Cannot read properties of undefined (reading 'len')
+  THROW "C 1 1 2 2 3 3" -> TypeError: Cannot read properties of undefined (reading 'len')
+  THROW "Q 1 1 2 2" -> TypeError: Cannot read properties of undefined (reading 'len')
+  THROW "A 5 5 0 0 1 10 10" -> TypeError: Cannot read properties of undefined (reading 'len')
+  THROW "T 10 10" -> TypeError: Cannot read properties of undefined (reading 'len')
+  THROW "S 1 1 2 2" -> TypeError: Cannot read properties of undefined (reading 'len')
+  THROW "   L 10 10" -> TypeError: Cannot read properties of undefined (reading 'len')
+  RED   probe MTS-04 circle: expanded=31.403311569547547 compact=0 |Δ|=31.403311569547547
+  RED   SVGO convertPathData (noSpaceAfterFlags) circle icon: expanded=62.80662313909506 compact=NaN |Δ|=NaN
+  ok    SVGO convertPathData (spaced flags) circle icon: expanded=62.80662313909506 compact=62.80662313909506 |Δ|=0
+G7  arc flag spelling: RED — 2/3 fixtures diverge
+  RED   getTotalLength("M 0 0 L 10") -> NaN (typeof number, want 0)
+  RED   getTotalLength("M 0 0 C 1 1 2 2 3") -> NaN (typeof number, want 0)
+  RED   getTotalLength("M 0 0 Q 1 1 2") -> NaN (typeof number, want 0)
+  RED   getTotalLength("M 0 0 L 3 4 L 5") -> NaN (typeof number, want 5)
+  ok    getTotalLength("M 0 0 A 5 5 0 0 1 10") -> 0 (typeof number, want 0)
+G8  truncated runs: RED — 4/5
+  RED   zero row0 (probe MTS-05) -> {"translate":[0,0,0],"scale":[0,null,null],"skew":[null,null,null],"quaternion":[null,null,null,null],"perspective":[0,0,0,1]}
+  RED   collinear row0/row1 -> {"translate":[0,0,0],"scale":[1,0,null],"skew":[null,null,null],"quaternion":[null,null,null,null],"perspective":[0,0,0,1]}
+  RED   zero row2 -> {"translate":[0,0,0],"scale":[1,1,0],"skew":[0,null,null],"quaternion":[null,null,null,null],"perspective":[0,0,0,1]}
+G9  singular 3D -> null: RED — 3/3
+G27 retirement: RED — of the six still exported: decomposeMatrix2D, decomposeMatrix3D, recomposeMatrix2D, recomposeMatrix3D, interpolateDecomposed, slerp; preserved missing: none
+  ./transform export list (9): PathGeometry, decomposeMatrix2D, decomposeMatrix3D, getPointAtLength, getTotalLength, interpolateDecomposed, recomposeMatrix2D, recomposeMatrix3D, slerp
