@@ -1009,3 +1009,68 @@ Reproduces the record's ≈200k/≈51k estimate; ~8.5% of a 60 Hz frame budget a
 #### Negative roster — held
 
 ⊘ `I-2`'s empty state **survives** (it is `L·M-2`'s only visible symptom, and was not deleted as an unused branch while that very defect was cured) · `InfoCard.vue` not re-created · `GM-19` not certified · CP KILL-6 not executed · `moon.json` not regenerated · the **Tooltip shim is not deleted** — `FunctionInput` still imports it, and SP-7's leg here was to add the NAME beside the description, never to remove the description.
+
+---
+
+### `.d` — the `/gallery` route and the three admin panels
+
+**Sections**: §2.A `fr-AdminAuditLog` · §2.B `fr-AdminFlaggedPanel` · §2.C `fr-AdminUserList` · §2.J the `/gallery` route (whole) · §2.0's AA-\*/FR-AFP-\*/FR-AUL-\*/GAB-\*/GM-\*/GCM-\*/FR-GFC-\*/FR-GIG-\*/FR-GSB-\*/FR-USB-\* members of SP-1/2/3/5/7/8/9/11/12/14/15/17 · §3 D1 · §4 ADMIN-AXE / CONTRAST-FLOOR / DEAD-DEP · §5.2 →F.W5-W8, →GLASS-RELAY.
+**Addendum-beside**: `docs/tranches/X/fourier/F-W4-ADDENDA-d-2026-09-18.md` — census corrections, the contrast-registry hand-off, the relay asks, and the escalations, each with its measurement.
+
+#### What landed, in the order the brief set
+
+1. **D1's ruled arm, whole.** `GalleryMarquee.vue` deleted (134 lines) with its import and its mount. The predicate was `featuredEntries.length >= 4` inside a block guarded by `!gallery.entries.length`, and `featuredEntries` is a filter *of* `gallery.entries` — |filter(S)| ≤ |S|, so the mount read `0 >= 4` for every input that has ever existed. GM-24's static proof holds at every build; the empty gallery renders what it always rendered.
+2. **SP-2's error ≠ empty cures.** AA-8 first (the composable learns the difference between an abort, a losing request and a failure — one generation ticket, `onScopeDispose`, `isAbortError`), then AA-1 + AA-7, AA-33, FR-AFP-6 + `-67`, FR-AUL-2, FR-AUL-4, GAB-3. The audit log is a system of record and the one thing it may never do is answer a question it could not ask.
+3. **SP-1's abort-identity members**, component-side: the generation token at every read path — `FR-AFP-14`/`-48`, `GAB-20`/`-21` (`ADMIN_STATS_KEY` + `abortInflight` on deactivate), `FR-AUL-15`/`-29`, `FR-AFP-12`. ⊘ The registry **key shape** (`AA-27`/`FR-AUL-3`) is `lib/api.ts` = `.f`'s — routed, addendum §E-5.
+4. **SP-3's contrast floor.** GAB-1 (BLOCKER) composes the plate, border and mark off the repo's own ratified `--viz-amber` carry — the border and mark move from 1.25–1.27 and 1.60 to ≈4.72:1; GAB-18 dies with it. AA-3 retires five single-theme palette triples for the producer `Badge`, reshaped by AA-24 and AA-5's display arm into a **verb-token** classifier so `batch_users:delete` stops reading benign beside `batch_users:unsuspend` and the nine `janitor:*` actions stop landing in the sky default. AA-4 gives chassis and rows `cartoon-card` (the `--muted` fill used as a border read 1.01–1.07:1 in both arms). FR-AUL-7 takes the sole "suspended" signifier (2.0:1) and the prune control (1.3:1) to producer registers. FR-AUL-23 and FR-USB-5's ONE rework land as `Input` swaps, carrying `-12`/`-13`/`-14`/`-33`/`-40`/`-6` with them.
+5. **SP-7/8's naming and live-region cohort.** FR-GSB-11's **five** unnamed controls (not the three every axis enumerated). FR-AUL-9 and AA-12: one permanently-mounted region each, outside every gate — both panels' previous regions were born with their own messages, the pattern least likely to fire. FR-AUL-26, GAB-24, GCM-36: 2.5.3 label-in-name. FR-AUL-41 moves the disabled-state reasons off `title`, which a disabled element exposes to nobody. AA-9/AA-39, FR-AUL-34, GCM-35, GCM-49.
+6. **The ten §X.1 GCM handovers + the GCM restore family.** GCM-3 (the modal stops being a photograph) · GCM-48 → GCM-30 → GCM-28 as **one deletion** · GCM-44 + GCM-4 as one edit · GCM-12 · GCM-31 (site leg; producer leg is a relay) · GCM-35 · GCM-36 · GCM-37 · GCM-45 · GCM-46 (also K-15's falsifier, recorded not re-derived) · GCM-49 · FR-USB-18's producer-independent half. FR-GFC-2/-23/-20 wire selection through the **second** live host of the same card. **GCM-38 is posed, not answered, as its row instructs.**
+7. **SP-17's sweep + FR-GFC-22.** Re-derived once across 11 gallery SFCs: 3 blocks at zero rules deleted whole, 2 dead `@reference`s deleted from blocks that keep their rules, 2 blocks genuinely using `@apply`/`theme()` kept, 1 file with no block. The ruled 4-file set's fourth member (`AdminFlaggedPanel`) **converted** rather than deleted — FR-AFP-3's token rule landed in it earlier in this unit. Both dead imports carry zero-consumer proofs.
+8. **SP-14's mobile hygiene.** AA-21 (iOS sentence-case silently defeating an exact-match compliance filter), FR-AUL-40, FR-GSB-11f, FR-USB-13/-14/-33, and AA-22's touch-floor strip across **every** `h-7`/`h-7 w-7`/`h-6 w-6` literal in both panels — `cn`'s height bucket is last-write-wins, so each of those pinned 28 px over the producer's 44 px coarse clamp.
+
+#### Gates
+
+| gate | reading | witness |
+|---|---|---|
+| `G-F4-VUE-TSC-CLEAN` | **GREEN for this unit's files** | ⟨cmd⟩ `npx vue-tsc -b --force` → the only residues are `ContourEditorCanvas.vue:42` and `lib/api.ts:5`, **neither in `.d`'s set**. `npx vite build` → ✓ built. |
+| `G-F4-DEAD-DEP` | **GREEN** | every deletion carries a zero-consumer proof in its commit; `VIZ_COLORS`/`PathPreview` measured at 1 occurrence each (the import line). |
+| `G-F4-CENSUS-CELLS` | **GREEN** | three cells falsified and each landed its addendum-beside **in the same commit as its cure** — `text-admin-label` (not emitted), `./forms` (not a key at 8.0.0), `ButtonTone` (no `warning` member). Addendum §A. |
+| `G-F4-ADMIN-AXE` | **RED, producer-caused** | run against a production build at `:4173` with `.g`'s spec unmodified: **zero `color-contrast` violations** over the banner and all three panels — the class GAB-1/AA-3/FR-AUL-7 were filed under. What remains is `focusable-not-tabbable` ×8 + `aria-hidden-focus` ×4 on **one** node shape: reka's FocusScope sentinel `<span aria-hidden="true" tabindex="0">`, producer DOM through `glass-ui/dialog`. No consumer edit cures it without the local patch §0 forbids → GLASS-RELAY ask, addendum §C-1. |
+| `G-F4-CONTRAST-FLOOR` | **RED, bounds-caused** | `e2e/contrast-pairs.ts` is `.g`'s file and is not in `.d`'s writable set. The harness is a static token-expression evaluator, so it still grades the **pre-cure** recipes. The eleven row replacements are handed over complete — ids, stacks, `kind`, and which row to **delete** — at addendum §B, alongside the five DRIFT readings the harness recorded. The DOM-side evidence that the cures are in the bytes is the admin-axe run above. |
+
+#### Commits
+
+| commit | subject |
+|---|---|
+| `d028f0c` | D1 RULED DELETE — the marquee family, whole, and the band that never painted |
+| `048f03c` | AA-8 — the composable learns the difference between an abort, a loser and a failure |
+| `326926c` | SP-2 — a failed fetch stops being an affirmative statement about the ledger |
+| `bc2aadc` | FR-AFP-6 ⊕ FR-AFP-67 — the moderation queue stops issuing false all-clears |
+| `094dac5` | the admin banner gets a register, a failure arm, a voice and an honest byte count |
+| `f76347b` | FR-AUL-1 BLOCKER — the cascade stops firing at users the operator cannot see |
+| `3c5a5b0` | the moderation queue shows the image, keeps its generation, and mutates the store in place |
+| `077f947` | SP-3 ⊕ SP-7 ⊕ SP-8 on the two admin panels |
+| `e7e3438` | SP-17 ⊕ FR-GFC-22 — the stylesheets that styled nothing, and the imports nobody read |
+| `6fea644` | the search bar's five unnamed controls, and one credential field that stops failing three ways at once |
+| `e1b4d88` | the §X.1 handovers land — the modal stops being a photograph, and one deletion discharges three rows |
+| `72c3f06` | FR-GFC-2 ⊕ -23 ⊕ -20 — the second host of the same card joins the selection it was already drawing |
+| *(this line's own)* | the dated addendum-beside + this receipt |
+
+⊘ Every commit carried its own pathspec **on the commit itself**; ⟨cmd⟩ `git show --name-only` on each returns only this unit's files. `scripts/dev/dev.sh` untouched. Concurrent `.e` and `.c` seats committed to the same index throughout and **not one of their paths appears in any commit above** — nor any of mine in theirs.
+
+#### Escalations (addendum §E, each with its measurement)
+
+- **FR-GFC-1 = FR-GSB-1 — NOT LANDED.** Measured: `stores/gallery.ts` builds both list requests from `{limit, sort, cursor, owner}` alone; `searchQuery`, `tierFilter` and `basisFilter` never reach the wire while `GalleryView` assigns all four and watches three, so three of four controls are inert end-to-end and every dead interaction wipes pagination. The cure needs `api.listVisualizations`'s signature — `lib/api.ts`, `.f`'s file — and the list *contract* is F.W5's. Escalated whole rather than half-landed; the store half is two lines once `.f` widens it.
+- **GCM-1 / GCM-25 / VV-BLK-1 — NOT LANDED.** GCM-3's half is landed in `GalleryView.vue`; the loader half is `VisualizationView.vue` + `stores/workspace.ts`, outside the set.
+- **AA-37 — NOT LANDED.** A `components/admin/` directory move, outside `gallery/**`.
+- **GAB-28 — NOT LANDED.** The rename breaks `.g`'s spec locator `getByRole("region", { name: "Admin mode banner" })`, which `.d` may not edit.
+- **Routed to `.f`**: FR-AFP-17 (`VARIANT_MAP` `success → 'success'` **now**, not F.W1 — the spec calls deferring it a scheduling error) · AA-27/FR-AUL-3 (the abort key shape) · FR-AFP-36 (`content_hash` is not on `FlaggedVisualization`, so `(content_hash, reporter_slug)` cannot be spelled; the splice is keyed `(item.slug, flag.reporter_slug)` **with the substitution documented in-code**, never silently made).
+
+#### Residuals and roster
+
+- **RED-with-cause, by arithmetic**: `GAB-1[plate/page]`. A 4–10% alpha fill cannot reach 3:1 against the page and remain a wash; the admin register is carried by the border and the mark, which now do carry it. Named, not excused.
+- **Half landed, half posed**: `AA-40`. The assistive half is real `sr-only` text; the sighted-keyboard half is a design ruling this unit was not given (a per-cell Tooltip trigger costs two tab stops on each of 25 rows) → F.W5–W8.
+- **Posed, not answered**: `GCM-38`, as its own row instructs. Witness → SS-13.
+- **GLASS-RELAY for `.z`**: the FocusScope sentinel (new, measured) · the light-arm `--tier-featured`/`--tier-saved` rebaseline (carried, GAB-9/GAB-2(a)) · GCM-31's producer leg (teach `cn` its aliases).
+- **⊘ Withdrawn ask, with cause**: AA-3's violet `batch` ADOPTION-ASK. AA-24 rules the batch arm's own existence the defect — `batch` is a namespace, not a severity — so asking the producer for a violet tone would ship the inversion into the design system. Carried to `.z` as a **note** so no later seat re-opens it from AA-3's text alone.
+- **Negative roster — held**: `GM-19` not certified (the marquee family is deleted, not revived) · no glass-ui byte touched · no `e2e/**` byte touched · no `test.skip`, allowlist, try/catch-around-a-defect or `node_modules` patch anywhere in this unit.
