@@ -112,6 +112,266 @@ the per-component apotheoses are authoritative.
 | PreviewRamp | named carries in NO X-wave bounds: `color-chips/**`, `preview-chips.test.ts`, the WHCM roster arm, `aurora-harmony-stops.ts`, `mixStage.ts`; + ADJ-1 sequencing rule ([data-color-surface]: GenerateControls G8 deletes it, PreviewRamp's cure mints producers — order bound on both records) | `registry/adjudicated/PreviewRamp.md` |
 | PreviewStrip | chip-family residue consolidated as ONE named identity ≡ PCS-10; X-W9.d/.f named gaps DEGRADE to NO-WAVE-OWNER if unadopted at execution | `registry/adjudicated/PreviewStrip.md` |
 | (accretes per batch) | — | — |
+| **DRAINED 2026-09-18** | all **14** source rows above carry a terminal word at **§4.1** — the X.KF.W10 `.b` NO-WAVE-OWNER set-difference (G-2); the intake bytes above are **unchanged** (E-3) | **§4.1**, below |
+
+### §4.1 — X.KF.W10 `.b` · THE NO-WAVE-OWNER SET-DIFFERENCE (G-2), ∅ IN BOTH DIRECTIONS — 2026-09-18
+
+**Authority and scope.** `keyframes/waves/KF-W10.md` **§3.2** (the `.b` unit) and **§5 G-2**; ordering
+**§6.A**; the right hand's second half is **§6.D · SUCCESSOR-FORMATION REGISTER**. **§0t is RECORDED here,
+never re-minted**: KF.W10 belongs to **SS-2**, so this set-difference is an OWNED assertion. **This wave
+consumes; it does not home and it does not cure** (KF-W10 §2) — every disposition below is carried from the
+record or the sibling spec that already made it, and **nothing is re-booked: folds are by reference at the
+banked id, original ids for life.** The terminal alphabet is G-2's Acceptance, verbatim and closed:
+**`LANDED in a wave`** · **`KILLED-with-rationale`** · **`DISCHARGED by KF.W7 SWAP verdict <surface>, <date>`**
+· **`ADOPTED-BY-KF.W6 (RULINGS-4 R4-1)`** · **carried to the next formation boundary's ledger**.
+**`LANDED in a wave` is a statement of OWNERSHIP, not of shipping** — it says the row has an owning wave and
+is no longer NO-WAVE-OWNER; it never asserts that the cure has landed at the bytes.
+
+**OP-5, re-measured AT THIS UNIT'S OWN OPEN (the precondition is on the state at open, never a spec-frozen
+figure; R2-5(d)).** ⟨cmd⟩ `ls docs/tranches/X/keyframes/waves/KF-W[0-9].md KF-W10.md | wc -l` → **11**, each
+with a bounds block (⟨cmd⟩ `grep -c 'Bounds'` per spec → `W0 17 · W1 12 · W2 53 · W3 4 · W4 40 · W5 43 ·
+W6 59 · W7 36 · W8 46 · W9 49 · W10 12`). ⟨cmd⟩ `wc -c` at the worktree → `W0 259,685 · W1 254,747 ·
+W2 362,133 · W3 190,569 · W4 250,775 · W5 305,775 · W6 306,972 · W7 261,120 · W8 269,803 · W9 280,059 ·
+W10 263,074`. ⟨cmd⟩ `git status --porcelain -- docs/tranches/X/keyframes/` → **zero lines**: **no sibling
+spec is modified at this sweep's clock.** **OP-5 GREEN.** The same three commands are re-run at this block's
+settled bytes below, because *a sibling bounds block that changes after the sweep fails G-2 on OP-5, not on
+arithmetic* (G-2's own falsifier).
+
+**THE TWO DENOMINATORS, measured at this seat, double-run (run 1 ≡ run 2).**
+*Left hand, arm 1* — ⟨cmd⟩ `ls registry/adjudicated/kf-*.md | wc -l` → **58** · `grep -l 'NO-WAVE-OWNER' | wc -l`
+→ **57** · `grep -o 'NO-WAVE-OWNER' | wc -l` → **1,218**. The one non-carrying record is **`kf-AnimatedText.md`**
+(⟨cmd⟩ `grep -L` → that file alone). ⟨KF-W10 §5's **1,216** is a dated 2026-08-28 observation, superseded by
+**+2** at these bytes; **membership (58 / 57) reproduces exactly** and membership is what this sweep
+partitions. Recorded, not re-derived.⟩
+*Left hand, arm 2* — **COHESION §4's register: 14 source rows** (⟨cmd⟩ row count over §4's body → **14**),
+drained one-for-one at Table B.
+*Right hand* — **the AUTHORED ELEVEN's bounds blocks ∪ §6.D's cargo enumeration**, Table C. **The falsifier is
+honoured at its own words**: a right hand computed from authored bounds **alone** fails, so §6.D's 17-packet
+cargo is computed as the second half and the two halves are printed separately.
+
+**SELF-COUNT LAW, stated at the write.** Neither denominator moves under this block's own bytes: arm 1 is
+measured over `registry/adjudicated/kf-*.md`, a tree this seat never writes, and arm 2 is a **row count** of
+§4's 14 intake rows, whose bytes are unchanged (E-3). For completeness, this file's own `NO-WAVE-OWNER`
+occurrence count **does** move — ⟨cmd⟩ `grep -o 'NO-WAVE-OWNER' COHESION.md | wc -l` → **12** before this
+write — and that figure is in no gate's arithmetic.
+
+#### §4.1.A — LEFT HAND, arm 1: the 57 carrying kf records, each with one terminal word
+
+**Reading rule.** One row per **record** — the granularity G-2's own Witness prescribes (*"the per-record
+routing summaries … vs the wave bounds blocks"*). **`occ`** is that record's `NO-WAVE-OWNER` occurrence count,
+double-run. Where a record's rows split across homes the **arms are named** rather than rounded to one word:
+an arm is not a second verb, it is a second object, and the spec itself splits `KF-HA-4` and `C-22` this way.
+**Packet anchors are quoted from the successors' own `§Carry` heading lines** (KF-W11/W12/W13, authored
+`f208ff31`), not re-derived at the registry.
+
+| # | record | occ | home | terminal word |
+|---|---|---|---|---|
+| 1 | `kf-SquareScene` | 54 | **KF.W11 P7 · square** ⟨`:162` +`:40` L-2⟩ | **LANDED in a wave** |
+| 2 | `kf-App` | 46 | **KF.W13 P1 · dock-menu** (the KF-APP-1/-17 motion, ARB-1) | **LANDED in a wave**; the `KF-APP-41` limb ⟨`kf-App.md:91`⟩ = **ADOPTED-BY-KF.W6 (RULINGS-4 R4-1)** |
+| 3 | `kf-SequenceTarget` | 44 | **KF.W11 P2 · sequence** ⟨`:165` +`:87` ST-4⟩ | **LANDED in a wave** |
+| 4 | `kf-CubeScene` | 44 | **KF.W11 P1 · cube** ⟨`:178`, the routing spine⟩ | **LANDED in a wave** |
+| 5 | `kf-KeyframeCard` | 43 | **KF.W12 U1 · CARD-UNIT** (by seam) | **LANDED in a wave** |
+| 6 | `kf-SquareInstrument` | 41 | **KF.W11 P7 · square** ⟨`:145`⟩ | **LANDED in a wave** |
+| 7 | `kf-KeyframesStringControls` | 41 | **KF.W12 U5 · APPLY-UNIT** ⟨`:17` the mint⟩ | **LANDED in a wave** |
+| 8 | `kf-SequencePlayhead` | 39 | **KF.W11 P2 · sequence** ⟨`:152`⟩ | **LANDED in a wave** |
+| 9 | `kf-OrbitalDrag` | 39 | **KF.W11 P1 · cube** ⟨`:158`⟩ | **LANDED in a wave** |
+| 10 | `kf-ControlsPaneWrapper` | 39 | **KF.W12 U2 · OPTIONS-UNIT** (D-B1/N-2/C-2; `proof:stage-visible`) | **LANDED in a wave** |
+| 11 | `kf-AmigaScene` | 39 | **KF.W11 P8 · amiga** ⟨`:159`⟩ | **LANDED in a wave** |
+| 12 | `kf-SequenceScene` | 38 | **KF.W11 P2 · sequence** ⟨`:154`⟩ | **LANDED in a wave** |
+| 13 | `kf-ChromeDock` | 35 | **KF.W13 P1 · dock-menu** ⟨`:45` M-4 · `:99` i-2 · `:106`⟩ | **LANDED in a wave** |
+| 14 | `kf-AnimationControlsGroup` | 34 | **KF.W6 §Bounds** (`AnimationControlsGroup.vue` ×5; also KF.W5, KF.W8's `useControlsKeyboardShortcuts.ts`) | **LANDED in a wave** ⟨D-1's portal cure is consumed by KF.W11 P1's C-15 limb as settled — a consumption, not a re-booking⟩ |
+| 15 | `kf-SpringTarget` | 33 | **KF.W11 P3 · spring** ⟨`:148`⟩ | **LANDED in a wave**; the **KF.W7-evaluated idiom arm** (surface 6) = **carried**, KF.W7 KEEP-BESPOKE |
+| 16 | `kf-TransportDock` | 32 | **KF.W13 P2 · transport/ribbon** ⟨`:131` +`:45-47`/`:64`/`:82-89`⟩ + P1's TD-36 | **LANDED in a wave** |
+| 17 | `kf-SpringHeatmap` | 32 | **KF.W11 P5 · spring-physics-facet** ⟨`:132`⟩ | **LANDED in a wave** |
+| 18 | `kf-MbabbMenu` | 32 | **KF.W13 P1 · dock-menu** ⟨`:15`/`:26` MM-28/`:169`⟩ | **LANDED in a wave** |
+| 19 | `kf-SequenceScrubber` | 31 | **KF.W11 P2** ⟨`:137`⟩ **and P9 · drag-seam** ⟨`:136` +`:40`/`:42`/`:125`⟩ | **LANDED in a wave**; the **KF.W7-evaluated shape rows PERSIST** (surface 4) = **carried** |
+| 20 | `kf-EasingScene` | 31 | **KF.W6 §Bounds** (`EasingScene.vue`); parse arm consumed at KF.W2 | **LANDED in a wave** |
+| 21 | `kf-StartingStyleTarget` | 30 | **KF.W11 P6 · spring-artifact-truth** ⟨`:140`⟩ | **LANDED in a wave** |
+| 22 | `kf-SpringTrace` | 30 | **KF.W11 P4 · spring-plot** ⟨`:140`⟩ | **LANDED in a wave**; the **KF.W7 idiom arm** (surface 6) = **carried** |
+| 23 | `kf-MatrixEditor` | 30 | **KF.W11 P1 · cube** ⟨`:42`, the routing law⟩ | **LANDED in a wave** |
+| 24 | `kf-ChannelControls` | 30 | **KF.W6 §Bounds** (`ChannelControls.vue` ×18; also KF.W1, KF.W7, KF.W8) | **LANDED in a wave** ⟨L-16/KF-CO-15 are *"kin recorded, not folded"* at KF.W12 U2 — a pointer, never a second home⟩ |
+| 25 | `kf-EasingTarget` | 28 | **KF.W6 §Bounds** (`EasingTarget.vue` ×5; also KF.W8 ×2) | **LANDED in a wave** |
+| 26 | `kf-DemoGlobalChrome` | 28 | **KF.W6 §Bounds** (`DemoGlobalChrome.vue`; KF.W0 holds its substrate leg) | **LANDED in a wave** |
+| 27 | `kf-AnimationVisualizer` | 28 | **KF.W11 P9 · drag-seam** ⟨`:55` KF-AV-15 · `:56` KF-AV-16⟩; **KF.W7 §Bounds** for the surface | **LANDED in a wave** (the two seam rows); the **residual roster = carried**, naming **AnimationVisualizer** — KF-AV-13/-14/-24's cures and KF-AV-32 (relayed as **O-28 R-6**) **stay NO-WAVE-OWNER** by KF.W7's own words; **KF-AV-10 is LANDED** ⟨`72cdc27a`⟩ |
+| 28 | `kf-SequenceAxis` | 22 | **KF.W11 P2 · sequence** ⟨`:131`⟩ | **LANDED in a wave** |
+| 29 | `kf-EasingSidebar` | 22 | **KF.W12 U2 · OPTIONS-UNIT** ⟨`:50` KF-ES-12⟩ | **LANDED in a wave** |
+| 30 | `kf-SpringPhysicsFacet` | 21 | **KF.W11 P5** ⟨`:40`/`:41`/`:42`/`:47`/`:53`⟩ **and KF.W12 U2** ⟨`:38-39` SPF-1/-2, `:53`⟩ **/ U3** ⟨`:51`,`:59`,`:60`,`:66`⟩ | **LANDED in a wave** — one record, three units, **zero re-bookings** (each limb cited at its own banked anchor) |
+| 31 | `kf-CopyButton` | 21 | **KF.W6 §Bounds** (`CopyButton.vue`; also KF.W5 ×2, KF.W8's `@components/CopyButton.vue`) | **LANDED in a wave** |
+| 32 | `kf-SpringScene` | 17 | **KF.W11 P3 · spring** ⟨`:155`⟩ | **LANDED in a wave** |
+| 33 | `kf-TimingFunctionPanel` | 16 | **KF.W12 U2 · OPTIONS-UNIT** ⟨`:45-47`⟩ | **LANDED in a wave** |
+| 34 | `kf-CubeTarget` | 16 | **KF.W11 P1 · cube** ⟨`:102`⟩ | **LANDED in a wave** ⟨the `#7` library-diagnostic half is declared to KF.W5 by that packet, not re-homed here⟩ |
+| 35 | `kf-PlaybackRibbon` | 15 | **KF.W13 P2 · transport/ribbon** ⟨`:157` · `:36` the routing law + rider · `:40-55` · `:64` N-3⟩ | **LANDED in a wave** |
+| 36 | `kf-EditorHeader` | 12 | **KF.W6 §Bounds** (`EditorHeader.vue` ×14; also KF.W8 ×2) | **ADOPTED-BY-KF.W6 (RULINGS-4 R4-1)** for **`KF-APP-41`** (the delete, banked rung *NO-WAVE-OWNER (delete)*); the remaining surface rows **LANDED in a wave** |
+| 37 | `kf-RibbonBar` | 11 | **KF.W12 U4 · EDITOR-UNIT** ⟨`:48` M-3/C-8 format half⟩ **and U5 · APPLY-UNIT** ⟨`:27`,`:76` RB-6, `:135`⟩ | **LANDED in a wave** |
+| 38 | `kf-EditorShell` | 11 | **KF.W6 §Bounds** (`EditorShell.vue` ×8; also KF.W0, KF.W4, KF.W5) | **ADOPTED-BY-KF.W6 (RULINGS-4 R4-1)** for the **`C-22` orphan-token limb** ⟨`:95`; `--header-items-max-w` at `layout.css:15`⟩ · **`C-22`'s remaining limbs `D-27` and `RR-2 M7` STAY NO-WAVE-OWNER = carried** (R4-1's own falsifier) · **`EH-4` · `EH-5` · `EH-8` LANDED in a wave** at KF.W6 §Bounds, one anchor per row (RULINGS-5 R5-1, the SHADOW restoration) |
+| 39 | `kf-EditorStartScreen` | 8 | **KF.W6 §Bounds** (`EditorStartScreen.vue`; also KF.W0, KF.W4, KF.W8 ×2) | **LANDED in a wave**; the **KF-EST-23 doc-truth arm** is **this wave's `.d`** (G-5 addendum 2) |
+| 40 | `kf-SharePopover` | 7 | **KF.W6 §Bounds** (`SharePopover.vue` ×5) | **LANDED in a wave** |
+| 41 | `kf-KfPillTabs` | 6 | **KF.W6 §Bounds** (`KfPillTabs.vue` ×10 + `useKfPillTabs.ts`) | **LANDED in a wave** |
+| 42 | `kf-App.skeleton` | 6 | **KF.W6 §Bounds** (`demo/app/App.skeleton.vue`) | **LANDED in a wave** |
+| 43 | `kf-TypingDots` | 4 | **KF.W6 §Bounds** (`TypingDots.vue`; KF.W0 holds its substrate leg, KF.W4 its census leg) | **LANDED in a wave** |
+| 44 | `kf-HeroAurora` | 4 | **KF.W6 §Bounds** (`HeroAurora.vue` ×2; also KF.W4, KF.W8) | **LANDED in a wave**; the **`KF-HA-4` manifest limb ONLY** is this wave's `.d` (G-5 addendum 3, SPLIT-LOCK) |
+| 45 | `kf-ChannelOptions` | 4 | **KF.W12 U2 · OPTIONS-UNIT** ⟨`:25` the mint · `:45-99` · `:156` · `:198-203`⟩ | **LANDED in a wave** |
+| 46 | `kf-TimelineHoverPreview` | 3 | **KF.W7 §Bounds** (`TimelineHoverPreview.vue` ×2; also KF.W5, KF.W6) | **LANDED in a wave** (surface); **governed rows carried**, naming **TimelineHoverPreview** — KF.W7 **KEEP-BESPOKE**, its producer seams travel as **O-28 R-4/R-5**, never as discharges |
+| 47 | `kf-LayerConfigPanel` | 3 | **KF.W12 U2 · OPTIONS-UNIT** ⟨`:35` + LP rows⟩ | **LANDED in a wave** |
+| 48 | `kf-KeyboardShortcutsModal` | 3 | **KF.W6 §Bounds** (`KeyboardShortcutsModal.vue`; also KF.W8) | **LANDED in a wave**; the **`C-9` `/command` decision record** is filed at this wave's `.a` (**CARRY-C-5**, slot `lane-frontend.md §5 S-17`) |
+| 49 | `kf-CSSCodeEditor` | 3 | **KF.W12 U4 · EDITOR-UNIT** ⟨`:30` the mint · `:33-87`⟩ | **LANDED in a wave** |
+| 50 | `kf-KeyframesEditor` | 2 | **KF.W12 U3 · KFED-UNIT** ⟨`:36` the mint · `:41-114` · `:172`⟩ | **LANDED in a wave** |
+| 51 | `kf-KeyframeCardList` | 2 | **KF.W12 U1 · CARD-UNIT** ⟨`:30` the mint · `:135` the verdict⟩ | **LANDED in a wave** |
+| 52 | `kf-CubeAxisLines` | 2 | **KF.W12 U6 · AXISLINE-UNIT** ⟨`:34` the mint · `:38` KF-AX-1⟩ | **LANDED in a wave** |
+| 53 | `kf-CSSPasteDialog` | 2 | **KF.W7 §Bounds** (`CSSPasteDialog.vue`; also KF.W4, KF.W6) | **LANDED in a wave** |
+| 54 | `kf-TimelineTrack` | 1 | **KF.W7 §Bounds** (`TimelineTrack.vue` ×2; also KF.W4, KF.W6, KF.W8) | **LANDED in a wave** (surface); **governed rows carried**, naming **`KeyframeTimeline / TimelineTrack rail`** — KF.W7 **KEEP-BESPOKE** |
+| 55 | `kf-TimelineCaret` | 1 | **KF.W7 §Bounds** (`TimelineCaret.vue` ×2; also KF.W4 ×3, KF.W6, KF.W8) | **LANDED in a wave** — **`C-10` RULED-and-LANDED** ⟨`e42e0aa3`⟩ and **`L-15` RULED-and-LANDED** under G14 P4(a); the rest **carried**, naming **TimelineCaret** |
+| 56 | `kf-KeyframesAddDialog` | 1 | **KF.W12 U3 · KFED-UNIT** | **LANDED in a wave** |
+| 57 | `kf-KeyframeTimeline` | 1 | **KF.W7 §Bounds** (`KeyframeTimeline.vue` ×2; also KF.W3, KF.W4, KF.W6) | **LANDED in a wave** (surface); **governed rows carried**, naming **`KeyframeTimeline / TimelineTrack rail`** — KF.W7 **KEEP-BESPOKE** |
+| — | `kf-AnimatedText` | **0** | — | **not in the left hand**: the one record of 58 that carries no `NO-WAVE-OWNER` row (⟨cmd⟩ `grep -L`). Its `KF-AT-21`/`KF-AT-26(e)` doc-truth arms are G-5's, not this gate's |
+
+**Arm-1 partition, stated so it can be checked (counting rule at the enumeration: the unit is a RECORD).**
+**37 homed by a §6.D packet** + **20 homed by an AUTHORED wave's bounds block** = **57**, and 57 + the one
+non-carrying record = **58**. The partition is computed, not asserted: ⟨cmd⟩ each record name tested against
+the three successors' `### P*`/`### U*` §Carry heading lines → **37 hit · 20 miss**, double-run; each of the
+20 then tested against the eleven authored specs' `§Bounds` blocks → **20 of 20 resolve**, **0 unresolved**.
+**No record is homed twice by re-keying**: where a record appears under two packets (`kf-SequenceScrubber`,
+`kf-SpringPhysicsFacet`, `kf-RibbonBar`, `kf-TransportDock`) the limbs are cited at **different banked
+anchors of the same record**, which is a fold by reference, not a re-booking.
+
+#### §4.1.B — LEFT HAND, arm 2: COHESION §4's 14 intake rows, drained
+
+**Method.** §4's rows are **record-level pointers** into the X·V corpus, and their register of record is the
+**X·V refinement fold layer** — ratified as such by **§0j.B · GF-R3** (*"RATIFY §1: the fold + canonical layers
+ARE the register of record … zero file motion"*). Under the fold's own **HOMED law** (§1: *"a wave adopts it
+through that wave's fold addendum — bounds delta + row booking; **the fold file is the row authority**"*), a
+row's home is the fold file that books it. Measured this seat, double-run: ⟨cmd⟩ `grep -c '<record>'
+refinement/X-W*-FOLD.md`, printed as `total` across the twelve folds and the `top` booking fold. **§4's own
+14 rows are byte-unchanged by this drain (E-3)** — the terminal word is recorded here, beside them.
+
+| § 4 row | fold-layer measure (total · top) | terminal word |
+|---|---|---|
+| AboutPane rider A-1 | 144 · **X-W0** (45) | **LANDED in a wave** — X-W0's fold + X-W6 (27); **the W-HYGIENE limb is `BOOK TERMINAL, explicitly NOT ADOPTED`** (§0j.B (5): *"silence is not adoption"*), i.e. **carried** at the G-F register |
+| ActionFeedback | 79 · **X-W7** (41) | **LANDED in a wave** (X-W7's fold; X-W0 holds the `browser/index.ts:6-7` prose leg) |
+| AdminAuditPanel | 73 · **X-W7** (36) | **LANDED in a wave** (X-W7's fold; X-W3 the transport/contract leg ×11) |
+| AdminTagsPanel | 96 · **X-W7** (46) | **LANDED in a wave** (X-W7's fold; the result-surface cure is W7's adoption, exactly as the intake row anticipated) |
+| ApiOfflineChip | 56 · **X-W8** (15) | **LANDED in a wave** — **owner-ruled: §0j.B GF-R1 names the claimant `X-W3`**, by a dated E-3 addendum widening its bounds to `demo/platform/transport/**` (4 files) as ONE unit carrying all seven rows with **AP-17** as its born-RED gate; the `×5`→`×7` correction rides **the addendum, never §4's bytes** |
+| BlobPane | 60 · **X-W2** (30) | **LANDED in a wave** (X-W2's fold; X-W6 ×18). MT-CSP-1's 10 identity-folds ride the fold layer's identity rows |
+| BrowsePane | 112 · **X-W7** (70) | **LANDED in a wave** (X-W7's fold; X-W3 ×22 for the `request<T>` decoder leg) |
+| ErrorBoundary | 128 · **X-W5** (20) | **LANDED in a wave** — **owner-ruled: §0j.B GF-R1's tail, *"the `ErrorBoundary.vue` contention at W0.22 stays X-W0's"***; the EB-2/EB-4 cure-lock (boundary OUTSIDE KeepAlive) travels with it |
+| MiniColorPicker | 53 · **X-W7** (26) | **LANDED in a wave** — X-W7's fold; the DELETE-AND-REBUILD terminal shape is **REVERSED to unify-on-the-mini's-containment** at `X-W8-FOLD.md` row 12 (W8.36), which is the row's live disposition, **recorded here, not re-decided** |
+| PaginationBar | 65 · **X-W7** (36) | **LANDED in a wave** (X-W7's fold; the composable-layer rows above the 48-line leaf) |
+| PaletteCard | 337 · **X-W7** (230) | **LANDED in a wave**; **R-4's registry-hygiene row** (the 20,018-byte CHALLENGE-L report at the malformed pass-2 path) is an **evidence-ledger correction with no wave surface** = **carried to the next formation boundary's ledger** |
+| PaneHeader | 75 · **X-W10** (52) | **LANDED in a wave** (X-W10's fold; PH-1's WebKit shrink-ratio pole + `useHeaderCondense.ts` + `o11-header-gates.spec.ts`) |
+| PreviewRamp | 124 · **X-W11** (60) | **LANDED in a wave** (X-W11 ×60 + X-W6 ×37); **ADJ-1's sequencing rule is a TRAVELLING LOCK** — `[data-color-surface]`: GenerateControls G8 deletes it, PreviewRamp's cure mints producers; **order bound on both records**, carried intact |
+| PreviewStrip | 91 · **X-W6** (35) | **LANDED in a wave** (X-W6's fold; X-W1 ×18, X-W9 ×11). The intake row's own conditional — *"X-W9.d/.f named gaps DEGRADE to NO-WAVE-OWNER if unadopted at execution"* — is **a live re-trigger, carried**, not a disposition this sweep may close |
+
+**Arm-2 result: 14 of 14 drained · 0 silent.** Two rows carry a **carried** limb beside their landing
+(AboutPane's W-HYGIENE limb; PaletteCard's R-4 registry-hygiene row), and one carries a live **re-trigger**
+(PreviewStrip). **Naming a limb is not a second verb** — it is the honest shape of a row whose parts have
+different homes, and the alternative is the closure-by-omission §2 declares fatal.
+
+#### §4.1.C — RIGHT HAND: the AUTHORED ELEVEN's bounds ∪ §6.D's cargo, and ∅ in the second direction
+
+**Half 1 — the authored eleven.** `KF-W0 … KF-W10`, **11 specs, 11 bounds blocks**, measured at OP-5 above.
+Twenty of the left hand's 57 records resolve here, and **no authored bounds block claims a NO-WAVE-OWNER
+packet**: KF.W4 homed all seventeen onward (§6.D's minting authority), so the two halves are **disjoint by
+construction** and the union is a sum, never an overlap.
+
+**Half 2 — §6.D's cargo enumeration, reconciled against the successors' now-real bounds blocks.** The
+round-1..4 premise *"MINTED-**UNAUTHORED**"* is **stale at the bytes**: `KF.W11 · KF.W12 · KF.W13` were
+**AUTHORED 2026-09-18** ⟨`f208ff31`⟩ and now carry real `§Bounds` and `§Carry` blocks. **The spec's form is
+what this gate computes** — `authored bounds ∪ §6.D cargo` — and the successors' own bounds are used as a
+**reconciliation, never as a substitute** (the falsifier: *a right hand computed from authored bounds alone,
+dropping §6.D's cargo, fails*).
+
+| §6.D row | cargo (the R-15 partition) | reconciled at the successor's own bytes | sum |
+|---|---|---|---|
+| 1 · **KF.W11 · Demo Scene Repair** | **9** — cube · sequence · spring · spring-plot · spring-physics-facet · spring-artifact-truth · square · amiga · drag-seam | ⟨cmd⟩ `grep -c '^### P[0-9]' KF-W11.md` → **9**; the nine `§Carry` headings name the nine packets **member-for-member**, each with its home record + anchor | **9 = 9** |
+| 2 · **KF.W12 · Authoring-Surface Repair** | **6** — CARD-UNIT · OPTIONS-UNIT · KFED-UNIT · EDITOR-UNIT · APPLY-UNIT · AXISLINE-UNIT | ⟨cmd⟩ `grep -c '^### U[0-9]' KF-W12.md` → **6**; six `§Carry` headings, member-for-member | **6 = 6** |
+| 3 · **KF.W13 · Chrome, Dock & Transport Repair** | **2** — dock-menu · transport/ribbon | ⟨cmd⟩ `grep -c '^### P[0-9]' KF-W13.md` → **2**; two `§Carry` headings, member-for-member | **2 = 2** |
+
+**9 + 6 + 2 = 17**, the canonical RULINGS **R-15** roster, at the same three homes, in the same partition.
+**The falsifier's arithmetic arm is met at every wave**: no §6.D row's cargo count disagrees with its wave's
+partition figure. **The terminal verb of the three register rows is untouched by this sweep** — advancing it
+is not `.b`'s act, and the authoring event is recorded as a dated observation, not as a re-ruling (E-3).
+
+**∅ in the second direction (right → left), stated as the check it is.** Every home on the right hand is
+backed by a banked left-hand row: each of the 17 packet headings cites **≥ 1 record + anchor** from the
+58-record registry (**17 of 17**, no heading without a record), and each of the 20 authored-wave homes is a
+bounds row over the record's own surface file (**20 of 20**). **There is no phantom home** — no wave, packet
+or UNIT in the right hand exists without a left-hand row to fill it — and **there is no empty-union green**:
+the right hand is non-empty on both halves (11 bounds blocks · 17 packets), so **L-2's vacuous-gate rule does
+not fire.**
+
+#### §4.1.D — the seven §3.2 sequencing locks, reproduced intact
+
+1. **KF-CO-1 / KF-CO-8** cures are **SEQUENCED by LP-1** (no write→render edge) — riding **KF.W12 U2**, whose
+   §Carry fixes the order *"KF-CO-1 … + KF-CO-8 ≡ LP-3 … **+ LP-1 in the SAME commit**"*.
+2. **kf-ChromeDock M-4's** worded cure **ships an unopenable menu** without the **MbabbMenu MUST-CARRY rider**
+   — riding **KF.W13 P1**, which carries the rider by name.
+3. **TD-1 / TD-2's cures bundle** — riding **KF.W13 P2** WHOLE (TD-1's *"cure with TD-4 + PRM + test, one
+   commit"*; TD-2's one-commit-with-TD-38/TD-40 lock), its sole home.
+4. **KF-APP-1's `ppMode` repair disposes the `setPPMode` twin in the same motion as the KF-APP-17 `headerLeft`
+   sweep; the `headerLeft` 'fill' arm is a TRAP** — it lands inside an inert toolbar, so **until the KF-APP-5
+   producer relay lands, DELETE is the only self-contained cure.** Homed inside an authored wave; **KF.W11 P1
+   consumes ARB-1's delete-arm-only law and re-derives nothing**, and KF.W13 P1 obeys the same arm.
+5. **Comment-stated invariants are test obligations** — the kf-SquareScene **MISS-3** law (a docblock asserting
+   *"paced by the spring's own settle, not a fixed timer"* 46 lines above `setTimeout(step, 520)`); riding
+   **KF.W11 P7**, where it is measured **RELOCATED** to `useSquareKeyboard.ts:20`/`:66` with its content
+   unchanged — *a comment edit alone does not discharge it*.
+6. **Glass-producer rows go to SS-6, never demo-side hacks** — named in all three successors' travelling-lock
+   blocks; **glass-ui is READ-ONLY always**.
+7. **KF-AV-28 · STANDING SUPERSESSION RIDER** — the sweep input, §4.1.E.
+
+**Six of the seven are the six travelling locks §6.D enumerates** (KF-AV-28 · MbabbMenu MUST-CARRY · TD-1/TD-2
+bundling · LP-1 write→render · comment-stated-invariants · glass-producer→SS-6); the seventh — KF-APP-1/-17's
+same-motion lock — **is not among them because its packet is homed inside an authored wave**, exactly as §6.D
+states. All seven survive this sweep **verbatim**; **none was spent, narrowed or re-worded.**
+
+#### §4.1.E — KF-AV-28 as a SWEEP INPUT: the verdict EXISTS, and it is KEEP
+
+**The rider's force on this gate**: it *"changes which terminal word those rows may lawfully take"*, so the
+set-difference cannot be computed without reading KF.W7's verdict. **KF.W7 is CLOSED (2026-09-17)** and its
+verdict is **SIX SURFACES · SIX KEEP-BESPOKE · ZERO SWAP** ⟨`.a`'s G1, `4c03ceda`, 2026-09-18⟩. **The discharge
+set is EMPTY.** This sweep therefore emits **ZERO** `DISCHARGED by KF.W7 SWAP verdict <surface>, <date>` rows —
+and **not because a verdict is outstanding, but because the verdict that exists discharged nothing.**
+
+| KF.W7 surface (verbatim) | verdict | this sweep's disposition |
+|---|---|---|
+| `KeyframeTimeline / TimelineTrack rail` | KEEP-BESPOKE | governed rows **carried**, naming the surface (arm-1 rows 54, 57) |
+| `TimelineCaret` | KEEP-BESPOKE | **carried**; `C-10` ⟨`e42e0aa3`⟩ and `L-15` are **LANDED**, not discharged (row 55) |
+| `TimelineHoverPreview` | KEEP-BESPOKE | **carried**; producer seams travel as **O-28 R-4/R-5** (row 46) |
+| `SequenceScrubber` | KEEP-BESPOKE | **carried** — the shape rows **PERSIST**; `C·C-4`'s narrowed cure is **LANDED** ⟨`43556828`⟩ (row 19) |
+| `AnimationVisualizer` | KEEP-BESPOKE | **carried** whole; `KF-AV-10` **LANDED** ⟨`72cdc27a`⟩; `KF-AV-32` relayed (**O-28 R-6**) stays NO-WAVE-OWNER (row 27) |
+| `SpringTarget / SpringTrace idiom arms` | KEEP-BESPOKE (house idiom ADOPTED) | **carried**; `C-4` is **RULED** (delete the sentence) and `C-3`'s decision is taken with its implementation edge at KF.W5/KF.W8 — *a decision taken is not a discharge* (rows 15, 22) |
+
+**The packet-level consequence, recorded**: the **drag-seam** and **transport/ribbon** packets — which R-15
+sequences *after* KF.W7's verdict — are **un-gated by a swap that did not happen**; their homing at KF.W11 P9
+and KF.W13 P2 stands, and their governed rows are carried under the surfaces above. **No governed row is
+stamped LANDED or KILLED on the strength of a swap**, which is the rider's own prohibition.
+
+#### §4.1.F — the two INBOUND DECLARATIONS, received exactly as declared
+
+**R4-1 (repair round 4)** — **`KF-APP-41`** and the **kf-EditorShell `C-22` orphan-token limb** leave the left
+hand **BY ADOPTION, never by omission**: both read **`ADOPTED-BY-KF.W6 (RULINGS-4 R4-1)`** (arm-1 rows 36, 38),
+the authority is R4-1 with KF.W6's LAW-A census of record, and **`C-22`'s remaining limbs `D-27` and `RR-2 M7`
+stay NO-WAVE-OWNER and are carried** — this green discharges nothing of theirs (R4-1's own falsifier). The
+anti-re-book note is carried at **§6.D's KF.W12 row**: **no successor packet re-books either row.**
+
+**R5-1 / LAW F(2) (repair round 5)** — KF.W6's **SHADOW** notification struck the round-4 MOOT-ON-DELETE premise
+and **restored `EH-4` · `EH-5` · `EH-8` LIVE** at their banked anchors under that wave's existing grants. **It
+is received as a notification and NOT converted into an obligation**: the three rows read **`LANDED in a wave`**
+(arm-1 row 38), **no denominator moves** — the left hand stays **58 / 57 / 1,218** and the right hand stays
+**authored bounds ∪ §6.D cargo** — and **this block books nothing new, re-keys nothing and adopts nothing.**
+Recorded because *a sweep that silently absorbs a sibling's restoration is the same closure-by-omission the
+close-clock arm exists to convict.*
+
+#### §4.1.G — the gate reading
+
+**G-2: RED → GREEN.** **∅ in both directions.** Left hand **58 records / 57 carrying / 1,218 occurrences ∪
+COHESION §4's 14 rows = 71 sweep rows, 71 terminal words, 0 silent.** Right hand **the authored eleven's
+bounds blocks ∪ §6.D's 17-packet cargo (9 · 6 · 2), reconciled member-for-member against KF.W11/W12/W13's
+now-real §Carry blocks.** **Zero re-bookings** — every fold is by reference at the banked id and every original
+id is carried for life. **All seven §3.2 sequencing locks reproduce intact, KF-AV-28 among them.** **OP-5 holds
+at this block's settled bytes** (the three commands re-run below). **This wave homed nothing and cured
+nothing**: it recorded, for every inherited NO-WAVE-OWNER row, the terminal word some other seat had already
+earned — which is the only thing a close wave may lawfully do.
 
 ## §4a The SS-6 communique accretion register (producer-owned rows awaiting the ONE batched BJ letter)
 
