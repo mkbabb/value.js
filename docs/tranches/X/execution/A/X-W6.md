@@ -1751,3 +1751,26 @@ vacuous-true reading of H2) are all still refused.
 already relieved and owner-named.
 
 **The LEDGER row stays `PARTIAL 2026-09-19`. It is not promoted.**
+
+### Commits and one disclosed index condition
+
+| # | commit | paths | bounds row |
+|---|---|---|---|
+| 1 | `e524f321` | `docs/tranches/X/execution/A/X-W6.md` (append-only — `## Check 2`) | the record |
+| 2 | this commit | the same record (this disclosure) | the record |
+
+**DISCLOSED — the shared LEDGER was carried by a sibling's commit, not by this seat's.** This seat's
+LEDGER act was the lawful minimum: an in-place replacement of the X-W6 row's own status cell plus one
+appended event line, both re-read immediately before writing. Between that write and this seat's
+commit, **Track C dirtied the same file** (the `F.W3` row) and committed first — ⟨cmd⟩
+`git show --stat c0386722` → `docs/tranches/X/execution/LEDGER.md | 6 ++++--`, and ⟨cmd⟩
+`git show c0386722 -- …/LEDGER.md | grep -c "X-W6 CHECK 2"` → **1**. So `c0386722`
+(*"docs(X·exec): F.W3 row …"*) carries **this seat's X-W6 row cell and event line** alongside its own
+F.W3 row. **This seat swept nothing**: it never staged, committed, reset or restored a sibling path,
+and its own commit `e524f321` carries the record alone. Recorded here because a pathspec cannot
+separate two seats' edits to **one file**, and the next seat should read the X-W6 ledger cell's
+provenance from this note rather than from `c0386722`'s subject line. ⟨cmd⟩ `git status --porcelain`
+at close → `M docs/tranches/V/reformation/CARRY-LEDGER.md` · `M scripts/dev/dev.sh` — the two standing
+rows, neither this seat's; `scripts/dev/dev.sh` was never touched and never staged. The two committed
+AFTER frames this seat's oracle batch regenerated were restored byte-identical by single-path
+⟨cmd⟩ `git checkout -- …` before any commit, and the tree was verified clean afterwards.
