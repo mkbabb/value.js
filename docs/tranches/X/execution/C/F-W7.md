@@ -679,3 +679,43 @@ zero `contract/` bytes**. The owner-gated question was **put, ruled, and recorde
 and the wave lands as the **terminal kill with rationale** §1a's leg (b) and COHESION §3 item 2 require.
 **VERIFIED stays NO**, reserved to the X·F sub-tranche release close. Three reciprocals and two
 bilaterality riders stay **owed at far ends this wave may not write**, each named with its owner.
+
+### C.8 — Close-seat disclosure (dated 2026-09-19, E-3) — the LEDGER stamp landed under a sibling's commit, and this seat says so
+
+**The F.W7 row stamp and the close event line are DURABLE and CORRECT, and neither of them is carried by
+a commit of this seat's.** The sequence, measured rather than reconstructed:
+
+1. This seat edited row **69** by **minimal in-place replacement of its own wave's cells** (`**OPEN
+   2026-09-17**` → `**IMPLEMENTED 2026-09-17; VERIFIED stays NO …**`, plus the commit cell) and
+   **appended** one dated event line — the two forms the ledger law admits, and no other. ⟨cmd⟩
+   `git diff --numstat -- docs/tranches/X/execution/LEDGER.md` at that moment → **`3 2`**, whose hunks
+   ⟨cmd⟩ `git diff … | grep -E '^[-+][^-+]'` showed to be **two row replacements, not one**: this seat's
+   `F.W7` row **and a Track D seat's `X.P.W4` row**, written into the same working tree between this
+   seat's read and its write.
+2. Rather than sweep a sibling's hunk under an F.W7 message — the exact event seat 0 disclosed at the
+   OPEN commit — this seat **committed its record file alone first** (`b7fdbf3d`, one path, 206
+   insertions, zero contamination) and re-measured the ledger before staging it.
+3. **In that interval the Track D seat committed.** ⟨cmd⟩ `git diff --numstat --
+   docs/tranches/X/execution/LEDGER.md` → **empty**; ⟨cmd⟩ `git log --oneline -1 --
+   docs/tranches/X/execution/LEDGER.md` → **`b720b966 docs(X·exec): X.P.W4 OPEN ATTEMPT → BLOCKED-ON
+   X.P.W3 IMPLEMENTED …`**. That commit's pathspec named `LEDGER.md`, and **a pathspec commits the
+   worktree state of the path**, so it carried **this seat's F.W7 row and event line** with its own.
+   **Verified present and verbatim at that commit**: ⟨cmd⟩ `git show HEAD:docs/tranches/X/execution/LEDGER.md
+   | /usr/bin/grep -c '^| F.W7 | F.W0 + F.W5 clauses + G-F7-1 (§0j) | \*\*IMPLEMENTED 2026-09-17'` → **1**
+   and ⟨cmd⟩ the same against `'X.F.W7 IMPLEMENTED — the owner-gated wave lands as a TERMINAL KILL'` →
+   **1**; ⟨cmd⟩ `git status --porcelain -- docs/tranches/X/execution/` → **0**. **Nothing was altered,
+   lost, reverted or duplicated. No unstage, no reset, no stash, no re-write was performed by this seat**
+   — the standing law forbids touching a sibling's paths, and a committed row is strictly safer than an
+   unstaged one.
+
+**The finding, and it is the seat-0 disclosure caught from the OTHER side, which is what makes it
+evidence rather than an anecdote.** At OPEN, F.W7's commit carried Track B's `KF.W10` bytes; at CLOSE, a
+Track D commit carried F.W7's. **The hazard is symmetric, it is not a seat's carelessness, and no
+pathspec discipline can reach it**: four tracks write one file, a pathspec resolves *paths* and git
+commits the *worktree*, so cross-hunk capture is structural. **What made both events harmless is the
+ledger law already in force** — minimal in-place row edits plus appends, never a rewrite — under which
+two seats' concurrent hunks cannot collide even when one commit carries both. **The residue is one of
+attribution only**: `git log -- LEDGER.md` will not name F.W7's close as the author of F.W7's own stamp.
+Booked as residual **8** of C.6, owner **the programme**; this wave proposes no mechanism and changes no
+law. **F.W7's LEDGER row reads `IMPLEMENTED 2026-09-17` at the settled bytes, which is the fact the close
+owed.**
