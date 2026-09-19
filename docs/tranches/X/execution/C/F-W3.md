@@ -3392,3 +3392,281 @@ No `git add -A`, no `-u`, no `commit -a`, no stash, no reset, no force-push, no 
 swept in. `docs/tranches/X/execution/LEDGER.md` is **not touched by this seat**: this unit's dispatch
 names this record and `evidence/w3/` alone, other seats edit that file concurrently, and the wave row
 is the orchestrator's.
+
+### X.F.W3.f
+
+SERVED MODEL: claude-fable-5-1 — The law, the register, and the letter. Fresh-Fable adjudicator (M-12
+tri-fold), **serial on clean main, value.js docs-side, ZERO fourier bytes written**: every fourier
+reading below is `git grep` / `git show` / `git diff` / `git merge-tree` at a ref, and the fourier main
+checkout was never written (⟨cmd⟩ `git status --porcelain` at `/Users/mkbabb/Programming/fourier-analysis`
+→ `?? .worktrees/` before and after, §5b's declared residue). Every published count read from the
+settled bytes and double-run.
+
+#### Act 0 — crash-recovery sweep (standing law, first act)
+
+⟨cmd⟩ `git status --porcelain` at value.js → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` ·
+` M scripts/dev/dev.sh` (unowned, NEVER touched — DR-24) at open; three further sibling rows appeared
+mid-sitting (`execution/A/X-W6.md` · `execution/D/X-P-W4.md` · `parse-that/evidence/W4/…`) — **none
+inside this seat's writable set, none staged by this seat, none swept into any commit** (every commit
+below verified by `git show --name-only`). ⟨cmd⟩ at fourier → `?? .worktrees/` only. **Nothing
+inherited, nothing stashed, nothing restored.** No predecessor `.f` partial work existed: ⟨cmd⟩ `ls
+docs/tranches/X/fourier/F-W3-DO-NOT-EXECUTE.md` → *No such file* at open.
+
+#### Act 1 — the spec whole, the anchors at true bytes, and the operand this seat measured
+
+Spec read whole (912 lines; sha256-at-quote-time **`5b42a3b6e185`**, IMMUTABLE); the dispatch's line
+anchors (§C.E `:292–296` · §C.J `:364–371` · §C.K `:373–388` · g9/g11/g14/g16/g19/g20 `:406`/`:408`/
+`:411`/`:413`/`:416–417` · S-5/S-8/S-9/S-11 `:435`/`:438–441` · §5f `:479–483` · §8 `:565–567` · §X/§X.1-v5
+`:580–795` · §Y `:864–898` · §Z `:899–911`) **all resolve at the stated lines — no drift**. This record
+read whole (3,394 lines at open); COHESION §0j–§0x read to file end; `.a`/`.b`/`.c`/`.d`/`.e` receipts
+and their `evidence/w3/` transcripts read.
+
+**The operand is three refs, not one, and the close says so.** Fourier main `m/w1-bump-migration` is at
+**`21e11b0`** (`.c`'s head); `.b`'s work is on `x-f-w3-b` @ **`b9995b3`** (⟨cmd⟩ `git log --oneline
+21e11b0..b9995b3 | wc -l` → **2**); `.d`'s and `.e`'s on `x/f3e` @ **`8aa9252`** over `x/f3d` @ `74084fa`
+(⟨cmd⟩ `21e11b0..8aa9252` → **32** = 18 ⊕ 14, matching both receipts' self-counts). **They are NOT
+integrated** — §9's sequenced integration is the orchestrator's act — and this seat measured whether
+they can be: ⟨cmd⟩ `git merge-tree 21e11b0 8aa9252 b9995b3 | grep -c '^changed in both'` → **0**;
+conflict markers → **0**; ⟨cmd⟩ `comm -12` of the two branches' `git diff --name-only 21e11b0 <head>`
+lists → **∅**. File-disjoint; a trivial merge. Every gate below names the ref it was read at.
+
+#### Act 2 — g19, the comparison of two enumerations · commit `498b2085`
+
+⟨cmd⟩ `tail -n +2 evidence/w3/g19-comm.sh | sh` (portable BSD `awk`/`sed`/`sort`/`comm`; LHS = the
+canonical's `### F.W3 —` block, RHS = the spec's §X.1-v5 item 4 register window, `~~struck~~` spans and
+`<sub>` legs stripped before pairing; pairs are `(record, id)`):
+
+```
+canonical sha256-at-quote-time: f44362757458
+LHS canonical pairs: 919   records: 59
+RHS register  pairs: 919   records: 59
+--- comm -3 line count: 0 ---        (col1 = ESCAPE, col2 = FABRICATION — both EMPTY)
+duplicate pairs LHS: 0  RHS: 0
+double-run: IDENTICAL
+```
+
+**The LHS is the canonical and nothing else** — not a check file, not a RULINGS figure, not a prior
+pass, not a detector over the corpus, not a struck integer — and it is quoted with its sha256 prefix.
+**g19 GREEN.** Transcript `evidence/w3/g19-X-F-W3-f.txt`; the L-14 attack on it is at Act 7.
+
+#### Act 3 — the register (g20's artefact) · commit `498b2085`
+
+`docs/tranches/X/fourier/F-W3-DO-NOT-EXECUTE.md` CREATED (line 1 `SERVED MODEL: claude-fable-5-1`):
+§1 the four anti-cures (P-11 law quoted by command; each with its state at the measured bytes and its
+refutation attempt) · §2 **every** killed §X prescription — ⟨cmd⟩ `grep -c '^| K-'` → **18**, against
+the spec's `:598` cell ⟨cmd⟩ `awk -F' · ' '{print NF}'` → **18** — each with its kill cite in the
+immutable spec and what landed instead at which ref · §3 g12's two **(b)** rows verbatim from `.c`
+(`./search`, PSM-9 ≡ MISS-B3 ≡ C:C-6 ≡ C-2) and `.d` (`./forms`, FR-AUL-6) plus the `./fading-scroll`
+(a) reading and the `./easing` homonym qualification · §4 twelve deliberate no-ops recorded under
+FR-TT-10's clause · §5 the L-14 record · §6 g14's three legs and g20's S-15 reconciliation. **One
+cite-by-row disclosed** (K-17, "the D-3 dropdown revival": no §2 row carries that spelling — ⟨cmd⟩
+`grep -n 'D-3 dropdown' waves/F-W3.md` → `:598` only — so the kill is cited to the §C.D family rather
+than to a line). **Three assertions written before measurement were corrected in the same sitting**
+(WRITE-THEN-MEASURE): `role="radiogroup"`, `.glass-btn` and `ariaLabel` each return **1 prose hit** at
+`8aa9252` (the publication's own anti-cure text at `style.css:393`/`:396-397`; `ui/tooltip/index.ts:101-105`)
+where the first draft said *no match* — restated as *0 in any rule or template*.
+
+#### Act 4 — S-15: the reconciliation, the accretion, the emission · commits `abbed3f6` · `2613953b`
+
+**The letter is NOT a letter.** Per the spec's own dated addenda (`:417`, `:435`) the verb is
+**ACCRETES** and SS-6 is root-authored, so nothing was sent and no channel opened. The roster was read
+row-by-row against the packet's bytes and every later disposition: **O-20** (⟨cmd⟩ `shasum -a 256 … |
+cut -c1-12` → **`f6e04c86ddb8`**, the addendum's pin, unmoved) ⊕ **I-32/I-33** (glass's dispositions)
+⊕ **NWO-1** (F.W1's relay, itself reconciled against I-32/I-33) ⊕ **O-32/O-33** (F.W4's relays).
+
+**Finding (L-14, load-bearing): the addendum's partition — "eleven residual ⊕ five dispatched" — is
+FALSE at the packet bytes.** `AX-1`/`CU-1` ride **O-20 §B-6** (*"GlassTimeline a11y four-item family,
+producer share … the cursor-affordance deletion is producer-owned"*) → I-32 **B-6 CURE-NOW**;
+`FR-COB-7` rides **O-20 §A-11** (FR-COB-28 item 1) → I-32 **A-11a KILL ⊕ A-11b ANSWER**, struck at
+NWO-1 §2 **S-1**; and `AA-3` was **WITHDRAWN with cause at O-32 §1.2**. **Eight STATUS-NOTES**
+(never re-sent) · **thirteen residual rows** accreted at COHESION **§4a F3-1..F3-13** — the seven
+survivors of the addendum's eleven (`LF-1`(b) · `FR-COB-22` · `./confirm-dialog` note · `M-5` ·
+`FR-TT-13` · `PAW-53` · `--tier-*` as a rider on NWO-1 L-4) ⊕ six raised by this wave's units and in
+no prior letter (`R-1[D-14-fallback]` `.a` · `EasingCurve` captions `.b` · the `./search` scorer's
+`FR-PSD-TYPE`⊕`PSM-14` `.c` · `m-7`/`m-16` and `ConfiguratorLayer`-no-heading `.d` · `FR-TT-18` `.e`).
+⟨cmd⟩ `grep -l` of each residual key over the six letters → **0 files each** (transcript
+`evidence/w3/g20-X-F-W3-f.txt`). The addendum is E-3-immutable; the correction lives beside it.
+**No ask withdrawn, no packet re-sent. g20 GREEN in the S-15 form.**
+
+**S-8 emitted** into COHESION **§4** as seven rows after the DRAINED line (post-drain, not among §4.1's
+14), each carrying the terminal word already earned: `FR-EMT-21` and `i-5(a)` → F.W0's G-12 table,
+**measured ABSENT** (⟨cmd⟩ `grep -ic shadow …/F/SUBSTRATE-LEDGER.md` → **0 / 0**) → the next boundary;
+`FR-CP-44` LANDED as a census correction (`.d` `ca8c8d2`); `PICKER-RES` preview half RULED+LANDED,
+picker half → next boundary; `L-m5` qualifier RESOLVED at the pin; `FR-COB-7` DISPOSED by the producer;
+`i-1` OWNER RULING OWED. **Self-count `2613953b`**: the FR-EMT-21 row as first written quoted g17's three
+forbidden totals as its defect description — g17's own detector (`grep -nE -e '1[[:space:]]?990' -e
+'2[[:space:]]?079' -e '1[[:space:]]?315'`) run over everything this seat wrote returned **1 line**; the
+row was restated without the literals, detector **0 ≡ 0** after. Disclosed, not quietly replaced.
+
+#### Act 5 — g9 · g11 · g14 · g16, tree-wide, read-only at the unit heads · commit `2fe1331d`
+
+Transcripts `evidence/w3/g9-g11-X-F-W3-f.txt` · `g14-g16-X-F-W3-f.txt`. Readings are at Gates below;
+what this act adds is the **classification by position** the SWEEP-LAW rider demands (no unit and no
+gate keys on a bare `is-active` grep; this seat classified every hit as binding / scoped rule / prose).
+
+#### Act 6 — E13, at open and at close · commit `5ea44a2d`
+
+Four paths swept; UNREAD by Status-cell position → **0**, double-run `0 ≡ 0`, over **79** rows;
+`-newermt 2026-09-19` → `INBOX.md` (self) and keyframes' own `INBOUND-LEDGER.md` (mints no row); every
+BK letter cited by ≥1 row; register tail unmoved at I-35 / O-39. The three S-6 flags are
+**filed-as-ruled by citation** (§0x), no row minted; the S-11 "letter row" is not minted (S-15). One
+sweep line appended; this seat's only byte in that file. **No UNREAD mail in scope.**
+
+#### Gates — BEFORE (RESUME baseline, fourier `21e11b0`) → AFTER (this seat; ref named per cell)
+
+| gate | BEFORE | AFTER (this seat, double-run) | verdict |
+|---|---|---|---|
+| **g9** ACTIVE-STATE, tree-wide | 7 files / 22 sites; five spellings | @ `8aa9252`: ⟨cmd⟩ `git grep -c 'is-active'` → **6 files / 20 sites**, BY POSITION: **10 live** (`FunctionInput.vue:203` binding + `:293` rule — `.d`'s; `MobileFloatingToc.vue:167` + `:402`/`:407` — `.c`'s; `PaperSidebar.vue:144` + `:403`/`:407`/`:417` and the sole **`is-active-sub`** `:173` — `.c`'s), **3 in `EasingPicker.vue`** (`.b`'s file at a ref without `.b` — @ `b9995b3` the file has **1**, a docblock), **7 prose** (`style.css:352-386` ×6 = the PUBLICATION's own text; `GallerySearchBar.vue:227` ×1 = `.e`'s applied-vocabulary comment). `EquationModeToggle` and `AppHeader` → **0** (swept by `.e` `4eab84b`/`1f850ea`). `:is-active` PROP → **0** (absent from the tree, divergence 3 reproduced). Sixth spelling `:class="{ active"` → `GalleryCardModal.vue:233` **1, prose**. `is-playing` → `ConvergenceTimeline.vue:82`/`:147` · `AnimationControls.vue:123`/`:138`/`:232`/`:235` — `.a`'s CLOSED files, 6 live. **Integrated reading (union of the two heads)**: **10 live `is-active` sites in 3 files ⊕ 1 `is-active-sub` ⊕ 6 `is-playing`, all in `.a`/`.c`/`.d` files the resumed plan forbade `.e` to open**; one vocabulary PUBLISHED (`7dc4c0b`) and applied in `.e`'s own files | **HONEST-RED** — the decision exists and every unswept site is named with its owner; a green over `.e`'s fifth would be the PASS-2 D-4 failure |
+| **g11** TOOLTIP ADAPTER, tree-wide | 11 files / 39 `<Tooltip`; shim without `inheritAttrs`; two import identities | @ `8aa9252`: **11 files / 43 sites** (+4 = the shim's own docblock); `max-width` over `ui/tooltip/` → `Tooltip.vue:2` · `index.ts:3` (the 16rem bound, in `@layer glass-overrides`); FR-TT-15 knobs landed (`511cbd0`); **import identities still TWO** — ⟨cmd⟩ → `@/components/ui/tooltip` ×9 · `@/components/ui/tooltip/Tooltip.vue` ×1 (`PaperSidebar.vue:2`, `.c`'s CLOSED file); per-file spread `EditorControlsDock 9 · CanvasControlsDock 6 · ContourSettings 6 · AnimationControls 4 · PaperSidebar 3 · FunctionInput 2 · BasisSelector 2 · CoefficientsSpectrum 2 · App 1 · VisualizationView 1`; the **naming leg is UNMINTED** (AC-3 retired the only prescribed cure; no replacement landed at any site) | **HONEST-RED** — contract published; FR-TT-20 not normalized (one deep import, `.c`'s); naming leg and the 35-callsite sweep are the owners'/F.W4's |
+| **g14** CARTOON-CARD relay | RED at the register; `--viz-amber` 40 sites | leg 1 **GREEN by dispatch**: O-20 §B-4/§D-2 carry `--viz-amber` only and retire the cartoon ask; I-32 B-4 KILL confirms the wash-not-token reading (*4.518 under your 8% wash*). Leg 2 **RED**: `style.css:211-212` still says *"14 application sites (13 files …)"* @ `8aa9252` while ⟨cmd⟩ `cartoon-card` → **12 files / 24 mentions** (29 @ `21e11b0`); `.e` touched `style.css` and left it. Leg 3 **RED**: the D-15 comment (*"The bespoke `cartoon-card` panel backgrounds retire …"*) at `VisualizationView.vue:216-221` beside the live site `:191`; `.e` touched the file. `--viz-amber` → 39 sites / 14 files, unmoved by design | **HONEST-RED** — two one-comment landed-wrongs in `.e`-owned files, outside this seat's set; escalated below |
+| **g16** NO NAIVE `@layer` WRAP | ≥8 inversion sites; no lint rule | ⟨cmd⟩ `@layer` lines ADDED by F.W3 (`+` lines, both branches) → **4, all `@layer glass-overrides`** (`Tooltip.vue:174` + 3 prose), ordered LAST at `index.html:60` (unchanged); two-leg `transition` adds → **0**; `transform: scale(` adds → **0**, removes → **2**; the one `@layer components {` in `style.css:327` is **F.W1's** (`538db90`), a re-declaration, not this wave's. **Lint rule**: `web/eslint.config.js` present, ⟨cmd⟩ `grep -c layer` → **0** — the RESUME cell's *"no eslint config"* is a **measured divergence** (`.e` residual 9 found it too) | **HONEST-RED on the lint half** (an F.W0 addition this wave consumes, §7); anti-cure half GREEN-STATIC (runtime override-survival not probed — parsimony) |
+| **g19** ROSTER CLOSURE | UNRUN | **919 / 59 == 919 / 59**, `comm -3` EMPTY both columns, sha `f44362757458`, double-run identical | **GREEN** |
+| **g20** REGISTER + LETTER | absent; no accretion | register EXISTS (18 kills · 4 anti-cures · 2 (b) rows · 12 no-ops); cargo ACCRETED (§4a F3-1..13) with 8 status-notes; 0 re-sends | **GREEN** (S-15 form) |
+| **g12** (reported) | 1 of 3 | `./fading-scroll` (a) **3** imports @ `8aa9252` (1 @ main); `./forms` (b) row; `./search` (b) row — ⟨cmd⟩ `glass-ui/search` @ `8aa9252` → 1 docblock, 0 imports | **GREEN 3 of 3** |
+| **g15** (reported) | 5 · 7 · 8 | `.e`-scoped GREEN (`.e`'s transcript); tree-wide @ `8aa9252`: `function timeAgo` → `lib/time.ts` ⊕ **2 residual** (`AdminFlaggedPanel.vue`, `GalleryDraftsSection.vue` — `.d`'s); `startsWith("fourier")` → `lib/basis.ts` ×2 + its test ⊕ **3 residual** (`BasisSelector.vue` `.a`'s · `GalleryDraftsSection.vue` `.d`'s · `BasisCanvas.vue:254` ESCALATED); tier/sort unions taken from `.e`'s transcript (4 residual incl. `stores/gallery.ts:33-34` ESCALATED) — not re-keyed here | **HONEST-RED tree-wide**, 9 sites named by owner |
+| **g17** (reported) | RED-RELIEVED | ⟨cmd⟩ `grep -ic shadow SUBSTRATE-LEDGER.md` → **0 / 0**; the forbidden-token detector over everything this seat wrote → **0** after `2613953b` | **HONEST-RED (relieved: F.W0 publishes)** |
+
+#### Act 7 — L-14, the recorded refutation attempts
+
+**(1) "g19's set-difference is empty" — attacked, not refuted.** A planted ESCAPE (`fr-SpeedSelect
+SS-C-9` dropped from a register copy) → `comm -23` **1**; a planted FABRICATION (`SS-C-99` added) →
+`comm -13` **1**: the comparison is live in both directions. En-dash ids → 0/0. The eight `~~struck~~`
+spans are stripped; **a bare-token check would have called `K-11` a hole** (it survives once in the
+canonical, at `fr-EditorControlsDock` — a different record) and the `(record, id)` comparison is not
+fooled, which is axis (iv) doing its job. **(2) The S-15 partition — REFUTED** (Act 4): three of the
+"eleven residual" were already dispatched, one since withdrawn. **(3) Anti-cure 1's "no naive wrap" —
+attacked at the diff, not refuted; its runtime half disclosed as static-only.** **(4) `.e`'s g10 host
+choice (the CONTENT) — attacked, not refuted**: the trigger is the consumer's own `as-child` child and a
+shim root is K6-killed, so the CONTENT is the only host the law admits; its cost (a consumer `class`
+styles the panel, never the trigger) is what the shim's docblock says.
+
+#### Residuals (named, none swept)
+
+1. **g9's live operand, by owner** — `.c`: `PaperSidebar.vue:144/:173/:403/:407/:417`,
+   `MobileFloatingToc.vue:167/:402/:407`; `.d`: `FunctionInput.vue:203/:293`; `.a` (`is-playing`):
+   `AnimationControls.vue:123/:138/:232/:235`, `ConvergenceTimeline.vue:82/:147`. `.a`/`.c` are CLOSED
+   under §5a-v2 law 2; `.d` recorded and did not sweep, as the resumed plan ordered.
+2. **g11**: `PaperSidebar.vue:2`'s deep SFC import (FR-TT-20's second identity, `.c`'s); the naming
+   leg at the 17 icon-only triggers (Editor ×9 · Canvas ×6 · FunctionInput ×2 at this base) — no cure
+   exists at the pin after AC-3; F.W4's/the owners'.
+3. **g14 legs 2/3** — `style.css:211-212` and `VisualizationView.vue:216-221`, one comment each, `.e`'s
+   files. **Plus I-33 §B-4's consumer row, un-taken by any unit**: `style.css:116-123`'s unlayered
+   `--viz-amber` override *"is now the regression … Strike the block"* (⟨cmd⟩ @ `8aa9252` the block
+   still carries `--viz-amber`) — `.e`'s file; the producer's reading is on the record, ours is not yet.
+4. **g16's lint rule** — absent; F.W0's addition by §7's own words; `eslint.config.js` exists and
+   carries exactly the two rules F.W0 named, so the home for the `@layer` rule now exists.
+5. **g15's nine** — per `.e`'s transcript, unchanged.
+6. **`.b` is not in `x/f3e`** — every `.b` reading above is at `b9995b3`; after integration the union
+   reading is the one this seat states in g9's cell.
+7. **The four verbs**: AUDITED YES · SPECIFIED YES · **IMPLEMENTED — NOT stamped by this seat**: the
+   bytes exist on two branches and are not on main; the stamp is the orchestrator's on integration ·
+   VERIFIED NO (reserved for the sub-tranche release close).
+
+#### Escalations (returned by name; none acted on)
+
+- **ESC-W3f-1 — INTEGRATION OWED (orchestrator, §9)**: `b9995b3` (`x-f-w3-b`) and `8aa9252` (`x/f3e`)
+  onto `m/w1-bump-migration` @ `21e11b0`, sequenced `.a`→`.b` (store seam — already satisfied, `.a` is
+  on main) and `.a`→`.d` (e2e — likewise); `merge-tree` reports a trivial merge. Until it lands, main
+  carries `.a` and `.c` only.
+- **ESC-W3f-2 — two one-comment landed-wrongs in `.e`'s files** (g14 legs 2/3, Residual 3), plus I-33
+  B-4's consumer row in the same file. Outside `.f`'s writable set (zero fourier bytes). Needs a `.e`
+  rider or a bounds grant to the integration seat.
+- **Carried unrelieved from the units, unchanged**: `ESC-W3e-1` (bounds: `BasisCanvas.vue:254` ·
+  `stores/gallery.ts:33-34`), `ESC-W3e-2` (`FR-GIG-5`'s one repair unit straddles `.d`/`.e`
+  undeclared), `ESC-W3e-3` (`vitest.config.ts` glob, one line, no bounds row), `E-d1` (`FR-AFP-33`'s
+  vehicle is not a list cap at 8.0.0), `E-d2` (`LC-2`'s deletion needs the e2e stack).
+
+#### Commits (pathspec on the commit itself, one meaning each; branch `tranche-u`)
+
+`498b2085` register ⊕ g19/g20 evidence · `2fe1331d` g9/g11/g14/g16 transcripts · `abbed3f6` COHESION §4
+emission ⊕ §4a accretion · `5ea44a2d` INBOX sweep · `2613953b` the FR-EMT-21 self-count · **this
+record's receipt + close** (the next commit) · the LEDGER row (the one after). Self-counted from
+⟨cmd⟩ `git log --oneline fecca648..HEAD | wc -l` at each step; ⟨cmd⟩ `git show --name-only` per commit
+→ **every path inside this seat's writable set**; `scripts/dev/dev.sh` in **0** commits; no `-A`, no
+`-u`, no `commit -a`, no stash, no reset, no force-push; sibling dirty rows (`CARRY-LEDGER.md`,
+`execution/A/X-W6.md`, `execution/D/X-P-W4.md`, `parse-that/evidence/W4/…`) never staged.
+
+---
+
+## Close — RESUME (X.F.W3.f, the wave's close seat, 2026-09-19)
+
+SERVED MODEL: claude-fable-5-1 — an **append** below the first `## Close` (E-3); every prior byte of
+this record keeps its bytes. The wave's spec at `waves/F-W3.md` is IMMUTABLE and was not written.
+
+### The wave closes HONEST-RED, and UNINTEGRATED — both said in one breath
+
+All six units have receipts and commits: `.a` (`77b9bc0` · `f36541a` · `a08809b`) and `.c` (`21e11b0`)
+on main; `.b` (`da417da` · `b9995b3`) on `x-f-w3-b`; `.d` (18, `be623d9`…`74084fa`) and `.e` (14,
+`7dc4c0b`…`8aa9252`) on `x/f3e`; `.f` docs-side on value.js `tranche-u`. **The Goal criterion at the
+integrated bytes** (union of `8aa9252` ⊕ `b9995b3`, a trivial merge): *no fourier frontend surface
+hand-rolls a component the installed producer ships* — the timeline, easing, search, dialog, disclosure,
+progress, carousel, card, collapsible, fading-scroll and tabs shadows are retired (g3 · g7 · g8 · g12 ·
+`.d`'s Act 3); *no scrub or search surface carries a defect its own prescribed cure would arm* (g4 · g5
+· g13); *one vocabulary names the active state* — **PUBLISHED, applied in `.e`'s and `.b`'s files,
+unswept in `.a`/`.c`/`.d`'s (g9 honest-RED, 10 live sites named)**; *one law governs every wrapper*
+(g10 GREEN); *every producer-owned defect is on the SS-6 register instead of patched locally* (g20
+GREEN, 13 rows, 0 hacks); *every do-not-execute cure recorded, never silently dropped* (the register:
+18 kills · 4 anti-cures · 12 no-ops). **Five of six clauses true at the integrated bytes; the sixth
+true by publication and honest-RED by sweep.**
+
+### Gate table — BEFORE (RESUME baseline, `21e11b0`) → AFTER (this close; ref per cell)
+
+| gate | BEFORE | AFTER | owner of the RED |
+|---|---|---|---|
+| g1 | GREEN (`.c`) | GREEN, inherited and re-reported; not re-run at this seat (CHECK 1–3 each re-derived it) | — |
+| g2 | GREEN | **0 files** @ `8aa9252` and @ `b9995b3` | — |
+| g3 | GREEN | **0** `glass-ui/timeline` @ both | — |
+| g4 · g5 | spec-present | both specs present @ both refs; runs banked at `.a` (8 passed ×2); the suite is unrunnable at `.d`/`.e`/`.f` (no `webServer`, no stack — `E-d2`) | environment, named |
+| g6 | CONSUMED | unmoved (`17a11bc5`) | — |
+| g7 | RED | @ `b9995b3`: bare-token `easing-preview` → **0**; `glass-ui/easing` → **2** adoption sites — **GREEN**; @ main `21e11b0` still 4/2 until integration | ESC-W3f-1 |
+| g8 | RED | @ `b9995b3`: `DropdownMenuRadioItem` ×3 in `EasingPicker.vue`; `.b`'s live keystroke leg — **GREEN**; @ main RED until integration | ESC-W3f-1 |
+| g9 | RED | **HONEST-RED** (`.f`'s cell above) | `.a`/`.c` closed files; `.d` recorded |
+| g10 | PARTIAL | **GREEN** @ `8aa9252` (Tooltip `:51`/`:144`; SliderControl split at `a08809b`; COB absent) | — |
+| g11 | RED | **HONEST-RED** (`.f`'s cell above) | `.c`'s deep import; owners'/F.W4's sweep |
+| g12 | 1 of 3 | **GREEN 3 of 3** (register §3) | — |
+| g13 | GREEN | unmoved (`21e11b0`) | — |
+| g14 | RED | **HONEST-RED** — leg 1 GREEN by dispatch; legs 2/3 one comment each | `.e` (ESC-W3f-2) |
+| g15 | RED | `.e`-scoped GREEN; **HONEST-RED tree-wide**, 9 sites named, 3 ESCALATED (bounds) | `.a`/`.d`; ESC-W3e-1 |
+| g16 | RED | **HONEST-RED** on the lint half; 0 naive wraps | F.W0's addition (§7) |
+| g17 | RED-RELIEVED | **HONEST-RED** — G-12 row absent (0/0); detector 0 over the close | F.W0 publishes |
+| g18 | GREEN | fourier porcelain `?? .worktrees/` only (§5b's residue) | — |
+| g19 | RED | **GREEN** — 919 == 919, ∅ both ways, `f44362757458` | — |
+| g20 | RED | **GREEN** (S-15 form) | — |
+
+**Tally at the integrated bytes: 12 GREEN (g1 · g2 · g3 · g7 · g8 · g10 · g12 · g13 · g18 · g19 · g20 ⊕
+g4/g5 spec-present) · 1 CONSUMED (g6) · 6 HONEST-RED (g9 · g11 · g14 · g15 · g16 · g17), each with a
+named owner and no masking.** At main `21e11b0` alone, g7/g8/g10/g12(fading-scroll)/g15 read as the
+RESUME baseline left them — **integration is the act that moves them, and it is owed** (ESC-W3f-1).
+
+### §8 Verification Artefacts — where each landed
+
+`evidence/w3/`: `F-W3-b-g7-g8-transcripts-2026-09-19.md` (`.b`) · `g12-X-F-W3-d.txt` ·
+`g17-X-F-W3-d.txt` · `cadence-X-F-W3-d.txt` (`.d`) · `g10-X-F-W3-e.txt` · `g15-X-F-W3-e.txt` ·
+`cadence-X-F-W3-e.txt` (`.e`) · `g19-X-F-W3-f.txt` ⊕ `g19-comm.sh` (the runnable detector, `tail -n
++2 … | sh`) · `g20-X-F-W3-f.txt` · `g9-g11-X-F-W3-f.txt` · `g14-g16-X-F-W3-f.txt` (`.f`). The
+register: `docs/tranches/X/fourier/F-W3-DO-NOT-EXECUTE.md`. The accretion: COHESION §4a F3-1..F3-13;
+the emission: COHESION §4. **No `F-W3-CARRY.md` authored** (R-3). The §8 line *"the roster re-derived
+in the transcript … floor 1,008"* is round-3 history struck by §0's freeze; g19 ran as the round-4
+text orders — a `comm -3` — and printed no floor.
+
+### E13 — closed with no UNREAD mail in scope
+
+Sweep at open and at close (Act 6): 0 UNREAD over 79 rows, double-run; no unrowed letter; the three
+S-6 flags filed-as-ruled by citation; the SS-6 cargo accreted, never sent.
+
+### Commit roster — every commit verified to exist and to touch only its unit's writable set
+
+fourier: `.a` 3 · `.c` 1 (main) · `.b` 2 (`x-f-w3-b`) · `.d` 18 · `.e` 14 (`x/f3e`) = **38**, ⟨cmd⟩
+`git log --oneline 21e11b0..8aa9252 | wc -l` → 32, `21e11b0..b9995b3` → 2, plus `.a`'s 3 and `.c`'s 1
+on main. value.js (`.f`): `498b2085` · `2fe1331d` · `abbed3f6` · `5ea44a2d` · `2613953b` · this
+record · the LEDGER row. `scripts/dev/dev.sh` in **0** of them. **`d-R1` stands as disclosed by `.d`**
+(four commits without the session trailer; not amended).
+
+### Residuals with owners · Escalations
+
+Named at `.f`'s receipt (Residuals 1–7; ESC-W3f-1 · ESC-W3f-2; the five carried from `.d`/`.e`).
+**The shortest path to CONFORMANT-HONEST-RED**: the orchestrator's §9 integration (moves g7 · g8 · g10 ·
+g12 · g15's `.e` legs onto main) ⊕ a one-commit `.e` rider for the two comments and the I-33 B-4
+block ⊕ a bounds ruling on `ESC-W3e-1`'s two lines. Nothing else in this wave is undone work.
+
+**Status**: the LEDGER row moves `OPEN` → **`PARTIAL 2026-09-19 (close by .f; honest-RED: g9 · g11 · g14 · g15 · g16 · g17; UNINTEGRATED)`**; promotion to CLOSED is a fresh L-20 CHECK's word, not this seat's.
