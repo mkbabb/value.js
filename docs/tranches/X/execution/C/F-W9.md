@@ -1078,3 +1078,534 @@ vitest files (`unit-floor-population`, `figure-set-equality`). **12 → 18 specs
 `toHaveScreenshot` · ∅ → one snapshots directory · 8 → 13 unit files · 57 → 84 unit tests.** Every
 figure above is a count of THIS unit's own subject at the settled bytes, not of a live sibling and
 not of this file.
+
+---
+
+### X.F.W9.c
+
+SERVED MODEL: claude-opus-5[1m]
+
+**Unit**: the evidence floor, the checkpoint and the close — §2.0/§2.0a/§2.0b/§2.1 · §2.5's M.W11
+row · §2.6 · §2.7 · §2.8 errata · §3 **G-F9-17** · **-18** · **-20** · **-21** · §4a-1 · -2 · -11 ·
+-15 · -17 · §4b whole · the Close act. **Wall clock**: 2026-09-19. **Substrate at open**: fourier
+`ca64bef` (`m/w1-bump-migration`), i.e. unit `b`'s tip; value.js `tranche-u`.
+
+#### c.0 Crash-recovery sweep — nothing inherited on this unit
+
+⟨cmd⟩ `git status --porcelain` in `/Users/mkbabb/Programming/fourier-analysis` → `?? .worktrees/`
+alone (the three sibling F.W3 checkouts). ⟨cmd⟩ the same in `/Users/mkbabb/Programming/value.js` →
+` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh`. **Not one path in this
+unit's writable set is dirty**: `CARRY-LEDGER.md` is a V-tranche file owned by no X seat and
+`dev.sh` is the unowned standing-dirty row (**NEVER** touched — §1d · §0j.A **DR-24**). Zero
+killed-predecessor bytes inherited; nothing stashed, restored or reverted; no sibling's path read
+for write.
+
+#### c.1 RE-CUT-0 FIRST (§4a-1, runbook §3.4) — the precondition that precedes BOTH stamps
+
+§4a-1 makes RE-CUT-0 precede everything, so it is this unit's first act rather than its last. Every
+figure below is read from the **frozen** corpus and the **pinned** canonical — the two operand
+classes §2.8 **E-10(e)** permits a count over — and each is double-run.
+
+**(i) The band token, over the 66-record frozen registry** (base `$R`, ⟨cmd⟩ run twice):
+
+```
+/usr/bin/grep -o 'F\.W9/W10' fr-*.md | wc -l    → 54   ·  54
+/usr/bin/grep -l 'F\.W9/W10' fr-*.md | wc -l    → 25   ·  25
+ls fr-*.md | wc -l                              → 66   ·  66
+bare F.W10 routing (F.W9/W10 excluded)          →  0   ·   0
+```
+
+**`54 / 25 / 66`, identical to the 2026-08-25 fold and to the spec's §2.1.** It is quoted for what
+§2.1's ROUND-4 RE-BASING says it is — **a band-token measurement bounding the SHARED TABLE, never
+this wave's roster and never a census operand** — and it is not used as a denominator anywhere in
+this receipt.
+
+**(ii) Both Δ regions, measured structurally and guarded against vacuity.** A `diff` of two empty
+`awk` ranges also prints 0 lines, so the region extents are measured beside the diffs — without
+that guard the receipt would be the self-certifying shape §2.8 **E-8** law (i) convicts:
+
+```
+diff <(awk '/^\| record \| identity/,/^\*\*By-mechanism entrants/' F-W9.md) \
+     <(awk '/^\| record \| identity/,/^\*\*By-mechanism entrants/' F-W10.md) | wc -l  → 0 · 0
+diff <(awk '/^\*\*THE F.W1 VISUAL-REGRESSION/,/^\*\*Born-RED witness/' F-W9.md) \
+     <(awk '/^\*\*THE F.W1 VISUAL-REGRESSION/,/^\*\*Born-RED witness/' F-W10.md) | wc -l → 0 · 0
+awk '/^\| record \| identity/,/^\*\*By-mechanism entrants/' F-W9.md | wc -l            → 26
+awk '/^\*\*THE F.W1 VISUAL-REGRESSION/,/^\*\*Born-RED witness/' F-W9.md | wc -l        → 18
+```
+
+**Δ=∅ in both directions over two non-empty regions (26 lines · 18 lines).** The 26-identity table
+and the R-2b checkpoint block are byte-identical in the twins at these bytes. **This unit wrote no
+byte of `F-W10.md`** — ⟨cmd⟩ `git status --porcelain docs/tranches/X/fourier/waves/F-W10.md` →
+**empty**, and its last three commits are the union/purge rounds (`ba6dcdb3` · `1334894b` ·
+`ed8a276e`), none of them this wave's.
+
+**(iii) The canonical roster — the ONLY census operand (R4-10), re-derived, never read off a
+count word.** `$C` = `docs/tranches/X/fourier/conformance/CENSUS-CANONICAL.md`; ⟨cmd⟩
+`shasum -a 256 "$C" | cut -c1-12` → **`f44362757458`** · **`f44362757458`**.
+
+```
+/usr/bin/grep -o '^### F\.W9 — \*\*[0-9]* rows\*\*' "$C"                          → ### F.W9 — **16 rows**
+awk '/^### F\.W9 — /,/^### GLASS-RELAY/' "$C" | grep -c '^- \*\*fr-'              → 15 · 15
+awk '/^### F\.W9 — /,/^### GLASS-RELAY/' "$C" | grep '^- \*\*fr-' \
+    | grep -o '`[^`]*`' | wc -l                                                   → 16 · 16
+```
+
+**15 records · 16 ids**, and the bullets enumerate to exactly that: `AA-44` · `FR-AFP-49` · `C-13`
+(fr-App) · `C:D-11` · `FR-EMT-11` · `FR-EQR-31` · `C-13` (fr-FunctionInput) · `GAB-10` · `GCM-42` ·
+`FR-GSB-17` · `FR-GV-36` · `L:L-i2` · `PAW-34` ⊕ `PAW-50` · `D/i-1` · `FR-USB-16`.
+
+⌧ **THE 16-vs-17 QUESTION, SETTLED AT THE BYTES RATHER THAN INHERITED.** The canonical's header
+reads `### F.W9 — **16 rows** *(errata round 5, 2026-08-29: read 17; ``R2-7`` → TERMINAL at
+E5-16)*`, and `F-W9.md` carries that same *"read 17"* marginal note at eight sites beside a §2.0
+table of **17 rows whose row 14 is `R2-7`, STRUCK**. Read whole the two agree and the note is a
+**pre-strike** reading carried beside post-strike bytes: ⟨cmd⟩
+`awk '/^### F\.W9 — /,/^### GLASS-RELAY/' "$C" | /usr/bin/grep -c 'R2-7'` → **1**, and that one
+occurrence is **the header's own strike note, not a bullet** — no record bullet carries `R2-7`
+(`fr-PaperArticleWindow (2): PAW-34 · PAW-50`). **Under R4-7.3 the LIST is authoritative and the
+prose is not**: the roster is **16**, `R2-7` is TERMINAL (∅) at both ends, and §2.0's row 14 is the
+strike rather than a booking. **16 canonical ids · 16 booked at §2.0 (rows 1–13, 15–17) · 0
+cited-away · 0 escapes · 0 fabrications.** This is the same numeral the union purge rounds
+adjudicated from the other side (`ed8a276e` *"1 HIGH F-W10:363 F.W9 17≠16"*; `1334894b` *"F-W5:347
+'roster of 17'→16"*) — two independent instruments, one figure.
+
+⊘ **One pin claim does NOT reproduce, and it is recorded rather than smoothed.** G-F9-21's
+round-5 marginalia re-pins `$C` to **`a450b8e9f80e`**; ⟨cmd⟩ `/usr/bin/grep -c 'a450b8e9' "$C"` →
+**0 (exit 1)**, and the file's measured digest is **`f44362757458`**, which is the **R4** pin the
+gate's own primary text carries and which the F.W6 close row in `LEDGER.md` independently cites.
+**The PIN TABLE did exactly the work R4-8.3 built it to do**: the authority has not moved since R4,
+so the re-pin — not the digest — is the thing that is wrong. **E-3 binds and the dated spec is not
+patched**; this is the addendum-beside. Filed as **R-c3**.
+
+#### c.2 G-F9-17 — inv-27: a run id that can be cited, and a record that is minted only for a green run · commit `a6f50c8`
+
+**BEFORE.** M.W11 `planned`; ⟨cmd⟩ `grep -n 'inv-27\|run_id\|GITHUB_RUN_ID' .github/workflows/ci.yml`
+→ **one hit, and it is a comment** (`:68`, H.W1's *"inv-27 — green-means-green"* prose on the
+pytest collection path). **Nothing in the repository emitted a citable run id.** A green gate row
+could name a commit and a reader could take the claim or leave it — the green-by-assertion posture
+§2.7 exists to abolish.
+
+**THE CURE, AND WHY IT IS THE ROOT-CAUSE FORM.** A fourth job, `inv-27-evidence`, `needs:
+[api-tests, web-build, e2e-tests]`. It emits the run id, run attempt, covering commit SHA, ref,
+event and **each gating job's own conclusion** into the run summary and into a 90-day artifact
+(`inv-27-evidence.json`). Every value is READ from GitHub's context — `github.run_id`,
+`github.sha`, `needs.<job>.result` — and **not one is computed by the job**. That is `KF.W4(d)`
+applied to the wave's own instrument: **a gate may not re-derive its own oracle.** This job
+serialises the oracle; it never becomes one.
+
+**FAIL-CLOSED TWICE, AND THE SECOND ONE IS THE POINT.** `needs:` already prevents the job starting
+on a red run. The assertion step re-reads the three results anyway and exits non-zero on anything
+but `success` — redundant today, and there on purpose: the day a seat adds `if: always()` so the
+summary appears on red runs, the record does not quietly begin certifying failures; the job fails
+instead, naming the job that was not green. **A silent evidence forgery is the one failure mode an
+evidence floor cannot survive.** The JSON is parsed (`python3 -c json.load`) before upload — a
+record that cannot be read back is worse than no record, so a malformed one fails the job.
+
+**FALSIFIED BEFORE IT WAS COMMITTED**, by extracting the step's own bytes out of the YAML and
+running them (⟨cmd⟩ `python3 -c "…yaml.safe_load…"` → `assert.sh`):
+
+| input | expected | measured |
+|---|---|---|
+| `api=success web=failure e2e=success` | exit 1, no record | *"inv-27: this run is NOT covering-green"*, **exit 1** |
+| `api=success web=success e2e=skipped` | exit 1, no record | same message, **exit 1** |
+| all three `success` (control) | exit 0 | *"all three gating jobs concluded success"*, **exit 0** |
+
+and the emit step run under a synthetic context produced a record that `json.load`s and a summary
+carrying `Cite as: **run <id> @ <sha>**`. ⟨cmd⟩ `python3 … yaml.safe_load` → **4 jobs**
+(`api-tests` · `web-build` · `e2e-tests` · `inv-27-evidence`); every `run:` block passes
+`bash -n`; ⟨cmd⟩ `grep -n '^\s*continue-on-error:' ci.yml` → **∅ (exit 1)** — the file's six
+`continue-on-error` strings are all prose forbidding it.
+
+**AND THEN IT WAS EXERCISED, NOT PREDICTED.** The branch was pushed (fast-forward, ⟨cmd⟩
+`git merge-base --is-ancestor origin/m/w1-bump-migration HEAD` → true; `21e11b0..a6f50c8`) and a run
+dispatched: **run `35445782153` @ `a6f50c8bac96a5d82063024e7104b58d07e8c7ec`**,
+`https://github.com/mkbabb/fourier-analysis/actions/runs/35445782153`.
+
+| job | conclusion |
+|---|---|
+| `api/tests (with live Mongo)` | **success** |
+| `web (vue-tsc + vite build)` | **failure** — step 7 `Type-check` |
+| `e2e (Playwright, COMPUTE_RATE_LIMIT=1000)` | **failure** — step 11, **17 failed / 80 passed (8.7m)** |
+| `inv-27 evidence (covering run id + SHA)` | **skipped** |
+
+**The instrument's fail-closed behaviour is therefore MEASURED IN PRODUCTION, not argued**: a red
+run minted no evidence record. That is the gate working; it is not the gate green.
+
+**THE BINDING, PUBLISHED AS A TABLE RATHER THAN CLAIMED AS A SENTENCE.** §2.7's law is *"every
+green cites a covering run id"*. At these bytes **no covering green run id exists**, so no claimed
+green can carry one. What each green *does* have is published instead, with the distinction stated
+in every row — **a covering CI exercise is not a covering green run**:
+
+| claimed green | claiming unit · commit | covering CI exercise at run `35445782153` @ `a6f50c8` | inv-27 binding |
+|---|---|---|---|
+| **G-F9-16** inv-28 fail-closed | `a` · `e5c435d` | no CI job exercises `deploy-hook.sh`; unit `a` exercised the guard against the live repo, citing runs `26789704503` (green SHA ADMITTED) and `26913592291` (`failure` → REFUSED) | **OWED** — the cited runs cover the *guard's inputs*, not this SHA |
+| **G-F9-1** the unit FLOOR | `b` · `8fd35a9` | `web-build` step 6 *"Unit floor"* → **success**, `Test Files 13 passed (13)` — unit `b`'s published 13/84 reproduces in CI; step 5 (F.W0's `node:test` seat) → **success** | **OWED** — the step is green, the **job** concluded failure |
+| **G-F9-2** the lint floor | `b` · `019fb90` | `web-build` steps 8–9 (`oxlint --deny-warnings`, `npm run lint`) → **skipped**, the job having stopped at step 7 | **OWED — and the step did not run at all** |
+| **G-F9-4** `/paper` axe + `paper-search` | `b` · `4a5ffdb` | `e2e` — the `paper-search` and `/paper` keystone specs are **not** among the 17 failures | **OWED** — job red on other specs |
+| **G-F9-5** `/equation` axe | `b` · (F.W4 seat) | `e2e` — `visualization-ux.spec.ts:286` *"keystone: /equation is a11y-clean"* **FAILED ×3 in CI** though unit `b` measured it green locally | **OWED, and CONTESTED — filed as R-c1** |
+| **G-F9-7 · -9 · -10** S4 seat | `b` · `5256126` `d3fab17` `214cb5e` | `e2e` — `gallery.spec.ts` is not among the 17 failures | **OWED** |
+| **G-F9-12** shell header | `b` · `2b42f28` | `e2e` — `shell-header.spec.ts` is not among the 17 failures | **OWED** |
+| **G-F9-13** the coarse matrix | `b` · `3913738` `160f7f3` | `e2e` — `mobile-chromium` **ran in CI** (the project is invoked); `coarse-pointer.spec.ts:105` failed on the 44px floor, which is **E-F9b-4's two controls, CONFIRMED in CI** | **matrix OWED; witness RED as published** |
+| **G-F9-14** set-equality | `b` · `3440510` | `web-build` step 6 → **success** (the assertion runs inside the 13-file floor) | **OWED** — step green, job red |
+
+**VERDICT: honest-RED.** The instrument is landed, falsified three ways, committed and exercised in
+production. The gate's own condition — *"Each green gate row carries a run id and a committed
+SHA"* — is **unmet**, because `web-build` concluded failure on
+`src/components/visualization/ContourEditorCanvas.vue(42,9): error TS6133: 'dragging' is declared
+but its value is never read` — **a `web/src/**` byte, E-F9b-7's pre-existing finding, and a cure
+F.W9 does not own** (*"F.W9 owns GATES. F.W9 owns no CURE."*). Claiming green here would be
+green-by-assertion inside the gate that exists to forbid it. **R3-9 honoured: this is a recorded
+measurement of what did and did not run, cited nowhere as a method guarantee.**
+
+⊘ **`web/package.json` was NOT written.** The brief admits it *"only if an evidence script is
+owed"*; the emission is workflow-side and needs no npm script, so no manifest byte was taken. The
+non-act is recorded because a bounds entry left unexercised should be visible, not silent.
+
+#### c.3 G-F9-18 — the CWV/INP baseline, published STATED-INVALID with its invalidity measured
+
+**THE ORDER-LOCK IS RELEASED; ITS PREDICATE IS FALSE.** §4a-11 says *"take the trace after F.W4, or
+publish a stated-invalid baseline"*. F.W4 **CLOSED 2026-09-17**, so the ORDER is discharged. The
+lock's substance is a different question and it was measured rather than assumed:
+
+```
+⟨cmd⟩ grep -rn "fourier-paths" web/src/
+      → src/components/layout/DarkModeToggle.vue:89  import sunData  from "@/assets/fourier-paths/sun.json";
+        src/components/layout/DarkModeToggle.vue:90  import moonData from "@/assets/fourier-paths/moon.json";
+        src/components/morph/FourierMorphDemo.vue:96-97 (the same two, route-chunked)
+⟨cmd⟩ grep -n 'DarkModeToggle' web/src/components/layout/AppHeader.vue → :5 (a STATIC import)
+```
+
+**FR-AH-1's mechanism reproduces at these bytes**: `AppHeader` statically imports
+`DarkModeToggle`, which statically imports 450,631 B of Fourier-coefficient JSON, to draw a 40px
+icon. **F.W4's async boundary + generator-side payload prune DID NOT LAND.** Measured at the built
+artifact (⟨cmd⟩ `npx vite build`, then a float-literal census over the emitted chunk):
+
+| entry chunk | bytes | long-float literals | float bytes | share |
+|---|---|---|---|---|
+| `dist/assets/index-D59ayjJk.js` | **487,221** | **23,336** | **428,474** | **87.9 %** |
+| `dist/assets/index-C_Uqpvlf.js` (route) | 117,049 | 0 | 0 | 0.0 % |
+| `dist/assets/FourierMorphDemo-BF54JIzt.js` | 15,761 | 0 | 0 | 0.0 % |
+
+and it is the **eager** chunk: ⟨cmd⟩ `grep -o 'assets/[A-Za-z0-9_.-]*\.js' dist/index.html` returns
+`index-D59ayjJk.js` plus four `modulepreload` vendors, and nothing else. The spec's banked
+**450,631 B / 82.5 %** has become **487,221 B / 87.9 %** — the payload did not shrink; the chunk
+grew around it.
+
+**THE TRACE, TAKEN IN TWO LEGS UNDER PROBE PARSIMONY (§5.2).** One bounded instrument, one route
+(`/`), living in the session scratchpad and in neither repo. Leg A is the loopback floor; leg B is
+Lighthouse-mobile-shaped emulation via CDP (4× CPU, 150 ms RTT, 1.6 Mbps), which is the only leg in
+which the payload's cost is visible at all:
+
+| leg | run | LCP | FCP | long tasks | longest | entry-chunk transfer |
+|---|---|---|---|---|---|---|
+| **A** loopback, no throttle | 1 · 2 | **136 ms** · **132 ms** | 136 · 132 | 1 · 1 | 63 ms · 54 ms | — |
+| **B** 4× CPU · Slow-4G, 412×823 | 1 · 2 | **5,972 ms** · **5,964 ms** | 5,972 · 5,964 | 1 · 1 | 247 ms · 235 ms | **227,472 B in 4,655 ms · 4,664 ms** |
+
+**The attribution, which is the half that matters**: under leg B the entry chunk's transfer alone
+accounts for **4,655 of 5,972 ms — 78 % of LCP** — and 87.9 % of that chunk is coefficient
+literals. Blocking time: one task of 247 ms (**197 ms above the 50 ms threshold**), landing
+**before** FCP, so the strict post-FCP TBT is **0** — both figures are given because quoting only
+the second would flatter the tree. The value.js **Q14** escalation (LCP 5141 / TBT 5988) is the
+named prior art and the two now sit in the same range.
+
+**THE INVALIDITY, ON THE BASELINE'S FACE, IN THREE CLAUSES, EACH MEASURED:**
+
+1. **It measures `sun.json`.** The prune has not landed (`DarkModeToggle.vue:89-90`, measured
+   above). This is the exact condition FR-AH-1 names, and the number is published *because* it is
+   invalid as a product reading and *valid* as an attribution of the payload.
+2. **The substrate is `vite preview` on loopback**, not the host. Leg A's transport term is ~0, so
+   136 ms is a floor and not an estimate; leg B emulates rather than measures a network.
+3. **It is CHROMIUM evidence and is never Safari evidence** (§4b's X-W11 G8 row, NON-OVERLAP). It
+   discharges no G8 cell.
+
+**VERDICT: honest-RED.** The gate's second disjunct — *a baseline published with its invalidity
+stated on its face* — is **discharged**: the baseline exists, is double-run in both legs, states
+its three invalidities by command, and attributes its headline number to a named chunk. What is
+**unmet** is §4a-15, this wave's own evidence law: the trace rests on an **execution**, and **no
+covering green run id exists** to cite for it (c.2). *A green that names no run id is not a green*,
+and the wave does not get to exempt the one gate whose subject is evidence. The measurement half is
+banked whole above so that no later seat has to re-take it; only the citation is owed, and it is
+owed to **G-F9-17**.
+
+⊘ `lane-frontend.md` §6's `INP / long-task discipline` row is **not** cited as hygiene (§4b's
+FR-GIG-15 rider), here or anywhere in this receipt.
+
+#### c.4 G-F9-20 — the parsing substrate, and the three F.W0-gated legs, each measured
+
+The gate's GREEN cell has exactly three conjuncts. All three are met, and none of them rests on an
+execution — each is a static re-derivation over committed bytes, so each cites its SHA and needs no
+run id (the rule this unit applies is stated at c.6).
+
+**(a) The dist parses — FR-NP-32 (≡ fr-PaperSidebar M1) is CURED BY THE PIN MOVE.** The born-RED
+witness was glass-ui **4.0.0**'s `dist/styles/index.css`: *"35 top-level nodes, zero valid
+`@source`, one garbage at-rule named `` source` `` at :203–222"*. At the **8.0.0** pin elected at
+§0i.3 and landed by F.W1 (⟨cmd⟩ `node -e "require('@mkbabb/glass-ui/package.json').version"` →
+**8.0.0**), re-measured with the same oracle (⟨cmd⟩ `postcss.parse`, double-run):
+
+```
+run1: top=40  atrule=40  @source=1  backtick-named=0
+run2: top=40  atrule=40  @source=1  backtick-named=0
+```
+
+**Zero garbage at-rules; one valid `@source`; the file parses.** Strict Tailwind loaders no longer
+hard-error on it. The relay half of the conjunct (*"M1 relayed to the glass BH inbox"*) is F.W0's
+act and is not re-performed here; the gate's own alternative — *"or the pin moves"* — is what
+actually discharged it.
+
+**(b) The worktree — the OG-F1 disclosure line, recorded as the ruling requires.** §0j.D rules
+**FREEZE-WITH-ADOPTION AND WORKTREE-AS-BASELINE**, whose stated consequence is *"GAB-13 discharges
+to a disclosure line"*. **The disclosure line, in full**: ⟨cmd⟩
+`git status --porcelain | wc -l` in fourier → **1** · **1** (double-run), and that one row is
+`?? .worktrees/` — an **untracked directory of three sibling F.W3 checkouts, not a modified
+tracked file**. The spec's banked **28** is the dated pre-F.W0 figure and is not quoted as current.
+**The audited artifact and the committed tree are the same tree**: there is no worktree diff to
+land, so the adoption is vacuous in the good direction, and worker-DU's preserved dissent (*"the
+fleet has already elected to treat the working tree as the scope"*) is right without costing
+anything.
+
+**(c) Both F8-REACH rows carry a verb, and the verb was executed.** §0j.D **G-10** rules
+**DELETE, in one breath**, with FR-COB-17's `aria-pressed` lift in the **same commit**. Measured:
+⟨cmd⟩ `git ls-files | grep -cE 'InfoCard\.vue|CanvasOverlayButton\.vue'` → **0**; ⟨cmd⟩
+`git log --diff-filter=D -- …` → **`5842377` `refactor(F.W0): F8-REACH ruled — aria-pressed lift +
+rm CanvasOverlayButton`**, whose `--stat` shows `InfoCard.vue` (−43) and `CanvasOverlayButton.vue`
+(−25) deleted **beside** `ConvergenceTimeline.vue`, `CanvasControlsDock.vue` and
+`EditorControlsDock.vue` — **the lift and the deletions in ONE commit, exactly as ordered.** The
+spec's *"HOLD is RED"* is spent, and §2.4's conditional resolves as unit `b` read it: **no harness
+was authored for a file that is gone.**
+
+**VERDICT: GREEN.** Every evidence artifact this wave publishes cites the committed SHA `a6f50c8`
+on a substrate that parses, over a tree with no uncommitted tracked bytes, with both reachability
+rows disposed by an executed owner ruling.
+
+#### c.5 G-F9-21 — the checkpoint held, the cure refused, the authorization escalated
+
+The measurement half is at **c.1** and closes: **Δ=∅ both directions over two non-empty regions**,
+band token **54/25/66**, canonical roster **16 ids / 15 records** at digest `f44362757458`, **16
+booked · 0 escapes · 0 fabrications**. Nothing in the identity closure is open.
+
+**What is open is the paired-obligation face, and it is enumerated rather than counted** (R4-7.2 /
+R4-7.3), re-derived from the bytes this seat:
+
+```
+⟨cmd⟩ grep -Ec '^\| \*\*P-[0-9]+\*\* \|' F-W9.md                → 9 · 9
+⟨cmd⟩ grep -Ec '^\| \*\*P-[0-9]+\*\* \|.*OUTSTANDING' F-W9.md   → 8 · 8
+⟨cmd⟩ the labels themselves  → P-1 P-2 P-3 P-4 P-5 P-6 P-7 P-8 P-9
+⟨cmd⟩ the OUTSTANDING labels → P-1 P-2 P-4 P-5 P-6 P-7 P-8 P-9
+```
+
+| P-n | the obligation, inside the shared §2.2 bytes | state at these bytes |
+|---|---|---|
+| **P-1** | E-1 — the AA-44 cell's *"9 e2e never enter the audit tab"* against the FR-AFP cell's *"Quote 8 specs, never 9 (K11)"*, settled by **F-W0 §4 G-12**'s published **8** | **OUTSTANDING** |
+| **P-2** | E-9(b) — the `census §4.5` phantom anchor in the `fr-App C-13` and `PAW-50` cells | **OUTSTANDING** |
+| **P-3** | E-10(b) — the `fr-PaperView` D/i-1 *"verbatim"* label | **CLOSED at the bytes, round 3** |
+| **P-4** | the FR-EMT-11 rider's period-scope | **OUTSTANDING** |
+| **P-5** | the FR-TT-1 coordinate re-spelling `glass-ui 8.0.0:69-73` | **OUTSTANDING** |
+| **P-6** | `fr-ContourPreview` — row number `38` where the canonical id is `C:D-11` | **OUTSTANDING** |
+| **P-7** | `fr-ImageUpload` — row number `27` where the canonical id is `L:L-i2` | **OUTSTANDING** |
+| **P-8** | the two surviving ⟨re-cut⟩ cells (PAW-49 → F.W0 · PAW-50's decision → F.W4); `FR-TT-1` discharged at round 6 | **OUTSTANDING (partly discharged)** |
+| **P-9** | the F-W1 anchor's CASE at the two checkpoint-block sites | **OUTSTANDING** |
+
+⊕ **K11's e2e denominator has moved and P-1's settling authority is now itself dated.** Unit `b`
+measured **12 specs at open → 18 at close** where G-12 published **8**. **This unit does not
+re-cut G-12's figure and does not touch the shared cells** — a superseded-figure correction inside
+the paired region is precisely what §4a-17 forbids unilaterally. It is added to P-1's file as a
+**second, later fact the paired edit must carry**, so the twin's seat repairs the cell once rather
+than twice. Filed as **R-c2**.
+
+**THE CURE IS REFUSED, AND THAT IS THE ACT.** The gate's condition is *"All eight land in ONE
+commit with the twin"* (§4a-17), while **§1c makes `F-W10.md` READ-ONLY** to this wave in as many
+words — *"the twin table; **F.W9 does not author F.W10**"* — and `F-W10.md`'s own status is
+`planned`. There is no byte-state this seat can reach alone in which the gate is green: authoring
+the twin's half is the rival-bytes failure §4a-17 exists to prevent, and authoring only this end
+breaks Δ=∅, which is the gate itself. **This seat therefore wrote nothing at either end** and
+escalates the authorization.
+
+**VERDICT: honest-RED on all eight, by construction.** RE-CUT-0's identity closure is complete and
+**precedes both stamps as §4a-1 requires**; the paired obligations are what remain, and they are a
+wave-boundary act. **ESCALATED as E-F9-1** (opened at this record's Open block, discharged here as
+the escalation rather than as a cure).
+
+#### c.6 The rule this unit applied to §4a-15, stated once so it is falsifiable
+
+§4a-15 binds *"every green cites a covering run id"*. Applied without a distinction it would redden
+a file census, which is absurd; applied loosely it would green a suite that never ran, which is the
+wave's whole subject. **The distinction used here, and it is the spec's own**: a gate whose witness
+is an **execution** (a suite passing, a trace, a floor running) needs a covering green **run id**;
+a gate whose witness is a **static re-derivation over committed bytes** (a parse, a diff, a census)
+rests on no execution, so its **committed SHA is its citation** and a run id would add nothing.
+R3-9's *"an assertion of non-execution is recorded, never cited"* is a rule about execution claims,
+and it is honoured: every non-execution in this receipt is recorded with the command that measured
+it. Under this rule **G-F9-20 is GREEN** and **G-F9-17 · -18 are honest-RED**; **G-F9-21 is RED on
+its own declared face** and the rule does not touch it.
+
+#### c.7 The §4.10 census-addendum carve — AUTHORED HERE, and its CREATE escalated
+
+**The file does not exist.** ⟨cmd⟩ `ls docs/tranches/V/megatranche/formation/fourier/CENSUS-ADDENDUM-2026-08-25.md`
+→ **No such file or directory** (double-run). **And F.W9 may not create it** — both twins say so in
+their own bytes, and they agree:
+
+Both verbs are quoted by a **backtick-free and pipe-free** probe, by construction — a ⟨cmd⟩
+carrying either would break its own span, which is §2.8 **E-9(f)**'s recorded defect, and this seat
+minted it once here and cured it at authoring rather than a round later:
+
+- `F-W9.md` §1a row 2 — ⟨cmd⟩ `grep -oE 'CENSUS-ADDENDUM-2026-08-25[.]md.{0,12}MODIFY' F-W9.md` →
+  ``CENSUS-ADDENDUM-2026-08-25.md` | MODIFY``, with §1's reconciliation stating the reason:
+  *"Row 2 is modify, not create: F-W10 §1 already claims the CREATE — two waves cannot both create
+  one file."*
+- `F-W10.md` §1a row 8 — ⟨cmd⟩
+  `grep -oE 'CENSUS-ADDENDUM-2026-08-25[.]md.{0,28}CREATE BESIDE' F-W10.md` →
+  ``CENSUS-ADDENDUM-2026-08-25.md` | **CREATE BESIDE``, whose cell continues *"— co-owned with
+  F.W9 … F.W9 §1a row 2 takes MODIFY (its §4.10 deploy/coverage cells + its own errata) — **the
+  CREATE stays here**, per the twin's own bytes."*
+
+Creating it would take a verb the census homes at F.W10 — the **R4-10** failure (*a wave re-cutting
+a home the census carries*) in its file-bounds form, and the same shape as the paired-bytes breach
+refused at c.5. **So the carve is authored in full here, where this unit may lawfully write, and
+the CREATE is escalated.** Nothing is dropped: the bytes exist, dated and attributed, ready for
+F.W10 to receive **by splice** — which is R2-6a's ruled direction (F.W9 authors, F.W10 receives)
+applied to the one artifact where it had not yet been needed.
+
+> **§4.10 — THE DEPLOY SPINE AND THE COVERAGE VOID, EXECUTED (X·F F.W9, 2026-09-19).**
+> Authored by X.F.W9.c for `CENSUS-ADDENDUM-2026-08-25.md`; **addendum-BESIDE under E-3 — the dated
+> `CENSUS-2026-08-03.md` is not rewritten, and §6.7/§4.11 remain F.W10's.**
+>
+> **(a) The deploy spine (census rows M.W2 · M.W3 · M.W4 ⊕ the containerization audit), re-homed
+> out of the dead M board and EXECUTED at fourier `1b4eb0b` · `e5c435d` · `b72170b` · `ceb7ee6` ·
+> `4f213e4` · `c5b7600` · `e111220`.** Readiness is separated from liveness; the API arm is
+> fail-closed on a same-SHA green CI run (inv-28 — the guard exercised against the live repo, green
+> SHA ADMITTED at run `26789704503`, `origin/master` REFUSED on its `failure` run `26913592291`);
+> the silent rollback is killed and the inv-31 observability floor stands. **The M-board rows are
+> disposed explicitly in `execution/C/F-W9.md` a.7 — no double-booking** — and
+> `docs/tranches/M/PROGRESS.md` stays **ASK-ONLY**, its update riding a relay. **Not executed and
+> named**: the host is behind and cannot be brought to HEAD from any seat of this wave — the shared
+> LE certificate expired 2026-08-26 (**E-F9a-1**, an OPERATOR ACT, constellation-wide); `docker
+> inspect` on the deployed stack is unreachable (**E-F9a-4**); the two nginx authorities are
+> **disposed, not collapsed** (**E-F9a-5**).
+>
+> **(b) The coverage void (the P-12 packet the census gives to no wave), AUTHORED ONCE EACH AND
+> CITED MANY** — fourier `8fd35a9` · `019fb90` · `3913738` · `5256126` · `d3fab17` · `2b42f28` ·
+> `5b74d3f` · `4a5ffdb` · `3440510` · `160f7f3` · `214cb5e` · `ca64bef`. The unit FLOOR closed the
+> glob that left three `src/**` vitest files in no runner at all (**8 files / 57 tests → 13 / 84**,
+> confirmed in CI at run `35445782153`); the lint floor was made **able to fail**; the matrix gained
+> its coarse cell; five e2e/axe seats and a comparing visual checkpoint were authored (**12 → 18
+> specs · 0 → 8 `toHaveScreenshot` · ∅ → one snapshots directory**). **K11's *"quote 8, never 9"* is
+> a DATED figure superseded at these bytes** — the measurement is **18**, and G-12's published **8**
+> is left to its own wave to re-cut.
+>
+> **(c) The evidence floor (census row M.W11), STOOD UP AND HONEST ABOUT WHAT IT FOUND** — fourier
+> `a6f50c8`. inv-27 now emits a citable run id bound to a covering SHA, and mints the record **only**
+> for a run whose every gating job concluded success — **measured live**: run `35445782153` concluded
+> `failure` and the evidence job **skipped**. **No covering green run id exists for any F-side green
+> at these bytes**, and the blocker is `web-build`'s `vue-tsc` error in `web/src/**`
+> (`ContourEditorCanvas.vue(42,9) TS6133`), which F.W9 does not own. A CWV baseline is published
+> **stated-invalid on its face** — LCP **5,972 / 5,964 ms** under 4× CPU + Slow-4G, of which the
+> eager entry chunk's transfer is **4,655 / 4,664 ms**, that chunk measuring **487,221 B / 87.9 %
+> long-float literals** because FR-AH-1's static `sun.json` import survives at
+> `DarkModeToggle.vue:89-90`. **The parsing substrate is CURED**: glass-ui 8.0.0's dist parses
+> (40 nodes / 1 valid `@source` / 0 garbage at-rules) where 4.0.0's did not.
+>
+> **(d) Verbs.** **AUDITED YES · SPECIFIED YES · IMPLEMENTED YES (2026-09-19) · VERIFIED NO** —
+> the VERIFIED stamp is reserved to F.W10's close by `F-W9.md`'s own Close act. **Terminal
+> dispositions are F.W10's**, including FR-AUL-16's and FR-AH-45's homes, the eight checkpoint
+> items, and the eight paired obligations **P-1 · P-2 · P-4..P-9**, whose paired-edit authorization
+> is escalated as **E-F9-1**.
+
+**ESCALATED as E-F9-2** — the CREATE authorization. **Nothing was written to
+`formation/fourier/`**; ⟨cmd⟩ `git status --porcelain docs/tranches/V/megatranche/` → **empty**.
+
+#### c.8 E13 — the close sweep and the relay, APPEND-ONLY
+
+The four landing paths ⊕ the Track-C fourier surface were re-swept read-only at this seat's own
+clock, status read from each row's cell **by position**, `INBOX.md` self-excluded (SELF-COUNT law).
+⟨cmd⟩ `grep -cE '^\| [IO]-[0-9]+ \|' INBOX.md` → **76** · **76**; the wider `[a-z]?` form → **80** ·
+**80**, both published so neither reads as the other. **0 unrowed · 0 UNREAD in F.W9's scope**,
+unmoved from the open sweep; the live band still terminates at **I-35 / O-40**.
+
+⊘ **THIS RECEIPT CAUGHT ITSELF INHERITING A COUNT, AND THE CATCH IS THE ROW.** The wide figure was
+first written **79**, taken from the KF.W11/KF.W12 sweep paragraphs in `INBOX.md` rather than run.
+⟨cmd⟩ at **HEAD, before this unit's append** → strict **76**, wide **80**: the KF figure is dated
+and was superseded by **O-40**'s minting at X.P.W4, hours after those sweeps. Corrected at both
+sites before either landed, and disclosed at the ledger too. **A count copied from a sibling's
+receipt is not a measurement** — §2.8 **E-8** law (ii) in its plainest form, and the only reason it
+was caught is that WRITE-THEN-MEASURE was run over this unit's own published figures rather than
+over the bytes it edited.
+
+**This seat mints NO `O-n` row**, and the reason is a bounds fact rather than a preference: an
+`O-n` row cites a letter file under `docs/tranches/V/coordination/` or
+`docs/tranches/X/coordination/`, and **no such path is in this unit's writable set** — only
+`INBOX.md` itself is. A row citing a letter that does not exist is a dangling citation, which is
+the `L-1` class this tranche has already booked twice. The asks therefore ride the ledger in the
+form the KF.W11 close used for its own eight producer rows — **a labelled `F.W9-P*` block routed to
+the standing batched communique** — appended at the file's end with no existing row rewritten
+(⟨cmd⟩ `git diff --numstat -- INBOX.md` → insertions only, `0` deletions).
+
+Four rows relayed: **F.W9-P1** glass-ui 8.0.0 `Metric`'s `[serious] aria-hidden-focus` ×2 (SS-6;
+holds G-F9-3 and G-F9-22's admin leg RED) · **F.W9-P2** the doubled security headers, host-Apache ⊕
+docker-nginx, which reach value.js's own `api.color.babb.dev` and so may not be cured
+unilaterally · **F.W9-P3** the expired shared LE certificate (an OPERATOR ACT, constellation-wide)
+· **F.W9-P4** the `docs/tranches/M/PROGRESS.md` disposal, ASK-ONLY under COMMISSION §2.
+
+#### c.9 Gate readings — BEFORE → AFTER
+
+| gate | BEFORE (record baseline, `1b46465`) | AFTER (this unit) | verdict |
+|---|---|---|---|
+| **G-F9-17** every claimed-green cites a covering green run id | RED — M.W11 `planned`; no run id on record; `inv-27` in `ci.yml` was **one comment** | instrument landed (`a6f50c8`), falsified 3 ways, pushed and **exercised**: run **`35445782153` @ `a6f50c8`** → api-tests `success` · web-build `failure` · e2e `failure` (17/97) · **inv-27 evidence `skipped`**. The binding table published for all 11 claimed greens | **honest-RED** — no covering green run exists; blocker is `ContourEditorCanvas.vue(42,9) TS6133`, a `web/src/**` cure F.W9 does not own |
+| **G-F9-18** CWV/INP evidence exists and is attributable | RED, order-lock released by F.W4's close; no trace existed | baseline taken in two legs, double-run: loopback **136/132 ms**; 4×CPU+Slow-4G **5,972/5,964 ms** with **4,655/4,664 ms** of it the entry chunk's transfer. Invalidity measured, not asserted: the prune did **not** land (`DarkModeToggle.vue:89-90`), entry chunk **487,221 B / 87.9 % float literals** | **honest-RED** — the stated-invalid baseline is discharged; the §4a-15 run-id citation is owed to G-F9-17 |
+| **G-F9-20** every evidence artifact cites a committed SHA on a parsing substrate | RED by the gate's letter, discharged-to-disclosure by OG-F1 | dist **parses** at the 8.0.0 pin (40/40/1/**0** garbage, double-run) — FR-NP-32 ≡ M1 cured by the pin move; worktree disclosure **1** row, untracked; F8-REACH-01/02 **DELETED at F.W0 `5842377`** in one commit with the FR-COB-17 lift, per §0j.D G-10 | **GREEN** |
+| **G-F9-21** the re-cut table is identical in both specs, Δ=∅ both directions | RED on eight paired obligations; Δ halves already empty | Δ=∅ **both directions over non-empty regions** (26 · 18 lines); **54/25/66**; roster **16 ids / 15 records** @ `f44362757458`, **16 booked · 0 escapes · 0 fabrications**; the 16-vs-17 note settled at the bytes; P-census **9 rows / 8 OUTSTANDING** | **honest-RED on all eight, by construction** — `F-W10.md` is §1c READ-ONLY; **E-F9-1** escalated, **not one byte written at either end** |
+
+**Tally: 1 GREEN · 3 honest-RED.** Not one RED is masked, skipped, allowlisted or argued green;
+each names the wave, producer or owner that owns its cure.
+
+#### c.10 Commits (pathspec on the commit itself, one per meaning)
+
+| sha | repo | meaning |
+|---|---|---|
+| `a6f50c8` | fourier | G-F9-17 — inv-27 emits a covering run id, and mints it only for a green run |
+| (this record) | value.js | the `.c` receipt |
+| (INBOX) | value.js | E13 — the F.W9 close sweep and the four relayed rows, append-only |
+| (LEDGER) | value.js | the F.W9 row stamped IMPLEMENTED |
+
+Every commit carried its exact pathspec **on the commit itself**; **no `git add -A`, no `-u`, no
+`commit -a`, no reset, no stash, no force-push.** `scripts/dev/dev.sh` was **NEVER** touched;
+`F-W10.md`, the adjudicated registry, `conformance/**`, the dated `CENSUS-2026-08-03.md`, glass-ui
+and every sibling tree were **read-only throughout**. The one push was a **fast-forward** of the
+track's own branch (`21e11b0..a6f50c8`, ancestor-checked before the push), taken under the owner's
+begin-word so that G-F9-17's instrument could be **exercised rather than predicted**.
+
+#### c.11 Residuals and escalations
+
+| id | item |
+|---|---|
+| **E-F9-1** | **G-F9-21's cure is unreachable by any seat of F.W9.** The gate needs **P-1 · P-2 · P-4..P-9 to land in ONE commit with the twin** (§4a-17) while §1c makes `F-W10.md` READ-ONLY and its status is `planned`. **Needs**: the paired-edit authorization at the wave boundary — F.W10's open, or an owner grant naming F.W9 as the author of both ends. **No byte was written at either end.** RE-CUT-0 precedes both stamps, so this is a boundary act, not an F.W9 cure |
+| **E-F9-2** | **The §4.10 carve cannot be filed where it is homed.** `CENSUS-ADDENDUM-2026-08-25.md` **does not exist** and its **CREATE is F.W10's by both twins' own bytes**; F.W9's verb is MODIFY. The carve is **authored in full at c.7**, ready to be received by splice. **Needs**: F.W10's CREATE, or a bounds widening naming F.W9 as the creator |
+| **E-F9-3** | **No covering green CI run exists, and the blocker is not F.W9's.** Run `35445782153` @ `a6f50c8` concluded `failure`; `web-build` stops at `Type-check` on `ContourEditorCanvas.vue(42,9): TS6133`. Until that `web/src/**` byte is cured, **inv-27 can mint no record and no F-side green can cite one** — G-F9-17 and G-F9-18 are RED on it and on nothing else. **Routed** to whichever wave next opens that file (E-F9b-7 already books it) |
+| **R-c1** | **A CI-vs-local divergence, disclosed against interest.** `visualization-ux.spec.ts:286` *"keystone: /equation is a11y-clean"* — unit `b` measured it **GREEN live**; in CI it **FAILED ×3**. Both readings are real and this seat re-graded neither. **Needs** a seat with the CI stack to resolve which environment is telling the truth; G-F9-5's binding stays **OWED** meanwhile |
+| **R-c2** | **P-1's settling authority is itself now dated.** G-12 published **8** `e2e/*.spec.ts`; unit `b` measured **12 at open → 18 at close**. **Not re-cut here** — a superseded-figure correction inside the shared §2.2 bytes is exactly what §4a-17 forbids unilaterally. Added to P-1's file so the paired edit carries both facts in one pass |
+| **R-c3** | **G-F9-21's round-5 re-pin does not reproduce.** The marginalia re-pins `$C` to `a450b8e9f80e`; ⟨cmd⟩ `grep -c 'a450b8e9' "$C"` → **0**, and the measured digest is **`f44362757458`** — the R4 pin the gate's own primary text carries. **The authority has not moved; the re-pin is the error.** Recorded beside under **E-3**; the dated spec is not patched |
+| **R-c4** | **CI confirms two of unit `b`'s escalations and discharges one prediction.** `coarse-pointer.spec.ts:105` fails in CI on the 44px floor (**E-F9b-4** confirmed) and all five `visual-checkpoint` shots fail (**E-F9b-3**'s darwin-only baselines confirmed). **E-F9b-6**'s *"AUTHORED, NOT RUN"* is now RUN: `equation-interaction.spec.ts:77` fails on `getByLabel(/Display terms/i)` resolving to **3 elements** (strict-mode violation) and `fullscreen.spec.ts:40` fails on visibility — **locator defects in F.W9's own e2e surface**, routed to whichever seat next opens `web/e2e/**` |
+
+**E13**: swept at open and at close, **0 unrowed · 0 UNREAD in scope**; the four relayed rows are
+appended to `INBOX.md` **append-only** at c.8. **No wave closes with UNREAD mail, and this one does
+not.**
+
+#### c.12 SELF-COUNT — every census this unit publishes, read from the settled bytes and double-run
+
+```
+⟨cmd⟩ band token over the frozen registry        → 54 spellings / 25 records / 66 files  (·2)
+⟨cmd⟩ Δ region 1 (26-identity table)             → 0 diff lines over 26 region lines     (·2)
+⟨cmd⟩ Δ region 2 (checkpoint block)              → 0 diff lines over 18 region lines     (·2)
+⟨cmd⟩ canonical roster                           → 16 ids / 15 records @ f44362757458    (·2)
+⟨cmd⟩ P-n census                                 → 9 rows / 8 OUTSTANDING                (·2)
+⟨cmd⟩ glass-ui 8.0.0 dist postcss.parse          → 40 top / 40 atrule / 1 @source / 0 garbage (·2)
+⟨cmd⟩ fourier git status --porcelain | wc -l     → 1                                     (·2)
+⟨cmd⟩ entry-chunk float census                   → 487,221 B / 23,336 literals / 87.9 %
+⟨cmd⟩ CWV leg A (loopback)                       → LCP 136 / 132 ms
+⟨cmd⟩ CWV leg B (4×CPU, Slow-4G)                 → LCP 5,972 / 5,964 ms; chunk 4,655 / 4,664 ms
+⟨cmd⟩ CI run 35445782153                         → 17 failed / 80 passed; inv-27 job SKIPPED
+⟨cmd⟩ INBOX register rows, at HEAD pre-append    → 76 (strict) · 80 (with [a-z]?)        (·2)
+⟨cmd⟩ INBOX register rows this unit minted       → 0 in both forms                       (·2)
+```
+
+Every figure is a count of **this unit's own subject** at the settled bytes — the frozen corpus,
+the pinned canonical, the committed fourier tree, or this unit's own instrument — and **not one is
+a count of a live sibling or of this file** (R3-3.10).
