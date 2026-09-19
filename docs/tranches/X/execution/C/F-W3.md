@@ -3054,3 +3054,341 @@ force-push; no sibling's staged path swept in — each commit carries its own pa
 `docs/tranches/X/execution/LEDGER.md` is **not touched by this seat**: this unit's dispatch names this
 record and `evidence/w3/` alone, other seats edit that file concurrently, and the wave row is the
 orchestrator's.
+
+### X.F.W3.e
+
+SERVED MODEL: claude-opus-5[1m] — Vocabulary, utils, structure, app shell. Worktree
+`/Users/mkbabb/Programming/fourier-analysis/.worktrees/f3e`, branch **`x/f3e`**, created from
+**`74084fa`** — `.d`'s head, not `21e11b0`, and the choice is forced rather than convenient:
+§5a splits (4) and (5) sequence `.e` AFTER `.d`, and both of this unit's obligations under them
+(`VisualizationView`'s call sites against `ContourSettings`' M-16 contract; `AdminUserList`'s call
+site against `BatchActionBar.vue`) are unlandable and unverifiable at a base that does not contain
+`.d`'s bytes. Head **`8aa9252`**, **14 commits**, `26 files changed, 1441 insertions(+), 397
+deletions(-)`. Every figure below was read from the settled bytes and double-run.
+
+#### Act 0 — crash-recovery sweep (standing law, first act)
+
+⟨cmd⟩ `git status --porcelain` at `/Users/mkbabb/Programming/fourier-analysis` → **1 row**, `?? .worktrees/`
+— §5b's own declared residue (`.gitignore` is NOT in F.W3's bounds and F.W0 owns that row), said so
+here rather than reported as a settle failure. ⟨cmd⟩ `git worktree list` → the root, the unrelated
+`~/.codex/worktrees/d0be` detached checkout, `f3b` (`.b`) and `f3d` (`.d`); **no `.worktrees/f3e`
+existed**, so this unit's worktree is a plan, not an inheritance. ⟨cmd⟩ `git status --porcelain` at
+value.js → 2 rows, **neither inside this seat's writable set** (`CARRY-LEDGER.md`, the standing V row;
+`scripts/dev/dev.sh`, unowned and NEVER touched — DR-24). **Nothing inherited, nothing stashed,
+nothing restored, no dirty path outside the writable set touched.**
+
+#### Act 1 — THE PUBLICATION, first, as the lock requires · commit `7dc4c0b`
+
+§5a-v2 item 1 makes `.e`'s first act a written artefact the other units CONSUME, not a diff, and the
+two artefacts land in the two files that are their honest homes.
+
+**THE ACTIVE-STATE VOCABULARY (`FR-COB-3`) → `style.css`.** The operand was re-measured at this seat
+rather than inherited: ⟨cmd⟩ `grep -rl 'is-active' src | sort` → **6 files / 18 sites**; `is-active-sub`
+→ **1**; `is-playing` → **6**; the `.liked` class → **6**; ⟨cmd⟩ `grep -rn 'aria-current' src` → **0**.
+A **SIXTH spelling** the banked census never named was found and is booked here: `:class="{ active: … }"`
+at three sites, matching **no rule anywhere** — dead, and worse than live, because it teaches a channel
+that does nothing. The banked fifth spelling, `PaperView.vue`'s `:is-active` PROP, is **ABSENT** from
+this tree (⟨cmd⟩ `grep -rn ':is-active' src` → **0**), reproducing the RESUME baseline's divergence 3;
+**the SWEEP-LAW RIDER's prohibition is published anyway**, because the grep that would corrupt a prop
+is the first one a sweeping seat reaches for.
+
+The law itself: *the ARIA attribute the control's role owes is the channel AND the paint hook; a class
+survives only as a scoping handle for a rule that also names the attribute.* It is not invented — the
+tree's own `.basis-pill-btn[aria-pressed="true"]` is that recipe, and the publication generalises it.
+The three anti-cures ride with it (SWEEP-LAW; `FR-COB-4`'s toggle-vs-action; `FR-NP-19`/K-18's kill of
+`role="radiogroup"`, with `role="group"` + `aria-label` as the naming cure), and the reason the
+attribute wins is stated: the producer's `prefers-contrast` and `forced-colors` arms key on ARIA
+EXCLUSIVELY, so a class-only state paints nothing there AND announces nothing — one defect with two
+faces, closed by one channel.
+
+`fr-EquationView L·m-8` rides the same commit: `slide-down` was authored **4×** with divergent
+durations and **not one copy declared a reduced-motion bracket**, so the app's most-used entry
+transition ignored the setting in every route. The canon + its PRM bracket land in `style.css`; the
+three surviving scoped copies are MORE specific (`[data-v-*]`) and keep winning inside their own
+files, which is precisely why publishing from one unit is safe and why they are residue rather than a
+cross-unit edit.
+
+**THE RE-PARAMETERISED SHIM CONTRACT (`FR-TT-15`/`FR-TT-24`) → `ui/tooltip/index.ts`.** The barrel is
+the identity `FR-TT-20` asks the sweep to normalize onto, so the file that declares the identity
+declares what it costs. Measured, not recalled: ⟨cmd⟩ `cat …/dist/components/tooltip/index.d.ts` →
+the package ships the FOUR decomposed primitives and no single-component tooltip at all, so R3-7a's
+"barrel → `@mkbabb/glass-ui/tooltip`" restates as re-parameterising this file (K-12's cheap arm stays
+killed). ⟨cmd⟩ `grep -rn 'ui/tooltip' src` → **9 importers, TWO identities** — 8 barrel + the deep SFC
+import at `PaperSidebar.vue:2`, `.c`'s file — which is FR-TT-20's finding reproduced, and the deep
+import is NAMED as residue because §5a-v2 law 2 forbids opening it.
+
+All five surviving knobs are DECIDED, with `ariaLabel` DROPPED from the list and `FR-TT-4`'s
+repudiation written down. The input-modality contract is stated in words (pointer works; keyboard
+only where the `as-child` target is focusable; **touch has no path at any call site**), because a shim
+that wires a description and never a name must say so or every sweep assumes otherwise.
+
+#### Act 2 — g10's Tooltip leg · commit `511cbd0`
+
+BEFORE: ⟨cmd⟩ `git show 74084fa:…/Tooltip.vue | grep -n 'attrs\|inheritAttrs'` → **∅, exit 1** — the
+shim declared neither, so every `class` a consumer wrote was dropped by the fragment root with a dev
+warn. Two cures existed and only one is lawful: making the shim single-root is KILLED at the mechanism
+(`FR-TT-7`/DU K6 — `renderSlot` mints the Fragment UNCONDITIONALLY, and a shim-imposed root would take
+the `v-for` key element away from the `coeff-list` TransitionGroup and kill its whole FLIP register).
+So the law's operational form is taken literally, and **the host is chosen rather than assumed**: the
+CONTENT is the only element this shim owns, because the trigger is the consumer's own child through
+`as-child` and attrs placed there would contend with what that child already carries.
+
+The four other knobs land with it: the measure BOUNDED at `16rem` (⟨cmd⟩ `max-width` over the local
+chain → **0**, over `dist/tooltip.js` → **0**, and both pins discard
+`--reka-tooltip-content-available-width`), declared inside `@layer glass-overrides` so it wins by
+ORDER and not by being unlayered (**g16**); `align` added and conditionally forwarded; the anchor gap
+promoted from a literal to a declared parameter; and a dev-only guard on the half of `as-child`'s
+silent contract that actually breaks keyboard access. `FR-TT-10`'s hoverable knob is **deliberately
+NOT exposed and RECORDED as a no-op** — its banked cure would delete a banked WCAG 1.4.13 pass.
+
+#### Act 3 — the ONE dark-mode owner · commit `9fd0684`
+
+`MG-γ` ⊕ `m-2`/`L-3`/`C-7` ⊕ `L-6` ⊕ `R-8`, one item because it is one adoption three times. The
+head script mishandled `"auto"` through **both** branches (`saved === "dark"` false for it, `!saved`
+false for it) — and `"auto"` is vueuse's own default and therefore the commonest stored state, so a
+dark-OS user got a guaranteed light flash for the length of the initial chunk fetch. **Two further
+defects, found here and not banked**: `color-scheme` was never written, so `light-dark()` painted
+light even where the class DID land (`R-8`'s coupling); and the legacy `"theme"` key was read by a
+script whose runtime counterpart has never read it (⟨cmd⟩ `grep -rn '"theme"' src` → **0**), so a
+stale value stamped a class the app immediately revoked. The script is now the producer's
+`darkModeSyncScript()` output verbatim, with the generator named so a later seat re-derives it.
+
+`App.vue`'s never-disconnected `MutationObserver` (five forced reflows per firing, observing an event
+an OS scheme change does not produce) is replaced by `useVizColorSync()`. **`onFlipSettled`, not
+`installDarkModeSync`**, and the discriminator is the row's own: both live on the same subpath and
+watch the same `isDark`, and only the former returns a stop handle — which is `L-6`. It is also the
+hook the producer documents for a palette memo, draining subscribers in ONE coalesced post-flip task.
+`installVizColors()` seeds the singleton `"auto"` EXPLICITLY (the seed is one-shot, so owning it at
+the shell's first call stops a component becoming the seeder by mounting first), and the local
+`prefers-color-scheme` listener is DELETED rather than moved — a second permanent authority on a
+question the singleton answers is the same defect one layer down.
+
+#### Act 4 — the SvgFilters delete, and the trap measured at both ends · commit `5dfb744`
+
+The delete-evidence set is re-taken, not inherited: ⟨cmd⟩ per id over `src` and `e2e`, excluding the
+file itself → `title-boil` **0** · `wobble-celestial` **0** · `paper-grain` **0** · `canvas-grain`
+**0**. Two `useLineBoil` clocks mutated `baseFrequency` ~13×/s for the tab's life on nodes nothing
+referenced, from a component mounted UNCONDITIONALLY at the app root.
+
+**THE SAME-CUT TRAP (R-1/L-2), both ends measured.** The listener DOES survive: pencil-boil's
+module-scope `visibilitychange` handler is at `dist/vue.js:239`, the root barrel re-exports that
+module, and `FourierShapeExtractor.vue:155` still imports through it — `sideEffects: false` is a false
+manifest and this delete does not make it true. But the WIDENING IS DISARMED AT THE INSTALLED PIN:
+the cure floor is v0.9.2 and ⟨cmd⟩ the installed version measures **0.11.2**, carrying the
+`hasActiveSubscriber()` guard at `vue.js:232`/`:243` and the reactive-PRM matchMedia at `:262`. With
+zero subscribers the scheduler does no work.
+
+**THE BUNDLER CONTINGENCY, run as specified (one `vite build` + a chunk grep), BEFORE → AFTER**:
+chunks carrying `visibilitychange` **3 → 2** (`vendor-paper` drops out entirely), and the eager entry
+chunk **489,353 → 486,715 B**. `svg-fourier.ts`'s HLG-43 cell cited the deleted file as one of two
+live pencil-boil consumers; it is CORRECTED at the bytes rather than deleted, because its conclusion
+(one live consumer keeps the dependency) is unchanged.
+
+#### Act 5 — g15, in three legs · commits `b672afe` · `b3c6eee` · `f25c1b5`
+
+**Leg 1 — ONE `timeAgo` (`FR-AUL-17` ⊕ `GCM-34` ⊕ `m-17`).** Five copies, TWO dialects: the admin pair
+floored nothing, the gallery trio said "just now", so the same three-second-old row read `0m ago` in
+one panel and `just now` in the panel beside it. `lib/time.ts` answers all six defects once — floor,
+CAP at 30 days (which is `GCM-34`'s "truncates at days forever" cured at its mechanism, and **it
+closes AS `GCM-34`**, the id named in the module and the commit), negative guard (every copy rendered
+clock skew as `-3m ago`), NaN guard (every copy printed `NaNm ago` into the UI), a reactive clock
+(the copies sampled `Date.now()` DURING RENDER, so on a gallery page the ages could freeze forever),
+and `<time :datetime :title>` carrying `m-17`'s referent. ONE shared 30s ticker via
+`createSharedComposable`, so ninety cards hold one interval and it tears down with the last consumer.
+Two shapes because Vue has two: `useTimeAgo` for an entity, `useRelativeTime` for a list (a composable
+cannot be called per `v-for` row, so `AdminUserList` maps through ONE computed).
+
+**Leg 2 — ONE `BasisKey` unit (`M-10`).** The bridge was inline at **7** sites, the mode-label ladder
+authored **4×**, and the gallery pair's 15-line `basisLabels` was **BYTE-IDENTICAL** in two files.
+What made the row's "deletes two whole functions" possible was naming what nobody had named: there are
+TWO vocabularies — `active_bases` emits four keys, `basisDisplay` is keyed by three families — and
+every copy was an inline bridge across that gap, which is *why* they were copies. `BasisKey` /
+`BasisFamily` / `normalizeBasisKey` / `basisModeLabel` with `satisfies`, so a fifth basis added
+without a label decision is a compile error at the declaration rather than a blank chip. The chip
+builder lives beside the display table, not in `lib/`, because a `lib/` module must not learn about a
+`components/` one (`FR-CP-28`'s direction). **THE WAVE-LOCK IS IN THE MODULE AND IN A TEST**, so the
+F.W5–W8 seat meets it as a failing expectation rather than as a memory.
+
+**Leg 3 — ONE `GalleryTier` + a sort canon (`GCM-47` ⊕ `GCM-39`).** The gate's true witness (REPAIR 2
+D-8) is the inline union re-spelling: **8 sites / 6 files**, verbatim ×6 and **HAND-WIDENED with
+`"all"` ×2** — and the widening is the part that matters, because it is the direction a closed union
+stops being closed in, so `GalleryTierFilter` is named once rather than re-derived per consumer.
+`GCM-39` rides at source: every one of these events is emitted with `entry.slug`, so the `hash:` tuple
+labels sent every reader looking for a hash nothing passes. **The sort canon is minted from what is
+measurable and the gap is NAMED rather than filled**: the corpus books five server keys, `api.ts`
+types the parameter as a bare `string` at both call sites, so the server's set is unreadable from this
+tree and inventing two members would be a claim about an API this unit cannot see.
+
+**g15 readings, double-run over all of `src/` (canon files and test floors excluded — they are the
+homes, not the duplication):**
+
+| probe | BEFORE (`74084fa`) | AFTER (`8aa9252`) |
+|---|---|---|
+| `function timeAgo` | **5** | **2** |
+| `startsWith("fourier")` | **7** | **3** |
+| inline `GalleryTier` union | **8** | **3** |
+| inline sort union | **3** | **1** |
+| byte-identical `basisLabels` clone | **2** | **0** |
+
+Run 1 ≡ run 2 on every cell. Transcript: `docs/tranches/X/fourier/evidence/w3/g15-X-F-W3-e.txt`.
+
+#### Act 6 — the remaining rows · commits `4eab84b` · `1f850ea` · `52f098c` · `c1d8402` · `27b18e4` · `fb5f65d` · `8aa9252`
+
+| commit | row | what actually moved |
+|---|---|---|
+| `4eab84b` | `FR-GSB-30` ⊕ `FR-GSB-12` | The band lands whole, and the reason it is a band is that **every leg is a second authority**: two measures (`32rem` twice, untied), two placeholder authorities (a dead utility reading as the live one — deleted in the SAME hunk that keeps the rule), two active-state channels, a dead sixth spelling, a divider at **1.22:1** while `./separator` ships at the pin (ADOPTED, not nudged), a predicate that folded `sort` in and left `searchQuery` out, and no landmark. `justify-content: flex-start` deleted on **K-10's corrected grounds** — it restated an initial value, it did not hold a layout. Four prop/emit pairs → four `defineModel`s, external contract unchanged. |
+| `1f850ea` | `MG-η` ⊕ the vocabulary applied | `aria-current` appeared NOWHERE, so the app's only navigation marked its current section by colour alone and a SR user heard five undifferentiated items. Both gallery like controls SET `aria-pressed` and then painted from a parallel `.liked` class — the defect in its purest form. Three dead `:class="{ active: … }"` bindings deleted. **`.e`'s own files now carry ZERO bespoke active-state class bindings.** |
+| `52f098c` | `MAJ-5` ⊕ `MAJ-7` | Split (4)'s host half: the two `ContourSettings` mounts drop to `:` bindings against the contract `.d` declared inbound-only at `be623d9`. MAJ-5's second limb — ONE tag spelling one two-way binding two ways — is unified onto `v-model:active-bases`. MAJ-7's two rows both cured at mechanism: the FALSE NOUN dies by adopting `store.saveVisualization` (the real verb, exported beside the alias) so the correction lands at THIS end without opening the store; the DUPLICATE CHANNEL dies because `gallery.publish` already toasts and never rethrows and `saveVisualization` returns `null` — the `catch` was structurally unreachable AND a second message; and the DISCARDED DIAGNOSTIC (`store.error`, the real reason) is read, with the constant demoted to the fallback. |
+| `c1d8402` | `FR-CP-28`, its two landable limbs | The dead 4-line barrel: **three independent probes → 0 · 0 · 0**, double-run. It re-exported `./api`, the 672-LOC fetch core, so any entrant who used it for a type dragged that core into their graph. F.W0's rider confirmed at the bytes: no lint step in this project can report it, which is why it survived. Six notation unit tests, each guarding a property the module's docblocks CLAIM (`L·m-7`'s runtime-live fallback; `D·D-B3`'s tokenised inks — a hex reappearing in that table IS the defect returning). |
+| `27b18e4` | `MG-α` ⊕ `MG-ε` | MG-α: `<main>` is the sole scroller and nothing was ever restored — a `scrollBehavior` hook would have been a NO-OP, since it and `history.scrollRestoration` both target `window`. **A second consequence the banked row does not name**: `<main>` persists across navigations, so its `scrollTop` survived the route swap and was merely CLAMPED — a long route entered from a scrolled one opened part-way down. Cured per history entry, keyed on vue-router's `position`, deferred a tick plus a frame. MG-ε **RECORDED, NOT EXECUTED**, at the site where the mechanism lives. |
+| `fb5f65d` | §5a split (5), host half | The toolbar CHROME leaves; the verbs, their eligibility counts and the `aria-describedby` reasons stay, which is the split's own line and `M-2`'s cure law. Two of `.d`'s six decisions change behaviour here — the bottom seat (`FR-AUL-51`'s row-out-from-under-the-pointer) and the single z-tier. |
+| `8aa9252` | `FR-AH-1` rider ⊕ `I-2`/`SR-2`/`N-10`/`N-11` | The shadow-reconcile PERFORMED, on a re-baseline that is now settled (P-10 ruled and landed). Producer surface measured: `size` + `disableTransitions`, no slot. THE STATE is already the producer's (`useGlobalDark()` since F.W4) and stays; THE GLYPH is a Fourier morph of pre-computed epicycle paths with no producer seam, so adopting would not simplify the file, it would delete what the file is for. **Genuine consumer divergence, not shadow**, recorded so a later export-map read does not re-open it. |
+
+#### Gates — BEFORE → AFTER (double-run at the settled bytes)
+
+| gate | BEFORE (RESUME baseline) | AFTER (this seat, `8aa9252`) | verdict |
+|---|---|---|---|
+| **g10 · Tooltip leg** | ⟨cmd⟩ `grep -n 'attrs\|inheritAttrs' ui/tooltip/Tooltip.vue` → **∅** | `defineOptions({ inheritAttrs: false })` at `:51` + pre-placed `v-bind="$attrs"` at `:144` on the CONTENT | **GREEN** |
+| **g10 · whole gate** | three live violations | leg 1 `SliderControl` GREEN at `.a`'s `a08809b`, and the ANTI-RULE is honoured by a SPLIT (`class`/`style` → chassis, everything else → control) rather than a blanket — verified here, not re-cured; leg 2 this seat; leg 3 `CanvasOverlayButton` **ABSENT** (F.W0's `git rm`) = "does not wrap at all" | **GREEN** |
+| **g15 · `.e`-scoped** | 5 · 7 · 8 · 3 · 2 | 2 · 3 · 3 · 1 · 0 (table above) | **GREEN over `.e`'s writable set**; **HONEST-RED tree-wide** with all 9 residual sites named per file |
+| **g9 · g11** | — | NOT closable here by construction (§5a-v2 item 4). `.e` published the decision at `7dc4c0b` and applied it in its own files at `1f850ea`/`4eab84b`; `.f` reports both over the 11-file operands | **`.f`'s** |
+
+Transcripts: `docs/tranches/X/fourier/evidence/w3/{g10,g15,cadence}-X-F-W3-e.txt`.
+
+#### Cadence (§7), run after every landing and again at close
+
+⟨cmd⟩ `npx vue-tsc -b --noEmit` → **1 error, PRE-EXISTING at base `74084fa`**
+(`ContourEditorCanvas.vue(42,9) TS6133`), a file this unit never opened — ⟨cmd⟩ `git diff --name-only
+74084fa..HEAD | grep -c ContourEditorCanvas` → **0**. `.d` recorded the identical single error.
+⟨cmd⟩ `npx vite build` → **✓ built** after every landing; **the §7 disclosed standing RED does not
+reproduce at 8.0.0**, so the per-batch build was an honest batch signal throughout.
+⟨cmd⟩ vitest over this unit's three floors → **19/19 green** (7 `time` · 6 `basis` · 6 `notation`).
+⟨cmd⟩ `git diff --check` → clean on every commit. Worktree porcelain → **0**.
+
+**⟨cmd⟩ `npx playwright test` — RUN as §0x note (i) orders, and RED for a reason that is not this
+unit's bytes.** `playwright.config.ts` declares **no `webServer`** (⟨cmd⟩ `grep -c webServer` → **0**)
+and the suite needs the full uvicorn + Mongo + vite stack via `scripts/e2e.sh`; ⟨cmd⟩ `curl --max-time
+4 http://localhost:3000/` → **000**, and every navigating spec fails
+`net::ERR_CONNECTION_REFUSED`. Standing that stack up is neither in this unit's bounds nor within
+§5.2's probe parsimony — `.d` recorded the identical shortfall as `E-d2`. **Recorded as a shortfall,
+never as a green, and never worked around**: no `test.skip`, no allowlist, no assertion touched.
+
+**⊘ ONE SIDE EFFECT OF THE ORDERED CADENCE, DISCLOSED.** The playwright attempt OVERWROTE **21**
+tracked baseline PNGs under `docs/tranches/J/audit/screenshots/before/` — paths outside this unit's
+writable set, dirtied by running an ordered gate rather than by an authored edit. They were restored
+by **exact pathspec** (`git checkout -- docs/tranches/J/audit/screenshots/before/`) in worktree `f3e`,
+which no sibling seat shares; porcelain returned to **0**. No stash, no blanket restore, no other path
+touched. Stated because a silent binary sweep into a wave is exactly what the pathspec law exists to
+prevent.
+
+#### Escalations
+
+- **`ESC-W3e-1` — `ESC-W3R2-1` LIMB 5 STANDS, and both sites are re-measured here.** g15's
+  `visualization/BasisCanvas.vue:254` (⟨cmd⟩ `const basisName = basisKey.startsWith("fourier") ?
+  "fourier" : basisKey;`) and `stores/gallery.ts:33`/`:34` (the sort union and the hand-widened tier
+  union) are in **NO §1 bounds row of any unit**. §0x is silent on the limb, so it remains a **§6
+  triumvirate bounds event**: **recorded, escalated, and written NEITHER.** Both are single-line
+  retirements onto `lib/basis.ts` / `lib/types.ts` the moment a bounds row exists — which is exactly
+  why they must not be taken without one. Note the shape: `gallery.ts:34` is the tier union's
+  *canonical widening site*, so g15's third leg cannot reach 0 tree-wide until this is granted.
+- **`ESC-W3e-2` — `FR-GIG-5`'s ONE REPAIR UNIT STRADDLES THE `.d`/`.e` PARTITION, UNDECLARED. NEITHER
+  HALF LANDED.** The row is a composition rider binding F.W3's edits: the `:liked` hoist
+  (`fr-GalleryCard L·M-2`) and the `click: [entry]` payload (`FR-GFC-19`) must land IN THE SAME EDIT,
+  because the uncached `onClick` forces all N cards to patch and the hoist alone delivers ZERO
+  measured win. Measured at the bytes: the `click` half is wholly inside `.e` (`GalleryCard.vue` ⊕
+  `GalleryInfiniteGrid.vue`), but the `:liked` hoist changes `GalleryCard`'s prop from
+  `likedHashes: Set<string>` to a boolean, and ⟨cmd⟩ `grep -rn ':liked-hashes' src` → **TWO binders**:
+  `GalleryInfiniteGrid.vue:35` (`.e`'s) and **`GalleryFeaturedCarousel.vue:93` (`.d`'s, §5a (1b))**.
+  Landing the hoist therefore requires a write outside this unit's writable set; landing only the
+  `click` half breaks the row's own same-edit lock, which exists precisely because neither banked
+  record states the interaction. **This is the same class §5a split (5) names — a shared repair unit
+  surviving at a ROW instead of at a glob — and it was never declared.** Per METHOD the specified cure
+  is not substituted. **What is needed**: a declaration sequencing the two units on this row (either
+  order), as split (5) was.
+- **`ESC-W3e-3` — the unit floor this wave asked for is UNREACHED BY THE RUNNER, and the one-line
+  wiring is a bounds event.** §1's Creates row authorises "the extracted notation library + its unit
+  tests"; ⟨cmd⟩ `cat vitest.config.ts` → `include: ["e2e/unit/**/*.vitest.ts", "scripts/**/*.vitest.ts"]`,
+  which does not reach `src/**`, and `vitest.config.ts` is in **no bounds row of this unit**. The three
+  floors are verified **19/19 green** under an out-of-tree config in the session scratchpad, so the
+  tests are real and passing; what is missing is one glob. **Not patched, not relocated** (relocating
+  them to `e2e/unit/` would put `.e`'s files in `.a`/`.d`'s directory, trading a bounds event for a
+  partition violation).
+
+#### Residuals (named, none swept)
+
+1. **g9's unswept operand, per file** — `.a`: `EditorControlsDock.vue` (absent from the 6-file
+   `is-active` list at this base; `AnimationControls.vue:123`/`:138`/`:232`/`:235` and
+   `ConvergenceTimeline.vue:82`/`:147` carry `is-playing`). `.b`: `EasingPicker.vue:26`/`:84`/`:98`.
+   `.c`: `PaperSidebar.vue:144`/`:173`/`:403`/`:407`/`:417` (incl. the sole `is-active-sub`),
+   `MobileFloatingToc.vue:167`/`:402`/`:407`. `.d`: `EquationModeToggle.vue`(absent at this base),
+   `FunctionInput.vue:203`/`:293`. `.a`'s and `.c`'s files are CLOSED and unswept per RESUME
+   divergence 4; `.b`'s and `.d`'s are theirs. **`.e`'s share is zero.**
+2. **g11's sweep** — 39 `<Tooltip` occurrences across 11 files; the contract is published and `.e`'s
+   own callers (`App.vue`, `CanvasControlsDock.vue`, `VisualizationView.vue`) consume it unchanged
+   because the re-parameterisation is backward-compatible by construction. The per-site naming leg and
+   the 35-callsite sweep are their owners' and F.W4's. **`FR-TT-20`'s second identity —
+   `PaperSidebar.vue:2`'s deep SFC import — is `.c`'s and is named, not swept.**
+3. **g15's nine residual sites**, listed per file in the transcript: `timeAgo` ×2
+   (`AdminFlaggedPanel.vue:299`, `GalleryDraftsSection.vue:41` — `.d`'s), `startsWith("fourier")` ×3
+   (`BasisSelector.vue:97` `.a`'s, `GalleryDraftsSection.vue:56` `.d`'s, `BasisCanvas.vue:254`
+   ESCALATED), inline tier union ×3 (`GalleryFeaturedCarousel.vue:53` + `GalleryView.vue:152` `.d`'s,
+   `stores/gallery.ts:34` ESCALATED), sort union ×1 (`stores/gallery.ts:33` ESCALATED).
+4. **`slide-down`'s three surviving scoped copies** — `PaperView.vue:809` (`.c`), `ContourSettings.vue:482`
+   (`.d`), `EquationView.vue:675` (`.d`). The canon and its PRM bracket are published; each copy is one
+   deletion away, in its owner's file.
+5. **`store.createSnapshot` now has NO caller.** MAJ-7 moved this app's last one onto the real verb, so
+   the alias and its "(unmigrated) visualization-view publish call site" comment are dead.
+   `stores/workspace.ts` is in no bounds row of this unit — routed to its owner, not edited from here.
+6. **`FR-CP-28`'s colocation MOVES are not taken, and the reason is bounds, not judgement.** The row's
+   inverted-colocation examples need their DESTINATIONS in a bounds row: `equation/FrequencyGraph.vue`
+   is consumed from `visualization/`, and `visualization/gallery/UserSlugBar.vue` is consumed only by
+   `layout/AppHeader.vue` — but `components/layout/**` is in bounds only as two NAMED files, so
+   creating `layout/UserSlugBar.vue` would be a bounds expansion. The two limbs that needed no new
+   destination (the dead barrel; the notation floor) LANDED.
+7. **Relay notes for `.f`'s SS-6 batch** (producer rows, never frontend hacks): **`FR-TT-18`** —
+   `--z-tooltip: 120` sits BELOW `--z-popover: 130` at the adopted pin (⟨cmd⟩ over
+   `dist/**/*.css`), so a tooltip inside a HoverPopover paints beneath its own panel; **`FR-TT-13`** —
+   the producer ships NO floating-offset token, so every consumer necessarily authors a number, which
+   is why three uncoordinated gaps existed in one dock; **`FR-COB-22`** — the 0.40 glyph-to-box ratio is
+   scale-invariant by construction and deliberate, but thin against the 0.50–0.60 icon-button register:
+   a **register note only**, no F.W3 cell re-tunes a producer constant (S-5).
+8. **`equation/InfoCard.vue` and `visualization/CanvasOverlayButton.vue` are ABSENT** — ⟨cmd⟩ `ls` on
+   both → *No such file or directory*. Booked **discharged**, never re-created: `D·D-M5`'s F8-REACH-01
+   demand and `FR-IC-16`'s craft tail are executed by the deletion that already happened, and
+   `FR-COB-3`/`-17`/`-5`'s subject instance died with F.W0's `git rm`.
+9. **A measured divergence from the RESUME baseline, recorded not re-adjudicated**: g16's cell reads
+   "no eslint config exists". At this base ⟨cmd⟩ `ls web/eslint.config.js` → **present**, and
+   `package.json` declares a `lint` script and `eslint-plugin-vue`. The gate's anti-cure half is `.f`'s
+   to re-measure; this unit introduced **no** naive `@layer` wrap (both of its layered rules append
+   `@layer glass-overrides`, the layer `index.html` orders LAST).
+
+#### E13 — the four-path mail sweep, re-run at this seat
+
+**(1)** `docs/tranches/V/` — **10** depth-1 `.md` ⊕ `coordination/` **24** entries. **(2)**
+`../glass-ui/docs/tranches/BK/coordination/` — BK re-confirmed newest (⟨cmd⟩ `ls -1dt
+../glass-ui/docs/tranches/*/ | head -3` → `BK/` · `BJ/` · `BI/`), **9** entries. **(3)**
+`../keyframes.js/docs/tranches/V/coordination/` — **13**. **(4)**
+`../sci-report/atlas/docs/tranches/P/coordination/` — **28**, path UNMOVED.
+
+⟨cmd⟩ UNREAD classified from the Status cell BY POSITION (never a bare `grep -i unread`) → **0**,
+double-run `0 ≡ 0`, over ⟨cmd⟩ `grep -cE '^\| [IO]-[0-9]+[a-z]? \|'` → **79** rows. ⟨cmd⟩ `find <the
+four paths> -type f -name '*.md' -newermt "2026-09-19 00:00"` → **three** members: `INBOX.md`
+(**self**, SELF-COUNT law), keyframes' own `INBOUND-LEDGER.md` (not addressed to value.js), and
+value.js's own `megatranche/registry/CARRY-CUT-LEDGER.md` (a registry file, not a letter). **ZERO
+unrowed letters addressed to value.js · ZERO new `I-n`/`O-n` minted by this seat · ZERO UNREAD status
+cells.** This unit opens no channel of its own; its producer rows ride `.f`'s SS-6 batch (residual 7).
+
+#### Commits (pathspec on the commit itself, one meaning each; branch `x/f3e`, base `74084fa`)
+
+`7dc4c0b` · `511cbd0` · `9fd0684` · `5dfb744` · `b672afe` · `b3c6eee` · `f25c1b5` · `4eab84b` ·
+`1f850ea` · `52f098c` · `c1d8402` · `27b18e4` · `fb5f65d` · `8aa9252` — **14**, self-counted from
+⟨cmd⟩ `git log --oneline 74084fa..HEAD | wc -l` → **14**. ⟨cmd⟩ `git diff --name-only 74084fa..HEAD`
+→ **26 paths, every one inside this unit's writable set**; the five CREATED files are `lib/time.ts`,
+`lib/basis.ts` and the three `*.test.ts` floors, all under the §1 Creates row's
+`web/src/{lib,composables}/**`, and the two DELETED are the two the writable set marks as deletes
+(`decorative/SvgFilters.vue`, `lib/equation/index.ts`). ⟨cmd⟩
+`git log --format='%h %(trailers:key=Claude-Session,valueonly=true)'` → **all 14 carry the trailer**.
+No `git add -A`, no `-u`, no `commit -a`, no stash, no reset, no force-push, no sibling's staged path
+swept in. `docs/tranches/X/execution/LEDGER.md` is **not touched by this seat**: this unit's dispatch
+names this record and `evidence/w3/` alone, other seats edit that file concurrently, and the wave row
+is the orchestrator's.
