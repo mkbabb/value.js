@@ -1614,3 +1614,297 @@ whole and measured: one hunk reverted to hold a cross-wave lock, and one live cr
 (*"Maximum recursive updates exceeded in component <App>"* on `/#/mix`) diagnosed by probe and cured
 at its root inside this unit's bounds. The three neighbouring `smoke` REDs are **PRE-EXISTING**,
 proved by a pre-cure control run, and no sibling gate moved across this landing.
+
+---
+
+## Close — X-W4 (VERIFY-ONLY close seat)
+
+**SERVED MODEL: claude-opus-5[1m]** · the **VERIFY-ONLY close seat** · Track A · wave **X-W4**.
+Sitting date of record **2026-09-17** (the owner's begin-word). Wall clock at this seat
+`2026-09-19 03:32:48 EDT` ⟨cmd⟩ `date "+%Y-%m-%d %H:%M:%S %Z"`. **HEAD at entry** `fc781875`,
+`3087135d` by the time this section was written (both Track C/D docs commits landing concurrently)
+⟨cmd⟩ `git log --oneline -1` · branch `tranche-u` ⟨cmd⟩ `git rev-parse --abbrev-ref HEAD`.
+
+**This seat cured nothing.** It re-ran every §6 gate at its own clock against the **settled,
+committed bytes**, re-ran §8's artefact inventory, re-swept E13, and wrote only this section and
+the wave's LEDGER row cells. Every number below was measured here, never quoted from a unit receipt.
+
+### K.0 Crash-recovery and the writable set
+
+⟨cmd⟩ `git status --porcelain` at entry → **2 rows**, and **neither is in any W4 §4 path**:
+`scripts/dev/dev.sh` (unowned, DR-24 — never opened, never staged) and
+`docs/tranches/V/reformation/CARRY-LEDGER.md` (a sibling's). **No inherited work existed inside this
+seat's writable set**, so the crash-recovery obligation discharges as an absence: nothing was
+stashed, reset, restored or adopted. The same two rows are still dirty and still untouched at close.
+`W4.md` itself is **not** in this seat's writable set — §4 grants the close seat **no** row on it
+(unlike `W3.md`, whose §4 carries an explicit *"modify (status + artefact paths at close)"* grant),
+so **no byte of the spec was written** and §1's four-verb table keeps its authored bytes (K.10).
+
+### K.1 Commit roster — 25 commits, every one present, bounds CLEAN
+
+| unit | commits (in landing order) |
+|---|---|
+| **a** | `8934de85` cure · `cf5409e7` gate pair + A5 · `b4e47d0c` §8 evidence · `5f5fc89f` artefact-8 PNGs · `c2692eea` receipt · `bda34afa` LEDGER cell |
+| **b** | `ea0fdca8` B3 receipt (§9 row 4, **before** row 3) · `c18de089` gate spec born-RED · `58371516` cure · `3d548669` instrument navigation-safety · `6fdb57ee` §8 evidence · `7dd45877` receipt |
+| **c** | `96936340` gate spec born-RED · `cf108ec6` ring arm settles · `666978d4` cure + the two bindings it invalidated · `1c34ce6e` §8 artefacts 5+8 · `38de7661` key-by-key ledger · `18936b97` receipt · `3a36c78a` LEDGER cell |
+| **d** | `5406a111` gate spec born-RED · `e64002e9` the collapse (ONE commit: MP-3 + AB-32) · `aecad5d3` artefact-8 frames · `72e776af` §8 artefacts 6 + D3 · `ea8ad82c` receipt · `c59a4849` LEDGER cell |
+| **g** | **none — NOT OPENED.** X-W0.j's dated census returned **FAIL 1 of 4** at the elected 8.0.0 |
+
+All 25 exist ⟨cmd⟩ `git show --stat --format="%h %s" <each>`. **Union bounds proof**, taken over all
+25 commits' name-only output ⟨cmd⟩ `for c in …; do git show --pretty=format: --name-only $c; done |
+sort -u | wc -l` → **70 paths**, of which 39 are `docs/tranches/X/waves/evidence/W4/**` and the
+remaining **31** are exactly: the 22 `demo/**` + `eslint.config.js` §4 rows, the 6 `e2e/**` §4 rows,
+this record and `execution/LEDGER.md`. **ZERO paths outside the writable sets** ⟨cmd⟩
+`grep -cE "^(src/|api/|test/|node_modules/|\.github/|scripts/dev/dev\.sh|demo/shell/PaneSlot\.vue|demo/ui/|demo/shell/viewSchema\.ts)"`
+over the union → **0**. Every commit carries one meaning and its own pathspec; no commit swept a
+sibling seat's staged path (the X-W0 contamination shape does not recur here). `ComponentSliders.vue`
+and `demo/styles/utils.css` are §4 rows that took **zero bytes** — permitted, not required (b.8).
+
+**§9's declared order held**: commit row 4 (`ea0fdca8`, B3's receipt) is an **ancestor** of row 3
+(`58371516`, the Select cure) ⟨cmd⟩ `git merge-base --is-ancestor ea0fdca8 58371516` → exit 0, and
+each unit's gate spec landed **before** its product bytes.
+
+### K.2 §6 Hard Gate re-measured at this seat's clock — **15 GREEN · 1 RED**
+
+Commands, verbatim, each run at least **twice**:
+
+```text
+⟨cmd⟩ npx playwright test --project=smoke e2e/smoke/a11y-control-targets.spec.ts e2e/smoke/a11y-select-title.spec.ts e2e/smoke/a11y-gradient-stop-grammar.spec.ts e2e/smoke/scene-action-contract.spec.ts
+   run 1 → 20 passed · 1 failed (C4 fine)        run 2 → 21 passed · EXIT 0
+⟨cmd⟩ npx playwright test --project=smoke e2e/smoke/a11y-gradient-stop-grammar.spec.ts -g "C4"
+   isolated run 1 → 1 failed / 1 passed          isolated run 2 → 1 failed / 1 passed
+⟨cmd⟩ npx playwright test --project=smoke-mobile e2e/smoke/mobile/a11y-control-targets.spec.ts
+   run 1 → 3 passed   run 2 → 3 passed   run 3 → 3 passed
+⟨cmd⟩ npx vue-tsc -p tsconfig.demo.json --noEmit                                       → EXIT 0
+⟨cmd⟩ npx eslint demo/color-picker/App.vue demo/shell/usePaneRouter.ts demo/shell/dock/ → EXIT 0
+```
+
+| # | BEFORE (the wave's own born-RED baseline) | AFTER (this seat, own clock) | verdict |
+|---|---|---|---|
+| **A1** fine target size | undersized **13** (`reopen-baseline.json`) | `[W4-A1] undersized=0` in **both** runs | **GREEN** |
+| **A2** coarse target size | undersized **10** | `[W4-A2] undersized=0`, three runs | **GREEN** |
+| **A3** size axis owns height | `h-7` **18** sites; coarse lift absent | `[W4-A3] measured=4 mismatches=0` · `[W4-A3-COARSE] measured=0 mismatches=0 unlifted=0`; source ⟨cmd⟩ `grep -rn 'class="[^"]*\bh-7\b' demo --include='*.vue' \| grep -v 'w-7 h-7' \| wc -l` → **3** | **GREEN** |
+| **A4** zero nameless | nameless **3** fine / **2** coarse | `[W4-A4] nameless=0` · `[W4-A4-COARSE] nameless=0` | **GREEN** |
+| **A5** the target gate bites | owed | `a-falsifier.txt` present, `SERVED MODEL`-headed, carrying the pinned-then-reverted pair (`→ EXIT 1 (non-zero, as the gate requires)`) and the delta 5 → 2 | **DEMONSTRATED** |
+| **B1** composed trigger title | 14 defects over 7 triggers | `[W4-B1] asserted=7 excluded=1 defects=0`, both runs; every in-scope row reads `ariaLabel=null` + `labelledBy=v-1-N-label` + a rendered `titleText` + `titleBoxInsideField=true` | **GREEN** |
+| **B2** trigger height rides the size axis | 14 defects; `h-9` 15 sites | `[W4-B2] asserted=7 defects=0`; every in-scope row `blockSize=36 tokenSm=36` fine and `blockSize=54 tokenSm=54` coarse — the lift measured in the reading itself; source `h-9` ⟨cmd⟩ → **7** (K.7 residual 3 names all seven) | **GREEN** |
+| **B3** slider seam consumed as published | fence GREEN, receipt owed BEFORE the first prop edit | `[W4-B3] producerSliderVars=15 declaredInternal=3 consumerReads=0`; ⟨cmd⟩ `grep -rn -- '--slider-range-origin' demo src \| wc -l` → **0**; receipt `ea0fdca8` is an ancestor of the cure | **GREEN** |
+| **C1** keyboard creation exists | no seat to Tab to; creation pointer-only | `[W4-C1] caretLeft=252 mintedLeft=252 inline="calc(55% - 1px)"` · `pointerEventsDuringKeyboardJourney=0`, both runs | **GREEN** |
+| **C2** handles are sliders | `role=null`, no `aria-value*`, no ordinal | 3 of 3: `role=slider min=0 max=100 now=0\|50.2\|100`, `text="Position …%"`, `name="Gradient stop N of 3"` | **GREEN** |
+| **C3** the full grammar | Home/End no-ops, 7 keys absent, 8 defects | `[W4-C3] home=10 end=450 unit=4.4000px/% defects=0`; the 21-press ledger reproduces key-for-key (Page ±44, arrows ±4.391, Space grab / Escape cancel −13.187) | **GREEN** |
+| **C4** handle target + unclipped ring | `.rail-handle` 20×20, ring unmeasured | **RED at this seat's clock — 3 of 4 runs.** See K.3 | **RED** |
+| **D1** one contract, one render path | 2 exported contracts, 2 render branches | ⟨cmd⟩ `vue-tsc` EXIT 0; ⟨cmd⟩ `grep -rn "export interface ActionBarContext\|export interface DockActionBar" demo` → **0**; `SceneActionSet` is the sole contract (`keys.ts:184`); the spec's 10 tests pass in both runs | **GREEN** |
+| **D2** no untyped action path | 8 type-level `any`, 9 `?.()`, rule `"off"` | scoped eslint **EXIT 0** and ⟨cmd⟩ `npx eslint demo e2e` **EXIT 0** with the rule armed `"error"` over the seven action-path files (`eslint.config.js:322-333`); ⟨cmd⟩ `grep -n '?\.()' demo/shell/usePaneRouter.ts` → **2 hits, both prose** (`:135`, `:292`) | **GREEN** |
+| **D3** the checker bites | owed | `d-falsifier.txt`: an unregistered token returns **TS2820 + TS2345 at EXIT 2**, the revert returns **EXIT 0**; the same file records D2's rule firing (`EXIT=1` → `EXIT=0`) | **DEMONSTRATED** |
+| **D4** no silent no-op | mobile `PaneSlot` unbound; 9 handlers no-op | the 10 contract tests pass in both runs, including the 390×844 `unavailable` + `disabled` + `aria-disabled` + `role="status"` arms | **GREEN** |
+| **G1–G4** | not opened | ⟨cmd⟩ `grep -rn 'watercolor-dot' demo \| wc -l` → **11**, the §1.M bank intact and untouched | **NOT OPENED** (census FAIL 1/4) |
+
+### K.3 The one RED — C4's clip arm, and what it is and is not
+
+C4 fails on **one** of its six assertions, `clippers == []`, and it fails **non-deterministically**:
+
+```text
+run 1 (four specs)   [W4-C4-FINE] w=24.8 h=24.8 hitW=24 hitH=24 faceW=20.7 faceH=20.7 rootFontSize=16
+                     [W4-C4-RING] shadow="… 0px 0px 0px 1px, … 0px 0px 0px 3px" spread=3 focusVisible=true
+                     clippers=["div.app-layout [contain=none overflow=hidden/hidden clip-path=none]"]   → FAILED
+isolated ×2          identical bytes, identical clipper                                                 → FAILED, FAILED
+run 2 (four specs)   [W4-C4-FINE] w=24 h=24 hitW=24 hitH=24 faceW=20 faceH=20 rootFontSize=16
+                     clippers=[]                                                                        → PASSED
+```
+
+**The correlation is exact across four runs**: the clipper appears **iff** the geometry reads the
+~3.3 % inflation (`24.8 = 24 × 1.0333`, `20.7 = 20 × 1.035`) that unit c already booked as a
+residual (c.10 #4, *"a residual scale leaks into `getBoundingClientRect`"*) — and never when the
+boxes read exactly `24 / 20`. `rootFontSize` is **16** in both states, so the inflation is not a rem
+change; the rail's own layout arithmetic is unmoved (`unit=4.4000px/%` in both runs, read from
+`style.left`, not from a client rect). The demo's pane swap enters on the **`--spring-snappy`**
+morph family (`demo/styles/animations.css:251-271`, *"0.4 s true settle"*, `scale(0.97)` start), so
+a read taken inside the spring's overshoot window inflates every client rect in the pane and pushes
+the left-most handle's ring outside `.app-layout`'s `overflow: hidden` box — which is precisely what
+the clipper string reports.
+
+**What this is**: an **instrument-stability defect in the gate spec**, in unit c's own
+`e2e/smoke/a11y-gradient-stop-grammar.spec.ts` (in bounds). `cf108ec6` taught the *ring* arm to poll
+its settled value; the **geometry and clip walk were left un-settled**, so C4 reads the affordance
+mid-spring. **What this is not**: a product regression — in the failing state the ring is still
+painted (`1px` + `3px`, `focusVisible=true`), the seat is still ≥24 (24.8), the hit region still
+24/44 and the face still the 20 px silhouette. Every user-facing arm of C4 passes in **both** states.
+
+**Not cured here** (VERIFY-ONLY). The repair is named: settle the transform before the geometry read
+(await the pane's `transitionend`/an `expect.poll` on a stable rect) exactly as the ring arm already
+polls. `e2e-smoke` is a **HARD** CI job (CC-031), so a gate that is RED in 3 of 4 runs is a real CI
+hazard and is booked as this wave's, not waived.
+
+### K.4 §8 Verification Artefacts — 8 of 9 present, artefact 9 correctly absent
+
+⟨cmd⟩ `ls docs/tranches/X/waves/evidence/W4/` → 8 text/JSON artefacts + **30** PNGs.
+
+| # | artefact | state |
+|---|---|---|
+| 1 | `baseline-2026-08-03.json` | present, `servedModel` key |
+| 2 | `reopen-baseline.json` | present, `servedModel` key |
+| 3 | `a-falsifier.txt` · `d-falsifier.txt` | present, both `SERVED MODEL`-headed, both carrying a red/green pair |
+| 4 | `a16-retest-receipt.md` | present, states *"Filed BEFORE the first slider prop edit"*, and `ea0fdca8` proves it by ancestry |
+| 5 | `gradient-grammar.json` | present, the 21-press key-by-key `style.left` ledger |
+| 6 | `action-contract-diff.md` | present, the deleted-symbol list and the `any` / `?.()` before-after |
+| 7 | `navprobe-recheck.txt` | present — closes **with evidence on the opposite verdict**: MT-F005's nameless button is **alive** (a.7) |
+| 8 | screenshot pairs | 30 PNGs covering the slug cluster, rail letters, an admin panel, a Select composition, the Gradient rail and the action bar — fine **and** coarse |
+| 9 | `glass8-cut-receipt.md` | **correctly ABSENT** — the census FAIL branch (`W4.md:446-447`) |
+
+Extra, beyond §8 and welcome: `a-h7-cascade.md` (the A3 premise measured FALSE) and
+`b-select-composition.md`.
+
+### K.5 §7 cadence at close
+
+```text
+⟨cmd⟩ npx vue-tsc -p tsconfig.demo.json --noEmit        → EXIT 0, 0 lines
+⟨cmd⟩ npx tsc -p tsconfig.e2e.json --noEmit             → EXIT 0
+⟨cmd⟩ npx eslint demo e2e                               → EXIT 0
+⟨cmd⟩ git diff --check -- demo e2e eslint.config.js     → EXIT 0
+⟨cmd⟩ find scripts -name "proof-*.mjs" | wc -l          → 0   (CC-019's gate FORM holds)
+⟨cmd⟩ npx prettier --check <the whole W4 touched surface> → 24 files RED
+⟨cmd⟩ npm run typecheck   (library, the null-delta check) → RED, 1 error
+```
+
+Both REDs are **PRE-EXISTING and measured so here, not asserted**:
+
+- **prettier.** The 24 are units a's and b's files plus dock neighbours; units c's and d's files and
+  **all six** gate specs are clean. Controls: `git show 8934de85^:…/SlugEditLayer.vue`,
+  `git show 58371516^:…/MixConfigBar.vue` and `git show e64002e9^:eslint.config.js` are **each
+  already prettier-RED before their cure**. The repo-wide 202-file RED is X-W11's hygiene walk.
+- **`npm run typecheck`.** `test/v4-css-emerging.test.ts(12,10): error TS2459: Module
+  '"../src/css/stylesheet"' declares 'serializeCssValue' locally, but it is not exported.` This wave
+  wrote **zero** `src/` and **zero** `test/` bytes (K.1's union proof). The last writer of
+  `src/css/stylesheet.ts` is **`c8848bed`** *"refactor(css/surface): PSL-1 derivation, colour
+  boundary, stylesheet split"* (2026-09-18 21:48), a **sibling wave's** commit — the export moved and
+  the `test/` import was not re-anchored. **Named for its owner, not cured here** (`test/**` is on
+  `W4.md:175`'s Do-NOT-touch list).
+
+### K.6 Landed-wrong — caused by this wave, named, NOT cured
+
+Each was re-run by this seat against the settled bytes ⟨cmd⟩
+`npx playwright test --project=smoke e2e/smoke/walk.spec.ts e2e/smoke/oracles/o20-generate-plate.spec.ts e2e/smoke/oracles/o27-focus-affordance.spec.ts`
+→ **4 failed · 5 passed**.
+
+| id | row | cause | named repair |
+|---|---|---|---|
+| **LW-1** | `e2e/smoke/walk.spec.ts:89` — `getByRole("combobox", { name: "Generation preset" })` never visible | unit **b**'s spec-ordered `aria-label` retirement: the composed name is now **`"Preset"`** | `{ name: "Preset", exact: true }` (b.7) |
+| **LW-2** | `e2e/smoke/oracles/o20-generate-plate.spec.ts:71` — the same binding, timing out at `locator.click` | same | same |
+| **LW-3** | `e2e/smoke/oracles/o27-focus-affordance.spec.ts:126-129` (BR-3 fine, *"the 20px visual dot HELD"*) — `Expected < 22, Received 24` | unit **c**'s spec-ordered target growth: `[data-stop-id]` is now the 24 px **seat**, the 20 px dot is `.rail-handle-face` | measure the face — `el.querySelector(".rail-handle-face")!.getBoundingClientRect()` (c.7) |
+| **LW-4** | `e2e/smoke/a11y-gradient-stop-grammar.spec.ts:529-532` — C4's clip arm, RED in 3 of 4 runs | unit **c**'s own gate spec reads geometry inside the pane-enter spring's settle window | settle the transform before the read, as `cf108ec6` already does for the ring (K.3) |
+
+**LW-1..LW-3 are out of every W4 §4 row** ⟨cmd⟩
+`grep -c "walk.spec\|o20-generate-plate\|o27" docs/tranches/X/waves/W4.md` → **0**, so the units
+were right not to write them, and **right to escalate rather than pad product copy or relax an
+assertion**. **LW-4 is in bounds** (unit c's own spec) and is this wave's to repair. `e2e-smoke` is
+HARD, so all four are booked as open CI debt of this wave.
+
+**Separated from them by measurement, PRE-EXISTING, not this wave's**: `o27:323` (BR-1
+forced-colors — `getByRole('option', {name:'Picker'})` never visible under forced-colors, recorded
+failing identically pre-cure at c.7), `color-propose.spec.ts:128` (the propose-network leg),
+`o15-dock-register.spec.ts:50` (the **CC-044** impostor row, banked in the census-CLOSED `X.W4.g`)
+and `:125` (a `--dock-compact-control-padding` register row), the two dead-DOM gradient plate
+assertions (→ G13 / **X-W6**) and the `steps(4, jump-end)` easing literal. Units b, c and d each
+proved theirs with a **pre-cure control run**; this seat re-ran the suites and reproduces the same
+split.
+
+### K.7 Residuals, with named owners
+
+1. **`X.W4.g` is CLOSED and the §1.M bank is intact** — X-W0.j's dated census **FAIL 1 of 4** at the
+   elected 8.0.0; `watercolor-dot` = **11**. Owner: **X-W0.j's re-trigger**, never this wave.
+2. **A3's premise was measured FALSE and the cure is a real shrink** (`a-h7-cascade.md`): the
+   producer states its rung as `min-block-size`, so `h-7` was inert and those controls were 36 fine /
+   54 coarse; the size axis takes them to 28 / 44. No gate moves, but it is a visible change.
+   Owner: **X-W7**, which inherits A3's size-axis law (`W4.md:481`).
+3. **Seven surviving `h-9` sites**, all outside this wave's mechanism: `AuroraPane.vue:122,142,156,170`
+   (**the identical defect B1/B2 cured, in a file in no W4 table** — ESC-b.8), `GenerateControls.vue:165`
+   (a glass `<Button>`, not a trigger → **X-W7**), `:211` (`w-9 h-9`, a WatercolorDot swatch →
+   **`X.W4.g`**), `PaletteSlugBar.vue:2` (`min-h-9`, a grep-shape hit, not a control).
+4. **Three surviving `h-7` sites**: two `<Skeleton>`s (→ **X-W8**) and one native 28×28 button whose
+   square shape is its meaning.
+5. **`ActionToolbar.vue` is retired from the render path but not deleted** — `W4.md` §4 grants
+   `modify`, not `delete`, and `test/picker-blob-config.test.ts` reads its **source** while `test/**`
+   is Do-NOT-touch. Owner: the wave that holds both surfaces.
+6. **`ColorPicker.vue` sits outside D2's armed eslint list** — declared in the config's own comment
+   and in artefact 6 §3.2; its single `any` is a display-space bridge on a selector owned by
+   **X-W6/X-W7**.
+7. **The mobile `:on-mount` gap is intact** — ⟨cmd⟩ `grep -c "on-mount" demo/color-picker/App.vue`
+   → **3** (two desktop bindings + one comment), unchanged from HEAD. Owner: **X-W5** (`bindPane`,
+   its gate A3). D4 made the silence unrepresentable; it did not wire the mount, exactly as
+   `W4.md:408` orders.
+8. **The `LabeledField` label-register seam** (the caption voice changed from the producer's
+   `.section-label` mono register to the producer's `Label`) is a **glass BH-inbox ask, stated and
+   not taken** — mail paths are in no W4 §4 row (b.8 #4). `GradientVisualizer.vue:232`'s
+   `section-label` over a `<Slider>` survives for the same reason (§3 Scope 4 scopes unit b to
+   Selects).
+9. **`prettier --check demo e2e` RED over 202 files** → **X-W11**'s hygiene walk.
+10. **The library `npm run typecheck` TS2459** → the owner of `c8848bed` (K.5).
+11. **The ~3.3 % client-rect inflation inside the pane-enter spring** is now measured on both sides
+    (K.3) and is the mechanism behind LW-4; any later seat reading geometry on a freshly-entered
+    pane inherits it.
+
+### K.8 Escalations carried out by the units — 3 returned, all UNDISCHARGED
+
+| id | §3a trigger | subject | state |
+|---|---|---|---|
+| **ESC-a.7** | file bounds | `demo/shell/dock/ColorInput.vue:67-81` — a **live nameless** `send-btn` seat (24×24, so it passes A1/A2; the defect is the NAME). Artefact 7's premise measured **FALSE** — MT-F005's button is not dead. Invisible to both gate projects because the seat sits inside a `PopoverTrigger` unmounted at those viewports | **OPEN** — a dated E-3 bounds addendum is the recommended home; the orchestrator decides. Zero bytes written |
+| **ESC-b.7** | file bounds | `walk.spec.ts:89` · `o20-generate-plate.spec.ts:71` (= LW-1/LW-2) | **OPEN** — two-line repair named |
+| **ESC-b.8** | file bounds | `AuroraPane.vue:122,142,156,170` — four Select triggers carrying the exact defect B1/B2 cured | **OPEN** — home stated, not taken |
+| **ESC-c.7** | file bounds | `o27-focus-affordance.spec.ts:126-129` (= LW-3) | **OPEN** — one-line repair named |
+
+§3a's **hard-gate triggers did NOT fire**: A1/A2 turned green from a consumer (no producer box was
+unreachable), `LabeledField` hosted the trigger at 7.0.0 (B1), the rail took focus without breaking
+the pointer-add gesture (C1, proved by the pointer case beside the keyboard one), and one
+`SceneActionSet` expressed the Picker's edit arm without an escape hatch (D1). Unit d returned
+**zero** escalations.
+
+### K.9 E13 close sweep — 0 UNREAD in X-W4's scope
+
+Four paths re-swept read-only at this seat's own clock (**2026-09-19 03:21 EDT**), delta against
+unit d's 03:14:58 sweep, classification taken from each row's **Status cell**, never from a bare
+`grep -i unread`; `INBOX.md` **self-excluded** (SELF-COUNT law; ⟨cmd⟩ `grep -cE '^\| [IO]-[0-9]+ \|'`
+→ **74** rows).
+
+```text
+⟨cmd⟩ /usr/bin/find <each of the four paths> -maxdepth 1 -type f -name '*.md' -newermt "2026-09-19 03:15"
+   docs/tranches/V/ + V/coordination/            → (nothing)
+   ../glass-ui/docs/tranches/BK/coordination/    → (nothing)   [BK re-confirmed newest: BK · BJ · BI]
+   ../keyframes.js/docs/tranches/V/coordination/ → (nothing)
+   ../sci-report/atlas/docs/tranches/P/…         → (nothing)
+```
+
+**0 new letters · 0 unrowed value.js-addressed letters · 0 new `I-n` minted here.** The five rows
+whose Status cells read UNREAD — **O-20 · I-30 · I-31 · I-32 · I-35** — each route by their own
+Routing cell away from this wave (the X formation mail seat / X-W0.j / X-EXT-1..6 / X·KF); the one
+whose receiving cell is inside X-W4 is **X-EXT-1 → `X.W4.g`**, which the census FAIL keeps **CLOSED**.
+**No wave closes with UNREAD mail in scope, and none is in scope.**
+
+### K.10 The four-verb line — deliberately NOT moved
+
+`W4.md` §1's table keeps its authored bytes: AUDITED **YES** · SPECIFIED **YES** · IMPLEMENTED
+**NO** · VERIFIED **NO**. Two independent reasons, either sufficient:
+
+1. **This seat has no write on `W4.md`.** §4 grants the close seat no row on the spec (contrast
+   `W3.md` §4's explicit close-seat grant, exercised at `493791d6`). Writing it would be a bounds
+   ESCALATION, and §9's row-8 *"status flip"* cannot license a write the file-bounds table withholds.
+2. **The substance does not support it.** §6's Hard Gate is **not fully met** — C4 is RED at this
+   seat's clock — and the wave leaves four HARD-CI rows RED (K.6). The precedent is X-W2's close
+   (`91dc6e56`): *"PARTIAL … Hard Gate NOT MET, IMPLEMENTED deliberately unstamped"*.
+
+`VERIFIED` is likewise untouched: no row stamps it but the spec's own designated seat, and `W4.md`
+designates none. **§12's L-18 rider — two quartet challenge passes adjudicated by a fresh Fable —
+stands UNSERVED**; it is downstream of IMPLEMENTED and is recorded here so no later reading calls it
+forgotten.
+
+### K.11 Status — **PARTIAL**
+
+**15 of 16 gates GREEN** at an independent seat's own clock, every one double-run against the
+settled bytes: **A1 A2 A3 A4 A5 · B1 B2 B3 · C1 C2 C3 · D1 D2 D3 D4**. **One RED: C4**, on its
+`clippers == []` arm only, non-deterministically (3 of 4 runs), with the mechanism measured on both
+sides and the repair named (K.3). `X.W4.g` never opened and its bank is intact.
+
+**What remains, in one line each**: C4's clip arm settled (LW-4, in bounds) · the two stale
+`"Generation preset"` bindings (LW-1/LW-2, ESC-b.7) · o27 BR-3's face read (LW-3, ESC-c.7) ·
+`ColorInput.vue`'s nameless seat (ESC-a.7) · `AuroraPane.vue`'s four triggers (ESC-b.8). **Zero
+bounds were widened, zero gates narrowed, zero assertions relaxed, and this seat wrote no product
+byte.**
