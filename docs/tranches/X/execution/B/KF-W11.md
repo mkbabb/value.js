@@ -1145,3 +1145,160 @@ subject — was never touched**; the file is byte-unchanged.
 No `src/**` byte · no `node_modules` byte · no `@ts-expect-error` / `as` / `eslint-disable` · no
 `test.skip` · `EditorShell.vue:116` untouched · `scripts/dev/dev.sh` never staged · the LEDGER row is
 `.j`'s and was not touched by this unit.
+
+---
+
+### KF.W11.a
+
+SERVED MODEL: claude-opus-5[1m]
+
+**Unit**: `KF.W11.a` — the cube packet (phase 1 / group 2). Spec: `KF-W11.md` §Agent Units
+`:219-223` · §Carry P1 `:163-168` · §Bounds rows `:96-103` · §B.3(3) · §Gates G-KFW11-1 `:289` ·
+§Commit plan 1 `:376`. **Status: DONE** — G-KFW11-1 GREEN on both its runtime run and both its byte
+clauses, this unit's §0u rows 4 → 0, zero escalations that block anything, three declared residuals.
+**Evidence**: `docs/tranches/X/keyframes/evidence/W11/a-cube-packet-2026-09-19.md` (every census,
+transcript and re-derivation in full).
+
+**CRASH-RECOVERY (standing law, first act).** ⟨cmd⟩ `git -C ../keyframes.js status --porcelain --
+demo/scenes/cube demo/scenes/spring/SpringScene.vue test/demo/scenes demo/DESIGN.md` → **empty**;
+⟨cmd⟩ `git status --porcelain -- docs/tranches/X/execution/B/KF-W11.md
+docs/tranches/X/keyframes/evidence/W11` → **empty**. **ZERO inherited hunks on any path this unit may
+write — nothing to finish, nothing to rewrite.** Dirty rows outside the set (keyframes' two untracked
+`VALUEJS-INBOUND-*` mail packets; value.js's `CARRY-LEDGER.md`, `union-prototype-walk.md` and
+`scripts/dev/dev.sh`) were not touched; `scripts/dev/dev.sh` never staged. Open sha **`2b649a1d`**.
+
+#### Act 0 — OP-0 re-derived at this unit's open. **KF11-E5 REPRODUCES: the banked 24 are not there.**
+
+`.r` ordered it (*"`.a` must re-derive its own OP-0 reading at its open before spending a cure
+against the banked 24"*). ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.json 2>&1 | grep -c 'error TS'` →
+**29**; the histogram over this unit's §Bounds rows reads **`OrbitalDrag.vue` 0 · `useTransformState.ts`
+2 · `MatrixEditor.vue` 1 · `CubeScene.vue` 1 = 4**, against the record's banked **28**. The 24
+`OrbitalDrag.vue` rows (`TS2339 Property 'rotate'`, `TS2769 No overload`) **do not exist under the
+lockfile's pins**. This unit's ratchet duty is therefore **4 → 0**, and it is **0 · 0** at close
+(double-run, byte-identical). No cure was spent against a diagnostic that is not there and none was
+manufactured; **zero casts, zero `@ts-expect-error`, zero `eslint-disable`** in the roster. The
+whole-tree figure is NOT claimed here — `.b` writes the same index concurrently and its rows moved
+29 → 31 → 29 → 25 inside this unit's window.
+
+#### Acts 1–9 — in the spec's own order
+
+1. **`bc5cc128` · #53 + #7 demo half.** `transformTargetsStyle` skips object values; both painter
+   call sites handed it a structural `Matrix3dCall`, so the die's ONLY pre-start orientation writer
+   had never written. Serialized at the call site (`matrix3dCss` over the already-validated
+   `matrixValues`). The compile path keeps the structural call — `fromVars` flattens it itself —
+   which is the half the gate asserts beside the paint. **#7's library half (the renderer's silent
+   object-skip made fail-explicit, `src/animation/compile/value/compile.ts`) is DECLARED TO KF.W5 BY
+   ID and NOT WRITTEN.**
+2. **`37764477` · the Roll stack + the lighting frame contract.** Five mechanisms, one repair each
+   invisible behind the others: **#1** the recognizer moved to OrbitalDrag's CAPTURE element (a
+   descendant is never on the dispatch path once capture is set — the surface is published by
+   `defineExpose`, the sibling eggs never had the bug because `useDragScrub` captures on `el`
+   itself); **#2** structural `CssValue` frames instead of a nested object that flattened to
+   `transform.rotateX`/`transform.rotateY`, names CSSOM discards silently; **#5** frames measured
+   FORWARD from an accumulated attitude, so roll n+1 no longer cuts to identity in five of six
+   landings; **#6** the roll owns `.idle-hover`, an element with no other transform writer, so each
+   element in the 3D chain has ONE authority; **#20** the gesture lock released by the arc's own
+   completion in a `finally`, not a hand-tuned 1200 ms timer. Lighting: **#4** `KEY_LIGHT`'s `+0.6`
+   lit a Y-DOWN frame from beneath (top rested 0.20, bottom 0.80) and **#56** the model never saw
+   the 30° attitude its `.graph` ancestor is parked at — **the attitude is a REQUIRED PARAMETER**,
+   single-sourced and consumed by three sites. **A bare `0.6 → −0.6` is measured FAILING in the
+   gate**, which keeps the attitude-blind reading beside the attitude-aware one.
+3. **`9e7aca87` · the latch/pointer seam (#54 · #55 · OD-25).** The three document listeners were
+   registered inside `onPointerDown` — a DOM event callback with no active scope, where vueuse's
+   `tryOnScopeDispose` is a hard no-op — so the docblock promising unmount coverage was false and the
+   add/remove bookkeeping also carried OD-25 (a mouse-up while a finger was down tore down all three).
+   ONE honest registration in the composable's own scope against the container's `ownerDocument`,
+   handlers early-returning unless a gesture is live. **#55**: the acquire is guarded exactly as the
+   release already was, so a throw after `startDrag` can no longer strand a phantom drag.
+4. **`dd7c6008` · the matrix-editor family, with ME-30/31 as ONE sync-topology spec** written at the
+   head of `useTransformState.ts` BEFORE the family's first byte: one writer per channel and the
+   writer is an INTENT never an echo (the echo guard is the house form OrbitalDrag already uses —
+   read as precedent, not copied); never write both endpoints from one pose; `acos(diagonal)` is not
+   a rotation read; one retained animation per concern. Riding it: **ME-7** (two retained tweens,
+   stopped-and-retargeted, stopped on dispose), **ME-1** (an incomplete numeric literal refused at the
+   parse boundary instead of throwing a `TypeError` from inside a rAF), **ME-38**, **ME-39** (with its
+   stale comment corrected, mandatory in that commit). **ME-42's EDIT representation, STATED**:
+   display = 2 dp, **edit = the cell's full stored precision**, switched on focus, with the full value
+   in `title` in both states — **a display-only cure would have been the defect**. **ME-43**: the
+   `title` is the recovery affordance the record found absent, on the selected cell too.
+5. **`dc3f0900` · the four phantom `variant:` sites — ONE commit, TWO files, NOT SPLIT.** Installed
+   glass-ui 7's `ButtonProps` carries `emphasis/tone/size/iconOnly/loading/type/disabled/class` and
+   **no `variant`**, so all four were phantom props falling through to the DOM. `git show --stat`
+   names `CubeScene.vue` AND `SpringScene.vue` in the one sha; `.c` inherits the two SpringScene lines
+   landed. **ARB-1 DELETE ARM ONLY — the `headerLeft` 'fill' arm was not touched.**
+6. **`fff7232c` · the OD latch family → the registry. THIS IS KF.W12 AXISLINE-UNIT'S OPEN POINT.**
+   KF-AX-1 ≡ OD-3/OD-4/OD-5/OD-6/OD-31 as one cure: six labelled `registerShortcut` registrations by
+   **`event.code`** (keydown + keyup), which discharges the editable-target guard, the modal absence,
+   the non-Latin-layout limb and the ⌘Z/⌘⇧Z collision together; plus OD-5's blur/visibilitychange
+   clear and an exposed `resetPressedKeys`. **LAW A census §B.3(3) pasted before the delete**:
+   ⟨cmd⟩ `grep -rn "updatePressedKeys" demo test scripts` → **exactly two readers tree-wide, both the
+   window listeners being replaced**. Byte clause **1 → 0**.
+7. **`5f1c8208` · hygiene tail + prose truth.** The last `TS6133` dies with its row; the MISS-3
+   comment-truth law applied to every cured line (two OrbitalDrag docblocks still named the retired
+   window pair as the latch's writer).
+8. **`482e5aa0` · `test(… G-KFW11-1)` — the born-RED gate**, 17 cases over five mechanisms.
+9. **`4226e566` · hygiene** — the keyless `v-for` (an eslint error standing at the open sha, on this
+   unit's own row, proven pre-existing by linting the open-sha file itself) and the #56
+   single-source witness in `cube-scene.test.ts`.
+
+#### The three decisions written before their patches
+
+**(a)** the ME-30/31 sync topology (four clauses, at the head of the composable); **(b)** ME-42's
+**edit** representation, stated as a pair of named formatters in `transformMath.ts` beside the values
+they format; **(c)** #56 as a graph-attitude **PARAMETER**, required, not a constant folded into the
+lighting math. All three are quoted in full in the evidence file.
+
+#### Gates BEFORE → AFTER (every figure double-run)
+
+| gate / clause | BEFORE (`2b649a1d`) | AFTER (`4226e566`) | verdict |
+|---|---|---|---|
+| **G-KFW11-1** runtime, `npx vitest run --project demo test/demo/scenes/cube-roll-and-prestart.test.ts` | `No test files found, exiting with code 1` · same | **17 passed (17)** · **17 passed (17)** | **GREEN** |
+| G-1 byte: `grep -c 'useEventListener(window, "keydown"' …/OrbitalDrag.vue` | **1** · **1** | **0** · **0** | **GREEN** |
+| G-1 byte: `grep -rc 'variant:' demo \| grep -v ':0'` | `CubeScene.vue:2` · `SpringScene.vue:2` | **nothing** · **nothing** | **GREEN** (4 → 0, ONE sha) |
+| §0u ratchet, this unit's rows | **4** · **4** | **0** · **0** | **GREEN** |
+| `npm run test:demo` | 39 files / 286 tests (seat 0) | **316 passed (316)** · **316 passed (316)** | GREEN (includes `.b`'s concurrent adds) |
+| `npx tsc --noEmit -p tsconfig.test.json`, this unit's rows | 0 | **0** | clean |
+| `npx eslint demo/scenes/cube demo/composables test/demo/scenes/cube-*.test.ts` | 1 error (pre-existing `vue/require-v-for-key`) | exit **0** | GREEN |
+| self-trip `git diff 2b649a1d..HEAD -- test \| grep -c 'test.skip\|it.skip\|\.only('` | — | **0** | GREEN |
+| `git diff --check` | — | clean | clean |
+
+#### Residuals, declarations and returns
+
+- **#7 → KF.W5 by id** (the renderer's object-skip diagnostic); **no `src/**` byte written.**
+- **#31/#57 → KF.W12's AXISLINE-UNIT** (booked here, cured there); **`CubeAxisLines.vue` untouched.**
+- **KF-AX-1's consumer half opens on `fff7232c`.**
+- **kf-CubeScene L-2/C-5 — `complete_with_misses`, declared in the source.** `isPlaying` has no
+  writer anywhere; its ONE authority is shared with kf-SquareScene L-8/C-2 and the writer lives in
+  `demo/app/scene/useSceneMachineShellBinding.ts` — KF.W13's bounds, outside this wave's. A
+  scene-side derivation off the raw non-reactive group would be a SECOND authority, the exact defect
+  the row exists to retire, so **nothing was shimmed**.
+- **#10 (PRM on the roll)** stays KF.W9's per the registry's own routing (`K10` ≡ kf-CubeScene
+  D-8+M-7); named, not spent. **#16/#36** carried by id — their r1 text is superseded at the registry
+  path and not quotable at this seat's bytes; the lighting family's ONE cure landed.
+- **KF11-E6 (new, producer → SS-6)** — `registerShortcut`'s combo chip renders a `code` spelling
+  verbatim (`formatCombo("KeyX")` → `"KeyX"`). Registering SPATIAL bindings by `event.code` is what
+  discharges OD-4's layout limb, so the ask is producer-side (a display override on
+  `ShortcutOptions`, or `formatComboParts` learning the `Key*`/`Digit*` family). **Relayed at `.j`,
+  never worked around demo-side.**
+- **KF11-E7 (new, HARNESS)** — the demo vitest lane **cannot import any SFC that transitively loads
+  `@mkbabb/glass-ui`'s spring chunk**: a probe importing `MatrixEditor.vue` dies with `Cannot find
+  package '@mkbabb/keyframes.js' imported from node_modules/@mkbabb/glass-ui/dist/useSpring-*.js`,
+  while `CubeTarget.vue` and `OrbitalDrag.vue` import clean — vite externalises `node_modules`, so
+  `vitest.config.ts`'s self-alias does not reach inside an externalised dep. Same class of silent
+  coverage cap that KF.W4's G-KFW4-2 cured for the SFC transform, and it caps every future
+  glass-consuming mount (KF.W12's KFED/OPTIONS units and KF.W13's dock units will meet it).
+  `vitest.config.ts` is in §Excluded's *"Do NOT touch"*, so **nothing was changed to work around
+  it**: ME-42/ME-43's policy was lifted into `transformMath.ts` (a better home regardless) and is
+  asserted there. **Returned to the orchestrator; it blocks no unit's dispatch.**
+
+#### Commits (keyframes.js `master`, local — not pushed; `.b` shares this index)
+
+`bc5cc128` · `37764477` · `9e7aca87` · `dd7c6008` · **`dc3f0900`** (the unsplit four-site family) ·
+**`fff7232c`** (KF.W12's open point) · `5f1c8208` · `482e5aa0` · `4226e566`.
+
+Every commit carries its own pathspec ON the commit; each `git show --stat` audited against §Bounds
+rows `:96-103` — **zero writes outside the writable set**, the only non-cube product byte being the
+two-line `SpringScene.vue` carve this unit is assigned. No `src/**` · no `CubeAxisLines.vue` · no
+`node_modules` · no glass-ui byte · no `test.skip`/`.only` · no `@ts-expect-error`/`as`/
+`eslint-disable` · no stash, no `reset --hard`, no force-push · `scripts/dev/dev.sh` never staged ·
+the LEDGER row is `.j`'s and was not touched by this unit.
