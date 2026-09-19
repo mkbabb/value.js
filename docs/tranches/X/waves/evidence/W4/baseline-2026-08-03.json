@@ -1,0 +1,108 @@
+{
+  "servedModel": "claude-opus-5[1m]",
+  "artefact": "W4.md \u00a78 artefact 1 \u2014 baseline-2026-08-03.json",
+  "status": "TRANSPOSED, NOT RE-MEASURED. The 2026-08-03 census is a DATED, IMMUTABLE prior measurement (E-3). This file transposes W4.md \u00a76's four route\u00d7matrix cells and the A-7 attribution table into the artefact the spec names, beside the re-measurement in reopen-baseline.json. No number below is this seat's; every number is quoted to its W4.md line.",
+  "transposedBy": "X.W4.a, 2026-09-18",
+  "provenance": {
+    "quote": "Every number marked *measured* was taken read-only on 2026-08-03 against the live dev stack (http://localhost:9000, HTTP 200) with Playwright 1.60.0/chromium, at 1440x900 (fine) and 390x844 (isMobile+hasTouch, matchMedia(\"(pointer: coarse)\") = true), on / and /#/gradient.",
+    "source": "W4.md:349-353"
+  },
+  "censusRule": {
+    "source": "W4.md:354-359",
+    "selector": "button,[role=button],a[href],input,select,textarea,[role=tab],[role=slider],[role=checkbox],[role=switch],[role=menuitem],[tabindex]:not([tabindex=\"-1\"])",
+    "visible": "rect.w>0 && rect.h>0 && visibility!=hidden && display!=none",
+    "name": "aria-label > aria-labelledby text > textContent > title > img[alt]   (placeholder is NOT a name)"
+  },
+  "attributionRule": {
+    "source": "W4.md:361-367",
+    "rule": "For a composite widget the measured target is the element that owns the pointer and keyboard contract, not its visual sub-part.",
+    "theA7Exoneration": {
+      "subject": "the four .slider-thumb spans MT-F004 booked at 12x24 / 12x44",
+      "resolveTo": ".channel-slider root",
+      "measured2026_08_03": {
+        "fine 1440x900": "339.4 x 24",
+        "coarse 390x844": "198.8 x 44"
+      },
+      "verdict": "BOTH PASS. The o19 receipt's A-7 exoneration APPLIED, not re-litigated: 'your 339.4x24 counter-measurement banks at the restore row; the WCAG 2.5.8 citation stays overruled'.",
+      "consequence": "MT-F004's original count of 8 reads at HEAD as 7 on / (fine).",
+      "reMeasuredAtTheProjectViewports_2026_09_18": {
+        "smoke 1280x720 (fine)": "340.9 x 27.6 on /  \u00b7  354.1 x 24+ on /#/gradient (the Gradient direction slider root)",
+        "smoke-mobile Pixel 7 (coarse)": "218.9 x 44.1 on /",
+        "verdict": "the exoneration REPRODUCES at both project viewports \u2014 every attributed slider root clears 24x24 at both pointer classes."
+      }
+    }
+  },
+  "cells_2026_08_03": {
+    "A1 \u00b7 fine 1440x900": {
+      "/": {
+        "count": 7,
+        "rows": [
+          "input slug 160 x 23",
+          "DockControl compact 22 x 22 \u2014 'Switch to slug'",
+          "DockControl compact 22 x 22 \u2014 'Generate new slug'",
+          "DockControl compact 22 x 22 \u2014 'Cancel'",
+          ".channel-rail-item 23.8 x 24.4",
+          ".channel-rail-item 23.7 x 24.4",
+          ".channel-rail-item 23.6 x 24.4"
+        ]
+      },
+      "/#/gradient": {
+        "count": 6,
+        "rows": [
+          "slug input",
+          "three dock controls",
+          ".rail-handle 20 x 20",
+          ".rail-handle 20 x 20"
+        ]
+      },
+      "source": "W4.md:378"
+    },
+    "A2 \u00b7 coarse 390x844": {
+      "/": {
+        "count": 4,
+        "rows": [
+          "slug input 160 x 19.6",
+          "three dock controls 23.3 x 23.3"
+        ]
+      },
+      "/#/gradient": {
+        "count": 6,
+        "rows": [
+          "the four above",
+          "+ two .rail-handle 20 x 20"
+        ]
+      },
+      "source": "W4.md:379"
+    },
+    "A3 \u00b7 both projects": {
+      "count": 18,
+      "what": "hand-pinned h-7 control-height sites",
+      "command": "grep -rn 'class=\"[^\"]*\\bh-7\\b' demo --include='*.vue' | grep -v 'w-7 h-7' | wc -l",
+      "exemplar": "AdminAuditPanel.vue:30  <Button variant=\"outline\" size=\"sm\" class=\"h-7 px-2\">",
+      "statedCause": "the utility overrides the sm token and, being a fixed rem, cannot take the coarse lift",
+      "X_W4_a_FINDING": "THE STATED CAUSE IS MEASURED FALSE AT HEAD \u2014 .button states its rung as min-block-size, so h-7 (height: 1.75rem) is INERT and the coarse lift was already live (36px fine / 54px coarse for size=sm). The COUNT of 18 reproduces exactly; the MECHANISM does not. Full derivation and both measurements in a-h7-cascade.md.",
+      "source": "W4.md:380"
+    },
+    "A4 \u00b7 nameless": {
+      "/ (both matrices)": {
+        "count": 1,
+        "row": "SlugEditLayer.vue:81-87 \u2014 placeholder=\"enter slug or token...\" only"
+      },
+      "/#/gradient fine": {
+        "count": 2,
+        "row": "+ PalettesPane.vue:36 <input type=\"search\" class=\"input-bar-field\" placeholder=\"Search your palettes\u2026\"> \u2014 right pane, desktop-only"
+      },
+      "/#/gradient coarse": {
+        "count": 1
+      },
+      "source": "W4.md:381"
+    }
+  },
+  "whyAReMeasurementExistsBesideThis": "W4.md:369-373 \u2014 'Project viewports differ from the baseline viewports (smoke = 1280x720, smoke-mobile = Pixel 7) \u2026 each unit re-baselines at its own project viewport as its first act.' That re-baseline is artefact 2, reopen-baseline.json.",
+  "deltasTheReBaselineFound": [
+    "A1 / (fine): 7 -> 6. Two .channel-rail-item letters are sub-24 at 1280x720 ('a' 23.9, 'b' 23.9), not three: 'l' measures 24.1 and 'alpha' 24.8. A glyph-width effect of the viewport, not a cure.",
+    "A1 /#/gradient (fine): 6 -> 7 at the project viewport \u2014 the two .rail-handle rows reproduce AND the Gradient direction slider root appears in the cell.",
+    "A2: 4 + 6 = 10 reproduces EXACTLY at Pixel 7.",
+    "A4: 1 + 2 = 3 (fine) and 1 + 1 = 2 (coarse) reproduce EXACTLY."
+  ]
+}
