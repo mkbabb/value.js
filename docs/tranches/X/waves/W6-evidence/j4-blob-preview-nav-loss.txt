@@ -1,0 +1,9 @@
+X-W6 · blob persistent-preview navigation loss — isolation
+A  fresh /#/blob   @ 720×450        {"present":true,"anchor":true,"w":180,"h":180,"top":70}
+A  +4s                                  {"present":true,"anchor":true,"w":180,"h":180,"top":70}
+B  gradient→mix→blob @ 720×450      {"present":false,"anchor":false}
+B  +5s                                  {"present":false,"anchor":false}
+C  fresh /#/blob   @ 1440×900 (control)  {"present":true,"anchor":true,"w":180,"h":180,"top":114}
+
+FINDING (owner: .j / j2 · j3) — the blob route's preview does NOT survive a route-away-and-back: REPRODUCES
+j4 is unaffected: the viewport control (A vs C) shows the cell makes no difference.

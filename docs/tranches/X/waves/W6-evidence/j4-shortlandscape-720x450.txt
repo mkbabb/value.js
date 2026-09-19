@@ -1,0 +1,40 @@
+X-W6 j4 — SHORT LANDSCAPE BASELINE, 720×450, chromium
+origin http://localhost:9000   taken 2026-09-19
+
+── /#/gradient ──
+  page scroll: docScrollHeight=450 innerHeight=450  (page does NOT scroll)
+  preview  [data-testid="gradient-render-tile"]   — the gradient route's own render tile (.c's two-site paint stack)
+    found=true box={"top":360,"bottom":488,"left":495,"right":591,"w":96,"h":129}  intersects cell=true  → REACHABLE
+  last control  DIV "Gradient CSS"  (of 39 visible)
+    before scrollIntoView: {"top":863,"bottom":943,"left":129,"right":591,"w":462,"h":80}
+    after  scrollIntoView: {"top":361,"bottom":441,"left":129,"right":591,"w":462,"h":80}
+    in cell=true  hit-testable=true  → REACHABLE
+
+── /#/mix ──
+  page scroll: docScrollHeight=450 innerHeight=450  (page does NOT scroll)
+  preview  main canvas   — MixAnimationCanvas — the only canvas inside the mix pane region
+    found=true box={"top":105,"bottom":441,"left":105,"right":615,"w":510,"h":336}  intersects cell=true  → REACHABLE
+  last control  BUTTON "Mix"  (of 5 visible)
+    before scrollIntoView: {"top":440,"bottom":480,"left":129,"right":591,"w":462,"h":40}
+    after  scrollIntoView: {"top":401,"bottom":441,"left":129,"right":591,"w":462,"h":40}
+    in cell=true  hit-testable=true  → REACHABLE
+
+── /#/blob ──
+  page scroll: docScrollHeight=450 innerHeight=450  (page does NOT scroll)
+  preview  [data-testid="goo-blob-canvas"]   — the glass-ui goo-blob surface HeroBlob wraps
+    found=true box={"top":70,"bottom":250,"left":470,"right":650,"w":180,"h":180}  intersects cell=true  → REACHABLE
+  last control  SPAN "ALPHA channel"  (of 12 visible)
+    before scrollIntoView: {"top":602,"bottom":626,"left":457,"right":469,"w":12,"h":24}
+    after  scrollIntoView: {"top":417,"bottom":441,"left":457,"right":469,"w":12,"h":24}
+    in cell=true  hit-testable=true  → REACHABLE
+
+── /#/atmosphere ──
+  page scroll: docScrollHeight=450 innerHeight=450  (page does NOT scroll)
+  preview  [data-testid="atmosphere-canvas"]   — the full-bleed aurora canvas the atmosphere route exists to show
+    found=true box={"top":0,"bottom":450,"left":0,"right":720,"w":720,"h":450}  intersects cell=true  → REACHABLE
+  last control  BUTTON "Reset"  (of 9 visible)
+    before scrollIntoView: {"top":385,"bottom":421,"left":383,"right":467,"w":84,"h":36}
+    after  scrollIntoView: {"top":385,"bottom":421,"left":383,"right":467,"w":84,"h":36}
+    in cell=true  hit-testable=true  → REACHABLE
+
+GATE j4 (short landscape 720×450) — GREEN  4 of 4 routes reachable on both arms
