@@ -8882,3 +8882,30 @@ carries its own pathspec **on the commit itself**, and none swept in a byte of t
 sharing this index — the four dirty rows at this seat's exit (`CARRY-LEDGER.md`,
 `e2e/smoke/a11y-gradient-stop-grammar.spec.ts`, `scripts/dev/dev.sh`, Track A's untracked
 `waves/evidence/W4/gradient-grammar.json`) are **untouched and unstaged**, exactly as at its open.
+
+**C6.9 addendum — the measured push, appended in the same act that lands the LEDGER row.**
+
+```
+⟨cmd⟩ git -C /Users/mkbabb/Programming/parse-that push origin HEAD
+      Everything up-to-date                          frozen root at `ef10d5b`, porcelain 31, untouched
+⟨cmd⟩ git -C /Users/mkbabb/Programming/parse-that-css-totality-p2 remote -v
+      (empty)                                        R-2: remoteless by construction; the four round-6
+                                                     commits live in `<p2>` and nowhere else
+⟨cmd⟩ git -C /Users/mkbabb/Programming/value.js rev-list --left-right --count origin/tranche-u...HEAD
+      0  14                                          (this close `ffaf92c6` + the LEDGER landing `ea67828e`,
+                                                     behind twelve sibling-track commits landed while this
+                                                     seat measured)
+⟨cmd⟩ git -C /Users/mkbabb/Programming/value.js push origin HEAD
+      5110b5a9..ea67828e  HEAD -> tranche-u
+⟨cmd⟩ git rev-list --left-right --count origin/tranche-u...HEAD  → 0  0
+```
+
+**One declared contamination, named rather than swept.** The LEDGER landing `ea67828e` carries **one
+hunk this seat did not author** — line 56, Track B's `KF.W11 = BLOCKED-ON OP-0` status cell, written
+into the shared file **concurrently** while this seat held it (⟨cmd⟩ `git status --porcelain --
+…/LEDGER.md` read **0 lines** immediately before the edit, per the re-read law, and the hunk was
+present at the diff after). It is committed **intact** rather than reverted or unstaged: the
+standing law forbids touching a sibling seat's paths, and unstaging a hunk **inside the same path**
+would discard their work. ⟨cmd⟩ `git diff -U0` before the commit showed exactly **three** changed
+regions — `@@ -56 +56 @@` (theirs), `@@ -81 +81 @@` (this wave's row) and `@@ -317,0 +318,2 @@` (this
+event line) — so **nothing of theirs was clobbered**, and the commit body says so in its own words.
