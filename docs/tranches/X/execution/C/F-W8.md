@@ -757,3 +757,168 @@ left **exactly** where the owner froze it. No substitution, no workaround, no ma
 anywhere. **`c` is closed and committed; `d` may open** (§2c: one writer at a time; the tree is clean of
 every `§2a` path, and the `F8-C31*` identity space is now closed at two ids, disjoint from the
 `F8-FIX-*` space `d` appends to).
+
+---
+
+### F.W8.d
+
+**SERVED MODEL**: `claude-opus-5[1m]` · seat opened 2026-09-19 · **DONE**
+**Wrote (2 paths, the whole writable set)**:
+`docs/tranches/X/fourier/conformance/walk/union-walk.mjs` — **1074 lines**, created (⟨cmd⟩ `wc -l`
+read from the settled bytes, double-run `1074 ≡ 1074`; `walk/` created with it) ·
+`docs/tranches/X/fourier/conformance/fixture-register.md` — **+330 lines**, `593 → 923`: **§3b
+inserted before `## §4`** (the §R/§M/§P7/§D assertion rows) and **§14 appended** (D-19 table, the
+assertion roster, self-count, gate readings). Units `b`'s and `c`'s bytes are **untouched**; nothing
+renumbered, nothing rewritten.
+**Commit**: **`2876f993`** *"docs(X·exec): F.W8.d — the union walk authored (never run): its reads are
+declared and subtracted, its 429s surfaced, and the atom the update verb cannot reach is re-declared
+rather than left divergent"* (pathspec, the two paths, `--no-verify`, **one commit** — the instrument
+and the rows that specify it are one meaning and do not split).
+**Zero fourier bytes · zero product bytes · the walk NEVER RUN · `scripts/dev/dev.sh` never staged.**
+
+#### Acts, in order
+
+1. **CRASH-RECOVERY (standing law).** ⟨cmd⟩ `git -C $V status --porcelain` → at open, **2 rows**
+   (`docs/tranches/V/reformation/CARRY-LEDGER.md`, `scripts/dev/dev.sh`) — **neither inside F.W8's
+   `§2a` writable set**, the second the unowned dirty row, untouched in every verb. ⟨cmd⟩
+   `git -C $F status --porcelain | wc -l` → **0**. **No inherited work on this unit exists**:
+   `conformance/walk/` did not exist (⟨cmd⟩ `ls conformance/walk/` → *No such file or directory*) and
+   the register carried **no** `F8-WALK-*` id. Nothing stashed, restored or reverted. ▲ At commit time
+   four further sibling-seat paths had appeared (`demo/shell/dock/layers/SlugEditLayer.vue`,
+   `e2e/smoke/a11y-gradient-stop-grammar.spec.ts`, `eslint.config.js`, the same two above) — **none
+   staged, none touched**; the commit's own pathspec is the guard.
+2. **Read WHOLE**: the spec `waves/F-W8.md` (masthead addressing/quotation law · §1/§1a/§1b/§1c ·
+   §2a/§2b/§2c · §3 **§R R1–R6** · **§M M1–M5** · **§D D2** · §P **P7/P8** as the rows my gates cite ·
+   §4's two reading disciplines and **G6–G13** · §5a/§5b/§5c/§5d) · this record (baseline + plan +
+   units `a`/`b`/`c` receipts) · `COHESION.md` **§0j.D** and every later addendum **to file end**.
+   ⟨cmd⟩ `grep -n 'F\.W8' COHESION.md | grep -v 'KF\.W8'` → **one line, `:987`** (F-PRODRET's home),
+   reproducing the open seat's and units `b`/`c`'s reading at this seat's own clock; **no addendum
+   §0k–§0v re-opens, moves or adds a G6–G13 ruling.**
+3. **D-19 MEASURE-AT-OPEN, performed BEFORE a word was written — 30 witnesses** re-resolved at fourier
+   `21e11b0` (worktree 0 dirty) and value.js `tranche-u`, published as the register's **§14.1** table:
+   **13 HOLD** (several byte-exact) · **15 DRIFTED-but-holding** · **1 NOT HOLDING** (act 6) · **1
+   booked obligation DISCHARGED** (act 5). **Nothing drifted was written into a banked file** (E-3).
+4. ⊘ **FINDING — G10's "neither side holds both" is TRUE OF FOURIER AND FALSE OF VALUE.JS AT HEAD.**
+   Measured, not inherited: ⟨cmd⟩ (base `$F`) `grep -rn "replay_or_record" api/` → **`visualizations.py:236`
+   AND `:612`** — the spec names only `:612` (remix); `:236` is the **CREATE** route (`@router.post("")`
+   `:164`). ⟨cmd⟩ `grep -rn "idempotencyKey:" web/src` → **no output**: the client **declares** the
+   channel (`web/src/lib/api.ts:123-124`, applied `:208-209`) and **no call site passes a key**, so
+   fourier's replay is reachable by an instrument and by **no shipped caller**. On the value side
+   ⟨cmd⟩ `sed -n '68,93p' api/src/platform/http/idempotency.ts` → the **X-W3 · G-10** table:
+   `Idempotency-Key` is **REQUIRED** (400 without) on `POST /palettes/:slug/revert` and
+   `POST /palettes/:slug/forks?`, app-global at `app.ts:73`, beside a fork that is **transactional**
+   with an in-txn source re-read (`service/forks.ts:105-128`) — **both halves on one verb**. Named from
+   the git record and **claimed in no part** (FR-GIG-5): ⟨cmd⟩
+   `git log --format='%h %ad %s' --date=short -1 -- api/src/platform/http/idempotency.ts` →
+   **`cbf178ce` 2026-09-18** *"feat(api/write-contract): CAS + strong If-Match + required
+   Idempotency-Key; revert → 201 (X.A3)"* — an **X·V** act. The correction is recorded **beside** the
+   spec's sentence (§3b.2), never over it.
+5. ⌧ **A BOOKED RE-RESOLVE OBLIGATION DISCHARGED AT THE BYTES.** §R R3 recorded the corpus's
+   `:184/:279` against a read-only seat's `:186/:280` and **adopted neither**. ⟨cmd⟩ (base `$F`)
+   `grep -n "min_length=1" api/models/visualization.py` → **`:186`** (create) · **`:280`**
+   (remix/patch), double-run. The obligation is discharged; the spec's cell is left **unrewritten**.
+6. ⊘ **FINDING — THE BANKED FLUSH SEAM'S NAME DOES NOT EXIST AT HEAD.** §R R5's lock reads *"the flush
+   seam is the banked L-12/C-25 `setEasing` action — **do not invent a second seam**"*. ⟨cmd⟩ (base
+   `$F`) `grep -rn "setEasing" web/src` → **no output**, double-run. The write path at HEAD is the
+   500 ms debounced watcher (`VisualizationView.vue:53-64`) against `saveVisualization`'s synchronous
+   `toRaw` read (`stores/workspace.ts:356-369`). ▲ **The lock is obeyed by asserting the OBSERVABLE
+   property and inventing nothing**: the walk asserts *the last value SENT is the value persisted*,
+   and **declares the UI-timing half unassertable by an HTTP instrument** — routed to F.W3/W4's e2e,
+   never skipped, never faked with a sleep.
+7. **The instrument authored** — `walk/union-walk.mjs`: preflight (refuses unless `UNION_WALK_ENV=nonprod`,
+   refuses a production host, refuses a report path **inside either repository**), a per-call-abort
+   client with **no retry branch at all**, a **perturbation ledger** with its subtraction, an
+   assertion register whose only verdicts are GREEN/RED/**BLOCKED** (blocked is **not** a pass and
+   exits non-zero), seven legs (create · derive · remix · diff · round-trip · off-state · history),
+   the measurement-integrity leg, the liveness traversal and the **D2 tripwire read off the walk's own
+   call log**. ▲ **Line 1 is `// SERVED MODEL: claude-opus-5[1m]`** — the receipt stamp as a line-1
+   comment, because a bare text stamp would make the module a syntax error and hand F.W9 a broken
+   instrument; the stamp is still the file's first bytes, and the deviation is minuted here rather
+   than taken silently.
+8. ⊘ **WRITE-THEN-MEASURE, AND IT CONVICTED THIS SEAT THREE TIMES — all three cured before the commit.**
+   **(i)** The liveness leg read an envelope sink **nothing ever filled**: with zero observed fields
+   the "no undeclared field" predicate would have returned **GREEN on an empty traversal** — a
+   false-green by construction, of exactly the class this tranche convicts. Cured at the bytes: the
+   **client** files every JSON body at the call site (13 `envelope:` labels), the leg now reads
+   `client.envelopes`, and **an empty traversal returns BLOCKED, never GREEN**. **(ii)** The R05 limb
+   POSTed twice **under one idempotency key** and then asserted "the last value sent" — a replay
+   returns the FIRST body, so the assertion asserted nothing. Re-cut: one create under its **own** key
+   at the verb that actually accepts the atom, with the reason written beside it. **(iii)** The
+   roster probe `grep -oE 'register\.(assert|record|blocked)\("F8-WALK-…'` **missed `F8-WALK-M01-V`**,
+   which reaches `register.assert` through `proveSafeRead`'s `assertionId` **parameter** rather than
+   as a literal — **disclosed in §14.2 rather than trimmed**, with the two comment-only family labels
+   (`F8-WALK-P07`, `F8-WALK-R03`) named so a later seat does not read them as missing rows. An earlier
+   cross-file difference also returned a bare `F8-WALK-` "id" that was the prose `F8-WALK-*` — the
+   probe was re-scoped, not the claim.
+9. **The register extended, and the siblings' probes re-measured AFTER the append** (§14.3), because a
+   claim of non-interference that is not re-measured is a hope: `F8-FIX-F` **9 ≡ 9** · `F8-FIX-V`
+   **8 ≡ 8** · `F8-C31` **2 ≡ 2** · unit `b`'s row-scoped direction-law falsifier → **no output** ·
+   both ordering probes (`LC_ALL=C sort | diff`) → **no output** · unit `b`'s **K-3 set-membership
+   claim still reads 2 lines**. ▲ **That last one is the trap a careless append walks into**: one use
+   of the refuted-scenario term anywhere in this file would have turned `b`'s *"two lines"* into three
+   and convicted a sibling for this seat's prose. The term appears **nowhere** in this unit's bytes,
+   and no row cites the scenario (**K-3**).
+10. **Self-count from the settled bytes, double-run** (§14.4): §R rows **6 ≡ 6** · §P7 rows **4 ≡ 4** ·
+    §M rows **6 ≡ 6** · recorded assertion ids **27** (26 literal ⊕ the disclosed `M01-V`) ⊕ **2**
+    comment-only family labels · script **1074 ≡ 1074** lines · ⟨cmd⟩ `grep -c '[0-9]%'` over both
+    written files → **0 and 0** (**X-9**: this unit publishes no percentage and no coverage ratio
+    anywhere). ⟨cmd⟩ `git diff --check` → clean.
+11. ▲ **`node --check` TWICE — A PARSE, NOT A RUN, and the distinction is the whole of the lock's
+    meaning.** ⟨cmd⟩ `node --check walk/union-walk.mjs` → **exit 0**, run twice on the settled bytes.
+    It executes no statement, opens no socket, reads no environment and writes no byte; **the walk
+    itself was not run, in any mode, against any environment**. It is reported because handing
+    F.W9/W10 a syntactically broken instrument would be the defect this wave exists to prevent, and
+    because "it will run" asserted without measurement is the class this tranche convicts. If a check
+    seat reads a parse as a run, the ground for that reading is stated here rather than hidden.
+12. **E13, in scope**: ⟨cmd⟩ the positional Status-cell sweep over `V/coordination/INBOX.md` →
+    **UNREAD 0** across **78** rows, double-run `0 ≡ 0`, reproducing units `b`'s and `c`'s readings at
+    this seat's clock; ⟨cmd⟩ `find docs/tranches/V/coordination -maxdepth 1 -name '*.md' -newermt
+    "2026-09-19 03:00"` → **no output**: nothing has landed addressed to this unit. The wave's one
+    append-only INBOX row and the FN-6 relay letter are **unit `e`'s** acts (§2a) — this seat touched
+    neither file.
+
+#### Gate readings — BEFORE → AFTER
+
+| gate | BEFORE (§B.2) | AFTER | verdict |
+|---|---|---|---|
+| **G6** round-trip replay reproduces its own frame | **RED** — no round-trip assertion exists | **R01** (every `AnimationSettings` field round-trips **in the server's declared unit**, the 1000× `duration` fork named at all three declarations — `shared.py:67` seconds ⟂ `defaults.ts:25` 5000 ms ⟂ `animation.ts:77` 20000 ms, **BC-20 not re-booked**) · **R02** (the atom set's reachability with **the re-declaration written out**: update-reachable `{palette_slug}`, create/fork-only `{active_bases, n_harmonics, contour_settings, animation_settings}` — *stated either way, never left divergent*) · **R05** (last-sent-is-persisted, **UI-timing half declared unassertable and routed**) | **CLOSED FOR F.W8 — split verdict.** **NOT product-GREEN**: the unit fork stands and atom 4 is still unreachable by the update verb. GREEN owners **F.W5** (units · atom set) · **fourier API row** (the verb) · **F.W3/W4** (the seam) |
+| **G7** ⊙ off-state / cardinality admission | **RED** (ruled, unproven) | The **ruled** branch and no other (§0j.D **F-SS4REST R5** STOP MINTING): **R03-F** refused **with a diagnostic naming `active_bases`** · **R03-LAUNDER** the refusal **creates nothing** · **R03-V** the value-side mirror (`colorsArraySchema` min 1). The mint (`BasisSelector.vue:102`), both laundering sites (`workspace.ts:362-365`, `gallery.ts:338-340`) and the loader's two arms (`useWorkspaceLoader.ts:72-73`, `:150-153`) are named at their bytes; the `:186/:280` obligation is **discharged** | **CLOSED FOR F.W8 — split verdict.** **NOT product-GREEN**: the client half stands at HEAD. GREEN owner **F.W3/W4** — **F.W8 claims no credit for that cure** |
+| **G8** cache identity ⊇ consumed request fields | **RED** — no derive-leg fixture asserts `contour_hash` instability | **R04**: two derives differing **only** in `ml_threshold` (0.50 → 0.85) assert **INSTABILITY**; the closed ten-field key (`image_storage.py:250-265`, both ML fields absent) and the short-circuit **before** `compute_contours` (`images.py:220-226` vs `:230`) measured; **R04-FLAG** carries the closed/open flag (**C-3**, no closure heuristic); the leg is **BLOCKED without an ephemeral image**, never re-pointed at a tracked asset (**D2**) | **CLOSED FOR F.W8 — split verdict.** **NOT product-GREEN**: the hash is **stable today, and that stability is the defect**. GREEN owner **fourier API row** |
+| **G9** the probe does not perturb what it measures | **RED** — no walk record ⇒ no declared-and-subtracted perturbation | **§3b.4, the declaration whole**: value-side reads **provably non-mutating** (no `$inc` on any read path) **and re-proved per run** by double-read + diff with an **empty** volatile set — **no blanket allowlist exists in the instrument**; fourier's `GET /api/visualizations/{slug}` **UNSAFE-DECLARED** (`:256` → `:269` → `:272` pre-increment; no `viewed_ips` while `liked_ips` exists) with **RFC 9110 §9.2.1** cited, ledgered at the moment of the read and **subtracted**, remainder asserted **ZERO** and an unsubtractable remainder published **as a RED**. Auth: **`retryOn429:false` by construction** (no retry branch) and every 429 wait surfaced. **FR-GV-24** (no re-open increment asserted) and **K12** (no probe re-derives B-2) honoured | **CLOSED FOR F.W8 — split verdict.** **NOT product-GREEN**: the read verb still mutates and the ETag map still misses — the perturbation is *subtracted*, not *absent*. GREEN owners **fourier API row** ⊕ **F.W4** |
+| **G10** create leg idempotent-or-declared, both sides | **RED** — register ABSENT ⇒ neither half recorded | **§3b.2 records which half each repo holds, measured**: fourier — server replay at **two** routes (`:236` create, unnamed by the spec, and `:612` remix), **reachable from no shipped call site**; value.js — key **REQUIRED** (400 without) on the two appending verbs **and** a transactional fork. Four assertions incl. the `400`-without-a-key limb and the born-`draft` ⟂ born-`private` divergence **stated, never harmonised**. The spec's *"neither side holds both"* **corrected by addendum-beside** with the X·V commit named and **no credit claimed** | **CLOSED FOR F.W8 — split verdict.** **NOT product-GREEN**: the fourier client passes a key from nowhere. GREEN owners **fourier API row** (pass the key) · **value.js API row** (holds its half today) |
+| **G13** liveness — producer AND consumer per field | **RED** — the walk does not exist ⇒ the unconsumed set is unmeasured | **R06**: the traversal is fed **by the client on every call**; every field carries **drop-or-consume**; an **UNDECLARED** field is a RED; an **empty traversal is BLOCKED, never GREEN**. Three fields seeded as measured-dead with their producing site and their absent consumer (`trace` — `computation.py:127` / zero readers / cloned into every draft · `reconstructed_points` — `equations.py:114`,`:128` / read by nothing · `preview_path` — `""` at all three sites) | **CLOSED FOR F.W8 — split verdict.** **NOT product-GREEN**: three fields are **proven dead** and the UNDECLARED remainder is unmeasurable until the run (F.W9/W10). GREEN owners **F.W5** (the predicate) · **fourier API row** (drop or consume) |
+
+**No gate measured GREEN before its cure. No gate discharged by an SS-13 probe** — this unit ran none.
+**Probe parsimony (§5.2): bounded `grep`/`sed`/`awk`/`git log` reads across both trees, plus two
+`node --check` parses of this unit's own file — zero live probes, zero browser, zero runs of the walk
+in any mode, zero writes outside the two writable paths, zero fourier bytes in any verb.**
+
+#### Residuals carried forward (routed, never repaired here)
+
+- **R-d1** — **the fourier client passes an `Idempotency-Key` from nowhere** (channel declared
+  `api.ts:123-124`, applied `:208-209`, zero call sites). The server half already holds at `:236`/`:612`,
+  so the ask is a **client** change, not a server one. **Owner: fourier API row** (with F.W3/W4 for the
+  call sites). Travels in unit `e`'s letter.
+- **R-d2** — **the banked flush seam `setEasing` does not exist at HEAD**; the write path is the 500 ms
+  debounced watcher. The walk asserts the observable property and invents no seam. **Owners: F.W5 (the
+  name) ⊕ F.W3/W4 (the seam).**
+- **R-d3** — **the three-way `AnimationSettings` unit fork** (seconds ⟂ 5000 ms ⟂ 20000 ms) must be
+  reconciled **in the contract before the fixture can assert anything**; `speed` agrees by luck,
+  unconstrained on both sides. **Owner: F.W5 (units) ⊕ fourier API row.** **BC-20 not re-booked.**
+- **R-d4** — **G13's consumption map is seeded, not complete**: the first run's **UNDECLARED** field set
+  is the work item and each member takes its disposition **by dated addendum-beside** (E-3), never by
+  rewriting a row. **Owners: F.W9/W10 (the run) ⊕ fourier API row (drop or consume).**
+- **R-d5** — **the run contract** the instrument requires: `UNION_WALK_ENV=nonprod`, two base URLs,
+  tokens (incl. an admin token, without which the M03 admin leg is **BLOCKED**, not skipped), and an
+  **ephemeral image** — without one the derive leg is **BLOCKED by the D2 tripwire** rather than
+  re-pointed at a tracked asset. **Owner: F.W9/W10.**
+
+**Escalations: none.** The specified cure was possible at the bytes and was executed exactly — the
+instrument is authored and parse-checked but **never run**, the §M non-perturbation declaration is
+stated whole with its subtraction, the §R assertions carry the version-identity atom set **with its
+re-declaration**, the derive leg asserts `contour_hash` **instability**, the create leg records
+**which half each repo holds** on both sides, G7's **ruled** branch is the only branch authored, and
+§D's liveness traversal reports the unconsumed set with drop-or-consume per member. **No substitution,
+no workaround, no masking fallback, no skip and no allowlist was made anywhere.** **`d` is closed and
+committed; `e` may open** (§2c: one writer at a time; the tree is clean of every `§2a` path, and the
+`F8-WALK-*` identity space is closed at 27 recorded ids, disjoint from `F8-FIX-*` and `F8-C31*`).
