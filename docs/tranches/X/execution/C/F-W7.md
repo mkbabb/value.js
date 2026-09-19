@@ -217,5 +217,126 @@ rewrite** — which is why this commit's bytes are correct on both tracks despit
 
 ## Unit receipts
 
-*(empty at open — each dispatched unit appends its own receipt here, line 1 of any file it creates being
-its `SERVED MODEL:` declaration)*
+*(each dispatched unit appends its own receipt here, line 1 of any file it creates being its
+`SERVED MODEL:` declaration)*
+
+### X.F.W7.a
+
+**SERVED MODEL: claude-opus-5[1m]** · dated **2026-09-19** · sections executed: spec §9 `X.F.W7.a` ·
+§3 item 1 · §6 rows **G-F7-2** and **G-F7-10** · §5a N-1 · §5b S-8/N-2 · §2a row 2 + the Do-NOT-touch
+block · §10 commit row 1.
+
+**CRASH-RECOVERY sweep, first act.** ⟨cmd⟩ `git -C /Users/mkbabb/Programming/value.js status
+--porcelain` → two dirty paths, `docs/tranches/V/reformation/CARRY-LEDGER.md` and
+`scripts/dev/dev.sh` — **neither is inside this unit's writable set** (a sibling seat's row and the
+standing unowned row); **this seat touched neither and inherited nothing**. ⟨cmd⟩ `git -C
+../fourier-analysis status --porcelain | grep -c .` → **0**. **No predecessor partial work existed for
+this unit; `design/` did not exist.**
+
+**Acts, in order.**
+
+1. **Read the spec whole** (`waves/F-W7.md`, 360 lines) and the wave record, then **D-19 first, before
+   any measurement was cited**: F.W0's `SUBSTRATE-LEDGER.md` §2.1 (G-11) and §2.2 (G-12) read and
+   **quoted by exact-string probe, never re-performed**. The load-bearing discharge is an identity, not
+   an argument — ⟨cmd⟩ `git -C $F diff --name-only 8bc7736 HEAD -- api/ | /usr/bin/grep -c .` → **0**
+   (double-run `0` · `0`): **the whole fourier `api/` surface this census cites is byte-identical
+   between F.W0's published substrate `8bc7736` and today's `21e11b0d`**, over a tree with ⟨cmd⟩
+   `git -C $F status --porcelain | grep -c .` → **0**. G-11 itself records that this surface is outside
+   its bounds — ⟨cmd⟩ `/usr/bin/grep -o 'RECORD (api/py coordinates are outside F.W0.s bounds)'
+   SUBSTRATE-LEDGER.md` → *"RECORD (api/py coordinates are outside F.W0's bounds)"* — and OG-F1 supplies
+   the frame that makes the worktree citable: ⟨cmd⟩ `/usr/bin/grep -o 'Under \*\*FREEZE-WITH-ADOPTION
+   AND WORKTREE-AS-BASELINE\*\*, G-11 is \*\*drift-correction only\*\*' SUBSTRATE-LEDGER.md` → that
+   sentence. **No re-resolution was performed by this seat.**
+2. **`mkdir -p design/`** (§2a row 2's `create` row; the directory did not exist — the wave record's
+   baseline probe `ls …/design` → *No such file or directory* reproduced at open).
+3. **Enumerated the persistence surface by PRIMITIVE, not by word** — every Mongo write primitive in
+   both trees (⟨cmd⟩ value `grep -rnoE '\.(insertOne|…|createIndex)\(' api/src` → **104** raw
+   occurrence-lines; fourier `grep -rnoE '\.(insert_one|…|delete_many)\(' api` → **145**), plus both
+   collection registries and every index declaration, then **read each site**. Result: **30 enumerated
+   site rows — value 12, fourier 18** — across the four classes §9 names, each row
+   `tree · site · keyed-on · scope · share-hit consequence`.
+4. **Authored `design/R4-enumeration-census.md`** (482 lines). §2b's value **asset class is ∅ and the ∅
+   is enumerated three independent ways** (the 9-collection typed registry · a byte-primitive probe
+   returning **no output, exit 1** · **43** distinct route-path literals, none binary), per S-8's
+   *"an absence-proof must enumerate the surface, not query one name for it"* (`fr-AdminAuditLog.md:126`,
+   `grep -n -F`, one hit) co-signed at K-13.
+5. **Registry-first discharged before any consequence was graded** (G-12 §2.2.0): ⟨cmd⟩ (base
+   `…/registry/adjudicated`) `grep -rln "content_hash" .` → `fr-AdminFlaggedPanel.md` ·
+   `fr-GalleryDraftsSection.md` · `fr-GalleryFeaturedCarousel.md` · `fr-GalleryInfiniteGrid.md` ·
+   `fr-GalleryView.md`. **Every measured share-hit consequence already has a banked home and is CITED,
+   never re-booked** — K-3 ⊕ C-2 (≡ E17) · B-4 (≡ E13) · m-15 (≡ §C2) · B-2 ⊕ FR-GV-1 (≡ E5) ·
+   FR-AFP-7 · FR-AFP-66. **F.W7 books ZERO.**
+6. **Committed** `5ef18133`, pathspec-scoped to the one file.
+
+**Gate readings.**
+
+| gate | BEFORE (open) | AFTER (this unit) | evidence |
+|---|---|---|---|
+| **G-F7-2** | **RED** — `ls …/fourier/design` → *No such file or directory*; no census artefact | **GREEN for F.W7** (owner: unit `a` itself) | the artefact exists (⟨cmd⟩ `ls design/` → `R4-enumeration-census.md`, double-run) and enumerates **four classes on both trees** — ⟨cmd⟩ `grep -oE '^### §2[a-d] — Class [1-4]: [A-Z ]+'` → `VERSION WRITERS` · `ASSET WRITERS` · `CACHE KEYS` · `HASH FOLDS`; rows ⟨cmd⟩ `grep -cE '^\| \*\*V\*\* \|'` → **13** (12 sites ⊕ the ∅ row) and `grep -cE '^\| \*\*F\*\* \|'` → **18**. **The six-term grep is retired at §3 on BOTH grounds, each re-measured and double-run** |
+| **G-F7-10** | **RED** — the corrected premise was unstated in any F.W7 byte, **and the spec's born-RED witness no longer reproduced** (open-divergence 1) | **GREEN for F.W7** (owner: unit `a`; the ⊙ ruling itself is §0j.D's and is not re-opened) | §4 states it at TODAY's bytes: the guardrail reproduces verbatim at `atomdiff.py:12-14`, its named adopter is gone (⟨cmd⟩ `find api/src src -iname '*atomdiff*'` → **no output**; the sole `atomdiff` grep hit is the TA-4 **excision record** at `palettes-forks.test.ts:9`), and the value tree is **silent** — ⟨cmd⟩ `grep -rniE "merkle\|flat bag\|not a tree" api/src src demo test e2e` → **no output, exit 1** (double-run), the `Merkle property` hit having gone at X-W3 `9b3e6923` (`git log` receipt in situ). **False by SILENCE, not contradiction** |
+
+**N-2 re-measured, and it reproduces exactly** (all double-run, pinned BSD `grep`): the six-term probe
+over the frozen 66 → **147** raw grep-lines; word-bounded (`[[:<:]]trie[[:>:]]` — `\b` is not portable
+on the pin) → **1** survivor, `fr-ContourEditorCanvas.md:56` L-5, excluded-with-reason. **And the
+BLINDNESS half, which no prior pass had measured**: over the two product trees the same probe returns
+**25** (value) + **161** (fourier source-only; **20** of the raw 181 are `Binary file … matches` lines
+from `__pycache__`, disclosed) = **186 source lines and ZERO true hits** — ⟨cmd⟩ the word-bounded probe
+over `$V/api/src $V/src $F/api $F/web/src` → **no output, exit 1**. Dominant signal in every
+composition: the English word `entries`.
+
+**Findings this unit adds to the substrate (measurements, not bookings).** The enumeration surfaces a
+content-addressed seam the founding lane evidence does not name — fourier's
+`api/services/compute_cache.py:55`, a sha256(`contour_hash` ‖ canonical params ‖ `COMPUTE_VERSION`)
+cache whose hit **skips the FFT/basis chain entirely** — making **seven** shipped content-addressed
+seams across the two trees, against **zero** version writers that share structure parent→child (all 6
+persist the full bag). **R-4's conclusion for version-atom sharing survives, now by enumeration; its
+scope does not.**
+
+**Locks discharged.** **D-19** — F.W0's tables quoted, the re-resolution never re-performed, the anchor
+identity measured (act 1). **SS-C-2** — field arities published (`ContourSettings` 12 / `AnimationSettings`
+6, each from a roster probe); **no saving, ratio or byte figure computed anywhere**, because E10's
+disposition is unstated and a saving over retirable fields is unfalsifiable. **FR-GIG-5 / F-W5 §0b** —
+X-W3's release/payload split and fourier's shipped compound `_id` are recorded **with their authors
+named and booked at ZERO**. **S-8 / K-13** — four falsifiable class definitions ⊕ 30 enumerated rows ⊕
+the triple enumeration of the value ∅.
+
+**Two of this seat's own receipts did not reproduce and were fixed from the live output before the
+file landed — disclosed, not smoothed** (the disposition rule admits no third option): **(i)** the §2f
+self-count was drafted as `29` under the claim that the ∅ row carries no tree label; the probe returns
+**31** and the ∅ row carries `| **V** |` like every other — corrected in situ with a four-probe table
+that makes `31 − 1 = 30` a subtraction rather than an assertion. **(ii)** the §2b.1 byte-primitive
+probe was first run with `s3` in its alternation and its **four** hits read as evidence; all four were
+the substring `S3` inside the prose token `CS3.2` — **the census's own instrument committing the exact
+substring-artefact class §3 convicts**. The term is dropped; the published probe returns **no output,
+exit 1**. The §3.2 composition receipts were likewise re-cut so the published command produces the
+published bytes (the case-fold `tr` restored; the fourier composition re-run source-only, `140 entries`
+· `12 flaggedentries` · `11 retries` · … — the earlier `158` was a *combined-tree* figure presented as
+a fourier one).
+
+**Cadence (§10).** ⟨cmd⟩ `git diff --check` → clean, exit 0 · markdown path check over every
+`docs/`/`api/`/`src/` path cited in the census → **zero unresolved** · ⟨cmd⟩ `git status --porcelain --
+api/ src/ demo/ test/ e2e/ | grep -c .` → **0**, double-run: **no source byte moved**, so the
+typecheck/test/lint tripwire has nothing to trip. Table integrity: all **31** tree-labelled rows carry
+exactly 6 unescaped pipes (5 cells).
+
+**E13 mail.** Re-swept at this unit's own clock: ⟨cmd⟩ `find docs/tranches/V/coordination -type f -name
+'*.md' -newermt "2026-09-19 01:00"` → **1 member, `INBOX.md` (self, excluded by the SELF-COUNT law)`**;
+status-cell census ⟨cmd⟩ (the seat-0 `awk` form) → **UNREAD = 0**. **No relay is owed by this unit and
+none was sent; the INBOX gained zero bytes** (§2a row 5: append **iff** a relay is sent; F.W7 expects
+zero, §7c).
+
+**Commits.** `5ef18133` — `docs(X·F.W7): the R-4 persistence-surface enumeration census` (spec §10 row
+1), pathspec `docs/tranches/X/fourier/design/R4-enumeration-census.md`, **one file, 482 insertions, no
+sibling hunk**. ⟨cmd⟩ `git show --stat --oneline HEAD` confirms the single path.
+
+**Residuals, carried not cured.** **(1)** The two stale consumers of the uncorrected bilaterality
+premise stand untouched — `F-W8.md` §5c's `F.W7` sibling row (*"carried on BOTH sides"*) and
+`F-W6.md` §4's `F.W7` cross-edge row (*"quoted both trees"*): **read-only to this wave**, declared and
+requested at spec §7c, named again at census §4.4. **(2)** §4's ruling question is **restated against
+this census by unit `c`**, whose §4 addendum consumes the three corrected premises the census supplies;
+this unit supplies evidence and writes no `F-W7.md` byte. **(3)** The spec's own born-RED witness for
+G-F7-10 (`hash.ts:6` *"Merkle property"*) is dead at the bytes; it is **recorded as a dated correction
+at census §4.3, never patched into the immutable spec** (E-3).
+
+**Escalations: none.** Zero fourier bytes, zero product bytes, zero design bytes, zero sibling-spec
+bytes, zero writes outside the §2a/unit writable set.
