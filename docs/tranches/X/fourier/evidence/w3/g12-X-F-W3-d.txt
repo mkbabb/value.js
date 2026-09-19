@@ -1,0 +1,22 @@
+SERVED MODEL: claude-opus-5[1m]
+# X.F.W3.d — g12 transcript (./forms + ./fading-scroll legs)
+# seat: X.F.W3.d · 2026-09-19 · worktree .worktrees/f3d @ 74084fa (branch x/f3d, base 21e11b0)
+# every reading double-run at the settled bytes.
+
+## LEG 1 — ./fading-scroll
+⟨cmd⟩ (web/) /usr/bin/grep -rn "glass-ui/fading-scroll" src
+src/components/equation/EquationView.vue:17:import { FadingScroll } from "@mkbabb/glass-ui/fading-scroll";
+src/components/equation/convergence/ConvergenceLegend.vue:2:import { FadingScroll } from "@mkbabb/glass-ui/fading-scroll";
+src/components/shared/CoefficientsSpectrum.vue:27:import { FadingScroll } from "@mkbabb/glass-ui/fading-scroll";
+⟨cmd⟩ … | wc -l  (run 1 / run 2)
+       3
+       3
+
+## LEG 2 — ./forms
+⟨cmd⟩ (web/) /usr/bin/grep -rn "glass-ui/<forms>" src | wc -l   (run 1 / run 2)
+       0
+       0
+⟨cmd⟩ node -e export-map read at web/node_modules/@mkbabb/glass-ui/package.json
+version 8.0.0 keys 70 | ./forms false | ./input true
+⟨cmd⟩ ls docs/tranches/X/fourier/F-W3-DO-NOT-EXECUTE.md
+ls: /Users/mkbabb/Programming/value.js/docs/tranches/X/fourier/F-W3-DO-NOT-EXECUTE.md: No such file or directory

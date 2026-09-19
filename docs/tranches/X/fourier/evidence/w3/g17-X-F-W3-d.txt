@@ -1,0 +1,15 @@
+SERVED MODEL: claude-opus-5[1m]
+# X.F.W3.d — g17 transcript (SHADOW AGGREGATE — F.W3 QUOTES, F.W0 PUBLISHES)
+# seat: X.F.W3.d · 2026-09-19 · FIRST ACT of the unit, before any edit (the lock).
+
+## Condition (1) — does F.W0 G-12 carry a shadow-aggregate row?
+⟨cmd⟩ /usr/bin/grep -ic shadow <fourier>/docs/tranches/F/SUBSTRATE-LEDGER.md   (run 1 / run 2)
+0
+0
+# -> 0. The word does not occur in the ledger at all, so no G-12 shadow-aggregate row exists to quote.
+# -> NO BUDGET CELL IS AUTHORED BY THIS UNIT. g17 closes honest-RED on this receipt.
+
+## Condition (2) — the separator-agnostic forbidden-token detector, over everything this unit wrote
+⟨cmd⟩ git diff 21e11b0..HEAD | /usr/bin/grep -nE -e "1[[:space:]]?990" -e "2[[:space:]]?079" -e "1[[:space:]]?315" | wc -l   (run 1 / run 2)
+       0
+       0

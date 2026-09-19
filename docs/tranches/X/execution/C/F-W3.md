@@ -2821,3 +2821,236 @@ ahead of `21e11b0` by two; the orchestrator integrates per §9's sequenced integ
 `docs/tranches/X/execution/LEDGER.md` is **not touched by this seat** — the dispatch's receipt duty
 names this record and this unit's evidence directory alone, other seats edit that file concurrently,
 and this unit's row is the orchestrator's to write against its own reading of this receipt.
+
+---
+
+### X.F.W3.d
+
+SERVED MODEL: claude-opus-5[1m] — Shadow retirement at the installed pin. Worktree
+`/Users/mkbabb/Programming/fourier-analysis/.worktrees/f3d`, branch **`x/f3d`**, created from
+**`21e11b0`** (§5b honoured: inside the fourier root, its own `web/node_modules`). Head **`74084fa`**,
+**18 commits**, `24 files changed, 1459 insertions(+), 907 deletions(-)`. Every figure below was read
+from the settled bytes and double-run.
+
+#### Act 0 — crash-recovery sweep (standing law, first act)
+
+⟨cmd⟩ `git status --porcelain` at `/Users/mkbabb/Programming/fourier-analysis` → **0 rows**;
+`git rev-parse --short HEAD` → **`21e11b0`**. ⟨cmd⟩ `git worktree list` → the root plus one unrelated
+`~/.codex/worktrees/d0be` detached checkout; **no `.worktrees/f3d` existed**, so the brief's "worktree
+f3d" was a plan, not an inheritance. ⟨cmd⟩ `git status --porcelain` at value.js → 19 rows, **none
+inside this seat's writable set** (`scripts/dev/dev.sh` untouched, DR-24; the gradient/demo rows and
+`W6-evidence/` are Track A's; `CARRY-LEDGER.md` is the standing V row). **Nothing inherited, nothing
+stashed, nothing restored, no dirty path outside the writable set touched.**
+
+#### Act 1 — g17 FIRST, before a single edit (the lock)
+
+⟨cmd⟩ `/usr/bin/grep -ic shadow <fourier>/docs/tranches/F/SUBSTRATE-LEDGER.md` → **0**, double-run
+`0 ≡ 0`. The word does not occur in F.W0's ledger at all, so **the G-12 shadow-aggregate row this gate
+must quote DOES NOT EXIST**. Consequence taken literally: **NO BUDGET CELL IS AUTHORED ANYWHERE BY THIS
+UNIT**, and g17 closes **honest-RED on that receipt** rather than on a number. Condition (2) measured
+over everything the unit wrote — ⟨cmd⟩ `git diff 21e11b0..HEAD | /usr/bin/grep -nE -e '1[[:space:]]?990'
+-e '2[[:space:]]?079' -e '1[[:space:]]?315' | wc -l` → **0**, double-run. Transcript:
+`docs/tranches/X/fourier/evidence/w3/g17-X-F-W3-d.txt`.
+
+#### Act 2 — the two `.e`-blocking locks, committed first
+
+**`be623d9`** — `fr-ContourSettings M-16`, the panel half of §5a split (4). The hosts bound
+`v-model:n-harmonics`/`v-model:n-points` over a component with zero `defineEmits` and zero `emit(`. The
+bytes decide between M-16's two cures: **every** use of the pair in the file is a READ, so the contract
+is declared INBOUND-ONLY at the panel and `.e` drops the two call sites to `:` bindings. Nothing
+regresses in the interval because the writeback never worked. **`i-3` RECORDED, NOT EXECUTED**: §0x
+`S-6b` ruled COLLAPSED by default, which is what `:default-open="false"` already ships — the ruling is
+minuted beside the byte it affirms and no IA change is made.
+
+**`aa9e12c`** — the ONE shared batch toolbar (§5a split (5)), authored once in `.d` at
+`visualization/gallery/BatchActionBar.vue` (the lock's "AdminFlaggedPanel.vue **+ its extracted
+module**"), and adopted at `.d`'s own call site.
+
+> **▲ SPLIT (5)'s FILE IDENTIFICATION IS DRIFTED, AND THE INTENT IS HONOURED AT THE TRUE BYTES.** The
+> split named `AdminUserList.vue` (`.e`) and `AdminFlaggedPanel.vue` (`.d`), derived from §5's *Files*
+> lines rather than measured. ⟨cmd⟩ `/usr/bin/grep -rln 'role="toolbar"' web/src` → **`AdminUserList.vue`
+> · `GalleryView.vue`** — `AdminFlaggedPanel.vue` has no selection set and no toolbar at all, and
+> `AdminUserList.vue:114` names the twin itself ("the sibling gallery toolbar (`GalleryView.vue`)").
+> `GalleryView.vue` is **also `.d`'s**, so the declaration's ORDER is unchanged — `.d` authors once,
+> `.e` re-points `AdminUserList`'s call site after this commit — and only the identity of `.d`'s own
+> call site moved. **No inversion, no bounds expansion.**
+
+The six positioning decisions, settled once: `role="group"` over the false `toolbar` (FR-AUL-33) ·
+sticky **bottom**, which is FR-AUL-51's row-out-from-under-the-pointer defect cured at its mechanism ·
+one z-tier (D-17's z-10/z-20 residue) · **no** baked inline inset, because the two hosts' padding
+contexts differ · the clear control's `h-7 w-7` literal dropped so the producer's WCAG-2.5.5
+coarse-pointer clamp survives (AA-22/FR-AUL-37) · real pluralisation replacing `entr(ies)`. The
+selection SET, its invalidation edges and the confirm dialog stay per-surface — folding them in is the
+wrapper mistake M-2's cure law names.
+
+#### Act 3 — §C.H and §C.I, row by row (commit · row · what actually moved)
+
+| commit | rows | the act |
+|---|---|---|
+| `11a0351` | `FR-AUL-28` | The frontend's **last live `window.confirm()`** (`GalleryView.vue:157`) retires onto the in-file Dialog twenty lines below it. `./confirm-dialog` is ABSENT at the adopted pin (70-key map), so the prescribed swap was never available and the ratified in-file pattern is the cure. One discriminated `pending` intent, the shape both admin siblings hold; the single arm NAMES the entity it deletes (FR-AFP-8's rider); FR-AFP-41's clear-on-close adopted. ⟨cmd⟩ `grep -rn 'window.confirm\|[^A-Za-z.]confirm("' src \| wc -l` → **2**, both in prose. |
+| `caca3cf` | `fr-ImageUpload` r10 ⊕ r4/r14/r18/r24 · `fr-ContourPreview` r3 ⊕ r24 | ImageUpload adopts `ConfiguratorLayer`; **the INTERLOCK is honoured literally** — the producer's header is a `<button>` holding a `<span class="configurator-section-label">` (read in its compiled template at the pin), so the `<h3>` is CARRIED beside the layer, `sr-only` because the trigger paints the same word; r18 dies as the decorative sub-label leaves the accessible name and becomes `sub`. 47 hand-rolled lines of nameless progress → `./progress`; r24 closes on the same edit because the channel is **non-motion**, not a new PRM carve. The file input is HOISTED out of the layer body — a collapsed layer marks its region `inert`. ContourPreview r3: the wrapper SNAPSHOTS `open` at setup with no `defineExpose` and no model passthrough, so its disclosure was structurally uncontrollable; r24 rides free. **r16 is NOT claimed** — the adjudication says in terms that the adoption cannot close it. |
+| `3a6c5a4` | `fr-CoefficientsSpectrum M-6` · `fr-EquationView D·D-M14` | The unnamed 300px port becomes `<FadingScroll axis="y">` with a name, a role and a tab stop — the row's own consequence ("press Show more and reach nothing") cured at its mechanism. "Show more" is deliberately OUTSIDE the port. EquationView's `::after` feather was a fixed 2.5rem gradient painted unconditionally ≥1024px and `display:none` below — lying in both directions at once; deleted with the port's `overflow-y`. |
+| `9abd75c` | `FR-CP-33` ⊕ `FR-EQC-11` ⊕ `m-11` | **The asymmetry is RECORDED, which is what the row demands**: `ConfiguratorLayer` keeps its body mounted-collapsed (`aria-hidden`+`inert` over `0fr`), `CollapsibleSection`'s reka `Presence` UNMOUNTS — so the shared body's `expanded` latch died on every collapse at `/equation` and survived at `/w`. The twins converge on `ConfiguratorLayer`, and the direction is not a coin toss: M-2's cure law plus K-6's four banked wrapper defects. |
+| `e91d45a` | `FR-EMT-7` ⊕ `-4/-9/-12` ⊕ `K-7` | 80 hand-rolled lines retire onto `SegmentedTabs`, mounted 82 lines above by its own parent. **K-7's receipt re-taken, not inherited**: the producer's compiled option button emits `renderSlot($slots,"option",{option,active})` with the label as fallback, so the glyph treatment survives. The name channel moves with the slot and is stated; both `title=` duplicates deleted. `FR-EMT-2` discharged by construction, its ESCALATION carried un-claimed. |
+| `1866257` · `53ca589` | `FR-AUL-6` ⊕ `D-1`/`C-5` ⊕ `FR-GSB-12` | Five raw inputs (FunctionInput ×3, AdminAuditLog ×2) carrying `outline-none`/`focus:outline-none` over a hand-rolled core. v4's `.outline-hidden` is absent from this build, so the class is the v3 transparent outline and **the focus indicator is annihilated under forced-colors at five sites**. `./forms` is not an export of the pin; **X-EXT-2 re-seats to `./input`**, the `input-pill` recipe the row names. `53ca589` is this unit's own self-count repair — see *Landed-wrong, found and cured here*. |
+| `171b13e` | `M-2` | The drafts disclosure adopts `./collapsible`. **The wrapper is refused BY NAME** under K-6; the local boolean is re-spelled OPEN to match the primitive's axis. |
+| `84ea0bb` | `FV-2` (BLOCKER) ⊕ `FV-1/3/5/6/7/10/17` | Full dialog behaviour, zero dialog semantics, cured by adopting the chassis its neighbour already imports. **FV-17's mechanism**: the trap filtered on `el.offsetParent !== null`, which sees `display:none` and nothing else — an element inside a `visibility:hidden` or `inert` subtree has a non-null `offsetParent` and was counted as a trap stop. **FV-1**: `--z-fullscreen` (150) sat above every glass floating primitive (≤130). **FV-7**: the backdrop's `@click.self` was structurally dead (the container is 100%×100%), so it is not ported; `dismiss="deliberate"` is chosen because on a viewport-filling surface there IS no outside. ~60 lines of trap, listener and restore DELETED, not wrapped; a `DialogTitle` added because a modal owes a name. |
+| `acc9871` | `FR-GFC-7` ⊕ `-5`/`-6` | **THE BANKED COST IS REFUTED AT THE PIN.** ⟨cmd⟩ every import edge walked out of `dist/carousel.js` reaches exactly `vue`, `reka-ui`, `@lucide/vue`, `@mkbabb/keyframes.js`; `grep -o 'embla[a-z-]*' dist/carousel.js` → ∅; `ls node_modules/embla-carousel*` → no matches. **There is no peer to declare: the F.W0 cost is ZERO** and no `package.json` row was needed (which would have been a §6 event). The styled `<span>` becomes the region's heading; `pattern` stays `"group"`, the honest register. FR-GFC-5's `mask-image` — a verbatim static instance of the producer's retired R8-08 "Shy" defect at half the ramp — dies with the rule set, taking FR-GFC-6's computed `overflow-y` with it. |
+| `5fdbf2e` | `FR-AFP-61`(card) ⊕ `AA-19` · `FR-AFP-62` | The moderation card adopts `./card` and keeps its destructive plate **through** the system: `--glass-accent` is the producer's documented per-instance rim hue, the axis `CardProps` struck `variant`/`dataHue` to consolidate into. FR-AFP-62 swept in both named files; the sibling's anchor had drifted (`AdminAuditLog:87` → `:277`, spelled `rounded-md` there) and is re-pointed at the true bytes. |
+| `8eca678` | `PAW-8` ⊕ `PAW-20`/`-41` | The callout twin adopts glass `Button` `as-child`, a thin skin — the link keeps being a link. **Two riders REFUSED and named**: `PAW-22`→`GCM-23` under K-5's site-scoped LOCK (this bare link had no other indicator; it has `focus-ring` now, which is what makes that deletion safe *later*), and `PAW-53` under SC-10. |
+| `ca8c8d2` | `FMD-12`(chips) ⊕ `D-11` · `FR-MSP-11` | Eight `.info-chip`s → **3 × `Metric` + 1 × `Chip.tone`**, D-11's banked mapping, and it is the row's point: three are labelled readings, one is a toned STATE, and the hand-roll spelled all four identically. Targets re-seated at the pin (`./metric` and `./chip` present; `./metric-badge` and `./toggle-chip` absent). L-06's API re-shape NOT taken (KISS). **FR-MSP-11 is discharged by CHOOSING**: measured at both files, this control's HOVER was `--accent-red` + a flat `0 0 0 3px` 15 %-mix ring and `HarmonicLevelGrid`'s `.grid-cell.active` — its SELECTED state — is `--accent-red` + a flat `0 0 0 2px` 15 %-mix ring; the grid's own `:hover` is a 50 % border-mix + `scale(1.04)`, no ring. **THE CHOICE: a flat accent ring means SELECTED.** This control is not selectable, so it surrenders the ring. `HarmonicLevelGrid.vue` — which this unit may not write — needs no edit under that choice, which is why the row discharges **without a bounds expansion**. |
+| `d63bd93` | `PathPreview` · `i-4` · `m-15`/`M-4` | `PathPreview.vue` **DELETED** under F8-REACH-01: ⟨cmd⟩ `grep -rn 'PathPreview\|path-preview' src e2e` → zero inbound, two PROSE mentions. `i-4` **RULED AND RECORDED** at the wrapper it governs: for a titled section the answer is the producer's disclosure, not this wrapper — in this tree `ConfiguratorLayer`, which is what this wave moved two consumers onto. `m-15` IS executed because it is a cure, not a chassis choice: a 250ms timer that read `getBoundingClientRect()` twice to decide something `block: 'nearest'` decides natively; **M-4 dies because the timer dies**. |
+| `ff2aa9b` | `LC-1` · `LC-2` · §0x note (iv) | See Act 4. |
+| `74084fa` | receipts law | The two files this unit CREATED (`BatchActionBar.vue`, `e2e/a11y.ts`) carry `SERVED MODEL:` on line 1; re-verified that all three cadence gates still resolve them. |
+
+#### Act 4 — the keystone repair and the resolve-stack consolidation (`ff2aa9b`)
+
+**`LC-1`** — the tree's sole live axe keystone was silently narrowed by its own subject. The helper was
+authored TWICE, divergently; it has ONE home now (`e2e/a11y.ts`), takes an `include` selector, prints
+the serious/critical `incomplete` set beside the violations on failure, and returns the full results.
+Both ExportModal keystones are scoped to `[role="dialog"]`. SS-13 #13's incomplete census is **named,
+not run**: the suppression is proven statically, and this unit does not mint an assertion that must
+break on the day the producer ships `inert`.
+
+**`LC-2`** — **THE `fixme` RATIONALE IS FALSE ON ALL THREE CLAUSES, AND THE PROBE BEHIND THE FIRST IS A
+FALSE NEGATIVE BY CONSTRUCTION.** Measured at 8.0.0: `ConfiguratorLayer`'s collapsed region emits
+`inert: !open || void 0` **directly beside** `"aria-hidden": !open` — banked `K-13`, reproduced at the
+bytes. The F.W0 justification's own probe re-runs verbatim and **still returns 0**:
+
+⟨cmd⟩ `/usr/bin/grep -c inert node_modules/@mkbabb/glass-ui/dist/glass-ui.js` → **0**
+⟨cmd⟩ `/usr/bin/grep -c inert node_modules/@mkbabb/glass-ui/dist/configurator-BoeScnDL.js` → **2**
+⟨cmd⟩ `/usr/bin/grep -rl inert node_modules/@mkbabb/glass-ui/dist/*.js | wc -l` → **6**
+
+`glass-ui.js` is the ROOT BARREL chunk of a ~60-subpath split build and `ConfiguratorLayer` is not in
+it. **A one-chunk grep cannot falsify a claim about a split package, whatever it returns.** Clause (b)
+("consumes `^2.0.0`") is stale twice over; clause (c) is structurally false and is why LC-1 exists.
+**The `fixme` STAYS**, and the reason is stated at both sites rather than the deletion quietly taken:
+LC-2's cure is *re-run, then delete*, and the RUN is the precondition — see `E-d2`.
+
+**§0x note (iv)** — `e2e/resolve-stack.ts` is the ONE `resolveStack`/`openArm` home; the module's own
+header had BOOKED the duplication and now discharges it. **This is not tidying, and the SENTINEL is the
+proof**: ⟨cmd⟩ `grep -c SENTINEL resolve-stack.ts` → **3**, `grep -c SENTINEL contrast-floor.spec.ts` →
+**0**. The module seeds a known sentinel before each assignment so an expression the engine REJECTS
+throws; the private copy cleared to `""` first, leaving the INHERITED colour — a rejected expression
+read back as something plausible and graded a ratio nobody authored. **The spec GAINS the detector.**
+⟨cmd⟩ definitions of either function outside the module, after: **0** (was 2). Recorded, never masked.
+
+#### Gates — BEFORE → AFTER (double-run at the settled bytes)
+
+| gate | BEFORE (RESUME baseline, fourier `21e11b0`) | AFTER (this seat, `74084fa`) | verdict |
+|---|---|---|---|
+| **g12 · `./fading-scroll` leg** | **1** import (`ConvergenceLegend.vue:2`) — state (a), but **discharged-by-F.W4**, not by `.d`; R.2 ordered it booked, not re-cured | **3** imports; the §C.H-named adopting site (`CoefficientsSpectrum.vue:27`, the M-6 family head) is now among them, plus `EquationView.vue:17` | **GREEN — state (a), and cured by this unit at the row's own site** |
+| **g12 · `./forms` leg** | **0** importers; `./forms` **absent** from the 70-key export map, so state (a) is UNREACHABLE by construction | **0** importers (double-run `0 ≡ 0` after this unit's own probe-contamination repair); the cure landed on `./input` per X-EXT-2 | **RED — state (b) is the only closable state and its artefact does not exist**: ⟨cmd⟩ `ls docs/tranches/X/fourier/F-W3-DO-NOT-EXECUTE.md` → *No such file*. The (b) row is handed to `.f` below |
+| **g17** | RED-RELIEVED at the baseline | ⟨cmd⟩ `grep -ic shadow SUBSTRATE-LEDGER.md` → **0**, double-run. No budget cell authored. Forbidden-token detector over the whole diff → **0**, double-run | **honest-RED, on a measurement** |
+
+**§7 cadence** — ⟨cmd⟩ `npx vue-tsc -b --noEmit` → **1 error, PRE-EXISTING at base `21e11b0`**
+(`ContourEditorCanvas.vue(42,9) TS6133`, a file in no bounds row of this unit). ⟨cmd⟩ `npx vite build`
+→ **✓ built**. **THE §7 DISCLOSED STANDING RED IS CLEARED AT THE ADOPTED PIN**: `FR-NP-32`
+(≡ `fr-PaperSidebar M1`)'s `CssSyntaxError: Unterminated string` from `style.css:3`'s live
+`@import "@mkbabb/glass-ui/styles"` does not reproduce at 8.0.0, so the per-batch build was an honest
+batch signal for this unit and was run after **every** landing. ⟨cmd⟩ `git diff --check` → clean on
+every commit. ⟨cmd⟩ worktree porcelain → **0**; fourier-root porcelain → **1 untracked row,
+`.worktrees/`**, which is §5b's own declared residue and is said so rather than reported as a settle
+failure. Transcripts: `docs/tranches/X/fourier/evidence/w3/{g12,g17,cadence}-X-F-W3-d.txt`.
+
+#### Landed-wrong, found and cured here (self-count law, applied to a gate)
+
+**`53ca589`** — the `FR-AUL-6` docblock quoted **g12's own `./forms` probe verbatim**, so the gate's
+command returned **1** over a tree with **zero** importers of that subpath: the detector contaminated by
+its own subject, which is precisely the defect g17 states its forbidden-token probe inline to avoid.
+Found by running the gate against the settled bytes rather than against intent. The measurement is
+stated without the literal; double-run after → **0 ≡ 0**.
+
+#### Escalations
+
+- **`E-d1` — `FR-AFP-33`'s CLIENT LIMB: the prescribed vehicle does not do the job at the adopted pin.
+  NOT SUBSTITUTED.** The row books *"client no cap/collapse — `./expandable-container` installed"*, and
+  F.W3 is the adopting wave for the client limb. At 8.0.0 that component is a **fullscreen expander**,
+  not a list cap: its props are `buttonPosition`/`expandLabel`/`collapseLabel`/`open`, its slots are
+  `expand-trigger`, `fullscreen-chrome` and a default slot receiving `{ fullscreen }`. There is no cap,
+  no collapse-to-N and no overflow affordance in its surface. Per METHOD the specified cure is **not
+  substituted with an in-tree hand-roll**, so the unbounded `v-for="flag in item.flags"` stands, named.
+  **What is needed**: a ruling on the vehicle (re-seat to a different subpath, or authorise the
+  in-tree capped-list idiom the wave already holds at `CoefficientsSpectrum`). The server `$push`/
+  `$slice` half and `FR-AFP-66` remain F.W5–W8's, and the counterweight is preserved verbatim —
+  *"`if not flagged` short-circuits production's only case"* — so no cell here grades the server limb
+  urgent. Per `fr-AdminFlaggedPanel.md:160` the 60-flag geometry needs a seeded fixture no product path
+  can produce, so nothing here may be graded on a screenshot either.
+- **`E-d2` — `LC-2`'s deletion is one green run away, and the run is not this unit's act.** The cure is
+  *re-run the fixme'd workspace-default keystone at the installed pin; `K-13` predicts green → delete
+  the fixme AND its rationale*. The prediction is now **supported at the bytes** (Act 4), but
+  `playwright.config.ts` declares **no `webServer`** and the suite needs the full uvicorn + Mongo + vite
+  stack via `scripts/e2e.sh`; ⟨cmd⟩ `curl --max-time 4 http://localhost:3000/` → **000**. Standing that
+  stack up is neither in this unit's bounds nor within §5.2's probe parsimony. **Deleting a booked
+  baseline on a prediction instead of a measurement is the failure mode LC-2 itself convicts**, so the
+  `fixme` stays with its refutation written beside it, and the deletion is named here.
+
+#### Residuals (named, none swept)
+
+1. **g12's `./forms` (b) row, handed to `.f`** — for `F-W3-DO-NOT-EXECUTE.md`: **id** `FR-AUL-6`
+   (`./forms` leg) · **reason**: `./forms` is not an export of the adopted `8.0.0` pin (70-key map,
+   measured); `X-EXT-2` re-seats the target to `./input`, and the CURE LANDED there at five sites —
+   so the subpath is NOT-ADOPTED because it does not exist, not because the repair was declined ·
+   **seat + date**: `X.F.W3.d`, 2026-09-19. Transcript: `evidence/w3/g12-X-F-W3-d.txt`.
+2. **`HarmonicLevelGrid.vue:165` cites `PathPreview.vue:39`** as the in-tree precedent for an idiom that
+   now lives in `lib/contourEditing.contourBounds`; the file this unit deleted. The citation is stale
+   and the file is in **no** bounds row of this unit — routed to that file's owner, not edited from here.
+3. **`ui/CollapsibleSection.vue`'s sole surviving consumer is `FunctionInput.vue`.** Under i-4's ruling
+   its re-chassis is a design change to the equation route's left column, which belongs with that
+   column's owner and is not smuggled into a shadow-retirement wave.
+4. **`FB-1`** (the second `<ContourEditorCanvas>` in FullscreenViewer with no `ref` and no listeners, so
+   fullscreen contour edits are silently discarded) rides `fr-ContourEditorCanvas D`/`B-5`'s banked
+   BLOCKER with its F.W1 sequencing rider; that file is in no bounds row here. **Named, not half-landed.**
+5. **`fr-ContourPreview` row 16** (the heading the wrapper renders as a `<span>`) — F.W4's, and the
+   adjudication states in terms that the ConfiguratorLayer adoption does **not** close it.
+6. **`FR-EMT-2`'s escalation**, carried un-claimed: at ≥7.0.0 `.glass-wash` gained `contain: paint`, so
+   "delete the `overflow`" stops being sufficient wherever that class still wraps a focusable
+   descendant. `EquationModeToggle` no longer uses it; the escalation belongs to whoever still does.
+7. **Relay notes for `.f`'s SS-6 batch** (producer rows, never frontend hacks): `PAW-53` — the adopted
+   `as-child` chassis needs a real border under forced-colors, or the glass-ui rung extended to it
+   (SC-10) · `M-5` — is the bare `Collapsible` trigger MEANT to ship affordance-free? cite the Accordion
+   asymmetry · `m-7` — `ContourSettings`' fork is unavoidable given the wrapper's surface; the cure is a
+   `#title` slot + `variant`, not discipline · `m-16` — `overflow: hidden` is permanent and clips the
+   producer's outward focus ring · **`ConfiguratorLayer` emits no heading**, which is why roster 10's
+   INTERLOCK exists and why every consumer must carry its own `<h3>`.
+8. **`.b`'s committed paths were not opened by this seat** (§5a splits (2)/(3)): `stores/animation.ts`,
+   `morph/MorphPhaseConfig.vue`, `visualization/Easing*` — untouched, verified by the diff's file list.
+9. **RECEIPTS DEFECT, DISCLOSED RATHER THAN REWRITTEN (`d-R1`).** Commits `be623d9` · `aa9e12c` ·
+   `11a0351` · `caca3cf` carry their bodies but **not** the `Claude-Session:` trailer — this seat passed
+   the body as the second `-m` where the trailer belonged. Every commit from `3a6c5a4` onward carries it
+   (⟨cmd⟩ `git log --format='%h %(trailers:key=Claude-Session,valueonly=true)'`). **Not amended**: a
+   history rewrite over four landed commits to repair a trailer is an unsanctioned act the spec does not
+   prescribe, and it would risk far more than it repairs. `caca3cf`'s body additionally lost four
+   backtick-quoted words to shell interpretation; every later body was passed via `-F` from a file.
+
+#### §5a / §5e hand-off — `.e` MAY OPEN
+
+Both of `.e`'s hard preconditions are committed: **split (4)** — `ContourSettings.vue`'s contract at
+**`be623d9`**; **split (5)** — the shared toolbar at **`aa9e12c`**, with the file-identification drift
+declared above (order unchanged, `.d` first). `web/e2e/**` was entered only after `.a`'s commits, per
+split (3). `.e`'s `AdminUserList.vue` call site now has a module to point at:
+`visualization/gallery/BatchActionBar.vue` (`count`, `noun`, `nounPlural`, `label`, `busy`; `@clear`;
+default slot for the surface's own verbs; the host supplies its inline inset via `class`).
+
+#### E13 — the four-path mail sweep, re-run at this seat
+
+⟨cmd⟩ UNREAD classified from the Status cell by position (never a bare `grep -i unread`) over
+`docs/tranches/V/coordination/INBOX.md` → **0**, double-run `0 ≡ 0`, across ⟨cmd⟩ `grep -cE '^\| [IO]-[0-9]+[a-z]? \|'`
+→ **79** rows. ⟨cmd⟩ `find <the four paths> -type f -name '*.md' -newermt "2026-09-19 00:00"` → exactly
+**two** members, `INBOX.md` itself (**self**, SELF-COUNT law) and keyframes' own `INBOUND-LEDGER.md`
+(not addressed to value.js; mints no row). **ZERO unrowed letters · ZERO new `I-n`/`O-n` minted by this
+seat · ZERO UNREAD status cells.** This unit opens no channel of its own: its producer rows ride `.f`'s
+SS-6 batch (residual 7).
+
+#### Commits (pathspec on the commit itself, one meaning each; branch `x/f3d`, base `21e11b0`)
+
+`be623d9` · `aa9e12c` · `11a0351` · `caca3cf` · `3a6c5a4` · `9abd75c` · `e91d45a` · `1866257` ·
+`171b13e` · `84ea0bb` · `acc9871` · `5fdbf2e` · `8eca678` · `ca8c8d2` · `d63bd93` · `ff2aa9b` ·
+`53ca589` · `74084fa` — **18**, self-counted from ⟨cmd⟩ `git log --oneline 21e11b0..HEAD | wc -l` → **18**.
+⟨cmd⟩ `git diff --name-only 21e11b0..HEAD` → **24 paths, every one inside this unit's writable set**;
+the two CREATED files are the lock's own authorisations (`BatchActionBar.vue` = "its extracted module";
+`e2e/a11y.ts` = inside `web/e2e/**`). No `git add -A`, no `-u`, no `commit -a`, no stash, no reset, no
+force-push; no sibling's staged path swept in — each commit carries its own pathspec.
+`docs/tranches/X/execution/LEDGER.md` is **not touched by this seat**: this unit's dispatch names this
+record and `evidence/w3/` alone, other seats edit that file concurrently, and the wave row is the
+orchestrator's.
