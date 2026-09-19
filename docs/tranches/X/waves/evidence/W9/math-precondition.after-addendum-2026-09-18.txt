@@ -1,0 +1,58 @@
+SERVED MODEL: claude-opus-5[1m]
+X-W9.c — ADDENDUM-BESIDE to math-precondition.after.txt, dated 2026-09-18 (E-3: the
+committed evidence at a692069f is not rewritten; this file corrects and extends it).
+
+WHY. After integrating a692069f I replayed the LIB-02 corpus over ./math and found the
+per-element narrowings in deCasteljau and lerpArray are NOT unreachable, as a692069f's
+comments claimed: an in-bounds read comes back empty whenever the caller's array carries
+a hole. Their messages ('read past the end') therefore described the wrong fault. The
+follow-up commit names what the read actually found and covers the path with tests.
+
+================ 1. LIB-02 (X-W9.a's G3 leg), ./math — measured either side ================
+⟨cmd⟩ node docs/tranches/V/megatranche/audit/probes/library-band-gates.mjs
+  BEFORE this unit:  RED  LIB-02  33 published functions ... by subpath: value=1 css=18 easing=1 math=5 transform=8
+  AFTER  .b + this:  RED  LIB-02  29 published functions ... by subpath: value=1 css=18 easing=1 math=6 transform=3
+
+  The ./math thrower set, measured over the probe's own 7-value corpus as a FIRST argument:
+    pre-cure  (5): cubicBezierToString, deCasteljau, interpBezier, lerpArray, scale
+    post-cure (6): the same five + cubicBezier
+  cubicBezier(42) builds [0, undefined, undefined, 1] from its four missing arguments.
+  Pre-cure that multiplied straight through lerp and RETURNED [NaN, NaN]; it now throws.
+  That is exactly the silent-NaN class G11 exists to kill, so the +1 is the cure working,
+  not a regression — but it IS a measured +1 on a leg X-W9.a already escalated as
+  mis-scoped (ESC-W9a-G3-LEG-SCOPE: LIB-02 reads arity and shape violations of the
+  published .d.ts, not parse-derived-key lookups). Booked here so the close cannot
+  discover it. G3 is not this unit's gate; G11 is, and G11's command is test/math.test.ts.
+
+================ 2. the G1 probe's MTS-06 block — SUPERSEDED BY G11 ================
+⟨cmd⟩ node docs/tranches/V/megatranche/audit/probes/src-surface-totality.mjs
+  -> TypeError: TR.decomposeMatrix3D is not a function at :74   (ESC-W9a-PROBE-UNRUNNABLE,
+     raised by X-W9.a at 5266ac97 and confirmed by X-W9.b; the probe dies at MTS-05, so
+     MTS-06 — this unit's three legs — is UNREACHED, not green.)
+
+  The block replayed directly against dist/subpaths/math.js (probe :79-85, verbatim calls):
+    THROWS  deCasteljau(0.5, [])                -> RangeError: deCasteljau: points must hold at least one control point; received an empty array
+    THROWS  interpBezier(0.5, [])               -> RangeError: interpBezier: points must hold at least one control point; received an empty array
+    THROWS  lerpArray(len3, len2, .5, out3)     -> RangeError: lerpArray: start, stop and out must share one length; received 3, 2, 3
+
+  MTS-06 pass-condition is Number.isFinite(...) on those three calls (:81, :83, :85). It can
+  only be satisfied by RETURNING A FINITE NUMBER for an empty control polygon and a
+  mis-sized buffer — which is the defect. W9.md :222 and G11 :353 both order REJECTION, and
+  G11 names test/math.test.ts, not this probe. So MTS-06 is superseded by G11 exactly as
+  MTS-05 is superseded by G27, and for the same structural reason: the spec ordered a cure
+  and ordered a probe that asserts the pre-cure shape to be run unmodified.
+  -> ESC-W9c-MTS06-SUPERSEDED. The probe is execute-no-write for every unit (§File Bounds),
+     so no unit may repair it; the ruling is the orchestrator's.
+
+================ 3. the settled bytes ================
+  f2e0820cf2c313067f1b8974c3b0f11c99e47a6c0c5ad7b747d7bb278dfe632f  src/foundation/math.ts
+  ce971f990c6786306d28d5e446bf6676094c3f60c73bd680562f0ac83cccf8f1  src/subpaths/math.ts
+  ca463e5e440ce19ee73ed3b34f75465e39ecd74ff2ef8a88630b93df9cbbd925  test/math.test.ts
+⟨cmd⟩ npx vitest run test/math.test.ts        -> Tests  70 passed (70)   [run 1 and run 2 identical]
+⟨cmd⟩ equiv-probe.mts (bit-identity)          -> cases=33169  mismatches=0   [x2]
+⟨cmd⟩ npx eslint <G10 scope> --rule no-non-null-assertion  -> exit 0, no output
+⟨cmd⟩ npx vue-tsc -p tsconfig.lib.json --noEmit            -> exit 0
+⟨cmd⟩ npx vue-tsc -p tsconfig.test.json --noEmit           -> 2 errors, BOTH test/parser-totality.test.ts
+⟨cmd⟩ npx eslint src test                                  -> exit 0
+⟨cmd⟩ npx vitest run  -> Test Files 3 failed | 32 passed (35)   Tests  3 failed | 598 passed (601)
+      the same 3 inherited rows as at a692069f; the +1 passing test is this addendum's hole coverage.

@@ -32,6 +32,29 @@ describe("precondition policy (G11)", () => {
         it("still accepts the smallest legal polygon", () => {
             expect(deCasteljau(0.5, [5])).toBe(5);
         });
+
+        it("reports a hole in the polygon instead of multiplying it into NaN", () => {
+            // `new Array<number>(n)` is the sparse array TypeScript still types
+            // `number[]` — an in-bounds read that comes back empty. Spreading
+            // turns the hole into `undefined`, which used to fall straight
+            // through `lerp` and poison the whole triangle.
+            const interior = new Array<number>(3);
+            interior[0] = 0;
+            interior[2] = 1;
+            expect(() => deCasteljau(0.5, interior)).toThrow(RangeError);
+            expect(() => deCasteljau(0.5, interior)).toThrow(
+                "deCasteljau: points must hold a number at every index; index 1 of 3 holds none",
+            );
+
+            const leading = new Array<number>(2);
+            leading[1] = 2;
+            expect(() => deCasteljau(0.5, leading)).toThrow("index 0 of 2 holds none");
+
+            // Degree 0: no pass runs, so the unwrap is what catches it.
+            expect(() => deCasteljau(0.5, new Array<number>(1))).toThrow(
+                "index 0 of 1 holds none",
+            );
+        });
     });
 
     describe("interpBezier", () => {

@@ -98,16 +98,18 @@ export function lerpArray(
 
     const u = 1 - t;
     for (let i = 0; i < n; i++) {
-        // The check above pins all three lengths, so both reads are in bounds;
-        // narrowing them — rather than asserting them away — is what lets this
-        // module carry no non-null assertion, and it is free: measured at
-        // 1.00-1.01x the un-narrowed body for K >= 2, the multi-channel band
-        // this carrier exists for (evidence/W9/math-lerparray-shapes.txt).
+        // The check above pins all three lengths, so neither read runs off the
+        // end. It can still come back empty — a JS caller may hand this a plain
+        // array with a hole where a `Float64Array` is declared — so the reads
+        // are narrowed rather than asserted away, which is also what keeps this
+        // module free of non-null assertions. Measured at 1.00-1.02x the
+        // un-narrowed body for K >= 2, the multi-channel band this carrier
+        // exists for (evidence/W9/math-lerparray-shapes.txt).
         const from = start[i];
         const to = stop[i];
         if (from === undefined || to === undefined) {
             throw new RangeError(
-                `lerpArray: read past the end of a buffer at index ${i} of ${n}`,
+                `lerpArray: ${from === undefined ? "start" : "stop"} holds no value at index ${i} of ${n}`,
             );
         }
         out[i] = u * from + t * to;
@@ -137,16 +139,17 @@ export function deCasteljau(t: number, points: readonly number[]): number {
 
     const n = points.length - 1;
     const b = [...points];
-    // Iteratively interpolate points. Every read below is inside the polygon the
-    // check above pinned; narrowing says so in the types, where the retired
-    // non-null assertions only silenced the question.
+    // Iteratively interpolate points. The check above pins the polygon's size,
+    // so no read below runs off its end — but a read can still come back empty
+    // (a hole in the caller's array), so each is narrowed rather than asserted
+    // away, and an empty one is reported instead of multiplied into NaN.
     for (let i = 1; i <= n; i++) {
         for (let j = 0; j <= n - i; j++) {
             const left = b[j];
             const right = b[j + 1];
             if (left === undefined || right === undefined) {
                 throw new RangeError(
-                    `deCasteljau: read past the end of a ${b.length}-point control polygon at index ${j + 1}`,
+                    `deCasteljau: points must hold a number at every index; index ${left === undefined ? j : j + 1} of ${b.length} holds none`,
                 );
             }
             b[j] = lerp(left, right, t);
@@ -156,7 +159,7 @@ export function deCasteljau(t: number, points: readonly number[]): number {
     const value = b[0];
     if (value === undefined) {
         throw new RangeError(
-            `deCasteljau: read past the end of a ${b.length}-point control polygon at index 0`,
+            `deCasteljau: points must hold a number at every index; index 0 of ${b.length} holds none`,
         );
     }
     return value;
