@@ -876,3 +876,157 @@ numeric arm's subject (LAW D(3)) and the defect G-4's round-4 cell was struck fo
 measurement **before this receipt was committed**, so the settled bytes never carried it; it is booked here
 because a self-count law that hides its own near-miss is decoration. The corrected line carries **no witness
 token**, so re-reading it does not move the number again — the count is a fixpoint at these bytes.⟩
+
+### KF.W10.d
+
+**SERVED MODEL**: `claude-opus-5[1m]` · **Unit** `KF.W10.d` · group 4 of 7 (alone) · **sections executed**
+§3.4 `:291-300` + §5 **G-5** `:459-469` (+ §4 bounds rows `:354-358` · §10 commit 4). **Seat clock**
+2026-09-19 00:03 → 00:3x EDT (⟨cmd⟩ `date` → `Sat Sep 19 00:03:18 EDT 2026` at open). **Sitting of record
+stays 2026-09-17.** **Status: DONE — G-5 turns RED → GREEN at the landing bytes.** **Writable set honoured
+exactly**: four CREATED files, each beside one of the five bound originals in `keyframes.js`, and nothing
+else in either tree. **No push** (§0j.C KF-WRITE: a wave pushes `origin HEAD` at close, a unit does not).
+**No ledger edit**, **no COHESION edit**, **no sibling-spec edit**.
+
+#### Act 0 — crash-recovery sweep (STANDING LAW, first act)
+
+⟨cmd⟩ `git status --porcelain` in both repos this seat may write:
+
+- **keyframes.js — 2 rows**, both untracked value-authored letters
+  (`docs/tranches/V/coordination/VALUEJS-INBOUND-2026-07-{24,27}-*.md`). Outside this unit's writable set;
+  left in place, nothing stashed.
+- **value.js — 15 rows**, every one outside this unit's writable set, `scripts/dev/dev.sh` among them
+  (**unowned, NEVER touched, never staged**).
+- **Inherited work on KF.W10.d: NONE.** None of the five bound paths appears in either porcelain, and no
+  addendum existed beside any of them (Act 1's BEFORE is the measurement). kf HEAD at open **`27ec9c37`** —
+  `.a`'s `025e894c` and `.c`'s `27ec9c37` on top of `origin/master 69095552`; nothing of `.d`'s was begun.
+
+#### Act 1 — BEFORE baseline, re-measured at this seat (G-5's own probes, double-run)
+
+| probe | reading at open |
+|---|---|
+| the five bound originals present | **5 of 5** at the worktree bytes (`docs/tranches/G/audit/r-animation-sota.md` · `docs/tranches/U/audit/lane-22-perf-demo-runtime.md` · `docs/tranches/U/waves/U.D.md` · `docs/tranches/T/stage-manifests/home.json` · `docs/frontend-design/demo/home.md`) |
+| ⟨cmd⟩ `git ls-tree -r --name-only 27ec9c37 \| grep -icE 'addend'` | **7** — the O/V-lane letters and the five `vnext/OWNER-ADDENDUM-*` pages, **none beside any of the five** (identical to the sitting-2 baseline's `origin/master` reading, so `.a`/`.c` moved this probe by zero: both appended INSIDE their own bound files, which G-5 forbids for its five) |
+| ⟨cmd⟩ `git ls-tree -r --name-only 27ec9c37 -- docs/tranches/T/stage-manifests/ \| grep -c 'home\..*\.md'` | **0** — no sidecar |
+| addenda existing | **ZERO of four** — **RED, exactly as §5 declares** |
+
+#### Act 2 — the anchors, re-resolved at the landing substrate BEFORE writing (§3.4's re-anchor law)
+
+Substrate: keyframes.js `master` **`27ec9c37`**, **worktree bytes**, never `git show`.
+
+| # | anchor | what occupies it at these bytes | verdict |
+|---|---|---|---|
+| 1 | `r-animation-sota.md:109` | the `- **Where (verified):**` bullet of `### G26-3`, carrying both falsified halves | **RESOLVES — the anchor** |
+| — | `r-animation-sota.md:107` | the `### G26-3` section heading | **label only, never an anchor** (§3.4.1's declared re-anchor, honoured) |
+| 2 | `r-animation-sota.md:253` | the `F26-4 SplitText / demo grapheme` ledger row | **RESOLVES** |
+| 3 | `lane-22-perf-demo-runtime.md:110-112` | *"imports only `@lucide/vue` `List`, `AnimatedText`, `TypingDots` … zero engine dependency"* | **RESOLVES** (single spelling; the struck variants used nowhere) |
+| 4 | `U.D.md:194` | *"has ZERO engine dependency"* | **RESOLVES** |
+| 5 | `home.json:9` | the `sanctioned` aurora entry naming `proof:cursor-light-subtle` | **RESOLVES** |
+| 6–8 | `home.json:2` · `:13` · `:16` | the rider's three `proof:hero-two-focal` clause-(c) sites (`_doc` · `forbidden[1]` · `status`) | **ALL THREE RESOLVE** (the declared correction from `:11`, carried) |
+| 9–11 | `home.md:67` · `:187-191` · `:367` | the three `liftDown` claims | **ALL RESOLVE** |
+
+⟨cmd⟩ each re-run at close, double-run: `sed -n '109p'` → `Where (verified)` **1** · `sed -n '253p'` →
+`F26-4 SplitText` **1** · `sed -n '110,112p' | grep -c zero` → **1** · `U.D.md:194` → **1** ·
+`home.json` `:9`/`:2`/`:13`/`:16` → **1·1·1·1** · `home.md` `:67;187,191;367` → **5** `liftDown` lines.
+**No anchor drifted; no INTENT substitution was needed.**
+
+#### Act 3 — the four addenda, written BESIDE, never inside (E-3)
+
+| # | row | CREATED file | states |
+|---|---|---|---|
+| 1 | **KF-AT-21** | `docs/tranches/G/audit/r-animation-sota.KF-AT-21-ADDENDUM-2026-09-19.md` (6,091 B) | both halves of `:109` falsified at the tree, and **ledger row `:253` RE-OPENED**; the G-lane verdict text at `:112` **never patched** |
+| 2 | **KF-EST-23** | `docs/tranches/U/audit/lane-22-perf-demo-runtime.KF-EST-23-ADDENDUM-2026-09-19.md` (5,297 B) | **exactly two claims** corrected (one per document), the correction boundary stated in full |
+| 3 | **KF-HA-4** (doc arm) | `docs/tranches/T/stage-manifests/home.KF-HA-4-ADDENDUM-2026-09-19.md` (5,685 B) — **a SIDECAR**, never an inline comment | both named oracles dissolved at `70b32501`; **KF.W4's oracle fate BY REFERENCE, no bound re-derived** |
+| 4 | **KF-AT-26(e)** | `docs/frontend-design/demo/home.KF-AT-26e-ADDENDUM-2026-09-19.md` (4,763 B) | `liftDown` is a name the tree does not carry; the shipped mechanism is `charLift` |
+
+Line 1 of each = `SERVED MODEL: claude-opus-5[1m]` (⟨cmd⟩ `head -1` over all four → four identical lines).
+**Addenda 1, 2 and 4 are ONE motion** and ride commit 4 with addendum 3 — one commit, four files (§10 row 4).
+
+**The substantive measurements each addendum publishes, all double-run at the settled bytes:**
+
+- **KF-AT-21.** ⟨cmd⟩ `grep -rniE "splitText|Intl\.Segmenter|grapheme" src/ | wc -l` → **73** ≡ **73**;
+  `grep -rliE … | wc -l` → **6** ≡ **6**; `ls -1 src/animation/orchestration/split-text/ | wc -l` → **4** ≡
+  **4** — the *zero-hit grep* of `:109` does not reproduce, because the **engine primitive SHIPPED** at
+  KF.W5 `.c` (`2549c133`, `c0727002`). And the per-char split is **not gone**:
+  `AnimatedText.vue:106` `.split(/\s+/)` **and** `:111` `chars: w.split("")` both ship. Cure fates stated
+  **by reference**: **KF-AT-4 LANDED** at `77d0e0b1` (the KF.W4 ∥ KF.W6 atomic bundle — `usability.mjs`
+  `DECLARED_HERO_TITLE:89` / `DECLARED_HERO_GLYPHS:100`, clause (2c) at `:337`), **KF-AT-3 NOT SPENT**
+  (`execution/B/KF-W6.md` §9 and its commit-A cell `59ce4ca5`).
+- **KF-EST-23.** ⟨cmd⟩ `grep -n '^import' …/EditorStartScreen.vue` → **`:136-138`**, the three named imports
+  and no fourth; `sed -n '65,68p'` → `<TypingDots />` **inside the LCP `<h1>`** at `:67`;
+  `grep -n 'onMounted\|loadAnimationEngine' …/TypingDots.vue` → `:133` / **`:137` `await
+  loadAnimationEngine()`**. The import list is true, the conclusion is false **transitively**.
+  **Correction-boundary lock carried**: F3's transposition verdict **survives on corrected premises**; the
+  `main.ts` elision charge **stays retired**; `lane-22:121` recorded as the **same claim's evidence line**,
+  not a third claim; the `@utils/kfEngine.ts` specifier **not re-opened** (outside the boundary; no
+  measurement of it asserted).
+- **KF-HA-4.** ⟨cmd⟩ over `demo/ src/ test/ scripts/`: `proof:hero-two-focal` → **0** ≡ **0**;
+  `proof:cursor-light-subtle` → **1** ≡ **1** — and that one hit is **prose** at
+  `test/demo/instrument/aurora-opacity-ceiling.test.ts:8`, **found and disqualified by name**, never counted
+  as an oracle; ⟨cmd⟩ `ls -1 scripts/ | grep -c proof` → **0**. KF.W4's fate cited, never re-derived:
+  `test/demo/instrument/aurora-opacity-ceiling.test.ts` (created `c5c0b889`, **3,992 B**) reading the
+  `export const` in HeroAurora's **module-scope** `<script lang="ts">` (`:35` opens it, const at `:58`),
+  with `execution/B/KF-W4.md` Act 4 as the receipt. **The blessed number and the strict inequality are NOT
+  restated** — the SPLIT-LOCK's whole point. The carried cure-correction (a `<script setup>` compile-local
+  has nothing to import; the assertable surfaces are the rendered `--aurora-opacity-ceiling` on
+  `.aurora-root` or an `export const`) is written at the sidecar.
+- **KF-AT-26(e).** Counting rule stated at the enumeration — lines are `grep -c`, occurrences `grep -o`.
+  ⟨cmd⟩ `grep -c 'liftDown' home.md` → **8 lines** ≡ **8**; `grep -o … | wc -l` → **9 occurrences** ≡ **9**
+  (`:367` names it twice); ⟨cmd⟩ `grep -rn 'liftDown' demo/ src/ test/ scripts/ | wc -l` → **0** ≡ **0**.
+  The shipped mechanism is **`charLift`** (`AnimatedText.vue:169`, applied `:165`, delayed `:166` over the
+  KF-AT-16 registers; PRM at `:193`/`:195-196`), and ⟨cmd⟩ `sed -n '78,91p' | grep -cE '@keyframes|<style|liftDown'`
+  → **0**: the coordinate all three sites cite carries **no keyframes block** at these bytes.
+
+#### Act 4 — one declared decision, stated rather than drifted into (R2-2's ADDENDUM-SET LOCK)
+
+KF-EST-23 is **ONE addendum over TWO originals** that live in different directories
+(`docs/tranches/U/audit/` and `docs/tranches/U/waves/`). The set lock fixes the addenda at **four** and
+names a fifth as *the defect, not the cure*, so the file sits beside the **first-named** original
+(`lane-22-perf-demo-runtime.md`, the bank's own coordinate) and addresses `U.D.md:194` inside it **by full
+path and anchor**, with the placement declared in the addendum's own opening. **Four addenda, four files,
+no fifth.** ⟨cmd⟩ beside-check (`dirname` of each addendum ≡ `dirname` of its original) → **BESIDE ×4**.
+
+#### Act 5 — commit (§10 commit 4), pathspec only
+
+**`b50a23de`** — `docs(X·KF W10): four doc-truth addenda (E-3, originals byte-unchanged)`; ⟨cmd⟩
+`git show --stat` → **4 files changed, 363 insertions(+), 0 deletions(-)**; body carries the per-addendum
+findings and the E-3 assertion; `Claude-Session` trailer present. Pathspec named on `git add` **and** on
+`git commit … -- <the same four paths>`; **no `-A`, no `-u`, no `-a`**; the two untracked kf letters and
+every value.js dirty row were untouched by it (⟨cmd⟩ post-commit `git status --porcelain` → the same 2 kf
+rows, unchanged).
+
+#### Act 6 — gate reading, BEFORE → AFTER
+
+| gate | BEFORE (this seat's own baseline, Act 1) | AFTER (settled bytes, double-run) |
+|---|---|---|
+| **G-5** — doc-truth addenda, four documents | **RED — AS DECLARED**: zero addenda; `addend`-named files **7**, none beside any of the five; `stage-manifests/` sidecars **0** | **GREEN.** Four addenda exist **beside — never inside** — the originals: `addend`-named files **7 → 11** (exactly +4, ⟨cmd⟩ `git ls-tree -r --name-only HEAD \| grep -icE 'addend'` → **11** ≡ **11**); `stage-manifests/` now carries its `home.*.md` **sidecar** (**0 → 1**; the directory reads **10** members, 9 manifests + the sidecar). **E-3 — the gate's own falsifier, measured both ways and double-run**: ⟨cmd⟩ `git diff -- <the five originals>` → **0 lines** ≡ **0**; ⟨cmd⟩ `git diff --cached -- <the five>` → **0** ≡ **0**; ⟨cmd⟩ `git diff origin/master -- <the five>` → **0** ≡ **0** — **not one changed byte in any original**, and ⟨cmd⟩ `node -e JSON.parse(home.json)` → **PARSES** (the manifest took a sidecar, never an inline comment). Anchors re-resolved at the landing substrate before writing (Act 2) and again at close. **Correction-boundary lock** held (exactly two claims, neither reinstated); **SPLIT-LOCK** held (KF.W4's oracle fate by reference, no bound re-derived) |
+
+**The acceptance clause, item by item**: 4 addenda ✔ · `git diff` empty on the originals ✔ (measured over
+**five**, a superset of the four the clause names) · anchors re-resolved at the landing substrate ✔ ·
+KF-EST-23 corrects exactly two claims and reinstates neither ✔ · KF-HA-4 states KF.W4's oracle fate by
+reference ✔ · the set is four and did not grow ✔.
+
+#### Act 7 — findings and residuals, routed not smoothed
+
+- **R-1 (routed to `.g` / the successor ledger, NOT re-graded here).** `:253`'s row is stale in **both**
+  directions, and only one was named at the bank: the demo-fix's discharge does not hold (the per-char split
+  is present) **and** *"engine primitive STILL BOOK"* is no longer true either (it shipped at KF.W5 `.c`).
+  The addendum re-opens the row on both legs. A close wave re-grades no G-lane disposition, so G26-3's
+  `:112` **BOOK** verdict is left exactly as the G lane wrote it.
+- **R-2 (recorded, not corrected).** `lane-22:121` repeats the `EditorStartScreen.vue:61-63` coordinate as
+  claim 1's Evidence bullet, and that coordinate has drifted to `:136-138`. It is the **same claim's
+  evidence**, so correcting it would have been the third correction the boundary lock forbids; it is booked
+  in the addendum as a recorded drift instead.
+- **R-3 (carried).** KF-HA-4's `proof:hero-two-focal` **clause (c)** limb has **no rebuilt instrument** —
+  KF.W4 re-armed the ceiling bound only. None is minted here (a close wave spends no cure); the sidecar
+  carries the gap to the next formation's ledger by name.
+- **R-4 (found and disqualified, never counted).** The one surviving `proof:cursor-light-subtle` hit is
+  prose inside KF.W4's own replacement test. Recorded as non-oracle context rather than silently dropped —
+  *"found and disqualified"* is the only reading a census may claim.
+- **R-5 (SELF-COUNT law).** This unit's writes are all in **keyframes.js**, outside G-4's witness field
+  (`value.js docs/tranches/X/` + `docs/tranches/V/megatranche/`), so the four addenda move that field by
+  **zero**. This receipt lands **inside** the field, and it carries **none** of G-4's three witness tokens:
+  ⟨cmd⟩ at the settled bytes, double-run, the record's token count is **unchanged at 9 occurrences on 4
+  lines** — this receipt contributes **0 and 0**, and re-reading it cannot move the number.
+
+**Escalations: NONE.** The specified cure was possible at the bytes in every one of its four limbs; nothing
+was substituted, and no write landed outside the unit's §4 bounds.
