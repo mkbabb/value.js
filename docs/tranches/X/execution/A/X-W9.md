@@ -1735,7 +1735,17 @@ docs/tranches/X/execution/LEDGER.md docs/tranches/X/waves/evidence/W9 docs/tranc
 → **empty** before this act. **No killed predecessor's partial work on the close seat exists;
 nothing inherited, nothing stashed, nothing restored.** `scripts/dev/dev.sh` never touched and never
 staged; the ten dirty `demo/**` rows (X-W4 / X-W7 seats), `CARRY-LEDGER.md` and the three untracked
-X-W1 paths never touched. The same fifteen rows reproduce after this seat's commits.
+X-W1 paths never touched.
+
+**Correction at the settled bytes, 2026-09-18 22:4x EDT, WRITE-THEN-MEASURE.** The sentence this
+paragraph first carried — *"the same fifteen rows reproduce after this seat's commits"* — is FALSE,
+and is corrected here rather than quietly rewritten. ⟨cmd⟩ `git status --porcelain` after this
+seat's two commits → **17 rows**. The delta is **two sibling-seat rows that arrived while the gates
+were running**: ` M docs/tranches/X/execution/C/F-W4.md` (Track C) and
+`?? docs/tranches/X/keyframes/waves/KF-W11.md` (Track B). **Neither was touched, staged or
+committed by this seat** — ⟨cmd⟩ `git diff --cached --name-only` after each commit → **empty**, and
+⟨cmd⟩ `git show --stat` on both commits names only this seat's four paths.
+`scripts/dev/dev.sh` is among the seventeen, untouched and never staged.
 
 ### C.1 Commit roster — every commit exists, and every one is in bounds
 
