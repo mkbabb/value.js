@@ -715,3 +715,179 @@ the dated record of that sitting (E-3).
 ## Unit receipts
 
 *(empty — no unit was dispatched; the wave did not open)*
+
+---
+
+### KF.W12.a
+
+**SERVED MODEL: claude-opus-5[1m]** · unit **CARD-UNIT** (phase 1, Opus solo) ·
+**status DONE** · opened on kf `bf4a9a9c`, closed at kf **`ed96f2b0`** ·
+**9 commits** (SELF-COUNT: ⟨cmd⟩ `git log --oneline bf4a9a9c..HEAD | grep -c 'X.KF.W12.a'` → **9**).
+Full transcripts: `docs/tranches/X/keyframes/evidence/W12/KF-W12-a-gate-transcripts.md`.
+
+#### Crash-recovery (standing law, first act)
+
+⟨cmd⟩ `git -C /Users/mkbabb/Programming/keyframes.js status --porcelain` → **2 untracked rows**, both
+value.js-delivered mail packets (`docs/tranches/V/coordination/VALUEJS-INBOUND-2026-07-24-…`,
+`…-2026-07-27-…`) — outside every path in this unit's writable set.
+⟨cmd⟩ `git -C /Users/mkbabb/Programming/value.js status --porcelain` → `CARRY-LEDGER.md` (a sibling
+seat's, untouched) and `scripts/dev/dev.sh` (**unowned, never staged, never touched**).
+**Zero dirty paths inside this unit's writable set; zero inherited hunks; nothing finished, nothing
+rewritten, nothing stashed, nothing restored.**
+
+#### Acts, in KC-34's order
+
+| # | sha | act |
+|---|---|---|
+| 1 | **`e5235ca0`** | **KC-34 (D-17), FIRST by OP-3.** The host's text and its colourisation become ONE write through ONE seam (`syncHostSource`), and the card renders the `<pre>` **childless**: `<code>{{ formattedCSS }}</code>` had made Vue the second owner of a subtree `el.innerHTML = …` replaces wholesale, so every paint detached the element Vue's vnode still pointed at. `highlight` hoisted to a module-level `paintHost` (the boot and the idempotence `WeakMap` were already shared; only the theme node is per-instance). |
+| 2 | **`f6a51e23`** | **KC-1 + KC-27, together** (KC-1 is KC-27's prerequisite). The list binds `selectorText(frames[i].start)`; FE-3's `startScalar` and the card's defensive `displayStart` twin both go. **KF-KC-3 / KF-KC-26** ride: the card root becomes a `role="group"` named by its offset, the `<pre>` drops the positional `CSS for keyframe ${index}`, the nameless `<Input>` gains `Offset`. |
+| 3 | **`dec084a8`** | **KC-2 ≡ KF-KE-2 — freeze and unit in ONE commit, NOT SPLIT.** Whole-selector replacement through `percentSelector`, read through `selectorPercent`, domain `0..100`, `step 0.1`, `marks` at the quarters. **KF-KE-34**'s naming half rides via `LabeledField` + `control-labelable=false`. Only moved stops are replaced, so a neighbour's NAMED selector is not flattened. |
+| 4 | **`5b80d54c`** | **KC-8 / KC-9 — keep-mounted.** Rows come from `frames` keyed by frame id, so a projection pass is a prop update rather than a full unmount; the two string projections become genuinely OPTIONAL (absence is passed down as absence, never laundered into `""`). Dies with it: **KC-14 / KF-KC-43** (the guard asymmetry — the frame is the loop variable now) and **KC-31**'s runtime-dead `?? s`. |
+| 5 | **`8099b19e`** | **KC-3 ≡ KF-KC-2 ≡ KF-CB-11 + KC-7 + KC-10 + KF-KC-34 + KF-KC-35 + KC-23's demo half.** The bare `<svg>` becomes the producer's `Button` (`icon-only`, `tone="destructive"`, offset-bearing name, house Tooltip); `canRemove` makes the last-keyframe floor expressible; the list restores focus to a survivor's command and announces the removal in a polite live region. |
+| 6 | **`361d2d17`** | **KC-28 + KC-15 + KC-36 + KC-18.** The card declares `rootEl` (the contract had promised `$el` "via defineExpose" while exposing `{ preEl }` alone); `cardInstances` is a `shallowRef` **rebuilt in `onBeforeUpdate`** rather than index-patched forever. |
+| 7 | **`697d045d`** | **The tail — KC-16 · KC-17 · KC-19 · KC-22 · KC-33**, plus the comment re-statements KF-CE-41's law obliges (below). |
+| 8 | **`dffcffd5`** | **KC-15 / KC-10 correction, found BY the born-RED gate**: a departing card fires its ref with `null` *after* survivors re-seat, blanking the slot a survivor just took — which is how the focus hand-off landed on `<body>`. With the rebuild in place a null write can only destroy information, so it is ignored. |
+| 9 | **`ed96f2b0`** | **KF-KC-48 — the acceptance test, born RED**, 9 cases, RED run pasted before the GREEN. |
+
+**Bounds audit** — ⟨cmd⟩ `git show --stat` over all nine: every path touched is
+`…/keyframes/components/KeyframeCard{,List}.vue`, `…/keyframes/KeyframesEditor.vue`,
+`…/keyframes/composables/useHighlightCSS.ts`, `test/demo/instrument/keyframe-card-offset-loop.test.ts`.
+**Zero writes outside the writable set. Zero `src/**`, zero `orbital-drag/**`, zero `node_modules`,
+zero glass-ui.** `scripts/dev/dev.sh` never staged, never touched.
+
+**SHARED INDEX, disclosed.** `.b` is committing into this same checkout concurrently (`98675047`
+landed between acts 5 and 6, and `ChannelOptions.vue` / `useTimingFunctionEditor.ts` were dirty
+throughout). Every commit above carries its own pathspec **on the commit itself**; nothing of `.b`'s
+was staged, reset or unstaged, and ⟨cmd⟩ `git show --stat` confirms no sibling path rode any of the
+nine.
+
+#### Gate readings — G-KFW12-1, BEFORE → AFTER
+
+| clause | BEFORE (`bf4a9a9c`) | AFTER (`ed96f2b0`) | verdict |
+|---|---|---|---|
+| runtime | `No test files found, exiting with code 1` (born-RED; `ls` → `No such file or directory`, ×2) | `Test Files 1 passed (1)` · `Tests 9 passed (9)` — **double-run** | **GREEN** |
+| byte — `grep -c 'frame.start.value = starts' …/KeyframesEditor.vue` | **1 · 1** | **0 · 0** | **GREEN** |
+| order (KC-34, read from `git log`) | n/a | `e5235ca0` (highlight) **precedes** `5b80d54c` (keep-mounted) | **GREEN** |
+
+**A false reading was caught at this seat**: the first KC-2 comment quoted the defect verbatim and
+held the byte clause at `1` over a file whose defect was already gone. The comment names the
+mechanism without reproducing the token; the clause now reads code, not prose.
+
+**THE BITE, EXECUTED** (§L-18 (v) — proven by execution, never by reading). Regressing
+`percentSelector(percent)` to a hand-rolled `{ kind: "percent", value: percent }` reds two cases with
+`['0%','3750%','100%']` and `['1000%','6000%','9000%']` — **the exact 100× destructive write L-B1
+warned of**, the outcome of curing the freeze without the unit. Restored; ⟨cmd⟩ `git diff --stat`
+→ *(no output)*.
+
+#### §0u ratchet
+
+| reading | value |
+|---|---|
+| wave total at this unit's open | **24 · 24** |
+| wave total at this unit's last commit | **18 · 18** |
+| this unit's two named diagnostics — `KeyframesEditor.vue(76,73)` · `(81,41)`, TS2339 | **0** |
+
+They fell **with** the cure that owns them (KC-2, `dec084a8`) — never by a cast, `@ts-expect-error`
+or `// eslint-disable`, each REFUSED by name. The total FELL from the banked floor; it never rose.
+(The wave total moves under `.b`'s concurrent work in the same checkout; the figure is this unit's
+own reading at its own last commit.)
+
+**DISCLOSED — two diagnostics MOVED into `.c`'s region, for that seat**:
+`KeyframesEditor.vue(445,39)` and `(446,37)`, TS2345, `setTargets(el1|el2)` receiving
+`HTMLElement | null | undefined` inside `removeKeyframe`. They were suppressed by `cardInstances`
+being `ref<any[]>`; typing the ref store (KC-17 / KC-18) is what makes **KC-15's own named
+consequence** — a stale or absent index handed to `setTargets` — visible to the checker. There is no
+green path that is not `any`: under `noUncheckedIndexedAccess`, indexing **any** array yields
+`| undefined`, so even a filtered non-null `HTMLElement[]` reds at the same call. The guard's site is
+`removeKeyframe`, outside this unit's `:76-88` card seam and inside the region `.c` already rewrites
+for KF-KE-7 / KF-KE-8.
+
+#### Rows LANDED — SELF-COUNT **27**
+
+KC-1 · KC-2 (≡ KF-KE-2, carrying KF-KE-34's naming half and KF-KC-19's total pair) · KC-3 (≡ KF-KC-2
+≡ KF-CB-11) · KC-4 (≡ KF-KC-3) · KC-7 · KC-8 · KC-9 · KC-10 · KC-14 (dies structurally) · KC-15 ·
+KC-16 · KC-17 · KC-18 · KC-19 · KC-22 · KC-23 (demo half) · KC-26 (group half ≡ KF-KC-26) · KC-27 ·
+KC-28 · KC-31 (dies structurally) · KC-33 · KC-34 · KC-36 · KF-KC-34 · KF-KC-35 · KF-KC-43 (dies
+structurally) · KF-KC-48.
+
+**GREEN-BEFORE-CURE (R.2), booked, never claimed**: **KC-5** — the `focus:border-transparent` /
+`focus:shadow-none` pair that defeated glass's keyboard-focus affordance on the offset field is
+**already absent** at these bytes (the W6 comment at the file head states the cure). Booked
+**LANDED-BY KF.W6**; this unit spent nothing on it.
+
+#### Rows measured and NOT spent — each named for its owner
+
+| row | measurement at these bytes | owner |
+|---|---|---|
+| **KC-6 ≡ KF-KC-21** (the dead structural watch) | `useKeyframesParsing.ts:96-103` — outside this unit's §B.2 rows | `.c` / `.e` |
+| **KC-11 ≡ KF-KC-27** (PRM + the mutation gated behind the 700 ms exit) | `removeKeyframe`, outside the `:76-88` seam | `.c` (KF-KE-7 / KF-KE-8) |
+| **KC-24** (three payload key names for one positional concept) | the consumer handlers are at `KeyframesEditor.vue:299+/330+/349+`, outside the seam; renaming the emits alone would break them | `.c` |
+| **KC-25 ≡ KF-KC-28** (`z-modal` + a `sticky` of provably ZERO travel — one edit, since the dead `sticky` is what makes the rung apply) | still present on the `<Input>`; §B.2 hands **the z rung on this file** to `.c` | `.c` |
+| **KF-KC-22** (the overlay is a dead click zone that swallows caret placement) | this container carries no `pointer-events-none`; only the identity block does — the guard is one level too deep. Same stacking/hit-testing decision as KF-KE-5 on the same bytes | `.c` |
+| **KC-29** (the architectural root: two index-parallel projections, one reactive) | half-addressed — the row set is now the model's; the full cure (one `ref` of row records) belongs where the projection is BUILT | `.c` / `.e` |
+| **KC-32** (the exposed contract mixes a ComputedRef with a plain function) | both consumer sites (`KeyframesEditor.vue:293`, `:354`) are outside the seam; KC-15's rebuild makes the unfiltered member correct, so what remains is shape alone | `.c` |
+| **KC-20** (the divider's contrast + missing `forced-colors` arm) | re-scoped glass BH relay, per the bank's own correction | `.g` / SS-6 |
+| per-thumb `aria-valuetext` on the retiming rail | **not expressible at the installed producer** — measured at `dist/slider-DzqeQmMu.js`: 0 occurrences of `aria-valuetext`, one `aria-label`/`aria-labelledby` forwarded from `$attrs` to EVERY thumb, no thumb slot. `LabeledSlider` is additionally refuted for this control (`modelValue: number`, single-thumb) | **SS-6 relay at `.g`** — see §4.1 of the evidence file for the ask |
+
+**DECLINED WITH REASON — KC-12's behavioural half** (the identity readout being unselectable): making
+the watermark selectable means giving this overlay back exactly the pointer surface **KF-KC-22**
+condemns it for having. One of the two is wrong, and it is not the caret. The token half of KC-12
+(`--muted-foreground` in place of the alpha) is already landed by KF.W6.
+
+#### Comment-stated invariants re-stated (KF-CE-41's law, §Sequencing's travelling lock)
+
+`KeyframeCard.vue`'s `KF-KE-45` block described *"a 24px `<X>` and the copy control adjacent with NO
+gap"* — false after KC-3's promotion and KC-23's `gap-1`. It is re-stated at the bytes this unit
+leaves, and its own precondition (**KF-KE-5 UNCURED**: the cluster still `absolute top-2 right-4`
+with no z rung, the `<pre>` still a later z-auto sibling whose class list still ends `relative`) is
+**re-measured and stands**. The list's `?? s` comment claiming *"an honest pre-format frame, never a
+blank"* died with KC-16, the window it described having never existed (KC-33).
+
+#### The headless finding the gate carries but does not assert
+
+⟨probe⟩ `AnimationGroup.of(presets.warpLeft().setTargets(el1), presets.jumpUp().setTargets(el2)).play()`
+→ `BrowserScalarResolutionError: Could not resolve "translateX(0%) rotate(0deg)" for "transform" to a
+numeric CSS scalar`. `removeKeyframe` **awaits** that choreography with no `catch`, so headless the
+delete is silently dropped — **KF-KC-27's third aggravation reproduced verbatim**. Clause (3) of the
+gate therefore witnesses the removal COMMAND at the seam this unit owns: asserting the defect would
+red the moment `.c` cures it, and waiting on it would gate this unit on another unit's work.
+
+#### Suite, lint, masking census
+
+⟨cmd⟩ `npx vitest run --project demo` → `1 failed | 48 passed (49)` · `1 failed | 423 passed (424)`,
+twice. The denominator grew by exactly this unit's one file (48 → 49). The single failure is
+**unmoved and not this unit's**: `test/demo/scenes/spring-trace-truth.test.ts > … (4b)` — KF.W11's
+carried honest-RED (ESCALATION KF11-E(j1), residual j-R5), the one this wave's re-open block names.
+It was not touched and nothing was weakened to make it pass.
+⟨cmd⟩ `git diff bf4a9a9c..HEAD -- test | grep -c 'test.skip\|it.skip\|\.only('` → **0**.
+`value4-editor-boundary.test.ts` **not touched, timeout NOT widened**; no timeout in this unit's diff
+exceeds a default. ⟨cmd⟩ `npx tsc --noEmit -p tsconfig.test.json | grep keyframe-card-offset` →
+*(no output)*. ⟨cmd⟩ `npx eslint` over this unit's four product files and its test → clean.
+**Zero `try/catch` around a defect, zero allowlist, zero copied producer selector, zero `node_modules`
+patch, zero cast/`@ts-expect-error`/`eslint-disable` used as a cure.**
+
+#### E13
+
+Swept read-only at this seat's clock: ⟨cmd⟩ positional leading-verb scan of
+`docs/tranches/V/coordination/INBOX.md` → **UNREAD: 0** over **80** rows; the four paths' newest
+letters are unmoved from the re-open sweep. **No unread mail in this unit's scope.** One producer row
+is HANDED UP, not sailed here (the per-thumb `aria-valuetext` ask, §4.1 of the evidence file) — `.g`
+owns the SS-6 relay.
+
+#### The shas `.c` opens on
+
+| shared path | last commit by this unit |
+|---|---|
+| `demo/components/instrument/keyframes/components/KeyframeCard.vue` | **`697d045d`** |
+| `demo/components/instrument/keyframes/KeyframesEditor.vue` | **`dec084a8`** |
+| `demo/components/instrument/keyframes/composables/useHighlightCSS.ts` | **`e5235ca0`** |
+| `demo/components/instrument/keyframes/components/KeyframeCardList.vue` (not shared, recorded) | **`dffcffd5`** |
+| **unit head** | **`ed96f2b0`** |
+
+**`.c` also inherits, by name**: the two moved diagnostics at `KeyframesEditor.vue(445,39)`/`(446,37)`;
+KF-KE-25's blanking write at `useKeyframesParsing.ts:50` (this unit made the list immune to it rather
+than reaching across for it — the write itself is still there); and the seven rows in the
+"measured and NOT spent" table above.
+
+**Escalations: none.** No cure specified for this unit was impossible at the bytes; every row outside
+the writable set is carried as a named residual with its owner, not substituted for.
