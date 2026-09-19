@@ -12,6 +12,12 @@ import { Button } from "../../ui/button";
 import { Badge } from "../../ui/badge";
 import { RefreshCw, Save, Copy } from "@lucide/vue";
 import { writeClipboard } from "@mkbabb/glass-ui";
+// X-W4 · X.W4.b (CC-047) — the producer's published field composition
+// (`@mkbabb/glass-ui/labeled-field`, 7.0.0): `controlLabelable: false` for the
+// non-labelable combobox root, and the slot's `labelledBy` names the trigger, so
+// the marginalia captions below stop floating unassociated and the duplicated
+// literal `aria-label` retires.
+import { LabeledField } from "@mkbabb/glass-ui/labeled-field";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 import { PaletteColorStrip } from "../../palettes/browser/card";
 // T.W6 · W6-4→N (T-17, the intra-wave single-writer clause): Lane D authored
@@ -217,10 +223,9 @@ defineExpose({ regenerate, save, copyColors });
         <!-- Marginalia: preset & harmony. W5-7 — the permanent subtitles died;
              the dropdown's own #description rows tell the story on demand. -->
         <div class="grid grid-cols-2 gap-3">
-            <div class="flex flex-col gap-1">
-                <span class="section-label">Preset</span>
+            <LabeledField label="Preset" :control-labelable="false" v-slot="{ labelledBy }">
                 <Select :model-value="preset" @update:model-value="onPresetChange">
-                    <SelectTrigger aria-label="Generation preset" class="h-9">
+                    <SelectTrigger size="sm" :aria-labelledby="labelledBy">
                         <SelectValue />
                     </SelectTrigger>
                     <!-- B.W1 width, re-verified at the T-17 chip landing (F7:
@@ -249,12 +254,11 @@ defineExpose({ regenerate, save, copyColors });
                         </SelectItem>
                     </SelectContent>
                 </Select>
-            </div>
+            </LabeledField>
 
-            <div class="flex flex-col gap-1">
-                <span class="section-label">Harmony</span>
+            <LabeledField label="Harmony" :control-labelable="false" v-slot="{ labelledBy }">
                 <Select :model-value="harmony" @update:model-value="onHarmonyChange">
-                    <SelectTrigger aria-label="Color harmony" class="h-9">
+                    <SelectTrigger size="sm" :aria-labelledby="labelledBy">
                         <SelectValue />
                     </SelectTrigger>
                     <!-- B.W1 width, re-verified at the T-17 chip landing (F7):
@@ -278,7 +282,7 @@ defineExpose({ regenerate, save, copyColors });
                         </SelectItem>
                     </SelectContent>
                 </Select>
-            </div>
+            </LabeledField>
         </div>
 
         <!-- Count — the extract k-slider pattern verbatim: the ramp IS the

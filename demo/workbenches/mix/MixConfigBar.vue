@@ -8,6 +8,15 @@ import {
     SelectValue,
 } from "../../ui/select";
 import { Button } from "../../ui/button";
+// X-W4 · X.W4.b (CC-047) — the producer's published field composition
+// (`@mkbabb/glass-ui/labeled-field`, 7.0.0). `controlLabelable: false` drops the
+// invalid `for` on a non-labelable composite root, and the slot's `labelledBy`
+// names the reka combobox through `aria-labelledby` — so the caption that used to
+// float unassociated above each trigger IS the trigger's accessible name, and the
+// duplicated literal `aria-label` retires. Imported at the subpath the demo already
+// consumes producer families through (dock / aurora / search / tabs / easing);
+// `demo/ui/**` is X-W8's surface and is untouched.
+import { LabeledField } from "@mkbabb/glass-ui/labeled-field";
 import { Blend } from "@lucide/vue";
 import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
 import type { PickerSpace } from "../../color-session/picker-color";
@@ -94,10 +103,9 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
         <div class="grid grid-cols-2 gap-2">
             <!-- W5-7: the permanent subtitles died — the dropdown's own
                  #description rows already tell the story once, on demand. -->
-            <div class="flex flex-col gap-1">
-                <label class="section-label">Color space</label>
+            <LabeledField label="Color space" :control-labelable="false" v-slot="{ labelledBy }">
                 <Select :model-value="colorSpace" @update:model-value="(v: AcceptableValue) => emit('update:colorSpace', v as PickerSpace)">
-                    <SelectTrigger aria-label="Color space" class="h-9">
+                    <SelectTrigger size="sm" :aria-labelledby="labelledBy">
                         <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -115,12 +123,11 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
                         </SelectItem>
                     </SelectContent>
                 </Select>
-            </div>
+            </LabeledField>
 
-            <div class="flex flex-col gap-1">
-                <label class="section-label">Hue method</label>
+            <LabeledField label="Hue method" :control-labelable="false" v-slot="{ labelledBy }">
                 <Select :model-value="hueMethod" @update:model-value="(v: AcceptableValue) => emit('update:hueMethod', v as HueInterpolationMethod)">
-                    <SelectTrigger aria-label="Hue method" class="h-9">
+                    <SelectTrigger size="sm" :aria-labelledby="labelledBy">
                         <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -137,14 +144,18 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
                         </SelectItem>
                     </SelectContent>
                 </Select>
-            </div>
+            </LabeledField>
         </div>
 
         <!-- Leftover strategy (palette mode only) -->
-        <div v-if="showLeftoverStrategy" class="flex flex-col gap-1">
-            <label class="section-label">Size mismatch</label>
+        <LabeledField
+            v-if="showLeftoverStrategy"
+            label="Size mismatch"
+            :control-labelable="false"
+            v-slot="{ labelledBy }"
+        >
             <Select :model-value="leftoverStrategy" @update:model-value="(v: AcceptableValue) => emit('update:leftoverStrategy', v as LeftoverStrategy)">
-                <SelectTrigger aria-label="Size mismatch strategy" class="h-9">
+                <SelectTrigger size="sm" :aria-labelledby="labelledBy">
                     <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -153,7 +164,7 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
                     </SelectItem>
                 </SelectContent>
             </Select>
-        </div>
+        </LabeledField>
 
         <!-- The page's ONE verb — the producer's deliberate-primary register
              (S.W5-6 · L6 rider: consumed at the root vocabulary, never a

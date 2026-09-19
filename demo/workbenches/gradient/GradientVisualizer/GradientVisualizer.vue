@@ -10,6 +10,12 @@ import {
 import { Slider } from "../../../ui/slider";
 import { Copy } from "@lucide/vue";
 import { writeClipboard } from "@mkbabb/glass-ui";
+// X-W4 · X.W4.b (CC-047) — the producer's published field composition
+// (`@mkbabb/glass-ui/labeled-field`, 7.0.0): `controlLabelable: false` for the
+// non-labelable combobox root, and the slot's `labelledBy` names the trigger. The
+// three control-bar captions stop floating unassociated above their triggers and
+// the duplicated literal `aria-label` retires.
+import { LabeledField } from "@mkbabb/glass-ui/labeled-field";
 import { DockControl } from "@mkbabb/glass-ui/dock";
 import GradientStopEditor from "./GradientStopEditor.vue";
 import GradientCodeEditor from "./GradientCodeEditor.vue";
@@ -159,10 +165,9 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
             <!-- W5-7 (P1-11): the per-select subtitle rows are EXCISED — they
                  truncated at every viewport and duplicated the descriptions
                  already carried inside each dropdown's items. -->
-            <div class="flex flex-col gap-1">
-                <span class="section-label">Type</span>
+            <LabeledField label="Type" :control-labelable="false" v-slot="{ labelledBy }">
                 <Select :model-value="type" @update:model-value="(v: AcceptableValue) => type = v as GradientType">
-                    <SelectTrigger class="h-9" aria-label="Gradient type">
+                    <SelectTrigger size="sm" :aria-labelledby="labelledBy">
                         <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -174,12 +179,11 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                         </SelectItem>
                     </SelectContent>
                 </Select>
-            </div>
+            </LabeledField>
 
-            <div class="flex flex-col gap-1">
-                <span class="section-label">Space</span>
+            <LabeledField label="Space" :control-labelable="false" v-slot="{ labelledBy }">
                 <Select :model-value="interpolationSpace" @update:model-value="(v: AcceptableValue) => interpolationSpace = v as PickerSpace">
-                    <SelectTrigger class="h-9" aria-label="Interpolation space">
+                    <SelectTrigger size="sm" :aria-labelledby="labelledBy">
                         <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -191,12 +195,11 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                         </SelectItem>
                     </SelectContent>
                 </Select>
-            </div>
+            </LabeledField>
 
-            <div class="flex flex-col gap-1">
-                <span class="section-label">Hue</span>
+            <LabeledField label="Hue" :control-labelable="false" v-slot="{ labelledBy }">
                 <Select :model-value="hueMethod" @update:model-value="(v: AcceptableValue) => hueMethod = v as HueInterpolationMethod">
-                    <SelectTrigger class="h-9" aria-label="Hue interpolation">
+                    <SelectTrigger size="sm" :aria-labelledby="labelledBy">
                         <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -208,7 +211,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                         </SelectItem>
                     </SelectContent>
                 </Select>
-            </div>
+            </LabeledField>
         </div>
 
         <!-- The render tile: type + direction APPLIED — a square-ish surface
