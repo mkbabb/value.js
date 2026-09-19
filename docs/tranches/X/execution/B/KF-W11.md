@@ -1302,3 +1302,76 @@ two-line `SpringScene.vue` carve this unit is assigned. No `src/**` · no `CubeA
 `node_modules` · no glass-ui byte · no `test.skip`/`.only` · no `@ts-expect-error`/`as`/
 `eslint-disable` · no stash, no `reset --hard`, no force-push · `scripts/dev/dev.sh` never staged ·
 the LEDGER row is `.j`'s and was not touched by this unit.
+
+---
+
+### KF.W11.b
+
+SERVED MODEL: claude-opus-5[1m]
+
+**Unit** KF.W11.b — the **square packet** (Track B · X·KF) · **Date** 2026-09-19
+**Repo** `/Users/mkbabb/Programming/keyframes.js` @ `master` · **open** `bc5cc128` · **close** `2c5f8c04`
+**Evidence** `docs/tranches/X/keyframes/evidence/W11/b-square-packet-2026-09-19.md` (full tables, every figure double-run)
+
+**STATUS: GREEN.** G-KFW11-7 GREEN on all four acceptance limbs and all four byte clauses; the §0u ratchet holds at **0** in this unit's rows, open and close.
+
+#### Gates — double-run at the settled bytes
+
+| ⟨cmd⟩ | spec (today · must read) | run 1 | run 2 |
+|---|---|---|---|
+| `npx vitest run --project demo test/demo/scenes/square-editor-seam.test.ts` | `No test files found` · GREEN | 1 file / **7 passed (7)** | with `square-scene.test.ts`: 2 files / **30 passed (30)** |
+| `grep -c 'setTimeout(step, 520)' demo/scenes/square/useSquareKeyboard.ts` | 1 · **0** | **0** | **0** |
+| `grep -rc 'animationGroup.pause()' demo \| grep -v ':0'` | `SquareScene.vue:1` · **nothing** | *(empty)* | *(empty)* |
+| `sed -n '29p' demo/scenes/square/useSquareDemo.ts \| grep -c ':161'` | 1 · **0** | **0** | **0** |
+| `grep -c 'viewBox' demo/scenes/square/SquareInstrument.vue` | 0 · **still 0** | **0** | **0** |
+| `grep -rl 'usesDefaultRenderer\|adoptCompiled' test/demo \| wc -l` | 0 today | **1** | **1** |
+| `npm run test:demo` | — | 41 files / **328 passed (328)** | 41 files / **328 passed (328)** |
+| `npx vue-tsc --noEmit -p tsconfig.json \| grep -E 'square\|Square'` | ratchet **0** | *(empty)* | *(empty)* |
+| `git diff 1233e42e~1..HEAD -- test \| grep -c 'test.skip\|it.skip\|\.only('` | **0** | **0** | **0** |
+
+Three byte clauses tripped mid-unit **on my own prose** — the gate greps bytes and a comment quoting the banned string is a byte (`animationGroup.pause()` read 2, `viewBox` read 4, `setTimeout(step, 520)` read 1). Each was **reworded, never suppressed**, and each re-read 0 twice. Recorded so a future seat knows the clean count was earned.
+
+#### §0u ratchet (OP-0)
+
+**0 diagnostics in this unit's rows at every measurement; the count never rose.** The *global* figure is not mine to own (four tracks, one tree; `.r` re-derives the CI-faithful floor as **31 → 29**): it read 29 at my open, rose to **30** mid-unit, and reads **25** at my close. I enumerated the rise by file before continuing — the added diagnostic was `demo/scenes/cube/CubeTarget.vue`, **unit `.a`'s row**, from sibling commit `bc5cc128` in this same working tree. Nothing of mine changed. `.j` states the close delta against 31.
+
+#### L-2 — the sha KF.W12 KFED-UNIT asked for
+
+**`L-2` sha = `d7f68225`** ("the renderer belongs to the RECEIVER, and a failed frame degrades instead of wedging — G-RENDERER + G-RAF", KF.W5.d, 2026-09-17).
+
+`kf-SquareScene.md:40` disposes L-2 as an **OR** and the **library arm landed first**: `compile-bridge.ts` now keeps `receiver.own` across a transplant, where `d7f68225^` was a bare transplant with **no renderer clause at all**. Per **R.2 GREEN-BEFORE-CURE** the row is booked **`LANDED-BY d7f68225`** — born witness written, passes twice at my open sha, cause named, **not re-cured and not claimed**. Consequence stated plainly: **`useKeyframeOps.ts` is byte-unchanged by this unit**; the `:58-69` carve was not spent, and `useKeyframeOps.ts(80,13)` is **outside** the carve and left to KF.W12 untouched. The `RAFPlayback` degrade-not-wedge rider split the same way — library half at `d7f68225`, **demo half landed here** (`num()` made TOTAL; `colorAt`'s two static parses moved out of the frame path).
+
+#### OP-3 re-derivation — performed *before* the geometry cure
+
+full-drag half-extent `96×1.12 + 110 + 8 = 225.5px` · tour-corner `96×1.08 + 90 + 8 = 201.7px` · mobile half-width `187.5 @375 · 195 @390`. Both half-extents exceed both mobile half-widths inside an `overflow:hidden` plate — **the subject amputated during the scene's own headline animation**. Reproduces the record's figures and justifies the clamp. After: `@375 → 151.8 ≤ 187.5` · `@320 → 128.9 ≤ 160` · `≥524` byte-identical to the fixed pair. One custom property is read **and re-read on resize**, so the spring's coordinate world and the painted geometry cannot drift apart.
+
+#### OP-7 — the gated subset, NAMED BEFORE ANY CURE WAS SPENT
+
+**D-2** (the caption/telemetry prune — the OD-5/T.M2 sign-off decides which layers live) · **D-18** (the badge live region, rides D-2) · **D-10** (legend casing — *moot if D-2's prune takes the legend*) · **N-SQ-5** (title rung — rides the D-2 sign-off) · **D-22** *(added by this seat: the block IS the legend; its type register cannot be unified without pre-empting D-10 and the prune — declared gated by adjacency, not cured)*. The **scene**'s D-9 is the same decision as N-SQ-5 and is gated with it. **No layer was deleted un-ruled.** The **instrument**'s D-9 core ≡ C-7 is a different row — an orphaned class token, not a layer — and was cured with its LAW A census.
+
+#### Locks — all honoured
+
+- **Tether family D-1 + D-6 + D-16 + N-SQ-4 did NOT split**: one commit, `b9b5476c`, and the cure derives the frame **from travel** — never by adding a user-space box, exactly as N-SQ-4 orders. The byte clause reads 0 twice.
+- **MISS-3's settle-paced tour AND its assertion in ONE commit**: `8c0122e1`. There is no timer left in the file; the assertion (advance 10 s → no movement; four settles → four legs in order; extras → nothing) lands beside it.
+- **L-2's library half DECLARED, never written.**
+- **LAW A** ran before every delete (`palette-sweep-host` 1 site · `.square-live-caption` 1 site, no rule in *any* revision · the dead cross-boundary tether PRM rule · `tourTimer` 4 refs, all file-local).
+
+#### Commits — 10, each by exact pathspec, each with the session trailer
+
+`1233e42e` L-2 born witness · `769f3aec` D-27/L-7/C-9 · `61f3fdb4` one playback authority · `43cb2c05` colour packet · `b9b5476c` tether-truth · `f6ea8ba1` instrument-truth · `3af1422b` input + disclosure · `c71642c9` field · `8c0122e1` MISS-3 · `2c5f8c04` geometry + chrome + hygiene tail.
+
+#### ESCALATION — one, bounded
+
+**`SquareScene` cannot be mounted under vitest**: `Cannot find package '@mkbabb/keyframes.js' imported from node_modules/@mkbabb/glass-ui/dist/useSpring-9u2_shxV.js` — the producer's built chunk imports by bare specifier and the demo project's resolver has no alias. The one-line fix is in **`vitest.config.ts`, explicitly in §Bounds' "Do NOT touch" list**. I did **not** patch it, patch `node_modules`, mock the producer, or skip the case — each is the masking-fallback class the dispatch names a HIGH defect. **Bounded consequence:** the gate's PAUSE-through-the-machine limb is witnessed without a mount — by the byte census (the group's own `pause()` has exactly one caller, behind the machine) plus the 8-branch takeover-before-reseat ordering assertion. A real witness of the invariant; not a mounted-component witness. **Ask:** whichever unit owns `vitest.config.ts` adds the alias — every square scene-level mount witness in this wave and the next is blocked on it.
+
+#### Residuals — declared, not dropped
+
+**L-16/C-10** (the seam is `useSweepScene`, **outside my writable set** — not written) · **L-13/C-11** (routed *NO-WAVE-OWNER + a library rider*; no honest demo-only cure) · **L-D6** (the adjudication scopes it **SS-13 #8, a trace**, not a cure) · **D-20 / D-12 RTL** (house-wide rider, routed to **KF.W9**) · **D-16 magnitude** (row marks it UNPROVEN; SS-13 #10 wants it re-derived under the producer PRM override).
+
+#### Inherited-paths clause
+
+**Zero writes outside the writable set.** No `src/**` byte (the library oracle was **read-only**) · no `useKeyframeOps.ts` byte at all · no `vitest.config.ts` · no `node_modules` · no glass-ui byte · no sibling track's paths · no `test.skip`/`.only` · no `@ts-expect-error`/`as any`/`eslint-disable` added · no stash, no `reset --hard`, no force-push · **`scripts/dev/dev.sh` never staged**. Every commit used `git add <exact paths>` + `--` with the same exact paths; the LEDGER row for this wave is `.j`'s and was **not** touched by this unit.
+
+#### SELF-COUNT
+
+This receipt: **10** commits listed and **10** exist in `git log` · **9** gate commands tabled, each with **two** runs · **5** OP-7 rows named · **5** residuals declared · **1** escalation · **4** locks discharged · **0** claims not read from settled bytes.
