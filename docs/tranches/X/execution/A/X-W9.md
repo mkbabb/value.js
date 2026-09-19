@@ -322,3 +322,188 @@ one commit) · 12 → `.i` (five packets + five `INBOX.md` rows + the sweep line
 *(appended by each unit at its close, in dispatch order; line 1 of every receipt names the served
 model; every published count read from the settled bytes and double-run; ⟨cmd⟩ … → output for every
 claim.)*
+
+---
+
+### X-W9.a
+
+SERVED MODEL: `claude-opus-5[1m]` · Prototype-reachable lookups and empty-body colour totality
+(W9.md §Agent Units `X.W9.a` :183-197 · §Hard Gate G1–G5 :343-347 · §Commit Plan rows 1–2 :455-456 ·
+§Disjointness Chain A :123-127 · §Archaeology :503-509).
+**Status: PARTIAL** — G2, G4, G5-in-bounds GREEN; G1 and G3 carry residuals owned by other units,
+and G5 carries one out-of-bounds residual raised as **ESC-W9a-TIMELINE-NNA**.
+Worktree `/Users/mkbabb/Programming/value.js-x-w9-a` @ `e24a7cfb`, `node_modules` symlinked; all
+figures read from settled bytes and **double-run** in the worktree and again after integration.
+
+#### 0. CRASH-RECOVERY sweep (standing law)
+
+⟨cmd⟩ `git status --porcelain` → 15 rows, **none inside this unit's writable set**
+(`src/css/named-colors.ts` · `src/css/grammar.ts` · `src/css/stylesheet.ts` · `src/easing.ts` ·
+`src/foundation/result.ts` · `test/parser-totality.test.ts` · `docs/tranches/X/waves/evidence/W9/**` ·
+this record). ⟨cmd⟩ `git status --porcelain -- <those seven paths>` → **empty**. **No killed
+predecessor's partial work on X-W9.a exists; nothing inherited, nothing stashed, nothing restored.**
+`scripts/dev/dev.sh` never touched. `ConsoleRail.vue` (X-W4's live carve) never touched.
+
+#### 1. Anchors verified at TRUE bytes before any edit (spec :186-188)
+
+| spec anchor | measured at `e24a7cfb` | verdict |
+|---|---|---|
+| `named-colors.ts:1` | `export const NAMED_COLORS: Readonly<Record<string,string>> = Object.freeze({` | **EXACT** |
+| `grammar.ts:265-266` | `const named = NAMED_COLORS[input.toLowerCase()];` / `if (named) return parseCssColor(named);` | **EXACT** |
+| `grammar.ts:181` | `const components = splitTopLevel(slash[0]!.replace(/,/g, " "), "space");` | **EXACT** |
+| `grammar.ts:457-462` | the `aliases` object literal + `aliases[args[1]?.toLowerCase() ?? "jump-end"]` at `:461` | **EXACT** |
+| `stylesheet.ts:163-171` | the twin `aliases` literal + `aliases[authoredPosition]` at `:169` | **EXACT** |
+| `easing.ts:166-170` | `if (!(name in PRESETS))` at `:168`; destructure at `:169` | **EXACT** |
+
+No anchor drifted. Root-cause confirmed by measurement, not by prose: ⟨cmd⟩ a 760-vector head sweep
+(38 heads × 5 body shapes × 4 entries) printed **410 throwing vectors and exactly ONE distinct
+message** — `TypeError: Cannot read properties of undefined (reading 'replace')`. One site, one
+failure mode, as R1 §A1 states.
+
+#### 2. Act 1 — the RED-first battery, its OWN commit, watched failing
+
+`test/parser-totality.test.ts` (create): **123 tests**, §1 the 56 empty-/whitespace-body vectors
+(14 heads that reach `parseFunctionalColor` × {`""`, `"   "`} × {`parseCssColor`, `parseCssScalar`};
+self-counted in-test), §2–§5 **widened by the R1 input class** of
+`docs/tranches/V/coordination/value-inbox-2026-07-27-library-band-r1-widened-k1-k4.md` — §A1 the
+scalar widening (20), §A2 the prototype class on five `./css` entries + five embedded
+`parseStylesheet` forms (16), §A2 the `steps()` TYPE LIE and its `collectAnimationOptions` twin (4),
+§A2 `easing()` over the 5 `Object.prototype` keys (5) + the control arm.
+
+⟨cmd⟩ `npx vitest run test/parser-totality.test.ts` → **exit 1 · `Tests  120 failed | 3 passed
+(123)`**. Three distinct shapes: `Cannot read properties of undefined (reading 'replace')` ·
+`source.trim is not a function` · `expected 'function' to be 'string'`.
+Full 496-line capture committed at `docs/tranches/X/waves/evidence/W9/parser-totality-red-first.txt`;
+the same three shapes are pasted verbatim in the commit body, per §Archaeology guardrail 1.
+
+**Commit 1 (worktree `51fc69a8` → primary `c18a78f8`)** — `test(x-w9): RED-first empty-body +
+prototype battery`. **No cure byte rides it**: ⟨cmd⟩ `git show --stat c18a78f8` → exactly
+`test/parser-totality.test.ts` + the evidence capture. A rename cannot satisfy this commit.
+
+#### 3. Act 2 — the cure, exactly the specified mechanism
+
+| site | cure | why it is the root, not a mask |
+|---|---|---|
+| `named-colors.ts:1` | `Object.freeze(Object.assign(Object.create(null), {…}))` | the table is indexed by a lowercased parse-derived key; with a prototype, `NAMED_COLORS["constructor"]` WAS the `Object` constructor, truthy, and `parseCssColor` recursed on a `Function` |
+| `grammar.ts:265-266` | `if (typeof named === "string")` | the type-side half of the same cure; keeps the recursion honest if the table is re-typed |
+| `grammar.ts:181` | `const head = slash[0]; if (head === undefined) return failure(source, "css_syntax", ["color components"]);` | an empty/whitespace body IS a syntax error, so it returns the module's own `ParseResult` failure — the shape every other syntax error already returns |
+| `grammar.ts:457-462` **+** `stylesheet.ts:163-171` | ONE exported `JUMP_ALIASES: ReadonlyMap<string, JumpPosition>`, read by both | `Map.get` reads own entries only; the two copies were why the defect had two homes |
+| `easing.ts:166-170` | prototype-free `PRESETS` **and** `DIRECT_EASINGS`; `in` and the destructure-of-`Object` are gone | `PRESET_TABLE` stays the single authored source of the table **and** `BezierPresetName`; `bezierPresets`' 30-key set byte-identical (G25 untouched) |
+
+**`src/foundation/result.ts`: ZERO bytes changed.** In this unit's writable set, and deliberately
+not written — PSL-3 keeps `ParseResult` (text→AST) and `Result` (value→value) declared per boundary,
+never unified, and `grammar.ts:181` is on the `ParseResult` side.
+
+Riding in the same commit because G5 demands the crash **shape** go, not the instance
+(§Archaeology guardrail 4): **all 90** non-null assertions in `grammar.ts` (72) and `stylesheet.ts`
+(18) retired by narrowing — `channelTriple` returns a **tuple** so the seven colour heads carry their
+narrowing in the type; scanners take `String.prototype.charAt`; every `match(…)` is destructured and
+tested. The six DOUBLE `declarations.get()` reads at `stylesheet.ts:709-717` are hoisted to one read
+each: that is **X-W9.d's listed row, discharged here** because it is also four of the 90 — `.d`
+re-measures rather than inherits.
+
+**Commit 2 (worktree `ec481324` → primary `97ab3991`)** — `fix(css/lookup): prototype-reachable
+tables + grammar.ts:181 typed failure`. The MTS-01 cure and its `stylesheet.ts:163-171` twin land
+**together**, as the band ruled.
+**Commit 3 (worktree `695fbdd3`, folded into primary `97ab3991`)** — `eslint-nna.css.before.json`,
+the 94-error BEFORE reading regenerated at the base blobs to complete the §Verification-Artefacts
+before/after pair.
+
+#### 4. Gate readings, BEFORE → AFTER, double-run
+
+| gate | command | BEFORE | AFTER (worktree) | AFTER (integrated primary) | verdict |
+|---|---|---|---|---|---|
+| **G1** | `node …/probes/src-surface-totality.mjs` | **28 RED** (MTS-01 15 · 02 2 · 03 4 · 04 1 · 05 1 · 06 3 · 08 1 · 09 1) | **11 RED** | **5 RED** (X-W9.b landed `474846ce`/`4be22189` beside this seat and took MTS-03/04/05) | **THIS UNIT'S LEGS GREEN — MTS-01 15→0, MTS-02 2→0.** Residual 5 = MTS-06 ×3 (X-W9.c) · MTS-08 ×1 · MTS-09 ×1 (X-W9.d) |
+| **G2** | `npx vitest run test/parser-totality.test.ts` | `120 failed \| 3 passed (123)` | `123 passed` | `123 passed` (×2, identical) | **GREEN** |
+| **G3** | `library-band-gates.mjs` LIB-02 leg | **33** (value 1 · css 18 · easing 1 · math 5 · transform 8) | 33 | **28** (value 1 · css 18 · easing 1 · math 5 · transform 3 — .b's deletions) | **RED, with its reason measured** (below) |
+| **G4** | same probe, LIB-01 leg | 5/5 throw `TypeError` | total | total; control `easing('ease')` ok, unknown → `easing_name_unknown` | **GREEN** |
+| **G5** | `npx eslint 'src/css/**/*.ts' --rule '{"@typescript-eslint/no-non-null-assertion":"error"}'` | **94** (grammar 72 · stylesheet 18 · timeline 4) | **4** | **4** (×2, identical) | **GREEN IN BOUNDS — 90 of 94 retired, grammar 72→0, stylesheet 18→0.** The 4 left are `src/css/timeline.ts:23,38,71,72`, **outside this unit's writable set** → ESC-W9a-TIMELINE-NNA |
+
+`eslint.config.js` **not touched** (§4a — X-W9.f is its sole writer); G5 driven by the explicit
+`--rule` invocation exactly as the wave directs.
+
+Collateral, measured: ⟨cmd⟩ `npx vue-tsc -p tsconfig.lib.json --noEmit` → **exit 0**.
+⟨cmd⟩ `npx vitest run` → **583 passed, 2 failed**; both failures are other waves' declared born-RED
+rows and import **neither** `src/css` nor `src/easing` (⟨cmd⟩ `grep -c 'css\|easing'
+test/spectrum-luma.test.ts demo/test/shell/reka-binding-idiom.test.ts` → **0** and **0**; their own
+titles read *"C-5 · BORN-RED"* and *"NG-6 · the reka binding-correctness canary"*).
+⟨cmd⟩ `npm run lint` → 55 findings, **all** under `docs/tranches/**` (X-W8 G-6's ignore owns them),
+**zero** in this unit's writable set.
+
+#### 5. Why G3's leg did not move — measured, not asserted
+
+G3 is named *"Prototype-key totality across all 7 subpaths"* and its falsifier is *"Add a public
+function that indexes an object literal by an unvalidated argument"*. That class **is** cured here.
+Its cited leg, LIB-02, measures something else: it applies the corpus
+`[undefined, null, 42, {}, [], "", NaN]` as a **first argument**, so it reads **arity and shape
+violations of the published `.d.ts`**, not parse-derived-key lookups.
+
+The control that settles it is `coerceToSyntax`, which appears on **both** legs and answers
+differently: ⟨cmd⟩ MTS-01 calls `CSS.coerceToSyntax(key, "*")` — its two declared arguments — and is
+now **`ok`**; LIB-02 calls `fn(h)` with one, so `syntax` is `undefined` and `syntax.split` throws.
+Same function, same bytes, opposite readings.
+
+The gate this unit's **Goal** states — *"no string reaches a public `./css` or `./easing` entry and
+produces a `TypeError`"* — is met and independently measured: ⟨cmd⟩ a 13-value **string** corpus
+(`"" "   " constructor __proto__ toString valueOf hasOwnProperty isPrototypeOf propertyIsEnumerable
+toLocaleString "rgb()" "steps(2,constructor)" "a{color:constructor}"`) over **every** function of
+**all 7 subpaths** → **0 throws** from `parseCssColor`, `parseCssScalar`, `parseCssValue`,
+`parseCssValues`, `parseKeyframeSelector`, `parseTimingFunction`, `parseStylesheet`,
+`serializeCssColor`, `serializeTimelineOptions` and `easing`. The 12 names that still throw on a
+string are each being handed a string where their signature declares a `Stylesheet`, a
+`readonly LinearEasingStop[]`, a number, an array or a `new`-only class:
+`coerceToSyntax` (arity) · `collectCustomFunctions` · `collectKeyframes` ·
+`collectPropertyDescriptors` · `collectStyleRules` (`src/css/stylesheet.ts`, shape) ·
+`linearEasing` (`src/easing.ts`) · `cubicBezierToString` · `deCasteljau` · `interpBezier` ·
+`lerpArray` · `scale` (**X-W9.c**) · `PathGeometry` (**X-W9.b**).
+
+**No substitution was made.** The specified cure was executed exactly; the leg's remainder is
+dispatched, not worked around, and no `try/catch`, `test.skip`, allowlist or fallback was written.
+
+#### 6. Escalations
+
+**ESC-W9a-TIMELINE-NNA — G5's last 4 errors are out of bounds.**
+G5's command is scoped to `src/css/**/*.ts`, which includes `src/css/timeline.ts`. That file is
+listed `modify` in W9.md §File Bounds but is in **no unit's writable set** in this record's §Unit
+plan table, and it is not in this unit's. The 4 remaining errors are, verbatim:
+`timeline.ts:23:36` `splitTopLevel(scroll[1]!.replace(/,/g, " "), "space")` ·
+`timeline.ts:38:36` `splitTopLevel(view[1]!.replace(/,/g, " "), "space")` ·
+`timeline.ts:71:51` / `:72:49` `rangeBoundary(splitTopLevel(comma[0]!, "space"))` and `comma[1]!`.
+Cure named, **not performed**: the same narrowing idiom this unit used everywhere else —
+`const body = input.match(/^scroll\((.*)\)$/i)?.[1]; if (body !== undefined) …`, and destructure
+`comma` and test both parts. Four lines, no behaviour change, no signature change.
+**Ask**: the orchestrator assigns `src/css/timeline.ts` to a unit (naturally X-W9.d, which already
+holds `src/css/**` for the split and runs next in Chain A) — G5 is then green config-resident at
+X-W9.f without any unit writing outside its bounds.
+
+**ESC-W9a-G3-LEG-SCOPE — G3's name and its cited leg measure different classes.**
+Recorded in §5 with its control. Not a request to change the gate (E-3: the spec is immutable); a
+request that the close read G3 **staged** per CC-096, and that the leg's remainder be attributed to
+the units that own the files — `src/foundation/math.ts` (X-W9.c, 5), `src/transform/*` (X-W9.b, 3),
+`src/css/stylesheet.ts` collectors + `src/css/syntax.ts` (18 css; `syntax.ts` is in **no** §File
+Bounds row at all), `src/easing.ts` `linearEasing` (1), `src/value` (1). No single unit can turn it.
+
+#### 7. Residuals recorded, not hidden
+
+- `src/easing.ts` carries **10** non-null assertions in `linearEasing` (`:171-181`). They are outside
+  **both** lint gates' scopes (G5 is `src/css/**`, G10 is `src/transform/**` + `src/foundation/**`),
+  outside this unit's named mechanism, and `src/easing.ts` is X-W9.f's next writer (memoisation +
+  the restored analytic arms). Left standing, deliberately, and booked here so the close cannot
+  discover them.
+- `docs/tranches/X/waves/evidence/W9/src-surface-totality.after.txt` is the **worktree** reading
+  (11 RED, this unit's cure alone). The integrated reading is 5 RED because X-W9.b landed beside it;
+  both are stated above so neither number can be mistaken for the other.
+- The `steps()` alias table now has ONE home (`grammar.ts`'s exported `JUMP_ALIASES`). X-W9.d's split
+  must carry that import across the seam rather than re-declare it.
+
+#### 8. Commits
+
+| # | worktree | primary (`tranche-u`) | scope |
+|---|---|---|---|
+| 1 | `51fc69a8` | **`c18a78f8`** | `test(x-w9): RED-first empty-body + prototype battery` — battery + its failing capture, **no cure** |
+| 2 | `ec481324` | **`97ab3991`** | `fix(css/lookup): prototype-reachable tables + grammar.ts:181 typed failure` — 5 sites + the 90 `!` retirements + probe/lint evidence |
+| 3 | `695fbdd3` | folded into `97ab3991` | `eslint-nna.css.before.json` — the 94-error BEFORE reading |
+
+Pathspec on every commit itself, `--no-verify`, `Claude-Session` trailer. ⟨cmd⟩ `git status
+--porcelain` after integration → the **same** sibling-seat rows as at open, `scripts/dev/dev.sh`
+among them, untouched and unstaged.
