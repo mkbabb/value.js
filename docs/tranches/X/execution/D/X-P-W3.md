@@ -7439,3 +7439,243 @@ Also: ⟨cmd⟩ `git -C <p2> status --porcelain` after every act → `?? .worktr
 - E-1 (G-4 ⊇), ESC-c1 (G-9 latch), ESC-d1 (G-7), F-aa3 (`.k`'s ordinal) are unchanged and not this unit's.
 
 **Writes outside the set: 0. Writes in `<p2>`: 0. Iterations per gate: 1 (measure only). Ninth `ParseIssue` code: none. CAP moved: none. `L` moved: none. `scripts/dev/dev.sh`: untouched.**
+
+## Close — round 5 (`.h` ESCALATED · `.i` · `.j` · `.k` UNRUN), VERIFY-ONLY
+
+SERVED MODEL: claude-opus-5[1m] · X.P.W3 **round-5 CLOSE seat** (Track D, X·P) · clock
+**2026-09-18 20:4x–21:1x EDT**; the sitting's date of record is **2026-09-19** (§0r's own date) and
+the LEDGER row's date stays **2026-09-17**, the sitting the begin-word opened. The round-1, round-3
+and round-4 `## Close` blocks above, Checks 1–3, Repairs 1–2 and `## RESUME (FIFTH)` are **E-3
+IMMUTABLE** — this is a dated close **beside** them, never over any of them.
+
+This seat **cured nothing**: **zero** bytes written in `<p2>`, no unit's file opened, no gate moved.
+Every AFTER reading below was **re-derived here** — from `W3.md` §6's own commands or from a probe
+this seat wrote fresh in its scratchpad — and **none** is read off `.h`'s receipt, off `W3-CLOSE.md`,
+or off any prior close. `W3.md` read WHOLE (⟨cmd⟩ `wc -l` → **718 L**, all three dated ADDENDA
+included); `## RESUME (FIFTH)` R5.0–R5.7 and the `.h` receipt read whole; the round-4 close read.
+
+**CRASH-RECOVERY, first act** (standing law; the host was restarted 2026-09-18 and seats were killed
+mid-work). ⟨cmd⟩ `git status --porcelain` in both repos this seat may write, **before anything else**:
+
+```
+<p2>       ?? .worktrees/            ← §4b's prescribed container, and nothing else. Identical after every gate below.
+value.js   15 paths, NONE in this seat's writable set (execution/D/X-P-W3.md · execution/LEDGER.md):
+           ten demo/** · docs/tranches/V/reformation/CARRY-LEDGER.md · scripts/dev/dev.sh ( M, unowned, NEVER opened)
+           · two untracked e2e/smoke/**a11y-control-targets.spec.ts · untracked docs/tranches/X/waves/evidence/W4/
+⟨cmd⟩ git --no-optional-locks status --porcelain -- docs/tranches/X/execution/ docs/tranches/X/parse-that/  → 0 lines
+```
+
+**No inherited partial work for this seat; nothing stashed, restored, reverted, or staged on a
+sibling's behalf.** The fifteen sibling rows are Track A's / Track C's / X·V W1's and are untouched
+at this seat's exit exactly as at its open.
+
+### C5.1 — Commit roster, verified by `git log` / `git show --stat` at this seat
+
+| unit | commits | bounds, at `--name-only` |
+|---|---|---|
+| `.h` | value.js **`ef5e6765e0117dbf968309373695197ad94157ea`** · `<p2>` **NONE** | **4 paths**, `+1263/−0` — `docs/tranches/X/execution/D/X-P-W3.md` (+51 L, the `.h` receipt appended, no prior block touched) · `docs/tranches/X/parse-that/evidence/W3/value-grammar-bounds-2026-09-19.{mjs,txt,json}`. **All four inside `.h`'s R5.5 value.js set** (`evidence/W3/**` + its own receipt block). ⟨cmd⟩ `git show --pretty=format: --name-only ef5e6765 \| grep -cE '^(src/\|demo/\|api/\|e2e/\|test/\|scripts/\|package.json)'` → **0**; `scripts/dev/dev.sh` in **0** commits. ⟨cmd⟩ `git branch --contains ef5e6765` → `* tranche-u` — no branch stranding. Body carries the `Claude-Session:` trailer |
+| `.i` · `.j` · `.k` | **NONE — UNRUN** | The chain is **strictly serial** (`W3.md` L718; §0r *"one writer at a time"*). `.h` halted under §3a before landing a byte, so its successors were never dispatched: **0 commits, 0 receipts, 0 bytes.** This is recorded as the round's principal fact, not as a silent omission |
+
+**The family is whole and it is one commit**: R5.5's lock reads *"**one commit per unit**, **pathspec
+on the commit itself**"*, and `.h` landed **exactly one** commit, pathspec'd, with **no `<p2>`
+half** — because there is no `<p2>` half to land. ⟨cmd⟩ `git -C <p2> log --oneline -1` → **`b10f62e`**
+(Repair 2 of round 4), **byte-identical to the round-4 exit**: the candidate did not move this round.
+⟨cmd⟩ `git --no-optional-locks -C /Users/mkbabb/Programming/parse-that {rev-parse HEAD; status
+--porcelain \| wc -l; worktree list \| wc -l; branch -a \| wc -l}` → `ef10d5b78236c4a3…` · **31** ·
+**7** · **33** — the frozen root's pinned quadruple, unmoved. **E-3**: ⟨cmd⟩ `git status --porcelain --`
+over `W3.md`, `W3-CLOSE.md`, `COHESION.md`, `megatranche/registry/` and `evidence/W3/` prints
+**nothing**, and `ef5e6765` names none of them but the three new dated artefacts it creates.
+
+### C5.2 — The ten gates, BEFORE → AFTER **at this close seat's own clock** (the sixteenth seat)
+
+BEFORE is **§R5.3**, the round-5 baseline. AFTER is **this seat's own run**, at `<p2>` `b10f62e`
+(`ac1.wasm` **197,939 B**, sha256 `2d61ad40bc1b37f8eacfda631df96a9cc9e39e42c5cfc29fe5bbe5d30a675200`).
+Every load-bearing reading **double-run**; `<p2>` porcelain read `?? .worktrees/` before and after
+each.
+
+| gate | BEFORE (§R5.3, 20:2x) | AFTER (this seat, 20:4x–21:0x) | verdict |
+|---|---|---|---|
+| **G-1** | `ALL 5 of 52 TOTAL` EXIT=1 | ⟨cmd⟩ `node scripts/css-universe.mjs --check --pinned-value-commit 6aca8602` → `tally runtime 0 TOTAL / 3 PARTIAL / 16 ABSENT · types 5 / 0 / 28 · ALL 5 of 52 TOTAL` · `tsc exit 2 · diagnostics attributed 56 · unattributed 0` · `16 adjudications · 22 witnessed inputs · 19 diverge from the incumbent · 0 NOT honoured` · `RED — 47 of 52 rows are not TOTAL (3 PARTIAL, 44 ABSENT)` · **EXIT=1**, run **twice**, ⟨cmd⟩ `diff -q` **byte-identical** | **RED — UNMOVED.** The round's first subject, returned unturned (E-h1) |
+| **G-2** | RED `324 throws / 1548 calls` EXIT=1 | ⟨cmd⟩ `shasum -a 256 …/probes/r1-published-totality.mjs` → `77678a574d7c6b11448b19b6ab8fc0686dddf405a01cd7ea16757bc0837ad4ec` (**unmodified**); ⟨cmd⟩ `node …/r1-published-totality.mjs` → **all nine** entries `ok … 0/172 throw` · `TOTAL 0 throws / 1548 calls` · `DISTINCT FAILURE MODES: 0` · `GREEN — every public parser is total` · **EXIT=0**, run **twice**, identical; ⟨cmd⟩ `git status --porcelain -- …/audit/probes/` → **0** lines after | **GREEN by its own command — and NOT X·P's** (see C5.5 **A-1**). Re-attributed here, as `.h` asked (INFO-h4) |
+| **G-3** command leg | GREEN-before-cure (R.2) | this seat's **own** probe, written fresh, double-run identical: `empty-body: 10 heads × 2 lowerings = 20 calls · throws 0 · undefined 0 · codes [css_syntax]` · `boundary: 12 values × 3 entries × 2 lowerings = 72 cells · throws 0 · undefined 0 · distinct shapes 1` = `{"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":0,"expected":["<string source>"],"actual":null}]}` (incl. a boxed `String`, a null-prototype object, a throwing `toString()`, an all-traps-throw `Proxy`) · R1 `parseCssColor("oklch()")` `js == wasm : true` = `css_syntax [6,7) ["<number>","<none-keyword> ('none')"]` | **GREEN — floor held**, never claimed as turned |
+| **G-3** proof leg | GREEN-before-cure, `SHIELD.caught 0` | same seat, second probe, **nine capacity witness families**, every one `identical=true` across both lowerings: `8190 rules ok:true` · `8191 rules ok:true` · `Θ.input 65458 ok:true` · `65459 ok:false ["<input-window> (at most 65458 code units)"]` · `1,048,575` / `1,048,577` B · the three round-3 TRAPs (`a{}×40000` 120,000 B · `;×70000` · `linear(0, ×70000)` 210,009 B) — all input-window rejections. `SHIELD.caught` **0 at open, 0 at exit · faults []**; double-run identical | **GREEN — floor held. ESC-e1 stays RESOLVED at a sixteenth seat** |
+| **G-4** | RED C-3 `frozen \ emitted = 5` · C-4 RED (relieved) | ⟨cmd⟩ `node scripts/css-recovery-closure.mjs --corpus test/css-recovery/corpus.json --frozen-union c654824e:src/css/types.ts` → `685 inputs` · C-1 GREEN `288 code sites` · C-2 GREEN · **C-3 RED** `frozen \ emitted = 5 [animation_option_invalid keyframe_selector_invalid syntax_descriptor_invalid syntax_mismatch timeline_option_invalid]` · **C-4 RED** `authored 0 · inherited 2 · measured DEAD: far.code === null on 0 of 3710 rejections` · C-5/C-6 GREEN · C-7 GREEN `3744 issues · unnamed first expectations 0 · label surface 60 rows` · C-8/C-9/C-10 GREEN (`signature 22 · destructured 22`) · `RED — 8 of 10 legs green` · **EXIT=1**, run **twice**, byte-identical | **RED — UNMOVED.** The round's second subject; `.h`'s two codes stay unemitted (E-h3) |
+| **G-5** | GREEN `79674 / 0 / 0 / threw 0` | ⟨cmd⟩ `node scripts/css-dual-target-identity.mjs --js src/css/build/ac1.js --wasm src/css/build/ac1.wasm --corpus test/css-totality/corpus.json` → `parseCssColor / parseTimingFunction / parseStylesheet 26551 cells each · six-tuple differ 0 · full-diagnostics differ 0 · value differ 0 · threw 0` · `boundary 21 cells identical: ALL` · `cells 79674 · six-tuple differing 0 (differing bytes 0) · threw 0` · `GREEN` · **EXIT=0**, run **twice**, `diff -q` **byte-identical** | **GREEN — floor held.** F-aa2's invariant (`differing 0 / threw 0`) holds and the cell count is still 79,674 **because the realized-entry count is still 3** |
+| **G-6** | `72 passed (72)` EXIT=0 | ⟨cmd⟩ `npx vitest run --config test/css-totality/vitest.config.ts` → `spec-conformance.test.ts (13) ✓` · `universe.test.ts (59) ✓` · `Test Files 2 passed (2)` · **`Tests 72 passed (72)`** · **EXIT=0**, run **twice** | **GREEN — floor held** |
+| **G-7** | RED `MIRROR-DEFECTS 5883` | ⟨cmd⟩ `node test/css-equivalence/run-full-surface.mjs --pinned-value-commit 6aca8602` → `pin 6aca86020b6b2605…` · oracle `value.js-4.0.0.tgz — 37290 B · sha256 7f80658ca4e16e99…f89fb303ae` · `cross-check vs the unpacked cand-o vendor tree: AGREE` · `taxonomy UNMOVED · 554c2993cebd3ed3` · `corpus 26604 rows → 26551 distinct` · `rows 52 · COMPARED 8 · NO-PEER 44` · `ledger 39 rows — ADJUDICATED 16 · DISSENT 4 · FIXTURE 5 · LABEL 1 · NARROWING 3 · CAPACITY 9 · SPEC-DIVERGENCE 1` · `empty consumer-direction fields: 0` · `GATE-VERDICT anchors present: 5/5` · **`MIRROR-DEFECTS 5883 (of which spec-undecided 3975)`** · **EXIT=1**, run **twice**, identical but for the node `MODULE_TYPELESS_PACKAGE_JSON` PID line. ⟨cmd⟩ `node scripts/css-universe.mjs --cross-check-ledger …/DIVERGENCE-LEDGER.md` → `rows 16 adjudicated conflicts, 0 not carried · GREEN` **EXIT=0** | **RED — UNMOVED at 5,883** (ESC-d1). `.k` never ran, so neither ESC-g1's family nor F-z2 moved |
+| **G-8** | 2 of 2 legs GREEN | ⟨cmd⟩ `node scripts/css-recovery-closure.mjs --assert-no-console` → `union authentication … → 8 codes, both differences ∅` · `branch census default: 5 (authored 0) · else 28 (authored 0)` · `GREEN — 2 of 2 legs green (C-8 · C-9); negative controls all fire` · **EXIT=0**; ⟨cmd⟩ recovery project → `labels.test.ts (11 tests) ✓` | **GREEN — floor held** |
+| **G-9** | SPLIT `2 failed \| 166 passed (168)` | ⟨cmd⟩ `npx vitest run --config test/css-recovery/boundary/vitest.config.ts` → `depth.test.ts 15 ✓` · `boundary.test.ts 77 ✓` · `no-throw.test.ts 19 ✓` · **`capacity.test.ts 50 ✓`** · `latch.test.ts 5 ✓ / 2 ✗` (`:147` L-3 RESETTABLE · `:157` the whole reading) · `Test Files 1 failed \| 4 passed (5)` · **`Tests 2 failed \| 166 passed (168)`** · **EXIT=1**, run **twice**, tallies identical | **SPLIT — UNMOVED.** depth/boundary/no-throw/**capacity** GREEN · latch RED = **ESC-c1**, relieved and routed to W4 |
+| **G-10** | well-formed, no verdict | ⟨cmd⟩ `node scripts/css-bench-three-leg.mjs --baseline-tarball ./test/css-equivalence/vendor/value.js-4.0.0.tgz --rounds 40 --discard 10 --denominator 1636680` → three legs, **arm-state on every row** (`UNARMED — before & after`) · `sink 580440` · shared-accepted published `959.9` / js `2227.1` (0.431×) / wasm `1510.5` (0.635×) · reject `440.9` / `1735.7` / `1046.3` · R1-class published `38108.9` vs js `1505.4` (**25.3×**) / wasm `953.4` (**39.97×**) · `NOT RECONCILED AND NOT ERASED` · `BAR: OWNER-GATED-PENDING-RATIFICATION` · `VERDICT: none. … RECORDED-NOT-GATING` · `well-formedness OK — the four G-10 falsifier conditions all hold` · **EXIT=0**; ⟨cmd⟩ `--denominator 1870633` → **REFUSED**, **EXIT=2** | **WELL-FORMED, NO VERDICT** (§0j.E OC-1) — floor held |
+
+**Round-5 tally at this sixteenth seat: 5 GREEN that are ours (G-3 · G-5 · G-6 · G-8 · G-10) · 1
+GREEN that is NOT ours (G-2) · 1 SPLIT (G-9) · 3 RED (G-1 · G-4 · G-7).**
+**The hard gate's ten conditions are NOT all met. No gate moved by any act of round 5.**
+
+**Round-5 delta, stated exactly**: round 4 read `4 RED / 1 SPLIT / 5 GREEN`; this seat reads
+`3 RED / 1 SPLIT / 6 GREEN`. **The single moved cell is G-2, and X·P did not move it** — C5.5 A-1.
+Every other reading reproduces round 4's to the digit, which is the expected result of a round that
+landed **zero** mechanism bytes, and is itself the measurement that `.h`'s *"Writes in `<p2>`: 0"*
+is true rather than asserted.
+
+### C5.3 — §8 Verification Artefacts, run as written
+
+| §8 artefact | present? | this seat's reading |
+|---|---|---|
+| `evidence/W3/universe-52.json` **+ sha256 sidecar** | file **YES** (155,452 B) · **sidecar NO** | on disk `0005f26b10b0c9f0…98de` (**E-3, unmoved**). Regenerated to scratch → **`c9fcd0eb490d422b…abc4`, which is round-4's regeneration TO THE DIGIT** — the artefact did not move a byte across round 5. `tally` in both the committed and the regenerated file: `runtime {TOTAL 0 · PARTIAL 3 · ABSENT 16} · types {TOTAL 5 · ABSENT 28} · all {TOTAL 5 · PARTIAL 3 · ABSENT 44}`. Sidecar still absent (**F-z1**, carried) |
+| `evidence/W3/r1-anchor-before.txt` | **ABSENT** | **F-e14**, carried, unchanged |
+| `evidence/W3/r1-anchor-after.txt` | YES (7,245 B, `3a099df9…`) | present and **E-3 sealed** — and its content (`324 throws / 1548 calls`) is **no longer what the same unmodified probe prints** (`0 / 1548`, C5.2). The artefact is not wrong; its **subject moved** (C5.5 A-1). The cure is a dated bank **beside** it at the successor, never an overwrite → residual **R5-1** |
+| `evidence/W3/recovery-closure.json` | YES (17,318 B) | `25fa6a4b0865333…9240` (E-3, unmoved). Regenerated → `72e60da825459710…`; the delta is (a) `takenAt` `2026-09-18` → `2026-09-19` — the report carries a date field, so byte-equality across sittings is impossible by construction — and (b) the `operands` · `branchCensus` · `intrinsics` · `legs` deltas **round 4 already characterized as F-w2** (label surface 51 → 60, `default:` census 3 → 5). **Both verdict cells unmoved: C-3 RED 5 · C-4 RED.** Emitted twice at this seat → same sha, so the generator is deterministic within a sitting |
+| `evidence/W3/recovery-closure-spec-literal-operand.json` | YES (17,335 B) | `240473b17fff1e6f…91b4`, **unmoved on disk**; Repair 1's beside-bank, not a round-5 subject |
+| `evidence/W3/dual-target-identity.json` | YES (8,059 B) | `b68bab94c01cd2ea…6216` (E-3, unmoved). Regenerated → **`8604a89d0b143758…1a78`, again round-4's regeneration TO THE DIGIT**; every count identical `79674 / 0 / 0 / 0` |
+| `evidence/W3/equivalence-full-surface.json` | YES (463,739 B) | `d03b458c0f095c7b…1595` (E-3, unmoved). Regenerated → `4de5551da2f65ffd…`; `tally` moves from the sealed `{mirrorDefects 5890, specUndecided 3982}` to `{5883, 3975}` — **round-4's post-`.g` reading** — and `ledger.rows` reads **39** (`byFamily` ADJUDICATED 16 · DISSENT 4 · FIXTURE 5 · LABEL 1 · NARROWING 3 · **CAPACITY 9 · SPEC-DIVERGENCE 1**) where round 4's regeneration read 29, because **Repairs 1–2 of round 4 landed after that close**. `emptyConsumerDirections []`, `fixtureAnchorsPresent` R1–R5 all `true`. Every delta attributed; no verdict cell moved |
+| `evidence/W3/bench-three-leg.md` | YES (16,916 B, `0178fbf9…`) | present; the table's form re-run at C5.2, both legs (`1636680` EXIT=0 · `1870633` REFUSED EXIT=2) |
+| `evidence/W3/value-grammar-bounds-2026-09-19.{mjs,txt,json}` *(round 5, `.h`, banked beside)* | YES (23,347 / 10,244 / 20,097 B) | sha256 `d4b6b28be32a70f2…` · `a5705e061375979f…` · `9de22b4edc7a2bd3…` — **all three match `.h`'s h.6 to the digit**. Line 1 of the `.mjs` is `// SERVED MODEL: claude-fable-5-1`; the `.txt` opens with the same string; the `.json`'s first key is `servedModel` |
+| the round-3/round-4 beside-banks (`capacity-reachability-*` · `capacity-bounds-*` · `dimension-token-*` · `boundary-suite-post-f-*` · `dual-target-identity-post-f-*` · `legacy-hsl-divergence-row-*` · `repair-{1,2}-round-4-*`) | YES, 16 files | shas re-read at this seat: **every one identical to the round-4 close's table** — no sealed artefact moved in round 5 |
+| `DIVERGENCE-LEDGER.md` | YES (104,745 B / **928 L**) | **39 rows / 8 emitted families + `.e`'s reserved §6**; `--cross-check-ledger` **GREEN, 16 / 0 not carried**. Grew 679 → 928 L at Repairs 1–2 of round 4, not here |
+| `waves/W3-CLOSE.md` | YES (56,284 B / 553 L) | present, **unmoved** (E-3). It reports the round-1 close and has not been re-opened since; a round-5 seat may not rewrite it |
+| `registry/harvest/x-p-w3.json` | YES (129,579 B) | **unmoved**, reads **5 seats**. With `.f`, `.g` and now `.h` the dispatched set is **nine** (`.0`, `.a`–`.e`, `.f`, `.g`, `.h`), so the L-13 conjunct *"count equal to the units dispatched"* is **5 of 9**. Owner is **X.P.W4 seat 0** by §0p **ESC-e2**; nothing is owed at this seat, which may not run the harvester (it is `.e`'s single-owner act) |
+| commit hashes, both roots | YES | C5.1 — value.js `ef5e6765`; `<p2>` **none this round**, HEAD `b10f62e` |
+
+### C5.4 — E13, swept at this seat's own clock (20:57 EDT)
+
+```
+⟨cmd⟩ date                                                        → Fri Sep 18 20:57:02 EDT 2026
+⟨cmd⟩ find <the four paths> -maxdepth 1 -type f -newermt '2026-09-18 20:46'   (the delta since .h's sweep)
+      docs/tranches/V/coordination/INBOX.md                        ← self, excluded (SELF-COUNT law); its
+                                                                     newest bytes are Track B's own KF.W8 close
+                                                                     sweep line, landed at 8af01d8d
+      (paths 2, 3, 4: no file newer than the delta)
+⟨cmd⟩ ls -dlt ../glass-ui/docs/tranches/*/ | head -3               → BK/ (Sep 18 17:53) · BJ/ · BI/   ← BK still NEWEST
+⟨cmd⟩ status-cell extraction over every `| I-n` / `| O-n` row      → 0 cells classify UNREAD-and-ours
+⟨cmd⟩ grep -c '^| I-' INBOX.md                                     → 37                               → 0 new I-n minted
+```
+
+The six rows whose Status cells carry the bold `**UNREAD` spelling — **I-30 · I-31 · I-32 · I-33 ·
+I-34 · I-35** — are the same six rounds 3 and 4 read in full, and each routes **away** from X·P in
+its own words (I-30 *"No reply owed"* · I-31 → X-W0 · I-32/I-33/I-34 → the X formation mail seat /
+X-W0.j, *"Not X·P's"*, *"Glass is READ-ONLY always"* · I-35 *"Routing: X·KF (Track B), NOT X-W1"*).
+**0 unrowed value-addressed · 0 UNREAD in X.P.W3's scope · 0 minted here. This round does not close
+with unread mail.** `INBOX.md` is outside this seat's writable set; this paragraph is the receipt.
+
+### C5.5 — Landed-wrong, found and named here
+
+**None at the path level and none at the branch level** (C5.1): the round's one commit is inside
+`.h`'s declared set, `scripts/dev/dev.sh` is in **0** commits, no commit names a sealed artefact, no
+byte landed under value.js `src/**` / `demo/**` / `api/**` / `e2e/**` / `test/**` / `scripts/**` /
+`package.json`, and the frozen `parse-that` root is quadruple-unmoved.
+
+**A-1 (the round's one re-attribution, and the close seat's own finding) — G-2's GREEN belongs to
+the INCUMBENT, not to X·P, and this record says so before anyone can quote it otherwise.** `.h`
+returned it as INFO-h4 *"the close seat should re-run the anchor probe and re-attribute ESC-d2
+rather than credit `.h` (or any X·P unit) with it"*. Measured here, at the bytes:
+
+```
+⟨cmd⟩ grep -n "REPO\|cwd: REPO" docs/tranches/V/megatranche/audit/probes/r1-published-totality.mjs
+   :23  const REPO = new URL("../../../../../..", import.meta.url).pathname;     ← value.js's own root
+   :27  const tarball = execSync(`npm pack --silent …`, { cwd: REPO })           ← it packs the INCUMBENT
+⟨cmd⟩ git merge-base --is-ancestor 97ab3991 HEAD                          → YES
+⟨cmd⟩ git log -1 97ab3991   → 2026-09-18 20:33:51 -0400  fix(css/lookup): prototype-reachable tables
+                                                          + grammar.ts:181 typed failure     (Track A)
+⟨cmd⟩ git -C <p2> log --oneline -1                                        → b10f62e  (round 4's exit, unmoved)
+```
+
+The probe's subject is value.js's own packed bytes; the candidate did not move this round; Track A's
+cure landed between R5.3's baseline and `.h`'s seat. Therefore: **ESC-d2 — *"G-2 measures the
+incumbent, not the candidate"* — is DISCHARGED FROM THE FAR END by Track A, and X·P claims no credit
+for it.** Two honest riders: (a) the tarball is packed **from the working tree**, so the GREEN
+witnesses the incumbent's source at value.js HEAD, **not** the published 4.0.0 — whose bytes remain
+G-7's oracle and still carry the throw class the ledger's R1 fixture pins; (b) `r1-anchor-after.txt`
+is now a **pre-cure** record by the same logic `.f`'s reachability bank became one (residual R5-1).
+
+**A-2 (clerical, not landed-wrong).** `.h`'s G-2 row records `EXIT=0, ×1` — a single run where the
+standing law asks for two. This seat ran it **twice**, byte-identical, so the reading stands; the
+count is published here rather than inherited.
+
+### C5.6 — Escalations returned (§3a; none is this seat's to rule)
+
+1. **E-h1 — the constructor grant (file-bound expansion). THE ROUND'S BLOCKER.** Every product shape
+   of `.h`'s five entries is an OP-19 `CTOR` row, and a row is **one in-bounds write and three
+   out-of-bounds writes** (`lowering-js/js-alg.mjs:198` private `CTORS` · `lowering-wasm/wasm-alg.mjs:627`
+   `emitCtors` (+ the hard-coded `:683` `["rgb","hsl","oklch"]`) · `bounds.mjs:206/:236`
+   `CTOR_ALLOC`/`CTOR_SCRATCH_CELLS`, walked at **module load** `:466` and HALTing at `:333`).
+   Reproduced in-process by `.h` (`HALT: the node table has no row for constructor 'value-number'`
+   before `entry.mjs` exists; `TypeError: build is not a function` on a row absent from `CTORS`);
+   the four name-sets measure **20 = 20 = 20 = 20**. **Ask**: grant those three files to `.h` for
+   7 value rows + 10 colour-space rows (the E-f1/E-f2 precedent), `layout.mjs` and every CAP
+   untouched. **Owner: the triumvirate / COHESION (a §0-class addendum), exactly as §0p and §0q were
+   for `.f`.** Until it is ruled, **`.h` cannot author and `.i`/`.j` cannot start** — `.i`'s
+   animation family and `.j`'s collectors construct new shapes through the same single door.
+2. **E-h2 — what "PARTIAL → TOTAL" can honestly mean under G-1's literal-input override.** The
+   oracle override is by literal input (`matrix.mjs:120 index.get(row.s)`) while the rulings are
+   CLASSES; `parseCssColor`'s 4,593 misses split **84 grammar-reachable** + **4,509
+   adjudication-class** (clamp 1,616 · hsl-100× 376+62 · trailing-dot 1,146 · oracle
+   `color_out_of_range` 508 · juxtaposition 481 · rewrite/mixed 116 · other 205). **Ask (a ruling):**
+   either `.k` extends `adjudications.mjs` from literals to class predicates, or the rows close
+   **PARTIAL-by-id** with this census as the honest remainder (§0r's own *"or the honest remainder,
+   by id"*). **Owner: COHESION / X.P.W4's seat 0.** This seat notes only that **G-1 as written
+   cannot go 52/52 by any act inside `algebra/**`**, which is a spec fact, not a performance one.
+3. **E-h3 — `coerceToSyntax` is a two-argument surface composition the C-3 runner never executes**
+   (`scripts/css-recovery-closure.mjs:385` runs `recovery.entries()` only; `syntax_descriptor_invalid`
+   spans the SOURCE, `syntax_mismatch`'s `expected` is the descriptor's own dynamic alternatives, so
+   neither can be a `P:*` entry). **Ask**: confirm the composition shape on `entry.mjs` and route the
+   two-argument leg of the runner to `.k` (`scripts/**`). **Owner: COHESION ruling + `.k`.**
+   Reproduced here: C-3 still RED at 5 codes with the runner unchanged.
+4. Carried, unchanged, none this round's: **E-1** (G-4's ⊇ direction) · **E-2 / F-e10 / F-p1** (C-4's
+   two inherited arms, measured dead) · **ESC-c1** (G-9's latch pair) · **ESC-d1** (G-7's 5,883) ·
+   **ESC-e2** (the harvest's 5-of-9 seats) · **F-aa3** (`.k`'s stale ordinal/census).
+
+### C5.7 — Residuals, each with a named owner
+
+| id | residual | owner |
+|---|---|---|
+| **R5-1** *(new, this seat)* | `evidence/W3/r1-anchor-after.txt` is E-3 sealed and now **pre-cure**: the unmodified probe prints `0 throws / 1548 calls` where the artefact records `324 / 1548`, because Track A cured the incumbent. A dated bank **beside** (`r1-anchor-2026-09-19.txt`) is owed, plus F-e14's still-absent `r1-anchor-before.txt` | **X.P.W4 seat 0** |
+| **R5-2** *(new, this seat)* | The §8 JSONs (`universe-52` · `recovery-closure` · `equivalence-full-surface` · `dual-target-identity`) remain **sealed pre-round-4 bytes** describing a tree two repair rounds younger; every delta is characterized (C5.3) but **no post-`b10f62e` regeneration is banked beside** for G-1 / G-4 / G-7 | **X.P.W4 seat 0** (F-w2's cure, carried from round 4) |
+| **F-z1** | no sha256 sidecars beside the §8 artefacts | X.P.W4 seat 0 |
+| **F-e14** | `r1-anchor-before.txt` absent | X.P.W4 seat 0 |
+| **ESC-e2** | `registry/harvest/x-p-w3.json` reads **5 seats of 9 dispatched**; the harvester is `.e`'s single-owner act and no round-5 seat may run it | X.P.W4 seat 0 |
+| **ESC-c1** | G-9's latch pair (`resetPackrat()` does not disarm) — producer-owned, relieved | X.P.W4 / parse-that producer |
+| **ESC-d1** | G-7 at 5,883 mirror-defects | `.k`, once dispatched |
+| **F-aa3** | ESC-g1's ordinal/census are stale at the bytes (§9 is the next free family; census 40, not 30) | `.k`, once dispatched |
+| **the COHESION §5 status-board carve** | §4a assigns it to `.e` **alone**; this seat does not carve it, and the round-5 re-open did not re-dispatch `.e` | `.e` / X.P.W4 seat 0 |
+
+### C5.8 — Verbs: what this close stamps, and what it refuses to
+
+`W3.md` §Commit Plan says the close report *"stamps **IMPLEMENTED**"* — **and only on gates green**
+(§12: *"Landing the ten gates green makes this wave IMPLEMENTED"*). At this seat **three gates are
+RED, one is SPLIT, and the round landed zero mechanism bytes**, so:
+
+| verb | value after this close | why |
+|---|---|---|
+| AUDITED | **YES** | unchanged |
+| SPECIFIED | **YES** — plus three dated addenda (§0p · §0q · §0r) | unchanged |
+| **IMPLEMENTED** | **NO** | G-1 · G-4 · G-7 RED, G-9 SPLIT, measured at this seat's own clock. A close that stamped IMPLEMENTED here would be the "counting a PARTIAL as TOTAL" dishonesty G-1 exists to prevent |
+| **VERIFIED** | **NO** | **X.P.W4's sub-tranche release close alone** (R-A). No wave stamps VERIFIED at its own close, and this one is not eligible in any case |
+
+**Round 5 is CLOSED as BLOCKED-ON the E-h1 constructor grant.** `.h` ESCALATED without landing a
+byte; `.i`, `.j` and `.k` were never dispatched, because §0r's serial law puts them behind `.h` at
+the same single door. The LEDGER cell keeps its measured history and gains this round's reading:
+`PARTIAL 2026-09-17` stands, **round 5 BLOCKED-ON E-h1**.
+
+### C5.9 — Push receipt (the owner's 2026-09-17 authorization)
+
+```
+⟨cmd⟩ git -C /Users/mkbabb/Programming/parse-that push origin HEAD
+   Everything up-to-date             0 ahead / 0 behind origin/master; the frozen root sits at
+                                     `ef10d5b` with its pinned 31-path porcelain untouched — a
+                                     no-op, as the fresh-root law requires.
+⟨cmd⟩ git -C /Users/mkbabb/Programming/parse-that-css-totality-p2 remote -v
+   (empty)                           R-2: the fresh writer root has NO remote by construction, and
+                                     nothing was owed to it this round — `.h` landed 0 bytes there
+                                     and `<p2>` HEAD is still `b10f62e`.
+⟨cmd⟩ git -C /Users/mkbabb/Programming/value.js push origin HEAD
+   at this seat's open: 0 ahead / 0 behind (Track B's `8af01d8d` was already pushed);
+   this close's two commits are pushed at exit and the measured before..after is appended
+   immediately below, in the same act that lands the LEDGER row.
+```
+
+**Never force, never `-a`, never `-A`, never a reset, never a stash.** Every commit of this round
+carries its own pathspec **on the commit itself** (`.h` = 4 paths · this close = 1 path · the LEDGER
+landing = 2 paths), and none swept in a byte of the four sibling seats sharing this index — the
+fifteen sibling dirty paths (ten `demo/**`, `CARRY-LEDGER.md`, `scripts/dev/dev.sh`, two untracked
+`e2e/**` specs, one untracked Track-A evidence dir) are **untouched and unstaged** at this seat's
+exit, exactly as at its open.
