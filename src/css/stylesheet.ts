@@ -1,5 +1,6 @@
 import type { CssList, CssScalar, CssValue } from "../value";
 import {
+    JUMP_ALIASES,
     failure,
     parseCssValue,
     parseKeyframeSelector,
@@ -158,16 +159,19 @@ function timingFunctionValue(value: CssValue): CssTimingFunction | undefined {
             : undefined;
     }
     if (name === "steps") {
-        if (value.args.length < 1 || value.args.length > 2) return undefined;
-        const count = scalarNumberValue(value.args[0]!);
-        const aliases: Readonly<Record<string, "jump-start" | "jump-end" | "jump-none" | "jump-both">> = {
-            start: "jump-start", end: "jump-end",
-            "jump-start": "jump-start", "jump-end": "jump-end",
-            "jump-none": "jump-none", "jump-both": "jump-both",
-        };
+        const [countArgument] = value.args;
+        if (countArgument === undefined || value.args.length > 2) return undefined;
+        const count = scalarNumberValue(countArgument);
+        // The TWIN of `grammar.ts`'s `steps()` alias site. It was masked: the
+        // stylesheet route threw in the grammar before reaching here, so curing
+        // the grammar UNMASKS this literal — which is why the band ruled the two
+        // sites land in one commit. Both now read the one exported `Map`, so a
+        // parse-derived key cannot walk `Object.prototype` at either.
         const authoredPosition = scalarKeyword(value.args[1])?.toLowerCase();
-        const position = authoredPosition === undefined ? "jump-end" : aliases[authoredPosition];
-        if (!position) return undefined;
+        const position = authoredPosition === undefined
+            ? "jump-end"
+            : JUMP_ALIASES.get(authoredPosition);
+        if (position === undefined) return undefined;
         return count !== undefined && Number.isInteger(count) && count > 0 && !(position === "jump-none" && count < 2)
             ? Object.freeze({ kind: "steps", count, position })
             : undefined;
@@ -176,13 +180,19 @@ function timingFunctionValue(value: CssValue): CssTimingFunction | undefined {
     const stops: CssLinearStop[] = [];
     for (const argument of value.args) {
         const tokens = spaceItems(argument);
-        const output = scalarNumberValue(tokens[0]!);
-        if (output === undefined || tokens.length > 3) return undefined;
-        const positions = tokens.slice(1).map((token) => scalarNumberValue(token, ["%"]));
-        if (positions.some((position) => position === undefined)) return undefined;
+        const [outputToken, ...rest] = tokens;
+        if (outputToken === undefined || tokens.length > 3) return undefined;
+        const output = scalarNumberValue(outputToken);
+        if (output === undefined) return undefined;
+        const positions: number[] = [];
+        for (const token of rest) {
+            const position = scalarNumberValue(token, ["%"]);
+            if (position === undefined) return undefined;
+            positions.push(position / 100);
+        }
         stops.push(Object.freeze({
             output,
-            input: Object.freeze(positions.map((position) => position! / 100)) as [] | [number] | [number, number],
+            input: Object.freeze(positions) as [] | [number] | [number, number],
         }));
     }
     return Object.freeze({ kind: "linear-function", stops: Object.freeze(stops) });
@@ -246,8 +256,8 @@ const numberValue = (value: number, unit: string): CssScalar => Object.freeze({
     kind: "scalar",
     payload: Object.freeze({ type: "number", value, unit }),
 });
-const listValue = (items: readonly CssValue[]): CssValue => items.length === 1
-    ? items[0]!
+const listValue = (items: readonly CssValue[]): CssValue => items.length === 1 && items[0] !== undefined
+    ? items[0]
     : Object.freeze({ kind: "list", separator: "comma", items: Object.freeze([...items]) });
 
 type AnimationArm = Readonly<{
@@ -368,7 +378,7 @@ function emptyComma(source: string): number | undefined {
     let start = 0;
     let comma = -1;
     for (let index = 0; index < source.length; index++) {
-        const char = source[index]!;
+        const char = source.charAt(index);
         if (quote) {
             if (char === quote && source[index - 1] !== "\\") quote = "";
         } else if (char === "\"" || char === "'") quote = char;
@@ -444,7 +454,7 @@ function blocks(source: string): ParseResult<readonly Block[]> {
         let parens = 0;
         let boundary = -1;
         for (let i = cursor; i < source.length; i++) {
-            const char = source[i]!;
+            const char = source.charAt(i);
             if (quote) {
                 if (char === quote && source[i - 1] !== "\\") quote = "";
                 continue;
@@ -465,7 +475,7 @@ function blocks(source: string): ParseResult<readonly Block[]> {
         quote = "";
         let end = boundary + 1;
         for (; end < source.length && depth > 0; end++) {
-            const char = source[end]!;
+            const char = source.charAt(end);
             if (quote) {
                 if (char === quote && source[end - 1] !== "\\") quote = "";
                 continue;
@@ -538,7 +548,7 @@ function parseScopePrelude(source: string): Pick<Extract<StylesheetItem, { kind:
         let quote = "";
         const start = ++cursor;
         for (; cursor < input.length && depth > 0; cursor++) {
-            const char = input[cursor]!;
+            const char = input.charAt(cursor);
             if (quote) {
                 if (char === quote && input[cursor - 1] !== "\\") quote = "";
             } else if (char === '"' || char === "'") quote = char;
@@ -549,10 +559,11 @@ function parseScopePrelude(source: string): Pick<Extract<StylesheetItem, { kind:
         groups.push(input.slice(start, cursor - 1));
         if (groups.length > 2) return null;
     }
-    if (groups.length === 0) return null;
+    const [root, limit] = groups;
+    if (root === undefined) return null;
     return {
-        root: splitTopLevel(groups[0]!, ","),
-        ...(groups[1] === undefined ? {} : { limit: splitTopLevel(groups[1], ",") }),
+        root: splitTopLevel(root, ","),
+        ...(limit === undefined ? {} : { limit: splitTopLevel(limit, ",") }),
     };
 }
 
@@ -581,7 +592,7 @@ function topLevelColon(source: string): number {
     let depth = 0;
     let quote = "";
     for (let i = 0; i < source.length; i++) {
-        const char = source[i]!;
+        const char = source.charAt(i);
         if (quote) {
             if (char === quote && source[i - 1] !== "\\") quote = "";
         } else if (char === '"' || char === "'") quote = char;
@@ -596,15 +607,17 @@ function parseFunctionPrelude(source: string): ParseResult<Readonly<{
     name: string;
     parameters: readonly CustomFunctionParameter[];
 }>> {
-    const match = source.match(/^@function\s+(--[-\w]+)\s*\(([\s\S]*)\)$/i);
-    if (!match) return failure(source, "css_syntax", ["custom function signature"]);
+    const [, functionName, rawBody] = source.match(/^@function\s+(--[-\w]+)\s*\(([\s\S]*)\)$/i) ?? [];
+    if (functionName === undefined || rawBody === undefined) {
+        return failure(source, "css_syntax", ["custom function signature"]);
+    }
     const parameters: CustomFunctionParameter[] = [];
-    const body = match[2]!.trim();
+    const body = rawBody.trim();
     for (const row of body ? splitTopLevel(body, ",") : []) {
         const colon = topLevelColon(row);
         const head = row.slice(0, colon < 0 ? undefined : colon).trim();
-        const parameter = head.match(/^(--[-\w]+)(?:\s+(.+))?$/);
-        if (!parameter) return failure(row, "css_syntax", ["custom function parameter"]);
+        const [, parameterName, syntax] = head.match(/^(--[-\w]+)(?:\s+(.+))?$/) ?? [];
+        if (parameterName === undefined) return failure(row, "css_syntax", ["custom function parameter"]);
         const defaultSource = colon < 0 ? undefined : row.slice(colon + 1).trim();
         if (defaultSource === "") return failure(row, "css_syntax", ["parameter default"]);
         const parsedDefault = defaultSource === undefined ? undefined : parseCssValue(defaultSource);
@@ -613,12 +626,12 @@ function parseFunctionPrelude(source: string): ParseResult<Readonly<{
             parameters: readonly CustomFunctionParameter[];
         }>>;
         parameters.push({
-            name: parameter[1]!,
-            ...(parameter[2] ? { syntax: parameter[2].trim() } : {}),
+            name: parameterName,
+            ...(syntax ? { syntax: syntax.trim() } : {}),
             ...(parsedDefault?.ok ? { default: parsedDefault.value } : {}),
         });
     }
-    return success({ name: match[1]!, parameters });
+    return success({ name: functionName, parameters });
 }
 
 function parseItems(source: string): ParseResult<Stylesheet> {
@@ -704,17 +717,25 @@ function parseItems(source: string): ParseResult<Stylesheet> {
             if (row.body === null) return failure(source, "css_syntax", ["timeline body"]);
             const declarations = descriptorDeclarations(row.body);
             if (!declarations) return failure(source);
+            // Each descriptor is read ONCE and narrowed, rather than looked up
+            // twice and then asserted non-null (the second read is what the `!`
+            // was standing in for). Same values, one map read per key.
             if (lower.startsWith("@scroll")) {
+                const timelineSource = declarations.get("source");
+                const orientation = declarations.get("orientation");
                 const descriptor: ScrollTimelineDescriptor = {
-                    ...(declarations.get("source") ? { source: serializeCssValue(declarations.get("source")!.value) } : {}),
-                    ...(declarations.get("orientation") ? { orientation: serializeCssValue(declarations.get("orientation")!.value) as TimelineAxis } : {}),
+                    ...(timelineSource ? { source: serializeCssValue(timelineSource.value) } : {}),
+                    ...(orientation ? { orientation: serializeCssValue(orientation.value) as TimelineAxis } : {}),
                 };
                 result.push({ kind: "scroll-timeline", name: prelude.slice(17).trim(), descriptor });
             } else {
+                const subject = declarations.get("subject");
+                const axis = declarations.get("axis");
+                const inset = declarations.get("inset");
                 const descriptor: ViewTimelineDescriptor = {
-                    ...(declarations.get("subject") ? { subject: serializeCssValue(declarations.get("subject")!.value) } : {}),
-                    ...(declarations.get("axis") ? { axis: serializeCssValue(declarations.get("axis")!.value) as TimelineAxis } : {}),
-                    ...(declarations.get("inset") ? { inset: serializeCssValue(declarations.get("inset")!.value) } : {}),
+                    ...(subject ? { subject: serializeCssValue(subject.value) } : {}),
+                    ...(axis ? { axis: serializeCssValue(axis.value) as TimelineAxis } : {}),
+                    ...(inset ? { inset: serializeCssValue(inset.value) } : {}),
                 };
                 result.push({ kind: "view-timeline", name: prelude.slice(15).trim(), descriptor });
             }

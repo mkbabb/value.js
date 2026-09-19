@@ -1,4 +1,16 @@
-export const NAMED_COLORS: Readonly<Record<string, string>> = Object.freeze({
+/**
+ * The CSS named-colour table, PROTOTYPE-FREE.
+ *
+ * `grammar.ts` indexes this by a parse-derived key that it lowercases first, so
+ * an object literal here put every all-lowercase `Object.prototype` member in
+ * reach: `NAMED_COLORS["constructor"]` was the `Object` constructor, which is
+ * truthy, and `parseCssColor` then recursed on a `Function` —
+ * `TypeError: e.trim is not a function` on a PUBLIC entry, and through
+ * `parseStylesheet` too (R1 §A2, `value-inbox-2026-07-27-library-band-r1-widened-k1-k4.md`).
+ * `Object.create(null)` has no prototype, so an unknown key reads `undefined`
+ * and the lookup is total for every string. X-W9.a.
+ */
+export const NAMED_COLORS: Readonly<Record<string, string>> = Object.freeze(Object.assign(Object.create(null) as Record<string, string>, {
     aliceblue: "#f0f8ff",
     antiquewhite: "#faebd7",
     aqua: "#00ffff",
@@ -147,4 +159,4 @@ export const NAMED_COLORS: Readonly<Record<string, string>> = Object.freeze({
     whitesmoke: "#f5f5f5",
     yellow: "#ffff00",
     yellowgreen: "#9acd32",
-});
+}));

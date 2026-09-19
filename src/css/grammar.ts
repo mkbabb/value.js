@@ -24,6 +24,7 @@ import type {
     CssColorSpace,
     CssLinearStop,
     CssTimingFunction,
+    JumpPosition,
     KeyframeSelector,
     ParseIssue,
     ParseResult,
@@ -66,7 +67,7 @@ function splitTopLevel(source: string, separator: string | "space"): string[] {
     let quote = "";
     let start = 0;
     for (let i = 0; i < source.length; i++) {
-        const char = source[i]!;
+        const char = source.charAt(i);
         if (quote) {
             if (char === quote && source[i - 1] !== "\\") quote = "";
             continue;
@@ -97,7 +98,7 @@ function splitValueTokens(source: string): string[] {
         token = "";
     };
     for (let i = 0; i < source.length; i++) {
-        const char = source[i]!;
+        const char = source.charAt(i);
         if (quote) {
             token += char;
             if (char === quote && source[i - 1] !== "\\") quote = "";
@@ -157,7 +158,34 @@ function alphaToken(token: string | undefined): Alpha | null {
     return channelToken(token, 1);
 }
 
+/** One channel's reading rule: a percentage scale and whether it takes an angle. */
+type ChannelReader = (token: string) => Channel | null;
+const chan = (percentScale: number, angle = false): ChannelReader =>
+    (token) => channelToken(token, percentScale, angle);
+
+/**
+ * Reads exactly three channels under `readers`, or `null` if any component is
+ * missing or unreadable. Returning a TUPLE is what retires the `values[0]!`
+ * idiom at every colour head: the caller's narrowing is carried in the type
+ * instead of asserted away (X-W9.a; `noUncheckedIndexedAccess` is on, and the
+ * `!` that silenced it is the shape this wave prevents, W9.md §Archaeology 4).
+ */
+function channelTriple(
+    components: readonly string[],
+    readers: readonly [ChannelReader, ChannelReader, ChannelReader],
+): readonly [Channel, Channel, Channel] | null {
+    const [first, second, third] = components;
+    if (first === undefined || second === undefined || third === undefined) return null;
+    const a = readers[0](first);
+    const b = readers[1](second);
+    const c = readers[2](third);
+    return a === null || b === null || c === null ? null : [a, b, c];
+}
+
 const CONTEXT_COLOR = /^(?:currentcolor|accentcolor|accentcolortext|activetext|buttonborder|buttonface|buttontext|canvas|canvastext|field|fieldtext|graytext|highlight|highlighttext|linktext|mark|marktext|selecteditem|selecteditemtext|visitedtext)$/i;
+/** The heads `parseValueInternal` must hand to the colour arm rather than treat
+ *  as a generic call. Hoisted: it was re-compiled on every recursion. */
+const COLOR_FUNCTION = /^(?:rgb|rgba|hsl|hsla|hwb|lab|lch|oklab|oklch|color)$/i;
 const CSS_COLOR_SPACES = new Set<CssColorSpace>([
     "rgb", "hsl", "hwb", "lab", "lch", "oklab", "oklch", "xyz",
     "srgb-linear", "display-p3", "a98-rgb", "prophoto-rgb", "rec2020",
@@ -178,76 +206,76 @@ function parseFunctionalColor(source: string, name: string, body: string): Parse
     if (slash.length > 2) return failure(source);
     const alpha = alphaToken(slash[1]?.trim());
     if (alpha === null) return failure(source, "css_syntax", ["alpha"]);
-    const components = splitTopLevel(slash[0]!.replace(/,/g, " "), "space");
+    // `splitTopLevel` yields NO parts for an empty or all-whitespace body, so
+    // `slash[0]` is `undefined` for every `rgb() hsl() oklch() color() …`. The
+    // shipped `slash[0]!` made that a bare `TypeError` on the public entry
+    // (R1, `value-inbox-2026-07-27-…-r1-widened-k1-k4.md` §A1: one failure mode,
+    // 24 of 26 zero-argument heads through `parseCssScalar`). It is a syntax
+    // error, so it returns this module's typed failure like every other one.
+    const head = slash[0];
+    if (head === undefined) return failure(source, "css_syntax", ["color components"]);
+    const components = splitTopLevel(head.replace(/,/g, " "), "space");
     const lower = name.toLowerCase();
+    const triple = (a: ChannelReader, b: ChannelReader, c: ChannelReader) =>
+        channelTriple(components, [a, b, c]);
     if ((lower === "rgb" || lower === "rgba") && components.length === 3) {
-        const values = components.map((part) => channelToken(part, 255));
-        return values.some((value) => value === null)
-            ? failure(source)
-            : colorResult(source, rgb(values[0]!, values[1]!, values[2]!, alpha));
+        const values = triple(chan(255), chan(255), chan(255));
+        return values === null ? failure(source) : colorResult(source, rgb(...values, alpha));
     }
     if ((lower === "hsl" || lower === "hsla") && components.length === 3) {
-        const values = [channelToken(components[0]!, 360, true), channelToken(components[1]!, 1), channelToken(components[2]!, 1)];
-        return values.some((value) => value === null)
-            ? failure(source)
-            : colorResult(source, hsl(values[0]!, values[1]!, values[2]!, alpha));
+        const values = triple(chan(360, true), chan(1), chan(1));
+        return values === null ? failure(source) : colorResult(source, hsl(...values, alpha));
     }
     if (lower === "hwb" && components.length === 3) {
-        const values = [channelToken(components[0]!, 360, true), channelToken(components[1]!, 1), channelToken(components[2]!, 1)];
-        return values.some((value) => value === null)
-            ? failure(source)
-            : colorResult(source, hwb(values[0]!, values[1]!, values[2]!, alpha));
+        const values = triple(chan(360, true), chan(1), chan(1));
+        return values === null ? failure(source) : colorResult(source, hwb(...values, alpha));
     }
     if (lower === "lab" && components.length === 3) {
-        const values = [channelToken(components[0]!, 100), channelToken(components[1]!, 125), channelToken(components[2]!, 125)];
-        return values.some((value) => value === null)
-            ? failure(source)
-            : colorResult(source, lab(values[0]!, values[1]!, values[2]!, alpha));
+        const values = triple(chan(100), chan(125), chan(125));
+        return values === null ? failure(source) : colorResult(source, lab(...values, alpha));
     }
     if (lower === "lch" && components.length === 3) {
-        const values = [channelToken(components[0]!, 100), channelToken(components[1]!, 150), channelToken(components[2]!, 360, true)];
-        return values.some((value) => value === null)
-            ? failure(source)
-            : colorResult(source, lch(values[0]!, values[1]!, values[2]!, alpha));
+        const values = triple(chan(100), chan(150), chan(360, true));
+        return values === null ? failure(source) : colorResult(source, lch(...values, alpha));
     }
     if (lower === "oklab" && components.length === 3) {
-        const values = [channelToken(components[0]!, 1), channelToken(components[1]!, 0.4), channelToken(components[2]!, 0.4)];
-        return values.some((value) => value === null)
-            ? failure(source)
-            : colorResult(source, oklab(values[0]!, values[1]!, values[2]!, alpha));
+        const values = triple(chan(1), chan(0.4), chan(0.4));
+        return values === null ? failure(source) : colorResult(source, oklab(...values, alpha));
     }
     if (lower === "oklch" && components.length === 3) {
-        const values = [channelToken(components[0]!, 1), channelToken(components[1]!, 0.4), channelToken(components[2]!, 360, true)];
-        return values.some((value) => value === null)
-            ? failure(source)
-            : colorResult(source, oklch(values[0]!, values[1]!, values[2]!, alpha));
+        const values = triple(chan(1), chan(0.4), chan(360, true));
+        return values === null ? failure(source) : colorResult(source, oklch(...values, alpha));
     }
     if (lower === "color" && components.length === 4) {
-        const rawSpace = components.shift()!.toLowerCase();
+        const [spaceToken, ...rest] = components;
+        if (spaceToken === undefined) return failure(source);
+        const rawSpace = spaceToken.toLowerCase();
         const space = (rawSpace === "xyz-d65" || rawSpace === "xyz-d50" ? "xyz" : rawSpace) as CssColorSpace;
-        const values = components.map((part) => channelToken(part, 1));
-        if (values.some((value) => value === null)) return failure(source);
-        const numeric = values as [Channel, Channel, Channel];
+        const numeric = channelTriple(rest, [chan(1), chan(1), chan(1)]);
+        if (numeric === null) return failure(source);
+        const [x, y, z] = numeric;
         if (rawSpace === "srgb") {
             return colorResult(source, rgb(
-                numeric[0] === "none" ? "none" : numeric[0] * 255,
-                numeric[1] === "none" ? "none" : numeric[1] * 255,
-                numeric[2] === "none" ? "none" : numeric[2] * 255,
+                x === "none" ? "none" : x * 255,
+                y === "none" ? "none" : y * 255,
+                z === "none" ? "none" : z * 255,
                 alpha,
             ));
         }
         if (rawSpace === "xyz-d50") {
-            if (numeric.some((value) => value === "none")) return failure(source, "css_syntax", ["concrete xyz-d50"]);
-            const [x, y, z] = adaptXyzD50ToD65(numeric as [number, number, number]);
-            return colorResult(source, xyz(x, y, z, alpha));
+            if (x === "none" || y === "none" || z === "none") {
+                return failure(source, "css_syntax", ["concrete xyz-d50"]);
+            }
+            const adapted = adaptXyzD50ToD65([x, y, z]);
+            return colorResult(source, xyz(...adapted, alpha));
         }
         switch (space) {
-            case "xyz": return colorResult(source, xyz(values[0]!, values[1]!, values[2]!, alpha));
-            case "srgb-linear": return colorResult(source, linearSrgb(values[0]!, values[1]!, values[2]!, alpha));
-            case "display-p3": return colorResult(source, displayP3(values[0]!, values[1]!, values[2]!, alpha));
-            case "a98-rgb": return colorResult(source, a98Rgb(values[0]!, values[1]!, values[2]!, alpha));
-            case "prophoto-rgb": return colorResult(source, prophotoRgb(values[0]!, values[1]!, values[2]!, alpha));
-            case "rec2020": return colorResult(source, rec2020(values[0]!, values[1]!, values[2]!, alpha));
+            case "xyz": return colorResult(source, xyz(...numeric, alpha));
+            case "srgb-linear": return colorResult(source, linearSrgb(...numeric, alpha));
+            case "display-p3": return colorResult(source, displayP3(...numeric, alpha));
+            case "a98-rgb": return colorResult(source, a98Rgb(...numeric, alpha));
+            case "prophoto-rgb": return colorResult(source, prophotoRgb(...numeric, alpha));
+            case "rec2020": return colorResult(source, rec2020(...numeric, alpha));
             default: return failure(source, "css_syntax", ["CSS color space"]);
         }
     }
@@ -262,11 +290,17 @@ export function parseCssColor(source: string): ParseResult<CssColor> {
     }
     if (/^(?:hsv|kelvin|ictcp|jzazbz)\(/i.test(input)) return failure(source, "css_syntax", ["CSS-native color"]);
     if (input.toLowerCase() === "transparent") return colorResult(source, rgb(0, 0, 0, 0));
+    // `NAMED_COLORS` is prototype-free (see `./named-colors`), so a parse-derived
+    // key can only reach an OWN entry. The `typeof` narrowing is the second half
+    // of the same cure: it is what the type system can see, and it keeps the
+    // recursion honest if the table is ever re-typed. Together they retire
+    // `parseCssColor("constructor") -> TypeError: e.trim is not a function`
+    // (R1 §A2 — the class that also reached `parseStylesheet`, an entry
+    // MT-F024's sweep certified `ok 0/172`).
     const named = NAMED_COLORS[input.toLowerCase()];
-    if (named) return parseCssColor(named);
-    const hex = input.match(/^#([\da-f]{3,4}|[\da-f]{6}|[\da-f]{8})$/i);
-    if (hex) {
-        const digits = hex[1]!;
+    if (typeof named === "string") return parseCssColor(named);
+    const digits = input.match(/^#([\da-f]{3,4}|[\da-f]{6}|[\da-f]{8})$/i)?.[1];
+    if (digits !== undefined) {
         const expanded = digits.length <= 4 ? [...digits].map((digit) => digit + digit).join("") : digits;
         const alpha = expanded.length === 8 ? parseInt(expanded.slice(6, 8), 16) / 255 : 1;
         return colorResult(source, rgb(
@@ -276,8 +310,10 @@ export function parseCssColor(source: string): ParseResult<CssColor> {
             alpha,
         ));
     }
-    const call = input.match(/^([a-z][\w-]*)\((.*)\)$/is);
-    return call ? parseFunctionalColor(source, call[1]!, call[2]!) : failure(source, "css_syntax", ["color"]);
+    const [, callName, callBody] = input.match(/^([a-z][\w-]*)\((.*)\)$/is) ?? [];
+    return callName !== undefined && callBody !== undefined
+        ? parseFunctionalColor(source, callName, callBody)
+        : failure(source, "css_syntax", ["color"]);
 }
 
 const format = (value: Channel): string => value === "none"
@@ -367,10 +403,9 @@ function parseValueInternal(source: string): ParseResult<CssValue> {
         }
         return success({ kind: "list", separator: "space", items });
     }
-    const call = input.match(/^([a-z_-][\w-]*)\((.*)\)$/is);
-    if (call && !/^(?:rgb|rgba|hsl|hsla|hwb|lab|lch|oklab|oklch|color)$/i.test(call[1]!)) {
-        const name = call[1]!;
-        const body = call[2]!.trim();
+    const [, name, rawBody] = input.match(/^([a-z_-][\w-]*)\((.*)\)$/is) ?? [];
+    if (name !== undefined && rawBody !== undefined && !COLOR_FUNCTION.test(name)) {
+        const body = rawBody.trim();
         if (/^(?:sibling-index|sibling-count)$/i.test(name)) {
             return body
                 ? failure(source, "css_syntax", ["zero-argument function"])
@@ -415,11 +450,11 @@ export function parseKeyframeSelector(source: string): ParseResult<KeyframeSelec
             ? success({ kind: "percent", value: value / 100 })
             : failure(source, "keyframe_selector_invalid", ["0%..100%"]);
     }
-    const named = input.match(/^(entry|exit|cover|contain)(?:\s+([+-]?(?:\d+\.?\d*|\.\d+))%)?$/i);
-    if (!named) return failure(source, "keyframe_selector_invalid", ["keyframe selector"]);
-    const name = named[1]!.toLowerCase() as "entry" | "exit" | "cover" | "contain";
-    if (named[2] === undefined) return success({ kind: "named", name });
-    const offset = Number(named[2]) / 100;
+    const [, rawName, rawOffset] = input.match(/^(entry|exit|cover|contain)(?:\s+([+-]?(?:\d+\.?\d*|\.\d+))%)?$/i) ?? [];
+    if (rawName === undefined) return failure(source, "keyframe_selector_invalid", ["keyframe selector"]);
+    const name = rawName.toLowerCase() as "entry" | "exit" | "cover" | "contain";
+    if (rawOffset === undefined) return success({ kind: "named", name });
+    const offset = Number(rawOffset) / 100;
     return Number.isFinite(offset) && offset >= 0 && offset <= 1
         ? success({ kind: "named", name, offset })
         : failure(source, "keyframe_selector_invalid", ["0%..100%"]);
@@ -433,6 +468,25 @@ export function serializeKeyframeSelector(selector: KeyframeSelector): string {
         : `${selector.name} ${format(selector.offset * 100)}%`;
 }
 
+/**
+ * `steps()`' authored position spellings, keyed by the AUTHORED token. A `Map`,
+ * not an object literal: the shipped literal resolved `steps(2, constructor)`
+ * through `Object.prototype` and returned `{ok:true, position: <Function>}` — a
+ * well-formed-looking payload whose `position` is not a `JumpPosition`, i.e. a
+ * TYPE LIE that no throw-based gate could see (R1 §A2). `Map.get` reads own
+ * entries only. Exported so `./stylesheet`'s twin site shares this one table
+ * instead of re-declaring it (the two copies were the reason the defect had two
+ * homes).
+ */
+export const JUMP_ALIASES: ReadonlyMap<string, JumpPosition> = new Map([
+    ["start", "jump-start"],
+    ["end", "jump-end"],
+    ["jump-start", "jump-start"],
+    ["jump-end", "jump-end"],
+    ["jump-none", "jump-none"],
+    ["jump-both", "jump-both"],
+] as const);
+
 export function parseTimingFunction(source: string): ParseResult<CssTimingFunction> {
     const input = source.trim().toLowerCase();
     if (["linear", "ease", "ease-in", "ease-out", "ease-in-out"].includes(input)) {
@@ -441,39 +495,41 @@ export function parseTimingFunction(source: string): ParseResult<CssTimingFuncti
     if (input === "step-start" || input === "step-end") {
         return success({ kind: "steps", count: 1, position: input === "step-start" ? "jump-start" : "jump-end" });
     }
-    const bezier = input.match(/^cubic-bezier\((.*)\)$/s);
-    if (bezier) {
-        const values = splitTopLevel(bezier[1]!, ",").map(numberToken);
-        if (values.length !== 4 || values.some((value) => value === null)) return failure(source);
-        const [x1, y1, x2, y2] = values as [number, number, number, number];
+    const bezierBody = input.match(/^cubic-bezier\((.*)\)$/s)?.[1];
+    if (bezierBody !== undefined) {
+        const values = splitTopLevel(bezierBody, ",").map(numberToken);
+        const [x1, y1, x2, y2] = values;
+        if (values.length !== 4 || x1 === null || y1 === null || x2 === null || y2 === null
+            || x1 === undefined || y1 === undefined || x2 === undefined || y2 === undefined) {
+            return failure(source);
+        }
         return x1 >= 0 && x1 <= 1 && x2 >= 0 && x2 <= 1
             ? success({ kind: "cubic-bezier", x1, y1, x2, y2 })
             : failure(source);
     }
-    const steps = input.match(/^steps\((.*)\)$/s);
-    if (steps) {
-        const args = splitTopLevel(steps[1]!, ",");
+    const stepsBody = input.match(/^steps\((.*)\)$/s)?.[1];
+    if (stepsBody !== undefined) {
+        const args = splitTopLevel(stepsBody, ",");
         const count = numberToken(args[0] ?? "");
-        const aliases: Record<string, "jump-start" | "jump-end" | "jump-none" | "jump-both"> = {
-            start: "jump-start", end: "jump-end", "jump-start": "jump-start", "jump-end": "jump-end",
-            "jump-none": "jump-none", "jump-both": "jump-both",
-        };
-        const position = aliases[args[1]?.toLowerCase() ?? "jump-end"];
+        const position = JUMP_ALIASES.get(args[1]?.toLowerCase() ?? "jump-end");
         return count !== null && Number.isInteger(count) && count > 0 && position !== undefined && !(position === "jump-none" && count < 2)
             ? success({ kind: "steps", count, position })
             : failure(source);
     }
-    const linear = input.match(/^linear\((.*)\)$/s);
-    if (linear) {
-        const rows = splitTopLevel(linear[1]!, ",");
+    const linearBody = input.match(/^linear\((.*)\)$/s)?.[1];
+    if (linearBody !== undefined) {
         const stops: CssLinearStop[] = [];
-        for (const row of rows) {
+        for (const row of splitTopLevel(linearBody, ",")) {
             const parts = splitTopLevel(row, "space");
             const output = numberToken(parts.shift() ?? "");
             if (output === null || parts.length > 2) return failure(source);
-            const positions = parts.map((part) => part.endsWith("%") ? numberToken(part.slice(0, -1)) : null);
-            if (positions.some((position) => position === null)) return failure(source);
-            stops.push({ output, input: positions.map((position) => position! / 100) as [] | [number] | [number, number] });
+            const positions: number[] = [];
+            for (const part of parts) {
+                const position = part.endsWith("%") ? numberToken(part.slice(0, -1)) : null;
+                if (position === null) return failure(source);
+                positions.push(position / 100);
+            }
+            stops.push({ output, input: positions as [] | [number] | [number, number] });
         }
         return stops.length >= 2 ? success({ kind: "linear-function", stops }) : failure(source);
     }

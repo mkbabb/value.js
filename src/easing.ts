@@ -12,7 +12,7 @@ export type EasingIssue = Readonly<{ code:
 }>;
 export type JumpPosition = "jump-start" | "jump-end" | "jump-none" | "jump-both";
 export type LinearEasingStop = Readonly<{ output: number; input: number }>;
-export type BezierPresetName = keyof typeof PRESETS;
+export type BezierPresetName = keyof typeof PRESET_TABLE;
 
 export function linear(progress: number): number {
     return progress;
@@ -31,7 +31,7 @@ export const easeInOutCirc: EasingFunction = (p) => p < 0.5
 export const easeOutExpo: EasingFunction = (p) => p === 1 ? 1 : 1 - 2 ** (-10 * p);
 export const smoothStep3: EasingFunction = (p) => p * p * (3 - 2 * p);
 
-const PRESETS = {
+const PRESET_TABLE = {
     linear: [0, 0, 1, 1],
     ease: [0.25, 0.1, 0.25, 1],
     "ease-in": [0.42, 0, 1, 1],
@@ -64,7 +64,24 @@ const PRESETS = {
     "ease-in-out-back": [0.68, -0.55, 0.265, 1.55],
 } as const satisfies Record<string, readonly [number, number, number, number]>;
 
-export const bezierPresets: Readonly<Record<BezierPresetName, readonly [number, number, number, number]>> = PRESETS;
+/**
+ * The bezier catalog as a PROTOTYPE-FREE lookup table.
+ *
+ * `easing(name)` takes a caller-supplied string. Against the object literal
+ * above, `"constructor" in PRESET_TABLE` was TRUE through the prototype chain,
+ * and `:169` then destructured the `Object` constructor —
+ * `TypeError: function is not iterable` on a public entry, for 5/5
+ * `Object.prototype` keys, at MODULE EVALUATION time in keyframes
+ * (R1 §A2, `value-inbox-2026-07-27-library-band-r1-widened-k1-k4.md`). With no
+ * prototype, an unknown key reads `undefined` and the `in` test is gone. The
+ * literal above stays the single authored source of both this table and
+ * `BezierPresetName`; the 30-key set is unchanged (G25's fence). X-W9.a.
+ */
+const PRESETS: Readonly<Record<string, readonly [number, number, number, number]>> = Object.freeze(
+    Object.assign(Object.create(null) as Record<string, readonly [number, number, number, number]>, PRESET_TABLE),
+);
+
+export const bezierPresets: Readonly<Record<BezierPresetName, readonly [number, number, number, number]>> = PRESET_TABLE;
 export const jumpTerms = ["jump-start", "jump-end", "jump-none", "jump-both"] as const;
 
 function bezierCoordinate(t: number, a: number, b: number): number {
@@ -91,7 +108,10 @@ export const easeInBounce: EasingFunction = (progress) => {
     return bezierCoordinate(solveBezierX(progress, 0.09, 0.5), 0.91, 1.5);
 };
 
-const DIRECT_EASINGS: Readonly<Record<string, EasingFunction>> = Object.freeze({
+/** Prototype-free for the same reason as `PRESETS`: `easing(name)`'s argument is
+ *  caller-supplied, and `DIRECT_EASINGS["constructor"]` was the `Object`
+ *  constructor on the shipped literal. */
+const DIRECT_EASINGS: Readonly<Record<string, EasingFunction>> = Object.freeze(Object.assign(Object.create(null) as Record<string, EasingFunction>, {
     linear,
     easeOutCubic,
     "ease-out-cubic": easeOutCubic,
@@ -111,7 +131,7 @@ const DIRECT_EASINGS: Readonly<Record<string, EasingFunction>> = Object.freeze({
     "smooth-step-3": smoothStep3,
     easeInBounce,
     "ease-in-bounce": easeInBounce,
-});
+}));
 
 export function CubicBezier(
     x1: number,
@@ -164,8 +184,10 @@ export function linearEasing(stops: readonly LinearEasingStop[]): Result<EasingF
 }
 
 export function easing(name: string): Result<EasingFunction, EasingIssue> {
-    if (Object.hasOwn(DIRECT_EASINGS, name)) return ok(DIRECT_EASINGS[name]!);
-    if (!(name in PRESETS)) return err({ code: "easing_name_unknown" });
-    const [x1, y1, x2, y2] = PRESETS[name as BezierPresetName];
+    const direct = DIRECT_EASINGS[name];
+    if (direct !== undefined) return ok(direct);
+    const preset = PRESETS[name];
+    if (preset === undefined) return err({ code: "easing_name_unknown" });
+    const [x1, y1, x2, y2] = preset;
     return CubicBezier(x1, y1, x2, y2);
 }
