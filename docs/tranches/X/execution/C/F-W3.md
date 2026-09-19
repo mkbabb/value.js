@@ -197,3 +197,227 @@ order satisfies all of them. **Resolution, taken here and binding on every unit:
 
 *(empty at open; each unit appends its own receipt here, line 1 of every file it creates carrying its
 served-model declaration)*
+
+### X.F.W3.a
+
+**Seat**: `claude-opus-5[1m]`, 2026-09-18. **Status: DONE.** Sections executed exactly as dispatched:
+§C.A (`:230–245`) · §C.B (`:246–249`) · §3 g2/g3/g4/g5/g6 (`:399–403`) + g10's SliderControl leg
+(`:407`) · §5 X.F.W3.a (`:449–453`) · §5a splits (1)(1a)(2)(3) (`:487–489`) · §5b (`:534–547`) ·
+§6 (`:551–557`) · §7 (`:559–563`) · §9 (`:569–571`). Spec read whole; wave record read whole;
+COHESION §0j read and every later §0k–§0s addendum read to the file end.
+
+#### Act 0 — crash-recovery sweep, and the one declared deviation
+
+⟨cmd⟩ `cd /Users/mkbabb/Programming/fourier-analysis && git status --porcelain` → **empty**, HEAD
+`0a16b83`, branch `m/w1-bump-migration`. ⟨cmd⟩ the same in value.js → 12 ` M` + 5 `??`, **not one
+inside this seat's writable set**. **Nothing inherited, nothing stashed, nothing restored.** (Two
+pre-existing entries in `git stash list` belong to other hands and were not touched.)
+
+**§5b's worktree, and why this seat did not create one — declared, not silently skipped.** §5b puts
+each implementation unit in `/Users/mkbabb/Programming/fourier-analysis/.worktrees/f3{a..e}`. This
+seat's dispatch carries a **hard-bound writable set of nine absolute paths plus `web/e2e/`, every one
+of them in the MAIN checkout**, and the standing law makes a write outside that set an ESCALATION. A
+worktree write is such a write. The two instruments do not agree, and where they do not, the harder
+bound governs: the file-level conflict §5b exists to prevent is already prevented here by dispatch
+order — §5a group 1 is `.a` **alone**, and `.b`/`.c` open only on `.a`'s commits — so the worktree
+would have isolated this seat from nobody while putting its commits on a branch `.b` could not see
+without a merge no unit is authorised to perform. The established X·F practice is the same reading:
+⟨cmd⟩ `grep -rn -i 'worktree' docs/tranches/X/execution/C/F-W{1,2,4}.md` → 4 hits, every one using
+the word for the MAIN working tree (`F-W2.md:25` *"Worktree substrate. fourier `538db90` on branch
+`m/w1-bump-migration`"*). Recorded for `.f` as a deviation with its reason, not as a defect.
+
+#### Act 1 — the MPC-31 one cut (§C.B) · commit `77b9bc0`
+
+⟨cmd⟩ BEFORE, double-run: `/usr/bin/grep -rn -- "--slider-scrub" web/src | wc -l` → **20**;
+`-rl … | wc -l` → **7**; `grep -rl slider-scrub web/node_modules/@mkbabb/glass-ui | wc -l` → **0**.
+
+**The 23-vs-20 divergence, reconciled rather than restated.** `fr-BasisSelector B-2` banks 23
+declarations across 7 files and enumerates them: BasisSelector 4 · EditorControlsDock 4 ·
+SliderControl 5 · HarmonicLevelGrid 4 · MorphPhaseConfig 4 · GlassTimeline 1 · ConvergenceTimeline 1.
+**F.W4 deleted EditorControlsDock's four and HarmonicLevelGrid's four** (`SP-6 · HLG-3 ⊕ FMD-3`,
+`§3 D8`), leaving **15 live declarations** — and left **5 prose mentions** of the retired spelling in
+its own receipts. 15 + 5 = the 20 this seat measured. The bank's figure and this seat's are the same
+census one wave apart.
+
+**The cure, per the banked `R-7`/`K-1` correction and `MPC-10`'s amendment.** The producer's real
+knob is `--slider-range-bg` (⟨cmd⟩ `grep -roh -- '--slider-[a-z-]*' dist | sort -u` at the installed
+8.0.0 → `--slider-range-bg · --slider-range-origin · --slider-target-floor · --slider-thumb-size ·
+--slider-touch-target · --slider-track-height`; **no `-hover` token and no thumb token exist**).
+So: the range pair collapses to ONE full-strength declaration; the thumb pair is **deleted**, not
+renamed (`.slider-thumb` is `width: 0; opacity: 0` in the producer's own `components/slider/styles.css`
+for the scrubber recipe — the leading edge IS the handle); the height rides `--slider-track-height`,
+**by `size` where a producer step lands** (ConvergenceTimeline's 20px = `md` = 1.25rem, the default)
+and **inline where none does** (24px, 16px). `D-14`'s explicit `var()` fallback is added at all four
+writers. `MPC-13`'s vocabulary leg rode WITH the cure, never before, as its own row requires.
+
+**Why the wrappers had to go, arithmetically.** The producer's `.glass-liquid-fill` composes
+`color-mix(in oklab, var(--liquid-fill-tint) calc(var(--liquid-fill-strength,88%) * var(--glass-veil-rung)), oklch(0.9 0.05 75 / 0))`
+— the 88 % `MPC-10` names, read at the bytes. A rename that kept the consumers' 30 % wrapper gives
+0.30 × 0.88 = **net α 0.264**, which is `MPC-10`'s figure to the thousandth. The gate would have gone
+green on the grep and shipped the 1.4.11 regression.
+
+**`MPC-8`** takes the row's SECOND cure (`marks`) and not its first (re-domain), with the reason
+stated in the file: the numeric input beside the slider still accepts the whole 50–800 band, so
+narrowing the track would make reachable durations undraggable — a capability change no row grants.
+**`MPC-22`** needed `--track-color` hoisted from the `<Slider>` to the card root, since a focus tint
+on `.num-input` cannot read a property declared on a sibling.
+
+**`MPC-31`'s witnessability precondition is met by construction, on its own disjunction** — *"the
+acceptance witness for the colour scheme is taken at a non-boot state (or after MPC-8's re-domain)"*.
+The witness is `e2e/slider-scrub-contrast.spec.ts`, which paints the expression stack onto a 1×1
+canvas; it is not a boot render, and the Morph card's zero-extent bar cannot hide it.
+
+**The contrast leg, re-derived live in both arms, double-run (identical both runs):**
+
+| pair | light | dark | floor | verdict |
+|---|---|---|---|---|
+| `MPC-10[morph-accent-red]` | **4.003** (banked 4.004, reproduced) | **4.228** | 4.00 L / 3.71 D | **GREEN** |
+| `MPC-31[morph-accent-pink]` | 3.319 (banked 3.327, reproduced) | 4.960 | 3.00 | GREEN |
+| `B-2[basis-fourier]` | 3.790 | 5.098 | 3.00 | GREEN |
+| `B-2[basis-chebyshev]` | 4.754 | 5.854 | 3.00 | GREEN |
+| `R-1[D-14-fallback]` | 1.308 | 1.920 | 3.00 | **DISCLOSED → SS-6 relay, not asserted** |
+
+The last row is stated as a classification and defended as one in the spec file itself: it is
+`--glass-capsule-warm` on `--muted-medium`, the **producer's own default fill on the producer's own
+default track**; no consumer edit separates them; and no consumer in this tree reaches it, since all
+four now supply `--track-color`. Asserting it would have reported **the `MPC-10` regression class — a
+§6 triumvirate trigger — for a defect that is not it**. It is measured and printed on every run, and
+it rides the batched SS-6 letter beside AX-1 / CU-1 / PD-1 / LF-1. ⊘ This is the pre-cure reading
+kept live: it is what every one of these sliders painted before this commit, which is `B-2`'s premise
+turned from a claim into a measurement.
+
+#### Act 2 — the fold, the session, the keyboard (§C.A) · commit `f36541a`
+
+**g6 CONSUMED, never re-run, and cited by HASH.** F.W0's `G-13` table exists and pins the adopted
+producer commit — ⟨cmd⟩ `grep -n '17a11bc5' ../fourier-analysis/docs/tranches/F/SUBSTRATE-LEDGER.md`
+→ `:336` *"This is the ONE table; every later X·F wave **quotes** it"*, `:345` *"Every producer
+coordinate in §2.1 and §2.3 is therefore pinned to `17a11bc5`"*. F.W1's **G18** reports the binding
+probe **GREEN** (*"real drag 8/8 mid-drag `scrubbing===true` ×2"*). The verdict is that the
+fallthrough channel is LIVE at `17a11bc5` — and the cure shape is still **PD-1's**, because a channel
+that is live by observation and dead by the producer's own docblock is not a contract. Native
+listeners on the resolved host. No version string appears in this unit's evidence.
+
+**The composition.** `GlassTimeline.vue` is the one session source; `ConvergenceTimeline.vue` is a
+host that composes it. **SR-1 asserted, not an import** — ⟨cmd⟩ `grep -rn 'glass-ui/timeline' web/src
+| wc -l` → **0** (double-run), and `./timeline` **is** in the 8.0.0 export map, so the zero is a
+refusal and not an absence. The three grounds are measured, not preferred: the prescribed
+`ScrubberTimeline` is unexported at both layers; `SliderVariant` is `"scrubber" | "spectrum"` at the
+adopted pin (⟨cmd⟩ `cat dist/components/slider/types.d.ts`); and the adoption regresses `M-3`'s
+accessible name to a hardcoded "Timeline".
+
+**Single session source, measured** — ⟨cmd⟩ `grep -rn 'emit("scrub-start")\|startScrub()' web/src` →
+**3 hits, one opener**: `GlassTimeline.vue:186` (the opener), `AnimationControls.vue:108` (a host
+relay into the store), `stores/animation.ts:220` (the store's own function). ⟨cmd⟩ `grep -rln
+'pointercancel' web/src` → `GlassTimeline.vue` + two unrelated canvas surfaces that already had it.
+⟨cmd⟩ the `[0..100]` adapter across both timeline files → **0**.
+
+**The fold's honest arithmetic.** Combined **code** lines (comments and blanks stripped, double-run):
+**205 → 256**. The composition grew and the host shrank (`ConvergenceTimeline` 112 → 98): what left
+the host is an adapter, a latch, a session and a token block; what entered the composition is the
+session machinery **neither fork had at all** — the resolved-host lookup, the four closers, and their
+lifecycle. A fold that cures by adding a mechanism does not get to report a line reduction, so it
+does not.
+
+**Every §C.A row, with its disposition:**
+
+| row | disposition at the bytes |
+|---|---|
+| `L-1` ⊕ `L-6` | unconditional pair, incl. `pointercancel`, across BOTH forks in one cut — the one-file fix the row calls DEFECTIVE was never available, since there is now one file |
+| `PD-1` (channel + order) | native listeners on `$el`; order `[rekaImpl, consumer]` proved by mount order (child hooks precede parent's), stated in the docblock |
+| `L-3` | the rAF anchor hoisted out of `startLoop`'s closure; **every** `seek()` clears it. HARD acceptance landed and born-RED-verified |
+| `C-4 / M-1 / M-14` ⊕ `M-4` | one composition; the header's INVERTED shadow relation corrected (`glass-track`/`-fill`/`-thumb` are the producer's live literals) |
+| `D-8 / D-9 / D-10 / L-m5` | three paints re-tokenised (`--type-small` · `--radius-sm` · `--shadow-sm`); the transition leg was F.W4's `M-7`, already landed; the bare `6px` STRUCK per rK-20; `S-alpha`'s three scheme-paired declarations kept paired |
+| `AX-1` ⊕ `D-5` / `D-6` | `aria-hidden` on the caret AND the announcement on the control, ONE edit — and the announcement rides the producer's `valueText` PROP, which authors `aria-valuetext` onto the **thumb** (the `role="slider"` element), not onto the root by fallthrough |
+| `CU-1` | `cursor: grab` / `grabbing` on the composition; the producer-side deletion recorded for the relay |
+| `LF-1` (both limbs) | limb (a): the playhead rides `inset-inline-start: calc(var(--caret-t) * 100%)` — one custom property, no `style.left`. limb (b) recorded for the ONE batched SS-6 letter |
+| `L-1b` | dies inside the pair; **and** `reset()` now clears `scrubbing`, which was the one path that stranded it without going through the UI |
+| `D-11 / L-m2` ⊕ `L-m6` | `:16-18` rewritten **inside the pairing-fix commit**, never its own — it stated the freeze as the CONTRACT, wrong three ways, and named an `onValueCommitStart` emit that does not exist |
+| `DT-1` cluster | all of it: dead conduit, the `:has(.glass-slider[data-held])` reach into producer internals, the inert `--z-popover`, the missing `event.button` filter, the absent lifecycle, the fresh-array-per-rAF (quantise to a primitive first), the `number[] \| undefined` hole, the de-dup latch |
+| `C·C-7` | **DECIDED INSIDE the re-derivation**: the producer's `[0..1]` float axis; `step` becomes the host's (0.001 convergence · 0.01 dock). The named anti-cure is answered rather than conceded — the announcement rate is bounded by `valueText`'s quantity, not by the step count |
+| `M-3` / `M-13` / `TS-1` | the at-rest readout DECIDED: `:focus-within` for the keyboard reader and a coarse-pointer arm for the touch reader, at rest. `D-7`/`D-23`'s collapsed-summary half is **F.W4's row** and is recorded, not taken |
+| `C·C-9` · `C·C-13` | stated as facts in the docblock, which is the disposition the row gives them |
+
+#### Act 3 — g10's SliderControl leg · commit `a08809b`
+
+The anti-rule is honoured by **splitting** the fallthrough, not by switching it off: `class`/`style`
+to the chassis (wanted), everything else — `aria-*`, `id`, `data-*`, `disabled`, native listeners —
+to the control that actually has the role, with the consumer's bindings applied AFTER the derived
+ones so an explicit `aria-label` outranks the one derived from `label`. `valueCommit` re-emitted
+(`R-7`). The inline numeric input honours `disabled`, which is the chassis's own half of a contract
+the producer cannot know about. `R-21`'s docblock rode Act 1, in the same edit as the `R-1` cure, as
+its sequencing edict requires — all four drifts named (inverted shadow relation · the `v1.8.x` pin
+against an 8.0.0 tree · the dead `glass-scrubber` vocabulary · the `:140-142` projection that never
+occurred).
+
+#### Gates — BEFORE → AFTER (every figure double-run at the settled bytes)
+
+| gate | BEFORE (this seat, re-measured) | AFTER | verdict |
+|---|---|---|---|
+| **g2** SLIDER-SCRUB | 20 occurrences / 7 files (15 declarations + 5 prose); producer 0 | **0 / 0**; producer 0 — **with MPC-10's contrast leg GREEN in BOTH arms** (4.003 L ≥ 4.00 · 4.228 D ≥ 3.71) | **GREEN** |
+| **g3** TIMELINE FORK | two forks, 135 + 165 lines, one session source each, no `pointercancel`, `glass-ui/timeline` 0 | ONE composition + one host; **1** session opener; `pointercancel` handled; `glass-ui/timeline` **0** — SR-1 asserted as a refusal, with `./timeline` present in the export map | **GREEN** |
+| **g4** SCRUB SESSION | no acceptance spec existed for either K-4 trigger | 3 live browser tests (null-delta press, cancelled pointer, the latch); **3 of 3 RED against the pre-fold tree**, 3 of 3 GREEN now, double-run | **GREEN** |
+| **g5** KEYBOARD-SEEK | no keyboard-seek acceptance test existed | 3 live tests + 4 store tests over a hand-driven frame clock; **3 of 7 vitest tests RED against the pre-cure store, and they are exactly the L-3 pair and L-1b's clause**; 7/7 + 3/3 GREEN now, double-run | **GREEN** |
+| **g6** PD-1 binding | verdict available from F.W1's G18 | **CONSUMED**: GREEN at producer commit `17a11bc5`, cited by hash; cure shape still PD-1's | **GREEN (consumed)** |
+| **g10** (SliderControl leg only) | `defineProps` + `defineEmits`, **no `inheritAttrs`, no `v-bind="$attrs"`**, `valueCommit` destroyed | split passthrough with both hosts pre-placed; `valueCommit` re-emitted | **GREEN (this leg)** |
+
+#### Cadence (§7)
+
+⟨cmd⟩ `npx vue-tsc -b --noEmit --force` → **1 diagnostic**, `ContourEditorCanvas.vue(42,9) TS6133
+'dragging'` — **pre-existing at HEAD, in a file outside this unit's writable set**, F.W0 `G-8`
+substrate routed to `.d`/`.e`. ⟨cmd⟩ `npx vite build` → **exit 0**, on the cleared side of FR-NP-32.
+⟨cmd⟩ `npx vitest run` → **8 files / 57 tests, all passing**. ⟨cmd⟩ `git diff --check` clean on every
+commit.
+
+⟨cmd⟩ `npx playwright test` (whole suite, one run, workers 4) → **37 passed · 30 failed · 7 skipped ·
+13 did not run**. Attribution, because a raw count would be useless: **27 of the 30 require the
+backend** (`scripts/e2e.sh` is the documented launcher that boots uvicorn + Mongo beside vite; this
+seat ran `vite` alone under §5.2 probe parsimony, so every upload/`/api` spec times out at
+`page.waitForURL` — `contour-extraction` 14 · `workspace-flow` 5 · `visualization-crud` 3 ·
+`gallery` 3 · `settings-persistence` 1 · `visualization-ux` 1); the remaining **3 are
+`contrast-floor.spec.ts`, F.W4's own gate**, and its failing rows print their own F.W4 owners
+(`FR-MSP-7 · HLG-37[grid-cell-fill] · FR-USB-5 ×3 · PSM-4 ×3 · GAB-1 ×2 · FR-EQR-7 ×2`) — **not one
+of them is a slider fill**, so this unit's cut neither caused nor cured them. This unit's own specs:
+**8 of 8 GREEN, double-run.**
+
+#### Residuals and routings (named, none swept)
+
+1. **SS-6 / g20 relay cargo from this unit** (for `.f`, reconciled against O-20 ⊕ O-32/O-33 before
+   accretion, never a fresh letter): `AX-1`'s four-item ask · `CU-1`'s producer-side cursor deletion ·
+   `PD-1`'s docblock-vs-render contradiction at the adopted pin · `LF-1`'s limb (b) · **NEW:
+   `R-1[D-14-fallback]`** — the producer's default fill measures **1.308:1 light / 1.920:1 dark**
+   against the producer's own default track, uncurable from any consumer.
+2. **`.timeline-track-wrap` + the 0.125rem inset sequence** — `DT-1` routes it to **F.W4**, which is
+   closed. The wrapper is left byte-untouched rather than taken, and the composition nests inside it;
+   net inset on the convergence host is 0.375rem where it was 0.25rem. Orchestrator's to place.
+3. **`D-7` / `D-23`** — the collapsed summary still omits position. F.W4's row; recorded, not taken.
+4. **g10's second live violation** — the Tooltip shim's fragment root is `.e`'s file and `.e`'s gate.
+5. **`e2e/resolve-stack.ts` duplicates `contrast-floor.spec.ts`'s private `resolveStack`/`openArm`.**
+   The new module is importable and the spec's copy is not; re-pointing F.W4's authored gate at it is
+   a change to another unit's gate and was not made. Booked for the adjudicator.
+6. **`vue-tsc`'s `ContourEditorCanvas` diagnostic** — F.W0 `G-8`, `.d`/`.e`'s share.
+7. **g9 / g11 operands RECORDED, NOT SWEPT**, per §5a-v2 and the record's cycle resolution — *"a unit
+   that cannot see the operand must not sweep"*. Measured over this unit's nine source paths at the
+   settled bytes, double-run (⟨cmd⟩ `grep -c 'is-active' <the nine>` and `grep -c '<Tooltip' <the
+   nine>`, zero-rows dropped):
+   - **g9 `is-active` → 0 occurrences, in all nine files.** This unit's share of the tree-wide
+     operand is EMPTY, which is also a re-derivation of the record's divergence at a second point:
+     the published operand put `EditorControlsDock.vue` in `.a`'s column, and that file carries none
+     today. (`is-playing` is a different class and is untouched.) No spelling was changed anywhere.
+   - **g11 `<Tooltip` → 15 sites across 3 files**: `EditorControlsDock.vue` **9** ·
+     `AnimationControls.vue` **4** · `BasisSelector.vue` **2**. Shim contract and both import
+     identities left exactly as found; `.e` publishes, `.f` reports.
+
+#### Escalations
+
+**None.** No §6 trigger fired: no edit was needed outside §1/the writable set; g6 was not RED at the
+adopted pin; g2's contrast leg did not fail after a green sweep (it is GREEN, and the one sub-floor
+reading is a producer row classified as such rather than suppressed); no diagnostic loop reached a
+third iteration.
+
+#### Commits (pathspec, one meaning each; the two locks honoured)
+
+| commit | meaning | lock |
+|---|---|---|
+| `77b9bc0` | the `--slider-scrub` family retires onto the producer's token, at full strength | **MPC-31's ONE CUT** — MPC-3 ⊕ MPC-10 ⊕ MPC-13 ⊕ MPC-8 ⊕ MPC-22 in one commit, across all 7 files, with the contrast leg; `MorphPhaseConfig.vue` lands here, **before `.b` opens** |
+| `f36541a` | the two timelines become one composition; the session cannot freeze; the keyboard reaches the axis | **D-11's `:16-18` rewrite is a HUNK of this commit**, never its own; `stores/animation.ts` lands here, **before `.b` opens**; `web/e2e/**`'s g4/g5 specs land here, **before `.d` opens** |
+| `a08809b` | g10's SliderControl leg | separate meaning (`R-7`'s settle event + the wrapper law); `R-21`'s docblock rode `77b9bc0` with the `R-1` cure, as its edict requires |
