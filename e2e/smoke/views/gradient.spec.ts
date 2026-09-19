@@ -166,9 +166,20 @@ test("stop add (bar click mints the ramp color), drag, and touch-true remove", a
         steps: 8,
     });
     await page.mouse.up();
-    const label = await mid.getAttribute("aria-label");
-    const pct = Number(label?.match(/(\d+)%/)?.[1] ?? "0");
-    expect(pct).toBeGreaterThan(60);
+    // X-W4 · X.W4.c RE-ANCHOR. The handle's accessible NAME now carries its
+    // identity and ordinal ("Gradient stop 2 of 3") while its VALUE carries the
+    // percentage — the slider semantics gate C2 landed. The position is read
+    // where GRADSTOP-A §6 says a position must be read: the handle's own `left`,
+    // never the whole-percent name. `aria-valuenow` is banked beside it because
+    // it is the model's exact value, not a rounded readout.
+    const moved = await mid.evaluate((el) => ({
+        left: parseFloat(getComputedStyle(el).left),
+        inline: (el as HTMLElement).style.left,
+        valueNow: Number(el.getAttribute("aria-valuenow")),
+    }));
+    const railWidth = (await bar(main).boundingBox())!.width;
+    expect(moved.left).toBeGreaterThan(railWidth * 0.6);
+    expect(moved.valueNow).toBeGreaterThan(60);
 
     // ── remove: selecting the handle reveals the remove chip (W5-11 — the
     //    right-click-only gesture is dead; remove is a visible control).
@@ -193,9 +204,12 @@ test("round-trip: authored CSS applies atomically with literals preserved", asyn
     await typeIntoEditor(main, page, "linear-gradient(45deg, red, rebeccapurple 80%)");
 
     // The debounced parse applies the WHOLE model: a stop lands at 80%.
-    await expect(
-        bar(main).locator('[data-stop-id][aria-label="Gradient stop at 80%"]'),
-    ).toBeVisible({ timeout: 3000 });
+    // X-W4 · X.W4.c RE-ANCHOR: bound to the handle's VALUE (the model's own
+    // number) rather than to the whole-percent accessible name, which now
+    // carries the stop's ordinal instead (gate C2).
+    await expect(bar(main).locator('[data-stop-id][aria-valuenow="80"]')).toBeVisible({
+        timeout: 3000,
+    });
     await expect(handles(main)).toHaveCount(2);
     // No verdict — the failure surface is silent on success.
     await expect(main.getByTestId("gradient-parse-verdict")).toHaveCount(0);
