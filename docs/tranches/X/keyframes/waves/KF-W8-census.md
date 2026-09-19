@@ -999,3 +999,155 @@ so the figure cannot move when §6.7 is written).
 
 **This section ratifies, re-derives and states directions. It takes no act, widens no grant, and
 spends no product byte.**
+
+---
+
+## §7 · THE TWO RULINGS (unit e) — G4's barrel family and G13's structural pair
+
+**SERVED MODEL**: `claude-opus-5[1m]`. **Date**: 2026-09-18. **Seat**: KF.W8 repair round 1, resuming
+the wave at unit `e`. **Substrate**: keyframes.js `HEAD 69095552`. Every figure below was produced by
+this seat's own command at those bytes, double-run; none is inherited from the spec's dated readings
+at `81a56990`, from unit `a`'s at `1fa98a5d`, or from any prior pass.
+
+This section is the committed home of the two rulings §Scope 5 and §Scope 8 require. It rules; it
+re-measures nothing that belongs to KF.W5 and it restates no denominator of KF.W5's as a number.
+
+### §7.1 · RULING ONE — the dead `defineAsyncComponent` barrel family: **DELETE, with the comment**
+
+**ONE RULING, FIVE SITES** (spec §Scope 5; the enumeration corrected at D-19-12). The five are the
+four `export *` barrels the umbrella named at `instrument/index.ts:24-27` plus **`KF-CE-40`**'s member
+export inside `keyframes/index.ts`.
+
+**The family's state at this substrate, measured before the ruling was spent:**
+
+```
+⟨cmd⟩ git grep -l 'instrument/transport"'          HEAD -- demo test   → ∅ (exit 1)
+⟨cmd⟩ git grep -l 'instrument/keyframes"'          HEAD -- demo test   → ∅ (exit 1)
+⟨cmd⟩ git grep -l 'instrument/timeline"'           HEAD -- demo test   → ∅ (exit 1)
+⟨cmd⟩ git grep -l 'from "@components/instrument"'  HEAD -- demo test   → ∅ (exit 1)
+                                                        (run 1 = run 2 on all four)
+```
+
+**Two of the five sites were already gone when this seat opened**: `instrument/index.ts` (the
+umbrella) and `instrument/transport/index.ts` no longer exist in the tree — they left with a sibling
+wave's acts between the spec's `81a56990` reading and this substrate. That is recorded, not claimed as
+this unit's work.
+
+**RULED — DELETE, never adopt-and-gate.** Each surviving barrel had **zero importers** by two
+independent sweeps (specifier, and symbol-resolved-to-specifier — LAW A · A-1…A-4, re-run here), and
+each carried a **chunk invariant that nothing enforced**: *"importing this umbrella never eager-loads
+the Monaco / highlight.js chunk"*. Adoption was the live alternative and it is refused on the gate's
+own terms: G4's first falsifier says *"adopting the barrels without a chunk-graph assertion leaves the
+invariant unenforced — the gate then requires the assertion, and a build whose entry graph contains
+monaco must fail it."* Buying a build-graph assertion to protect a re-export path **no module uses**,
+while the real mount bypasses all of it (`SpringPhysicsFacet.vue` imports the SFC directly and
+`ChannelControls.vue` hand-wraps its own `defineAsyncComponent`), is contrivance for a consumer that
+does not exist. The smaller, truer act is to delete the path and the promise together.
+
+**The comment dies with the barrel** — G4's own cure shape (*"the barrel and its rationale comment are
+both gone"*) and G8 leg (iii)'s repo-scoped sweep, whose falsifier is *"a barrel deleted while its
+chunk-rationale prose survives anywhere else — the surviving copy convicts."* Both were checked after
+the delete:
+
+```
+⟨cmd⟩ git grep -ln 'Monaco\|highlight\.js\|chunk' HEAD -- <the four barrel paths>      → 0 files
+⟨cmd⟩ git grep -ln 'never eager-loads\|idle-warm pane-reveal seam\|facility umbrella' \
+                                                  HEAD -- demo test scripts            → ∅ (exit 1)
+```
+
+**`KF-CE-40`, the fifth site**, is discharged by the same act and by nothing else: it is a member
+export *inside* `keyframes/index.ts`, so it leaves with the file. It is **co-declared across the packet
+boundary** and **not annexed** — the ruling reaches the site, the id keeps its own bank home.
+
+**Ownership guard, carried not spent.** `transport/index.ts`'s bytes are convicted twice under other
+owners — **M-L3** (`kf-DemoGlobalChrome`) and **L-16-RESCOPED + RR-2 M4** (`kf-EditorShell`), both
+**NO-WAVE-OWNER**. This ruling reaches the site; it does **not** annex those ids, and its green may not
+be read as discharging them.
+
+**Landed at** keyframes.js `68b97596`, one commit, both surviving files with their prose.
+
+### §7.2 · RULING TWO — the `src/` single-child chain **and** `engine/animation.ts`: **DECLINED, TOGETHER**
+
+**ONE RULING, BOTH INSTANCES** — R-4, under **KF.W5 D-6's no-split lock**. A decline covering only one
+instance would split one programme across three waves, which is the thing the lock exists to prevent.
+
+**THE CHAIN, NAMED.** `src/` has exactly one child, and that child is the whole of the library source:
+
+```
+⟨cmd⟩ git ls-tree --name-only HEAD -- src/        (run 1 = run 2)
+src/animation
+```
+
+Every library module in the repo lives under that single directory: `src/` → `src/animation/` →
+`compile|engine|group|ingest|internal|orchestration|physics|presets|resolve|scroll|svg|waapi`. The
+chain is `src/animation`, one link deep, and the CARRY's own cure shape allows *"flatten **or** write
+the ruling that it stays."*
+
+**THE SECOND INSTANCE, NAMED.** `src/animation/engine/animation.ts` is present at this substrate
+(⟨cmd⟩ `git ls-tree --name-only HEAD -- src/animation/engine/animation.ts` → the path). It is the
+`basename == dirname`-adjacent stutter instance KF.W5 hands here at **`KF-W5 §Carry · Arm D · row
+D-6`**, reciprocated at **`KF-W5 §Sequencing · the "→ KF.W8" cross-edge, leg (a)`**.
+
+**DISPOSITION — DECLINED for the duration of X·KF, both instances, as one record.**
+
+*Reasons, unchanged and now measured at this substrate:*
+
+1. **The anchor tax is the programme's largest, and it is live.** Renaming the library's entire source
+   root — or the module five engine-core dependency rings pass through — while a 12-wave programme's
+   line anchors point into `src/animation/**` maximizes D-19 churn for **zero behaviour**. Measured
+   here rather than asserted: ⟨cmd⟩ `git grep -c 'src/animation/' -- docs/tranches/X/keyframes/waves/`
+   returns live counts at **every** per-wave spec in the lane (`KF-W0` 13 · `KF-W1` 5 · `KF-W2` 60 ·
+   `KF-W3` 28 · `KF-W10` 5, and on). KF.W0 §B-12 exists because that tax is already the largest one
+   the programme pays.
+2. **`engine/animation.ts` is additionally a LIVE CURE SURFACE** in KF.W5's own table (B-6/B-8), and
+   renaming a file mid-cure is precisely the split the no-split lock forbids.
+3. **The user-visible symptom dies anyway, without either rename.** The thing a consumer can actually
+   see is the `@src/animation/...` deep specifier, and that is G1's to kill — it does not wait on this.
+
+**TRIGGER — the decline re-opens on any ONE of three conditions, and on no other.** (G13's falsifier
+convicts *"a ruling with no trigger"*; all three are conditions a later seat can evaluate without
+re-litigating this wave.)
+
+1. **X·KF closes.** The decline is scoped *for the duration of X·KF*: the successor programme inherits
+   an OPEN question, not a settled one.
+2. **The anchor tax that grounds the decline disappears** — when no adjudicated record and no live wave
+   spec cites an `src/animation/**:line` anchor. The churn cost is the whole reason, so its
+   disappearance re-opens the ruling on its own terms.
+3. **`engine/animation.ts` stops being a live cure surface** — when KF.W5's B-6/B-8 obligations on it
+   are discharged, the mid-cure half of the no-split lock lapses.
+
+**TERMINUS — a RECORD, not a deferred act.** The pair travels as **ONE record** to KF.W10's
+FOLD-FORWARD ledger with the terminal verb **`DECLINED-FOR-X·KF, carried forward`**, carrying all
+three triggers with it. W10 consumes and terminalizes; it does not home the act and does not cure it.
+
+**DENOMINATOR SUBORDINATION — by GATE ID, never by number** (R-14; G13's falsifier convicts *"a
+subordination sentence that restates KF.W5's denominator as a literal number"*). The **binding**
+stutter denominator is whatever **`KF-W5 §Gates · G-STRUCT` (leg 2)** carries after KF.W5's own
+re-measure, over the SET enumerated at **`KF-W5 §Carry · Arm D · row D-6`**. This seat does not state
+it, does not reconcile against it, and does not re-measure that programme.
+
+**G13's own narrower count, stated as what it is.** This gate's subject is the `src/` single-child
+chain plus the `engine/animation.ts` instance R-4 declines, and its backing enumeration is the
+`basename == dirname` set — **8** at this substrate, unmoved from the spec's reading:
+
+```
+⟨cmd⟩ git ls-tree -r --name-only HEAD -- src | grep '\.ts$' \
+        | awk -F/ '{base=$NF; sub(/\.ts$/,"",base); if(base==$(NF-1)) print}'     (run 1 = run 2)
+src/animation/compile/emit/backward/backward.ts
+src/animation/compile/emit/format/format.ts
+src/animation/group/group.ts
+src/animation/orchestration/sequence/sequence.ts
+src/animation/orchestration/split-text/split-text.ts
+src/animation/orchestration/timeline/timeline.ts
+src/animation/orchestration/view-transition/view-transition.ts
+src/animation/physics/spring/solver/solver.ts
+                                                                          → 8 paths
+```
+
+**These 8 are NOT a rival measurement of KF.W5's set** and are not offered as one. They are the
+enumeration backing THIS ruling and nothing else. A seat that reconciles this 8 against `G-STRUCT`'s
+figure has crossed into KF.W5's programme (§Do NOT touch).
+
+**NO FLATTEN IS EXECUTED HERE**, which is the other half of G13's falsifier (*"a flatten executed while
+adjudicated records still cite `src/animation/**:line` anchors"*). Zero bytes of `src/` were opened by
+unit `e`; the deliverable is this ruling.
