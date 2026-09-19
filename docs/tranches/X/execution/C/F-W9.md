@@ -1053,3 +1053,28 @@ and the value.js record. `web/eslint.config.js` was read and **not** written (it
 already carry the gate). `web/src/lib/figureDimensions.ts` was touched only by the reverted seeded
 falsification at b.8 and is clean at close. **No byte of `web/src/**`, of `F-W10.md`, of the
 registry, of glass-ui or of `scripts/dev/dev.sh` was written.**
+
+#### b.14 SELF-COUNT — the censuses this unit publishes, each read from the settled bytes and double-run
+
+**K11's *"quote 8, never 9"* is a DATED figure and is superseded at these bytes.** It was measured
+2026-08-28 against fourier `cd26c65`, before F.W0/W1/W3/W4 landed four more specs. Quoted as
+measured, never as inherited:
+
+```
+⟨cmd⟩ git ls-tree -r --name-only e111220 | grep '^web/e2e/.*\.spec\.ts$' | wc -l   → 12   (at open)
+⟨cmd⟩ ls -1 web/e2e/*.spec.ts | wc -l                                              → 18   (at close)
+⟨cmd⟩ <the 12 specs at open> | grep -c toHaveScreenshot                            →  0
+⟨cmd⟩ cat web/e2e/*.spec.ts  | grep -c toHaveScreenshot                            →  8
+⟨cmd⟩ find web -name '*-snapshots' -type d -not -path './node_modules/*'
+      at open → ∅ ·  at close → web/e2e/visual-checkpoint.spec.ts-snapshots (6 baselines)
+⟨cmd⟩ npx playwright test --list                          → 107 tests in 18 files
+⟨cmd⟩ npx playwright test --list --project=mobile-chromium →   5 tests in  2 files
+⟨cmd⟩ npx vitest run                                       →  13 files / 84 tests  (double-run: 13 / 84)
+```
+
+**Six specs added by this unit**: `coarse-pointer` · `shell-header` · `fullscreen` ·
+`equation-interaction` · `paper-search` · `visual-checkpoint`, plus one shared fixture module and two
+vitest files (`unit-floor-population`, `figure-set-equality`). **12 → 18 specs · 0 → 8
+`toHaveScreenshot` · ∅ → one snapshots directory · 8 → 13 unit files · 57 → 84 unit tests.** Every
+figure above is a count of THIS unit's own subject at the settled bytes, not of a live sibling and
+not of this file.
