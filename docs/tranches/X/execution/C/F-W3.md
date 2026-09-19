@@ -1170,3 +1170,206 @@ movement is therefore **recorded here**, which is where this wave's execution re
 **Wave verdict: `PARTIAL` — `.a` and `.c` DONE and their gates GREEN at this seat's own double-run
 commands; `.b` ESCALATED on an owner ruling; `.d`, `.e`, `.f` UNDISPATCHED.** No gate was run and
 failed; nothing was masked; nothing was swept.
+
+---
+
+## Check 1
+
+**SERVED MODEL: claude-opus-5[1m]** · FRESH ADVERSARIAL CHECK (L-20, pass 1), **VERIFY-ONLY** — an
+independent seat that authored none of this wave's cure bytes, none of the three unit receipts and no
+line of `## Close`. Dated 2026-09-19; the sitting's date of record stays **2026-09-17** (the
+begin-word's date). Substrate of every reading below: fourier `21e11b0` on `m/w1-bump-migration`,
+porcelain **empty**; value.js `c9b02d15`, porcelain `M docs/tranches/V/reformation/CARRY-LEDGER.md` ·
+`M scripts/dev/dev.sh` — **neither inside this seat's writable set**, `dev.sh` never touched.
+**Crash-recovery first (standing law)**: ⟨cmd⟩ `git -C /Users/mkbabb/Programming/fourier-analysis
+status --porcelain` → **empty**; nothing inherited, nothing stashed, nothing restored. Every figure
+below was read from the settled bytes at this seat's own commands and double-run.
+
+### VERDICT — **NOT-CONFORMANT**
+
+Not because the close overstates itself — it does not. **Every one of the twenty gate readings the
+close publishes reproduces at this seat's own commands**, no claimed GREEN rests on a narrative, no
+masking fallback exists anywhere in the diff, no byte was written outside `§File Bounds`, E-3 held and
+the mail is clean. The verdict turns on axis (10) alone: **six RED gates and two partial legs carry
+NO relief the spec grants** — they are not producer-owned, not routed to a later wave by the spec's
+own routing, and not honest-REDs the spec names by id. They are **this wave's own `.d`/`.e`/`.f`
+work, never dispatched**. An unrelieved RED may not be laundered as honest, and the spec's own
+**Goal criterion** is unmet at the bytes. The row therefore stays `PARTIAL`; it is not stamped CLOSED.
+
+### Axis 1 — every claimed GREEN reproduced (20 of 20 readings, this seat's own double-run)
+
+| gate | close's AFTER | this seat, re-measured | reproduces |
+|---|---|---|---|
+| **g1** | 64 SFCs · 55 scoped blocks · 55 declaring ≥1 class · **0 violations** | independent S-4 probe authored at this seat from the gate's own wording (template class-token index × scoped-block declared-class set): **SFCs 64 · scoped blocks 55 · blocks declaring ≥1 class 55**; 3 raw hits, **all three inside the close's own classification** — `FullscreenViewer` `:deep(.canvas-container)`/`:deep(.editor-shell)` (`:170-171`, the sanctioned cross-boundary form) and `AnimationControls` `.animation-dock:where(.expanded)` (`:190`). The `expanded` hit was chased rather than accepted: its only other home is `EquationModeToggle.vue:33/:34/:37`, where `expanded` is a **model-value string**, not a class, and ⟨cmd⟩ `grep -c 'EquationModeToggle' AnimationControls.vue` → **0** — not a child. **Not exclusively child-owned; 0 violations under the gate's own words** | **YES** |
+| **g2** | 0 / 0; producer 0; contrast leg asserted both arms | ⟨cmd⟩ `/usr/bin/grep -rn -- "--slider-scrub" web/src \| wc -l` → **0**; `-rl` → **0**; producer → **0**. ⟨cmd⟩ `npx playwright test e2e/slider-scrub-contrast.spec.ts` → both arms **PASS** | **YES** |
+| **g3** | GlassTimeline **356** = composition · ConvergenceTimeline **176** = host; `glass-ui/timeline` 0; ONE opener; four unconditional closers | ⟨cmd⟩ `wc -l` → **356** · **176**; `grep -rn "glass-ui/timeline" \| wc -l` → **0** (`./timeline` **is** in the 8.0.0 export map — the zero is SR-1's refusal); ⟨cmd⟩ `grep -rn 'startScrub()' web/src` → **2 hits, one caller** (`AnimationControls.vue:108`) over the store's own definition (`stores/animation.ts:220`); `attachClosers()` reads `lostpointercapture` on the resolved host ⊕ `pointerup` ⊕ `pointercancel` ⊕ `blur` at the window, **all four unconditional**; `ConvergenceTimeline.vue:24` imports the composition, mounts `:92` | **YES** |
+| **g4** | 3/3 live GREEN | ⟨cmd⟩ `npx playwright test e2e/timeline-scrub.spec.ts` → K-4(a) null-delta press · K-4(b) cancelled pointer · the latch's death — **3/3 PASS** | **YES** |
+| **g5** | 3 live ⊕ 7/7 store tests | the same run: arrow-survives-next-frames · Home/End · the thumb announces the harmonic — **3/3 PASS**; ⟨cmd⟩ `npx vitest run` → `e2e/unit/animation-clock.vitest.ts` **7/7** | **YES** |
+| **g6** | CONSUMED at producer commit `17a11bc5`, by hash, never a version string | ⟨cmd⟩ `grep -c '17a11bc5' fourier/docs/tranches/F/SUBSTRATE-LEDGER.md` → **17**; no version string carries the cell | **YES** |
+| **g7** | RED, unmoved — 4 hits / 2 files | ⟨cmd⟩ `/usr/bin/grep -rc 'easing-preview' web/src` → `EasingCurvePreview.vue:2` · `MorphPhaseConfig.vue:2` = **4 / 2** | **YES** |
+| **g8** | RED — 0 | ⟨cmd⟩ → **0** | **YES** |
+| **g9** | RED — operand **7 files**, unmoved | ⟨cmd⟩ `/usr/bin/grep -rl 'is-active' web/src \| sort` → **the same 7 files, byte-for-byte** | **YES** |
+| **g10** | SliderControl leg GREEN; Tooltip leg unmoved | `SliderControl.vue` — `defineOptions({ inheritAttrs: false })` `:84`, `v-bind="chassisAttrs"` `:135`, `v-bind="controlAttrs"` `:160`, `emit("valueCommit", …)` `:116`; ⟨cmd⟩ `grep -n 'inheritAttrs\|\$attrs' ui/tooltip/Tooltip.vue` → **∅** | **YES** |
+| **g11** | RED — 11 files, unmoved | ⟨cmd⟩ `/usr/bin/grep -rl '<Tooltip' web/src \| wc -l` → **11** | **YES** |
+| **g12** | 1 of 3 in state (a); the `./search` hit is a COMMENT | ⟨cmd⟩ `grep -rn "glass-ui/fading-scroll" web/src` → **1 import**, `ConvergenceLegend.vue:2`; `glass-ui/forms` → **0**; `glass-ui/search` → **one line, `paperSearchIndex.ts:210`, inside a docblock** — not an import. Export map re-read at the installed `package.json` (**8.0.0**, 70 keys): `./easing ./fading-scroll ./input ./search ./timeline` — **`./forms` does not exist at the pin**, so the `0` is operand-dead exactly as recorded | **YES** |
+| **g13** | ONE commit `21e11b0`, 8 files, no rider deferred | ⟨cmd⟩ `git show --stat 21e11b0` → **8 files, one commit**; every rider verified at the bytes rather than from the receipt — `<Teleport to="body">` `PaperSearchDropdown.vue:163`, the shim gone, `z-index: var(--z-popover)` `:207` (FR-PS-Z), `block-size: var(--control-h-md); box-sizing: border-box` `PaperSearchInput.vue:132-133` (MISS-DU1), `<label class="paper-search-input-wrap">` `:46` + `cursor: text` `:140` (MISS-DU4), `debouncedQuery` the ONE highlight source in **both** hosts (`PaperSearchDropdown.vue:180` · `PaperSearchModal.vue:174`), the two-tier sort `scored.sort((a,b) => b.tier - a.tier \|\| …)` `paperSearchIndex.ts:335` (FR-PSD-TYPE), the `getElementById` arm ⊕ boolean-gated push in `useScrollNavigation.ts` (★NAV-1). **The §C.D anti-cure lock is honoured at the letter**: row `:268` forbids the `D-6/L-1¶3` cure *"as prescribed"* and orders dismissal re-derived **outside** the filter containing block — which is what a body-portal plus a document-level containment test is | **YES** |
+| **g14** | RED — UNRUN; O-20 unrewritten | ⟨cmd⟩ `shasum -a 256 …/valuejs-outbound-2026-08-28-o20-authoring-block-batch.md \| cut -c1-12` → **`f6e04c86ddb8`**, byte-identical to S-15's pin | **YES** |
+| **g15** | RED — 5 · 7 · 10, all three unmoved | ⟨cmd⟩ → **5** · **7** · **10** | **YES** |
+| **g16** | anti-cure half CLEAN; LINT-RULE half RED | ⟨cmd⟩ `git show <c> \| grep -c '^+.*@layer'` over all four fourier commits → **0 · 0 · 0 · 0**; `grep -rn '@layer' web/src \| wc -l` → **21** (unmoved); no eslint config exists | **YES** |
+| **g17** | condition (1) UNMET — the G-12 table carries no shadow row; condition (2) exactly 1 hit, `:174` | ⟨cmd⟩ `grep -ic "shadow" SUBSTRATE-LEDGER.md` → **0**; the forbidden-token detector run **as the gate spells it** (`grep -nE -e '1[[:space:]]?990' -e '2[[:space:]]?079' -e '1[[:space:]]?315'`) over this record → **exactly one line, `:174`**, the `.d` unit-plan lock **quoting the prohibition**. No budget cell exists | **YES** |
+| **g18** | GREEN | porcelain **0**; ⟨cmd⟩ glass-ui `package.json.version` → **8.0.0**; `InfoCard.vue` and `CanvasOverlayButton.vue` → **No such file** (both) | **YES** |
+| **g19** | RED — unrun; operand pin unmoved | ⟨cmd⟩ `shasum -a 256 …/CENSUS-CANONICAL.md \| cut -c1-12` → **`f44362757458`** — unmoved from the spec's sha256-at-quote-time | **YES** |
+| **g20** | RED — UNRUN; no artefact | ⟨cmd⟩ `ls docs/tranches/X/fourier/F-W3-DO-NOT-EXECUTE.md` → **No such file** | **YES** |
+
+**Tally re-derived at this seat: 7 GREEN · 1 CONSUMED · 12 RED — the close's figure exactly**, and
+its own partition of the twelve (**2 BLOCKED · 7 UNRUN · 2 PARTIAL · 1 ANTI-CURE-CLEAN**) sums to
+twelve. **Zero gates were run and failed**, as the close states. **gatesFailed: ∅.**
+
+### Axes 2–6, 9 — each measured, each clean
+
+- **(2) No write outside `§File Bounds`.** ⟨cmd⟩ `git show --stat` on all four fourier commits:
+  `77b9bc0` **9 files** (2 under `web/e2e/**` ⊕ 7 source paths, every one on `.a`'s §5 Files line) ·
+  `f36541a` **6** · `a08809b` **1** · `21e11b0` **8** (every one on `.c`'s §5 Files line). Value.js:
+  `e3042a85` · `6c9f1ca9` · `51c49101` · `7703117a` · `c9b02d15` touch **only**
+  `execution/C/F-W3.md` and `execution/LEDGER.md`. ⟨cmd⟩ `git show --name-only … \| grep -c 'dev.sh'`
+  → **0 · 0 · 0 · 0 · 0**. ⟨cmd⟩ `git diff --name-only 0a16b83..21e11b0 \| grep -v '^web/'` → **∅**,
+  and `--stat … '*node_modules*'` → **∅**. **Zero writes outside bounds; `scripts/dev/dev.sh`
+  untouched in every commit of this wave.**
+- **(3) No masking fallback anywhere in the diff.** ⟨cmd⟩ over the whole wave diff
+  (`git diff 0a16b83..21e11b0 -- web/`), added lines only, for
+  `test.skip|it.skip|describe.skip|.fixme|test.fail|@ts-ignore|@ts-expect-error|eslint-disable|allowlist|whitelist|try {|catch (|toBeTruthy()|expect(true)`
+  → **0 hits**. ⟨cmd⟩ removed `expect(` lines → **0**. No producer selector was copied, no
+  `node_modules` byte patched, no assertion narrowed. **The one exemption in the tree was audited
+  rather than accepted** — see D-7.
+- **(4) Commit families not split.** MPC-31's ONE CUT is one commit (`77b9bc0`, MPC-3 ⊕ MPC-10 ⊕
+  MPC-13 ⊕ MPC-8 ⊕ MPC-22 across seven source files); D-11's `:16-18` docblock rewrite rides
+  `f36541a`'s hunks and has no commit of its own; g13's rider set is one commit (`21e11b0`, eight
+  files) with no rider deferred — the three riders discharged **before** F.W3 opened were re-measured
+  and booked to F.W4's `a3030dd` (⟨cmd⟩ `git log --oneline -1 a3030dd` → *"PSM-1 with its three
+  riders"*, and `9144cb1` · `4039e1a` likewise resolve), never re-cured. **One commit per meaning; no
+  family split.**
+- **(5) E-3 held.** ⟨cmd⟩ `git diff --stat 7d02e405..HEAD -- docs/tranches/X/fourier/waves/
+  docs/tranches/V/megatranche/registry/adjudicated/ docs/tranches/X/fourier/conformance/` → **∅**.
+  `COHESION.md` moved in the range by **+260 lines**, and the attribution was chased, not assumed:
+  ⟨cmd⟩ `git log --oneline 7d02e405..HEAD -- docs/tranches/X/COHESION.md` → **one commit,
+  `15da439f docs(X·KF W10)`** — a Track-B seat's, **not this wave's**. The dated spec, the adjudicated
+  registry, the conformance artefacts and every sibling spec are **byte-untouched by F.W3**.
+- **(6) Mail clean.** ⟨cmd⟩ `grep -cE '\| *UNREAD' docs/tranches/V/coordination/INBOX.md` → **0**
+  status cells. The close's own refusal to append an INBOX line is correct and is not a shortfall:
+  `INBOX.md` is `.f`'s path in §5f and `.f` never opened, so a close sweep writing there would forge
+  an undispatched seat's act.
+- **(9) The record's published figures reproduce.** Every count above was read from the settled bytes
+  and double-run; the tally, the twelve-way partition, the g17 self-count (`exactly one hit, :174`),
+  the O-20 and canonical shas, and the commit roster all reproduce. **§7 cadence re-run at this
+  seat**: ⟨cmd⟩ `npx vue-tsc -b --noEmit --force` → **1 diagnostic**,
+  `ContourEditorCanvas.vue(42,9) TS6133 'dragging'` — the same one, pre-existing, in a file in **no**
+  §1 bounds row; ⟨cmd⟩ `npx vite build` → **built, exit 0** on the cleared side of FR-NP-32; ⟨cmd⟩
+  `npx vitest run` → **8 files / 57 tests, all passing**. The whole-suite playwright cadence was
+  **deliberately not run here either**, for `.a`'s reason: it mutates 21 tracked tranche-J baseline
+  PNGs. Only the two F.W3-authored specs were run, bounded per §5.2; porcelain after: **empty**.
+
+### Axis 7 — the four-verb line moved lawfully
+
+The close moved **nothing** in the spec's `§State` table — correct, since that table is IMMUTABLE
+under E-3 and in no writable set — and recorded the verbs in the execution record instead. AUDITED
+**YES** and SPECIFIED **YES** stand unchanged; **IMPLEMENTED stays NO**, which is the only honest
+reading of the spec's own evidence clause (*"gates green + bytes landed"*) against 7 GREEN / 12 RED
+and three seats that never opened; **VERIFIED stays NO** by the spec's own rule that no wave stamps
+VERIFIED at its own close. **Lawful.**
+
+### Axis 8 — the spec's own Goal criterion, tested at the bytes
+
+> *"…no fourier frontend surface hand-rolls a component the installed producer ships, no scrub or
+> search surface carries a defect its own prescribed cure would arm, one vocabulary names the active
+> state, one law governs every wrapper, and every producer-owned defect is on the SS-6 letter instead
+> of patched locally."*
+
+Clause by clause, measured: the **scrub** clause is **MET** (g2/g3/g4/g5 GREEN, the freeze
+unreachable at both K-4 triggers); the **search** clause is **MET** (g13 GREEN, the whole surviving
+rider set in one commit that arms nothing). The remaining three are **NOT MET at the bytes**: *one
+vocabulary* — ⟨cmd⟩ **7 files still carry `is-active`**, and `.c` measured a **fifth spelling**,
+`is-active-sub` at `PaperSidebar.vue:173`; *one law governs every wrapper* — `ui/tooltip/Tooltip.vue`
+declares no `inheritAttrs` and pre-places no `$attrs` host; *every producer-owned defect on the SS-6
+letter* — **no accretion was made at all** (g20), so `.a`'s five cargo items (incl. the NEW
+`R-1[D-14-fallback]`) and `.c`'s two sit unsent. And the clause the wave is half-named for —
+**shadow retirement** (§C.H whole) — never opened. **The goal criterion is UNMET.**
+
+### Axis 10 — HONEST-RED ADJUDICATION, decided at the spec bytes
+
+**RELIEVED — the honest-RED set, each with its relief cited and its owner named:**
+
+| gate | the spec's own relief | owner named by the record |
+|---|---|---|
+| **g7** EASING FORK | `§5 X.F.W3.b` **Mechanism**: *"§C.C whole. **Blocks on the MISSED-D ruling (S-6a).**"* ⊕ `§6` second bullet, a **mandatory triumvirate trigger**: *"g7 forced while MISSED-D is unruled (the unit may not presume)"* ⊕ `OP-4` books MISSED-D **OWED**. An owner ruling this wave may not supply itself | **R1 — the triumvirate / the owner**; `.b` searched COHESION to its file end (`:1280`, last heading §0t `:1269`) and proved ABSENT, and expressly refused ESC-4 as its discharge |
+| **g8** EASING CHIPS | the same lock — the chassis rides §C.C, and `§5.b`'s Mechanism blocks **the unit**, not merely the gate | **R1** |
+| **g16** LINT-RULE half | `§7` in F.W3's own voice: *"there is no eslint config and no `noUnusedLocals`… **both are F.W0 additions this wave consumes**"*. The durable fix has no home inside F.W3's bounds by the spec's own statement; the **anti-cure half is measured CLEAN** (0 added `@layer` across all four commits) | **R11 — F.W0 / F.W4's budget** |
+| **g17** SHADOW AGGREGATE | the gate's own title — **"F.W3 QUOTES, F.W0 PUBLISHES"** — and its cell: *"the aggregate itself is **F.W0's to publish**"*. ⟨cmd⟩ `grep -ic "shadow" SUBSTRATE-LEDGER.md` → **0**: the row F.W3 is required to quote **does not exist**, and the gate's FAIL condition (*"any budget cell authored before the table exists"*) is **not triggered** | **R3 — F.W0 / the adjudicator** ⊘ *caveat*: `.d` also owns this gate's budget-precedence leg and `.d` never opened, so the relief covers the missing operand, not the undispatched seat |
+
+**UNRELIEVED — and this is the verdict.** The following are RED for one reason only: **the wave
+dispatched three of its six units.** None is producer-owned (no glass-ui byte is implicated); none is
+routed to a later wave by the spec's own routing (the spec routes every one of them to `.d`, `.e` or
+`.f` of **this** wave); none is an honest-RED the spec names by id. The record names an owner for
+each — but the owners it names are **this wave's own undispatched seats**, which is incompleteness,
+not relief:
+
+| gate / leg | the spec's routing | why it is not relieved |
+|---|---|---|
+| **g9** ACTIVE-STATE (tree-wide) | `§5.e` publishes the vocabulary; **`.f` reports** (`§5a-v2`) | both seats undispatched; 7 files and a fifth spelling live |
+| **g11** TOOLTIP ADAPTER (tree-wide) | `§5.e` owns FR-TT-15/FR-TT-24; **`.f` reports** | both undispatched; no knob list, no naming leg, both import identities untouched |
+| **g14** CARTOON-CARD relay | **`.f`** (`§5.f` Sub-gate) | undispatched |
+| **g15** SHARED-UTIL | **`.e`** (`§5.e` Sub-gate, *"`.e`-scoped, **closable here**"*) — the spec says this gate closes **inside this wave** | undispatched; and the basis-key **WAVE-LOCK** it mints is a declared input to F.W5–W8 (`§10 Blocks`) |
+| **g19** ROSTER CLOSURE | **`.f`** | undispatched; no bidirectional `comm -3` transcript exists |
+| **g20** REGISTER + LETTER | **`.f`** | undispatched; `F-W3-DO-NOT-EXECUTE.md` absent, no SS-6 accretion |
+| **g10**'s second leg | **`.e`**'s file, `.e`'s gate | undispatched |
+| **g12**'s two `(b)` rows | **`.f`**'s artefact; `.c` authored the `./search` row's text **verbatim** and correctly refused to report green on prose (*"a rationale that is not a row in that file does not count"*) | undispatched; the row is homeless |
+
+### Successor "Opens after" conjuncts, checked against this wave
+
+- **F.W9** — ⟨cmd⟩ its masthead: *"**Opens after**: F.W0 (substrate pre-gates, hard) → F.W1 (atomic)
+  → **F.W3/W4 (the cures this wave gates)**"*. The F.W0 and F.W1 conjuncts are **GREEN** (both CLOSED
+  at the LEDGER); the **F.W3 conjunct is NOT GREEN** — the wave is `PARTIAL`. **F.W9 is lawfully
+  blocked.**
+- **F.W4** — already **CLOSED 2026-09-17**, ahead of F.W3. No edge is broken: F.W4's own predecessors
+  are F.W0/F.W1, and F.W3's `§10` names F.W4 as a *dependent*, not a predecessor. The close records
+  the inversion honestly and `.c` **re-measured before curing**, booking every F.W4-discharged row to
+  its commit rather than re-curing it — which is the correct treatment of the inversion.
+- **F.W5 · F.W7 · F.W8** — none names F.W3 in its `Opens after` line (their conjuncts are F.W0, the
+  intake adjudication, the registry, F.W1.close, F.W2, F.W5). **Not blocked by this wave's state.**
+  But `§10 Blocks` binds three dependents that F.W3 has **not** discharged: **SS-4/F.W5–W8's
+  `basisFilter` WAVE-LOCK** (g15's, unrun), **SS-6** (*"the batched letter is authored here"* — g20,
+  unrun), and **SS-13** (the S-9 probe list — `.f`'s, unrun).
+
+### Register — severity · claim · receipt · cure
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| **D-1** | **CRITICAL** | **Six gates and two partial legs are RED with no relief the spec grants, and the spec's own Goal criterion is unmet at the bytes** — because `.d`, `.e` and `.f` were never dispatched. g15 is the sharpest case: `§5.e` calls it *"`.e`-scoped, **closable here**"*, so the spec itself says it closes inside this wave, and ⟨cmd⟩ re-run returns **5 · 7 · 10**, all three unmoved. g19 and g20 are the wave's own closure gates, and g20 leaves `.a`'s five and `.c`'s two SS-6 cargo items unsent | the unrelieved table above; ⟨cmd⟩ `grep -rl 'is-active' web/src \| wc -l` → **7**; `grep -rl '<Tooltip' web/src \| wc -l` → **11**; `ls …/F-W3-DO-NOT-EXECUTE.md` → **No such file**; `grep -rn "function timeAgo" \| wc -l` → **5** | **Dispatch `.d`, `.e`, `.f`.** Not a repair of any landed byte — nothing landed is wrong. The wave stays `PARTIAL` until the three seats run; `§6` additionally forbids redispatching `.b` alone, so the MISSED-D triumvirate and the three-seat dispatch are one orchestration act |
+| **D-2** | MINOR (mitigated) | **`§5b`'s worktree plan did not execute**: both running implementation seats worked in the MAIN checkout | `.a` Act 0 and `.c` Act 0 each **declare** the deviation with its reason (the dispatch's hard-bound writable set names absolute paths in the main checkout; `.a` ran alone in `§5a` group 1; ⟨cmd⟩ `grep -rn -i 'worktree' execution/C/F-W{1,2,4}.md` → 4 hits, every one meaning the main working tree). ⟨cmd⟩ `git worktree list` at this seat → no `f3{a..e}` | **Mitigation already in place**: declared, reasoned, twice-recorded, and no defect follows at the bytes — the file-level conflict `§5b` exists to prevent was prevented by dispatch order instead. The adjudicator rules on the section; **does not block** |
+| **D-3** | MINOR | **`§8`'s evidence home does not exist** — `docs/tranches/X/fourier/waves/evidence/F-W3/` is in **no** `§1` bounds row and **no** `§5` Files line, so the close could not create it without a `§6` bounds-expansion event | ⟨cmd⟩ `ls docs/tranches/X/fourier/waves/evidence/` → the directory holds no `F-W3/` | a spec-internal contradiction the close named rather than papered; the transcripts live in this record, which **is** a bounded path. **Owner R13 — the adjudicator.** Does not block |
+| **D-4** | MINOR | **`e2e/resolve-stack.ts` (new at `77b9bc0`) duplicates `contrast-floor.spec.ts`'s private `resolveStack`/`openArm`** — a live duplication in `web/e2e/**` | `.c` booked it; the close re-books it as landed-wrong finding 2 | re-pointing F.W4's authored gate at the shared module is a change to another unit's gate and was correctly **not** made. **Owner: the adjudicator.** Does not block |
+| **D-5** | INFO | **`§9`'s close-commit template could not be honoured** — it reads `docs(X·F): F.W3 close — <gates green count>, register + letter filed`, and neither register nor letter was filed | the actual subject: *"docs(x-f-w3/close): PARTIAL — 7 GREEN / 12 RED, zero gates run-and-failed, and three of six seats that never opened"* | the template presumes a green close; the subject actually written is the more honest one. **Never blocks** |
+| **D-6** | INFO | **One anchor in `.a`'s receipt drifts**: the closer set is cited at `GlassTimeline.vue:166-168` | measured at the settled bytes: `attachClosers()` spans **`:165–172`**, and **all four closers are present and unconditional** | line drift only; the fact the cite carries is intact. **Never blocks** |
+| **D-7** | INFO | **`slider-scrub-contrast.spec.ts` exempts one pair from assertion** (`R-1[D-14-fallback]`, 1.308 light / 1.920 dark) — an allowlist of one, which axis (3) weighs as HIGH on sight | **audited rather than accepted, and it is lawful**: (i) the exemption is declared inline with its whole reason and is **producer-owned** (`--glass-capsule-warm` over `--muted-medium` — the producer's own default fill on its own default track, unseparable without re-minting a producer token; glass-ui is READ-ONLY, so a consumer patch would itself be the defect); (ii) it is **unreachable in this tree**, proved at the bytes rather than asserted — `SliderControl.vue:41` declares `color: string` **required, not optional**, and `vue-tsc` is clean, so **every** callsite supplies `--track-color` (`:159`), and the four direct writers are `MorphPhaseConfig.vue:6/:285` · `BasisSelector.vue:174/:200/:336` · `SliderControl.vue:159/:236`; (iii) it is **measured, printed and attached on every run, pass or fail**, and routed to SS-6 (R8); (iv) the one `try/catch` in that spec converts a resolution error into a **failure** (`failures.push`), the opposite of a mask | no cure owed. Had any callsite omitted `color`, this would have been a HIGH masking a live consumer defect — it does not. **Never blocks** |
+
+**BAR**: 0 BLOCKER · **1 CRITICAL** · 0 HIGH · 3 MINOR (all mitigated or owner-named) · 3 INFO.
+**Every claimed GREEN reproduces (20 of 20); gatesFailed = ∅.** The single CRITICAL is the
+unrelieved RED set, and it is a **dispatch** fact, not a defect in any landed byte: this seat
+re-derived `.a`'s and `.c`'s cures at the bytes and found **no defect in any landed hunk**, which
+concurs with the close's own finding 3.
+
+### What this check refutes, and what it confirms (L-14 discipline, applied to the close)
+
+Two load-bearing claims of the close were attacked rather than read. **(i) g1's "0 violations"** was
+not taken from the close's probe: an independent probe was authored here from the gate's wording
+alone and returned three raw hits — each was then chased to its bytes, and all three fall inside the
+close's own published classification, the `expanded` one only after `EquationModeToggle`'s tokens
+were read and found to be model-value strings on a component that is **not** a child of
+`AnimationControls`. The green survives refutation. **(ii) the `R-1` relay exemption** was attacked
+as a candidate HIGH under axis (3) — the attack failed on the required-prop proof at
+`SliderControl.vue:41`, which makes the exempted reading unreachable from any callsite in the tree.
+**Confirmed, with its own receipt**: the close's refusal to stamp the wave, its separation of
+*blocked* from *unrun* from *run-and-failed*, and its refusal to append to `INBOX.md` on an
+undispatched seat's behalf are all correct.
+
+**LEDGER**: the F.W3 row **stays `PARTIAL 2026-09-17`**; a CHECK-1 clause is added to its status cell
+by minimal in-place edit, and a dated event line is appended. **The row is not stamped CLOSED.**
