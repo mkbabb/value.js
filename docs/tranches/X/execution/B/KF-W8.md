@@ -645,3 +645,213 @@ seat's).
 **Escalations raised by this unit: NONE.** Its writable set was sufficient, both directions are
 turned, and every out-of-bounds fact is **recorded with its owner** rather than acted on. **No
 product byte, no widened grant, no `LEDGER.md` edit.**
+
+### c
+
+**SERVED MODEL**: `claude-opus-5[1m]`. **Date**: 2026-09-18. **Unit**: `c` — deep-import
+extirpation + demo-side repoint, after KF.W5's surface ruling. **Gates**: **G1 · G2**.
+**Writable set**: six keyframes.js paths (`demo/utils/helpers.ts` · `demo/utils/keyframeSelector.ts` ·
+`…/keyframes/composables/useKeyframeOps.ts` · `…/keyframes/utils/parseAnimationCSS.ts` ·
+`…/timeline/utils/timelineEngine.ts` · `demo/components/playback/AnimationVisualizer.vue`, import
+line only). **Status: PARTIAL — six of the eight `@src/` statements extirpated, TWO ESCALATED, both
+gates honest-RED at close.**
+
+#### Act 1 — crash-recovery sweep (STANDING LAW), before any other act
+
+⟨cmd⟩ `git status --porcelain` in `/Users/mkbabb/Programming/keyframes.js` → **2 rows, both `??`**
+(`docs/tranches/V/coordination/VALUEJS-INBOUND-2026-07-24-…` · `…-2026-07-27-…`, our own delivered
+letters), **neither inside this unit's writable set**; ⟨cmd⟩ same in `/Users/mkbabb/Programming/value.js`
+→ **15 rows**, **none** a KF.W8 path. ⟨cmd⟩ `git rev-parse HEAD origin/master master` (kf) →
+**`1fa98a5d8fa53cd6b408b3094195b9f8c12ab32f`** three times — the wave's open substrate, unmoved.
+**No killed predecessor seat's partial work exists on this unit: nothing inherited, nothing stashed,
+no dirty path outside the set touched**; `scripts/dev/dev.sh` never opened.
+
+#### Act 2 — the sections, read whole, and the one measurement that decides the unit
+
+Spec read in slices (476 L / 263 KB): §Units row `c` (`:58`) · §Scope 3 (`:73`) · G1 (`:262-269`) ·
+G2 (`:271-275`) · §Rows `KF-CE-12` · `KF-CE-42` · `KF-AV-8` · `KF-AV-35` · `KF-KE-15` · `C-8` ·
+`C-12` (`:221-229`) · §Bounds deep-import row (`:103`) · plus G3 (`:277-283`, unit d's — read because
+it re-words this unit's `namedSelectorToFraction` finding) and §State `Opens after`. Record read whole
+(baseline + plan + units `a` and `b`). `COHESION.md` §0j + every §0k+ addendum read to the file end —
+⟨cmd⟩ `grep -n 'KF\.W8\|KF-W8' docs/tranches/X/COHESION.md` → **2 hits, both `§0o ESC-KFW2-1`**
+(`:1105`/`:1106`), which is **unit d's**. **No §0k+ ruling binds unit c.**
+
+**THE DECIDING MEASUREMENT — where the published door actually is.** KF.W5's S-3 block sits at
+`public.ts:145-168` and lands `export { cssIdent, reverseCSSTime, serializeTimingFunction } from
+"./compile/emit";` at **`:168`**, declared *"HEAVY surface only, deliberately"*. `index.ts` re-exports
+`./public` **as types only** (⟨cmd⟩ `git show HEAD:src/animation/index.ts | grep -n 'from "./public"'`
+→ `export type * from "./public";`), so the door a demo module actually turns is the **resolved engine
+surface**: ⟨cmd⟩ `git grep -n 'reverseCSSTime\|serializeTimingFunction' HEAD -- src/animation/load-engine.ts`
+→ `:62` · `:63` (the re-export roster) and `:118` · `:120` (the `AnimationEngine` interface fields).
+**Both call sites already stood inside an awaited `loadAnimationEngine()`** — `useKeyframeOps.ts:62-63`
+and `parseAnimationCSS.ts:27` — so the repoint is a destructure, not a new edge, and the demo's own
+written law (`demo/kf-engine.ts:4-11`, the ED-3 dogfood inversion) is satisfied rather than worked
+around.
+
+**THE SECOND DECIDING MEASUREMENT — the five KF.W5 did not publish are ALL LIVE IN `src/`, so
+"relocation" can only mean the demo authors its own body.** ⟨cmd⟩ `git grep -n '<name>' HEAD -- src`,
+one run per name, **file counts**: `camelCaseToHyphen` **5** · `serializeCssValue` **9** ·
+`convertToPixels` **2** · `namedSelectorToFraction` **4** · `bumpLayoutEpoch` **1**. None is dead on
+the src tree, so none can *move* the way `demo/utils/helpers.ts:1-8`'s own precedent moved (*"the
+library's encapsulation sweep (V.W6) measured these dead on the src tree and deleted them"*). The
+route G1's *Blocked by* clause leaves — **relocation, never re-specifying** — is therefore executed as
+**the demo owning the operation it needs**, at the concentrator, with the library body untouched and
+named in every docblock. **Zero library bytes were written by this unit**: ⟨cmd⟩
+`git diff --stat 1fa98a5d..HEAD -- src` → **empty output**.
+
+#### Act 3 — the four landings
+
+| # | commit | act | meaning |
+|---|---|---|---|
+| 1 | **`0d456cff`** | `useKeyframeOps.ts` `:1` deleted, `reverseCSSTime` taken off the `loadAnimationEngine()` destructure at `:62`; `parseAnimationCSS.ts` `:7` deleted, `serializeTimingFunction` taken off the destructure at `:27` | **KF-KE-15 / C-8's repoint consequence** — the two names KF.W5 published, through the door it opened. Pure repoint; **2 files changed, 3 insertions(+), 4 deletions(-)** |
+| 2 | **`1e2e0331`** | `helpers.ts` `:9` deleted; the `ch` basis re-homed as `chInPixels` | **KF-AV-8's `resolve/browser` arm, as far as bounds reach**. `convertPixelsToCh` asked `convertToPixels` for exactly one unit; the demo now owns that metric, mirroring `resolve/browser.ts`'s own `ch` arm (half-em over computed `font-size`, 16px fallback) so the measurement is unchanged. **1 file, 23(+) 3(−)** |
+| 3 | **`b0d378b0`** | `timelineEngine.ts` `:1` and `:16` deleted and collapsed into ONE `@utils/helpers` import; `camelCaseToHyphen` + `serializeCssValue` re-homed to the concentrator | **KF-CE-12's `compile/emit` arm**. `camelCaseToHyphen` lands beside the inverse the demo already owned; the serializer is written over value.js's **published** `CssValue` + `serializeCssColor`, not over the emitter's copy. **2 files, 44(+) 3(−)** |
+| 4 | **`cdb31643`** | `keyframeSelector.ts` `:5` deleted; the four named-phase spans read demo-side; `selectorPercent` re-cut | **C-12 / G1's `compile/selector` arm**. **1 file, 27(+) 5(−)** |
+
+**Commit discipline**: pathspec on the commit itself, `--no-verify --quiet`, `-- <the same exact
+paths>`; **no `git add -A`, no `-u`, no `commit -a`, no reset, no stash, no force**. ⟨cmd⟩
+`git diff --stat 1fa98a5d..HEAD` → **5 files changed, 97 insertions(+), 15 deletions(-)**, every one
+inside the writable set. **`helpers.ts` was written in TWO passes on purpose** — KF-AV-8's arm is
+locked to ONE commit, and staging half a file's hunks is not available to a pathspec commit, so the
+`resolve/browser` cure landed and committed before the `compile/emit` cure was written into the same
+file. No partial staging, no interactive add.
+
+**One cure made better than its source, stated rather than smuggled.** `keyframeSelector.ts`'s map is
+keyed off value.js's **published** selector union — ⟨cmd⟩ `sed -n '42,44p' /Users/mkbabb/Programming/value.js/src/css/types.ts`
+→ `| Readonly<{ kind: "named"; name: "entry" | "exit" | "cover" | "contain"; offset?: number }>` —
+so the demo's map is **total by construction**. The library body's two throw branches
+(`selector.kind !== "named"`; `PHASE_FRACTIONS[name] === undefined`) are exactly the two cases that
+published type forbids: the first is unreachable because `selectorPercent` branches on `kind` first,
+and the second becomes a **compile** failure here if value.js ever adds a fifth phase, instead of a
+runtime throw. Behaviour is identical on every input the type admits. The library's
+`internal/scroll-phases.ts` stays the engine's single source for compilation and the mirror carries
+its symbol name, so ⟨cmd⟩ `git grep -n 'PHASE_FRACTIONS' HEAD` prints **both** sides — the duplication
+is visible to the next census, not hidden from it.
+
+#### Act 4 — gates, run at the settled bytes, double-run
+
+| gate | BEFORE (record baseline @ `1fa98a5d`) | AFTER (@ `cdb31643`, run 1 = run 2) | verdict |
+|---|---|---|---|
+| **G1 c1** — zero `@src/` in `demo/` | **8 statements / 7 files** | **2 statements / 2 files** — ⟨cmd⟩ `git grep -n 'from "@src/' HEAD -- demo` → `timeline/KeyframeTimeline.vue:363` (`serializeCssValue`) · `playback/AnimationVisualizer.vue:65` (`bumpLayoutEpoch`) | **RED** — and the two survivors are **exactly the two escalations below**; six of eight cured |
+| **G1 c2** — no library-PRIVATE module reached | 4 reached modules, **4 of 4 private** | **2 reached** — ⟨cmd⟩ `git grep -hoE '"@src/[^"]+"' HEAD -- demo \| sort -u` → `compile/emit/css-text` · `resolve/browser`. `resolve/browser` → **0 hits / exit 1** at the four published entries; `compile/emit/css-text` → **1 hit, `public.ts:157`**, which is **PROSE inside the S-3 comment** (*"they stay in `compile/emit/css-text.ts`"*) — the baseline's own recorded false positive, **recorded not counted** | **RED** — denominator halved with clause 1, as the gate's own text says it must |
+| **G2 c1** — every consumed symbol published | **5 of 7 unpublished** | **2 of 4 unpublished**. Published and consumed: `reverseCSSTime` (`public.ts:168` · `load-engine.ts:62`/`:118`) · `serializeTimingFunction` (`:168` · `:63`/`:120`). Unpublished and still consumed: `serializeCssValue` · `bumpLayoutEpoch`. **No longer library-consumed at all**: `camelCaseToHyphen` · `namedSelectorToFraction` (⟨cmd⟩ `git grep -c 'namedSelectorToFraction' HEAD -- demo` → **exit 1, ZERO**) · `convertToPixels` | **RED** |
+| **G2 c2** — narrowness (`export *` = 0) | GREEN-BEFORE-CURE (spec-declared) | ⟨cmd⟩ `git show HEAD:src/animation/index.ts \| grep -c 'export \*'` → **0** (run 1 = run 2) | **STILL GREEN** — and it could not have moved: this unit wrote **zero** library bytes |
+
+**Both falsifiers armed and clean.** G1 clause 2's — *a demo re-export shim that forwards the same
+module passes clause 1 and fails clause 2*: ⟨cmd⟩ `git grep -n 'export .* from "@src/' HEAD -- demo`
+→ **exit 1**. Every re-home is a **body**, never a forward. G2's — *a symbol published by widening a
+barrel fails clause 2*: no export was added to any published entry, `export *` stays **0**, and
+`git diff --stat … -- src` is empty.
+
+**Tree health at the settled bytes** (none of these is a gate this unit owns; each is the
+no-regression floor a repoint must clear): ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.json` → **54
+errors before, 54 after**, the diff of the two error sets being **one pre-existing
+`useKeyframeOps.ts` TS2322 at `(80,13)` where it was `(81,13)`** — the deleted import line, nothing
+else. ⟨cmd⟩ `npx vitest run` → **147 passed \| 5 skipped (152) files · 1518 passed \| 3 expected fail
+\| 14 skipped**; ⟨cmd⟩ `npx vitest run --project demo` → **35/35 files · 262/262 tests**, run twice.
+⟨cmd⟩ `npx eslint <the five files>` → **clean**. ⟨cmd⟩ `node scripts/gates/structure/index.mjs` →
+**exit 0, PASS**. ⟨cmd⟩ `npx depcruise --config .dependency-cruiser.cjs src demo` → **4 violations,
+all four the pre-existing `demo/scenes/cube/orbital-drag/` cycles**, none naming a file of this unit
+(this unit removed import edges and added none between demo modules that did not already exist).
+
+#### Act 5 — E13 Step-0, the four-path mail sweep at this seat's clock
+
+Swept read-only at **20:30 EDT**, delta against the wave-open sweep (20:0x), classification taken from
+each row's **Status cell**, never from a bare `grep -i unread`; `INBOX.md` **self-excluded**.
+(1) `docs/tranches/V/coordination/` — newest non-self `…-ADDENDUM-A9.md` **19:00** = **O-31**, rowed;
+`INBOX.md`'s own 20:26 mtime is **Track D's X.P.W3 RESUME-5 sweep line**, a sibling seat's append, not
+a letter. (2) `../glass-ui/docs/tranches/BK/coordination/` — newest `glass-outbound-2026-09-18-valuejs-o26-reply.md`
+**17:18** = **I-35**, *READ + CONSUMED WHOLE*. (3) `../keyframes.js/docs/tranches/V/coordination/` —
+newest **Sep 17 19:08**, unmoved. (4) atlas `P/coordination/` — newest **Aug 3 15:01**, unmoved.
+**0 unrowed · 0 UNREAD addressed to this unit's scope**; the three live UNREAD cells (I-32 · I-33 ·
+I-34) each route at their own Routing cell to **X-W0.j**, and not one names a keyframes byte.
+**`INBOX.md` not edited** (the close seat's line, and there is nothing to row). This wave's outbound
+obligation is **NEGATIVE** by its own §Sequencing, and this unit wrote **no** glass-ui byte and sent
+no letter.
+
+#### ESCALATIONS — two, each a runbook §5.7 trigger (*"any write outside §Bounds"*), neither an implementer's decision
+
+**ESC-c1 · `demo/components/instrument/timeline/KeyframeTimeline.vue:363` — G1 clause 1's eighth
+statement has NO §Bounds row.** Record finding **F-1**, reproduced at this seat by command:
+⟨cmd⟩ `grep -n '^## ' docs/tranches/X/keyframes/waves/KF-W8.md` → §Bounds spans **`:81-139`**;
+⟨cmd⟩ `awk 'NR>=81 && NR<=139' … | grep -c 'KeyframeTimeline'` → **0**, while ⟨cmd⟩
+`grep -c 'KeyframeTimeline' KF-W8.md` → **8** (§Carry A-2/A-3, §Rows C-12 · L-19/C-14 · N-11, §Gates
+G15's RibbonBar measurements) — **the file is named five ways and bounded nowhere.** It did not exist
+at the spec's `81a56990`. **Not touched.** Consequence, stated because it is the cost of the gap: the
+demo now holds two ways to serialize a `CssValue` — its own at `demo/utils/helpers.ts` and the
+library-private one this one statement still reaches — and the second retires with **one specifier
+line** the moment a seat is granted this file. **Owner**: a §Bounds widening by dated addendum-beside
+(E-3), or the successor register at `KF-W10 §6.D` (anchor-only). **This unit may not choose**, and a
+seat that edited the file to reach `0` would have bought the gate with an out-of-bounds write —
+exactly what G8's falsifier calls *"an out-of-bounds green"*.
+
+**ESC-c2 · `demo/components/playback/AnimationVisualizer.vue:65` — `bumpLayoutEpoch` has no lawful
+cure inside ANY grant this wave holds.** The import line **is** bounded (§Bounds deep-import row,
+spec `:45` → HEAD `:65`), so this is not a bounds gap but a **cure gap**, and all three routes are
+closed by measurement:
+
+1. **Publication is KF.W5's and KF.W5 closed without it.** ⟨cmd⟩ `git grep -n 'epoch' HEAD --
+   src/animation/index.ts src/animation/public.ts src/animation/load-engine.ts
+   src/animation/engine/index.ts` → **∅** (record finding **F-6**, re-run here). `src/` is not in this
+   unit's writable set, so publishing it is a write outside §Bounds.
+2. **Relocation is IMPOSSIBLE at the bytes, not merely undesirable.** ⟨cmd⟩ `git show
+   HEAD:src/animation/resolve/browser.ts | sed -n '6,24p'` → `let layoutEpoch = 0;` ·
+   `let browserScalarCache = new WeakMap<…>` · `export const bumpLayoutEpoch = (): number => {
+   browserScalarCache = new WeakMap(); return ++layoutEpoch; };` · and, at `:22-23`, the module-eval
+   `window.addEventListener("resize", bumpLayoutEpoch, { passive: true })`. The symbol is **not a
+   function over its arguments — it is a mutation of module-private state the library alone holds.**
+   A demo-authored copy would bump a demo-local counter and **never evict the library's
+   `browserScalarCache`**, which is a silent behaviour regression wearing a green gate: the ball would
+   serve the stale pre-resize target the wire at `:99` exists to prevent. That is the masking-fallback
+   class the seat law forbids, so it was not written.
+3. **Deleting the wire is unit h's grant and is a functional regression besides.** §Bounds carries
+   `AnimationVisualizer.vue (:79)` as its **own** row (minted at repair round 4, R4-5(a)), and the
+   unit plan assigns it to **h** (KF-AV-9's demo half — wire relocation + debounce). This unit's grant
+   on this file is **the import line only**.
+
+**Consequence for the family lock**: §Rows books KF-AV-8's *"three-site extirpation = ONE commit"*,
+bundled with KF-AV-9's epoch-surface decision. **That bundle was broken upstream, not here** — the
+epoch-surface decision did not land at KF.W5. The arm that could land did, whole, in `1e2e0331`; the
+AV site is named in that commit's own message so the split is legible from the tree, not only from
+this record. **Owner**: the epoch surface is a **library-surface design question** the bank already
+routed that way (`kf-AnimationVisualizer.md:50`, verbatim of record: *"the eviction API is
+global-by-construction (**library-side — no scoped bump exists**)"*) — a KF.W5 addendum-beside or the
+`KF-W10 §6.D` register, taken **with** unit h's debounce/scoping half, since one surface decision owns
+both.
+
+#### Residuals — measured, handed on, none cured here
+
+1. **The demo holds two `CssValue` serializers** until ESC-c1 is granted (helpers.ts's own; the
+   library-private one at `KeyframeTimeline.vue:363`). One specifier line closes it.
+2. **`demo/utils/keyframeSelector.ts` now mirrors `internal/scroll-phases.ts`'s four spans.** The
+   engine keeps the single source for compilation; the demo owns its timeline reading. The true cure
+   is a published door onto the phase mapping — **KF.W5's class**, booked for the close seat and
+   `KF-W10 §6.D` (anchor-only). Both sides carry the symbol name `PHASE_FRACTIONS` so the pair is one
+   `git grep` apart.
+3. **Coordinates moved in two files unit `d` is granted.** `timelineEngine.ts` lost two import lines,
+   so its `@utils/keyframeSelector` specifier is now at **`:13-16`** (was `:15`), and
+   `parseAnimationCSS.ts`'s body shifted by one. Unit `a`'s residual 5 already binds every seat to
+   resolve grants **by subject**; this receipt names the two files that moved so no seat executes from
+   a numeral.
+4. **`useKeyframeOps.ts`'s pre-existing TS2322 at `(80,13)`** (`stored.timingFunction = options.timingFunction`,
+   `string` vs the `Easing` union) is **untouched and unrelated** — it was `(81,13)` before this unit
+   and is one of the 54 the tree already carried.
+5. **Nothing was pushed.** The unit plan gives `push kf origin HEAD` to the close seat `i`; local
+   `master` is **4 commits ahead** of `origin/master` and the four seats after this one share the
+   checkout.
+
+#### SELF-COUNT, read back from the settled bytes
+
+**Counting rules stated AT the receipt.** ⟨cmd⟩ `grep -c '^#### Act'` → **5**, numbered 1…5, no gap.
+⟨cmd⟩ `grep -c '^\*\*ESC-c'` → **2**. **Residuals = 5**, and the rule matters: a bare
+⟨cmd⟩ `grep -cE '^[0-9]\. \*\*'` over this receipt returns **8**, because **ESC-c2's three closed
+routes are a numbered list too** — the residual count is the items under §Residuals alone
+(8 − 3 = 5, numbered 1…5, no gap), stated here so the figure can be re-derived rather than trusted.
+Commits **4** — ⟨cmd⟩ `git log --oneline 1fa98a5d..HEAD | wc -l` → **4**, each hash
+printed above appearing in `git log` at that ref · files changed **5** of the **6** granted
+(`AnimationVisualizer.vue` untouched, by ESC-c2) · `@src/` statements **8 → 2**, double-run ·
+worktree at close ⟨cmd⟩ `git status --porcelain` → **2 rows, both the same two `??` letters this unit
+opened on**. Every figure in this receipt was re-run at `cdb31643` after the last byte landed;
+**run 1 = run 2 on all eleven harness figures** (statements · files · reached modules · private-of-
+reached · `export *` · the `@src` `camelCaseToHyphen` count · `namedSelectorToFraction` in demo ·
+`helpers.ts` 88 L · `keyframeSelector.ts` 53 L · unit commits · worktree rows).
