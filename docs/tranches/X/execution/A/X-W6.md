@@ -2045,3 +2045,24 @@ Carried unchanged: the `ictcp`/`jzazbz` URL round-trip revert (**R-3**, homeless
 Gates **28 of 50 GREEN**. `W6.md:7` `**Status**: planned` and `:10` `IMPLEMENTED no` are
 **byte-untouched**: E-3 binds, and a PARTIAL wave has no IMPLEMENTED to stamp. **The LEDGER row stays
 PARTIAL and is not promoted.** Four successors stay lawfully blocked.
+
+### DISCLOSED — the shared LEDGER was carried by a sibling's commit, not by this seat's
+
+This seat's LEDGER act was the lawful minimum: **one in-place replacement of the X-W6 row's own
+status and commit cells, plus one appended event line**, both written immediately after re-reading
+the file (⟨cmd⟩ `git diff -U0` at that moment showed **hunk `@@ -34` alone** — mine, and nothing else).
+Between that write and this seat's commit, **Track D dirtied the same file** (the `X.P.W4` row at
+`:82`) and committed first. Rather than commit over it, this seat committed its own record alone
+(`18eb1666`) and then **waited** — three 12-second waits — for the sibling to land. It did, at
+⟨cmd⟩ `git show --stat c23dc4e5` → *"docs(x-p-w4/check-2): LEDGER — CHECK 2 NOT-CONFORMANT …"*, and
+that commit carries **this seat's X-W6 row cell and event line** alongside its own `X.P.W4` row:
+⟨cmd⟩ `git show c23dc4e5 -- …/LEDGER.md | grep -c "THREE GATES CURED BY REPAIR 2"` → **1** ·
+⟨cmd⟩ `… | grep -c "X-W6 REPAIR 2 (round 2"` → **1**.
+
+**This seat swept nothing**: it never staged, committed, reset or restored a sibling path, and it
+never ran `git add -A`/`-u`. A pathspec cannot separate two seats' edits to **one file** — the
+condition `## Check 2` disclosed in the opposite direction — so it is recorded here instead. **The
+next seat should read the X-W6 ledger cell's provenance from this note rather than from
+`c23dc4e5`'s subject line.** ⟨cmd⟩ `git status --porcelain` at close →
+`M docs/tranches/V/reformation/CARRY-LEDGER.md` · `M scripts/dev/dev.sh` — the two standing rows,
+neither this seat's; `scripts/dev/dev.sh` was never touched and never staged.
