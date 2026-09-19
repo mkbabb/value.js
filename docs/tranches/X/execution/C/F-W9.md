@@ -2111,3 +2111,107 @@ and G-F9-21 binds the *stamp*, not the open).
 
 **This seat cured nothing and moved no verb.** `LEDGER` status **UNCHANGED at `PARTIAL`**; one dated
 event line appended beside the first pass-1 seat's, no row cell rewritten.
+
+---
+
+# RESUME — SEAT 0 (OPEN), 2026-09-19
+
+SERVED MODEL: `claude-opus-5[1m]` · Track C · X·F · tranche X · sitting of record 2026-09-17 (the
+owner's begin-word, COHESION §0j).
+
+## R.0 Mode — RESUME, and **nothing is owed**
+
+The open-seat runner dispatched an `OPEN` act against a wave whose ledger row reads **`PARTIAL
+2026-09-19`** and whose record is **2113 lines** with three complete unit receipts, a `## Close`,
+`## Check 1` and `## Check 1 — ADDENDUM A`. The open dispatch's own law resolves this: *"if it is
+OPEN or IMPLEMENTED and the record exists → RESUME MODE … a unit whose commits exist is NEVER
+re-dispatched."* All three units' commits exist. **`groups` is returned EMPTY.**
+
+## R.1 The three units, verified to exist at the bytes — not from the record's word
+
+⟨cmd⟩ `git log -1 --format="%h %s" <sha>` over the roster `## Close.6` publishes, in
+`/Users/mkbabb/Programming/fourier-analysis` (20) and `/Users/mkbabb/Programming/value.js` (10) →
+**30 of 30 resolve; 0 MISSING.**
+
+| unit | commits claimed | resolved at this seat | verdict |
+|---|---|---|---|
+| **X.F.W9.a** the deploy spine | 7 fourier ⊕ 1 value.js (`9528c832`) | `1b4eb0b` · `e5c435d` · `b72170b` · `ceb7ee6` · `4f213e4` · `c5b7600` · `e111220` | **DONE — never re-dispatch** |
+| **X.F.W9.b** seats + harness + floor | 12 fourier ⊕ 2 value.js (`fd1e1354` · `6ab70928`) | `8fd35a9` · `019fb90` · `3913738` · `160f7f3` · `5256126` · `d3fab17` · `214cb5e` · `2b42f28` · `5b74d3f` · `4a5ffdb` · `3440510` · `ca64bef` | **DONE — never re-dispatch** |
+| **X.F.W9.c** the evidence floor | 1 fourier (`a6f50c8`) ⊕ 7 value.js | `a6f50c8`, `6bd57410` · `415c9a3a` · `5ea5f23c` · `c3b7f831` · `d602088a` · `70ef1063` (⊕ the open `16c9bd5d`) | **DONE — never re-dispatch** |
+
+Subject lines match the units they are filed under at every one of the 30; no sha in the roster
+resolves to a sibling track's work.
+
+## R.2 Crash-recovery sweep (standing law) — no inherited work in this seat's writable set
+
+⟨cmd⟩ `git status --porcelain` in `/Users/mkbabb/Programming/fourier-analysis` → **one line**,
+`?? .worktrees/` (untracked, not a path of this wave). Branch `m/w1-bump-migration`, HEAD `a6f50c8`
+— **the `.c` commit**, i.e. the tree still stands exactly where F.W9 left it.
+
+⟨cmd⟩ `git status --porcelain` in `/Users/mkbabb/Programming/value.js` → **18 lines**, and **not one
+is inside this seat's writable set**: `docs/tranches/X/execution/C/F-W9.md`,
+`docs/tranches/X/execution/LEDGER.md` and `docs/tranches/V/coordination/INBOX.md` are all **clean**.
+The 18 dirty paths are sibling seats' (`demo/**`, `e2e/**`, `docs/tranches/X/execution/A/X-W5.md`,
+`docs/tranches/X/execution/B/KF-W13.md`, `docs/tranches/X/parse-that/scripts/seam-contract-check.mjs`,
+`CARRY-LEDGER.md`) plus the standing-dirty `scripts/dev/dev.sh` — **untouched, unstaged, unread as
+work**. Nothing inherited, nothing to finish, nothing to rewrite.
+
+## R.3 E13 Step-0 — the four-path mail sweep, re-run at this seat (runbook §5.3)
+
+Four landing paths swept read-only; **BK confirmed still the newest glass-ui tranche dir** ⟨cmd⟩
+`ls /Users/mkbabb/Programming/glass-ui/docs/tranches/` → `… BH BI BJ **BK** C D D-II E …` (the tail
+of the alphabetical order is `BK`; `C`…`V` are the single-letter elders, not successors).
+
+| path | items dated 2026-09-16..19 | unrowed & addressed to value.js |
+|---|---|---|
+| `value.js/docs/tranches/V/` | 2 (`ARCHITECTURE.md` · `PALETTE-CONTRACT.md` — authorities, not mail) | **0** |
+| `value.js/docs/tranches/V/coordination/` | 11 (5 × `*-inbox-2026-09-18-value-4.1-*` outbound-to-siblings · 3 × `value-inbox-*` · 2 × `valuejs-outbound-2026-09-18-kfw7-bh-relay*` · `INBOX.md`) | **0** |
+| `glass-ui/docs/tranches/BK/coordination/` | 6 (incl. `glass-outbound-2026-09-18-valuejs-o26-reply.md`) | **0** |
+| `keyframes.js/docs/tranches/V/coordination/` | 10 (incl. `VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md`) | **0** |
+| `sci-report/atlas/docs/tranches/P/coordination/` | 0 | **0** |
+
+Coverage measured by name against `INBOX.md`, ⟨cmd⟩ `grep -c "<key>" INBOX.md`: `o26-reply` **33** ·
+`value-4.1` **15** · `o8-o11-amendment` **36** · `bbnf-lang-9.0.0` **7** · `constellation-o20-relay`
+**8** · `o20-disposition` **8** · `parser-totality-exposure` **1** · `kfw6-bh-relay` **4** ·
+`kfw7-bh-relay` **24**. Every recent item is rowed; **0 rowed as new**, so **no `I-36` is minted and
+`INBOX.md` is NOT touched** by this seat.
+
+**Positional UNREAD = 0.** ⟨cmd⟩ an `awk -F'|'` field scan over every `^| I-` row, trimming
+whitespace and `*`, matching a cell equal to `UNREAD` / `**UNREAD**` → **no hit**, across **35**
+distinct `I-n` ids (37 row-lines; the surplus are dated addenda rows). The 78 `grep -c UNREAD` hits
+are prose recitations inside disposition cells, exactly as the two pass-1 seats measured. **E13
+clean: no wave closes with UNREAD mail in scope, and none is in scope.**
+
+## R.4 The status cell — deliberately NOT set to `OPEN`
+
+The open dispatch's ACT (6) says *set the status cell to `OPEN 2026-09-17`*. **This seat declines
+that clause and reports the decline**, on three grounds, and takes the X.P.W4S RESUME precedent
+(ledger event 2026-09-19, *"no byte above it is rewritten; the CLOSED row is untouched"*) as the
+governing form:
+
+1. **The clause is written for a fresh open.** It cannot mean *overwrite a later verdict with an
+   earlier one*; F.W9 is three units and thirty commits past `OPEN`.
+2. **E-3.** `PARTIAL 2026-09-19` is an adjudicated verdict — a close seat's correction, **SUSTAINED
+   independently** by a second pass-1 seat (`## Check 1 — ADDENDUM A`, `9d7121b7`). Rewriting it to
+   `OPEN` would erase conformance evidence, which E-3 forbids; a correction must be a dated
+   addendum-**beside**.
+3. **It would falsify the successor edge.** `F.W10` is recorded **unblocked** off this row's
+   reading; regressing the cell to `OPEN` would silently re-block a wave that is lawfully released.
+
+**The row therefore stays `PARTIAL 2026-09-19`, unrewritten**, and this seat appends one dated event
+line beside the others. The ledger's own event log carries the resume.
+
+## R.5 What is actually owed on this row — named, and owned elsewhere
+
+Not units. The `PARTIAL` reading names three residues, none of them a dispatchable F.W9 unit:
+**(i)** 12 of 23 gates honest-RED (`G-F9-3` · `-5` · `-6` · `-8` · `-11` · `-15` · `-17` · `-18` ·
+`-19` · `-21` · `-22` · `-23`); **(ii)** no covering green CI run exists, so not one of the 11
+greens carries a run id (inv-27's own instrument landed at `a6f50c8`, but a **green run** is a CI
+event, not a seat act); **(iii)** the §4.10 carve is unfiled — **E-F9-2**. Add **HIGH-1** from Check
+1, as corrected by Addendum A: the `/equation` S2 instrument's **D-14 leg and reload leg** are
+caught by nothing because `SliderControl` gives one accessible name to input, slider host and thumb
+— *"the in-bounds cure is the locator, one line."* **E-F9-1** (the paired F.W9/F.W10 stamp,
+`G-F9-21` ≡ `G-F10-6`) remains an owner-gated escalation; RE-CUT-0 precedes both stamps.
+
+Each is a repair/escalation matter for a repair seat or the owner, **not** a re-dispatch of `.a`,
+`.b` or `.c`. **This seat cured nothing, moved no verb, and re-dispatched no unit.**
