@@ -1908,3 +1908,195 @@ sides and the repair named (K.3). `X.W4.g` never opened and its bank is intact.
 `ColorInput.vue`'s nameless seat (ESC-a.7) · `AuroraPane.vue`'s four triggers (ESC-b.8). **Zero
 bounds were widened, zero gates narrowed, zero assertions relaxed, and this seat wrote no product
 byte.**
+
+---
+
+## Check 1 — L-20 fresh adversarial pass 1 (VERIFY-ONLY)
+
+**SERVED MODEL: claude-opus-5[1m]** · a fresh adversarial L-20 pass-1 seat that **authored no byte
+of this wave** — no unit cure, no unit receipt, no `## Close`, no LEDGER row cell. Track A · wave
+**X-W4**. Sitting date of record **2026-09-17** (the owner's begin-word). Wall clock at this seat
+`2026-09-19 03:47:06 EDT` ⟨cmd⟩ `date "+%Y-%m-%d %H:%M:%S %Z"`. **HEAD at entry** `fe50cc51`
+⟨cmd⟩ `git log --oneline -1` · branch `tranche-u`.
+
+**CRASH-RECOVERY first.** ⟨cmd⟩ `git status --porcelain` → **4 rows**, and **not one is in this
+seat's writable set** (`docs/tranches/X/execution/A/X-W4.md` + `execution/LEDGER.md`):
+`M docs/tranches/V/reformation/CARRY-LEDGER.md` (a sibling's) · `M scripts/dev/dev.sh` (unowned,
+DR-24 — never opened, never staged) · `?? docs/tranches/X/fourier/conformance/…` and
+`?? docs/tranches/X/keyframes/evidence/W11/…` (Track C and Track B seats'). **No inherited work
+existed inside this seat's set**, so the obligation discharges as an absence: nothing stashed,
+reset, restored or adopted. This seat **cured nothing** and wrote **no product byte**.
+
+### CK.1 — every claimed GREEN re-run at this seat's own clock: **15 of 15 reproduce**
+
+Commands verbatim, each at least double-run, against the settled committed bytes:
+
+```text
+⟨cmd⟩ npx playwright test --project=smoke e2e/smoke/a11y-control-targets.spec.ts e2e/smoke/a11y-select-title.spec.ts e2e/smoke/a11y-gradient-stop-grammar.spec.ts e2e/smoke/scene-action-contract.spec.ts
+   run 1 → 21 passed, EXIT 0        run 2 → 21 passed, EXIT 0
+⟨cmd⟩ npx playwright test --project=smoke-mobile e2e/smoke/mobile/a11y-control-targets.spec.ts
+   run 1 → 3 passed, EXIT 0         run 2 → 3 passed, EXIT 0
+⟨cmd⟩ npx vue-tsc -p tsconfig.demo.json --noEmit                                        → EXIT 0, 0 lines
+⟨cmd⟩ npx eslint demo/color-picker/App.vue demo/shell/usePaneRouter.ts demo/shell/dock/ → EXIT 0
+⟨cmd⟩ npx eslint demo e2e                                                               → EXIT 0
+```
+
+Source counts, **double-run**, both runs identical:
+`h-7 = 3` · `h-9 = 7` · `watercolor-dot = 11` · `--slider-range-origin = 0` ·
+`export interface ActionBarContext|DockActionBar = 0` · `?.() in usePaneRouter.ts = 2` (both prose,
+`:135`, `:292`) · `on-mount in App.vue = 3` · `find scripts -name "proof-*.mjs" = 0`.
+
+| gate | this seat's reading | verdict |
+|---|---|---|
+| **A1** | `[W4-A1] undersized=0`, runs 1 and 2 | **GREEN — reproduces** |
+| **A2** | `[W4-A2] undersized=0`, two `smoke-mobile` runs | **GREEN — reproduces** |
+| **A3** | `[W4-A3] measured=4 mismatches=0` · `[W4-A3-COARSE] measured=0 mismatches=0 unlifted=0`; source `h-7` → **3** | **GREEN — reproduces** (coarse arm vacuous, CK.6 #6) |
+| **A4** | `[W4-A4] nameless=0` · `[W4-A4-COARSE] nameless=0` | **GREEN — reproduces** |
+| **A5** | `a-falsifier.txt` on disk, `SERVED MODEL`-headed, pinned run `→ EXIT 1 (non-zero, as the gate requires)` with `undersized=5`, reverted run `undersized=2`, delta 2 named row by row | **DEMONSTRATED — reproduces** |
+| **B1** | `[W4-B1] asserted=7 excluded=1 defects=0`, both runs; every in-scope row `ariaLabel=null` + `labelledBy=v-1-N-label` + rendered `titleText` + `titleBoxInsideField=true` | **GREEN — reproduces** |
+| **B2** | `[W4-B2] asserted=7 defects=0`; rows read `blockSize=36 tokenSm=36` | **GREEN — reproduces** |
+| **B3** | `[W4-B3] producerSliderVars=15 declaredInternal=3 consumerReads=0`; `--slider-range-origin` → 0; ⟨cmd⟩ `git merge-base --is-ancestor ea0fdca8 58371516` → **exit 0** (the receipt IS an ancestor of the cure) | **GREEN — reproduces** |
+| **C1** | `[W4-C1] caretLeft=252 mintedLeft=252 inline="calc(55% - 1px)"` · `pointerEventsDuringKeyboardJourney=0` | **GREEN — reproduces** |
+| **C2** | 3 of 3 handles `role=slider min=0 max=100 now=0\|50.2\|100`, `text="Position N%"`, `name="Gradient stop N of 3"` | **GREEN — reproduces** |
+| **C3** | `[W4-C3] home=10 end=450 unit=4.4000px/%` · `defects=0` | **GREEN — reproduces** |
+| **C4** | **RED — see CK.2** | **RED** |
+| **D1** | `vue-tsc` EXIT 0 · ⟨cmd⟩ `grep -rn "export interface ActionBarContext\|export interface DockActionBar" demo` → **0** · `SceneActionSet` sole contract at `keys.ts:184` · the spec's 10 tests pass twice | **GREEN — reproduces** |
+| **D2** | scoped eslint EXIT 0 and `npx eslint demo e2e` EXIT 0 with the rule `"error"` at `eslint.config.js:332`; `?.()` → 2 prose hits; **and see CK.6 #4** | **GREEN — reproduces, with a scope qualifier** |
+| **D3** | `d-falsifier.txt` on disk: TS2820 + TS2345 at **EXIT 2**, revert **EXIT 0**, both pasted verbatim | **DEMONSTRATED — reproduces** |
+| **D4** | the 10 contract tests pass in both runs, including the 390×844 `unavailable` + `disabled` + `aria-disabled` + `role="status"` arms; `grep -c "on-mount" App.vue` → **3**, unchanged | **GREEN — reproduces** |
+| **G1–G4** | ⟨cmd⟩ `grep -rn 'watercolor-dot' demo \| wc -l` → **11**, bank intact | **NOT OPENED — correct** (X-W0.j census FAIL 1/4) |
+
+### CK.2 — C4 adjudicated: the RED **reproduces**, and it has **NO relief**
+
+Run in isolation, as the close ran it, **three times** at this seat's clock:
+
+```text
+⟨cmd⟩ npx playwright test --project=smoke e2e/smoke/a11y-gradient-stop-grammar.spec.ts -g "C4"
+   run 1 → 1 failed / 1 passed, EXIT 1
+   run 2 → 1 failed / 1 passed, EXIT 1
+   run 3 → 1 failed / 1 passed, EXIT 1
+   all three, byte-identical:
+   [W4-C4-FINE] [{"w":24.8,"h":24.8,"hitW":24,"hitH":24,"faceW":20.7,"faceH":20.7,"rootFontSize":16} ×2]
+   clippers=["div.app-layout [contain=none overflow=hidden/hidden clip-path=none]"]
+   Error: ancestors whose paint clip cuts the focus ring off — Expected -1 / Received +3
+```
+
+**Five readings at this seat: 3 RED (isolated) · 2 GREEN (inside the four-spec batch).** The close's
+own split (3 of 4 RED) and its mechanism (the ~3.3 % client-rect inflation inside the pane-enter
+spring's settle window — `24.8 = 24 × 1.0333`, `20.7 = 20 × 1.035`, `rootFontSize` **16** in both
+states) **reproduce exactly**. The close's characterisation is confirmed: it is an
+instrument-stability defect in the gate's own geometry/clip read, not a product regression — the
+ring still paints (`focusVisible=true`, `1px` + `3px`), the seat is still ≥24, the hit region still
+24/44, the face still 20.
+
+**The relief test, run at the spec's own bytes — and it returns NONE:**
+
+| relief the check admits | applies to C4? | at which bytes |
+|---|---|---|
+| **producer-owned** (green only upstream; a consumer patch would be a gate failure) | **NO** | the failing subject is the consumer's own `div.app-layout` paint clip, read by the consumer's own spec; `node_modules/@mkbabb/glass-ui/**` is nowhere in the failing arm |
+| **owned by a later wave by the spec's own routing** | **NO** | ⟨cmd⟩ `grep -n "C4" docs/tranches/X/waves/W4.md` routes C4 nowhere; §3 "Not in scope" hands X-W6 the **§7 recomposition** and X-W5 the **mount**, neither of which is this arm. The close itself states it: *"**LW-4 is in bounds** (unit c's own spec) and is **this wave's to repair**"* |
+| **an honest-RED the spec names by id** | **NO** | `W4.md` §6 names exactly three non-RED-by-design gates — **A5**, **D3** (one-time falsifier demonstrations) and **B3** (a recorded re-test + regression fence). C4 is none of them; it is one of the **13 born-RED** rows the wave exists to turn |
+
+`W4.md:399` authored the clipping arm deliberately (*"Fails on size, on a missing ring, and on a ring
+that exists but is clipped — the clipping arm is why the assertion reads the painted box, not the CSS
+declaration"*) and §3 Scope 6 orders *"a visible, unclipped focus ring"*. **The §6 Hard Gate is
+therefore NOT MET**, and `e2e-smoke` is a HARD CI job (CC-031, this wave's own named dependency), so
+the branch reds intermittently on it. **The honest-RED set for this wave is EMPTY.**
+
+### CK.3 — bounds, E-3 and commit families: **CLEAN**
+
+- **Union bounds re-proven independently** over all 25 commits ⟨cmd⟩
+  `for c in …; do git show --pretty=format: --name-only $c; done | sort -u | wc -l` → **70 paths**,
+  **39** under `docs/tranches/X/waves/evidence/W4/` and **31** exactly the 22 `demo/**` §4 rows +
+  `eslint.config.js` + the 6 `e2e/**` §4 rows + this record + `execution/LEDGER.md`. ⟨cmd⟩
+  `grep -cE "^(src/|api/|test/|node_modules/|\.github/|scripts/|demo/shell/PaneSlot\.vue|demo/ui/|demo/shell/viewSchema\.ts)"`
+  over the union → **0**. `scripts/dev/dev.sh` is **not** in the union and is still dirty-and-untouched
+  at this seat's porcelain. `ComponentSliders.vue` and `demo/styles/utils.css` took zero bytes —
+  permitted, not required.
+- **E-3 held at the bytes**: ⟨cmd⟩ `git log --oneline 4cedfdb5^..HEAD -- docs/tranches/X/waves/W4.md`
+  → *(empty)* — the dated spec is **byte-untouched**; ⟨cmd⟩ the same over
+  `docs/tranches/V/megatranche/registry/adjudicated/` → *(empty)*. No conformance artefact and no
+  sibling spec appears in the union.
+- **Commit families**: §9 row 1 `8934de85` · row 2 `cf5409e7` · row 3 `58371516` · row 4 `ea0fdca8`
+  (**ancestor of row 3**, measured) · row 5 `666978d4` (cure **+** the two bindings it invalidated, ONE
+  commit) · row 6 `e64002e9` (the collapse **+** MP-3's guard **+** AB-32, ONE commit) · row 7
+  **correctly omitted** (census FAIL) · row 8 `e2bc291c`. **No declared family is split**, and each of
+  the 25 `git show --stat`s returns exactly its own paths — no sibling seat's staged row was swept in.
+- **Born-RED ancestry**, measured per unit: b `c18de089`→`58371516` ✓ · c `96936340`→`666978d4` ✓ ·
+  d `5406a111`→`e64002e9` ✓ · **a: the reverse** — see CK.6 #5.
+
+### CK.4 — masking scan: **NONE FOUND**
+
+⟨cmd⟩ over the whole wave diff (`4cedfdb5^..HEAD -- demo/ e2e/ eslint.config.js`) for
+`test.skip|.fixme|.only|eslint-disable|@ts-ignore|@ts-expect-error|allowlist` → the **one** hit is a
+comment in a gate spec saying the census is built *"never from a hand-fitted element allowlist"*.
+⟨cmd⟩ `grep -rnE "as unknown as|as any|@ts-|eslint-disable"` over the seven action-path files and
+`GradientStopEditor.vue` → **NONE**. The **one** added `try {` (`usePaneRouter.ts:327`) is the
+contract's `failed` arm: it `record()`s the throw into state that `GenericActionBar.vue:149-150`
+**renders** through `role="alert"` with the seat left operable — a surfacing seam, the opposite of a
+swallow. No producer selector was copied into consumer CSS; the `[data-slot="…"]` and `.glass-dock`
+strings are **test locators** on the producer's published stamps, and unit c is on record refusing the
+one attribution stamp that would have been a copy. No `node_modules` byte moved.
+
+### CK.5 — E13 mail: **0 UNREAD in scope**
+
+⟨cmd⟩ `grep -nE '^\| [IO]-[0-9]+ \|' docs/tranches/V/coordination/INBOX.md | grep -i unread` →
+**5 rows**: **O-20 · I-30 · I-31 · I-32 · I-35**. Each Routing cell read at the bytes: I-30 → X-W0.j's
+widened census + the §EXTERNAL fold · I-31 → *"no X wave is minted"*, X-W0's close marks it FOLDED ·
+I-32 → *"the X formation mail seat / X-W0.j … X-EXT-1..6"* · I-35 → *"**Routing: X·KF (Track B), NOT
+X-W1**"* · O-20 → the outbound batch itself. ⟨cmd⟩ `grep -oE "X-W4[^ ]*|X\.W4[^ ]*"` across the five
+rows → the **only** X-W4 token is **`X-W4.g's`** inside I-35's routing prose, and `X.W4.g` is CLOSED
+by X-W0.j's dated census FAIL. **No row lands on units a–d.**
+
+### CK.6 — Defect register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| **1** | **HIGH** | **C4 is RED at the bytes with no relief in any category the spec admits, so `W4.md` §6's Hard Gate is NOT MET and the HARD `e2e-smoke` job reds intermittently on this branch.** The failing arm is `clippers == []` in an **in-bounds** §4 `create` row, with the repair already named and **not taken** | three isolated runs at this seat's clock, all RED, byte-identical (`w=24.8 h=24.8 faceW=20.7 rootFontSize=16`, `clippers=["div.app-layout …"]`); the close's own 3-of-4 split reproduced; relief table in CK.2 returns NONE | settle the transform before the geometry **and** clip read in `e2e/smoke/a11y-gradient-stop-grammar.spec.ts:461-532` — an `expect.poll` on a stable rect, or await the pane's `transitionend` — exactly as `cf108ec6` already polls the ring; re-run 4× and re-check. **Not one product byte and not one assertion changes** |
+| **2** | MEDIUM (mitigated: escalated in bounds-law, owners named, repairs stated to the byte) | three HARD-CI rows land RED **caused by this wave's own spec-ordered cures** and are undischarged: `walk.spec.ts:89` and `o20-generate-plate.spec.ts:71` (the retired `"Generation preset"` literal `aria-label`) and `o27-focus-affordance.spec.ts:126-129` (BR-3 reading the 24 px seat) | ⟨cmd⟩ `npx playwright test --project=smoke e2e/smoke/walk.spec.ts e2e/smoke/oracles/o20-generate-plate.spec.ts e2e/smoke/oracles/o27-focus-affordance.spec.ts` → **4 failed · 5 passed**, the fourth (`o27:323` forced-colors) proved PRE-EXISTING by the units' own pre-cure control runs. ⟨cmd⟩ `grep -c "walk.spec\|o20-generate-plate\|o27" docs/tranches/X/waves/W4.md` → **0** | the orchestrator lands the three named one/two-line re-anchors (`{ name: "Preset", exact: true }` ×2; `el.querySelector(".rail-handle-face")`) under a dated E-3 bounds addendum. Padding product copy to fit a stale selector stays forbidden |
+| **3** | MEDIUM (mitigated: measured, escalated as ESC-a.7, zero bytes written) | **§2's goal criterion is not met at the bytes**: two live, operable, **nameless** seats survive in the persistent shell — `demo/shell/dock/ColorInput.vue:66-81`, icon-only `<button class="send-btn btn-interactive">` under `v-if="proposeMode"` / `v-else`, no `aria-label`, no text child | read at the bytes at this seat; the wave's own `navprobe.mjs` re-run measured the same and overturned artefact 7's premise. ⟨cmd⟩ `grep -c 'ColorInput' docs/tranches/X/waves/W4.md` → **0** — invisible to both gate projects because the seat sits inside a `PopoverTrigger` unmounted at those viewports | a dated E-3 bounds addendum admitting `ColorInput.vue` to a W4-successor's §4, or an explicit route to the wave that owns the dock's input band; the cure itself is one `aria-label` per seat |
+| **4** | MINOR (mitigated: `ColorInput.vue` is in **no** §4 row, so arming the literal glob would make D2 unfixable in bounds; the close does state the armed list is seven files) | **D2's armed scope is narrower than D2's own command.** The gate command's third leg is `demo/shell/dock/**`; the config arms the rule over **7 named files**, and two files inside that glob carry a type-level `any` the run therefore cannot see | ⟨cmd⟩ `grep -rnE "\bany\b" demo/shell/dock …` → `ColorInput.vue:242` and `layers/SlugEditLayer.vue:57`, both `catch (e: any)`; ⟨cmd⟩ `git show 6dde42ad:…` → **both pre-exist the wave**. `eslint.config.js:305-333` names only the `ColorPicker.vue` subtraction | name the two exclusions in the config comment and in a dated addendum-beside; `SlugEditLayer.vue` (unit a's file, in bounds for a successor) takes `catch (e: unknown)`, and `ColorInput.vue` rides defect 3's addendum |
+| **5** | MINOR (mitigated: §9 itself orders row 1 = cure, row 2 = specs for unit a, so the **landing** conforms; the born-RED baseline was taken pre-byte in `reopen-baseline.json`, and A5 independently proves the gate bites) | **K.1's sentence *"each unit's gate spec landed before its product bytes"* is false for unit a** | ⟨cmd⟩ `git merge-base --is-ancestor 8934de85 cf5409e7` → **exit 0**: the cure is an **ancestor** of the two gate specs; the reverse test returns non-zero | correct the sentence in a dated addendum-beside (E-3: the Close's bytes are not rewritten) |
+| **6** | MINOR (mitigated: the coarse lift is measured elsewhere — A2's census reads the slug field 160×44, the three dock seats 44×44 and the rail letters 31.7×44; b.3 measured the trigger's 36→54 in a real Pixel-7 context) | **A3's coarse arm is vacuous.** `[W4-A3-COARSE] measured=0` at `smoke-mobile` in both of this seat's runs, so A3's second declared failure mode (*"the coarse lift is absent"*) is never exercised — yet K.2 records A3 GREEN "at both projects" without the qualifier a.3 carried (*"GREEN (empty population, recorded)"*) | the two `smoke-mobile` runs above | carry a.3's own qualifier into the close's table by dated addendum; a successor that probes an admin route gives A3 a non-empty coarse population |
+| **7** | INFO | K.4's *"30 PNGs"* counts **two untracked strays** — `action-bar-mix-390.png` and `action-bar-mix-desktop.png` — which `.gitignore:34` hides from `git status`, so they are in no commit | ⟨cmd⟩ `ls …/evidence/W4/*.png \| wc -l` → **30** · ⟨cmd⟩ `git ls-files … \| grep -c '\.png$'` → **28**; every §8-required pair is among the 28 | force-add the two or delete them; the artefact requirement is already met by the 28 |
+
+**Superlatives, recorded because they are real.** The identical `rail-letters-{fine,coarse}-{before,after}.png`
+pairs — the obvious place to find a faked before/after — are **disclosed and derived** in
+`a-screens.md` (*"hit areas grow, glyphs do NOT … a byte-identical pair is precisely what honouring it
+looks like"*), with the measured boxes carrying the row instead. The A3 premise was measured **FALSE**
+and published against the wave's own interest (`h-7` was inert; the cure is a real 36→28 / 54→44
+shrink). Unit d found and cured a **live `/#/mix` crash** in inherited work rather than adopting the
+predecessor's claim. Unit c refused the producer attribution stamp that would have been a copied
+selector. Every collateral RED in this wave was separated from a pre-existing one by an actual
+**pre-cure control run**, never by assertion.
+
+### CK.7 — the four-verb line, and the successors
+
+**The line was NOT moved, and that is lawful.** `W4.md` §4 grants the close seat **no** row on the
+spec (contrast `W3.md` §4's explicit close-seat grant), so writing it would be a §3a bounds
+escalation; and §6's Hard Gate is not met (CK.2), so `IMPLEMENTED` is unsupported on the substance
+too. `VERIFIED` is likewise untouched. §12's L-18 two-quartet challenge stands **UNSERVED**, which is
+correct while the wave is pre-IMPLEMENTED.
+
+**Successor conjuncts, measured:**
+
+| successor | its `Opens after` conjunct on X-W4 | state |
+|---|---|---|
+| **X-W5** | *"X-W4 (the typed `SceneActionSet` contract, CC-043)"* · X-W2 · X-W0's CC-012 act | the X-W4 **clause** is **GREEN at the bytes** — one exported contract, 0 rival contracts, 0 `any` on the action path, `vue-tsc` EXIT 0, D1–D4 reproduce. X-W2 `CLOSED`, X-W0 `CLOSED`. On the **letter**, X-W4's ledger row stays `PARTIAL`, so **X-W5 is lawfully blocked on the letter and open on the clause** — the same divergence X-W4's own §1.1 recorded about X-W1, and the orchestrator's to rule |
+| **X-W6** | *"Opens after: X-W5"* | blocked on X-W5 regardless of this wave |
+| **X-W7** | X-W3 (`CLOSED`) · X-W4 (typed `SceneActionSet`) · **X-W6** (`planned`) · X-W1 (`CLOSED`) | blocked on **X-W6**, independently of X-W4 |
+| **X-W8** | `W4·W5·W6·W7` | blocked on W5/W6/W7, independently of X-W4 |
+
+**No successor is blocked by anything this check found except the letter of X-W4's own row.**
+
+### CK.8 — Verdict: **NOT-CONFORMANT**
+
+**1 HIGH · 2 MEDIUM · 3 MINOR · 1 INFO.** Every one of the close's **15** claimed GREEN reproduces at
+this seat's own clock, double-run, against the settled bytes; bounds are clean over 70 paths; E-3
+holds at the bytes; no masking move exists anywhere in the diff; no declared commit family is split;
+mail is clean. **The wave fails the bar on one thing and one thing only: C4 is RED, reproducibly, and
+no category of relief the check admits covers it** — it is neither producer-owned, nor routed to a
+successor by the spec, nor an honest-RED `W4.md` names by id, and the close itself books it as *"this
+wave's to repair"*. **The honest-RED set is EMPTY.** The row therefore **stays `PARTIAL`** and is not
+promoted; it becomes promotable the moment C4's geometry-and-clip read is settled the way its own
+ring arm already is, with no assertion and no product byte changed.
