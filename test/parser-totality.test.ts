@@ -43,10 +43,21 @@ import {
     parseTimingFunction,
 } from "../src/subpaths/css";
 import { easing } from "../src/subpaths/easing";
-import type { ParseResult } from "../src/subpaths/css";
 
-/** Captures a throw instead of letting it escape, so the message is assertable. */
-const call = <T>(fn: () => ParseResult<T>): ParseResult<T> | Error => {
+/**
+ * Captures a throw instead of letting it escape, so the message is assertable.
+ *
+ * The parameter is the thunk's own return type, NOT `ParseResult<T>`: this
+ * battery drives heterogeneous entry tables (`parseCssColor` ⊕ `parseCssScalar`
+ * at §1, the six `PROTO_ENTRIES` at §3) whose call yields a **union** of result
+ * types, and `easing()` returns a `Result`, not a `ParseResult`. Narrowing the
+ * helper to one `ParseResult<T>` made each union call site infer `T` from its
+ * first member and reject the rest (TS2322), and forced the `as never` cast at
+ * §5 — a type lie inside a battery whose whole subject is type honesty. Every
+ * assertion below is `threw(...)` / `toHaveProperty("ok")` / `toMatchObject`,
+ * so the totality claim does not depend on the helper naming one result shape.
+ */
+const call = <T>(fn: () => T): T | Error => {
     try {
         return fn();
     } catch (error) {
@@ -206,7 +217,7 @@ const EASING_POISON = ["constructor", "__proto__", "toString", "valueOf", "hasOw
 describe("X-W9.a §5 · easing(name) is total over Object.prototype keys", () => {
     for (const name of EASING_POISON) {
         it(`easing(${JSON.stringify(name)}) rejects instead of throwing`, () => {
-            const outcome = call(() => easing(name) as never);
+            const outcome = call(() => easing(name));
             expect(threw(outcome)).toBe("");
             expect(outcome).toMatchObject({ ok: false, error: { code: "easing_name_unknown" } });
         });
