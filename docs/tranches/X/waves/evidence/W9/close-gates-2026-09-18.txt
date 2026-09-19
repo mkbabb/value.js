@@ -1,0 +1,242 @@
+SERVED MODEL: claude-opus-5[1m]
+
+X-W9 CLOSE SEAT — every gate re-run at the settled bytes of tranche-u @ 8a0c3c63, node v26.0.0,
+darwin arm64, dist/subpaths rebuilt by this seat (npm run build, 2026-09-18 22:2x EDT).
+VERIFY-ONLY: this seat authored no cure byte. Every count double-run.
+
+=============== G1 — node docs/tranches/V/megatranche/audit/probes/src-surface-totality.mjs
+ok   MTS-01  parseCssColor("constructor") returned
+ok   MTS-01  parseCssColor("__proto__") returned
+ok   MTS-01  parseCssScalar("constructor") returned
+ok   MTS-01  parseCssScalar("__proto__") returned
+ok   MTS-01  parseCssValue("constructor") returned
+ok   MTS-01  parseCssValue("__proto__") returned
+ok   MTS-01  parseCssValues("constructor") returned
+ok   MTS-01  parseCssValues("__proto__") returned
+ok   MTS-01  coerceToSyntax("constructor") returned
+ok   MTS-01  coerceToSyntax("__proto__") returned
+ok   MTS-01  parseStylesheet("a{color:constructor}") returned
+ok   MTS-01  parseStylesheet("a{color:__proto__}") returned
+ok   MTS-01  parseStylesheet("@keyframes k{from{color:constructor}}") returned
+ok   MTS-01  parseStylesheet("a{background:linear-gradient(constructor,red)}") returned
+ok   MTS-01  parseStylesheet("a{animation:x 1s steps(2,constructor)}") returned
+ok   MTS-02  steps(2, constructor) -> failure
+ok   MTS-02  steps(2, __proto__) -> failure
+ok   MTS-03  M 0 0 L 10 -> 0
+ok   MTS-03  M 0 0 C 1 1 2 2 3 -> 0
+ok   MTS-03  M 0 0 Q 1 1 2 -> 0
+ok   MTS-03  M 0 0 L 3 4 L 5 -> 5
+ok   MTS-04  compact == expanded (31.403311569547547)
+file:///Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/probes/src-surface-totality.mjs:74
+const dg = TR.decomposeMatrix3D([0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+              ^
+
+TypeError: TR.decomposeMatrix3D is not a function
+    at file:///Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/probes/src-surface-totality.mjs:74:15
+
+Node.js v26.0.0
+[run 2 byte-identical: diff -q run1 run2 -> silent]
+
+=============== G3/G4/G17 — node docs/tranches/V/megatranche/audit/probes/library-band-gates.mjs
+ok   LIB-01  easing(name) is total over the Object.prototype key set
+ok   LIB-01  control: easing('ease') ok, unknown name -> easing_name_unknown
+RED  LIB-02  30 published functions throw on a JS-boundary value (7-value corpus, all 7 subpaths)
+RED  LIB-02  by subpath: value=1 css=19 easing=1 math=6 transform=3
+RED  LIB-02  G1 (r1-published-totality.mjs) names 9 ./css parsers only — 11 of these are outside its FNS list
+RED  LIB-03  20 bare `declare` in the emitted subpath d.ts — unnameable from the subpath that returns them (value=6 css=6 easing=2 quantize=6)
+RED  LIB-03  ./css exports serializeCssColor but withholds the general serializers: serializeKeyframeSelector (src/css/grammar.ts:429)
+ok   LIB-03  ColorFactory reaches ./color
+ok   LIB-03  ./css names its own return types
+RED  LIB-04  css.d.ts emits 5 duplicated colour declarations under mangled names (Alpha_2, SpaceId_2, Color_2, Channel_2, ChannelsBySpace_2), 60 references
+ok   LIB-04  colour types cross src/color/'s boundary through the barrel only
+RED  LIB-05  5 src files over the 350-LoC cap: src/transform/path.ts=672 src/css/grammar.ts=539 src/css/rules.ts=519 src/css/stylesheet.ts=476 src/color/anchors.ts=377
+
+RED — 7 failing assertion(s)
+[run 2 byte-identical]
+
+=============== G12 — node docs/tranches/V/megatranche/audit/probes/consumer-surface-compile.mjs
+=== CONSUMER-SURFACE COMPILE PROBE ===
+
+ok   LEG1  public return types are nameable from their own subpath
+RED  LEG2  root specifier does not type-resolve:
+       leg2.ts(2,31): error TS2307: Cannot find module '@mkbabb/value.js' or its corresponding type declarations.
+RED  LEG2  Node runtime resolution of the root specifier -> ERR_PACKAGE_PATH_NOT_EXPORTED
+       consumers: fourier web/src ConvergencePlot.vue:5, harmonics.ts:5,
+       useCurveTransition.ts:8, easings.ts:9, easings.ts:16
+
+RED — 2 failing assertion(s)
+
+=============== G24 — node docs/tranches/V/megatranche/audit/probes/fourier-value-import-drift.mjs
+RED  leg1: value.js@4.0.0 exports = [./color, ./value, ./css, ./easing, ./math, ./transform, ./quantize]
+     no "." key / no "main" / no "module" — ERR_PACKAGE_PATH_NOT_EXPORTED at all 5 fourier sites:
+       web/src/components/equation/ConvergencePlot.vue:5   import … from "@mkbabb/value.js"
+       web/src/components/equation/composables/useCurveTransition.ts:8   import … from "@mkbabb/value.js"
+       web/src/components/equation/lib/harmonics.ts:5   import … from "@mkbabb/value.js"
+       web/src/lib/easings.ts:9   import … from "@mkbabb/value.js"
+       web/src/lib/easings.ts:16   import … from "@mkbabb/value.js"
+
+RED  leg2: `timingFunctions` absent from every 4.0.0 subpath
+     consumed at /Users/mkbabb/Programming/fourier-analysis/web/src/lib/easings.ts:9,55-58 (Object.fromEntries over 22 label keys)
+     ./easing ships 16 names, flat: CubicBezier bezierPresets easeInBounce easeInOutCirc easeInOutCubic easeInOutExpo easeInOutQuad easeInOutSine easeOutCubic easeOutExpo easing jumpTerms linear linearEasing smoothStep3 steppedEase
+node:internal/modules/esm/resolve:271
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/Users/mkbabb/Programming/fourier-analysis/web/node_modules/@mkbabb/value.js/dist/value.js' imported from /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/probes/fourier-value-import-drift.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:271:11)
+    at moduleResolve (node:internal/modules/esm/resolve:861:10)
+    at defaultResolve (node:internal/modules/esm/resolve:988:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:700:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:717:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:749:52)
+    at #resolve (node:internal/modules/esm/loader:682:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:602:35)
+    at onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:631:32)
+    at TracingChannel.tracePromise (node:diagnostics_channel:363:22) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///Users/mkbabb/Programming/fourier-analysis/web/node_modules/@mkbabb/value.js/dist/value.js'
+}
+
+Node.js v26.0.0
+
+=============== dist-surface readings (G7 G8 G15 G19 G22 G23 G25 G27 + the R1 string corpus)
+G15  'serializeCssValue' in CSS -> true
+     fixture "a : b" -> {"ok":true,"value":"a: b"}
+     fixture "1px" -> {"ok":true,"value":"1px"}
+     fixture "rgb(255 0 0)" -> {"ok":true,"value":"rgb(255 0 0)"}
+G22  'toHex' in color -> false | 'easingNames' in easing -> false
+G23  identity per keyword: ease=false ease-in=false ease-out=false ease-in-out=false
+G25  Object.keys(bezierPresets).length -> 30
+G27  of the six exported -> 0 | ./transform keys: PathGeometry,getPointAtLength,getTotalLength
+G27  PathGeometry true getTotalLength true getPointAtLength true
+G7   expanded 31.403311569547544 compact 62.806623139095066 |delta| 31.403311569547522 <1e-6: false
+G8   "M 0 0 L 10" -> 0 typeof number finite true
+G8   "M 0 0 C 1 1 2 2 3" -> 0 typeof number finite true
+G8   "M 0 0 Q 1 1 2" -> 0 typeof number finite true
+G8   "M 0 0 L 3 4 L 5" -> 5 typeof number finite true
+G19  runtime exports: color 24 · css 20 · easing 16 · math 9 · transform 3 · quantize 2 · value 1 =  75
+G2/G4 string-corpus throws across ./css + easing -> 0
+[run 2 byte-identical]
+
+=============== G5 / G10 — the scoped no-non-null-assertion invocations (double-run)
+run1 G5=4 problems (src/css/timeline.ts:23:36 :38:36 :71:51 :72:49)   G10=exit 0, 0 problems
+run2 G5=4 problems                                                    G10=exit 0, 0 problems
+
+=============== count gates, double-run, identical both runs
+G13 sum of '^declare ' across dist/subpaths/*.d.ts        = 20   (css 6 · easing 2 · quantize 6 · value 6 · color 0 · math 0 · transform 0)
+G14 '_2' in dist/subpaths/css.d.ts                        = 60 occurrences / 26 lines
+G16 max src/**/*.ts LoC                                   = 672  src/transform/path.ts   (then 539 · 519 · 476 · 377 · 331)
+G21 grep -rn 'sampleColorRamp|mixColorsInto|toRgba8Into' src/  = 0
+G26 grep -rn 'colorScale|sampleToSVGPath' src/                 = 0
+G29 node -p require('./package.json').version              = 4.0.0   (no 4.1.0 tag exists)
+G30 grep -c 'src/parsing' docs/tranches/V/ARCHITECTURE.md  = 0   (grep exit 1)
+G31 dependencies                                          = {"@mkbabb/glass-ui":"^7.0.0","@mkbabb/keyframes.js":"^6.0.0"}; @mkbabb/parse-that absent from both dep maps
+
+=============== G9 — re-measured at ITS OWN commit's bytes (474846ce), not inherited
+git archive 474846ce src | esbuild --bundle --format=esm src/transform/decompose.ts
+  decomposeMatrix3D(singular #1) -> null
+  decomposeMatrix3D(singular #2) -> null
+  decomposeMatrix3D(singular #3) -> null
+  control non-singular .translate -> [5,6,7]
+At the settled bytes the subject is RETIRED (4be22189), which is what G27 asserts.
+
+=============== G20 — npm pack -> node scripts/ci/verify-packed-surface.mjs <tarball>
+tarball: mkbabb-value.js-4.0.0.tgz (35,589 B)
+file:///Users/mkbabb/Programming/value.js/scripts/ci/verify-packed-surface.mjs:223
+        throw new Error([
+              ^
+
+Error: /opt/homebrew/Cellar/node/26.0.0/bin/node /Users/mkbabb/Programming/value.js/node_modules/typescript/bin/tsc -p /var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/value-v4-consumer-xjFYVV/tsconfig.json failed
+../../../../../../../var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/value-v4-consumer-xjFYVV/consumer.ts(63,5): error TS2305: Module '"@mkbabb/value.js/transform"' has no exported member 'DecomposedMatrix2D'.
+../../../../../../../var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/value-v4-consumer-xjFYVV/consumer.ts(64,5): error TS2305: Module '"@mkbabb/value.js/transform"' has no exported member 'DecomposedMatrix3D'.
+../../../../../../../var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/value-v4-consumer-xjFYVV/consumer.ts(65,5): error TS2305: Module '"@mkbabb/value.js/transform"' has no exported member 'Mat4'.
+../../../../../../../var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/value-v4-consumer-xjFYVV/consumer.ts(68,5): error TS2305: Module '"@mkbabb/value.js/transform"' has no exported member 'Vec4'.
+../../../../../../../var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/value-v4-consumer-xjFYVV/consumer.ts(218,22): error TS2339: Property 'decomposeMatrix2D' does not exist on type 'typeof import("/private/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/value-v4-consumer-xjFYVV/node_modules/@mkbabb/value.js/dist/subpaths/transform", { with: { "resolution-mode": "import" } })'.
+../../../../../../../var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/value-v4-consumer-xjFYVV/consumer.ts(219,22): error TS2339: Property 'decomposeMatrix3D' does not exist on type 'typeof import("/private/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/value-v4-consumer-xjFYVV/node_modules/@mkbabb/value.js/dist/subpaths/transform", { with: { "resolution-mode": "import" } })'.
+../../../../../../../var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/value-v4-consumer-xjFYVV/consumer.ts(222,22): error TS2339: Property 'interpolateDecomposed' does not exist on type 'typeof import("/private/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/value-v4-consumer-xjFYVV/node_modules/@mkbabb/value.js/dist/subpaths/transform", { with: { "resolution-mode": "import" } })'.
+../../../../../../../var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/value-v4-consumer-xjFYVV/consumer.ts(223,22): error TS2339: Property 'recomposeMatrix2D' does not exist on type 'typeof import("/private/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/value-v4-consumer-xjFYVV/node_modules/@mkbabb/value.js/dist/subpaths/transform", { with: { "resolution-mode": "import" } })'.
+../../../../../../../var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/value-v4-consumer-xjFYVV/consumer.ts(224,22): error TS2339: Property 'recomposeMatrix3D' does not exist on type 'typeof import("/private/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/value-v4-consumer-xjFYVV/node_modules/@mkbabb/value.js/dist/subpaths/transform", { with: { "resolution-mode": "import" } })'.
+../../../../../../../var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/value-v4-consumer-xjFYVV/consumer.ts(225,22): error TS2339: Property 'slerp' does not exist on type 'typeof import("/private/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/value-v4-consumer-xjFYVV/node_modules/@mkbabb/value.js/dist/subpaths/transform", { with: { "resolution-mode": "import" } })'.
+
+    at run (file:///Users/mkbabb/Programming/value.js/scripts/ci/verify-packed-surface.mjs:223:15)
+    at file:///Users/mkbabb/Programming/value.js/scripts/ci/verify-packed-surface.mjs:271:5
+
+Node.js v26.0.0
+
+--- and through a SCRATCH OVERLAY carrying a corrected copy of fixtures/public-types/value-v4.ts
+    (script bytes byte-identical: cmp -s -> YES; no repo byte written; 228 -> 214 fixture lines)
+
+Error: /opt/homebrew/Cellar/node/26.0.0/bin/node /var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/value-v4-consumer-9KTws8/runtime.mjs failed
+file:///private/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/value-v4-consumer-9KTws8/runtime.mjs:10
+        throw new Error(`/${entry} exports ${JSON.stringify(names)}`);
+              ^
+
+Error: /color exports ["a98Rgb","convertColor","displayP3","hsl","hsv","hwb","ictcp","interpolateHue","isAnyColor","jzazbz","kelvin","lab","lch","linearSrgb","mapColorToGamut","mixColors","oklab","oklch","prophotoRgb","rec2020","rgb","safeAccentColor","toRgba8","xyz"]
+    at file:///private/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/value-v4-consumer-9KTws8/runtime.mjs:10:15
+
+The second failure is the ratchet firing on a REAL surface drift: ./color now ships 24 names
+(isAnyColor, added by X-W9.d) and ./css 20 (serializeCssValue) — neither is in the script's
+expected/SMOKE tables, which .e wrote before .d landed. Both causes are escalated, owner X-W9.f.
+
+=============== G19 — node docs/tranches/X/waves/evidence/W9/coverage-by-export.mjs (exit 0)
+COVERAGE-BY-EXPORT · whole suite
+  first-party modules visited outside src/: 78
+  color      23 / 24   uncovered: isAnyColor
+  value       1 /  1
+  css        20 / 20
+  easing     16 / 16
+  math        9 /  9
+  transform   3 /  3
+  quantize    2 /  2
+  TOTAL      74 / 75   = 98.7%
+
+COVERAGE-BY-EXPORT · whole suite MINUS test/v4-c1.test.ts (the surface snapshot)
+  first-party modules visited outside src/: 77
+  color      23 / 24   uncovered: isAnyColor
+  value       0 /  1   uncovered: isLayoutTrackingUnit
+  css        18 / 20   uncovered: collectDeclarations, parseKeyframeSelector
+  easing     16 / 16
+  math        9 /  9
+  transform   3 /  3
+  quantize    2 /  2
+  TOTAL      71 / 75   = 94.7%
+
+
+=============== G28 R1 leg — the 13-vector empty-body + prototype corpus
+parseCssColor x 13 + parseCssScalar x 13 + easing over 5 Object.prototype keys -> THROWS = 0 (was 13/13)
+No bench-table-4.1.md exists; the accepted/reject legs are UNMEASURED (X-W9.f never ran).
+
+=============== G32 — componentDescription() replayed over the true descriptor tables
+ictcp.i  -> "Intensity (I)"   ictcp.ct -> "Ct (tritan)"   ictcp.cp -> "Ct (tritan)"   <-- WRONG ROW
+jzazbz.jz -> "jz"            jzazbz.az -> "az (red-green)" jzazbz.bz -> "bz (yellow-blue)"  <-- SILENT DEGRADATION
+ConsoleRail.vue:176-178 still reads c.startsWith(upper) || c.startsWith(component). X-W9.h never ran.
+
+=============== G33 — the five packets
+ls docs/tranches/V/coordination/*-inbox-2026-09-18-*.md | wc -l  -> 5
+grep -c '^| O-3[4-8] |' docs/tranches/V/coordination/INBOX.md    -> 5
+sed -n '71p' ../keyframes.js/package.json -> "@mkbabb/value.js": "4.0.0"  (exact pin, acknowledged in O-34 before any tag)
+package.json version 4.0.0 — THE TAG IS NOT CUT, so the post-window npm ls leg is unreadable by its own construction.
+
+=============== repository cadence (§Format And Lint Cadence)
+npm run lint      -> 55 problems (23 errors / 32 warnings), ALL 35 carriers under docs/tranches/** (X-W8 G-6's ignore). Zero under src/ or test/.
+npm run typecheck -> exit 2, 3 errors: test/parser-totality.test.ts:89,146 (TS2322) + test/v4-css-emerging.test.ts:12 (TS2459)
+npx vitest run    -> Test Files 4 failed | 32 passed (36) · Tests 13 failed | 600 passed (613), double-run identical
+  the 13: test/v4-css-emerging.test.ts x10 (ESC-W9d-EMERGING-SERIALIZE) · test/v4-c1.test.ts x1 (ESC-W9b-V4C1-SNAPSHOT)
+          · test/spectrum-luma.test.ts x1 (C-5 BORN-RED, X-W4's) · demo/test/shell/reka-binding-idiom.test.ts x1 (NG-6, demo's)
+  ELEVEN of the thirteen are this wave's own downstream artifacts, uncured because X-W9.f never ran.
+
+=============== E13 close sweep, four paths, at this seat's own clock (2026-09-18 22:28 EDT)
+find <the four paths> -maxdepth 1 -name '*.md' -newermt '2026-09-18 21:10' ->
+  docs/tranches/V/ARCHITECTURE.md            (X-W9.g's carve — canon, not mail)
+  docs/tranches/V/coordination/INBOX.md      (SELF-EXCLUDED, SELF-COUNT law)
+  the five *-inbox-2026-09-18-* packets       (OURS, outbound, rowed O-34..O-38)
+  ../glass-ui/docs/tranches/BK/coordination/  -> nothing   (BK re-confirmed newest: BK/ > BJ/ > BI/)
+  ../keyframes.js/docs/tranches/V/coordination/ -> nothing
+  ../sci-report/atlas/docs/tranches/P/coordination/ -> nothing
+0 unrowed · 0 I-n minted · 0 UNREAD addressed to X-W9's scope.
+
+PROBE-SHAPE CORRECTION this seat owes, measured rather than repeated:
+  grep -cE '\| *UNREAD' INBOX.md          -> 0   <-- FALSE on these bytes; X-W9.d, .e and .i each published it
+  awk over each row's STATUS CELL          -> 3   <-- I-32 · I-33 · I-34, spelled '| **UNREAD 2026-09-17** —'
+  Their own Routing cells send all three to X-W0.j / the X formation mail seat / X-EXT-1..6.
+  The conclusion (0 UNREAD in X-W9's scope) survives; the published COUNT did not.
