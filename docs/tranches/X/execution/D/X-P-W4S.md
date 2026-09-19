@@ -261,3 +261,166 @@ They are serial regardless, so no concurrency question arises.
 ## Unit receipts
 
 _(appended by each unit as it lands)_
+
+### X.P.W4.e
+
+**SERVED MODEL**: `claude-opus-5[1m]` · **status**: **ESCALATED** (G-3 advanced `0 of 52` → `19 of 52`,
+still RED; the residual is a one-token defect in a file this unit may not write) · 2026-09-19.
+
+**CRASH-RECOVERY (standing law).** ⟨cmd⟩ `git -C /Users/mkbabb/Programming/parse-that-css-totality-p2 status --porcelain`
+→ `?? .worktrees/` **only** — the `<p2>` half of this unit's writable set carried **zero inherited
+edits**. ⟨cmd⟩ `git -C /Users/mkbabb/Programming/value.js status --porcelain` → 5 M + 2 `??`, and
+**none inside `docs/tranches/X/parse-that/evidence/W4/**`** (that directory held exactly `.b`'s and
+`.d`'s eight dated files, all committed). **No predecessor work was inherited, none was stashed, and
+no dirty path outside the writable set was touched.**
+
+#### Acts, in order
+
+**A-0 · Measure before editing.** Every anchor the brief names was verified at the true bytes; **none
+had drifted**. ⟨cmd⟩ `grep -rn 'tsx' src/css/` → `js-alg.mjs:23` (`import { tsImport } from "tsx/esm/api"`)
+and `bounds.mjs:834` (`const { tsImport } = require_("tsx/esm/api")`) — the two sites §0y names, at the
+lines §0y names. ⟨cmd⟩ `cat typescript/package.json` → `"files": ["./dist"]`, five `exports` subpaths,
+**no `./css`**. ⟨cmd⟩ `ls typescript/dist` → **No such file or directory**: the manifest declared build
+output that had never been built, which is why `.b`'s baseline read `entryCount 1` (the tarball carried
+`package.json` and nothing else). ⟨cmd⟩ `grep -n 'from "' src/css/build/ac1.d.ts` → the single frozen
+re-export, through `../../../../../value.js/docs/…/vendor/value-js-4.0.0/dist/subpaths/css` — **the only
+specifier in all of `src/css/**` that leaves the package root** (⟨cmd⟩ `grep -rn 'from "\.\./\.\./' src/css/`
+returns that one line).
+
+**A-1 · The toolchain, so the subject exists.** ⟨cmd⟩ `npm install --package-lock=false --no-audit --no-fund`
+in `<p2>/typescript` → `added 159 packages in 4s`; `--package-lock=false` so the unowned
+`typescript/package-lock.json` is not written (⟨cmd⟩ `git status --porcelain` after → unchanged).
+⟨cmd⟩ `npm run build` (`vite build`) → `dist/` emitted, 18 modules, `✓ built in 377ms`.
+
+**A-2 · C1 — the manifest declares and ships the seam.** `typescript/package.json`:
+`files` → `["./dist", "./src/css"]` (the css runtime **and** `src/css/build/ac1.wasm`, which lives
+under it); `exports` gains
+`"./css": { "types": "./src/css/build/ac1.d.ts", "import": "./src/css/build/ac1.js" }`.
+No `"./package.json"` export is added, so the five forbidden deep specifiers keep refusing.
+
+**A-3 · C2, site 1 — the loader dies at `js-alg.mjs`.** Line 23 becomes
+`import { Parser, createParserContext } from "@mkbabb/parse-that";` — the **self-reference** this
+package's own `exports["."]` resolves to `./dist/parse.js` — and `const pt = await tsImport("../../parse/index.ts", …)`
+becomes `export { Parser, createParserContext }`. The subject is unchanged (`dist/parse.js` is built by
+this root's own `vite build` from this root's own `src/parse/**`, OP-7); what changed is that the
+lowering now addresses the library **the way a consumer does**. `tsx` as a runtime `dependency` was
+**not** declared — the ruling refuses it. ⟨cmd⟩ `grep -nE '^\s*(import|const|let|var|await|return).*tsx' src/css/lowering-js/js-alg.mjs`
+→ **no output, exit 1** (the three remaining hits are prose in the doc comment that records the removal).
+
+**A-4 · C3 — the frozen types become the package's own bytes.** `src/css/build.mjs` now reads the
+vendored 4.0.0 declaration, **halts** unless its sha256 is the value X.P.W3's own artefacts pin
+(`evidence/W3/universe-52.json` `.frozen.sha256` = `evidence/W3/equivalence-full-surface.json`
+`.declarationSha256` = `c81d095213d112c6bdbddf1ddb65da2a1286d6e2ff37f5f0ba40e78a439743d0`), and
+**byte-copies** it beneath a provenance header into `src/css/build/value-css-4.0.0.d.ts`. `ac1.d.ts`
+re-exports the 33 names from `"./value-css-4.0.0.js"` — the NodeNext spelling of a sibling `.d.ts`.
+⟨cmd⟩ `node src/css/build.mjs` →
+`value-css-4.0.0.d.ts   10910 bytes byte-copied · sha256 c81d0952…` ·
+`ac1.d.ts   33 frozen types re-exported from ./value-css-4.0.0.js` · `EXIT=0`.
+The same run rebuilt `ac1.wasm` (`636753` → `662339` bytes — the artefact brought current with W3's
+grammar landings). **G-4 re-run on the rebuilt bytes**: ⟨cmd⟩ `node scripts/wasm-admission.mjs src/css/build/ac1.wasm`
+→ `functionKindImportsTotal 0`, `unaccountedImportsTotal 0`, instantiation ok, `"verdict": "GREEN"`, `EXIT=0`.
+
+**A-5 · C2, site 2 — `bounds.mjs:834` NOT cured, and no substitute landed.** Measured at the built
+bytes: ⟨cmd⟩ `node -e "import('./dist/parse.js')…"` → `Parser createParserContext … memoize mergeMemos
+resetPackrat` · ⟨cmd⟩ `node -e "import('./dist/packrat.js')…"` → `memoize mergeMemos resetPackrat`.
+**`packratEnter` / `packratExit` are on neither public subpath** (⟨cmd⟩ `cat dist/packrat.js` → the
+chunk is re-exported as `m`/`i`/`k` only), and they are exactly what `readPackratArmState()` calls.
+`armPackratArmState` and `resetPackratArmState` port to the built entry unchanged; **the readback does
+not**. A module-local "have we armed" flag was **refused**: it would answer the very question
+`latch.test.ts` L-3 exists to measure, turning a MEASURED red into an ASSERTED one — the masking
+fallback `bounds.mjs:805-806` forbids in its own words. The file was therefore **left untouched**;
+returned as **E-w4e-2**. Blast radius, measured: the site is a lazy `require` inside
+`loadPackratInstrument()`, whose only callers are `test/css-recovery/boundary/latch.test.ts` and
+`scripts/css-bench-three-leg.mjs` — both in-repo; `entry.mjs:87-89` takes only bounds **tables** from
+the file, so the css parse path never reaches it, and G-3's resolve leg imported all 19 runtime names
+from the installed tarball **with no `tsx` present**.
+
+**A-6 · G-3, double-run at the settled bytes.** ⟨cmd⟩ `node scripts/packed-candidate-surface.mjs --seam …/SEAM-CONTRACT.md --out …-run{1,2}.json`:
+
+| reading | `.b`'s baseline (this record's Open) | X.P.W4.e, run 1 | run 2 |
+|---|---|---|---|
+| `entryCount` | **1** | **91** | **91** |
+| `seamSubpathDeclared` | **false** | **true** | **true** |
+| `resolved` | **0 of 52** | **19 of 52** | **19 of 52** |
+| `tarballSha256` | `efc11936…` | `6b51c336…` | `6b51c336…` |
+| `refusals` | 5 | 5 | 5 |
+| `verdict.G3` | **RED** (exit 1) | **RED** (exit 1) | **RED** (exit 1) |
+
+Runs 1 and 2 are identical, sha included. `pack` · `declaration` · `install` · `refusals` are **all
+`true`**; the sole `false` is `resolve`, and within it the sole failure is the **types** half.
+
+**A-7 · The positive control, in a staged tree outside both repos.** `<scratch>/pc-w4e` (neither repo
+is an ancestor). Packed there, sha **`6b51c336…` — the same bytes the gate read**; installed with
+`--ignore-scripts --package-lock=false`. ⟨cmd⟩ `node -e "import('@mkbabb/parse-that/css')…"` →
+`RUNTIME resolved 19 of 19`. ⟨cmd⟩ `node <tsc> -p tsconfig.pc.json` (`NodeNext`, `strict: true`,
+**`skipLibCheck: false`**, the gate's own consumer file with **one token changed**,
+`ParseResult` → `ParseResult<unknown>`) → **`EXIT=0` — all 33 frozen types resolve from the consumer's
+`node_modules`.** NEGATIVE control ⟨cmd⟩ `node <tsc> -p tsconfig.nc.json` (one absent name) → `EXIT=2`,
+`TS2305: Module '"@mkbabb/parse-that/css"' has no exported member 'NotAFrozenType'` — so the green is
+not a compiler that failed to look.
+
+#### Gate readings — BEFORE → AFTER
+
+| gate | before (this record's Open) | after X.P.W4.e | verdict |
+|---|---|---|---|
+| **G-3** | `resolved 0 of 52` · `entryCount 1` · `seamSubpathDeclared false` · exit 1 | `resolved 19 of 52` · `entryCount 91` · `seamSubpathDeclared true` · exit 1 | **STILL RED** — monotone, first iteration; cause isolated to a path outside this unit's bounds |
+| **G-4** (not this unit's, re-read because this unit rebuilt its subject) | `total 0 · functionKind 0` · GREEN | `total 0 · functionKind 0` · GREEN on the rebuilt `ac1.wasm` | **GREEN, unmoved** |
+| **G-2** (read with attribution, per this record's WRITE-THEN-MEASURE note) | 2 lines, Track A's | 20 lines, **all** Track A's `demo/**` + `e2e/**` | **GREEN for X·P** — ⟨cmd⟩ `git show --stat` over both of this unit's value.js/`<p2>` commits contains **no** path under `src/**` `demo/**` `api/**` `test/**` `e2e/**` |
+
+**E13 mail**, double-run at this unit's own clock: ⟨cmd⟩ the positional Status-cell awk over
+`INBOX.md` → `UNREAD=0 ROWS=80`, `UNREAD=0 ROWS=80`; ⟨cmd⟩ `find docs/tranches/V/coordination -maxdepth 1 -type f -name '*.md' -newermt "2026-09-19 08:45"` → **no member**. **Zero UNREAD in scope.**
+
+**Format / lint (§7).** ⟨cmd⟩ `git diff --check` in `<p2>` → clean. ⟨cmd⟩ `node --check` on `build.mjs`
+and `js-alg.mjs` → OK; `package.json` parses. ⟨cmd⟩ `node <tsc> --noEmit -p tsconfig.json` → **82 errors,
+all pre-existing and all under `test/**`** (⟨cmd⟩ `cut -d'(' -f1 | sort -u` → 16 test files, **zero**
+hits for `src/css/build`, `js-alg` or `package.json`); this unit wrote no `.ts` byte. `npx eslint .` was
+**not run**: the fresh root carries no eslint configuration (⟨cmd⟩ `ls typescript/eslint.config.* typescript/.eslintrc*`
+→ no matches), and inventing one is outside these bounds.
+
+#### Commits
+
+| repo | hash | meaning |
+|---|---|---|
+| `<p2>` | **`93bcb83`** | `feat(x-p-w4.e/packed)` — C1 + C2 site 1 + C3, **one commit, one meaning**: the manifest's `./css` export is only true if `ac1.d.ts`'s specifier stays in-package and `js-alg.mjs` no longer needs a loader, so splitting them would publish an intermediate state in which `./css` resolves to a broken graph. Pathspec: `typescript/package.json` · `typescript/src/css/build.mjs` · `typescript/src/css/build/{ac1.d.ts,ac1.wasm,value-css-4.0.0.d.ts}` · `typescript/src/css/lowering-js/js-alg.mjs` |
+| value.js | **`e9140c34`** | `docs(x-p-w4.e/evidence)` — five **NEW dated** files under `evidence/W4/`; `.b`'s `packed-surface.json` and `wasm-imports.json` untouched (E-3) |
+
+#### Residuals and escalations
+
+- **E-w4e-1 — G-3's TYPES half is unsatisfiable as written, against the frozen surface itself.**
+  `scripts/packed-candidate-surface.mjs:400` emits, for each of the 33 names,
+  `export type __check_<N> = <N>;`. The frozen 4.0.0 declaration declares
+  `export declare type ParseResult<T>` (⟨cmd⟩ `grep -n '^export declare type ParseResult' <vendored css.d.ts>`
+  → `241:`) — **one required type parameter, no default** — so that line is
+  `TS2314: Generic type 'ParseResult' requires 1 type argument(s)`, and `:420`
+  (`resolved: compile.status === 0 ? true : !named(name) && diagnostics.length === 0`) turns that one
+  diagnostic into **33 unresolved rows**. This is a property of the **assertion form**, not of the
+  tarball: A-7 compiled the same 33 names from the same installed bytes at exit 0. It would fail for
+  **any** candidate, `@mkbabb/value.js@4.0.0` included.
+  **Minimal cure** (one token): emit `ParseResult<unknown>` for a generic name — or, more generally,
+  `export type __check_<N> = typeof __t_<N>;`-free: read the genericity from the declaration and
+  instantiate. **`scripts/packed-candidate-surface.mjs` is X.P.W4.b's file and is in NO row of this
+  unit's writable set** (W4.md third dated addendum, the `X.P.W4.e` clause, which grants
+  `package.json` · `build.mjs` · `build/**` · `js-alg.mjs` · `bounds.mjs` · one line of
+  `lowering-wasm/index.mjs` · `evidence/W4/**` and nothing else). A write there is an **ESCALATION —
+  stopped and returned**, not taken. **This is diagnostic iteration 1, and it was monotone**
+  (`0 of 52` → `19 of 52`), so §3a's third-iteration trigger has **not** fired.
+- **E-w4e-2 — C2's second site (`bounds.mjs:834`) cannot take the specified cure without a §3a
+  File-bound expansion.** Measured in A-5 and in
+  `evidence/W4/c2-built-entry-surface-2026-09-19-w4e.txt`. The two lawful cures, both outside these
+  bounds: **(a)** add `packratEnter`/`packratExit` to `typescript/src/parse/packrat-entry.ts` so the
+  built `./packrat` subpath carries the reader — then `bounds.mjs` imports
+  `@mkbabb/parse-that/packrat`, the loader dies, and the instrument's reading is **fully preserved**;
+  **(b)** rule that the instrument may not read the latch, and re-characterize ESC-c1's leg. `tsx`
+  remains reachable from shipped bytes **only** through `loadPackratInstrument()`, which no consumer
+  path calls.
+- **`lowering-wasm/index.mjs` was NOT touched.** Its one-line grant was conditional — *"iff G-3's
+  resolve leg names it"* — and the resolve leg named no artefact loader: the runtime half reached
+  **19 of 19** from the installed tarball. The condition did not fire, so the line was left alone.
+- **Recorded for `.f`, not a defect**: this unit rebuilt `ac1.wasm` (`636753` → `662339` B) as an
+  unavoidable side effect of the `build.mjs` run C3 requires. G-4 re-reads **GREEN** on the new bytes
+  and the fresh reading is banked dated; `.b`'s `wasm-imports.json` is untouched.
+- **`.f` REMAINS BLOCKED** by this record's own serial lock — *"`.e` must read `G3 GREEN` before `.f`
+  runs"* — and by G-10's falsifier (*a stamp performed while any of G-1..G-9 is red fails*). **G-3 is
+  red.** The unblocking act is the one-token cure of E-w4e-1 by a seat that owns
+  `packed-candidate-surface.mjs`; after it, G-3's resolve leg is expected to read **52 of 52** on the
+  bytes already committed at `93bcb83` — expected, and therefore **to be measured, not assumed**.
