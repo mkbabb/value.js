@@ -1753,3 +1753,40 @@ two escalations by id rather than widening its own bounds. Both are upheld as me
 **`.e2`** (Opus) lands the two cures and re-runs G-3 on the whole — GREEN = `resolved 52 of 52`,
 `G3 GREEN`, double-run, positive control; then **`.f`** opens exactly as §0y states, iff `G3 GREEN`.
 The close's ordering ("`.f` must not run" before G-3) is adopted as the wave's serial lock.
+
+## §0ab ADDENDUM 2026-09-19 — X.P.W4S's `.f` RETURNS: THE 45 CELLS ARE RULED, THE STAMP IS WITHHELD BY G-1 ON THE CHECKER'S PRE-ADJUDICATION VOCABULARY (E-w4f-1); F-w4f-2 · F-w4f-1 · F-ab1 RULED; UNITS `.g` ∥ `.h` → `.f2`
+
+`.f` did the adjudicative half whole: 45 cells → 42 `declared-divergence` (candidate correct) · 2
+candidate defects (F-w4f-2) · 0 PENDING; 39 premise rows retired (`CN-2` · `CN-3` · `R4` were coverage
+claims discharged at G-3); the V-tarball arm landed (arm V read 4.0.0's own bytes, 20,962 mirror-defects
+— the reading a V-bound conjunct must give against an oracle the rulings went against); harvests filed
+6 of 6. G-1 then reads RED because `seam-contract-check.mjs` was built before the ruling it now
+measures. Ruled:
+
+- **E-w4f-1 · the checker learns the post-adjudication vocabulary — unit `.g` (Opus).** Check **E**: a
+  ledger row RETIRED in `DIVERGENCE-LEDGER.md` §10 does not bind its `subjects`. Check **G**: a carried
+  cell whose ruling is recorded in `ADJUDICATION-W4.md` is terminal — G reads the adjudication, not
+  §0v's pre-adjudication rider. Negative controls must still fire: a `PENDING` head with no adjudication
+  row; an unretired subject binding against an `identical` row; a disposition id not in the ledger.
+  `.g` also cures **F-ab1**: the five-name literal at `run-full-surface.mjs:60` dies — the candidate's
+  re-export set is measured from `entry.mjs`'s exports; the emitter's carry gains `§10` so a regeneration
+  never drops the retirements (no regeneration is ordered; the ledger stands, E-3). `.g` performs the
+  **`DEFECT-LEDGER.md` append** by the §0p procedure's run B (the script's write through the symlink,
+  never a hand's).
+- **F-w4f-2 (HIGH, candidate defect) · `!important` needs no preceding space — unit `.h` (Opus).**
+  css-syntax-3 §5.4.7: after the declaration's value, a `!` delim followed by an ident matching
+  `important` (whitespace optional on both sides). The cure lands in the declaration production at its
+  realizations (algebra tables; both lowerings and `bounds.mjs` only if a ctor row changes — §0s's
+  quartet law); cells `#40` / `#41` re-measure `identical`; the two-cell census is re-emitted as NEW
+  dated evidence beside W3's; `ADJUDICATION-W4.md` gains a dated addendum and the two seam rows' cells
+  move.
+- **F-w4f-1 (MEDIUM, shared) · a non-ident declaration NAME.** css-syntax-3 §5.4.4: the name is one
+  ident-token; `col!r` is not. The candidate half is `.h`'s (the production refuses; the new divergence
+  against 4.0.0 is `declared-divergence`, rulingId **F-w4f-1**, candidate correct, consumer direction
+  stated). The 4.0.0 half is X·V's and rides X-W11's OUT-OF-WAVE roster by id.
+- **`.f2` (a FRESH Fable adjudicator, M-23 §1)**, serial after `.g` ∥ `.h`: re-run G-1..G-10 at its own
+  clock; the R-A stamp **iff G-1..G-9 GREEN** (else withhold by gate id, again); the two COHESION carves
+  under a performed stamp only; a dated §13 in `W4-CLOSE.md`; RC-P re-read.
+
+**Mechanism.** `X.P.W4S` resumes; `.e` · `.e2` · `.f` stand on their commits (never re-dispatched).
+Groups: [`.g` ∥ `.h`] (disjoint paths) → `.f2`. Writable sets in `W4.md`'s fifth dated addendum.
