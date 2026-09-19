@@ -197,6 +197,24 @@ its AGAINST-branch residue (the terminal kill with rationale, G-F7-9) rides **un
 
 ---
 
+## Seat-0 disclosure (dated 2026-09-19, E-3 — recorded, not smoothed)
+
+**The OPEN commit `a167f945` carries a sibling seat's LEDGER bytes, and this seat says so rather than
+letting a later reader find it.** The commit was made with an exact pathspec
+(`… C/F-W7.md LEDGER.md INBOX.md`), but `LEDGER.md` is **one file four tracks write**: between this
+seat's read of row 69 and its `git add`, a **Track B** seat wrote the `KF.W10` row
+(`IMPLEMENTED 2026-09-17` → `CLOSED 2026-09-17 (honest-RED: G-7)`) and appended its own event line in
+the working tree. A pathspec cannot separate two seats' hunks **inside one file**, so both landed under
+this commit's message. **Nothing was altered, lost or reverted**: the KF.W10 bytes are that seat's own,
+verbatim, and are now durable. **No unstage, no reset, no stash was performed** — the standing law
+forbids touching a sibling seat's paths, and a committed sibling row is strictly safer than an
+unstaged one. **The finding, stated once for the programme**: the pathspec rule kills cross-*path*
+contamination and is powerless against cross-*hunk* contamination in a shared ledger; the durable cure
+is what the ledger law already prescribes — **minimal in-place row edits plus appends, never a
+rewrite** — which is why this commit's bytes are correct on both tracks despite the mixed meaning.
+
+---
+
 ## Unit receipts
 
 *(empty at open — each dispatched unit appends its own receipt here, line 1 of any file it creates being
