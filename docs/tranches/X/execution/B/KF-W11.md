@@ -977,3 +977,171 @@ its own event line, and verifies the landed bytes after committing.
 *(empty — no unit was dispatched at this sitting; the wave is BLOCKED-ON OP-0. Each unit appends
 its receipt here, first line `SERVED MODEL: <id>`, with its commands double-run, its SELF-COUNTs and
 its inherited-paths clause.)*
+
+---
+
+### KF.W11.r
+
+SERVED MODEL: claude-opus-5[1m]
+
+**Unit**: `KF.W11.r` — the unowned remainder and the lockfile (FIRST, alone; group 1). Spec:
+`KF-W11.md` **ADDENDUM 2026-09-19** `:408-417`, the `### KF.W11.r` block `:412-416`; authority
+`COHESION.md` **§0u** `:1542-1550`. **Status: PARTIAL — 1 of 2 acts fully DONE, act (2) 2 of 5 rows
+cured and 3 ESCALATED, plus one substrate escalation the act itself uncovered.**
+**Evidence**: `docs/tranches/X/keyframes/evidence/W11/r-unowned-remainder-and-lockfile-2026-09-19.md`
+(every transcript, census and probe in full).
+
+**CRASH-RECOVERY (standing law, first act).** `git -C ../keyframes.js status --porcelain` -> **2
+untracked rows**, both value.js-delivered mail packets under
+`docs/tranches/V/coordination/VALUEJS-INBOUND-*` — outside this unit's writable set, not touched.
+`git -C . status --porcelain -- <this unit's 2 value.js paths>` -> **empty**. `git status --porcelain`
+in value.js -> the same 11 modified rows seat 0 recorded (8 `demo/**` + `eslint.config.js` +
+`CARRY-LEDGER.md` + `scripts/dev/dev.sh`), **none in this unit's set**; `scripts/dev/dev.sh` never
+touched. **ZERO inherited hunks on any path this unit may write — nothing to finish, nothing to
+rewrite.** Substrate at open: `git rev-parse --short HEAD` -> `dd28da55` (== `origin/master`).
+
+#### Act 1 — R-C3, the lockfile takes the manifest. **DONE.**
+
+Born-RED, measured first: `grep -c '@vue/test-utils' package-lock.json` -> **0** against a manifest
+`devDependencies["@vue/test-utils"] = "^2.5.1"`; `npm ci --dry-run` -> `npm error code EUSAGE …
+Missing: @vue/test-utils@2.5.1 from lock file`, with `| grep -c '^npm error Missing:'` -> **16**.
+
+`npm install --package-lock-only` -> *"up to date, audited 426 packages"*; after it
+`grep -c '@vue/test-utils' package-lock.json` -> **3**, `git diff --stat` -> **1 file changed, 206
+insertions(+)**, and `git diff package-lock.json | grep -c '^-'` -> **1** (the `--- a/` header alone:
+**ZERO removals** — the change is purely additive). SELF-COUNT: the added `node_modules/…` entries
+number **16**, exactly the 16 `Missing:` rows — `@vue/test-utils` plus its transitive closure
+(`js-beautify`, `vue-component-type-helpers`, `editorconfig`, `glob`, `nopt`, `path-scurry`,
+`minipass`, `config-chain`, `ini`, `proto-list`, `@one-ini/wasm`, `abbrev`, `js-cookie`, and
+`editorconfig`'s nested `commander`/`minimatch`).
+
+**`npm ci; echo $?` -> `0` · `0`** (double-run; run 2 *"added 425 packages, and audited 426 packages
+in 10s"*). **No `node_modules` byte is tracked or committed** (`git status --porcelain` after both
+runs shows only `M package-lock.json` beside the two untracked mail packets).
+
+Commit **`d8eb43ff`** `chore(lock): the lockfile takes the manifest`, `--no-verify`, **pathspec
+`package-lock.json` alone on the commit itself**, pushed `dd28da55..d8eb43ff`.
+
+**CI run observed: id `35428272041`** (workflow `ci`, push, `master`, 2026-09-19T07:03:17Z, 1m10s),
+**conclusion failure**, and **both jobs now get PAST `npm ci`**:
+
+| job | id | conclusion | `npm ci` | first failing step |
+|---|---|---|---|---|
+| demo correctness (browser roster) | `105857976499` | **failure** | **success** | `publish artifact boundary (post-build)` — `proof:published-surface — FAIL (1 finding(s))`, five HEAVY exports with `NEITHER` doc coverage |
+| library gates (library tests + proof:publish) | `105857976658` | **failure** | **success** | `check library types` — **exactly the three `src/**` TS6133 rows of KF11-E2**, annotated `smooth.ts#194` · `waapi.ts#9` · `compositor.ts#79` |
+
+**R-C3 is DISCHARGED**: the step that killed both jobs at the landing sha and the pre-landing control
+alike now succeeds in both, so *"on the merge path"* is true of a pipeline that runs. The second push
+(`35428755040`, jobs `105859324420` / `105859324523`) reproduces the same two failing steps exactly.
+**Banked as a finding, not a cure**: the `library gates` blocker IS KF11-E2's escalated set —
+independent CI-side corroboration that §0u part (3) cannot be met by KF.W11–W13 alone.
+
+#### Act 2 — the enumeration re-run. **54 does NOT reproduce at this seat's clock; 31 does.**
+
+`npx vue-tsc --noEmit -p tsconfig.json 2>&1 | grep -c 'error TS'` -> **31 · 31** (exit 2 both,
+outputs byte-identical). **Act 1 is the cause, and it is disclosed loudly.** The enumeration seat read
+54 against a `node_modules` that did **not** match `package-lock.json` — the lockfile carried no
+`@vue/test-utils` at all, yet the package was installed and 39 demo test files ran, so the tree was
+locally unreproducible. `npm ci` replaced it with exactly the lockfile's resolutions, which is what CI
+has always installed. **31 is the CI-faithful, reproducible figure at `d8eb43ff`.**
+
+Delta at the bytes, **54 − 24 + 1 = 31**: `demo/scenes/cube/orbital-drag/OrbitalDrag.vue` **24 -> 0**
+(the whole banked `.a` block is absent under the lockfile's pins), and
+`demo/components/instrument/transport/TransportDock.vue(95,34)` `TS2322` is **new** — a **KF.W13
+§B.2** row, booked there, untouched here. **Every other file's count reproduces the banked
+enumeration exactly, and all five of `.r`'s rows and all three KF11-E2 rows reproduce at their banked
+coordinates character for character.** Installed pins after `npm ci`: `vue 3.5.35 · vue-tsc 3.3.11 ·
+typescript 6.0.3 · @vue/language-core 3.3.11 · @vueuse/core 14.3.0 · gl-matrix 3.4.4 ·
+@mkbabb/value.js 4.0.0 · @mkbabb/glass-ui 7.0.0`.
+
+**The ratchet is NOT violated — the count FELL and did not rise.** Re-homed at this clock (SELF-COUNT:
+5 + 13 + 5 + 5 + 3 = **31** ✓): KF.W11 §Bounds **5** · KF.W12 §B.2 **13** · KF.W13 §B.2 **5** ·
+UNOWNED (`.r`'s) **5** · UNOWNED-AND-UNWRITABLE (KF11-E2) **3**.
+
+#### Act 2 — the five UNOWNED rows: **2 CURED, 3 ESCALATED**
+
+**CURED — `EasingScene.vue(8,10)` + `(45,7)`, both `TS6133`** (commit **`2b649a1d`**). LAW A census
+before the delete: `grep -n 'computed' …/EasingScene.vue` -> `:8` (the import) **and nothing else**;
+`grep -n 'isPlaying' …` -> `:42`/`:43` (a comment) · `:45` (the alias) · `:86`/`:101` (both read
+`demo.isPlaying`) · `:128` (a comment) — **the local alias has ZERO readers**. Both declarations
+deleted. Under the MISS-3 comment-truth lock the note that captioned the alias is re-pointed at its
+two live read sites **in the same commit**, so no comment is left true-sounding beside a deleted line.
+
+**ESCALATED — `useEasingDemo.ts(294,13)` `TS2322` + `(310,43)` `TS2345` (KF11-E3).** The specified
+cure is *"narrow the string->`Easing` at source, never a cast"*; **measured at the bytes it is not
+reachable inside `.r`'s set**, so the file is left **byte-unchanged** rather than substituted
+(`git diff --stat HEAD -- …/useEasingDemo.ts` -> empty). The seam is `cssValue` (`:93`), whose value
+type feeds both sites — one correct annotation would close both. Annotating it with
+`NonNullable<InputAnimationOptions["timingFunction"]>` moves the defect to its source exactly as
+directed (`(93,85) TS2769: Argument of type '() => string' is not assignable…`; count 31 -> **28**),
+but the getter stays `() => string` because two arms root outside this set: **arm 1**
+`cubicBezierToString(...)` is declared `: string` at
+`node_modules/@mkbabb/value.js/dist/subpaths/math.d.ts:5` though it returns the template literal
+(`math.js:44`) — a **@mkbabb/value.js library declaration**, and a `node_modules` patch is a HIGH
+defect; **arm 3** `return name` rides `currentEasingName = ref("ease")` fed by
+`selectEasing(name: string)` from `EasingTarget.vue:251`. **The arm-3 narrowing was attempted,
+MEASURED and reverted**: typing the ref + setter as
+`Extract<NonNullable<InputAnimationOptions["timingFunction"]>, string>` takes the count **28 -> 42**,
+with the `EasingSidebar.vue`/`EasingTarget.vue` rows going **1 -> 5** — **+4 NEW errors in files
+outside `.r`'s writable set**, a ratchet violation and an out-of-bounds write. The cascade also shows
+*why*: the bare editor modes `"steps"` and `"cubic-bezier"` that this file branches on
+(`:71 :76 :82 :85 :96 :99 :109 :254 :269 :270`) have **no member** in
+`TimingFunctionNames | CssEasingLiteral` — translating them into real CSS is precisely `cssValue`'s
+job, and the open `string` is the seam's honest demo-side type. Owning acts named: a value.js
+declaration fix (a producer row, never a keyframes-side hack) and/or a three-file easing-name
+contract — **KF.W12's OPTIONS-UNIT carve** (§Excluded: *"`EasingSidebar.vue`'s seat rows are KF.W12's
+OPTIONS-UNIT carve"*).
+
+**ESCALATED — `EditorShell.vue(175,10)` `TS2379` (KF11-E4).** The brief's cure — *"give the argument
+the `undefined` its optional targets require"* — **has no target at the true bytes**. The diagnostic's
+own chain names the property: *"Types of property `key` are incompatible. Type `string | undefined` is
+not assignable to type `PropertyKey`."* `key` is Vue's `VNodeProps['key']?: PropertyKey`, not a prop of
+`AnimationControlsGroup` and not editable from this repo; the component's own optional props
+**already** carry the explicit `| undefined` the suggestion asks for (the error text prints
+`readonly channels?: TransportChannel[] | undefined; readonly superKey?: string | undefined`), which
+is this file's own documented idiom at `:256`. **Probed and reverted**: deleting the single line
+`:key="superKey"` clears the row and nothing else (count 29 -> **28**, `grep EditorShell` -> nothing)
+— proving `key` is the sole blocker, and proving the only cures are behavioural: that deletion
+contradicts the file's `:164` docblock (*"`AnimationControlsGroup` below is `:key`ed to `superKey`
+and remounts on every swap"*), a `?? ""` fallback changes the emitted key value, and making `superKey`
+required changes a public prop contract documented as defaulting to `undefined` (`:256`, `:277`) and
+cascades to hosts outside this set. §0u grants type-level cures only and orders that anything needing
+a behavioural change is **ESCALATED … never forced**. **`EditorShell.vue:116` — the `G-0.5` glass HOLD
+subject — was never touched**; the file is byte-unchanged.
+
+#### Gates BEFORE -> AFTER
+
+| gate | before | after | verdict |
+|---|---|---|---|
+| `npm ci` exit 0 (R-C3) | `EUSAGE`, 16 missing entries | **0 · 0** | **GREEN** |
+| CI run observed, id + both jobs' outcomes | both jobs killed at `npm ci` | run **`35428272041`**; `105857976499` failure at `proof:publish` · `105857976658` failure at the 3 KF11-E2 `src/**` rows; **`npm ci` success in BOTH** | **GREEN** |
+| vue-tsc count, double-run | **31 · 31** (the reproducible floor; the banked 54 was read off an unreproducible tree) | **29 · 29**, outputs byte-identical | **GREEN against §0u's sub-gate** (*"the count after `.r` = the count before minus the remainder"*: 31 − 2 = 29) · **RED against the brief's literal `54 -> 49`** |
+| `npm run test:demo` | 39 files / 286 tests passed | **39 / 286 passed** | unmoved |
+| `npx eslint demo/scenes/easing/EasingScene.vue` | — | exit **0** | clean |
+| `git diff --check` | — | clean | clean |
+
+#### Escalations returned
+
+- **KF11-E2** (inherited, re-measured, now **CI-corroborated**) — the three `src/**` TS6133 rows to
+  KF.W5 / KF.W8. They are the **sole** cause of the `library gates` job's failure.
+- **KF11-E3** (new) — `useEasingDemo.ts(294,13)` / `(310,43)`: needs a `@mkbabb/value.js` declaration
+  fix and/or KF.W12's OPTIONS-UNIT easing-name contract. Forcing it in-set raises 28 -> 42 with +4 rows
+  outside the set (measured, reverted).
+- **KF11-E4** (new) — `EditorShell.vue(175,10)`: the failing property is Vue's `VNodeProps['key']`;
+  every available cure is behavioural. To the shell seam's owning wave.
+- **KF11-E5** (new, **substrate**) — **the banked OP-0 count 54 is not reproducible.** The CI-faithful
+  floor at `d8eb43ff` is **31**, and `OrbitalDrag.vue`'s 24-diagnostic block — the largest single item
+  in `.a`'s type-level shadow — **is absent under the lockfile's pins**. **`.a` must re-derive its own
+  OP-0 reading at its open before spending a cure against the banked 24**, and **`.j` must state the
+  close delta against 31, not 54**. Every later unit banks its own figure with `npm ci` settled.
+
+#### Commits (both pushed to `origin/master`)
+
+| sha | subject | pathspec |
+|---|---|---|
+| `d8eb43ff` | `chore(lock): the lockfile takes the manifest` | `package-lock.json` alone |
+| `2b649a1d` | `fix(kf/easing · X.KF.W11.r): the two unread declarations die with their diagnostics` | `demo/scenes/easing/EasingScene.vue` |
+
+No `src/**` byte · no `node_modules` byte · no `@ts-expect-error` / `as` / `eslint-disable` · no
+`test.skip` · `EditorShell.vue:116` untouched · `scripts/dev/dev.sh` never staged · the LEDGER row is
+`.j`'s and was not touched by this unit.
