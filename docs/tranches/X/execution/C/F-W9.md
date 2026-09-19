@@ -1609,3 +1609,28 @@ not.**
 Every figure is a count of **this unit's own subject** at the settled bytes — the frozen corpus,
 the pinned canonical, the committed fourier tree, or this unit's own instrument — and **not one is
 a count of a live sibling or of this file** (R3-3.10).
+
+#### c.13 Addendum to c.10 — the shas, settled (WRITE-THEN-MEASURE; c.10's table was written before they existed)
+
+c.10 published its value.js rows as placeholders, because a commit sha cannot be quoted before the
+commit. They are settled here rather than back-written, which is the addendum-beside habit applied
+to this unit's own bytes:
+
+| sha | repo | meaning |
+|---|---|---|
+| `a6f50c8` | fourier | G-F9-17 — inv-27 emits a covering run id, and mints it only for a green run |
+| `6bd57410` | value.js | E13 — the F.W9 close sweep and the four relay rows, append-only |
+| `415c9a3a` | value.js | the `.c` unit receipt |
+| `c3b7f831` | value.js | the `LEDGER.md` stamp — F.W9 **IMPLEMENTED**, one row replaced in place ⊕ one event-log line appended |
+
+**BOUNDS AUDIT, run at the settled bytes and published as an absence.** ⟨cmd⟩ over this unit's three
+value.js commits → **exactly three paths**, all inside §1a: `INBOX.md` · `execution/C/F-W9.md` ·
+`execution/LEDGER.md`. ⟨cmd⟩ over `a6f50c8` → **one path**, `.github/workflows/ci.yml`. ⟨cmd⟩
+`git log --name-only … | grep -c 'dev.sh'` → **0**. **E-3 held as an absence** — ⟨cmd⟩
+`git diff --name-only 6ab70928..HEAD -- <path>` prints **0 files** for every one of
+`F-W10.md` · `F-W9.md` · `registry/adjudicated/` · `fourier/conformance/` ·
+`formation/fourier/`: the twin, this wave's own dated spec, the 66 frozen records, the pinned
+canonical and the census lane are **untouched by this unit in every verb**. The `LEDGER.md` edit is
+⟨cmd⟩ `git diff -U0` → **`@@ -71 +71 @@`** (one row, replaced in place) ⊕ **`@@ -399,0 +400,2 @@`**
+(the appended event line) — no other seat's row was read for write, and the file's row count is
+unchanged at **399 → 399** before the append.
