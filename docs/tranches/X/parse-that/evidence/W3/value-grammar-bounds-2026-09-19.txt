@@ -1,0 +1,76 @@
+SERVED MODEL: claude-fable-5-1 · X.P.W3.h value-grammar-bounds probe · sitting 2026-09-19
+SHIELD.caught at open = 0
+
+── A. the constructor closure: what a new CTOR row needs, at the bytes
+  lowering-js/js-alg.mjs:198  const CTORS = {
+  lowering-js/js-alg.mjs:632  const build = CTORS[rowName];
+  lowering-js/js-alg.mjs:false  exportsCTORS
+  lowering-wasm/wasm-alg.mjs:627  export function emitCtors(env)
+  lowering-wasm/wasm-alg.mjs:683  for (const rowName of ["rgb", "hsl", "oklch"])
+  lowering-wasm/wasm-alg.mjs:515  const build = env.ctorFn(rowName);
+  lowering-wasm/index.mjs:115  env.ctors = emitCtors(env);
+  lowering-wasm/index.mjs:113  ctorFn: (row) => env.ctors[row],
+  bounds.mjs:206  const CTOR_ALLOC = Object.freeze({
+  bounds.mjs:236  const CTOR_SCRATCH_CELLS = Object.freeze({
+  bounds.mjs:333  HALT: the node table has no row for constructor
+  bounds.mjs:466  export const CLASS3_CEILINGS = deriveClass3Ceilings();
+  R_ctor rows 20 · js CTORS 20 · wasm emitCtors 20 · bounds CTOR_ALLOC 20 · all four name-sets equal: true
+  A.2 walkCeilings over a grammar naming R_ctor.value-number → "HALT: the node table has no row for constructor 'value-number'"
+      (bounds.mjs runs deriveClass3Ceilings() at MODULE LOAD, so this halt fires before entry.mjs, harness-adapter.mjs or either lowering exists)
+  A.3 jsAlgebra().CTOR("value-number", NUM) with no R_ctor row → "TypeError: Cannot read properties of undefined (reading 'labels')"
+  A.4 a row present in R_ctor but absent from js-alg.mjs CTORS, parsed → "TypeError: build is not a function" · R_ctor restored: true (20 rows)
+
+── B. frozen product shapes the unit's entries must construct vs. the shapes the twenty rows construct
+  frozen: {"CssScalar payload.type":["number","keyword","color"],"CssCall kind":["call"],"CssList separator":["space","comma","slash"],"CssColor space (CssColorSpace)":["rgb","hsl","hwb","lab","lch","oklab","oklch","xyz","srgb-linear","display-p3","a98-rgb","prophoto-rgb","rec2020"]}
+  built by the twenty rows: {"scalar payload.type":["color"],"call kind":[],"list separator":[],"colour spaces (emitCtors colorOf rows)":["rgb","hsl","oklch"]}
+  emitCtors colorOf loop spaces: [rgb, hsl, oklch] · colour spaces the frozen type names and NO row builds: [hwb, lab, lch, oklab, xyz, srgb-linear, display-p3, a98-rgb, prophoto-rgb, rec2020]
+  scalar payload types with no row: [number, keyword] · CssCall rows: 0 · CssList rows: 0
+
+── C. the oracle's accept census for the unit's entries (`.a`'s union corpus, the sha-pinned 4.0.0 oracle)
+  pin 6aca8602 · corpus union 26604 rows · boundary 7 · adjudicated inputs 22
+  parseCssColor: accept 6075 · reject 20529 (r1 throws 329) · declared 1
+    accepted value kinds: {"color/rgb":3911,"color/oklch":1103,"color/hsl":978,"color/lab":55,"color/display-p3":19,"color/xyz":2,"color/a98-rgb":1,"color/hwb":1,"color/lch":1,"color/oklab":1,"color/prophoto-rgb":1,"color/rec2020":1,"color/srgb-linear":1}
+    accepted inputs with a trailing-dot number (\d\.(?!\d)): 1150  e.g. ["rgb(255 0 153 / 0.\n)","hsl(120. 50%, 50%)","color(display-p3 1 0.  0)","lab(50% -100% 100.)","oklch(6.% 0.15 50deg)","rgb(255 0 15. / 0.5)"]
+    accepted inputs with whitespace outside css-syntax's five (JS /\s/ ∖ {sp,tab,lf,cr,ff}): 0 (\v 0 · non-ASCII 0)  e.g. []
+    accepted inputs with a backslash-backslash-quote run: 0
+  parseCssScalar: accept 6553 · reject 20051 (r1 throws 329) · declared 1
+    accepted value kinds: {"scalar/color/rgb":3911,"scalar/color/oklch":1103,"scalar/color/hsl":978,"scalar/keyword":444,"scalar/color/lab":55,"scalar/number":34,"scalar/color/display-p3":19,"scalar/color/xyz":2,"scalar/color/a98-rgb":1,"scalar/color/hwb":1,"scalar/color/lch":1,"scalar/color/oklab":1,"scalar/color/prophoto-rgb":1,"scalar/color/rec2020":1,"scalar/color/srgb-linear":1}
+    accepted inputs with a trailing-dot number (\d\.(?!\d)): 1150  e.g. ["rgb(255 0 153 / 0.\n)","hsl(120. 50%, 50%)","color(display-p3 1 0.  0)","lab(50% -100% 100.)","oklch(6.% 0.15 50deg)","rgb(255 0 15. / 0.5)"]
+    accepted inputs with whitespace outside css-syntax's five (JS /\s/ ∖ {sp,tab,lf,cr,ff}): 0 (\v 0 · non-ASCII 0)  e.g. []
+    accepted inputs with a backslash-backslash-quote run: 0
+  parseCssValue: accept 10619 · reject 15985 (r1 throws 272) · declared 1
+    accepted value kinds: {"scalar/color/rgb":3911,"call":3545,"scalar/color/oklch":1103,"scalar/color/hsl":978,"scalar/keyword":444,"list/space":355,"list/slash":87,"list/comma":79,"scalar/color/lab":55,"scalar/number":34,"scalar/color/display-p3":19,"scalar/color/xyz":2,"scalar/color/a98-rgb":1,"scalar/color/hwb":1,"scalar/color/lch":1,"scalar/color/oklab":1,"scalar/color/prophoto-rgb":1,"scalar/color/rec2020":1,"scalar/color/srgb-linear":1}
+    accepted inputs with a trailing-dot number (\d\.(?!\d)): 1936  e.g. ["rgb(255 0 153 / 0.\n)","hsl(120. 50%, 50%)","color(display-p3 1 0.  0)","lab(50% -100% 100.)","oklch(6.% 0.15 50deg)","rgb(255 0 15. / 0.5)"]
+    accepted inputs with whitespace outside css-syntax's five (JS /\s/ ∖ {sp,tab,lf,cr,ff}): 0 (\v 0 · non-ASCII 0)  e.g. []
+    accepted inputs with a backslash-backslash-quote run: 0
+  parseCssValues: accept 10619 · reject 15985 (r1 throws 272) · declared 1
+    accepted value kinds: {"list/space":10453,"list/slash":87,"list/comma":79}
+    accepted inputs with a trailing-dot number (\d\.(?!\d)): 1936  e.g. ["rgb(255 0 153 / 0.\n)","hsl(120. 50%, 50%)","color(display-p3 1 0.  0)","lab(50% -100% 100.)","oklch(6.% 0.15 50deg)","rgb(255 0 15. / 0.5)"]
+    accepted inputs with whitespace outside css-syntax's five (JS /\s/ ∖ {sp,tab,lf,cr,ff}): 0 (\v 0 · non-ASCII 0)  e.g. []
+    accepted inputs with a backslash-backslash-quote run: 0
+
+── D. parseCssColor — every G-1 miss at this seat, classified (kind × head × cause), BOTH lowerings
+  cells 26604 (accept 6075 · reject 20529) · misses js 4593 · wasm 4593 · miss lists identical across lowerings: true
+  by kind: {"DIVERGENT_VALUE":2054,"FALSE_REJECT_IN_SHAPE":1345,"MIS_ACCEPT":1194}
+  by kind × head: {"DIVERGENT_VALUE:rgb":942,"MIS_ACCEPT:rgb":804,"FALSE_REJECT_IN_SHAPE:rgb":642,"DIVERGENT_VALUE:hsl":623,"DIVERGENT_VALUE:oklch":489,"FALSE_REJECT_IN_SHAPE:oklch":327,"FALSE_REJECT_IN_SHAPE:hsl":292,"MIS_ACCEPT:oklch":202,"MIS_ACCEPT:hsl":188,"FALSE_REJECT_IN_SHAPE:lab":55,"FALSE_REJECT_IN_SHAPE:color":26,"FALSE_REJECT_IN_SHAPE:hwb":1,"FALSE_REJECT_IN_SHAPE:lch":1,"FALSE_REJECT_IN_SHAPE:oklab":1}
+  UNREALIZED-HEAD band (hwb · lab · lch · oklab · color · …; a grammar cure reaches these): 84 = {"FALSE_REJECT_IN_SHAPE:lab":55,"FALSE_REJECT_IN_SHAPE:color":26,"FALSE_REJECT_IN_SHAPE:hwb":1,"FALSE_REJECT_IN_SHAPE:lch":1,"FALSE_REJECT_IN_SHAPE:oklab":1}
+  REALIZED-HEAD band (rgb · rgba · hsl · hsla · oklch · var · #hex · bare): 4509
+    FALSE_REJECT 1261 — candidate's rejecting production: {"<percent-sign>":949,"<angle-unit> ('deg')":258,"<number>":37,"<comma>":16,"<slash>":1}
+      of which the input carries a comma-rewrite shape (\(\s*, · ,\s*, · ,\s*\) · ,/ · /, · trailing ,): 17 · a trailing-dot number: 1146 · both/neither: 99
+      samples (neither class): ["hsl(120, 500, 50%)","rgb(/55 0 153 / 0.5)","hsl(1209 50%, 50%)","rgb(255 0 153 / /.5)","rgb(255,0 153 / 0.5)","oklch(60, 0.15 50deg)","hsl(1208 50%, 50%)","hsl(120, 50 , 50%)","rgb(25, 0 153 / 0.5)","hsl(120\n 50%, 50%)","hsl(120, 50%, 50/)","hsl(1201 50%, 50%)"]
+    DIVERGENT_VALUE 2054 — cause: {"clamp-class (PB-04/PB-05)":1616,"hsl-100x-class (PB-03)":376,"other":62}
+      samples (other): [{"s":"hsl(.557 .933% 14.767)","o":{"space":"hsl","channels":[0.557,0.00933,14.767],"alpha":1},"c":{"space":"hsl","channels":[0.557,0.00933,0.14767],"alpha":1}},{"s":"hsl(.713deg 35% +75 / 9e-249)","o":{"space":"hsl","channels":[0.713,0.35,75],"alpha":9e-249},"c":{"space":"hsl","channels":[0.713,0.35,0.75],"alpha":9e-249}},{"s":"hsl(202grad +8 82% / 66%)","o":{"space":"hsl","channels":[181.8,8,0.82],"alpha":0.66},"c":{"space":"hsl","channels":[181.8,0.08,0.82],"alpha":0.66}},{"s":"hsl(12.739grad 10% 8.526975940912962)","o":{"space":"hsl","channels":[11.465100000000001,0.1,8.526975940912962],"alpha":1},"c":{"space":"hsl","channels":[11.465100000000001,0.1,0.08526975940912962],"alpha":1}},{"s":"hsl(-0turn 46% 1e-37 / 6e-187)","o":{"space":"hsl","channels":[0,0.46,1e-37],"alpha":6e-187},"c":{"space":"hsl","channels":[0,0.46,1.0000000000000001e-39],"alpha":6e-187}},{"s":"hsl(21.931rad 92% 62.464)","o":{"space":"hsl","channels":[1256.5537405014086,0.92,62.464],"alpha":1},"c":{"space":"hsl","channels":[1256.5537405014086,0.92,0.62464],"alpha":1}}]
+    MIS_ACCEPT 1194 — the oracle's own rejection label: {"css_syntax:color_out_of_range":508,"css_syntax:CSS color":481,"css_syntax:":179,"css_syntax:alpha":26}
+      samples: ["rgb(255 0 153 / 095)","rgb(255-0 153 / 0.5)","rgb(255 0 153 / 5.5)","rgb(255 0-153 / 0.5)","oklch(60%30.15 50deg)","rgb(255 0 153 / 075)","rgb(255 0 153 / 9.5)","rgb(255 0 153 /10.5)","oklch(60%70.15 50deg)","rgb(255 0 153 / 2.5)","rgb(255 0 153 /20.5)","rgb(255 0 153 / 8.5)"]
+
+── E. Θ per entry, as derived at this seat (unchanged: no grammar byte landed)
+  THETA {"depthBound":64,"input":65458,"marks":32768,"recoveries":4096,"D":4096,"C":65536,"P":65536,"vstack":65536,"arena":7208960,"expsnap":32}
+  per entry {"P:color":{"rate":72,"fixed":0,"cells":71,"exp":1,"mw":3},"P:timing-function":{"rate":98,"fixed":0,"cells":14,"exp":1,"mw":4},"P:stylesheet":{"rate":101,"fixed":46,"cells":78,"exp":1,"mw":0}}
+  CLASS3_PROOF {"input":65458,"vstack":{"ceiling":65536,"cap":65536,"K":1,"unit":"code unit","S":78},"arena":{"ceiling":6611304,"cap":7208960,"K":101,"unit":"code unit","S":46},"expsnap":{"ceiling":1,"cap":32,"K":0,"unit":"depth level","S":1}}
+  L.length 60 · L.indexOf("<string>") 50 · PRODUCTION_LABELS rows 60 · R_cls 9 · R_kw 7 · R_disp 2 · R_ctor 20
+  public entries [parseCssColor · parseTimingFunction · parseStylesheet] · unrealized [parseCssScalar · parseCssValue · parseCssValues · parseKeyframeSelector · parseAnimationTimeline · parseAnimationRange]
+
+── F. the shield, after every call above
+  SHIELD.caught = 0 · faults []
+
+wrote docs/tranches/X/parse-that/evidence/W3/value-grammar-bounds-2026-09-19.json

@@ -1,0 +1,825 @@
+{
+  "servedModel": "claude-fable-5-1",
+  "unit": "X.P.W3.h",
+  "sitting": "2026-09-19",
+  "probe": "value-grammar-bounds-2026-09-19.mjs",
+  "shieldAtOpen": 0,
+  "A": {
+    "anchors": {
+      "lowering-js/js-alg.mjs": {
+        "const CTORS = {": 198,
+        "const build = CTORS[rowName];": 632,
+        "exportsCTORS": false
+      },
+      "lowering-wasm/wasm-alg.mjs": {
+        "export function emitCtors(env)": 627,
+        "for (const rowName of [\"rgb\", \"hsl\", \"oklch\"])": 683,
+        "const build = env.ctorFn(rowName);": 515
+      },
+      "lowering-wasm/index.mjs": {
+        "env.ctors = emitCtors(env);": 115,
+        "ctorFn: (row) => env.ctors[row],": 113
+      },
+      "bounds.mjs": {
+        "const CTOR_ALLOC = Object.freeze({": 206,
+        "const CTOR_SCRATCH_CELLS = Object.freeze({": 236,
+        "HALT: the node table has no row for constructor": 333,
+        "export const CLASS3_CEILINGS = deriveClass3Ceilings();": 466
+      }
+    },
+    "rows": {
+      "R_ctor": [
+        "rgb",
+        "hsl",
+        "oklch",
+        "hex8",
+        "hex6",
+        "hex4",
+        "hex3",
+        "context",
+        "named-color",
+        "transparent",
+        "timing-keyword",
+        "step-alias",
+        "cubic-bezier",
+        "steps",
+        "linear-function",
+        "linear-stop",
+        "style-rule",
+        "declaration",
+        "value-color",
+        "stylesheet"
+      ],
+      "jsCTORS": [
+        "rgb",
+        "hsl",
+        "oklch",
+        "hex8",
+        "hex6",
+        "hex4",
+        "hex3",
+        "context",
+        "named-color",
+        "transparent",
+        "timing-keyword",
+        "step-alias",
+        "cubic-bezier",
+        "steps",
+        "linear-function",
+        "linear-stop",
+        "style-rule",
+        "declaration",
+        "value-color",
+        "stylesheet"
+      ],
+      "wasmEmitCtors": [
+        "rgb",
+        "hsl",
+        "oklch",
+        "hex8",
+        "hex6",
+        "hex4",
+        "hex3",
+        "context",
+        "named-color",
+        "transparent",
+        "timing-keyword",
+        "step-alias",
+        "cubic-bezier",
+        "steps",
+        "linear-function",
+        "linear-stop",
+        "style-rule",
+        "declaration",
+        "value-color",
+        "stylesheet"
+      ],
+      "boundsCtorAlloc": [
+        "rgb",
+        "hsl",
+        "oklch",
+        "hex8",
+        "hex6",
+        "hex4",
+        "hex3",
+        "context",
+        "named-color",
+        "transparent",
+        "timing-keyword",
+        "step-alias",
+        "cubic-bezier",
+        "steps",
+        "linear-function",
+        "linear-stop",
+        "style-rule",
+        "declaration",
+        "value-color",
+        "stylesheet"
+      ]
+    },
+    "loadTimeHalt": "HALT: the node table has no row for constructor 'value-number'",
+    "jsMissingRow": "TypeError: Cannot read properties of undefined (reading 'labels')",
+    "jsMissingCtor": "TypeError: build is not a function"
+  },
+  "B": {
+    "required": {
+      "CssScalar payload.type": [
+        "number",
+        "keyword",
+        "color"
+      ],
+      "CssCall kind": [
+        "call"
+      ],
+      "CssList separator": [
+        "space",
+        "comma",
+        "slash"
+      ],
+      "CssColor space (CssColorSpace)": [
+        "rgb",
+        "hsl",
+        "hwb",
+        "lab",
+        "lch",
+        "oklab",
+        "oklch",
+        "xyz",
+        "srgb-linear",
+        "display-p3",
+        "a98-rgb",
+        "prophoto-rgb",
+        "rec2020"
+      ]
+    },
+    "built": {
+      "scalar payload.type": [
+        "color"
+      ],
+      "call kind": [],
+      "list separator": [],
+      "colour spaces (emitCtors colorOf rows)": [
+        "rgb",
+        "hsl",
+        "oklch"
+      ]
+    },
+    "missingSpaces": [
+      "hwb",
+      "lab",
+      "lch",
+      "oklab",
+      "xyz",
+      "srgb-linear",
+      "display-p3",
+      "a98-rgb",
+      "prophoto-rgb",
+      "rec2020"
+    ],
+    "missingScalarPayloads": [
+      "number",
+      "keyword"
+    ]
+  },
+  "C": {
+    "parseCssColor": {
+      "accept": 6075,
+      "reject": 20529,
+      "r1": 329,
+      "kinds": {
+        "color/rgb": 3911,
+        "color/oklch": 1103,
+        "color/hsl": 978,
+        "color/lab": 55,
+        "color/display-p3": 19,
+        "color/xyz": 2,
+        "color/a98-rgb": 1,
+        "color/hwb": 1,
+        "color/lch": 1,
+        "color/oklab": 1,
+        "color/prophoto-rgb": 1,
+        "color/rec2020": 1,
+        "color/srgb-linear": 1
+      },
+      "trailingDot": 1150,
+      "trailingDotSample": [
+        "rgb(255 0 153 / 0.\n)",
+        "hsl(120. 50%, 50%)",
+        "color(display-p3 1 0.  0)",
+        "lab(50% -100% 100.)",
+        "oklch(6.% 0.15 50deg)",
+        "rgb(255 0 15. / 0.5)",
+        "rgb(255 0 153 / 0./)",
+        "lab(50% -100% 10.%)",
+        "oklch(60. 0.15 50deg)",
+        "rgb(255 0 153 / 0.%)",
+        "lab(5.% -100% 100%)",
+        "rgb(2., 6., +92)"
+      ],
+      "nonCssWs": 0,
+      "vtab": 0,
+      "nonAsciiWs": 0,
+      "nonCssWsSample": [],
+      "backslashQuote": 0
+    },
+    "parseCssScalar": {
+      "accept": 6553,
+      "reject": 20051,
+      "r1": 329,
+      "kinds": {
+        "scalar/color/rgb": 3911,
+        "scalar/color/oklch": 1103,
+        "scalar/color/hsl": 978,
+        "scalar/keyword": 444,
+        "scalar/color/lab": 55,
+        "scalar/number": 34,
+        "scalar/color/display-p3": 19,
+        "scalar/color/xyz": 2,
+        "scalar/color/a98-rgb": 1,
+        "scalar/color/hwb": 1,
+        "scalar/color/lch": 1,
+        "scalar/color/oklab": 1,
+        "scalar/color/prophoto-rgb": 1,
+        "scalar/color/rec2020": 1,
+        "scalar/color/srgb-linear": 1
+      },
+      "trailingDot": 1150,
+      "trailingDotSample": [
+        "rgb(255 0 153 / 0.\n)",
+        "hsl(120. 50%, 50%)",
+        "color(display-p3 1 0.  0)",
+        "lab(50% -100% 100.)",
+        "oklch(6.% 0.15 50deg)",
+        "rgb(255 0 15. / 0.5)",
+        "rgb(255 0 153 / 0./)",
+        "lab(50% -100% 10.%)",
+        "oklch(60. 0.15 50deg)",
+        "rgb(255 0 153 / 0.%)",
+        "lab(5.% -100% 100%)",
+        "rgb(2., 6., +92)"
+      ],
+      "nonCssWs": 0,
+      "vtab": 0,
+      "nonAsciiWs": 0,
+      "nonCssWsSample": [],
+      "backslashQuote": 0
+    },
+    "parseCssValue": {
+      "accept": 10619,
+      "reject": 15985,
+      "r1": 272,
+      "kinds": {
+        "scalar/color/rgb": 3911,
+        "call": 3545,
+        "scalar/color/oklch": 1103,
+        "scalar/color/hsl": 978,
+        "scalar/keyword": 444,
+        "list/space": 355,
+        "list/slash": 87,
+        "list/comma": 79,
+        "scalar/color/lab": 55,
+        "scalar/number": 34,
+        "scalar/color/display-p3": 19,
+        "scalar/color/xyz": 2,
+        "scalar/color/a98-rgb": 1,
+        "scalar/color/hwb": 1,
+        "scalar/color/lch": 1,
+        "scalar/color/oklab": 1,
+        "scalar/color/prophoto-rgb": 1,
+        "scalar/color/rec2020": 1,
+        "scalar/color/srgb-linear": 1
+      },
+      "trailingDot": 1936,
+      "trailingDotSample": [
+        "rgb(255 0 153 / 0.\n)",
+        "hsl(120. 50%, 50%)",
+        "color(display-p3 1 0.  0)",
+        "lab(50% -100% 100.)",
+        "oklch(6.% 0.15 50deg)",
+        "rgb(255 0 15. / 0.5)",
+        "rgb(255 0 153 / 0./)",
+        "lab(50% -100% 10.%)",
+        "oklch(60. 0.15 50deg)",
+        "rgb(255 0 153 / 0.%)",
+        "lab(5.% -100% 100%)",
+        "steps(7., jump-start)"
+      ],
+      "nonCssWs": 0,
+      "vtab": 0,
+      "nonAsciiWs": 0,
+      "nonCssWsSample": [],
+      "backslashQuote": 0
+    },
+    "parseCssValues": {
+      "accept": 10619,
+      "reject": 15985,
+      "r1": 272,
+      "kinds": {
+        "list/space": 10453,
+        "list/slash": 87,
+        "list/comma": 79
+      },
+      "trailingDot": 1936,
+      "trailingDotSample": [
+        "rgb(255 0 153 / 0.\n)",
+        "hsl(120. 50%, 50%)",
+        "color(display-p3 1 0.  0)",
+        "lab(50% -100% 100.)",
+        "oklch(6.% 0.15 50deg)",
+        "rgb(255 0 15. / 0.5)",
+        "rgb(255 0 153 / 0./)",
+        "lab(50% -100% 10.%)",
+        "oklch(60. 0.15 50deg)",
+        "rgb(255 0 153 / 0.%)",
+        "lab(5.% -100% 100%)",
+        "steps(7., jump-start)"
+      ],
+      "nonCssWs": 0,
+      "vtab": 0,
+      "nonAsciiWs": 0,
+      "nonCssWsSample": [],
+      "backslashQuote": 0
+    }
+  },
+  "D": {
+    "cells": 26604,
+    "accept": 6075,
+    "reject": 20529,
+    "misses": 4593,
+    "identicalAcrossLowerings": true,
+    "byKind": {
+      "DIVERGENT_VALUE": 2054,
+      "FALSE_REJECT_IN_SHAPE": 1345,
+      "MIS_ACCEPT": 1194
+    },
+    "byHead": {
+      "DIVERGENT_VALUE:rgb": 942,
+      "MIS_ACCEPT:rgb": 804,
+      "FALSE_REJECT_IN_SHAPE:rgb": 642,
+      "DIVERGENT_VALUE:hsl": 623,
+      "DIVERGENT_VALUE:oklch": 489,
+      "FALSE_REJECT_IN_SHAPE:oklch": 327,
+      "FALSE_REJECT_IN_SHAPE:hsl": 292,
+      "MIS_ACCEPT:oklch": 202,
+      "MIS_ACCEPT:hsl": 188,
+      "FALSE_REJECT_IN_SHAPE:lab": 55,
+      "FALSE_REJECT_IN_SHAPE:color": 26,
+      "FALSE_REJECT_IN_SHAPE:hwb": 1,
+      "FALSE_REJECT_IN_SHAPE:lch": 1,
+      "FALSE_REJECT_IN_SHAPE:oklab": 1
+    },
+    "unrealizedHeadBand": {
+      "count": 84,
+      "byKindHead": {
+        "FALSE_REJECT_IN_SHAPE:lab": 55,
+        "FALSE_REJECT_IN_SHAPE:color": 26,
+        "FALSE_REJECT_IN_SHAPE:hwb": 1,
+        "FALSE_REJECT_IN_SHAPE:lch": 1,
+        "FALSE_REJECT_IN_SHAPE:oklab": 1
+      },
+      "sample": [
+        "color(display-p3 1 0.5 0)",
+        "lab(50% -100% 150%)",
+        "color(display-p3 1 ,.5 0)",
+        "color(display-p3 4 0.5 0)",
+        "lab(80% -100% 100%)",
+        "lab(50% -100% 109%)",
+        "lab(50% -100% 100%)",
+        "color(display-p3 1 -.5 0)",
+        "lab(50% -400% 100%)",
+        "lab(50% -100% 100\n)",
+        "lab(50% -000% 100%)",
+        "color(display-p3 1 0.  0)",
+        "lab(50% -800% 100%)",
+        "lab(51% -100% 100%)",
+        "lab(502 -100% 100%)",
+        "lab(50% -100% 100,)"
+      ]
+    },
+    "realizedHeadBand": {
+      "count": 4509,
+      "falseReject": {
+        "count": 1261,
+        "byLabel": {
+          "<percent-sign>": 949,
+          "<angle-unit> ('deg')": 258,
+          "<number>": 37,
+          "<comma>": 16,
+          "<slash>": 1
+        },
+        "commaRewrite": 17,
+        "trailingDot": 1146,
+        "neither": [
+          "hsl(120, 500, 50%)",
+          "rgb(/55 0 153 / 0.5)",
+          "hsl(1209 50%, 50%)",
+          "rgb(255 0 153 / /.5)",
+          "rgb(255,0 153 / 0.5)",
+          "oklch(60, 0.15 50deg)",
+          "hsl(1208 50%, 50%)",
+          "hsl(120, 50 , 50%)",
+          "rgb(25, 0 153 / 0.5)",
+          "hsl(120\n 50%, 50%)",
+          "hsl(120, 50%, 50/)",
+          "hsl(1201 50%, 50%)",
+          "rgb(255 0 153// 0.5)",
+          "oklch(60%,0.15 50deg)",
+          "hsl(120, 503, 50%)",
+          "hsl(120, 50%, 50\n)",
+          "oklch(none 34.359 72%)",
+          "rgb(7e105, +19 2e-87)",
+          "oklch(-22 +7, 132.69692566245794deg)",
+          "hsl(40% 8e150 none)",
+          "hsl(35% .273 95.530)",
+          "hsl(3% 77.151 2e149)",
+          "oklch(32.717 43.26 96%)",
+          "hsl(27% 3e-75 117.37189500126988)"
+        ]
+      },
+      "divergentValue": {
+        "count": 2054,
+        "byCause": {
+          "clamp-class (PB-04/PB-05)": 1616,
+          "hsl-100x-class (PB-03)": 376,
+          "other": 62
+        },
+        "otherSample": [
+          {
+            "s": "hsl(.557 .933% 14.767)",
+            "o": {
+              "space": "hsl",
+              "channels": [
+                0.557,
+                0.00933,
+                14.767
+              ],
+              "alpha": 1
+            },
+            "c": {
+              "space": "hsl",
+              "channels": [
+                0.557,
+                0.00933,
+                0.14767
+              ],
+              "alpha": 1
+            }
+          },
+          {
+            "s": "hsl(.713deg 35% +75 / 9e-249)",
+            "o": {
+              "space": "hsl",
+              "channels": [
+                0.713,
+                0.35,
+                75
+              ],
+              "alpha": 9e-249
+            },
+            "c": {
+              "space": "hsl",
+              "channels": [
+                0.713,
+                0.35,
+                0.75
+              ],
+              "alpha": 9e-249
+            }
+          },
+          {
+            "s": "hsl(202grad +8 82% / 66%)",
+            "o": {
+              "space": "hsl",
+              "channels": [
+                181.8,
+                8,
+                0.82
+              ],
+              "alpha": 0.66
+            },
+            "c": {
+              "space": "hsl",
+              "channels": [
+                181.8,
+                0.08,
+                0.82
+              ],
+              "alpha": 0.66
+            }
+          },
+          {
+            "s": "hsl(12.739grad 10% 8.526975940912962)",
+            "o": {
+              "space": "hsl",
+              "channels": [
+                11.465100000000001,
+                0.1,
+                8.526975940912962
+              ],
+              "alpha": 1
+            },
+            "c": {
+              "space": "hsl",
+              "channels": [
+                11.465100000000001,
+                0.1,
+                0.08526975940912962
+              ],
+              "alpha": 1
+            }
+          },
+          {
+            "s": "hsl(-0turn 46% 1e-37 / 6e-187)",
+            "o": {
+              "space": "hsl",
+              "channels": [
+                0,
+                0.46,
+                1e-37
+              ],
+              "alpha": 6e-187
+            },
+            "c": {
+              "space": "hsl",
+              "channels": [
+                0,
+                0.46,
+                1.0000000000000001e-39
+              ],
+              "alpha": 6e-187
+            }
+          },
+          {
+            "s": "hsl(21.931rad 92% 62.464)",
+            "o": {
+              "space": "hsl",
+              "channels": [
+                1256.5537405014086,
+                0.92,
+                62.464
+              ],
+              "alpha": 1
+            },
+            "c": {
+              "space": "hsl",
+              "channels": [
+                1256.5537405014086,
+                0.92,
+                0.62464
+              ],
+              "alpha": 1
+            }
+          },
+          {
+            "s": "\thsl(.903rad 13.765 53%)",
+            "o": {
+              "space": "hsl",
+              "channels": [
+                51.738088900313336,
+                13.765,
+                0.53
+              ],
+              "alpha": 1
+            },
+            "c": {
+              "space": "hsl",
+              "channels": [
+                51.738088900313336,
+                0.13765,
+                0.53
+              ],
+              "alpha": 1
+            }
+          },
+          {
+            "s": "hsl(+8turn 4e-53 97%)",
+            "o": {
+              "space": "hsl",
+              "channels": [
+                2880,
+                4e-53,
+                0.97
+              ],
+              "alpha": 1
+            },
+            "c": {
+              "space": "hsl",
+              "channels": [
+                2880,
+                4e-55,
+                0.97
+              ],
+              "alpha": 1
+            }
+          },
+          {
+            "s": "hsl(.862rad .39 83% / none)",
+            "o": {
+              "space": "hsl",
+              "channels": [
+                49.388961940276964,
+                0.39,
+                0.83
+              ],
+              "alpha": "none"
+            },
+            "c": {
+              "space": "hsl",
+              "channels": [
+                49.388961940276964,
+                0.0039000000000000003,
+                0.83
+              ],
+              "alpha": "none"
+            }
+          },
+          {
+            "s": "hsl(+16grad +22 68%)",
+            "o": {
+              "space": "hsl",
+              "channels": [
+                14.4,
+                22,
+                0.68
+              ],
+              "alpha": 1
+            },
+            "c": {
+              "space": "hsl",
+              "channels": [
+                14.4,
+                0.22,
+                0.68
+              ],
+              "alpha": 1
+            }
+          },
+          {
+            "s": "hsl(21.245554136112332deg 1.0736860102042556 67%)",
+            "o": {
+              "space": "hsl",
+              "channels": [
+                21.245554136112332,
+                1.0736860102042556,
+                0.67
+              ],
+              "alpha": 1
+            },
+            "c": {
+              "space": "hsl",
+              "channels": [
+                21.245554136112332,
+                0.010736860102042556,
+                0.67
+              ],
+              "alpha": 1
+            }
+          },
+          {
+            "s": "hsl(.792rad 84% +10)",
+            "o": {
+              "space": "hsl",
+              "channels": [
+                45.3782573743612,
+                0.84,
+                10
+              ],
+              "alpha": 1
+            },
+            "c": {
+              "space": "hsl",
+              "channels": [
+                45.3782573743612,
+                0.84,
+                0.1
+              ],
+              "alpha": 1
+            }
+          }
+        ]
+      },
+      "misAccept": {
+        "count": 1194,
+        "byOracleLabel": {
+          "css_syntax:color_out_of_range": 508,
+          "css_syntax:CSS color": 481,
+          "css_syntax:": 179,
+          "css_syntax:alpha": 26
+        },
+        "sample": [
+          "rgb(255 0 153 / 095)",
+          "rgb(255-0 153 / 0.5)",
+          "rgb(255 0 153 / 5.5)",
+          "rgb(255 0-153 / 0.5)",
+          "oklch(60%30.15 50deg)",
+          "rgb(255 0 153 / 075)",
+          "rgb(255 0 153 / 9.5)",
+          "rgb(255 0 153 /10.5)",
+          "oklch(60%70.15 50deg)",
+          "rgb(255 0 153 / 2.5)",
+          "rgb(255 0 153 /20.5)",
+          "rgb(255 0 153 / 8.5)",
+          "oklch(60%20.15 50deg)",
+          "oklch(60% 0.15.50deg)",
+          "oklch(60%00.15 50deg)",
+          "oklch(60%50.15 50deg)",
+          "rgb(255 0 153 /60.5)",
+          "oklch(60%60.15 50deg)",
+          "rgb(8e409 6e-230 9e221)",
+          "rgb(31.215, 9e424, -97)",
+          "rgb(38.662 none .291 / 31)",
+          "rgb(89% 163.81337067577988 -0 / 69.104)",
+          "rgb(222 none 20.559 / -187)",
+          "oklch(+2 6e76 .609deg / 319)"
+        ]
+      }
+    }
+  },
+  "E": {
+    "THETA": {
+      "depthBound": 64,
+      "input": 65458,
+      "marks": 32768,
+      "recoveries": 4096,
+      "D": 4096,
+      "C": 65536,
+      "P": 65536,
+      "vstack": 65536,
+      "arena": 7208960,
+      "expsnap": 32
+    },
+    "perEntry": {
+      "P:color": {
+        "rate": 72,
+        "fixed": 0,
+        "cells": 71,
+        "exp": 1,
+        "mw": 3
+      },
+      "P:timing-function": {
+        "rate": 98,
+        "fixed": 0,
+        "cells": 14,
+        "exp": 1,
+        "mw": 4
+      },
+      "P:stylesheet": {
+        "rate": 101,
+        "fixed": 46,
+        "cells": 78,
+        "exp": 1,
+        "mw": 0
+      }
+    },
+    "CLASS3_PROOF": {
+      "input": 65458,
+      "vstack": {
+        "ceiling": 65536,
+        "cap": 65536,
+        "K": 1,
+        "unit": "code unit",
+        "S": 78
+      },
+      "arena": {
+        "ceiling": 6611304,
+        "cap": 7208960,
+        "K": 101,
+        "unit": "code unit",
+        "S": 46
+      },
+      "expsnap": {
+        "ceiling": 1,
+        "cap": 32,
+        "K": 0,
+        "unit": "depth level",
+        "S": 1
+      }
+    },
+    "L": 60,
+    "stringIndex": 50,
+    "productionLabels": 60,
+    "registries": {
+      "R_cls": 9,
+      "R_kw": 7,
+      "R_disp": 2,
+      "R_ctor": 20
+    },
+    "publicEntries": [
+      "parseCssColor",
+      "parseTimingFunction",
+      "parseStylesheet"
+    ],
+    "unrealized": [
+      "parseCssScalar",
+      "parseCssValue",
+      "parseCssValues",
+      "parseKeyframeSelector",
+      "parseAnimationTimeline",
+      "parseAnimationRange"
+    ]
+  },
+  "F": {
+    "shieldAtExit": 0,
+    "faults": []
+  }
+}
