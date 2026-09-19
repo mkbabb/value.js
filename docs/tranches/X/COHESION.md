@@ -1868,3 +1868,17 @@ jobs) and returned four escalations. Routed:
 (`18:33:30` · `19:04:02` · `19:29:33` across both runs): a shared storm with silent SDK retries, not
 a seat's generation. The chassis now waits 300 s and re-seats up to three more times before a wave is
 declared dead (`withRetry`), in all four scripts. Both tracks relaunch in RESUME MODE.
+
+## §0ae ADDENDUM 2026-09-19 — CONCURRENCY REDUCED TO TWO TRACKS UNDER THE BEGIN-WORD'S DURABILITY CLAUSE (THE STORM IS CONTINUOUS AT FOUR)
+
+Measured 21:03–21:40 UTC: six synchronized kill events across all four live runs (`21:03:42` ·
+`21:08:48` · `21:24:53` · `21:30:03` · `21:36:00` · `21:40:21`), every seat of every track killed
+at the same second, 2–41 tool calls of progress per attempt, `X-W9.f` burning all six attempts in
+57 minutes with zero receipts. That is a throughput wall (silent SDK retries on a shared limit),
+not a seat fault, and at four tracks the storm is continuous: each kill re-reads the spec whole,
+so parallelism above the wall REDUCES throughput. Under *"ensure total robustness … survive both
+crashes and system walls insofar as rate-limiting"* the orchestrator runs **two tracks at a time**
+until the storm receipts stop: **A** (X·V, the longest chain) and **D** (X.P.W4S, three units);
+**C** (F.W9 close → F.W10) relaunches when D ends; **B** (KF.W12 → KF.W13) when C ends. The owner's
+cap of four is a ceiling, not a floor. No spec, ledger row, or seat law changes; every stopped
+track resumes in RESUME MODE on its own record.
