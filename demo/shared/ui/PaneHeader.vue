@@ -18,7 +18,17 @@
              lock <sm). Weight rides the :root `--type-weight-display` pin
              (non-bold; the P10 booked swap) — `text-heading`'s hardcoded 700
              is retired from this surface. -->
-        <h3 class="pane-header-title font-display"><slot /></h3>
+        <!-- X.W5.a · gate A5's OUTLINE arm (⟨PaneHeader PH-8⟩, BD-06's carve).
+             The pane title was a HARDCODED `<h3>` under a document with no
+             `<h1>` at all, so every route's outline began at level 3 and
+             About's own `<h2>`s sat ABOVE their container's heading. X.W5.a
+             gives the route a visible `<h1>`; this seam gives the pane title a
+             LEVEL, defaulting to the one that sits directly beneath it. The
+             prop is the producer seam's own shape (`as`/`level`), so a nested
+             pane can state its depth instead of the shell guessing. -->
+        <component :is="`h${level}`" class="pane-header-title font-display">
+            <slot />
+        </component>
         <div v-if="description" class="pane-header-desc-wrap">
             <!-- AB-2 (T.W8 remediation_1 · D6): the caption speaks the CERTIFIED
                  de-emphasis rung `--ink-muted` (the boot-stamped floor-clamped
@@ -32,8 +42,11 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{
+const { level = 2 } = defineProps<{
     description?: string;
+    /** Heading level for the pane title — 2 by default: it sits one below the
+     *  route `<h1>` App renders inside `<main>`. */
+    level?: 2 | 3 | 4;
 }>();
 </script>
 

@@ -46,8 +46,20 @@ export interface HydratedBootModel {
     source: BootSeedSource;
 }
 
-/** Parse the hash-router query (`#/?space=…&color=…`) without the router —
- *  this resolver runs before router installation, at model construction. */
+/**
+ * Parse the hash-router query (`#/?space=…&color=…`) without the router.
+ *
+ * X.W5.a — the rationale this comment used to carry ("runs before router
+ * installation") was FALSE: the router is installed on the app instance in the
+ * composition root, before any component setup runs, and since this unit the
+ * root also awaits `router.isReady()`, so a settled `route.query` is available
+ * by the time App's setup executes. The true reason is LIFETIME, not ordering:
+ * this resolver runs at MODEL CONSTRUCTION — before the model ref exists, and
+ * therefore before any composable that could call `useRoute()` — because the
+ * W2-1 law is that the derivation graph is BORN hydrated. A pure hash read is
+ * the only reader available at that point, and it is now the ONLY boot reader
+ * of the address at all: `useColorUrl`'s setup-time apply is gone (gate A6).
+ */
 function readUrlSeed(): { space: string; color: string } | null {
     if (typeof window === "undefined") return null;
     const hash = window.location.hash;

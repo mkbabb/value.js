@@ -29,6 +29,7 @@ import { ColorPicker } from "../picker";
 // so: INEFFECTIVE_DYNAMIC_IMPORT).
 import NotFoundPane from "../scenes/notfound/NotFoundPane.vue";
 import type { ColorModel, EditTarget } from "../color-session/color-model";
+import { VIEW_MAP } from "./viewSchema";
 import type { LeftPane, RightPane, ViewId, ViewManager } from "./useViewManager";
 import type {
     ColorSceneTarget,
@@ -56,12 +57,104 @@ import {
     Camera,
 } from "@lucide/vue";
 
-/** The resolved shape one pane slot renders. */
-export interface PaneSlot {
+/** The three seats a pane can be rendered in. */
+export type PaneSlotId = "mobile" | "left" | "right";
+
+/**
+ * The declared prop + listener surface of one single-file component.
+ *
+ * X-W4 · CC-004 (fold W5F-56 → gate N3). The router's prop bags were
+ * `Record<string, unknown>` object literals, so `"onCommit-edit"` — a key Vue's
+ * emit resolver looks up for `update:*` listeners and for NOTHING else —
+ * type-checked, linted and shipped as a dead end-to-end path (the desktop edit
+ * overlay's Save/Cancel: `CurrentPaletteEditor` → `PalettesPane` → the void).
+ * The bags below are derived FROM EACH PANE'S OWN CONTRACT, so deleting a
+ * listener, misspelling one, or renaming the emit at the pane itself fails
+ * `vue-tsc`. A hand-written twin of the same keys would only be spelled
+ * correctly once — which is exactly what N3's falsifier refuses.
+ */
+type PropsOf<C> = C extends abstract new (...args: never[]) => { $props: infer P }
+    ? P
+    : never;
+
+type EmptyPaneProps = Record<never, never>;
+
+/** The picker seat: the edit-target relay + the reset emit, plus its shell class. */
+type PickerSlotProps = Required<
+    Pick<PropsOf<typeof ColorPicker>, "onUpdate:editTarget" | "onReset">
+> & { class: string };
+
+type ExtractSlotProps = Required<
+    Pick<
+        PropsOf<typeof import("../workbenches/extract/ExtractPane.vue").default>,
+        "colorSpace"
+    >
+>;
+
+type AdminSlotProps = Required<
+    Pick<PropsOf<typeof import("../palettes/admin/AdminPane.vue").default>, "subView">
+>;
+
+type AboutSlotProps = Required<
+    Pick<
+        PropsOf<typeof import("../scenes/about/AboutPane.vue").default>,
+        "modelValue" | "onUpdate:modelValue" | "cssColor"
+    >
+>;
+
+type PalettesSlotProps = Required<
+    Pick<
+        PropsOf<typeof import("../palettes/PalettesPane.vue").default>,
+        "savedColorStrings" | "onCommitEdit" | "onCancelEdit"
+    >
+>;
+
+/** Every prop bag a slot can be rendered with — one member per pane family. */
+export type PaneRenderProps =
+    | EmptyPaneProps
+    | PickerSlotProps
+    | ExtractSlotProps
+    | AdminSlotProps
+    | AboutSlotProps
+    | PalettesSlotProps;
+
+/**
+ * The resolved shape one pane slot renders.
+ *
+ * RENAMED at X.W5.a — gate **N8**, demanded by ⟨`shell-panesegmentedcontrol`
+ * PSC-22⟩ ≡ ⟨`ErrorBoundary` EB-34⟩ ≡ LC-missed-3, and demanded BEFORE any
+ * transposition: the former name `PaneSlot` shadowed `PaneSlot.vue` in this
+ * same two-file directory, so the one module that renders slots from this
+ * router's output could not import both under their own names.
+ */
+export interface ResolvedPane {
     component: Component | null;
     key: string;
-    props: Record<string, unknown>;
+    props: PaneRenderProps;
 }
+
+/**
+ * The KeepAlive bound, DERIVED from the route table (gate **N7**).
+ *
+ * The three literals this replaces (`:max="9"` / `:max="6"` / `:max="4"`) were
+ * hand-counted against a table in another file, and the LRU prunes the OLDEST
+ * key on a miss — so an admin visit evicted the non-admin panes, the exact
+ * inverse of what the comments beside them claimed. Counting the schema's own
+ * distinct pane names means a route added tomorrow cannot silently re-break the
+ * bound: correcting the literal would have fixed today and nothing else.
+ */
+export const PANE_CACHE_MAX: Record<PaneSlotId, number> = (() => {
+    const configs = Object.values(VIEW_MAP);
+    const left = new Set<string>(configs.map((c) => c.left));
+    const right = new Set<string>(
+        configs.map((c) => c.right).filter((r): r is Exclude<RightPane, null> => r !== null),
+    );
+    return {
+        left: left.size,
+        right: right.size,
+        mobile: new Set<string>([...left, ...right]).size,
+    };
+})();
 
 // ── Component registry — one table, was duplicated across the two routers ──
 
@@ -202,14 +295,51 @@ export function readScenePaneTarget<S extends ScenePane>(
     return instance as ScenePaneTargetMap[S];
 }
 
+/**
+ * The NON-COMMAND instance contract this router owns.
+ *
+ * COHESION **§0k.3 S-1**, verbatim: *"`bindPane` narrowed to non-command
+ * instance uses (applyExternalColor / commitEdit / cancelEdit); the
+ * `DockCommand` provide/inject registry lands at **X-W8** (MT-DOCK-LAYERS-1);
+ * X-W5 may not claim C-3; A3's witness stays X-W5's, A3's cure moves to X-W8."*
+ *
+ * So: command dispatch through instance refs is NOT resurrected here. Scene
+ * commands travel through X-W4's typed `SceneActionSet`, and their mobile seat
+ * is the registry's at X-W8. What lives here is the edit channel and the
+ * external-colour apply — the three members S-1 names, and no fourth.
+ */
+export interface PaneInstanceHandle {
+    commitEdit: () => void;
+    cancelEdit: () => void;
+    applyExternalColor: (cssColor: string) => void;
+}
+
+const PANE_INSTANCE_MEMBERS = ["commitEdit", "cancelEdit", "applyExternalColor"] as const;
+
+/** Read a mount report as the non-command handle, or `null`. */
+export function readPaneInstanceHandle(instance: unknown): PaneInstanceHandle | null {
+    if (typeof instance !== "object" || instance === null) return null;
+    const members = instance as Record<string, unknown>;
+    for (const name of PANE_INSTANCE_MEMBERS) {
+        if (typeof members[name] !== "function") return null;
+    }
+    return instance as PaneInstanceHandle;
+}
+
 export interface PaneRouterDeps {
     cssColor: () => string;
     savedColorStrings: () => string[];
-    colorPickerRef: () => { commitEdit: () => void; cancelEdit: () => void } | null;
     /** The color scene's target — the picker's own exposed contract, or null. */
     colorSceneTarget: () => ColorSceneTarget | null;
     /** The ONE typed registry that replaced the three `ref<any>` pane refs. */
     scenePanes: () => ScenePaneTargets;
+    /**
+     * Every slot's mount report, carrying the seat and the LIVE key of the pane
+     * that reported (fold W5F-02: re-deriving the identity from the
+     * route-synchronous config filed the OUTGOING instance under the INCOMING
+     * pane's name for a measured 1275 ms).
+     */
+    onPaneMount: (slot: PaneSlotId, instance: unknown, key: string) => void;
     onEditTargetChange: (et: EditTarget | null) => void;
     resetToDefaults: () => void;
     updateModel: (v: ColorModel) => void;
@@ -220,56 +350,153 @@ export function usePaneRouter(
     model: ShallowRef<ColorModel>,
     deps: PaneRouterDeps,
 ): {
-    mobile: ComputedRef<PaneSlot>;
-    desktopLeft: ComputedRef<PaneSlot>;
-    desktopRight: ComputedRef<PaneSlot>;
+    mobile: ComputedRef<ResolvedPane>;
+    desktopLeft: ComputedRef<ResolvedPane>;
+    desktopRight: ComputedRef<ResolvedPane>;
     sceneActions: ComputedRef<SceneActionSet | null>;
+    /** Register one slot's mount reports. Required at every `PaneSlot`. */
+    bindPane: (slot: PaneSlotId) => (instance: unknown, key: string) => void;
+    /** The ONE edit-commit home (fold W5F-59) — the dock seat and the palettes
+     *  editor both call these; there is no second wiring to drift from. */
+    commitEdit: () => void;
+    cancelEdit: () => void;
 } {
     const currentConfig = computed(() => viewManager.currentConfig.value);
 
+    // ── The non-command instance channel (S-1) ──────────────────────────────
+    //
+    // `bindPane` is bound at ALL THREE seats, not at the desktop pair: the
+    // mobile slot passed no `:on-mount` at all, which is why the edit channel
+    // was structurally dead below the breakpoint — the dock's Save/Cancel
+    // settled the pane index while the edit was DISCARDED (⟨ActionBarToggle
+    // ABT-2⟩'s limb). Uniform registration is also why the KILLED cut-step
+    // ⟨GenericActionBar GAB-11⟩ ("retain the left mount callback only for
+    // `colorPickerRef`") is not what this is: no seat is privileged.
+    const paneInstance = shallowRef<PaneInstanceHandle | null>(null);
+    const paneInstanceSeat = shallowRef<PaneSlotId | null>(null);
+
+    function releaseSeat(slot: PaneSlotId): void {
+        if (paneInstanceSeat.value !== slot) return;
+        paneInstance.value = null;
+        paneInstanceSeat.value = null;
+    }
+
+    function bindPane(slot: PaneSlotId): (instance: unknown, key: string) => void {
+        return (instance: unknown, key: string) => {
+            deps.onPaneMount(slot, instance, key);
+            // The seat no longer shows the pane that owns this channel, or an
+            // explicit unmount arrived → the channel is gone from this seat.
+            if (key !== "color-picker" || instance === null) {
+                releaseSeat(slot);
+                return;
+            }
+            const handle = readPaneInstanceHandle(instance);
+            // A report that is not the pane is NOT evidence the pane is gone:
+            // inside `<KeepAlive>` a `defineAsyncComponent` alternates between
+            // the resolved instance and the wrapper's own bare public instance
+            // (measured at X-W4: 102 reports carrying the members against 53
+            // carrying nothing, in one render pass).
+            if (handle === null) return;
+            paneInstance.value = handle;
+            paneInstanceSeat.value = slot;
+        };
+    }
+
+    /**
+     * Commit the open colour edit — ONE home.
+     *
+     * Fold W5F-59: this pair was implemented twice with drifted wirings (the
+     * dock seat added the pane settle, the palettes prop bag did not). The
+     * settle now RIDES the commit: with no registered pane there is nothing to
+     * commit, and the UI says nothing rather than reporting a success that did
+     * not happen (Dock structure (f) — "an absent capability is ABSENT").
+     */
+    function commitEdit(): void {
+        const handle = paneInstance.value;
+        if (handle === null) return;
+        handle.commitEdit();
+        viewManager.mobilePaneIndex.value = 1;
+    }
+
+    function cancelEdit(): void {
+        const handle = paneInstance.value;
+        if (handle === null) return;
+        handle.cancelEdit();
+        viewManager.mobilePaneIndex.value = 1;
+    }
+
+    // ── One typed builder per pane family (gates N3 / A4) ───────────────────
+    //
+    // Each builder DECLARES the bag it returns, so its object literal is
+    // checked against exactly one contract: a deleted key is a missing
+    // property, a misspelled key is both an excess property and a missing one.
+    // Returning the union directly would not bite — an object literal only has
+    // to satisfy ONE member of a union, and a bag with a key dropped satisfies
+    // the empty one.
+
+    /** S.W2 · W2-1: the picker takes no model prop — it injects the ONE
+     *  pipeline (COLOR_MODEL_KEY) App provides. Its edit/reset emits are all
+     *  that is wired here. */
+    function pickerProps(): PickerSlotProps {
+        return {
+            class: "picker-shell w-full",
+            "onUpdate:editTarget": deps.onEditTargetChange,
+            onReset: deps.resetToDefaults,
+        };
+    }
+
+    function extractProps(): ExtractSlotProps {
+        return { colorSpace: model.value.selectedColorSpace };
+    }
+
+    function adminProps(subView: AdminSlotProps["subView"]): AdminSlotProps {
+        return { subView };
+    }
+
+    function aboutProps(): AboutSlotProps {
+        return {
+            modelValue: model.value,
+            "onUpdate:modelValue": (v: ColorModel) => deps.updateModel(v),
+            cssColor: deps.cssColor(),
+        };
+    }
+
+    function palettesProps(): PalettesSlotProps {
+        return {
+            savedColorStrings: deps.savedColorStrings(),
+            onCommitEdit: commitEdit,
+            onCancelEdit: cancelEdit,
+        };
+    }
+
+    function noProps(): EmptyPaneProps {
+        return {};
+    }
+
     /** Props for a "left" slot component (mobile single-slot and desktop-left
      *  resolve the same way — one path). */
-    function leftProps(name: string): Record<string, unknown> {
-        if (name === "color-picker") {
-            // S.W2 · W2-1: the picker no longer takes the model as a prop — it
-            // injects the ONE pipeline (COLOR_MODEL_KEY) App provides. Only its
-            // edit/reset emits remain wired here.
-            return {
-                class: "picker-shell w-full",
-                "onUpdate:editTarget": deps.onEditTargetChange,
-                onReset: deps.resetToDefaults,
-            };
+    function leftProps(name: LeftPane): PaneRenderProps {
+        if (name === "color-picker") return pickerProps();
+        if (name === "extract") return extractProps();
+        if (name.startsWith("admin-")) {
+            return adminProps(name as AdminSlotProps["subView"]);
         }
-        if (name === "extract") return { colorSpace: model.value.selectedColorSpace };
-        if (name.startsWith("admin-")) return { subView: name };
-        return {};
+        return noProps();
     }
 
     /** Props for a "right" slot component (mobile pane-index 1 and desktop-right). */
-    function rightProps(name: string): Record<string, unknown> {
-        if (name === "about") {
-            return {
-                modelValue: model.value,
-                "onUpdate:modelValue": (v: ColorModel) => deps.updateModel(v),
-                cssColor: deps.cssColor(),
-            };
-        }
-        if (name === "palettes") {
-            return {
-                savedColorStrings: deps.savedColorStrings(),
-                "onCommit-edit": () => deps.colorPickerRef()?.commitEdit(),
-                "onCancel-edit": () => deps.colorPickerRef()?.cancelEdit(),
-            };
-        }
-        return {};
+    function rightProps(name: Exclude<RightPane, null>): PaneRenderProps {
+        if (name === "about") return aboutProps();
+        if (name === "palettes") return palettesProps();
+        return noProps();
     }
 
-    const desktopLeft = computed<PaneSlot>(() => {
+    const desktopLeft = computed<ResolvedPane>(() => {
         const left = currentConfig.value.left;
         return { component: componentFor(left), key: left, props: leftProps(left) };
     });
 
-    const desktopRight = computed<PaneSlot>(() => {
+    const desktopRight = computed<ResolvedPane>(() => {
         const right = currentConfig.value.right;
         return {
             component: componentFor(right),
@@ -278,7 +505,7 @@ export function usePaneRouter(
         };
     });
 
-    const mobile = computed<PaneSlot>(() => {
+    const mobile = computed<ResolvedPane>(() => {
         const cfg = currentConfig.value;
         // pane-index 1 shows the right pane when the view has one
         if (cfg.right !== null && viewManager.mobilePaneIndex.value === 1) {
@@ -558,5 +785,5 @@ export function usePaneRouter(
         };
     });
 
-    return { mobile, desktopLeft, desktopRight, sceneActions };
+    return { mobile, desktopLeft, desktopRight, sceneActions, bindPane, commitEdit, cancelEdit };
 }

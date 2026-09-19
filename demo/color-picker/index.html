@@ -214,5 +214,18 @@
          dialogs included — reads the REAL atmosphere through the glass instead
          of painting its own interior amber lamp. One attribute; no local glass
          recipe. -->
-    <body class="relative" id="app" data-paper-field></body>
+    <!-- X.W5.a · fold W5F-30 / ⟨App C-8 · L-2⟩ — the mount container is a
+         `<div>` INSIDE the body, not the body itself. `app.mount` clears its
+         container's innerHTML, so while the body WAS the container no static
+         in-body markup could survive the mount: a boot-error region, a
+         no-JS message, a skip target — all structurally impossible, not
+         merely absent. BOTH body stamps stay exactly where they were, and the
+         D-E portal-integrity delta is the receipt: `data-paper-field` must
+         keep dominating the two live `<Teleport to="body">` sites, and
+         `class="relative"` stays the positioning ancestor portalled overlays
+         resolve against (its load-bearing status is unproven either way, and
+         no gate asks for its deletion — so it is not deleted). -->
+    <body class="relative" data-paper-field>
+        <div id="app"></div>
+    </body>
 </html>

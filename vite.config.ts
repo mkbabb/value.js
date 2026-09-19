@@ -1,4 +1,4 @@
-import { defineConfig, type Plugin } from "vite";
+import { defineConfig } from "vite";
 import path from "path";
 import { readFileSync } from "fs";
 
@@ -12,7 +12,7 @@ import Markdown from "unplugin-vue-markdown/vite";
 
 import { sourceExportPlugin } from "./plugins/vite-source-export";
 import { deferGlassFonts } from "./plugins/vite-defer-glass-fonts";
-import { injectGroundTokens } from "./demo/color-picker/composables/boot/ground";
+import { groundTokensPlugin } from "./plugins/vite-ground-tokens";
 
 import {
     libraryEntries,
@@ -114,53 +114,36 @@ const defaultOptions = {
 // consumption at any hop. The published value.js library build (`production`
 // mode) imports glass-ui NEVER (inv-K-1, eslint-enforced).
 //
-// `server.fs.allow` widening: load-bearing for FONT-ASSET resolution off the
-// Tailwind-source `./styles` surface (NARROWED at E.W0 Lane A; see
-// `docs/tranches/E/audit/E.W0-lane-a-styles-adoption.md`). glass-ui ships TWO
-// orthogonal style surfaces:
-//
-//   `./styles`     — Tailwind-source (dist/styles/index.css): tokens,
-//                    typography (@font-face + url("../fonts/...woff2")),
-//                    theme.css @theme aliases, utilities, @source directive.
-//                    The consumer's Tailwind compiler processes this surface.
-//   `./styles.css` — SFC-scoped compiled (dist/glass-ui.css): data-v-* scoped
-//                    component CSS. Zero @font-face, zero url() refs.
-//
-// The Tailwind-source `./styles` surface ships `@font-face` declarations whose
-// `url("../fonts/fira-code/...woff2")` refs resolve RELATIVE to the symlinked
-// `dist/styles/` — they walk OUT of the package into glass-ui's repo-root
-// `fonts/` directory. That walk is why `server.fs.allow` must reach glass-ui's
-// parent (`path.resolve(__dirname, "..")`). This is NOT a source-resolution
-// band-aid (the SFC-scoped component-CSS half closed at E.W0); only font-asset
-// resolution remains. Retiring it entirely requires glass-ui to inline the
-// fonts as data URLs in the compiled surface, or the demo to drop the
-// Tailwind-source `./styles` import (forfeiting the design-system tokens +
-// Tailwind `@source` class-scanning) — a glass-ui-owned successor concern.
-const siblingFsAllowTransient = [path.resolve(import.meta.dirname, "..")];
+// `server.fs.allow`: DELETED at X.W5.a under COHESION §0j.A **DR-14** (the
+// owner's verb: DELETE) and §0k.1 **RS-1** (*"DR-14's DELETE rides X-W5's
+// existing `vite.config.ts` modify-carve"*). The carve-out allowed the whole
+// sibling directory so a `url("../fonts/…woff2")` in glass-ui's Tailwind-source
+// `./styles` surface could walk OUT of the package into a repo-root `fonts/`.
+// It is dead at the installed bytes, measured this unit: `@mkbabb/glass-ui` is
+// an ordinary directory under `node_modules` with no `fonts/` at its root, and
+// its shipped `dist/` carries ZERO `url("../fonts` references — the walk the
+// allowance existed for has no target, and vite's own workspace root covers
+// what remains. The ruling's rationale, verbatim: *a transient carve-out is a
+// compat shim by another name (no-backwards-compat law); the name may not
+// survive X either way.*
 
 // U-F23 (G-CANON-4): single-source the boot GroundRecord contract. The
 // index.html fouc-guard `<script>` runs pre-module and cannot import
 // boot/ground.ts, so its constants (GROUND_RECORD_VERSION, GROUND_STOP_COUNT,
-// the FIRST_VISIT seed) are carried as `__GROUND_*__` tokens and resolved here
-// at build/serve time through the TS origin's `injectGroundTokens`. A version
-// bump in boot/ground.ts propagates into the boot read automatically — no
-// hand-duplicated constant survives (the pre-U-F23 fork silently stranded the
-// boot guard against a hard-typed `var VERSION = 1`). transformIndexHtml fires
-// only when there is an index.html (dev + gh-pages); the library build has none.
-function groundRecordInject(): Plugin {
-    return {
-        name: "value-js:ground-record-inject",
-        transformIndexHtml(html) {
-            return injectGroundTokens(html);
-        },
-    };
-}
+// the FIRST_VISIT seed) are carried as `__GROUND_*__` tokens resolved at
+// build/serve time through the TS origin. A version bump in boot/ground.ts
+// propagates into the boot read automatically — no hand-duplicated constant
+// survives (the pre-U-F23 fork silently stranded the boot guard against a
+// hard-typed `var VERSION = 1`). X.W5.a (App L-3): the transform itself moved
+// to `plugins/vite-ground-tokens.ts` — the split is by LIFETIME, so a node-only
+// HTML transform no longer rides inside a browser module and this config no
+// longer reaches across the demo's boundary to import one.
 
 const defaultPlugins = [
     sourceExportPlugin(),
     Vue({ include: [/\.vue$/, /\.md$/] }),
     Markdown({}),
-    groundRecordInject(),
+    groundTokensPlugin(),
 ];
 
 export default defineConfig((mode) => {
@@ -284,7 +267,6 @@ export default defineConfig((mode) => {
             root: "./demo/color-picker/",
             server: {
                 host: true,
-                fs: { allow: siblingFsAllowTransient },
             },
             optimizeDeps: {},
             plugins: [...defaultPlugins, deferGlassFonts()],

@@ -90,7 +90,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount, computed, watch, nextTick, useTemplateRef } from "vue";
+import { ref, onMounted, onActivated, onBeforeUnmount, onDeactivated, computed, watch, nextTick, useTemplateRef } from "vue";
 import { X, Plus, Check } from "@lucide/vue";
 import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
@@ -236,11 +236,31 @@ function onKeyDown(e: KeyboardEvent) {
 
 onMounted(() => {
     loadAndFit();
+    armKeys();
+});
+
+// X.W5.a · gate N1 — the DEACTIVATION contract (see PaneSlot's header).
+// A parked eyedropper kept a WINDOW keydown handler armed: its Escape/Enter
+// keys answered from a pane the user could not see. The listener is the one
+// thing re-armed on return — a key handler is the pane's operability, and the
+// user did re-open the pane.
+function armKeys() {
     window.addEventListener("keydown", onKeyDown);
+}
+
+function releaseKeys() {
+    window.removeEventListener("keydown", onKeyDown);
+}
+
+onActivated(armKeys);
+
+onDeactivated(() => {
+    releaseKeys();
+    sampler.dispose();
 });
 
 onBeforeUnmount(() => {
-    window.removeEventListener("keydown", onKeyDown);
+    releaseKeys();
     sampler.dispose();
 });
 

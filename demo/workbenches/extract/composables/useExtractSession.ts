@@ -10,7 +10,7 @@
  * call; the library's `dominantColor()` re-quantizes and is the wrong tool).
  */
 
-import { ref, shallowRef, computed, onBeforeUnmount } from "vue";
+import { ref, shallowRef, computed, onBeforeUnmount, onDeactivated } from "vue";
 import type { QuantizedColor } from "@mkbabb/value.js/quantize";
 import { serializeCssColor } from "@mkbabb/value.js/css";
 import { useImageQuantize } from "./useImageQuantize";
@@ -191,9 +191,15 @@ export function useExtractSession() {
         paletteName.value = newName;
     }
 
-    onBeforeUnmount(() => {
+    // X.W5.a · gate N1 — the DEACTIVATION contract (see PaneSlot's header).
+    // A pending re-quantize must not fire into a parked pane.
+    function cancelPendingQuantize() {
         if (debounceTimer) clearTimeout(debounceTimer);
-    });
+        debounceTimer = null;
+    }
+
+    onDeactivated(cancelPendingQuantize);
+    onBeforeUnmount(cancelPendingQuantize);
 
     return {
         // quantizer state

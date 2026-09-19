@@ -3,6 +3,8 @@ import { debounce } from "../shared/utils";
 import { generateSingleColor } from "./generate-color";
 import {
     PICKER_CHANNELS,
+    alphaIsMissing,
+    channelIsMissing,
     channelNumber,
     convertPickerColor,
     mapPickerOklabToSrgb,
@@ -91,14 +93,23 @@ export function useColorParsing(deps: {
 
     const parseAndSetColorDebounced = debounce(parseAndSetColor, 2000);
 
+    // X.W5.a · gate N4 + ⟨shell-dock-parseechoreadout A-7⟩ — the echo tells the
+    // truth about a MISSING component. The readers beneath it are now total
+    // (CSS Color 4 §4.2 resolves `none` to zero so nothing throws mid-render),
+    // which is exactly why the echo must carry the distinction the resolution
+    // erases: `oklch(0.6 0.2 30 / none)` used to render identically to alpha 1,
+    // and a `none` channel used to render as a confident `0`.
     const astEcho = computed<{ space: string; parts: string[] }>(() => {
         const color = model.value.color;
         const parts = PICKER_CHANNELS[color.space].map((meta) => {
+            if (channelIsMissing(color, meta.key)) return `${meta.key} none`;
             const value = channelNumber(color, meta.key);
             const display = meta.unit === "%" && meta.max <= 1 ? value * 100 : value;
             return `${meta.key} ${Number(display.toFixed(3))}${meta.unit}`;
         });
-        if (typeof color.alpha === "number" && color.alpha < 1) {
+        if (alphaIsMissing(color)) {
+            parts.push("α none");
+        } else if (typeof color.alpha === "number" && color.alpha < 1) {
             parts.push(`α ${Number(color.alpha.toFixed(3))}`);
         }
         return { space: color.space, parts };

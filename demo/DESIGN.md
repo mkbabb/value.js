@@ -268,14 +268,15 @@ reveal/dock/tabs registers, the atmosphere arrival fade, and the PRM guard chain
 | `PaletteCard.vue:388` | `golden-text-shimmer 4s` | bespoke; sits between `--duration-shimmer-fast` (3 s) and `--duration-shimmer` (5 s) — paired with the 4-stop gradient's visual rhythm |
 | `useHeightTransition.ts` | `350 ms expand / 250 ms collapse` | bespoke; JS-runtime constants written as inline `style.transition` strings; tuned by hand at B-tranche for palette-card expand/collapse rhythm |
 
-**§ Reduced-motion carve-out** (animations.css:32-60, B.W1 Lane B): the global `prefers-reduced-motion` guard neutralises all CSS animation + transition durations; a secondary block re-enables 150 ms opacity fades on `[data-state="open"|"closed"]` so reka-ui Dialog/Sheet/Popover state changes still communicate. WebGL RAF loops (GooBlob, aurora) fence on `prefers-reduced-motion` in their composables (see `useMetaballRenderer`); the global CSS guard does not reach them.
+**§ Reduced-motion carve-out** (animations.css:184-193 — the global guard; the `no-preference` arm at :43, B.W1 Lane B; line numbers re-measured at X.W5.a, where the former `:32-60` cite pointed at the stagger utility instead): the global `prefers-reduced-motion` guard neutralises all CSS animation + transition durations; a secondary block re-enables 150 ms opacity fades on `[data-state="open"|"closed"]` so reka-ui Dialog/Sheet/Popover state changes still communicate. WebGL RAF loops (GooBlob, aurora) fence on `prefers-reduced-motion` in their composables (see `useMetaballRenderer`); the global CSS guard does not reach them.
 
 Custom keyframes live in `demo/@/styles/animations.css` (`edit-drawer-in`, with a mobile media-query restate at ≤ 639 px — see comment at animations.css:12-16 for the intentional inheritance break) + colocated `<style scoped>` blocks (per-component animations). Shared keyframes (dialog, floating-panel, card-menu, shimmer) come from `@mkbabb/glass-ui/styles/animations.css`.
 
 **§ Canonical motion recipe** — when in doubt, reach for `var(--duration-normal) var(--ease-standard)` on a transition; for entry-from-rest use `--ease-decelerate`, for exit-to-rest use `--ease-accelerate`. Spring curves (`--spring-snappy`, `--spring-smooth`) are reserved for transforms that read physically; PaletteCard.vue's golden-text-shimmer demonstrates the cubic-bezier path, ActionBarLayer.vue the duration-fast path.
 
 **§ Pane-swap transition mode — NOT `out-in` (dev-vs-build divergence).** The
-per-slot `<Transition>` in `panes/PaneSlot.vue` uses the DEFAULT (simultaneous)
+per-slot `<Transition>` in `demo/shell/PaneSlot.vue` (re-pointed at X.W5.a — the
+`panes/` directory the former cite named has never existed) uses the DEFAULT (simultaneous)
 mode, deliberately. Under `vite` DEV, Vue 3.5's `mode="out-in"` machinery fails
 to re-mount the incoming pane after the outgoing pane's leave transition
 completes — its internal `afterLeave → instance.update()` re-render never fires,

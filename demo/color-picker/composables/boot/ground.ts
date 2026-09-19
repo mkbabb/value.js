@@ -31,12 +31,20 @@
  *
  * The reader (index.html's fouc-guard boot script) runs pre-module, so it
  * cannot import this file. Its CONSTANTS are no longer hand-duplicated: the
- * boot HTML carries `__GROUND_*__` tokens that `injectGroundTokens` (below)
- * resolves through THIS module at build/serve time (U-F23 · G-CANON-4 — a
+ * boot HTML carries `__GROUND_*__` tokens that `plugins/vite-ground-tokens.ts`
+ * resolves THROUGH this module at build/serve time (U-F23 · G-CANON-4 — a
  * version bump here propagates to the boot read automatically; no hand-typed
  * constant survives to strand it). Only the guard LOGIC + scheme resolution are
  * mirrored inline — inherent to a pre-module reader — and every VALUE they
  * compare against is single-sourced here.
+ *
+ * X.W5.a (App L-3) — SPLIT BY LIFETIME: the node-only HTML transform that used
+ * to close this file now lives at `plugins/vite-ground-tokens.ts`, beside its
+ * two sibling plugins. This module is the RECORD, read and written in the
+ * browser; the transform runs in a node process and is imported only by
+ * `vite.config.ts`. A module carrying both shipped a build-time function into
+ * the app chunk and made the config reach across the demo's boundary to find
+ * it.
  * LOCKSTEP CLAUSE 2 — the reader's scheme resolution mirrors useColorMode
  * (the producer darkModeSyncScript semantics): the app persists "auto" by
  * default, so "auto" honors prefers-dark exactly like a missing key
@@ -111,36 +119,8 @@ export function buildGroundRecord(
     };
 }
 
-/**
- * BUILD-TIME single-source projection of the ground contract into the boot HTML
- * (U-F23 · G-CANON-4). The boot reader (index.html's fouc-guard `<script>`) runs
- * PRE-MODULE — before any ES module loads, synchronously, for a no-FOUC first
- * paint — so it cannot import this file. Rather than hand-duplicate
- * GROUND_RECORD_VERSION / GROUND_STOP_COUNT / the first-visit seed as vanilla-JS
- * literals (the pre-U-F23 fork, where a bump here silently stranded the boot
- * guard against a hard-typed `var VERSION = 1`), the boot HTML carries
- * `__GROUND_*__` tokens that vite's `transformIndexHtml` resolves through THIS
- * function at build/serve time (see `vite.config.ts` `groundRecordInject`). The
- * constants therefore DERIVE from this module by construction: bump a constant
- * above and the injected boot guard tracks automatically — no hand-typed
- * constant survives. (This retires the former `parseGroundRecord` typed twin,
- * which was DEAD — a pre-module reader can never call it; its shape-validation
- * logic lives, un-duplicated, in the inline guard whose VALUES are injected
- * here.)
- */
-export function injectGroundTokens(html: string): string {
-    let out = html
-        .replaceAll("__GROUND_RECORD_VERSION__", String(GROUND_RECORD_VERSION))
-        .replaceAll("__GROUND_STOP_COUNT__", String(GROUND_STOP_COUNT))
-        .replaceAll(
-            "__GROUND_FIRST_VISIT__",
-            JSON.stringify(FIRST_VISIT_GROUND),
-        );
-    // The @property initial-values + the theme-color base stop are the LIGHT
-    // first-visit seed (the material that paints ONLY if the boot script itself
-    // fails); single-source them too so no first-visit literal is hand-typed.
-    FIRST_VISIT_GROUND.light.forEach((hex, i) => {
-        out = out.replaceAll("__GROUND_LIGHT_" + i + "__", hex);
-    });
-    return out;
-}
+/* The build-time projection of these constants into the boot HTML lives at
+ * `plugins/vite-ground-tokens.ts` (X.W5.a — the L-3 lifetime split). It retired
+ * the former `parseGroundRecord` typed twin, which was DEAD: a pre-module
+ * reader can never call it, and its shape-validation logic lives,
+ * un-duplicated, in the inline guard whose VALUES the plugin injects. */

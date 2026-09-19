@@ -101,9 +101,39 @@ export class PickerColorError extends Error {
     }
 }
 
+/**
+ * Read a Result or throw — the CONSTRUCTION path's reader, and only that.
+ *
+ * X.W5.a · gate N4. This helper used to stand on the RENDER path too, where a
+ * legal CSS Color 4 value the library's own law admits (`none`) became a thrown
+ * exception inside a computed — a blank application from a shareable address.
+ * It survives here for `buildColor` alone, where a failure means the CALLER
+ * handed a channel set the space cannot hold: a programming error, not a value
+ * a user can type. Every render-path reader below reads its Result totally.
+ */
 function valueOrThrow<T, E extends Readonly<{ code: string }>>(result: Result<T, E>): T {
     if (result.ok) return result.value;
     throw new PickerColorError(result.error.code);
+}
+
+/**
+ * CSS Color 4 §4.2 — a MISSING component (`none`) resolves to ZERO when the
+ * colour is converted to another colour space. That is the specification's own
+ * law and what every browser does; it is not a fallback over a defect, and it
+ * is not the input narrowing N4's falsifier forbids (`valueDomain.ts` declares
+ * `none` pass-through "the library's law" and `test/v4-c1.test.ts` pins it —
+ * the value is still ACCEPTED, still stored, and still serialized as `none`).
+ * Measured: `parseCssColor("oklch(0.6 0.2 none)")` succeeds, same-space
+ * conversion and serialization both succeed, and ONLY the cross-space
+ * conversion returns `color_missing_channel`.
+ */
+function withResolvedMissing(color: AnyColor): AnyColor {
+    if (!color.channels.some((channel) => channel === "none")) return color;
+    return buildColor(
+        color.space,
+        color.channels.map((channel) => (channel === "none" ? 0 : channel)),
+        color.alpha,
+    );
 }
 
 export function parsePickerColor(source: string): CssColor {
@@ -112,12 +142,27 @@ export function parsePickerColor(source: string): CssColor {
     throw new PickerColorError("Invalid CSS color", result.diagnostics);
 }
 
+/** RENDER PATH — total over every colour the parser accepts. */
 export function convertPickerColor<S extends SpaceId>(color: AnyColor, space: S): PickerColorIn<S> {
-    return valueOrThrow(convertColor(color, space)) as unknown as PickerColorIn<S>;
+    const direct = convertColor(color, space);
+    if (direct.ok) return direct.value as unknown as PickerColorIn<S>;
+    const resolved = convertColor(withResolvedMissing(color), space);
+    if (resolved.ok) return resolved.value as unknown as PickerColorIn<S>;
+    // Not a missing-component failure: the two spaces genuinely do not compose.
+    throw new PickerColorError(resolved.error.code);
 }
 
+/** RENDER PATH — the gamut map reads its Result; a missing component resolves
+ *  first, exactly as the conversion above does. */
 export function mapPickerOklabToSrgb(color: PickerColorIn<"oklab">): PickerColorIn<"oklab"> {
-    return valueOrThrow(mapColorToGamut(color, "srgb"));
+    const direct = mapColorToGamut(color, "srgb");
+    if (direct.ok) return direct.value;
+    const resolved = mapColorToGamut(
+        withResolvedMissing(color) as PickerColorIn<"oklab">,
+        "srgb",
+    );
+    if (resolved.ok) return resolved.value;
+    throw new PickerColorError(resolved.error.code);
 }
 
 function buildColor(space: SpaceId, channels: readonly Channel[], alpha: Alpha): AnyColor {
@@ -149,12 +194,38 @@ export function channelMeta(space: SpaceId, key: string): ChannelMeta {
     return meta;
 }
 
+/**
+ * Is this channel MISSING (`none`) rather than zero?
+ *
+ * The distinction is real and a surface that shows a channel owes the user the
+ * truth about it — `oklch(0.6 0.2 30 / none)` is not alpha 1. `channelNumber`
+ * below resolves the missing component so the RENDER cannot throw; this is how
+ * a readout asks whether it was resolved.
+ */
+export function channelIsMissing(color: AnyColor, key: string): boolean {
+    const index = PICKER_CHANNELS[color.space].findIndex((meta) => meta.key === key);
+    return index >= 0 && color.channels[index] === "none";
+}
+
+/** Is the alpha MISSING (`none`) rather than 1? */
+export function alphaIsMissing(color: AnyColor): boolean {
+    return color.alpha === "none";
+}
+
+/**
+ * RENDER PATH — total over every colour the parser accepts.
+ *
+ * X.W5.a · gate N4: this threw `Missing ${space}.${key}` for a legal `none`,
+ * inside the slider/readout derivations, from a value the parser had just
+ * accepted. A missing component reads as ZERO (CSS Color 4 §4.2) and
+ * `channelIsMissing` above carries the distinction to whoever must show it. An
+ * unknown channel NAME still throws: that is a caller bug, not a user value.
+ */
 export function channelNumber(color: AnyColor, key: string): number {
     const index = PICKER_CHANNELS[color.space].findIndex((meta) => meta.key === key);
     if (index < 0) throw new PickerColorError(`Unknown ${color.space} channel: ${key}`);
     const value = color.channels[index];
-    if (typeof value !== "number") throw new PickerColorError(`Missing ${color.space}.${key}`);
-    return value;
+    return typeof value === "number" ? value : 0;
 }
 
 export function normalizedChannel(color: AnyColor, key: string): number {
@@ -203,15 +274,24 @@ export function clampPickerColor(color: AnyColor): AnyColor {
     return buildColor(color.space, channels, alpha);
 }
 
+/** RENDER PATH — the serializer keeps `none` as `none` (measured: the library
+ *  serializes a missing component faithfully), and reads its Result. */
 export function serializePickerColor(color: AnyColor): string {
     const cssColor = CSS_PICKER_SPACES.has(color.space)
         ? color as CssColor
         : convertPickerColor(color, "oklch");
-    return valueOrThrow(serializeCssColor(cssColor));
+    const serialized = serializeCssColor(cssColor);
+    if (serialized.ok) return serialized.value;
+    throw new PickerColorError(serialized.error.code);
 }
 
+/** RENDER PATH — the 8-bit projection resolves a missing component before it
+ *  projects, so a `none` channel yields a colour rather than an exception. */
 export function pickerColorToHex(color: AnyColor): string {
-    const projected = valueOrThrow(toRgba8(color, { gamut: "clip" }));
+    const direct = toRgba8(color, { gamut: "clip" });
+    const read = direct.ok ? direct : toRgba8(withResolvedMissing(color), { gamut: "clip" });
+    if (!read.ok) throw new PickerColorError(read.error.code);
+    const projected = read.value;
     const hex = (value: number) => value.toString(16).padStart(2, "0");
     return `#${hex(projected[0])}${hex(projected[1])}${hex(projected[2])}${projected[3] < 255 ? hex(projected[3]) : ""}`;
 }

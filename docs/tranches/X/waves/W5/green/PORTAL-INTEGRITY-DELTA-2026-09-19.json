@@ -1,0 +1,169 @@
+{
+ "delta": "D-E portal integrity (W5.md §8) — mandatory on an index.html body change",
+ "unit": "X.W5.a",
+ "when": "2026-09-19T13:06:22.531Z",
+ "change": "the mount container moves from <body> to a <div id=\"app\"> INSIDE it; BOTH body stamps stay",
+ "invariants": {
+  "before": {
+   "bodyKeepsPaperField": true,
+   "bodyKeepsRelative": true,
+   "bodyIsPositioningAncestor": true,
+   "everyBodyChildUnderField": true,
+   "portalParent": "body",
+   "portalFieldAncestorIsBody": true,
+   "portalPositioningAncestorIsBody": true
+  },
+  "after": {
+   "bodyKeepsPaperField": true,
+   "bodyKeepsRelative": true,
+   "bodyIsPositioningAncestor": true,
+   "everyBodyChildUnderField": true,
+   "portalParent": "body",
+   "portalFieldAncestorIsBody": true,
+   "portalPositioningAncestorIsBody": true
+  },
+  "identical": true
+ },
+ "intendedStructuralChange": {
+  "mountHostIsBody": {
+   "before": true,
+   "after": false
+  },
+  "note": "the app roots nest one level deeper by design; the mount container is no longer the portal host"
+ },
+ "census": {
+  "before": {
+   "bodyStamps": {
+    "id": "app",
+    "class": "relative",
+    "paperField": true,
+    "position": "relative"
+   },
+   "mountHostIsBody": true,
+   "bodyChildren": [
+    {
+     "tag": "div",
+     "id": null,
+     "class": null,
+     "position": "absolute",
+     "zIndex": "auto",
+     "inset": "0px/1440px/900px/0px",
+     "fieldAncestor": "body"
+    },
+    {
+     "tag": "div",
+     "id": null,
+     "class": "app-layout",
+     "position": "relative",
+     "zIndex": "auto",
+     "inset": "0px/0px/0px/0px",
+     "fieldAncestor": "body"
+    },
+    {
+     "tag": "span",
+     "id": null,
+     "class": null,
+     "position": "static",
+     "zIndex": "auto",
+     "inset": "auto/auto/auto/auto",
+     "fieldAncestor": "body"
+    },
+    {
+     "tag": "div",
+     "id": null,
+     "class": null,
+     "position": "static",
+     "zIndex": "auto",
+     "inset": "auto/auto/auto/auto",
+     "fieldAncestor": "body"
+    },
+    {
+     "tag": "div",
+     "id": null,
+     "class": null,
+     "position": "static",
+     "zIndex": "auto",
+     "inset": "auto/auto/auto/auto",
+     "fieldAncestor": "body"
+    },
+    {
+     "tag": "div",
+     "id": null,
+     "class": null,
+     "position": "static",
+     "zIndex": "auto",
+     "inset": "auto/auto/auto/auto",
+     "fieldAncestor": "body"
+    }
+   ],
+   "portal": {
+    "parent": "body",
+    "fieldAncestor": "body",
+    "fieldAncestorIsBody": true,
+    "positioningAncestorIsBody": true
+   }
+  },
+  "after": {
+   "bodyStamps": {
+    "id": null,
+    "class": "relative",
+    "paperField": true,
+    "position": "relative"
+   },
+   "mountHostIsBody": false,
+   "bodyChildren": [
+    {
+     "tag": "div",
+     "id": "app",
+     "class": null,
+     "position": "static",
+     "zIndex": "auto",
+     "inset": "auto/auto/auto/auto",
+     "fieldAncestor": "body"
+    },
+    {
+     "tag": "div",
+     "id": null,
+     "class": null,
+     "position": "absolute",
+     "zIndex": "auto",
+     "inset": "900px/1440px/0px/0px",
+     "fieldAncestor": "body"
+    },
+    {
+     "tag": "div",
+     "id": null,
+     "class": null,
+     "position": "static",
+     "zIndex": "auto",
+     "inset": "auto/auto/auto/auto",
+     "fieldAncestor": "body"
+    },
+    {
+     "tag": "div",
+     "id": null,
+     "class": null,
+     "position": "static",
+     "zIndex": "auto",
+     "inset": "auto/auto/auto/auto",
+     "fieldAncestor": "body"
+    },
+    {
+     "tag": "div",
+     "id": null,
+     "class": null,
+     "position": "static",
+     "zIndex": "auto",
+     "inset": "auto/auto/auto/auto",
+     "fieldAncestor": "body"
+    }
+   ],
+   "portal": {
+    "parent": "body",
+    "fieldAncestor": "body",
+    "fieldAncestorIsBody": true,
+    "positioningAncestorIsBody": true
+   }
+  }
+ }
+}

@@ -5,7 +5,7 @@
  * All run quantization off main thread with Transferable ArrayBuffer.
  */
 
-import { ref, shallowRef, onBeforeUnmount } from "vue";
+import { ref, shallowRef, onBeforeUnmount, onDeactivated } from "vue";
 import type { QuantizedColor, QuantizeOptions } from "@mkbabb/value.js/quantize";
 import type { QuantizeWorkerResponse } from "../quantize-worker";
 import QuantizeWorkerURL from "../quantize-worker?worker";
@@ -145,10 +145,18 @@ export function useImageQuantize(options?: ImageQuantizeOptions) {
         return { palette: result, stop };
     }
 
-    onBeforeUnmount(() => {
+    // X.W5.a · gate N1 — the DEACTIVATION contract (see PaneSlot's header).
+    // `terminate()` was unreachable for a parked pane, so an in-flight
+    // quantize kept a worker thread alive for the session. Terminating on
+    // deactivate is safe by construction: `getWorker` re-creates one on the
+    // next run, so a parked pane costs nothing and a resumed pane still works.
+    function releaseWorker() {
         worker?.terminate();
         worker = null;
-    });
+    }
+
+    onDeactivated(releaseWorker);
+    onBeforeUnmount(releaseWorker);
 
     return {
         palette,

@@ -1,10 +1,15 @@
 <template>
-    <!-- Parsed structure plus the producer-owned sRGB mapping verdict. -->
-    <div
-        v-if="astEcho || gamutVerdict"
-        class="fira-code text-mono-small flex flex-col items-center gap-1"
-    >
-        <div v-if="astEcho" class="flex flex-wrap justify-center gap-x-2 gap-y-0.5">
+    <!-- Parsed structure plus the producer-owned sRGB mapping verdict.
+         X.W5.a · ⟨shell-dock-parseechoreadout A-4⟩ — the three `v-if`s that
+         stood here (root, echo branch, verdict branch) were PERMANENTLY TRUE:
+         both producers are computeds that always resolve to an object, so the
+         guards advertised a defended absent-state posture this readout never
+         had. The real failure was never absence — it was a THROW inside those
+         computeds, which no `v-if` can catch. The producers are total as of
+         this unit (gate N4), so the decoration goes: what renders here always
+         renders. -->
+    <div class="fira-code text-mono-small flex flex-col items-center gap-1">
+        <div class="flex flex-wrap justify-center gap-x-2 gap-y-0.5">
             <!-- D6 (T.W3-5 / A11Y-F4): the `/70` alpha-post-multiply on an
                  already-below-floor muted ink is DEAD — both spans wear the
                  certified `--ink-muted` rung; the eyebrow keeps its quieter
@@ -17,7 +22,7 @@
                 >{{ part }}</span
             >
         </div>
-        <div v-if="gamutVerdict" class="gamut-verdict" :data-clips="gamutVerdict.clips">
+        <div class="gamut-verdict" :data-clips="gamutVerdict.clips">
             <template v-if="gamutVerdict.clips">outside srgb gamut</template>
             <template v-else>in srgb gamut</template>
         </div>

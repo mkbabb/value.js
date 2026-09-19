@@ -1,5 +1,9 @@
 <template>
-    <div class="app-layout" :data-layout="isDesktop ? 'desktop' : 'mobile'">
+    <div
+        class="app-layout"
+        :data-layout="isDesktop ? 'desktop' : 'mobile'"
+        :data-view="viewManager.currentView.value"
+    >
         <!-- W5-a11y: decorative aurora canvas — hidden from AT. W6-1 entrance
              (owner ruling §1.1): the canvas derive-fades in over the
              SAME-material `--saved-bg` ground once the field is drawable
@@ -39,33 +43,48 @@
                 :edit-target="activeEditTarget"
                 :scene-actions="sceneActions"
                 @share-link="shareLink"
-                @commit-edit="
-                    colorPickerRef?.commitEdit();
-                    viewManager.mobilePaneIndex.value = 1;
-                "
-                @cancel-edit="
-                    colorPickerRef?.cancelEdit();
-                    viewManager.mobilePaneIndex.value = 1;
-                "
+                @commit-edit="commitEdit"
+                @cancel-edit="cancelEdit"
             />
         </nav>
 
-        <!-- W5-a11y: main landmark for pane content -->
-        <main class="pane-main" aria-label="Color tool panes">
-            <!-- U.W-A11Y · U-F58: a pane render throw surfaces the focus-managed,
-             SR-announced boundary IN PLACE of the grid — never a white-screen. -->
-            <ErrorBoundary message="This panel hit an unexpected error.">
-                <!-- Two-pane grid. `paneContainer` feeds the S.W5-10 device-pixel
+        <!-- W5-a11y: main landmark for pane content. X.W5.a · EB-30 — the
+             landmark takes its name FROM the route title, so it can never
+             announce a scene that is no longer mounted (the former static
+             `aria-label="Color tool panes"` named one through every catch and
+             every route change). -->
+        <main class="pane-main" :aria-labelledby="ROUTE_TITLE_ID">
+            <!-- X.W5.a · gate A5 (MT-F003 / App D-4) — ONE VISIBLE route H1
+                 inside <main>, speaking the schema's own label. The sr-only
+                 cure is STRUCK and uncitable: §5.1 requires a visible H1, and
+                 the constitution's seven focus origins target this node, which
+                 is why it is focusable-by-script (`tabindex="-1"`) and not
+                 focusable by tab. -->
+            <h1 :id="ROUTE_TITLE_ID" class="route-title font-display" tabindex="-1">
+                {{ currentConfig.label }}
+            </h1>
+
+            <!-- X.W5.a · gate A7 — the shell's ONE polite region, written by
+                 the ROUTE-SETTLEMENT commit and by nothing else.
+                 LOCK (⟨AdminListSkeleton⟩, verbatim, binding): this is a
+                 route-settlement node and "may never be cited as this cure"
+                 for load-completion / `aria-busy` announcements — that
+                 contract is the boundary's and stays NO-WAVE-OWNER. -->
+            <p class="sr-only" role="status" aria-live="polite">
+                {{ routeAnnouncement }}
+            </p>
+
+            <!-- Two-pane grid. `paneContainer` feeds the S.W5-10 device-pixel
              snap (card-lighting-forensics artifact 4): the flex-centering
              remainder is nudged off fractional device pixels so the card
              corner arcs rasterize ON the pixel grid. -->
-                <div
-                    ref="paneContainer"
-                    :class="[
-                        'pane-container',
-                        currentConfig.right !== null && 'pane-container--dual',
-                    ]"
-                >
+            <div
+                ref="paneContainer"
+                :class="[
+                    'pane-container',
+                    currentConfig.right !== null && 'pane-container--dual',
+                ]"
+            >
                     <!-- X6: single-mount by breakpoint. Only ONE breakpoint's slots are
                  MOUNTED at a time (v-if, not display-toggle), so exactly one live
                  picker — and thus one live goo-blob WebGL2 context — exists at any
@@ -76,94 +95,112 @@
                  witnesses with the .app-layout [data-layout] stamp (the single
                  isDesktop truth); the D6-03 exception + D8-1 note die — see style.css. -->
 
-                    <!-- Mobile: single pane slot (below lg / portrait). `pane-wrapper`
+                <!-- X.W5.a — ROLE-NAMED region wrappers. `--stage` (the
+                 protagonist) and `--inspector` (the companion) name what the
+                 region IS; the physical `--left`/`--right` names ride beside
+                 them until X.W5.d re-keys the motion family off them (D3's 18
+                 physical-name sites). The stagger is keyed by the ROLE class in
+                 the scoped block below — the former inline
+                 `--overture-appear-delay` declarations are gone, so the delay
+                 no longer travels with a physical side. Each region carries its
+                 own name: `leftLabel`/`rightLabel` shipped UNUSED in
+                 viewSchema while `<main>`'s static label named the scene for
+                 both (gate N6). -->
+
+                <!-- Mobile: single pane slot (below lg / portrait). `pane-wrapper`
                  makes it a size container so in-card `cqi` sizing resolves on
                  every slot (R.W3 Lane A / A4). W2-3: the slot speaks the
                  `appear` plate-land grammar (the single plate = the left
                  voice, +40ms). -->
-                    <div
-                        v-if="!isDesktop"
-                        class="pane-wrapper pane-wrapper--left pane-slot-mobile w-full max-w-md sm:max-w-lg mx-auto min-w-0 min-h-0 h-full flex flex-col items-center justify-center self-stretch"
-                        style="--overture-appear-delay: var(--overture-left-delay)"
-                    >
-                        <!-- W3-4 (S.W3): KeepAlive :max right-sized to the 9 non-admin
-                     views. The mobile slot cycles both left+right panes, so it
-                     caches the common (non-admin) surface without evicting a
-                     hot pane; the 5 admin views' panes fall off the LRU rather
-                     than permanently bloating the cache. -->
+                <div
+                    v-if="!isDesktop"
+                    class="pane-wrapper pane-wrapper--left pane-wrapper--stage pane-slot-mobile w-full max-w-md sm:max-w-lg mx-auto min-w-0 min-h-0 h-full flex flex-col items-center justify-center self-stretch"
+                    role="region"
+                    :aria-label="mobileRegionLabel"
+                >
+                    <!-- U.W-A11Y · U-F58 + X.W5.a (gate N5, fold W5F-53): the
+                     boundary sits PER PANE and OUTSIDE `<KeepAlive>` (the
+                     cached-boundary cure is KILLED by R-7). One pane's throw
+                     no longer withholds the other, and the caught plate now
+                     paints inside `.pane-container`'s positioned box instead
+                     of under the atmosphere canvas — the EB-1 ink loss cured
+                     by the transposition, never by the banned
+                     `position:relative` patch. -->
+                    <ErrorBoundary>
                         <PaneSlot
                             :component="mobile.component"
                             :component-key="mobile.key"
                             :component-props="mobile.props"
+                            :on-mount="bindPane('mobile')"
                             :transition-name="viewManager.ready.value ? 'vj-enter' : ''"
-                            :max="9"
+                            :max="PANE_CACHE_MAX.mobile"
                             appear
                             :on-appeared="
-                                (el: Element) => overture.noteLeftPlateSettled(el)
+                                (el: Element | null) =>
+                                    overture.noteLeftPlateSettled(el)
                             "
                         />
-                    </div>
+                    </ErrorBoundary>
+                </div>
 
-                    <template v-else>
-                        <!-- Desktop: left pane (lg+) — the B3 plate (+40ms). -->
-                        <div
-                            class="pane-wrapper pane-wrapper--left w-full min-w-0 min-h-0 h-full flex-col justify-center"
-                            style="--overture-appear-delay: var(--overture-left-delay)"
-                        >
-                            <!-- W3-4 (S.W3): :max = the 6 distinct non-admin LEFT panes
-                         (color-picker · browse · extract · atmosphere · generate
-                         · gradient) — already right-sized; admin left panes fall
-                         off the LRU rather than bloating the cache. -->
+                <template v-else>
+                    <!-- Desktop: the stage region (lg+) — the B3 plate (+40ms). -->
+                    <div
+                        class="pane-wrapper pane-wrapper--left pane-wrapper--stage w-full min-w-0 min-h-0 h-full flex-col justify-center"
+                        role="region"
+                        :aria-label="currentConfig.leftLabel"
+                    >
+                        <ErrorBoundary>
                             <PaneSlot
                                 :component="desktopLeft.component"
                                 :component-key="desktopLeft.key"
                                 :component-props="desktopLeft.props"
-                                :on-mount="onDesktopLeftMount"
+                                :on-mount="bindPane('left')"
                                 :transition-name="
                                     viewManager.ready.value ? 'vj-enter' : ''
                                 "
-                                :max="6"
+                                :max="PANE_CACHE_MAX.left"
                                 appear
                                 :on-appeared="
-                                    (el: Element) => overture.noteLeftPlateSettled(el)
+                                    (el: Element | null) =>
+                                        overture.noteLeftPlateSettled(el)
                                 "
                             />
-                        </div>
+                        </ErrorBoundary>
+                    </div>
 
-                        <!-- Desktop: right pane (lg+) — always in DOM to preserve
-                     KeepAlive scroll position. W2-3: the right plate (+120ms)
-                     arrives through the SAME appear grammar — the About pop
-                     dies (LS-4); a late chunk materializes through the same
-                     land on resolution (work defers, appearance composes). -->
-                        <div
-                            class="pane-wrapper pane-wrapper--right w-full min-w-0 min-h-0 h-full transition-opacity duration-200"
-                            :class="
-                                currentConfig.right === null
-                                    ? 'pane-wrapper--ghost'
-                                    : ''
-                            "
-                            style="--overture-appear-delay: var(--overture-right-delay)"
-                        >
-                            <!-- W3-4 (S.W3): :max = the 4 distinct non-admin RIGHT panes
-                         (about · palettes · mix · blob) — every admin view uses
-                         right="palettes" (already cached), so no non-admin right
-                         pane is ever evicted. Was 3 (under-sized → evicted one). -->
+                    <!-- Desktop: the inspector region (lg+) — always in DOM to
+                     preserve KeepAlive scroll position. W2-3: the right plate
+                     (+120ms) arrives through the SAME appear grammar — the
+                     About pop dies (LS-4); a late chunk materializes through
+                     the same land on resolution (work defers, appearance
+                     composes). -->
+                    <div
+                        class="pane-wrapper pane-wrapper--right pane-wrapper--inspector w-full min-w-0 min-h-0 h-full transition-opacity duration-200"
+                        :class="
+                            currentConfig.right === null ? 'pane-wrapper--ghost' : ''
+                        "
+                        role="region"
+                        :aria-label="currentConfig.rightLabel ?? undefined"
+                        :aria-hidden="currentConfig.right === null ? 'true' : undefined"
+                    >
+                        <ErrorBoundary>
                             <PaneSlot
                                 :component="desktopRight.component"
                                 :component-key="desktopRight.key"
                                 :component-props="desktopRight.props"
-                                :on-mount="onDesktopRightMount"
+                                :on-mount="bindPane('right')"
                                 :transition-name="
                                     viewManager.ready.value ? 'vj-enter' : ''
                                 "
-                                :max="4"
+                                :max="PANE_CACHE_MAX.right"
                                 appear
                                 :on-appeared="() => overture.noteRightPlateSettled()"
                             />
-                        </div>
-                    </template>
-                </div>
-            </ErrorBoundary>
+                        </ErrorBoundary>
+                    </div>
+                </template>
+            </div>
         </main>
     </div>
 
@@ -184,7 +221,16 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, provide, ref, shallowRef, useTemplateRef } from "vue";
+import {
+    computed,
+    onMounted,
+    provide,
+    ref,
+    shallowRef,
+    useTemplateRef,
+    watch,
+} from "vue";
+import { useRoute } from "vue-router";
 
 import type { ColorModel, EditTarget } from "../color-session/color-model";
 import { ColorPicker } from "../picker";
@@ -210,15 +256,18 @@ import { useColorUrl } from "../color-session/useColorUrl";
 
 import { useViewManager, VIEW_MANAGER_KEY } from "../shell/useViewManager";
 import { useColorPipeline } from "../color-session/useColorPipeline";
-import { usePaneRouter, readScenePaneTarget } from "../shell/usePaneRouter";
+import {
+    usePaneRouter,
+    readScenePaneTarget,
+    PANE_CACHE_MAX,
+    type PaneSlotId,
+} from "../shell/usePaneRouter";
 import type {
     ScenePane,
     ScenePaneTargetMap,
     ScenePaneTargets,
 } from "../color-session/keys";
 import { usePaletteWiring } from "./composables/usePaletteWiring";
-import { provideApiClient } from "../platform/transport/useApiClient";
-import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { useClipboard } from "@mkbabb/glass-ui";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 import { useAtmosphereBoot } from "./composables/boot/useAtmosphereBoot";
@@ -227,27 +276,12 @@ import { useOverture, OVERTURE_KEY } from "./composables/boot/useOverture";
 import { useDockArrival } from "./composables/boot/useDockArrival";
 import { useDevicePixelSnap } from "./composables/useDevicePixelSnap";
 
-import "../styles/utils.css";
-import "../styles/foundation.css";
-// U.W-A11Y / U-F25: the `--focus-ring-inner/-outer` token recipe (:root) that
-// every keyboard-operable control's focus affordance composes. Global wire (a
-// `:root` token must be defined regardless of which control is mounted); the
-// modality lane REFERENCES these names from style.css. Imported AFTER style.css
-// so a later owner override there wins the cascade.
-import "../styles/focus-ring.css";
-// The overture's one-clock grammar sheet (tokens + arrival/appear/dock/emerge
-// rules) — colocated with the boot chain; imported AFTER style.css so the
-// cascade order matches the former in-SFC blocks (T.W2-3).
-import "./composables/boot/overture.css";
-
-// --- Dark mode: initialize global dark state eagerly so the user's saved
-//     preference takes effect before the Dock profile menu mounts. ---
-useGlobalDark();
-
-// --- API client DI seam (S.W2 W2-4) ---
-// ONE provider for {request, adminRequest, sessionToken, availability, baseUrl};
-// the degraded-state affordances inject it instead of importing the singletons.
-provideApiClient();
+// X.W5.a · gate A1 — the four stylesheet imports, the global dark-mode store
+// and the API-client install all moved to the composition root (`main.ts`).
+// App is a component, not an entry: a component that installs the app's
+// stylesheets and its app-level provides is five undeclared boot contracts
+// wearing a template (App L-1). The cascade ORDER travels with them, unchanged
+// and stated there: utils → foundation → focus-ring → overture.
 
 // --- Template refs ---
 const atmosphereCanvas = useTemplateRef<HTMLCanvasElement>("atmosphereCanvas");
@@ -441,45 +475,92 @@ function foldColorPickerReport(
     return readColorPicker(instance) ?? colorPickerRef.value;
 }
 
-// Ref-capture callbacks for desktop pane slots (replaces direct template refs).
-// Called by PaneSlot's :on-mount prop when the inner component mounts/unmounts.
-// Each callback derives EVERY scene its slot can own from the one instance it
-// was handed, so a scene the slot no longer shows is cleared by the same act
-// that registers the scene it does.
-function onDesktopLeftMount(instance: unknown) {
-    const left = currentConfig.value.left;
-    colorPickerRef.value = foldColorPickerReport(left === "color-picker", instance);
-    publishScenePanes({
-        ...scenePanes.value,
-        generate: foldSceneReport("generate", left === "generate", instance),
-        gradient: foldSceneReport("gradient", left === "gradient", instance),
-    });
-}
-
-function onDesktopRightMount(instance: unknown) {
-    publishScenePanes({
-        ...scenePanes.value,
-        mix: foldSceneReport("mix", currentConfig.value.right === "mix", instance),
-    });
+/**
+ * ONE mount report, for every seat, keyed by what actually reported.
+ *
+ * X.W5.a (fold W5F-02): the two callbacks this replaces re-derived the pane's
+ * identity from the route-synchronous `currentConfig` while the slot renders
+ * one rAF behind plus chunk latency — so the OUTGOING instance was filed under
+ * the INCOMING pane's name for a measured 1275 ms window. The slot now reports
+ * the LIVE key beside the instance and the derivation is gone.
+ *
+ * The scene-COMMAND registry (X-W4 · CC-043) is published from the two desktop
+ * seats exactly as X-W4 authored it. The mobile seat's command channel is NOT
+ * opened here: COHESION §0k.3 **S-1** rules that `bindPane` is "narrowed to
+ * non-command instance uses" and that "the `DockCommand` provide/inject
+ * registry lands at X-W8"; X-W5 holds A3's WITNESS and may not claim its cure.
+ * What the mobile seat DOES gain is the narrowed channel itself — the edit
+ * commit/cancel and the external-colour apply, which `bindPane` owns for all
+ * three seats (`usePaneRouter`), and which were structurally dead below the
+ * breakpoint because the mobile slot passed no mount report at all.
+ */
+function onPaneMount(slot: PaneSlotId, instance: unknown, key: string) {
+    if (slot === "left") {
+        colorPickerRef.value = foldColorPickerReport(key === "color-picker", instance);
+        publishScenePanes({
+            ...scenePanes.value,
+            generate: foldSceneReport("generate", key === "generate", instance),
+            gradient: foldSceneReport("gradient", key === "gradient", instance),
+        });
+        return;
+    }
+    if (slot === "right") {
+        publishScenePanes({
+            ...scenePanes.value,
+            mix: foldSceneReport("mix", key === "mix", instance),
+        });
+    }
 }
 
 // --- Pane routing — one source of truth: mobile single-slot, the two desktop
 //     slots, and the ONE scene action set all derive from one route table. ---
-const { mobile, desktopLeft, desktopRight, sceneActions } = usePaneRouter(
-    viewManager,
-    model,
-    {
-        cssColor: () => cssColor.value,
-        savedColorStrings: () => savedColorStrings.value,
-        colorPickerRef: () => colorPickerRef.value,
-        colorSceneTarget: () => colorPickerRef.value?.sceneActionTarget ?? null,
-        scenePanes: () => scenePanes.value,
-        onEditTargetChange,
-        resetToDefaults,
-        updateModel: (v: ColorModel) => {
-            model.value = v;
-        },
+const {
+    mobile,
+    desktopLeft,
+    desktopRight,
+    sceneActions,
+    bindPane,
+    commitEdit,
+    cancelEdit,
+} = usePaneRouter(viewManager, model, {
+    cssColor: () => cssColor.value,
+    savedColorStrings: () => savedColorStrings.value,
+    colorSceneTarget: () => colorPickerRef.value?.sceneActionTarget ?? null,
+    scenePanes: () => scenePanes.value,
+    onPaneMount,
+    onEditTargetChange,
+    resetToDefaults,
+    updateModel: (v: ColorModel) => {
+        model.value = v;
     },
+});
+
+// --- The route's voice (gates A5 / A7) ---
+// The H1 above speaks `VIEW_MAP[currentView].label`; `<main>` is named BY it;
+// and the polite region below is written on route SETTLEMENT — the three are
+// one act, so a silent substitution is unrepresentable. `/#/does-not-exist`
+// resolved to the picker byte-for-byte before this: same render, same title,
+// no announcement.
+const ROUTE_TITLE_ID = "route-title";
+const route = useRoute();
+const routeAnnouncement = ref("");
+watch(
+    () => [viewManager.currentView.value, route.fullPath] as const,
+    ([view, path]) => {
+        const label = viewManager.viewMap[view].label;
+        routeAnnouncement.value =
+            view === "not-found"
+                ? `Not Found. ${path} could not be opened — showing the ${label} scene.`
+                : `${label} view`;
+    },
+    { immediate: true },
+);
+
+/** The mobile region's name: the single slot IS whichever pane it shows. */
+const mobileRegionLabel = computed(() =>
+    viewManager.mobilePaneIndex.value === 1 && currentConfig.value.rightLabel !== null
+        ? currentConfig.value.rightLabel
+        : currentConfig.value.leftLabel,
 );
 
 // --- Palette manager ---
@@ -501,16 +582,17 @@ const shareLink = async () => {
     await copyLink(window.location.href);
 };
 
-// --- URL sync + persistence precedence (S.W2 · W2-1; re-scoped T.W2 · W2-1) ---
-// The FIRST value is hydration's (above — the model was born with it).
-// useColorUrl's initial apply is an idempotent re-commit of the same URL
-// color and keeps owning the LIVE URL↔model sync; restoreFromStorage keeps
-// owning the savedColors restore (skipped whenever a URL color won, exactly
-// as before). `hydration.source` guards the corner where the router's query
-// and the pure hash read could disagree — the hydrated URL seed must never
-// be overwritten by the stored one.
-const { appliedFromUrl } = useColorUrl({ model, updateModel: patchModelExternal });
-if (!appliedFromUrl && hydration.source !== "url") restoreFromStorage();
+// --- URL sync + persistence precedence (S.W2 · W2-1; re-scoped T.W2 · W2-1;
+//     re-scoped again at X.W5.a · A6) ---
+// The FIRST value is hydration's (above — the model was born with it), and it
+// is the ONLY reader of the address at boot: `useColorUrl`'s own setup-time
+// apply is gone, so `hydration.source` is the single answer to "did the URL
+// win". `useColorUrl` keeps the LIVE sync in both directions;
+// `restoreFromStorage` keeps owning the savedColors restore, skipped whenever
+// the URL seeded the model — the hydrated URL seed must never be overwritten
+// by the stored one.
+useColorUrl({ model, updateModel: patchModelExternal });
+if (hydration.source !== "url") restoreFromStorage();
 
 // --- Custom color names ---
 const { loadFromAPI: loadCustomColorNames } = useCustomColorNames();
@@ -532,6 +614,38 @@ onMounted(() => {
 
 /* The atmosphere-canvas arrival + PRM opacity pin moved to the overture
    grammar sheet (composables/boot/overture.css — the B2 voice + gate 5b). */
+
+/* X.W5.a · gate A5 — the visible route title.
+   ONE per route, inside <main>, speaking the schema's own label. A quiet
+   register on purpose: the dock already carries the view's identity as an
+   affordance, so the heading is the DOCUMENT's answer to "what is this scene",
+   not a second banner competing with it. It rides the certified de-emphasis
+   rung (`--ink-muted`, boot-stamped and floor-clamped), so it adds no new
+   contrast debt; `flex: none` keeps the scene band's centring intact. */
+.route-title {
+    flex: none;
+    margin: 0 0 0.5rem;
+    text-align: center;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-muted, var(--muted-foreground));
+}
+
+/* X.W5.a — ROLE-KEYED stagger. The plate-land delay follows the region's ROLE
+   (stage first, inspector behind it), so when X.W5.d re-keys the motion family
+   off `--left`/`--right` the stagger does not have to move with it. This
+   replaces the two inline `--overture-appear-delay` declarations that bound the
+   delay to a physical side. */
+.pane-wrapper--stage {
+    --overture-appear-delay: var(--overture-left-delay);
+}
+
+.pane-wrapper--inspector {
+    --overture-appear-delay: var(--overture-right-delay);
+}
 
 /* Ghost pane: always in DOM to preserve scroll-timeline state, but invisible
    and non-interactive. content-visibility:auto (W3-4) additionally drops the

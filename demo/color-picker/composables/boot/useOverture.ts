@@ -55,6 +55,20 @@
 import { onMounted, ref, watch } from "vue";
 import type { ComputedRef, InjectionKey, Ref } from "vue";
 
+/**
+ * B4's TERMINAL reading (X.W5.a · gate A2).
+ *
+ * The ornament beat had exactly one way to terminate — a consumer calling
+ * `noteOrnamentEmerge` — and the only consumer is the picker's hero blob. On
+ * the ten routes that mount no picker the beat therefore opened and then sat
+ * `pending` FOR THE SESSION: no emerge, no mark, no reading. "Nothing happened"
+ * and "there was nothing to happen" were the same silence. They are now
+ * distinct states, and both are terminal: the beat is `unavailable` on a scene
+ * that has no ornament seat, `emerged` on one that does — an absent capability
+ * is ABSENT, never silence.
+ */
+export type OrnamentState = "pending" | "emerged" | "unavailable";
+
 export interface OvertureBeats {
     /** B1 — plates (hydration-committed ∧ mount). */
     b1: Readonly<Ref<boolean>>;
@@ -68,6 +82,9 @@ export interface OvertureBeats {
      *  yielded slice — see the de-coincidence note in `useOverture`). The
      *  chunk-resolved leg composes at the consumer (∧ blob chunk ready). */
     b4: Readonly<Ref<boolean>>;
+    /** B4's terminal reading — `emerged`, or `unavailable` on an ornamentless
+     *  scene. Never left `pending` once the beat has opened. */
+    b4State: Readonly<Ref<OrnamentState>>;
     /** The dock's plate has landed (B2's second predicate; veil-reveal end). */
     dockLanded: Readonly<Ref<boolean>>;
     /** Beat callbacks — the shell + consumers report NAMED completion events. */
@@ -99,7 +116,14 @@ export function useOverture(fieldArmed: ComputedRef<boolean>): OvertureBeats {
     const dockLanded = ref(false);
     const b3 = ref(false);
     const b3Complete = ref(false);
-    const b4Marked = { done: false };
+    const b4State = ref<OrnamentState>("pending");
+
+    /** Stamp B4 once, with the reading that terminated it. */
+    function markB4(state: Exclude<OrnamentState, "pending">) {
+        if (b4State.value !== "pending") return;
+        b4State.value = state;
+        mark("overture:b4");
+    }
 
     // B2 = isArmed ∧ dock-plate-landed — a computed PREDICATE (gating, never
     // a timer); the mark fires once on the flip.
@@ -232,11 +256,26 @@ export function useOverture(fieldArmed: ComputedRef<boolean>): OvertureBeats {
          * so the grammar reports symmetrically (and W4+ can consume it). */
     };
 
-    const noteOrnamentEmerge = () => {
-        if (b4Marked.done) return;
-        b4Marked.done = true;
-        mark("overture:b4");
-    };
+    const noteOrnamentEmerge = () => markB4("emerged");
+
+    // THE TERMINAL `unavailable` ARM (gate A2). Once the beat is OPEN, the
+    // scene either has an ornament seat or it does not, and that is a STATE,
+    // read the same way every other arming predicate in this DAG is read — an
+    // app-unique selector, never a timer. `.hero-blob-anchor` is static in
+    // ColorPicker's own template, so its presence at the moment the beat opens
+    // is exactly "this scene has an ornament"; the blob chunk arriving later is
+    // the consumer's own leg and still reports `emerged` through the guard
+    // above. Post-flush so the open frame's render is in the DOM.
+    watch(
+        b4,
+        (open) => {
+            if (!open || typeof document === "undefined") return;
+            if (document.querySelector(".hero-blob-anchor") === null) {
+                markB4("unavailable");
+            }
+        },
+        { flush: "post" },
+    );
 
     return {
         b1,
@@ -244,6 +283,7 @@ export function useOverture(fieldArmed: ComputedRef<boolean>): OvertureBeats {
         b3,
         b3Complete,
         b4,
+        b4State,
         dockLanded,
         noteDockLanded,
         noteLeftPlateSettled,

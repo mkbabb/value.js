@@ -182,7 +182,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, inject, onBeforeUnmount, useTemplateRef } from "vue";
+import { ref, inject, onBeforeUnmount, onDeactivated, useTemplateRef } from "vue";
 import { Aperture } from "@lucide/vue";
 import { DockControl } from "@mkbabb/glass-ui/dock";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
@@ -278,6 +278,14 @@ async function captureFrame() {
     await onFile(file);
 }
 
+// X.W5.a · gate N1 — the DEACTIVATION contract (PaneSlot's header states it).
+// This subtree lives under the app's one `<KeepAlive>`, whose bound is a
+// distinct-pane count, so the extract pane is parked on every navigation away
+// and evicted by essentially nothing: `onBeforeUnmount` alone left the camera
+// LIVE — the capture indicator on, the device held — for the rest of the
+// session. Parking releases the device; it is never silently re-acquired on
+// return, because re-opening the camera is the user's act, not the router's.
+onDeactivated(stopCamera);
 onBeforeUnmount(stopCamera);
 </script>
 

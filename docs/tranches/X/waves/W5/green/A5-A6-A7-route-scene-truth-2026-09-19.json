@@ -1,0 +1,592 @@
+{
+ "probe": "route-scene-truth",
+ "base": "http://localhost:9000",
+ "when": "2026-09-19T13:01:43.762Z",
+ "routesWalked": 15,
+ "A5": {
+  "green": false,
+  "rows": [
+   {
+    "requested": "picker",
+    "resolvedView": "picker",
+    "expectedLabel": "Home",
+    "h1": 1,
+    "h1Text": "Home",
+    "h1Visible": true,
+    "h1Tabindex": "-1",
+    "mainCount": 1,
+    "outline": [
+     1,
+     3,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     3,
+     3,
+     2,
+     3,
+     3,
+     3,
+     2,
+     3,
+     3,
+     2,
+     3,
+     3,
+     2
+    ],
+    "outlineOk": false,
+    "shellStatusCount": 1,
+    "shellStatusText": [
+     "Home view"
+    ],
+    "bootUrlSilent": true,
+    "href": "http://localhost:9000/#/",
+    "title": "Color Picker",
+    "a5": false,
+    "a6": true
+   },
+   {
+    "requested": "palettes",
+    "resolvedView": "palettes",
+    "expectedLabel": "Palettes",
+    "h1": 1,
+    "h1Text": "Palettes",
+    "h1Visible": true,
+    "h1Tabindex": "-1",
+    "mainCount": 1,
+    "outline": [
+     1,
+     3,
+     2
+    ],
+    "outlineOk": false,
+    "shellStatusCount": 2,
+    "shellStatusText": [
+     "Palettes view",
+     "· empty plate ·No saved palettes yet.Add colors above, then save the set."
+    ],
+    "bootUrlSilent": true,
+    "href": "http://localhost:9000/#/palettes",
+    "title": "Palettes — Color Picker",
+    "a5": false,
+    "a6": true
+   },
+   {
+    "requested": "browse",
+    "resolvedView": "browse",
+    "expectedLabel": "Browse",
+    "h1": 1,
+    "h1Text": "Browse",
+    "h1Visible": true,
+    "h1Tabindex": "-1",
+    "mainCount": 1,
+    "outline": [
+     1,
+     2,
+     2
+    ],
+    "outlineOk": true,
+    "shellStatusCount": 2,
+    "shellStatusText": [
+     "Browse view",
+     "· empty plate ·No saved palettes yet.Add colors above, then save the set."
+    ],
+    "bootUrlSilent": true,
+    "href": "http://localhost:9000/#/browse",
+    "title": "Browse — Color Picker",
+    "a5": true,
+    "a6": true
+   },
+   {
+    "requested": "extract",
+    "resolvedView": "extract",
+    "expectedLabel": "Extract",
+    "h1": 1,
+    "h1Text": "Extract",
+    "h1Visible": true,
+    "h1Tabindex": "-1",
+    "mainCount": 1,
+    "outline": [
+     1,
+     2,
+     2
+    ],
+    "outlineOk": true,
+    "shellStatusCount": 2,
+    "shellStatusText": [
+     "Extract view",
+     "· empty plate ·No saved palettes yet.Add colors above, then save the set."
+    ],
+    "bootUrlSilent": true,
+    "href": "http://localhost:9000/#/extract",
+    "title": "Extract — Color Picker",
+    "a5": true,
+    "a6": true
+   },
+   {
+    "requested": "mix",
+    "resolvedView": "mix",
+    "expectedLabel": "Mix",
+    "h1": 1,
+    "h1Text": "Mix",
+    "h1Visible": true,
+    "h1Tabindex": "-1",
+    "mainCount": 1,
+    "outline": [
+     1,
+     3,
+     2
+    ],
+    "outlineOk": false,
+    "shellStatusCount": 1,
+    "shellStatusText": [
+     "Mix view"
+    ],
+    "bootUrlSilent": true,
+    "href": "http://localhost:9000/#/mix",
+    "title": "Mix — Color Picker",
+    "a5": false,
+    "a6": true
+   },
+   {
+    "requested": "generate",
+    "resolvedView": "generate",
+    "expectedLabel": "Generate",
+    "h1": 1,
+    "h1Text": "Generate",
+    "h1Visible": true,
+    "h1Tabindex": "-1",
+    "mainCount": 1,
+    "outline": [
+     1,
+     2,
+     2
+    ],
+    "outlineOk": true,
+    "shellStatusCount": 2,
+    "shellStatusText": [
+     "Generate view",
+     "· empty plate ·No saved palettes yet.Add colors above, then save the set."
+    ],
+    "bootUrlSilent": true,
+    "href": "http://localhost:9000/#/generate",
+    "title": "Generate — Color Picker",
+    "a5": true,
+    "a6": true
+   },
+   {
+    "requested": "gradient",
+    "resolvedView": "gradient",
+    "expectedLabel": "Gradient",
+    "h1": 1,
+    "h1Text": "Gradient",
+    "h1Visible": true,
+    "h1Tabindex": "-1",
+    "mainCount": 1,
+    "outline": [
+     1,
+     2,
+     3,
+     3,
+     3,
+     2
+    ],
+    "outlineOk": true,
+    "shellStatusCount": 2,
+    "shellStatusText": [
+     "Gradient view",
+     "· empty plate ·No saved palettes yet.Add colors above, then save the set."
+    ],
+    "bootUrlSilent": true,
+    "href": "http://localhost:9000/#/gradient",
+    "title": "Gradient — Color Picker",
+    "a5": true,
+    "a6": true
+   },
+   {
+    "requested": "atmosphere",
+    "resolvedView": "atmosphere",
+    "expectedLabel": "Atmosphere",
+    "h1": 1,
+    "h1Text": "Atmosphere",
+    "h1Visible": true,
+    "h1Tabindex": "-1",
+    "mainCount": 1,
+    "outline": [
+     1,
+     2
+    ],
+    "outlineOk": true,
+    "shellStatusCount": 1,
+    "shellStatusText": [
+     "Atmosphere view"
+    ],
+    "bootUrlSilent": true,
+    "href": "http://localhost:9000/#/atmosphere",
+    "title": "Atmosphere — Color Picker",
+    "a5": true,
+    "a6": true
+   },
+   {
+    "requested": "blob",
+    "resolvedView": "blob",
+    "expectedLabel": "Blob",
+    "h1": 1,
+    "h1Text": "Blob",
+    "h1Visible": true,
+    "h1Tabindex": "-1",
+    "mainCount": 1,
+    "outline": [
+     1,
+     3,
+     2
+    ],
+    "outlineOk": false,
+    "shellStatusCount": 1,
+    "shellStatusText": [
+     "Blob view"
+    ],
+    "bootUrlSilent": true,
+    "href": "http://localhost:9000/#/blob",
+    "title": "Blob — Color Picker",
+    "a5": false,
+    "a6": true
+   },
+   {
+    "requested": "admin-users",
+    "resolvedView": "not-found",
+    "expectedLabel": "Not Found",
+    "h1": 1,
+    "h1Text": "Not Found",
+    "h1Visible": true,
+    "h1Tabindex": "-1",
+    "mainCount": 1,
+    "outline": [
+     1,
+     2
+    ],
+    "outlineOk": true,
+    "shellStatusCount": 1,
+    "shellStatusText": [
+     "Not Found. /admin/users could not be opened — showing the Not Found scene."
+    ],
+    "bootUrlSilent": true,
+    "href": "http://localhost:9000/#/admin/users",
+    "title": "Not Found — Color Picker",
+    "a5": true,
+    "a6": true
+   },
+   {
+    "requested": "admin-names",
+    "resolvedView": "not-found",
+    "expectedLabel": "Not Found",
+    "h1": 1,
+    "h1Text": "Not Found",
+    "h1Visible": true,
+    "h1Tabindex": "-1",
+    "mainCount": 1,
+    "outline": [
+     1,
+     2
+    ],
+    "outlineOk": true,
+    "shellStatusCount": 1,
+    "shellStatusText": [
+     "Not Found. /admin/names could not be opened — showing the Not Found scene."
+    ],
+    "bootUrlSilent": true,
+    "href": "http://localhost:9000/#/admin/names",
+    "title": "Not Found — Color Picker",
+    "a5": true,
+    "a6": true
+   },
+   {
+    "requested": "admin-audit",
+    "resolvedView": "not-found",
+    "expectedLabel": "Not Found",
+    "h1": 1,
+    "h1Text": "Not Found",
+    "h1Visible": true,
+    "h1Tabindex": "-1",
+    "mainCount": 1,
+    "outline": [
+     1,
+     2
+    ],
+    "outlineOk": true,
+    "shellStatusCount": 1,
+    "shellStatusText": [
+     "Not Found. /admin/audit could not be opened — showing the Not Found scene."
+    ],
+    "bootUrlSilent": true,
+    "href": "http://localhost:9000/#/admin/audit",
+    "title": "Not Found — Color Picker",
+    "a5": true,
+    "a6": true
+   },
+   {
+    "requested": "admin-flagged",
+    "resolvedView": "not-found",
+    "expectedLabel": "Not Found",
+    "h1": 1,
+    "h1Text": "Not Found",
+    "h1Visible": true,
+    "h1Tabindex": "-1",
+    "mainCount": 1,
+    "outline": [
+     1,
+     2
+    ],
+    "outlineOk": true,
+    "shellStatusCount": 1,
+    "shellStatusText": [
+     "Not Found. /admin/flagged could not be opened — showing the Not Found scene."
+    ],
+    "bootUrlSilent": true,
+    "href": "http://localhost:9000/#/admin/flagged",
+    "title": "Not Found — Color Picker",
+    "a5": true,
+    "a6": true
+   },
+   {
+    "requested": "admin-tags",
+    "resolvedView": "not-found",
+    "expectedLabel": "Not Found",
+    "h1": 1,
+    "h1Text": "Not Found",
+    "h1Visible": true,
+    "h1Tabindex": "-1",
+    "mainCount": 1,
+    "outline": [
+     1,
+     2
+    ],
+    "outlineOk": true,
+    "shellStatusCount": 1,
+    "shellStatusText": [
+     "Not Found. /admin/tags could not be opened — showing the Not Found scene."
+    ],
+    "bootUrlSilent": true,
+    "href": "http://localhost:9000/#/admin/tags",
+    "title": "Not Found — Color Picker",
+    "a5": true,
+    "a6": true
+   },
+   {
+    "requested": "not-found",
+    "resolvedView": "not-found",
+    "expectedLabel": "Not Found",
+    "h1": 1,
+    "h1Text": "Not Found",
+    "h1Visible": true,
+    "h1Tabindex": "-1",
+    "mainCount": 1,
+    "outline": [
+     1,
+     2
+    ],
+    "outlineOk": true,
+    "shellStatusCount": 1,
+    "shellStatusText": [
+     "Not Found. /does-not-exist could not be opened — showing the Not Found scene."
+    ],
+    "bootUrlSilent": true,
+    "href": "http://localhost:9000/#/does-not-exist",
+    "title": "Not Found — Color Picker",
+    "a5": true,
+    "a6": true
+   }
+  ]
+ },
+ "A6": {
+  "green": true,
+  "bootSilent": true,
+  "offenders": [],
+  "urlEcho": [
+   {
+    "asked": "jzazbz",
+    "shown": "Jzazbz",
+    "expected": "Jzazbz",
+    "applied": true
+   },
+   {
+    "asked": "display-p3",
+    "shown": "Display P3",
+    "expected": "Display P3",
+    "applied": true
+   },
+   {
+    "asked": "rec2020",
+    "shown": "Rec. 2020",
+    "expected": "Rec. 2020",
+    "applied": true
+   }
+  ]
+ },
+ "A7": {
+  "green": true,
+  "statusAnnounces": true,
+  "titleDistinct": true,
+  "h1Distinct": true,
+  "renderDistinct": true,
+  "mainNameTracksScene": true
+ },
+ "A2": {
+  "marksPerRoute": {
+   "picker": {
+    "marks": [
+     "overture:b0",
+     "overture:b1",
+     "overture:b3",
+     "overture:b2",
+     "overture:b4"
+    ],
+    "blob": true
+   },
+   "palettes": {
+    "marks": [
+     "overture:b0",
+     "overture:b1",
+     "overture:b3",
+     "overture:b2",
+     "overture:b4"
+    ],
+    "blob": true
+   },
+   "browse": {
+    "marks": [
+     "overture:b0",
+     "overture:b1",
+     "overture:b3",
+     "overture:b2",
+     "overture:b4"
+    ],
+    "blob": false
+   },
+   "extract": {
+    "marks": [
+     "overture:b0",
+     "overture:b1",
+     "overture:b3",
+     "overture:b2"
+    ],
+    "blob": false
+   },
+   "mix": {
+    "marks": [
+     "overture:b0",
+     "overture:b1",
+     "overture:b3",
+     "overture:b2",
+     "overture:b4"
+    ],
+    "blob": true
+   },
+   "generate": {
+    "marks": [
+     "overture:b0",
+     "overture:b1",
+     "overture:b3",
+     "overture:b2",
+     "overture:b4"
+    ],
+    "blob": false
+   },
+   "gradient": {
+    "marks": [
+     "overture:b0",
+     "overture:b1",
+     "overture:b3",
+     "overture:b2",
+     "overture:b4"
+    ],
+    "blob": false
+   },
+   "atmosphere": {
+    "marks": [
+     "overture:b0",
+     "overture:b1",
+     "overture:b3",
+     "overture:b2",
+     "overture:b4"
+    ],
+    "blob": false
+   },
+   "blob": {
+    "marks": [
+     "overture:b0",
+     "overture:b1",
+     "overture:b3",
+     "overture:b2",
+     "overture:b4"
+    ],
+    "blob": true
+   },
+   "admin-users": {
+    "marks": [
+     "overture:b0",
+     "overture:b1",
+     "overture:b3",
+     "overture:b2",
+     "overture:b4"
+    ],
+    "blob": false
+   },
+   "admin-names": {
+    "marks": [
+     "overture:b0",
+     "overture:b1",
+     "overture:b3",
+     "overture:b2",
+     "overture:b4"
+    ],
+    "blob": false
+   },
+   "admin-audit": {
+    "marks": [
+     "overture:b0",
+     "overture:b1",
+     "overture:b3",
+     "overture:b2",
+     "overture:b4"
+    ],
+    "blob": false
+   },
+   "admin-flagged": {
+    "marks": [
+     "overture:b0",
+     "overture:b1",
+     "overture:b3",
+     "overture:b2",
+     "overture:b4"
+    ],
+    "blob": false
+   },
+   "admin-tags": {
+    "marks": [
+     "overture:b0",
+     "overture:b1",
+     "overture:b3",
+     "overture:b2",
+     "overture:b4"
+    ],
+    "blob": false
+   },
+   "not-found": {
+    "marks": [
+     "overture:b0",
+     "overture:b1",
+     "overture:b3",
+     "overture:b2",
+     "overture:b4"
+    ],
+    "blob": false
+   }
+  }
+ }
+}

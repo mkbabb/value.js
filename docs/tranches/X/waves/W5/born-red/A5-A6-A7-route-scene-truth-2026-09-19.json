@@ -1,0 +1,420 @@
+{
+ "probe": "route-scene-truth",
+ "base": "http://localhost:9000",
+ "when": "2026-09-19T12:29:32.741Z",
+ "routesWalked": 15,
+ "A5": {
+  "green": false,
+  "rows": [
+   {
+    "requested": "picker",
+    "resolvedView": "picker",
+    "expectedLabel": "Home",
+    "h1": 0,
+    "h1Text": null,
+    "h1Visible": false,
+    "h1Tabindex": null,
+    "mainCount": 1,
+    "outline": [
+     3,
+     3,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     3,
+     3,
+     2,
+     3,
+     3,
+     3,
+     2,
+     3,
+     3,
+     2,
+     3,
+     3,
+     2
+    ],
+    "outlineOk": false,
+    "shellStatusCount": 0,
+    "shellStatusText": [],
+    "bootUrlSilent": false,
+    "href": "http://localhost:9000/#/?space=lab&color=lab(92%25+88.8+20+/+82.7%25)",
+    "title": "lab(92% 88.8 20 / 82.7%) — Color Picker",
+    "a5": false,
+    "a6": false
+   },
+   {
+    "requested": "palettes",
+    "resolvedView": "palettes",
+    "expectedLabel": "Palettes",
+    "h1": 0,
+    "h1Text": null,
+    "h1Visible": false,
+    "h1Tabindex": null,
+    "mainCount": 1,
+    "outline": [
+     3,
+     3
+    ],
+    "outlineOk": false,
+    "shellStatusCount": 1,
+    "shellStatusText": [
+     "· empty plate ·No saved palettes yet.Add colors above, then save the set."
+    ],
+    "bootUrlSilent": true,
+    "href": "http://localhost:9000/#/palettes",
+    "title": "Palettes — Color Picker",
+    "a5": false,
+    "a6": true
+   },
+   {
+    "requested": "browse",
+    "resolvedView": "browse",
+    "expectedLabel": "Browse",
+    "h1": 0,
+    "h1Text": null,
+    "h1Visible": false,
+    "h1Tabindex": null,
+    "mainCount": 1,
+    "outline": [
+     3,
+     3
+    ],
+    "outlineOk": false,
+    "shellStatusCount": 1,
+    "shellStatusText": [
+     "· empty plate ·No saved palettes yet.Add colors above, then save the set."
+    ],
+    "bootUrlSilent": true,
+    "href": "http://localhost:9000/#/browse",
+    "title": "Browse — Color Picker",
+    "a5": false,
+    "a6": true
+   },
+   {
+    "requested": "extract",
+    "resolvedView": "extract",
+    "expectedLabel": "Extract",
+    "h1": 0,
+    "h1Text": null,
+    "h1Visible": false,
+    "h1Tabindex": null,
+    "mainCount": 1,
+    "outline": [
+     3,
+     3
+    ],
+    "outlineOk": false,
+    "shellStatusCount": 1,
+    "shellStatusText": [
+     "· empty plate ·No saved palettes yet.Add colors above, then save the set."
+    ],
+    "bootUrlSilent": true,
+    "href": "http://localhost:9000/#/extract",
+    "title": "Extract — Color Picker",
+    "a5": false,
+    "a6": true
+   },
+   {
+    "requested": "mix",
+    "resolvedView": "mix",
+    "expectedLabel": "Mix",
+    "h1": 0,
+    "h1Text": null,
+    "h1Visible": false,
+    "h1Tabindex": null,
+    "mainCount": 1,
+    "outline": [
+     3,
+     3
+    ],
+    "outlineOk": false,
+    "shellStatusCount": 0,
+    "shellStatusText": [],
+    "bootUrlSilent": true,
+    "href": "http://localhost:9000/#/mix",
+    "title": "Mix — Color Picker",
+    "a5": false,
+    "a6": true
+   },
+   {
+    "requested": "generate",
+    "resolvedView": "generate",
+    "expectedLabel": "Generate",
+    "h1": 0,
+    "h1Text": null,
+    "h1Visible": false,
+    "h1Tabindex": null,
+    "mainCount": 1,
+    "outline": [
+     3,
+     3
+    ],
+    "outlineOk": false,
+    "shellStatusCount": 1,
+    "shellStatusText": [
+     "· empty plate ·No saved palettes yet.Add colors above, then save the set."
+    ],
+    "bootUrlSilent": true,
+    "href": "http://localhost:9000/#/generate",
+    "title": "Generate — Color Picker",
+    "a5": false,
+    "a6": true
+   },
+   {
+    "requested": "gradient",
+    "resolvedView": "gradient",
+    "expectedLabel": "Gradient",
+    "h1": 0,
+    "h1Text": null,
+    "h1Visible": false,
+    "h1Tabindex": null,
+    "mainCount": 1,
+    "outline": [
+     3,
+     3,
+     3,
+     3,
+     3
+    ],
+    "outlineOk": false,
+    "shellStatusCount": 1,
+    "shellStatusText": [
+     "· empty plate ·No saved palettes yet.Add colors above, then save the set."
+    ],
+    "bootUrlSilent": true,
+    "href": "http://localhost:9000/#/gradient",
+    "title": "Gradient — Color Picker",
+    "a5": false,
+    "a6": true
+   },
+   {
+    "requested": "atmosphere",
+    "resolvedView": "atmosphere",
+    "expectedLabel": "Atmosphere",
+    "h1": 0,
+    "h1Text": null,
+    "h1Visible": false,
+    "h1Tabindex": null,
+    "mainCount": 1,
+    "outline": [
+     3
+    ],
+    "outlineOk": false,
+    "shellStatusCount": 0,
+    "shellStatusText": [],
+    "bootUrlSilent": true,
+    "href": "http://localhost:9000/#/atmosphere",
+    "title": "Atmosphere — Color Picker",
+    "a5": false,
+    "a6": true
+   },
+   {
+    "requested": "blob",
+    "resolvedView": "blob",
+    "expectedLabel": "Blob",
+    "h1": 0,
+    "h1Text": null,
+    "h1Visible": false,
+    "h1Tabindex": null,
+    "mainCount": 1,
+    "outline": [
+     3,
+     3
+    ],
+    "outlineOk": false,
+    "shellStatusCount": 0,
+    "shellStatusText": [],
+    "bootUrlSilent": true,
+    "href": "http://localhost:9000/#/blob",
+    "title": "Blob — Color Picker",
+    "a5": false,
+    "a6": true
+   },
+   {
+    "requested": "admin-users",
+    "resolvedView": "admin-users",
+    "expectedLabel": "Users",
+    "h1": 0,
+    "h1Text": null,
+    "h1Visible": false,
+    "h1Tabindex": null,
+    "mainCount": 1,
+    "outline": [
+     3
+    ],
+    "outlineOk": false,
+    "shellStatusCount": 0,
+    "shellStatusText": [],
+    "bootUrlSilent": true,
+    "href": "http://localhost:9000/#/admin/users",
+    "title": "Not Found — Color Picker",
+    "a5": false,
+    "a6": true
+   },
+   {
+    "requested": "admin-names",
+    "resolvedView": "admin-names",
+    "expectedLabel": "Names",
+    "h1": 0,
+    "h1Text": null,
+    "h1Visible": false,
+    "h1Tabindex": null,
+    "mainCount": 1,
+    "outline": [
+     3
+    ],
+    "outlineOk": false,
+    "shellStatusCount": 0,
+    "shellStatusText": [],
+    "bootUrlSilent": true,
+    "href": "http://localhost:9000/#/admin/names",
+    "title": "Not Found — Color Picker",
+    "a5": false,
+    "a6": true
+   },
+   {
+    "requested": "admin-audit",
+    "resolvedView": "admin-audit",
+    "expectedLabel": "Audit Log",
+    "h1": 0,
+    "h1Text": null,
+    "h1Visible": false,
+    "h1Tabindex": null,
+    "mainCount": 1,
+    "outline": [
+     3
+    ],
+    "outlineOk": false,
+    "shellStatusCount": 0,
+    "shellStatusText": [],
+    "bootUrlSilent": true,
+    "href": "http://localhost:9000/#/admin/audit",
+    "title": "Not Found — Color Picker",
+    "a5": false,
+    "a6": true
+   },
+   {
+    "requested": "admin-flagged",
+    "resolvedView": "admin-flagged",
+    "expectedLabel": "Flagged",
+    "h1": 0,
+    "h1Text": null,
+    "h1Visible": false,
+    "h1Tabindex": null,
+    "mainCount": 1,
+    "outline": [
+     3
+    ],
+    "outlineOk": false,
+    "shellStatusCount": 0,
+    "shellStatusText": [],
+    "bootUrlSilent": true,
+    "href": "http://localhost:9000/#/admin/flagged",
+    "title": "Not Found — Color Picker",
+    "a5": false,
+    "a6": true
+   },
+   {
+    "requested": "admin-tags",
+    "resolvedView": "admin-tags",
+    "expectedLabel": "Tags",
+    "h1": 0,
+    "h1Text": null,
+    "h1Visible": false,
+    "h1Tabindex": null,
+    "mainCount": 1,
+    "outline": [
+     3
+    ],
+    "outlineOk": false,
+    "shellStatusCount": 0,
+    "shellStatusText": [],
+    "bootUrlSilent": true,
+    "href": "http://localhost:9000/#/admin/tags",
+    "title": "Not Found — Color Picker",
+    "a5": false,
+    "a6": true
+   },
+   {
+    "requested": "not-found",
+    "resolvedView": "not-found",
+    "expectedLabel": "Not Found",
+    "h1": 0,
+    "h1Text": null,
+    "h1Visible": false,
+    "h1Tabindex": null,
+    "mainCount": 1,
+    "outline": [
+     3
+    ],
+    "outlineOk": false,
+    "shellStatusCount": 0,
+    "shellStatusText": [],
+    "bootUrlSilent": true,
+    "href": "http://localhost:9000/#/does-not-exist",
+    "title": "Not Found — Color Picker",
+    "a5": false,
+    "a6": true
+   }
+  ]
+ },
+ "A6": {
+  "green": false,
+  "offenders": [
+   {
+    "requested": "picker",
+    "resolvedView": "picker",
+    "expectedLabel": "Home",
+    "h1": 0,
+    "h1Text": null,
+    "h1Visible": false,
+    "h1Tabindex": null,
+    "mainCount": 1,
+    "outline": [
+     3,
+     3,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     3,
+     3,
+     2,
+     3,
+     3,
+     3,
+     2,
+     3,
+     3,
+     2,
+     3,
+     3,
+     2
+    ],
+    "outlineOk": false,
+    "shellStatusCount": 0,
+    "shellStatusText": [],
+    "bootUrlSilent": false,
+    "href": "http://localhost:9000/#/?space=lab&color=lab(92%25+88.8+20+/+82.7%25)",
+    "title": "lab(92% 88.8 20 / 82.7%) — Color Picker",
+    "a5": false,
+    "a6": false
+   }
+  ]
+ },
+ "A7": {
+  "green": false,
+  "statusAnnounces": false,
+  "titleDistinct": true,
+  "h1Distinct": false,
+  "renderDistinct": true,
+  "mainNameTracksScene": false
+ }
+}
