@@ -1634,3 +1634,215 @@ canonical and the census lane are **untouched by this unit in every verb**. The 
 ⟨cmd⟩ `git diff -U0` → **`@@ -71 +71 @@`** (one row, replaced in place) ⊕ **`@@ -399,0 +400,2 @@`**
 (the appended event line) — no other seat's row was read for write, and the file's row count is
 unchanged at **399 → 399** before the append.
+
+---
+
+## Close
+
+**CLOSE SEAT — VERIFY-ONLY, cures nothing.** `claude-opus-5[1m]`, 2026-09-19, Track C · X·F.
+Every reading below was **re-run at this seat**, not inherited from a unit receipt; where a unit's
+grade and this seat's measurement disagree, the measurement governs and the divergence is named.
+
+**CRASH-RECOVERY (standing law), performed first.** ⟨cmd⟩ `git status --porcelain` in
+`/Users/mkbabb/Programming/fourier-analysis` → **`?? .worktrees/`** alone (three sibling F.W3
+checkouts, `git worktree list`-confirmed — not a path this seat claims). In value.js → three dirty
+rows, **none in this seat's writable set**: `docs/tranches/V/reformation/CARRY-LEDGER.md` ·
+`docs/tranches/X/parse-that/SEAM-CONTRACT.md` (both sibling seats') and `scripts/dev/dev.sh`
+(unowned, standing-dirty, **NEVER touched**). **Zero killed-predecessor bytes inherited; nothing
+stashed, restored or reverted.**
+
+### Close.1 ACT 1 — the commit roster, verified to exist and audited for bounds
+
+**All 20 fourier commits and all 10 value.js commits resolve.** ⟨cmd⟩ `git log -1 --format=…` over
+each sha returned a commit; ⟨cmd⟩ `git show --stat` over each returned its paths.
+
+**Fourier — the union of every path the 20 commits touch, sorted unique: 30 paths.**
+
+```
+.github/workflows/ci.yml · api/Dockerfile · docker-compose.prod.yml · scripts/deploy-hook.sh ·
+scripts/pages-deploy.sh · web/.dockerignore · web/Dockerfile · web/package.json ·
+web/playwright.config.ts · web/vitest.config.ts · web/e2e/.gitignore ·
+web/e2e/{coarse-pointer,equation-interaction,fullscreen,gallery,gallery-admin-a11y,
+paper-performance,paper-search,shell-header,visual-checkpoint,workspace-flow}.spec.ts ·
+web/e2e/fixtures/gallery.ts · web/e2e/unit/{figure-set-equality,unit-floor-population}.vitest.ts ·
+web/e2e/visual-checkpoint.spec.ts-snapshots/*.png (6)
+```
+
+⟨cmd⟩ over that union `| grep -cE '^web/src/|^docs/tranches/M/|deploy-pages\.yml|dev\.sh'` →
+**0**. **No product source, no M board, no `deploy-pages.yml` (READ-only per §1b), no `dev.sh`.**
+
+**value.js — exactly three paths across all ten commits**: `docs/tranches/V/coordination/INBOX.md` ·
+`docs/tranches/X/execution/C/F-W9.md` · `docs/tranches/X/execution/LEDGER.md`. **E-3 held as an
+absence** — ⟨cmd⟩ `git diff --name-only 16c9bd5d..HEAD -- <path>` prints **0** for every one of
+`F-W9.md` (the dated spec) · `F-W10.md` (the twin) · `registry/adjudicated/` (the 66 frozen
+records) · `fourier/conformance/` (the pinned canonical) · `formation/fourier/` (the census lane).
+⟨cmd⟩ `git log --name-only … | grep -c 'dev.sh'` → **0**.
+
+**Append-purity, by numstat rather than by claim.** The record: `9528c832` **+332/-0** ·
+`fd1e1354` **+478/-0** · `6ab70928` **+25/-0** · `415c9a3a` **+531/-0** · `5ea5f23c` **+25/-0** —
+**five pure appends, zero deletions, no unit rewrote another's bytes.** `INBOX.md`: `16c9bd5d`
+**+2/-0** · `6bd57410` **+19/-0** — **append-only held.** `LEDGER.md`: `16c9bd5d` **+3/-1** ·
+`c3b7f831` **+3/-1** · `d602088a` **+1/-1** · `70ef1063` **+1/-1** — **one row replaced in place
+plus appended event lines, never a rewrite of the file.**
+
+### Close.2 LANDED WRONG — reported, not fixed (VERIFY-ONLY)
+
+Four findings. **None is cured here**; each names its owner.
+
+| # | finding | evidence | owner |
+|---|---|---|---|
+| **LW-1** | **`equation-interaction.spec.ts:140`'s locator is defective in F.W9's own authored spec.** `getByLabel(/Display terms/i)` resolves to **3 elements** — the `inline-number` spinbutton, the slider host `<span aria-label="Display terms">`, and the `role="slider"` thumb — a Playwright **strict mode violation**. G-F9-6's instrument therefore does not run at all | CI run `35445782153`, failure **4)** `e2e/equation-interaction.spec.ts:77:5`, ×3 with retries: *"strict mode violation: getByLabel(/Display terms/i) resolved to 3 elements"* | **`web/e2e/**` — whichever seat next opens it.** Landed by `5b74d3f` (unit `b`). Disclosed at **R-c4**, but as an *escalation discharge* rather than as a defect in landed work, which is what it is |
+| **LW-2** | **`fullscreen.spec.ts:63`'s dialog assertion fails in F.W9's own authored spec.** G-F9-11's instrument does not run | CI run `35445782153`, failure **5)** `e2e/fullscreen.spec.ts:40:5`, ×3 (21.4s / 31.4s / 21.3s), failing at `:63` then `:83` | **`web/e2e/**`.** Landed by `2b42f28` (unit `b`) |
+| **LW-3** | **The G-F9-23 checkpoint baselines are `-darwin` only, so the instrument reddens on every CI platform.** Six baselines committed, six checkpoint specs fail in CI | ⟨cmd⟩ `ls web/e2e/visual-checkpoint.spec.ts-snapshots/` → six `*-chromium-darwin.png`; CI failures **10)–14)** (chromium) ⊕ **17)** (mobile-chromium) | **A CI-capable seat** must mint the `-linux` set. Landed by `ca64bef` (unit `b`); disclosed as **E-F9b-3** |
+| **LW-4** | **Verb overrun at four §1b rows.** Unit `a` **wrote** four paths whose §1b **Act** column declares **AUDIT**, not MODIFY: `api/Dockerfile` (`1b4eb0b`, +13) · `web/Dockerfile` (`1b4eb0b` +10, `4f213e4` +10/-2) · `docker-compose.prod.yml` (`1b4eb0b` +26/-…, `e111220` +34) · `web/.dockerignore` (**deleted**, `c5b7600`). Every path **is inside §1b's table** and inside the record's own §Unit-plan writable set for unit `a`, so this is a **verb overrun, not a bounds escape** — but the spec licensed an audit and a write was taken | §1b rows *"`web/Dockerfile` · `web/.dockerignore` · `api/Dockerfile` \| AUDIT"* and *"`docker-compose.yml` · `docker-compose.prod.yml` \| AUDIT"*; ⟨cmd⟩ `git show --stat` over the four commits | **Recorded for F.W10 / the wave-boundary seat.** Mitigation of record: G-F9-19's own falsifier (*"the two nginx authorities reconciled to one"*) and M.W2's idiomatic form both **require** writes to AUDIT-verb rows, so the spec's verb column is under-specified against its own gate — which is the finding, stated rather than resolved |
+
+⊘ **Not landed wrong, recorded so absence is visible**: `web/eslint.config.js` carries a §1b
+**CREATE** and was **read, not written** (its two named rules already carry F.W4's gate);
+`web/src/lib/figureDimensions.ts` (§1b MODIFY) was touched only by unit `b`'s reverted seeded
+falsification and is clean; `nginx/fourier.conf`, `infra/apache/*.template`, `docker-compose.yml`
+and `docs/tranches/M/PROGRESS.md` were **never opened for write**. `CENSUS-ADDENDUM-2026-08-25.md`
+(§1a row 2) **does not exist and was not created** — **E-F9-2**.
+
+### Close.3 ACT 2 — every §3 gate re-run at this seat, against the spec's own GREEN definition
+
+`BEFORE` is the spec's born-RED witness at fourier `1b46465`. `AFTER` is this seat's own
+double-run reading at HEAD `a6f50c8`, 2026-09-19. **⊘ marks the one grade this close CHANGES.**
+
+| gate | BEFORE (spec's born-RED) | AFTER (re-run at this seat) | close verdict |
+|---|---|---|---|
+| **G-F9-1** unit harness runs in CI | scripts `dev,build,preview,test:e2e,test:e2e:ui`; `devDependencies.vitest` **undefined**; no `vitest.config`; 0 unit files | `"test": "vitest run"` · `vitest 5.0.1` in devDeps · `vitest.config.ts` present · ⟨cmd⟩ `npm test` → **13 files / 84 tests passed** (double-run **13 / 84**); CI step *"Unit floor"* concluded **success** at run `35445782153` | **GREEN** |
+| **G-F9-2** a lint floor exists and **fails** on a violation | `ls web/ \| grep -iE 'eslint\|oxlint\|biome'` → 0; no `lint` script | `eslint.config.js` present; `"lint": "eslint src"`; ⟨cmd⟩ `npm run lint` → **exit 1** (double-run **1 · 1**), 3 `no-duplicate-imports` errors; ⟨cmd⟩ `npx oxlint@1.42.0 --deny-warnings src e2e vite.config.ts playwright.config.ts` → **7 warnings, exit 1**; over `e2e` alone → **0 warnings, exit 0**. Both wired blocking in `ci.yml`; ⟨cmd⟩ `grep -n '^\s*continue-on-error:' ci.yml` → **∅** | **GREEN** (instrument falsifiable; tree born-RED, roster published on the step's face) |
+| **G-F9-3** admin tab entered by ≥1 spec, **with an axe pass** | `grep -rln "admin" web/e2e/` → **0 files** | entry **GREEN** — ⟨cmd⟩ same probe → **5 files**. The **axe pass is RED**: CI failures **6)–9)**, all four `gallery-admin-a11y.spec.ts` seats (`:91 · :103 · :114 · :125`), ×3 each, on `[serious] aria-hidden-focus` at glass-ui 8.0.0's `Metric` tile | **honest-RED** — producer row, **SS-6** (E-F9b-2) |
+| **G-F9-4** axe runs on `/paper` | `/paper` navigated, **zero assertions on any `paper-search*` selector, zero axe on the route** | `paper-search.spec.ts` lands (`4a5ffdb`, 137 lines) with `/paper` goto at `:48`; **neither `paper-search.spec.ts` nor the `/paper` keystone appears among CI's 17 failures**; M2 lock held (no `.sidebar-top-btn` selector) | **GREEN** |
+| **G-F9-5** axe runs on `/equation` | `@axe-core/playwright` never pointed at the route | ⊘ **RE-GRADED.** The artifact exists — but its **sole covering exercise FAILS**: CI failure **15)**, `visualization-ux.spec.ts:286` *"keystone: /equation is a11y-clean"*, ×3, on `Error: axe-core serious/critical violations at "/equation" (whole document): • [serious] color-contrast … 1 node(s)` (3.46:1, `#8b7257` on `#e9e0d7`, 11px, expected 4.5:1). Unit `b`'s local green is real and is **not** re-graded away; it is **not reproducible in the covering run** | **honest-RED — CONTESTED.** A gate whose only covering witness is red cannot close green (*"a green must be cited, never asserted"*). Cure is a **token/`web/src` contrast act** F.W9 does not own — the same family CI reddens at `contrast-floor.spec.ts` (19 of 38 light-arm pairs). **Owner: F.W4's contrast floor / the token seat** |
+| **G-F9-6** `/equation` carries ≥1 behavioural assertion | one hit, `visual-baseline.spec.ts:34`, an assertion-free screenshot slug | the ONE interaction spec exists (`5b74d3f`, 180 lines, compute → notation → budget → reload). It **RUNS and FAILS** — **LW-1** | **honest-RED** — now **RUN and RED**, not "authored, not run" |
+| **G-F9-7** no gate in the suite is vacuous | `:19-22` `.or()` mask · `:49-53` unreachable `.glass-dock` branch · `:57-63` · `:66-82` whole bodies inside `isVisible()` | every guard asserts its precondition EXISTS; the dead dock branch **deleted**; the `.glass-dock` locator survives only at `:241`, on the route that actually mounts one. `gallery.spec.ts` is **not** among CI's 17 failures | **GREEN** |
+| **G-F9-8** no axe keystone is `test.fixme` on a stale premise | 4 keystones + a 5th call site, coordinates drifted | ⟨cmd⟩ `grep -rn "test.fixme" web/e2e/` → **five call sites, unchanged**: `ux:151` · `ux:178` · `ux:249` · `crud:664` (the four keystones) ⊕ `ux:371` (the carved fifth, `web/e2e/visualization-ux.spec.ts:369` *"Un-skip at W3"*). **The un-fixme was not performed** | **honest-RED**, relief cited — *"The un-fixme is F.W3/W4's cure, not F.W9's"* (spec's own falsifier column). **E-F9b-1** |
+| **G-F9-9** a gallery card / modal is opened | `modal\|dialog\|card\|Open Visualizer` → **0** | ⟨cmd⟩ same probe over `gallery.spec.ts` → **16**; a card is opened by role-name and the modal asserted by accessible name; not among CI's failures | **GREEN** |
+| **G-F9-10** the console guard is not blind to warnings | guard filtered `error` only | `gallery.spec.ts:188` reads `const type = msg.type();` with the widened classification replacing the error-only filter (`d3fab17`); not among CI's failures | **GREEN** |
+| **G-F9-11** fullscreen is exercised | the only "Fullscreen" hit is a **comment** at `gallery.spec.ts:113` | `fullscreen.spec.ts` lands and asserts against the teleported root (`page.getByRole("dialog", …)` at `:62`, portal assertion at `:72`). It **RUNS and FAILS** — **LW-2** | **honest-RED** — now **RUN and RED** |
+| **G-F9-12** the shell header's nav / logo / toggle are exercised | no e2e touches them; `paper-performance.spec.ts:328` locates DarkModeToggle by a light-state-only label | `shell-header.spec.ts` lands (`2b42f28`, 124 lines) asserting logo, nav and toggle; **N-2's cure half landed** — `DarkModeToggle.vue:27-28` reads `aria-label="Dark mode"` ⊕ `:aria-pressed="isDark"`, and the spec-side locator moved in the same landing. Not among CI's failures | **GREEN** |
+| **G-F9-13** the matrix carries a mobile/coarse project | `playwright.config.ts` declared exactly **one** project | ⟨cmd⟩ `grep -n "name:" playwright.config.ts` → **`chromium` `:64`** ⊕ **`mobile-chromium` `:107`**; ⟨cmd⟩ `npx playwright test --list` → **107 tests in 18 files**, `--project=mobile-chromium` → **5 tests in 2 files**; the project **ran in CI** | **GREEN** (matrix). Its witnesses are born-RED and routed: `coarse-pointer.spec.ts:105` fails on the 44px floor — **E-F9b-4**, `web/src` cure. **Discharges no Safari cell** |
+| **G-F9-14** the figure set-equality invariant is asserted at build time | `TRANSCODED_FIGURES` assigned once, **no generator, manifest, CI or e2e anywhere** | `figure-set-equality.vitest.ts` (`3440510`, 164 lines) runs inside the blocking floor — **4 tests, passing** in this seat's `npm test`; `resolveFigure` relocated to `src/lib/figureDimensions.ts:108` beside `FIGURE_DIMENSIONS`; CI's unit-floor step **success** | **GREEN** |
+| **G-F9-15** the deploy-of-record is current; no silent rollback | the chronic; host SHA unmeasurable, M.W2/3/4 `planned` | **RE-MEASURED LIVE at this seat.** The two arms serve **different entry chunks** — ⟨cmd⟩ `curl -s https://fourier.babb.dev/` → `/assets/index-BI13Q2EH.js`; ⟨cmd⟩ `curl -sk https://api.fourier.babb.dev/…` → `/assets/index-YfdYiI2C.js`; the local build is a third (`index-D59ayjJk.js`). **The host is behind.** The mechanism reproduces: ⟨cmd⟩ `openssl s_client -connect api.fourier.babb.dev:443 … \| openssl x509 -noout -dates` → **`notAfter=Aug 26 00:12:07 2026 GMT`**, SANs `api.color.babb.dev, api.fourier.babb.dev, api.sudoku.babb.dev, deploy.babb.dev, fourier.babb.dev, sudoku.babb.dev, words.babb.dev`; ⟨cmd⟩ `curl https://api.fourier.babb.dev/api/health` → **exit 60** (cert problem), with `-k` → `{"status":"ok"}`. The instruments landed (`1b4eb0b` readiness≠liveness · `b72170b` loud-and-blocking rollback + inv-31 · `ceb7ee6` inv-25) | **honest-RED.** First clause **FALSE at the bytes**; the cure is an **OPERATOR ACT** outside every writable set — **E-F9a-1**, relayed as **F.W9-P3** |
+| **G-F9-16** the API deploy path is fail-closed on a same-SHA green CI run (inv-28) | ⟨cmd⟩ `grep -c 'conclusion\|workflow_run\|gh run\|inv-28' scripts/deploy-hook.sh` → **0** | ⟨cmd⟩ same probe → **15 · 15** (double-run); at the banked baseline ⟨cmd⟩ `git show 1b46465:scripts/deploy-hook.sh \| grep -c …` → **0**, so BEFORE→AFTER is measured, not asserted. Guard mirrors `deploy-pages.yml:48-57` (never edited); exercised three ways against the live repo — green SHA **ADMITTED** citing run `26789704503`, `origin/master` tip **REFUSED** on its `failure` run `26913592291`, unknown SHA **REFUSED** | **GREEN**, adoption stated: the gate is measured at the tracked deploy path, exactly where its born-RED witness was. Host adoption waits on **E-F9a-1**, not on this cure |
+| **G-F9-17** every claimed-green cites a covering green run id (inv-27) | M.W11 `planned`; no run id on record | instrument landed (`a6f50c8`, +126 lines) and **exercised, not predicted**: ⟨cmd⟩ `gh run list --branch m/w1-bump-migration` → exactly one run, **`35445782153` @ `a6f50c8`**, conclusion **failure**; ⟨cmd⟩ job sweep → `api/tests` **success** · `web (vue-tsc + vite build)` **failure** at step `Type-check` · `e2e` **failure** (17 failed / 80 passed) · **`inv-27 evidence` SKIPPED**. Blocker reproduced locally — ⟨cmd⟩ `npx vue-tsc -b` → `src/components/visualization/ContourEditorCanvas.vue(42,9): error TS6133: 'dragging' is declared but its value is never read.` | **honest-RED.** Fail-closed **measured in production**; that is the gate working, not the gate green. **No covering green run exists, so not one F-side green carries a run id** — the record's own binding table publishes **OWED** in every row. Blocker is a `web/src/**` byte F.W9 does not own — **E-F9-3** |
+| **G-F9-18** CWV/INP evidence exists and is attributable | no LCP/TBT trace exists; order-locked behind F.W4's prune | baseline published **stated-invalid with its invalidity measured**, and the invalidity reproduces here: ⟨cmd⟩ `grep -n 'sun.json' src/components/layout/DarkModeToggle.vue` → **`:89` `import sunData from "@/assets/fourier-paths/sun.json"`** ⊕ `:90` moon — **F.W4's prune did not land**; ⟨cmd⟩ `ls -l dist/assets/index-*.js` → **487,267 B** entry chunk, ~86 % numeric-literal bytes | **honest-RED.** The gate's *second* disjunct (a baseline published with its invalidity on its face) is discharged; §4a-15's run-id citation is **owed to G-F9-17** and cannot be paid while no green run exists |
+| **G-F9-19** containerization fidelity audited **as-running** | two nginx authorities coexist; image cannot build from `web/` alone; prod overlay *declares* hardening | as-running over the **reachable** surface only. **The core leg is unperformable**: ⟨cmd⟩ `docker ps` → *"Cannot connect to the Docker daemon at unix:///Users/mkbabb/.docker/run/docker.sock"*; ⟨cmd⟩ `host api.fourier.babb.dev` → `34.197.214.67`, ⟨cmd⟩ `grep -c '34.197.214.67' ~/.ssh/config` → **0**; ⟨cmd⟩ `command -v nginx` → **∅** (no `nginx -t`). The **two authorities still coexist** — ⟨cmd⟩ `wc -l nginx/fourier.conf` → **72** ⊕ `web/Dockerfile:42` `RUN printf 'server {…'`. Two real defects were cured (`4f213e4` duplicated `Cache-Control`; `c5b7600` dead `.dockerignore`) and three residuals given explicit verdicts (`e111220`) | **honest-RED.** Container-runtime claims left **verified-as-DECLARED**, never dressed as as-running — **E-F9a-4** (needs host access or a staging bring-up) ⊕ **E-F9a-5** (the collapse needs a bounds widening *and* a verification capability together) |
+| **G-F9-20** every evidence artifact cites a committed SHA on a parsing substrate | glass-ui 4.0.0 dist syntactically corrupt (35 nodes, **0** valid `@source`, a garbage at-rule); GAB-13 worktree 28 rows; F8-REACH ×2 un-dispositioned | at the **8.0.0** pin ⟨cmd⟩ `postcss.parse(dist/styles/index.css)` → **top 40 · atrule 40 · `@source` 1 · garbage 0** (double-run) — FR-NP-32 ≡ M1 **cured by the pin move**; ⟨cmd⟩ `git -C fourier status --porcelain \| wc -l` → **1**, and that row is *untracked* `.worktrees/`, so **audited tree ≡ committed tree**; F8-REACH-01/02 **DELETED at F.W0 `5842377`** per §0j.D **G-10** (⟨cmd⟩ `grep -rn 'InfoCard.vue\|CanvasOverlayButton.vue' web/src` → **0**) | **GREEN.** Its witness is a **static re-derivation over committed bytes**, so its committed SHA is its citation (record §c.6's stated rule, applied unchanged) |
+| **G-F9-21** the re-cut table is identical in both specs, Δ=∅ both directions | 8 paired obligations outstanding | **every figure reproduces at this seat**: Δ region 1 ⟨cmd⟩ `diff <(awk …) <(awk …) \| wc -l` → **0** over a **26**-line region; Δ region 2 → **0** over **18** lines; band token → **54** spellings / **25** records / **66** files; roster ⟨cmd⟩ `grep -o '^### F\.W9 — \*\*16 rows\*\*'` → matched, **15** records / **16** ids, ⟨cmd⟩ `shasum -a 256 "$C" \| cut -c1-12` → **`f44362757458`**; P-census ⟨cmd⟩ **9 rows / 8 OUTSTANDING**. **Not one byte written at either end** | **honest-RED on all eight, by construction.** The cure needs P-1 · P-2 · P-4..P-9 in ONE commit with a twin that §1c makes **READ-ONLY** — **E-F9-1**, a wave-boundary authorization, not an F.W9 cure |
+| **G-F9-22** the axe close-gate is honest about the FR-TT-1 promotion | 17 icon-only triggers named only by the only-while-open shim | **the promotion lock's precondition is CLOSED** — re-measured here: `EditorControlsDock.vue` **13** `aria-label` over **9** `<Tooltip>`, `CanvasControlsDock.vue` **8** over **6**, `FunctionInput.vue:240` names the Wand2 trigger. F.W4's naming cure landed. The gate's **other** clause is RED: the close axe run covers `/paper` **GREEN**, `/equation` **RED** (G-F9-5's contest), admin **RED** (producer) | **honest-RED** — measured, **not argued green and not waived** |
+| **G-F9-23** the F.W1 checkpoint set has an instrument that **compares** | ⟨cmd⟩ `grep -c toHaveScreenshot web/e2e/*.spec.ts` → **0 in all 8**; **no `*-snapshots` dir tree-wide** | ⟨cmd⟩ same probe → **`visual-checkpoint.spec.ts:8`**; ⟨cmd⟩ `find web -name '*-snapshots' -type d` → **`web/e2e/visual-checkpoint.spec.ts-snapshots`** with **6** baselines. The instrument **compares**; it does not yet **pass** anywhere but darwin — six of six checkpoint specs fail in CI | **honest-RED** on §4a-16's structurally-unobtainable *before* leg **and** on **LW-3**'s darwin-only baselines |
+
+**CLOSE TALLY: 11 GREEN · 12 honest-RED.** ⊘ **This is ONE GREEN FEWER than the units stamped and
+than the LEDGER row carried**, and the single delta is **G-F9-5**, re-graded here from GREEN to
+honest-RED-CONTESTED. The units' own bytes made the re-grade available and did not take it:
+**R-c1** records the divergence and says *"this seat re-graded neither"*, and **c.2**'s binding
+table already reads **OWED, and CONTESTED** for that row. A close that leaves a gate green on a
+local reading its own covering run contradicts is green-by-assertion — the one thing the wave's
+goal criterion forbids by name. **Not one RED is masked, skipped, allowlisted or argued green**;
+every one names the wave, producer or owner that holds its cure.
+
+### Close.4 ACT 3 — the §Close act's own conditions, run as written
+
+`F-W9.md` has **no §Verification Artefacts heading** (⟨cmd⟩ `grep -n '^## §'` → §1 · §2 · §3 · §4 ·
+§5 only, over 557 lines); its terminal instrument is the **Close act** at `:553`. Run as written:
+
+| condition (spec's own words) | reading |
+|---|---|
+| *"When **G-F9-1..23** are GREEN"* | **UNMET — 11 of 23.** The stamp this clause licenses is therefore not available to this wave |
+| *"each citing a covering run id and a committed SHA (inv-27; R3-9)"* | **UNMET for every green without exception.** No covering green run exists (G-F9-17); the record's c.2 table publishes **OWED** in all eleven rows rather than manufacturing a citation |
+| *"none re-deriving its own oracle"* | **MET.** The `inv-27-evidence` job reads every gating job's conclusion from GitHub's own context; ⟨cmd⟩ `grep -n '^\s*continue-on-error:' ci.yml` → **∅** |
+| *"hands its terminal records to F.W10"* | **MET** — this record is terminal and F.W10-addressable; **VERIFIED is F.W10's, never this one's** |
+| *"files the §4.10 census-addendum record"* | **NOT TAKEN — E-F9-2.** `CENSUS-ADDENDUM-2026-08-25.md` does not exist and its **CREATE is F.W10's** by both twins' bytes; the carve is authored whole at `c.7`, ready for splice |
+| *"plus the E13 INBOX rows"* | **MET** — `6bd57410`, **+19/-0**, append-only |
+| *"E13: no close with UNREAD mail"* | **MET** — see Close.5 |
+| *"L-18 still applies"* | **STANDING** — no wave is ACCEPTED until two quartet gestalt passes adjudicated by a fresh Fable instance. Not this seat's act |
+
+### Close.5 ACT 4 — the E13 sweep, re-run at close
+
+Four landing paths ⊕ the Track-C fourier surface (COHESION §0k.1), swept read-only at this seat's
+own clock, `INBOX.md` **self-excluded** (SELF-COUNT law), classification taken from each row's
+status cell **by position** and never from a bare `grep -i unread` (X.P.W0 CHECK 1 **D-1**).
+
+⟨cmd⟩ `grep -cE '^\| [IO]-[0-9]+ \|' INBOX.md` → **76**; the wider `[a-z]?` form → **80**. Both
+published so neither reads as the other. ⟨cmd⟩ the naive `/UNREAD/` probe returns **6** rows —
+**and all six are false positives**, each one the word appearing inside prose in a status cell
+whose actual disposition is terminal: **O-20** `**SENT** 2026-08-28` (its text *mentions* two
+unread glass letters) · **I-30** `Routing…` · **I-31** `Routing…` · **I-32** `Routing…` ·
+**I-35** `READ + CONSUMED WHOLE` (its text quotes *"Was: UNREAD 2026-09-18"*) · **O-39**
+`**SENT** 2026-09-19 … **UNANSWERED** as of this row` (a letter does not owe a letter back).
+**This is exactly the D-1 defect the law names, and it is why the probe is positional.**
+
+The five paths: (1) `docs/tranches/V/` + `V/coordination/` — newest non-self are the five
+2026-09-18 `value-4.1` letters, **ours and rowed** (O-34..O-38). (2) `../glass-ui/docs/tranches/BK/
+coordination/` — newest `glass-outbound-2026-09-18-valuejs-o26-reply.md` = **I-35**, *"READ +
+CONSUMED WHOLE"*, **UNMOVED**. (3) `../keyframes.js/docs/tranches/V/coordination/` — newest
+value-addressed file is our own outbound. (4) `../sci-report/atlas/docs/tranches/P/coordination/` —
+unmoved since 2026-07-27. (5) `../fourier-analysis/docs/tranches/F/coordination/` — the ledger plus
+the three 2026-05-29 letters, **all TRIAGED AT CREATION** by F.W0 unit *b* under G-3.
+
+**Result: 0 unrowed · 0 UNREAD in F.W9's scope · 0 new `I-n`/`O-n` minted by this seat.** The band
+terminates unmoved at **I-35 / O-40**. **X.F.W9 closes with no UNREAD mail in scope.**
+
+### Close.6 Commit roster (30), as verified
+
+**fourier (20)**, all resolving, all pathspec-scoped, none touching `web/src/**`, the M board,
+`deploy-pages.yml` or `dev.sh`:
+
+| unit | commits |
+|---|---|
+| **`.a`** the deploy spine (7) | `1b4eb0b` M.W2 · `e5c435d` M.W3 · `b72170b` M.W4 · `ceb7ee6` inv-25 · `4f213e4` one `Cache-Control` · `c5b7600` dead `.dockerignore` deleted · `e111220` three residual verdicts |
+| **`.b`** seats + harness + floor (12) | `8fd35a9` the unit FLOOR · `019fb90` the lint floor able to fail · `3913738` ⊕ `160f7f3` the coarse cell · `5256126` un-vacuated S4 + a card opened · `d3fab17` the console guard widened · `214cb5e` the fixtures · `2b42f28` fullscreen + shell header · `5b74d3f` the `/equation` seat · `4a5ffdb` `paper-search` · `3440510` set-equality · `ca64bef` the comparing checkpoint |
+| **`.c`** the evidence floor (1) | `a6f50c8` inv-27 emits a covering run id and mints a record only for a green run |
+
+**value.js (10)**, exactly three paths across all of them: `16c9bd5d` (open) · `9528c832` (`.a`) ·
+`fd1e1354` ⊕ `6ab70928` (`.b`) · `6bd57410` (INBOX) · `415c9a3a` ⊕ `5ea5f23c` (`.c` receipt + its
+settled-sha addendum) · `c3b7f831` ⊕ `d602088a` ⊕ `70ef1063` (the stamp and its two self-count
+corrections) ⊕ **this close**, which by the `NR!=505` self-exclusion idiom cannot appear inside the
+cell that publishes it.
+
+### Close.7 Residuals, each with a named owner
+
+| id | residual | owner |
+|---|---|---|
+| **E-F9-1** | G-F9-21's eight paired obligations (**P-1 · P-2 · P-4..P-9**) must land in ONE commit with a twin §1c makes READ-ONLY | **The wave boundary** — F.W10's open, or an owner grant naming F.W9 author of both ends |
+| **E-F9-2** | the §4.10 carve's home `CENSUS-ADDENDUM-2026-08-25.md` does not exist; its CREATE is F.W10's | **F.W10** (carve authored whole at `c.7`, ready for splice) |
+| **E-F9-3** | no covering green CI run; blocker is `ContourEditorCanvas.vue(42,9) TS6133` | **Whichever wave next opens `web/src/components/visualization/`** |
+| **E-F9a-1** ⊕ **E-F9a-2** ⊕ **E-F9a-3** | the shared LE cert expired 2026-08-26 (re-measured here); once renewed the inv-28 guard will **correctly refuse** master; `FOURIER_DEPLOY_ALERT_WEBHOOK` must be set in the host's untracked `hooks.json` | **OPERATOR** (certbot + apache reload) — constellation-wide, touches `api.color.babb.dev`. Relayed **F.W9-P3** |
+| **E-F9a-4** ⊕ **E-F9a-5** | `docker inspect` unperformable from any seat here; the two nginx authorities disposed but **not collapsed** | **A seat with host access or a staging bring-up**, plus a bounds widening |
+| **E-F9a-6** | host-Apache and docker-nginx both stamp three security headers, measured doubled | **Constellation relay** — `F.W9-P2` (the template also instantiates value.js's own `api.color.babb.dev`) |
+| **E-F9a-7** | `docs/tranches/M/PROGRESS.md` still reads M.W2/W3/W4 `planned` | **fourier's own sub-session** (ASK-ONLY, COMMISSION §2) — relayed **F.W9-P4** |
+| **E-F9b-1** | four `test.fixme` keystones un-un-fixme'd | **F.W3/W4**, on a measurement with the full stack, never a prediction |
+| **E-F9b-2** | `[serious] aria-hidden-focus` ×2 on glass-ui 8.0.0's `Metric` tile, CI-confirmed | **PRODUCER → SS-6**, relayed **F.W9-P1** |
+| **E-F9b-4** | two shell-header controls below the 44px coarse floor (20.8px · 40.0px), CI-confirmed | **`web/src`** — whichever wave next opens those components |
+| **E-F9b-5** | seven `oxlint --deny-warnings` findings in `web/src/**`, enumerated on the CI step's face | **Routed by path**; no rule disabled, no allowlist |
+| **E-F9b-7** | one `vue-tsc` TS6133 ⊕ three `no-duplicate-imports` errors, all `web/src/**` | **Routed**, not cured — F.W9 owns no cure |
+| **LW-1 · LW-2 · LW-3** | F.W9's own e2e surface: a strict-mode locator, a failing fullscreen assertion, darwin-only baselines | **Whichever seat next opens `web/e2e/**`**; LW-3 needs a CI-capable seat |
+| **LW-4** | four §1b AUDIT-verb rows written | **F.W10 / the boundary seat** — the spec's verb column is under-specified against its own G-F9-19 falsifier |
+| **R-c1** | the G-F9-5 CI-vs-local divergence — **resolved at this close in CI's favour**, since CI is the covering exercise | **F.W4's contrast floor / the token seat** |
+| **R-c2** | P-1's settling authority (G-12's **8**) is itself dated against a measured **18** | **The paired edit**, carrying both facts in one pass |
+| **R-c3** | G-F9-21's round-5 re-pin `a450b8e9f80e` returns **0**; the measured digest is `f44362757458`. Re-confirmed here | **Recorded beside under E-3**; the dated spec is not patched |
+
+### Close.8 The four-verb line
+
+**AUDITED YES** (registry-adjudicated) · **SPECIFIED YES** (by `F-W9.md`) ·
+**IMPLEMENTED — NO, UNMOVED, by the §Close act's own condition** · **VERIFIED NO**.
+
+The spec moves IMPLEMENTED on one condition and it is stated in the file: *"When **G-F9-1..23** are
+GREEN — each citing a covering run id and a committed SHA (inv-27; R3-9) … F.W9 stamps
+IMPLEMENTED."* **11 of 23 are green and not one of the eleven carries a covering run id**, because
+no green run exists to carry. The condition is unmet on both limbs, so the verb does not move and
+this close does not move it. **VERIFIED is F.W10's close to stamp, never this one's** — untouched.
+
+**What DID land is not diminished by the verb staying put**, and the LEDGER row says so at length:
+the deploy spine executed end to end, the coverage void was authored once-each-cited-many
+(12 → 18 specs · 0 → 8 `toHaveScreenshot` · 8 → 13 unit files · 57 → 84 unit tests · a coarse cell
+that CI invokes), and the evidence floor was **exercised in production** rather than predicted.
+**LEDGER status is corrected at this close from `IMPLEMENTED` to `PARTIAL`** — the LEDGER's own
+vocabulary reserves `IMPLEMENTED` for *"every unit's commits landed; close record written"*, which
+is satisfied in the letter, but publishing that token beside a four-verb line that reads
+IMPLEMENTED **NO** would put the resume point at odds with the wave's own stamp. **PARTIAL names
+what remains**, which is what a crash-survival ledger is for.
+
+**CLOSE VERDICT: PARTIAL.**
