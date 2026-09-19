@@ -318,3 +318,231 @@ pair"*). **No unit is dispatched while the wave is blocked.**
 ## Unit receipts
 
 *(empty — no unit was dispatched; the wave is BLOCKED-ON `X.P.W3 IMPLEMENTED`.)*
+
+---
+
+## RESUME 2026-09-19 (SECOND OPEN ATTEMPT) — THE THREE SEALS MOVED; ONE CONJUNCT TURNED GREEN; TWO REMAIN RED; THE WAVE STAYS BLOCKED
+
+**SERVED MODEL: claude-opus-5[1m]** — SEAT 0 (OPEN), VERIFY-AND-BANK only, a **different seat** from
+the first attempt above. That attempt's every measurement is preserved **verbatim** (E-3): it was
+taken at value.js `f0475542` / `<p2>` `44c6583`, **before** X.P.W3's round 7 (`.l` `92ed4cc` · `.m`
+`b07e32d`) re-emitted the three OP-2 seals. This sitting re-reads them at their new bytes and
+re-runs all ten gates at its own clock; **nothing is inherited**.
+
+**Sitting of record: 2026-09-17** (the owner's begin-word, COHESION §0j). Wall clock 2026-09-19.
+
+**Substrate, named and measured, never assumed**: value.js `/Users/mkbabb/Programming/value.js`,
+branch `tranche-u` — ⟨cmd⟩ `git log --oneline -1` → **`8617f4b5`**. Fresh writer root `<p2>` =
+`/Users/mkbabb/Programming/parse-that-css-totality-p2` — ⟨cmd⟩ `git -C <p2> log --oneline -1` →
+**`b07e32d`** (`.m`'s round-7 commit), ⟨cmd⟩ `git -C <p2> status --porcelain` → **`?? .worktrees/`
+only**; ⟨cmd⟩ `git -C <p2> worktree list` → 4 entries, **all inside the root**
+(`.worktrees/ac1|ac2|ac3`), **no `<p2>-w4*` sibling** (§4b's ONE-root law). Frozen read-only root:
+⟨cmd⟩ `git -C /Users/mkbabb/Programming/parse-that log --oneline -1` → **`ef10d5b`**, unmoved.
+
+### Crash-recovery (standing law, first act)
+
+⟨cmd⟩ `git -C /Users/mkbabb/Programming/value.js status --porcelain` → **4 rows**:
+`M docs/tranches/V/reformation/CARRY-LEDGER.md` (a sibling's) · `M docs/tranches/X/waves/evidence/W4/action-bar-mix-390.png`
+and `…-desktop.png` (**Track A's X-W4 evidence**, a sibling seat's) · `M scripts/dev/dev.sh`
+(**unowned, NEVER touched, never staged**). ⟨cmd⟩ `git status --porcelain --
+docs/tranches/X/execution/D/X-P-W4.md docs/tranches/X/execution/LEDGER.md
+docs/tranches/V/coordination/INBOX.md` → **no output**. ⟨cmd⟩ `git -C <p2> status --porcelain` →
+`?? .worktrees/` alone. **Zero dirty paths inside this seat's writable set · zero inherited hunks ·
+nothing stashed, nothing restored, no sibling path touched.**
+
+### E13 Step-0 — the four-path mail sweep, re-run at this seat's clock
+
+Swept read-only and compared against **every row** of `docs/tranches/V/coordination/INBOX.md`;
+`INBOX.md` self-excluded from its own denominator (SELF-COUNT law); classification read from each
+row's Status cell **by position**, never from a bare `grep -i UNREAD`.
+
+| path | entries | unrowed addressed to value.js |
+|---|---|---|
+| `docs/tranches/V/*.md` (depth 1) | 10 | 0 |
+| `docs/tranches/V/coordination/` | 24 | 0 |
+| `../glass-ui/docs/tranches/BK/coordination/` | 9 | 0 |
+| `../keyframes.js/docs/tranches/V/coordination/` | 13 (12 files + `vnext/`) | 0 |
+| `../sci-report/atlas/docs/tranches/P/coordination/` | 28 | 0 |
+
+**BK re-confirmed the newest glass tranche directory**: ⟨cmd⟩ `ls -1d ../glass-ui/docs/tranches/*/`
+→ **45** dirs, the letter sequence terminating at **`BK`** (`… BH · BI · BJ · BK`; no BL), and
+⟨cmd⟩ `ls -1dt …` → `BK/ · BJ/ · BI/` by mtime as well. **Movement since the first attempt**:
+⟨cmd⟩ `find <the four paths> -type f -name '*.md' -newermt "2026-09-19 00:00"` → exactly **two**
+members — `docs/tranches/V/coordination/INBOX.md` (**self**) and
+`../keyframes.js/docs/tranches/V/coordination/INBOUND-LEDGER.md`, which is **keyframes' own inbound
+ledger, not a letter addressed to value.js**; its tail closes *"Nothing is owed by this side on
+either letter"* and it mints no row, so it needs no `I-n`.
+**UNREAD status cells**, by **position**: ⟨cmd⟩ `sed 's/\\|/@PIPE@/g' INBOX.md | awk -F'|'
+'/^\| [IO]-[0-9]+[a-z]? \|/ {s=$6; gsub(/^ +| +$/,"",s); if (s ~ /^\*\*?UNREAD/) c++} END {print c+0}'`
+→ **0**, double-run **`0 ≡ 0`**, over **79** register rows (of the file's **85** `^| ` rows).
+**WRITE-THEN-MEASURE, stated rather than smoothed**: this seat's *first* reading was **78** rows with
+the tail at **O-38**; between that reading and the settled bytes a **sibling X·F seat appended
+`O-39`** (value.js's *own outbound*, the F.W8 FN-6 relay to fourier) — four tracks share this
+append-only file by row, exactly as `W4.md` §4a anticipates. The count above is the re-read at the
+settled bytes and the scan is re-run there: **0 ≡ 0 UNREAD over 79 rows**. **No row was minted by
+this seat**; the tail moved by a sibling's act, not by this sweep.
+**Result: 0 unrowed · 0 new `I-n` minted · 0 UNREAD in X·P's scope.** A dated sweep line is appended
+at `INBOX.md`'s end by this seat.
+
+### §2b Open preconditions — re-measured at this seat's own commands
+
+| # | precondition | verdict | receipt |
+|---|---|---|---|
+| **OP-1** | owner begin-word **and** the separate release word | **MET** | COHESION **§0j.E**: *"both owner words are given, dated 2026-09-17"*; the release word *"You are authorized to publish, push, and pull whatever items you need"*. The word licenses the limb; it does not bypass a gate |
+| **OP-2** | X.P.W3's five artefacts, the four values **re-read** | **RED — 2 of 5** (was 3 of 5) | the table below |
+| **OP-3** | OC-1 discharged in either direction | **MET** | COHESION **§0j.E**: *"ADMISSION IS DECIDED ON CORRECTNESS; the bench table is RECORDED-NOT-GATING"* — a dated ruling of the second shape; RC-P conjunct 5 is satisfiable |
+| **OP-4** | an X·V adoption surface | **RULED — disposition (C)** | COHESION **§0i.1**: *"**Ruled: C.** The row closes `BLOCKED-ON` + re-trigger … **Re-trigger command:** X.P.W4's RC-P evaluator returning TRUE at a dated run"*, with **A** named as that re-trigger's payload. G-9 is pre-ruled; `.d` records it by id and authors no X·V wave |
+| **OP-5** | the release vehicle | **MET (measured)** | ⟨cmd⟩ `node -e "…require('./package.json').version"` → **4.0.0**; ⟨cmd⟩ `npm view @mkbabb/value.js version` → **4.0.0**. RC-P quantifies over `V`, never a literal |
+| **OP-6** | the four-verb table in all five X·P wave files | **MET** | ⟨cmd⟩ `grep -c '^### Four-verb status' waves/W{0,1,2,3,4}.md` → `1 · 1 · 1 · 1 · 1`. Every sibling has a carve target (but see **F-w4b-1** on G-10's *count*) |
+
+#### OP-2 — the five artefacts at their round-7 values (each double-run; all three seals `shasum -c` verified)
+
+⟨cmd⟩ `shasum -a 256 -c universe-52.json.sha256 equivalence-full-surface.json.sha256
+r1-anchor-after.txt.sha256` → **OK · OK · OK**.
+
+| artefact | spec's required value | measured 2026-09-19 (double-run, byte-identical) | verdict | moved since attempt 1 |
+|---|---|---|---|---|
+| `evidence/W3/universe-52.json` | **all TOTAL** | `tally` → `runtime {TOTAL 13 · PARTIAL 6 · ABSENT 0} · types {TOTAL 33 · PARTIAL 0 · ABSENT 0} · all {TOTAL 46 · PARTIAL 6 · ABSENT 0}` — **46 of 52** | **RED** | yes: 5/52 → **46/52** |
+| `evidence/W3/r1-anchor-after.txt` | **exit 0** | re-banked by `.m` over the **CANDIDATE's** nine entries (⟨cmd⟩ `node typescript/scripts/r1-anchor-candidate.mjs --at typescript/src/css`): *"TOTAL 0 throws / 1548 calls · DISTINCT FAILURE MODES: 0 · GREEN — every public parser is total · **EXIT=0, both runs**"*, in **each** lowering; `unrealized NONE — all nine frozen parsers are published`; the value.js probe **unmodified** (sha `77678a57…`) | **GREEN** | **yes — this is the one conjunct that turned** |
+| `evidence/W3/equivalence-full-surface.json` | **0 mirror-defects** | `tally` → `{rows 52 · compared 24 · noPeer 28 · **mirrorDefects 98** · specUndecided 96}` | **RED** | yes: 5,890 → **98** |
+| `DIVERGENCE-LEDGER.md` | non-empty, **every** consumer-direction filled | **988 L · 504 `^\| ` rows**; ⟨cmd⟩ `grep -c '^\| \*\*consumer direction\*\*'` → **41**, ⟨cmd⟩ empty-field regex → **0**; the file's own §closure line: *"**Empty consumer-direction fields: 0.**"* and *"`GATE-VERDICT.md` anchors present: 5/5"* | **GREEN** | no |
+| `evidence/W3/bench-three-leg.md` | present | present, **202 L** | **GREEN** | no |
+
+**The §0v / `W4.md`-ADDENDUM relief clause, tested at the bytes rather than at the prose.** The
+2026-09-19 addendum to §2/OP-2 admits `IMPLEMENTED-with-carried-REDs-by-id` **iff** *"every non-TOTAL
+cell … every residual mirror-defect … and every non-zero reading of the candidate-side
+`r1-anchor-after.txt` is attributed to a ruling id from {GROUND-C · ID-1/ID-2 · R-f1 · E-k2} and none
+is unauthored surface."* Measured by this seat, twice, identically:
+
+* **universe-52.json — FAILS.** Reading the `remainder` map of each non-TOTAL row and classifying by
+  the addendum's id-set (ID-1 = *"the incumbent's UNANCHORED component read"*, ID-2 = *"the incumbent
+  accepts an EMPTY argument"*, per §0v's own gloss): **270** non-TOTAL cells, of which **37 are IN the
+  set** and **233 are OUT** — `BND-1` **172** · `F-k2` **42** · `SH-1` **11** · `E-j1`(tag) **5** ·
+  literally **`unattributed` 3**. Under `.m`'s own per-cell re-read (36 of the `F-k2`-tagged cells
+  re-read as GROUND-C non-finite fourth arguments, F-l1) the split is **75 in / 195 out** — *the
+  verdict is the same under both readings*, and `.m` states it in its own addendum: *"Measured: **75 of
+  270** are. **195 are not** — each with a named id, none with a ruling from that set."*
+* **equivalence-full-surface.json — FAILS.** ⟨cmd⟩ over every row's `misses`: **196** miss entries
+  (98 per lowering, matching the sealed `mirrorDefects 98`), **192** carrying `specUndecided: true`,
+  and **0** carrying a ruling-id field of any name (`rulingId` / `ruling` / `attribution` /
+  `declared`). The artefact has no attribution surface at all, so the clause cannot be satisfied by
+  reading it.
+* **r1-anchor-after.txt — SATISFIED VACUOUSLY**: there is no non-zero reading to attribute.
+
+**Label conjunct.** ⟨cmd⟩ `grep -n '^| IMPLEMENTED' waves/W3.md` → `43:| IMPLEMENTED | **NO** | —
+gates green + bytes landed in the fresh root stamps this (R-A) |` (L43 **unedited**, E-3), and W3's
+sixth dated addendum records the stamp **WITHHELD** in those words: *"**IMPLEMENTED** | **NO —
+WITHHELD**. L43's sealed cell stands unedited (E-3) … the stamp is withheld on **one** conjunct: the
+id-set."* The LEDGER's X.P.W3 row concurs, and X.P.W3's own CHECK 1 (2026-09-19, a fresh adversarial
+seat) states the consequence for this wave in its own words: *"**X.P.W4 lawfully BLOCKED** at 3 of 6
+Opens-after conjuncts."* This seat measures **2 of 6 RED** — one better, because `.m`'s candidate-side
+R1 bank landed after that check was written — and the same verdict.
+
+**Verdict: BLOCKED-ON `X.P.W3 IMPLEMENTED`**, at two artefact conjuncts (`universe-52.json` TOTAL ·
+the full-surface equivalence floor) whose relief clause is measured false in both directions. This is
+not a formality: W4 §3 item 1 generates the 52-row seam contract **from** `universe-52.json`, and
+G-1's falsifier fires on any row the universe does not back — a seam contract published over 46/52
+would assert six dispositions the producer cannot honour, the exact *"contract with no green
+producer"* shape COHESION §0i.1 refuses.
+
+**Re-trigger, quoted from the authority that owns it** — `W3.md`'s sixth addendum, §D: *"**What
+discharges it — one triumvirate act, not a unit's work.** Either (a) the §0v/OP-2 enumeration is
+**widened by dated addendum** to the standing ids this wave actually carries — `BND-1` · `SH-1` ·
+`E-j1`(tag) · `F-k2` · `F-m1` … — or (b) those ids are **ruled**."* Neither is a seat's act (M-23 §1),
+and this seat performs neither. After either, re-run this section's six conjunct commands; the §Unit
+plan below then dispatches unchanged.
+
+---
+
+## Baseline (second sitting) — the ten gates, read-only, BEFORE any cure
+
+Run at this seat's own clock against value.js `8617f4b5` and `<p2>` `b07e32d`. **Nine born-RED · one
+INHERITED-GREEN FLOOR**, as §6 predicts. One reading changed since the first attempt and one finding
+is new; both are stated rather than smoothed.
+
+| gate | spec's stated baseline (2026-08-03) | measured 2026-09-19 (second sitting) | verdict at open |
+|---|---|---|---|
+| **G-1** seam contract 52/52 | `SEAM-CONTRACT.md` absent — 0 of 52 rows | ⟨cmd⟩ `ls docs/tranches/X/parse-that/SEAM-CONTRACT.md docs/tranches/X/parse-that/scripts/seam-contract-check.mjs` → *No such file or directory* (**both**) | **RED as expected** |
+| **G-2** zero value.js source bytes | *"the paths are clean … the gate starts from a true state"* | ⟨cmd⟩ `git status --porcelain -- src api demo test e2e` → **0 lines**, double-run `0 ≡ 0`. **The first sitting's divergence is GONE** (it measured 8 dirty `demo/**` rows, Track A's live work, since committed) — the tree now matches the spec's own baseline exactly | **state TRUE at open; the assertion is what is owed** |
+| **G-3** packed candidate from the tarball | no candidate package; the fresh root ABSENT by design | `<p2>` **EXISTS** (opened at X.P.W0's first write); ⟨cmd⟩ `ls <p2>/typescript/scripts/` → **15** entries, **`packed-candidate-surface.mjs` ABSENT**; the value-side idiom `scripts/ci/verify-packed-surface.mjs` **present** | **RED as expected** |
+| **G-4** Wasm zero-function-import admission | *"no project Wasm artifact exists"* | ⟨cmd⟩ `find <p2> /Users/mkbabb/Programming/value.js -name '*.wasm' -not -path '*/node_modules/*'` → **8 hits = 6 project artefacts ⊕ 2 unrelated** Chrome-profile TTS binaries under `.claude/worktrees/**/WasmTtsEngine/`. The graduated subject is `<p2>/typescript/src/css/build/ac1.wasm` (X.P.W2's, carried through `.k`/`.l`/`.m`); the other five are worktree/experiment copies (`ac1` ×2, `ac2`, `ac3`, one worktree `src/css/build/ac1.wasm`). **`wasm-admission.mjs` ABSENT** — the gate has a subject and no inspector | **RED as expected** |
+| **G-5** RC-P evaluator exists and reports honestly | evaluator absent; all six conjuncts FALSE | ⟨cmd⟩ `ls <p2>/typescript/scripts/rc-p-evaluate.mjs` → *No such file or directory*. Conjunct 1 → **4.0.0** at both the manifest and the registry; conjunct 2 → the candidate-side anchor is **GREEN** (the one conjunct that moved); conjunct 3 → **98** mirror-defects; conjunct 4 → no admitted artifact; conjunct 5 → **TRUE by COHESION §0j.E**; conjunct 6 → packet absent | **RED as expected** |
+| **G-6** reciprocity, both ends | *"neither sub-tranche's wave directory exists"* — 0 hits | ⟨cmd⟩ `ls -d docs/tranches/X/{keyframes,fourier}/waves` → **both exist**; ⟨cmd⟩ `grep -rn 'RC-P' …` → **25 hits over 5 files** (`KF-W2 · KF-W3 · KF-W5 · KF-W10 · F-W0`). The **count** clause is satisfiable; the gate's real condition — the three **exact** sentences, each citing the predicate by name and not a wave number — is **unverified** and is `.c`'s to verify (never to write) | **RED as expected** (falsifier not yet run) |
+| **G-7** forbidden edge at zero — **INHERITED-GREEN FLOOR** | 0 hits in both fourier manifests | ⟨cmd⟩ `grep -c 'parse-that' ../fourier-analysis/package.json` → **0**; ⟨cmd⟩ `… web/package.json` → **0** | **GREEN — the spec's declared floor** |
+| **G-8** mail closed + lawful delivery path | INBOX X·P hits **0**; `RELEASE-PACKET.md` absent | ⟨cmd⟩ `ls docs/tranches/X/parse-that/RELEASE-PACKET.md` → *No such file or directory*; ⟨cmd⟩ `grep -c 'X·P\|X.P.W\|RC-P' INBOX.md` → **41** (X·P has mail rows; **none of them the packet's**); UNREAD status cells **0** | **RED as expected** (the packet leg) |
+| **G-9** adoption gap terminal disposition | no X·V wave adopts a parser | unmoved at the bytes; **the disposition is pre-ruled (C)** at COHESION §0i.1 with its re-trigger named, and `.d` records it by id — it does not invent an X·V wave | **RED as expected** (unrecorded, pre-ruled) |
+| **G-10** the R-A stamp act | open-state sum must read **5** | ⟨cmd⟩ `cat waves/W[0-4].md \| grep -c 'VERIFIED \| \*\*NO\*\*'` → **6**, double-run `6 ≡ 6`. Per-file: `W0:1 · W1:1 · W2:1 · **W3:2** · W4:1`. The sibling-self-stamp leg is **GREEN** — ⟨cmd⟩ `grep -rn 'VERIFIED' W[0-3]-CLOSE.md` → 10 lines, **every one disclaiming** the stamp (*"X.P.W4's to stamp … never this wave's"*) | **RED, and the sum is 6 not 5 — see F-w4b-1** |
+
+### Findings of this sitting
+
+**F-w4b-1 (MEDIUM, instrument — G-10's open-state count reads 6, and neither of the spec's two named
+causes is present).** §6 G-10 states: *"A sum other than **5** at open fails and halts the act: either
+a sibling's §2 is not in table form (OP-6, no carve target) or a wave has self-stamped."* Measured:
+OP-6's form check is **1 per file across all five** and no sibling close report self-stamps (all 10
+`VERIFIED` lines in `W[0-3]-CLOSE.md` disclaim it). The actual cause is a **third** the spec did not
+anticipate: `W3.md`'s **sixth dated addendum** — lawful under E-3, authored by `.m` — reproduces a
+four-verb table whose row at `W3.md:836` reads `| VERIFIED | **NO** — X.P.W4's alone (**R-A**) | §12 |`,
+and G-10's literal `grep -c` over the concatenation matches it. Consequence for `.d`, stated now so it
+is not discovered at the stamp: carving only the five §2 tables would leave `W3.md:836` standing and
+the **close-state** sum would read **1**, not **0**. **Surfaced UNRULED** (never presumed): the two
+admissible shapes are (a) a dated addendum narrowing G-10's command to rows inside a
+`### Four-verb status` block, or (b) naming `W3.md:836`'s addendum row as an additional carve target.
+Ruling it is the triumvirate's / orchestrator's, not a seat's — and it is **not** a blocking finding
+for this wave's open, which is blocked on OP-2 regardless.
+
+**F-w4b-2 (INFO, good news — the first sitting's G-2 divergence is discharged).** That sitting
+recorded *"the paths are **not** clean: eight `demo/**` rows are dirty"* and declared the divergence
+rather than curing it (correctly — they were Track A's bytes). At this clock they are **0**. G-2's
+literal tree-wide command is now satisfiable as written, and the commit-scoped reading stands as the
+stricter one `.a`–`.d` must bank per-commit.
+
+### R.2 — GREEN before cure
+
+**One declared, one stated for completeness**, and neither is a defect:
+
+* **G-7** — 0 hits in both fourier manifests before any act of this wave. §6 itself declares it *"an
+  INHERITED-GREEN FLOOR"* with its baseline measured and its regression falsifier named — *"it can
+  only be lost, never won, and losing it voids the wave."*
+* **G-2** — the paths are clean at open. §6's own RED baseline for this gate is the *unasserted*
+  property, not a dirty tree (*"the gate starts from a true state and its job is to keep it true
+  through nine commits"*), so a clean reading at open is the spec's expectation, not a finding.
+
+The other eight are RED at open, as §6 states.
+
+---
+
+## Unit plan (second sitting) — UNCHANGED, re-verified against the spec, STILL UNDISPATCHED
+
+The four-unit plan banked in §Unit plan above was re-read against `W4.md` §5 ⊕ §4 ⊕ §4a ⊕ §4b ⊕ the §2
+Agents line at this seat's own clock and **requires no amendment**: the spec's bytes have not moved
+(`W4.md` 674 L, the sixth line of its §2 table and the 2026-09-19 ADDENDUM at L674 both unchanged),
+`.a`/`.b` remain the only parallel pair and share no path, `.c` remains serial on both, and `.d` is
+the **fresh Fable adjudicator** — the only site that stamps VERIFIED (R-A). Order stands:
+**`[.a ∥ .b]` → `[.c]` → `[.d]`**, peak concurrency **2**.
+
+Two riders this sitting adds to the banked briefs, both carried rather than performed:
+
+1. **`.a`'s disposition column must publish the carried cells as `PENDING-ADJUDICATION`** (COHESION
+   §0v: *"the seam contract publishes the carried cells as **PENDING-ADJUDICATION** dispositions, not
+   as dispositions the producer cannot honour"*) — and `.d`'s adjudicator rules them, ID-1/ID-2 and
+   the GROUND-C cells first.
+2. **`.d` inherits F-w4b-1** and must not perform the stamp act until G-10's counting question is
+   ruled — the act is *"the **consequence** of the gates, never a substitute for them."*
+
+### Carried obligations — unchanged, none discharged at this sitting
+
+Every row of the first sitting's carried-obligations table (**ESC-e2** · **R6-1** · **F-ab1** ·
+**F-ab2** · **F-ab3** · **R-f1** · **ESC-c1** · **E-2/F-e10** · **ESC-d1** · the `E-h*`/`E-j*`/`E-k*`
+set) stands. Two acquire new detail from round 7 and are restated by id only:
+
+| id | round-7 state |
+|---|---|
+| **ESC-e2** harvest of W3, 6 of 6, from a scratch mirror with the script symlinked (§0p) | still owed; §0v names it *"the opening seat's first act"* — **the wave does not open**, and an L-13 registry append attributed to a wave that never opened would falsify the harvest's own seat-count semantics (L-13's corollary). Deferred with its authority quoted, exactly as the first sitting deferred it |
+| **F-ae1** `test/css-equivalence/equivalence.test.ts:100`'s stale `toBe(26604)` literal (the union moved to 27,074) | W3's CHECK 1 routes it here by name: *"the seat that next opens `test/css-equivalence/**` = **X.P.W4**, joining F-ad1 at the same address"*. That path is in **neither** this wave's §4 writable set **nor** this seat's — carried, not touched |
+| **F-w4b-1** G-10's open-state count (this sitting's own finding) | surfaced unruled, above |
+
+### Unit receipts (second sitting)
+
+*(empty — **0 of 4 units dispatched**; the wave is BLOCKED-ON `X.P.W3 IMPLEMENTED` at two OP-2
+artefact conjuncts. No spec-bound byte was written by this seat: its only bytes are this record
+section, the LEDGER's own X.P.W4 row cell and event line, and one dated `INBOX.md` sweep line.)*
