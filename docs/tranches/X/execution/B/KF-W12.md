@@ -1051,3 +1051,77 @@ runtime ⟨cmd⟩ `npx vitest run --project demo test/demo/instrument/keyframes-
 re-stated and handed to this seat by name: KF-KE-45's *"KF-KE-5 is UNCURED at these bytes"*, KF-KC-22's
 overlay hit-test, KC-25/KF-KC-28's `z-modal` + dead `sticky`). ⟨cmd⟩ `grep -rc 'keyframes-style-' demo | grep -v ':0$'`
 → `useKeyframesState.ts:2` · same — the headline defect reproduces.
+
+#### KF-KE-4 — THE APPLY IDENTITY, DECIDED HERE BEFORE A BYTE (§Sequencing 8; the LOCK)
+
+**The chain at `2cd314af`, re-walked**: the class added to every target is `getClassName()` =
+`options.styleId` (`useKeyframeBrushApply.ts:33` → `useApplyCSS.ts:47-49`) = `keyframesStyleId` =
+`` `keyframes-style-${animationUUID}` `` (`useKeyframesState.ts:16`); the injected sheet is
+`CSSKeyframesToString(animation, getTmpAnimationName())` (`useKeyframesParsing.ts:37-40`) whose only
+selector rule is `` `.${name} {` `` + `animation-name: ${name}` + `` `@keyframes ${name}` ``
+(`src/animation/compile/emit/format/options.ts:37-…`, `format.ts:365-…`, read at the source), and
+`getTmpAnimationName()` = `keyframesStyleId.replace("keyframes-style-", "").toLowerCase()`
+(`useKeyframesState.ts:41-43`). `"keyframes-style-" + X ≠ X.toLowerCase()` for every `X`.
+LAW A census (§B.3(4)) re-run: ⟨cmd⟩ `grep -rn 'keyframes-style-' demo src test` → the two
+`useKeyframesState.ts` sites and two PROSE mentions (`src/animation/public.ts:146`,
+`test/_root/public-surface.test.ts:17`, both N-8's example) — **nothing else keys on the class token.**
+
+**DECISION — arm (i), `class = selector`, taken at `useKeyframesState.ts:41-43` alone.**
+`getTmpAnimationName()` returns **`keyframesStyleId` verbatim** — the very token the brush
+composable already adds as the class — so the class on the target, the `.selector`, the
+`animation-name` and the `@keyframes` name are ONE string **by construction**, not by agreement
+between two derivations. The `.replace(…)` and `.toLowerCase()` are deleted (G-KFW12-3's
+`toLowerCase()` clause 1 → 0); the function keeps its exported name because its two consumers
+(`useKeyframesParsing.ts:26/:39` — `.e`'s row; `KeyframesStringControls.vue:75` — `.d`→`.e`) are
+outside this unit's carve, and its docstring is rewritten to say what it now is.
+
+**Rejected — arm (ii), "pass `getTmpAnimationName()` as the class"**: its bytes are
+`useKeyframeBrushApply.ts:33` (§B.2 assigns `:33` to `.e`) and the `KeyframesStringControls.vue:75`
+import (`.d`→`.e`), both outside this seat; and it would keep the lowercased strip alive as the
+identity's source — exactly the second hand-rolled derivation beside `cssIdent` that N-8 forbids and
+§L-18 (ii) names as a failure base.
+
+**What this unit deliberately does NOT do**: no sanitization, no case-folding, no second derivation.
+The raw `` `${superKey}-${animationId}` `` interpolation (`createAnimationUUId`,
+`animationOptionsStore.ts:124-131`) stays; routing it through KF.W5's published `cssIdent`
+(`dist/keyframes.d.ts:788`, body `name.replace(/[^a-zA-Z0-9_-]/g, "-")` + a leading `a` when needed)
+is N-8, `.e`'s FIRST row. **Measured consequence, named for `.e` rather than patched here**: an
+`animation.name` carrying a space — `useSpringKeyframesEditor.ts:66` sets `"Spring Keyframes"` — makes
+the ONE token `keyframes-style-<superKey>-Spring Keyframes`, which `Element.classList.add` REJECTS
+(`InvalidCharacterError`) and `#id` selector syntax rejects; that holds under BOTH arms and today's
+bytes alike, and only the `cssIdent` route cures it. This unit's gate therefore executes the identity
+on an ident-clean animation id that carries an UPPERCASE letter (`offsets-Transform`-class), so the
+proof is independent of case and the space case is `.e`'s G-KFW12-5.
+
+**Proof by execution, not by reading (§L-18 (v))**: `keyframes-editor-honest.test.ts` mounts the REAL
+editor over a REAL parsed animation with a REAL target element, activates the Apply control, then
+reads (a) `target.classList` and (b) the injected `<style>`'s `textContent`, and asserts that the
+selector `.${class}`, `animation-name: ${class};` and `@keyframes ${class}` all name the SAME string
+as (a). Both strings are pasted below from the executed run.
+
+**Then L-M3 / C-B2's residue is re-derived against the working feature** (in the KF-KE-6/KF-KE-12
+block below, after the identity lands), because until Apply applies something, "two owners of one
+working stylesheet" cannot be observed.
+
+**The KF-KE-6 lift, designed here (the same decision-before-patch law)**: the `<style>` node, the
+`isApplied` flag and `prevPaused` move from per-instance refs to a **module-level registry keyed by
+the style id** — `holders` refcounted on mount/unmount across the three closures over one animation
+(`KeyframesEditor.vue` ×2 slot copies + `KeyframesStringControls.vue` ×1 force-mounted under `v-show`);
+the node is created **lazily on the first `setContent`** (KF-KE-66: no empty `<style>` per mount);
+the LAST holder out removes it and, if the identity is applied, `clear()`s — pause state restored,
+class removed (KF-KE-12 ≡ N-5's `clear()` into `onUnmounted`, made refcount-aware so an owner
+leaving while another is live does NOT tear the feature down under it). Both owners read ONE
+`isApplied`, so `aria-pressed` on either brush is the truth (C-B2's cross-restoration). No
+`querySelector('#' + id)` adoption remains (the registry IS the adoption).
+
+**KF-KE-7's gate, designed here**: the exit choreography is DECORATION and the removal is the
+COMMAND — the command commits whether the choreography resolves, rejects or is skipped: a `departing`
+set makes a second click on a leaving stop a no-op (the re-click window over shifting indices), the
+neighbour motion runs only when a neighbour EXISTS (the `(445,39)`/`(446,37)` diagnostics fall with
+the guard, never with a cast), the motion's rejection is REPORTED through the house non-toast boundary
+and the removal still lands (headless, `warpLeft` rejects with `BrowserScalarResolutionError` — `.a`'s
+measured finding; a rejected flourish never drops a delete again), and under reduced motion the group
+snaps (`AnimationGroup.respectReducedMotion` defaults `true` at `group/group.ts:66` — LANDED-BY KF.W5,
+booked GREEN-BEFORE-CURE, never claimed; the brush's standalone bag is this unit's KF-KE-8 byte). The
+editor's duplicate last-keyframe guard is deleted so `removeKeyframeData`'s toast is the live floor
+(KF-KE-61); `.a`'s `canRemove` keeps the control disabled there.
