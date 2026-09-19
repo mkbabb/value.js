@@ -1080,3 +1080,132 @@ double-run; **G-W2-2 parse-surface modules = 2 → 1**, double-run. Tree-health 
 five harnesses (vue-tsc **54 = 54** · vitest **1518/152 = 1518/152** · structure **PASS = PASS** ·
 eslint **0 = 0** · depcruise **4 = 4**), each run twice at the settled commit. Worktree at close
 ⟨cmd⟩ `git status --porcelain` → **2 rows, both the same two `??` letters this unit opened on**.
+
+---
+
+## Close
+
+**SERVED MODEL**: `claude-opus-5[1m]`. **Date**: 2026-09-18. **Seat**: `i` (CLOSE), **VERIFY-ONLY —
+this seat authored no cure, turned no gate, opened no product file.** **Certificate**:
+`docs/tranches/X/keyframes/waves/KF-W8-CLOSE.md` (304 L), which carries the long form of everything
+below and every command that produced it.
+
+**Crash-recovery sweep, before any other act**: kf → **2 `??` rows**, the same two delivered letters
+every unit opened on; value.js → **15 rows**, and `git status --porcelain -- <this seat's four paths>`
+→ **empty**. Nothing inherited, nothing stashed, `scripts/dev/dev.sh` never opened.
+
+**Substrate**: kf `HEAD e2d04331`, **5 commits ahead of `origin/master 1fa98a5d`** at measurement
+(pushed by this seat as its last act). Every figure re-run at the settled bytes and **double-run**;
+a 16-figure harness returns **`SAME` on all sixteen**.
+
+### VERDICT — **PARTIAL**
+
+**Units a · b · c · d executed. Units e · f · g · h NEVER RAN** — no commit names them, no receipt
+exists for them, and no killed seat's partial work sits in either worktree. Their §Bounds grants,
+family locks and unit plans stand unspent. **Nine gates are RED-UNATTEMPTED**, and this seat records
+them as such rather than as ordinary REDs: the distinction is the whole of the wave's state.
+
+### Gate table — BEFORE → AFTER (all 15 re-run by this seat at `e2d04331`, double-run)
+
+| gate | baseline @ `1fa98a5d` | **close @ `e2d04331`** | verdict |
+|---|---|---|---|
+| G1 c1 | 8 stmts / 7 files | **2 / 2** (`KeyframeTimeline.vue:363` · `AnimationVisualizer.vue:65`) | **RED** — 6 of 8 cured (unit c); the two survivors ARE ESC-c1 and ESC-c2 |
+| G1 c2 | 4 reached, 4 private | **2 reached, both private** (`css-text`'s one hit is prose at `public.ts:157`) | **RED** — denominator halved with c1 |
+| G2 c1 | 5 of 7 unpublished | **2 still consumed-and-unpublished** (`serializeCssValue` · `bumpLayoutEpoch`) | **RED** |
+| G2 c2 | 0 `export *` | **0** | **GREEN — HELD** |
+| G3 | 3 bodies | **2** (`css-text.ts:73` · `demo/utils/keyframeSelector.ts:28`) | **RED (owed 1)** — the `src/` half is ONE body; the demo copy is ESC-d1 |
+| G4 | c1+c4 green-before-cure, c2+c3 RED | **unchanged** (`keyframes/index.ts` · `timeline/index.ts` present, 0 importers) | **RED — UNATTEMPTED (e)** |
+| G5 | 2 up-imports | **2** (`KeyframeCardList.vue:46` · `TimelineTrack.vue:296`) | **RED — UNATTEMPTED (f)** |
+| G6 (ACTING) | 1 loose `.vue` | **1** (`CopyButton.vue`) | **RED — UNATTEMPTED (f)** |
+| G7 | (i)7 (ii)3 (iii)HOLDS (iv)DIVERGENT | **(i)7 · (ii)3 · (iii)HOLDS · (iv) RED** — `HeroAurora` + `TypingDots` externally consumed, not exported | **RED via (iv) — UNATTEMPTED (f)**; W6's R4-1 half landed, this wave's move did not |
+| G8 (i)/(ii)/(iii) | 2 sites · AV 4 · 2 files | **2 · 4 · 2, all unchanged** | **RED — UNATTEMPTED (f)**; the test arm stays GREEN-BEFORE-CURE (KF.W4) |
+| G9 | 154 tracked / 152 collected / 2 orphans | **identical** | **RED — UNATTEMPTED (g)** |
+| G10 | legs (a)+(b) green; probe absent | **legs green, probe still ABSENT** | **RED on this wave's own act — UNATTEMPTED (g)** |
+| G11 | 0 artefacts; inline `:308-318` | **identical** (`git grep -l groupShortcuts` → exit 1) | **RED — UNATTEMPTED (g)** |
+| G12 | neither file exists | **identical** | **RED — UNATTEMPTED (g)** |
+| G13 | 1 child · 8 stutters · no ruling | **identical — no committed ruling in the tree** | **RED — UNATTEMPTED (e)**. R-4 is ruled in the *spec*; G13 demands it in the *tree* |
+| G14 | 13 lines / 11 files; projector alive | **13 / 11**; `progressFromPointerX` alive at `:121`, sites `:230`/`:235`; `useDragScrub` **zero** | **RED — UNATTEMPTED (h)**; unit a's binding enumeration is SUPPLIED, so the scoped green is reachable and simply unspent |
+| G15 | leg 1 = 7 lines; leg 2 = 2 | **7 · 2** | **leg 1 RED — CORRECTLY UNSPENT** (its own falsifier: a G15 green on a KF.W8 commit is the defect); **leg 2 HOLDS** |
+
+**The one gate outside §Gates this close is ordered to re-measure — COHESION §0o `ESC-KFW2-1`:**
+**`G-W2-2` (KF.W2, `src/` arm) is GREEN.** The gate's own multi-line-tolerant witness (ii), re-run by
+**this** seat, returns parse-surface symbols at **exactly one path, `compile/parse-facade.ts`**; the
+other three rows are its declared non-members (`css-text.ts` + `interp-slot.ts` `serializeCssColor`,
+emit-half Tier-D; `resolve/function.ts` `coerceToSyntax`, the declared stray). Falsifier clean — the
+call sites are **routed, not orphaned** (`metadata.ts:28` → `../../compile/parse-facade`, consumed at
+`:47` and `:107`). Leg (i) = **25 lines / 22 files**, non-decisive. **It is the only gate this wave
+turned.**
+
+**Tally: 2 whole conditions GREEN (G2 c2 held · G-W2-2 turned) + 7 legs/clauses green-before-cure;
+13 of 15 RED**, of which 2 moved substantially (G1 c1 8→2 · G3 3→2), 1 is correctly unspent (G15),
+and **9 are RED-UNATTEMPTED**.
+
+**Tree-health floors, re-run here**: vitest **1518 passed / 3 expected fail / 14 skipped (147+5 of
+152 files)** · vue-tsc **54** · structure gate **PASS, 0 violations R1–R6** · `vitest list` **152** —
+every one identical to the baseline. The five product commits cost the tree nothing.
+
+### Commit roster — 11 commits, each verified to touch only its unit's writable set
+
+kf: `0d456cff` · `1e2e0331` · `b0d378b0` · `cdb31643` (unit c) · `e2d04331` (unit d).
+value.js: `fa2417d7` · `6971e9ca` (a) · `ac251a38` · `e24a7cfb` (b) · `aa8c8cbd` (c) · `fdebfef5` (d).
+Plus this close's own commits, listed in the ledger row.
+
+`git show --stat` over all eleven: **zero** paths outside the granting unit's set; **zero** hits for
+`scripts/dev/dev.sh`, `scripts/gates/**`, `.dependency-cruiser.cjs`, `public.ts`, `load-engine.ts` or
+`shell/index.ts`. Family locks honoured: unit d's four-file MISS-β2 + §0o commit is whole; unit c's
+KF-AV-8 arm is one commit with its third site **escalated and named in the commit message** — a
+declared split of a bundle broken upstream, not a silent one; `demo/utils/helpers.ts` in two commits
+is **two ids, two meanings**.
+
+### LANDED-WRONG — **NONE**
+
+No write outside §Bounds, no split family, no gate bought out-of-bounds, no masking cure, no asserted
+green. The two places a numeral could have been bought were **escalated, not taken**, and the tree
+shows it: `git grep -n 'export .* from "@src/' HEAD -- demo` → **exit 1**.
+
+### Escalations (4) and residuals (17), each with its owner
+
+**ESC-c1** `KeyframeTimeline.vue:363` unbounded → §Bounds addendum-beside (E-3) or `KF-W10 §6.D`.
+**ESC-c2** `bumpLayoutEpoch` has no lawful cure in any grant → KF.W5 addendum-beside (the epoch
+surface) **with** unit h's debounce half. **ESC-d1** `serializeSelector`'s package-surface half is
+KF.W5's file → KF.W5 addendum-beside, or `KF-W10 §6.D`. **ESC-d2** A-9's repoint set is **twelve**,
+five unbounded → §Bounds widening enumerating the five; **ordered after ESC-d1**.
+
+The seventeen residuals are enumerated with owners at the certificate §5. The load-bearing ones for a
+successor: **units e–h unexecuted** (owner: the orchestrator / a resumption) · **the §Bounds
+coordinate column is stale wave-wide — no seat may execute from the spec's numerals; census §5 is the
+re-anchoring table** · **`scripts/gates/census.mjs:528` holds `HeroAurora.vue`'s literal path in
+DO-NOT-TOUCH KF.W4 territory, and unit f's booked `git mv` breaks it** (escalation-shaped, unraised
+only because the act never ran; owner: KF.W4 by addendum-beside, **before** the move) · **G7's
+`TypingDots` predicate conflict** · **unit h has no `create` grant for the extracted composable**.
+
+### E13 — close sweep
+
+Four paths swept read-only at this seat's clock; classification from each row's **Status cell**,
+`INBOX.md` self-excluded. Newest per path: value.js `…ADDENDUM-A9.md` 19:00 = **O-31** (rowed) ·
+glass-ui `BK/coordination/…o26-reply.md` 17:18 = **I-35** · kf Sep 17 19:08 · atlas Aug 3 15:01.
+**I-35 is the only row routed to X·KF**, Status **READ + CONSUMED WHOLE (KF.W6 `.l`)**, its §4(1)
+re-install ask escalated to seat 0 / KF.W0 — **not KF.W8's**. The three live `UNREAD` cells
+(**I-32 · I-33 · I-34**) route to **X-W0.j / the X formation mail seat / X-EXT-1** and name no
+keyframes byte. **0 unrowed · 0 UNREAD in scope.** Outbound obligation **NEGATIVE**; zero glass-ui
+bytes, no letter sent.
+
+### The four-verb line
+
+| verb | state | why |
+|---|---|---|
+| AUDITED | **YES** (unmoved) | the 58-record corpus, §State |
+| SPECIFIED | **YES** (unmoved) | by the spec file |
+| IMPLEMENTED | **PARTIAL — units a·b·c·d only** | four of eight units executed; nine gates RED-UNATTEMPTED. `YES` would assert acts that did not happen |
+| VERIFIED | **NO** | the spec designates **no seat** to stamp it (⟨cmd⟩ `grep -c 'Verification' KF-W8.md` → **0**; the §State cell reads `NO`), and a PARTIAL implementation cannot carry it |
+
+**The spec declares no §Verification Artefacts section.** What stands in its place is §Gates' fifteen
+literal commands and G13's *"the ruling is in the tree"* clause — all re-run above. This seat invents
+no artefact the spec did not ask for, and stamps nothing the spec did not authorize.
+
+### SELF-COUNT
+
+Gates re-run **15** (+1 outside gate, counted separately) · commits verified **11** · units with
+receipts **4 of 8** · escalations **4** · residuals **17** (1…17, no gap) · harness figures **16**,
+run twice, `SAME` on all sixteen · tree-health harnesses **4**. Every figure here was produced by a
+command at the settled bytes by **this** seat; none is inherited from a unit receipt.
