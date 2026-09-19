@@ -1147,3 +1147,150 @@ Reproduces the record's ≈200k/≈51k estimate; ~8.5% of a 60 Hz frame budget a
 - **⊘ E-3 near-miss, disclosed**: a `-g "paper"` Playwright run collected `visual-baseline.spec.ts`, whose default sink is `docs/tranches/J/audit/screenshots/before/` — tracked, immutable evidence from a closed tranche. Three PNGs were rewritten and restored with `git checkout --`; no evidence byte is altered at HEAD. The hazard is structural, not personal: **a filtered e2e run in this repo can write into a prior tranche's evidence**. `VISUAL_OUT` is the documented escape; the wave residual suggested to `.g`/`.z` is to make the scratch path the default and the evidence directory the opt-in.
 - **⊘ Method note for every seat still reading colour**: one `requestAnimationFrame` after toggling `color-scheme` is **not** enough for a `light-dark()` custom property to re-resolve at a computed style — the first element-level read of `D-B3` returned the *light* ink over the *dark* plate (`2.573:1`). 250ms settles it. Every figure published by this unit was taken after the settle and double-run.
 - **Negative roster — held**: no glass-ui byte touched (READ-ONLY always) · no `e2e/**` byte touched except the two new unit files at `.g`'s ruled runner home · no `test.skip`, allowlist, `fixme`, try/catch-around-a-defect, copied producer selector or `node_modules` patch anywhere in this unit · no producer pin moved · `LAW-3` honoured, no scrollport restored.
+
+### `.f` — shared lib/stores, the SCRUB ledger, the global-sheet residue, and the convergence study
+
+**Seat**: `.f`, `claude-opus-5[1m]`, 2026-09-18. **Status: PARTIAL** (five gates turned GREEN for this unit; `G-F4-VUE-TSC-CLEAN` reported RED wave-level with its one surviving row named and held by another unit's lock — reported honestly rather than claimed).
+**Sections executed**: §2.L *CONV-STUDY* · *PRM-CLOCK* · *SCRUB* · §2.0 **SP-12** (`:92`) · **SP-2**'s `fr-App MG-λ` (`:82`) · **SP-13** (`:93`) · **SP-16** (`:96`) · §4 `G-F4-CONV-STUDY` · `G-F4-DEAD-DEP` · `G-F4-PRM-CLOCK` · `G-F4-VUE-TSC-CLEAN` · `G-F4-CENSUS-CELLS` · §5.2 `→ F.W5-W8` · `→ SS-13`.
+**Addendum-beside**: `docs/tranches/X/fourier/F-W4-ADDENDA-f-2026-09-18.md` (A-f-1 · A-f-1b · A-f-2 … A-f-11). **New artefacts**: `F-W4-SCRUB-LEDGER.md` · `F-W4-CONV-STUDY.md`.
+
+#### Act 0 — CRASH-RECOVERY sweep (standing law): nothing inherited
+
+⟨cmd⟩ `git -C /Users/mkbabb/Programming/fourier-analysis status --porcelain` → **∅** (clean; branch `m/w1-bump-migration`, HEAD `d0a87da`).
+⟨cmd⟩ `git -C /Users/mkbabb/Programming/value.js status --porcelain` → **13 modified ⊕ 4 untracked**, and **not one of the 17 is inside this unit's writable set**: the ten `demo/**` SFCs, `docs/tranches/V/reformation/CARRY-LEDGER.md`, `docs/tranches/X/execution/B/KF-W8.md` and the Track-A `e2e/smoke/**` + `docs/tranches/X/waves/evidence/W4/` paths are sibling seats'; `scripts/dev/dev.sh` is the unowned standing-dirty path (**NEVER touched, never staged**). The three value.js files this unit creates were **ABSENT** before it wrote them. **Zero inherited paths; no predecessor work on this unit.**
+
+#### Act 1 — anchors verified at the true bytes BEFORE any write
+
+- **`getAdminToken()!` is an 11-site row with 2 live sites.** ⟨cmd⟩ `grep -rn "getAdminToken()!" src/ | wc -l` → **2** (`AdminFlaggedPanel.vue`, `AdminUserList.vue`). The count moved because `.d` landed the gallery-route cures; the row's MECHANISM is unmoved, and the cure taken here is at the seam those sites pass through, not at the sites. INTENT at the true bytes, recorded.
+- **`lib/speeds.ts` does not exist and is not in this unit's writable set** — A-f-3. Catalog authored in `lib/defaults.ts`; the row's substance landed, its filename not.
+- **`search/index.ts` already deleted** by `.e`; ⟨cmd⟩ `ls src/components/paper/search/` → seven files, no `index.ts`. The SCRUB row is DISCHARGED-BY-PREDECESSOR, not re-taken.
+- **`EP-MISSED-F`'s duplicate import already gone**: ⟨cmd⟩ `grep -n '^import\|from "' src/lib/easings.ts` → **one** import statement from `@mkbabb/value.js/easing`. ESC-4's F.W2 rewrite (`0cc9b00`) discharged it. Listed, not smoothed.
+- **`FR-GFC-22`, `FM-22`/`FMD-26`/`FR-AH-37`, `FR-AUL-39`** — all landed by `.d`/`.a` (`e7e3438`, `6a0e842`). Not re-taken.
+
+#### Act 2 — SP-12's typed catch at the seam (`7b736f8`)
+
+`lib/api-problem.ts` gains `problemMessage(e, fallback)` — **the shared home `.d`'s own `adminError.ts` header says it owes** (*"the SHARED seam version of this helper belongs in `lib/api-problem.ts`, which is unit `.f`'s file"*) — and `ApiProblem.from` stops discarding FastAPI's ARRAY-shaped `detail`: the prior reader destructured `detail` out of `...extensions` and then tested `typeof detail === "string"`, so a 422's per-field `[{loc,msg,type}]` survived **nowhere at all**. It is now rendered for humans AND kept addressable in `extensions`.
+`stores/workspace.ts`'s **ten** `catch (e: any)` sites become `catch (e: unknown)` + `problemMessage(…)`. Three holes close with the shape: an EMPTY message (`"" ?? x` is `""`, and `statusText` is empty under HTTP/2), a non-`Error` throw rendering `undefined`, and — at `saveVisualization` — an abort being reported as a failure, which that site alone did not guard.
+⟨cmd⟩ `grep -c "catch (e: any)" src/stores/workspace.ts` → **0**.
+
+#### Act 3 — SP-12's admin posture ⊕ `EV-L·M-4` ⊕ `IU-25` (`dabbb17`)
+
+- **The guard-posture family row, cured where it is caused.** `AdminToken = string | null` at the seam; `coreFetch`'s null path throws a typed `ApiProblem` (`urn:fourier:admin-token-missing`, 401) instead of `new Error("coreFetch: auth='admin' requires adminToken")` — the internal sentence **five admin-facing toasts rendered verbatim to an operator** (`FR-AUL-30`'s `:175/:186/:197/:208/:219`). Thirteen wrapper signatures widened; the three divergent postures (assert / toast / silent `return`) now meet ONE answer. ⟨cmd⟩ `grep -c "token: AdminToken" src/lib/api.ts` → **13**.
+- **`EV-L·M-4` ⊕ `C·C-34 (RD-1)` ⊕ `R2-N6` ⊕ `R2-r4`, all three parts.** (i) `retryOn429` surfaced on `ApiFetchOptions` — it was declared on `CoreFetchOptions` and absent here, and `apiFetch` is the only exported wrapper, so no caller could decline the retry *even in principle*; (ii) the backoff sleep is **abortable** — `:174`'s `setTimeout` ignored `signal`, so a 30s sleep outlived its own abort and its generation clobbered the request that replaced it; (iii) the timeout posture is a **cumulative** `RATE_LIMIT_BUDGET_MS = 20_000`, checked BEFORE each sleep, because a per-request cap cannot see a ~150s envelope in which every individual wait is within its cap.
+- **`IU-25`'s dead client trio deleted** with its proof (`F-W4-SCRUB-LEDGER.md` §1.1), and the `AnimationSettings` TS6196 with it.
+
+#### Act 4 — SP-13, the restore seam (`02010de`)
+
+`AC-L-11 + M-10` = `EP L/M-3` = `SS-D-08/SS-L-01/SS-C-6`, cured where the records actually land rather than where they are read: **`stores/workspace.ts`'s two restore paths**, which spread an IndexedDB draft and a server `Visualization` straight over the defaults. `coerceContourSettings` / `coerceAnimationSettings` (in `lib/defaults.ts`) reject field-by-field, so one drifted atom cannot take the record with it; `coerceAnimationEasingName` (in `lib/easings.ts`, which owns the catalog) retires `as EasingName`, the assertion of an OPEN string into a six-key union whose two consumers degraded in OPPOSITE directions — the store fell silently to linear, the picker showed no active chip.
+**`SS-L-07 / SS-C-10`, the wave's single highest-leverage change**: `ANIMATION_SPEEDS` / `AnimationSpeed` / `isAnimationSpeed` / `coerceAnimationSpeed`. ⊘ `if (as?.speed)` dropped a legitimate 0 by truthiness; the coercer reads the VALUE. Off-catalog-but-finite snaps to the NEAREST member (ties up), because restoring a persisted 3× as 1× discards a choice the person made.
+**`FR-AFP-59`'s type half**: `FlaggedVisualization.tier` narrowed `string | null` → `GalleryTier | null` — the one row that widened a union closed on both wire sides.
+
+#### Act 5 — SP-16, measured before it was claimed (`b62dcf2`)
+
+`imageMeta` and `drafts` are server/IndexedDB records only ever assigned WHOLESALE; ⟨cmd⟩ over every consumer confirms **no in-place field mutation** (`GalleryView.vue:122`'s `workspace.drafts = []` is itself a wholesale assign). Both become `shallowRef`. The cost, measured with Vue's own `reactive` over a draft at the app's defaults (`n_points` 1024, `n_harmonics` 200, 50 levels), double-run identical:
+
+```
+drafts=1   deep-ref proxies=2090   walk=41.7ms   |  shallowRef proxies=0  walk=1.6ms
+drafts=5   deep-ref proxies=10446  walk=206.8ms  |  shallowRef proxies=0  walk=8.2ms
+drafts=20  deep-ref proxies=41781  walk=819.1ms  |  shallowRef proxies=0  walk=32.1ms
+```
+
+**2,090 proxy targets per draft**, re-wrapped on every `refreshDrafts()`.
+
+#### Act 6 — `MG-λ`, decided by the producer's own surface (`a512661`)
+
+`options.duration` was accepted, typed, documented and read by nothing. The ruling is HONOUR-OR-DELETE, and the producer settles which: glass-ui 8.0.0's `ToastOptions` carries `duration` (*"forwarded to reka-ui's `ToastRoot`; omit to inherit the `ToastProvider` default"*). **HONOURED** — forwarded when given, omitted when not, so the provider default still governs the common case. ⊘ The `ToastVariant` limb stays F.W1's fold, cited, not re-booked.
+
+#### Act 7 — `G-F4-PRM-CLOCK` CLOSES, and a comment stops lying (`2ef87d1` ⊕ value `cbda8b6f`)
+
+`stores/animation.ts` was **the app's last ungated JS clock**. The gate sits in `startLoop()` rather than `play()` because **six** paths re-arm this clock — `play`, `toggle`, `endScrub`, `setCanvasVisible`, the speed watcher, and the new media-query listener — and only one is a deliberate press. The reduced arm calls `parkAtTerminalFrame()`: stop the rAF, drop the playing INTENT so the transport reports what is true, and seed `t = 1` — **M-D1's terminal-frame law**, the converged trace rather than the blank canvas t = 0 would give. Every frame stays reachable by hand; the scrub is untouched.
+Two riders in the same predicate: **MISS-SCRUB** (`scrubbing` was absent from `startLoop`'s guard while its sibling park-condition was present, so the speed watcher re-armed the clock against a live drag — ⊘ the `C-2` direction-state half is `.c`'s file, cited not taken) and **`SS-L-05 / SS-C-13`** (`speed` becomes a writable computed coercing on write, so `SpeedSelect`'s unguarded `parseFloat` can no longer put `NaN` into `dur = duration/NaN` and thence through `structuredClone` into the draft).
+`lib/scheduler.ts`: **`FMD-22`'s second half** (`.a`'s Residual 4). The header claimed *"the epicycle/morph RENDER loop … is already rAF-paced AND off-screen-gated (I.γ, `stores/animation.ts`)"*. The MORPH loop is driven by keyframes.js `KeyframesAnimation` in `useFourierMorph.ts`, owns no rAF, registers no observer and has never passed through this store's reference count. A comment naming a safety property a loop does not have is worse than none.
+
+**Gate reading, double-run** — ⟨cmd⟩ `for f in $(grep -rl "requestAnimationFrame(" src/ | sort); do …; done`:
+
+```
+run 1: rAF CALL owners=8 consulting PRM=8
+run 2: rAF CALL owners=8 consulting PRM=8
+```
+
+**Verified live, not argued** (A-f-1b; one bounded Playwright probe, two contexts, double-run — §5.2 parsimony, no suite run, no screenshots):
+
+```
+reducedMotion=reduce          matchMedia=true   rAF callbacks in 1.2s = 0    pageerrors=0
+reducedMotion=no-preference   matchMedia=false  rAF callbacks in 1.2s = 15   pageerrors=0
+```
+
+⊘ **The census correction is ONE act in two repos.** `G-F4-CENSUS-CELLS` requires it *"in the same commit as the cure"*; the cure is a fourier byte and the correction a value.js byte, so they land adjacently and each names the other (`.a`'s disclosed precedent). The cell's *"LOW BY ONE clock; repo total 4"* is itself **low by four** — A-f-1.
+
+#### Act 8 — the collected sheet residue (`0a16b83`)
+
+- **`PAW-55`**: `.katex-display { overflow-x: auto; overflow-y: visible }` — per CSS Overflow 3 §3 the `visible` COMPUTES TO `auto`, so the authored line was dead and every display-math box on `/paper` was a block-axis scroll container clipping tall KaTeX at its padding box. Cured with `overflow-y: clip` + `overflow-clip-margin: 0.75rem`, the value that does what `visible` was written to mean.
+- **`PV ★MF-10`'s three light-arm ramp stops**, handed over measured by `.e` — and taken **0.003–0.006 darker, with the arithmetic**. `.e` measured live against `rgb(251 250 248)` = `--background`; the ramp also paints on `--card` (`rgb(253 245 236)`), the STRICTER light plate, where `.e`'s values read **4.454 / 4.438 / 4.433** — all three back under the floor. The values landed clear 4.5:1 on BOTH plates (card 4.511 / 4.513 / 4.508; background 4.687 / 4.690 / 4.684), chroma and hue untouched, dark arm restored to the producer's values in the shape `--section-color-5` already used.
+- **`fr-CP D-1`'s `golden` limb** (`lib/colors.ts`): `golden` was absent from `VIZ_TOKENS` — theme-blind BY ENUMERATION — so the sum curve, hover trail and shimmer all painted a frozen `#f0b632` reading **1.766:1** in the light arm, roughly half the 3:1 graphical-object floor. Resolved to `--viz-amber` (**4.709:1** on `--background`, **4.532:1** on `--card`, **10.940:1** dark), ⊘ **not** a newly minted `--viz-golden`: both were offered and this one claims no colour authority this seat was given. `useCoeffHover.ts:75` already read `VIZ_COLORS.amber || VIZ_COLORS.golden`, so the alias makes an existing fallback honest rather than introducing a collision.
+
+#### Act 9 — the SCRUB, and the half of its arithmetic a deletion ledger usually omits
+
+`F-W4-SCRUB-LEDGER.md`. **DELETED**: `IU-25`'s trio, each with its proof. **MEASURED DEAD, NOT DELETED**, with holders: `getMe` (a wire wrapper over a live endpoint — a contract decision, F.W5-W8's), `evaluateBasis` (under the CONV-STUDY's own adoption question), `loadDraftByVisualizationSlug`/`deleteDraft` (the same `GCM-1` adoption gap), and three exports that are **live internally** and only over-exported (`yieldToMain`, `generateCurveSVGPath`, `ANIMATION_DEFAULTS`) — the class a naive census miscounts.
+**`VV-R2-B`: RETAINED FOR ADOPTION**, decided WITH `.d`'s `GCM-1` receipt as the lock requires. 10 of 10 zero-consumer figures reproduce; four of the ten are exactly the surface the un-landed wiring unit adopts, and the row itself rules *"a single wiring unit at this component, not scattered repairs."* Deleting them would delete that unit's landing site. **Answered jointly, not deferred.**
+**Bundle diff, two builds, same `node_modules`** (a detached worktree at `7b736f8` vs the tree at `0a16b83`): JS **2,077,343 → 2,080,018 B (+2,675, +0.13 %)**, CSS **525,248 → 526,515 B (+1,267)**, five chunks moved. ⊘ **This unit's span ADDED bytes and the SCRUB is not why** — the growth is the cures. And the deletions' own share is **zero, measured**: `computeSha256`, `checkImageHash`, `by-hash`, `class-variance-authority`, `clsx`, `tailwind-merge` and `url(#paper-grain)` return **0** occurrences in the emitted assets at **BOTH** builds. The trio was already tree-shaken before it was deleted, so the deletion removes source surface — a contract, a raw `fetch` outside the parametric core, a bare `throw` — and not one shipped byte. A ledger reporting only its deletions would be reporting half its own arithmetic.
+**`.a`'s Residual 4 discharged as an exclusion**, with the precise probe `url(#<id>)` rather than a substring: 0 in `src`, 0 across three producer `dist` trees, 0 in the emitted output. ⊘ The loose probe returns **three** glass-ui files for `paper-grain` and every hit is a custom-property NAME (`--paper-grain-tooth`/`-tile`/`-relief`) — a seat running it would have recorded a producer consumer that does not exist. The DELETION is not this unit's file.
+
+#### Act 10 — `G-F4-CONV-STUDY`, opened only after `.b` measured (`cbda8b6f`)
+
+`F-W4-CONV-STUDY.md`. The lock is discharged by `.b`'s `b3b9a35` + its published table. Findings, all measured:
+
+1. **The coefficient substrates are not merely duplicated — they are IDENTICAL.** Same spectrum, both implementations, one node process, 1,001 samples of `t`, double-run: `max|Δ|` chain = **0** and `max|Δ|` curve point = **0** at N = 10/50/100. Throughput within **1.9 %** in both directions. The duplication buys nothing and costs nothing; it is a maintenance liability and only that — a smaller finding than the census implied, and a cleaner one.
+2. **The Fourier math is NOT the cost a GPU move would offload.** `BasisCanvas` calls `fourierPositionsAt` **once per frame**; at the app's default 200 harmonics that is **≈3.1 µs — 0.019 % of a 16.67 ms frame**. What `FourierField` would take over is RASTERISATION, and that half no headless instrument can weigh → SS-13, flagged not guessed.
+3. **`BasisCanvas` owns the INSTRUMENT regime and is not replaceable**: three bases, hit-tested labels, image overlay, a user's own contour, ghost path. `FourierField` at 8.0.0 is fourier-only and seeded, and its own README calls itself decorative. **`FourierField` owns the AMBIENT regime, where this app has no consumer at all** (⟨cmd⟩ `grep -rn 'fourier-field\|fourier-math' src/` → **0**) and where it already ships live PRM freeze, offscreen pause and a deterministic `freeze` still.
+4. **The highest-value row the census did not name**: the producer ships a client-side FORWARD DFT (`dftFromPoints`, **2.2 ms / 256 samples, round-trip error 2.8e-14**) and this app buys the same step with a network round trip to Python.
+
+⊘ Adoption decisions route to **SS-3/SS-4**, per §2.L's own terms. Nothing scheduled, nothing landed, no producer byte touched. §5's gBCR MEASURE-BEFORE baseline is recorded as a COUNT (17 repo-wide; `useCoeffHover.ts`'s 2 are `D·D-m9`'s pair); the magnitude is SS-13.
+
+#### Act 11 — E13 mail (this seat's own act)
+
+Swept read-only at this seat's clock (**2026-09-18 21:24 EDT**), six paths, delta against 19:45 (`.e`'s sweep line): ⟨cmd⟩ `/usr/bin/find <each> -maxdepth 1 -type f -name '*.md' -newermt "2026-09-18 19:45"` → **∅** on all six except `INBOX.md` itself (**self-excluded**, SELF-COUNT law).
+⟨cmd⟩ `/usr/bin/grep -nE '\| *\*\*UNREAD' docs/tranches/V/coordination/INBOX.md` → **three** rows, `I-32` · `I-33` · `I-34`, each classified from its own **Status** cell, never from a bare `grep -i unread` (X.P.W0 CHECK 1 **D-1**). Every one is routed at its Routing cell to X-W0.j / the X formation mail seat; not one names a `lib/`, `stores/`, `style.css`, SCRUB or convergence byte. **0 unrowed · 0 new `I-n` · 0 UNREAD in `.f`'s scope.**
+⊘ `docs/tranches/V/coordination/INBOX.md` is **not** in this unit's writable set, so no sweep line was appended. Stating the restraint is the point, and it follows `.e`'s precedent: a unit that writes outside its bounds to satisfy one law has broken another.
+
+#### Gate readings, BEFORE → AFTER (every AFTER double-run at the settled bytes)
+
+| gate | BEFORE (wave baseline) | AFTER (this unit) | verdict |
+|---|---|---|---|
+| **`G-F4-PRM-CLOCK`** | RED — 5 ungated clock owners; `stores/animation.ts` the one no sibling could reach | **8 rAF call owners, 8 consulting PRM** (double-run) ⊕ live: 0 rAF callbacks in the reduced arm vs 15, 0 page errors | **GREEN** |
+| **`G-F4-CONV-STUDY`** | RED — *"No study exists"*; `L-B3` unmemoised | `F-W4-CONV-STUDY.md` — a MEASURED memo taken after `b3b9a35`, naming which renderer owns which regime, adoption routed to SS-3/SS-4 | **GREEN** |
+| **`G-F4-DEAD-DEP`** | RED — dead surfaces live; no ledger | `F-W4-SCRUB-LEDGER.md` — every deletion with its zero-consumer proof, no dependency removed while imported, bundle diff recorded in BOTH directions | **GREEN** |
+| **`G-F4-CENSUS-CELLS`** | RED — no correction landed for any of the six cells | this unit's cell (`lane-frontend.md:558-559`/`:624`) corrected by dated addendum-beside, banked adjacent to its cure | **GREEN for this unit's cell** |
+| **`G-F4-VUE-TSC-CLEAN`** | RED — 18 diagnostics at wave-open; this unit's site `api.ts(5,5)` TS6196 | ⟨cmd⟩ `npx vue-tsc -b --force` ×2 → **1** diagnostic, `ContourEditorCanvas.vue(42,9) TS6133`, under `.c`'s EVALUATE-ONLY lock and unwritable by any seat in this wave. ⟨cmd⟩ `npx eslint src/lib src/stores src/composables` → exit **0** | **GREEN for this unit's file; RED wave-level, reported with the one row named** |
+
+#### Commits
+
+| hash | repo | meaning |
+|---|---|---|
+| `7b736f8` | fourier | SP-12 — one typed catch at the seam; the array-shaped `detail` stops being parsed and thrown away |
+| `dabbb17` | fourier | SP-12 ⊕ EV-L·M-4 ⊕ IU-25 — one answer to a missing admin token, a backoff an abort can reach, three client verbs nobody called |
+| `02010de` | fourier | SP-13 — the restore seam validates; the speed domain is named once instead of five times in a template |
+| `b62dcf2` | fourier | SP-16 — two wholesale-assigned records stop being deep proxies |
+| `a512661` | fourier | MG-λ — the toast's duration is honoured, because the producer has a place to put it |
+| `2ef87d1` | fourier | `G-F4-PRM-CLOCK` closes ⊕ FMD-22's false gate comment |
+| `0a16b83` | fourier | the sheet's collected residue — PAW-55, three ramp stops, the golden resolver line |
+| `cbda8b6f` | value.js | the SCRUB ledger, the convergence study, the dated addenda-beside |
+| *(this line's own)* | value.js | this receipt |
+
+⊘ Every commit carried its own pathspec **on the commit itself**; ⟨cmd⟩ `git show --name-only` on each returns only this unit's files — **not one sibling path in any of the nine**. `scripts/dev/dev.sh` untouched. No `git stash`, no `reset --hard`, no force-push, no `add -A`/`-u`.
+
+#### Escalations (each with its measurement; full text in the addendum)
+
+- **`FR-GFC-1 = FR-GSB-1` — REFUSED at this end, with cause (A-f-6).** `.d` asked for the `api.listVisualizations` widening. Measured at the server: ⟨cmd⟩ `grep -n "async def list_visualizations" -A 6 api/routers/visualizations.py` → the endpoint accepts `limit`, `sort`, `cursor`, `owner` and **nothing else**. Widening the client to carry `q`/`tier`/`basis` would put them on a wire that ignores them while the client's own types CLAIMED the filter existed — a filter that filters nothing, which is the masking class this wave forbids by name. The row is a CONTRACT row; F.W5-W8 owns it. **The refusal is the cure.**
+- **The `speed` type narrowing — landed at runtime, declared at the type (A-f-4).** Pinia collapses a `WritableComputedRef<T, S>` to its getter type, so narrowing the store surface breaks exactly three assignment sites in two files outside these bounds. Named line-for-line; the runtime guarantee holds for every writer meanwhile.
+- **`SP-12`'s `resetMs` deviant is outside this unit (A-f-5).** Three sites, two values; `UserSlugBar.vue:25`'s **1500** is the sole deviation and the lock's inversion reproduces exactly. One line, `.d`'s file. **No byte written.**
+- **Two dead dependencies, proofs complete, edit declared (A-f-10.7).** `class-variance-authority` and `clsx`: **0** references across `src`, `e2e`, `vite.config.ts`, `index.html`, and neither a glass-ui peer dependency. `web/package.json` is `.g`'s under §1 (*gates only*). ⊘ Census correction in passing: the same cell's other two names are wrong today — `tailwind-merge` is **not a dependency at all** and `reka-ui` has **6** live consumers.
+- **Four further one-line follow-ups declared to `.z`** (A-f-10): `adminError.ts` re-points at the now-landed seam · the two inert `getAdminToken()!` assertions · `gallery.ts`'s silent third posture, now able to call through · `lib/equation/api.ts` passing `retryOn429: false`, the line `.b` named as owed *"the moment (i) exists"* — and (i) now exists.
+
+#### Residuals and roster
+
+- **GREEN-BEFORE-ITS-CURE, listed not smoothed**: `EP-MISSED-F`'s duplicate import (discharged by ESC-4's F.W2 rewrite, `0cc9b00`) · `search/index.ts` (deleted by `.e`) · `FR-EQR-22`'s unearned `!important` (cured by `.b`; ⟨cmd⟩ `grep -rn "!important" src/` → **5** live sites, all `/equation` SFCs, none in `style.css`) · the `.sidebar-link` font-weight transition (deleted by `.e` under `PV ★MF-6`, in `PaperSidebar.vue`, never in `style.css`).
+- **A method note worth more than the finding (A-f-2)**: this seat's first clock census ran `grep -rln "requestAnimationFrame"` and then read **9** owners after the seat wrote a COMMENT containing that identifier. A census keyed on a bare identifier counts prose. The instrument of record is the call shape `requestAnimationFrame(`, and every figure published here is taken with it.
+- **SS-13, deferred never resolved inline**: the composited readback of a populated workspace in the reduced arm · the `BasisCanvas` ↔ `FourierField` RASTERISATION comparison (the only half of the study no headless instrument can weigh) · the gBCR magnitude over a KaTeX subtree · `PAW-55`'s own question, whether a specific equation was clipping.
+- **F.W5-W8, routed with their reasons**: `VV-R2-B` + `GCM-1`'s wiring unit · `FR-GFC-1`'s list contract · `SS-C-1`'s persisted `speed` atom and the `AnimationSettings.speed` wire · `getMe`'s contract surface · the CONV-STUDY's four adoption questions (to SS-3/SS-4).
+- **⊘ Negative roster — held**: `I-2`'s empty state survives · `CanvasOverlayButton` not re-created · **the Tooltip shim is NOT deleted** — ⟨cmd⟩ `grep -rn "Tooltip" src/ | grep import` → **10 import sites across 10 files**, and it was never a candidate · `GM-19` not certified · CP KILL-6 not executed · `moon.json` not regenerated · **no glass-ui byte touched** (READ-ONLY always; the producer-shaped facts ride A-f-8's exclusion and `.z`'s relay) · no `test.skip`, allowlist, `fixme`, try/catch-around-a-defect, copied producer selector or `node_modules` patch anywhere in this unit · no producer pin moved · no `e2e/**` or `package.json` byte written.
