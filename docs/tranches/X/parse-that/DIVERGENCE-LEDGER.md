@@ -1078,3 +1078,54 @@ not excuse one.
 |---|---|---|---|
 | `"hwb(10, 10%, 10%)"` | {"ok":true,"value":{"space":"hwb","channels":[10,0.1,0.1],"alpha":1},"diagnostics":[]} | {"ok":false,"diagnostics":[{"code":"css_syntax","start":6,"end":17,"expected":["<angle-unit> ('deg')","<angle-unit> ('grad')","<angle-unit> ('rad')","<angle-uni… | {"ok":false,"diagnostics":[{"code":"css_syntax","start":6,"end":17,"expected":["<angle-unit> ('deg')","<angle-unit> ('grad')","<angle-unit> ('rad')","<angle-uni… |
 | `"hwb(120, 30%, 40%)"` | {"ok":true,"value":{"space":"hwb","channels":[120,0.3,0.4],"alpha":1},"diagnostics":[]} | {"ok":false,"diagnostics":[{"code":"css_syntax","start":7,"end":18,"expected":["<angle-unit> ('deg')","<angle-unit> ('grad')","<angle-unit> ('rad')","<angle-uni… | {"ok":false,"diagnostics":[{"code":"css_syntax","start":7,"end":18,"expected":["<angle-unit> ('deg')","<angle-unit> ('grad')","<angle-unit> ('rad')","<angle-uni… |
+
+---
+
+## §10 — `rulingId` appends, X.P.W4.f (SERVED MODEL: claude-fable-5-1 · 2026-09-19) — DATED, BESIDE (E-3)
+
+**Standing.** Appended by the fresh Fable adjudicator of `X.P.W4S` under the third dated addendum of
+`waves/W4.md` (*"`DIVERGENCE-LEDGER.md` (modify-append, `rulingId` fields)"*). Nothing above this line
+is rewritten: §0–§9 are the emitter's bytes and `§6.1` is `.e`'s carried block. The emitter's F-e7
+carry lifts `### §6.x` subsections only; **a regeneration must re-append this §10** (recorded in
+`execution/D/X-P-W4S.md` as a residual for the emitter's owner). Every ruling below is derived in
+`ADJUDICATION-W4.md`, whose section numbers are cited; the measurements are that file's Appendices A
+and B, run twice at this seat.
+
+#### §10.1 The 44 carried cells — `rulingId` per cell, as ruled
+
+| cells (Appendix A `#`) | entry | `rulingId` the emitter attached | `rulingId` as RULED | disposition of record | direction |
+|---|---|---|---|---|---|
+| `#1`–`#4` | `parseCssColor` · `parseCssScalar` · `parseCssValue` · `parseCssValues` | `GROUND-C` | `GROUND-C` (COHESION §0v; css-color-4 §4.2 alpha clamp) | declared-divergence, candidate correct | WIDENS |
+| `#5`–`#9` `#11`–`#28` (23) | `parseTimingFunction` | `GROUND-C` | `GROUND-C` (css-easing-1 bounds only `cubic-bezier` abscissae; ordinates and `linear()` stops carry `±Infinity`) | declared-divergence, candidate correct | WIDENS |
+| `#10` | `parseTimingFunction` | `ID-2` | `ID-2` | declared-divergence, candidate correct | NARROWS |
+| `#31` `#33` | `parseStylesheet` | `GROUND-C` | `GROUND-C` (§8.1 / §4.2 clamps inside a declaration) | declared-divergence, candidate correct | WIDENS |
+| `#29` `#34` `#38` `#42` | `parseStylesheet` | `ID-4` | `ID-4` (css-syntax-3 §5.4.3 / §5.4.9) | declared-divergence, candidate correct | WIDENS |
+| `#39` | `parseStylesheet` | `ID-4` | `ID-4` (the `(` block is consumed to EOF; the rule is a parse error) | declared-divergence, candidate correct under the seam's whole-sheet posture (ADJUDICATION-W4 §5) | NARROWS |
+| `#43` `#44` | `parseStylesheet` | `ID-1b` | `ID-1b` (the nested at-rule; css-syntax-3 §5.4.4) | declared-divergence, candidate correct | CHANGES VALUE |
+| `#30` `#35` `#36` | `parseStylesheet` | `ID-1b` | **`PB-12`** — the divergence is `9.`/`0.` · `4.deg` · `2.`; the non-ident NAME is accepted by BOTH engines (F-w4f-1, shared) | declared-divergence, candidate correct | NARROWS |
+| `#32` | `parseStylesheet` | `ID-1b` | **`PB-09`** — `hsl(50% …)`; name shared | declared-divergence, candidate correct | NARROWS |
+| `#37` | `parseStylesheet` | `ID-1b` | **`PB-05`** — alpha `-137` / `-116`: 4.0.0 rejects with `color_out_of_range`, the candidate clamps to 0; name shared | declared-divergence, candidate correct | WIDENS |
+| `#40` | `parseStylesheet` | `ID-1b` | **CANDIDATE DEFECT F-w4f-2** ∧ `ID-1b` (F-m1: 4.0.0 folds `-!important` into the value as a keyword) | mirror-defect until F-w4f-2 is cured; then `ID-1b` | — |
+| `#41` | `parseStylesheet` | `ID-1b` | **CANDIDATE DEFECT F-w4f-2** — `)!important` is valid (css-syntax-3 §5.4.7) and the candidate rejects it; 4.0.0 is correct here | mirror-defect until cured | — |
+
+#### §10.2 Rows whose premise is measured FALSE at the producer — RETIRED as coverage claims (F-w4a-1)
+
+| row | `rulingId` | ruling (ADJUDICATION-W4 §3) |
+|---|---|---|
+| `CN-2` | `F-w4a-1` | RETIRED — all 10 subjects are exported at `entry.mjs` and resolve from the installed tarball (G-3 `52 of 52`); 9 rows `identical`, `coerceToSyntax` `declared-divergence` inherited from `parseCssColor` |
+| `CN-3` | `F-w4a-1` | RETIRED — all 33 types are re-exported in-package from the sha-pinned 4.0.0 declaration and resolve from the installed tarball; 28 rows `identical`. The generator cannot re-emit this row truthfully until `F-ab1` (the five-name literal at `run-full-surface.mjs:60`) is cured |
+| `R4` | `F-w4a-1` | RETIRED as a coverage claim — `parseKeyframeSelector` is realized (27,021 of 27,021 AGREE); the fixture's axis is a SHARED posture, an observation |
+
+#### §10.3 Rows whose `candidate` field is refuted as stated (L-14) — amended beside, never edited above
+
+| row | field | as written | as measured | `rulingId` |
+|---|---|---|---|---|
+| `ID-1b` | **candidate** | *"REJECTS the first two in BOTH lowerings"* | both lowerings ACCEPT `b { col!r: rgb(9 none -76 / 0) }` and `b { background-color: var(--brand) - !important }` — the rejections in the rowed inputs are `PB-12`'s (`9.`, `0.`) and F-w4f-2's (`-!important` adjacency). The non-ident-name mechanism is SHARED (F-w4f-1). The row's incumbent half and its third (nested at-rule) input stand | `ID-1b` (narrowed to the brace-crossing form) · F-w4f-1 · F-w4f-2 |
+| `ID-4` | **candidate** | *"ACCEPTS all three"* | the third input (`… GARBAGE ) ;(#d { … }`) is REJECTED by both lowerings, as the row's own measured table already shows — the prose is amended to the table | `ID-4` |
+
+#### §10.4 The posture ruled once — the whole-sheet refusal
+
+`ID-1b`'s open question (*"refusing the whole sheet where §5.4.4 drops the invalid declaration"*) is
+**ruled the SEAM's error posture** (ADJUDICATION-W4 §5): the frozen `ParseResult<Stylesheet>` has no
+kept-rule-dropped-declaration channel and 4.0.0's own answer to a malformed rule is whole-sheet
+`ok:false`. Not a divergence class; no `rulingId`.
