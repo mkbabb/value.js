@@ -323,3 +323,136 @@ non-empty difference after two closure passes **HALTS the wave**. Close with the
 
 *(empty at open — each unit appends its own receipt below, line 1 `SERVED MODEL: <id>`, with its
 commit hash, the gates it turned with their split verdicts, and the paths it wrote)*
+
+---
+
+### F.W8.a
+
+**SERVED MODEL**: `claude-opus-5[1m]` · seat opened 2026-09-19 · **DONE**
+**Wrote (1 path, the whole writable set)**:
+`docs/tranches/X/fourier/conformance/union-prototype-walk.md` — **474 lines**, created.
+**Commit**: **`fc781875`** *"docs(X·exec): F.W8.a — the union prototype walk, ten cells over five
+verbs and two object kinds, with G1's ruled one-sided diff branch declared aloud"* (pathspec, one
+path, `--no-verify`). **Zero fourier bytes · zero product bytes · `scripts/dev/dev.sh` never staged.**
+
+#### Acts, in order
+
+1. **CRASH-RECOVERY (standing law).** ⟨cmd⟩ `git -C $V status --porcelain` → **2 rows**,
+   `docs/tranches/V/reformation/CARRY-LEDGER.md` and `scripts/dev/dev.sh` — **neither inside F.W8's
+   `§2a` writable set** (and the second is the unowned dirty row, untouched in any verb). ⟨cmd⟩
+   `git -C $F status --porcelain` → **0 rows**, HEAD **`21e11b0`**. **No inherited work on this unit
+   exists; nothing stashed, restored or reverted.** The eleven-row porcelain this record banked at
+   open has since settled to two — Track A committed its eight demo paths and `eslint.config.js`
+   between the open seat's clock and this one's; **none was ever mine and none was touched.**
+2. **Read WHOLE**: the spec (`waves/F-W8.md`, 374 lines) · this record · `COHESION.md` **§0j.D** and
+   every later addendum to file end (**§0k–§0v**). ⟨cmd⟩
+   `grep -n 'F\.W8' COHESION.md | grep -v 'KF\.W8'` → **one line, `:987`** (F-PRODRET's home) —
+   double-run identical, reproducing the open seat's reading at this seat's own clock. **No §0k+
+   addendum re-opens, moves or adds an F.W8 ruling.**
+3. **D-19 MEASURE-AT-OPEN, performed before any citation.** Read F.W0's `SUBSTRATE-LEDGER.md`
+   **§2.1** (G-11 anchor table) and **§2.2** (G-12 denominator table) first. ⊘ **Neither reaches this
+   unit's anchors, in the ledger's own words** — §2.1.3 row 5's state cell reads *"RECORD (api/py
+   coordinates are outside F.W0's bounds)"*, and G-12's fifteen rows are CSS tokens, route records,
+   component counts and devDeps. **So the obligation landed on this seat**: all **13** witnesses of
+   §P/§M/G16 were re-resolved at fourier `21e11b0` / value.js `tranche-u` and published as a drift
+   table at the artefact's §0.2 — **2 byte-exact at address, 10 drifted-but-holding, 1 NOT holding**
+   (the value half of divergence (a); act 5).
+4. **Consumed, never re-derived** (F.W5's `operation-register.md`, 38,255 B): the **45 = 30 + 13 + 1
+   + 1** triple, the **36 CLIENTED / 7 CLIENTABLE / 1 STRUCK / 1 SERVER-ONLY** split (36 edges / 9
+   gaps), the **0 / 45** OpenAPI-security figure and the closed six-token authority vocabulary.
+   ▲ **K-1 carried as a live trap, not a quotation**: this seat's corroborating ⟨cmd⟩
+   `grep -nE '^@router\.(get|post|patch|delete|put)\(' api/routers/visualizations.py` → **13 lines**
+   (`:164 :244 :287 :350 :400 :430 :488 :669 :675 :686 :733 :799 :860`) reproduces register rows 1–13
+   — and **that instrument is the blind one**: keyed on the bare name `router` it reads the admin arm
+   as **zero**. The figure of record stays the register's **13 / 44**, and **"30" is never cited as
+   the whole API**. ▲ **X-9 honoured by construction: a member-scope law is published at §2.1 before
+   any ratio appears, and NO PERCENTAGE IS PUBLISHED ANYWHERE IN THE ARTEFACT.**
+5. ⊘ **FINDING — one banked witness does NOT reproduce, and it is the spec's own divergence (a).**
+   The spec states *"a value.js fork child born `public` (`forks.ts:76`)"*; at HEAD
+   `api/src/modules/palette/service/forks.ts:87` reads **`visibility: "private"`** under an in-source
+   minute (*"X-W3 · G-12 (class 2) — the child is born PRIVATE"*). ⟨cmd⟩
+   `git log -S'visibility: "private"' --oneline -- api/src/modules/palette/service/forks.ts` →
+   **`22d2eb65`** *"fix(api/palette-forks): plural route, private child, … (X.A4)"* — **Track A's
+   wave**. ▲ **FR-GIG-5 MIRROR HONOURED: F.W8 claims no credit, names the wave from the git record,
+   and re-states the divergence at its true bytes** — it is no longer a divergence of privacy
+   *default* (both children are now born unpublished) but of **vocabulary and cardinality**:
+   fourier's `draft` inside `Literal["draft","unlisted","public"]` (`models/visualization.py:34`)
+   against value.js's `private` inside `["public","private"]` (`model.ts:33`), where **ruled D9**
+   killed `unlisted` and a boot check refuses a collection still carrying one. **Left unharmonised**,
+   with §0j.D **R8** recorded as the union's ruled target whose **clause is F.W5's to write**.
+6. ⊘ **FINDING of this seat's own — the palette remix client is bound to a route that is GONE.**
+   ⟨cmd⟩ `grep -rn '/fork' demo/palettes/api/*.ts` → `versions.ts:48` POSTs
+   `/palettes/${slug}/fork` (**singular**); ⟨cmd⟩ `grep -rn 'slug/fork' api/src/.../routes/forks.ts`
+   → `:26` binds `POST /:slug/forks` (**plural**) under the file's own header at `:9`: *"The singular
+   `POST /:slug/fork` is GONE."* The server's contract tests exercise the plural
+   (`palette-write-contract.test.ts:396`, `palettes-forks.test.ts:92`). **404 by construction** ⇒
+   cell **R-V** disposes `CLIENTED–UNREACHABLE`. ▲ **ROUTED, NOT REPAIRED** (§1c, docs-only wave,
+   writable set of one): owner = the **value.js API row / X·V** (the same wave that landed the
+   plural), carried into unit `b`'s register as a row whose fixture is generated from the
+   **operation**, never from the client union (**J2's direction law**).
+7. **Divergence (b) re-measured and left unharmonised**: fourier `visualizations.py:493` (*"NO Mongo
+   transaction — standalone-topology-honest"*, byte-exact at address) with
+   `idempotency.replay_or_record(...)` at `:612`, against value.js `service/forks.ts:108`
+   `withTransaction` with an in-txn source re-read and **no** idempotency key. **Each repo holds one
+   half of the safety property and they are different halves; neither holds both.**
+8. **M3's admin-leg assertion carried** (§6 of the artefact) over the re-resolved witness
+   `admin.py:436-438` (`update_many` `$set {"tier":"normal"}`, unconditional): *a batch write
+   preserves every state orthogonal to the one it names.* **No separate gate (L-19)**; it rides G2's
+   walk record. **FR-AFP-10 / FR-AFP-70 composed, never re-booked; the semantics ruling stays
+   F.W5/F.W6's.**
+9. **G16's assertion authored** (§7.1) over witnesses re-resolved at this seat — `GalleryCardModal.vue:273`
+   → `GalleryView.vue:421`/`:395` `router.push('/w/${slug}')`; `loadVisualization` **0 call sites
+   outside `stores/workspace.ts`** (4 hits, all internal); `stores/gallery.ts:256` bypassing the
+   store's own `deleteVisualization`: **the saved entity, slug + strong ETag captured, no cross-owner
+   draft row, create → derive completing through the real entry point.** BLK-1 and SS-C-1's read leg
+   FOLD; **F.W4 owns the wiring and F.W8 claims none of it.**
+10. **X-4 honoured, and it has teeth**: the value-side history rail **CHANGED** at X-W3 · G-7 —
+    `PaletteVersion._id` is the **release** hash, `payloadHash` the content hash, `revisionNo` the
+    total-order key (`model.ts:125-147`) — so the walk binds `revisionNo`/`payloadHash` and treats
+    `hash` as opaque. **The shape is not assumed** (§7.3).
+11. ⊘ **A vocabulary gap named, and nothing minted** (§7.4): value.js's `POST /:slug/revert`
+    enforces ownership by **declared route middleware** (`requireOwnership(paletteOwnerExtractor)`)
+    plus strong `If-Match` — neither `OWNER-IN-BODY` nor `SESSION-DECLARED`. Cell **H-V** carries the
+    measured token **`OWNER-DECLARED`** marked **MEASURED, NOT REGISTERED**; the question is handed
+    to unit `b`'s register and unit `e`'s relay letter. **F.W8 rules nothing F.W5's block owns.**
+12. **WRITE-THEN-MEASURE, and it caught this seat twice.** The artefact's §9 self-counts were run
+    against the **settled bytes** after writing. The first run convicted the draft's own prose: it
+    attributed the fourth `ONE-SIDED (R1)` hit to §4's diff row (which carries the bare `⊘` only),
+    and the draft's `grep -c` **became a fifth hit by being written down**. Both were cured at the
+    bytes — the probe is now a `grep -n` over **addresses**, and the figure is published as a **set
+    with its addresses and its disclosed probe-line residue**. Final readings, **double-run
+    identical**: cells **10 ≡ 10** · §4 verb rows **5 ≡ 5** · mark addresses **`104 · 194 · 204 ·
+    429` ≡ `104 · 194 · 204 · 429`** (three substantive ⊕ one probe-line resident). ⟨cmd⟩
+    `git diff --check` → clean.
+
+#### Gate readings — BEFORE → AFTER
+
+| gate | BEFORE (§B.2) | AFTER | verdict |
+|---|---|---|---|
+| **G1** ⊙ TA-4 disposition declared | **RED** — ruled at §0j.D **F-SS4REST R1**, undeclared in any artefact | §1 declares branch **(b)** aloud — *the union's diff leg is fourier-only and its diff verdict is one-sided* — and the mark stands in both diff cells (**X-F**, **X-V**) and §4's diff row. Both limbs of the gate's clears-when are met: F.W5's G4 ruling **landed** (F.W5 CLOSED, 22/22) **and** the explicit re-scope is now carried | **GREEN.** Under branch (b) there is no value-side byte left to land: the disposition **is** the ruling, recorded and never re-ruled |
+| **G2** five-verb walk has a client edge on both sides | **RED** — artefact ABSENT ⇒ **0 of 10** cells | **10 of 10** cells carry a disposition **and** an authority class (consumed on the fourier side, measured + gap-named on the value side) | **CLOSED FOR F.W8 — split verdict.** **NOT product-GREEN**: on the union's verb set the fourier side still has **zero** client edges on diff · remix · history, and the palette remix edge does not reach its route. GREEN owners **F.W1/F.W4** · **fourier API row** · **value.js API row** |
+| **G16** the only UI entry loads the saved entity | **RED** — no assertion; witness data-dead | §7.1 authors the assertion in full over anchors re-resolved at this seat | **CLOSED FOR F.W8 — split verdict.** **NOT product-GREEN**: the entry point is still data-dead. GREEN owner **F.W4** (wiring); F.W8 owns the assertion only |
+
+**No gate measured GREEN before its cure. No gate discharged by an SS-13 probe** — this unit ran
+none. **Probe parsimony (§5.2): 11 bounded `grep`/`sed` reads across both trees, zero live probes,
+zero browser, zero runs, zero writes outside the one writable path.**
+
+#### Residuals carried forward (routed, never repaired here)
+
+- **R-1** `demo/palettes/api/versions.ts:48` → the retired singular `/fork` path. **Owner: value.js
+  API row / X·V.** Unit `b` carries it as a register row generated from the plural operation.
+- **R-2** the `draft` ⇄ `private` token mapping across two differently-sized visibility enums, with
+  fourier's `unlisted` residue live (register §4.2 row 9's disclosed D9 divergence). **Owner: F.W5's
+  clause (R8) + the value.js API row's D9 reconciliation.** Unit `b` carries or strikes the mapping.
+- **R-3** the authority vocabulary has no declared-owner member (§7.4). **Owner: F.W5's register**,
+  relayed by unit `e`.
+- **R-4** A-3's anchor drifted again (`PaletteVersion` at `model.ts:125`, not `:84`) — recorded as a
+  re-resolve obligation, **not adopted**, exactly as this record's open seat recorded it.
+- **R-5** the walk cannot run **as the owning actor** on the fourier side (`visibilityFilter` is a
+  producerless ref ⇒ the server's `owner=="me"` branch is dead from this client) and cannot enumerate
+  a chain through the gallery list (filter ∩ page window, one shared abort key). **Owner: F.W3/W4**;
+  unit `d`'s script enumerates **per-slug**.
+
+**Escalations: none.** The specified cure was possible at the bytes and was executed exactly.
+**`a` is closed and committed; `b` may open** (§2c: one writer at a time, dirty tree at handoff
+halts the wave — the tree is clean of every `§2a` path).
