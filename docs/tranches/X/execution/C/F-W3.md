@@ -2539,3 +2539,285 @@ close at `.f`** over the re-measured 7-file/11-file operands with every unswept 
 creates carrying its served-model declaration, every published count read from the settled bytes and
 double-run, every inherited path named. `.b`'s prior `ESC-W3b-MISSED-D` receipt stays above,
 untouched: it was the correct act at the time it was taken, and §0x is its answer, not its erasure.)*
+
+### X.F.W3.b
+
+**Seat**: `claude-opus-5[1m]`, 2026-09-19. **Status: DONE.** **Route: ROUTE 1**, ruled at COHESION
+§0x S-6a — the `EasingCurve` re-home. **Both gates flip: g7 RED → GREEN · g8 RED → GREEN.**
+Sections read whole and executed exactly: §C.C (`:250–261`) · §3 g7/g8 (`:404–405`) · §5 X.F.W3.b
+(`:455–459`) · §5a splits (2)(3) (`:489`) · §5b (`:534–547`) · §6 (`:551–557`) · §7 (`:559–563`) ·
+§9 (`:569–571`) · COHESION §0x S-6a (`:1587–1596`). The wave record was read whole (2 541 lines at
+open, including this unit's own prior halt receipt) and COHESION §0j → file end (1 610 lines).
+
+**Worktree honoured (§5b + §0x note ii)**: `/Users/mkbabb/Programming/fourier-analysis/.worktrees/f3b`,
+branch **`x-f-w3-b`**, created from **`21e11b0`**, with its own `web/node_modules` (APFS clone of the
+root's, 238 MB; no shared install). Commits **`da417da`** and **`b9995b3`** land there; the
+orchestrator integrates onto `m/w1-bump-migration` per §9. Full gate transcripts:
+`docs/tranches/X/fourier/evidence/w3/F-W3-b-g7-g8-transcripts-2026-09-19.md` (§0x note iii's home,
+created by this seat — it did not exist; `evidence/` held `w1` and `w2` only).
+
+#### Act 0 — crash-recovery sweep (standing law, first act)
+
+⟨cmd⟩ `git status --porcelain` at `/Users/mkbabb/Programming/fourier-analysis` → **0 rows**;
+⟨cmd⟩ `git rev-parse --short HEAD` → **`21e11b0`**, branch `m/w1-bump-migration`. ⟨cmd⟩ the same in
+value.js → **14 ` M` + 4 `??` rows at this seat's Act 0**, **not one inside this unit's writable
+set**: twelve `demo/**` rows (Track A's color-session and gradient work),
+`docs/tranches/V/reformation/CARRY-LEDGER.md` and `scripts/dev/dev.sh` (unowned, NEVER touched),
+plus `demo/color-session/{space-catalog,specimen-format}.ts`,
+`docs/tranches/X/waves/W6-evidence/` and `e2e/smoke/oracles/o22-*.spec.ts` untracked. **That shape
+MOVED under concurrent sibling seats while this unit worked** — re-measured immediately before this
+receipt: **8 ` M` + 9 `??`**, with the twelve gradient/demo rows partly committed by their owner and
+four further Track-A untracked paths (`docs/tranches/X/gates/`,
+`docs/tranches/X/waves/W6-evidence/catalog/`, `e2e/smoke/oracles/o21|o23|o24-*.spec.ts`) arrived
+meanwhile; an intermediate reading forty seconds earlier was **9 + 8**. **All three figures are
+published, because a single porcelain count in a four-track index is a snapshot and never a fact.**
+SELF-COUNT: exactly two of that last reading's seventeen rows are this seat's —
+` M docs/tranches/X/execution/C/F-W3.md` and `?? docs/tranches/X/fourier/evidence/w3/` — and both
+are committed below. **Nothing was inherited, nothing stashed,
+nothing restored** — this unit's seven writable paths were all clean, so
+the killed-predecessor clause had no work to do here. ⟨cmd⟩ `git worktree list` at open →
+main + one unrelated `.codex` detached tree + **`.worktrees/f3d` [x/f3d]**, the concurrent sibling;
+**`f3b` did not exist** and was created by this seat. The main checkout's porcelain therefore reads
+`?? .worktrees/` at close — **§5b's own declared residue** (the `.gitignore` row is F.W0's and
+`.gitignore` is not in F.W3's §1 bounds), and it is the worktree arm of §5b's two, not an
+unsettled tree.
+
+#### Act 1 — FIRST ACT: the ruling this unit halted on, found where it looked
+
+⟨cmd⟩ `grep -n 'MISSED-D' docs/tranches/X/COHESION.md` → **2 hits (`:1582` · `:1587`)**, where this
+unit's predecessor seat measured **0, exit 1** on 2026-09-18. §0x S-6a reads, byte-quoted at
+`:1587–1596`: *"**S-6a · MISSED-D — the easing adoption route: ROUTE 1, the `EasingCurve` re-home**
+… the ToggleChip route is REFUSED. g7/g8 turn on this route."* `ESC-W3b-MISSED-D` is **DISCHARGED**.
+The route was re-verified shipping before a byte was written, not presumed: ⟨cmd⟩
+`node -p "require('@mkbabb/glass-ui/package.json').version"` → **8.0.0**; ⟨cmd⟩
+`grep -n 'EasingCurve' node_modules/@mkbabb/glass-ui/dist/easing.js` → `:809 export { xe as
+EasingCurve, … }`; ⟨cmd⟩ `ls node_modules/@mkbabb/glass-ui/dist/components/menu/` → the
+`DropdownMenuRadioGroup` / `RadioItem` / `Label` triple at the 8.0.0 `./menu` spelling.
+
+§5a splits (2)(3) re-verified released, not inherited: ⟨cmd⟩ `git log --oneline -1 --name-only
+f36541a` names `web/src/stores/animation.ts`; the same at `77b9bc0` names
+`web/src/components/morph/MorphPhaseConfig.vue`. **Both `.a`'s, both committed.** E13 in scope:
+⟨cmd⟩ the position-classified status-cell probe over `INBOX.md` → **0 UNREAD** across **79** rows,
+and no row names the easing disposition.
+
+#### Act 2 — the anchors, verified at true bytes before any edit (METHOD)
+
+Every §C.C coordinate this unit consumes was re-resolved at `21e11b0`. The predecessor's drift table
+reproduces exactly (`MorphPhaseConfig.vue` dotted `:198 → :264`, bare `:47 → :93`; `easings.ts`
+`:115-127 → :275–287`; the two samplers **26** lines apart, not nine), and **one further drift is
+recorded here**: `useFourierMorph.ts`'s BARREL seam is **already discharged**, by F.W4, with its
+rationale in-file at `:22–49` (`FR-AH-7 ⊕ FR-AH-24`: the static `@/lib/easings` edge and the
+re-export beneath it were both cut, `getEasingFn` re-resolved inside the existing dynamic await
+window). This seat re-measured and **did not re-cure it** — a cured row is not a row to cure again.
+
+#### Act 3 — the morph twin and the ONE `d`-precision policy · commit `da417da`
+
+`lib/easings.ts` ⊕ `morph/MorphPhaseConfig.vue`, one meaning, one commit — and the spec's own
+sequencing law forced their union: *"the ONE policy must be stated in the same edit that touches
+either builder."*
+
+**The policy**, stated in the module at the builders: ONE space (the producer's normalized 0–1 plot
+space, `y = 1 - v`), ONE sample count (32), ONE quantiser (`toFixed(3)`), ONE memo
+(`cachedCurvePath`, keyed by catalogue + name). `generateCurveSVGPath` is the single builder;
+`getEasingSVGPath` and `easingCurvePath` are thin resolvers over it. The baked **40×20** box and
+MPC-23's **2.25×** anisotropy are **deleted, not parameterised** — a second space is a second policy
+wearing an argument, which is the defect MISS-2/FACET/SAMPLE name.
+
+**WRONGPAD measured rather than assumed.** ⟨cmd⟩ `node --experimental-strip-types` over the real
+module, all 22 presets × 2001 samples: `v ∈ [-0.096882, 1.092713]` (the three `back` arms alone), so
+`y = 1 - v ∈ [-0.092713, 1.096882]` — **contained** by the producer's `viewBox "-0.1 -0.1 1.2 1.2"`.
+The `clipped` excursion contract is therefore **never armed** and no consumer passes a constant
+`false`; confirmed at the rendered page, where the `Back In-Out` stroke measures `y ∈ [-0.093,
+1.092]` and its plot's `data-clipped` is `null`. The banked `±0.097 / 1.093` is corroborated to
+three decimals by an independent run.
+
+**Two regressions this re-home would have shipped, caught by measuring the page and cured at the
+root.** The producer draws its `0`/`1` axis captions as **HTML spans inside the plot**, and reka's
+`SelectItemText` publishes an option's **`textContent`** as the displayed value
+(`SelectItemText.vue` → `onOptionAdd({ textContent })`). Measured before the cure: the three
+triggers read **`"01 Linear"`** and typeahead `'b'` moved nowhere. Cured: `text-value` on the item
+(reka prefers the prop — `SelectItem.js:100`, `textValue.value = ((textValue.value ||
+node?.textContent) ?? "").trim()`) restores typeahead, and the trigger names the selection itself
+because the display never consults that prop. Measured after: triggers **`"Linear"`**; typeahead
+`b`/`e`/`l` → **Back In / Ease In Quad / Linear**; Enter selects and closes. **The producer-side
+half rides the SS-6 relay** (below) — nothing was patched in `node_modules`, no selector copied.
+
+#### Act 4 — the chassis, the deletion, the barrel seam · commit `b9995b3` (ONE commit, as locked)
+
+`EasingPicker.vue` ⊕ `git rm EasingCurvePreview.vue` ⊕ `stores/animation.ts`. The lock is honoured
+literally: **the deletion and the barrel seam's death are in the same commit**, and `git show --stat
+b9995b3` names exactly those three paths (`41` deletions for the removed file).
+
+**The chassis.** Six bare glass `<Button>`s wearing `role="menuitemradio"` + `:aria-checked` **by
+hand** become `DropdownMenuLabel` + `DropdownMenuRadioGroup` + six `DropdownMenuRadioItem`s, plus a
+`DropdownMenuSeparator` where a hand-rolled `border-bottom` used to be. **ToggleChip is refused by
+name**; no menu row is re-styled into a chip and `chipVariants` appears nowhere. The three booked
+complications are **discharged, not carried**: the indicator dot is the producer's own
+`ItemIndicator` (so this file mints no active-state spelling); the 3-column grid becomes **one
+column**, which is the spec's first option and the one that needs no 2-D handling, since Reka's
+arrow map is one-dimensional and the column makes keyboard order and visual order the same order;
+and the subpath move `./dropdown-menu → ./menu` is taken at 8.0.0. `text-value` is stated rather
+than inferred, because the producer's plot contributes `0`/`1` to the item's text and typeahead
+would otherwise match `"01"`.
+
+**The token rows die with the scoped block.** BEFORE, verified by this seat at `21e11b0` rather than
+inherited: `--easing-accent` **6 occurrences in one file** (`:33 · :44 · :49 · :85 · :86 · :99`,
+declared bare at `:49` with no `.dark` arm anywhere) and the literal `hsl(248 88% 71%)` in **two**
+files (`EasingPicker.vue:49` **and** `EasingCurvePreview.vue:12`, the `color` prop default — the
+carry-note's *"sole in-tree consumer"* falsified at the bytes, exactly as §C.C says it is). AFTER:
+**zero declarations and zero reads**; what a grep returns is one prose line each, on the docblock of
+the file that killed them. Both arms now come from the producer's landing chain, **measured
+resolved on the page**: `--easing-curve-accent` = `light-dark(oklch(53.2% .18 317.5), oklch(73.9%
+.134 318.1))` via `--motion-accent` → `--viz-legendre`. The 9px label that failed 1.4.3 in both
+schemes is gone entirely: the chip label is menu-row text in the popover's own foreground, and
+selection is the dot. **CARRY-1.4.3 and INVERT are cured by deletion of the under-floor paint, not
+by a retune** — the accent ceiling of 3.60:1 could not have been retuned into compliance.
+
+**The BARREL seam.** `animation.ts:11`'s `export { ANIMATION_EASINGS as EASING_OPTIONS,
+getEasingSVGPath }` — under the comment *"Re-export for consumers that import from this module"*,
+the self-described compat barrel — had **exactly two readers**, measured: the deleted file
+(`getEasingSVGPath`) and the picker (`EASING_OPTIONS`). The picker now imports the catalogue, the
+builder and the guard from `@/lib/easings`, which owns them, and imports the store for the STATE it
+owns and nothing else. The line is **deleted, not re-pointed, aliased or deprecated**. ⊘ The TYPE
+alias at `:12` **stays**, and the reason is measured: `visualization/composables/useWorkspaceLoader.ts:4`
+imports `type EasingName` from it and is **in no §1 bounds row for this unit**, so migrating that
+consumer is not this seat's to take; a type alias also crosses no value and mints no bundle edge.
+
+#### Gates — BEFORE → AFTER (every figure read from the settled bytes and double-run)
+
+| gate | BEFORE (this seat, at `21e11b0`) | AFTER (this seat, at `b9995b3`) | verdict |
+|---|---|---|---|
+| **g7** EASING FORK | the gate's own **bare-token** probe: `grep -rc 'easing-preview' src` → `EasingCurvePreview.vue:2` · `MorphPhaseConfig.vue:2` = **4 hits / 2 files**, of which 2 are the dotted selector (`:37` · `:264`) and 2 are dotless class attributes; `grep -rln 'easingCurvePath\|getEasingSVGPath' src/components` → **2 renderers** | bare-token → **0**; dotted half → **0**; `grep -rn 'glass-ui/easing' src` → **2 adoption sites** (`EasingPicker.vue:3` · `MorphPhaseConfig.vue:126`); one builder, one policy, one memo in `lib/easings.ts` (`:283` · `:288` · `:295` · `:305` · `:310`) | **GREEN** — the gate's *"or returns 0"* arm |
+| **g8** EASING CHIPS | `grep -rn 'data-reka-collection-item' src \| wc -l` → **0** tree-wide; `grep -c 'DropdownMenuRadioItem' EasingPicker.vue` → **0** | chassis **3** in the file; **template** tokens `menuitemradio\|aria-checked\|is-active` → **0** (the file's 3 remaining are docblock prose at `:22` · `:32` · `:33`, disclosed); at the rendered page **6** `menuitemradio`, **6** carrying `data-reka-collection-item` | **GREEN** |
+
+**g8's live keystroke leg** (the banked SS-13 item, which the gate itself demotes to confirmatory —
+taken anyway, because a BLOCKER-class reachability claim deserves a keystroke): Tab → trigger;
+Enter → menu open with **Linear** highlighted; ArrowDown ×1/×2 → **Linear / Sine**; End →
+**Exponential**; Home → **Linear**; typeahead `c`/`e`/`q`/`l` → **Cubic / Exponential / Quadratic /
+Linear**; Enter → menu closes, `aria-checked` moves to **Sine**, exactly **one** indicator dot; zero
+page errors. **K-20 discharged from the computed ARIA name, never from textContent**: the six
+accessible names are exactly `Linear · Sine · Quadratic · Cubic · Circular · Exponential`, and
+**0** items have an accessible name containing `"0"` or `"1"` — the `aria-hidden` on the decorative
+plot doing precisely its job, while the raw textContent does carry the captions.
+
+#### Cadence (§7) — run as written where the environment permits, and the shortfall named
+
+| ⟨cmd⟩ | BEFORE (pristine `21e11b0`) | AFTER (`b9995b3`) |
+|---|---|---|
+| `npx vue-tsc -b --noEmit` | exit 1 — **1 diagnostic**: `ContourEditorCanvas.vue(42,9) TS6133 'dragging'` | exit 1 — **the same one, and only it** |
+| `npx eslint src` | exit 1 — **2 errors**: `BasisCanvas.vue:15/:31 no-duplicate-imports` | exit 1 — **the same two, and only them** |
+| `npx vite build` | **exit 0** (cleared side of FR-NP-32; §7's standing RED no longer fires) | **exit 0** |
+| `npx vitest run` | — | **8 files / 57 tests, all passing** |
+| `npx playwright test --project=chromium` | 30 failed · 37 passed · 7 skipped · 13 did not run | **30 failed · 37 passed · 7 skipped · 13 did not run** |
+| `git diff --check` | — | clean |
+
+**The two standing REDs are not this unit's.** `ContourEditorCanvas.vue` and `BasisCanvas.vue` are
+in **no §1 bounds row for `.b`**, their bytes are identical to `21e11b0` (`git status --porcelain`
+names neither), and both readings reproduce at a pristine checkout of that commit. Nothing was
+written in either.
+
+**The playwright cadence WAS run** — §0x note (i)'s refutation is accepted and this seat verified the
+durable fix at the bytes first (`visual-baseline.spec.ts:23–35` — the `VISUAL_OUT` redirect and the comment that assigns it), ran the
+suite with `VISUAL_OUT` pointed at a scratch directory, and confirmed afterwards that ⟨cmd⟩
+`git status --porcelain docs/tranches/J` → **empty**: the 21 tracked J-tranche baseline PNGs are
+untouched and E-3 holds. **The reading it yields is a DELTA, not a pass count.** No `mongod` and no
+container runtime exist at this seat (⟨cmd⟩ `pgrep -x mongod` → no match; `docker ps` → no daemon),
+so every upload/extract/gallery/CRUD path times out on `page.waitForURL`; the suite was therefore
+run TWICE, once against this unit's build and once against a pristine `21e11b0` build, and
+⟨cmd⟩ `diff before.fails after.fails` → **no output, exit 0** over **30 rows each**. **The failure
+set is byte-identical: this unit moved nothing, in either direction.** The honest shortfall, named
+rather than buried: the 30 environmental failures mean the suite could not have caught a
+regression in those paths, and the acceptance for this unit's own surfaces was taken by the two
+bounded sessions above instead.
+
+**Bundle reading** (`vite build`, BEFORE → AFTER): `vendor-ui` 280.49 → **282.73** kB (+2.24, the
+reka menu radio primitives) · a new route-lazy `easing` chunk at **3.51** kB (the producer's
+`./easing`) · in-tree `easings` 3.33 → **3.27** kB (the two builders collapsing) ·
+`VisualizationView.js` 102.47 → **102.01** kB · `VisualizationView.css` **25.47 → 23.54** kB (−1.93,
+the 40 scoped lines D/D-4 books) · `FourierMorphDemo.css` 10.47 → **10.40** kB · **boot chunk
+`index` 489.13 → 489.16 kB — unmoved.** FR-AH-7's eager-edge cure is not disturbed: the picker
+already reached `@/lib/easings` through the store, so re-pointing it adds no boot edge, and
+`glass-ui/easing` lands only in the two route chunks that render a curve.
+
+#### Residuals and routings (named, none swept)
+
+1. **g9's operand in this unit's files — RECORDED, NOT SWEPT**, and the record's figure MOVES.
+   `EasingPicker.vue`'s three baseline sites (`:26` the `:class` binding, `:84`/`:98` two scoped
+   rules) are **gone by construction**: the hand-rolled `.is-active` is the state the
+   `DropdownMenuRadioItem` chassis already exposes as `data-state="checked"` plus its indicator dot,
+   so re-declaring it would be the double-exposure the Toggle.js:68 lock convicts. **No spelling was
+   renamed, in this file or any other.** ⟨cmd⟩ at `b9995b3`, double-run (`7 / 20 ≡ 7 / 20`):
+   `grep -rc 'is-active' src` → `EquationModeToggle 4 · FunctionInput 2 · AppHeader 3 ·
+   MobileFloatingToc 3 · PaperSidebar 5 · EasingPicker **1** · GallerySearchBar 2` = **7 files / 20
+   sites**, against the RESUME baseline's 7 / 22. ⊘ **`EasingPicker.vue`'s single survivor is
+   DOCBLOCK PROSE** — the sentence naming the spelling that died — not a binding and not a rule. It
+   is left standing deliberately: rewriting a comment so a grep returns a rounder number is the
+   overfit this house has already convicted once, and the SWEEP-LAW rider exists precisely because a
+   bare `is-active` grep cannot tell a class from a contract from a sentence. **`.f` classifies by
+   position and re-measures; it must inherit neither 22 nor 19.** ⊘ This seat's own first draft of
+   this row published *6 files / 19 sites* and the measurement refuted it; the refuted figure is
+   recorded beside the true one rather than quietly replaced.
+2. **g11's operand in this unit's files**: ⟨cmd⟩ `grep -c '<Tooltip' EasingPicker.vue
+   MorphPhaseConfig.vue` → **0 · 0**. Nothing to record; the third file no longer exists.
+3. **SS-6 / BH relay cargo from this unit** (for `.f`, to **ACCRETE** to the register reconciled
+   against O-20 ⊕ O-32/O-33 — never a fresh letter): **`EasingCurve`'s axis captions are HTML text
+   inside the plot.** The component draws `0` and `1` as `aria-hidden` `<span>`s in its wrapper, which
+   is correct for the a11y tree and wrong for every primitive that derives a label from
+   `textContent` — reka's `SelectItemText` (the value display) and reka's menu/select typeahead both
+   do. A consumer embedding the plot in a `SelectItem` gets `"01 Linear"` in the trigger and a dead
+   typeahead, **measured at this seat before the local cure**. The producer-side fix is captions as
+   SVG `<text>` (outside the HTML text stream) or a caption opt-out prop; the consumer-side
+   workaround costs a `text-value` and an explicit trigger label at every adoption site.
+4. **The producer also ships `EasingPicker` + `useEasingPicker`** (the predecessor's Act-5 item 1,
+   re-confirmed at `dist/components/easing/index.d.ts`). MISSED-D's text contemplates the CURVE;
+   §0x rules the curve. **The larger picker adoption is neither taken nor refused here** — it is
+   routed to F.W4, unpresumed, per the lock's *"may not presume beyond it."*
+5. **GEO-1's anti-cure lock, re-anchored** (the predecessor's Act-5 item 6): at 8.0.0 the
+   `[&_svg:not([class*=size-])]:size-(--ui-glyph)` spelling has left the Button CVA for a **layered**
+   CSS rule, so the lock's *prescription* held (the `:width`/`:height` attributes were inert and
+   `size` was a dead prop) while its *stated reason* no longer followed. **Moot on this route**: the
+   `size` prop dies with the deleted file, nothing sets an SVG dimension attribute any more, and the
+   producer's plot is CSS-sized (`block aspect-square w-full`). Recorded so the cell is consumed
+   rather than re-derived; a dated addendum-beside at `waves/F-W3.md` is E-3's vehicle if the owner
+   wants the cell corrected.
+6. **BARREL's third seam is already discharged** — `useFourierMorph.ts` at F.W4 (`FR-AH-7 ⊕
+   FR-AH-24`), verified in-file, **not re-cured**. The second barrel, `useMorphConfig.ts:20`'s
+   `export { … easingCurvePath }`, is **left exactly as found**: §C.C splits BARREL's seams
+   **F.W3/F.W4 by seam** and §0x rules *the single* seam — the one that dies with the file. Routed to
+   F.W4 with its one consumer named (`MorphPhaseConfig.vue:151–155`, the import block).
+7. **The store's `type EasingName` alias survives with one out-of-bounds consumer**
+   (`useWorkspaceLoader.ts:4`, `.e`'s file). Routed to `.e`/F.W4; this seat wrote nothing there.
+8. **D-8's reduced-motion blanket in `EasingPicker.vue` is gone with the surface it gated.** The
+   F.W4 · SP-4 cure declared `transition: none` over `.easing-chip` and `.easing-chip-label`; this
+   file now declares **no transition at all**, so the blanket gated nothing and was deleted with the
+   rules it covered. The producer's `.glass-menu-row` and `.interactive-item` carry their own
+   `prefers-reduced-motion` arm (`menu.css`'s second `.glass-menu-row` block zeroes
+   `--menu-row-lift`), so the behaviour is preserved and is now producer-owned. **Two of D-8's eight
+   surfaces therefore retire**; `.f` should not read the inventory as unchanged.
+9. **An observation, not a row**: Tab pressed *inside* the open menu does not dismiss it at this
+   producer build. The banked defect was the opposite (an unconditional Tab *swallow* with focus
+   trapped and nothing reachable), and every reach mechanism the gate names now works; the dismissal
+   nicety is producer behaviour, untouched by this cure, and nothing books it.
+
+#### Escalations
+
+**None.** No §6 trigger fired. Every edit landed inside the writable set — ⟨cmd⟩ `git status
+--porcelain` in the worktree before each commit named exactly the unit's paths, and **0 rows** after
+both. No bounds expansion was needed or taken: the two standing cadence REDs sit in files outside
+this unit's bounds and were left untouched rather than cured. No diagnostic loop reached a third
+diagnose→edit→re-measure iteration (the `SelectItemText` regression took exactly one). The route was
+ruled before this seat opened, so §6's *"g7 forced while MISSED-D is unruled"* trigger — the one that
+halted the predecessor — is discharged rather than avoided.
+
+#### Commits (pathspec, one meaning each; the lock honoured)
+
+| commit | meaning | lock |
+|---|---|---|
+| `da417da` | the morph twin re-homes onto the producer's square frame, and two curve builders become one policy | **the ONE `d`-precision policy is stated in the same edit that touches either builder** — `lib/easings.ts` ⊕ `morph/MorphPhaseConfig.vue`, never split |
+| `b9995b3` | the easing chips get the chassis their ARIA already claimed, and the preview fork dies with its store barrel | **the `EasingCurvePreview.vue` deletion and the single BARREL seam's death are ONE commit** — `EasingPicker.vue` ⊕ the `git rm` ⊕ `stores/animation.ts`, three paths, no split |
+
+Both commits carry bodies (deletion + gate changes, §9). Branch **`x-f-w3-b`** at **`b9995b3`**,
+ahead of `21e11b0` by two; the orchestrator integrates per §9's sequenced integration commits.
+`docs/tranches/X/execution/LEDGER.md` is **not touched by this seat** — the dispatch's receipt duty
+names this record and this unit's evidence directory alone, other seats edit that file concurrently,
+and this unit's row is the orchestrator's to write against its own reading of this receipt.
