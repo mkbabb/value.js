@@ -1,0 +1,10 @@
+X.W6.h — the 1×1-canvas 2D resolver, chromium, about:blank
+draw copied from useContrastSafeColor.ts:99-110 (dual-ground alpha recovery)
+  lab(92% 88.8 20)         seed C 0.27245 h   9.83  →  rgb(255 143 200)  C 0.14949 h 349.25  ΔC -45.1%
+  oklch(0.65 0.30 150)     seed C 0.30000 h 150.00  →  rgb(0 186 0)  C 0.23260 h 142.50  ΔC -22.5%
+  color(display-p3 0 1 0)  seed C 0.36853 h 145.64  →  rgb(0 255 0)  C 0.29483 h 142.50  ΔC -20.0%
+  oklch(0.55 0.37 328)     seed C 0.37000 h 328.00  →  rgb(210 0 216)  C 0.28244 h 326.85  ΔC -23.7%
+
+RULING (census §2): this clamp is REAL and LARGE and is NOT on the blob's chroma path.
+The producer's own defaultBlobColorResolver = oklchToGammaRgb ∘ cssToOklch performs the
+numerically identical clip on the path that IS the blob's — see the census §2 closing note.
