@@ -7679,3 +7679,17 @@ landing = 2 paths), and none swept in a byte of the four sibling seats sharing t
 fifteen sibling dirty paths (ten `demo/**`, `CARRY-LEDGER.md`, `scripts/dev/dev.sh`, two untracked
 `e2e/**` specs, one untracked Track-A evidence dir) are **untouched and unstaged** at this seat's
 exit, exactly as at its open.
+
+**C5.9 addendum — the measured push, appended in the same act that lands the LEDGER row.**
+
+```
+⟨cmd⟩ git -C /Users/mkbabb/Programming/parse-that push origin HEAD
+   Everything up-to-date                                    (frozen root at `ef10d5b7`, porcelain 31, untouched)
+⟨cmd⟩ git -C /Users/mkbabb/Programming/value.js push origin HEAD          (the close-report commit)
+   8af01d8d..66ba908a  HEAD -> tranche-u
+   ⟨cmd⟩ git rev-list --left-right --count origin/tranche-u...HEAD → 0  0
+```
+
+The LEDGER landing (`execution/LEDGER.md` row cells + this addendum) is pushed immediately after
+this commit, by the same two commands. **Round 5 is CLOSED: `PARTIAL 2026-09-17` stands, the round
+is BLOCKED-ON E-h1, and no verb moved.**
