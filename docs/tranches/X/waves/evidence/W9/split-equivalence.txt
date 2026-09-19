@@ -1,0 +1,42 @@
+=== X-W9.d — SPLIT EQUIVALENCE + G15 DIFFERENTIAL ===
+
+LEG A  published-entry equivalence, pre-split vs post-split bundle
+       corpus: 75 values x 9 entries + 37 stylesheets x the collect family
+       cases=933  mismatches=0
+
+LEG B  serializeCssValue, published and total
+       'serializeCssValue' in OLD -> false   in NEW -> true
+       parse -> serialize -> parse round-trip over 59 parseable inputs: 0 failures
+       an AnyColor CSS cannot spell (hsv): {"ok":false,"error":{"code":"color_invalid_input"}}   (pre-split body: threw TypeError)
+       control, old bundle still parses: n/a
+
+LEG C  differential vs the keyframes fork (css-text.ts:42-57, transcribed verbatim)
+       DIVERGES "a : b"
+                ours   -> "a: b"  (re-parses to the same AST: true)
+                fork   -> "a : b"  (re-parses to the same AST: true)
+       DIVERGES "if(supports(color: red): red; else: blue)"
+                ours   -> "if(supports(color: rgb(255 0 0)): rgb(255 0 0); else: rgb(0 0 255))"  (re-parses to the same AST: true)
+                fork   -> "if(supports(color : rgb(255 0 0)) : rgb(255 0 0) ; else : rgb(0 0 255))"  (re-parses to the same AST: true)
+       SAME     "1px solid red"
+       SAME     "1px solid red"
+       DIVERGES "a : b"
+                ours   -> "a: b"  (re-parses to the same AST: true)
+                fork   -> "a : b"  (re-parses to the same AST: true)
+       DIVERGES "a ; b"
+                ours   -> "a; b"  (re-parses to the same AST: true)
+                fork   -> "a ; b"  (re-parses to the same AST: true)
+       DIVERGES "a:b"
+                ours   -> "a: b"  (re-parses to the same AST: true)
+                fork   -> "a : b"  (re-parses to the same AST: true)
+       DIVERGES "a;b"
+                ours   -> "a; b"  (re-parses to the same AST: true)
+                fork   -> "a ; b"  (re-parses to the same AST: true)
+       DIVERGES "if(supports(color: red): red; else: blue)"
+                ours   -> "if(supports(color: rgb(255 0 0)): rgb(255 0 0); else: rgb(0 0 255))"  (re-parses to the same AST: true)
+                fork   -> "if(supports(color : rgb(255 0 0)) : rgb(255 0 0) ; else : rgb(0 0 255))"  (re-parses to the same AST: true)
+       DIVERGES "if(supports(color: lch(0 0 0)): red; else: blue)"
+                ours   -> "if(supports(color: lch(0% 0 0deg)): rgb(255 0 0); else: rgb(0 0 255))"  (re-parses to the same AST: true)
+                fork   -> "if(supports(color : lch(0% 0 0deg)) : rgb(255 0 0) ; else : rgb(0 0 255))"  (re-parses to the same AST: true)
+       fixtures=3  divergences over the whole corpus=8
+
+GREEN — 0 equivalence failure(s)

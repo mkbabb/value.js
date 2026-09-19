@@ -1,4 +1,4 @@
-import type { Color, ColorIssue } from "../color/model";
+import type { Color, ColorIssue } from "../color/index";
 import type { Result } from "../foundation/result";
 import type { JumpPosition } from "../easing";
 import type { CssList, CssScalar, CssValue } from "../value";

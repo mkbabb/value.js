@@ -15,8 +15,8 @@ import {
     rgb,
     isAnyColor,
     xyz,
-} from "../color/model";
-import type { Alpha, Channel, ChannelsBySpace, ColorIssue, SpaceId } from "../color/model";
+} from "../color/index";
+import type { Alpha, Channel, ChannelsBySpace, ColorIssue, SpaceId } from "../color/index";
 import type { CssCall, CssList, CssScalar, CssValue } from "../value";
 import { adaptXyzD50ToD65 } from "../color/anchors";
 import type {

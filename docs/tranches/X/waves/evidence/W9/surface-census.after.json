@@ -1,0 +1,126 @@
+{
+  "servedModel": "claude-opus-5[1m]",
+  "unit": "X-W9.d",
+  "substrate": {
+    "branch": "tranche-u",
+    "head": "ed0e55a3",
+    "node": "v26.0.0",
+    "platform": "darwin arm64"
+  },
+  "commands": {
+    "bareDeclare": "grep -h '^declare ' dist/subpaths/*.d.ts | wc -l",
+    "mangles": "grep -o '_2' dist/subpaths/css.d.ts | wc -l",
+    "maxSrcLoc": "find src -name '*.ts' | xargs wc -l | sort -rn | head",
+    "runtimeExports": "Object.keys(await import('dist/subpaths/<entry>.js')) over the 7 entries"
+  },
+  "bareDeclare": {
+    "before": {
+      "total": 33,
+      "color": 1,
+      "css": 18,
+      "easing": 2,
+      "math": 0,
+      "quantize": 6,
+      "transform": 0,
+      "value": 6
+    },
+    "after": {
+      "total": 20,
+      "color": 0,
+      "css": 6,
+      "easing": 2,
+      "math": 0,
+      "quantize": 6,
+      "transform": 0,
+      "value": 6
+    },
+    "residualCause": "13 retired. The 20 left are one copy of the colour vocabulary per distinct import SPELLING (measured, see psl-seam.md $4): src/value.ts and src/quantize.ts spell the barrel './color/index', src/easing.ts spells './foundation/result' \u2014 spellings no module under src/css/ or src/subpaths/ can reproduce, and both files are outside this unit's writable set. easing carries PRESET_TABLE besides (src/easing.ts:15)."
+  },
+  "mangles": {
+    "before": {
+      "occurrences": 58,
+      "lines": 25,
+      "names": [
+        "Alpha_2",
+        "Channel_2",
+        "ChannelsBySpace_2",
+        "Color_2",
+        "SpaceId_2"
+      ]
+    },
+    "after": {
+      "occurrences": 60,
+      "lines": 26,
+      "names": [
+        "Alpha_2",
+        "Channel_2",
+        "ChannelsBySpace_2",
+        "Color_2",
+        "SpaceId_2"
+      ]
+    },
+    "duplicatedNames": {
+      "before": 5,
+      "after": 5
+    },
+    "residualCause": "Same spelling key. css.d.ts carries two copies of the colour vocabulary: the css group (now EXPORTED, so it takes the plain names) and the src/value.ts group that arrives with CssScalar's colour payload. The occurrence count moved +2 because the exported/unexported assignment flipped, not because a copy was added."
+  },
+  "maxSrcLoc": {
+    "before": {
+      "max": 920,
+      "file": "src/css/stylesheet.ts",
+      "top5": [
+        920,
+        672,
+        539,
+        377,
+        331
+      ]
+    },
+    "after": {
+      "max": 672,
+      "file": "src/transform/path.ts",
+      "top5": [
+        672,
+        539,
+        519,
+        476,
+        377
+      ]
+    },
+    "specTarget": "<= 609"
+  },
+  "runtimeExports": {
+    "before": {
+      "color": 23,
+      "value": 1,
+      "css": 19,
+      "easing": 16,
+      "math": 9,
+      "transform": 3,
+      "quantize": 2,
+      "total": 73
+    },
+    "after": {
+      "color": 24,
+      "value": 1,
+      "css": 20,
+      "easing": 16,
+      "math": 9,
+      "transform": 3,
+      "quantize": 2,
+      "total": 75
+    },
+    "delta": [
+      "./color + isAnyColor (the colour-boundary move: src/css/grammar.ts:326 guards serializeCssColor with it, and the barrel is now the only route out of src/color/)",
+      "./css + serializeCssValue (G15, published)"
+    ]
+  },
+  "splitProducts": {
+    "src/css/serialize.ts": 50,
+    "src/css/rules.ts": 519,
+    "src/css/stylesheet.ts": 476,
+    "crossSeamEdges": 2,
+    "cycles": 0
+  }
+}

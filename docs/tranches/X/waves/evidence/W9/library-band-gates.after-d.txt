@@ -1,0 +1,14 @@
+ok   LIB-01  easing(name) is total over the Object.prototype key set
+ok   LIB-01  control: easing('ease') ok, unknown name -> easing_name_unknown
+RED  LIB-02  30 published functions throw on a JS-boundary value (7-value corpus, all 7 subpaths)
+RED  LIB-02  by subpath: value=1 css=19 easing=1 math=6 transform=3
+RED  LIB-02  G1 (r1-published-totality.mjs) names 9 ./css parsers only — 11 of these are outside its FNS list
+RED  LIB-03  20 bare `declare` in the emitted subpath d.ts — unnameable from the subpath that returns them (value=6 css=6 easing=2 quantize=6)
+RED  LIB-03  ./css exports serializeCssColor but withholds the general serializers: serializeKeyframeSelector (src/css/grammar.ts:429)
+ok   LIB-03  ColorFactory reaches ./color
+ok   LIB-03  ./css names its own return types
+RED  LIB-04  css.d.ts emits 5 duplicated colour declarations under mangled names (Alpha_2, SpaceId_2, Color_2, Channel_2, ChannelsBySpace_2), 60 references
+ok   LIB-04  colour types cross src/color/'s boundary through the barrel only
+RED  LIB-05  5 src files over the 350-LoC cap: src/transform/path.ts=672 src/css/grammar.ts=539 src/css/rules.ts=519 src/css/stylesheet.ts=476 src/color/anchors.ts=377
+
+RED — 7 failing assertion(s)

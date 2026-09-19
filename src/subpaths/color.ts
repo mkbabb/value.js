@@ -1,38 +1,10 @@
-export type {
-    Alpha,
-    AnyColor,
-    Channel,
-    ChannelsBySpace,
-    Color,
-    ColorIssue,
-    HueInterpolationMethod,
-    Result,
-    RGBA8,
-    RgbGamut,
-    SpaceId,
-} from "../color/index";
-export {
-    a98Rgb,
-    convertColor,
-    displayP3,
-    hsl,
-    hsv,
-    hwb,
-    ictcp,
-    interpolateHue,
-    jzazbz,
-    kelvin,
-    lab,
-    lch,
-    linearSrgb,
-    mapColorToGamut,
-    mixColors,
-    oklab,
-    oklch,
-    prophotoRgb,
-    rec2020,
-    rgb,
-    safeAccentColor,
-    toRgba8,
-    xyz,
-} from "../color/index";
+/**
+ * `@mkbabb/value.js/color` — derived from the area barrel (PSL-1).
+ *
+ * The barrel `../color/index` is the one place this area's public/internal
+ * line is drawn; this file forwards it whole rather than repeating it. The
+ * hand-kept copy it replaces had drifted: it dropped `ColorFactory`, which is
+ * the declared type of all 23 factories published here, so a consumer could
+ * call them and not name what they return (G12 LEG1 · G13).
+ */
+export * from "../color/index";

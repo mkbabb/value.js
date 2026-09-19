@@ -8,6 +8,8 @@
  * The matrix decompose/recompose/slerp family was retired at X.W9.b (CC-094)
  * against a measured zero-consumer census; no shim and no forwarding export
  * stands in its place.
+ *
+ * Derived from `../transform/path` (PSL-1): that module's own `export`
+ * keywords draw the public/internal line and this file forwards them whole.
  */
-export { PathGeometry, getTotalLength, getPointAtLength } from "../transform/path";
-export type { Point, PathSample } from "../transform/path";
+export * from "../transform/path";
