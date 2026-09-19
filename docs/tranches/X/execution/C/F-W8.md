@@ -456,3 +456,142 @@ zero browser, zero runs, zero writes outside the one writable path.**
 **Escalations: none.** The specified cure was possible at the bytes and was executed exactly.
 **`a` is closed and committed; `b` may open** (§2c: one writer at a time, dirty tree at handoff
 halts the wave — the tree is clean of every `§2a` path).
+
+---
+
+### F.W8.b
+
+**SERVED MODEL**: `claude-opus-5[1m]` · seat opened 2026-09-19 · **DONE**
+**Wrote (1 path, the whole writable set)**:
+`docs/tranches/X/fourier/conformance/fixture-register.md` — **542 lines**, created.
+**Commit**: **`1f7ac0a7`** *"docs(X·exec): F.W8.b — the fixture register, both directions, every row
+named by the operation model it is generated from"* (pathspec, one path, `--no-verify`).
+**Zero fourier bytes · zero product bytes · `scripts/dev/dev.sh` never staged.**
+
+#### Acts, in order
+
+1. **CRASH-RECOVERY (standing law).** ⟨cmd⟩ `git -C $V status --porcelain` → **2 rows**,
+   `docs/tranches/V/reformation/CARRY-LEDGER.md` and `scripts/dev/dev.sh` — **neither inside F.W8's
+   `§2a` writable set**, and the second is the unowned dirty row (untouched in any verb). ⟨cmd⟩
+   `git -C $F status --porcelain` → **0 rows**. **No inherited work on this unit exists**: the one path
+   this seat owns was ABSENT at open (⟨cmd⟩ `ls conformance/` → no `fixture-register.md`), so nothing
+   was stashed, restored, reverted or inherited.
+2. **Read WHOLE**: the spec `waves/F-W8.md` (§3 §J J1–J7 · §4 G4/G5/G11/G12 · §2a · §5b, and the
+   masthead's addressing/quotation law) · this record (baseline + plan + unit `a`'s receipt) ·
+   `COHESION.md` **§0j.D** and every later addendum to file end. ⟨cmd⟩
+   `grep -n 'F\.W8' COHESION.md | grep -v 'KF\.W8'` → **one line, `:987`** — F-PRODRET's home,
+   reproducing the open seat's and unit `a`'s reading at this seat's own clock.
+3. **Consumed, never re-derived**: F.W5's `operation-register.md` (the 45 rows, their authority classes
+   and the nine gap dispositions), `J-diff-shape-v2.md` (**§A3 · §A4 · §A5 · §B3 · §C1 · §D3 · §D4 ·
+   §D7 · §D17**), `OWNER-RULINGS-F.W5.md` (**the G22 minute**) and unit `a`'s walk (ten cells, five
+   residuals). **X-9 honoured by construction: NO PERCENTAGE appears anywhere in the artefact.**
+4. **D-19 MEASURE-AT-OPEN, performed before any citation** (F.W0's §2.1/§2.2 do not reach api/py
+   coordinates). **15 witnesses** re-resolved at fourier `21e11b0` / value.js `tranche-u` and published
+   as the artefact's §0.2 drift table: **10 hold byte-exact · 4 drifted-but-holding · 1 NOT HOLDING**
+   (act 7). Nothing drifted was adopted into a banked file (E-3).
+5. **MF-9 DISCHARGED FIRST**, as J5 and §5b require, and **at the keystone rather than here**: ⟨cmd⟩
+   `sed -n '141,146p' contract/OWNER-RULINGS-F.W5.md` → *"**RULING (adjudicator seat, F.W5 unit e,
+   2026-09-17): `MF-9` is STRUCK as a citation.**"* — so `fr-GalleryCardModal GCM-10`'s cure is quoted
+   in the register as *"a `tier` field with a default on the model"* **without `MF-9`**, with the strike
+   recorded beside it and **neither `GCM-10` nor `GCM-55` re-booked** (the row's canonical home is F.W3).
+6. **The register authored**: **17 fixture rows** — **9 fourier-direction** (`F8-FIX-F01`…`F09`) and
+   **8 value-direction** (`F8-FIX-V01`…`V08`) — each naming the **operation model it is generated
+   FROM** at a file:line in a model/schema module; **4 STRIKES** for the structurally-untyped
+   operations (§4 `S-1`…`S-4`); **4 NAMED G5 bypasses**; **3 closed exceptions** to the direction law;
+   the **F-PRODRET port row** specified with its model and authority class (§8); and the direction law
+   given a **mechanical falsifier** (a row sourced under `web/src/` or `demo/` is void by construction).
+   **No `F8-CLIENT-*` and no `F8-C31*` id is minted** — the `F8-FIX-*` namespace is disjoint, so `c`'s
+   C31 rows and `d`'s §R/§M/§D rows append without collision (§2c serial lock).
+7. ⊘ **FINDING — K9's lock subject is ABSENT at HEAD.** v2 §A4 measured **five** `?? item.slug`
+   fallbacks; ⟨cmd⟩ (base `$F`) `grep -rn '?? item.slug' web/src` → **no output**. Named from the git
+   record, not inferred: ⟨cmd⟩
+   `git log --oneline -3 -- web/src/components/visualization/gallery/AdminFlaggedPanel.vue` →
+   **`3c5a5b0` *"fix(x-f-w4/.d): the moderation queue shows the image, keeps its generation, and mutates
+   the store in place"*** — **X.F.W4's unit `d`**. At HEAD the panel renders `item.slug` directly and
+   guards the asset behind `v-if="item.image_slug"` (`:354`). ▲ **The lock's PROTECTION still binds**:
+   the emitter is unchanged (`api/routers/admin.py:578` emits `doc.get("image_slug")` unvalidated), so
+   the generated type must model the field **nullable**. **F.W8 deletes nothing, claims no credit and
+   re-books nothing** (FR-GIG-5 mirror).
+8. ⊘ **FINDING of this seat's own — the untyped-operation defect is TWO-SIDED.** The spec's J3 case is
+   fourier's `ComputeResult.data: dict`; measured here, value.js's history response has **no declared
+   projection at all** — `routes/versions.ts:50-56` builds `{ hash: v._id, ...v, _id: undefined }`
+   inline, and `:66` repeats it. A fixture generated from `PaletteVersion` would assert the **storage**
+   row, not the wire. Struck as **§4 S-4** with its reason; owner **value.js API row**, clause **v2
+   §A5** (the contract is neutral and binds both repos).
+9. ⊘ **FINDING — a third G5 bypass class that survives `response_model`, and a fourth that inverts it.**
+   (i) **The serializer arm**: `get_provenance` (`:788`), `get_diff` (`:848`) and `list_versions`
+   (`:888`) DO build their body from a model and then `json.dumps(resp.model_dump(), default=str)` —
+   non-ECMA `str(datetime)` — so a Pydantic-JSON-mode fixture mismatches on **every** datetime
+   (`ProvenanceNode`/`ForkCrumb`/`VersionEntry.created_at`); `DiffResponse` declares none, which is why
+   `F8-FIX-F04` alone is posture MATCHES. Clause **§D17**, serializer arm only, `FR-AUL-17` NOT
+   re-booked. (ii) **The dead-model divergence** at row 41: `list_flagged` emits an inline dict
+   (`admin.py:575-585`, returned `:587`) carrying **`owner_slug`** where the dead `FlaggedEntryInfo`
+   declares **`user_slug`**, under a **cursor** envelope where dead `FlaggedListResponse` declares an
+   **offset** one — a model-generated fixture would be a fixture of a shape no route emits.
+10. ⊘ **FINDING — an ELEVENTH colliding token, found by this seat's own R-5 sweep.** ⟨cmd⟩ (base `$R`)
+    `grep -rlw 'GAB-12' .` → **two records**: `fr-GalleryAdminBanner.md:51` (the gallery twin, routed
+    **F.W5–W8** — the spec's J7 subject) and `shell-dock-genericactionbar.md:27` (a **value.js** dock
+    record, routed **X-W10**). It collides across the *repo families*, which is why the fourier-side
+    rosters never caught it. Every site in the register spells **`fr-GalleryAdminBanner GAB-12`**.
+    **Disclosed, not booked** — the re-grading question belongs to the census.
+11. **Unit `a`'s five residuals discharged in the register**: **R-1** carried as `F8-FIX-V04`, generated
+    from the **plural** operation (the direction law is what makes the row correct rather than a
+    transcription of a 404); **R-2 STRUCK with its reason** — no cross-repo fixture asserts a shared
+    visibility token while fourier's `Literal["draft","unlisted","public"]` and value.js's
+    `["public","private"]` stand un-reconciled (harmonising at the fixture layer is exactly the
+    *"STATED, never harmonised"* bar); **R-3** carried as `OWNER-DECLARED` **MEASURED, NOT REGISTERED**
+    and handed to F.W5's register via unit `e` (**F.W8 mints no token into a closed vocabulary**);
+    **R-4** carried as a re-resolve obligation, not adopted; **R-5** carried — no register row depends
+    on `owner=me` or on the gallery list, the history rows are per-slug by construction.
+12. **E13, in scope**: ⟨cmd⟩ the positional Status-cell sweep over `V/coordination/INBOX.md` → **UNREAD
+    0** across **78** rows (double-run), and no letter has landed addressed to this unit. The wave's one
+    append-only INBOX row and the FN-6 relay letter are **unit `e`'s** acts (§2a) — this seat touched
+    neither file.
+13. **WRITE-THEN-MEASURE, and it convicted this seat twice.** The first run of the artefact's own §11
+    self-counts showed (i) the direction-law falsifier **matching its own published command** — `awk
+    -F'|'` split the probe line at the `\|` inside its pattern and made the probe a false positive — and
+    (ii) the ordering probe comparing **prose order** against bytewise order, failing on §1.3's forward
+    reference to `F8-FIX-F02`. Both were re-cut at the bytes (row-anchored, self-excluding) and both now
+    reproduce; two anchors were corrected in the same pass (`:586` → `:587`; the dismiss span → `:603`
+    find_one / `:607` delete_many). Final readings, **double-run identical**: F-rows **9 ≡ 9** · V-rows
+    **8 ≡ 8** · client-sourced rows **no output ≡ no output** · strikes **4 ≡ 4** · bypasses **4 ≡ 4** ·
+    exceptions **3 ≡ 3** · the row roster byte-identical under `LC_ALL=C sort` (bytewise ordering, never
+    `localeCompare`). ⟨cmd⟩ `git diff --check` → clean.
+
+#### Gate readings — BEFORE → AFTER
+
+| gate | BEFORE (§B.2) | AFTER | verdict |
+|---|---|---|---|
+| **G4** every fixture generated FROM the operation model | **RED** — register ABSENT ⇒ no row names a source operation model | **17 of 17** rows carry a source cell; **no row** resolves to a client module under the row-anchored falsifier; every structurally-untyped operation is **NAMED AND STRUCK with its reason and owner** (4 strikes); bounds **generated, never invented** — and the two compute operations that declare **no** domain say so rather than inventing one | **CLOSED FOR F.W8 — split verdict.** **NOT product-GREEN**: F.W5's joinable/unjoinable obligation is discharged as a **clause** (v2 §A5) while four operations stay untyped **at the bytes**. GREEN owners **F.W5** (clause, landed) · **fourier API row** (S-1/S-2/S-3) · **value.js API row** (S-4) |
+| **G5** model output byte-matches the wire | **RED** — register ABSENT; no bypass named | **MF-9 discharged first**, then **four bypasses NAMED with reasons and owners** (`tier` · `likes` · the serializer arm · the dead-model divergence), and every §2 row carries an explicit byte-match posture | **CLOSED FOR F.W8 — split verdict** (the gate's own alternative limb). **NOT product-GREEN**: `tier` is still forbidden-and-written, `likes` still ambiguous, the serializer still non-ECMA. GREEN owners **fourier API row** ⊕ **F.W3/W4** |
+| **G11** validate-at-boundary | **RED** — no fixture asserts error-not-`NaN` | `F8-FIX-F09` specified in full: positive + negative, the invariant at its true bytes (`src/fourier_analysis/epicycles.py:54`), the `NaN%` site sited (`CoefficientsSpectrum.vue:66`), §A3's L-19 anti-sweep lock carried, **and its blocker stated rather than hidden** (it needs the typed model S-1/S-3 strike) | **CLOSED FOR F.W8 — split verdict.** **NOT product-GREEN**: **0 of 45** operations validate; the single unchecked cast stands at `api.ts:270`. GREEN owners **F.W4** ⊕ **fourier API row** |
+| **G12** ⊙ one generated/checked shape | **RED** (ruled, unbuilt) | The **CODEGEN** ruling (§0j.D F-SS4REST R7) consumed, and the gate's **second limb executed**: the register **documents why it is not** the generated shape and states what it **is** — the generator's input enumeration, one row per operation, undeclared inputs struck by name; deletion carried as **one act** with generation; K9 honoured with its subject-drift recorded | **CLOSED FOR F.W8 — split verdict.** **NOT product-GREEN**: no generator exists and the twins have **GROWN** since the contract measured them (`api.ts` 749 vs 672 · `types.ts` 397 vs 391, at fourier `21e11b0`). The ⊙ **module-split** half stays owner-gated and is named as such. GREEN owner **fourier API row** |
+
+**No gate measured GREEN before its cure. No gate discharged by an SS-13 probe** — this unit ran none.
+**Probe parsimony (§5.2): 19 bounded `grep`/`sed`/`awk`/`git log` reads across both trees, zero live
+probes, zero browser, zero runs, zero writes outside the one writable path.**
+
+#### Residuals carried forward (routed, never repaired here)
+
+- **R-b1** the **§D4 flag-identity decision gates the port's BYTES**: fourier's incumbent index is
+  `(content_hash, reporter_slug)` unique (`api/services/database.py:140`) with a hash-scoped
+  `delete_many` at `admin.py:607`, while the donor is already entity-keyed. The port donates the
+  conformant identity; landing it on the digest key would re-open §D4 in the act of closing D3.
+  **Owner: fourier API row** (index + migration). Travels in unit `e`'s letter.
+- **R-b2** the **authority-vocabulary question** (unit `a`'s R-3, sharpened): the port specifies
+  `SESSION-DECLARED` on §C1's own *enforced-but-undocumented* reasoning, while value.js's
+  `requireOwnership(...)` mechanism still has no registered token. **Owner: F.W5's register**; unit `e`
+  relays.
+- **R-b3** the **two compute operations declare no field domains at all** (`ComputeEpicyclesRequest` /
+  `ComputeBasesRequest` carry no `Field`), so J4's *generate-the-bounds* rule has nothing to generate
+  and `F8-FIX-F02`/`F03` are born-RED on that limb. **Owner: fourier API row**, clause **v2 §D7**.
+- **R-b4** `F8-FIX-F07` (provenance) is **sequenced behind v2 §C5**: `_readable_or_none` applies to the
+  entry row only (`:744`), so the fixture may not bake today's un-redacted shape as conformant.
+  **Owner: F.W5's §C5 + fourier API row.**
+- **R-b5** K9's subject-drift (act 7) and the two-sided untyped-operation finding (act 8) are recorded
+  for the census/keystone to read; **F.W8 re-grades nothing.**
+
+**Escalations: none.** The specified cure was possible at the bytes and was executed exactly — the
+register is authored, the four gates carry split verdicts, and no substitution was made anywhere.
+**`b` is closed and committed; `c` may open** (§2c: one writer at a time; the tree is clean of every
+`§2a` path, and the `F8-C31*` identity space is untouched).
