@@ -1136,3 +1136,212 @@ pass-1 residue was **cured by homing it**, not by excusing it, and the one candi
 survive a second instrument was **struck with its reason** rather than quietly kept. **`e` is closed and
 committed; the wave's five units are complete, and the wave-level close, the `VERIFIED` stamp
 (`NO` — X·F's release close owns it) and the LEDGER row remain the close seat's acts, not this unit's.**
+
+---
+
+## Close
+
+**SERVED MODEL**: `claude-opus-5[1m]` · **CLOSE SEAT**, 2026-09-19 · **VERIFY-ONLY — this seat cured
+nothing, authored no wave artefact, and turned no gate.** Every reading below was taken at this seat's
+own clock with this seat's own commands; where a unit banked a figure, it is re-measured here rather
+than inherited, and where the two agree that agreement is the receipt.
+
+**CRASH-RECOVERY (standing law, host restart 2026-09-18).** ⟨cmd⟩ `git -C $V status --porcelain` →
+**2 rows**, `docs/tranches/V/reformation/CARRY-LEDGER.md` (Track A / X·V, not mine) and
+`scripts/dev/dev.sh` (unowned, never staged, untouched in every verb). **Neither is in this seat's
+writable set** (`execution/C/F-W8.md` ⊕ `execution/LEDGER.md`), and the tree is clean of every one of
+the nine `§2a` paths. ⟨cmd⟩ `git -C $F status --porcelain | wc -l` → **0**, double-run `0 ≡ 0`;
+fourier HEAD **`21e11b0`**, unmoved from the Baseline's reading. **No inherited work on this unit
+exists; nothing was stashed, restored or reverted.**
+
+### C.1 — Commit roster: every commit exists, and every one touches only its unit's writable set
+
+⟨cmd⟩ `git log --all --format='%h %s' | grep 'F\.W8'` ⊕ ⟨cmd⟩ `git show --stat --format='' <sha>` per
+commit. **Thirteen commits**, enumerated so the count is read off the list and not trusted:
+
+| # | commit | unit / act | paths touched | ins/del | in bounds? |
+|---|---|---|---|---|---|
+| 1 | `a9bb1d4d` | OPEN (baseline) | `execution/C/F-W8.md` · `execution/LEDGER.md` | 328 / 1 | ✔ seat record + its own ledger row |
+| 2 | `fc781875` | **a** artefact | `conformance/union-prototype-walk.md` | 474 / 0 | ✔ `§2a`, unit `a`'s whole writable set |
+| 3 | `3087135d` | **a** receipt | `execution/C/F-W8.md` | 133 / 0 | ✔ record only |
+| 4 | `1f7ac0a7` | **b** artefact | `conformance/fixture-register.md` | 542 / 0 | ✔ `§2a` |
+| 5 | `45645e34` | **b** receipt | `execution/C/F-W8.md` | 139 / 0 | ✔ record only |
+| 6 | `8c772bd0` | **c** artefact | `conformance/C31-two-sided-reproduction.md` · `conformance/fixture-register.md` | 606 / **0** | ✔ `§2a`; the register grows by **insertion only** — unit `b`'s bytes are provably unrewritten (0 deletions) |
+| 7 | `fe22920b` | **c** receipt | `execution/C/F-W8.md` | 162 / 0 | ✔ record only |
+| 8 | `2876f993` | **d** artefact | `conformance/walk/union-walk.mjs` · `conformance/fixture-register.md` | 1404 / **0** | ✔ `§2a`; again insertion-only over `b`/`c` |
+| 9 | `585c347d` | **d** receipt | `execution/C/F-W8.md` | 165 / 0 | ✔ record only |
+| 10 | `13a8c0e8` | **e** rulings | `conformance/OWNER-RULINGS-F.W8.md` | 181 / 0 | ✔ `§2a` |
+| 11 | `8617f4b5` | **e** closure | `waves/F-W8/carry-closure.md` | 418 / 0 | ✔ `§2a` |
+| 12 | `e213b5c1` | **e** relay + ledger row | `coordination/value-to-fourier-2026-09-DD-…md` · `V/coordination/INBOX.md` | 195 / **0** | ✔ `§2a`; INBOX **+1 / −0** — append-only proved at the diffstat, not asserted |
+| 13 | `ca1b3137` | **e** receipt | `execution/C/F-W8.md` | 214 / 0 | ✔ record only |
+
+⟨cmd⟩ `for c in <the thirteen>; do git show --name-only --format='' $c; done | sort -u` → **ten
+distinct paths**; ⟨cmd⟩ the same, piped `| grep -v '^docs/' | wc -l` → **0**. **Not one product
+source, test, config or `node_modules` byte moved in either repo across the whole wave**, and
+`scripts/dev/dev.sh` appears in **zero** commits. Eight of the ten are `§2a` rows; the remaining two
+are this record and its own LEDGER row, which the seat law grants and `§2a` never claimed.
+**`waves/F-W8.md` — the dated spec — is in none of the thirteen** (E-3 held: no unit patched the spec
+it executes; every correction landed as an addendum-beside at its own artefact).
+
+**Commit-family integrity**: `8c772bd0` and `2876f993` each carry an artefact and its register rows in
+**one** commit, which is the spec's own meaning-unit (a control and its register row are one meaning);
+`e213b5c1` carries the letter and its ledger row together, as unit `e` declared. **No declared family
+split.** Every commit is pathspec-on-the-commit and `--no-verify`; ⟨cmd⟩ `git log --format='%b'` over
+the thirteen shows the `Claude-Session:` trailer on each.
+
+### C.2 — The nine `§2a` artefacts, measured at the settled bytes (double-run)
+
+⟨cmd⟩ presence loop over all nine `§2a` rows → **9 / 9 PRESENT**, double-run `9 ≡ 9`. ⟨cmd⟩ `wc -l`,
+each read twice and identical: `union-prototype-walk.md` **474** · `fixture-register.md` **923** ·
+`C31-two-sided-reproduction.md` **555** · `OWNER-RULINGS-F.W8.md` **181** · `walk/union-walk.mjs`
+**1074** · `F-W8/carry-closure.md` **418** · the relay letter **194**; `INBOX.md` **+1 line**;
+`waves/F-W8.md` unmoved. ⟨cmd⟩ `head -1` on each → **`SERVED MODEL: claude-opus-5[1m]`** on all seven
+authored files (the `.mjs` as a leading comment). **Receipt law met at every file.**
+
+### C.3 — The sixteen gates, RE-RUN AT THIS SEAT against the spec's own GREEN definitions
+
+**Reading discipline carried, not restated**: §4's discipline (2) — *a gate closes for F.W8 when the
+fixture/assertion is authored with its disposition; it goes GREEN only when the named owner lands the
+change* — is the standard applied below, and **CLOSED-FOR-F.W8 is never written as GREEN**.
+
+| # | gate | BEFORE (§B.2) | this seat's own measurement | AFTER |
+|---|---|---|---|---|
+| **G1** ⊙ | TA-4 disposition declared | RED (ruled, undeclared) | ⟨cmd⟩ `grep -n 'F-SS4REST R1\|ONE-SIDED (R1)' union-prototype-walk.md` → §1 carries branch **(b)** verbatim from §0j.D, and the mark stands at the **X-F** and **X-V** diff cells and §4's diff row. The clears-when's first limb re-verified at the ledger: **F.W5 CLOSED 2026-09-17**. Value-side witness re-run: `atomdiff` → **1 hit, a comment**; `api/src/lib` → *No such file* | **GREEN** — both limbs met; under the ruled branch no value-side byte is owed |
+| **G2** | client edge on both sides, 10 cells | RED (0 of 10) | ⟨cmd⟩ `grep -c '^| \*\*[CDXRH]-[FV]\*\*' union-prototype-walk.md` → **10**, double-run; per-row field extraction → **10 of 10 carry a non-empty disposition AND an authority class** (two are `n/a` **with their reason** — `D-V` has no operation, `X-V` is ruled out of contract; that is the honest form, not a blank). ▲ K-1 carried live (*"13 / 44, never zero"*, `:37`/`:157`); X-9 met | **CLOSED FOR F.W8** — not product-GREEN (zero fourier client edges on diff/remix/history; the palette remix edge is route-dead). Owners **F.W1/F.W4** · fourier API row · value.js API row |
+| **G3** ⊙ | C31 reproduced, then isolated | RED (0 of 2) | **limb (i)**: the artefact publishes the **honest NON-REPRODUCTION** with its receipts — 4 of 5 instrument members absent, the run independently barred by the read-only law, the measurement entering by **ADOPTION** (OG-F1). **The reproduction did not happen and is not declared passed.** **limb (ii)**: ⟨cmd⟩ `grep -n 'F8-C31A\|F8-C31B' fixture-register.md` → both controls banked at register **§3a** and specified whole at the file's §4/§5/§6. **limb (iii)**: ⟨cmd⟩ `grep -n '30/37\|32/38'` → **30/37 stands unmoved**; 32/38 appears only as the owner's conditional in the owner's words | **RED — HONEST-RED on limb (i)**, with its reason published. limb (ii) CLOSED FOR F.W8 (0 of 2 still constructed; P-1/P-3/P-5 unmet). limb (iii) **OWNER-FROZEN, consumed**. Owners: fourier API row (leaf · validator) · F.W5's register (the join relation) · **F.W9/W10 (the run)** |
+| **G4** | every fixture generated FROM the operation model | RED | ⟨cmd⟩ field extraction over `^\| \*\*F8-FIX-[FV]0` → **17 rows, 17 source cells, zero blanks**; the three ⊘ rows are **NAMED AND STRUCK with their reason** (`NO OPERATION` · `RULED OUT OF THE CONTRACT`), which is the gate's own permitted form; **no row is sourced from a client module** — `F8-FIX-V04` names the **plural** `POST /palettes/:slug/forks`, the operation, not unit `a`'s dead client path. §4 carries four strikes **S-1..S-4** with owners | **CLOSED FOR F.W8** — not product-GREEN (four operations untyped at the bytes). Owners **F.W5** (clause, landed) · fourier API row · value.js API row |
+| **G5** | model output byte-matches the wire | RED | ⟨cmd⟩ `grep -n 'MF-9' fixture-register.md` → **§5.1 discharges MF-9 FIRST** (STRUCK at F.W5 unit `e`), then §5.2–§5.5 name **four** bypasses with reasons and owners (`tier` · `likes` · the serializer arm · the dead-model divergence) | **CLOSED FOR F.W8** on the gate's own alternative limb — not product-GREEN. Owners fourier API row ⊕ F.W3/W4 |
+| **G6** | round-trip replay reproduces its own frame | RED | ⟨cmd⟩ `grep -o 'F8-WALK-R0[0-9]' fixture-register.md` → **R01 · R02 · R05** authored at §3b with the three-way unit fork named at all three declarations and the atom set **re-declared** rather than left divergent | **CLOSED FOR F.W8** — not product-GREEN (atom 4 unreachable by the update verb). Owners F.W5 · fourier API row · F.W3/W4 |
+| **G7** ⊙ | off-state / cardinality admission ruled | RED (ruled, unproven) | ⟨cmd⟩ `grep -c 'STOP MINTING' fixture-register.md walk/union-walk.mjs` → **3 · 2**: the **ruled** branch (§0j.D F-SS4REST R5) and no other — R03-F refuses **with a diagnostic**, R03-LAUNDER proves the refusal creates nothing, R03-V mirrors it value-side | **CLOSED FOR F.W8** — not product-GREEN (the client half stands). Owner **F.W3/W4**; no credit claimed |
+| **G8** | cache identity ⊇ consumed request fields | RED | ⟨cmd⟩ `grep -c 'INSTABILITY\|instability' fixture-register.md` → **2**: R04 asserts `contour_hash` **instability** across an ML-threshold change, with the closed ten-field key and the short-circuit measured, and the leg **BLOCKED without an ephemeral image** rather than re-pointed at a tracked asset (D2) | **CLOSED FOR F.W8** — not product-GREEN (the hash is stable today, which is the defect). Owner fourier API row |
+| **G9** | the probe does not perturb what it measures | RED | ⟨cmd⟩ `grep -c 'UNSAFE-DECLARED\|subtract' fixture-register.md walk/union-walk.mjs` → **6 · 14**: value-side reads proved non-mutating **per run** by double-read+diff over an **empty** volatile set (no blanket allowlist exists in the instrument — I read the source), fourier's GET declared UNSAFE, ledgered at the read and **subtracted**, an unsubtractable remainder published **as a RED**; `retryOn429:false` by construction | **CLOSED FOR F.W8** — not product-GREEN (the read verb still mutates). Owners fourier API row ⊕ F.W4 |
+| **G10** | create leg idempotent-or-declared, both sides | RED | ⟨cmd⟩ `grep -c 'Idempotency-Key\|idempoten' fixture-register.md` → **12**: §3b.2 records **which half each repo holds**, measured on both sides, with the born-`draft` ⟂ born-`private` divergence **stated, never harmonised** | **CLOSED FOR F.W8** — not product-GREEN (the fourier client passes a key from nowhere). Owners fourier API row · value.js API row |
+| **G11** | validate-at-boundary somewhere on the client surface | RED | ⟨cmd⟩ register §6 → `F8-FIX-F09` specified positive+negative with the invariant at its true bytes and the `NaN%` site sited; its blocker (the typed model S-1/S-3) is **stated, not hidden** | **CLOSED FOR F.W8** — not product-GREEN (**0 of 45** validate; the cast stands at `api.ts:270`). Owners F.W4 ⊕ fourier API row |
+| **G12** ⊙ | one generated/checked contract shape | RED (ruled, unbuilt) | ⟨cmd⟩ register §7 → the **CODEGEN** ruling consumed and the gate's **second limb** executed: the register documents **why it is not** the generated shape and states what it is, one row per operation, undeclared inputs struck by name | **CLOSED FOR F.W8** — not product-GREEN (no generator; the twins have GROWN since the contract measured them). Owner fourier API row; the ⊙ module-split half stays owner-gated |
+| **G13** | liveness — producer AND consumer per field | RED | ⟨cmd⟩ `grep -c 'drop-or-consume\|UNDECLARED' fixture-register.md walk/union-walk.mjs` → **5 · 4**: R06 feeds the traversal from the client on every call, every field carries drop-or-consume, an **UNDECLARED** field is a RED and an **empty traversal is BLOCKED, never GREEN**; three fields seeded as measured-dead | **CLOSED FOR F.W8** — not product-GREEN (3 fields proven dead; the remainder is unmeasurable until F.W9/W10 runs it). Owners F.W5 (predicate) · fourier API row |
+| **G14** | fixtures BOTH directions; FN-6 relayed | RED | Register both directions: ⟨cmd⟩ id extraction → **F01–F09 (9 fourier-direction) ⊕ V01–V08 (8 value-direction)** ⊕ the C31 and walk rows. Letter **present, 194 lines**, sent; ⟨cmd⟩ `grep -n '^| O-39 |' INBOX.md` → **row O-39 at `:126`**, `INBOX.md` **79** rows (was 78), diffstat **+1 / −0**. ⟨cmd⟩ `grep -n 'canonical_digest' fixture-register.md` → three hits, **none a fixture assertion**: a lock row, the `F8-FIX-V03` **STRIKE**, and a letter-facing note — the gate's falsifier holds **at the bytes** | **CLOSED FOR F.W8** — both limbs it assigns F.W8 discharged. Not product-GREEN: the value-side bytes are re-scoped away under R1; the reciprocal row is fourier's |
+| **G15** | citation closure, ∅ in BOTH directions | RED (unrun) | ⌧ **RE-RUN WHOLE AT THIS SEAT WITH AN INSTRUMENT BUILT HERE, NOT INHERITED.** Operand re-pinned: ⟨cmd⟩ `shasum -a 256 CENSUS-CANONICAL.md \| cut -c1-12` → **`f44362757458`**, double-run, **identical to the spec's pin**. Rosters re-parsed with per-bullet arity assertion: **band 89 ⊕ F.W5 27 = 116**, zero arity mismatches. **Direction B**: band **89 named of 89 · 87 inside CITE · 2 outside · 0 nowhere**; F.W5 **8 named · 6 inside · 2 outside · 19 never mentioned** — *every one of those eight figures reproduces the artefact's §3.1/§3.2 tables exactly*. PASS-1 residue: **the same three pairs** (`fr-AdminFlaggedPanel FR-AFP-66` `:271` · `FR-AFP-33` `:274` · `fr-AdminUserList FR-AUL-13` `:271`) **and the same fourth candidate** `fr-ConvergencePlot R6-8` at `:246` — which §3.4 struck as an instrument false pair; **my instrument reproduces the false pair at the identical line, which is the strongest confirmation the disclosure could have had.** With the §7 annex in the citation operand, **PASS 2 → ∅**. **Direction A**: §6a parses to **40 rows, contiguous 1–40, True**, and all 40 resolve to a canonical row at their own record (my first pass left one, `fr-EasingPicker L/M-3`, which is **my splitter breaking a composite id** — it resolves at the canonical's `F.W4` roster, `:5040`, exactly as §4.1 homes it) | **GREEN for the act this gate assigns F.W8** — ∅ in both directions, reproduced independently; output committed at `8617f4b5`. **The HALT condition is NOT met.** No canonical row is booked on either side |
+| **G16** | the only UI entry loads the saved entity | RED | ⟨cmd⟩ walk map §7.1 → the assertion is authored in full (saved entity · slug+strong ETag captured · **no** cross-owner draft row · create→derive completing through that entry point) over anchors re-resolved at unit `a`'s clock, with BLK-1/SS-C-1 folded and F.W4's wiring unit **not claimed** | **CLOSED FOR F.W8** — not product-GREEN (the entry point is still data-dead). Owner **F.W4** |
+
+**Tally, read off the table and not asserted beside it: 2 GREEN (G1 · G15) · 13 CLOSED-FOR-F.W8 on
+split verdicts · 1 HONEST-RED (G3, on limb (i) alone, with limb (ii) closed-for-F.W8 and limb (iii)
+owner-frozen).** **No gate measured GREEN before its cure at any seat, and none was discharged by an
+SS-13 probe — the whole wave ran zero live probes, zero browser sessions and zero executions of the
+walk.**
+
+### C.4 — §5d's verification artefacts, run as written
+
+1. ⟨cmd⟩ `git diff --check` → **clean, exit 0**.
+2. **Markdown link check over the new `conformance/`, `waves/` and `coordination/` paths** — every
+   link target and every backticked document path cited by the six new artefacts and the letter was
+   resolved against the tree at this seat: `SUBSTRATE-LEDGER.md` · `contract/operation-register.md` ·
+   `contract/J-diff-shape-v2.md` · `CENSUS-CANONICAL.md` · `waves/F-W8.md` · `waves/F-W5.md` ·
+   `OWNER-RULINGS-F.W5.md` · `PASS-1/F-W8-CHECK.md` (cited only as the **retired** operand) ·
+   `carry-closure.md` · `walk/union-walk.mjs` · both INBOXes · `R/PROGRESS.md` ·
+   `FOURIER-AUXILIARY-…-2026-08-03.md` · `INTAKE-ADJUDICATION-2026-08-03.md` ·
+   `api-gap-remeasure.md` · `formation/fourier/lane-crud.md` · `dispatch-homes.md` · `R.W6.md` →
+   **every one resolves; ZERO dead links.**
+3. **The G15 set-difference re-run** — performed at C.3 above with an instrument written at this seat.
+4. ⟨cmd⟩ `node --check conformance/walk/union-walk.mjs` → **OK, twice.** The instrument parses and
+   **was never run**: no output artefact exists, the fourier tree is **0 dirty at `21e11b0`**, and the
+   run environment the script itself requires (`UNION_WALK_ENV`) is F.W9/W10's spine.
+5. **X-9, checked as set membership across the whole wave**: ⟨cmd⟩ `grep -c '[0-9]%'` over all seven
+   authored artefacts → **0 · 0 · 0 · 0 · 0 · 0 · 0**. **No percentage and no coverage rate is
+   published anywhere in this wave.**
+
+**THE CLOSE TRIPWIRE, re-run at this seat and read strictly as §5d instructs — a bounds signal, never
+evidence about a gate.** ⟨cmd⟩ `npm run typecheck` → **1 error**
+(`test/v4-css-emerging.test.ts(12,10) TS2459 serializeCssValue`) · ⟨cmd⟩ `npm run lint` → **55
+problems / 23 errors** · ⟨cmd⟩ `npm run test` → **13 failed | 600 passed (613)** over **4 failed | 32
+passed (36)** files. **All three reproduce unit `e`'s readings exactly.** The signal's subject is
+bounds, and **the bounds hold**: the wave moved **zero** non-`docs/` bytes (C.1), and every red
+attributes away from it by last-touch measurement — `test/v4-css-emerging.test.ts` ⟵ **`c8848bed`**
+(Track D's stylesheet split, 2026-09-18) with its cause `src/css/stylesheet.ts` at the same commit ·
+`test/spectrum-luma.test.ts` ⟵ **`ca1a4459`** · `test/v4-c1.test.ts` ⟵ **`75636b16`** ·
+`demo/test/shell/reka-binding-idiom.test.ts` ⟵ **`a0df89d9`** — the last three all **X·V W1.a
+born-RED batteries**. ⟨cmd⟩ the lint log grepped for every F.W8 path → **0 hits**, and eslint
+demonstrably **does** reach `docs/**` JavaScript (it reports on `execution/chassis/x-track-D.js`), so
+`walk/union-walk.mjs` is reached and clean. **No credit and no blame is claimed for any of it
+(FR-GIG-5).** ⊘ **Honest limit, carried forward from unit `e` rather than quietly dropped**: §5d
+prescribes this as a close-only run, so the wave banked **no opening baseline** for the three
+commands; the attribution rests on last-touch commits (all dated on or before 2026-09-18, all on
+sibling tracks) **plus** the docs-only proof, not on a before/after delta this wave never took.
+
+### C.5 — E13, swept a third time at the close seat's own clock
+
+Four paths ⊕ the Track-C fourier surface, read-only, classification by **Status-cell position** with
+escaped pipes restored, `INBOX.md` self-excluded (SELF-COUNT law): ⟨cmd⟩ the positional sweep →
+**UNREAD 0** over **79** rows, double-run `0 ≡ 0`. (1) `docs/tranches/V/**` — ⟨cmd⟩
+`find … -newermt "2026-09-19 06:00"` → **no output**; **24** coordination entries. (2) glass-ui **BK**
+re-confirmed newest tranche dir; newest member `glass-outbound-2026-09-18-valuejs-o26-reply.md` =
+**I-35, rowed**. (3) keyframes.js — newest `VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md` =
+**O-21, ours**. (4) sci-report/atlas — newest `valuejs-inbound-2026-07-27-…` = **O-12, ours**, path
+unmoved. **ZERO unrowed letters addressed to value.js · ZERO new `I-n` minted · ZERO UNREAD in
+F.W8's scope. No wave closes with unread mail, and this one does not.**
+
+### C.6 — Four-verb status, moved exactly as the spec's §1 permits and no further
+
+| verb | before | after | authority |
+|---|---|---|---|
+| AUDITED | YES | **YES** (unmoved) | §1's table |
+| SPECIFIED | YES — fold-sealed 2026-08-28 | **YES** (unmoved) | §1's table |
+| IMPLEMENTED | **NO** — *"fixture bytes land only after the begin-word"* | ⟹ **YES, 2026-09-17** | the owner's begin-word (COHESION §0j) opened execution; all nine `§2a` rows are landed and committed, measured present 9/9 at C.2 |
+| VERIFIED | **NO** — *"stamped only at X·F's release close"* | **NO — DELIBERATELY UNMOVED** | §1's own cell reserves the stamp for X·F's sub-tranche release close. **This seat does not stamp it, and no wave stamps its own** |
+
+### C.7 — Residuals, with named owners (carried forward; none repaired here)
+
+- **R-1 / R-a1** the dead singular `/fork` client path (`demo/palettes/api/versions.ts:48` against the plural `POST /:slug/forks`) — **owner: the value.js API row / X·V**. Carried in the register from the **operation**, never from the client union.
+- **R-2** the `draft` ⇄ `private` token mapping across two differently-sized visibility enums, fourier's `unlisted` residue live — **owners: F.W5's R8 clause ⊕ the value.js API row's D9 reconciliation**.
+- **R-3 / R-b2** the authority vocabulary has **no declared-owner member** for value.js's `requireOwnership` mechanism — **owner: F.W5's register**; relayed in the letter.
+- **R-4** A-3's anchor drifted again (`PaletteVersion` at `model.ts:125`, not `:84`) — a re-resolve obligation, **recorded, never adopted** (D-19).
+- **R-5** the walk cannot run **as the owning actor** (producerless `visibilityFilter`) and cannot enumerate through the gallery list — **owner: F.W3/W4**; unit `d`'s script enumerates per-slug.
+- **R-b1** the **§D4 flag-identity decision gates the port's bytes** (fourier's `(content_hash, reporter_slug)` index vs the entity-keyed donor) — **owner: fourier API row** (index + migration).
+- **R-b3** the two compute operations declare **no field domains**, so J4 has nothing to generate — **owner: fourier API row**, clause v2 §D7.
+- **R-b4** `F8-FIX-F07` is **sequenced behind v2 §C5** (`_readable_or_none` on the entry row only) — **owner: F.W5's §C5 ⊕ fourier API row**.
+- **R-c1** the successor model carries **no `client.method.*` leaf**: until F.W5's register holds the client↔operation join **as a separate relation**, neither C31 control can be built — **owners: F.W5's register ⊕ fourier API row**.
+- **R-c3** **no production validator at HEAD** (the five in-tree conformance scripts are bare `exit 0`) — **owner: fourier API row**.
+- **R-c4 / R-d5** the **run** of both controls and of `union-walk.mjs`, and the run contract it requires (`UNION_WALK_ENV=nonprod`, two base URLs, an admin token, an **ephemeral** image — without which the derive leg is **BLOCKED by D2**, never re-pointed) — **owner: F.W9/W10**.
+- **R-d1** the fourier client passes an `Idempotency-Key` **from nowhere** (channel declared, zero call sites) — **owner: fourier API row** ⊕ F.W3/W4.
+- **R-d3** the three-way `AnimationSettings` unit fork (seconds ⟂ 5000 ms ⟂ 20000 ms) must be reconciled **in the contract** before the fixture can assert — **owners: F.W5 (units) ⊕ fourier API row**. **BC-20 not re-booked.**
+- **R-d4** G13's consumption map is **seeded, not complete**: the first run's UNDECLARED set is the work item, each member disposed by dated addendum-beside — **owners: F.W9/W10 ⊕ fourier API row**.
+- **R-e1** `fr-AdminAuditLog AA-23` — verdict prose routes the band, the identity's own row routes `F.W5`, the canonical homes it **F.W5**; the same class E5-15 settled for `C:C-23` — **owners: the census ⊕ F-W5**. F.W8 books nothing either way.
+- **R-e2** the §6a header's *"sixteen"* band-routed-not-homed rows measures **seventeen** (row 35, `fr-SpeedSelect SS-L-07`) — recorded **beside** the frozen spec; **owner: whichever seat next re-cuts §6a's header**.
+- **R-e3** the **fixture-direction law's exception set is UNRULED**; the register stands under branch **(A)**, the spec's own default, and branch (B) would require **G4** to be amended by name — **owner: the owner, via §0j.D**.
+- **R-e4** the **reciprocal**: five prior value→fourier letters, **zero** inbound rows from fourier in the V ledger. One row in fourier's ledger discharges it — **owner: fourier's E13 seat**.
+- **R-e5 / R-z1** the shared tree is red under three concurrent tracks (typecheck 1 · lint 23 errors · vitest 13 failures), **none of it in an F.W8 path**, all attributed at C.4 — **owners: X·V W1.a ⊕ Track D (`c8848bed`)**.
+
+### C.8 — Landed-wrong (found at the close, named, NOT cured here)
+
+- **L-1 · the relay letter carries an unresolved date placeholder in its filename.** `§2a` spells the path `value-to-fourier-**2026-08-DD**-fn6-reader-and-fixture-register.md`; the landed file is `value-to-fourier-**2026-09-DD**-fn6-reader-and-fixture-register.md` — the **month** was moved to the execution date and the **`DD` was left literal**. ▲ This is a **known, twice-adjudicated class in this tranche, and the two precedents point opposite ways**: F.W2's close booked **L-2** for seats that resolved the date *fully* (*"the two letters landed `2026-09-18` where §2a spells `2026-08-DD`"*), while F.W4's `.z` **escalated** the literal-`DD` reading (*"the `DD` filename placeholder in this unit's own writable set — the literal paths were written rather than a bound widened"*). Unit `e` took the second road and did **not** disclose it. **Consequences measured, so the grading is not guesswork**: the citation graph is **internally consistent** — the O-39 row, the register and the walk map all cite the same literal string, and the link check at C.4 resolves it — so **no gate rests on it and nothing is broken**. It is cosmetic and **not repaired here**: renaming a committed, ledgered letter would invalidate the O-39 citation and rewrite a dated artefact (E-3), and the path is outside this seat's writable set. **Owner: the X·F bounds seat**, as an addendum to `§2a` that settles the class once for all three waves that have now hit it.
+
+**Nothing else landed wrong.** Every artefact is inside `§2a`; every append over a sibling unit's file
+is **insertion-only at the diffstat**; the spec, the 66 adjudicated records, `CENSUS-CANONICAL.md`,
+F.W5's three artifacts and `COHESION.md` are **byte-untouched by all thirteen commits**; and the
+fourier tree took **zero bytes in any verb**.
+
+### C.9 — Escalations
+
+**NONE.** No unit hit a condition the spec did not cover, no seat wrote outside its bounds, and no
+seat was forced to choose between a masking construct and a halt. ⊘ **Stated plainly because a close
+is where this can be quietly implied**: the one **RED** gate (G3 limb (i)) is **honest-RED, not an
+escalation** — the instrument for the reproduction does not exist at fourier's HEAD, the run is barred
+by the read-only law the spec itself sets, and the run environment belongs to F.W9/W10. The wave
+published the non-reproduction **with its receipt** instead of declaring a green, which is the correct
+act. The one **unruled** item (the fixture-direction exception set) is **surfaced with its branches
+and a falsifier per branch** and holds no gate — it is an ask on the owner's docket, not a block.
+
+### C.10 — Verdict
+
+**IMPLEMENTED 2026-09-17** (wall clock 2026-09-19), **honest-RED on G3 limb (i)** — **VERIFIED stays
+NO**, reserved by §1 for X·F's sub-tranche release close.
+
+**Goal criterion (§1a), tested rather than asserted**: *the five verbs walked against both object
+kinds, with every leg either side cannot answer stated in the register with its reason rather than
+discovered by a later repair.* **Met at the bytes** — ten cells, ten dispositions, zero blanks; five
+verb rows each naming which side cannot answer and why; the one-sided diff verdict **said out loud**
+under its ruling rather than papered over; both divergences (`draft` ⟂ `private`; the deliberate
+non-transaction) **stated and left unharmonised**, as a diagnostic must. **The wave repaired nothing
+and claimed no other wave's cure**, which is what §1c asks of it.
+
+**This wave is closed at the close seat. The `VERIFIED` stamp, and any CHECK pass, belong to seats
+that authored none of these bytes.**
