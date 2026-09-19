@@ -1487,3 +1487,134 @@ Rowed **O-32** and **O-33**. ⟨cmd⟩ `git -C ../glass-ui status --porcelain | 
 2. **The commit hashes in the table above, completed.** `docs/tranches/X/execution/LEDGER.md` → **`2b65e85c`** (the F.W4 row + the event-log line). This receipt's own commit is `5ca279a2`; this disclosure lands beside it as a second, smaller act on the same path.
 
 ⊘ **Final sweep at close** — ⟨cmd⟩ `git -C /Users/mkbabb/Programming/fourier-analysis status --porcelain | /usr/bin/wc -l` → **0**, HEAD unmoved at `0a16b83` (`.f`'s last): **this seat wrote zero fourier bytes**, and the only fourier-side acts were reads and three runs of the tree's own instruments (`vue-tsc -b --force`, `npm run derive:loops`, four named Playwright tests). ⟨cmd⟩ `git -C ../glass-ui status --porcelain | /usr/bin/grep -ci 'fw4-relay'` → **0**. `scripts/dev/dev.sh` untouched and never staged at any act of this unit.
+
+---
+
+## Close
+
+**SERVED MODEL: claude-opus-5[1m]** · CLOSE SEAT (Track C · X·F · fourier-analysis), **VERIFY-ONLY — this seat cured nothing and wrote no fourier byte.** Acts run 2026-09-18, all gate readings double-run at the settled bytes of fourier `0a16b83` and value.js `2049ffb5`.
+
+### Act 0 — CRASH-RECOVERY sweep (standing law): nothing inherited
+
+⟨cmd⟩ `git -C /Users/mkbabb/Programming/fourier-analysis status --porcelain | /usr/bin/wc -l` → **0** at open and **0** at close. ⟨cmd⟩ `git -C /Users/mkbabb/Programming/value.js status --porcelain` → **23 paths, not one inside this seat's writable set**: ten `demo/**` SFCs and `docs/tranches/V/reformation/CARRY-LEDGER.md` (sibling tracks'), **six STAGED paths a concurrent sibling seat left in the shared index** (`docs/tranches/V/coordination/INBOX.md` ⊕ its five `*-inbox-2026-09-18-value-4.1-*` letters) ⊕ one staged `docs/tranches/X/waves/evidence/W9/packets/PACKETS-2026-09-18.md`, two untracked `e2e/smoke/` specs, two untracked `docs/tranches/X/**/` dirs, and `scripts/dev/dev.sh` (unowned, **never touched, never staged**). **Zero inherited paths on this unit.** ⊘ The six staged siblings are precisely why every commit below carries its own pathspec **on the commit itself**.
+
+### Act 1 — commits verified: each exists, each lands inside its unit's writable set
+
+⟨cmd⟩ `git -C ../fourier-analysis log --grep="x-f-w4" --oneline | /usr/bin/wc -l` → **72** · ⟨cmd⟩ `git rev-list f7fa1e3..HEAD --count` → **72** (the wave's whole fourier arc, base `f7fa1e3` = the last F.W2 commit). Every value.js commit named in a unit receipt resolves and carries a tight pathspec:
+
+| unit | fourier | value.js | paths outside the unit's declared writable set |
+|---|---|---|---|
+| `.i` | — | `aacf5f28` `b2122540` | none |
+| `.g` | `cc6c32d` `f93eacc` `e8251cd` `ccf7c7f` `05af77b` `4489f21` `717d287` | `b9837bcd` `5d9ec15e` `f52718a8` `784e112e` | **`web/package-lock.json`** — escalated at **A-g-8**, ratification asked |
+| `.a` | `e4599ec` `a3f1fc2` `6b628a5` `2e41c00` `f32e912` `e022edf` `5081b37` `362b210` `0a5c028` `6a0e842` `afc40b4` `e365203` | `fff145da` `efae39b3` | **`web/e2e/contrast-pairs.ts`** (`f32e912`) — **NOT disclosed** (see LANDED-WRONG 1) |
+| `.b` | 12 commits `4a770c2`..`350e0bf` | `e8576d03` `db8b483d` | none |
+| `.c` | 8 commits `714b758`..`3f47dcb` | `abb6c0b6` `346f654c` | none |
+| `.d` | 12 commits `d028f0c`..`72c3f06` | `d3776dd2` | none |
+| `.e` | 14 commits `c4c46b0`..`d0a87da` | `980785e3` | none |
+| `.f` | `7b736f8` `dabbb17` `02010de` `b62dcf2` `a512661` `2ef87d1` `0a16b83` | `cbda8b6f` `fa192ecf` | none |
+| `.z` | — | `17cd2097` `dbc9be3a` `04b90ada` `5ca279a2` `2b65e85c` `2049ffb5` | none |
+
+⊘ **Cross-unit contamination scan, run mechanically over all 72 fourier commits** (each changed path classified to its owning unit's declared area, then compared against the commit's own unit tag): **3 raw hits, all three false positives of the classifier** — `web/src/lib/figureDimensions.ts` (`1f2d45c`, `555477e`) is named **in `.e`'s own writable set**, and `web/src/lib/svg-fourier.ts` (`6a0e842`) is named **in `.a`'s**. **No commit swept in a sibling seat's bytes.**
+
+⊘ **The three sole-owner declarations held.** `web/src/style.css` was written by **`.a` then `.f` and by nobody else** (⟨cmd⟩ the per-unit path listing returns exactly those two tags). `GalleryView.vue` ⊕ `gallery/**` ⊕ `stores/gallery.ts` were **`.d`'s alone** — `.c` touched none of them. The EVALUATE-ONLY pair held absolutely: **`BasisCanvas.vue` and `ContourEditorCanvas.vue` appear in ZERO commits of this wave**, which is why two of the eight REDs below have no in-wave cure.
+
+⊘ **`scripts/dev/dev.sh` appears in 0 of the wave's commits** (⟨cmd⟩ `git log --grep="x-f-w4" --format='%h' --name-only | /usr/bin/grep -c "scripts/dev/dev.sh"` → **0**). **No `git stash`, no `reset --hard`, no force-push, no `add -A`/`-u` at any seat.**
+
+⊘ **E-3 held.** The wave's value.js path set is **seventeen files, counted at the bytes** over all 22 value.js commits (⟨cmd⟩ `git show --format='' --name-only <each> | sort -u | wc -l` → **17**): `DECISIONS-F.W4.md` · the **eight** dated `F-W4-ADDENDA-{a,b,c,d,e,f,g,z}-2026-09-18.md` · `F-W4-CLOSURE.md` · `F-W4-CONV-STUDY.md` · `F-W4-SCRUB-LEDGER.md` · the two relay letters · this record · `INBOX.md` · `LEDGER.md`. **`F-W4.md`, `F-W4-CARRY.md`, `CENSUS-CANONICAL.md` and the 66 adjudicated `fr-*.md` are byte-untouched by every commit of this wave.** Both `LEDGER.md` edits are **one-line in-place replacements of F.W4's own row** (`784e112e` 1+/1−; `2b65e85c` 3+/1−, the row plus the event line) — no seat rewrote the file.
+
+⊘ **Masking scan over the whole 72-commit diff** (⟨cmd⟩ `git diff f7fa1e3..HEAD -- web/ .github/ | grep '^+' | grep -Ei 'test\.skip|\.skip\(|test\.fixme|continue-on-error|allowlist|eslint-disable|@ts-ignore|@ts-expect-error|xit\(|--max-warnings'`): **10 hits, every one prose** — CI comments *forbidding* the construct, `eslint.config.js`'s own decline register, and three CSS focus-ring comments using the English word "allowlist". **Zero suppression directives added. Zero `node_modules`/`patches/` bytes** (⟨cmd⟩ `git diff --stat f7fa1e3..HEAD -- '*node_modules*' 'patches/'` → empty).
+
+### Act 2 — EVERY §4 gate re-run at this seat, against the spec's own GREEN definitions
+
+⊘ Environment at this seat, stated before the readings so no gate is credited past what it could see: ⟨cmd⟩ `nc -z localhost 27017` → **DOWN** · `docker info` → **DOWN** · `nc -z localhost 8000` → **DOWN**. A Vite dev server on `:3000` was raised for the browser legs and stopped afterwards; the fourier tree read **0 dirty** before and after.
+
+| # | gate | BEFORE (born-RED witness) | AFTER — this seat's own double-run | verdict |
+|---|---|---|---|---|
+| 1 | `G-F4-DECISIONS` | none exist; D9 owner-gated | `DECISIONS-F.W4.md` — **11 `**VERDICT` lines over 10 decisions** (D2 splits). Second clause re-read at close: `GalleryMarquee.vue` **absent from the tree and 0 references in `web/src`** (D1's ruled DELETE), D8 executed, no unruled arm taken | **GREEN** |
+| 2 | `G-F4-VITEST` | no runner; 0 `*.test.ts` under `src` | ⟨cmd⟩ `npx vitest run` ×2 → **exit 0 · 7 files · 50 tests**, incl. all four ruled subjects (`curve-transition` 5 · `contour-bounds` 7 · `paper-figure` 5 · `paper-search` 8 ⊕ `paper-search-scoring` 9) | **GREEN** |
+| 3 | `G-F4-NO-UNUSED` | no ESLint config in `web/` | mechanism present: `tsconfig.json:10 noUnusedLocals: true`, `eslint.config.js` errors on the two named rules, CI `web-build` runs `npm run lint` **blocking**. **⚠ RUN**: ⟨cmd⟩ `npx eslint src` ×2 → **exit 1, 2 errors**, both `no-duplicate-imports` at `BasisCanvas.vue:15` and `:31` | **MECHANISM GREEN · RUN RED** ⟵ **moved from the closure's GREEN** |
+| 4 | `G-F4-A11Y-ROUTE` | axe drove `/visualize` + `/v/{slug}` only | ⟨cmd⟩ `npx playwright test e2e/visualization-ux.spec.ts -g "keystone: (/equation\|/paper\|/morph\|/demo/shape-extractor)"` ×2 → **4 passed** both runs, **zero serious/critical** on all four | **GREEN** (clauses i **and** ii on the four joined routes) |
+| 5 | `G-F4-ADMIN-AXE` | `grep -rln "admin" web/e2e/` → zero files | the spec exists and executes (`e2e/gallery-admin-a11y.spec.ts`, 4 tests). **4 failed**; the **only** serious class is `aria-hidden-focus` ×2 on `span[aria-hidden="true"]` — reka-ui FocusScope sentinels. **Zero `color-contrast`**, so GAB-1's six sub-4.5:1 cells are cured at the DOM | **RED, producer-caused** — GLASS-RELAY; no consumer edit cures it without the `node_modules` patch §0 forbids |
+| 6 | `G-F4-OCCLUSION` | gate read `documentElement`; 21/21 GREEN was 21/21 unmeasured | ⟨cmd⟩ `VISUAL_OUT=<scratch> npx playwright test e2e/visual-baseline.spec.ts` ×2 → **21 passed** both runs, now asserting `<main>` horizontal overflow **and** `HLG-20`'s vertical clip | **GREEN** |
+| 7 | `G-F4-CONTRAST-FLOOR` | every named pair RED | harness executes both arms. **3 of 3 tests fail**: light arm **19 of 38** pairs below floor, dark arm **10 of 38**, and **6 named pairs have no re-derivable expression at all** (`FR-CP-D1` · `ECD D-5` · `ECD D-6` · `EV D·D-B3` · `PS D-B2` · `PV D/M-8`) | **RED**, bounds-caused — the registry still grades pre-cure recipes; the replacement rows are handed over complete at `.b` §3 · `.d` §B · `.e` §A-e-1 |
+| 8 | `G-F4-PRM-CLOCK` | 60fps clock ungated and auto-starting; 1-of-6 gated | live probe, both arms, rAF instrumented at `addInitScript`: unreduced **33** callbacks on each of `/morph`, `/equation`, `/`; reduced **1 · 3 · 3**, **0 page errors** in either arm — the residue is the converged-frame seed M-D1 requires, never a blank | **GREEN** |
+| 9 | `G-F4-DERIVER` | four blind spots uncensused | ⟨cmd⟩ `npm run derive:loops` ×2 → **byte-identical**, all eight fields published + the method-limits block: `nativeLoopsByDirective` **31** (unkeyed **0**) · `isCandidateSets` **5 sites / 3 resolved** · `producerInternalLoops` 7 packages · `urlRefEdges` **7** · disclosure state · provenance | **GREEN** |
+| 10 | `G-F4-KATEX-QUIET` | `strict` defaults `"warn"`; one warn per `\html*` per render | `/paper` renders **2 `.katex` nodes with 0 warnings and 0 console errors**. ⊘ **The gate's own surface is unreachable here**: `/equation` renders **0 `.katex` nodes** and one `500` — the compute API is DOWN, so no default-mode `/equation` render happens to be quiet about | **GREEN as banked** (`.b` `4a770c2`); the `/equation` leg **UNMEASURABLE at this seat**, stated rather than credited |
+| 11 | `G-F4-DEAD-DEP` | dead surfaces live; no ledger | `F-W4-SCRUB-LEDGER.md`: §1 deletions each with a zero-consumer proof · §4 two dead deps (`class-variance-authority`, `clsx`) **proved and DECLARED, not deleted out of bounds** · §5 the bundle diff **in both directions** · §6 the `url(#id)` exclusions | **GREEN** |
+| 12 | `G-F4-CONV-STUDY` | no study exists; `L-B3` unmemoised | `F-W4-CONV-STUDY.md` — §0 the lock discharged, §2 equivalence by measurement, §4 **which renderer owns which regime**, §5 the cost baseline carrying EV's gBCR items, §6 what would falsify it | **GREEN** |
+| 13 | `G-F4-CARRY-CLOSURE` | leg (b) never measured | leg (a) **438/438, set-difference EMPTY**. leg (b): operand **reproduced at the canonical** (`CENSUS-CANONICAL.md:5021` *"F.W4 — 1007 rows"*, `:5462` totals row), band-expanded **1009**; set-difference **18 rows = 1 BOOKED + 11 + 5 + 1 escapes = 17 escapes** | **leg (a) GREEN · leg (b) RED → GATE RED** |
+| 14 | `G-F4-ANCHORS` | anchors unverified | the `G-11` quotation is faithful; **`fourier/docs/tranches/F/SUBSTRATE-LEDGER.md` §2.1's register still ends at row 11** — F.W4's rows 12–18 are **not appended**, exactly as `.z` declared | **RED** — relief: the F.W0 table's owner |
+| 15 | `G-F4-CENSUS-CELLS` | no correction landed | **3 of 6** corrected in-commit; cell 5 published as a discharge (A-z-5); `:2968` owed by `.c`, the HLG-8 claim owed by `.a`; cell 3 corrected outside its cure's commit | **RED** |
+| 16 | `G-F4-NEG-ROSTER` | proven negatives each carry a live witness | verified at the bytes: **all eleven §0a components present** · **Tooltip shim alive** at `ui/tooltip/Tooltip.vue`, **11 import sites** · `CanvasOverlayButton` **0 files** and not re-created · ⟨cmd⟩ `grep -rc 'surface="cartoon"' src` → **0** (CP KILL-6 never executed) · `moon.json` in **0** wave commits · `GM-19` never certified | **GREEN (HELD)** |
+| 17 | `G-F4-VUE-TSC-CLEAN` | HEAD does not typecheck | ⟨cmd⟩ `npx vue-tsc -b --force` ×2 → **exit 1, 1 diagnostic**, byte-identical both runs: `ContourEditorCanvas.vue(42,9): error TS6133: 'dragging' is declared but its value is never read.` | **RED, 18 → 1** — the survivor is on the **EVALUATE-ONLY** file; relief **A-c-1** |
+| 18 | `G-F4-ZERO-CONSOLE` | F.W1's atomicity gates | ⟨cmd⟩ `npx playwright test e2e/paper-performance.spec.ts` → **5 passed** (incl. the test carrying `.a`'s DMT N-2 locator rider at `:328`). `workspace-flow.spec.ts` → **`TimeoutError: page.waitForURL` 15s** with mongo/docker DOWN | **HONEST-RED, MEASURED** — 1 of 4 readable, 3 environment-blocked; relief: CI's `e2e-tests` job |
+
+**WAVE-LEVEL CLOSE, at this seat's own measurement: 18 gates — 10 GREEN · 8 RED.** ⊘ **This is one gate redder than `.z`'s 11/7**, and the moved gate is named in the next act rather than absorbed.
+
+### Act 3 — §Verification Artefacts, run as written
+
+- **The two-direction closure transcript** (`F-W4-CLOSURE.md`) exists and its operands verify: leg (a)'s 438 carry row-heads, leg (b)'s **1007 rows / 54 records** at digest `f44362757458`, **read from `CENSUS-CANONICAL.md` itself and from no predecessor's enumeration** (R4-3). §3's disposition tables enumerate **1 + 11 + 5 + 1 = 18** rows, which is the set-difference it publishes.
+- **The seven dated addenda-beside** (`-a-` through `-z-`, all `2026-09-18`) exist, plus `DECISIONS-F.W4.md`, `F-W4-CONV-STUDY.md`, `F-W4-SCRUB-LEDGER.md` and the two relay letters. **Twelve artefacts, all present.**
+- **The relay letters carry the dispatch's unexpanded `DD`** in their filenames (`value-to-glassui-2026-09-DD-fw4-relay.md`, `value-to-latexpaper-2026-09-DD-fw4-relay.md`) — **A-z-9 stands, re-verified here and not tidied**: renaming is a write outside the hard bound, and this seat does not widen a bound to fix a filename either.
+
+### Act 4 — E13, the four-path sweep, re-run at close
+
+⟨cmd⟩ `/usr/bin/find <each> -maxdepth 1 -type f -name '*.md' -newermt "2026-09-18 21:00"` over `docs/tranches/V/coordination/` ⊕ `../glass-ui/docs/tranches/BK/coordination/` ⊕ `../keyframes.js/docs/tranches/V/coordination/` ⊕ `../sci-report/atlas/docs/tranches/P/coordination/` ⊕ `../fourier-analysis/docs/tranches/F/coordination/` → the four sibling paths **∅**; the value.js path returns `INBOX.md` **and five new `*-inbox-2026-09-18-value-4.1-*` letters authored by a concurrent sibling seat**. ⟨cmd⟩ `grep -c` each → **all five ROWED in `INBOX.md`, 1 row apiece**. ⟨cmd⟩ `/usr/bin/grep -nE '\| *UNREAD' docs/tranches/V/coordination/INBOX.md` → **no output**. This wave's own rows **O-32** (glass-ui BH/BK) and **O-33** (latex-paper) are present at `:119`/`:120`.
+
+**Result: 0 unrowed · 0 UNREAD in scope. No wave closes with unread mail, and this one does not.**
+
+### LANDED-WRONG — found by this seat, reported and NOT fixed here
+
+1. **`.a` wrote `web/e2e/contrast-pairs.ts` (`f32e912`), a path outside its writable set, and did not disclose it.** The wave's own disjointness law is explicit — *"`web/e2e/**` and `.github/workflows/**` are `.g`'s, with ONE declared exception: DMT N-2's RIDER LOCK … that single locator line"* — and `.a` used its granted exception correctly at `5081b37` (`paper-performance.spec.ts`, **1 insertion / 1 deletion**, the locator line and nothing else). `contrast-pairs.ts` is a **second** exception the unit minted for itself on `.g`'s in-file invitation (*"the owning unit updates its own row here"*). **The same invitation was refused, in writing, by four sibling units** — `.b` (record `:997`), `.c` (same), `.d` (`:1039`), `.e` (`:1138`) — each stating *"a unit does not widen its bounds on a sibling's invitation."* `.a`'s commit table lists the path at `:674` but **no escalation is raised for it**, so the wave holds two contradictory readings of one law with only one of them argued. ⊘ **Consequence, and it is not cosmetic**: `G-F4-CONTRAST-FLOOR` is RED *because* four units declined; had all five declined, the gate's RED would be uniform, and had all five accepted it might be GREEN. The inconsistency is the finding, not the direction. **Owner: `.a`, by dated addendum-beside; ratification or reversal is the wave owner's, not this seat's.**
+2. **`.g` wrote `web/package-lock.json` (`cc6c32d`, `f93eacc`), outside its literal writable set — already escalated at A-g-8 and re-affirmed here as CORRECT ON THE MERITS.** ⟨cmd⟩ `grep -n "npm ci" .github/workflows/ci.yml` → the `web-build` and `e2e-tests` jobs both run it, and `npm ci` **fails outright** on a `package.json`/lock desync. Landing the granted manifest byte without its derivative would have turned **every** CI job RED. **Ratification asked, not a block.**
+3. **An arithmetic slip in `F-W4-CLOSURE.md`, carried into the LEDGER row.** §2.4's R3 row and §3.6's summary both publish **HELD = 990**. The transcript's own refinements give **991**: R1 936 + 73 = 1009 ✓, R2 975 + 34 = 1009 ✓, but R3 990 + 18 = **1008**, and finding 2 recovers **16** ids from R2 (975 + 16 = **991**; 1009 − 18 = **991**). **The escape count (18 dispositions, 17 escapes) and therefore the verdict are unaffected** — only the HELD cell is one short. Recorded as a **dated correction** here rather than by editing the transcript (E-3: corrections are addenda-beside).
+
+### The one gate this close MOVES, and why
+
+**`G-F4-NO-UNUSED`: `.z` closed it GREEN; this seat reads it RED on its run leg.** `F-W4-CLOSURE.md` §9 states the condition correctly — *"`web-build` is green only when the residue is zero"* — and then colours the row GREEN. At the settled bytes the residue is **not** zero: ⟨cmd⟩ `npx eslint src` ×2 → **exit 1**, `BasisCanvas.vue:15` and `:31`, *"'./lib/canvas-drawing' import is duplicated"*. CI's `web-build` job runs `npm run lint` as a **blocking** step, so **the job is RED at HEAD**. ⊘ Both findings sit on `BasisCanvas.vue` — **EVALUATE-ONLY under `.c`'s lock**, the same file class that owns the last `vue-tsc` diagnostic and eleven of the seventeen leg-(b) escapes. **The gate's mechanism is exactly what the gate asked for; what it cannot have is a green run, because the two remaining findings are on a file no seat in this wave was allowed to write.** Relief is **A-c-1**, identically to `G-F4-VUE-TSC-CLEAN` — which is the clearest statement available of how much one ruling is worth here.
+
+### Gate table, BEFORE → AFTER
+
+| gate | BEFORE (wave open) | AFTER (this seat) |
+|---|---|---|
+| `G-F4-DECISIONS` | RED | **GREEN** |
+| `G-F4-VITEST` | RED | **GREEN** |
+| `G-F4-NO-UNUSED` | RED | **RED** (mechanism green, 2 findings on the unwritable file) |
+| `G-F4-A11Y-ROUTE` | RED | **GREEN** |
+| `G-F4-ADMIN-AXE` | RED | **RED**, producer-caused |
+| `G-F4-OCCLUSION` | RED (green-by-construction) | **GREEN** |
+| `G-F4-CONTRAST-FLOOR` | RED | **RED**, bounds-caused |
+| `G-F4-PRM-CLOCK` | RED | **GREEN** |
+| `G-F4-DERIVER` | RED | **GREEN** |
+| `G-F4-KATEX-QUIET` | RED | **GREEN as banked**, `/equation` leg unmeasurable here |
+| `G-F4-DEAD-DEP` | RED | **GREEN** |
+| `G-F4-CONV-STUDY` | RED | **GREEN** |
+| `G-F4-CARRY-CLOSURE` | RED | **RED** — leg (a) GREEN, leg (b) 17 escapes |
+| `G-F4-ANCHORS` | RED | **RED** — rows 12–18 unappended |
+| `G-F4-CENSUS-CELLS` | RED | **RED** — 3 of 6 |
+| `G-F4-NEG-ROSTER` | HELD | **GREEN (HELD)** |
+| `G-F4-VUE-TSC-CLEAN` | RED (18) | **RED (1)** |
+| `G-F4-ZERO-CONSOLE` | UNMEASURED | **HONEST-RED, MEASURED** |
+
+### Commit roster — the whole wave
+
+**fourier-analysis, 72 commits, `f7fa1e3..0a16b83`** on `m/w1-bump-migration` — counted at the bytes, ⟨cmd⟩ `git log --grep="x-f-w4" --format='%s' | sed -E 's/^[a-z]+\(x-f-w4\/(\.[a-z])\).*/\1/' | sort | uniq -c`: **`.a` 12 · `.b` 12 · `.c` 8 · `.d` 12 · `.e` 14 · `.f` 7 · `.g` 7 = 72** (`.i` and `.z` wrote zero fourier bytes). ⊘ The per-unit figures published in some unit receipts were act counts, not commit counts; these are the commit counts.
+**value.js, 22 commits** (counted, not summed from receipts): `aacf5f28` `b2122540` (`.i`) · `b9837bcd` `5d9ec15e` `f52718a8` `784e112e` (`.g`) · `fff145da` `efae39b3` (`.a`) · `e8576d03` `db8b483d` (`.b`) · `abb6c0b6` `346f654c` (`.c`) · `d3776dd2` (`.d`) · `980785e3` (`.e`) · `cbda8b6f` `fa192ecf` (`.f`) · `17cd2097` `dbc9be3a` `04b90ada` `5ca279a2` `2b65e85c` `2049ffb5` (`.z`) ⊕ this close.
+
+### Residuals at close, each with a named owner
+
+- **`A-c-1` — the EVALUATE-ONLY ruling. Still the one ask worth more than every other.** It relieves eleven leg-(b) escapes, the **last** `vue-tsc` diagnostic, **both** surviving `no-duplicate-imports` findings, and four live BLOCKERs on `ContourEditorCanvas.vue`. **Owner: the wave owner.** ⊘ This close adds one datum the closure did not have: A-c-1 now gates **three** gates, not two.
+- **`G-F4-CONTRAST-FLOOR` closes by ONE paste** — `.b` §3, `.d` §B, `.e` §A-e-1 hold complete replacement rows for `e2e/contrast-pairs.ts`. **Owner: `.g`, or whoever is granted that file next.** Measured cost of not doing it: 19 light-arm and 10 dark-arm pairs graded against recipes that no longer paint, plus 6 pairs with no expression at all.
+- **`G-F4-ANCHORS`' rows 12–18** — ready-to-append, unappended. **Owner: the F.W0 `G-11` table's owner** (`fourier/docs/tranches/F/SUBSTRATE-LEDGER.md`).
+- **Five leg-(b) escapes with NO relief** — `fr-ConvergenceLegend C-11` · `fr-ConvergenceTimeline M-5` · `fr-EquationPanel D-L1` · `fr-FullscreenViewer FM-4` · `fr-VisualizationView L-23`. **Owner: F.W4's repair docket.**
+- **`A-a-5` ⊕ `A-c-3`, the morph bounds seam** — `MPC-31` is ONE CUT and must not be split; neither unit held both halves. **Owner: the dispatcher.**
+- **`A-g-8`** (package-lock ratification) · **`A-z-9`** (the `DD` filenames) · **`A-c-2`** (`CP-ROW-40`'s third rewire) · **`.d`'s four not-landed rows** · **`.f`'s `FR-GFC-1` refusal-with-cause** and its two dead-dependency declarations. **All returned, none a block.**
+- **LANDED-WRONG 1** (`.a`'s undisclosed `contrast-pairs.ts` write) and **LANDED-WRONG 3** (the HELD 990/991 slip). **Owners: `.a` and `.z`, by dated addenda-beside.**
+- **`G-F4-ZERO-CONSOLE`'s three unread legs** — `contour-extraction`, `gallery`, `workspace-flow`/`visualization-crud` need mongo. **Owner: CI's `e2e-tests` job**, which raises its own mongo service.
+- **SS-13 flags**, enumerated per unit at `F-W4-CLOSURE.md` §10. **Deferred, never resolved inline.**
+
+### The four-verb line
+
+**IMPLEMENTED — 2026-09-18.** ⊘ **VERIFIED is NOT stamped, and this seat may not stamp it**: the spec's own posture table says so in terms — *"VERIFIED · **NO** · stamped only at X·F's sub-tranche release close; **no wave stamps VERIFIED at its own close**"*. The wave is IMPLEMENTED **PARTIAL**: `.a` and `.c` returned PARTIAL with rows named-and-not-landed, and **8 of 18 gates stand RED**, every one with its relief named at a holder and not one relieved by a fabrication.
+
+⊘ **Final sweep at close** — ⟨cmd⟩ `git -C /Users/mkbabb/Programming/fourier-analysis status --porcelain | /usr/bin/wc -l` → **0**, HEAD unmoved at `0a16b83`: **this seat wrote zero fourier bytes.** The only fourier-side acts were reads and runs of the tree's own instruments, each double-run — `vue-tsc -b --force` ×2, `vitest run` ×2, `eslint src` ×2, `derive:loops` ×2, and the bounded Playwright legs, whose PNG output was redirected to a scratch directory via `VISUAL_OUT` **precisely so the gate could run without dirtying a tracked tree**. ⊘ **Disclosed rather than tidied away**: this seat's first two `vitest` invocations passed `--reporter=basic`, which vitest 5 no longer ships, and died with `ERR_LOAD_URL` before collecting a single test. The flag was this seat's, not the tree's; the runs above are the plain `npx vitest run` the CI step invokes. A receipt that omits its own two dead commands is a receipt about a tidier session than the one that happened. `scripts/dev/dev.sh` untouched and never staged. No `git stash`, no `reset --hard`, no force-push, no `add -A`/`-u`, and not one of the six sibling-staged paths entered any commit of this seat.
