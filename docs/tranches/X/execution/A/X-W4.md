@@ -2100,3 +2100,191 @@ successor by the spec, nor an honest-RED `W4.md` names by id, and the close itse
 wave's to repair"*. **The honest-RED set is EMPTY.** The row therefore **stays `PARTIAL`** and is not
 promoted; it becomes promotable the moment C4's geometry-and-clip read is settled the way its own
 ring arm already is, with no assertion and no product byte changed.
+
+## Repair 1 — Check 1's register, cured in bounds
+
+**SERVED MODEL: claude-opus-5[1m]** · the REPAIR SEAT (round 1) of Track A wave **X-W4**. Sitting
+date of record **2026-09-17** (the owner's begin-word); wall clock at this seat
+`2026-09-19 04:18:10 EDT` ⟨cmd⟩ `date "+%Y-%m-%d %H:%M:%S %Z"`. **HEAD at entry** `f15477a8`
+(Check 1's own commit) · branch `tranche-u`. E-3: **nothing above this line is rewritten** — every
+correction below is a dated addendum-beside.
+
+**CRASH-RECOVERY first.** ⟨cmd⟩ `git status --porcelain` at entry → `M docs/tranches/V/reformation/CARRY-LEDGER.md`
+(a sibling's) · `M scripts/dev/dev.sh` (unowned, DR-24 — never opened, never staged). **Not one row
+inside this seat's writable set** (the wave's §4 File Bounds + this record + `execution/LEDGER.md`),
+so the obligation discharges as an absence: **no inherited hunk existed**, nothing was stashed,
+reset or restored. Two further dirty rows appeared mid-seat (`docs/tranches/X/fourier/conformance/…`)
+— Track C's, untouched. Every commit below carries its own pathspec.
+
+### R.1 — defect 1 (**HIGH**, C4 / LW-4): **CURED**, and the mechanism corrected at the bytes
+
+**Cure** (`5bd44d76`, `e2e/smoke/a11y-gradient-stop-grammar.spec.ts`, +99 lines, **additions only**):
+a `transformRest()` helper, called twice inside the C4 fine test — once before the geometry read,
+once after the Tab journey and before the clip walk — exactly the two reads Check 1 named. It asks
+the **animation timeline**, not the clock: every **finite** animation on the handle's own ancestor
+chain must have left `running`/`pending`, and the client rect must then repeat across two animation
+frames. An infinite decorative loop (aurora, shimmer) is excluded by its **infinite duration**, never
+by name; a **permanent resting transform** is not an animation, so this instrument does not inherit
+`paneSettled`'s documented timeout on one — which is why `settle()`'s author refused `paneSettled`
+and why neither instrument alone could see this defect.
+
+**The mechanism, corrected against BOTH predecessors (dated addendum-beside).** The close (K.3) and
+Check 1 (CK.2) read the inflation as *"the ~3.3 % client-rect inflation inside the pane-enter
+spring's overshoot"* (`scale(0.97)` start → overshoot). Measured at this seat, it is a **2° ROTATION**,
+not a scale overshoot:
+
+```text
+⟨cmd⟩ npx playwright test --project=smoke … -g "PROBE"   (temporary probe, reverted; evidence banked)
+[PROBE-MIDFLIGHT] {"w":24.82,"h":24.82,"x":-426.3,"live":["div:transform@pending"],
+                   "paneTransform":"matrix(0.999391, -0.0348995, 0.0348995, 0.999391, -563.2, 0)"}
+[W4-C4-SETTLE]    probe inFlightAtEntry=["div:transform@pending:0ms"]
+[PROBE-ATREST]    {"w":24,"h":24,"x":144,"hitW":24,"faceW":20}
+```
+
+`matrix(0.999391, -0.0348995, …)` **is** `rotate(-2deg)` (cos2° = 0.999391, sin2° = 0.0348995), the
+pane still **563.2px** off-station — `demo/styles/animations.css:231-236`'s
+`translateX(±110%) rotate(∓2deg)`. A 2° rotation inflates an axis-aligned rect by
+**cos2° + sin2° = 1.03429**: `24 × 1.03429 = 24.82` and `20 × 1.03429 = 20.69` → the close's and
+Check 1's `w=24.8`, `faceW=20.7`, **to the digit**. The arithmetic both predecessors published is
+right; the cause is the rotate limb, not a scale overshoot — recorded because a wrong mechanism
+would have sent a successor to the wrong CSS. And the transition is **`pending` at `currentTime 0ms`**:
+the STALL `e2e/smoke/fixtures/dock.ts:paneSettled` documents (*"can STALL at currentTime = 0 for ~1s"*).
+That is precisely why the file's own `settle()` could return inside it — four identical 250ms
+geometry signatures are **exactly what a stalled animation produces**, so a geometry-only settle can
+never be the instrument here.
+
+**Falsifier pair** (the A5 / D3 idiom, since a wait that never waits is decorative):
+`docs/tranches/X/waves/evidence/W4/c4-settle-falsifier.txt` — the probe forces the exact state, the
+helper is shown detecting it (`div:transform@pending:0ms`) and resolving it (24.82 → 24). The probe
+was reverted: ⟨cmd⟩ `grep -c PROBE e2e/smoke/a11y-gradient-stop-grammar.spec.ts` → **0**.
+
+**Gate re-reading, at the settled bytes, every figure double-run or better:**
+
+```text
+⟨cmd⟩ npx playwright test --project=smoke e2e/smoke/a11y-gradient-stop-grammar.spec.ts -g "C4"
+   run a → 2 passed, EXIT 0    run b → 2 passed, EXIT 0
+   run c → 2 passed, EXIT 0    run d → 2 passed, EXIT 0      (4 of 4; Check 1 read 3 of 3 RED here)
+   every run: [W4-C4-FINE] w=24 h=24 hitW=24 hitH=24 faceW=20 faceH=20 rootFontSize=16 (×2 handles)
+              [W4-C4-RING] spread=3 focusVisible=true clippers=[]   ← the arm that was RED
+              [W4-C4-COARSE] w=24 h=24 hitW=44 hitH=44 (×2 handles)
+⟨cmd⟩ npx playwright test --project=smoke <the four W4 gate specs>   → 21 passed EXIT 0, twice
+```
+
+**Honest limit, stated rather than smoothed**: the wild RED state did **not** reproduce at this
+seat's clock before the cure — six runs at the settled bytes all entered with
+`inFlightAtEntry=[]` or only the `html:--saved-bg*` custom-property transitions, never the pane
+transform (the vite optimize cache is warm on this host, and the stall is a cold-transform-burst
+event). The cure is therefore proven **against a deliberately induced instance of the exact state**
+(the probe above) rather than against a lucky wild one, and Check 1's three byte-identical RED runs
+stand as the control. Clearing the shared vite cache to force a cold boot was **refused**: three
+sibling tracks share this checkout and a cache wipe mid-run is a sibling's broken run.
+
+### R.2 — defect 4 (MINOR, D2's armed scope): **CURED** in bounds
+
+**Cure** (`4f567837`): `demo/shell/dock/layers/SlugEditLayer.vue:57` — a **§4 row of this wave** —
+takes `catch (e: unknown)` with the sibling's own narrowing (`useSlugMigration.ts:85-88`: an `Error`
+carries the message, anything else carries none), so the last **curable-in-bounds** `any` inside D2's
+`demo/shell/dock/**` glob is gone; and `eslint.config.js` now **states the scope where it is armed**,
+naming both glob residents beside the existing `ColorPicker.vue` subtraction.
+
+⟨cmd⟩ `grep -rn "catch (e: any)" demo/shell/dock | wc -l` → **1**, double-run (was 2):
+`demo/shell/dock/ColorInput.vue:242` — in **no** W4 §4 row (⟨cmd⟩ `grep -c 'ColorInput' docs/tranches/X/waves/W4.md`
+→ **0**), so arming the literal glob would make D2 **unfixable in bounds**. It is **named in the
+config and escalated** (R.5), never silently globbed away and never padded. Re-read:
+⟨cmd⟩ `npx eslint demo/color-picker/App.vue demo/shell/usePaneRouter.ts demo/shell/dock/` → **EXIT 0** ·
+⟨cmd⟩ `npx eslint demo e2e` → **EXIT 0** · ⟨cmd⟩ `npx vue-tsc -p tsconfig.demo.json --noEmit` → **EXIT 0**,
+double-run · ⟨cmd⟩ `npx tsc -p tsconfig.e2e.json --noEmit` → **EXIT 0**.
+
+### R.3 — defect 7 (INFO, the two PNG strays): **CURED**
+
+`.gitignore:34` (`*.png`) hid `action-bar-mix-390.png` and `action-bar-mix-desktop.png` from
+`git status`, so K.4 counted 30 on disk against 28 in commits. **Force-added, not deleted** —
+evidence is kept, not trimmed to make a count true (`e112fc4f`). ⟨cmd⟩
+`git ls-files docs/tranches/X/waves/evidence/W4/ | grep -c png` → **30** = ⟨cmd⟩
+`ls docs/tranches/X/waves/evidence/W4/*.png | wc -l` → **30**.
+
+### R.4 — defects 5 and 6 (MINOR, prose corrections): **the dated addenda, here**
+
+- **Defect 5.** K.1's sentence *"each unit's gate spec landed before its product bytes"* is **FALSE
+  for unit a** and is corrected here, not rewritten there: unit a's cure `8934de85` is an **ancestor**
+  of its gate pair `cf5409e7` ⟨cmd⟩ `git merge-base --is-ancestor 8934de85 cf5409e7` → **exit 0**;
+  the reverse returns non-zero. The **landing** still conforms — §9 itself orders row 1 = cure,
+  row 2 = unit a's specs — and unit a's born-RED baseline was taken pre-byte in `reopen-baseline.json`,
+  with A5 independently proving the gate bites. The sentence, not the work, was wrong.
+- **Defect 6.** K.2's A3 row reads GREEN *"at both projects"* without the qualifier a.3 carried.
+  Corrected here: **A3's coarse arm is VACUOUS** — ⟨cmd⟩ `npx playwright test --project=smoke-mobile e2e/smoke/mobile/a11y-control-targets.spec.ts`
+  → `[W4-A3-COARSE] measured=0 mismatches=0 unlifted=0` in **3 of 3** runs at this seat, so A3's
+  second declared failure mode (*"the coarse lift is absent"*) is never exercised at `smoke-mobile`.
+  A3 is GREEN **on a non-empty fine population (measured=4, mismatches=0) and an EMPTY coarse one**;
+  the coarse lift itself is measured elsewhere (A2's census: slug field 160×44, three dock seats
+  44×44, rail letters 31.7×44; b.3's trigger 36→54). A successor that probes an admin route gives
+  A3 a non-empty coarse population — it is not this wave's to invent.
+
+### R.5 — ESCALATIONS: defects 2 and 3 (both **MEDIUM**), both out of bounds
+
+Neither has an in-bounds cure; both are returned with a measured reason, unwidened and unmasked.
+
+| # | what | measured reason it is not cured here |
+|---|---|---|
+| **ESC-R1** (defect 2) | three HARD-CI rows RED from this wave's own spec-ordered cures: `walk.spec.ts:17/89` · `oracles/o20-generate-plate.spec.ts:60/71` (the retired `"Generation preset"` literal) · `oracles/o27-focus-affordance.spec.ts:103/126-129` (BR-3 reading the 24px seat, `Expected < 22 · Received 24`) | ⟨cmd⟩ `grep -c "walk.spec\|o20-generate-plate\|o27" docs/tranches/X/waves/W4.md` → **0** — all three paths are outside **every** §4 row, so writing them is a §3a bounds escalation, and padding product copy to fit a stale selector is forbidden. Re-measured at this seat ⟨cmd⟩ `npx playwright test --project=smoke <the three> ` → **4 failed · 5 passed**, the same split Check 1 read; the 4th (`o27:323` BR-1 forced-colors) was proved **PRE-EXISTING** by the units' own pre-cure control runs. **Repairs stated to the byte**: `{ name: "Preset", exact: true }` ×2 and `el.querySelector(".rail-handle-face")!.getBoundingClientRect()`. They need a dated **E-3 bounds addendum** admitting the three paths — an ORCHESTRATOR act on a dated spec this seat may not touch |
+| **ESC-R2** (defect 3) | §2's goal criterion unmet at the bytes: two live, operable, **nameless** seats in the persistent shell — `demo/shell/dock/ColorInput.vue:67-81`, icon-only `<button class="send-btn btn-interactive">` under `v-if="proposeMode"` / `v-else`, **no `aria-label`, no text child** (re-read at the bytes at this seat) | ⟨cmd⟩ `grep -c 'ColorInput' docs/tranches/X/waves/W4.md` → **0** — the file is in no §4 row (this is ESC-a.7, re-raised, still un-homed). Invisible to both gate projects because the seats sit inside a `PopoverTrigger` unmounted at those viewports, so **A4 reads `nameless=0` honestly**. The cure is one `aria-label` per seat and needs a dated E-3 bounds addendum admitting `ColorInput.vue` to a W4-successor's §4, or an explicit route to the wave owning the dock input band. `ColorInput.vue:242`'s `catch (e: any)` (defect 4's residue) rides the same addendum |
+
+### R.6 — full gate re-reading after the cures (every gate a cure could move, and the rest beside it)
+
+| gate | this seat's reading, settled bytes | verdict |
+|---|---|---|
+| **A1 · A2 · A4** | `[W4-A1] undersized=0` ×2 · `[W4-A2] undersized=0` ×3 · `[W4-A4] nameless=0` / `[W4-A4-COARSE] nameless=0` ×3 | **GREEN** |
+| **A3** | `[W4-A3] measured=4 mismatches=0` ×2 · `[W4-A3-COARSE] measured=0 …` (VACUOUS, R.4) | **GREEN, qualified** |
+| **A5 · D3** | the two falsifier records on disk, untouched by this repair | **DEMONSTRATED** |
+| **B1 · B2 · B3** | `asserted=7 excluded=1 defects=0` · `asserted=7 defects=0` · `producerSliderVars=15 declaredInternal=3 consumerReads=0` — each in both batch runs | **GREEN** |
+| **C1 · C2 · C3** | `caretLeft=252 mintedLeft=252` + `pointerEventsDuringKeyboardJourney=0` · 3 handles `role=slider` w/ value triple + ordinal · `home=10 end=450 unit=4.4000px/% defects=0` | **GREEN** |
+| **C4** | **`clippers=[]` · w=24 · faceW=20 · hit 24/44 — 4 isolated runs + 2 batch runs, 6 of 6** | **GREEN — the HIGH is cured** |
+| **D1 · D2 · D4** | `vue-tsc` EXIT 0 ×2 · scoped eslint EXIT 0 · `npx eslint demo e2e` EXIT 0 · the 10 contract tests pass in both batch runs | **GREEN** |
+| **G1–G4** | ⟨cmd⟩ `grep -rn 'watercolor-dot' demo \| wc -l` → **11**, bank untouched by this repair | **NOT OPENED — correct** |
+
+**§7 cadence at this repair**: ⟨cmd⟩ `git diff --check -- demo e2e eslint.config.js` → **EXIT 0** ·
+⟨cmd⟩ `npx prettier --check e2e/smoke/a11y-gradient-stop-grammar.spec.ts` → **clean** (it was clean at
+`f15477a8` and it stays clean — ⟨cmd⟩ `git show HEAD:<path> | npx prettier --check --stdin-filepath`
+run over all three touched files reads **CLEAN · RED · RED**, the two REDs pre-existing at HEAD).
+For those two, ⟨cmd⟩ `npx prettier <file> | diff - <file>` lands **every** hunk outside this repair's
+bytes (`eslint.config.js:246/272/289` vs this repair at `:318-331`; `SlugEditLayer.vue:33/84/119` vs
+this repair at `:57`), so the repair introduces **no** new formatting debt and does not reformat a
+file the wave already recorded as X-W11 hygiene.
+
+### R.7 — bounds, E-3, masking, mail
+
+- **Bounds.** Union of this repair's three commits ⟨cmd⟩ `for c in 5bd44d76 4f567837 e112fc4f; do git show --pretty=format: --name-only $c; done | sort -u`
+  → **6 paths**: `e2e/smoke/a11y-gradient-stop-grammar.spec.ts` (§4 create) · `eslint.config.js` (§4
+  modify) · `demo/shell/dock/layers/SlugEditLayer.vue` (§4 modify) · three under
+  `docs/tranches/X/waves/evidence/W4/` (§8's artefact home). ⟨cmd⟩ the same union
+  `| grep -cE "^(src/|api/|test/|node_modules/|\.github/|scripts/|demo/shell/PaneSlot\.vue|demo/ui/|demo/shell/viewSchema\.ts)"`
+  → **0**. `scripts/dev/dev.sh` is not in the union and is still dirty-and-untouched. Each commit
+  carried its own pathspec and each `git show --stat` returns exactly its own paths — no sibling
+  seat's staged row was swept in.
+- **E-3.** `docs/tranches/X/waves/W4.md` is **byte-untouched** by this repair; so is every conformance
+  artefact and every line of this record above `## Repair 1`. Defects 5 and 6 are corrected as dated
+  addenda **here** (R.4), never by editing the Close.
+- **Masking.** Nothing was skipped, allow-listed, `try`-wrapped, or re-thresholded: the C4 cure is
+  **additions only** and **not one `expect(...)` line changed** — ⟨cmd⟩ `git show 5bd44d76 -- e2e/…`
+  is `99 ++++` with `0` deletions. The SlugEditLayer cure **removes** an `any` rather than silencing a
+  rule. Neither out-of-bounds defect was "fixed" by widening bounds or relaxing a sibling's assertion.
+- **E13 mail.** ⟨cmd⟩ `grep -nE '^\| [IO]-[0-9]+ \|' docs/tranches/V/coordination/INBOX.md | grep -i unread`
+  → the same **5** rows Check 1 read (O-20 · I-30 · I-31 · I-32 · I-35); ⟨cmd⟩ `grep -oE "X-W4[^ ]*|X\.W4[^ ]*"`
+  across them → the only X-W4 token is **`X-W4.g's`** in I-35's routing prose, and `X.W4.g` is CLOSED
+  by X-W0.j's dated census FAIL. **0 UNREAD in scope for units a–d.**
+
+### R.8 — verdict of this repair
+
+**Cured: 3** — defect 1 (**HIGH**, C4/LW-4) · defect 4 (MINOR, D2 scope) · defect 7 (INFO, the PNG
+strays). **Corrected as dated addenda: 2** — defects 5 and 6 (R.4). **Escalated: 2** — defects 2 and
+3, both MEDIUM, both measured out of every §4 row (R.5).
+
+**C4 is GREEN 6 of 6 at the settled bytes**, so the one thing Check 1 found the Hard Gate wanting on
+is answered, with no assertion, no threshold and **no product byte** moved in that cure. The two
+MEDIUMs that remain are the wave's own **honestly escalated** CI debt: they are out of bounds by
+measurement, their repairs are stated to the byte, and they need an orchestrator's dated E-3 bounds
+addendum — which is the act this seat may not perform. **The row's promotion is not this seat's to
+take**: a fresh VERIFY-ONLY check reads the gates at its own clock and rules.
+
+**Commits**: `5bd44d76` (C4 settle + falsifier evidence) · `4f567837` (D2 scope) · `e112fc4f` (PNG
+strays) · this record.
