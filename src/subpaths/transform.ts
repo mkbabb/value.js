@@ -1,23 +1,13 @@
 /**
- * `@mkbabb/value.js/transform` — matrix decomposition + path geometry (O.W2).
+ * `@mkbabb/value.js/transform` — DOM-free SVG path geometry (O.W2).
  *
- * `src/transform/*` is a pure leaf (zero parsing, zero parse-that): matrix
- * decompose/recompose/slerp + the DOM-free path-geometry sampler.
+ * `src/transform/*` is a pure leaf (zero parsing, zero parse-that): the
+ * path-geometry sampler that measures and samples an SVG `d` string with no
+ * `SVGGeometryElement` and no DOM.
+ *
+ * The matrix decompose/recompose/slerp family was retired at X.W9.b (CC-094)
+ * against a measured zero-consumer census; no shim and no forwarding export
+ * stands in its place.
  */
-export {
-    decomposeMatrix2D,
-    decomposeMatrix3D,
-    recomposeMatrix2D,
-    recomposeMatrix3D,
-    slerp,
-    interpolateDecomposed,
-} from "../transform/decompose";
-export type {
-    DecomposedMatrix2D,
-    DecomposedMatrix3D,
-    Vec4,
-    Mat4,
-} from "../transform/decompose";
-
 export { PathGeometry, getTotalLength, getPointAtLength } from "../transform/path";
 export type { Point, PathSample } from "../transform/path";
