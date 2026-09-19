@@ -1781,3 +1781,165 @@ G-4's three witness tokens — it names them only as *"the three witness tokens"
 supersession pair, which is not one of them. **It contributes 0 files · 0 lines · 0 occurrences**, so ⟨cmd⟩
 the gate's own three commands re-run after this write must still read **34 / 121 / 82** — `.g`'s fixpoint,
 now reproduced at a second seat and preserved by a third.
+
+---
+
+## Check 1
+
+**SERVED MODEL**: `claude-opus-5[1m]` · **FRESH ADVERSARIAL L-20 PASS 1 — VERIFY-ONLY.** An independent seat
+that authored **no byte** of the wave's cures, of any unit receipt, of `## Close`, or of `FINAL-KF.md`.
+**Seat clock** 2026-09-19 01:1x → 01:3x EDT (⟨cmd⟩ `date` → `Sat Sep 19 01:16:37 EDT 2026` at the E13 sweep).
+**Sitting of record stays 2026-09-17.** **This block is the seat's only write besides `execution/LEDGER.md`'s
+own row cell** — no §4 path, no cure byte, no spec byte, no sibling tree, no keyframes.js byte.
+
+**CRASH-RECOVERY SWEEP (standing law, first act).** ⟨cmd⟩ `git status --porcelain` in both repos this seat
+may write: **value.js — 4 rows** (`docs/tranches/V/reformation/CARRY-LEDGER.md` ·
+`e2e/smoke/a11y-gradient-stop-grammar.spec.ts` · `docs/tranches/X/waves/evidence/W4/gradient-grammar.json`
+untracked · `scripts/dev/dev.sh` **unowned, NEVER touched, never staged**), every one a sibling track's and
+**outside this seat's writable set**; **keyframes.js — 2 rows**, the two untracked value-authored letters
+(the §B-12 reset's survivors), outside the set. ⟨cmd⟩ the same over `docs/tranches/X/execution/` → **zero
+lines**. **Inherited work on this unit: NONE — no inherited paths to name.** Nothing stashed, restored,
+reset or unstaged.
+
+**SUBSTRATE.** kf `origin/master` = **`dd28da55`** (⟨cmd⟩ after `git fetch`, `git rev-parse origin/master` →
+`dd28da555c33611ef23f9c290c176e66b4216b5c`); value `tranche-u` at **`5c240a1d`** (Track A/C have committed
+above the close; no KF.W10 path moved). Every keyframes reading below is `git show origin/master:…`.
+
+### C1.1 — THE SEVEN GATES, re-run at THIS seat against §5's GREEN definitions (every published figure double-run)
+
+| gate | this seat's own commands and outputs | verdict |
+|---|---|---|
+| **G-1** | `origin/master:FOLD-FORWARD.md` **246 L / 41,438 B**; `grep -c '^# ADDENDUM'` → **1**; `awk 'NR>30 && NR<48 && /^[0-9]+\./'` → **15**; **per-row alphabet-token occurrence vector over the 15 discharge rows `:101`–`:115` → `1` on every row** (printed row-by-row at this seat, `grep -oE 'LANDED\|KILLED\|RULED\|FOLDED-TO\|STANDING-CARRIED\|DISCHARGED-BY-CONSTRUCTION' \| wc -l`); per-verb split **RULED 2 · FOLDED-TO 4 · STANDING-CARRIED 8 · DISCHARGED-BY-CONSTRUCTION 1 = 15**; **E-3 at the byte**: `head -54 \| shasum` at `origin/master` = `797029037559bbc64d935285065f83ae2fb958b9` ≡ the **whole-file** shasum at `69095552` (54 L / 9,289 B) | **GREEN — reproduces** |
+| **G-2** | left hand `ls kf-*.md \| wc -l` → **58** · `grep -l` → **57** · `grep -o` → **1,218** (≡ run 2); `### §4.1` at `COHESION.md:117`, seven subsections `A`–`G`; arm-1 rows → **57**, rows **lacking** a terminal word → **0**, tally `LANDED in a wave` **57** + `ADOPTED-BY-KF.W6` **3**; `DISCHARGED by KF.W7 SWAP verdict` **stamped on a row** → **0** (its 2 file hits are the alphabet line `:125` and the zero-emission statement `:332`); right hand **11** bounds blocks `W0 17 · W1 12 · W2 53 · W3 4 · W4 40 · W5 43 · W6 59 · W7 36 · W8 46 · W9 49 · W10 12` ∪ §6.D cargo `grep -c '^### P[0-9]' KF-W11.md` → **9** · `'^### U[0-9]' KF-W12.md` → **6** · `'^### P[0-9]' KF-W13.md` → **2** = **17**. **THE STRONGEST CHECK THIS SEAT RAN, and it holds**: the arm-1 row NAMES and the 57 carrying record BASENAMES are **set-equal** — ⟨cmd⟩ `comm -23` → **empty** · `comm -13` → **empty**. ∅ in both directions is real, not asserted | **GREEN — reproduces** |
+| **G-3** | `origin/master:OWNER-DECISIONS.md` **235 L / 25,780 B**; `diff <(git show 69095552:…) <(git show origin/master:… \| head -9)` → **no output** — the entire pre-wave file (9 L) is the new file's first 9 lines, so `:7` HELD and `:9` DEFERRED are **byte-untouched**; addendum at `:13`, owner block `:27`, **(1) OG-KF1 RULED** transcribed from COHESION §0j.C (`KF-OGKF1`, read at `:926-929` this seat — *"STALE-BY-SUBSTRATE and does not continue … never as HEAD coverage"*, character-identical), **(2) OD-V3** and **(3) OD-V5** `complete_with_misses` each citing a **named artefact at a measured coordinate** (`SS-13-CAPTURE-RECEIPT.md:35` *"0 of 16 required cells"*; the producer G-2 ask + `SS-13:80`/`:97`) | **GREEN — reproduces** |
+| **G-4** | register ordinals `grep -oE '^\\\| \*\*\([1-7]\)\*\*' \| sort \| uniq -c` → **1 each for (1)…(7)**; `REPO-SCOPED` → present at entry (7); **the field re-run whole with the gate's own three commands, double-run: 34 files · 121 occurrences · 82 lines (run 1 ≡ run 2)** — `.g`'s fixpoint and the close's reading, now reproduced at a **third** seat; **partition re-derived independently and checking itself against all three totals**: live-spec **3 / 27** (W0 **2** · W3 **2** · W10 **23**) · conformance **7 / 30** · megatranche substrate **19 / 44** · execution+artefact **5 / 20** → `3+7+19+5 = 34`, `27+30+44+20 = 121`; **live-spec bare citations: 0** — the four adjudicable lines `KF-W0.md:378`/`:695` and `KF-W3.md:209`/`:329` each carry the `345 … 8281638c` supersession on their own line (⟨cmd⟩ the inverse filter returns **nothing**) | **GREEN — reproduces** |
+| **G-5** | `git diff --stat 69095552 origin/master -- <the five originals>` → **EMPTY, not one changed byte**; four `*-ADDENDUM-2026-09-19.md` at `origin/master`, `dirname` of each ≡ `dirname` of its original (**BESIDE ×4**); line 1 of each = `SERVED MODEL: claude-opus-5[1m]` ×4; `home.json` at the frontier **PARSES** (`python3 json.load`) — the manifest took a sidecar, never an inline comment; the set is **four** and did not grow | **GREEN — reproduces** |
+| **G-6** | value `INBOX.md` **251 L / 253,614 B · 74 rows**; **Status cell read BY POSITION** (`awk -F'\|'` on field 6 of each `I-`/`O-` row, never a bare `grep -i unread`) → **0 of 74 begin `UNREAD`**; `I-10` carries `NOT ADOPTED` **1** · `O-8` carries `PRE-EMPTION` **1**; kf `INBOUND-LEDGER.md` **89 L / 17,376 B**, `ADDENDUM 2026-09-19` **1**, `CC-084` **1**; `DISPOSITIONS.md` **238 L / 30,691 B**, `O-8` **2**, `NOT ADOPTED` **2**, rows `58 − 6 = 52`; **E-3**: `git diff --numstat 69095552 origin/master` → **`53 0`** and **`126 0`** — zero deletions in both; `close/FINAL-KF.md` **205 L / 12,758 B**; **the L-6 battery re-run WHOLE at this seat: 12 of 12 letters `git cat-file -e` PRESENT** (7 at kf `origin/master`, 5 at value `HEAD`) | **GREEN — reproduces** |
+| **G-7** | `git merge-base --is-ancestor b920b190 origin/master` → **ANCESTOR (LANDED)**; `git ls-remote --heads origin \| grep w9` → still `b920b190` (provenance kept, nothing force-pushed); tombstone `docs/tranches/V/audit/W9-tombstones.md` **216 L**; prune set at the frontier **4 ABSENT** (`bench/group-soa-integration.mjs` · `bench/taxonomy.json` · `bench/typed-om-validate.mjs` · `scripts/probe-webkit-linear-accel.mjs`) **· 2 PRESENT** (the two `.measure.test.ts` the re-derived LAW-A census vetoed); **`.e`'s set-inclusion proof re-run independently**: `git diff --name-only $(git merge-base 69095552 b920b190) b920b190` → **21 paths**, `git diff --name-only b50a23de 0a329c57` → **19**, `comm -13` → **EMPTY** — the merge brought in **nothing the branch did not carry**; **four CI witnesses re-read by id** (⟨cmd⟩ `gh run view --json headSha,conclusion`): `35421021299` ci @ `0a329c57` **failure** · `35413127952` ci @ `69095552` **failure** (control) · `35421048324` deploy-pages @ `0a329c57` **skipped** · `35421911950` ci @ `dd28da55` **failure**; **the failure STEP is identical at the pre-landing SHA — ⟨cmd⟩ `gh run view --json jobs` on both: `npm ci` (library gates) and `npm ci (demo consumer graph)` at BOTH SHAs**, so the landing neither caused nor worsened it; **ESC-e1 confirmed uncured**: `package.json:84` `"@vue/test-utils": "^2.5.1"` against **0** `node_modules/@vue/test-utils` entries in `package-lock.json` | **LAND stamped · RED-HONEST on 2 of 6 clauses — reproduces** |
+
+**R.2 at the check altitude: 7 of 7 gate verdicts reproduce. No claimed GREEN failed at this seat's own
+double-run commands, and no RED the close hid was found.**
+
+### C1.2 — THE HONEST-RED SET, adjudicated at the SPEC's bytes (axis 10)
+
+**G-7 is the only gate the close leaves RED, and it is RED on 2 of its 6 acceptance clauses. Both are
+relieved by the spec's own terms and both are owner-named in the record's residual register.**
+
+| RED clause | relief, cited at the spec | owner named in the record |
+|---|---|---|
+| **MR4's *"CI red-once witness at landing"*** | **Closed by construction, not deferred.** MR4 **CONVERGED** into X.KF.W4's identical `demo correctness suite` step, which landed earlier with its own history, so a witness of the form *"red once, at this landing"* can never be produced. This seat verified the convergence at the bytes: the merged `ci.yml` carries **exactly one** `- name: demo correctness suite` step (`:83`) and the staged duplicate is **dropped**, with the convergence recorded beside it — the spec's §5 G-7 falsifier convicts a claimed landing, never an honest non-claim | **R-C4 — *closed by construction; carried for the record*** |
+| **§B-9's MR2 runner-parity observation** | **Blocked by ESC-e1, and the cure is OUT OF EVERY UNIT'S §4 BOUNDS.** kf `package-lock.json` never took `3a01e362`'s `@vue/test-utils@^2.5.1` (+14 transitives), so `npm ci` terminates both CI jobs before the `browser oracles` step executes. §4's *"EXPLICITLY NOT IN BOUNDS: any product source in either repo"* covers the lockfile, and regenerating it from this wave would be the consumer-patch this program's standing law calls a HIGH defect. **The pre-existence is proved, not asserted**: the control run at the pre-landing SHA fails at the **same step in both jobs** | **R-C3 — *the manifest's owning hand (X.KF.W7.a's, i.e. the orchestrator under §0j.C KF-WRITE)*** — regenerate the lock, one `ci` run at that SHA in which `browser oracles` actually executes, then read the parity observation |
+
+**Neither is an unrelieved RED**, and neither is laundered: G-7's own cell, `FINAL-KF.md` §4, `.e`'s Act 8,
+`.f`, `.g` and `## Close` all print the same two clauses with the same single precondition. **OD-V3 (HELD)
+and OD-V5 (DEFERRED) are not gate REDs** — G-3's acceptance names `complete_with_misses` as a first-class
+arm, and COHESION **§0j.C KF-ODV3** authorizes exactly that shape **in advance** (*"if the packet does not
+exist by then KF.W10 closes `complete_with_misses` on that row citing its exact precondition"*), which this
+seat read whole at `:946`.
+
+### C1.3 — AXES 2–9, each measured
+
+- **Axis 2 — writes inside §4.** `git show --stat` on all **12** value commits and all **5** kf commits:
+  every path is a §4 grant (`COHESION.md` · `INBOX.md` · `close/FINAL-KF.md` · ten sibling wave specs at
+  **1 insertion / 1 deletion each** · `KF-W10.md`'s own rows · `execution/B/KF-W10.md` · kf `FOLD-FORWARD.md`
+  · `OWNER-DECISIONS.md` · the four addendum sidecars · `INBOUND-LEDGER.md` · `DISPOSITIONS.md` · the
+  `v/w9-staging` merge). ⟨cmd⟩ `git show --stat --format='' <each> \| grep -c 'dev.sh'` → **0** across all
+  seventeen. **`scripts/dev/dev.sh` untouched; no glass-ui byte; no sibling seat's staged path swept in.**
+- **Axis 3 — masking fallbacks: NONE.** ⟨cmd⟩ over the merge's **634** added lines, filtered for
+  `test.skip\|it.skip\|xit(\|continue-on-error\|\|\| true\|allowlist\|@ts-ignore\|@ts-expect-error\|eslint-disable`
+  → **0 hits**. The three `try {` hits are `try/finally` **mount-teardown** harnesses (TC-5's `withSetup`,
+  which is the cure, not a swallow) and one docblock. `deploy-pages.yml` moves the **other** way — MR3
+  **closes** the AV-4 dispatch bypass and makes the escape an explicit logged input. `scripts/gates/visual/index.mjs`
+  is a pure `proof:` → `review:` relabel with every `process.exit(1)` intact. **BV-2 is a root-cause retype**
+  (`Partial<AnimationLayerConfig>`, the constructor's own declared parameter type) — **no cast, no skip, no
+  allowlist**, and typecheck returned to the pre-landing baseline **23**.
+- **Axis 4 — commit families.** §10's six commits map one-for-one to `025e894c` · `15da439f` · `27ec9c37` ·
+  `b50a23de` · `0a329c57` · (`dd28da55` + `d84727fc`), each message byte-matching its §10 scope line.
+  **Commit 6's two halves are a cross-REPOSITORY split, not a family split** — a commit cannot cross a repo
+  boundary, and the kf half's own subject declares it (*"the kf half of commit 6"*). One commit per meaning;
+  the four G-5 addenda rode **one** commit as §10 row 4 requires.
+- **Axis 5 — E-3 held.** ⟨cmd⟩ `git show --stat` over all twelve value commits filtered for
+  `registry/adjudicated\|conformance/` → **no output**: the adjudicated registry and every conformance
+  artifact are **byte-untouched**. The dated spec moved by **one row** (`git diff --numstat` → `1 1`), and
+  the ten siblings by one `VERIFIED` row apiece — R-A's exact grant, verified line-by-line at `d84727fc`
+  (nine advance, **KF-W3 correctly reads `NO — NOT ADVANCED`**).
+- **Axis 6 — mail.** Four-path sweep at this seat's own clock (⟨cmd⟩ `date` → `Sat Sep 19 01:16:37 EDT 2026`):
+  value `V/coordination` newest = ours; glass **BK** re-confirmed newest tranche, newest letter
+  `glass-outbound-2026-09-18-valuejs-o26-reply.md` = **I-35, rowed**; kf newest letter = ours; atlas newest =
+  ours. **Register tail `I-35` / `O-38`; 0 unrowed letters; 0 UNREAD status cells over 74 rows.** The three
+  rows `.f` advanced (`I-32`/`I-33`/`I-34`) were **read in full at their bytes** — each Status cell states the
+  reading and each names the routed work as **still owed** (`X-W0.j` / `X-EXT-1`), which is terminalization,
+  not laundering.
+- **Axis 7 — the four-verb line.** AUDITED untouched · SPECIFIED untouched (the sub-tranche withhold was
+  lifted at **COHESION §0t**, the root session's act at `f7dae874`, read whole at `:1529`) · **IMPLEMENTED
+  NO → YES `complete_with_misses`** at the close seat · VERIFIED stamped by `.f` under **R-A**, whose text
+  expressly makes this wave's close the stamping seat. **ACCEPTED not conferred** (L-18 rider). No sibling
+  took more than its one row.
+- **Axis 8 — the goal criterion.** Every inherited obligation carries **exactly one** terminal word with its
+  evidence coordinate, verified class by class: **15 of 15** §B rows (vector above) · **57 of 57**
+  NO-WAVE-OWNER records (set equality above) · **3 of 3** owner-gated rulings · **7 of 7** register entries ·
+  **2 of 2** coordination ledgers · **4 of 4** carry-forward records (`KF-W8-R-4-STRUCT-PAIR` =
+  `DECLINED-FOR-X·KF, carried forward` · `CARRY-C-3` = one verb per claimant against the **landed** C-17 mint
+  `a331fae6`, never a guessed slot · `CARRY-C-4` = `RULED DELETE, 2026-09-18, KF.W6` · `CARRY-C-5` =
+  `RECORDED — evaluate-not-replace`). **Nothing closes by omission** — the failure §2 declares fatal does not
+  occur. See **C1-3** for the one literal reading the criterion does not take.
+- **Axis 9 — published figures.** Every load-bearing figure in `## Close`, `.g` and `FINAL-KF.md` that this
+  seat re-ran reproduced at its own double-run commands: `246 L / 41,438 B` · `34 / 121 / 82` · `58 / 57 /
+  1,218` · `253,614 B / 74 rows / 0 UNREAD` · `17,376 B` · `30,691 B` · `205 L / 12,758 B` · `216 L` ·
+  `53 0` / `126 0` · the four run IDs with their conclusions. **Not one AFTER reading needed correction.**
+
+### C1.4 — SUCCESSOR "OPENS AFTER" CONJUNCTS, checked against this wave
+
+**No successor is blocked by KF.W10 — none of the three names it.** Read at their bytes (`:30` of each):
+
+- **KF.W11** — `G-KFW4-1 GREEN` · `KF.W7 CLOSED` · `KF.W8 CLOSED` · `KF.W6 CLOSED` · `KF.W0 §B-12`.
+- **KF.W12** — `G-KFW4-1 GREEN` · `KF.W6 CLOSED` · `KF.W7 CLOSED` · `KF.W8 CLOSED` · `KF.W0 CLOSED` ·
+  `KF.W11 .a` and `.b` commits (intra-successor).
+- **KF.W13** — `G-KFW4-1 GREEN` · KF.W7's per-surface SWAP verdicts (`4c03ceda`) · `KF.W12 .b CLOSED` ·
+  `KF.W6 CLOSED` · `KF.W8 CLOSED` · KF.W9's G-KFW9-9 pair.
+
+**GREEN conjuncts**: every sibling-CLOSED conjunct holds — `execution/LEDGER.md` reads **CLOSED 2026-09-17**
+for W0·W6·W7·W8·W9 and KF.W7's verdict table is LANDED. **The one RED conjunct is common to all three and is
+NOT this wave's**: `G-KFW4-1 lands GREEN` is carried honest-RED by KF.W4's own close (LEDGER: *"CLOSED
+2026-09-17 (honest-RED: G-KFW4-1 …)"*) and each successor measures it RED at its own clock (**54** `vue-tsc`
+errors, double-run at their seats). **All three successors are therefore LAWFULLY BLOCKED, on a sibling
+wave's carried RED and not on anything KF.W10 did or failed to do.** Their `MINTED-UNAUTHORED` premise moved
+at `f208ff31` and `.b` reconciled the register against their real bounds **9 · 6 · 2 = 17** rather than
+re-ruling it — the correct posture, since §6.D's terminal verb is not this close's to advance.
+
+### C1.5 — REGISTER — severity · claim · receipt · cure
+
+| # | sev | claim | receipt | cure |
+|---|---|---|---|---|
+| **C1-1** | **MINOR** (evidence integrity; found by `.g`, reproduced here) | **Two SELF-COUNT receipts of this record assert they carry none of G-4's three witness tokens while printing all three on the sentence that says so** — `.e`'s R-4 (`:1270`) and `.f`'s R-f7 (`:1536`). The claim is false at its own bytes | ⟨cmd⟩ over `execution/B/KF-W10.md`: **15 occurrences on 6 lines** — `:162 :309 :729 :814 :1270 :1536` (`grep -n` for the line set, `grep -o \| wc -l` for the occurrences, double-run). `.e`'s and `.f`'s cells each add 3 on 1 line | **ALREADY CURED-BESIDE**: `.g`'s **F-1** names both, attributes the `+6 / +2` field movement exactly, and E-3 leaves the receipts standing with the correction beside. **No verdict moves** — the record is not a live spec and the partition is unchanged. Carried as `.g` F-1 |
+| **C1-2** | **MINOR** (doc-truth ladder inversion; this wave's own `.f` write created the upper half) | **Nine sibling specs now read `VERIFIED \| YES` above `IMPLEMENTED \| NO`.** R-A permitted `.f` exactly one row edit and it spent it on VERIFIED, so the contradiction could not be cured in the same act | ⟨cmd⟩ `grep -E '^\\\| IMPLEMENTED \\\|'` over the ten stamped specs → **`NO` in all ten** at `.g`'s clock; `execution/LEDGER.md` reads **CLOSED** for the nine. KF-W10's own half is cured at `## Close` Act 5 (`1 1`) | **OWNER NAMED, NOT ORPHANED** — `.g` **F-2** + `## Close` **R-C2** route it to the successor formation as a dated program-wide E-3 addendum, or each spec's own one-row edit citing its CLOSED ledger row. **Mitigated**: every VERIFIED cell cites its IMPLEMENTED basis from the ledger **by name**, so no reader is misled about the basis |
+| **C1-3** | **MINOR-with-mitigation** (bounds; disclosed at the close, not hidden) | **`.e`'s merge authored bytes into keyframes.js source that §4 lists as `EXPLICITLY NOT IN BOUNDS: any product source in either repo`** — the BV-2 retype in `test/group/static-weight-composite-golden.test.ts` and one comment block in `.github/workflows/ci.yml` recording MR4's convergence | ⟨cmd⟩ `git cat-file -e 69095552:test/group/static-weight-composite-golden.test.ts` → **ABSENT** (the file is the **branch's own new file**); `git diff b920b190 0a329c57` on it → the three factory signatures retyped, **no value changed**; `ci.yml` wave-authored comment lines → **1 block**, behaviour unchanged (one `demo correctness suite` step, the staged duplicate dropped) | **NO CURE OWED.** G-7's LAND arm *is* a merge, §4 grants the branch, and the set-inclusion proof (`comm -13` **EMPTY**) shows every landed path is the branch's cargo. The retype is what makes the landing typecheck (23 → 26 → 23) and is idiomatic root-cause. `## Close` **LANDED-WRONG (ii)** declares it by name as *"a dated observation of what the LAND arm costs"* rather than smoothing it. **Does not block** |
+| **C1-4** | **INFO** | **The four G-5 addenda are sidecar files whose paths §4 does not literally name** (§4 grants the five **originals** as *"append-only addendum beside `:109`"*) | `b50a23de` → 4 created paths, each `dirname`-equal to its original; `git diff --stat 69095552 origin/master -- <the five originals>` → **EMPTY** | **Compelled by the gate**: G-5's Statement (*"beside — never inside"*) and Falsifier (*"one changed byte in an original fails the gate"*) make a sidecar the **only** lawful execution, and §4 spells it out for `home.json`. `.d` Act 4 declared the placement rather than drifting into it |
+| **C1-5** | **INFO** | **§2's goal criterion is met in substance but not in its literal *"one document"* spelling** — the terminal words live across four artefacts (the §B addendum, COHESION §4.1, the OWNER-DECISIONS addendum, the two ledgers) **indexed** by `FINAL-KF.md`'s commit list | `FINAL-KF.md` **205 L**, §1's seven commits + §2's per-gate commands | **Spec-internal tension, not an execution defect**: §10's own Artefacts clause constrains `FINAL-KF.md` to *"commits and pasted commands only; cites no document this close authored — L-6"*, which forbids it from being the one document. **No obligation closes by omission** (C1.3 axis 8), which is the criterion's own falsifier |
+| **C1-6** | **INFO** | **COHESION §5 *"Status board (kept current at every boundary)"* carries no X·KF close entry** — its newest rows are the 2026-09-17 X·P ones, and the board's last X·KF reading is a pass-5 progress line | ⟨cmd⟩ `grep -n '^## §5'` → `:391`; board extends to `:885`; no 2026-09-19 X·KF row | The wave held `§5 status board` as a **modify-carve grant, never an obligation**, and no gate turns on it. `execution/LEDGER.md` + `FINAL-KF.md` are the close's records. Recorded for the successor's boundary sweep |
+| **C1-7** | **INFO** | **The sitting-2 OPEN baseline published *"0 UNREAD status cells"* from a probe that could only ever return 0** (`awk` on `$NF`, the empty field after the trailing pipe); the true pre-state was **3** (`I-32`/`I-33`/`I-34`) | `.f`'s own commit body at `d84727fc` publishes both corrections by name and re-measures the gate at column 5 by position | **SELF-CAUGHT AND PUBLISHED INSIDE THE WAVE** before G-6 was read — the unit measured its own gate rather than inheriting the baseline's. Recorded as the honest shape, not as a live defect |
+
+**ZERO BLOCKER · ZERO CRITICAL · ZERO HIGH · 3 MINOR (one already cured-beside, one owner-named, one
+disclosed-and-mitigated) · 4 INFO.**
+
+### C1.6 — VERDICT
+
+> ### **CONFORMANT-HONEST-RED.**
+> **7 of 7 gate verdicts reproduce** at this seat's own double-run commands — six GREEN and **G-7
+> LAND-stamped, RED-HONEST on 2 of its 6 acceptance clauses**. Both remaining REDs are relieved under the
+> spec's own terms and **owner-named in the record's residual register**: MR4's red-once witness is
+> **closed by construction** (R-C4) and §B-9's MR2 parity observation is blocked by **ESC-e1**, whose cure
+> is out of every unit's §4 bounds and is routed to the manifest's owning hand (R-C3). **No unrelieved RED,
+> no masking fallback in 634 added lines, no write outside §4 that the LAND arm does not carry, E-3 held at
+> the registry and every conformance artifact, mail clean at 0 unrowed / 0 UNREAD over 74 rows, and the
+> four-verb line moved exactly as §State and R-A permit.** The one thing this close never does is round up:
+> `complete_with_misses` is stated at the gate, at the stamp, at the ledger and at `FINAL-KF.md` §4.
+
+**E13 at this seat**: swept above (C1.3 axis 6) — **0 unrowed letters, 0 UNREAD status cells**. No wave
+closes with UNREAD mail in scope, and this one does not.
+
+**SELF-COUNT law.** This Check block lands **inside** G-4's witness field (`docs/tranches/X/`) and carries
+**none** of G-4's three witness tokens — it names them only as *"the three witness tokens"* and prints the
+`345`/`8281638c` supersession pair, which is not one of them. **It contributes 0 files · 0 lines · 0
+occurrences**, so the gate's own three commands re-run after this write must still read **34 / 121 / 82** —
+the fixpoint `.g` established, the close reproduced, and this seat preserves.
