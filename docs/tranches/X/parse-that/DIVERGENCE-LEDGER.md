@@ -24,7 +24,7 @@ engines did is what is printed. Nothing in those two columns was typed from a do
 `registry/adjudicated/parser-band.md`; §2's 4 DISSENTS and §3's 5 fixtures come from their own
 authorities; §4 is `.b`'s F-b4, routed to this seat inside the wave; §5 is generated from the
 candidate's own `UNREALIZED_ENTRIES` against the pinned barrel; **§7** is generated from `bounds.mjs`'s
-own `CAPACITY_REGIONS` and carries §0p/§0q as its authority; **§9** carries 3 INCUMBENT-DEFECT rows,
+own `CAPACITY_REGIONS` and carries §0p/§0q as its authority; **§9** carries 8 INCUMBENT-DEFECT rows,
 each citing the specification the incumbent's acceptance contradicts. **This seat adjudicates nothing.**
 §6 is reserved for `.e`, the fresh Fable
 adjudicator (M-23 §1) — *an author cannot adjudicate his own union* — is deliberately left empty by
@@ -54,8 +54,8 @@ this program, and is now CARRIED VERBATIM across re-emissions instead of being d
 | §5 | DECLARED COVERAGE NARROWING | 3 | the candidate's `UNREALIZED_ENTRIES` × the pinned barrel |
 | §7 | CAPACITY BOUND | 9 | `bounds.mjs`'s own `CAPACITY_REGIONS`, measured or derived |
 | §8 | SPEC-DIVERGENCE (realized entry) | 0 | this wave's own measurement; EMPTY since `.k` promoted SP-1 to §9 |
-| §9 | INCUMBENT-DEFECT | 3 | ESC-g1 — the oracle mis-accepts, the candidate is right per spec |
-| | **total** | **41** | 8 generated families; §6 is `.e`'s carried block and is counted in neither column |
+| §9 | INCUMBENT-DEFECT | 8 | ESC-g1 — the oracle mis-accepts, the candidate is right per spec |
+| | **total** | **46** | 8 generated families; §6 is `.e`'s carried block and is counted in neither column |
 
 **Empty consumer-direction fields: 0.** (G-7 fails on any.)
 **`GATE-VERDICT.md` anchors present: 5/5** — each fixture's anchor re-read in its authority at generation.
@@ -753,11 +753,10 @@ _Coordinate found by binary search at this generation: the region is first named
 
 | witness | code units | incumbent (published 4.0.0, MEASURED) | candidate js (MEASURED) | candidate wasm (MEASURED) | js ≡ wasm |
 |---|---|---|---|---|---|
-**NO COORDINATE, AND THE REASON IS MEASURED:** the largest `marks` witness that FITS the derived input window is n = 4702 (14106 code units, window 14107), and it does not name `<mark-journal>`; the search to n = 65536 found no coordinate because the WINDOW cuts first, not because the bound is absent. R-f1 (COHESION §0r) owns the window and is ruled for X.P.W4.
+| **AT the bound** — `witnessAtCapacity("marks", 1,723)` | 5,169 | ok:true · 1,723 top-level item(s) · 0 diagnostic(s) | ok:true · 1,723 top-level item(s) · 0 diagnostic(s) | ok:true · 1,723 top-level item(s) · 0 diagnostic(s) | YES |
+| **ONE PAST the bound** — `witnessAtCapacity("marks", 1,724)` | 5,172 | ok:true · 1,724 top-level item(s) · 0 diagnostic(s) | ok:false · 1 diagnostic(s): css_syntax [0,5172) "<mark-journal> (at most 32768 marks)" | ok:false · 1 diagnostic(s): css_syntax [0,5172) "<mark-journal> (at most 32768 marks)" | YES |
 
-| **AT the largest witness the WINDOW admits** — `witnessAtCapacity("marks", 4,702)` | 14,106 | ok:true · 4,702 top-level item(s) · 0 diagnostic(s) | ok:true · 4,702 top-level item(s) · 0 diagnostic(s) | ok:true · 4,702 top-level item(s) · 0 diagnostic(s) | YES |
-
-_No coordinate exists under Θ.input: the densest declared family at the window (n = 4,702) names this region in neither lowering (js does not name it · wasm does not name it), which is what "unreachable" means here._
+_Coordinate found by binary search at this generation: the region is first named at n = 1,724._
 
 ### CAP-3 — the `recoveries` region — Θ.recoveries = 4,096 recoveries (class 1)
 
@@ -777,7 +776,7 @@ _No coordinate exists under Θ.input: the densest declared family at the window 
 |---|---|---|---|---|---|
 **NO COORDINATE, AND THE REASON IS MEASURED:** the largest `recoveries` witness that FITS the derived input window is n = 3526 (14104 code units, window 14107), and it does not name `<recovery-journal>`; the search to n = 8192 found no coordinate because the WINDOW cuts first, not because the bound is absent. R-f1 (COHESION §0r) owns the window and is ruled for X.P.W4.
 
-| **AT the largest witness the WINDOW admits** — `witnessAtCapacity("recoveries", 3,526)` | 14,104 | ok:false · 1 diagnostic(s): css_syntax [0,1) "declaration" | ok:false · 3,526 diagnostic(s): css_syntax [0,4) "<colon>" · css_syntax [4,8) "<colon>" …(+3524) | ok:false · 3,526 diagnostic(s): css_syntax [0,4) "<colon>" · css_syntax [4,8) "<colon>" …(+3524) | YES |
+| **AT the largest witness the WINDOW admits** — `witnessAtCapacity("recoveries", 3,526)` | 14,104 | ok:false · 1 diagnostic(s): css_syntax [0,1) "declaration" | ok:false · 1 diagnostic(s): css_syntax [0,14104) "<mark-journal> (at most 32768 marks)" | ok:false · 1 diagnostic(s): css_syntax [0,14104) "<mark-journal> (at most 32768 marks)" | YES |
 
 _No coordinate exists under Θ.input: the densest declared family at the window (n = 3,526) names this region in neither lowering (js does not name it · wasm does not name it), which is what "unreachable" means here._
 
@@ -799,7 +798,7 @@ _No coordinate exists under Θ.input: the densest declared family at the window 
 |---|---|---|---|---|---|
 **NO COORDINATE, AND THE REASON IS MEASURED:** the largest `D` witness that FITS the derived input window is n = 3526 (14104 code units, window 14107), and it does not name `<diagnostic-journal>`; the search to n = 8192 found no coordinate because the WINDOW cuts first, not because the bound is absent. R-f1 (COHESION §0r) owns the window and is ruled for X.P.W4.
 
-| **AT the largest witness the WINDOW admits** — `witnessAtCapacity("D", 3,526)` | 14,104 | ok:false · 1 diagnostic(s): css_syntax [0,1) "declaration" | ok:false · 3,526 diagnostic(s): css_syntax [0,4) "<colon>" · css_syntax [4,8) "<colon>" …(+3524) | ok:false · 3,526 diagnostic(s): css_syntax [0,4) "<colon>" · css_syntax [4,8) "<colon>" …(+3524) | YES |
+| **AT the largest witness the WINDOW admits** — `witnessAtCapacity("D", 3,526)` | 14,104 | ok:false · 1 diagnostic(s): css_syntax [0,1) "declaration" | ok:false · 1 diagnostic(s): css_syntax [0,14104) "<mark-journal> (at most 32768 marks)" | ok:false · 1 diagnostic(s): css_syntax [0,14104) "<mark-journal> (at most 32768 marks)" | YES |
 
 _No coordinate exists under Θ.input: the densest declared family at the window (n = 3,526) names this region in neither lowering (js does not name it · wasm does not name it), which is what "unreachable" means here._
 
@@ -851,7 +850,7 @@ _No coordinate exists under Θ.input: the densest declared family at the window 
 | **declared capacity Θ.vstack** | 65,536 slots (the layout CAP itself) |
 | **raw label → promoted production** | `vstack <= 65536` → `<value-stack>` |
 | **incumbent** | published 4.0.0 declares NO capacity of any kind on this axis: it parses until it runs out of host memory, and on the inputs measured below it returns a value. |
-| **candidate** | UNREACHABLE BY CONSTRUCTION (§0q class 3). Θ declares the capacity from `layout.mjs` and `bounds.mjs` ASSERTS AT LOAD that `cap₃ ≥ K × bound₁ + S` — for this region K = 1 code unit, S = 870, ceiling 14,977 ≤ cap 65,536 — so a class-1 rejection always fires first and this region cannot be the one that answers. |
+| **candidate** | UNREACHABLE BY CONSTRUCTION (§0q class 3). Θ declares the capacity from `layout.mjs` and `bounds.mjs` ASSERTS AT LOAD that `cap₃ ≥ K × bound₁ + S` — for this region K = 1 code unit, S = 1,269, ceiling 15,376 ≤ cap 65,536 — so a class-1 rejection always fires first and this region cannot be the one that answers. |
 | **spec citation** | COHESION §0p — "both lowerings reject at the bound … with `css_syntax` and a label naming it" — and §0q's E-f2 per-class ruling (class 1 boundary-visible · class 2 peak-with-grant · class 3 unreachable-by-construction), carried into `W3.md`'s two dated 2026-09-18 ADDENDA as unit `.f`. Every bound VALUE is read from the built module's own layout constants (`layout.mjs`), and `Θ.input` is DERIVED (`INPUT_BOUND`) rather than pinned; no CAP was moved by this wave. |
 | **adjudication** | DECLARED CAPACITY BOUND, rowed here for the first time (**F-L1**, raised by the round-4 `## Check 1`). The P-1 taxonomy's COVERAGE_NARROWING sentence — "C14 declines an input outside its **declared shape** that the live superset accepts is **not** a defect — `status.json` declares it" — is the governing one, and Θ **is** the declared shape; this row is that declaration for the `vstack` axis. Not discharged and not repaired here: the bound is correct and ordained, and what was owed was the declaration. |
 | **consumer direction** | NO CHANGE at this region, and the narrowing it CAUSES is rowed at CAP-1: Θ.input is **14,107** rather than the layout's own 1,048,576 precisely because `cap₃ ≥ K × Θ.input + S` must hold for this region among the three. Restoring the full window is R-f1, owned by X.P.W4; it is a capacity question, never a correctness one. |
@@ -931,7 +930,7 @@ it needed a heading of its own. It takes the next free level-2 number: **§6 is 
 hand-written adjudication block** and a generated family written over it would destroy the fresh
 adjudicator's region (F-aa3 (a)).
 
-Of the 3 rows, 2 are **UNADJUDICATED** and say so in their own adjudication field: `.k` measured them
+Of the 8 rows, 5 are **UNADJUDICATED** and say so in their own adjudication field: `.k` measured them
 at G-1's honest remainder and declines to rule them, because an author cannot adjudicate his own union
 (M-23 §1). Their cells REMAIN counted as mirror-defects at G-7 — a row declares a difference, it does
 not excuse one.
@@ -986,3 +985,96 @@ not excuse one.
 | input | incumbent (published 4.0.0, MEASURED) | candidate js (MEASURED) | candidate wasm (MEASURED) |
 |---|---|---|---|
 | `"steps(1e43,, start)"` | {"ok":true,"value":{"kind":"steps","count":1e+43,"position":"jump-start"},"diagnostics":[]} | {"ok":false,"diagnostics":[{"code":"css_syntax","start":11,"end":19,"expected":["<jump-position>"],"actual":", start)"}]} | {"ok":false,"diagnostics":[{"code":"css_syntax","start":11,"end":19,"expected":["<jump-position>"],"actual":", start)"}]} |
+
+### ID-3 — the incumbent accepts a NON-STRING as an empty stylesheet
+
+| field | value |
+|---|---|
+| **input(s)** | `undefined` · `null` · `42` · `{}` · `[]` · `true` · `NaN` |
+| **entry** | `parseStylesheet` |
+| **incumbent** | SPLITS, and the split is measured in the table below, not asserted: FIVE of the seven — `42`, `{}`, `[]`, `true`, `NaN` — come back `ok:true` with `value: []`, an EMPTY SHEET, because `.length` on a non-string is `undefined`, the scan loop never runs and the empty result is returned as a success; no diagnostic is emitted and the caller cannot tell an empty sheet from a source that was never text. The remaining two — `undefined` and `null` — THROW a raw `TypeError` (`Cannot read properties of … (reading 'length')`), which is the R1 class this wave's G-2 is about and not this row's subject. This row is the FIVE. |
+| **candidate** | REJECTS all seven, identically in BOTH lowerings and with no throw: `ok:false css_syntax` with `expected ["<string source>"]` at `[0,0)`. The two the incumbent throws on are cured by the same guard, which is `.c`'s G-3 leg. |
+| **spec citation** | css-syntax-3 §3 — parsing operates on a stream of CODE POINTS; a value that is not a string is not a stream of code points and has no parse. §5.3.3 ("parse a stylesheet") is defined over that stream alone, so `[]` is not the answer for a non-source; there is no answer, which is what a typed rejection says. |
+| **adjudication** | **UNADJUDICATED — routed to X.P.W4's fresh adjudicator**, for the reason ID-1 gives (M-23 §1: an author may not adjudicate his own union). Its discovery is X.P.W3.n's: `.c` reported the shape as **BND-1** and `.m` measured it at **172 of `parseStylesheet`'s 206 G-1 misses** — but those 172 were the INSTRUMENT, not this defect. The universe's r1 arm was feeding the corpus `{id, src}` PAIRS instead of the `src` string, so `parseStylesheet` was being called with an object 172 times; §0w ruled that half an instrument defect and `.n` cured it at `test/css-totality/lib/corpus.mjs`. What remains here is the other half — the incumbent's own acceptance — and it is exercised by the SEVEN declared non-string boundary cases (`corpus.boundary`, `.c`'s G-3 leg), never by a corpus row, because a non-string is not a row. |
+| **consumer direction** | NARROWS acceptance. A consumer that handed `parseStylesheet` a non-string — a `null` from a failed file read, a parsed JSON object, a number — received `ok:true` with an empty sheet and proceeded as though the stylesheet were empty. It now receives `ok:false` and learns at the call that it never had a source. No consumer that passed a string is affected. |
+
+| input | incumbent (published 4.0.0, MEASURED) | candidate js (MEASURED) | candidate wasm (MEASURED) |
+|---|---|---|---|
+| `undefined` | THROWS TypeError: Cannot read properties of undefined (reading 'length') | {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":0,"expected":["<string source>"],"actual":null}]} | {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":0,"expected":["<string source>"],"actual":null}]} |
+| `null` | THROWS TypeError: Cannot read properties of null (reading 'length') | {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":0,"expected":["<string source>"],"actual":null}]} | {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":0,"expected":["<string source>"],"actual":null}]} |
+| `42` | {"ok":true,"value":[],"diagnostics":[]} | {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":0,"expected":["<string source>"],"actual":null}]} | {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":0,"expected":["<string source>"],"actual":null}]} |
+| `{}` | {"ok":true,"value":[],"diagnostics":[]} | {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":0,"expected":["<string source>"],"actual":null}]} | {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":0,"expected":["<string source>"],"actual":null}]} |
+| `[]` | {"ok":true,"value":[],"diagnostics":[]} | {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":0,"expected":["<string source>"],"actual":null}]} | {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":0,"expected":["<string source>"],"actual":null}]} |
+| `true` | {"ok":true,"value":[],"diagnostics":[]} | {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":0,"expected":["<string source>"],"actual":null}]} | {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":0,"expected":["<string source>"],"actual":null}]} |
+| `NaN` | {"ok":true,"value":[],"diagnostics":[]} | {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":0,"expected":["<string source>"],"actual":null}]} | {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":0,"expected":["<string source>"],"actual":null}]} |
+
+### ID-1b — the incumbent reads a NON-IDENT run as a declaration NAME — `col!r`, and a nested at-rule
+
+| field | value |
+|---|---|
+| **input(s)** | `"b { col!r: rgb(9. none -76 / 0.) }"` · `"b { background-color: var(--brand) -!important }"` · `"h1 { img { @container (width > 400px) { nav { margin: 0 auto } } transition: opacity 200ms } }"` |
+| **entry** | `parseStylesheet` |
+| **incumbent** | ACCEPTS all three, and the NAME it returns is the defect: `col!r` comes back as a declaration named `col!r`; `-!important` is folded into the value as a keyword; and the third's first declaration is named `@container (width > 400px) { nav { margin` with value `0 auto`. The mechanism is one line — `parseDeclarations` takes `row.slice(0, row.indexOf(":"))` over a part of `splitTopLevel(body, ";")`, which is paren-aware and BRACE-BLIND, so any bytes at all become the name and a name may cross an inner `{`. |
+| **candidate** | REJECTS the first two in BOTH lowerings (`css_syntax`, the span covering the rule), and reads the third's nested `@container` as an at-rule CHILD — css-syntax-3 §5.4.4's own answer — which is a DIVERGENT_VALUE against the incumbent's mangled declaration list rather than a rejection. |
+| **spec citation** | css-syntax-3 §5.4.4 — a declaration's name is an `<ident-token>` (§4.3.11), and an `<at-keyword-token>` in a style block's contents starts an AT-RULE; §5.4.10 — `!important` follows a component value, so a run with no token boundary before the `!` is not one token. |
+| **adjudication** | **UNADJUDICATED — routed to X.P.W4's fresh adjudicator**, for the reason ID-1 gives (M-23 §1). §0w defines ID-1b as "ID-1's mechanism one production up" and names the first two inputs; the THIRD is X.P.W3.n's own finding. `.m` filed it as **E-j1** ("2× `@container` nested inside a style rule") and §0w carried that reading as a candidate gap to be cured here. Measured at this seat by replaying the incumbent's own `blocks()` and `;` split, it is not a candidate gap: the candidate's reading is the specification's, and what differs is the incumbent's lax NAME production. The predicate in `adjudications.mjs` is that replay, so the attribution is mechanical and its census is printed beside its population on every run. The candidate's own disposition on the first two — refusing the whole sheet where §5.4.4 drops the invalid declaration and keeps the rule — is also unadjudicated and goes to the same seat. |
+| **consumer direction** | NARROWS acceptance on the first two and CHANGES VALUE on the third. A consumer that fed `b { col!r: … }` received a declaration whose name is not a CSS property and could never match one; it now receives `ok:false`. A consumer that fed a nested at-rule received a declaration list with a name eighty characters long and no `children`; it now receives the at-rule as a child, which is what the stylesheet says. Both directions remove a value the string does not name. |
+
+| input | incumbent (published 4.0.0, MEASURED) | candidate js (MEASURED) | candidate wasm (MEASURED) |
+|---|---|---|---|
+| `"b { col!r: rgb(9. none -76 / 0.) }"` | {"ok":true,"value":[{"kind":"style","selectors":["b"],"declarations":[{"name":"col!r","value":{"kind":"scalar","payload":{"type":"color","value":{"space":"rgb",… | {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":34,"expected":["<open-paren>","<qualified-rule-prelude> (any character but '{', '}' or ';')","<o… | {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":34,"expected":["<open-paren>","<qualified-rule-prelude> (any character but '{', '}' or ';')","<o… |
+| `"b { background-color: var(--brand) -!important }"` | {"ok":true,"value":[{"kind":"style","selectors":["b"],"declarations":[{"name":"background-color","value":{"kind":"list","separator":"space","items":[{"kind":"ca… | {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":48,"expected":["<open-paren>","<qualified-rule-prelude> (any character but '{', '}' or ';')","<o… | {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":48,"expected":["<open-paren>","<qualified-rule-prelude> (any character but '{', '}' or ';')","<o… |
+| `"h1 { img { @container (width > 400px) { nav { margin: 0 auto } } transition: opacity 200ms } }"` | {"ok":true,"value":[{"kind":"style","selectors":["h1"],"declarations":[],"children":[{"kind":"style","selectors":["img"],"declarations":[{"name":"transition","v… | {"ok":true,"value":[{"kind":"style","selectors":["h1"],"declarations":[],"children":[{"kind":"style","selectors":["img"],"declarations":[{"name":"transition","v… | {"ok":true,"value":[{"kind":"style","selectors":["h1"],"declarations":[],"children":[{"kind":"style","selectors":["img"],"declarations":[{"name":"transition","v… |
+
+### ID-4 — `blocks()`'s SIGNED paren counter goes negative and the rule's own `{` becomes invisible
+
+| field | value |
+|---|---|
+| **input(s)** | `".c ){ color: #28cA }"` · `"#d ){ background-color: var(--a, rebeccapurple) }"` · `".c { background-color: rgb(-0 .504 6e-128 / 9e-415) } GARBAGE ) ;(#d { background-color: #eFEbC78B }"` |
+| **entry** | `parseStylesheet` |
+| **incumbent** | REJECTS all three, and rejects them for the counter rather than for the CSS: `blocks()`'s prelude scan does `else if (char === ")") parens--` with no floor, so a `)` that closes nothing leaves `parens === -1` and every later `{` or `;` fails the `parens === 0` test. The scan runs off the end, `boundary < 0`, and the answer is `failure(…, ["rule"])`. |
+| **candidate** | ACCEPTS all three in BOTH lowerings, reading the stray `)` as ordinary prelude text: `.c )` and `#d )` are the selectors, and the third's second rule is the one its braces describe. |
+| **spec citation** | css-syntax-3 §5.4.9 — a simple block is consumed to its MATCHING closer, so the parser holds a STACK; §4.3.1/§5.4.2 — a `)` with nothing open is a stray token and a parse error at most, never a depth of −1 that hides the next block. |
+| **adjudication** | **UNADJUDICATED — routed to X.P.W4's fresh adjudicator**, for the reason ID-1 gives (M-23 §1). `.j` escalated the family as **SH-1** and reported rather than cured it; §0w rules it **ID-4**, "class predicate; candidate correct". X.P.W3.n narrows the family by MEASUREMENT: the predicate is the one byte-level disagreement between the two readings — a `)` that closes nothing — and the cells where the incumbent's `(` was never closed (`( { border-color: #26FA }`, `b ({ …`) are NOT this row's, because the candidate's own prelude now consumes a simple block to its matching `)` and refuses those sheets exactly as the incumbent does (X.P.W3.n's E-j1 cure). SH-1's eleven are therefore five here and six cured. |
+| **consumer direction** | WIDENS acceptance. A consumer that fed `.c ){ … }` received `ok:false` with `expected ["rule"]` — a diagnostic naming nothing in the source — and now receives the rule the braces describe, with the stray `)` inside the selector text where the author wrote it. A consumer that relied on the rejection loses it; none that relied on acceptance is affected. |
+
+| input | incumbent (published 4.0.0, MEASURED) | candidate js (MEASURED) | candidate wasm (MEASURED) |
+|---|---|---|---|
+| `".c ){ color: #28cA }"` | {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":20,"expected":["rule"],"actual":".c ){ color: #28cA }"}]} | {"ok":true,"value":[{"kind":"style","selectors":[".c )"],"declarations":[{"name":"color","value":{"kind":"scalar","payload":{"type":"color","value":{"space":"rg… | {"ok":true,"value":[{"kind":"style","selectors":[".c )"],"declarations":[{"name":"color","value":{"kind":"scalar","payload":{"type":"color","value":{"space":"rg… |
+| `"#d ){ background-color: var(--a, rebeccapurple) }"` | {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":49,"expected":["rule"],"actual":"#d ){ background-color: var(--a, rebeccapurple) }"}]} | {"ok":true,"value":[{"kind":"style","selectors":["#d )"],"declarations":[{"name":"background-color","value":{"kind":"call","name":"var","args":[{"kind":"scalar"… | {"ok":true,"value":[{"kind":"style","selectors":["#d )"],"declarations":[{"name":"background-color","value":{"kind":"call","name":"var","args":[{"kind":"scalar"… |
+| `".c { background-color: rgb(-0 .504 6e-128 / 9e-415) } GARBAGE ) ;(#d { background-color: #eFEbC78B }"` | {"ok":true,"value":[{"kind":"style","selectors":[".c"],"declarations":[{"name":"background-color","value":{"kind":"scalar","payload":{"type":"color","value":{"s… | {"ok":false,"diagnostics":[{"code":"css_syntax","start":54,"end":65,"expected":["<open-paren>","<qualified-rule-prelude> (any character but '{' or ';')","<open-… | {"ok":false,"diagnostics":[{"code":"css_syntax","start":54,"end":65,"expected":["<open-paren>","<qualified-rule-prelude> (any character but '{' or ';')","<open-… |
+
+### ID-5 — the incumbent accepts a legacy comma form that mixes `<number>` with `<percentage>`, or spells `none`
+
+| field | value |
+|---|---|
+| **input(s)** | `"rgb(24.745, 171.2787213968113, 41%)"` · `"rgb(+12, none, 40.121382917277515, 46.14)"` · `"rgb(none, 8e144, 80%, .86)"` |
+| **entry** | `parseCssColor` |
+| **incumbent** | ACCEPTS all three. It rewrites the commas to spaces before reading the channels, so the LEGACY form is parsed by the MODERN grammar, where every channel is `[<percentage> \| <number> \| none]` — the separator structure that distinguishes the two forms has been erased by the time the channels are read. |
+| **candidate** | REJECTS all three in BOTH lowerings since X.P.W3.n: `legacy-rgb` is two homogeneous three-channel arms (`<percentage>#{3}` and `<number>#{3}`) and neither admits `none`. `<alpha-value>` is untouched, so `rgb(1, 2, 3, none)` still parses. |
+| **spec citation** | css-color-4 §8.1 — `<legacy-rgb-syntax> = rgb( <percentage>#{3} , <alpha-value>? ) \| rgb( <number>#{3} , <alpha-value>? )`: the three channels are ONE type throughout, and `none` is admitted by the modern grammar alone. §7.1 says the same of `<legacy-hsl-syntax>`, whose saturation and lightness are `<percentage>`. |
+| **adjudication** | **RULED at COHESION §0w — incumbent defect ID-5**, and the candidate's cure landed at X.P.W3.n WITH this row's class predicate, in one commit. `.k` measured the family as F-k2 and could not cure it (`src/css/**` was outside that unit's bounds); `.l` landed the cure twice and WITHDREW it both times, because a cure with no adjudication turns the 575 cells the oracle accepts into FALSE_REJECTs. The class predicate is what makes them declared divergences instead: 1,506 corpus rows match it and 1,487 cells are governed at the widest entry, both printed by `css-universe.mjs --check` on every run. |
+| **consumer direction** | NARROWS acceptance. `rgb(24.745, 171.28, 41%)` and `rgb(none, 8e144, 80%, .86)` parsed and now return `ok:false` with a located diagnostic. A consumer emitting a mixed legacy form received a colour the string does not name — the incumbent read `41%` and `171.28` as the same kind of channel — and must emit either the all-`<number>` form, the all-`<percentage>` form, or the space-separated modern form, all three unaffected. |
+
+| input | incumbent (published 4.0.0, MEASURED) | candidate js (MEASURED) | candidate wasm (MEASURED) |
+|---|---|---|---|
+| `"rgb(24.745, 171.2787213968113, 41%)"` | {"ok":true,"value":{"space":"rgb","channels":[24.745,171.2787213968113,104.55],"alpha":1},"diagnostics":[]} | {"ok":false,"diagnostics":[{"code":"css_syntax","start":33,"end":35,"expected":["<comma>","<close-paren>"],"actual":"%)"}]} | {"ok":false,"diagnostics":[{"code":"css_syntax","start":33,"end":35,"expected":["<comma>","<close-paren>"],"actual":"%)"}]} |
+| `"rgb(+12, none, 40.121382917277515, 46.14)"` | {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":41,"expected":["CSS color"],"actual":"rgb(+12, none, 40.121382917277515, 46.14)"}]} | {"ok":false,"diagnostics":[{"code":"css_syntax","start":9,"end":41,"expected":["<number>"],"actual":"none, 40.121382917277515, 46.14)"}]} | {"ok":false,"diagnostics":[{"code":"css_syntax","start":9,"end":41,"expected":["<number>"],"actual":"none, 40.121382917277515, 46.14)"}]} |
+| `"rgb(none, 8e144, 80%, .86)"` | {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":26,"expected":["CSS color"],"actual":"rgb(none, 8e144, 80%, .86)"}]} | {"ok":false,"diagnostics":[{"code":"css_syntax","start":8,"end":26,"expected":["<number>","<none-keyword> ('none')"],"actual":", 8e144, 80%, .86)"}]} | {"ok":false,"diagnostics":[{"code":"css_syntax","start":8,"end":26,"expected":["<number>","<none-keyword> ('none')"],"actual":", 8e144, 80%, .86)"}]} |
+
+### PB-11 (F-l3) — the ORACLE ACCEPTS `hwb(10, 10%, 10%)`, which PB-11's own prose says it rejects
+
+| field | value |
+|---|---|
+| **input(s)** | `"hwb(10, 10%, 10%)"` · `"hwb(120, 30%, 40%)"` |
+| **entry** | `parseCssColor` |
+| **incumbent** | MEASURED at this emission, and the two do not agree with each other: this is the whole of the observation. `parser-band.md` rows `hwb(120, 30%, 40%)` as an unsound ACCEPT and PB-11 rules it REJECT; `.l` then measured `hwb(10, 10%, 10%)` accepted by the same oracle. The comma form has no legacy syntax on this head either way. |
+| **candidate** | REJECTS both in BOTH lowerings — PB-11's ruling, honoured, and asserted as G-6 row (k). |
+| **spec citation** | css-color-4 §8.3 — `hwb() = hwb( [<hue> \| none] [<percentage> \| <number> \| none] [<percentage> \| <number> \| none] [ / [<alpha-value> \| none] ]? )`: space-separated components only. §8 and §9 give hwb(), lab(), lch(), oklab(), oklch() and color() no legacy comma form at all. |
+| **adjudication** | **OBSERVATION, rowed and not ruled here** (COHESION §0w: "rowed as an incumbent-defect observation under PB-11; adjudicated at W4"). `.l` raised it as **F-l3** — the oracle accepts what PB-11's prose says it rejects — and the disposition of the two cells is X.P.W4's fresh adjudicator's, not this wave's. PB-11 itself is unmoved: the candidate rejects both, which is what the ruling requires, and the class predicate's population over the 27,021-row corpus is **1**, printed beside the census on every run. |
+| **consumer direction** | NARROWS acceptance. A consumer that fed `hwb(10, 10%, 10%)` received a colour from published 4.0.0 and now receives `ok:false`. The space-separated spelling `hwb(10 10% 10%)` is the same colour and is unaffected; that is the whole of the migration. |
+
+| input | incumbent (published 4.0.0, MEASURED) | candidate js (MEASURED) | candidate wasm (MEASURED) |
+|---|---|---|---|
+| `"hwb(10, 10%, 10%)"` | {"ok":true,"value":{"space":"hwb","channels":[10,0.1,0.1],"alpha":1},"diagnostics":[]} | {"ok":false,"diagnostics":[{"code":"css_syntax","start":6,"end":17,"expected":["<angle-unit> ('deg')","<angle-unit> ('grad')","<angle-unit> ('rad')","<angle-uni… | {"ok":false,"diagnostics":[{"code":"css_syntax","start":6,"end":17,"expected":["<angle-unit> ('deg')","<angle-unit> ('grad')","<angle-unit> ('rad')","<angle-uni… |
+| `"hwb(120, 30%, 40%)"` | {"ok":true,"value":{"space":"hwb","channels":[120,0.3,0.4],"alpha":1},"diagnostics":[]} | {"ok":false,"diagnostics":[{"code":"css_syntax","start":7,"end":18,"expected":["<angle-unit> ('deg')","<angle-unit> ('grad')","<angle-unit> ('rad')","<angle-uni… | {"ok":false,"diagnostics":[{"code":"css_syntax","start":7,"end":18,"expected":["<angle-unit> ('deg')","<angle-unit> ('grad')","<angle-unit> ('rad')","<angle-uni… |
