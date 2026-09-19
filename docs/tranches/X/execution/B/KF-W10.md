@@ -674,3 +674,19 @@ event is recorded as a dated observation, not as a re-ruling (E-3).
 **ESCALATIONS: none.** Every act landed inside the declared writable set (`COHESION.md` alone); the specified
 cure was possible at the bytes and was executed as specified — no substitution, no workaround, no masking
 fallback, no allowlist, no local patch, no sibling tree written, no dated section rewritten.
+
+**CORRECTION BY THIS SEAT, dated 2026-09-18, to its own crash-recovery cell above (receipt-arithmetic-first;
+the cell is left standing and corrected beside itself, never patched).** The cell reads *"value.js — 18 rows
+at open"* and then enumerates **nineteen** (`demo/**` ×10 · `CARRY-LEDGER.md` · `dev.sh` · three
+`parse-that/evidence/W3/` files · `waves/evidence/W4/` · two `e2e/smoke/**` · **one `.tgz`**) — **a receipt
+whose own arithmetic does not reproduce.** **The number 18 is correct and the enumeration is wrong**: this
+seat's `git status --porcelain` at open returned **12 modified + 6 untracked = 18**, and
+**`mkbabb-value.js-4.0.0.tgz` was NOT among them** — it appears in the session-start snapshot this seat was
+handed, not in the porcelain this seat ran, and a snapshot is not a measurement. **Strike `+ one .tgz`;** the
+twelve modified were `demo/**` ×10 · `docs/tranches/V/reformation/CARRY-LEDGER.md` · `scripts/dev/dev.sh`, and
+the six untracked were the three `docs/tranches/X/parse-that/evidence/W3/animation-grammar-landing-2026-09-18.*`
+files · `docs/tranches/X/waves/evidence/W4/` · `e2e/smoke/a11y-control-targets.spec.ts` ·
+`e2e/smoke/mobile/a11y-control-targets.spec.ts`. **Nothing about the finding changes** — every one of the
+eighteen was outside this seat's writable set, none was touched, `dev.sh` was never staged, and **INHERITED
+WORK ON THIS UNIT: NONE** stands on its own probe (`git status --porcelain -- docs/tranches/X/COHESION.md` →
+zero lines). The defect was the enumeration, not the sweep.
