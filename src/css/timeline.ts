@@ -18,9 +18,9 @@ export function parseAnimationTimeline(source: string): ParseResult<AnimationTim
     const input = source.trim();
     const lower = input.toLowerCase();
     if (lower === "auto" || lower === "none") return success({ kind: lower });
-    const scroll = input.match(/^scroll\((.*)\)$/i);
-    if (scroll) {
-        const args = splitTopLevel(scroll[1]!.replace(/,/g, " "), "space");
+    const scrollBody = input.match(/^scroll\((.*)\)$/i)?.[1];
+    if (scrollBody !== undefined) {
+        const args = splitTopLevel(scrollBody.replace(/,/g, " "), "space");
         const result: { kind: "scroll"; scroller?: "nearest" | "root" | "self"; axis?: TimelineAxis } = { kind: "scroll" };
         for (const arg of args) {
             const token = arg.toLowerCase();
@@ -33,9 +33,9 @@ export function parseAnimationTimeline(source: string): ParseResult<AnimationTim
         }
         return success(result);
     }
-    const view = input.match(/^view\((.*)\)$/i);
-    if (view) {
-        const args = splitTopLevel(view[1]!.replace(/,/g, " "), "space");
+    const viewBody = input.match(/^view\((.*)\)$/i)?.[1];
+    if (viewBody !== undefined) {
+        const args = splitTopLevel(viewBody.replace(/,/g, " "), "space");
         const result: { kind: "view"; axis?: TimelineAxis; inset?: { start: string; end?: string } } = { kind: "view" };
         const inset: string[] = [];
         for (const arg of args) {
@@ -67,9 +67,12 @@ export function parseAnimationRange(source: string): ParseResult<AnimationRangeV
     const input = source.trim();
     const comma = splitTopLevel(input, ",");
     if (comma.length > 2) return failure(source, "timeline_option_invalid", ["animation range"]);
-    if (comma.length === 2) {
-        const start = rangeBoundary(splitTopLevel(comma[0]!, "space"));
-        const end = rangeBoundary(splitTopLevel(comma[1]!, "space"));
+    // The `> 2` refusal above leaves length 0, 1 or 2, so "both halves are present"
+    // is exactly the old `comma.length === 2` — carried in the type instead of an assertion.
+    const [commaStart, commaEnd] = comma;
+    if (commaStart !== undefined && commaEnd !== undefined) {
+        const start = rangeBoundary(splitTopLevel(commaStart, "space"));
+        const end = rangeBoundary(splitTopLevel(commaEnd, "space"));
         return start && end ? success({ start, end }) : failure(source, "timeline_option_invalid", ["animation range"]);
     }
     const tokens = splitTopLevel(input, "space");
