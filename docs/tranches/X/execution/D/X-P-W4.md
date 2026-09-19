@@ -2077,3 +2077,26 @@ authors and rows `RELEASE-PACKET.md` with the SS-6 hand-off, runs the L-13 harve
 mirror and files `x-p-w4.json` — and **withholds the R-A stamp**, which G-10's own falsifier forbids
 while G-3 is RED. That discharges HIGH-1 · HIGH-2 · HIGH-3 and leaves the honest-RED set at
 **{G-3 · G-10}**, both relieved and both owner-named.
+
+### Disclosure — the shared-index condition recurred, at this seat's own site (SELF-COUNT law)
+
+**This seat's LEDGER commit `c23dc4e5` carried a hunk that is not this seat's.** ⟨cmd⟩ `git show
+c23dc4e5 --unified=0 | grep -E '^@@'` → **three** hunks: `@@ -82 +82 @@` (the `X.P.W4` row — this
+seat's, the only row cell it edited), `@@ -376,0 +377,4 @@` (this seat's appended event line), and
+`@@ -34 +34 @@` — **line 34 is Track A's `X-W6` row**, moved to *"⊕ THREE GATES CURED BY REPAIR 2
+FROM THREE OTHER UNITS"* by a sibling seat. ⟨cmd⟩ `git diff -U0 -- …/LEDGER.md | grep -E '^@@'` run
+**immediately before** this seat's own edit already returned that hunk at line 34, so it was standing
+in the working tree before this seat touched the file and was never produced by it.
+
+**It is disclosed, not reverted** — the third time this wave has recorded the same hazard, and the
+close's statement of it remains exactly right: *"`git commit -- <pathspec>` records the
+**working-tree** content of the named path, so a LEDGER commit taken while a sibling's hunk stands in
+that same file **carries it**, and pathspec discipline cannot prevent same-file carry."* Reverting it
+would delete a sibling seat's live measurement from the shared file — the one act the standing law
+forbids outright (*"never reset or unstage another seat's paths"*). The carried bytes are Track A's
+own and are left exactly as Track A wrote them.
+
+**This seat's own writes remain two paths and no others**: `## Check 2` (this section included) in
+`docs/tranches/X/execution/D/X-P-W4.md`, and the `X.P.W4` row cell plus the appended event line in
+`docs/tranches/X/execution/LEDGER.md`. No byte of `X-W6.md` or of any other Track A path was
+authored, edited or staged here; `scripts/dev/dev.sh` was never touched and never staged.
