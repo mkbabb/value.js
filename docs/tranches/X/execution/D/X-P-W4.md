@@ -1116,3 +1116,233 @@ declaration (C3) — and C2/C3 would still be RED after C1 alone, which is why t
 
 **E13**: ⟨cmd⟩ the by-position UNREAD scan over `INBOX.md` → **0**, over **79** register rows (of 85
 `^| ` rows), tail `I-35` / `O-39` — unmoved since seat 0's sweep. No row minted by this unit.
+
+---
+
+### X.P.W4.a — the seam contract
+
+**SERVED MODEL: claude-opus-5[1m]** · Opus 5 seat (M-23 §2) · docs-only, **no worktree**, writes in
+value.js on clean main (§4b). Sections executed: `W4.md` §3 items 1–2 (L96–105) · §5 `X.P.W4.a`
+(L246–261) · §6 **G-1** (L352–369) · **G-2** (L371–381) · §4 rows 1–2, 4 (L166–169) · §7 (L545–554) ·
+§9 commit 1 (L583–584) · the two dated addenda (L674–676) · COHESION **§0v** (the PENDING-ADJUDICATION
+rider) and **§0w** (the id-set).
+
+**Verdict: DONE. G-1 GREEN · G-2 GREEN on the leg X·P controls, DECLARED-DIVERGENT on the leg it does
+not.** One commit, `b4f8e5d1`.
+
+#### Act 0 — crash-recovery, first act (standing law)
+
+⟨cmd⟩ `git -C /Users/mkbabb/Programming/value.js status --porcelain` → **3 rows** at this seat's open:
+`M docs/tranches/V/reformation/CARRY-LEDGER.md` (a sibling's / the owner's) · `M scripts/dev/dev.sh`
+(**unowned, NEVER touched, never staged**) · `M test/gradient-v4-consume.test.ts` (a **sibling seat's**
+live work; `test/**` is §4 Do-NOT-touch). ⟨cmd⟩ `git -C ../parse-that status --porcelain` → 15 modified
++ 15 untracked rows, **none inside this seat's writable set** and `parse-that` is the frozen read-only
+root — not one byte touched. ⟨cmd⟩ `git status --porcelain --
+docs/tranches/X/parse-that/SEAM-CONTRACT.md docs/tranches/X/parse-that/scripts/
+docs/tranches/X/parse-that/evidence/W4/` → **no output**, and ⟨cmd⟩ `ls
+docs/tranches/X/parse-that/scripts/` → *No such file or directory*. **Zero dirty paths inside this
+seat's writable set · zero inherited hunks · no inherited path to name · nothing stashed, nothing
+restored, no sibling path touched.**
+
+#### Act 1 — E13 Step-0, the four-path mail sweep at this seat's own clock
+
+| path | `*.md` at depth 1 | unrowed addressed to value.js |
+|---|---|---|
+| `docs/tranches/V/` | 10 | 0 |
+| `docs/tranches/V/coordination/` | 24 | 0 |
+| `../glass-ui/docs/tranches/BK/coordination/` | 9 | 0 |
+| `../keyframes.js/docs/tranches/V/coordination/` | 12 | 0 |
+| `../sci-report/atlas/docs/tranches/P/coordination/` | 28 | 0 |
+
+**UNREAD status cells, read by POSITION** (never a bare `grep -i unread`): ⟨cmd⟩ `sed 's/\|/@PIPE@/g'
+INBOX.md \| awk -F'\|' '/^\| [IO]-[0-9]+[a-z]? \|/ {s=$6; …; if (s ~ /^\*\*?UNREAD/) c++} END {print
+c+0}'` → **0**, double-run **`0 ≡ 0`**, over **79** register rows (of the file's **85** `^\| ` rows).
+Tail **`I-35` / `O-39`**, unmoved. ⟨cmd⟩ `find <the four paths> -name '*.md' -newermt "2026-09-19
+06:00"` → **no member**. **0 unrowed · 0 `I-n`/`O-n` minted by this unit · 0 UNREAD in X·P's scope.**
+`INBOX.md` is in neither of this unit's pathspecs.
+
+#### Act 2 — measure before editing: the denominator, re-derived rather than inherited
+
+`W4.md` §6 G-1's RED baseline names the measurement; this seat re-took it rather than quoting it.
+
+| what | ⟨cmd⟩ | reading |
+|---|---|---|
+| frozen runtime surface | `node --input-type=module -e "const m=await import('<vendored 4.0.0>/dist/subpaths/css.js'); console.log(Object.keys(m).length)"` | **19** |
+| frozen type surface | `src/css/index.ts`'s **first** `export type { … } from "./types"` block, counted by program | **33** |
+| the seam | 19 + 33 | **52** |
+| the pin agrees | `universe-52.json` `pin.counts` | `{runtime 19, types 33, total 52}` |
+
+**A finding this act produced, and it is load-bearing for any adoption wave.** The frozen 52 is **not**
+today's `src/css/**`. ⟨cmd⟩ `git show 6aca8602:src/css/index.ts \| shasum -a 256` → `c09d076e…`
+(1,310 B) against ⟨cmd⟩ `shasum -a 256 src/css/index.ts` → `16e15a56…` (2,463 B); `types.ts` likewise
+`109327ce…` → `fd5a5b37…`. Counted by program, HEAD `tranche-u` publishes **65** names from `./css`
+(20 runtime + 45 types) where the pin publishes 52 — **`frozen ∖ HEAD` = ∅**, so every seam row is
+still published, but the thirteen adds (`serializeCssValue` plus twelve re-exported types) are
+**outside the seam and provided by no candidate symbol**. `serializeCssValue` is exactly the name
+KF.W3's reciprocity sentence commits to a *"fork retirement"*. Recorded in `SEAM-CONTRACT.md` §1.
+
+#### Act 3 — the disposition rule, derived from the ledger's own bytes
+
+The contract needed a **mechanical** answer to G-1's falsifier — *"a row whose disposition is
+`identical` while `DIVERGENCE-LEDGER.md` holds a row for the same export fails (the two documents are
+cross-checked mechanically, not by reading)"*. This seat implemented "holds a row for the same export"
+as: **the frozen-52 names appearing in a ledger row's DECLARED SUBJECT fields** — `parser` · `entry` ·
+`entries` · `subject` · `subjects` · `witness family`, the six field names the ledger itself uses to
+state a row's scope (⟨cmd⟩ field census over the ledger → `parser` 16 · `entry` 8 · `subjects` 3 ·
+`witness family` 9). Prose mentions are a **second tier**, printed as an ADVISORY and never fatal,
+because prose includes complements: `CN-3`'s `candidate` field names the five types it **excludes**.
+Reading those five as bound would have inverted the row's own meaning.
+
+Measured bindings: `parseCssColor` 20 rows · `parseStylesheet` 8 · `parseTimingFunction` 4 ·
+`parseCssValue` 1 · the ten `CN-2` names · the twenty-eight `CN-3` names. **Ten exports are bound by no
+subject field** and **seven ledger rows name no export in any field at all** (`S-1` · `S-4` · `R2` ·
+`R3` · `R5` · `CN-1` · `§6.1`) — those seven are declared in the contract's §7 surface-wide section so
+none is silently dropped, and check **J** asserts it.
+
+#### Act 4 — `SEAM-CONTRACT.md`, 52 rows, generated from `universe-52.json`
+
+Every cell but the disposition and consumer-direction columns is **generated**: name/kind/signature
+from `universe-52.json` (types' signature heads lifted from the sha-pinned `css.d.ts`), provider from
+an actual import of the candidate's `entry.mjs`. Only the two judgement columns are hand-annotated,
+exactly as §5 `.a` prescribes.
+
+**Dispositions, 52 of 52**: `identical` **7** · `PENDING-ADJUDICATION` **45** · `not-provided` **0**.
+
+* **`not-provided` = 0 is a MEASUREMENT.** ⟨cmd⟩ over an import of
+  `<p2>/typescript/src/css/entry.mjs` → *"provided 19 of 19 · missing: [] · `UNREALIZED_ENTRIES`
+  `[]`"*; ⟨cmd⟩ over `universe-52.json`'s `candidate.declaredTypeNames` → **33**, with
+  `rows∖declared` = `declared∖rows` = **∅**. The candidate's seam coverage is **52 of 52**.
+* **The two different 44s, disambiguated in the contract so no reader conflates them**: **44 carried
+  *cells*** (COHESION §0v's, over **6** rows — `GROUND-C` 29 · `ID-1b` 9 · `ID-4` 5 · `ID-2` 1, and
+  the differential concurs at `mirrorDefects 44`, 88 miss entries, **88 of 88 carrying a `rulingId`**),
+  versus **45 *rows*** publishing PENDING-ADJUDICATION. Check **G** asserts mechanically that every §0v
+  carried cell lies inside a PENDING row.
+* **§0v honoured to its words** — *"not as dispositions the producer cannot honour"*. The six carried
+  rows publish PENDING with their ids and counts in the cell.
+
+Also authored: **§Non-goals** (relative colour recognised-not-validated · `color-mix()` a both-sides
+gap, `GROUND-A P-028`, `parser-band.md:136` quoted whole, plus `R2`'s trap that "does not reproduce
+the over-rejection" is not "cures it"); **§What the consumer inherits from parse-that** (O-15's
+`PT-01`/`PT-03`/`PT-04`/`PT-07`, each with its cure state re-measured here, below); **§Open contract
+questions** (`GROUND-C`; the juxtaposition dissent; and `F-e4`, which `.e` addressed to this wave by
+name).
+
+**O-15's four, re-measured at this seat rather than narrated:**
+
+| id | cure state at the candidate | reaches the consumer? |
+|---|---|---|
+| **PT-01** label/diagnostics coupling + unconditional `console.error` | **CURED** — ⟨cmd⟩ `grep -c 'console\.' entry.mjs` → **0**; `diagnostics.mjs` → **2, both inside comment lines describing PT-01 itself**. `F-b4`'s named productions are available with diagnostics UNARMED | NO — and the consumer gains a named label |
+| **PT-03** `PACKRAT_ARMED` one-way latch | **NOT CURED, and not the candidate's to cure** — carried by id as **`ESC-c1`**, routed to *"X.P.W4 / the parse-that library seam"* | NO from this path; **YES per-process** for a consumer that also uses `@mkbabb/parse-that` directly. Stated, not smoothed |
+| **PT-04** `Parser.lazy` depth 7,761 → thrown `RangeError` | **CURED IN KIND, by declaration** — ⟨cmd⟩ → `DEPTH_BOUND` **64**, `DEPTH_PRODUCTION` `"<nesting-depth> (at most 64 levels)"`, `CAPACITY` `{input 14107, marks 32768, recoveries 4096, D 4096, C 65536, P 65536, vstack 65536, arena 7208960, expsnap 32}` | **YES**, and it is the largest behaviour change on `parseStylesheet`: the bound is far LOWER than 7,761 and is an ordinary `ok:false`, never a throw |
+| **PT-07** non-string → raw `TypeError`; `.parse()` → `undefined` | **CURED at the boundary** — ⟨cmd⟩ `parseStylesheet(42)` → `{"ok":false,…"expected":["<string source>"],"actual":null}`; the R1 anchor reads **0 throws · 0 undefined / 1,548 calls** per lowering | **YES, as a narrowing**, rowed `ID-3` |
+
+#### Act 5 — `scripts/seam-contract-check.mjs`, and nine negative controls
+
+The checker reads three files and **writes none**. Eleven checks, each named in its output: **A/B** the
+two set-differences · **B2** duplicate rows · **C** blank required fields · **D** disposition
+vocabulary · **E** THE CONTRADICTION (`identical` against a bound ledger row) · **F** an id that is
+neither a ledger row nor a §0w ruled class · **G** the §0v carried-cell rider · **H** the G-1 falsifier
+by its own name · **I** a bound ledger row dropped from a row's disposition · **J** a surface-wide
+ledger row not declared · **K** the Non-goals section naming both explicitly (searched **inside that
+section**, not the file at large).
+
+**A gate that cannot go RED is not a gate.** Nine controls, each mutating one cell of a scratch copy —
+the repo file is never edited — each asserted to (a) actually differ from the source, (b) exit 1, and
+(c) fire its **intended** check. Banked whole at `evidence/W4/seam-contract-negative-controls.txt`:
+
+| control | expected | fired | exit |
+|---|---|---|---|
+| NC-1 `parseCssColor` published `identical` while 20 ledger rows bind it | **E** | yes | 1 |
+| NC-2 the `parseStylesheet` row deleted | **B** | yes | 1 |
+| NC-3 a 53rd row with no `index.ts` origin | **A** | yes | 1 |
+| NC-4 `parseTimingFunction`'s consumer-direction blanked | **H** | yes | 1 |
+| NC-5 a carried cell published as `declared-divergence` | **G** | yes | 1 |
+| NC-6 `color-mix()` struck from §Non-goals | **K** | yes | 1 |
+| NC-7 surface-wide row `R3` dropped from §7 | **J** | yes | 1 |
+| NC-8 ledger row `CAP-9` dropped from a disposition | **I** | yes | 1 |
+| NC-9 an id that is no ruled class | **F** | yes | 1 |
+
+**9 of 9.** The first attempt at NC-7 read **EXIT=0** because Prettier's table padding defeated the
+mutation's `sed` pattern — the control was **VOID, not passing**. It is recorded because the cure was
+to make the harness assert `cmp -s source mutant` before counting a control, so a mutation that does
+not apply now prints VOID instead of a false green. That is the same defect class this gate exists to
+refuse in others.
+
+#### Act 6 — gate readings, BEFORE → AFTER
+
+| gate | BEFORE (baseline, re-measured at this seat) | AFTER | verdict |
+|---|---|---|---|
+| **G-1** | ⟨cmd⟩ `ls docs/tranches/X/parse-that/SEAM-CONTRACT.md docs/tranches/X/parse-that/scripts/seam-contract-check.mjs` → *No such file or directory* (**both**) — **0 of 52 rows** | **52 of 52**; ⟨cmd⟩ the spec's literal command → `contract ∖ universe-52 : ∅` · `universe-52 ∖ contract : ∅` · *"VERDICT: GREEN"*, **EXIT=0**, run twice with ⟨cmd⟩ `diff` → **no output** | **GREEN** |
+| **G-2** | the property **unasserted** — no X·P wave had run the check | LEG 2 (§9's, the one X·P controls): ⟨cmd⟩ `git show --name-only --format= b4f8e5d1 \| grep -E '^(src\|demo\|api\|test\|e2e)/' \| wc -l` → **0**. LEG 1 (tree-wide) at commit time: **1 line**, `M test/gradient-v4-consume.test.ts` — a sibling seat's live work, `test/**` is §4 Do-NOT-touch; **declared, not cured** | **GREEN on leg 2; leg 1 DECLARED-DIVERGENT** |
+
+`evidence/W4/value-source-untouched.txt` banks both legs at each of this unit's commits, with the
+reason for leg 1 named rather than smoothed. Nothing was stashed, staged, reverted or restored to make
+either leg read better — *"a seat that deletes … to make a grep prettier has broken a working tree to
+satisfy a gate"* (§6 G-7's named failure mode, which generalizes).
+
+#### Act 7 — §7 format cadence
+
+⟨cmd⟩ `npx prettier --write` over both authored files, then ⟨cmd⟩ `npx prettier --check` → *"All
+matched files use Prettier code style!"*; three further `--write` passes hold the file at **121,820 B**
+(idempotent). ⟨cmd⟩ `git diff --check -- docs/tranches/X/parse-that/` → **exit 0, no output**;
+⟨cmd⟩ `grep -c ' $' SEAM-CONTRACT.md` → **0**. **Measured and stated rather than smoothed**: Prettier's
+markdown table alignment grows the contract **56,280 B → 121,820 B (+116%)**, all of it interior cell
+padding, and **no sibling X·P document is Prettier-formatted** (⟨cmd⟩ `--check` over `W4.md`,
+`DIVERGENCE-LEDGER.md`, `COHESION.md` → all three `[warn]`). §7 was obeyed as written and the cost is
+recorded, not traded away. The checker was **re-run at the settled bytes** after formatting (§WRITE-THEN-MEASURE);
+every figure published above is read from those bytes.
+
+#### Act 8 — cross-check with the parallel seat (§4a), unasked for and load-bearing
+
+`.a` and `.b` ran concurrently and share no path. `.b`'s `evidence/W4/packed-surface.json` records
+this contract at **sha256 `e269f6e665f288948a58ff1c6ac24e4e252e044a91806c5a832a0f0a09fe0818`** —
+⟨cmd⟩ `shasum -a 256 docs/tranches/X/parse-that/SEAM-CONTRACT.md` at this seat returns **the same
+digest**, so `.b` read the settled bytes — and its own reading is *"the set-difference between the
+contract's 52 rows and `universe-52.json`'s is EMPTY IN BOTH DIRECTIONS"*, discharging its `R-w4b-1`.
+This seat independently simulated `.b`'s row reader over the settled contract: **52 rows, 19 runtime +
+33 type, both set-differences ∅**. Two instruments, written by two seats that never shared a byte,
+agree on checks A and B. `.b`'s `F-w4b-4` (a column-0 reader would parse the ordinal as the name) is
+**not a defect of this contract**: the ordinal column is §3's `#`, and `.b` cured it at its reader.
+
+#### Findings — surfaced, none cured, none presumed
+
+**F-w4a-1 (MEDIUM, ledger drift — three `DIVERGENCE-LEDGER.md` rows rest on premises measured FALSE).**
+
+| row | its claim | measured 2026-09-19 |
+|---|---|---|
+| `CN-2` | *"the 10 frozen runtime exports that are neither realized nor named"* | **all 10 exported and callable** — `entry.mjs` `:260` `:546` `:1001` `:1002` `:1003` `:1004` `:1067` `:1168` `:1333` `:1337`; ⟨cmd⟩ over the imported module → **19 of 19, 0 missing** |
+| `CN-3` | *"the 28 frozen type exports the candidate does not declare"* · *"re-exports 5 … and declares no others"* | **all 33 declared** — `build/ac1.d.ts` re-exports 33 from the vendored 4.0.0 declaration; `declaredTypeNames` = **33**, both set-differences ∅ |
+| `R4` | *"`parseKeyframeSelector` is one of the six entries the candidate does not realize"* | **`UNREALIZED_ENTRIES` = `[]`**; the entry is in `PUBLIC_ENTRIES` and answers **27,021 of 27,021 AGREE** in both lowerings |
+
+This is **`F-ab1`**'s family — already on the carried-obligations table and routed there to *"X.P.W4
+seat 0"* — confirmed here from the **producer** side (not only the instrument side) and **extended by
+two rows** (`CN-2`, `R4`). **Not cured**: `DIVERGENCE-LEDGER.md` is E-3 dated evidence, is in no unit's
+writable set here, and its generator lives in `<p2>`. The contract's consequence is the 39 PENDING rows
+whose consumer-direction fields each state what the measurement shows and what a consumer should plan
+for. **`.d`'s adjudication is the terminal site.**
+
+**F-w4a-2 (INFO — the differential's `noPeer 28` is an instrument reading, not a producer gap).** The
+28 NO-PEER rows are **exactly** `CN-3`'s 28, and the 24 COMPARED include exactly the five of
+`candidateTypeNames`' hard-coded literal. The producer declares all 33. Recorded so `.c` does not read
+RC-P conjunct 3's `noPeer` as a producer gap and so `.d` rules `CN-3` against the right subject.
+
+**F-w4a-3 (INFO — G-2's tree-wide leg is not X·P's to satisfy).** Stated in Act 6; `test/**` is §4
+Do-NOT-touch and the dirty row is a sibling's.
+
+#### Residuals carried, and what `.c` / `.d` inherit
+
+| id | state |
+|---|---|
+| **`ESC-c1`** (PT-03's latch) | **CARRIED, by id** — the contract §5 states its scope honestly (per-process, not per-call) and cures nothing; its home is *"X.P.W4 / the parse-that library seam"* |
+| **`F-ab1`** | **CONFIRMED and EXTENDED** (F-w4a-1). Still owed a cure at `<p2>`'s `test/css-equivalence/**` and at the ledger's generator — neither in this unit's set |
+| **`GROUND-C`** per-cell adjudication | `SEAM-CONTRACT.md` §6.1 assembles the evidentiary state `.d` inherits, including `.e`'s finding that `ADJ-3`/`S-2`'s **citation is wrong** (css-values-4 §10.9 is *Type Checking*) and its reject half is refuted for `<hue>`. **Not ruled here** — §0v gives it to the fresh adjudicator |
+| the juxtaposition dissent | §6.2 quotes `.e`'s refutation verbatim: the candidate's grammar-level juxtaposition is *"a strict superset of the tokenizer's maximal munch … a candidate **MIS_ACCEPT** against the spec"* (`F-e1`). The contract tells a consumer **not to build on the widening** |
+| **`F-e4`** (hue un-normalized by BOTH engines) | recorded in §6.3 — `.e` addressed it *"for X.P.W4's adoption packet"*, i.e. `.d`'s |
+| `.c` inherits | a 52-row contract whose row set `.b` has already cross-checked; RC-P conjunct 3's `noPeer 28` explained (F-w4a-2); and §1's thirteen HEAD-only names, of which `serializeCssValue` is KF.W3's reciprocity subject |
+
+**No escalation.** Every act stayed inside the writable set; no byte was written under `src/**`,
+`demo/**`, `api/**`, `test/**`, `e2e/**`, `X/waves/**`, or any sibling repo, and `scripts/dev/dev.sh`
+was never touched.
+
+**Commit**: `b4f8e5d1` *"docs(x-p-w4/seam): the 52-row seam contract — V.L1/V.L5 and src/css/** named
+in both vocabularies"* — 5 files, 1,037 insertions, **0 paths under `src|demo|api|test|e2e`**.

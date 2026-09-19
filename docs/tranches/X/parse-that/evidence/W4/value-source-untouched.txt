@@ -35,3 +35,14 @@ BEFORE COMMIT 1 (X.P.W4.a — the 52-row seam contract)
          docs/tranches/X/parse-that/SEAM-CONTRACT.md docs/tranches/X/parse-that/scripts/seam-contract-check.mjs docs/tranches/X/parse-that/evidence/W4/
          -> 0 paths under src/**, demo/**, api/**, test/**, e2e/**. TRUE.
 
+--------------------------------------------------------------------------------
+BEFORE COMMIT 2 (X.P.W4.a — the unit receipt in the wave record)
+  when            2026-09-19 06:55:25 EDT
+  HEAD            6fca6762 docs(x-kf-w11/i): receipt — the KEEP verdict stated first, one guard family across both drag seams in one sha, the decouple decision landed at its own consumer, G-KFW11-9 GREEN 9/9 x2, two bounded escalations returned
+  LEG 1  git status --porcelain -- src api demo test e2e
+         -> 0 lines. TRUE. (The sibling's test/** row of commit 1's reading has since
+            been committed by its own seat; nothing was done here to make it so.)
+  LEG 2  this seat's commit pathspec, verbatim:
+         docs/tranches/X/execution/D/X-P-W4.md docs/tranches/X/parse-that/evidence/W4/value-source-untouched.txt
+         -> 0 paths under src/**, demo/**, api/**, test/**, e2e/**. TRUE.
+
