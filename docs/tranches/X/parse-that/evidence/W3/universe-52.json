@@ -221,7 +221,35 @@
             "CssTimingFunction",
             "Stylesheet",
             "StyleRule",
-            "Declaration"
+            "Declaration",
+            "CssColorSpace",
+            "CssLinearStop",
+            "ParseIssue",
+            "ParseResult",
+            "AnimationRangeValue",
+            "AnimationTimelineValue",
+            "AnimationTriggerValue",
+            "CSSAnimationOptions",
+            "CSSTimelineOptions",
+            "KeyframeSelector",
+            "RangeBoundary",
+            "RangePhase",
+            "ScrollTimelineDescriptor",
+            "ScrollerKeyword",
+            "TimelineAxis",
+            "TimelineScopeValue",
+            "TriggerType",
+            "ViewInset",
+            "ViewTimelineDescriptor",
+            "CollectedRule",
+            "KeyframeRule",
+            "KeyframesBlock",
+            "PropertyRule",
+            "StylesheetItem",
+            "CSSPropertyDescriptor",
+            "CustomFunctionDescriptor",
+            "CustomFunctionParameter",
+            "CustomFunctionRule"
         ]
     },
     "corpus": {
@@ -261,15 +289,21 @@
                 "declared": 172,
                 "read": 172,
                 "provenance": "/Users/mkbabb/Programming/parse-that-css-totality-p2/experiments/w2/corpus/r1.json — 172 inputs + 7 declared non-string boundary cases, derived from audit/probes/r1-published-totality.mjs:38-43"
+            },
+            {
+                "id": "stylesheet-band",
+                "declared": 470,
+                "read": 470,
+                "provenance": "typescript/test/css-totality/lib/stylesheet-band.mjs — mulberry32 seed 0x3c1b7a5d, 10 shapes × 24 compositions; 235 witnesses ACCEPTED by the sha-pinned 4.0.0 oracle (5 compositions it refused are not rows) + 235 single-edit mutations; every row class-free under adjudications.mjs CLASSES; witnesses per shape {\"keyframes\":24,\"property\":24,\"function\":24,\"scope\":24,\"starting-style\":24,\"scroll-timeline\":24,\"view-timeline\":24,\"unknown-block\":24,\"unknown-statement\":24,\"nested-style\":19}"
             }
         ],
         "counts": {
-            "armTotal": 34933,
-            "union": 26604,
+            "armTotal": 35403,
+            "union": 27074,
             "overlap": 8329,
             "boundary": 7
         },
-        "rowsSha256": "559e84bfb632b1402d37d5832dbb9c45477b8f1ab82db7a2caae8468e5863152",
+        "rowsSha256": "49be0f9885615d31f2cd8ee1c5a3cf0039aa5c28236f329a4408034329140eea",
         "path": "typescript/test/css-totality/corpus.json"
     },
     "assignability": {
@@ -277,7 +311,7 @@
         "programSha256": "8a1b8ab116224e7707434118ce6def42289cb06af927e0b43301b01840b80816",
         "frozenCopySha256": "733fb88e284dfd46882b735f632444d05e09a5f5e7a159f44e0e54223c283ec4",
         "tsconfig": "typescript/test/css-totality/tsconfig.assignability.json",
-        "tscExitCode": 2,
+        "tscExitCode": 0,
         "unattributed": []
     },
     "frozenCodes": [
@@ -613,6 +647,161 @@
             "consumerDirection": "WIDENS acceptance where a clamp exists (`rgb(1e400 0 0)` parses to 255 where the incumbent rejects) and holds the incumbent's rejection where none does. The GROUND-C ±Infinity contract ruling is OWNER-OWED and W3.md §10 leaves it 'not opened here'."
         }
     ],
+    "classPredicates": [
+        {
+            "id": "PB-08",
+            "kind": "reject",
+            "title": "the comma→space rewrite makes an invalid separator structure invisible",
+            "pinned": 2220,
+            "measured": 2220,
+            "agrees": true
+        },
+        {
+            "id": "PB-11",
+            "kind": "reject",
+            "title": "the css-color-4 functions have no comma form",
+            "pinned": 0,
+            "measured": 0,
+            "agrees": true
+        },
+        {
+            "id": "SP-1",
+            "kind": "reject",
+            "title": "`<legacy-hsl-syntax>` admits no `<number>` for saturation or lightness",
+            "pinned": 6,
+            "measured": 6,
+            "agrees": true
+        },
+        {
+            "id": "PB-09/10",
+            "kind": "reject",
+            "title": "a `<percentage>` is not a `<hue>`",
+            "pinned": 138,
+            "measured": 138,
+            "agrees": true
+        },
+        {
+            "id": "PB-12",
+            "kind": "reject",
+            "title": "`1.` is not a CSS number",
+            "pinned": 5391,
+            "measured": 5391,
+            "agrees": true
+        },
+        {
+            "id": "ADJ-2",
+            "kind": "repair",
+            "title": "token juxtaposition is accepted",
+            "pinned": 990,
+            "measured": 990,
+            "agrees": true
+        },
+        {
+            "id": "ADJ-3",
+            "kind": "repair",
+            "title": "non-finite numerals — clamp where a clamp exists, reject where none does",
+            "pinned": 630,
+            "measured": 630,
+            "agrees": true
+        },
+        {
+            "id": "PB-04/05",
+            "kind": "repair",
+            "title": "out-of-range channels and alphas CLAMP rather than passing through or rejecting",
+            "pinned": 7939,
+            "measured": 7939,
+            "agrees": true
+        },
+        {
+            "id": "PB-01/02",
+            "kind": "repair",
+            "title": "the legacy four-argument rgba()/hsla() forms parse",
+            "pinned": 1110,
+            "measured": 1110,
+            "agrees": true
+        },
+        {
+            "id": "PB-03",
+            "kind": "value",
+            "title": "the two spec-identical hsl spellings agree — a bare number IS a percentage there",
+            "pinned": 2991,
+            "measured": 2991,
+            "agrees": true
+        }
+    ],
+    "classCensus": {
+        "parseCssColor": {
+            "PB-12": 4902,
+            "PB-04/05": 4203,
+            "PB-08": 2220,
+            "PB-03": 565,
+            "PB-01/02": 429,
+            "ADJ-3": 227,
+            "PB-09/10": 124,
+            "ADJ-2": 48,
+            "SP-1": 6
+        },
+        "parseCssScalar": {
+            "PB-12": 4902,
+            "PB-04/05": 4203,
+            "PB-08": 2220,
+            "PB-03": 565,
+            "PB-01/02": 429,
+            "ADJ-3": 227,
+            "PB-09/10": 124,
+            "ADJ-2": 48,
+            "SP-1": 6
+        },
+        "parseCssValue": {
+            "PB-12": 4902,
+            "PB-04/05": 4207,
+            "PB-08": 2220,
+            "PB-03": 565,
+            "PB-01/02": 429,
+            "ADJ-3": 227,
+            "PB-09/10": 124,
+            "ADJ-2": 48,
+            "SP-1": 6
+        },
+        "parseCssValues": {
+            "PB-12": 4902,
+            "PB-04/05": 4207,
+            "PB-08": 2220,
+            "PB-03": 565,
+            "PB-01/02": 429,
+            "ADJ-3": 227,
+            "PB-09/10": 124,
+            "ADJ-2": 48,
+            "SP-1": 6
+        },
+        "parseKeyframeSelector": {
+            "PB-12": 5391
+        },
+        "parseTimingFunction": {
+            "PB-12": 5391
+        },
+        "coerceToSyntax": {
+            "PB-12": 4902,
+            "PB-08": 2220,
+            "PB-04/05": 186,
+            "PB-09/10": 124,
+            "PB-01/02": 34,
+            "ADJ-3": 16,
+            "SP-1": 6,
+            "ADJ-2": 1
+        },
+        "parseStylesheet": {
+            "PB-12": 4902,
+            "PB-08": 2220,
+            "PB-04/05": 1188,
+            "PB-03": 176,
+            "PB-01/02": 131,
+            "PB-09/10": 124,
+            "ADJ-3": 60,
+            "SP-1": 6,
+            "ADJ-2": 2
+        }
+    },
     "declaredObservations": [
         {
             "id": "PB-01",
@@ -1249,19 +1438,19 @@
     ],
     "tally": {
         "runtime": {
-            "TOTAL": 0,
-            "PARTIAL": 3,
-            "ABSENT": 16
+            "TOTAL": 13,
+            "PARTIAL": 6,
+            "ABSENT": 0
         },
         "types": {
-            "TOTAL": 5,
+            "TOTAL": 33,
             "PARTIAL": 0,
-            "ABSENT": 28
+            "ABSENT": 0
         },
         "all": {
-            "TOTAL": 5,
-            "PARTIAL": 3,
-            "ABSENT": 44
+            "TOTAL": 46,
+            "PARTIAL": 6,
+            "ABSENT": 0
         }
     },
     "rows": [
@@ -1274,24 +1463,24 @@
             "assertion": "typescript/test/css-totality/universe.test.ts :: runtime row `parseCssColor`",
             "family": "parser",
             "accept": {
-                "count": 6075,
+                "count": 5993,
                 "r1": 0,
-                "declared": 0,
+                "declared": 2673,
                 "sample": [
                     "rgb(255 0 153 / 0.5)",
                     "color(display-p3 1 0.5 0)",
                     "rgb(285 0 153 / 0.5)",
                     "#f30099cc",
-                    "oklch(,0% 0.15 50deg)",
                     "#ff0099cc",
-                    "hsl(120, 500, 50%)",
-                    "#ff0"
+                    "#ff0",
+                    "hsl(120, 50%, 50%)",
+                    "#ff009ecc"
                 ]
             },
             "reject": {
-                "count": 20529,
+                "count": 21081,
                 "r1": 329,
-                "declared": 1,
+                "declared": 7253,
                 "sample": [
                     "rgb()",
                     "rgb( )",
@@ -1304,145 +1493,94 @@
                 ]
             },
             "verdict": "PARTIAL",
-            "cellsRun": 26604,
+            "cellsRun": 27074,
             "missing": [
-                "FALSE_REJECT_IN_SHAPE ×1345",
-                "DIVERGENT_VALUE ×2054",
-                "MIS_ACCEPT ×1200"
+                "MIS_ACCEPT ×10"
             ],
             "missClasses": [
                 {
-                    "signature": "DIVERGENT_VALUE:rgb",
-                    "count": 942
-                },
-                {
                     "signature": "MIS_ACCEPT:rgb",
-                    "count": 805
-                },
-                {
-                    "signature": "FALSE_REJECT_IN_SHAPE:rgb",
-                    "count": 642
-                },
-                {
-                    "signature": "DIVERGENT_VALUE:hsl",
-                    "count": 623
-                },
-                {
-                    "signature": "DIVERGENT_VALUE:oklch",
-                    "count": 489
-                },
-                {
-                    "signature": "FALSE_REJECT_IN_SHAPE:oklch",
-                    "count": 327
-                },
-                {
-                    "signature": "FALSE_REJECT_IN_SHAPE:hsl",
-                    "count": 292
-                },
-                {
-                    "signature": "MIS_ACCEPT:oklch",
-                    "count": 204
-                },
-                {
-                    "signature": "MIS_ACCEPT:hsl",
-                    "count": 191
-                },
-                {
-                    "signature": "FALSE_REJECT_IN_SHAPE:lab",
-                    "count": 55
-                },
-                {
-                    "signature": "FALSE_REJECT_IN_SHAPE:color",
-                    "count": 26
-                },
-                {
-                    "signature": "FALSE_REJECT_IN_SHAPE:hwb",
-                    "count": 1
-                },
-                {
-                    "signature": "FALSE_REJECT_IN_SHAPE:lch",
-                    "count": 1
-                },
-                {
-                    "signature": "FALSE_REJECT_IN_SHAPE:oklab",
-                    "count": 1
+                    "count": 10
                 }
             ],
+            "remainder": {
+                "F-k2 the candidate ACCEPTS a legacy comma form the spec forbids — mixed <number>/<percentage> arguments, or `none` (css-color-4 §8.1); the cure is in src/css/**, outside this unit's writable set": 9,
+                "GROUND-C ±Infinity (owner-owed; W3.md §10 'not opened here')": 1
+            },
+            "census": {
+                "PB-12": 4902,
+                "PB-04/05": 4203,
+                "PB-08": 2220,
+                "PB-03": 565,
+                "PB-01/02": 429,
+                "ADJ-3": 227,
+                "PB-09/10": 124,
+                "ADJ-2": 48,
+                "SP-1": 6
+            },
             "misses": [
                 {
-                    "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": "color(display-p3 1 0.5 0)",
-                    "why": "oracle accepts; candidate rejects with css_syntax",
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(none, 6e167, 27%, 6e316)",
+                    "why": "oracle rejects; candidate accepts",
                     "declared": null
                 },
                 {
-                    "kind": "DIVERGENT_VALUE",
-                    "input": "rgb(285 0 153 / 0.5)",
-                    "why": "oracle {\"space\":\"rgb\",\"channels\":[285,0,153],\"alpha\":0.5} vs candidate {\"space\":\"rgb\",\"channels\":[255,0,153],\"alpha\":0.5}",
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(none, -0, -0, 5e357)",
+                    "why": "oracle rejects; candidate accepts",
                     "declared": null
                 },
                 {
-                    "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": "oklch(,0% 0.15 50deg)",
-                    "why": "oracle accepts; candidate rejects with css_syntax",
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(.205, 65%, 8e354, 9e445)",
+                    "why": "oracle rejects; candidate accepts",
                     "declared": null
                 },
                 {
-                    "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": "hsl(120, 500, 50%)",
-                    "why": "oracle accepts; candidate rejects with css_syntax",
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(-0, 37.734, 42%, 9e347)",
+                    "why": "oracle rejects; candidate accepts",
                     "declared": null
                 },
                 {
-                    "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": "lab(50% -100% 150%)",
-                    "why": "oracle accepts; candidate rejects with css_syntax",
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(91%, 99.248, 1e48, 7e380)",
+                    "why": "oracle rejects; candidate accepts",
                     "declared": null
                 },
                 {
-                    "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": "color(display-p3 1 ,.5 0)",
-                    "why": "oracle accepts; candidate rejects with css_syntax",
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(none, 0, -0, 3e448)",
+                    "why": "oracle rejects; candidate accepts",
                     "declared": null
                 },
                 {
-                    "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": "rgb(/55 0 153 / 0.5)",
-                    "why": "oracle accepts; candidate rejects with css_syntax",
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(.843, -0, +54, 5e498)",
+                    "why": "oracle rejects; candidate accepts",
                     "declared": null
                 },
                 {
-                    "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": "color(display-p3 4 0.5 0)",
-                    "why": "oracle accepts; candidate rejects with css_syntax",
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(9e-443, 93%, 9%, 2e493)",
+                    "why": "oracle rejects; candidate accepts",
                     "declared": null
                 },
                 {
-                    "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": "lab(80% -100% 100%)",
-                    "why": "oracle accepts; candidate rejects with css_syntax",
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(80%, .55, -17, 2e371)",
+                    "why": "oracle rejects; candidate accepts",
                     "declared": null
                 },
                 {
-                    "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": "rgb(255 0 153 / 0.\n)",
-                    "why": "oracle accepts; candidate rejects with css_syntax",
-                    "declared": null
-                },
-                {
-                    "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": "hsl(1209 50%, 50%)",
-                    "why": "oracle accepts; candidate rejects with css_syntax",
-                    "declared": null
-                },
-                {
-                    "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": "lab(50% -100% 109%)",
-                    "why": "oracle accepts; candidate rejects with css_syntax",
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(55%, -199, -67.34886833000928, 8e352)",
+                    "why": "oracle rejects; candidate accepts",
                     "declared": null
                 }
             ],
-            "missesTotal": 4599
+            "missesTotal": 10
         },
         {
             "name": "parseCssScalar",
@@ -1453,9 +1591,9 @@
             "assertion": "typescript/test/css-totality/universe.test.ts :: runtime row `parseCssScalar`",
             "family": "parser",
             "accept": {
-                "count": 6553,
+                "count": 6472,
                 "r1": 0,
-                "declared": 0,
+                "declared": 2673,
                 "sample": [
                     "rgb(255 0 153 / 0.5)",
                     "hsl",
@@ -1468,9 +1606,9 @@
                 ]
             },
             "reject": {
-                "count": 20051,
+                "count": 20602,
                 "r1": 329,
-                "declared": 1,
+                "declared": 7252,
                 "sample": [
                     "rgb()",
                     "rgb( )",
@@ -1482,12 +1620,95 @@
                     "rgb(//)"
                 ]
             },
-            "verdict": "ABSENT",
-            "cellsRun": 0,
+            "verdict": "PARTIAL",
+            "cellsRun": 27074,
             "missing": [
-                "no candidate peer resolves `parseCssScalar` on /Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1.js"
+                "MIS_ACCEPT ×10"
             ],
-            "misses": []
+            "missClasses": [
+                {
+                    "signature": "MIS_ACCEPT:rgb",
+                    "count": 10
+                }
+            ],
+            "remainder": {
+                "F-k2 the candidate ACCEPTS a legacy comma form the spec forbids — mixed <number>/<percentage> arguments, or `none` (css-color-4 §8.1); the cure is in src/css/**, outside this unit's writable set": 9,
+                "GROUND-C ±Infinity (owner-owed; W3.md §10 'not opened here')": 1
+            },
+            "census": {
+                "PB-12": 4902,
+                "PB-04/05": 4203,
+                "PB-08": 2220,
+                "PB-03": 565,
+                "PB-01/02": 429,
+                "ADJ-3": 227,
+                "PB-09/10": 124,
+                "ADJ-2": 48,
+                "SP-1": 6
+            },
+            "misses": [
+                {
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(none, 6e167, 27%, 6e316)",
+                    "why": "oracle rejects; candidate accepts",
+                    "declared": null
+                },
+                {
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(none, -0, -0, 5e357)",
+                    "why": "oracle rejects; candidate accepts",
+                    "declared": null
+                },
+                {
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(.205, 65%, 8e354, 9e445)",
+                    "why": "oracle rejects; candidate accepts",
+                    "declared": null
+                },
+                {
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(-0, 37.734, 42%, 9e347)",
+                    "why": "oracle rejects; candidate accepts",
+                    "declared": null
+                },
+                {
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(91%, 99.248, 1e48, 7e380)",
+                    "why": "oracle rejects; candidate accepts",
+                    "declared": null
+                },
+                {
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(none, 0, -0, 3e448)",
+                    "why": "oracle rejects; candidate accepts",
+                    "declared": null
+                },
+                {
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(.843, -0, +54, 5e498)",
+                    "why": "oracle rejects; candidate accepts",
+                    "declared": null
+                },
+                {
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(9e-443, 93%, 9%, 2e493)",
+                    "why": "oracle rejects; candidate accepts",
+                    "declared": null
+                },
+                {
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(80%, .55, -17, 2e371)",
+                    "why": "oracle rejects; candidate accepts",
+                    "declared": null
+                },
+                {
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(55%, -199, -67.34886833000928, 8e352)",
+                    "why": "oracle rejects; candidate accepts",
+                    "declared": null
+                }
+            ],
+            "missesTotal": 10
         },
         {
             "name": "parseCssValue",
@@ -1498,9 +1719,9 @@
             "assertion": "typescript/test/css-totality/universe.test.ts :: runtime row `parseCssValue`",
             "family": "parser",
             "accept": {
-                "count": 10619,
+                "count": 9753,
                 "r1": 0,
-                "declared": 0,
+                "declared": 2675,
                 "sample": [
                     "rgb(255 0 153 / 0.5)",
                     "hsl",
@@ -1513,9 +1734,9 @@
                 ]
             },
             "reject": {
-                "count": 15985,
+                "count": 17321,
                 "r1": 272,
-                "declared": 1,
+                "declared": 7252,
                 "sample": [
                     "rgb()",
                     "rgb( )",
@@ -1527,12 +1748,95 @@
                     "rgb(//)"
                 ]
             },
-            "verdict": "ABSENT",
-            "cellsRun": 0,
+            "verdict": "PARTIAL",
+            "cellsRun": 27074,
             "missing": [
-                "no candidate peer resolves `parseCssValue` on /Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1.js"
+                "MIS_ACCEPT ×10"
             ],
-            "misses": []
+            "missClasses": [
+                {
+                    "signature": "MIS_ACCEPT:rgb",
+                    "count": 10
+                }
+            ],
+            "remainder": {
+                "F-k2 the candidate ACCEPTS a legacy comma form the spec forbids — mixed <number>/<percentage> arguments, or `none` (css-color-4 §8.1); the cure is in src/css/**, outside this unit's writable set": 9,
+                "GROUND-C ±Infinity (owner-owed; W3.md §10 'not opened here')": 1
+            },
+            "census": {
+                "PB-12": 4902,
+                "PB-04/05": 4207,
+                "PB-08": 2220,
+                "PB-03": 565,
+                "PB-01/02": 429,
+                "ADJ-3": 227,
+                "PB-09/10": 124,
+                "ADJ-2": 48,
+                "SP-1": 6
+            },
+            "misses": [
+                {
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(none, 6e167, 27%, 6e316)",
+                    "why": "oracle rejects; candidate accepts",
+                    "declared": null
+                },
+                {
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(none, -0, -0, 5e357)",
+                    "why": "oracle rejects; candidate accepts",
+                    "declared": null
+                },
+                {
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(.205, 65%, 8e354, 9e445)",
+                    "why": "oracle rejects; candidate accepts",
+                    "declared": null
+                },
+                {
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(-0, 37.734, 42%, 9e347)",
+                    "why": "oracle rejects; candidate accepts",
+                    "declared": null
+                },
+                {
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(91%, 99.248, 1e48, 7e380)",
+                    "why": "oracle rejects; candidate accepts",
+                    "declared": null
+                },
+                {
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(none, 0, -0, 3e448)",
+                    "why": "oracle rejects; candidate accepts",
+                    "declared": null
+                },
+                {
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(.843, -0, +54, 5e498)",
+                    "why": "oracle rejects; candidate accepts",
+                    "declared": null
+                },
+                {
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(9e-443, 93%, 9%, 2e493)",
+                    "why": "oracle rejects; candidate accepts",
+                    "declared": null
+                },
+                {
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(80%, .55, -17, 2e371)",
+                    "why": "oracle rejects; candidate accepts",
+                    "declared": null
+                },
+                {
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(55%, -199, -67.34886833000928, 8e352)",
+                    "why": "oracle rejects; candidate accepts",
+                    "declared": null
+                }
+            ],
+            "missesTotal": 10
         },
         {
             "name": "parseCssValues",
@@ -1543,9 +1847,9 @@
             "assertion": "typescript/test/css-totality/universe.test.ts :: runtime row `parseCssValues`",
             "family": "parser",
             "accept": {
-                "count": 10619,
+                "count": 9753,
                 "r1": 0,
-                "declared": 0,
+                "declared": 2675,
                 "sample": [
                     "rgb(255 0 153 / 0.5)",
                     "hsl",
@@ -1558,9 +1862,9 @@
                 ]
             },
             "reject": {
-                "count": 15985,
+                "count": 17321,
                 "r1": 272,
-                "declared": 1,
+                "declared": 7252,
                 "sample": [
                     "rgb()",
                     "rgb( )",
@@ -1572,12 +1876,95 @@
                     "rgb(//)"
                 ]
             },
-            "verdict": "ABSENT",
-            "cellsRun": 0,
+            "verdict": "PARTIAL",
+            "cellsRun": 27074,
             "missing": [
-                "no candidate peer resolves `parseCssValues` on /Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1.js"
+                "MIS_ACCEPT ×10"
             ],
-            "misses": []
+            "missClasses": [
+                {
+                    "signature": "MIS_ACCEPT:rgb",
+                    "count": 10
+                }
+            ],
+            "remainder": {
+                "F-k2 the candidate ACCEPTS a legacy comma form the spec forbids — mixed <number>/<percentage> arguments, or `none` (css-color-4 §8.1); the cure is in src/css/**, outside this unit's writable set": 9,
+                "GROUND-C ±Infinity (owner-owed; W3.md §10 'not opened here')": 1
+            },
+            "census": {
+                "PB-12": 4902,
+                "PB-04/05": 4207,
+                "PB-08": 2220,
+                "PB-03": 565,
+                "PB-01/02": 429,
+                "ADJ-3": 227,
+                "PB-09/10": 124,
+                "ADJ-2": 48,
+                "SP-1": 6
+            },
+            "misses": [
+                {
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(none, 6e167, 27%, 6e316)",
+                    "why": "oracle rejects; candidate accepts",
+                    "declared": null
+                },
+                {
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(none, -0, -0, 5e357)",
+                    "why": "oracle rejects; candidate accepts",
+                    "declared": null
+                },
+                {
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(.205, 65%, 8e354, 9e445)",
+                    "why": "oracle rejects; candidate accepts",
+                    "declared": null
+                },
+                {
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(-0, 37.734, 42%, 9e347)",
+                    "why": "oracle rejects; candidate accepts",
+                    "declared": null
+                },
+                {
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(91%, 99.248, 1e48, 7e380)",
+                    "why": "oracle rejects; candidate accepts",
+                    "declared": null
+                },
+                {
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(none, 0, -0, 3e448)",
+                    "why": "oracle rejects; candidate accepts",
+                    "declared": null
+                },
+                {
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(.843, -0, +54, 5e498)",
+                    "why": "oracle rejects; candidate accepts",
+                    "declared": null
+                },
+                {
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(9e-443, 93%, 9%, 2e493)",
+                    "why": "oracle rejects; candidate accepts",
+                    "declared": null
+                },
+                {
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(80%, .55, -17, 2e371)",
+                    "why": "oracle rejects; candidate accepts",
+                    "declared": null
+                },
+                {
+                    "kind": "MIS_ACCEPT",
+                    "input": "rgb(55%, -199, -67.34886833000928, 8e352)",
+                    "why": "oracle rejects; candidate accepts",
+                    "declared": null
+                }
+            ],
+            "missesTotal": 10
         },
         {
             "name": "parseKeyframeSelector",
@@ -1603,9 +1990,9 @@
                 ]
             },
             "reject": {
-                "count": 26584,
+                "count": 27054,
                 "r1": 172,
-                "declared": 1,
+                "declared": 5391,
                 "sample": [
                     "rgb()",
                     "rgb( )",
@@ -1617,12 +2004,16 @@
                     "rgb(//)"
                 ]
             },
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "no candidate peer resolves `parseKeyframeSelector` on /Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1.js"
-            ],
-            "misses": []
+            "verdict": "TOTAL",
+            "cellsRun": 27074,
+            "missing": [],
+            "missClasses": [],
+            "remainder": {},
+            "census": {
+                "PB-12": 5391
+            },
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "parseTimingFunction",
@@ -1633,24 +2024,24 @@
             "assertion": "typescript/test/css-totality/universe.test.ts :: runtime row `parseTimingFunction`",
             "family": "parser",
             "accept": {
-                "count": 503,
+                "count": 357,
                 "r1": 0,
                 "declared": 0,
                 "sample": [
-                    "steps(7., jump-start)",
                     "linear(+34, -280)",
                     "steps(+77)",
                     " ease-out",
                     "linear(30 0e-85%, 6e109)",
                     "step-start",
                     "linear(161.50351220276207, -352)",
-                    "ease-out"
+                    "ease-out",
+                    "linear"
                 ]
             },
             "reject": {
-                "count": 26101,
+                "count": 26717,
                 "r1": 172,
-                "declared": 1,
+                "declared": 5391,
                 "sample": [
                     "rgb()",
                     "rgb( )",
@@ -1663,108 +2054,107 @@
                 ]
             },
             "verdict": "PARTIAL",
-            "cellsRun": 26604,
+            "cellsRun": 27074,
             "missing": [
-                "FALSE_REJECT_IN_SHAPE ×147",
+                "FALSE_REJECT_IN_SHAPE ×1",
                 "MIS_ACCEPT ×23"
             ],
             "missClasses": [
-                {
-                    "signature": "FALSE_REJECT_IN_SHAPE:linear",
-                    "count": 95
-                },
-                {
-                    "signature": "FALSE_REJECT_IN_SHAPE:steps",
-                    "count": 46
-                },
                 {
                     "signature": "MIS_ACCEPT:linear",
                     "count": 19
                 },
                 {
-                    "signature": "FALSE_REJECT_IN_SHAPE:cubic-bezier",
-                    "count": 6
-                },
-                {
                     "signature": "MIS_ACCEPT:cubic-bezier",
                     "count": 4
+                },
+                {
+                    "signature": "FALSE_REJECT_IN_SHAPE:steps",
+                    "count": 1
                 }
             ],
+            "remainder": {
+                "GROUND-C ±Infinity (owner-owed; W3.md §10 'not opened here')": 23,
+                "F-k4 the incumbent accepts an EMPTY argument (`steps(1e43,, start)`); css-syntax-3 §5.4.1 gives a comma-separated list no empty part — UNADJUDICATED, M-23 §1": 1
+            },
+            "census": {
+                "PB-12": 5391
+            },
             "misses": [
                 {
                     "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": "steps(7., jump-start)",
+                    "input": "steps(1e43,, start)",
                     "why": "oracle accepts; candidate rejects with css_syntax",
                     "declared": null
                 },
                 {
-                    "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": "linear(.605, +95, 2e285 55.303%, -0 8.%)",
-                    "why": "oracle accepts; candidate rejects with css_syntax",
+                    "kind": "MIS_ACCEPT",
+                    "input": "linear(174.89818022586405 7e422%, 0e356 1e-315%)",
+                    "why": "oracle rejects; candidate accepts",
                     "declared": null
                 },
                 {
-                    "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": "steps(5., jump-end)",
-                    "why": "oracle accepts; candidate rejects with css_syntax",
+                    "kind": "MIS_ACCEPT",
+                    "input": "linear(.95, +99, 5e325)",
+                    "why": "oracle rejects; candidate accepts",
                     "declared": null
                 },
                 {
-                    "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": "linear(8e213, 2., 180.12373589444906)",
-                    "why": "oracle accepts; candidate rejects with css_syntax",
+                    "kind": "MIS_ACCEPT",
+                    "input": "linear(17.833 .896%, 8e440, -0)",
+                    "why": "oracle rejects; candidate accepts",
                     "declared": null
                 },
                 {
-                    "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": "steps(1., jump-start)",
-                    "why": "oracle accepts; candidate rejects with css_syntax",
+                    "kind": "MIS_ACCEPT",
+                    "input": "cubic-bezier(.319, 1e389, .334, 28.136)",
+                    "why": "oracle rejects; candidate accepts",
                     "declared": null
                 },
                 {
-                    "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": "steps(7.)",
-                    "why": "oracle accepts; candidate rejects with css_syntax",
+                    "kind": "MIS_ACCEPT",
+                    "input": "linear(-361 4e495%, 166.1066859262064, -223 -17.386972857639194%, -0 9.254%)",
+                    "why": "oracle rejects; candidate accepts",
                     "declared": null
                 },
                 {
-                    "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": "linear(-0  , 8., -249 .668%)",
-                    "why": "oracle accepts; candidate rejects with css_syntax",
+                    "kind": "MIS_ACCEPT",
+                    "input": "linear(+84 8e328%, 3.880178038962185)",
+                    "why": "oracle rejects; candidate accepts",
                     "declared": null
                 },
                 {
-                    "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": "steps(9., start)",
-                    "why": "oracle accepts; candidate rejects with css_syntax",
+                    "kind": "MIS_ACCEPT",
+                    "input": "linear(46.108, +98 33.651%, 9e313, +52 +26%)",
+                    "why": "oracle rejects; candidate accepts",
                     "declared": null
                 },
                 {
-                    "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": "steps(5.,  start)",
-                    "why": "oracle accepts; candidate rejects with css_syntax",
+                    "kind": "MIS_ACCEPT",
+                    "input": "linear(5e425, -0, 77.123,.272)",
+                    "why": "oracle rejects; candidate accepts",
                     "declared": null
                 },
                 {
-                    "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": "linear(3e-289 -0%, 7. 2.%, 76.01294417399913)",
-                    "why": "oracle accepts; candidate rejects with css_syntax",
+                    "kind": "MIS_ACCEPT",
+                    "input": "cubic-bezier(-0, 8e458, .893, +31)",
+                    "why": "oracle rejects; candidate accepts",
                     "declared": null
                 },
                 {
-                    "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": "steps(4.)",
-                    "why": "oracle accepts; candidate rejects with css_syntax",
+                    "kind": "MIS_ACCEPT",
+                    "input": "linear(7e324 102.8985577110201%, .27, 29 190.33129245508462%, 147 40.640%)",
+                    "why": "oracle rejects; candidate accepts",
                     "declared": null
                 },
                 {
-                    "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": "linear(.318, 2. 85.166%, +18)",
-                    "why": "oracle accepts; candidate rejects with css_syntax",
+                    "kind": "MIS_ACCEPT",
+                    "input": "cubic-bezier(.135, 9e337,.744, 4e424)",
+                    "why": "oracle rejects; candidate accepts",
                     "declared": null
                 }
             ],
-            "missesTotal": 170
+            "missesTotal": 24
         },
         {
             "name": "serializeCssColor",
@@ -1803,12 +2193,14 @@
                     "degenerate NaN"
                 ]
             },
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "no candidate peer resolves `serializeCssColor` on /Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1.js"
-            ],
-            "misses": []
+            "verdict": "TOTAL",
+            "cellsRun": 407,
+            "missing": [],
+            "missClasses": [],
+            "remainder": {},
+            "census": {},
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "coerceToSyntax",
@@ -1819,24 +2211,24 @@
             "assertion": "typescript/test/css-totality/universe.test.ts :: runtime row `coerceToSyntax`",
             "family": "coercer",
             "accept": {
-                "count": 653,
+                "count": 634,
                 "r1": 0,
-                "declared": 0,
+                "declared": 202,
                 "sample": [
                     "\"rgb(285 0 153 / 0.5)\" @ <color>",
                     "\"h\" @ <custom-ident>",
-                    "\"hsl(120, 500, 50%)\" @ <color>",
                     "\"oklch\" @ <custom-ident>",
                     "\"lab(50% -100% 100\\n)\" @ <color>",
                     "\"oklch(10% 0.15 50deg)\" @ <color>",
                     "\"rgb(252 0 153 / 0.5)\" @ <color>",
-                    "\"oklch(60% 0.75 50deg)\" @ <color>"
+                    "\"oklch(60% 0.75 50deg)\" @ <color>",
+                    "\"oklch(60%30.15 50deg)\" @ <color>"
                 ]
             },
             "reject": {
-                "count": 32311,
+                "count": 32800,
                 "r1": 3536,
-                "declared": 0,
+                "declared": 8452,
                 "sample": [
                     "\"rgb()\" @ <angle>",
                     "\"rgb()\" @ <color>",
@@ -1848,12 +2240,23 @@
                     "\"rgb()\" @ <number>"
                 ]
             },
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "no candidate peer resolves `coerceToSyntax` on /Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1.js"
-            ],
-            "misses": []
+            "verdict": "TOTAL",
+            "cellsRun": 33434,
+            "missing": [],
+            "missClasses": [],
+            "remainder": {},
+            "census": {
+                "PB-12": 4902,
+                "PB-08": 2220,
+                "PB-04/05": 186,
+                "PB-09/10": 124,
+                "PB-01/02": 34,
+                "ADJ-3": 16,
+                "SP-1": 6,
+                "ADJ-2": 1
+            },
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "parseAnimationRange",
@@ -1879,9 +2282,9 @@
                 ]
             },
             "reject": {
-                "count": 26563,
+                "count": 27033,
                 "r1": 172,
-                "declared": 1,
+                "declared": 0,
                 "sample": [
                     "rgb()",
                     "rgb( )",
@@ -1893,12 +2296,14 @@
                     "rgb(//)"
                 ]
             },
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "no candidate peer resolves `parseAnimationRange` on /Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1.js"
-            ],
-            "misses": []
+            "verdict": "TOTAL",
+            "cellsRun": 27074,
+            "missing": [],
+            "missClasses": [],
+            "remainder": {},
+            "census": {},
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "parseAnimationTimeline",
@@ -1920,9 +2325,9 @@
                 ]
             },
             "reject": {
-                "count": 26600,
+                "count": 27070,
                 "r1": 172,
-                "declared": 1,
+                "declared": 0,
                 "sample": [
                     "rgb()",
                     "rgb( )",
@@ -1934,12 +2339,14 @@
                     "rgb(//)"
                 ]
             },
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "no candidate peer resolves `parseAnimationTimeline` on /Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1.js"
-            ],
-            "misses": []
+            "verdict": "TOTAL",
+            "cellsRun": 27074,
+            "missing": [],
+            "missClasses": [],
+            "remainder": {},
+            "census": {},
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "serializeTimelineOptions",
@@ -1978,12 +2385,14 @@
                     "degenerate NaN"
                 ]
             },
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "no candidate peer resolves `serializeTimelineOptions` on /Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1.js"
-            ],
-            "misses": []
+            "verdict": "TOTAL",
+            "cellsRun": 207,
+            "missing": [],
+            "missClasses": [],
+            "remainder": {},
+            "census": {},
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "collectAnimationOptions",
@@ -2022,12 +2431,14 @@
                     "degenerate NaN"
                 ]
             },
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "no candidate peer resolves `collectAnimationOptions` on /Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1.js"
-            ],
-            "misses": []
+            "verdict": "TOTAL",
+            "cellsRun": 407,
+            "missing": [],
+            "missClasses": [],
+            "remainder": {},
+            "census": {},
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "collectCustomFunctions",
@@ -2066,12 +2477,14 @@
                     "degenerate NaN"
                 ]
             },
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "no candidate peer resolves `collectCustomFunctions` on /Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1.js"
-            ],
-            "misses": []
+            "verdict": "TOTAL",
+            "cellsRun": 407,
+            "missing": [],
+            "missClasses": [],
+            "remainder": {},
+            "census": {},
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "collectDeclarations",
@@ -2110,12 +2523,14 @@
                     "degenerate NaN"
                 ]
             },
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "no candidate peer resolves `collectDeclarations` on /Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1.js"
-            ],
-            "misses": []
+            "verdict": "TOTAL",
+            "cellsRun": 407,
+            "missing": [],
+            "missClasses": [],
+            "remainder": {},
+            "census": {},
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "collectKeyframes",
@@ -2154,12 +2569,14 @@
                     "degenerate NaN"
                 ]
             },
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "no candidate peer resolves `collectKeyframes` on /Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1.js"
-            ],
-            "misses": []
+            "verdict": "TOTAL",
+            "cellsRun": 407,
+            "missing": [],
+            "missClasses": [],
+            "remainder": {},
+            "census": {},
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "collectPropertyDescriptors",
@@ -2198,12 +2615,14 @@
                     "degenerate NaN"
                 ]
             },
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "no candidate peer resolves `collectPropertyDescriptors` on /Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1.js"
-            ],
-            "misses": []
+            "verdict": "TOTAL",
+            "cellsRun": 407,
+            "missing": [],
+            "missClasses": [],
+            "remainder": {},
+            "census": {},
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "collectStyleRules",
@@ -2242,12 +2661,14 @@
                     "degenerate NaN"
                 ]
             },
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "no candidate peer resolves `collectStyleRules` on /Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1.js"
-            ],
-            "misses": []
+            "verdict": "TOTAL",
+            "cellsRun": 407,
+            "missing": [],
+            "missClasses": [],
+            "remainder": {},
+            "census": {},
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "collectTimelineOptions",
@@ -2286,12 +2707,14 @@
                     "degenerate NaN"
                 ]
             },
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "no candidate peer resolves `collectTimelineOptions` on /Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1.js"
-            ],
-            "misses": []
+            "verdict": "TOTAL",
+            "cellsRun": 407,
+            "missing": [],
+            "missClasses": [],
+            "remainder": {},
+            "census": {},
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "parseStylesheet",
@@ -2302,9 +2725,9 @@
             "assertion": "typescript/test/css-totality/universe.test.ts :: runtime row `parseStylesheet`",
             "family": "parser",
             "accept": {
-                "count": 2256,
+                "count": 2545,
                 "r1": 0,
-                "declared": 0,
+                "declared": 732,
                 "sample": [
                     "",
                     "a, b { background-color: #dbD }",
@@ -2313,13 +2736,13 @@
                     "#d { border-color: #e131 }",
                     "a { bakground-color: rgb(.943 .514 .547) }",
                     "#d { background-color: blue } a { background-color: var(--a, blue) }",
-                    ".c { color: var(--a) } a { background-color: oklch(6. none 380turn / 89%) } a { background-color: hsl(4e-74grad -88.9382746303454 +88 / -0) }"
+                    "b { background-color: hsl(.17turn 111.25222404953092 +44) !important } b { background-color: hsl(-0rad -0 +24) !important } a, b { colo.r: rgb(.402 +27 11%) !important }"
                 ]
             },
             "reject": {
-                "count": 24348,
+                "count": 24529,
                 "r1": 0,
-                "declared": 1,
+                "declared": 7252,
                 "sample": [
                     "rgb()",
                     "rgb( )",
@@ -2332,101 +2755,127 @@
                 ]
             },
             "verdict": "PARTIAL",
-            "cellsRun": 26604,
+            "cellsRun": 27074,
             "missing": [
-                "FALSE_REJECT_IN_SHAPE ×1287",
-                "DIVERGENT_VALUE ×442",
-                "MIS_ACCEPT ×236"
+                "FALSE_REJECT_IN_SHAPE ×185",
+                "DIVERGENT_VALUE ×2",
+                "MIS_ACCEPT ×19"
             ],
             "missClasses": [
                 {
                     "signature": "FALSE_REJECT_IN_SHAPE:(other)",
-                    "count": 1287
-                },
-                {
-                    "signature": "DIVERGENT_VALUE:(other)",
-                    "count": 442
+                    "count": 185
                 },
                 {
                     "signature": "MIS_ACCEPT:(other)",
-                    "count": 236
+                    "count": 19
+                },
+                {
+                    "signature": "DIVERGENT_VALUE:(other)",
+                    "count": 2
                 }
             ],
+            "remainder": {
+                "BND-1 non-string boundary": 172,
+                "SH-1 blocks()'s signed paren counter (escalated by .j)": 11,
+                "F-k1 the incumbent's UNANCHORED component read (trailing garbage inside a component value); UNADJUDICATED — a fresh-adjudicator act, M-23 §1": 7,
+                "F-k2 the candidate ACCEPTS a legacy comma form the spec forbids — mixed <number>/<percentage> arguments, or `none` (css-color-4 §8.1); the cure is in src/css/**, outside this unit's writable set": 6,
+                "E-j1 at-rule family (unauthored, escalated by .j)": 5,
+                "unattributed": 3,
+                "GROUND-C ±Infinity (owner-owed; W3.md §10 'not opened here')": 2
+            },
+            "census": {
+                "PB-12": 4902,
+                "PB-08": 2220,
+                "PB-04/05": 1188,
+                "PB-03": 176,
+                "PB-01/02": 131,
+                "PB-09/10": 124,
+                "ADJ-3": 60,
+                "SP-1": 6,
+                "ADJ-2": 2
+            },
             "misses": [
                 {
                     "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": "#d { background-color: blue } a { background-color: var(--a, blue) }",
+                    "input": "\t { border-color: hsl(5.deg 4e-169 5. / 10%) }",
                     "why": "oracle accepts; candidate rejects with css_syntax",
                     "declared": null
                 },
                 {
                     "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": ".c { color: var(--a) } a { background-color: oklch(6. none 380turn / 89%) } a { background-color: hsl(4e-74grad -88.9382746303454 +88 / -0) }",
+                    "input": "b { col!r: rgb(9. none -76 / 0.) }",
                     "why": "oracle accepts; candidate rejects with css_syntax",
                     "declared": null
                 },
                 {
                     "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": "b { background-color: hsl(.17turn 111.25222404953092 +44) !important } b { background-color: hsl(-0rad -0 +24) !important } a, b { colo.r: rgb(.402 +27 11%) !important }",
+                    "input": "b { background-color: #74173d96 } a { border-colo!r: hsl(50% 1e-366 67.310) }",
                     "why": "oracle accepts; candidate rejects with css_syntax",
                     "declared": null
                 },
                 {
                     "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": "b { color: rgb(0. 0. +50 ) }",
+                    "input": ".c { border-color: #ee584b } .c}{ color: rgb(4e258 -0 1. / 71%) } b { border-color: var(--x-y) }",
                     "why": "oracle accepts; candidate rejects with css_syntax",
                     "declared": null
                 },
                 {
                     "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": ".c { border-color: hsl(6e161rad 2e163 8. / 83%) }",
+                    "input": "a, b { color: #f65 } #d { background-color: hsl(.336turn 7. .413) }  { border-color: currentcolor }",
                     "why": "oracle accepts; candidate rejects with css_syntax",
                     "declared": null
                 },
                 {
                     "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": "#d { color: var(-;x-y) }",
+                    "input": "b { backgr!und-color: oklch(3e-440 7e-206 4.deg) }",
                     "why": "oracle accepts; candidate rejects with css_syntax",
                     "declared": null
                 },
                 {
-                    "kind": "DIVERGENT_VALUE",
-                    "input": "a, b { border-color: rgb(+25 -0 31% / 45%) }#d { border-color: oklch(78.971 +46 10.612600552849472deg) !important }",
-                    "why": "oracle [{\"kind\":\"style\",\"selectors\":[\"a\",\"b\"],\"declarations\":[{\"name\":\"border-color\",\"value\":{\"ki vs candidate [{\"kind\":\"style\",\"selectors\":[\"a\",\"b\"],\"declarations\":[{\"name\":\"border-color\",\"value\":{\"ki",
-                    "declared": null
-                },
-                {
                     "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": ".c { border-color: var(--a, rebeccapurple) }",
+                    "input": "b { background-color: hsl(141.1656975513324turn 2. 53.62424335908145) !important } a, b { border-!olor: rgb(+16 -0 395) }",
                     "why": "oracle accepts; candidate rejects with css_syntax",
                     "declared": null
                 },
                 {
-                    "kind": "DIVERGENT_VALUE",
-                    "input": "#d { border-color: rgb(2% none 90%) } a, b { background-color: hsl(53.554 9% 173 / none) } b { color: #Eda1 }",
-                    "why": "oracle [{\"kind\":\"style\",\"selectors\":[\"#d\"],\"declarations\":[{\"name\":\"border-color\",\"value\":{\"kind\" vs candidate [{\"kind\":\"style\",\"selectors\":[\"#d\"],\"declarations\":[{\"name\":\"border-color\",\"value\":{\"kind\"",
-                    "declared": null
-                },
-                {
                     "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": "#d { background-color: oklch(5. 62.24 90.00796838663518grad) } #d { border-color: rgb(none, 8e-460, 367) !important } #d { color: rgb(.355 -0 -0) }",
+                    "input": ".c { background-color: rgb(-0 .504 6e-128 / 9e-415) } GARBAGE ) ;(#d { background-color: #eFEbC78B }",
                     "why": "oracle accepts; candidate rejects with css_syntax",
                     "declared": null
                 },
                 {
-                    "kind": "DIVERGENT_VALUE",
-                    "input": "a, b { color: oklch(+82 60.14253129251301 +6deg) }",
-                    "why": "oracle [{\"kind\":\"style\",\"selectors\":[\"a\",\"b\"],\"declarations\":[{\"name\":\"color\",\"value\":{\"kind\":\"sc vs candidate [{\"kind\":\"style\",\"selectors\":[\"a\",\"b\"],\"declarations\":[{\"name\":\"color\",\"value\":{\"kind\":\"sc",
+                    "kind": "FALSE_REJECT_IN_SHAPE",
+                    "input": "b { background-color: var(--brand) -!important }",
+                    "why": "oracle accepts; candidate rejects with css_syntax",
                     "declared": null
                 },
                 {
                     "kind": "FALSE_REJECT_IN_SHAPE",
-                    "input": "b { border-color: var(--z) }",
+                    "input": "#d { background-color: hsl(73.416 -338 -290)!important } .c { border-color: var(--x-y) }",
+                    "why": "oracle accepts; candidate rejects with css_syntax",
+                    "declared": null
+                },
+                {
+                    "kind": "FALSE_REJECT_IN_SHAPE",
+                    "input": {
+                        "id": "r1-0",
+                        "src": ""
+                    },
+                    "why": "oracle accepts; candidate rejects with css_syntax",
+                    "declared": null
+                },
+                {
+                    "kind": "FALSE_REJECT_IN_SHAPE",
+                    "input": {
+                        "id": "r1-1",
+                        "src": "  "
+                    },
                     "why": "oracle accepts; candidate rejects with css_syntax",
                     "declared": null
                 }
             ],
-            "missesTotal": 1965
+            "missesTotal": 206
         },
         {
             "name": "AnimationRangeValue",
@@ -2451,26 +2900,11 @@
                 ]
             },
             "family": "type",
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "the candidate's declaration surface does not export this frozen type name"
-            ],
-            "misses": [
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'AnimationRangeValue'.",
-                    "line": 10,
-                    "file": "assignability.generated.ts"
-                },
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'AnimationRangeValue'.",
-                    "line": 13,
-                    "file": "assignability.generated.ts"
-                }
-            ],
-            "missesTotal": 2
+            "verdict": "TOTAL",
+            "cellsRun": 2,
+            "missing": [],
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "AnimationTimelineValue",
@@ -2495,26 +2929,11 @@
                 ]
             },
             "family": "type",
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "the candidate's declaration surface does not export this frozen type name"
-            ],
-            "misses": [
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'AnimationTimelineValue'.",
-                    "line": 16,
-                    "file": "assignability.generated.ts"
-                },
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'AnimationTimelineValue'.",
-                    "line": 19,
-                    "file": "assignability.generated.ts"
-                }
-            ],
-            "missesTotal": 2
+            "verdict": "TOTAL",
+            "cellsRun": 2,
+            "missing": [],
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "AnimationTriggerValue",
@@ -2539,26 +2958,11 @@
                 ]
             },
             "family": "type",
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "the candidate's declaration surface does not export this frozen type name"
-            ],
-            "misses": [
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'AnimationTriggerValue'.",
-                    "line": 22,
-                    "file": "assignability.generated.ts"
-                },
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'AnimationTriggerValue'.",
-                    "line": 25,
-                    "file": "assignability.generated.ts"
-                }
-            ],
-            "missesTotal": 2
+            "verdict": "TOTAL",
+            "cellsRun": 2,
+            "missing": [],
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "CSSAnimationOptions",
@@ -2583,26 +2987,11 @@
                 ]
             },
             "family": "type",
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "the candidate's declaration surface does not export this frozen type name"
-            ],
-            "misses": [
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'CSSAnimationOptions'.",
-                    "line": 28,
-                    "file": "assignability.generated.ts"
-                },
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'CSSAnimationOptions'.",
-                    "line": 31,
-                    "file": "assignability.generated.ts"
-                }
-            ],
-            "missesTotal": 2
+            "verdict": "TOTAL",
+            "cellsRun": 2,
+            "missing": [],
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "CSSPropertyDescriptor",
@@ -2627,26 +3016,11 @@
                 ]
             },
             "family": "type",
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "the candidate's declaration surface does not export this frozen type name"
-            ],
-            "misses": [
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'CSSPropertyDescriptor'.",
-                    "line": 34,
-                    "file": "assignability.generated.ts"
-                },
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'CSSPropertyDescriptor'.",
-                    "line": 37,
-                    "file": "assignability.generated.ts"
-                }
-            ],
-            "missesTotal": 2
+            "verdict": "TOTAL",
+            "cellsRun": 2,
+            "missing": [],
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "CSSTimelineOptions",
@@ -2671,26 +3045,11 @@
                 ]
             },
             "family": "type",
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "the candidate's declaration surface does not export this frozen type name"
-            ],
-            "misses": [
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'CSSTimelineOptions'.",
-                    "line": 40,
-                    "file": "assignability.generated.ts"
-                },
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'CSSTimelineOptions'.",
-                    "line": 43,
-                    "file": "assignability.generated.ts"
-                }
-            ],
-            "missesTotal": 2
+            "verdict": "TOTAL",
+            "cellsRun": 2,
+            "missing": [],
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "CollectedRule",
@@ -2715,26 +3074,11 @@
                 ]
             },
             "family": "type",
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "the candidate's declaration surface does not export this frozen type name"
-            ],
-            "misses": [
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'CollectedRule'.",
-                    "line": 46,
-                    "file": "assignability.generated.ts"
-                },
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'CollectedRule'.",
-                    "line": 49,
-                    "file": "assignability.generated.ts"
-                }
-            ],
-            "missesTotal": 2
+            "verdict": "TOTAL",
+            "cellsRun": 2,
+            "missing": [],
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "CssColor",
@@ -2788,26 +3132,11 @@
                 ]
             },
             "family": "type",
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "the candidate's declaration surface does not export this frozen type name"
-            ],
-            "misses": [
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'CssColorSpace'.",
-                    "line": 58,
-                    "file": "assignability.generated.ts"
-                },
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'CssColorSpace'.",
-                    "line": 61,
-                    "file": "assignability.generated.ts"
-                }
-            ],
-            "missesTotal": 2
+            "verdict": "TOTAL",
+            "cellsRun": 2,
+            "missing": [],
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "CssLinearStop",
@@ -2832,26 +3161,11 @@
                 ]
             },
             "family": "type",
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "the candidate's declaration surface does not export this frozen type name"
-            ],
-            "misses": [
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'CssLinearStop'.",
-                    "line": 64,
-                    "file": "assignability.generated.ts"
-                },
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'CssLinearStop'.",
-                    "line": 67,
-                    "file": "assignability.generated.ts"
-                }
-            ],
-            "missesTotal": 2
+            "verdict": "TOTAL",
+            "cellsRun": 2,
+            "missing": [],
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "CssTimingFunction",
@@ -2905,26 +3219,11 @@
                 ]
             },
             "family": "type",
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "the candidate's declaration surface does not export this frozen type name"
-            ],
-            "misses": [
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'CustomFunctionDescriptor'.",
-                    "line": 76,
-                    "file": "assignability.generated.ts"
-                },
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'CustomFunctionDescriptor'.",
-                    "line": 79,
-                    "file": "assignability.generated.ts"
-                }
-            ],
-            "missesTotal": 2
+            "verdict": "TOTAL",
+            "cellsRun": 2,
+            "missing": [],
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "CustomFunctionParameter",
@@ -2949,26 +3248,11 @@
                 ]
             },
             "family": "type",
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "the candidate's declaration surface does not export this frozen type name"
-            ],
-            "misses": [
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'CustomFunctionParameter'.",
-                    "line": 82,
-                    "file": "assignability.generated.ts"
-                },
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'CustomFunctionParameter'.",
-                    "line": 85,
-                    "file": "assignability.generated.ts"
-                }
-            ],
-            "missesTotal": 2
+            "verdict": "TOTAL",
+            "cellsRun": 2,
+            "missing": [],
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "CustomFunctionRule",
@@ -2993,26 +3277,11 @@
                 ]
             },
             "family": "type",
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "the candidate's declaration surface does not export this frozen type name"
-            ],
-            "misses": [
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'CustomFunctionRule'.",
-                    "line": 88,
-                    "file": "assignability.generated.ts"
-                },
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'CustomFunctionRule'.",
-                    "line": 91,
-                    "file": "assignability.generated.ts"
-                }
-            ],
-            "missesTotal": 2
+            "verdict": "TOTAL",
+            "cellsRun": 2,
+            "missing": [],
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "Declaration",
@@ -3066,26 +3335,11 @@
                 ]
             },
             "family": "type",
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "the candidate's declaration surface does not export this frozen type name"
-            ],
-            "misses": [
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'KeyframeRule'.",
-                    "line": 100,
-                    "file": "assignability.generated.ts"
-                },
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'KeyframeRule'.",
-                    "line": 103,
-                    "file": "assignability.generated.ts"
-                }
-            ],
-            "missesTotal": 2
+            "verdict": "TOTAL",
+            "cellsRun": 2,
+            "missing": [],
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "KeyframeSelector",
@@ -3110,26 +3364,11 @@
                 ]
             },
             "family": "type",
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "the candidate's declaration surface does not export this frozen type name"
-            ],
-            "misses": [
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'KeyframeSelector'.",
-                    "line": 106,
-                    "file": "assignability.generated.ts"
-                },
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'KeyframeSelector'.",
-                    "line": 109,
-                    "file": "assignability.generated.ts"
-                }
-            ],
-            "missesTotal": 2
+            "verdict": "TOTAL",
+            "cellsRun": 2,
+            "missing": [],
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "KeyframesBlock",
@@ -3154,26 +3393,11 @@
                 ]
             },
             "family": "type",
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "the candidate's declaration surface does not export this frozen type name"
-            ],
-            "misses": [
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'KeyframesBlock'.",
-                    "line": 112,
-                    "file": "assignability.generated.ts"
-                },
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'KeyframesBlock'.",
-                    "line": 115,
-                    "file": "assignability.generated.ts"
-                }
-            ],
-            "missesTotal": 2
+            "verdict": "TOTAL",
+            "cellsRun": 2,
+            "missing": [],
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "ParseIssue",
@@ -3198,26 +3422,11 @@
                 ]
             },
             "family": "type",
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "the candidate's declaration surface does not export this frozen type name"
-            ],
-            "misses": [
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'ParseIssue'.",
-                    "line": 118,
-                    "file": "assignability.generated.ts"
-                },
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'ParseIssue'.",
-                    "line": 121,
-                    "file": "assignability.generated.ts"
-                }
-            ],
-            "missesTotal": 2
+            "verdict": "TOTAL",
+            "cellsRun": 2,
+            "missing": [],
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "ParseResult",
@@ -3242,26 +3451,11 @@
                 ]
             },
             "family": "type",
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "the candidate's declaration surface does not export this frozen type name"
-            ],
-            "misses": [
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'ParseResult'.",
-                    "line": 124,
-                    "file": "assignability.generated.ts"
-                },
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'ParseResult'.",
-                    "line": 127,
-                    "file": "assignability.generated.ts"
-                }
-            ],
-            "missesTotal": 2
+            "verdict": "TOTAL",
+            "cellsRun": 2,
+            "missing": [],
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "PropertyRule",
@@ -3286,26 +3480,11 @@
                 ]
             },
             "family": "type",
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "the candidate's declaration surface does not export this frozen type name"
-            ],
-            "misses": [
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'PropertyRule'.",
-                    "line": 130,
-                    "file": "assignability.generated.ts"
-                },
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'PropertyRule'.",
-                    "line": 133,
-                    "file": "assignability.generated.ts"
-                }
-            ],
-            "missesTotal": 2
+            "verdict": "TOTAL",
+            "cellsRun": 2,
+            "missing": [],
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "RangeBoundary",
@@ -3330,26 +3509,11 @@
                 ]
             },
             "family": "type",
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "the candidate's declaration surface does not export this frozen type name"
-            ],
-            "misses": [
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'RangeBoundary'.",
-                    "line": 136,
-                    "file": "assignability.generated.ts"
-                },
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'RangeBoundary'.",
-                    "line": 139,
-                    "file": "assignability.generated.ts"
-                }
-            ],
-            "missesTotal": 2
+            "verdict": "TOTAL",
+            "cellsRun": 2,
+            "missing": [],
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "RangePhase",
@@ -3374,26 +3538,11 @@
                 ]
             },
             "family": "type",
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "the candidate's declaration surface does not export this frozen type name"
-            ],
-            "misses": [
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'RangePhase'.",
-                    "line": 142,
-                    "file": "assignability.generated.ts"
-                },
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'RangePhase'.",
-                    "line": 145,
-                    "file": "assignability.generated.ts"
-                }
-            ],
-            "missesTotal": 2
+            "verdict": "TOTAL",
+            "cellsRun": 2,
+            "missing": [],
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "ScrollTimelineDescriptor",
@@ -3418,26 +3567,11 @@
                 ]
             },
             "family": "type",
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "the candidate's declaration surface does not export this frozen type name"
-            ],
-            "misses": [
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'ScrollTimelineDescriptor'.",
-                    "line": 148,
-                    "file": "assignability.generated.ts"
-                },
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'ScrollTimelineDescriptor'.",
-                    "line": 151,
-                    "file": "assignability.generated.ts"
-                }
-            ],
-            "missesTotal": 2
+            "verdict": "TOTAL",
+            "cellsRun": 2,
+            "missing": [],
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "ScrollerKeyword",
@@ -3462,26 +3596,11 @@
                 ]
             },
             "family": "type",
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "the candidate's declaration surface does not export this frozen type name"
-            ],
-            "misses": [
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'ScrollerKeyword'.",
-                    "line": 154,
-                    "file": "assignability.generated.ts"
-                },
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'ScrollerKeyword'.",
-                    "line": 157,
-                    "file": "assignability.generated.ts"
-                }
-            ],
-            "missesTotal": 2
+            "verdict": "TOTAL",
+            "cellsRun": 2,
+            "missing": [],
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "StyleRule",
@@ -3564,26 +3683,11 @@
                 ]
             },
             "family": "type",
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "the candidate's declaration surface does not export this frozen type name"
-            ],
-            "misses": [
-                {
-                    "code": "TS2724",
-                    "message": "'\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member named 'StylesheetItem'. Did you mean 'Stylesheet'?",
-                    "line": 172,
-                    "file": "assignability.generated.ts"
-                },
-                {
-                    "code": "TS2724",
-                    "message": "'\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member named 'StylesheetItem'. Did you mean 'Stylesheet'?",
-                    "line": 175,
-                    "file": "assignability.generated.ts"
-                }
-            ],
-            "missesTotal": 2
+            "verdict": "TOTAL",
+            "cellsRun": 2,
+            "missing": [],
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "TimelineAxis",
@@ -3608,26 +3712,11 @@
                 ]
             },
             "family": "type",
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "the candidate's declaration surface does not export this frozen type name"
-            ],
-            "misses": [
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'TimelineAxis'.",
-                    "line": 178,
-                    "file": "assignability.generated.ts"
-                },
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'TimelineAxis'.",
-                    "line": 181,
-                    "file": "assignability.generated.ts"
-                }
-            ],
-            "missesTotal": 2
+            "verdict": "TOTAL",
+            "cellsRun": 2,
+            "missing": [],
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "TimelineScopeValue",
@@ -3652,26 +3741,11 @@
                 ]
             },
             "family": "type",
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "the candidate's declaration surface does not export this frozen type name"
-            ],
-            "misses": [
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'TimelineScopeValue'.",
-                    "line": 184,
-                    "file": "assignability.generated.ts"
-                },
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'TimelineScopeValue'.",
-                    "line": 187,
-                    "file": "assignability.generated.ts"
-                }
-            ],
-            "missesTotal": 2
+            "verdict": "TOTAL",
+            "cellsRun": 2,
+            "missing": [],
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "TriggerType",
@@ -3696,26 +3770,11 @@
                 ]
             },
             "family": "type",
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "the candidate's declaration surface does not export this frozen type name"
-            ],
-            "misses": [
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'TriggerType'.",
-                    "line": 190,
-                    "file": "assignability.generated.ts"
-                },
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'TriggerType'.",
-                    "line": 193,
-                    "file": "assignability.generated.ts"
-                }
-            ],
-            "missesTotal": 2
+            "verdict": "TOTAL",
+            "cellsRun": 2,
+            "missing": [],
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "ViewInset",
@@ -3740,26 +3799,11 @@
                 ]
             },
             "family": "type",
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "the candidate's declaration surface does not export this frozen type name"
-            ],
-            "misses": [
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'ViewInset'.",
-                    "line": 196,
-                    "file": "assignability.generated.ts"
-                },
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'ViewInset'.",
-                    "line": 199,
-                    "file": "assignability.generated.ts"
-                }
-            ],
-            "missesTotal": 2
+            "verdict": "TOTAL",
+            "cellsRun": 2,
+            "missing": [],
+            "misses": [],
+            "missesTotal": 0
         },
         {
             "name": "ViewTimelineDescriptor",
@@ -3784,26 +3828,11 @@
                 ]
             },
             "family": "type",
-            "verdict": "ABSENT",
-            "cellsRun": 0,
-            "missing": [
-                "the candidate's declaration surface does not export this frozen type name"
-            ],
-            "misses": [
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'ViewTimelineDescriptor'.",
-                    "line": 202,
-                    "file": "assignability.generated.ts"
-                },
-                {
-                    "code": "TS2694",
-                    "message": "Namespace '\"/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1\"' has no exported member 'ViewTimelineDescriptor'.",
-                    "line": 205,
-                    "file": "assignability.generated.ts"
-                }
-            ],
-            "missesTotal": 2
+            "verdict": "TOTAL",
+            "cellsRun": 2,
+            "missing": [],
+            "misses": [],
+            "missesTotal": 0
         }
     ]
 }

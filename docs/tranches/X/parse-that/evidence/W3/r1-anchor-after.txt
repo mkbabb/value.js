@@ -1,119 +1,176 @@
 SERVED MODEL: claude-opus-5[1m]
 
-G-2 — R1 ANCHOR PROBE, RE-RUN AFTER `.0`/`.a`/`.b`/`.c` LANDED (X.P.W3.d)
+G-2's ANCHOR CORPUS, RUN AGAINST THE CANDIDATE'S NINE ENTRIES (X.P.W3.m)
 ================================================================================
 
-AUTHORITY   docs/tranches/X/parse-that/waves/W3.md §6 G-2 — "the probe, UNMODIFIED, run against the
-            packed candidate: exit 0 ... Modifying the probe voids the gate."
-            W3.md §4 gives the probe the access row `execute, no write`.
+AUTHORITY   COHESION.md §0v — "banks `r1-anchor-after.txt` over the CANDIDATE's nine entries (the
+            anchor probe pointed at the candidate adapter — an `--at typescript/src/css` form —
+            never at value.js's own root, which measures the incumbent: A-1)".
+            W3.md §8 names this file; §4 gives the value.js probe the access row `execute, no write`.
 
-COMMAND     ⟨cmd⟩ node docs/tranches/V/megatranche/audit/probes/r1-published-totality.mjs
-            Run TWICE, from /Users/mkbabb/Programming/value.js, 2026-09-18. NOT ONE BYTE of the
-            probe was changed: ⟨cmd⟩ git status --porcelain -- docs/tranches/V/megatranche/audit/probes/
-            reads empty before and after both runs, and the file is unmodified since its own commit.
+WHAT THIS FILE IS.  It is NOT G-2 itself. G-2 is the value.js probe run UNMODIFIED against the
+            packed INCUMBENT. This file is the third OP-2 artefact §0v re-rules: the same 172-input
+            corpus, the same nine entry points, pointed at the CANDIDATE surface, in BOTH lowerings.
+            The superseded bank (2026-09-18, sha256
+            3a099df9002bf67ed92b2fff5a57899935b3aa01116de7a89a0383adb38ffc07) measured the incumbent
+            in its two RUN blocks and could reach only THREE of nine candidate entries, because six
+            were NOT REALIZED at that date. All nine are realized now (.h · .i · .j · .l).
 
-READING     RED, exit 1 — 324 throws / 1548 calls, one failure mode, 4 of 9 entry points RED.
-            IDENTICAL, call for call, to the 2026-08-03 baseline W3.md §6 pastes and to the
-            2026-09-18 open baseline at X-P-W3.md §B.1. The two runs below are identical to each
-            other on every signal line (⟨cmd⟩ diff → no output).
+COMMAND     ⟨cmd⟩ node typescript/scripts/r1-anchor-candidate.mjs --at typescript/src/css
+            from /Users/mkbabb/Programming/parse-that-css-totality-p2/typescript, 2026-09-19.
+            Run TWICE; the two runs are BYTE-IDENTICAL (⟨cmd⟩ diff → no output).
+            The `--at` form does not re-type the corpus: it LIFTS `FNS`, `NAMES`, `BODIES` and the
+            ten seed strings out of the value.js probe's own source and HALTs if they have moved, so
+            the two readings are over one corpus by construction. Negative control, measured:
+            ⟨cmd⟩ --probe <a copy with `const FNS` renamed> → EXIT=1, "the probe no longer declares
+            FNS — HALT (the two readings would not be over one corpus)".
+
+PINS        value.js probe   sha256 77678a574d7c6b11448b19b6ab8fc0686dddf405a01cd7ea16757bc0837ad4ec
+                             ⟨cmd⟩ git status --porcelain -- docs/tranches/V/megatranche/audit/probes/
+                             → 0 lines, BEFORE and AFTER every run in this file. Not one byte changed.
+            candidate        parse-that-css-totality-p2 w2/harness 92ed4cc (W3's final HEAD)
+            value.js         tranche-u f15477a8
+
+READING     GREEN, exit 0 — 0 throws and 0 `undefined` returns over 1,548 calls in EACH lowering;
+            3,096 calls in total, 0 failure modes, all nine entries realized.
 
 --------------------------------------------------------------------------------
-RUN 1 (verbatim; the node deprecation warning and the rolldown plugin-timings line
-       are the toolchain's, on stderr, and are reproduced with the rest)
+RUN 1 (verbatim)
 --------------------------------------------------------------------------------
-(node:38254) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
-(Use `node --trace-deprecation ...` to show where the warning was created)
-[PLUGIN_TIMINGS] Your build spent significant time in plugin `vite:dts`. See https://rolldown.rs/options/checks#plugintimings for more details.
+X.P.W3.m — R1 ANCHOR, CANDIDATE SIDE (--at typescript/src/css)
+────────────────────────────────────────────────────────────────────────────────
+probe      docs/tranches/V/megatranche/audit/probes/r1-published-totality.mjs — sha256 77678a574d7c6b11448b19b6ab8fc0686dddf405a01cd7ea16757bc0837ad4ec
+           corpus LIFTED from it: 9 entries × 172 inputs = 1548 calls per lowering
+candidate  typescript/src/css/entry.mjs — sha256 570ab836f56a58638713d26eb33ba4516f962012ea11de84002bd549a5d8363e
+unrealized NONE — all nine frozen parsers are published
 
-RED  parseCssColor             102/172 throw
-RED  parseCssScalar            102/172 throw
-RED  parseCssValue              60/172 throw
-RED  parseCssValues             60/172 throw
+js lowering
+────────────────────────────────────────────────────────────────────────────────
+ok   parseCssColor               0/172 throw
+ok   parseCssScalar              0/172 throw
+ok   parseCssValue               0/172 throw
+ok   parseCssValues              0/172 throw
 ok   parseKeyframeSelector       0/172 throw
 ok   parseStylesheet             0/172 throw
 ok   parseTimingFunction         0/172 throw
 ok   parseAnimationTimeline      0/172 throw
 ok   parseAnimationRange         0/172 throw
 
-TOTAL 324 throws / 1548 calls
-DISTINCT FAILURE MODES: 1
-  324x  TypeError: Cannot read properties of undefined (reading 'replace')
+TOTAL 0 throws / 1548 calls
+DISTINCT FAILURE MODES: 0
+UNDEFINED RETURNS: 0
 
-RED — 324 totality violations. A ParseResult-returning parser must not throw.
-
---------------------------------------------------------------------------------
-RUN 2 (the same command, a second process)
---------------------------------------------------------------------------------
-(node:69720) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
-(Use `node --trace-deprecation ...` to show where the warning was created)
-[PLUGIN_TIMINGS] Your build spent significant time in plugin `vite:dts`. See https://rolldown.rs/options/checks#plugintimings for more details.
-
-RED  parseCssColor             102/172 throw
-RED  parseCssScalar            102/172 throw
-RED  parseCssValue              60/172 throw
-RED  parseCssValues             60/172 throw
+wasm lowering
+────────────────────────────────────────────────────────────────────────────────
+ok   parseCssColor               0/172 throw
+ok   parseCssScalar              0/172 throw
+ok   parseCssValue               0/172 throw
+ok   parseCssValues              0/172 throw
 ok   parseKeyframeSelector       0/172 throw
 ok   parseStylesheet             0/172 throw
 ok   parseTimingFunction         0/172 throw
 ok   parseAnimationTimeline      0/172 throw
 ok   parseAnimationRange         0/172 throw
 
-TOTAL 324 throws / 1548 calls
-DISTINCT FAILURE MODES: 1
-  324x  TypeError: Cannot read properties of undefined (reading 'replace')
+TOTAL 0 throws / 1548 calls
+DISTINCT FAILURE MODES: 0
+UNDEFINED RETURNS: 0
 
-RED — 324 totality violations. A ParseResult-returning parser must not throw.
+────────────────────────────────────────────────────────────────────────────────
+js    0 throws · 0 undefined / 1548 calls
+wasm  0 throws · 0 undefined / 1548 calls
+
+GREEN — every public parser of the candidate surface is total, in BOTH lowerings.
+
+--------------------------------------------------------------------------------
+RUN 2 (verbatim; byte-identical to RUN 1)
+--------------------------------------------------------------------------------
+X.P.W3.m — R1 ANCHOR, CANDIDATE SIDE (--at typescript/src/css)
+────────────────────────────────────────────────────────────────────────────────
+probe      docs/tranches/V/megatranche/audit/probes/r1-published-totality.mjs — sha256 77678a574d7c6b11448b19b6ab8fc0686dddf405a01cd7ea16757bc0837ad4ec
+           corpus LIFTED from it: 9 entries × 172 inputs = 1548 calls per lowering
+candidate  typescript/src/css/entry.mjs — sha256 570ab836f56a58638713d26eb33ba4516f962012ea11de84002bd549a5d8363e
+unrealized NONE — all nine frozen parsers are published
+
+js lowering
+────────────────────────────────────────────────────────────────────────────────
+ok   parseCssColor               0/172 throw
+ok   parseCssScalar              0/172 throw
+ok   parseCssValue               0/172 throw
+ok   parseCssValues              0/172 throw
+ok   parseKeyframeSelector       0/172 throw
+ok   parseStylesheet             0/172 throw
+ok   parseTimingFunction         0/172 throw
+ok   parseAnimationTimeline      0/172 throw
+ok   parseAnimationRange         0/172 throw
+
+TOTAL 0 throws / 1548 calls
+DISTINCT FAILURE MODES: 0
+UNDEFINED RETURNS: 0
+
+wasm lowering
+────────────────────────────────────────────────────────────────────────────────
+ok   parseCssColor               0/172 throw
+ok   parseCssScalar              0/172 throw
+ok   parseCssValue               0/172 throw
+ok   parseCssValues              0/172 throw
+ok   parseKeyframeSelector       0/172 throw
+ok   parseStylesheet             0/172 throw
+ok   parseTimingFunction         0/172 throw
+ok   parseAnimationTimeline      0/172 throw
+ok   parseAnimationRange         0/172 throw
+
+TOTAL 0 throws / 1548 calls
+DISTINCT FAILURE MODES: 0
+UNDEFINED RETURNS: 0
+
+────────────────────────────────────────────────────────────────────────────────
+js    0 throws · 0 undefined / 1548 calls
+wasm  0 throws · 0 undefined / 1548 calls
+
+GREEN — every public parser of the candidate surface is total, in BOTH lowerings.
 
 ================================================================================
-WHY THIS GATE DID NOT MOVE, MEASURED AND NOT ARGUED
+BESIDE, AND MEASURED HERE RATHER THAN ASSUMED: G-2 ITSELF HAS TURNED GREEN
 ================================================================================
 
-TWO INDEPENDENT REASONS. Either alone keeps G-2 RED at this wave; both hold.
+Every X.P.W3 seat from `.d` (2026-09-18) through the round-7 close recorded G-2 as
+**RED, 324 throws / 1548 calls, 1 failure mode, EXIT=1**, and ESC-d2 declared its GREEN
+"structurally unreachable from inside X·P" because the probe's subject is the INCUMBENT, of which
+this wave writes zero bytes by law.
 
-(1) THE PROBE TARGETS value.js's OWN PACKED ARTIFACT, WHICH THIS WAVE DOES NOT WRITE.
-    Read at the probe's own bytes: `const REPO = new URL("../../../../../..", import.meta.url)`
-    resolves to /Users/mkbabb/Programming/value.js, and the probe then runs
-    `npm pack` there, installs the tarball into an mkdtemp dir, and imports
-    `node_modules/@mkbabb/value.js/dist/subpaths/css.js`. So the subject is the INCUMBENT.
-    W3.md §3's closing prohibitions and §4's Do-NOT-touch list forbid this wave from writing any
-    byte under value.js `src/**` — "A totality wave that edits the incumbent to make its own
-    differential pass has inverted the experiment" — and §10 puts adoption at X.P.W4's seam and
-    X·V's bytes. The candidate lives in the fresh root and the probe cannot see it without being
-    modified, which "voids the gate".
+That is no longer the reading. ⟨cmd⟩ `node docs/tranches/V/megatranche/audit/probes/r1-published-totality.mjs`
+from /Users/mkbabb/Programming/value.js, run TWICE at this seat's clock, the probe UNMODIFIED
+(sha256 77678a57…; `git status --porcelain` on its directory → 0 lines before and after both runs):
 
-(2) THE CANDIDATE REALIZES 3 OF THE PROBE'S 9 ENTRY POINTS.
-    W3.md §6 G-2's own falsifier: "the probe targets all nine public parsers, so a candidate that
-    cures `parseCssColor` alone stays red — which is the point; this gate cannot be discharged by a
-    slice." `.c` stated this in advance as F-c6 so `.d` would not re-diagnose it, and `.b`'s E-1 and
-    `.a`'s F-a.6 are the same wall from two other sides.
+  ok   parseCssColor               0/172 throw
+  ok   parseCssScalar              0/172 throw
+  ok   parseCssValue               0/172 throw
+  ok   parseCssValues              0/172 throw
+  ok   parseKeyframeSelector       0/172 throw
+  ok   parseStylesheet             0/172 throw
+  ok   parseTimingFunction         0/172 throw
+  ok   parseAnimationTimeline      0/172 throw
+  ok   parseAnimationRange         0/172 throw
 
-================================================================================
-SHADOW READING — THE PROBE'S PROPERTY, OVER THE CANDIDATE. NOT THE GATE.
-================================================================================
+  TOTAL 0 throws / 1548 calls
+  DISTINCT FAILURE MODES: 0
 
-This is NOT G-2 and does not discharge it. The probe was not modified, re-pointed or re-run against
-anything; instead the probe's OWN CORPUS — the `r1` band of `.a`'s generated union, 172 rows, whose
-provenance line reads "derived from audit/probes/r1-published-totality.mjs:38-43" — was run through
-the candidate's public surface, so that the wave records what the property reads on the bytes it
-actually built. Both lowerings.
+  GREEN — every public parser is total.
 
-ok  parseCssColor              0/172 throw
-SKIP parseCssScalar           — NOT REALIZED by the candidate (named in UNREALIZED_ENTRIES)
-SKIP parseCssValue            — NOT REALIZED by the candidate (named in UNREALIZED_ENTRIES)
-SKIP parseCssValues           — NOT REALIZED by the candidate (named in UNREALIZED_ENTRIES)
-SKIP parseKeyframeSelector    — NOT REALIZED by the candidate (named in UNREALIZED_ENTRIES)
-ok  parseStylesheet            0/172 throw
-ok  parseTimingFunction        0/172 throw
-SKIP parseAnimationTimeline   — NOT REALIZED by the candidate (named in UNREALIZED_ENTRIES)
-SKIP parseAnimationRange      — NOT REALIZED by the candidate (named in UNREALIZED_ENTRIES)
+  EXIT=0, both runs, identical on every signal line.
 
-TOTAL 0 throws / 516 calls over 3 realized entries (6 of 9 NOT REALIZED)
-wasm lowering, same corpus, same three entries: 0 throws/undefined over 516 calls
+MECHANISM, read at the incumbent's own history rather than inferred: value.js `97ab3991`
+"fix(css/lookup): prototype-reachable tables + grammar.ts:181 typed failure" (2026-09-18) cures the
+exact site this probe's own docblock names — "all from src/css/grammar.ts:181". The producer-side
+cure ESC-d2 routed to X·V has LANDED.
 
-READ IT AS EXACTLY THIS: on the three entries the candidate publishes, over the corpus that produced
-324 incumbent throws, the candidate throws ZERO and returns `undefined` ZERO times, in BOTH
-lowerings. On the six it does not publish, there is nothing to read — and that absence is the gate's
-distance, rowed in DIVERGENCE-LEDGER.md §5 as CN-1 and owned by no unit of this wave.
-
-G-2 VERDICT: RED — unchanged, reproduced twice, and RED for a stated structural reason rather than
-for a throw in the candidate.
+CONSEQUENCE, stated and not ruled here (M-23 §1 — this seat is not the adjudicator):
+  (a) ESC-d2 is DISCHARGED at the bytes. G-2's close condition ("exit 0") is MET.
+  (b) The incumbent surface has moved past the gates' pins (`6aca8602` / `c654824e`), exactly as
+      INFO-ac1 / INFO-ad1 predicted. Every figure in this wave's seals is read AT THE PIN, and the
+      pin's `index.ts`/`types.ts` still agree byte for byte with `c654824e`; nothing in the three
+      seals is stale. But the ORACLE this wave mirrors is the sha-pinned published 4.0.0 tarball,
+      which the cure does NOT move, so G-7's mirror-defect count is untouched by it.
+  (c) X.P.W4's seam contract is authored against a value.js surface that has since gained
+      `serializeCssValue` and twelve type re-exports AND this cure. Routed, unchanged, to X.P.W4.
