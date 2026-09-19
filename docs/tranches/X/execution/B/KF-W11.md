@@ -1741,3 +1741,82 @@ ESCALATED (M-4→M-3) · 10 named to their owning units · 1 carried (m-12) · 1
 (KF-SS-41).** Gate cases: **3 of 4 landed, 1 returned with its cure.**
 
 **The sha `.e` opens on: `cc8ef498`** (keyframes.js `master`) — **not an M-3 sha; see KF11-E(c1).**
+
+### KF.W11.h
+
+SERVED MODEL: claude-opus-5[1m]
+
+**Unit** KF.W11.h — the **amiga packet** (Track B · X·KF · phase 2, after `.b`) · **Date** 2026-09-19
+**Repo** `/Users/mkbabb/Programming/keyframes.js` @ `master` · **open** `ba12b2ba` · **close** `c8e3c56a`
+**Evidence** `docs/tranches/X/keyframes/evidence/W11/h-amiga-packet-2026-09-19.md` (every table, every figure double-run)
+
+**STATUS: GREEN.** G-KFW11-8 GREEN — 11 of 11 cases, double-run at the settled bytes; the §0u ratchet holds at **0** diagnostics in this unit's rows at open and at close, and never rose in between. Both packet BLOCKERs are CURED, not deferred.
+
+#### Crash-recovery (first act)
+
+⟨cmd⟩ `git -C ../keyframes.js status --porcelain` → **2 untracked rows**, both value.js-delivered mail packets, outside this unit's set — not touched. ⟨cmd⟩ `git status --porcelain` (value.js) → `CARRY-LEDGER.md` (a sibling seat's) + `scripts/dev/dev.sh` (unowned, never staged). **Zero inherited hunks inside `demo/scenes/amiga/**` or `test/demo/scenes/amiga-*.test.ts`** — nothing to finish, nothing to rewrite; no byte of this unit inherits a killed predecessor's work.
+
+#### Gate — G-KFW11-8, BEFORE → AFTER, double-run
+
+| ⟨cmd⟩ | spec / born-RED | AFTER run 1 | run 2 |
+|---|---|---|---|
+| `npx vitest run --project demo test/demo/scenes/amiga-paused-pose.test.ts` | `No test files found` ×2 | 1 file / **11 passed (11)** | **11 passed (11)** |
+| `grep -c 'it(' test/demo/scenes/amiga-sphere-spin.test.ts` | **5** (extend, never weaken) | **10** | **10** |
+| `npx vitest run --project demo` | 42 files / 339 passed | 44 files / **364 passed** | 44 / **364** |
+| `npx vue-tsc --noEmit -p tsconfig.json \| grep -ci amiga` | **0** | **0** | **0** |
+| `npx tsc --noEmit -p tsconfig.test.json \| grep -ci amiga` | — | **0** | — |
+| `npx eslint demo/scenes/amiga test/demo/scenes/amiga-*.test.ts` | — | exit **0** | — |
+| `git diff ba12b2ba..HEAD -- test/…/amiga-*.test.ts \| grep -c 'skip\|.only('` | — | **0** | **0** |
+
+**Born-RED, each case for its own mechanism** (transcripts in the evidence file): the paused stage read `x = 0` where the pose read `+5`; the frame consuming a seek returned `false`; the drag frame returned `false`; resume covered a **2.224-unit** gap in ONE frame; a 60 s frame completed the settle; `createPoseContinuity is not a function`; the subject carried none of the square's a11y set; and the apex approach measured **4.5×** the floor approach — MISSED-E's inversion, in numbers.
+
+**D-1's mechanism, proved in two numbers at the baseline**: the scrub DOES reach `pose` (`{ px: 5, … }` after `setChildTime(bouncingX, 2000).render()`) while `mesh.position.x` stayed **0**. The pose was never deaf; the stage was.
+
+#### The cures, in the order the record sets them
+
+- **D-1 (BLOCKER)** — one read of `pose` outside the `playing` branch, behind an explicit pose AUTHORITY (`"pose"` while the group plays AND after any seek; `"home"` once it stops with no seek since), so a seek takes the stage back from an in-flight settle and T.A8's stop settle is untouched when none lands. **The doubled gate is undone**: the frame that consumes a seek declares itself LIVE, which is the same edge `markRenderDirty`-from-`setProgress` would have been — landed at the scene's own liveness contract because the facility's `setProgress` is **outside this unit's §Bounds** (stated, not worked around).
+- **L-B1 (BLOCKER)** — `isDragging()` existed and nothing consulted it; the drag's edge joins the gate, and L-m6 rides with it (the glide's liveness is the value `tickGlide()` RETURNS, not the one-frame-stale `isGliding()` re-derivation, which closes L-i6's discarded final delta too).
+- **D-3 + C-18 + M-3 + L-M4/C-2 + L-i3** — ONE continuity mechanism for every seam: the stage renders `authority + offset`, three PER-CHANNEL lanes decay the discontinuity to zero from each channel's own entry velocity (relative to the authority's, measured only while the group PLAYS — a scrubbed pose is a position the user chose, not a motion). Value- AND velocity-continuous in both directions; the springs are long-lived and re-seeded. The frame clock is re-armed at every loop restart and the delta clamped to four frames' worth.
+- **D-2** — the subject-a11y idiom BORROWED from `.b`'s landed `3af1422b` (§Sequencing 7 below), the keyboard route landing in the gesture layer so T.A7's one-author discipline survives.
+- **The room (D-8 + C-9 + L-M2/C-14 + D-6/D-11 + M-4 + M-5 + M-6 + L-M5/C-4)** — an error posture with context-loss recovery; the visibility resume marks dirty; the disposal walks every drawable (both GridHelpers are LineSegments) and every texture, with a deterministic `forceContextLoss`; the camera dollies to fit and carries D-11's φ lift; the mount path stops dividing by a zero its own sibling guarded.
+- **The model (C-12/L-i2 + C-10 + C-5 + C-13 + L-m3 + M-6)**, **MISSED-C**, **MISSED-E**, **L-M1/C-8 + MISSED-G**, and the prose/probe tail (**C-16 + C-17 + L-M3/C-11 + D-13/D-14/D-15/L-i7 + MISSED-I + L-i8**) — each with its LAW A census where it deletes.
+
+#### OP-3 / D-19 — re-derived BEFORE the geometry cure
+
+`hypot(1.5, 13.8)` = **13.8813** → half-extent `13.8813·tan 25°` = **6.4728** → fit `6/6.4728` = **0.927** · frustum ∩ ball plane **+6.199 / −6.861** → headroom **3.199** : footroom **1.861** = **1.719:1**. **Every banked figure reproduces exactly.** After the cure (lift 1.5 → **1.75**, the single free parameter): **1.624:1** against φ = 1.618, **0.4 %** — and more floor visible, which is the reason the lift exists. The fit term is a DOLLY along the view axis, so the authored arc is never scaled and a user's orbit survives a resize.
+
+#### §Sequencing 7 — the borrow, verified against the LANDED exemplar
+
+`.b`'s a11y cure `3af1422b` is in the tree at this unit's open. The idiom was read at **SquareScene.vue's bytes** (`role="group"` · `aria-label` · `aria-keyshortcuts` · `aria-describedby` · `tabindex` · `@keydown` · `kf-focus-ring` · two hidden axis sliders) and the gate ASSERTS it that way: the test reads the exemplar at runtime, **strips its comments** (the exemplar explains its contract above the element it carries — a naive index reads the prose, and this seat hit exactly that), and requires every attribute of the element on amiga's subject. **A description of the exemplar is never consulted.** Amiga's children are the canvas's fallback content — the accessible subtree of a replaced element — so **no DOM layer joins the stage** and the scene's own T.A10 ruling stands.
+
+#### LAW A — six censuses before six deletes
+
+C-5 (three returned animations → **0** consumers) · C-10 (`pz` → 7 hits, all in-module, **written by nothing**) · C-13 (the `SCENE_ID` alias → 0 external) · MISSED-C (the UV override → no reader) · L-m3 (2 declarations → 1) · **C-20 (`checkerboard.jpg` → 3 prose hits, 0 code references, 103890 B — census CLEAN, delete NOT TAKEN, see below)**.
+
+#### Commits — 10, each by exact pathspec, each with the session trailer
+
+`c0d81c7d` D-1+L-B1 · `adb99d16` continuity lanes · `da10a50a` D-2+MISSED-F · `1e338dde` MISSED-E · `c7f84b93` L-M1/C-8+MISSED-G (+the witness extension) · `d28cb8e2` the room · `ec8e1d62` the model · `a88df330` MISSED-C · `7a482d9b` the prose/probe tail · `c8e3c56a` `test(… G-KFW11-8)` **= the roster commit, naming every P8 id LANDED / PARTIAL / NOT-TAKEN**. Every `git show --stat` line is a `.h` row of §Bounds `:125-126` plus the two test files of `:135`/`:137`. One amend, on this unit's own tip before any sibling commit landed on it (`1d2f43a2` → `c8e3c56a`): the shell had eaten the message's backticked spans.
+
+#### ESCALATION — one, bounded: C-20
+
+**`demo/scenes/amiga/checkerboard.jpg` (103890 B) is dead** — census re-run clean at this sha (3 prose hits, **0** code references; the board is procedural, baked in `utils.ts`). **The path is NOT in this unit's writable set** (§Bounds `:125-126` names `AmigaScene.vue` plus five carve modules by name), and a delete is a write. **Returned, not taken** — a one-command act for a seat that owns the path, or a bounds grant.
+
+#### Residuals — declared, not dropped
+
+**MISSED-A** PARTIAL: the AT channel is open (name · keyboard · description · two axis sliders); the VISIBLE touch affordance has exactly two shapes — a DOM layer on the stage, foreclosed by the scene's own T.A10 ruling this seat may not re-open, or an in-canvas legend, a **PENDING-OWNER** taste act inside the grid-room composition. Routed with its reason; SS-13 confirms on-device. · **D-14's archaeology limb** partially landed: the actionable halves (the template's removal changelog, the probe's false oracles, forced-colors) are cured; the residue is the house-wide tranche-tag idiom every demo file carries, named rather than unilaterally spent in one scene. · **D-11's perceptual verdict** is SS-13's by the row's own scoping (the arithmetic landed). · **M-5** landed as the row's own second arm — *"record the cost as accepted"* — with the mechanism stated at the loop and the comment that claimed an idle CPU corrected; standing the FRAME down would have re-opened L-B1 by construction. · **L-i5** stays KF.W6's rider (this unit touched the bake site and did **not** adopt the row).
+
+#### Rows surfaced for other seats
+
+**MISSED-F's house-wide half** — `touch-action: pinch-zoom` landed on the amiga canvas (the largest such surface); the row calls the idiom house-wide at **six** scene sites and the other five are other units' files. Routed to `.j`; no seat's file was reached around. **ZERO glass-ui producer rows from this packet** — the scene's only producer edge is `resolveCanvasColor` (`@mkbabb/glass-ui/canvas`), consumed as shipped and untouched, so `.h` sends **no SS-6 ask**.
+
+#### E13 — the sweep at this seat's clock
+
+Four paths swept read-only; classification by the Status cell's **position**, never a bare `grep -i unread` (the phrase appears in four rows' prose and in **none** of their Status cells): ⟨cmd⟩ the positional scan → **0** · **0** (double-run) over **79** rows. Newest letter on each path is rowed. **No wave-scope mail is UNREAD; this unit mints no letter.**
+
+#### Inherited-paths clause
+
+**Zero writes outside the writable set.** No `src/**` byte · no `vitest.config.ts` · no `package.json` · no `node_modules` · no glass-ui byte · no sibling track's path · no `demo/DESIGN.md` · no `test.skip`/`.only` · no `@ts-expect-error`, `as any` or `eslint-disable` added · no stash, no `reset --hard`, no force-push · **`scripts/dev/dev.sh` never staged** · the LEDGER row is `.j`'s and was not touched.
+
+#### SELF-COUNT
+
+**10** commits listed and **10** exist in `git log` for this unit · **7** gate/check commands tabled, each read twice where the spec asks · **23** named P8 rows + the INFO bag, all accounted in the roster commit · **6** LAW A censuses · **6** re-derived geometry figures, all reproducing · **1** escalation (C-20) · **1** partial (MISSED-A) · **5** residuals declared · **0** figures published that were not read from settled bytes.
