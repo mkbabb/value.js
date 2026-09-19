@@ -1578,3 +1578,33 @@ minted-wave boundary (§0d) and KF.W3's GATED posture (§0b) are untouched by th
 **Unit `.n` (Opus, after `.m`)**: the r1 arm hands `src`; the two grammar cures; the §8.1 cure with ID-5; the ID-1b, ID-3, ID-4 predicates and §9 rows; the equivalence emitter's miss entries gain a `rulingId` field (F-z2's lineage — the W4 biconditional becomes machine-checkable); re-emit the seals; G-1 · G-4 · G-7 · G-9 re-run; stamp W3 IMPLEMENTED-with-carried-REDs-by-id.
 
 **The W4 id-set, widened BY RULING**: `{GROUND-C · ID-1/ID-1b · ID-2 · ID-3 · ID-4 · ID-5 · PB-11(F-l3) · R-f1 · E-k2}` — every member a ruled class with a predicate and a printed census; a tag with no ruling (BND-1, SH-1, F-k2, F-m1, E-j1) is never a member. W4.md's OP-2 addendum gains the widened set by dated addendum. D relaunches on this word.
+
+## §0x ADDENDUM 2026-09-19 — F.W3's OWNER-GATED FLAGS S-6a/b/c RULED (MISSED-D · i-3 · P-10); THE WAVE RESUMES AT `.b`
+
+F.W3 closed NOT-CONFORMANT because unit `.b` halted correctly on an unruled owner flag and the chassis
+therefore never dispatched `.d`, `.e`, `.f` — incompleteness, not relief. The flags, ruled:
+
+- **S-6a · MISSED-D — the easing adoption route: ROUTE 1, the `EasingCurve` re-home.** glass-ui
+  8.0.0 (`1bc09dde`) ships `EasingCurve` (zero-state; `strokes: EasingStroke[]`; `d` a path); the
+  premise that once priced the route as a tri-package deadlock is discharged (8.0.0 measured
+  installed, `./easing` in the export map — the deadlock arm prices at zero). Consequences exactly as
+  `.b`'s docket measured them: `EasingCurvePreview.vue` is a **DELETION**, MorphPhaseConfig's twin
+  re-homes onto the same producer component, the `size`/`color` props die (the producer has neither),
+  both accent arms re-mint off `--motion-accent` → `--easing-curve-accent` over `--viz-legendre`, one
+  `d`-precision policy covers both builders, the single BARREL seam dies with the file; D-3 dies by
+  construction. Glass-ui-first-class law (a renderer the producer ships is never re-implemented
+  downstream); the ToggleChip route is REFUSED. g7/g8 turn on this route.
+- **S-6b · fr-ContourSettings i-3 — the default-collapsed IA: COLLAPSED by default.** Contour settings
+  are secondary to the canvas; progressive disclosure is the audit's own posture. No per-viewer
+  persistence is minted for it in this wave.
+- **S-6c · P-10 — the re-pin target: already ruled** at §0i.3 (`v8.0.0` @ `17a11bc5`), homed at F.W1
+  and landed there; cited, not re-opened.
+
+**Orchestrator notes from the check (D-9 and the three MINORs).** The whole-suite playwright cadence
+of §7 is RUN as written — the durable fix was already in `visual-baseline.spec.ts` at the wave-open
+substrate, so the declined-cadence reason is refuted at the bytes; §5b's worktree plan is honoured by
+the remaining units (`.d`/`.e`/`.f` work in their worktrees, not the main checkout); F.W3's §8
+transcripts are filed at `docs/tranches/X/fourier/evidence/w3/` (the standing evidence home, mirroring
+`w1/`); `e2e/resolve-stack.ts` becomes the ONE `resolveStack`/`openArm` home and
+`contrast-floor.spec.ts` imports it. C relaunches; seat 0 RESUME MODE re-dispatches `.b` on this ruling
+and then `.d`, `.e`, `.f` per the banked plan.
