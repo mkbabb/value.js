@@ -10052,3 +10052,26 @@ This seat recommends neither and, like `.m`, measures both ends.
 so its two commits live in that root's history alone and are cited here by hash, which is what §8's
 last row asks for. value.js `tranche-u` is pushed to `origin`; the receipt is appended below this
 section's commit.
+
+**Push receipt, appended after the close's own two commits** (the owner's 2026-09-17 begin-word
+authorizes publish/push/pull; COHESION §0j). ⟨cmd⟩ `git -C /Users/mkbabb/Programming/value.js push
+origin HEAD` → `To https://github.com/mkbabb/value.js.git` · `45645e34..0ab94230  HEAD ->
+tranche-u`, **EXIT=0**; ⟨cmd⟩ `git status -sb` → `## tranche-u...origin/tranche-u`, no divergence.
+The close's two commits are **`f001a5de`** (this record's `## Close — round 7`, 272 L appended, 0
+deletions) and **`0ab94230`** (the LEDGER row's minimal in-place cell replacement — ⟨cmd⟩
+`git diff --numstat` read `1 1` for the two row cells, then `3 1` with the appended event line —
+plus the close event line at the file end). A sibling Track C commit (`585c347d`, F.W8.d) landed
+between them; **each of this seat's commits carries its own pathspec on the commit itself**, so
+neither swept in a sibling's staged work — ⟨cmd⟩ `git show --pretty=format: --name-only` over both
+returns exactly one path each.
+
+**Two roots were NOT pushed, each for a stated reason.** `<p2>` — ⟨cmd⟩
+`git -C /Users/mkbabb/Programming/parse-that-css-totality-p2 remote -v` → **0 lines**: the fresh
+writer root has **no remote** (R-2, recorded since X.P.W1), so `92ed4cc9` and `b07e32d` live in that
+root's history alone and are cited here by hash, which is what §8's last row asks for.
+`/Users/mkbabb/Programming/parse-that` — the **frozen, read-only** root: `W3.md` §4's *Do NOT touch*
+list names it (*"read-only evidence; the fresh-root law"*), its tree carries **31** dirty paths that
+belong to no X·P seat, and its `master` is this wave's **evidence pin**, not its product. Pushing it
+would publish a tree this wave is forbidden to write; **this seat declines and returns the decision
+rather than taking it silently.** Its quadruple was re-verified unmoved at C7.1 (`ef10d5b` · 31 · 7
+· 33).
