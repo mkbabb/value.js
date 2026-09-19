@@ -1375,3 +1375,65 @@ full-drag half-extent `96×1.12 + 110 + 8 = 225.5px` · tour-corner `96×1.08 + 
 #### SELF-COUNT
 
 This receipt: **10** commits listed and **10** exist in `git log` · **9** gate commands tabled, each with **two** runs · **5** OP-7 rows named · **5** residuals declared · **1** escalation · **4** locks discharged · **0** claims not read from settled bytes.
+
+### KF.W11.d
+
+SERVED MODEL: claude-fable-5-1
+
+**Unit** KF.W11.d — the **sequence packet** (Track B · X·KF · phase 1, group 3) · **Date** 2026-09-19
+**Repo** `/Users/mkbabb/Programming/keyframes.js` @ `master` · **open** `2c5f8c04` (`.b`'s close)
+**Spec** `KF-W11.md` §Agent Units `:237-241` · §Carry P2 `:170-178` · §B.1 row 2 `:82` · §Bounds rows `:104-110` · §B.3(1) `:147` · §Gates G-KFW11-2 `:291` · §Sequencing 8 `:324` · §Commit plan 3 `:378`.
+**Evidence** `docs/tranches/X/keyframes/evidence/W11/d-sequence-packet-2026-09-19.md`.
+
+#### Crash-recovery (standing law, first act)
+
+⟨cmd⟩ `git -C /Users/mkbabb/Programming/keyframes.js status --porcelain` → two untracked `docs/tranches/V/coordination/VALUEJS-INBOUND-*` mail packets — outside every `.d` path, untouched. ⟨cmd⟩ `git -C /Users/mkbabb/Programming/value.js status --porcelain` → five modified rows (`demo/shell/dock/layers/SlugEditLayer.vue`, `docs/tranches/V/reformation/CARRY-LEDGER.md`, `e2e/smoke/a11y-gradient-stop-grammar.spec.ts`, `eslint.config.js`, `scripts/dev/dev.sh`) + one untracked dir (`docs/tranches/X/fourier/conformance/walk/`) — all sibling-seat or unowned rows, none inside this unit's set; `scripts/dev/dev.sh` never staged. ⟨cmd⟩ `git status --porcelain -- docs/tranches/X/execution/B/KF-W11.md docs/tranches/X/keyframes/evidence/W11` → **empty**. **ZERO inherited hunks on any path this unit may write.**
+
+#### Anchors re-resolved at the open sha (KF-AT-28 / D-19)
+
+⟨cmd⟩ `git diff --numstat 69095552..2c5f8c04 -- demo/scenes/sequence/` → **empty** — every sequence file is BYTE-IDENTICAL to the spec's ref, so every §B.1 and §Carry anchor binds unchanged: `SequenceTarget.css:175-178` is the `.seq-handle:focus-visible` rule (`:177` the `box-shadow`), `SequenceTarget.vue` has 0 `focus-ring` hits, `SequenceScrubber.vue:176` cites `design-idioms.css:584` in a 300-line file, `SequencePlayhead.vue:27` carries the `top: calc(0.75rem + 1.25rem)` literal, `SequenceScene.vue:30-31` the mint-on-read getter + inert write. **Ratchet at open**: ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.json 2>&1 | grep -c 'error TS'` → **25** whole-tree; filtered to `demo/scenes/sequence` → **0** (this unit's floor; may not rise).
+
+#### THE DECISION — the canonical time domain (M-10's frame; K-25; §Seq 8) — written BEFORE the family's first commit
+
+Four domains are live at the bytes, and they disagree:
+
+| # | domain | where it is painted or announced today |
+|---|---|---|
+| 1 | the **authoring range** `at ∈ [0, STAGGER_MAX = 1600 ms]` | handle `left: at/1600·100%`, `--row-start = at/1600`, the axis labels `q·1600`, the row sliders' `aria-valuemax` |
+| 2 | the **master clock** `t ∈ [0, sequence.duration]` ms (1940 at the default staircase; STALE after any retime — N-2) | the engine's own loop; `sequence.progress = t/duration` |
+| 3 | the **normalized progress** `p ∈ [0, 1]` | the playhead `--playhead-p`, the scrubber, the header `Metric` (%), the timecode `0.000`, the master slider's `aria-valuenow` (0–100) |
+| 4 | the **pixel domain** — three p→x maps on one rail | handle centre at `at/1600·100%`; ball LEFT-anchored at `(row-start + ball-p·(1−row-start))·(100cqw − ball-size)`; playhead at `p·100cqw − 50%`; scrub-ball centred at `p·100cqw` |
+
+**CANONICAL = domain 2 — the master clock in milliseconds, `duration = max over rows of (at + ROW_DURATION)`.** It is the one clock the engine actually drives, and the one the ruler's own charter (J.W7c C-SEQ-2, `SequenceAxis.vue:5`) says it names. One spec, four consequences:
+
+1. **Every horizontal position is `t / duration` of the track column.** Handles at `at/duration`; `--row-start = at/duration`; the playhead at `time/duration`; the axis labels `q · duration` with the **terminal label = `sequence.duration`** (N-1's born-RED gate). `STAGGER_MAX` survives ONLY as the row slider's control range (`aria-valuemin/max`, the clamp) — a control's range, never a painted domain.
+2. **N-2 lands AGAINST N-1 in the same sha (K-25).** With `duration` the denominator everywhere, the engine's stale `_duration` (written only by `add()`, monotone, private) would poison every position after the first drag. The demo therefore stops mutating `entries` in place: on every retime and on reset it **rebuilds the engine `Sequence` from `childAnims` + `delays` through the public `add()`** — the only `_duration` writer — and re-seeks the retained master time. `sequence.duration` is then honest by construction and the axis reads it. The engine-side rider (recompute `_duration` on entry mutation, or close `entries` mutability) is **DECLARED to KF.W5/KF.W8 by id (N-2) and not written** (`src/**` is a wave-invalidating bound).
+3. **Domain 3 is derived, never authored**: `p = time/duration`. The master slider announces the canonical unit — `aria-valuetext = "<ms> ms of <duration> ms"` — and the row sliders `"<at> ms"` (**N-14, sequenced AFTER N-1** inside the same family: the domain hunks precede the valuetext hunks and the test asserts them in one run). The header `Metric` becomes the canonical clock's visual-numeric exposure (ms, N-14's rider) at a rung below the scene title (D-6); the scrubber's timecode keeps the normalized scalar with its prose corrected (D-3).
+4. **Domain 4 collapses to ONE p→x convention — centre-anchored on the track column**: handle centre, ball centre and playhead line all sit at `f · 100cqw` with a self-centring `−50%` / `−ball-size/2`; the ball rests ON its gate at `--ball-p = 0` by construction (N-4), the playhead track is placed on the same grid line as the axis and the tracks (D-1, after OP-3 below).
+
+**OP-3 re-derivation (D-19), performed before the geometry cure, at `2c5f8c04`**: the stage grid is `grid-template-columns: var(--label-col) 1fr` with `gap: 0.5rem 0` (`SequenceTarget.css:56`), `--label-col: 3.25rem`, `--col-gap: 0.75rem`, `--track-inset: calc(--label-col + --col-gap) = 4rem`, padding `0.75rem 1rem 1rem`. Column 2 therefore starts at padding-left + 3.25rem = **1rem + 3.25rem = 4.25rem** from the stage's border-box (the axis, `grid-column: 2`); the row track sits in the subgrid with `column-gap: var(--col-gap)` = 0.75rem, whose extra gutter is redistributed inside the parent's 0-gap column pair — the SS-13 #1 branch (4.25 / ~4.625 / 5rem); the playhead track is abspos at `left: calc(1rem + var(--track-inset))` = **5rem**. Split at p = 0: **12px** (5 − 4.25 = 0.75rem), decaying to 0 at p = 1 (both right edges at `right: 1rem`). The banked figure reproduces exactly. **Cure**: the stage declares `gap: 0.5rem var(--col-gap)` so the parent and subgrid gutters coincide (no redistribution branch survives to be ambiguous about), and the playhead track is **placed on the grid** (`grid-column: 2; grid-row: 2 / -1; inset: 0`) instead of transcribing the padding, so its left edge is the same grid line by construction, its top is the rows' top (D-2/L-4/C-5's hardcoded axis height and the 4.8px mobile drift die), and the diamond head can no longer strike the axis strip (the SS-13 #4 collision rider lands in the same commit, as the axis record orders).
+
+#### THE GESTURE SPEC (kf-SequencePlayhead N-12 · N-13 · N-3 · N-18; kf-SequenceScrubber C-2/L-D-4 + KF-SCR-6 + the N-13 bloom rider + C-12) — one spec
+
+- **What the playhead affords: nothing.** It is a reading mark (`pointer-events: none`, `cursor: default`); the grab cue it wore (`cursor: grab` beneath it via the handles) is the handles' own. The diamond is not a handle.
+- **Which element carries the name (N-18)**: the phosphor line in the stage IS "the master playhead" (`SequencePlayhead.vue`); the rail below is "the master scrub rail" that DRIVES it — its eyebrow, aria-label and prose say "master clock", never "master playhead".
+- **Which gestures light the well (N-13)**: every master-clock scrub — pointer (down→up) AND keyboard (keydown→keyup/blur) — sets `isScrubbing`; row retimes are authoring gestures, not scrubs, and do not light the well (declared, not omitted).
+- **When the streak flips (N-3, C-12)**: per admitted sample, from the sign of `p − lastP`, with a **deadband** — a zero-delta sample leaves the direction untouched; the keyboard path writes the same latch.
+- **One helper, four consumers (C-2/L-D-4, KF-SCR-6)**: `applyScrub(p, { gesture })` in `SequenceScrubber.vue` — pointer samples and the four keyboard verbs all route through it; the keyboard step is the **named** `SCRUB_KEY_STEP` (declared beside `ROW_AT_STEP`'s posture, not a bare literal).
+- **The NaN guard belongs at the projector** (the ruling-8 family): a zero-width rail projects to the current progress, never to `0/0`.
+
+#### THE STATE-SIGNAL SPEC (kf-SequenceTarget D-9 + D-15 + ST-2 + ST-4 + ST-10)
+
+The reel's running state is the shipped Button `loading` contract — `:loading="demo.isReeling.value"` — which emits `aria-busy`/`data-loading` and suppresses activation: it IS the announcement D-9.2 lacked, the affordance D-15 promised as a "pulse", and the user-visible form of `playReel`'s silent guard. `.reel-active` (a `border-color` on a 0-width border, ST-2) and the default-valued `emphasis="secondary"` (ST-10) die with it; the button takes `size="xs" iconOnly` (C-2) and a hover name (D9). The badge gains `role="status"` (D20) and its dead `reverse` arm dies with SC-2 (D19(a)).
+
+#### SC-2 — the transport-surface decision (expose or delete)
+
+`reverse`, `setTimeScale`, `resume`, `play`, `togglePlay`, `isReversed`, `timeScale`, `delays`, `scenePlayback` have **zero consumers** through the injector (census re-run below). **Decision**: `reset` is EXPOSED — it becomes the drag gesture's undo, a visible header button beside the reel ("Reset the storyboard rows to the default stagger"); the six transport verbs/flags with no affordance and no engine need are DELETED together with `isReversed`'s badge arm (the F.W9 docblock's "reverse / timeScale" claim is corrected — the prose-truth sweep). `pause`/`isPlaying` stay (consumed internally and by the badge). The engine-side rider joins N-2's declaration.
+
+#### ESCALATION KF11-E(d1) — the loop-seam family, returned not written
+
+**L-3 + L-10 + SC-5 + SC-6 = ONE commit whose cure is "one `SweepSceneOptions` parameter"** (`kf-SequenceScene.md:154`; spec §Carry P2). `SweepSceneOptions` is declared in `demo/composables/scene-runtime/useSweepScene.ts` (measured: `interface SweepSceneOptions` at `:43-64`, `useSceneVisibilityPause(() => playback.running, stopLoop, startLoop)` at `:119` bound to its OWN `RAFPlayback`) — **a path outside this unit's writable set** (§Bounds `:104-110`; `.b` declared the same file out of bounds for L-16/C-10). The specified cure is impossible at this unit's bytes without a write the spec makes an ESCALATION, and a demo-side substitute (hand-wiring `useSceneVisibilityPause` to the Sequence loop) is exactly the duplication the seam exists to end. **Not written; not substituted; the family is NOT split** — none of L-3/L-10/SC-5/SC-6 lands here. The cure shape, for whichever seat is granted the file: `SweepSceneOptions.loop?: { start(): void; stop(): void; running(): boolean }` — when supplied, `startLoop`/`stopLoop` drive that loop (the Sequence's `play`/`resume`/`pause`) beside the mirror, `isLoopRunning` reads it, and the visibility pause gates it; the sequence demo then deletes its hand-built `createRafAdapter` (L-10), publishes the seam's `scenePlayback` as the ONE adapter under ONE name (SC-6), and `isPlaying()` reads the loop that moves the pixels (SC-5). The demo-side consumption hunk is ready to land on that seam in one commit.
+
+#### The mount bound, stated before the test is written
+
+⟨cmd⟩ a scratch mount of `SequenceTarget` under `npx vitest run --project demo` → `Error: Cannot find package '@mkbabb/keyframes.js' imported from node_modules/@mkbabb/glass-ui/dist/useSpring-9u2_shxV.js` — `.b`'s blocker reproduced: `SequenceTarget` imports glass-ui `Button`/`Card`/`Metric`; the fix is the alias in `vitest.config.ts`, a §Bounds Do-NOT-touch row; no mock, no `node_modules` patch, no skip. **Consequence**: G-KFW11-2's runtime file mounts the import-free leaves (`SequenceAxis`, `SequencePlayhead`, `SequenceScrubber`) against the REAL `useSequenceDemo` (warmed engine), and witnesses the Target-only clauses (ST-4's binding; the three-rect equality) at the settled bytes — the rect equality as a **grid-model invariant over the parsed stylesheets** (parent gap ≡ subgrid gap ≡ `var(--col-gap)`; axis, track and playhead track each on `grid-column: 2`; no transcribed `left:` offset) with the pixel witness named to SS-13 #1/#10. **Ask (repeating `.b`'s)**: the unit that owns `vitest.config.ts` adds the alias; every scene-level Target mount in this wave is blocked on it.
