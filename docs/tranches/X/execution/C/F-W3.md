@@ -421,3 +421,21 @@ third iteration.
 | `77b9bc0` | the `--slider-scrub` family retires onto the producer's token, at full strength | **MPC-31's ONE CUT** — MPC-3 ⊕ MPC-10 ⊕ MPC-13 ⊕ MPC-8 ⊕ MPC-22 in one commit, across all 7 files, with the contrast leg; `MorphPhaseConfig.vue` lands here, **before `.b` opens** |
 | `f36541a` | the two timelines become one composition; the session cannot freeze; the keyboard reaches the axis | **D-11's `:16-18` rewrite is a HUNK of this commit**, never its own; `stores/animation.ts` lands here, **before `.b` opens**; `web/e2e/**`'s g4/g5 specs land here, **before `.d` opens** |
 | `a08809b` | g10's SliderControl leg | separate meaning (`R-7`'s settle event + the wrapper law); `R-21`'s docblock rode `77b9bc0` with the `R-1` cure, as its edict requires |
+
+##### Addendum (same seat, 2026-09-18, later) — a side effect of the §7 cadence, named and remedied
+
+The whole-suite `playwright` run is not read-only. `e2e/visual-baseline.spec.ts` writes full-page
+captures to `docs/tranches/J/audit/screenshots/{before,after}/` (`:34`), so running the suite
+**overwrote 21 tracked baseline PNGs of tranche J** — prior evidence, immutable under E-3, and
+outside this unit's writable set. Caught at the close sweep (⟨cmd⟩ `git status --porcelain` → 21
+` M` rows, all under that one directory, every one a file this seat had measured CLEAN at Act 0) and
+restored by exact pathspec: ⟨cmd⟩ `git checkout -- docs/tranches/J/audit/screenshots/before/` →
+porcelain **0**, double-checked. Nothing was committed while they were dirty: all four of this
+unit's commits name their paths explicitly, and none of those paths is under `docs/`.
+
+Stated for the next seat rather than quietly fixed, because the trap is in the CADENCE and not in
+this run: **§7 asks every unit to run the suite at close, and doing so mutates a sibling tranche's
+banked evidence by default.** A unit that commits with `-A` after a cadence run would bank the
+overwrite. The durable fix — an env-guarded write, or the baselines out of the tracked tree — is a
+change to `visual-baseline.spec.ts`, which is F.W4's file and no row of this unit's, so it is routed
+rather than taken.
