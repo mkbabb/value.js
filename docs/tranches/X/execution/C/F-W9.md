@@ -575,3 +575,481 @@ No commit swept a sibling seat's paths: every one carried its exact pathspec, an
 **E13**: no mail act was owed by this unit — seat 0's four-path sweep at open returned **0 unrowed ·
 0 UNREAD** in F.W9's scope, and this unit minted no new letter. The relays above (**E-F9a-6**,
 **E-F9a-7**) are **X.F.W9.c**'s `INBOX.md` append, per §2.5's split.
+
+---
+
+### X.F.W9.b
+
+SERVED MODEL: claude-opus-5[1m]
+
+**Unit**: the seats, the harness and the floor — §2.2's 8-item checkpoint set (L216–233) · §2.3's
+S1–S5 (L235–243) · §2.4 (L245–258) · §3 **G-F9-1..-14** · **-22** · **-23** (L437–450, L472–473) ·
+§4a-4 · -5 · -6 · -7 · -8 · -9 · -10 · -13 · -16. **Wall clock**: 2026-09-19. **Substrate at open**:
+fourier `e111220` (`m/w1-bump-migration`), i.e. unit `a`'s tip.
+
+#### b.0 Crash-recovery sweep — nothing inherited on this unit
+
+⟨cmd⟩ `git status --porcelain` in `/Users/mkbabb/Programming/fourier-analysis` → `?? .worktrees/`
+alone (three sibling F.W3 checkouts `f3b` · `f3d` · `f3e`, ⟨cmd⟩ `git worktree list`) — **no path in
+this unit's writable set is dirty.** value.js carried its standing rows; `scripts/dev/dev.sh` was
+**NEVER** touched (§1d · §0j.A **DR-24**). Zero killed-predecessor bytes inherited; nothing stashed,
+restored or reverted.
+
+#### b.1 SEAT-0 BRIEF, FIRST ACT — G-F9-22's precondition and the four keystones, re-measured BY NAME
+
+**(i) The four `test.fixme` keystones, by name — the spec's coordinates are stale, the record's are
+right.** ⟨cmd⟩ `grep -rn "test.fixme" web/e2e/` → **five call sites**:
+
+| site at these bytes | test name (the stable anchor) | disposition |
+|---|---|---|
+| `visualization-ux.spec.ts:151` | *"keystone: workspace default has no serious/critical a11y violations"* | keystone 1 — **F.W3/W4's un-fixme** |
+| `visualization-ux.spec.ts:178` | *"keystone: ContourSettings Configurator-open is a11y-clean"* | keystone 2 — **F.W3/W4's** |
+| `visualization-ux.spec.ts:249` | *"keystone: AnimationControls dropdown-open is a11y-clean"* | keystone 3 — **F.W3/W4's** |
+| `visualization-crud.spec.ts:664` | *"a11y keystone: workspace default is clean @ ${vp.name} @mutating"* | keystone 4 — **F.W3/W4's** |
+| `visualization-ux.spec.ts:371` | *"save_contour_then_recompute: canvas re-renders within one rAF after saveContourPoints"* | **the carved fifth** — its own in-file comment reads *"Un-skip at W3"*; §5 excludes it by name and it reddens F.W3, not `G-F9-8` |
+
+The spec's `ux:110`/`:133`/`:192`, `crud:630` and the fifth's `ux:212` are all stale — D-19-class
+anchor drift under F.W3/F.W4's landings, as the record's baseline already found. **The un-fixme was
+NOT performed here.** X.F.W3 `.d` left its own reason in the bytes at `visualization-ux.spec.ts`
+(*"the RUN is the precondition and it needs the full stack … Deleting a booked baseline on a
+prediction instead of a measurement is the failure mode `LC-2` is itself convicting"*). **G-F9-8
+stays honest-RED with that relief cited.**
+
+**(ii) FR-TT-1's 17 naming legs — MEASURED CURED at the bytes.** The promotion lock says `G-F9-22`
+*"may not be argued green while the legs are open"*, so the legs were read, not assumed. L-4's
+citable table is *Editor ×10 · Canvas ×6 · FunctionInput Wand2 ×1 = 17*. At these bytes **every
+`<Tooltip>`-wrapped icon trigger carries an explicit `aria-label`** — a NAME, not the shim's
+only-while-open `aria-describedby`:
+
+```
+⟨cmd⟩ grep -n '<Tooltip\|aria-label' web/src/components/visualization/EditorControlsDock.vue
+      → Save contour :98/:102 · Undo :144/:145 · Redo :149/:150 · Smooth :157/:158 ·
+        Simplify :162/:163 · Delete point :167/:168 · Contour trace :210/:211 ·
+        Image overlay :215/:216 · Reset to extraction :224/:225 (+ Magnet :176 / Overlay :204)
+⟨cmd⟩ … CanvasControlsDock.vue → Image overlay :73/:74 · Contour trace :78/:79 ·
+        Publish to Gallery :90/:91 · Equation :96/:97 · Edit contour :106/:107 · Fullscreen :112/:113
+⟨cmd⟩ … FunctionInput.vue      → the Wand2 trigger :229 → aria-label :240
+        ("Auto-select harmonics by Parseval energy")
+```
+
+F.W4's cure has landed. The legs are **CLOSED**; `G-F9-22` is therefore RED on its OTHER clause
+alone, measured at b.9 — not argued green and not waived.
+
+#### b.2 G-F9-1 — the FLOOR · commit `8fd35a9`
+
+**Born-RED, reproduced and then some.** The record's baseline found the SEAT green-before-cure and
+the FLOOR RED: three X.F.W3 `.e` vitest files sat outside every runner's glob. Re-measured here, the
+defect is worse than "outside a glob" — ⟨cmd⟩ `npx vitest run src/lib/basis.test.ts
+src/lib/time.test.ts src/lib/equation/notation.test.ts` → *"No test files found, exiting with code
+1"*. **Naming all three explicitly still ran none of them.**
+
+Four acts, one meaning:
+
+1. `vitest.config.ts` `include` gains `src/**/*.test.ts` (Playwright's `testDir: "./e2e"` cannot
+   collide — `src/` is not under it). **Population: three globs, declared where they are consumed.**
+2. `package.json` — `test:unit`→**`test`**, `test:unit:watch`→`test:watch`, so the gate's own letter
+   (*"`npm test`"*) is the entry point. ⟨cmd⟩ `grep -rn "test:unit" .` → the only three references
+   were the two script keys and `ci.yml:187`; all three moved together.
+3. **`ci.yml`: the unit block moved to the FRONT of `web-build`.** It ran LAST, behind the
+   type-check and two lint gates, and `npm run lint` is RED at these bytes on three
+   `no-duplicate-imports` in `web/src/**` — so the job stopped above the floor and the floor's claim
+   (*"the spec population runs in CI"*) was **false in practice while every step was configured
+   correctly**. Nothing is `continue-on-error`, nothing is skipped; only the order of the two
+   cheapest, most independent steps changed. F.W4's `G-F4-VITEST` keeps its name on the step it
+   landed.
+4. **`e2e/unit/unit-floor-population.vitest.ts`** — the THRESHOLD, as an assertion rather than as
+   prose. It walks `web/` for every test-shaped file and asserts (a) none is unclaimed by every
+   runner and (b) none is claimed by two. The runners' claims are **read from their own configs** —
+   vitest's `include` imported from `vitest.config.ts`, the `node:test` seat's operands parsed out of
+   `ci.yml`, Playwright's `testDir` out of `playwright.config.ts`, with an assertion that
+   `testMatch` is still unset — so nothing here re-derives its own oracle (**KF.W4(d)**).
+
+**The two runners still coexist, and the decision is recorded, not taken silently**: re-homing F.W0's
+`node:test` seat onto vitest would discharge a closed wave's landed gate with this wave's runner,
+which §2.4's RUNNER-SEAT DISJOINTNESS (**R-5**) forbids in as many words. The population assertion
+counts the seat's file as **claimed**, so the coexistence is measured.
+
+```
+⟨cmd⟩ npx vitest run   BEFORE → Test Files  8 passed (8)  · Tests 57 passed (57)
+⟨cmd⟩ npx vitest run   AFTER  → Test Files 13 passed (13) · Tests 84 passed (84)   [double-run: 13 / 84]
+⟨cmd⟩ node --test --experimental-strip-types e2e/unit/figure-dimensions.unit.ts → pass 1 · fail 0
+```
+
+**FALSIFIED, by measurement.** Seeded `web/e2e/orphan-probe.vitest.ts` (a real orphan: `e2e/*.vitest.ts`
+matches neither `e2e/unit/**` nor Playwright's `testMatch`) →
+*"these test files run in NO runner and in no CI job … `web/e2e/orphan-probe.vitest.ts`"*, **exit 1**;
+removed → **exit 0**. **G-F9-1 GREEN.**
+
+#### b.3 G-F9-2 — the lint floor made ABLE TO FAIL · commit `019fb90`
+
+The record's baseline had this GREEN-BEFORE-CURE on the config's existence, with the falsifier
+*"fails on a seeded violation"* **UNMEASURED**. Measured here — and one of the two floors could not
+fail at all.
+
+**(a) The `lint` script (ESLint): passes its falsifier.** Seeded through `--stdin` at a `src/`
+filename, so the exact config the CI step runs is exercised and no byte is written outside bounds:
+
+```
+⟨cmd⟩ printf 'import { ref } from "vue";\nimport { computed } from "vue";…' \
+        | npx eslint --stdin --stdin-filename src/__seeded__/duplicate-import.ts
+      → 2:1 error 'vue' import is duplicated  no-duplicate-imports   · exit 1
+⟨cmd⟩ … <unkeyed v-for> … --stdin-filename src/__seeded__/Unkeyed.vue
+      → 2:7 error Elements in iteration expect to have 'v-bind:key'  vue/require-v-for-key · exit 1
+⟨cmd⟩ printf 'export const ok = 1;\n' | npx eslint --stdin --stdin-filename src/__seeded__/clean.ts
+      → exit 0     (the control: a clean file is not reported)
+```
+
+**(b) The oxlint floor COULD NOT FAIL, and §2.4's `M7` row plus F.W0's own routing put the cure
+here.** F.W0's CI comment reads *"Tightening to `--deny-warnings` is F.W9/W10's act"*. It had to be
+taken, because:
+
+```
+⟨cmd⟩ npx oxlint@1.42.0 <a file with a seeded duplicate object key>
+      → "Found 1 warning and 0 errors."   exit 0      ← a real defect reported; the gate passes
+⟨cmd⟩ npx oxlint@1.42.0 src e2e vite.config.ts playwright.config.ts
+      → "Found 10 warnings and 0 errors."  exit 0
+⟨cmd⟩ npx oxlint@1.42.0 --deny-warnings src e2e vite.config.ts playwright.config.ts   → exit 1
+```
+
+F.W0's banked *"0 errors and 18 warnings"* was therefore a reading of a step that **could not
+redden**. `--deny-warnings` landed with **no `--allow`, no ignore file, no rule disabled, no
+`continue-on-error`**.
+
+**Its own surface was cured first, in bounds.** Three of the ten were in `web/e2e/` — F.W9's
+surface: `workspace-flow.spec.ts` read `page.url().match(/\/w\/([^/]+)/)?.[1]!` at three sites, a
+non-null assertion ON an optional chain, which silences exactly the case it claims to handle (the
+spec then carried `undefined` forward as a slug and failed later with an unrelated message). Cured by
+the assertion the `!` stood in for, written once. ⟨cmd⟩ `npx oxlint@1.42.0 --deny-warnings e2e` →
+**"Found 0 warnings and 0 errors."**
+
+**Seven remain, all `web/src/**` — product source, which F.W9 does not own.** Enumerated on the CI
+step's face and here, routed to whichever wave next opens each file:
+`ConvergencePlot.vue:312,331,345` + `GalleryView.vue:148` (`no-unused-expressions` ×4) ·
+`lib/svg-fourier.ts:44,179` (`no-new-array` ×2) · `lib/api.ts:188`
+(`no-useless-fallback-in-spread`). **G-F9-2 GREEN as an instrument; the tree is born-RED under it and
+the roster is published, not hidden.**
+
+#### b.4 G-F9-13 — the coarse-pointer cell, FIRST (§4a-8 MATRIX-BEFORE-COARSE) · commits `3913738` · `160f7f3`
+
+Landed **before** any coarse witness, because an assertion written first would have been
+green-by-unreachability: ⟨cmd⟩ `grep -c 'name: "' web/playwright.config.ts` → **1** — one project,
+`Desktop Chrome`, `pointer: fine`, so no `@media (pointer: coarse)` block in the app OR in glass-ui
+could ever match in CI.
+
+`mobile-chromium` (`devices["Pixel 7"]`, `grep: /@coarse/`) joins the matrix, and `ci.yml`'s e2e step
+names **both** projects — a config-only change would have left the instrument uninvoked. The
+`@mutating` exclusion was hoisted into a per-project `excluded()` helper because Playwright's
+project-level `grepInvert` **supersedes** the top-level one rather than composing with it: the first
+project to declare its own filter would have silently dropped the prod cell's guard.
+
+```
+⟨cmd⟩ npx playwright test --list --project=mobile-chromium | grep -c coarse → 4
+⟨cmd⟩ npx playwright test --list --project=chromium       | grep -c @coarse → 0
+```
+
+`e2e/coarse-pointer.spec.ts` carries the witnesses, the first of which asserts **the emulation
+itself** — without it every later assertion could pass because no coarse rule matched.
+
+**RUN, against a local `vite` dev server (BASE_URL :3111) — 3 GREEN, 1 honest-RED with two real
+findings:**
+
+| witness | reading |
+|---|---|
+| the emulation is coarse | **GREEN** — `(pointer: coarse)` · `(any-pointer: coarse)` · `(hover: none)` all true |
+| the producer's coarse token pair on `:root` | **GREEN** — `--ui-scale` **1.5**, `--control-floor` / `--touch-target` token `2.75rem`, resolved **44px** |
+| every shell-header control ≥ 44px | **honest-RED** — `About Fourier analysis → 20.8px` (the logo trigger, `FR-AH-45`'s surface) · `Dark mode → 40.0px` (`FV-11`'s 44-vs-60px class). **Both are `web/src` cures; F.W9 owns no cure** |
+| the image-upload affordance is tappable | **GREEN** |
+
+⌧ **A defect in this unit's OWN instrument, found by running it and fixed rather than accommodated**
+(commit `160f7f3`). The first token witness read `--control-floor` with `getComputedStyle` and
+`parseFloat`'d it — but a custom property is **not length-resolved**, so it returned the number
+`2.75`, not 44px, and the test failed against a tree that was correct. The cure is to resolve it the
+way the layout does, through a probe element that consumes the variable, with the raw token asserted
+beside it. **The gate was wrong; the tree was right; the gate was fixed.**
+
+⊘ **NO SAFARI CELL IS DISCHARGED.** `mobile-chromium` is Chromium under emulation. `X-W11 G8` is
+untouched — stated on the project, in the spec's docblock and on the CI step.
+
+#### b.5 S4 — G-F9-7 · G-F9-9 · G-F9-10 · commits `5256126` · `d3fab17` · `214cb5e`
+
+**Four of `gallery.spec.ts`'s six tests could not fail.** Each guard is now an assertion that its
+precondition **EXISTS**, keyed on the component's own accessible contract rather than on a layout
+class, so a class rename cannot silently re-vacuate it:
+
+| site | was | is |
+|---|---|---|
+| `:21-22` | `expect(glassDock.or(searchInput)).toBeVisible()` — a mask. `/gallery` mounts NO `.glass-dock` (it is `CanvasControlsDock`'s, on `/visualize`), so the assertion always resolved on one side | `getByRole("search", { name: "Gallery search and filters" })` **and** `getByRole("searchbox", { name: "Search gallery by slug" })`, both required |
+| `:49-53` | an expand branch for that absent dock, wrapped in `.catch(() => false)` | **deleted** |
+| `:58` | `if (await filterToggle.isVisible())` around the test's ONLY `expect` | the toggle is required, and its `aria-expanded` disclosure contract is asserted **through** the click |
+| `:72` | `if (await loginBtn.isVisible().catch(() => false))` around the whole body | the login trigger is required; the slug field's label AND its `FR-USB-5` format placeholder are asserted |
+
+**The seat's falsifier is now a property of the file**: deleting the search bar or the slug bar
+reddens its spec, because each is a required precondition rather than a possibility.
+
+⊘ **C-M4 IS NOT FOLDED IN.** Its mechanism is the WRONG element's `data-state` and its cure is a
+`web/src` restructure owned by F.W3/W4. Folding it under a shared cure shape would have hidden a
+distinct defect — the spec's own instruction, honoured.
+
+**G-F9-9** — born-RED ⟨cmd⟩ `grep -cE 'modal|dialog|card|Open Visualizer' web/e2e/gallery.spec.ts` →
+**0**. A card is now opened through its own `role="button"` name (`Open ${image_slug}`, D.W4.c) and
+the modal is asserted **by its accessible name** (`GCM-4`'s `<DialogTitle>` cure), not by its box.
+The gallery list is stubbed at the HTTP boundary — F.W4 `.g`'s documented idiom — because a fresh CI
+database renders an empty grid and a card that is not there cannot be opened, which is the vacuity
+this seat exists to end.
+
+**G-F9-10** — §4a-9's INTERACTION LOCK is **RELEASED** (F.W1 CLOSED 2026-09-18), so the widening
+lands in the wave §2.3 S4 assigns it to. The guard now records `error` **and** `warning`. Its filter
+list is a **transport** filter (`favicon`, `ERR_CONNECTION_REFUSED`, `Failed to load resource`) — no
+app-authored message can contain those strings, so nothing app-side can hide behind it, and no entry
+was added to make a run pass.
+
+**RUN (BASE_URL :3111): 6 of 7 PASSED.** All five rewritten/new tests are GREEN, including the card
+open and the widened console guard — **`/gallery` emits zero app errors AND zero app warnings.** The
+single failure is the pre-existing *"visualizer surfaces its overlay control dock"*, which needs the
+upload → `/w/` redirect and therefore the backend; it is untouched by this unit and fails only
+because no API was running at this seat.
+
+Fixtures extracted to `e2e/fixtures/gallery.ts` (commit `214cb5e`) and cited by three specs — F.W4's
+admin keystone, this seat and the checkpoint — rather than copied. §4a-7: **author once, cite many;
+extend the keystone, never clone it.** Every assertion in F.W4's spec is byte-unchanged; only the
+fixtures' source moved.
+
+#### b.6 G-F9-11 · G-F9-12 — fullscreen at the teleported root; the shell header · commit `2b42f28`
+
+**G-F9-11.** Born-RED: the only "Fullscreen" occurrence in `web/e2e/` was a COMMENT
+(`gallery.spec.ts:113`). `e2e/fullscreen.spec.ts` opens the viewer from the dock and asserts
+**against the teleported root**: ⟨cmd⟩ over the installed producer —
+`grep -o 'DialogPortal[^,;)]*' node_modules/@mkbabb/glass-ui/dist/DialogContent-4hzLiaCQ.js` →
+`DialogPortal as x` — so the content is portalled to `<body>`, and the spec asserts
+`{ insideAppRoot: false, underBody: true }`. ⟨*RE-MEASURED, and the spec's coordinate is stale in the
+right direction: `F-W9.md` names FV-27 as one of two Teleport sites "with `PaperSearchModal.vue:41`";
+at these bytes the sole hand-rolled `<Teleport to="body">` left in `web/src/` is
+`PaperSearchDropdown.vue:163`, because F.W3 `.d` retired the viewer's own Teleport for the producer's
+Dialog. The mechanism moved; the requirement did not.*⟩ **AUTHORED, NOT RUN** — the open path needs
+the upload → `/w/` redirect and therefore the API. Honest-RED on the run; its first execution is
+CI's, the posture F.W0 used for its own keystone.
+
+**G-F9-12.** Born-RED: no e2e touched the header's nav, logo or toggle. `e2e/shell-header.spec.ts`
+asserts all three — the logo's name and its attribution card, the nav trigger's
+name-carries-the-section contract, every declared route reachable from the one affordance, the round
+trip (navigate → the trigger re-names itself), and the toggle's `aria-pressed` with its name held
+**stable** across the flip.
+
+**The N-2 same-commit rider (§4a-12) is DISCHARGED, not skipped.** The CURE half is F.W4's, banked,
+and it landed: `DarkModeToggle.vue` reads `aria-label="Dark mode"` + `:aria-pressed="isDark"`, and
+`paper-performance.spec.ts:328` already carries `{ name: /dark mode/i, pressed: false }`. There is no
+label byte left for this commit to carry. What WAS owed is the spec's other named residue — *"`:329`
+waits 250 ms against a 350 ms morph"*, a fixed wait **shorter than the transition it waits for**,
+which is a flake by construction and dead time when it is not. Replaced by a wait on the STATE
+(`aria-pressed` → `true`, then `expect.poll` on the resolved background). Nothing is swallowed: a
+theme that never flips now reddens loudly instead of producing two identical readings 250 ms apart.
+
+**RUN (BASE_URL :3111): 4 of 4 shell-header tests GREEN.** **G-F9-12 GREEN.**
+
+#### b.7 S2 — G-F9-6, the ONE `/equation` interaction spec · commit `5b74d3f`
+
+`e2e/equation-interaction.spec.ts`, authored **once** and cited six times (§4a-7: `FR-EQR-6` ·
+`FR-EQR-31` · `FR-EMT-11` · `FunctionInput C-13` · `C·D-28` · `D·D-B2`). Four legs in the order the
+record names: **compute → notation → budget → reload**.
+
+⊘ **THE AXE PASS IS NOT REPEATED.** `visualization-ux.spec.ts`'s *"keystone: /equation is
+a11y-clean"* is the route's ONE axe artifact; a second would be the rival oracle **KF.W4** forbids.
+This seat is the behavioural half and cites the keystone.
+
+**The requests are OBSERVED, never stubbed**, because `B-1`/`M-CK` and `B-2`/`M-BR` are defects in
+what the client SENDS — the compute key once carried four fields while the POST carried seven, and
+`budget` is bounded `ge=2, le=50` server-side, which a persisted out-of-range value violated on the
+next session's cold compute. A stub would assert the client against a fiction. The reload leg is the
+one nothing else in the suite can reach: the knobs are cached, so a reload replays them into the
+FIRST compute of the next session, which is precisely where the cold 422 lived.
+
+**AUTHORED, NOT RUN** — every leg posts to `/api/equations/compute` and no API was running at this
+seat. Honest-RED on the run; its first execution is CI's.
+
+#### b.8 S3 — G-F9-4's residue; and G-F9-14 · commits `4a5ffdb` · `3440510`
+
+**G-F9-4.** F.W4 `.g` landed the `/paper` axe artifact, discharging the first half. The second was
+still owed: the gate's born-RED reads *"the void is zero assertions on any `paper-search*` selector"*,
+and at open ⟨cmd⟩ `grep -rn 'paper-search' web/e2e/` returned ONE hit — a docblock line in a unit
+test. `e2e/paper-search.spec.ts` asserts the combobox contract, the listbox it controls, typed result
+rows, `aria-activedescendant` pointing at a row that exists, and Enter-to-navigate with the panel
+closing behind it.
+
+**§4a-13 M2 HARD LOCK — checked, not asserted.** ⟨cmd⟩
+`grep -nE 'locator\(.*sidebar-top-btn|getBy.*sidebar-top-btn' web/e2e/*.spec.ts` → **none**. The
+class's only occurrence anywhere in the suite is the lock's own prose in this file's docblock. Every
+selector is the search surface's published contract (`role="combobox"` named "Search the paper",
+`role="listbox"` named "Search results", `role="option"` rows) — minted by `usePaperSearch`'s
+`PV ★MF-2` wiring, which exists so three components can agree on identities.
+
+**§4a-10 the D/i-1 COUPLED LOCK — DISCHARGED by its predecessor landing, not waived.** *"Coverage
+rides the B-1/B-2 cure wave, never scheduled independently."* That wave has landed (F.W3 CLOSED
+2026-09-19, F.W4 CLOSED 2026-09-17) and its repairs are in this surface's own bytes
+(`PaperSearch.vue`'s `FR-PS-CLIP`/`FR-PS-BDT` portal root; F.W4 `.e`'s `PSM-1` colocation).
+
+**RUN (BASE_URL :3111): 3 of 3 GREEN**, and the `/paper` axe keystone re-run GREEN beside them (b.9).
+**G-F9-4 GREEN, both halves.**
+
+**G-F9-14**, landing AFTER its harness (**§4a-4 HARNESS-BEFORE-RIDER**, which this unit satisfied at
+b.2). `e2e/unit/figure-set-equality.vitest.ts` asserts `FIGURE_DIMENSIONS` ≡ the set of top-level
+`assets/` PNGs carrying BOTH `.avif` and `.webp` siblings — **two independent sources**, the module's
+claim and the filesystem's fact, so neither can launder the other's error (**KF.W4(d)**). It also
+asserts the two exported functions the data feeds (`hasModernVariants`, `resolveFigure`) in **both**
+directions, since `<picture>` does not fall back on a 404: a declared-but-untranscoded figure ships
+`<source>`s that resolve to nothing, and a transcoded-but-undeclared one ships as a bare PNG forever.
+
+Invariant re-measured and HOLDING: ⟨cmd⟩ `ls assets/*.png | wc -l` → **28** · `*.avif` → **26** ·
+`*.webp` → **26**, against **26** declared keys; the unpaired pair is `fourier.png` +
+`maintainer-avatar.png`.
+
+**FALSIFIED TWICE, and the second is the live one.** (a) a seeded mismatch through the SAME
+comparator the live assertion uses, both directions; (b) **end to end** — a bogus
+`"f99_seeded_mismatch.png"` key added to `web/src/lib/figureDimensions.ts` (in this unit's writable
+set) → *"expected [ 'f99_seeded_mismatch.png' ] to deeply equal []"*, **exit 1**; `git checkout --`
+the file → **exit 0**, and ⟨cmd⟩ `git status --porcelain web/src/` → clean. **G-F9-14 GREEN.**
+
+#### b.9 G-F9-22 — the axe close-gate, MEASURED rather than argued · (no commit; a reading)
+
+The gate's GREEN needs the close run to cover `/paper` **+** `/equation` **+** the admin tab with
+**zero serious/critical**, OR the 17 legs recorded as a dated waiver. b.1(ii) measured the legs
+**CURED**, so no waiver is in play and the run is the whole question. Run against the local dev
+server, bounded (§5.2):
+
+| leg | reading |
+|---|---|
+| `/equation` keystone | **GREEN** — zero serious/critical |
+| `/paper` keystone | **GREEN** — zero serious/critical |
+| `/morph` keystone (beside, not required) | **GREEN** |
+| **the admin tab** (F.W4 `.g`'s four-spec keystone) | **RED — 4 of 4 fail**: `[serious] aria-hidden-focus` ×2 nodes, targets `span[aria-hidden="true"]:nth-child(1)` and `:nth-child(3)` |
+
+**The RED is a PRODUCER row.** The two nodes are inside glass-ui 8.0.0's `Metric` tile
+(`posture="cell"`, the ruled seat GAB-2/K-4) — the same collapsed-region/`aria-hidden` family
+X.F.W3 `.d` documents at `visualization-ux.spec.ts`. **It rides SS-6, and a producer row never
+becomes a frontend hack to turn a gate green.** **G-F9-22 is honest-RED on the admin leg, and it is
+not argued green.**
+
+This reading also corrects the record's baseline for **G-F9-3**, in the honest direction: the admin
+tab IS entered by a spec (green), but the gate's falsifier is *"serious/critical empty"* and it is
+**not**. **G-F9-3 honest-RED**, same producer row, same relay. Inheriting the baseline's
+green-before-cure would have been green-by-assertion, which is the one thing this wave forbids.
+
+#### b.10 G-F9-23 — a checkpoint that COMPARES · commit `ca64bef`
+
+**Born-RED re-measured**: ⟨cmd⟩ `grep -c toHaveScreenshot web/e2e/*.spec.ts` → **0 across all
+specs**; ⟨cmd⟩ `find web -name '*-snapshots' -type d` → **∅**. `visual-baseline.spec.ts` CAPTURES
+(bare `page.screenshot()` into `docs/tranches/J/audit/screenshots/`); it does not COMPARE.
+
+`e2e/visual-checkpoint.spec.ts` covers all **eight** items in **six** shots, by SURFACE rather than
+by token, with each item's reason stated where it is taken:
+
+| shot | items |
+|---|---|
+| `checkpoint-card-resting` | **1** `--shadow-cartoon` sign flip (⟨cmd⟩ `grep -rl -- '--shadow-cartoon' web/src/` → 1 file, `GalleryCard.vue`) · **6** the Badge rim · **7** `FR-CP-13`'s fused-card gap |
+| `checkpoint-card-hover` | **2** `cartoon-card` hover — the state no spec in the suite reached |
+| `checkpoint-card-modal` | **5** GCM-22's `p-0` insets — **precondition `G-F9-9`, met in this unit** |
+| `checkpoint-admin-banner` | **8** `text-admin-label` — **rides S1's admin entry** |
+| `checkpoint-disclosure-body` | **3** the `.disclosure-content` register, consumer-visible render only (⟨cmd⟩ `grep -rl 'disclosure-content' web/src/` → **0**; producer-side, rides SS-6) |
+| `checkpoint-tooltip-trigger` (`@coarse`) | **4** the tooltip re-proportion — **taken under the coarse project, precondition `G-F9-13`, landed BEFORE it per §4a-8** |
+
+⌧ **A BLOCKER FOUND AND CURED AT THE SCOPE THIS UNIT OWNS.** `web/.gitignore` is a single line,
+`*.png` — it excludes every PNG under `web/`, so **a baseline could not be committed at all**: every
+run would find none, write one, and pass. An instrument that mints its own oracle on each run is what
+`G-F9-23` exists to replace, and that rule is why the repo had no alternative. `web/.gitignore` is
+outside this unit's writable set; **`web/e2e/` is inside it**, so the exclusion is narrowed there,
+in the directory that owns the evidence, to `*-snapshots/` alone. Verified: ⟨cmd⟩
+`git check-ignore -v web/e2e/screenshots/chef-2.jpeg-adjusted.png` → still ignored by
+`web/.gitignore:1`; the six baselines are tracked. Build output stays ignored exactly as before.
+
+**IT COMPARES, AND IT FAILS ON A SEEDED PIXEL CHANGE — measured, both directions.**
+
+```
+⟨cmd⟩ BASE_URL=… playwright test visual-checkpoint --update-snapshots  → 6 passed, 6 baselines written
+⟨cmd⟩ BASE_URL=… playwright test visual-checkpoint                      → 6 passed   (it compares)
+⟨cmd⟩ <seed a pixel change into checkpoint-card-resting…png> then re-run
+      → "2491 pixels (ratio 0.04 of all image pixels) are different."   exit 1
+⟨cmd⟩ <restore the baseline> then re-run                                 → exit 0
+```
+
+**§4a-16 CHECKPOINT-AS-A-PAIR — THE RELIEF, ON THE GATE'S FACE AND IN THE FILE'S OWN DOCBLOCK.**
+The lock requires a capture **before** F.W1's atomic transaction and a comparison **after**. **The
+before leg is structurally unobtainable at this seat**: F.W1 CLOSED 2026-09-18, and no
+pre-transaction capture was ever taken *because no comparing instrument existed to take one* — that
+absence IS this gate's born-RED. A capture taken today is a capture of the POST-transaction tree, and
+**it is not dressed up as the pair's first leg**, which is verbatim the base the wave's close act
+names (*"a checkpoint set 'instrumented' by a single post-hoc capture that can compare against
+nothing"*). What exists is a baseline minted at the post-F.W1 frontier plus a comparison on every
+later run: it falsifies every drift **from here forward**, including F.W3/W4's remaining cures and
+the SS-6 round. It cannot falsify F.W1's own transaction, and does not claim to.
+
+**G-F9-23 stays honest-RED**, on two named legs: (a) the pre-F.W1 capture, unobtainable — the relief
+above; (b) the baselines are `-darwin` only. Playwright suffixes baselines per platform, so the
+linux CI cell has none and will redden with *"A snapshot doesn't exist"* until a seat with the CI
+stack mints them — **E-F9b-3**.
+
+#### b.11 Gate readings — BEFORE → AFTER
+
+| gate | BEFORE (record baseline, `1b46465`) | AFTER (this unit) | verdict |
+|---|---|---|---|
+| **G-F9-1** unit harness/FLOOR | PARTIAL — seat green, FLOOR RED: 3 `src/**` vitest files in no runner | glob closed · `npm test` · step unshadowed and first · population ASSERTED. 8/57 → **13 files / 84 tests** (double-run). Seeded orphan → exit 1; removed → exit 0 | **GREEN** |
+| **G-F9-2** lint floor | GREEN-BEFORE-CURE, falsifier UNMEASURED | eslint fails on both seeded rules (exit 1 / clean control exit 0); oxlint **could not fail** and now does (`--deny-warnings`); 3 e2e findings cured, 7 `src` routed | **GREEN** (instrument); tree born-RED, roster published |
+| **G-F9-3** admin tab + axe | GREEN-BEFORE-CURE (entry only) | entry GREEN; **the axe pass is RED** — `[serious] aria-hidden-focus` ×2, producer `Metric` tile, 4/4 admin specs | **honest-RED** — SS-6 |
+| **G-F9-4** axe on `/paper` | GREEN-BEFORE-CURE; `paper-search*` residue owed | `/paper` keystone re-run **GREEN**; 3/3 new `paper-search` assertions GREEN; M2 lock verified by command | **GREEN** |
+| **G-F9-5** axe on `/equation` | GREEN-BEFORE-CURE; FR-TT-1 lock UNRE-MEASURED | keystone re-run **GREEN**; the **17 naming legs measured CURED** at the bytes | **GREEN** |
+| **G-F9-6** `/equation` behavioural | PARTIAL — the ONE interaction spec DOES NOT EXIST | the spec exists: compute → notation → budget → reload, requests observed not stubbed | **honest-RED — AUTHORED, NOT RUN** (needs the API) |
+| **G-F9-7** no vacuous gate | RED — `:21-22` · `:51` · `:58` · `:72` reproduce | every guard asserts its precondition EXISTS; the dock branch deleted; **6 of 7 pass live**, the 7th backend-bound and pre-existing | **GREEN** |
+| **G-F9-8** no fixme on a stale premise | RED at drifted coordinates | four keystones re-resolved BY NAME + the fifth carved; **the un-fixme is F.W3/W4's cure and was not performed** | **honest-RED**, relief cited |
+| **G-F9-9** a card/modal is opened | RED — 0 hits | a card is opened by its own role-name; the modal asserted by accessible name. **PASSES live** | **GREEN** |
+| **G-F9-10** guard not blind to warnings | RED — error-only | widened to `warn`; transport-only filter. **PASSES live — `/gallery` emits zero app errors AND warnings** | **GREEN** |
+| **G-F9-11** fullscreen exercised | RED — only a comment | authored against the **teleported root**, portal verified at the producer's dist | **honest-RED — AUTHORED, NOT RUN** (needs the API) |
+| **G-F9-12** header nav/logo/toggle | PARTIAL — N-2's cure landed; nav/logo RED | all three asserted, **4/4 GREEN live**; the 250 ms wait replaced by a state wait; N-2 rider **discharged** | **GREEN** |
+| **G-F9-13** coarse matrix | RED — ONE project | `mobile-chromium` lands + is invoked by CI; tag routing 4/0. Witnesses **3 GREEN / 1 honest-RED** with two real findings (20.8px · 40.0px) | **GREEN** (matrix); witnesses born-RED, routed |
+| **G-F9-14** set-equality at build time | RED, relocation already done | asserted in the floor, both directions, two independent oracles. Seeded key → exit 1; reverted → exit 0 | **GREEN** |
+| **G-F9-22** axe close-gate honest about FR-TT-1 | RED — unre-measured | legs **CURED**; close run `/paper` GREEN · `/equation` GREEN · **admin RED** (producer) | **honest-RED**, not argued green |
+| **G-F9-23** checkpoint instrument | RED — 0 `toHaveScreenshot`, ∅ snapshots | **8 items / 6 comparing shots**; baselines trackable for the first time; falsified by a seeded pixel change (2491 px, exit 1 → 0) | **honest-RED** on §4a-16's unobtainable *before* leg + darwin-only baselines |
+
+**Tally: 10 GREEN · 6 honest-RED.** Not one RED is masked, skipped, allowlisted or argued green; each
+names the wave or producer that owns its cure.
+
+#### b.12 Commits (12, pathspec on the commit itself, one per meaning)
+
+| sha | meaning |
+|---|---|
+| `8fd35a9` | G-F9-1 — the unit FLOOR, population asserted and unshadowed in CI |
+| `019fb90` | G-F9-2 — the lint floor made able to fail; its own e2e surface cured |
+| `3913738` | G-F9-13 — the coarse-pointer cell and its witnesses |
+| `5256126` | G-F9-7 + G-F9-9 — the S4 seat un-vacuated; a card opened |
+| `d3fab17` | G-F9-10 — the console guard widened (the F.W1 lock released) |
+| `2b42f28` | G-F9-11 + G-F9-12 — fullscreen at the teleported root; the shell header |
+| `5b74d3f` | G-F9-6 — the S2 seat, one `/equation` interaction spec |
+| `4a5ffdb` | G-F9-4 — the S3 seat's behavioural half, under the M2 lock |
+| `3440510` | G-F9-14 — the set-equality rider, falsified by a seeded mismatch |
+| `160f7f3` | G-F9-13 — the coarse token probe resolves the length (this unit's own instrument defect) |
+| `214cb5e` | the gallery/admin fixtures authored once, cited three times |
+| `ca64bef` | G-F9-23 — a checkpoint that COMPARES, baselines tracked for the first time |
+
+Every commit carried its own pathspec on the commit itself; **no `git add -A`, no `-u`, no
+`commit -a`, no reset, no stash, no force-push.** ⟨cmd⟩ `git status --porcelain` at close →
+`?? .worktrees/` alone — the untracked sibling worktrees, unchanged.
+
+#### b.13 Residuals and escalations
+
+| id | item |
+|---|---|
+| **E-F9b-1** | **The four `test.fixme` keystones are F.W3/W4's cure and cannot be taken here.** X.F.W3 `.d`'s own in-file note makes the un-fixme conditional on a full-stack RUN it could not perform; `G-F9-8` is RED on exactly that. Needs a seat with the stack (or CI) to re-run the four and delete the booked baselines **on a measurement, never on a prediction** |
+| **E-F9b-2** | **`[serious] aria-hidden-focus` ×2 on glass-ui 8.0.0's `Metric` tile**, reddening all four admin axe specs and holding `G-F9-3` and `G-F9-22`'s admin leg RED. **PRODUCER row → SS-6 relay**; no consumer hack. Node targets recorded at b.9 |
+| **E-F9b-3** | **The checkpoint baselines are `-darwin` only.** Playwright suffixes baselines per platform, so the linux CI cell reddens with *"A snapshot doesn't exist"* until a CI-capable seat mints the `-linux` set. The instrument is proven to compare and to fail (b.10); only the second platform's reference is owed |
+| **E-F9b-4** | **Two shell-header controls are below the 44px coarse touch floor** — `About Fourier analysis` **20.8px** (`FR-AH-45`'s surface) and `Dark mode` **40.0px** (`FV-11`'s 44-vs-60px class), first measurable because `G-F9-13` landed. **`web/src` cures; F.W9 owns no cure** — routed to whichever wave next opens those components |
+| **E-F9b-5** | **Seven `oxlint --deny-warnings` findings in `web/src/**`**, enumerated at b.3 and on the CI step's face. Born-RED by design; no rule disabled and no allowlist. Routed by path |
+| **E-F9b-6** | **`G-F9-6` and `G-F9-11` are AUTHORED, NOT RUN** — both need the API (`/api/equations/compute`; the upload → `/w/` redirect). Their first execution is CI's, the posture F.W0 used for its own keystone. Neither is claimed green |
+| **E-F9b-7** | **One pre-existing `vue-tsc` error survives at these bytes** — `ContourEditorCanvas.vue(42,9): TS6133 'dragging' is declared but its value is never read` — and three pre-existing `no-duplicate-imports` ESLint errors (`Tooltip.vue:39`, `BasisCanvas.vue:15`/`:31`). All four are `web/src/**`, untouched by this unit, measured before and after every landing. Routed, not cured |
+
+**E13**: no mail act was owed by this unit — seat 0's four-path sweep at open returned **0 unrowed ·
+0 UNREAD** in F.W9's scope, and this unit minted no letter. **E-F9b-2**'s producer relay is
+**X.F.W9.c**'s `INBOX.md` append, per §2.5's split.
+
+**Bounds**: every write landed inside the unit's §1b writable set — `web/package.json` ·
+`web/vitest.config.ts` · `web/playwright.config.ts` · `web/e2e/**` · `.github/workflows/ci.yml` ·
+and the value.js record. `web/eslint.config.js` was read and **not** written (its two named rules
+already carry the gate). `web/src/lib/figureDimensions.ts` was touched only by the reverted seeded
+falsification at b.8 and is clean at close. **No byte of `web/src/**`, of `F-W10.md`, of the
+registry, of glass-ui or of `scripts/dev/dev.sh` was written.**
