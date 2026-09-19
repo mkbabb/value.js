@@ -409,3 +409,204 @@ file.
 ## Unit receipts
 
 _(empty at open — each unit appends its own receipt here, line 1 = its SERVED MODEL declaration)_
+
+### X.W5.a
+
+SERVED MODEL: claude-opus-5[1m]
+
+**Unit**: Shell truth — the composition root, route-true boot, slot registration.
+**Status**: **DONE** with three named honest-RED residuals, each measured and each with a
+stated owner. **Commits**: `c0cf27bf` (the S-7 addendum, this unit's first act) · `de99ec15`
+(§9 commit 1 — unit a + the born-RED JSON in the same commit) · this record.
+
+#### Act 0 — crash-recovery (STANDING LAW)
+
+⟨cmd⟩ `git status --porcelain` at open →
+`M docs/tranches/V/reformation/CARRY-LEDGER.md` · `M scripts/dev/dev.sh`. **Zero inside this
+unit's writable set.** `CARRY-LEDGER.md` is not in W5's §4 nor any unit's set; `scripts/dev/dev.sh`
+is the unowned standing-dirty row (§0j.A **DR-24** — NEVER touched, never staged). **No inherited
+partial work on X.W5.a exists**; nothing was stashed, restored or reverted.
+
+#### Act 1 — the FIRST act: the dated S-7 addendum-beside (`c0cf27bf`)
+
+`X-W5-FOLD.md` **§9**, append-only (E-3; §§0–8 bytes stand). It mints no row, gate or cure.
+**§9a** carries COHESION §0k.3 **S-7** verbatim and corrects **BD-07** to
+`demo/color-picker/ErrorBoundary.vue` — ⟨cmd⟩ `find demo -name 'ErrorBoundary*'` → one hit;
+⟨cmd⟩ `test -f demo/shell/ErrorBoundary.vue` → **NO**. **§9b** records three further §3/§6e path
+spellings measured the same way, under the METHOD law for a drifted anchor (*intent at the true
+bytes, recorded*) and under the precedent this wave record already set for BD-13/BD-14:
+
+| BD | as written | the path that exists | written by this unit? |
+|---|---|---|---|
+| BD-05 | `demo/palettes/usePaletteWiring.ts` | `demo/color-picker/composables/usePaletteWiring.ts` | **no** — W5F-14 dies with the X-W8 registry; recorded so the row is not lost to a bad path |
+| BD-06 | `demo/shell/PaneHeader.vue` | `demo/shared/ui/PaneHeader.vue` | yes — the `as`/`level` seam ONLY |
+| BD-10 | `…/extract/{useExtractSession,useImageQuantize}.ts`, `…/extract/ImageEyedropper.vue` | `…/extract/composables/…`, `…/extract/ImageEyedropper/ImageEyedropper.vue` | yes — N1's deactivation teardown ONLY |
+
+#### Act 2 — MEASURE-AT-OPEN, ONE bounded probe session (§5.2)
+
+Dev server `npx vite --port 9000`; three probes, read-only, before any product byte moved.
+The app-wave probe was run **unmodified** (W5.md §4: *execute, no write*).
+
+- **A2/A3/A6** ⟨cmd⟩ `node docs/tranches/V/megatranche/audit/probes/app-wave/app-shell-truth-probe.mjs`
+  → `deeplinkGenerate.marks = [b0,b1,b2]` · `blob:false` ·
+  `href …/#/generate?space=lab&color=lab(92%25+88.8+20+/+82.7%25)` · `h1:0` ·
+  `mobileRegen390 {dockChanged:false}` vs `desktopRegen1440 {dockChanged:true}`.
+  **All three REDs of record reproduce byte-for-byte.**
+- **A5/A6/A7** ⟨cmd⟩ `node …/workflows/gates/route-scene-truth.mjs` (created here) → exit **1**;
+  15 routes walked; `h1:0` everywhere; outline begins at level **3**; `shellStatusCount:0`;
+  `A7 {statusAnnounces:false, h1Distinct:false, mainNameTracksScene:false}`.
+- **A3's fold arms** ⟨cmd⟩ `node …/workflows/gates/dock-action-parity.mjs` (created here) → exit
+  **1**; the **720×900 arm (≡ 1440 @ 200 %)** reproduces the MOBILE reading, confirming ⟨Dock G-I⟩
+  from this end; `unconditionalPaneFlip:true`; `boundSlots 2 of 3 paneSlots`.
+
+Banked in `docs/tranches/X/waves/W5/born-red/` with `STATIC-2026-09-19.md` (the static slate
+re-run and dated, every figure double-run). All of it entered git in **`de99ec15`**, the same
+commit as the cure, per §9.
+
+#### Act 3 — the landings (`de99ec15`, 34 files, no sibling path touched)
+
+1. **`main.ts` — the composition root (A1).** `await router.isReady()` before `mount` (in an async
+   IIFE, so the entry needs no build-target concession); the four side-effect CSS imports in
+   cascade order; the dark store and the API client installed at APP level (`app.provide`);
+   the error net. ⟨cmd⟩ A1's own `node -e …` → exit **1 → 0**; ⟨cmd⟩
+   `grep -cE 'useGlobalDark|provideApiClient|^import "\.\./styles' demo/color-picker/App.vue`
+   → **7 → 0**.
+2. **The error net + per-pane containment (N4/N5).** `errorHandler` + `window.error` +
+   `unhandledrejection` above App; `<ErrorBoundary>` moves from ONE wrapper around the grid to
+   one per pane seat, OUTSIDE `<KeepAlive>` (⟨EB R-7⟩ kills the cached-boundary cure) — and the
+   fallback now paints inside `.pane-container`'s positioned box, so EB-1's zero-ink plate is
+   cured BY the transposition and not by the banned `position:relative` patch (EB R-1 honoured:
+   EB-4's loading/containment altitude and EB-2's transposition land together).
+3. **Result totality (N4).** Measured first, cured second: ⟨cmd⟩ node over the built library →
+   `parseCssColor("oklch(0.6 0.2 none)")` **ok**, `serializeCssColor` **ok**
+   (`"oklch(60% 0.2 none)"`), `convertColor(…,"hsv")` **NOT ok** (`color_missing_channel`). So the
+   render path resolves a missing component per **CSS Color 4 §4.2** — the specification's own
+   law, not a swallow — and `channelIsMissing`/`alphaIsMissing` carry the distinction to the echo,
+   which now prints `h none` / `α none` instead of a confident `0` / opaque. `valueOrThrow` is
+   **0 on all five render-path readers**, surviving only in `buildColor`'s construction switch.
+   ParseEchoReadout's three permanently-true `v-if` guards die (⟨A-4⟩'s lock).
+4. **Typed registration (A4/N3/N7/N8).** `PaneSlot.onMount` required + generic, invoked
+   `(instance, liveKey)`; `bindPane(slot)` at all three seats, narrowed per **S-1**;
+   `interface PaneSlot` → **`ResolvedPane`** *before* any transposition; the prop bags derived
+   from each pane's own `$props`; `PANE_CACHE_MAX` derived from `VIEW_MAP`.
+5. **One route, one voice (A5/A7/N6).** Visible `<h1 tabindex="-1">` in `<main>` bound to
+   `VIEW_MAP[currentView].label`; `<main aria-labelledby>` names itself BY it; one polite
+   `role="status"` route-settlement region (the **AdminListSkeleton LOCK** is carried in the
+   template's own comment and asserted nowhere as a load-completion cure); role-named
+   `--stage`/`--inspector` wrappers with `role="region"` + the previously-unused
+   `leftLabel`/`rightLabel`; role-keyed stagger in the scoped block (the two inline
+   `--overture-appear-delay` declarations are gone, so D3's re-key does not have to move it);
+   the leaving pane `inert` + `aria-hidden` across the overlap.
+6. **A2's two arms in `useOverture`** — the **b3 STATE-CHECKED arm** (settlement is read as a
+   state in `PaneSlot`, because `@after-appear` can never fire for a chunk that resolves after
+   mount) and the **b4 TERMINAL `unavailable` arm** (a scene with no ornament seat terminates the
+   beat instead of sitting `pending` for the session).
+7. **A6** — the dead boot apply deleted, the sync ARMED ON MOUNT, either half of the address read.
+8. **N1** — the activation contract stated FIRST in PaneSlot's header, and `onDeactivated` at all
+   four orphaned sites; only the eyedropper's key listener re-arms on `onActivated` (a parked pane
+   never silently re-acquires a device).
+9. **`ground.ts` split by lifetime** → `plugins/vite-ground-tokens.ts`; **DR-14 DELETED** per
+   §0j.A + §0k.1 **RS-1** (⟨cmd⟩ `grep -c siblingFsAllowTransient vite.config.ts` **2 → 0**),
+   measured dead at the installed bytes (no `fonts/` at the package root, zero `url("../fonts`
+   refs in its dist); **`index.html`** mounts into `<div id="app">` inside the body with BOTH
+   stamps intact; `hydrate.ts`'s false rationale corrected; `DESIGN.md` `:270`/`:278` re-pointed;
+   the two `e2e/smoke` specs re-pointed onto the route voice.
+
+**The D-E portal-integrity delta (§8, mandatory on an `index.html` body change)** — captured
+BEFORE and AFTER with `workflows/gates/portal-integrity.mjs`, same session:
+`{bodyKeepsPaperField, bodyKeepsRelative, bodyIsPositioningAncestor, everyBodyChildUnderField,
+portalParent:"body", portalFieldAncestorIsBody, portalPositioningAncestorIsBody}` — **identical,
+all true, both sides**. The one structural difference is the intended one
+(`mountHostIsBody: true → false`).
+
+#### Gate readings BEFORE → AFTER
+
+| gate | BEFORE | AFTER | verdict |
+|---|---|---|---|
+| **A1** | exit 1 · App count 7 | exit **0** · **0** | **GREEN** |
+| **A2** | `[b0,b1,b2]` terminal · blob false | **`[b0,b1,b3,b2,b4]`** on the deep link and on all 15 routes | **marks arm GREEN · blob arm RED** (residual 3) |
+| **A3** | `{mobile:false, desktop:true}` | **unchanged BY RULING** (§0k.3 S-1); `unconditionalPaneFlip` **true→false**, `everySlotReports` **false→true (3/3)**, `dockCommandRegistry` **false** | **honest-RED, cure X-W8** |
+| **A4** | `bindPane` 0 hits · props seam 1 | **12** hits · **0**; one argument deleted → `vue-tsc` **exit 2** (`TS2554 Expected 1 arguments, but got 0`) | **GREEN, bite proven** |
+| **A5** | `h1:0` on 15 routes | **15/15**: one visible h1, `main===1`, text ≡ `VIEW_MAP[view].label`, `tabindex="-1"` | **GREEN on 4 of 5 arms** (residual 1) |
+| **A6** | `?space=lab&color=…` on both classes | **no `?space=` on any of 15**; URL-echo applies on `jzazbz`·`display-p3`·`rec2020` | **GREEN** |
+| **A7** | `statusAnnounces:false · h1Distinct:false · mainNameTracksScene:false` | **all five arms true** | **GREEN** |
+| **N1** | 0 `onDeactivated`, 4 orphaned teardowns | **4 sites cured + 1 re-arm**; contract published in PaneSlot's header | **GREEN** |
+| **N3** | keys `"onCommit-edit"`/`"onCancel-edit"`, seam `Record<string, unknown>` | delete → **TS2741**, typo → **TS2561 "Did you mean to write 'onCommitEdit'?"**, both quoting **PalettesPane's own emits** | **GREEN, bite proven both ways** |
+| **N4** | `valueOrThrow` on every render-path reader; boundary inside App | **0** on all five; net above App | **GREEN** |
+| **N5** | 1 carrier over the whole grid | **3**, per seat, outside KeepAlive; fallback paints in the positioned box | **GREEN on 3 of 4 arms** (residual 2) |
+| **N6** | no wrapper/role/aria; `<main>` static name | region roles + names; `aria-labelledby`; leaving subtree `inert` + AT-hidden | **GREEN** |
+| **N7** | `:max` literals 9 / 6 / 4 | **0 literals** — `PANE_CACHE_MAX` derived from `VIEW_MAP` | **GREEN** |
+| **N8** | 1 | **0** (`ResolvedPane`) | **GREEN** |
+
+#### Cadence (§7)
+
+⟨cmd⟩ `npx vue-tsc -p tsconfig.demo.json --noEmit` → **exit 0**. ⟨cmd⟩ `npx eslint demo/ plugins/
+vite.config.ts e2e/ docs/tranches/V/megatranche/workflows/gates/` → **exit 0, zero problems**
+(the repo-wide `npm run lint` carries **23 pre-existing parse errors, all in
+`docs/tranches/**` workflow chassis scripts**, none in this unit's scope and none introduced
+here). ⟨cmd⟩ `npx vitest run` → **15 failures / 613 passing**, and **not one failing file has an
+import path to a file this unit touched** (`test/gradient-parse` · `test/spectrum-luma` — its own
+name says BORN-RED · `test/v4-c1` · `test/v4-css-emerging` — the X·P parser band ·
+`demo/test/shell/reka-binding-idiom` — a declared canary for `SearchFilterBar`, X-W7's). The four
+suites that **do** consume this unit's modules (`preview-chips`, `gamut-verdict`,
+`value-domain-clamp`, `view-accents`) → **48/48 passing**. `npm run gh-pages` NOT run (X-W1's).
+
+#### E13 mail
+
+Delta sweep at this unit's own clock, four paths, ⟨cmd⟩
+`find <each> -maxdepth 1 -type f -newermt "2026-09-19 08:00"` → exactly **one** hit,
+`docs/tranches/V/coordination/INBOX.md` (self-excluded; a sibling seat's sweep line). Register
+arithmetic ⟨cmd⟩ `grep -cE '\| [IO]-[0-9]+[a-z]? \|' INBOX.md` → **80**, tail unmoved at
+**I-35 / O-40**. The four `UNREAD` string hits are **prose inside sweep paragraphs, not Status
+cells** (lines 221 · 227 · 231 · 241), reproducing seat 0's reading exactly.
+**0 unrowed · 0 UNREAD in X.W5.a's scope · 0 `I-n` minted · `INBOX.md` unedited by this unit.**
+
+#### Residuals — RED, each measured, each with an owner
+
+1. **A5's outline arm, RED on 4 of 15 routes** (`picker`, `palettes`, `mix`, `blob`; the other 11
+   are outline-clean). Cause located exactly: one `<h3 class="card-title readout">` in
+   `demo/picker/` — the colour VALUE readout, styled as a heading. The pane-title half WAS this
+   unit's and landed (`PaneHeader` emits `<h2>` through the BD-06 `level` seam, so the document
+   now reads h1 → h2). `demo/picker/**` is outside this unit's writable set; the cure is one line
+   for its owner: a value readout is not a heading.
+2. **N5's route-reset arm, RED.** Three arms are green. The fourth is not curable at the
+   CONTAINMENT ALTITUDE, which is all **§0k.3 S-7** grants X-W5: keying the boundary on the route
+   remounts `PaneSlot` and destroys every `<KeepAlive>` cache and WebGL context on every
+   navigation, and the only other shape — caching the boundary inside `<KeepAlive>` — is KILLED by
+   ⟨ErrorBoundary **R-7**⟩. A route watch inside the component's bytes is the cure and those bytes
+   are **X-W7's**, by S-7's own words.
+3. **A2's blob arm, RED and structurally unsatisfiable as authored.** `.hero-blob-anchor` exists
+   only in `ColorPicker.vue`, and `VIEW_MAP` places no `color-picker` pane on any of the five
+   routes the arm names (`/#/generate`, `/#/browse`, `/#/gradient`, `/#/extract`,
+   `/#/atmosphere`). Measured this pass: `blob:true` on exactly the four picker-bearing routes,
+   `false` on the eleven others. The gate's other arm is GREEN everywhere. **ESCALATED as a
+   gate-authoring finding** (L-18's class: a gate shown unfalsifiable is struck and re-authored) —
+   not re-authored here, because a spec is not a seat's to rewrite.
+4. **`provideApiClient()` is now unreferenced.** The composition root installs the client with
+   `app.provide` because `provide()` requires a component instance and
+   `demo/platform/transport/useApiClient.ts` is outside this unit's writable set. The symbol is
+   still exported and `API_CLIENT_KEY` is still consumed by `test/dock-status-lamp.test.ts`.
+   `demo/platform/transport/**` is claimed by **no** X wave (fold W5F-60 / §4 CE-6) — recorded so
+   the deletion is not lost.
+5. **Observation, not a claim**: `afterHashNavHome` re-acquires `?space=…&color=…`. It follows a
+   user NAVIGATION, not a boot; A6's scope is the boot ("fresh context, bare `/#/` and
+   `/#/generate`"), which is green on all fifteen routes. The live sync is deliberately left
+   alive — killing it would be over-cured by A6's own falsifier.
+
+#### Locks honoured, each by name
+
+**§0k.3 S-1** — `bindPane` narrowed to `applyExternalColor`/`commitEdit`/`cancelEdit`; the
+scene-COMMAND registry stays exactly where X-W4 authored it (the two desktop seats), registry row
+C-3 unclaimed, A3 closed honest-RED. **§0k.3 S-7** — ErrorBoundary ALTITUDE only; **zero bytes**
+written inside `demo/color-picker/ErrorBoundary.vue` (⟨cmd⟩ `git show --stat de99ec15` does not
+name it); the dated path addendum was this unit's first act. **§0k.1 RS-1** — DR-14 deleted, both
+sites, riding `vite.config.ts`. **GAB-11's KILLED cut-step** — not followed: registration is
+UNIFORM across all three seats, so no seat is "the left mount callback retained only for
+`colorPickerRef`". **EB R-1** — EB-4 and EB-2 landed together. **D-1 coupled-architecture lock** —
+the simultaneous mode, the rAF mirror and the loading states were not moved; `PaneSlot.vue:12-23`
+was **NOT deleted** (its bytes stand and the four false claims are corrected in an appended block
+beside them, the E-3 idiom applied to a comment). **AdminListSkeleton LOCK** — the `role="status"`
+region is a route-settlement node and is asserted as nothing else. **BD-21 DO-NOT-ADD** —
+`GenericActionBar.vue`, `ActionBarLayer.vue`, `ActionButton.vue` untouched. **§9** — the born-RED
+JSON entered git in the same commit as the cure. **DR-24** — `scripts/dev/dev.sh` never touched,
+never staged.
