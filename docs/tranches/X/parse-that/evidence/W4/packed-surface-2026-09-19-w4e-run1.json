@@ -1,0 +1,782 @@
+{
+    "servedModel": "claude-opus-5[1m]",
+    "gate": "G-3",
+    "wave": "X.P.W4",
+    "unit": "X.P.W4.b",
+    "generatedAt": "2026-09-19T12:53:24.058Z",
+    "node": "v26.0.0",
+    "npm": "11.12.1",
+    "label": "X.P.W4.e run 1 of 2, 2026-09-19",
+    "candidate": {
+        "packageDir": "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript",
+        "name": "@mkbabb/parse-that",
+        "version": "1.0.0",
+        "declaredFiles": [
+            "./dist",
+            "./src/css"
+        ],
+        "declaredExports": {
+            ".": {
+                "types": "./dist/index.d.ts",
+                "import": "./dist/parse.js",
+                "require": "./dist/parse.cjs"
+            },
+            "./css": {
+                "types": "./src/css/build/ac1.d.ts",
+                "import": "./src/css/build/ac1.js"
+            },
+            "./core": {
+                "types": "./dist/core.d.ts",
+                "import": "./dist/core.js",
+                "require": "./dist/core.cjs"
+            },
+            "./diagnostics": {
+                "types": "./dist/diagnostics.d.ts",
+                "import": "./dist/diagnostics.js",
+                "require": "./dist/diagnostics.cjs"
+            },
+            "./packrat": {
+                "types": "./dist/packrat-entry.d.ts",
+                "import": "./dist/packrat.js",
+                "require": "./dist/packrat.cjs"
+            },
+            "./utils": {
+                "types": "./dist/utils-entry.d.ts",
+                "import": "./dist/utils.js",
+                "require": "./dist/utils.cjs"
+            }
+        },
+        "seamSubpath": "./css"
+    },
+    "symbolSource": {
+        "kind": "seam-contract",
+        "path": "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/SEAM-CONTRACT.md",
+        "sha256": "e269f6e665f288948a58ff1c6ac24e4e252e044a91806c5a832a0f0a09fe0818"
+    },
+    "symbolCounts": {
+        "runtime": 19,
+        "types": 33,
+        "total": 52
+    },
+    "symbolCrossCheck": null,
+    "legs": {
+        "pack": {
+            "ok": true,
+            "command": "npm pack --ignore-scripts --json",
+            "filename": "mkbabb-parse-that-1.0.0.tgz",
+            "bytes": 320601,
+            "sha256": "6b51c33608baf0b60273b813eec5ff8df702cf2a3b4fc5053258014208a11103",
+            "npmShasum": "675916e6e6911a4ed155fd8d69abfdd5df303fe7",
+            "npmIntegrity": "sha512-Pus9NK6hMuwflT7Q75sksYGpwtbSpmeiKsJivFkGZ1eif/pKqdx5b0UkqyD5e/KwICZl1BNHevJMa26bU82pJA==",
+            "entryCount": 91,
+            "unpackedSize": 1648237,
+            "entries": [
+                "dist/ansi.d.ts",
+                "dist/ansi.d.ts.map",
+                "dist/core.cjs",
+                "dist/core.cjs.map",
+                "dist/core.d.ts",
+                "dist/core.d.ts.map",
+                "dist/core.js",
+                "dist/core.js.map",
+                "dist/debug.d.ts",
+                "dist/debug.d.ts.map",
+                "dist/diagnostics-BLW5A4vz.cjs",
+                "dist/diagnostics-BLW5A4vz.cjs.map",
+                "dist/diagnostics-DBv5ee4t.js",
+                "dist/diagnostics-DBv5ee4t.js.map",
+                "dist/diagnostics.cjs",
+                "dist/diagnostics.cjs.map",
+                "dist/diagnostics.d.ts",
+                "dist/diagnostics.d.ts.map",
+                "dist/diagnostics.js",
+                "dist/diagnostics.js.map",
+                "dist/index.d.ts",
+                "dist/index.d.ts.map",
+                "dist/lazy.d.ts",
+                "dist/lazy.d.ts.map",
+                "dist/leaf.d.ts",
+                "dist/leaf.d.ts.map",
+                "dist/packrat-entry-Dv9CdHan.js",
+                "dist/packrat-entry-Dv9CdHan.js.map",
+                "dist/packrat-entry-DvKZwdZH.cjs",
+                "dist/packrat-entry-DvKZwdZH.cjs.map",
+                "dist/packrat-entry.d.ts",
+                "dist/packrat-entry.d.ts.map",
+                "dist/packrat.cjs",
+                "dist/packrat.cjs.map",
+                "dist/packrat.d.ts",
+                "dist/packrat.d.ts.map",
+                "dist/packrat.js",
+                "dist/packrat.js.map",
+                "dist/parse.cjs",
+                "dist/parse.cjs.map",
+                "dist/parse.js",
+                "dist/parse.js.map",
+                "dist/parser.d.ts",
+                "dist/parser.d.ts.map",
+                "dist/parsers/csv.d.ts",
+                "dist/parsers/csv.d.ts.map",
+                "dist/parsers/index.d.ts",
+                "dist/parsers/index.d.ts.map",
+                "dist/parsers/json.d.ts",
+                "dist/parsers/json.d.ts.map",
+                "dist/parsers/utils.d.ts",
+                "dist/parsers/utils.d.ts.map",
+                "dist/split.d.ts",
+                "dist/split.d.ts.map",
+                "dist/state.d.ts",
+                "dist/state.d.ts.map",
+                "dist/utils-entry.d.ts",
+                "dist/utils-entry.d.ts.map",
+                "dist/utils.cjs",
+                "dist/utils.cjs.map",
+                "dist/utils.d.ts",
+                "dist/utils.d.ts.map",
+                "dist/utils.js",
+                "dist/utils.js.map",
+                "package.json",
+                "src/css/algebra/grammar.mjs",
+                "src/css/algebra/grammar/animation.mjs",
+                "src/css/algebra/grammar/stylesheet.mjs",
+                "src/css/algebra/grammar/value.mjs",
+                "src/css/algebra/ops.mjs",
+                "src/css/algebra/tables.mjs",
+                "src/css/bounds.mjs",
+                "src/css/build.mjs",
+                "src/css/build/ac1.d.ts",
+                "src/css/build/ac1.js",
+                "src/css/build/ac1.wasm",
+                "src/css/build/value-css-4.0.0.d.ts",
+                "src/css/codes.mjs",
+                "src/css/diagnostics.mjs",
+                "src/css/entry.mjs",
+                "src/css/harness-adapter.mjs",
+                "src/css/lower.mjs",
+                "src/css/lowering-js/index.mjs",
+                "src/css/lowering-js/js-alg.mjs",
+                "src/css/lowering-js/values.mjs",
+                "src/css/lowering-wasm/asm.mjs",
+                "src/css/lowering-wasm/index.mjs",
+                "src/css/lowering-wasm/layout.mjs",
+                "src/css/lowering-wasm/runtime.mjs",
+                "src/css/lowering-wasm/wasm-alg.mjs",
+                "src/css/reify/term-alg.mjs"
+            ]
+        },
+        "declaration": {
+            "ok": true,
+            "declaredFiles": [
+                "dist",
+                "src/css"
+            ],
+            "undeclaredEntries": [],
+            "declaredButAbsent": [],
+            "note": null
+        },
+        "install": {
+            "ok": true,
+            "attempts": 1,
+            "command": "npm install --ignore-scripts --no-audit --no-fund --package-lock=false <tarball>",
+            "status": 0,
+            "stderr": null,
+            "installedFiles": [
+                "dist/ansi.d.ts",
+                "dist/ansi.d.ts.map",
+                "dist/core.cjs",
+                "dist/core.cjs.map",
+                "dist/core.d.ts",
+                "dist/core.d.ts.map",
+                "dist/core.js",
+                "dist/core.js.map",
+                "dist/debug.d.ts",
+                "dist/debug.d.ts.map",
+                "dist/diagnostics-BLW5A4vz.cjs",
+                "dist/diagnostics-BLW5A4vz.cjs.map",
+                "dist/diagnostics-DBv5ee4t.js",
+                "dist/diagnostics-DBv5ee4t.js.map",
+                "dist/diagnostics.cjs",
+                "dist/diagnostics.cjs.map",
+                "dist/diagnostics.d.ts",
+                "dist/diagnostics.d.ts.map",
+                "dist/diagnostics.js",
+                "dist/diagnostics.js.map",
+                "dist/index.d.ts",
+                "dist/index.d.ts.map",
+                "dist/lazy.d.ts",
+                "dist/lazy.d.ts.map",
+                "dist/leaf.d.ts",
+                "dist/leaf.d.ts.map",
+                "dist/packrat-entry-Dv9CdHan.js",
+                "dist/packrat-entry-Dv9CdHan.js.map",
+                "dist/packrat-entry-DvKZwdZH.cjs",
+                "dist/packrat-entry-DvKZwdZH.cjs.map",
+                "dist/packrat-entry.d.ts",
+                "dist/packrat-entry.d.ts.map",
+                "dist/packrat.cjs",
+                "dist/packrat.cjs.map",
+                "dist/packrat.d.ts",
+                "dist/packrat.d.ts.map",
+                "dist/packrat.js",
+                "dist/packrat.js.map",
+                "dist/parse.cjs",
+                "dist/parse.cjs.map",
+                "dist/parse.js",
+                "dist/parse.js.map",
+                "dist/parser.d.ts",
+                "dist/parser.d.ts.map",
+                "dist/parsers/csv.d.ts",
+                "dist/parsers/csv.d.ts.map",
+                "dist/parsers/index.d.ts",
+                "dist/parsers/index.d.ts.map",
+                "dist/parsers/json.d.ts",
+                "dist/parsers/json.d.ts.map",
+                "dist/parsers/utils.d.ts",
+                "dist/parsers/utils.d.ts.map",
+                "dist/split.d.ts",
+                "dist/split.d.ts.map",
+                "dist/state.d.ts",
+                "dist/state.d.ts.map",
+                "dist/utils-entry.d.ts",
+                "dist/utils-entry.d.ts.map",
+                "dist/utils.cjs",
+                "dist/utils.cjs.map",
+                "dist/utils.d.ts",
+                "dist/utils.d.ts.map",
+                "dist/utils.js",
+                "dist/utils.js.map",
+                "package.json",
+                "src/css/algebra/grammar.mjs",
+                "src/css/algebra/grammar/animation.mjs",
+                "src/css/algebra/grammar/stylesheet.mjs",
+                "src/css/algebra/grammar/value.mjs",
+                "src/css/algebra/ops.mjs",
+                "src/css/algebra/tables.mjs",
+                "src/css/bounds.mjs",
+                "src/css/build.mjs",
+                "src/css/build/ac1.d.ts",
+                "src/css/build/ac1.js",
+                "src/css/build/ac1.wasm",
+                "src/css/build/value-css-4.0.0.d.ts",
+                "src/css/codes.mjs",
+                "src/css/diagnostics.mjs",
+                "src/css/entry.mjs",
+                "src/css/harness-adapter.mjs",
+                "src/css/lower.mjs",
+                "src/css/lowering-js/index.mjs",
+                "src/css/lowering-js/js-alg.mjs",
+                "src/css/lowering-js/values.mjs",
+                "src/css/lowering-wasm/asm.mjs",
+                "src/css/lowering-wasm/index.mjs",
+                "src/css/lowering-wasm/layout.mjs",
+                "src/css/lowering-wasm/runtime.mjs",
+                "src/css/lowering-wasm/wasm-alg.mjs",
+                "src/css/reify/term-alg.mjs"
+            ],
+            "installedManifest": {
+                "name": "@mkbabb/parse-that",
+                "version": "1.0.0",
+                "description": "Parser combinators for TypeScript",
+                "type": "module",
+                "sideEffects": false,
+                "exports": {
+                    ".": {
+                        "types": "./dist/index.d.ts",
+                        "import": "./dist/parse.js",
+                        "require": "./dist/parse.cjs"
+                    },
+                    "./css": {
+                        "types": "./src/css/build/ac1.d.ts",
+                        "import": "./src/css/build/ac1.js"
+                    },
+                    "./core": {
+                        "types": "./dist/core.d.ts",
+                        "import": "./dist/core.js",
+                        "require": "./dist/core.cjs"
+                    },
+                    "./diagnostics": {
+                        "types": "./dist/diagnostics.d.ts",
+                        "import": "./dist/diagnostics.js",
+                        "require": "./dist/diagnostics.cjs"
+                    },
+                    "./packrat": {
+                        "types": "./dist/packrat-entry.d.ts",
+                        "import": "./dist/packrat.js",
+                        "require": "./dist/packrat.cjs"
+                    },
+                    "./utils": {
+                        "types": "./dist/utils-entry.d.ts",
+                        "import": "./dist/utils.js",
+                        "require": "./dist/utils.cjs"
+                    }
+                },
+                "scripts": {
+                    "test": "NODE_OPTIONS='--max-old-space-size=8192' vitest run",
+                    "test:watch": "vitest",
+                    "build": "vite build",
+                    "bench": "vitest bench",
+                    "proof:manifest": "node test/manifest-gate.mjs",
+                    "proof:no-css-surface": "node scripts/proof-no-css-surface.mjs",
+                    "proof:subpath": "node test/subpath-gate.mjs",
+                    "proof:packrat-cross-input": "node scripts/proof-packrat-cross-input.mjs",
+                    "proof:packrat-reentrant": "node scripts/proof-packrat-reentrant.mjs",
+                    "proof:packrat-large-offset": "node scripts/proof-packrat-large-offset.mjs",
+                    "proof:packrat-armed": "node scripts/proof-packrat-armed.mjs",
+                    "proof:no-span-surface": "node scripts/proof-no-span-surface.mjs",
+                    "proof:no-dead-combinator": "node scripts/proof-no-dead-combinator.mjs",
+                    "proof:perf": "NODE_OPTIONS='--expose-gc' node scripts/proof-perf.mjs",
+                    "proof:all": "npm run proof:manifest && npm run proof:no-css-surface && npm run proof:subpath && npm run proof:packrat-cross-input && npm run proof:packrat-reentrant && npm run proof:packrat-large-offset && npm run proof:packrat-armed && npm run proof:no-span-surface && npm run proof:no-dead-combinator && npm run proof:perf"
+                },
+                "files": [
+                    "./dist",
+                    "./src/css"
+                ],
+                "devDependencies": {
+                    "@types/node": "^22.0.0",
+                    "@types/parsimmon": "^1.10.9",
+                    "arcsecond": "^5.0.0",
+                    "chevrotain": "^11.1.1",
+                    "moo": "^0.5.2",
+                    "nearley": "^2.20.1",
+                    "ohm-js": "^17.5.0",
+                    "parjs": "^1.3.9",
+                    "parsimmon": "^1.18.1",
+                    "peggy": "^5.0.6",
+                    "typescript": "^5.8.0",
+                    "vite": "^7.0.0",
+                    "vite-plugin-dts": "^4.5.0",
+                    "vitest": "^3.2.0"
+                }
+            }
+        },
+        "types": {
+            "ok": false,
+            "ran": true,
+            "tsc": "/Users/mkbabb/Programming/parse-that-css-totality-p2/node_modules/typescript/bin/tsc",
+            "status": 2,
+            "diagnostics": [
+                "../../../../../../..<consumer>/consumer.ts(55,35): error TS2314: Generic type 'ParseResult' requires 1 type argument(s)."
+            ]
+        },
+        "resolve": {
+            "ok": false,
+            "seamSpecifier": "@mkbabb/parse-that/css",
+            "seamSubpathDeclared": true,
+            "installedExports": {
+                ".": {
+                    "types": "./dist/index.d.ts",
+                    "import": "./dist/parse.js",
+                    "require": "./dist/parse.cjs"
+                },
+                "./css": {
+                    "types": "./src/css/build/ac1.d.ts",
+                    "import": "./src/css/build/ac1.js"
+                },
+                "./core": {
+                    "types": "./dist/core.d.ts",
+                    "import": "./dist/core.js",
+                    "require": "./dist/core.cjs"
+                },
+                "./diagnostics": {
+                    "types": "./dist/diagnostics.d.ts",
+                    "import": "./dist/diagnostics.js",
+                    "require": "./dist/diagnostics.cjs"
+                },
+                "./packrat": {
+                    "types": "./dist/packrat-entry.d.ts",
+                    "import": "./dist/packrat.js",
+                    "require": "./dist/packrat.cjs"
+                },
+                "./utils": {
+                    "types": "./dist/utils-entry.d.ts",
+                    "import": "./dist/utils.js",
+                    "require": "./dist/utils.cjs"
+                }
+            },
+            "runtimeImport": {
+                "ok": true,
+                "exportedNames": [
+                    "coerceToSyntax",
+                    "collectAnimationOptions",
+                    "collectCustomFunctions",
+                    "collectDeclarations",
+                    "collectKeyframes",
+                    "collectPropertyDescriptors",
+                    "collectStyleRules",
+                    "collectTimelineOptions",
+                    "parseAnimationRange",
+                    "parseAnimationTimeline",
+                    "parseCssColor",
+                    "parseCssScalar",
+                    "parseCssValue",
+                    "parseCssValues",
+                    "parseKeyframeSelector",
+                    "parseStylesheet",
+                    "parseTimingFunction",
+                    "serializeCssColor",
+                    "serializeTimelineOptions"
+                ]
+            },
+            "resolved": 19,
+            "unresolved": 33,
+            "of": 52,
+            "rows": [
+                {
+                    "name": "AnimationRangeValue",
+                    "kind": "types",
+                    "resolved": false,
+                    "reason": "the strict consumer compile failed"
+                },
+                {
+                    "name": "AnimationTimelineValue",
+                    "kind": "types",
+                    "resolved": false,
+                    "reason": "the strict consumer compile failed"
+                },
+                {
+                    "name": "AnimationTriggerValue",
+                    "kind": "types",
+                    "resolved": false,
+                    "reason": "the strict consumer compile failed"
+                },
+                {
+                    "name": "coerceToSyntax",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "collectAnimationOptions",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "collectCustomFunctions",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "collectDeclarations",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "CollectedRule",
+                    "kind": "types",
+                    "resolved": false,
+                    "reason": "the strict consumer compile failed"
+                },
+                {
+                    "name": "collectKeyframes",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "collectPropertyDescriptors",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "collectStyleRules",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "collectTimelineOptions",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "CSSAnimationOptions",
+                    "kind": "types",
+                    "resolved": false,
+                    "reason": "the strict consumer compile failed"
+                },
+                {
+                    "name": "CssColor",
+                    "kind": "types",
+                    "resolved": false,
+                    "reason": "the strict consumer compile failed"
+                },
+                {
+                    "name": "CssColorSpace",
+                    "kind": "types",
+                    "resolved": false,
+                    "reason": "the strict consumer compile failed"
+                },
+                {
+                    "name": "CssLinearStop",
+                    "kind": "types",
+                    "resolved": false,
+                    "reason": "the strict consumer compile failed"
+                },
+                {
+                    "name": "CSSPropertyDescriptor",
+                    "kind": "types",
+                    "resolved": false,
+                    "reason": "the strict consumer compile failed"
+                },
+                {
+                    "name": "CSSTimelineOptions",
+                    "kind": "types",
+                    "resolved": false,
+                    "reason": "the strict consumer compile failed"
+                },
+                {
+                    "name": "CssTimingFunction",
+                    "kind": "types",
+                    "resolved": false,
+                    "reason": "the strict consumer compile failed"
+                },
+                {
+                    "name": "CustomFunctionDescriptor",
+                    "kind": "types",
+                    "resolved": false,
+                    "reason": "the strict consumer compile failed"
+                },
+                {
+                    "name": "CustomFunctionParameter",
+                    "kind": "types",
+                    "resolved": false,
+                    "reason": "the strict consumer compile failed"
+                },
+                {
+                    "name": "CustomFunctionRule",
+                    "kind": "types",
+                    "resolved": false,
+                    "reason": "the strict consumer compile failed"
+                },
+                {
+                    "name": "Declaration",
+                    "kind": "types",
+                    "resolved": false,
+                    "reason": "the strict consumer compile failed"
+                },
+                {
+                    "name": "KeyframeRule",
+                    "kind": "types",
+                    "resolved": false,
+                    "reason": "the strict consumer compile failed"
+                },
+                {
+                    "name": "KeyframesBlock",
+                    "kind": "types",
+                    "resolved": false,
+                    "reason": "the strict consumer compile failed"
+                },
+                {
+                    "name": "KeyframeSelector",
+                    "kind": "types",
+                    "resolved": false,
+                    "reason": "the strict consumer compile failed"
+                },
+                {
+                    "name": "parseAnimationRange",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "parseAnimationTimeline",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "parseCssColor",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "parseCssScalar",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "parseCssValue",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "parseCssValues",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "ParseIssue",
+                    "kind": "types",
+                    "resolved": false,
+                    "reason": "the strict consumer compile failed"
+                },
+                {
+                    "name": "parseKeyframeSelector",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "ParseResult",
+                    "kind": "types",
+                    "resolved": false,
+                    "reason": "named in a tsc diagnostic"
+                },
+                {
+                    "name": "parseStylesheet",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "parseTimingFunction",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "PropertyRule",
+                    "kind": "types",
+                    "resolved": false,
+                    "reason": "the strict consumer compile failed"
+                },
+                {
+                    "name": "RangeBoundary",
+                    "kind": "types",
+                    "resolved": false,
+                    "reason": "the strict consumer compile failed"
+                },
+                {
+                    "name": "RangePhase",
+                    "kind": "types",
+                    "resolved": false,
+                    "reason": "the strict consumer compile failed"
+                },
+                {
+                    "name": "ScrollerKeyword",
+                    "kind": "types",
+                    "resolved": false,
+                    "reason": "the strict consumer compile failed"
+                },
+                {
+                    "name": "ScrollTimelineDescriptor",
+                    "kind": "types",
+                    "resolved": false,
+                    "reason": "the strict consumer compile failed"
+                },
+                {
+                    "name": "serializeCssColor",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "serializeTimelineOptions",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "StyleRule",
+                    "kind": "types",
+                    "resolved": false,
+                    "reason": "the strict consumer compile failed"
+                },
+                {
+                    "name": "Stylesheet",
+                    "kind": "types",
+                    "resolved": false,
+                    "reason": "the strict consumer compile failed"
+                },
+                {
+                    "name": "StylesheetItem",
+                    "kind": "types",
+                    "resolved": false,
+                    "reason": "the strict consumer compile failed"
+                },
+                {
+                    "name": "TimelineAxis",
+                    "kind": "types",
+                    "resolved": false,
+                    "reason": "the strict consumer compile failed"
+                },
+                {
+                    "name": "TimelineScopeValue",
+                    "kind": "types",
+                    "resolved": false,
+                    "reason": "the strict consumer compile failed"
+                },
+                {
+                    "name": "TriggerType",
+                    "kind": "types",
+                    "resolved": false,
+                    "reason": "the strict consumer compile failed"
+                },
+                {
+                    "name": "ViewInset",
+                    "kind": "types",
+                    "resolved": false,
+                    "reason": "the strict consumer compile failed"
+                },
+                {
+                    "name": "ViewTimelineDescriptor",
+                    "kind": "types",
+                    "resolved": false,
+                    "reason": "the strict consumer compile failed"
+                }
+            ]
+        },
+        "refusals": {
+            "ok": true,
+            "rows": [
+                {
+                    "specifier": "@mkbabb/parse-that/src/css/entry.mjs",
+                    "refused": true,
+                    "code": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                },
+                {
+                    "specifier": "@mkbabb/parse-that/src/css/build/ac1.js",
+                    "refused": true,
+                    "code": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                },
+                {
+                    "specifier": "@mkbabb/parse-that/src/css/build/ac1.d.ts",
+                    "refused": true,
+                    "code": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                },
+                {
+                    "specifier": "@mkbabb/parse-that/dist/parse.js",
+                    "refused": true,
+                    "code": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                },
+                {
+                    "specifier": "@mkbabb/parse-that/package.json",
+                    "refused": true,
+                    "code": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                }
+            ],
+            "note": "a refusal carrying ERR_PACKAGE_PATH_NOT_EXPORTED is the export map refusing; any other code is a missing file refusing, which is a weaker property and is recorded as such"
+        }
+    },
+    "ephemeral": {
+        "consumerRoot": "/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/candidate-packed-GeNioI",
+        "removed": true
+    },
+    "verdict": {
+        "pack": true,
+        "declaration": true,
+        "install": true,
+        "resolve": false,
+        "refusals": true,
+        "G3": "RED"
+    }
+}

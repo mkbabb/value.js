@@ -1,0 +1,91 @@
+SERVED MODEL: claude-opus-5[1m]
+
+X.P.W4.e — C2 (COHESION §0y F-w4b-3): THE BUILT ENTRY'S SURFACE, MEASURED, AND THE ONE SITE
+IT CANNOT CARRY. Dated 2026-09-19. NEW file beside X.P.W4.b's evidence (E-3).
+
+C2 orders: "the runtime dependency on tsx/esm/api DIES from runtime bytes (js-alg.mjs:23,
+bounds.mjs:834): the css layer imports the library through the package's own built entry
+(self-reference or dist/), never TS sources through a loader."
+
+==============================================================================
+SITE 1 — js-alg.mjs: CURED (landed by this unit)
+==============================================================================
+⟨cmd⟩ grep -n 'tsx' typescript/src/css/lowering-js/js-alg.mjs
+38: * `import { tsImport } from "tsx/esm/api"` and this line read
+42: * works. Inside a consumer it cannot: `src/parse/**` is not shipped and `tsx` is not a dependency of
+45: * seam symbol could resolve — G-3 read `resolved 0 of 52` against exactly this line. Declaring `tsx`
+  All three hits are PROSE, inside the doc comment that records what was removed and why. The
+  code-only reading is empty, which is the assertion this section makes:
+⟨cmd⟩ grep -nE '^\s*(import|const|let|var|await|return).*tsx' typescript/src/css/lowering-js/js-alg.mjs
+  (no output — exit 1)
+⟨cmd⟩ grep -n '@mkbabb/parse-that' typescript/src/css/lowering-js/js-alg.mjs
+23:import { Parser, createParserContext } from "@mkbabb/parse-that";
+35: * `@mkbabb/parse-that`, which `package.json`'s own `exports["."]` resolves to `./dist/parse.js`.
+44: * `import("@mkbabb/parse-that/css")` from an installed tarball died on the loader before a single
+
+==============================================================================
+SITE 2 — bounds.mjs:834: NOT CURED. The built entry does not carry the reader.
+==============================================================================
+What the instrument needs (bounds.mjs:846-871, unchanged by this unit):
+  readPackratArmState()    -> packrat.packratEnter() / packrat.packratExit(saved)
+  armPackratArmState()     -> packrat.memoize(new parser.Parser(…))
+  resetPackratArmState()   -> packrat.resetPackrat()
+
+What the package's OWN BUILT ENTRY exports — measured, not narrated:
+⟨cmd⟩ node -e "import('./dist/parse.js').then(m=>…Object.keys(m).sort())"
+  dist/parse.js   Parser ParserState all any containsDelimiter createLazyCached createParserContext csvParser disableDiagnostics dispatch enableDiagnostics eof escapedString getLazyParser jsonParser lazy memoize mergeErrorState mergeMemos mergeSpans numberParser quotedString regex resetPackrat skipBlockComments skipWhitespace spanToString splitBalanced string trimStateWhitespace whitespace
+⟨cmd⟩ node -e "import('./dist/packrat.js').then(m=>…Object.keys(m).sort())"
+  dist/packrat.js memoize mergeMemos resetPackrat
+
+  Parser · createParserContext · memoize · mergeMemos · resetPackrat are ALL present, so ARM and
+  RESET port to the built entry unchanged. packratEnter / packratExit are NOT on the public
+  boundary in either subpath — they are internal to packrat.ts, and the built chunk exports
+  them only under rollup's mangled names:
+⟨cmd⟩ cat typescript/dist/packrat.js
+  import { m, i, k } from "./packrat-entry-Dv9CdHan.js";
+  export {
+    m as memoize,
+    i as mergeMemos,
+    k as resetPackrat
+  };
+  //# sourceMappingURL=packrat.js.map
+
+  This is ESC-c1's own finding, re-measured at the built bytes: "the library exports no
+  reader (src/parse/index.ts re-exports resetPackrat and nothing else)"
+  (test/css-recovery/boundary/latch.test.ts, its L-4 preamble).
+
+==============================================================================
+WHY NO SUBSTITUTE WAS LANDED
+==============================================================================
+  Replacing readPackratArmState()'s packratEnter() probe with a module-local "have we armed"
+  flag would make L-3 — "resetPackrat() must DISARM, not merely clear the memo store" — an
+  ASSERTED red instead of a MEASURED one: the flag would answer the very question the leg
+  exists to measure. That is a masking fallback by the standing law's own definition, and the
+  file's own header already forbids it in these words: "a re-export that pretended to disarm
+  would be exactly the masking fallback W3.md §6 G-3 refuses by name" (bounds.mjs:805-806).
+
+  The lawful cures are both OUTSIDE this unit's writable set:
+    (a) widen the library's public boundary — add packratEnter/packratExit to
+        typescript/src/parse/packrat-entry.ts (a §3a File-bound expansion into src/parse/**),
+        after which bounds.mjs imports '@mkbabb/parse-that/packrat' and the tsx site dies with
+        the instrument's reading fully preserved; or
+    (b) rule that the instrument may not read the latch, and re-characterize ESC-c1's leg.
+
+  BLAST RADIUS, measured, so the residual is sized rather than feared: the site is a LAZY
+  require inside loadPackratInstrument(), and the css parse path never calls it.
+⟨cmd⟩ sed -n '87,89p' typescript/src/css/entry.mjs      (all entry.mjs takes from bounds.mjs)
+  import {
+      assertCapacityBounds, assertDepthBound, CAPACITY, CAPACITY_LABELS, CLASS3_PROOF, DEPTH_BOUND, DEPTH_CODE, DEPTH_PRODUCTION, THETA,
+  } from "./bounds.mjs";
+⟨cmd⟩ grep -rn 'loadPackratInstrument\|readPackratArmState' --include='*.mjs' --include='*.ts' typescript | grep -v 'src/css/bounds.mjs'
+  test/css-recovery/boundary/latch.test.ts:46:    readPackratArmState,
+  test/css-recovery/boundary/latch.test.ts:120:        await expect(readPackratArmState()).resolves.toBe(false);
+  test/css-recovery/boundary/latch.test.ts:129:        await expect(readPackratArmState()).resolves.toBe(false);
+  test/css-recovery/boundary/latch.test.ts:134:        await expect(readPackratArmState()).resolves.toBe(true);
+  scripts/css-bench-three-leg.mjs:144:    const candidateArmBefore = await readPackratArmState();
+  scripts/css-bench-three-leg.mjs:204:    const armStateAfter = await readPackratArmState();
+
+  Both callers are IN-REPO instruments (a boundary test and the three-leg bench); neither runs
+  in a consumer. G-3's resolve leg imported '@mkbabb/parse-that/css' from the installed tarball
+  and reached all 19 runtime names WITHOUT tsx present — so this residual did not, and does
+  not, hold G-3 red. It is returned as ESCALATION E-w4e-2, not worked around.
