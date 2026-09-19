@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import { ref, computed, useTemplateRef } from "vue";
 import { X } from "@lucide/vue";
+import { clamp, scale } from "@mkbabb/value.js/math";
 import type { GradientStop } from "../composables/useGradientModel";
+import { railPosition } from "../composables/useGradientModel";
 
-const {
-    stops,
-    railRamp,
-    colorAt = undefined,
-} = defineProps<{
+const { stops, railRamp, colorAt } = defineProps<{
     stops: GradientStop[];
     /**
      * The rail-normalized 90° projection (`serializeRailRamp`, T.W6-2): the
@@ -16,17 +14,24 @@ const {
      * string (type + direction applied) is the render tile's job.
      */
     railRamp: string;
-    /** Ramp color at a position (0–100) — previews the ghost + seeds adds. */
-    colorAt?: (position: number) => string;
+    /**
+     * Ramp color at a position (0–100) — previews the ghost + seeds adds.
+     * REQUIRED (X-W6 · X.W6.a): it was optional with a `?? null` default, and
+     * a masking default is how a rail silently paints an empty ghost when its
+     * owner forgets to wire the sampler.
+     */
+    colorAt: (position: number) => string;
 }>();
 
 const emit = defineEmits<{
     "update:position": [id: string, position: number];
     add: [position: number];
     remove: [id: string];
-    select: [id: string];
 }>();
 
+// The ONE selection channel (X-W6 · X.W6.a). The former `select` emit rode
+// beside this model and the owner wrote the same ref from both, so a selection
+// had two writers and no owner.
 const selectedId = defineModel<string | null>("selectedId", { default: null });
 
 const barRef = useTemplateRef<HTMLDivElement>("barRef");
@@ -56,14 +61,14 @@ let pendingAdd: { x: number; y: number } | null = null;
 // `onBarPointerUp`) and mints at the pointer, and it mints only from the
 // keyboard, so no gesture is ever doubled.
 const caretPos = ref(50);
-const caretColor = computed(() => colorAt?.(caretPos.value) ?? null);
+const caretColor = computed(() => colorAt(caretPos.value));
 
 // ── The keyboard grab (VISUAL-CONSTITUTION §5.2, the stop row) ──
 // "after Space grabs … Space drops, Escape cancels". It is the keyboard twin of
 // a pointer drag: Escape returns the stop to where the grab began. It is a
-// POSITION gesture and never an ordinal reorder — GRADSTOP-A §14 bans a reorder
-// cure until the model's normalise-on-write lands (X-W6 / CC-058), and §15 bans
-// any minimum-separation law outright.
+// POSITION gesture and never an ordinal reorder — the model's own
+// normalise-on-write (X-W6 / CC-058 / GRADSTOP-A §14) derives the ordinal from
+// the position, and §15 bans any minimum-separation law outright.
 const grabbed = ref<{ id: string; origin: number } | null>(null);
 
 function isGrabbed(id: string): boolean {
@@ -74,23 +79,79 @@ function isGrabbed(id: string): boolean {
 const STEP = 1;
 const PAGE_STEP = 10;
 
-// A re-tap on the selected handle — when the press does not become a drag —
-// clears selection. This is Escape's pointer twin for touch users.
-let handleGesture: {
-    wasSelected: boolean;
-    x: number;
-    y: number;
-    moved: boolean;
-} | null = null;
+/**
+ * The gesture dead zone, in CSS px. A press inside it is a tap, not a drag:
+ * it is what the bar's add path already used to tell a click from a scrub, and
+ * the handle now shares it, so a stop's FIRST position write waits for the
+ * pointer to actually travel (X-W6 · X.W6.a — a5).
+ */
+const DEAD_ZONE = 4;
 
-// ── Geometry (W5-11: end-handle truce) ──
-// Handle CENTERS ride an inset track [HANDLE_HALF, width - HANDLE_HALF], so
-// the 0%/100% handles sit fully INSIDE the bar instead of hanging half off
-// its rounded corners.
-const HANDLE_HALF = 10; // w-5 handle → 20px, half = 10
+/**
+ * A live handle drag. `grabDx` is the pointer's offset from the handle's own
+ * CENTRE at the press, captured against a rect read ONCE at pointerdown: every
+ * later position is read at `clientX - grabDx`, so grabbing a handle 8px off
+ * centre and travelling 1px moves the stop 1px — never 10 (a5, the teleport).
+ */
+interface HandleDrag {
+    id: string;
+    axis: RailAxis;
+    grabDx: number;
+    pressX: number;
+    pressY: number;
+    wasSelected: boolean;
+    moved: boolean;
+}
+let drag: HandleDrag | null = null;
+
+// ── Geometry: the ONE axis (X-W6 · X.W6.a — a3 / a4 / a12) ──
+//
+// There is no `HANDLE_HALF` px literal any more. The axis inset is half a
+// handle seat and is declared ONCE, as `--rail-inset` in this file's own scoped
+// CSS; the seat is sized from the same property, so the two can never drift at
+// a type-scale change (the +1.5px-at-rootFS-20 overhang was exactly that
+// drift). `railPosition` is the ONE map: the rail ramp's colour-stop positions
+// and every handle's `left` are the SAME CSS expression, and the inverse below
+// reads the SAME custom property the expression reads.
+
+interface RailAxis {
+    /** Client-x of ordinal 0 — the first handle's centre. */
+    originX: number;
+    /** Distance from ordinal 0 to ordinal 100, in CSS px. */
+    track: number;
+}
+
+function railAxis(bar: HTMLElement): RailAxis {
+    const rect = bar.getBoundingClientRect();
+    const cs = getComputedStyle(bar);
+    const inset = parseFloat(cs.getPropertyValue("--rail-inset"));
+    const borderLeft = parseFloat(cs.borderLeftWidth);
+    const borderRight = parseFloat(cs.borderRightWidth);
+    // `left` percentages resolve against the containing block's PADDING box,
+    // which is the same box the ramp is painted over.
+    const paddingBox = rect.width - borderLeft - borderRight;
+    return {
+        originX: rect.left + borderLeft + inset,
+        // A rail with no laid-out track has no axis to invert; `scale` refuses
+        // an empty input range, so the degenerate case is named here.
+        track: Math.max(1, paddingBox - inset * 2),
+    };
+}
+
+/** The inverse of `railPosition`: a client-x back onto the ordinal axis. */
+function positionFromX(axis: RailAxis, clientX: number): number {
+    return round1(
+        clamp(scale(clientX, axis.originX, axis.originX + axis.track, 0, 100), 0, 100),
+    );
+}
+
+/** 0–100, at the model's own tenth-of-a-percent resolution. */
+function round1(position: number): number {
+    return Math.round(clamp(position, 0, 100) * 10) / 10;
+}
 
 function handleLeft(position: number): string {
-    return `calc(${HANDLE_HALF}px + (100% - ${HANDLE_HALF * 2}px) * ${position / 100})`;
+    return railPosition(position / 100);
 }
 
 // Handle scale ladder: selected/dragging/grabbed (1.25) > hover (1.1) > rest (1).
@@ -98,11 +159,6 @@ function handleScale(id: string): number {
     if (selectedId.value === id || draggingId.value === id || isGrabbed(id))
         return 1.25;
     return hoveredId.value === id ? 1.1 : 1;
-}
-
-/** 0–100, at the model's own tenth-of-a-percent resolution. */
-function clampPos(position: number): number {
-    return Math.round(Math.max(0, Math.min(100, position)) * 10) / 10;
 }
 
 function formatPercent(position: number): string {
@@ -131,44 +187,48 @@ const selectedStop = computed(
 );
 
 const ghostColor = computed(() =>
-    hoverPos.value !== null ? (colorAt?.(hoverPos.value) ?? null) : null,
+    hoverPos.value !== null ? colorAt(hoverPos.value) : null,
 );
-
-function getPosition(e: { clientX: number }): number {
-    if (!barRef.value) return 0;
-    const rect = barRef.value.getBoundingClientRect();
-    const x = e.clientX - rect.left - HANDLE_HALF;
-    const span = Math.max(1, rect.width - HANDLE_HALF * 2);
-    return Math.round(Math.max(0, Math.min(100, (x / span) * 100)) * 10) / 10;
-}
 
 // ── Bar gestures: hover ghost + click-to-add (never warp, never drag) ──
 
+function barPosition(e: PointerEvent): number | null {
+    const bar = barRef.value;
+    return bar ? positionFromX(railAxis(bar), e.clientX) : null;
+}
+
 function onBarPointerDown(e: PointerEvent) {
+    // Only the primary button mints (X-W6 · a7). A middle- or right-press used
+    // to travel the whole add path and leave a stop behind with no caveat.
+    if (e.button !== 0) return;
     const target = e.target as HTMLElement;
     if (target.closest("[data-stop-id]")) return; // handles own their gestures
     pendingAdd = { x: e.clientX, y: e.clientY };
 }
 
 function onBarPointerMove(e: PointerEvent) {
-    if (draggingId.value) {
-        // Fallback path while a handle drag is live (capture sits on the handle).
-        emit("update:position", draggingId.value, getPosition(e));
-        return;
-    }
+    // A captured handle drag is the HANDLE's, whole. The bar's former fallback
+    // emit also fired on every captured move (the move bubbles here), so one
+    // gesture wrote the position twice per frame (a8).
+    if (draggingId.value) return;
     const target = e.target as HTMLElement;
-    hoverPos.value = target.closest("[data-stop-id]") ? null : getPosition(e);
+    hoverPos.value = target.closest("[data-stop-id]") ? null : barPosition(e);
 }
 
 function onBarPointerUp(e: PointerEvent) {
-    if (pendingAdd) {
-        const moved =
-            Math.abs(e.clientX - pendingAdd.x) > 4 ||
-            Math.abs(e.clientY - pendingAdd.y) > 4;
-        if (!moved) emit("add", getPosition(e));
-        pendingAdd = null;
-    }
-    draggingId.value = null;
+    if (!pendingAdd) return;
+    const moved =
+        Math.abs(e.clientX - pendingAdd.x) > DEAD_ZONE ||
+        Math.abs(e.clientY - pendingAdd.y) > DEAD_ZONE;
+    pendingAdd = null;
+    if (moved) return;
+    const position = barPosition(e);
+    if (position !== null) emit("add", position);
+}
+
+/** A cancelled press commits NOTHING — it only disarms (GRADSTOP-A §12). */
+function onBarPointerCancel() {
+    pendingAdd = null;
 }
 
 function onBarPointerLeave() {
@@ -176,47 +236,61 @@ function onBarPointerLeave() {
     pendingAdd = null;
 }
 
-// ── Handle gestures: drag / select / remove ──
+// ── Handle gestures: drag / select ──
 
 function onHandlePointerDown(e: PointerEvent, id: string) {
-    e.preventDefault();
+    if (e.button !== 0) return;
     e.stopPropagation();
+    const bar = barRef.value;
+    if (!bar) return;
     // A pointer drag ends any keyboard grab — one gesture owns the stop at a
     // time, and a grab left armed behind a drag would make Escape teleport.
     grabbed.value = null;
-    handleGesture = {
+
+    const seat = e.currentTarget as HTMLElement;
+    const seatRect = seat.getBoundingClientRect();
+    drag = {
+        id,
+        axis: railAxis(bar),
+        grabDx: e.clientX - (seatRect.left + seatRect.width / 2),
+        pressX: e.clientX,
+        pressY: e.clientY,
         wasSelected: selectedId.value === id,
-        x: e.clientX,
-        y: e.clientY,
         moved: false,
     };
     draggingId.value = id;
     selectedId.value = id;
-    emit("select", id);
-
-    const el = e.currentTarget as HTMLElement;
-    el.setPointerCapture(e.pointerId);
+    seat.setPointerCapture(e.pointerId);
+    // `e.preventDefault()` is DELETED. It was what kept a real mouse press from
+    // focusing the handle, so a pointer user's selection had no keyboard seat
+    // (a6). Focus is taken explicitly because WebKit does not focus a button on
+    // press either — the two engines now agree by construction, not by default.
+    seat.focus();
 }
 
 function onHandlePointerMove(e: PointerEvent) {
-    if (!draggingId.value) return;
-    if (
-        handleGesture &&
-        (Math.abs(e.clientX - handleGesture.x) > 4 ||
-            Math.abs(e.clientY - handleGesture.y) > 4)
-    ) {
-        handleGesture.moved = true;
+    if (!drag) return;
+    if (!drag.moved) {
+        const travelled =
+            Math.abs(e.clientX - drag.pressX) > DEAD_ZONE ||
+            Math.abs(e.clientY - drag.pressY) > DEAD_ZONE;
+        if (!travelled) return; // the first write waits for the dead zone
+        drag.moved = true;
     }
-    emit("update:position", draggingId.value, getPosition(e));
+    emit("update:position", drag.id, positionFromX(drag.axis, e.clientX - drag.grabDx));
 }
 
 function onHandlePointerUp() {
     // A press that never became a drag ON the already-selected handle is a
-    // Re-tap the selected handle to deselect without moving it.
-    if (handleGesture && handleGesture.wasSelected && !handleGesture.moved) {
-        selectedId.value = null;
-    }
-    handleGesture = null;
+    // re-tap: it deselects without moving the stop (Escape's pointer twin).
+    if (drag && drag.wasSelected && !drag.moved) selectedId.value = null;
+    drag = null;
+    draggingId.value = null;
+}
+
+/** Cancel DISARMS and nothing else: no position write, no selection change. */
+function onHandlePointerCancel() {
+    drag = null;
     draggingId.value = null;
 }
 
@@ -227,14 +301,9 @@ function removeStop(id: string) {
     emit("remove", id);
 }
 
-function onHandleContextMenu(e: MouseEvent, id: string) {
-    e.preventDefault();
-    removeStop(id);
-}
-
 function moveStop(stop: GradientStop, position: number) {
     selectedId.value = stop.id;
-    emit("update:position", stop.id, clampPos(position));
+    emit("update:position", stop.id, round1(position));
 }
 
 /**
@@ -314,17 +383,17 @@ function onCaretKeydown(e: KeyboardEvent) {
     switch (e.key) {
         case "ArrowLeft":
         case "ArrowDown":
-            caretPos.value = clampPos(caretPos.value - step);
+            caretPos.value = round1(caretPos.value - step);
             break;
         case "ArrowRight":
         case "ArrowUp":
-            caretPos.value = clampPos(caretPos.value + step);
+            caretPos.value = round1(caretPos.value + step);
             break;
         case "PageDown":
-            caretPos.value = clampPos(caretPos.value - PAGE_STEP);
+            caretPos.value = round1(caretPos.value - PAGE_STEP);
             break;
         case "PageUp":
-            caretPos.value = clampPos(caretPos.value + PAGE_STEP);
+            caretPos.value = round1(caretPos.value + PAGE_STEP);
             break;
         case "Home":
             caretPos.value = 0;
@@ -344,9 +413,10 @@ function onCaretKeydown(e: KeyboardEvent) {
 </script>
 
 <template>
-    <!-- `relative`: the remove chip anchors to the RAIL root (the bar's
-         contain:paint would clip a child chip — see below). -->
-    <div class="relative flex flex-col gap-1">
+    <!-- `relative`: the remove chip anchors to the RAIL root, and the root
+         RESERVES the chip's band below the rail (X-W6 · a10) so the chip can
+         never paint across a sibling rule. -->
+    <div class="rail-seat relative flex flex-col gap-1">
         <!-- The editing rail (T.W6-2 re-author): a pill-silhouette instrument
              (T-46 — the glass-ui slider-track rounding register) painting the
              NORMALIZED ramp projection. Its paint stack is an owned material
@@ -359,14 +429,14 @@ function onCaretKeydown(e: KeyboardEvent) {
             role="group"
             aria-label="Gradient stop rail"
             :class="[
-                'gradient-rail relative h-10 select-none touch-none',
+                'gradient-rail relative select-none touch-none',
                 draggingId ? 'cursor-grabbing' : 'cursor-copy',
             ]"
             :style="{ '--rail-ramp': railRamp }"
             @pointerdown="onBarPointerDown"
             @pointermove="onBarPointerMove"
             @pointerup="onBarPointerUp"
-            @pointercancel="onBarPointerUp"
+            @pointercancel="onBarPointerCancel"
             @pointerleave="onBarPointerLeave"
         >
             <!-- The add ghost: a dashed twin of the handle species, filled
@@ -374,7 +444,7 @@ function onCaretKeydown(e: KeyboardEvent) {
                  affordance replaces the instruction line). -->
             <div
                 v-if="hoverPos !== null && !draggingId"
-                class="absolute top-1/2 w-5 h-5 rounded-full border-2 border-dashed border-white/70 opacity-80 pointer-events-none z-0"
+                class="rail-ghost absolute top-1/2 rounded-full border-2 border-dashed border-white/70 opacity-80 pointer-events-none z-0"
                 :style="{
                     left: handleLeft(hoverPos),
                     background: ghostColor
@@ -398,9 +468,7 @@ function onCaretKeydown(e: KeyboardEvent) {
                 :aria-label="`Add gradient stop at ${formatPercent(caretPos)}%`"
                 :style="{
                     left: handleLeft(caretPos),
-                    background: caretColor
-                        ? `linear-gradient(${caretColor}, ${caretColor}), var(--alpha-checker)`
-                        : 'var(--alpha-checker)',
+                    background: `linear-gradient(${caretColor}, ${caretColor}), var(--alpha-checker)`,
                     transform: 'translate(-50%, -50%)',
                 }"
                 @keydown="onCaretKeydown"
@@ -408,14 +476,14 @@ function onCaretKeydown(e: KeyboardEvent) {
 
             <!-- Stop handles. The BUTTON is the ≥24×24 target and the seat that
                  owns role / value / name / focus (X-W4 · C2/C4); the FACE inside
-                 it is the 20px painted silhouette, held byte-for-byte at its
-                 pre-cure size (W4.md §5: "its 20×20 visual silhouette may stay —
-                 the target is what must grow"). -->
+                 it is the painted silhouette, carrying the DUAL-CONTRAST resting
+                 ring (X-W6 · a11). -->
             <button
                 v-for="(stop, index) in stops"
                 :key="stop.id"
                 :data-stop-id="stop.id"
                 :data-grabbed="isGrabbed(stop.id) ? '' : undefined"
+                :data-selected="selectedId === stop.id ? '' : undefined"
                 type="button"
                 role="slider"
                 aria-orientation="horizontal"
@@ -442,15 +510,13 @@ function onCaretKeydown(e: KeyboardEvent) {
                 @pointerdown="(e) => onHandlePointerDown(e, stop.id)"
                 @pointermove="onHandlePointerMove"
                 @pointerup="onHandlePointerUp"
-                @pointercancel="onHandlePointerUp"
+                @pointercancel="onHandlePointerCancel"
                 @pointerenter="hoveredId = stop.id"
                 @pointerleave="hoveredId = null"
-                @contextmenu="(e) => onHandleContextMenu(e, stop.id)"
                 @keydown="(e) => onHandleKeydown(e, stop)"
             >
                 <span
-                    class="rail-handle-face absolute top-1/2 left-1/2 w-5 h-5 rounded-full border-2"
-                    :class="selectedId === stop.id ? 'border-white' : 'border-white/80'"
+                    class="rail-handle-face absolute top-1/2 left-1/2 rounded-full"
                     aria-hidden="true"
                     :style="{
                         /* S owner-ruling 2026-07-05: the stop well paints its
@@ -458,8 +524,8 @@ function onCaretKeydown(e: KeyboardEvent) {
                            (background-color would sit UNDER background-image, so
                            the color rides a const-color gradient layer). The
                            per-stop COLOR is the only thing still inline here —
-                           it is per-stop DATA; the material lift and the focus
-                           ring are stylesheet contracts (U-F25, below). */
+                           it is per-stop DATA; the material lift and both rings
+                           are stylesheet contracts (U-F25 / X-W6 a11, below). */
                         background: `linear-gradient(${stop.cssColor}, ${stop.cssColor}), var(--alpha-checker)`,
                     }"
                 />
@@ -468,16 +534,16 @@ function onCaretKeydown(e: KeyboardEvent) {
 
         <!-- The remove chip (W5-11 / P1-3: remove was right-click-ONLY —
              undiscoverable, impossible on touch). Floats BELOW the selected
-             handle whenever removal is legal. A SIBLING of the rail, never a
-             child: it lives OUTSIDE the rail's box, so it must not grow the
-             rail's hit-area or ride inside its paint contract. (The former
-             glass-wash `contain: paint` clip — the R8-17 class — died with
-             the owned paint stack; the sibling seat stays on its own merit.) -->
+             handle whenever removal is legal, a FULL coarse touch target below
+             the handle's centre so the grab and destroy hit regions are
+             disjoint on a coarse pointer (X-W6 · a9). A SIBLING of the rail,
+             never a child: it lives OUTSIDE the rail's box, and the seat above
+             reserves its band (a10). -->
         <button
             v-if="selectedStop && removable"
             type="button"
             aria-label="Remove selected stop"
-            class="rail-remove-chip absolute w-6 h-6 top-11 rounded-full border border-card-edge bg-well text-muted-foreground flex items-center justify-center z-20 cursor-pointer hover:text-destructive hover:border-destructive/60"
+            class="rail-remove-chip absolute rounded-full border border-card-edge bg-well text-muted-foreground flex items-center justify-center z-20 cursor-pointer hover:text-destructive hover:border-destructive/60"
             :style="{
                 left: handleLeft(selectedStop.position),
                 transform: 'translate(-50%, 0)',
@@ -495,6 +561,25 @@ function onCaretKeydown(e: KeyboardEvent) {
 </template>
 
 <style scoped>
+/* ── THE ONE AXIS (X-W6 · X.W6.a — a3 / a4 / a12) ─────────────────────────────
+   `--rail-inset` is half a handle seat and `--rail-track` is the span between
+   the two terminal handle CENTRES. Both the handles' `left` and every
+   colour-stop position in `--rail-ramp` are the one expression
+   `calc(var(--rail-inset) + var(--rail-track) * <ordinal>)` (minted once, in
+   `useGradientCSS.railPosition`), and the inverse map in this file's script
+   reads `--rail-inset` back off this element — so there is no px literal on
+   either side to drift at a type-scale change, and the ramp cannot paint an
+   ordinal at a pixel where no handle sits.
+
+   `--rail-inset` is REGISTERED so it computes to a length: an unregistered
+   custom property hands JavaScript back its own token text, and an axis the
+   script cannot read is an axis the script must guess. */
+@property --rail-inset {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 12px;
+}
+
 /* ── The rail's owned paint stack (T.W6-2 — a MATERIAL CONTRACT, not a
    shorthand assembly; t-gradient-surfaces §5's cure). The former per-callsite
    `background: <render-string>, var(--alpha-checker)` on a glass-wash box
@@ -505,10 +590,16 @@ function onCaretKeydown(e: KeyboardEvent) {
    agree to the pixel at both ends by construction. The alpha-checker ground
    tiles beneath (S owner-ruling 2026-07-05); the glass grammar — hairline +
    soft lift — sits OUTSIDE the ramp's geometry. Pill silhouette per T-46:
-   the glass-ui slider-track rounding register (`--radius-pill`). */
+   the glass-ui slider-track rounding register (`--radius-pill`).
+
+   X-W6 · a3: the hairline is an INSET RING, never a `border`. A border puts
+   the ramp's gradient box (border box) and the handles' containing block
+   (padding box) one pixel out of step at every ordinal — the two-language
+   disagreement this unit exists to delete — for a paint no eye can tell
+   apart. */
 .gradient-rail {
+    block-size: var(--rail-height);
     border-radius: var(--radius-pill, 9999px);
-    border: 1px solid var(--card-edge);
     background: var(--rail-ramp), var(--alpha-checker);
     background-origin: border-box;
     background-clip: border-box;
@@ -516,7 +607,38 @@ function onCaretKeydown(e: KeyboardEvent) {
     background-size:
         100% 100%,
         16px 16px;
-    box-shadow: var(--shadow-sm);
+    box-shadow:
+        inset 0 0 0 1px var(--card-edge),
+        var(--shadow-sm);
+}
+
+/* ── The seat's own register (X-W6 · a9 / a10 / a12) ──
+   One handle size, one rail height, one chip size, one coarse touch target —
+   every other geometry below is DERIVED from these four, so a type-scale
+   change moves the whole instrument together instead of pulling the axis away
+   from its handles or the chip into the next section's rule. */
+.rail-seat {
+    --rail-handle-size: max(1.5rem, 24px);
+    --rail-face-size: 1.25rem;
+    --rail-height: 2.5rem;
+    --rail-chip-size: 1.5rem;
+    --rail-touch: var(--touch-target, 2.75rem);
+    /* The axis, declared on the SEAT so the rail's handles and the chip that
+       tracks the selected one read the same two properties. The seat draws no
+       horizontal padding, so `100%` is the same length in both containing
+       blocks — one axis, not two that happen to agree. */
+    --rail-inset: calc(var(--rail-handle-size) / 2);
+    --rail-track: calc(100% - 2 * var(--rail-inset));
+    /* The chip's centre sits ONE full coarse target below the handle's, so the
+       grab and the destroy hit regions cannot overlap on a coarse pointer. */
+    --rail-chip-top: calc(
+        var(--rail-height) / 2 + var(--rail-touch) - var(--rail-chip-size) / 2
+    );
+    /* …and the seat reserves that band, so the chip paints on its OWN ground
+       instead of across whatever rule the next section draws. */
+    padding-bottom: calc(
+        var(--rail-chip-top) + var(--rail-chip-size) - var(--rail-height)
+    );
 }
 
 /* ── The focus affordance SYSTEM (U.W-A11Y · U-F25 · BR-1; X-W4 · C4) ──
@@ -539,8 +661,13 @@ function onCaretKeydown(e: KeyboardEvent) {
    grew, which is what "the target is what must grow" means. */
 .rail-handle,
 .rail-caret {
-    inline-size: max(1.5rem, 24px);
-    block-size: max(1.5rem, 24px);
+    inline-size: var(--rail-handle-size);
+    block-size: var(--rail-handle-size);
+}
+/* The ghost is a preview of the painted SILHOUETTE, not of the seat. */
+.rail-ghost {
+    inline-size: var(--rail-face-size);
+    block-size: var(--rail-face-size);
 }
 /* The caret is the keyboard's affordance alone: invisible until it takes
    keyboard focus (the pointer already has the hover ghost), never removed from
@@ -557,15 +684,32 @@ function onCaretKeydown(e: KeyboardEvent) {
     cursor: grabbing;
 }
 
-/* The material lift rides the FACE (the paint) while the focus ring rides the
-   TARGET box (the seat) — two elements, so the U-F25 composition now holds by
-   construction: nothing on the handle can clobber the other's layer. The chip
-   is a single element and keeps both stacks on itself. */
+/* ── The RESTING ring is dual-contrast too (X-W6 · a11) ──
+   A white-on-white ramp painted the old `border-white/80` face at 1.00:1 — the
+   handles simply disappeared. The face now carries the same two-pole recipe the
+   focus ring uses: a dark hairline INSIDE a light ring, so whatever colour the
+   ramp puts under a handle, one of the two edges clears 3:1 against it. The
+   focus ring still reads, because it is drawn on the SEAT (a wider box) and so
+   lands outside the face's own band. */
 .rail-handle-face {
+    inline-size: var(--rail-face-size);
+    block-size: var(--rail-face-size);
     translate: -50% -50%;
-    box-shadow: var(--shadow-sm);
+    box-shadow:
+        inset 0 0 0 1px var(--focus-ring-inner),
+        0 0 0 2px var(--focus-ring-outer),
+        var(--shadow-sm);
+}
+.rail-handle[data-selected] .rail-handle-face {
+    box-shadow:
+        inset 0 0 0 2px var(--focus-ring-inner),
+        0 0 0 3px var(--focus-ring-outer),
+        var(--shadow-sm);
 }
 .rail-remove-chip {
+    inline-size: var(--rail-chip-size);
+    block-size: var(--rail-chip-size);
+    top: var(--rail-chip-top);
     box-shadow: var(--shadow-sm);
 }
 .rail-handle:focus-visible,
@@ -592,24 +736,27 @@ function onCaretKeydown(e: KeyboardEvent) {
         outline: 2px solid Highlight;
         outline-offset: 2px;
     }
+    /* The resting ring is box-shadow too, so WHCM would leave the handles
+       unmarked; a real outline carries the silhouette into forced colors. */
+    .rail-handle-face {
+        outline: 1px solid CanvasText;
+    }
 }
 
 /* ── Always-on hit inflation (U.W-A11Y · U-F27 · Pole A — mount-safe; BR-3) ──
-   The 20×20 handle / 24×24 chip under-serve WCAG 2.5.8 (24px) on FINE pointers
-   (the former ::before was `@media (pointer: coarse)`-gated, so fine pointers
-   saw a 20px target) and the producer's 44px referent on COARSE. The
-   hit-expander is now PRESENT ON ALL POINTERS — a centred, transparent
-   ::before at max(24px, the visual box) on fine / the producer 44px
-   --touch-target on coarse — a REAL hit target (pointer-events left at its
-   `auto` initial). At X-W4 the handle's own seat became the 24px box, so on
-   fine pointers the two floors now AGREE by construction (`max(1.5rem, 100%)`
-   resolves to the box) and this rule's live work is the COARSE 44px rung; it
-   stays, because the chip is still a 24px box and because a rung that is only
-   true while another rule holds is the kind that breaks silently.
+   The handle / chip boxes under-serve the producer's 44px COARSE referent, so a
+   centred, transparent ::before carries the coarse rung (pointer-events left at
+   its `auto` initial). On FINE pointers the seat IS the ≥24px box (X-W4 · C4),
+   so `max(1.5rem, 100%)` resolves to the box and the two floors agree by
+   construction; the rule stays because the chip is still a 24px box and because
+   a rung that is only true while another rule holds is the kind that breaks
+   silently.
    Because the pseudo belongs to the handle/chip button (data-stop-id / the
    remove role), a tap in the inflated zone targets the button, so the bar's
    add-on-click guard (`target.closest("[data-stop-id]")`) still treats a
-   handle-adjacent hit as a grab, never an unintended mint. */
+   handle-adjacent hit as a grab, never an unintended mint. The chip's own band
+   starts one full coarse target below the handle's centre (`--rail-chip-top`),
+   so the two inflated zones no longer share a row of pixels (a9). */
 .rail-handle::before,
 .rail-remove-chip::before {
     content: "";
@@ -624,8 +771,8 @@ function onCaretKeydown(e: KeyboardEvent) {
 @media (pointer: coarse) {
     .rail-handle::before,
     .rail-remove-chip::before {
-        width: var(--touch-target, 2.75rem);
-        height: var(--touch-target, 2.75rem);
+        width: var(--rail-touch);
+        height: var(--rail-touch);
     }
 }
 </style>

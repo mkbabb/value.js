@@ -20,11 +20,7 @@
 
 import { parseCssColor, parseCssScalar } from "@mkbabb/value.js/css";
 import { linearInterval } from "./useGradientCSS";
-import type {
-    GradientType,
-    GradientStop,
-    GradientInterval,
-} from "./useGradientModel";
+import type { GradientType, GradientStop } from "./useGradientModel";
 
 
 /** UID generator for parsed stops. */
@@ -33,12 +29,16 @@ function uid(): string {
     return `stop-${++nextParseId}-${Date.now().toString(36)}`;
 }
 
-/** A COMPLETE parsed gradient — every field present, ≥2 stops. */
+/**
+ * A COMPLETE parsed gradient — every field present, ≥2 stops, and every stop
+ * carrying the easing of the interval it OPENS (X-W6 · X.W6.a: the parallel
+ * `intervals` array is gone, so a parsed model can no longer be complete in
+ * its stops and incomplete in its curves).
+ */
 export interface ParsedGradientModel {
     type: GradientType;
     direction: number;
     stops: GradientStop[];
-    intervals: GradientInterval[];
 }
 
 /** Model-or-reject: the whole model, or a one-line reason. Never a partial. */
@@ -248,12 +248,25 @@ export function parseGradientCSS(css: string): GradientParseResult {
             return reject(`a stop takes at most 2 positions ("${segments[i]}")`);
         }
 
+        // Every parsed stop seeds the `linear` preset (easing-disposition
+        // §1.6: no persisted artifact names an easing; the catalogue is a
+        // live-editing affordance).
         if (positions.length === 0) {
-            stops.push({ id: uid(), cssColor: colorToken, position: -1 });
+            stops.push({
+                id: uid(),
+                cssColor: colorToken,
+                position: -1,
+                easing: linearInterval(),
+            });
         } else {
             // Double positions are CSS shorthand for two coincident-color stops.
             for (const p of positions) {
-                stops.push({ id: uid(), cssColor: colorToken, position: p });
+                stops.push({
+                    id: uid(),
+                    cssColor: colorToken,
+                    position: p,
+                    easing: linearInterval(),
+                });
             }
         }
     }
@@ -289,13 +302,5 @@ export function parseGradientCSS(css: string): GradientParseResult {
         }
     }
 
-    // Every parsed interval seeds the `linear` preset (easing-disposition
-    // §1.6: no persisted artifact names an easing; the catalogue is a
-    // live-editing affordance).
-    const intervals: GradientInterval[] = [];
-    for (let j = 0; j < stops.length - 1; j++) {
-        intervals.push(linearInterval());
-    }
-
-    return { ok: true, model: { type, direction, stops, intervals } };
+    return { ok: true, model: { type, direction, stops } };
 }

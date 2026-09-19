@@ -1,11 +1,14 @@
 <script setup lang="ts">
-import { inject, ref } from "vue";
+import { ref } from "vue";
 import { Card } from "../../ui/card";
 import PaneHeader from "../../shared/ui/PaneHeader.vue";
 import GradientVisualizer from "./GradientVisualizer/GradientVisualizer.vue";
-import { CSS_COLOR_KEY } from "../../color-session/keys";
 
-const cssColorOpaque = inject(CSS_COLOR_KEY)!;
+// X-W6 · X.W6.a — the DEAD INJECTION is gone. This pane injected
+// `CSS_COLOR_KEY` with a non-null assertion and never read it: an unused
+// `inject(..)!` is a boot-order hazard with no consumer, and its assertion
+// would have turned a missing provider into a silent `undefined` rather than
+// the loud failure the key's owner intends.
 const visualizerRef = ref<InstanceType<typeof GradientVisualizer> | null>(null);
 
 defineExpose({

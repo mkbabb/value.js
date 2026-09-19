@@ -173,7 +173,7 @@ export interface CoalescedSample {
  * the normalized editing rail, and each interval specimen.
  */
 export function sampleCoalescedStops(model: GradientModelState): CoalescedSample[] {
-    const { stops, intervals, interpolationSpace, hueMethod } = model;
+    const { stops, interpolationSpace, hueMethod } = model;
     if (stops.length < 2) return [];
 
     const out: CoalescedSample[] = [];
@@ -185,9 +185,9 @@ export function sampleCoalescedStops(model: GradientModelState): CoalescedSample
     for (let i = 0; i < stops.length - 1; i++) {
         const s0 = stops[i]!;
         const s1 = stops[i + 1]!;
-        const interval = intervals[i];
-        if (!interval) throw new Error(`Gradient interval ${i} is missing`);
-        const easing = easingFnOf(interval);
+        // The interval's curve hangs on the stop that OPENS it — there is no
+        // index-keyed lookup left to be missing, so no throw is reachable here.
+        const easing = easingFnOf(s0.easing);
 
         const c0 = parseColorIn(s0.cssColor, interpolationSpace);
         const c1 = parseColorIn(s1.cssColor, interpolationSpace);
@@ -224,6 +224,36 @@ function rampGradient(samples: CoalescedSample[]): string {
 }
 
 /**
+ * THE ONE AXIS (X-W6 · X.W6.a — a3/a4/a12). A rail ordinal is expressed ONCE,
+ * as a CSS length over the rail's own inset track, and BOTH languages read the
+ * same two custom properties:
+ *
+ * - `--rail-inset` — half a handle seat, so a terminal handle is exactly
+ *   contained at every type scale (there is no px literal to drift from the
+ *   `rem`-tracking seat);
+ * - `--rail-track` — `calc(100% - 2 * var(--rail-inset))`, the span between the
+ *   two terminal handle CENTRES.
+ *
+ * Every handle's `left`, the add ghost's, the keyboard caret's and every
+ * colour-stop position in the rail ramp are THIS expression. `100%` resolves
+ * against the containing block's padding box for `left` and against the
+ * gradient box for a colour stop — the rail carries no border (its hairline is
+ * an inset ring), so those two boxes are one box and the two maps cannot
+ * compute different pixels for the same ordinal.
+ */
+export function railPosition(fraction: number): string {
+    return `calc(var(--rail-inset) + var(--rail-track) * ${Number(fraction.toFixed(6))})`;
+}
+
+/** The rail's ramp: the ONE map applied to every sample's position. */
+function railRampGradient(samples: CoalescedSample[]): string {
+    const parts = samples.map(
+        (s) => `${colorToCss(s.color)} ${railPosition(s.position / 100)}`,
+    );
+    return `linear-gradient(90deg, ${parts.join(", ")})`;
+}
+
+/**
  * ONE interval's eased ramp, normalized to a full-width strip (W5-9 / P1-5:
  * the easing row's "ball" — what `steps(4, end)` does to green→blue, visible
  * in-row). Rides the SAME sampling law as the rendered gradient, so the
@@ -236,9 +266,9 @@ export function serializeIntervalRamp(
     const s0 = model.stops[index];
     const s1 = model.stops[index + 1];
     if (!s0 || !s1) return null;
-    const interval = model.intervals[index];
-    if (!interval) throw new Error(`Gradient interval ${index} is missing`);
 
+    // `s0` carries the interval's own curve, so the sub-model is complete by
+    // construction — the former index-keyed lookup and its throw are gone.
     const sub: GradientModelState = {
         type: "linear",
         direction: 90,
@@ -246,7 +276,6 @@ export function serializeIntervalRamp(
             { ...s0, position: 0 },
             { ...s1, position: 100 },
         ],
-        intervals: [interval],
         interpolationSpace: model.interpolationSpace,
         hueMethod: model.hueMethod,
     };
@@ -271,7 +300,11 @@ export function serializeRailRamp(model: GradientModelState): string {
     if (stops.length === 1) {
         return `linear-gradient(90deg, ${stops[0]!.cssColor}, ${stops[0]!.cssColor})`;
     }
-    return rampGradient(sampleCoalescedStops(model));
+    // Rail-ONLY: the samples ride the one axis expression, so the ordinal a
+    // handle paints at is the ordinal the ramp paints there. Beyond the first
+    // and last stop CSS extends the terminal colour, which is what fills the
+    // two inset bands the handle centres never reach.
+    return railRampGradient(sampleCoalescedStops(model));
 }
 
 /**

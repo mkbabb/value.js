@@ -34,26 +34,31 @@ import EasingSpecimenStrip from "./easing/EasingSpecimenStrip.vue";
 import type { SpecimenTile } from "./easing/easingCatalogue";
 import { useSpecimenRows } from "./easing/useSpecimenRows";
 import type {
-    GradientInterval,
     GradientModelState,
     GradientStop,
 } from "../composables/useGradientModel";
 
-const { stops, intervals, modelState } = defineProps<{
+const { stops, modelState } = defineProps<{
     stops: GradientStop[];
-    intervals: GradientInterval[];
     modelState: GradientModelState;
 }>();
 
 const emit = defineEmits<{
-    "update-interval": [index: number, value: EasingPickerValue];
+    "update-easing": [id: string, value: EasingPickerValue];
 }>();
+
+// X-W6 · X.W6.a — the intervals are no longer a parallel array the model has
+// to keep in step; they are the PROJECTION of the stops that open them. Row i
+// is the interval `stops[i] → stops[i+1]`, so its curve is `stops[i].easing`
+// and an edit is addressed to that stop's ID, never to an ordinal index.
+const openers = computed(() => stops.slice(0, -1));
+const intervals = computed(() => openers.value.map((s) => s.easing));
 
 // ── The specimen rows (identity derived from the interval, the truth;
 // per-row ink = the certified eased ramp midpoint — useSpecimenRows) ──
 const specimenRows = useSpecimenRows(
     () => stops,
-    () => intervals,
+    () => intervals.value,
     () => modelState,
 );
 
@@ -71,13 +76,16 @@ function toggleInterval(index: number) {
 }
 
 function onTileSelect(index: number, tile: SpecimenTile) {
-    // The tile and authoring canvas write the same complete interval value.
-    emit("update-interval", index, tile.payload());
+    // The tile and authoring canvas write the same complete interval value —
+    // onto the stop that OPENS the interval, by identity.
+    const opener = openers.value[index];
+    if (opener) emit("update-easing", opener.id, tile.payload());
 }
 
 function onPickerAuthored(index: number, v: EasingPickerValue | undefined) {
     if (!v) return;
-    emit("update-interval", index, v);
+    const opener = openers.value[index];
+    if (opener) emit("update-easing", opener.id, v);
 }
 
 // ── The authoring disclosure (the strip selects; the canvas authors) ──
@@ -205,8 +213,8 @@ async function copyLiteral(index: number, css: string) {
                     :id="`easing-authoring-${row.index}`"
                 >
                     <EasingAuthoringStage
-                        v-if="intervals[row.index]"
-                        :value="intervals[row.index]!"
+                        v-if="openers[row.index]"
+                        :value="openers[row.index]!.easing"
                         :label="`Easing curve ${row.label}`"
                         @authored="(v) => onPickerAuthored(row.index, v)"
                     />

@@ -47,18 +47,25 @@ test("gradient view renders direction slider with zero console errors", async ({
     await expect(
         main.getByRole("heading", { name: "Interpolation" }).last(),
     ).toBeVisible();
-    // T.W6-2 (ex W5-8): the envelope plate is the hero — present, sized,
-    // and stating its FULL condition: space, swept hues (a single hue when
-    // pinned/degenerate, a range for a hue-varying ramp), and the
-    // cusp-adaptive axis.
-    // X-W1 · R2 (minted at this seat): `/Perceived-space plate/` is an
+    // X-W1 · R2 (minted at that seat): `/Perceived-space plate/` is an
     // accessible name that appears in NO product byte; the tile's live name is
     // "Gradient render with type and direction applied" and it carries the
-    // stable test id `gradient-render-tile` (`GradientVisualizer.vue:220-225`).
+    // stable test id `gradient-render-tile`.
     const plate = main.getByTestId("gradient-render-tile").last();
     await expect(plate).toBeVisible();
-    await expect(plate).toContainText(/H \d+(–\d+)?°/);
-    await expect(plate).toContainText(/C ≤ 0\.\d+/);
+    // X-W6 · X.W6.a (a13) — the two `toContainText` assertions that stood here
+    // targeted RETIRED DOM. They read the W5-8 envelope plate's condition line
+    // ("H 145–265°", "C ≤ 0.18"); the tile is a `role="img"` surface with no
+    // text at all and no successor element carries that line. Measured
+    // 2026-09-19: `grep -rn 'C ≤' demo | wc -l` → 0. R2's second arm applies —
+    // DELETED with the measurement, never `test.skip()`, which G-6 names as
+    // the same deferral under a new name. What the tile DOES state is asserted
+    // by the T-21b test below (it carries type + direction) and by o21's paint
+    // contract; the plate's condition line belongs to the wave that re-mints it.
+    await expect(plate).toHaveAttribute(
+        "aria-label",
+        "Gradient render with type and direction applied",
+    );
 
     expect(consoleErrors).toEqual([]);
 });
@@ -99,42 +106,133 @@ test("the rail is a normalized 90° projection; the render tile carries type + d
     expect(consoleErrors).toEqual([]);
 });
 
-test("selecting a stop pins the envelope plate to its single-hue slice; Escape and re-tap un-pin it (P7-R1)", async ({
+/**
+ * X-W6 · X.W6.a (a13) — RE-ANCHORED, not deleted. This spec's SUBSTANCE is
+ * P7-R1: a selection has two exits (Escape and a re-tap) and neither destroys
+ * a stop. Its REFERENT was the retired envelope-plate condition line, which no
+ * element carries any more (`grep -rn 'C ≤' demo | wc -l` → 0, measured
+ * 2026-09-19). The live referent for "this stop is selected" is the handle's
+ * own `data-selected` state — a product byte, not a test-only hook — so the
+ * three plate readings are re-pointed there and the capability stays gated.
+ */
+test("selecting a stop marks it; Escape and re-tap release it without destroying it (P7-R1)", async ({
     page,
 }) => {
     const consoleErrors = setupEnvNoise(page);
     const main = await openGradient(page);
-    // X-W1 · R2 (minted at this seat): `/Perceived-space plate/` is an
-    // accessible name that appears in NO product byte; the tile's live name is
-    // "Gradient render with type and direction applied" and it carries the
-    // stable test id `gradient-render-tile` (`GradientVisualizer.vue:220-225`).
-    const plate = main.getByTestId("gradient-render-tile").last();
 
-    // Default hue-varying seed: the label states a RANGE.
-    await expect(plate).toContainText(/H \d+–\d+°/);
-
-    // Pin: select the first stop — the label collapses to that hue alone
-    // (the degenerate slice, the stated special case).
+    const selected = () => bar(main).locator("[data-stop-id][data-selected]");
     const first = handles(main).first();
+
+    // Default seed: nothing is selected.
+    await expect(selected()).toHaveCount(0);
+
+    // Pin: a pointer selection marks the handle AND seats focus on it, so the
+    // pointer user and the keyboard user address the same control (a6).
     await first.click();
-    await expect(plate).toContainText(/H \d+°/);
-    await expect(plate).not.toContainText(/H \d+–\d+°/);
+    await expect(selected()).toHaveCount(1);
+    await expect(first).toBeFocused();
 
-    // Release leg A (P7-R1 — the EXIT the sweep regime lacked): Escape on
-    // the focused handle clears the selection, un-pinning the plate back to
-    // the swept-hue hero regime (a hue RANGE) WITHOUT destroying a stop.
-    await first.focus();
+    // Release leg A (P7-R1 — the EXIT the sweep regime lacked): Escape on the
+    // focused handle clears the selection WITHOUT destroying a stop.
     await page.keyboard.press("Escape");
-    await expect(plate).toContainText(/H \d+–\d+°/);
+    await expect(selected()).toHaveCount(0);
     await expect(handles(main)).toHaveCount(2);
 
-    // Release leg B: a re-tap on the already-selected handle (the pointer
-    // twin of Escape — touch has no Escape key) toggles the selection off.
+    // Release leg B: a re-tap on the already-selected handle (the pointer twin
+    // of Escape — touch has no Escape key) toggles the selection off.
     await first.click(); // re-pin
-    await expect(plate).not.toContainText(/H \d+–\d+°/);
+    await expect(selected()).toHaveCount(1);
     await first.click(); // re-tap → deselect
-    await expect(plate).toContainText(/H \d+–\d+°/);
+    await expect(selected()).toHaveCount(0);
     await expect(handles(main)).toHaveCount(2);
+
+    expect(consoleErrors).toEqual([]);
+});
+
+/**
+ * X-W6 · X.W6.a — ADDED (a2): the neighbour-crossing round trip. A drag past a
+ * neighbour used to emit `… 74.9%, … 50%, … 100%`, a descending string the
+ * model's OWN parser rejects; re-feeding the readout produced a verdict where
+ * the user expected a gradient. The model now normalises on write, so the
+ * round trip closes: drag across, re-feed the emitted CSS, get no verdict.
+ */
+test("neighbour-crossing drag round-trips: the emitted CSS re-applies with no verdict", async ({
+    page,
+}) => {
+    const consoleErrors = setupEnvNoise(page);
+    const main = await openGradient(page);
+
+    // Three stops, so there is an interior neighbour to cross.
+    await bar(main).scrollIntoViewIfNeeded();
+    const box = (await bar(main).boundingBox())!;
+    await bar(main).click({ position: { x: box.width * 0.5, y: box.height / 2 } });
+    await expect(handles(main)).toHaveCount(3);
+
+    // Drag the LEFTMOST handle to ~75% — past both of its neighbours.
+    const left = handles(main).first();
+    const lb = (await left.boundingBox())!;
+    await page.mouse.move(lb.x + lb.width / 2, lb.y + lb.height / 2);
+    await page.mouse.down();
+    await page.mouse.move(box.x + box.width * 0.75, lb.y + lb.height / 2, { steps: 10 });
+    await page.mouse.up();
+
+    // The model re-sorted on the write: the ordinals the DOM carries ascend.
+    const ordinals = await handles(main).evaluateAll((els) =>
+        els.map((el) => Number(el.getAttribute("aria-valuenow"))),
+    );
+    expect(ordinals).toEqual([...ordinals].sort((a, b) => a - b));
+    expect(Math.max(...ordinals)).toBeGreaterThan(60);
+
+    // …and the CSS it emitted is CSS it accepts: re-feed the readout verbatim
+    // and the Fira verdict line stays absent.
+    const editor = main.getByRole("textbox", { name: "Gradient CSS" }).last();
+    const emitted = ((await editor.textContent()) ?? "").trim();
+    expect(emitted).toMatch(/^linear-gradient\(/);
+    await typeIntoEditor(main, page, emitted);
+    await page.waitForTimeout(250);
+    await expect(main.getByTestId("gradient-parse-verdict")).toHaveCount(0);
+    await expect(handles(main)).toHaveCount(3);
+
+    expect(consoleErrors).toEqual([]);
+});
+
+/**
+ * X-W6 · X.W6.a — ADDED (a5/a7): a grab is not a teleport, and only the
+ * primary button mints. Both were live, reproducible gestures: an 8px-off-centre
+ * press plus 1px of travel moved the handle 10.11px, and a middle- or
+ * right-press on the bare rail minted a stop with no caveat.
+ */
+test("a grab is not a teleport, and no secondary button mints", async ({ page }) => {
+    const consoleErrors = setupEnvNoise(page);
+    const main = await openGradient(page);
+
+    await bar(main).scrollIntoViewIfNeeded();
+    const box = (await bar(main).boundingBox())!;
+    const first = handles(main).first();
+    const fb = (await first.boundingBox())!;
+    const centreX = fb.x + fb.width / 2;
+    const centreY = fb.y + fb.height / 2;
+
+    // Grab 8px right of centre, travel 1px: the stop must not jump to the
+    // pointer. 1px of travel is inside the 4px dead zone, so it must not move
+    // at all — and it may never move by the grab offset.
+    await page.mouse.move(centreX + 8, centreY);
+    await page.mouse.down();
+    await page.mouse.move(centreX + 9, centreY);
+    await page.waitForTimeout(120);
+    const after = (await handles(main).first().boundingBox())!;
+    await page.mouse.up();
+    expect(Math.abs(after.x + after.width / 2 - centreX)).toBeLessThanOrEqual(2);
+
+    // Middle- and right-press on the bare rail mint NOTHING.
+    const before = await handles(main).count();
+    await page.mouse.click(box.x + box.width * 0.3, box.y + 4, { button: "middle" });
+    await page.waitForTimeout(150);
+    await page.mouse.click(box.x + box.width * 0.62, box.y + 4, { button: "right" });
+    await page.waitForTimeout(150);
+    await page.keyboard.press("Escape"); // dismiss any native context menu
+    expect(await handles(main).count()).toBe(before);
 
     expect(consoleErrors).toEqual([]);
 });
@@ -283,8 +381,12 @@ test("easing row carries its live ramp; steps mode lands in the literal", async 
     // catalogue's mint (`stepsLiteral(4, "end")`).
     const strip = main.getByRole("group", { name: "Easing curve specimens" }).first();
     await strip.getByRole("button", { name: "steps", exact: true }).click();
+    // X-W6 · X.W6.a (a13): `steps(4, end)` is a RETIRED literal — the shipped
+    // catalogue mints `steps(4, jump-end)` (`easingCatalogue.ts:187`, measured
+    // 2026-09-19), the CSS-spec spelling. The assertion is re-pointed at the
+    // literal the product actually emits, not weakened to a substring.
     await expect(main.locator(".readout-rail code").first()).toContainText(
-        "steps(4, end)",
+        "steps(4, jump-end)",
         { timeout: 3000 },
     );
     // The closed-row identity law: the row head speaks the steps family.

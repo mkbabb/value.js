@@ -39,7 +39,6 @@ const {
     type,
     direction,
     stops,
-    intervals,
     interpolationSpace,
     hueMethod,
     modelState,
@@ -48,8 +47,8 @@ const {
     railRampCSS,
     addStop,
     removeStop,
-    updateStop,
-    updateInterval,
+    setStopPosition,
+    setStopEasing,
     setStopsFromColors,
     applyCSS,
 } = useGradientModel();
@@ -68,37 +67,36 @@ const GRADIENT_TYPES: { value: GradientType; label: string; description: string 
  * fixed-teal insert is dead; an added stop is invisible until moved).
  */
 function colorAtPosition(position: number): string {
+    // The model keeps its stops ordinal-sorted and never drops below two, so
+    // this walk is TOTAL: every position falls before the first stop, after
+    // the last, or inside exactly one interval whose curve its opening stop
+    // carries. The three throws this function used to carry — "at least one
+    // stop", "interval i is missing", "no interval contains p" — each named a
+    // state the model can no longer be in (X-W6 · X.W6.a).
     const list = stops.value;
-    if (list.length === 0) throw new Error("A gradient must retain at least one stop");
-    if (position <= list[0]!.position) return list[0]!.cssColor;
+    const first = list[0]!;
     const last = list[list.length - 1]!;
+    if (position <= first.position) return first.cssColor;
     if (position >= last.position) return last.cssColor;
-    for (let i = 0; i < list.length - 1; i++) {
-        const s0 = list[i]!;
-        const s1 = list[i + 1]!;
-        if (position < s0.position || position > s1.position) continue;
-        const span = s1.position - s0.position;
-        const t = span > 0 ? (position - s0.position) / span : 0;
-        const interval = intervals.value[i];
-        if (!interval) throw new Error(`Gradient interval ${i} is missing`);
-        const easedT = easingFnOf(interval)(t);
-        return interpolateStopColors(
-            s0.cssColor,
-            s1.cssColor,
-            easedT,
-            interpolationSpace.value,
-            hueMethod.value,
-        );
-    }
-    throw new Error(`No gradient interval contains ${position}%`);
+    // Strictly inside the ramp: the interval that contains `position` is closed
+    // by the first stop at or past it, and opened by the stop before that —
+    // both exist, because `position` lies strictly between the two terminals.
+    const closeIdx = list.findIndex((s) => s.position >= position);
+    const s1 = list[closeIdx]!;
+    const s0 = list[closeIdx - 1]!;
+    const span = s1.position - s0.position;
+    const t = span > 0 ? (position - s0.position) / span : 0;
+    return interpolateStopColors(
+        s0.cssColor,
+        s1.cssColor,
+        easingFnOf(s0.easing)(t),
+        interpolationSpace.value,
+        hueMethod.value,
+    );
 }
 
 function onAddStop(position: number) {
     addStop(colorAtPosition(position), position);
-}
-
-function onStopPositionUpdate(id: string, position: number) {
-    updateStop(id, { position });
 }
 
 // The one-line Fira verdict of the LAST editor parse (W5-11 / P0-1):
@@ -116,18 +114,25 @@ function onParseCSS(css: string) {
 function seedFromPalette() {
     if (!pm) return;
     const colors = pm.savedPalettes.value[0]?.colors.map((c) => c.css);
-    if (colors && colors.length >= 2) {
-        setStopsFromColors(colors);
-    }
+    if (!colors) return;
+    // `setStopsFromColors` validates every literal through the shipped
+    // `parseCssColor` oracle and RETURNS its verdict; the seat surfaces the
+    // reason in the same Fira line a bad paste lands in. No `try`/`catch`:
+    // the oracle answers with a shape, and wrapping it would mask the answer.
+    const seeded = setStopsFromColors(colors);
+    parseVerdict.value = seeded.ok ? null : seeded.reason;
 }
 
 function resetGradient() {
-    setStopsFromColors(["oklch(0.75 0.15 145)", "oklch(0.65 0.18 265)"]);
+    const seeded = setStopsFromColors([
+        "oklch(0.75 0.15 145)",
+        "oklch(0.65 0.18 265)",
+    ]);
     type.value = "linear";
     direction.value = 90;
     interpolationSpace.value = "oklch";
     hueMethod.value = "shorter";
-    parseVerdict.value = null;
+    parseVerdict.value = seeded.ok ? null : seeded.reason;
 }
 
 async function copyCSS() {
@@ -144,10 +149,9 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
             :rail-ramp="railRampCSS"
             :color-at="colorAtPosition"
             v-model:selected-id="selectedStopId"
-            @update:position="onStopPositionUpdate"
+            @update:position="setStopPosition"
             @add="onAddStop"
             @remove="removeStop"
-            @select="(id) => selectedStopId = id"
         />
 
         <!-- ── Interpolation ── -->
@@ -239,14 +243,13 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
 
         <!-- ── Easing (R.W4 Lane D — the glass-ui <EasingPicker> consume;
              the accordion itself is GradientEasingEditor, W5-9) ── -->
-        <template v-if="intervals.length > 0 && stops.length >= 2">
+        <template v-if="stops.length >= 2">
             <hr class="border-border" />
             <h3 class="font-display text-subheading text-muted-foreground">Easing</h3>
             <GradientEasingEditor
                 :stops="stops"
-                :intervals="intervals"
                 :model-state="modelState"
-                @update-interval="updateInterval"
+                @update-easing="setStopEasing"
             />
         </template>
 

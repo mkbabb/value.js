@@ -5,10 +5,26 @@
  * Orchestrates sub-composables:
  * - useGradientInterpolation — color space, hue method
  * - useGradientCSS — CSS serialization, coalescing, and parsing
+ *
+ * X-W6 · X.W6.a (CC-058 · MT-GRADSTOP-1 r3 · GRADSTOP-A §14) — NORMALISE ON
+ * WRITE, EASING OWNED BY ITS OPENING STOP. The two land together because
+ * neither is safe alone: re-sorting was unsafe while easings were keyed by
+ * interval index, and stop-owned easing without a sort still lets a drag emit
+ * CSS the model's own parser rejects. What died with them: the parallel
+ * `intervals` array, its length watcher, and the index-keyed `updateInterval`.
+ * A position is written through ONE mutator, `setStopPosition(id, position)`,
+ * which maps then STABLE-sorts — equality stays LEGAL (CSS hard stops are
+ * coincident positions and `gradientParse` admits them with `<`, never `<=`).
+ * Clamping the mutator to its neighbours is BANNED (it silently deletes
+ * drag-across-a-neighbour, the D-8 refusal species) and so is splice-at-insert
+ * (it migrates the easings a second time). GRADSTOP-A §15: there is no
+ * minimum-ordinal-spacing rule — crowding is cured by disambiguation.
  */
 
-import { ref, computed, watch } from "vue";
+import { ref, computed } from "vue";
 import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
+import { parseCssColor } from "@mkbabb/value.js/css";
+import { clamp } from "@mkbabb/value.js/math";
 import type { EasingPickerValue } from "@mkbabb/glass-ui/easing";
 import type { PickerSpace } from "../../../color-session/picker-color";
 import { useGradientInterpolation } from "./useGradientInterpolation";
@@ -23,18 +39,13 @@ export {
     serializeGradient,
     serializeCoalescedGradient,
     serializeRailRamp,
+    railPosition,
     linearInterval,
 } from "./useGradientCSS";
 export { parseGradientCSS } from "./gradientParse";
 export type { GradientParseResult, ParsedGradientModel } from "./gradientParse";
 
 // ── Types ──
-
-export interface GradientStop {
-    id: string;
-    cssColor: string;
-    position: number; // 0–100%
-}
 
 /**
  * A gradient interval carries the <EasingPicker> payload (the R.W4 `/easing`
@@ -48,24 +59,58 @@ export interface GradientStop {
  */
 export type GradientInterval = EasingPickerValue;
 
+export interface GradientStop {
+    id: string;
+    cssColor: string;
+    position: number; // 0–100%
+    /**
+     * The easing of the interval this stop OPENS — this stop to the one after
+     * it in ordinal order. Hanging the interval on its opening stop is what
+     * makes a re-sort safe: the curve travels with the stop the author drew it
+     * for, so an insert can no longer re-pair a `steps()` authored on 50→100
+     * onto 25→50. The LAST stop opens no interval and its easing is inert; it
+     * is still carried, because a stop that stops being last must already own
+     * the curve that follows it.
+     */
+    easing: GradientInterval;
+}
+
 export type GradientType = "linear" | "radial" | "conic";
 
 export interface GradientModelState {
     type: GradientType;
     direction: number; // degrees (for linear); ignored for radial
     stops: GradientStop[];
-    intervals: GradientInterval[];
     interpolationSpace: PickerSpace;
     hueMethod: HueInterpolationMethod;
     // NOTE: no `resolution` — the coalesce density is the inlined
     // COALESCE_RESOLUTION constant (W5-11 / P2-14: it never had a UI).
 }
 
+/** The verdict of a stop-set replacement: applied, or the reason it was not. */
+export type SetStopsResult = { ok: true } | { ok: false; reason: string };
+
 // ── Helpers ──
 
 let nextId = 0;
 function uid(): string {
     return `stop-${++nextId}-${Date.now().toString(36)}`;
+}
+
+/**
+ * A position onto the axis it lives on, at the model's tenth-of-a-percent
+ * resolution. This clamps to the AXIS DOMAIN (0–100) and to nothing else — it
+ * is explicitly NOT the banned neighbour clamp, which would make a drag past a
+ * neighbour disappear instead of reorder.
+ */
+function axisPosition(position: number): number {
+    return Math.round(clamp(position, 0, 100) * 10) / 10;
+}
+
+/** Ordinal order. Equality is LEGAL and the sort is stable, so coincident
+ *  positions (CSS hard stops) keep the order the author built them in. */
+function byPosition(a: GradientStop, b: GradientStop): number {
+    return a.position - b.position;
 }
 
 // ── Composable ──
@@ -75,35 +120,19 @@ export function useGradientModel() {
     const type = ref<GradientType>("linear");
     const direction = ref(90);
 
-    // ── Stop state ──
+    // ── Stop state — the ONE source of truth: positions AND easings ──
     const stops = ref<GradientStop[]>([
-        { id: uid(), cssColor: "oklch(0.75 0.15 145)", position: 0 },
-        { id: uid(), cssColor: "oklch(0.65 0.18 265)", position: 100 },
+        { id: uid(), cssColor: "oklch(0.75 0.15 145)", position: 0, easing: linearInterval() },
+        { id: uid(), cssColor: "oklch(0.65 0.18 265)", position: 100, easing: linearInterval() },
     ]);
-    const intervals = ref<GradientInterval[]>([linearInterval()]);
 
     // ── Interpolation sub-composable ──
     const { interpolationSpace, hueMethod } = useGradientInterpolation();
-
-    // Ensure intervals array stays in sync with stops
-    watch(
-        () => stops.value.length,
-        (len) => {
-            const needed = Math.max(0, len - 1);
-            while (intervals.value.length < needed) {
-                intervals.value.push(linearInterval());
-            }
-            if (intervals.value.length > needed) {
-                intervals.value.length = needed;
-            }
-        },
-    );
 
     const modelState = computed<GradientModelState>(() => ({
         type: type.value,
         direction: direction.value,
         stops: stops.value,
-        intervals: intervals.value,
         interpolationSpace: interpolationSpace.value,
         hueMethod: hueMethod.value,
     }));
@@ -113,39 +142,71 @@ export function useGradientModel() {
 
     // ── Stop manipulation ──
 
+    /** A gradient needs two stops; below that the instrument has no subject. */
+    const canRemove = computed(() => stops.value.length > 2);
+
     function addStop(cssColor: string, position: number) {
-        const newStop: GradientStop = { id: uid(), cssColor, position };
-        const sorted = [...stops.value, newStop].sort((a, b) => a.position - b.position);
-        stops.value = sorted;
+        const minted: GradientStop = {
+            id: uid(),
+            cssColor,
+            position: axisPosition(position),
+            easing: linearInterval(),
+        };
+        stops.value = [...stops.value, minted].sort(byPosition);
     }
 
     function removeStop(id: string) {
-        if (stops.value.length <= 2) return; // Minimum 2 stops
+        if (!canRemove.value) return;
         stops.value = stops.value.filter((s) => s.id !== id);
     }
 
-    function updateStop(id: string, patch: Partial<Pick<GradientStop, "cssColor" | "position">>) {
-        stops.value = stops.value.map((s) =>
-            s.id === id ? { ...s, ...patch } : s,
-        );
+    /**
+     * THE SOLE POSITION MUTATOR (GRADSTOP-A §14). Write the position, then
+     * re-sort: the model's ordinal order is a function of its positions, so no
+     * write can leave it in a state that serializes CSS its own parser rejects.
+     */
+    function setStopPosition(id: string, position: number) {
+        stops.value = stops.value
+            .map((s) => (s.id === id ? { ...s, position: axisPosition(position) } : s))
+            .sort(byPosition);
     }
 
-    /** Store the picker's authored-curve payload on the interval. */
-    function updateInterval(index: number, value: EasingPickerValue) {
-        if (index < 0 || index >= intervals.value.length) return;
+    function setStopColor(id: string, cssColor: string) {
+        stops.value = stops.value.map((s) => (s.id === id ? { ...s, cssColor } : s));
+    }
+
+    /** Store the picker's authored-curve payload on the stop that OPENS the
+     *  interval — keyed by identity, never by ordinal index. */
+    function setStopEasing(id: string, value: EasingPickerValue) {
         const { mode, css, fn, points, steps, term } = value;
-        intervals.value = intervals.value.map((iv, i) =>
-            i === index ? { mode, css, fn, points, steps, term } : iv,
+        stops.value = stops.value.map((s) =>
+            s.id === id ? { ...s, easing: { mode, css, fn, points, steps, term } } : s,
         );
     }
 
-    function setStopsFromColors(colors: string[]) {
-        if (colors.length === 0) return;
+    /**
+     * Replace the whole stop set from a colour list, validated through the
+     * shipped `parseCssColor` oracle. The oracle RETURNS a verdict — X-W9's
+     * cure made `parseCssColor("oklch()")` answer `{ok:false, diagnostics}`
+     * instead of throwing — so this branches on the shape. There is no
+     * `try`/`catch` here and there must never be one: wrapping a defect is the
+     * masking-fallback the wave bans.
+     */
+    function setStopsFromColors(colors: string[]): SetStopsResult {
+        if (colors.length < 2) {
+            return { ok: false, reason: "a gradient needs at least 2 color stops" };
+        }
+        const unparseable = colors.find((css) => !parseCssColor(css).ok);
+        if (unparseable !== undefined) {
+            return { ok: false, reason: `unparseable color "${unparseable}"` };
+        }
         stops.value = colors.map((css, i) => ({
             id: uid(),
             cssColor: css,
-            position: colors.length === 1 ? 50 : (i / (colors.length - 1)) * 100,
+            position: axisPosition((i / (colors.length - 1)) * 100),
+            easing: linearInterval(),
         }));
+        return { ok: true };
     }
 
     /**
@@ -153,7 +214,8 @@ export function useGradientModel() {
      * model swaps in, or NOTHING changes and the caller gets the explicit
      * `{ ok: false, reason }` verdict to surface. The former field-by-field
      * partial apply (which could desync `stops` from `intervals` and vanish
-     * the Easing section) is dead.
+     * the Easing section) is dead — and so is the desync itself, now that a
+     * stop carries its own easing.
      */
     function applyCSS(css: string): GradientParseResult {
         const result = parseGradientCSS(css);
@@ -163,7 +225,6 @@ export function useGradientModel() {
         type.value = model.type;
         direction.value = model.direction;
         stops.value = model.stops;
-        intervals.value = model.intervals;
         return result;
     }
 
@@ -172,11 +233,11 @@ export function useGradientModel() {
         type,
         direction,
         stops,
-        intervals,
         interpolationSpace,
         hueMethod,
 
         // Computed
+        canRemove,
         modelState,
         coalescedCSS,
         simpleCSS,
@@ -185,8 +246,9 @@ export function useGradientModel() {
         // Actions
         addStop,
         removeStop,
-        updateStop,
-        updateInterval,
+        setStopPosition,
+        setStopColor,
+        setStopEasing,
         setStopsFromColors,
         applyCSS,
     };

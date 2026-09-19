@@ -120,6 +120,157 @@ test("pill silhouette (T-46): the rail rounds on the glass-ui slider-track regis
     expect(consoleErrors).toEqual([]);
 });
 
+/**
+ * X-W6 · X.W6.a — ADDED (a3 / a4 / a12): ONE POSITION AXIS.
+ *
+ * The rail carried two maps. The ramp was a border-box layer spanning the full
+ * box while handle centres rode `calc(10px + (100% - 20px) * p/100)` over the
+ * PADDING box, so the two agreed only near 47% and were **±11.0px apart at the
+ * terminals** — a user aiming at the colour they could see minted a stop that
+ * landed somewhere else. Worse, the 10px was a JS literal while the seat was
+ * sized `max(1.5rem, 24px)`, so the disagreement GREW with the type scale
+ * (+4.0px of handle overhang at rootFS 20px, measured 2026-09-19).
+ *
+ * Both maps are now the one expression `calc(var(--rail-inset) +
+ * var(--rail-track) * <ordinal>)`, minted once in `useGradientCSS.railPosition`
+ * and read by the ramp string, by every handle's `left`, and — through the same
+ * registered custom property — by the script's inverse map. This oracle holds
+ * all three legs against the live DOM, at the default root size and at 20px.
+ */
+const AXIS_TOL_PX = 1; // a3's stated tolerance
+const INVERSE_TOL_PCT = 0.05; // a4's stated tolerance
+
+test("one axis: every handle centre sits where the ramp paints its own ordinal", async ({
+    page,
+}) => {
+    const consoleErrors = setupEnvNoise(page);
+    const main = await openGradient(page);
+    const rail = bar(main);
+    await rail.scrollIntoViewIfNeeded();
+
+    // Three stops, so an interior ordinal is measured beside the terminals.
+    const box = (await rail.boundingBox())!;
+    await rail.click({ position: { x: box.width * 0.5, y: box.height / 2 } });
+    await expect(rail.locator("[data-stop-id]")).toHaveCount(3);
+
+    const skews = await rail.evaluate((el) => {
+        const r = el.getBoundingClientRect();
+        const cs = getComputedStyle(el);
+        const inset = parseFloat(cs.getPropertyValue("--rail-inset"));
+        const bl = parseFloat(cs.borderLeftWidth);
+        const br = parseFloat(cs.borderRightWidth);
+        // Where the ramp paints ordinal p: the ramp's stop positions ARE the
+        // axis expression, so this is the axis, read off the rail itself.
+        const originX = r.x + bl + inset;
+        const track = r.width - bl - br - inset * 2;
+        return [...el.querySelectorAll("[data-stop-id]")].map((h) => {
+            const hr = h.getBoundingClientRect();
+            const ordinal = Number(h.getAttribute("aria-valuenow"));
+            return {
+                ordinal,
+                skewPx:
+                    +(hr.x + hr.width / 2 - (originX + (track * ordinal) / 100)).toFixed(3),
+            };
+        });
+    });
+
+    expect(skews.map((s) => s.ordinal)).toEqual([0, 50, 100]);
+    for (const s of skews) {
+        expect(Math.abs(s.skewPx)).toBeLessThanOrEqual(AXIS_TOL_PX);
+    }
+
+    expect(consoleErrors).toEqual([]);
+});
+
+test("the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal", async ({
+    page,
+}) => {
+    const consoleErrors = setupEnvNoise(page);
+    const main = await openGradient(page);
+    const rail = bar(main);
+    await rail.scrollIntoViewIfNeeded();
+
+    // Press at the exact pixel where each TERMINAL handle is painted; the stop
+    // the rail mints there must carry that terminal's own ordinal. The ordinal
+    // is read from the model's own `aria-valuenow` and the geometry from the
+    // inline `left` — never from the accessible NAME, which announces identity
+    // and ordinal rank, not position (GRADSTOP-A §6, the readout-vacuity rule).
+    for (const terminal of [0, 100]) {
+        await page.reload({ waitUntil: "networkidle" });
+        await openView(page, "Gradient");
+        await paneSettled(page);
+        const live = bar(page.getByRole("main", { name: "Color tool panes" }));
+        const ids = () =>
+            live.locator("[data-stop-id]").evaluateAll((els) =>
+                els.map((e) => e.getAttribute("data-stop-id")!),
+            );
+
+        // The reload resets the model to its two-stop seed; wait for the rail
+        // to carry them before reading, or the census below counts an empty
+        // pane and the gate passes on a page that never rendered.
+        await expect(live.locator("[data-stop-id]")).toHaveCount(2);
+        const before = await ids();
+        const handle = live.locator(`[data-stop-id][aria-valuenow="${terminal}"]`).first();
+        const hb = (await handle.boundingBox())!;
+        const rb = (await live.boundingBox())!;
+        await page.mouse.click(hb.x + hb.width / 2, rb.y + 4);
+        await expect(live.locator("[data-stop-id]")).toHaveCount(before.length + 1);
+
+        const after = await ids();
+        const mintedId = after.find((id) => !before.includes(id))!;
+        const minted = await live
+            .locator(`[data-stop-id="${mintedId}"]`)
+            .evaluate((el) => ({
+                ordinal: Number(el.getAttribute("aria-valuenow")),
+                left: (el as HTMLElement).style.left,
+            }));
+
+        // The pressed pixel mapped back to exactly the ordinal painted there.
+        expect(Math.abs(minted.ordinal - terminal)).toBeLessThanOrEqual(INVERSE_TOL_PCT);
+        // …and it is expressed in the one axis, not in a private px literal.
+        expect(minted.left).toContain("var(--rail-inset)");
+        expect(minted.left).toContain("var(--rail-track)");
+    }
+
+    expect(consoleErrors).toEqual([]);
+});
+
+test("type-scale containment: at rootFS 20px the terminal handles stay inside the rail", async ({
+    page,
+}) => {
+    const consoleErrors = setupEnvNoise(page);
+    const main = await openGradient(page);
+    const rail = bar(main);
+    await rail.scrollIntoViewIfNeeded();
+
+    // Measured at the shipped root size and at the type-scale step that used
+    // to pull the axis apart. The inset is half a handle seat and the seat is
+    // sized from the same property, so containment holds at BOTH.
+    for (const fs of ["16px", "20px"]) {
+        const v = await rail.evaluate((el, size) => {
+            document.documentElement.style.fontSize = size;
+            const r = el.getBoundingClientRect();
+            const hs = [...el.querySelectorAll("[data-stop-id]")] as HTMLElement[];
+            const first = hs[0]!.getBoundingClientRect();
+            const last = hs[hs.length - 1]!.getBoundingClientRect();
+            return {
+                rootFS: getComputedStyle(document.documentElement).fontSize,
+                handleW: +first.width.toFixed(2),
+                leftOverhang: +(r.x - first.x).toFixed(2),
+                rightOverhang: +(last.x + last.width - (r.x + r.width)).toFixed(2),
+            };
+        }, fs);
+        expect(v.rootFS).toBe(fs);
+        expect(v.leftOverhang).toBeLessThanOrEqual(AXIS_TOL_PX);
+        expect(v.rightOverhang).toBeLessThanOrEqual(AXIS_TOL_PX);
+    }
+    await rail.evaluate(() => {
+        document.documentElement.style.fontSize = "";
+    });
+
+    expect(consoleErrors).toEqual([]);
+});
+
 /* ── X-W1 · R2 — DELETED: "ruler grammar: two terminal caps at the track
  * extremes, every rung strictly interior".
  *
