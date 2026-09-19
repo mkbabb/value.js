@@ -1288,3 +1288,329 @@ loudly: the spec-ordered target growth leaves **one out-of-bounds `smoke` assert
 `e2e-smoke` is a HARD CI job (CC-031). The repair is named to the byte in c.7 and **was not taken**,
 because the path is in no W4 §4 row. No bounds were widened, no gate was narrowed, and no assertion
 was relaxed.
+
+---
+
+### X.W4.d
+
+**SERVED MODEL: claude-opus-5[1m]** · Opus implementation seat (M-23, `W4.md:219`) ·
+**Track A · wave X-W4 · unit d**, redispatched after the **2026-09-18 host restart killed the
+predecessor seat mid-work**. Sitting date of record stays **2026-09-17**. Wall clock at this seat
+`2026-09-19 02:51:41 EDT` → `03:15 EDT` ⟨cmd⟩ `date "+%Y-%m-%d %H:%M:%S %Z"`. **HEAD at entry**
+`88e91365` ⟨cmd⟩ `git log --oneline -1` · branch `tranche-u` ⟨cmd⟩ `git rev-parse --abbrev-ref HEAD`.
+
+**Sections executed**: `W4.md` §3 Scope 7 (`:68-71`) · §5 `### X.W4.d` (`:272-286`) · §6 unit-d gate
+table (`:401-408`) · §9 commit row 6 · §8 artefacts 6, 8.
+**Rulings consumed**: COHESION read to the file end (**1,562 lines**; §0u and §0v are new since unit
+c's seat) ⟨cmd⟩ `grep -c "X-W4\|X\.W4" docs/tranches/X/COHESION.md` → **9**, and
+⟨cmd⟩ `awk 'NR>=1542' … | grep -cE 'X-W4|X\.W4'` → **0** — **no later addendum rules on this unit**.
+The nine hits are `X.W4.g`'s trigger-gated cut (`:72`, `:669`, `:675-676`, `:690`, `:759`, `:804`,
+`:1104`) plus **§0j.A**'s **U-F12 → POLE B** row (`:869`, *"re-opens dark-accent work X-W4 was not
+sized for"* — **no dark-accent work done here**) and **DR-24** (`:865`) `scripts/dev/dev.sh`
+**NEVER touched, never staged**. `X.W4.g` stays CLOSED on X-W0.j's dated census **FAIL (1 of 4 at the
+elected 8.0.0)**; ⟨cmd⟩ `grep -rn 'watercolor-dot' demo | wc -l` → **11**, the bank intact.
+
+---
+
+#### d.0 CRASH-RECOVERY — the inheritance was THIS unit's, read WHOLE and judged hunk by hunk
+
+⟨cmd⟩ `git status --porcelain` at entry → **11 rows**. **Nine are inside this unit's writable set**
+and are a killed `X.W4.d` predecessor's partial work — the whole of unit d's product surface:
+
+| inherited path | shape at entry |
+|---|---|
+| `demo/shell/usePaneRouter.ts` | M, +445 |
+| `demo/shell/dock/Dock.vue` | M, +316 |
+| `demo/color-picker/App.vue` | M, +269 |
+| `demo/color-session/keys.ts` | M, +197 |
+| `demo/shell/dock/layers/GenericActionBar.vue` | M, +172 |
+| `demo/shell/dock/layers/ActionBarLayer.vue` | M, +139 |
+| `demo/shell/dock/ActionToolbar.vue` | M, +49 |
+| `eslint.config.js` | M, +43 |
+| `demo/picker/ColorPicker.vue` | M, +38 |
+
+⟨cmd⟩ `git diff --stat` over the nine → **+1,262 / −406**, read in full before one byte was written.
+The two rows OUTSIDE the set — `scripts/dev/dev.sh` (DR-24) and
+`docs/tranches/V/reformation/CARRY-LEDGER.md` (a sibling's) — were **left exactly as found**, and
+`stash@{0}` (17 paths, none in any W4 bound) was **never popped**. Nothing was stashed, reset,
+restored or blanket-adopted.
+
+**The predecessor's born-RED commit already existed** and is this unit's, not a stranger's:
+⟨cmd⟩ `git log --oneline --all --grep="w4.d" -i` → **`5406a111`** *"test(x-v/w4.d): the scene-action
+contract gate — BORN-RED, 8 of 8 failing before one product byte (D1 render path, D4 unavailable
+state, AB-32 active member)"*, **243 L**, line 1 `// SERVED MODEL: claude-opus-5[1m]`, and
+⟨cmd⟩ `git show --stat 5406a111` names **exactly one file**. The born-RED-first law is therefore
+**satisfied by measurement, not by assertion**: the gate spec was in history before any product byte
+of this unit landed.
+
+| inherited surface | judged against | verdict |
+|---|---|---|
+| `keys.ts` — `SceneActionToken` (14), `SceneActionState` (4 arms), `SceneAction.active`, `SceneInputArm`, `ScenePaneTargets` | §5's *"token union, not `string`"*, §2's *"silently does nothing → unrepresentable"*, AB-32, §3a's D1 escape-hatch trigger | **CONFORMS** — the state union is TOTAL and the Picker's edit arm is a member of the set, so §3a's D1 trigger never fired |
+| `usePaneRouter.ts` — `VIEW_SCENES`, `readScenePaneTarget`, `resolve`, `dispatch`, the four builders | §5's collapse; MP-3 | **CONFORMS** — `VIEW_SCENES` is `Record<ViewId, …>`, so a new view cannot silently inherit a neighbour's bar; MP-3's guard is the `failed` arm and lands in the same change |
+| `Dock.vue` — one prop, one layer, one row | §5's *"replace the `v-if`/`v-else-if` priority with ONE render path"* | **CONFORMS** |
+| `ActionBarLayer.vue` · `GenericActionBar.vue` | §5; `ActionButton.vue` is NOT in bounds | **CONFORMS** — the four states are expressed through props `ActionButton` already publishes (`disabled`, `title`, `description`, `activeStyle`), so the §3a `ActionButton` escalation did **not** fire |
+| `ColorPicker.vue` — `actionBarContext` → `sceneActionTarget` | §5 | **CONFORMS** |
+| `ActionToolbar.vue` — the retirement header | `W4.md` §4 (`modify`, not `delete`) + `:175` (`test/**` Do-NOT-touch) | **CONFORMS** — and measured: ⟨cmd⟩ `npx vitest run test/picker-blob-config.test.ts` → **3 passed** |
+| `eslint.config.js` | the lock *"write ONLY the action-path `no-explicit-any` object"* (§4a Cross-wave, shared with X-W8/X-W9) | **ONE HUNK REWRITTEN** — see d.1 |
+| `App.vue` — the registry and the two mount callbacks | §5; and the app's actual runtime | **DEFECT FOUND AND CURED** — see d.2 |
+
+**Nothing was treated as done until the gates this unit owns measured green at this seat's own
+clock** (d.3). The inherited paths are named again in d.4.
+
+#### d.1 The one hunk this seat REVERTED, with its reason
+
+The inherited `eslint.config.js` carried **+43/−13**: the D2 object **plus** three unrelated
+`prettier --write` reflows (`:243-249`, `:269-275`, `:286-292`) in the `no-restricted-imports` blocks
+that **X-W8 (.b/.e) and X-W9.f also write** (`W4.md:206-208`). The §Unit-plan lock is literal —
+*"this wave writes **only** the action-path `no-explicit-any` object"* — and §7's `prettier --check`
+leg reads `demo e2e`, which does not contain this file. Measured both ways so the trade is stated,
+not assumed: ⟨cmd⟩ `npx prettier --check` on **HEAD's** `eslint.config.js` → **EXIT 1** (the file was
+already prettier-unclean at HEAD, so the reflow was the cadence's doing, not gratuitous) — but it
+manufactures three-hunk conflict surface on a file two other waves hold, for zero gate. The file was
+rebuilt as **HEAD's bytes + the D2 object alone**: ⟨cmd⟩ `git show --stat e64002e9 -- eslint.config.js`
+→ **`eslint.config.js | 30 ++`**, **+30 / −0**, purely additive. The D2 object is **last** in the flat
+config, which is what makes it win (last match wins).
+
+#### d.2 The DEFECT in the inheritance — measured, then cured at the root
+
+The inherited cure **crashed the app on `/#/mix`**, and it was found by running the gate rather than
+by reading it:
+
+```text
+⟨cmd⟩ npx playwright test --project=smoke e2e/smoke/scene-action-contract.spec.ts
+INHERITED, run 1 → EXIT 1 · 7 passed, 1 failed
+[WebServer] [Unhandled rejection] Unknown Error: Maximum recursive updates exceeded in component <App>.
+[WebServer] [console.error] NotFoundError: Failed to execute 'insertBefore' on 'Node': …
+  1) AB-32 · the palette-open indicator survives the contract collapse
+     Error: expect(locator).toBeVisible() failed — locator('.glass-dock') … unexpected value "hidden"
+```
+
+**The predecessor's own comment claimed this was cured** (*"a `shallowRef` whose value is replaced by
+a fresh object literal therefore triggers on every patch … the registry has to earn that property
+deliberately"*), and its identity guard in `publishScenePanes` is real — but it is not sufficient,
+and the record says so rather than inheriting the claim. **Two bounded probes** (temporary
+`console.warn`s inside this unit's own `App.vue`, reverted before landing) measured the actual
+mechanism:
+
+```text
+probe 1 — every publish that passed the identity guard, on /#/mix, ONE render pass
+  102 × [W4D-PUBLISH] {"m":[true,false]}   (null → target)
+   51 × [W4D-PUBLISH] {"m":[false,true]}   (target → null)   … until Vue's recursion cap
+
+probe 2 — what the right slot actually reports
+  102 × {"right":"mix","kind":"obj","keys":["clearSelection","startMix","copyResult"],"hasClear":true}
+   53 × {"right":"mix","kind":"obj","keys":[],"hasClear":false}
+    4 × {"right":"about","kind":"obj","keys":[],"hasClear":false}
+    1 × {"right":"mix","kind":"null"}
+```
+
+**The root cause, stated exactly.** `PaneSlot` reports through an INLINE function ref
+(`PaneSlot.vue:124` `:ref="onMount ? (el: any) => onMount!(el) : undefined"`), so Vue re-invokes it
+on every patch of the slot — and for a `defineAsyncComponent` pane inside `<KeepAlive>` the object it
+hands back **alternates** between the resolved pane's exposed instance and the wrapper's own bare
+public instance. The inherited callback read the bare report as a **de-registration**, so the
+registry flipped `null ↔ target` on every patch; and because the registry is read by `sceneActions`,
+which **App's own render reads**, the write re-entered the very effect that produced it. That is
+verbatim what Vue's message says: *"a reactive effect that is mutating its own dependencies and thus
+recursively triggering itself."* The three `ref<any>` this replaces were immune **by accident** —
+nothing rendered them, so their flip cost nothing.
+
+**Why the cure is the spec's, not an improvisation.** `PaneSlot.vue` is on `W4.md:175`'s
+Do-NOT-touch list (X-W5's), and the alternative root fix — the panes registering themselves through
+an injected port — needs `MixPane.vue` / `GeneratePane.vue` / `GradientPane.vue`, which are in **no**
+W4 §4 row. Both would have been §3a escalations. The cure that IS in bounds is to state what a mount
+report **means**, in `App.vue`, and nothing more:
+
+```ts
+function foldSceneReport<S extends ScenePane>(scene, slotOwnsScene, instance) {
+    if (!slotOwnsScene || instance === null) return null;                    // gone, or unmounted
+    return readScenePaneTarget(scene, instance) ?? scenePanes.value[scene];  // else: not a fact about this scene
+}
+```
+
+· the slot no longer shows this scene → **cleared**; · an explicit unmount (`null`) → **cleared**;
+· an instance exposing the scene's commands → **registered**; · anything else → **not a fact about
+this scene**, so what is registered stands. **This is not a fallback over a defect**: a pane that
+renames a command never satisfies `readScenePaneTarget`, so it never registers, and the contract
+surfaces it as `unavailable` — which is exactly D4's subject. The same reading is applied to the
+colour scene (`foldColorPickerReport`). No `try/catch` was placed around the recursion, no
+`test.skip`, no assertion relaxed.
+
+#### d.3 Gate readings — BEFORE → AFTER, at this seat's own clock, DOUBLE-RUN
+
+```text
+⟨cmd⟩ npx vue-tsc -p tsconfig.demo.json --noEmit                                           → EXIT 0, 0 lines
+⟨cmd⟩ npx eslint demo/color-picker/App.vue demo/shell/usePaneRouter.ts demo/shell/dock/    → EXIT 0
+⟨cmd⟩ npx playwright test --project=smoke e2e/smoke/scene-action-contract.spec.ts
+   run 1 → EXIT 0 · 10 passed (38.7s)      run 2 → EXIT 0 · 10 passed (38.4s)
+   ⟨cmd⟩ grep -c "Maximum recursive" → 0 in BOTH runs
+```
+
+| gate | BEFORE (born-RED at `5406a111` / the wave baseline) | AFTER (this seat, double-run) | verdict |
+|---|---|---|---|
+| **D1** one contract, one render path | **2** exported contracts (`ActionBarContext` `keys.ts:17` · `DockActionBar` `usePaneRouter.ts:58`, DRIFTED from `:49` by `504819ea`) selected by `Dock.vue:156-157`; gate spec 8/8 failing | **1** contract; exactly ONE `[data-testid="scene-action-row"]` per document on every scene — colour **5** seats · generate **3** · mix **3** with **zero** `color.*` seats; `vue-tsc` EXIT 0 | **GREEN** |
+| **D2** no untyped action path | **8** type-level `any` (the baseline's d-2 number, reproduced exactly) · **9** `?.()` dispatches · the rule `"off"` at `eslint.config.js:70`/`:184` | **0** type-level `any`, **0** `?.()` in code (5 + 2 surviving hits are prose quoting the retired code, named in artefact 6) · the rule armed as **error** and shown to fire | **GREEN** |
+| **D3** the checker bites | owed | one token → an unregistered literal returns **TWO** `vue-tsc` errors (TS2820 at the declaration, TS2345 at the dispatch), **EXIT 2**; the revert returns **EXIT 0** with the file byte-identical to its pre-probe copy | **DEMONSTRATED** (`d-falsifier.txt`) |
+| **D4** no silent no-op | the mobile `<PaneSlot>` carries no `:on-mount`, so all **9** handlers no-op with no signal | at 390×844, for Generate · Gradient · Mix: every seat `data-action-state="unavailable"`, `disabled` + `aria-disabled="true"`, accessible name matching `/unavailable/i`, and ONE `role="status"` line naming the condition; at the desktop matrix Generate reads `ready · ready · ready` and a real click dispatches without degrading the state | **GREEN** |
+
+**D4's bounds are respected literally**: the mobile `:on-mount` was **NOT** wired. ⟨cmd⟩
+`grep -c "on-mount" demo/color-picker/App.vue` → **3** at HEAD and **3** now — two bindings (`:121` left, `:155` right, both DESKTOP) and one prose line (`:445`), exactly as at
+HEAD. The parity cure stays X-W5's `bindPane` (gate A3); this unit made the **silence**
+unrepresentable and handed X-W5 a typed seam, which is what `W4.md:408` orders.
+
+**No sibling gate moved.** Re-run with **no edit** to any sibling spec, at this seat's clock:
+
+```text
+⟨cmd⟩ npx playwright test --project=smoke e2e/smoke/a11y-control-targets.spec.ts e2e/smoke/a11y-gradient-stop-grammar.spec.ts   → 8 passed
+⟨cmd⟩ npx playwright test --project=smoke-mobile e2e/smoke/mobile/a11y-control-targets.spec.ts                                   → 3 passed
+```
+
+A1 · A2 · A3 · A4 (unit a, closed by unit c) and C1–C4 (unit c) all **stay GREEN** across this
+landing.
+
+#### d.4 Attribution — three neighbouring REDs, separated BY MEASUREMENT and found PRE-EXISTING
+
+The dock-adjacent suites were run against the landed bytes and then against the **pre-cure bytes**
+(⟨cmd⟩ `git checkout e64002e9^ -- <this unit's nine files>`, run, restore with
+`git checkout e64002e9 -- <the same nine>`; only this unit's own files were ever checked out, and
+⟨cmd⟩ `git status --porcelain` was clean of them afterwards):
+
+```text
+AFTER  (e64002e9)   color-propose + o15-dock-register → 3 failed, 6 passed
+BEFORE (e64002e9^)  the SAME two specs                → 3 failed, 6 passed   ← the same three, same errors
+```
+
+| test | pre-cure | at HEAD | attribution |
+|---|---|---|---|
+| `color-propose.spec.ts:128` *"a successful propose returns the toolbar to its actions state"* | FAILED (*"the propose submission never reached the network"*) | FAILED identically | **PRE-EXISTING** — the other two propose tests (the cycle reaching `Propose color name`, and the one-active-layer invariant) **pass**, so the toolbar cycle this unit re-shaped is green; the failing arm is the network leg |
+| `o15-dock-register.spec.ts:50` *"no geometric ring on mix dots"* | FAILED (`.add-slot-ghost` has no `aria-label` — *"glass-ui 7.0.0 WatercolorDot drops tag/aria-label/@click"*) | FAILED identically | **PRE-EXISTING** — this is **CC-044**'s impostor row, banked in `X.W4.g`, which the census FAIL keeps CLOSED |
+| `o15-dock-register.spec.ts:125` *"the Tools trigger wears the true-button box-model"* | FAILED (`padding` `"4px"` vs `"8px 12px"`) | FAILED identically | **PRE-EXISTING** — a `--dock-compact-control-padding` register row; this unit wrote no dock CSS byte |
+
+**Zero REDs are this unit's.** `e2e-smoke` is a HARD job (CC-031), so the three are named here rather
+than absorbed; none is in any W4 §4 row and none was touched.
+
+#### d.5 §7 cadence
+
+```text
+⟨cmd⟩ npx eslint demo e2e                                          → EXIT 0
+⟨cmd⟩ npx vue-tsc -p tsconfig.demo.json --noEmit                   → EXIT 0, 0 lines
+⟨cmd⟩ npx tsc -p tsconfig.e2e.json --noEmit                        → EXIT 0
+⟨cmd⟩ npx prettier --check <the 9 touched paths + the gate spec>   → CLEAN
+⟨cmd⟩ git diff --check -- demo e2e eslint.config.js                → EXIT 0
+⟨cmd⟩ npx vitest run test/picker-blob-config.test.ts               → 3 passed  (the ActionToolbar source pins)
+```
+
+`prettier --check demo e2e` stays RED over the pre-existing surface units a and b booked for X-W11's
+hygiene walk; every file this unit touched is clean. **Zero `src/` bytes** ⟨cmd⟩
+`git status --porcelain -- src test api` → *(empty)*, as the wave states.
+
+#### d.6 Commits — pathspec on the commit itself, one meaning each
+
+| # | sha | scope | paths |
+|---|---|---|---|
+| born-RED | **`5406a111`** | `test(x-v/w4.d)` the gate spec, 8 of 8 failing before one product byte | `e2e/smoke/scene-action-contract.spec.ts` (243 L) — the killed predecessor's, adopted after being read whole |
+| §9 row 6 | **`e64002e9`** | `refactor(demo/scene-actions)` the collapse, the deletions and the eslint scope | the **9** files above (+1,302 / −396) |
+| beside | **`aecad5d3`** | `test(x-v/w4.d)` this unit's own §8 artefact-8 frames | the gate spec, +44 |
+| beside | **`72e776af`** | `docs(x-v/w4.d)` §8 artefacts 6 + 3(D3) + the four frames | `action-contract-diff.md` · `d-falsifier.txt` · 4 PNGs |
+
+⟨cmd⟩ `git show --stat` on each returns **exactly** its own paths and no sibling seat's (1 · 9 · 1 ·
+6 files). `scripts/dev/dev.sh`, `CARRY-LEDGER.md`, `execution/LEDGER.md`, `execution/C/F-W8.md` and
+`execution/B/KF-W11.md` were **never staged** — three sibling seats committed to this index during
+this unit's sitting and not one of their rows was swept in. **`e64002e9` is ONE commit on purpose**:
+MP-3 binds the ref-binding cure and its throw-surfacing guard to the same change, and AB-32 binds the
+active member to the same collapse. The four PNGs needed `git add -f` and it is **disclosed, not
+quiet** — `.gitignore:34` ignores `*.png` repo-wide and `:35` negates only `demo/**/*.png`;
+force-adding evidence PNGs under `docs/tranches/**` is the repo's own idiom (unit c's c.6 records the
+same act) and `.gitignore` was not touched.
+
+#### d.7 §8 artefacts
+
+- **Artefact 6** — `evidence/W4/action-contract-diff.md` (242 L, `SERVED MODEL` on line 1): the three
+  contents `W4.md:435-437` names, each quoted by its command and double-run — the `SceneActionSet`
+  definition (14 tokens · the TOTAL four-arm state union · AB-32's `active` · the input arm that kept
+  §3a's D1 escape-hatch trigger from firing · the typed registry), the deleted-symbol list (7 rows,
+  including the three `ActionBarContext` members that could never change a rendered byte), and the
+  `any` count **8 → 0** with every surviving prose hit named by file and line.
+- **Artefact 3's D3 half** — `evidence/W4/d-falsifier.txt` (79 L): both outputs verbatim, RED then
+  GREEN, plus D2's own rule shown to bite (necessary, because at the wave's open the scoped `eslint`
+  read exit 0 **for the wrong reason**).
+- **Artefact 8** — §8's five enumerated pairs are units a, b and c's surfaces and are **already
+  banked** (`slug-cluster` · `rail-letters` · `admin-audit-toolbar` · `gradient-select-composition` ·
+  `gradient-rail`, fine and coarse). The surface THIS unit changes is the dock's action bar, so its
+  own pair is added: `action-bar-mix-desktop-{before,after}.png` and
+  `action-bar-mix-390-{before,after}.png`, all four distinct ⟨cmd⟩ `shasum -a 256`. **The `before`
+  desktop frame IS the D1 defect**: `/#/mix` rendering the picker's five seats plus the input toggle,
+  beside an `after` frame rendering the mix set's three.
+
+#### d.8 Residuals, recorded so nothing is silently dropped
+
+1. **`ActionToolbar.vue` is retired from the render path but not deleted.** Nothing imports it
+   ⟨cmd⟩ 4 surviving references, all prose. `W4.md` §4 grants `modify`, not `delete`, and
+   `test/picker-blob-config.test.ts:50-51` reads this file's **source** while `W4.md:175` puts
+   `test/**` on the Do-NOT-touch list. The one-line repair (delete the file and re-anchor those two
+   assertions onto `usePaneRouter.ts`, where the `color.copy` seat now lives, in the SAME change) is
+   written into the SFC's own header for the wave that owns both surfaces.
+2. **`ColorPicker.vue` is in §5's file list but not in D2's eslint scope.** §6 D2's own command does
+   not name it and its RED census never counted it; its single `any` is a display-space bridge on a
+   `ColorSpaceSelector` typed `modelValue: string` (X-W6/X-W7's file). The eslint object **says so in
+   its own comment** rather than globbing the file away. Recorded in artefact 6 §3.2.
+3. **Three neighbouring `smoke` REDs are PRE-EXISTING** (d.4), measured byte-identical before the
+   cure: one propose-network leg, one CC-044 impostor row (`X.W4.g`'s, census-CLOSED), one
+   dock-padding register row. None is in any W4 §4 row; none was touched.
+4. **The mobile `:on-mount` gap is INTACT and X-W5's** — the wave's own bounds say so, and this unit
+   left it exactly as found. Every mobile-branch action renders `unavailable`, which is the state
+   D4 asks for, not a cure of the gap.
+5. **The `failed` state is a SURFACING seam, not an ErrorBoundary rescope.** MP-3 permits either arm;
+   this unit took the surfacing arm because the dock band closes before `<main>` while the app's only
+   boundary sits inside it, so a dock dispatch can reach no boundary at all. The containment altitude
+   (a boundary rescope) belongs to X-W5 (COHESION §0k.3 S-7). Nothing is swallowed: the throw is
+   recorded, rendered through `role="alert"`, and the seat stays operable so the state is recoverable.
+6. **`X.W4.g` untouched and CLOSED** — ⟨cmd⟩ `grep -rn 'watercolor-dot' demo | wc -l` → **11**.
+   Artefact 9 is correctly **absent**.
+
+#### d.9 Locks discharged
+
+- **Born-RED first** — `5406a111` is in history with **one** file in it, ahead of every product byte
+  of this unit (d.0). The two artefact-8 capture tests added at `aecad5d3` came **after** the
+  born-RED verdict and touch **no** gate assertion.
+- **MP-3 SAME-CHANGE GUARD** — the ref-binding cure and its guard are **one commit** (`e64002e9`).
+  `startMix` is the sole throwing exposed member and its dock dispatch is the one that could reach no
+  boundary; `dispatch()` records the throw and `GenericActionBar` renders it as `failed`.
+- **AB-32** — `SceneAction.active` is on the contract and the spec fences it: on `/#/palettes`,
+  `color.palettes` reads `data-action-active="true"` while `color.copy` reads `"false"`. The
+  indicator does not regress under a green gate.
+- **D4 NOT closed by wiring the mobile `:on-mount`** — measured, `grep -c "on-mount"` → **3** (two desktop bindings + one comment), both bindings
+  desktop, unchanged from HEAD (d.3).
+- **`eslint.config.js`: ONLY the action-path object** — **+30 / −0**, three inherited reflows on
+  X-W8/X-W9's blocks reverted (d.1).
+- **`ActionButton.vue` NOT needed** — the four states ride props it already publishes, so §3a's
+  named escalation did not fire. Nor did §3a's D1 trigger: the Picker's edit arm is a member of the
+  contract, not an escape hatch.
+- **U-F12 Pole B** — no dark-accent work; the change is types, dispatch and semantics.
+- **`scripts/dev/dev.sh`** — never opened, never staged. **`CARRY-LEDGER.md`** and the three sibling
+  execution records dirty during this sitting — never staged.
+- **glass-ui and every sibling tree READ-ONLY** — `node_modules/@mkbabb/glass-ui/**` was read (to
+  settle `getComponentPublicInstance`'s `markRaw` behaviour, which decides whether the exposed target
+  survives a deep `ref`) and **not written**; no producer selector was copied; no `node_modules`
+  patch.
+- **No masking move** — no `try/catch` around a defect (the `try` in `dispatch` is the contract's
+  `failed` arm, which RENDERS what it catches), no `test.skip`, no allowlist, no relaxed assertion,
+  no widened bound. The two diagnostic probes were `console.warn`s in this unit's own file and were
+  reverted before landing; ⟨cmd⟩ `grep -c "W4D-PROBE\|W4D-PUBLISH\|W4D-RIGHT" demo/color-picker/App.vue` → **0**.
+- **E13** — four-path sweep re-run at this seat's clock (`2026-09-19 03:14:58 EDT`) ⟨cmd⟩
+  `/usr/bin/find <each path> -maxdepth 1 -type f -name '*.md' -newermt "2026-09-19 01:20"` → only
+  `INBOX.md` itself (**self-excluded**, SELF-COUNT law); glass **BK** re-confirmed newest
+  ⟨cmd⟩ `ls -dt ../glass-ui/docs/tranches/*/ | head -3`; keyframes and atlas unmoved. **0 unrowed
+  value.js-addressed letters · 0 new `I-n` · 0 UNREAD in this unit's scope**: the five rows whose
+  Status cells read UNREAD — **O-20 · I-30 · I-31 · I-32 · I-35** — route by their own Routing cells
+  to the X formation mail seat / X-W0.j / X-EXT-1..6 / X·KF, and the W4 receiver among them is
+  **`X.W4.g`**, which the census FAIL keeps CLOSED. Measured against this unit's vocabulary ⟨cmd⟩
+  `grep -rEil "SceneActionSet|SceneActionToken|ActionBarContext|DockActionBar|scene action|no-explicit-any"`
+  over `V/coordination/*.md` and `BK/coordination/*.md` → the sole hit is `INBOX.md` itself.
+
+**STATUS: DONE.** **D1 · D2 · D3 · D4 all GREEN**, double-run and byte-identical across runs, with
+**zero RED carried** and **zero escalations**. The inheritance was adopted only after being read
+whole and measured: one hunk reverted to hold a cross-wave lock, and one live crash
+(*"Maximum recursive updates exceeded in component <App>"* on `/#/mix`) diagnosed by probe and cured
+at its root inside this unit's bounds. The three neighbouring `smoke` REDs are **PRE-EXISTING**,
+proved by a pre-cure control run, and no sibling gate moved across this landing.
