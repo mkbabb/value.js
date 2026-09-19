@@ -8022,3 +8022,170 @@ _(empty at open; each unit appends its own block here, never over another's)_
 - G-4 C-3: the two coercer codes reach the runner only when `.k` extends it to `coerceToSyntax` (E-h3).
 
 **Evidence banked BESIDE (E-3):** `docs/tranches/X/parse-that/evidence/W3/value-grammar-landing-2026-09-18.{mjs,json,txt}` (`SERVED MODEL:` line 1 of the probe and the txt; the json carries `servedModel` first, as the sibling jsons do) — ⟨cmd⟩ `shasum -a 256` → mjs `1c874403…` · json `e2be90ab…` · txt `5a82984a…`. The prior `.h` seat's `value-grammar-bounds-2026-09-19.*` untouched. Commit `bb136ac` (`<p2>`, 14 files, +1,421/−57) and this record's own commit are the unit's two commits.
+
+---
+
+### X.P.W3.i
+
+**SERVED MODEL: claude-opus-5[1m]** · sitting 2026-09-18 23:0x → 23:5x EDT · `<p2>` `w2/harness`
+`bb136ac` (`.h`'s commit — the serial lock's precondition, verified present at open) → **`1afc002`**
+(ONE commit, 14 files, +1,773/−28, the CTOR family unsplit) · value.js `tranche-u` `0343ebbb` at
+receipt time. Status **PARTIAL**: the ACT landed whole and every gate this unit owns is GREEN on its
+own rows, and **one row is ESCALATED rather than patched** (**E-i1**, a sibling self-count in `.h`'s
+fixture that this unit's lawful K-10 append falsifies).
+
+**Crash-recovery, first act.** ⟨cmd⟩ `git status --porcelain` in `<p2>` and in value.js → in `<p2>`
+the twelve modified paths were all inside this unit's writable set and all this unit's own prior
+work; the sole path outside it was `?? .worktrees/`, **untouched and never staged**. In value.js the
+dirty rows are the standing arrangement's (`scripts/dev/dev.sh` **never touched**) plus sibling
+tracks' files, none of them mine. No stash, no restore, no reset at any point.
+
+**E13 sweep (open + close).** Seat 0's O.1 four-path sweep stands. This seat's close delta ⟨cmd⟩
+`find <4 paths> -maxdepth 1 -type f -name '*.md' -newermt '2026-09-18 21:10'` → **seven** files: the
+five `*-inbox-2026-09-18-value-4.1-*` packets are **our own outbound** (X-W9.i's O-34..O-38, already
+rowed L121-125), `docs/tranches/V/ARCHITECTURE.md` is a V-tranche authority and not mail, and
+`INBOX.md` is the ledger itself (SELF-COUNT law). Status cells read by **cell**, never by a bare
+`grep -i unread` (X.P.W0 CHECK 1 **D-1**): ⟨cmd⟩ `grep -nE '\| \*\*UNREAD' INBOX.md` → 4 hits, of
+which **three are status cells** (I-32 · I-33 · I-34, Routing X-W0.j / the X formation mail seat /
+X-EXT-1) and one is prose in the L225 sweep line. `grep -c '^| I-'` → **37** (was 36 at `.h`'s
+close): the new row is **I-35**, whose status cell reads *"READ + CONSUMED WHOLE 2026-09-18 17:1x
+EDT (KF.W6 unit `.l`)"* — **not** UNREAD. **0 unrowed value-addressed · 0 UNREAD in X.P.W3.i's
+scope; this unit minted no mail.** `INBOX.md` not edited.
+
+#### The act, in order
+
+1. **`algebra/grammar/animation.mjs`** (NEW, 19,588 B) — `buildAnimationGrammar(A, N)` over 15 of
+   the 22 ops, composed in `grammar.mjs` after the value grammar with redefinition HALTs on BOTH
+   `terms` and `dispatchTerms`; the ops arrive as a PLAIN object of already-destructured locals,
+   never `A` (`lower.mjs assertClosedOperatorSet` records every read of `A` and a duplicate HALTs).
+   Entries `P:keyframe-selector` · `P:animation-timeline` · `P:animation-range` ·
+   `P:animation-option`; terms `length-percentage` · `range-boundary`; dispatch terms
+   `timeline-scroll` · `timeline-view`.
+   **The one design decision worth stating: NO `NUM` in the range or the timeline.** The incumbent's
+   `LENGTH_PERCENTAGE` is `/^auto$|^[+-]?(?:\d+\.?\d*|\.\d+)(?:%|[a-z]+)?$/i` and what it KEEPS is
+   the token's own TEXT (`RangeBoundary.offset` and `ViewInset.start` are `string`; the corpus
+   witnesses `"841fEd"`, `"25De"`, `"11e"` coming back verbatim). OP-03 `NUM` admits an exponent the
+   regex refuses (`1e3`) and refuses the trailing dot the regex admits (`1.`), and it answers a
+   number rather than the text — wrong twice over. These tokens are read with `TEXT` alone, piece by
+   contiguous piece, and the constructor re-joins them: the grammar mirrors the regex alternative
+   for alternative, and **that divergence class is EMPTY rather than declared**. `NUM` is used only
+   at `P:keyframe-selector`, where the frozen product genuinely is a number.
+2. **`tables.mjs`** — 6 `R_cls` rows (`sign` · `dot` · `percent` · `letter` · `comma-gap` ·
+   `any-but-comma`), 6 `R_kw` rows, 1 `R_disp` row `timeline-head`, **16 `R_ctor` rows** every one
+   `since: "X.P.W3.i"`, and 5 exported name lists. **`collectLabels` restructured** from a two-pass
+   into a per-unit loop over `LATER_UNITS = ["X.P.W3.h", "X.P.W3.i"]` with a `UNIT_SITE_LABELS` map
+   for the `FAIL`/`EXPECT` site labels that no registry row carries, plus an **orphan HALT** on any
+   `since` the list does not name. This is what keeps `.h`'s indices byte-identical while appending
+   this unit's: ⟨measured⟩ `.h`'s last label `'''` at **[75]**, this unit's first `<sign>` at
+   **[76]**, contiguous, **L 76 → 100**, injective.
+3. **The CTOR quartet, ONE commit (COHESION §0s E-h1)** — 16 rows in `tables.mjs` `R_ctor`, 16
+   constructors in `lowering-js/js-alg.mjs` `CTORS`, 16 emitters in `lowering-wasm/wasm-alg.mjs`
+   `emitCtors` (new `strTable`s `RANGE_PHASE_TAB` · `KEYFRAME_PHASE_TAB` · `TIMELINE_MODE_TAB` ·
+   `SCROLLER_TAB` · `AXIS_TAB`, `AUTO_BLOB`, `fromTab`, and a `recDyn` helper for run-time pair
+   counts), 16 rows in `bounds.mjs` `CTOR_ALLOC` **and** 16 in `CTOR_SCRATCH_CELLS`. ⟨measured at
+   the settled bytes⟩ **16 = 16 = 16 = 16 = 16**. The two restricted-scope grants were honoured to
+   the hunk: ⟨cmd⟩ `git diff -U0` → `bounds.mjs` **2 hunks**, both pure additions inside the two
+   tables; `js-alg.mjs` and `wasm-alg.mjs` **2 hunks each**, one widening the existing `tables.mjs`
+   import to reach the new name lists and one adding rows inside `CTORS` / `emitCtors`. No other
+   byte of any of the three files moved.
+4. **`diagnostics.mjs`** — 24 `PRODUCTION_LABELS` rows, injective, one per new label (C-7's
+   `expected[0]` is named for every issue the corpus raises).
+5. **`entry.mjs`** — `PUBLIC_ENTRIES` += the three animation parsers; **`UNREALIZED_ENTRIES` is now
+   `Object.freeze([])`** — the frozen surface has no unrealized public parser left; ~350 lines of
+   transcribed compositions (`splitTopLevel` · `expandAnimationShorthand` · `declarationCascade` ·
+   `animationCascade` · `collectAnimationOptions` · `collectorsOver` · the four serializers), wired
+   as `surface.collectAnimationOptions` / `surface.serializeTimelineOptions` /
+   `surface.collectTimelineOptions = collectorsOver(surface.parseAnimationRange,
+   surface.parseAnimationTimeline)` so the collectors re-parse through **this** lowering.
+6. **`build.mjs` / `harness-adapter.mjs`** — `RUNTIME_EXPORTS` += the six runtime names,
+   `TYPE_EXPORTS` += the fifteen types, `sources.algebra` += the new grammar file. ⟨cmd⟩
+   `node src/css/build.mjs` → `ac1.wasm 473384 B · 3911 functions · 73433 B static data`, **10**
+   grammar entries. **Reproducible: double-built, ⟨cmd⟩ `shasum -a 256` equal across runs**, and
+   equal again across the comment-only edit in act 9 (the comment moved no output byte).
+7. **`test/css-recovery/animation-grammar.test.ts`** (NEW, 21,938 B, **25 tests**) — every parser
+   row through BOTH lowerings asserted byte-identical, a behavioural witness for each of the 16
+   `R_ctor` rows, both new codes at their named productions, the three structured compositions, the
+   seven degenerate values, the K-10 slice and a SHIELD delta of 0.
+   **The fixture was falsified before it was trusted** (W2 G-4: *a probe that cannot fail for its
+   intended reason is itself a defect*): two JS constructors were temporarily mutated
+   (`lp-auto`'s `asciiFold` guard and `keyframe-percent`'s `[0,100]` guard dropped) → **4 rows went
+   RED, including the cross-lowering legs**; reverted from a byte copy and re-run **25/25**.
+8. **Two defects in this unit's OWN landing probe, found by measuring and corrected** (recorded
+   because each had produced a false reading that would otherwise have been banked):
+   **(a)** the first G-3 reading walked the corpus as `r.src`, but the corpus key is `s` — it passed
+   `undefined` 798,330 times and reported a meaningless green. **(b)** 172 corpus rows (the `r1`
+   band, the identity gate's *"F-c3 unwrapped 172"*) carry `s` WRAPPED as `{id, src}`; a probe that
+   reads `r.s` raw hands the oracle an object and it throws. Both cured in the probe; G-3 re-taken
+   over the real sources. A third, smaller one: the CTOR name-set extractor anchored keys at line
+   start, which reads only the first key of each packed line — it reported `CTOR_SCRATCH_CELLS` as 4
+   of 16 when all 16 were present.
+9. **KO-1 declared** (a real difference, measured, not swept up). `timeline-scroll`/`timeline-view`
+   write their record in a FIXED key sequence — a Wasm record's pairs are emitted in a fixed order
+   and G-5 requires the two lowerings to be byte-identical — while the incumbent assigns each field
+   as it consumes the argument. So `"scroll(block root)"` reads `{kind,axis,scroller}` there and
+   `{kind,scroller,axis}` here. **The objects are EQUAL**: key insertion order is not part of JS
+   object equality, not part of `ScrollTimelineDescriptor`, and not what G-1 compares — only a
+   `JSON.stringify` comparison separates them, which is stricter than the gate. **Measured
+   population over the 26,604-row union corpus: ONE input.** Declared in `animation.mjs`'s header
+   beside WS-1 / KF-1 / DC-1, pinned by a fixture row that asserts the key order on both lowerings,
+   and **not cured** — the cure would be a source-order-dependent key sequence in both lowerings for
+   no semantic gain.
+
+#### Gates — BEFORE (`.h`'s close) → AFTER (this unit), every reading double-run
+
+| gate | BEFORE | AFTER | verdict |
+|---|---|---|---|
+| **G-1** (its rows, two-number form) | `runtime 1 TOTAL / 7 PARTIAL / 11 ABSENT · types 9/0/24 · ALL 10 of 52` | `runtime 7 TOTAL / 7 PARTIAL / 5 ABSENT · types 24 / 0 / 9 · **ALL 31 of 52 TOTAL**`. This unit's six runtime rows, **two numbers each, raw misses FIRST**: `parseKeyframeSelector` accept 20 / reject 26584 — **raw 0 · in-class 0**; `parseAnimationTimeline` 14 / 26590 — **raw 0 · in-class 0**; `parseAnimationRange` 41 / 26563 — **raw 0 · in-class 0**; `serializeTimelineOptions` 200/207, `collectAnimationOptions` 400/407, `collectTimelineOptions` 400/407 — all TOTAL. All **fifteen** type rows TOTAL. KF-1's class predicate matches 9,672 corpus inputs, of which **0** actually diverge at `P:keyframe-selector` — the class is declared, its measured population is 0 | **GREEN on this unit's rows** (the project stays RED on `.j`'s 7 PARTIAL / 5 ABSENT) |
+| **G-2** (C-10 `22/22`) | `22/22` | **`C-10 GREEN — signature 22 · destructured 22 · both differences ∅`** | **GREEN** |
+| **G-3** (`SHIELD.caught` 0) | 0 | **0 at open and 0 at exit**, `SHIELD.faults()` → `[]`, over **745,108** calls (14 surface members × 2 lowerings × 26,604 real corpus sources + 7 degenerate). This is the re-taken reading; see act 8(a) | **GREEN** |
+| **G-4** (its codes emitted) | C-1 578 sites · C-2 GREEN · **C-3 RED 5** · C-7 76 rows | C-1 GREEN **908 sites**, declared now `[animation_option_invalid color_context_required css_syntax keyframe_selector_invalid timeline_option_invalid trailing_input]`, outside frozen 0 · **C-2 GREEN: both of this unit's codes EMITTED** by the executed corpus, plus `timeline_option_invalid` · **C-3 RED, difference 5 → 2** (`syntax_descriptor_invalid`/`syntax_mismatch`, `.j`'s per E-h3) · C-4 RED inherited 2 (`.b`'s) · **C-7 GREEN, label surface 76 → 100 rows**, unnamed first expectations 0 of 11,502 issues | **GREEN on this unit's leg**; project 8 of 10 (inherited shape) |
+| **G-5** (identity; cells old and new) | GREEN at **159,348** cells | **GREEN at 239,022 cells** (9 entries × 26,551 distinct + 63 boundary) — six-tuple differing **0** (differing bytes 0) · full-diagnostics differing **0** · value differing **0** · threw **0**; the 7 declared non-string values × 9 entries identical across both targets | **GREEN** |
+| **G-9** (Θ re-derived and REPORTED) | `INPUT_BOUND 14107` | ⟨cmd⟩ `node …bounds.mjs` → **`Θ.input 14107 — UNMOVED`**; `arena {K 511, S 129}` ceiling 7,208,806 / cap 7,208,960 · `vstack {K 1, S 863}` ceiling 14,970 / cap 65,536 · `expsnap` ceiling 1 / cap 32. This unit's four entries are narrower than the value grammar's, so the walk's dominating rate is unchanged and **every capacity label is byte-identical** — no `tables.mjs`/`diagnostics.mjs` label edit was needed, and K-10 holds | **GREEN, reported** |
+| build reproducibility (K-9) | reproducible | ⟨cmd⟩ `node src/css/build.mjs` ×2 → `ac1.js 130f6585…` · `ac1.wasm 5b4c18c0…` · `ac1.d.ts 32c57cda…`, **identical** | GREEN |
+| recovery project | 8 failed / 246 passed | **9 failed / 352 passed** (double-run identical). +105 passing: this unit's 25, and ~81 newly GENERATED per-entry boundary/no-throw rows for the three new public parsers — **all of which pass on both lowerings** | see E-i1 |
+| totality project (G-6) | 72/72 | **72 passed (72)**, double-run identical | GREEN |
+| G-2 anchor (floor, **A-1 attribution — not this unit's cure**) | — | ⟨cmd⟩ `shasum -a 256 docs/tranches/V/megatranche/audit/probes/r1-published-totality.mjs` → `77678a574d7c6b11…`; run **unmodified** → `TOTAL 0 throws / 1548 calls · DISTINCT FAILURE MODES: 0 · GREEN` | recorded as a floor |
+| `tsc --noEmit` / `git diff --check` | — | `diff --check` **CLEAN**. The fixture contributes **3** rows to the tree's pre-existing **35**-row `TS7016` class (untyped `.mjs` imports; the root tsconfig carries no `@types/node`) and **zero** rows of any new class — the same three-per-file shape every sibling fixture in `test/css-recovery/` already has | recorded |
+
+**Failure attribution at close (9 failed, every one named).** Inherited and untouched by this unit:
+`depth.test.ts` PT-04 ×4 and `capacity.test.ts`'s collection error (**E-h5**, `.h`'s escalation) ·
+`latch.test.ts` ×2 (**ESC-c1**, pre-`.h`) · `closure.test.ts`'s BORN-RED ⊇ leg (`.b`'s — this unit
+**improved** its difference 5 → 2) · `boundary.test.ts:223` (**E-h4**, `.h`'s escalation — the row
+was already RED at `.h`'s close, and this unit took its literal six from 3 unrealized to 0).
+**Exactly one failure is new, and it is E-i1 below.**
+
+#### Escalations (halt-and-return rows, §3a)
+
+- **E-i1 — `value-grammar.test.ts:233-241`, a sibling self-count in `.h`'s OWN fixture, falsified by
+  this unit's lawful K-10 append.** The row reads `L`'s **TAIL** —
+  `const tail = L.slice(L.indexOf("expsnap <= 32") + 1)` — and asserts it `toEqual` `.h`'s sixteen
+  labels, then `expect(L.length).toBe(76)`. A tail-shaped assertion states *"nothing follows me"*,
+  which is a claim no unit is entitled to make and which **the next unit falsifies precisely by
+  obeying K-10**. ⟨measured⟩ the failure diff shows `.h`'s sixteen **still present, in order, at
+  unmoved indices** — they are the diff's unchanged context lines — with this unit's 24 appended
+  after; `.h`'s last label is at **[75]**, this unit's first at **[76]**, and `L.length` is **100**.
+  **K-10 is honoured; what broke is the test's model of "tail", not the ordering law.** The file is
+  `.h`'s and outside this grant (`test/css-recovery/**` is granted for *own files*), so it is
+  returned, not edited. **The cure is two lines, and it preserves every bit of `.h`'s intent:**
+  read a slice of its own length at its own offset, and make the count a floor —
+  `const at = L.indexOf("expsnap <= 32") + 1; const mine = [ …the sixteen… ];`
+  `expect(L.slice(at, at + mine.length)).toEqual(mine);`
+  `expect(L.length).toBeGreaterThanOrEqual(at + mine.length);`
+  This unit's own fixture uses exactly that form (act 7), **so `.j` does not inherit the same
+  defect from this seat.** Owner: `.h`. This row, and E-h4's `boundary.test.ts:223`, are the same
+  class — a sealed self-count that later lawful work must falsify — and both want the same shape.
+- **Residual (report, no act):** `boundary.test.ts:223`'s literal `UNREALIZED_ENTRIES` count is now
+  **0** (was 6 at `.f`, 3 at `.h`): `entry.mjs`'s `UNREALIZED_ENTRIES` is `Object.freeze([])`
+  because the frozen surface's nine public parsers are all realized. `.c`'s row should read the
+  surface rather than a literal. Unchanged escalation, deeper by one unit.
+- **G-4 C-3** remains RED at 2 codes: `syntax_descriptor_invalid` / `syntax_mismatch` reach the
+  runner only when `.k` extends it to `coerceToSyntax` (E-h3). Not this unit's.
+
+**Evidence banked BESIDE (E-3):**
+`docs/tranches/X/parse-that/evidence/W3/animation-grammar-landing-2026-09-18.{mjs,json,txt}` —
+`SERVED MODEL:` is line 1 of the probe and of the txt; the json carries `servedModel` first, as the
+sibling jsons do. ⟨cmd⟩ `shasum -a 256` → mjs `2d3a220d4540…` · json `e3f1698e3dc0…` · txt
+`3e7394db8316…`. The probe is double-run identical and re-derives everything from the sha-pinned
+oracle (`css.js` `8b5381305ea26236`), the built candidate and both lowerings; nothing in it is
+asserted by hand. `.h`'s `value-grammar-landing-2026-09-18.*` and `value-grammar-bounds-2026-09-19.*`
+untouched. Commit `1afc002` (`<p2>`) and this record's own commit are this unit's two commits.

@@ -1,0 +1,259 @@
+{
+  "servedModel": "claude-opus-5[1m]",
+  "unit": "X.P.W3.i",
+  "sitting": "2026-09-18",
+  "hashes": {
+    "src/css/algebra/grammar/animation.mjs": {
+      "sha256": "9478f7420a4e744fe36e521355aab604b25631aeee5bb17515f75474ef19e76f",
+      "bytes": 20554
+    },
+    "src/css/algebra/grammar.mjs": {
+      "sha256": "43e087d8443f6303fec4010e7bc615adf889ad541f836359e37075013b1364d1",
+      "bytes": 23672
+    },
+    "src/css/algebra/tables.mjs": {
+      "sha256": "bf8877c84ebe82337db2e2fee7ae6a854aa0b595517e0da0c1e73c63b266e64c",
+      "bytes": 39411
+    },
+    "src/css/diagnostics.mjs": {
+      "sha256": "f44de0437b491f65e2e9203c3113d2c64252655edfb2e3fc76136263b1fe4a06",
+      "bytes": 12032
+    },
+    "src/css/entry.mjs": {
+      "sha256": "ff74d6131b50c1e7e22b528ed68cd380728fc947adae0686c91fc68de47f8be6",
+      "bytes": 49913
+    },
+    "src/css/harness-adapter.mjs": {
+      "sha256": "ba957ba211e706110cdb985cb949e53c4c64e7e4832bc9cdd92638e2c6b22ddd",
+      "bytes": 3973
+    },
+    "src/css/build.mjs": {
+      "sha256": "cca91d6cad15945becd41171cad5fe6e8f6f42bf93d1c976bf98847828e2081c",
+      "bytes": 4088
+    },
+    "src/css/lowering-js/js-alg.mjs": {
+      "sha256": "acae73a9f83a879beed60bdd1bbef80721427771fba91b094dd9cbb04767ef7b",
+      "bytes": 37757
+    },
+    "src/css/lowering-wasm/wasm-alg.mjs": {
+      "sha256": "3f7b833e3f29de941949d14e29e4cfc216a2f120c8a4549e855f850b1a491b93",
+      "bytes": 61122
+    },
+    "src/css/bounds.mjs": {
+      "sha256": "2d037b24d9a00dc5c0bf8604bf901c22546c05a07cb37f159e6d879533778260",
+      "bytes": 52490
+    },
+    "src/css/build/ac1.js": {
+      "sha256": "130f65858b0390962d06ebf4a54f62d7fc7dcc38838d45c914d5522994f00d49",
+      "bytes": 585
+    },
+    "src/css/build/ac1.wasm": {
+      "sha256": "5b4c18c0105423c2b5bc77c3af8a859b6dae19fe49db9cf7bc4a5df0b2eb77a5",
+      "bytes": 473384
+    },
+    "src/css/build/ac1.d.ts": {
+      "sha256": "32c57cdaadb84a6f615b9a8ff846ec992bba24cdcd98527add55244fcb0468bd",
+      "bytes": 874
+    },
+    "test/css-recovery/animation-grammar.test.ts": {
+      "sha256": "5f7ef1c4d1445edb5cdce5bd02dac45b0a633e63e1323777272da7833a835a3c",
+      "bytes": 22869
+    }
+  },
+  "k10": {
+    "hLastLabel": "'''",
+    "hLastIndex": 75,
+    "myFirstLabel": "<sign>",
+    "myFirstIndex": 76,
+    "labelCount": 100,
+    "mine": [
+      "<sign>",
+      "<decimal-point>",
+      "<percent-unit>",
+      "<unit-letters>",
+      "<comma-or-whitespace>",
+      "<animation-item-text>",
+      "<keyframe-keyword>",
+      "<keyframe-phase>",
+      "<range-phase>",
+      "<timeline-keyword>",
+      "<scroll-argument>",
+      "<timeline-axis>",
+      "<timeline-function>",
+      "<length-percentage>",
+      "'auto'",
+      "<animation-range>",
+      "<keyframe-selector>",
+      "0%..100%",
+      "<dashed-ident>",
+      "<scroll-timeline>",
+      "<view-timeline>",
+      "<animation-option-list>",
+      "<animation-timeline>",
+      "nonempty animation list item"
+    ],
+    "injective": true
+  },
+  "ctorQuartet": {
+    "tables.mjs R_ctor": 16,
+    "js-alg.mjs CTORS": 16,
+    "wasm-alg.mjs emitCtors": 16,
+    "bounds.mjs CTOR_ALLOC": 16,
+    "bounds.mjs CTOR_SCRATCH_CELLS": 16
+  },
+  "ctorRows": [
+    "animation-option",
+    "animation-option-list",
+    "keyframe-named",
+    "keyframe-percent",
+    "keyframe-word",
+    "lp-auto",
+    "lp-text",
+    "range-offset",
+    "range-pair",
+    "range-phase",
+    "range-phase-offset",
+    "range-single",
+    "timeline-mode",
+    "timeline-name",
+    "timeline-scroll",
+    "timeline-view"
+  ],
+  "ctorClosed": true,
+  "registryRows": {
+    "R_cls": [
+      "sign",
+      "dot",
+      "percent",
+      "letter",
+      "comma-gap",
+      "any-but-comma"
+    ],
+    "R_kw": [
+      "keyframe-word",
+      "keyframe-phase",
+      "range-phase",
+      "timeline-mode",
+      "scroll-arg",
+      "view-axis"
+    ],
+    "R_disp": [
+      "timeline-head"
+    ]
+  },
+  "corpus": {
+    "rows": 26604,
+    "unwrapped": 172,
+    "allStrings": true
+  },
+  "g1": {
+    "parseKeyframeSelector": {
+      "accept": 20,
+      "reject": 26584,
+      "total": 26604,
+      "raw": 0,
+      "inClass": 0,
+      "outside": 0,
+      "differ": 0,
+      "keyOrder": 0,
+      "keyOrderWitness": [],
+      "misses": []
+    },
+    "parseAnimationTimeline": {
+      "accept": 14,
+      "reject": 26590,
+      "total": 26604,
+      "raw": 0,
+      "inClass": 0,
+      "outside": 0,
+      "differ": 0,
+      "keyOrder": 1,
+      "keyOrderWitness": [
+        {
+          "src": "scroll(block root)",
+          "oracle": {
+            "kind": "scroll",
+            "axis": "block",
+            "scroller": "root"
+          },
+          "candidate": {
+            "kind": "scroll",
+            "scroller": "root",
+            "axis": "block"
+          }
+        }
+      ],
+      "misses": []
+    },
+    "parseAnimationRange": {
+      "accept": 41,
+      "reject": 26563,
+      "total": 26604,
+      "raw": 0,
+      "inClass": 0,
+      "outside": 0,
+      "differ": 0,
+      "keyOrder": 0,
+      "keyOrderWitness": [],
+      "misses": []
+    }
+  },
+  "structured": {
+    "collectAnimationOptions": {
+      "calls": 14,
+      "threw": 0,
+      "differ": 0
+    },
+    "serializeTimelineOptions": {
+      "calls": 14,
+      "threw": 0,
+      "differ": 0
+    },
+    "collectTimelineOptions": {
+      "calls": 14,
+      "threw": 0,
+      "differ": 0
+    }
+  },
+  "shield": {
+    "atOpen": 0,
+    "atExit": 0,
+    "faults": []
+  },
+  "theta": {
+    "depthBound": 64,
+    "input": 14107,
+    "marks": 32768,
+    "recoveries": 4096,
+    "D": 4096,
+    "C": 65536,
+    "P": 65536,
+    "vstack": 65536,
+    "arena": 7208960,
+    "expsnap": 32
+  },
+  "class3": {
+    "input": 14107,
+    "vstack": {
+      "ceiling": 14970,
+      "cap": 65536,
+      "K": 1,
+      "unit": "code unit",
+      "S": 863
+    },
+    "arena": {
+      "ceiling": 7208806,
+      "cap": 7208960,
+      "K": 511,
+      "unit": "code unit",
+      "S": 129
+    },
+    "expsnap": {
+      "ceiling": 1,
+      "cap": 32,
+      "K": 0,
+      "unit": "depth level",
+      "S": 1
+    }
+  }
+}
