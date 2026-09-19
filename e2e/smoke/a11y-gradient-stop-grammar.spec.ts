@@ -292,9 +292,28 @@ test("C3 · the full keyboard grammar moves the stop — every key measured at s
     const mid = handles(main).nth(1);
     await mid.focus();
 
+    // Every press is banked key-by-key (§8 artefact 5): the key, the `left`
+    // before and after, the delta, and the inline declaration the delta was read
+    // from. The record is the evidence; the assertions below read the same rows.
+    const ledger: Array<{
+        key: string;
+        before: number;
+        after: number;
+        delta: number;
+        inline: string;
+    }> = [];
     const press = async (key: string) => {
+        const before = (await leftOf(mid)).px;
         await mid.press(key);
-        return (await leftOf(mid)).px;
+        const after = await leftOf(mid);
+        ledger.push({
+            key,
+            before: Math.round(before * 1000) / 1000,
+            after: Math.round(after.px * 1000) / 1000,
+            delta: Math.round((after.px - before) * 1000) / 1000,
+            inline: after.inline,
+        });
+        return after.px;
     };
 
     // The rail's own unit of 1%, DERIVED from the rail rather than hardcoded:
@@ -372,6 +391,9 @@ test("C3 · the full keyboard grammar moves the stop — every key measured at s
     await mid.press("Delete");
     await expect(handles(main), "Delete still removes the stop").toHaveCount(2);
 
+    console.log(
+        `[W4-C3-LEDGER] ${JSON.stringify({ unitPxPerPercent: unit, presses: ledger })}`,
+    );
     console.log(`[W4-C3] defects=${defects.length}\n${defects.join("\n")}`);
     expect(defects, "keys whose measured effect on style.left is wrong").toEqual([]);
 });
