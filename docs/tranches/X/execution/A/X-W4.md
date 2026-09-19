@@ -2288,3 +2288,217 @@ take**: a fresh VERIFY-ONLY check reads the gates at its own clock and rules.
 
 **Commits**: `5bd44d76` (C4 settle + falsifier evidence) · `4f567837` (D2 scope) · `e112fc4f` (PNG
 strays) · this record.
+
+---
+
+## Check 2 — L-20 fresh adversarial pass 2 (VERIFY-ONLY)
+
+**SERVED MODEL: claude-opus-5[1m]** · a fresh adversarial L-20 **pass-2** seat that authored **no
+byte** of this wave — no unit cure, no unit receipt, no `## Close`, no `## Check 1`, no
+`## Repair 1`, no LEDGER row cell. Track A · wave **X-W4**. Sitting date of record **2026-09-17**
+(the owner's begin-word). Wall clock at entry `2026-09-19 04:20:51 EDT` ⟨cmd⟩
+`date "+%Y-%m-%d %H:%M:%S %Z"`. **HEAD at entry** `081903c8` (Repair 1's receipt) ⟨cmd⟩
+`git log --oneline -1` · branch `tranche-u`. E-3: nothing above this line is rewritten.
+
+**CRASH-RECOVERY first.** ⟨cmd⟩ `git status --porcelain` at entry → **2 rows**, **neither inside
+this seat's writable set** (`docs/tranches/X/execution/A/X-W4.md` + `execution/LEDGER.md`):
+`M docs/tranches/V/reformation/CARRY-LEDGER.md` (a sibling's) and `M scripts/dev/dev.sh` (unowned,
+DR-24 — never opened, never staged). **No inherited hunk existed inside this seat's set**, so the
+obligation discharges as an absence: nothing stashed, reset, restored or adopted. Two further dirty
+rows appeared mid-seat from concurrent tracks (`execution/D/X-P-W4.md`, `V/coordination/INBOX.md`) —
+read, never touched.
+
+**One disclosure the SELF-COUNT law requires of this seat.** Running `scene-action-contract.spec.ts`
+re-renders §8 artefact-8's two Mix action-bar frames in place, so this seat's own verification made
+`action-bar-mix-390.png` (7,633 → 7,844 B) and `action-bar-mix-desktop.png` (6,675 → 7,030 B) dirty.
+A VERIFY-ONLY seat writes no evidence byte, so both were returned to their committed bytes ⟨cmd⟩
+`git checkout -- <the two paths>` — a two-path restore of **this seat's own incidental churn**, never
+a blanket restore and never another seat's row. Porcelain afterwards carries neither.
+
+### C2.1 — every gate re-run at this seat's own clock: **16 of 16 GREEN**, including the repaired C4
+
+Commands verbatim, each at least double-run, against the settled committed bytes:
+
+```text
+⟨cmd⟩ npx playwright test --project=smoke e2e/smoke/a11y-control-targets.spec.ts e2e/smoke/a11y-select-title.spec.ts e2e/smoke/a11y-gradient-stop-grammar.spec.ts e2e/smoke/scene-action-contract.spec.ts
+   run 1 → 21 passed, EXIT 0        run 2 → 21 passed, EXIT 0
+⟨cmd⟩ npx playwright test --project=smoke e2e/smoke/a11y-gradient-stop-grammar.spec.ts -g "C4"
+   isolated runs 1 · 2 · 3 · 4 → 2 passed each, EXIT 0 each
+⟨cmd⟩ npx playwright test --project=smoke-mobile e2e/smoke/mobile/a11y-control-targets.spec.ts
+   run 1 → 3 passed, EXIT 0         run 2 → 3 passed, EXIT 0
+⟨cmd⟩ npx vue-tsc -p tsconfig.demo.json --noEmit                                        → EXIT 0 ×2
+⟨cmd⟩ npx eslint demo/color-picker/App.vue demo/shell/usePaneRouter.ts demo/shell/dock/ → EXIT 0 ×2
+⟨cmd⟩ npx eslint demo e2e                                                               → EXIT 0 ×2
+⟨cmd⟩ npx tsc -p tsconfig.e2e.json --noEmit                                             → EXIT 0
+```
+
+Source counts, **double-run, both runs identical**: `h-7` → **3** · `h-9` → **7** ·
+`watercolor-dot` → **11** · `--slider-range-origin` → **0** ·
+`export interface ActionBarContext|DockActionBar` → **0** · `?.()` in `usePaneRouter.ts` → **2**
+(both prose, `:135`, `:292`) · `on-mount` in `App.vue` → **3** · `find scripts -name "proof-*.mjs"`
+→ **0** · `SceneActionSet` sole contract at `demo/color-session/keys.ts:184`.
+
+| gate | this seat's reading | verdict |
+|---|---|---|
+| **A1** | `[W4-A1] undersized=0`, both batch runs | **GREEN — reproduces** |
+| **A2** | `[W4-A2] undersized=0`, both `smoke-mobile` runs | **GREEN — reproduces** |
+| **A3** | `[W4-A3] measured=4 mismatches=0` ×2 · `[W4-A3-COARSE] measured=0 mismatches=0 unlifted=0` ×2; source `h-7` → **3** | **GREEN — reproduces** (coarse arm VACUOUS, exactly as Repair 1's R.4 addendum records) |
+| **A4** | `[W4-A4] nameless=0` ×2 · `[W4-A4-COARSE] nameless=0` ×2 | **GREEN — reproduces** |
+| **A5** | `a-falsifier.txt` on disk, `SERVED MODEL`-headed, pinned run `→ EXIT 1 (non-zero, as the gate requires)` with `undersized=5`, reverted run `undersized=2` | **DEMONSTRATED — reproduces** |
+| **B1** | `[W4-B1] asserted=7 excluded=1 defects=0`, both runs; every in-scope row `ariaLabel=null` + `labelledBy=v-1-N-label` + rendered `titleText` + `titleBoxInsideField=true` | **GREEN — reproduces** |
+| **B2** | `[W4-B2] asserted=7 defects=0` ×2; rows read `blockSize=36 tokenSm=36` fine and `blockSize=54 tokenSm=54` coarse | **GREEN — reproduces** |
+| **B3** | `[W4-B3] producerSliderVars=15 declaredInternal=3 consumerReads=0` ×2; `--slider-range-origin` → 0; ⟨cmd⟩ `git merge-base --is-ancestor ea0fdca8 58371516` → **exit 0** | **GREEN — reproduces** |
+| **C1** | `[W4-C1] caretLeft=252 mintedLeft=252 inline="calc(55% - 1px)"` · `pointerEventsDuringKeyboardJourney=0` ×2 | **GREEN — reproduces** |
+| **C2** | 3 of 3 handles `role=slider min=0 max=100 now=0\|50.2\|100`, `text="Position N%"`, `name="Gradient stop N of 3"` | **GREEN — reproduces** |
+| **C3** | `[W4-C3] home=10 end=450 unit=4.4000px/%` · `defects=0` ×2 | **GREEN — reproduces** |
+| **C4** | **`clippers=[]` · `w=24 h=24 hitW=24 hitH=24 faceW=20 faceH=20 rootFontSize=16` · coarse `hitW=hitH=44` · `focusVisible=true` · shadow `1px`+`3px` — in 4 isolated runs AND both batch runs, 6 of 6** | **GREEN — the Check-1 HIGH is CURED and reproduces at an independent seat** |
+| **D1** | `vue-tsc` EXIT 0 ×2 · rival contracts **0** · `SceneActionSet` sole at `keys.ts:184` · the spec's 10 tests pass twice | **GREEN — reproduces** |
+| **D2** | scoped eslint EXIT 0 ×2 and `npx eslint demo e2e` EXIT 0 ×2 with the rule armed `"error"`; `?.()` → 2 prose hits | **GREEN — reproduces** (scope qualifier: C2.6 #3) |
+| **D3** | `d-falsifier.txt` on disk: TS2820 + TS2345 at **EXIT 2**, revert **EXIT 0** | **DEMONSTRATED — reproduces** |
+| **D4** | the 10 contract tests pass in both runs, including the 390×844 `unavailable` + `disabled` + `aria-disabled` + `role="status"` arms; `grep -c "on-mount" App.vue` → **3**, unchanged | **GREEN — reproduces** |
+| **G1–G4** | installed glass ⟨cmd⟩ `node -p "require('./node_modules/@mkbabb/glass-ui/package.json').version"` → **7.0.0**; `watercolor-dot` → **11**, bank intact | **NOT OPENED — correct** (X-W0.j census FAIL 1/4 at the elected 8.0.0) |
+
+### C2.2 — HONEST-RED ADJUDICATION: **the set is EMPTY, and now for the right reason**
+
+Check 1's honest-RED set was empty because C4 was RED **with no relief** — an unrelieved RED, which
+is why pass 1 returned NOT-CONFORMANT. At this seat the set is empty because **no §6 gate is RED at
+all**: 13 born-RED rows are GREEN, the two one-time falsifier demonstrations (A5, D3) are on disk
+with their red/green pairs, and B3's recorded-re-test-plus-fence holds with its receipt proved an
+ancestor of the cure. **Nothing is laundered as honest-RED here because nothing needs to be.**
+
+The repair that moved C4 was itself read at the bytes rather than taken on its word:
+⟨cmd⟩ `git show --numstat 5bd44d76` → `99 0 e2e/smoke/a11y-gradient-stop-grammar.spec.ts` +
+`74 0 …/evidence/W4/c4-settle-falsifier.txt` — **additions only, zero deletions**, so not one
+`expect(...)`, threshold or product byte moved. `transformRest()` polls the **animation timeline**
+to `[]` with a 20 s ceiling and then requires the client rect to repeat across two frames: if the
+transform never settled the poll would **fail the test**, not pass it, so the wait cannot mask what
+it waits for. Its exclusions are principled, not nominal (a loop is skipped for **infinite
+duration**, never by name), and the falsifier pair banks the induced state
+(`div:transform@pending:0ms`, `w=24.82`, `matrix(0.999391, -0.0348995, …)` = `rotate(-2deg)`)
+beside its resolution (`w=24`). C4's six assertions are unchanged: `undersized == []`, `hitW ≥ 24`,
+`hitH ≥ 24`, `18 < faceW < 22`, the `1px`+`3px` ring with `focusVisible`, and `clippers == []` over
+**every** clipping ancestor.
+
+### C2.3 — bounds, E-3 and commit families: **CLEAN**, re-proven independently
+
+- **Union bounds** over **33** commits (the 25 unit commits + `4cedfdb5` OPEN + `849206f0` RESUME +
+  `e2bc291c` close + `f15477a8` Check 1 + `5bd44d76` · `4f567837` · `e112fc4f` · `081903c8` Repair 1)
+  ⟨cmd⟩ `while read c; do git show --pretty=format: --name-only "$c"; done | sort -u` → **74 paths**.
+  ⟨cmd⟩ the same union `| grep -cE "^(src/|api/|test/|node_modules/|\.github/|scripts/|demo/ui/|demo/shell/PaneSlot\.vue|demo/shell/viewSchema\.ts)"` → **0**.
+  The 42 non-evidence paths are exactly the 22 `demo/**` §4 rows + `eslint.config.js` + the 6
+  `e2e/**` §4 rows + this record + `execution/LEDGER.md` + `V/coordination/INBOX.md` (the OPEN
+  commit's E13 row, standing law, not §4). **`scripts/dev/dev.sh` is not in the union** ⟨cmd⟩
+  `grep -c 'dev\.sh'` → **0**, and it is still dirty-and-untouched at this seat's porcelain.
+- **K.1's own published figure re-derived**: the **25 unit commits alone** union to exactly **70
+  paths — 39 evidence + 31 other**, to the number. The close's arithmetic is true at the bytes.
+- **E-3 held**: ⟨cmd⟩ over all 33 commits' name-only output, `docs/tranches/X/waves/W4.md` appears
+  **0** times — the dated spec is byte-untouched; so are
+  `docs/tranches/V/megatranche/registry/adjudicated/**`, every `conformance/` path and every sibling
+  wave spec (**0** matches each). Repair 1's two prose corrections are dated addenda-beside (R.4),
+  never edits to the Close.
+- **Commit families**: §9 row 4 `ea0fdca8` is an **ancestor** of row 3 `58371516` (exit 0) · row 5
+  `666978d4` lands the cure **and** the two bindings it invalidated in ONE commit (`GradientStopEditor.vue`
+  +367/−?, `views/gradient.spec.ts` 26 lines) · row 6 `e64002e9` lands the collapse as ONE commit
+  over 9 files (+1,302/−396) including the eslint scope · row 7 **correctly omitted** (census FAIL) ·
+  row 8 `e2bc291c`. **No declared family is split**, and each `git show --stat` returns exactly its
+  own paths — no sibling seat's staged row was swept in.
+
+### C2.4 — masking scan: **NONE FOUND**
+
+⟨cmd⟩ over every one of the 33 commits' diffs restricted to `demo e2e eslint.config.js`, added lines
+only, for `test.skip|test.fixme|.only(|eslint-disable|@ts-ignore|@ts-expect-error|allowlist|xit(|describe.skip`
+→ the **one** hit is a comment in a gate spec stating the census is built *"never from a hand-fitted
+element allowlist"*. **Two** `try`/`catch` sites are added in the whole wave and both were read:
+
+- `usePaneRouter.ts:327` — the contract's `failed` arm. It `record()`s the throw into typed state
+  that `GenericActionBar.vue:149-150` **renders** through `role="alert"` with the seat left operable
+  (`failedMessage`, `runIfRunnable`). A surfacing seam, the exact opposite of a swallow.
+- `SlugEditLayer.vue:57` — Repair 1 **re-typed an existing** `catch (e: any)` to
+  `catch (e: unknown)` with real narrowing (`e instanceof Error ? e.message : ""`). It **removes** an
+  `any`; it does not silence a rule.
+
+⟨cmd⟩ `grep -c node_modules <the union>` → **0**: no producer byte was patched. No producer selector
+was copied into consumer CSS — the only producer tokens the diff reads are `--control-h-xs` and
+`--control-floor`, which `W4.md` §5 unit a **names as the mechanism**, and `--dock-compact-control-size`
+is consumer-defined in `SlugEditLayer.vue:161` itself. The A-gate census is the §6 selector
+**verbatim** with §6's own name rule and §6's own attribution rule (`role=slider` → `[data-slot="slider"]`,
+nothing else re-attributed) and skips no element. Unit c's two re-anchors in `views/gradient.spec.ts`
+**strengthen** rather than narrow: `pct > 60` became `left > railWidth × 0.6` **and** `valueNow > 60`
+(two conjuncts for one), and `[aria-label="Gradient stop at 80%"]` became the exact
+`[data-stop-id][aria-valuenow="80"]`.
+
+### C2.5 — E13 mail: **0 UNREAD in scope**
+
+⟨cmd⟩ `grep -nE '^\| [IO]-[0-9]+ \|' docs/tranches/V/coordination/INBOX.md | grep -i unread` →
+the same **5** rows Check 1 and Repair 1 read: **O-20 · I-30 · I-31 · I-32 · I-35**. ⟨cmd⟩
+`grep -oE "X-W4[^ ]*|X\.W4[^ ]*"` across those five rows → the **only** X-W4 token is **`X-W4.g's`**
+in I-35's routing prose, and `X.W4.g` is CLOSED by X-W0.j's dated census FAIL (re-measured here:
+installed glass **7.0.0**, `watercolor-dot` **11**). ⟨cmd⟩
+`/usr/bin/find <the four coordination paths> -maxdepth 1 -type f -name '*.md' -newermt "2026-09-19 04:18"`
+→ *(nothing)* — **no letter has landed since Repair 1's sweep**. No row lands on units a–d.
+
+### C2.6 — Defect register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| **1** | MEDIUM (mitigated: out of bounds **by measurement**, repairs stated to the byte, owner named, zero bytes written) | **Three HARD-CI rows land RED, caused by this wave's own spec-ordered cures, and are still undischarged** (ESC-R1, carried from Check 1 defect 2): `walk.spec.ts:17/89` and `o20-generate-plate.spec.ts:60/71` (the retired `"Generation preset"` literal) and `o27-focus-affordance.spec.ts:103/126-129` (BR-3 reading the 24 px seat) | ⟨cmd⟩ `npx playwright test --project=smoke e2e/smoke/walk.spec.ts e2e/smoke/oracles/o20-generate-plate.spec.ts e2e/smoke/oracles/o27-focus-affordance.spec.ts` → **4 failed · 5 passed** at this seat, the same split the close and Check 1 read; the 4th (`o27:323` BR-1 forced-colors) was already RED at unit c's **pre-cure** control (`96936340`), i.e. before unit d existed, so it cannot be this wave's. ⟨cmd⟩ `grep -c "walk.spec\|o20-generate-plate\|o27" docs/tranches/X/waves/W4.md` → **0** | the orchestrator lands `{ name: "Preset", exact: true }` ×2 and `el.querySelector(".rail-handle-face")!.getBoundingClientRect()` under a dated **E-3 bounds addendum** admitting the three paths. Padding product copy to fit a stale selector stays forbidden |
+| **2** | MEDIUM (mitigated: measured and published **against the wave's own interest**, escalated twice as ESC-a.7 → ESC-R2, zero bytes written) | **§2's goal criterion is not met at the bytes**: two live, operable, **nameless** seats survive in the persistent shell — `demo/shell/dock/ColorInput.vue:67-81`, two icon-only `<button class="send-btn btn-interactive">` under `v-if="proposeMode"` / `v-else`, **no `aria-label`, no text child** | re-read at the bytes at this seat (the two `<button>` blocks carry only `<Loader2>` / `<ArrowRight>` children). ⟨cmd⟩ `grep -c 'ColorInput' docs/tranches/X/waves/W4.md` → **0** — in no §4 row, so a cure is a §3a bounds ESCALATION, not an edit. A4 reads `nameless=0` **honestly**: the seats sit inside a `PopoverTrigger` unmounted at both gate viewports, and §6's own census rule counts only visible elements | a dated E-3 bounds addendum admitting `ColorInput.vue` to a W4-successor's §4, or an explicit route to the wave owning the dock input band; the cure is one `aria-label` per seat. `ColorInput.vue:242`'s surviving `catch (e: any)` rides the same addendum |
+| **3** | MINOR (mitigated: the residue is **named in the config** and escalated, not globbed away; it **pre-dates the wave**; §6 D2's own RED census never counted it) | **D2's armed eslint scope stays narrower than D2's own command's third leg.** The command names the glob `demo/shell/dock/**`; `eslint.config.js:333-…` arms the rule over **7 named files**. Repair 1 cured `SlugEditLayer.vue`; **one** glob resident still carries a type-level `any` the armed run cannot see | ⟨cmd⟩ `grep -rn "catch (e: any)" demo/shell/dock \| wc -l` → **1**: `ColorInput.vue:242`. Provenance ⟨cmd⟩ `git log -1 -S'catch (e: any)' -- demo/shell/dock/ColorInput.vue` → **`a61094e3` (2026-07-17)**, two months before this wave. `W4.md` §6 D2's RED cell enumerates `App.vue` 6 + `usePaneRouter.ts` 3 + `Dock.vue` 1 — the armed list covers that population entirely | rides defect 2's addendum (`catch (e: unknown)`), after which the literal glob can be armed in bounds |
+| **4** | MINOR (mitigated: **disclosed in the spec file's own header**, and the coarse rung is genuinely measured) | **C4's coarse arm runs as an in-file emulation under `--project=smoke`**, not under `--project=smoke-mobile` as §6's *"same spec at both projects"* reads literally | ⟨cmd⟩ `playwright.config.ts:181` → `smoke-mobile` carries `testDir: "./e2e/smoke/mobile"`, so a file outside that directory **cannot** run in that project, and `W4.md` §4 grants unit c exactly **one** spec path — a mobile twin would be an out-of-bounds create. The arm asserts `matchMedia("(pointer: coarse)")` **true** at 412×915 and reads `[W4-C4-COARSE] hitW=44 hitH=44` on both handles | none owed by this wave. A successor that is granted `e2e/smoke/mobile/**` for the rail can move the cell into the project proper |
+| **5** | INFO | **A3's coarse arm is vacuous** — `[W4-A3-COARSE] measured=0` in **both** of this seat's `smoke-mobile` runs, so A3's second declared failure mode is never exercised | the two runs above | **already corrected** by Repair 1's dated addendum R.4 (defect 6); carried forward as a standing qualifier, not re-opened. The coarse lift itself is measured elsewhere (A2's census, B2's `36 → 54`) |
+| **6** | INFO | **Two pre-existing cadence REDs reproduce and are not this wave's**: the library `npm run typecheck` and `prettier --check demo e2e` | ⟨cmd⟩ `npm run typecheck` → `test/v4-css-emerging.test.ts(12,10): error TS2459` — `test/**` is on `W4.md:175`'s Do-NOT-touch list and **0** `test/` or `src/` paths appear in the 74-path union. ⟨cmd⟩ `npx prettier --check demo e2e` → **193 files**; the **six gate specs this wave created are CLEAN** ⟨cmd⟩ `npx prettier --check <the six>` → *"All matched files use Prettier code style!"*, and ⟨cmd⟩ `git show 8934de85^:…/SlugEditLayer.vue \| npx prettier --check --stdin-filepath …` / the same at `58371516^:…/MixConfigBar.vue` are **each already RED before their cure** | X-W11's hygiene walk; and the owner of `c8848bed`'s stylesheet split for the TS2459 |
+
+**Superlatives, recorded because they are real and were checked rather than assumed.** The C4 cure
+is the rarest shape in this register: a HIGH answered by making the **instrument** honest, with
+`git show --numstat` proving **zero deletions** — no assertion, no threshold, no product byte. Repair 1
+also **corrected both of its predecessors' published mechanism** (rotation, not scale overshoot) and
+banked the arithmetic to the digit, then **stated its own honest limit aloud** (the wild RED did not
+reproduce on a warm host, so the cure was proved against a deliberately induced instance) and
+**refused** to clear the shared vite cache because three sibling tracks share the checkout. The two
+MEDIUMs are both the wave publishing findings **against its own interest**: artefact 7's premise was
+overturned by the wave's own re-run, and A3's `h-7` premise was measured FALSE. Every collateral RED
+in this wave was separated from a pre-existing one by an actual **pre-cure control run**, never by
+assertion.
+
+### C2.7 — the four-verb line, and the successors
+
+**The line is still NOT moved, and that remains lawful.** ⟨cmd⟩ `grep -n 'waves/W4.md' docs/tranches/X/waves/W4.md`
+→ *(empty)*: §4 File Bounds grants **no** row on the spec itself, so writing §1's table would be a
+§3a bounds escalation. The contrast is at the bytes — `W3.md:153` carries the explicit
+`| docs/tranches/X/waves/W3.md | modify (status + artefact paths at close) |` grant, and `W4.md` has
+no such row. The precedent is also at the bytes: **`W3.md:30` still reads `| IMPLEMENTED | NO | — |`
+while X-W3's LEDGER row reads `CLOSED 2026-09-17`** — the ledger row is the tranche's status of
+record and the spec's four-verb table is not written by a seat that holds no row on it. §12's L-18
+two-quartet challenge stands **UNSERVED** and is recorded, not forgotten.
+
+**Successor conjuncts, measured at the bytes:**
+
+| successor | its `Opens after` conjunct on X-W4 | state |
+|---|---|---|
+| **X-W5** | *"X-W4 (the typed `SceneActionSet` contract, CC-043)"* · **X-W2** · X-W0's CC-012 act (`W5.md:6`) | the X-W4 conjunct is **GREEN on the clause AND on the letter** once this check lands: one exported contract (`keys.ts:184`), **0** rival contracts, **0** `any` on the action path, `vue-tsc` EXIT 0, D1–D4 reproduce; X-W2 `CLOSED`, X-W0 `CLOSED`. **X-W5 is UNBLOCKED by this promotion** |
+| **X-W6** | *"Opens after: X-W5"* (`W6.md:4`) | blocked on **X-W5**, independently of this wave |
+| **X-W7** | X-W3 (`CLOSED`) · X-W4 (typed `SceneActionSet`) · **X-W6** (`planned`) · X-W1 (`CLOSED`) (`W7.md:6`) | blocked on **X-W6**, independently of this wave |
+| **X-W8** | X-W5 · X-W6 · X-W7 (`W8.md:6`) | blocked on W5/W6/W7, independently of this wave |
+
+**No successor is blocked by anything this check found.** X-W5 inherits the two MEDIUMs' addendum as
+an orchestrator act, not as a precondition.
+
+### C2.8 — Verdict: **CONFORMANT**
+
+**0 BLOCKER · 0 CRITICAL · 0 HIGH · 2 MEDIUM (both mitigated, both escalated, both owner-named) ·
+2 MINOR (both mitigated) · 2 INFO.** All **16** of §6's gates are GREEN or DEMONSTRATED at this
+seat's own clock, every one double-run or better against the settled bytes, none quoted from a
+receipt: **A1 A2 A3 A4 A5 · B1 B2 B3 · C1 C2 C3 C4 · D1 D2 D3 D4**. Check 1's single HIGH — C4's
+`clippers == []` arm — is **cured and reproduces GREEN 6 of 6** at an independent seat, by an
+additions-only instrument settle that moved no assertion, no threshold and no product byte. Bounds
+are clean over **74 paths / 33 commits / 0 outside**; E-3 holds at the bytes over the dated spec, the
+adjudicated registry, the conformance artefacts and every sibling spec; no declared §9 family is
+split; **no masking move exists anywhere in the diff**; mail is clean. **The honest-RED set is
+EMPTY** — not relieved, but unneeded: no §6 gate is RED. `X.W4.g` never opened and its §1.M bank is
+intact at the census FAIL.
+
+**The row is promoted to `CLOSED 2026-09-17`.** What travels with it, named so nothing is lost:
+**ESC-R1** (three HARD-CI rows, repairs stated to the byte) and **ESC-R2** (`ColorInput.vue`'s two
+nameless seats + its surviving `catch (e: any)`), both out of **every** §4 row by measurement, both
+needing one dated **E-3 bounds addendum** from the orchestrator — an act no seat inside this wave may
+perform.
