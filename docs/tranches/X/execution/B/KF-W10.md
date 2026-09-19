@@ -1358,8 +1358,16 @@ as a constraint on the WORD):
 | **D-GAP-6 / `sampleBezier`** (at `I-10`, where the conditional lives) | *"**NOT ADOPTED — 4.1 DECLINES IT PERMANENTLY**"*; *"a decline recorded as a decline"*; nothing owed by keyframes; the asymmetry **recorded, not re-litigated** | `O-21 §D` — *"`sampleBezier` is DECLINED permanently on measured zero demand … **no 4.1 of ours will ship it**"* · `O-34` (the 4.1 cut notice, `:224`) — *"**Declined permanently**: `sampleBezier` (measured zero demand, matching your own I-10 answer)"* |
 | **`O-8`'s delivery-vehicle question** (at `O-8`) | *"**TERMINAL BY PRE-EMPTION, never by an answer**"* — the decision *"no longer exists to be made"*; **no cut date promised**; *"their silence is neither its cause nor consent to it"* | carry-cut row **`CC-084`** — *"no emergency `4.0.1` — ruled"* · `O-21 §C`, which **WITHDRAWS** the question in those words |
 
-**Neither is dressed as an adoption**: one is a decline, the other a withdrawal — and the words *adopted*,
-*accepted* and *agreed* appear in neither cell.
+**Neither is dressed as an adoption**: one is a decline, the other a withdrawal. ⟨**The word-level check,
+run rather than asserted — and it corrects this receipt's own first draft, which claimed the words
+*adopted*/*accepted*/*agreed* appear in neither cell.** ⟨cmd⟩ `grep -oiE "adopt[a-z]*|accept[a-z]*|agree[a-z]*"`
+over each row: **`O-8`** → **1 hit**, the word *adoption* inside *"a pre-emption, **not an adoption**"*.
+**`I-10`** → **6 hits**, every one either a negation this unit wrote (`NOT ADOPTED` · *"resolves to **not
+adopted**"* · *"nothing here is **an adoption**"* · *"adopt `sampleBezier` only if…"*, the quoted
+**conditional** being reported) **or the row's own pre-existing `D-GAP-6 decline ACCEPTED`** — an
+acceptance **of the decline**, which is the opposite of adopting the primitive, and which this unit did
+not write and did not touch. **`agreed`: 0 in both.** The falsifier is about the WORD, so the word is
+counted, and the draft that asserted a clean zero is corrected at its own line.⟩
 
 **(c) Already-terminal rows: RECORDED, NOT RE-OPENED.** `I-6` / `IN-VALUE-1` / `IN-VALUE-2` / `W12` are
 **TERMINAL both sides** (`lane-docs.md:376`, quoted). The **`IN-ATLAS-3` TimingFunction fence is STANDING
@@ -1527,9 +1535,12 @@ re-proven at this seat: `O-21` is tracked at kf `origin/master`. **L-6** holds: 
 - **R-f7 (SELF-COUNT law).** This receipt lands **inside** G-4's witness field (value.js `docs/tranches/X/`)
   and carries **none** of its three never-cite tokens (`357/414`, `86.23`, `0/5 slots`) — **0 files · 0
   lines · 0 occurrences**; re-reading it cannot move that number. The terminalization block this unit
-  appended to `INBOX.md` contains the word `UNREAD` **12** times, none of them in an `| I-n |` row's Status
-  cell, so the gate's own per-row probe is unaffected — **stated because the measurement lives in the file
-  it measures**.
+  appended to `INBOX.md` contains the word `UNREAD` **8** times — ⟨cmd⟩ `awk 'NR>=251' INBOX.md | grep -o 'UNREAD' | wc -l`
+  → **8** (run 1 ≡ run 2) — none of them in an `| I-n |` row's Status cell, so the gate's own per-row probe
+  is unaffected — **stated because the measurement lives in the file it measures**. ⟨**SELF-CAUGHT, and the
+  correction is published rather than amended away**: the first write of this line said *"**12** times"*
+  from an estimate, not a command — exactly the defect this unit convicted twice in Act 1. The figure is
+  corrected in place at its own line, with its command pasted, in the same sitting.⟩
 - **ESCALATIONS: none.** Every act landed inside the declared writable set; where the specified cure was
   impossible at the bytes (KF.W6's absent table) **nothing was substituted** — the miss is declared. No
   workaround, no masking fallback, no `test.skip`, no allowlist, no `node_modules` patch, no stash, no
