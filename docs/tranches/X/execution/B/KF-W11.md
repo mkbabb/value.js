@@ -2036,10 +2036,10 @@ set, in either repo.
 
 #### SELF-COUNT
 
-**4** commits for this unit and **4** exist in `git log` — **3** in keyframes.js (the three product/
-test shas listed above) and **1** in value.js (this receipt + its evidence) · **2** keyframes.js
-paths and **2** value.js paths written, and `git show --stat` across all four shas names exactly
-those **4** paths and no other · **12**
+**5** commits for this unit and **5** exist in `git log` — **3** in keyframes.js (the product/test
+shas listed above) and **2** in value.js (this receipt with its evidence, plus the settled-bytes
+correction disclosed below) · **2** keyframes.js paths and **2** value.js paths written, and
+`git show --stat` across all five shas names exactly those **4** paths and no other · **12**
 `it(` cases in the gate file and **12** reported passing · **9** distinct gate/check commands tabled,
 each read twice where the spec asks · **1** LAW A census · **3** prose-fraction measurements, all
 read from settled bytes · **3** rows returned with their owning units named · **6** residuals · **1**
