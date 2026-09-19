@@ -26,7 +26,7 @@
 | AUDITED | YES | 58/58 `registry/adjudicated/kf-*.md` banked · `CENSUS-2026-08-03.md` · `lane-frontend.md §6.5` · `INTAKE-ADJUDICATION-2026-08-03.md §3` |
 | SPECIFIED | YES — by this file (agglomerated) | — |
 | IMPLEMENTED | NO | stamped only when gates go green after the begin-word |
-| VERIFIED | NO | stamped only at X·KF close; no wave stamps VERIFIED at its own close |
+| VERIFIED | **YES — stamped 2026-09-19 at X·KF's close (X.KF.W10 unit `.f`, R-A), and honestly** | **No wave stamps VERIFIED at its own close; KF.W10 stamps it here.** Basis **by commit**: **G-1** GREEN (kf `025e894c`) · **G-2** GREEN (value `15da439f`) · **G-3/G-4** GREEN (kf `27ec9c37`) · **G-5** GREEN (kf `b50a23de`) · **G-6** GREEN (value + kf `dd28da55`) · **G-7 = LAND stamped (`0a329c57`), RED-HONEST on two CI-dependent clauses** (ESC-e1) — **X·KF closes `complete_with_misses`**. **IMPLEMENTED cited, not re-asserted, and this wave's own PARTIAL is printed, never smoothed**: `execution/LEDGER.md` — **KF.W9 CLOSED 2026-09-17 (honest-RED: `G-KFW9-2` · `-4` · `-6` · `-7` · `-8` · `-9` · `-11`) — PARTIAL, 6 of 13 gates GREEN, `complete_with_misses` in shape, every one of the seven REDs a capture in a cell this host cannot open**. **The OD-V3 capture packet is still INCOMPLETE — 0 of 16 required cells** (`SS-13-CAPTURE-RECEIPT.md:35`, its own honest row), which is the exact precondition the close's owner block cites under COHESION **§0j.C KF-ODV3**; **nothing is proxied and nothing is dressed as captured**. **ACCEPTED is NOT conferred** (L-18). **One row edit; no other byte touched (E-3).** |
 
 ## Goal criterion
 
