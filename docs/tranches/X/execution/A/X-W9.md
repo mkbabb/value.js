@@ -3473,3 +3473,180 @@ of which **five** name a file `W9.md` §File Bounds genuinely never listed.
 
 **This check wrote no cure byte, moved no gate, and edited no spec.** Its only writes are this
 section and one appended ledger event line.
+
+---
+
+## Resume — SEAT 0, 2026-09-19 (`ESC-W9R1-SEQUENCING` fires; COHESION §0ac)
+
+SERVED MODEL: `claude-opus-5[1m]`
+
+**Authority**: COHESION **§0ac** (2026-09-19), quoted: *"**`ESC-W9R1-SEQUENCING` fires.** X-W9
+re-opens in RESUME MODE; units **`X-W9.f`** … and **`X-W9.h`** … are dispatched under the unchanged
+spec, then CHECK 4."* The spec `docs/tranches/X/waves/W9.md` is **unchanged and IMMUTABLE** (E-3);
+this section edits no byte of it. Seven units stand on their commits and are **never re-dispatched**.
+
+### RS.0 CRASH-RECOVERY sweep (standing law)
+
+⟨cmd⟩ `git status --porcelain` → **27 rows** (19 tracked-modified/deleted, 8 untracked). **None is
+inside this seat's writable set** — `docs/tranches/X/execution/A/X-W9.md`,
+`docs/tranches/X/execution/LEDGER.md` and `docs/tranches/V/coordination/INBOX.md` are all **clean**
+at HEAD. By owner: `demo/color-picker/**` · `demo/palettes/**` · `demo/shell/**` ·
+`demo/styles/shell.css` · `e2e/smoke/**` (sibling demo/e2e seats) · `docs/tranches/X/execution/A/X-W5.md`
+(X-W5's resuming close seat) · `docs/tranches/X/execution/B/KF-W13.md` (Track B) ·
+`docs/tranches/X/execution/C/F-W9.md` (Track C) · `docs/tranches/X/parse-that/**` (X.P.W4S) ·
+`docs/tranches/V/reformation/CARRY-LEDGER.md` (pre-X standing row) · `scripts/dev/dev.sh`
+(**unowned, NEVER staged, NEVER touched** — DR-24). **Nothing inherited on X-W9**: the two owed
+units' files are clean — ⟨cmd⟩ `git status --porcelain` names neither
+`demo/picker/controls/ComponentSliders/ConsoleRail.vue` (X-W4's carve **landed and committed** when
+X-W4 closed) nor `package.json` / `eslint.config.js` / `CHANGELOG.md` / `src/**`. No stash, no
+restore, no reset.
+
+**Substrate**: branch `tranche-u` @ ⟨cmd⟩ `git log --oneline -1` → **`8b3f7185`**, node **v26.0.0**,
+darwin arm64; `dist/subpaths/` present (14 files, built 2026-09-19 16:08 by a sibling seat).
+
+### RS.1 E13 Step-0 — the four-path mail sweep, at this seat's own clock
+
+Swept read-only **2026-09-19**, compared against **every row** of
+`docs/tranches/V/coordination/INBOX.md`; classification read from each row's Status/Routing cell by
+position, never from a bare `grep -i unread` (X.P.W0 CHECK 1 D-1); `INBOX.md` **self-excluded**
+(SELF-COUNT law).
+
+Delta command, against this record's last banked sweep clock:
+⟨cmd⟩ `/usr/bin/find <each path> -maxdepth 1 -name '*.md' -newermt '2026-09-18 20:03'` →
+
+1. `docs/tranches/V/` — **1** hit, `ARCHITECTURE.md` (X-W9.g's own `:657` carve + sibling waves):
+   an architecture document, **not mail**.
+   `docs/tranches/V/coordination/` — **6** hits: the **five packets this wave's `.i` sent**
+   (`keyframes-inbox-…-4.1-cut-notice`, `atlas-inbox-…-export-delta-refresh`,
+   `glassui-inbox-…-4.1-r1-relay`, `fourier-inbox-…-facility19-delta`,
+   `parse-that-inbox-…-evidence-addendum-2`) — rowed **O-34 · O-35 · O-36 · O-37 · O-38** — plus
+   `INBOX.md` itself (self-excluded).
+2. `../glass-ui/docs/tranches/BK/coordination/` — **BK re-confirmed the newest glass tranche dir**:
+   ⟨cmd⟩ `ls -dt ../glass-ui/docs/tranches/*/ | head -3` → `BK/` · `BJ/` · `BI/`. Delta = **0**;
+   newest is `glass-outbound-2026-09-18-valuejs-o26-reply.md` (Sep 18 17:18) = **I-35**, rowed, cell
+   reads READ + CONSUMED WHOLE.
+3. `../keyframes.js/docs/tranches/V/coordination/` — **1** hit, `INBOUND-LEDGER.md` (Sep 19 00:36):
+   **keyframes' own inbound ledger**, their terminal-verb record of *our* mail, not a packet addressed
+   to value.js; ⟨cmd⟩ `grep -c 'INBOUND-LEDGER' docs/tranches/V/coordination/INBOX.md` → **15** — the
+   surface is already rowed. Its 2026-09-19 addendum terminalizes **IN-VALUE-2** (`sampleBezier` NOT
+   ADOPTED, permanently), which **confirms** `X-W9.f`'s standing DECLINE; nothing is owed back.
+4. `../sci-report/atlas/docs/tranches/P/coordination/` — delta **0** (newest Aug 3 15:01), all rowed.
+
+**Result: 0 unrowed · 0 UNREAD addressed to value.js.** No `I-n` minted. One dated sweep line
+appended at the end of `INBOX.md`.
+
+### RS.2 Preconditions, verified at the bytes AND in the ledger
+
+| conjunct | where | measured |
+|---|---|---|
+| §2 `Opens after` **X-W0** | LEDGER row `X-W0` | **CLOSED 2026-09-17** (honest-RED close, §0k.3) — satisfied |
+| `X-W9.h` gate: X-W4 **CLOSED** (§4a, `ConsoleRail.vue`) | LEDGER row `X-W4` | **CLOSED 2026-09-17**, promoted at CHECK 2 (16/16 GREEN, honest-RED set EMPTY) — **the gate the unit was deferred on is now open**, and §0ac fires the re-dispatch by name |
+| `X-W9.f` gate: **neither X-W4 nor X-W8 OPEN** on `eslint.config.js` (§Disjointness cross-wave) | LEDGER rows `X-W4` · `X-W8` | X-W4 **CLOSED**; X-W8 ⟨cmd⟩ `awk -F'\|' '$2 ~ /X-W8/ {print $4}'` → **`planned`** — **not OPEN**. §Disjointness' own words: *"sequences after both X-W4 and X-W8 close, **or runs while neither is open**"* — satisfied on the second arm |
+| `ConsoleRail.vue` free of a sibling's in-flight carve | working tree | **clean at HEAD** — not in `git status --porcelain` |
+| the seven standing units' commits exist | `git log -1 --format='%h %s'` ×20 | **20/20 resolve** (11 substance + 9 receipt), listed at §C.1 — **none re-dispatched** |
+
+**No precondition fails. The wave resumes.**
+
+### RS.3 Baseline — **only the gates the two owed units turn**, re-run READ-ONLY at this seat
+
+RESUME LAW: the still-owed units turn **G21–G26 · G28 · G29** (`.f`), **G32** (`.h`), and **G5 · G10
+config-resident** (`.f`). Those are re-measured here at this seat's own double-run commands. Every
+other gate's reading is **cited from the banked §C.2 / CH3.1 table**, not re-run and not re-claimed.
+
+| # | gate | command (this seat) | reading 2026-09-19 | verdict |
+|---|---|---|---|---|
+| G21 | SCI-1 shipped with its evidence tuple | `grep -rn 'sampleColorRamp\|mixColorsInto\|toRgba8Into' src/ \| wc -l` (×2) | **0** · **0** | **RED** — ninth carry; unmoved since open |
+| G22 | `toHex` + `easingNames()` published | `grep -rn 'toHex' src/` → nothing; `grep -rn 'easingNames' src/` → nothing; then `node -e "'toHex' in require('./dist/subpaths/color.js')"` / `'easingNames' in …/easing.js` | source **0** / **0**; packed **`false`** / **`false`** | **RED** |
+| G23 | `easing()` reference stability | `node -e` identity over the four CSS keywords against `dist/subpaths/easing.js`; `grep -n 'memo\|cache\|Map()' src/easing.ts` | `ease=false ease-in=false ease-out=false ease-in-out=false` (**4/4 fresh closures**); **0** memo constructs in source | **RED** |
+| G24 | restored analytic arms vs 0.13.0 | `timeout 100 node docs/tranches/V/megatranche/audit/probes/fourier-value-import-drift.mjs` | **the probe cannot run at its written substrate**: `ERR_MODULE_NOT_FOUND … /Users/mkbabb/Programming/fourier-analysis/web/node_modules/@mkbabb/value.js/dist/value.js` | **RED — and its substrate is the one §0ac ruled**: `X-W9.f` measures the eight arms against the **registry `0.13.0` tarball** (`npm pack` into a scratch dir outside every repo, integrity hash into `bench-table-4.1.md`); `../fourier-analysis` **stays untouched** (`ESC-W9-G24-SUBSTRATE`) |
+| G25 | catalog fence (`bezierPresets` 30-key set) | read at the bytes | **GREEN at authorship, deliberately** (the spec says so) — the fence's RED input is a deletion, which is a reviewed diff | **GREEN (spec-declared)** |
+| G26 | ND-01 prune fence | `grep -rn 'colorScale\|sampleToSVGPath' src/ \| wc -l` (×2) | **0** · **0** | **GREEN (spec-declared at authorship)** |
+| G28 | bench table under the restated denominator | not run here | **MEASURE-AT-OPEN, banked**: R1 throws 13/13 at the wave's open; every 3×/2× budget restates against **1,636,680 µs** (3× = 545,560 · 2× = 818,340 against the native floor 311,883). The `1,870,633 µs` figure stays **UNCITABLE** | **RED (unmoved)** |
+| G29 | one dated cut | `node -e "require('./package.json').version"` (×2) · `git tag --list 'v4*'` · `grep -n '"@mkbabb/value.js"' ../keyframes.js/package.json` | **`4.0.0`** · **`4.0.0`** · tags = **`v4.0.0`** only · keyframes pins **`"4.0.0"` exactly at `:71`** | **RED** — the cut is the one thing this wave never took |
+| G5 | `no-non-null-assertion` under `src/css/` | `npx eslint 'src/css/**/*.ts' --rule '{…:"error"}'` (×2) | **exit 0 · 0 problems** ×2 | **GREEN at the source bytes** — but **config-resident it does not exist**: ⟨cmd⟩ `grep -n 'no-non-null-assertion' eslint.config.js` → **exit 1, no match**. `.f` is the file's sole writer |
+| G10 | same, `src/transform/` + `src/foundation/` | same invocation, scoped (×2) | **exit 0 · 0 problems** ×2 | **GREEN at the source bytes**, same config-resident absence |
+| G32 | channel descriptors resolve exactly | read at the bytes — `sed -n '172,180p' demo/picker/controls/ComponentSliders/ConsoleRail.vue` | `componentDescription()` still holds the prefix `find`: `info.components.find((c) => c.startsWith(upper) \|\| c.startsWith(component))`; `colorSpaceInfo.ts` still keys `ictcp:` (`:261`) and `jzazbz:` (`:287`) by description-prose, not by the library's channel ids | **RED** — `cp` → `"Ct (tritan)"`, `jz` → bare key; unmoved |
+
+#### RS.3.1 — R.2 GREEN-before-cure, named
+
+- **G25** and **G26** are **GREEN at authorship by the spec's own words** — declared fences, not
+  cures. Recorded for completeness, not as findings.
+- **G5** and **G10** read **exit 0** at the source bytes *before* `X-W9.f` writes either rule object.
+  That is real (`.a` and `.b` retired all 94 + 155 assertions, and `ESC-W9a-TIMELINE-NNA` was
+  relieved in bounds at Repair 2) — but the **ratchet does not yet exist**: no `no-non-null-assertion`
+  object is in `eslint.config.js`, so nothing stops a `!` returning. `.f`'s config edit is what turns
+  a measured absence into an enforced one; its config-resident re-run must stay exit 0 **and** the
+  grep must then find both objects.
+
+### RS.4 Unit plan — TWO units, ONE group, concurrency 2
+
+**Already done, never re-dispatched** (commits at §C.1, all 20 shas re-resolved at this seat):
+`X-W9.a` · `X-W9.b` · `X-W9.c` · `X-W9.d` · `X-W9.e` · `X-W9.g` · `X-W9.i`.
+
+**Owed**: `X-W9.f` ∥ `X-W9.h` — the original §Unit plan's **group 5**, re-dispatched unchanged.
+Disjoint at every path: `.f` holds `package.json` · `CHANGELOG.md` · `src/**` · `eslint.config.js` ·
+`test/**` · `fixtures/**`; `.h` holds exactly two `demo/` files. Zero shared `modify`. Model: **opus**
+for both (M-23 — *"every unit below is an Opus 5 implementation seat"*; no Fable seat exists in this
+wave).
+
+| id | model | sections (`W9.md`) | writable set | gates | locks / same-commit family |
+|---|---|---|---|---|---|
+| **X-W9.f** | opus | §Agent Units `X.W9.f` **:264-284**; §Hard Gate G21–G26, G28, G29 **:363-371** (+ G5 **:345**, G10 **:350** config-resident); §Commit Plan row 9 **:463**; §Dependencies **:472-489** | `package.json` · `CHANGELOG.md` · `src/color/index.ts` · `src/color/operations.ts` · `src/easing.ts` · `src/subpaths/*.ts` · `eslint.config.js` · `test/easing-export-stability.test.ts` · **§0ac grants**: `test/v4-css-emerging.test.ts` · `test/v4-c1.test.ts` · `fixtures/public-types/value-v4.ts` · `src/value.ts` · `src/quantize.ts` · `docs/tranches/V/megatranche/audit/probes/src-surface-totality.2026-09-19.mjs` (**create**, dated sibling) · `docs/tranches/X/waves/W9-bounds-grant-addendum-2026-09-19.md` (**create**, the dated addendum-beside) · `docs/tranches/X/waves/evidence/W9/**` · its receipt in this record · `docs/tranches/X/waves/W9.md` **§State status fields only, at close** (D-10) | G21 G22 G23 G24 G25 G26 G28 G29 · G5 + G10 **config-resident** | **ONE dated cut, ONE version bump, no emergency 4.0.1** (ruled). SCI-1 ships **with** the atlas evidence tuple in the **same** commit; **both** `no-non-null-assertion` rule objects ride that same commit; `.f` is `eslint.config.js`'s **sole writer** in this wave. Re-read the X-W4 **and** X-W8 rows immediately before the first write; halt if either reads OPEN. §0j.F word (1) verified **before** the cut |
+| **X-W9.h** | opus | §Agent Units `X.W9.h` **:300-312**; §Hard Gate G32 **:374**; §Commit Plan row 11 **:465** | `demo/color-session/colorSpaceInfo.ts` · `demo/picker/controls/ComponentSliders/ConsoleRail.vue` (**`:172-180` carve only**) · `docs/tranches/X/waves/evidence/W9/**` · its receipt in this record | G32 | **Both files in ONE commit.** Re-read the LEDGER's X-W4 row first (**measured CLOSED 2026-09-17** at this open). **No new library export** — `ChannelsBySpace` already publishes the id vocabulary. Touch **no** focus, pointer, template or roving-tabindex surface: X-W4's landed carve is adjacent in the same file |
+
+**Groups**: `[ [X-W9.f, X-W9.h] ]` — one ordered group, peak concurrency **2** (owner cap 4; the
+spec's §Disjointness caps this wave lower). After both: **CHECK 4** (§0ac).
+
+**Worktree idiom**: `.h` takes `value.js-x-w9-h` per §Worktree Plan (`npm run typecheck` runs
+`prepare`/`build`, so two concurrent seats sharing one `dist/` measure each other); `.f` runs on
+integrated main, as §Worktree Plan says, and is the **last** writer.
+
+### RS.5 The ten carried escalations, each with its §0ac ruling and its owner
+
+| escalation | §0ac ruling | who executes it |
+|---|---|---|
+| `ESC-W9R1-SEQUENCING` | **fires** — `.f` and `.h` dispatched under the unchanged spec, then CHECK 4 | this open |
+| `ESC-W9R1-BOUNDS-GRANT` | dated addendum to §File Bounds, **writer `X-W9.f`**: `test/v4-css-emerging.test.ts` · `test/v4-c1.test.ts` · `fixtures/public-types/value-v4.ts` | `.f` |
+| `ESC-W9d-EMERGING-SERIALIZE` | the import migrates to `serializeCssValue`'s new home; **the forwarding shim in `stylesheet.ts` stays REFUSED** | `.f` |
+| `ESC-W9b-V4C1-SNAPSHOT` | the six retired `./transform` names leave the snapshot, which becomes **G27's own ratchet** | `.f` |
+| `ESC-W9e-FIXTURE-V4TYPES` | the fourteen stale lines naming G27's retired symbols are **deleted** | `.f` |
+| `ESC-W9d-DTS-SPELLING` | `src/value.ts` + `src/quantize.ts` granted: **one import spelling**, the one the subpath barrels use, so the dts rollup's entity cache merges; G13/G14 measured after, any remainder **named by count** | `.f` |
+| `ESC-W9d-ROOT-AND-SYNTAX` (a) | G12 LEG2 = option **(ii) declared-retired**; O-12 is the position of record; **no `"."` key is added** | `.f` (records it) |
+| `ESC-W9a-G3-LEG-SCOPE` | G3 binds to entries declaring a `string` parameter; shape/arity and the `./math` policy are **outside its class**; `src/css/syntax.ts` **is not written** | `.f` (records it) |
+| `ESC-W9a-PROBE-UNRUNNABLE` · `ESC-W9c-MTS06-SUPERSEDED` | E-3 keeps the dated instrument; `.f` lands the **dated sibling** `src-surface-totality.2026-09-19.mjs` with MTS-05/MTS-06 re-pointed to the cured contract, **every other arm unchanged**; G1's command of record re-points by the same addendum | `.f` |
+| `ESC-W9e-SHARMA-NO-SUBJECT` | option (i) — **SUPERSEDED-BY-THE-V4-CUT**; G18's Sharma half is relieved by this id | `.f` (records it) |
+| `ESC-W9-G24-SUBSTRATE` | the registry **`0.13.0` tarball** via `npm pack` into a scratch dir **outside every repo**; integrity hash into `bench-table-4.1.md`; `../fourier-analysis` untouched | `.f` |
+| **D-10** | `W9.md` §State's tally moves with `.f`'s **close-time status edit** (the spec's single named §File Bounds exception) | `.f` |
+
+### RS.6 Unit receipts (resume round)
+
+*(appended by each unit at its close; line 1 names the served model; every count read from the
+settled bytes and double-run; ⟨cmd⟩ … → output for every claim.)*
+
+### RS.7 The LEDGER act landed, and is **WITHHELD from this seat's commit** — measured, not assumed
+
+Both LEDGER edits are **written and present in the working tree**: the `X-W9` status cell now reads
+**`RESUME-OPEN 2026-09-19`** with the `PARTIAL 2026-09-17` disposition **preserved inside the same
+cell** (nothing regressed, nothing deleted — a minimal in-place replacement of one unique anchor,
+verified `count == 1` before the substitution, and the file's line count is **unchanged at 411 → 412**
+after the appended event line).
+
+They are **not in this seat's commit**, for a reason read at the bytes immediately before committing:
+
+⟨cmd⟩ `git diff --unified=0 docs/tranches/X/execution/LEDGER.md | grep '^@@'` →
+```
+@@ -32 +32 @@    <- mine (the X-W9 status cell)
+@@ -83 +83 @@    <- A SIBLING SEAT'S: the X.P.W4S row, OPEN 2026-09-17 -> PARTIAL 2026-09-19
+@@ -411,0 +412 @@ <- mine (the event line)
+```
+Line 83 is **Track D's uncommitted work**, written into the shared file between this seat's opening
+`git status` (clean) and this act. A pathspec commit is file-granular: `git commit … -- LEDGER.md`
+takes the **working-tree** content of that path, so it would sweep the sibling's row into a Track-A
+commit — exactly the contamination measured at X-W0 (three contaminated commits) and the same
+judgement the Track-C seat recorded at `0f93a570`. Staging a partial blob does not help: the standing
+law's own idiom re-reads the working tree at `git commit -- <paths>`.
+
+**Therefore**: this seat commits `docs/tranches/X/execution/A/X-W9.md` and
+`docs/tranches/V/coordination/INBOX.md` only. The LEDGER bytes stand in the working tree, readable by
+every seat, and the **next Track-A act that finds line 83 committed** commits them. No `git stash`, no
+`reset`, no unstaging of another seat's rows, no `git add -u`, no `-A`.
