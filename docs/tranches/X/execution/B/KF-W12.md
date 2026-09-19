@@ -989,3 +989,65 @@ than reaching across for it — the write itself is still there); and the seven 
 
 **Escalations: none.** No cure specified for this unit was impossible at the bytes; every row outside
 the writable set is carried as a named residual with its owner, not substituted for.
+
+---
+
+### KF.W12.c
+
+**SERVED MODEL: claude-fable-5-1** · unit **KFED-UNIT** (phase 2; after `.a` and after KF.W11 `.b`) ·
+opened on kf **`2cd314af`** (`.b`'s close; `.a`'s head `ed96f2b0` is an ancestor — ⟨cmd⟩
+`git -C ../keyframes.js rev-parse --short HEAD` → `2cd314af`; `origin/master` → `bf4a9a9c`, the
+wave's open sha, unpushed by design until the orchestrator's merge) · sitting of record 2026-09-17
+(the begin-word), wall clock 2026-09-19.
+
+#### Crash-recovery (standing law, first act)
+
+⟨cmd⟩ `git -C /Users/mkbabb/Programming/keyframes.js status --porcelain` → **2 untracked rows**, both
+value.js-delivered mail packets under `docs/tranches/V/coordination/` — outside every path in this
+unit's writable set. ⟨cmd⟩ `git -C /Users/mkbabb/Programming/value.js status --porcelain` → 22 rows,
+every one a sibling seat's (`demo/**`, `vite.config.ts`, `plugins/**`, `docs/tranches/V/**`,
+`docs/tranches/X/waves/W5/`, `docs/tranches/V/megatranche/workflows/gates/`) plus `scripts/dev/dev.sh`
+(**unowned, never staged, never touched**). `execution/B/KF-W12.md` clean at HEAD;
+`docs/tranches/X/keyframes/evidence/W12/` holds only `.a`/`.b`'s committed files. **Zero dirty paths
+inside this unit's writable set; zero inherited hunks; nothing finished, nothing rewritten, nothing
+stashed, nothing restored.**
+
+#### OP-6 — WHICH KF.W0 frontier repairs exist, verified at the bytes (the FIRST act, its own commit)
+
+The bank (`kf-KeyframesEditor.md:10`) named two blockers *already repaired at the frontier*: FE-3's
+`startScalar` (KF-KE-1) and EE-03's length-watch (KF-KE-9). Measured at three coordinates, double-run:
+
+| repair | at `bf4a9a9c` (wave open) | at `2cd314af` (this open) | reading |
+|---|---|---|---|
+| **FE-3 `startScalar`** — ⟨cmd⟩ `grep -c 'startScalar' demo/components/instrument/keyframes/components/KeyframeCardList.vue` | **2 · 2** (the spec's own OP-6 figure reproduced) | **1 · 1** — ⟨cmd⟩ `grep -n 'startScalar' …` → `:92`, a COMMENT (KC-1's own prose naming what it replaced) | **SUPERSEDED, not regressed**: `.a`'s `f6a51e23` (KC-1 + KC-27) replaced FE-3's half-cure with the canonical `selectorText(frame.start)` — ⟨cmd⟩ `grep -c 'selectorText' …/KeyframeCardList.vue` → **4 · 4**, the binding at `:46`; ⟨cmd⟩ `grep -c '\.toString()' …/KeyframeCardList.vue` → **0 · 0**. The `[object Object]` guard FE-3 owed is `.a`'s KF-KC-48 clause (1) (`keyframe-card-offset-loop.test.ts:371`, `not.toContain("[object Object]")`), executed and GREEN. **This unit spends NO byte on KF-KE-1** and re-lands nothing over it. |
+| **EE-03 length-watch** — ⟨cmd⟩ `grep -c 'templateFrames.length' demo/components/instrument/keyframes/composables/useKeyframesParsing.ts` | **1 · 1** | **1 · 1** — ⟨cmd⟩ `grep -n` → `:97 () => animation.templateFrames.length,` (`flush: "post"` + `nextTick`, the DISPOSITIONS §D cure verbatim); last commit on the file `fb2b1295` (pre-X) | **LIVE at the frontier, UNMOVED by this wave**; the file is `.e`'s row, not this unit's. **RE-REGRESSION GUARD ONLY**: G-KFW12-3's test carries a clause that mounting the editor raises no Vue *"Invalid watch source"* warning and that a structural removal reprojects — the EE-03 *watch-warn-count → 0* gate as an executed witness, never a cure. |
+
+**Consequence for the cures below**: every KFED cure is written against `2cd314af`'s bytes, where
+KC-1/KC-2/KC-3/KC-8/KC-9/KC-10/KC-15/KC-17/KC-18/KC-27/KC-28/KC-34 are `.a`'s LANDED work — a cure
+written from the bank alone (`:43` frozen write, `:11` `.toString()`, `:186` `parseCssScalar`) would
+re-introduce two fixed defects; the bank's anchors are re-resolved at the true bytes in each act.
+
+**OP-2 — MET BY VACANCY, stated in this unit's own voice.** ⟨cmd⟩ `git log --oneline 69095552..HEAD --
+demo/components/instrument/keyframes/composables/useKeyframeOps.ts` → *(no output)*; the file's last
+commit is `0d456cff` (KF.W8 `.c`). KF.W11 `.b` spent no byte of it and KF.W11 is CLOSED, so the §B.2
+clause *"the `:58-69` hunk is never re-touched"* is **vacuous** — there is no hunk to avoid and no
+parallel writer. This unit takes the file whole under its row; `:58-69` (`updateFromString`'s parse +
+`adoptCompiled` body) is left alone except where a named cure reaches it (KF-KE-55's dead
+`kfControls.keyframes` write at `:59` and the §0u `(80,13)` diagnostic at `:79-80`, both this unit's).
+
+**§0u ratchet, banked at this open**: ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.json 2>&1 | grep -c 'error TS'`
+→ **16 · 16** (the wave floor 24, never risen; `.a` −2, `.b` −8 in the same checkout). Inside this
+unit's rows: **3** — `useKeyframeOps.ts(80,13)` TS2322 (the named one) and
+`KeyframesEditor.vue(445,39)` · `(446,37)` TS2345 (the two `.a` DISCLOSED as moved into this region:
+`setTargets(el1|el2)` over `HTMLElement | null | undefined` inside `removeKeyframe` — KF-KE-7's site).
+All three fall with the cure that owns them; no cast, `@ts-expect-error` or `eslint-disable`.
+
+**G-KFW12-3 at this open, double-run** (all from `/Users/mkbabb/Programming/keyframes.js`):
+runtime ⟨cmd⟩ `npx vitest run --project demo test/demo/instrument/keyframes-editor-honest.test.ts` →
+`No test files found` (⟨cmd⟩ `ls …` → `No such file or directory`, ×2) **RED (born)**; byte clauses
+⟨cmd⟩ `grep -c 'parseCssScalar' …/KeyframesEditor.vue` → **2 · 2**; ⟨cmd⟩ `grep -c 'class="absolute top-2 right-4' …/components/KeyframeCard.vue`
+→ **1 · 1**; ⟨cmd⟩ `grep -c 'toLowerCase()' …/composables/useKeyframesState.ts` → **1 · 1**; the
+`:38-47` comment limb is at `KeyframeCard.vue:54-102` at these bytes (three comment blocks `.a`
+re-stated and handed to this seat by name: KF-KE-45's *"KF-KE-5 is UNCURED at these bytes"*, KF-KC-22's
+overlay hit-test, KC-25/KF-KC-28's `z-modal` + dead `sticky`). ⟨cmd⟩ `grep -rc 'keyframes-style-' demo | grep -v ':0$'`
+→ `useKeyframesState.ts:2` · same — the headline defect reproduces.
