@@ -1442,3 +1442,140 @@ and the two names this cut publishes) · `surface-census.after.json` (bare `decl
 58 → 60, max src LoC 920 → 672, runtime exports 73 → 75, with every command recorded) ·
 `consumer-surface-compile.{before,after-d}.txt` · `library-band-gates.{before-d,after-d}.txt` (both
 probe pairs double-run, `diff -q` silent).
+
+---
+
+### X-W9.g
+
+SERVED MODEL: `claude-opus-5[1m]` · Canon-truth diff and the parse-that reconciliation
+
+**Integrated main**, no worktree (§Worktree Plan — `.g` is docs-only). Substrate at open:
+`tranche-u` @ **`4147e478`**. Sections executed: §Agent Units `X.W9.g` (`:286-298`) · §Hard Gate
+**G30, G31** (`:372-373`) · §Commit Plan **row 10** (`:464`) · §Disjointness cross-wave
+`ARCHITECTURE.md` (`:138-141`) · COHESION **§0i.1** (S-4 disposition **C**).
+**Commit: `0e37318e`** — the wave's only `.g` commit. Evidence:
+`docs/tranches/X/waves/evidence/W9/canon-parse-that.g.md`.
+
+#### Act 0 — CRASH-RECOVERY sweep (standing law)
+
+⟨cmd⟩ `git status --porcelain` → 16 rows. **Not one is inside this unit's writable set**
+(`docs/tranches/V/ARCHITECTURE.md` clean · `docs/tranches/X/waves/evidence/W9/**` holds only `.a`–`.e`'s
+committed artefacts, no uncommitted file · `docs/tranches/X/execution/A/X-W9.md` clean). **Nothing
+inherited; nothing stashed; nothing restored.** The dirty rows are the same sibling-seat set seat 0
+enumerated (`demo/palettes/**`, `ConsoleRail.vue`, `CARRY-LEDGER.md`, `dev.sh`, X-W1's untracked
+specs); all left untouched, and re-measured identical after this unit's commit.
+
+#### Act 1 — the §4a lock, re-read immediately before writing
+
+⟨cmd⟩ `sed -n '38p' docs/tranches/X/execution/LEDGER.md` →
+`| X-W8 | W4·W5·W6·W7 | planned | | 5 serial Opus; LAST of the demo waves |` — **not OPEN**, so the
+spec's own alternative applies (*"or runs while X-W8 is not open"*). Re-read a second time in the
+same command as the commit, immediately before `git add`: **still `planned`**. `:943-945` was never
+opened for writing.
+
+#### Act 2 — measure before editing
+
+| anchor (spec) | measured at true bytes | verdict |
+|---|---|---|
+| `ARCHITECTURE.md:657` cites three `src/parsing/**` paths | **1 hit, exactly at `:657`**, all three paths present | **ANCHOR TRUE** |
+| `src/parsing/` absent | ⟨`ls -d src/parsing`⟩ → *No such file or directory* | **TRUE** |
+| zero `.bbnf` files | ⟨`find . -name '*.bbnf' -not -path './node_modules/*' \| wc -l`⟩ → **0** | **TRUE** |
+| the CSS parser is `src/css/grammar.ts` | present; beside it X-W9.d's landed split products `rules.ts` · `serialize.ts` | **TRUE, widened** |
+| G31's dependency set | ⟨`node -e`⟩ → `{"@mkbabb/glass-ui":"^7.0.0","@mkbabb/keyframes.js":"^6.0.0"}`, `@mkbabb/parse-that` in **neither** `dependencies` nor `devDependencies` (double-run identical) | **ANCHOR TRUE** |
+
+**Two findings the spec's sentence did not anticipate, measured, not assumed:**
+
+1. **"Exactly four text-only helpers" is three.** `serializeStylesheetItem`, `reverseAnimationShorthand`
+   and `reverseCSSTime` each carry exactly **1** `export const` definition in
+   `../keyframes.js/src/animation/compile/emit/css-text.ts`; ⟨`grep -rn '…' src/ | wc -l`⟩ → **0**
+   (double-run **0**), so value keeps no implementation, export or forwarding export. **`formatCSS`
+   resolves as a bare name in neither tree** — ⟨`grep -rn 'formatCSS\b' ../keyframes.js/src | grep -v
+   formatCSSKeyframeString`⟩ → **no output**; the nearest surviving Keyframes symbol is
+   `formatCSSKeyframeString` in `compile/emit/format/format.ts`. The transposition the paragraph wrote
+   in future tense **had already happened**; what was false was the three value-side source paths and
+   the count.
+2. **The rest of `:657` is true and was preserved verbatim.** Eight names of the "not 4.0 exports"
+   roster spot-checked against the built `dist/subpaths/*.d.ts` → **0 hits each**
+   (`serializeStylesheet`, `serializeDeclaration`, `stylesheetToString`, `parseCSSPercent`,
+   `evaluateMathFunction`, `CSS_WIDE_KEYWORDS`, `CSSParseError`, `registerColorNames`). Canon that
+   holds is not rewritten by a canon-truth unit.
+
+#### Act 3 — the carve, at ZERO LINE DELTA (the load-bearing decision)
+
+**X-W8's spec cites this file by line**: ⟨`grep -rn 'ARCHITECTURE.md:944' docs/tranches/X/`⟩ →
+`docs/tranches/X/waves/W8.md:373` — *"Exactly one of: (i) `docs/tranches/V/ARCHITECTURE.md:944`'s cap
+sentence deleted…"*. `W8.md` is IMMUTABLE (E-3) and outside this unit's bounds, so a carve that grew
+the file would silently drift a live sibling's only coordinate — and would falsify this wave's own
+Do-NOT-touch citation `ARCHITECTURE.md:943-945`, manufacturing precisely the class G30 convicts.
+**The carve is therefore line-count-neutral**: line `:657` is rewritten in place, as one paragraph,
+in the file's own long-line idiom (union repair round 1's *"zero-line-delta … no sibling coordinate
+displaced"* is the standing precedent).
+
+⟨cmd⟩ `wc -l docs/tranches/V/ARCHITECTURE.md` → **975** before, **975** after.
+⟨cmd⟩ `git diff --numstat` → **`1 1 docs/tranches/V/ARCHITECTURE.md`**.
+⟨cmd⟩ `git diff -U0 | grep '^@@'` → **`@@ -657 +657 @@`** — one hunk, one line.
+⟨cmd⟩ `sed -n '943,945p'` → the cap sentence, **byte-identical and still at `:943-945`**.
+
+What the line now says: (a) the transposition recorded as **done and measured done**, three helpers
+named at their single Keyframes home, `formatCSS`'s non-resolution stated, **no value-side path cited
+because none exists**; (b) the "not 4.0 exports" roster preserved verbatim; (c) the parse-that
+position appended as the paragraph's close — the paragraph already ended on *"parse-that utilities …
+are not 4.0 exports"*, so the record sits where the subject already was.
+
+#### Act 4 — the parse-that position, every clause sourced
+
+| clause recorded | where it was read |
+|---|---|
+| `PAUSED_RESEARCH / TERMINAL_SOURCE_RED / NO_ACTIVE_WRITER` | the `Status:` line of `docs/tranches/V/megatranche/coordination/PARSER-CSS-PAUSE-HANDOFF-2026-08-02.md` — **in-repo and `git ls-files`-TRACKED** (the `../parse-that/coordination/` path M-22 names does **not** resolve; the tracked mirror is the citable authority, and is what the paragraph cites) |
+| original root idle | ⟨`git -C ../parse-that log -1`⟩ → **`ef10d5b` 2026-07-05** (double-run identical) |
+| fresh writer root + fresh-root law | `CONSTELLATION-COMMISSION-2026-08-03.md` §2's parse-that block (**M-22**), quoted: *"a **FRESH, non-overlapping writer root** (fresh-root law; frozen/preserved roots untouched forever)"* — cited by §-heading + block name, **no line numeral** (§0g.2's standing rule) |
+| that root is live | ⟨`git -C ../parse-that-css-totality-p2 log -1`⟩ → **`b10f62e` 2026-09-18** (double-run identical) |
+| `≥10×` **retired as law** | M-22 §2 · `parse-that/evidence/W1/BAR-LEDGER-2026-09-17.md` §2.4 row `historical 10×` |
+| the portfolio | same §2.4 — strict-3× · strict-2× · measured break-even |
+| **no bar is ratified** | same §2.4 `bar` cells → `OWNER-GATED-PENDING-RATIFICATION` ×3; COHESION **§0j.E OC-1** — *"the bench table is RECORDED-NOT-GATING"*, admission on **correctness** |
+| **no adoption** | COHESION **§0i.1** — disposition **C**, `BLOCKED-ON` the parser proof gate reading GREEN, re-trigger = X.P.W4's RC-P evaluator TRUE at a dated run; **A** is what fires then |
+
+**Arithmetic recomputed, never remembered** (`budget = 1,636,680 ÷ k`, native floor `311,883 µs`):
+`k=10` → **163,668 µs**, floor/budget **1.906×** → RETIRED AS LAW; `k=3` → **545,560 µs**;
+`k=2` → **818,340 µs**; `k=1` → **1,636,680 µs**. **`1,870,633 µs` is not published here** —
+`P4-EVIDENCE-REPLAY.json` measured absent at this wave's open, so it and its 311,661 / 623,434
+headrooms stay uncitable (G28 / CC-097).
+
+**One spec-sentence correction recorded, not silently applied.** The unit brief says the replacement
+portfolio is *"governing"*. At true bytes it governs the **denominator every budget restates
+against** and governs **no admission verdict**: all three bars are unratified and §0j.E OC-1 (ruled
+2026-09-17, *after* this spec was authored 2026-08-03) makes the bench table RECORDED-NOT-GATING.
+The recorded paragraph states exactly that and says in terms that no performance sentence in
+`ARCHITECTURE.md` may be read as a bar. This is INTENT honoured at the true bytes, not a substitution.
+
+#### Act 5 — gates, BEFORE → AFTER (each double-run, read from the settled bytes post-commit)
+
+| gate | command | BEFORE | AFTER |
+|---|---|---|---|
+| **G30** | `grep -rn 'src/parsing' docs/tranches/V/ARCHITECTURE.md` | **RED** — 1 hit at `:657` (three dead paths) | **GREEN** — exit 1 / `grep -c` → **0**, **0** |
+| **G31** | `node -e` on `package.json` dependencies + the recorded paragraph | **RED** — manifest as banked, **no paragraph records it** | **GREEN** — paragraph exists and quotes the manifest exactly (⟨`grep -c '{"@mkbabb/glass-ui":"^7.0.0","@mkbabb/keyframes.js":"^6.0.0"}'`⟩ → **1**); ⟨`git diff --stat -- package.json package-lock.json src/`⟩ → **empty** (no parser adopted) |
+
+**Cadence (§Format And Lint Cadence, docs-only leg):** ⟨`git diff --check`⟩ → exit **0**. **No
+formatter is configured for `docs/**` and none was introduced.** No `npm run lint/typecheck/test` is
+owed by a docs-only unit and none was run — this unit moved zero product bytes.
+
+**E13:** delta sweep at this seat's own clock over the four paths since seat 0's 20:03 →
+`docs/tranches/V/coordination/INBOX.md` alone (**self-excluded**, SELF-COUNT law; a sibling seat's
+appended sweep line). **0 new packets · 0 UNREAD in this unit's scope.** The standing parse-that row
+**O-15** (the 1.1.0 evidence packet) is outbound, ROWED, and is **X-W9.i's** business, not this
+unit's — `.i` owes the parse-that packet (PT-01/03/04/07); `.g` records the position only.
+
+#### Residuals and escalations
+
+- **Escalations: none.** The specified cure was possible at the bytes and was executed as specified.
+- **Residual (informational, for the close seat and for X-W8's seat):** `W8.md:373`'s
+  `ARCHITECTURE.md:944` coordinate **still resolves** — this unit deliberately took zero line delta
+  to keep it true. Any later writer of `:657` who grows the file displaces it; the durable cure is
+  X-W8's own, to re-anchor by sentence (§0g.2's standing rule), and it is **not** authored here.
+- **Residual (INFO):** the pause-handoff path M-22 names (`../parse-that/coordination/…`) does not
+  resolve in the sibling tree; the tracked in-repo mirror does, and is what the record cites. No
+  sibling byte was touched to establish this (peer trees READ-ONLY).
+- **Bounds:** writes confined to `docs/tranches/V/ARCHITECTURE.md` (`:657` only),
+  `docs/tranches/X/waves/evidence/W9/canon-parse-that.g.md`, and this receipt. `:943-945` untouched.
+  `scripts/dev/dev.sh` never staged. Pathspec on the commit itself; no sibling path entered it
+  (⟨`git show --stat HEAD`⟩ → exactly 2 files).
