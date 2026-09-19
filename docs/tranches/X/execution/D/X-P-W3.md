@@ -8419,3 +8419,119 @@ sha-pinned oracle, the built candidate and both lowerings; nothing in it is asse
 and `.i`'s banked artefacts are **untouched**, and no committed evidence JSON was re-written (no
 `--out` flag was passed to any gate script). Commit **`9aa3da2`** (`<p2>`, 15 files, +804/−82) and
 this record's own commit are this unit's two commits. `scripts/dev/dev.sh` is in neither.
+
+
+### X.P.W3.k
+
+**Seat: Opus (`W3.md` L716).** Gates: **G-1** (52/52 or the honest remainder BY ID) · **G-4** (C-3
+8/8 emitted) · **G-7** (re-run, every delta attributed). Two §0s acts (**E-h2**, **E-h3**'s runner
+half), **ESC-g1** read through **F-aa3**, and **F-z2**.
+
+**Acts, in order.**
+
+1. **Crash-recovery sweep, then the spec whole.** `W3.md` read end to end (721 lines); §0r/§0s/F-aa3
+   read AT THE BYTES rather than at the line numbers the brief carried, which had drifted — ⟨cmd⟩
+   `sed -n '1464,1527p' docs/tranches/X/COHESION.md` · `sed -n '7358,7378p'` this file.
+2. **E-h2 — the ten class predicates.** `test/css-totality/lib/adjudications.mjs` gains `CLASSES`
+   (one per ruling id: PB-08 · PB-11 · SP-1 · PB-09/10 · PB-12 · ADJ-2 · ADJ-3 · PB-04/05 ·
+   PB-01/02 · PB-03), a shared `adjudicator(entry)` resolver, `ruledValue`, `classPopulations` and
+   `remainderId`. The lexical reading they need is a NEW engine-free token reader,
+   `test/css-totality/lib/tokens.mjs` — css-syntax-3 §4.3.3 · §4.3.9 · §4.3.12, each named where it
+   is used — because asking either parser what an input "is" would make the classification
+   circular. **An ACCEPT class fires only where the ORACLE accepts the ruled defect's REPAIR**
+   (`matrix.mjs:127`'s verdict function, handed to the resolver); the candidate is never consulted
+   about its own excuse.
+3. **The predicates were WRONG twice, and both were caught by their own census, not by the gate.**
+   (a) PB-01/02 repaired a four-argument legacy form whose FOURTH argument was itself garbage
+   (`rgb(.589, 54.644, .887, 7none-425)`) — the ruling covers the form, never the alpha's spelling,
+   so the repair claimed 24 cells at `parseCssColor` and 57 at `parseCssValue` whose candidate
+   answer contradicted it. Tightened to a well-formed `<alpha-value>`; **a row went TOTAL on that
+   tightening alone** (45 → 46). (b) ADJ-2 matched juxtaposition ANYWHERE in the string while its
+   ruling is about a colour call's arguments, so it swallowed `#ff0.99cc` and `steps(5e-2%28)` —
+   33 cells at each of three entries reading as adjudications the candidate failed to honour.
+   Scoped to `colourJuxtapositions`. Both are E-h2's own sentence — *"a predicate that swallows an
+   un-ruled input is itself a defect"* — applied to this seat's predicates.
+4. **The ten populations are MEASURED and pinned**, and the census `≤ population` assertion is the
+   gate's: `0 census OVER its pinned population · 0 population drifted from its pin`. PB-11
+   measures **0** and is pinned there — the union carries no comma-spelled modern colour function
+   outside its own literal row, and pinning a guess would manufacture the drift the check exists to
+   find.
+5. **G-1, double-run, BYTE-IDENTICAL** — ⟨cmd⟩ `node scripts/css-universe.mjs --check
+   --pinned-value-commit 6aca8602` twice, `cmp` clean. **46 of 52 TOTAL** (runtime 13 TOTAL / 6
+   PARTIAL · types 33/33), from 45 at entry. `coerceToSyntax` went TOTAL. The honest remainder, BY
+   ID: `parseCssColor` 10 · `parseCssScalar` 10 · `parseCssValue` 10 · `parseCssValues` 10 ·
+   `parseTimingFunction` 24 · `parseStylesheet` 242 — every one attributed (F-k2 · GROUND-C · F-k1
+   · F-k4 · BND-1 · SH-1 · E-j1 · E-j2), **0 unattributed**. Measured misses fell 4531 → 10 at
+   `parseCssColor`, 5321 → 10 at `parseCssValue`, 1543 → 242 at `parseStylesheet`.
+6. **E-h3's runner half.** `scripts/css-recovery-closure.mjs` gains `runCompositions`: the corpus
+   through the TWO-ARGUMENT entry, both targets, every law the one-argument leg applies, the
+   descriptor vocabulary rotating over the corpus and the four malformed descriptors run against
+   every input. **C-3 GREEN — `frozen \ emitted = 0`, 8/8.** The leg carries its own NEGATIVE
+   CONTROL, this file's own rule: ⟨cmd⟩ `… --no-compositions` → **C-3 RED `frozen \ emitted = 2
+   [syntax_descriptor_invalid syntax_mismatch]`** — the two codes, and only those two. G-4
+   double-run **byte-identical**; the script stays RED at **9 of 10 legs** on C-4, `.b`'s inherited
+   dead arm, untouched.
+7. **F-z2.** `lib/shape.mjs`'s `DECLARED_HEADS` no longer reads the candidate's `R_disp`: it is
+   MEASURED on the oracle — a head is inside the declared shape when the INCUMBENT accepts at least
+   one corpus input naming it. The candidate's registry is kept as `CANDIDATE_HEADS`, for the
+   record and never as the denominator. Measured this run: color `[color, hsl, hwb, lab, lch,
+   oklab, oklch, rgb]` · timing `[cubic-bezier, linear, steps]`.
+8. **The differential's three entry families.** G-7's 256,618 was an INSTRUMENT defect: nine
+   product-consuming entries were being fed corpus STRINGS, so 26,551 × 9 cells came back
+   CANDIDATE_SHAPE and were counted against the candidate. `lib/differential.mjs` now routes by
+   calling convention — **parser** (one string) · **coercer** (string + descriptor) · **structured**
+   (the ORACLE's own product, from the totality matrix's `structuredInputs`, handed to BOTH
+   engines) — shares `adjudicator`/`ruledValue` with G-1, and withholds a colour ruling from a cell
+   the DESCRIPTOR refused (`syntax_mismatch` / `syntax_descriptor_invalid`), where both engines in
+   fact agree.
+9. **G-7 re-run, double-run** (identical but for node's own PID-bearing warning banner; bodies
+   byte-identical): **134 mirror-defects, from 256,618** — `parseCssColor` 10 · `parseCssScalar` 10
+   · `parseCssValue` 10 · `parseCssValues` 10 · `parseTimingFunction` 24 · `parseStylesheet` 70 ·
+   **every structured row and the coercer row 0**. G-1's and G-7's parser numbers now agree cell for
+   cell, which is the point of one shared resolver.
+10. **ESC-g1, read through F-aa3.** The new family is **§9 INCUMBENT-DEFECT** — the next free
+    level-2 heading, NOT §6, which is `.e`'s reserved block and is still carried verbatim (47
+    lines). **SP-1 is PROMOTED into it** (F-aa3 (c), *one meaning, one row*), so §8 emits with
+    **0 rows and says why** — a family that disappears when it empties cannot be told from one that
+    was never there. Two rows join it, **ID-1** (the incumbent's unanchored component read) and
+    **ID-2** (its empty-argument tolerance), both marked **UNADJUDICATED and routed to X.P.W4's
+    fresh adjudicator**: `.k` measured them and declines to rule them (M-23 §1), and their cells
+    REMAIN counted as mirror-defects. §0.2's census is generated from the families themselves —
+    **41 rows, 8 generated families** — and `equivalence.test.ts`'s heading assertions are
+    count-driven in the SAME commit, as the grant requires. The ledger emits **byte-identically
+    twice**; 27 of its 28 suite tests pass, the one failure being G-7's own declared RED floor.
+11. **Two instrument defects cured beside the ordered work, each measured first.** (a) Two
+    back-to-back G-1 runs differed at exactly one line — `tsc exit 0` against `exit 1`, with no
+    diagnostic either time; six isolated compiles of the same project then exited 0. A non-zero
+    exit with nothing parsed means the compile **took no reading**, and the gate had been reporting
+    33 type rows TOTAL off it. `assignability.mjs` now withdraws those rows' cells and prints a RED
+    block. (b) The ledger emitter **died** — `HALT: the 'marks' witness family never names its own
+    production up to 65536` — because the largest witness that fits the derived input window
+    (14,107 code units) is far under `MARK_CAP`. That is **R-f1**'s subject reaching the
+    instrument; the row now reports `NO COORDINATE, AND THE REASON IS MEASURED` and the HALT is
+    kept for the case it was written for (a witness that FITS and still never fires).
+
+**Gates.** **G-1 RED-but-closed** at the spec's own alternative — 46/52 with the remainder by id,
+0 unattributed. **G-4: C-3 GREEN 8/8** (the unit's gate); the script stays RED on C-4, inherited.
+**G-7 RED at 134**, every delta attributed, down from 256,618.
+
+**Escalations.** **E-k1 — G-1 cannot reach 52/52 from this seat.** Three diagnose→edit→re-measure
+passes moved the misses monotonically (4531 → 257 → 10) and the row count only once; the residue is
+of four kinds, and **not one of them is curable inside this unit's writable set**: (i) **F-k2**, the
+candidate ACCEPTS a legacy comma form the spec forbids — mixed `<number>`/`<percentage>` arguments,
+or `none` (css-color-4 §8.1; 9 cells × 4 entries) — a CANDIDATE defect whose cure is a write under
+`src/css/**`; (ii) **F-k3**, a comment inside a declaration block is read as the declaration NAME —
+likewise `src/css/**`; (iii) **GROUND-C**, ±Infinity, owner-owed and `W3.md` §10 says *"not opened
+here"* (23 cells); (iv) **F-k1 / F-k4**, incumbent mis-accepts now rowed at §9 and awaiting a fresh
+adjudicator. Plus `parseStylesheet`'s **E-j1 / E-j2 / SH-1**, already escalated by `.j`, and
+**BND-1**'s 172 non-string boundary rows. **E-k2 — the emitter's capacity HALT is R-f1's**, reported
+above, and the `marks` and `recoveries` bounds are **not measurable under the derived window**.
+
+**Commits.** `<p2>` **`44c6583`** (ONE commit, 11 files — the emitter, the prose and
+`equivalence.test.ts`'s assertions together, as ESC-g1 requires) · value.js **`320e1816`** (the
+re-emitted ledger + 8 banked evidence files, each `SERVED MODEL`-stamped) · and this record's own
+commit. Evidence at `docs/tranches/X/parse-that/evidence/W3/universe-closure-2026-09-19.*` —
+sha256 `5769a034b5aae07c` (G-1, both runs) · `f925fdb0dd429b7c` (G-4, both runs) ·
+`3d181f733922d1cf` (G-4's negative control) · `d10fb72d1c206a89` / `9508720b0fe43f9b` (G-7) ·
+`63e936a6dac861d9` (G-7's evidence JSON). No dated spec, adjudicated registry or prior seat's
+evidence was rewritten; `scripts/dev/dev.sh` is in no commit.
