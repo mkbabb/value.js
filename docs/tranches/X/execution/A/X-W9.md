@@ -700,3 +700,461 @@ Pathspec on every commit (`git commit … -- <the same exact paths>`), `--no-ver
 `Claude-Session` trailer, integration by `git checkout <worktree-sha> -- <paths>` + `git rm` for the
 two deletions. ⟨cmd⟩ `git diff --cached --name-only` after each → **empty**; the same twelve sibling dirty
 rows reproduce in `git status --porcelain` before and after, none of them ever staged by this seat.
+
+---
+
+### X-W9.c
+
+SERVED MODEL: `claude-opus-5[1m]` · `./math` failure protocol
+(W9.md §Agent Units `X.W9.c` :216-226 · §Hard Gate **G11** :353 · §Commit Plan row 5 :459 ·
+§Disjointness free lanes :129-130).
+**Status: DONE in bounds** — **G11 GREEN**, double-run in the worktree and again after
+integration; **G10's residual 7 retired**, so its combined `src/transform/**` +
+`src/foundation/**` scope now reads **0**. Two escalations raised, neither worked around.
+Worktree `/Users/mkbabb/Programming/value.js-x-w9-c` @ base `fdebfef5`, `node_modules`
+symlinked, private `dist/`; every figure read from settled bytes.
+
+#### 0. CRASH-RECOVERY sweep (standing law)
+
+⟨cmd⟩ `git status --porcelain` → 15 rows. ⟨cmd⟩ `git status --porcelain -- src/foundation/math.ts
+src/subpaths/math.ts test/math.test.ts docs/tranches/X/waves/evidence/W9
+docs/tranches/X/execution/A/X-W9.md` → **empty**. **No killed predecessor's partial work on
+X-W9.c exists; nothing inherited, nothing stashed, nothing restored.** `scripts/dev/dev.sh` never
+touched, never staged. The ten dirty `demo/**` rows and `CARRY-LEDGER.md` (sibling seats) never
+touched. This unit's lock — *"it writes `src/subpaths/math.ts`, which `.d`'s PSL-1 derivation
+rewrites wholesale, so it runs STRICTLY BEFORE `.d`"* — verified: ⟨cmd⟩ `git log --oneline -12`
+carries no PSL-1 commit (`.e`'s two, `42727db0` and `df0807fe`, landed beside this seat instead);
+⟨cmd⟩ `git diff --stat fdebfef5..HEAD -- src/foundation/math.ts
+src/subpaths/math.ts test/math.test.ts` → **empty** at integration time, so no sibling had moved
+this unit's three files.
+
+#### 1. Anchors verified at TRUE bytes before any edit
+
+| spec anchor | measured at `fdebfef5` | verdict |
+|---|---|---|
+| *"the sentence already written at `src/foundation/math.ts:58`"* (:218) | `:58` = `` * `start`, `stop`, `out` must share the same length; only `out` is written. `` | **EXACT** |
+| *"retire the 7 dangerous assertions"* (:221) | ⟨cmd⟩ `npx eslint 'src/foundation/**/*.ts' --rule '{"@typescript-eslint/no-non-null-assertion":"error"}'` → **7 problems**, all `src/foundation/math.ts`: `:69:22` `:69:38` (`lerpArray`) · `:92:25` `:92:32` `:95:12` (`deCasteljau`) · `:107:40` `:108:40` (`interpBezier`) | **EXACT — 7, and exactly the three functions the spec names** |
+| *"move `scale`'s equal-bounds guard ABOVE its own division"* (:220) | `:15` computes `slope = (toMax - toMin) / (fromMax - fromMin)`; the guard is at `:18-20`, **below it** | **EXACT** |
+| G11's three banked legs (:353) | `deCasteljau(0.5,[])` → `undefined` typed `number` · `interpBezier(0.5,[])` → `[undefined, undefined]` · `lerpArray(len3,len2,.5,out3)` → `[2.5, 3.5, NaN]` | **REPRODUCED**, plus two the bank does not name: `out` short → silent partial write `[2]`; `stop` long → silent ignore `[2, 3]` |
+
+Two stale citations found **inside this unit's own file** and repaired in passing, both named to
+this seat by X-W9.b's residuals 3 and 6.3: `:42` named `interpolateDecomposed`, retired with its
+module at `4be22189`; `:56` cited `bench/numeric-soa.mjs`, which ⟨cmd⟩ `git log --all
+--diff-filter=A --name-only | grep numeric-soa` shows was **deleted at `164343c1`** (the v4 cut).
+The measured figures it carries are kept as the reading of record and marked as not a live command.
+
+#### 2. The cure — the specified mechanism, nothing else
+
+| site | cure | why it is the root |
+|---|---|---|
+| module head | a **module docstring** stating ONE precondition policy: every export checks its own size preconditions itself and throws a `RangeError` naming the function and the constraint; no export absorbs a violation into `undefined`, `NaN` or a short write; each check is O(1); type-level misuse is explicitly NOT the policy's subject | the sub-gate's words — *"stated once in the module docstring and enforced by code, not by a comment"* |
+| `scale` | the equal-bounds guard moved **above** the division, and raised to `RangeError` with the message text preserved verbatim inside it | the module computed an infinite or NaN slope from an empty input range before rejecting it |
+| `deCasteljau` | entry guard on the empty polygon; the three `!` retired by narrowing the reads | the `.d.ts` said `number` and the function returned `undefined` |
+| `interpBezier` | its **own** entry guard (so the message names `interpBezier`, not the primitive it delegates to); the two `!` simply deleted — `xy[0]`/`xy[1]` are **tuple** reads, which `noUncheckedIndexedAccess` never widened, so those two assertions were pure noise | `[undefined, undefined]` under a declared `[number, number]` |
+| `lerpArray` | one entry check pinning `start`/`stop`/`out` to a single length, **before** a byte of `out` is written; the two `!` retired by narrowing | the silent NaN frame — the shape G11's falsifier names |
+
+**One policy, one error class.** All four throw `RangeError` (`RangeError extends Error`, so the
+pre-existing `toThrow("fromMax and fromMin cannot be equal")` assertion stays green — verified,
+not assumed). The test asserts the policy as a policy: every violation is a `RangeError` whose
+message matches `^<functionName>: `.
+
+**`src/subpaths/math.ts`**: four lines, a **pointer**, not a second statement of the policy —
+*"stated once and enforced in code in `../foundation/math`'s module docstring"* — so the published
+subpath describes its own failure protocol. **X-W9.d must carry that sentence across the PSL-1
+rewrite** (it rewrites `src/subpaths/*.ts` wholesale).
+
+#### 3. The two shapes were CHOSEN by measurement, not by taste
+
+Retiring the `!` under `noUncheckedIndexedAccess` forces a choice of loop body, and the first
+draft's index-free bodies were **measured and rejected** before landing
+(`evidence/W9/math-lerparray-shapes.txt`, node v26.0.0, darwin arm64, best-of-3, interleaved,
+double-run):
+
+| body | K=1 / deg 2 | K=2 / deg 4 | K=8 / deg 8 | K=64 / deg 16 | verdict |
+|---|---|---|---|---|---|
+| `lerpArray` `for…of` over `start` | 2.28× | 1.26× | 1.94× | **5.88×** | **REJECTED** |
+| `lerpArray` `start.forEach` | 6.67× | 4.21× | 7.97× | **11.92×** | **REJECTED** |
+| `lerpArray` counted loop, both reads narrowed | 2.33× | **0.999×** | **1.02×** | **1.00×** | **SHIPPED** |
+| `deCasteljau` index-free pairwise fold | 1.15× | 2.54× | 3.66× | **4.30×** | **REJECTED** |
+| `deCasteljau` in-place triangle, reads narrowed | **1.00×** | **1.01×** | **1.01×** | **1.01×** | **SHIPPED** |
+
+Ratios are against the pre-cure body (two `!`, **no** precondition check). The shipped `lerpArray`
+is within noise of it from K≥2 — the multi-channel band its own docstring endorses — and costs
+~3 ns/call at K=1, the band that docstring already tells callers not to use it in.
+
+**The cure moves no valid input.** ⟨cmd⟩ `equiv-probe.mts` replays both shipped bodies against the
+pre-cure bodies transcribed verbatim: `deCasteljau` degree 1..12 × 40 random polygons × 41 `t`
+samples (extrapolation included), `interpBezier` degree 1..8 likewise, `lerpArray`
+K∈{0,1,2,3,4,8,16,33,64} × 41 `t` → **cases=33169 mismatches=0, BIT-IDENTICAL** (`Object.is`, not
+`toBeCloseTo`), double-run. `evidence/W9/math-equivalence.txt` carries the harness verbatim.
+
+#### 4. Gate readings, BEFORE → AFTER, every one double-run
+
+| gate | command | BEFORE | AFTER (worktree) | AFTER (integrated `tranche-u`) | verdict |
+|---|---|---|---|---|---|
+| **G11** | `npx vitest run test/math.test.ts` | **`Tests 11 failed \| 58 passed (69)`** — measured by restoring `src/foundation/math.ts` to HEAD under the cured battery, i.e. G11's own falsifier *"remove the boundary check"*, run | `70 passed (70)` | **`70 passed (70)`** (×2, identical) | **GREEN** |
+| **G10 residual** (X-W9.b's gate, its last 7 are this unit's file) | `npx eslint 'src/transform/**/*.ts' 'src/foundation/**/*.ts' --rule '{…no-non-null-assertion…}'` | **7** (all `src/foundation/math.ts`) | **0**, exit 0 | **0**, exit 0 (×2) | **GREEN — .b's residual 1 discharged** |
+
+Collateral, measured on the integrated tree: ⟨cmd⟩ `npx vue-tsc -p tsconfig.lib.json --noEmit` →
+**exit 0**. ⟨cmd⟩ `npx eslint src test` → **exit 0**. ⟨cmd⟩ `npm run lint` → 55 problems, **all 35
+carriers under `docs/**`** (X-W8 G-6's ignore), zero under `src/` or `test/`. ⟨cmd⟩ `npx vitest
+run` (after `npm run build`) → **`Tests 3 failed | 610 passed (613)`**; the three are the inherited
+rows X-W9.b already named — `test/spectrum-luma.test.ts` (C-5 born-RED, X-W4) ·
+`test/v4-c1.test.ts` (**ESC-W9b-V4C1-SNAPSHOT**) · `demo/test/shell/reka-binding-idiom.test.ts`
+(NG-6, demo) — and none of the three imports `./math`.
+
+#### 5. Escalations — raised, never worked around
+
+**ESC-W9c-MTS06-SUPERSEDED — G1's probe asserts the pre-cure shape at MTS-06, as it does at
+MTS-05.** `…/probes/src-surface-totality.mjs:79-85` reads
+`Number.isFinite(M.deCasteljau(0.5, []))`, `M.interpBezier(0.5, []).every(Number.isFinite)` and
+`Array.from(M.lerpArray(len3, len2, .5, out3)).every(Number.isFinite)`. That pass-condition can
+only be met by **returning a finite number for an empty control polygon and a mis-sized buffer** —
+which is the defect. W9.md :222 and G11 :353 both order **rejection**, and G11's command is
+`test/math.test.ts`, not this probe. Replayed against the cured `dist/subpaths/math.js`, all three
+calls throw their stated `RangeError`s (`evidence/W9/math-precondition.after-addendum-2026-09-18.txt`
+§2). So **MTS-06 is superseded by G11 exactly as MTS-05 is superseded by G27** —
+same structure, same cause: the spec ordered a cure and ordered a probe that asserts the pre-cure
+shape to be **run unmodified** (§File Bounds, `execute, no write`). In practice the probe never
+reaches MTS-06 today — it dies at `:74` on `TR.decomposeMatrix3D is not a function`
+(**ESC-W9a-PROBE-UNRUNNABLE**, confirmed at this seat, ⟨cmd⟩ re-run on the integrated tree) — so
+this escalation is a **second** instance of the same seam, not a new blocker. **Ask**: fold it into
+whichever of X-W9.a §9's two options is ruled, so that a guard or a strike covers MTS-05 **and**
+MTS-06 together. No unit may repair the probe; the ruling is the orchestrator's.
+
+**ESC-W9c-PARSER-TOTALITY-TSC — `npm run typecheck` is RED in the shared tree, on a sibling's
+file.** ⟨cmd⟩ `npx vue-tsc -p tsconfig.test.json --noEmit` → **2 errors, both
+`test/parser-totality.test.ts` (`:89:40`, `:146:44`, TS2322 — a `ParseResult<CssValue>` assigned
+where `ParseResult<CssColor>` is declared)**. Measured **identical with this unit's three files
+reverted to HEAD**, so it is inherited, not caused here. It matters because §Format And Lint
+Cadence names `npm run typecheck` (which runs **four** projects) before close, and X-W9.a's receipt
+records only `tsconfig.lib.json`, which does not include `test/`. The file is X-W9.a's creation and
+is in **no** other unit's writable set. **Cure named, not performed**: widen the fixture's
+annotation to the union the call actually returns, or split the two batteries by return type —
+one line either way, no assertion changed. **Ask**: the orchestrator names its writer (naturally
+X-W9.a, re-dispatched, or X-W9.e which already holds `test/**`).
+
+#### 6. Residuals — booked so the close cannot discover them
+
+1. **The `lerpArray` length ask is now WITNESSED, and it inverts.** `evidence/W9/math-lerparray-consumer-ask.txt`.
+   Read at their bytes (READ-ONLY, no keyframes byte written): `interpolate.ts:274` is **safe** —
+   `compile/frame/numeric-plan.ts:18-30` builds `from`/`to`/`out` all as `new
+   Float64Array(numeric.length)`. **`physics/numeric.ts:193` is not**: `:186-192` grows a shared
+   `_out` scratch *"never shrink it"*, while `buildSegment` (`:135-141`) sizes each segment's
+   `from`/`to` to **that segment's own** `Object.keys(start).length`. A segment narrower than one
+   already visited therefore calls with `out.length > start.length`, which the cured contract
+   rejects — replayed: `K=3 → ok`, then `K=2, out.length=3 → RangeError`. **Nothing breaks today**
+   (their pin is exactly `"4.0.0"`, `../keyframes.js/package.json:71`); it breaks **with the 4.1
+   pin bump**, i.e. inside X-W9.f's dated cut — which is exactly why W9.md :222-223 says the leg is
+   **asked**, never assumed. **X-W9.i's keyframes packet must carry**: the site, the witness, the
+   one-line allocation-free cure at their end (`this._out.subarray(0, n)` — a view, so their
+   zero-alloc idiom survives), and the inversion of O-11 §E's ask (`INBOX.md:79`, SENT 2026-07-27,
+   *no reply on record*): the silent `[2.5, 3.5, NaN]` is gone and a **rejection** has taken its
+   place at one measured site. Not taken here, named so it can be ruled rather than discovered:
+   relaxing `out` to `>= n` would accommodate their idiom without reopening the NaN class — but
+   `:58` says **share the same length**, and changing the sentence this unit was ordered to enforce
+   is an adjudication, not an implementer's edit (E-3).
+2. **LIB-02's `./math` leg reads 5 → 6.** ⟨cmd⟩ `library-band-gates.mjs` → `by subpath: value=1
+   css=18 easing=1 math=6 transform=3` (total 29). The +1 is **`cubicBezier`**: called with its
+   four numeric arguments missing it builds `[0, undefined, undefined, 1]`, which pre-cure
+   multiplied straight through `lerp` and **returned `[NaN, NaN]`**, and now throws. That is the
+   silent-NaN class G11 exists to kill, so the +1 is the cure working — but it is a measured +1 on
+   a leg **X-W9.a already escalated as mis-scoped** (ESC-W9a-G3-LEG-SCOPE: LIB-02 reads arity and
+   shape violations of the published `.d.ts`). G3 is not this unit's gate; G11 is, and its command
+   is `test/math.test.ts`. Booked, not hidden.
+3. **`cubicBezier` has no guard of its own.** Its precondition is *five numbers*, a type contract,
+   not a size one, so the policy's own words put it outside the policy. A JS caller who omits
+   arguments now gets `deCasteljau: points must hold a number at every index; index 1 of 4 holds
+   none` — diagnosable, but it names the delegate. Left standing deliberately; a `cubicBezier`
+   guard would be a second policy for a case TypeScript already rejects at compile time.
+4. **`src/foundation/math.ts` is prettier-non-conformant on ONE pre-existing line** — the
+   `interpBezier` signature, wider than the 88-column `.prettierrc.json`. It was non-conformant at
+   HEAD and is untouched here (⟨cmd⟩ `prettier --stdin-filepath` on HEAD's blob prints the same
+   single delta). `src/subpaths/math.ts` and `test/math.test.ts` are fully conformant. No formatter
+   gate exists in the repo (`npm run lint` is eslint only), so this is a note, not a defect.
+5. **`lerpArray`'s in-loop narrowing has no test.** It is reachable only from plain JS (a
+   `Float64Array` read is never empty in bounds), and covering it from a TypeScript test needs a
+   cast this seat will not write. Its `deCasteljau` twin **is** covered, three ways — interior
+   hole, leading hole, and the degree-0 arm the unwrap catches — using `new Array<number>(n)`,
+   which TypeScript still types `number[]`, so no cast was needed there either.
+
+#### 7. E13 mail — swept at this seat's own clock
+
+⟨cmd⟩ `/usr/bin/find <the four coordination paths> -maxdepth 1 -name '*.md' -newermt '2026-09-18
+20:03'` → `docs/tranches/V/coordination/INBOX.md` alone (**self-excluded**, a sibling seat's row
+edit); the glass BK, keyframes V and atlas P paths return **nothing**. **0 new mail files · 0 rows
+addressed to `./math` · 0 UNREAD in this unit's scope** — the three live UNREAD rows (I-32, I-33,
+I-34) route by their own Routing cells to X-W0.j / the formation mail seat / X-EXT-1..6, as the
+wave's open recorded. The one standing row that touches this unit's surface, **O-11 §E**
+(`INBOX.md:79`), is answered by residual 6.1 above, which rides **X-W9.i's** packet, not this
+unit's commits. `INBOX.md` carries **no edit** from this seat.
+
+#### 8. Commits (worktree sha → integration sha on `tranche-u`)
+
+| # | worktree | `tranche-u` | scope |
+|---|---|---|---|
+| 5 | `1d6c68c0` | **`a692069f`** | `fix(math): stated precondition protocol` — `src/foundation/math.ts` · `src/subpaths/math.ts` · `test/math.test.ts` + four evidence files |
+| 5b | `9ff9b897` | **`5ba934fc`** | `fix(math): name what the narrowed read actually found` — the truthfulness correction below, + its dated addendum-beside |
+
+**Row 5 is two commits, and the reason is recorded rather than amended away.** After integrating
+`a692069f` this seat replayed the LIB-02 corpus over `./math` and found the per-element narrowings
+in `deCasteljau` and `lerpArray` are **not** unreachable as `a692069f`'s comments claimed: an
+in-bounds read comes back empty whenever the caller's array carries a hole, and `cubicBezier(42)`
+reaches `deCasteljau` as exactly such an array. Their messages (*"read past the end"*) therefore
+described the wrong fault. `git commit --amend` would have rewritten a tip that three sibling seats
+share — it is not this seat's to rewrite, and the standing law forbids reset and force-push — so
+the correction is its own commit with its own meaning, and the committed evidence was left
+**immutable** with a **dated addendum-beside** per E-3
+(`math-precondition.after-addendum-2026-09-18.txt`), never a rewrite.
+
+Pathspec on every commit itself (`git commit … -- <the same exact paths>`), `--no-verify`,
+`Claude-Session` trailer; integration by `git checkout <worktree-sha> -- <paths>`. ⟨cmd⟩ `git diff
+--cached --name-only` before and after each → **empty**; the same fifteen sibling dirty rows
+reproduce in `git status --porcelain` either side, `scripts/dev/dev.sh` among them, never staged.
+Worktree left in place for the close's re-measure; ⟨cmd⟩ `git -C <worktree> status --porcelain` →
+**clean**.
+
+#### 9. Evidence
+
+`docs/tranches/X/waves/evidence/W9/` — `math-precondition.before.txt` (the born-RED readings and
+G11's falsifier run, with each of its 11 named failures) · `math-precondition.after.txt` (the gate
+either side, double-run, with the harness verbatim) · `math-precondition.after-addendum-2026-09-18.txt`
+(the E-3 addendum-beside: the LIB-02 delta, ESC-W9c-MTS06-SUPERSEDED, and the settled-byte sha256s)
+· `math-equivalence.txt` (33,169 `Object.is` comparisons, 0 mismatches) ·
+`math-lerparray-shapes.txt` (why the shipped bodies are the shipped bodies) ·
+`math-lerparray-consumer-ask.txt` (the witnessed keyframes ask for X-W9.i).
+
+---
+
+### X-W9.e
+
+SERVED MODEL: `claude-opus-5[1m]` · Oracle truth, coverage truth, packed-surface truth
+(W9.md §Agent Units `X.W9.e` :248-262 · §Hard Gate G18–G20 :360-362 · §Commit Plan rows 7–8
+:461-462 · §Format And Lint Cadence :429-431 PT-08).
+**Status: PARTIAL** — **G18 GREEN in bounds · G19 GREEN · G20 GREEN in bounds, RED at the
+repository command** for a cause outside this seat's writable set. **Three escalations raised, none
+worked around**; one named mechanism item (the 34-pair Sharma table) is **unperformed and recorded**
+because its subject does not exist on the 4.x surface.
+Worktree `/Users/mkbabb/Programming/value.js-x-w9-e` @ `fdebfef5`, `node_modules` symlinked, private
+`dist/`; every figure read from settled bytes, measured in the worktree and **again after
+integration** into `tranche-u`, and **double-run** at both.
+
+#### 0. CRASH-RECOVERY sweep (standing law)
+
+⟨cmd⟩ `git status --porcelain` → 15 rows at open. ⟨cmd⟩ `git status --porcelain --
+test/v4-color-behavior.test.ts test/color-anchors.test.ts scripts/ci/verify-packed-surface.mjs
+docs/tranches/X/waves/evidence/W9 docs/tranches/X/execution/A/X-W9.md` → **empty**. **No killed
+predecessor's partial work on X-W9.e exists; nothing inherited, nothing stashed, nothing restored.**
+`scripts/dev/dev.sh` never touched; the ten dirty `demo/**` rows (X-W4 / X-W7 seats) never touched;
+`CARRY-LEDGER.md` never touched. Siblings landed beside this seat during the run (`5ba934fc`
+X-W9.c · `ed1593cc` X-KF) and **not one of their rows was ever staged by this seat** — ⟨cmd⟩
+`git diff --cached --name-only` after each of this unit's two commits → **empty**.
+
+#### 1. Anchors verified at TRUE bytes before any edit
+
+| spec anchor | measured at `fdebfef5` | verdict |
+|---|---|---|
+| `v4-color-behavior.test.ts:66` | `expect(converted.channels[1]).toBeCloseTo((byte / 255) / 12.92, 12)` under *"matches the independent IEC sRGB dark-band oracle"* (`:63`) | **EXACT** |
+| `verify-packed-surface.mjs:137` | `process.stdout.write(\`${JSON.stringify({ runtime, strictTypes: 62 })}\n\`)` | **EXACT** |
+| `test/color-anchors.test.ts` absent | ⟨cmd⟩ `git show fdebfef5:test/color-anchors.test.ts` → `fatal: path … does not exist` | **EXACT** |
+| the U-era oracle record | `docs/tranches/U/audit/oracle/color-anchors/README.md` present, naming U-F72's three transforms and U-F73's 34 Sharma pairs | **EXACT** |
+| denominators *"142 declared / 79 runtime"* (:256) | **reproduce exactly** at `aa8c8cbd`, the last commit before X-W9 touched `src/`: ⟨cmd⟩ scratch worktree + `npm run build` → `grep -h '^export declare ' dist/subpaths/*.d.ts \| wc -l` = **142**; runtime `color 23 · value 1 · css 19 · easing 16 · math 9 · transform 9 · quantize 2` = **79** | **EXACT at the spec's substrate; MOVED at this open** → §4 |
+
+Why `:66` was circular, measured rather than asserted: `Y` is the sum of the D65 matrix's middle row
+(`0.21263900587151027 + 0.715168678767756 + 0.07219231536073371` = 1 to float), and below the knee
+`srgbDecode(v) = v / 12.92`, so the expectation *reduces to the implementation re-derived in the
+test*. It could not fail for the reason its name claimed.
+
+#### 2. Act 1 — commit 7: the external vectors, and the false name deleted
+
+`test/color-anchors.test.ts` (create): **12 assertions** over **four published families**, every
+expected value transcribed from an INDEPENDENT implementation, none re-derived from `src/color/`,
+**none a round-trip** (a round-trip is blind to the shared-error class these exist to catch). They
+bind the **published** v4 surface (`rgb`/`xyz`/`ictcp`/`convertColor` from `./color`), not the
+retired `src/units/` internals the U-era files addressed:
+
+| family | source | vectors | measured max abs error | tolerance asserted |
+|---|---|---|---|---|
+| sRGB → XYZ-D65 | culori `test/xyz65.test.js` | 3 (white · red · `#00cc00`) | **2.220e-16** | `toBeCloseTo(_, 10)` |
+| XYZ-D65 → Lab-D50 | culori `test/lab.test.js` | 2 | **2.349e-5** | `toBeCloseTo(_, 3)` |
+| XYZ → OKLab | Ottosson's own published triples | 4 | **4.031e-4** | abs ≤ **1e-3** |
+| XYZ ↔ ICtCp | culori `test/itp.test.js` | 3 (incl. the inverse leg, both ends external) | **3.553e-14** | `toBeCloseTo(_, 9)` |
+
+`v4-color-behavior.test.ts:63-68` — the false name and the circular expectation are **both gone**.
+What replaces them asserts the shape IEC 61966-2-1 specifies **without quoting either branch's
+constants**: the transfer function is a straight line through the origin below the knee at encoded
+`0.04045` (⟨cmd⟩ `0.04045 × 255` = **10.31475**), so `Y(b)/b` is constant for bytes 1..10 — measured
+spread **≤ 1.626e-19**, asserted at `toBeCloseTo(_, 18)` — and departs at byte 11 (measured
+**7.035e-7**) and at 128. A single-branch implementation, or one whose knee has moved, fails it.
+
+**The anchors are measured BINDING, not vacuous.** A scratch copy with one golden per family
+perturbed (`xyz65` white z +1e-9 · lab-D50 white L* +1e-2 · Ottosson X a +2e-3 · culori itp red I
++1e-8) reddens **5 of 12** — one per perturbed family plus the inverse ICtCp leg. The probe file was
+deleted in the same shell act and **never committed**: ⟨cmd⟩ `ls test/anchors-falsifier.test.ts` →
+`No such file or directory`. Transcript, both double-runs and the falsifier:
+`docs/tranches/X/waves/evidence/W9/color-anchors.measured.txt`.
+
+#### 3. Act 2 — commit 8: the packed-surface behavioural half
+
+`SMOKE` carries **one case per runtime export**, invoked with representative **valid** arguments
+**inside the consumer workspace**, so every case exercises the **INSTALLED TARBALL** and not this
+tree (PT-08 — the oracle is the packed tarball, never the worktree `dist/`). A case must not throw
+and must not produce `undefined`/`null`; the driver refuses to run when the smoke set and the export
+set disagree in **either** direction. `strictTypes: 62` is **deleted**; both printed counts are
+summed from checks that just ran.
+
+Riding the same commit because the check could not otherwise reach its own surface:
+`expected.transform` loses the six symbols X-W9.b retired — **X-W9.b booked this to this unit at its
+receipt §6.2** (*"The six must leave that list in `.e`'s act or the packed-surface check reddens at
+the 4.1.0 tag"*), and it is discharged here.
+
+**G20's falsifier, executed verbatim** rather than asserted. A tarball was doctored from the real one
+by appending to `package/dist/subpaths/math.{js,d.ts}` an export that imports fine and throws when
+called:
+
+| leg | script | reading |
+|---|---|---|
+| **A** | the **presence-only** script at `fdebfef5`, new name admitted | **exit 0 — GREEN** over a surface containing a throwing export, printing `{"runtime":{…,"math":10,…},"strictTypes":62}` |
+| **B** | **this** script, same tarball, name admitted **and** given a smoke case | **exit 1** — `/math throwsOnCall threw on a valid invocation: this export imports fine and throws on invocation` |
+| **C** | **this** script, name admitted, **no** smoke case | **exit 1** — `/math has no smoke case for: throwsOnCall` |
+
+The ratchet fires in both directions and the pre-cure script does not. Full transcript:
+`evidence/W9/packed-surface.measured.txt`; the run itself: `evidence/W9/packed-surface.after.json`.
+
+**Relay to X-W9.f**: adding a runtime export now costs **two** edits in this one file — its
+`expected` row (as it always did) **and** its `SMOKE` case. `toHex`, `easingNames()` and SCI-1's
+three names each need both, or the pre-tag `npm pack` → `verify-packed-surface.mjs` cadence reddens.
+
+#### 4. Act 3 — commit 8: coverage-by-export, PUBLISHED over a recorded command
+
+⟨cmd⟩ `node docs/tranches/X/waves/evidence/W9/coverage-by-export.mjs` — the command is **committed
+beside its output**, always exits 0 and asserts **no threshold** (*"a coverage floor with no consumer
+is L-19 contrivance"*, :261-262).
+
+| | at `aa8c8cbd` (the spec's substrate) | **at this open (`fdebfef5`)** |
+|---|---|---|
+| declared export names (`^export declare ` across `dist/subpaths/*.d.ts`) | **142** | **131** lines / 131 distinct |
+| runtime exports (7 subpaths) | **79** | **73** |
+
+**The denominator MOVED and is re-recorded, not carried** (G19's falsifier names exactly that). One
+cause, named symbol by symbol: X-W9.b's retirement — runtime −6 (the six functions); declared −11
+(those six, plus `DecomposedMatrix2D` `DecomposedMatrix3D` `Vec4` `Mat4`, plus the second
+`export declare` line `interpolateDecomposed` occupied). `transform.d.ts` reads **16 → 5**.
+
+**Coverage, whole suite: 73 / 73 = 100.0%.** **Minus `test/v4-c1.test.ts` (the exact-surface
+snapshot, which names every export by construction): 70 / 73 = 95.9%.** Both are published, because
+a single figure leaning on the snapshot would over-claim. The three names reached by nothing else in
+the tree are **`isLayoutTrackingUnit`** (`./value`), **`collectDeclarations`** and
+**`parseKeyframeSelector`** (`./css`) — recorded as the finding it is; authoring three behavioural
+tests is not this unit's named mechanism. The measure is reachability-by-name over vitest's own
+include globs (36 seeds, 78 first-party modules outside `src/`), parsed with the **TypeScript
+compiler API, not a grep**, and its limits are stated in §4 of the published file. The
+`NODE_V8_COVERAGE` route was tried and measured **unusable**: vitest evaluates transformed modules
+under synthetic URLs, so ⟨cmd⟩ `NODE_V8_COVERAGE=<dir> npx vitest run --pool=forks` produced 958
+script URLs of which **0** resolve to `src/`. No coverage provider is installed and installing one is
+a `package.json` edit this unit does not hold.
+
+#### 5. Gate readings, BEFORE → AFTER, every one double-run
+
+| gate | command | BEFORE | AFTER (worktree) | AFTER (integrated `tranche-u`) | verdict |
+|---|---|---|---|---|---|
+| **G18** | `npx vitest run test/v4-color-behavior.test.ts test/color-anchors.test.ts` | `:66` asserts `(byte/255)/12.92` under an independent-oracle name; anchor file **absent** | `2 passed · 20 tests`; 4 external families; 5/12 redden under the falsifier | `2 passed · 20 tests` (×2, identical) | **GREEN IN BOUNDS** — the circular oracle is deleted and the committed vectors bind. Residual: the Sharma half, **ESC-W9e-SHARMA-NO-SUBJECT** |
+| **G19** | `node docs/tranches/X/waves/evidence/W9/coverage-by-export.mjs` | no coverage configuration exists anywhere; no number, no command | 131/73 · 73/73 · 70/73 | **identical** (×2, `diff -q` silent), with X-W9.c's `5ba934fc` landed beside | **GREEN** |
+| **G20** | `npm pack` → `node scripts/ci/verify-packed-surface.mjs <tarball>` | presence-only + hardcoded `strictTypes: 62`; **and the command itself exits 1 at the TYPES half** on a stale fixture | 73 runtime / **73 smoke**, `strictTypes` gone; falsifier A green / B red / C red | 73 / **73**, exit 0, ×2 identical, over the primary tarball `a4b89cf2…badd` | **GREEN IN BOUNDS, RED at the repository command** → **ESC-W9e-FIXTURE-V4TYPES** |
+
+Collateral on the integrated tree, measured: ⟨cmd⟩ `npx vitest run` → **610 passed · 3 failed** —
+`test/spectrum-luma.test.ts` (C-5 BORN-RED, X-W4's), `demo/test/shell/reka-binding-idiom.test.ts`
+(NG-6, demo's) and `test/v4-c1.test.ts` (**ESC-W9b-V4C1-SNAPSHOT**, already raised); **none is this
+unit's**. ⟨cmd⟩ `npx eslint scripts/ci/verify-packed-surface.mjs
+docs/tranches/X/waves/evidence/W9/coverage-by-export.mjs test/color-anchors.test.ts
+test/v4-color-behavior.test.ts` → **exit 0**. ⟨cmd⟩ `npm run lint` → **55 problems, unchanged** from
+X-W9.a's reading, every one under `docs/tranches/**` (X-W8 G-6's ignore owns them); this unit adds
+**zero**.
+
+#### 6. Escalations — raised, never worked around
+
+**ESC-W9e-SHARMA-NO-SUBJECT — the 34-pair Sharma CIEDE2000 table has no subject on the 4.x surface.**
+⟨cmd⟩ `grep -rniE "ciede|delta_?e|colou?rDifference" src/ \| wc -l` → **0**. `./color` publishes 23
+names and **none is a colour-difference metric**; nor is one on any of the other six subpaths (73
+runtime names total). `deltaE2000` left the tree **with its module**: ⟨cmd⟩
+`git show 7334c793 --stat -- src/units/color/difference.ts test/units/color/color-difference.test.ts`
+→ `243` and `193` lines deleted, fifteen months before this wave's spec was written. **No substitute
+was made** — a test-local CIEDE2000 would certify the test's own arithmetic, not the library, which
+is exactly the circularity this unit's other half deletes; and shipping a `deltaE2000` export is a
+**surface decision** bound by G21/G22/G29 and `X-W9.f`'s closed ship list, not an implementer's act.
+Measured reason and the two named cures — **(i)** rule the clause SUPERSEDED-BY-THE-V4-CUT by dated
+addendum-beside, or **(ii)** name a writer for a colour-difference export folded into `.f`'s one
+dated cut with the table as its certification — are written out at
+`docs/tranches/X/waves/evidence/W9/sharma-no-subject.md`. **Ask**: the orchestrator rules one.
+
+**ESC-W9e-FIXTURE-V4TYPES — G20's command dies before its own surface check, on a file no unit may
+write.** `scripts/ci/verify-packed-surface.mjs` compiles `fixtures/public-types/value-v4.ts` as its
+TYPES half; that fixture still names the ten symbols X-W9.b retired, so ⟨cmd⟩ `node
+scripts/ci/verify-packed-surface.mjs <tarball>` → **exit 1**, `TS2305 DecomposedMatrix2D`,
+`DecomposedMatrix3D`, `Mat4`, `Vec4` and `TS2339` on the six runtime names — **and it did so before
+this unit touched anything** (measured with the `fdebfef5` script, `evidence/W9/packed-surface.measured.txt`).
+`fixtures/**` is **absent from W9.md §File Bounds entirely** and is in no unit's writable set, so
+this seat wrote **no byte** of it; the AFTER reading was taken through a scratch overlay holding a
+corrected copy of that one fixture, with the script's bytes byte-identical (⟨cmd⟩ `cmp -s` → **YES**)
+and the tarball unchanged, and the overlay is declared in both evidence files rather than hidden.
+**Cure, one edit**: delete its **14** stale lines (4 type imports, 4 names in the declaration list, 6
+runtime references). **Ask**: the orchestrator names its writer — naturally **X-W9.f**, which already
+owns the 4.1 tuple that fixture describes and must re-run this exact command before the tag. Same
+class as **ESC-W9b-V4C1-SNAPSHOT**; both are the retirement's downstream artifacts, and both are one
+deletion each.
+
+**ESC-W9e-TESTPROJ-TSC — `npm run typecheck` is RED at the wave's own cadence, in a file outside this
+unit.** ⟨cmd⟩ `npm run typecheck` → **exit 2**, exactly **2** errors, both
+`test/parser-totality.test.ts` (`:89:40`, `:146:44`, TS2322 — a `ParseResult<CssColor>` annotation
+over a `parseCssScalar`/`parseCssValue` result). Measured **pre-existing**: the same two errors
+reproduce at the untouched primary before this unit's first commit, and X-W9.a's receipt measured
+only `tsconfig.lib.json`, which is clean — `tsconfig.test.json` was never run there. This unit's four
+files contribute **zero** errors. **Ask**: route it to `test/parser-totality.test.ts`'s owner
+(X-W9.a's file); §Format And Lint Cadence :425 requires a green `npm run typecheck` before the wave
+closes and no unit can currently deliver it.
+
+#### 7. Residuals — booked so the close cannot discover them
+
+1. **Three published entries are reached only by the surface snapshot** — `isLayoutTrackingUnit`,
+   `collectDeclarations`, `parseKeyframeSelector`. All three ARE now invoked against the packed
+   tarball by G20's smoke half, so they are exercised somewhere; they have no behavioural test in the
+   tree. Published in `coverage-by-export.md` §3.2, not repaired.
+2. **The `SMOKE` table is a ratchet X-W9.f must feed.** Five names arrive at the cut (`toHex`,
+   `easingNames`, `sampleColorRamp`, `mixColorsInto`, `toRgba8Into`); each needs an `expected` row
+   **and** a `SMOKE` case in `scripts/ci/verify-packed-surface.mjs`, or the pre-tag cadence reddens
+   with `has no smoke case for: …`. `scripts/ci/verify-packed-surface.mjs` is listed `modify` at
+   §File Bounds (wave level) but sits in **this** unit's writable set in §Unit plan; `.f` needs the
+   grant, exactly as ESC-W9e-FIXTURE-V4TYPES needs one for the fixture.
+3. **`coverage-by-export.mjs` lives under `docs/…/evidence/W9/`**, not `scripts/`, because that is
+   this unit's writable set. It is lint-clean (⟨cmd⟩ `npx eslint` → exit 0) and adds **zero** to the
+   repo-wide 55. If the close wants it run by CI it must move, and that move is X-W1's file.
+4. **The `.d.ts` denominator counts LINES, and 131 lines = 131 distinct names today** only because
+   the duplicate `interpolateDecomposed` line left with the family. The script prints both figures so
+   a future divergence is visible rather than silent.
+5. **`test/color-anchors.test.ts` carries the ICtCp family**, which the U-era README does not
+   describe (it lived in the deleted `color-difference.test.ts`). It is included deliberately: it is
+   external, forward-only, and `ictcp` is the space X-W9.h's descriptor defect sits on, which had
+   **no** external anchor on the v4 surface at all. Provenance is stated in-file.
+
+#### 8. E13 mail — swept at this seat's own clock
+
+⟨cmd⟩ `find <the four coordination paths> -maxdepth 1 -name '*.md' -newermt '2026-09-18 20:03'`
+(2026-09-18 21:10 EDT) → `docs/tranches/V/coordination/INBOX.md` **alone** — self-excluded per the
+SELF-COUNT law, and a sibling seat's row edit, not this unit's. ⟨cmd⟩ `grep -nE '\| *UNREAD'
+docs/tranches/V/coordination/INBOX.md` → **0 rows**. ⟨cmd⟩
+`grep -niE 'oracle|coverage|packed-surface|ciede|sharma|color-anchors' …/INBOX.md` → one hit, **I-28**
+(glass 8.0.0), whose Routing cell sends it to the X·V refinement fold, not the library band.
+**0 new mail files · 0 rows addressed to this unit's scope · 0 UNREAD.** `INBOX.md` carries no edit
+from this unit.
+
+#### 9. Commits (worktree sha → integration sha on `tranche-u`)
+
+| # | worktree | `tranche-u` | scope |
+|---|---|---|---|
+| 7 | `a5f255f5` | **`42727db0`** | `test(oracle): external colour vectors; rename the circular oracle` — `test/color-anchors.test.ts` (create) · `test/v4-color-behavior.test.ts` · `evidence/W9/color-anchors.measured.txt` · `evidence/W9/sharma-no-subject.md` |
+| 8 | `2dac4228` | **`df0807fe`** | `ci(packed-surface): behavioural half; delete strictTypes:62` — `scripts/ci/verify-packed-surface.mjs` · `evidence/W9/packed-surface.{after.json,measured.txt}` · `evidence/W9/coverage-by-export.{mjs,md,txt}` |
+
+Two commits, one meaning each, exactly as §Commit Plan rows 7–8 and this unit's LOCKS require.
+Pathspec on the commit itself, `--no-verify`, `Claude-Session` trailer, integration by
+`git checkout <worktree-sha> -- <exact paths>`. ⟨cmd⟩ `git diff --cached --name-only` after each →
+**empty**; the sibling dirty rows reproduce unchanged before and after, none ever staged here.
