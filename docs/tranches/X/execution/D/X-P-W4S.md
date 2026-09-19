@@ -817,3 +817,226 @@ plus `<p2>/typescript/scripts/rc-p-evaluate.mjs`. They are serial regardless.
 ## Unit receipts — RESUME
 
 _(appended by each unit as it lands)_
+
+### X.P.W4.e2
+
+**SERVED MODEL**: `claude-opus-5[1m]` · **status**: **DONE** · 2026-09-19. **G-3 is GREEN** —
+`resolved 52 of 52`, `entryCount 91`, `G3 GREEN`, **exit 0**, double-run; and the `tsx`-free-shipped-
+bytes leg reads **0 code hits**. **The serial lock is therefore OPEN: `.f` may be dispatched.**
+
+**CRASH-RECOVERY (standing law, host restart 2026-09-18).**
+⟨cmd⟩ `git -C /Users/mkbabb/Programming/parse-that-css-totality-p2 status --porcelain` → `?? .worktrees/`
+**only**: the `<p2>` half of this unit's writable set — `scripts/packed-candidate-surface.mjs`,
+`src/parse/packrat-entry.ts`, `src/css/bounds.mjs` — carried **zero inherited edits**, and `.worktrees/`
+is untracked infrastructure in no row of this unit's grant.
+⟨cmd⟩ `git -C /Users/mkbabb/Programming/value.js status --porcelain` → 3 M + 1 `??`
+(`V/reformation/CARRY-LEDGER.md` · `X/keyframes/evidence/W12/KF-W12-d-born-red.md` ·
+`scripts/dev/dev.sh` · `X/keyframes/evidence/W12/KF-W12-d-gate-transcripts.md`), **none inside this
+unit's writable set** — the first, second and fourth are sibling seats' (V-reformation, Track B's
+X·KF W12), `dev.sh` is unowned and **never staged**. ⟨cmd⟩ `git status --porcelain -- docs/tranches/X/parse-that/evidence/W4/`
+→ **0 lines**. **Nothing inherited, nothing stashed, nothing restored, no dirty path outside the
+writable set touched.**
+
+#### Acts, in order
+
+**A-0 · Measure before editing — all three anchors verified at the true bytes; NONE had drifted.**
+⟨cmd⟩ `sed -n '395,425p' scripts/packed-candidate-surface.mjs` → `:400` emits
+`` `export type __check_${name} = ${name};` `` and `:420` reads
+`resolved: compile.status === 0 ? true : !named(name) && diagnostics.length === 0`.
+⟨cmd⟩ `cat src/parse/packrat-entry.ts` → `export { memoize, mergeMemos, resetPackrat } from "./packrat.js";`
+and nothing else — `packratEnter`/`packratExit` **ABSENT**.
+⟨cmd⟩ `sed -n '828,842p' src/css/bounds.mjs` → `const { tsImport } = require_("tsx/esm/api");` inside
+`loadPackratInstrument()`.
+⟨cmd⟩ `grep -rn 'packratEnter\|packratExit' src/` → both are `export function`s in
+`src/parse/packrat.ts` (`:223`, `:250`) and the epoch boundary `parser.ts:42/46` already calls them,
+so cure (a) needs **re-export lines only** and `packrat.ts` — which is in no row of this grant — is
+not touched. ⟨cmd⟩ `grep -n 'PackratEpoch' src/parse/packrat.ts` → `203:interface PackratEpoch` is
+**not exported**, so no type re-export was added: a `export type { PackratEpoch }` line would have
+needed a write in `packrat.ts`. Measured, then dropped.
+
+**A-1 · BEFORE, at this seat's own clock.** ⟨cmd⟩ `node scripts/packed-candidate-surface.mjs --seam …/SEAM-CONTRACT.md --out <scratch>/g3-before-e2.json`
+→ `tarballSha256 6b51c336…` · `entryCount 91` · `seamSubpathDeclared true` · **`resolved 19 of 52`** ·
+`refusals 5` · `verdict {pack:true, declaration:true, install:true, **resolve:false**, refusals:true,
+G3:"RED"}` · **EXIT=1** — reproducing the re-open baseline sha for sha. ⟨cmd⟩ a probe importing
+`src/css/bounds.mjs` and `src/css/entry.mjs` recorded the instrument's reading **before** the cure,
+in the order `latch.test.ts` reads it (the file is outside the repo's vitest `include`,
+`test/*.test.ts`, so it is exercised by this probe and by `scripts/css-bench-three-leg.mjs`, not by
+`npx vitest run`): parsing-armed **false** · L-1 **false** · L-2 arms **true** · read-back **true** ·
+L-3 after `resetPackrat()` **true** (ESC-c1's born-RED) · `record.readable true` · `record.armed true`
+· `record.symmetric false`.
+
+**A-2 · E-w4e-2 cure (a) — the latch reader rides the subpath.** `packrat-entry.ts` gains
+`export { packratEnter, packratExit } from "./packrat.js";`. `bounds.mjs`'s `loadPackratInstrument()`
+becomes `await import("@mkbabb/parse-that/packrat")` + `await import("@mkbabb/parse-that")`; the
+`createRequire` / `tsImport` pair dies. The doc comment above it is **rewritten rather than left
+standing**, because the cure changed what the reading MEANS and a stale comment would be the
+dishonest half of a true fix (below). **The module-local "have we armed" flag was REFUSED** — §0aa
+and `.e` both name it: it would ANSWER the question `latch.test.ts` L-3 exists to MEASURE.
+
+**A-3 · The rebuild, which is a build act with no commit.** ⟨cmd⟩ `npm run build` (`vite build`) →
+`✓ built in 416ms`; ⟨cmd⟩ `git check-ignore -v typescript/dist` → `.gitignore:6:dist/`. ⟨cmd⟩
+`cat dist/packrat.js` → `export { m as memoize, i as mergeMemos, p as packratEnter, o as packratExit,
+k as resetPackrat }`; ⟨cmd⟩ `cat dist/packrat-entry.d.ts` → both re-export lines. **`src/css/build/`
+was NOT rebuilt** — `npm run build` is `vite build` and does not run `src/css/build.mjs`, so
+`ac1.wasm` stands at `.e`'s **662339 B** (⟨cmd⟩ `ls -l` and the `<p2>` commit file lists both show it
+untouched) and G-4's subject is unmoved.
+
+**A-4 · E-w4e-1 cure — the check line is instantiated to the arity the INSTALLED declaration
+declares.** `readInstalledTypeArity()` resolves the seam specifier with `ts.resolveModuleName` from
+the consumer workspace and reads each export's type-parameter list through
+`checker.getExportsOfModule` — the **same resolver the consumer compile uses**, so the seam's
+re-export chain (`ac1.d.ts` → `value-css-4.0.0.d.ts`) is followed rather than re-implemented by a
+grep. The emitter then supplies exactly that many `unknown`s. **`:420`'s reading is byte-identical.**
+
+**REQUIRED arity, not total — and this is measured, not preferred.** ⟨cmd⟩ the banked report's
+`legs.types.arity.generics` → `["CollectedRule: 0 required of 1", "ParseResult: 1 required of 1"]`.
+`ParseResult<T>` has one required parameter → `ParseResult<unknown>`; `CollectedRule<R extends
+StylesheetItem = StylesheetItem>` is fully defaulted → **bare**. A blind `unknown`-per-*total*-
+parameter reading would emit `CollectedRule<unknown>` and newly fail **TS2344** on a row that passes
+today, contradicting §0aa's own acceptance criterion — *"a check line that is valid for every generic
+on the surface"*. ⟨cmd⟩ rows carrying a **required AND constrained** parameter → **0**, so `unknown`
+is a valid argument for every generic on this surface; the count is **printed in the report**, not
+assumed, because `unknown` need not satisfy a constrained parameter on some future surface.
+
+**A-5 · G-3, double-run at the settled bytes**, banked into `evidence/W4/` as NEW dated files:
+
+| reading | BEFORE (`.e`'s settled bytes, `93bcb83`) | AFTER run 1 | AFTER run 2 |
+|---|---|---|---|
+| `tarballSha256` | `6b51c336…` | `f8aede11…` | `f8aede11…` |
+| `entryCount` | 91 | **91** | **91** |
+| `seamSubpathDeclared` | true | true | true |
+| `resolved` | **19 of 52** | **52 of 52** | **52 of 52** |
+| `unresolved` | 33 | **0** | **0** |
+| `refusals` | 5 of 5 | 5 of 5 | 5 of 5 |
+| `verdict.resolve` | **false** | **true** | **true** |
+| `verdict.G3` | **RED** (exit 1) | **GREEN** (exit 0) | **GREEN** (exit 0) |
+
+⟨cmd⟩ whole-report identity with `generatedAt` and the ephemeral consumer root excluded → **true**.
+Both runs carried the same `--label`, so `generatedAt` is the *only* differing field.
+
+**A-6 · The `tsx`-free-shipped-bytes leg.** ⟨cmd⟩ `grep -rn 'tsx' src/css/` → **5** hits; ⟨cmd⟩ the
+same piped through `grep -vE ':[0-9]+: *(\*|//|/\*)'` → **no output, 0 code hits**. The five are
+doc-comment prose recording the removal (`js-alg.mjs:38,42,45` are `.e`'s; `bounds.mjs:823,824` are
+this unit's). Asserted over **shipped** bytes, not only the tree: ⟨cmd⟩ `tar -xzf <the packed tarball>`
+then the same two greps over `package/src/css/` → **0 code hits**, and ⟨cmd⟩
+`grep -rn 'require_\|tsImport' package/src/css/` → **5 hits, every one comment prose**. ⟨cmd⟩ the
+installed manifest's `dependencies` → **`{}`**. **R-3 is DISCHARGED at the bytes**, not disclosed.
+
+**A-7 · The instrument's reading is preserved whole — and is now stronger.** Same probe, same order,
+before and after: parsing-armed `false/false` · L-1 `false/false` · L-2 arms `true/true` · read-back
+`true/true` · **L-3 after `resetPackrat()` `true/true`** · `record.readable true/true` · `record.armed
+true/true` · **`record.symmetric false/false`** · `record.sites` unchanged. **Field for field.**
+ESC-c1's born-RED is still **measured** red — which is exactly why cure (b) and the flag were
+refused. What changed is the reading's *subject*, and it is stated rather than smoothed: `tsImport`
+did not dedupe, so the instrument read its own library instance and could not claim to read the one
+the lowerings hold; ⟨cmd⟩ `import('@mkbabb/parse-that').memoize === import('@mkbabb/parse-that/packrat').memoize`
+→ **true**, and `js-alg.mjs:23` addresses the library through that same map, so the instrument now
+reads **the latch the js lowering itself holds**. The "parsing does not arm the latch" leg thereby
+became a live assertion about the candidate's own instance, and it still reads `false`.
+
+**A-8 · Positive control, in a staged tree outside both repos.** `<scratch>/pc-w4e2` — ⟨cmd⟩ prefix
+check against both roots → neither is an ancestor. ⟨cmd⟩ `shasum -a 256 <staged>/mkbabb-parse-that-1.0.0.tgz`
+→ **`f8aede11…` — the same bytes the gate read this run**. ⟨cmd⟩ `import('@mkbabb/parse-that/css')`
+inside the consumer → **RUNTIME resolved 19 of 19**; ⟨cmd⟩ `import('@mkbabb/parse-that/packrat')` →
+`memoize mergeMemos packratEnter packratExit resetPackrat`, and `packratEnter()` returns `null`
+(unarmed) **from a consumer's `node_modules`**. ⟨cmd⟩ `node <tsc> -p tsconfig.pc.json` over **the
+gate's own emitted `consumer.ts`, byte for byte** (`NodeNext`, `strict`, **`skipLibCheck: false`**) →
+**EXIT=0**.
+
+**A-9 · Negative controls — the gate still fires, twice over.** (a) the same consumer file with one
+absent name, emitted in **the bare form the generator uses for a name with no arity row** → ⟨cmd⟩
+`node <tsc> -p tsconfig.nc.json` → **EXIT=2**, `TS2305: Module '"@mkbabb/parse-that/css"' has no
+exported member 'NotAFrozenType'`. (b) **the whole gate**, run against a seam contract carrying a
+53rd row for that absent name and differing in nothing else → `symbolCounts {runtime:19, types:34,
+total:53}` · **`resolved 19 of 53`** · **`G3 RED`** · **EXIT=1**, with that row reading
+`{"resolved":false,"reason":"named in a tsc diagnostic"}` and the arity table carrying **33 rows and
+no entry for it**. A row is now written for **every** export the installed declaration carries,
+generic or not, so *"no arity row"* means one thing only — the declaration does not export this name
+— which is what keeps the bare-form path a control rather than a hiding place.
+
+#### Gate readings — BEFORE → AFTER
+
+| gate | before (this seat's own BEFORE run) | after X.P.W4.e2 | verdict |
+|---|---|---|---|
+| **G-3** | `resolved 19 of 52` · `resolve:false` · `G3 RED` · exit 1 | `resolved 52 of 52` · `entryCount 91` · every leg true · `G3 GREEN` · **exit 0** · double-run identical but for `generatedAt` | **GREEN** |
+| **`tsx`-free shipped bytes** | 1 live code hit (`bounds.mjs:834`) | ⟨cmd⟩ `grep -rn 'tsx' src/css/` minus comment lines → **0 code hits**, in the tree **and** in the tarball; `dependencies {}` | **GREEN** |
+| **G-4** (not this unit's; re-read because `dist/` was rebuilt) | `functionKind 0` · GREEN | `artifacts 1 · admitted 1 · functionKindImportsTotal 0 · unaccountedImportsTotal 0 · "verdict": "GREEN"` · EXIT=0, on `.e`'s **unchanged** `ac1.wasm` (662339 B) | **GREEN, unmoved** |
+| **G-2** (read with attribution) | 0 lines | raw ⟨cmd⟩ `git status --porcelain -- src api demo test e2e` → **2 lines**, both `demo/styles/**`, **a concurrent Track-A seat's**; the claim X·P owes — ⟨cmd⟩ `git show --name-only --format=` over this unit's value.js commits `\| grep -cE '^(src\|demo\|api\|test\|e2e)/'` → **0** | **GREEN for X·P** |
+
+#### Regression sweep (this unit changed a built entry, so the suite was read, not assumed)
+
+⟨cmd⟩ `npx vitest run` → **Test Files 4 failed \| 10 passed (14)** · **Tests 2 failed \| 124 passed
+(126)**. **All five failures are `ENOENT: ../data/…`** — the fresh root ships no benchmark corpus
+(⟨cmd⟩ `ls -d ../data data` → *No such file or directory* for both) — and ⟨cmd⟩
+`grep -lE 'packrat|bounds|packed-candidate'` over the four failing files → **none**. The suites that
+do exercise this unit's subject pass: ⟨cmd⟩ `npx vitest run test/memoize.test.ts test/reentrancy.test.ts
+test/dist-surface.test.ts` → **3 passed, 20 tests passed**. `test/css-recovery/boundary/latch.test.ts`
+is outside the config's `include` (`test/*.test.ts`) and is therefore read by A-1/A-7's probe, which
+reproduces its assertion order exactly.
+
+#### Format / lint (§7)
+
+⟨cmd⟩ `git diff --check` in `<p2>` → **clean**. ⟨cmd⟩ `node --check` on
+`scripts/packed-candidate-surface.mjs` and `src/css/bounds.mjs` → **OK**. ⟨cmd⟩
+`node <tsc> --noEmit -p tsconfig.json` → **82 errors, all under `test/**`** — the identical count
+`.e` measured — and ⟨cmd⟩ the same output filtered to this unit's three files → **0**. `npx eslint .`
+was **not run**: ⟨cmd⟩ `ls eslint.config.* .eslintrc*` → no matches; the fresh root carries no eslint
+configuration and inventing one is outside these bounds (**R-5**, already rowed to X-W11's
+OUT-OF-WAVE roster by §0aa).
+
+#### E13 mail — and a self-correction, recorded rather than quietly fixed
+
+⟨cmd⟩ the positional Status-cell awk over `INBOX.md` → **`ROWS=80 UNREAD=0`**, double-run
+`0 ≡ 0`; header rows confirm Status at field 6 (⟨cmd⟩ `grep -n '^| # |'` → `41:` and `66:`). Four
+paths: V/ **10** depth-1 ⊕ **24** coordination · glass-ui **BK** still the newest tranche dir, **9**
+entries, newest `glass-outbound-2026-09-18-valuejs-o26-reply.md` = **I-35**, rowed · keyframes.js
+**13** · atlas **28**. ⟨cmd⟩ `find <the three live paths> -maxdepth 1 -type f -name '*.md' -newermt
+"2026-09-19 09:10"` → **no member**. **ZERO UNREAD; no unrowed letter; `INBOX.md` not written.**
+**Self-correction (SELF-COUNT law):** this seat's first sweep used `sed 's/\|/@PIPE@/g'`, which in
+BSD sed replaces *every* pipe — including the table delimiters — and so read **`ROWS=0 UNREAD=0`**, a
+vacuous zero. The correct form escapes only in-cell backslash-pipes, `sed 's/\\|/@PIPE@/g'`, and
+reads **`ROWS=80`**. The bad reading is published here because a zero from an empty denominator is
+exactly the false green this program's counting laws exist to refuse.
+
+#### Commits
+
+| repo | hash | meaning |
+|---|---|---|
+| `<p2>` | **`43c3f48`** | `fix(x-p-w4.e2/packed)` — **E-w4e-1**: the check line is instantiated to the arity the installed declaration declares. Pathspec: `typescript/scripts/packed-candidate-surface.mjs` |
+| `<p2>` | **`49ca70b`** | `fix(x-p-w4.e2/packrat)` — **E-w4e-2 cure (a)**, **one commit, one family**: `bounds.mjs`'s import is valid only once the subpath carries the name, so a split would publish a state in which the instrument imports a binding that does not exist. Pathspec: `typescript/src/parse/packrat-entry.ts` · `typescript/src/css/bounds.mjs` |
+| value.js | **`c6ec1ee6`** | `docs(x-p-w4.e2/evidence)` — five **NEW dated** files under `evidence/W4/`, **3191 insertions / 0 deletions**, so `.b`'s and `.e`'s artefacts are provably untouched (E-3) |
+| value.js | *this receipt* | `docs(x-p-w4.e2)` — this section, append-only |
+
+⟨cmd⟩ `git show --name-only --format=` over `43c3f48` → 1 path; over `49ca70b` → 2 paths; all three
+are rows of the FOURTH addendum's grant. **`dist/**` appears in no commit** — it is gitignored, and
+it reaches the gate only through `npm pack`'s `files` list, which is why G-3 was re-run **after** the
+rebuild and never before. **Out-of-bounds count: 0.** `scripts/dev/dev.sh` never staged.
+
+#### Residuals and escalations
+
+- **ESCALATIONS: NONE.** Both of `.e`'s escalations are discharged as §0aa ruled them, at the bytes.
+- **No workaround was taken anywhere**: no `try/catch` around a defect, no `test.skip`, no allowlist,
+  no copied producer selector, no `node_modules` patch, no `tsx` runtime dependency, no module-local
+  latch flag. The two refused shapes are named above with the reason each was refused.
+- **R-3 (the PARTIAL close's residual) is CURED**, not carried: the tarball's `src/css/**` holds no
+  executable `tsx` reference against `dependencies {}`.
+- **R-5 stands** (no eslint configuration in `<p2>`; an architecture act, already on X-W11's
+  OUT-OF-WAVE roster by §0aa). **R-6 stands** (`<p2>` has no remote — ⟨cmd⟩ `git remote -v` → empty —
+  so `43c3f48` and `49ca70b` live in the local fresh root and are not pushed; by construction, X.P.W0).
+- **R-4 stands for `.f`** — `.e` rebuilt `ac1.wasm` and `.b`'s `wasm-imports.json` describes the
+  previous bytes. This unit did **not** rebuild it (`vite build` does not run `src/css/build.mjs`);
+  §0aa's R-4 remains `.f`'s to bank as a NEW dated file.
+- **R-1 and R-2 stand for `.f`** — `registry/harvest/x-p-w4s.json` still ABSENT, the **45**
+  `PENDING-ADJUDICATION` cells still PENDING, `ADJUDICATION-W4.md` still ABSENT. Untouched by this
+  unit; they are `.f`'s acts.
+- **Carried, measured, for `.f`'s own re-run**: the arity reader instantiates `unknown` per required
+  parameter, and **zero** parameters on this surface are both required and constrained. Should a
+  future surface declare one, `unknown` would not satisfy it and the gate would redden **honestly**,
+  naming that row — the report prints `constrainedRequired` per row so the condition is read rather
+  than discovered.
+
+#### The serial lock
+
+**`.e2` reads `G3 GREEN`.** §0aa's condition — *"`.f` opens iff `.e2` reads `G3 GREEN`"* — is **MET**,
+and G-10's own falsifier (*a stamp performed while any of G-1..G-9 is red fails*) no longer bites on
+G-3. `.f` re-runs G-1..G-10 at **its own** clock; nothing here is inherited as a claim.
