@@ -357,3 +357,236 @@ Committed at close (L-7 — an uncommitted witness does not exist): `design/R4-e
 - **Second failure mode, recorded at repair round 1**: this spec's own earlier draft quoted two authorities that existed at **no** coordinate — a "F-W5 §3 Prohibitions" sentence and a dissent at a blank line in `F-W10.md` — and mis-keyed four F.W5 clause ids, which would have run G-F7-8's set-difference against a key set F.W5 does not use. **Both quotations are now sourced by command to their true homes — F-W10 §2.3's SS-4-PREREQ row and F-W5 §2 clause E16 ▲ / §3 gate G7 ⊙ — or struck outright, and every clause id is re-keyed by ID against F-W5 §2's `§E` register, never against a line window.**
 - **Third failure mode, recorded at repair round 2 — the one this file kept committing while curing it in others.** Round 2 found four *more* quotations here that no local attestation had caught, every one of them a sentence typed from the shape of a ruling rather than read from a file: a dissent attributed "verbatim" to **F-W5 §2 clause E16 ▲** that F-W5 had **STRUCK at its own hand the same round** (R2-1c's class, committed after the round convicted it); an *"`atomdiff.py:12-14` is the INCUMBENT"* string that returns **0** hits in F-W5; a P-10 sentence, *"F.W7's trie ruling stays inline in F.W7"*, that exists **nowhere in the tree**; and C-25's clause quoted in an **up-cased rendering** whose stated command had gone empty because F-W5 struck the same casing as its own D-6. Alongside them, one *born-RED witness stated as a count against a live sibling* was refuted for the **third consecutive time** (G-F7-11), and one **denominator moved because the quote-repairs moved it** (§1: 9 → 12 → 15). The generalisation is the wave's own thesis, sharpened by its own record: **a citation is a measurement, and an unreproduced measurement is an invention — and in a concurrent round the only measurement that survives is the one whose command is written beside it.** A "verbatim" label is a claim about *bytes at a moment*; a clause id, a gate id and a row label are claims about *identity*, which is why every cross-spec receipt in this file is now the latter and every quotation carries the former's command. **What convicted this spec four times was never carelessness about substance — every substance held at every pass. It was the belief that an address is a citation.** It is not; it is a measurement with a shelf life of minutes.
 - **Fourth failure mode, recorded at repair round 3 — the antidote became the instrument.** Round 2's cure was to write the command beside every quotation. Round 3 found the class had simply moved inside the receipt: a quotation attributed to a sibling whose only real home was **a rulings file** (§0 item 1, R3-3.6); a receipt offered for **two** quotes that returns **one**, missed by a hyphen (§5a's P-10 row, and it was the row convicting spelling-blind probes); a count word inside an elision disclosure that was wrong by one about a live sibling's bytes (§7c's F.W0 row); a *"verbatim"* label carrying this file's own bolding, casing or backticks in four places; a corpus quotation with no command at all; and — the sharpest — **an absence receipt that its own quotation falsified**: F-W0's `grep -c 'Genuinely owed' F-W7.md → 0` stopped being true the instant this file quoted F-W0's strike. **The generalisation, and it is now program law rather than this wave's resolution (R3-3.10): a ⟨cmd⟩ whose output is a COUNT of a live sibling or of the citing file is not evidence — it is a snapshot of a clock.** Membership, classification and word-output survive the next edit; a numeral is false the moment the file moves, and a *self-referential* numeral is false the moment you publish it. Every receipt in this spec is one of the surviving forms with TWO disclosed residues — §8's `L-5` erratum banks two `grep -c` counts over live siblings (`waves/F-W4.md`, `waves/F-W3.md`), both re-run **0** at the pass-5 settle and both re-cut to set-membership at repair round 5. ⌧ **THE ROUND-3 ABSOLUTE WAS FALSE IN THE ROUND THAT WROTE IT (REST-33; P5-5, HIGH).** It read *"Every receipt in this spec is now one of the surviving forms, and the one place a numeral remains — the frozen 66-record corpus — is the one operand in the program that cannot move."* — while §8's `L-5` erratum banked, **in the same round**, `grep -n 'ContourEditorCanvas' waves/F-W4.md | grep -c 'L-5'` → **0** and the same against `F-W3.md` → **0**: **two numerals over two LIVE wave specs**, precisely the R3-3.10 form this section declares extinct. Both re-run to **0** at this seat — *the measurement reproduces; the attestation does not.* ⊘ R4-1.9 / PASS-4 D-4 — *"an attestation of sweep must publish its residue or not exist"* — **recommitted one section later in the same file, in the same round, by the same cure.**
+
+---
+
+## 13. ADDENDUM 2026-09-19 (E-3, addendum-beside) — THE RULING RECORD, THE TERMINAL KILL WITH RATIONALE, AND THIS WAVE'S CLOSE CELLS
+
+**APPEND-ONLY. Nothing above this line is edited; every dated byte of §0–§12 stands as its seat wrote it.**
+Authored by **X.F.W7 unit `c`** (SERVED MODEL: `claude-fable-5-1`; the fresh adjudicator seat §9 names),
+execution sitting of record 2026-09-17 (the owner's begin-word, COHESION §0j), wall clock 2026-09-19. Unit
+`b` — to which §9 assigned this record — **was never dispatched, by ruling** (§13.1); §2b already admits
+unit `c` as a writer of this file, and the wave record (`docs/tranches/X/execution/C/F-W7.md`, *Unit plan*)
+routes the AGAINST-branch residue here. **This addendum contains ZERO design bytes**: no sharing key, no
+storage shape, no delta format, no sizing figure, no migration sketch. It records a ruling, lands a kill,
+states a re-scope, and closes this wave's own cells — nothing else.
+
+Bases, per §0(B): `cd $V/docs/tranches/X` for bare `COHESION.md` receipts · `cd $V/docs/tranches/X/fourier`
+for `waves/…`, `contract/…`, `design/…` receipts · `$F` read-only. Pinned BSD `/usr/bin/grep`. Quote-time
+digests (`shasum -a 256`, first 12): `COHESION.md` **`6deedd4a5f2b`** · `waves/F-W5.md` **`26aebcdc7bac`** ·
+`conformance/CENSUS-CANONICAL.md` **`f44362757458`**.
+
+### 13.1 The §4 ruling record — **F-TRIE**, cited BY ID, quoted once at its one home
+
+**G-F7-1 ⊙ is RULED. The ruling id is F-TRIE (R2 ≡ E16 ≡ G7 ≡ G-F7-1); its home is COHESION §0j.D; the
+branch is AGAINST.** Pasted whole from ⟨cmd⟩ `/usr/bin/grep -A3 '^\*\*F-TRIE' COHESION.md` (the ruling
+wraps over four source lines; each `/` below is a newline of the source and nothing else):
+
+> *"**F-TRIE (R2 ≡ E16 ≡ G7 ≡ G-F7-1)** — **NO TRIE**; whole-snapshot duplication is the recorded shipped" /
+> "behaviour (the honest default; `atomdiff.py:12-14` is the guardrail; zero material on either tree). F.W7" /
+> "unit `b` never opens, `design/R4-variant-storage.md` is never created, G-F7-5 closes vacuously; unit `a`'s" /
+> "census runs."*
+
+The owner's word that opened execution is COHESION §0j's begin-word, and §0j.D rules under the delegation
+that heading names (⟨cmd⟩ `/usr/bin/grep -o 'THE BEGIN-WORD, AND THE OPENING SITTING RULED UNDER DELEGATION'
+COHESION.md` → *"THE BEGIN-WORD, AND THE OPENING SITTING RULED UNDER DELEGATION"*); the owner may overturn
+it at read, and only the owner may. **§4's question was
+therefore never presumed and never pre-answered by this wave** — it was put, it was ruled, and this
+section records the answer. **No second ruling file is minted** (P-10; §8's *"A second owner-rulings file"*
+row): `contract/OWNER-RULINGS-F.W5.md` exists now — F.W5 created it, as §2a's prospective row foresaw — it
+carries the same ruling at its row **R2** (⟨cmd⟩ `/usr/bin/grep -o '\*\*F-TRIE\*\* (R2 ≡ E16 ≡ G7 ≡
+G-F7-1)' contract/OWNER-RULINGS-F.W5.md` → *"**F-TRIE** (R2 ≡ E16 ≡ G7 ≡ G-F7-1)"*), and **this wave cites
+it and extends it by not one byte.** The clause-side landing is the contract's — ⟨cmd⟩ `/usr/bin/grep -o
+'^### E16 ⊙ — Trie disposition — RULED: NO TRIE' contract/J-diff-shape-v2.md` → *"### E16 ⊙ — Trie
+disposition — RULED: NO TRIE"* — F.W5's byte, cited, never re-booked (R-4 ≡ E16 ≡ G7 is ONE identity;
+M-25).
+
+**The question as it stood when ruled, restated against the corrected evidence (§3 item 2; G-F7-10's
+output consumed).** Unit `a`'s census (`design/R4-enumeration-census.md`, commit `5ef18133`) supplies the
+three corrections §4 anticipated, each now a measurement at today's bytes rather than this file's
+2026-08-28 reading:
+
+1. **The guardrail is not bilateral — and it is false by SILENCE, not by contradiction.** §4 item 1 banked
+   an opposite-word hit at the value tree (`hash.ts:6`, *"Merkle property"*). **That witness is dead at the
+   bytes**: `hash.ts` was rewritten at X-W3 and the value tree now carries no statement on the subject at
+   all (census §4.3–§4.4; the wave record's MEASURE-AT-OPEN divergence 1). *This is a dated correction
+   beside §4 item 1 and §6 G-F7-10's witness cell, which are not patched.* The guardrail is one docstring
+   in one tree, naming an adopter (`lib/crud/atomdiff.ts`) that TA-4 excised.
+2. **Sub-object granularity is already placed client-side** by the guardrail's own words — unchanged.
+3. **"Zero material on either side" is true of version-atom sharing and false of the trees**: the census
+   enumerates the version writers on both trees and finds that none shares structure parent→child, and
+   enumerates the content-addressed seams that *do* ship (census §3.3). R-4's conclusion survives **by
+   enumeration**; its scope does not.
+
+**None of the three moves the ruling.** The contract's own §E16 says so from F.W5's end, in a sentence
+that wraps in the source and is therefore quoted as **two spans with two commands**: ⟨cmd⟩ `/usr/bin/grep -o
+'the ruling rests on the corpus fact the bounded probe measures plus' contract/J-diff-shape-v2.md` → *"the
+ruling rests on the corpus fact the bounded probe measures plus"* · ⟨cmd⟩ `/usr/bin/grep -o 'the live
+guardrail, not on the bilaterality claim' contract/J-diff-shape-v2.md` → *"the live guardrail, not on the
+bilaterality claim"* (the join is the source's newline and nothing else). N-1's disposition is kept: **the
+correction narrows the premise; it does not void the guardrail.**
+
+### 13.2 TERMINAL KILL WITH RATIONALE — census wave-sketch 8 (§1a leg (b); G-F7-9)
+
+**KILLED, TERMINALLY: the commission's requirement for *"a structural-sharing/delta design proven on both
+object kinds"* (CENSUS §4 wave-sketch 8 · lane-crud §2 R-4 · CENSUS §5 risk 4).** COHESION §3 item 2
+(⟨cmd⟩ `/usr/bin/grep -A1 'Every census wave-sketch id' COHESION.md`) admits exactly two terminal forms
+for a census wave-sketch — *"a full spec **or** a terminal kill" / "with rationale — no silent drops, no
+re-booking."* **F.W7 lands the second and only the second.** `design/R4-variant-storage.md` **is never
+created**; no substitute design lives under another name or in another file.
+
+**The incumbent deferred to — named.** `atomdiff.py:12-14`, the anti-tree KISS guardrail, as F-W5 §2 clause
+E16 records it and as the dissent's one quotable home banks it (F-W10 §2.3, the SS-4-PREREQ row: *"THE
+GUARDRAIL IS THE INCUMBENT; an owner ruling precedes design"*, ⟨cmd⟩ at §5a's R-4 row — re-run this seat,
+reproduces). Its live bytes, ⟨cmd⟩ `sed -n '12,14p' $F/api/lib/crud/atomdiff.py`:
+
+> *"KISS guardrails (J.W1-crud-remix §0/§9): the atoms are a flat BAG (not a tree /" / "Merkle / document);
+> the diff is a whole-atom replace (the diff-viewer field-diffs" / "a changed sub-object client-side, F-06);
+> there is no three-way / DAG / merge."*
+
+**D-19, discharged, never re-performed**: the anchor is citable because F.W0 re-grounded (G-F7-7; COHESION
+§0k.2 — *"the halt condition is NOT in force"*), and the fourier `api/` surface is byte-identical between
+F.W0's published substrate and today — ⟨cmd⟩ `git -C $F diff --name-only 8bc7736 HEAD -- api/` → **no
+paths** (double-run), over a clean tree at `21e11b0d`. This seat re-resolved nothing.
+
+**The rationale — four grounds, each a citation, none a design.**
+
+1. **The owner ruled** (§13.1). F-W5 §2 clause E16 ⊙'s honest default — *"no trie; whole-snapshot
+   duplication is the recorded shipped behaviour"* (a span of §4's receipt, ⟨cmd⟩ `/usr/bin/grep -o 'The
+   honest default[^*]*' waves/F-W5.md`, re-run this seat) — was the ruled outcome, and this wave never
+   contradicted it while it was unruled.
+2. **There is nothing to preserve, extend or migrate.** By enumeration (unit `a`), not by a term query:
+   every enumerated version writer on both trees persists the whole bag. The six-term grep is retired as
+   founding evidence (G-F7-2) — noisy and blind at once.
+3. **A sharing key would be born inheriting four standing hazards, every one homed elsewhere and under
+   repair**: unscoped identity (**F-W5 §2 clause E1**), a non-superset cache identity (**clause E13**, banked
+   head `fr-ContourSettings B-4`), wrong-instant stamping (**M-12**, the twin surface's), and a share-hit that
+   silently skips work (**clause E17** / `fr-ContourEditorCanvas C-2`, whose witness recipe stays *"MOVE A
+   POINT FIRST"*). The shipped content-addressed seams have already produced adjudicated BLOCKERs; adding
+   a structural one before those identities settle would multiply the defect class this programme exists
+   to kill. **F.W7 books none of those cures and takes credit for none** (FR-GIG-5; G-F7-8).
+4. **The compression target is not yet a stable quantity.** The two sub-objects R-4 counts are where the
+   produced-and-unconsumed fields live (SS-C-2, riding inside **clause E8**; the disposition is **clause
+   E10**'s). A saving sized over retirable fields is unfalsifiable — so **none is computed here, on either
+   branch**, and BC-20's fold stays banked where it is.
+
+*(K-3's upsert arm is dead at both readers and appears in this rationale as nothing but this sentence.)*
+
+**The cost accepted — stated, not softened.** Whole-snapshot duplication **remains the shipped behaviour on
+both trees**: a fourier `VisualizationVersion` re-persists all five atoms — the 12-field `ContourSettings`
+and the 6-field `AnimationSettings` among them — on every version row, and a value `PaletteVersion`
+re-persists its full `colors` array, even when a variant changes one integer. **Storage grows linearly in
+versions × bag size, and the union accepts that** in exchange for zero new failure modes and a guardrail
+that stays true. **Census wave-sketch 8's requirement is RETIRED**, not deferred: the contract's lock is
+⟨cmd⟩ `/usr/bin/grep -o '\*No trie\* is a \*\*ruled disposition, not an unimplemented requirement.\*\*'
+contract/J-diff-shape-v2.md` → *"*No trie* is a **ruled disposition, not an unimplemented requirement.**"*,
+and structural sharing or delta compression returning under another name *"re-opens G7"* (⟨cmd⟩
+`/usr/bin/grep -o 'reintroducing either re-opens G7' contract/J-diff-shape-v2.md`) — **an owner's act, never
+a wave's.**
+
+**What survives the kill.** `design/R4-enumeration-census.md` (unit `a`, `5ef18133`) — the enumerated
+persistence surface, which outlives the question it was built for · `waves/F-W7/carry-closure.md` (this
+unit) — the G-F7-8 set-difference · this record. **F.W8 proceeds on whole-snapshot duplication unchanged
+and inherits this rationale** (§7c's F.W8 row, AGAINST arm).
+
+### 13.3 G-F7-3 — THE RE-SCOPE, STATED EXPLICITLY IN THIS WAVE'S OWN TEXT (F-SS4REST R1)
+
+G-F7-3's close cell reads *"F.W5 G4 rules RESTORE, or F.W7 re-scopes to one object kind EXPLICITLY in its
+own text. Silence does not clear it."* **G4 is ruled, and it is not RESTORE.** ⟨cmd⟩ `/usr/bin/grep -A2
+'^\*\*F-SS4REST\*\*' COHESION.md`, R1's sentence whole (three source lines, joined at their newlines):
+
+> *"**F-SS4REST** — **R1 (TA-4)**: **RE-SCOPE value.js out of the diff clause** (a one-sided §6 verdict," /
+> "stated explicitly) — `atomdiff.ts` is wholly excised from value.js and restoring it is value-side" /
+> "authoring that would couple value.js's release train to the fourier contract (the §0i.1 logic)."*
+
+**Therefore, explicitly: F.W7 IS RE-SCOPED TO ONE OBJECT KIND.** Every statement this wave makes about the
+diff/atom surface — the census's version-writer class, the kill above, the cost sentence — speaks to
+**fourier's five-atom `VisualizationVersion` bag under the v2 diff clause, and to that kind alone.**
+**value.js's palette kind is OUT of the diff clause**; the phrase *"proven on both object kinds"* in the
+commission's sketch 8 is retired **with** the design it qualified, and no F.W7 byte asserts, requires or
+awaits a value-side `atomdiff`. The verdict spelling for any value-side diff probe is the contract's —
+*"N/A — RE-SCOPED (F-SS4REST R1)"* (⟨cmd⟩ `/usr/bin/grep -o 'N/A — RE-SCOPED (F-SS4REST R1)'
+contract/J-diff-shape-v2.md`, de-duplicated) — never *missing*, *pending* or *RED*. Value-side palette
+writers remain **in the census as measurements** (a persistence surface is enumerated whole, S-8); being
+measured is not being in the clause. *Dated correction beside §5c's TA-4 row and §7c's E3 row, whose
+"RESTORE … or re-scopes" alternatives are now resolved to the second; neither row is patched.*
+
+### 13.4 G-F7-5 — CLOSED VACUOUSLY (REST-39)
+
+On the AGAINST branch **no sharing key was designed.** There is therefore **no key spec, no consumed-field
+set to name, and no superset relation owed** — the obligation *"an operation's cache identity must be a
+superset of the request fields the operation consumes"* (`fr-ContourSettings.md:43`; home F-W5 §2 clause
+E13) binds a key, and none exists. **G-F7-5 closes on that recorded fact and on nothing else**; F-TRIE
+rules the same in terms (*"G-F7-5 closes vacuously"*). The clause itself is untouched, stays F.W5's, and
+F.W7 authored no cure at its seam.
+
+### 13.5 The value-side limbs — emitted as value-side rows, by citation, never re-booked (§3 item 5)
+
+Both limbs already hold **one home each** in the landed contract's value-side obligation list
+(`contract/J-diff-shape-v2.md` §H — F.W5's bytes). **F.W7 emits by naming those rows and mints no
+duplicate**: a second row for one act is the double-booking G-F7-8 exists to refuse.
+
+| limb (§3 item 5) | disposition after the rulings | the value-side row it rides |
+|---|---|---|
+| **TA-4 restoration** | **NOT OWED** — re-scoped out by F-SS4REST R1 (§13.3) | **VO-0**, the explicit non-obligation — ⟨cmd⟩ `/usr/bin/grep -o 'TA-4 / the diff clause: value.js owes NOTHING.' contract/J-diff-shape-v2.md` → *"TA-4 / the diff clause: value.js owes NOTHING."* |
+| **E1's compound per-entity version `_id`** | value-side act, home **the value.js API row** | **VO-1** ⊕ its falsifier **VO-2** — ⟨cmd⟩ `/usr/bin/grep -o '\*\*VO-1\*\* . \*\*Compound per-entity version identity.\*\*' contract/J-diff-shape-v2.md` and the same form for `VO-2` / `The two-histories test.` (the `.` stands for the source's table pipe, in the output and never in the pattern) |
+
+**Neither is a fourier defect; neither is executed here; F.W7 writes no value product byte.** Unit `a`
+measured that X-W3's payload/release split already scopes the value-side version `_id` to its palette —
+**a measurement with its author named, booked at ZERO by this wave** (census §5, FR-GIG-5 row); whether
+it discharges VO-1 is the value.js API row's reading against gate G2, not F.W7's.
+
+### 13.6 §7c's reciprocals — RE-ASKED from this end (G-F7-11)
+
+**Every wave-spec far end re-measured this seat and still DECLARED**, by the probes §6 G-F7-11 publishes:
+F-W0 §6b's `F.W7` row · F-W3 §4's S-6 tail ⊕ §X's exclusion row · F-W5 §4's `F.W5 → F.W7` row · F-W6 §4's
+`F.W7` cross-edge row · F-W8 §5c's `F.W7` sibling row — each reproduces its quoted span. ⊕ **COHESION
+§0k.2** now declares the `F.W0 → F.W7` edge at the spine from the F.W0 end. *Dated correction beside
+G-F7-11's `ls waves/` receipt: `waves/` today also holds a `F-W6` directory (F.W6's execution artefacts)
+and, from this unit, a `F-W7` directory; the eleven `F-W*.md` spec files are all present — the claim
+stands, the "and nothing else" no longer reproduces.*
+
+**The three reciprocals still OWED, re-asked, none written by this wave:**
+
+1. **F.W10's edge row.** Asked: **one `F.W7` row in F-W10 §4b's cross-edge register**, declaring that
+   F.W10 *verifies* that census wave-sketch 8's terminal disposition landed (§13.2 is that disposition)
+   and books nothing of F.W7's. Measured absent today — ⟨cmd⟩ `awk '/^### §4b /{f=1;next} f&&/^##/{exit}
+   f' waves/F-W10.md` piped to `/usr/bin/grep -E '(^|[^A-Za-z])F[.-]W7([^0-9A-Za-z]|$)'` → **no output,
+   exit 1**; F-W10's mentions of this wave remain its §2.8 E-16 erratum minute and conformance bookkeeping,
+   not an edge row.
+2. **SS-4.** Asked: the union synthesis state, from its end, that the trie question was **flagged inline
+   and RULED (F-TRIE), never presumed**, and that TA-4 was **re-scoped explicitly (F-SS4REST R1)**.
+   *Classification offered, no GREEN claimed*: the landed contract's §E16 and §E3 now carry both
+   statements in F.W5's voice and §E16 names this wave; **whether that discharges SS-4's half is SS-4's
+   owner's reading.**
+3. **The value.js API row.** Asked: the row acknowledge, from its end, that **VO-0** closes the TA-4 limb
+   as a non-obligation and that **VO-1 ⊕ VO-2** are its acts, neither a fourier defect (§13.5).
+
+**The two bilaterality riders stay REQUESTED, not written**: F-W8 §5c's *"carried on BOTH sides"* and F-W6
+§4's *"quoted both trees"* — both read-only to this wave, both now stale against a premise corrected at
+the keystone **and** sharpened by unit `a` (false by silence).
+
+**The mail/inbox law.** Four paths ⊕ the Track-C fourier ledger re-swept at this unit's clock: zero
+unrowed letters, zero UNREAD status cells (receipt in the wave record). **F.W7 sends no relay; the INBOX
+gains zero bytes from this wave** — §8's declaration is the discharge. **SS-6: zero glass-producer rows.
+X·P: zero parser edges.**
+
+### 13.7 This wave's close cells (§6's split verdict — F.W7 claims no GREEN it did not execute)
+
+| gate | F.W7's obligation | reading at this addendum | GREEN owner |
+|---|---|---|---|
+| **G-F7-1** ⊙ | record the ruling; on AGAINST, land the terminal kill | **CLOSED** — F-TRIE recorded by id (§13.1); kill landed (§13.2); zero design bytes authored at any point | owner — **RULED** (§0j.D) |
+| **G-F7-2** | the enumeration census | **GREEN** at unit `a` (`5ef18133`) | F.W7 (unit `a`) |
+| **G-F7-3** | RESTORE ruled, or an explicit re-scope in this wave's text | **CLOSED for F.W7** — re-scoped to one object kind, explicitly (§13.3) | owner → value.js API row (VO-0) |
+| **G-F7-4** | design no sharing key over an identity under repair | **CLOSED for F.W7** — no key designed at all; clause E1 is stated at the contract | value.js API row (VO-1 ⊕ VO-2) |
+| **G-F7-5** | a key spec proving the superset relation | **CLOSED VACUOUSLY** (§13.4; REST-39) | F.W7 (FOR branch) — branch not taken |
+| **G-F7-6** | size only over fields that survive clause E10 | **CLOSED for F.W7** — no sizing computed on AGAINST; the contract states ONE disposition (⟨cmd⟩ `/usr/bin/grep -o 'This contract states ONE disposition for produced-and-unconsumed response fields' contract/J-diff-shape-v2.md` reproduces) | F.W5 → F.W7 |
+| **G-F7-7** | *(inherited)* quote F.W0's re-grounding | **GREEN before this wave** — F.W0 re-grounded (COHESION §0k.2) | F.W0 |
+| **G-F7-8** | set-difference ∅ both directions | **GREEN** — `waves/F-W7/carry-closure.md`: books ZERO, cites ALL EIGHT, each at a named landing clause | F.W7 (unit `c`) |
+| **G-F7-9** | exactly one of {full spec, terminal kill with rationale} | **GREEN** — the kill, and only the kill (§13.2); `design/R4-variant-storage.md` absent (⟨cmd⟩ `ls design/` → `R4-enumeration-census.md`) | F.W7 |
+| **G-F7-10** | the question stated against the corrected premise | **GREEN** at unit `a`; consumed at §13.1 | F.W7 (unit `a`; §9's "unit b" attribution is moot by ruling) |
+| **G-F7-11** | this end of every §7c row declared; owed reciprocals named | **CLOSED for F.W7** (§13.6) — **GREEN is not claimed**: three far ends stay owed | **F.W10** · SS-4 · the value.js API row |
+
+**§1a's criterion is met by leg (b), exactly one leg.** The owner ruled AGAINST; F.W7 lands as a terminal
+kill with rationale naming the incumbent it deferred to. **A completed wave is not the same thing as a
+wave that produced a design — and this one, by ruling, produced none.**
