@@ -2534,3 +2534,41 @@ turn"* turns none, and the banked `## Baseline` stands unre-run and uncontradict
 id** · the unfiled **§4.10** carve (**E-F9-2**) · **HIGH-1**'s uncaught `/equation` D-14 and reload
 legs (in-bounds cure: the locator, one line) · **E-F9-1**, the paired `G-F9-21` ≡ `G-F10-6` stamp
 with **RE-CUT-0 first** — a repair seat's or the owner's, never a re-dispatch of `.a`, `.b` or `.c`.
+
+### R.9.7 CORRECTION to `R.9.5`, dated beside (E-3: an addendum, never a patch) — the LEDGER line is WITHHELD a third time
+
+`R.9.5` was written and committed (`c616ef1f`) on a ledger this seat had measured **clean** twice
+(⟨cmd⟩ `git status --porcelain docs/tranches/X/execution/LEDGER.md` → empty, at `R.9.2` and again
+immediately before the record's two appends). **Between that commit and the ledger act, a sibling
+Track-A seat re-dirtied the file**, and `R.9.5`'s *"APPENDED AND COMMITTED HERE"* is therefore
+**FALSE at the bytes**. It is corrected here rather than rewritten above, because a correction is a
+dated addendum-**beside**; the false sentence is left standing with this beside it, so the record
+shows what was measured, when, and why it did not hold.
+
+**The measurement.** ⟨cmd⟩ `git status --porcelain docs/tranches/X/execution/LEDGER.md` → **` M`**,
+read **three** times, minutes apart, after `c616ef1f`. ⟨cmd⟩ `git diff --numstat` → **`1	1`**, then
+**`2	1`** on the next two reads — i.e. the sibling's edit **grew mid-seat**; it is in flight, not
+abandoned. ⟨cmd⟩ `git diff -U0 | grep '^@@'` → **`@@ -32 +32 @@`**, and the hunk is a **Track-A**
+row-cell rewrite of **`X-W9`**: `**PARTIAL 2026-09-17**` → `**RESUME-OPEN 2026-09-19** — re-opened
+by SEAT 0 under ESC-W9R1-SEQUENCING (COHESION §0ac …)`. ⟨cmd⟩
+`git log -1 --format=%h -- <LEDGER>` → **`27ebc255`**, unmoved: the sibling has not committed it.
+
+**Why the line is withheld and not forced.** The standing law mandates
+`git commit … -- <the same exact paths>`, and a pathspec commit publishes the **working-tree**
+content of those paths. Appending my event line and committing `LEDGER.md` would carry the
+sibling's unfinished `X-W9` RESUME-OPEN cell into a **Track-C** commit under a Track-C message —
+precisely the sweep measured at X-W0 (*"three contaminated commits"*). The inverse is equally bad:
+appending and leaving it uncommitted hands **my** bytes to the sibling's next pathspec commit.
+`git stash`, `reset`, and unstaging another seat's path are all forbidden. **So `LEDGER.md` is
+left entirely untouched by this seat — not one byte written, nothing staged**, exactly as `R.6`
+ruled under the identical condition.
+
+**What the withholding costs: nothing in verdict.** No status cell is regressed (`R.4`, sustained
+four times, rules the row stays **`PARTIAL 2026-09-19`**), and the line's whole content would have
+been *resume opened, nothing owed, no unit re-dispatched, the inherited R.7+R.8 published at
+`c616ef1f`*. That sentence lives here, in the record, which `LEDGER`'s F.W9 row already names as
+the authority. **Returned to the orchestrator as a disclosure for the third time** — and the
+pattern is now itself a finding: three consecutive F.W9 resume seats (`R.6`, `R.8.5`-as-promised,
+`R.9.5`) have been unable to land a one-line event append because four tracks share one ledger file
+with no reservation discipline. A later seat that measures the file clean may append it; if none
+does, the line is owed by F.W10's close, which holds the file for its own stamp.
