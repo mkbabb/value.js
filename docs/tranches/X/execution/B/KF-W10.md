@@ -690,3 +690,189 @@ files · `docs/tranches/X/waves/evidence/W4/` · `e2e/smoke/a11y-control-targets
 eighteen was outside this seat's writable set, none was touched, `dev.sh` was never staged, and **INHERITED
 WORK ON THIS UNIT: NONE** stands on its own probe (`git status --porcelain -- docs/tranches/X/COHESION.md` →
 zero lines). The defect was the enumeration, not the sweep.
+
+---
+
+### KF.W10.c
+
+**SERVED MODEL**: `claude-opus-5[1m]` · **Unit** `KF.W10.c` · group 3 of 7 (alone) · **sections executed**
+§3.3 `:284-289` + §5 **G-3** `:421-431` + **G-4** `:433-457` (+ §4 §Bounds/§Disjointness `:342-366` · §6.A
+ordering 2 `:505-511` · §7 `:606-628` · §10 commit 3 `:660-673`). **Seat clock** 2026-09-18 23:49 → 2026-09-19
+00:2x EDT (⟨cmd⟩ `date` → `Fri Sep 18 23:49:41 EDT 2026` at baseline). **Sitting of record stays 2026-09-17.**
+**Status: DONE — G-3 and G-4 both turn RED → GREEN at the landing bytes.** **Writable set honoured exactly**:
+`keyframes.js docs/tranches/V/OWNER-DECISIONS.md`, and nothing else in either tree (this record excepted, which
+every unit appends to by dispatch). **No push** (§0j.C KF-WRITE: a wave pushes `origin HEAD` at close, a unit
+does not). **No ledger edit** (the wave's close moves the row). **No glass-ui byte written** — glass-ui was
+**read only**, at two tracked letters named in the block, per the standing READ-ONLY-always law.
+
+**CRASH-RECOVERY SWEEP (standing law, first act).** ⟨cmd⟩ `git status --porcelain` in both repos at open:
+**keyframes.js — 2 rows**, both untracked value-authored letters
+(`docs/tranches/V/coordination/VALUEJS-INBOUND-2026-07-{24,27}-*.md`), **outside this seat's writable set,
+left in place** (they are `.f`'s mail substrate, not `.c`'s). **value.js — 15 rows, every one outside this
+seat's writable set** (`demo/**` ×10 · `docs/tranches/V/reformation/CARRY-LEDGER.md` · `scripts/dev/dev.sh`
+**never touched, never staged** · untracked `docs/tranches/X/waves/evidence/W4/` + two `e2e/smoke/**`).
+**INHERITED WORK ON THIS UNIT: NONE**, proven at the file this unit owns and not inferred from the summary —
+⟨cmd⟩ `git status --porcelain -- docs/tranches/V/OWNER-DECISIONS.md` in kf → **zero lines**; ⟨cmd⟩
+`git diff --stat origin/master -- <that path>` → **empty**; ⟨cmd⟩ `shasum` →
+**`804e29c075b8ac684cd461cc254049253cfaf8a0`**, **9 lines · 2,967 B**, i.e. byte-identical to the frontier
+before this seat wrote. Nothing stashed, nothing restored, nothing reset; no dirty path outside the writable
+set was touched.
+
+**BEFORE — the two gates re-measured READ-ONLY at this seat, at their own probe forms.**
+
+- **G-3 = RED.** ⟨cmd⟩ `git show origin/master:docs/tranches/V/OWNER-DECISIONS.md | sed -n '7p'` → *"**THE
+  TRANSPORT-HOME RULING IS HELD FOR CAPTURE REVIEW.**"* · `sed -n '9p'` → *"**THE AT-REST REOPEN QUESTION IS
+  DEFERRED PENDING GLASS'S DOCK MARK.**"* — both HELD/DEFERRED at the frontier; **no owner block existed**
+  (the file is 9 lines, a header and one table). OG-KF1 already **RULED** at COHESION §0j.C `:926-929` but
+  **nowhere transcribed into an owner block**, which is what the gate asks for.
+- **G-4 = RED.** ⟨cmds, run in `docs/tranches/`, **double-run, run 1 ≡ run 2**⟩
+  `grep -rlE '357/414|86\.23|0/5 slots' X/ V/megatranche/ | wc -l` → **34 files** ·
+  `grep -rhoE … | wc -l` → **112 occurrences** · `grep -rcE … | awk -F: '{s+=$2} END {print s}'` → **78 lines**.
+  **The register did not exist** — ⟨cmd⟩ `grep -rl 'never-cite register' docs/tranches/X/keyframes/` → the
+  spec and the PASS-n checks only, no register anywhere. Sitting-2's baseline read **34 / 108 / 77**; the
+  `+4 occ / +1 line` delta is **`.b`'s receipt**, which landed inside the witness field.
+
+**ANCHOR VERIFICATION AT TRUE BYTES (method: measure before you edit).** Every spec anchor this unit consumes
+**resolved without drift**: §3.3 at `:284-289` (the two numbered items + the RE-ANCHOR CORRECTION paragraph),
+G-3 at `:421-431`, G-4 at `:433-457`, §4 at `:342-366`, §6.A at `:505-511`, §10 at `:660-673`. **No INTENT
+re-resolution was needed.** Spec read in slices (263,074 B — it defeats a whole-file read twice over); the
+wave record's sitting-1 and sitting-2 Open/Baseline/Unit-plan read whole, plus **`.a`'s and `.b`'s receipts**;
+**COHESION `§0j` read and every later addendum to the file end** (`§0k` ×2 · `§0l` · `§0m` · `§0n` · `§0o` ·
+`§0p` · `§0q` · `§0r` · `§0s` · `§0t`). **Rulings consumed**: **§0j.C KF-OGKF1** (quoted, not paraphrased),
+**§0j.C KF-ODV3** (the `complete_with_misses` authorization for both owner rows), **§0j.C KF-WRITE** (unit
+does not push), **§0m.2** (iOS UNREACHABLE-IN-CELL, which is *why* the OD-V3 packet reads zero), **§0t**
+(KF.W10 belongs to SS-2 — recorded, never re-minted).
+
+**EVERY CITED COORDINATE RE-RESOLVED BEFORE IT WAS WRITTEN (KF-AT-28).** Not one was transcribed from the
+spec: `INTAKE-ADJUDICATION-2026-08-03.md:82` (the *"3 are genuinely unlocatable external coordinates"*
+sentence) · `:116` (conflict **C-8**, the slot disagreement, verbatim) · `:163-166` (the KF.W10 carry block,
+which names the boundary block as the triple **B18-23 + B19-14 + B20-14** — a true source the spec's §3.3 list
+does not spell) · `:232` (OG-KF1's question) · `CENSUS-2026-08-03.md:326` · `kf-ChromeDock.md:142`/`:147` with
+⟨cmd⟩ `grep -oE 'DISSENT[ -]*[0-9]+'` → **0 hits**, confirming the positional key is positional ·
+`challenge-C-consumption.md:11` (the tally itself) and `:15` (its own Round-3 concession) ·
+`kf-EditorHeader.md:86` (killed-claim #8), `:40` (EH-1), `:139` (D-1's two repo-qualified letters) ·
+`SS-13-CAPTURE-RECEIPT.md:35`, `:44-48`, `:62-73`, `:80`, `:97`.
+
+**ACT 1 — the owner block (G-3), three rows, and the discipline is that none of them is a ruling this seat
+took.** **OG-KF1 RULED**, transcribed from COHESION §0j.C `:926-929` and then **proven verbatim by command**
+rather than by eye: ⟨cmd⟩ `sed -n '926,929p' COHESION.md > a; sed -n '/^> \*\*KF-OGKF1\*\*/,/^> lineage.s
+pin/p' OWNER-DECISIONS.md | sed 's/^> //' > b; diff a b` → **no output — character-identical**. **OD-V3 and
+OD-V5 closed `complete_with_misses`**, each citing a **named artefact at a measured coordinate**, because
+G-3's falsifier kills a precondition written as prose: OD-V3 → `SS-13-CAPTURE-RECEIPT.md:35` *"INCOMPLETE ·
+**0 of 16 required cells**"* with the 4 × 2 × 2 axis table at `:44-48` and the two blocking limbs at `:62-73`
+(limb (iii), real Glass 7, explicitly **not** the blocker); OD-V5 → the producer's own coordinates: the **G-2
+ask** at glass-ui `BI/coordination/keyframes-inbox-2026-07-17-v-formation-batch.md:27` (quoted), the **390
+at-rest observation NOT OBSERVED** at `SS-13:80`, and the **dock-contract re-verify 0 of 4 marks** at
+`SS-13:97`. **The rows at `:7` and `:9` were not touched** — they keep their 2026-07-17 words, and the
+`complete_with_misses` is recorded beside them, never over them.
+
+**ACT 2 — a live producer letter this seat found and REFUSED to adjudicate, recorded rather than buried.**
+While resolving OD-V5's precondition to a named artefact, this seat read (read-only, tracked) glass-ui
+`docs/tranches/BI/coordination/glass-outbound-2026-07-17-keyframes-marks-placed.md:9-15`: *"**The G-1/G-2
+activation oracle is LANDED in-tree, ahead of the tag** — `f1e88fe2` adds the single-click
+activation-at-rest acceptance arms: DOCK-SPINE desktop … and DOCK-CROSSFADE mobile (390×844)."* **This bears
+directly on OD-V5's precondition and a block that omitted it would be hiding its own evidence.** It is
+recorded as a **dated observation beside the closure**, with the distinction stated in the block: **what
+landed is the acceptance ORACLE — the arms that would detect the defect — not the dock repair mark and not
+the 390 at-rest observation**, at a 2026-07-17 letter on the 7.0.0 boundary. **This seat ruled nothing about
+it**: glass-ui is READ-ONLY always, the standing edict routes OD-V5 and every glass row to **SS-6**, and
+`SS-13:78` names the chain — *"glass-ui (the dock mark) → the SS-6 relay → KF.W10 `.g`. Three hands, none of
+them here."* **Routed to SS-6 and `.g`, not ruled.**
+
+**ACT 3 — the never-cite register (G-4), seven entries, ordinals binding.** One table, entries **(1)…(7)** in
+§3.3.2's order and no other, each naming the coordinate, **where it is actually filed**, its supersession or
+true source, and a terminal disposition. ⟨cmd⟩ `grep -oE '^\| \*\*\([1-7]\)\*\*' OWNER-DECISIONS.md | sort |
+uniq -c` → **1 each for (1)…(7)**, `grep -c` → **7 rows**: the ordinal lock holds by measurement, not by
+intent. Entry **(7)** — not (6) — carries the **REPO-SCOPED, NOT ABSENT** restatement, as G-4's acceptance
+requires, and the restatement was **re-measured at the landing substrate** rather than copied: ⟨cmd⟩
+`git ls-tree -r --name-only origin/master | grep -i headerribbon` → the kf letter **EXISTS**; ⟨cmd⟩
+`git show origin/master:<it> | wc -l` → **26** lines, head *"HeaderRibbon consumer updates for the
+post-Glass-7 refresh"*, 2026-07-16; the value.js archive letter is present (2,878 B) and is a **different
+document** (*"HeaderRibbon goes persistent-only (V-A92 supersession mark)"*, archived 2026-07-17). EH-1's
+substance is untouched. Entry **(5)** settles nothing — settle-or-drop is one act, a third figure fails on
+sight, and the count sits inside **OG-V1**'s enumeration (§6.C-F), so a settling here would manufacture the
+conflict the register exists to prevent. Entry **(6)** names the tally unquotable and **stops** — §7 makes
+restating that arithmetic the downstream consumer's act, not the register's.
+
+**ACT 4 — the witness re-run and RE-PARTITIONED at this seat (R2-5), and the partition checks itself.**
+Four classes, because the spec's round-5 table has three and the field has since grown a fourth kind of
+member: **live X·KF wave specs 3 files / 27 occ / 18 L** (`KF-W0` 2 · `KF-W3` 2 · `KF-W10` 23 — reproducing
+the spec's round-5 cell **exactly**) · **conformance artifacts 7 / 30 / 19** (**two new members**, both
+**PASS-6** checks, named as the class's own note predicts) · **megatranche substrate 19 / 44 / 34**
+(membership unchanged, and **every per-file LINE figure in the spec's round-5 enumeration reproduces
+term-for-term**, summing to 34) · **X·KF execution + artefact records 5 / 11 / 7** (declared as its own class
+rather than folded into a neighbour). **3+7+19+5 = 34 · 27+30+44+11 = 112 · 18+19+34+7 = 78** — the partition
+**checking itself against all three totals the commands returned**; no figure in the block was produced by
+subtraction (LAW D(3)). **ZERO BARE CITATIONS IN THE LIVE-SPEC CLASS, verified per line rather than asserted**:
+each of the 4 live-spec hits was tested for `345` **and** `8281638c` on its own line → **4 of 4 carry both**
+(`KF-W0:378`, `KF-W0:695`, `KF-W3:209`, `KF-W3:329`); neither of the other two tokens occurs in `KF-W0.md` or
+`KF-W3.md` at all.
+
+**ACT 5 — A FINDING AGAINST THE GATE'S OWN WITNESS, recorded loud and NOT absorbed into a green.** The
+witness regex is unanchored, and its percentage token matches **any numeric substring**:
+`X/parse-that/evidence/W3/equivalence-full-surface.json:9765` and `:11567` are hits solely because an **X·P
+CSS-parser equivalence corpus** contains the input `oklch(88.720 86.234 -0deg)` — a chroma value in a
+different sub-tranche's evidence file, **not a citation of anything**. So **2 of the 112 occurrences are
+instrument artefacts and the true citation field is 111.** This changes **no verdict** (a non-citation falls
+outside the adjudicable class by construction, and the gate's subject is the partition), but a register that
+prints a figure it knows to be inflated commits the defect it exists to forbid. **The gate's command was NOT
+edited** — the spec is E-3 immutable and this unit's only writable path is `OWNER-DECISIONS.md` — so the
+correction is **booked in the register, dated, and routed to `.g`** for a bounded regex at whatever artefact
+next re-prints the field. **No spec byte was touched to make a number look better.**
+
+**LANDING — write-then-measure, at the settled bytes.** ⟨cmd⟩ `wc -l -c OWNER-DECISIONS.md` → **235 lines ·
+25,780 B** (from 9 · 2,967). **E-3 proven by the diff itself, not by assurance**: ⟨cmd⟩ `git diff --numstat`
+→ **`226  0`** — **226 insertions, ZERO deletions**, so no pre-existing line was modified and the 2026-07-17
+table is byte-unchanged. Append-only honoured; the conditional grant honoured (the block is appended because
+the rulings and their authorized closures exist, not to fill a slot).
+
+**COMMIT — §10 commit 3, pathspec on the commit itself.** ⟨cmd⟩ `git add docs/tranches/V/OWNER-DECISIONS.md
+&& git commit --no-verify --quiet -m … -- docs/tranches/V/OWNER-DECISIONS.md` → **`27ec9c37`**
+*"docs(X·KF W10): owner block + never-cite register (7 entries)"*, body carrying the three rows with their
+exact preconditions and the seven entries with their supersessions, per §10's *"body required: yes — the
+three rulings or their exact preconditions."* ⟨cmd⟩ `git show --name-only --format= HEAD | grep -c .` → **1**
+— **one path, no sibling seat's work swept in**; ⟨cmd⟩ `git show --stat` → `1 file changed, 226 insertions(+)`.
+
+**AFTER — the gate readings at the landing bytes.**
+
+| gate | BEFORE | AFTER | the reading that moved it |
+|---|---|---|---|
+| **G-3** | **RED** — 0 of 3 closed; `:7` HELD, `:9` DEFERRED, no owner block anywhere | **GREEN** | **3 of 3 closed**: OG-KF1 **RULED** and quoted **character-identically** (proven by `diff`, no output) with its date and hand; OD-V3 and OD-V5 **`complete_with_misses`**, each citing a **named artefact at a measured coordinate** — `SS-13:35`'s *0 of 16 required cells*, and glass's dock mark at three producer/receipt coordinates. **None proxied, none defaulted, no transport home implemented.** |
+| **G-4** | **RED** — the register did not exist; seven coordinates unregistered | **GREEN** | **One register, seven entries**, ordinals **(1)…(7)** measured at 1 occurrence each, entry **(7)** carrying the **REPO-SCOPED, NOT ABSENT** restatement re-measured at `origin/master` `69095552`; witness **re-run double-run and re-partitioned into four classes summing exactly to all three totals**; **zero bare citations in the live-spec class**, verified line-by-line. |
+
+**RESIDUALS — carried, named, and owned elsewhere; none of them a green in disguise.**
+1. **The unanchored-percentage instrument artefact** (2 of 112 occurrences are an oklch chroma in an X·P
+   evidence corpus). Booked in the register, **routed to `.g`**. Not curable here: the gate's command lives in
+   an E-3-immutable spec outside this unit's writable set.
+2. **OD-V3's and OD-V5's substance stays open by construction.** The closures are procedural, not
+   dispositive: `.g`'s sitting re-reads `SS-13:35` at its own clock, and **SS-6** owns the glass dock-mark
+   question including whether `f1e88fe2`'s activation oracle is the mark OD-V5 awaits. **This unit ruled
+   neither, and says so in the block itself.**
+3. **The register lives in keyframes.js while the specs it governs live in value.js** — the consequence of
+   §4 §Bounds granting `.c` this file alone. `.f`'s `FINAL-KF.md` carries it **by reference**, and the
+   reference resolves under **L-6** (⟨cmd⟩ `git cat-file -e origin/master:docs/tranches/V/OWNER-DECISIONS.md`
+   → exit 0 at the frontier; the addendum itself is at `27ec9c37`, local until the wave's close pushes).
+4. **Not pushed** — §0j.C KF-WRITE reserves `origin HEAD` for the wave's close. `27ec9c37` sits on kf
+   `master`, one commit after `.a`'s `025e894c`, both ahead of `origin/master` `69095552`.
+
+**ESCALATIONS: none.** The specified cure was possible at the bytes and was implemented as specified. **No
+improvisation, no workaround, no masking fallback**: no try/catch around a defect, no skip, no allowlist, no
+producer selector copied, no `node_modules` patch — and, at the one place where a shortcut was available
+(editing the gate's own regex so the field would read clean), the defect was **recorded and routed instead**.
+
+**SELF-COUNT LAW.** The witness field was **34 files / 112 occurrences / 78 lines** at this unit's baseline
+and **unchanged at 34 / 112 / 78** after the register landed, **double-run both times** — the first G-4 write
+in this gate's history that does not move its own witness, because this unit's writable path is in
+**keyframes.js**, outside the field (`value.js docs/tranches/X/` + `docs/tranches/V/megatranche/`). **This
+receipt, however, lands inside the field**, and its own contribution, measured at these settled bytes, is in
+the line below.
+
+**⟨cmd⟩ at the settled bytes, double-run: this record now carries 9 occurrences on 4 lines (it carried 6 on
+2 at this unit's baseline), so THIS RECEIPT CONTRIBUTES 3 occurrences on 2 lines, carrying the field to 34
+files / 115 occurrences / 80 lines.** ⟨**A drafting error caught by this seat's own write-then-measure and
+recorded rather than quietly corrected**: the first draft of this line printed *"8 occurrences on 6 lines →
+34 / 120 / 84"* — **a figure produced by estimation where a command was available**, which is precisely the
+numeric arm's subject (LAW D(3)) and the defect G-4's round-4 cell was struck for. It was overwritten by the
+measurement **before this receipt was committed**, so the settled bytes never carried it; it is booked here
+because a self-count law that hides its own near-miss is decoration. The corrected line carries **no witness
+token**, so re-reading it does not move the number again — the count is a fixpoint at these bytes.⟩
