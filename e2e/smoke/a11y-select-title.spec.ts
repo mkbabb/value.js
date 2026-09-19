@@ -117,13 +117,19 @@ type TriggerRow = {
 };
 
 /**
- * Land a route COLD, wait for the pane it names to be painted and at rest, and stamp the
- * view on `<body>` so the in-page scope resolver has one truth to read.
+ * Land a route COLD and wait for the pane it names to be painted and at rest.
  *
  * The demo routes through `createWebHashHistory()`, so a `goto("/#/mix")` after a prior
  * navigation is a SAME-DOCUMENT hash change and a census taken on the way samples the
  * OLD view. The `about:blank` hop makes the destination the INITIAL route, so there is
  * no swap to race — the idiom this wave's unit a established and measured.
+ *
+ * Every wait below is NAVIGATION-SAFE (`waitForFunction` / locator assertions, never a
+ * bare `page.evaluate` inside a poll). Measured at this unit: the dev server's dependency
+ * optimizer re-bundles on first sight of a new import and forces a FULL PAGE RELOAD, which
+ * destroys the execution context mid-poll. A poll that cannot survive the app's own
+ * reload is an unsound instrument, not a slow one — `waitForFunction` re-installs itself
+ * in the new context, so the wait measures the settled page instead of racing it.
  */
 async function ready(page: Page, route: string, view: string) {
     await page.goto("about:blank");
@@ -131,34 +137,22 @@ async function ready(page: Page, route: string, view: string) {
     await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible({
         timeout: 20_000,
     });
-    await expect
-        .poll(
-            () =>
-                page.evaluate(
-                    () => location.hash.replace(/^#/, "").split("?")[0] || "/",
-                ),
-            { timeout: 10_000 },
-        )
-        .toBe(route.slice(2));
+    await page.waitForFunction(
+        (wanted) => (location.hash.replace(/^#/, "").split("?")[0] || "/") === wanted,
+        route.slice(2),
+        { timeout: 15_000 },
+    );
     // The pane the route names must be MOUNTED, not merely routed to: its own title
     // (`PaneHeader`'s `h3.pane-header-title`) is the product's own signal, and it is also
     // the anchor the census scope is resolved from.
-    await expect
-        .poll(
-            () =>
-                page.evaluate(
-                    (v) =>
-                        Array.from(
-                            document.querySelectorAll("h3.pane-header-title"),
-                        ).filter((h) => (h.textContent ?? "").trim() === v).length,
-                    view,
-                ),
-            { timeout: 25_000 },
-        )
-        .toBeGreaterThan(0);
-    await page.evaluate((v) => {
-        document.body.dataset.w4bView = v;
-    }, view);
+    await page.waitForFunction(
+        (v) =>
+            Array.from(document.querySelectorAll("h3.pane-header-title")).some(
+                (h) => (h.textContent ?? "").trim() === v,
+            ),
+        view,
+        { timeout: 30_000 },
+    );
 
     // Then geometric rest, measured rather than assumed: four consecutive identical
     // trigger-geometry signatures after a ≥2.5 s dwell. The pane-swap enter transition is
@@ -195,10 +189,11 @@ async function ready(page: Page, route: string, view: string) {
 async function triggerCensus(
     page: Page,
     route: string,
+    view: string,
     axisOverride: { uiScale: string; controlFloor: string } | null = null,
 ): Promise<TriggerRow[]> {
     return page.evaluate(
-        ({ routeArg, triggerSel, fieldSel, override }) => {
+        ({ routeArg, viewArg, triggerSel, fieldSel, override }) => {
             const OVERRIDE_ID = "w4b-axis-override";
             document.getElementById(OVERRIDE_ID)?.remove();
             if (override) {
@@ -220,12 +215,11 @@ async function triggerCensus(
             };
 
             // The scope: the pane card whose OWN title is the view's label.
-            const view = document.body.dataset.w4bView ?? "";
             let scope: Element | null = null;
             for (const h of Array.from(
                 document.querySelectorAll("h3.pane-header-title"),
             )) {
-                if ((h.textContent ?? "").trim() !== view) continue;
+                if ((h.textContent ?? "").trim() !== viewArg) continue;
                 scope = h.closest(".pane-scroll-fade") ?? h.closest(".pane-wrapper");
                 if (scope) break;
             }
@@ -298,6 +292,7 @@ async function triggerCensus(
         },
         {
             routeArg: route,
+            viewArg: view,
             triggerSel: TRIGGER,
             fieldSel: FIELD,
             override: axisOverride,
@@ -314,7 +309,7 @@ test("B1 · composed trigger title — the combobox name derives from a rendered
 
     for (const { path, view } of ROUTES) {
         await ready(page, path, view);
-        const rows = await triggerCensus(page, path);
+        const rows = await triggerCensus(page, path, view);
         console.log(`[W4-B1-CENSUS] ${JSON.stringify({ route: path, rows })}`);
 
         const scoped = rows.filter((r) => r.inScope);
@@ -356,11 +351,10 @@ test("B1 · composed trigger title — the combobox name derives from a rendered
         // The BROWSER's own accessible-name computation, per scoped trigger — the gate
         // rests on the real AX tree, not on this file's reading of the name rule.
         for (const handle of await page.locator(TRIGGER).all()) {
-            const expected = await handle.evaluate((el) => {
-                const view2 = document.body.dataset.w4bView ?? "";
+            const expected = await handle.evaluate((el, v) => {
                 const title = Array.from(
                     document.querySelectorAll("h3.pane-header-title"),
-                ).find((h) => (h.textContent ?? "").trim() === view2);
+                ).find((h) => (h.textContent ?? "").trim() === v);
                 const root =
                     title?.closest(".pane-scroll-fade") ??
                     title?.closest(".pane-wrapper") ??
@@ -376,7 +370,7 @@ test("B1 · composed trigger title — the combobox name derives from a rendered
                     .map((id) => document.getElementById(id)?.textContent ?? "")
                     .join(" ")
                     .trim();
-            });
+            }, view);
             if (expected === "") continue;
             await expect(
                 handle,
@@ -404,9 +398,9 @@ test("B2 · trigger height rides the size axis — and lifts with the coarse run
     for (const { path, view } of ROUTES) {
         await ready(page, path, view);
 
-        const fine = (await triggerCensus(page, path)).filter((r) => r.inScope);
+        const fine = (await triggerCensus(page, path, view)).filter((r) => r.inScope);
         const coarse = (
-            await triggerCensus(page, path, {
+            await triggerCensus(page, path, view, {
                 uiScale: COARSE_UI_SCALE,
                 controlFloor: COARSE_CONTROL_FLOOR,
             })
