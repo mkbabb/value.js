@@ -6,7 +6,6 @@ import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 import ActionBarToggle from "./ActionBarToggle.vue";
 import ActionBarLayer from "./layers/ActionBarLayer.vue";
-import GenericActionBar from "./layers/GenericActionBar.vue";
 import SlugEditLayer from "./layers/SlugEditLayer.vue";
 import MobileMenuDropdown from "./menus/MobileMenuDropdown.vue";
 import ProfileSection from "./menus/ProfileSection.vue";
@@ -19,16 +18,14 @@ import { SESSION_PORT_KEY } from "../../palettes/usePalettePorts";
 import { CSS_COLOR_KEY, SAFE_ACCENT_KEY } from "../../color-session/keys";
 import { usePopupMutex } from "./composables/usePopupMutex";
 import { useDockAdminMode } from "./composables/useDockAdminMode";
-import type { ActionBarContext } from "../../color-session/keys";
+import type { SceneActionSet } from "../../color-session/keys";
 import type { EditTarget } from "../../color-session/color-model";
-import type { DockActionBar } from "../usePaneRouter";
 
-const {
-    linkCopied,
-    editTarget,
-    actionBar: actionBarProp,
-    genericActionBar,
-} = defineProps<{ linkCopied: boolean; editTarget: EditTarget | null; actionBar?: ActionBarContext | null; genericActionBar?: DockActionBar | null }>();
+const { linkCopied, editTarget, sceneActions } = defineProps<{
+    linkCopied: boolean;
+    editTarget: EditTarget | null;
+    sceneActions?: SceneActionSet | null;
+}>();
 const emit = defineEmits<{ shareLink: []; commitEdit: []; cancelEdit: [] }>();
 
 const cssColorOpaque = inject(CSS_COLOR_KEY)!;
@@ -36,33 +33,53 @@ const safeAccent = inject(SAFE_ACCENT_KEY)!;
 const viewManager = inject(VIEW_MANAGER_KEY)!;
 const pm = inject(SESSION_PORT_KEY)!;
 
-const actionBar = computed(() => actionBarProp ?? null);
-const genericBar = computed(() => genericActionBar ?? null);
-const hasAnyActionBar = computed(() => !!actionBar.value || !!genericBar.value);
+// X-W4 · CC-043 — ONE action contract, ONE render path. The predecessor held
+// two props and chose between them in the template with `v-if="actionBar"` /
+// `v-else-if="genericBar"`, so the picker's bar suppressed the per-view bar on
+// every view where both existed (`VIEW_MAP.mix`). The Dock no longer chooses:
+// the contract already named the scene, and the Dock renders it.
+const actionSet = computed(() => sceneActions ?? null);
+const hasAnyActionBar = computed(() => actionSet.value !== null);
 
 // ── Admin mode (composable owns isAdminMode, viewEntries, watchers) ──
-const { isAdminMode, viewEntries, onViewChange } = useDockAdminMode({ viewManager, isAdminAuthenticated: pm.isAdminAuthenticated });
+const { isAdminMode, viewEntries, onViewChange } = useDockAdminMode({
+    viewManager,
+    isAdminAuthenticated: pm.isAdminAuthenticated,
+});
 
 // ── Action bar layer ──
 const actionBarLayerActive = ref(false);
-function toggleActionBar() { actionBarLayerActive.value = !actionBarLayerActive.value; }
-watch(hasAnyActionBar, (has) => { if (!has) actionBarLayerActive.value = false; });
+function toggleActionBar() {
+    actionBarLayerActive.value = !actionBarLayerActive.value;
+}
+watch(hasAnyActionBar, (has) => {
+    if (!has) actionBarLayerActive.value = false;
+});
 
 // The Tools trigger + its S.W7-6 boot-flicker / W6-8 T-29 settle-stamp slot
 // machine live in the colocated <ActionBarToggle> (the W6-8 PP-8 cap lift —
 // full rationale in that SFC's header). The dock open/close hold this layer
 // used to drive imperatively is now one declarative predicate below (U-F48).
-function onActionBarOpenPalette() { viewManager.switchView(viewManager.currentView.value === "palettes" ? "picker" : "palettes"); }
-function onActionBarOpenExtract() { viewManager.switchView(viewManager.currentView.value === "extract" ? "picker" : "extract"); }
+//
+// X-W4 · CC-043: the two view-switch handlers the action bar used to emit back
+// up to (`openPalette` / `openExtract`) went INTO the contract, where the rest
+// of the color scene's actions already live — the bar no longer speaks a
+// private dialect to its own parent.
 
 // ── Slug edit ──
 const slugEditMode = ref(false);
 const slugEditRef = ref<InstanceType<typeof SlugEditLayer> | null>(null);
-function onStartSlugEdit() { slugEditRef.value?.onStartSlugEdit(); }
-function onCopySlug() { slugEditRef.value?.onCopySlug(); }
+function onStartSlugEdit() {
+    slugEditRef.value?.onStartSlugEdit();
+}
+function onCopySlug() {
+    slugEditRef.value?.onCopySlug();
+}
 
 // ── Dock popup mutex — called EXACTLY ONCE (gate (a)) ──
-const { isAnyOpen, popupModel } = usePopupMutex<"view-select" | "mobile-menu" | "profile-menu" | "mbabb-menu">();
+const { isAnyOpen, popupModel } = usePopupMutex<
+    "view-select" | "mobile-menu" | "profile-menu" | "mbabb-menu"
+>();
 const viewSelectOpen = popupModel("view-select");
 const mobileMenuOpen = popupModel("mobile-menu");
 const profileMenuOpen = popupModel("profile-menu");
@@ -71,9 +88,14 @@ const mbabbMenuOpen = popupModel("mbabb-menu");
 const isDesktop = useMediaQuery("(min-width: 1024px)");
 const mobileEditActive = computed(() => !isDesktop.value && !!editTarget);
 const anyEditActive = computed(() => !!editTarget);
-const dockRef = useTemplateRef<InstanceType<typeof GlassDock>>('dockRef');
+const dockRef = useTemplateRef<InstanceType<typeof GlassDock>>("dockRef");
 
-watch(() => dockRef.value?.expanded, (expanded) => { if (!expanded && slugEditMode.value) slugEditMode.value = false; });
+watch(
+    () => dockRef.value?.expanded,
+    (expanded) => {
+        if (!expanded && slugEditMode.value) slugEditMode.value = false;
+    },
+);
 
 // ── The dock open/close HOLD — ONE declarative predicate (U-F48) ──
 // The three scattered imperative keepOpen/release watchers (the action-bar
@@ -83,10 +105,17 @@ watch(() => dockRef.value?.expanded, (expanded) => { if (!expanded && slugEditMo
 // useDockState) — the former per-flag holds each contributed +1 while their
 // flag was true; this ONE balanced +1/−1 pair per predicate edge is
 // behaviour-equivalent for the open/close decision (held ⇔ any flag true).
-const shouldKeepOpen = computed(() => actionBarLayerActive.value || anyEditActive.value || isAnyOpen.value);
-watch(shouldKeepOpen, (open) => { if (open) dockRef.value?.keepOpen(); else dockRef.value?.release(); });
+const shouldKeepOpen = computed(
+    () => actionBarLayerActive.value || anyEditActive.value || isAnyOpen.value,
+);
+watch(shouldKeepOpen, (open) => {
+    if (open) dockRef.value?.keepOpen();
+    else dockRef.value?.release();
+});
 // The expand-on-edit is a DISTINCT concern (not the open/close hold) — its own watch.
-watch(anyEditActive, (active) => { if (active) dockRef.value?.expand?.(); });
+watch(anyEditActive, (active) => {
+    if (active) dockRef.value?.expand?.();
+});
 
 // ── Layer dispatch (inlined from the retired useDockLayers — gate (c): the
 //    immediate watch reads live reactive deps, so call order does not matter) ──
@@ -102,7 +131,9 @@ watch(
     () => viewManager.currentView.value,
     () => {
         dockSettle.value = false;
-        requestAnimationFrame(() => { dockSettle.value = true; });
+        requestAnimationFrame(() => {
+            dockSettle.value = true;
+        });
     },
 );
 watch(
@@ -125,108 +156,142 @@ watch(
          none/auto pair) RETIRED WITH the --dock-total reservation: the band
          is structure the layout owns, so the dock needs no pin, no z, and no
          hit-test punch-through. -->
-    <div
-        :class="dockSettle && 'dock-settle'"
-        @animationend.self="dockSettle = false"
-    >
-            <GlassDock ref="dockRef" :collapse-delay="5000" :start-collapsed="false" :fit-content="true" :always-expanded="!isDesktop">
-                <DockLayerGroup v-model:active="activeLayer" :show-rail="false">
-                    <!-- Mobile edit layer -->
-                    <DockLayer id="mobile-edit" class="justify-center">
-                        <WatercolorDot v-if="editTarget" :color="editTarget.originalCss" tag="div" class="w-7 h-7 shrink-0 opacity-50" seed="edit-original" />
-                        <span class="text-muted-foreground text-caption">&rarr;</span>
-                        <WatercolorDot :color="cssColorOpaque" tag="div" class="w-7 h-7 shrink-0" seed="edit-new" />
-                        <DockSeparator />
-                        <!-- W6-8 register pass: native `title` retired dock-wide —
+    <div :class="dockSettle && 'dock-settle'" @animationend.self="dockSettle = false">
+        <GlassDock
+            ref="dockRef"
+            :collapse-delay="5000"
+            :start-collapsed="false"
+            :fit-content="true"
+            :always-expanded="!isDesktop"
+        >
+            <DockLayerGroup v-model:active="activeLayer" :show-rail="false">
+                <!-- Mobile edit layer -->
+                <DockLayer id="mobile-edit" class="justify-center">
+                    <WatercolorDot
+                        v-if="editTarget"
+                        :color="editTarget.originalCss"
+                        tag="div"
+                        class="w-7 h-7 shrink-0 opacity-50"
+                        seed="edit-original"
+                    />
+                    <span class="text-muted-foreground text-caption">&rarr;</span>
+                    <WatercolorDot
+                        :color="cssColorOpaque"
+                        tag="div"
+                        class="w-7 h-7 shrink-0"
+                        seed="edit-new"
+                    />
+                    <DockSeparator />
+                    <!-- W6-8 register pass: native `title` retired dock-wide —
                              icon-only controls carry aria-label (the UA tooltip slab
                              is a foreign register on the liquid-glass dock). -->
-                        <DockControl aria-label="Save edit" @click="emit('commitEdit')"><Check class="w-5 h-5" :style="{ color: safeAccent }" /></DockControl>
-                        <DockControl aria-label="Cancel edit" @click="emit('cancelEdit')"><Undo2 class="w-5 h-5" /></DockControl>
-                    </DockLayer>
+                    <DockControl aria-label="Save edit" @click="emit('commitEdit')"
+                        ><Check class="w-5 h-5" :style="{ color: safeAccent }"
+                    /></DockControl>
+                    <DockControl aria-label="Cancel edit" @click="emit('cancelEdit')"
+                        ><Undo2 class="w-5 h-5"
+                    /></DockControl>
+                </DockLayer>
 
-                    <!-- Slug edit layer -->
-                    <DockLayer id="slug-edit" class="justify-center">
-                        <SlugEditLayer ref="slugEditRef" v-model:active="slugEditMode" />
-                    </DockLayer>
+                <!-- Slug edit layer -->
+                <DockLayer id="slug-edit" class="justify-center">
+                    <SlugEditLayer ref="slugEditRef" v-model:active="slugEditMode" />
+                </DockLayer>
 
-                    <!-- Action bar layer -->
-                    <DockLayer v-if="hasAnyActionBar" id="action-bar">
-                        <DockControl class="shrink-0" aria-label="Back" @click="actionBarLayerActive = false"><ArrowLeft class="w-6 h-6" /></DockControl>
-                        <DockSeparator />
-                        <ActionBarLayer v-if="actionBar" :action-bar="actionBar" :edit-target="editTarget" @open-palette="onActionBarOpenPalette" @open-extract="onActionBarOpenExtract" />
-                        <GenericActionBar v-else-if="genericBar" :actions="genericBar.actions.value" :accent-color="genericBar.accentColor ?? safeAccent" />
-                    </DockLayer>
+                <!-- Action bar layer — ONE path, selected by the contract
+                         (X-W4 · CC-043). Every scene renders through the same
+                         layer and the same row; the scene the view owns is the
+                         contract's answer, not a template priority. -->
+                <DockLayer v-if="actionSet" id="action-bar">
+                    <DockControl
+                        class="shrink-0"
+                        aria-label="Back"
+                        @click="actionBarLayerActive = false"
+                        ><ArrowLeft class="w-6 h-6"
+                    /></DockControl>
+                    <DockSeparator />
+                    <ActionBarLayer :action-set="actionSet" :edit-target="editTarget" />
+                </DockLayer>
 
-                    <!-- Main navigation layer (inlined — was the passthrough DockMainLayer.vue) -->
-                    <DockLayer id="main">
-                        <!-- View selector — gate (a): viewSelectOpen comes from the single mutex above -->
-                        <!-- W7-4 (ONE dock voice): the view-select speaks the
+                <!-- Main navigation layer (inlined — was the passthrough DockMainLayer.vue) -->
+                <DockLayer id="main">
+                    <!-- View selector — gate (a): viewSelectOpen comes from the single mutex above -->
+                    <!-- W7-4 (ONE dock voice): the view-select speaks the
                              gamut-guarded `--accent-view` tokens exclusively —
                              the live-accent props are gone (that voice stays
                              on Tools/Login, the app chrome). -->
-                        <DockViewSelect
-                            v-model:open="viewSelectOpen"
-                            :current-view="viewManager.currentView.value"
-                            :current-icon="viewManager.currentConfig.value.icon"
-                            :is-admin-mode="isAdminMode"
-                            :is-desktop="isDesktop"
-                            :view-entries="viewEntries"
-                            @update:model-value="onViewChange"
-                        />
+                    <DockViewSelect
+                        v-model:open="viewSelectOpen"
+                        :current-view="viewManager.currentView.value"
+                        :current-icon="viewManager.currentConfig.value.icon"
+                        :is-admin-mode="isAdminMode"
+                        :is-desktop="isDesktop"
+                        :view-entries="viewEntries"
+                        @update:model-value="onViewChange"
+                    />
 
-                        <!-- Action bar toggle — S.W7-2: the separator and the
+                    <!-- Action bar toggle — S.W7-2: the separator and the
                              trailing chevron are desktop furniture; below sm the
                              aperture (312px at 390w) holds controls only. The
                              slot machine + T-29/T-36 register live in the
                              colocated SFC (the W6-8 PP-8 cap lift). -->
-                        <ActionBarToggle
-                            :visible="hasAnyActionBar"
-                            :active="actionBarLayerActive"
-                            :is-desktop="isDesktop"
-                            :icon="genericBar?.icon ?? Paintbrush"
-                            :label="genericBar?.label ?? 'Tools'"
-                            :accent="genericBar?.accentColor ?? safeAccent"
-                            @toggle="toggleActionBar"
-                        />
+                    <ActionBarToggle
+                        :visible="hasAnyActionBar"
+                        :active="actionBarLayerActive"
+                        :is-desktop="isDesktop"
+                        :icon="actionSet?.icon ?? Paintbrush"
+                        :label="actionSet?.label ?? 'Tools'"
+                        :accent="safeAccent"
+                        @toggle="toggleActionBar"
+                    />
 
-                        <!-- Mobile pane toggle — Ae-5: PaneSegmentedControl owns this control (one owner).
+                    <!-- Mobile pane toggle — Ae-5: PaneSegmentedControl owns this control (one owner).
                              S.W7-2: the mobile separator PAIR is dropped (four vertical bars
                              in a 312px aperture was furniture crowding the ⋮ trigger out of
                              the pill — design-dock-shell P0-2); the control compacts at its
                              own root below sm. -->
-                        <div v-if="viewManager.currentConfig.value.right !== null" class="dock-mobile-panes">
-                            <PaneSegmentedControl
-                                :model-value="viewManager.mobilePaneIndex.value"
-                                :left-label="viewManager.currentConfig.value.leftLabel ?? ''"
-                                :right-label="viewManager.currentConfig.value.rightLabel ?? ''"
-                                @update:model-value="(v) => viewManager.mobilePaneIndex.value = v"
-                            />
-                        </div>
-
-                        <!-- Mobile overflow menu -->
-                        <MobileMenuDropdown
-                            v-model:open="mobileMenuOpen"
-                            :css-color-opaque="safeAccent"
-                            :link-copied="linkCopied"
-                            @share-link="emit('shareLink')"
-                            @start-slug-edit="onStartSlugEdit"
-                            @copy-slug="onCopySlug"
+                    <div
+                        v-if="viewManager.currentConfig.value.right !== null"
+                        class="dock-mobile-panes"
+                    >
+                        <PaneSegmentedControl
+                            :model-value="viewManager.mobilePaneIndex.value"
+                            :left-label="
+                                viewManager.currentConfig.value.leftLabel ?? ''
+                            "
+                            :right-label="
+                                viewManager.currentConfig.value.rightLabel ?? ''
+                            "
+                            @update:model-value="
+                                (v) => (viewManager.mobilePaneIndex.value = v)
+                            "
                         />
+                    </div>
 
-                        <!-- Desktop profile + @mbabb -->
-                        <ProfileSection
-                            v-model:profile-menu-open="profileMenuOpen"
-                            v-model:mbabb-menu-open="mbabbMenuOpen"
-                            :css-color-opaque="safeAccent"
-                            :link-copied="linkCopied"
-                            @share-link="emit('shareLink')"
-                            @start-slug-edit="onStartSlugEdit"
-                            @copy-slug="onCopySlug"
-                        />
-                    </DockLayer>
-                </DockLayerGroup>
+                    <!-- Mobile overflow menu -->
+                    <MobileMenuDropdown
+                        v-model:open="mobileMenuOpen"
+                        :css-color-opaque="safeAccent"
+                        :link-copied="linkCopied"
+                        @share-link="emit('shareLink')"
+                        @start-slug-edit="onStartSlugEdit"
+                        @copy-slug="onCopySlug"
+                    />
 
-                <!-- Collapsed state — the WAX SEAL (S.W7 W7-1 / S-8; die-rim
+                    <!-- Desktop profile + @mbabb -->
+                    <ProfileSection
+                        v-model:profile-menu-open="profileMenuOpen"
+                        v-model:mbabb-menu-open="mbabbMenuOpen"
+                        :css-color-opaque="safeAccent"
+                        :link-copied="linkCopied"
+                        @share-link="emit('shareLink')"
+                        @start-slug-edit="onStartSlugEdit"
+                        @copy-slug="onCopySlug"
+                    />
+                </DockLayer>
+            </DockLayerGroup>
+
+            <!-- Collapsed state — the WAX SEAL (S.W7 W7-1 / S-8; die-rim
                      ABROGATED T.W6 · W6-7, Q12 + T-28): the WatercolorDot in
                      the LIVE color fills the producer's collapsed circle (the
                      wax speaks live — the dot IS the accent; T-37: the wax
@@ -266,22 +331,27 @@ watch(
                      NO chevron. MORPH LAW: the wax exits WITH the seal under
                      the producer's collapse↔expand cross-fade — no element
                      ever animates live→view-hue. -->
-                <template #collapsed>
-                    <div class="dock-seal">
-                        <WatercolorDot :color="cssColorOpaque" tag="div" class="dock-seal-wax" seed="top-dock">
-                            <Transition name="vj-morph" mode="out-in">
-                                <component
-                                    :is="viewManager.currentConfig.value.icon"
-                                    :key="viewManager.currentView.value"
-                                    class="dock-seal-ink"
-                                    :class="isAdminMode && 'gold-shimmer-icon'"
-                                    style="--vj-morph-scale: 1.25; --vj-morph-y: 0px"
-                                />
-                            </Transition>
-                        </WatercolorDot>
-                    </div>
-                </template>
-            </GlassDock>
+            <template #collapsed>
+                <div class="dock-seal">
+                    <WatercolorDot
+                        :color="cssColorOpaque"
+                        tag="div"
+                        class="dock-seal-wax"
+                        seed="top-dock"
+                    >
+                        <Transition name="vj-morph" mode="out-in">
+                            <component
+                                :is="viewManager.currentConfig.value.icon"
+                                :key="viewManager.currentView.value"
+                                class="dock-seal-ink"
+                                :class="isAdminMode && 'gold-shimmer-icon'"
+                                style="--vj-morph-scale: 1.25; --vj-morph-y: 0px"
+                            />
+                        </Transition>
+                    </WatercolorDot>
+                </div>
+            </template>
+        </GlassDock>
     </div>
 
     <!-- T.W6 · W6-6 (T-9 re-home): the dock STATUS LAMP — band chrome,

@@ -10,7 +10,9 @@
             ref="atmosphereCanvas"
             class="atmosphere-canvas absolute inset-0 w-full h-full pointer-events-none"
             :class="overture.b2.value && 'atmosphere-canvas--arrived'"
-            :style="auroraCssGradient ? { backgroundImage: auroraCssGradient } : undefined"
+            :style="
+                auroraCssGradient ? { backgroundImage: auroraCssGradient } : undefined
+            "
             aria-hidden="true"
             data-testid="atmosphere-canvas"
             data-glass-field-canvas
@@ -35,31 +37,36 @@
             <Dock
                 :link-copied="linkCopied"
                 :edit-target="activeEditTarget"
-                :action-bar="colorPickerRef?.actionBarContext ?? null"
-                :generic-action-bar="actionBar"
+                :scene-actions="sceneActions"
                 @share-link="shareLink"
-                @commit-edit="colorPickerRef?.commitEdit(); viewManager.mobilePaneIndex.value = 1"
-                @cancel-edit="colorPickerRef?.cancelEdit(); viewManager.mobilePaneIndex.value = 1"
+                @commit-edit="
+                    colorPickerRef?.commitEdit();
+                    viewManager.mobilePaneIndex.value = 1;
+                "
+                @cancel-edit="
+                    colorPickerRef?.cancelEdit();
+                    viewManager.mobilePaneIndex.value = 1;
+                "
             />
         </nav>
 
         <!-- W5-a11y: main landmark for pane content -->
         <main class="pane-main" aria-label="Color tool panes">
-        <!-- U.W-A11Y · U-F58: a pane render throw surfaces the focus-managed,
+            <!-- U.W-A11Y · U-F58: a pane render throw surfaces the focus-managed,
              SR-announced boundary IN PLACE of the grid — never a white-screen. -->
-        <ErrorBoundary message="This panel hit an unexpected error.">
-        <!-- Two-pane grid. `paneContainer` feeds the S.W5-10 device-pixel
+            <ErrorBoundary message="This panel hit an unexpected error.">
+                <!-- Two-pane grid. `paneContainer` feeds the S.W5-10 device-pixel
              snap (card-lighting-forensics artifact 4): the flex-centering
              remainder is nudged off fractional device pixels so the card
              corner arcs rasterize ON the pixel grid. -->
-        <div
-            ref="paneContainer"
-            :class="[
-                'pane-container',
-                currentConfig.right !== null && 'pane-container--dual',
-            ]"
-        >
-            <!-- X6: single-mount by breakpoint. Only ONE breakpoint's slots are
+                <div
+                    ref="paneContainer"
+                    :class="[
+                        'pane-container',
+                        currentConfig.right !== null && 'pane-container--dual',
+                    ]"
+                >
+                    <!-- X6: single-mount by breakpoint. Only ONE breakpoint's slots are
                  MOUNTED at a time (v-if, not display-toggle), so exactly one live
                  picker — and thus one live goo-blob WebGL2 context — exists at any
                  viewport. The prior always-in-DOM display-toggle kept a hidden-
@@ -69,75 +76,94 @@
                  witnesses with the .app-layout [data-layout] stamp (the single
                  isDesktop truth); the D6-03 exception + D8-1 note die — see style.css. -->
 
-            <!-- Mobile: single pane slot (below lg / portrait). `pane-wrapper`
+                    <!-- Mobile: single pane slot (below lg / portrait). `pane-wrapper`
                  makes it a size container so in-card `cqi` sizing resolves on
                  every slot (R.W3 Lane A / A4). W2-3: the slot speaks the
                  `appear` plate-land grammar (the single plate = the left
                  voice, +40ms). -->
-            <div v-if="!isDesktop" class="pane-wrapper pane-wrapper--left pane-slot-mobile w-full max-w-md sm:max-w-lg mx-auto min-w-0 min-h-0 h-full flex flex-col items-center justify-center self-stretch" style="--overture-appear-delay: var(--overture-left-delay)">
-                <!-- W3-4 (S.W3): KeepAlive :max right-sized to the 9 non-admin
+                    <div
+                        v-if="!isDesktop"
+                        class="pane-wrapper pane-wrapper--left pane-slot-mobile w-full max-w-md sm:max-w-lg mx-auto min-w-0 min-h-0 h-full flex flex-col items-center justify-center self-stretch"
+                        style="--overture-appear-delay: var(--overture-left-delay)"
+                    >
+                        <!-- W3-4 (S.W3): KeepAlive :max right-sized to the 9 non-admin
                      views. The mobile slot cycles both left+right panes, so it
                      caches the common (non-admin) surface without evicting a
                      hot pane; the 5 admin views' panes fall off the LRU rather
                      than permanently bloating the cache. -->
-                <PaneSlot
-                    :component="mobile.component"
-                    :component-key="mobile.key"
-                    :component-props="mobile.props"
-                    :transition-name="viewManager.ready.value ? 'vj-enter' : ''"
-                    :max="9"
-                    appear
-                    :on-appeared="(el: Element) => overture.noteLeftPlateSettled(el)"
-                />
-            </div>
+                        <PaneSlot
+                            :component="mobile.component"
+                            :component-key="mobile.key"
+                            :component-props="mobile.props"
+                            :transition-name="viewManager.ready.value ? 'vj-enter' : ''"
+                            :max="9"
+                            appear
+                            :on-appeared="
+                                (el: Element) => overture.noteLeftPlateSettled(el)
+                            "
+                        />
+                    </div>
 
-            <template v-else>
-                <!-- Desktop: left pane (lg+) — the B3 plate (+40ms). -->
-                <div class="pane-wrapper pane-wrapper--left w-full min-w-0 min-h-0 h-full flex-col justify-center" style="--overture-appear-delay: var(--overture-left-delay)">
-                    <!-- W3-4 (S.W3): :max = the 6 distinct non-admin LEFT panes
+                    <template v-else>
+                        <!-- Desktop: left pane (lg+) — the B3 plate (+40ms). -->
+                        <div
+                            class="pane-wrapper pane-wrapper--left w-full min-w-0 min-h-0 h-full flex-col justify-center"
+                            style="--overture-appear-delay: var(--overture-left-delay)"
+                        >
+                            <!-- W3-4 (S.W3): :max = the 6 distinct non-admin LEFT panes
                          (color-picker · browse · extract · atmosphere · generate
                          · gradient) — already right-sized; admin left panes fall
                          off the LRU rather than bloating the cache. -->
-                    <PaneSlot
-                        :component="desktopLeft.component"
-                        :component-key="desktopLeft.key"
-                        :component-props="desktopLeft.props"
-                        :on-mount="onDesktopLeftMount"
-                        :transition-name="viewManager.ready.value ? 'vj-enter' : ''"
-                        :max="6"
-                        appear
-                        :on-appeared="(el: Element) => overture.noteLeftPlateSettled(el)"
-                    />
-                </div>
+                            <PaneSlot
+                                :component="desktopLeft.component"
+                                :component-key="desktopLeft.key"
+                                :component-props="desktopLeft.props"
+                                :on-mount="onDesktopLeftMount"
+                                :transition-name="
+                                    viewManager.ready.value ? 'vj-enter' : ''
+                                "
+                                :max="6"
+                                appear
+                                :on-appeared="
+                                    (el: Element) => overture.noteLeftPlateSettled(el)
+                                "
+                            />
+                        </div>
 
-                <!-- Desktop: right pane (lg+) — always in DOM to preserve
+                        <!-- Desktop: right pane (lg+) — always in DOM to preserve
                      KeepAlive scroll position. W2-3: the right plate (+120ms)
                      arrives through the SAME appear grammar — the About pop
                      dies (LS-4); a late chunk materializes through the same
                      land on resolution (work defers, appearance composes). -->
-                <div
-                    class="pane-wrapper pane-wrapper--right w-full min-w-0 min-h-0 h-full transition-opacity duration-200"
-                    :class="currentConfig.right === null ? 'pane-wrapper--ghost' : ''"
-                    style="--overture-appear-delay: var(--overture-right-delay)"
-                >
-                    <!-- W3-4 (S.W3): :max = the 4 distinct non-admin RIGHT panes
+                        <div
+                            class="pane-wrapper pane-wrapper--right w-full min-w-0 min-h-0 h-full transition-opacity duration-200"
+                            :class="
+                                currentConfig.right === null
+                                    ? 'pane-wrapper--ghost'
+                                    : ''
+                            "
+                            style="--overture-appear-delay: var(--overture-right-delay)"
+                        >
+                            <!-- W3-4 (S.W3): :max = the 4 distinct non-admin RIGHT panes
                          (about · palettes · mix · blob) — every admin view uses
                          right="palettes" (already cached), so no non-admin right
                          pane is ever evicted. Was 3 (under-sized → evicted one). -->
-                    <PaneSlot
-                        :component="desktopRight.component"
-                        :component-key="desktopRight.key"
-                        :component-props="desktopRight.props"
-                        :on-mount="onDesktopRightMount"
-                        :transition-name="viewManager.ready.value ? 'vj-enter' : ''"
-                        :max="4"
-                        appear
-                        :on-appeared="() => overture.noteRightPlateSettled()"
-                    />
+                            <PaneSlot
+                                :component="desktopRight.component"
+                                :component-key="desktopRight.key"
+                                :component-props="desktopRight.props"
+                                :on-mount="onDesktopRightMount"
+                                :transition-name="
+                                    viewManager.ready.value ? 'vj-enter' : ''
+                                "
+                                :max="4"
+                                appear
+                                :on-appeared="() => overture.noteRightPlateSettled()"
+                            />
+                        </div>
+                    </template>
                 </div>
-            </template>
-        </div>
-        </ErrorBoundary>
+            </ErrorBoundary>
         </main>
     </div>
 
@@ -184,7 +210,12 @@ import { useColorUrl } from "../color-session/useColorUrl";
 
 import { useViewManager, VIEW_MANAGER_KEY } from "../shell/useViewManager";
 import { useColorPipeline } from "../color-session/useColorPipeline";
-import { usePaneRouter } from "../shell/usePaneRouter";
+import { usePaneRouter, readScenePaneTarget } from "../shell/usePaneRouter";
+import type {
+    ScenePane,
+    ScenePaneTargetMap,
+    ScenePaneTargets,
+} from "../color-session/keys";
 import { usePaletteWiring } from "./composables/usePaletteWiring";
 import { provideApiClient } from "../platform/transport/useApiClient";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
@@ -266,7 +297,9 @@ const patchModelExternal = (patch: Partial<ColorModel>) => {
 
 // --- Edit target ---
 const activeEditTarget = shallowRef<EditTarget | null>(null);
-const onEditTargetChange = (et: EditTarget | null) => { activeEditTarget.value = et; };
+const onEditTargetChange = (et: EditTarget | null) => {
+    activeEditTarget.value = et;
+};
 provide(EDIT_TARGET_KEY, activeEditTarget);
 provide(CSS_COLOR_KEY, cssColorOpaque);
 
@@ -299,8 +332,10 @@ provide(OVERTURE_KEY, overture);
 // The dock's B1 voice (the M-14 booked-interim) — veil + reveal + the B2
 // noteDockLanded predicate live in boot/useDockArrival (full rationale there).
 const dockNav = useTemplateRef<HTMLElement>("dockNav");
-const { prmInstant, dockRevealed, onDockMorphSettled, onDockLandEnd } =
-    useDockArrival(dockNav, overture);
+const { prmInstant, dockRevealed, onDockMorphSettled, onDockLandEnd } = useDockArrival(
+    dockNav,
+    overture,
+);
 
 // X6: the desktop dual-pane breakpoint (Tailwind `lg` = 1024px), now guarded
 // by the aspect law (R.W3 Lane A / A4): a portrait tablet ≥ 1024px wide runs
@@ -311,40 +346,140 @@ const { matches: isDesktop } = useBreakpoint(
     "(min-width: 1024px) and (min-aspect-ratio: 1.1)",
 );
 
-// --- Pane action refs ---
-// Populated by the onMount callbacks on the desktop PaneSlots; the action bar
-// dispatches its per-view handlers onto them.
-const generatePaneRef = ref<any>(null);
-const gradientPaneRef = ref<any>(null);
-const mixPaneRef = ref<any>(null);
+// --- Scene-target registry (X-W4 · CC-043) ---
+// ONE typed registry replaces the three `ref<any>` pane-instance refs the dock
+// used to dispatch onto. `readScenePaneTarget` verifies the instance actually
+// exposes the scene's commands, so "registered" is a measured fact: a pane that
+// renamed a member now surfaces as the contract's `unavailable` state instead
+// of degrading to a dead dock button.
+const scenePanes = shallowRef<ScenePaneTargets>({
+    generate: null,
+    gradient: null,
+    mix: null,
+});
+
+/** The picker instance, read back from the slot's mount report. */
+function readColorPicker(instance: unknown): InstanceType<typeof ColorPicker> | null {
+    if (typeof instance !== "object" || instance === null) return null;
+    const exposed = instance as Record<string, unknown>;
+    if (typeof exposed.commitEdit !== "function") return null;
+    if (
+        typeof exposed.sceneActionTarget !== "object" ||
+        exposed.sceneActionTarget === null
+    ) {
+        return null;
+    }
+    return instance as InstanceType<typeof ColorPicker>;
+}
+
+/**
+ * Publish a registry revision ONLY when a target actually changed.
+ *
+ * `PaneSlot` binds its mount report as an INLINE function ref
+ * (`:ref="(el) => onMount(el)"`), so its identity differs on every render and
+ * Vue re-invokes it on every patch of the slot. A `shallowRef` whose value is
+ * replaced by a fresh object literal would therefore trigger on every patch —
+ * and this registry is read by `sceneActions`, which App's own render reads, so
+ * every such trigger re-enters App's render effect. The three `ref<any>` this
+ * replaces were immune by accident (assigning the same instance to a `ref` is a
+ * no-op write, and nothing rendered them); the registry earns it deliberately.
+ */
+function publishScenePanes(next: ScenePaneTargets) {
+    const current = scenePanes.value;
+    if (
+        current.generate === next.generate &&
+        current.gradient === next.gradient &&
+        current.mix === next.mix
+    ) {
+        return;
+    }
+    scenePanes.value = next;
+}
+
+/**
+ * What ONE slot's mount report says about ONE scene.
+ *
+ * A slot reports through `PaneSlot`'s inline function ref
+ * (`:ref="(el) => onMount(el)"`), so Vue re-invokes it on every patch of that
+ * slot — and for a `defineAsyncComponent` pane inside `<KeepAlive>` the object
+ * it hands back ALTERNATES between the resolved pane's exposed instance and the
+ * wrapper's own bare public instance. Measured at this seat on `/#/mix`, in one
+ * render pass: 102 reports carrying `clearSelection/startMix/copyResult` against
+ * 53 carrying nothing at all.
+ *
+ * A report that is not this scene's pane is therefore NOT evidence that the pane
+ * is gone. Reading it as a de-registration made the registry flip null↔target on
+ * every patch — and the registry is read by `sceneActions`, which App's own
+ * render reads, so App's render effect was mutating its own dependency:
+ * *"Maximum recursive updates exceeded in component <App>"*, measured live.
+ *
+ * So a report means exactly what it says, and nothing more:
+ *   · the slot no longer shows this scene → cleared;
+ *   · an explicit unmount (`null`)        → cleared;
+ *   · an instance exposing the scene's commands → registered;
+ *   · anything else → not a fact about this scene; what is registered stands.
+ *
+ * The last arm is not a fallback over a defect: a pane that renamed a command
+ * never satisfies `readScenePaneTarget`, so it never registers, and the contract
+ * surfaces it as `unavailable` — which is the whole point of D4.
+ */
+function foldSceneReport<S extends ScenePane>(
+    scene: S,
+    slotOwnsScene: boolean,
+    instance: unknown,
+): ScenePaneTargetMap[S] | null {
+    if (!slotOwnsScene || instance === null) return null;
+    return readScenePaneTarget(scene, instance) ?? scenePanes.value[scene];
+}
+
+/** The same reading for the colour scene, whose target is the picker itself. */
+function foldColorPickerReport(
+    slotOwnsScene: boolean,
+    instance: unknown,
+): InstanceType<typeof ColorPicker> | null {
+    if (!slotOwnsScene || instance === null) return null;
+    return readColorPicker(instance) ?? colorPickerRef.value;
+}
 
 // Ref-capture callbacks for desktop pane slots (replaces direct template refs).
 // Called by PaneSlot's :on-mount prop when the inner component mounts/unmounts.
-function onDesktopLeftMount(el: any) {
+// Each callback derives EVERY scene its slot can own from the one instance it
+// was handed, so a scene the slot no longer shows is cleared by the same act
+// that registers the scene it does.
+function onDesktopLeftMount(instance: unknown) {
     const left = currentConfig.value.left;
-    colorPickerRef.value = left === "color-picker" ? el : null;
-    generatePaneRef.value = left === "generate" ? el : null;
-    gradientPaneRef.value = left === "gradient" ? el : null;
+    colorPickerRef.value = foldColorPickerReport(left === "color-picker", instance);
+    publishScenePanes({
+        ...scenePanes.value,
+        generate: foldSceneReport("generate", left === "generate", instance),
+        gradient: foldSceneReport("gradient", left === "gradient", instance),
+    });
 }
 
-function onDesktopRightMount(el: any) {
-    mixPaneRef.value = currentConfig.value.right === "mix" ? el : null;
+function onDesktopRightMount(instance: unknown) {
+    publishScenePanes({
+        ...scenePanes.value,
+        mix: foldSceneReport("mix", currentConfig.value.right === "mix", instance),
+    });
 }
 
 // --- Pane routing — one source of truth: mobile single-slot, the two desktop
-//     slots, and the per-view action bar all derive from one route table. ---
-const { mobile, desktopLeft, desktopRight, actionBar } = usePaneRouter(
+//     slots, and the ONE scene action set all derive from one route table. ---
+const { mobile, desktopLeft, desktopRight, sceneActions } = usePaneRouter(
     viewManager,
     model,
     {
         cssColor: () => cssColor.value,
         savedColorStrings: () => savedColorStrings.value,
         colorPickerRef: () => colorPickerRef.value,
+        colorSceneTarget: () => colorPickerRef.value?.sceneActionTarget ?? null,
+        scenePanes: () => scenePanes.value,
         onEditTargetChange,
         resetToDefaults,
-        updateModel: (v: ColorModel) => { model.value = v; },
+        updateModel: (v: ColorModel) => {
+            model.value = v;
+        },
     },
-    { generate: generatePaneRef, gradient: gradientPaneRef, mix: mixPaneRef },
 );
 
 // --- Palette manager ---
@@ -380,7 +515,9 @@ if (!appliedFromUrl && hydration.source !== "url") restoreFromStorage();
 // --- Custom color names ---
 const { loadFromAPI: loadCustomColorNames } = useCustomColorNames();
 
-onMounted(() => { loadCustomColorNames(); });
+onMounted(() => {
+    loadCustomColorNames();
+});
 </script>
 
 <style scoped>
@@ -407,7 +544,6 @@ onMounted(() => { loadCustomColorNames(); });
     opacity: 0;
     content-visibility: auto;
 }
-
 </style>
 
 <!-- Global grammar homes (the W2-close PP-8 cap cure — moves, not removals):

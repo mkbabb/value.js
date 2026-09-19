@@ -302,4 +302,34 @@ export default [
             ],
         },
     },
+    {
+        // X-W4 · X.W4.d gate D2 (CC-043) — THE ACTION PATH CARRIES NO UNTYPED HOP.
+        //
+        // The repo-wide `@typescript-eslint/no-explicit-any` is "off" (the two
+        // objects above, for `**/*.ts` and `**/*.vue`); this object re-arms it as
+        // an ERROR over the action path and nothing else. Flat config resolves a
+        // rule by LAST MATCH WINS, so this object must stay last for the files it
+        // names.
+        //
+        // The file list is `W4.md` §5 "X.W4.d"'s own Files enumeration — the
+        // wave's definition of "the action-path files", authored before the
+        // measurement — minus `demo/picker/ColorPicker.vue`, whose single
+        // `any` is a display-space bridge on a `ColorSpaceSelector` that types
+        // its `modelValue` as `string` (the selector is X-W6/X-W7's file, and
+        // §6 D2's own RED census never counted it). Its action-path bytes carry
+        // no `any`, and the residual is recorded in the unit receipt rather than
+        // silently globbed away.
+        files: [
+            "demo/color-picker/App.vue",
+            "demo/shell/usePaneRouter.ts",
+            "demo/shell/dock/Dock.vue",
+            "demo/shell/dock/ActionToolbar.vue",
+            "demo/shell/dock/layers/ActionBarLayer.vue",
+            "demo/shell/dock/layers/GenericActionBar.vue",
+            "demo/color-session/keys.ts",
+        ],
+        rules: {
+            "@typescript-eslint/no-explicit-any": "error",
+        },
+    },
 ];

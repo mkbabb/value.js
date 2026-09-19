@@ -2,8 +2,13 @@
     <!-- The shell never self-clamps (R.W3 Lane A / A4 — the grid owns the
          clamp via the .pane-container min() formula; the mobile slot wrapper
          owns the sub-lg width). -->
-    <div class="pane-shell flex flex-col relative min-w-0 w-full mx-auto h-auto max-h-full">
-        <Card tier="resting" class="relative flex flex-col rounded-card min-w-0 flex-none lg:flex-1 min-h-0 max-h-full overflow-x-hidden overflow-y-auto lg:overflow-visible">
+    <div
+        class="pane-shell flex flex-col relative min-w-0 w-full mx-auto h-auto max-h-full"
+    >
+        <Card
+            tier="resting"
+            class="relative flex flex-col rounded-card min-w-0 flex-none lg:flex-1 min-h-0 max-h-full overflow-x-hidden overflow-y-auto lg:overflow-visible"
+        >
             <!-- U-F9 (T-61/§0.8) — the scroll-contraction sentinel: a 0-height
                  marker riding the TOP of the Card scroll container (the picker
                  Card is the mobile scroll host, overflow-y-auto). useHeaderCondense
@@ -40,7 +45,10 @@
                         :model-value="model.selectedColorSpace"
                         v-model:open="selectedColorSpaceOpen"
                         :css-color="cssColor"
-                        @update:model-value="(colorSpace: any) => updateModel({ selectedColorSpace: colorSpace })"
+                        @update:model-value="
+                            (colorSpace: any) =>
+                                updateModel({ selectedColorSpace: colorSpace })
+                        "
                     />
                 </div>
 
@@ -125,7 +133,7 @@ import { useIdleReady } from "@mkbabb/glass-ui/dom";
 import type { ColorModel, EditTarget } from "../color-session/color-model";
 import { toCSSColorString, resolveColorSpace } from "../color-session/color-model";
 import { COLOR_MODEL_KEY } from "../color-session/keys";
-import type { ActionBarContext } from "../color-session/keys";
+import type { ColorSceneTarget } from "../color-session/keys";
 import { OVERTURE_KEY } from "../color-picker/composables/boot/useOverture";
 import { VIEW_MANAGER_KEY } from "../shell/useViewManager";
 import { COLOR_TARGET_PORT_KEY } from "../palettes/usePalettePorts";
@@ -308,17 +316,21 @@ function cancelEdit() {
     preEditModel.value = null;
 }
 
-// --- Action bar context for TopDock (exposed, not provided — TopDock is a sibling) ---
+// --- The color scene's dock target (exposed, not provided — the dock is a
+//     sibling). X-W4 · CC-043: this replaces `ActionBarContext`, whose three
+//     dead members went with it — `cssColorOpaque` and `formattedCurrentColor`
+//     were never read by the bar (it takes the SAFE_ACCENT ink and the input
+//     sub-layer reads the pipeline itself), and `colorModel` was re-provided
+//     under a key App.vue already provides with the SAME object. ---
 
-const paletteActive = computed(() => viewManager.currentView.value !== "picker" || isEditing.value);
+const paletteActive = computed(
+    () => viewManager.currentView.value !== "picker" || isEditing.value,
+);
 
-const actionBarContext: ActionBarContext = {
-    cssColorOpaque,
-    formattedCurrentColor,
+const sceneActionTarget: ColorSceneTarget = {
     isEditing,
     canProposeName,
     paletteActive,
-    colorModel,
     reset: () => emit("reset"),
     copy: () => {
         updateModel({ inputColor: formattedCurrentColor.value });
@@ -340,7 +352,7 @@ defineExpose({
     setCurrentColor,
     applyExternalColor,
     onStartEdit,
-    actionBarContext,
+    sceneActionTarget,
 });
 
 // --- Model watchers ---
@@ -375,7 +387,9 @@ const plateOpening = ref(true);
 
 onMounted(() => {
     window.addEventListener("keydown", handleKeydown);
-    window.setTimeout(() => { plateOpening.value = false; }, 850);
+    window.setTimeout(() => {
+        plateOpening.value = false;
+    }, 850);
 });
 
 onUnmounted(() => {
