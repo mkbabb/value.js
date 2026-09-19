@@ -322,6 +322,156 @@ the four gate specs at both projects · `git diff --check`).
 
 ---
 
+## Resume probe — 2026-09-18 23:5x EDT (dated addendum-beside; E-3: nothing above is rewritten)
+
+**SERVED MODEL: claude-opus-5[1m]** · seat 0 (OPEN), re-seated after the **2026-09-18 host restart
+killed the seats mid-work**. Sitting date of record stays **2026-09-17**. Wall clock
+`2026-09-18 23:52:07 EDT` ⟨cmd⟩ `date "+%Y-%m-%d %H:%M:%S %Z"`. **HEAD** `d351b84e` ⟨cmd⟩
+`git log --oneline -1` · branch `tranche-u`. This seat wrote **zero bytes into any §4 File Bounds
+path** and **zero bytes into any path owned by a sibling seat**; its writable set is this record,
+`execution/LEDGER.md` and `V/coordination/INBOX.md`, and all three were clean at entry.
+
+### R.1 Crash-recovery — the killed `X.W4.a` seat's partial work, named and NOT touched
+
+⟨cmd⟩ `git status --porcelain` → **15 rows**. Of those, **thirteen are inside `X.W4.a`'s writable
+set** and are a killed predecessor seat's partial work on **unit a**:
+
+| inherited path | shape |
+|---|---|
+| `demo/shell/dock/layers/SlugEditLayer.vue` | M, +45/−1 |
+| `demo/picker/controls/ComponentSliders/ConsoleRail.vue` | M, +21/−2 |
+| `demo/palettes/PalettesPane.vue` | M, +10/−0 |
+| `demo/palettes/browser/admin/AdminUsersPanel.vue` | M, 16 lines |
+| `demo/palettes/browser/admin/AdminNamesPanel.vue` | M, 10 lines |
+| `demo/palettes/browser/admin/AdminFlaggedPanel.vue` | M, 8 lines |
+| `demo/palettes/browser/admin/AdminTagsPanel.vue` | M, 6 lines |
+| `demo/palettes/browser/dialog/VersionHistoryDrawer.vue` | M, 4 lines |
+| `demo/palettes/browser/search/SearchFilterBar.vue` | M, 4 lines |
+| `demo/palettes/browser/admin/AdminAuditPanel.vue` | M, 2 lines |
+| `e2e/smoke/a11y-control-targets.spec.ts` | **??**, 426 L, line 1 `// SERVED MODEL: claude-opus-5[1m]` |
+| `e2e/smoke/mobile/a11y-control-targets.spec.ts` | **??**, 418 L, same first line |
+| `docs/tranches/X/waves/evidence/W4/` | **??**, 19 entries — `a-falsifier.txt` · `a-h7-cascade.md` · `a-screens.md` · `baseline-2026-08-03.json` · `reopen-baseline.json` · `navprobe-recheck.txt` · 12 before/after PNGs (slug cluster · rail letters · admin audit toolbar, fine and coarse) |
+
+⟨cmd⟩ `git diff --stat -- demo/ e2e/` → **10 files, +98/−28**. **Nothing was stashed, restored,
+reverted or staged by this seat.** The whole inheritance is handed to the **redispatched `X.W4.a`**,
+whose standing obligation is to read that diff whole, judge every hunk against `W4.md` §5/§6,
+finish what conforms, rewrite what does not, and name these paths in its receipt. **No unit commit
+exists for it** — see R.6.
+
+**The two dirty rows OUTSIDE every W4 unit's writable set, named so no seat touches them**:
+`scripts/dev/dev.sh` (unowned, permanent for tranche X, COHESION §0j.A DR-24 — never touched, never
+staged) and `docs/tranches/V/reformation/CARRY-LEDGER.md` (M, **+34/−0**; in **no** `W4.md` §4 row —
+a sibling's, left exactly as found).
+
+**A stash exists and this seat neither created nor popped it**: ⟨cmd⟩ `git stash list` →
+`stash@{0}: autostash` (a rebase/pull autostash), ⟨cmd⟩ `git stash show --stat stash@{0}` → **17
+paths / +406/−134** spanning `.github/workflows/ci.yml`, `api/CLAUDE.md`, `package.json`,
+`package-lock.json`, `scripts/gates/proof-perf-target.mjs`, `src/**` and five
+`e2e/smoke/oracles/*.spec.ts`. **Not one of those paths is in any W4 unit's bounds.** Recorded here
+so no X-W4 seat mistakes it for its own work and so nobody pops it — the no-`git stash` law binds
+this wave in both directions.
+
+### R.2 Preconditions — re-measured at the bytes AND in the ledger, and **the §1.1 divergence is GONE**
+
+| conjunct | measurement at this clock | verdict |
+|---|---|---|
+| **X-W0** | ledger row 28: **`CLOSED 2026-09-17 (honest-RED: HG-8's literal byte-diff clause — ESC-N1)`** | **MET** (unmoved) |
+| **X-W1** | ledger row 29: **`CLOSED 2026-09-17 (honest-RED: G-17 · G-19 · G-20)`** — *"CHECK 2 (L-20 fresh adversarial pass 2, run 2026-09-18, VERIFY-ONLY) returns CONFORMANT-HONEST-RED and the row IS PROMOTED"* | **MET ON THE LETTER NOW.** §1.1's recorded divergence (X-W1 then `OPEN`, met only in substance) is **resolved by the ledger itself**; nothing in §1.1 is rewritten, it is simply overtaken |
+| **X-W1's named artefact** | `ec654158` in HEAD's history; `e2e-smoke` + `e2e-safari` HARD | **MET** (unmoved) |
+| **CC-019 gate FORM** | ⟨cmd⟩ `find scripts -name "proof-*.mjs" \| wc -l` → **0** | **MET** |
+| **X-W0.j — the `.g` trigger** | `GLASS8-REPIN-CENSUS.md` §0 **FAIL — 1 of 4 at the elected 8.0.0** | **`X.W4.g` STAYS CLOSED** — unmoved across X-W0 CHECK 1·2·3 |
+| **§1.2 concurrency** | X-W1 is now CLOSED, so its watch-item (`e2e/smoke/**` read as a glob) **cannot fire**; the five new W4 spec paths are uncontended | **CLEAR** |
+
+### R.3 COHESION re-read to the file end — five addenda are NEW since the open, none rules here
+
+The open cited §0i–§0o; the file is now **1,540 lines** with **§0p · §0q · §0r · §0s · §0t** added
+(X.P.W3's docket ×3, X.P.W3.h, KF.W10 ownership). ⟨cmd⟩
+`awk 'NR>=1376' docs/tranches/X/COHESION.md | grep -cE 'X-W4|X\.W4'` → **0**. §1.3's ruling table is
+therefore unmoved: **§0i.2** (+ **§0i.5**) elects 8.0.0, X-W0.j's FAIL keeps `.g` shut, **§0j.A**
+rules U-F12 **Pole B** (no dark-accent work here) and `dev.sh` untouchable, and `W4.md:219-222`
+makes every seat Opus.
+
+### R.4 Baseline re-run at `d351b84e` — double-run, and the ONE moved number is the inheritance
+
+```text
+⟨cmd⟩ for i in 1 2; do h7=… h9=… st=… sl=… lbl=… sro=… wd=… oc=…; done
+run1: h7=3 h9=15 st=13 sl=17 lbl=9 sro=0 wd=11 oc=9
+run2: h7=3 h9=15 st=13 sl=17 lbl=9 sro=0 wd=11 oc=9
+⟨cmd⟩ npx vue-tsc -p tsconfig.demo.json --noEmit             → EXIT=0, 0 lines
+⟨cmd⟩ npx eslint demo/color-picker/App.vue demo/shell/usePaneRouter.ts demo/shell/dock/ → EXIT=0
+⟨cmd⟩ grep -n "no-explicit-any" eslint.config.js             → :70 "off" · :184 "off"
+⟨cmd⟩ find scripts -name "proof-*.mjs" | wc -l               → 0
+```
+
+| gate | at open (11:02, `fb03d5f9`) | now (`d351b84e` + inherited worktree) | reading |
+|---|---|---|---|
+| **A3** `h-7` sites | **18** | **3** in the worktree — and ⟨cmd⟩ `git grep -n 'class="[^"]*\bh-7\b' HEAD -- 'demo/*.vue' \| grep -v 'w-7 h-7' \| wc -l` → **18 at HEAD** | the 15-site delta is **uncommitted inherited work**, NOT a landed cure. A3 is **RED at the committed bytes**; unit a owns finishing and committing it |
+| **A1 · A2** | RED, spec absent | the two spec files now **exist untracked** (426 + 418 L) | still **unmeasured as a command** — no stack is up ⟨cmd⟩ `curl … http://localhost:9000/` → `000`. Unit a re-measures at its own clock (§5.2 parsimony: seat 0 does not spend the run) |
+| **A4 · A5** | RED / demo owed | `navprobe-recheck.txt` and `a-falsifier.txt` present untracked, both `SERVED MODEL`-headed | evidence exists, **uncommitted**; unit a judges it against §8 before adopting it |
+| **B1 · B2 · B3** | 13 / 15 / GREEN-fence | **13 · 15 · `--slider-range-origin` = 0** | **unmoved** |
+| **C1–C4** | RED source-certain | `barRef` `:201-202`, `.rail-handle w-5 h-5` `:235`, `onHandleKeydown` `:173` | **unmoved** |
+| **D1 · D2 · D4** | RED | `ActionBarContext` `keys.ts:17`; `DockActionBar` `usePaneRouter.ts:` **`:58`**; `Dock.vue:156-157` `v-if="actionBar"`/`v-else-if="genericBar"`; `Ref<any>` **`:142-144`**; `App.vue:317-319,:323,:330`; mobile `<PaneSlot>` `:83` with `:on-mount` only at `:105`/`:131`; `?.()` = **9** | **unmoved in substance; two anchors DRIFTED** |
+
+**Anchor drift, named with its cause**: `DockActionBar` moved `:49 → :58` and the three `Ref<any>`
+moved `:108-110 → :142-144`, because **`504819ea`** (*"fix(demo/router): fail-closed admin guard +
+source-realized not-found route + fail-closed pane fallback (CC-037)"*, X.W3.6) landed in
+`usePaneRouter.ts` after this wave opened. X-W3 is **CLOSED**, so the file is uncontended now; unit
+d must read the live line numbers, never this record's.
+
+### R.5 greenBeforeCure — unchanged, and re-measured
+
+- **B3** — GREEN at open and **spec-declared** non-RED (`W4.md:390`); `--slider-range-origin` = **0**
+  again at this clock. Its receipt is an **act owed before unit b's first slider prop edit**.
+- **D1's typecheck leg** — `npx vue-tsc -p tsconfig.demo.json --noEmit` → **exit 0, 0 lines** again.
+  D1 stays RED on its conjunct (two exported contracts, two render branches).
+- **D2's eslint leg reads exit 0 for the wrong reason** — the rule is `"off"` at `eslint.config.js:70`
+  and `:184`. Recorded again so the exit code is never presented as the gate.
+
+### R.6 Which units are already done — **none**
+
+⟨cmd⟩ `git log --oneline --all --grep="x-v/w4" -i` → **0 commits** · ⟨cmd⟩
+`git log --oneline --all --grep="X\.W4"` → 2 hits, both **authoring-era** (`744bec41`, `8d496214`),
+neither a unit landing. The only X-W4 execution commit in history is this record's own open,
+**`4cedfdb5`** *"docs(X·exec): X-W4 OPEN — baseline banked, 4 units planned"*. **`alreadyDone` = ∅;
+all four units are owed**, and unit **a** is redispatched **with the inheritance above**, never
+re-started from zero and never adopted unread.
+
+### R.7 E13 Step-0 — the four-path mail sweep at this seat's own clock
+
+Swept read-only and compared against **every row** of `INBOX.md` (74 `I-`/`O-` rows,
+⟨cmd⟩ `grep -cE '^\| [IO]-[0-9]+ \|'`), classification from each row's **Status cell**, never from a
+bare `grep -i unread` (X.P.W0 CHECK 1 **D-1**); `INBOX.md` **self-excluded** (SELF-COUNT law).
+
+1. `docs/tranches/V/` + `V/coordination/` — ⟨cmd⟩ `/usr/bin/find … -newermt "2026-09-18 11:00"` →
+   five 4.1 letters (`parse-that-…-evidence-addendum-2` · `fourier-…-facility19-delta` ·
+   `glassui-…-r1-relay` · `atlas-…-export-delta-refresh` · `keyframes-…-cut-notice`) and
+   `valuejs-outbound-…-kfw7-bh-relay-ADDENDUM-A9`, **all ours/outbound and all already rowed**
+   (⟨cmd⟩ `grep -c` per basename → 2 · 1 · 1 · 1 · 1 · 8); `ARCHITECTURE.md` and
+   `PALETTE-CONTRACT.md` are not mail.
+2. `../glass-ui/docs/tranches/BK/coordination/` — **BK re-confirmed newest** ⟨cmd⟩
+   `ls -dt ../glass-ui/docs/tranches/*/ | head -4` → `BK/ · BJ/ · BI/ · IOS27-MICRO/`; the only new
+   member `glass-outbound-2026-09-18-valuejs-o26-reply.md` = **I-35**, rowed (17 hits), **routed
+   X·KF (Track B)** by its own cell.
+3. `../keyframes.js/docs/tranches/V/coordination/` — **unmoved**; newest is our own outbound.
+4. `../sci-report/atlas/docs/tranches/P/coordination/` — **unmoved** since 2026-08-03.
+
+**Result: 0 unrowed value.js-addressed letters · 0 new `I-n` minted (max stays I-35, O-38) ·
+0 UNREAD in X-W4's scope.** The rows whose Status cells still read UNREAD — **I-30 · I-31 · I-32 ·
+I-33 · I-34** — are routed by their own Routing cells to the X formation mail seat / X-W0.j /
+X-EXT-1..6, and the one that names this wave (**X-EXT-1**, the four `./search` edges) routes to
+**`X.W4.g`**, which the census FAIL keeps **CLOSED**. Nothing lands on units a–d.
+
+### R.8 The unit plan is re-affirmed unchanged
+
+**4 units, all Opus (M-23), SERIAL — groups `[a] → [b] → [c] → [d]`, peak concurrency 1** (§State
+`Agents`, binding under runbook §5.1). `X.W4.g` is **NOT dispatchable**. The sequencing locks of
+§1.4 stand as written: **A-1-before-A-3** recorded and inert (the SLUG-CHAIN cure surface is in no
+§4 row — any need for it is a §3a ESCALATION), **MP-3 same-change guard** binding on unit d,
+**AB-32** binding on unit d, and §1.5's rule that the fold layer's 31-path BoundsDelta is **declared
+NOT adopted** — `W4.md` §4 is the whole writable set and widening is an escalation, never a licence.
+
+---
+
 ## Unit receipts
 
 *(empty at open — each unit appends its own section here, dated, with its served model on its first
