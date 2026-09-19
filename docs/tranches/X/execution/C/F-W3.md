@@ -691,3 +691,295 @@ is a mandatory triumvirate trigger, not a seat failure.
 `docs/tranches/X/execution/LEDGER.md` is **not touched by this seat**: the dispatch's receipt duty
 names this record's path alone, other seats edit that file concurrently, and an ESCALATED unit's row
 is the orchestrator's to write against its own reading of this receipt.
+
+### X.F.W3.c
+
+**Seat**: `claude-opus-5[1m]`, 2026-09-18/19. **Status: DONE.** Sections executed exactly as
+dispatched: §C.D (`:262–291`) · §3 g1 (`:398`) + g12's `./search` leg (`:409`) + g13 (`:410`) ·
+§5 X.F.W3.c (`:461–465`) · §5a split (1c) (`:489`) · §6 (`:551–557`). Spec read whole; wave record
+read whole (including `.a`'s receipt and its addendum); COHESION §0j read and every later §0k–§0t
+addendum read to the file end.
+
+#### Act 0 — crash-recovery sweep, and the same declared deviation `.a` recorded
+
+⟨cmd⟩ `cd /Users/mkbabb/Programming/fourier-analysis && git status --porcelain` → **empty**; HEAD
+**`a08809b`** (`.a`'s last landed commit, HEAD at this seat's open), branch `m/w1-bump-migration`. ⟨cmd⟩ the same in value.js at this
+seat's sweep → **12 ` M` + 3 `??`**, and re-read at close → **3 ` M` + 5 `??`** as sibling seats
+committed the eight `demo/**` rows and added evidence under `X/waves/evidence/W4/`. **Not one row is
+inside this seat's writable set at either reading** (`execution/C/F-W3.md` — this receipt — and
+`execution/LEDGER.md`); `scripts/dev/dev.sh` never touched. **Nothing inherited, nothing stashed,
+nothing restored.**
+
+**§5b's worktree.** Not created, for the reason `.a` recorded and on the same instrument: this
+seat's dispatch carries a hard-bound writable set of six absolute paths, **every one in the MAIN
+checkout**, and a write outside that set is an ESCALATION. `.c`'s partition (§5a split 1c) is
+`components/paper/**` minus `PaperArticleWindow.vue`, which no concurrent unit opens, so a worktree
+would have isolated this seat from nobody while putting its commit where `.d`/`.e`/`.f` could not
+see it. Recorded as a deviation with its reason.
+
+#### Act 1 — RE-MEASURE BEFORE CURING: the rows F.W4 already discharged, booked by id and commit
+
+The dispatch's own order, and the record's §Divergences line (*"a re-cure of a landed row is a
+masking defect, not a cure"*). Every row below was re-measured at the settled bytes **before** any
+edit, and **none was re-cured**:
+
+| banked id | measured at the bytes | commit that discharged it |
+|---|---|---|
+| **PSM-1** (≡ PS `D-1/L-1/C-B1` ≡ PSD `B-1` ≡ PSI `C-1` ≡ MFT `B-1`) | `PaperSearch.vue`'s block is at `:37` and holds **2 rules, both live**; its header names the repair. The tree-wide S-4 probe returns **0** violations | **`a3030dd`** — *"PSM-1 with its three riders"* |
+| **MISS-LC1** | ⟨cmd⟩ `grep -rl paper-search-action-btn web/src` → **1 file** (`PaperSearchInput.vue`); the five-hook orphaning is dissolved | `a3030dd` |
+| **PSM-13** | `.search-modal-input:focus-visible` at `PaperSearchModal.vue:256`; `.paper-search-input-wrap:focus-within` at `PaperSearchInput.vue:109` | `a3030dd` |
+| **PSM-4** | ⟨cmd⟩ `/usr/bin/grep -rn "color-mix(in srgb, var(--muted-foreground)" components/paper` → **0**; ⟨cmd⟩ `grep -rn -- "muted-foreground) [0-9]" components/paper` → **0**. Every chrome ink is full-strength `--muted-foreground` or the strong rung | `a3030dd` |
+| **PSM-2 ⊕ PSM-6 ⊕ PSM-3 ⊕ PSM-15 ⊕ PSM-21 ⊕ PSM-26** | `Dialog`/`DialogContent`/`DialogTitle`/`DialogDescription` from `@mkbabb/glass-ui/dialog`; ONE modal owned by `PaperView`; the keydown on the shell; `resultsRef` in place of the document-global | **`9144cb1`** |
+| **PSM-5 ⊕ PSM-30 ⊕ PSM-7/39 ⊕ PSM-11 ⊕ PSM-14 ⊕ PSM-17 ⊕ PSM-22/31/41 ⊕ PSM-27 ⊕ PSM-28/35 ⊕ PSM-42** | full-array cache in a `WeakMap`-per-index + `clearSearchCache`; minted `key`; `matches` deleted; the ratio-form length term at `paperSearchIndex.ts:146`; `TYPE_LABELS` typed on the union; `onScopeDispose`; the code-point map in `highlightFuzzy` | **`4039e1a`** |
+| **PSM-18** | `search/PaperSearchResultRow.vue` exists (152 lines); both hosts render it | `a3030dd` |
+| **PSM-25** | `.kbd` on all four keycaps at `PaperSearchModal.vue:187–195`; the hand-rolled block deleted with its reason | `a3030dd` |
+| **PSM-32 / PSM-40** | the hand-rolled enter/leave pair is gone with the overlay it animated; `DialogContent`'s motion axis owns the entrance. **PSM-40's one-line hygiene rider has no block left to ride** | `9144cb1` |
+| **PSM-22 / ★MF-11 — the DEAD SURFACE, cleaned BEFORE the `./search` diff** | ⟨cmd⟩ `ls components/paper/search/index.ts` → **No such file**; ⟨cmd⟩ `grep -rn searchHelpers web/src \| grep -v 'paper/search' \| wc -l` → **0** — the subtree's `escapeHtml` has no importer outside it (the three `escapeHtml` hits elsewhere are `lib/equation/render.ts`'s own, whose `:73` comment says it is *"kept local rather than imported"* — a different symbol, `.e`'s file, not a consumer); module-global cache → `WeakMap` keyed by index; eager build → `_index ??=`; `matches` spread → deleted | `4039e1a` + the barrel's own deletion |
+| **ESC-2** (COHESION §0o) | one `useSidebarFollow`, owned by `PaperView`, provided through `PAPER_TOC_KEY`; `M6`'s `defineExpose` seam retired | F.W4 |
+
+**⊘ One spelling of §1 is spent, not phantom**: the bounds row `components/paper/search/index.ts`
+(*"dead surface, clean-before-diff — D"*) names a file that **no longer exists** — the clean landed
+at F.W4 under `G-F4-DEAD-DEP`. Booked as spent, in the manner the record booked `InfoCard.vue`.
+
+#### Act 2 — the residue, cured in ONE commit · `21e11b0`
+
+§5c's Goal is literal — *"in one commit that arms nothing"* — and the dispatch LOCK repeats it
+(*"Any surviving rider set lands in ONE commit (g13) — no rider deferred, no commit split"*). So the
+whole surviving §C.D set is one commit, eight files, and the one meaning the spec assigns this unit.
+
+**`FR-PS-BDT` ⊕ `FR-PS-CLIP` ⊕ `FR-PS-Z` — one defect, three ids.** All three are an overlay
+authored as a descendant of the box it has to escape, so they take one cure: the results panel is
+`<Teleport to="body">`-ed and positioned from the field's own viewport rect, the shim element is
+**deleted**, and dismissal is a document-level `pointerdown` containment test with no geometry at
+all. The prescribed `D-6`/`L-1¶3` revival is **refused by name**, as the lock requires.
+
+Mechanisms re-derived at the bytes rather than inherited:
+- `FR-PS-CLIP` (sidebar arm) — ⟨cmd⟩ live: `getComputedStyle(nav).overflowX` → **`"auto"`**,
+  `overflowY` → `"auto"`. **The clip was measured, not assumed**: a 1400px absolutely-positioned
+  probe inserted where the panel used to sit spans `top 124 → bottom 1524`; the sample point
+  `(342, 896)` is **inside that rect and below the nav's bottom (876)**, and
+  `document.elementFromPoint` there returns **`.paper-grid`**, not the probe. The nav clips.
+- `FR-PS-BDT` (floating arm) — ⟨cmd⟩ live: `getComputedStyle(".floating-toc-bar--search")`
+  `backdropFilter` → **`blur(16px) saturate(1.5)`**, which makes the bar the containing block for a
+  FIXED descendant. ⊘ **A correction of record**: an earlier draft of this cure's docblock also
+  claimed `contain: paint` from the producer's `glass/material.css`. Measured at the CONSUMER's
+  compiled bytes — ⟨cmd⟩ `grep -c 'contain: *paint' dist/assets/index-*.css` → **0**, and
+  `getComputedStyle(bar).contain` → **`"none"`** — that rule does not reach this build. The claim was
+  struck from the docblock before the commit; the `backdrop-filter` mechanism is the measured one.
+- `FR-PS-Z` — ⟨cmd⟩ live token read: `--z-bar` **30** · `--z-controls` **20** · `--z-overlay` **50**
+  · `--z-popover` **130**. The row's *"effective altitude 20"* is `--z-controls` exactly. The rung is
+  assigned **inside** the re-parenting, as the row orders: the portalled panel computes
+  `z-index: 130`.
+
+**A defect this seat introduced and cured before committing, stated loud.** Portalling makes the
+panel follow its anchor faithfully — including out of view. `.sidebar-nav` is itself a scroll port
+and `useSidebarFollow` scrolls it: ⟨cmd⟩ live after a deep navigation → `nav.scrollTop` **217**,
+`.paper-sidebar` rect top **72** (correct) but the FIELD's rect top **−133**. While the panel was an
+`absolute` descendant the nav's clip hid it; portalled, nothing did, and it hung detached over the
+page at z 130. The cure keeps that clip: `measure()` computes the anchor's viewport intersection and
+binds `visibility: hidden; pointer-events: none` when it is off-screen. Verified: Playwright refuses
+the row with *"element is not visible"* in exactly that state.
+
+**`MISS-DU1`** — the producer's geometry re-measured at the CONSUMER's compiled bytes, not inherited
+from the 4.0.0 reading: ⟨cmd⟩ `.button{--button-size:var(--control-h-md)}` ·
+`.button[data-size=xs]{--button-size:var(--control-h-xs)}` ·
+`.button[data-icon-only]{inline-size:var(--button-size);block-size:var(--button-size)}` ·
+`--control-h-md: max(calc(2.5rem * var(--ui-scale)),var(--control-floor))` ·
+`--control-h-xs: max(calc(1.75rem * ...))` · coarse arm
+`:root{--ui-scale:var(--ui-coarse-scale,1.5);--control-floor:var(--touch-target,2.75rem)}`. The
+banked **40px** reproduces exactly. The cure is **not** only the `icon-sm` swap (which at 8.0.0 is
+`size="xs"`): a swap alone leaves a 9px jump, because the wrap's height was still *derived* from its
+tallest child. The field takes the design system's control rung — `block-size: var(--control-h-md)`,
+`box-sizing: border-box`, block padding retired — so it is the same box empty or full.
+**Measured BEFORE→AFTER, live**: field height empty **40px** → typing **40px** (banked pre-cure:
+≈36.6 → ≈52.6). The floating bar's own oscillation dies with it: bar height empty **81px** → typing
+**81px**. `FR-PSD-BASE`'s INVERSION LOCK is honoured **explicitly** at the one control whose geometry
+this unit changes: `xs` is 28px fine and **44px coarse** (clamped to `--control-floor` =
+`--touch-target`), above the WCAG 2.5.8 floor by the producer's own token rather than by an
+un-overridden height.
+
+**`MISS-DU4`** — the wrap is a `<label>`. The `<input>` is its only labelable descendant, so the
+association is implicit; label activation is not forwarded to interactive descendants, so the two
+action Buttons keep their own behaviour; and the accessible NAME stays the input's `aria-label`
+(`C-7`'s naming half, already landed — this label carries no text and does not compete for it).
+`cursor: text` so the hit area says what it is.
+
+**`FR-PS-HL`** — `debouncedQuery` is exported from `usePaperSearch` and is the ONE highlight source
+in both hosts. **Measured in the 120ms window**: settled **30 rows / 30 marked**; 40ms after a
+keystroke that breaks the subsequence, **30 rows / 30 marked** (pre-cure this is 30 rows / **0**
+marked by construction — the raw query reaches `highlightFuzzy` immediately and matches nothing);
+after the debounce, the new set, 12 rows / 0 label marks.
+
+**`FR-PSD-TYPE` ⊕ `PSM-9` — THE SCORING DECISION, MADE EXPLICITLY AND NEVER INHERITED.** `_lc.type`
+is a closed enum, byte-identical across every entry of a type, so at weight 10 it out-ranked `rawTex`
+(6) and `plainText` (3) and produced identically-scored, document-ordered slabs. It is not a
+re-weighting problem — a field that cannot discriminate between the entries it matches cannot rank
+them at any weight — so the type is taken **out of the ranking** and kept as a **fallback rung**
+consulted only when no content field matched, with a two-tier sort (`tier` first, score second) that
+keeps it out of `SearchResult`. The capability survives; the slab cannot displace anything.
+
+**BEFORE → AFTER, executed** (⟨cmd⟩ `node --experimental-strip-types scoring.mjs` over one synthetic
+index — eight `theorem` entries with unrelated labels in document order, plus three entries whose
+labels genuinely contain the word — both modules imported from their own bytes, HEAD vs working
+tree):
+
+| | ranks 2–9 | the two genuine label hits |
+|---|---|---|
+| **BEFORE** | eight `theorem` rows, **all scoring 660.00**, in document order | *"The Residue Theorem"* rank **10**, *"The Convolution Theorem"* rank **11** |
+| **AFTER** | the two genuine hits | ranks **2** and **3**; the identical-scoring slab falls to ranks 4–11 |
+
+Live confirmation at the page: query `"theorem"` returns `Def · Sec · Sec · Thm · Thm · Sec` — mixed
+badges, every row marked — not a slab.
+
+**`★NAV-1`** — the domain, then the push, and the producer's bytes for both halves.
+- The defect reproduces **at the producer's own source**: ⟨cmd⟩ `latex-paper@0.2.1
+  dist/vue.js` → `function ensureTargetWindow(id){ const index = itemIndex.get(id); if (index == null)
+  return; … }` and `function getOffsetFor(id){ return findSectionOffset(layout.value, id); }`. An
+  element id reached a no-op and a null — the silent no-op the row measured at 71/164 `\ref`-family
+  uses and 66/374 search entries.
+- Cure: `performScroll` gains the element arm the row prescribes (*"widen `performScroll` with a
+  getElementById arm"*), and the owning section comes from `labelMap`, which already carried it and
+  which `useClickDelegate`'s `resolve` was discarding at exactly the moment it was needed
+  (`anchorId ?? elementId ?? sectionId` hands over the target and drops the only thing that can mount
+  it). `PaperView` builds the reverse index once, over all three spellings a destination arrives as.
+- **The push moves after a resolved target**: `performScroll` now returns a boolean and
+  `navigateTo` pushes only on `true`; `navigateBack` peeks and pops only on `true`, so a failed
+  back-jump does not swallow its own entry.
+- **Measured live**: a `Thm` search row (*"Convolution Theorem"*, a NON-section id) moves the reader
+  `0 → 118019`. Two successful navigations bank exactly two entries — back control absent → present →
+  badge **"2"**.
+- **A second defect this seat introduced and cured before committing.** The first draft settled the
+  far-element jump with a single `recalculate()`; measured, the virtual window's spacer arithmetic
+  had not converged when the overlay lifted and `.paper-grid` ended above the viewport bottom.
+  `teleportToElement` now runs `teleportTo`'s own correction loop (same constants, plus a bounded
+  mount-wait), and the sidebar settles at `top: 72` — identical to the section arm, and stable under
+  a subsequent nudge.
+
+**`MISS-DU3`** — the row is **gate design**, and its file is `web/e2e/**`, which is `.a`-then-`.d`'s
+by §5a split (3) and **not in this seat's writable set**. The binding consequence is discharged the
+only way it lawfully can be here: the assertion SHAPE is executed as a CONTAINER-scoped measurement
+and published — ⟨cmd⟩ live, `/paper` at 1440×900: `.sidebar-nav` **scrollWidth 216 · clientWidth
+216** (no overflow), with `getComputedStyle(nav).overflowX` → `"auto"`, which is precisely why a
+`documentElement.scrollWidth` assertion is green against a live defect. Routed to the orchestrator
+for the seat that owns `e2e/**`; **no document-scoped assertion was written anywhere**.
+
+#### Act 3 — g12's `./search` leg: the decision, priced
+
+⟨cmd⟩ `grep -rn "glass-ui/search" web/src | wc -l` → **0**, at open and at close. The gate's GREEN
+admits exactly two outcomes and this is outcome **(b)**. The decision was made by reading the
+producer at the ADOPTED pin, not by reading the 4.0.0 census:
+
+1. **The prescribed adoption target does not exist at 8.0.0.** `PSM-9` names `FuzzySearch.vue` as the
+   1:1 twin. ⟨cmd⟩ `dist/components/search/index.d.ts` → `SearchBar` · `searchFieldVariants` ·
+   `useFuzzySearch` · `buildIndex` · `searchIndex` · `fuzzyMatch` · `clearSearchCache`. There is **no
+   `FuzzySearch`**, and `SearchBar` is a search FIELD (`modelValue`/`placeholder`/`icon`/`tag`/
+   `size`/`surface`/`variant`) — no listbox, no rows, no palette.
+2. **The producer's scorer carries `FR-PSD-TYPE` verbatim.** ⟨cmd⟩
+   `dist/useFuzzySearch-CUnZknpm.js` → `i = [[t._lc.label, 12],[t._lc.type, 10],[t._lc.text, 3]]` —
+   the same inversion this unit just removed, one field wider.
+3. **The producer's scorer carries `PSM-14` UN-CURED.** ⟨cmd⟩ same bundle →
+   `o -= Math.max(0, (r - n) * .1)` — the unbounded subtractive length penalty that scales with the
+   FIELD while the bonuses scale with the PATTERN, at a coefficient **five times** this module's
+   effective ratio scale. Adoption would re-open the short-query death `PSM-14` proved by execution.
+4. **Three fields, not five.** `SearchableItem` is `{id, label, text, type?}`. `number` (weight 18)
+   and `rawTex` (weight 6) have no home — and `number` is the paper's primary entry point
+   (*"Theorem 3.1"*, *"Eq 2.4"*).
+5. **`matchIndices` is the contract `PSM-11` deleted**: computed against the lower-cased field and
+   populated only for label matches — the misalignment this subtree replaced with a code-point map.
+
+**The row `.f` transcribes into `F-W3-DO-NOT-EXECUTE.md` (g20's artefact; not this seat's file),
+verbatim:**
+
+> **`fr-PaperSearchModal PSM-9` (≡ `fr-PaperSearch MISS-B3` ≡ `fr-PaperSearchDropdown C:C-6` ≡
+> `fr-PaperSearchInput C-2`) — `@mkbabb/glass-ui/search`: NOT ADOPTED.** Seat **X.F.W3.c**,
+> `claude-opus-5[1m]`, **2026-09-19**, measured at the ADOPTED pin (`v8.0.0` @ `17a11bc5`).
+> **Reason**: the prescribed 1:1 twin `FuzzySearch.vue` does not exist at 8.0.0 (`./search` exports
+> `SearchBar` — a field, not a palette); and the producer's scorer reproduces BOTH defects this wave
+> cured — `[_lc.type, 10]` above `[_lc.text, 3]` (`FR-PSD-TYPE`) and the unbounded
+> `score -= max(0,(tLen−pLen)*0.1)` length penalty (`PSM-14`), at 5× the consumer's ratio scale —
+> while dropping the `number` and `rawTex` fields the paper's search is built on. Adoption is a
+> measured REGRESSION on five axes, so the `ANTI-CURE` clause governs: *"adoption must be priced with
+> an explicit scoring decision, not assumed to inherit one."* **The scoring decision was made
+> instead**, at `paperSearchIndex.ts`, and is documented there. **BH/SS-6 relay owed** (`PSM-14`'s
+> own routing): the producer's `./search` carries both defects and should receive both cures.
+
+#### Gates — BEFORE → AFTER (every figure double-run at the settled bytes)
+
+| gate | BEFORE (this seat, re-measured) | AFTER | verdict |
+|---|---|---|---|
+| **g1** SCOPE-ORPHAN | the S-4 law run as a probe over `web/src`: **64 files · 55 scoped blocks declaring ≥1 class · 0 violations**, double-run. **The probe was VALIDATED against the pre-cure tree** rather than trusted: ⟨cmd⟩ `git archive a3030dd~1 web/src/components` → the same probe returns **21 violations in 1 file — `PaperSearch.vue`** — naming `.paper-search-input-wrap` · `.paper-search-icon` · `.paper-search-input` · `.paper-search-action-btn` · `.paper-search-results` · `.paper-search-result` · `.is-selected` · `.paper-search-badge` … and the CHILD that owns each. (21 distinct classes over the gate's 43 dead RULE BLOCKS: the same defect counted two ways — `:hover`/`:focus-within`/`--floating`/media arms share a class, and transition classes are exempt by the law's own wording.) | **0 violations**, unchanged by this unit's commit, double-run at the final bytes | **GREEN** — and green **before** this unit's cure, by `a3030dd`, which is booked to F.W4 and claimed by nobody here |
+| **g12** (`./search` leg only) | ⟨cmd⟩ `grep -rn "glass-ui/search" web/src \| wc -l` → **0** | **0 imports · outcome (b) DECIDED and the id-keyed row authored above**, verbatim, for `.f`'s `F-W3-DO-NOT-EXECUTE.md` — a file in §5f's Files list and **not in this seat's writable set** | **DECIDED · the leg CLOSES AT `.f`** when the artefact exists; reported RED here rather than green on prose, because the gate's own words are *"a rationale that is not a row in that file does not count"* |
+| **g13** PAPER-SEARCH rider set | PSM-4 · PSM-13 · MISS-LC1 **already discharged at `a3030dd`** (table above); **FR-PS-BDT and FR-PS-CLIP LIVE** at `PaperSearchDropdown.vue:57/:91`, with `FR-PS-Z`, `MISS-DU1`, `MISS-DU4`, `FR-PS-HL` live beside them | the whole surviving set in **ONE commit `21e11b0`**, eight files, **no rider deferred and no split**; every one measured live at the page | **GREEN** |
+
+#### Cadence (§7)
+
+⟨cmd⟩ `npx vue-tsc -b --noEmit --force` → **1 diagnostic**, `ContourEditorCanvas.vue(42,9) TS6133
+'dragging'` — **pre-existing at HEAD, outside this unit's writable set**, F.W0 `G-8` substrate routed
+to `.d`/`.e`; identical before and after this unit's edits. ⟨cmd⟩ `npx vite build` → **exit 0**, on
+the cleared side of FR-NP-32. ⟨cmd⟩ `npx vitest run` → **8 files / 57 tests, all passing** — the same
+57 as at open, including `.g`'s `paper-search.vitest.ts` (8 `fuzzyMatch` ordering assertions) and
+`.e`'s `paper-search-scoring.vitest.ts` (9), **neither touched**: this unit changed `scoreEntry` and
+the sort, not `fuzzyMatch`. ⟨cmd⟩ `git diff --check` → clean.
+
+**⊘ `npx playwright test` was NOT run, deliberately, and the reason is `.a`'s addendum.** The §7
+whole-suite cadence overwrites 21 tracked baseline PNGs of tranche J
+(`visual-baseline.spec.ts:34` → `docs/tranches/J/audit/screenshots/{before,after}/`) — prior
+evidence, IMMUTABLE under E-3 and outside this seat's writable set. `.a` caught and restored that
+overwrite and routed the durable fix. Re-running the suite to satisfy a cadence line would re-commit
+the same mutation this wave has already convicted. The acceptance this unit owes was taken instead as
+**one bounded Playwright session per §5.2**, read-only against `vite preview`, whose every reading is
+printed above; porcelain after it: **empty**.
+
+#### Residuals and routings (named, none swept)
+
+1. **g12's `./search` NOT-ADOPTED row** → `.f`, verbatim above, for `F-W3-DO-NOT-EXECUTE.md`.
+2. **SS-6 / BH relay cargo from this unit** (for `.f`, reconciled against O-20 ⊕ O-32/O-33 before
+   accretion, never a fresh letter): **(a)** `@mkbabb/glass-ui/search`'s scorer carries
+   `FR-PSD-TYPE`'s type-over-content inversion AND `PSM-14`'s unbounded length penalty at 0.1 —
+   both cures are in this commit and should go upstream; **(b)** a **latex-paper** relay, a different
+   producer: `useClickDelegate` calls `e.preventDefault()` **before** `resolve()` returns, so a
+   cross-reference whose label is unknown still swallows the click (⟨cmd⟩ `dist/vue.js` →
+   `if (!target) return; e.preventDefault(); … const id = options.resolve(value); if (id)
+   options.scrollTo(id);`). `★NAV-1`'s navStack half is cured in-tree; its `preventDefault` half is
+   producer-owned and rides the relay, never a frontend hack.
+3. **g1's DURABILITY.** The gate is GREEN by measurement, but the S-4 law has **no home in the repo**:
+   `web/scripts/**` is not in §1's bounds at all and `web/e2e/**` is `.a`/`.d`'s, so authoring the
+   checker here would be a §6 bounds-expansion event. The probe's source is reproduced in this
+   seat's evidence for whichever wave lawfully owns a checker home; the measurement stands on its own
+   (validated against the pre-cure tree, which it convicts).
+4. **`MISS-DU3`'s e2e assertion** — shape executed and published above; the spec FILE is `.a`/`.d`'s.
+5. **A finding beside `★NAV-1`, not a row**: deep in the paper, `useSidebarFollow` scrolls the ToC far
+   enough that `<PaperSearch>` — `.sidebar-nav`'s FIRST child — leaves the nav's scroll port
+   entirely (`nav.scrollTop` 217 measured), so the sidebar search field becomes unreachable without
+   scrolling the ToC back up. Pre-existing and independent of this cure (the panel now hides with its
+   anchor rather than hanging detached), but nothing books it.
+6. **g9 / g11 operands RECORDED, NOT SWEPT**, per §5a-v2 and the record's cycle resolution. Measured
+   over this unit's six writable paths at the settled bytes, double-run, zero-rows dropped:
+   - **g9 `is-active` → 2 files / 8 occurrences**: `PaperSidebar.vue` **5** (`:144` a `:class`
+     binding; `:403`/`:407`/`:417` three scoped rules on `.sidebar-link`; `:173` a FIFTH spelling,
+     **`is-active-sub`**, which a bare `is-active` grep would have silently rewritten) ·
+     `MobileFloatingToc.vue` **3** (`:167` the binding; `:402`/`:407` two `.floating-toc-item` rules).
+     ⊘ The record's divergence re-derives at a third point: **`PaperView.vue` carries neither
+     `is-active` nor `isActive`** — ⟨cmd⟩ `grep -c isActive PaperView.vue` → **0** — so the `:344`
+     PROP that is the SWEEP-LAW rider's own witness is **absent from this unit's files**, exactly as
+     the baseline found. No spelling was changed anywhere.
+   - **g11 `<Tooltip` → 1 file / 3 sites**: `PaperSidebar.vue` `:110` (the `D-B3` scroll-to-top
+     trigger, §1's *"G (budget +1)"* row), `:138` and `:167` (the two `getPreview` ToC triggers).
+     Shim contract and both import identities left exactly as found.
+7. **`PS-M2`'s RELAY-BEFORE-RENAME lock re-verified, not disturbed**: `.sidebar-top-btn` is hard-coded
+   in `useSidebarFollow`'s pointer exemption at BOTH producers; this unit renamed no class in
+   `PaperSidebar.vue`.
+
+#### Escalations
+
+**None.** No §6 trigger fired: every edit landed inside the writable set (⟨cmd⟩ `git status
+--porcelain` before the commit → exactly the eight paths, all in bounds); g13's riders landed in one
+commit without a split; no diagnostic loop reached a third iteration. The one gate this unit cannot
+flip from here — g12's `./search` leg — is not an escalation but the gate's **own** second outcome,
+whose artefact §5f assigns to `.f`; the row it requires is authored above, word for word.
+
+#### Commits (pathspec, one meaning)
+
+| commit | meaning | lock |
+|---|---|---|
+| `21e11b0` | the search family leaves the box it could not escape, and is scored on purpose | **g13's ONE COMMIT** — FR-PS-BDT ⊕ FR-PS-CLIP ⊕ FR-PS-Z ⊕ MISS-DU1 ⊕ MISS-DU4 ⊕ FR-PS-HL ⊕ FR-PSD-TYPE ⊕ ★NAV-1, eight files, no rider deferred; the dead surface was already clean **before** the `./search` diff (★MF-11), and the `./search` diff is a DECISION, not an import |
