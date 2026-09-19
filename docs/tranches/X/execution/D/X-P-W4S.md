@@ -593,11 +593,12 @@ this wave — the two files that would have needed them (`packed-candidate-surfa
 
 ### 9. Push
 
-- ⟨cmd⟩ `git -C /Users/mkbabb/Programming/value.js push origin HEAD` — performed; see the LEDGER
-  event-log line for the reading.
-- ⟨cmd⟩ `git -C /Users/mkbabb/Programming/parse-that push origin HEAD` — the frozen read-only root
-  is **0 commits ahead of upstream** (⟨cmd⟩ `git rev-list --count @{u}..HEAD` → **0**), so the push
-  publishes nothing; this wave landed no commit there and never will (runbook §5.5).
+- ⟨cmd⟩ `git -C /Users/mkbabb/Programming/value.js push origin HEAD` →
+  `To https://github.com/mkbabb/value.js.git` · **`a54c148a..8424a6eb  HEAD -> tranche-u`**, exit 0.
+- ⟨cmd⟩ `git -C /Users/mkbabb/Programming/parse-that push origin HEAD` → **`Everything up-to-date`**
+  — the frozen read-only root is **0 commits ahead of upstream** (⟨cmd⟩ `git rev-list --count @{u}..HEAD`
+  → **0**), so the push published **nothing**; this wave landed no commit there and never will
+  (runbook §5.5). Measured before the act, not discovered by it.
 - `<p2>` **cannot be pushed** — no remote (R-6). `93bcb83` lives in the local fresh root.
 
 ### 10. The unblocking act, stated so it cannot be mistaken for a schedule
