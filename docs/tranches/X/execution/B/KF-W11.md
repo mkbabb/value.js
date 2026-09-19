@@ -2950,3 +2950,265 @@ ten gates GREEN at a second seat's own double-run clock, every BLOCKER core land
 bounds, the ratchet down 30 from its banked figure and never risen, zero masking constructs, and the
 single RED named, attributed to its sibling-seam cause, and returned with its cure rather than
 hidden.**
+
+---
+
+## Close
+
+SERVED MODEL: claude-opus-5[1m]
+
+**Seat**: the close of **X.KF.W11**, taken a second time by a fresh `claude-opus-5[1m]` that authored
+no unit cure, no unit receipt and no byte of `### KF.W11.j`. **VERIFY-ONLY — this seat cured nothing,
+wrote ZERO keyframes.js bytes and ZERO glass-ui bytes.** Its whole product is this section, the
+LEDGER's own cells, and **the push `.j` named but could not take** (residual j-R1).
+**Spec**: §Agent Units `:273-277` · §Gates `:285-307` · §Format and lint cadence / §Verification
+artefacts `:384-386` · the ADDENDUM 2026-09-19 `:408-417`. **Wave open sha** `dd28da55` · **head at
+close `bf4a9a9c`** · value.js close commits on `tranche-u`.
+
+**Verdict: `complete_with_misses` — PARTIAL with its remainder named.** Eight of ten gates GREEN at
+this seat's own double-run commands; **two honest-RED, both tracing to ONE test case** (KF11-E(j1));
+all four §Goal-criterion BLOCKER cores LANDED; 69 of 69 commits inside §Bounds; the ratchet **24 · 24**,
+fallen and never risen; **zero masking constructs**. Every figure below was read from the settled
+bytes at this seat's own clock and double-run; nothing is transcribed from `### KF.W11.j`, and where
+this seat's reading and `.j`'s agree that agreement is an independent reproduction, not a copy.
+
+#### Crash-recovery (standing law, first act)
+
+⟨cmd⟩ `git status --porcelain` (value.js) → **2 modified**: `docs/tranches/V/reformation/CARRY-LEDGER.md`
+(a sibling track's) and `scripts/dev/dev.sh` (unowned by standing arrangement). ⟨cmd⟩
+`git -C ../keyframes.js status --porcelain` → **2 untracked** `VALUEJS-INBOUND-*` letters at their end.
+**Not one of the four is inside this seat's writable set** (`execution/B/KF-W11.md` ·
+`execution/LEDGER.md` · `V/coordination/INBOX.md` + the SS-6 register · `keyframes/evidence/W11/**`),
+which measured **empty**. **Inherited paths: NONE** — nothing to finish, nothing to rewrite. Nothing
+was stashed, nothing restored, `scripts/dev/dev.sh` never staged, and no sibling seat's dirty path was
+touched. *(Disclosed: value.js `HEAD` moved from `8366f8ad` to `2a29323d` during this sitting — three
+concurrent tracks' commits on the shared branch. No byte of theirs was staged by this seat; the push
+at Act 5 publishes already-committed history on the shared branch, which is the act the brief names.)*
+
+#### Act 1 — every unit's commits exist, and touch only that unit's writable set
+
+⟨cmd⟩ `git log --oneline dd28da55..HEAD | wc -l` → **69**. Per unit, ⟨cmd⟩
+`git log --oneline dd28da55..HEAD --grep="X.KF.W11.<u>" | wc -l`:
+
+| unit | .r | .a | .b | .d | .c | .h | .g | .e | .f | .i | Σ |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| commits | 1 | 9 | 11 | 13 | 9 | 10 | 3 | 5 | 5 | 3 | **69** |
+
+⟨cmd⟩ `git log --format='' --name-only dd28da55..HEAD | sort -u` → **59 distinct paths**, each read
+against §Bounds `:96-141` and the §0u `.r` grant: **ZERO out of bounds.** The two rows that need their
+warrant stated rather than assumed, both stated: **`package-lock.json`** is `.r`'s own §0u grant
+(ADDENDUM `:414`), not the forbidden `package.json`; **`demo/scenes/easing/EasingScene.vue`** is `.r`'s
+unowned-remainder cure — it is **not** a KF.W11–W13 §Bounds row (KF.W12's easing carve is
+`EasingSidebar.vue`'s seat rows), which is exactly the condition `:414` sets.
+
+**The Do-NOT-touch list, measured EMPTY at this seat**: ⟨cmd⟩ `git diff --stat dd28da55..HEAD -- src
+node_modules package.json vitest.config.ts demo/scenes/cube/CubeAxisLines.vue
+demo/components/playback/PlaybackRibbon.vue demo/components/instrument/timeline
+demo/components/instrument/keyframes/composables/useKeyframeOps.ts
+demo/utils/gestureSelectSuppression.ts demo/DESIGN.md` → **no output, 0 lines**. ⟨cmd⟩ the same union
+`| grep -c 'dev.sh'` → **0** — `scripts/dev/dev.sh` appears in **0 of 69** commits.
+
+**The six MUST-NOT-SPLIT families, each verified ONE sha by `git show --stat` at this seat**: the four
+phantom `variant:` sites **`dc3f0900`** (CubeScene.vue 4 ± · SpringScene.vue 2 −, one commit) · ST-1's
+one word + one deletion **`f4249cb0`** (SequenceTarget.css + .vue, L-9) · **the guard family in BOTH
+composables `4ab4c4db`** (`useDragCapture.ts` 112 ± AND `useDragScrub.ts` 128 ± — **L-18 base (iii)
+cannot be raised**) · tether-truth **`b9b5476c`** (D-1+D-6+D-16+N-SQ-4) · MISS-3's settle-paced tour
+AND its assertion **`8c0122e1`** (4 files, one sha) · the spring-plot core **`e683d9a1`**
+(D-1+N-1+N-2+C-2/L-3, one file, one sha).
+
+**The four §Goal-criterion BLOCKER cores, each LANDED and read at its own sha**: CubeTarget #53
+**`bc5cc128`** (*"the die's only pre-start orientation writer paints"*) · SquareScene L-2
+**LANDED-BY `d7f68225`** (KF.W5 `.d`, the library arm — R.2 GREEN-BEFORE-CURE, its born witness
+`1233e42e` recorded passing at the demo end) · AmigaScene D-1 **`73b424da`** · SpringTarget C-1
+**`8dcf5882`**. **The criterion's own failure mode — a hygiene tail landed over an un-cured BLOCKER —
+did NOT occur.**
+
+**value.js side**: **18** commits carry the `x-kf-w11` grammar (11 unit receipts + the three decisions
+written before their patches + the close set), and **11 evidence files** stand at
+`keyframes/evidence/W11/` (`r` · `a`–`j`). Every value.js act is an append or a new file — **E-3 held**:
+no dated spec, adjudicated registry row or conformance artefact was edited.
+
+**Landed-wrong findings: NONE.** No commit of this wave writes a path outside its unit's writable set,
+no declared family is split, and no `src/**`, `node_modules`, `package.json`, `vitest.config.ts`,
+`CubeAxisLines.vue`, `PlaybackRibbon.vue`, timeline or glass-ui byte exists in the range.
+
+#### Act 2 — the ten gates, BEFORE → AFTER, at this seat's own commands, each run twice
+
+BEFORE = the wave's own Baseline, banked READ-ONLY at `dd28da55` (§Baseline, `:581-629`); AFTER = this
+seat, at `bf4a9a9c`, ⟨cmd⟩ `npx vitest run --project demo <file>` for G1–G9 and ⟨cmd⟩ `npm run test:demo`
+for G10.
+
+| gate | BEFORE (born-RED, `dd28da55`) | AFTER (this seat, `bf4a9a9c`) run 1 · run 2 | verdict |
+|---|---|---|---|
+| **G-KFW11-1** cube | `No test files found` ×2 | **17 passed (17)** · **17 passed (17)** | **GREEN** |
+| **G-KFW11-2** sequence | `No test files found` ×2 | **5 passed (5)** · **5 passed (5)** | **GREEN** |
+| **G-KFW11-3** spring | `No test files found` ×2 | **9 passed (9)** · **9 passed (9)** | **GREEN** |
+| **G-KFW11-4** spring-plot | `No test files found` ×2 | **1 failed \| 11 passed (12)** · identical | **RED** — one case |
+| **G-KFW11-5** facet | `No test files found` ×2 | **18 passed (18)** · **18 passed (18)** | **GREEN** |
+| **G-KFW11-6** artifact-truth | `No test files found` ×2 | **12 passed (12)** · **12 passed (12)** | **GREEN** |
+| **G-KFW11-7** square | `No test files found` ×2 | **7 passed (7)** · **7 passed (7)** | **GREEN** |
+| **G-KFW11-8** amiga | `No test files found` ×2 | **11 passed (11)** · **11 passed (11)** | **GREEN** |
+| **G-KFW11-9** drag-seam | `No test files found` ×2 | **9 passed (9)** · **9 passed (9)** | **GREEN** |
+| **G-KFW11-10** close | RED by construction; 39 files / 286 tests | **1 failed \| 47 passed (48)** files · **1 failed \| 414 passed (415)** tests, both passes | **RED** — the same case |
+
+**The one RED, at its cause, reproduced verbatim at this seat:**
+
+```
+ FAIL  |demo| test/demo/scenes/spring-trace-truth.test.ts > SpringTrace — the ceiling's coupling to
+       the ζ floor (L-14, documented AND enforced) > (4b) the floor the heatmap declares is not below
+       the one the plot pins
+Error: SpringHeatmap.vue no longer declares `DAMPING_MIN = <number>` — L-14's coupling anchor moved;
+       re-bind the plot's PLOT_DAMPING_FLOOR witness to the new declaration
+```
+
+**48 test files − 1 = the whole demo lane but this one case; 415 − 414 = one assertion.** The failure is
+`.e`'s own designed message firing as `.e` wrote it (residual e-R3) because `.f`'s contract commit
+re-homed the constant as the exported `DAMPING_AXIS.min` — **the L-14 coupling still holds; what moved
+is the witness's anchor.** `.f` kept no byte in `SpringHeatmap.vue` to satisfy a sibling's regex, which
+would have been a workaround aimed at a test. **This seat did not cure it either**: the cure is a write
+to `test/demo/scenes/spring-trace-truth.test.ts`, a keyframes.js byte, and this seat's writable set is
+value.js paths only — the standing law makes a write outside it an ESCALATION returned. **KF11-E(j1)
+stands, with its cure unchanged and stronger than the regex it replaces**: import `DAMPING_AXIS` from
+the shipped module and assert `DAMPING_AXIS.min >= PLOT_DAMPING_FLOOR`.
+
+**No `test.skip`, no `.only`, no widened timeout, no weakened assertion, no allowlist** was used by any
+seat, and none by this one, to turn G-KFW11-4 or G-KFW11-10 green. **The wave closes with the red
+carried honestly and attributed** (L-18 base (iv) refused twice).
+
+#### Byte clauses — all 17, re-measured at this seat, double-run, identical on both passes
+
+G-1 latch **0 · 0** (was 1) · G-1 `variant:` **nothing · nothing** (was `CubeScene.vue:2` ·
+`SpringScene.vue:2`) · G-2 word **1 · 1** (was 0) · G-2 css **0 · 0** (was 1) · G-3 rail **0 · 0** ·
+G-4 clock **0 · 0** (the route stated against it, unmoved) · G-5 clamp **0 · 0** (was 1) · G-6 aria
+**3 · 3** (was 0) · G-7 pacing **0 · 0** (was 1) · G-7 pause **nothing · nothing** (was
+`SquareScene.vue:1`) · G-7 docblock `sed -n '29p' … | grep -c ':161'` **0 · 0** (was 1) · G-7 `viewBox`
+**0 · 0** (STILL 0, as N-SQ-4 orders — the cure that adds one fails by construction, and none was
+added) · G-7 witness **1 · 1** (was 0) · G-9 acquire ×2 **1 · 1** each · G-9 `pointerId` **4 · 4**
+(was 1: the mention plus the latch's declaration, admission test and write). **17 of 17 read what
+§Gates requires.**
+
+#### Act 3 — §Verification artefacts (`:384-386`) at this seat
+
+| ⟨cmd⟩ | reading |
+|---|---|
+| `npm run check` | **exit 2** at leg 1 (`vue-tsc`) on the 24 rows below — **none of them in KF.W11's cured surfaces**; legs 2 and 3 unreached |
+| `npm run test:demo` | **1 failed \| 47 passed (48)** files · **1 failed \| 414 passed (415)** tests, both passes |
+| `npx eslint demo/scenes demo/composables demo/components/playback demo/components/instrument/transport/composables` | **exit 0, no output — the §Format scope is CLEAN** |
+| `git diff --check dd28da55..HEAD` | **no output — clean** |
+| `git diff dd28da55..HEAD -- test \| grep -c 'test.skip\|it.skip\|\.only('` | **1 · 1** literal; **semantic 0** — ⟨cmd⟩ `grep -rnE '\b(it\|test\|describe)\.(skip\|only)\(' test/` → **0 matches**. The single literal hit is prose in `spring-derby-truth.test.ts:21` that *names the masking class in order to forbid it*. Recorded as `.j` recorded it, not rounded to zero, not cured (the rewording is a keyframes byte outside this set) |
+| `git diff dd28da55..HEAD \| grep -c '^+.*@ts-expect-error'` / `'^+.*eslint-disable'` | **0** / **0** |
+| `grep -c 'DISCHARGE[D] by KF.W7 SWAP verdict' execution/B/KF-W11.md` (the pattern deliberately broken by a character class, as `.j` broke it, so the command cannot self-trip the very file it reads — the first draft of this cell quoted the string whole and read **1**; corrected at the settled bytes before commit, WRITE-THEN-MEASURE) | **0 · 0** — the KF-AV-28 discharge alphabet is EMPTY and always was; KF.W7 ruled KEEP-BESPOKE ×6 (`4c03ceda`), so no surface here was ever eligible to carry one. **This clause of G-KFW11-10 is GREEN.** |
+
+#### The ratchet (§0u part 2) at close
+
+⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.json 2>&1 | grep -c 'error TS'` → **24 · 24** (both passes'
+file histograms byte-identical). Against the spec's banked **54**: **−30**. Against `.r`'s
+CI-faithful floor **31** (KF11-E5): **−7**. **THE COUNT DID NOT RISE UNDER EITHER READING; §0u part (2)
+is MET.** Part (3) — 0 at KF.W13's close — is not this wave's to assert and is not asserted here.
+
+**All 24 homed at this seat's own histogram, none unowned-and-unnamed** (Σ = 24):
+`useTimingFunctionEditor.ts` 3 · `TransportDock.vue` 3 · `useEasingDemo.ts` 2 · `KeyframesStringControls.vue`
+2 · `KeyframesEditor.vue` 2 · `MbabbMenu.vue` 2 · `EasingSidebar.vue` · `TimingFunctionPanel.vue` ·
+`LayerConfigPanel.vue` · `ChannelOptions.vue` · `ChannelControls.vue` · `EditorShell.vue` ·
+`useKeyframeOps.ts` · `src/animation/physics/smooth.ts` · `src/animation/group/waapi.ts` ·
+`src/animation/group/composite/compositor.ts` (1 each). **KF.W12 §B.2 13 · KF.W13 §B.2 5 · KF11-E3 2
+(`useEasingDemo.ts`) · KF11-E4 1 (`EditorShell.vue(175,10)`) · KF11-E2 3 (`src/**`, unwritable).**
+
+**KF.W11's own cured surfaces contribute ZERO** — no `cube/`, `sequence/`, `spring/`, `square/`,
+`amiga/`, `useDragScrub.ts`, `useDragCapture.ts` or `AnimationVisualizer.vue` row appears. **The one
+row inside a KF.W11 §Bounds path is stated precisely rather than waved past**:
+`useKeyframeOps.ts(80,13)` TS2322 sits **outside** the `:58-69` `updateFromString` carve this wave was
+granted — the carve was never spent (L-2 landed library-first under R.2) and the byte is byte-unchanged,
+so the diagnostic is KF.W12's KFED-UNIT row where `.j` homed it. **No cast, no `@ts-expect-error`, no
+`eslint-disable` was written as a cure anywhere in the wave.**
+
+#### Act 4 — E13 Step-0, the four-path sweep re-run at this seat's clock
+
+Status read by **cell position and leading verb**, never a bare `grep -i unread`; `INBOX.md`
+self-excluded. (1) `docs/tranches/V/coordination/` — **24 entries**, newest non-self the five
+2026-09-18 `value-4.1` letters, **ours and rowed**. (2) `../glass-ui/docs/tranches/BK/coordination/` —
+**BK re-confirmed the newest glass tranche dir** (⟨cmd⟩ `ls -t docs/tranches/` → `BK · BJ · BI`); **9
+entries**; newest `glass-outbound-2026-09-18-valuejs-o26-reply.md` = **I-35, rowed, READ + CONSUMED
+WHOLE** (`INBOX.md:115`), UNMOVED. (3) `../keyframes.js/docs/tranches/V/coordination/` — **13 entries**,
+newest inbound-grammar letter = `VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md` = **O-21,
+ours**. (4) `../sci-report/atlas/docs/tranches/P/coordination/` — **28 entries**, newest mtime
+2026-08-03, UNMOVED. ⟨cmd⟩ `find <each path> -maxdepth 1 -type f -newermt "2026-09-19 00:00"` → exactly
+**two**, both self-or-ours (`INBOX.md`, self-excluded; keyframes' own `INBOUND-LEDGER.md`, clean in git,
+carrying no new letter). ⟨cmd⟩ `grep -cE '^\| [IO]-[0-9]+[a-z]? \|' INBOX.md` → **79** rows; the
+positional leading-verb scan → **0 UNREAD**. **ZERO unrowed letters · ZERO UNREAD · ZERO new `I-n`
+minted** (tail unmoved at **I-35 / O-39**). **No wave closes with UNREAD mail in scope; none is.**
+
+#### Act 5 — the push (residual j-R1 DISCHARGED)
+
+`.j` named 67 unpushed keyframes.js commits and declined to take the act because push was not among its
+enumerated acts and its lock was value.js paths only. **This seat's brief enumerates it, and the owner's
+2026-09-17 begin-word authorises it.** Taken, in order, never forced:
+
+- ⟨cmd⟩ `git -C ../keyframes.js fetch origin` → `origin/master` still **`2b649a1d`** (no concurrent
+  producer write to race).
+- ⟨cmd⟩ `git -C ../keyframes.js push origin HEAD` → `To github.com:mkbabb/keyframes.js.git ·
+  2b649a1d..bf4a9a9c · HEAD -> master`, **exit 0**. ⟨cmd⟩ `git status -sb` after → `## master...origin/master`
+  — **ahead 0. All 69 of the wave's keyframes.js commits are published**, where before only `.r`'s two
+  were.
+- ⟨cmd⟩ `git push origin HEAD` (value.js, `tranche-u`) → `e112514b..2a29323d`, **exit 0**; `## tranche-u...origin/tranche-u`,
+  ahead 0. *(The shared branch carried three concurrent tracks' commits at that moment; publishing
+  already-committed history on a shared branch is the act the brief names, and this seat staged no byte
+  of theirs.)* A second value.js push follows this commit and the LEDGER's.
+
+**No force, no `--amend`, no stash, no `reset --hard`, no branch moved.**
+
+#### Residuals — each with its named owner
+
+| # | residual | owner |
+|---|---|---|
+| **j-R1** | 67 unpushed keyframes.js commits | **DISCHARGED at Act 5** — `origin/master` = `bf4a9a9c` |
+| **j-R2** | the COHESION §4a mirror of the SS-6 accretion | **the orchestrator** — `COHESION.md` is in no close seat's hard-bound writable set; the same disposition KF.W0's close took (`LEDGER.md:45`). The eight rows themselves are written whole into `INBOX.md` and are not waiting on the mirror |
+| **j-R3** | the skip/only literal at `spring-derby-truth.test.ts:21` (prose naming the masking class) | **`.c`'s byte** — a keyframes.js write; semantic form measured **0**, so the gate's intent is met and only its literal grep reads 1 |
+| **j-R4** | `TransportDock.vue(95,34)` TS2322 present at close | **KF.W13** — a homing observation, not a rise; the whole-tree count fell |
+| **j-R5** *(this seat)* | G-KFW11-4 / G-KFW11-10 stay honest-RED until KF11-E(j1)'s one-line re-bind lands | **the orchestrator → a keyframes-side seat** (`test/demo/scenes/spring-trace-truth.test.ts`, `.e`'s create row); the cure is written out and costs one import and one assertion |
+
+#### Escalations — fourteen, unchanged by this seat; none blocks a sibling wave's dispatch
+
+**DISCHARGED**: **KF11-E1** (ruled at COHESION §0u as the RATCHET) · **KF11-E5** (the banked 54
+unreproducible — consumed by every unit's re-derivation and by the ratchet reading above; this seat's
+**24** is measured against `.r`'s settled lockfile tree, the same tree CI installs).
+**OPEN, each with its owner**: **KF11-E2** the three `src/**` TS6133 rows → **KF.W5/KF.W8**; still the
+sole cause of CI's `library gates` failure, and **§0u part (3) cannot be met by KF.W11–W13 alone** ·
+**KF11-E3** `useEasingDemo.ts` ×2 → **KF.W12** · **KF11-E4** `EditorShell.vue(175,10)` → **the shell
+seam's wave** · **KF11-E6** → **SS-6** (relayed as W11-P1) · **KF11-E7** the demo vitest lane cannot
+import an SFC that transitively loads glass-ui's spring chunk — raised independently by `.a`, `.b`,
+`.d`, `.g`, and **no seat patched `vitest.config.ts`, mocked the producer, patched `node_modules` or
+skipped a case** · **KF11-E(c1)** · **KF11-E(d1)** the loop-seam family needs `useSweepScene.ts` →
+**KF.W12** (nothing of it landed; the family was not split) · **KF11-E(f1)** → re-raised as
+**KF11-E(j1)**, which this seat reproduces and returns unchanged · **KF11-E(i1)** · **KF11-E(i2)** ·
+**`.h` C-20** (`checkerboard.jpg` dead, census clean, delete not taken).
+
+**Shas the successors open on, re-printed**: KF.W12 AXISLINE-UNIT → **`fff7232c`** · KF.W12 KFED-UNIT →
+`useKeyframeOps.ts` **byte-unchanged**, the `:58-69` carve unspent · KF.W13 → `useDragCapture`'s
+**exported surface unchanged**, `PlaybackRibbon.vue` never edited.
+
+#### The four verbs, moved only as §State permits
+
+| verb | state at close | basis |
+|---|---|---|
+| **AUDITED** | **YES** (unmoved) | the nineteen home records, as the spec banked them |
+| **SPECIFIED** | **YES** (unmoved) | `KF-W11.md`, the spec of record |
+| **IMPLEMENTED** | **YES — `complete_with_misses`** | the spec's own condition is the gates after the sequencing head; the head is ruled a RATCHET (§0u) and read **24 · 24, fallen and never risen**; **8 of 10 gates GREEN** at a second seat's own double-run clock with **both REDs on ONE named case**, all four BLOCKER cores landed, 69 of 69 commits in bounds, zero masking constructs. The qualifier travels with the verb and is never dropped |
+| **VERIFIED** | **NO** | §State `:19` — stamped only at a successor close; **this wave takes no verb from KF.W10's close and this seat stamps none** |
+
+#### SELF-COUNT
+
+**10** gates re-run, each **twice** · **8 GREEN · 2 RED**, both tracing to **1** case · **17** byte
+clauses re-measured twice, **17** reading as §Gates requires · **69** commits audited, **59** distinct
+paths, **0** outside §Bounds, **0** landed-wrong · **10** per-unit commit counts published, summing to
+**69** · **6** MUST-NOT-SPLIT families verified one sha each · **4** BLOCKER cores LANDED · **24**
+diagnostics standing, **all** homed, **0** in this wave's cured surfaces · **18** value.js `x-kf-w11`
+commits · **11** evidence files · **79** INBOX rows swept, **0** UNREAD, **0** new `I-n` · **0**
+SWAP-discharge receipts · **2** pushes taken, **0** forced · **5** residuals (**1** discharged here) ·
+**14** escalations (**2** discharged · **12** open with owners) · **0** keyframes.js bytes and **0**
+glass-ui bytes written by this seat · **0** figures published that were not read from settled bytes.
+
+**The close's verdict: X.KF.W11 is IMPLEMENTED `complete_with_misses` — eight of nine packets landed
+whole, every BLOCKER core cured, every commit in bounds and now PUBLISHED, the ratchet down thirty and
+never risen, and the single carried RED reproduced at a second seat, named at its sibling-seam cause,
+and returned with its cure rather than hidden or skipped.**
