@@ -280,7 +280,12 @@ proves it; nothing about it is cured here and no mechanism is re-booked.
 - AFTER (settled bytes, ×2): `Tests  12 passed (12)` · `Tests  12 passed (12)`.
 
 **G-KFW11-6, byte clause.** ⟨cmd⟩ `grep -c 'aria-expanded\|aria-pressed' demo/scenes/spring/StartingStyleTarget.vue`
-→ BEFORE **0 · 0** (must read ≥ 1) → AFTER **5 · 5**. GREEN.
+→ BEFORE **0 · 0** (must read ≥ 1) → AFTER **3 · 3**, read at the SETTLED bytes `0e604af8` and
+double-run: `:52` and `:55` (the decision comment) and **`:59` `:aria-expanded="visible"`, the
+binding itself**. It read **5 · 5** at `3252a7c2`; KF-SST-22's prose sweep retired two comment
+mentions and touched no attribute. **Both readings are published, neither silently elected** —
+this seat's first figure was taken before the sweep commit settled the file, and the clause's
+acceptance form (≥ 1) is met at every sha in this unit's range. GREEN.
 
 **§0u ratchet.** ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.json 2>&1 | grep -c 'error TS'` → **24 · 24**
 before and **24 · 24** after; ⟨cmd⟩ `… | grep -c 'StartingStyleTarget'` → **0** before and **0**

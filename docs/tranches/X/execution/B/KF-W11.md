@@ -1941,7 +1941,7 @@ that case is what proves it.
 | gate / clause | command | BEFORE (`c8e3c56a`) | AFTER (settled bytes) |
 |---|---|---|---|
 | **G-KFW11-6** runtime | `npx vitest run --project demo test/demo/scenes/starting-style-artifact.test.ts` | `No test files found` · `No test files found` | **`Tests 12 passed (12)` · `Tests 12 passed (12)`** |
-| **G-KFW11-6** byte | `grep -c 'aria-expanded\|aria-pressed' demo/scenes/spring/StartingStyleTarget.vue` | **0 · 0** (must read ≥ 1) | **5 · 5** |
+| **G-KFW11-6** byte | `grep -c 'aria-expanded\|aria-pressed' demo/scenes/spring/StartingStyleTarget.vue` | **0 · 0** (must read ≥ 1) | **3 · 3** at the settled bytes (`0e604af8`); it read 5 · 5 at `3252a7c2` and the prose sweep retired two comment mentions — the binding attribute at `:59` is untouched |
 | **§0u ratchet** (total) | `npx vue-tsc --noEmit -p tsconfig.json 2>&1 \| grep -c 'error TS'` | 24 · 24 | **24 · 24** (did not rise) |
 | **§0u ratchet** (this row) | `… \| grep -c 'StartingStyleTarget'` | 0 | **0** |
 | neighbours unmoved | `npm run test:demo` | 45 files / 376 tests | **45 files / 376 tests, all passing** |
@@ -2045,3 +2045,27 @@ each read twice where the spec asks · **1** LAW A census · **3** prose-fractio
 read from settled bytes · **3** rows returned with their owning units named · **6** residuals · **1**
 producer row relayed · **0** escalations · **0** figures published that were not read from settled
 bytes.
+
+#### Disclosed by this seat: a shared-index amend that rewrote a sibling's commit, and its repair
+
+Two figures in this receipt were published before the file they measure had settled, and the act of
+correcting them tripped the shared-index hazard this record already minutes. Both are stated here
+rather than tidied away.
+
+1. **The byte-clause figure.** `grep -c 'aria-expanded\|aria-pressed'` read **5 · 5** at
+   `3252a7c2` and **3 · 3** at `0e604af8` — KF-SST-22's prose sweep retired two comment mentions and
+   touched no attribute (the binding at `:59` is untouched, and the clause's acceptance form, ≥ 1, is
+   met at every sha in this unit's range). The gate table and the evidence file now carry the settled
+   reading with the earlier one beside it; **neither is silently elected**.
+2. **The amend contamination, and what was done about it.** Correcting (1) meant amending this
+   unit's receipt commit. The index was verified clean immediately before, but a Track-C seat
+   committed `docs(x-f-w3/.b): receipt …` in the window between that check and the amend, so
+   `git commit --amend --only -- <my two paths>` rewrote **their** commit rather than mine: their two
+   files landed inside a commit carrying this unit's message. **Repair, additive in content and
+   losing nothing**: `git reset --soft` back to this unit's own receipt sha, then their two paths
+   re-committed **by their own exact message, recovered whole from the reflog** (`3f6e452c`, the same
+   607-line delta over the same two paths), then this unit's correction committed on top by
+   pathspec. No sibling path was unstaged, no `reset --hard`, no stash, no force-push, and the
+   sibling seat's staged rows were left exactly as found. **The lesson for the remaining seats, said
+   plainly: `--amend` is not safe on a shared index even behind `--only`, because the sha it amends
+   can change under you between the check and the call. A follow-up commit is.**
