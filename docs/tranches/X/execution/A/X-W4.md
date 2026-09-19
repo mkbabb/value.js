@@ -983,3 +983,308 @@ out-of-bounds `smoke`-project tests RED** (`walk.spec.ts:89`, `o20-generate-plat
 `e2e-smoke` is a HARD CI job (CC-031). The repair is named to the byte in b.7 and **was not taken**,
 because neither path is in any W4 §4 row. No bounds were widened, no gate was narrowed, and no
 assertion was relaxed.
+
+---
+
+### X.W4.c
+
+**SERVED MODEL: claude-opus-5[1m]** · Opus implementation seat (M-23, `W4.md:219`) ·
+**Track A · wave X-W4 · unit c**. Sitting date of record stays **2026-09-17**. Wall clock at this
+seat `2026-09-19 00:49:53 EDT` → `01:22 EDT` ⟨cmd⟩ `date "+%Y-%m-%d %H:%M:%S %Z"`.
+**HEAD at entry** `97d5873b` ⟨cmd⟩ `git log --oneline -1` · branch `tranche-u`
+⟨cmd⟩ `git rev-parse --abbrev-ref HEAD`.
+
+**Sections executed**: `W4.md` §3 Scope 6 (`:64-67`) · §5 `### X.W4.c` (`:255-270`) · §6 unit-c gate
+table (`:392-399`) · §9 commit row 5 · §8 artefacts 5, 8.
+**Rulings consumed**: COHESION **§0j.A** — **U-F12 Pole B** (no dark-accent work; none done) and
+**DR-24** `scripts/dev/dev.sh` NEVER touched, never staged. COHESION re-read to the file end
+(**1,540 lines**, §0p–§0t present) ⟨cmd⟩ `grep -n "X-W4\|X\.W4" docs/tranches/X/COHESION.md` → eight
+hits, **every one** on `X.W4.g`'s trigger-gated cut (`:72`, `:669`, `:675-676`, `:690`, `:759`,
+`:804`, `:1104`) plus §0j.A's U-F12 row (`:869`). **No later addendum rules on this unit**, and
+`X.W4.g` stays CLOSED on X-W0.j's dated census **FAIL (1 of 4 at the elected 8.0.0)**.
+**Adjudication read whole** (the authorities this unit's locks come from):
+`docs/tranches/V/megatranche/registry/adjudicated/GradientStopEditor.md` (298 L) — r1 §2 **D-7**,
+GRADSTOP-A **§6** (readout vacuity), r3 rows **7 · 26 · 35**, r3.5 **§14 / §15 / §16**; and
+`docs/tranches/V/VISUAL-CONSTITUTION.md` **§5.2** rows `:127` (gradient stop position) and `:131`
+(explicit reorder: *"after Space grabs … Space drops, Escape cancels"*).
+
+---
+
+#### c.0 CRASH-RECOVERY — this unit's writable set was CLEAN at entry
+
+⟨cmd⟩ `git status --porcelain` at entry → **6 rows**, and ⟨cmd⟩ `git status --porcelain --` over
+**each** of this unit's four writable paths → *(empty)*. **There was no inherited work on unit c**;
+the 2026-09-18 restart's partial work was unit a's and landed in its own commits. The rows outside
+this set — `scripts/dev/dev.sh` (DR-24), `docs/tranches/V/reformation/CARRY-LEDGER.md`,
+`docs/tranches/V/coordination/INBOX.md`, `docs/tranches/X/keyframes/waves/KF-W{0,1,2}.md` and (mid-unit)
+`docs/tranches/X/execution/{B/KF-W10.md,LEDGER.md,C/F-W7.md}` — were **left exactly as found**.
+Nothing was stashed, reset, restored or unstaged; `stash@{0}` was never popped.
+
+#### c.1 Anchors verified at the true bytes BEFORE one edit
+
+| anchor the brief banked | measured at entry | verdict |
+|---|---|---|
+| `barRef` `:201-202` | `:200-202` `<div ref="barRef" data-testid="gradient-stop-bar">`, no `role`, no `tabindex`, `cursor-copy` | **LIVE** |
+| `onHandleKeydown` `:173` | `:173-187`, handling **ArrowLeft · ArrowRight · Delete · Backspace · Escape** only | **LIVE** |
+| `.rail-handle w-5 h-5` `:235` | `:235` `class="rail-handle absolute top-1/2 w-5 h-5 rounded-full border-2 …"` | **LIVE** |
+
+#### c.2 Born-RED FIRST — the gate spec landed and ran RED before one product byte
+
+`e2e/smoke/a11y-gradient-stop-grammar.spec.ts` (**538 L**, line 1 `// SERVED MODEL: claude-opus-5[1m]`)
+was authored and run **twice** at ⟨cmd⟩ `git status --porcelain -- demo/` → *(empty)*:
+
+```text
+⟨cmd⟩ npx playwright test --project=smoke e2e/smoke/a11y-gradient-stop-grammar.spec.ts --reporter=line
+BORN-RED, run 1 and run 2 IDENTICAL → EXIT 1 · 5 failed, 0 passed
+C1  Error: Tab never reached the caret in 140 presses
+C2  [{"role":null,"min":null,"max":null,"now":null,"text":null,"name":"Gradient stop at 0%"}, … ×3]
+C3  home=231.75 end=227.359 unit=-0.0439px/%  defects=8   (Home and End were NO-OPS)
+C4  fine   [{"w":20.7,"h":20.7,"hitW":24,"hitH":24,"faceW":null}, ×2]
+C4  coarse [{"w":20.7,"h":20.7,"hitW":44,"hitH":44}, ×2]
+```
+
+Landed as **`96936340`** before the cure.
+
+#### c.3 The cure — exactly §5's mechanism, and the three readings it forced
+
+1. **A focusable, roled seat that mints at the caret** (C1). The seat is a real `<button>` parked on
+   the rail (`data-testid="gradient-stop-caret"`, `aria-label="Add gradient stop at N%"`), arrows /
+   Home / End / PageUp / PageDown move it, Enter or Space mints. **Reading recorded**: §5 says *"give
+   the rail root a focusable, roled seat"*; the rail root itself could not BE that seat — ARIA gives
+   `slider` and `button` **presentational children**, so a roled rail root containing focusable stop
+   handles is invalid by construction, and `role="group"` + `tabindex` is a container that no AT
+   forwards keys to. The seat therefore lives AT the rail root as its child, and the root takes
+   `role="group"` + a name. The caret carries **no `data-stop-id`**, so `onBarPointerDown`'s guard is
+   untouched and a pointer press that lands on the caret is still the BAR's add, at the pointer —
+   C1's falsifier (*"fails if the new keyboard seat breaks the pointer-add gesture"*) is measured
+   live in the same test: 2 → 3 (Enter) → 4 (Space) → **5 (a real bar click)**.
+2. **Slider semantics** (C2): `role="slider"`, `aria-orientation`, `aria-valuemin="0"`,
+   `aria-valuemax="100"`, `aria-valuenow` (the model's own number), `aria-valuetext="Position N%"`
+   and the **ordinal in the name** — `Gradient stop 2 of 3`. The percentage moved OUT of the name
+   and INTO the value on purpose: a name that changes every drag frame re-announces the control
+   instead of its value, and GRADSTOP-A §6 bans reading that name for a position anyway.
+3. **The full key set** (C3), each arm carrying its constitutional authority: Right/Up +1%,
+   Left/Down −1% (Shift ±10), PageUp/PageDown ±10, **Home = 0% and End = 100%, unconditional**
+   (§5.2 `:127`), Delete/Backspace removes, Escape clears the selection — and **Space grabs, Space
+   drops, Escape cancels to the grab's origin** (§5.2 `:131`). **Reading recorded**: §5.2's stop
+   row expresses the grab as an *ordinal* move; an ordinal swap here would write a non-monotonic
+   model, which is exactly the L-1/D-2 BLOCKER whose cure (normalise-on-write) **GRADSTOP-A §14
+   reserves to X-W6** — and §15 bans the separation law outright. The grab therefore lands as a
+   POSITION gesture (an undoable keyboard drag), and C3's Space arm is measured at `style.left`
+   across the gesture in both directions. It is **not vacuous**: with no grab state Escape cannot
+   restore, so the cancel arm is RED on the pre-cure bytes.
+4. **Target ≥24×24 with the 20px silhouette HELD** (C4): the `<button>` becomes the
+   `max(1.5rem, 24px)` **seat** and a new `aria-hidden` `.rail-handle-face` inside it keeps the
+   `w-5 h-5 border-2` **paint**, byte-for-byte as before. `HANDLE_HALF` is **untouched** — the axis
+   constant and the D-1 skew are X-W6's, and growing the painted dot instead would have moved them.
+   The material lift moves to the face and the ring stays on the seat, so the U-F25 composition now
+   holds *by construction* (two elements cannot clobber one property). The U-F27 `::before` stays as
+   the coarse 44px rung.
+
+⟨cmd⟩ `git diff` measured three ways, because §7's cadence orders `prettier --write` over the
+touched surface and the file was prettier-unclean at HEAD (units a and b booked the same debt):
+**format-only churn 36 lines** · **cure-only +266/−53** · total landed 353.
+
+#### c.4 Gate readings — BEFORE → AFTER, DOUBLE-RUN, both runs byte-identical
+
+```text
+⟨cmd⟩ npx playwright test --project=smoke e2e/smoke/a11y-gradient-stop-grammar.spec.ts --reporter=line
+AFTER, run 1 → EXIT 0 · 5 passed        AFTER, run 2 → EXIT 0 · 5 passed
+[W4-C1] caretLeft=252 mintedLeft=252 inline="calc(55% - 1px)" · pointerEventsDuringKeyboardJourney=0
+[W4-C2] role=slider min=0 max=100 now=0|50.2|100 text="Position …%" name="Gradient stop N of 3"
+[W4-C3] home=10 end=450 unit=4.4000px/% · defects=0
+[W4-C4-FINE]   [{"w":24,"h":24,"hitW":24,"hitH":24,"faceW":20,"faceH":20,"rootFontSize":16} ×2]
+[W4-C4-RING]   {"shadow":"rgba(0,0,0,0.85) 0 0 0 1px, rgba(255,255,255,0.92) 0 0 0 3px","spread":3,"clippers":[],"focusVisible":true}
+[W4-C4-COARSE] [{"w":24,"h":24,"hitW":44,"hitH":44} ×2]
+```
+
+| gate | BEFORE (born-RED, pre-byte, double-run) | AFTER (double-run) | verdict |
+|---|---|---|---|
+| **C1** keyboard creation exists | no seat to Tab to in 140 presses; creation was `onBarPointerDown/Up` only | 2 → **3** (Enter) → **4** (Space), **0** pointer events; and the pointer add still mints (→ **5**) | **GREEN** |
+| **C2** handles are sliders | `role=null`, no `aria-value*`, no ordinal (3 of 3 handles) | role · min · max · now · valuetext · `N of 3` on 3 of 3, and `getByRole("slider")` finds all three | **GREEN** |
+| **C3** the full grammar | Home/End no-ops; **7 keys absent**; 8 defects | **0 defects** — Home→10px, End→450px, Page ±44px, arrows ±4.391px, Space grab 0 / cancel −13.187 / drop commits | **GREEN** |
+| **C4** target + visible focus | `.rail-handle` **20.7×20.7** at both matrices; ring unmeasured | **24×24** fine and coarse, face **20×20**, ring 1px+3px painted, **clippers = []** | **GREEN** |
+
+**The wave-level payoff, measured rather than assumed.** Unit a closed PARTIAL with A1 and A2
+**RED-CARRIED on exactly two rows each** — *"they live in `GradientStopEditor.vue` … A1 and A2 turn
+on unit c's landing, and the same two spec files re-measure them with no edit"* (a.4, a.8 residual 1).
+Re-run here with **no edit to either spec**, double-run:
+
+```text
+⟨cmd⟩ npx playwright test --project=smoke e2e/smoke/a11y-control-targets.spec.ts             → 3 passed
+⟨cmd⟩ npx playwright test --project=smoke-mobile e2e/smoke/mobile/a11y-control-targets.spec.ts → 3 passed
+[W4-A1] undersized=0   (was 2)      [W4-A2] undersized=0   (was 2)
+[W4-A4] nameless=0                  [W4-A4-COARSE] nameless=0     (the new caret seat is named)
+```
+
+**A1 and A2 are GREEN.** Unit a's carried RED is closed by this unit's landing, exactly as `W4.md`
+§6 authored it.
+
+#### c.5 The one instrument hardening, with its measured cause
+
+The first AFTER run failed C4's ring arm on
+`{"shadow":"rgba(0,0,0,0) 0px 0px 0px 0px, rgba(0,0,0,0) 0px 0px 0px 0px","spread":0}` — the
+handle's own `box-shadow` **transition**, read at the instant focus landed, returns the
+interpolation's first frame. The arm now **polls** the ring to its settled value (`cf108ec6`).
+o27 solves the same problem by overriding the product's transition with `!important`; that is the
+right aid for that oracle and the wrong one here, because this gate's subject is the affordance a
+user actually sees. **Not one assertion changed**, and the born-RED verdict was taken before the
+hardening and stands.
+
+#### c.6 Commits — pathspec on the commit itself, one meaning each
+
+| # | sha | scope | paths |
+|---|---|---|---|
+| born-RED | **`96936340`** | `test(x-v/w4.c)` the gate spec, RED before the cure | `e2e/smoke/a11y-gradient-stop-grammar.spec.ts` (538 L) |
+| beside | **`cf108ec6`** | `test(x-v/w4.c)` the ring arm reads the settled affordance | the same spec, +15 |
+| §9 row 5 | **`666978d4`** | `feat(demo/gradient-stop-grammar)` the cure **and** the two bindings it invalidated | `GradientStopEditor.vue` + `e2e/smoke/views/gradient.spec.ts` |
+| beside | **`1c34ce6e`** | `docs(x-v/w4.c)` §8 artefacts 5 + 8 | `gradient-grammar.json` + 8 PNGs |
+| beside | **`38de7661`** | `test(x-v/w4.c)` the key-by-key ledger artefact 5 is made of | the same spec |
+
+⟨cmd⟩ `git show --stat` on each returns **exactly** its own paths and no sibling seat's (1 · 1 · 2 ·
+9 · 1 files). `scripts/dev/dev.sh`, `CARRY-LEDGER.md`, `execution/LEDGER.md`, `execution/B/KF-W10.md`
+and `execution/C/F-W7.md` were **never staged**. The cure and the re-anchor are ONE commit on
+purpose: either alone would leave a self-inconsistent commit in a history where `e2e-smoke` is HARD.
+The eight PNGs needed `git add -f` and it is **disclosed, not quiet** — `.gitignore:34` ignores
+`*.png` repo-wide and `:35` negates only `demo/**/*.png`; force-adding evidence PNGs under
+`docs/tranches/**` is the repo's own idiom (435 tracked PNGs) and `.gitignore` was not touched.
+
+#### c.7 The in-bounds re-anchor, and the ONE out-of-bounds casualty (§3a, stated not taken)
+
+**In bounds** — `e2e/smoke/views/gradient.spec.ts` held the only two bindings this cure invalidated,
+and it is this unit's `modify` row, so both were re-anchored **to the instrument the authorities
+name**: `:169-171`'s `aria-label`-percent parse now reads the handle's own `left` (GRADSTOP-A §6)
+with `aria-valuenow` banked beside it, and `:197`'s `[aria-label="Gradient stop at 80%"]` becomes
+`[data-stop-id][aria-valuenow="80"]`. Both tests **pass**.
+
+**Out of bounds — `e2e/smoke/oracles/o27-focus-affordance.spec.ts:126-129`**, the BR-3 arm
+*"the 20px visual dot HELD"*: it reads `getBoundingClientRect()` on `[data-stop-id]` and asserts
+`18 < w < 22`. That element is now the **seat** (24), while the dot it names is the `.rail-handle-face`
+(20). ⟨cmd⟩ `grep -c "o27" docs/tranches/X/waves/W4.md` → **0**; the file sits in **no** W4 §4 row
+and in no other X wave's table (`W6.md`'s `o27-scene-contracts.spec.ts` is a different file), so
+**not one byte was written for it**. Recommended repair **stated, not taken**: measure the face —
+`el.querySelector(".rail-handle-face")!.getBoundingClientRect()` — which is the same 20×20 assertion
+against the element that now carries the silhouette, and which **this unit's own C4 already asserts**
+(`faceW ∈ (18,22)`, measured 20). The alternative — leaving the seat at 20 — fails C4, A1 and A2 and
+is the masking move this wave forbids. The orchestrator owns the repair, or a dated E-3 bounds
+addendum admitting the path.
+
+**The causes were separated BY MEASUREMENT, not by assertion** (the b.7 discipline). The suspect
+tests were re-run against the **pre-cure bytes** (`git checkout 96936340 -- <this unit's two files>`,
+run, restore — both files are this unit's own, nothing else was touched, and ⟨cmd⟩
+`git status --porcelain -- demo e2e` was empty afterwards):
+
+```text
+⟨cmd⟩ npx playwright test --project=smoke e2e/smoke/views/gradient.spec.ts e2e/smoke/oracles/o27-focus-affordance.spec.ts \
+      -g "20px visual dot HELD|EVERY operable control class|renders direction slider|selecting a stop pins|easing row carries"
+PRE-CURE → 4 failed, 1 passed
+```
+
+| test | pre-cure | at HEAD | attribution |
+|---|---|---|---|
+| o27 BR-3 *"the 20px visual dot HELD"* | **PASSED** | FAILED (`Expected < 22, Received 24`) | **THIS CURE'S** — the one casualty above |
+| o27 *"EVERY operable control class paints an outline"* | FAILED (`getByRole('option', {name:'Picker'})` never visible, inside the dock fixture, under forced-colors) | FAILED identically | **PRE-EXISTING** |
+| gradient *"renders direction slider"* `:60` | FAILED (`/H \d+(–\d+)?°/` vs `""`) | FAILED identically | **PRE-EXISTING** — the render tile is an EMPTY `<div role="img">` with no text child (`GradientVisualizer.vue:222-228`, a file this unit never opened); r3.1 item 4 booked these dead-DOM anchors on 2026-07-28 (*"`Perceived-space` only in `gradient.spec.ts:57/:112`"*), and r3.3 row 4 (C4) routes them to MT-GRADSTOP-1's **G13** → **X-W6** |
+| gradient *"selecting a stop pins the envelope plate"* `:114` | FAILED identically | FAILED identically | **PRE-EXISTING**, same row |
+| gradient *"easing row carries its live ramp"* `:272` | FAILED (`"steps(4, end)"` vs `"steps(4, jump-end)"`) | FAILED identically | **PRE-EXISTING** — an easing-literal drift this unit's file cannot reach |
+| o21-gradient-rail (whole spec) | — | **PASSED** | untouched by the cure |
+| o27 BR-1 · BR-1 forced-colors · BR-3 coarse · BR-4 | — | **PASSED** | the ring, the WHCM outline and the coarse rung all survive the split |
+
+#### c.8 §7 cadence
+
+```text
+⟨cmd⟩ npx eslint demo e2e                                    → EXIT 0
+⟨cmd⟩ npx vue-tsc -p tsconfig.demo.json --noEmit             → EXIT 0
+⟨cmd⟩ npx tsc -p tsconfig.e2e.json --noEmit                  → EXIT 0
+⟨cmd⟩ npx prettier --check <the 3 touched paths>             → CLEAN
+⟨cmd⟩ git diff --check -- demo e2e docs                      → EXIT 0
+```
+
+**`prettier --check demo e2e` stays RED over 202 files** — pre-existing at HEAD, booked by units a
+and b for X-W11's hygiene walk; the three files this unit touched are clean. **`npm run typecheck`
+(library) is a NULL-DELTA check and reads one pre-existing error** —
+`test/v4-css-emerging.test.ts(12,10): TS2459 … 'serializeCssValue' … not exported` — in a `test/`
+file this unit never opened; ⟨cmd⟩ `git status --porcelain -- src test` → *(empty)*. **Zero `src/`
+bytes**, as the wave states.
+
+#### c.9 §8 artefacts
+
+- **Artefact 5** — `evidence/W4/gradient-grammar.json` (`1c34ce6e`, `servedModel` on its first key):
+  the born-RED cell beside the cured one, and the **21-press key-by-key ledger** — each key with its
+  `left` before, after, delta, and the inline declaration the delta was read from. Both runs of the
+  ledger were compared byte-for-byte ⟨cmd⟩ `IDENTICAL_RUNS= true`.
+- **Artefact 8** — eight rail PNGs, fine and coarse, before and after, plus the caret-focused and
+  handle-focused pairs. **The at-rest pairs are byte-identical** ⟨cmd⟩ `shasum -a 256` →
+  `de4577b74e7adf99…` for `gradient-rail-fine-{before,after}.png` and `27c5e68b67ebc35f…` for
+  `…-coarse-{before,after}.png`. That equality **is** the claim of §5's *"the 20×20 visual silhouette
+  may stay"*: the rail at rest is pixel-for-pixel what it was, and only the seat grew.
+
+#### c.10 Residuals, recorded so nothing is silently dropped
+
+1. **o27 BR-3's fine arm is RED and it is this cure's** (c.7). One assertion pair, one named
+   one-line repair, out of every W4 bound. `e2e-smoke` is a HARD CI job, so this unit closes
+   **PARTIAL**, not DONE.
+2. **Three pre-existing gradient REDs stand untouched** (c.7): two dead-DOM plate assertions
+   (r3.3 row 4 / G13 → **X-W6**) and one easing literal (`steps(4, jump-end)`). Curing them would be
+   taking X-W6's work on a mismatch this unit has not diagnosed.
+3. **The `Gradient stop at N%` name is retired.** Out-of-tree adjudication probes use
+   `button[data-stop-id][aria-label^="Gradient stop at"]` as a SELECTOR convention
+   (`GradientStopEditor.md` r1 §3 π obligations, r3.4 π obligations). Those probes are banks, not
+   gates, and **`data-stop-id` — which every live spec actually binds — is unchanged**; recorded so
+   a later seat reading the adjudication's selector line is not surprised.
+4. **The painted box varies ~3.5% between runs** (20.7 vs 20.0; 24.8 vs 24.0): a residual scale
+   leaks into `getBoundingClientRect`, the same phenomenon unit a booked in its A3 note. No gate
+   moves — every reading sits on the same side of its floor — and `rootFontSize` is now recorded
+   with the geometry so the next seat can tell the two causes apart.
+5. **A producer ask exists and was NOT taken**: the multi-thumb rail species stays GLASS-ROUTED
+   (L-13 / D-14, banked), and this unit added **no new hand-rolled rail mechanics** — the caret is a
+   `<button>` and the handles are the same buttons with ARIA. A relay letter would need
+   `docs/tranches/V/coordination/**`, which is in no W4 §4 row; the adjudication's own ordering
+   covers it (*"the a11y contract lands locally NOW via D-7's cure — accessibility does not wait on
+   a sibling repo"*).
+6. **`X.W4.g` untouched and CLOSED** — ⟨cmd⟩ `grep -rn 'watercolor-dot' demo | wc -l` → **11**, the
+   bank intact. Artefact 9 is correctly **absent**.
+
+#### c.11 Locks discharged
+
+- **Born-RED first** — the gate spec landed and ran RED twice (`96936340`) before one product byte;
+  ⟨cmd⟩ `git status --porcelain -- demo/` was empty at that commit.
+- **Assertions read `style.left`, NEVER the rounded `aria-label`** (GradientStopEditor addendum §6)
+  — every position in the gate and in artefact 5 is the handle's own `left`; the name is read for
+  exactly one thing, C2's ordinal. The one surviving `aria-label`-percent read in the repo
+  (`gradient.spec.ts:169`) was re-anchored to `left` by this unit.
+- **The pointer-add gesture keeps a live case beside the keyboard one** — in C1's own test, after
+  the keyboard arm: a real `bar.click()` mints (4 → 5).
+- **NO new hand-rolled rail mechanics** — one `<button>` seat, one `aria-hidden` face span, ARIA
+  attributes and a keydown switch. The multi-thumb species stays banked (residual 5).
+- **The role-choice reading did NOT reach a third failure** — `slider` was taken on the first
+  reading, from `W4.md:261` and D-7's own text, and measured green in the a11y tree (C2). The one
+  role question that *was* re-read (the rail root) is recorded in c.3 with its ARIA reason, not
+  escalated: it is a shape reading inside the named cure, not a failed gate.
+- **`HANDLE_HALF` and the axis are untouched** — X-W6's, per `W4.md:77-80`.
+- **U-F12 Pole B** — no dark-accent work; the cure touches semantics, geometry and focus only.
+- **`scripts/dev/dev.sh`** — never opened, never staged.
+- **glass-ui and every sibling tree READ-ONLY** — `node_modules/@mkbabb/glass-ui/**` was not written;
+  no producer selector was copied (the census's `[data-slot="slider"]` attribution stamp was
+  **deliberately not** used to re-attribute the handle — that would have been a copied producer
+  selector, a HIGH defect, and the seat was grown honestly instead).
+- **No masking move** — no `try/catch` around a defect, no `test.skip`, no allowlist, no
+  `node_modules` patch, no assertion relaxed. The one instrument change (c.5) polls the product's own
+  settled value instead of overriding the product.
+- **E13** — four-path sweep re-run at this seat's clock (`2026-09-19 01:20:29 EDT`) ⟨cmd⟩
+  `/usr/bin/find <each path> -maxdepth 1 -type f -name '*.md' -newermt "2026-09-19 00:36"` → only
+  keyframes' `INBOUND-LEDGER.md` (a sibling's ledger, not a letter). **0 new letters · 0 new `I-n` ·
+  0 UNREAD in this unit's scope**: the five UNREAD rows — **O-20 · I-30 · I-31 · I-32 · I-35** —
+  route by their own Routing cells to the X formation mail seat / X-W0.j / X-EXT-1..6 / X·KF, and
+  X-EXT-1 routes to **`X.W4.g`**, which the census FAIL keeps closed. Measured against this unit's
+  vocabulary ⟨cmd⟩ `grep -rEil "aria-valuetext|role=\"slider\"|gradient stop|keyboard grammar|focus-visible|target size|WCAG 2.5.8"`
+  over `V/coordination/*.md` → the sole hit is `INBOX.md` itself (self-excluded, SELF-COUNT law).
+
+**STATUS: PARTIAL.** **C1 · C2 · C3 · C4 all GREEN**, double-run and byte-identical across runs, and
+**unit a's carried A1/A2 REDs are closed by this landing** (0 undersized at both matrices, measured
+twice with no edit to either spec). The unit is **PARTIAL and not DONE** for one reason, stated
+loudly: the spec-ordered target growth leaves **one out-of-bounds `smoke` assertion pair RED**
+(`o27-focus-affordance.spec.ts:126-129`, the 20px-dot arm now reading the 24px seat), and
+`e2e-smoke` is a HARD CI job (CC-031). The repair is named to the byte in c.7 and **was not taken**,
+because the path is in no W4 §4 row. No bounds were widened, no gate was narrowed, and no assertion
+was relaxed.
