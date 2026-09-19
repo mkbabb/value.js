@@ -1212,3 +1212,105 @@ Swept read-only at this seat's clock (four paths + the register): 24 · 9 · 13 
 | **unit head** | **`ec49bbef`** |
 
 `.e` inherits by name: `KeyframesStringControls.vue(55,9)` · `(76,5)` — its two TS6133s, untouched, now one line lower than the re-open table's `(54,9)` · `(75,5)` because of this unit's boundary docblock.
+
+### KF.W12.c — part 2 (the close)
+
+SERVED MODEL: claude-fable-5-1
+
+**Status: PARTIAL** — G-KFW12-3 GREEN on every clause (runtime 7 of 7, four consecutive runs; byte clauses 2→0 · 1→0 · 1→0; the `:38-47` comment rewritten); the §0u ratchet gate RED on ONE diagnostic, ESCALATED at its root (E-c1) — nothing narrowed, cast, guarded or allow-listed. Twelve kf commits (SELF-COUNT: ⟨cmd⟩ `git log --oneline 2cd314af..HEAD | grep -c 'X.KF.W12.c'` → **12**); unit head **`c82f92ea`**. Transcripts in `evidence/W12/KF-W12-c-gate-transcripts.md`; the born-RED and the bites in `evidence/W12/KF-W12-c-born-red.md`; the identity's both strings, chain and the L-M3/C-B2 re-derivation in `evidence/W12/KF-W12-c-apply-identity.md`. (This part sits below `.d`'s receipt because `.d` appended first; the unit's part 1 is at `### KF.W12.c` above — E-3, nothing edited in place.)
+
+#### The acts, in order, each with its sha
+
+| # | act | sha | proof |
+|---|---|---|---|
+| 0 | OP-6 frontier verification + OP-2 by vacancy + §0u banked 16·16 (value.js) | `88655c02` | part 1 |
+| 0′ | the apply identity DECIDED before a byte; KF-KE-6/-7 designed (value.js) | `ec334c53` | part 1 |
+| 1 | **KF-KE-4** — class = selector: `getTmpAnimationName()` returns `keyframesStyleId` verbatim; the strip + `toLowerCase()` deleted | `1b29fb22` | born-RED `class="keyframes-style-kfed-offsets-Transform"` vs `selector="kfed-offsets-transform"` → GREEN all four strings equal, twice (pasted, evidence §3) |
+| 2 | **KF-KE-6 + KF-KE-12 ≡ N-5** — sheet/`isApplied`/`prevPaused` lifted to registries keyed by style id (refcounted, lazy, last-holder-out); `clear()` into `onBeforeUnmount`, refcount-aware; adoption = the registry, never `querySelector` | `7a10d7ff` | clause (5); the bite reds `expected +0 to be 1` |
+| 3 | **KF-KE-5 (BLOCKER)** — cluster on `z-content` + `pointer-events-none`/`-auto` row; the `<pre>` loses `relative`; the `:38-47` comment and two more (KF-KE-45 / KF-KC-22 / KC-25) rewritten to describe what is there; the offset field's `sticky` + `z-modal` gone (KC-25 ≡ KF-KC-28 ≡ KF-KE-41 ≡ KF-KE-22's sticky half) | `d10ab8b4` | clause (3); byte clause 1→0; `.a`'s nine card cases green |
+| 4 | **KF-KE-3 (+ -26 · -37 · -46)** — `requireKeyframeSelector` at the field; commit on `change` from a local draft; `invalid` → `aria-invalid` + described-by status in the house register; the editor's seam replaces the frozen selector whole | `73e57a93` | clause (2): `500%`/`-20%` refused at the field with the model untouched; keystrokes alone commit nothing; `25%`/`from`/`entry 50%` commit whole; byte clause 2→0 |
+| 5 | **KF-KE-7 (+ KF-CB-11's shell = `.a`'s KC-3, standing together; KF-KE-61)** — removal = command, motion = decoration under a budget; departing set keyed by frame id; the motion targets only elements that exist (the two TS2345 fall with the guard) | `eda8bc43` | clauses (4a)/(4b) |
+| 6 | **KF-KE-8** — the brush (standalone, infinite) opts in via `respectReducedMotion: true`; the group rides `AnimationGroup.respectReducedMotion = true` (KF.W5, LANDED-BY); sweeps via their bags (KAD-11) | `a10e5793` | bytes; `.e`'s D-25 named as the other half |
+| 7 | **KF-KE-24 pipeline half** — the hljs theme injected under `@layer components` (so `bg-transparent` outranks the theme's `.hljs` plate by layer order); the KF-KE-32 comment re-stated as landed | `c026121a` | bytes + clause (1)/(3) still green |
+| 8 | **the tail** — KF-KE-13 · 19 (stated) · 20 · 28 · 33 · 38 · 44 · 48 · 49 · 51 · 55 · 56 · 58 · 60(ii) · 62 · 63 · 65 · 57 (the last hyphenated literal); the one TS2322 named at its root | `eba0bd6b` | bytes; suite green |
+| 9 | **G-KFW12-3** — the harness + 7 cases (8 with the (4a)/(4b) split) | `5e95bdf3` | `7 passed (7)` |
+| 10 | **KF-KE-7 correction, found BY the gate** — budget = 2 × the motion's declared length (was + one frame; a loaded runner's 730 ms landing read as a hang and the removal committed before the card left) | `781ac250` | evidence born-red §6 |
+| 11 | (4a) deterministic at the `AnimationGroup.of` seam; (4b)'s window follows the new budget | `4fa6efec` | 3 consecutive 7/7; `test:demo` 2 failed (neither mine) ×2 |
+| 12 | KF-CE-41 prose — the card comment names the replaced parser by kind, not the retired token (a false hit for the wider byte census) | `c82f92ea` | census 0 across the set ×2 |
+
+**Order clause**: OP-6 first (`88655c02`, value.js, before any kf byte); identity decided (`ec334c53`) before `1b29fb22`; the record's order KF-KE-4 → -6/-12 → -5 → -3 → -7 → -8 → -24 → tail → test kept; the three post-gate commits are corrections found by the gate, each stated as such.
+
+#### Gates, BEFORE → AFTER (double-run; `evidence/W12/KF-W12-c-gate-transcripts.md`)
+
+- **G-KFW12-3 runtime**: `No test files found` → **`7 passed (7)` · same · same · same**. Identity strings at the head: all four `keyframes-style-kfed-identity-Transform`.
+- **Byte clauses**: `parseCssScalar` in `KeyframesEditor.vue` **2 → 0 · 0** (and 0 · 0 across the whole writable set after `c82f92ea`); `class="absolute top-2 right-4` **1 → 0 · 0**; `toLowerCase()` in `useKeyframesState.ts` **1 → 0 · 0**; the `:38-47` comment rewritten (`d10ab8b4`).
+- **§0u ratchet**: ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.json 2>&1 | grep -c 'error TS'` → **16 · 16 → 14 · 14**; this unit's rows **3 → 1**: `KeyframesEditor.vue(445,39)`/`(446,37)` TS2345 fell with KF-KE-7's existence guard (`eda8bc43`, never a cast); `useKeyframeOps.ts(80,13)` → now `(91,13)` TS2322 **remains, ESCALATED (E-c1)**. Never rose. **This gate reads RED for the unit** by that one diagnostic.
+- **`npm run test:demo`**: `2 failed | 50 passed (52)` · same — `.d`'s `css-code-editor-seam (2)` (pending E-d1) and KF.W11's `spring-trace-truth (4b)`; neither this unit's. Skip/masking census **0**; eslint clean; `git diff --check` clean; bounds clean (twelve shas, writable paths only).
+
+#### Per-id roster
+
+| id | disposition |
+|---|---|
+| OP-6 · OP-2 | verified / met by vacancy — `88655c02` |
+| KF-KE-4 · L-M3 | **LANDED** `1b29fb22`; L-M3 = the identity defect entire (evidence apply-identity) |
+| KF-KE-6 · C-B2 · KF-KE-66 | **LANDED** `7a10d7ff` (lazy creation = -66) |
+| KF-KE-12 ≡ N-5 | **LANDED** `7a10d7ff` |
+| KF-KE-5 · KF-KE-45(comment) · KF-KC-22 · KC-25 ≡ KF-KC-28 ≡ KF-KE-41 ≡ KF-KE-22 (sticky half) | **LANDED** `d10ab8b4` |
+| KF-KE-3 · -26 · -37 · -46 | **LANDED** `73e57a93` |
+| KF-KE-7 · KF-KE-61 · KF-KE-47 (the null-slot neighbour: `leaving == null` return, `neighbour == null` → the group without the pop) | **LANDED** `eda8bc43` (+ `781ac250` correction); KF-CB-11's shell = `.a`'s KC-3, LANDED-BY |
+| KF-KE-8 · -21 (the sweep's rest under the flag) | **LANDED** `a10e5793` (the brush half) + `eda8bc43` (the sweep's bag); the demo-wide MECHANISM = KF.W9's; the lifetime half = `.e`'s D-25 |
+| KF-KE-24 pipeline half · KF-KE-32 (comment) | **LANDED** `c026121a`; the TOKEN decision = KF.W6's rider (unchanged) |
+| KF-KE-13 · 20 · 28 · 33 · 38 · 44 · 48 · 49 · 51 · 55 · 56 · 58 · 60(ii) · 62 · 63 · 65 | **LANDED** `eba0bd6b` |
+| KF-KE-57 | cured at the bytes (`updateCSS` at both levels — `KeyframeCard.vue:308`, the editor's `cardListBindings`); the last hyphenated literal fell at `eba0bd6b` |
+| KF-KE-19 | STATED (snapshot contract in the barrel's docblock, `eba0bd6b`); a live getter reaches the parsing half = `.e`'s row |
+| KF-KE-27 | LANDED-BY `f6a51e23` (`.a`; `aria-label="Offset"` at `KeyframeCard.vue:77`, verified at the head) |
+| KF-KE-35 | LANDED-BY `7e795a52` (2026-09-18; the add dialog is the `CSSPasteDialog` shell — no `DialogDescription` inside `DialogTitle` at the head) |
+| KF-KE-52 | LANDED-BY `e5235ca0` (`.a`; the `highlightedFrom` WeakMap replaced the two-valued `highlighted` marker) |
+| KF-KE-64 | LANDED-BY KF.W5 arm 0 (`themeStyleHolders` refcount at `useHighlightCSS.ts:196`, KAD-14(d)); the apply sheet now shares the same discipline via the registry (`7a10d7ff`) |
+| KF-KE-14 ≡ KF-APP-4 | → KF.W4 (dedupe stated by the spec) |
+| KF-KE-2 · KF-KE-29 | → `.a` (the card seam / `KeyframeCardList.vue`) |
+| KF-KE-11 (`selectedKeyframesControl` watch, `useKeyframesParsing.ts:80`) · KF-KE-25 (project in place, `useKeyframesParsing.ts:50`) | → **`.e`** (the file is the APPLY-UNIT's by the re-open table; not written here) |
+| KF-KE-10 ≡ SPF-20 (the re-sample doubles the stops: `fromString` APPENDS) · SPF-19 (`seedKeyframes` without a boundary + the redundant `.parse()`) | **ESCALATED E-c2** — the cure bytes are `demo/composables/useSpringKeyframesEditor.ts:71-77`, outside this unit's set |
+| SPF-11 (`container-type: inline-size` on `.keyframes-editor-scroll`) | **ESCALATED E-c3** — the byte is `demo/scenes/spring/SpringPhysicsFacet.vue:333`, outside the set (0 hits across the set) |
+| SPF-23 (the mounted footer's `p-4 m-4` against the panel's 1 rem) | **OPEN** (INFO rider) — `KeyframesEditor.vue:62` still `p-4 m-4`; not re-derived in this unit, handed to `.g`'s census |
+| KF-KE-18 (the prop-graph mutation contract, eight sites) · KF-KE-34 (the retiming Slider's name/readout) · KF-KE-50 (`templateRef: string`) | **OPEN** — not written, not claimed; listed for `.g`'s census with their bytes verified live at the head (`useKeyframeBrushApply.ts:10`; the Slider block in `KeyframesEditor.vue`) |
+| KF-KE-17 · -54 (kf-engine.ts prose, out of set) | **OPEN** — -54's byte is `demo/kf-engine.ts:9`, outside the set; -17 not re-derived here |
+| KF-KE-62 / KF-KC-35's `proof:accent-census` residue | not re-derived here (KF-W4 §Excluded 18 stands); `.g` |
+| `KeyframesAddDialog.vue` · `useToolbarKeyboard.ts` | in the set, NOT written (the dialog's KAD folds are KF.W7's; nothing in this unit's rows reached the toolbar) |
+| EE-03 | re-regression guard only — clause (6) |
+
+#### Escalations (each a byte outside this unit's set, named)
+
+- **E-c1 (§0u)** — `useKeyframeOps.ts(91,13)` TS2322 is caused by `demo/components/instrument/keyframes/utils/parseAnimationCSS.ts:9`: `EditorAnimationOptions = Omit<CSSAnimationOptions,"timingFunction"> & { timingFunction?: string }` widens the engine's `serializeTimingFunction` return (`CssEasingLiteral`) to `string`. The one-token cure (`timingFunction?: CssEasingLiteral`) lives in a file no unit of this wave owns; a downstream re-narrowing guard is a shim over the widening and a cast is refused by the ruling. An attempted in-set cure via `serializeTimingFunction(animation.options.timingFunction)` produced TS2345 (`Easing` is the RESOLVED easing, not the parser's structured value) and was reverted. → `.g` / the owner of `utils/`.
+- **E-c2 (KF-KE-10 ≡ SPF-20, SPF-19)** — `demo/composables/useSpringKeyframesEditor.ts:71-77`. → `.g`; the engine-side REPLACE ruling (KF-W5R4 (1)) is not in the tree either — `fromString` still appends.
+- **E-c3 (SPF-11)** — `demo/scenes/spring/SpringPhysicsFacet.vue:333`. → `.g`.
+- **E-c4 (engine contract, → KF.W5 letter)** — a throw inside the draw loop leaves `play()` pending forever (`src/animation/group/lifecycle.ts:92-95`); `finished`/`play()` must settle (reject) on a draw-loop throw. The editor bounds the hostage; the engine owes the settle.
+- **E-c5 (idiomatic home, → `.a`'s row)** — the exit choreography's idiomatic Vue seat is a `<TransitionGroup>` leave hook at `KeyframeCardList.vue`; landed here at the handler because the list is `.a`'s file.
+- **E-c6 (N-8, → `.e`)** — the identity is not `cssIdent`-safe; an `animation.name` with a space throws `InvalidCharacterError` at `classList.add` under either arm (measured; `useSpringKeyframesEditor.ts:66`).
+
+#### Residuals (recorded, not defects of this unit)
+
+- `KeyframeCard.vue` fails `prettier --check` on class ordering at the baseline (`.a`'s lines); not reformatted.
+- `useHighlightCSS.ts:190-203`'s theme-driver docblock still says "adopt-or-create" of the theme node — true of the theme driver (KF.W5's own refcount), distinct from the apply-sheet registry; re-read, left as is.
+- The `kfControls.keyframes` and `dialogOpen` schema members in `controlOptionsStore.ts` are now unread — named for the store's owner (`eba0bd6b`).
+- Shared index disclosure: `.d` committed on the same branch throughout (`7cda421c` … `ec49bbef`); no path staged by both.
+
+#### E13
+
+INBOX **80 · 80** rows, positional Status scan → **0 UNREAD** (re-swept at the close, unchanged from part 1; tail `I-35` / `O-40`); the four paths' newest letters unmoved. No row minted, no status changed.
+
+#### The shas `.e` opens on
+
+| path | last commit by this unit |
+|---|---|
+| `composables/useKeyframesState.ts` | **`eba0bd6b`** (the identity at `1b29fb22`) |
+| `composables/useApplyCSS.ts` | **`7a10d7ff`** |
+| `composables/useKeyframeBrushApply.ts` | **`eba0bd6b`** (the lift at `a10e5793`/`7a10d7ff`) |
+| `composables/useHighlightCSS.ts` | **`c026121a`** |
+| `composables/useKeyframeOps.ts` · `composables/useKeyframesEditor.ts` | **`eba0bd6b`** |
+| `KeyframesEditor.vue` | **`781ac250`** |
+| `components/KeyframeCard.vue` | **`c82f92ea`** |
+| `test/demo/instrument/keyframes-editor-honest.test.ts` | **`4fa6efec`** |
+| **unit head** | **`c82f92ea`** |
+
+`.e` inherits by name: `KeyframesStringControls.vue(55,9)` · `(76,5)` (its two TS6133s, `.d`'s receipt); N-8 (E-c6); KF-KE-11 · -25 (its file); D-25's lifetime half.
