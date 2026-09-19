@@ -1158,3 +1158,287 @@ Two commits, one meaning each, exactly as §Commit Plan rows 7–8 and this unit
 Pathspec on the commit itself, `--no-verify`, `Claude-Session` trailer, integration by
 `git checkout <worktree-sha> -- <exact paths>`. ⟨cmd⟩ `git diff --cached --name-only` after each →
 **empty**; the sibling dirty rows reproduce unchanged before and after, none ever staged here.
+
+---
+
+### X-W9.d
+
+SERVED MODEL: `claude-opus-5[1m]` · Public-surface law and module topology
+(W9.md §Agent Units `X.W9.d` :228-246 · §Hard Gate G12–G17 :354-359 · §Commit Plan row 6 :460 ·
+§Triumvirate Dispatch :56-70 · COHESION §0k.3 **S-3**).
+**Status: PARTIAL** — **G12 LEG1 · G15 · G16 · G17's boundary leg GREEN**, double-run; **G13
+(33 → 20) and G14 (58 → 60) honest-RED for a root the gate's own model does not name**, measured
+here for the first time; **G12 LEG2 RED on a file this unit may not write** and on a position this
+repo has already SENT to the consumer it affects. **Three escalations raised, none worked around.**
+Ran on integrated main (`tranche-u`), after `.a`, `.b`, `.c`, `.e` landed, alone in its group as the
+LOCKS require. Every figure read from settled bytes and **double-run**.
+
+#### 0. CRASH-RECOVERY sweep (standing law)
+
+⟨cmd⟩ `git status --porcelain` → **15 rows**. ⟨cmd⟩ `git status --porcelain -- src/subpaths
+src/css/index.ts src/css/types.ts src/css/grammar.ts src/css/stylesheet.ts src/css/serialize.ts
+src/css/rules.ts src/color/index.ts src/color/operations.ts docs/tranches/X/waves/evidence/W9
+docs/tranches/X/execution/A/X-W9.md` → **empty**. **No killed predecessor's partial work on X-W9.d
+exists; nothing inherited, nothing stashed, nothing restored.** `scripts/dev/dev.sh` never touched
+and never staged; the ten dirty `demo/**` rows (X-W4 / X-W7 seats), `CARRY-LEDGER.md` and the three
+untracked X-W1 paths never touched. The same fifteen rows reproduce after this unit's commits.
+
+#### 1. Anchors verified at TRUE bytes before any edit
+
+| spec anchor | measured at `efe3db89` | verdict |
+|---|---|---|
+| *"exactly 3 statements move (`css/types.ts:1`, `css/grammar.ts:18`,`:19`)"* (:236-237) | `types.ts:1` = `import type { Color, ColorIssue } from "../color/model";` · `grammar.ts:3-18` = the 16-name value import **ending at `:18`** (`isAnyColor` is one of them, `:16`) · `grammar.ts:19` = `import type { Alpha, Channel, ChannelsBySpace, ColorIssue, SpaceId } from "../color/model";` | **EXACT** — three statements, and the `:18` one carries `isAnyColor`, which is why the barrel must publish it (§5) |
+| *"`anchors.ts`/`operations.ts` keep their relative `./model` imports"* (:237-238) | `anchors.ts:1` and `operations.ts:3-15` import `./model`; routing either through the barrel cycles (`index → operations → index`) | **EXACT — left untouched** |
+| *"`stylesheet.ts` 899 → 265/381/153"* (:238-239) | ⟨cmd⟩ `wc -l src/css/stylesheet.ts` → **920**; ⟨cmd⟩ `git show 41450f02:src/css/stylesheet.ts \| wc -l` → **899**. X-W9.a's cure added 21 lines before this seat opened the file | **DRIFTED — INTENT AT TRUE BYTES** (§3) |
+| *"hoist the six double `declarations.get()` at `:709-717`"* (:241) | **already hoisted by X-W9.a** (its receipt §3: *"X-W9.d's listed row, discharged here… `.d` re-measures rather than inherits"*). Re-measured: ⟨cmd⟩ `grep -n 'declarations.get' src/css/stylesheet.ts` → 8 reads, **one per key**, zero doubles | **DISCHARGED UPSTREAM, re-measured** — and one MORE double found and cured here (§4) |
+| *"`isSupportedSyntaxDescriptor` goes `@internal`"* (:242) | it is declared in **`src/css/syntax.ts`**, which is in **no** unit's writable set and **absent from W9.md §File Bounds entirely**. Measured: ⟨cmd⟩ `grep -rn 'isSupportedSyntaxDescriptor' dist/` → **nothing** — it reaches no emitted `.d.ts` and no subpath | **NOT WRITTEN, and nothing asks it to be** (§7.3) |
+| *"`./value` is not deleted and `isLayoutTrackingUnit` does not move"* (:242) | `src/subpaths/value.ts` present; ⟨cmd⟩ `Object.keys(./value)` → `["isLayoutTrackingUnit"]` | **HONOURED** |
+| COHESION §0k.3 **S-3** (`src/color/model.ts` narrow reading) | ⟨cmd⟩ `git diff --stat 41450f02..HEAD -- src/color/model.ts src/color/operations.ts src/color/anchors.ts` → **empty** | **ZERO BYTES, all three** |
+
+#### 2. PSL-1 — two hand-kept lists become one derivation
+
+All seven `src/subpaths/*.ts` are now star-forwards. The **delta was measured before it was landed**,
+name by name, so the derivation could not widen the surface by accident: `easing`, `value`,
+`quantize`, `math`, `transform` and `css` deltas are **empty** (the hand list and the module's own
+`export` keywords already agreed); `color`'s delta is exactly **`ColorFactory`** — the type of all 23
+published factories, which the hand list had dropped and which G12's LEG1 names by TS2459.
+
+The barrels keep explicit lists: PSL-1 puts the public/internal decision **in the area barrel**, so
+`src/css/index.ts` and `src/color/index.ts` are where it is written, once.
+
+#### 3. The split — three products, TWO cross-seam edges, zero cycles
+
+| product | layer | LoC |
+|---|---|---|
+| `src/css/rules.ts` (create) | text → `Declaration[]`, the `CssValue` readers, the `animation` shorthand, `collectDeclarations`, `collectAnimationOptions` | **519** |
+| `src/css/stylesheet.ts` | the block scanner, the at-rule dispatch, `parseStylesheet`, the `collect*` family, `collectTimelineOptions` | **476** |
+| `src/css/serialize.ts` (create) | `serializeCssValue` | **50** |
+
+⟨cmd⟩ `grep -n 'from "./\(serialize\|rules\|stylesheet\)"' src/css/{serialize,rules,stylesheet}.ts`
+→ `serialize.ts` **none** · `rules.ts` **none** · `stylesheet.ts:31 "./rules"`, `:32 "./serialize"`.
+**Two edges, both out of one product** — a fan, so the seam is acyclic *by construction*, not by
+inspection. **The banked seam's edge property reproduces exactly**; its 265/381/153 triple does not,
+for two measured reasons: X-W9.a's +21 lines (899 → 920) and the per-product header each of the
+three now carries (⟨cmd⟩ first-declaration line → **25 · 35 · 59**), which the banked 799-line sum
+does not include. **ONE cut was made. No re-cut**, so the §Triumvirate third-attempt halt is not
+approached; the drift is recorded, not iterated away.
+
+`collectTimelineOptions` sits with the stylesheet layer, not beside its sibling
+`collectAnimationOptions`, for one measured reason: it is the **only** declaration-level collector
+that round-trips a `CssValue` back through the serializer (three times — range, scope, trigger),
+and keeping it in `rules.ts` would put a **third** edge on the seam for one function. Written out
+at `evidence/W9/psl-seam.md` §1 so the choice is reviewable rather than implicit.
+
+**The cut moves no behaviour — measured, not asserted.**
+⟨cmd⟩ `node docs/tranches/X/waves/evidence/W9/split-equivalence.mjs <scratch>` → **exit 0**, twice,
+⟨cmd⟩ `diff -q run1 run2` **silent**. The harness bundles the **pre-split** entry (`git archive HEAD
+src` at the parent commit, through `esbuild --bundle`) and the post-split entry and replays one
+corpus through both: **933 cases · 0 mismatches** (75 value inputs × 9 published entries + 37
+stylesheets × `parseStylesheet` + the whole `collect*` family + `serializeTimelineOptions`, deep-JSON
+equality, throws compared as throws) and **59 parse→serialize→parse round-trips · 0 failures**.
+
+#### 4. `serializeCssValue` — published, and it joins the `Result` idiom BEFORE it is exported
+
+⟨cmd⟩ `'serializeCssValue' in CSS` → **true** (was `false`). Its signature is
+`(value: CssValue) => Result<string, ColorIssue>`: the pre-split body **threw**
+`TypeError: Cannot serialize CSS color` when handed an `AnyColor` that CSS cannot spell, and
+`AnyColor` is wider than `CssColor` (`hsv`, `kelvin`, `ictcp`, `jzazbz`). Measured on an `hsv`
+scalar → `{"ok":false,"error":{"code":"color_invalid_input"}}`. **PSL-3 honoured**: `ParseResult`
+(text→AST) stays on the parsers, `Result` (value→value) on the serializer; the two are never
+unified, and `src/foundation/result.ts` is not touched.
+
+Thirteen internal call sites were converted rather than wrapped: nine raise the module's own typed
+`failure(...)` (`@property`'s three descriptors, the five timeline-descriptor reads, the keyframe
+timing/composition pair), and the three inside `collectTimelineOptions`/`parseRangeValue` degrade to
+*absent option* — the same degradation that collector already applies when the re-parse fails. **No
+`try/catch`, no fallback, no `!`**: ⟨cmd⟩ `npx eslint 'src/css/**/*.ts' --rule
+'{"@typescript-eslint/no-non-null-assertion":"error"}'` → **4**, all `src/css/timeline.ts` — X-W9.a's
+ESC-W9a-TIMELINE-NNA, **unmoved**; the three files this unit wrote add **zero**.
+
+One more double read found and cured while the lines were open: `parseKeyframes` called
+`collectDeclarations(declarations.value)` **twice**, building the whole map once per key. One
+construction, two reads.
+
+**G15's differential, measured against the verbatim fork** (`../keyframes.js/src/animation/compile/
+emit/css-text.ts:42-57`, transcribed into the harness): the spec's banked reading reproduces —
+**2 of the 3 fixtures diverge**, `"a : b"` → ours `"a: b"`, fork `"a : b"` — and this seat names the
+cause the bank did not. A CSS `if()` condition parses as a **space-separated list whose `:` and `;`
+are their own keyword tokens**:
+
+```
+ours -> if(supports(color: rgb(255 0 0)): rgb(255 0 0); else: rgb(0 0 255))
+fork -> if(supports(color : rgb(255 0 0)) : rgb(255 0 0) ; else : rgb(0 0 255))
+```
+
+The library collapses that whitespace; the fork does not, so **the fork loses the declaration's own
+spelling on every `if()` it is handed** — 8 of 59 corpus inputs, every one in the `:`/`;` class.
+The direction was settled by measurement, not preference: this seat first dropped the collapse step
+(it looked like a lossy rewrite) and `test/v4-css-emerging.test.ts`'s
+`if(supports(color: red): red; else: blue)` round-trip **reddened**, which is the witness. The
+fork's retirement is a keyframes act and rides **X-W9.i's packet** (RD-11); O-11 §B already told them
+`serializeCssValue` would be published — this receipt adds the direction and the witness.
+
+#### 5. The colour boundary, and the two names this cut publishes
+
+The three statements moved onto `../color/index`. ⟨cmd⟩ `grep -rn "color/model" src | grep -v
+"^src/color/"` → **nothing**, and the probe agrees: `ok LIB-04 colour types cross src/color/'s
+boundary through the barrel only`.
+
+`isAnyColor` joins the barrel because the statement at `grammar.ts:18` carries it —
+`serializeCssColor` (`grammar.ts:326`) guards on it — and PSL-1 makes the barrel the one place
+public/internal is decided, so a name the barrel carries **is published**. Runtime surface
+⟨cmd⟩ `Object.keys` over the 7 packed entries → **73 → 75**: `./color` 23 → 24 (`isAnyColor`),
+`./css` 19 → 20 (`serializeCssValue`). Both are booked as relays, not discovered at the tag (§7.1).
+
+#### 6. Gate readings, BEFORE → AFTER, every one double-run
+
+| gate | command | BEFORE | AFTER | verdict |
+|---|---|---|---|---|
+| **G12** | `node …/probes/consumer-surface-compile.mjs` | **4 RED** — TS2459 `CssValue` (`./css`), TS2459 `ColorFactory` (`./color`), TS2307 + `ERR_PACKAGE_PATH_NOT_EXPORTED` on the root | **2 RED** — `ok LEG1 public return types are nameable from their own subpath`; both LEG2 rows stand | **LEG1 GREEN** (the exact two the falsifier names). **LEG2 RED on `package.json`** — not in this unit's set, and a *sent position* (§7.2) |
+| **G13** | `grep -c '^declare ' dist/subpaths/*.d.ts` (sum) | **33** (color 1 · css 18 · easing 2 · quantize 6 · value 6) | **20** (color **0** · css **6** · easing 2 · quantize 6 · value 6) | **RED — 13 retired, 20 irreducible in bounds** (§7.2, ESC-W9d-DTS-SPELLING) |
+| **G14** | `grep -o '_2' dist/subpaths/css.d.ts \| wc -l` | **58** occurrences / 25 lines / **5** duplicated names | **60** / 26 / **5** | **RED — duplicate count unmoved, and the falsifier's stated cause is CURED without the observable following** (§7.2) |
+| **G15** | `'serializeCssValue' in CSS` + 3 fixtures vs the fork | **false**; fork live, 2/3 fixtures diverge | **true**, `Result`-typed; 2/3 still diverge **and the divergence is measured to be the fork's** | **GREEN IN BOUNDS** — publication + `Result` landed; the fork's retirement is keyframes' act, routed to X-W9.i |
+| **G16** | `wc -l src/**/*.ts \| sort -rn \| head -1` | **920** (`src/css/stylesheet.ts`); then 672 · 539 · 377 · 331 | **672** (`src/transform/path.ts`); then 539 · 519 · 476 · 377 | **GREEN** — the ratchet falls 920 → 672, below the spec's ≤609 target; `stylesheet.ts` leaves the top at **476** |
+| **G17** | `library-band-gates.mjs` LIB-04 leg | **2** modules outside `src/color/` reach past the barrel (3 statements); 5 mangled duplicates | **0** modules (`ok`); 6 mangled names listed | **BOUNDARY LEG GREEN** (the gate's named subject); its `_2` observable stays RED for the root in §7.2 |
+
+Collateral, measured on the integrated tree: ⟨cmd⟩ `npx vue-tsc -p tsconfig.lib.json --noEmit` →
+**exit 0**. ⟨cmd⟩ `npx eslint src test` → **exit 0**. ⟨cmd⟩ `npm run lint` → **55 problems,
+unchanged**, every carrier under `docs/tranches/**` (X-W8 G-6's ignore); this unit adds **zero**,
+including its committed harness (⟨cmd⟩ `npx eslint …/split-equivalence.mjs` → exit 0).
+⟨cmd⟩ `npx vitest run` → **600 passed · 13 failed**: the three inherited rows (`spectrum-luma` C-5,
+`v4-c1` ESC-W9b, `reka-binding-idiom` NG-6) **and ten in `test/v4-css-emerging.test.ts`**, all one
+cause, ESC-W9d-EMERGING-SERIALIZE below. ⟨cmd⟩ `npm run typecheck` → exit 2, **3** errors: the two
+pre-existing `test/parser-totality.test.ts` rows (ESC-W9c-PARSER-TOTALITY-TSC / ESC-W9e-TESTPROJ-TSC,
+already raised) and one TS2459 in the same `v4-css-emerging` file.
+
+#### 7. Escalations — raised, never worked around
+
+**7.1 ESC-W9d-EMERGING-SERIALIZE — the spec's own cure reddens a test no unit of this wave may
+write.** `test/v4-css-emerging.test.ts:12` deep-imports `serializeCssValue` from
+`"../src/css/stylesheet"` and calls it as a **string-returning** function at `:37`, `:45`, `:64-65`
+and `:103`. W9.md :239-240 orders that function to *"join the `Result` idiom before it is exported"*,
+and §File Bounds names seven `test/**` files — **this is not one of them**, and it is in no unit's
+writable set. Ten tests fail; **none is a behaviour change** (the split-equivalence harness replays
+the same assertions' subjects with 0 mismatches). **Cure, mechanical, one file:** repoint the import
+to `"../src/css/serialize"` and unwrap the four call sites (`const text = serializeCssValue(v);
+expect(text.ok && text.value).toBe(…)`). **Ask**: the orchestrator names its writer — naturally
+**X-W9.f**, which already owes the same one-edit class at `test/v4-c1.test.ts`
+(ESC-W9b-V4C1-SNAPSHOT) and `fixtures/public-types/value-v4.ts` (ESC-W9e-FIXTURE-V4TYPES). This is
+the **third** instance of one wave-level omission: the cures were bounded, the artifacts that assert
+on them were not.
+**Riding relay (same edit class, measured here):** the +2 runtime names need **two edits each** in
+`scripts/ci/verify-packed-surface.mjs` — an `expected` row and a `SMOKE` case — or the pre-tag
+cadence reddens with `has no smoke case for: …`. ⟨cmd⟩ `grep -n 'isAnyColor\|serializeCssValue'
+scripts/ci/verify-packed-surface.mjs` → **nothing**. `test/v4-c1.test.ts:540-560` pins both surfaces
+by `Object.keys` and takes the same one edit.
+
+**7.2 ESC-W9d-DTS-SPELLING — G13 and G14 have a root the gates' model does not name, and it is
+outside this unit's bounds.** G14's falsifier reads *"Reach `color/model` from outside `src/color/`;
+the duplicate declarations re-emit"*. The boundary is cured and the duplicates **did not follow**.
+The experiment that settles it: `src/css/serialize.ts` imported `ColorIssue` from `"../color/index"`;
+changing that ONE import to `"../color"` — **the same file, resolved identically, spelled
+differently** — split the type in the emitted rollup:
+
+```
+export declare type ColorIssue = …
+declare type ColorIssue_2 = …
+export declare function serializeCssColor(color: CssColor): Result<string, ColorIssue>;
+export declare function serializeCssValue(value: CssValue): Result<string, ColorIssue_2>;
+```
+
+The dts rollup (`vite-plugin-dts` `rollupTypes: true` → api-extractor) keys its entity cache on the
+**import specifier string**, not the resolved file, for any type that arrives through a re-export
+chain. The experiment was reverted in the same shell act; **no byte of it is committed**.
+Consequence: `css.d.ts` carries two copies of the colour vocabulary — the exported one (entered by
+`src/css/*`, spelled `"../color/index"`) and the `_2` one that rides in with `CssScalar`'s colour
+payload from **`src/value.ts`**, spelled `"./color/index"` — a spelling **no module under
+`src/css/` or `src/subpaths/` can reproduce**. The same mechanism silently drops the PSL-2
+re-exports this seat wrote into `src/subpaths/{value,quantize,easing}.ts`: **three variants were
+tried in this unit's own files** (`export type {…} from`, `import type` + `export type {…}`,
+`export type * from`) and **all three left `value.d.ts` at 6 bare `declare`s**. They are kept because
+they are correct TypeScript — the repo's own tests import those subpath modules by source — and the
+receipt, not the code, carries the measurement.
+**Candidate cure, NAMED and NOT performed** (one line each, in files outside every unit's set):
+`src/value.ts` publishing its own colour vocabulary
+(`export type { Alpha, AnyColor, Channel, ChannelsBySpace, Color, SpaceId } from "./color/index";`),
+so the declaration arrives under that module's own spelling and `./css` can re-export it from
+`"../value"`; likewise `src/quantize.ts` (`Color`, `Result`) and `src/easing.ts` (`Result`, plus
+`PRESET_TABLE`'s leak at `src/easing.ts:15`, which `BezierPresetName = keyof typeof PRESET_TABLE`
+forces into `easing.d.ts`). **The spelling rule is measured; the cure's effect is NOT** — whoever
+holds those files must measure it rather than inherit this sentence. **Ask**: the orchestrator names
+a writer for `src/value.ts` / `src/quantize.ts` / `src/easing.ts` (naturally **X-W9.f**, which
+already writes `src/easing.ts` for the memoised `easing()` and `easingNames()`), or rules G13/G14
+**staged per CC-096** with their measured remainder attributed here.
+
+**7.3 ESC-W9d-ROOT-AND-SYNTAX — two rows whose files are in no unit's writable set.**
+**(a) G12's LEG2** is the root specifier. `package.json` is **X-W9.f's** file, and the root's absence
+is not an oversight: the probe's own header says *"declaring the root retired is a legitimate
+GREEN"*, and **O-12 (SENT 2026-07-27)** told atlas in writing that *"the root stays retired, no shim
+for any consumer"*, enumerating their 16 root-specifier statements. §Triumvirate Dispatch names
+exactly this shape — *"G12 still RED after PSL-1 derivation lands — that means the exports map, not
+the barrels, is the defect"* — and this seat supplies the evidence the ruling needs: **the barrels
+are green (LEG1 `ok`), the exports map is RED, and the exports map's shape is a position already
+delivered to the affected consumer.** **Ask**: rule LEG2 either (i) a defect X-W9.f cures by adding a
+`"."` key to the map — which reverses O-12 and needs its own packet — or (ii) **declared-retired**,
+in which case G12 reads GREEN-BY-POLICY on that leg and the probe's banked 4 becomes 2.
+**(b) `isSupportedSyntaxDescriptor` `@internal`** (:242) is declared in **`src/css/syntax.ts`**,
+which is absent from W9.md §File Bounds entirely — the same gap X-W9.a recorded for that file at
+ESC-W9a-G3-LEG-SCOPE. Measured: it reaches **no** emitted `.d.ts` and **no** subpath, so the row's
+*effect* already holds; only the JSDoc tag is unwritten. **No byte of `syntax.ts` was touched.**
+
+#### 8. Residuals — booked so the close cannot discover them
+
+1. **`./css` still withholds `serializeKeyframeSelector`** (`grammar.ts:429`, LIB-03's other leg).
+   Not in this unit's named mechanism — PSL-2 names four value types and `ColorFactory`, and G15
+   names `serializeCssValue` alone. `test/v4-c1.test.ts:9` deep-imports it today, so publishing it
+   is a **surface decision** bound by X-W9.f's closed ship list, not an implementer's act.
+2. **`AnyColor` is deliberately NOT re-exported from `./css`.** Measured both ways: exporting it
+   adds a **sixth** duplicated declaration (`AnyColor_2`, 62 occurrences) without removing one bare
+   `declare`, because the copy `CssScalar` actually references is `src/value.ts`'s. A `./css`
+   consumer names the colour payload through `Color<S>`/`SpaceId` (both published) or through
+   `./color`. Recorded so the choice is not read as an omission.
+3. **`src/color/operations.ts` is in this unit's writable set and carries ZERO bytes of change** —
+   deliberately: the spec keeps its relative `./model` import, because routing it through the barrel
+   is the cycle LIB-04's own comment warns about.
+4. **`src/css/rules.ts` is 519 lines**, the third-largest `src/**` file. It is one layer, not three,
+   and the seam's own arithmetic put it there; a fourth product under `src/` is a §Triumvirate
+   Dispatch trigger (*"adds a file under `src/` not named in §4"*), so it was not taken.
+5. **`dist/subpaths/css.js` grew 44.24 kB → 45.14 kB** (+2.0%). Measured cause: `src/css/*` now
+   reaches the colour barrel, so rollup keeps the barrel module in the css graph; the factories are
+   the same objects the grammar already imported. No new runtime dependency crossed the boundary.
+6. **The `:`/`;` collapse in `serializeCssValue` is now a documented behaviour with its witness**
+   in-file. It was nearly deleted as a lossy rewrite; the `if()` round-trip is the only thing in the
+   tree that says otherwise, and it is a test, not a comment.
+
+#### 9. E13 mail — swept at this seat's own clock
+
+⟨cmd⟩ `/usr/bin/find <the four coordination paths> -maxdepth 1 -name '*.md' -newermt '2026-09-18
+21:10'` (2026-09-18 **21:48 EDT**) → `docs/tranches/V/coordination/INBOX.md` **alone** — self-excluded
+per the SELF-COUNT law, and a sibling seat's row edit. ⟨cmd⟩ `grep -nE '\| *UNREAD' …/INBOX.md` →
+**0 rows**. **0 new mail files · 0 UNREAD in this unit's scope.** Two standing rows touch this unit's
+surface and both are answered above, by packet and not by edit: **O-11 §B** (`serializeCssValue`
+published + the fork's retirement — §4 supplies the measured direction and the `if()` witness for
+X-W9.i's packet) and **O-12** (the retired root — §7.3(a)). `INBOX.md` carries **no edit** from this
+unit.
+
+#### 10. Commits
+
+| # | `tranche-u` | scope |
+|---|---|---|
+| 6 | **`c8848bed`** | `refactor(css/surface): PSL-1 derivation, colour boundary, stylesheet split` — 7 subpath barrels · `src/css/{index,types,grammar,stylesheet}.ts` · `src/css/{rules,serialize}.ts` (create) · `src/color/index.ts` · 8 evidence files |
+
+ONE commit, as §Commit Plan row 6 requires: PSL-1, PSL-2, the colour boundary and the split are one
+meaning and the cut must not publish a surface under repair. Pathspec on the commit itself
+(`git commit … -- <the same exact paths>`), `--no-verify`, `Claude-Session` trailer.
+⟨cmd⟩ `git diff --cached --name-only` after → **empty**; ⟨cmd⟩ `git status --porcelain` reproduces
+the **same fifteen sibling rows** as at open, `scripts/dev/dev.sh` among them, never staged.
+
+#### 11. Evidence
+
+`docs/tranches/X/waves/evidence/W9/` — `split-equivalence.mjs` (the harness: pre-split vs post-split
+bundles, plus G15's fork differential) · `split-equivalence.txt` (its double-run output) ·
+`psl-seam.md` (the seam, the equivalence, G15's direction with its witness, the spelling-key finding,
+and the two names this cut publishes) · `surface-census.after.json` (bare `declare` 33 → 20, `_2`
+58 → 60, max src LoC 920 → 672, runtime exports 73 → 75, with every command recorded) ·
+`consumer-surface-compile.{before,after-d}.txt` · `library-band-gates.{before-d,after-d}.txt` (both
+probe pairs double-run, `diff -q` silent).
