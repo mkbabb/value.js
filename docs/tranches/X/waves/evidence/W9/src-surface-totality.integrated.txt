@@ -1,0 +1,40 @@
+SERVED MODEL: claude-opus-5[1m]
+X-W9.a — src-surface-totality.mjs on the INTEGRATED tree (tranche-u @ 86461bc2)
+Distinct from src-surface-totality.after.txt, which is this unit's WORKTREE reading (11 RED, this
+unit's cure alone). Here X-W9.b has also landed (474846ce, 4be22189).
+Command: node docs/tranches/V/megatranche/audit/probes/src-surface-totality.mjs  -> exit 1
+Reading: MTS-01 15/15 ok · MTS-02 2/2 ok (X-W9.a's legs, GREEN) · MTS-03 4/4 ok · MTS-04 ok
+         then the probe DIES at MTS-05: TR.decomposeMatrix3D is not a function — X-W9.b retired
+         the matrix family (CC-094/G27) and the probe calls it unconditionally at :74.
+         MTS-06, MTS-08, MTS-09 are therefore UNREACHED, not green. See ESC-W9a-PROBE-UNRUNNABLE.
+---------------------------------------------------------------------------
+ok   MTS-01  parseCssColor("constructor") returned
+ok   MTS-01  parseCssColor("__proto__") returned
+ok   MTS-01  parseCssScalar("constructor") returned
+ok   MTS-01  parseCssScalar("__proto__") returned
+ok   MTS-01  parseCssValue("constructor") returned
+ok   MTS-01  parseCssValue("__proto__") returned
+ok   MTS-01  parseCssValues("constructor") returned
+ok   MTS-01  parseCssValues("__proto__") returned
+ok   MTS-01  coerceToSyntax("constructor") returned
+ok   MTS-01  coerceToSyntax("__proto__") returned
+ok   MTS-01  parseStylesheet("a{color:constructor}") returned
+ok   MTS-01  parseStylesheet("a{color:__proto__}") returned
+ok   MTS-01  parseStylesheet("@keyframes k{from{color:constructor}}") returned
+ok   MTS-01  parseStylesheet("a{background:linear-gradient(constructor,red)}") returned
+ok   MTS-01  parseStylesheet("a{animation:x 1s steps(2,constructor)}") returned
+ok   MTS-02  steps(2, constructor) -> failure
+ok   MTS-02  steps(2, __proto__) -> failure
+ok   MTS-03  M 0 0 L 10 -> 0
+ok   MTS-03  M 0 0 C 1 1 2 2 3 -> 0
+ok   MTS-03  M 0 0 Q 1 1 2 -> 0
+ok   MTS-03  M 0 0 L 3 4 L 5 -> 5
+ok   MTS-04  compact == expanded (31.403311569547547)
+file:///Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/probes/src-surface-totality.mjs:74
+const dg = TR.decomposeMatrix3D([0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+              ^
+
+TypeError: TR.decomposeMatrix3D is not a function
+    at file:///Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/probes/src-surface-totality.mjs:74:15
+
+Node.js v26.0.0

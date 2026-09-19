@@ -507,3 +507,40 @@ Bounds row at all), `src/easing.ts` `linearEasing` (1), `src/value` (1). No sing
 Pathspec on every commit itself, `--no-verify`, `Claude-Session` trailer. ⟨cmd⟩ `git status
 --porcelain` after integration → the **same** sibling-seat rows as at open, `scripts/dev/dev.sh`
 among them, untouched and unstaged.
+
+#### 9. ADDENDUM at final double-run — **ESC-W9a-PROBE-UNRUNNABLE** (a wave finding, not this unit's)
+
+Re-running G1 on the **integrated** tree after X-W9.b landed beside this unit (`474846ce`,
+`4be22189`) found the probe no longer completes:
+
+⟨cmd⟩ `node docs/tranches/V/megatranche/audit/probes/src-surface-totality.mjs` →
+`TypeError: TR.decomposeMatrix3D is not a function at …/src-surface-totality.mjs:74:15`, exit 1.
+
+X-W9.b **correctly** retired the matrix family (CC-094, G27 — *"no shim, no forwarding export"*),
+and the probe's MTS-05 block calls `TR.decomposeMatrix3D` unconditionally. So **G1's command dies at
+MTS-05**, and MTS-06 / MTS-08 / MTS-09 are now **UNREACHED — not green**. Two of this wave's gates
+are in direct tension: G27 requires the symbol gone, G1's probe requires it present.
+
+This unit **cannot** cure it: the probe is `execute, no write` in §File Bounds for every unit, and
+`docs/tranches/V/megatranche/audit/probes/**` is outside this unit's writable set. Reported, not
+worked around.
+
+What the run **does** establish, read before the crash (full capture at
+`docs/tranches/X/waves/evidence/W9/src-surface-totality.integrated.txt`):
+
+```
+ok   MTS-01  parseCssColor("constructor") returned           …15/15 ok, all five entries × both keys
+ok   MTS-01  parseStylesheet("a{animation:x 1s steps(2,constructor)}") returned
+ok   MTS-02  steps(2, constructor) -> failure
+ok   MTS-02  steps(2, __proto__)   -> failure
+```
+
+**X-W9.a's G1 legs are GREEN on the integrated tree: MTS-01 15/15, MTS-02 2/2.**
+
+**Ask of the orchestrator** (an adjudication, not an edit — E-3): rule one of —
+(i) a dated addendum-beside authorising a guard at the probe's `:74` (`typeof TR.decomposeMatrix3D
+=== "function"`, skipping MTS-05 as SUPERSEDED-BY-G27) with a named writer; or
+(ii) G1 read **staged** per CC-096, its MTS-05 leg struck as superseded by G27 and its remaining
+legs (MTS-06 → X-W9.c, MTS-08/09 → X-W9.d) measured by those units' own commands instead.
+Until it is ruled, **G1 is honest-RED for a reason that is not a defect in the library**, and no
+seat should read the pre-crash `ok` lines as a whole-probe pass.
