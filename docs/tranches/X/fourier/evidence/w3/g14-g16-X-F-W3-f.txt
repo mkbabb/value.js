@@ -1,0 +1,65 @@
+SERVED MODEL: claude-fable-5-1
+# X.F.W3.f — g14 (CARTOON-CARD relay re-scoped; --viz-amber alone) and g16 (NO NAIVE @layer WRAP) transcript, 2026-09-19
+# read-only via git grep/git show/git diff at refs 21e11b0 (main) · b9995b3 (.b) · 8aa9252 (.e over .d); every count double-run
+
+## g14 leg 1 — the letter: O-20 sha256-at-quote-time
+shasum -a 256 O-20 | cut -c1-12 -> f6e04c86ddb8 (addendum pin f6e04c86ddb8)
+grep -c "viz-amber" O-20 -> 2 ; grep -c "cartoon-card ask is RETIRED" O-20 -> 1
+I-32 B-4 disposition line: | B-4 | KILL | `viz-easing` never existed; `dist/easing.js:71` writes `--easing-curve-accent: var(--motion-accent, var(--viz-legendre))` on the wrapper—**one** arm is free (`--motion-accent`), not bot
+
+## g14 leg 2 — the shim comment (style.css:208-218) at 21e11b0 and 8aa9252
+-- 21e11b0 --
+fatal: ambiguous argument 'b/src/style.css': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+cartoon-card files:mentions -> 15 files / 29 mentions
+double-run -> 29 / 29
+-- 8aa9252 --
+fatal: ambiguous argument 'b/src/style.css': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+cartoon-card files:mentions -> 12 files / 24 mentions
+double-run -> 24 / 24
+per file @ 8aa9252:
+web/src/components/equation/EquationView.vue:5
+web/src/components/equation/FunctionInput.vue:2
+web/src/components/morph/HarmonicLevelGrid.vue:1
+web/src/components/morph/MorphPhaseConfig.vue:1
+web/src/components/morph/MorphShapePreview.vue:2
+web/src/components/visualization/BasisCanvas.vue:1
+web/src/components/visualization/VisualizationView.vue:2
+web/src/components/visualization/gallery/AdminAuditLog.vue:3
+web/src/components/visualization/gallery/AdminUserList.vue:1
+web/src/components/visualization/gallery/BatchActionBar.vue:1
+web/src/components/visualization/gallery/GalleryCardModal.vue:1
+web/src/style.css:4
+style.css touched by .e? git diff --name-only 21e11b0 8aa9252 -- web/src/style.css -> web/src/style.css
+
+## g14 leg 3 — the D-15 "migration complete" comment (VisualizationView.vue)
+-- 21e11b0 --
+web/src/components/visualization/VisualizationView.vue:163:            <div class="mx-auto max-w-md cartoon-card p-6 text-center space-y-3">
+web/src/components/visualization/VisualizationView.vue:192:                 slot). The bespoke `cartoon-card` panel backgrounds retire for
+-- 8aa9252 --
+web/src/components/visualization/VisualizationView.vue:191:            <div class="mx-auto max-w-md cartoon-card p-6 text-center space-y-3">
+web/src/components/visualization/VisualizationView.vue:220:                 slot). The bespoke `cartoon-card` panel backgrounds retire for
+VisualizationView.vue touched by .e? -> web/src/components/visualization/VisualizationView.vue
+
+## g14 --viz-amber census (unmoved by design; the wash is the cure, the token is not)
+21e11b0: 15 files / 40 sites
+8aa9252: 14 files / 39 sites
+I-33 B-4 consumer row (un-taken by any unit): style.css:116-123 unlayered --viz-amber override -> "Strike the block" — at 8aa9252: 0
+
+VERDICT g14: leg 1 GREEN by dispatch (STATUS-NOTE) · leg 2 RED (shim comment stale, .e touched the file) · leg 3 RED (D-15 comment stands, .e touched the file) -> HONEST-RED, both legs one-comment corrections owned by .e; zero fourier bytes written by .f
+
+## g16 — every @layer line ADDED by F.W3 (+ lines of git diff 21e11b0..8aa9252 and 21e11b0..b9995b3 over web/src web/index.html)
++   (g16): an unlayered rule here would outrank glass-ui's own `@layer
++   `@layer glass-overrides`, the layer `index.html` orders LAST, so this bound
++@layer glass-overrides {
++ *    It is declared inside `@layer glass-overrides`, the layer this app's
+count -> 4 (double-run 4)
+layer order statement (web/index.html:60, unchanged): <style>@layer theme, base, components, utilities, glass-overrides;</style>
+the one @layer components { block in style.css:327 — introduced by: 538db90 feat(fourier)!: the atomic tri-package uplift
+two-leg transition shorthands added -> 0 ; consumer transform: scale( added -> 0 ; removed -> 2
+the LINT RULE: git ls-tree 8aa9252 web/eslint.config.js -> present; grep -c layer eslint.config.js -> 0
+
+VERDICT g16: anti-cure half GREEN-STATIC (0 naive wraps introduced; the only added layer is glass-overrides, ordered LAST; runtime override-survival NOT probed — parsimony) · lint-rule half RED (no @layer rule exists; an F.W0 addition this wave consumes, section 7) -> HONEST-RED on the lint half
