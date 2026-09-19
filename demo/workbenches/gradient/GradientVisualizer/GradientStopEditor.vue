@@ -623,16 +623,25 @@ function onCaretKeydown(e: KeyboardEvent) {
     --rail-height: 2.5rem;
     --rail-chip-size: 1.5rem;
     --rail-touch: var(--touch-target, 2.75rem);
+    /* The seat's own rhythm (the `gap-1` the rail and the chip band sit on),
+       reused as the gutter BETWEEN the two coarse hit regions. */
+    --rail-gutter: 0.25rem;
     /* The axis, declared on the SEAT so the rail's handles and the chip that
        tracks the selected one read the same two properties. The seat draws no
        horizontal padding, so `100%` is the same length in both containing
        blocks — one axis, not two that happen to agree. */
     --rail-inset: calc(var(--rail-handle-size) / 2);
     --rail-track: calc(100% - 2 * var(--rail-inset));
-    /* The chip's centre sits ONE full coarse target below the handle's, so the
-       grab and the destroy hit regions cannot overlap on a coarse pointer. */
+    /* The chip's centre sits one full coarse target PLUS that gutter below the
+       handle's. Each inflated region is `--rail-touch` tall, so centres exactly
+       one target apart would still SHARE their boundary row — and the chip,
+       the higher layer, would win it: a tap at the outer edge of the handle's
+       OWN advertised target would destroy the stop it was aiming at (measured
+       on the iPhone-14 cell: HANDLE up to +20px, CHIP from +22px, no gap).
+       The gutter is what makes the two regions disjoint rather than adjacent. */
     --rail-chip-top: calc(
-        var(--rail-height) / 2 + var(--rail-touch) - var(--rail-chip-size) / 2
+        var(--rail-height) / 2 + var(--rail-touch) + var(--rail-gutter) -
+            var(--rail-chip-size) / 2
     );
     /* …and the seat reserves that band, so the chip paints on its OWN ground
        instead of across whatever rule the next section draws. */
@@ -755,8 +764,9 @@ function onCaretKeydown(e: KeyboardEvent) {
    remove role), a tap in the inflated zone targets the button, so the bar's
    add-on-click guard (`target.closest("[data-stop-id]")`) still treats a
    handle-adjacent hit as a grab, never an unintended mint. The chip's own band
-   starts one full coarse target below the handle's centre (`--rail-chip-top`),
-   so the two inflated zones no longer share a row of pixels (a9). */
+   starts one full coarse target PLUS `--rail-gutter` below the handle's centre
+   (`--rail-chip-top`), so the two inflated zones share no row of pixels — not
+   even their boundary (a9). */
 .rail-handle::before,
 .rail-remove-chip::before {
     content: "";
