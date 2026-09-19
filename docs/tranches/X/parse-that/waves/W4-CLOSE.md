@@ -324,3 +324,66 @@ because the family was split.
 **Pathspec on the commit itself.** `scripts/dev/dev.sh` is unowned, was never touched and never
 staged. **No commit of this wave contains a path under `src/**`, `demo/**`, `api/**`, `test/**`,
 `e2e/**`, or any sibling repo\*\* — G-2 asserts it and §2 above measures it at every commit.
+
+---
+
+## 12. ADDENDUM 2026-09-19 — the adjudicative half, performed by `X.P.W4.f` (SERVED MODEL: claude-fable-5-1); the R-A stamp WITHHELD again, by gate id G-1
+
+Dated, beside (E-3): §§0–11 are the X.P.W4 repair-2 seat's and are not rewritten. This section is the
+supplement wave `X.P.W4S`'s close of the acts §0 above disclosed as never performed — the ruling of the
+45 `PENDING-ADJUDICATION` cells (E-r2-1), Q-RC-1's arm, the harvests — and the second reading of the
+ten gates at a fresh seat's own clock. Full receipts: `execution/D/X-P-W4S.md` `### X.P.W4.f`.
+
+### 12.1 The ten gates at this seat — BEFORE the ruling → AFTER the ruling
+
+| gate | BEFORE (this seat, pre-ruling) | AFTER (this seat, post-ruling, double-run) | verdict |
+|---|---|---|---|
+| **G-1** | `VERDICT: GREEN`, census `PENDING-ADJUDICATION 45 · identical 7`, set-differences ∅/∅ | ⟨cmd⟩ `seam-contract-check.mjs …` → set-differences ∅/∅ · no blank field · no unknown id · census **`identical 45 · declared-divergence 7`** (0 PENDING) · **`VERDICT: RED — 2 check(s) failed`**: **[E]** 37 rows `identical` vs `CN-2`/`CN-3` subject bindings the checker cannot read as retired · **[G]** the 6 carried rows publish a terminal head while `universe-52.json` (immutable) marks them PARTIAL — the §0v rider, encoded for the pre-adjudication state | **RED — the instrument's vocabulary, not the contract's content (E-w4f-1)** |
+| **G-2** | 3 dirty lines, all `demo/**`, a concurrent Track-A seat's | ⟨cmd⟩ `git show --name-only --format=` over every commit of this wave → **0** paths under `src` `demo` `api` `test` `e2e` | **GREEN for X·P**, read with attribution |
+| **G-3** | — | ⟨cmd⟩ `packed-candidate-surface.mjs --seam …` → `tarballSha256 f8aede11…` · `entryCount 91` · `seamSubpathDeclared true` · **`resolved 52 of 52`** · `refusals 5` · `G3 GREEN` · **EXIT=0**, double-run identical but for the clock | **GREEN** |
+| **G-4** | — | ⟨cmd⟩ `wasm-admission.mjs src/css/build/ac1.wasm` → `functionKindImportsTotal 0 · unaccountedImportsTotal 0 · "verdict": "GREEN"`, **EXIT=0**; sha256 `f0d063d6…` / 662339 B ≡ `.e`'s dated `wasm-imports-2026-09-19-w4e.json` (R-4 discharged at the bytes) | **GREEN** |
+| **G-5** | `RC-P(4.0.0) = FALSE — 3 of 6` (conjunct 3 bound to the candidate tree) | with Q-RC-1's V-tarball arm: `RC-P(4.0.0) = FALSE — 3 of 6: 1 PUBLISHED · 3 EQUIVALENCE (arm V: 20,962 mirror-defects over V's installed /css) · 4 ADMITTED`, **EXIT=1**, double-run; negative control 4 × `MEASURED: NO` | **GREEN — honestly FALSE, now over V's bytes** |
+| **G-6** | 25 | ⟨cmd⟩ `grep -rn 'RC-P' docs/tranches/X/{keyframes,fourier}/waves/ \| wc -l` → **25** | **GREEN** |
+| **G-7** | 0 / 0 | ⟨cmd⟩ `grep -c 'parse-that' ../fourier-analysis/package.json` → **0**; `web/package.json` → **0** | **GREEN — floor held** |
+| **G-8** | packet present; `RELEASE-PACKET` 1 · `RC-P` 1 · `SS-6` 25; 0 UNREAD / 80 | packet present (+ dated addendum); INBOX gains **O-41** (the adjudication relay, SENT, no reply owed, SS-6 batch named); **0 UNREAD** at close | **GREEN** |
+| **G-9** | §4 above, disposition **(C)** | unchanged; this seat authored no X·V wave (⟨cmd⟩ `git show --name-only` over this unit's commits → 0 paths under `docs/tranches/X/waves/`) | **GREEN** |
+| **G-10** shape (a) | open-state **5** | open-state **5 ≡ 5**; **the act was NOT performed** — withheld by gate id **G-1** | **RED (withheld)** |
+
+**GREEN: G-2 · G-3 · G-4 · G-5 · G-6 · G-7 · G-8 · G-9. RED: G-1 · G-10.** G-3 turned (X.P.W4.e /
+`.e2`) and G-1 reddened — on the instrument, after the ruling it was built before.
+
+### 12.2 The ruling, in one paragraph
+
+44 carried cells: **42 ruled candidate-correct, `declared-divergence`** — `GROUND-C` ×29 (a
+non-finite numeral is not a syntax error; clamp where css-color-4 declares a range, carry
+`±Infinity` where none exists), `ID-2` ×1, `ID-4` ×5, `ID-1b` ×2 (the nested at-rule), and five
+`ID-1b`-tagged cells re-attributed under refutation to `PB-12` ×3 · `PB-09` · `PB-05` (the non-ident
+declaration NAME they carry is accepted by BOTH engines — F-w4f-1, shared); **2 ruled CANDIDATE
+DEFECT — F-w4f-2** (the candidate requires whitespace before `!important`; `red!important` is valid
+CSS and 4.0.0 accepts it). 39 rows whose `PENDING` rested on `CN-2` / `CN-3` / `R4`: RETIRED as
+coverage claims (F-w4a-1) — 38 `identical`, `coerceToSyntax` inheriting `parseCssColor`'s rows.
+**0 cells PENDING.** The whole-sheet refusal is ruled the seam's error posture, not a divergence
+class. `ADJUDICATION-W4.md` holds every cell's predicate and both measurement appendices.
+
+### 12.3 The stamp, withheld again — and why the reason moved
+
+X.P.W4's close withheld the R-A stamp by gate id **G-3**. `.e`/`.e2` turned G-3 (`52 of 52`). This
+seat's ruling then reddened **G-1**, on its own instrument: `scripts/seam-contract-check.mjs` (`.a`'s
+file, in no row of `.f`'s grant) encodes §0v's *"publishes the carried cells as PENDING-ADJUDICATION"*
+as check G and the ledger's `subjects` fields as check E, and neither has a vocabulary for a ruled
+cell or a retired row. §6 G-10's falsifier binds (*"a stamp performed while any of G-1..G-9 is red
+fails"*): **WITHHELD by gate id G-1**; the five four-verb `VERIFIED` rows are untouched (shape-(a) sum
+5); the two COHESION carves are not performed. The cure is one instrument edit (E-w4f-1) or the
+ledger's regeneration without the stale `CN-2`/`CN-3` subjects, which waits on `F-ab1`.
+
+### 12.4 Residuals out of this close, each with its owner
+
+| id | residual | owner |
+|---|---|---|
+| **E-w4f-1** | the seam checker's vocabulary predates the ruling (checks E and G) | `.a`'s file — the triumvirate |
+| **F-w4f-2** (HIGH) | the candidate rejects `!important` without a preceding space — 2 carried cells are candidate mirror-defects | a grammar act at `<p2>/typescript/src/css/**` |
+| **F-w4f-1** (MEDIUM) | both engines accept a non-ident run as a declaration NAME (shared) | candidate grammar act; 4.0.0 defect for X·V |
+| **F-w4a-1** → the ledger's regeneration | `CN-2`/`CN-3` cannot be re-emitted truthfully until `F-ab1` is cured | the emitter's owner (`<p2>`) |
+| **§10 carry** | `DIVERGENCE-LEDGER.md` §10 is outside the emitter's `§6.x` carry; a regeneration must re-append it | the emitter's owner |
+| **DEFECT-LEDGER append** | the harvester's append (+114 lines, measured in the scratch mirror) was NOT written — `registry/DEFECT-LEDGER.md` is in no row of `.f`'s grant | the orchestrator / the close seat |
+| `R-w4b-2` · `R-5` · `SEAM-DRIFT` · `F-ae1 / F-p1` · the W3 rounds-6–8 set | handed to X-W11's OUT-OF-WAVE roster by id (ADJUDICATION-W4 §8) | X-W11 |

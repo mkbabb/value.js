@@ -206,3 +206,30 @@ operative sentence, and it is the output of a program, not a judgement of its au
    is `.d`'s fresh Fable adjudicator's and has not happened.
 4. **Not a certification.** No `VERIFIED` verb is moved by this document or by the seat that wrote it.
 5. **Not an ask of anyone.** No recipient is asked to reply, repin, build, or decide.
+
+---
+
+## ADDENDUM 2026-09-19 — the 45 `PENDING-ADJUDICATION` cells are RULED (X.P.W4.f, SERVED MODEL: claude-fable-5-1) — dated, beside (E-3)
+
+§6 item 3 above (*"45 of 52 seam rows are `PENDING-ADJUDICATION` and remain so"*) is superseded beside,
+not rewritten. The fresh Fable adjudicator of `X.P.W4S` ruled every cell
+(`docs/tranches/X/parse-that/ADJUDICATION-W4.md`; the contract's cells at `SEAM-CONTRACT.md` §3; the
+ledger's `rulingId` appends at `DIVERGENCE-LEDGER.md` §10). What a recipient now reads, in one table:
+
+| what changed for a consumer | rows | reading |
+|---|---|---|
+| **`±Infinity` numerals are NOT syntax errors** (COHESION §0v) — 29 cells, `GROUND-C` | `parseCssColor` · `parseCssScalar` · `parseCssValue` · `parseCssValues` · `parseTimingFunction` · `parseStylesheet` | WIDENS. Where css-color-4 declares a range the value arrives clamped (`rgb()` channels [0,255], alpha [0,1] — 4.0.0 rejected with its own `color_out_of_range` label); where none exists (`cubic-bezier` ordinates, `linear()` stops) the value carries `Infinity` / `-Infinity`, which `JSON.stringify` renders as `null`. A non-finite `<hue>` is still rejected by BOTH engines (`F-e3`, shared, carried) |
+| **the incumbent-defect classes** `ID-2` · `ID-4` · `ID-1b` (nested at-rule form) — 8 cells | `parseTimingFunction` · `parseStylesheet` | candidate correct on all 8: `steps(n,, start)` now refuses (NARROWS); a stray `)`/`}` in a prelude no longer poisons 4.0.0's paren counter (4 cells WIDEN, 1 NARROWS); a nested `@container` inside a style rule is read as an at-rule child, not as an 80-character declaration name (CHANGES VALUE) |
+| **five cells re-attributed** to already-adjudicated rows (`PB-12` ×3 · `PB-09` · `PB-05`) | `parseStylesheet` | no new behaviour: the rulings a recipient already holds. The non-ident declaration NAME in those inputs (`col!r`) is accepted by BOTH engines — shared, not a divergence (F-w4f-1) |
+| **two cells are CANDIDATE DEFECTS — F-w4f-2** | `parseStylesheet` | **the candidate today requires whitespace before `!important`** (`color: red!important` is valid css-syntax-3 §5.4.7 and 4.0.0 accepts it; the candidate rejects the sheet). A grammar cure is owed at the producer; until it lands, `RC-P` conjunct 3 counts these cells against any `V` that ships the candidate |
+| **39 rows whose `PENDING` rested on a stale ledger premise** (`CN-2` · `CN-3` · `R4`, F-w4a-1) | the 10 collectors/serializers/coercer · the 28 types · `parseKeyframeSelector` | RETIRED as coverage claims: all are provided, resolved from the installed tarball at G-3 (`52 of 52`). 38 read `identical`; `coerceToSyntax` inherits `parseCssColor`'s rows through `<color>` |
+| **the whole-sheet refusal** | `parseStylesheet` | ruled the SEAM's error posture (shared with 4.0.0), not a divergence — what is adjudicated is which inputs are malformed |
+
+**Operative reading, re-evaluated with conjunct 3 bound to `V`'s bytes (Q-RC-1, `RELEASE-CONDITION.md`
+addendum)**: `RC-P(4.0.0)` = **FALSE** — 3 of 6 TRUE (2 · 5 · 6), 3 FALSE (1 PUBLISHED · 3
+EQUIVALENCE, now measured over `V`'s installed `/css`: 20,962 mirror-defects, every one an unhonoured
+adjudication, a ruled value, or an `R1` throw · 4 ADMITTED). **KF.W3 does NOT open. The X·V adoption
+re-trigger does NOT fire.** The R-A stamp remains **WITHHELD, by gate id G-1** (the seam checker's
+vocabulary predates the ruling — `execution/D/X-P-W4S.md`, E-w4f-1). **§6 items 1, 2, 4 and 5 stand
+unchanged**: this addendum is not a release, not a schedule, not a certification, and asks nothing
+of anyone. O-15 stays what it was.
