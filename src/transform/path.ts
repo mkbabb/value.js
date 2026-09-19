@@ -18,6 +18,15 @@
  * Bézier arc-length uses adaptive recursive subdivision against a flatness
  * tolerance; the cumulative table is built once at parse time so repeated
  * `getPointAtLength` calls are a binary search + a local interpolation.
+ *
+ * **Malformed `d` data is rejected, never truncated.** SVG 1.1 §8.3 states the
+ * error-handling rule for path data: the path is rendered *"up to, but not
+ * including, the path command containing the first error"*. That rule is this
+ * module's totality contract — path data that does not begin with a `moveto`,
+ * carries an incomplete argument group, or contains an unparsable token yields
+ * the geometry of its well-formed prefix, and every public entry still returns
+ * the finite `number` / `Point` its signature declares. Nothing here throws on
+ * a string.
  */
 
 export type Point = Readonly<{
@@ -49,50 +58,200 @@ const FLATNESS = 0.1;
 const MAX_SUBDIV_DEPTH = 24;
 
 // ────────────────────────────────────────────────────────────────────────────
-// Tokenizer — split a `d` string into (command, number[]) command groups.
+// Tokenizer — split a `d` string into positional, fully-formed segments.
 // ────────────────────────────────────────────────────────────────────────────
 
-/** A single parsed path command: its letter + its flat argument list. */
-interface RawCommand {
-    code: string;
-    args: number[];
-}
-
-const COMMAND_RE = /[MmLlHhVvCcSsQqTtAaZz]/;
-// Number token: optional sign, int/decimal/exponent. The leading sign may be
-// glued to a prior number (`10-20`), so we tokenize greedily on this pattern.
-const NUMBER_RE = /-?(?:\d*\.\d+|\d+\.?)(?:[eE][+-]?\d+)?/g;
+/** The ten path commands, in their canonical (absolute) spelling. */
+type Op = "M" | "L" | "H" | "V" | "C" | "S" | "Q" | "T" | "A" | "Z";
+/** Every command that takes arguments — i.e. every one but `Z`. */
+type DrawOp = Exclude<Op, "Z">;
 
 /**
- * Tokenize a path `d` string into raw command groups. Numbers may be separated
- * by whitespace, commas, or merely a sign change (`M0 0L10-5`); the number
- * regex handles the implicit separators.
+ * One fully-formed segment: a command and exactly the arguments that command
+ * declares, named. A repeated argument run (`L 1 1 2 2`) is one segment per
+ * repetition, so the flattener never indexes an argument list and never reads
+ * past its end.
  */
-function tokenizePath(d: string): RawCommand[] {
-    const commands: RawCommand[] = [];
-    let i = 0;
+type Segment =
+    | { readonly op: "M" | "L" | "T"; readonly rel: boolean; readonly x: number; readonly y: number }
+    | { readonly op: "H" | "V"; readonly rel: boolean; readonly a: number }
+    | {
+          readonly op: "C"; readonly rel: boolean;
+          readonly x1: number; readonly y1: number;
+          readonly x2: number; readonly y2: number;
+          readonly x: number; readonly y: number;
+      }
+    | {
+          readonly op: "S"; readonly rel: boolean;
+          readonly x2: number; readonly y2: number;
+          readonly x: number; readonly y: number;
+      }
+    | {
+          readonly op: "Q"; readonly rel: boolean;
+          readonly qx: number; readonly qy: number;
+          readonly x: number; readonly y: number;
+      }
+    | {
+          readonly op: "A"; readonly rel: boolean;
+          readonly rx: number; readonly ry: number; readonly rot: number;
+          readonly largeArc: boolean; readonly sweep: boolean;
+          readonly x: number; readonly y: number;
+      }
+    | { readonly op: "Z" };
+
+const OPS: ReadonlySet<string> = new Set<Op>([
+    "M", "L", "H", "V", "C", "S", "Q", "T", "A", "Z",
+]);
+const isOp = (ch: string): ch is Op => OPS.has(ch);
+
+/** `wsp` / `comma-wsp` between tokens (SVG 1.1 §8.3.1). */
+const SEPARATOR_RE = /[\s,]/;
+// Number token, matched STICKILY at the cursor: optional sign,
+// int/decimal/exponent. A sign is its own separator (`10-20`, `M0 0L10-5`).
+const NUMBER_RE = /[+-]?(?:\d*\.\d+|\d+\.?)(?:[eE][+-]?\d+)?/y;
+
+/**
+ * Tokenize a path `d` string into fully-formed segments, positionally.
+ *
+ * Each command consumes exactly its own arity per repetition, so an arc's two
+ * flags are read as single CHARACTERS — SVG 1.1 §8.3.9 `flag ::= "0" | "1"` —
+ * and the compact spelling `A5 5 0 0120 10` that SVGO / Figma / Illustrator
+ * emit tokenizes identically to the whitespace-delimited `A 5 5 0 0 1 20 10`.
+ *
+ * Malformed data is REJECTED, never truncated (SVG 1.1 §8.3): tokenizing stops
+ * at the first command that does not begin the data with a `moveto`, cannot
+ * complete an argument group, or is preceded by an unparsable token — and the
+ * well-formed prefix is returned. A command whose repetition run ends short
+ * keeps its complete repetitions and drops the partial one.
+ */
+function tokenizePath(d: string): Segment[] {
+    const segments: Segment[] = [];
     const n = d.length;
+    let i = 0;
+
+    const skipSeparators = (): void => {
+        while (i < n && SEPARATOR_RE.test(d.charAt(i))) i += 1;
+    };
+
+    const readNumber = (): number | null => {
+        skipSeparators();
+        NUMBER_RE.lastIndex = i;
+        const match = NUMBER_RE.exec(d);
+        if (match === null) return null;
+        i = NUMBER_RE.lastIndex;
+        return Number(match[0]);
+    };
+
+    const readPoint = (): Point | null => {
+        const x = readNumber();
+        if (x === null) return null;
+        const y = readNumber();
+        if (y === null) return null;
+        return { x, y };
+    };
+
+    /** SVG 1.1 §8.3.9: an arc flag is one character, `"0"` or `"1"`. */
+    const readFlag = (): boolean | null => {
+        skipSeparators();
+        const ch = d.charAt(i);
+        if (ch !== "0" && ch !== "1") return null;
+        i += 1;
+        return ch === "1";
+    };
+
+    const atNumber = (): boolean => {
+        skipSeparators();
+        NUMBER_RE.lastIndex = i;
+        return NUMBER_RE.exec(d) !== null;
+    };
+
+    /**
+     * One repetition of `op`'s argument group, or `null` when the group is
+     * incomplete. `repetition > 0` on a `moveto` is an implicit `lineto`
+     * (SVG 1.1 §8.3.2).
+     */
+    const readSegment = (op: DrawOp, rel: boolean, repetition: number): Segment | null => {
+        switch (op) {
+            case "M":
+            case "L":
+            case "T": {
+                const p = readPoint();
+                if (p === null) return null;
+                const kind = op === "M" && repetition > 0 ? "L" : op;
+                return { op: kind, rel, x: p.x, y: p.y };
+            }
+            case "H":
+            case "V": {
+                const a = readNumber();
+                if (a === null) return null;
+                return { op, rel, a };
+            }
+            case "C": {
+                const c1 = readPoint();
+                const c2 = readPoint();
+                const p = readPoint();
+                if (c1 === null || c2 === null || p === null) return null;
+                return { op, rel, x1: c1.x, y1: c1.y, x2: c2.x, y2: c2.y, x: p.x, y: p.y };
+            }
+            case "S": {
+                const c2 = readPoint();
+                const p = readPoint();
+                if (c2 === null || p === null) return null;
+                return { op, rel, x2: c2.x, y2: c2.y, x: p.x, y: p.y };
+            }
+            case "Q": {
+                const q = readPoint();
+                const p = readPoint();
+                if (q === null || p === null) return null;
+                return { op, rel, qx: q.x, qy: q.y, x: p.x, y: p.y };
+            }
+            case "A": {
+                const rx = readNumber();
+                const ry = readNumber();
+                const rot = readNumber();
+                const largeArc = readFlag();
+                const sweep = readFlag();
+                const p = readPoint();
+                if (
+                    rx === null || ry === null || rot === null ||
+                    largeArc === null || sweep === null || p === null
+                ) {
+                    return null;
+                }
+                return { op, rel, rx, ry, rot, largeArc, sweep, x: p.x, y: p.y };
+            }
+        }
+    };
 
     while (i < n) {
-        const ch = d[i]!;
-        if (COMMAND_RE.test(ch)) {
-            // Collect the argument run up to the next command letter.
-            let j = i + 1;
-            while (j < n && !COMMAND_RE.test(d[j]!)) j++;
-            const argStr = d.slice(i + 1, j);
-            const args =
-                ch === "Z" || ch === "z"
-                    ? []
-                    : (argStr.match(NUMBER_RE) ?? []).map(Number);
-            commands.push({ code: ch, args });
-            i = j;
-        } else {
-            // Skip leading whitespace / stray separators.
-            i++;
+        skipSeparators();
+        if (i >= n) break;
+
+        const code = d.charAt(i);
+        const op = code.toUpperCase();
+        // A stray token is the first error: stop, keep the well-formed prefix.
+        if (!isOp(op)) return segments;
+        // SVG 1.1 §8.3.2: path data must begin with a moveto.
+        if (segments.length === 0 && op !== "M") return segments;
+        i += 1;
+
+        if (op === "Z") {
+            segments.push({ op });
+            continue;
+        }
+
+        const rel = code !== op;
+        for (let repetition = 0; ; repetition += 1) {
+            const segment = readSegment(op, rel, repetition);
+            // An incomplete group is the first error: drop it and everything
+            // after it, keeping the repetitions that were whole.
+            if (segment === null) return segments;
+            segments.push(segment);
+            if (!atNumber()) break;
         }
     }
 
-    return commands;
+    return segments;
 }
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -106,8 +265,10 @@ function lineDistance(ax: number, ay: number, bx: number, by: number): number {
 }
 
 function pushVertex(poly: PolyVertex[], x: number, y: number): void {
-    const prev = poly[poly.length - 1]!;
-    const len = prev.len + lineDistance(prev.x, prev.y, x, y);
+    const prev = poly[poly.length - 1];
+    // The first vertex of a polyline has no predecessor: its cumulative
+    // arc-length is 0.
+    const len = prev === undefined ? 0 : prev.len + lineDistance(prev.x, prev.y, x, y);
     poly.push({ x, y, len });
 }
 
@@ -284,181 +445,126 @@ function flattenArc(
 // ────────────────────────────────────────────────────────────────────────────
 
 function flattenPath(d: string): PolyVertex[] {
-    const commands = tokenizePath(d);
+    const segments = tokenizePath(d);
     const poly: PolyVertex[] = [];
 
     // Current point, subpath start, and the previous control point (for S/T
     // smooth-shortcut reflection). `prevCubicCtrl`/`prevQuadCtrl` hold the last
     // cubic/quadratic control point, or null when the previous command was not
     // the matching curve type (then the reflection is the current point itself).
+    // The tokenizer guarantees the first segment is a moveto, so there is no
+    // "not started yet" state to carry.
     let cx = 0, cy = 0;
     let startX = 0, startY = 0;
     let prevCubicCtrl: Point | null = null;
     let prevQuadCtrl: Point | null = null;
-    let started = false;
 
-    const begin = (x: number, y: number): void => {
-        cx = x;
-        cy = y;
-        startX = x;
-        startY = y;
-        if (!started) {
-            poly.push({ x, y, len: 0 });
-            started = true;
-        } else {
-            // A new subpath after a move with no draw — emit the move target as
-            // a zero-length jump vertex so a following draw starts from it.
-            pushVertex(poly, x, y);
-        }
-    };
-
-    for (const { code, args } of commands) {
-        const rel = code === code.toLowerCase() && code !== code.toUpperCase();
-        const upper = code.toUpperCase();
-
-        switch (upper) {
+    for (const segment of segments) {
+        switch (segment.op) {
             case "M": {
-                // First pair is the move; subsequent pairs are implicit L.
-                for (let k = 0; k < args.length; k += 2) {
-                    let nx = args[k]!;
-                    let ny = args[k + 1]!;
-                    if (rel) {
-                        nx += cx;
-                        ny += cy;
-                    }
-                    if (k === 0) {
-                        begin(nx, ny);
-                    } else {
-                        pushVertex(poly, nx, ny);
-                        cx = nx;
-                        cy = ny;
-                    }
-                }
+                const nx = segment.rel ? cx + segment.x : segment.x;
+                const ny = segment.rel ? cy + segment.y : segment.y;
+                // A new subpath after a move with no draw — emit the move
+                // target as a jump vertex so a following draw starts from it.
+                pushVertex(poly, nx, ny);
+                cx = startX = nx;
+                cy = startY = ny;
                 prevCubicCtrl = prevQuadCtrl = null;
                 break;
             }
             case "L": {
-                for (let k = 0; k < args.length; k += 2) {
-                    let nx = args[k]!;
-                    let ny = args[k + 1]!;
-                    if (rel) {
-                        nx += cx;
-                        ny += cy;
-                    }
-                    pushVertex(poly, nx, ny);
-                    cx = nx;
-                    cy = ny;
-                }
+                const nx = segment.rel ? cx + segment.x : segment.x;
+                const ny = segment.rel ? cy + segment.y : segment.y;
+                pushVertex(poly, nx, ny);
+                cx = nx;
+                cy = ny;
                 prevCubicCtrl = prevQuadCtrl = null;
                 break;
             }
             case "H": {
-                for (const a of args) {
-                    const nx = rel ? cx + a : a;
-                    pushVertex(poly, nx, cy);
-                    cx = nx;
-                }
+                const nx = segment.rel ? cx + segment.a : segment.a;
+                pushVertex(poly, nx, cy);
+                cx = nx;
                 prevCubicCtrl = prevQuadCtrl = null;
                 break;
             }
             case "V": {
-                for (const a of args) {
-                    const ny = rel ? cy + a : a;
-                    pushVertex(poly, cx, ny);
-                    cy = ny;
-                }
+                const ny = segment.rel ? cy + segment.a : segment.a;
+                pushVertex(poly, cx, ny);
+                cy = ny;
                 prevCubicCtrl = prevQuadCtrl = null;
                 break;
             }
             case "C": {
-                for (let k = 0; k < args.length; k += 6) {
-                    let c1x = args[k]!, c1y = args[k + 1]!;
-                    let c2x = args[k + 2]!, c2y = args[k + 3]!;
-                    let nx = args[k + 4]!, ny = args[k + 5]!;
-                    if (rel) {
-                        c1x += cx; c1y += cy;
-                        c2x += cx; c2y += cy;
-                        nx += cx; ny += cy;
-                    }
-                    flattenCubic(poly, cx, cy, c1x, c1y, c2x, c2y, nx, ny, 0);
-                    prevCubicCtrl = { x: c2x, y: c2y };
-                    cx = nx; cy = ny;
-                }
+                const c1x = segment.rel ? cx + segment.x1 : segment.x1;
+                const c1y = segment.rel ? cy + segment.y1 : segment.y1;
+                const c2x = segment.rel ? cx + segment.x2 : segment.x2;
+                const c2y = segment.rel ? cy + segment.y2 : segment.y2;
+                const nx = segment.rel ? cx + segment.x : segment.x;
+                const ny = segment.rel ? cy + segment.y : segment.y;
+                flattenCubic(poly, cx, cy, c1x, c1y, c2x, c2y, nx, ny, 0);
+                prevCubicCtrl = { x: c2x, y: c2y };
                 prevQuadCtrl = null;
+                cx = nx; cy = ny;
                 break;
             }
             case "S": {
-                for (let k = 0; k < args.length; k += 4) {
-                    let c2x = args[k]!, c2y = args[k + 1]!;
-                    let nx = args[k + 2]!, ny = args[k + 3]!;
-                    if (rel) {
-                        c2x += cx; c2y += cy;
-                        nx += cx; ny += cy;
-                    }
-                    // Reflect the previous cubic control point about the current
-                    // point; if the previous command was not a cubic, the
-                    // control point coincides with the current point.
-                    const c1x = prevCubicCtrl ? 2 * cx - prevCubicCtrl.x : cx;
-                    const c1y = prevCubicCtrl ? 2 * cy - prevCubicCtrl.y : cy;
-                    flattenCubic(poly, cx, cy, c1x, c1y, c2x, c2y, nx, ny, 0);
-                    prevCubicCtrl = { x: c2x, y: c2y };
-                    cx = nx; cy = ny;
-                }
+                const c2x = segment.rel ? cx + segment.x2 : segment.x2;
+                const c2y = segment.rel ? cy + segment.y2 : segment.y2;
+                const nx = segment.rel ? cx + segment.x : segment.x;
+                const ny = segment.rel ? cy + segment.y : segment.y;
+                // Reflect the previous cubic control point about the current
+                // point; if the previous command was not a cubic, the control
+                // point coincides with the current point.
+                const c1x = prevCubicCtrl ? 2 * cx - prevCubicCtrl.x : cx;
+                const c1y = prevCubicCtrl ? 2 * cy - prevCubicCtrl.y : cy;
+                flattenCubic(poly, cx, cy, c1x, c1y, c2x, c2y, nx, ny, 0);
+                prevCubicCtrl = { x: c2x, y: c2y };
                 prevQuadCtrl = null;
+                cx = nx; cy = ny;
                 break;
             }
             case "Q": {
-                for (let k = 0; k < args.length; k += 4) {
-                    let qx = args[k]!, qy = args[k + 1]!;
-                    let nx = args[k + 2]!, ny = args[k + 3]!;
-                    if (rel) {
-                        qx += cx; qy += cy;
-                        nx += cx; ny += cy;
-                    }
-                    flattenQuadratic(poly, cx, cy, qx, qy, nx, ny);
-                    prevQuadCtrl = { x: qx, y: qy };
-                    cx = nx; cy = ny;
-                }
+                const qx = segment.rel ? cx + segment.qx : segment.qx;
+                const qy = segment.rel ? cy + segment.qy : segment.qy;
+                const nx = segment.rel ? cx + segment.x : segment.x;
+                const ny = segment.rel ? cy + segment.y : segment.y;
+                flattenQuadratic(poly, cx, cy, qx, qy, nx, ny);
+                prevQuadCtrl = { x: qx, y: qy };
                 prevCubicCtrl = null;
+                cx = nx; cy = ny;
                 break;
             }
             case "T": {
-                for (let k = 0; k < args.length; k += 2) {
-                    let nx = args[k]!, ny = args[k + 1]!;
-                    if (rel) {
-                        nx += cx; ny += cy;
-                    }
-                    const qx: number = prevQuadCtrl ? 2 * cx - prevQuadCtrl.x : cx;
-                    const qy: number = prevQuadCtrl ? 2 * cy - prevQuadCtrl.y : cy;
-                    flattenQuadratic(poly, cx, cy, qx, qy, nx, ny);
-                    prevQuadCtrl = { x: qx, y: qy };
-                    cx = nx; cy = ny;
-                }
+                const nx = segment.rel ? cx + segment.x : segment.x;
+                const ny = segment.rel ? cy + segment.y : segment.y;
+                // Annotated: `prevQuadCtrl` is re-assigned from these two, and
+                // the inference would otherwise be circular (TS7022).
+                const qx: number = prevQuadCtrl ? 2 * cx - prevQuadCtrl.x : cx;
+                const qy: number = prevQuadCtrl ? 2 * cy - prevQuadCtrl.y : cy;
+                flattenQuadratic(poly, cx, cy, qx, qy, nx, ny);
+                prevQuadCtrl = { x: qx, y: qy };
                 prevCubicCtrl = null;
+                cx = nx; cy = ny;
                 break;
             }
             case "A": {
-                for (let k = 0; k < args.length; k += 7) {
-                    const rx = args[k]!, ry = args[k + 1]!;
-                    const rot = args[k + 2]!;
-                    const largeArc = args[k + 3]! !== 0;
-                    const sweep = args[k + 4]! !== 0;
-                    let nx = args[k + 5]!, ny = args[k + 6]!;
-                    if (rel) {
-                        nx += cx; ny += cy;
-                    }
-                    flattenArc(poly, cx, cy, rx, ry, rot, largeArc, sweep, nx, ny);
-                    cx = nx; cy = ny;
-                }
+                const nx = segment.rel ? cx + segment.x : segment.x;
+                const ny = segment.rel ? cy + segment.y : segment.y;
+                flattenArc(
+                    poly, cx, cy,
+                    segment.rx, segment.ry, segment.rot,
+                    segment.largeArc, segment.sweep,
+                    nx, ny,
+                );
                 prevCubicCtrl = prevQuadCtrl = null;
+                cx = nx; cy = ny;
                 break;
             }
             case "Z": {
-                if (started) {
-                    pushVertex(poly, startX, startY);
-                    cx = startX;
-                    cy = startY;
-                }
+                pushVertex(poly, startX, startY);
+                cx = startX;
+                cy = startY;
                 prevCubicCtrl = prevQuadCtrl = null;
                 break;
             }
@@ -483,8 +589,8 @@ export class PathGeometry {
 
     constructor(d: string) {
         this.poly = flattenPath(d);
-        this.totalLength =
-            this.poly.length > 0 ? this.poly[this.poly.length - 1]!.len : 0;
+        // An empty or unrenderable `d` flattens to no vertices — length 0.
+        this.totalLength = this.poly[this.poly.length - 1]?.len ?? 0;
     }
 
     getTotalLength(): number {
@@ -513,11 +619,13 @@ export class PathGeometry {
      */
     sampleAtLength(length: number): PathSample {
         const poly = this.poly;
-        if (poly.length === 0) return { x: 0, y: 0, angle: 0 };
-        if (poly.length === 1) {
-            const p = poly[0]!;
-            return { x: p.x, y: p.y, angle: 0 };
-        }
+        const first = poly[0];
+        if (first === undefined) return { x: 0, y: 0, angle: 0 };
+        if (poly.length === 1) return { x: first.x, y: first.y, angle: 0 };
+
+        // Every index below is kept inside `[0, poly.length)` by the search, so
+        // the first vertex is only ever the identity of an unreachable read.
+        const at = (k: number): PolyVertex => poly[k] ?? first;
 
         const total = this.totalLength;
         const target = Math.min(Math.max(length, 0), total);
@@ -527,13 +635,13 @@ export class PathGeometry {
         let hi = poly.length - 1;
         while (lo < hi) {
             const mid = (lo + hi) >> 1;
-            if (poly[mid]!.len < target) lo = mid + 1;
+            if (at(mid).len < target) lo = mid + 1;
             else hi = mid;
         }
         // `lo` is the first vertex whose cumulative length ≥ target.
         const i = Math.max(1, lo);
-        const a = poly[i - 1]!;
-        const b = poly[i]!;
+        const a = at(i - 1);
+        const b = at(i);
         const segLen = b.len - a.len;
         const u = segLen > 0 ? (target - a.len) / segLen : 0;
 

@@ -312,6 +312,14 @@ export function decomposeMatrix3D(cssValues: Mat4): DecomposedMatrix3D | null {
 
     // Step 10: Compute scale Z
     const scaleZ = vec3Length(...row2);
+
+    // A zero axis length is a singular (rank-deficient) 3x3: the rotation is
+    // not recoverable and every subsequent division produces NaN. Join the
+    // null ladder the wrong-length and zero-`w` guards above already form —
+    // and that `decomposeMatrix2D` already honours with its own `!== 0` tests
+    // — rather than returning a NaN-filled `DecomposedMatrix3D`.
+    if (scaleX === 0 || scaleY === 0 || scaleZ === 0) return null;
+
     row2 = [row2[0] / scaleZ, row2[1] / scaleZ, row2[2] / scaleZ];
     skewXZ /= scaleZ;
     skewYZ /= scaleZ;

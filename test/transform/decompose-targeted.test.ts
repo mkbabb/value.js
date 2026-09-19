@@ -450,6 +450,17 @@ describe("decomposeMatrix3D — edge cases", () => {
         expect(decomposeMatrix3D([1, 0, 0] as unknown as Mat4)).toBeNull();
     });
 
+    // X.W9.b/G9: a rank-deficient 3x3 has no recoverable rotation. Every axis
+    // length is tested, so the ladder returns `null` rather than the
+    // NaN-filled `DecomposedMatrix3D` its own signature forbids.
+    it.each([
+        ["zero X axis", [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]],
+        ["X and Y axes collinear", [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]],
+        ["zero Z axis", [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]],
+    ] as const)("returns null for a singular 3x3 (%s)", (_name, values) => {
+        expect(decomposeMatrix3D(values as unknown as Mat4)).toBeNull();
+    });
+
     it("returns null for matrix with zero homogeneous coordinate", () => {
         // m[15] = 0 → singular
         // prettier-ignore
