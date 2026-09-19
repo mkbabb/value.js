@@ -2476,3 +2476,42 @@ which is **already rowed as I-35** and whose own cell routes it *"X·KF (Track B
   (re-dispatch X-W9.f and X-W9.h under the unchanged spec) carrying **ESC-W9R1-BOUNDS-GRANT** (the
   three test/fixture paths) → **CHECK 2**. `ESC-W9-G24-SUBSTRATE` and `ESC-W9d-DTS-SPELLING` ride
   into that round unrelieved, both naming trees this wave may not write.
+
+### R1.8 Correction at the bytes — this seat's ledger act landed inside a sibling's commit
+
+**Recorded rather than quietly absorbed.** §Repair 1's preamble and R1.1 describe this seat's
+ledger write as its own act. At the bytes it is **not its own commit**: between this seat writing
+`LEDGER.md` and staging it, a **Track-B** seat ran a pathspec commit that named `LEDGER.md`, and
+because this seat's edit was still *unstaged in that same file*, it was swept in.
+
+```
+⟨cmd⟩ git log --oneline -1            → 9101f343  docs(X·exec): KF.W10 BLOCKED-ON OP-6 — baseline banked, 7 units planned (undispatched)
+⟨cmd⟩ git show 9101f343 --stat        → INBOX.md +2 · execution/B/KF-W10.md +194 · execution/LEDGER.md 8 ±
+⟨cmd⟩ git show 9101f343 -- …/LEDGER.md | grep -c '^+.*REPAIR 1 2026-09-18'   → 1
+```
+
+**Nothing was lost in either direction, and both readings are measured, not assumed:**
+
+```
+⟨cmd⟩ git show HEAD:…/LEDGER.md | grep -c 'REPAIR 1 2026-09-18'        → 3   (this seat's row-cell clause)
+⟨cmd⟩ git show HEAD:…/LEDGER.md | grep -c 'X-W9 REPAIR 1 (Track A'     → 1   (this seat's event line, :289)
+⟨cmd⟩ git show HEAD:…/LEDGER.md | grep -c "repair-1 \`4a27a65d\`"        → 1   (this seat's commits cell)
+⟨cmd⟩ git show HEAD:…/LEDGER.md | grep -c 'BLOCKED-ON OP-6'            → 2   (the sibling's own KF.W10 work, intact)
+```
+
+This seat **did not clobber the sibling**: its `LEDGER.md` write was a read-modify-write of the
+working tree as it then stood, which already carried the sibling's uncommitted KF.W10 row, and that
+row was written back byte-for-byte. It also **did not stage, reset or unstage anything of theirs**
+— the sweep ran in their process, on their pathspec, not this one's.
+
+**So: this round's four acts are `4a27a65d`, `e4d98aca`, `10f562b4` and — for the ledger — the
+LEDGER.md hunks carried inside `9101f343`, which is a Track-B commit.** A later seat reading the
+X-W9 row's commits cell will find three hashes there and should read this paragraph for the fourth.
+
+**Lesson, stated because the standing law's own warning is about exactly this file.** The law
+measures the hazard in one direction — *"a commit without its own pathspec sweeps in whatever a
+sibling seat has staged"* — and both commits here **were** pathspec'd; the sweep still happened,
+because a pathspec commit also carries the **unstaged working-tree edits of the paths it names**.
+`LEDGER.md` is written concurrently by four tracks, so the safe idiom on it is **write → `git add`
+→ `git commit` in one uninterrupted step**, never write-then-measure-then-commit. This seat left a
+measuring gap and a sibling's act landed in it.
