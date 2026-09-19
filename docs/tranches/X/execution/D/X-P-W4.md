@@ -1918,3 +1918,27 @@ before F-w4b-3 · F-w4c-1 · F-w4c-2 are ruled — F-w4c-1 by construction, beca
 now materially larger than the close's: the 45 `PENDING-ADJUDICATION` seam rows, `RC-P`'s two newly
 open contract questions (Q-RC-1 · Q-RC-2), the G-9 recording, the packet and its row, the L-13
 harvest, and the single R-A stamp act — which G-10's falsifier still forbids while G-3 is RED.
+
+### Disclosure — the shared-index condition, at this seat's own site (SELF-COUNT law)
+
+**This seat's LEDGER commit `ddf888fd` carried a hunk that is not this seat's.** ⟨cmd⟩ `git show
+ddf888fd --unified=0 | grep -E '^@@'` → **three** hunks: `@@ -82 +82 @@` (the `X.P.W4` row — this
+seat's, the only row cell it edited), `@@ -370,0 +371,2 @@` (this seat's appended event line), and
+`@@ -56 +56 @@` — **line 56 is Track B's `KF.W11 · W12 · W13` row**, moved from
+*"IMPLEMENTED-with-one-carried-RED"* to *"CLOSED … ⟵ CHECK 1"* by a sibling seat while this seat was
+measuring. ⟨cmd⟩ `git show ddf888fd^:…/LEDGER.md | awk 'NR==56'` versus the same line at `ddf888fd`
+shows the two states; ⟨cmd⟩ `git status --porcelain` at commit time carried `M
+docs/tranches/X/execution/B/KF-W11.md`, Track B's live record, alongside it.
+
+**It is disclosed, not reverted.** The close seat recorded this hazard exactly and it recurred as
+predicted: *"`git commit -- <pathspec>` records the **working-tree** content of the named path, so a
+LEDGER commit taken while a sibling's hunk stands in that same file **carries it**, and pathspec
+discipline cannot prevent same-file carry."* The immediate-before re-read was performed and returned
+one hunk at line 82; Track B's edit landed in the interval between that read and the commit.
+Reverting it would delete a sibling seat's live measurement from the shared file — the one act the
+standing law forbids outright (*"never reset or unstage another seat's paths"*). The carried bytes
+are Track B's own and are left exactly as Track B wrote them.
+
+**This seat's own writes remain five paths and no others** — the four `.c` artefacts, this record
+section, and the `X.P.W4` LEDGER row plus its appended event line. No byte of `KF-W11.md` or of any
+other Track B path was authored, edited or staged here.
