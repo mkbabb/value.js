@@ -2239,3 +2239,240 @@ spec, carrying with them the single bounds grant D-2 names — and then **CHECK 
 
 **This check wrote no cure byte, moved no gate, and edited no spec.** Its only writes are this
 section and one appended ledger event line.
+
+## Repair 1
+
+SERVED MODEL: `claude-opus-5[1m]` · **REPAIR SEAT, round 1.** Dispatched against Check 1's register.
+Every figure below is read from the settled bytes and **double-run**. This seat wrote **four paths**,
+all inside the wave's own surface: `test/parser-totality.test.ts` (§File Bounds `create`, X-W9.a's
+`Files` list), `docs/tranches/X/waves/evidence/W9/coverage-by-export.addendum-2026-09-18.md`
+(§Verification Artefacts' own directory), this section, and one appended ledger event line.
+**It wrote no `src/` byte, no `eslint.config.js`, no `package.json`, no `ConsoleRail.vue`.**
+
+**DISPOSITION: the row stays `PARTIAL 2026-09-17`.** One defect of four is cured outright (**D-4**),
+one is cured on the single carrier §File Bounds admits and **escalated** on the other three
+(**D-2**), and the round's two structural defects (**D-1**, **D-3**) are **escalated with their
+measured reasons**: their cures lie behind a sequencing condition that is **still false at this
+seat's own re-read**, and behind files the spec never listed. **No gate was masked to close this
+round and no verdict moved.**
+
+### R1.0 CRASH-RECOVERY sweep (standing law)
+
+⟨cmd⟩ `git status --porcelain` at entry → **16 rows**. Filtered against this seat's writable set
+(⟨cmd⟩ `git status --porcelain -- test/parser-totality.test.ts
+docs/tranches/X/waves/evidence/W9/ docs/tranches/X/execution/A/X-W9.md
+docs/tranches/X/execution/LEDGER.md`) → **empty**. **Nothing inherited; nothing stashed; nothing
+restored; no blanket anything.**
+
+The one dirty row that *names* a path in this wave's §File Bounds is
+`demo/picker/controls/ComponentSliders/ConsoleRail.vue`, and it was read whole before being left
+alone: ⟨cmd⟩ `git diff -- …/ConsoleRail.vue` → **two hunks, both X-W4's and both self-labelled** —
+`X-W4 · A1 (CC-040) — THE FINE-POINTER FLOOR` (`min-inline-size`/`min-block-size: 1.5rem` on
+`.channel-rail-item`) and `X-W4 · A2 (CC-040)` (the touch rung's media condition widened to
+`(max-width: 1023px), (pointer: coarse)`). **Zero lines touch `componentDescription()` at
+`:172-180`, which is X-W9.h's carve.** This is a **live sibling seat's** work, not a killed
+predecessor's on this unit; it is left exactly as found. `scripts/dev/dev.sh` never touched, never
+staged, never read for edit.
+
+HEAD moved under this seat during the round (`f208ff31` → **`6a73542b`**, a Track-B ledger
+commit rowing KF.W11–W13). ⟨cmd⟩ `git diff --stat f208ff31..6a73542b -- src/ test/ scripts/
+docs/tranches/X/waves/W9.md docs/tranches/X/execution/A/X-W9.md` → **prints nothing**. No subject
+of any reading below moved under this seat.
+
+### R1.1 Defect → cure → commit → gate re-reading
+
+| id | sev | disposition | commit | gate re-reading |
+|---|---|---|---|---|
+| **D-1** | HIGH | **ESCALATED — precondition still false** (R1.2) | none | G21 G22 G23 G24 G28 G29 G32 **unmoved, all RED**, re-read at this seat's own commands |
+| **D-2** | HIGH | **CURED on its one in-bounds carrier · ESCALATED on the other three** (R1.3) | `4a27a65d` | `npm run typecheck` **3 errors → 1** (double-run); G2 **123 passed (123)**, ×2, still GREEN; `npx eslint test/parser-totality.test.ts` **exit 0**; `npm run lint` **55**, carriers outside `docs/tranches/**` → **0** |
+| **D-3** | MINOR | **ESCALATED — no in-bounds cure exists, measured** (R1.4) | none | G14 **60 / 26 lines**, unmoved |
+| **D-4** | MINOR | **CURED — dated addendum-beside (E-3)** (R1.5) | `e4d98aca` | G19 **exit 0**, `74 / 75 = 98.7%` and `71 / 75 = 94.7%`, double-run `diff -q` silent; the published prose now carries the same denominator its own command reads |
+| D-5 · D-6 · D-7 | INFO | **nothing owed** (Check 1's own words), and nothing taken | none | — |
+
+**Cured: 1 of 4 outright (D-4), 1 partially (D-2). Escalated: 3.**
+
+### R1.2 D-1 — the cure's precondition is still false, re-read at this seat's own command
+
+Check 1's cure for D-1 is not a code change. It is, verbatim: *"When X-W4 closes, re-dispatch
+X-W9.f and X-W9.h under the same spec, then re-check."* That condition was **re-read immediately
+before this act and is unmet**:
+
+```
+⟨cmd⟩ grep -n '^| X-W4 ' docs/tranches/X/execution/LEDGER.md   → :33  | X-W4 | X-W0 | **OPEN 2026-09-17** |
+⟨cmd⟩ grep -n '^| X-W8 ' docs/tranches/X/execution/LEDGER.md   → :38  | X-W8 | W4·W5·W6·W7 | planned |
+```
+
+`W9.md` §Disjointness sets the condition as *"X-W9.f sequences after both X-W4 and X-W8 close, **or
+runs while neither is open**"*. X-W8 is `planned` — free. **X-W4 is OPEN**, so neither limb holds,
+and X-W9.h's own gate (*"X-W9.h sequences after X-W4 closes, or runs while X-W4 is not open"*) fails
+on the same row. The working tree corroborates the ledger rather than merely echoing it: X-W4's seat
+has **uncommitted CC-040 work in `ConsoleRail.vue` right now** (R1.0).
+
+**Why the unit cannot be split to get part of it.** The obvious half-measure — take the 4.1.0 cut's
+SHIP limb now (`src/color/*`, `src/easing.ts`, `src/subpaths/*`, `package.json`, `CHANGELOG.md`,
+none of which X-W4 holds) and defer only the LINT limb to `eslint.config.js` — is **forbidden by the
+spec's own commit plan**, not by caution. §Commit Plan row 9 reads:
+
+> `feat(4.1.0): SCI-1 + toHex + easingNames + restored analytic arms` | yes — the atlas evidence
+> tuple **and the two scoped `no-non-null-assertion` rule objects (§4a) ride here**
+
+The `eslint.config.js` edit is declared part of **that one commit**, and the standing law is
+*"commit families the spec declares must not split."* So the file-scoped sequencing propagates to
+the whole unit: with `eslint.config.js` locked, the cut commit cannot be authored at all. The same
+holds for X-W9.h, whose §Commit Plan row 11 (`fix(demo/console-rail): exact channel-id descriptor
+lookup`) binds `demo/color-session/colorSpaceInfo.ts` — which is free — to `ConsoleRail.vue` —
+which is not. Landing only the free half would leave G32 RED *and* split a declared family, buying
+nothing. **Two independent prior seats (close, Check 1) read the deferral the same way; this seat
+makes a third reading and agrees.**
+
+**ESC-W9R1-SEQUENCING** — *D-1 is re-dispatch-ready and precondition-blocked.* Nothing in it is
+mis-specified, mis-rooted or contested; it needs **X-W4 to close**, then one dispatch of X-W9.f and
+X-W9.h under the unchanged spec. Seven gates move with it: G21 G22 G23 G28 G29 G32 by construction,
+and G24 only if **ESC-W9-G24-SUBSTRATE** is also relieved (⟨cmd⟩ `node
+docs/tranches/V/megatranche/audit/probes/fourier-value-import-drift.mjs` → **`ERR_MODULE_NOT_FOUND`**
+on `…/fourier-analysis/web/node_modules/@mkbabb/value.js/dist/value.js`; curing that would require
+writing a **peer tree**, which RD-11 and the standing law both forbid).
+
+### R1.3 D-2 — one carrier cured, three escalated for want of a bounds grant
+
+Check 1's cure names **four** files and asks for **one bounds grant**. The grant was **not given to
+this seat**, and the standing law is explicit: *"if a defect's only cure lies outside bounds, record
+it as an escalation with the measured reason."* The four were therefore tested one by one against
+`W9.md` §File Bounds:
+
+| carrier | in §File Bounds? | this seat |
+|---|---|---|
+| `test/parser-totality.test.ts` | **YES** — §File Bounds row `create`, and X-W9.a's `Files` list names it | **CURED**, `4a27a65d` |
+| `test/v4-css-emerging.test.ts` | **no** — ⟨cmd⟩ `grep -c 'v4-css-emerging' docs/tranches/X/waves/W9.md` → **0** | **ESCALATED** |
+| `test/v4-c1.test.ts` | **no** — same command, **0** | **ESCALATED** |
+| `fixtures/public-types/value-v4.ts` | **no** — same command, **0**; and §File Bounds' Do-NOT-touch reasoning gives no writer | **ESCALATED** |
+
+Check 1 asserts *"`test/parser-totality.test.ts` is in no unit's writable set"*. **That one line of
+Check 1 is wrong, and this seat corrects it at the bytes rather than inheriting it** (E-3: Check 1
+stays immutable; this is the dated correction beside it). ⟨cmd⟩ `grep -n 'parser-totality'
+docs/tranches/X/waves/W9.md` → **`:91` `| `test/parser-totality.test.ts` | create (RED-first
+battery) |`** (§File Bounds) and **`:195`**, the continuation of X-W9.a's own **Files** line, which
+names it explicitly. It is squarely in bounds, which is why it could be cured here.
+
+**The cure, root-cause not mask.** `call<T>(fn: () => ParseResult<T>): ParseResult<T> | Error`
+narrowed the battery's capture helper to **one** result shape while the battery drives
+heterogeneous entry tables — `parseCssColor` ⊕ `parseCssScalar` (§1), the six `PROTO_ENTRIES` (§3)
+— whose call yields a **union** of result types, and `easing()` returns a `Result`, not a
+`ParseResult`. Each union call site inferred `T` from its first member and rejected the rest. The
+same narrowing had already forced `easing(name) **as never**` at §5 — a type lie inside a battery
+whose entire subject is type honesty. The helper now takes the thunk's own return type,
+`<T>(fn: () => T): T | Error`; the then-unused `import type { ParseResult }` goes with it and the
+`as never` cast is **deleted**.
+
+**No assertion was touched, no test skipped, nothing narrowed.** Every assertion in the file is
+`threw(...)` / `toHaveProperty("ok")` / `toMatchObject`, so the totality claim never depended on the
+helper naming one result shape. ⟨cmd⟩ `git show 4a27a65d --stat` → **1 file, `test/parser-totality.test.ts`**.
+
+```
+⟨cmd⟩ npm run typecheck   BEFORE  exit 2, 3 errors:
+        test/parser-totality.test.ts(89,40)  TS2322
+        test/parser-totality.test.ts(146,44) TS2322
+        test/v4-css-emerging.test.ts(12,10)  TS2459  serializeCssValue not exported from ../src/css/stylesheet
+⟨cmd⟩ npm run typecheck   AFTER   1 error (run A prints only test/v4-css-emerging.test.ts;
+                                  run B counts 1) — the survivor is the out-of-bounds carrier
+⟨cmd⟩ npx vitest run test/parser-totality.test.ts  →  123 passed (123), twice   [G2 GREEN, unmoved]
+⟨cmd⟩ npx eslint test/parser-totality.test.ts      →  exit 0
+⟨cmd⟩ npx vitest run  (x2, identical)  →  Tests 13 failed | 600 passed (613); Test Files 4 failed | 32 passed (36)
+⟨cmd⟩ npm run lint    →  55 problems (23 errors, 32 warnings); carriers outside docs/tranches/** → 0
+```
+
+**§Format And Lint Cadence remains NOT met**, honestly and visibly: `typecheck` is exit 2 on one
+error and `vitest` is 13 failed. The thirteen split exactly as Check 1 measured — `v4-css-emerging`
+**10**, `v4-c1` **1** (both this wave's correct cures colliding with artifacts that assert the
+pre-cure shape, both out of bounds), `spectrum-luma` **1** and `demo/test/shell/reka-binding-idiom`
+**1** (both **inherited**, neither this wave's). **This seat masked none of them**, exactly as the
+four units before it did not.
+
+**ESC-W9R1-BOUNDS-GRANT** — *the three carriers, with their one-edit cures named.* `test/v4-css-emerging.test.ts`
+(repoint the `serializeCssValue` import to the module that now exports it, and unwrap the call
+sites the split moved), `test/v4-c1.test.ts` (delete the six retired matrix names from the surface
+snapshot and add `serializeCssValue` ⊕ `isAnyColor`), `fixtures/public-types/value-v4.ts` (delete
+the 14 stale lines naming `DecomposedMatrix2D` `DecomposedMatrix3D` `Mat4` `Vec4` — this one also
+unblocks **G20**, per Check 1 §CH1.4 and ESC-W9e-FIXTURE-V4TYPES). **A grant of these three paths
+to X-W9.f's re-dispatch turns the cadence green in the same round as D-1** — which is what Check 1
+asked for, and which this seat cannot self-grant.
+
+### R1.4 D-3 — no in-bounds cure exists, and that is measured rather than asserted
+
+G14 re-read here, double-run: ⟨cmd⟩ `grep -o '_2' dist/subpaths/css.d.ts | wc -l` → **60**;
+⟨cmd⟩ `grep -c '_2' dist/subpaths/css.d.ts` → **26**. Unmoved.
+
+X-W9.d measured the root: the dts rollup keys its entity cache on the **import-specifier string**,
+so the duplicate declarations ride in under `src/value.ts`'s `"./color/index"` spelling — and the
+unit tried **three** re-export variants inside its own files and measured all three ineffective.
+The two files that carry the spelling, `src/value.ts` and `src/quantize.ts`, are **absent from
+§File Bounds** (⟨cmd⟩ `grep -c 'src/value.ts\|src/quantize.ts' docs/tranches/X/waves/W9.md` → **0**).
+The third, `src/easing.ts`, **is** in bounds but is not where the spelling lives. There is therefore
+**no edit this seat could lawfully make that moves this number**, and the +2 over the wave is the
+forced consequence of publishing `serializeCssValue`, which **G15 required**.
+
+Carried as **ESC-W9d-DTS-SPELLING**, unchanged and unrelieved: name a writer for `src/value.ts` /
+`src/quantize.ts`, or rule G13/G14 staged per **CC-096**. Check 1 grades it *"does not block"*, and
+this seat concurs at its own reading.
+
+### R1.5 D-4 — cured, by the wave's own addendum idiom
+
+`docs/tranches/X/waves/evidence/W9/coverage-by-export.addendum-2026-09-18.md`, commit `e4d98aca`.
+`coverage-by-export.md` published **73 / 73 = 100.0%** and **70 / 73 = 95.9%** over a runtime
+denominator of **73** and a declared-name denominator of **131**, all measured in X-W9.e's worktree
+at `fdebfef5` — which carried `.a` and `.b` but **not** `.d`. G19's falsifier is, verbatim,
+*"change the denominator without re-recording it."*
+
+**E-3 honoured: the committed document is byte-untouched.** The addendum sits beside it, the same
+way `math-precondition.after-addendum-2026-09-18.txt` already sits beside X-W9.c's evidence.
+⟨cmd⟩ `git show e4d98aca --stat` → **1 file, the addendum**.
+
+```
+⟨cmd⟩ node docs/tranches/X/waves/evidence/W9/coverage-by-export.mjs   →  exit 0  (twice; diff -q silent)
+    declared export names        131 → 146
+    runtime exports               73 → 75
+    whole suite                  74 / 75 = 98.7%      uncovered: isAnyColor
+    minus the v4-c1 snapshot     71 / 75 = 94.7%      + isLayoutTrackingUnit, collectDeclarations, parseKeyframeSelector
+    first-party modules visited outside src/:  78 (whole) · 77 (minus snapshot)  — both unmoved
+```
+
+**Cause measured, not inferred.** ⟨cmd⟩ `git log --oneline -S'serializeCssValue' -- src/subpaths/css.ts
+src/css/index.ts` and ⟨cmd⟩ `git log --oneline -S'isAnyColor' -- src/` **both** name `c8848bed`
+(X-W9.d, PSL-1). `./css` +1 is `serializeCssValue`, whose publication **G15 required**; `./color`
++1 is `isAnyColor`, carried onto the barrel by the derivation and named at `src/color/index.ts:10`.
+Neither is drift; both are a gate's own consequence, now recorded.
+
+**G19 stays GREEN** on the basis it was already green at Check 1 — the command is committed beside
+the prose — and is now green with its prose re-recording the denominator the command reads.
+**PUBLISHED, NOT GATED** still holds: no threshold is asserted here either.
+
+### R1.6 E13 mail — 0 UNREAD in scope, re-swept at this seat's own commands
+
+A **per-row status-cell** scan (never a bare line grep — LW-5's lesson) over
+`docs/tranches/V/coordination/INBOX.md` → **3 UNREAD: I-32 · I-33 · I-34**, the same three Check 1
+found, each Routing cell read whole here: I-32 *"Zero parse-that bytes; not X·P's to dispose"*
+→ X-W0.j/X-EXT; I-33 *"names no parse-that byte and asks value.js for nothing beyond relay"*;
+I-34 *"no obligation is minted here"* → X-EXT-1 inside X-W4.g's atomic cut. **None routes to the
+library band, the 4.1 cut, the parser, `./transform`, `./math` or the five packets.**
+
+Four-path sweep for anything new since the close: ⟨cmd⟩ `ls -t docs/tranches/V/coordination/`
+→ newest are this wave's own five 09-18 packets ⊕ the two `valuejs-outbound-2026-09-18-kfw7-bh-relay`
+files; ⟨cmd⟩ `find ../{keyframes.js,glass-ui,atlas,fourier-analysis,parse-that}/docs -name '*2026-09-1[89]*'`
+→ the only inbound is `../glass-ui/…/BK/coordination/glass-outbound-2026-09-18-valuejs-o26-reply.md`,
+which is **already rowed as I-35** and whose own cell routes it *"X·KF (Track B), NOT X-W1"*.
+**0 unrowed · 0 `I-n` minted · 0 UNREAD in X-W9's scope.** This round closes with no unread mail.
+
+### R1.7 What Repair 1 changed, stated so no successor over-reads it
+
+- **The wave's verdict did not move.** 19 GREEN · 14 RED of 33 stands. **No gate went RED→GREEN in
+  this round**; G2 and G19 were GREEN before it and are GREEN after, and G19's *published prose* —
+  not its verdict — is what the round repaired.
+- **`npm run typecheck` fell from 3 errors to 1**, and the survivor names a file the spec never
+  listed. That is the whole of the cadence movement available inside bounds.
+- **The row stays `PARTIAL 2026-09-17`.** X-W11 stays lawfully shut behind its own *"X-W0 … X-W10
+  are IMPLEMENTED"* conjunct, which is the structural guard that keeps the un-taken 4.1.0 cut from
+  being inherited as done. `package.json` still reads `4.0.0` and there is no tag.
+- **Owed, unchanged and now with two named escalations**: X-W4 closes → **ESC-W9R1-SEQUENCING**
+  (re-dispatch X-W9.f and X-W9.h under the unchanged spec) carrying **ESC-W9R1-BOUNDS-GRANT** (the
+  three test/fixture paths) → **CHECK 2**. `ESC-W9-G24-SUBSTRATE` and `ESC-W9d-DTS-SPELLING` ride
+  into that round unrelieved, both naming trees this wave may not write.
