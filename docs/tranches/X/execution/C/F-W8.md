@@ -922,3 +922,217 @@ re-declaration**, the derive leg asserts `contour_hash` **instability**, the cre
 no workaround, no masking fallback, no skip and no allowlist was made anywhere.** **`d` is closed and
 committed; `e` may open** (§2c: one writer at a time; the tree is clean of every `§2a` path, and the
 `F8-WALK-*` identity space is closed at 27 recorded ids, disjoint from `F8-FIX-*` and `F8-C31*`).
+
+---
+
+### F.W8.e
+
+**SERVED MODEL**: `claude-opus-5[1m]` · seat opened 2026-09-19 · **DONE**
+**Wrote (4 paths, the whole writable set)**:
+`docs/tranches/X/fourier/conformance/OWNER-RULINGS-F.W8.md` — **181 lines**, created ·
+`docs/tranches/X/fourier/waves/F-W8/carry-closure.md` — **418 lines**, created (`F-W8/` created with
+it) · `docs/tranches/X/coordination/value-to-fourier-2026-09-DD-fn6-reader-and-fixture-register.md` —
+**194 lines**, created · `docs/tranches/V/coordination/INBOX.md` — **+1 line, 0 removed** (⟨cmd⟩
+`git diff --stat` at the staging, *"1 file changed, 1 insertion(+)"*): row **O-39**, inserted directly
+after the last Outbound row, **no existing row rewritten**.
+**Commits (3 — one per meaning; the letter and its ledger row are ONE meaning and did not split)**:
+**`13a8c0e8`** *"the two rulings SS-4 routes to this wave…"* · **`8617f4b5`** *"G15's closure RUN…"* ·
+**`e213b5c1`** *"the FN-6 relay sent and ledgered…"* (each pathspec, `--no-verify`).
+**Zero fourier bytes · zero product bytes · zero glass-ui bytes · `scripts/dev/dev.sh` never staged.**
+
+#### Acts, in order
+
+1. **CRASH-RECOVERY (standing law).** ⟨cmd⟩ `git -C $V status --porcelain` → **5 rows** at open
+   (`demo/shell/dock/layers/SlugEditLayer.vue` · `docs/tranches/V/reformation/CARRY-LEDGER.md` ·
+   `e2e/smoke/a11y-gradient-stop-grammar.spec.ts` · `eslint.config.js` · `scripts/dev/dev.sh`) —
+   **not one inside F.W8's `§2a` writable set**; the last is the unowned dirty row, untouched in every
+   verb. ⟨cmd⟩ `git -C $F status --porcelain` → **0 rows**. Of this unit's four paths, three did not
+   exist (⟨cmd⟩ `ls waves/F-W8/` → *No such file or directory*; ⟨cmd⟩
+   `ls coordination/ | grep -i 'fn6'` → no output) and the fourth (`INBOX.md`) was clean.
+   **No inherited work on this unit exists**; nothing stashed, restored or reverted. ▲ Between the
+   second and third commit a Track-D seat appended its own sweep paragraph to `INBOX.md` (⟨cmd⟩
+   `git diff -- …/INBOX.md` → `+2` lines, *"Sweep 2026-09-19 (X.P.W4 SECOND OPEN ATTEMPT…)"*) — **left
+   unstaged and untouched**, and this unit's O-39 row verified intact beside it (⟨cmd⟩
+   `grep -c '^| O-39 |'` → **1**).
+2. **Read WHOLE**: the spec `waves/F-W8.md` (**374** lines — masthead law · §1/§1a/§1b/§1c · §2a/§2b/§2c ·
+   §3 with **§D D1** and every §P/§J/§R/§M row its gates touch · §4's two reading disciplines and
+   **G14/G15** · §5a/§5b/§5c/§5d · **§6** whole · **§6a** whole) · this record (Open · Baseline ·
+   Unit plan · units `a`/`b`/`c`/`d` receipts) · `COHESION.md` **§0j.D** and every later addendum **to
+   file end**. ⟨cmd⟩ `grep -n 'F\.W8' COHESION.md | grep -v 'KF\.W8'` → **one line, `:987`**,
+   reproducing four prior seats' readings at this seat's own clock: **no addendum §0k–§0v re-opens,
+   moves or adds an F.W8 ruling.**
+3. **E13 Step-0, at this seat's own clock** — the four paths ⊕ the Track-C fourier surface, read-only,
+   classification by **Status cell position** (escaped pipes restored), this file self-excluded:
+   ⟨cmd⟩ the positional sweep → **UNREAD 0** over **78** rows (double-run `0 ≡ 0`); ⟨cmd⟩
+   `find docs/tranches/V -maxdepth 2 -name '*.md' -newermt "2026-09-19 04:10"` → **no output**;
+   glass **BK** re-confirmed newest, its newest member = **I-35**, rowed; keyframes' newest letter =
+   **O-21**, ours; atlas UNMOVED (**O-12**, ours); `fourier-analysis/docs/tranches/F/coordination/INBOX.md`
+   present (**23,278 B**, unmoved since §0k.1 declared it LIVE). **ZERO unrowed letters addressed to
+   value.js · ZERO UNREAD in F.W8's scope.**
+4. **`OWNER-RULINGS-F.W8.md` — the two items, and only the two.** Scope quoted from the spec's own §5c
+   SS-4 row (⟨cmd⟩ `sed -n '273p' waves/F-W8.md`). **Item (ii)** — the TA-4 re-scope — is **RULED** and
+   is therefore **RECORDED AS CONSUMED, never re-ruled**: ⟨cmd⟩ `sed -n '992,994p' COHESION.md` pastes
+   **F-SS4REST R1** whole, branch **(b)** is the ruled branch, branch (a) is **dead**, and **A-1's third
+   limb is disposed rather than left hanging** — under the ruled branch there is no restoration, so
+   there is no third limb to restore. **Item (i)** — the fixture-direction law's exception set — is
+   **measured UNRULED**: ⟨cmd⟩ `grep -n 'FR-IC-6\|fixture-direction' COHESION.md` → **no output**
+   (double-run), so no seat may read the silence as consent. It is surfaced with the **three measured
+   members** (register §1.3 `X-1`/`X-2`/`X-3`), a **two-branch table with a falsifier per branch**, and
+   the statement that this wave authors branch **(A)** — the spec's own default — **and no other**.
+   ⊘ **Stated because it is the kind of thing a close can quietly imply**: **no F.W8 gate is held by
+   that ask** — G4 closed for F.W8 under the default at unit `b`, and G14/G15 do not read it at all.
+5. ⌧ **G15's CLOSURE — RUN, in both directions, twice.** Operand pinned first: ⟨cmd⟩
+   `shasum -a 256 CENSUS-CANONICAL.md | cut -c1-12` → **`f44362757458`**, **identical to the pin the
+   spec carries**, so the roster consumed is the roster the spec named. Parsed: **§2 `F.W5`** (11
+   bullets → **27** pairs) ⊕ **§2 `F.W5-W8`** (31 bullets → **89** pairs) = **116**, with **every
+   bullet's declared arity matched against its own extracted ids — zero mismatches, both files.** A
+   second reading, published as a reading: the canonical's §1 per-record tables and its §2 rosters are
+   in **bijection at 4242 rows**. **No check file, no corpus re-cut, no re-derivation of this seat's
+   own** touched either side.
+   - **Direction A (citations ⟶ canonical — the fabrication direction)**: **∅ at pass 1.** All **40**
+     §6a numbered rows resolve to a canonical row **at their own record** (22 band-HOMED ⊎ 17
+     band-ROUTED ⊎ 1 NOT-BAND = 40, a tally derived from the column and not asserted beside it); both
+     §6a header citations resolve (`L:L-5` → **F.W5**, `C:C-23` → **UNROUTED**, E5-15); §6's single
+     record-qualified id resolves; and every registry identity in §3's cells resolves, the
+     non-resolvers being **lane, intake, clause and repair-round ids** that the cells themselves
+     declare as such. ▲ **`C-28`'s strike verified intact** — ⟨cmd⟩ the canonical carries **no**
+     `fr-CanvasControlsDock C-28` row, **no** numbered §6a row carries the token, and P7 holds it as a
+     **named fold on `D-4`**, which is a canonical row.
+   - **Direction B (named canonical rows ⟶ §3 ⊎ §6 ⊎ §6a)**: **NON-EMPTY at pass 1 — 3 rows.** The band
+     roster measures **89 named of 89**, **87** of them inside the citation spans; the F.W5 roster
+     measures **8 named of 27**, **6** inside. The three escapes are `fr-AdminFlaggedPanel` **FR-AFP-66**
+     (`:271`), `fr-AdminFlaggedPanel` **FR-AFP-33** (`:274`) and `fr-AdminUserList` **FR-AUL-13**
+     (`:271`) — **each a single occurrence in the whole file, each at §5c only, each canonical-unique,
+     and not one of them a booking**.
+   - **PASS 2 — ∅ in both directions**, the three homed in the artefact's **§7 annex** with their
+     canonical holders, their routings and their dispositions. **The HALT condition is NOT met.** The
+     annex is a cure and not an allowlist for a reason stated at the bytes: it performs the §6a act
+     (home + reason + *books nothing*) at the only place E-3 permits it to land, since the spec is
+     frozen and G15's own cell instructs that *"the run governs and this cell is amended, not
+     defended."*
+   Output committed to `waves/F-W8/carry-closure.md` at **`8617f4b5`**.
+6. ⊘ **TWO FINDINGS OF THIS RUN'S OWN, published rather than absorbed.**
+   **(i) An instrument false pair, killed by a second instrument.** `fr-ConvergencePlot` **R6-8**
+   entered pass 1's residue from **G15's own gate cell**, where the quoted canonical output carries
+   `fr-ContourPreview`'s `R6-8` while an unrelated errata note carries `fr-ConvergencePlot` — line-scoped
+   co-occurrence over a 5,000-character paragraph paired one record's name with another record's id.
+   The ±200-character cross-check returns **nothing** for it and leaves all three real escapes
+   **unchanged**. **Struck, not annexed** — homing it would have manufactured a citation the file never
+   made. ▲ The cross-check is disclosed as a cross-check and **not** promoted to the operand, because on
+   paragraph-lines it false-*negatives* badly (it loses the whole §3 **D2** block).
+   **(ii) A classification residue inside §6a — row 3, `fr-AdminAuditLog AA-23`.** It resolves (so
+   direction A stays ∅) and it is **not a band identity**: canonical `` | `AA-23` | `worker-2` | `F.W5` |
+   **F.W5** | `` — no band leg. Measured at the frozen corpus: the identity's **own row** `:60` ends
+   *"**→ F.W5** (the 45/30/13 join must carry this constraint)"*, while the coordinate §6a cites
+   (`:142`) is the record's **ADJUDICATED verdict paragraph**, which routes *"the compound-index cure
+   constraint AA-23 that neither axis could see"* **→ F.W5–W8**. **The same class as `C:C-23`, at a
+   different record, in the opposite direction** — prose routes the band, the row routes the wave, and
+   the canonical governs. **Routed to the census and to F-W5; not settled here**, on the posture this
+   spec took three times and the census later vindicated at E5-15: *a wave with zero record-side rows
+   may not settle a record-side reading.*
+   ▲ A third, smaller reading is recorded at the artefact: the §6a header enumerates **sixteen**
+   band-routed-not-band-homed rows; this run measures **seventeen** — the sixteen plus **row 35**
+   (`fr-SpeedSelect SS-L-07` → **F.W4** <sub>legs: F.W5-W8</sub>), which fell outside REST-48's
+   selection because its cell names **F-W5 §5** rather than an F-W5 *clause*. The canonical holder is
+   now named for it too, **beside** the spec and never over it.
+7. **The FN-6 relay — authored, sent, ledgered, and bounded.** The letter is the **only** vehicle
+   (§2a), and it says so in its own §0 beside the four other locks it travels under: zero fourier bytes
+   in any verb; **the reader strategy stays fourier-owned** (§2 states the ask and stops — no mechanism
+   preferred, none excluded); **binding by TRANSCRIPTION** with inv-26's no-cross-repo-read; and no
+   fourier wave graded. **§1** encloses the six artefacts with line counts **read from the settled
+   bytes** (923 · 474 · 555 · 1074 · 181 · 418, each re-measured at this seat after the enclosure list
+   was written). **§3** says out loud what a reader would otherwise discover by wiring against it: the
+   value-side diff fixture is **0 extant · 1 landed-then-excised · 0 reciprocated**, and **F-SS4REST R1**
+   makes the one-sidedness a **ruling, not a gap**. **§5** routes **12** asks with their evidence and
+   owners. **§7** re-measures the reciprocal at our own ledger — **5** prior value→fourier letters
+   (O-14 · O-22 · O-27 · O-29 · O-37) and **zero** inbound rows from fourier across **37** `I-n` rows
+   (senders enumerated from the From cells) — records that the census's dated *"four"* has moved, and
+   asks for **a ROW, not a reply**, noting that fourier's surface only became LIVE on 2026-09-17 and
+   triaged O-14 at its creation. **The ask is stated without reproach because the ledger says why.**
+8. **The INBOX row, append-only and proved so.** Inserted by a scripted single-line insertion directly
+   after the last Outbound row: ⟨cmd⟩ `git diff --stat` → **1 insertion, 0 deletions**; ⟨cmd⟩ row
+   census **78 → 79**; ⟨cmd⟩ the positional Status sweep after the write → **UNREAD 0** (the row's own
+   Status cell opens `**SENT**`); ⟨cmd⟩ `awk -F'|' NF` on O-39 → **7 fields**, identical in shape to
+   O-38's. **No existing row was rewritten, re-dated or re-classified.**
+9. **WRITE-THEN-MEASURE, and it convicted this seat once.** The closure artefact's §9 self-count was
+   drafted as *"**10** sections (§0–§9)"* and re-read from the settled bytes as **11** (§0–§10) before
+   the commit; the correction and its cause are written **at the site**, not silently fixed. A second
+   probe was re-cut for the same reason: a single `grep -c` over an alternation of the residue and annex
+   prefixes prints `7` and answers neither question, so it is published as **two probes, two claims**
+   (3 ⊕ 4). Every figure in all three files was double-run at the settled bytes (sections `11 ≡ 11` ·
+   §4.1 rows `40 ≡ 40` · residue `3 ≡ 3` · annex `4 ≡ 4` · letter sections `9 ≡ 9` · ask rows
+   `12 ≡ 12` · ⟨cmd⟩ `grep -c '[0-9]%'` over **all three** files → **0**, **X-9**: this unit publishes
+   no percentage and no coverage rate).
+10. **§5d's per-unit checks.** ⟨cmd⟩ `git diff --check` → clean. **Markdown link check over the new
+    `conformance/`, `waves/` and `coordination/` paths**: every path this unit cites resolves at the
+    bytes — the six enclosure paths, `PASS-1/F-W8-CHECK.md` (cited only as the **retired** operand),
+    `formation/fourier/lane-crud.md`, `docs/tranches/R/PROGRESS.md` and
+    `fourier-analysis/docs/tranches/F/coordination/INBOX.md` — **zero dead links**; the only
+    non-resolving backticked strings are **commands**, which is what they are labelled as.
+11. **THE §5d CLOSE TRIPWIRE — run once, as the bounds-escape signal, and read as one.** ⟨cmd⟩
+    `npm run typecheck` → **exit 2**, one error:
+    `test/v4-css-emerging.test.ts(12,10): error TS2459: Module '"../src/css/stylesheet"' declares 'serializeCssValue' locally, but it is not exported.`
+    ⟨cmd⟩ `npm run lint` → **exit 1**, 55 problems / 23 errors. ⟨cmd⟩ `npm run test` → **exit 1**,
+    **13 failed | 600 passed (613)** over **4 failed | 32 passed (36)** files.
+    ▲ **Read strictly, and not as evidence of anything about this wave's gates (§5d says so in terms).**
+    **The signal's subject is bounds, and the bounds hold**: ⟨cmd⟩ `git show --name-only` over **all
+    seven** F.W8 commits (`fc781875` `1f7ac0a7` `8c772bd0` `2876f993` `13a8c0e8` `8617f4b5` `e213b5c1`)
+    → **every path is under `docs/`** — **not one product source, test or config byte moved in either
+    repo across the whole wave**. Each red is attributed to the commit that last touched it, by
+    measurement and **with no credit or blame claimed** (FR-GIG-5): `test/v4-css-emerging.test.ts` →
+    **`c8848bed`** *"refactor(css/surface): PSL-1 derivation, colour boundary, stylesheet split"*
+    (2026-09-18, Track D) · `demo/test/shell/reka-binding-idiom.test.ts` → **`a0df89d9`**, a **born-RED
+    producer canary** of X·V W1.a · `test/spectrum-luma.test.ts` → **`ca1a4459`** · `test/v4-c1.test.ts`
+    → **`75636b16`**, both X·V W1.a born-RED batteries. **Zero of the 55 lint problems name any F.W8
+    path** (⟨cmd⟩ `grep -c 'union-walk.mjs\|carry-closure\|OWNER-RULINGS-F.W8\|fn6-reader'` over the lint
+    log → **0**) — including unit `d`'s `walk/union-walk.mjs`, which eslint **does** reach (it flags
+    sibling `.mjs` files under `docs/`) and does not flag. **This wave did not escape its bounds; the
+    shared tree is red under three concurrent tracks, and this seat neither cured that nor caused it.**
+    ⊘ **Honest limit, stated rather than papered over**: §5d prescribes the tripwire as a **close-only**
+    run, so this wave banked **no opening baseline** for the three commands — the attribution above rests
+    on last-touch commits (all dated on or before 2026-09-18, all on sibling tracks) **plus** the
+    docs-only proof, and not on a before/after delta this record never took.
+
+#### Gate readings — BEFORE → AFTER
+
+| gate | BEFORE (§B.2) | AFTER | verdict |
+|---|---|---|---|
+| **G14** fixtures in BOTH directions; FN-6 relayed | **RED** — register ABSENT · letter ABSENT · no INBOX row | **Register**: both directions, **9** fourier-direction ⊕ **8** value-direction fixture rows ⊕ the C31 and walk rows, every one naming the operation model it is generated FROM (units `b`/`c`/`d`; consumed here, re-derived nowhere). **Letter**: authored, **SENT** and **INBOX-ledgered** as **O-39** (append-only, `78 → 79`, one insertion, zero deletions). **The fourier reader stays fourier-owned** — the letter states the ask and stops. **`canonical_digest` NOT re-opened**: its only row-scoped mention in the register is `F8-FIX-V03`, a **STRIKE** (⊘ *"no fixture, and a fixture here would re-open a killed branch"*), so the set of fixture rows asserting over it is **empty** — the gate's falsifier is satisfied at the bytes, not by assertion | **CLOSED FOR F.W8 — split verdict.** Both limbs this gate assigns F.W8 (register + letter) are discharged by this seat's own measurement. **NOT product-GREEN**: the value-side fixture bytes are the **value.js API row's** act under the execution gate — and under **F-SS4REST R1** they are **re-scoped away, not owed** — while the reciprocal row is **fourier's**. GREEN owners: F.W8 (done) · value.js API row (n/a under R1) · fourier (reciprocal) |
+| **G15** citation closure, ∅ in BOTH directions | **RED** — `F-W8/carry-closure.md` ABSENT; the difference **unrun** | The difference is **RUN** against the frozen canonical `f44362757458` §2 rosters **alone**, on **record-qualified `(record, id)` pairs** with boundary-aware matching, in **both** directions, across **two** passes: **A ∅ / B 3 rows** at pass 1 → **∅ / ∅** at pass 2 with the three homed in the artefact's annex. **Zero bookings on either side**; the `C-28` strike verified intact; the **R-5 runnability precondition measured MET** over the 14-token collision set (each ≥2 records wide at the canonical, each mention record-qualified at its line). Output committed | **CLOSED FOR F.W8 — GREEN for the act this gate assigns it.** Both limbs of the clears-when (∅ both directions · output committed to `F-W8/carry-closure.md`) are met. **The HALT condition is NOT met.** It is **not** a product claim: nothing here asserts a fourier byte, a fixture run, or a canonical re-grading — the two re-grading questions the run touched are **routed** to the census and F-W5 |
+
+**No gate measured GREEN before its cure. No gate discharged by an SS-13 probe** — this unit ran none.
+**Probe parsimony (§5.2): bounded `grep`/`sed`/`awk`/`shasum`/`git log`/`git show` reads plus one
+scripted difference over two frozen files; zero live probes, zero browser, zero runs of the walk in any
+mode, zero writes outside the four writable paths, and zero fourier bytes in any verb.** The three
+close-tripwire commands are the sole exception and are recorded as a **signal**, never as evidence
+(act 11).
+
+#### Residuals carried forward (routed, never repaired here)
+
+- **R-e1** — **`fr-AdminAuditLog AA-23`**: the record's verdict prose routes the band, the identity's own
+  row routes `F.W5`, and the canonical homes it **F.W5**. A second instance of the class E5-15 settled
+  for `C:C-23`. **Owners: the census ⊕ F-W5 (the roster's holder).** F.W8 books nothing either way.
+- **R-e2** — **the §6a header's "sixteen"** band-routed-not-homed rows measures **seventeen** at this
+  run (row 35, `fr-SpeedSelect SS-L-07`). Recorded **beside** the frozen spec (E-3); **owner: whichever
+  seat next re-cuts §6a's header**, and nothing in this wave depends on it.
+- **R-e3** — **the fixture-direction law's exception set is UNRULED** (item (i)). The register stands
+  under branch **(A)**, the spec's own default; branch **(B)** would require **G4** to be amended by
+  name, which only the owner may do. **Owner: the owner**, via §0j.D.
+- **R-e4** — **the reciprocal**: five prior value→fourier letters and **zero** inbound rows from fourier
+  in the V ledger. **One row in fourier's ledger discharges it.** **Owner: fourier's E13 seat.**
+- **R-e5** — **the shared tree is red under three concurrent tracks** (typecheck 1 error · lint 23
+  errors · vitest 13 failures), none of it in an F.W8 path and all of it attributed at act 11.
+  **Owners: X·V W1.a (its own born-RED batteries) ⊕ Track D (`c8848bed`'s stylesheet split).** Named so
+  a later reader does not mistake this wave's close-tripwire log for this wave's damage.
+
+**Escalations: none.** The specified acts were possible at the bytes and were executed exactly: the
+rulings file carries **only** the two items SS-4 routes here — one recorded as consumed, one surfaced
+unruled with its branches and falsifiers; the relay letter is authored, sent and ledgered as the
+**only** vehicle, with the FN-6 reader left **fourier-owned** and `canonical_digest` unopened; G15's
+closure ran in **both** directions against the **frozen** canonical's §2 rosters alone and reached
+**∅ in both directions**; and the INBOX row is a **one-line insertion** that rewrote nothing. **No
+substitution, no workaround, no masking fallback, no skip and no allowlist was made anywhere** — the
+pass-1 residue was **cured by homing it**, not by excusing it, and the one candidate that did not
+survive a second instrument was **struck with its reason** rather than quietly kept. **`e` is closed and
+committed; the wave's five units are complete, and the wave-level close, the `VERIFIED` stamp
+(`NO` — X·F's release close owns it) and the LEDGER row remain the close seat's acts, not this unit's.**
