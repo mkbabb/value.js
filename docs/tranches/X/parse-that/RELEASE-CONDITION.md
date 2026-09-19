@@ -332,3 +332,79 @@ end) · COHESION.md §0j.E (the OC-1 ruling) · COHESION.md §0i.1 (the G-9 disp
 §0p (the scratch-mirror idiom) · `evidence/W4/rc-p-evaluation.json` and
 `evidence/W4/reciprocity-grep.txt` (this document's measurements) ·
 `<p2>/typescript/scripts/rc-p-evaluate.mjs` (the evaluator).
+
+---
+
+## ADDENDUM 2026-09-19 — §2.3 EQUIVALENCE(V) gains the V-TARBALL ARM (Q-RC-1, COHESION §0y) — dated, beside (E-3; X.P.W4.f, SERVED MODEL: claude-fable-5-1)
+
+**What moved.** §2.3 above binds conjunct 3 to the CLI harness, whose candidate side is
+`<p2>/typescript/src/css/**` at the pin — the candidate, not `V` — and declares that as an
+owner-rulable instrument note (Q-RC-1). COHESION §0y ruled it: *"EQUIVALENCE(V) binds to V's bytes:
+the differential harness gains an arm whose candidate is the packed V's `/css` subpath (the registry
+tarball, sha-identity printed), and only that arm's 0-MIRROR-DEFECT reading is RC-P's. A document
+declaring 'the candidate is what V ships' is a status word and is refused."* Landed in
+`<p2>/typescript/scripts/rc-p-evaluate.mjs`; §2.3's text is not rewritten.
+
+**The arm, as the evaluator now runs it.**
+
+1. Conjunct 1 proves the registry identity (`npm pack @mkbabb/value.js@V` sha1 ≡ `dist.shasum`).
+2. That tarball is installed into ONE clean consumer (`npm i <tarball>` under `mkdtemp`) — the
+   same install conjunct 4 inspects for `.wasm` artefacts, so both conjuncts read what a consumer
+   receives and never a repository's `dist/` (L-12).
+3. **Arm V (the VALUE)**: the harness's own differential library —
+   `test/css-equivalence/lib/differential.mjs`, the module `run-full-surface.mjs` is a CLI over — is
+   run in-process with `surfaces = { V: import(<consumer>/node_modules/@mkbabb/value.js/<exports["./css"].import>) }`,
+   `universe` = X.P.W3's pinned 52 (`readPin(<pin>)`), `unrealizedEntries = []`,
+   `candidateTypeNames` = the type names V's own `exports["./css"].types` declares, `limit = null`.
+   The oracle is the same sha-pinned 4.0.0 tarball; the corpus is the whole 27,021-row union. §6a's
+   second half — every ledger row carries a consumer direction — is read from the ledger's SOURCE
+   module (`lib/ledger.mjs`, the same assembly the CLI makes), never from `DIVERGENCE-LEDGER.md`.
+   **`value` = `mirrorDefects === 0 ∧ emptyConsumerDirections = ∅`, measured in this process.**
+4. **Arm C (RECORDED, never the value)**: the CLI exactly as §2.3 ran it, kept beside arm V as the
+   candidate-side instrument reading.
+
+The banked JSON carries, under conjunct 3: `armV.subject` (the consumer-relative install root, the
+`/css` entry path and its sha256, the types path, the tarball sha1 and the registry `dist.shasum`,
+`registryIdentical`), `armV.tally`, `armV.rows` (per export: status, mirror-defects, the class
+tally), `armV.emptyConsumerDirections`, and `armC` (`ran`, `exit`, `mirrorDefects`, the instrument
+note). `measured` is true only when arm V ran; `value` requires `measured`, at the one assignment
+site, as before.
+
+**The evaluation of record with the arm — `RC-P(4.0.0)`, double-run at this seat, 2026-09-19.**
+
+```
+#  conjunct          MEASURED  VALUE   reading
+1  PUBLISHED(V)      yes       FALSE   verify-packed-surface.mjs exited 1 against V's registry tarball — the packed surface does not resolve
+2  TOTALITY(V)       yes       TRUE    TRUE
+3  EQUIVALENCE(V)    yes       FALSE   arm V read 20962 mirror-defects over V's installed /css (full corpus, no limit)
+4  ADMITTED(V)       NO        FALSE   V's installed bytes contain zero .wasm artifacts, so the admission has no subject — FALSE, not vacuously true
+5  BAR-DISCHARGED    yes       TRUE    TRUE
+6  ROUTED(V)         yes       TRUE    TRUE
+
+RC-P(4.0.0) = FALSE — 3 of 6 conjuncts are FALSE: 1 PUBLISHED(V) · 3 EQUIVALENCE(V) · 4 ADMITTED(V)
+KF.W3 does NOT open. The X·V adoption wave's re-trigger does NOT fire.
+EXIT=1
+```
+
+Arm V's subject, printed: tarball sha1 `ccb962e592fb42e6602fc2bb6afbfb1763788b9d` ≡ registry
+`dist.shasum` (identical); `/css` entry `./dist/subpaths/css.js`, sha256
+`8b5381305ea26236326f06a38559247b2089a5be7fa78abe43640d0556320c42` — **the same bytes as the vendored
+oracle's `css.js`**, which is the proof that the arm read `V`'s bytes and not a tree; 19 of 19 runtime
+entries realized, 33 of 33 types declared; corpus 27,021 of 27,021 run; `emptyConsumerDirections`
+∅. **Arm V reads 20,962 mirror-defects for `V = 4.0.0`**, and the reading is right, not a paradox: the
+differential scores every cell against the RULED contract (`ruledValue`, the ADJUDICATED rows'
+`expect`), so a `V` whose bytes are the pre-adjudication 4.0.0 fails exactly where the adjudications
+ruled against 4.0.0 — `ADJUDICATION_UNHONOURED` 13,797 · `DIVERGENT_VALUE` 6,383 (the PB-03 /
+PB-04/05 ruled values) · `CANDIDATE_THREW` 782 (the `R1` throws, now on the subject side) — and
+nowhere else (`MIS_ACCEPT` 0 · `FALSE_REJECT_IN_SHAPE` 0). EQUIVALENCE(V) asks whether `V` honours
+the ruled seam; 4.0.0 does not, by the rulings' own construction. **Arm C** in the same run: the
+candidate at the pin, 44 mirror-defects (unchanged). Run 2 reproduced run 1 on every arm-V field
+(`mirrorDefects`, the class tally, the per-row tally, both digests); the printed table is identical
+line for line. **Negative control**: `--version 0.0.0-does-not-exist` → conjuncts 1–4 read
+`MEASURED: NO · VALUE: FALSE` with conjunct 3's reason *"arm V … did not run — no registry-identical
+tarball for V"*; no conjunct returns TRUE unmeasured.
+
+**Q-RC-2** is unchanged and stands discharged at the bytes (conjunct 4 above: *"FALSE, not
+vacuously true"*). **§4's evaluation of record is not rewritten** — its conjunct 3 read the
+candidate-side CLI (`44`); this addendum's conjunct 3 reads `V` (`20,962`). Both are true of their
+subject, and only the second is RC-P's.
