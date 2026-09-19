@@ -13,11 +13,23 @@ import { SPECIMEN_TILES } from "../demo/workbenches/gradient/GradientVisualizer/
 const model: GradientModelState = {
     type: "linear",
     direction: 90,
+    // X-W6 `.a` deleted `GradientModelState.intervals`: the interval now hangs
+    // on the stop that OPENS it (`GradientStop.easing`), which is what makes a
+    // re-sort safe. Migration applied verbatim from `.a`'s receipt.
     stops: [
-        { id: "left", cssColor: "oklch(0.7 0.18 30)", position: 0 },
-        { id: "right", cssColor: "color(display-p3 0.1 0.7 1)", position: 100 },
+        {
+            id: "left",
+            cssColor: "oklch(0.7 0.18 30)",
+            position: 0,
+            easing: linearInterval(),
+        },
+        {
+            id: "right",
+            cssColor: "color(display-p3 0.1 0.7 1)",
+            position: 100,
+            easing: linearInterval(),
+        },
     ],
-    intervals: [linearInterval()],
     interpolationSpace: "oklch",
     hueMethod: "shorter",
 };
@@ -27,13 +39,16 @@ describe("Gradient Value 4 capability consume", () => {
         const css = interpolateStopColors("red", "blue", 0.5, "oklch", "shorter");
         expect(parseCssColor(css).ok).toBe(true);
         expect(
-            parseCssColor(interpolateStopColors("red", "blue", 0.5, "hsv", "shorter")).ok,
+            parseCssColor(interpolateStopColors("red", "blue", 0.5, "hsv", "shorter"))
+                .ok,
         ).toBe(true);
 
         const samples = sampleCoalescedStops(model);
         expect(samples.length).toBeGreaterThan(2);
         expect(samples.every(({ color }) => color.space === "oklch")).toBe(true);
-        expect(serializeCoalescedGradient(model)).toMatch(/^linear-gradient\(90deg, oklch\(/);
+        expect(serializeCoalescedGradient(model)).toMatch(
+            /^linear-gradient\(90deg, oklch\(/,
+        );
     });
 
     it("evaluates each CSS timing AST through the Result-based easing API", () => {
