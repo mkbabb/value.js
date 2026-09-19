@@ -1557,6 +1557,20 @@ immutable bytes.
 | `<p2>` `/Users/mkbabb/Programming/parse-that-css-totality-p2` | ⟨cmd⟩ `git remote -v` → **no output** | branch `w2/harness`, HEAD `00806a8` — **the fresh writer root has NO REMOTE** | **NOT PUSHABLE.** Stated, not skipped: `.b`'s two commits (`ca615a6`, `00806a8`) live only on disk. The fresh root's publication is an owner/orchestrator question, not a seat's |
 | `/Users/mkbabb/Programming/parse-that` (frozen, §4 **Do-NOT-touch**) | `origin` → `github.com/mkbabb/parse-that` | ⟨cmd⟩ `git rev-list --left-right --count origin/master...HEAD` → **0 / 0**; HEAD `ef10d5b` contained in `origin/master` | **PUSH IS A NO-OP** — this wave landed no commit there, and none was created to make one |
 
+**Push receipt, taken after the two close commits landed (2026-09-19).** ⟨cmd⟩ `git -C
+/Users/mkbabb/Programming/parse-that push origin HEAD` → **`Everything up-to-date`** — the no-op the
+0/0 reading predicted, and the frozen root is left exactly as found. ⟨cmd⟩ `git push origin HEAD` in
+value.js → **`7630cc48..6b8ec46c  HEAD -> tranche-u`**; ⟨cmd⟩ `git rev-list --left-right --count
+origin/tranche-u...HEAD` → **`0 0`** after. Never forced. `<p2>` was not pushed and could not be: it
+has no remote.
+
+**This close's own commits** (pathspec on each, one file each, `scripts/dev/dev.sh` never touched and
+no sibling path staged): **`ee33cf80`** *"docs(x-p-w4/close): PARTIAL — .c and .d never dispatched; 4
+gates GREEN, 6 RED, no verb moved; three escalations returned"* (this record) · **`6b8ec46c`**
+*"docs(x-p-w4/close): LEDGER — X.P.W4 PARTIAL, .c and .d undispatched, six commits rostered, three
+escalations named"* (the `X.P.W4` row alone — ⟨cmd⟩ `git diff -U0 | grep -E '^@@'` re-run immediately
+before the commit returned the single hunk at line 82 and no other).
+
 ### What the next sitting does
 
 `.a` and `.b` have sat; `.c` dispatches next (serial, Opus 5), then `.d` (serial, alone, fresh
