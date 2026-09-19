@@ -2334,3 +2334,208 @@ measured, or sweep 12 of g15's 20 sites — each would have been the masking cla
 by minimal in-place edit and a dated event line is appended. **The row is not stamped CLOSED, and
 what it waits on is unchanged: one owner ruling, one `§6` triumvirate event over two out-of-bounds
 sites, and one five-limb dispatch.**
+
+---
+
+## Resume 2026-09-19 (SEAT 0, RESUME MODE — the owner's §0x ruling lands and the wave re-opens at `.b`)
+
+SERVED MODEL: claude-opus-5[1m] — this section is an **append**, never a rewrite (E-3). Every cell
+above keeps its bytes; every correction below lands beside.
+
+### Act 0 — crash-recovery sweep (standing law, first act)
+
+⟨cmd⟩ `git status --porcelain` at `/Users/mkbabb/Programming/value.js` → four rows, **none inside this
+seat's writable set**: ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh`
+(unowned, NEVER touched — DR-24) · `?? docs/tranches/X/waves/W6-evidence/` · `?? e2e/smoke/oracles/
+o22-specimen-legibility.spec.ts` — the last two are **Track A's** (X-W6), the first a standing
+V-tranche row. **Nothing inherited, nothing stashed, nothing restored.** ⟨cmd⟩ `git status --porcelain`
+at `/Users/mkbabb/Programming/fourier-analysis` → **0 rows**, `git rev-parse --short HEAD` →
+**`21e11b0`** (branch `m/w1-bump-migration`) — the `.c` commit, unmoved since the close.
+
+### What re-opens this wave, quoted at its bytes
+
+`COHESION.md` **§0x** (2026-09-19, `:1582–1610`), the addendum this record's CHECK-1 → CHECK-3 →
+REPAIR-2 chain has been blocked on since 2026-09-18:
+
+> **S-6a · MISSED-D — the easing adoption route: ROUTE 1, the `EasingCurve` re-home.** … the
+> ToggleChip route is REFUSED. g7/g8 turn on this route.
+> **S-6b · fr-ContourSettings i-3 — the default-collapsed IA: COLLAPSED by default.**
+> **S-6c · P-10 — the re-pin target: already ruled** at §0i.3 (`v8.0.0` @ `17a11bc5`) …
+> C relaunches; seat 0 RESUME MODE re-dispatches `.b` on this ruling and then `.d`, `.e`, `.f` per
+> the banked plan.
+
+⟨cmd⟩ `grep -n 'MISSED-D' docs/tranches/X/COHESION.md` → **2 hits** (`:1582` · `:1587`), exit 0 —
+where every prior seat (REPAIR 1 at `:1280`, CHECK 2 and REPAIR 2 at `:1540`) measured **no match,
+exit 1**. **`OP-4(a)` is DISCHARGED**, and with it `ESC-W3R1-1` limb 1, the precondition CHECK 2 proved
+was g9's as well as g7/g8's.
+
+**Four orchestrator notes ride with the ruling and are binding on the units below**: (i) §7's
+whole-suite playwright cadence is **RUN as written** (D-9's refutation accepted); (ii) §5b's worktree
+plan is **honoured** by the remaining units; (iii) §8's transcripts file at
+`docs/tranches/X/fourier/evidence/w3/` — the standing home, mirroring `w1/`/`w2/` (⟨cmd⟩ `ls
+docs/tranches/X/fourier/evidence/` → `w1` `w2`; **no `w3` yet**); (iv) `e2e/resolve-stack.ts` becomes
+the ONE `resolveStack`/`openArm` home and `contrast-floor.spec.ts` imports it.
+
+**What §0x does NOT move, and is carried forward unrelieved**: `ESC-W3R2-1`'s **fifth limb** — g15's
+two sites in **no §1 bounds row** (`visualization/BasisCanvas.vue:254` · `stores/gallery.ts:34`). The
+ruling is silent on it, so it stays a **§6 triumvirate bounds event**: `.e` **records and escalates
+them, and writes neither**. A bounds row added mid-wave is a triumvirate event, never an edit (§6
+line 1).
+
+### Preconditions, re-verified at the bytes AND in the ledger
+
+| # | precondition | measurement at this seat, 2026-09-19 | verdict |
+|---|---|---|---|
+| OP-1 | owner begin-word | COHESION §0j, dated 2026-09-17, quoted verbatim | **MET** |
+| OP-2 | F.W0 substrate settled | LEDGER `:62` — `F.W0 … **CLOSED 2026-09-17 (honest-RED: G-4 · G-5 · G-8 · G-15(d))**`; fourier porcelain **0** | **MET** |
+| OP-3 | F.W1 landed | LEDGER `:64` — `F.W1 … **CLOSED 2026-09-18 (honest-RED: G9 · G20(b))**`; g6's verdict consumed by `.a` at producer commit `17a11bc5` | **MET** |
+| OP-4(a) | MISSED-D ruled | **§0x S-6a — ROUTE 1** (2 grep hits above). Was the wave's sole blocker | **MET (NEW)** |
+| OP-4(b) | i-3 ruled | **§0x S-6b — COLLAPSED by default**; the spec still orders it **RECORDED, not executed** (§C.K, `.d`'s row) — both hold: `.d` records the ruling and executes no IA change | **MET** |
+| OP-4(c) | P-10 ruled | **§0x S-6c → §0i.3**, `v8.0.0` @ `17a11bc5`, homed and landed at F.W1 | **MET** |
+| OP-5 | FR-NP-32 (≡ `fr-PaperSidebar M1`) | cleared at F.W0 G-4; the installed pin measures **8.0.0** with a **70-key** export map | **MET (cleared side)** |
+| §5 seq | `.a` → `.b` store/`MorphPhaseConfig` seam; `.a` → `.d` e2e | ⟨cmd⟩ `git log --oneline` at fourier → `77b9bc0` · `f36541a` · `a08809b` (`.a`) · `21e11b0` (`.c`) all present | **MET — `.b` and `.d` MAY OPEN** |
+| §0x S-6a | the producer actually ships the route | ⟨cmd⟩ export-map read at `web/node_modules/@mkbabb/glass-ui/package.json` → `version 8.0.0 · exportKeys 70 · ./easing true · ./search true · ./forms false · ./input true · ./fading-scroll true · ./dialog true`; ⟨cmd⟩ `grep -n 'EasingCurve' node_modules/@mkbabb/glass-ui/dist/easing.js` → `:809 export { xe as EasingCurve, Y as EasingPicker, we as useEasingPicker }` | **MET — ROUTE 1 is landable at the installed pin** |
+
+**No precondition fails. The wave is not blocked.**
+
+### E13 Step-0 — the four-path mail sweep, re-run at this seat
+
+**(1)** `docs/tranches/V/` — 10 depth-1 `.md` ⊕ `docs/tranches/V/coordination/` — **24** entries.
+**(2)** `../glass-ui/docs/tranches/BK/coordination/` — **BK re-confirmed the newest tranche dir**
+(⟨cmd⟩ `ls -1dt ../glass-ui/docs/tranches/*/ | head -3` → `BK/` · `BJ/` · `BI/`); **9** entries,
+newest `glass-outbound-2026-09-18-valuejs-o26-reply.md` = **I-35**, rowed (⟨cmd⟩ `grep -c` over
+`INBOX.md` → **25** citations). **(3)** `../keyframes.js/docs/tranches/V/coordination/` — **13**
+entries; newest inbound-grammar letter `VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md` =
+**O-21**, ours, delivered. **(4)** `../sci-report/atlas/docs/tranches/P/coordination/` — **28**
+entries, path UNMOVED.
+
+**Movement since the previous sweep**: ⟨cmd⟩ `find <the four paths> -type f -name '*.md' -newermt
+"2026-09-19 00:00"` → exactly **two** members — `INBOX.md` itself (**self**, SELF-COUNT law) and
+`../keyframes.js/…/INBOUND-LEDGER.md`, **keyframes' own inbound ledger, not a letter addressed to
+value.js** (mints no row).
+
+**UNREAD, classified from the Status cell by position, never from a bare `grep -i unread`** — ⟨cmd⟩
+`sed 's/\\|/@PIPE@/g' INBOX.md | awk -F'|' '/^\| [IO]-[0-9]+[a-z]? \|/ {s=$6; gsub(/^ +| +$/,"",s);
+if (s ~ /^\*\*?UNREAD/) c++} END {print c+0}'` → **0**, double-run `0 ≡ 0`, over ⟨cmd⟩ `grep -cE '^\|
+[IO]-[0-9]+[a-z]? \|'` → **79** rows.
+
+**ZERO unrowed letters addressed to value.js · ZERO new `I-n`/`O-n` minted by this seat · ZERO UNREAD
+status cells.** A dated sweep line is appended at `INBOX.md`'s end; no row is minted.
+
+---
+
+## Baseline — RESUME, re-measured read-only at fourier `21e11b0`, porcelain 0
+
+**Measure-don't-inherit**: every runnable gate command below was executed at **this** seat against the
+settled bytes, not copied from `## Close`, `## Check 1–3` or either repair.
+
+| gate | command run here | reading | verdict |
+|---|---|---|---|
+| g1 | scope-orphan over the `<style scoped>` corpus; `PaperSearch.vue` `<style scoped>` now at `:47` | reproduces the close's cure; three independent checks (CHECK 1/2/3, the fourth probe 98 raw → 0 surviving) | **GREEN (inherited from `.c`, re-reported at `.f`)** |
+| g2 | `/usr/bin/grep -rn -- "--slider-scrub" web/src \| wc -l` | **0** | **GREEN** |
+| g3 | `/usr/bin/grep -rn "glass-ui/timeline" web/src \| wc -l` | **0** (SR-1 refusal, not an import) | **GREEN** |
+| g4 · g5 | `web/e2e/timeline-scrub.spec.ts` · `slider-scrub-contrast.spec.ts` both present | banked 3/3 ⊕ 3/3, 8 passed ×2 at close; re-run is `.d`'s §7 cadence act | **GREEN (spec-present; re-run at cadence)** |
+| g6 | consumed at `.a` (F.W1 G18 GREEN at producer commit `17a11bc5`) | unmoved | **CONSUMED** |
+| g7 | `/usr/bin/grep -rc 'easing-preview' web/src` (zero-rows dropped) | `EasingCurvePreview.vue:2` · `MorphPhaseConfig.vue:2` = **4 hits / 2 files**; `\.easing-preview` → **2** | **RED — `.b`'s, now UNBLOCKED** |
+| g8 | `/usr/bin/grep -rn 'data-reka-collection-item' web/src \| wc -l` | **0** | **RED — `.b`'s, now UNBLOCKED** |
+| g9 | `/usr/bin/grep -rl 'is-active' web/src \| sort` | **7 files / 22 sites** (EquationModeToggle · FunctionInput · AppHeader · MobileFloatingToc · PaperSidebar · EasingPicker · GallerySearchBar) — REPAIR 1's widened operand reproduces exactly | **RED — closes at `.f`** |
+| g10 | `grep -n 'attrs\|inheritAttrs' ui/tooltip/Tooltip.vue` | **∅** — the shim declares neither. SliderControl leg GREEN at `a08809b` | **PARTIAL RED — Tooltip leg is `.e`'s** |
+| g11 | `/usr/bin/grep -rl '<Tooltip' web/src \| sort` → **11 files**; `max-width` over `ui/tooltip/` → **0** | unmoved | **RED — closes at `.f`** |
+| g12 | per subpath: `glass-ui/fading-scroll` → **1** (`ConvergenceLegend.vue:2`, a REAL import = state (a)); `glass-ui/forms` → **0**; `glass-ui/search` → **1** (`paperSearchIndex.ts:210`, a **docblock**, not an import) | **1 of 3 in state (a)**; `./forms` and `./search` need (b) rows, and ⟨cmd⟩ `ls …/F-W3-DO-NOT-EXECUTE.md` → **No such file** | **RED — `.d` measures, `.f` files the rows** |
+| g13 | `.c`'s one commit `21e11b0`, 8 files, no rider deferred | unmoved | **GREEN** |
+| g14 | `/usr/bin/grep -rn -- '--viz-amber' web/src \| wc -l` → **40**; `grep -rn 'cartoon' web/src \| wc -l` → **42** | the relay is unre-scoped and the shim's stale comment stands | **RED — `.f`'s** |
+| g15 | `grep -rn 'function timeAgo' web/src \| wc -l` → **5**; `grep -rn 'startsWith("fourier")' web/src \| wc -l` → **7**; `grep -rn 'GalleryTier' web/src \| wc -l` → **10** (REPAIR 2's D-8: the gate's true witness is the **inline union re-spelling**, 8 sites / 7 files) | unmoved | **RED — `.e`'s, MINUS the two out-of-bounds sites (§6)** |
+| g16 | ⟨cmd⟩ `ls web/.eslintrc* web/eslint.config.*` → **no matches** | no eslint config exists; the durable fix is an F.W0 addition (§7) | **RED — lint half RELIEVED; anti-cure half `.f` re-measures** |
+| g17 | `/usr/bin/grep -ic shadow …/fourier/docs/tranches/F/SUBSTRATE-LEDGER.md` | **0** — the row F.W3 must quote **does not exist** | **RED — RELIEVED (F.W0 publishes, F.W3 quotes)** |
+| g18 | fourier porcelain | **0** | **GREEN (inherited pre-gate)** |
+| g19 | ⟨cmd⟩ `shasum -a 256 …/conformance/CENSUS-CANONICAL.md \| cut -c1-12` | **`f44362757458`** — the frozen operand, **unmoved** | **RED — `.f`'s (the comparison has not been run)** |
+| g20 | **S-15 re-baseline, run as ordered**: ⟨cmd⟩ `shasum -a 256 …/BK/coordination/valuejs-outbound-2026-08-28-o20-authoring-block-batch.md \| cut -c1-12` → **`f6e04c86ddb8`** — the dispatched O-20, **byte-identical to the addendum's pin**; register file **absent** | **RED — `.f`'s; cargo = the RESIDUAL, verb = ACCRETES to SS-6** |
+
+**Tally at RESUME: 6 GREEN (g1 · g2 · g3 · g13 · g18 ⊕ g4/g5 spec-present) · 1 CONSUMED (g6) · 1
+PARTIAL (g10) · 12 RED** — identical to `## Close`'s AFTER tally, as it must be: no byte has moved in
+either repo since `21e11b0`, and this seat wrote none.
+
+### R.2 — GREEN before the cure, at this resume
+
+**Two, both already booked and neither new**: **g12's `./fading-scroll` leg** is in state (a) at
+`ConvergenceLegend.vue:2` **without `.d` ever running** — the adoption landed at F.W4, which closed
+ahead of this wave; and **g18** (inherited pre-gate, F.W0's). Both are **findings, not credits**:
+`.d` must book the fading-scroll leg **discharged-by-F.W4 with its commit**, exactly as `.c` booked
+its eleven, and must not re-cure it.
+
+### Divergences recorded (measurements, not re-adjudications — RUNBOOK §3.5)
+
+1. **g15's third operand** measures the half that is already green (one canonical export ⊕ three
+   importers); the gate's true witness is the inline union re-spelling at **8 sites / 7 files**
+   (REPAIR 2 D-8). `.e` works the witness, not the token count.
+2. **`./forms` is not an export of the adopted pin** (70-key map; X-EXT-2 re-seats it to `./input`,
+   COHESION `:273`) — so its g12 leg can only ever close in state **(b)**, never (a).
+3. **`PaperView.vue:344`'s `:is-active` PROP — the SWEEP-LAW rider's own witness — is absent from the
+   tree**; the 7-file operand carries no prop. The rider's prohibition stands anyway: no unit greps a
+   bare `is-active`.
+4. **`.a`'s and `.c`'s files are CLOSED and unswept.** §5a-v2 law 2 forbids `.d`/`.e` opening them, and
+   §0x re-dispatches only `.b`/`.d`/`.e`/`.f`. **g9 and g11 therefore close at `.f` as honest REDs with
+   the unswept sites named per file** — a green over a subset is the failure mode, not the goal.
+
+---
+
+## Unit plan — RESUME (four units owed; two already done and never re-dispatched)
+
+**Already done, verified at the commits, NOT re-dispatched**: **`X.F.W3.a`** — fourier `77b9bc0` ·
+`f36541a` · `a08809b`; **`X.F.W3.c`** — fourier `21e11b0`. Both verified present by ⟨cmd⟩ `git log
+-1 --format='%h %s' <sha>` at this seat.
+
+**Owed**: `.b` · `.d` · `.e` · `.f`.
+
+**Worktrees are honoured this round (§0x note ii + §5b).** `.b`/`.d`/`.e` each run in
+`/Users/mkbabb/Programming/fourier-analysis/.worktrees/f3{b,d,e}` — **inside** the fourier root, each
+with its own `web/node_modules` — created from `21e11b0` on its own branch, committed there with
+pathspec commits, and reported by branch + sha; the orchestrator integrates onto
+`m/w1-bump-migration` per §9's sequenced integration commits. `.f` is **serial on clean main,
+docs-side** (§5b's own table row), and writes **zero fourier bytes**. Per §5b's residue row,
+`.worktrees/` is untracked and `.gitignore` is **NOT** in F.W3's bounds — a non-empty porcelain for
+that reason must say so.
+
+**The sequencing contradiction, carried forward unchanged.** §5a-v2 item 3 wants `.e`'s publication
+before every applying sweep; §5a splits (4)(5) put `.e` after `.d`. The banked resolution stands and
+§0x orders "the banked plan": the **file** splits are honoured exactly, `.e`'s publication is its
+**first commit**, `.b` and `.d` **record** their operand sites and **do not sweep**, and **g9/g11
+close at `.f`** over the re-measured 7-file/11-file operands with every unswept site named as residue.
+
+### Units
+
+**X.F.W3.b — The easing disposition** · opus · worktree `f3b`
+- **Sections**: §C.C (`:250–261`) · §3 g7/g8 (`:404–405`) · §5 X.F.W3.b (`:455–459`) · §5a splits (2)(3) (`:489`) · §5b (`:534–547`) · §6 (`:551–557`) · §7 (`:559–563`) · §9 (`:569–571`) · COHESION §0x S-6a (`:1587–1596`)
+- **Gates**: g7 · g8
+- **Locks**: **ROUTE 1 is RULED — the unit may not re-open it, and may not presume beyond it.** Chassis is `DropdownMenuRadioItem` either way (Toggle.js:68 double-exposes state; ToggleChip REFUSED by name). `stores/animation.ts` and `MorphPhaseConfig.vue` are released — `.a` committed both. One `d`-precision policy covers both builders; the single BARREL seam dies **with** the file, in the same commit as the deletion.
+
+**X.F.W3.d — Shadow retirement at the installed pin** · opus · worktree `f3d`
+- **Sections**: §C.H (`:321–343`) · §C.I's admin/disclosure/dialog rows (`:346–348`, `:351`, `:353–354`) · §3 g12's forms/fading-scroll legs (`:409`) + g17 (`:414`) · §5 X.F.W3.d (`:467–471`) · §5a splits (1)(1b)(3)(4)(5) (`:489`) · §5b · §6 · §7 · §9 · COHESION §0x S-6b + notes (i)(iii)(iv)
+- **Gates**: g12 (forms + fading-scroll legs) · g17 (budget precedes edits)
+- **Locks**: **g17 BEFORE any budget cell** — F.W0's G-12 shadow-aggregate row measures **absent** (`grep -ic shadow` → 0), so **no budget cell may be authored at all** and g17 closes honest-RED with that receipt; the forbidden-token detector (`1[[:space:]]?990` · `2[[:space:]]?079` · `1[[:space:]]?315`) must return **0** over everything this unit writes. ImageUpload's INTERLOCK: `ConfiguratorLayer` supplies no heading — the `<h3>` is carried or the route drops to zero headings. FR-AFP-33's **client limb only**. i-3 **RECORDED, not executed**. **`ContourSettings.vue`'s M-16 contract and the shared batch toolbar (authored ONCE, in `AdminFlaggedPanel.vue` + its extracted module) must be committed before `.e` opens.** `web/e2e/**` is released (`.a` committed).
+
+**X.F.W3.e — Vocabulary, utils, structure, app shell** · opus · worktree `f3e`
+- **Sections**: §C.F (`:297–303`) · §C.G (`:304–320`) · §C.H's app-shell rows (`:334–341`) · §C.I's consolidations (`:349–350`, `:352`, `:355–362`) · §3 g9/g10/g11/g15 (`:406–408`, `:412`) · §5 X.F.W3.e (`:473–477`) · §5a-v2 (`:491–532`) · §5b · §6 · §7 · §9
+- **Gates**: g10 (Tooltip leg) · g15 (`.e`-scoped **minus** the two out-of-bounds sites). **g9 and g11 are NOT closable here** — `.e` owns the decision, `.f` reports the gates.
+- **Locks**: the vocabulary + shim publication is `.e`'s **FIRST commit**, a written artefact, not a diff. Opens **only after `.d`** commits `ContourSettings.vue`'s contract and the shared toolbar. **NEVER blanket `inheritAttrs:false` on SliderControl** — `class` fallthrough is WANTED. The SvgFilters delete carries the pencil-boil same-cut trap (the module-scope `visibilitychange` listener must survive). FR-GIG-5's `:liked` hoist + `click: [entry]` payload are **one edit**. `equation/InfoCard.vue` and `visualization/CanvasOverlayButton.vue` are **absent** — booked discharged, never re-created. **g15's `visualization/BasisCanvas.vue:254` and `stores/gallery.ts:34` are in NO §1 bounds row: record + ESCALATE to §6, write neither.**
+
+**X.F.W3.f — The law, the register, and the letter** · **fable** (fresh adjudicator) · clean main, value.js docs-side
+- **Sections**: §C.E (`:292–296`) · §C.J (`:364–371`) · §C.K (`:373–388`) · §3 g9/g11/g14/g16/g19/g20 (`:406`, `:408`, `:411`, `:413`, `:416–417`) · §4 S-5/S-8/S-9/S-11 (`:435`, `:438–441`) · §5 X.F.W3.f (`:479–483`) · §8 (`:565–567`) · §X + §X.1-v5 (`:580–795`) · §Y (`:864–898`) · §Z (`:899–911`)
+- **Gates**: g14 · g16 · g19 · g20 · **g9** · **g11** (⊕ reports g12's register legs and g15's residue)
+- **Locks**: **E-3 — `waves/F-W3.md`'s bytes are IMMUTABLE; the close block lands in THIS record**, as every prior close sitting did. **S-15 re-baseline (re-verified here)**: O-20 is dispatched at sha **`f6e04c86ddb8`**; the five dispatched items (`PD-1` · `--viz-easing`→`--motion-accent` · `./clipboard` · `--viz-amber`+cartoon-retirement · DOCK-ACTIVE) ride as **STATUS-NOTES and are NEVER re-sent**; the cargo is the **residual only** and the verb is **ACCRETES to the SS-6 register** (COHESION §4a), never *files a letter* — SS-6 is root-authored, and a wave that opens its own channel has substituted an ad-hoc letter for the batched-root law. Reconcile additionally against F.W4's **O-32/O-33** so no row is double-sent. **g19** = `comm -3` between two enumerations over `CENSUS-CANONICAL.md` @ **`f44362757458`** (re-verified here), quoted with its sha256-at-quote-time prefix — **FAIL on sight** if the LHS comes from a check file, a RULINGS figure, a prior pass, a local detector, or any struck integer. L-14: a recorded refutation attempt on at least one load-bearing claim.
+
+### Groups (ordered; ≤2 concurrent; no two concurrent units share a modify path)
+
+1. `X.F.W3.b` ∥ `X.F.W3.d` — file-disjoint at the bytes (`.b` = `visualization/Easing*`, `morph/MorphPhaseConfig.vue`, `lib/easings.ts`, `stores/animation.ts`, `composables/{useMorphConfig,useFourierMorph}.ts`; `.d` = the retirement set ⊕ `gallery/{GalleryFeaturedCarousel,GalleryDraftsSection,AdminFlaggedPanel,AdminAuditLog}.vue` ⊕ `equation/*` ⊕ `morph/{FourierMorphDemo,MorphShapePreview,FourierShapeExtractor}.vue` ⊕ `web/e2e/**`). Both units' shared-path predecessors are `.a`'s and are committed.
+2. `X.F.W3.e` — alone; splits (4) and (5) make `.d`'s two commits its hard precondition.
+3. `X.F.W3.f` — serial after all five, fresh Fable, clean main.
+
+
+---
+
+## Unit receipts — RESUME (`.b` re-dispatch · `.d` · `.e` · `.f`)
+
+*(empty at this re-open; each dispatched unit appends its own receipt here — line 1 of every file it
+creates carrying its served-model declaration, every published count read from the settled bytes and
+double-run, every inherited path named. `.b`'s prior `ESC-W3b-MISSED-D` receipt stays above,
+untouched: it was the correct act at the time it was taken, and §0x is its answer, not its erasure.)*
