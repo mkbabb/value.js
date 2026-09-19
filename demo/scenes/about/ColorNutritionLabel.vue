@@ -1,13 +1,21 @@
 <template>
     <!-- Body voice by default (three-voice law, R.W3 Lane A / A1): the atlas-plate
          DATA reads in Jakarta; only the section headings below are display rungs. -->
-    <div class="w-full grid grid-cols-1 gap-4 relative">
+    <!-- `data-space-facts` names the space these facts BELONG to, and each value
+         cell names the fact it carries (the file's existing `data-o18` hook
+         idiom). X-W6.f's o21 oracle reads the rendered values through them, so
+         "About states true facts" is measured against what the user sees rather
+         than against the table the component was handed. -->
+    <div
+        class="w-full grid grid-cols-1 gap-4 relative"
+        :data-space-facts="model.selectedColorSpace"
+    >
         <!-- AB-3 (T.W8 remediation_1 · D1): the Definition chip seats on the ONE
              rung-2 well tone (`bg-well` = `--well-bg`), collapsing the `/50` `/30`
              muted-alpha sub-species onto the single well recipe. -->
         <Alert class="m-0 bg-well border-border/30 rounded-card">
             <AlertTitle>Definition</AlertTitle>
-            <AlertDescription>
+            <AlertDescription data-fact="definition">
                 {{ currentColorSpaceInfo.definition }}
             </AlertDescription>
         </Alert>
@@ -25,15 +33,15 @@
                  space"). One sentence, said once. -->
             <div class="grid grid-cols-2 gap-2 text-small">
                 <div class="italic">Device Dependency:</div>
-                <div>
+                <div data-fact="device-dependency">
                     {{ currentColorSpaceInfo.deviceDependency }}
                 </div>
                 <div class="italic">White Point:</div>
-                <div>{{ currentColorSpaceInfo.whitePoint }}</div>
+                <div data-fact="white-point">{{ currentColorSpaceInfo.whitePoint }}</div>
                 <div class="italic">Gamut:</div>
-                <div>{{ currentColorSpaceInfo.gamut }}</div>
+                <div data-fact="gamut">{{ currentColorSpaceInfo.gamut }}</div>
                 <div class="italic">Created:</div>
-                <div>{{ currentColorSpaceInfo.created }}</div>
+                <div data-fact="created">{{ currentColorSpaceInfo.created }}</div>
             </div>
         </section>
 
@@ -108,7 +116,7 @@
                                  collapsing the /50 /30 /60 muted-alpha species. -->
                             <div
                                 class="flex flex-wrap items-center p-3 bg-well rounded-panel hover:bg-accent/50 transition-colors cursor-pointer max-w-full"
-                                @mouseenter="setHoveredPath(path as any)"
+                                @mouseenter="setHoveredPath(path)"
                                 @mouseleave="clearHoveredPath"
                             >
                                 <template
@@ -120,7 +128,7 @@
                                          colored fill under the fixed foreground. -->
                                     <div
                                         :style="
-                                            hoveredPath.length && hoveredPath.includes(space as string)
+                                            hoveredPath.length && hoveredPath.includes(space)
                                                 ? { backgroundColor: nodeFill, color: nodeInk }
                                                 : undefined
                                         "
@@ -156,9 +164,7 @@
                 </div>
                 <div>
                     <span class="italic">Industries: </span>
-                    <span>{{
-                        (currentColorSpaceInfo.industries as any).join(", ")
-                    }}</span>
+                    <span>{{ currentColorSpaceInfo.industries.join(", ") }}</span>
                 </div>
             </div>
         </section>
@@ -169,7 +175,6 @@ import { computed, ref, inject } from "vue";
 import { CSS_COLOR_KEY } from "../../color-session/keys";
 import { useSafeAccentFn } from "../../color-session/useContrastSafeColor";
 import { contrastInkFor } from "../../color-session/ink";
-import { PICKER_CHANNELS } from "../../color-session/picker-color";
 import { Separator } from "../../ui/separator";
 import {
     Tooltip,
@@ -180,8 +185,7 @@ import {
 import { ArrowRight } from "@lucide/vue";
 import { Alert, AlertTitle, AlertDescription } from "../../ui/alert";
 import type { ColorModel } from "../../color-session/color-model";
-import { resolveColorSpace } from "../../color-session/color-model";
-import { colorSpaceInfo } from "../../color-session/colorSpaceInfo";
+import { SPACE_CATALOG } from "../../color-session/space-catalog";
 
 const model = defineModel<ColorModel>({ required: true });
 
@@ -207,16 +211,28 @@ const componentInk = computed(() => safeCss(cssColorOpaque.value));
 const nodeFill = cssColorOpaque;
 const nodeInk = computed(() => contrastInkFor(nodeFill.value) ?? "");
 
-const currentColorSpaceInfo = computed(() => {
-    const space = resolveColorSpace(model.value.selectedColorSpace);
-    return space in colorSpaceInfo
-        ? colorSpaceInfo[space as keyof typeof colorSpaceInfo]
-        : colorSpaceInfo.rgb;
-});
+/**
+ * X-W6.f · X:CSS-1 (f2/f3) — THE MASKING FALLBACK IS GONE, AND UNSPELLABLE.
+ *
+ * This read used to resolve the display space down to its underlying space,
+ * probe a PARTIAL facts table with an `in` guard, and fall back to the RGB row
+ * when the probe missed. Five of the eighteen offered spaces missed, so
+ * selecting "Display P3" rendered CIE RGB's card — "Created: 1931", components
+ * Red/Green/Blue — under the Display P3 title. The product stated false colour
+ * science on a first-class route, and the `in` guard is what made it look
+ * deliberate.
+ *
+ * The catalog is TOTAL over `DisplayColorSpace`, so the lookup cannot miss:
+ * there is nothing left for a fallback to catch. Note it reads the DISPLAY
+ * space, not the resolved one — Hex has its own authored facts and no longer
+ * borrows RGB's.
+ */
+const currentSpace = computed(() => SPACE_CATALOG[model.value.selectedColorSpace]);
+const currentColorSpaceInfo = computed(() => currentSpace.value.info);
 
 const formattedRange = computed<Record<string, { min: string; max: string }>>(() =>
     Object.fromEntries(
-        PICKER_CHANNELS[resolveColorSpace(model.value.selectedColorSpace)].map((meta) => {
+        currentSpace.value.channels.map((meta) => {
             const scale = meta.unit === "%" && meta.max <= 1 ? 100 : 1;
             return [
                 meta.key,
@@ -229,9 +245,9 @@ const formattedRange = computed<Record<string, { min: string; max: string }>>(()
     ),
 );
 
-const hoveredPath = ref<string[]>([]);
+const hoveredPath = ref<readonly string[]>([]);
 
-const setHoveredPath = (path: string[]) => {
+const setHoveredPath = (path: readonly string[]) => {
     hoveredPath.value = path;
 };
 

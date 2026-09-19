@@ -6,8 +6,6 @@
  * the picker now imports its own domain from here.
  */
 import {
-    CSS_PICKER_SPACES,
-    PICKER_SPACE_NAMES,
     convertPickerColor,
     parsePickerColor,
     pickerColorToHex,
@@ -55,8 +53,6 @@ export function createDefaultColorModel(): ColorModel {
 
 export const defaultColorModel: ColorModel = createDefaultColorModel();
 
-export const CSS_NATIVE_SPACES = CSS_PICKER_SPACES;
-
 /** Convert a normalized rgb color (components in [0,1]) to a hex string. */
 export function colorToHexString(
     color: PickerColor,
@@ -71,8 +67,11 @@ export function toCSSColorString(
     return serializePickerColor(color);
 }
 
-/** Display names for all selectable color spaces. Defines canonical UI ordering. */
-export const DISPLAY_COLOR_SPACE_NAMES: Record<DisplayColorSpace, string> = {
-    ...PICKER_SPACE_NAMES,
-    hex: "Hex",
-};
+/* X-W6.f · X:CSS-1 — `DISPLAY_COLOR_SPACE_NAMES` and `CSS_NATIVE_SPACES` are
+ * CARVED OUT of this module. The names were half of a catalog whose other half
+ * (the facts, the guides) lived in two more files that disagreed with it about
+ * which spaces exist — 18 offered, 13 documented, 11 guided. The whole catalog
+ * now has ONE home, `./space-catalog`, where a space without its row is a
+ * compile error; read a display name through `spaceName(space)` or the entry
+ * itself. `CSS_NATIVE_SPACES` was a rename of `CSS_PICKER_SPACES` with no
+ * reader at all (adjudicated L-11) and is simply gone. */

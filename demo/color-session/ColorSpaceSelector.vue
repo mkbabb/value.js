@@ -6,13 +6,8 @@
          renderless; the title IS this component's first painted node. -->
     <Select
         v-model:open="openModel"
-        :model-value="modelValue"
-        @update:model-value="
-            (colorSpace: any) => {
-                emit('update:modelValue', colorSpace);
-                openModel = false;
-            }
-        "
+        :model-value="space"
+        @update:model-value="onSelect"
     >
         <!-- The trigger OWNS its face — ALL FOUR AXES (T.W4-1 · O-10a; the
              S-21 law extended to weight): `font-display italic` + the scoped
@@ -54,13 +49,20 @@
         <!-- The specimen catalog stays — all glass belongs to the dropdown,
              never the title (W4-1 open-state law). Rows are SPECIMEN entries:
              display-face name, WatercolorDot swatch, live per-space
-             conversion (identical in both hosts — see the injection note). -->
+             conversion (identical in both hosts — see the injection note).
+
+             X-W6.f · X:CSS-1 — the rows iterate SPACE_CATALOG_ENTRIES, the
+             KEY-PRESERVING catalog list: `row.entry.id` already IS a
+             `DisplayColorSpace`, so the render-boundary cast that `Object.entries`
+             forced (its keys widen to `string`) is unspellable here rather than
+             merely removed. -->
         <SelectContent align="start">
             <SelectGroup>
                 <SelectItem
-                    v-for="[space, name] in spaceEntries"
-                    :key="space"
-                    :value="space"
+                    v-for="row in rows"
+                    :key="row.entry.id"
+                    :value="row.entry.id"
+                    :data-space="row.entry.id"
                     hide-indicator
                     class="pl-3 pr-4 py-2"
                 >
@@ -75,20 +77,36 @@
                          dot's idle-opacity step, never through weight). -->
                     <span
                         class="specimen-name font-display italic text-title leading-tight"
-                    >{{ name }}</span>
+                    >{{ row.entry.label }}</span>
                     <template #description>
-                        <span class="flex items-center gap-2 min-w-0 max-w-[16rem]">
+                        <span class="flex items-center gap-2 min-w-0">
+                            <!-- X-W6.f · f8 — EIGHTEEN DOTS, EIGHTEEN
+                                 SILHOUETTES. `seed` is the producer's own
+                                 shape/wet-edge PRNG salt: seeding it with the
+                                 space id gives each row its own border-radius
+                                 silhouette AND its own feTurbulence seed
+                                 (identical `seed 240` across all 18 was the
+                                 defect). The dead `tag` prop — WatercolorDot
+                                 declares no such prop — is deleted. -->
                             <WatercolorDot
-                                tag="div"
                                 :color="cssColor"
+                                :seed="row.entry.id"
                                 class="specimen-dot shrink-0"
-                                :class="modelValue === space ? '' : 'specimen-dot-idle'"
+                                :class="space === row.entry.id ? '' : 'specimen-dot-idle'"
                             />
                             <span
-                                v-if="colorModel"
+                                v-if="row.specimen"
                                 class="specimen-caption fira-code text-mono-caption lowercase truncate"
+                                :data-specimen-form="row.specimen.form"
+                                :data-out-of-gamut="String(row.specimen.outOfGamut)"
+                                :style="{ '--specimen-char-budget': SPECIMEN_CHAR_BUDGET }"
+                                :title="
+                                    row.specimen.outOfGamut
+                                        ? `Outside ${row.entry.label}'s gamut — shown as measured, not mapped`
+                                        : undefined
+                                "
                             >
-                                {{ specimenFor(space as DisplayColorSpace) }}
+                                {{ row.specimen.text }}
                             </span>
                         </span>
                     </template>
@@ -106,30 +124,34 @@ import {
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from "../ui/select";
+} from "@mkbabb/glass-ui/select";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
-import { inject } from "vue";
-import {
-    CSS_PICKER_SPACES,
-    convertPickerColor,
-    serializePickerColor,
-} from "./picker-color";
-import {
-    DISPLAY_COLOR_SPACE_NAMES,
-    colorToHexString,
-    resolveColorSpace,
-} from "./color-model";
+import { computed, inject } from "vue";
+import { resolveColorSpace } from "./color-model";
 import type { DisplayColorSpace } from "./color-model";
+import { SPACE_CATALOG, SPACE_CATALOG_ENTRIES } from "./space-catalog";
+import { SPECIMEN_CHAR_BUDGET, formatSpecimen } from "./specimen-format";
 import { COLOR_MODEL_KEY, SAFE_ACCENT_KEY } from "./keys";
 
-const { modelValue, cssColor, inline = false } = defineProps<{
-    modelValue: string;
+const { cssColor, inline = false } = defineProps<{
     cssColor: string;
     /** The ONE sanctioned host axis (T.W4-1 · S-21 restated): `inline` hosts
      *  (the About sentence) ink `1em` and ride the sentence's rung + shrink;
      *  the default is the picker plate's explicit display-3 rung (Q11a). */
     inline?: boolean;
 }>();
+
+/**
+ * X-W6.f · X:CSS-1 (f7) — THE BOUNDARY IS THE DOMAIN TYPE. The former wide
+ * `modelValue: string` prop plus its hand-written emit let every host bind a
+ * bare string and widen the payload back to `any` in its handler; all three
+ * holes were spellable because the contract was. `defineModel<DisplayColorSpace>`
+ * makes them unspellable: a host binding a non-member is a compile error, which
+ * is why f7's evidence is `vue-tsc` plus a `@ts-expect-error` witness and never
+ * lint (eslint exits 0 with all three holes present).
+ */
+const space = defineModel<DisplayColorSpace>({ required: true });
+const openModel = defineModel<boolean>("open", { required: true });
 
 const safeAccent = inject(SAFE_ACCENT_KEY)!;
 
@@ -138,31 +160,58 @@ const safeAccent = inject(SAFE_ACCENT_KEY)!;
 // hosts — the picker and About — resolve the same instance ambiently and the
 // specimen rows carry the live per-space conversion identically. The default
 // stays null-tolerant: a future host outside any provider renders the catalog
-// without the conversion line rather than crashing.
+// without the conversion line rather than crashing. (Adjudicated deliberate —
+// ColorSpaceSelector L-5(b): SAFE_ACCENT_KEY and COLOR_MODEL_KEY carry
+// different criticality, and this asymmetry is the house contract, not a
+// masking fallback.)
 const colorModel = inject(COLOR_MODEL_KEY, null);
 
-const openModel = defineModel<boolean>("open", { required: true });
+/**
+ * The catalog rows. Each carries its own `DisplayColorSpace` and — when a
+ * pipeline is present — the ONE specimen for the live colour in that space:
+ * one call, one digit policy, one declared grammar, gamut measured and marked.
+ * SelectContent unmounts when closed, so this computes only while the dropdown
+ * renders.
+ */
+const rows = computed(() =>
+    SPACE_CATALOG_ENTRIES.map((entry) => ({
+        entry,
+        specimen: colorModel
+            ? formatSpecimen(colorModel.model.value.color, entry.id)
+            : null,
+    })),
+);
 
-const emit = defineEmits<{
-    "update:modelValue": [value: string];
-}>();
+/**
+ * X-W6.f · X:CSS-1 (f9) — ONE COMMAND, ONE HOME. The space switch used to be
+ * two halves in two files: this component emitted a bare string, and a WATCHER
+ * in a peer component (`ColorPicker.vue`) noticed the model had changed and
+ * converted the colour. The control did not own its own command, and About —
+ * which hosts the same control — only worked because the picker happened to be
+ * mounted beside it. The switch lands here, once: the model takes the new
+ * space, then the pipeline's own `updateToColorSpace` converts the live colour
+ * into it. `updateModel` writes the ONE ref synchronously
+ * (`useColorPipeline.ts`), so the conversion reads the space just set.
+ */
+function onSelect(value: string | number) {
+    if (!isDisplayColorSpace(value)) return;
+    space.value = value;
+    colorModel?.updateToColorSpace(resolveColorSpace(value));
+    openModel.value = false;
+}
 
-const spaceEntries = Object.entries(DISPLAY_COLOR_SPACE_NAMES);
-
-// The specimen line: the LIVE color read through each catalog space —
-// computed only while the dropdown renders (SelectContent unmounts closed).
-function specimenFor(space: DisplayColorSpace): string {
-    if (!colorModel) return "";
-    if (space === "hex") return colorToHexString(colorModel.model.value.color);
-    const converted = convertPickerColor(
-        colorModel.model.value.color,
-        resolveColorSpace(space),
-    );
-    if (CSS_PICKER_SPACES.has(converted.space)) return serializePickerColor(converted);
-    const channels = converted.channels.map((channel) =>
-        typeof channel === "number" ? Number(channel.toFixed(4)) : channel,
-    );
-    return `${converted.space} · ${channels.join(" · ")}`;
+/**
+ * The producer boundary. `Select` declares its payload as `string | number`,
+ * because it knows nothing about colour spaces; the catalog is what turns one
+ * into a `DisplayColorSpace`. A GUARD, not a cast — it discharges the claim at
+ * runtime against the same total record the options were rendered from, so it
+ * cannot drift from them and nothing outside the union can reach the model. The
+ * false branch is unreachable by construction (every option IS a catalog key);
+ * it exists because the producer's type permits a value the catalog does not,
+ * and silently ignoring such a value is the only answer that invents nothing.
+ */
+function isDisplayColorSpace(value: string | number): value is DisplayColorSpace {
+    return typeof value === "string" && value in SPACE_CATALOG;
 }
 </script>
 
@@ -307,5 +356,26 @@ function specimenFor(space: DisplayColorSpace): string {
  * post-hoc alpha over an already-resolved ink. */
 .specimen-caption {
     color: var(--ink-muted, var(--muted-foreground));
+
+    /* X-W6.f · X:CSS-1 (f4) — THE BOX IS SIZED BY THE DIGIT POLICY.
+     *
+     * The caption used to sit in a hand-picked `max-w-[16rem]` — a 234px box
+     * that 16 of 18 rows overflowed, worst 723px, every one of them silently
+     * ellipsised by `truncate`. The width is now DERIVED: the box is exactly
+     * `SPECIMEN_CHAR_BUDGET` characters wide, and the budget is the measured
+     * maximum the one digit policy can emit (specimen-format.ts). Text and box
+     * are therefore sized by the same number and cannot drift apart — no px
+     * literal to re-tune when a space or a digit changes.
+     *
+     * `1ch` is the advance of `0`, which in a monospaced face IS the advance of
+     * every glyph — so the `ch` arithmetic is exact ONLY with the caps tracking
+     * off. That tracking comes from `text-mono-caption`, the UPPERCASE EYEBROW
+     * token (the row already overrides its `text-transform` with `lowercase`);
+     * an eyebrow's 0.1em letter-spacing does not belong on a lowercase mono
+     * DATA line, and removing it is the same correction, finished. NOTHING
+     * SHRINKS: the type rung is untouched — the box grew to hold the sentence,
+     * the sentence was not shrunk to fit the box. */
+    letter-spacing: normal;
+    max-width: calc(var(--specimen-char-budget) * 1ch);
 }
 </style>

@@ -46,7 +46,7 @@
                         v-model:open="selectedColorSpaceOpen"
                         :css-color="cssColor"
                         @update:model-value="
-                            (colorSpace: any) =>
+                            (colorSpace) =>
                                 updateModel({ selectedColorSpace: colorSpace })
                         "
                     />
@@ -131,7 +131,7 @@ import {
 import { useMagicKeys } from "@vueuse/core";
 import { useIdleReady } from "@mkbabb/glass-ui/dom";
 import type { ColorModel, EditTarget } from "../color-session/color-model";
-import { toCSSColorString, resolveColorSpace } from "../color-session/color-model";
+import { toCSSColorString } from "../color-session/color-model";
 import { COLOR_MODEL_KEY } from "../color-session/keys";
 import type { ColorSceneTarget } from "../color-session/keys";
 import { OVERTURE_KEY } from "../color-picker/composables/boot/useOverture";
@@ -219,7 +219,6 @@ const {
     parseAndSetColor,
     parseAndSetColorDebounced,
     generateRandomColor,
-    updateToColorSpace,
     updateColorComponentDebounced,
     onPaletteAddColor,
     onPaletteApply,
@@ -357,14 +356,20 @@ defineExpose({
 
 // --- Model watchers ---
 
-watch(
-    () => model.value.selectedColorSpace,
-    (newVal, oldVal) => {
-        if (newVal === oldVal) return;
-        updateToColorSpace(resolveColorSpace(newVal));
-    },
-);
-
+/* X-W6.f · X:CSS-1 (f9) — THE SPACE-SWITCH WATCHER IS DELETED.
+ *
+ * A watcher here owned half of a command that belongs to the control: the
+ * selector emitted a bare space, this component noticed the model had changed
+ * and converted the live colour into it. Two halves, two files, and About — which
+ * hosts the same selector — converted only because this picker happened to be
+ * mounted beside it. The switch is now one act inside `ColorSpaceSelector.vue`,
+ * which calls the pipeline's own `updateToColorSpace`.
+ *
+ * Nothing else regresses, because no other writer of `selectedColorSpace` needed
+ * this watcher: `setCurrentColor`, `parseAndSetColor`, the URL sync and boot
+ * hydration each write the CONVERTED colour and the space in the same patch, so
+ * the watcher's conversion was an idempotent no-op on every one of those paths.
+ */
 watch(
     () => model.value.inputColor,
     (newVal, oldVal) => {

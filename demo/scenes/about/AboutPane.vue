@@ -22,7 +22,11 @@
                 v-model:open="aboutSelectOpen"
                 :css-color="cssColor"
                 inline
-                @update:model-value="(colorSpace: any) => { model = { ...model, selectedColorSpace: colorSpace }; }"
+                @update:model-value="
+                    (colorSpace) => {
+                        model = { ...model, selectedColorSpace: colorSpace };
+                    }
+                "
             />
         </PaneHeader>
 
@@ -45,15 +49,32 @@
 
         <Separator />
 
-        <CardContent class="px-3 sm:px-6 pt-phi-3 pb-phi-4">
+        <!-- X-W6.f · X:CSS-1 (f3) — THE GUIDE SECTION STATES ITS OWN STATE.
+             Seven of the eighteen offered spaces have no authored long-form
+             guide, and the section used to render a bare "Detailed Guide"
+             heading over nothing: a `v-if` that silently produced an empty
+             section with a title promising content. The catalog now DECIDES —
+             `doc: null` is an authored decision, not a gap — and the section
+             renders that decision as a sentence, naming the space and pointing
+             at the facts that DO exist, one panel above. -->
+        <CardContent
+            class="px-3 sm:px-6 pt-phi-3 pb-phi-4"
+            data-guide-section
+            :data-guide-state="activeSpace.doc ? 'authored' : 'none-authored'"
+        >
             <h2 class="font-display text-title mb-phi-3">Detailed Guide</h2>
             <Markdown
-                v-if="activeMarkdownModule"
-                :key="model.selectedColorSpace"
-                :module="activeMarkdownModule"
+                v-if="activeSpace.doc"
+                :key="activeSpace.id"
+                :module="activeSpace.doc"
                 :cssColor="cssColor"
-                :colorSpaceName="colorSpaceName"
+                :colorSpaceName="activeSpace.label"
             />
+            <p v-else class="text-small text-muted-foreground" data-guide-empty-state>
+                No long-form guide is written for {{ activeSpace.label }} yet — its
+                definition, white point, gamut, components and conversion paths are
+                stated in full above.
+            </p>
         </CardContent>
     </Card>
 </template>
@@ -64,10 +85,9 @@ import { Separator } from "../../ui/separator";
 import { Card, CardContent } from "../../ui/card";
 import PaneHeader from "../../shared/ui/PaneHeader.vue";
 import ColorNutritionLabel from "./ColorNutritionLabel.vue";
-import { DISPLAY_COLOR_SPACE_NAMES } from "../../color-session/color-model";
 import type { ColorModel } from "../../color-session/color-model";
+import { SPACE_CATALOG } from "../../color-session/space-catalog";
 import ColorSpaceSelector from "../../color-session/ColorSpaceSelector.vue";
-import type { DocModule } from "./markdown";
 import { Markdown } from "./markdown";
 const model = defineModel<ColorModel>({ required: true });
 const aboutSelectOpen = ref(false);
@@ -76,25 +96,14 @@ defineProps<{
     cssColor: string;
 }>();
 
-type MarkdownSpace = "rgb" | "hex" | "hsl" | "hsv" | "hwb" | "lab" | "lch" | "oklab" | "oklch" | "xyz" | "kelvin";
-
-const markdownModules: Record<MarkdownSpace, DocModule> = {
-    rgb: () => import("../../../assets/docs/rgb.md"),
-    hex: () => import("../../../assets/docs/hex.md"),
-    hsl: () => import("../../../assets/docs/hsl.md"),
-    hsv: () => import("../../../assets/docs/hsv.md"),
-    hwb: () => import("../../../assets/docs/hwb.md"),
-    lab: () => import("../../../assets/docs/lab.md"),
-    lch: () => import("../../../assets/docs/lch.md"),
-    oklab: () => import("../../../assets/docs/oklab.md"),
-    oklch: () => import("../../../assets/docs/oklch.md"),
-    xyz: () => import("../../../assets/docs/xyz.md"),
-    kelvin: () => import("../../../assets/docs/kelvin.md"),
-};
-
-const colorSpaceName = computed(() => DISPLAY_COLOR_SPACE_NAMES[model.value.selectedColorSpace] ?? model.value.selectedColorSpace);
-const activeMarkdownModule = computed(() =>
-    markdownModules[model.value.selectedColorSpace as MarkdownSpace],
-);
+/**
+ * X-W6.f · X:CSS-1 — the guide table lived HERE, keyed by a hand-maintained
+ * `MarkdownSpace` union of eleven names, while the selector offered eighteen
+ * and the facts table documented thirteen. Three registries, three different
+ * answers to "which spaces exist". The catalog is now the one home and the
+ * entry carries its own guide decision, so About reads a row rather than
+ * indexing a partial map with a cast.
+ */
+const activeSpace = computed(() => SPACE_CATALOG[model.value.selectedColorSpace]);
 </script>
 
