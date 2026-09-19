@@ -1265,3 +1265,16 @@ Carried unmoved: ESC-c1 (latch, the parse-that library seam → W4) · ESC-d2 (G
 - **E-h3 — RULED.** `coerceToSyntax(source, syntax)` and `parseCssValue`'s syntax arm are **surface compositions on `entry.mjs`** (granted to `.h`): the grammar parses the value; the entry checks the descriptor and raises `syntax_descriptor_invalid` spanning the SOURCE (`syntax.ts:96`'s own shape) or `syntax_mismatch` with `expected` = the descriptor's own alternatives — a DYNAMIC expected list is lawful (the frozen surface is the eight-code union; `L` is the grammar's label set, and descriptor alternatives are data), raised through `selectCode`, never a ninth code. `.k`'s closure runner (`scripts/css-recovery-closure.mjs`) gains the two-argument entry so C-3 can count both codes.
 
 `W3.md` gains a fourth dated addendum widening `.h`/`.i`/`.j`'s Files lines and `.k`'s Mechanism. D relaunches on this word.
+
+## §0t ADDENDUM 2026-09-19 — KF.W10 OWNERSHIP CURED; THE X·KF SUB-TRANCHE STAMP UNBLOCKS
+
+**KF.W10 ownership gap (KF-W10.md §2a OP-6, §6.E; RULINGS R-18; vehicle re-cut at repair round 5,
+R5-12(2)): CURED by assignment, mirroring §0b.** §1 assigned KF.W0/W2/W4/W5/W8 to SS-1 and
+KF.W1/W6/W7/W9 to SS-2 and named no owner for the fold-discharge wave. Disposition: **KF.W10 belongs
+to SS-2** — it is the coordination-terminal wave whose hardest dependency is KF.W1's Mail Cure
+(O-21, edge 6) and whose content is ledger/mail terminalization, the frontend-and-mail half's own
+kind; its spec was authored under that seat at `KF-W10.md`. Consequences, read as the spec reads
+them: G-2's set-difference is now an OWNED assertion (`.b`'s product, `.f`/`.g`'s input); the X·KF
+sub-tranche-scope SPECIFIED stamp, withheld at KF-W10.md §State pending this line, is no longer
+withheld by COHESION; the 7-unit plan banked at `execution/B/KF-W10.md` dispatches unchanged. The
+minted-wave boundary (§0d) and KF.W3's GATED posture (§0b) are untouched by this assignment.
