@@ -110,6 +110,96 @@ async function settle(page: Page, main: Locator): Promise<void> {
     throw new Error("the gradient rail's geometry never settled");
 }
 
+/**
+ * TRANSFORM REST, asked of the animation timeline rather than of the clock.
+ *
+ * `settle()` above reads GEOMETRY, and geometry alone cannot tell a finished
+ * transition from a STALLED one: under a cold dev server the pane swap's
+ * CSSTransition stalls at `currentTime ≈ 0` for ~1s while the first-visit
+ * transform burst starves the main thread (`e2e/smoke/fixtures/dock.ts`'s
+ * `paneSettled` docblock records the same stall), and four identical 250ms
+ * signatures are satisfied INSIDE that stall. The pane enters on
+ * `translateX(±110%) rotate(∓2deg)` (`demo/styles/animations.css:231-236`), and
+ * a 2° rotation inflates an axis-aligned client rect by `cos2° + sin2°` =
+ * **1.0349** — the measured `24 → 24.8` / `20 → 20.7` inflation that pushed the
+ * left-most handle's 3px ring outside `.app-layout`'s `overflow: hidden` box
+ * and made C4's clip arm RED in 3 of 4 runs (X-W4 close K.3 / Check 1 CK.2,
+ * booked LW-4).
+ *
+ * So rest is measured where it is knowable: every FINITE animation on the
+ * element's own ancestor chain must have left `running`/`pending`, and the
+ * client rect must then repeat across two animation frames. A stalled
+ * transition is still live on that timeline — MEASURED `div:transform@pending`
+ * at `currentTime 0` while the handle read 24.82 — so a stall cannot satisfy
+ * this and cannot be mistaken for rest; an infinite
+ * decorative loop (the aurora, the shimmer pill) is excluded by its INFINITE
+ * duration, never by name; and a permanent resting transform is not an
+ * animation at all, so this instrument does not inherit `paneSettled`'s timeout
+ * on one. Not one assertion is relaxed and not one threshold moves — the read
+ * is simply taken of the affordance the user actually sees.
+ */
+async function transformRest(handle: Locator, label: string): Promise<void> {
+    const inFlight = () =>
+        handle.evaluate((el) => {
+            const live: string[] = [];
+            let node: Element | null = el;
+            while (node) {
+                for (const a of node.getAnimations()) {
+                    const timing = a.effect?.getComputedTiming();
+                    const duration = timing?.duration;
+                    const finite =
+                        typeof duration === "number" &&
+                        Number.isFinite(duration) &&
+                        Number.isFinite(timing?.iterations ?? 1);
+                    if (!finite) continue;
+                    // `pending` is its OWN boolean on Animation — a transition
+                    // whose start time has not yet been resolved is not yet
+                    // `running`, and reading the box in that window is exactly
+                    // the stall this helper exists to refuse.
+                    if (a.playState !== "running" && !a.pending) continue;
+                    const named = a as Animation & {
+                        transitionProperty?: string;
+                        animationName?: string;
+                    };
+                    live.push(
+                        `${node.tagName.toLowerCase()}:${
+                            named.transitionProperty ?? named.animationName ?? "?"
+                        }@${a.pending ? "pending" : a.playState}:${Math.round(
+                            Number(a.currentTime ?? 0),
+                        )}ms`,
+                    );
+                }
+                node = node.parentElement;
+            }
+            return live;
+        });
+    const opening = await inFlight();
+    await expect.poll(inFlight, { timeout: 20_000 }).toEqual([]);
+    // Rest on the timeline, then rest in the box: two frame-separated reads of
+    // the SAME rect inside one evaluation, so a transform committed on the
+    // frame after the last animation ended is still caught.
+    await expect
+        .poll(
+            () =>
+                handle.evaluate(
+                    (el) =>
+                        new Promise<boolean>((resolve) => {
+                            const read = () => {
+                                const r = el.getBoundingClientRect();
+                                return `${r.x}:${r.width}:${r.height}`;
+                            };
+                            requestAnimationFrame(() => {
+                                const first = read();
+                                requestAnimationFrame(() => resolve(read() === first));
+                            });
+                        }),
+                ),
+            { timeout: 20_000 },
+        )
+        .toBe(true);
+    console.log(`[W4-C4-SETTLE] ${label} inFlightAtEntry=${JSON.stringify(opening)}`);
+}
+
 /** The handle's own position, read the ONLY way GRADSTOP-A §6 allows. */
 async function leftOf(handle: Locator): Promise<{ px: number; inline: string }> {
     return handle.evaluate((el) => ({
@@ -462,6 +552,10 @@ test("C4 · handle target ≥24×24 and a focus ring that paints, unclipped (fin
     page,
 }) => {
     const main = await openGradient(page);
+    // C4 is the one gate in this file that reads a CLIENT RECT (C1–C3 read
+    // `style.left`, which the pane transform cannot move), so it is the one
+    // that must have the pane's enter transform at rest before it reads.
+    await transformRest(handles(main).first(), "geometry");
 
     const geom = await handles(main).evaluateAll((els) =>
         els.map((el) => {
@@ -517,6 +611,11 @@ test("C4 · handle target ≥24×24 and a focus ring that paints, unclipped (fin
     await expect
         .poll(async () => (await ringReport(page, focused)).shadow, { timeout: 5000 })
         .toMatch(/0px 0px 0px 3px/);
+    // The clip walk compares the ring's painted box against every clipping
+    // ancestor's box, so it is a client-rect read too: settle the chain again
+    // after the Tab journey (focus travel can re-arm a transition) before the
+    // ancestors are measured.
+    await transformRest(focused, "clip");
     const report = await ringReport(page, focused);
     console.log(`[W4-C4-RING] ${JSON.stringify(report)}`);
 
