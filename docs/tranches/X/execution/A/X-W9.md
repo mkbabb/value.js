@@ -1579,3 +1579,133 @@ unit's — `.i` owes the parse-that packet (PT-01/03/04/07); `.g` records the po
   `docs/tranches/X/waves/evidence/W9/canon-parse-that.g.md`, and this receipt. `:943-945` untouched.
   `scripts/dev/dev.sh` never staged. Pathspec on the commit itself; no sibling path entered it
   (⟨`git show --stat HEAD`⟩ → exactly 2 files).
+
+---
+
+### X-W9.i
+
+SERVED MODEL: `claude-opus-5[1m]` · Coordination packets
+(W9.md §Agent Units `X.W9.i` :314-334 · §Hard Gate **G33** :375 · §Commit Plan row 12 :466 ·
+runbook §5.3 E13 · §Disjointness free lane :129-130, group 4 beside `.g`).
+**Status: DONE in bounds** — **G33 GREEN on its three readable legs** (five packets · five ledger
+rows · the exact pin acknowledged before the tag), its fourth leg **UNREADABLE BEFORE THE WINDOW by
+the gate's own construction**, with its pre-window reading banked. Ran on integrated main
+(`tranche-u`), docs-only; **no peer-repo byte written in any tree** (RD-11). Every figure read from
+the settled bytes and **double-run**.
+
+#### 0. CRASH-RECOVERY sweep (standing law)
+
+⟨cmd⟩ `git status --porcelain` → **16 rows**. ⟨cmd⟩ `git status --porcelain -- docs/tranches/V/coordination
+docs/tranches/X/waves/evidence/W9 docs/tranches/X/execution/A/X-W9.md` → **empty**. **No killed
+predecessor's partial work on X-W9.i exists; nothing inherited, nothing stashed, nothing restored.**
+`scripts/dev/dev.sh` never touched and never staged; the ten dirty `demo/**` rows (X-W4 / X-W7
+seats), `CARRY-LEDGER.md` and the untracked X-W1/X-KF paths never touched. The same rows reproduce
+after this unit's commits, `dev.sh` among them.
+
+#### 1. Anchors verified at TRUE bytes before any write — six drifts, recorded
+
+| spec / source anchor | measured 2026-09-18 | verdict |
+|---|---|---|
+| keyframes' exact pin *"`../keyframes.js/package.json:69` reads `"4.0.0"`"* (:333) | ⟨cmd⟩ `sed -n '71p'` → `        "@mkbabb/value.js": "4.0.0"` | **DRIFTED `:69`→`:71`, string identical** — INTENT at the true bytes; both cited in the packet |
+| `resolve/browser.ts:165` (:320) | **`:164`** — `requireParsed(parseCssScalar(source), unresolvable)` | **DRIFTED by one line** |
+| `engine/options.ts:31` (:320) | `:31` — `orFallback(parseCssScalar(raw), undefined)` | **EXACT** |
+| `compile/value-ast.ts:71` (:321) | **file deleted** by their split `eb4379ca`; `parseCssValues` now at `compile/value/compile.ts:33` (`requireParsed`) and `engine/composition.ts:203` (`swallowParsed`) | **DRIFTED — successor sites given verdicts individually** |
+| the fork `compile/emit/css-text.ts:41` (:321) | **`:42`** — `export const serializeCssValue = (value: CssValue): string =>` | **DRIFTED by one line** |
+| fourier `counts.fourier.http` *"= 30 at HEAD"* (:327) | ⟨cmd⟩ at F HEAD `0a16b83` → **30** (`contours 4 · equations 2 · images 7 · sessions 4 · visualizations 13`) | **EXACT — the bank did NOT fire** |
+| atlas *"16 root-specifier statements, 4 absent symbols"* (:325) | ⟨cmd⟩ at atlas `1e2b911` → **16**; the four absent from every built `.d.ts` | **EXACT** |
+
+A seventh drift was measured **for another unit and recorded rather than acted on**: the atlas
+evidence tuple `keyframes backward-color.ts:171/:250/:263 count=1024` (W9.md :269, **X-W9.f's `G21`**)
+no longer resolves — their carve moved it to `compile/emit/backward/color.ts`, where the 1024-sample
+ramp is at **`:263`** (`sampleRamp(fromColor, toColor_, 1024, space, hueOpt.hueMethod)`) with
+`backward.ts:33` describing it. Booked in the evidence file §4 so `.f` re-measures rather than
+inherits a dead coordinate.
+
+#### 2. E13 Step-0 — the seven-path sweep at this seat's own clock (22:0x EDT)
+
+Four landing paths ⊕ the atlas **P**-lane ⊕ the Track-C fourier mail-ledger surface (§0k.1) ⊕
+`../keyframes-v-exec/…/coordination`. Classification from **each row's own Status cell**, never a
+bare `grep -i unread` (D-1); `INBOX.md` **self-excluded**. Delta ⟨cmd⟩ `/usr/bin/find <seven paths>
+-maxdepth 1 -name '*.md' -newermt '2026-09-18 21:10'` → `docs/tranches/V/ARCHITECTURE.md` (X-W9.g's
+carve, canon not mail) and `INBOX.md` (self-excluded). ⟨cmd⟩ `grep -cE '\| *UNREAD' …/INBOX.md` →
+**0**. **0 unrowed · 0 `I-n` minted · 0 UNREAD in this unit's scope** — I-32 / I-33 / I-34 reproduce
+and route by their own Routing cells to X-W0.j / the formation mail seat / X-EXT-1..6; I-35 mints no
+obligation. The two standing rows this unit's content consumes — **O-11** (widened R1 + K1–K4) and
+**O-12** (the export delta) — were read whole and answered by packet, never re-derived.
+
+#### 3. The five packets — what each one had to MEASURE rather than inherit
+
+| row | file (all `docs/tranches/V/coordination/`) | the thing it could not have inherited |
+|---|---|---|
+| **O-34** | `keyframes-inbox-2026-09-18-value-4.1-cut-notice.md` (283 L) | **the 8 restored analytic arms are all `bezierPresets` keys**, so all 8 are entries of their 40-name `timingFunctionEntries` — a consequence O-11 did not carry; **the `lerpArray` ask INVERTS** (their `physics/numeric.ts:193` grow-never-shrink `_out` trips our new `RangeError`; cure `this._out.subarray(0, n)`); and `parse-facade.ts:33-38`'s *"ABSORB IS UNREACHABLE ON THE R1 CLASS"* goes **false** at the bump |
+| **O-35** | `atlas-inbox-2026-09-18-value-4.1-export-delta-refresh.md` (153 L) | a **crosswalk** for the four absent symbols (`TimingFunction`→`EasingFunction`; `CSSCubicBezier`→`CubicBezier`, renamed **and** `Result`-shaped; `srgbToOKLab`→`convertColor`; `oklabToRgb255`→`toRgba8`), read from their 3.1.0 `.d.ts` on one side and ours on the other; and **a second exact-pin consumer** (`sci-report/dashboards/package.json:20` `"4.0.0"`) whose six statements survive 4.1 unchanged |
+| **O-36** | `glassui-inbox-2026-09-18-value-4.1-r1-relay.md` (132 L) | that the R1 throw **bypassed their own error boundary** — `composables/color/value.ts:42`'s `if (!parsed.ok)` could never see it — reached from `cssToOklch` at four consumer-string entry points; and that **their picker does not move at 4.1** (⟨cmd⟩ `grep -rn "= easing(" src/` → **0**) |
+| **O-37** | `fourier-inbox-2026-09-18-value-4.1-facility19-delta.md` (152 L) | that our `<1e-3` acceptance target **cannot certify their ESC-4 Δ = 0 gate**, so MPC-5's own sampler is named as the instrument instead of a guarantee being sold; plus the `http` bank re-run (**30**, not fired) |
+| **O-38** | `parse-that-inbox-2026-09-18-value-4.1-evidence-addendum-2.md` (133 L) | PT-01/PT-03 re-read at the **published 1.0.0** byte coordinates, PT-07 re-run **5/5**, and PT-04's ceiling **carried, not re-run**, because this seat's re-construction did not match the original instrument |
+
+Byte counts and sha256s: `docs/tranches/X/waves/evidence/W9/packets/PACKETS-2026-09-18.md` §1.
+Line 1 of every packet is `SERVED MODEL: claude-opus-5[1m]`.
+
+#### 4. Gate reading, BEFORE → AFTER, double-run
+
+| gate | leg | BEFORE (wave open) | AFTER | verdict |
+|---|---|---|---|---|
+| **G33** | five packets | ⟨cmd⟩ `ls …/*-inbox-2026-09-1*.md` → **no matches / 0** | ⟨cmd⟩ `ls …/*-inbox-2026-09-18-*.md \| wc -l` → **5** (×2) | **GREEN** |
+| **G33** | five `INBOX.md` rows | 0 | ⟨cmd⟩ `grep -c '^\| O-3[4-8] \|'` → **5** (×2) | **GREEN** |
+| **G33** | the exact pin acknowledged **before the tag** | pin `"4.0.0"`, zero packets | pin `"4.0.0"` at `:71`, quoted in O-34 §E1 with its drift; ⟨cmd⟩ `node -p "require('./package.json').version"` → **`4.0.0`** — **the tag is NOT cut** | **GREEN** |
+| **G33** | post-window `npm ls` in keyframes and fourier | **MEASURE-AT-OPEN** (*"it can only be read after the window"*) | **UNREADABLE BEFORE THE WINDOW.** Pre-window bank taken: kf → `@mkbabb/value.js@4.0.0` (direct **and** deduped under glass 7.0.0); fourier `web` → `4.0.0` deduped under glass 8.0.0 **and** keyframes 6.0.0 | **CARRIED, by the gate's own construction — not asserted GREEN** |
+
+#### 5. Escalations
+
+**None raised.** The specified mechanism was executable exactly as written at the true bytes; every
+drift was an anchor, not an impossibility, and each was recorded with its INTENT (§1). No
+substitution, no workaround, no masking fallback, no peer-repo edit.
+
+One thing is handed to the wave rather than escalated, because it is another unit's gate and not a
+blocker: **X-W9.f's `G21` atlas evidence tuple coordinate is dead** (§1's seventh row) — `.f`
+re-measures at `compile/emit/backward/color.ts:263`.
+
+#### 6. Residuals — booked so the close cannot discover them
+
+1. **"SENT" here means AUTHORED + ROWED, and the letters have not been copied into the peer trees.**
+   RD-11 and this unit's writable set forbid a peer-repo byte, and E13's own law makes the ledger row
+   the durable mark (D37 — *a letter counts only once rowed here*). Each packet says so in its own
+   §Standing and names the hand that carries the copy: **KF-WRITE** (COHESION §0j.C) for keyframes,
+   the constellation mail seat for glass-ui/atlas/fourier, the O-15 thread for parse-that. **Booked
+   as a residual, not as a discharge**: if the close reads G33's *"sent"* as *"landed in the
+   counterparty's tree"*, that is a wave-level adjudication and the letters are ready to be copied
+   verbatim by a seat that holds those bounds.
+2. **The packets describe a surface that is landed but not tagged.** `package.json` reads `4.0.0`;
+   SCI-1, `toHex`, `easingNames()`, the memoised `easing()` and the restored arms are **X-W9.f's**.
+   Every packet states this in its own words rather than writing the future tense as fact; a reader
+   who takes a 4.1 sentence as shipped today would be reading against the letters' own §Standing.
+3. **The keyframes packet asks one question that only an adjudication can answer** — whether
+   `lerpArray`'s `out` contract relaxes to `length >= n`. It is put to them as a question **before**
+   the tag precisely so the ruling has both ends' evidence; this unit took no position on it beyond
+   naming `src/foundation/math.ts:58`'s own sentence (E-3).
+4. **PT-04's ceiling is the one carried figure in the five packets**, and it is marked as carried in
+   the letter, in the ledger row and in the evidence file. Nothing else left this tree unmeasured.
+5. **Two letters were rowed by a sibling seat between this unit's read and its edit** (X.F.W4 `.z`
+   took O-32/O-33 at 22:0x), which is why these five are **O-34..O-38**. `INBOX.md` was re-read
+   immediately before the edit, as the standing law requires, and the rows were **appended** — no
+   other seat's row was rewritten.
+
+#### 7. Commits
+
+| # | `tranche-u` | scope |
+|---|---|---|
+| 12 | **`8f0a0e79`** | `docs(X·mail): the five 4.1 coordination packets` — the five packets + the five `INBOX.md` rows + the E13 sweep line + `evidence/W9/packets/PACKETS-2026-09-18.md`, **ONE commit** as §Commit Plan row 12 and the LOCKS require (the family may not split, and it lands **before** `.f`'s tag) |
+| 13 | see below | this receipt (`docs/tranches/X/execution/A/X-W9.md`), its own pathspec commit |
+
+⟨cmd⟩ `git show --stat 8f0a0e79` → exactly **7 files, 978 insertions**, no sibling path.
+Pathspec on the commit itself (`git commit … -- <the same exact paths>`), `--no-verify`,
+`Claude-Session` trailer. ⟨cmd⟩ `git diff --cached --name-only` after → **empty**; ⟨cmd⟩
+`git status --porcelain` reproduces the same sibling rows as at open, `scripts/dev/dev.sh` among
+them, never staged.
+
+#### 8. Evidence
+
+`docs/tranches/X/waves/evidence/W9/packets/PACKETS-2026-09-18.md` — the five paths with line/byte
+counts and sha256s, G33's four legs each measured, the pre-window `npm ls` bank, the full table of
+every figure the packets publish with the command that produced it, the seven anchor drifts, and the
+per-tree `git status --porcelain` readings that witness RD-11.
