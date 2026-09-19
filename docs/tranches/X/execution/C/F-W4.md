@@ -1294,3 +1294,189 @@ Swept read-only at this seat's clock (**2026-09-18 21:24 EDT**), six paths, delt
 - **SS-13, deferred never resolved inline**: the composited readback of a populated workspace in the reduced arm · the `BasisCanvas` ↔ `FourierField` RASTERISATION comparison (the only half of the study no headless instrument can weigh) · the gBCR magnitude over a KaTeX subtree · `PAW-55`'s own question, whether a specific equation was clipping.
 - **F.W5-W8, routed with their reasons**: `VV-R2-B` + `GCM-1`'s wiring unit · `FR-GFC-1`'s list contract · `SS-C-1`'s persisted `speed` atom and the `AnimationSettings.speed` wire · `getMe`'s contract surface · the CONV-STUDY's four adoption questions (to SS-3/SS-4).
 - **⊘ Negative roster — held**: `I-2`'s empty state survives · `CanvasOverlayButton` not re-created · **the Tooltip shim is NOT deleted** — ⟨cmd⟩ `grep -rn "Tooltip" src/ | grep import` → **10 import sites across 10 files**, and it was never a candidate · `GM-19` not certified · CP KILL-6 not executed · `moon.json` not regenerated · **no glass-ui byte touched** (READ-ONLY always; the producer-shaped facts ride A-f-8's exclusion and `.z`'s relay) · no `test.skip`, allowlist, `fixme`, try/catch-around-a-defect, copied producer selector or `node_modules` patch anywhere in this unit · no producer pin moved · no `e2e/**` or `package.json` byte written.
+
+---
+
+### `.z` — closure, correspondence and the two-direction census
+
+**Seat**: `.z`, `claude-opus-5[1m]`, 2026-09-18 (sitting's date of record 2026-09-17). **Status: DONE** — every gate this unit owns was RUN and every reading published, including the one the wave record left `UNMEASURED-AT-OPEN`.
+**Gates turned**: `G-F4-NEG-ROSTER` **GREEN (HELD)**. **Gates RUN and reported RED with relief cited**: `G-F4-CARRY-CLOSURE` (leg (a) **GREEN**, leg (b) **RED**) · `G-F4-ANCHORS` · `G-F4-CENSUS-CELLS` · `G-F4-VUE-TSC-CLEAN` (18 → **1**) · `G-F4-ZERO-CONSOLE` (**MEASURED**, 1 of 4 green).
+**Commits**: 5 value.js (`17cd2097` `dbc9be3a` `04b90ada` + this receipt + the ledger row). **Zero fourier bytes written by this seat** — every fourier-side reading below is a read (`git`, `grep`, `find`, `ls`, `nc`, `npx vue-tsc -b --force`, `npm run derive:loops`, four named Playwright tests). **Zero glass-ui bytes, ever.**
+**New artefacts**: `docs/tranches/X/fourier/F-W4-CLOSURE.md` · `docs/tranches/X/fourier/F-W4-ADDENDA-z-2026-09-18.md` (**A-z-1 … A-z-9**) · the two relay letters. **`F-W4.md`, the carries, the registry, `CENSUS-CANONICAL.md` and `CENSUS-2026-08-03.md` are byte-untouched (E-3).**
+
+#### Act 0 — CRASH-RECOVERY sweep (standing law): nothing inherited
+
+⟨cmd⟩ `git -C /Users/mkbabb/Programming/fourier-analysis status --porcelain | /usr/bin/wc -l` → **0** (clean; branch `m/w1-bump-migration`, HEAD `0a16b83` = `.f`'s last).
+⟨cmd⟩ `git -C /Users/mkbabb/Programming/value.js status --porcelain` → 12 modified ⊕ 5 untracked, and **not one is inside this unit's writable set**: the ten `demo/**` SFCs and `docs/tranches/V/reformation/CARRY-LEDGER.md` are sibling seats'; `scripts/dev/dev.sh` is the unowned standing-dirty path (**NEVER touched, never staged**); `docs/tranches/X/waves/evidence/**` and the two `e2e/smoke/**a11y-control-targets.spec.ts` are Track A's. The three value.js files this unit creates were **ABSENT** before it wrote them. **Zero inherited paths; no killed predecessor's partial work on this unit.**
+
+#### Act 1 — the predicate, its fixture and the engine banner, BEFORE any figure
+
+The gate's own condition: *"leg (b) prints its predicate's fixture result **AND** its engine banner beside its set-difference **or its green is unread**."*
+
+⟨cmd⟩ `/usr/bin/grep --version` → **`grep (BSD grep, GNU compatible) 2.6.0-FreeBSD`** — ⊘ **no PCRE**, so `grep -P` exits 2 and a receipt written on it cannot launch.
+⟨cmd⟩ `printf '%s\n' 'row: FR-AUL-26 then L-26 end' > fix2.txt; /usr/bin/grep -Ec '(^|[^A-Za-z0-9-])L-26([^A-Za-z0-9-]|$)' fix2.txt` → **1** ✔ · `… -Eo … | /usr/bin/wc -l` → **1** ✔. **The predicate of record FIRES.**
+
+⊘ **Method, stated so it is falsifiable rather than trusted.** 1009 ids × up to six candidate spellings is ~5,000 probes; the bulk scan ran the **byte-identical expression** compiled in one process, and **every id it reported as an ESCAPE was re-probed with `/usr/bin/grep -Ec` itself** before publication. No escape below is claimed on a non-`grep` reading.
+
+#### Act 2 — `G-F4-CARRY-CLOSURE` leg (a): CARRY → spec. **GREEN, 438/438**
+
+⟨cmd⟩ `/usr/bin/wc -l ../carry/F-W4-CARRY.md` → **559**; ⟨cmd⟩ `/usr/bin/grep -c '^- \*\*' ../carry/F-W4-CARRY.md` → **438** (double-run identical).
+
+| reading | figure |
+|---|---|
+| carry row-head bullets | **438** |
+| resolved by an id token with a boundary-exact byte in the spec | **426** |
+| resolved as prose heads to a §0 law / §1 bounds item / §4 gate / §5 cross-edge | **12** |
+| **set-difference** | **0 — EMPTY** |
+
+The twelve prose heads are resolved **id-for-id** at `F-W4-CLOSURE.md` §1 (`LOOP-SOURCE PROVENANCE` and `DISCLOSURE-STATE GATE` → `G-F4-DERIVER`'s own publish fields · `CORRECTED DENOMINATORS` → F.W0 `G-12` · `REPAIR-UNIT SIZING` → the *"a cure inherits no severity"* law carried in-spec · `EVIDENCE STANDARD` → §0 · `⊘ SC-L-§R SCOPE LAW` → §2.X.2(b)'s `fr-SliderControl Scope-law` · the six route bullets → **§1 Bounds**).
+
+⊘ **The masthead says 421 and the file carries 438.** The gate's operand is the file, not the count word (R4-7.3). Leg (a) ran over the 438; the divergence is banked at **A-z-6** and `F-W4.md` is not amended.
+⊘ **A finding leg (a) produced rather than confirmed**: the six route bullets at `F-W4-CARRY.md:537-542` carry the **same dead `views/` spelling** seat 0 struck in §1. The kill is at **two** documents and curing one does not reach the other — **A-z-1**, and G-11 row 13.
+
+#### Act 3 — leg (b): REGISTRY → spec, the binding direction. **RED, 17 escapes**
+
+**Step (i)** — the canonical roster, reproduced exactly. ⟨cmd⟩ `/usr/bin/sed -n '5023,5077p' ../conformance/CENSUS-CANONICAL.md`; ⟨cmd⟩ `/usr/bin/grep -c '^- \*\*fr-'` → **54 records**; parse → **1007 rows**; band expansion (`FM-17..FM-19` = ONE row, THREE ids) → **1009 ids**. Double-run identical. ⊘ **The parse's one load-bearing decision**: the separator is ` · ` **between backtick cells**, and `·` also lives **inside** ids (`L·D-3`, `D·D-B4`) where canonical §0.1 protects it exactly as it protects `/`. A first pass that split on the byte read **957** and shredded `fr-EquationView` from 60 cells to 24. **The identity cell is the backtick span, never a split on a character ids contain.**
+
+**Step (ii)** — (f)1 record-prefix (**including the space spelling** `DMT N-4` / `PV ★MF-10` / `PS D-B2`, which §4's own cells use) · (f)2 suffix-elision chains with inclusive ranges and `-27` **left struck** per PASS-5 P5-2 · (f)3 prefixed continuation chains emitting the **banked** id · §2.X.2(a)'s three local schemes (`CP-N` ×18 · `FR-CP-L*`/`-D1`/`-D9`/`-C7` ×12 · `CT-D*` ×4).
+
+**Step (iii)** — record-qualification, homonym set derived from **every** `(record, id)` pair across **all** of the canonical §2 rosters (the real collision surface), with self-prefixed ids (`GAB-1`, `FR-AUL-26`, `HLG-37`) exempt.
+
+**Step (iv)** — the diff, taken THREE ways, all double-run identical:
+
+| reading | rule | HELD | ESCAPES |
+|---|---|---|---|
+| **R1** | (f)1–(f)3 + (a); axis (iv) read **literally**, same line only | 936 | **73** |
+| **R2** | + **idiom (f)4** — the fourth booking idiom the spec uses and does not declare | 975 | **34** |
+| **R3** | + **block-scope** record qualification | **990** | **18** |
+
+**Two findings produced the difference and both are defects of the spec's DECLARATIONS, not of its bookings:**
+
+- **A-z-2 — the undeclared fourth idiom, 39 rows.** §2.G ships `FR-CL-D3 · D-4 · D-11 · D-12/C-9 · …` and `FR-CL-D7 ⊕ D-8 ⊕ D-10 ⊕ M-R7`: a **record-prefixed continuation chain over FULL ids** with a **hyphen-dropping rename on the head** (`FR-CL-D7` = banked `D-7`) — the `FR-CP-LM1` class (f)1 already convicts, at a second prefix. 39 canonical rows are reachable by it and by no declared idiom. **Declared, not re-spelled**: re-spelling would fracture six §2 cells to buy what one declaration buys, and §2.X.2(a) already sets that precedent.
+- **A-z-3 — axis (iv)'s "on the same line" is one clause too narrow, 16 rows.** §2.X.1(B) names `fr-ContourEditorCanvas` in its **block head** and books 22 rows as bullets beneath it, none repeating the record. **The block-scope form is the reading of record**, published with the literal reading beside it (73) so the widening can be refused. ⊘ It rescues nothing that matters: the 11 + 5 escapes below are escapes at **every** reading.
+
+**THE SET-DIFFERENCE, id-for-id — 18 rows, each with a disposition:**
+
+| class | rows | disposition |
+|---|---|---|
+| **BOOKED under a fifth, undeclared idiom** (1) | `fr-ConvergenceLegend` **`D-L6`** | written at §2.G as a **parenthetical rider** on `FR-CL-M-R13` with its cure; **not an escape**. Idiom **(f)5** declared at **A-z-4**, with `fr-EquationPanel D-L1` given as the counter-case that (f)5 does **not** rescue |
+| **ESCAPES — the EVALUATE-ONLY record's unreached residue** (11) | `fr-ContourEditorCanvas` `C-21` · `D/B-1` · `D/B-2` · `D/B-4` · `D/M-4` · `D/M-5` · `D/M-7` · `D/M-9` · `L-7` · `L-8` · `L-9` | the canonical homes **40** rows here; §2.X.1(B) books **22** on its reading of `§X.1-v4`; these eleven are **neither**, and **every bare byte of each belongs to a foreign record** (`PV D/B-1`, `ECD …C-21`, `CCD-D-3/L-8/C-8`, `PS-M4 ⊕ … L-7 … L-9`). **Relief: `.c`'s A-c-1** — the file is **EVALUATE-ONLY** under §1 and *a wave cannot cure a row on a file it may only read* |
+| **ESCAPES — record-blind homonym collisions** (5) | `fr-ConvergenceLegend` **`C-11`** · `fr-ConvergenceTimeline` **`M-5`** · `fr-EquationPanel` **`D-L1`** · `fr-FullscreenViewer` **`FM-4`** · `fr-VisualizationView` **`L-23`** | each impersonated by another record's row of the same spelling; **no relief this wave can cite**, named id-for-id with the impersonating bytes and carried to the repair docket |
+| **ESCAPE — a booked class whose per-record instance identity is unwritten** (1) | `fr-EasingCurvePreview` **`R5-7`** | the canonical homes `R5-7` on **four** records; three are reachable, the ECP instance has no record-qualified byte. The **class** is booked (§0 BS-1 ⊕ the `L-16` single ⊕ `G-F4-DERIVER`); the **instance identity** is not — §6.4's convicting shape one level down |
+
+⊘ **Two of the five collisions indict the programme's own idioms.** `fr-FullscreenViewer FM-4`: four repair rounds proved `FM-18` appears at no substantive byte of the spec and **never asked whether the band's FIRST member is unique** — it is not, and the band's own expansion makes the collision invisible by construction. `fr-VisualizationView L-23`: the impersonating byte is a `CCD R5-7 scope note` **carrying a GLASS-RELAY routing**, which is what made it look settled — the identical shape §2.X spent five paragraphs on for `L-26`, run a second time.
+
+⊘ **The fabrication direction was run too** and found nothing new: §2.X.2(b.6)'s three (`FR-AH-27` → F.W1 · `PP-AGGLOM` · `PP-SEVLAW`) are all **cited and not booked** at the settled bytes. The scan's direction is roster→spec, so it cannot by construction discover a fabrication the roster does not name; that limit is **stated**, not left to be inferred.
+
+**Leg (b) verdict: RED.** 990 of 1009 held; **17 escapes / 1007 rows**. ⊘ Prior readings were RED at 53 (PASS-1), 17 (PASS-2) and 32 (round 3). **This is the first taken against the canonical rather than against a predecessor's enumeration** — R4-3's whole point — and the first whose residue fits in one table with a relief beside each row. The transcript publishes the 17, never a percentage (§0 forbids it, and the 17 are the only part a repair can act on).
+
+#### Act 4 — `G-F4-ANCHORS`: the quotation verified, seven kills contributed (`17cd2097`)
+
+⟨cmd⟩ `/usr/bin/grep -n '^### 2.1 G-11' docs/tranches/F/SUBSTRATE-LEDGER.md` → `333:### 2.1 G-11 — THE CORRECTED ANCHOR TABLE`. Its masthead (*"This is the ONE table; every later X·F wave **quotes** it and re-performs no re-resolution of its own"*) and its rule **P-4** (*"producer-side evidence carries the producer COMMIT HASH, never the version string"*) are adopted unamended; its register runs rows **1–11**. **THE QUOTATION IS FAITHFUL** — this wave re-performs none of the eleven and adds no rival table.
+
+**Seven contributions, published as rows 12–18 at `F-W4-CLOSURE.md` §4**: (12) §1's `views/` directory — **STRUCK**, ⟨cmd⟩ `/bin/ls web/src` has no `views/` and the four `*View.vue` live under `components/` · (13) the same spelling at `F-W4-CARRY.md:537-542`, found by leg (a) · (14) the §3-relative §4/§5 coordinate class, **base measured 352** · (15) `fr-EditorControlsDock`'s −1 rule-span over-running onto `</style>` · (16) the `/equation` record set's whole-record drift (`EquationView.vue` 478 vs 469) · (17) **`fr-SpeedSelect` 8-of-8 EXACT — a published NEGATIVE**, because a register that records only failures cannot say which instruments are trustworthy · (18) **NEW, this seat: an INTRA-WAVE drift.** `.g` Act 9 banked `AppHeader.vue:121`/`:134` as the two UNRESOLVED `:is` sets; this seat's re-run reads **`:124`/`:137`**, because `.a`'s edits landed after `.g` measured. **A gate's published witness aged inside its own wave**, and G-11 carries no row of that class.
+
+⊘ **BOUNDS, DISCLOSED**: `SUBSTRATE-LEDGER.md` is a **fourier** file and is **not** in `.z`'s writable set. The rows are published **ready-to-append** and not written — `.b`'s and `.e`'s precedent for `e2e/contrast-pairs.ts`: *a unit does not widen its bounds on a sibling's invitation*. **`G-F4-ANCHORS` stays RED at this seat for exactly that reason**, with the relief named (the F.W0 table's owner).
+
+#### Act 5 — `G-F4-CENSUS-CELLS`: the set verified cell by cell. **RED, 3 of 6**
+
+| cell | landed | verdict |
+|---|---|---|
+| `raw-findings.json:1393` (FR-AH-31) | ⟨cmd⟩ `/usr/bin/grep -l -- '1393' F-W4-ADDENDA-*.md` → `…-a-…` | **CORRECTED**, `e022edf` ⊕ `fff145da`, one act in two repositories, each naming the other |
+| `raw-findings.json:2968` (CCD D-3) | ⟨cmd⟩ `… '2968' …` → **NONE** | **NOT CORRECTED** — `.c`'s |
+| `lane-frontend.md:617` (PV D/M-1) | ⟨cmd⟩ `… 'lane-frontend.md:617' …` → `…-e-…` | **CORRECTED, CLAUSE MISSED** — the cure is `1a971c0`, the addendum landed at `980785e3`, `.e`'s **closing** docs commit |
+| `lane-frontend.md:558-559`/`:624` | ⟨cmd⟩ `… '558-559' …` → `…-f-…` | **CORRECTED**, `2ef87d1` ⊕ `cbda8b6f`, adjacent and cross-named |
+| `CENSUS-2026-08-03.md:362` | — | **NOT FALSIFIABLE.** ⟨cmd⟩ `/usr/bin/sed -n '362p'` shows it is a **CONDITION row** (R3-10 · R5-7 · X-2 · X-9), not a claim. **Discharge state published at A-z-5**: R5-7 **DISCHARGED** (31 directives, 15 native / 16 callsites, 0 unkeyed); R3-10 **PARTIAL and the shortfall is the point** (5 sites, 3 resolved, 2 UNRESOLVED-not-zero — `BS-2`'s shape); X-2 is F.W0's; X-9 **HELD** (no percentage published). ⊘ Filing a "correction" against a sentence that was never wrong would have been a false receipt of the cheapest kind |
+| the 2026-06-01 HLG-8 aria-label claim | ⟨cmd⟩ `… 'HLG-8' …` → **NONE** | **NOT CORRECTED** — `.a`'s |
+
+⊘ **The same-commit clause is not ceremony**: the next seat to read `lane-frontend.md:617` between `1a971c0` and `980785e3` would have read a false cell with the cure already in the tree. Named at **A-z-8**, not excused.
+
+#### Act 6 — `G-F4-NEG-ROSTER`: **GREEN (HELD)**
+
+Verified at the bytes, not asserted: this seat **re-ran** `G-F4-DERIVER` (⟨cmd⟩ `npm run derive:loops`, exit 0) and read its `nativeLoopsByDirective` listing for **all six §0a components** — `AppHeader` · `ConvergenceTimeline` · `HarmonicLevelGrid` · `EasingPicker` · `PaperSearchDropdown` · `GalleryCardModal`. **Not one appears as a native-element loop directive**; AppHeader's only two deriver rows are `:is` candidate sets (`BS-2`, a different axis from §0a's R5-7 negative) and both report **UNRESOLVED**, which grows nothing.
+⟨cmd⟩ `ls web/src/components/visualization/gallery/GalleryMarquee.vue` → *No such file or directory* — **`GM-19` cannot be certified**: `.d` executed D1 DELETE and the family is deleted, not revived.
+⟨cmd⟩ `git log 717d287~1..HEAD --format='%s' | /usr/bin/grep -ciE 'KILL-6|GM-19|moon\.json'` → **0** over the wave's **66** commits.
+⟨cmd⟩ `git log --oneline 538db90..HEAD --name-only -- '*moon.json'` → **no output** — never regenerated since F.W1's atomic commit.
+Tooltip shim: `.f`'s ⟨cmd⟩ `grep -rn "Tooltip" src/ | grep import` → **10 import sites across 10 files** — never deleted.
+
+#### Act 7 — `G-F4-VUE-TSC-CLEAN`: the final green, measured. **RED, 18 → 1**
+
+```
+⟨cmd⟩ npx vue-tsc -b --force   ×2, /usr/bin/diff → IDENTICAL
+EXIT=1
+src/components/visualization/ContourEditorCanvas.vue(42,9): error TS6133: 'dragging' is declared but its value is never read.
+```
+
+**Delta from the 18-diagnostic baseline: −17.** ⊘ **The single survivor is unwritable by any seat in this wave** — `.c` named this exact diagnostic in its Act 10 judgement and wrote no byte, `.f` read the same 1 at its close, and this seat reproduces it. **Relief: A-c-1 — one ruling closes this diagnostic AND the eleven closure escapes at Act 3.** ⊘ The gate's stated witness (`glass-scrubber` ∉ the pinned vocabulary, MPC-13) died with F.W1's uplift and is **not** re-reported; the gate has been RED on `noUnusedLocals` since wave-open, disclosed at seat 0.
+
+#### Act 8 — `G-F4-ZERO-CONSOLE`: **RUN. The gate the record left UNMEASURED is measured**
+
+The four gates named at their bytes (⟨cmd⟩ `/usr/bin/grep -rn 'consoleErrors' e2e/`): `workspace-flow.spec.ts:175` · `paper-performance.spec.ts:235` · `gallery.spec.ts:118` · `contour-extraction.spec.ts:139`. (The fifth hook site, `visualization-crud.spec.ts:612`, is invariant 3 inside the CRUD lifecycle test and is not one of the four.)
+
+RUN against vite dev at `:3000`, `--project=chromium`, **double-run, both runs identical**:
+
+| gate | run 1 | run 2 | cause |
+|---|---|---|---|
+| `paper-performance` | **✓ 2.6s** | **✓ 2.5s** | the only one of the four touching no API |
+| `gallery` | ✘ | ✘ | `realErrors` received **exactly one** distinct entry: `"Failed to load resource: … 500 (Internal Server Error)"` |
+| `workspace-flow` | ✘ | ✘ | `TimeoutError: page.waitForURL: Timeout 15000ms exceeded` — the upload POST has no backend, so the app never navigates |
+| `contour-extraction` | ✘ | ✘ | the same shape at `:155` |
+
+Environment measured **before** the run and named as the cause rather than inferred after it: ⟨cmd⟩ `nc -z localhost 27017` → **DOWN**; ⟨cmd⟩ `docker info` → **DOWN**.
+⊘ **The discriminator, because "the backend is down" is an excuse unless it is measured**: ⟨cmd⟩ `/usr/bin/grep -ciE 'pageerror|Uncaught|TypeError:|ReferenceError'` over **both** transcripts → **0** and **0**. **Not one page error, uncaught exception, TypeError or ReferenceError in either run.**
+⊘ The atomicity precondition the gate actually guards is separately green: F.W1 landed as ONE commit (`538db90`, 58 files) and `.g` verified zero bytes of the five hook specs were touched.
+
+**HONEST-RED, and for the first time READ.** 1 of 4 green; 3 unreadable at this seat with the cause measured and zero app-code errors. Relief: CI's backend arm. ⊘ **It is not claimed green and it is not left unmeasured** — the difference between those two is why it was flagged at open.
+
+#### Act 9 — the two relay letters, rowed, and the E13 close sweep (`dbc9be3a`, `04b90ada`)
+
+**ONE glass-ui BH/SS-6 letter**, as the law requires, carrying every `GLASS-RELAY` ask `.a`–`.f` **declared and did not send**: eleven measured rows over four contrast facts (`--success` 2.133 light / 2.175 itself; `--card` ≡ `--background` at 1.035; `--border` 1.865/2.001 against 3:1; the ramp's zero headroom), three DOM/semantics rows (reka FocusScope sentinels ×12 at a production build **beside zero `color-contrast` violations**; no `aria-modal`; `useSidebarFollow` hard-coding `.sidebar-top-btn`), the `parentId` defect **both** producers carry, and three API rows. ⊘ **Credit first**: `CCD M-2`/`ECD B-2` **shipped at 8.0.0** and **inverted our own booked cure**, with the GREEN-BY-TYPO probe handed over (`keydown` vs `onKeydown`). ⊘ **One ask WITHDRAWN with cause** (`AA-3`'s violet `batch` tone — `batch` is a namespace, not a severity; shipping it would carry our inversion into the design system).
+**ONE latex-paper letter**: the theme sheet inert twice over (42 `hsl(var(` + never loaded) with `K-9`'s kill confirmed at the bytes; **`PAW-38`**, carried because `.i`'s Residual 3 says the D5 deferral *renews itself silently* otherwise; the shared `parentId` defect; cap-don't-delete for `PAW-45`/`-46`.
+Rowed **O-32** and **O-33**. ⟨cmd⟩ `git -C ../glass-ui status --porcelain | /usr/bin/grep -ci 'fw4-relay'` → **0**.
+
+**E13 close sweep**, six paths at this seat's clock, delta against `.f`'s 21:24 → **∅ on all six** except `INBOX.md` itself (self-excluded). Classification from each row's **Status** cell, never from a bare `grep -i unread`: **three** UNREAD rows, `I-32` · `I-33` · `I-34`, **every one routed at its own Routing cell to X-W0.j / the X formation mail seat**, and not one names a fourier `web/` byte or any F.W4 row. **0 unrowed · 0 UNREAD in F.W4's scope · 2 rows minted.**
+
+#### Gate readings, BEFORE → AFTER (this unit's own gates; every AFTER double-run)
+
+| gate | BEFORE (seat 0) | AFTER (this seat) | verdict |
+|---|---|---|---|
+| `G-F4-CARRY-CLOSURE` | RED — no closure transcript in tree; leg (b) never measured against the canonical | leg (a) **438/438, set-difference EMPTY**; leg (b) **990/1009 held, 17 escapes** named id-for-id | **leg (a) GREEN · leg (b) RED → GATE RED** |
+| `G-F4-ANCHORS` | RED, one kill banked | quotation **FAITHFUL**; **7** kills published ready-to-append (rows 12–18) | **RED** — the table is outside this seat's bounds |
+| `G-F4-CENSUS-CELLS` | RED — no correction landed for any of six | **3 corrected · 1 published as a discharge · 2 uncorrected · 1 outside its cure's commit** | **RED** |
+| `G-F4-NEG-ROSTER` | HELD-AT-OPEN (obligation) | verified at the bytes on all six clauses | **GREEN (HELD)** |
+| `G-F4-VUE-TSC-CLEAN` | RED — **18** diagnostics | **1**, double-run identical, unwritable by any seat in this wave | **RED, −17** |
+| `G-F4-ZERO-CONSOLE` | **UNMEASURED-AT-OPEN** | **RUN**: 1 GREEN / 3 unreadable-by-environment, **0** app-code errors in either run | **HONEST-RED, MEASURED** |
+
+**Wave-level close: 18 gates — 11 GREEN · 7 RED, every RED with its relief named and not one relieved by a fabrication.** The per-gate table is `F-W4-CLOSURE.md` §9.
+
+#### Commits
+
+| hash | repo | paths | meaning |
+|---|---|---|---|
+| `17cd2097` | value.js | `docs/tranches/X/fourier/F-W4-CLOSURE.md` · `docs/tranches/X/fourier/F-W4-ADDENDA-z-2026-09-18.md` | the two-direction closure transcript and its dated addenda-beside (one family, one commit: the addenda **are** the transcript's corrections and each names the other) |
+| `dbc9be3a` | value.js | `docs/tranches/X/coordination/value-to-glassui-2026-09-DD-fw4-relay.md` · `docs/tranches/X/coordination/value-to-latexpaper-2026-09-DD-fw4-relay.md` | the wave's two relay letters |
+| `04b90ada` | value.js | `docs/tranches/V/coordination/INBOX.md` | O-32 / O-33 + the E13 close sweep line |
+| *(this line's own)* | value.js | `docs/tranches/X/execution/C/F-W4.md` | this receipt |
+| *(the next)* | value.js | `docs/tranches/X/execution/LEDGER.md` | the F.W4 row + the event-log line |
+
+⊘ Every commit carried its own pathspec **on the commit itself**; ⟨cmd⟩ `git show --name-only --format=''` on each returns **exactly** the listed paths. `scripts/dev/dev.sh` untouched and never staged. No `git stash`, no `reset --hard`, no force-push, no `add -A`/`-u`. **Zero fourier bytes, zero glass-ui bytes.**
+
+#### Escalations
+
+1. **A-z-9 — the relay letters' filenames carry the dispatch's unexpanded `DD` placeholder.** Writing `…-2026-09-18-…` would be a **different path** and therefore a write outside the hard bound, which the seat law makes an ESCALATION. **The literal paths were written** and each letter's masthead carries the real date. **Asked**: rename both by a dated bounds addendum, or ratify the spelling. ⊘ A seat does not widen its own bounds to tidy a filename — the act `.c` was told in terms not to perform.
+2. **`G-F4-ANCHORS`' seven kills cannot be written into `G-11`** — `docs/tranches/F/SUBSTRATE-LEDGER.md` is a fourier file outside this seat's writable set. Published ready-to-append; **the gate stays RED until the F.W0 table's owner appends them**, and that is stated rather than worked around.
+3. **The two uncorrected census cells (`raw-findings.json:2968` = `.c`'s · the HLG-8 claim = `.a`'s)** are in fourier-side and value.js-side surfaces this seat does not own as cure sites. Named with their owners at **A-z-8**; not written.
+
+#### Residuals
+
+- **THE ONE RULING THIS WAVE MOST NEEDS: `A-c-1`.** It relieves **eleven** leg-(b) escapes, the **last** `vue-tsc` diagnostic, and **four live BLOCKERs** on `ContourEditorCanvas.vue` at once. Every other open escalation is smaller than it.
+- **Five leg-(b) escapes have NO relief** — `fr-ConvergenceLegend C-11` · `fr-ConvergenceTimeline M-5` · `fr-EquationPanel D-L1` · `fr-FullscreenViewer FM-4` · `fr-VisualizationView L-23` — on five records this wave held and edited. Carried to F.W4's repair docket, named id-for-id with their impersonating bytes.
+- **`fr-EasingCurvePreview R5-7`**: the class carry is booked, the per-record instance identity is not.
+- **`G-F4-CONTRAST-FLOOR` closes by ONE paste**: three units (`.b` §3 · `.d` §B · `.e` §A-e-1) handed over complete replacement rows for `e2e/contrast-pairs.ts` rather than widen their bounds; the cures are already in the bytes.
+- **Open escalations at close**, each returned and none a block: `A-g-8` (package-lock ratification) · `A-a-5` ⊕ `A-c-3` (the morph bounds seam — ⊘ `MPC-31` is a ONE CUT and must not be split) · `A-c-2` (`CP-ROW-40`'s third rewire) · `.d`'s four not-landed rows · `.f`'s `FR-GFC-1` **refusal with cause** and its two dead-dependency declarations.
+- **SS-13 flags, deferred and never resolved inline**, enumerated per unit at `F-W4-CLOSURE.md` §10.
+- ⊘ **`G-F4-DERIVER`'s census MOVED after `.g` measured it** (A-z-7): `nativeLoopsByDirective` 33 → **31**, `isCandidateSets` 6/4 → **5/3**, `urlRefEdges` 4 → **7**. **Three of the seven new edges are METHOD ARTEFACTS, not dead ids** — `#audit-action-filter` and `#audit-target-filter` are `<label for>` targets and `#gallery-filter-drawer` is an `aria-controls` target, all three `.d`'s own SP-7/SP-8 naming cures. **A seat reading "7 UNRESOLVED" would delete accessibility wiring.** The SCRUB's exclusion test must ask `for=`/`aria-controls=`/`aria-labelledby=` **before** it asks `url()`.
+
+#### Negative roster — held
+
+⊘ No leaf grown on any §0a component (verified at the deriver's own listing, all six) · `GM-19` not certified · CP `KILL-6` not executed · `moon.json` not regenerated · the Tooltip shim not deleted · `FSE-L-B1` not regenerated and `FM-19` still FROZEN-FOREVER · **no glass-ui byte touched** (READ-ONLY always) · no `test.skip`, allowlist, `fixme`, try/catch-around-a-defect, copied producer selector or `node_modules` patch anywhere in this unit · no producer pin moved · `F-W4.md`, the carries, the registry, `CENSUS-CANONICAL.md` and `CENSUS-2026-08-03.md` **byte-untouched** (E-3).
