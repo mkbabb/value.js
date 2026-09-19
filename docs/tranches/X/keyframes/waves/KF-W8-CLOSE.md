@@ -302,3 +302,38 @@ where a receipt and this seat agree, both ran the command.
 `head -1` → `SERVED MODEL: claude-opus-5[1m]` · ⟨cmd⟩ `grep -c '^| \*\*G' ` → **21** gate rows
 (15 gates, four of them split into their legs/clauses, + `G-W2-2` and the two falsifier rows) ·
 residual list numbering `1…17` with no gap, verified by ⟨cmd⟩ `grep -oE '^[0-9]+\. '`.
+
+---
+
+## ADDENDUM-BESIDE — 2026-09-18, REPAIR ROUND 1 (E-3: this certificate's bytes above are NOT edited)
+
+**SERVED MODEL**: `claude-opus-5[1m]`. Raised by **CHECK 1 · D-2 (MEDIUM)**; cured here as a dated
+addendum, never as a patch of the figures above. The prior artefact stands as the record of what that
+seat printed; this addendum states the counting rule and the figures that reproduce under it.
+
+**COUNTING RULE, stated AT the receipt: one unit = one GATE ID, never a leg or a clause** — G1's two
+clauses are one gate, G7's four legs are one gate, G15's two legs are one gate.
+
+1. **RED-UNATTEMPTED at close is ELEVEN, not nine.** This certificate printed *"nine are
+   RED-UNATTEMPTED"* at `:111`, `:177` and `:274`, while its own gate table marked **eleven** —
+   **G4 · G5 · G6 · G7 · G8 · G9 · G10 · G11 · G12 · G13 · G14** — and the LEDGER row printed the
+   numeral `9` with those same eleven ids enumerated beside it in one sentence. Under the rule above
+   the enumeration yields **11**. **No counting rule yields 9 over that set**, so the figure is
+   restated rather than rescued: **11**.
+2. **RED at close is FOURTEEN of fifteen, not thirteen.** Every one of the fifteen carried a RED
+   member at close. **14/15** under the rule *a gate counts RED at close iff it carried a RED member
+   this wave could in principle have spent* — which excludes **G15** alone, whose own text forbids a
+   KF.W8 byte (*"a G15 recorded green on a KF.W8 commit is itself the defect"*). Counting G15's
+   correctly-unspent leg 1 gives **15**. **13 reproduces under no stated rule.**
+
+**Nothing was laundered by the original print**: every RED was individually recorded, marked
+UNATTEMPTED and owner-attributed, and the enumeration was complete and correct. The defect was a
+figure reprinted beside an enumeration that does not support it — the class the programme convicts by
+name — and the cure is to make the rule ride the figure.
+
+**SUPERSEDED BY EVENTS, recorded here so this certificate is not read as current.** Repair round 1
+(2026-09-18) resumed the wave at units `e` → `f` → `g`; **eight of the eleven turned GREEN**
+(**G4 · G6 · G8 · G9 · G10 · G11 · G12 · G13**) and the remaining three (**G5 · G7 · G14**) now carry
+measured escalations with named owners (ESC-R1-1 … ESC-R1-7). **RED-UNATTEMPTED is now 0.** Unit `h`
+spent zero bytes and is wholly escalated, so the row **stays `PARTIAL`**. The live record is
+`docs/tranches/X/execution/B/KF-W8.md` **§Repair 1**.

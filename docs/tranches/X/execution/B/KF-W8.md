@@ -1371,3 +1371,222 @@ one **gate id**, never a leg or a clause — G1's two clauses are one gate, G7's
 G15's two legs are one gate; this is the rule under which "eleven" is the RED-UNATTEMPTED figure at
 D-2, and it is stated here so the figure can be re-derived rather than trusted. Every figure in this
 section was produced by a command at the settled bytes by **this** seat.
+
+---
+
+## Repair 1
+
+**SERVED MODEL**: `claude-opus-5[1m]`. **Date**: 2026-09-18. **Seat**: REPAIR SEAT, round 1 —
+authorised to cure every Check-1 defect at ≥MEDIUM and every MINOR with a one-command cure. **This
+seat authored cures**; it is not verify-only.
+
+**Crash-recovery sweep, before any other act (STANDING LAW).** ⟨cmd⟩ `git status --porcelain` in
+`/Users/mkbabb/Programming/keyframes.js` → **2 rows, both `??`** (the two delivered letters every seat
+of this wave has opened on; not this unit's and not staged). Same in
+`/Users/mkbabb/Programming/value.js` → **16 rows**, none of them a path this seat may write (the X·V
+demo rows, `CARRY-LEDGER.md`, the unowned `scripts/dev/dev.sh`, `docs/tranches/X/waves/evidence/W4/`,
+two e2e specs, a tarball). **Nothing inherited on this unit — no killed predecessor's partial work
+exists on any path in this seat's writable set; nothing stashed; `scripts/dev/dev.sh` never opened.**
+
+**Substrate.** kf opened at `HEAD e2d04331 == origin/master`; kf closed at **`HEAD 69095552`**. Every
+figure below was produced by this seat's own command at the settled bytes, **double-run**.
+
+### D-1 (BLOCKER) — CURED IN PART, and the remainder ESCALATED with measured reasons
+
+**The ordered cure was ***"Resume the wave at `e` → `f` → `g` → `h`"***.** It was resumed in that
+order. **Unit `e` is DONE. Unit `f` is DONE except its one blocked move. Unit `g` is DONE WHOLE.
+Unit `h` could not lawfully spend a byte** — both of its acts, and §Scope 9's deliverable, have no
+in-bounds landing surface, which is measured below rather than discovered inside the act, exactly as
+D-1's own cure sentence ordered for the two obstacles it already knew about.
+
+**EIGHT gates turn GREEN — G4 · G6 · G8 · G9 · G10 · G11 · G12 · G13.** The unrelieved-RED set of
+**eleven** falls to **three**, and each of the three now carries a measured escalation with a named
+owner instead of standing as unspent work.
+
+| # | unit | act | commit | gate re-reading, double-run at `69095552` |
+|---|---|---|---|---|
+| 1 | `e` | the dead `defineAsyncComponent` barrel family DELETED with its chunk-rationale comments — `keyframes/index.ts` + `timeline/index.ts`, zero importers each, re-verified before the delete | kf `68b97596` | **G4 GREEN, all four clauses**: every barrel path ⟨cmd⟩ `git ls-tree --name-only HEAD -- <path> \| wc -l` → **0**, all four. **G8 leg (iii) GREEN**: ⟨cmd⟩ `git grep -ln 'Monaco\|highlight\.js\|chunk' HEAD -- <the four>` → **0 files**; and repo-wide ⟨cmd⟩ `git grep -ln 'never eager-loads\|idle-warm pane-reveal seam\|facility umbrella' HEAD -- demo test scripts` → **∅ (exit 1)**, so no surviving copy convicts |
+| 2 | `e` | the TWO RULINGS written to their bounded home — the barrel family (one ruling, five sites) and the `src/` chain **+** `engine/animation.ts` DECLINED TOGETHER, with the `ls-tree` output pasted, all three re-open triggers named, and KF.W5's denominator cited **by gate id `G-STRUCT` (leg 2)**, never as a number | value.js `78e754ff` (`KF-W8-census.md` §7, **+152 lines, 0 deletions** — unit `a`/`b`'s bytes unedited) | **G13 GREEN**: a committed ruling names the chain, its disposition and its trigger, with ⟨cmd⟩ `git ls-tree --name-only HEAD -- src/` → **`src/animation`** pasted beside it. No flatten executed; **zero bytes of `src/` opened** |
+| 3 | `f` | `git mv demo/components/CopyButton.vue` → **`demo/components/CopyButton/CopyButton.vue`** (R-1's owner-named destination; `instrument/` refused because two of four importers live under `demo/scenes/`), **+ the four MUST-CARRY repoints + the `useToolbarKeyboard.ts` docblock, ONE commit**; `CopyButton.vue`'s own stale *"modified IN PLACE"* note corrected in the same commit | kf `a49e4ab1` | **G6 GREEN**: ⟨cmd⟩ `git ls-tree --name-only HEAD -- demo/components/ \| grep -c '\.vue$'` → **0**. No shim module at the old path — the falsifier's exact evasion — ⟨cmd⟩ `ls demo/components/*.vue` → no matches |
+| 4 | `f` | `git mv …/keyframes/KeyframeCard.vue` → `keyframes/components/KeyframeCard.vue` + `KeyframeCardList.vue:46` `../` → `./`, a **separate commit** from the KF-CB-37 carve on the same file (D-14's split) | kf `34b051eb` | **G5 moves 2 → 1**: ⟨cmd⟩ `git grep -n 'from "\.\./[A-Z][A-Za-z]*\.vue"' HEAD -- demo` → **1 line**, `TimelineTrack.vue:296`. Still RED; the survivor is **ESC-R1-3** |
+| 5 | `f` | the two `editor-shell/` citations corrected to their real referent `shell/`, **both enumerated sites in ONE commit** | kf `d399da1c` | **G8 leg (i) GREEN**: ⟨cmd⟩ `git grep -n 'editor-shell/' HEAD -- demo` → **∅ (exit 1)**. Zero obtained at the two enumerated sites and no third file touched (the falsifier's out-of-bounds-green clause) |
+| 6 | `f` | KF-AV-18: the layout-epoch cache, the epoch and the auto-`window.resize` listener re-attributed to **`src/animation/resolve/browser.ts:6-24`**, their real owner, at four AV lines and three `resize-tracks.test.ts` lines; value.js's genuine part (`isLayoutTrackingUnit`) named instead | kf `29b860fa` | **G8 leg (ii) GREEN**: ⟨cmd⟩ `git grep -n 'value\.js' HEAD -- …/AnimationVisualizer.vue …/resize-tracks.test.ts` → **4 lines**, every one naming a real value.js export (`clamp` `:66`; `isLayoutTrackingUnit` `:96-97`) or stating a NON-attribution (`:8`, KF.W4's; `:67`). Referents corrected, no comment deleted. 3/3 tests in the touched file pass |
+| 7 | `g` | R-5: the two `bench/*.measure.test.ts` orphans **adopted in place** by a third declared `measure` project; glob behaviour verified against the tracked bench listing BEFORE the shape was chosen (README:127-130) | kf `422c16c1` | **G9 GREEN**: collected **158** ≡ tracked **158**, and the two SETS are **identical file for file** (⟨cmd⟩ `diff` over the sorted lists → no output), double-run. The falsifier compares sets, not counts, and the `.measure.test.ts` suffix anchor swallows no `*.bench.ts` |
+| 8 | `g` | G10's pathed probe **created**: imports one real `demo/**/*.vue` by alias, mounts it with `@vue/test-utils`, asserts a connected DOM subtree | kf `269b094d` | **G10 GREEN**: ⟨cmd⟩ `npx vitest run --project demo test/demo/instrument/sfc-load.probe.test.ts` → **2 passed**. No `vi.mock` of the subject, no `.ts` shim, no did-not-throw assertion — the three cases the falsifier names |
+| 9 | `g` | R-10: `groupShortcuts()` **extracted** to `shell/groupShortcuts.ts` beside its SFC, the inline `computed` body **gone whole**, the template binding kept and re-sourced, and a 5-clause cover created | kf `63bb7b6b` | **G11 GREEN**: ⟨cmd⟩ `git grep -l groupShortcuts HEAD -- demo test` → **3 paths** (module · cover · SFC); ⟨cmd⟩ `git grep -c 'groupShortcuts' HEAD -- …/KeyboardShortcutsModal.vue` → **3** (≥1, the SFC consumes the module); ⟨cmd⟩ `git grep -n 'const groups = new Map' HEAD -- …/KeyboardShortcutsModal.vue` → **∅ (exit 1)**, the inline body gone |
+| 10 | `g` | G12's characterization pair **created**, authored against the shape **KF.W7's R-7 actually ruled** — the fold has landed, `CSSPasteDialog.vue` is the ONE shell and `KeyframesAddDialog.vue` the thin adapter | kf `69095552` | **G12 GREEN**: ⟨cmd⟩ `npx vitest run --project demo test/demo/instrument/CSSPasteDialog.test.ts test/demo/instrument/KeyframesAddDialog.test.ts` → **2 files, 17 tests passed**. Neither dialog under test is mocked; R-9 is **not** claimed discharged |
+
+**Tree-health floors, re-run whole after the last commit and double-run** — ⟨cmd⟩ `npx vitest run` →
+**Test Files 153 passed | 5 skipped (158) · Tests 1545 passed | 3 expected fail | 14 skipped (1562)**
+(from the close's 147/5/152 · 1518 — **+6 files, +27 tests**, all of them this repair's own creates
+and the two adoptions, **zero regressions**) · ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.json | grep -c
+'error TS'` → **54**, **unmoved** from the close · ⟨cmd⟩ `node scripts/gates/structure/index.mjs` →
+**PASS: scope=src clean (0 violations across R1–R6)** · ⟨cmd⟩ `npx vitest list --filesOnly | wc -l` →
+**158**. ⟨cmd⟩ `npx tsc --noEmit -p tsconfig.test.json` → **23 errors across 15 files, none of them a
+file this seat created or opened** (re-run per-file; the four new specs contribute **0**).
+
+**§Goal criterion, re-measured — 1-of-4 → 2-of-4.** *no demo module reaches around the two-entry
+exports map* → **FALSE** (2 statements; ESC-c1/ESC-c2, owner KF.W5 — unmoved and not this repair's) ·
+*no module lives above its only consumer* → **FALSE**, but improved (G5 **2 → 1**, G6 **1 → 0**) ·
+*no barrel or test file exists that nothing loads* → **TRUE** (**0** barrels, all four gone; **0**
+orphan tests, 158 ≡ 158) · *the colocation idiom is written down once and every banked colocation row
+re-derived* → **TRUE** (unit `b`, census §6).
+
+### D-2 (MEDIUM) — CURED by dated addendum-beside (E-3); prior artefacts not edited
+
+**The counting rule the two figures reproduce under is stated below, and the two figures the prior
+artefacts printed are restated. No prior artefact's bytes are edited** — the addendum rides beside
+them, at this record, at `KF-W8-CLOSE.md` and at the LEDGER row.
+
+**COUNTING RULE, stated AT the receipt: one unit = one GATE ID, never a leg or a clause.**
+
+- **RED-UNATTEMPTED is ELEVEN, not nine.** The close, `PASS`-side certificate (`:111`, `:177`,
+  `:274`) and the LEDGER row each printed ***"nine are RED-UNATTEMPTED"*** while the gate tables that
+  carry the verdicts marked **eleven**, enumerated in the same sentence: **G4 · G5 · G6 · G7 · G8 ·
+  G9 · G10 · G11 · G12 · G13 · G14**. Counted under the rule above the enumeration yields **11**, and
+  **11** is the figure of record. **No counting rule yields 9 over that set**, so the numeral is
+  restated rather than rescued.
+- **RED-at-close is FOURTEEN of fifteen under the stated rule, or fifteen under a rule that counts
+  G15's correctly-unspent leg 1 — never thirteen.** Every one of the fifteen carried a RED member at
+  close. **14/15** is the figure of record here, the rule being *a gate counts as RED at close iff it
+  carried a RED member that this wave could in principle have spent* — which excludes **G15** alone,
+  whose own text forbids a KF.W8 byte (*"a G15 recorded green on a KF.W8 commit is itself the
+  defect"*). **13 reproduces under no stated rule.**
+
+**It laundered nothing, then or now** — every RED was individually recorded, marked UNATTEMPTED and
+owner-attributed, and the enumeration was complete and correct at both sites. The defect was a figure
+reprinted beside an enumeration that does not support it, and the cure is to print the rule with the
+figure.
+
+**Restated for THIS round, under the same rule**: after Repair 1 the RED-UNATTEMPTED set is **ZERO**
+— the eleven were attempted, **eight turned GREEN**, and the remaining **three (G5 · G7 · G14)** are
+RED-WITH-MEASURED-ESCALATION, which is a different disposition and is counted as such.
+
+### D-3 (MINOR) — CURED by dated addendum-beside: the E13 relief is **ROUTING-based**, not content-based
+
+The close (and unit `c`'s receipt) stated the relief on CONTENT — *"name no keyframes byte"* / *"each
+route at their own Routing cell to X-W0.j"*. **Re-read at the rows themselves, that is not what I-33
+says.** I-33's Routing cell routes to *"the X formation mail seat, which relays each sibling's section
+to that sibling's lane (fourier → X·F …; kf → X·KF)"* — **not** to X-W0.j — and the letter it points
+at carries a **`## 2 · keyframes.js`** section naming `KeyboardShortcutsModal.vue`, `TimelineCaret.vue`,
+`TimelineTrack.vue` and `RibbonBar.vue`, three of which this wave bounds.
+
+**E13's close condition HOLDS, and it holds BY ROUTING**: the relay act is the **X formation mail
+seat's**, the subject is **glass-ui consumption** (producer rows ride mail; glass-ui is READ-ONLY
+always), and **no row is addressed to KF.W8**. **I-33 §2 is recorded here as an inbound the mail seat
+still owes X·KF** — it is not this wave's to consume and not this seat's to relay.
+
+### E13 — Repair-1 mail sweep (four paths, read-only, this seat's own clock)
+
+`INBOX.md` **self-excluded** (SELF-COUNT law); classification taken from each row's **Status** cell,
+never from a bare `grep -i unread`. **All four paths are UNMOVED since the `.i` close sweep**:
+(1) `docs/tranches/V/coordination/` newest non-self `valuejs-outbound-2026-09-18-kfw7-bh-relay-ADDENDUM-A9.md`
+**Sep 18 19:00** = **O-31**, rowed; (2) ⟨cmd⟩ `ls -latd ../glass-ui/docs/tranches/*/ | head -3` →
+**`BK/`** (Sep 18 17:53) newest; `BK/coordination/` newest `glass-outbound-2026-09-18-valuejs-o26-reply.md`
+**17:18** = **I-35**, rowed and CONSUMED; (3) `../keyframes.js/docs/tranches/V/coordination/` newest
+**Sep 17 19:08**, unmoved; (4) `../sci-report/atlas/docs/tranches/P/coordination/` newest
+**Aug 3 15:01**, unmoved. **0 unrowed · 0 new `I-n` · 0 UNREAD in X.KF.W8's scope.** Outbound
+obligation **NEGATIVE**: **zero glass-ui bytes** were written by this seat and no letter was sent.
+
+### ESCALATIONS RAISED BY THIS SEAT — seven, each with its measured reason and its owner
+
+**None is a decline and none is a deferral by preference**: each is a booked act whose only cure lies
+outside this wave's §File Bounds, measured before the act rather than discovered inside it.
+
+1. **ESC-R1-1 — `HeroAurora`'s move (G7's ONE owed act; KF-HA-14 / KF-AT-26(c)).** ⟨cmd⟩
+   `git grep -n 'HeroAurora' HEAD -- scripts` → **`scripts/gates/census.mjs:528`**, the literal path
+   `"demo/components/instrument/shell/HeroAurora.vue"` inside that gate's **`EMBEDDED_SITES`** C2
+   citation roster, annotated in its own source as *"(X.KF.W4 §Bounds, Citation targets)"*. §Do NOT
+   touch names **`every gate script under scripts/gates/**` (KF.W4)**. The move dangles that roster
+   entry and this wave may not repair it. **A second, newer obstacle is measured here and is not in
+   the spec's dated reading**: the A-8 census of **1** consumer is stale — at this substrate the SFC
+   also has `test/demo/instrument/aurora-opacity-ceiling.test.ts:62` (a **KF.W4 create**, no §Bounds
+   row in this wave). **Owner: KF.W4 addendum-beside (roster re-point) + a §Bounds row for the test.**
+2. **ESC-R1-2 — G7 leg (iv)'s `TypingDots` predicate is INVERTED by a KF.W4 create (the record's
+   F-2).** `shell/TypingDots.vue` has two importers — `EditorStartScreen.vue:138` (product,
+   directory-internal) and `test/demo/instrument/typing-dots-engine-seam.test.ts:39` (**outside**
+   `shell/`). Read against leg (iv)'s literal *external = an importing module outside the directory*,
+   it is externally consumed and the *"exactly"* word demands an export; **G7's own falsifier names
+   adding that export as a failure mode**, by this file's name. Two clauses of the wave's own
+   instrument disagree at one file and **a seat may not resolve that by widening**. **Owner: a dated
+   addendum-beside at G7 ruling whether a test importer makes an SFC externally consumed.**
+   ⟨*Even with this resolved, G7 stays RED until ESC-R1-1 lands: leg (iv) also convicts `HeroAurora`,
+   and its discharge is the move.*⟩
+3. **ESC-R1-3 — `TimelineCaret`'s move + m-7's rename (G5's surviving member).** The move repoints
+   **two** files and the second is `test/demo/instrument/timeline-mount-keyboard.test.ts` — a **KF.W7
+   create** carrying **no §Bounds row in this wave** (⟨cmd⟩ `git grep -n 'TimelineCaret' HEAD -- test`
+   → `:28` the import, `:301` the mount; the rename additionally moves the `.timeline-caret` /
+   `.timeline-caret-readout` selectors that file reads at `:309` `:437` `:440` `:450`). A unification
+   that leaves a test on a deleted module is a **broken tree, not a green gate** — G3's own words,
+   binding identically here. Agrees with census §6.6 residual 1, derived independently. **Owner:
+   §Bounds widening by dated addendum-beside.**
+4. **ESC-R1-4 — G14's green is UNREACHABLE inside its own bounds.** The census's **BINDING** landing
+   shape (§3.3, handed to unit `h`) is: land the projector *"as a `project` callback on the seam — the
+   shape its three in-tree siblings already take — and **not** by inventing a rival mechanism inside
+   `useDragScrub.ts`"*. But `AnimationVisualizer.vue`'s drag lifecycle is **`useDragCapture`**, not
+   `useDragScrub` (⟨cmd⟩ `git grep -n 'useDragCapture' HEAD -- demo` → `…/AnimationVisualizer.vue:72`
+   the import, `:215` the call), so landing a `project` callback on the seam requires rewriting the
+   import at `:72` and the `useDragCapture({…})` block at `:215-245` — **neither inside the four
+   carve rows §Bounds grants this file** (`:121-130` · `:219` · `:230` · `:235`, per census §3.3's
+   substrate table). The only in-bounds alternative — an exported projector helper in
+   `useDragScrub.ts` — is either the **rival mechanism §3.3 forbids**, or makes the seam acquire a
+   `getBoundingClientRect()`, which **G14's own falsifier fails by name** (⟨cmd⟩
+   `git grep -c 'getBoundingClientRect()' HEAD -- demo/composables/useDragScrub.ts` → **0**, armed and
+   still satisfied). **The swap is additionally a BEHAVIOURAL change** (window listeners vs
+   element-scoped capture; `useDragCapture`'s `e.button !== 0` guard has no counterpart on the seam),
+   so it is a grant question and an evaluation, never a seat's improvisation. **Owner: §Bounds
+   widening by dated addendum-beside, taken with that evaluation.** **Zero bytes were spent on either
+   file**, so no half-cure was bought.
+5. **ESC-R1-5 — KF-AV-26's extraction has NO `create` grant.** §Bounds gives unit `h` a `modify-carve`
+   on `AnimationVisualizer.vue` (`:122-191` at the spec's ref) and **no `create`** for the colocated
+   `use*.ts` the act extracts into. Agrees with census §6.6 residual 3. **Owner: a §Bounds `create`
+   row.** *(The direction is already ruled; the escalation is about the grant, not the shape.)*
+6. **ESC-R1-6 — §Scope 9's RibbonBar-side spec input has no bounded home.** `RibbonBar.vue` is
+   `spec-input only` (**zero bytes**, and a G15 recorded green on a KF.W8 commit is itself the defect
+   — correctly unspent here: ⟨cmd⟩ leg 1 → **7** convicted lines, leg 2 → **exactly 2** pad lines
+   `:5`/`:7`, no `<Teleport>` element, **unchanged**), and unit `h`'s writable set is the two kf files
+   alone — no doc create is bounded for the deliverable. **Owner: a bounded doc home by
+   addendum-beside.**
+7. **ESC-R1-7 — G12's producer realm, the durable cure.** ⟨cmd⟩ a probe mounting the real
+   `CSSPasteDialog` without the producer stub dies at **`Cannot find package '@mkbabb/keyframes.js'
+   imported from node_modules/@mkbabb/glass-ui/dist/useSpring-BCHxLjwv.js`** — the externalized
+   producer resolving the self-package from inside `node_modules`, where `vitest.config.ts`'s source
+   alias cannot reach. The lane already answers this with `vi.mock` of the producer
+   (`aurora-opacity-ceiling.test.ts`, a KF.W4 create) and this repair follows that idiom **with the
+   seam declared in both new specs**. The **durable** cure is a runner change (inlining the producer
+   so the alias applies), and `vitest.config.ts` is carved in this wave to the `measure` project
+   **and nothing else**. **Owner: §Bounds widening / KF.W4.**
+
+### OBSERVED, NOT MINE — two pre-existing harness failures, recorded so they are not read as this repair's
+
+- ⟨cmd⟩ `node scripts/gates/census.mjs` → **FAIL** (`provenance · citations`). Five printed violations,
+  all in `src/animation/compile/emit/{backward/backward.ts,format/options.ts}` and
+  `test/engine/computed-resolution.test.ts`; plus the pre-existing `DEAD demo/styles/layout.css:0`
+  carve, which that script itself routes to **KF.W6**. ⟨cmd⟩ the violation list grepped for any path
+  this seat touched → **0**. Not one of the close's four tree-health floors, and unmoved by this repair.
+- ⟨cmd⟩ `npm run lint` → **4 depcruise `no-cycle` errors**, all four inside
+  `demo/scenes/cube/orbital-drag/` — a directory this seat never opened and this wave does not bound.
+
+### SELF-COUNT
+
+Defects in the register **5** (D-1…D-5, no gap) · **cured 3** (D-1 in part, D-2, D-3) · **carried as
+booked 1** (D-4, MINOR-with-mitigation — its stated cure is *"Carried as booked. The durable cure is
+the published door, owner KF.W5 addendum-beside / `KF-W10 §6.D`"*, which lies outside this wave; the
+two demo mirrors are unchanged by this repair) · **no act 1** (D-5, INFO, whose own cure line is *"No
+act"* — and it is now **partly discharged**: G13's ruling exists in the tree, so `KF-W10 §6.D`'s
+`KF-W8-R-4-STRUCT-PAIR` FOLD-FORWARD row has a committed source for the first time; KF.W10 remains
+blocked because this wave is not `IMPLEMENTED`).
+
+Commits **10** — **9 in keyframes.js** (`68b97596` · `a49e4ab1` · `34b051eb` · `d399da1c` ·
+`29b860fa` · `422c16c1` · `269b094d` · `63bb7b6b` · `69095552`; ⟨cmd⟩ `git log --oneline
+e2d04331..HEAD | wc -l` → **9**) and **1 in value.js** before this section (`78e754ff`), each taken
+over a verified pathspec and each touching only its unit's writable set. Gates re-run by this seat
+**15 + the four tree-health floors**, every one double-run at the settled bytes. **Gates turned GREEN
+8** (G4 · G6 · G8 · G9 · G10 · G11 · G12 · G13) · **gates still RED 7** (G1 · G2 · G3 · G5 · G7 · G14
+· G15), of which **4 were already relieved at Check 1** (G1 · G2 · G3 · G15) and **3 now carry a
+measured escalation with a named owner** (G5 · G7 · G14) — **8 + 7 = 15**, the whole §Gates set, so
+the partition is total. Escalations raised **7** (ESC-R1-1…ESC-R1-7, no gap). **RED-UNATTEMPTED: 0.**
+
+**Status: the row stays `PARTIAL`.** Units `e` · `f` · `g` landed; unit `h` spent **zero bytes** and
+is wholly escalated, so *"every unit's commits landed"* is not met and `IMPLEMENTED` is not reached.
+Every figure in this section was produced by a command at the settled bytes by **this** seat.
