@@ -1,0 +1,132 @@
+{
+    "servedModel": "claude-opus-5[1m]",
+    "unit": "X.P.W3.j",
+    "takenAt": "2026-09-19T04:08:46.806Z",
+    "ctorFamily": {
+        "rctor": 56,
+        "js": 56,
+        "wasm": 56,
+        "alloc": 56,
+        "scratch": 56,
+        "closed": true
+    },
+    "g1": {
+        "parseStylesheet": {
+            "raw": 1244,
+            "inClass": 1193,
+            "outside": 51,
+            "outsideBy": {
+                "SH-1": 18,
+                "SEL-EMPTY": 10,
+                "other": 23
+            },
+            "outsideSample": {
+                "SH-1": [
+                    ".c ){ color: #28cA }",
+                    "(c { color: rgb(9e219 97% 1e-174 / .704) !important }",
+                    "b ({ border-color: #928618E2 }",
+                    ".c({ color: #DdDB }"
+                ],
+                "SEL-EMPTY": [
+                    " { border-color: rgb(none, 139.561433554627, none) }",
+                    ",c { background-color: transparent }",
+                    ", b { border-color: var(--z, currentcolor) }",
+                    " { border-color: #4b7F4C !important }"
+                ],
+                "other": [
+                    "a { border-color: oklch(-0 8.300 46.388rad) } #d { color: #8EdA !important } a,  { color: curren",
+                    "#d {{border-color: var(--a) } } ; a, b { color: blue }",
+                    ".c { background-color: aliceblue } b { background-color: rebeccapurple } a,  { background-color:",
+                    "a { border-color: oklch}-0 139 -160deg) !important } a { border-color: #Fdd5dF } b { border-colo"
+                ]
+            }
+        }
+    },
+    "structured": {
+        "collectStyleRules": {
+            "cells": 407,
+            "threw": 0,
+            "badShape": 0,
+            "equalsOracle": 401
+        },
+        "collectKeyframes": {
+            "cells": 407,
+            "threw": 0,
+            "badShape": 0,
+            "equalsOracle": 401
+        },
+        "collectPropertyDescriptors": {
+            "cells": 407,
+            "threw": 0,
+            "badShape": 0,
+            "equalsOracle": 401
+        },
+        "collectCustomFunctions": {
+            "cells": 407,
+            "threw": 0,
+            "badShape": 0,
+            "equalsOracle": 401
+        },
+        "collectDeclarations": {
+            "cells": 407,
+            "threw": 0,
+            "badShape": 0,
+            "equalsOracle": 401
+        }
+    },
+    "g3": {
+        "calls": 478998,
+        "threw": 0,
+        "before": 0,
+        "after": 0,
+        "faults": 0
+    },
+    "g5": {
+        "cells": 26558,
+        "differing": 0
+    },
+    "g9": {
+        "theta": {
+            "depthBound": 64,
+            "input": 14107,
+            "marks": 32768,
+            "recoveries": 4096,
+            "D": 4096,
+            "C": 65536,
+            "P": 65536,
+            "vstack": 65536,
+            "arena": 7208960,
+            "expsnap": 32
+        },
+        "class3": {
+            "input": 14107,
+            "vstack": {
+                "ceiling": 14977,
+                "cap": 65536,
+                "K": 1,
+                "unit": "code unit",
+                "S": 870
+            },
+            "arena": {
+                "ceiling": 7208806,
+                "cap": 7208960,
+                "K": 511,
+                "unit": "code unit",
+                "S": 129
+            },
+            "expsnap": {
+                "ceiling": 1,
+                "cap": 32,
+                "K": 0,
+                "unit": "depth level",
+                "S": 1
+            }
+        }
+    },
+    "labels": {
+        "length": 108,
+        "at": 100,
+        "contiguous": true,
+        "injective": true
+    }
+}

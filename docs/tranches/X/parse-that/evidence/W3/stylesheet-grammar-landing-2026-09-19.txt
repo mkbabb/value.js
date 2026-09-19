@@ -1,0 +1,44 @@
+// SERVED MODEL: claude-opus-5[1m]
+§A  the CTOR family (COHESION §0s E-h1) — one algebra write, three realizations
+    R_ctor 56 · js CTORS 56 · wasm emitCtors 56 · CTOR_ALLOC 56 · CTOR_SCRATCH_CELLS 56
+    R_ctor ≡ js ≡ wasm ≡ alloc ≡ scratch  true
+    this unit's rows (since X.P.W3.j): sheet-comment
+
+§B  G-1 — this unit's rows, TWO NUMBERS each (COHESION §0s E-h2: raw misses · misses that
+    reduce to a declaration value the value grammar's own declared classes already carry)
+    parseStylesheet   raw 1244 · in-class 1193 · outside 51  (of 26604 corpus rows)
+        outside, by the probe.s OWN first-prelude test (a sample split, not a ruling) — SH-1: 18
+            ".c ){ color: #28cA }"
+            "(c { color: rgb(9e219 97% 1e-174 / .704) !important }"
+            "b ({ border-color: #928618E2 }"
+            ".c({ color: #DdDB }"
+        outside, by the probe.s OWN first-prelude test (a sample split, not a ruling) — SEL-EMPTY: 10
+            " { border-color: rgb(none, 139.561433554627, none) }"
+            ",c { background-color: transparent }"
+            ", b { border-color: var(--z, currentcolor) }"
+            " { border-color: #4b7F4C !important }"
+        outside, by the probe.s OWN first-prelude test (a sample split, not a ruling) — other: 23
+            "a { border-color: oklch(-0 8.300 46.388rad) } #d { color: #8EdA !important } a,  { color: curren"
+            "#d {{border-color: var(--a) } } ; a, b { color: blue }"
+            ".c { background-color: aliceblue } b { background-color: rebeccapurple } a,  { background-color:"
+            "a { border-color: oklch}-0 139 -160deg) !important } a { border-color: #Fdd5dF } b { border-colo"
+    collectStyleRules            cells 407 · threw 0 · wrong shape 0 · equal to the oracle 401
+    collectKeyframes             cells 407 · threw 0 · wrong shape 0 · equal to the oracle 401
+    collectPropertyDescriptors   cells 407 · threw 0 · wrong shape 0 · equal to the oracle 401
+    collectCustomFunctions       cells 407 · threw 0 · wrong shape 0 · equal to the oracle 401
+    collectDeclarations          cells 407 · threw 0 · wrong shape 0 · equal to the oracle 401
+
+§C  G-3 — SHIELD.caught, over every public member × both lowerings × the corpus
+    calls 478998 · threw 0 · SHIELD.caught before 0 after 0 · faults []
+
+§D  G-5 — `parseStylesheet`, JS vs Wasm, over the union corpus
+    cells 26558 (distinct sources 26551 + 7 declared non-string) · differing 0
+
+§E  G-9 — Θ, re-derived at the settled bytes (never narrowed silently; INFO-g1)
+    THETA        {"depthBound":64,"input":14107,"marks":32768,"recoveries":4096,"D":4096,"C":65536,"P":65536,"vstack":65536,"arena":7208960,"expsnap":32}
+    CLASS3_PROOF {"input":14107,"vstack":{"ceiling":14977,"cap":65536,"K":1,"unit":"code unit","S":870},"arena":{"ceiling":7208806,"cap":7208960,"K":511,"unit":"code unit","S":129},"expsnap":{"ceiling":1,"cap":32,"K":0,"unit":"depth level","S":1}}
+    capacity labels carried: ["input <= 14107","marks <= 32768","recoveries <= 4096","D <= 4096","C <= 65536","P <= 65536","vstack <= 65536","arena <= 7208960","expsnap <= 32"]
+
+§F  K-10 — the label append, at its own offset
+    L.length 108 · this unit's block [100..107] · contiguous true
+    anchors: "<string>" @50 · "input <= 14107" @51 · injective true

@@ -8189,3 +8189,233 @@ sibling jsons do. ⟨cmd⟩ `shasum -a 256` → mjs `2d3a220d4540…` · json `e
 oracle (`css.js` `8b5381305ea26236`), the built candidate and both lowerings; nothing in it is
 asserted by hand. `.h`'s `value-grammar-landing-2026-09-18.*` and `value-grammar-bounds-2026-09-19.*`
 untouched. Commit `1afc002` (`<p2>`) and this record's own commit are this unit's two commits.
+
+---
+
+### X.P.W3.j
+
+**SERVED MODEL: claude-opus-5[1m]** · sitting 2026-09-18 23:5x → 2026-09-19 00:2x EDT (the sitting's
+date of record stays **2026-09-17**) · `<p2>` `w2/harness` `1afc002` (`.i`'s commit — the serial
+lock's precondition, verified present at open) → **`9aa3da2`** (ONE commit, 15 files, +804/−82, the
+CTOR family unsplit) · value.js `tranche-u` `51c49101` at open. Status **PARTIAL**: the ACT landed
+whole on every row this unit owns — the five collectors and the nine types TOTAL, `P:stylesheet`
+moved by five measured cures, **G-1 31 of 52 → 45 of 52 with ZERO ABSENT rows left in the universe**
+— and **one family is ESCALATED rather than approximated** (**E-j1**, the at-rule and nesting
+productions), so `parseStylesheet` stays PARTIAL and is reported in the two-number form.
+
+**Crash recovery, first act.** ⟨cmd⟩ `git -C <p2> status --porcelain` → `?? .worktrees/` ONLY — a
+sibling's, never touched, never staged; `<p2>` HEAD `1afc002`, clean. ⟨cmd⟩ `git -C value.js status
+--porcelain` → the eleven Track-A demo/docs rows ⊕ `scripts/dev/dev.sh` (DR-24, **never touched**) ⊕
+Track A's `docs/tranches/X/waves/evidence/W4/` and two `e2e/smoke/` files — **not one dirty path is
+inside X·P's §4 writable set**, and `docs/tranches/X/execution/D/X-P-W3.md` was clean at HEAD. **No
+predecessor work was inherited; nothing stashed, restored or reset. Inherited paths: none.**
+
+**E13 sweep (open + close).** Seat 0's round-6 four-path sweep (INBOX L233) stands. This seat's close
+delta ⟨cmd⟩ `date` → `Sat Sep 19 00:10:04 EDT 2026`; `find <the four paths> -maxdepth 1 -type f -name
+'*.md' -newermt '2026-09-18 23:50'` → **one hit, `INBOX.md` itself** (a sibling Track-A seat's sweep
+line, appended at the file end; SELF-COUNT law excludes it). Status cells read by **cell**, never by a
+bare `grep -i unread` (X.P.W0 CHECK 1 **D-1**): ⟨cmd⟩ `grep -nE '\| \*\*UNREAD' INBOX.md` → 4 hits, of
+which **three are status cells** — **I-32 · I-33 · I-34**, each routing by its own **Routing** cell to
+X-W0.j / the X formation mail seat / X-EXT-1 — and one is prose at L225. ⟨cmd⟩ `grep -c '^| I-'` →
+**37**, tail still **I-35** (status `READ + CONSUMED WHOLE`, routed X·KF). **0 unrowed
+value-addressed · 0 UNREAD in X.P.W3.j's scope · this unit minted no mail.** `INBOX.md` not edited;
+glass-ui READ-ONLY throughout.
+
+#### The act, in order
+
+1. **`algebra/grammar/stylesheet.mjs`** (NEW, 190 L) — `buildStylesheetGrammar(A, N)` over 13 of the
+   22 ops, composed in `grammar.mjs` through `buildGrammar(A)` with a redefinition HALT on `terms`;
+   the ops arrive as a PLAIN object of already-destructured locals, never `A` (`lower.mjs
+   assertClosedOperatorSet` records every read and a duplicate HALTs). It **REPLACES** the four
+   productions the AC-1 slice carried in `grammar.mjs` (`stylesheet` · `qualified-rule` ·
+   `declaration` · `value-slice`); `grammar.mjs` loses 101 lines and gains the composition. Each move
+   is the incumbent's own reading of `src/css/stylesheet.ts` at pin `6aca8602`, and each is named in
+   the module header so a reader meets the reason before the code:
+   - **J-1 THE DECLARATION'S VALUE IS THE VALUE GRAMMAR.** `parseDeclarations` calls `parseCssValue`
+     (`stylesheet.ts:399`); the slice read `value-slice := CTOR value-color [REF color-body]`, i.e. a
+     COLOUR, so every `var(--a)` / `chocolate` / `1px 2px` declaration the incumbent accepts was a
+     FALSE_REJECT_IN_SHAPE (**508 + 136 corpus rows at the round-6 open, by cause**). This
+     discharges, at the far end, the CONTRACT TENSION `grammar.mjs` recorded and "REPORTED to `.h`".
+   - **J-2 THE NAME IS TEXT, NOT AN IDENT.** `row.slice(0, row.indexOf(":")).trim().toLowerCase()` —
+     every byte before the FIRST colon. New class `decl-name` (any byte but `:` `;` `{` `}`);
+     `{`/`}` are excluded so a nested rule is not swallowed as a name. Cured **89 + 25** rows.
+   - **J-3 THE PRELUDE ADMITS `}`.** `blocks()` breaks only on a top-level `{` or `;`. New class
+     `prelude-char` (any byte but `{` `;`); the slice's `any-but-brace-or-semi` row is KEPT
+     (removing it would move every label index after it — K-10). Cured **10 + 8** rows.
+   - **J-4 `;` AND COMMENTS ARE TRIVIA.** `ws-or-semi` is `blocks()`'s `while (/\s|;/…)` run; the
+     comment is its own `ALT` arm whose constructor answers the recovery sentinel, so it leaves NO
+     item and NO diagnostic. The `CUT` after `/*` is load-bearing and was **measured, not preferred**:
+     without it an unterminated comment falls into the `RECOVER` arm and is SKIPPED as a malformed
+     rule, i.e. the sheet is ACCEPTED where the incumbent refuses it.
+   - **J-5 A DECLARATION LIST DROPS ITS EMPTY PARTS.** `splitDeclarations` is `splitTopLevel(body,
+     ";")`. The list is now `(ws-or-semi declaration)* ws-or-semi`, so `a{color:red;;}`, `a{;}` and
+     `a{color:red} ;` are lawful where the slice's single optional trailing `;` refused them.
+2. **`algebra/grammar/value.mjs` — `declaration-body`, the ONE byte of difference from
+   `value-body`, measured rather than assumed.** ⟨measured at the ORACLE⟩
+   `parseCssValue("a;b")` **ACCEPTS**, which is why `;` is one of `.h`'s operator tokens — but inside
+   a stylesheet `splitTopLevel(body, ";")` has already cut the part, so a top-level `;` never reaches
+   `parseCssValue` there (`a{c:1;d:2}` is **two** declarations at the oracle; `a{c:url(a;b)}` is
+   **one**, because the splitter counts parens). Read through `value-body` the grammar made
+   `a{c:1;d:2}` ONE declaration whose value was the six-token list `1 ; d : 2` — caught by this
+   unit's own fixture before it was banked. The bound is **one zero-width assertion**
+   (`SCAN("semi", 0, 0)`, the `.g` idiom) in front of the SAME `REF("value-single")` every other item
+   position reads: no second token language, no second spelling, and a call's arguments still go
+   through the UNGUARDED group, which is the splitter's paren rule exactly. `VALUE_REF_TARGETS` 2 → 3.
+3. **`tables.mjs`** — 6 `R_cls` rows (`ws-or-semi` · `prelude-char` · `decl-name` · `any-but-star` ·
+   `slash` · `semi`), every one `since: "X.P.W3.j"`; `LATER_UNITS += "X.P.W3.j"` with
+   `UNIT_SITE_LABELS` for the three `LIT`s the comment reads. `slash` and `semi` carry the EXISTING
+   labels `'/'` and `';'`, which `collectLabels` dedupes — no new index for either. ⟨measured⟩
+   **L 100 → 108**, this unit's block contiguous at **[100..107]**, `"<string>"` still at **[50]**,
+   `"input <= 14107"` still at **[51]**, injective. K-10 holds.
+   Also widened, with its own reason at the row: **`token-char` gains the two BRACES**. Under the old
+   set `}` was a token-char, so `NOT_TOKEN` refused `red` in `a{color:red}` — the value token ran into
+   the block's own closing brace. The incumbent never hands a value containing one (its source is a
+   part cut out of a body `blocks()` already cut at the MATCHING brace), and the widening moves no
+   verdict of `P:value`/`P:values`/`P:scalar` — a brace left over still meets those entries' own
+   `END` and still rejects, asserted on BOTH lowerings by the fixture's `brace-edge` family.
+4. **The CTOR quartet, ONE commit (COHESION §0s E-h1)** — 1 row in `tables.mjs` `R_ctor`
+   (`sheet-comment`), 1 constructor in `lowering-js/js-alg.mjs` `CTORS`, 1 emitter in
+   `lowering-wasm/wasm-alg.mjs` `emitCtors`, 1 row in `bounds.mjs` `CTOR_ALLOC` **and** 1 in
+   `CTOR_SCRATCH_CELLS`. ⟨measured at the settled bytes, landing probe §A⟩ **56 = 56 = 56 = 56 = 56**,
+   `R_ctor ≡ js ≡ wasm ≡ alloc ≡ scratch` **true**. The restricted grants were honoured to the hunk:
+   `bounds.mjs` 8 changed lines (two table additions ⊕ one `fixed` adjustment), `js-alg.mjs` and
+   `wasm-alg.mjs` the row plus the `declaration` re-write of act 5. `layout.mjs`, every CAP and
+   `lowering-wasm/runtime.mjs` **untouched**.
+5. **J-6 — a G-5 value divergence this unit MEASURED and CURED at the root, rather than narrowing the
+   class around it.** With J-2's widened name class the declaration name can carry a non-ASCII code
+   unit, and the `declaration` constructor folded it with `mkFold`, which materializes folded bytes
+   out of the Wasm INPUT BUFFER — where a code unit ≥ 128 stands as the adapter's declared 0xFF
+   marker. ⟨measured⟩ `parseStylesheet` read **value differing 2** of 26,551 cells (`≡` came back as
+   `ÿ` in Wasm, `≡` in JS), against the `differing 0` every prior unit reported. Three dispositions
+   were weighed and the third taken: (a) exclude 0xFF from `decl-name` — converts 2 value divergences
+   into 2 FALSE_REJECTs and hides the class; (b) fold in Wasm's lossy way on both sides — makes the JS
+   lowering disagree with the ORACLE, a mirror defect; (c) **the name is the TRIMMED SPAN in both
+   targets** (a span is read back from the original string, never re-encoded — the adapter's own
+   `spans` posture) **and the fold is `.toLowerCase()` on the surface**, which is the incumbent's
+   OWN operation (`stylesheet.ts:391`) rather than an ASCII approximation of it. `entry.mjs` gains
+   `sheetOver`, one function on BOTH surfaces, so the two targets stay identical by construction.
+   ⟨measured after⟩ **value differing 0**.
+6. **`entry.mjs` — the five collectors.** `collectDeclarations` is published under its FROZEN BARREL
+   NAME and `declarationCascade` becomes its alias: it was already the cascade `.i`'s
+   `collectAnimationOptions` / `collectTimelineOptions` read, and a second transcription of the same
+   four lines would be the OR05 shape at one remove. The four rule collectors are one pre-order walk
+   (`collectRules`) under four `item.kind` tests, guarded at each level by `Array.isArray` and at each
+   item by `isRecord` — BND-1 at a boundary whose declared return is an array, so
+   `collectStyleRules(42)` is `[]` and never a `TypeError`. All five are SURFACE COMPOSITIONS for the
+   reason E-h3 gives and `entry.mjs` already states for `serializeCssColor`: their argument is a
+   PARSED STYLESHEET, not CSS text, so there is no source for a production to consume.
+7. **`build.mjs` / `harness-adapter.mjs`** — `RUNTIME_EXPORTS` += the five collectors (the artifact
+   now names **all NINETEEN** frozen runtime exports), `TYPE_EXPORTS` += the nine stylesheet types
+   (**all THIRTY-THREE** frozen type names), `sources.algebra` += the new grammar file. ⟨cmd⟩ `node
+   src/css/build.mjs` ×2 → `ac1.wasm 470527 B · 3989 functions · 68770 B static`, **K-9 IDENTICAL**
+   (`ac1.js 1a51470d…` · `ac1.wasm 80d35317…` · `ac1.d.ts 3b171a88…`).
+8. **`test/css-recovery/stylesheet-grammar.test.ts`** (NEW, 330 L, **32 tests**) — one describe per
+   move (J-1 … J-6), the CTOR row's behavioural witness, K-10's slice, the five collectors over a
+   tree the parser itself produced and at their degenerate boundary, the `brace-edge` family, and a
+   SHIELD delta of 0. Every parser row runs through BOTH lowerings and is asserted byte-identical.
+   **The fixture was falsified before it was trusted** (W2 G-4: *a probe that cannot fail for its
+   intended reason is itself a defect*): `decl-name` was temporarily reverted to `isIdent` and
+   `sheet-comment`'s constructor made to answer a value instead of the sentinel → **6 rows went RED**,
+   across J-2, J-4 and the CTOR family; both mutations reverted from byte copies and re-run **32/32**.
+   The K-10 row uses **E-i1's own cure shape** — a slice of its own length at its own offset and a
+   count that is a FLOOR — so **`.k` does not inherit the tail-shaped self-count from this seat**.
+9. **Two defects in this unit's OWN landing probe, found by measuring and corrected** (recorded
+   because each produced a false reading that would otherwise have been banked): **(a)** the
+   `CTOR_ALLOC` extractor matched only QUOTED keys and read 38 of 56; **(b)** the
+   `CTOR_SCRATCH_CELLS` extractor anchored at `^` without allowing the line's indentation, so the
+   first key of each packed line was missed and it read 52 of 56 (the same class `.i` recorded in its
+   own probe, one turn further on). Both cured; §A now reads 56 = 56 = 56 = 56 = 56.
+
+#### Gates — BEFORE (`.i`'s close / the round-6 open) → AFTER (this unit), every reading double-run
+
+| gate | BEFORE | AFTER | verdict |
+|---|---|---|---|
+| **G-1** (its rows, two-number form) | `runtime 7 TOTAL / 7 PARTIAL / 5 ABSENT · types 24 / 0 / 9 · ALL 31 of 52` · `tsc exit 2 · diagnostics attributed 18` | **`runtime 12 TOTAL / 7 PARTIAL / 0 ABSENT · types 33 / 0 / 0 · ALL 45 of 52 TOTAL`** · **`tsc exit 0 · attributed 0 · unattributed 0`**. This unit's rows: the five collectors **TOTAL** (`collectStyleRules` · `collectKeyframes` · `collectPropertyDescriptors` · `collectCustomFunctions` · `collectDeclarations`, 400 accept / 7 reject / 407 cells each, ABSENT before); all **nine** type rows TOTAL; `parseStylesheet` **PARTIAL**, `FALSE_REJECT_IN_SHAPE 613 · DIVERGENT_VALUE 580 · MIS_ACCEPT 350` (was `1287 · 442 · 235`). **The two numbers** (landing probe §B): **raw 1244 · in-class 1193 · outside 51** of 26,604 rows — in-class = the miss reduces to a declaration value on which `parseCssValue` itself diverges, i.e. the classes `.h` declared and measured. Double-run ⟨cmd⟩ `cmp` → **byte-identical**, EXIT=1 | **GREEN on this unit's rows** (the project stays RED at 7 PARTIAL; `.k`'s) |
+| **G-2** (C-10 `22/22`) | `22/22` | **`C-10 GREEN — signature 22 · destructured 22 · both differences ∅`** | **GREEN** |
+| **G-3** (`SHIELD.caught` 0) | 0 | **0 at open and 0 at exit**, `SHIELD.faults()` → `[]`, over **478,998** calls (9 entries × 2 lowerings × 26,604 corpus sources + 7 degenerate each); `threw 0` | **GREEN** |
+| **G-4** (its codes emitted) | C-1 908 sites · C-2 GREEN · **C-3 RED 2** · C-4 RED 2 · C-7 100 rows | C-1 GREEN **890 sites** (the slice's four productions were replaced, so the site count MOVED DOWN; declared set unchanged, outside frozen 0) · C-2 GREEN · **C-3 RED, difference 2 UNMOVED** (`syntax_descriptor_invalid` / `syntax_mismatch`, `.k`'s per E-h3) · C-4 RED inherited 2 (`.b`'s, measured dead on 0 of 11,458 rejections) · **C-7 GREEN, label surface 100 → 108 rows**, unnamed first expectations **0 of 11,486 issues** · C-5 · C-6 · C-8 · C-9 · C-10 GREEN · `RED — 8 of 10` | **GREEN on this unit's leg** (this unit introduces no code and emits none it did not already); project 8 of 10, inherited shape |
+| **G-5** (identity; cells old and new) | GREEN at **239,022** cells · value differing **0** | **GREEN at 239,022 cells** (9 entries × 26,551 distinct + 63 boundary) — six-tuple differing **0** (differing bytes 0) · full-diagnostics differing **0** · **value differing 0** · threw **0**. `parseStylesheet`'s own band re-taken by the landing probe: **26,558 cells, differing 0**. The mid-run reading of **2** and its cure are act 5 | **GREEN** |
+| **G-9** (Θ re-derived and REPORTED) | `Θ.input 14107` · `arena {K 511, S 129}` · `vstack {K 1, S 863}` | ⟨cmd⟩ `node …bounds.mjs` → **`Θ.input 14107 — UNMOVED`**; `arena {K 511, S 129}` ceiling 7,208,806 / cap 7,208,960 · `vstack {K 1, S 870}` ceiling **14,977** / cap 65,536 (S 863 → 870: the stylesheet chain is seven frames deeper) · `expsnap` ceiling 1 / cap 32. The value grammar's rate still dominates the walk, so **every capacity label is byte-identical** and no `tables.mjs`/`diagnostics.mjs` capacity-label edit was needed — K-10 holds | **GREEN, reported** |
+| build reproducibility (K-9) | reproducible | ⟨cmd⟩ `node src/css/build.mjs` ×2 ⊕ `cmp` → **identical**; `ac1.js 1a51470d…` · `ac1.wasm 80d35317…` **470,527 B · 3,989 functions · 68,770 B static** · `ac1.d.ts 3b171a88…` | GREEN |
+| G-2 anchor (floor, **A-1 attribution — not this unit's cure**) | — | ⟨cmd⟩ `shasum -a 256 docs/tranches/V/megatranche/audit/probes/r1-published-totality.mjs` → `77678a574d7c6b11…837ad4ec` (**unmodified**, byte-equal to every prior reading); run verbatim → `TOTAL 0 throws / 1548 calls · DISTINCT FAILURE MODES: 0 · GREEN`, EXIT=0; ⟨cmd⟩ `git status --porcelain -- …/audit/probes/` → **0** lines after | recorded as a floor |
+| G-8 | `2 of 2` | `union authentication … 8 codes, both differences ∅` · `branch census default: 5 (authored 0) · else 30 (authored 0)` · `GREEN — 2 of 2 legs` | GREEN |
+| recovery project | 9 failed / 352 passed | **9 failed / 384 passed** (double-run identical). **+32 passing, this unit's fixture; ZERO new failures** | see attribution |
+| boundary project | 7 failed / 183 + capacity collection error | **7 failed / 255 passed** + `capacity.test.ts` still failing at collection — the same seven, unmoved | inherited |
+| totality project (G-6) | 72/72 | **72 passed (72)**, double-run identical | GREEN |
+| `tsc --noEmit -p .` / `git diff --check` | 503 errors, 0 in `src/css` | **461 errors, 0 in `src/css`**; this file contributes **3** rows of the tree's pre-existing `TS7016` class (untyped `.mjs` imports) and **zero** of any new class — four `TS2339` rows it first carried were cured at the type, not suppressed. `diff --check` **CLEAN** | recorded |
+
+**Failure attribution at close (9 failed, every one named, none new).** Inherited and untouched by
+this unit: `depth.test.ts` PT-04 ×4 and `capacity.test.ts`'s collection error (**E-h5**, `.h`'s
+escalation — Θ.input 14,107 is below PT-04's 15,524 code units) · `latch.test.ts` ×2 (**ESC-c1**,
+pre-`.h`, routed to W4) · `closure.test.ts`'s BORN-RED ⊇ leg (`.b`'s; difference still 2) ·
+`boundary.test.ts:223` (**E-h4**, `.c`'s literal-six self-count, now 0) ·
+`value-grammar.test.ts:237` (**E-i1**, `.h`'s tail-shaped self-count, which this unit's lawful K-10
+append falsifies for the second time — the cure `.i` wrote out is unchanged and is what THIS unit's
+own K-10 row uses). **Not one failure is new.**
+
+#### Escalations (halt-and-return rows, §3a)
+
+- **E-j1 — THE AT-RULE AND NESTING FAMILIES ARE UNAUTHORED, and they are returned rather than
+  approximated.** `parseStylesheet` reaches TOTAL only with `@keyframes` · `@property` · `@function` ·
+  `@scope` · `@starting-style` · `@scroll-timeline` · `@view-timeline` · the `unknown` at-rule (with
+  and without a body) and NESTED style bodies (`a { b { … } }`). ⟨measured⟩ the incumbent accepts all
+  ten shapes; this candidate refuses all ten. **Why it is an escalation and not a slice taken
+  quietly**: (1) the shapes are **not in the union corpus** — its stylesheet band is colour fuzz over
+  qualified rules alone — so `parseStylesheet`'s G-1 row does NOT witness them, and a unit could
+  "reach TOTAL" on this corpus without authoring one byte of them, which is the exact dishonesty
+  G-1's falsifier names; (2) three of THIS unit's own exports — `collectKeyframes`,
+  `collectPropertyDescriptors`, `collectCustomFunctions` — are collectors over rule kinds the parser
+  cannot produce, i.e. **dead code in the contract**, which G-4's own falsifier calls as much a defect
+  as an undeclared one, and the fixture ASSERTS that emptiness rather than asserting it away;
+  (3) the cost is not the grammar but the **four realizations** each new shape needs (§0s E-h1): a
+  faithful set is ~8–11 new `R_ctor` rows, each with a JS constructor, a hand-written Wasm emitter
+  over `rec`/`recDyn`/`listToArr`/`trimWs`, and two `bounds.mjs` node-table rows — a landing this
+  seat could not take to a MEASURED green inside its own sitting without a third diagnose→edit
+  iteration on G-5, which §3a halts on. (4) A further half of the work is **not grammar at all**:
+  `@property`'s descriptor runs `isSupportedSyntaxDescriptor` + `coerceToSyntax`, `@keyframes`'s rule
+  runs `parseTimingFunction(serializeCssValue(…))`, and `parseDeclarations` runs
+  `optionDeclarationValid` / `emptyComma` / the range, scope and trigger checks — every one a CHECK
+  OVER A PARSED VALUE that re-serializes and re-parses, which is precisely the class E-h3 ruled a
+  **surface composition on `entry.mjs`** and `.i` put there for `collectTimelineOptions` ("the ONE
+  collector that reads a `CssValue` back through the serializer and re-parses it … which is why it is
+  built over a SURFACE"). **The shape this seat measured and recommends, for the ruling**: the
+  grammar answers the RAW item tree (it already does — `sheetOver` is the seam, landed and proven on
+  both surfaces at act 5), and `entry.mjs` completes and validates it into the frozen `Stylesheet`.
+  **Owner: the triumvirate** (§3a "file-bound expansion" is not the trigger — `typescript/src/css/**`
+  is already this wave's; the trigger is a family the spec's unit list does not size, the §0r shape).
+- **E-j2 — `splitSelectors` does not drop the empty parts `splitTopLevel` drops, and its cure is
+  outside this grant.** ⟨measured⟩ `,c { background-color: transparent }` → the oracle's
+  `splitTopLevel(prelude, ",")` DROPS the empty first part and answers `["c"]`; the lowering's
+  `splitSelectors` keeps it and answers `["", "c"]`. It is a DIVERGENT_VALUE on **10 of the 51
+  outside-class rows** by the landing probe's own first-prelude test. The JS half lives in
+  `lowering-js/values.mjs` and the Wasm half in `lowering-wasm/runtime.mjs` (`F.splitSelectors`) —
+  **neither is granted** (§0s: `runtime.mjs` "not needed"; the writable set names
+  `lowering-js/js-alg.mjs` for CTOR rows only). Returned, not patched. Owner: `.k` or the seat that
+  receives §0s's next widening.
+- **SH-1 (declared divergence, measured, NOT a defect of this unit).** `blocks()`'s prelude scan is
+  paren- and quote-aware and its paren counter is SIGNED — `GARBAGE ) ;(#d {` is ONE prelude there,
+  because `)` takes the counter to −1 and the later `(` returns it to 0. `prelude-char` is a byte
+  class and knows neither. The reading here is therefore STRICTER; ⟨measured⟩ **18 of the 51**
+  outside-class rows. Declared in the module header, reported by count, not cured: the Dyck-path
+  decomposition a PEG would need is expressible, but it changes the prelude from one `TEXT` leaf into
+  a span-joined constructor family, which is E-j1's cost again on a class of 18.
+- **SH-3 (declared, carried unchanged from the slice).** `!important` is `/!important\s*$/i` at the
+  END of the value text there and a production after the value here, so `! important` is admitted.
+  The `important()` production is the slice's own, moved but not altered.
+- **G-4 C-3** remains RED at 2 codes: `syntax_descriptor_invalid` / `syntax_mismatch` reach the runner
+  only when `.k` extends it to `coerceToSyntax` (E-h3). Not this unit's.
+- **Residual (report, no act):** the `outside 51` residue's third sub-class (**23 rows** by the
+  probe's own first-prelude test) is a mixture the test does not separate — trailing-comma preludes
+  in a LATER rule, `{{`-nested bodies, and values carrying a `}` the oracle's brace scan reads
+  differently. The **count 51 is exact**; the three sub-counts (SH-1 18 · SEL-EMPTY 10 · other 23) are
+  the probe's heuristic split and are printed as such, never as a ruling.
+
+**Evidence banked BESIDE (E-3):**
+`docs/tranches/X/parse-that/evidence/W3/stylesheet-grammar-landing-2026-09-19.{mjs,json,txt}` —
+`SERVED MODEL:` is line 1 of the probe and of the txt; the json carries `servedModel` first, as the
+sibling jsons do. ⟨cmd⟩ `shasum -a 256` → mjs `b62a5252…` · json `741e8b6e…` · txt `de6ce760…`. The
+probe is **double-run identical** (⟨cmd⟩ `diff run1 run2` → ∅) and re-derives everything from the
+sha-pinned oracle, the built candidate and both lowerings; nothing in it is asserted by hand. `.h`'s
+and `.i`'s banked artefacts are **untouched**, and no committed evidence JSON was re-written (no
+`--out` flag was passed to any gate script). Commit **`9aa3da2`** (`<p2>`, 15 files, +804/−82) and
+this record's own commit are this unit's two commits. `scripts/dev/dev.sh` is in neither.
