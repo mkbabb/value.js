@@ -595,3 +595,165 @@ probes, zero browser, zero runs, zero writes outside the one writable path.**
 register is authored, the four gates carry split verdicts, and no substitution was made anywhere.
 **`b` is closed and committed; `c` may open** (§2c: one writer at a time; the tree is clean of every
 `§2a` path, and the `F8-C31*` identity space is untouched).
+
+---
+
+### F.W8.c
+
+**SERVED MODEL**: `claude-opus-5[1m]` · seat opened 2026-09-19 · **DONE**
+**Wrote (2 paths, the whole writable set)**:
+`docs/tranches/X/fourier/conformance/C31-two-sided-reproduction.md` — **555 lines**, created
+(⟨cmd⟩ `wc -l`, read from the settled bytes, double-run `555 ≡ 555`) ·
+`docs/tranches/X/fourier/conformance/fixture-register.md` — **§3a inserted at `:189`** (the two
+`F8-C31*` rows, ⟨cmd⟩ `grep -n '^## §3a'`); unit `b`'s bytes untouched, nothing renumbered.
+**Commit**: **`8c772bd0`** *"docs(X·exec): F.W8.c — C31 does not reproduce, and not because it was
+cured: the instrument is gone, the seam stands, and the pair is specified against a leaf the successor
+model does not yet carry"* (pathspec, the two paths, `--no-verify`, one commit — the file and its
+register rows are one meaning and do not split).
+**Zero fourier bytes · zero product bytes · `scripts/dev/dev.sh` never staged.**
+
+#### Acts, in order
+
+1. **CRASH-RECOVERY (standing law).** ⟨cmd⟩ `git -C $V status --porcelain` → **2 rows**,
+   `docs/tranches/V/reformation/CARRY-LEDGER.md` and `scripts/dev/dev.sh` — **neither inside F.W8's
+   `§2a` writable set**; the second is the unowned dirty row, untouched in every verb. ⟨cmd⟩
+   `git -C $F status --porcelain | wc -l` → **0**, double-run `0 ≡ 0`. **No inherited work on this unit
+   exists**: `C31-two-sided-reproduction.md` was ABSENT at open, and the register carried **no**
+   `F8-C31*` row (unit `b` §11.2 records that it minted none). Nothing stashed, restored or reverted.
+2. **Read WHOLE**: the spec `waves/F-W8.md` (masthead addressing/quotation law · §1/§1b/§1c · §2a/§2b/§2c
+   · §3 **J1** · §4 **G3** and its two reading disciplines · §5a/§5b/§5c) · this record (baseline + plan
+   + units `a`'s and `b`'s receipts) · `COHESION.md` **§0j.D** and every later addendum to file end.
+   ⟨cmd⟩ `grep -n 'F\.W8' COHESION.md | grep -v 'KF\.W8'` → **one line, `:987`** (F-PRODRET's home),
+   reproducing the open seat's and unit `b`'s reading at this seat's own clock. ⟨cmd⟩
+   `grep -n '^## §0[k-z]' COHESION.md | tail -12` → §0k…§0v; **no addendum re-opens, moves or adds a
+   G3/C31 ruling.** OG-F1 read verbatim at `:956`.
+3. **D-19 MEASURE-AT-OPEN, performed BEFORE a word of the artefact was written** — the three anchors
+   J1 and G3 rest on, each double-run at fourier `21e11b0`:
+   `web/src/lib/api.ts` `updateVisualization` **`:420` → `:497`** · the mutation's `before` string
+   `{ method: "PATCH", body: { ...patch }, headers }` **`:430` → `:507`, byte-identical, `grep -c -F`
+   → 1** · `api/routers/visualizations.py:350` `@router.patch("/{slug}")` **byte-exact at its published
+   line**. Nothing drifted was adopted into a banked file (E-3).
+4. ⊘ **FINDING C-1 — the open seat's `F-1` is CORRECTED at the bytes, by addendum-beside.** Baseline
+   §B.4 reads *"G3's client leaf reads **CURED** at HEAD"*. **Nothing is cured**: both leaves stand and
+   the mutation's exact target string is present, once. The witness is **DRIFTED**, not cured — and the
+   client/operation method **agreement** at HEAD is the control's **precondition**, not its cure, since
+   C31 does not observe a mismatch, it **introduces** one. F-1's *conclusion* (the REJECT may not
+   reproduce) is sustained in full by act 6; only its word is corrected, beside it, never over it.
+5. **The drift traced to ONE commit, named from the git record, and claimed in no part (FR-GIG-5).**
+   ⟨cmd⟩ (base `$F`) `git log --format='%h %ad %s' --date=short --since=2026-08-01 -- web/src/lib/api.ts`
+   → **one commit**, `dabbb17` *"fix(x-f-w4/.f): … three client verbs nobody called"* = **X.F.W4 unit
+   `f`**, `+116/−39`. The arithmetic closes exactly: **116 − 39 = 77**, `420 + 77 = 497`,
+   `430 + 77 = 507` — the whole displacement of both client anchors, as **insertions above them**.
+   ⟨cmd⟩ same probe on `api/routers/visualizations.py` → **no output**: **zero commits since
+   2026-08-01**, which is why `:350` still resolves. **F.W8 claims no credit — and there is none to
+   claim: `dabbb17` landed no cure to C31.**
+6. **The reproduction ATTEMPTED, member by member, and the result published as a finding.** The
+   instrument enumerated in five members (plan `d1ca81a5…` · raw `24bc5d75…` · receipt `cc5bdadf…` ·
+   the derived registry carrying `"clientDisposition": "CLIENT_MATCH_SOURCE_DERIVED"` · the production
+   validator), then each searched for at the live tree, **every probe double-run**: ⟨cmd⟩ (base `$F`)
+   `grep -rn "CLIENT_MATCH_SOURCE_DERIVED" …| wc -l` → **0 ≡ 0**; `control\.wrong-reason` → **0 ≡ 0**;
+   `R4\.C31` → **0 ≡ 0**; no control harness directory. **Four of five members ABSENT.** Corroborated
+   from the frozen side: R6-2 *"access withdrawn"*, R6-9 *"`ls controls/` stops at `R4.C31`"*, R6-1
+   `NO_SUCCESSOR`. ▲ **And the LAW bars the run independently of the absence**: C31's mutation is
+   `{"kind":"replace","target":"web/src/lib/api.ts",…}` — **a write to a fourier byte** — while §2b/§5c
+   and this unit's own lock forbid every verb that writes; the authorizing delta's own last line reads
+   *"This delta authorizes neither construction nor execution."*
+7. ⊘ **NON-REPRODUCTION, stated as a finding and never as a silent GREEN — with the two "NO"s kept
+   apart.** Did it reproduce? **No.** Because the defect is cured? **No** (act 4/5). Because the
+   instrument is gone and the law forbids the run? **Yes, twice over.** ▲ **Striking a live defect
+   because its dead instrument no longer fires is the masking-fallback class this tranche convicts**,
+   and act 4's correction is precisely what prevents it here. The measurement therefore enters by
+   **ADOPTION** under **OG-F1**, with the **raw decoded receipt printed verbatim** and the census
+   ADDENDUM §6.7 *"Zero UNVERIFIED credit"* quoted at its home. **Adoption banks the DIAGNOSTIC; it
+   buys nothing toward the acceptance.**
+8. ⊘ **FINDING C-2 of this seat's own — the join is SPLIT IN THE CLAUSE and UNSPLIT IN THE REGISTER'S
+   SHAPE, and it is the pair's blocking precondition.** `J-diff-shape-v2.md` **§B** states the law and
+   binds *"the client cure and the operation cure register a two-sided delta **until that join is
+   split**"*; the census warned in advance that failing it means *"the F.W8 conformance fixtures will
+   reproduce Codex's exact two-sided C31 failure"*. Measured: `operation-register.md` §2.1 **row 4**
+   carries `client function | updateVisualization` and `disposition | CLIENTED` **inside the operation's
+   own row**, and ⟨cmd⟩ `grep -n "R6-8\|separate relation\|back-reference" operation-register.md` →
+   **no output** (double-run). **The propagation was analysed cell by cell rather than asserted**: no
+   register cell is keyed on the client's **method literal**, so a C31-style flip changes **nothing** —
+   which means the successor is **not** C31 re-instantiated but carries the **opposite** failure:
+   **the `client.method.*` leaf does not exist at all.** *Isolation is unrunnable for want of a leaf,
+   not for want of separation.* **Routed, never repaired**: F.W8 writes no byte of F.W5's artifacts and
+   re-rules nothing (residuals R-c1/R-c2 → unit `e`'s letter; owners F.W5's register ⊕ fourier API row).
+9. ⊘ **FINDING — no production validator exists at HEAD, and the nearest in-tree candidates are
+   vacuous.** Constraint 2 says *"the same production validator"*, so the referent was measured, not
+   assumed: `scripts/conformance-probe.sh` is a **live network probe** over deployed endpoints (no leaf
+   model, no `control.*` code — and running it is barred by parsimony and by this wave's law), and
+   ⟨cmd⟩ `cd scripts/conformance && for f in *.sh; do printf '%s %s\n' "$f" "$(grep -c '^exit 0$' "$f")"; done`
+   → **five files, each a bare `exit 0`**, double-run identical, their own comment reading *"Placeholder
+   until W3."* **Named as a fourier-tree fact (residual R-c3); re-booked as no record's defect.**
+10. **The pair SPECIFIED, with the five verbatim constraints discharged member by member per control**
+    — sole mutable target · owner result (`errors[]` **equals** the singleton, never *contains*) ·
+    non-owner retention measured **against the unmutated baseline** · the owner-only bypass run (**the
+    run C31 failed**: *"Owner suppression retains the operation leaf"*) · and the receipt shape written
+    with the **no-expected-code** exclusion inside it: the plan declares a **target** and carries no
+    expected code, error string or exit status, and the acceptance predicate is **derived from the
+    isolation law**, never supplied. **Five preconditions measured: 3 unmet (P-1 · P-3 · P-5), 1 partial
+    (P-2), 1 met (P-4)** — each with an owner, so the pair is buildable rather than assumed. ▲ **Why
+    the PAIR and not one control** is argued from the clause's own bidirectionality, not from symmetry
+    of taste: a single successor would test only the broken direction and report the seam repaired while
+    the same derivation stood **inverted**.
+11. **Denominator: OWNER-FROZEN and untouched.** **30/37 terminal stands**; **32/38** is recorded as the
+    owner's **conditional**, in the owner's own words, and as nothing else. **0 of 2 controls
+    constructed**, so no lawful replacement has occurred; **no re-cut on this unit's authority; no
+    percentage published anywhere** (X-9).
+12. **E13, in scope**: ⟨cmd⟩ the positional Status-cell sweep over `V/coordination/INBOX.md` →
+    **UNREAD 0** across **78** rows, reproducing unit `b`'s reading at this seat's clock; no letter has
+    landed addressed to this unit. The wave's one append-only INBOX row and the FN-6 relay letter are
+    **unit `e`'s** acts (§2a) — this seat touched neither file.
+13. **WRITE-THEN-MEASURE, and it convicted this seat once.** The artefact's §10 self-count first claimed
+    *"the only `%`-adjacent figures in this file are the ratios `30/37` and `32/38`"*; ⟨cmd⟩
+    `grep -n '%' C31-two-sided-reproduction.md` returned **more lines than that** — the `%` characters
+    are `git log --format` and `printf` specifiers **inside ⟨cmd⟩ pastes**. The cell was re-cut at the
+    bytes to the true claim (**no percentage figure is published**) with the `%` residue **disclosed
+    rather than trimmed**, and every probe in §10 re-anchored at line start so none can match its own
+    published text. Final readings, **double-run identical**: controls **2 ≡ 2** · constraint rows
+    **5 ≡ 5** · preconditions **5 ≡ 5** · residuals **5 ≡ 5** · `F8-C31A` < `F8-C31B` bytewise
+    (`LC_ALL=C sort | diff` → no output).
+14. **The sibling's self-counts re-measured AFTER the insertion — none moved.** ⟨cmd⟩ over the settled
+    `fixture-register.md`: `F8-FIX-F` **9 ≡ 9** · `F8-FIX-V` **8 ≡ 8** · unit `b`'s row-scoped direction-law
+    falsifier → **no output** · its ordering probe (`LC_ALL=C sort | diff`) → **no output** · its
+    `straddle` set-membership claim → still **2 lines**. **Unaffected by construction**, since every one
+    of unit `b`'s probes is anchored on `^| \*\*F8-FIX-`; the new section renumbers nothing and rewrites
+    no byte of unit `b`'s. ⟨cmd⟩ `git diff --check` → clean.
+
+#### Gate reading — BEFORE → AFTER
+
+| gate | BEFORE (§B.2) | AFTER | verdict |
+|---|---|---|---|
+| **G3** ⊙ **limb (i)** — two-sided C31 **reproduces exactly** | **RED** — `C31-two-sided-reproduction.md` ABSENT | The attempt is made and published with receipts: three anchors re-resolved at this seat's clock; the drift traced to **one** commit with the arithmetic closing exactly; the instrument searched member by member (**4 of 5 absent, double-run**); the run barred by the read-only law independently; the honest **NON-REPRODUCTION** stated with *cure* and *instrument-absence* held apart; the measurement entering by **ADOPTION** with the raw decoded receipt printed verbatim | **RED — HONEST-RED, with its reason published.** The diagnostic did not run and is **not** declared passed. **No GREEN claimed.** |
+| **G3** ⊙ **limb (ii)** — `F8-C31A`/`F8-C31B` **isolate each leaf** under the stated constraints | **RED** — **0 of 2 controls exist** | Both controls fully specified and banked in **two** places (the file's §4/§5/§6 and the register's **§3a**): sole mutable target · owner result as a **set equality** · all-non-owner retention against baseline · the owner-only bypass run · the five verbatim constraints discharged **per control** · the receipt shape carrying the no-expected-code exclusion · **five preconditions measured**, three unmet, each with an owner · the pair's bidirectionality argued from the clause | **CLOSED FOR F.W8 — split verdict.** **NOT product-GREEN**: still **0 of 2 constructed**; P-1 (the absent client-method leaf) · P-3 (the absent validator) · P-5 (the run environment) unmet. GREEN owners: **fourier API row** (leaf model · validator · bytes) · **F.W5's register** (the join relation) · **F.W9/W10** (the run) |
+| **G3** ⊙ **limb (iii)** — the **denominator** | **RED** (owner-gated) | **30/37 stands, unmoved**; 32/38 recorded as the owner's conditional in the owner's own words; no re-cut, no percentage, no claim on this unit's authority | **OWNER-FROZEN — consumed, not turned.** |
+
+**No gate measured GREEN before its cure. No gate discharged by an SS-13 probe** — this unit ran none.
+**Probe parsimony (§5.2): bounded `grep`/`sed`/`awk`/`git log`/`git show` reads across both trees, and
+nothing else — stated as set membership rather than as a count this seat did not measure from settled
+bytes (SELF-COUNT law): zero live probes, zero browser, zero runs of any kind, zero writes outside the
+two writable paths, and zero fourier bytes in any verb.**
+
+#### Residuals carried forward (routed, never repaired here)
+
+- **R-c1** — the successor model carries **no `client.method.*` leaf**; until F.W5's register holds the
+  client↔operation join **as a separate relation** with method-bearing leaves on both sides, **neither
+  control can be built**. **Owners: F.W5's register ⊕ fourier API row.** Travels in unit `e`'s letter.
+- **R-c2** — the join is stored **inside the operation row** (row 4's `client function` + `CLIENTED`),
+  and `operation-register.md` names neither `R6-8` nor the separation law. Harmless today; **C31-shaped
+  the moment the predicate is sharpened to what the pair needs.** **Owner: F.W5's register.** Disclosed,
+  not re-graded — F.W8 books no canonical row.
+- **R-c3** — **no production validator at HEAD**; the five in-tree source-level conformance scripts are
+  bare `exit 0`. **Owner: fourier API row.**
+- **R-c4** — the run environment for both controls is **F.W9/W10**'s deploy spine, never this wave's.
+- **R-c5** — the open seat's **F-1** wording corrected by addendum-beside; the reading preserved and
+  dated, **no banked file rewritten** (E-3).
+
+**Escalations: none.** The specified act was possible at the bytes and was executed exactly — the
+reproduction was **attempted and its honest result published with its receipt**, the split is
+specified under the verbatim constraint set, the `F8-C31*` rows are banked, and the denominator was
+left **exactly** where the owner froze it. No substitution, no workaround, no masking fallback was made
+anywhere. **`c` is closed and committed; `d` may open** (§2c: one writer at a time; the tree is clean of
+every `§2a` path, and the `F8-C31*` identity space is now closed at two ids, disjoint from the
+`F8-FIX-*` space `d` appends to).
