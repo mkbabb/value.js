@@ -1578,3 +1578,116 @@ Fable) — **and `.d` cannot close the sub-tranche while G-3 is RED and F-w4c-1 
 bounds escalations (F-w4b-3, F-w4c-2) and the G-10 counting question are **triumvirate acts** and
 must be ruled before `.d` is dispatched; dispatching `.d` first would put the only seat that may
 stamp VERIFIED in front of a halt condition it is required to honour.
+
+---
+
+## Check 1
+
+**SERVED MODEL: claude-opus-5[1m]** — L-20 FRESH ADVERSARIAL PASS 1, **VERIFY-ONLY**. An independent
+seat that authored **no** byte of `W4.md`, of `SEAM-CONTRACT.md`, of either `<p2>` script, of any
+evidence bank, of any unit receipt or of `## Close`. Wall clock **2026-09-19**; sitting of record
+**2026-09-17** (the owner's begin-word, COHESION §0j). Every reading below was produced by a command
+this seat ran itself against the settled bytes; **nothing is inherited from the close**.
+
+**VERDICT: NOT-CONFORMANT.** **0 BLOCKER · 0 CRITICAL · 3 HIGH · 2 MINOR · 3 INFO.**
+**All ten gate verdicts reproduce · all four claimed GREENs reproduce GREEN · 0 published figure
+failed to reproduce · 0 write outside §File Bounds · 0 masking construct · E-3 held · mail 0 UNREAD
+· the four-verb line correctly did not move.** The row is **NOT promoted** and stays
+**`PARTIAL`**: **five of the six RED gates have no relief at the spec's own bytes** — they are RED
+because `.c` and `.d`, two of this wave's four units, **were never dispatched**, and `W4.md` routes
+neither unit's work to any later wave. §2a's goal criterion fails on its own terms.
+
+### Crash-recovery (standing law, first act)
+
+⟨cmd⟩ `git -C /Users/mkbabb/Programming/value.js status --porcelain` → **3 rows**:
+`M docs/tranches/V/reformation/CARRY-LEDGER.md` (a sibling's / the owner's) · `M scripts/dev/dev.sh`
+(**unowned, NEVER touched, never staged**) · `?? docs/tranches/X/keyframes/evidence/W11/j-close-2026-09-19.md`
+(**Track B's**). ⟨cmd⟩ `git status --porcelain -- docs/tranches/X/execution/D/X-P-W4.md
+docs/tranches/X/execution/LEDGER.md docs/tranches/X/parse-that/` → **no output**.
+⟨cmd⟩ `git -C <p2> status --porcelain` → `?? .worktrees/` alone. The frozen read-only root
+`/Users/mkbabb/Programming/parse-that` carries **31 dirty rows** under `rust/**` — **none of it this
+wave's**, that root is §4 Do-NOT-touch, and not one byte of it was read into a write, stashed or
+restored. **Zero dirty paths inside this seat's writable set · zero inherited hunks · no inherited
+path to name.**
+
+### The ten gates, RE-RUN BY THIS SEAT — 10 of 10 verdicts reproduce
+
+| gate | the close's verdict | this seat's own command | reproduces? |
+|---|---|---|---|
+| **G-1** | GREEN | the spec's **literal** command → `rows: contract 52 · universe 52 · ledger rows 47` · `contract ∖ universe-52 : ∅` · `universe-52 ∖ contract : ∅` · `PENDING-ADJUDICATION 45 · identical 7` · *"VERDICT: GREEN"* · **EXIT=0**; double-run, ⟨cmd⟩ `diff` → **no output** | **YES — GREEN** |
+| **G-2** | GREEN (both legs) | leg 1 ⟨cmd⟩ `git status --porcelain -- src api demo test e2e` → **0 lines**, double-run `0 ≡ 0`; leg 2 ⟨cmd⟩ `git show --name-only --format= <sha> \| grep -E '^(src\|demo\|api\|test\|e2e)/' \| wc -l` over **all seven** value.js commits of this wave → `0·0·0·0·0·0·0` (the close ran four; this seat ran seven, adding its own three) | **YES — GREEN** |
+| **G-3** | RED | ⟨cmd⟩ `node scripts/packed-candidate-surface.mjs --seam …/SEAM-CONTRACT.md` → `candidate "@mkbabb/parse-that@1.0.0"` · **`tarballSha256 efc11936d361820526a93ada2145012d0c58cec48cee9ccb9a19c22c66e74cda`** (**byte-identical to `.b`'s bank**) · `entryCount 1` · `seamSubpathDeclared false` · **`resolved "0 of 52"`** · `refusals 5` · `G3 "RED"`, **EXIT=1** | **YES — RED** |
+| **G-4** | GREEN | the §6 **verbatim** one-liner against `<p2>/typescript/src/css/build/ac1.wasm` → `{"total": 0, "functionKind": 0, "imports": []}`, **EXIT=0**; then ⟨cmd⟩ `node scripts/wasm-admission.mjs <every project artefact>` → `tally {artifacts 9 · admitted 9 · functionKindImportsTotal 0 · unaccountedImportsTotal 0}` · `"verdict": "GREEN"` · **EXIT=0** | **YES — GREEN** |
+| **G-5** | RED | ⟨cmd⟩ `ls <p2>/typescript/scripts/rc-p-evaluate.mjs` → **No such file or directory** | **YES — RED** |
+| **G-6** | RED (leg 3) | ⟨cmd⟩ `sed -n '9p' KF-W3.md` and `sed -n '459p' F-W0.md` → **both far-end sentences present VERBATIM, each citing `RC-P` by predicate name and no wave number** (legs 1–2 GREEN-BEFORE-CURE); ⟨cmd⟩ `ls …/RELEASE-CONDITION.md` → **No such file or directory** — the file **both** landed sentences cite by path does not exist; `reciprocity-grep.txt` unbanked | **YES — RED** |
+| **G-7** | GREEN (floor) | ⟨cmd⟩ `grep -c 'parse-that' ../fourier-analysis/package.json` → **0**; ⟨cmd⟩ over `web/package.json` → **0**. The transitive copies untouched | **YES — GREEN** |
+| **G-8** | RED (packet leg) | ⟨cmd⟩ `ls …/RELEASE-PACKET.md` → **No such file or directory**; mail leg by **position** → **UNREAD 0** over **79** register rows, tail `O-39` | **YES — RED** |
+| **G-9** | RED | ⟨cmd⟩ `ls waves/W4-CLOSE.md` → **No such file or directory** — the disposition is pre-ruled (C) at COHESION §0i.1 and has **no gate artefact to be recorded in** | **YES — RED** |
+| **G-10** | RED | ⟨cmd⟩ `cat waves/W0.md W1.md W2.md W3.md W4.md \| grep -c 'VERIFIED \| \*\*NO\*\*'` → **7** (close-state must read **0**); `W4.md` §2's four-verb table **byte-untouched** | **YES — RED** |
+
+**Published figures, re-measured at the settled bytes** (write-then-measure): `SEAM-CONTRACT.md`
+**121,820 B**, ⟨cmd⟩ `shasum -a 256` → **`e269f6e665f288948a58ff1c6ac24e4e252e044a91806c5a832a0f0a09fe0818`**
+— the exact digest `.a` and `.b` independently recorded; `packed-surface.json` **128,861 B** ·
+`wasm-imports.json` **9,392 B** · `value-source-untouched.txt` **3,312 B** ·
+`seam-contract-check.txt` **4,487 B** · `seam-contract-negative-controls.txt` **4,727 B**. §8's
+census re-counted over the twelve rows → **4 PRESENT · 1 PARTIAL · 7 ABSENT**; all seven absent
+confirmed absent by ⟨cmd⟩ `ls`. **0 of 0 figures failed.**
+
+### Axis audit
+
+| axis | finding |
+|---|---|
+| (2) **File Bounds** | **0 writes outside §4.** ⟨cmd⟩ `git show --name-only --format=` over all **seven** value.js commits and both `<p2>` commits: every path is `docs/tranches/X/parse-that/{SEAM-CONTRACT.md,scripts/seam-contract-check.mjs,evidence/W4/**}` · `docs/tranches/X/execution/D/X-P-W4.md` · `docs/tranches/X/execution/LEDGER.md` · `<p2>/typescript/scripts/{packed-candidate-surface,wasm-admission}.mjs` — every one a named §4 row. **`scripts/dev/dev.sh` in 0 commits** (⟨cmd⟩ `git log --all -- scripts/dev/dev.sh` → last touch `85cfea2c`, tranche T) and still dirty-unstaged as the standing arrangement requires |
+| (3) **Masking** | **0 constructs.** ⟨cmd⟩ over the whole wave diff in both roots for `.skip` / `xit(` / `@ts-ignore` / `@ts-expect-error` / `eslint-disable` / allowlist / `node_modules/` patch → no authored hit. The four `try/catch` in the two `<p2>` scripts were read whole: each **records** a failure into a measured field (`instantiation.ok=false` + the error string; `resolved:false` + a `reason`) and none swallows one — `verdict.emptyImportInstantiation` and `verdict.functionKindZero` are separate fields, neither inferred from the other, exactly as G-4's falsifier demands. `packed-candidate-surface.mjs` exits **1** on its own RED rather than narrowing. No producer selector copied; no local `node_modules` patch |
+| (4) **Commit families** | §9's four declared messages: `.a`'s landed **verbatim** (`b4f8e5d1`), `.b`'s landed verbatim (`ca615a6` ⊕ `f92a3f32`, mirrored across the two roots because they are two repositories), `.c`'s and `.d`'s never landed because those units never sat. `.b`'s second pair (`00806a8` ⊕ `046bc176`) is a **distinct meaning** (the seam reader's name location), not a split family. **No declared family was split**; one commit per meaning throughout |
+| (5) **E-3** | **HELD.** No commit of this wave touches `docs/tranches/V/megatranche/registry/adjudicated/**`, any conformance artefact, `docs/tranches/X/waves/**`, `docs/tranches/X/{keyframes,fourier}/**`, `docs/tranches/X/COHESION.md`, `docs/tranches/V/coordination/INBOX.md`, `docs/tranches/V/apotheosis/**`, or any sibling X·P wave spec. ⟨cmd⟩ `git diff e914453f..HEAD -- docs/tranches/X/parse-that/waves/` → **no output**: `W0..W4.md` are byte-untouched, and `W4.md`'s own §2 four-verb table with it |
+| (6) **Mail** | **0 UNREAD.** By **position** (never a bare `grep -i unread`): **0**, over **79** register rows, tail `I-35`/`O-39`. Re-measured at the close's own commit `ee33cf80` → **85 `^\| ` rows / 79 register rows**, the close's published denominators **exactly**; the live file now reads 94/79 because Track B and Track C appended after |
+| (7) **Four verbs** | **NONE MOVED, and that is lawful.** G-10's falsifier — *"A stamp performed while any of G-1..G-9 is red fails — the act is the consequence of the gates, never a substitute for them"* — forbids IMPLEMENTED and VERIFIED at six RED gates, and R-A reserves VERIFIED to `.d` alone. The close seat stamped neither and touched no wave file |
+| (8) **§2a goal criterion** | **NOT MET.** See HIGH-3 |
+| (9) **Figures** | **all reproduce**, above |
+
+### Register — severity · claim · receipt · cure
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| **HIGH-1** | HIGH | **`X.P.W4.c` was never dispatched, and G-5 is RED with NO relief at the spec's own bytes.** RC-P is §3 item 5, §6a's normative core and *"the sole edge from X·P into the consumer half"*; `W4.md` assigns it to `.c` **in this wave** and routes it to no successor. A second consequence rides on it: `KF-W3.md:9` and `F-W0.md:459` both cite `docs/tranches/X/parse-that/RELEASE-CONDITION.md` **by path**, and that path does not exist — two landed reciprocity sentences point at a file that was never written | ⟨cmd⟩ `ls <p2>/typescript/scripts/rc-p-evaluate.mjs` → *No such file or directory*; ⟨cmd⟩ `ls docs/tranches/X/parse-that/RELEASE-CONDITION.md docs/tranches/X/parse-that/evidence/W4/rc-p-evaluation.json docs/tranches/X/parse-that/evidence/W4/reciprocity-grep.txt` → *No such file or directory* (all three) | dispatch `.c` (Opus 5, serial; `.a` and `.b` have both sat and it is unblocked by neither G-3 nor F-w4c-1 — conjunct 4's command and a GREEN reading already exist, conjunct 1 is measured FALSE at V=4.0.0, and an evaluator that reports FALSE honestly is exactly what G-5 asks for) |
+| **HIGH-2** | HIGH | **`X.P.W4.d` was never dispatched: G-8's packet leg, G-9's recording, G-10's stamp act, §3 items 7–10 and §8's four `.d` artefacts are all unperformed, with no relief.** The L-13 harvest is named by §3 item 10 as *"lane law … its omission is a recorded kill (W2 §1), not a housekeeping lapse"*, and `registry/harvest/x-p-w4.json` does not exist. G-9 is **pre-ruled (C)** at COHESION §0i.1 — that relieves the *ruling*, not the *recording*, and §6 G-9's falsifier is *"closing with the gap unstated"* | ⟨cmd⟩ `ls waves/W4-CLOSE.md RELEASE-PACKET.md docs/tranches/V/megatranche/registry/harvest/x-p-w4.json` → *No such file or directory* (all three); ⟨cmd⟩ `grep -c 'RELEASE-PACKET' INBOX.md` → the packet has no sent-row; ⟨cmd⟩ `git diff e914453f..HEAD -- docs/tranches/X/COHESION.md docs/tranches/V/coordination/INBOX.md` shows **no X·P cell** carved by this wave | dispatch `.d` (a **fresh** Fable adjudicator, M-23 §1) **after** the triumvirate rules F-w4b-3 and F-w4c-1 — the close's own sequencing note is right: dispatching the only seat that may stamp VERIFIED in front of an unruled halt condition is the failure mode, not the cure |
+| **HIGH-3** | HIGH | **§2a's goal criterion is NOT MET at the bytes.** It requires three questions answerable from **one document each**. *What does value.js receive* — `SEAM-CONTRACT.md` exists, but **45 of its 52 rows publish `PENDING-ADJUDICATION`** rather than a terminal disposition, and the adjudicator who was to rule them (`.d`) never sat. *How does it arrive* — the protocol exists and its answer is **RED**: `entryCount 1`, `resolved 0 of 52`. *When may the consumer act* — **no document at all**. §2a: *"The wave fails if any of the three is answerable only by reading a status word"*; the third is not answerable even that way | the G-1 run's own disposition census (`PENDING-ADJUDICATION 45 · identical 7`); the G-3 run's `resolved "0 of 52"`, EXIT=1; ⟨cmd⟩ `ls RELEASE-CONDITION.md` → *No such file or directory* | HIGH-1 ⊕ HIGH-2 ⊕ F-w4b-3's ruling. The criterion is not separately curable: it **is** the three units' output |
+| **MINOR-1** | MINOR | **The wave opened against a FAILED G-10 open-state assertion.** §6 G-10: *"A sum other than **5** at open fails and halts the act."* Seat 0 measured **7** and opened anyway, correctly surfacing the cause as a third the spec did not anticipate (`W3.md`'s sixth and seventh dated addenda reproduce four-verb tables at `:836` and `:971`, both E-3-lawful and unrewritable) and routing the counting question to the triumvirate as **F-w4c-1, UNRULED** | ⟨cmd⟩ `cat waves/W[0-4].md \| grep -c 'VERIFIED \| \*\*NO\*\*'` → **7**, double-run `7 ≡ 7`; per-file `W0:1 · W1:1 · W2:1 · W3:3 · W4:1` | **Mitigated**: the *act* G-10 halts (the R-A stamp) was never performed, so the halt was honoured in substance. The ruling is still owed — shape (a), narrowing the command to rows inside a `### Four-verb status` block, is the only one that survives a ninth W3 round |
+| **MINOR-2** | MINOR | **ESC-e2's W3 harvest is measured and unlanded (F-w4c-2), and W4's own L-13 harvest is absent.** COHESION §0p makes the W3 harvest *"X.P.W4's seat 0 … at its open"*; seat 0 ran §0p's scratch-mirror procedure correctly (repo untouched, harvester symlinked unmodified) and measured the honest denominator at **nine runs / 78 agent results** against the filed three-run five-seat fold — but the write target `registry/harvest/x-p-w3.json` is in **no row of `W4.md` §4** | ⟨cmd⟩ `git status --porcelain -- docs/tranches/V/megatranche/` → **no output** before and after the mirror run; the filed `x-p-w3.json` is unchanged | one dated addendum-beside to `W4.md` §4 adding that path for a named unit — a triumvirate act. **Correctly escalated, not substituted for**; the registry was not written from outside bounds |
+| **INFO-1** | INFO | **G-3's RED is genuinely relieved** — the sole honest-RED of this close. All three causes (**C1** `files:["./dist"]` + no `./css` in `exports`; **C2** `tsx/esm/api` undeclared at `src/css/lowering-js/js-alg.mjs:23` and `src/css/bounds.mjs:834`; **C3** `build/ac1.d.ts` re-exporting through a specifier that escapes the package root) live at `<p2>/typescript/package.json` and `<p2>/typescript/src/css/**`, which **no unit of this wave may write** (§4 grants exactly three `<p2>` script paths). §3a names this shape verbatim — *"Hard-gate failure that is not local-edit-recoverable"* — and a consumer-side patch would itself be the bounds violation | the `--seam` run reproduced byte-identically at this seat; the **positive control** (a staged tree outside both repositories, `"./css"` declared and `src/css` shipped, 26 entries) still resolves **0 of 52**, which is how C2 and C3 were located rather than guessed | **F-w4b-3, ESCALATED with an owner named** (triumvirate: either a dated §4 addendum-beside naming the four paths, or a successor X.P.W2 packaging unit). Three cures, not one |
+| **INFO-2** | INFO | **One unstated unit-vs-close divergence**, against the close's own discipline (*"where a unit's number and this seat's number differ the divergence is stated"*): `.b`'s receipt banks the Wasm tally at **`artifacts 6 · admitted 6`**, the close's G-4 row at **`artifacts 9 · admitted 9`**. Benign and fully explicable — `.b`'s own `<p2>/.worktrees/w4b` container contributed the three extra copies — but the close does not name the delta | ⟨cmd⟩ `find <p2> value.js -name '*.wasm' -not -path '*/node_modules/*'` → **11 hits = 9 project ⊕ 2 unrelated** Chrome-profile TTS binaries; this seat's own run reproduces `artifacts 9 · admitted 9 · GREEN · EXIT=0` | a one-line note at `.d`'s close report; the verdict is unaffected — the admission is GREEN at **every** artefact under both counts |
+| **INFO-3** | INFO | **Two quoted output blocks are condensed rather than verbatim.** `.b`'s receipt and the close render `"symbolCrossCheck": true` where the banked artefact holds an **object** (`{against, seamRows 52, universeRows 52, inSeamNotUniverse [], inUniverseNotSeam [], agree true}`); the prose beside it states the fields correctly. Quote-by-command asks for the output as printed | ⟨cmd⟩ over `evidence/W4/packed-surface.json` `seamContractRun.symbolCrossCheck` → the object above, `agree: True` | cosmetic; paste the object or name the field (`…symbolCrossCheck.agree → true`) |
+
+### Honest-RED adjudication (axis 10) — the set is **{G-3}**, and only G-3
+
+| gate | relief at the spec's own bytes? | owner named in the residual register? |
+|---|---|---|
+| **G-3** | **YES** — §3a *"Hard-gate failure that is not local-edit-recoverable"*, read against §4's three-path grant in `<p2>`; the cure address is the **candidate's own packaging**, i.e. producer-owned and an X.P.W2 question, and a consumer-side patch would be the gate failure | **YES** — F-w4b-3, triumvirate/orchestrator, two admissible cures stated |
+| **G-5** | **NO.** `W4.md` assigns RC-P to `.c` **in this wave** and routes it nowhere else. "The orchestrator will dispatch it later" is an admission of incompleteness, not a relief the spec grants | owner named (**U-c**), but naming an owner for an undispatched unit does not relieve the gate |
+| **G-6** | **PARTIAL.** Leg 3's absence **is** spec-relieved — §6 G-6's own baseline says *"the third sentence has no file to live in at all — that is G-9"* — but the gate also fails because `RELEASE-CONDITION.md` and `reciprocity-grep.txt` were never written, which is `.c` again | **NO** for the `.c` half |
+| **G-8** | **NO** on the packet leg. The mail leg is GREEN (0 UNREAD). §6 G-8's cure arm is explicitly *inside* this wave's bounds (*"author in-repo + row + hand to the courier"*) — there is no upstream to wait on | owner named (**U-d**), not a relief |
+| **G-9** | **PARTIAL.** The *ruling* is pre-ruled (C) at COHESION §0i.1 with its re-trigger named; the *recording* is `.d`'s and is undone, and §6 G-9's falsifier is *"closing with the gap unstated"* | **NO** for the recording |
+| **G-10** | **NO** as a close condition. Withholding the stamp was correct and required; the gate's close-state (sum **0**) is simply unmet, and its open-state assertion failed at **7** (MINOR-1) | **NO** |
+
+**Five REDs stand unrelieved (G-5 · G-6 · G-8 · G-9 · G-10), all from one root fact: two of four
+units never sat.** That is the whole of the NOT-CONFORMANT verdict. Nothing the two units that
+**did** sit produced is defective: `.a`'s G-1 is GREEN with nine negative controls (and one first
+attempt recorded **VOID, not passing** — the harness now asserts `cmp -s source mutant` before
+counting a control, which is the right cure for a silently-empty denominator), and `.b`'s G-4 is
+GREEN at every artefact with both legs measured separately.
+
+### Successor "Opens after" conjuncts, checked against this wave
+
+| successor | its conjunct on X.P.W4 | state | blocked? |
+|---|---|---|---|
+| **KF.W3** (X·KF) | `KF-W3.md:9`, verbatim: *"This wave opens if and only if `RC-P(V)` evaluates TRUE per `docs/tranches/X/parse-that/RELEASE-CONDITION.md` §6a, run against the registry coordinate `V`"* | **RED.** The cited file does not exist and no evaluator exists; of RC-P's six conjuncts only **5 (BAR-DISCHARGED)** is TRUE (COHESION §0j.E, *"admission is decided on correctness; the bench table is recorded-not-gating"*). Conjunct 1 is measured **FALSE at V=4.0.0** (⟨cmd⟩ `node scripts/ci/verify-packed-surface.mjs` over the 4.0.0 tarball → EXIT 1 on `/transform`); 2·3·4·6 have no `V` to evaluate against | **LAWFULLY BLOCKED** — and correctly so: the sentence is gate-keyed, never scheduled |
+| **F.W0 / F.W7** (X·F) | `F-W0.md:53` *"Opens after: tranche X's execution gate lifts"* — **no conjunct on X.P.W4**; X·P is a declared **NON-EDGE** with the consumption predicate adopted at `:459` | **GREEN.** G-7's floor holds at 0/0, so the forbidden edge is absent and nothing crosses | **NOT blocked** by this wave |
+| **the X·V adoption wave** | does not exist — OP-4/G-9, **disposition (C)** at COHESION §0i.1, re-trigger *"X.P.W4's RC-P evaluator returning TRUE at a dated run"* | **RED.** The re-trigger cannot fire: the evaluator does not exist | **LAWFULLY BLOCKED**, and the disposition is ruled but unrecorded (HIGH-2) |
+
+### Disposition
+
+**The `X.P.W4` LEDGER row is NOT promoted and stays `PARTIAL`.** No byte of `W4.md`, of any sibling
+X·P wave file, of `COHESION.md`, of `INBOX.md` or of the registry was written by this seat; the
+four-verb line is untouched. This check wrote exactly two paths: this section and the LEDGER's
+appended event line.
