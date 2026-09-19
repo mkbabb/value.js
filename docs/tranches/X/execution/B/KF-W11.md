@@ -1820,3 +1820,228 @@ Four paths swept read-only; classification by the Status cell's **position**, ne
 #### SELF-COUNT
 
 **10** commits listed and **10** exist in `git log` for this unit · **7** gate/check commands tabled, each read twice where the spec asks · **23** named P8 rows + the INFO bag, all accounted in the roster commit · **6** LAW A censuses · **6** re-derived geometry figures, all reproducing · **1** escalation (C-20) · **1** partial (MISSED-A) · **5** residuals declared · **0** figures published that were not read from settled bytes.
+
+---
+
+### KF.W11.g
+
+SERVED MODEL: claude-opus-5[1m]
+
+**Unit**: `KF.W11.g` — the spring-artifact-truth packet (phase 2, after `.c`). Spec: `KF-W11.md`
+§Agent Units `:255-259` · §Carry P6 `:195-197` · §Bounds row `:120` · §Gates G-KFW11-6 `:299` ·
+§0 OP-5 `:44` · §Commit plan 5 `:380`. **Status: DONE** — **G-KFW11-6 GREEN on both clauses**,
+double-run; the §0u ratchet held at **24 · 24** with **0** diagnostics in this unit's row. Three
+rows of P6 are returned rather than written, each because its byte belongs to another unit, and each
+is named below with the unit that owns it.
+**Evidence**: `docs/tranches/X/keyframes/evidence/W11/g-spring-artifact-truth-2026-09-19.md` (every
+census, probe, decision and transcript in full).
+
+**CRASH-RECOVERY (standing law, first act).** ⟨cmd⟩ `git -C ../keyframes.js status --porcelain` →
+two untracked `docs/tranches/V/coordination/VALUEJS-INBOUND-*.md` letters, **zero modified product
+paths**; ⟨cmd⟩ `git status --porcelain -- docs/tranches/X/execution/B/KF-W11.md docs/tranches/X/keyframes/evidence/W11`
+→ **empty**; ⟨cmd⟩ `git -C ../keyframes.js log --oneline --all | grep -i 'W11.g'` → no output.
+**ZERO inherited hunks on any path this unit may write — nothing to finish, nothing to rewrite, no
+inherited paths to name.** Dirty rows outside the set were read and left untouched;
+`scripts/dev/dev.sh` never staged. **Open sha `c8e3c56a`.**
+
+#### Act 0 — the anchors, and three rows found already cured
+
+The home record describes a **216-line** file; at open it is **297 L**, so every anchor was
+re-resolved. **R.2 GREEN-BEFORE-CURE, three rows, none re-cured and none claimed**: **KF-SST-5** (the
+uppercase register on both mono sites) is LANDED-BY the KF-SS-4 W6-N sweep — ⟨cmd⟩
+`grep -n 'text-mono-caption\|text-mono-small' StartingStyleTarget.vue` → `:52` · `:120`, both
+`text-mono-small`; **KF-SST-16/-28** (the title's `truncate`; the declined Card family) are LANDED-BY
+KF.W6 — the header family is live at `:24-57`; **KF-SST-19/-20/-21** (the laundered mono label, the
+stale colour rationale, the two phantom component names) are LANDED-BY KF.W6/KF.W8 and `.c`'s N-5.
+Each is asserted by the new gate where it can be, so none can regress unnoticed.
+
+#### Act 1 — the probe that is this unit's oracle
+
+⟨cmd⟩ `node` against `dist/keyframes.js`, running the shipped `compileToEntry` on
+`useCompiledEntry.ts`'s own `ENTER_KEYFRAMES` and options → `eligible: true, refusals: []`,
+**2190 chars / 21 lines / longest 943** — **the home record's own execution, reproduced exactly at
+this seat**. The five KF-SST-3 divergences re-derived against it: base CLOSED vs OPEN · `.is-open`
+vs `.is-hidden` · `transform: translateY() scale()` vs independent `translate`/`scale` · one `500ms`
+vs `var(--duration-slow, 500ms)` ×4 against a 450 ms token · an `overlay … allow-discrete` line the
+card's list lacked.
+
+#### The spec, written before the patch
+
+**One source of truth** = `ENTRY_CONTRACT`, exported from the SFC, the card's CSS authored from it
+and the gate asserting the emitter satisfies it. **Direction**: the CARD moves onto the ARTIFACT's
+contract — KF-SST-4's own *"or vice versa"* — because the emitter's input lives in
+`useCompiledEntry.ts` (§Bounds `:116`, `.c`'s) and because what a consumer receives is the published
+truth. **The price is named, not hidden**: the home record's superlative 2 (the card's independent
+`translate`/`scale`, one timeline per property) is retired for the artifact's `transform` list; the
+fork that would keep it is emitting `translate`/`scale` from `ENTER_KEYFRAMES`, a `.c` byte. The
+binding now runs **both ways** — flipping `ENTER_KEYFRAMES` REDs G-KFW11-6 until the card follows,
+which is the whole function of writing the endpoints down once.
+
+#### Acts 2–4 — three commits, in the record's own order
+
+1. **`3252a7c2` · the artifact core + the verb/state pair + the readout decision + the tail.**
+   KF-SST-3 · 4 · 5 · 9 (+11 · 12 · 26) as ONE spec, with the families the record declares
+   unsplittable (1 with 6; 5 with 9; 11 with 12) in this sha by construction. The card now runs the
+   artifact's polarity (base closed, `.is-open` opens, `@starting-style` on the open selector), its
+   endpoints, its one 500 ms, and `allow-discrete` **inside** the shorthand per property exactly as
+   the emitter writes it — narrower than the retired longhand-after-shorthand pair, and the
+   published form. KF-SST-9: the artifact wraps instead of scrolling a 943-char line sideways
+   (wrapping changes no byte, so rendered still equals copied) and is a named, focusable region.
+   KF-SST-11/-12: one string rendered and copied; three states —`unavailable`, `mismatched`,
+   `ready` — with `ready` requiring that the emitted CSS actually describe THIS card, so a fidelity
+   surface verifies the promise it makes and refuses rather than presenting an artifact it cannot
+   vouch for. **The state model's limit is stated at the byte that causes it**: an empty result is
+   both *"compiling"* and *"refused"* because `useCompiledEntry` keeps only `css` of
+   `{ css, eligible, refusals }` — the discriminator is one file over and is that file's row.
+   **LAW A census for the one deletion**: ⟨cmd⟩ `grep -rn 'copyableCss' demo test src` →
+   `StartingStyleTarget.vue:118` · `:187` — two lines, one file, zero consumers elsewhere.
+2. **`c0b0ff19` · `test(… G-KFW11-6)`** — twelve cases; see the gate table.
+3. **`0e604af8` · KF-SST-22, the prose sweep — and WRITE-THEN-MEASURE catching this seat.** The
+   mechanical prose fraction went **50.7 % → 51.1 %** across the cure commit (139/274 → 205/401
+   non-blank lines): the explanatory comments were the very defect the row books. The sweep is a
+   **separate sha, not an amend**, so the record shows the measure-then-cure: **121/312 = 38.8 %**,
+   −11.9 points against the banked reading. Nothing load-bearing left with it; the file went
+   297 → 340 L and the growth is entirely code (the contract constant, the three-state model, the
+   refusal surface). The rationale now lives in the evidence file — `demo/DESIGN.md`, where §6's
+   ownership rule would otherwise put it, is not in this unit's writable set and was not written.
+
+#### The decisions, written before their patches
+
+- **KF-SST-1/-6 — which copy survives: the IN-CARD one.** Three grounds: the gate's own byte clause
+  places the surviving state in `StartingStyleTarget.vue`, so the spec's instrument decides the
+  fork; SS-13 residue 1 leaves the ribbon's sub-`lg` reachability unwitnessed (sheet-at-peek), and
+  stranding the card's only control behind a sheet is a worse failure than a duplicate; and
+  `aria-controls` belongs with the region it controls. The survivor carries **`aria-expanded` +
+  `aria-controls`** — the disclosure pattern; `aria-pressed` would assert a toggle-button role this
+  element does not have — **plus `data-state`**, which is how the three vendor affordances the row
+  counts are bought anyway: ⟨cmd⟩ over `node_modules/@mkbabb/glass-ui/dist/styles/accessibility.css`
+  shows `[data-state="on"]` in the same `forced-colors: active` selector list as
+  `[aria-pressed="true"]` (and in the `prefers-contrast` twin). **No affordance forfeited, no role
+  misstated.**
+- **KF-SST-2 — the duration stays pinned to the artifact's 500 ms**, and the readout names what it
+  expresses (`ζ <value> · 500 ms`) with the inertness disclosed in the line rather than left for a
+  designer to find by dragging a dead slider. `response` is inert on both axes here (max|Δv| ≈
+  2.000e-5 versus 3.040e-1 for ζ; the duration is a constant). **The priced fork, rejected in the
+  open**: `calc(response * 4s)` reaches **4.8 s** at the slider's max and would have to change
+  `useCompiledEntry`'s `duration: 500` too — a decision on the artifact's producer, not a readout
+  edit. Register note: the line moved to `text-mono-small` because `text-mono-caption` would
+  uppercase `ζ` into `Ζ`, a different letter — KF-SST-5's own class, found on this cure's new bytes.
+
+#### KF-SST-10 (OP-5) — witness-only, and it says so
+
+⟨cmd⟩ `git -C ../keyframes.js log --oneline -40 | grep -i 'KF-ES-2\|EditorShell'` → no output.
+KF-ES-2's facility-honesty spec has not landed, so OP-5's own instruction governs: the row lands
+**witness-only**. The witness is an assertion, not a comment — `entryAnim.name === "Entry"` and
+`entryAnim.targets.length === 0`, pinning the channel the facility contract says must paint as
+painting nothing. Nothing is cured here and no mechanism is re-booked; when KF-ES-2's cure lands,
+that case is what proves it.
+
+#### Gate readings — BEFORE → AFTER (every figure double-run)
+
+| gate / clause | command | BEFORE (`c8e3c56a`) | AFTER (settled bytes) |
+|---|---|---|---|
+| **G-KFW11-6** runtime | `npx vitest run --project demo test/demo/scenes/starting-style-artifact.test.ts` | `No test files found` · `No test files found` | **`Tests 12 passed (12)` · `Tests 12 passed (12)`** |
+| **G-KFW11-6** byte | `grep -c 'aria-expanded\|aria-pressed' demo/scenes/spring/StartingStyleTarget.vue` | **0 · 0** (must read ≥ 1) | **5 · 5** |
+| **§0u ratchet** (total) | `npx vue-tsc --noEmit -p tsconfig.json 2>&1 \| grep -c 'error TS'` | 24 · 24 | **24 · 24** (did not rise) |
+| **§0u ratchet** (this row) | `… \| grep -c 'StartingStyleTarget'` | 0 | **0** |
+| neighbours unmoved | `npm run test:demo` | 45 files / 376 tests | **45 files / 376 tests, all passing** |
+| §Format lint | `npx eslint <the two paths>` | — | exit 0, no output |
+| `check` leg 2, this unit's rows | `npx tsc --noEmit -p tsconfig.test.json \| grep -c '<my paths>'` | 0 | **0** (the leg's 23 pre-existing rows untouched) |
+| `check` leg 3 | `npm run proof:structure` | PASS | **PASS (0 violations, R1–R6)** |
+| no masking | `git diff c8e3c56a..HEAD -- test \| grep -c 'test.skip\|it.skip\|\.only('` | — | **0** |
+
+`npm run check` as a whole stays RED at its first leg on the wave's banked 24 — the OP-0 ratchet's
+standing state, named here and not this unit's to move.
+
+#### The test's one declared compromise, stated rather than smuggled
+
+glass-ui's dist imports `@mkbabb/keyframes.js` from inside `node_modules`, where the vitest alias
+cannot reach, so any spec loading a glass entry dies before an assertion runs. The durable cure is a
+runner change; `vitest.config.ts` is in §Bounds' **Do NOT touch** list and was **not** reached for.
+The answer is `CSSPasteDialog.test.ts`'s existing idiom: glass's primitives become slot-rendering
+stubs so the subject's own template, bindings, classes and attributes all execute for real.
+**Nothing under test is mocked.** The SFC is additionally read as bytes for the two surfaces that
+admit no other reading (`<style scoped>` is never applied in jsdom; `demo/env.d.ts`'s narrowed
+`*.vue` shim declares a default export only, so a named import would have ADDED a leg-2
+diagnostic — the shape `aurora-opacity-ceiling.test.ts(61,30) TS2339` already exhibits, and widening
+the shim is another unit's byte).
+
+#### Returned, not written — three rows whose bytes belong to other units
+
+- **KF-SST-31 (view gate) — `complete_with_misses`, exactly as §Bounds `:120`'s lock prescribes.**
+  The **throttle half is LANDED-BY `48a1cdbe`** (`.c`'s KF-SS-3/N-6 seam: an 80 ms trailing debounce
+  plus a generation token, which also kills the record's ~110-concurrent-promise rider). The
+  **view-gate half is NOT landed** — ⟨cmd⟩ `grep -n 'view.value' demo/scenes/spring/useSpringDemo.ts`
+  → `:567` only, inside `advanceSelectedChannel`; the recompile still fires in the solver view. The
+  byte is `useCompiledEntry.ts`'s or `useSpringDemo.ts`'s, both `.c`'s rows, and `.c` is closed.
+  **No parallel write was made.**
+- **KF-SST-1's other half — retiring the ribbon twin.** Live at `SpringScene.vue:226`/`:230` at this
+  unit's open; that file is `.c`'s row (§Bounds `:115`). Declared for `.j` with SS-13 residue 1 (the
+  sub-`lg` reachability witness) named as its remaining input.
+- **KF-SST-27 — the duplicated preset-identity predicate.** Both the hoist destination
+  (`springPresets.ts`, `.c`'s) and the second site (`SpringPhysicsFacet.vue:165-167`, `.f`'s) are
+  outside this unit's set; hoisting from one side alone would move a byte and leave the duplication
+  standing. The local copy is untouched so the hoist stays a single act for whoever owns both ends.
+
+#### Producer row surfaced (for `.j`'s SS-6 / BH relay)
+
+glass `accessibility.css` keys its `forced-colors: active` and `prefers-contrast: more` state
+indication on `[aria-current]`, `[aria-selected]`, `[aria-pressed]`, `[aria-checked]`,
+`[data-state="checked"]` and `[data-state="on"]` — and on **nothing** for `[aria-expanded]`. A
+correctly-authored disclosure button therefore gets no vendor state indication at all, leaving
+consumers to work around it (as this one does, via `data-state`) or to misuse `aria-pressed`. One
+selector-list addition at the producer fixes it for every consumer. Relayed, never worked around
+demo-side.
+
+#### Locks — all honoured
+
+**`useSpringDemo.ts` never written** (⟨cmd⟩ `git show --stat` on all three shas names two files
+only). **OP-5** consumed by reference, KF-SST-10 witness-only and saying so. **§Seq 5 (phase 2 after
+`.c`)** honoured: `.c`'s `48a1cdbe` was read as landed code before KF-SST-31 was dispositioned.
+**E-3**: no dated spec, adjudicated record, conformance artefact or prior evidence file was edited —
+this receipt and a new evidence file are appends beside. **The SWAP-verdict alphabet stays empty**:
+this unit emits no discharge receipt of that kind and does not spell that string, and the drag-seam
+verdict is not its subject.
+
+#### E13 mail sweep at this seat's clock
+
+⟨cmd⟩ `grep -n 'UNREAD' docs/tranches/V/coordination/INBOX.md` → `:4`, `:5`, `:23`, `:33` (the law's
+own text) plus historical status quotations inside rows I-30/I-31/I-32/I-35; **no row carries a live
+`UNREAD` status**. ⟨cmd⟩ `grep -rln 'StartingStyle\|KF-SST' <the four coordination paths>` →
+`INBOX.md` alone, a routing cell. **No mail addressed to this unit's scope.**
+
+#### Residuals — declared, not dropped
+
+1. **KF-SST-31's view gate** — `complete_with_misses`; owner = the spring composables' unit.
+2. **The ribbon twin's retirement** (KF-SST-1's other half) — `SpringScene.vue`; SS-13 residue 1 is
+   its remaining input.
+3. **KF-SST-27's hoist** — needs `springPresets.ts` + `SpringPhysicsFacet.vue` in one act.
+4. **KF-SST-12's discriminator** — surfacing `eligible`/`refusals` from `useCompiledEntry`; this
+   unit's panel states the ambiguity honestly instead of guessing.
+5. **The producer row above** — for the SS-6 accretion register at `.j`.
+6. **SS-13 residues 2/3/4/6/7** (the percept escalation triggers and KF-SST-9's keyboard arm) stay
+   SS-13's; nothing here forecloses them, and the reachability cure removes the only
+   engine-dependent half this unit could reach.
+
+#### Escalations
+
+**None.** Every specified cure was landable at the bytes inside this unit's writable set; the three
+rows above are returns *by the spec's own lock and bounds*, not impossibilities, and each names its
+owning unit.
+
+#### Inherited-paths clause
+
+**None.** The crash-recovery sweep found zero uncommitted hunks on any path in this unit's writable
+set, in either repo.
+
+#### SELF-COUNT
+
+**4** commits for this unit and **4** exist in `git log` — **3** in keyframes.js (the three product/
+test shas listed above) and **1** in value.js (this receipt + its evidence) · **2** keyframes.js
+paths and **2** value.js paths written, and `git show --stat` across all four shas names exactly
+those **4** paths and no other · **12**
+`it(` cases in the gate file and **12** reported passing · **9** distinct gate/check commands tabled,
+each read twice where the spec asks · **1** LAW A census · **3** prose-fraction measurements, all
+read from settled bytes · **3** rows returned with their owning units named · **6** residuals · **1**
+producer row relayed · **0** escalations · **0** figures published that were not read from settled
+bytes.
