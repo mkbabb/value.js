@@ -1630,3 +1630,98 @@ transcripts are filed at `docs/tranches/X/fourier/evidence/w3/` (the standing ev
 `w1/`); `e2e/resolve-stack.ts` becomes the ONE `resolveStack`/`openArm` home and
 `contrast-floor.spec.ts` imports it. C relaunches; seat 0 RESUME MODE re-dispatches `.b` on this ruling
 and then `.d`, `.e`, `.f` per the banked plan.
+
+## §0y ADDENDUM 2026-09-19 — X·P CLOSED UNVERIFIED: THE THREE TRIUMVIRATE ACTS (F-w4b-3 · F-w4c-1 · E-r2-1) RULED; ONE SUPPLEMENT WAVE `X.P.W4S` MINTED FOR THE ADJUDICATIVE CLOSE; Q-RC-1 · Q-RC-2 · F-w4c-2 RULED
+
+Track D ended with every X·P wave CLOSED and X.P.W4 `CLOSED (honest-RED: G-3 · G-10)`: the release
+close happened (seam contract, packed protocol, RC-P and its evaluator, packet, dated row, adoption
+gap recorded, harvest filed) and the VERIFIED verb did not move because two gates forbid it. Check 3
+named the owner of every remaining act as the triumvirate/orchestrator. Ruled here, under the
+begin-word's delegation, so that X·P does not end gated on acts that are mine to perform:
+
+- **F-w4b-3 · G-3's packaging cure — cure (a), a dated `W4.md` §4 addendum-beside, for a named unit
+  `X.P.W4.e` (Opus).** Three cures, none a workaround: **C1** the manifest — `files` ships the css
+  runtime and the Wasm artefact, `exports["./css"]` declares `import` + `types`; **C2** the runtime
+  dependency on `tsx/esm/api` DIES from runtime bytes (`js-alg.mjs:23`, `bounds.mjs:834`): the css
+  layer imports the library through the package's own built entry (self-reference or `dist/`), never
+  TS sources through a loader — declaring `tsx` a runtime `dependency` is REFUSED (it is a workaround
+  by another name); **C3** `build.mjs` emits the 33 frozen types as the package's OWN bytes
+  (byte-copied at build from the sha-pinned vendored 4.0.0 declaration, sha recorded in the emitted
+  header) and `ac1.d.ts` re-exports from that in-package file; no specifier escapes the package root.
+  GREEN = `packed-candidate-surface.mjs --seam …` reads `resolved 52 of 52`, `entryCount ≥ 2`,
+  `G3 GREEN`, double-run; evidence banked as NEW dated files beside `.b`'s (E-3). Positive control:
+  the staged consumer tree outside both repos.
+- **F-w4c-1 · G-10's count — shape (a).** The command is narrowed to rows inside a
+  `### Four-verb status` block: the sum is over the five files' status tables, never over dated
+  addenda that quote a table (W3.md `:836` / `:971` are E-3-lawful and stay). Expected open-state
+  sum **5**, close-state **0**. Dated addendum to `W4.md` §6 G-10.
+- **E-r2-1 · the adjudicative half of `.d` — unit `X.P.W4.f`, a FRESH Fable adjudicator (M-23 §1).**
+  It rules the 45 `PENDING-ADJUDICATION` seam cells by the §0w id-set — GROUND-C cells under §0v's
+  ruling (overflow is not a syntax error; range per production → `declared-divergence`, rulingId
+  GROUND-C, consumer direction stated), ID-1b · ID-4 · ID-2 cells by each class's predicate → a
+  terminal disposition (`identical` / `declared-divergence(rulingId)` / `incumbent-defect(rulingId)`),
+  no cell left `PENDING`; records the adjudication in `docs/tranches/X/parse-that/ADJUDICATION-W4.md`
+  (create) and re-runs `seam-contract-check.mjs`; re-runs G-1..G-10 at its own clock; performs the
+  **R-A stamp iff G-1..G-9 read GREEN** (else withholds again, by gate id — the falsifier binds);
+  carves the two COHESION cells under a performed stamp only; re-runs RC-P (V=4.0.0 stays FALSE on
+  PUBLISHED by construction — V is the X-W11 coordinate; the evaluation is recorded, not argued); files
+  the harvest `x-p-w4s.json`.
+- **F-w4c-2** — `registry/harvest/x-p-w3.json` is granted to `.f` (create; the §0p scratch-mirror
+  procedure).
+- **Q-RC-1 · conjunct 3's subject binding — the V-tarball arm.** EQUIVALENCE(V) binds to V's bytes:
+  the differential harness gains an arm whose candidate is the packed V's `/css` subpath (the
+  registry tarball, sha-identity printed), and only that arm's 0-MIRROR-DEFECT reading is RC-P's. A
+  document declaring "the candidate is what V ships" is a status word and is refused. `.f` lands the
+  arm in `rc-p-evaluate.mjs` (its command line and RELEASE-CONDITION.md §2.3 by dated addendum) or
+  returns the measured reason.
+- **Q-RC-2 · conjunct 4's vacuity — NOT vacuous.** A Wasm-free V has not shipped AC-1's twin;
+  ADMITTED reads FALSE with no subject. RC-P is unsatisfiable by a Wasm-free release by design. The
+  evaluator's reading stands.
+- **The two COHESION carves** stay unperformed until the stamp is performed; `.f` performs both or
+  neither.
+
+**Mechanism.** One supplement wave **`X.P.W4S` — the X·P adjudicative close** — is minted in the
+LEDGER (`planned (RULED 2026-09-19, §0y)`, opens after X.P.W4 CLOSED), spec = `W4.md` with its third
+dated addendum (units `.e` → `.f`, serial), record `execution/D/X-P-W4S.md`, run through the Track D
+chassis. X.P.W4's CLOSED row is never rewritten. Carried ids not named here (`U-d` · `F-w4a-1` ·
+`SEAM-DRIFT` · `R-w4b-2` · `F-ae1 / F-p1` · the W3 rounds-6–8 set · `F-p1`) are `.f`'s to adjudicate
+in-remit or to hand to X-W11's OUT-OF-WAVE roster by id — zero silent drops.
+
+## §0z ADDENDUM 2026-09-19 — X-W6 NOT-CONFORMANT AFTER PASS 3 (18 UNRELIEVED REDs = UNDONE WORK): THE SIX ESCALATIONS (E1–E6) RULED; THE WAVE RE-OPENS IN RESUME MODE
+
+Check 3 of X-W6 is right on both halves: 28 of 28 claimed GREENs reproduce, and 18 of 22 REDs are
+red because four units never sat and three landed one gate each. That is incompleteness, and the cure
+is dispatch. Ruled:
+
+- **E1 · re-dispatch.** Seat 0 re-opens X-W6 in RESUME MODE and dispatches `.b .c .e .g` whole,
+  resumes `.d` at d1 (and re-captures the d2 negative-control transcript so it prints RED in both
+  directions — Check 3 defect 3), `.h` at h1, `.i` at i1/i3; `.j` dispatches once X-W5 reads CLOSED
+  in the LEDGER (Track A is closing X-W5 now; if it is not yet CLOSED at `.j`'s turn, `.j` is the last
+  unit and waits on it, never skipped). ≤ `maxUnits` concurrent, never two on a shared modify path.
+- **E2 · the bounds grant (third return).** `test/gradient-parse.test.ts` — `modify`, unit `.a`'s
+  migration only (2 stops → 1; 3 stops → 2, arithmetically verified at both sites by Repair 2). Dated
+  addendum to `W6.md` §4. §7's `npx vitest run` must read GREEN before close.
+- **E3 · a3–a7's stale instruments.** `gate-axis.mjs` / `gate-gesture.mjs` read the pre-X-W4·C2
+  accessible name; the substitutes (`aria-valuenow` / `style.left`) are strictly more precise and are
+  the **commands of record** for a3–a7 by addendum. The instruments' re-point rides X-W11's
+  OUT-OF-WAVE roster to their owner (R-5); no seat edits an `execute, no write` row.
+- **E4 · the o25–o27 namespace.** Ordinals are allocated at the bytes: `o25-atmosphere-response`
+  stands; `o26-atmosphere-coldload` → **`o28-atmosphere-coldload.spec.ts`**; `o27-scene-contracts` →
+  **`o29-scene-contracts.spec.ts`** (`o26-aurora-perceptibility` and `o27-focus-affordance` ship
+  already and are untouched). Gate commands i3 · j1–j3 read the new paths by addendum.
+- **E5 · the `O-` relay row** for the d2 glass-forward ask (`W6-glass-ask-easing-readout.md`): `.d`
+  is granted `docs/tranches/V/coordination/INBOX.md` — mail rows only (E13), next `O-n`.
+- **E6 · h1 restated against the deliverable.** h2 measured no stripper: every stage sits at 100.0%
+  of the sRGB ceiling and the owner's seed is 12.9× outside it; the ceiling is the drawing buffer's
+  gamut, not a bug. The root cure widens the ceiling, not the tolerance: the blob's colour resolver
+  and its WebGL2 drawing buffer declare **`display-p3`** where the display offers it
+  (`matchMedia('(color-gamut: p3)')`, `gl.drawingBufferColorSpace`, a `display-p3` 2D resolver
+  canvas) and fall to sRGB otherwise. **h1 = the painted dominant chroma is within the stated ΔC of
+  the current colour's chroma gamut-mapped (css-color-4 §13 chroma reduction) to the buffer's colour
+  space**; chroma beyond the display's own gamut is honest-RED-by-physics, by id. `.h` lands it inside
+  its §4 rows or returns the exact path it lacks.
+- **R-3** (the `ictcp`/`jzazbz` URL round-trip revert, homeless) rides X-W11's OUT-OF-WAVE roster by
+  id. **H1's roster**: the close seat passes the wave's full commit roster to `gate-no-chassis.mjs`.
+
+Track A relaunches when its runner ends (X-W5's close); X-W6 resumes on this ruling, then X-W7 →
+X-W8 → X-W11 in runbook order. The LEDGER row stays PARTIAL until a fresh check promotes it.

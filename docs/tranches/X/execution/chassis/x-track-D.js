@@ -1,7 +1,7 @@
 export const meta = {
   name: 'x-track-D',
   description: 'Tranche X Track D — X·P (parse-that → fresh root): every wave in runbook §1.4 order through the spec-driven chassis (open → units → verify-only close → fresh check → bounded repair), ≤1 waves concurrent',
-  phases: [{"title":"X.P.W0"},{"title":"X.P.W1"},{"title":"X.P.W2"},{"title":"X.P.W3"},{"title":"X.P.W4"}],
+  phases: [{"title":"X.P.W0"},{"title":"X.P.W1"},{"title":"X.P.W2"},{"title":"X.P.W3"},{"title":"X.P.W4"},{"title":"X.P.W4S"}],
 }
 
 const TRACK = {
@@ -45,6 +45,13 @@ const TRACK = {
         "X.P.W3"
       ],
       "note": ".d fresh-Fable adjudicator = the ONLY X·P VERIFIED stamp; RC-P(V) evaluated by running the six commands against the registry coordinate V; OP-1 release word RULED at §0j; G-2 zero value.js source bytes"
+    },
+    "X.P.W4S": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W4.md",
+      "after": [
+        "X.P.W4"
+      ],
+      "note": "THE SUPPLEMENT WAVE minted by COHESION §0y (read §0y whole and W4.md's THIRD dated addendum at the file end — they ARE this wave's unit spec): exactly two serial units — X.P.W4.e (opus; packaging, F-w4b-3 cure (a): C1 manifest files+exports./css · C2 the tsx/esm/api runtime import dies, library imported through the package's own built entry, tsx-as-dependency REFUSED · C3 build.mjs emits the 33 frozen types as in-package bytes; gate G-3 resolved 52 of 52 double-run, evidence as NEW dated files beside .b's) THEN X.P.W4.f (fable; a FRESH adjudicator M-23 §1: rule the 45 PENDING-ADJUDICATION seam cells by the §0w id-set with GROUND-C per §0v, write ADJUDICATION-W4.md, re-run seam-contract-check, re-run G-1..G-10 with G-10's shape-(a) command, perform the R-A stamp IFF G-1..G-9 GREEN else withhold by gate id, COHESION carves only under a performed stamp, the Q-RC-1 V-tarball arm, harvest x-p-w3.json + x-p-w4s.json). X.P.W4's CLOSED row is NEVER rewritten; this wave has its own LEDGER row (planned, §0y) and its own record. The units' writable sets are exactly the third addendum's lists — no other §4 row applies to them"
     }
   },
   "stages": [
@@ -62,6 +69,9 @@ const TRACK = {
     ],
     [
       "X.P.W4"
+    ],
+    [
+      "X.P.W4S"
     ]
   ]
 }
