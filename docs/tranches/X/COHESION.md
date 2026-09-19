@@ -1725,3 +1725,31 @@ is dispatch. Ruled:
 
 Track A relaunches when its runner ends (X-W5's close); X-W6 resumes on this ruling, then X-W7 →
 X-W8 → X-W11 in runbook order. The LEDGER row stays PARTIAL until a fresh check promotes it.
+
+## §0aa ADDENDUM 2026-09-19 — X.P.W4S's `.e` ESCALATIONS (E-w4e-1 · E-w4e-2) RULED; UNIT `.e2` MINTED; `.f` OPENS ONLY ON `G3 GREEN`
+
+`.e` landed C1 · C3 and half of C2 (G-3 `0 of 52` → `19 of 52`, the runtime half 19/19) and returned
+two escalations by id rather than widening its own bounds. Both are upheld as measured and ruled:
+
+- **E-w4e-1 · G-3's TYPES half fails on the assertion form, not the tarball.**
+  `packed-candidate-surface.mjs:400` emits `export type __check_<N> = <N>;` and `ParseResult<T>` has
+  one required parameter, so one TS2314 collapses 33 rows. The cure is the general one, not the
+  one-token one: the generator reads each frozen name's type-parameter arity from the installed
+  declaration and instantiates it (`unknown` per parameter) — a check line that is valid for every
+  generic on the surface. `scripts/packed-candidate-surface.mjs` (`.b`'s file) is granted to unit
+  **`X.P.W4.e2`**; the change is to the check-line emitter only, and the negative control (a name
+  removed from the staged tree reads unresolved) must still fire.
+- **E-w4e-2 · `bounds.mjs:834` — cure (a).** `typescript/src/parse/packrat-entry.ts` exports
+  `packratEnter` / `packratExit` so the built `./packrat` subpath carries the latch reader;
+  `bounds.mjs` imports `@mkbabb/parse-that/packrat` and the `tsx` loader dies from shipped bytes
+  entirely (R-3 dies with it). The instrument's reading is preserved whole; cure (b) is refused (it
+  re-characterizes a measurement to avoid a build). Granted to `.e2`: `packrat-entry.ts` (export lines
+  only), the built `dist/` it regenerates, `bounds.mjs`.
+- **R-4** — `.f` banks the rebuilt `ac1.wasm`'s import listing as a NEW dated file beside `.b`'s.
+- **R-5** — an eslint configuration for `<p2>` is an architecture act; it rides X-W11's OUT-OF-WAVE
+  roster by id. **R-6** (no remote) is by construction (X.P.W0), not a defect.
+
+**Mechanism.** `X.P.W4S` resumes: `.e`'s commits stand (`93bcb83`; never re-dispatched); unit
+**`.e2`** (Opus) lands the two cures and re-runs G-3 on the whole — GREEN = `resolved 52 of 52`,
+`G3 GREEN`, double-run, positive control; then **`.f`** opens exactly as §0y states, iff `G3 GREEN`.
+The close's ordering ("`.f` must not run" before G-3) is adopted as the wave's serial lock.
