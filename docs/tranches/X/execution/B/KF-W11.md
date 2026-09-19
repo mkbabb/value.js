@@ -1479,3 +1479,265 @@ KILLED-with-rationale: SA-3 (axis) · D16 (target). Carried by path: D-9 (axis; 
 13 families declared in this receipt, 13 shas listed, 13 in ⟨cmd⟩ `git log --oneline 2c5f8c04..HEAD | wc -l` → `13`. Files touched: 11 in keyframes.js (10 at `a83f2df8` + `sequence-scene.test.ts`), 2 in value.js (this record; the evidence file). SFC line counts at close all ≤ 317 (evidence §5).
 
 **The sha KF.W11.i opens on: `ba12b2ba`** (keyframes.js `master`).
+
+---
+
+### KF.W11.c
+
+SERVED MODEL: claude-opus-5[1m]
+
+**Unit**: `KF.W11.c` — the spring packet (phase 2). Spec: `KF-W11.md` §Agent Units `:231-235` ·
+§Carry P3 `:180-185` · §B.1 rows 5/6 `:85-86` · §Bounds rows `:115-117` · §B.3(2) `:147` ·
+§Gates G-KFW11-3 `:293` · §Commit plan 4 `:379`. **Status: PARTIAL** — every row of P3 landed
+except **M-4→M-3**, whose bytes §Bounds assigns to another unit; that family and gate case (b) are
+returned as **ESCALATION KF11-E(c1)**. G-KFW11-3 GREEN on its runtime run (9/9, double-run) with case
+(b) absent-and-declared, never skipped. This unit's §0u rows **1 → 0**. One residual of this seat's
+own making is disclosed at the foot.
+**Evidence**: `docs/tranches/X/keyframes/evidence/W11/c-spring-packet-2026-09-19.md` (every census,
+re-anchor, re-derivation and transcript in full).
+
+**CRASH-RECOVERY (standing law, first act).** ⟨cmd⟩ `git -C ../keyframes.js status --porcelain --
+demo/scenes/spring test/demo/scenes` → **empty**; ⟨cmd⟩ `git status --porcelain --
+docs/tranches/X/execution/B/KF-W11.md docs/tranches/X/keyframes/evidence/W11` → **empty**.
+**ZERO inherited hunks on any path this unit may write — nothing to finish, nothing to rewrite, no
+inherited paths to name.** Dirty rows outside the set (keyframes' two untracked `VALUEJS-INBOUND-*`
+packets; value.js's `CARRY-LEDGER.md` and `scripts/dev/dev.sh`) were read and left untouched;
+`scripts/dev/dev.sh` never staged. **Open sha `ba12b2ba`.**
+
+#### Act 0 — the anchors, re-resolved at true bytes before any cure
+
+The banked coordinates bind to `81a56990` (470 L); the file at open is **476 L**, so each was
+re-resolved at both refs. **Five of seven hold exactly** (`:126-130` the on-stage copy · `:75-79` the
+false target-line invariant · `:179-180` the orphaned clamp comment · `:91-93` the painter comment ·
+`useSpringDerby.ts:100-101`). **Two MOVED and are re-anchored**: the *"fades in/out"* cell
+`:402-403` → **`:411`** (+8), and `SpringScene.vue:192-193`'s *"or taps the rail — `reseat` re-arms
+the loop directly"* → **`:250`** (+57). §B.1 row 6's own subject reproduces exactly: the clamp sites
+read `:210` and `:222` at this seat, as the spec measured. §Seq 6 verified before the first byte:
+`.a`'s glass-conformance carve arrived landed — ⟨cmd⟩ `grep -rc 'variant:' demo | grep -v ':0'` →
+**nothing** (4 → 0 at `.a`'s `dc3f0900`), and this unit never re-touched those two lines.
+
+#### Acts 1–9 — the packet in the record's own order
+
+1. **`8dcf5882` · C-1, the contract head — and it sizes the rest, as the brief says.** The chain
+   re-walked at the bytes: `reseat` armed a loop whose `frame()` returned false on
+   `machine.status !== "playing"` **before** `liveSpring.tickDt`, so on the scene's documented entry
+   state the marker and `aria-valuenow` responded while the ball stayed parked. **The repair is the
+   contract decision the record says it is, and it is written down in the file**: PLAY-intent owns the
+   unbounded sampler SWEEP and only the transport dispatches it; CHASE-intent is the rail's, runs the
+   SOLVER to its own settle, and withdraws itself. A cure that bought motion by dispatching PLAY
+   would have re-opened VERDICT #19 (the sampler swept forever at idle, ~33 % of a core) — the
+   regression `autoPlays: false` exists to hold, which superlative 5 protects — so the gate asserts
+   the sweep phase is **byte-identical** after a rail tap. Rest-on-entry is preserved exactly:
+   `chaseIntent` is born false and the mount's `startLoop()` still runs one frame that finds neither
+   intent and stops (asserted, not assumed). Riding, same meaning: **D-3**'s three-site flag pass
+   (`SPRING_BASE`, `respectReducedMotion: true` — under PRM `set target` snaps, so the settle check
+   is already true on frame 1 and the chase paints no travel); **KF-SS-8**'s scene half (the loop
+   advances the SELECTED channel, so Play no longer moves every clock except the one on stage);
+   **KF-SS-33**'s four dead exports with their censuses; **KF-SS-2 DECLARED** at the byte that blocks
+   it; and the **§0u ratchet row** `useSpringDemo.ts(1,29) TS6133` falling with the
+   `onScopeDispose` import it named — a deletion, never a suppression.
+2. **`0c8e4096` · the honest-instrument core M-2 + D-2 + D-7/C-8 + the prose.** **OP-3's
+   re-derivation was performed first and is pasted in the file**: at 375w the Card content box is
+   **279** and `overflow-hidden` clips at **303**, so value 1.18 puts the 36 px ball **44.2 px** off
+   the plate; at the `lg` measure the same 1.18 is **124 px** off. **The failure scales with width,
+   so no fixed-px reserve can hold a fractional overshoot** — that measurement is what chose the
+   cure. The rail now RESERVES the engine's documented 0.18 band at both ends and every mark reads
+   one `railPct` map, so the clamp is an explicit ALLOWANCE (not the silent `[0,1]` truncation M-2
+   convicts) and **a clamped ball is on the plate at every width by construction** — D-7's clip limb
+   dies with the geometry rather than by a cap. The rail became the gesture surface and the
+   container; an inset `.spring-track` is the value axis, so `.stage-field-x`'s quarter gridlines
+   mark **true value quarters** and the groove's right edge really is value 1 — the invariant
+   `:75-79` asserted and the old full-width geometry could not deliver. **D-2**: the settle pulse
+   moved off the line pinned to one end of a user-mutable axis onto the marker, which is the mark
+   that knows where the field rested; the line keeps an honest job as the value-1 scale reference;
+   and the marker's `transition: border-color` — dead CSS with no writer, N-3's half — is now written
+   by the pulse it was always shaped for. Riding: C-5/N-8 (the marker leaves the `left` property for
+   `translateX(<cqw>)`, retiring the per-pointermove read-after-write reflow pair), the derby tag's
+   own reserved gutter, **KF-SS-5/D-4**'s AA cure through `.status-badge`'s documented mix with the
+   opacity composite the adjudicated arithmetic convicts, N-2/MM-29's letter-spacing half, m-6 · m-7
+   · m-10 · N-7, and the two false prose surfaces.
+3. **M-4→M-3 — NOT LANDED. ESCALATION KF11-E(c1)**, stated in full below.
+4. **`14bf3a32` · M-5.** The guard and the flag the overlay renders on were two booleans with two
+   lifetimes (~1340 ms vs ~2040 ms), so a re-entry in that 700 ms window passed the guard and
+   `derbyTimers.length = 0` **orphaned** the pending hide-timer, which then unmounted the lanes
+   mid-race; the same truncation emptied the array `onScopeDispose` iterates. One state, and one
+   `cancelTimers()` that clears before it drops, used by re-entry and disposal alike. `derbyRunning`
+   deleted with its **LAW A census (§B.3(2))** pasted at the site — four lines, all in that file, zero
+   consumers elsewhere, no comment to bury. **Also here, disclosed**: the derby's settle now re-arms
+   the chase it owes — the egg used to reach `reseat(0)` and inherit its arming, and the
+   restore-the-pose settle this packet landed writes targets directly, so it must assert the intent
+   itself. Caught by walking the C-1 contract back through every target writer, not by a gate.
+5. **`db588faa` · N-1.** Both halves. The opacity transition moved from inside
+   `.spring-rail--derby` to the base rules (the modifier-only asymmetry: class-add faded, class-remove
+   SNAPPED), and the `v-if` overlay gained a real `<Transition>`; `@keyframes derby-fade-in` deleted
+   with its single consumer and its census. The PRM block keeps its local `animation: none` (**K-6** —
+   the universal override constrains duration and iteration-count, never `animation-name`) and
+   deliberately declares nothing for the overlay's transition, because that override's `!important`
+   would make it dead CSS — the very class this packet is clearing.
+6. **`cf5fb201` · the gesture spec (D-5 · m-11 · i-18 · N-3) — ONE spec, written at the seam.** Six
+   clauses in the file. N-3's whole vocabulary (the `dragging` ref `useDragScrub` has been returning
+   all along was never destructured); D-5's keyboard parity for the egg — **a key, not a reinstated
+   affordance**, because the on-stage legend's retirement is an owner decision left where the owner
+   put it; m-11's race-time refusal and i-18's pose restore (bytes in acts 1 and 4, the spec they
+   answer to here). Riding: **KF-SS-30**'s key collision (`preventDefault` without
+   `stopPropagation` while the global transport binds the same keys and the dispatcher exempts no
+   `div[role=slider]`).
+7. **`a683198b` · the a11y one-edit family D-6 + D-14 + N-4.** A heading and landmark where a grep
+   returned zero across seven files, on the sibling's own semantics; the badge becomes the
+   `role="status"` region (the 6 Hz restraint preserved — it flips on a transition, never per tick —
+   and it doubles as the derby's only announcement channel, since the overlay is correctly
+   `aria-hidden` decoration); and the name stops being an instruction naming a modality while
+   `aria-valuenow` stops announcing a 0-100 scale that appears nowhere in a `[0,1]` UI. The valuetext
+   deliberately omits the live value: that would make a slider announce 6×/s. Riding: KF-SS-32's
+   missing APG step ladder, `aria-keyshortcuts`, and **§B.1 row 5's second and last bare
+   `focus-ring` host** — `.b` cured `SquareScene.vue:46`, this cures `SpringTarget.vue:63`, and the
+   wave's two-site census now reads **zero applications**. The idiom was READ from `.b`'s landed
+   cure and its stated reasoning, never copied blind.
+8. **`c41a9a74` · the register/type/hygiene tail.** D-9 (`6cqi` had no query container and was
+   resolving as `6svw` — a viewport-keyed middle term collapsing to within ~3 px of
+   `--type-display-2`, the opposite of the author's intent; containerizing the header KEEPS that
+   intent where adopting the static rung would throw it away) · C-7's token name · N-2's "v"→"V" site
+   · D-11 (`overflow-x-hidden overflow-y-auto` + `justify-content: safe center`, with horizontal
+   clipping kept ON deliberately because the axis now reserves its own room) · D-13's last bypass of
+   the declared one-colour seam (the inverted-fallback twin deliberately untouched — it folds to its
+   banked home) · i-15 (a Map, not an append-only array holding four entries forever in a scene whose
+   posture is zero cost at rest) · i-16 (`will-change` bound to playing-or-travelling-or-racing; a
+   promotion hint that is always on is not a hint) · N-5 (the scene's ONE written engine-seam contract
+   cited a file deleted at `277c01ec`; the live consumers, measured, are `SpringTrace.vue` and
+   `StartingStyleTarget.vue`, neither named by the old sentence).
+9. **`48a1cdbe` · KF-SS-3/N-6's recompile seam + the scene sweep.** One generation token taken before
+   the first await and checked after each answers all three limbs: no debounce (a 0.01-step drag ran
+   a self-described HEAVY compile per input event), last-completed-wins (the copy-pasteable artifact
+   could be pinned to a curve the sliders no longer show — silent, on a fidelity-charter surface),
+   and the interleaved mutation of `entryAnim` — the facility's **Entry channel**, one markRaw object
+   the transport and stage both read — after an await. Disposal bumps the generation so an in-flight
+   compile cannot land in a dead scene. Sweep: KF-SS-23 (a guard that cannot fire is a claim that
+   something is being checked — and it read as the live gate, which is why a genuinely missing gate
+   one level up went unnoticed) · KF-SS-27 · KF-SS-19 · KF-SS-29 · KF-SS-34.
+10. **`cc8ef498` · `test(… G-KFW11-3)`** — the born-RED witness; see the gate table.
+
+#### Gate readings — BEFORE → AFTER (every figure double-run)
+
+| gate / clause | command | BEFORE (`ba12b2ba`) | AFTER (`cc8ef498`) |
+|---|---|---|---|
+| **G-KFW11-3** runtime | `npx vitest run --project demo test/demo/scenes/spring-derby-truth.test.ts` | `No test files found` · same | **9 passed (9)** · **9 passed (9)** — **GREEN** |
+| G-KFW11-3 byte (RECORDED, not acceptance) | `grep -c 'class="spring-rail stage-field-x focus-ring' …/SpringTarget.vue` | **1** · **1** | **0** · **0** — disposition below |
+| **§0u ratchet**, this unit's rows | `npx vue-tsc --noEmit -p tsconfig.json \| grep 'error TS' \| grep -c 'demo/scenes/spring'` | **1** (`useSpringDemo.ts(1,29) TS6133 'onScopeDispose'`) | **0** · **0** |
+| demo suite | `npm run test:demo \| tail` | 39 files / 286 tests (wave baseline) | **44 / 364 passed** · **44 / 364 passed** |
+| test-config leg | `npx tsc --noEmit -p tsconfig.test.json` | — | **0** rows in this unit's files |
+| eslint | `npx eslint demo/scenes/spring test/demo/scenes/spring-derby-truth.test.ts` | — | clean, exit 0 |
+| `git diff --check` | — | — | clean |
+| §Seq 6 — `.a`'s carve | `grep -rc 'variant:' demo \| grep -v ':0'` | nothing | nothing · nothing |
+
+**The byte clause's disposition, as §Gates asks for it in the receipt.** It is *recorded*, not an
+acceptance threshold, and it reads **0** for two reasons that are both cures this packet owns: the
+a11y family replaced the bare `focus-ring` with `kf-focus-ring` (§B.1 row 5's last host; the bare-class
+census over `demo` now returns **zero applications**), and `stage-field-x` moved off the rail onto
+the inset value track, where its gridlines mark true value quarters instead of a band that includes
+the overshoot reserve. Nothing the clause was watching was weakened — the ring is stronger and the
+field is honest.
+
+**Born-RED basis, per case** (the banked RED form is *"No test files found"*, reproduced at open;
+the per-case pre-cure byte each assertion contradicts is derived in the evidence file §9): (a) the
+`playing`-only gate ahead of `tickDt`; (c) `derbyRunning` clearing at 1340 ms so a 1500 ms launch was
+admitted and took `vi.getTimerCount()` 1 → 7; (d) `settle = () => reseat(0)` and the pulse on the
+fixed line with `border-right-color` keyframes.
+
+**§3a note**: the M-5 race was reproduced under a **deterministic** harness (a controllable rAF queue
+— the idiom this tree already owns at `scene-raf-leak.test.ts` — plus vitest fake timers), so the
+three-reproduction halt condition was never reached and nothing is escalated on that account.
+
+#### ESCALATION KF11-E(c1) — M-4→M-3's bytes are not this unit's
+
+§Commit plan 4 (`:379`) gives `.c` the commit *"M-4→M-3 trace onto `.fn` — parser, guards, regex die
+together"* and §Carry P3 (`:183`) lists the row. **But the cure's bytes are the ~40-line regex
+reparse at `SpringTrace.vue:50-86`, and §Bounds `:118` assigns that file to unit `.e`** — `:115-116`
+do not list it, §Disjointness (`:151`) enumerates exactly three serially shared paths and this is not
+one of them, and the dispatch card for `.c` does not carry it.
+
+**This seat did not write the file.** The standing law is explicit ("any write outside it is an
+ESCALATION — stop and return it"), and the swap is indivisible at its home record ("the swap deletes
+M-3 and both dead guards"). Landing half — changing what `SpringTarget` passes down while the parser
+still receives it — would ship a broken prop surface; minting a numeric export in
+`useSpringLinearStops.ts` for a consumer that does not yet exist would be dead code on speculation.
+**No LAW A census was run for this family, because its delete was not authorized.**
+
+**Consequences, stated plainly.** Gate case **(b)** (*the trace's first/last plotted x = 0/100*) is
+**absent and declared at its place in the test file — not skipped, not weakened**. §Sequencing 2
+has no M-3 sha to name: **`.e` opens on this unit's terminal sha `cc8ef498`**, at which the prop
+surface is **unchanged** (`<SpringTrace :response :damping-fraction>`), so `.e` opens on exactly the
+surface it banked. The row is **carried, not killed**.
+
+**The ask, one of two.** (i) Widen `.c`'s set by the single file `SpringTrace.vue` for the M-3 carve,
+serial before `.e`, and re-dispatch this unit for that one family; or **(ii) re-home the M-4→M-3
+commit to `.e`**, whose §Bounds row already owns the file and whose own core (D-1 + N-1 + N-2 +
+C-2/L-3) is the same file and the same family, striking §Sequencing 2's dependency. **(ii) is the
+smaller act and this seat's recommendation** — §Carry P4 `:189` says `.e` *"consumes the new prop
+surface"*, and under (ii) there is no new prop surface to consume, only one file with one owner.
+
+#### Named to other units, never reached across
+
+**KF-SS-8's ribbon half → KF.W13** (its C-2 time-space contract; OP-6's declared seam, no ribbon byte
+written here). **KF-SS-3's API signal → KF.W5** (C-m6: `springTimingFunction` cannot yield `.fn`
+without paying for eager `.css` — RECORDED, zero `src/**` bytes). **N-2's third site** (ζ U+03B6
+rendered as Ζ U+0396) and **D-10** (the label rows — the plot's `overflow: visible` argues for MORE
+clearance, so the edit is the PLOT's) → **`.e`**. **KF-SS-2's routing** → the owning wave: the
+machine's `applyEffects` has **no `RESET` arm** (PLAY/PAUSE/RESUME/SCENE_READY only), so the dock's
+Reset, `R` and `Escape` drive no adapter; both candidate bytes are `demo/state/**`, and a scene-side
+watcher sniffing the reset signature out of the persisted snapshot would be a shim around a missing
+contract arm. **KF-SS-22 → KF.W13** (the second reverse authority is the ribbon's). **KF-SS-4 → `.g`**;
+**KF-SS-24 · -25 · -28 · -37 → `.f`**. **m-12 CARRIED** (extraction needs a new file; the writable set
+is enumerated by filename). **KF-SS-41 RECORDED INFO.** **Repeating `.b`'s and `.d`'s ask**:
+`SpringTarget.vue` cannot be MOUNTED under vitest — glass-ui's `Card` chunk resolves
+`@mkbabb/keyframes.js` by bare specifier out of `node_modules` and the demo project has no alias —
+so the mount-shaped clauses are witnessed over the settled bytes. **No mock, no `node_modules` patch,
+no skip, no widened timeout**; the one-line fix is in `vitest.config.ts`, a §Bounds Do-NOT-touch row.
+
+#### Producer rows surfaced (for `.j`'s SS-6 relay)
+
+**NONE new from this packet.** The glass-producer surface this unit touched is `Card` (consumed, not
+modified) and `Button` (import path only). `KF-SS-5/D-4`'s AA cure was landed **consumer-side**
+through the repo's own documented `.status-badge` mix — the producer needs nothing. Stated positively
+so `.j` does not go looking.
+
+#### E13 mail sweep at this seat's clock
+
+Four paths swept read-only, Status read by **cell position** (never a bare `grep -i unread`),
+`INBOX.md` self-excluded. (1) `V/coordination/` — newest = the four 2026-09-18 `value-4.1` letters,
+ours and rowed. (2) `../glass-ui/docs/tranches/BK/coordination/` — newest =
+`glass-outbound-2026-09-18-valuejs-o26-reply.md` = **I-35, rowed**. (3)
+`../keyframes.js/docs/tranches/V/coordination/` — newest inbound-grammar file =
+`VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md` = **O-21, ours, delivered**. (4)
+`../sci-report/atlas/docs/tranches/P/coordination/` — newest = **O-12, ours**; path UNMOVED.
+⟨cmd⟩ `grep -cE '^\| [IO]-[0-9]+[a-z]? \|' INBOX.md` → **79** rows; positional UNREAD scan → **0**.
+**ZERO unrowed letters, ZERO UNREAD in scope; no new `I-n` minted.**
+
+#### RESIDUAL c-R1 — a defect caused by this seat, disclosed loud
+
+While amending **my own** commit's message (one word had been eaten by shell backtick substitution),
+HEAD had moved between two calls: sibling unit **`.h`** landed `c0d81c7d` in that gap, and
+`git commit --amend` rewrote **that** commit's message with mine. **Detected and repaired in the same
+minute**: `.h`'s original message was recovered from `c0d81c7d` and re-amended back. ⟨cmd⟩
+`git rev-parse c0d81c7d^{tree}` and `git rev-parse 73b424da^{tree}` → **`5d87991ef3ac2ed18f8d7d2f7be3cf67d2deffbc`
+both**; `.h`'s tree, message, author and content are **byte-identical** and nothing of its work was
+altered or lost. **The residual is the SHA ONLY: `.h`'s commit is now `73b424da`, not `c0d81c7d`.**
+If `.h`'s receipt prints `c0d81c7d`, that is the same content at a superseded id (still resolvable
+from the reflog, no longer on `master`); **`.j` should audit `.h`'s roster against `73b424da`.**
+**Rule taken, and it belongs in the wave's standing law: in a four-track shared index,
+`git commit --amend` is never safe — HEAD is not yours between two calls.** Every commit after this
+was written with `-F <file>` so no shell substitution could eat a word in the first place; my own
+`0c8e4096` keeps its one eaten word rather than risk a third amend (content unaffected).
+
+#### SELF-COUNT
+
+**9 commits** in this receipt, 9 shas listed, and ⟨cmd⟩ `git log --oneline ba12b2ba..HEAD | grep -c
+'X.KF.W11.c'` → **9**. **Files written: 7 in keyframes.js** (`SpringTarget.vue` · `SpringScene.vue` ·
+`useSpringDemo.ts` · `useSpringDerby.ts` · `useSpringLinearStops.ts` · `useCompiledEntry.ts` ·
+`test/demo/scenes/spring-derby-truth.test.ts`) — **every one a `.c` row of §Bounds `:115-116` or the
+`:130` create row; zero writes outside the set; zero `src/**` bytes; `useSpringKeyframesEditor.ts`
+read as a witness and never written; `springPresets.ts` and `springKeys.ts` not needed and not
+touched** — **plus 2 in value.js** (this record; the evidence file). **P3 rows: 41 LANDED · 1
+ESCALATED (M-4→M-3) · 10 named to their owning units · 1 carried (m-12) · 1 recorded INFO
+(KF-SS-41).** Gate cases: **3 of 4 landed, 1 returned with its cure.**
+
+**The sha `.e` opens on: `cc8ef498`** (keyframes.js `master`) — **not an M-3 sha; see KF11-E(c1).**
