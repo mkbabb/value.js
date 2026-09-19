@@ -1,0 +1,336 @@
+{
+  "servedModel": "claude-opus-5[1m]",
+  "artefact": "W4.md §8 artefact 5 — gradient-grammar.json (the C1–C4 key-by-key style.left deltas)",
+  "unit": "X.W4.c",
+  "wave": "X-W4",
+  "track": "A · X·V (value.js)",
+  "sittingDate": "2026-09-17",
+  "measuredAt": "2026-09-19 01:17:51 EDT",
+  "gateSpec": "e2e/smoke/a11y-gradient-stop-grammar.spec.ts",
+  "command": "npx playwright test --project=smoke e2e/smoke/a11y-gradient-stop-grammar.spec.ts",
+  "cell": {
+    "project": "smoke",
+    "engine": "chromium",
+    "viewportFine": "1280x720",
+    "viewportCoarse": "412x915 (in-file test.use, the o27 idiom)",
+    "route": "/#/gradient (cold, about:blank hop)",
+    "rootFontSizePx": 16
+  },
+  "readoutLaw": "GRADSTOP-A §6 — every position below is the handle's own left (computed px + the inline declaration); the whole-percent accessible name is never read for a position.",
+  "bornRed": {
+    "runs": 2,
+    "identical": true,
+    "verdict": "5 of 5 tests failed",
+    "C1": "Tab never reached the caret in 140 presses — no keyboard add seat exists",
+    "C2": [
+      {
+        "role": null,
+        "min": null,
+        "max": null,
+        "now": null,
+        "text": null,
+        "name": "Gradient stop at 0%"
+      },
+      {
+        "role": null,
+        "min": null,
+        "max": null,
+        "now": null,
+        "text": null,
+        "name": "Gradient stop at 50%"
+      },
+      {
+        "role": null,
+        "min": null,
+        "max": null,
+        "now": null,
+        "text": null,
+        "name": "Gradient stop at 100%"
+      }
+    ],
+    "C3": {
+      "home": 231.75,
+      "end": 227.359,
+      "unitPxPerPercent": -0.0439,
+      "defects": 8,
+      "note": "Home and End were no-ops, so the derived unit is nonsense — which is the RED"
+    },
+    "C4fine": [
+      {
+        "w": 20.7,
+        "h": 20.7,
+        "hitW": 24,
+        "hitH": 24,
+        "face": null
+      },
+      {
+        "w": 20.7,
+        "h": 20.7,
+        "hitW": 24,
+        "hitH": 24,
+        "face": null
+      }
+    ],
+    "C4coarse": [
+      {
+        "w": 20.7,
+        "h": 20.7,
+        "hitW": 44,
+        "hitH": 44
+      },
+      {
+        "w": 20.7,
+        "h": 20.7,
+        "hitW": 44,
+        "hitH": 44
+      }
+    ],
+    "paintedBoxNote": "20.7 is the PAINTED box at that run (a residual scale inflates getBoundingClientRect by ~3.5%; the settled box is 20.0). Either reading is under the 24 floor, so the RED is unmoved."
+  },
+  "after": {
+    "runs": 2,
+    "identical": true,
+    "verdict": "5 of 5 tests passed",
+    "C1": {
+      "handlesBefore": 2,
+      "afterKeyboardEnter": 3,
+      "afterKeyboardSpace": 4,
+      "afterPointerClick": 5,
+      "caretLeftPx": 252,
+      "mintedLeftPx": 252,
+      "mintedInline": "calc(55% - 1px)",
+      "pointerEventsDuringKeyboardJourney": 0
+    },
+    "C2": [
+      {
+        "role": "slider",
+        "min": "0",
+        "max": "100",
+        "now": "0",
+        "text": "Position 0%",
+        "name": "Gradient stop 1 of 3"
+      },
+      {
+        "role": "slider",
+        "min": "0",
+        "max": "100",
+        "now": "50.2",
+        "text": "Position 50.2%",
+        "name": "Gradient stop 2 of 3"
+      },
+      {
+        "role": "slider",
+        "min": "0",
+        "max": "100",
+        "now": "100",
+        "text": "Position 100%",
+        "name": "Gradient stop 3 of 3"
+      }
+    ],
+    "C3": {
+      "homePx": 10,
+      "endPx": 450,
+      "unitPxPerPercent": 4.4,
+      "defects": 0,
+      "presses": [
+        {
+          "key": "Home",
+          "beforePx": 230.875,
+          "afterPx": 10,
+          "deltaPx": -220.875,
+          "inlineStyleLeft": "calc(0% + 10px)"
+        },
+        {
+          "key": "ArrowLeft",
+          "beforePx": 10,
+          "afterPx": 10,
+          "deltaPx": 0,
+          "inlineStyleLeft": "calc(0% + 10px)"
+        },
+        {
+          "key": "End",
+          "beforePx": 10,
+          "afterPx": 450,
+          "deltaPx": 440,
+          "inlineStyleLeft": "calc(100% - 10px)"
+        },
+        {
+          "key": "ArrowRight",
+          "beforePx": 450,
+          "afterPx": 450,
+          "deltaPx": 0,
+          "inlineStyleLeft": "calc(100% - 10px)"
+        },
+        {
+          "key": "Home",
+          "beforePx": 450,
+          "afterPx": 10,
+          "deltaPx": -440,
+          "inlineStyleLeft": "calc(0% + 10px)"
+        },
+        {
+          "key": "PageUp",
+          "beforePx": 10,
+          "afterPx": 54,
+          "deltaPx": 44,
+          "inlineStyleLeft": "calc(10% + 8px)"
+        },
+        {
+          "key": "PageDown",
+          "beforePx": 54,
+          "afterPx": 10,
+          "deltaPx": -44,
+          "inlineStyleLeft": "calc(0% + 10px)"
+        },
+        {
+          "key": "ArrowUp",
+          "beforePx": 10,
+          "afterPx": 14.391,
+          "deltaPx": 4.391,
+          "inlineStyleLeft": "calc(1% + 9.8px)"
+        },
+        {
+          "key": "ArrowDown",
+          "beforePx": 14.391,
+          "afterPx": 10,
+          "deltaPx": -4.391,
+          "inlineStyleLeft": "calc(0% + 10px)"
+        },
+        {
+          "key": "ArrowRight",
+          "beforePx": 10,
+          "afterPx": 14.391,
+          "deltaPx": 4.391,
+          "inlineStyleLeft": "calc(1% + 9.8px)"
+        },
+        {
+          "key": "ArrowLeft",
+          "beforePx": 14.391,
+          "afterPx": 10,
+          "deltaPx": -4.391,
+          "inlineStyleLeft": "calc(0% + 10px)"
+        },
+        {
+          "key": " ",
+          "beforePx": 10,
+          "afterPx": 10,
+          "deltaPx": 0,
+          "inlineStyleLeft": "calc(0% + 10px)"
+        },
+        {
+          "key": "ArrowRight",
+          "beforePx": 10,
+          "afterPx": 14.391,
+          "deltaPx": 4.391,
+          "inlineStyleLeft": "calc(1% + 9.8px)"
+        },
+        {
+          "key": "ArrowRight",
+          "beforePx": 14.391,
+          "afterPx": 18.797,
+          "deltaPx": 4.406,
+          "inlineStyleLeft": "calc(2% + 9.6px)"
+        },
+        {
+          "key": "ArrowRight",
+          "beforePx": 18.797,
+          "afterPx": 23.188,
+          "deltaPx": 4.391,
+          "inlineStyleLeft": "calc(3% + 9.4px)"
+        },
+        {
+          "key": "Escape",
+          "beforePx": 23.188,
+          "afterPx": 10,
+          "deltaPx": -13.187,
+          "inlineStyleLeft": "calc(0% + 10px)"
+        },
+        {
+          "key": " ",
+          "beforePx": 10,
+          "afterPx": 10,
+          "deltaPx": 0,
+          "inlineStyleLeft": "calc(0% + 10px)"
+        },
+        {
+          "key": "ArrowRight",
+          "beforePx": 10,
+          "afterPx": 14.391,
+          "deltaPx": 4.391,
+          "inlineStyleLeft": "calc(1% + 9.8px)"
+        },
+        {
+          "key": "ArrowRight",
+          "beforePx": 14.391,
+          "afterPx": 18.797,
+          "deltaPx": 4.406,
+          "inlineStyleLeft": "calc(2% + 9.6px)"
+        },
+        {
+          "key": " ",
+          "beforePx": 18.797,
+          "afterPx": 18.797,
+          "deltaPx": 0,
+          "inlineStyleLeft": "calc(2% + 9.6px)"
+        },
+        {
+          "key": "Escape",
+          "beforePx": 18.797,
+          "afterPx": 18.797,
+          "deltaPx": 0,
+          "inlineStyleLeft": "calc(2% + 9.6px)"
+        }
+      ]
+    },
+    "C4fine": [
+      {
+        "w": 24,
+        "h": 24,
+        "hitW": 24,
+        "hitH": 24,
+        "faceW": 20,
+        "faceH": 20,
+        "rootFontSize": 16
+      },
+      {
+        "w": 24,
+        "h": 24,
+        "hitW": 24,
+        "hitH": 24,
+        "faceW": 20,
+        "faceH": 20,
+        "rootFontSize": 16
+      }
+    ],
+    "C4ring": {
+      "shadow": "rgba(0, 0, 0, 0.85) 0px 0px 0px 1px, rgba(255, 255, 255, 0.92) 0px 0px 0px 3px",
+      "outerSpreadPx": 3,
+      "clippers": [],
+      "focusVisible": true
+    },
+    "C4coarse": [
+      {
+        "w": 24,
+        "h": 24,
+        "hitW": 44,
+        "hitH": 44
+      },
+      {
+        "w": 24,
+        "h": 24,
+        "hitW": 44,
+        "hitH": 44
+      }
+    ]
+  },
+  "grammarKey": {
+    "Home": "0% — unconditional (W4.md §6 C3 / VISUAL-CONSTITUTION §5.2)",
+    "End": "100% — unconditional",
+    "PageUp/PageDown": "±10%",
+    "ArrowUp/ArrowRight": "+1% (Shift ±10%)",
+    "ArrowDown/ArrowLeft": "-1%",
+    "Space": "§5.2 row 131 grab/drop — the grab itself moves nothing (delta 0, by design: a Space that teleported would be the C11/G5 grab-teleport species, and an ordinal swap is banned by GRADSTOP-A §14/§15 until X-W6). Its effect on style.left is measured across the gesture: grab → 3x ArrowRight (+13.187px) → Escape restores the origin (-13.187px); and grab → 2x ArrowRight → Space DROPS, after which Escape moves nothing (0).",
+    "Delete/Backspace": "removes the stop (3 → 2 handles)",
+    "Escape": "ungrabbed: clears the selection (the remove chip retires) and never moves the stop"
+  }
+}
