@@ -165,9 +165,37 @@ export function useAtmosphere(
     // the field is resolved — the WebGL getter AND the resolvedPalette below
     // consume the SAME guarded config, so the painted field, the CSS fallback,
     // and the D6 ink referent all agree on the offset field lightness.
+    const { isDark } = useGlobalDark();
+
+    // --- X-W6 · X.W6.i (i2): THE DARK lBAND DOOR, LANDED ON THE FIELD ---
+    // The three sites that routed this to a later wave read that the atoms
+    // door "ships no scheme/lBand" and that "seed-atom resolution clobbers a
+    // base-palette override". That was true of the dist those sites were
+    // written against. It is FALSE of the installed 7.0.0, probed at the
+    // packed bytes: `resolveAtoms` forwards `lightnessScheme` → `deriveAurora`'s
+    // `scheme` and `lBand` → `lBand`, and the producer's own declaration calls
+    // the light-band-in-dark result "the dark-leg defect" by name. Measured
+    // through the door at the seed `oklch(0.66 0.16 28)`:
+    //     plain                        L 0.5000 0.6067 0.7133 0.8200
+    //     lightnessScheme: "dark"      L 0.1800 0.2600 0.3400 0.4200
+    //     lBand: [0.10, 0.34]          L 0.1000 0.1800 0.2600 0.3400
+    // So the field takes the dark band through the SHIPPED door — a config
+    // option, never a forked derive and never a local palette rewrite.
+    //
+    // The atoms stay the tuning surface: an explicit `lightnessScheme` or
+    // `lBand` authored in AuroraPane WINS, because this only supplies the
+    // band the shell implies when the atoms have not spoken. The ground's own
+    // scheme-banding (below) is a separate contract and is untouched.
+    const fieldAtoms = (): AuroraAtoms =>
+        !isDark.value ||
+        auroraAtoms.lightnessScheme !== undefined ||
+        auroraAtoms.lBand !== undefined
+            ? auroraAtoms
+            : { ...auroraAtoms, lightnessScheme: "dark" };
+
     const aurora = useAurora(
         atmosphereCanvas,
-        () => guaranteeSeamOffset(resolveCalibratedAtmosphere(auroraAtoms), auroraAtoms.seed),
+        () => guaranteeSeamOffset(resolveCalibratedAtmosphere(fieldAtoms()), auroraAtoms.seed),
         { onInitError: (err) => console.warn("[aurora] init failed:", err) },
         { renderMode: auroraRenderMode },
     );
@@ -178,7 +206,7 @@ export function useAtmosphere(
     // extra resolve here stays off the per-event hot path.
     const resolvedPalette = computed(
         () =>
-            guaranteeSeamOffset(resolveCalibratedAtmosphere(auroraAtoms), auroraAtoms.seed)
+            guaranteeSeamOffset(resolveCalibratedAtmosphere(fieldAtoms()), auroraAtoms.seed)
                 .palette,
     );
 
@@ -223,17 +251,18 @@ export function useAtmosphere(
     // One writer: the atmosphere owns the boot material because it owns the
     // derived field. Scheme rides the record so the fouc-guard can refuse the
     // other band's material (F-6 dark honesty).
-    const { isDark } = useGlobalDark();
     // The GROUND material is SCHEME-BANDED (F-6's cure): in dark the ground
     // derives through the producer's own shipped dark band
     // (`deriveAurora(seed, { scheme: "dark" })` — consuming a producer
     // option, never forking the derive), so a dark boot grounds in dark
     // material B0→B2 — and the first sink write for the DEFAULT seed is
     // byte-identical to the FIRST_VISIT_GROUND dark constant (same derive).
-    // The FIELD itself remains light-band in dark — the atoms door ships no
-    // scheme/lBand (GAP-L2, probed at this dist: seed-atom resolution
-    // clobbers a base-palette override) — that half rides packet P1 and the
-    // W7 re-verify; the ground meets the dark field the day the atom lands.
+    // X-W6 · i2: the FIELD now takes the same band through the atoms door
+    // (see `fieldAtoms` above), so "the ground meets the dark field the day
+    // the atom lands" is TODAY. The two derives stay separate on purpose —
+    // the ground is pinned to the RAW producer derive by the
+    // FIRST_VISIT_GROUND byte-identity above, while the field rides the
+    // calibrated base; collapsing them would silently re-point that pin.
     const groundPalette = computed(() => {
         const fieldPalette = resolvedPalette.value; // tracks seed/atom edits
         if (!isDark.value) return fieldPalette;

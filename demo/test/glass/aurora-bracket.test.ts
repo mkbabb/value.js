@@ -26,10 +26,15 @@ import {
  * resolution (the resolveAtoms(atoms, base) producer seam).
  *
  * This is the NOW-half resolver test; the FULL-composition re-run (hueSpread
- * formula · counterpoint · drift · lBand) is a W7 verify-at-cut row (Q2-FULL,
+ * formula · counterpoint · drift) is a W7 verify-at-cut row (Q2-FULL,
  * P1-gated). O-26 measures the RENDERED perceptibility separately — O-6 is
  * deliberately the atom-envelope leg, named as such (never a proxy for the
  * render truth).
+ *
+ * X-W6 · X.W6.i (i2) — `lBand` has LEFT that deferred list and is asserted
+ * here instead. It was routed to W7 as atom-unreachable; re-probed at the
+ * installed 7.0.0 that is false, so the door is now covered by the two cases
+ * at the foot of this file rather than by a comment pointing at a wave.
  */
 
 const MID_C_SEED = "oklch(0.66 0.16 28)"; // the T-26 judge family's warm seed
@@ -181,5 +186,47 @@ describe("O-14 · auroraHarmonyStops ≡ the calibrated resolve (strict)", () =>
                 expect(Number(m![3])).toBeCloseTo(direct[i]!.h, 4);
             });
         }
+    });
+});
+
+describe("X.W6.i · i2 — the dark lBand door is REACHABLE through the atoms", () => {
+    // The three sites that deferred this row read that the atoms door "ships
+    // no scheme/lBand" and that "the seed-atom derive clobbers a base palette
+    // override". These two cases are the refutation, asserted rather than
+    // narrated — and they are written in the BREAKING direction: they fail the
+    // day the door stops forwarding, which is the only way the deferral could
+    // ever have been right.
+    const band = (config: { palette: { L: number }[] }) =>
+        config.palette.map((stop) => stop.L);
+
+    it('`lightnessScheme: "dark"` moves the WHOLE derived ramp into the dark band', () => {
+        const seedAtoms = { ...DEFAULT_AURORA_ATOMS, seed: MID_C_SEED };
+        const light = band(resolveAtoms(seedAtoms));
+        const dark = band(resolveAtoms({ ...seedAtoms, lightnessScheme: "dark" }));
+
+        expect(dark).toHaveLength(light.length);
+        // not clobbered: every stop moved, and moved DOWN
+        dark.forEach((L, i) => {
+            expect(L, `stop ${i} must leave the light band`).toBeLessThan(light[i]!);
+        });
+        // the producer's declared dark band is [0.18, 0.42]
+        expect(Math.min(...dark)).toBeGreaterThanOrEqual(0.18);
+        expect(Math.max(...dark)).toBeLessThanOrEqual(0.42);
+        expect(Math.min(...light)).toBeGreaterThan(0.42);
+    });
+
+    it("an explicit `lBand` OVERRIDES the scheme and is honoured exactly", () => {
+        const seedAtoms = { ...DEFAULT_AURORA_ATOMS, seed: MID_C_SEED };
+        const LO = 0.1;
+        const HI = 0.34;
+        const banded = band(
+            resolveAtoms({
+                ...seedAtoms,
+                lightnessScheme: "dark",
+                lBand: [LO, HI] as const,
+            }),
+        );
+        expect(Math.min(...banded)).toBeCloseTo(LO, 4);
+        expect(Math.max(...banded)).toBeCloseTo(HI, 4);
     });
 });

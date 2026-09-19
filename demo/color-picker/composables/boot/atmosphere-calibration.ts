@@ -23,11 +23,21 @@
  *
  * Q2-FULL (P1-GATED, re-judged at W7 — deliberately NOT landed here):
  * chroma-adaptive hueSpread [24°,64°] · the +165° counterpoint stop ·
- * drift ×1.6 · the dark lBand — all atom-unreachable at the consumed dist
- * (probed: the seed-atom derive clobbers a base palette override). The
- * POINTER retune is DEFERRED until P1's honesty fix lands (F-10 — two of
- * three axes are structurally dead shader paths on smooth; never calibrate
- * against dead axes).
+ * drift ×1.6. The POINTER retune is DEFERRED until P1's honesty fix lands
+ * (F-10 — two of three axes are structurally dead shader paths on smooth;
+ * never calibrate against dead axes).
+ *
+ * X-W6 · X.W6.i (i2) — THE DARK lBAND HAS LEFT THIS LIST. It was carried
+ * here as "atom-unreachable at the consumed dist (probed: the seed-atom
+ * derive clobbers a base palette override)". Re-probed at the installed
+ * 7.0.0 packed bytes that is FALSE: `resolveAtoms` forwards
+ * `lightnessScheme` → `deriveAurora`'s `scheme` and `lBand` → `lBand`, both
+ * measured to move the derived ramp (light L 0.50–0.82 → dark L 0.18–0.42;
+ * an explicit `lBand: [0.10, 0.34]` honoured exactly). The band now lands on
+ * the field in `useAtmosphere`'s `fieldAtoms`, through the shipped door.
+ * This module is deliberately unchanged by that: the scheme is a SHELL fact
+ * and this resolver is pure, so `aurora-harmony-stops.ts` and the O-6
+ * bracket test keep calling it with no shell to know about.
  *
  * THE DRAG PATH IS BYTE-IDENTICAL: this module changes only the RESOLVED
  * CONFIG's ambient knobs; the per-frame re-seed mechanism (the rAF coalesce
