@@ -1233,3 +1233,187 @@ row and no COHESION cell was written. Both or neither: neither.
 - **No workaround anywhere**: no `try/catch` around a defect, no `test.skip`, no allowlist, no producer
   selector, no `node_modules` patch, no re-worded `PENDING` head to satisfy a grep, no edit to the
   checker, no edit to `evidence/W4/**`, no COHESION or four-verb byte.
+
+---
+
+# RESUME — THIRD SITTING (2026-09-19, on COHESION §0ab)
+
+SERVED MODEL: claude-opus-5[1m] (SEAT 0, Track D · X·P; sitting of record 2026-09-17, the owner's
+begin-word, COHESION §0j). This section is **appended**; no byte above it is rewritten (E-3).
+X.P.W4's CLOSED row is untouched.
+
+## Open — THIRD SITTING
+
+**Ruling of record: COHESION §0ab** (`COHESION.md:1757`, landed `e105059c`). `.f` did the
+adjudicative half whole — 45 cells → 42 `declared-divergence` · 2 candidate defects (F-w4f-2) · 0
+`PENDING`; 39 premise rows retired. G-1 then reads RED **because the checker was built before the
+ruling it now measures** (E-w4f-1). §0ab mints three units: `.g` ∥ `.h` (disjoint) → `.f2`.
+
+| id | condition | receipt | verdict |
+|----|-----------|---------|---------|
+| OA-r3-1 | §0ab exists and rules E-w4f-1 · F-w4f-2 · F-w4f-1 · F-ab1 | ⟨cmd⟩ `grep -n '^## §0ab' docs/tranches/X/COHESION.md` → **1757**; the four ids read in full at this seat | **MET** |
+| OA-r3-2 | `W4.md`'s **FIFTH** dated addendum is the unit spec (writable sets) | ⟨cmd⟩ `grep -n 'ADDENDUM' waves/W4.md` → `674 · 676 · 678 · 680 · **682**`; `:682` names `.g` ∥ `.h` → `.f2` | **MET** |
+| OA-r3-3 | `.e` · `.e2` · `.f` stand on their commits | ⟨cmd⟩ `git -C <p2> log --oneline -6` → `f3c389c` (`.f`/rc-p) · `49ca70b` (`.e2`/packrat) · `43c3f48` (`.e2`/packed) · `93bcb83` (`.e`/packed); ⟨cmd⟩ `git -C value.js log --oneline -14` → `3d4470f2` · `e456c2ff` · `04d5ed04` · `6be73f38` (all `.f`) | **MET — alreadyDone, NEVER re-dispatched** |
+| OA-r3-4 | `.g` · `.h` · `.f2` are owed in full | the same two logs carry **no** `x-p-w4.g` / `.h` / `.f2` commit; `<p2>` HEAD is `f3c389c`, value.js HEAD is `61aafe41` (a Track-F row) | **owed** |
+| OA-r3-5 | CRASH-RECOVERY over this seat's writable sets | ⟨cmd⟩ `git status --porcelain -- docs/tranches/X/parse-that/ docs/tranches/V/megatranche/registry/ docs/tranches/X/execution/ docs/tranches/V/coordination/INBOX.md` → **0 lines**; ⟨cmd⟩ `git -C <p2> status --porcelain` → `?? .worktrees/` only. value.js's 14 dirty rows are `demo/**` · `e2e/**` · `CARRY-LEDGER.md` · `scripts/dev/dev.sh` — **a sibling track's, none in any owed unit's set; nothing stashed, nothing restored, `dev.sh` never staged** | **MET — `.g`/`.h` inherit nothing** |
+| OA-r3-6 | `.f`'s artefacts present (the units' inputs) | `ADJUDICATION-W4.md` **62711 B** · `harvest/x-p-w3.json` **350304 B** · `harvest/x-p-w4s.json` **56673 B** · `DEFECT-LEDGER.md` **10560195 B** | **MET** |
+| OA-r3-7 | every cure site undrifted at the bytes | `seam-contract-check.mjs` live (it ran, below); `run-full-surface.mjs:60` still holds `const candidateTypeNames = ["CssColor", "CssTimingFunction", "Stylesheet", "StyleRule", "Declaration"];` — **F-ab1's five-name literal, exactly as §0ab describes**; `src/css/**` still rejects the `!important` adjacency and still accepts `col!r` (probe below) | **MET** |
+
+**MEASURED PATH CORRECTION (dated, beside — E-3; the fifth addendum is NOT edited).** The addendum
+names `.g`'s second row as `<p2>/typescript/test/css-totality/run-full-surface.mjs`. At the bytes
+⟨cmd⟩ `find <p2> -name run-full-surface.mjs -not -path '*/node_modules/*'` → the file is
+`<p2>/typescript/test/css-**equivalence**/run-full-surface.mjs` (and `.worktrees/w4b/`'s copy, which
+no unit may write); `test/css-totality/` exists as a sibling directory holding the totality corpus
+and specs. The **subject is unambiguous** — the `:60` five-name literal, quoted above, lives in the
+`css-equivalence` file. `.g`'s writable row is therefore that file **by the addendum's own
+description of its contents**, and `.g` writes no byte of `test/css-totality/`. (`.h`'s
+`test/css-totality/**` re-emission row is unaffected: that directory is real and is `.h`'s.)
+
+**E13 Step-0 — four-path sweep at this seat's own clock, read-only.**
+(1) `docs/tranches/V/` (10 depth-1) + `V/coordination/` (24, `INBOX.md` self-excluded per SELF-COUNT);
+newest five letters are the 2026-09-18 `*-inbox-2026-09-18-value-4.1-*` batch — ⟨cmd⟩ `grep -c` each
+basename in `INBOX.md` → `2 · 1 · 1 · 1 · 1`, **all rowed**. (2) `../glass-ui/docs/tranches/BK/coordination/`
+— **BK re-confirmed the newest glass tranche dir** ⟨cmd⟩ `ls -dt ../glass-ui/docs/tranches/*/ | head -3`
+→ `BK/` · `BJ/` · `BI/`; 9 entries, newest `glass-outbound-2026-09-18-valuejs-o26-reply.md` = **I-35**,
+rowed (32 mentions). (3) `../keyframes.js/docs/tranches/V/coordination/` — 13 entries, newest
+`INBOUND-LEDGER.md` is keyframes' own; every `VALUEJS-INBOUND-*` is ours outbound. (4)
+`../sci-report/atlas/docs/tranches/P/coordination/` — 28 entries, **UNMOVED** (newest 2026-07-27, ours).
+⟨cmd⟩ `find <the four paths> -maxdepth 1 -type f -newermt "2026-09-19 09:10"` → **exactly one member,
+`INBOX.md` itself** — `.f`'s own O-41 row, committed at `e456c2ff`, not inbound mail.
+**Status-cell census, positional, double-run**: ⟨cmd⟩ `awk -F'|' '/^\| *[IO]-[0-9]+ *\|/ {rows++; s=$6;
+sub(/^[ *]+/,"",s); if (s ~ /^UNREAD/) u++} END {print "ROWS="rows, "UNREAD="u+0}' INBOX.md` →
+**`ROWS=77 UNREAD=0`**, identical on both runs. A bare `grep -i UNREAD` over the same rows returns 4
+(O-20 · I-31 · I-32 · O-39) — **all four are prose inside a status cell that begins `**SENT**` /
+`**FOLDED**` / `**READ IN FULL + ROUTED**`**, the X.P.W0 CHECK-1 **D-1** trap, and none is UNREAD.
+**Result: 0 unrowed letters addressed to value.js · 0 UNREAD in scope · no `I-n` minted · `INBOX.md`
+NOT written at this open.**
+
+## Baseline — THIRD SITTING
+
+Per the STALL-WATCHDOG resume clause, **only the gates the two owed units turn are re-measured at
+this seat's clock**; the rest are cited from `.f`'s own banked close-table above, which measured them
+after the last byte moved and is the settled reading. Nothing below is a claim about a gate this seat
+did not run.
+
+**G-1 — RE-RUN AT THIS SEAT, DOUBLE-RUN, READ-ONLY (the gate `.g` turns).**
+⟨cmd⟩ `node docs/tranches/X/parse-that/scripts/seam-contract-check.mjs docs/tranches/X/parse-that/SEAM-CONTRACT.md docs/tranches/X/parse-that/evidence/W3/universe-52.json docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md`
+→ **EXIT=1** on both runs; ⟨cmd⟩ `diff -q run1 run2` → **IDENTICAL**.
+
+```
+rows: contract 52 · universe 52 · ledger rows 47
+universe tally: {"TOTAL":46,"PARTIAL":6,"ABSENT":0}
+SET DIFFERENCES (G-1: both must be empty)
+  contract ∖ universe-52 : ∅
+  universe-52 ∖ contract : ∅
+DISPOSITION CENSUS
+  declared-divergence    7
+  identical              45
+  (COHESION §0v carried: 44 cells over 6 rows)
+VERDICT: RED — 2 check(s) failed.
+  [E] a row whose disposition contradicts DIVERGENCE-LEDGER.md — 37
+        serializeCssColor: disposition "identical" vs DIVERGENCE-LEDGER rows CN-2
+        …  (9 rows vs CN-2 · 28 rows vs CN-3)
+  [G] COHESION §0v rider — a carried cell not published as PENDING-ADJUDICATION — 6
+        parseCssColor / parseCssScalar / parseCssValue / parseCssValues: carries GROUND-C×1 but publishes "declared-divergence"
+        parseTimingFunction: carries GROUND-C×23 ID-2×1 but publishes "declared-divergence"
+        parseStylesheet: carries ID-1b×9 ID-4×5 GROUND-C×2 but publishes "declared-divergence"
+```
+
+**This is E-w4f-1 exactly, reproduced independently and not accepted on `.f`'s report**: both
+set-differences are ∅, the census is post-adjudication (`identical 45 · declared-divergence 7 · 0
+PENDING`), and the **two failing checks are the instrument's pre-adjudication vocabulary** — [E]
+binds subjects of `CN-2`/`CN-3`, which `DIVERGENCE-LEDGER.md` §10 **RETIRED**, and [G] applies §0v's
+pre-adjudication rider to cells whose rulings are now terminal in `ADJUDICATION-W4.md`. `.g` cures
+the checker; it **does not touch the contract, the ledger or the adjudication**.
+
+**`.h`'s two cells — BORN-RED PROBE at this seat, double-run, read-only** (an import of the
+candidate's own `entry.mjs`; nothing written):
+
+| probe | input | reading |
+|---|---|---|
+| `#40` | `b { background-color: var(--brand) -!important }` | **`ok=false`** (REJECT) |
+| `#41` | `#d { background-color: hsl(73.416 -338 -290)!important } .c { color: red }` | **`ok=false`** (REJECT) |
+| spaced control | `b { color: red !important }` | `ok=true` (ACCEPT) — the adjacency is the sole variable |
+| minimal | `b { color: red!important }` | **`ok=false`** — F-w4f-2 in one line |
+| F-w4f-1 candidate half | `a { col!r: red }` | **`ok=true`** (ACCEPT) — the production still takes a non-ident NAME |
+
+Both runs identical. **F-w4f-2 (HIGH) and F-w4f-1's candidate half are live in the shipped
+production**, as §0ab rules them — `.h`'s two cures, measured before a byte moves.
+
+**G-10 (shape (a)) — open-state, cited and unchanged**: sum **5**, the act not performed; `.f2`'s to
+move, and only under a performed stamp.
+
+**Cited from `.f`'s banked close-table (not re-run here)**: **G-2** GREEN for X·P (0 wave paths under
+`src|demo|api|test|e2e`) · **G-3 GREEN** (`52 of 52` · `G3 GREEN` · exit 0 — `.e2`'s cure, and no
+`<p2>` packaging byte has moved since) · **G-4** GREEN · **G-5** GREEN (RC-P honestly FALSE, conjunct
+3 now over V's own bytes, 20,962) · **G-6** 25 · **G-7** 0/0 floor · **G-8** GREEN (0 UNREAD) ·
+**G-9** GREEN. **R.2**: every one of these is **inherited, never this wave's work**, and each is
+`.f2`'s re-run obligation at its own clock.
+
+**R.2 — GREEN BEFORE CURE (declared, not smoothed)**: `G-2 · G-4 · G-5 · G-6 · G-8 · G-9` are
+spec-born-RED gates that read GREEN before this sitting's units cure anything (G-7 is the declared
+inherited-GREEN FLOOR; G-3 is GREEN by `.e2`'s landed cure, not born so). Listed as findings, owned
+by `.f2`'s re-measurement.
+
+## Unit plan — THIRD SITTING
+
+**alreadyDone, never re-dispatched**: `X.P.W4.e` (`93bcb83`) · `X.P.W4.e2` (`43c3f48` · `49ca70b`) ·
+`X.P.W4.f` (`6be73f38` · `04d5ed04` · `e456c2ff` · `3d4470f2` · `f3c389c`). **Groups**: [`.g` ∥ `.h`]
+→ `.f2` — exactly COHESION §0ab's *"Groups: [`.g` ∥ `.h`] (disjoint paths) → `.f2`"*. Concurrency 2,
+the standing cap. **No path is shared between `.g` and `.h`**: `.g`'s only value.js-docs writes are
+`scripts/seam-contract-check.mjs` and the `DEFECT-LEDGER.md` append; `.h`'s are
+`ADJUDICATION-W4.md`, `SEAM-CONTRACT.md` and `DIVERGENCE-LEDGER.md`. Both file NEW dated
+`evidence/W4/**` files — **creates, not modifies**, and each unit's basenames carry its own unit
+letter (`…-w4g-…` / `…-w4h-…`), so the directory is shared and no path is.
+
+### `X.P.W4.g` — THE CHECKER LEARNS THE POST-ADJUDICATION VOCABULARY (Opus)
+
+*Spec*: COHESION §0ab first bullet (`COHESION.md:1770–1781`) · `W4.md` FIFTH addendum, `.g` clause
+(`waves/W4.md:682`) · `W4.md` §6 **G-1** (`:389–405`, the command and its three falsifiers).
+*Writable*: `docs/tranches/X/parse-that/scripts/seam-contract-check.mjs` ·
+`/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/test/css-equivalence/run-full-surface.mjs`
+(the file holding the `:60` literal — see the MEASURED PATH CORRECTION above) ·
+`docs/tranches/V/megatranche/registry/DEFECT-LEDGER.md` (modify-append, **by the harvester through
+the §0p run-B symlink only, never a hand's**) · `docs/tranches/X/parse-that/evidence/W4/**` (NEW
+dated files).
+*Gates*: **G-1** `VERDICT: GREEN`, exit 0, double-run, **and the three negative controls printed RED**
+(a `PENDING` head with no adjudication row · an unretired subject binding against an `identical` row ·
+a disposition id absent from the ledger).
+*Locks*: parallel with `.h`; both strictly before `.f2`. `evidence/W4/**` creates only — E-3 forbids
+touching `.b`/`.d`/`.e`'s files.
+
+### `X.P.W4.h` — THE `!important` ADJACENCY AND THE IDENT-TOKEN NAME (Opus)
+
+*Spec*: COHESION §0ab bullets 2–3 (`COHESION.md:1782–1788`) · `W4.md` FIFTH addendum, `.h` clause
+(`waves/W4.md:682`) · `ADJUDICATION-W4.md` §6 rows **F-w4f-2** / **F-w4f-1** (`:168–169`) and cells
+`#40` / `#41` (`:112–113`) · COHESION §0s's quartet law.
+*Writable*: `<p2>/typescript/src/css/**` **for the declaration production only** ·
+`<p2>/typescript/test/css-totality/**` re-emission outputs as NEW dated files ·
+`docs/tranches/X/parse-that/ADJUDICATION-W4.md` (dated addendum) ·
+`docs/tranches/X/parse-that/SEAM-CONTRACT.md` (**only the cells the two rulings touch** — row 19
+`parseStylesheet`, `SEAM-CONTRACT.md:130`) · `docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md`
+(modify-append: the F-w4f-1 row) · `docs/tranches/X/parse-that/evidence/W4/**` (NEW dated files).
+*Gates*: cells `#40` / `#41` re-measure **`identical`**; the full differential re-run reads **0
+mirror-defects outside ruled ids**; **W3's totality gate still TOTAL**.
+*Locks*: parallel with `.g`; both strictly before `.f2`. §0s's quartet law binds if a ctor row
+changes (`algebra/grammar/*.mjs` · `algebra/tables.mjs` · both lowerings · `bounds.mjs`).
+
+### `X.P.W4.f2` — THE STAMP, RE-ATTEMPTED (a FRESH Fable adjudicator, M-23 §1)
+
+*Spec*: COHESION §0ab final bullet (`COHESION.md:1789–1792`) · `W4.md` THIRD addendum's `.f` stamp
+set (`waves/W4.md:678`) · `W4.md` §6 **G-10 shape (a)** (the awk-narrowed sum: **5** at open, **0**
+after the stamp).
+*Writable*: the five four-verb `VERIFIED` rows in `docs/tranches/X/parse-that/waves/W0..W4.md` (R-A,
+one act) · `docs/tranches/X/COHESION.md` §1 SS-5 cell + §5 board line (**iff the stamp is
+performed**) · `docs/tranches/X/parse-that/waves/W4-CLOSE.md` (dated **§13**) ·
+`docs/tranches/X/parse-that/RELEASE-PACKET.md` (dated addendum) ·
+`docs/tranches/V/megatranche/registry/harvest/x-p-w4s.json` (**fold/2 — the file EXISTS at 56673 B;
+measure before writing, F-w4c-2; a blind create destroys banked evidence, E-3**) ·
+`docs/tranches/V/coordination/INBOX.md` (mail rows).
+*Gates*: **G-1 … G-10**, all re-run at its own clock; the **R-A stamp iff G-1..G-9 GREEN**, else
+**withheld by gate id** — again, and never by prose.
+*Locks*: strictly after **both** `.g` and `.h`; the two COHESION carves only under a performed stamp.
+
+## Unit receipts — THIRD SITTING
+
+*(empty at the open; each dispatched unit appends its own receipt below, SERVED MODEL first.)*
