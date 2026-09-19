@@ -1,0 +1,74 @@
+SERVED MODEL: claude-opus-5[1m]
+
+X.P.W4.e2 — G-3's controls, after E-w4e-1's cure (the arity-reading check-line emitter).
+COHESION §0aa · W4.md FOURTH dated addendum · W4.md §6 G-3.
+NEW dated file, beside `.b`'s `packed-candidate-controls-…` and `.e`'s — no prior evidence overwritten (E-3).
+All readings taken at this seat's own clock, 2026-09-19, from the SETTLED bytes.
+
+════ 1 · WHAT THE EMITTER NOW READS, AND FROM WHERE ══════════════════════════════════════════════
+arity.ok                    true  ran true  reason null
+arity.compilerApi.version   5.9.3
+arity.resolvedDeclaration   <consumer>/node_modules/@mkbabb/parse-that/src/css/build/ac1.d.ts
+arity rows (installed decl) 33
+arity.generics              ["CollectedRule: 0 required of 1","ParseResult: 1 required of 1"]
+rows with a REQUIRED and CONSTRAINED parameter: 0
+  -> `unknown` is a valid argument for every generic on THIS surface, measured, not assumed
+ParseResult                 {"total":1,"required":1,"constrainedRequired":[],"declaredIn":"<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"}
+CollectedRule               {"total":1,"required":0,"constrainedRequired":[],"declaredIn":"<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"}
+
+THE EMITTED CHECK LINES THAT CARRY TYPE ARGUMENTS (all others stay bare):
+export type __check_ParseResult = ParseResult<unknown>;
+
+legs.types.ok true | tsc status 0 | diagnostics 0
+
+════ 2 · G-3, DOUBLE-RUN AT THE SETTLED BYTES ════════════════════════════════════════════════════
+⟨cmd⟩ node scripts/packed-candidate-surface.mjs --seam <SEAM-CONTRACT.md> --out <evidence>/packed-surface-2026-09-19-w4e2-run{1,2}.json --label "X.P.W4.e2 G-3 AFTER"
+tarballSha256          f8aede1176d0680131fae0fd2e4c682df31e081120c06aa8597e304a58adb6bb       EQ
+entryCount             91                                                                     EQ
+seamSubpathDeclared    true                                                                   EQ
+resolved               52 of 52                                                               EQ
+unresolved             0                                                                      EQ
+refusals (of 5)        5                                                                      EQ
+verdict.pack           true                                                                   EQ
+verdict.declaration    true                                                                   EQ
+verdict.install        true                                                                   EQ
+verdict.resolve        true                                                                   EQ
+verdict.refusals       true                                                                   EQ
+verdict.G3             GREEN                                                                  EQ
+
+WHOLE-REPORT identity, generatedAt + ephemeral.consumerRoot excluded: true
+EXIT of both runs: 0
+
+════ 3 · POSITIVE CONTROL — a staged consumer tree OUTSIDE BOTH REPOS ════════════════════════════
+staged tree     /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/pc-w4e2
+value.js is an ancestor?  no   |  <p2> is an ancestor?  no   (checked by prefix against both roots)
+⟨cmd⟩ shasum -a 256 <staged>/mkbabb-parse-that-1.0.0.tgz
+f8aede1176d0680131fae0fd2e4c682df31e081120c06aa8597e304a58adb6bb  <staged>/mkbabb-parse-that-1.0.0.tgz
+  ≡ the sha the GATE read this run: f8aede1176d0680131fae0fd2e4c682df31e081120c06aa8597e304a58adb6bb -> SAME BYTES
+
+⟨cmd⟩ node --input-type=module -e "import('@mkbabb/parse-that/css') …"  (inside the staged consumer)
+  RUNTIME resolved 19 of 19
+  PACKRAT subpath exports: memoize mergeMemos packratEnter packratExit resetPackrat
+  the latch reader is ON the subpath: true
+  packratEnter() while unarmed -> null (null: the latch reads UNARMED, unchanged)
+
+⟨cmd⟩ node <tsc> -p tsconfig.pc.json   (the gate's OWN emitted consumer.ts, byte for byte; NodeNext, strict, skipLibCheck:false)
+  POSITIVE EXIT=0 — all 33 frozen types resolve from the consumer's node_modules
+
+════ 4 · NEGATIVE CONTROLS — the gate still fires ════════════════════════════════════════════════
+4a · tsc leg, one absent name added to the gate's own emitted consumer file, in the BARE form the
+     generator uses for a name with no arity row:
+  consumer-nc.ts(2,5): error TS2305: Module '"@mkbabb/parse-that/css"' has no exported member 'NotAFrozenType'.
+  NEGATIVE EXIT=2
+
+4b · WHOLE-GATE control — `packed-candidate-surface.mjs` run against a seam contract carrying a
+     53rd row, `NotAFrozenType`, which the installed declaration does not export. Nothing else
+     differs. Report banked as packed-surface-negative-control-2026-09-19-w4e2.json.
+  symbolCounts         {"runtime":19,"types":34,"total":53}
+  resolved             19 of 53
+  verdict.G3           RED  EXIT=1
+  arity rows           33 — the absent name has NO row: true
+  emitted for it       the BARE form
+  tsc diagnostic       "../../../../../../..<consumer>/consumer.ts(20,5): error TS2305: Module '\"@mkbabb/parse-that/css\"' has no exported member 'NotAFrozenType'."
+  its resolve row      {"name":"NotAFrozenType","kind":"types","resolved":false,"reason":"named in a tsc diagnostic"}
+  runtime half still   19 of 19 — the control is local to the types half, as intended
