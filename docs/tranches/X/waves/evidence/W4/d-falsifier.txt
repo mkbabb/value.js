@@ -1,0 +1,79 @@
+SERVED MODEL: claude-opus-5[1m]
+
+X-W4 · X.W4.d — GATE D3, THE ONE-TIME FALSIFIER DEMONSTRATION
+=============================================================
+`W4.md:407` — **D3 · the checker bites**: *"one-time: change one action's token
+to an unregistered literal -> `vue-tsc` must exit non-zero; revert; paste both
+outputs into §8."*  Falsifier: *"Fails if the checker stays green with a bogus
+token — i.e. the 'typed, owner-tokened' claim is prose. This is the gate that
+distinguishes a token union from `string`."*
+
+Taken 2026-09-19, branch `tranche-u`, against the landed cure.
+Both outputs are pasted verbatim, RED first, then the revert's GREEN.
+
+THE EDIT
+--------
+`demo/shell/usePaneRouter.ts`, the Generate scene's save seat — ONE action's
+token flipped to a literal no scene registers:
+
+    -                token: "generate.save",
+    +                token: "generate.saveAll",
+    -                state: resolve("generate.save", target?.save ?? null, absent),
+    +                state: resolve("generate.saveAll", target?.save ?? null, absent),
+
+  (confirmed at the bytes before the run)
+  <cmd> grep -n 'generate.saveAll' demo/shell/usePaneRouter.ts
+  440:                token: "generate.saveAll",
+  444:                state: resolve("generate.saveAll", target?.save ?? null, absent),
+
+RED — the checker bites
+-----------------------
+  <cmd> npx vue-tsc -p tsconfig.demo.json --noEmit ; echo "EXIT=$?"
+
+  demo/shell/usePaneRouter.ts(440,17): error TS2820: Type '"generate.saveAll"' is not assignable to type 'SceneActionToken'. Did you mean '"generate.save"'?
+  demo/shell/usePaneRouter.ts(444,32): error TS2345: Argument of type '"generate.saveAll"' is not assignable to parameter of type 'SceneActionToken'.
+  EXIT=2
+
+  TWO errors, not one, and they are the two halves of the claim: the token is
+  rejected where the action DECLARES itself (TS2820, with the union's own
+  spelling suggested back) and again where it is DISPATCHED (TS2345). A `string`
+  contract produces neither.
+
+GREEN — the revert
+------------------
+  <cmd> grep -c 'generate.saveAll' demo/shell/usePaneRouter.ts
+  0
+  <cmd> npx vue-tsc -p tsconfig.demo.json --noEmit ; echo "EXIT=$?"
+  EXIT=0
+  (0 lines of output)
+
+  <cmd> cmp -s <pre-probe copy> demo/shell/usePaneRouter.ts && echo IDENTICAL
+  UPR_IDENTICAL_TO_PRE_PROBE
+
+VERDICT: D3 DEMONSTRATED. The token union is a closed set the checker enforces,
+not prose. Nothing was left behind by the probe.
+
+
+BESIDE IT — GATE D2's OWN FALSIFIER, TAKEN THE SAME WAY
+=======================================================
+`W4.md:406` — D2's falsifier is *"Fails on any `any` in the scoped paths"*. At
+the wave's open the scoped `eslint` invocation read **exit 0 for the wrong
+reason**: `@typescript-eslint/no-explicit-any` was `"off"` at
+`eslint.config.js:70` and `:184` (the open's baseline recorded this). So the
+exit code is not presented as the gate; the rule is shown to BITE.
+
+  <cmd> printf '\nexport const __d2Probe: any = 1;\n' >> demo/shell/usePaneRouter.ts
+  <cmd> npx eslint demo/color-picker/App.vue demo/shell/usePaneRouter.ts demo/shell/dock/ ; echo "EXIT=$?"
+
+  /Users/mkbabb/Programming/value.js/demo/shell/usePaneRouter.ts
+    565:25  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+  ✖ 1 problem (1 error, 0 warnings)
+  EXIT=1
+
+  <cmd> (probe reverted)
+  <cmd> npx eslint demo/color-picker/App.vue demo/shell/usePaneRouter.ts demo/shell/dock/ ; echo "EXIT=$?"
+  EXIT=0
+
+VERDICT: the scoped rule is an ERROR and it fires. D2's exit 0 on the landed
+bytes is therefore a measurement, not an artefact of a disabled rule.
