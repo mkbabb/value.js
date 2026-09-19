@@ -501,3 +501,176 @@ scheduling**: no flatten performed, no ruling re-opened, no successor act schedu
 **ESCALATIONS: none.** Every act landed inside the declared writable set; the specified cure was possible at
 the bytes and was executed as specified — no substitution, no workaround, no masking fallback, no `test.skip`,
 no allowlist, no local patch.
+
+---
+
+### KF.W10.b
+
+**SERVED MODEL**: `claude-opus-5[1m]` · **Unit** `KF.W10.b` · group 2 of 7 (alone) · **sections executed**
+§3.2 `:268-282` + §5 **G-2** `:396-419` (+ §2a **OP-5** `:69` · §4 Bounds/Disjointness · §6.D `:579-602` ·
+§10 commit 2). **Seat clock** 2026-09-18 23:3x → 23:5x EDT (⟨cmd⟩ `date` → `Fri Sep 18 23:41:39 EDT 2026`
+mid-run). **Sitting of record stays 2026-09-17.** **Status: DONE — G-2 turns RED → GREEN at the landing
+bytes.** **Writable set honoured exactly**: `value.js docs/tranches/X/COHESION.md` (the §4 register-drain leg),
+and nothing else in either tree. **No push** (§0j.C KF-WRITE: a wave pushes at close, a unit does not). **No
+ledger edit** (the wave's close moves the row). **No keyframes.js write** — `.b`'s bounds leg is value-side
+only.
+
+**CRASH-RECOVERY SWEEP (standing law, first act).** ⟨cmd⟩ `git status --porcelain` in both repos:
+**keyframes.js — 2 rows**, both untracked value-authored letters
+(`docs/tranches/V/coordination/VALUEJS-INBOUND-2026-07-{24,27}-*.md`), **outside this seat's writable set,
+left in place**. **value.js — 18 rows at open, every one outside this seat's writable set** (`demo/**` ×10 ·
+`docs/tranches/V/reformation/CARRY-LEDGER.md` · `scripts/dev/dev.sh` **never touched, never staged** ·
+untracked `docs/tranches/X/parse-that/evidence/W3/` ×3 + `docs/tranches/X/waves/evidence/W4/` + two
+`e2e/smoke/**` + one `.tgz`). **INHERITED WORK ON THIS UNIT: NONE** — ⟨cmd⟩ `git status --porcelain --
+docs/tranches/X/COHESION.md` → **zero lines** before this seat wrote, i.e. the file was at `HEAD` bytes
+(⟨cmd⟩ `shasum` → **`8b2baaa81ffef0f41c34484131086b90927f00f5`**, **120,786 B**). Nothing stashed, nothing
+restored, nothing reset; no dirty path outside the writable set was touched.
+
+**BEFORE — G-2 baseline re-measured READ-ONLY at this seat, double-run** (the gate's own probe form):
+⟨cmd⟩ `ls registry/adjudicated/kf-*.md | wc -l` → **58** · `grep -l 'NO-WAVE-OWNER' | wc -l` → **57** ·
+`grep -o 'NO-WAVE-OWNER' | wc -l` → **1,218** (run 1 ≡ run 2); ⟨cmd⟩ `grep -L 'NO-WAVE-OWNER'` → the single
+non-carrying record **`kf-AnimatedText.md`**. COHESION **§4 = 14 source rows + the `(accretes per batch)`
+tail**, **no terminal word on any of them**; **no set-difference table existed anywhere** (⟨cmd⟩
+`ls docs/tranches/X/keyframes/close/` → no such directory, at `.a`'s baseline). **G-2 = RED, exactly as §5
+declares it born.**
+
+**ANCHOR VERIFICATION AT TRUE BYTES (method: measure before you edit).** Every spec anchor this unit
+consumes **resolved without drift**: §3.2 at `:268-282` (the head + the seven sequencing locks + R-10's
+governed-row enumeration), §5 G-2 at `:396-419` (Statement · Witness · RED · Acceptance · the two inbound
+declarations · Falsifier), §2a OP-5 at `:69`, §4 at `:342-366`, §6.D at `:579-602`, §10 at `:660-673`.
+**No INTENT re-resolution was needed.** Spec read in slices (263,074 B); the wave record's sitting-1 and
+sitting-2 Open/Baseline/Unit-plan and **`.a`'s receipt** read whole; **COHESION `§0j` read and every later
+addendum to the file end** (`§0k` ×2 · `§0l` · `§0m` · `§0n` · `§0o` · `§0p` · `§0q` · `§0r` · `§0s` ·
+**`§0t`**). **Rulings consumed**: **§0t** (KF.W10 belongs to SS-2 — **RECORDED, never re-minted**; it makes
+this set-difference an OWNED assertion), **§0j.B** (GF-R1's `X-W3` claimant for the transport cluster and the
+*"`ErrorBoundary.vue` contention at W0.22 stays X-W0's"* tail; GF-R3's **RATIFY §1** making the fold +
+canonical layers the register of record — the authority arm 2's drain rests on), **§0j.C KF-WRITE**.
+
+**ACT 1 — the sweep, computed rather than asserted (the partition is the product).** The left hand's arm 1
+was partitioned by **measurement**: each of the 57 carrying records was tested against the three successors'
+`### P*` / `### U*` §Carry **heading** lines (the packet home-record roster) → **37 hit · 20 miss**,
+double-run; each of the 20 was then tested against the eleven authored specs' `§Bounds` blocks → **20 of 20
+resolve, 0 unresolved**. **37 + 20 = 57**, + `kf-AnimatedText` = **58**.
+
+**ACT 2 — a defect this seat found IN ITS OWN FIRST PROBE, cured before a word was written (recorded, not
+hidden).** The first partition probe tested each record name against the successors' **whole §Carry
+sections**, and returned **40 homed / 17 residual**. Three of the forty were **cross-references, not homings**
+— re-read at the bytes: `kf-AnimationControlsGroup` appears only as *"the C-15 limb settled WITH
+kf-AnimationControlsGroup **D-1**'s portal-architecture cure"* (a consumption), and `kf-ChannelControls` only
+as *"kin recorded, **not folded**: kf-ChannelControls L-16, KF-CO-15"* — a clause that says in its own words
+that it is not a home — with `kf-EasingScene` likewise a bullet mention. **A substring in a packet's prose is
+not a packet's home**, and publishing 40 would have manufactured three homings the successors expressly
+declined. The probe was re-cut onto the **heading** lines (the construct KF-W11's §Carry preamble names: *"the
+home record's terminal `NO-WAVE-OWNER — the … packet` line, cited by record + anchor"*), returning the
+published **37 / 20**, and the three records were homed where they actually resolve — **KF.W6's bounds block**.
+
+**ACT 3 — the block, landed as ONE dated carve inside §4.** `### §4.1 — X.KF.W10 `.b` · THE NO-WAVE-OWNER
+SET-DIFFERENCE (G-2), ∅ IN BOTH DIRECTIONS — 2026-09-18`, holding, in one motion and one commit: the
+**OP-5 re-measure**, the **two denominators**, the **SELF-COUNT statement**, **§4.1.A** (arm 1, the 57
+records, one terminal word each), **§4.1.B** (arm 2, §4's 14 intake rows drained), **§4.1.C** (the right hand
++ the 9·6·2 reconciliation + the right→left ∅ argument), **§4.1.D** (the seven sequencing locks verbatim),
+**§4.1.E** (KF-AV-28 as sweep input), **§4.1.F** (the two inbound declarations), **§4.1.G** (the gate
+reading). **§4's 14 intake rows were NOT rewritten**: the drain is recorded beside them and the table's
+`(accretes per batch)` tail gains one **`DRAINED 2026-09-18`** pointer row. Reason stated rather than assumed
+— the register's intake bytes are the record of *what was found*, and a close wave that edits the finding to
+fit its own disposition has closed nothing.
+
+**AFTER — G-2 gate reading at the landing bytes, double-run** (⟨cmd⟩ over `docs/tranches/X/COHESION.md`):
+
+| probe | reading (run 1 ≡ run 2) |
+|---|---|
+| left hand, arm 1 | **58 records · 57 carrying · 1,218 occurrences** ⟨the spec's **1,216** is a dated 2026-08-28 observation, superseded **+2**; membership 58/57 reproduces exactly⟩ |
+| arm-1 rows written | **57** (⟨cmd⟩ `grep -cE '^\| [0-9]+ \| `kf-'`) + **1** enumerated non-carrying record (`kf-AnimatedText`, no verb, not in the left hand) |
+| arm-1 rows with **no** terminal word | **0** (⟨cmd⟩ the same rows `grep -cvE 'LANDED in a wave\|KILLED-with-rationale\|ADOPTED-BY-KF\.W6\|carried'` → **0**) |
+| left hand, arm 2 | **14** §4 intake rows · **14** drained · **0** silent |
+| **total sweep rows / terminal words** | **71 / 71 · 0 silent** |
+| right hand, half 1 | **11** authored specs, **11** bounds blocks (`W0 17 · W1 12 · W2 53 · W3 4 · W4 40 · W5 43 · W6 59 · W7 36 · W8 46 · W9 49 · W10 12` `Bounds` hits) |
+| right hand, half 2 | **§6.D's 17-packet cargo**, reconciled ⟨cmd⟩ `grep -c '^### P[0-9]' KF-W11.md` → **9** · `grep -c '^### U[0-9]' KF-W12.md` → **6** · `grep -c '^### P[0-9]' KF-W13.md` → **2**; **9+6+2 = 17** |
+| §6.D reconciliation rows | **3**, each summing to its wave's partition figure |
+| seven §3.2 sequencing locks | **7** reproduced, verbatim, none spent or narrowed |
+| KF.W7 surface rows | **6** — six KEEP-BESPOKE, **zero SWAP**, discharge set **EMPTY** |
+| `DISCHARGED by KF.W7 SWAP verdict` **stamped on a row** | **0** (the string occurs **twice** in the block, both in prose: `:125` the alphabet, `:332` the *"emits ZERO"* sentence) |
+| **E-3 at the byte** | ⟨cmd⟩ `git diff --stat` → **260 insertions, 0 deletions**; ⟨cmd⟩ `git diff -U0 \| grep -c '^-[^-]'` → **0**; §4's 14 intake rows `shasum` → **`1d3017bea88b3de1970a01d750982eac15f4d5a5`** at HEAD **≡** at the worktree. **No dated section touched** |
+| file | **149,324 B**, `shasum` **`603189d2ef2e92038bd4715cbe4d848ea3ec4b2e`** (was 120,786 B / `8b2baaa8…`) |
+
+**G-2: RED → GREEN.** ∅ in both directions, both denominators stated in the block's own header and
+re-measured at the write.
+
+**OP-5, RE-MEASURED AT THIS UNIT'S OPEN *AND* AT THE SETTLED BYTES** — the gate's own falsifier is *"a table
+computed against a sibling bounds block that changed after the sweep fails on OP-5, not on arithmetic"*, so
+the condition is checked at **both** ends: ⟨cmd⟩ `ls .../waves/KF-W[0-9].md KF-W10.md | wc -l` → **11** ·
+per-spec `grep -c 'Bounds'` → the eleven figures above, **identical before and after** · ⟨cmd⟩
+`git status --porcelain -- docs/tranches/X/keyframes/` → **zero lines at both clocks**. **No sibling bounds
+block moved under this sweep. OP-5 GREEN.**
+
+**THE SEVEN SEQUENCING LOCKS — reproduced, and the two that bind rows W10 never touches named as such.**
+(1) KF-CO-1/KF-CO-8 sequenced by **LP-1** (riding KF.W12 U2, whose §Carry fixes *"+ LP-1 in the SAME
+commit"*) · (2) **kf-ChromeDock M-4** ships an unopenable menu without the **MbabbMenu MUST-CARRY rider**
+(KF.W13 P1 carries it by name) · (3) **TD-1/TD-2 bundle** WHOLE at KF.W13 P2, its sole home · (4)
+**KF-APP-1/-17 same motion**, the `headerLeft` **'fill' arm a TRAP**, DELETE the only self-contained cure
+until the **KF-APP-5** producer relay lands — homed inside an authored wave, which is why §6.D's six
+travelling locks exclude it · (5) **comment-stated invariants are test obligations** — kf-SquareScene
+**MISS-3**, measured RELOCATED by KF.W11 P7 to `useSquareKeyboard.ts:20`/`:66` with its content unchanged ·
+(6) **glass-producer rows → SS-6, never demo-side hacks** (glass-ui READ-ONLY always) · (7) **KF-AV-28's
+standing supersession rider**. **Six of the seven are §6.D's six travelling locks; the seventh (4) is not,
+for the reason §6.D itself gives.**
+
+**KF-AV-28 AS A SWEEP INPUT — the verdict EXISTS, and reading it is the whole point.** KF.W7 is **CLOSED
+2026-09-17**; its verdict is **six surfaces · six KEEP-BESPOKE · ZERO SWAP** ⟨`.a`'s G1, `4c03ceda`⟩ and the
+**discharge set is EMPTY**. KF.W7's own words to this gate — *"the discharge set is EMPTY; every row governed
+by the KF-AV-28 standing supersession rider is STILL-GOVERNED, and KF.W10 carries all of them naming the
+surface each sits under"* — are honoured literally: **zero** rows stamped `DISCHARGED`, and every governed row
+**carried** under its named surface (`KeyframeTimeline / TimelineTrack rail` · `TimelineCaret` ·
+`TimelineHoverPreview` · `SequenceScrubber` · `AnimationVisualizer` · `SpringTarget / SpringTrace idiom
+arms`), with the individually-landed rows named as **LANDED, not discharged** (`C-10` `e42e0aa3` · `L-15` ·
+`KF-AV-10` `72cdc27a` · `C·C-4` `43556828`). **The rider's prohibition is satisfied in the direction that
+mattered**: no governed row took LANDED or KILLED on the strength of a swap, **and none took DISCHARGED on the
+strength of a verdict that kept**.
+
+**ZERO RE-BOOKINGS, asserted and shown.** Every fold is **by reference at the banked id**; **no id was
+renumbered, re-keyed or minted**. Four records appear under two packets — `kf-SequenceScrubber` (P2 + P9),
+`kf-SpringPhysicsFacet` (P5 + U2/U3), `kf-RibbonBar` (U4 + U5), `kf-TransportDock` (W13 P1 + P2) — and in
+every case the limbs are cited at **different banked anchors of the same record**, which is a fold by
+reference and not a second booking. The two **`ADOPTED-BY-KF.W6 (RULINGS-4 R4-1)`** rows (`KF-APP-41`; the
+kf-EditorShell `C-22` orphan-token limb) are received **by adoption, never by omission**, with **`C-22`'s
+remaining limbs `D-27` and `RR-2 M7` left NO-WAVE-OWNER and carried** — R4-1's own falsifier honoured. KF.W6's
+round-5 **SHADOW** notification (`EH-4` · `EH-5` · `EH-8` restored LIVE) is **recorded and not converted into
+an obligation**: the three read `LANDED in a wave`, no denominator moved, nothing was booked here.
+
+**THE MINTED-UNAUTHORED PREMISE, MOVED AT THE BYTES AND HANDLED AS THE RECORD DIRECTS.** `KF.W11 · KF.W12 ·
+KF.W13` are **AUTHORED** ⟨`f208ff31`, 2026-09-18⟩ with real `§Bounds` and `§Carry` blocks, so the spec's
+*"MINTED-UNAUTHORED"* wording at §6.D and G-2's right hand is **stale**. Per this record's own sitting-2
+finding (2), the right hand is computed in **the spec's form** — `authored bounds ∪ §6.D cargo` — and the
+successors' own blocks are used **only as a reconciliation**: `9 · 6 · 2`, member-for-member, each wave named.
+**The round-4 falsifier is not tripped**: authored bounds alone was never substituted. **The three
+formations' terminal verb was not advanced** — that is not `.b`'s act (R-A; §3.6 is `.f`'s), and the authoring
+event is recorded as a dated observation, not as a re-ruling (E-3).
+
+**COMMIT (§10 commit 2 — one commit, one meaning).**
+
+| # | repo | hash | scope |
+|---|---|---|---|
+| 2 | value.js | **`15da439f`** | `docs(X·KF W10): NO-WAVE-OWNER set-difference, ∅ both directions` — pathspec `docs/tranches/X/COHESION.md` **on the commit itself**; body carries **both denominators**, the **37+20=57** partition, the **9+6+2=17** reconciliation, the **zero-re-bookings** assertion, the KF-AV-28 reading and the E-3 receipt. ⟨cmd⟩ `git show --stat` → **1 file changed, 260 insertions(+)**; ⟨cmd⟩ `git show --name-only \| grep -c 'dev.sh'` → **0**; post-commit `git status --porcelain` → **the same sibling-owned rows and nothing of this seat's** |
+
+**RESIDUALS (named, none hidden).**
+1. **`LANDED in a wave` is an OWNERSHIP word, not a shipping word**, and the block says so at its head. Forty
+   of the 57 arm-1 rows land at `KF.W11`/`KF.W12`/`KF.W13`, which are **authored but unexecuted**. The
+   NO-WAVE-OWNER condition is cured; the cures are not. Any reader who takes this green as "the rows are
+   fixed" has read a word this block explicitly refuses to say.
+2. **Arm 2's homes rest on the fold layer's own HOMED law**, ratified by §0j.B GF-R3 (*"the fold + canonical
+   layers ARE the register of record"*), measured as `grep -c` presence per fold file with the top booking
+   fold named. That is the authority the ruling installed; it is **not** a per-row byte audit of each X·V
+   fold, which is X-W11's walk, not this close's.
+3. **Three arm-2 rows carry a live limb beside their landing** — AboutPane's **W-HYGIENE** limb (`BOOK
+   TERMINAL, explicitly NOT ADOPTED`), PaletteCard's **R-4** registry-hygiene row (no wave surface), and
+   PreviewStrip's **re-trigger** (*"X-W9.d/.f named gaps DEGRADE to NO-WAVE-OWNER if unadopted at
+   execution"*). All three are written as **carried**; none is closed.
+4. **The `AnimationVisualizer` residual roster is carried, not homed.** KF-AV-13/-14/-24's cures and KF-AV-32
+   (relayed as **O-28 R-6**) **stay NO-WAVE-OWNER** by KF.W7's own words. A future seat reading only "row 27
+   = LANDED" would miss it; the row names both arms for that reason.
+5. **G-2's frontier witness is value-side and already at `HEAD`**; there is no push here (**a wave pushes at
+   close, a unit does not**, §0j.C KF-WRITE). `.f`'s close carries it.
+
+**ESCALATIONS: none.** Every act landed inside the declared writable set (`COHESION.md` alone); the specified
+cure was possible at the bytes and was executed as specified — no substitution, no workaround, no masking
+fallback, no allowlist, no local patch, no sibling tree written, no dated section rewritten.
