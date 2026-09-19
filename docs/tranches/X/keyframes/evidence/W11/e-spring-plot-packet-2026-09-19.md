@@ -162,3 +162,102 @@ style anchors **+19** (KF-SS-6's prose): `:9` root → **`:13`** · `:11-13` hea
 → **`:88-89`** · `:85` the `{x,y}` map that drops `v` → **`:91`** · `:90` the dead length guard →
 **`:96`** · `:111-112` dasharray → **`:130-131`** · `:126-127` non-scaling-stroke/drop-shadow →
 **`:145-146`**. Every cure below was written against the right-hand column.
+
+## §6 What landed — the five commits (keyframes.js `master`, all by exact pathspec, each with the session trailer)
+
+| sha | meaning | files (`git show --stat`) |
+|---|---|---|
+| `e683d9a1` | **the instrument-truth core, ONE family, unsplit** — D-1 + N-1 + N-2 + C-2/L-3 with the parser posture D-12/L-6/C-4 + the filter cell, L-5's bindings, D-11's label, L-10's extraction, D-6's labels (N-1 arm (b)'s discharge) | `SpringTrace.vue` 265+/89− |
+| `a54875bd` | mark design — D-3 + D-4 + N-3 (one motion) · L-8 by construction · D-7 decided-and-kept | `SpringTrace.vue` 51 |
+| `8e05a0e0` | the register pass — D-2 + N-4 (+M-6) + D-10 + D-9, D-13 riding D-9 | `SpringTrace.vue` 20 |
+| `b9ffced8` | L-14 — documented at the geometry, pinned, test-enforced; no clamp | `SpringTrace.vue` 23 |
+| `08168b2c` | `test(… G-KFW11-4)` — the born-RED witness, 12 cases | `test/demo/scenes/spring-trace-truth.test.ts` 371 (create) |
+
+The four component commits were built as four successive working-tree states of ONE file so
+each carries one meaning (`git commit -- <path>` commits the working tree, so per-meaning
+states were written, not staged); the tree after `b9ffced8` is byte-identical to the state
+every gate below was run against — ⟨cmd⟩ `cmp scratchpad/SpringTrace.final.vue
+demo/scenes/spring/SpringTrace.vue` → identical, checked before and after the commit.
+⟨cmd⟩ `git log --oneline 0e604af8..HEAD | grep -c 'X.KF.W11.e'` → **5**; no sibling commit
+landed in that range (the five are the whole range).
+
+## §7 Gates — BEFORE → AFTER, every figure double-run at the settled bytes
+
+| gate / clause | command | BEFORE (`0e604af8`) | AFTER (`08168b2c`) |
+|---|---|---|---|
+| **G-KFW11-4** runtime | `npx vitest run --project demo test/demo/scenes/spring-trace-truth.test.ts` | `No test files found` · same | **12 passed (12)** · **12 passed (12)** — **GREEN** |
+| G-KFW11-4 clock clause (OP-4) | `grep -c 'sampleNormalizedSpring\|resolveLinearStops' dist/keyframes.d.ts` | **0 · 0** (at open) | **0 · 0** (at close) — route: anchor-hoist minimum, stated against this figure |
+| **§0u ratchet**, this unit's row | `npx vue-tsc --noEmit -p tsconfig.json \| grep -c 'error TS'` → total; `… \| grep -c SpringTrace` → this row | **24** · SpringTrace **0** | **24 · 24** · SpringTrace **0 · 0** — the count did not rise; the row is 0 |
+| test-config leg | `npx tsc --noEmit -p tsconfig.test.json \| grep -c 'error TS'`; `… \| grep -c spring-trace` | **23** · **0** | **23 · 23** · **0 · 0** |
+| demo suite | `npm run test:demo` | **45 files / 376 tests** | **46 / 388** · **46 / 388** (+1 file, +12 tests, nothing else moved) |
+| no masking in the diff | `git diff 0e604af8..HEAD -- test \| grep -c 'test.skip\|it.skip\|\.only('` | — | **0** |
+| eslint | `npx eslint demo/scenes/spring test/demo/scenes/spring-trace-truth.test.ts` | — | exit **0** |
+| `git diff --check` | on every commit | — | clean ×5 |
+| §Seq 2 | `git merge-base --is-ancestor cc8ef498 HEAD` | ancestor | ancestor |
+
+**Born-RED basis, per case** (the banked RED form *"No test files found"* reproduced at open, twice):
+(2a) contradicts the pre-cure `:83-84` post-fill anchoring (first x = 2, last = 98 — the record's
+dist replay `2,4,8,…,96,98`); (3b) contradicts `:59`'s `filter(Boolean)` (an empty token was
+dropped and the axis renumbered); (3a) contradicts `:62`'s `{ v: 0, pct: null }`; (5a)
+contradicts an axis that had no unit and no terminal label; (5b) contradicts `:16`'s
+`text-mono-caption`; (5c) contradicts the literal `y1="20"`/`y1="56"` at `:27/:29` unbound to
+`:88-89`; (5d) contradicts `aria-hidden="true"` on the sole informational artifact with no
+text carrying its quantity; (1), (2b), (4a), (4b) are the L-10/L-14 obligations that had no
+witness at all (⟨cmd⟩ `git grep -c "SpringTrace" 0e604af8 -- test/` → **0**, the spec's own figure).
+
+## §8 P4 roster — every id, its verb
+
+| id | verb | where |
+|---|---|---|
+| D-1 = L-1 = C-1 | **LANDED** | `e683d9a1` — anchors first, then clamp, then runs; first/last x = 0/100 (test 2a); the monotonic-clamp divergence (reader-B's second cell) closed with it (test 2b) |
+| N-1 | **LANDED (arm b)** | decided at `ec4b7eff` §3, cured at `e683d9a1`; witnessed by test 5a (`2000 ms → 4800 ms`, path byte-identical at ζ=0.2) |
+| N-2 | **CARRIED — the spec's own route** | the shared-builder route needs `demo/utils/reference-data/timingCurveUtils.ts` (a range parameter) — outside this unit's set and conditioned by OP-4 on the export; the duplicated ~7-line builder is now the ONE exported, tested `tracePathOf`; the "zero value.js imports" cell is UNSPENT (no `@mkbabb/value.js` import was added) |
+| C-2 = L-3 | **LANDED to the OP-4 bound; structural half DECLARED** | the round trip stays by the spec's route (the engine exports neither resolver nor sampler: 0 · 0); what remained IN the component is one exported, tested, fail-explicit resolver that IS the CSS rule in the engine's phase order, with a docblock naming `resolveLinearStopPoints` as the one function that goes when C-3 lands (KF.W5/KF.W8) |
+| D-12 = L-6 = C-4 (+ the filter cell) | **LANDED** | `e683d9a1`; tests 3a–3c |
+| L-5 | **LANDED** | `e683d9a1`; test 5c |
+| D-11 | **LANDED** | `e683d9a1` |
+| L-10 | **LANDED** | `e683d9a1` + `08168b2c` — extracted into the SFC's plain `<script>` block (a second `.ts` file is outside the set; the idiom is `TimelineHoverPreview.vue`'s and `StartingStyleTarget.vue`'s), tested against `sampleNormalizedSpring` and `resolveTimingFunction` |
+| D-3 · D-4 · N-3 | **LANDED, one motion** | `a54875bd` |
+| D-6 | **LANDED** | `e683d9a1` (labels) — the a11y posture (one `role="img"` sentence over the resolved points) rides it and is D-5's identity in K-5's correct form; D-5's GRADE question (SS-13 #8, the SR pass) stays KF.W9's |
+| D-7 | **DECIDED — allocation KEPT, stated** | `a54875bd`; SS-13 #3's perceptual half stays a witness question, now beside a numeric readout |
+| D-13 | **LANDED** | `8e05a0e0` (containment by the gap the glow owns, with D-9) |
+| D-2 = C-5 (+M-6) · N-4 · D-10 · D-9 | **LANDED, one pass** | `8e05a0e0`; test 5b; M-6's sibling site (`ζ0.86`, the derby tag) is `SpringTarget.vue`'s — `.c`'s file — NAMED, not reached |
+| N-5 | **LANDED-BY `c41a9a74` (`.c`) — GREEN-BEFORE-CURE (R.2)** | `SpringTarget.vue:20-22` + `:527` at the bytes; not re-cured; this file's root `shrink-0` kept |
+| L-8 | **LANDED by construction** | `a54875bd`; SS-13 #5's UA question is no longer asked of this component (the glow is on a CSS box) |
+| L-14 | **LANDED — documented + pinned + test-enforced** | `b9ffced8`; tests 4a/4b; never clamped |
+| D-16 | **RECORDED clean-by-construction, re-read at the new bytes** | the dead `:96` length guard died with the extraction (`tracePathOf([])` is `""` by `map`); malformed input throws instead of drawing; RTL untouched by meaning |
+| L-11 | **DIES with the parser cure** | the two-position form is accepted per the CSS rule (test 2b) |
+| C-10 | **INFO, unchanged** | Vue's computed equality short-circuits the redraw when the emitted string is byte-identical; the solver still runs per `response` change; magnitude UNPROVEN → SS-13, as banked |
+| C-3 | **DECLARED (not owned)** | the export — KF.W5/KF.W8; OP-4 read 0 · 0 at open and close |
+| D-8 · D-14 · D-15 · L-4/C-8 · L-7/C-6 · L-13/C-7 | folded / KF.W4-PROSE / KF.W9 per the record | not this packet's; L-4/C-8 and L-7/C-6 were already landed by KF.W6 (`c2ec05ce`, `8411e027`) and their prose was carried forward intact |
+
+**Named to other units/waves, never reached across**: M-4→M-3's SWAP → KF11-E(c1)'s ruling seat
+(with §2's `.fn` deviation measurement); C-3 → KF.W5/KF.W8; the derby tag's `ζ0.86` spacing → `.c`'s
+file (M-6's other half); the `demo/env.d.ts` shim's default-only knowledge of SFC named exports
+(the reason the test narrows at runtime; `aurora-opacity-ceiling.test.ts:61` carries the TS2339
+this file avoids) → whichever wave owns `demo/env.d.ts` (a §Bounds Do-NOT-touch row here) —
+RECORDED, not escalated: nothing in this unit is blocked by it.
+
+## §9 E13 mail sweep at this seat's clock (read-only; status by cell position)
+
+⟨cmd⟩ `grep -cE '^\| [IO]-[0-9]+[a-z]? \|' docs/tranches/V/coordination/INBOX.md` → **79** rows (tail
+O-39, rowed by X.F.W8 `.e`); positional scan of every status cell → the only `UNREAD` tokens are
+historical (*"Was: UNREAD"* / *"Prior status, kept"*), **0 rows currently UNREAD**. Newest per path:
+(1) `V/coordination/` — the 2026-09-18 `value-4.1` letters, ours and rowed; (2)
+`../glass-ui/docs/tranches/BK/coordination/` — `glass-outbound-2026-09-18-valuejs-o26-reply.md` =
+I-35, rowed; (3) `../keyframes.js/docs/tranches/V/coordination/` — the 07-27 inbound = O-21's
+lineage, ours; (4) `../sci-report/atlas/docs/tranches/P/coordination/` — the 07-27/07-24 letters =
+I-31/O-12, rowed. **ZERO unrowed, ZERO UNREAD in scope; no `I-n` minted.**
+
+## §10 SELF-COUNT
+
+**5 keyframes.js commits** in this receipt, 5 shas listed, ⟨cmd⟩ `git log --oneline 0e604af8..HEAD |
+grep -c 'X.KF.W11.e'` → **5**. **Files written: 2 in keyframes.js** (`SpringTrace.vue` ·
+`test/demo/scenes/spring-trace-truth.test.ts`) — exactly the unit's §Bounds `:118` row and `:131`
+create row; **zero `src/**` bytes; zero writes outside the set** — **plus 2 in value.js** (this file;
+the wave record). **P4 rows: 15 LANDED (D-1 · N-1 · C-2/L-3-to-bound · D-12/L-6/C-4 · L-5 · D-11 ·
+L-10 · D-3 · D-4 · N-3 · D-6 · D-13 · D-2/N-4/D-10/D-9 · L-8 · L-14) · 1 DECIDED-KEPT (D-7) · 1
+LANDED-BY sibling (N-5) · 1 CARRIED by the spec's route (N-2) · 1 DECLARED to the library (C-3) · 2
+RECORDED (D-16 · C-10) · 1 died with the cure (L-11).** Gate: **G-KFW11-4 GREEN 12/12 ×2**; ratchet
+**24 → 24, row 0 → 0**. Value.js commits: `ec4b7eff` (the decision) + the receipt commit named in
+the record.

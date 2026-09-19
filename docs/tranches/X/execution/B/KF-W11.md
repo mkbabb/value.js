@@ -2071,3 +2071,206 @@ rather than tidied away.
    sibling seat's staged rows were left exactly as found. **The lesson for the remaining seats, said
    plainly: `--amend` is not safe on a shared index even behind `--only`, because the sha it amends
    can change under you between the check and the call. A follow-up commit is.**
+
+---
+
+### KF.W11.e
+
+SERVED MODEL: claude-fable-5-1
+
+**Unit**: `KF.W11.e` — the spring-plot packet (phase 3). Spec: `KF-W11.md` §Agent Units `:243-247` ·
+§Carry P4 `:187-189` · §Bounds `:118` (+ `:131` create) · §Gates G-KFW11-4 `:295` · §0 OP-4 `:43` ·
+§Sequencing 2/8 `:318`,`:324` · §Commit plan 5 `:380`. **Status: DONE** — G-KFW11-4 GREEN 12/12,
+double-run; the instrument-truth core landed as ONE family, unsplit, with the N-1 fork decided in a
+value.js commit BEFORE the family's first keyframes byte; this unit's §0u row **0 → 0**, the count
+**24 → 24**. **Evidence**: `docs/tranches/X/keyframes/evidence/W11/e-spring-plot-packet-2026-09-19.md`
+(every command, decision, roster row and transcript in full).
+
+**Tiering disclosure.** The card names a tri-fold for the N-1 fork. This seat has no spawn surface
+(no Agent/Task tool; the messaging tools are deferred and address existing sessions), so the fork
+was decided by ONE Fable seat and written with its falsifiers (evidence §3) so an arbiter can
+overturn it at the record. Nothing here claims a second arm was run.
+
+**CRASH-RECOVERY (standing law, first act).** ⟨cmd⟩ `git -C ../keyframes.js status --porcelain --
+demo/scenes/spring/SpringTrace.vue test/demo/scenes/spring-trace-truth.test.ts` → **empty**; ⟨cmd⟩
+`git status --porcelain -- docs/tranches/X/execution/B/KF-W11.md docs/tranches/X/keyframes/evidence/W11`
+→ **empty**. **ZERO inherited hunks on any path this unit may write; no inherited paths to name.**
+Dirty rows outside the set (keyframes' two untracked `VALUEJS-INBOUND-*` letters; value.js's
+`CARRY-LEDGER.md` and `scripts/dev/dev.sh`) read and left untouched; `scripts/dev/dev.sh` never staged.
+**Open sha `0e604af8`** (keyframes.js `master`).
+
+#### Act 0 — §Sequencing 2 as it actually reads; OP-4 at this unit's clock
+
+⟨cmd⟩ `git merge-base --is-ancestor cc8ef498 HEAD && echo ancestor` → **ancestor**; ⟨cmd⟩ `git diff
+--stat cc8ef498 HEAD -- demo/scenes/spring/{SpringTrace,SpringTarget}.vue
+demo/scenes/spring/useSpringLinearStops.ts` → **empty** — the banked prop surface is unchanged at open.
+**There is no M-3 sha**: `.c` returned M-4→M-3 as **ESCALATION KF11-E(c1)** (`:1650-1676`), and ⟨cmd⟩
+`grep -c 'E(c1)' COHESION.md execution/LEDGER.md` → **0 · 0** — UNRULED at this clock. `.e` therefore
+opens on `.c`'s TERMINAL sha, as `.c`'s receipt said (`:1743`). **M-3's DEFECT (x∈[2,98], two dead
+guards) is this packet's D-1 by identity and is CURED here; M-4's SWAP (the parser dies; draw from
+`.fn`) is `.c`'s escalated row and this seat took NO act on it** — the parser landed is the one P4
+orders, and a ruling for `.c`'s option (ii) can delete it in one motion. **One dated measurement
+added for that ruling seat** (evidence §2): against the SHIPPED dist, `springTimingFunction().fn`
+samples a 64-interval grid and `springLinearStops` a 25-interval one, so ⟨cmd⟩ `node
+scratchpad/fnprobe.mjs` → `max |fn(i/25) − stop_i| = 0.00942` (ζ=0.2, response 0.1, i=3) · same —
+0.41 px at the 72 px measure. `.fn` reproduces the TRAJECTORY, not the emitted polyline the plot names
+as its mark.
+
+**OP-4, printed at open and at close** (G-KFW11-4's clock clause): ⟨cmd⟩ `grep -c
+'sampleNormalizedSpring\|resolveLinearStops' dist/keyframes.d.ts` → **0 · 0** (open) · **0 · 0**
+(close). **Route taken against that figure: the ANCHOR-HOIST MINIMUM.** The shared-builder route
+(`generateCurveSVGPath` + a range parameter) was NOT taken — its file is outside this set and the
+spec conditions it on the export.
+
+#### THE DECISION — the N-1 fork, written before the family opened (§Sequencing 8)
+
+Committed to value.js as **`ec4b7eff`** (`docs(x-kf-w11/e): the N-1 fork RULED (b) …`) at 06:03 EDT,
+BEFORE the family's first keyframes commit `e683d9a1`. **RULED (b): keep `response`, label x in
+milliseconds over the emitter's own horizon `4 × response` s.** Grounds (evidence §3, each
+falsifiable): (1) arm (a) is not writable here — the parent binds `:response` at
+`SpringTarget.vue:249` (`.c`'s file, closed) and the composable must sample at SOME response, so
+dropping the prop would leave a fallthrough attribute or a hard-coded sampling response; (2) (b) is
+the truer instrument — N-1's mechanism IS the x-axis normalization, and naming the axis in the unit
+the engine samples in makes the first slider's effect visible where it acts (the terminal label
+moves, the shape does not: response scales time, ζ bends shape); (3) (b) discharges D-6 in the same
+motion; (4) the cost (C-10's per-`response` solver run) is stated and left at INFO. The `4 ×
+response` coupling to the engine's default `maxDuration` is pinned by test (1) below.
+
+#### Acts 1–5 — five commits, keyframes.js `master`, each by exact pathspec with the session trailer
+
+1. **`e683d9a1` · the instrument-truth core — D-1 + N-1 + N-2 + C-2/L-3, ONE family, unsplit**, with
+   the parser posture D-12/L-6/C-4 + the filter cell, L-5's bindings, D-11's label, L-10's extraction
+   and D-6's labels inside it. The resolver now IS the CSS `linear()` rule in the engine's own phase
+   order (`compile/easing/registry.ts` `resolveLinearStops`): two-position stops expand (L-11 dies),
+   anchors FIRST, monotone clamp (reader-B's second divergence cell, closed), then even runs — first
+   plotted x = 0, last = 100. FAIL-EXPLICIT: an unreadable stop is a `SyntaxError` naming its index; an
+   EMPTY token is one (never dropped — `filter(Boolean)` renumbered the axis). Extracted (L-10) into
+   the SFC's plain `<script>` block — the `TimelineHoverPreview.vue` / `StartingStyleTarget.vue` idiom;
+   a second `.ts` file is outside the set. `PLOT` is the ONE source of truth the `<line>`s, tick labels
+   and mapping bind to (L-5). The x-axis reads `0 … <ms>`; the graticule reads `1` / `0` in HTML from
+   the same constants (an SVG `<text>` under `preserveAspectRatio="none"` would stretch). D-11: the
+   primary label names the plot; the invariant count is the axis caption. The peak is computed over
+   the RESOLVED points (K-5's correct form) and the figure carries its quantity as one `role="img"`
+   sentence. **N-2 / C-2's structural half is CARRIED by the spec's own route** (the numeric export and
+   the shared builder are the C-3 edge, KF.W5/KF.W8; the docblock names `resolveLinearStopPoints` as
+   the one function that goes when it lands); the "zero value.js imports" cell is UNSPENT.
+2. **`a54875bd` · mark design — D-3 + D-4 + N-3 in one motion; L-8 by construction; D-7 decided.**
+   Both reference lines NEUTRAL (`--foreground` 55 %: **3.82:1 light / 4.50:1 dark** over the
+   producer's `--card` arms, this seat's arithmetic; 45 % reads 2.85 light — evidence §4), the
+   EasingTarget precedent; the dash authored in device px on purpose (`6 4`, a 10 px period —
+   `non-scaling-stroke` performs dashing in device space, the old `3 2` was a 5 px near-continuous
+   period) and both lines named by text, so no channel is colour alone. **L-8**: the glow moves off the
+   inner `<path>` (user space scaled ~7.7 × 1.2) onto a data-only `<svg>` layer — a CSS box whose
+   filter lengths are CSS px — so stroke and glow reason about scale in the same direction; SS-13
+   #5's UA question is no longer asked of this component. **D-7**: the FIXED scale is KEPT and the
+   reason written (an auto-fit y-axis would draw every ζ at one height and destroy the comparison;
+   more height moves N-5's bite point); the headroom carries the `1` label and the sub-pixel
+   overshoot is carried by the numeric `peak`.
+3. **`8e05a0e0` · the register pass — D-2 + N-4 (+M-6) + D-10 + D-9; D-13 rides D-9.** `text-mono-caption`
+   (uppercase at the installed pin → Ζ) → `.code-token tabular-nums` (the demo's case-preserving mono,
+   census-legal by name; the `tabular-nums` licence kept — the trap restated); `linear()` wears
+   `.code-token` (N-4's rider); the live readout wears `.readout-accent` like the sibling row (D-10);
+   `ζ 0.86` keeps its space, the form `.g` landed — the derby tag's `ζ0.86` is `.c`'s file, NAMED not
+   reached; `mb-1 → mb-2`, the sibling's spacing (D-9), and with it D-13: the ≤3 px glow at the ζ
+   floor (peak 0.67 px under the top edge after the half-stroke, K-7's figure) lands in an 8 px gap it
+   owns instead of overrunning a 4 px one.
+4. **`b9ffced8` · L-14 — documented at the geometry, pinned, test-enforced; never clamped.** The
+   ceiling (1.5556) vs the ζ floor (`SpringPhysicsFacet.vue:36` `:min`, `SpringHeatmap.vue:80`
+   `DAMPING_MIN`) is written down beside `PLOT`, pinned as `PLOT_DAMPING_FLOOR`, and made a test
+   obligation (travelling lock 3); a clamp would flat-top the trace silently — the M-2 class.
+5. **`08168b2c` · `test(… G-KFW11-4)`** — the born-RED witness; see the gate table.
+
+The four component commits were built as four successive working-tree states of one file so each
+carries one meaning; the tree after `b9ffced8` is byte-identical to the state every gate was run
+against (⟨cmd⟩ `cmp` → identical, before and after). No `--amend` was used at any point (c-R1's
+lesson honoured); every message was written with `-F`.
+
+#### Gates — BEFORE → AFTER (every figure double-run at the settled bytes)
+
+| gate / clause | command | BEFORE (`0e604af8`) | AFTER (`08168b2c`) |
+|---|---|---|---|
+| **G-KFW11-4** runtime | `npx vitest run --project demo test/demo/scenes/spring-trace-truth.test.ts` | `No test files found` · same | **12 passed (12)** · **12 passed (12)** — **GREEN** |
+| G-KFW11-4 clock clause | `grep -c 'sampleNormalizedSpring\|resolveLinearStops' dist/keyframes.d.ts` | **0 · 0** | **0 · 0** — route stated above |
+| **§0u ratchet**, this unit's row | `npx vue-tsc --noEmit -p tsconfig.json \| grep -c 'error TS'` · `… \| grep -c SpringTrace` | **24** · **0** | **24 · 24** · **0 · 0** |
+| test-config leg | `npx tsc --noEmit -p tsconfig.test.json \| grep -c 'error TS'` · `… \| grep -c spring-trace` | **23** · **0** | **23 · 23** · **0 · 0** |
+| demo suite | `npm run test:demo` | **45 / 376** | **46 / 388** · **46 / 388** |
+| no masking | `git diff 0e604af8..HEAD -- test \| grep -c 'test.skip\|it.skip\|\.only('` | — | **0** |
+| eslint | `npx eslint demo/scenes/spring test/demo/scenes/spring-trace-truth.test.ts` | — | exit **0** |
+| `git diff --check` | every commit | — | clean ×5 |
+
+**GREEN when** (spec `:295`): *the extracted builder (L-10) is unit-tested against the engine's own
+samples* — test (1): 18 (ζ, response) pairs × 24 interior stops, each resolved value **equal to 5 dp**
+to `sampleNormalizedSpring`'s sample at `dt = horizon/25`, and test (2b): the resolver equals the
+engine's `resolveTimingFunction` at 100 midpoints over five authored strings; *the axis unit matches
+the N-1 decision quoted in the receipt before the family* — test (5a): `2000 ms` → `4800 ms` under a
+`response` change with the path `d` byte-identical at ζ=0.2. **Also witnessed here: G-KFW11-3's case
+(b)** (*"the trace's first/last plotted x = 0/100"*), which `.c` declared absent because the byte is
+this file's — test (2a), every ζ. `.j` may read it there.
+
+**Born-RED basis, per case**: the banked form *"No test files found"* reproduced at open, twice; the
+pre-cure byte each assertion contradicts is listed in evidence §7.
+
+#### Locks — all honoured
+
+The core family ONE sha (`e683d9a1`) · the fork decided FIRST at `ec4b7eff`, a value.js commit
+older than the family · OP-4 re-measured at open AND close, the route stated against it · no
+`src/**` byte · the two `.a`-carved `variant:` lines untouched (not this file) · `SpringTarget.vue`,
+`SpringHeatmap.vue`, `SpringPhysicsFacet.vue`, `timingCurveUtils.ts`, `demo/env.d.ts` READ, never
+written · no `test.skip`, no widened timeout, no cast, no `@ts-expect-error`, no `eslint-disable` ·
+zero SWAP-discharge receipts (the discharge alphabet has no members; stated in words, never
+spelled).
+
+#### Declared, not written — and one compromise stated rather than smuggled
+
+- **C-3 (the export)** → KF.W5/KF.W8; **N-2's shared-builder route** → the same edge (its file
+  `demo/utils/reference-data/timingCurveUtils.ts` is outside this set).
+- **M-4→M-3's SWAP** → KF11-E(c1)'s ruling seat, with the `.fn` deviation measurement (0.00942 →
+  0.41 px) as a dated input; no act taken, nothing prejudged.
+- **M-6's other half** (the derby tag's `ζ0.86`) → `.c`'s file, named.
+- **The test narrows the SFC module at runtime.** `check`'s second leg (`tsc -p tsconfig.test.json`)
+  knows a `.vue` module only through `demo/env.d.ts`'s default-only shim, so a NAMED import of an SFC
+  export is a TS2339 there (`aurora-opacity-ceiling.test.ts:61` carries exactly that diagnostic
+  today). This test imports the module as `unknown` and CHECKS each export it uses (type + return
+  shape), failing loudly if one is missing — no cast, no shim edit (`demo/env.d.ts` is a Do-NOT-touch
+  row), no suppression. The ROOT — SFC named exports invisible to plain `tsc` — is RECORDED for
+  whichever wave owns `demo/env.d.ts`; nothing in this unit is blocked by it.
+- **N-5**: found LANDED-BY `.c` `c41a9a74` at the parent (`overflow-y-auto` + `safe center`) —
+  GREEN-BEFORE-CURE (R.2), booked, not re-cured.
+- **D-5** (not in P4's roster): its identity is DISCHARGED as the a11y posture of D-6's labels (one
+  `role="img"` sentence over the resolved points, K-5's correct form); its GRADE question (SS-13 #8,
+  the SR pass) stays KF.W9's. **D-7's SS-13 #3** and **N-3's SS-13 #4** perceptual halves remain
+  witness questions, now beside a numeric readout and a 10 px dash respectively.
+
+#### E13 mail sweep at this seat's clock
+
+Four paths swept read-only, status read by cell position. ⟨cmd⟩ `grep -cE '^\| [IO]-[0-9]+[a-z]? \|'
+INBOX.md` → **79** rows (tail O-39, X.F.W8's); positional scan → the only `UNREAD` tokens are
+historical (*"Was: UNREAD"*), **0 rows currently UNREAD**; newest letter per path rowed (I-35 at
+glass; the 07-27 inbound at keyframes; I-31/O-12 at atlas). **ZERO unrowed, ZERO UNREAD in scope; no
+`I-n` minted.**
+
+#### Residuals — declared, not dropped
+
+**e-R1**: N-2 / C-2's structural half is carried by the spec's own route — the component still
+round-trips through the string (one exported, tested, fail-explicit resolver now, not 37 anonymous
+lines) until C-3 lands. **e-R2**: the `.fn` route's 0.41 px deviation is a measurement for the
+KF11-E(c1) ruling seat, not a verdict. **e-R3**: test (4b) reads `SpringHeatmap.vue`'s `DAMPING_MIN`
+declaration by regex — if `.f` (phase 3, parallel) renames it, the test fails EXPLICITLY with the
+re-bind instruction in its message; that is the enforcement L-14 asked for, and `.j` should read
+such a red as a re-bind, never a skip.
+
+#### Inherited-paths clause
+
+None — both writable paths were clean at open (the crash-recovery readings above).
+
+#### SELF-COUNT
+
+**5 keyframes.js commits** listed, ⟨cmd⟩ `git log --oneline 0e604af8..HEAD | grep -c 'X.KF.W11.e'` →
+**5** (the five are the whole range — no sibling commit landed in it). **Files written: 2 in
+keyframes.js** (`demo/scenes/spring/SpringTrace.vue` · `test/demo/scenes/spring-trace-truth.test.ts`
+— the `:118` row and the `:131` create row; zero writes outside the set; zero `src/**` bytes) **+ 2 in
+value.js** (this record; the evidence file, across `ec4b7eff` and the receipt commit). **P4 rows: 15
+LANDED · 1 DECIDED-KEPT (D-7) · 1 LANDED-BY sibling (N-5) · 1 CARRIED by the spec's route (N-2) · 1
+DECLARED to the library (C-3) · 2 RECORDED (D-16 · C-10) · 1 died with the cure (L-11)** — the
+per-id table is evidence §8. Gate **G-KFW11-4 GREEN 12/12 ×2**; ratchet **24 → 24**, this row **0 →
+0**; demo suite **45/376 → 46/388**.
