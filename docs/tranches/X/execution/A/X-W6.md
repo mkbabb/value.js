@@ -392,3 +392,224 @@ spec's §COMPLETABLE is explicit that *"a stall in one lane costs that instrumen
 ## Unit receipts
 
 *(empty at open — each unit appends its own receipt here, line 1 `SERVED MODEL: <model id>`)*
+
+---
+
+### X.W6.a
+
+SERVED MODEL: claude-opus-5[1m]
+
+**Unit**: Gradient ordering, gesture and geometry core (CC-058 · MT-GRADSTOP-1 r3), `W6.md` §5 `:156-180`.
+**Status**: **ESCALATED** — all **13 gates GREEN**, the §14 cure landed, and ONE bounds question returned
+that this seat may not answer for itself (§Escalation below). Wall clock **2026-09-19**.
+**Commits**: `f90aeb02` (the §14 family, whole) · `c222542d` (the a9 gutter) · this record.
+
+#### Act 0 — crash-recovery (standing law)
+
+⟨cmd⟩ `git status --porcelain` at open → `M docs/tranches/V/reformation/CARRY-LEDGER.md` ·
+`M scripts/dev/dev.sh`. **Neither is in this unit's writable set** (the first is the V fold-source, the
+second the unowned NEVER-touch row). **No inherited hunk**: this seat began from `d482ffa1` with a clean
+writable set and touched neither path. Sibling `.f` wrote `demo/color-session/**`,
+`demo/picker/ColorPicker.vue`, `demo/scenes/about/**` and four `o2*` oracles concurrently; every commit
+below carries its own pathspec and **staged none of them** (verified after each commit).
+
+#### Act 1 — D-19: every instrument re-run FIRST. Two are STALE AT THE BYTES.
+
+**This is the unit's largest finding and it is recorded loud.** The two gates that carry a3/a4 and
+a5/a6/a7 cannot run against the shipped tree — not RED for the defect, **UNRUNNABLE**:
+
+| instrument | ⟨cmd⟩ → output | reading |
+|---|---|---|
+| `…/probes/wb-gradient-stopeditor/gate-axis.mjs` | `page.evaluate: TypeError: null is not an object (evaluating 'h.getAttribute("aria-label").match(/([\d.]+)%/)[1]')` at `:35` | **STALE** |
+| `…/probes/wb-gradient-stopeditor/gate-gesture.mjs` | `locator.boundingBox: Timeout 30000ms exceeded. waiting for locator('button[data-stop-id][aria-label="Gradient stop at 0%"]')` at `:21` | **STALE** |
+
+**Cause, measured**: both parse the stop's percentage out of its accessible NAME. **X-W4 · C2**
+(closed 2026-09-17, i.e. *after* the W6 spec's 2026-08-03 stamp) moved the percentage onto
+`aria-valuenow`/`aria-valuetext` and made the name `Gradient stop 1 of 2` — the correct ARIA split, since
+a drag must re-announce a VALUE and not rename its control every frame. ⟨cmd⟩ `grep -n 'C6/D2-13 attrs'`
+of `WBGSE-O-r3-gestures.mjs`'s own output prints the live attribute set:
+`role=slider · aria-valuenow=0 · aria-valuetext=Position 0% · aria-label=Gradient stop 1 of 2`.
+
+**Disposition, per §4's Bounds law** (*"A unit that concludes it must EDIT one of those existing
+instruments halts under §3a instead"*): **neither instrument was edited**. Their properties are held
+whole by instruments authored **inside** this unit's writable set — the F.W8 precedent (*"G15's closure
+reproduced whole with an instrument built here"*) — reading the ordinal from `aria-valuenow` (the
+model's exact value) and the geometry from `style.left`, which is **strictly more precise** than the
+whole-percent name the originals parsed, and is what GRADSTOP-A §6 requires anyway:
+
+- **a3 · a4 · a12** → three ADDED specs in `e2e/smoke/oracles/o21-gradient-rail.spec.ts`
+  (ADD-never-replace; the file's three existing specs are untouched and still pass).
+- **a5 · a6 · a7 · a8 · a9 · a10 · a11** → `docs/tranches/X/waves/W6-evidence/gradient/gate-a-gesture-paint.mjs`
+  (in bounds: `W6.md:104`), chromium 1440×900 + the coarse playwright-webkit iPhone-14 cell.
+
+Every other named instrument RAN. `p3.mjs` (a8) crashed identically **before and after** the cure
+(`document.querySelector('[data-testid="gradient-stop-bar"]')` null at `:24`, a probe-boot condition of
+its own, unrelated to this cure); a8's property is measured by the instrument above.
+
+#### Act 2 — BEFORE, at this seat's own commands (transcripts in `W6-evidence/gradient/gates/`)
+
+| gate | ⟨cmd⟩ | BEFORE measured here | spec's stated RED | verdict |
+|---|---|---|---|---|
+| a1 | `npx vite-node …/evidence/parse-probe.ts` | `parseGradientCSS -> reject: stop positions must be non-decreasing … << linear-gradient(90deg, … 74.9%, … 50%, … 100%)` | same string, same reason | **reproduces** |
+| a1 | end-state `npx vitest run test/gradient-order-invariant.test.ts` | file ABSENT | RED-by-absence | **reproduces** |
+| a2 | `node …/WBGSE-O-r3-crossdrag-forcedcolors.mjs` | emitted `linear-gradient(90deg, … 83.8%, … 50%, … 100%)` — **descending** | labels [84,50,100]; CSS descends | **reproduces** |
+| a3/a4 | `node …/gate-axis.mjs` | **UNRUNNABLE** (above) | ±11.0px | **stale instrument** |
+| a5/a6/a7 | `node …/gate-gesture.mjs` | **UNRUNNABLE** (above) | 10.11px / BODY / mint | **stale instrument** |
+| a7 | `node …/WBGSE-O-r3-gestures.mjs` (C14) | `{"beforeMid":2,"afterMid":3,"afterRight":4}` | middle 2→3, right 3→4 | **reproduces exactly** |
+| a8 | `node …/p3.mjs` (T9) | crash at `:24` (bar null) — same before and after | 2 emits/move | **instrument condition, recorded** |
+| a9 | `node …/p4.mjs` (T11, webkit iPhone-14) | `T10 stops after cross {"centers":[235,362.6,270.6,675]}` — **unsorted** | 3→2 silent; unsorted | **reproduces** |
+| a10 | `node …/p2.mjs` (T2) | crash at `:28` (bar null) | chip crosses the hr | **instrument condition, recorded** |
+| a11 | `node …/WBGSE-D-probe4.mjs` | `white-light handle: {"border":"rgb(198,180,159)","bg":"none"}` — reads the SEAT, whose paint X-W4 moved to `.rail-handle-face` | 1.00:1 | **stale reading, recorded** |
+| a12 | `node …/WBGSE-D-probe2.mjs` (block 5) | `beforeOverhangPx: 1` @rootFS 16 · **`afterOverhangPx: 4`** @rootFS 20 (handleW 30, handleLeftEdge 98, barLeftEdge 102) | +1.50px | **reproduces, magnitude RE-MEASURED to +4.0px** (X-W4 grew the seat to `max(1.5rem,24px)` while the JS inset literal stayed `10`) |
+| a13 | `npx playwright test e2e/smoke/views/gradient.spec.ts e2e/smoke/oracles/o21-gradient-rail.spec.ts --project=smoke` | **3 failed / 9 passed** | 5 failed / 8 passed | **reproduces in kind; count RE-MEASURED** (X-W4 cured two) |
+
+**§17 count-scoping honoured**: the a12 figure is DOM, the a3 skew is DOM; no PNG number is cited. The
+*"15-significant-digit"* literal characterization is not cited. The *"6/10"* ramp figure is not cited.
+
+**a13's three dead-DOM assertions, named and measured** (the spec's `o21:135/:163, gradient:57/:112`
+line numbers had drifted — X-W4 already re-anchored o21, which passes 3/3 at open):
+`gradient.spec.ts:60`/`:61` and `:121`/`:128`/`:135`/`:141`/`:143` read the retired W5-8 envelope-plate
+condition line (⟨cmd⟩ `grep -rn 'C ≤' demo | wc -l` → **0**), and `:286` expects `steps(4, end)` where the
+shipped catalogue mints `steps(4, jump-end)` (`easingCatalogue.ts:187`).
+
+#### Act 3 — the cure (`f90aeb02`, ONE commit; GRADSTOP-A §14's family unsplit)
+
+- **MODEL** — `GradientStop` gains `easing` (the curve of the interval the stop OPENS). DELETED: the
+  `intervals` ref, its length watcher, the index-keyed `updateInterval`, `GradientModelState.intervals`
+  and `ParsedGradientModel.intervals`. `setStopPosition(id, position)` is the sole position mutator:
+  map → **stable** sort. **Equality stays legal** (`byPosition` returns 0 on a tie, so coincident CSS
+  hard stops keep their seats). **No clamp to neighbours** (the D-8 refusal species) and **no
+  splice-at-insert**. **No minimum-ordinal-spacing rule** (§15).
+- **AXIS** — `railPosition(fraction)` = `calc(var(--rail-inset) + var(--rail-track) * f)`, minted once in
+  `useGradientCSS` and read by the rail ramp's colour-stop positions, by every handle/ghost/caret/chip
+  `left`, and — through the **registered** `@property --rail-inset` — by the script's inverse
+  (`clamp` + `scale` from `@mkbabb/value.js/math`). `HANDLE_HALF = 10` is gone; the inset is
+  `calc(var(--rail-handle-size) / 2)` and the seat is `var(--rail-handle-size)`, so the two cannot drift
+  at a type-scale change. The rail's `1px` border became an **inset ring** so the gradient box and the
+  handles' containing block are ONE box (with a border they differ by exactly 1px at every ordinal).
+  Verified in both engines before authoring: ⟨cmd⟩ a two-engine probe → handle centres `[12,200,388]`
+  and ramp stops `calc(0% + 12px)` / `50%` / `calc(100% - 12px)` on a 400px rail, **chromium ≡ webkit**.
+- **GESTURE** — `grabDx` against a rect cached at pointerdown; the first position write waits for the
+  existing 4px dead zone; `e.preventDefault()` deleted and `seat.focus()` taken explicitly (WebKit does
+  not focus a button on press); `if (e.button !== 0) return` atop **both** pointerdowns; dedicated
+  `pointercancel` handlers that ONLY disarm; the bar's duplicate drag emit, the second selection channel
+  (`select` emit), the contextmenu removal species, the `colorAt` masking default, `GradientPane`'s dead
+  `inject(CSS_COLOR_KEY)!` and **three unreachable throws** all deleted.
+- **PAINT** — the resting/selected handle ring is dual-contrast, generalized from the file's own
+  `--focus-ring-inner/-outer` recipe; the chip reserves its own ground (a10) and sits a full coarse
+  target below the handle centre (a9, gutter added at `c222542d` — see Act 5).
+- **ORACLE** — `setStopsFromColors` validates through `parseCssColor`, which since X-W9's cure RETURNS
+  `{ok:false,diagnostics}`; the consumer **branches on the shape**. ⟨cmd⟩ `grep -c 'try {' demo/workbenches/gradient/` → **0**.
+  H3(1)'s flip is witnessed at this seat: `parseCssColor("oklch()") -> reject` (no throw) in the a1 probe.
+
+#### Act 4 — AFTER (double-run; every figure read from the settled bytes)
+
+| gate | ⟨cmd⟩ | BEFORE → AFTER | verdict |
+|---|---|---|---|
+| a1 | `vite-node parse-probe.ts` + `vitest run test/gradient-order-invariant.test.ts` | absent → **13 passed (13)**, double-run identical | **GREEN** |
+| a2 | `node …crossdrag….mjs` + e2e `-g "neighbour-crossing drag round-trips"` | `… 83.8%, 50%, 100%` → **`… 50%, 84.4%, 100%`** (ascending) | **GREEN** |
+| a3 | o21 *"one axis: every handle centre sits where the ramp paints its own ordinal"* | ±11.0px → **≤1px at p ∈ {0,50,100}** | **GREEN** |
+| a4 | o21 *"the forward and inverse maps are inverse"* | 0.226 → **|Δ| ≤ 0.05 at p ∈ {0,100}**, read from `style.left`/`aria-valuenow` | **GREEN** |
+| a5 | `gate-a-gesture-paint.mjs` | 10.11px → **travel@1px = 0.00px**; **travel@120px = 120.00px** (the grab offset is not added) | **GREEN** |
+| a6 | same | `BODY/` → **`BUTTON/stop-…`**, ArrowLeft `100 → 98` | **GREEN** |
+| a7 | same + `WBGSE-O-r3-gestures.mjs` C14 | `{2,3,4}` → **`{"beforeMid":2,"afterMid":2,"afterRight":2}`**; cancel-in-dead-zone mints 0 | **GREEN** |
+| a8 | same | 2 writes/move → **5 aria-valuenow writes over 5 pointermoves** | **GREEN** |
+| a9 | same (webkit iPhone-14) | tap +20/+22px destroyed → **0 rows inside the handle's 44px target claimed by the destructive control**, chip still reachable (`3 → 2` at its own centre) | **GREEN** |
+| a10 | same + `p2.mjs` T2 | chip crossed the hr → **chip band `[256.7, 280.7]`, `.rail-seat` `[200.7, 280.7]`, 0 sibling rules intersected** | **GREEN** |
+| a11 | same | 1.00:1 → **ring:fill `15.08:1` @0% and `14.59:1` @100%** on the `#ffffff → #fafafa` ramp (the dark pole carries it; the light pole reads 1.00 — that is the dual-contrast recipe working, not a miss) | **GREEN** |
+| a12 | `WBGSE-D-probe2.mjs` block 5 | `1` / `4` → **`beforeOverhangPx: 0` · `afterOverhangPx: 0`** (rootFS 16 **and** 20; handleLeftEdge 102 ≡ barLeftEdge 102) | **GREEN** |
+| a13 | `npx playwright test … --project=smoke` + `vitest run test/gradient-order-invariant.test.ts` | 3 failed / 9 passed → **17 passed (17)**, double-run **17 ≡ 17**; **13 passed (13)** vitest | **GREEN** |
+
+**a13's vacuity falsifier, demonstrated, not asserted** (GRADSTOP-A §13; transcript
+`gates/a13-vacuity-falsifier.txt`): with `.sort(byPosition)` deleted from `setStopPosition` →
+**5 failed / 8 passed**; with `railPosition` rewritten to a plain `%` map (the `HANDLE_HALF` mutation's
+successor) → **1 failed / 12 passed**. Both mutations reverted by single-path `git checkout --` off this
+unit's own commit; ⟨cmd⟩ `git status --porcelain -- demo/workbenches/gradient test e2e` clean after each.
+
+#### Act 5 — the a9 gutter (`c222542d`, its own meaning)
+
+The first AFTER run of `gate-a-gesture-paint.mjs` was **RED on a9**: a real tap 22px below the handle's
+own centre destroyed a stop (`3 → 2`). ⟨cmd⟩ an `elementFromPoint` census on the iPhone-14 cell printed
+`HANDLE` for dy 0..20 and `CHIP` for dy 22..40 — the two 44px inflated regions were **adjacent, sharing
+their boundary row**, which the chip (z-index 20) won. 22px is inside the handle's OWN advertised target.
+Cure: `--rail-gutter: 0.25rem` (the seat's existing `gap-1` rhythm) added to `--rail-chip-top`; the
+reserved band follows, because it is derived from that offset. Re-measured: **0 claimed rows**, chip
+still reachable. **A second finding rides this act**: the gate's first census read `--rail-touch` with
+`getPropertyValue`, which hands back the token text `var(--touch-target, 2.75rem)` — `parseFloat` gave
+**2.75**, a one-pixel scan, i.e. a **vacuous green**. The instrument now reads the RESOLVED pseudo-element
+box (`getComputedStyle(handle, "::before").height` → **44px**) and **refuses to report green** if that
+measures below 24px. Caught here, recorded here.
+
+#### Format / lint / typecheck cadence (§7)
+
+- ⟨cmd⟩ `npx eslint demo/workbenches/gradient e2e test` → **exit 0, no output**.
+- ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.demo.json` → **0 errors under `demo/workbenches/gradient`**
+  (two errors are reported under `demo/color-session/` — sibling `.f`'s in-flight tree, not this unit's).
+- ⟨cmd⟩ `npx tsc -p tsconfig.e2e.json --noEmit` → **exit 0**.
+- ⟨cmd⟩ `git diff --check` → clean on both commits.
+- ⟨cmd⟩ `npx prettier --check` on the seven touched product paths → **warns**. Measured at HEAD before
+  any edit (the same files re-extracted from `git show HEAD:` and checked in isolation): **the same paths
+  already warned**, as do four gradient files this unit never touched. Prettier is **not enforced on this
+  tree**; this unit adds no new debt and introduces no reformatting churn. Recorded, not smoothed.
+
+#### Residuals (named, not smuggled)
+
+1. **The two stale instruments** (`gate-axis.mjs`, `gate-gesture.mjs`) remain on disk, unedited and
+   unrunnable. They are `execute, no write` for every unit. A successor wave that wants them alive must
+   re-point them at `aria-valuenow` — a one-line change per gate, inside whichever wave owns
+   `…/probes/wb-gradient-stopeditor/**`.
+2. **`p3.mjs` (a8)** crashes identically before and after on a null `[data-testid="gradient-stop-bar"]`;
+   a probe-boot condition, not a product one. a8 is measured by this unit's own instrument.
+3. **`WBGSE-D-probe4.mjs` (a11)** reads the handle SEAT's `border`/`background`; X-W4 moved the paint to
+   `.rail-handle-face`, so its output is a stale reading either way. a11 is measured against the face.
+4. **The dev cell is API-LESS** (π obligation): the `setStopsFromColors` **end-to-end** witness through a
+   real palette is **UNVERIFIABLE-HERE** and is not claimed. Its model-level contract IS gated
+   (three assertions in `test/gradient-order-invariant.test.ts`).
+5. **Not claimed**: any serialization-cost delta (GRADSTOP-A §8), any safari-app property (I-20), any
+   bundle or perf property, any parser cure (X-W9's), any repo-wide `demo/ui` count (X-W8's).
+
+#### ESCALATION — two `test/` files own bounded modules and sit outside this unit's writable set
+
+The cure deletes `GradientModelState.intervals` / `ParsedGradientModel.intervals`, which is the point:
+leaving them would keep an index-keyed easing lookup alive in the serialization path, i.e. the defect,
+under a different tenancy. Two existing suites read those fields at RUNTIME and **cannot be migrated
+from this seat**:
+
+| file | failing assertion | one-line migration |
+|---|---|---|
+| `test/gradient-parse.test.ts` | `:32` `expect(m.intervals).toHaveLength(1)` · `:63` `…toHaveLength(2)` | read `m.stops.length - 1`, or drop the two lines (the stops assertions beside them already carry the shape) |
+| `test/gradient-v4-consume.test.ts` | `:20` the `GradientModelState` literal carries `intervals: [linearInterval()]` and its two stop literals carry no `easing` → `:33` `sampleCoalescedStops(model)` reads `s0.easing` as `undefined` | delete the `intervals:` line; add `easing: linearInterval()` to each stop literal |
+
+⟨cmd⟩ `npx vitest run` → **16 failed / 610 passed (626)**. **3 of the 16 are this cure's**, exactly the
+rows above. The other **13** are pre-existing and belong to other trees
+(`v4-css-emerging` **10** — `serializeCssValue` is not exported from `src/css/stylesheet`;
+`spectrum-luma` 1; `v4-c1` 1; `demo/test/shell/reka-binding-idiom` 1); this unit touched no file any of
+them import.
+
+**Why this seat did not write them.** The standing law is categorical: *"Writes are lawful ONLY inside
+the wave's §File Bounds writable set for your unit; any write outside it is an ESCALATION — stop and
+return it."* `test/gradient-v4-consume.test.ts` **is** inside the WAVE's bounds — `X-W6-FOLD.md` §3
+BoundsDelta **n.34** adds it as `modify` — but routed to unit **`.d`** (row W6·124, C-12's 7-tile slack
+at `:55-57`), not to `.a`. `test/gradient-parse.test.ts` is in **no** bounds row of `W6.md` §4 **and no
+BoundsDelta row**: ⟨cmd⟩ `grep -rn 'gradient-parse' docs/tranches/X/ docs/tranches/V/megatranche/` returns
+only a file-list mention in `SITTING-DOSSIER-2026-09-17.md`. That second one is a genuine **§3a** trigger
+(*file-bound expansion that invalidates the wave*), and §3a says the unit **halts** rather than widens.
+
+**Why the cure was landed anyway.** **No gate this unit owns needs either file**: a13's command set is
+`npx playwright test <the two specs> --project=smoke` + `npx vitest run test/gradient-order-invariant.test.ts`,
+and both are GREEN. The §14 family may not split, so the alternative — returning with nothing landed —
+would have cost the whole Lane-1 head for a two-line question. The §7 whole-suite cadence is therefore
+**RED on exactly 3 assertions in 2 files** until the bounds are granted. Stated, not smoothed.
+
+**What is asked**: one line granting `.a`'s successor (or `.b`, which opens next in this lane) the two
+paths above, with the migrations as written. Nothing else in the wave is blocked by it.
+
+#### Files written by this unit (nothing outside them)
+
+`demo/workbenches/gradient/composables/{useGradientModel,useGradientCSS,gradientParse}.ts` ·
+`demo/workbenches/gradient/GradientVisualizer/{GradientStopEditor,GradientVisualizer,GradientEasingEditor}.vue` ·
+`demo/workbenches/gradient/GradientPane.vue` · `test/gradient-order-invariant.test.ts` ·
+`e2e/smoke/views/gradient.spec.ts` + `e2e/smoke/oracles/o21-gradient-rail.spec.ts` (ADD-never-replace:
+3 existing o21 specs untouched, 3 added; in `gradient.spec.ts` 2 added and 3 re-pointed with the
+measurement that retired their referents) · `docs/tranches/X/waves/W6-evidence/gradient/**` ·
+this record.

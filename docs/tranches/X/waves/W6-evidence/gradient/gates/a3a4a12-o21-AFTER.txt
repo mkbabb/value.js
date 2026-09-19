@@ -1,0 +1,18 @@
+(node:12752) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:12781) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 6 tests using 1 worker
+
+[1A[2K(node:12783) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/6] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:60:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed)
+[1A[2K[2/6] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:80:1 › the owned paint stack: normalized 90° ramp, no-repeat, border-box origin+clip
+[1A[2K[3/6] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:107:1 › pill silhouette (T-46): the rail rounds on the glass-ui slider-track register
+[1A[2K[4/6] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:143:1 › one axis: every handle centre sits where the ramp paints its own ordinal
+[1A[2K[5/6] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:185:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal
+[1A[2K[6/6] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:238:1 › type-scale containment: at rootFS 20px the terminal handles stay inside the rail
+[1A[2K  6 passed (32.2s)

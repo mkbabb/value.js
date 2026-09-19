@@ -1,0 +1,88 @@
+== 1 settled focus ==
+{
+ "boxShadow": "rgba(0, 0, 0, 0.85) 0px 0px 0px 1px, rgba(255, 255, 255, 0.92) 0px 0px 0px 3px",
+ "outline": "rgb(28, 25, 23) none 3px",
+ "inner": "rgba(0, 0, 0, 0.85)",
+ "outer": "rgba(255, 255, 255, 0.92)",
+ "ring": ""
+}
+== 2 after add == ["Gradient stop 1 of 3","Gradient stop 2 of 3","Gradient stop 3 of 3"] | linear-gradient(90deg, oklch(0.75 0.15 145) 0%, oklch(70% 0.165 205deg) 50%, oklch(0.65 0.18 265) 100%)
+== 2 after drag-past == ["Gradient stop 1 of 3","Gradient stop 2 of 3","Gradient stop 3 of 3"]
+   css: linear-gradient(90deg, oklch(70% 0.165 205deg) 50%, oklch(0.75 0.15 145) 84.4%, oklch(0.65 0.18 265) 100%)
+   dom left offsets: ["calc(var(--rail-inset) + var(--rail-track) * 0.5)","calc(var(--rail-inset) + var(--rail-track) * 0.844)","calc(var(--rail-inset) + var(--rail-track) * 1)"]
+   errors: ["CONSOLE [value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"]
+== 3 remove chip ==
+{
+ "chip": {
+  "x": 443,
+  "y": 256.7,
+  "w": 24,
+  "h": 24,
+  "bottom": 280.7
+ },
+ "barBottom": 240.7,
+ "hrTop": 300.7,
+ "h3Top": 120,
+ "overlapsHr": false,
+ "chipHitAtHrY": "HR"
+}
+   stops: ["Gradient stop 1 of 3","Gradient stop 2 of 3","Gradient stop 3 of 3"]
+== 4 coarse ==
+{
+ "coarse": true,
+ "beforeSize": "44pxx44px",
+ "railW": 324,
+ "info": [
+  {
+   "label": "Gradient stop 1 of 3",
+   "cx": 45
+  },
+  {
+   "label": "Gradient stop 2 of 3",
+   "cx": 162.6
+  },
+  {
+   "label": "Gradient stop 3 of 3",
+   "cx": 345
+  }
+ ],
+ "hits": [
+  {
+   "own": "Gradient stop 1 of 3",
+   "hit": "SPAN.rail-handle-face"
+  },
+  {
+   "own": "Gradient stop 2 of 3",
+   "hit": "SPAN.rail-handle-face"
+  },
+  {
+   "own": "Gradient stop 3 of 3",
+   "hit": "SPAN.rail-handle-face"
+  }
+ ]
+}
+== 5 root font ==
+{
+ "before": {
+  "handleW": 24,
+  "handleLeftEdge": 224,
+  "barLeftEdge": 224,
+  "rootFS": "16px"
+ },
+ "after": {
+  "handleW": 30,
+  "handleLeftEdge": 102,
+  "barLeftEdge": 102,
+  "rootFS": "20px"
+ },
+ "beforeOverhangPx": 0,
+ "afterOverhangPx": 0
+}
+== 6 reduced-motion ==
+{
+ "reduced": true,
+ "transitionProperty": "opacity, color, background-color, border-color, box-shadow",
+ "transitionDuration": "0.1s",
+ "inlineTransition": true
+}
+== 7 white ramp == ["Gradient stop 1 of 2","Gradient stop 2 of 2"] | linear-gradient(90deg, #ffffff 0%, #fafafa 100%)

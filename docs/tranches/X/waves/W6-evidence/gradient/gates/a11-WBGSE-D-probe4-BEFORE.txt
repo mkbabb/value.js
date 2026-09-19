@@ -1,0 +1,2 @@
+white-light handle: {"border":"rgb(198, 180, 159)","bg":"none"}
+alpha stops: ["Gradient stop 1 of 2","Gradient stop 2 of 2"]

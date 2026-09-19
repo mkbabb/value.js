@@ -1,0 +1,121 @@
+(node:86286) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:86316) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 12 tests using 1 worker
+
+[1A[2K(node:86429) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/12] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:60:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed)
+[1A[2K[2/12] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:80:1 › the owned paint stack: normalized 90° ramp, no-repeat, border-box origin+clip
+[1A[2K[3/12] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:107:1 › pill silhouette (T-46): the rail rounds on the glass-ui slider-track register
+[1A[2K[4/12] [smoke] › e2e/smoke/views/gradient.spec.ts:38:1 › gradient view renders direction slider with zero console errors
+[1A[2K  1) [smoke] › e2e/smoke/views/gradient.spec.ts:38:1 › gradient view renders direction slider with zero console errors 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: getByRole('main', { name: 'Color tool panes' }).getByTestId('gradient-render-tile').last()
+    Expected pattern: [32m/H \d+(–\d+)?°/[39m
+    Received string:  [31m""[39m
+    Timeout: 8000ms
+
+    Call log:
+    [2m  - Expect "toContainText" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('main', { name: 'Color tool panes' }).getByTestId('gradient-render-tile').last()[22m
+    [2m    20 × locator resolved to <div role="img" data-v-44c9d000="" data-testid="gradient-render-tile" aria-label="Gradient render with type and direction applied" class="gradient-render-tile row-span-2 w-20 sm:w-24 rounded-card border border-card-edge"></div>[22m
+    [2m       - unexpected value ""[22m
+
+
+      58 |     const plate = main.getByTestId("gradient-render-tile").last();
+      59 |     await expect(plate).toBeVisible();
+    > 60 |     await expect(plate).toContainText(/H \d+(–\d+)?°/);
+         |                         ^
+      61 |     await expect(plate).toContainText(/C ≤ 0\.\d+/);
+      62 |
+      63 |     expect(consoleErrors).toEqual([]);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:60:25
+
+    Error Context: test-results/views-gradient-gradient-vi-bff74-er-with-zero-console-errors-smoke/error-context.md
+
+
+[1A[2K(node:86839) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[5/12] [smoke] › e2e/smoke/views/gradient.spec.ts:66:1 › the rail is a normalized 90° projection; the render tile carries type + direction (T-21b)
+[1A[2K[6/12] [smoke] › e2e/smoke/views/gradient.spec.ts:102:1 › selecting a stop pins the envelope plate to its single-hue slice; Escape and re-tap un-pin it (P7-R1)
+[1A[2K  2) [smoke] › e2e/smoke/views/gradient.spec.ts:102:1 › selecting a stop pins the envelope plate to its single-hue slice; Escape and re-tap un-pin it (P7-R1) 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: getByRole('main', { name: 'Color tool panes' }).getByTestId('gradient-render-tile').last()
+    Expected pattern: [32m/H \d+–\d+°/[39m
+    Received string:  [31m""[39m
+    Timeout: 8000ms
+
+    Call log:
+    [2m  - Expect "toContainText" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('main', { name: 'Color tool panes' }).getByTestId('gradient-render-tile').last()[22m
+    [2m    20 × locator resolved to <div role="img" data-v-44c9d000="" data-testid="gradient-render-tile" aria-label="Gradient render with type and direction applied" class="gradient-render-tile row-span-2 w-20 sm:w-24 rounded-card border border-card-edge"></div>[22m
+    [2m       - unexpected value ""[22m
+
+
+      112 |
+      113 |     // Default hue-varying seed: the label states a RANGE.
+    > 114 |     await expect(plate).toContainText(/H \d+–\d+°/);
+          |                         ^
+      115 |
+      116 |     // Pin: select the first stop — the label collapses to that hue alone
+      117 |     // (the degenerate slice, the stated special case).
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:114:25
+
+    Error Context: test-results/views-gradient-selecting-a-048ae-and-re-tap-un-pin-it-P7-R1--smoke/error-context.md
+
+
+[1A[2K(node:87220) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[7/12] [smoke] › e2e/smoke/views/gradient.spec.ts:142:1 › stop add (bar click mints the ramp color), drag, and touch-true remove
+[1A[2K[8/12] [smoke] › e2e/smoke/views/gradient.spec.ts:198:1 › round-trip: authored CSS applies atomically with literals preserved
+[1A[2K[9/12] [smoke] › e2e/smoke/views/gradient.spec.ts:228:1 › garbage input fails LOUD and leaves the model untouched
+[1A[2K[10/12] [smoke] › e2e/smoke/views/gradient.spec.ts:252:1 › radial geometry is model-or-reject, never a silent drop
+[1A[2K[11/12] [smoke] › e2e/smoke/views/gradient.spec.ts:266:1 › easing row carries its live ramp; steps mode lands in the literal
+[1A[2K  3) [smoke] › e2e/smoke/views/gradient.spec.ts:266:1 › easing row carries its live ramp; steps mode lands in the literal 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: getByRole('main', { name: 'Color tool panes' }).locator('.readout-rail code').first()
+    Expected substring: [32m"steps(4, end)"[39m
+    Received string:    [31m"steps(4, [7mjump-[27mend)"[39m
+    Timeout: 3000ms
+
+    Call log:
+    [2m  - Expect "toContainText" with timeout 3000ms[22m
+    [2m  - waiting for getByRole('main', { name: 'Color tool panes' }).locator('.readout-rail code').first()[22m
+    [2m    10 × locator resolved to <code data-v-ecaa4c61="" title="steps(4, jump-end)" class="fira-code text-mono-small text-muted-foreground truncate flex-1 min-w-0">steps(4, jump-end)</code>[22m
+    [2m       - unexpected value "steps(4, jump-end)"[22m
+
+
+      284 |     const strip = main.getByRole("group", { name: "Easing curve specimens" }).first();
+      285 |     await strip.getByRole("button", { name: "steps", exact: true }).click();
+    > 286 |     await expect(main.locator(".readout-rail code").first()).toContainText(
+          |                                                              ^
+      287 |         "steps(4, end)",
+      288 |         { timeout: 3000 },
+      289 |     );
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:286:62
+
+    Error Context: test-results/views-gradient-easing-row--6c09b-s-mode-lands-in-the-literal-smoke/error-context.md
+
+
+[1A[2K(node:87653) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[12/12] [smoke] › e2e/smoke/views/gradient.spec.ts:296:1 › no pane subtree rests on a permanent compositing transform (W5-10)
+[1A[2K  3 failed
+    [smoke] › e2e/smoke/views/gradient.spec.ts:38:1 › gradient view renders direction slider with zero console errors 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:102:1 › selecting a stop pins the envelope plate to its single-hue slice; Escape and re-tap un-pin it (P7-R1) 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:266:1 › easing row carries its live ramp; steps mode lands in the literal 
+  9 passed (1.5m)

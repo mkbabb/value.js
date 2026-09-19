@@ -1,0 +1,62 @@
+(node:10916) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:10947) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 17 tests using 1 worker
+
+[1A[2K(node:10949) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/17] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:60:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed)
+[1A[2K[2/17] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:80:1 › the owned paint stack: normalized 90° ramp, no-repeat, border-box origin+clip
+[1A[2K[3/17] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:107:1 › pill silhouette (T-46): the rail rounds on the glass-ui slider-track register
+[1A[2K[4/17] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:143:1 › one axis: every handle centre sits where the ramp paints its own ordinal
+[1A[2K[5/17] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:185:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal
+[1A[2K  1) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:185:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveCount[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  getByRole('main', { name: 'Color tool panes' }).getByTestId('gradient-stop-bar').last().locator('[data-stop-id]')
+    Expected: [32m1[39m
+    Received: [31m3[39m
+    Timeout:  8000ms
+
+    Call log:
+    [2m  - Expect "toHaveCount" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('main', { name: 'Color tool panes' }).getByTestId('gradient-stop-bar').last().locator('[data-stop-id]')[22m
+    [2m    20 × locator resolved to 3 elements[22m
+    [2m       - unexpected value "3"[22m
+
+
+      211 |         const rb = (await live.boundingBox())!;
+      212 |         await page.mouse.click(hb.x + hb.width / 2, rb.y + 4);
+    > 213 |         await expect(live.locator("[data-stop-id]")).toHaveCount(before.length + 1);
+          |                                                      ^
+      214 |
+      215 |         const after = await ids();
+      216 |         const mintedId = after.find((id) => !before.includes(id))!;
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:213:54
+
+    Error Context: test-results/oracles-o21-gradient-rail--c9334-pixel-reads-its-own-ordinal-smoke/error-context.md
+
+
+[1A[2K(node:11496) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[6/17] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:234:1 › type-scale containment: at rootFS 20px the terminal handles stay inside the rail
+[1A[2K[7/17] [smoke] › e2e/smoke/views/gradient.spec.ts:38:1 › gradient view renders direction slider with zero console errors
+[1A[2K[8/17] [smoke] › e2e/smoke/views/gradient.spec.ts:73:1 › the rail is a normalized 90° projection; the render tile carries type + direction (T-21b)
+[1A[2K[9/17] [smoke] › e2e/smoke/views/gradient.spec.ts:118:1 › selecting a stop marks it; Escape and re-tap release it without destroying it (P7-R1)
+[1A[2K[10/17] [smoke] › e2e/smoke/views/gradient.spec.ts:160:1 › neighbour-crossing drag round-trips: the emitted CSS re-applies with no verdict
+[1A[2K[11/17] [smoke] › e2e/smoke/views/gradient.spec.ts:206:1 › a grab is not a teleport, and no secondary button mints
+[1A[2K[12/17] [smoke] › e2e/smoke/views/gradient.spec.ts:240:1 › stop add (bar click mints the ramp color), drag, and touch-true remove
+[1A[2K[13/17] [smoke] › e2e/smoke/views/gradient.spec.ts:296:1 › round-trip: authored CSS applies atomically with literals preserved
+[1A[2K[14/17] [smoke] › e2e/smoke/views/gradient.spec.ts:326:1 › garbage input fails LOUD and leaves the model untouched
+[1A[2K[15/17] [smoke] › e2e/smoke/views/gradient.spec.ts:350:1 › radial geometry is model-or-reject, never a silent drop
+[1A[2K[16/17] [smoke] › e2e/smoke/views/gradient.spec.ts:364:1 › easing row carries its live ramp; steps mode lands in the literal
+[1A[2K[17/17] [smoke] › e2e/smoke/views/gradient.spec.ts:398:1 › no pane subtree rests on a permanent compositing transform (W5-10)
+[1A[2K  1 failed
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:185:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal 
+  16 passed (1.4m)
