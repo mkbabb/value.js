@@ -1217,3 +1217,256 @@ rather than letting it pass as a quiet absence. **The LEDGER row stays PARTIAL. 
 dependencies), then `.b .c .d .e .g .h` (all six have every dependency MET today), answering `.a`'s
 bounds escalation on the way so defect 2 closes with `.d`. `.j` alone waits on X-W5, and j1–j3 are
 already relieved and owner-named; j4 needs one 720×450 measurement that nothing blocks.
+
+---
+
+## Repair 1
+
+SERVED MODEL: claude-opus-5[1m]
+
+**Seat**: REPAIR, round 1, against `## Check 1`'s defect register (1 CRITICAL · 1 HIGH · 5 MINOR ·
+2 INFO). Wall clock **2026-09-19**, branch `tranche-u`.
+**Verdict**: **4 defects CURED · 2 PARTIALLY CURED AND ESCALATED · 1 ESCALATED · 2 INFO untouched.**
+The two at ≥MEDIUM are the two that cannot close from inside this seat's writable set, and both are
+returned by name with the measured reason — not smoothed, not partially claimed.
+
+**One gate moved: j4 RED-UNMEASURED → GREEN, retired with its measurement pasted.** The UNRELIEVED
+set goes **22 → 21**. DR-01's eighteenth carry is **closed**.
+
+### Crash-recovery (standing law)
+
+⟨cmd⟩ `git status --porcelain` at open → `M docs/tranches/V/reformation/CARRY-LEDGER.md` ·
+`M scripts/dev/dev.sh` · three untracked `docs/tranches/X/fourier/evidence/w3/*.txt`. **None is
+inside this seat's writable set** (the V fold-source · the unowned NEVER-touch row · Track B's
+in-flight evidence). **No inherited hunk on any W6 path**; nothing was stashed, reset or restored.
+During this seat's work siblings added `docs/tranches/X/{parse-that,keyframes,fourier}/**` — read,
+never staged. Every commit below carries its own pathspec on the commit itself.
+
+### Defect 1 — CRITICAL · 22 of 26 RED gates carry no relief → **PARTIALLY CURED, ESCALATED**
+
+**Cured limb** — the one the register itself names as landable alone (*"`.i` can go first and alone:
+its tombstone is a docs-only first act needing no live cell and no product byte, which retires
+DR-01's eighteenth carry immediately"*).
+
+`docs/tranches/X/waves/W6-atmosphere-tombstone.md` — commit **`c2f17bad`**. It does the three things
+`W6.md:362` and `DISEASE-REGISTRY.md:117` require, each re-derived at this seat:
+
+- **Predicate quoted verbatim** from ⟨`docs/tranches/A/audit/W6-deferred.md:22`⟩ —
+  *"| Aurora `deriveAuroraPalette(baseColor, opts)` | NOT SHIPPED | `grep -rln 'deriveAuroraPalette' glass-ui/src` → 0 |"* —
+  with `:49-51` (the consequence: *"`AuroraPane.vue` keeps its honest 'under rework' state"*) and
+  `:72` (the routing that became the carry). ⟨cmd⟩ `git log --date=short -1 065c6fe` →
+  `2026-05-19 docs(tranche-a/w6): formal re-scope — glass-ui APIs unshipped; routed to named successor`.
+- **`e32111c7` cited and re-measured.** ⟨cmd⟩ `git log --date=short -1 e32111c7` → `2026-06-11 … `
+  ***deriveAurora wired picker→atmosphere + AuroraPane rebuilt*** `…`. ⟨cmd⟩ `grep -rn deriveAurora demo/ | wc -l`
+  → **8** at this seat. S's independent confirmation cited at ⟨`docs/tranches/S/S.md:227`⟩ —
+  *"non-findings recorded: wiring INTACT — do not rebuild"* — **as corroboration of the mechanism, and
+  explicitly NOT as a close** (S's own failure was to let "already-fine" stand in for a tombstone).
+- **RF-26's misdating corrected** by dated addendum-beside: ⟨`REFORMATION-2026-07-16.md:85`⟩ reads
+  *"D-1 aurora-derive (**Tranche D**→K→N→T→U→V)"*; the origin is **A.W6 `065c6fe` (2026-05-19)**,
+  under-counting the ride **by three closes** (A→B→D), confirmed independently at
+  ⟨`TRUTH-TABLE.md:162`⟩. ⟨cmd⟩ `git diff --stat -- docs/tranches/V/audit/REFORMATION-2026-07-16.md`
+  → **prints nothing**. E-3 held.
+
+**`X:ATMO-1` is minted with carry 0 and declared RED BY ABSENCE in the tombstone itself** — ⟨cmd⟩
+`ls e2e/smoke/oracles/o25-atmosphere-response.spec.ts` → No such file; ⟨cmd⟩
+`ls docs/tranches/X/waves/W6-evidence/atmosphere/` → No such directory. **This document relieves no
+gate.** It discharges `.i`'s FIRST ACT and `W6.md:362`'s artefact row; **i1, i2, i3 stay RED.**
+
+**ESCALATED** — the rest. Re-dispatch of `.b .c .d .e .g .h .i .j` is *undone work*, not relief, and
+it is not a repair seat's act: eight units across four lanes, four worktrees and ≤2-concurrent
+grouping is the orchestrator's dispatch (`## Unit plan`), not a cure inside a §File-Bounds writable
+set. **H4's eleven undispositioned CC rows** (CC-056 · 057 · 059 · 060 · 061 · 062 · 063 · 064 · 065 ·
+066 · 067) ride with it and discharge only as each unit lands its row. Returned below.
+
+### Defect 2 — HIGH · a cure shipped a regression → **PARTIALLY CURED, ESCALATED**
+
+**Cured half.** `test/gradient-v4-consume.test.ts` **is** inside the WAVE's bounds —
+⟨`X-W6-FOLD.md` §3 BoundsDelta **n.34**⟩ adds it `modify` — so `.a`'s migration landed **verbatim as
+`.a` wrote it** (`## Unit receipts` → `.a` → ESCALATION table): the `intervals:` literal dropped, each
+stop literal given `easing: linearInterval()`. Commit **`1155fd1f`**.
+
+**Escalated half.** ⟨cmd⟩ `grep -rn 'gradient-parse' docs/tranches/X/ docs/tranches/V/megatranche/`
+re-run at this seat → **132 hits, not one of them a bounds row** (records, prose, the W0 graph JSON
+and a corpus snapshot). `test/gradient-parse.test.ts` is in **no** `W6.md` §4 row and **no**
+BoundsDelta row: a genuine §3a *file-bound expansion that invalidates the wave*, and §3a says the
+seat **halts**. A repair seat may not grant itself the bounds a unit seat correctly refused to take.
+**The one-line grant is returned, with `.a`'s migration already written** (read `m.stops.length - 1`,
+or drop `:32`/`:63` — the stops assertions beside them already carry the shape).
+
+**Gate re-reading** — ⟨cmd⟩ `npx vitest run`, **double-run identical**:
+
+| | before Repair 1 | after |
+|---|---|---|
+| totals | **16 failed / 610 passed (626)**, 6 files | **15 failed / 611 passed (626)**, **5** files |
+| `test/gradient-v4-consume.test.ts` | **1 failed** | **0 — GONE from the failing set** |
+| `test/gradient-parse.test.ts` | 2 | **2 — the escalation, unchanged** |
+| the 13 pre-existing (`v4-css-emerging` 10 · `spectrum-luma` 1 · `v4-c1` 1 · `reka-binding-idiom` 1) | 13 | **13, byte-for-byte the same set** |
+
+§7 cadence at the settled bytes: ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.demo.json` → **exit 0** ·
+⟨cmd⟩ `npx eslint demo/` → **exit 0** · ⟨cmd⟩ `npx prettier --check` over all four files this seat
+wrote → **"All matched files use Prettier code style!"** (they were re-run *after* formatting; every
+figure above is read from the settled bytes).
+
+### Defect 3 — MINOR · a3–a7's named commands satisfied by nothing → **ESCALATED**
+
+Re-run independently at this seat, both still unrunnable:
+
+- ⟨cmd⟩ `node docs/tranches/V/megatranche/audit/probes/wb-gradient-stopeditor/gate-axis.mjs`
+  → `TypeError: null is not an object (evaluating 'h.getAttribute("aria-label").match(/([\d.]+)%/)[1]')` at `:35`
+- ⟨cmd⟩ `node …/gate-gesture.mjs` → `Timeout 30000ms exceeded` waiting for
+  `button[data-stop-id][aria-label="Gradient stop at 0%"]`
+
+⟨`W6.md:105-106`⟩ marks both **`execute, no write`**. The cure — a one-line re-point at
+`aria-valuenow` per gate — is **a write to a path this wave may not write**, and §4's Bounds law plus
+§3a's halt rule make taking it an ESCALATION rather than a MINOR cure. It is R-5's, owned by whichever
+wave owns `…/probes/wb-gradient-stopeditor/**`. **Standing warning carried forward: no successor may
+read "a3 GREEN" as "`gate-axis.mjs` GREEN".**
+
+### Defect 4 — MINOR · f6(ii)'s `1e-6` never tested as written → **CURED**
+
+`docs/tranches/X/waves/W6-f6ii-addendum-2026-09-19.md` — commit **`77f80e83`**, a dated
+addendum-beside (⟨cmd⟩ `git diff --stat -- docs/tranches/X/waves/W6.md` → **prints nothing**; E-3
+held). The ruling, in one line: **f6(ii)@`1e-6` and f4 are jointly unsatisfiable** — four significant
+figures carry a 5e-4 relative half-step and `1e-6` needs ~ten figures, i.e. exactly the
+fifteen-digit caption `W6.md:257` declares the defect — so the substitution was **forced**, not
+chosen. The decisive fact the escalation did not have: **the property is tested exactly, with no
+wave-authored constant**, at leg **(ii)(b)** (`o23…:274-284` — `abs(channel − truth) ≤ policyResolution(truth)`,
+and `policyResolution` at `:158-160` *is* the digit policy's half-step) and leg **(ii)(d)**
+(`:291-303` — zero tolerance: a MARKED row must still PRINT outside its gamut). `LAB_RECOVERY_BOUND = 1.0`
+lives only on the **redundant** Lab leg (ii)(c).
+
+**Gate re-reading** — ⟨cmd⟩ `npx playwright test e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts --project=smoke`,
+**run twice, byte-identical**: `1 passed`, and
+`X.W6.f f6(ii) — worst un-projected Lab recovery 7.517e-1 (hsl); bound 1; clipped control (hex) 4.061e+1`
+— **54× separation**, with `CLIPPED_CONTROL_FLOOR = 10` asserted in the **breaking** direction at
+every run. Census both runs **10 MARKED / 8 in-gamut**. **f6 stands GREEN.** The addendum names the
+exact line a challenger should attack (clause 3), so the L-18 pass adjudicates rather than discovers.
+
+### Defect 5 — MINOR · j4 never measured → **CURED. GATE MOVED: RED-UNMEASURED → GREEN**
+
+`docs/tranches/X/waves/W6-evidence/j4-shortlandscape-720x450.{mjs,txt}` — commit **`6dfdd8d2`**.
+Taken against a **freshly started** dev server (STALE-SERVER law), **one fresh page per route**,
+preview selectors **declared** per route, reachability read as *(rect intersects the 720×450 cell)*
+AND *(hit-testable by `elementFromPoint` after `scrollIntoView({block:"nearest"})`)*. Both the
+BEFORE and AFTER boxes are printed, so an off-screen-but-scrollable control is distinguishable from
+an unreachable one — which matters here, because ⟨measured⟩ `document.scrollHeight === innerHeight`
+on **all four** routes (the panes own their scroll, the page does not).
+
+```
+GATE j4 (short landscape 720×450) — GREEN  4 of 4 routes reachable on both arms
+  gradient    preview  [data-testid="gradient-render-tile"]  {top:360,h:129}  REACHABLE
+              last control  DIV "Gradient CSS"  before {top:863}  after {top:361}  hit=true
+  mix         preview  main canvas                           {top:105,h:336}  REACHABLE
+              last control  BUTTON "Mix"        before {top:440}  after {top:401}  hit=true
+  blob        preview  [data-testid="goo-blob-canvas"]       {top:70,h:180}   REACHABLE
+              last control  SPAN "ALPHA channel" before {top:602} after {top:417} hit=true
+  atmosphere  preview  [data-testid="atmosphere-canvas"]     {top:0,h:450}    REACHABLE
+              last control  BUTTON "Reset"      before {top:385}  after {top:385}  hit=true
+```
+
+**Double-run byte-identical** (⟨cmd⟩ `diff` over the two transcripts, `origin` line excluded →
+IDENTICAL). Per `W6.md:325` j4 **retires GREEN with its measurement pasted, not carried**.
+
+**It is a BASELINE, not a substitute command.** `o27-scene-contracts.spec.ts` does not exist, minting
+it is `.j`'s dispatched work, and its ordinal collides with the shipped
+`e2e/smoke/oracles/o27-focus-affordance.spec.ts` — the close's escalation 3, still unruled. No
+successor may read this as *"j4 GREEN by o27"*.
+
+**L-18 target 5 (probe-before-meaning) fired, and is recorded rather than buried.** The first cut of
+this instrument walked all four routes on ONE page by hash navigation and returned
+`blob: PREVIEW unreachable`. Isolated before publication —
+`docs/tranches/X/waves/W6-evidence/j4-blob-preview-nav-loss.{mjs,txt}`, same commit:
+
+```
+A  fresh /#/blob   @ 720×450        {"present":true,"anchor":true,"w":180,"h":180,"top":70}
+A  +4s                              {"present":true,"anchor":true,...}      (not a settle race)
+B  gradient→mix→blob @ 720×450      {"present":false,"anchor":false}
+B  +5s                              {"present":false,"anchor":false}        (it does not come back)
+C  fresh /#/blob   @ 1440×900       {"present":true,"anchor":true,"w":180,"h":180,"top":114}
+```
+
+A vs C isolates the viewport (**the cell makes no difference**); A vs B isolates the cause (**the
+navigation**). That is a **scene-lifetime** defect — `W6.md:313`'s j2 (*"canvas lifetime bound to the
+scene"*) and j3 (*"persistent live preview with an explicit loss/recovery contract"*) — **not** a
+short-landscape one. Published as j4 RED it would have been a false RED against the wrong gate.
+**NEW FINDING, owner `.j`, banked with its instrument; it is NOT relief for j2/j3**, which stay
+owner-named honest-RED on X-W5.
+
+### Defect 6 — MINOR · two published figures do not reproduce → **CURED by this dated addendum**
+
+E-3 forbids rewriting `## Close`; both corrections land here, each re-measured at this seat:
+
+| figure | as published | ⟨cmd⟩ at this seat | correction |
+|---|---|---|---|
+| `## Close` §8 — `.a` banked *"26 gate transcripts"* | 26 | `ls -1 docs/tranches/X/waves/W6-evidence/gradient/gates/ \| wc -l` → **25** | **25.** `e77650e1` carries 27 files = 25 transcripts + the instrument + the record |
+| `.a` Act 3 — `grep -c 'try {' demo/workbenches/gradient/` → 0 | 0 | the same command → `demo/workbenches/gradient/GradientPane.vue:0`, **exit 1** — a directory argument reads one file | the command is **malformed, not the property**. The recursive form → **1**, `GradientVisualizer/GradientCodeEditor.vue`, a file **untouched by this wave** |
+
+**The underlying property is independently sound and re-verified**: the close's H3 added-line
+masking sweep over the three product commits returns `0 · 0 · 0`, and Check 1 reproduced it. Only the
+two citations were wrong; they are corrected, not carried.
+
+### Defect 7 — MINOR · §8's gradient witness row unmet and unowned → **CURED (owner assigned)**
+
+⟨cmd⟩ `find docs/tranches/X/waves/W6-evidence -name '*.png'` → **6 files, all under `catalog/`**;
+the seven `{before,after}` gradient pairs `W6.md:358` names do not exist.
+
+**Owner assigned: the X-W6 close seat** — §8 is a close-time artefact list and that seat already owns
+its siblings (the `W6-evidence/gates/` transcripts, §9 commit **#11**). **With one measured
+qualification a successor must have**: the **BEFORE** half can no longer be captured from the working
+tree, because `.a`'s cure has landed and the pre-cure DOM is gone; it is reachable **only** from a
+worktree at `f90aeb02^`. **Mitigated, and this is why nothing rests on it**: §17 count-scoping was
+honoured — Check 1 verified across every AFTER reading that **no figure `.a` cites is PNG-derived**.
+
+### Defects 8 and 9 — INFO, untouched, with one measurement added
+
+- **8 (oracle hermeticity)**: not re-opened. One reading added: ⟨cmd⟩ `git status --porcelain` after
+  **two** `o23-specimen-gamut-honesty` runs at this seat → **no `W6-evidence/` frame modified**. The
+  non-hermeticity is `o21-space-catalog-truth` / `o24-specimen-dot-identity` specifically; **o23 is
+  hermetic** and may be re-run freely by a challenger.
+- **9 (LEDGER ⇄ `W7.md` opens-after divergence)**: **not touched.** `LEDGER.md:35` is **X-W7's row**,
+  not this wave's, and this seat may edit only its own wave's cells. Left for X-W7's seat.
+
+### Bounds and commits — every path inside this wave's writable set
+
+| # | commit | paths | bounds row |
+|---|---|---|---|
+| 1 | `c2f17bad` | `docs/tranches/X/waves/W6-atmosphere-tombstone.md` | `W6.md:103` `W6-*.md` (tombstones) **create** |
+| 2 | `1155fd1f` | `test/gradient-v4-consume.test.ts` | `X-W6-FOLD.md` §3 **n.34** `modify` |
+| 3 | `77f80e83` | `docs/tranches/X/waves/W6-f6ii-addendum-2026-09-19.md` | `W6.md:103` `W6-*.md` (letters) **create** |
+| 4 | `6dfdd8d2` | `…/W6-evidence/j4-shortlandscape-720x450.{mjs,txt}` · `…/W6-evidence/j4-blob-preview-nav-loss.{mjs,txt}` | `W6.md:104` `W6-evidence/**` **create** |
+| 5 | this commit | `docs/tranches/X/execution/A/X-W6.md` (append-only) · `docs/tranches/X/execution/LEDGER.md` (own row) | the record and its own row |
+
+⟨cmd⟩ `git show --name-only` over commits 1–4, de-duplicated → **7 paths**, every one inside the set
+above. `scripts/dev/dev.sh` **0** · `registry/adjudicated/` **0** · `node_modules/` **0** · `src/`
+**0** · `api/` **0** · `demo/` **0** · sibling tracks' trees **0**. Every commit carries its own
+pathspec **on the commit itself** and the `Claude-Session` trailer. **`W6.md` byte-untouched.**
+
+### E13 mail — swept at this seat, read-only
+
+⟨cmd⟩ position-free `grep -nE '\|[[:space:]]*(\*\*)?UNREAD' docs/tranches/V/coordination/INBOX.md`
+→ **one hit**, at `:226`, and it is **prose** in a sweep note, not a table row. Re-run with the
+INBOX's own classifying probe — ⟨cmd⟩ `grep -nE '\| \*\*UNREAD' INBOX.md`, the form `:226` itself
+records as the correct one because live cells are spelled `| **UNREAD 2026-09-17** —` — **same one
+prose hit, double-run 1 ≡ 1**. The three cells that note names (I-32 · I-33 · I-34) have since been
+dispositioned. **0 UNREAD.** Register tail unmoved at **I-35 / O-39** (⟨cmd⟩ max of the `I-`/`O-`
+id column). Nothing this seat wrote mints a row: the tombstone, the addendum and the j4
+baseline are all consumer-side records with no producer limb, and glass-ui was neither read for a
+census nor written. **This repair closes with NO UNREAD mail in scope.**
+
+### Escalations returned by Repair 1
+
+| # | escalation | measured reason |
+|---|---|---|
+| **E1** | **Re-dispatch `.b .c .d .e .g .h .i .j`** (defect 1's body). `.i`'s tombstone has landed, so `.i` resumes at i1/i2/i3, not at its first act. | Eight units, four lanes, four worktrees, ≤2-concurrent grouping — the orchestrator's dispatch, not a cure inside a writable set. **H4's eleven CC rows** ride with it. UNRELIEVED now **21** (`b1-b4 · c1-c4 · d1-d2 · e1-e2 · g1-g2 · h1-h2 · i1-i3 · H2 · H4`) — j4 has left the set GREEN. |
+| **E2** | **A one-line dated bounds grant for `test/gradient-parse.test.ts`** (defect 2's other half; the close's escalation 1, still open). | ⟨cmd⟩ `grep -rn 'gradient-parse' docs/tranches/X/ docs/tranches/V/megatranche/` → **132 hits, zero bounds rows**. §3a orders the seat to halt, not widen. `.a`'s migration is already written verbatim. |
+| **E3** | **A one-line re-point per stale instrument** — `gate-axis.mjs`, `gate-gesture.mjs` (defect 3). | Both `execute, no write` at ⟨`W6.md:105-106`⟩; editing them is a write this wave may not make. Both re-run unrunnable at this seat, errors quoted above. Owner: the wave that owns `…/probes/wb-gradient-stopeditor/**` (R-5). |
+| **E4** | **The `o25`–`o27` oracle namespace** (the close's escalation 3, carried). | `o26-aurora-perceptibility.spec.ts` and `o27-focus-affordance.spec.ts` ship today; `W6.md` §4 tells `.i` and `.j` to *create* at those ordinals. It blocked j4's named command at this seat and will block `.i`/`.j` on creation. |
+
+Carried unchanged from `## Close`: the `ictcp`/`jzazbz` URL round-trip revert (**R-3**, homeless).
+
+### Four-verb status after Repair 1 — unchanged, deliberately
+
+**AUDITED** yes · **SPECIFIED** yes · **IMPLEMENTED** **no — still PARTIAL, 2 of 10 units** ·
+**VERIFIED** no. Gates **25 of 50 GREEN** (24 + j4). `W6.md:7` `**Status**: planned` and `:10`
+`IMPLEMENTED no` are **byte-untouched**: E-3 binds, and a PARTIAL wave has no IMPLEMENTED to stamp.
+**The LEDGER row stays PARTIAL and is not promoted.** Four successors stay lawfully blocked.
