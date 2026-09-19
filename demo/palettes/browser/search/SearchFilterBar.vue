@@ -110,8 +110,8 @@
                     <div v-if="activeFilterCount > 0" class="px-3 py-2">
                         <Button
                             variant="ghost"
-                            size="sm"
-                            class="h-7 w-full text-small text-muted-foreground"
+                            size="xs"
+                            class="w-full text-small text-muted-foreground"
                             @click="onClearAll"
                         >
                             <X class="h-3.5 w-3.5 mr-1.5" />

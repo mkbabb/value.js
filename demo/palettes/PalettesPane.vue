@@ -30,9 +30,19 @@
                  T.W3-3 (T-12): a field on paper wears paper — the seated
                  register (utils.css `.search-seated`; interim, booked onto
                  the P3 seated rung / ASK-D). -->
+            <!-- X-W4 · A4 (CC-041): the field's NAME, measured desktop-only
+                 (`/#/gradient`, smoke 1280×720: `input.input-bar-field` 414.1×26.2,
+                 computed name ""). `placeholder` is not a name. The producer's
+                 `SearchBar` publishes no `label`/`ariaLabel` prop, but it sets
+                 `inheritAttrs: false` and splits ONLY `class` off `$attrs`, spreading
+                 the remainder straight onto its own `<input>` (`dist/search.js`:
+                 `o = computed(() => { let { class: _, ...t } = useAttrs(); return t; })`,
+                 then `b("input", w({…}, o.value, {…}))`), so `aria-label` lands on the
+                 input itself. No producer byte, no wrapper, no copied selector. -->
             <SearchBar
                 v-model="pm.searchQuery.value"
                 class="search-seated"
+                aria-label="Search your palettes"
                 placeholder="Search your palettes..."
             />
 

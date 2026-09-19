@@ -248,6 +248,23 @@ function onRailKeydown(e: KeyboardEvent, component: string) {
     position: relative;
     line-height: 1;
     padding: 0.125rem 0.375rem;
+    /* X-W4 · A1 (CC-040) — THE FINE-POINTER FLOOR. Measured born-RED at this
+     * unit's re-baseline (smoke, 1280×720): the narrow glyphs `a` and `b` gave
+     * 23.9×24.6 boxes — under the 24 CSS-px floor on the INLINE axis — while `l`
+     * (24.1) and `alpha` (24.8) cleared it. The letterforms are NOT touched: the
+     * hit cell takes a floor and the glyph keeps its own metrics, the same
+     * "hit areas grow, glyphs do NOT" law the touch rung below already states.
+     * `min-*` never shrinks the seats that already clear it.
+     *
+     * Stated in the PHYSICAL pair the touch rung below already uses, not the
+     * logical one: the rung raises the same floor to `--dock-touch-target`, and
+     * two rules declaring the SAME property resolve by plain cascade order.
+     * Writing this half logically would leave the coarse rung winning only by
+     * the logical↔physical resolution rule — true in `horizontal-tb`, but a
+     * subtlety a later reorder could silently invert. Same used value, no
+     * cross-form resolution to reason about. */
+    min-width: 1.5rem;
+    min-height: 1.5rem;
     border-radius: var(--radius-pill);
     cursor: pointer;
     color: var(--console-rest-ink, var(--muted-foreground));
@@ -319,8 +336,16 @@ function onRailKeydown(e: KeyboardEvent, component: string) {
 }
 
 /* THE TOUCH RUNG (t-mobile F-5) — ≥44px hits <lg via the producer's own
- * --dock-touch-target; hit areas grow, glyphs do NOT. */
-@media (max-width: 1023px) {
+ * --dock-touch-target; hit areas grow, glyphs do NOT.
+ *
+ * X-W4 · A2 (CC-040) — the rung now also rides the POINTER axis. F-5 keyed it to
+ * viewport width alone, so a coarse pointer at ≥1024px (a tablet in landscape, a
+ * touch laptop) fell through to the fine geometry: the letters cleared 24px but
+ * never reached the producer's coarse floor, which is what W4.md §3 Scope 1 asks
+ * for "under `pointer: coarse`". The DECLARATIONS are byte-unchanged — F-5's
+ * deliberate 0.72 inline ratio (a narrow letter column, a full-height hit) is
+ * preserved exactly; only the condition widens. */
+@media (max-width: 1023px), (pointer: coarse) {
     .channel-rail-item {
         min-height: var(--dock-touch-target, 2.75rem);
         min-width: calc(var(--dock-touch-target, 2.75rem) * 0.72);

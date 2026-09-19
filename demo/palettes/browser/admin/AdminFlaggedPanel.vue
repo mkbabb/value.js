@@ -7,7 +7,7 @@
             </span>
             <div class="flex-1" />
             <!-- W5-a11y: icon-only refresh button needs accessible name -->
-            <Button variant="outline" size="sm" class="h-7 px-2" aria-label="Refresh flagged palettes" @click="flagged.loadFlagged">
+            <Button variant="outline" size="xs" class="px-2" aria-label="Refresh flagged palettes" @click="flagged.loadFlagged">
                 <RefreshCw class="h-3 w-3" aria-hidden="true" />
             </Button>
         </div>
@@ -87,13 +87,13 @@
                          labeled neutral Dismiss is the primary affordance;
                          the delete is a QUIET icon (ink at rest, red only on
                          hover/focus), never its equal-weight red twin. -->
-                    <Button variant="outline" size="sm" class="h-7 px-2 text-caption font-display" @click="flagged.dismiss(item.paletteSlug)">
+                    <Button variant="outline" size="xs" class="px-2 text-caption font-display" @click="flagged.dismiss(item.paletteSlug)">
                         Dismiss
                     </Button>
                     <Button
                         variant="ghost"
-                        size="sm"
-                        class="h-7 px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
+                        size="xs"
+                        class="px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
                         :aria-label="`Delete palette ${item.palette?.name ?? item.paletteSlug}`"
                         @click="flagged.deletePalette(item.paletteSlug)"
                     >

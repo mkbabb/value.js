@@ -75,8 +75,8 @@
                     <Button
                         v-if="version.hash !== currentHash"
                         variant="outline"
-                        size="sm"
-                        class="mt-2 h-7 text-caption opacity-0 transition-opacity group-hover:opacity-100"
+                        size="xs"
+                        class="mt-2 text-caption opacity-0 transition-opacity group-hover:opacity-100"
                         @click="$emit('revert', version.hash)"
                     >
                         <RotateCcw class="mr-1 h-3 w-3" />

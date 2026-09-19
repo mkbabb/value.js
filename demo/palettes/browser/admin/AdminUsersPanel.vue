@@ -20,8 +20,8 @@
             </Transition>
             <Button
                 variant="outline"
-                size="sm"
-                class="h-7 px-2.5 cursor-pointer font-display text-caption gap-1.5"
+                size="xs"
+                class="px-2.5 cursor-pointer font-display text-caption gap-1.5"
                 :disabled="emptyCount === 0 || pruning"
                 @click="onPruneClick"
             >
@@ -31,8 +31,8 @@
             </Button>
             <Button
                 variant="outline"
-                size="sm"
-                class="h-7 px-2.5 cursor-pointer font-display text-caption gap-1.5"
+                size="xs"
+                class="px-2.5 cursor-pointer font-display text-caption gap-1.5"
                 :disabled="loading"
                 @click="emit('refresh')"
             >
@@ -112,8 +112,8 @@
                         <Button
                             v-if="user.paletteCount"
                             variant="outline"
-                            size="sm"
-                            class="h-7 px-2 cursor-pointer font-display text-caption"
+                            size="xs"
+                            class="px-2 cursor-pointer font-display text-caption"
                             @click="onDeletePalettesClick(user.slug)"
                         >
                             <Trash2 class="w-3 h-3 mr-1" />
@@ -121,8 +121,8 @@
                         </Button>
                         <Button
                             variant="ghost"
-                            size="sm"
-                            class="h-7 px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
+                            size="xs"
+                            class="px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
                             :aria-label="`Delete user ${user.slug}`"
                             @click="onDeleteUserClick(user.slug)"
                         >
