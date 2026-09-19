@@ -1,0 +1,98 @@
+// SERVED MODEL: claude-opus-5[1m]
+(node:30230) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/mkbabb/Programming/parse-that-css-totality-p2/harness/equivalence/taxonomy.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/mkbabb/Programming/parse-that-css-totality-p2/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+X.P.W3.d — css-equivalence, FULL SURFACE (G-7)
+────────────────────────────────────────────────────────────────────────────────────────────────
+pin        6aca86020b6b2605e7d0f04fccb6601746e387f7
+oracle     value.js-4.0.0.tgz — 37290 B · sha256 7f80658ca4e16e99ccbb41ad6c9d8c08b2e5f86a7c951d2a833c97f89fb303ae
+           sha512-Z8ywb4htSxJlRFvoU1DNtvzr9Bsuaw9ahT/hvNlKbnRj6fTnLuXjn0itKq1Q5s6rwg24ct0zcLZ04BuR3/SzGw==
+           cross-check vs the unpacked cand-o vendor tree: AGREE (css.js + css.d.ts byte-identical)
+taxonomy   UNMOVED · sha256 554c2993cebd3ed3 · classes A DIVERGENT_VALUE / B MIS_ACCEPT / C FALSE_REJECT_IN_SHAPE
+corpus     26604 rows → 26551 distinct · run 26551 · F-c3 unwrapped 172 · replay pin AGREES
+shape      color heads [color, hsl, hwb, lab, lch, oklab, oklch, rgb] · timing heads [cubic-bezier, linear, steps]
+universe   19 runtime + 33 types = 52
+
+  parseCssColor               runtime  COMPARED     26551 cells × 2 lowerings · mirror-defects 10 (spec-undecided 10) · lowerings AGREE
+                                MIS_ACCEPT                   10   e.g. "rgb(none, 6e167, 27%, 6e316)"
+                                DECLARED_DIVERGENCE        2462   e.g. "oklch(,0% 0.15 50deg)"
+                                FIXTURE_R1                  211   e.g. "rgb()"
+  parseCssScalar              runtime  COMPARED     26551 cells × 2 lowerings · mirror-defects 10 (spec-undecided 10) · lowerings AGREE
+                                MIS_ACCEPT                   10   e.g. "rgb(none, 6e167, 27%, 6e316)"
+                                DECLARED_DIVERGENCE        2462   e.g. "oklch(,0% 0.15 50deg)"
+                                FIXTURE_R1                  211   e.g. "rgb()"
+  parseCssValue               runtime  COMPARED     26551 cells × 2 lowerings · mirror-defects 10 (spec-undecided 10) · lowerings AGREE
+                                MIS_ACCEPT                   10   e.g. "rgb(none, 6e167, 27%, 6e316)"
+                                DECLARED_DIVERGENCE        3249   e.g. "oklch(,0% 0.15 50deg)"
+                                FIXTURE_R1                  120   e.g. "rgb()"
+  parseCssValues              runtime  COMPARED     26551 cells × 2 lowerings · mirror-defects 10 (spec-undecided 10) · lowerings AGREE
+                                MIS_ACCEPT                   10   e.g. "rgb(none, 6e167, 27%, 6e316)"
+                                DECLARED_DIVERGENCE        3249   e.g. "oklch(,0% 0.15 50deg)"
+                                FIXTURE_R1                  120   e.g. "rgb()"
+  parseKeyframeSelector       runtime  COMPARED     26551 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  parseTimingFunction         runtime  COMPARED     26551 cells × 2 lowerings · mirror-defects 24 (spec-undecided 24) · lowerings AGREE
+                                MIS_ACCEPT                   23   e.g. "linear(174.89818022586405 7e422%, 0e356 1e-315%
+                                FALSE_REJECT_IN_SHAPE         1   e.g. "steps(1e43,, start)"
+                                DECLARED_DIVERGENCE         146   e.g. "steps(7., jump-start)"
+  serializeCssColor           runtime  COMPARED     400 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  coerceToSyntax              runtime  COMPARED     26551 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+                                DECLARED_DIVERGENCE         193   e.g. "hsl(120, 500, 50%) @ <color>"
+                                FIXTURE_R1                  120   e.g. "rgb() @ <angle>"
+  parseAnimationRange         runtime  COMPARED     26551 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  parseAnimationTimeline      runtime  COMPARED     26551 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  serializeTimelineOptions    runtime  COMPARED     200 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  collectAnimationOptions     runtime  COMPARED     400 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  collectCustomFunctions      runtime  COMPARED     400 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  collectDeclarations         runtime  COMPARED     400 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  collectKeyframes            runtime  COMPARED     400 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  collectPropertyDescriptors  runtime  COMPARED     400 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  collectStyleRules           runtime  COMPARED     400 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  collectTimelineOptions      runtime  COMPARED     400 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  parseStylesheet             runtime  COMPARED     26551 cells × 2 lowerings · mirror-defects 70 (spec-undecided 57) · lowerings AGREE
+                                DIVERGENT_VALUE              13   e.g. "a { border-color: oklch(-0 8.300 46.388rad) } #
+                                MIS_ACCEPT                   36   e.g. ".c ){ color: #28cA }"
+                                FALSE_REJECT_IN_SHAPE        21   e.g. "\t { border-color: hsl(5.deg 4e-169 5. / 10%) }
+                                DECLARED_DIVERGENCE         734   e.g. ".c { color: var(--a) } a { background-color: ok
+  AnimationRangeValue         type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  AnimationTimelineValue      type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  AnimationTriggerValue       type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  CSSAnimationOptions         type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  CSSPropertyDescriptor       type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  CSSTimelineOptions          type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  CollectedRule               type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  CssColor                    type     COMPARED     re-exported from the pinned declaration · 0 members · 0 literals
+  CssColorSpace               type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  CssLinearStop               type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  CssTimingFunction           type     COMPARED     re-exported from the pinned declaration · 9 members · 9 literals
+  CustomFunctionDescriptor    type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  CustomFunctionParameter     type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  CustomFunctionRule          type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  Declaration                 type     COMPARED     re-exported from the pinned declaration · 3 members · 0 literals
+  KeyframeRule                type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  KeyframeSelector            type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  KeyframesBlock              type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  ParseIssue                  type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  ParseResult                 type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  PropertyRule                type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  RangeBoundary               type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  RangePhase                  type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  ScrollTimelineDescriptor    type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  ScrollerKeyword             type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  StyleRule                   type     COMPARED     re-exported from the pinned declaration · 4 members · 1 literals
+  Stylesheet                  type     COMPARED     re-exported from the pinned declaration · 0 members · 0 literals
+  StylesheetItem              type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  TimelineAxis                type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  TimelineScopeValue          type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  TriggerType                 type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  ViewInset                   type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  ViewTimelineDescriptor      type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+
+────────────────────────────────────────────────────────────────────────────────────────────────
+rows       52 · COMPARED 24 · NO-PEER 28
+ledger     38 rows — ADJUDICATED 16 · DISSENT 4 · FIXTURE 5 · LABEL 1 · NARROWING 3 · CAPACITY 9
+           empty consumer-direction fields: 0
+           GATE-VERDICT anchors present: 5/5
+MIRROR-DEFECTS  134   (of which spec-undecided 121)
+
+RED — the equivalence floor is NOT held at full surface. 134 mirror-defects over 24 compared rows.

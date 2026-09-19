@@ -1,0 +1,147 @@
+// SERVED MODEL: claude-opus-5[1m]
+X.P.W3.a — css-universe (G-1: UNIVERSE-52-TOTAL)
+────────────────────────────────────────────────────────────────────────────────────────────────────
+pin        6aca86020b6b2605e7d0f04fccb6601746e387f7
+  index    6aca86020b6b2605e7d0f04fccb6601746e387f7:src/css/index.ts — 1310 B, sha256 c09d076ed779fede
+  types    6aca86020b6b2605e7d0f04fccb6601746e387f7:src/css/types.ts — 5879 B, sha256 109327ce94fdcc37
+  oracle   docs/tranches/V/megatranche/prototypes/css-parser/cand-o/vendor/value-js-4.0.0/dist/subpaths/css.js — sha256 8b5381305ea26236
+  frozen   docs/tranches/V/megatranche/prototypes/css-parser/cand-o/vendor/value-js-4.0.0/dist/subpaths/css.d.ts — sha256 c81d095213d112c6
+universe   19 runtime + 33 types = 52
+candidate  ac1 — entry typescript/src/css/build/ac1.js · dts typescript/src/css/build/ac1.d.ts
+
+pin agreement (the frozen declaration vs the pinned src/css/types.ts, one extractor)
+  type names     barrel−published ∅ · published−barrel ∅
+  runtime names  barrel−published ∅ · published−barrel ∅
+  member/literal disagreements 0
+
+corpus (W3.md §5 .a — the six arms, folded as a UNION)
+arm       declared  read   provenance                                                                                      
+────────  ────────  ─────  ────────────────────────────────────────────────────────────────────────────────────────────────
+ground-a  210       210    docs/tranches/V/megatranche/prototypes/css-parser/cand-f/totality.test.ts:60-71 — the 21×10 empt
+fuzz-f    4000      4000   docs/tranches/V/megatranche/prototypes/css-parser/cand-f/totality.test.ts:206-240 — mutation fuz
+fuzz-o    30000     30000  experiments/w2/corpus/fuzz-gen.mjs — mulberry32 seed 0x5eedc0de, 30000 rows, replay sha256 39f39
+named     148       148    docs/tranches/V/megatranche/prototypes/css-parser/fixtures/css-color-4-named-colors.json — 148 n
+p1        403       403    harness/equivalence/corpus.json — 403 strings, generated 2026-07-20T15:47:15.254Z               
+r1        172       172    experiments/w2/corpus/r1.json — 172 inputs + 7 declared non-string boundary cases, derived from 
+  arm total 34933 · UNION 26604 · overlap 8329 · declared non-string boundary 7
+  written to typescript/test/css-totality/corpus.json — rows sha256 559e84bfb632b140
+
+assignability  one compile, 33 types × 2 directions
+  program      typescript/test/css-totality/generated/assignability.generated.ts — 16942 B, sha256 8a1b8ab116224e77
+  frozen copy  typescript/test/css-totality/generated/frozen-4.0.0.d.ts — sha256 733fb88e284dfd46
+  candidate    import type * as Candidate from "../../../src/css/build/ac1"
+  tsc exit     0 · diagnostics attributed 0 · unattributed 0
+
+THE 52-ROW MATRIX
+────────────────────────────────────────────────────────────────────────────────────────────────────
+#   export                      kind     arity  family      accept  reject  cells  verdict  missing                                                          
+──  ──────────────────────────  ───────  ─────  ──────────  ──────  ──────  ─────  ───────  ─────────────────────────────────────────────────────────────────
+1   parseCssColor               runtime  1      parser      5993    20611   26604  PARTIAL  MIS_ACCEPT ×10                                                   
+2   parseCssScalar              runtime  1      parser      6472    20132   26604  PARTIAL  MIS_ACCEPT ×10                                                   
+3   parseCssValue               runtime  1      parser      9753    16851   26604  PARTIAL  MIS_ACCEPT ×10                                                   
+4   parseCssValues              runtime  1      parser      9753    16851   26604  PARTIAL  MIS_ACCEPT ×10                                                   
+5   parseKeyframeSelector       runtime  1      parser      20      26584   26604  TOTAL                                                                     
+6   parseTimingFunction         runtime  1      parser      357     26247   26604  PARTIAL  FALSE_REJECT_IN_SHAPE ×1 · MIS_ACCEPT ×23                        
+7   serializeCssColor           runtime  1      structured  400     7       407    TOTAL                                                                     
+8   coerceToSyntax              runtime  2      coercer     634     32330   32964  TOTAL                                                                     
+9   parseAnimationRange         runtime  1      parser      41      26563   26604  TOTAL                                                                     
+10  parseAnimationTimeline      runtime  1      parser      4       26600   26604  TOTAL                                                                     
+11  serializeTimelineOptions    runtime  1      structured  200     7       207    TOTAL                                                                     
+12  collectAnimationOptions     runtime  1      structured  400     7       407    TOTAL                                                                     
+13  collectCustomFunctions      runtime  1      structured  400     7       407    TOTAL                                                                     
+14  collectDeclarations         runtime  1      structured  400     7       407    TOTAL                                                                     
+15  collectKeyframes            runtime  1      structured  400     7       407    TOTAL                                                                     
+16  collectPropertyDescriptors  runtime  1      structured  400     7       407    TOTAL                                                                     
+17  collectStyleRules           runtime  1      structured  400     7       407    TOTAL                                                                     
+18  collectTimelineOptions      runtime  1      structured  400     7       407    TOTAL                                                                     
+19  parseStylesheet             runtime  1      parser      2150    24454   26604  PARTIAL  FALSE_REJECT_IN_SHAPE ×193 · DIVERGENT_VALUE ×13 · MIS_ACCEPT ×36
+20  AnimationRangeValue         type     —      type        1       1       2      TOTAL                                                                     
+21  AnimationTimelineValue      type     —      type        1       1       2      TOTAL                                                                     
+22  AnimationTriggerValue       type     —      type        1       1       2      TOTAL                                                                     
+23  CSSAnimationOptions         type     —      type        1       1       2      TOTAL                                                                     
+24  CSSPropertyDescriptor       type     —      type        1       1       2      TOTAL                                                                     
+25  CSSTimelineOptions          type     —      type        1       1       2      TOTAL                                                                     
+26  CollectedRule               type     —      type        1       1       2      TOTAL                                                                     
+27  CssColor                    type     —      type        1       1       2      TOTAL                                                                     
+28  CssColorSpace               type     —      type        1       1       2      TOTAL                                                                     
+29  CssLinearStop               type     —      type        1       1       2      TOTAL                                                                     
+30  CssTimingFunction           type     —      type        1       1       2      TOTAL                                                                     
+31  CustomFunctionDescriptor    type     —      type        1       1       2      TOTAL                                                                     
+32  CustomFunctionParameter     type     —      type        1       1       2      TOTAL                                                                     
+33  CustomFunctionRule          type     —      type        1       1       2      TOTAL                                                                     
+34  Declaration                 type     —      type        1       1       2      TOTAL                                                                     
+35  KeyframeRule                type     —      type        1       1       2      TOTAL                                                                     
+36  KeyframeSelector            type     —      type        1       1       2      TOTAL                                                                     
+37  KeyframesBlock              type     —      type        1       1       2      TOTAL                                                                     
+38  ParseIssue                  type     —      type        1       1       2      TOTAL                                                                     
+39  ParseResult                 type     —      type        1       1       2      TOTAL                                                                     
+40  PropertyRule                type     —      type        1       1       2      TOTAL                                                                     
+41  RangeBoundary               type     —      type        1       1       2      TOTAL                                                                     
+42  RangePhase                  type     —      type        1       1       2      TOTAL                                                                     
+43  ScrollTimelineDescriptor    type     —      type        1       1       2      TOTAL                                                                     
+44  ScrollerKeyword             type     —      type        1       1       2      TOTAL                                                                     
+45  StyleRule                   type     —      type        1       1       2      TOTAL                                                                     
+46  Stylesheet                  type     —      type        1       1       2      TOTAL                                                                     
+47  StylesheetItem              type     —      type        1       1       2      TOTAL                                                                     
+48  TimelineAxis                type     —      type        1       1       2      TOTAL                                                                     
+49  TimelineScopeValue          type     —      type        1       1       2      TOTAL                                                                     
+50  TriggerType                 type     —      type        1       1       2      TOTAL                                                                     
+51  ViewInset                   type     —      type        1       1       2      TOTAL                                                                     
+52  ViewTimelineDescriptor      type     —      type        1       1       2      TOTAL                                                                     
+
+tally  runtime 13 TOTAL / 6 PARTIAL / 0 ABSENT · types 33 / 0 / 0 · ALL 46 of 52 TOTAL
+
+adjudicated conflicts (W3.md §5 .a — each is a `.d` DIVERGENCE-LEDGER row, never a silent pick)
+id     G-6  input                       incumbent                              candidate                              adjudication wants  honoured
+─────  ───  ──────────────────────────  ─────────────────────────────────────  ─────────────────────────────────────  ──────────────────  ────────
+PB-01  a    "rgba(1, 2, 3, 0.5)"        reject css_syntax                      ok {"space":"rgb","channels":[1,2,3],  accept              YES     
+PB-02  b    "hsla(120, 50%, 50%, 0.5)"  reject css_syntax                      ok {"space":"hsl","channels":[120,0.5  accept              YES     
+PB-03  c    "hsl(120 50 50)"            ok {"space":"hsl","channels":[120,50,  ok {"space":"hsl","channels":[120,0.5  accept              YES     
+PB-03  c    "hsl(120 50% 50%)"          ok {"space":"hsl","channels":[120,0.5  ok {"space":"hsl","channels":[120,0.5  accept              YES     
+PB-04  d    "rgb(300 -20 3)"            ok {"space":"rgb","channels":[300,-20  ok {"space":"rgb","channels":[255,0,3  accept              YES     
+PB-05  e    "rgb(1 2 3 / 1.5)"          reject css_syntax                      ok {"space":"rgb","channels":[1,2,3],  accept              YES     
+PB-06  f    "rgb(1,2,3,)"               ok {"space":"rgb","channels":[1,2,3],  reject css_syntax                      reject              YES     
+PB-07  g    "rgb(1 2 3 / )"             ok {"space":"rgb","channels":[1,2,3],  reject css_syntax                      reject              YES     
+PB-08  h    "rgb(1, 2 3)"               ok {"space":"rgb","channels":[1,2,3],  reject css_syntax                      reject              YES     
+PB-09  i    "hsl(120%, 50%, 50%)"       ok {"space":"hsl","channels":[432,0.5  reject css_syntax                      reject              YES     
+PB-10  j    "lch(50% 50% 50%)"          ok {"space":"lch","channels":[50,75,1  reject css_syntax                      reject              YES     
+PB-11  k    "hwb(120, 30%, 40%)"        ok {"space":"hwb","channels":[120,0.3  reject css_syntax                      reject              YES     
+PB-12  l    "rgb(1. 2 3)"               ok {"space":"rgb","channels":[1,2,3],  reject css_syntax                      reject              YES     
+PB-13  —    "currentcolor"              reject color_context_required          reject color_context_required          reject              YES     
+ADJ-1  —    "hsl(480 50% 50%)"          ok {"space":"hsl","channels":[480,0.5  ok {"space":"hsl","channels":[480,0.5  accept              YES     
+ADJ-1  —    "hsl(-120 50% 50%)"         ok {"space":"hsl","channels":[-120,0.  ok {"space":"hsl","channels":[-120,0.  accept              YES     
+ADJ-2  —    "rgb(50%20%30%)"            reject css_syntax                      ok {"space":"rgb","channels":[127.5,5  accept              YES     
+ADJ-2  —    "rgb(1.5.5 3)"              reject css_syntax                      ok {"space":"rgb","channels":[1.5,0.5  accept              YES     
+ADJ-2  —    "hsl(120 50%50%)"           reject css_syntax                      ok {"space":"hsl","channels":[120,0.5  accept              YES     
+ADJ-3  —    "rgb(1e400 0 0)"            reject css_syntax                      ok {"space":"rgb","channels":[255,0,0  accept              YES     
+ADJ-3  —    "lab(50 1e400 0)"           reject css_syntax                      reject css_syntax                      reject              YES     
+ADJ-3  —    "hsl(1e400 0% 50%)"         reject css_syntax                      reject css_syntax                      reject              YES     
+
+adjudication CLASS predicates (E-h2 — one per ruling id; census ≤ the ruling's measured population)
+ruling    population (pinned)  population (measured)  census — widest entry  ≤ pin  governed, by entry                                                            
+────────  ───────────────────  ─────────────────────  ─────────────────────  ─────  ──────────────────────────────────────────────────────────────────────────────
+PB-08     2220                 2220                   2220                   YES    parseCssColor 2220 · parseCssScalar 2220 · parseCssValue 2220 · parseCssValues
+PB-11     0                    0                      0                      YES                                                                                  
+SP-1      6                    6                      6                      YES    parseCssColor 6 · parseCssScalar 6 · parseCssValue 6 · parseCssValues 6 · coer
+PB-09/10  138                  138                    124                    YES    parseCssColor 124 · parseCssScalar 124 · parseCssValue 124 · parseCssValues 12
+PB-12     5391                 5391                   5391                   YES    parseKeyframeSelector 5391 · parseTimingFunction 5391 · parseCssColor 4902 · p
+ADJ-2     990                  990                    48                     YES    parseCssColor 48 · parseCssScalar 48 · parseCssValue 48 · parseCssValues 48 · 
+ADJ-3     630                  630                    227                    YES    parseCssColor 227 · parseCssScalar 227 · parseCssValue 227 · parseCssValues 22
+PB-04/05  7939                 7939                   4207                   YES    parseCssValue 4207 · parseCssValues 4207 · parseCssColor 4203 · parseCssScalar
+PB-01/02  1110                 1110                   429                    YES    parseCssColor 429 · parseCssScalar 429 · parseCssValue 429 · parseCssValues 42
+PB-03     2991                 2991                   565                    YES    parseCssColor 565 · parseCssScalar 565 · parseCssValue 565 · parseCssValues 56
+  10 class predicates · 13217 cells governed at the widest entry · 0 census OVER its pinned population · 0 population drifted from its pin
+
+the honest remainder, BY ID (W3.md §6 G-1 — "52/52 or the honest remainder, by id")
+export               misses  remainder, by id                                                                                              
+───────────────────  ──────  ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+parseCssColor        10      9× F-k2 the candidate ACCEPTS a legacy comma form the spec forbids — mixed <number>/<percentage> arguments, or
+parseCssScalar       10      9× F-k2 the candidate ACCEPTS a legacy comma form the spec forbids — mixed <number>/<percentage> arguments, or
+parseCssValue        10      9× F-k2 the candidate ACCEPTS a legacy comma form the spec forbids — mixed <number>/<percentage> arguments, or
+parseCssValues       10      9× F-k2 the candidate ACCEPTS a legacy comma form the spec forbids — mixed <number>/<percentage> arguments, or
+parseTimingFunction  24      23× GROUND-C ±Infinity (owner-owed; W3.md §10 'not opened here') · 1× F-k4 the incumbent accepts an EMPTY argu
+parseStylesheet      242     172× BND-1 non-string boundary · 17× SH-1 blocks()'s signed paren counter (escalated by .j) · 15× E-j1 at-rule
+  16 adjudications · 22 witnessed inputs · 19 diverge from the incumbent · 0 NOT honoured by the candidate
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+RED — 6 of 52 rows are not TOTAL (6 PARTIAL, 0 ABSENT).
