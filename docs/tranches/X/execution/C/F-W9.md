@@ -2215,3 +2215,30 @@ caught by nothing because `SliderControl` gives one accessible name to input, sl
 
 Each is a repair/escalation matter for a repair seat or the owner, **not** a re-dispatch of `.a`,
 `.b` or `.c`. **This seat cured nothing, moved no verb, and re-dispatched no unit.**
+
+## R.6 The ledger event line — WITHHELD, and why (a disclosure, dated beside)
+
+ACT (6) also asks for an appended event line in `docs/tranches/X/execution/LEDGER.md`. **This seat
+withholds it**, because the file is **dirty with a sibling seat's in-flight edit** and the mandated
+commit form cannot separate them.
+
+⟨cmd⟩ `git status --porcelain docs/tranches/X/execution/LEDGER.md` → ` M` (re-read twice, minutes
+apart, and again after this seat's own record commit `0222102c` — it does not clear). ⟨cmd⟩
+`git diff --numstat` → **`1 1`**; ⟨cmd⟩ `git diff -U0 | grep '^@@'` → **`@@ -36 +36 @@`** — a
+**Track A** row-cell correction to **`X-W10`**, re-basing its `Opens after` from the abbreviated
+`X-W0` to `X-W5 · X-W6 · X-W7 · X-W8 · X-W9 stable + X-W0 + X-W1 … under ESC-W1`. It is not this
+seat's byte and it is **not yet committed by its author**.
+
+The standing law mandates `git commit … -- <the same exact paths>`, and a pathspec commit publishes
+the **working-tree** content of those paths — so appending my line and committing `LEDGER.md` would
+carry the sibling's unfinished `X-W10` correction into a Track-C commit under a Track-C message.
+That is precisely the sweep measured at X-W0 (*"three contaminated commits"*). The inverse is equally
+bad: appending my line and leaving it uncommitted would hand **my** bytes to the sibling's next
+pathspec commit. `git stash`, `reset` and unstaging another seat's path are all forbidden.
+
+**Therefore `LEDGER.md` is left entirely untouched by this seat — not one byte written, nothing
+staged.** No status cell is regressed (R.4 already rules the row stays `PARTIAL 2026-09-19`), so the
+withheld line costs the ledger no verdict: it would have recorded only *"resume opened, nothing
+owed, no unit re-dispatched."* That sentence lives here, in the record, which `LEDGER`'s F.W9 row
+already names as the authority. **Returned to the orchestrator as a disclosure**, so a later seat
+holding the file clean may append it.
