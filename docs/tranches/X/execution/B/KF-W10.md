@@ -347,3 +347,157 @@ adjudicator"*) and §6.A. The owner's max-4 concurrent-workflow cap is respected
 ## Unit receipts
 
 *(empty at OPEN — the live receipts section; each dispatched unit appends its own block here)*
+
+### KF.W10.a
+
+**SERVED MODEL**: `claude-opus-5[1m]` · **Unit** `KF.W10.a` · group 1 of 7 (alone) · **sections executed**
+§3.1 `:192-266` + §5 **G-1** `:384-394` + §6.B carried locks `:513-524` (+ §6.A ordering 3 · §9.1 dissent 1 ·
+§10 commit 1). **Seat clock** 2026-09-18 23:2x → 23:5x EDT (⟨cmd⟩ `date` → `Fri Sep 18 23:23:17 EDT 2026` at
+open). **Sitting of record stays 2026-09-17.** **Status: DONE — G-1 turns RED → GREEN at the landing bytes.**
+**Writable set honoured exactly**: `keyframes.js docs/tranches/V/FOLD-FORWARD.md`, and nothing else in either
+tree. **No push** (§0j.C KF-WRITE: a wave pushes `origin HEAD` at close, a unit does not). **No ledger edit**
+(the wave's close moves the row).
+
+**CRASH-RECOVERY SWEEP (standing law, first act).** ⟨cmd⟩ `git status --porcelain` in both repos:
+**keyframes.js — 2 rows**, both untracked value-authored letters
+(`docs/tranches/V/coordination/VALUEJS-INBOUND-2026-07-{24,27}-*.md` = O-8/O-11's delivered bytes), **outside
+this seat's writable set, left in place**. **value.js — 15 rows, every one outside this seat's writable set**
+(`demo/**` ×10 · `docs/tranches/V/reformation/CARRY-LEDGER.md` · `src/css/timeline.ts` · `scripts/dev/dev.sh`
+**never touched, never staged** · untracked `docs/tranches/X/waves/evidence/W4/` + two `e2e/smoke/**`).
+**INHERITED WORK ON THIS UNIT: NONE** — ⟨cmd⟩ `git status --porcelain -- docs/tranches/V/FOLD-FORWARD.md` in
+kf → **zero lines**, and ⟨cmd⟩ `git diff --stat origin/master -- <that path>` → **empty**, i.e. the file was
+byte-identical to the frontier before this seat wrote. Nothing stashed, nothing restored, nothing reset.
+
+**BEFORE — G-1 baseline re-measured READ-ONLY at this seat, double-run** (the spec's witness form,
+`git show origin/master:docs/tranches/V/FOLD-FORWARD.md`): **9,289 B · 54 L**, `shasum`
+**`797029037559bbc64d935285065f83ae2fb958b9`**, worktree ≡ frontier. §A `:12` · §B `:30` · §C `:48`;
+⟨cmd⟩ `awk 'NR>30 && NR<48 && /^[0-9]+\./' | wc -l` → **15** (run 1) · **15** (run 2). ⟨cmd⟩
+`grep -ci 'addendum'` → **0** — no discharge addendum existed. ⟨cmd⟩ `grep -noE '<the seven-word alphabet>'`
+→ **2 hits, both §A prose** (`:22` *"the LANDED slice tree"*, `:25` *"Pre-rail subset LANDED"*); **0 of 15 §B
+rows carried a terminal verb**. **G-1 = RED, exactly as §5 declares it born.**
+
+**ANCHOR VERIFICATION AT TRUE BYTES (method: measure before you edit).** All spec anchors this unit consumes
+**resolved without drift**: §3.1 at `:192-266` (the table + the three dated corrections + the record block +
+the roster + the trigger block), §5 G-1 at `:384-394`, §6.A at `:505-511`, §6.B at `:513-524`, §10 at
+`:660-673`. **No INTENT re-resolution was needed.** Spec read whole in slices (263,074 B); the wave record's
+sitting-1 + sitting-2 Open/Baseline/Unit-plan read; **COHESION `§0j` read whole and every later addendum to
+the file end** (`§0k` ×2 · `§0l` · `§0m` · `§0n` · `§0o` · `§0p` · `§0q` · `§0r` · `§0s` · **`§0t`** — the
+register's true end at `:1269`). **Rulings consumed**: **§0j.C KF-ODV3/KF-ODV5** (the `complete_with_misses`
+shape authorized **in advance** — this is what lets §B-5 take its verb without proxying an owner), **§0j.C
+KF-WRITE** (substrate = the sacred checkout on `master`; a wave pushes at close, a unit does not), **§0t**
+(KF.W10 belongs to SS-2 — recorded, not re-minted), **§0a** (227/227 @ `35fc8ebf`; kf 58/58, SS-10b CLOSED —
+row 14's receipt).
+
+**ACT 1 — the ONE dated addendum, appended (E-3: append-only, never a patch).**
+`ADDENDUM 2026-09-18 — X.KF.W10 `.a`: THE §B DISCHARGE TABLE (G-1) AND THE CARRY-FORWARD RECORD BLOCK`, one
+heading (⟨cmd⟩ `grep -c '^# ADDENDUM'` → **1**), holding, in one motion and in one commit: the **15-row §B
+discharge table**, the **per-verb count table**, the **three dated corrections carried**, the **4-record
+CARRY-FORWARD block beside it**, **`CARRY-C-3`'s claimant roster** with one verb per claimant, and the **three
+KF.W8 R-4 re-open triggers verbatim**. **Dispositions CARRIED, never re-derived** (§2 — *W10 consumes; it
+never cures*): not one row's disposition was re-decided at this seat; what this seat did was **resolve every
+evidence coordinate at the bytes** and stamp the verb the adjudication already carried.
+
+**ACT 2 — a defect this seat found IN ITS OWN FIRST WRITE, cured before the commit (recorded, not hidden).**
+The first draft of the table reprinted alphabet tokens **inside four evidence cells** — row 2 (`FOLDED-TO`
+twice), row 5 (`RULED` inside a quoted §6.B clause), row 8 (the struck `FOLDED-TO KF.W4` token reprinted in
+the very cell whose spec text says *"its verb token is deliberately not reprinted"*), row 14 (`LANDED` **and**
+`FOLDED-TO` in the "would misdescribe it" clause). **G-1's falsifier convicts a row carrying two verbs**, and
+row 8's case was the spec's own instruction violated one clause after quoting it. All four cells were reworded
+**without touching a single disposition, verb or evidence coordinate** — the tokens were removed, the meaning
+kept (*"the struck claim's verb token is deliberately NOT reprinted"*, *"re-verbing it as a landing or as a
+fold"*, *"the third evidence form declared for this verb"*, §6.B's lock paraphrased instead of quoted).
+
+**ACT 3 — measurement arithmetic corrected at this seat (RECEIPT-ARITHMETIC-FIRST).** The first per-row verb
+probe published `grep -coE … ` as an **occurrence** count; on BSD that is a **line-match** count and would have
+read `1` for a row carrying the same token twice — i.e. **the probe could not have caught the ACT-2 defect it
+was written to catch**. Re-run as `grep -oE … | wc -l`, the true occurrence arithmetic, and published as such.
+
+**AFTER — G-1 gate reading at the landing bytes, double-run** (⟨cmd⟩ `git show HEAD:docs/tranches/V/FOLD-FORWARD.md`):
+
+| probe | reading (run 1 ≡ run 2) |
+|---|---|
+| §B source rows | **15** — unchanged, the denominator lock holds |
+| discharge rows | **15** (⟨cmd⟩ `grep -cE '^\| \*\*([0-9]\|1[0-5])\*\* \|'`) |
+| **true verb occurrences over those 15 rows** | **15** — **exactly one per row**, per-row vector `1:1 2:1 3:1 4:1 5:1 6:1 7:1 8:1 9:1 10:1 11:1 12:1 13:1 14:1 15:1` |
+| per-verb split | `RULED` **2** (5, 8) · `FOLDED-TO` **4** (2, 3, 7, 12) · `STANDING-CARRIED` **8** (1, 4, 6, 9, 10, 11, 13, 15) · `DISCHARGED-BY-CONSTRUCTION` **1** (14) · `LANDED`/`KILLED`/`ENUMERATED-NOT-MINTED` **0** on §B. **2+4+8+1 = 15** |
+| CARRY-FORWARD records | **4** (`KF-W8-R-4-STRUCT-PAIR` · `CARRY-C-3` · `CARRY-C-4` · `CARRY-C-5`) — beside the table, in **no** denominator |
+| `CARRY-C-3` roster | **12** `LANDED` rows + **2** `ENUMERATED-NOT-MINTED` rows = **14 live**, + **1** enumerated strike (no verb) = **15 = C-17.R's row count** |
+| **§A/§B/§C byte-unchanged** | ⟨cmd⟩ `git show HEAD:<file> \| head -54 \| shasum` → **`797029037559bbc64d935285065f83ae2fb958b9`** ≡ ⟨cmd⟩ `git show origin/master:<file> \| shasum` → **identical**. **E-3 honoured at the byte** |
+| file | **41,438 B · 246 L** (was 9,289 B · 54 L) |
+
+**G-1: RED → GREEN.** 15/15 §B rows carry exactly one terminal verb from §3.1's declared alphabet, each with
+the evidence form that verb requires, every coordinate resolved **at this seat**; §A/§B source text
+byte-unchanged; the denominator is 15 and only 15; the record block sits beside it and enters no arithmetic.
+
+**EVIDENCE COORDINATES, each resolved at this seat (the gate's falsifier is *on the target*, not the prose):**
+
+| §B | verb | target, resolved |
+|---|---|---|
+| 1 · 4 | STANDING-CARRIED | `COHESION.md` **§4a** — heading `:116`, dispatch row `:129` (*"the table resumes accreting for the next boundary"*, O-20 **DISPATCHED 2026-08-28** without the aurora cargo). Row 1's surface-verify leg = **KF.W9 §Bounds' capture-receipt row**, anchor-only (LAW C(3)) |
+| 2 | FOLDED-TO `COHESION-SC-1` | §4a's **first** register row `:120`. **Collision receipt, counting rule stated (unit = LINE; the `ESC-1` substring class excluded)**: ⟨cmd⟩ `grep -n 'SC-1' COHESION.md \| grep -v 'ESC-1'` → `:120` `:129` (**2**); same over `registry/adjudicated/kf-SequenceScene.md` → `:13 :28 :57 :58 :106 :149 :154 :158` (**8**), `:58` the live NO-WAVE-OWNER getter row, `:149` *"SC-1..SC-8 minted here for life"*. Both double-run. ⟨The spec's round-4 **five**-coordinate reading is a **dated observation superseded at these bytes** — recorded, not re-derived; the collision is unchanged and `:58`/`:149` both reproduce⟩ |
+| 3 | FOLDED-TO (two §Bounds anchors) | ⟨cmd⟩ `grep -c 'TransportDock' KF-W6.md` → **12**; ⟨cmd⟩ `grep -c 'SS-13-CAPTURE-RECEIPT' KF-W9.md` → **5** (both double-run). **Both ends carry the subject — the seam is two-ended and agreeing.** The four subsumed names are **not** registry ids: ⟨cmd⟩ `grep -l 'CH2-02\|BG-5\|GU-1\|subject-legible' registry/adjudicated/kf-*.md \| wc -l` → **0 files of 58**, double-run |
+| 5 | RULED | **Owner quotes** at kf `origin/master:docs/tranches/V/OWNER-DECISIONS.md` **`:7`** (*"THE TRANSPORT-HOME RULING IS HELD FOR CAPTURE REVIEW"*) and **`:9`** (*"THE AT-REST REOPEN QUESTION IS DEFERRED PENDING GLASS'S DOCK MARK"*), + **COHESION §0j.C KF-ODV3** for the `complete_with_misses` shape **authorized in advance**. *"Never proxied."* carried verbatim; the two closures remain **`.c`'s act** at the owner block |
+| 6 | STANDING-CARRIED | `formation/keyframes/lane-docs.md` **row 14** ⟨`:378`⟩, quoted whole: *"**IN-ATLAS-3 fence** … the fence held through every V restructure … **STANDING; verified held**"*. ⟨**Dated observation, recorded not re-derived**: the row keys the fence **IN-ATLAS-3**, §B-6 keys it **IN-ATLAS-5**; the row's own source column names `FOLD-FORWARD.md §B-6`, so the two spellings are **one** obligation. **Re-keyed nothing** — §2 forbids this wave from curing it⟩ |
+| 7 | FOLDED-TO `KF-APP-21` | ⟨cmd⟩ `grep -n 'KF-APP-21' registry/adjudicated/kf-App.md` → `:26` `:71` `:159`; `:71` routes **KF.W6** (*config unification, NOT deletion*). §B-7's open question is **answered by the bank** |
+| 8 | RULED | `conformance/PASS-3/RULINGS-3.md` **LAW A** at **`:12`** — the import-graph law, quoted with its path. The round-1 phantom fold is **struck**, its token not reprinted |
+| 9 | STANDING-CARRIED | **G-7, the named gate receipt + its arm.** State at this clock: ⟨cmd⟩ `git ls-remote --heads origin \| grep w9` → `b920b1902b4854c1bc7c5778d1674436dd51dce6 refs/heads/v/w9-staging`; ⟨cmd⟩ `git merge-base --is-ancestor b920b190 origin/master` → **UNMERGED**; **G-7 RED/unstamped**. LAND ⇒ the landing CI witness; KILL ⇒ the tombstone's MR2 unit |
+| 10 | STANDING-CARRIED | the CH-02 sentence carried **verbatim**; nothing re-worded (its own text makes a re-wording the defect) |
+| 11 | STANDING-CARRIED | byte authority **184,430 B** + the two reads re-run in kf this seat: ⟨cmd⟩ `grep -n '"version"' package.json` → `:3 "6.0.0"`; ⟨cmd⟩ `grep -n '^## ' CHANGELOG.md \| head -1` → `:6 ## 6.0.0`, **no Unreleased section** → **no cut since; the watch carries un-fired** |
+| 12 | FOLDED-TO `KF.W0` | `KF-W0.md` **§Carry** `:355`, row **C-1** `:361` (the `F-1 ≡ SCH-1` chain) + **§B-12**. **Asserted, never performed**: kf branch `master`, `HEAD` **`69095552`** = `origin/master`, ⟨cmd⟩ `git rev-list --left-right --count HEAD...origin/master` → **`0 0`** (pre-commit), snapshot ref `kf-sacred-snapshot-2026-09-17` present |
+| 13 | STANDING-CARRIED | the 9-item charter carried verbatim **+ the §9.1 COLLISION FLAG STATED**: *batches-of-3 agent law* vs the value.js owner cap **max 4 concurrent workflows (2026-07-24)** — two owner-issued laws, **both carried, neither adopted**; this wave's 6-serial shape sidesteps it by construction and is **no precedent** |
+| 14 | DISCHARGED-BY-CONSTRUCTION | `COHESION.md` **§0a** — *"227/227 units banked at `35fc8ebf` … keyframes **58/58 (SS-10b CLOSED)**"*; re-measured ⟨cmd⟩ `ls registry/adjudicated/kf-*.md \| wc -l` → **58**, double-run |
+| 15 | STANDING-CARRIED | §B-15's *"no kf action"* verbatim + **CC-084** (*"no emergency 4.0.1 — ruled"*, `CARRY-CUT-LEDGER.md:186`, cited at `INBOX.md:104` O-21 §C) through **gate-keyed PLAW-BIND**; KF.W3's repin spelled **`4.0.0 → V`, `V` = what `RC-P(V)` resolves to** (KF-W2 D-8), never a version literal. **The verb is stamped; the cut is not scheduled; parse-that→fourier stays FORBIDDEN** |
+
+**§6.A ORDERING 3 — SATISFIED BY MEASUREMENT, NOT BY FALLBACK.** The brief's contingency (*"if KF.W0's C-17
+mint has not landed, C-3/C-5 read `STANDING-CARRIED — pending the KF.W0 C-17 mint`, never a guessed slot"*)
+**does not apply: the mint HAS landed.** Receipts: KF.W0's execution record, **G-0.6 GREEN** — *"the mint ran
+in ONE motion … `^#### S-` **12** (`S-9`…`S-20`, each citing its record) … 2 enumerated and 1 struck against
+C-17.R's 15 rows"*; the landing commit is value.js **`a331fae6`** (2026-09-17, *"…and the C-17 mint"*); the
+slots resolve in the **only namespace where a slot id resolves** — ⟨cmd⟩ `grep -c '^#### S-'
+formation/keyframes/lane-frontend.md` → **12**, `grep -c '^### S-'` → **8** (§5 heading `:260`). Every id in
+`CARRY-C-3`/`CARRY-C-5` is therefore **quoted from the mint's own assignment**; **nothing is guessed and
+nothing is minted here** (R-5: C-17 is the only slot authority). `CARRY-C-5`'s slot = **`lane-frontend.md §5
+S-17`** ⟨`:918`, *the `/command` family shadowed*⟩, C-17's assignment for kf-KeyboardShortcutsModal's **`C-9`**,
+with the seat's own S-9→S-10 renumber recorded **superseded**, not benefited from.
+
+**`CARRY-C-4` — the verb, not the deletion.** **`RULED DELETE, 2026-09-18, KF.W6`**, citing **KF-W6 §Gates
+`G-W6-4`** as the measurement of record (`.tap-floor` → **2 hits / 1 file**, `design-idioms.css:81` comment +
+`:82` selector → **0 adopters**). The ruling is **KF.W6 `.b`'s** (*"decided ONCE for the whole demo: DELETE"*)
+and the act's bytes are **KF.W6 `.e`'s** at `c6608042` — this record files the **ruling**, never the deletion.
+Both locks carried whole: the **premise-correction lock** (the *"44px house practice"* premise is DEAD; SC
+2.5.8's boundary math and the shipping 32px answer survive) and the **KF-SST-30 companion** (glass
+`touch-hit-area` cannot expand a target, which is why DELETE was not the free option it looks like).
+
+**THE THREE RE-OPEN TRIGGERS — carried VERBATIM and verified byte-exact**: ⟨cmd⟩ `grep -c 'This decline
+re-opens on any ONE of three conditions' KF-W8.md` → **1**; the passage is carried whole from **`KF-W8.md`
+§Sequencing · the `Rulings this file is required to make` block `:395` · `R-4`'s *"TRIGGER, named"* clause
+`:411`** — the corrected §-spelling (*"KF-W8 §Rulings"* is a phantom this file's own §6.C-E already struck).
+**Trigger (1) is stated rather than left to be noticed: X·KF's close IS this wave, so it fires the moment the
+record is written** — which is exactly why the conditions travel **with** the ruling. **Carrying is not
+scheduling**: no flatten performed, no ruling re-opened, no successor act scheduled.
+
+**COMMIT (§10 commit 1 — the discharge table and its carry block in ONE commit, never split).**
+
+| # | repo | hash | scope |
+|---|---|---|---|
+| 1 | keyframes.js | **`025e894c`** | `docs(X·KF W10): FOLD-FORWARD §B 15-row discharge + 4-record carry-forward block` — pathspec `docs/tranches/V/FOLD-FORWARD.md` **on the commit itself**; body carries the per-verb counts, every evidence coordinate, **both denominator locks asserted explicitly**, and the C-17 consumption receipt. ⟨cmd⟩ post-commit `git status --porcelain` → **the same 2 untracked value letters and nothing else**; ⟨cmd⟩ `git rev-list --left-right --count HEAD...origin/master` → **`1 0`** (this unit's commit; **a wave pushes at close, a unit does not** — §0j.C KF-WRITE) |
+
+**RESIDUALS (named, none hidden).**
+1. **G-1's frontier witness is not yet reproducible**: the gate's stated probe is `git show origin/master:…`,
+   and the commit is at local `HEAD` (+1). **This is the wave's push at close (`.f`), not a unit's** — the
+   reading above is taken at the landing bytes and is stated as such.
+2. **Row 5 stamps `RULED` while the two `complete_with_misses` closures are `.c`'s act.** The verb rests on the
+   owner's own two rulings (HELD / DEFERRED) plus §0j.C's advance authorization — **not** on a closure that
+   does not yet exist. `.c` must file both citing their **exact** preconditions (SS-13-CAPTURE-RECEIPT `:35`'s
+   *0 of 16 cells*; glass's dock mark), or row 5's evidence half goes unproduced.
+3. **Row 9's watch is armed to `.e`.** It dies with G-7's verb and must not outlive it in either direction.
+4. **Row 6's fence carries two id spellings** (IN-ATLAS-3 / IN-ATLAS-5) for one obligation — recorded as a
+   dated observation; **re-keying is not this wave's act** and is handed to the successor as-is.
+5. **`CARRY-C-5`'s two-ended routing** (bank says *"→ KF.W6"*, R2-2 rules it *"definitionally W10's"*) is
+   **recorded, not dissolved** (§9 dissent 5): the record cites the bank's coordinate and the ruling by id, so
+   the trail is one hop either direction. **It may not be filed twice** — if KF.W6 also files it, that is the
+   double-filing the dissent names.
+
+**ESCALATIONS: none.** Every act landed inside the declared writable set; the specified cure was possible at
+the bytes and was executed as specified — no substitution, no workaround, no masking fallback, no `test.skip`,
+no allowlist, no local patch.
