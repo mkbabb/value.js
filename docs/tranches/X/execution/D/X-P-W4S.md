@@ -609,3 +609,211 @@ its resolve leg is *expected* to read `52 of 52`, and the expectation is **to be
 assumed**; **(iii)** only with `G3 GREEN` may `.f` open, re-run G-1..G-10 at its own clock, rule the
 45 cells, and perform the R-A stamp. E-w4e-2 does not hold G-3 red and can be sequenced
 independently.
+
+---
+
+# RESUME — SECOND SITTING (2026-09-19, on COHESION §0aa)
+
+**SERVED MODEL**: `claude-opus-5[1m]` · **SEAT 0 (RE-OPEN)**. The wave resumes rather than re-opens:
+`.e`'s commits stand and are **never re-dispatched** (§0aa *"`.e`'s commits stand (`93bcb83`; never
+re-dispatched)"*). The sections above are **dated evidence and are not rewritten** (E-3); everything
+below is measured at **this** seat's own clock.
+
+## Open — RESUME
+
+**Ruling of record**: **COHESION §0aa** (2026-09-19, lines 1729–1755) — `.e`'s two escalations
+**upheld as measured and ruled**, unit **`X.P.W4.e2` (Opus) MINTED**, serial between `.e` and `.f`;
+`.f` opens **iff `.e2` reads `G3 GREEN`** (the wave's serial lock, adopted from the PARTIAL close's
+own ordering). Unit spec = `W4.md`'s **FOURTH dated addendum** (file end) for `.e2` and its **THIRD**
+for `.f`. Chassis `EXECUTION-RUNBOOK.md` §1.4 (Track D, strictly serial) / §3.4 / §5.
+**X.P.W4's CLOSED row is never rewritten**; this wave keeps its own row and this record.
+
+**Seat**: SEAT 0 (OPEN), `claude-opus-5[1m]`. Writable at this seat: this record ·
+`execution/LEDGER.md` (row cell + event-log append only) · `docs/tranches/V/coordination/INBOX.md`
+(mail rows only, if touched — **not touched**). No other path was written.
+
+**CRASH-RECOVERY (standing law, host restart 2026-09-18).**
+⟨cmd⟩ `git -C /Users/mkbabb/Programming/value.js status --porcelain` → **3** rows:
+`M docs/tranches/V/reformation/CARRY-LEDGER.md` · `M docs/tranches/X/keyframes/evidence/W12/KF-W12-d-born-red.md` ·
+`M scripts/dev/dev.sh`. **None is inside this seat's writable set** — the first two are sibling
+seats' (V-reformation, Track B's X·KF W12), `dev.sh` is unowned and **never staged**.
+⟨cmd⟩ `git status --porcelain -- docs/tranches/X/execution/D/X-P-W4S.md docs/tranches/X/execution/LEDGER.md docs/tranches/V/coordination/INBOX.md`
+→ **0 lines**, all three clean. ⟨cmd⟩ `git status --porcelain -- docs/tranches/X/parse-that/evidence/W4/`
+→ **0 lines** (the half of `.e2`'s writable set that lives in value.js carries **zero inherited
+edits**). ⟨cmd⟩ `git -C /Users/mkbabb/Programming/parse-that-css-totality-p2 status --porcelain`
+→ `?? .worktrees/` **only** — `packed-candidate-surface.mjs`, `packrat-entry.ts` and `bounds.mjs`
+are **byte-clean**, so `.e2` inherits nothing and starts from `93bcb83`'s settled bytes.
+**Nothing stashed, nothing restored, no dirty path outside the writable set touched.**
+
+### Preconditions — verified at the bytes AND in the ledger
+
+| # | condition | measured | verdict |
+|---|---|---|---|
+| RA-1 | **`.e` LANDED and is never re-dispatched** | ⟨cmd⟩ `git -C <p2> log --oneline -1` → **`93bcb83 feat(x-p-w4.e/packed): the candidate DECLARES and SHIPS its /css seam …`** — HEAD of `<p2>`, so no unit has landed after it; value.js carries `e9140c34` (evidence) · `f170e178` (receipt) · `2bf4b205` + `dfb9eab5` (close) · `8424a6eb` (LEDGER) | **MET — `alreadyDone`** |
+| RA-2 | **`.e2` has landed NOTHING** (the resume is honest about what is owed) | ⟨cmd⟩ `git -C <p2> log --oneline -8` → no `e2` commit; ⟨cmd⟩ `git -C value.js log --oneline -12` → no `e2` commit; `<p2>` working tree clean but for `?? .worktrees/` | **MET — `.e2` is owed in full** |
+| RA-3 | **§0aa exists and rules both escalations** | `COHESION.md:1729` `## §0aa ADDENDUM 2026-09-19 — X.P.W4S's '.e' ESCALATIONS (E-w4e-1 · E-w4e-2) RULED; UNIT '.e2' MINTED; '.f' OPENS ONLY ON 'G3 GREEN'`, landed at `f830c384` | **MET** |
+| RA-4 | **`W4.md`'s FOURTH dated addendum exists and IS `.e2`'s unit spec** | ⟨cmd⟩ `tail` of `waves/W4.md` → *"ADDENDUM 2026-09-19 (fourth, beside — E-3; COHESION §0aa). Unit `X.P.W4.e2` (Opus), serial between `.e` and `.f`."* with the writable list and the gate | **MET** |
+| RA-5 | **`.e2`'s three cure sites are at the bytes §0aa names** | ⟨cmd⟩ `sed -n '395,425p' scripts/packed-candidate-surface.mjs` → the emitter at `:400` reads `` `export type __check_${name} = ${name};` `` and `:420` reads `resolved: compile.status === 0 ? true : !named(name) && diagnostics.length === 0`; ⟨cmd⟩ `grep -n export src/parse/packrat-entry.ts` → `5: export { memoize, mergeMemos, resetPackrat } from "./packrat.js";` (**`packratEnter`/`packratExit` ABSENT**); ⟨cmd⟩ `sed -n '828,842p' src/css/bounds.mjs` → `const { tsImport } = require_("tsx/esm/api");` inside `loadPackratInstrument()` | **MET — none drifted** |
+| RA-6 | `ADJUDICATION-W4.md` still ABSENT (`.f` creates it); `x-p-w4s.json` still ABSENT | ⟨cmd⟩ `ls …/ADJUDICATION-W4.md` → *No such file or directory*; ⟨cmd⟩ `ls registry/harvest/` → `x-p-w3.json` **129579 B** (X.P.W3.e's, 2026-09-18 — `.f` MEASURES before writing, §0y F-w4c-2) · `x-p-w4.json` **119964 B** · **no `x-p-w4s.json`** | **MET (correct open state)** |
+| RA-7 | E13 mail closed in scope | **0 UNREAD** over **80** rows, double-run (below) | **MET** |
+
+### E13 Step-0 — the four-path mail sweep, at this seat's clock
+
+Classification read from each row's **Status cell by position** (both INBOX tables put Status at
+field 6 — ⟨cmd⟩ `grep -n '^| # |'` → `41:| # | Date | From | Letter | Status | Owner |` and
+`66:| # | Date | To | Letter | Status |`), never from a bare `grep -i unread`; this record
+self-excluded (SELF-COUNT law).
+
+⟨cmd⟩ `sed 's/\|/@PIPE@/g' INBOX.md | awk -F'|' '/^\| [IO]-[0-9]+[a-z]? \|/ {n++; s=$6; gsub(/^ +| +$/,"",s); if (s ~ /^\*\*?UNREAD/) c++} END {print "ROWS="n+0" UNREAD="c+0}'`
+→ **`ROWS=80 UNREAD=0`**, double-run **`ROWS=80 UNREAD=0`**. Tail ids `O-37 · O-38 · O-39 · O-40`.
+
+1. `docs/tranches/V/` + `V/coordination/` — **10** depth-1 `.md` ⊕ **24** coordination entries.
+2. `../glass-ui/docs/tranches/BK/coordination/` — **BK re-confirmed the newest tranche dir**
+   (⟨cmd⟩ `ls -1dt ../glass-ui/docs/tranches/*/ | head -3` → `BK/` · `BJ/` · `BI/`); **9** entries,
+   newest `glass-outbound-2026-09-18-valuejs-o26-reply.md` = **I-35**, already rowed.
+3. `../keyframes.js/docs/tranches/V/coordination/` — **13** entries; newest inbound-grammar letter
+   `VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md` = **O-21**, ours, delivered.
+4. `../sci-report/atlas/docs/tranches/P/coordination/` — **28** entries, **UNMOVED**.
+
+⟨cmd⟩ `find <the four paths> -maxdepth 1 -type f -name '*.md' -newermt "2026-09-19 09:10"` → **no
+member** — **nothing has moved since the PARTIAL close's own sweep.**
+
+**Result: ZERO unrowed letters addressed to value.js · ZERO new `I-n`/`O-n` minted by this seat ·
+ZERO UNREAD Status cells.** `INBOX.md` is **not written** at this re-open; `.f`'s adjudication rows
+are its act and are not pre-rowed.
+
+## Baseline — RESUME
+
+Every command READ-ONLY at this seat's clock, 2026-09-19. The three writing scripts were given
+`--out` into the session scratchpad, so **no byte of `evidence/W4/**` was touched** (E-3). The
+BEFORE column is now **`.e`'s settled bytes** (`93bcb83`), not `.b`'s — which is the honest
+denominator for `.e2`.
+
+| gate | §6 GREEN definition | measured at THIS re-open | verdict |
+|---|---|---|---|
+| **G-1** | both set-differences ∅; no disposition contradicts the ledger; no blank field; exit 0 | `VERDICT: GREEN — both set-differences ∅, no disposition contradicts the ledger, every carried cell publishes PENDING-ADJUDICATION, no field is blank`, **double-run identical** | **GREEN (inherited)** |
+| **G-2** | no value.js source byte at any commit of the wave | ⟨cmd⟩ `git status --porcelain -- src api demo test e2e` → **0 lines** (Track A's `demo/**`+`e2e/**` rows the close seat read with attribution have since **landed** at `de99ec15`, so the raw command is clean again) | **GREEN** |
+| **G-3** | `resolved 52 of 52`, `G3 GREEN`, exit 0 | `tarballSha256 6b51c336…` · `entryCount 91` · `seamSubpathDeclared true` · **`resolved 19 of 52`** · `refusals 5` · `verdict {pack:true, declaration:true, install:true, **resolve:false**, refusals:true, G3:"RED"}`; **double-run byte-identical but for `generatedAt`** | **RED — `.e2`'s cure target** |
+| **G-4** | 0 function-kind imports · empty-import instantiation · every import accounted | `artifacts 1 · admitted 1 · functionKindImportsTotal 0 · unaccountedImportsTotal 0 · "verdict": "GREEN"`, double-run, on `.e`'s **rebuilt** `ac1.wasm` | **GREEN** |
+| **G-5** | the evaluator prints the six-row table and exits non-zero while any conjunct is false, naming which | `RC-P(4.0.0) = FALSE — 3 of 6 conjuncts are FALSE: 1 PUBLISHED(V) · 3 EQUIVALENCE(V) · 4 ADMITTED(V)`; conjunct 4 *"FALSE, not vacuously true"* (**Q-RC-2 discharged at the bytes**); conjunct 3's subject is **still the harness** (**Q-RC-1 is `.f`'s arm**) | **GREEN — honestly FALSE** |
+| **G-6** | ≥ 2 hits naming `RC-P` by predicate, in files X·P may not write | ⟨cmd⟩ `grep -rn 'RC-P' docs/tranches/X/{keyframes,fourier}/waves/ \| wc -l` → **25**, double-run `25 ≡ 25` | **GREEN** |
+| **G-7** | INHERITED-GREEN FLOOR — the direct edge absent | ⟨cmd⟩ `grep -c 'parse-that' ../fourier-analysis/package.json` → **0**; `web/package.json` → **0** | **GREEN — floor held** |
+| **G-8** | packet in-repo · dated row names it + the SS-6 batch · 0 UNREAD | `RELEASE-PACKET.md` **23017 B**; `grep -c 'RELEASE-PACKET' INBOX.md` → **1**; **UNREAD 0 / 80 rows** | **GREEN** |
+| **G-9** | a terminal disposition, never silence | `waves/W4-CLOSE.md` PRESENT **39300 B**, §4 records disposition **(C)** | **GREEN** |
+| **G-10** | shape (a) sum **5** at open, **0** after the stamp | ⟨cmd⟩ `for f in …/W[0-4].md; do awk '/^### Four-verb status/{t=1;next} /^#/{t=0} t' "$f"; done \| grep -c 'VERIFIED \| \*\*NO\*\*'` → **5**, double-run `5 ≡ 5` | **open-state CORRECT (5) — the stamp is `.f`'s, still WITHHELD by gate id G-3** |
+
+**`.e2`'s second gate, born-RED at this re-open** — ⟨cmd⟩ `grep -rn 'tsx' src/css/` in `<p2>/typescript`
+→ **5** hits: `bounds.mjs:818` (prose) · **`bounds.mjs:834` — `const { tsImport } = require_("tsx/esm/api");`, the live one** · `js-alg.mjs:38,42,45` (prose recording `.e`'s removal).
+**One live code hit remains, and it is exactly E-w4e-2's site.** §0aa's GREEN for this leg is **0**
+over shipped bytes.
+
+### Pasted output — G-3, run 2 of 2 (the BEFORE that `.e2` must move)
+
+```
+"candidate": "@mkbabb/parse-that@1.0.0"
+"tarballSha256": "6b51c33608baf0b60273b813eec5ff8df702cf2a3b4fc5053258014208a11103"
+"entryCount": 91
+"symbolCounts": { "runtime": 19, "types": 33, "total": 52 }
+"seamSubpathDeclared": true
+"resolved": "19 of 52"
+"refusals": 5
+"verdict": { "pack": true, "declaration": true, "install": true,
+             "resolve": false, "refusals": true, "G3": "RED" }
+```
+
+**The whole residual is the types half** (19 runtime of 19 resolve; 0 types of 33), and its cause is
+`packed-candidate-surface.mjs`'s own assertion form — independently confirmed by the PARTIAL close
+and ruled at §0aa. `.e2` cures the **generator**, not the tarball: the tarball at `6b51c336…` is
+already the bytes A-7's positive control compiled at exit 0.
+
+### R.2 — GREEN-before-cure, declared
+
+Seven gates the **spec** declares born-RED read **GREEN at this re-open**: **G-1 · G-2 · G-4 · G-5 ·
+G-6 · G-8 · G-9**. **None is a remaining cure target of this wave**: each was turned by X.P.W4 (G-4
+re-verified on `.e`'s rebuilt `ac1.wasm`), and each is listed because R.2 forbids a silent green.
+They are `.f`'s **re-run** obligations at its own clock, never inherited claims. **G-7** is an
+inherited-GREEN FLOOR by the spec's own words. **G-3 is honestly RED** and is `.e2`'s; **G-10's
+open-state sum is 5**, the value the gate must find at open.
+
+## Unit plan — RESUME
+
+**Two units owed, strictly serial** (§0aa: *"unit `.e2` … lands the two cures and re-runs G-3 …
+then `.f` opens exactly as §0y states, iff `G3 GREEN`"*; runbook §1.4: Track D is serial).
+`X.P.W4.e` is **`alreadyDone`** and is **never re-dispatched**.
+
+| group | unit | model | gates |
+|---|---|---|---|
+| — | `X.P.W4.e` | opus | **LANDED `93bcb83`** — alreadyDone |
+| 1 | `X.P.W4.e2` | opus | G-3 · the `tsx`-free-shipped-bytes leg |
+| 2 | `X.P.W4.f` | fable (FRESH adjudicator, M-23 §1) | G-1 · G-2 · G-3 · G-4 · G-5 · G-6 · G-7 · G-8 · G-9 · G-10 |
+
+**Disjointness**: the two owed units share **no** create/modify path. `.e2` writes only in `<p2>`
+(`scripts/packed-candidate-surface.mjs` · `src/parse/packrat-entry.ts` · the regenerated `dist/` ·
+`src/css/bounds.mjs`) plus NEW dated files under `evidence/W4/**`; `.f` writes only in value.js docs
+plus `<p2>/typescript/scripts/rc-p-evaluate.mjs`. They are serial regardless.
+
+**Locks and families** (runbook §3.4; W4.md §4a; §0aa):
+- **`.e2` → `.f` serial, and CONDITIONAL**: `.f` **opens iff `.e2` reads `G3 GREEN`**. A stamp
+  performed while any of G-1..G-9 is red fails by G-10's own falsifier. If `.e2` returns G-3 still
+  RED, `.f` is **not dispatched** and the wave closes PARTIAL again, by gate id.
+- **`.f`'s R-A stamp is ONE act** over the five four-verb `VERIFIED` rows (W0–W4) — the family does
+  not split; performed **iff** G-1..G-9 read GREEN at `.f`'s own re-run, else **withheld by gate id**.
+- **The two COHESION carves** (§1 SS-5 status cell · §5 status-board line) land **only under a
+  performed stamp** — `.f` performs both or neither (§0y).
+- **`INBOX.md` is shared** with X·V's mail units (W4.md §4a cross-wave): rows are appended, never
+  rewritten; `.f` must not run while an X·V mail unit is open.
+- **`../parse-that`, `../keyframes.js`, `../fourier-analysis`, `../glass-ui` are READ-ONLY**
+  (runbook §5.5). **Zero value.js `src/**`, `demo/**`, `api/**`, `test/**`, `e2e/**` bytes** — G-2
+  asserts it at every commit of this wave.
+- **`dist/` is gitignored in `<p2>`** (⟨cmd⟩ `git check-ignore -v dist` → `.gitignore:6:dist/`), so
+  `.e2`'s regeneration of it is a **build act with no commit**: the built bytes reach the gate only
+  through `npm pack`'s `files` list. This is why `.e2` must re-run G-3 **after** rebuilding, never
+  before.
+
+### X.P.W4.e2 — the generator's arity + the latch reader's subpath (§0aa)
+
+- **Model**: opus (M-23 §2 — both cures are mechanism).
+- **Spec sections**: `W4.md` **FOURTH dated addendum** (file end, the `X.P.W4.e2` clause — the
+  unit's own bounds and gate) · §6 **G-3** (lines 383–397) · §7 Format/Lint (545–554) · §9 Commit
+  Plan (581–598) · COHESION **§0aa** (1729–1755, E-w4e-1 · E-w4e-2 cure (a)) · §0y **F-w4b-3**
+  (1642–1653, the packaging ruling `.e` executed and this unit completes).
+- **Writable set** (exactly the fourth addendum's list):
+  `/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/scripts/packed-candidate-surface.mjs`
+  (**the check-line emitter only**) ·
+  `/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/parse/packrat-entry.ts`
+  (**export lines only**) ·
+  `/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/dist/**` (**regenerated, gitignored**) ·
+  `/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/bounds.mjs` ·
+  `/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W4/**`
+  (**NEW dated files beside `.b`'s and `.e`'s — never an overwrite**) ·
+  `/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/D/X-P-W4S.md` (its own receipt).
+- **Gates**: **G-3** → `resolved 52 of 52`, `entryCount ≥ 2`, `G3 GREEN`, **exit 0**, **double-run**,
+  plus a **positive control in a staged consumer tree outside both repos** and a **negative control
+  that still fires**; and **`grep -rn 'tsx' src/css/` over shipped bytes → 0 code hits**.
+
+### X.P.W4.f — the fresh adjudicator (E-r2-1), CONDITIONAL on `G3 GREEN`
+
+- **Model**: **fable**, and **FRESH** (M-23 §1) — a seat that authored a gate cannot certify it.
+- **Spec sections**: `W4.md` **THIRD dated addendum** (file end, the `X.P.W4.f` clause) · §2b OP-6
+  (line 73) · §3 Scope items 6–10 (114–130) · §5 `X.P.W4.d` mechanism (293–312) · §6 **G-1..G-10**
+  (314–543), **G-10 read in shape (a)** · §8 (556–579) · §9 (581–598) · §12 L-18 rider (651–665) ·
+  COHESION **§0y** (1634–1688: E-r2-1 · F-w4c-2 · Q-RC-1 · Q-RC-2 · the two carves), **§0v**
+  (1574–1584, GROUND-C), **§0w** (1586–1602, the id-set + each class's ruling) and **§0aa**
+  (1729–1755: R-4 — bank the rebuilt `ac1.wasm`'s import listing as a NEW dated file beside `.b`'s;
+  R-5 rides X-W11's OUT-OF-WAVE roster; R-6 is by construction).
+- **Writable set** (exactly the third addendum's list): unchanged from the first sitting's plan —
+  `SEAM-CONTRACT.md` (disposition + consumer-direction cells of the 45 `PENDING-ADJUDICATION` rows
+  only) · `ADJUDICATION-W4.md` (create) · `DIVERGENCE-LEDGER.md` (modify-append, `rulingId`) ·
+  `waves/W4-CLOSE.md` (append a dated §12 only) · `RELEASE-PACKET.md` (a dated addendum section
+  only) · `docs/tranches/V/coordination/INBOX.md` (mail rows) · the **five four-verb `VERIFIED`
+  rows** in `waves/W0..W4.md` (R-A, **one act, iff G-1..G-9 GREEN at this seat's own re-run**) ·
+  `docs/tranches/X/COHESION.md` (**§1 SS-5 cell + §5 board line only, iff the stamp is performed**) ·
+  `<p2>/typescript/scripts/rc-p-evaluate.mjs` · `RELEASE-CONDITION.md` (**§2.3 dated addendum
+  only**) · `registry/harvest/x-p-w3.json` **and** `x-p-w4s.json` (create, §0p scratch-mirror —
+  **`x-p-w3.json` already exists at 129579 B; measure before writing**) · this record.
+- **Gates**: **G-1..G-10** re-run at its own clock; **G-10 in shape (a)**: **5** at open, **0** after
+  the stamp.
+
+## Unit receipts — RESUME
+
+_(appended by each unit as it lands)_
