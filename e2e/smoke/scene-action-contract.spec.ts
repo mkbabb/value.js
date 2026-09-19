@@ -224,6 +224,50 @@ test.describe("D4 · a registered target is READY, and dispatches for real", () 
     });
 });
 
+/**
+ * §8 artefact 8 — this unit's OWN before/after frames.
+ *
+ * The five pairs §8 enumerates (slug cluster · rail letters · admin panel ·
+ * Select composition · Gradient rail) are units a, b and c's surfaces and are
+ * already banked. The surface THIS unit changes is the dock's action bar, so
+ * its pair is taken here, on the two views that show the collapse:
+ *
+ *   · `/#/mix` at the desktop matrix — the D1 defect's own witness. Before the
+ *     collapse the Picker priority rendered the PICKER's five seats here and
+ *     the mix bar was never reachable; after, the mix set renders.
+ *   · `/#/mix` at 390×844 — the branch where no pane registers, so the frame
+ *     shows the modelled `unavailable` seats D4 is about.
+ *
+ * The file names carry no before/after suffix on purpose: the same assertions
+ * run against the pre-collapse bytes to take the BEFORE pass, and the frames
+ * are named by the pass that took them. Nothing here is a gate; the two
+ * assertions are what make the frame worth keeping (a blank dock is not
+ * evidence of anything).
+ */
+const FRAMES = "docs/tranches/X/waves/evidence/W4";
+
+test.describe("§8 artefact 8 — the dock action bar's frames (desktop matrix)", () => {
+    test("the Mix view's bar, framed", async ({ page }) => {
+        await landAndOpenBar(page, "Mix");
+        const dock = page.locator(".glass-dock");
+        await expect(dock).toBeVisible();
+        await expect(page.locator('[role="button"], button')).not.toHaveCount(0);
+        await dock.screenshot({ path: `${FRAMES}/action-bar-mix-desktop.png` });
+    });
+});
+
+test.describe("§8 artefact 8 — the dock action bar's frames (390 viewport)", () => {
+    test.use({ viewport: { width: 390, height: 844 } });
+
+    test("the Mix view's bar with no pane registered, framed", async ({ page }) => {
+        await landAndOpenBar(page, "Mix");
+        const dock = page.locator(".glass-dock");
+        await expect(dock).toBeVisible();
+        await expect(page.locator('[role="button"], button')).not.toHaveCount(0);
+        await dock.screenshot({ path: `${FRAMES}/action-bar-mix-390.png` });
+    });
+});
+
 test.describe("AB-32 · the collapse CARRIES the active/selected member", () => {
     test("the palette-open indicator survives the contract collapse", async ({
         page,
