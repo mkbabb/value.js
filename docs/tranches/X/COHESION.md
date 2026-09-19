@@ -1200,3 +1200,58 @@ ESC-d1 · ESC-d2 (their owners stand as W3-CLOSE.md names them). D relaunches on
 
 `W3.md` gains a second dated addendum widening `.f`'s Files line accordingly. The running D workflow
 was STOPPED before its close/check could grade an unrealizable unit; D relaunches on this word.
+
+## §0r ADDENDUM 2026-09-19 — X.P.W3's THIRD CLOSE (NOT-CONFORMANT): THE SURFACE IS UNAUTHORED, NOT UNRELIEVED; FOUR IMPLEMENTATION UNITS ADDED; ESC-g1 · R-f1 · F-z2 RULED
+
+**The finding, at the bytes.** `universe-52.json` tally: runtime **TOTAL 0 · PARTIAL 3 · ABSENT 16**;
+types **TOTAL 5 · ABSENT 28**. The candidate realizes 3 of 9 public entries (`parseCssColor`,
+`parseTimingFunction`, `parseStylesheet` — the AC-1 slice) and no other runtime export. W3.md §3
+items 2–3 scope *"every runtime export TOTAL … every type export TOTAL"*, §2a makes it the goal
+criterion, and X.P.W4 §2 checks `universe-52.json all TOTAL` as a precondition — yet §5's five
+units (`.a` universe · `.b` recovery union · `.c` R1 execution · `.d` differential floor · `.e`
+closure) are instruments and cures, and **no unit was ever scoped to author the remaining six entries
+and their families**. The check's CRITICAL (G-1 5/52), HIGH (G-7 1,908 coverage absences over 44
+NO-PEER rows) and HIGH (G-4 C-3: 5 of 8 codes emitted by nothing) share that one root. This is a
+spec omission at authoring, cured by dated addendum (E-3), not a relief question.
+
+**Four units added to W3.md §5 (`.h` → `.i` → `.j` → `.k`, SERIAL — they share `algebra/grammar.mjs`,
+`tables.mjs`, `diagnostics.mjs`; one writer at a time).** Every unit authors in the 22-operation
+algebra through `buildGrammar(A)` — ONE grammar source, both lowerings by construction (that is what
+AC-1 was chosen for, §0n.1) — with: dispatch rows; labels appended after `"<string>"` (K-10);
+promoted diagnostics rows; the export realized on the adapter and in `build/ac1.d.ts`; the universe's
+own accept/reject columns as the corpus band; frozen codes only (no ninth); and a receipt with G-1's
+rows for its exports, G-2 22/22, G-3 `SHIELD.caught` 0, G-5 identity, G-9's capacity leg with the
+re-derived Θ per entry (a new production moves the arena rate — INFO-g1 — so Θ is re-derived and
+REPORTED, never silently narrowed).
+- **`.h` the value grammar (Fable seat — the design-heavy core):** `parseCssScalar` ·
+  `parseCssValue` with the syntax vocabulary (`<length>` … — emitting `syntax_mismatch` /
+  `syntax_descriptor_invalid`) · `parseCssValues` · `coerceToSyntax` · `serializeCssColor`;
+  `parseCssColor` PARTIAL → TOTAL; types `CssColorSpace` · `CssLinearStop` · `ParseIssue` ·
+  `ParseResult` (bidirectional assignability in `.a`'s generated program).
+- **`.i` the animation family (Opus):** `parseAnimationRange` · `parseAnimationTimeline` ·
+  `parseKeyframeSelector` (`keyframe_selector_invalid`) · `serializeTimelineOptions` ·
+  `collectAnimationOptions` (`animation_option_invalid`) · `collectTimelineOptions`; the fifteen
+  animation/timeline/range/trigger/view types.
+- **`.j` the stylesheet collectors (Opus):** `collectDeclarations` · `collectStyleRules` ·
+  `collectKeyframes` · `collectPropertyDescriptors` · `collectCustomFunctions`; `parseStylesheet`
+  PARTIAL → TOTAL; `CollectedRule` · `KeyframeRule` · `KeyframesBlock` · `PropertyRule` ·
+  `StylesheetItem` · `CSSPropertyDescriptor` · the three `CustomFunction*` types.
+- **`.k` universe closure and the ledger (Opus):** G-1 re-run to 52/52 (or the honest remainder,
+  by id); G-4 C-3 8/8 emitted; **ESC-g1 GRANTED** — `test/css-equivalence/emit-divergence-ledger.mjs`
+  gains a sixth row family (**§6 INCUMBENT-DEFECT**: the oracle mis-accepts, the candidate is right
+  per spec — the legacy-`hsl(120, 50, 50)` row first), with §0/§2/§3 headings and prose made
+  COUNT-DRIVEN and `equivalence.test.ts`'s heading assertions made count-driven in the same commit
+  (an assertion that hard-codes "four" is the defect ESC-g1 measured); **F-z2 ruled** — the
+  mirror-defect denominator's `DECLARED_HEADS` is read from the ORACLE's surface (the pinned 4.0.0
+  tarball's heads), never the candidate's own `R_disp`; G-7 re-run with the census at 30.
+
+**R-f1 — the input window (Θ.input 65,458, derived).** Lawful under §0q and honest, but a 64 K
+window is a product defect for `parseStylesheet`. **Ruled for X.P.W4** (the adoption seam), shape
+fixed: (a) the layout derives the class-3 regions FROM Θ (`cap₃ = K × INPUT_CAP`, the full 1 M
+window), the linear-memory cost measured and printed; if that cost exceeds 64 MiB, (b) a per-entry
+window table carried by both lowerings — value entries at the full window, `parseStylesheet` at the
+derived bound — with the table asserted on the label surface. Not a W3 unit; W3 closes with the
+derived Θ and CAP-1 rowed.
+
+Carried unmoved: ESC-c1 (latch, the parse-that library seam → W4) · ESC-d2 (G-2, → X·V) · E-2/F-e10
+(C-4's dead falsifier → W4). D relaunches on this word.
