@@ -855,3 +855,228 @@ opened on**. Every figure in this receipt was re-run at `cdb31643` after the las
 **run 1 = run 2 on all eleven harness figures** (statements · files · reached modules · private-of-
 reached · `export *` · the `@src` `camelCaseToHyphen` count · `namedSelectorToFraction` in demo ·
 `helpers.ts` 88 L · `keyframeSelector.ts` 53 L · unit commits · worktree rows).
+
+### d
+
+**SERVED MODEL**: `claude-opus-5[1m]`. **Date**: 2026-09-18. **Unit**: `d` — keyframe-selector
+serializer unification to one body (§Units `:59` · §Scope 4 `:74` · G3 `:277-283` · §Rows MISS-β2
+`:230` · §Sequencing → KF.W2/W3 `:432-433`), **with COHESION §0o ESC-KFW2-1 folded in**.
+**Gates**: **G3** (+ **G-W2-2** re-measured, §0o). **Lock**: the unification and the `metadata.ts`
+repoint land in **ONE commit** — honoured, `e2d04331`.
+**Status: ESCALATED — the library half of the one body landed (3 → 2 definitions), the demo half
+has NO lawful cure inside any grant this wave holds, and A-9's repoint set is 12 with five members
+unbounded. G3 honest-RED at 2; G-W2-2's `src/` arm turns GREEN.**
+
+#### Act 1 — crash-recovery sweep (STANDING LAW), before any other act
+
+⟨cmd⟩ `git status --porcelain` in `/Users/mkbabb/Programming/keyframes.js` → **2 rows, both `??`**
+(`docs/tranches/V/coordination/VALUEJS-INBOUND-2026-07-24-…` · `…-2026-07-27-…`, our own delivered
+letters), **neither inside this unit's writable set**; ⟨cmd⟩ same in `/Users/mkbabb/Programming/value.js`
+→ **15 rows**, none a KF.W8 path (X·V demo rows · `CARRY-LEDGER.md` · the unowned `scripts/dev/dev.sh`
+· `docs/tranches/X/waves/evidence/W4/` · two e2e specs — sibling-seat or standing-arrangement rows).
+⟨cmd⟩ `git rev-parse HEAD` (kf) → **`cdb31643`** — unit `c`'s last landing, the substrate this unit
+opens on. **No killed predecessor seat's partial work exists on this unit: nothing inherited, nothing
+stashed, no dirty path outside the set touched**; `scripts/dev/dev.sh` never opened.
+
+#### Act 2 — the sections read whole, and the two measurements that decide the unit
+
+Spec read in slices (476 L / 263 KB): §Units row `d` · §Scope 4 · **G3** whole · §Rows `MISS-β2` ·
+§Sequencing `→ KF.W2/W3` · §Bounds rows for all twelve granted paths (`:81-139`) · §State
+`Opens after`. Record read whole (open · baseline · plan · units `a` · `b` · `c`). `COHESION.md`
+§0j and every §0k+ addendum read to the file end; ⟨cmd⟩ `grep -n 'KF\.W8\|KF-W8' COHESION.md` →
+**2 hits, both `§0o ESC-KFW2-1`** — **this unit's**, quoted at the record's §Open item 4.
+
+**MEASUREMENT 1 — G3's subject at the true bytes.** ⟨cmd⟩ `git grep -n "const selectorText\|const
+serializeSelector" HEAD -- src demo` (run 1 = run 2) → **3**:
+
+```
+demo/utils/keyframeSelector.ts:28        export const selectorText   (the spec's :7; unit c re-cut the file)
+src/animation/compile/emit/css-text.ts:59        const serializeSelector   (the spec's :58)
+src/animation/compile/emit/format/format.ts:20   const selectorText        (the spec's :20, unmoved)
+```
+
+**All three are byte-equivalent on every input the published type admits**, verified by reading the
+three bodies rather than by assertion: percent → `${value*100}%` at all three; named-without-offset →
+`${name}${""}` (copies 1 and 3) ≡ `name` (copy 2); named-with-offset → `${name} ${offset*100}%` at
+all three. Consumers: `format.ts`'s at **`:176` · `:275` · `:355` · `:388`** (the spec's
+`:132/:201/:280/:313`, all four drifted — **INTENT taken at the true bytes**, recorded here),
+`css-text.ts`'s at **`:82`**, the demo's at eight sites across seven files.
+
+**MEASUREMENT 2 — A-9 is TWELVE, not seven, and five members are unbounded. This is ESC-d2 and it is
+re-derived before a byte is written.** ⟨cmd⟩ `git grep -nF 'utils/keyframeSelector' HEAD -- demo test`
+(run 1 = run 2) → **12**:
+
+```
+demo/.../keyframes/composables/useKeyframeOps.ts:8      ← §Bounds carve re-anchor (R5-3(3)), spec :9
+demo/.../timeline/components/TimelineHoverPreview.vue:192   ← NO §Bounds row
+demo/.../timeline/composables/useTimelineBuild.ts:7     ← §Bounds minted row (R5-3(1)), spec :8
+demo/.../timeline/composables/useTimelineOps.ts:7       ← §Bounds minted row (R5-3(1))
+demo/.../timeline/timelineTypes.ts:2                    ← NO §Bounds row
+demo/.../timeline/utils/snapshotCapture.ts:3            ← §Bounds minted row (R5-3(1))
+demo/.../timeline/utils/timelineEngine.ts:18            ← §Bounds carve re-anchor, spec :16
+test/demo/instrument/timeline-hover-preview.test.ts:18  ← NO §Bounds row (KF.W7 create)
+test/demo/instrument/timeline-mount-keyboard.test.ts:34 ← NO §Bounds row (KF.W7 create)
+test/demo/instrument/timeline-mount-projection.test.ts:35 ← NO §Bounds row (KF.W7 create)
+test/demo/instrument/timeline-undo.test.ts:6            ← §Bounds DECLARED EXCEPTION (R5-3(2))
+test/demo/instrument/value4-editor-boundary.test.ts:6   ← §Bounds DECLARED EXCEPTION (R5-3(2))
+```
+
+The five "NO §Bounds row" verdicts are measured, not asserted. ⟨cmd⟩ `grep -n '^## '
+docs/tranches/X/keyframes/waves/KF-W8.md` → §Bounds spans **`:81-139`**. Over that span,
+⟨cmd⟩ `awk 'NR>=81 && NR<=139' KF-W8.md | grep -c '<name>'` → **`TimelineHoverPreview` 0** ·
+**`timelineTypes` 0** · `timeline-hover-preview` **1** · `timeline-mount-keyboard` **1** ·
+`timeline-mount-projection` **1**; and over the **whole file** → `TimelineHoverPreview` **0**
+(the file is named nowhere in the spec), `timelineTypes` **1** (§Carry **A-3**, a census cell naming
+the type's home — not a §Bounds row). **The three test hits inside §Bounds are all one cell — the
+DH-3 four-party declaration** — and that cell names them as ***KF.W7's* four creates**, beside
+*"the nine tracked read-only"*; ⟨cmd⟩ reading the nine by name confirms **not one of the three is
+among them**. So the three carry **no KF.W8 access word at all**: they are another wave's claimed
+files, declared for the seam, never granted here.
+
+#### Act 3 — the landing, ONE commit (the §Bounds/plan family lock)
+
+| # | commit | act | meaning |
+|---|---|---|---|
+| 1 | **`e2d04331`** | `css-text.ts:59` `serializeSelector` **exported** with a docblock naming it THE selector serializer · `format/format.ts` local `selectorText` **deleted**, `serializeSelector` imported from `../css-text` at `:7`, the four call sites repointed (`:174`/`:273`/`:353`/`:386`) and the now-unused `type KeyframeSelector` import struck · `emit/index.ts` gains `export { serializeSelector } from "./css-text";` (the sub-zone half of MISS-β2's publication, on KF.W5's own terms at `:57`) · `engine/css/metadata.ts` `:22-30` split — the **two collectors** repoint to `../../compile/parse-facade`, the five `type` members stay on `@mkbabb/value.js/css` | **MISS-β2 / G3's library half + COHESION §0o ESC-KFW2-1, ONE commit** as both the ruling (*"beside MISS-β2 … the same parse/emit neighbourhood, one commit"*) and the unit plan require. **4 files changed, 46 insertions(+), 22 deletions(-)** |
+
+**Why `css-text.ts` owns the survivor and not `format.ts`**: `css-text.ts` already holds
+`serializeCssValue` · `serializeDeclaration` · `reverseCSSTime` · `serializeTimingFunction` — the
+serializer family this function is a peer of — and it is the module **KF.W5's own publication act
+already surfaces through** (`emit/index.ts:57`, `public.ts:168`), so the one body sits on the path a
+package-surface publication would take. `format.ts` already imported `serializeCssValue` from
+`../css-text` at `:1`, so the edge exists and **no new module edge and no cycle is introduced**:
+⟨cmd⟩ `sed -n '1,10p' css-text.ts` → it imports only `@mkbabb/value.js/{css,value}` and
+`../../constants`; nothing from `format/`.
+
+**Commit discipline**: pathspec on the commit itself, `--no-verify --quiet`, `-- <the same exact four
+paths>`; **no `git add -A`, no `-u`, no `commit -a`, no reset, no stash, no force**.
+⟨cmd⟩ `git diff --name-only cdb31643..HEAD` → exactly the four, every one inside the writable set.
+**Eight of this unit's twelve granted paths were not opened** — the five consumer/exception paths
+because the repoint they would carry is blocked (ESC-d1/ESC-d2), `demo/utils/keyframeSelector.ts`
+because its body is the escalated one and a demo-local forward would be the masking class.
+
+#### Act 4 — gates, run at the settled bytes, double-run
+
+| gate | BEFORE (@ `cdb31643`) | AFTER (@ `e2d04331`, run 1 = run 2) | verdict |
+|---|---|---|---|
+| **G3** — exactly one serializer body across `src` and `demo` | **3** — `demo/utils/keyframeSelector.ts:28` · `css-text.ts:59` · `format/format.ts:20` | **2** — ⟨cmd⟩ `git grep -n "const selectorText\|const serializeSelector" HEAD -- src demo` → `src/animation/compile/emit/css-text.ts:73 export const serializeSelector` · `demo/utils/keyframeSelector.ts:28 export const selectorText` | **RED (2, owed 1)** — the `src/` half is ONE body; the demo copy is **ESC-d1** |
+| **G3 falsifier** — *"publishing one and leaving two callers on their private copy passes a naive count"* | — | armed and clean: the count is of **definitions**, and the two library callers (`format.ts` ×4, `css-text.ts` ×1) now call **the same body**; no alias import, no `selectorText` binding survives in `src/` (⟨cmd⟩ `git grep -n 'selectorText' HEAD -- src` → **1 hit, a comment at `format.ts:3`**) | **HOLDS** |
+| **G-W2-2** (§0o) — exactly one module in `src/animation/**` imports value.js's grammar entries/collectors at runtime | **2 paths** — `compile/parse-facade.ts` · **`engine/css/metadata.ts`** (⟨cmd⟩ the gate's witness (ii), the multi-line-tolerant perl block, run at HEAD) | **1 path** — ⟨cmd⟩ same witness at `e2d04331` → parse-surface symbols at **`compile/parse-facade.ts` only**. The other two rows are the gate's own declared non-members: `emit/css-text.ts` + `frame/interp-slot.ts` `serializeCssColor` (**emit-half, Tier-D, out of denominator**) and `resolve/function.ts` `coerceToSyntax` (**the declared stray**) | **GREEN on the `src/` arm** |
+| **G-W2-2 falsifier** — *"a repair that removes an importer without routing its call sites reds too"* | — | both call sites **routed, not orphaned**: ⟨cmd⟩ `grep -n 'collectStyleRules\|collectTimelineOptions' metadata.ts` → import `:28` · **`:47`** `collectStyleRules(stylesheet)` · **`:107`** `collectTimelineOptions(selectedDeclarations(stylesheet))` (the ruling's `:41`/`:102` and `:42`, recorded as its spelling and not re-issued — E-3, the bodies above shifted by the six-line comment) | **HOLDS** |
+| **G-W2-2 (i)** — specifier lines / files naming the subpath under `src/` | 26 lines / 23 files | **25 / 22** (run 1 = run 2) — the gate's own words: *"command (i)'s file count may still exceed 1 (the type surface and the emit half legitimately stand)"* | recorded, non-decisive |
+
+**Tree health at the settled bytes** (none is a gate this unit owns; each is the no-regression floor):
+⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.json | grep -c 'error TS'` → **54 before, 54 after**,
+double-run — the error **set** is identical (`format.ts` and `css-text.ts` appear in neither).
+⟨cmd⟩ `npx vitest run` → **147 passed | 5 skipped (152) files · 1518 passed | 3 expected fail |
+14 skipped (1535)**, byte-identical to the baseline, **run twice** — which is the emit round-trip's
+own witness that the two library bodies were equivalent. ⟨cmd⟩ `node scripts/gates/structure/index.mjs`
+→ **PASS, 0 violations across R1–R6**, run twice; **R6 (no-unused-exports) is the rule that governs
+the new `css-text.ts` export and it is clean** — `serializeSelector` is imported by `format.ts` **and**
+re-exported by the sub-zone barrel, two independent consumption edges under R6's own semantics.
+⟨cmd⟩ `npx eslint <the four files>` → **exit 0, clean**. ⟨cmd⟩ `npx depcruise --config
+.dependency-cruiser.cjs src demo` → **4 violations before, 4 after** — the same four pre-existing
+`demo/scenes/cube/orbital-drag/` cycles, none naming a file of this unit; **430 modules, 1559
+dependencies** both runs, so the metadata repoint added no cycle.
+
+#### Act 5 — E13 Step-0, the four-path mail sweep at this seat's clock
+
+Swept read-only at **20:41 EDT**, delta against unit `c`'s **20:30** sweep, classification taken from
+each row's **Status cell**, never from a bare `grep -i unread`; `INBOX.md` **self-excluded**.
+(1) `docs/tranches/V/coordination/` → **19** entries; newest non-self
+`valuejs-outbound-2026-09-18-kfw7-bh-relay-ADDENDUM-A9.md` **19:00** = **O-31**, rowed (`INBOX.md`'s
+own **20:26** mtime is Track D's X.P.W3 RESUME-5 sweep line, a sibling seat's append, not a letter).
+(2) `../glass-ui/docs/tranches/` → **`BK/`** newest (Sep 18 17:53); `BK/coordination/` newest
+`glass-outbound-2026-09-18-valuejs-o26-reply.md` **17:18** = **I-35**, *READ + CONSUMED WHOLE*.
+(3) `../keyframes.js/docs/tranches/V/coordination/` → newest **Sep 17 19:08**, unmoved.
+(4) atlas `P/coordination/` → newest **Aug 3 15:01**, unmoved. **0 unrowed · 0 UNREAD addressed to
+this unit's scope**; the three live UNREAD rows re-read at their Status cells — **I-32** · **I-33**
+(both route to *"the X formation mail seat"*) · **I-34** (*"no obligation is minted here"*, budgeted
+at X-EXT-1 / X-W4.g) — and **not one names a keyframes byte**. **`INBOX.md` not edited** (nothing to
+row; the close seat `i` owns the sweep line). This unit wrote **no** glass-ui byte and sent no letter.
+
+#### ESCALATIONS — two, each a runbook §5.7 trigger, neither an implementer's decision
+
+**ESC-d1 · G3's third body cannot retire: the PACKAGE-surface half of MISS-β2's publication act is
+KF.W5's file, and KF.W5 closed without it.** The spec calls MISS-β2 *"the publication act"* and
+carves `emit/index.ts` as *"the export list G3 amends"* — and, in the same cell, states the
+distinction that decides this: *"the N-8 gap is at the **package** surface, not this internal
+barrel."* The chain a demo consumer needs is four links, and this unit holds two:
+
+1. `css-text.ts` exports the one body — **landed** (in bounds).
+2. `emit/index.ts` surfaces it — **landed** (in bounds), on the exact terms KF.W5 used for
+   `reverseCSSTime`/`serializeTimingFunction` at `:57`.
+3. `src/animation/public.ts` names it in its `from "./compile/emit"` list — **`public.ts` is
+   READ-ONLY here** (§Bounds row 1: *"read-only (W5 writes)"*). ⟨cmd⟩ `git grep -n 'serializeSelector'
+   HEAD -- src/animation/public.ts src/animation/index.ts src/animation/load-engine.ts
+   src/animation/engine/index.ts` → **∅**.
+4. `load-engine.ts` carries it on the resolved engine roster + the `AnimationEngine` interface —
+   **also READ-ONLY**, and it is the door unit `c` measured the demo actually turns.
+
+**No fourth route exists at the bytes**, each closed by measurement, not by preference: a demo
+`@src/` import is G1 clause 1's exact prohibition (and unit `c` just spent four commits retiring six
+of them); a demo-side re-export forward of the library body is **G1 clause 2's named falsifier**
+(*"a demo re-export shim that forwards the same module passes clause 1 and fails clause 2"*); and
+value.js — the demo's one lawful package door, which owns the grammar — publishes **no inverse**:
+⟨cmd⟩ `grep -n 'KeyframeSelector\|elector' node_modules/@mkbabb/value.js/dist/subpaths/css.d.ts` →
+`parseKeyframeSelector` and the `KeyframeSelector` type, **and no serializer**. Writing a fourth
+demo body, or re-pointing the demo through `@src/`, would each buy a numeral with a defect.
+**Not done.** **Owner**: a KF.W5 addendum-beside publishing `serializeSelector` at `public.ts` +
+`load-engine.ts` (one named line each; step 2 is already standing for it), or the successor register
+at `KF-W10 §6.D` (anchor-only). **Consequence, stated because it is the cost of the gap**: G3 rests
+at **2**, the demo keeps its own reading of a three-branch function, and both sides carry a name the
+next census can find in one `git grep`.
+
+**ESC-d2 · A-9's repoint set is TWELVE and five members carry no §Bounds row — so even a GRANTED
+publication cannot be executed inside this wave's bounds.** Measured at Act 2 and reproduced here:
+⟨cmd⟩ `git grep -nF 'utils/keyframeSelector' HEAD -- demo test | wc -l` → **12** (run 1 = run 2)
+against the spec's *"**seven** consumers … five demo + two demo-lane tests"*, which G3's own binding
+sentence rides: *"A 'one body' landing that leaves any of the seven on a deleted module is a broken
+tree, not a green gate."* The five with no grant — **`TimelineHoverPreview.vue:192`** (named
+**nowhere** in the spec, 0 hits whole-file) · **`timelineTypes.ts:2`** (1 hit, §Carry A-3, a census
+cell) · **`timeline-hover-preview.test.ts:18`** · **`timeline-mount-keyboard.test.ts:34`** ·
+**`timeline-mount-projection.test.ts:35`** (the last three named once, inside DH-3, **as KF.W7's own
+creates**) — are all **KF.W7 landings that post-date the spec's `81a56990`**. This is the **same
+class** the round-5 repair cured for the other five (R5-3 minted three rows and restored two
+exceptions precisely *because* *"five of the seven had no lawful landing surface"*): the cure was
+correct and the census it was computed over has since moved. **Not touched.** **Owner**: a §Bounds
+widening by dated addendum-beside (E-3) enumerating the five, or `KF-W10 §6.D`. The two escalations
+are **ordered**: ESC-d1 must be granted before ESC-d2's rows are worth widening, since with no
+published door there is nothing for the twelve to repoint *to*.
+
+#### Residuals — measured, handed on, none cured here
+
+1. **`emit/index.ts:65-71`'s new barrel line publishes nothing onward yet.** It is the sub-zone half
+   of the publication act §Bounds books, and it is **structurally clean** (R6 treats a
+   re-export-from as an edge onto the owner, not as an owned export — ⟨cmd⟩ structure gate PASS,
+   twice), but until ESC-d1's `public.ts` line lands it surfaces a name no consumer outside `src/`
+   can reach. **It is named in its own comment as exactly that**, so a successor reads the seam from
+   the tree rather than from this record.
+2. **The demo's `selectorText` and the library's `serializeSelector` are two names for one function**
+   across the repo boundary. When ESC-d1 lands, the demo's body retires and the twelve consumers
+   repoint to the library name — which is why ESC-d2's five rows must be granted in the same act.
+3. **`resolve/function.ts`'s `coerceToSyntax` is still the one stray runtime grammar import.**
+   KF.W2's own gate text booked it *"delete-or-declare at open"*; it survives at HEAD, is **outside
+   the parse-surface denominator** by that gate's own reading, and is **outside this unit's writable
+   set**. Recorded, not cured, and named so the close seat's G-W2-2 re-measure is not surprised by it.
+4. **Four spec coordinates drifted and INTENT was taken at the true bytes**: `format.ts`'s call sites
+   `:132/:201/:280/:313` → **`:176`/`:275`/`:355`/`:388`** at open (`:174`/`:273`/`:353`/`:386` after
+   the deletion); `css-text.ts:58` → **`:59`**; `metadata.ts`'s `:41`/`:42`/`:102` → **`:47`**/`:107`;
+   `keyframeSelector.ts:7` → **`:28`** (unit `c`'s re-cut). Every one resolved **by subject**, per
+   unit `a`'s residual 5.
+5. **Nothing was pushed.** `push kf origin HEAD` is the close seat `i`'s; local `master` is now
+   **5 commits ahead** of `origin/master` and the four seats after this one share the checkout.
+
+#### SELF-COUNT, read back from the settled bytes
+
+**Counting rules stated AT the receipt.** ⟨cmd⟩ `grep -c '^#### Act'` over this receipt → **5**,
+numbered 1…5, no gap. **Escalations = 2** — ⟨cmd⟩ `grep -c '^\*\*ESC-d'` → **2**; a bare
+⟨cmd⟩ `grep -cE '^[0-9]\. '` returns **9**, because ESC-d1's four-link chain is a numbered list
+too (9 − 4 = 5 = the items under §Residuals alone, numbered 1…5, no gap) — stated so both figures are
+re-derivable rather than trusted. **Commits = 1** — ⟨cmd⟩ `git log --oneline cdb31643..HEAD | wc -l`
+→ **1**, `e2d04331`, the family lock honoured whole. **Files changed = 4** of the **12** granted;
+the eight unopened are enumerated at Act 3 with the reason each stayed shut. **G3 = 3 → 2**,
+double-run; **G-W2-2 parse-surface modules = 2 → 1**, double-run. Tree-health floor unmoved on all
+five harnesses (vue-tsc **54 = 54** · vitest **1518/152 = 1518/152** · structure **PASS = PASS** ·
+eslint **0 = 0** · depcruise **4 = 4**), each run twice at the settled commit. Worktree at close
+⟨cmd⟩ `git status --porcelain` → **2 rows, both the same two `??` letters this unit opened on**.
