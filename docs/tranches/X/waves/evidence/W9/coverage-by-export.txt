@@ -1,0 +1,75 @@
+SERVED MODEL: claude-opus-5[1m]
+
+X-W9.e · G19 — the recorded command's output, double-run (⟨cmd⟩ diff -q run1 run2 → silent).
+Worktree /Users/mkbabb/Programming/value.js-x-w9-e @ fdebfef5 · node v26.0.0 · darwin arm64
+
+⟨cmd⟩ node docs/tranches/X/waves/evidence/W9/coverage-by-export.mjs   [run 1]
+repository: .
+seed files (vitest include): 36
+
+DENOMINATOR · declared export names in dist/subpaths/*.d.ts
+  lines: 131   distinct: 131
+
+DENOMINATOR · runtime exports across the seven subpaths
+  color 23 · value 1 · css 19 · easing 16 · math 9 · transform 3 · quantize 2 = 73
+
+COVERAGE-BY-EXPORT · whole suite
+  first-party modules visited outside src/: 78
+  color      23 / 23
+  value       1 /  1
+  css        19 / 19
+  easing     16 / 16
+  math        9 /  9
+  transform   3 /  3
+  quantize    2 /  2
+  TOTAL      73 / 73   = 100.0%
+
+COVERAGE-BY-EXPORT · whole suite MINUS test/v4-c1.test.ts (the surface snapshot)
+  first-party modules visited outside src/: 77
+  color      23 / 23
+  value       0 /  1   uncovered: isLayoutTrackingUnit
+  css        17 / 19   uncovered: collectDeclarations, parseKeyframeSelector
+  easing     16 / 16
+  math        9 /  9
+  transform   3 /  3
+  quantize    2 /  2
+  TOTAL      70 / 73   = 95.9%
+
+⟨cmd⟩ …   [run 2]
+repository: .
+seed files (vitest include): 36
+
+DENOMINATOR · declared export names in dist/subpaths/*.d.ts
+  lines: 131   distinct: 131
+
+DENOMINATOR · runtime exports across the seven subpaths
+  color 23 · value 1 · css 19 · easing 16 · math 9 · transform 3 · quantize 2 = 73
+
+COVERAGE-BY-EXPORT · whole suite
+  first-party modules visited outside src/: 78
+  color      23 / 23
+  value       1 /  1
+  css        19 / 19
+  easing     16 / 16
+  math        9 /  9
+  transform   3 /  3
+  quantize    2 /  2
+  TOTAL      73 / 73   = 100.0%
+
+COVERAGE-BY-EXPORT · whole suite MINUS test/v4-c1.test.ts (the surface snapshot)
+  first-party modules visited outside src/: 77
+  color      23 / 23
+  value       0 /  1   uncovered: isLayoutTrackingUnit
+  css        17 / 19   uncovered: collectDeclarations, parseKeyframeSelector
+  easing     16 / 16
+  math        9 /  9
+  transform   3 /  3
+  quantize    2 /  2
+  TOTAL      70 / 73   = 95.9%
+
+=== no coverage provider is installed, reproducing G19's born-RED ===
+⟨cmd⟩ ls node_modules | grep -i coverage
+(no rows above)
+⟨cmd⟩ grep -c coverage vite.config.ts vitest.config.ts
+vitest.config.ts:0
+vite.config.ts:0
