@@ -49,7 +49,11 @@ const TRACK = {
     "X-W10": {
       "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W10.md",
       "after": [
-        "X-W0"
+        "X-W5",
+        "X-W6",
+        "X-W7",
+        "X-W8",
+        "X-W9"
       ],
       "note": "phase 1 = two blind design authors Fable ∥ Opus, then a fresh agglomeration seat (M-23 §3)"
     },
@@ -118,7 +122,6 @@ const TRACK = {
       "X-W9"
     ],
     [
-      "X-W10",
       "X-W4"
     ],
     [
@@ -130,6 +133,9 @@ const TRACK = {
     ],
     [
       "X-W8"
+    ],
+    [
+      "X-W10"
     ],
     [
       "X-W11"

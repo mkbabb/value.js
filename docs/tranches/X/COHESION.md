@@ -1790,3 +1790,53 @@ measures. Ruled:
 
 **Mechanism.** `X.P.W4S` resumes; `.e` · `.e2` · `.f` stand on their commits (never re-dispatched).
 Groups: [`.g` ∥ `.h`] (disjoint paths) → `.f2`. Writable sets in `W4.md`'s fifth dated addendum.
+
+## §0ac ADDENDUM 2026-09-19 — TRACK A's RUNNER ENDED: X-W9's TEN CARRIED ESCALATIONS RULED (X-W4 IS CLOSED, SO `ESC-W9R1-SEQUENCING` FIRES); ESC-W10-1 RULED; X-W5's KILLED CLOSE RESUMES
+
+Track A's runner ended with X-W5 WAVE-RUNNER-DEAD at its close seat (the watchdog signature of §0aa's
+chassis note — six mid-generation kills, no 429), X-W6 ruled at §0z, X-W9 NOT-CONFORMANT after pass 3
+with two HIGHs that six seats agree are curable only behind X-W4's close, and X-W10 blocked on a
+ledger cell that abbreviated its spec. X-W4 is CLOSED. Ruled:
+
+- **`ESC-W9R1-SEQUENCING` fires.** X-W9 re-opens in RESUME MODE; units **`X-W9.f`** (the 4.1.0 cut,
+  the ship list, `package.json`, `eslint.config.js`'s two rule objects per §Commit Plan row 9) and
+  **`X-W9.h`** (`ConsoleRail.vue`'s prefix match, after X-W4) are dispatched under the unchanged
+  spec, then CHECK 4.
+- **`ESC-W9R1-BOUNDS-GRANT`** (dated addendum to `W9.md` §File Bounds, writer `X-W9.f`):
+  `test/v4-css-emerging.test.ts` — the import migrates to `serializeCssValue`'s new home
+  (**`ESC-W9d-EMERGING-SERIALIZE`**; the forwarding shim in `stylesheet.ts` stays REFUSED);
+  `test/v4-c1.test.ts` — the six retired `./transform` names leave the snapshot, which becomes G27's
+  own ratchet (**`ESC-W9b-V4C1-SNAPSHOT`**); `fixtures/public-types/value-v4.ts` — the fourteen stale
+  lines naming G27's retired symbols are deleted (**`ESC-W9e-FIXTURE-V4TYPES`**). D-2's typecheck and
+  the eleven wave-owned RED tests turn on exactly these three.
+- **`ESC-W9d-DTS-SPELLING`** — `src/value.ts` and `src/quantize.ts` are granted to `X-W9.f`: the import
+  specifiers take the ONE spelling the subpath barrels use, so the dts rollup's entity cache merges
+  (the root cause the seats measured, not a re-export variant); G13/G14 are measured after, and any
+  irreducible remainder is named by count.
+- **`ESC-W9d-ROOT-AND-SYNTAX`** — (a) G12 LEG2: option **(ii) declared-retired**. O-12 (SENT
+  2026-07-27) is the position of record; the probe's own header admits a declared-retired root as
+  GREEN; no `"."` key is added. (b) **`ESC-W9a-G3-LEG-SCOPE`**: G3 binds to the entries that declare a
+  `string` parameter (the record's stated reading, argued at CH3.7 and D-11); shape/arity violations
+  and the spec-ordered `./math` policy are outside its class. `src/css/syntax.ts` is not written.
+- **`ESC-W9a-PROBE-UNRUNNABLE` · `ESC-W9c-MTS06-SUPERSEDED`** — `src-surface-totality.mjs` asserts the
+  pre-cure shape at MTS-05 (G27 retired the six symbols) and MTS-06 (G11 orders rejection). E-3 keeps
+  the dated instrument; `X-W9.f` lands a dated sibling beside it
+  (`src-surface-totality.2026-09-19.mjs`) with those two arms re-pointed to the cured contract, and
+  G1's command of record re-points to the sibling by the same addendum. Every other arm is unchanged.
+- **`ESC-W9e-SHARMA-NO-SUBJECT`** — option (i): the Sharma-table clause is **SUPERSEDED-BY-THE-V4-CUT**
+  (no colour-difference metric is on the 4.x surface; a test-local CIEDE2000 would be the circularity
+  G18 deletes; shipping one is a surface decision not taken here). G18's Sharma half is relieved by
+  this id.
+- **`ESC-W9-G24-SUBSTRATE`** — the cure the record names: `X-W9.f` measures the eight analytic arms
+  against the registry `0.13.0` tarball (`npm pack` into a scratch directory outside every repo, the
+  integrity hash recorded in `bench-table-4.1.md`); `../fourier-analysis` stays untouched.
+- **D-10** — `W9.md` §State's tally moves with `.f`'s close-time status edit.
+- **ESC-W10-1** — the spec governs (runbook §7): X-W10 opens after X-W5 · X-W6 · X-W7 · X-W8 · X-W9
+  stable + X-W0 + X-W1; the LEDGER's abbreviated cell is corrected in place (a ledger cell is
+  crash-survival state, not dated evidence) and the Track A chassis carries the same edge, so X-W10 is
+  never dispatched ahead of its conjuncts again.
+- **X-W5** — RESUME MODE: units `.a`–`.e` stand on their commits; the close is re-seated under the
+  watchdog-aware LAW.
+
+Order on relaunch: X-W9 (RESUME `.f` · `.h` → CHECK 4) → X-W6 (§0z) → X-W5 (close) → X-W7 → X-W8 →
+X-W10 → X-W11.
