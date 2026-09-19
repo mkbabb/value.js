@@ -3809,3 +3809,19 @@ this side on either letter."* **Zero unrowed letters addressed to value.js.**
 `LW-W3-1`. The shortest path to CONFORMANT-HONEST-RED is unchanged and now measured twice: the §9
 integration ⊕ a one-commit `.e` rider (g14 legs 2/3, I-33 B-4, and the `colors.ts` bounds grant or
 revert) ⊕ a bounds ruling on `ESC-W3e-1`. Promotion to CLOSED is a fresh L-20 CHECK's word.
+
+### Self-count disclosure — this seat's own commit carried a sibling's bytes
+
+⟨cmd⟩ `git show --stat c0386722` → `LEDGER.md | 6 ++++--` — **four insertions, two deletions, where
+this seat authored exactly two of each (the `F.W3` status cell and the `F.W3` commit cell).** The
+other pair is **Track A's**: the `X-W6` row's CHECK-2 rewrite and one appended event line, written
+into the working tree by a concurrent seat between this seat's read and its `git add`. The commit was
+taken with its own pathspec on the commit itself (`git commit … -- docs/tranches/X/execution/LEDGER.md`),
+which is the standing law's full protection and **cannot separate two seats' rows inside ONE file**.
+Nothing was lost and nothing was reverted: the sibling's bytes are intact in the tree and in that
+commit, and **no reset, no unstage, no amend and no force-push was taken** — the law forbids touching
+another seat's paths far more strongly than it minds a commit that carries two meanings. Recorded
+here rather than quietly, because a self-count that would have been off by two is exactly the class
+this record convicts elsewhere. **Standing hazard, named for the next seat**: the LEDGER is edited
+concurrently by four tracks, so `git add <LEDGER>` is a whole-file act — a seat that needs its commit
+to carry only its own row must stage the hunk, not the file.
