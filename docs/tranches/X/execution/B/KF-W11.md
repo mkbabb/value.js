@@ -426,7 +426,9 @@ Gate: **G-KFW11-9**. Locks: **KF-SCR-1 + L·D-1 + KF-AV-15 = ONE guard family in
 ONE commit, MUST NOT SPLIT** (two guards, or one in only one composable, is L-18 base (iii));
 `useDragCapture`'s **exported surface is unchanged** — `PlaybackRibbon.vue` is KF.W13's consumer and
 is never edited here; the KF-AV-28 KEEP verdict is **STATED before the first byte** and the unit
-emits **zero** `DISCHARGED by KF.W7 SWAP verdict` receipts.
+emits **zero** SWAP-discharge receipts (the discharge alphabet §Excluded names has no members, and
+this record must never spell that string literally — **G-KFW11-10 greps this very file for it and
+requires 0**; every seat appending here states the emptiness in words, as this line does).
 Brief: state the verdict; land the re-entrancy guard + `pointerId` latch + scope-disposal release +
 the corrected "Nesting-safe" docblock in `useDragScrub.ts` and the same family in
 `useDragCapture.ts` (whose `:20` `tryOnScopeDispose` claim is false against installed @vueuse 14) in
