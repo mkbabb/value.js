@@ -1417,3 +1417,217 @@ measure before writing, F-w4c-2; a blind create destroys banked evidence, E-3**)
 ## Unit receipts — THIRD SITTING
 
 *(empty at the open; each dispatched unit appends its own receipt below, SERVED MODEL first.)*
+
+## Close — THIRD SITTING
+
+**SERVED MODEL**: `claude-opus-5[1m]` · **CLOSE SEAT (VERIFY-ONLY — this seat cured nothing and
+wrote no byte outside this record and `execution/LEDGER.md`)** · 2026-09-19.
+
+**Verdict: PARTIAL.** Both dispatched units returned **DEAD with zero commits**: `X.P.W4.g` (the
+checker's post-adjudication vocabulary) and `X.P.W4.h` (the `!important` adjacency + the ident-token
+NAME). `X.P.W4.f2` was **never dispatched** — its own lock reads *"strictly after **both** `.g` and
+`.h`"*, and §6 G-10's falsifier (*"a stamp performed while any of G-1..G-9 is red fails"*) bars it
+independently. **No byte landed at this sitting, in either repo.** The R-A stamp is **WITHHELD by
+gate id: G-1**, exactly as the second sitting left it.
+
+**CRASH-RECOVERY (standing law).** ⟨cmd⟩ `git -C /Users/mkbabb/Programming/value.js status --porcelain -- docs/tranches/X/execution/D/X-P-W4S.md docs/tranches/X/execution/LEDGER.md docs/tranches/V/coordination/INBOX.md`
+→ **0 lines** — this seat's entire writable set is clean and **inherits nothing**. The two killed
+seats' partial work lies **outside** it and was **read, never touched** (§Residuals R-1/R-2):
+⟨cmd⟩ `git status --porcelain -- docs/tranches/X/parse-that/` → `M scripts/seam-contract-check.mjs`
++ **8** untracked `evidence/W4/negctl-w4g-*` files; ⟨cmd⟩ `git -C <p2> status --porcelain` →
+`M typescript/test/css-equivalence/run-full-surface.mjs` · `?? .worktrees/`. Nothing stashed,
+nothing restored, nothing reset; `scripts/dev/dev.sh` never staged; the 13 dirty `demo/**`+`e2e/**`
+rows are a concurrent Track-A seat's and were not read as this wave's.
+
+### 1. ACT 1 — commits: the two dispatched units have none
+
+⟨cmd⟩ `git log --oneline -40 | grep -iE 'w4\.(g|h|f2)'` (value.js) → **no output**;
+⟨cmd⟩ the same over ⟨cmd⟩ `git -C <p2> log --oneline -20` → **no output**. `<p2>` HEAD is
+**`f3c389c`** (`.f`'s rc-p arm) and value.js HEAD is **`27ebc255`** (a Track-A row) — both unmoved
+by this sitting.
+
+| unit | dispatched | commits | writable-set bytes moved | verdict |
+|---|---|---|---|---|
+| `X.P.W4.g` | yes | **none** | **none committed**; uncommitted partial work survives at 2 paths (R-1) | **DEAD** |
+| `X.P.W4.h` | yes | **none** | **none, committed or uncommitted** — ⟨cmd⟩ `git status --porcelain -- ADJUDICATION-W4.md SEAM-CONTRACT.md DIVERGENCE-LEDGER.md` → 0 lines; ⟨cmd⟩ `git -C <p2> status --porcelain -- typescript/src/css typescript/test/css-totality` → 0 lines | **DEAD** |
+| `X.P.W4.f2` | **no** (locked behind `.g`/`.h`) | none | none | **NOT DISPATCHED** |
+
+**alreadyDone, re-verified in bounds at this seat and never re-dispatched**: `.e` `93bcb83` · `.e2`
+`43c3f48` ⊕ `49ca70b` · `.f` `f3c389c` (`<p2>`) and `6be73f38` · `04d5ed04` · `e456c2ff` ·
+`3d4470f2` (value.js). ⟨cmd⟩ `git show --name-only --format= 6be73f38 04d5ed04 e456c2ff 3d4470f2 | grep -cE '^(src|demo|api|test|e2e)/'`
+→ **0**.
+
+**LANDED-WRONG: none** — a sitting with zero commits can land nothing wrong. The findings below are
+*unlanded* work and *unturned* gates, which is a different fault and is recorded as such.
+
+### 2. ACT 2 — every §6 gate re-run at THIS seat's clock, against its own GREEN definition
+
+Every reading double-run. The two writing scripts were given `--out` into the session scratchpad, so
+**no byte of `evidence/W4/**` was touched by this close** (E-3).
+
+| gate | §6 GREEN definition | BEFORE (this sitting's Open) | AFTER (close seat, 2026-09-19) | verdict |
+|---|---|---|---|---|
+| **G-1** | both set-differences ∅ · no disposition contradicts the ledger · no blank field · exit 0 | **RED** (E-w4f-1, exit 1) | **at the LANDED bytes** ⟨cmd⟩ `git show HEAD:…/seam-contract-check.mjs > <scratch>/scc-HEAD.mjs` then `node <scratch>/scc-HEAD.mjs SEAM-CONTRACT.md evidence/W3/universe-52.json DIVERGENCE-LEDGER.md` → `rows: contract 52 · universe 52 · ledger 47` · `contract ∖ universe-52 : ∅` · `universe-52 ∖ contract : ∅` · census `declared-divergence 7 · identical 45` · `VERDICT: RED — 2 check(s) failed` ([E] **37** rows bound to the retired `CN-2`/`CN-3` subjects · [G] **6** §0v-carried cells) · **EXIT=1**, ⟨cmd⟩ `diff -q run1 run2` → **IDENTICAL** | **RED — unmoved; `.g` died before it could land its cure** |
+| **G-2** | no value.js source byte at any commit of the wave | GREEN for X·P | raw ⟨cmd⟩ `git status --porcelain -- src api demo test e2e` → **13 lines**, all `demo/**` + `e2e/**`, all a concurrent Track-A `X-W5` seat's; the gate's own assertion over **this sitting's commits** is vacuously satisfied — **there are none** — and over the wave's whole roster ⟨cmd⟩ `git show --name-only --format=` → **0** such paths | **GREEN for X·P — read with attribution, not smoothed** |
+| **G-3** | `resolved 52 of 52` · `G3 GREEN` · exit 0 | GREEN (cited from `.e2`) | ⟨cmd⟩ `node <p2>/typescript/scripts/packed-candidate-surface.mjs --seam …/SEAM-CONTRACT.md --out <scratch>/g3-close-run{1,2}.json` → `resolved "52 of 52"` · `entryCount 91` · `seamSubpathDeclared true` · `refusals 5` · `tarballSha256 f8aede11…` · `verdict {pack:true, declaration:true, install:true, resolve:true, refusals:true, G3:"GREEN"}` · **EXIT=0** both runs; ⟨cmd⟩ `diff` over the two JSONs → **one line**, the temp `consumerRoot` mkdtemp suffix | **GREEN — re-verified at this seat, not inherited** |
+| **G-4** | 0 function-kind imports · empty-import instantiation · every import accounted | GREEN (cited) | ⟨cmd⟩ `node <p2>/typescript/scripts/wasm-admission.mjs src/css/build/ac1.wasm` → `functionKindImportsTotal 0` · `unaccountedImportsTotal 0` · `functionKindZero true` · `emptyImportInstantiation true` · `everyImportAccounted true` · `"verdict": "GREEN"` · **EXIT=0 on both runs** | **GREEN** |
+| **G-5** | the six-row table prints; exit non-zero while any conjunct is false, naming which | GREEN (honestly FALSE) | ⟨cmd⟩ `node <p2>/typescript/scripts/rc-p-evaluate.mjs --version 4.0.0` → `1 PUBLISHED FALSE · 2 TOTALITY TRUE · 3 EQUIVALENCE FALSE (arm V: 20962 mirror-defects over V's installed /css, full corpus) · 4 ADMITTED FALSE ("not vacuously true") · 5 BAR-DISCHARGED TRUE · 6 ROUTED TRUE` → `RC-P(4.0.0) = FALSE — 3 of 6 conjuncts are FALSE` · `KF.W3 does NOT open` · **EXIT=1 on both runs** | **GREEN — the predicate honestly FALSE** |
+| **G-6** | ≥ 2 hits naming `RC-P` by predicate, in files X·P may not write | 25 | ⟨cmd⟩ `grep -rn 'RC-P' docs/tranches/X/{keyframes,fourier}/waves/ \| wc -l` → **25**, double-run `25 ≡ 25` | **GREEN** |
+| **G-7** | INHERITED-GREEN FLOOR — the direct edge absent | 0 / 0 | ⟨cmd⟩ `grep -c 'parse-that' ../fourier-analysis/package.json` → **0**; `web/package.json` → **0**; double-run | **GREEN — floor held** |
+| **G-8** | packet in-repo · dated row names that path + the SS-6 batch · 0 UNREAD | GREEN | ⟨cmd⟩ `ls -l …/RELEASE-PACKET.md` → **26645 B**; `grep -c` in `INBOX.md`: `RELEASE-PACKET` → **2**, `SS-6` → **27**, `RC-P` → **2**; positional Status-cell census → **ROWS=81 UNREAD=0**, double-run identical | **GREEN** |
+| **G-9** | a terminal disposition, never silence | GREEN | ⟨cmd⟩ `grep -n 'BLOCKED-ON' …/waves/W4-CLOSE.md` → `:131` §0i.1 S-4 **DISPOSITION C** · `:134` *"Ruled: C. The row closes `BLOCKED-ON` + re-trigger"* · `:148` the re-trigger command; ⟨cmd⟩ `git show --name-only` over the wave's commits → **0** paths under `docs/tranches/X/waves/` | **GREEN — recorded, not decided here** |
+| **G-10** | shape (a) sum **5** at open, **0** after the stamp | 5 (act not performed) | ⟨cmd⟩ `for f in …/W[0-4].md; do awk '/^### Four-verb status/{t=1;next} /^#/{t=0} t' "$f"; done \| grep -c 'VERIFIED \| \*\*NO\*\*'` → **5**, double-run | **RED — the act was not performed; open-state value correct; stamp WITHHELD by gate id G-1** |
+
+**GREEN: G-2 · G-3 · G-4 · G-5 · G-6 · G-7 · G-8 · G-9 (8). RED: G-1 · G-10 (2).** The sitting's
+reading is **identical to the reading it opened against** — which is the honest consequence of two
+dead seats: no gate moved because no byte moved.
+
+**The one reading that could be mistaken for a green, stated plainly.** The **uncommitted**
+working-tree `seam-contract-check.mjs` (`+177 / −15`, the dead `.g` seat's) runs to
+`VERDICT: GREEN — both set-differences ∅, no disposition contradicts a LIVE ledger row, every
+carried cell is terminally ruled in ADJUDICATION-W4.md, no field is blank`, **EXIT=0**. That reading
+is recorded **because it exists on disk and a successor will meet it**, and it is **not a green for
+this wave**: the bytes are uncommitted, unreceipted, and unadjudicated — no unit receipt describes
+them, the three §0ab negative controls have file names on disk but **no measured RED reading in any
+record**, and G-1's landed state is the committed checker, which reads RED. A VERIFY-ONLY close
+neither commits another seat's bytes nor certifies them. **G-1 is RED.**
+
+**`.h`'s subjects re-probed at this seat, double-run, read-only** (an import of the candidate's own
+`src/css/entry.mjs`; nothing written):
+
+| probe | input | reading | vs the open baseline |
+|---|---|---|---|
+| cell `#40` | `b { background-color: var(--brand) -!important }` | `ok=false` (REJECT) | **unmoved** |
+| cell `#41` | `#d { background-color: hsl(73.416 -338 -290)!important } .c { color: red }` | `ok=false` (REJECT) | **unmoved** |
+| spaced control | `b { color: red !important }` | `ok=true` (ACCEPT) | unmoved — the adjacency is still the sole variable |
+| minimal | `b { color: red!important }` | `ok=false` | **F-w4f-2 still live** |
+| F-w4f-1 half | `a { col!r: red }` | `ok=true` (ACCEPT) | **the production still takes a non-ident NAME** |
+
+Both runs identical. **F-w4f-2 (HIGH) and F-w4f-1 are exactly as §0ab found them** — `.h` moved
+nothing.
+
+### 3. ACT 3 — §8 Verification Artefacts, as written
+
+| artefact | state |
+|---|---|
+| `SEAM-CONTRACT.md` | PRESENT **97534 B** |
+| `RELEASE-CONDITION.md` | PRESENT **31606 B** |
+| `RELEASE-PACKET.md` | PRESENT **26645 B** |
+| `waves/W4-CLOSE.md` | PRESENT **46065 B** |
+| `DIVERGENCE-LEDGER.md` | PRESENT **136935 B** |
+| `ADJUDICATION-W4.md` (`.f`'s) | PRESENT **62711 B** |
+| `scripts/seam-contract-check.mjs` | PRESENT **25333 B** working-tree / **16379 B** at HEAD — **the delta is R-1's uncommitted work** |
+| `evidence/W4/{packed-surface.json, wasm-imports.json, rc-p-evaluation.json}` | PRESENT 128861 / 9392 / 33938 B — `.b`'s and `.d`'s, **untouched** |
+| `evidence/W4/{value-source-untouched.txt, reciprocity-grep.txt}` | PRESENT 3312 / 3951 B |
+| `registry/harvest/{x-p-w3.json, x-p-w4.json, x-p-w4s.json}` | PRESENT 350304 / 119964 / 56673 B |
+
+**No artefact is owed by this sitting** — `.g`'s and `.h`'s evidence files were to be NEW dated
+creates, and the eight untracked `negctl-w4g-*` files are R-1's, not this close's.
+
+### 4. ACT 4 — E13, the four paths swept again at the close seat's clock
+
+(1) `docs/tranches/V/` — **10** depth-1 `.md` ⊕ **24** coordination entries; the newest four letters
+(`parse-that-inbox-2026-09-18-value-4.1-evidence-addendum-2` · `fourier-…-facility19-delta` ·
+`glassui-…-r1-relay` · `atlas-…-export-delta-refresh`) each ⟨cmd⟩ `grep -c <basename> INBOX.md` →
+**2 · 1 · 1 · 1**, all rowed. (2) `../glass-ui/docs/tranches/BK/coordination/` — **BK** still the
+newest glass tranche dir (`BK` · `BJ` · `BI`), **9** entries, newest
+`glass-outbound-2026-09-18-valuejs-o26-reply.md` = **I-35**, rowed (**32** mentions).
+(3) `../keyframes.js/docs/tranches/V/coordination/` — **13** entries, unmoved.
+(4) `../sci-report/atlas/docs/tranches/P/coordination/` — **28** entries, unmoved.
+⟨cmd⟩ `find <the four paths> -maxdepth 1 -type f -newermt "2026-09-19 09:10"` → **exactly one
+member, `INBOX.md` itself** (self, sibling-track appends).
+
+**Positional Status-cell census, double-run** — ⟨cmd⟩ `awk -F'|' '/^\| *[IO]-[0-9]+[a-z]? *\|/ {rows++; s=$6; sub(/^[ *]+/,"",s); if (s ~ /^UNREAD/) u++} END {print "ROWS="rows, "UNREAD="u+0}' INBOX.md`
+→ **`ROWS=81 UNREAD=0`**, identical on both runs. A bare ⟨cmd⟩ `grep -ci unread` over the same file
+returns **79** — the X.P.W0 CHECK-1 **D-1** trap; every one is prose inside a cell that begins
+`**SENT**` / `**FOLDED**` / `**READ IN FULL + ROUTED**`. **0 unrowed letters · 0 UNREAD in scope ·
+no `I-n`/`O-n` minted · `INBOX.md` NOT written by this close.**
+
+### 5. Commit roster
+
+| sitting | unit | repo | hash | meaning |
+|---|---|---|---|---|
+| 1 | `.e` | `<p2>` | `93bcb83` | the candidate DECLARES and SHIPS its `/css` seam (C1·C2·C3) |
+| 1 | `.e` | value.js | `e9140c34` | five NEW dated `evidence/W4/` files |
+| 1 | — | value.js | `f170e178` · `2bf4b205` | `.e`'s receipt · the first close |
+| 2 | `.e2` | `<p2>` | `43c3f48` · `49ca70b` | the arity-instantiated check line · the latch reader on `./packrat` |
+| 2 | `.f` | `<p2>` | `f3c389c` | conjunct 3's V-tarball arm |
+| 2 | `.f` | value.js | `6be73f38` · `04d5ed04` · `e456c2ff` · `3d4470f2` | the 45 cells ruled · §2.3 addendum · the adjudicative close + harvests · the receipt |
+| 2 | — | value.js | `c5c7daad` | the THIRD-SITTING open |
+| **3** | `.g` | — | **NONE** | **DEAD** |
+| **3** | `.h` | — | **NONE** | **DEAD** |
+| **3** | `.f2` | — | **NONE** | **not dispatched (locked)** |
+| **3** | close | value.js | *(this close + the LEDGER row)* | the record and the row; no gate cured |
+
+### 6. Residuals, with named owners
+
+- **R-1 — `.g`'s uncommitted partial work, in two repos, left exactly as found.** value.js
+  `docs/tranches/X/parse-that/scripts/seam-contract-check.mjs` `+177 / −15` (reads G-1 GREEN, exit 0)
+  and **8** untracked `docs/tranches/X/parse-that/evidence/W4/negctl-w4g-*` files
+  (`…-contract-base` · `…-contract-A-pending-unruled` · `…-contract-B-live-binding` ·
+  `…-contract-C-ghost-id` · `…-adjudication` · `…-adjudication-empty` · `…-ledger` · `…-universe.json`).
+  **`<p2>` `typescript/test/css-equivalence/run-full-surface.mjs` `+2 / −1` is INCOMPLETE**: the seat
+  added `readFileSync` and `fileURLToPath` and **died before replacing the `:60` literal** —
+  ⟨cmd⟩ `sed -n '61p'` still reads
+  `const candidateTypeNames = ["CssColor", "CssTimingFunction", "Stylesheet", "StyleRule", "Declaration"];`,
+  so F-ab1 is **unfixed** and the file currently carries two unused imports. **Owner: a successor
+  `X.P.W4.g` seat** — which must judge every hunk against §0ab bullet 1 and G-1's three falsifiers
+  and **measure the three negative controls RED itself**, never adopt the green on sight.
+  This close touched none of it (VERIFY-ONLY; the paths are `.g`'s set, not this seat's).
+- **R-2 — `.h` produced nothing, anywhere.** Its three value.js subjects and both `<p2>` subject
+  trees are byte-clean; cells `#40`/`#41` still REJECT and `col!r` still ACCEPTs, re-measured above.
+  **Owner: a successor `X.P.W4.h` seat**, under §0s's quartet law if a ctor row changes.
+- **R-3 — `.f2` never opened, and the R-A stamp is WITHHELD by gate id G-1.** Shape-(a) sum stands
+  at **5**. **Owner: `X.P.W4.f2`**, strictly after `.g` and `.h` both read green.
+- **R-4 — G-2's raw command is not empty and X·P did not make it so.** 13 `demo/**` + `e2e/**` rows,
+  a concurrent Track-A `X-W5` seat's. Unchanged in kind from the two earlier sittings; read with
+  attribution. **Owner: Track A.**
+- **R-5 — G-3's tarball sha has moved twice** (`efc11936…` → `6b51c336…` → **`f8aede11…`**) as `.e`
+  and `.e2` landed; the gate is GREEN at the current sha, measured here. Recorded so a later seat
+  does not read a sha drift as a defect. **Owner: none — informational.**
+
+### 7. Escalations
+
+- **ESC-W4S-r3-1 — the sitting produced zero landed bytes because both seats were killed.** `.g` and
+  `.h` were dispatched in parallel per §0ab and both returned DEAD with no commit; this is the
+  **third** sitting of X.P.W4S in which seats died mid-work (the STALL WATCHDOG clause records six
+  killed at the previous one). The wave cannot reach `.f2` without a re-dispatch of `[.g ∥ .h]`.
+  **Routed to the orchestrator / COHESION** — the close seat cures nothing and invents no unit.
+- **ESC-W4S-r3-2 — a GREEN on disk with no receipt behind it.** R-1's uncommitted checker turns G-1
+  GREEN, and adopting it would convert a killed seat's unreviewed work into a gate verdict. The
+  lawful act is a successor `.g` that re-derives the cure against §0ab bullet 1, prints the three
+  negative controls RED, double-runs G-1, and commits by pathspec. **Recorded so the next seat meets
+  the green as a claim to be tested, not as work already done.**
+
+### 8. Four-verb — moved exactly as the spec says this wave moves it, and no further
+
+`W4.md` §2 **R-A** is the governing sentence: *"Gates green + bytes landed stamps a wave
+**IMPLEMENTED**"*, and *"**VERIFIED is stamped only at this wave's release close**"* by the fresh
+adjudicator — `.f2` at this sitting. **Neither condition is met.** No byte landed; **G-1 and G-10
+read RED**; the adjudicator was never dispatched.
+
+| verb | value | moved by this close? | evidence |
+|---|---|---|---|
+| AUDITED | **YES** | no | `W4.md` §2 (unchanged) |
+| SPECIFIED | **YES** | no | `W4.md` + five dated addenda (`:674 · :676 · :678 · :680 · :682`) |
+| IMPLEMENTED | **NO** | **no — withheld by the act's own condition** | zero commits at this sitting; G-1 RED |
+| VERIFIED | **NO** | **no — R-A reserves the stamp for `.f2`, and G-10's falsifier bars it while G-1 is red** | shape-(a) sum **5**, re-measured above |
+
+**The R-A stamp act is WITHHELD by gate id: G-1.** The five sibling `VERIFIED` rows and the two
+COHESION carves (§1 SS-5 cell · §5 board line) are **untouched** — ⟨cmd⟩
+`git status --porcelain -- docs/tranches/X/parse-that/waves/ docs/tranches/X/COHESION.md` → **0
+lines**. **X.P.W4's own CLOSED row is never rewritten**, and was not.
+
+### 9. Push
+
+Both remotes pushed at the close, per the owner's 2026-09-17 authorization; never forced. `<p2>` has
+no remote (recorded at the first sitting, and re-read here), so its commits remain local-only.
+
+### 10. The re-trigger, stated so it cannot be mistaken for a schedule
+
+X.P.W4S resumes by **re-dispatching `[.g ∥ .h]`** under COHESION §0ab and `W4.md`'s FIFTH dated
+addendum — `.g` first meeting R-1's inherited hunks as a claim to test, `.h` from clean bytes — and
+`.f2` opens **iff** ⟨cmd⟩
+`node docs/tranches/X/parse-that/scripts/seam-contract-check.mjs docs/tranches/X/parse-that/SEAM-CONTRACT.md docs/tranches/X/parse-that/evidence/W3/universe-52.json docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md`
+reads **`VERDICT: GREEN`, exit 0, double-run, at COMMITTED bytes**, and cells `#40`/`#41` re-measure
+`identical`. Until then RC-P stays honestly FALSE and KF.W3 does not open.
