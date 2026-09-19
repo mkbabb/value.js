@@ -3212,3 +3212,218 @@ glass-ui bytes written by this seat · **0** figures published that were not rea
 whole, every BLOCKER core cured, every commit in bounds and now PUBLISHED, the ratchet down thirty and
 never risen, and the single carried RED reproduced at a second seat, named at its sibling-seam cause,
 and returned with its cure rather than hidden or skipped.**
+
+---
+
+## Check 1
+
+SERVED MODEL: claude-opus-5[1m]
+
+**Seat**: FRESH ADVERSARIAL CHECK (L-20, pass 1) of X.KF.W11's close. **VERIFY-ONLY** — an independent
+`claude-opus-5[1m]` that authored **no** byte of the wave's cures, of any unit receipt, of `### KF.W11.j`
+or of `## Close`. This seat wrote **ZERO** keyframes.js bytes, **ZERO** glass-ui bytes and no cure of any
+kind; its whole product is this section, the LEDGER's own cells and its event line. Every figure below
+was read at this seat's own commands, from the settled bytes at keyframes.js **`bf4a9a9c`**
+(= `origin/master`, verified `ahead 0`) and value.js `tranche-u`.
+
+**VERDICT: CONFORMANT-HONEST-RED** — **0 BLOCKER · 0 CRITICAL · 0 HIGH · 3 MINOR (all mitigated) ·
+3 INFO**. **All ten gate verdicts reproduce** at this seat's own commands (8 GREEN · 2 RED, both on ONE
+case) and **17 of 17 byte clauses** re-measure exactly as `## Close` published them. Honest-RED set:
+**{G-KFW11-4, G-KFW11-10}**, owner-named, substance verified holding at the bytes, no masking anywhere.
+
+### Axis 1 — every claimed GREEN reproduces (10 of 10 verdicts)
+
+⟨cmd⟩ `npx vitest run --project demo <file>` per gate, and ⟨cmd⟩ `npm run test:demo` for G10, run at
+this seat:
+
+| gate | `## Close` published | THIS SEAT | verdict |
+|---|---|---|---|
+| G-KFW11-1 | 17 passed (17) | **17 passed (17)** | reproduces GREEN |
+| G-KFW11-2 | 5 passed (5) | **5 passed (5)** | reproduces GREEN |
+| G-KFW11-3 | 9 passed (9) | **9 passed (9)** | reproduces GREEN |
+| G-KFW11-4 | 1 failed \| 11 passed (12) | **1 failed \| 11 passed (12)** | reproduces **RED** |
+| G-KFW11-5 | 18 passed (18) | **18 passed (18)** | reproduces GREEN |
+| G-KFW11-6 | 12 passed (12) | **12 passed (12)** | reproduces GREEN |
+| G-KFW11-7 | 7 passed (7) | **7 passed (7)** | reproduces GREEN |
+| G-KFW11-8 | 11 passed (11) | **11 passed (11)** | reproduces GREEN |
+| G-KFW11-9 | 9 passed (9) | **9 passed (9)** | reproduces GREEN |
+| G-KFW11-10 | 1 failed \| 47 passed (48) files · 1 failed \| 414 passed (415) tests | **identical, both figures** | reproduces **RED** |
+
+**Byte clauses, all 17 re-measured at this seat**: G-1 latch **0** · G-1 `variant:` **nothing** · G-2
+word **1** · G-2 css **0** · G-3 rail **0** · G-4 clock **0** · G-5 clamp **0** · G-6 aria **3** · G-7
+pacing **0** · G-7 pause **nothing** · G-7 `:29` docblock **0** · G-7 `viewBox` **0** (still) · G-7
+witness **1** · G-9 acquire ×2 **1 · 1** · G-9 `pointerId` **4**. **17 of 17 identical to the close's
+table.** The ratchet: ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.json 2>&1 | grep -c 'error TS'` → **24 ·
+24**, and the per-file histogram is byte-identical to the close's 16-file list (Σ = 24) with **zero rows
+in any KF.W11 cured surface**; `useKeyframeOps.ts(80,13)` confirmed **outside** the unspent `:58-69`
+carve and the file confirmed **byte-unchanged** (⟨cmd⟩ `git diff --stat dd28da55..HEAD -- …useKeyframeOps.ts`
+→ no output).
+
+### Axis 2 — no write outside §File Bounds
+
+⟨cmd⟩ `git log --format='' --name-only dd28da55..HEAD | sort -u | wc -l` → **59**; ⟨cmd⟩
+`git log --oneline dd28da55..HEAD | wc -l` → **69**. Every one of the 59 read against §B.2 `:96-141`
+and the §0u `.r` grant: **ZERO out of bounds.** The Do-NOT-touch probe over `src`, `node_modules`,
+`package.json`, `vitest.config.ts`, `CubeAxisLines.vue`, `PlaybackRibbon.vue`, `instrument/timeline`,
+`instrument/keyframes`, `gestureSelectSuppression.ts`, `DESIGN.md`, `TransportDock.vue`, `demo/styles`,
+`demo/app` → **no output, 0 lines**. `scripts/dev/dev.sh` in **0 of 69** commits and never staged.
+Serial disjointness verified per shared path: `SpringScene.vue` = `.a`'s `dc3f0900` **then** `.c`
+(correct order) · `SequenceScrubber.vue` = `.d` only · `SpringTrace.vue` = `.e` only ·
+`SpringHeatmap.vue` = `.f` only · `StartingStyleTarget.vue` = `.g` only · `useSpringDemo.ts` = `.c` only
+· `AnimationVisualizer.vue` = `.i` only, and its carve read whole = **KF-AV-16's machine-seam decision
+alone**. The `.i` hand-off claim verified at the bytes: `useDragCapture`'s exported surface
+`{ isDragging, onPointerDown }` and the `DragCaptureHandlers` interface are **byte-identical** before and
+after, so `PlaybackRibbon.vue` (KF.W13's) is untouched in form as well as in bytes.
+
+### Axis 3 — no masking fallback anywhere in the diff
+
+⟨cmd⟩ `git diff dd28da55..HEAD | grep -c '^+.*@ts-expect-error'` → **0** · `'^+.*eslint-disable'` → **0**.
+Semantic skip/only ⟨cmd⟩ `grep -rnE '\b(it|test|describe)\.(skip|only)\(' test/` → **no match** (the one
+literal hit in the diff is prose at `spring-derby-truth.test.ts:21` that *forbids* the practice).
+**Three `try/catch` blocks are added and all three were read whole**: two guard `setPointerCapture`
+(which genuinely throws on an inactive pointerId / disconnected element; the gesture is driven by the
+document/window listeners either way) and one is amiga **D-8's own ruled cure** — a WebGL build failure
+becomes a state the scene paints instead of an exception that kills the mount. **None masks a defect of
+this wave**; each carries its rationale at the site. The ten `as any` are **nine in test scaffolding**
+(a rAF stub and three fabricated refs in `spring-derby-truth.test.ts`) and **one is a false positive** —
+the word "any" inside a `useDragScrub.ts` comment. No allowlist, no copied producer selector, no
+`node_modules` patch. **Assertions were extended, never narrowed**: ⟨cmd⟩ over the five extended
+witnesses, `it(` 6→10 · 11→13 · 4→6 · 7→12 · 5→10 and `expect(` 15→26 · 20→24 · 12→19 · 12→27 · 13→29,
+with ⟨cmd⟩ `git diff dd28da55..HEAD -- <the five> | grep '^-.*expect('` → **no output — zero assertions
+removed**.
+
+### Axis 4 — commit families per §Commit plan, not split
+
+All six MUST-NOT-SPLIT families verified ONE sha each by `git show --stat` at this seat: `dc3f0900`
+(CubeScene 4 ± + SpringScene 2 −, the four `variant:` sites in one edit) · `f4249cb0` (ST-1's word +
+the css deletion, L-9) · **`4ab4c4db` (the guard family in BOTH composables — `useDragCapture.ts`
+112 ± AND `useDragScrub.ts` 128 ±, so L-18 base (iii) cannot be raised)** · `b9b5476c` (tether-truth
+D-1+D-6+D-16+N-SQ-4) · `8c0122e1` (MISS-3's settle-paced tour AND its assertion, 4 files one sha) ·
+`e683d9a1` (the spring-plot core D-1+N-1+N-2+C-2/L-3, one file one sha). **§Sequencing 8 — the decision
+precedes the patch, three times — verified by clock**: `.d` `532f8985` 04:13:44 → `36ec392e` 04:21:45 ·
+`.e` `ec4b7eff` 06:03:10 → `e683d9a1` 06:09:21 · `.f` `f6d05a5c` 06:11:59 → `065008e9` 06:21:10.
+**Two declared families did NOT land, and neither was split**: KF11-E(c1) (M-4→M-3's bytes are
+`SpringTrace.vue`, §Bounds `:118` = `.e`'s) and KF11-E(d1) (the loop seam needs
+`demo/composables/scene-runtime/useSweepScene.ts`, a path in **no** §B.2 row). Both are correct
+ESCALATIONS under the standing law, not misses of will — this seat independently confirms both paths
+are outside the escalating units' writable sets.
+
+### Axis 5 — E-3 held
+
+⟨cmd⟩ `git log --format='' --name-only --grep='x-kf-w11'` over value.js → **13 distinct paths**, every
+one an append or a new file under `execution/B/KF-W11.md`, `keyframes/evidence/W11/**` or
+`V/coordination/INBOX.md`. ⟨cmd⟩ `git show --stat <each> -- docs/tranches/V/megatranche/registry/adjudicated
+docs/tranches/X/keyframes/waves docs/tranches/X/COHESION.md docs/tranches/X/EXECUTION-RUNBOOK.md
+docs/precepts` → **no output on any commit**. The two LEDGER commits (`8366f8ad`, `5f3694f7`) touch
+`LEDGER.md` **alone**. **No dated spec, adjudicated registry row, conformance artefact or sibling spec
+was edited by this wave.**
+
+### Axis 6 — mail clean
+
+⟨cmd⟩ `grep -cE '^\| [IO]-[0-9]+[a-z]? \|' INBOX.md` → **79**; status read by cell position and leading
+verb → **0 UNREAD**. Four-path entry counts re-measured: **24 · 9 · 13 · 28**, identical to the close's.
+⟨cmd⟩ `find <each> -maxdepth 1 -type f -newermt "2026-09-19 07:00"` → **only `INBOX.md` itself**
+(self-excluded). Tails unmoved at **I-35 / O-39**. The eight producer rows **W11-P1..P8 are present and
+whole** at `INBOX.md:280-287`. **No UNREAD mail in scope.**
+
+### Axis 7 — the four-verb line
+
+AUDITED **YES** (unmoved) · SPECIFIED **YES** (unmoved) · IMPLEMENTED **YES —
+`complete_with_misses`**, the qualifier never dropped in the record or the LEDGER · VERIFIED **NO**,
+correctly unstamped (§State `:19` reserves it to a successor close). See MINOR-3 for the one reservation.
+
+### Axis 8 — the spec's own goal criterion, MET at the bytes
+
+The criterion's **named failure mode did not occur**: all four BLOCKER cores are landed and each was
+read at its own sha — CubeTarget #53 `bc5cc128` · AmigaScene D-1 `73b424da` · SpringTarget C-1
+`8dcf5882` · SquareScene L-2 **LANDED-BY `d7f68225`** (verified an ancestor of `dd28da55` and a genuine
+KF.W5 `.d` library commit touching `compile-bridge.ts` / `css/animation.ts` / `playback.ts`, so R.2
+GREEN-BEFORE-CURE is correctly booked rather than claimed as this wave's cure; its demo witness
+`1233e42e` passes). The criterion's own worked example is cured to the letter: ⟨cmd⟩
+`grep -c 'setTimeout(step, 520)' demo/scenes/square/useSquareKeyboard.ts` → **0**, the file carries **no
+`setTimeout` at all**, its docblock now says *"paced by the spring's own settle … each corner waits for
+the chase to arrive"* and names its own former lie, and the assertion landed in the **same sha**
+(`8c0122e1`). **A docblock asserting an invariant is an assertion, and this one is now met.**
+
+### Axis 10 — HONEST-RED ADJUDICATION (the two RED gates)
+
+**The set: {G-KFW11-4, G-KFW11-10}. Both trace to ONE case**, `spring-trace-truth.test.ts (4b)`,
+reproduced verbatim at this seat.
+
+**Adjudicated at the spec's bytes, weighing both ways:**
+
+1. **It is NOT relieved by any of the three canonical reliefs.** It is not producer-owned; the spec
+   routes it to no successor; and the spec names no honest-RED by id here. **The cure's file
+   (`test/demo/scenes/spring-trace-truth.test.ts`) is `.e`'s own create row in §B.2 `:131`** — i.e.
+   inside this wave's writable set. This seat states that plainly rather than laundering it.
+2. **Its substance is verified GREEN at the bytes by this seat, independently.** The invariant case (4b)
+   guards is L-14's coupling — *the heatmap's declared ζ floor is not below the one the plot pins.*
+   Measured: `SpringHeatmap.vue:157` `DAMPING_AXIS: ParamAxis = { min: 0.2, … }` and `SpringTrace.vue:236`
+   `PLOT_DAMPING_FLOOR = 0.2`. **0.2 ≥ 0.2 — the coupling HOLDS.** What broke is the witness's *anchor*:
+   `.f`'s contract commit re-homed the constant from a bare `DAMPING_MIN = <number>` (which `.e`'s regex
+   reads) to the exported `DAMPING_AXIS.min`. The close's characterisation is therefore **true and
+   independently confirmed**, not a soft framing.
+3. **G-KFW11-4's own spec-stated GREEN-when clauses both PASS.** §Gates `:295` makes the gate green when
+   *"the extracted builder (L-10) is unit-tested against the engine's own samples"* and *"the axis unit
+   matches the N-1 decision"* — verified passing at this seat as cases **(1)** and **(5a)**. The failing
+   (4b) is a case `.e` **minted beyond** the gate's stated acceptance form, to enforce a row the spec
+   wrote as *"L-14 (document **or** clamp the coupling)"*. G-KFW11-10's clause *"every `test/demo/**`
+   file passes"* is the one literally unmet clause, and it is unmet solely through (4b).
+4. **Nothing was masked to hide it.** `.f` kept no dead byte in its own file to satisfy a sibling's
+   regex; no seat skipped, widened, narrowed or allowlisted; the failure fires as `.e`'s **own designed
+   diagnostic message**, which is the opposite of concealment.
+5. **Owner named, cure written out**: **KF11-E(j1) / residual j-R5** → the orchestrator → a
+   keyframes-side seat; the cure is one import + one assertion (`import { DAMPING_AXIS }` and
+   `expect(DAMPING_AXIS.min).toBeGreaterThanOrEqual(PLOT_DAMPING_FLOOR)`), which is **stronger** than the
+   regex it replaces.
+
+**Conclusion**: the RED is real and in-bounds — recorded as **MINOR-1** below, not dismissed — but its
+weight under the spec is low (a stale witness anchor over an invariant that holds, outside the gate's own
+stated acceptance form), it is disclosed rather than laundered, and it carries a named owner and a
+written cure. It does not rise to HIGH and it does not block.
+
+### Successor "Opens after" conjuncts, measured against this wave
+
+| successor conjunct | state at this seat |
+|---|---|
+| KF.W12 ← **"KF.W11 `.a`'s OD latch-family commit"** | **GREEN** — `fff7232c`, landed and published; AXISLINE-UNIT opens on it |
+| KF.W12 ← **"KF.W11 `.b`'s `useKeyframeOps.ts` L-2 commit"** | **satisfied without a sha** — the carve was never spent (L-2 landed library-first at `d7f68225`, R.2) and the file is **byte-unchanged**, so the serially shared path is free and KFED-UNIT is **NOT blocked**. The conjunct as worded names a commit that does not exist; KF.W12's seat must read this statement instead of hunting a sha (INFO-3) |
+| KF.W12 / KF.W13 ← **G-KFW4-1 GREEN** | still RED at the raw count (24 ≠ 0), but **lawfully relieved** by the ADDENDUM `:410` — OP-0 is a RATCHET and *"KF.W12 and KF.W13 read their own OP-0 rows under the same ruling"*. Neither successor is blocked **by this wave** |
+| KF.W13 ← `useDragCapture`'s exported surface | **GREEN** — verified byte-identical (surface and handler interface); `PlaybackRibbon.vue` never edited |
+
+**No successor is blocked by KF.W11.**
+
+### Register — severity · claim · receipt · cure
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| **MINOR-1** | MINOR (mitigated) | **Two gates close RED and the cure is inside this wave's own §Bounds** — `spring-trace-truth.test.ts (4b)`'s regex witness for `SpringHeatmap.vue`'s `DAMPING_MIN` is stale after `.f` re-homed the constant; no relief of the three canonical kinds applies | ⟨cmd⟩ `npx vitest run --project demo test/demo/scenes/spring-trace-truth.test.ts` → `1 failed \| 11 passed (12)`; §B.2 `:131` gives the file to `.e` | **Mitigation, verified**: `DAMPING_AXIS.min` **0.2** ≥ `PLOT_DAMPING_FLOOR` **0.2** — the invariant holds; G-KFW11-4's stated GREEN-when clauses pass as cases (1)/(5a); no masking; owner + written cure at KF11-E(j1)/j-R5. **Cure**: land the one-line re-bind (`import { DAMPING_AXIS }`, assert `DAMPING_AXIS.min >= PLOT_DAMPING_FLOOR`) at a keyframes-side seat |
+| **MINOR-2** | MINOR (mitigated) | **The COHESION §4a accretion mirror was not written, and the stated reason is inaccurate against this wave's own §Bounds** — `## Close` says *"`COHESION.md` is in no close seat's hard-bound writable set"*, but §B.2 `:141` grants `.j` exactly *"`INBOX.md` + the SS-6 accretion register (COHESION §4a)"* | §B.2 `:141`; ⟨cmd⟩ `grep -n 'W11-P1' docs/tranches/X/COHESION.md` → no hit | **Mitigation**: the eight producer rows are written **whole** into `INBOX.md:280-287`, nothing is lost, an owner is named (j-R2 → orchestrator) and a landed precedent is cited (KF.W0's close). **Cure**: the orchestrator mirrors W11-P1..P8 into COHESION §4a, or `.j`'s successor seat spends the grant it actually held |
+| **MINOR-3** | MINOR (mitigated) | **IMPLEMENTED stamped YES while 2 of 10 gates are RED**, against §State `:18` (*"stays NO until the gates green"*) | the verb table at `## Close`; §State `:18` | **Mitigation**: `WAVE_SPEC.md:34/:47` authorises `complete_with_misses` as the Status of a wave that does not fully meet its criterion; the qualifier travels on **every** statement of the verb in the record and the LEDGER; VERIFIED is correctly **NOT** stamped. Nothing is concealed. **Cure**: none owed — the successor close that stamps VERIFIED reads the qualifier |
+| **INFO-1** | INFO | The per-unit commit table's **Σ = 69 is arithmetically coincidental**: `git log --grep="X.KF.W11.<u>"` double-counts `da10a50a` (matched by two units' greps) and omits `d8eb43ff` (`chore(lock)`, carrying no unit grammar), so `.r` landed **2** commits, not 1 | ⟨cmd⟩ the ten greps at this seat reproduce **1·9·11·13·9·10·3·5·5·3 = 69** exactly, and ⟨cmd⟩ the duplicate scan → `da10a50a` | none — the published figures reproduce under the same commands; the total **69** and the bounds audit are unaffected |
+| **INFO-2** | INFO | **G-KFW11-3's case (b) lives in a sibling packet's file.** §Gates `:293` names four cases; `spring-derby-truth.test.ts` carries (a)/(c)/(d) and nine cases, while (b) *"first/last plotted x = 0/100"* is asserted — and **passes** — at `spring-trace-truth.test.ts (2a)`. Disclosed in full at the `.c` receipt (KF11-E(c1), a lawful escalation: the bytes are `.e`'s per §B.2 `:118`) but not restated in `## Close` | both runs at this seat; ⟨cmd⟩ the derby reporter lists nine case names, none of them (b) | none owed — the assertion exists and passes where its bytes live; a successor reading `## Close` alone should be pointed at the `.c` receipt |
+| **INFO-3** | INFO | **`demo/scenes/easing/EasingScene.vue` sits in §Bounds' Do-NOT-touch paragraph yet was written by `.r`** (`2b649a1d`) | ⟨cmd⟩ `git diff dd28da55..HEAD -- …/EasingScene.vue` — one unread alias + its now-dead `computed` import | **lawful** under the ADDENDUM `:414`, whose `.r` grant excludes only *"a W11–W13 §Bounds row"*, and `EasingScene.vue` is a row of **none** (KF.W12 `:114` carves `EasingSidebar.vue` only). The write is **type-level only**, and its replacement docblock is **true at the bytes** (`demo.isPlaying.value` read at `:89` and `:104`). Recorded so no later seat reads it as a bounds breach |
+
+### Artefacts re-run at this seat
+
+⟨cmd⟩ `npx eslint demo/scenes demo/composables demo/components/playback demo/components/instrument/transport/composables`
+→ **exit 0, no output** · ⟨cmd⟩ `git diff --check dd28da55..HEAD` → **no output** · ⟨cmd⟩
+`git -C ../keyframes.js rev-parse --short origin/master` → **`bf4a9a9c`** = `HEAD`, **all 69 commits
+published** (j-R1's discharge confirmed) · ⟨cmd⟩ `git status --porcelain` in both repos → the same four
+known-dirty rows, **none inside this seat's writable set**, `scripts/dev/dev.sh` never touched.
+
+### SELF-COUNT
+
+**10** gate verdicts re-run and **10** reproduced (**8** GREEN · **2** RED) · **17** byte clauses
+re-measured, **17** identical · **24 · 24** ratchet, **16**-file histogram identical, **0** rows in a
+KF.W11 cured surface · **69** commits and **59** paths re-audited, **0** outside §Bounds · **6**
+MUST-NOT-SPLIT families re-verified ONE sha each · **4** BLOCKER cores re-read LANDED · **3**
+decisions verified to precede their patches by clock · **5** extended witnesses, **0** assertions
+removed · **13** value.js paths, **0** immutable paths touched · **79** INBOX rows, **0** UNREAD · **8**
+producer rows present · **0** BLOCKER · **0** CRITICAL · **0** HIGH · **3** MINOR · **3** INFO · **0**
+keyframes.js bytes and **0** glass-ui bytes written by this seat.
+
+**CHECK 1 VERDICT: CONFORMANT-HONEST-RED.** Every GREEN the close claims reproduces at an independent
+seat's own commands; every RED it carries reproduces too, and reproduces as what the close said it was —
+a stale witness anchor over an invariant this seat re-verified holding at the bytes, disclosed with its
+owner and its cure rather than skipped, widened or narrowed. **Honest-RED set: G-KFW11-4 · G-KFW11-10.**
