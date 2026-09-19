@@ -454,6 +454,12 @@ test("C4 · handle target ≥24×24 and a focus ring that paints, unclipped (fin
                 hitH: parseFloat(before.height) || 0,
                 faceW: fr ? Math.round(fr.width * 10) / 10 : null,
                 faceH: fr ? Math.round(fr.height * 10) / 10 : null,
+                // Both boxes are rem-derived, so the root size is recorded with
+                // them: it is what makes the same source read 24.0 here and
+                // 24.8 in the coarse cell.
+                rootFontSize: parseFloat(
+                    getComputedStyle(document.documentElement).fontSize,
+                ),
             };
         }),
     );
@@ -480,6 +486,15 @@ test("C4 · handle target ≥24×24 and a focus ring that paints, unclipped (fin
     await tabUntil(page, "handle");
     const focused = page.locator("[data-stop-id]:focus");
     await expect(focused).toHaveCount(1);
+    // The ring rides the handle's own `box-shadow` TRANSITION, so a read taken
+    // the instant focus lands returns the interpolation's first frame (measured
+    // here: two transparent zero-spread layers). The settle is POLLED rather
+    // than frozen — o27 overrides the transition with `!important` to make its
+    // read deterministic, which is the right aid for that oracle but would mean
+    // this gate never measures the affordance the user actually sees.
+    await expect
+        .poll(async () => (await ringReport(page, focused)).shadow, { timeout: 5000 })
+        .toMatch(/0px 0px 0px 3px/);
     const report = await ringReport(page, focused);
     console.log(`[W4-C4-RING] ${JSON.stringify(report)}`);
 
