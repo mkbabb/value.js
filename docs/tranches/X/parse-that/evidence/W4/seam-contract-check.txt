@@ -1,0 +1,98 @@
+SERVED MODEL: claude-opus-5[1m]
+
+X.P.W4.a — G-1 GATE READING, RUN TWICE AT THE SETTLED BYTES
+================================================================================
+
+AUTHORITY  W4.md §6 G-1. COMMAND, verbatim from the spec:
+           node docs/tranches/X/parse-that/scripts/seam-contract-check.mjs \
+                docs/tranches/X/parse-that/SEAM-CONTRACT.md \
+                docs/tranches/X/parse-that/evidence/W3/universe-52.json \
+                docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md
+
+SUBJECT    value.js tranche-u 046bc176, WORKING TREE, after Prettier settled the two
+           authored files (§7). Read from the settled bytes, never from the pre-format ones.
+PINS       SEAM-CONTRACT.md            e269f6e665f288948a58ff1c6ac24e4e252e044a91806c5a832a0f0a09fe0818
+           seam-contract-check.mjs     10f39b08dfb121950f0e148e06b4b259bc8b989cc9ef7cc6f265bd32005864af
+           universe-52.json            fb1aa2a6d8cedf4b53dc718cddc2b67fb3a3c062f7a45d54755b2a1b11cdbf46
+           DIVERGENCE-LEDGER.md        3ca73cbed2dd985ec27eab3b7115cc441b00c74648fc371f7cebf732e92f84fa
+
+RED BASELINE, as W4.md §6 G-1 states it and as X-P-W4.md's third-sitting baseline
+re-measured it at open: 'ls docs/tranches/X/parse-that/SEAM-CONTRACT.md
+docs/tranches/X/parse-that/scripts/seam-contract-check.mjs -> No such file or
+directory (both)' — 0 of 52 rows. AFTER: 52 of 52, both set-differences empty.
+
+NEGATIVE CONTROLS  evidence/W4/seam-contract-negative-controls.txt — 9 of 9 fire.
+
+--------------------------------------------------------------------------------
+RUN 1 (verbatim)
+--------------------------------------------------------------------------------
+X.P.W4.a — SEAM-CONTRACT cross-check (G-1)
+==============================================================================
+contract   docs/tranches/X/parse-that/SEAM-CONTRACT.md
+universe   docs/tranches/X/parse-that/evidence/W3/universe-52.json
+ledger     docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md
+
+rows: contract 52 · universe 52 · ledger rows 47
+universe tally: {"TOTAL":46,"PARTIAL":6,"ABSENT":0}
+
+SET DIFFERENCES (G-1: both must be empty)
+  contract ∖ universe-52 : ∅
+  universe-52 ∖ contract : ∅
+
+DISPOSITION CENSUS
+  PENDING-ADJUDICATION   45
+  identical              7
+  (COHESION §0v carried: 44 cells over 6 rows)
+
+ADVISORY — `identical` rows a ledger row MENTIONS outside a subject field (tier 2, not fatal)
+  CssColor                 mentioned by CN-3
+  CssTimingFunction        mentioned by CN-3
+  Declaration              mentioned by CN-3
+  StyleRule                mentioned by CN-3
+  Stylesheet               mentioned by CN-3
+
+SURFACE-WIDE ledger rows (no export named in any field): S-1, S-4, R2, R3, R5, CN-1, §6.1
+
+VERDICT: GREEN — both set-differences ∅, no disposition contradicts the ledger,
+         every carried cell publishes PENDING-ADJUDICATION, no field is blank.
+
+EXIT=0
+
+--------------------------------------------------------------------------------
+RUN 2 (verbatim)
+--------------------------------------------------------------------------------
+X.P.W4.a — SEAM-CONTRACT cross-check (G-1)
+==============================================================================
+contract   docs/tranches/X/parse-that/SEAM-CONTRACT.md
+universe   docs/tranches/X/parse-that/evidence/W3/universe-52.json
+ledger     docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md
+
+rows: contract 52 · universe 52 · ledger rows 47
+universe tally: {"TOTAL":46,"PARTIAL":6,"ABSENT":0}
+
+SET DIFFERENCES (G-1: both must be empty)
+  contract ∖ universe-52 : ∅
+  universe-52 ∖ contract : ∅
+
+DISPOSITION CENSUS
+  PENDING-ADJUDICATION   45
+  identical              7
+  (COHESION §0v carried: 44 cells over 6 rows)
+
+ADVISORY — `identical` rows a ledger row MENTIONS outside a subject field (tier 2, not fatal)
+  CssColor                 mentioned by CN-3
+  CssTimingFunction        mentioned by CN-3
+  Declaration              mentioned by CN-3
+  StyleRule                mentioned by CN-3
+  Stylesheet               mentioned by CN-3
+
+SURFACE-WIDE ledger rows (no export named in any field): S-1, S-4, R2, R3, R5, CN-1, §6.1
+
+VERDICT: GREEN — both set-differences ∅, no disposition contradicts the ledger,
+         every carried cell publishes PENDING-ADJUDICATION, no field is blank.
+
+EXIT=0
+
+--------------------------------------------------------------------------------
+diff RUN1 RUN2 -> no output. The two runs are BYTE-IDENTICAL.
+G-1 VERDICT: GREEN.

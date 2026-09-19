@@ -1,0 +1,37 @@
+SERVED MODEL: claude-opus-5[1m]
+
+X.P.W4 — G-2 CHAIN OF CUSTODY: ZERO VALUE.JS SOURCE BYTES
+================================================================================
+
+AUTHORITY  W4.md §6 G-2 — 'Across the whole wave,
+           git -C /Users/mkbabb/Programming/value.js status --porcelain -- src api demo test e2e
+           is empty at EVERY commit.'  §8 names this file as the chain of custody.
+           §9 states the per-commit form: 'No commit in this wave may contain a path
+           under src/**, demo/**, api/** …'
+
+HOW TO READ THIS FILE.  Two legs are banked per commit, because they are two
+different assertions and only one of them is X·P's to satisfy:
+  LEG 1 (tree-wide)  the literal §6 command over the whole working tree. Four tracks
+                     share this checkout; a sibling seat's uncommitted work under
+                     those paths makes this leg FALSE by an act no X·P seat performed
+                     and no X·P seat may undo (test/** is §4 Do-NOT-touch).
+  LEG 2 (commit)     §9's: the commit's OWN pathspec carries no path under src/**,
+                     demo/**, api/**, test/**, e2e/**. This is the leg X·P controls,
+                     and it is the one a reviewer can check without running anything.
+Nothing is stashed, restored, staged or reverted to make either leg read better.
+
+--------------------------------------------------------------------------------
+BEFORE COMMIT 1 (X.P.W4.a — the 52-row seam contract)
+  when            2026-09-19 06:51:35 EDT
+  HEAD            046bc176 fix(x-p-w4/packed): the seam reader locates the name, and the contract-vs-universe set-difference is measured in both directions
+  LEG 1  git status --porcelain -- src api demo test e2e
+         |  M test/gradient-v4-consume.test.ts
+         -> 1 line(s). FALSE at the tree, and NOT X·P's:
+            a sibling seat's live uncommitted work; test/** is W4.md §4 Do-NOT-touch.
+            Declared, not cured (W4.md §6 G-7's named failure mode generalizes:
+            'a seat that deletes … to make a grep prettier has broken a working tree
+            to satisfy a gate').
+  LEG 2  this seat's commit pathspec, verbatim:
+         docs/tranches/X/parse-that/SEAM-CONTRACT.md docs/tranches/X/parse-that/scripts/seam-contract-check.mjs docs/tranches/X/parse-that/evidence/W4/
+         -> 0 paths under src/**, demo/**, api/**, test/**, e2e/**. TRUE.
+
