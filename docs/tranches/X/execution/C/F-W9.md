@@ -243,3 +243,335 @@ and because `a`'s containerization audit reads the same CI surface `b` and `c` w
 
 *(empty at open — each unit appends its own `### X.F.W9.<id>` section with its SERVED MODEL line,
 its ⟨cmd⟩ receipts, its commit shas, and the BEFORE → AFTER reading of every gate it owns.)*
+
+### X.F.W9.a
+
+SERVED MODEL: claude-opus-5[1m]
+
+**Unit**: the deploy spine — §2.5's M.W2 · M.W3 · M.W4 rows + the containerization row (L260–268) ·
+§3 **G-F9-15** · **G-F9-16** · **G-F9-19** · §4a-14 ROUTE LAW · §4b's F.W5–W8/SS-4 row · §5's
+dead-API exclusion row. **Wall clock**: 2026-09-19. **Substrate at open**: fourier `1b46465`
+(`m/w1-bump-migration`).
+
+#### a.0 Crash-recovery sweep — nothing inherited on this unit
+
+⟨cmd⟩ `git status --porcelain` in `/Users/mkbabb/Programming/fourier-analysis` → `?? .worktrees/`
+alone. The untracked `.worktrees/` holds three sibling F.W3 checkouts (`f3b` · `f3d` · `f3e`,
+⟨cmd⟩ `git worktree list`) and is **no file this unit claims**. Zero bytes of a killed predecessor
+were inherited; nothing was stashed, restored or reverted. The value.js side carried
+`CARRY-LEDGER.md` and `scripts/dev/dev.sh` — neither in this unit's writable set, the second
+**NEVER** touched (§1d · §0j.A **DR-24**).
+
+#### a.1 MEASURE-AT-OPEN — the host, read live, never inherited (G-F9-15's first clause)
+
+The spec's own born-RED cell says *"the host's SHA is unmeasurable from this seat"*. It is still
+unmeasurable, and this unit measured **why**, then measured the drift by another route.
+
+**(i) There is no deploy-of-record surface.** ⟨cmd⟩ `curl -sSk https://api.fourier.babb.dev/api/health`
+→ `{"status":"ok"}`; the endpoint is `api/main.py:125-127` and returns that literal — no SHA, no
+build id, no version. Nothing anywhere off-host answers *"which commit is the host on?"*. **That
+absence IS the inv-31 gap**, and it is what let the drift below go unremarked.
+
+**(ii) The host IS behind, measured by build fingerprint.** The two arms serve **different builds**:
+
+```
+⟨cmd⟩ curl -sSL https://fourier.babb.dev/          | grep -oE '/assets/[A-Za-z0-9._-]+\.(js|css)' | sort -u
+      → /assets/index-BI13Q2EH.js · /assets/index-CuIjbJFL.css   (+5 vendor chunks)
+⟨cmd⟩ curl -sSk https://api.fourier.babb.dev/index.html | grep -oE '/assets/[A-Za-z0-9._-]+\.(js|css)' | sort -u
+      → /assets/index-YfdYiI2C.js · /assets/index-D3RVrm-A.css   (+the SAME 5 vendor chunks)
+```
+
+The five vendor chunks are byte-identical names; **both entry chunks differ**. The CF-Pages arm
+(inv-25/inv-28-gated) and the origin arm (bare webhook) are at different commits. **The
+deploy-of-record is not current, and no channel reported it** — G-F9-15's chronic, at a live witness
+rather than a banked number.
+
+**(iii) THE MECHANISM, and it is new: the origin's TLS certificate EXPIRED 24 days ago.**
+
+```
+⟨cmd⟩ echo | openssl s_client -servername api.fourier.babb.dev -connect api.fourier.babb.dev:443 \
+        | openssl x509 -noout -subject -dates -ext subjectAltName
+      → subject=CN=sudoku.babb.dev
+        notBefore=May 28 00:12:08 2026 GMT
+        notAfter=Aug 26 00:12:07 2026 GMT
+        DNS:api.color.babb.dev, DNS:api.fourier.babb.dev, DNS:api.sudoku.babb.dev,
+        DNS:deploy.babb.dev, DNS:fourier.babb.dev, DNS:sudoku.babb.dev, DNS:words.babb.dev
+⟨cmd⟩ date -u +%Y-%m-%dT%H:%M:%SZ → 2026-09-19T12:23:23Z
+⟨cmd⟩ curl -sS  https://api.fourier.babb.dev/api/health → curl: (60) SSL certificate problem: certificate has expired
+⟨cmd⟩ curl -sSk https://api.fourier.babb.dev/api/health → {"status":"ok"}  (http 200)
+```
+
+The shared LE certificate at `/etc/letsencrypt/live/sudoku.babb.dev/` — the one **both**
+`infra/apache/api-vhosts.conf.template:40-41` and `infra/apache/deploy.babb.dev.conf.template` name —
+**expired 2026-08-26**. `deploy.babb.dev` carries it too, and GitHub validates TLS on webhook
+delivery with no insecure bypass, so **the API deploy arm has been unable to fire since 2026-08-26**.
+The stack behind the cert is perfectly alive (200 `ok`, root 404). This is the mechanism behind the
+chronic, and it is an **OPERATOR ACT** (certbot renewal) outside every writable set — escalated as
+**E-F9a-1**. It is *not* cured by any script in this wave's bounds, and no seat may hack around a
+certificate.
+
+#### a.2 M.W2 — readiness separated from liveness, end to end · commit `1b4eb0b`
+
+The gate answered two questions with one boolean, so a dead uvicorn and an inv-22 SPA-fallback
+regression produced the identical line and the identical rollback.
+
+- **Script half** (`scripts/deploy-hook.sh`): `probe_liveness()` (`/api/health` → `{"status":"ok"}`,
+  *did the application answer*) and `probe_readiness()` (`/` → `404`, *is the edge serving the
+  contract* — inv-22) are now separate functions with separate verdicts; `health_gate()` requires
+  both and exports the failing probe as `GATE_FAILURE` (`liveness` · `readiness` ·
+  `liveness+readiness` · `bring-up`), which every downstream alert and record then cites.
+- **Container half**: image-level `HEALTHCHECK`s declare each image's own liveness
+  (`api/Dockerfile` — `python -c` urllib, no package added to python:3.13-slim; `web/Dockerfile` —
+  busybox `wget`, already in nginx:alpine, writing nothing under the overlay's `read_only` root),
+  each `retries`-bounded so an unhealthy container **ends** `compose up --wait` rather than hanging
+  it. The gateway carries a **readiness** probe that goes *through* the proxy
+  (`wget … /api/health`), deliberately not nginx's own static `location = /health` 200, which is
+  true whether or not a backend exists. `depends_on` moves from `[backend, frontend]` to
+  `condition: service_healthy`.
+- `build_and_up` now **returns** a bring-up failure to the caller instead of aborting under `set -e`:
+  an aborting bring-up would skip the rollback and the alert, which is the very silence M.W4 kills.
+
+⟨cmd⟩ `MONGO_PASSWORD=dummy docker compose -f docker-compose.yml -f docker-compose.prod.yml config`
+(daemon-free merge + schema validation, exit 0), read back through `yaml.safe_load`, **double-run**:
+
+```
+nginx.depends_on   = {'backend': {'condition': 'service_healthy', 'required': True},
+                      'frontend': {'condition': 'service_healthy', 'required': True}}
+nginx.healthcheck  = ['CMD-SHELL', 'wget -q -O /dev/null http://127.0.0.1/api/health || exit 1']
+```
+
+`backend`/`frontend` show no *compose* healthcheck by design — theirs come from the image, which is
+where an image's own liveness contract belongs; `service_healthy` reads container health either way.
+
+#### a.3 M.W3 — the API arm is fail-closed on a same-SHA green CI run (inv-28) · commit `e5c435d`
+
+`deploy-pages.yml:48-57` is **mirrored, never edited** (§1b READ): its three conjuncts
+(`conclusion == 'success'` · `head_branch == 'master'` · `event == 'push'`) become the REST query's
+`status=success` · `branch=…` · `event=push` against `actions/workflows/ci.yml/runs?head_sha=…`, and
+its `ref: head_sha` checkout pin becomes `git reset --hard <verified sha>` — the deploy advances to a
+**named, verified commit**, never to a ref that can move between query and reset. Fail-closed is
+literal: a transport failure, a rate limit, a body with no `total_count`, and a red run all take the
+same refusal path, and the host stays put without building anything. `jq` when present, a `sed`
+fallback for the host that provably lacks it (both paths tested). `GITHUB_TOKEN` read from env,
+never echoed.
+
+**Verified live against `mkbabb/fourier-analysis`**, three ways:
+
+```
+⟨cmd⟩ require_green_ci 590399fd…  (head_sha of green run 26789704503)  → exit 0, CI_RUN_ID=26789704503
+⟨cmd⟩ require_green_ci 9d7c3877…  (origin/master's TIP)                → exit 1  REFUSED
+⟨cmd⟩ require_green_ci 0000000…   (nonexistent)                        → exit 1  REFUSED
+```
+
+**The middle refusal is not hypothetical — it is the commit the API arm would ship today**, and it is
+refused for the right reason: ⟨cmd⟩ `gh run list --workflow ci.yml --branch master --limit 8` shows
+`origin/master`'s tip covered by run **26913592291, conclusion `failure`** (2026-06-03), with every
+master CI run since 2026-06-02 red. **Operational consequence, stated rather than discovered later:
+once the cert is renewed and the host adopts this script, the API arm will correctly REFUSE to deploy
+master until master's CI is green.** That is inv-28 working, not a regression — flagged as
+**E-F9a-2**.
+
+BEFORE → AFTER on the spec's own born-RED probe, **double-run**:
+⟨cmd⟩ `grep -c 'conclusion\|workflow_run\|gh run\|inv-28' scripts/deploy-hook.sh` → **0** → **15 · 15**.
+
+#### a.4 M.W4 — the silent rollback killed, and the inv-31 floor stood up · commit `b72170b`
+
+The rollback was already loud — on stdout, which here is the webhook receiver's log that nothing
+watches, and the gate's own words are that *"an `ALERT` line in an unwatched log does not clear this
+gate"*. So:
+
+- `notify LEVEL MSG` writes to stderr/stdout, to **syslog** at `daemon.<level>` via `logger`, and to
+  a **watched channel** (`FOURIER_DEPLOY_ALERT_WEBHOOK`), and **escalates its own POST failure** to
+  stderr + syslog rather than swallowing it.
+- `require_alert_channel` runs **before the flock and before anything can change host state**: an
+  unobservable deploy refuses to start. That is the *blocking* half — a deploy that cannot report its
+  own failure does not run.
+- `write_record` (inv-31) lays down a durable, machine-readable deploy-of-record at
+  `/opt/deploy/fourier-deploy-record.json`, written temp-then-rename so a reader never sees half of
+  one, on **every** terminal outcome — `OK` · `REFUSED` · `ROLLED_BACK` · `ALERT` — carrying the
+  deployed SHA, the previous SHA, the covering CI run id and the **failing probe by name**. This is
+  also the surface that makes a.1(i)'s unanswerable question answerable.
+
+⟨cmd⟩ harness over the settled bytes:
+
+```
+require_alert_channel, webhook UNSET → REFUSE, exit 1, reason named on stderr + syslog
+require_alert_channel, webhook SET   → exit 0
+write_record ROLLED_BACK … 'the "readiness" probe failed …; path C:\x'
+      → jq parses the file, exit 0; quotes/backslashes escaped:
+        "detail": "the \"readiness\" probe failed for bbb222; path C:\\x"
+notify's webhook payload escaping (quotes · backslashes · newlines) → jq -r .text round-trips
+```
+
+BEFORE → AFTER, **double-run**: `probe_(liveness|readiness)()` **0 → 2 · 2**;
+`(notify|write_record|require_alert_channel)()` **0 → 3 · 3**; `DEPLOY_RECORD` mentions **0 → 7 · 7**.
+
+**E-F9a-3 — one operator act is now REQUIRED before the next API deploy**:
+`FOURIER_DEPLOY_ALERT_WEBHOOK` must be set in the host's un-tracked `hooks.json` environment for the
+fourier arm. This is fail-closed **by design**, not an oversight; it is named here so the first
+post-cert deploy does not refuse for an unexplained reason.
+
+#### a.5 inv-25 — the SPA deploy-of-record capture is mandatory and loud · commit `ceb7ee6`
+
+`scripts/pages-deploy.sh:119` already emitted `cf_deployment_id` — **measured present at open, not
+re-authored**. The defect was the shape around it: the emission sat under `if [ -n "$DEPLOY_ID" ]`
+with **no else arm**, so a wrangler output wording the regex missed produced a shipped deployment,
+`exit 0`, and no citable deploy-of-record at all. A deploy-of-record that silently fails to record is
+the defect inv-25 names. One stdout shape is no longer the only chance: an unparseable id falls back
+to asking Cloudflare which deployment is live, and if that cannot answer either, the script **fails**.
+The upload has already happened by then — the red workflow is precisely the signal that the *record*
+did not follow it.
+
+#### a.6 G-F9-19 — containerization fidelity, audited AS-RUNNING where the artifact is reachable
+
+**What WAS verified as-running** (the live origin, 2026-09-19, bounded probes per §5.2):
+
+| claim | authority in the bytes | as-running verdict |
+|---|---|---|
+| 5 security headers | `nginx/fourier.conf:25-29` | **CONFIRMED** — all five present on `/api/health` |
+| inv-22 root contract | `nginx/fourier.conf:63` | **CONFIRMED** — `/` → `404 application/problem+json` |
+| SPA fallback | `web/Dockerfile` printf conf, `try_files` | **CONFIRMED** — `/no-such-route-xyz` → `200 text/html` |
+| immutable asset caching | `web/Dockerfile` printf conf | **CONFIRMED-AND-DEFECTIVE** — served, but **twice** (see below) |
+| F.W1 root-served doc endpoints | `nginx/fourier.conf:57-61` | **CONFIRMED** — `/openapi.json` 200 · `/docs` 200 · `/health` 200 |
+| build context cannot be `web/` | `web/Dockerfile:24,26-29` | **CONFIRMED at the bytes** — `COPY assets/` + six `paper/fourier_paper.*`; compose declares `context: .` for both services |
+
+**Two fidelity defects found as-running, both cured in bounds:**
+
+1. **Duplicated `Cache-Control`** (commit `4f213e4`). ⟨cmd⟩ `curl -sSkI …/assets/index-YfdYiI2C.js` →
+   `Cache-Control: max-age=31536000` **and** `Cache-Control: public, immutable`: `expires 1y`
+   synthesises the first, the `add_header` beside it appends the second. One directive stated twice
+   inside one config; an intermediary taking only the first silently loses `immutable`. Now a single
+   `add_header Cache-Control "public, max-age=31536000, immutable" always`. Verified by rendering the
+   `RUN printf` with builder-accurate continuation joining and counting, **double-run**: **1**
+   `Cache-Control`, **0** `expires`, 10 lines, `$uri` intact.
+2. **`web/.dockerignore` is never read by docker** (commit `c5b7600`, DELETED). Docker reads
+   `<context>/.dockerignore`; both services declare `context: .`, and `web/Dockerfile` *must* build
+   from the repo root because it copies `assets/` and `paper/fourier_paper.*` from outside `web/`.
+   The per-Dockerfile form BuildKit honours is `web/Dockerfile.dockerignore`, not this path. All
+   three of its rules are already carried by the repo-root `.dockerignore` (each verified present by
+   ⟨cmd⟩ `grep -cx`). A dead ignore file is a trap — the next maintainer edits it and nothing happens.
+
+**The three booked residuals, each with the explicit verdict the gate demands** (commit `e111220`,
+written into the compose bytes beside the claims they judge):
+
+- **mongo `read_only`** — **DECLINED, PERMANENTLY.** Not *"not yet"*: WiredTiger writes lock and
+  diagnostic paths outside the `/data/db` volume, enumerating them into tmpfs is guesswork without a
+  running instance, a mis-enumerated path yields a database that will not start, and mongo publishes
+  no port (D.W1) so the security value is the lowest of the four services. The residual is **CLOSED
+  as declined-with-reason**, not re-deferred a third time.
+- **mongo `cap_drop`** — **STILL BOOKED, blocker now named.** Decidable only against a running
+  instance — the same `docker inspect` capability this gate requires and this seat lacks. Not landed
+  blind: a capability set guessed from documentation and shipped to a production database is exactly
+  the unverified hardening G-F9-19 exists to refuse.
+- **`--tlsAllowConnectionsWithoutCertificates` honesty pivot** — **SUSTAINED on the mechanism, and
+  explicitly NOT as-running.** mongo publishes no port by design, so the handshake cannot be probed
+  from outside the stack. The reasoning holds (server-only TLS ⇒ the client presents no cert ⇒ without
+  the flag mongod rejects at the handshake before SCRAM; client trust is carried wholly by
+  `tlsCAFile`), and the superseded `tls.md §1` *"inert"* note stays superseded.
+
+**What could NOT be verified as-running — the gate's core leg, honest-RED:**
+
+⟨cmd⟩ `docker ps` → `Cannot connect to the Docker daemon` (no local daemon).
+⟨cmd⟩ `grep -qE '34\.197\.214\.67' ~/.ssh/config` → **ABSENT** (`api.fourier.babb.dev` resolves to
+`34.197.214.67`; no SSH route to it from this seat). **`docker inspect` on the deployed stack is
+therefore not performable**, so every *container-runtime* hardening claim — `read_only`, `cap_drop`,
+`cap_add`, `tmpfs` flags, `no-new-privileges`, the 2G/256M/512M/128M memory limits, `external:
+true` on `image_blobs` — remains **verified-as-DECLARED only**, which is precisely what this gate
+forbids claiming. **No such claim is made green here.** Escalated as **E-F9a-4**. A locally brought-up
+stack would *not* discharge it: auditing a stack I built myself and calling it *as-running* is the
+false-witness class this wave exists to abolish.
+
+**The two nginx authorities — disposed explicitly, NOT collapsed** (**E-F9a-5**). Both were verified
+as-running above and they govern **disjoint roles**: `nginx/fourier.conf` (72 lines, bind-mounted
+`:ro` into the gateway) owns edge policy — rate zones, `real_ip`, security headers, inv-22, the
+API/doc routes; the printf-inlined conf at `web/Dockerfile` owns static serving inside the SPA
+container — `try_files` and asset caching. Collapsing them to one file needs **either** a new tracked
+file under `nginx/` — **outside this unit's writable set, which names `nginx/fourier.conf` and no
+other nginx path** — **or** a production topology change (retiring the prod `frontend` service, which
+a compose overlay cannot cleanly express against a base-declared service). **Neither is verifiable at
+this seat**: ⟨cmd⟩ `command -v nginx` → ∅, so there is no `nginx -t` to lint a rewritten edge config
+with, and there is no daemon to bring the stack up under. Rewriting the live edge config of a
+production stack with no syntax check and no as-running verification would be the unverified-hardening
+class this same gate refuses. The collapse is recorded as an owned residual with its exact
+precondition (`nginx -t` + a staging bring-up), not performed blind.
+
+**A third authority, found as-running and NOT touched.** ⟨cmd⟩ `curl -sSkI …/api/health` returns
+`X-Frame-Options`, `X-Content-Type-Options` and `Referrer-Policy` **twice each** — once from
+host-Apache (`infra/apache/api-vhosts.conf.template:35-37` sets exactly those three) and once from
+docker-nginx (which sets all five). The values agree, so the effect is benign today, but it is the
+same two-authority disease one layer up. **It is NOT cured unilaterally**: that template instantiates
+`api.color.babb.dev` (value.js's own palette-api) and `api.sudoku.babb.dev` as well, and stripping
+headers there could silently de-harden siblings that rely on Apache for them. Recorded and routed to
+the relay — **E-F9a-6**.
+
+#### a.7 The M-board rows, disposed explicitly (no double-booking)
+
+| M row | disposition at F.W9 |
+|---|---|
+| **M.W2** readiness ≠ liveness | **RE-HOMED AND EXECUTED** here — `1b4eb0b` (script + container halves) |
+| **M.W3** fail-closed inv-28 | **RE-HOMED AND EXECUTED** here — `e5c435d`, verified live three ways |
+| **M.W4** kill the silent rollback + inv-31 | **RE-HOMED AND EXECUTED** here — `b72170b` |
+| **M.W11** evidence | **NOT this unit's** — §2.5 routes it to **X.F.W9.c** |
+
+`docs/tranches/M/PROGRESS.md` still reads these three `planned` and was **NOT written**: it is
+**ASK-ONLY** by §1b's own cell and is in no unit's writable set. The re-home disposes of each row *in
+this record*; the `PROGRESS.md` write rides a relay — **E-F9a-7**.
+
+#### a.8 The three law rows this unit executes
+
+- **§4a-14 ROUTE LAW** — this unit mints **no** parse-that → fourier edge and touches no producer
+  tree; `glass-ui` unopened. Every relayed number here is **MEASURE-AT-OPEN** (a.1 is the whole
+  discipline applied). The deploy spine ran as **Arm A, bump-independent** — it waited on nothing of
+  F.W1's, and F.W1's landed pins were read but never moved.
+- **§4b, the F.W5–W8 / SS-4 row** — **HONOURED, with the distinction kept explicit in the bytes**:
+  the inv-28 guard is a **DEPLOY** gate. It asks one question only — *does a covering green CI run
+  exist for this SHA* — and asks it of GitHub, never of the API's shape. It reads no route, no
+  schema, no contract. Per **F-SS4REST R1** (§0j.D) value.js is **re-scoped out of the diff clause**
+  and no value-side `atomdiff.ts` restoration is opened here; none was.
+- **§5, the dead-API exclusion row** — **HONOURED.** FR-GV-36's *"console e2e passes against a dead
+  API"* fact belongs to this reckoning and the **edge is declared** (a.1: the origin is alive behind
+  an expired cert; the deploy arm is dead; the host is behind). **The API repair is NOT booked here**
+  — it is SS-4's / the value.js API row's. Nothing in this unit touched `api/` beyond `api/Dockerfile`'s
+  HEALTHCHECK, which is a container-liveness declaration and not an API-shape act.
+
+#### a.9 Gate readings — BEFORE → AFTER
+
+| gate | BEFORE (record baseline, `1b46465`) | AFTER (this unit) | verdict |
+|---|---|---|---|
+| **G-F9-15** deploy-of-record current; no silent rollback | RED — M.W2/3/4 `planned`; readiness not separated; no inv-31 floor; host SHA unmeasured | **MEASURED AT OPEN**: no deploy-of-record surface existed; the two arms serve different entry chunks (**the host IS behind**); the shared origin cert **expired 2026-08-26**, so the webhook cannot deliver at all. Cures landed: readiness ≠ liveness (`1b4eb0b`), loud-and-blocking rollback in a watched channel + a durable deploy-of-record (`b72170b`) | **honest-RED.** The instrument is landed; the gate's first clause — *host at HEAD* — is **FALSE at the bytes**, and bringing the host to HEAD requires a certificate renewal that is an OPERATOR ACT outside every writable set (**E-F9a-1**). Claiming green here would be green-by-assertion, which is the one thing this wave forbids |
+| **G-F9-16** API deploy fail-closed on a same-SHA green CI run (inv-28) | RED — ⟨cmd⟩ `grep -c 'conclusion\|workflow_run\|gh run\|inv-28' scripts/deploy-hook.sh` → **0** (double-run 0) | **15 · 15** (double-run). The guard mirrors `deploy-pages.yml:48-57` and was exercised against the live repo: green SHA **ADMITTED** citing run `26789704503`; `origin/master`'s tip **REFUSED** (its covering run `26913592291` concluded `failure`); unknown SHA **REFUSED** | **GREEN**, with its adoption stated: the gate is measured at the tracked deploy path, exactly where its born-RED witness was measured. The *host* has not yet adopted the script — that is blocked on **E-F9a-1**, not on this cure |
+| **G-F9-19** containerization fidelity audited **as-running** | RED — every structural fact reproduces | As-running over the **reachable** surface: 5 security headers · inv-22 root · SPA fallback · asset caching · the F.W1 doc routes — all CONFIRMED; two defects found and cured (`4f213e4` duplicated `Cache-Control`; `c5b7600` dead `web/.dockerignore`); three residual verdicts written into the bytes (`e111220`). **`docker inspect` on the deployed stack NOT performable** — no daemon, no SSH route to `34.197.214.67`; the two nginx authorities **disposed, not collapsed** | **honest-RED.** The gate's core leg — *every hardening claim verified against the running artifact* — is unperformable from this seat (**E-F9a-4**), and the container-runtime claims are left **verified-as-DECLARED** rather than dressed as as-running. The single-authority collapse is an owned residual with its precondition named (**E-F9a-5**) |
+
+#### a.10 Commits (7, pathspec on the commit itself, one per meaning)
+
+| sha | meaning |
+|---|---|
+| `1b4eb0b` | M.W2 — readiness separated from liveness, end to end |
+| `e5c435d` | M.W3 — the API deploy arm is fail-closed on a same-SHA green CI run (inv-28) |
+| `b72170b` | M.W4 — the silent rollback killed; the inv-31 observability floor |
+| `ceb7ee6` | inv-25 — the SPA deploy-of-record capture is mandatory, and its failure is loud |
+| `4f213e4` | G-F9-19 — the SPA image emits ONE `Cache-Control`, not two |
+| `c5b7600` | G-F9-19 — delete `web/.dockerignore`, which docker never reads |
+| `e111220` | G-F9-19 — the three booked prod-overlay residuals each carry an explicit verdict |
+
+No commit swept a sibling seat's paths: every one carried its exact pathspec, and
+⟨cmd⟩ `git status --porcelain` showed only this unit's four/one files dirty before each.
+`.github/workflows/deploy-pages.yml` was **READ and mirrored, never edited** (§1b);
+`docs/tranches/M/PROGRESS.md` never opened for write; `glass-ui` never opened;
+`scripts/dev/dev.sh` never touched.
+
+#### a.11 Escalations
+
+| id | escalation |
+|---|---|
+| **E-F9a-1** | **The shared LE certificate `/etc/letsencrypt/live/sudoku.babb.dev/` EXPIRED 2026-08-26**, covering `api.fourier.babb.dev`, `deploy.babb.dev`, `fourier.babb.dev`, `api.color.babb.dev`, `api.sudoku.babb.dev`, `words.babb.dev`. GitHub cannot deliver the deploy webhook over it. **OPERATOR ACT** (certbot renewal + `systemctl reload apache2`); constellation-wide, not fourier-only. Blocks G-F9-15 |
+| **E-F9a-2** | Once the cert is renewed, the new inv-28 guard will **correctly refuse to deploy `master`** — its covering CI run has concluded `failure` since 2026-06-03, and every master CI run since 2026-06-02 is red. inv-28 working as specified, flagged so the refusal is not misread as a regression |
+| **E-F9a-3** | `FOURIER_DEPLOY_ALERT_WEBHOOK` must be set in the host's un-tracked `hooks.json` environment for the fourier arm before the next API deploy. Fail-closed **by design** (M.W4); named so the first post-cert deploy does not refuse unexplained |
+| **E-F9a-4** | **`docker inspect` on the deployed stack is not performable from this seat** — no local daemon, no SSH route to `34.197.214.67`. G-F9-19's core leg cannot be discharged by any unit of this wave from here; it needs a seat with host access or a staging bring-up. Also blocks mongo `cap_drop`'s verdict |
+| **E-F9a-5** | The two nginx authorities are **disposed but not collapsed**. The collapse needs a new tracked file under `nginx/` (outside this unit's writable set) or a prod topology change, and neither is verifiable here (no `nginx` binary → no `nginx -t`; no daemon). Needs a bounds widening **and** a verification capability, together |
+| **E-F9a-6** | Host-Apache and docker-nginx **both** stamp `X-Frame-Options`, `X-Content-Type-Options` and `Referrer-Policy`, measured doubled as-running. Not cured unilaterally: `infra/apache/api-vhosts.conf.template` also instantiates `api.color.babb.dev` (value.js's palette-api) and `api.sudoku.babb.dev`. **Routes to the relay** |
+| **E-F9a-7** | `docs/tranches/M/PROGRESS.md` still reads M.W2 · M.W3 · M.W4 `planned`. Disposed in this record (a.7); the `PROGRESS.md` write itself is **ASK-ONLY** (§1b) and **rides a relay**, never this seat's hand |
+
+**E13**: no mail act was owed by this unit — seat 0's four-path sweep at open returned **0 unrowed ·
+0 UNREAD** in F.W9's scope, and this unit minted no new letter. The relays above (**E-F9a-6**,
+**E-F9a-7**) are **X.F.W9.c**'s `INBOX.md` append, per §2.5's split.
