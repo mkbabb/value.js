@@ -327,3 +327,35 @@ task's edict "the RETIRED matrices are NOT carried" applied):**
     successor = M-12 tri-fold + L-18 + M-23 (prov row 29 / C-05).
 
 *One file written (this one). All verification read-only; no product byte, no git mutation.*
+
+---
+
+## DATED APPEND 2026-09-17 (X-W6 open seat · `claude-opus-5[1m]`) — CC-118, minted under COHESION §0k.3 · S-8
+
+**Authority**: `docs/tranches/X/COHESION.md` **§0k.3**, escalation row **S-8** (MT-CSP-1 ⇄ the
+carry-cut ledger, X-W6 · X-W8 · W0.1), ruled 2026-09-17 under the begin-word's delegation, verbatim:
+*"**Q1(a) mint the carry-cut id** — X-W6's open seat appends the row (⟨ConfigSliderPane · MT-CSP-1⟩)
+to `CARRY-CUT-LEDGER.md` by dated append, home **X-W6** (`demo/scenes/ConfigSliderPane.vue` is a
+scene); **Q2(b) curable now** via the CSP register's G-PAINT single cut (C-3/D-3/D-4/D-14) — the
+measurement-backed ruling — while CC-105's `--slider-track-bg` wait stays X-W4.g's own; W0.1 keeps the
+tension row, S-8 books the id: two rows, no double-book."*
+
+**E-3 form**: this is a **dated append beside**, never an in-place edit of §1's dated table. §1.H is
+untouched; the row below is read as if seated in §1.H and is cited as **CC-118** everywhere.
+
+**Measured at the mint** (read-only, 2026-09-17 sitting; wall clock 2026-09-19):
+⟨cmd⟩ `grep -n 'MT-CSP-1\|ConfigSliderPane' docs/tranches/V/megatranche/registry/CARRY-CUT-LEDGER.md`
+→ **no match** (the id was genuinely unminted — S-8's *"no CC id names the component today"* reproduces).
+⟨cmd⟩ `ls -la demo/scenes/ConfigSliderPane.vue` → present, **10,709 B**.
+⟨cmd⟩ `grep -o 'CC-[0-9]\{3\}' … | sort -u | tail -1` → **CC-117**, so the next free id is **CC-118**.
+
+| # | original-ID(s) | src | gist | TERMINAL DISPOSITION | evidence |
+|---|---|---|---|---|---|
+| CC-118 | ConfigSliderPane · **MT-CSP-1** (C-3 · D-3 · D-4 · D-14 ⊕ D-1's demo half) | mt | the config-console sliders paint **nothing**: the spectrum variant is defeated by the producer's own `[data-variant=spectrum] .slider-range{background:0 0}` while the inert track carries `--ink-muted` as a ~23,000px² text-ink area fill — figure/ground inverted, extent at 1.00:1, and `variant="spectrum"` is unconditional on 34 non-chromatic axes | **BUILD → X-W6**, home ruled by COHESION §0k.3 S-8 Q1(a) (`demo/scenes/ConfigSliderPane.vue` is a scene). **Q2(b) CURABLE NOW** — the **G-PAINT single cut**, one atomic commit with the o18 re-aim (CSP-O8): SFC:202's `--ink-muted` feed deleted, `data-variant !== "spectrum"` inside `.config-console` only (the foundation:571 shim STAYS serving the picker), settled `.slider-range` background non-transparent, range-vs-track ≥3:1. **Separated and NOT folded here**: CC-105's 4 `--slider-track-bg` sites stay **X-W4.g's** glass-8 repin limb, and the slider forced-colors arm stays **glass-owned** (INBOX I-20, RELAY). W0.1 keeps the tension row; this row books the id — **two rows, no double-book** | `registry/adjudicated/ConfigSliderPane.md` §1 (C-3:49 · D-3:62 · D-4:63 · D-14:73 · D-1:60), §4 G-PAINT:124, build-order:120; COHESION §0k.3 S-8:1104, Consequence:1106 |
+
+**Disposition status at the mint**: `BUILD → X-W6`, **unspent**. Nothing in this append cures a byte,
+schedules a unit, or alters any existing row; `W6.md` (2026-08-03) is IMMUTABLE and is **not** amended
+by this mint — CC-118's cure is scheduled by whichever X-W6 or successor surface the sitting names,
+and until then it is carried, not silently dropped (H4: every row leaves with exactly one disposition).
+
+*One file appended (this block). All verification read-only; no product byte.*
