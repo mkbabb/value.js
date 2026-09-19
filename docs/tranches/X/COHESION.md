@@ -1840,3 +1840,31 @@ ledger cell that abbreviated its spec. X-W4 is CLOSED. Ruled:
 
 Order on relaunch: X-W9 (RESUME `.f` · `.h` → CHECK 4) → X-W6 (§0z) → X-W5 (close) → X-W7 → X-W8 →
 X-W10 → X-W11.
+
+## §0ad ADDENDUM 2026-09-19 — KF.W11.r's FOUR ESCALATIONS ROUTED (KF11-E2..E5); THE OP-0 FLOOR IS THE `npm ci` FLOOR; TRACKS B AND C RE-SEATED AFTER A SYNCHRONIZED STORM
+
+KF.W11 CLOSED honest-RED (G-KFW11-4 · G-KFW11-10). `.r` discharged R-C3 (`npm ci` exit 0 in both CI
+jobs) and returned four escalations. Routed:
+
+- **KF11-E5 — the banked OP-0 count 54 is unreproducible; the CI-faithful floor at `d8eb43ff` is 31.**
+  The enumeration was taken against a `node_modules` the lockfile did not describe. Ruling: every
+  KF.W12 / KF.W13 seat banks its OWN `vue-tsc` figure with `npm ci` settled at its open, and §0u's
+  ratchet reads *monotone non-increase from that seat's own measured floor* — never from 54. `.a`
+  re-derives before spending a cure; `.j` states its delta against the measured floor.
+- **KF11-E2 — the three `src/**` TS6133 rows** (`compositor.ts` · `waapi.ts` · `smooth.ts`), the sole
+  cause of the `library gates` job's failure: owned by the first KF.W12 unit whose §File Bounds
+  carries `src/**`; if none does, KF.W13's close unit under a one-row dated addendum (type-level,
+  unused declarations die with their diagnostics — the `.r` idiom).
+- **KF11-E3 — `useEasingDemo.ts`'s two rows.** The producer half (`@mkbabb/value.js`
+  `dist/subpaths/math.d.ts:5` declares `cubicBezierToString(): string` while the runtime returns the
+  template literal) is a value.js declaration row → **X-W11's OUT-OF-WAVE roster by id** (X-W9.f's
+  ship list is closed and in flight; not widened). The keyframes half is KF.W12's OPTIONS-UNIT carve
+  (the three-file easing-name contract), as the seat measured.
+- **KF11-E4 — `EditorShell.vue(175,10)` TS2379 on Vue's `key`** is behavioural, not type-level; it
+  rides the shell seam's owning rows in KF.W13 if its §B carries `EditorShell.vue`, else X-W11's
+  roster by id. No seat forces it.
+
+**Chassis.** B (KF.W12 at repair 1, KF.W13 at open) and C (F.W9 at open) died at the SAME second
+(`18:33:30` · `19:04:02` · `19:29:33` across both runs): a shared storm with silent SDK retries, not
+a seat's generation. The chassis now waits 300 s and re-seats up to three more times before a wave is
+declared dead (`withRetry`), in all four scripts. Both tracks relaunch in RESUME MODE.
