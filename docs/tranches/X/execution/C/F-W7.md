@@ -340,3 +340,136 @@ at census §4.3, never patched into the immutable spec** (E-3).
 
 **Escalations: none.** Zero fourier bytes, zero product bytes, zero design bytes, zero sibling-spec
 bytes, zero writes outside the §2a/unit writable set.
+
+### X.F.W7.c
+
+**SERVED MODEL: claude-fable-5-1** (the fresh adjudicator seat spec §9 names) · dated **2026-09-19** ·
+sections executed: spec §9 `X.F.W7.c` · §3 items 2/4/5/6 · §4 · §6 rows **G-F7-1 · 3 · 4 · 5 · 6 · 8 · 9 ·
+11** · §7b · §7c · §2a rows 1/4/5 · §10 rows 2–3. Rulings consumed: COHESION §0j.D **F-TRIE** ⊕
+**F-SS4REST R1**; §0k.2 (the F.W0 end of the edge). Every later addendum read to the file end (§0l–§0t):
+none touches this unit but §0o's runner-dead note.
+
+**CRASH-RECOVERY sweep, first act.** ⟨cmd⟩ `git status --porcelain` (value.js) → `CARRY-LEDGER.md` ·
+`scripts/dev/dev.sh` — **neither in this unit's writable set**; ⟨cmd⟩ the same in `../fourier-analysis` →
+empty. `waves/F-W7/` did not exist and `waves/F-W7.md` was unmodified since 2026-08-30 (⟨cmd⟩ `ls -la
+waves/`). **Nothing inherited.** *(Mid-unit a sibling seat dirtied `demo/color-session/keys.ts` ·
+`demo/picker/ColorPicker.vue` · `demo/shell/usePaneRouter.ts` — Track A's, untouched by this seat.)*
+
+**Acts, in order.**
+
+1. **Read** the spec whole (360 lines, five pages), this record, COHESION §0j → file end, the landed
+   `contract/` (§E1 · §E10 · §E16 · §H VO-0/1/2, `OWNER-RULINGS-F.W5.md` rows R1/R2) and unit `a`'s census
+   §3.3 / §4.4 / §5.
+2. **Measured before writing.** The spec's G-F7-8 detector over `waves/F-W5.md` → `E1 E10 E13 E17 E3 E5 E7
+   E8` (run 1 ≡ run 2); register heading reproduces; register membership `E1…E20`; **all eight clause
+   heads reproduce INSIDE the `§E` heading range** (axis iv), each with its banked-id cell. Pins:
+   `F-W5.md` `26aebcdc7bac` · canonical `f44362757458` · `F-W7.md` `b5247b852f46` (pre-addendum).
+3. **Adjudicated the F.W7 side, and found what a bare token run hides.** **(a) Homonym class 1** — `E13`
+   is also the owner's mail law; two sites in the spec (§2a's INBOX row, §8's INBOX exclusion) are that
+   law, not the clause. **(b) Homonym class 2** — `CENSUS-CANONICAL` errata ids (`E5-14`, `E6-3`, …) match
+   the spec's detector (a hyphen is a lawful right-bound), so it reports a clause `E6` this spec never
+   cites. **(c) An instrument limit no pass had filed — SHARED-DELIMITER BLINDNESS**: the pattern consumes
+   one bounding byte per side and `grep -o` does not overlap, so ⟨cmd⟩ `printf 'E7/E8/E10\n'` through the
+   detector → `E7 E10` (**`E8` unseen**), and over `F-W7.md` the detector **misses `E20`** (sole occurrence
+   *"E1…E20"*). Harmless to set-membership here (every rostered id also occurs self-delimited, both
+   files); cross-checked with a tokeniser (`sed` errata-neutralise → `tr -cs` → `grep -x`), which returns
+   the disposed set with `E20` recovered and the errata `E6` gone. **Recorded as a dated finding in the
+   artefact (§4), routed to the next seat that re-cuts G-F7-8's operand; the dated spec byte is NOT
+   patched (E-3).**
+4. **Authored `waves/F-W7/carry-closure.md`** (`mkdir -p waves/F-W7/`; line 1 = SERVED MODEL). Direction 1
+   (F.W7 → F.W5): ROSTER ∖ REGISTER = ∅ · ROSTER ∖ CITED = ∅ — each id with its landing clause head, its
+   banked-id cell, F.W7's citing row(s), booking **0**. Direction 2 (F.W5 → F.W7): the only `§E` clause
+   naming this wave is **E16** (same identity, cited) → ∅; F.W7's non-roster mentions `E16` · `E9` · `E11` ·
+   `E12` · `E20` each disposed (identity · three anti-rename denials · a range endpoint) → ∅; booking census
+   **B = ∅** (canonical: no `### F.W7`, *"The F.W7 ∅ posture is TRUE AT THE CORPUS, by enumeration"*; the
+   frozen 66: token probe → no output; `contract/`: named only inside §E16 and rulings rows R2/R-4, no
+   cure assigned). Every pipe-bearing command is in a fenced block — **runnable as written, no
+   table-escaped pipe in the file.**
+5. **Appended `waves/F-W7.md` §13** — a dated E-3 addendum-beside at the file end: **§13.1** the §4 ruling
+   record, **F-TRIE cited BY ID** and quoted whole once from COHESION §0j.D (⟨cmd⟩ `grep -A3 '^\*\*F-TRIE'`),
+   no second ruling file, `OWNER-RULINGS-F.W5.md` extended by zero bytes · **§13.2** the **TERMINAL KILL
+   WITH RATIONALE** — incumbent named (`atomdiff.py:12-14`, live bytes quoted; D-19 discharged by the
+   anchor identity ⟨cmd⟩ `git -C $F diff --name-only 8bc7736 HEAD -- api/` → no paths, double-run), four
+   grounds (each a citation), **the accepted cost stated** (whole-snapshot duplication stays shipped on
+   both trees; storage linear in versions × bag; sketch-8's requirement RETIRED, re-openable only by the
+   owner via G7) · **§13.3** **G-F7-3's re-scope stated explicitly** — F.W7 re-scoped to ONE object kind
+   (fourier's five-atom bag); value.js OUT, verdict spelling `N/A — RE-SCOPED (F-SS4REST R1)` · **§13.4**
+   **G-F7-5 closed VACUOUSLY** (REST-39) · **§13.5** the value-side limbs emitted **by citation** to the
+   contract's existing rows (TA-4 → **VO-0**, a non-obligation; E1's compound `_id` → **VO-1 ⊕ VO-2**) —
+   no duplicate row minted · **§13.6** the three reciprocals **re-asked** (F.W10's §4b edge row — measured
+   still absent; SS-4; the value.js API row) and the two bilaterality riders kept REQUESTED · **§13.7**
+   the eleven close cells under the split verdict. **ZERO design bytes.**
+6. **Receipts fixed from live output before landing — disclosed** (the disposition rule admits no third
+   option): (i) the artefact first said the contract names this wave *"at exactly three lines"* while
+   listing four homes — the probe returns 3 (`J-diff-shape-v2.md`, all inside §E16) + 2
+   (`OWNER-RULINGS-F.W5.md`, rows R2 / R-4) + 0; re-stated as classification. (ii) the contract-heading
+   probe's `{0,60}` budget cut E5's heading mid-word with only E3's cut disclosed — widened to `{0,90}`,
+   all eight headings printed whole but E3's (cut by the negated class, disclosed). (iii) the addendum's
+   §E16 sentence was first certified by a probe narrower than its quote, across a source newline — split
+   into **two spans, two commands**. (iv) a standing-of-the-ruling phrase typed from §0o rather than read
+   from §0j — struck before landing, replaced by §0j's own heading under its ⟨cmd⟩. (v) direction 2's
+   first probe used a literal-pipe **row anchor** — the shape-dependence axis (i) forbids; re-cut to read
+   each hit line's leading token whatever its shape (same answer, `E16`).
+7. **WRITE-THEN-MEASURE.** After §13 settled: `F-W7.md` → `06d89cf13e52` (double-run); ⟨cmd⟩ `git diff
+   --numstat` → **233 insertions, 0 deletions** (append-only, proven); both instruments re-run over the
+   settled file — detector → all eight; tokeniser → the same disposed set, **no new id introduced**; the
+   addendum's own ids all citations or members of the ruling id. **Second closure pass: ∅ · ∅.**
+
+**Commits** (spec §10 rows 2 and 3; pathspec on the commit itself; one file each; the set-difference not
+split from its artefact).
+
+- `9b79676a` — `docs(X·F.W7): the trie-vs-KISS ruling record + branch` — `waves/F-W7.md`, 233 insertions.
+- `fdce6e54` — `docs(X·F.W7): carry closure — set-difference against F.W5` — `waves/F-W7/carry-closure.md`,
+  250 insertions.
+
+**Gate readings.**
+
+| gate | BEFORE (open) | AFTER (this unit) | evidence |
+|---|---|---|---|
+| **G-F7-8** | **RED** — no `carry-closure.md` | **GREEN** (owner: unit `c`) | `waves/F-W7/carry-closure.md` §7: ∅ · ∅ one way, ∅ · ∅ · ∅ the other, at two closure passes; books ZERO, cites ALL EIGHT, each at a named landing clause; triumvirate trigger not met |
+| **G-F7-11** | **RED for F.W7's end** | **CLOSED for F.W7** — GREEN **not claimed** (owners: F.W10 · SS-4 · the value.js API row) | §13.6: five wave-spec far ends re-probed, all reproduce; ⊕ COHESION §0k.2; three reciprocals re-asked; F-W10 §4b measured still without an `F.W7` row (⟨cmd⟩ → no output, exit 1) |
+| **G-F7-1** ⊙ | RULED, unrecorded in F.W7's text | **CLOSED** (owner ruled — §0j.D F-TRIE) | §13.1 record by id + §13.2 kill; zero design bytes at any point in the wave |
+| **G-F7-9** | **RED** — neither spec nor kill | **GREEN** (owner: F.W7) | exactly one branch: the kill (§13.2); ⟨cmd⟩ `ls design/` → `R4-enumeration-census.md` alone — `R4-variant-storage.md` never created |
+| **G-F7-3** | **RED** — re-scope ruled but unstated in F.W7's text | **CLOSED for F.W7** (GREEN owner: owner → value.js API row; the owner's half is ruled, the row's is VO-0) | §13.3, explicit, in this wave's own text |
+| **G-F7-4** | **RED** | **CLOSED for F.W7** (GREEN owner: value.js API row, VO-1 ⊕ VO-2) | no key designed; clause E1 stated at the contract (`### E1 — Compound per-entity version identity`) |
+| **G-F7-5** | **RED by absence** | **CLOSED VACUOUSLY** (REST-39) | §13.4 — no key, no consumed-field set, no superset owed |
+| **G-F7-6** | **RED** | **CLOSED for F.W7** (GREEN owner: F.W5 → F.W7) | no sizing computed on AGAINST; the contract states ONE disposition (probe reproduces) |
+
+*(G-F7-2 · G-F7-10 GREEN at unit `a`; G-F7-7 GREEN before the wave — unchanged.)*
+
+**Locks (§7b), as kept.** **K-3** — the upsert arm appears in this unit's bytes only as the statement that
+it is dead; it grounds nothing · **C-2** — recipe cited by name (*"MOVE A POINT FIRST"*), not re-performed ·
+**E1** — no key over an identity under repair (no key at all) · **`fr-ContourSettings B-4`** (= `C-1`, ∘
+`C-25`/`R6-8`; home F-W5 §2 clause E13) — led on the banked head, the alias never promoted · **M-12** —
+clause only, nothing booked · **SS-C-2** — rides inside E8; **no saving, ratio or byte figure computed** ·
+**m-15** — cross-referenced with F-4, **merged nowhere** · **BC-20** — stays banked, not re-booked ·
+**FR-GIG-5** — X-W3's split is a measurement with its author named, booked at ZERO · **D-19** — F.W0's
+substrate quoted, its identity measured, nothing re-resolved.
+
+**Cadence (§10).** ⟨cmd⟩ `git diff --check` on `F-W7.md` → clean, exit 0; trailing-whitespace probe on the
+new artefact → no output; table integrity — every table row of both new surfaces carries its table's pipe
+count (artefact: 4 / 6; addendum: 4 / 5); every `docs/…` path cited resolves. **Tripwire**: both commits
+are single-path docs commits (⟨cmd⟩ `git show --stat --format= 9b79676a fdce6e54`) — this unit moved no
+source byte, so typecheck/test/lint have nothing of this wave's to trip; the dirty `demo/` rows at this
+clock are a sibling track's.
+
+**The mail/inbox law.** Re-swept at this unit's clock (2026-09-19 01:41 EDT): path 1 ⟨cmd⟩ `find
+docs/tranches/V -maxdepth 2 -type f -name '*.md' -newermt "2026-09-19 01:00"` → `INBOX.md` (self,
+excluded) · glass `BK/` newest = `glass-outbound-2026-09-18-valuejs-o26-reply.md` (**I-35**, rowed; the
+`kfw6-bh-relay` letter = **O-26**, rowed) · keyframes newest letter = the 09-17 addendum (**O-21**);
+`INBOUND-LEDGER.md` is their ledger · atlas unmoved (**O-12**) · fourier `F/coordination/` unmoved since
+09-17. Status-cell census ⟨cmd⟩ (seat 0's `awk` form) → **`unread=0 rows=78`**, run 1 ≡ run 2. **No relay
+owed, none sent; `INBOX.md` gained zero bytes from this unit** (spec §7c / §8: F.W7 expects zero).
+
+**Residuals, carried not cured.** **(1)** Three reciprocals owed at far ends this wave may not write:
+**F.W10's §4b `F.W7` edge row** · **SS-4** · **the value.js API row** (§13.6). **(2)** The two stale
+bilaterality consumers — `F-W8.md` §5c (*"carried on BOTH sides"*), `F-W6.md` §4 (*"quoted both trees"*) —
+requested, read-only here. **(3)** The detector's shared-delimiter blindness — a finding against G-F7-8's
+*form*, not its answer; filed in the artefact §4 for the next operand re-cut. **(4)** Three spec receipts
+no longer reproduce at today's bytes and are corrected **beside**, never patched: G-F7-10's `hash.ts:6`
+witness (dead at X-W3), G-F7-11's *"`ls waves/` … and nothing else"* (two execution directories now sit
+there), §2a's *"Prospective, NOT yet in tree"* `contract/` row (F.W5 created it). **(5)** The LEDGER row
+for F.W7 is outside this unit's writable set and is the close seat's to stamp.
+
+**Escalations: none.** Zero fourier bytes, zero product bytes, zero design bytes, zero sibling-spec bytes,
+zero `contract/` bytes, zero INBOX bytes, zero writes outside the unit's writable set.
