@@ -620,3 +620,62 @@ what may say the X-W5 census is closed (§8d). Round 4 measures against these by
 ---
 
 — end of fold. The dated wave specs and every adjudicated record remain byte-untouched beside this file per E-3.
+
+---
+
+## 9. EXECUTION ADDENDUM — dated 2026-09-19 (X.W5.a, the seat's FIRST act)
+
+SERVED MODEL: claude-opus-5[1m]
+
+**APPEND-ONLY (E-3). Nothing above this line is edited.** Authored by **X.W5.a** under the owner's
+2026-09-17 begin-word (COHESION §0j) and the close docket's §0k.3 **Consequence** — *"X-W5 (S-1, S-7)
+… may open lawfully, each landing the dated addendum its ruling names as its first docs act."* This
+section **mints no row, no gate and no cure**. It corrects four §3/§6e BoundsDelta **path spellings**
+against the live tree, and records the ruling that ordered the first of them. Every identity, access
+verb, demanding row and contention in §3 stands unchanged.
+
+### 9a. BD-07 — the ruled correction (COHESION §0k.3 S-7)
+
+**The ruling, verbatim:** *"**(a) `demo/color-picker/ErrorBoundary.vue`** — the only path that exists;
+X-W5's BD-07 `demo/shell/…` path is an authoring error, **corrected by dated addendum at X-W5-FOLD**.
+X-W5 owns the containment altitude only (`App.vue:50/:140`'s wrap); the component's bytes are written
+by X-W7 (its §BoundsDelta names it); X-W6 and X-W10 read/cite. Write order on the shared file = stage
+order, each seat re-reading at open."*
+
+Measured at this seat, 2026-09-19 — ⟨cmd⟩ `find demo -name 'ErrorBoundary*'` →
+`demo/color-picker/ErrorBoundary.vue` (one hit) · ⟨cmd⟩ `test -f demo/shell/ErrorBoundary.vue` → **NO**.
+
+| # | §3 as written | the path that exists | access, unchanged |
+|---|---|---|---|
+| **BD-07** | `demo/shell/ErrorBoundary.vue` | **`demo/color-picker/ErrorBoundary.vue`** | modify — **and for X-W5 the ALTITUDE only**: the component's bytes are X-W7's |
+
+**What X-W5 may therefore write against BD-07: nothing inside the component.** The wrap's altitude
+lives in `App.vue` (in W5 §4 already) and in the composition root `main.ts` (W5 §5 X.W5.a's own text,
+and W5F-53's *"shell containment + reporting at the composition root `main.ts`"*). The EB R-1 cure-lock
+travels intact: EB-4 and EB-2 land together.
+
+### 9b. Three further path spellings, measured the same way — the identity is unmoved
+
+E-3 forbids editing §3's bytes and this section does not; it records what the named files are called
+on disk. The METHOD law for a drifted anchor is INTENT AT THE TRUE BYTES, RECORDED — the row's
+identity, demanding record and carve all stand; only the spelling moves. `X-W5.md`'s own unit-a bounds
+line already carries this treatment for BD-13/BD-14 (*"paths corrected above"*), which is the
+precedent this table extends to the remaining three.
+
+| # | §3/§6e as written | the path that exists | how measured |
+|---|---|---|---|
+| **BD-05** | `demo/palettes/usePaletteWiring.ts` | **`demo/color-picker/composables/usePaletteWiring.ts`** | ⟨cmd⟩ `find demo -name 'usePaletteWiring.ts'` → one hit |
+| **BD-06** | `demo/shell/PaneHeader.vue` | **`demo/shared/ui/PaneHeader.vue`** | ⟨cmd⟩ `find demo -name 'PaneHeader.vue'` → one hit |
+| **BD-10** | `demo/workbenches/extract/{useExtractSession.ts, useImageQuantize.ts, ImageEyedropper.vue}` | **`…/extract/composables/useExtractSession.ts`** · **`…/extract/composables/useImageQuantize.ts`** · **`…/extract/ImageEyedropper/ImageEyedropper.vue`** (the other two, `ExtractPane.vue` and `ExtractWorkbench.vue`, are spelled correctly) | ⟨cmd⟩ `find demo -name '<each>'` → one hit each |
+
+**BD-05 books no work at X.W5.a.** W5F-14's give-up posture *"dies with the registry"* (X-W8); this
+seat leaves the file byte-untouched and records the spelling only, so the row is not lost to a bad
+path when X-W8 opens.
+
+### 9c. What this section does not do
+
+It does not re-open S-1 or S-7, does not widen any carve (BD-06 stays the `as`/`level` seam; BD-10
+stays N1's deactivation teardown), does not promote or demote a severity, and does not touch
+`waves/W5.md`, `waves/CONFORMANCE-2026-08-03.md`, the adjudicated registry or any dated evidence
+record. Status stays `planned` above this line; the execution state machine is
+`docs/tranches/X/execution/LEDGER.md`.
