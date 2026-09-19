@@ -1,0 +1,55 @@
+SERVED MODEL: claude-opus-5[1m]
+X-W9.c — THE lerpArray LENGTH ASK, WITNESSED (W9.md :222-223: 'lerpArray is keyframes'
+FrameCompiler hot loop — the length leg is ASKED of keyframes in the W9.i packet, never
+assumed here'). This file is the packet's evidence. NO keyframes byte is written; the tree
+is READ-ONLY to this wave (runbook §5.5) and every citation below is a read.
+
+================ 1. their two call sites, read at their bytes ================
+⟨cmd⟩ grep -rn "lerpArray(" ../keyframes.js/src
+  src/animation/engine/interpolate.ts:274   lerpArray(from, to, eased, out)
+  src/animation/physics/numeric.ts:193      lerpArray(seg.from, seg.to, eased, this._out)
+
+  interpolate.ts:274 is SAFE by construction. Its three buffers come from one builder,
+  compile/frame/numeric-plan.ts:18-30 — from/to/out are each new Float64Array(numeric.length).
+
+  numeric.ts:193 is NOT. Read at their bytes:
+    :67        private _out = new Float64Array(0);
+    :186-188   "Grow the shared `_out` scratch buffer lazily — never shrink it"
+    :190-192   const n = seg.keys.length; if (this._out.length < n) this._out = new Float64Array(n);
+    :193       lerpArray(seg.from, seg.to, eased, this._out);
+    :135-141   buildSegment: keys = Object.keys(start); from/to = new Float64Array(keys.length)
+
+  Each segment sizes from/to to ITS OWN key count, and _out is grown to the widest segment
+  seen and never shrunk. The moment playback reaches a segment with fewer channels than one
+  already visited, out.length > start.length — which the cured contract rejects.
+
+================ 2. the witness ================
+⟨cmd⟩ MATH_SRC=<tree>/src/foundation/math.ts npx vite-node kf-lerparray-witness.mts
+    K=3  out.length=3  -> ok [0.5, 0.5, 0.5]
+    K=2  out.length=3  -> RangeError: lerpArray: start, stop and out must share one length; received 2, 2, 3
+  
+  The cure keyframes needs at THEIR end, one line, no allocation:
+    lerpArray(seg.from, seg.to, eased, this._out.subarray(0, n));
+    K=3  view.length=3 -> ok [0.5, 0.5, 0.5]
+    K=2  view.length=2 -> ok [1.5, 1.5]
+
+================ 3. what the packet must say, and what it must NOT ================
+  * TIMING. keyframes pins value.js EXACTLY ('4.0.0', ../keyframes.js/package.json:71), so
+    nothing breaks today. The break arrives WITH the 4.1 pin bump — i.e. inside X-W9.f's
+    one dated cut — which is precisely why the ask must be delivered BEFORE the tag (G33).
+  * THE ONE-LINE CURE AT THEIR END, allocation-free and inside their own idiom:
+      lerpArray(seg.from, seg.to, eased, this._out.subarray(0, n));
+    subarray is a view, not a copy, so the grow-never-shrink scratch survives intact.
+  * THE ASK O-11 §E ALREADY MADE is now PAID FROM THE PRODUCER END and its consequence
+    inverts. O-11 (INBOX.md:79, SENT 2026-07-27, no reply on record) asked them for 'a
+    lerpArray length assertion at their end' because a mismatch silently wrote
+    [2.5, 3.5, NaN]. It no longer writes anything: it throws. The packet must say that the
+    silent-NaN risk is gone and a REJECTION risk has taken its place at one measured site.
+
+  NOT taken here, and named so the orchestrator can rule rather than discover:
+  relaxing out to 'out.length >= n' would accommodate their idiom without reopening the
+  NaN class (that came from stop being short). It is NOT taken because the sentence this
+  unit was ordered to enforce — src/foundation/math.ts:58, 'start, stop, out must share the
+  same length' — says EQUAL, and the spec's own words ('never assumed here') only make
+  sense if the strict contract lands and the consumer is asked. Changing the contract is an
+  adjudication, not an implementer's edit (E-3).
