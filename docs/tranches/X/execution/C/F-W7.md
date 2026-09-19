@@ -473,3 +473,209 @@ for F.W7 is outside this unit's writable set and is the close seat's to stamp.
 
 **Escalations: none.** Zero fourier bytes, zero product bytes, zero design bytes, zero sibling-spec bytes,
 zero `contract/` bytes, zero INBOX bytes, zero writes outside the unit's writable set.
+
+---
+
+## Close
+
+**CLOSE SEAT — `claude-opus-5[1m]`, VERIFY-ONLY, dated 2026-09-19 (sitting of record 2026-09-17, the
+owner's begin-word).** This seat **cured nothing**: it authored no spec byte, no artefact byte, no
+fourier byte, no product byte and no design byte. It re-ran every §6 gate at its own clock against the
+spec's own GREEN definitions, re-opened every commit, ran §10's cadence and tripwire, re-swept E13, and
+wrote only this section and the wave's LEDGER row.
+
+**CRASH-RECOVERY, first act.** ⟨cmd⟩ `git -C /Users/mkbabb/Programming/value.js status --porcelain` →
+nine dirty paths — `demo/color-picker/App.vue` · `demo/color-session/keys.ts` · `demo/picker/ColorPicker.vue` ·
+`demo/shell/dock/Dock.vue` · `demo/shell/dock/layers/ActionBarLayer.vue` ·
+`demo/shell/dock/layers/GenericActionBar.vue` · `demo/shell/usePaneRouter.ts` ·
+`docs/tranches/V/reformation/CARRY-LEDGER.md` · `eslint.config.js` — **plus** `scripts/dev/dev.sh`, the
+standing unowned row. **Not one is inside this seat's writable set** (`docs/tranches/X/execution/C/F-W7.md`
+⊕ `docs/tranches/X/execution/LEDGER.md`); the seven `demo/` rows and `eslint.config.js` are **Track A**'s
+in-flight X·V W4.d work, `CARRY-LEDGER.md` a sibling's, `dev.sh` never staged by anyone. **This seat
+touched none of them, stashed nothing, restored nothing.** ⟨cmd⟩ `git -C ../fourier-analysis status
+--porcelain | /usr/bin/grep -c .` → **0**. **Nothing was inherited; no predecessor partial work existed
+on this unit.**
+
+### C.1 — Commit roster: every commit exists, and every one lands inside its unit's writable set
+
+⟨cmd⟩ `git show --stat --oneline <sha>` and `git show --name-only --format= <sha>` for each:
+
+| # | sha | message | paths touched | numstat | verdict |
+|---|---|---|---|---|---|
+| 0 | `a167f945` | `docs(X·exec): F.W7 OPEN — baseline banked, 2 units planned` | `docs/tranches/V/coordination/INBOX.md` · `docs/tranches/X/execution/C/F-W7.md` · `docs/tranches/X/execution/LEDGER.md` | 211 ins / 2 del | **seat-0 paths + §2a's INBOX row** — see C.5 finding 1 |
+| 1 | `5ef18133` | `docs(X·F.W7): the R-4 persistence-surface enumeration census` | `docs/tranches/X/fourier/design/R4-enumeration-census.md` | **482 / 0** | **§2a row 2, one file, no sibling hunk** |
+| 2 | `78f7f1a5` | `docs(X·exec): X.F.W7.a receipt …` | `docs/tranches/X/execution/C/F-W7.md` | 123 / 2 | **the record alone** |
+| 3 | `9b79676a` | `docs(X·F.W7): the trie-vs-KISS ruling record + branch` | `docs/tranches/X/fourier/waves/F-W7.md` | **233 / 0** | **§2a row 1; APPEND-ONLY PROVEN — zero deletions, so no dated byte of §0–§12 moved (E-3)** |
+| 4 | `fdce6e54` | `docs(X·F.W7): carry closure — set-difference against F.W5` | `docs/tranches/X/fourier/waves/F-W7/carry-closure.md` | **250 / 0** | **§2a row 4, one file** |
+| 5 | `8b280bc1` | `docs(X·exec): X.F.W7.c receipt …` | `docs/tranches/X/execution/C/F-W7.md` | 133 / 0 | **the record alone** |
+
+**Spec §10's commit roster is satisfied exactly**: row 1 = `5ef18133`, row 2 = `9b79676a`, row 3 =
+`fdce6e54`. The set-difference was **not split from its artefact** (one commit, one file, 250
+insertions). **`design/R4-variant-storage.md` appears in no commit** — it was never created, as §0j.D
+rules.
+
+**The load-bearing bounds measurement, run over the whole roster rather than per commit**: ⟨cmd⟩
+`for c in a167f945 5ef18133 78f7f1a5 9b79676a fdce6e54 8b280bc1; do git show --name-only --format= $c;
+done | /usr/bin/grep -E '^(api|src|demo|test|e2e)/' | /usr/bin/grep -c .` → **0**. **This wave moved
+zero product bytes.** ⟨cmd⟩ `git -C ../fourier-analysis log --oneline 21e11b0d..HEAD | /usr/bin/grep -c .`
+→ **0**, and fourier HEAD is unmoved at **`21e11b0d`** with a clean tree: **zero fourier bytes**, the
+read-only law kept.
+
+### C.2 — Every §6 gate, re-run at this seat's own clock (BEFORE → AFTER)
+
+Base `$V/docs/tranches/X/fourier` unless stated · `$F=/Users/mkbabb/Programming/fourier-analysis`
+(read-only) · pinned BSD `/usr/bin/grep` · every absence probe double-run.
+
+| gate | BEFORE (seat 0's baseline) | AFTER — **this seat's own reading** | the probe that produced it |
+|---|---|---|---|
+| **G-F7-1** ⊙ | RULED, unrecorded in F.W7's text | **CLOSED for F.W7** · GREEN owner: **owner, RULED** | ⟨cmd⟩ (base `$V/docs/tranches/X`) `/usr/bin/grep -A3 '^\*\*F-TRIE' COHESION.md` reproduces the ruling **whole, four source lines**, *"**NO TRIE**; whole-snapshot duplication is the recorded shipped / behaviour … F.W7 unit `b` never opens, `design/R4-variant-storage.md` is never created, G-F7-5 closes vacuously; unit `a`'s / census runs."*; §13.1 records it **by id**, §13.2 lands the kill; `contract/OWNER-RULINGS-F.W5.md` row **R2** reproduces (⟨cmd⟩ `/usr/bin/grep -o '\*\*F-TRIE\*\* (R2 ≡ E16 ≡ G7 ≡ G-F7-1)'`) and gained **zero** bytes from this wave |
+| **G-F7-2** | **RED** — `design/` did not exist | **GREEN** · owner: F.W7 unit `a` | ⟨cmd⟩ `/bin/ls design/` → `R4-enumeration-census.md` (double-run) · four classes ⟨cmd⟩ `/usr/bin/grep -oE '^### §2[a-d] — Class [1-4]: [A-Z ]+'` → `VERSION WRITERS` · `ASSET WRITERS` · `CACHE KEYS` · `HASH FOLDS` · rows ⟨cmd⟩ `/usr/bin/grep -cE '^\| \*\*(V\|F)\*\* \|'` → **31** (run1 ≡ run2) = V **13** ⊕ F **18** = 30 sites ⊕ the one ∅ row · table integrity ⟨cmd⟩ the same rows through `sed 's/\\\|/@/g' \| awk -F'\|' '{print NF-1}' \| sort \| uniq -c` → **`31 6`**, every row exactly 6 unescaped pipes. **The six-term grep is retired on both grounds at THIS seat's clock** — NOISE: raw over the frozen 66 → **147 · 147**, word-bounded → **exactly one line**, `fr-ContourEditorCanvas.md:56` (L-5), dominant signal ⟨cmd⟩ `grep -rhoiE "[a-z]*trie[a-z]*" \| tr \| sort \| uniq -c \| sort -rn \| head -6` → `142 entries` · `18 featuredentries` · `5 nonfeaturedentries` · `5 geometries` · `2 registries` · `2 asymmetries`. BLINDNESS: value `api/src src` → **25**; fourier `api web/src` → **181** raw of which **20** are `Binary file` `__pycache__` lines → **161** source-only; **25 + 161 = 186 source lines**, and the decisive word-bounded probe over all four roots → **no output, exit 1** |
+| **G-F7-3** | **RED** — ruled, unstated in F.W7's text | **CLOSED for F.W7** · GREEN owner: owner → the value.js API row (**VO-0**) | §13.3 states the re-scope explicitly in this wave's own text. At today's product bytes: ⟨cmd⟩ `/usr/bin/grep -rn "atomdiff\|atomDiff" api/src src` → **one comment hit**, `api/src/modules/palette/__tests__/palettes-forks.test.ts:9` — the **TA-4 excision record**, not an adopter; ⟨cmd⟩ `/bin/ls api/src/lib` → *No such file or directory*. The non-obligation is banked at ⟨cmd⟩ `/usr/bin/grep -n 'VO-0' contract/J-diff-shape-v2.md` → `:3075` |
+| **G-F7-4** | **RED** | **CLOSED for F.W7** · GREEN owner: the value.js API row (**VO-1 ⊕ VO-2**) | **No key was designed at any point** (G-F7-9's `ls design/`); clause E1 lands at the contract, ⟨cmd⟩ `/usr/bin/grep -n '^### E1 ' contract/J-diff-shape-v2.md` → `:1586 ### E1 — Compound per-entity version identity` |
+| **G-F7-5** | **RED by absence** | **CLOSED VACUOUSLY** (REST-39) · owner: F.W7's FOR branch, **not taken** | §13.4. The AGAINST branch creates no key spec (§2a row 3: *"never created"*), so **no consumed-field set is named and no superset relation is owed**. The obligation is discharged by the branch, not by an act |
+| **G-F7-6** | **RED** | **CLOSED for F.W7** · GREEN owner: F.W5 → F.W7 | **No sizing, saving, ratio or byte figure is computed anywhere in this wave** (SS-C-2 kept); the contract states one disposition, ⟨cmd⟩ `/usr/bin/grep -o 'This contract states ONE disposition for produced-and-unconsumed response fields' contract/J-diff-shape-v2.md` → reproduces, exit 0 |
+| **G-F7-7** | **GREEN before the wave** | **GREEN — re-measured, unmoved** · owner: F.W0 | ⟨cmd⟩ `git -C $F status --porcelain \| /usr/bin/grep -c .` → **0 · 0** (was 28 at the fold) · ⟨cmd⟩ `git -C $F rev-parse --short=8 HEAD` → **`21e11b0d`** · ⟨cmd⟩ `git -C $F cat-file -t 14d83356` → `fatal: Not a valid object name` (unchanged). **The anchor identity, re-run here**: ⟨cmd⟩ `git -C $F diff --name-only 8bc7736 HEAD -- api/ \| /usr/bin/grep -c .` → **0 · 0** — the whole fourier `api/` surface is byte-identical between F.W0's published substrate and today, so every anchor this wave cites is F.W0's and **this seat re-resolved nothing** (D-19). The guardrail itself reproduces verbatim, ⟨cmd⟩ `sed -n '12,14p' $F/api/lib/crud/atomdiff.py` |
+| **G-F7-8** | **RED** — no `carry-closure.md` | **GREEN** · owner: F.W7 unit `c` | ⟨cmd⟩ `/bin/ls waves/F-W7/` → `carry-closure.md`; its §7 verdict table reads **∅ · ∅** (F.W7 → F.W5) and **∅ · ∅ · ∅** (F.W5 → F.W7), *"books ZERO … cites ALL of them, each at a named landing clause"*, triumvirate trigger **not met**. The spec's own detector re-run here, **double-run**: ⟨cmd⟩ `/usr/bin/grep -ohE '(^\|[^A-Za-z0-9])(E1\|E3\|E5\|E7\|E8\|E10\|E13\|E17)([^0-9A-Za-z]\|$)' waves/F-W5.md \| sed -E 's/[^A-Za-z0-9]//g' \| sort -u` → `E1 E10 E13 E17 E3 E5 E7 E8` (run1 ≡ run2) — **all eight live at F-W5**; the register heading reproduces, ⟨cmd⟩ `/usr/bin/grep -o '^### §E — Provenance, lineage and persistence (the union.s core)' waves/F-W5.md` |
+| **G-F7-9** | **RED** — neither spec nor kill | **GREEN** · owner: F.W7 | **Exactly one branch, measured both ways**: the kill exists (§13.2, *"KILLED, TERMINALLY"*, incumbent named, four grounds, the accepted cost stated) and the design does not — ⟨cmd⟩ `/bin/ls design/` → `R4-enumeration-census.md` **alone** (double-run) and ⟨cmd⟩ `/usr/bin/find . -name 'R4-variant-storage.md'` → **no path**. Neither-is-a-defect and both-is-a-defect are both avoided |
+| **G-F7-10** | **RED** — and the spec's born-RED witness no longer reproduced | **GREEN** · owner: F.W7 unit `a` | ⟨cmd⟩ `/usr/bin/grep -rniE "merkle\|flat bag\|not a tree" api/src src demo test e2e` → **no output, exit 1** (run1 ≡ run2) — the value tree is **silent**, not contradictory; ⟨cmd⟩ `/usr/bin/find api/src src -iname '*atomdiff*'` → **no output**: the guardrail's named adopter is absent. **The premise is false BY SILENCE**, which is the sharper form, and §4 of the census states it at today's bytes with the command beside it |
+| **G-F7-11** | **RED for F.W7's own end** | **CLOSED for F.W7 — GREEN NOT CLAIMED** · owners: **F.W10** · SS-4 · the value.js API row | **All five wave-spec far ends re-probed at this seat's clock and all five reproduce**: F-W0 §6b → *"**F.W7** (the owner-gated trie design)"* · F-W3 §4 → *"Declared-not-carried edge: **F.W7's anti-tree KISS guardrail stays inline in F.W7.**"* · F-W5 §4 → *"**F.W7 CITES; F.W5 STATES.**"* · F-W6 §4 → *"The standing anti-tree KISS guardrail (`atomdiff.py:12-14`, quoted both trees) binds until the owner moves it"* · F-W8 §5c → the `F.W8 designs no trie…` span (**see C.5 finding 2 — the published span is one byte narrower than its command's output**). The owed end is **still owed**: ⟨cmd⟩ `awk '/^### §4b /{f=1;next} f&&/^##/{exit} f' waves/F-W10.md \| /usr/bin/grep -E '(^\|[^A-Za-z])F[.-]W7([^0-9A-Za-z]\|$)'` → **no output, exit 1** |
+
+**Verdict on §6: eleven of eleven discharged at F.W7's end — 5 GREEN (G-F7-2 · G-F7-7 · G-F7-8 · G-F7-9 ·
+G-F7-10), 5 CLOSED-for-F.W7 under the split verdict (G-F7-1 ⊙ · G-F7-3 · G-F7-4 · G-F7-6 · G-F7-11), 1
+CLOSED VACUOUSLY by branch (G-F7-5). ZERO RED carried.** §13.7's close cells reproduce cell-for-cell at
+this seat's independent reading; **no GREEN is claimed that this wave did not execute** — G-F7-11's three
+far ends and G-F7-3/4/6's named owners stay exactly where §6 puts them.
+
+**§1a's goal criterion — exactly one leg, verified both ways.** Leg (b) is met (terminal kill with
+rationale, incumbent named); leg (a) is **not** met and cannot be (no design file exists under any name:
+⟨cmd⟩ `/bin/ls design/` → one file). **Not both, not neither.**
+
+### C.3 — §10's cadence, artefacts and the tripwire, run as written
+
+- ⟨cmd⟩ `git diff --check` → **clean, exit 0**.
+- **Markdown path check** over the `docs/…` paths the two new artefacts cite → **zero unresolved** (every
+  `contract/`, `waves/`, `conformance/`, `registry/adjudicated/` and `SUBSTRATE-LEDGER.md` operand quoted
+  in this close resolved at this seat's own probes).
+- **The G-F7-8 set-difference re-run** — done above, at this seat's clock, double-run: all eight ids, ∅
+  both directions at the artefact's §7.
+- **The typecheck / test / lint TRIPWIRE, run once at close as §10 prescribes — and read honestly.**
+  ⟨cmd⟩ `npm run typecheck` → **1 error**, `test/v4-css-emerging.test.ts(12,10): TS2459` ·
+  ⟨cmd⟩ `npm run lint` → **55 problems (23 errors, 32 warnings)** ·
+  ⟨cmd⟩ `npm run test` → **13 failed / 600 passed (613), 4 failed files** —
+  `demo/test/shell/reka-binding-idiom.test.ts` · `test/spectrum-luma.test.ts` · `test/v4-c1.test.ts` ·
+  `test/v4-css-emerging.test.ts`.
+  **None of it is this wave's, and the attribution is a measurement, not a claim**: ⟨cmd⟩ `git diff
+  --name-only 0779d34a HEAD -- test/ src/ \| /usr/bin/grep -c .` → **0** — **not one committed byte of
+  `test/` or `src/` has changed since F.W7 opened**, so every one of these reds pre-dates this wave at its
+  own base HEAD; ⟨cmd⟩ `git diff --name-only 0779d34a HEAD \| /usr/bin/grep -vE '^docs/'` → exactly two
+  paths, `e2e/smoke/a11y-gradient-stop-grammar.spec.ts` and `e2e/smoke/scene-action-contract.spec.ts`,
+  **both Track A's born-RED X·V gates**; and ⟨cmd⟩ over the whole commit roster → **zero** product paths.
+  The lint findings carry **zero** `.md` or `F-W7` paths (⟨cmd⟩ the error file-list through
+  `/usr/bin/grep -cE '\.md$\|F-W7'` → **0**) and sit in pre-existing docs-tree `.js`/`.mjs` probe
+  artefacts and the harness chassis, measured while **Track A holds `eslint.config.js` dirty**.
+  **§10's tripwire asks one question — did the wave escape its bounds — and the answer is NO.** Reporting
+  these reds as F.W7's would be the manufactured false negative the four-workflow law warns of; reporting
+  them not at all would be the unpublished residue R4-1.9 convicts. They are published, attributed, and
+  **not** counted against this wave.
+
+### C.4 — E13, re-swept at the close seat's own clock
+
+Four paths ⊕ the Track-C surface, read-only, `INBOX.md` self-excluded (SELF-COUNT law):
+
+1. `docs/tranches/V/coordination/` — newest members are the five 2026-09-18 letters, **all ours, outbound,
+   all rowed** (O-34…O-38) ⊕ `INBOX.md` (self).
+2. `../glass-ui/docs/tranches/BK/coordination/` — **BK re-confirmed newest** (⟨cmd⟩ `/bin/ls -dt
+   ../glass-ui/docs/tranches/*/ \| head -3` → `BK/` · `BJ/` · `BI/`); newest member
+   `glass-outbound-2026-09-18-valuejs-o26-reply.md` = **I-35**, rowed.
+3. `../keyframes.js/docs/tranches/V/coordination/` — newest letter
+   `VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md` = **O-21**, ours; `INBOUND-LEDGER.md` is
+   their ledger, not a letter. **UNMOVED.**
+4. `../sci-report/atlas/docs/tranches/P/coordination/` — newest
+   `valuejs-inbound-2026-07-27-library-band-export-delta.md` = **O-12**, ours. **UNMOVED.**
+⊕ `../fourier-analysis/docs/tranches/F/coordination/` — `INBOX.md` beside the three 2026-05-29 letters,
+   **unmoved since 09-17**.
+
+**Status-cell census, double-run** (seat 0's `awk` form, classification by cell position, never by a bare
+`grep -i unread`): → **`unread=0 rows=78`** (run1 ≡ run2). Register tail unmoved at **I-35 / O-38**.
+**ZERO UNREAD mail in F.W7's scope; no wave closes with unread mail, and this one does not.** This seat
+sent no relay and wrote **zero** INBOX bytes.
+
+### C.5 — Landed-wrong findings (VERIFY-ONLY — named here, cured nowhere)
+
+1. **A false receipt in this record's own E13 Step-0 block, and it is this seat's duty to name it rather
+   than let a later reader find it.** The block states, in bold, ***"The INBOX was not written by this
+   seat"*** — and commit **`a167f945`** appends **2 lines** to `docs/tranches/V/coordination/INBOX.md`
+   (⟨cmd⟩ `git show --stat --format= a167f945 -- docs/tranches/V/coordination/INBOX.md` → `2 ++`), the
+   appended line being F.W7's **own** OPEN sweep record (*"**Sweep 2026-09-19 (X.F.W7 OPEN — Track C ·
+   X·F, SEAT 0 …)**"*). **The write itself is lawful in shape** — the path is in §2a's writable set,
+   marked **append-only**, and the append is a sweep record that adds to the durable E13 ledger without
+   touching a row. **The sentence is not.** §2a's conditionality (*"one ledger row **iff** a relay is
+   sent"*) governs **relay rows**, and this was not one; the defect is that the receipt **denies an act
+   the bytes record**, which is precisely the class this programme exists to kill. **Not fixed here**:
+   the Step-0 block is a dated seat-0 byte and the correction travels **beside** it (E-3), in this
+   paragraph. **Owner: recorded, no re-open.**
+2. **A fourth spec receipt that does not reproduce — new at this close, and it is at a gate cell.** §6
+   **G-F7-11** and §7c publish the F-W8 far-end span under the label *"likewise the command's own output,
+   the budget's cut disclosed"*, ending ***"…sustains the incumbent KISS gu"***. The live command prints
+   **131 characters ending `…KISS gua`** — ⟨cmd⟩ `/usr/bin/grep -o 'F.W8 designs no trie\..\{0,110\}'
+   waves/F-W8.md \| /usr/bin/awk '{print length($0)}'` → **131**, while ⟨cmd⟩ `/usr/bin/grep -o
+   'sustains the incumbent KISS gu[a-z]*' waves/F-W7.md` → `sustains the incumbent KISS gu`. **The
+   published span is ONE BYTE NARROWER than its own command's output**, under a label claiming it is that
+   output. The substance is untouched (the far end is declared and reproduces); the provenance is off by
+   one character — the same class as round 4's D-2, one generation later and one byte smaller. **The
+   wave record's baseline table at open copied the spec's rendering rather than the command's**, so the
+   defect propagated once inside this wave. **Corrected BESIDE, never patched** (§0–§12 are immutable,
+   E-3). **Owner: the X·F purge/certificate seat**, as R4-8 assigns.
+3. **The seat-0 LEDGER cross-hunk disclosure, re-verified rather than re-litigated.** `a167f945` carries
+   Track B's `KF.W10` row under an F.W7 message, disclosed by seat 0 at the time. **Re-checked here:**
+   ⟨cmd⟩ `/usr/bin/grep -n '^| KF.W10 ' LEDGER.md` → the row stands intact at `:54` reading `**CLOSED
+   2026-09-17 (honest-RED: G-7)**` — **nothing was altered, lost or reverted, and no unstage, reset or
+   stash was performed by any F.W7 seat.** The standing hazard is unchanged and is not this wave's to
+   cure: a pathspec kills cross-*path* contamination and is powerless against cross-*hunk* contamination
+   in a file four tracks write.
+
+**No other landed-wrong finding exists.** Every artefact this wave committed lands inside the writable
+set §2a and the unit plan give it; the two spec-file writes are **append-only and proven so by numstat**
+(233/0 and, for the record, 482/0 and 250/0 on the new files); no sibling spec, no `contract/` file, no
+`registry/adjudicated/` record, no conformance artefact, no producer tree and no product file was
+touched by any F.W7 seat.
+
+### C.6 — Residuals, each with its named owner
+
+| # | residual | owner | this wave's disposition |
+|---|---|---|---|
+| 1 | **F.W10's §4b `F.W7` edge row** — measured **still absent** at this seat's clock | **F.W10's seat** | RE-ASKED at §13.6; **read-only to this wave**, never written |
+| 2 | **SS-4's half of the edge** — that the trie question was flagged inline and RULED, and TA-4 re-scoped | **SS-4's owner** | Classification offered at §13.6, **no GREEN claimed**; the reading is SS-4's |
+| 3 | **The value.js API row's half** — VO-0 as a non-obligation, VO-1 ⊕ VO-2 as its acts | **the value.js API row** | Emitted **by citation** at §13.5, no duplicate row minted, nothing re-booked as a fourier defect |
+| 4 | **Two stale bilaterality consumers** — F-W8 §5c (*"carried on BOTH sides"*) · F-W6 §4 (*"quoted both trees"*) | **F.W8's and F.W6's seats** | REQUESTED, not written. Sharpened by unit `a`: the premise is now false **by silence**, not by contradiction |
+| 5 | **G-F7-8's detector shared-delimiter blindness** — a finding against the gate's *form*, not its answer (`E7/E8/E10` → `E7 E10`) | **the next seat that re-cuts G-F7-8's operand** | Filed as a dated finding in `carry-closure.md` §4, cross-checked with a tokeniser; the dated spec byte is **not** patched |
+| 6 | **Four spec receipts that no longer reproduce**, all corrected beside (E-3): G-F7-10's `hash.ts:6` *"Merkle property"* (dead at X-W3 `9b3e6923`) · G-F7-11's *"`ls waves/` … and nothing else"* (two execution directories now sit there) · §2a's *"Prospective, NOT yet in tree"* `contract/` row (F.W5 created it) · **the F-W8 span's one-byte over-reach (C.5 finding 2, new at this close)** | **the X·F purge/certificate seat** (R4-8) | Recorded beside; **no immutable byte patched by any seat of this wave** |
+| 7 | **The branch's standing tripwire reds** — 1 typecheck error, 23 lint errors / 32 warnings, 13 vitest failures across 4 files | **Track A (X·V)** and the branch's own owners | Measured, attributed and published at C.3; **zero attributable to F.W7**, which moved zero product bytes |
+| 8 | **The shared-LEDGER cross-hunk hazard** | **the programme** | Disclosed by seat 0, re-verified at C.5 finding 3; the durable cure is the ledger law already in force |
+
+**Escalations: NONE.** No triumvirate condition was met — G-F7-8 returned ∅ in both directions at the
+first closure pass and reproduced at the second; no bounds expansion was attempted; the F.W0 halt
+condition is not in force; the enumeration census did not disagree with itself.
+
+### C.7 — The four-verb line (§1), moved only as §1's own evidence cells permit
+
+| verb | before | **after this close** | authority |
+|---|---|---|---|
+| AUDITED | **YES** | **YES** — unmoved | §1's own cell |
+| SPECIFIED | **YES** | **YES** — unmoved | §1's own cell |
+| IMPLEMENTED | **NO** — *"no design byte lands before G-F7-1 rules"* | **YES — 2026-09-17** | The condition the cell names is **discharged**: G-F7-1 **RULED** (§0j.D F-TRIE) and the wave landed its ruled branch. **Zero design bytes were authored — which is what the ruling required, not a shortfall against it.** §1a's XOR resolves to leg (b) |
+| VERIFIED | **NO** | **NO — and this seat does not stamp it** | §1's own cell reserves the stamp: *"stamped only at X·F's sub-tranche release close"*. **This close seat is not that seat.** A close seat that stamped VERIFIED here would be taking a GREEN it was not designated to execute — the very thing §6's split verdict forbids |
+
+**The spec's §1 table is a dated, immutable byte and was NOT edited** (E-3; the addendum is append-only,
+proven by `233 insertions, 0 deletions`). The verb move is recorded **here and in the LEDGER row**, which
+is where a wave's state lawfully lives.
+
+---
+
+**CLOSE VERDICT: X.F.W7 — IMPLEMENTED 2026-09-17.** Eleven of eleven gates discharged at F.W7's end,
+**zero RED carried, zero escalations**; five commits inside bounds, two of them append-only over an
+immutable spec; **zero fourier bytes, zero product bytes, zero design bytes, zero sibling-spec bytes,
+zero `contract/` bytes**. The owner-gated question was **put, ruled, and recorded** — never presumed —
+and the wave lands as the **terminal kill with rationale** §1a's leg (b) and COHESION §3 item 2 require.
+**VERIFIED stays NO**, reserved to the X·F sub-tranche release close. Three reciprocals and two
+bilaterality riders stay **owed at far ends this wave may not write**, each named with its owner.
