@@ -319,6 +319,18 @@ export default [
         // §6 D2's own RED census never counted it). Its action-path bytes carry
         // no `any`, and the residual is recorded in the unit receipt rather than
         // silently globbed away.
+        //
+        // SCOPE, STATED EXACTLY (X-W4 Repair 1 · Check 1 defect 4). D2's gate
+        // command's third leg is the GLOB `demo/shell/dock/**`; this object arms
+        // seven NAMED files, two of which sit in that glob. The two files inside
+        // the glob that carried a type-level `any` the armed run could not see
+        // were both `catch (e: any)` and both pre-date this wave (`6dde42ad`):
+        //   · `demo/shell/dock/layers/SlugEditLayer.vue:57` — a W4 §4 row, CURED
+        //     at Repair 1 to `catch (e: unknown)`;
+        //   · `demo/shell/dock/ColorInput.vue:242` — in NO W4 §4 row, so arming
+        //     the literal glob here would make D2 unfixable in bounds. It is
+        //     NAMED and escalated (Check 1 defects 3 and 4) — not excluded by a
+        //     silent glob and not padded away.
         files: [
             "demo/color-picker/App.vue",
             "demo/shell/usePaneRouter.ts",

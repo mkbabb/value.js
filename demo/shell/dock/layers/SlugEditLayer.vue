@@ -54,8 +54,13 @@ async function onSlugSubmit() {
         pm.onSlugSwitch(isAdmin ? normalizeTokenInput(raw) : normalized, isAdmin);
         slugInput.value = "";
         slugEditMode.value = false;
-    } catch (e: any) {
-        const msg = e?.message ?? "";
+    } catch (e: unknown) {
+        // X-W4 Repair 1 (Check 1 defect 4) — D2's gate command scopes
+        // `demo/shell/dock/**`, so a type-level `any` in this file is inside the
+        // gate's letter even though the armed file list names seven others. The
+        // narrowing is the sibling's own idiom (`useSlugMigration.ts:85-88`):
+        // an `Error` carries the message, anything else carries none.
+        const msg = e instanceof Error ? e.message : "";
         if (msg.includes("409")) slugError.value = "Already signed in.";
         else if (msg.includes("404")) slugError.value = "Slug not found.";
         else if (msg.includes("429")) slugError.value = "Too many attempts.";
