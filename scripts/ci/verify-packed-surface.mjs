@@ -33,11 +33,16 @@ if (!process.argv[2]) throw new Error("usage: verify-packed-surface.mjs <tarball
 
 const workspace = await mkdtemp(join(tmpdir(), "value-v4-consumer-"));
 const expected = {
+    // The 4.1.0 cut added five runtime names here (SCI-1's `sampleColorRamp`,
+    // `mixColorsInto`, `toRgba8Into`, plus `toHex` and the `isAnyColor` guard)
+    // and did not pay this file's two-edit ratchet, so the shipped tarball
+    // failed its own check at the runtime export-list assertion (G20).
     color: [
         "a98Rgb", "convertColor", "displayP3", "hsl", "hsv", "hwb",
-        "ictcp", "interpolateHue", "jzazbz", "kelvin", "lab", "lch",
-        "linearSrgb", "mapColorToGamut", "mixColors", "oklab", "oklch",
-        "prophotoRgb", "rec2020", "rgb", "safeAccentColor", "toRgba8", "xyz",
+        "ictcp", "interpolateHue", "isAnyColor", "jzazbz", "kelvin", "lab", "lch",
+        "linearSrgb", "mapColorToGamut", "mixColors", "mixColorsInto", "oklab", "oklch",
+        "prophotoRgb", "rec2020", "rgb", "safeAccentColor", "sampleColorRamp",
+        "toHex", "toRgba8", "toRgba8Into", "xyz",
     ],
     value: ["isLayoutTrackingUnit"],
     css: [
@@ -46,13 +51,14 @@ const expected = {
         "collectStyleRules", "collectTimelineOptions", "parseAnimationRange",
         "parseAnimationTimeline", "parseCssColor", "parseCssScalar", "parseCssValue",
         "parseCssValues", "parseKeyframeSelector", "parseStylesheet",
-        "parseTimingFunction", "serializeCssColor", "serializeTimelineOptions",
+        "parseTimingFunction", "serializeCssColor", "serializeCssValue",
+        "serializeTimelineOptions",
     ],
     easing: [
         "CubicBezier", "bezierPresets", "easeInBounce", "easeInOutCirc",
         "easeInOutCubic", "easeInOutExpo", "easeInOutQuad", "easeInOutSine",
-        "easeOutCubic", "easeOutExpo", "easing", "jumpTerms", "linear",
-        "linearEasing", "smoothStep3", "steppedEase",
+        "easeOutCubic", "easeOutExpo", "easing", "easingNames", "jumpTerms",
+        "linear", "linearEasing", "smoothStep3", "steppedEase",
     ],
     math: [
         "clamp", "cubicBezier", "cubicBezierToString", "deCasteljau",
@@ -128,6 +134,7 @@ export const SMOKE = {
         hwb: () => unwrap(color.hwb(210, 0.2, 0.3)).channels,
         ictcp: () => unwrap(color.ictcp(0.4, 0, 0)).channels,
         interpolateHue: () => expect(unwrap(color.interpolateHue(350, 10, 0.5, "shorter")) === 0, "shorter hue route missed 0"),
+        isAnyColor: () => expect(color.isAnyColor(RGB) && !color.isAnyColor("rgb(12 34 56)"), "isAnyColor does not discriminate a Color from a string"),
         jzazbz: () => unwrap(color.jzazbz(0.1, 0, 0)).channels,
         kelvin: () => unwrap(color.kelvin(6500)).channels,
         lab: () => unwrap(color.lab(50, 20, -30)).channels,
@@ -135,13 +142,27 @@ export const SMOKE = {
         linearSrgb: () => unwrap(color.linearSrgb(0.1, 0.2, 0.3)).channels,
         mapColorToGamut: () => unwrap(color.mapColorToGamut(VIVID, "srgb")).channels,
         mixColors: () => unwrap(color.mixColors(RGB, RGB_WARM, 0.5, { space: "rgb" })).channels,
+        // SCI-1's two out-param writers return a void Result, so the smoke case
+        // reads the BUFFER they wrote, never the unwrapped void value.
+        mixColorsInto: () => {
+            const out = new Float64Array(4);
+            unwrap(color.mixColorsInto(RGB, RGB_WARM, 0.5, { space: "rgb" }, out));
+            return expect(out[0] === 106 && out[3] === 1, "mixColorsInto did not write the rgb midpoint + alpha");
+        },
         oklab: () => unwrap(color.oklab(0.6, 0.05, 0.02)).channels,
         oklch: () => unwrap(color.oklch(0.6, 0.05, 40)).channels,
         prophotoRgb: () => unwrap(color.prophotoRgb(0.1, 0.2, 0.3)).channels,
         rec2020: () => unwrap(color.rec2020(0.1, 0.2, 0.3)).channels,
         rgb: () => unwrap(color.rgb(12, 34, 56)).channels,
         safeAccentColor: () => unwrap(color.safeAccentColor(ACCENT, WHITE, { minimumRatio: 4.5, gamut: "srgb" })).channels,
+        sampleColorRamp: () => expect(unwrap(color.sampleColorRamp(RGB, RGB_WARM, 5, { space: "oklab" })).length === 5, "sampleColorRamp returned the wrong stop count"),
+        toHex: () => expect(unwrap(color.toHex(RGB, { gamut: "clip" })) === "#0c2238", "toHex changed its spelling"),
         toRgba8: () => expect(unwrap(color.toRgba8(RGB, { gamut: "clip" })).length === 4, "toRgba8 did not return four bytes"),
+        toRgba8Into: () => {
+            const out = new Uint8ClampedArray(4);
+            unwrap(color.toRgba8Into(RGB, out, 0, { gamut: "clip" }));
+            return expect(out[0] === 12 && out[1] === 34 && out[2] === 56 && out[3] === 255, "toRgba8Into did not write the ImageData quad");
+        },
         xyz: () => unwrap(color.xyz(0.2, 0.3, 0.4)).channels,
     },
     value: {
@@ -166,6 +187,7 @@ export const SMOKE = {
         parseStylesheet: () => expect(SHEET.length === 4, "parseStylesheet lost a top-level rule"),
         parseTimingFunction: () => unwrap(css.parseTimingFunction("ease")),
         serializeCssColor: () => expect(unwrap(css.serializeCssColor(unwrap(css.parseCssColor("red")))) === "rgb(255 0 0)", "serializeCssColor round text changed"),
+        serializeCssValue: () => expect(unwrap(css.serializeCssValue(unwrap(css.parseCssValue("1px")))) === "1px", "serializeCssValue round text changed"),
         serializeTimelineOptions: () => css.serializeTimelineOptions(css.collectTimelineOptions(DECLARATIONS))["animation-timeline"],
     },
     easing: {
@@ -180,6 +202,7 @@ export const SMOKE = {
         easeOutCubic: () => easing.easeOutCubic(0.5),
         easeOutExpo: () => easing.easeOutExpo(0.5),
         easing: () => unwrap(easing.easing("ease"))(0.5),
+        easingNames: () => expect(easing.easingNames().length === 40, "easingNames no longer publishes the 40-name catalog"),
         jumpTerms: () => expect(easing.jumpTerms.includes("jump-end"), "jumpTerms lost jump-end"),
         linear: () => expect(easing.linear(0.5) === 0.5, "linear is not the identity"),
         linearEasing: () => unwrap(easing.linearEasing([{ output: 0, input: 0 }, { output: 1, input: 1 }]))(0.5),
