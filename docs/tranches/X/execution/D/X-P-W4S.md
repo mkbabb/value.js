@@ -3748,3 +3748,19 @@ One commit, one meaning. Pathspec on the commit itself.
   and where an append beside (E-3) naturally lands.
 - `.s` is unblocked by this unit: its precondition re-run of G-1..G-9 reads the same canonical
   artefacts, and G-1 is measured GREEN and unmoved above.
+
+#### Act 6 — the third run, from the COMMITTED bytes (appended after `3199913`, which is why it is
+a separate commit and not a rewrite of the receipt above)
+
+A double-run proves the program is deterministic; it does not prove the committed program is the one
+that was run. So the emission was repeated once more **after** `3199913`, with the artefact clean:
+
+⟨`git -C <p2> status --porcelain -- typescript/test/css-equivalence/emit-divergence-ledger.mjs`⟩ →
+**0 rows** (working tree ≡ commit), then
+⟨`node test/css-equivalence/emit-divergence-ledger.mjs --out <scratch>/postcommit.md
+--pinned-value-commit 6aca8602…`⟩ → `wrote … — 142234 B · 1197 lines · 46 rows · empty directions 0
+· carried regions §6 47 lines · §10 105 lines`, `EXIT=0`;
+⟨`shasum -a 256 postcommit.md after-1.md`⟩ → both
+`0d17d4bf353a0163e2dd9c7ee3870e2a2a13cee5b5a1fd168932fc5dbd2e09ba`.
+
+**Three emissions, one sha.** The bytes that were measured are the bytes that were committed.
