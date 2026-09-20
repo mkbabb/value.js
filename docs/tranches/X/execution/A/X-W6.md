@@ -2737,3 +2737,260 @@ writes `MixConfigBar.vue` + `MixSourceSelector.vue` (X-W7-shared) **first** and 
 ## Unit receipts — resume round 2026-09-20
 
 *(empty at this open; each dispatched seat appends its own receipt below, newest last)*
+
+### X.W6.g
+
+**Seat**: `claude-opus-5[1m]`, wall clock **2026-09-20**. Dispatched WHOLE per §0z E1.
+**Spec of record**: `W6.md:267-279` (§5 X.W6.g) · `W6.md:47-120` (§4 File Bounds) · `W6.md:383`
+(§9 commit #7). Rulings consumed: COHESION §0z (E1 re-dispatch) and every later addendum read to
+the file end (`§0aa`–`§0ah`; none names `.g`, and `§0ac:2145` places X-W6 after X-W9 in the
+relaunch order, which is the order this seat was dispatched under).
+**Gates owned**: **g1 g2**. **Commit**: `e69aaf95`.
+**Verdict**: **PARTIAL** — **g2 GREEN** (twice, with both negative controls RED); **g1 RED**, its
+instrument authored and its cure **ESCALATED** with the exact bytes named below.
+
+#### Act 0 — crash-recovery (standing law)
+
+⟨cmd⟩ `git status --porcelain` at this seat's open → 14 dirty rows. Intersected against this
+unit's writable set (`demo/picker/ColorPicker.vue` · `demo/scenes/about/AboutPane.vue` ·
+`…/probes/x-w6/gate-card-rhythm.mjs` · `e2e/smoke/views/**` · `…/W6-evidence/**`):
+
+```
+ M demo/color-picker/App.vue          → X-W5's seat, NOT mine
+ M demo/shell/{dock/Dock.vue,usePaneRouter.ts,useViewManager.ts,viewSchema.ts}
+ M demo/styles/shell.css              → X-W5's seat, NOT mine
+ M demo/palettes/{usePalettePorts,useSlugMigration}.ts  → X-W7's, NOT mine
+ M e2e/smoke/{dual-pane-1440,mobile/page-load-mobile,mobile/walk}.spec.ts  → not under views/
+ M docs/tranches/X/execution/{A/X-W5.md,C/F-W10.md} · docs/tranches/V/reformation/CARRY-LEDGER.md
+ M scripts/dev/dev.sh                 → the unowned row, NEVER touched
+```
+
+**Zero rows inside this unit's writable set.** Nothing inherited; nothing outside the set touched.
+
+#### Act 1 — the measurement, before any edit (D-19)
+
+A FRESH dev server (STALE-SERVER law, `W6.md:148`): ⟨cmd⟩ `npx vite --port 9001 --strictPort` →
+`VITE v8.0.16 ready in 823 ms`. Every figure below is a DOM reading at 1440×900 on `/#/` with the
+model on **lab** — the space OM-3 was captured in.
+
+| what | reading |
+|---|---|
+| the headline card | `.pane-shell > .card`, top 112.00, height 684.77 |
+| title row → readout seam | **7.16px**, declared by `--picker-header-rhythm` (7.168px) |
+| `h3.readout` box | min-height **122.407px**, `--readout-lines` **2**, line-height **61.2033px** |
+| `h3.readout` content-top → first `.readout-cell` | **61.22px, EMPTY** |
+| `align-content` on `.readout` | `flex-end` |
+
+**61.22px against a 61.20px line box.** `W6.md:276`'s RED-today reads *"a band ≈ the readout row's
+own height between header and readout"*; the band is that row's own height to two decimals. The
+owner's frame is reproduced, not inherited.
+
+#### Act 2 — g1's instrument, authored (`gate-card-rhythm.mjs`, ABSENT at every prior check)
+
+`W6.md:276` names the command and `ROOT-FINDINGS.md:1403` names the test: *"the gap must derive
+from the type scale's interval, **not from leftover flex/grid slack**."* That is two halves, and
+the instrument implements both rather than either:
+
+- **PROVENANCE** — an interval is legitimate only if some box DECLARED it (a gap, a margin). Free
+  space a flex container had left over and then distributed by `align-content` is declared by
+  nobody: it is the row's own "leftover flex slack", and it fails wherever it lands.
+- **DERIVATION** — a declared interval must resolve to a φ-ladder step (`--phi-0..4` and integer
+  multiples, the register `foundation.css` publishes and `AboutPane.vue` already consumes as
+  `pt-phi-3`) or to a named rhythm token. **A LINE BOX IS NOT A STEP.** Admitting one would let
+  this exact 61.2px band print "ok · 1lh" — the vacuous green L-18 target 1 is written against.
+- **ROW INFLATION** (the anti-gaming leg) — each headline row is also measured whole, box height
+  against painted extent, so the same band re-declared as a padding is still the same band.
+
+Why PROVENANCE is not optional: this reserve has now been placed twice and measured as dead air
+both times — below the tuple (T.W4-2, the §6.1 "61px dead band between the figures and the
+gradient rail") and above it (T.W6.5-P, `e2e/smoke/oracles/readout-seam.spec.ts`, which is where it
+sits today and is what the owner marked). A gate that only asked "is the seam small?" goes green on
+the placement OM-3 marks. This one reads free space wherever it is anchored, so **moving the band a
+third time cannot turn it green.**
+
+⟨cmd⟩ `node docs/tranches/V/megatranche/audit/probes/x-w6/gate-card-rhythm.mjs` → **exit 1**,
+double-run byte-identical (⟨cmd⟩ `diff -q run1 run2` → no output). Transcript:
+`docs/tranches/X/waves/W6-evidence/picker/g1-card-rhythm-BEFORE-2026-09-20.txt`.
+
+```
+LARGEST INTERVAL: 61.22px — h3.card-title.readout content-top → span.readout-cell top
+                  → RESIDUE 61.22px undeclared
+
+ROW INFLATION (box height · painted height · inflation · verdict):
+     84.97    84.97     0.00  div.title-row.w-full          → ok · 0
+    122.41    67.00    55.41  h3.card-title.readout
+                    → INFLATED BY A QUANTITY THAT IS NOT A SPACING STEP
+
+GATE g1 — RED: 2 interval(s) fail.
+```
+
+Every other interval in the card passes and is printed with its derivation — the title→readout seam
+as `--picker-header-rhythm`, the spectrum→sliders gap as `2×--phi-0`, and eleven zero-width edges.
+**The card has exactly one interval that means nothing, and it is the largest one**, which is
+`ROOT-FINDINGS.md:1403` verbatim: *"the card's internal vertical rhythm allocates its largest single
+interval to nothing."*
+
+#### Act 3 — g1's cure: ESCALATED, with the bytes measured rather than guessed
+
+The residue's mechanism is one pair of declarations on `h3.readout` — `min-height: calc(
+var(--readout-lines,1) * 1.12em)` (the per-space card-lock) crossed with `align-content: flex-end`.
+The lock reserves lab's honest worst case of two lines; the live tuple paints one; the unpainted
+line is anchored ABOVE the numbers. Both declarations live in
+`demo/picker/display/ColorComponentDisplay/ColorComponentDisplay.vue`.
+
+**The reach is not the problem.** ⟨measured⟩ the rendered `h3.readout` carries `data-v-2bc1bc2c` —
+**ColorPicker.vue's own scope id** (the same id on `.pane-shell`, `.picker-header`, `.title-row`),
+because it is the child component's root node. So a rule in ColorPicker.vue's `<style scoped>`
+reaches it by the documented Vue child-root rule, with no `:deep()`, and that write is INSIDE this
+unit's writable set. **The problem is that no such rule is a cure**, and this seat measured why:
+
+1. **Re-anchoring moves the band, it does not remove it.** `align-content: start` puts the same
+   61.22px between the numbers and the spectrum — the exact band T.W6.5-P was commissioned to kill.
+   g1's provenance leg reds either way, by construction, and a third placement of a twice-refused
+   band is not a cure.
+2. **Removing the lock ships a measured regression.** With `min-height` gone the card grows 61.2px
+   the moment lab's tuple wraps mid-drag; the lock's stated reason to exist is that nothing below
+   the header shifts mid-drag.
+3. **A shipped oracle ASSERTS the band the owner marked.**
+   `e2e/smoke/oracles/readout-seam.spec.ts:85-119` requires `lock === 2`, `minHeight ≈ lock ×
+   lineHeight`, `deadBandBelow ≤ EPS` and `airAbove ≥ boxHeight − painted` — i.e. it requires that
+   the reserved-minus-painted delta ride ABOVE the numbers. **g1 GREEN and that leg GREEN cannot
+   both be true.** (⟨cmd⟩ `npx playwright test e2e/smoke/oracles/readout-seam.spec.ts
+   --project=smoke` → **3 failed** at these bytes already, all three on
+   `getByRole('main', {name:'Color tool panes'})` **element(s) not found** — a shell accessible-name
+   change from X-W5's in-flight work in this shared tree, NOT the seam. Its assertions still encode
+   the contradiction; they are simply not currently reachable.)
+
+So the cure needs, at minimum, `ColorComponentDisplay.vue` (or a reservation policy in
+`…/ColorComponentDisplay/readoutReservation.ts`) **and** the retirement or re-authoring of
+`e2e/smoke/oracles/readout-seam.spec.ts`. **None of those three paths is in `W6.md` §4 and none is
+in this unit's writable set.** That is §3a's first trigger — *"File-bound expansion that invalidates
+the wave: any unit needing a write outside §4"* — so this seat halts on it and returns it, per
+METHOD (*"if the specified cure is impossible at the bytes, do NOT substitute"*).
+
+**What the ruling has to decide** (it is a design act, and `W6.md:154` puts the spacing canon in
+X-W10 — *".g applies a censused disposition, it does not invent a register"*): the card-lock and
+OM-3 are incompatible as stated. Three reserves have now been shown to the owner and all three were
+refused — per-cell `ch` min-widths (R4, *"the reservation rendered as dead air between the
+values"*), the band below (T.W6.5-P §6.1), the band above (OM-3). The open question is not where to
+put the reserve a fourth time; it is **whether the worst-case reservation survives at all**, and
+that is the owner's or X-W10's word, not an implementation seat's.
+
+#### Act 4 — g2's arm, authored and GREEN (a GREEN-BEFORE-ITS-CURE finding, R.2 class)
+
+`e2e/smoke/views/companion-pane-track-start.spec.ts` (new; ADD-never-replace — the file did not
+exist, nothing was replaced). `W6.md:279` decides its shape: *"g2 fails if the cure moves the Mix
+control (a per-pane nudge passes the About assertion and breaks the control; the gate asserts
+both)"* — so the OM-9 scene and the OM-10 control are **assertions of ONE test**, never two tests a
+seat could read half of. Each pane is additionally asserted to sit ON its own track start, which is
+what makes it the SHARED ROW CONTRACT and not two coordinates that happen to agree.
+
+⟨cmd⟩ `npx playwright test e2e/smoke/views/companion-pane-track-start.spec.ts --project=smoke -g
+"companion panes share one track start"` → **1 passed**, twice (16.1 s / 19.6 s). Transcript:
+`W6-evidence/picker/g2-track-start-2026-09-20.txt`.
+
+**The OM-9 defect does not reproduce at these bytes** — Picker and About both begin at track start
+112.00 on `/#/`, Picker and Mix both at 159.00 on `/#/mix`. It is a GREEN BEFORE ITS CURE and is
+recorded as a finding, not a convenience: X.W5.b's block law and X.W5.c's region grid landed between
+the owner's capture and this seat. **Named honestly: X.W5.c's grid is UNCOMMITTED in this shared
+tree** (⟨cmd⟩ `git diff --stat demo/styles/shell.css` → `142 ++---`), so this green stands on a
+sibling seat's in-flight bytes; at HEAD the same two-column row exists through the retired
+`.pane-container--dual` media arm (⟨cmd⟩ `git show HEAD:demo/styles/shell.css | grep -n dual` →
+`:249`), so the contract holds on both sides of that landing — but the reading is X-W5-coupled and
+a close seat should re-run it after X-W5 commits.
+
+**The green is readable, because the gate was made to fail.** ⟨cmd⟩ `node
+docs/tranches/X/waves/W6-evidence/picker/g2-negative-controls.mjs` → **2 of 2 went RED**:
+
+```
+C1 · per-pane nudge on About (margin-top: 16px) — must go RED
+    FAIL  About sits ON its track start: |127.98 − 111.98| = 16.00px
+    FAIL  Picker↔About top edges: |112.00 − 127.98| = 15.98px
+C2 · per-pane nudge on the Picker — the falsifier's own shape
+    FAIL  CONTROL (OM-10) Picker↔Mix top edges: |128.00 − 112.00| = 16.00px
+    FAIL  CONTROL Picker sits ON its track start: |128.00 − 112.00| = 16.00px
+```
+
+C2's About leg ALSO failed here, and that is stated rather than smoothed: in a tree where OM-9
+reproduced, a Picker nudge would buy the About leg — here About is already aligned, so the nudge
+breaks it too. The load-bearing half of C2 is unaffected: **the OM-10 control leg catches a Picker
+nudge**, which is the property `W6.md:279` demands.
+
+#### §7 cadence, at the settled bytes
+
+⟨cmd⟩ `npx prettier --check` on the three authored files → `All matched files use Prettier code
+style!` (they were `--write`-formatted first, and **both gates were then re-run and re-banked from
+the settled bytes** — WRITE-THEN-MEASURE; g1's double-run stayed byte-identical).
+⟨cmd⟩ `npx tsc -p tsconfig.e2e.json --noEmit` → **5 errors, 0 in this unit's file**; all five are in
+`e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts` (X.W6.f's), pre-existing, untouched here.
+⟨cmd⟩ `git diff --check` on both authored source paths → clean.
+`eslint`/`vue-tsc -p tsconfig.demo.json`/`vitest` are not run by this seat: **no `demo/`, `src/` or
+`test/` byte was written**, so they would measure other seats' trees, not this unit's landing.
+
+#### E13 mail
+
+Swept read-only at this seat's clock. `docs/tranches/V/coordination/INBOX.md` carries 89 `UNREAD`
+occurrences across the register; **none addresses `.g`, the picker card rhythm, or the pane track
+start**. `.g` holds no INBOX grant (§0z E5 gave mail rows to `.d` only) and wrote no mail row.
+
+#### Gate readings — BEFORE → AFTER
+
+| gate | command | BEFORE (this seat) | AFTER (this seat) |
+|---|---|---|---|
+| **g1** | `node …/probes/x-w6/gate-card-rhythm.mjs` | **RED by absence** — instrument absent at open, close, Check 1, Check 2, Check 3 | **RED, measured**: exit 1, one residue of **61.22px** + the readout row inflated **55.41px**; double-run identical |
+| **g2** | `npx playwright test e2e/smoke/views/companion-pane-track-start.spec.ts --project=smoke -g "companion panes share one track start"` | **RED by absence** — 0 hits at every prior check | **GREEN**, 1 passed, twice; negative controls **2 of 2 RED** |
+
+#### Commits
+
+| # | hash | paths | §4 row |
+|---|---|---|---|
+| 7 | `e69aaf95` | `…/probes/x-w6/gate-card-rhythm.mjs` · `e2e/smoke/views/companion-pane-track-start.spec.ts` · `W6-evidence/picker/{g1-card-rhythm-BEFORE,g2-track-start,g2-negative-controls}-2026-09-20.txt` · `W6-evidence/picker/g2-negative-controls.mjs` | `W6.md:102` (g1) **create** · `:84`-class ADD-never-replace under `e2e/smoke/views/**` · `:104` `W6-evidence/**` **create** |
+
+**DEVIATION, named**: `W6.md:383` declares commit #7's scope `fix(demo/picker-rhythm)`. No product
+byte landed — g1's cure is escalated and g2 needed none — so the commit is taken as
+`test(demo/picker-rhythm)` and says so in its own body. Claiming `fix` over a diff containing no
+`demo/` path would be a false entry in the wave's commit ledger.
+
+#### Residuals — named, not smuggled
+
+- **R-g1 · the 61.22px residue stands.** The band the owner marked is still in the tree. It now has
+  a machine gate that reds on it, names it to two decimals, and cannot be satisfied by moving it.
+- **R-g2 · g2's green is X-W5-coupled.** It was measured over X.W5.c's uncommitted grid in this
+  shared tree. Re-run after X-W5 commits; the contract holds at HEAD too (the `--dual` media arm),
+  so no reversal is expected, but the reading is not independent of a sibling's landing.
+- **R-g3 · `readout-seam.spec.ts` is RED for an unrelated reason** — three failures, all
+  `getByRole('main', {name:'Color tool panes'})` not found, from X-W5's in-flight shell. Recorded
+  here because this seat ran it; it belongs to X-W5's close, not to `.g`.
+- **R-g4 · §8's OM re-captures (OM-3 / OM-9 / OM-10 at the same crop) are NOT produced.** `.g`'s
+  writable set carries `W6-evidence/**`, so the frames are landable — but OM-3's AFTER is a picture
+  of a cure that has not happened, and OM-9/OM-10's would assert by eye what g2 now asserts by
+  measurement. They ride the g1 ruling.
+
+#### ESCALATION — ESC-g1: the card-lock and OM-3 are incompatible, and the cure's bytes are outside §4
+
+**Returned, not worked around.** To turn g1 green a seat must write at least one of
+`demo/picker/display/ColorComponentDisplay/ColorComponentDisplay.vue` (the `min-height` ×
+`align-content: flex-end` pair) or `…/ColorComponentDisplay/readoutReservation.ts` (the per-space
+worst-case line count), **and** retire or re-author `e2e/smoke/oracles/readout-seam.spec.ts:85-119`,
+which asserts the OM-3 band as its own cure. **None of the three is in `W6.md` §4; none is in this
+unit's writable set.** §3a trigger: *"File-bound expansion that invalidates the wave."*
+
+The ruling owed is a design one, and `W6.md:154` (M-23) puts it in X-W10, not in an implementation
+seat: **does lab's worst-case line reservation survive?** Three reserves have been refused by the
+owner (R4 per-cell `ch`; T.W6.5-P below; OM-3 above), and a fourth placement is the only move left
+inside the lock. Either the lock goes and the card is allowed to grow on a 1↔2-line crossing, or the
+band stays and OM-3 is dispositioned as accepted — and whichever is chosen, `readout-seam.spec.ts`
+has to be re-pointed in the same act, because it currently encodes the opposite answer.
+
+**What is already in hand for whoever rules it**: the gate exists, is double-run stable, prints the
+full interval table with every passing derivation, and has an anti-gaming leg that defeats both
+cheap answers (re-anchor, re-declare-as-padding). The cure is one or two declarations once the
+policy is ruled.
+
+#### Files written by this unit (nothing outside them)
+
+`docs/tranches/V/megatranche/audit/probes/x-w6/gate-card-rhythm.mjs` (create) ·
+`e2e/smoke/views/companion-pane-track-start.spec.ts` (create) ·
+`docs/tranches/X/waves/W6-evidence/picker/` (create: 2 instruments' transcripts + 1 instrument) ·
+this record. **`demo/picker/ColorPicker.vue` and `demo/scenes/about/AboutPane.vue` were READ and
+MEASURED, never written** — g2 needed no cure and g1's is escalated.
