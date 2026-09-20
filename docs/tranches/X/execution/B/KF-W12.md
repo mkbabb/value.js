@@ -3050,3 +3050,55 @@ Track B row cells and the dated event line updated by this seat: the `KF.W12 = �
 from `**PARTIAL 2026-09-19**` to **`CLOSED 2026-09-17 (honest-RED: G-KFW12-4 · G-KFW12-7)
 2026-09-19, SECOND CLOSE`**, with the full **46 keyframes.js + 20 value.js** commit roster, CHECK 1's BLOCKER-1/HIGH-1 both
 discharged at the bytes, and INFO-6's duplicated tail fragment repaired in place.
+
+---
+
+### ACT 11 — POSTSCRIPT, dated 2026-09-19, appended beside the block above (E-3, nothing rewritten)
+
+**The LEDGER bytes landed. They did not land in a Track B commit, and this seat says so rather than
+letting the roster read as if they had.**
+
+The sequence, measured and not reconstructed:
+
+1. This seat read `LEDGER.md` **CLEAN** twice (⟨cmd⟩ `git status --porcelain -- …/LEDGER.md` →
+   *(no output)*) and wrote its two acts — the minimal in-place cell replacement at row `:56` and the
+   appended event line. ⟨cmd⟩ `git diff --numstat` immediately after → **`1 1`** for the cell alone,
+   exactly a minimal replacement.
+2. **Before the commit could be taken**, ⟨cmd⟩ `git diff -U0 -- …/LEDGER.md | grep '^@@'` read
+   **THREE** hunks: `@@ -32 +32 @@` (Track A's `X-W9` row, advanced to `X-W9.f LANDED`),
+   `@@ -56 +56 @@` (mine) and `@@ -418,0 +419,4 @@` (**two** appended event lines — Track A's
+   `X-W9.f LANDED` line above mine). **A sibling seat's uncommitted bytes had entered the same file
+   between the clean reading and the write.** A pathspec commit names paths, not hunks, so committing
+   `LEDGER.md` here would have swept Track A's row into a Track B commit — the mechanism that
+   produced three contaminated commits at X-W0 and that the third sitting withheld for four times.
+   **This seat therefore did not commit the file**, and committed its three uncontaminated paths
+   (`execution/B/KF-W12.md` `f12aff08` · `COHESION.md` `8971b57f` · `INBOX.md` `9c444c66`) instead.
+3. **A third seat took the file first.** ⟨cmd⟩ `git log --oneline -1 -- …/LEDGER.md` → **`3c1bcf8c`**
+   — `docs(x-f-w9/repair-1/ledger): the dated event line — HIGH-1 cured, G-F9-6 GREEN on the
+   measurement, row stays PARTIAL`, a **Track C · X·F** seat. ⟨cmd⟩
+   `git show --numstat --format='' 3c1bcf8c` → **`8 2  docs/tranches/X/execution/LEDGER.md`** — one
+   path, pathspec-correct on its face, and **eight insertions where its own act was one row cell and
+   one event line**. It swept **Track A's X-W9 row, Track A's X-W9.f event line, this wave's KF.W12
+   row cell and this wave's KF.W12 event line** along with its own.
+
+**State at the bytes, verified rather than assumed** — ⟨cmd⟩
+`git status --porcelain -- …/LEDGER.md` → *(no output)*, clean; ⟨cmd⟩ `sed -n '56p' …` →
+`KF.W12 = OPEN 2026-09-17 → **PARTIAL 2026-09-19** → **CLOSED 2026-09-17 (honest-RED: G-KFW12-4 ·
+G-KFW12-7) 2026-09-19 — SECOND CLOSE, third sitting**`, byte-intact; ⟨cmd⟩
+`git show HEAD:…/LEDGER.md | grep -c 'X.KF.W12 SECOND CLOSE →'` → **1**, the event line intact;
+⟨cmd⟩ `sed -n '56p' … | grep -c 'this row\*\* · this row\*\*'` → **0** — **CHECK 1's INFO-6 is
+cured** and the repair is in HEAD. **The LEDGER obligation is DISCHARGED at the bytes; the
+attribution is not this wave's.**
+
+**What this seat did NOT do, by name**: it did not `reset`, `unstage`, `revert` or amend another
+seat's commit; it did not `git checkout --` the file (that would have destroyed two sibling seats'
+uncommitted work); it did not re-commit the same bytes to claim them; and it did not `stash`. **A
+sibling's landed commit is a fact to be recorded, not edited.**
+
+**Booked as residual R-14 and escalated as a FORMATION finding, not a wave defect** — the four-track
+shared index makes "pathspec on the commit itself" **necessary but not sufficient**: a path shared by
+four tracks carries whatever is dirty in it at commit time, whoever wrote it. Four withholdings, one
+contaminated Track-C commit and this postscript are five measurements of the same mechanism in two
+days. **The cure is not a seat's to invent** — it is an orchestrator act (a per-track ledger file, or
+a serialized ledger-write lane), and it is returned here as **KF12-E3**, unresolved, with the
+evidence above.
