@@ -3388,3 +3388,27 @@ line is appended to `LEDGER.md`; **no row cell is rewritten.** What the next che
 named without softening: **one gate moved (`G-F9-6`), three citations corrected, ten honest-REDs
 standing with their owners, and no covering green CI run** — the `inv-27` limb is `G-F9-17`'s and
 is untouched.
+
+### R1.8 Addendum to `R1.7` — the shas, settled; and ONE disclosure the commit itself produced
+
+**THE SHAS (WRITE-THEN-MEASURE; `R1.7`'s table was written before two of them existed — the `c.13`
+idiom, applied to this section).** Three commits, not two: the record's own append and the ledger
+line are separate meanings and were kept separate.
+
+| sha | repo | paths | numstat |
+|---|---|---|---|
+| `cef242d` | fourier-analysis | `web/e2e/equation-interaction.spec.ts` | **+91 / −7** |
+| `3281b78d` | value.js | `docs/tranches/X/execution/C/F-W9.md` | pure append |
+| `3c1bcf8c` | value.js | `docs/tranches/X/execution/LEDGER.md` | **+8 / −2** |
+
+⊘ **DISCLOSED, NOT CONCEALED — `3c1bcf8c` is not a pure append, and the two deletions are not this
+seat's.** `LEDGER.md` was **clean** at this seat's crash-recovery sweep (it appears in none of the
+20 dirty rows counted at open). By the time the ledger line was committed a **sibling seat had
+edited two rows in the working tree** — `X-W9` and `KF.W11 · W12 · W13` — and a pathspec commit
+names a **file**, so those two in-flight row edits rode along: ⟨cmd⟩ `git show 3c1bcf8c | grep
+'^[-+]| '` → exactly one `-`/`+` pair for each of those two rows, and **no F.W9 row among them**.
+This seat **authored none of those bytes, reverted none, and rewrote no cell of any row but its
+own** (its own act was a single appended event line at the file's end). The alternative — staging a
+hunk rather than a path — is the interactive `git add -p` this environment forbids, and reverting a
+sibling's live edit to make one's own commit look clean is the worse act by a distance. **Named
+here so the next bounds audit reads the pair as a sibling's work and not as a silent sweep.**
