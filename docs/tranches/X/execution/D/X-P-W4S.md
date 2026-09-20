@@ -3764,3 +3764,159 @@ that was run. So the emission was repeated once more **after** `3199913`, with t
 `0d17d4bf353a0163e2dd9c7ee3870e2a2a13cee5b5a1fd168932fc5dbd2e09ba`.
 
 **Three emissions, one sha.** The bytes that were measured are the bytes that were committed.
+
+### X.P.W4.s
+
+SERVED MODEL: claude-fable-5-1 · **FRESH** (M-23 §1 — this seat authored no cure byte of any X·P
+unit and no gate instrument) · **status: DONE** · 2026-09-20 (UTC 04:55–05:20). **THE R-A STAMP
+ACT, PERFORMED.** Sections executed: `W4.md` SIXTH ADDENDUM (`:684`, the `.s` clause) · THIRD
+ADDENDUM (`:678`, the stamp set + G-10 shape (a)) · `COHESION.md` §0ah bullets 2–3 (`:2229–2241`) ·
+`W4.md` §6 G-1..G-10 (`:352–544`) · §12 (`:651–673`, VERIFIED never ACCEPTED) · §9 (`:581–599`, the
+family). Commits: **`b33e212e`** (the §9 family, nine paths, one act) · **`10dc948e`** (INBOX
+erratum) · this receipt · the LEDGER event line.
+
+#### Act 0 — crash-recovery, at the bytes (standing law)
+
+⟨`git status --porcelain -- docs/tranches/X/parse-that docs/tranches/X/COHESION.md
+…/harvest/x-p-w4s.json …/INBOX.md …/X-P-W4S.md …/LEDGER.md`⟩ → **0 rows** — no inherited partial
+work on this unit. ⟨`git -C ../parse-that status --porcelain`⟩ → 30 rows, all that repo's own Rust
+tree (not this wave's root); ⟨`git -C <p2> status --porcelain`⟩ → `?? .worktrees/` only, HEAD
+`3199913` (`.g2`). The tree's other 16 dirty rows (`demo/**` · `e2e/**` · sibling `execution/A/**`
+· `CARRY-LEDGER.md` · the unowned `scripts/dev/dev.sh`) are outside every row of this set and were
+neither read for content, staged, stashed nor restored.
+
+#### Act 1 — E13 Step-0, read-only, at this seat's clock
+
+Four landing paths swept and compared against every row: `BK/` still the newest glass tranche dir
+(`ls -dt` → `BK/ BJ/ BI/`), 9 letters, newest = I-35 (rowed) · `docs/tranches/V/` 10 ⊕
+`V/coordination/` 24 · `keyframes-v-exec` 10 (newest a value.js-authored outbound) · `keyframes.js`
+12 (sacred, no new letter). ⟨`find … -newermt "2026-09-19 12:00"`⟩ → one file,
+`docs/tranches/V/ARCHITECTURE.md` — Track A's canon (`2f900da0`), not a letter. **0 unrowed letters
+addressed to value.js · 0 status cells `UNREAD` · ROWS=82 at the sweep.**
+
+#### Act 2 — the precondition: G-1..G-9 at THIS seat's own clock, every reading double-run, nothing cited
+
+The long gate (G-3, pack + install + resolve) was **backgrounded** and polled; every writing script
+was given `--out` into the scratchpad — **no byte of `evidence/W4/**` or of `<p2>` moved**. The
+readings, verbatim, are the table at `waves/W4-CLOSE.md` §14.1; the figures that matter:
+
+| gate | this seat's reading (run 1 ≡ run 2 unless stated) | verdict |
+|---|---|---|
+| G-1 | ⟨`node scripts/seam-contract-check.mjs SEAM-CONTRACT.md evidence/W3/universe-52.json DIVERGENCE-LEDGER.md`⟩ → `rows: contract 52 · universe 52 · ledger rows 48` · ∅ / ∅ · `declared-divergence 7` · `identical 45` · `§10 RETIRED rows: CN-2, CN-3, R4` · **`VERDICT: GREEN`** · `EXIT=0`; ⟨`diff -q run-1 run-2`⟩ silent | **GREEN** |
+| G-2 | ⟨22 X.P.W4-subject commits in `2237f305^..HEAD`, `git show --name-only` each, 19 distinct paths⟩ → `grep -cE '^(src\|demo\|api\|test\|e2e)/'` → **0** ×2; `scripts/dev/dev.sh` 0 | **GREEN** (commit predicate, C3-3) |
+| G-3 | ⟨`node scripts/packed-candidate-surface.mjs --seam …/SEAM-CONTRACT.md --out <scratch>/g3/packed-surface-N.json`⟩ in `<p2>/typescript`, backgrounded ×2 → `"candidate": "@mkbabb/parse-that@1.0.0"` · `"tarballSha256": "004bbcce02e08b89020a74e43ce35b83dec2f6f6597204afd8b712cc9dd056ec"` · `"entryCount": 91` · `{runtime 19, types 33, total 52}` · `"resolved": "52 of 52"` · `"refusals": 5` · `"G3": "GREEN"` · `EXIT=0` — both runs, one sha | **GREEN** |
+| G-4 | ⟨`node scripts/wasm-admission.mjs src/css/build/ac1.wasm`⟩ → `artifacts 1 · admitted 1 · functionKindImportsTotal 0 · unaccountedImportsTotal 0 · "verdict": "GREEN"` `EXIT=0` (runs differ only at `generatedAt`); the §6 spec-literal node one-liner → `{"total":0,"functionKind":0,"imports":[]}`, `new WebAssembly.Instance(mod, {})` did not throw, `EXIT=0`; `ac1.wasm` `f0d063d6…` | **GREEN** |
+| G-5 | ⟨`node scripts/rc-p-evaluate.mjs --version 4.0.0 --out <scratch>`⟩ → `RC-P(4.0.0) = FALSE — 3 of 6 conjuncts are FALSE: 1 PUBLISHED(V) · 3 EQUIVALENCE(V) · 4 ADMITTED(V)` · `KF.W3 does NOT open.` · `EXIT=1` (runs differ only at the timestamp); negative control `--version 0.0.0-does-not-exist` → `4 of 6 FALSE` | **GREEN** (honest) |
+| G-6 | ⟨`grep -rn 'RC-P' docs/tranches/X/{keyframes,fourier}/waves/ \| wc -l`⟩ → **25** ×2; `KF-W3.md:9` carries the sentence by predicate name | **GREEN** |
+| G-7 | ⟨`grep -c 'parse-that' ../fourier-analysis/package.json`⟩ → **0**; `web/package.json` → **0** | **GREEN — floor** |
+| G-8 | packet exists, `wc -c` → **28768**; INBOX `RELEASE-PACKET` 3 · `RC-P` 3 · `SS-6` 30; `ROWS=82`; six `UNREAD`-bearing rows' status cells begin `SENT`/`ROWED`/`FOLDED`/`READ IN FULL`/`READ + CONSUMED WHOLE` | **GREEN** |
+| G-9 | ⟨`grep -n 'BLOCKED-ON' waves/W4-CLOSE.md`⟩ → `:131` · `:134` *"Ruled: C"* · `:148` condition + re-trigger | **GREEN** |
+| G-10 (open state) | shape (a) → **5** ×2; ⟨`grep -rn 'VERIFIED' waves/W[0-3]-CLOSE.md`⟩ → 10, all disclaimers | **RED, performable** |
+
+**Nine of nine GREEN → the act is owed, and was performed.**
+
+#### Act 3 — the stamp, ONE act, the §9 family whole — `b33e212e`
+
+- **The five rows.** `waves/W0.md:35` · `W1.md:37` · `W2.md:96` · `W3.md:44` · `W4.md:44` —
+  each `| VERIFIED | **NO** | …` → `| VERIFIED | **YES — 2026-09-20, stamped by X.P.W4.s at the X·P
+  sub-tranche release close (R-A), one act over W0..W4** | G-1..G-9 GREEN at the stamping seat's own
+  clock … **VERIFIED, not ACCEPTED** (§12 / L-18) |`. Anchors verified at the true bytes before each
+  edit (the four evidence-cell wordings differ per file and were matched exactly). **No other row of
+  any file moved** — the `IMPLEMENTED` rows of the dated specs are untouched (E-3; IMPLEMENTED lives
+  in each close report). ⟨`git diff --stat`⟩ over the five → `5 files changed, 5 insertions(+), 5
+  deletions(-)`.
+- **The two COHESION carves, only under the performed stamp.** §1 SS-5 status cell `**SPECIFIED
+  2026-08-04** (3-pass loop)` → `**VERIFIED 2026-09-20** (R-A stamp by X.P.W4.s … not ACCEPTED …
+  RC-P(4.0.0) FALSE, honestly)`; one dated §5 board bullet `- 2026-09-20: **X·P VERIFIED — …**`
+  inserted before `## §0a`. ⟨`git diff -- COHESION.md | grep '^[+-]'`⟩ → exactly the SS-5 line pair
+  and the 20 lines of the bullet; no sibling byte.
+- **`waves/W4-CLOSE.md` §14** (14.1 the precondition table · 14.2 the act · 14.3 what it means and
+  does not · 14.4 residuals with owners), appended in two pieces; settled **62094 B**.
+- **`RELEASE-PACKET.md` third dated addendum** (VERIFIED not ACCEPTED; seam and candidate unchanged;
+  `RC-P(4.0.0)` FALSE re-read; §6 items 1/2/4/5 unchanged; O-15 not converted); settled **30555 B**.
+- **`x-p-w4s.json` fold/3**, by program (`<scratch>/fold3.mjs`) from the UNMODIFIED harvester
+  (⟨`shasum`⟩ `77a6e04c…`, `git status -- workflows/` 0) run in **two** fresh scratch mirrors with
+  the script symlinked and `DEFECT-LEDGER.md` NOT symlinked (§0p) → EXIT=0 each, `3395 agent
+  results · 7885 defects`, 168 files per mirror, **nothing written under the repo** (⟨`git status
+  -- registry/`⟩ → only this fold). Predecessor fold/2 measured first: **147196 B**, sha256
+  `16897fc4…`, commit `c1fe075f`; embedded whole and **VERBATIM** (⟨re-serialize
+  `predecessor.document` + `\n`⟩ → 147196 B, sha `16897fc4…` ≡ `git show c1fe075f:…`). Five run
+  files, each sha256-equal across mirrors A/B, asserted by the program before the write:
+  `wf_a25d7c23-90d` (8 results, `.e` ESCALATED@6) · `wf_7afdc968-28c` (7, `.e2` DONE@6; `.f` STILL
+  rowless, sha `d557c966…` unchanged since fold/1) · `wf_3c0a3280-0ce` (6, zero unit rows) ·
+  `wf_d0a271b1-356` (**15**, grown from fold/2's 8 — `.g` PARTIAL@6 · `.h` DONE@7 · **`.f2`
+  ESCALATED@8, now PRESENT**; 9..14 = close/Check 1/Repair 1/Check 2/Repair 2/Check 3) ·
+  `wf_c4535386-384` (7, this sitting — `.g2` DONE@6; `.s` structurally absent). **seatCount 6 of 8**
+  (dispatched `.e .e2 .f .g .h .f2 .g2 .s`; absent `.f` · `.s`). Settled **299652 B**, sha256
+  `39b5c2d8…`, schema `x-p-w4s.s.harvest-fold/3`.
+- ⟨`git diff --check`⟩ over all nine → clean. ⟨`git add <9 paths> && git commit --no-verify --quiet
+  -m … -- <the same 9 paths>`⟩ → **`b33e212e`**; ⟨`git show --name-only --format='' b33e212e`⟩ →
+  exactly the nine paths; ⟨`grep -cE '^(src|demo|api|test|e2e)/'`⟩ over them → **0**. The family did
+  not split. (A first attempt failed with `pathspec … did not match` — zsh does not word-split a
+  scalar; nothing was staged or committed by it; re-run with positional paths.)
+
+#### Act 4 — G-10 re-measured from the SETTLED, COMMITTED bytes (WRITE-THEN-MEASURE)
+
+⟨`for f in waves/W[0-4].md; do awk '/^### Four-verb status/{t=1;next} /^#/{t=0} t' "$f"; done |
+grep -c 'VERIFIED | \*\*NO\*\*'`⟩ → **0** · run 2 → **0** (BEFORE **5** ×2). Per file, the table's
+`^| VERIFIED | **YES — 2026-09-20` rows → `1 · 1 · 1 · 1 · 1`. Second leg ⟨`grep -rn 'VERIFIED'
+waves/W[0-3]-CLOSE.md | wc -l`⟩ → **10**, unchanged, every line a disclaimer — no sibling
+self-stamps. The §6 body's raw `cat … | grep -c` form reads **2** after the act: both hits are the
+pattern quoted as text inside `W4.md` §6 G-10 (`:524`) and its THIRD addendum (`:678`) — *outside
+the sum by construction* (shape (a), F-w4c-1), and neither is a table row. ⟨`git status --porcelain`⟩
+over the nine family paths → **0 rows** — the bytes measured are the bytes committed.
+
+#### Act 5 — mail (E13), and a measured sweep
+
+One row minted, **O-43** (the R-A stamp relay: same recipients as O-40/O-41/O-42, delivery point
+`RELEASE-PACKET.md`'s third addendum + `W4-CLOSE.md` §14 in THIS repo, SS-6 batch named, **SENT —
+no reply owed**, O-15 not converted) and a dated sweep line appended. **Measured after the write**:
+⟨`grep -c '^| I-\|^| O-'`⟩ → **88**, not the 83 the sweep line had published — a sibling seat (X·F
+F.W10 `.e`) rowed I-36..I-39 and its own outbound in the same minutes, minting **`O-43` first**, and
+its pathspec commit **`a8fa79d2`** carried this seat's O-43 row and sweep line with it (the shared
+working tree, measured in the ledger itself). The sibling cured the collision at its own row →
+`O-44` (`66e35333`); this seat's `O-43` stands. The wrong figure is corrected by a **dated erratum
+beside** (E-3, SELF-COUNT LAW), committed alone by pathspec once the file was clean → **`10dc948e`**
+(`git show --name-only` → `INBOX.md` only). G-8 after: `RELEASE-PACKET` 4 · `RC-P` 4 · `SS-6` 32 ·
+ROWS 88 · **0 status cells `UNREAD`**.
+
+#### Gate readings — BEFORE → AFTER (this seat's own commands, every reading double-run)
+
+| gate | BEFORE (Act 2, pre-write) | AFTER (post-commit) | verdict |
+|---|---|---|---|
+| G-1 | `VERDICT: GREEN` EXIT=0 ×2 | unchanged — no seam/ledger byte is this seat's | **GREEN** |
+| G-2 | 0 over 22 subject commits | `b33e212e` + `10dc948e` + this receipt: **0** `src\|demo\|api\|test\|e2e` paths | **GREEN** |
+| G-3 | `52 of 52` · `G3 GREEN` · sha `004bbcce…` · EXIT=0 ×2 | unchanged (no `<p2>` byte moved) | **GREEN** |
+| G-4 | 0/0 · GREEN · spec-literal EXIT=0 | unchanged | **GREEN** |
+| G-5 | `FALSE — 3 of 6`, EXIT=1 ×2; control 4 of 6 | unchanged | **GREEN** |
+| G-6 | 25 | 25 | **GREEN** |
+| G-7 | 0 / 0 | 0 / 0 | **GREEN — floor held** |
+| G-8 | 28768 B · 3/3/30 · 82 rows · 0 UNREAD | 30555 B · 4/4/32 · 88 rows · **0 UNREAD** | **GREEN** |
+| G-9 | (C) at `:131` `:134` `:148` | unchanged; 0 paths under `docs/tranches/X/waves/` | **GREEN** |
+| **G-10** (a) | **5** ×2 | **0** ×2 from the committed bytes; second leg 10 disclaimers | **GREEN — the act performed** |
+
+#### Commits (pathspec on the commit itself; `dev.sh` never staged; a sibling's staged `D demo/shell/PaneSegmentedControl.vue` left exactly as found)
+
+| repo | hash | meaning |
+|---|---|---|
+| value.js | **`b33e212e`** | `docs(x-p-w4s/s/close)` — the §9 family: five `VERIFIED` rows · COHESION §1 SS-5 cell + §5 board line · `W4-CLOSE.md` §14 · `RELEASE-PACKET.md` third addendum · `x-p-w4s.json` fold/3 |
+| value.js | **`10dc948e`** | `docs(x-p-w4s/s/mail)` — the dated erratum beside the sweep line (ROWS 88 measured) |
+| value.js | *(sibling's)* `a8fa79d2` | carried this seat's O-43 row + sweep line — recorded, not this seat's commit |
+| value.js | *this receipt* | `docs(x-p-w4s/s)` — this section |
+| value.js | *event line* | `LEDGER.md` — one appended dated line, this wave's own |
+
+No `<p2>` commit, no `../parse-that` byte, no `evidence/W4/**` byte, no `ADJUDICATION-W4.md` /
+`SEAM-CONTRACT.md` / `DIVERGENCE-LEDGER.md` byte, no dated-spec byte beyond the five rows.
+
+#### Residuals and escalations
+
+- **ESCALATIONS: none.** Every write landed inside the declared set; the specified cure was
+  performable at the bytes and was performed as specified.
+- **VERIFIED ≠ ACCEPTED** (§12 / L-18): the two Opus-5 skeptic quartets and the fresh Fable
+  agglomeration are owed post-stamp — owner: the orchestrator.
+- **L-13 seat count 6 of 8** (`.f` rowless in its journal; `.s` its own harvest) — X-W11's HARVEST
+  beside F-e11. **DEFECT-LEDGER append** for `.f2`/`.g2` — not in this grant; the orchestrator.
+- **`RC-P(4.0.0)` FALSE** stands: KF.W3 closed, the X·V re-trigger un-fired, S-4 DISPOSITION C.
+- **Measured, disclosed**: the shared-tree sweep (`a8fa79d2` carrying another seat's hunks) is the
+  standing law's named hazard, observed in a *ledger* file two tracks append to concurrently; the
+  cure that held was a dated erratum beside, never a rewrite of either seat's rows.
