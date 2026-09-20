@@ -3139,3 +3139,252 @@ independent instrument. Writable set exercised: **two** paths, this record and `
 
 **CHECK VERDICT, THIRD PASS-1 SEAT: NOT-CONFORMANT — 0 BLOCKER · 0 CRITICAL · 1 HIGH · 3 MINOR
 (new) · 1 INFO; the earlier register sustained entire.**
+
+---
+
+## Repair 1 (2026-09-19, the REPAIR SEAT · round 1)
+
+**SERVED MODEL: `claude-opus-5[1m]`.** Track C · X·F, dispatched against `## Check 1`'s register as
+sustained by `ADDENDUM A` and re-registered at `ADDENDUM C`. This seat **cures**; it does not
+re-grade its own independence away, so every figure below is a measurement taken after the bytes
+settled, double-run, and every gate a cure could move is re-read from the tree rather than from the
+record.
+
+**E-3 HELD.** `## Check 1`, `ADDENDUM A`, `ADDENDUM B`, `ADDENDUM C`, `## Close`, the unit receipts
+and `F-W9.md` are **not rewritten** — not one byte. This section is an addendum **beside** them, and
+the three MINOR cures the register asks for as *"a dated addendum-beside"* are authored here, under
+their own ids, rather than patched into the immutable cells they correct.
+
+**CRASH-RECOVERY (standing law), performed first.** ⟨cmd⟩ `git status --porcelain` in
+`/Users/mkbabb/Programming/fourier-analysis` → **`?? .worktrees/`** alone — no tracked path dirty,
+so **nothing was inherited** in this seat's fourier writable set. In value.js → **20** dirty rows at
+open (⟨cmd⟩ `git status --porcelain | wc -l`, this seat's own count before its first write), **none
+of them** `docs/tranches/X/execution/C/F-W9.md` or `docs/tranches/X/execution/LEDGER.md`; `D
+demo/shell/PaneSegmentedControl.vue` is a sibling seat's staged deletion and was left exactly as
+found (hence pathspec on the commit itself); `scripts/dev/dev.sh` **NEVER touched**. Nothing
+stashed, nothing restored, nothing reverted.
+
+**E13 Step-0**, re-run at this seat's own clock over the four landing paths: items touched since
+2026-09-18 — `docs/tranches/V/` **2** · `V/coordination/` **8** · `glass-ui BK/coordination/` **2**
+· `keyframes.js V/coordination/` **1** — **0 unrowed and addressed to value.js**. ⟨cmd⟩ the
+positional `awk -F'|'` scan over every `^| I-` row, trimming whitespace and `*`, matching a cell
+**equal to** `UNREAD` → **0**. **E13 clean: 0 unrowed · 0 UNREAD in F.W9's scope**, so no `I-n` is
+minted and `INBOX.md` is not touched by this seat.
+
+### R1.1 `HIGH-1` — CURED, in three parts, each found by executing the one before it
+
+**The defect as filed.** `G-F9-6` was RED with no relief under any of axis (10)'s three heads:
+`e2e/equation-interaction.spec.ts` (`5b74d3f`, unit `b`) died at `getByLabel(/Display terms/i)`
+resolving to **3 elements**, so legs 3 (budget) and 4 (reload) were caught by nothing.
+
+**Reproduced at this seat BEFORE any edit**, on a live full stack (mongod ⊕ `scripts/e2e.sh
+--no-tests` ⊕ vite :3000 ⊕ uvicorn :8000), which is the first time this instrument has ever been
+executed anywhere but CI: ⟨cmd⟩ `npx playwright test --project=chromium e2e/equation-interaction.spec.ts`
+→ **`1 failed`**, *"strict mode violation: getByLabel(/Display terms/i) resolved to 3 elements"*, at
+**`:141:30`** — byte-for-byte the CI failure of run `35445782153`. The run printed the three nodes,
+which no prior seat had enumerated:
+
+| # | node | why it carries the label |
+|---|---|---|
+| 1 | `<input type="number" class="inline-number fira-code" min="2" max="8" value="8">` | `SliderControl`'s inline numeric input, named by the wrapping `<label>` → `getByRole('spinbutton', { name: 'Display terms — shown in' })` |
+| 2 | `<span data-slot="slider" aria-label="Display terms" class="glass-slider slider-track-host">` | the producer's slider host — `SliderControl.vue:157` passes `:aria-label="label"` |
+| 3 | `<span role="slider" aria-label="Display terms" aria-valuenow="8">` | reka-ui's thumb, inheriting the same name |
+
+**PART 1 — the locator, as the register prescribed it.** Both sites (`:140` and the reload leg's
+`:169`) are narrowed to `getByRole("spinbutton", { name: /display terms/i })` — the role the leg
+actually drives, since the leg READS and FILLS a value and the two slider nodes hold none. ⟨cmd⟩
+`grep -n 'getByLabel' web/e2e/equation-interaction.spec.ts` → **one** hit, inside the explanatory
+comment; ⟨cmd⟩ `grep -c 'getByRole("spinbutton", { name: /display terms/i })'` → **2**. No
+`web/src` byte, no waiver, no allowlist, no `test.skip`.
+
+**PART 2 — the budget leg asserted something the product does not claim.** With the locator cured
+the leg executed for the first time and failed at `:160`, *"the display budget changed but the
+rendered series did not"*. That is **not** a product defect, and the difference matters: `eqMode`
+starts at `"sigma"` (`EquationView.vue:58`), `activeLatex` then prefers `displayLatexSigma`
+(`:65`), and the server builds that string with `render_latex_sigma(terms, notation)`
+(`api/routers/equations.py:96`) — **a function that takes no budget at all**. Only `latex`, from
+`simplify_series(terms, req.budget, req.notation)` (`:91`), is budget-determined, and the control
+says so on its own face: ⟨cmd⟩ `sed -n '263,264p' web/src/components/equation/FunctionInput.vue` →
+`label="Display terms"` ⊕ `subtitle="shown in expanded (a+b) view"`. The leg was reading the ONE
+surface the knob cannot move. **Cure**: drive `EquationModeToggle` to `Expanded terms` first — the
+surface the knob governs, and `FR-EMT-11`'s own control — capture the expanded baseline, and assert
+the change against **that**. Two assertions ride along, both in the spec's own idiom: the toggle
+must change the SURFACE and not merely its `aria-pressed`, and the narrowed value must actually
+differ from the one read back.
+
+**PART 3 — the reload leg's bounds witness was VACUOUS.** With legs 1–3 green the fourth executed,
+and passed while asserting nothing at its last step. The restored inputs re-derive the same
+`computeKey`, so the mount's `if (!result.value || computeKey(currentRequest()) !== lastComputeKey)
+doCompute()` (`EquationView.vue:325`) **memo-hits and the cold session posts nothing**:
+`computes.slice(reloadCount)` was empty and `for (const payload of …)` ran **zero** times. Measured
+at the wire, not inferred — ⟨cmd⟩ `grep -E 'POST /api/equations' <uvicorn log> | tail` over that
+run → `compute ×3` then `simplify ×1` (the budget edit's cheap path) and **no compute after the
+reload**. That is exactly the shape **`G-F9-7`** — this wave's own gate — exists to abolish.
+**Cure**: the cold compute is DRIVEN, not awaited. The Compute button is `@compute="doCompute(true)"`
+(`EquationView.vue:381`), the one force path, so one click IS *"the first compute of the next
+session"* carrying the knobs the reload replayed; the response is asserted `200` (a restored
+out-of-range budget would 422 — `B-2`'s literal shape), the roster is asserted **non-empty** before
+the bounds loop reads it, and the last cold payload is asserted to carry the restored budget.
+
+**THE INSTRUMENT IS PROVEN TO FAIL, not merely to pass.** Two seeded falsifications were run at
+this seat and both reverted to the byte (⟨cmd⟩ `shasum -a 256` before and after → identical, and
+⟨cmd⟩ `grep -c SEEDED` on the committed file → **0**):
+
+| seed | result | what it proves |
+|---|---|---|
+| invert the budget poll to `.toBe(expandedBefore)` | **PASSED** — recorded because it is a *negative* result | a `poll` is satisfied by ANY sample that matches, and the first sample after `fill()` still holds the old string, so an inverted predicate is NOT a valid falsification of a poll. **This drove a further hardening**: the SETTLED render is now read back and asserted non-empty, so a recompute's transient empty frame cannot green the leg on its way past |
+| delete the subject — comment out `await budget.fill(narrowed)` | **FAILED**, *"the display budget changed but the rendered series did not"* at `:194` | the budget leg is **not vacuous**: removing the act the gate exists to witness reddens the spec, which is `G-F9-7`'s own test applied to this wave's own instrument |
+
+**THE MEASUREMENT, on the settled and committed bytes, double-run.** ⟨cmd⟩ `npx playwright test
+--project=chromium e2e/equation-interaction.spec.ts --reporter=line`, twice in succession →
+**`1 passed (2.5s)`** · **`1 passed (2.1s)`**. All four legs execute. **SELF-COUNT**, read from the
+settled bytes and double-run: ⟨cmd⟩ `wc -l web/e2e/equation-interaction.spec.ts` → **264** · **264**
+and ⟨cmd⟩ `grep -c 'expect(' …` → **28** · **28**, against ⟨cmd⟩ `git show
+5b74d3f:web/e2e/equation-interaction.spec.ts | wc -l` → **180** and `| grep -c 'expect('` → **19**.
+Nine assertion sites added, none removed; the file grew by 84 lines, of which the diff's own
+⟨cmd⟩ `git show --numstat cef242d` reads **+91 / −7**.
+
+**`G-F9-6`: RED → GREEN ON THE MEASUREMENT.** The gate's falsifier is *"The ONE interaction spec
+(compute → notation → budget → reload) exists and asserts — mechanically catching B-1, B-2, C-29,
+D-07, D-14"*. It exists, all four legs now assert, and the catch is mechanical: `B-1`/`M-CK` at the
+notation and budget surfaces (a knob change that reused a stale result would redden), `B-2`/`M-BR`
+at the cold compute's `200` and its bounds, `D-07` at the notation pill's re-render.
+
+⊘ **WHAT THIS GREEN IS NOT.** It is a **local full-stack** measurement, not a covering CI run id.
+`inv-27` is **`G-F9-17`'s** gate and is untouched here: no run id is claimed for `G-F9-6`, and the
+seat did **not** push (⟨cmd⟩ `git rev-list --count origin/m/w1-bump-migration..HEAD` was **0** at
+open; the repair commit is local). Whether `G-F9-6`'s green is admissible under `inv-27` is the
+boundary seat's reading, and this record states the distinction rather than resolving it.
+
+### R1.2 `C-M1` — CURED as a dated addendum-beside: `E-F9b-2`'s node, re-stated
+
+`E-F9b-2` (`b.13`), `## Close`, `## Check 1` and `ADDENDUM B` all name the failing axe node
+*"glass-ui 8.0.0's `Metric` tile"*. **Those bytes stand and are not rewritten.** Re-measured here,
+independently, the citation is wrong about the component and right about the owner:
+
+| ⟨cmd⟩ | output |
+|---|---|
+| `gh run view 35445782153 --log \| grep -o '"html": "<span aria-hidden[^"]*'` | `<span aria-hidden="true" tabindex="0" style="position: fixed; border: 0px; …` |
+| `grep -rn 'aria-hidden' web/src/ \| grep -c tabindex` | **0** |
+| `grep -o 'FocusGuards' web/node_modules/reka-ui/dist/index.js \| head -1` | `FocusGuards` |
+| `ls web/node_modules/@mkbabb/glass-ui/dist/components/metric/` | `Metric.vue.d.ts` · `MetricRow.vue.d.ts` · `MetricStack.vue.d.ts` · `coalesce-metric.d.ts` · `index.d.ts` · `styles.css` · `types.d.ts` — no such markup |
+
+**`E-F9b-2` READS, from this date forward:** *"`[serious] aria-hidden-focus` ×2 on **reka-ui
+`FocusGuards` sentinels, rendered focusable under `aria-hidden` inside the glass overlay stack**,
+reddening all four admin axe specs and holding `G-F9-3` and `G-F9-22`'s admin leg RED. PRODUCER row
+→ SS-6 relay; no consumer hack."* **The owner is unchanged: PRODUCER.** The relief HEAD survives
+intact — no fourier byte can emit that node — so **`G-F9-3` stays an honest-RED** and no gate moves
+on this cure. What moves is the **`F.W9-P1`** relay's subject line: the letter must ask about the
+dialog/popover focus-guard layer, not about `Metric`. `INBOX.md` is **append-only** and this seat
+minted no row (E13 returned 0 unrowed); the correction rides **here**, dated, for the seat that
+sends the batched communique.
+
+### R1.3 `C-M2` — CURED as a dated addendum-beside: every *"on the CI step's face"* phrase, scoped
+
+Re-measured at this seat, ⟨cmd⟩ `gh run view 35445782153 --json jobs --jq '.jobs[] |
+select(.name|test("web")) | .steps[] | "\(.number) \(.name) :: \(.conclusion)"'` →
+
+`6 Unit floor (X·F F.W4 G-F4-VITEST + F.W9 G-F9-1) :: success` · **`7 Type-check :: failure`** ·
+**`8 Lint floor (X·F F.W0, G-7) :: skipped`** · **`9 Keyed-loop + duplicate-import gate :: skipped`**
+· **`10 Deriver census :: skipped`** · **`11 Build :: skipped`**.
+
+**THE SCOPING, standing from this date:** every phrase in this record of the form *"enumerated on
+the CI step's face"* or *"published on the step's face"* — `E-F9b-5` and the `## Close` cell for
+`G-F9-2` — reads **"on the step's face ONCE A RUN REACHES IT"**. For the covering run
+`35445782153` it did not: **four `web`-job gates are unexercised by that run**, short-circuited by
+step 7. The seven `oxlint --deny-warnings` findings exist in the units' local runs and nowhere in
+that run's log.
+
+**`G-F9-2`'s GREEN is unaffected and is re-measured here**: its falsifier is *"a lint script runs in
+CI and fails on a seeded violation"*, and ⟨cmd⟩ `npm run lint` at this seat → **exit 1**, three
+`no-duplicate-imports` errors, all `web/src/**` (`Tooltip.vue:39` · `BasisCanvas.vue:15`/`:31`),
+with ⟨cmd⟩ `grep -c '^\s*continue-on-error:' .github/workflows/ci.yml` → **0**, so the step is
+blocking by construction. **Owner of the remaining act: F.W10 / the boundary seat**, which reads
+whether a run that never reaches four of its gates can cover a stamp.
+
+### R1.4 `C-M3` — CURED as a dated addendum-beside: **NINE** of the 17, not eight
+
+`MINOR-3` enumerates *"equation-interaction ×1 · fullscreen ×1 · visual-checkpoint ×6"* = **8** of
+run `35445782153`'s 17 failures as F.W9-authored. The ninth is **`coarse-pointer.spec.ts:105`**
+(failure 16), and ⟨cmd⟩ `git log --diff-filter=A -1 --oneline -- web/e2e/coarse-pointer.spec.ts` →
+**`3913738 feat(web): X.F.W9.b — G-F9-13: the matrix carries a coarse-pointer cell, and its
+witnesses`** — this wave's own file, added by this wave's own unit `b`.
+
+**THE COUNT READS 9 OF 17 from this date**, split explicitly: **eight authored-here with the cause
+also here** (now **seven**, `equation-interaction` having been cured at `R1.1`), and **one
+authored-here with the cause routed elsewhere** — `coarse-pointer.spec.ts:105` fails on the 44px
+touch-floor defect in `web/src` booked at **`E-F9b-4`**, which F.W9 owns no cure for. `MINOR-3`'s
+point is **strengthened** by the correction, not weakened: more of the covering run's residue is
+this wave's own than the sentence admitted.
+
+### R1.5 Every gate a cure could move, re-read at this seat (BEFORE → AFTER, double-run)
+
+The cure touches exactly one file, `web/e2e/equation-interaction.spec.ts`. Three gates can be moved
+by a byte in `web/e2e/**` or by a byte anywhere in `web/`; all three are re-run here, and the rest
+of the 23 cite `ADDENDUM C`'s banked re-measurement unchanged (resume law — only the gates the
+landed unit turns are re-run at baseline).
+
+| gate | BEFORE (ADDENDUM C) | AFTER (this seat, ⟨cmd⟩ and output) | verdict |
+|---|---|---|---|
+| **G-F9-6** | **RED**, unrelieved — the instrument dies of strict mode at `:141` | ⟨cmd⟩ `npx playwright test --project=chromium e2e/equation-interaction.spec.ts` ×2 → **`1 passed (2.5s)`** · **`1 passed (2.1s)`**; seeded subject-deletion → **`1 failed`** | **RED → GREEN on the measurement** (local full stack; no run id claimed) |
+| **G-F9-1** | GREEN — the unit floor exists and runs | ⟨cmd⟩ `npm test` → **`Test Files 13 passed (13)` · `Tests 84 passed (84)`** | **GREEN, unmoved** |
+| **G-F9-2** | GREEN — a lint floor exists and fails | ⟨cmd⟩ `npm run lint` → **exit 1**, 3 `no-duplicate-imports`, all `web/src/**` | **GREEN, unmoved** |
+
+**THE TYPE FLOOR, re-read because `e2e/**` is inside it.** ⟨cmd⟩ `grep -n 'e2e' web/tsconfig.json`
+→ `"e2e/**/*.ts"` is an `include` entry, so this spec is type-checked by the same `vue-tsc -b` the
+CI `Type-check` step runs. ⟨cmd⟩ `npx vue-tsc -b --noEmit` after the cure → **exactly one error**,
+`src/components/visualization/ContourEditorCanvas.vue(42,9): error TS6133: 'dragging' is declared
+but its value is never read` — the pre-existing `web/src` row banked at **`E-F9b-7`** / **`E-F9-3`**,
+**unchanged in kind and in count**. The cure introduces **zero** type errors.
+
+**NO OTHER GATE IS RE-GRADED HERE.** `G-F9-3` · `G-F9-5` · `G-F9-8` · `G-F9-11` · `G-F9-15` ·
+`G-F9-17` · `G-F9-18` · `G-F9-19` · `G-F9-21` · `G-F9-22` · `G-F9-23` stand exactly as
+`ADDENDUM C` measured them, each on a head this seat did not touch and could not touch in bounds.
+
+### R1.6 What this seat did NOT cure, and the measured reason for each
+
+| item | why not cured here |
+|---|---|
+| **`MINOR-2`** (`G-F9-11` relieved in part) | Its cure is **split by the filing itself**. The half in bounds is hardening `fullscreen.spec.ts`'s dialog wait; the half that reddens the run is `<div class="fs-controls">` **intercepting pointer events**, a `web/src` defect §1d puts outside every F.W9 writable set (*"any fourier product source under `web/src/**` — F.W3/W4 owns every cure, F.W9 owns gates only"*). Hardening the wait alone would leave the gate RED on the interception, so it would move no verdict and would spend an in-bounds edit to conceal an out-of-bounds defect. **Left as filed; the `web/src` row is the real act** |
+| **`MINOR-4`** (verb overrun at four §1b AUDIT rows) | The cure is a **reconciliation of `F-W9.md` §1b's verb column against `G-F9-19`'s falsifier**, and `F-W9.md` is a dated spec — E-3 forbids the patch, and the close already routes it to **F.W10 / the boundary seat** |
+| **`MINOR-5`** (darwin-only checkpoint baselines) | Capability. A darwin seat cannot mint `-linux` references, and minting them from a CI run is the self-oracle `G-F9-23` exists to abolish. Owner **`E-F9b-3`**, a CI-capable seat |
+| **`INFO-6`** (`write_record` returns 0 on an unwritable path) | Filed as INFO with *"None owed"*; the tradeoff is announced in the watched channel and stated in the bytes. Naming it in the operator hand-off beside `E-F9a-3` is the whole act, and that hand-off is `E-F9a-1`/`-3`'s OPERATOR row |
+| **`LW-1`..`LW-6`** | Verify-only findings about what landed and where; each already carries a named owner in `## Close.7` / `B.5`, and none is an in-bounds code cure |
+| **`E-F9-1`** (the eight paired obligations) · **`E-F9-2`** (the §4.10 CREATE) | Both dischargeable **only** with F.W10 at the other end; §1c makes `F-W10.md` READ-ONLY and §4a-17 demands one commit **with** the twin. 0 bytes written at either end |
+
+### R1.7 Bounds, commits, and the row
+
+**BOUNDS.** Three paths were written, all inside the wave's own writable set:
+
+| path | §File-Bounds row | act |
+|---|---|---|
+| `fourier: web/e2e/equation-interaction.spec.ts` | §1b *"`web/e2e/` — remaining 3 of **8** specs \| MODIFY"*, unit `b`'s row | MODIFY |
+| `value.js: docs/tranches/X/execution/C/F-W9.md` | the execution record — this section, APPENDED | APPEND |
+| `value.js: docs/tranches/X/execution/LEDGER.md` | the row's own event line, APPENDED | APPEND |
+
+⟨cmd⟩ `git status --porcelain` in fourier after the commit → **`?? .worktrees/`** alone: **zero**
+bytes of `web/src/**`, of `glass-ui`, of the registry, of `F-W10.md`, of `docs/precepts` and of
+`scripts/dev/dev.sh`. In value.js the 20 sibling dirty rows are untouched and `D
+demo/shell/PaneSegmentedControl.vue` is still staged exactly as a sibling seat left it — which is
+why both commits carry their pathspec **on the commit itself**.
+
+**COMMITS (2, one per meaning, pathspec on the commit itself).**
+
+| sha | repo | message | paths |
+|---|---|---|---|
+| `cef242d` | fourier-analysis | `test(web): X.F.W9 repair 1 — G-F9-6: the /equation interaction spec RUNS, and its budget and reload legs assert` | `web/e2e/equation-interaction.spec.ts` (+91 / −7) |
+| ⟨this record⟩ | value.js | `docs(x-f-w9/repair-1): …` | `docs/tranches/X/execution/C/F-W9.md` |
+
+**THE ROW.** `HIGH-1` is **CURED** and its gate is **GREEN on the measurement**; `C-M1`, `C-M2` and
+`C-M3` are **CURED as the dated addenda-beside their own cure column prescribed** (`R1.2`–`R1.4`),
+each correcting a citation, a scope word and a count without rewriting one immutable byte. **The
+`Check 1` register's HIGH is discharged; every remaining item is owned elsewhere by name.**
+
+⊘ **THE LEDGER STATUS IS NOT SET BY THIS SEAT.** The vocabulary reserves `CLOSED` for *"verify-only
+close **+ fresh check CONFORMANT"***, and a repair round is neither. The row stays **`PARTIAL
+2026-09-19`** until a **fresh, independent pass-1 seat** re-grades it — a repair seat that graded
+its own cure would be the self-oracle this wave's own `KF.W4` and `G-F9-23` forbid. One dated event
+line is appended to `LEDGER.md`; **no row cell is rewritten.** What the next check inherits is
+named without softening: **one gate moved (`G-F9-6`), three citations corrected, ten honest-REDs
+standing with their owners, and no covering green CI run** — the `inv-27` limb is `G-F9-17`'s and
+is untouched.
