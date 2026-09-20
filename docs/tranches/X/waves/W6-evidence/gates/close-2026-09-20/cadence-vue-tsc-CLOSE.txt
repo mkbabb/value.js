@@ -1,0 +1,2 @@
+SERVED MODEL: claude-opus-5[1m] — X-W6 close seat, 2026-09-20 (this header line is the receipts law; the bytes below it are the command's own output, unedited)
+vue-tsc EXIT=0

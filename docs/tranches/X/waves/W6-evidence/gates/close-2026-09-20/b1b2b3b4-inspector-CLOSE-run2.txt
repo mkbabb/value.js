@@ -1,0 +1,15 @@
+SERVED MODEL: claude-opus-5[1m] — X-W6 close seat, 2026-09-20 (this header line is the receipts law; the bytes below it are the command's own output, unedited)
+  · b1 interior stop answered all eight keys
+  · b1 a11y {"role":"slider","valuemin":"0","valuemax":"100","valuetext":"Stop 2 of 3, position 100%","selected":"true"}
+  · b1 terminal bound: Home/ArrowDown inert at 0%, ArrowUp → 1%
+  · b2 @1440px viewport: addable 462/462 with 12 stops
+  · b2 @390px viewport: addable 324/324 with 12 stops
+  · b2 meniscus press at bar.x+3: 12 → 13
+  · b3 inspector subject after selecting the interior stop: {"selected":1,"entryDisabled":false,"entryValue":"50"}
+  · b3 typed 37.5 → aria-valuenow 37.5, painted skew 0px
+  · b4 removal controls on the route: 1
+  · b4 at the floor: {"present":true,"disabled":true,"describedBy":"gradient-stop-removal-reason","reason":"A gradient needs at least two stops, so this one cannot be removed.","visible":true}
+  · b4 above the floor: 3 → 2
+
+GATE X.W6.b (seat + inspector + keyboard) — GREEN
+EXIT=0
