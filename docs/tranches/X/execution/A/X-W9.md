@@ -5102,3 +5102,283 @@ rather than by a rewrite that would drop a sibling's work. Two standing correcti
 after this one: **(1)** a pathspec on `git commit` does not survive `git commit --amend`;
 **(2)** the scratchpad is shared — write message files under a **uniquely-named** path, never
 `msg<N>.txt`.
+
+## Check 2 — RESUME ROUND (L-20 fresh adversarial pass 2 against `## Repair 1 — RESUME ROUND`, 2026-09-20)
+
+SERVED MODEL: `claude-opus-5[1m]` · **VERIFY-ONLY** — this seat authored no cure byte, no unit
+receipt, and no line of any `## Close`, `## Check` or `## Repair` section above. E-3: the
+2026-09-18 `## Check 2` and every earlier dated section are IMMUTABLE and are **not** rewritten;
+this is a dated sibling beside them, because it reads a repair they could not have read.
+
+**VERDICT: CONFORMANT-HONEST-RED.** **0 BLOCKER · 0 CRITICAL · 0 HIGH · 0 MEDIUM · 4 MINOR ·
+3 INFO.** **All 33 gate verdicts reproduce at this seat's own commands — 31 GREEN · 2 RED**, and the
+two RED are exactly the set COHESION §0ac relieves **by name**, each owner-named in the record's own
+residual register. Check 1's three HIGHs and one MEDIUM are **cured at the bytes**, not argued away:
+`LW-A`'s clean `npm ci` plan no longer drops a package, the 4.1 tarball passes the repository's own
+packed-surface check with **80 behavioural invocations over 80 exports**, `css.d.ts` carries **zero**
+bare declares and **zero** `_2` mangles, and `ARCHITECTURE.md:657` states the manifest the tree
+actually has. The wave's own **Goal criterion reads four clauses of four** at this seat's
+measurements.
+
+Substrate: `tranche-u` @ `1ca0ef51`, node **v26.0.0**, darwin arm64, `dist/subpaths/` **rebuilt by
+this seat** (⟨cmd⟩ `npm run build` → `✓ built in 2.70s`), tarball **packed by this seat**
+(⟨cmd⟩ `npm pack` → `mkbabb-value.js-4.1.0.tgz`, **36 961 bytes, 20 files** — the file count
+reproduces; the byte count moved with Repair 1's source, as it must). Every published count below is
+read from the settled bytes and double-run unless marked.
+
+### CH2R.0 CRASH-RECOVERY sweep (standing law)
+
+⟨cmd⟩ `git status --porcelain` at open, filtered to this seat's writable set
+(`docs/tranches/X/execution/A/X-W9.md`, `docs/tranches/X/execution/LEDGER.md`) → **empty**. Nothing
+inherited, nothing stashed, nothing restored. The seventeen dirty rows are sibling seats'
+(`demo/**`, `e2e/**`, `X-W5.md`, `X-P-W4S.md`, `CARRY-LEDGER.md`) and were never touched;
+`scripts/dev/dev.sh` was never touched and never staged; `demo/shell/PaneSegmentedControl.vue`
+was read at `D ` (staged deletion, the sibling's own state) at open and at close and was **not
+written**. The scratch tarball this seat packed was removed (⟨cmd⟩ `git status --porcelain | grep
+tgz` → empty).
+
+### CH2R.1 Every gate re-run at this seat's own commands — 33 of 33 verdicts reproduce
+
+| # | this seat's reading | vs Repair 1 | verdict |
+|---|---|---|---|
+| G1 | ⟨cmd⟩ `node …/src-surface-totality.2026-09-19.mjs` → **exit 0**, `GREEN`, 18 `ok` arms incl. `ok MTS-09 no unexported declares in css.d.ts` | identical | **GREEN ✓** |
+| G2 | `test/parser-totality.test.ts` → **123 passed** | identical | **GREEN ✓** |
+| G3 | `library-band-gates.mjs` LIB-02 → **30**, split `value=1 css=19 easing=1 math=6 transform=3` | identical | **RED ✓ · RELIEVED** |
+| G4 | `ok LIB-01 easing(name) is total over the Object.prototype key set` + control | identical | **GREEN ✓** |
+| G5 | ⟨cmd⟩ `grep -c 'no-non-null-assertion' eslint.config.js` → **2**; `npx eslint 'src/css/**/*.ts'` (no `--rule`) → **exit 0** | identical | **GREEN ✓** |
+| G6 | `test/transform/path-geometry.test.ts` → **43 passed**; probe MTS-03 4/4 `ok` | identical | **GREEN ✓** |
+| G7 | `ok MTS-04 compact == expanded (31.403311569547547)` | identical to the digit | **GREEN ✓** |
+| G8 | MTS-03 → `0 · 0 · 0 · 5`, all finite | identical | **GREEN ✓** |
+| G9 | ⟨cmd⟩ `ls src/transform/decompose.ts` → absent; MTS-05 `ok` ×2 | identical | **GREEN at its commit; SUPERSEDED-BY-G27 ✓** |
+| G10 | `npx eslint 'src/transform/**/*.ts' 'src/foundation/**/*.ts'` → **exit 0**; `'src/**/*.ts'` → **exit 0** | identical | **GREEN ✓** |
+| G11 | `test/math.test.ts` → **70 passed** | identical | **GREEN ✓** |
+| G12 | `consumer-surface-compile.mjs` → **exit 1 · 2** — `ok LEG1`, LEG2 `TS2307` + `ERR_PACKAGE_PATH_NOT_EXPORTED` (5 fourier sites named) | identical | **RED ✓ · RELIEVED** |
+| G13 | ⟨cmd⟩ `grep -c '^declare ' dist/subpaths/*.d.ts` → **0 in every one of the seven**, double-run | identical | **GREEN ✓** |
+| G14 | ⟨cmd⟩ `grep -o '_2' dist/subpaths/css.d.ts \| wc -l` → **0**, double-run | identical | **GREEN ✓** |
+| G15 | packed: `'serializeCssValue' in css` **true**; `"a : b"`→`{"ok":true,"value":"a: b"}` · `"1px solid red"`→`"1px solid rgb(255 0 0)"` · `"translate(1px, 2px)"`→`"translate(1px, 2px)"` | identical | **GREEN ✓** |
+| G16 | max `src/**/*.ts` = **672** (`path.ts`), then **544** (`grammar.ts`) · 519 · 476 · 440 | max identical; the ratchet does not rise | **GREEN ✓** |
+| G17 | `ok LIB-04 no duplicated declarations in css.d.ts` **and** `ok LIB-04 colour types cross src/color/'s boundary through the barrel only` | identical — both legs | **GREEN ✓** |
+| G18 | `v4-color-behavior` **8** + `color-anchors` **12** = **20 passed** | identical | **GREEN in bounds ✓** |
+| G19 | ⟨cmd⟩ `node …/coverage-by-export.mjs` → **`75/80 = 93.8%`** · **`72/80 = 90.0%`** | identical, both denominators at **80** | **GREEN ✓** |
+| G20 | ⟨cmd⟩ `node scripts/ci/verify-packed-surface.mjs <4.1.0 tgz>` → **exit 0**, `{"runtimeExports":80,"smokeInvocations":80}` | identical | **GREEN ✓** |
+| G21 | ⟨cmd⟩ grep `src/` → **6**; packed `sampleColorRamp/mixColorsInto/toRgba8Into` all **true**, each invoked by G20's smoke half | identical | **GREEN ✓** |
+| G22 | packed `'toHex' in color` **true** · `'easingNames' in easing` **true** · `easingNames().length` **40** | identical | **GREEN ✓** |
+| G23 | `true,true,true,true` on the packed tarball | identical | **GREEN ✓** |
+| G24 | registry `0.13.0` **re-packed at this seat**, sha256 `b943f722a9681f698a6925ef26ae0e3638c7a4f62d4d8009bb3851bc5f1b36aa` — the close's, the check's and the repair's hash **to the byte, a fourth time**; drift → **`0 of 22 names drift ≥ 1e-3; worst overall 4.563e-6 (ease-in-out-back)`**, `GREEN` | identical | **GREEN ✓** |
+| G25 | packed `Object.keys(bezierPresets).length` → **30**; `bezierPresets["ease-out-circ"]` → `[0.075,0.82,0.165,1]` | identical | **GREEN (fence held) ✓** |
+| G26 | ⟨cmd⟩ `grep -rn 'colorScale\|sampleToSVGPath' src/` → **0** | identical | **GREEN (fence held) ✓** |
+| G27 | packed `./transform` keys → `PathGeometry,getPointAtLength,getTotalLength` | identical | **GREEN ✓** |
+| G28 | `bench-table-4.1.md` **125 lines** carrying `1,636,680 / 545,560 / 818,340 / 311,883 / 233,677 / 506,457`; R1 re-measured on the **packed** tarball over the table's own 13-input corpus → **0 throws / 13 calls** | table identical; the R1 call count is the table's **13** | **GREEN ✓** (see MINOR-3) |
+| G29 | `4.1.0`; ⟨cmd⟩ `git rev-list -n1 v4.1.0` → `f3fccfb7`; `grep -c '^## \[4.1.0\]' CHANGELOG.md` → **1**; ⟨cmd⟩ `npm view @mkbabb/value.js versions` → `3.0.0 3.1.0 4.0.0` (**no 4.1.0**), `dist-tags` → `{ latest: '4.0.0' }` | identical | **GREEN ✓** (see MINOR-4) |
+| G30 | ⟨cmd⟩ `grep -c 'src/parsing' …/ARCHITECTURE.md` → **0** | identical | **GREEN ✓** |
+| G31 | ⟨cmd⟩ `node -e` → `dependencies` **undefined**, `devDependencies['@mkbabb/glass-ui']` **^7.0.0**, `['@mkbabb/keyframes.js']` **^6.0.0**, `@mkbabb/parse-that` in **neither**; `:657` states exactly that | identical | **GREEN ✓** |
+| G32 | ⟨cmd⟩ `node …/g32-channel-descriptors.mjs` → **17** spaces · **49** pairs · **0** failures; `ictcp.cp`→`"Cp (protan)"`, `jzazbz.jz`→`"Lightness (Jz)"` | identical | **GREEN ✓** |
+| G33 | **5** packets `…-inbox-2026-09-18-…` under `coordination/` · **5** rows `O-34..O-38` · tag `v4.1.0` dated 2026-09-19 — packets precede the tag | identical | **GREEN on 3 readable legs ✓** |
+
+**Tally: 31 GREEN · 2 RED**, membership `G3 · G12` — Repair 1's claim, reproduced with **zero
+divergences of verdict over 33 gates**. Per **CC-096** the gates are read **staged**; no composite
+verdict is reported.
+
+### CH2R.2 The clean axes — measured here, not inherited
+
+**Axis 2 — bounds.** ⟨cmd⟩ `git show --name-only --format=` over the repair round's nine commits
+(`e4f5f843` · `21aa8d4c` · `b4fbfdcc` · `2f900da0` · `a1872f19` · `59a9e753` · `c6275f53` ·
+`d1dc8a19` · `1ca0ef51`) → union **11** paths. Seven are §File Bounds `modify` rows by name
+(`package.json`, `src/css/index.ts`, `src/css/grammar.ts`, `src/css/types.ts`, `src/easing.ts`,
+`scripts/ci/verify-packed-surface.mjs`, `docs/tranches/V/ARCHITECTURE.md`), two are the wave's own
+record and the shared `LEDGER.md`, one is the disclosed `ESC-W9f-LOCKFILE-DERIVATIVE`
+(`package-lock.json`), and one — `demo/shell/PaneSegmentedControl.vue` — is the seat's **own
+self-reported contamination**, MINOR-1 below. ⟨cmd⟩ the union grepped for `dev.sh` → **0**; ⟨cmd⟩
+`git status --porcelain -- scripts/dev/dev.sh` → ` M` (dirty, unstaged, untouched) at open and at
+close. No `api/**`, no `e2e/**`, no `.github/**`, no `src/color/model.ts`, no peer-repository byte.
+The `ARCHITECTURE.md` carve is ⟨cmd⟩ `git show 2f900da0 --unified=0` → **one hunk, `@@ -657 +657 @@`,
+1 insertion 1 deletion** — inside the carve and nowhere near `:943-945` (X-W8's, CC-082).
+
+**Axis 3 — masking census: CLEAN, measured over the repair's own added lines and over the tree.**
+⟨cmd⟩ every `^+` line of `e4f5f843 21aa8d4c b4fbfdcc 2f900da0` grepped for
+`try {|catch|@ts-ignore|@ts-expect-error|eslint-disable|.skip(|.todo(|skipIf|as any|as unknown as|export * from`
+→ **0 matches**. ⟨cmd⟩ `grep -rn 'catch\|@ts-ignore\|@ts-expect-error\|eslint-disable' src/` → **0**.
+⟨cmd⟩ `grep -rn '\.skip(\|\.todo(\|skipIf' test/` → **0**. ⟨cmd⟩ `ls patches` → *No such file*.
+Three cures were read line by line for the *shape* of a mask, not the string:
+- **HIGH-2** is a **deletion of a duplicate spelling**, not a re-export past a defect: `src/css/`
+  now names the colour vocabulary through `../value` only, `ColorIssue` keeps its own spelling
+  because it has no `../value` twin, and `src/easing.ts`'s `PRESET_TABLE` alias is **deleted** in
+  favour of one exported binding. ⟨cmd⟩ added `export * from` in `src/` → **0**; the
+  `stylesheet.ts` forwarding re-export stays REFUSED for a **sixth** sitting.
+- **HIGH-3 widens `expected` and pays the behavioural half in the same commit.** Read at the bytes:
+  each of the seven added names carries an assertion on **what it does** — `mixColorsInto` on the
+  `Float64Array` it wrote (`out[0] === 106 && out[3] === 1`), `toRgba8Into` on its
+  `Uint8ClampedArray` quad (`12,34,56,255`), `sampleColorRamp` on a 5-stop return, `toHex` pinned to
+  `#0c2238`, `serializeCssValue` on a `parseCssValue("1px")` round-trip, `easingNames()` on the
+  40-name catalog, `isAnyColor` on discriminating a `Color` from a string. ⟨cmd⟩ the driver's own
+  run → **80 invocations over 80 exports, none skipped**. An `expected` list that grows *with* an
+  executed case per name is a ratchet, not an allowlist.
+- **HIGH-1 is one word in the right map.** ⟨cmd⟩ `git show e4f5f843 -- package.json` → a single
+  `+` line adding `"@mkbabb/keyframes.js": "^6.0.0"` to `devDependencies`; `dependencies` stays
+  **absent**, so AM-13's empty-runtime decree is satisfied identically.
+
+**The axis-3 question this pass had to settle at the bytes rather than by reading the escalation.**
+COHESION §0ac's clause *"G3 binds to the entries that declare a `string` parameter"* narrows a gate,
+and a narrowing that hides the gate's own class is a HIGH. It does not hide it, and this seat
+measured the premise **independently of the record**: ⟨cmd⟩ a script over the emitted
+`dist/subpaths/*.d.ts` extracted every `export declare function` whose **sole** parameter is typed
+`string` → **12** (`value.isLayoutTrackingUnit` · `css.parseAnimationRange` ·
+`css.parseAnimationTimeline` · `css.parseCssColor` · `css.parseCssScalar` · `css.parseCssValue` ·
+`css.parseCssValues` · `css.parseKeyframeSelector` · `css.parseStylesheet` ·
+`css.parseTimingFunction` · `easing.easing` · `transform.getTotalLength`), called each with
+`"" · "   " · "__proto__" · "constructor" · "zzz" · "oklch()" · "a{color:__proto__}"` → **0
+throwers**. And the probe's own corpus was read rather than assumed: ⟨cmd⟩
+`sed -n '55,82p' …/library-band-gates.mjs` → `const HOSTILE = [undefined, null, 42, {}, [], "", NaN]`
+— six of the seven are **type violations, not strings**, and the one string in it (`""`) is inside
+the 7-string corpus above that returns 0 throwers. **The relief is sound at the bytes; it is not a
+laundering.**
+
+**Axis 4 — commit families.** ⟨cmd⟩ `git show f3fccfb7 --name-only` → §Commit Plan row 9's family is
+still one commit: SCI-1's `src/color/*`, the atlas evidence tuple and **both** scoped
+`no-non-null-assertion` rule objects, which is also the tag's object. The repair round is **one
+commit per meaning** and splits nothing the plan binds: manifest demote (`e4f5f843`), colour-vocabulary
+spelling (`21aa8d4c`), packed-surface ratchet (`b4fbfdcc`), canon clause (`2f900da0`).
+
+**Axis 5 — E-3 held, as an absence.** ⟨cmd⟩ `git log --oneline 41450f02..HEAD -- <path>` on each
+protected path: `docs/tranches/V/megatranche/registry/adjudicated/` moves only under **X·KF and
+megatranche** commits (`a94bc452`, `429bf48b`, `5645e476`, `7c569bb0`, `35fc8ebf` — not one a W9
+commit); `W4.md` · `W8.md` · `W10.md` · `W11.md` move only under the tranche-authoring commits
+(`e0346d0c`, `dc4cc017`, `84da5098`, `a1c9b58e`, `14d83356`), all pre-execution; and the four
+read-only probes named `execute, no write` in §File Bounds — `src-surface-totality.mjs`,
+`library-band-gates.mjs`, `consumer-surface-compile.mjs`, `fourier-value-import-drift.mjs` — return
+**zero commits in the whole range**, byte-untouched. `W9.md` itself did not move in the repair round.
+
+**Axis 6 — mail.** ⟨cmd⟩ `grep -cE '^\| [IO]-[0-9]+[a-z]? \|' …/INBOX.md` → **82** rows. Status read
+**positionally** (⟨cmd⟩ `awk -F'|'` on field 6; the headers at `:41` and `:66` fix the index) →
+**4** rows whose Status cell contains the word, **0** whose Status *is* `UNREAD`: `O-20` **SENT**,
+`I-31` **FOLDED**, `I-32` **READ IN FULL + ROUTED — TERMINAL**, `O-39` **SENT**. **0 UNREAD in
+scope.** This seat minted no row and wrote no byte of `INBOX.md`.
+
+**Axis 7 — the four-verb line.** Repair 1 did **not** move it, and says so: IMPLEMENTED stays
+`PARTIAL 2026-09-19`, VERIFIED stays `no` where §State reserves it for X-W11. At 31 GREEN with both
+REDs relieved that is an **under-claim**, which is lawful; the over-claim direction is the one the
+law forbids. The LEDGER row read `IMPLEMENTED (PARTIAL) … REPAIR 1 … 31 GREEN · 2 RED; CHECK 4 owed`
+before this seat's act.
+
+**§Format And Lint Cadence, re-run whole at this seat.** ⟨cmd⟩ `npx vue-tsc -p tsconfig.lib.json
+--noEmit` → **exit 0** · `-p tsconfig.demo.json` → **exit 0** · `-p tsconfig.test.json` → **2
+errors**, both `test/gradient-parse.test.ts:32,:63` (`ParsedGradientModel.intervals`), inherited, in
+a file no unit of this wave may write. ⟨cmd⟩ `npx vitest run` → **4 failed / 628 passed (632)**,
+the same three files (`gradient-parse` 2 · `spectrum-luma` 1 · `demo/test/shell/reka-binding-idiom`
+1), **not one regression in either direction**. ⟨cmd⟩ `npx eslint . --max-warnings=0` → **55
+problems (23 errors, 32 warnings)**; ⟨cmd⟩ the JSON formatter parsed → **35** files with problems,
+**0** outside `docs/tranches/**`.
+
+**The blast radius of `LW-A`, re-tested end to end rather than by the manifest alone.** ⟨cmd⟩
+`npm ls @mkbabb/keyframes.js` → `@mkbabb/keyframes.js@6.0.0` resolved, **deduped under glass-ui**
+(the `extraneous` reading is gone). ⟨cmd⟩ `npm ci --dry-run` → **exit 0** with **no `remove
+@mkbabb/keyframes.js` line** in the plan — the presence of that line was the whole of the defect.
+⟨cmd⟩ `npm run gh-pages` — the demo build the finding named, the one `ci.yml`'s `e2e-smoke`,
+`deploy-pages.yml` and `release.yml` run after `npm ci` — → **exit 0, `✓ built in 4.67s`**. The cure
+is real on the artifact, not only in the manifest.
+
+### CH2R.3 Honest-RED adjudication (axis 10) — **both relieved, both owner-named**
+
+Each remaining RED was taken to the spec bytes and to `docs/tranches/X/COHESION.md` §0ac, and asked
+the axis-10 question: producer-owned, routed to a successor by the spec's own words, or named
+honest-RED by id?
+
+| gate | relief pleaded | at the bytes | owner named in the record | verdict |
+|---|---|---|---|---|
+| **G3** | `ESC-W9a-G3-LEG-SCOPE` | ⟨cmd⟩ `grep -n` on `COHESION.md` → `:1831` rules it verbatim: *"**`ESC-W9a-G3-LEG-SCOPE`**: G3 binds to the entries that declare a `string` parameter (the record's stated reading, argued at CH3.7 and D-11); shape/arity violations …"*. The premise is **measured true independently at CH2R.2** — 12 sole-`string` entries × 7 hostile strings → 0 throwers, and the probe's own corpus is six type violations plus `""` | `R-11` (§CL2.8), owner **`ESC-W9a-G3-LEG-SCOPE`, adjudicated — the sitting** | **HONEST-RED — RELIEVED** |
+| **G12** | `ESC-W9d-ROOT-AND-SYNTAX` (a) | ⟨cmd⟩ same grep → `:1829` rules it verbatim: *"(a) G12 LEG2: option **(ii) declared-retired**. O-12 (SENT 2026-07-27) is the position of record; the probe's own header admits a declared-retired root as GREEN; no `"."` key is added."* LEG1 — the leg the wave's Goal criterion turns on — reads `ok LEG1 public return types are nameable from their own subpath` at this seat | `R-12` (§CL2.8), owner **O-12, declared-retired** | **HONEST-RED — RELIEVED** |
+
+**The honest-RED set is `{G3, G12}`, and it is the whole of the RED set.** Check 1's five unrelieved
+REDs — `G1 · G13 · G14 · G20 · G31` — are **GREEN at this seat's own commands**, so there is nothing
+left to launder and nothing left to soften. Neither remaining RED has a cure this wave may take: one
+is an adjudication of the gate's own binding, the other an adjudication that forbids the edit
+(`no "." key is added`).
+
+### CH2R.4 Defect register
+
+| sev | claim | receipt | cure |
+|---|---|---|---|
+| **MINOR-1** | **A bounds violation happened in the repair round and was cured forward: `59a9e753` swept a sibling seat's staged deletion of `demo/shell/PaneSegmentedControl.vue` — a path in no §File Bounds row of this wave — into the record commit, because `git commit --amend` takes the shared index whether or not the original commit carried a pathspec.** Self-reported at §RP-R.9 before any check saw it | ⟨cmd⟩ `git show --stat --format= 59a9e753` → `demo/shell/PaneSegmentedControl.vue \| 52 ---------` beside `X-W9.md`'s insertions. **Mitigation verified at this seat, not accepted on the word**: `c6275f53` restores the blob at its `2f900da0` content and mode through a temporary index, and ⟨cmd⟩ `test -f demo/shell/PaneSegmentedControl.vue` → **absent** with ⟨cmd⟩ `git status --porcelain` → `D  demo/shell/PaneSegmentedControl.vue` — **the exact staged-deletion state the sibling left**, byte for byte, at this seat's open and at its close. The rewrite that would have erased the contamination was refused because a HEAD-equality guard **fired** (a sibling commit had landed) — refusing it was correct | None owed: the state is restored and the deletion remains the sibling's to commit under their own receipt. The standing correction §RP-R.9 publishes — *amend with `--only -- <paths>`, or commit the correction as a new commit* — is the durable cure and belongs in the sitting's law block |
+| **MINOR-2** | **`docs/tranches/X/waves/W9.md` §State is stale by one round.** It names the RED set `G1 · G3 · G12 · G13 · G14 · G20 · G31` and the tally **26 of 33**; five of those seven are GREEN at this seat and the tally is **31 of 33** | ⟨cmd⟩ `sed -n '17,19p' docs/tranches/X/waves/W9.md` → the sentence quoted above; against CH2R.1's table | A minimal in-place status-field correction under §File Bounds' own `W9.md` status-field row, by the seat that next writes it (CHECK 4 or the sitting). The record and the LEDGER both carry the current reading, so nothing downstream reads the stale one |
+| **MINOR-3** | **A published figure in `## Check 1 — RESUME ROUND` does not reproduce (self-count law).** Its G28 row reads *"R1 on the packed tarball → **0 throws / 31 calls**"*; the close reads 13 and the bench table defines the corpus as 13 | ⟨cmd⟩ `sed -n '34,36p' …/bench-table-4.1.md` → *"Corpus, **13** inputs through the R1 entry of record `parseCssColor`: the **9** empty-body colour functions … and the **4** `Object.prototype` keys"*; ⟨cmd⟩ this seat ran exactly those 13 through the **packed** `parseCssColor` → **`R1 throws/calls: 0/13`**. The **verdict** (zero throws, GREEN) is unaffected | A dated addendum-beside correcting 31 → 13 in that row. E-3: the section is not rewritten |
+| **MINOR-4** | **The `v4.1.0` tag no longer denotes the bytes that would ship as 4.1.0.** Repair 1 changed the public `.d.ts` surface (`css.d.ts`'s colour vocabulary, `easing.d.ts`'s `bezierPresets` binding) **after** the tag was taken at `f3fccfb7` | ⟨cmd⟩ `git rev-list -n1 v4.1.0` → `f3fccfb7`; ⟨cmd⟩ `npm view @mkbabb/value.js versions` → `3.0.0 3.1.0 4.0.0` — **4.1.0 is not on the registry**, and `dist-tags` → `{ latest: '4.0.0' }`, so **no published artifact is contradicted** and G29's falsifiers (a second version inside the wave, an emergency `4.0.1`) are both untripped. §RP-R.8 states the position — *"The repaired tree is what X-W11 publishes"* — but files it in prose, not as an owner-named residual | X-W11 re-points or re-takes `v4.1.0` at the tree it publishes. Registered here as **`R-15`**, owner **X-W11** |
+| **INFO-1** | `package-lock.json` rides two wave commits (`f3fccfb7`, `e4f5f843`) in no §File Bounds row | re-measured: `e4f5f843`'s lock delta is **+24 lines, mechanical**; ⟨cmd⟩ `npm ci --dry-run` → **exit 0** | Add the lockfile to §File Bounds beside `package.json` in the next dated addendum — the third seat to ask |
+| **INFO-2** | `library-band-gates.mjs` exits RED on **two legs that are not this wave's gates** — `LIB-03` (*"./css exports serializeCssColor but withholds … serializeKeyframeSelector"*) and `LIB-05` (6 src files over a 350-LoC cap) | §File Bounds binds the probe's **LIB-02 (G3), LIB-01 (G4) and LIB-04 (G17)** legs only; G16's own row states *"**No 350 cap is asserted** — canon caps `demo/` ≤400 and `api/src` ≤350 only (RD-10)"*. ⟨cmd⟩ `grep -h LIB-03 …/evidence/W9/library-band-gates.*.txt` shows the `serializeKeyframeSelector` clause present in **every** before/after reading — pre-existing, not caused here | None for this wave. Worth a row in whatever wave next owns `library-band-gates.mjs`'s unbound legs |
+| **INFO-3** | Two small descriptive slips in `## Repair 1 — RESUME ROUND`'s own prose, neither touching a gate | §RP-R.2's G16 note says `grammar.ts` *"stays third"* — at this seat it is **second** (672 `path.ts`, **544** `grammar.ts`, 519 `rules.ts`); and *"four comment lines"* understates the measured net (⟨cmd⟩ `git show 21aa8d4c --stat` → `src/css/grammar.ts \| 7 ++++++-`, **+5** net: four comment lines plus one import split in two). The figure **544** itself reproduces exactly | A dated addendum-beside if any seat cares to; no gate moves |
+
+**Nothing at BLOCKER, CRITICAL, HIGH or MEDIUM.** Weighed the other way with the same care: this
+seat looked for a HIGH in each cure's *shape* — a re-export past the defect (none: `export * from`
+added in `src/` → 0), a relaxed `expected` (none: 80 invocations over 80 exports), a manifest edit
+that satisfies the gate while breaking the build (none: `npm run gh-pages` → exit 0), a narrowed
+gate binding that hides the gate's class (none: measured false at CH2R.2) — and found none.
+
+### CH2R.5 The spec's own Goal criterion, at the bytes (axis 8) — **four clauses of four**
+
+1. *"no public entry throws on a string"* — **MET.** 12 sole-`string` entries × 7 hostile strings →
+   **0 throwers**, measured at this seat from the emitted `.d.ts` rather than from a list
+   (CH2R.2); `coerceToSyntax`, the only other string-declaring `./css` entry, is covered by the same
+   corpus in the record's CH-R.2 and is not a sole-string entry.
+2. *"no public signature returns a value its own `.d.ts` forbids"* — **MET.** G8 `0 · 0 · 0 · 5`, all
+   finite `number`; G11 70 passed; G9's subject retired at `4be22189`.
+3. *"every type a subpath returns is nameable from that subpath"* — **MET, for the first time in this
+   wave.** ⟨cmd⟩ `grep -c '^declare '` over all seven `dist/subpaths/*.d.ts` → **0 · 0 · 0 · 0 · 0 ·
+   0 · 0**; ⟨cmd⟩ `grep -o '_2' dist/subpaths/css.d.ts | wc -l` → **0**; `ok MTS-09 no unexported
+   declares in css.d.ts`; `ok LEG1 public return types are nameable from their own subpath`;
+   `ok LIB-04 no duplicated declarations in css.d.ts`. Five independent commands, one answer.
+4. *"ships as one dated 4.1.0 cut whose exact-pin consumers were notified by packet before the tag"*
+   — **MET.** 5 packets dated 2026-09-18, 5 rows `O-34..O-38`, tag `v4.1.0` dated 2026-09-19 on
+   `f3fccfb7`, one `## [4.1.0]` heading, no `4.0.1`. (MINOR-4 is about *which bytes* the tag points
+   at, not about whether the cut happened or the packets preceded it.)
+
+### CH2R.6 The successors' `Opens after` conjuncts, measured against this wave
+
+- **X-W10** — *"Opens after X-W5, X-W6, X-W7, X-W8, X-W9 **stable** (surviving structure fixed) AND
+  the CC-104 precondition ruled"*. **The X-W9 conjunct is GREEN at this pass**: 31 of 33 gates green,
+  both REDs relieved by §0ac with owners named, the Goal criterion whole, no HIGH outstanding and the
+  shipped-defect `LW-A` cured and re-tested on the demo build. The wave is *structure fixed*. **X-W10
+  remains lawfully blocked on its sibling conjuncts**, which are independently false: ⟨cmd⟩ the
+  LEDGER rows read X-W5 **`OPEN 2026-09-17`**, X-W6 **`PARTIAL 2026-09-19 — 2 of 10 units landed`**,
+  X-W7 `planned` and X-W8 `planned`; X-W10's own cell reads `BLOCKED-ON X-W5 · X-W6 · X-W7 · X-W8 ·
+  X-W9 stable`. Nothing this wave owes.
+- **X-W11** — *"Opens after X-W0 … X-W10 are IMPLEMENTED (four-verb law; not 'closed', not
+  'reported')"*. X-W9's IMPLEMENTED cell reads **PARTIAL**, and X-W10 has not opened, so **X-W11 is
+  lawfully blocked** — not by this wave alone. Its three inputs from here are unchanged and
+  owner-named: the 4.1.0 tuple (now `R-15`, MINOR-4), G33's post-window `npm ls` leg (`R-13`) and
+  `born-red-*.json` (`R-8`).
+
+**No successor is blocked by this check.** The one conjunct this wave owns is the one that turned.
+
+### CH2R.7 Superlatives, with the same provenance duty as defects (L-18)
+
+**(1) The repair took the cure the check named, in the file the check named, and not one inch
+further.** Four defects, four commits, **eight paths**, seven of them §File Bounds rows by line
+number — and the two REDs it could have "cured" by narrowing were left RED **by name** instead.
+⟨cmd⟩ `grep` over every added line of the four commits for the twelve masking idioms → **0**.
+**(2) HIGH-2 was cured by a deletion.** The duplicate colour vocabulary was not papered over with a
+forwarding export — the second spelling was removed, and `src/easing.ts`'s `PRESET_TABLE` alias with
+it, so 60 `_2` references and 7 bare declares went to **0** while G24's 22 curves moved by
+`4.563e-6` and G25's 30 keys did not move at all. A cure that shrinks the tree and moves no
+behaviour is the rarest shape in this tranche.
+**(3) The seat published its own contamination.** §RP-R.9 was written *after* the commit it
+indicts, names the mechanism the standing law does not close (`--amend` takes the index), records
+that the safe rewrite was refused because a guard fired, and hands the next seat two standing
+corrections. This pass verified the restored state byte for byte and found it exact.
+**(4) The 0.13.0 integrity hash `b943f722…1b36aa` has now reproduced at four independent `npm pack`
+runs across three days and three seats.** G24 is banked in a way that no longer depends on any one
+machine.
+
+### CH2R.8 Disposition
+
+**CONFORMANT-HONEST-RED.** Honest-RED set: **`G3`** (COHESION §0ac `:1831`, `ESC-W9a-G3-LEG-SCOPE`,
+owner *the sitting*, residual `R-11`) and **`G12`** (COHESION §0ac `:1829`,
+`ESC-W9d-ROOT-AND-SYNTAX` (a) / O-12 declared-retired, owner *O-12*, residual `R-12`). **33 of 33
+gate verdicts reproduce** at this seat's own double-run commands; **zero** BLOCKER, CRITICAL, HIGH
+or MEDIUM; four MINOR and three INFO, every one of them mitigated, owner-named or both.
+
+The LEDGER status cell is set to **`CLOSED 2026-09-17 (honest-RED: G3, G12)`** by minimal in-place
+edit, with an event line appended. The four-verb line in `W9.md` §State is **not** touched by this
+seat: `IMPLEMENTED: PARTIAL` is an under-claim, not an over-claim, and §State reserves `VERIFIED` for
+X-W11. The §Closing rider's two L-18 quartets and the fresh-Fable apotheosis remain undischarged;
+this is an L-20 conformance pass, not an L-18 acceptance. This seat cured nothing, moved no gate
+verdict in either direction, minted no `INBOX.md` row, and wrote no byte outside
+`docs/tranches/X/execution/A/X-W9.md` and `docs/tranches/X/execution/LEDGER.md`.
