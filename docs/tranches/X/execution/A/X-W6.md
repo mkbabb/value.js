@@ -2994,3 +2994,10 @@ policy is ruled.
 `docs/tranches/X/waves/W6-evidence/picker/` (create: 2 instruments' transcripts + 1 instrument) ·
 this record. **`demo/picker/ColorPicker.vue` and `demo/scenes/about/AboutPane.vue` were READ and
 MEASURED, never written** — g2 needed no cure and g1's is escalated.
+
+**Erratum (2026-09-20, in place — this seat's own record, same session)**: commit `e69aaf95` was
+written WITHOUT the `Claude-Session:` trailer the standing commit form prescribes; the record
+commit `8d55a82f` carries it. The omission is recorded rather than repaired — amending a landed
+commit in an index four tracks share is the larger harm, and the standing law admits no
+`reset`/amend for this. Every path in `e69aaf95` is inside this unit's writable set and is listed
+in the commit table above.
