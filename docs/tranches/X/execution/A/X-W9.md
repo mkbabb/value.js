@@ -4070,3 +4070,217 @@ status cell, `RESUME-OPEN 2026-09-19` with `PARTIAL 2026-09-17` **preserved insi
 own track, so RS.7's withholding condition has cleared and no foreign byte rides this commit. A second
 event line is appended for the §0ag relaunch. Nothing else is staged; no `git add -u`, no `-A`, no
 stash, no reset; `scripts/dev/dev.sh` untouched (**DR-24**).
+
+### X-W9.f
+
+SERVED MODEL: claude-opus-5[1m]
+
+**The 4.1.0 cut, taken 2026-09-19** under `ESC-W9R1-SEQUENCING` (COHESION §0ac), on integrated main
+as the wave's LAST writer. Eight acts, in order, each with its ⟨cmd⟩ receipt. Every published count
+is read from the settled bytes and double-run; the packed tarball is the oracle wherever a surface
+is the subject (PT-08).
+
+#### F.0 CRASH-RECOVERY sweep (standing law) — nothing inherited
+
+⟨cmd⟩ `git status --porcelain -- package.json CHANGELOG.md src/ eslint.config.js test/ fixtures/
+docs/tranches/X/waves/ docs/tranches/X/execution/A/X-W9.md
+docs/tranches/V/megatranche/audit/probes/` → **no rows**. The writable set was clean at open; no
+predecessor seat's partial work was adopted, and no path outside it was touched to find that out.
+
+The index was **not** clean, and that matters: ⟨cmd⟩ `git diff --cached --name-only` after this
+unit's first `git add` printed `demo/shell/PaneSegmentedControl.vue` — a sibling seat's **staged
+deletion**, present before this seat existed. It was neither unstaged nor committed. Every commit
+below carries its own pathspec ON THE COMMIT, and ⟨cmd⟩ `git show --name-only --format= <sha>`
+confirms that file rides none of them.
+
+#### F.1 The §4a gate and §0j.F word (1), verified BEFORE the first write
+
+| precondition | ⟨cmd⟩ | reading | verdict |
+|---|---|---|---|
+| LEDGER X-W4 row | `awk -F'\|' … LEDGER.md` (row 33) | **CLOSED 2026-09-17** — promoted at CHECK 2, 16/16 §6 gates GREEN, honest-RED set EMPTY | clear to write |
+| LEDGER X-W8 row | same, row 38 | **`planned`** — not OPEN | clear to write (§4a's own alternative) |
+| §0j.F word (1) | `git log --oneline tranche-u -- .github/workflows/release.yml` | `8a7792b9` ⊕ `62ccf4a1` — the cherry-picks of `44ddaff7` ⊕ `e2652f1c` | **PRESENT** |
+| §0j.F word (1), byte identity | `git show <each>:.github/workflows/release.yml \| shasum -a 256` ×3 | `f928c28a…6bc6ad` for `44ddaff7`, `8a7792b9` **and `tranche-u`** | **VERBATIM** |
+
+The two `ci(release)` hardening commits rode in before the cut, byte-for-byte, as the word requires.
+`.github/workflows/**` stays in this unit's Do-NOT-touch and no byte of it was written.
+
+#### F.2 The ship list, act by act
+
+- **SCI-1 + its evidence tuple, ONE commit** (`f3fccfb7`). `sampleColorRamp` / `mixColorsInto` /
+  `toRgba8Into` on `./color`. The tuple is **re-resolved at the consumer's bytes rather than
+  quoted**: ⟨cmd⟩ `sed -n '171,190p;245,265p' ../keyframes.js/src/animation/compile/emit/backward/color.ts`
+  → `sampleRamp` defined at `:171`, called at `:250`
+  (`sampleRamp(fromColor, toColor_, stopCount, space, hueOpt.hueMethod)`) and at **`:263` with
+  `1024`** — the densify's OKLab reference ramp. Their implementation `throw new TypeError`s on a
+  failed mix; ours answers in a `Result`. `count === 1` samples progress 0, their measured
+  convention, preserved rather than re-decided.
+- **`toHex`** on `./color` — `#rrggbb`, `#rrggbbaa` below full opacity, the spelling both measured
+  hand-rolled copies already agree on (`demo/color-session/picker-color.ts:295`,
+  `../fourier-analysis/web/src/lib/colors.ts:69`).
+- **`easingNames()`** on `./easing` — 40 names, frozen, reference-stable.
+- **Memoised `easing()`** — a `Map`, not an object literal, for the same reason `PRESETS` is
+  prototype-free: the key is caller-supplied.
+- **RD-5, the 8 restored analytic arms** — module-private functions bound to catalog names that
+  already exist, so the catalog stays 40 and `bezierPresets` stays 30.
+- **Barrel corrections** — `src/value.ts`, `src/quantize.ts` and `src/easing.ts` publish the
+  vocabulary they return; the three subpath barrels drop the hand-kept lists PSL-1 retires.
+- **AM-13 strip** — see F.4.
+- **Both `no-non-null-assertion` rule objects into `eslint.config.js`, one edit, same commit**, as
+  §Commit Plan row 9 binds and §4a requires. Sole writer.
+- **DECLINED, and the decline is at the bytes**: ⟨cmd⟩ `grep -rn 'sampleBezier\|resolveCssColor' src/`
+  → **0**; ⟨cmd⟩ `grep -rn 'colorScale\|sampleToSVGPath' src/` → **0** (G26's fence, unmoved).
+
+#### F.3 Gate readings, BEFORE → AFTER, every one double-run
+
+`cut-gates-2026-09-19.txt` holds both runs; ⟨cmd⟩ `diff run1 run2` → **empty**.
+
+| gate | BEFORE (this seat's own re-measure at open) | AFTER | verdict |
+|---|---|---|---|
+| **G21** SCI-1 + tuple | `grep -rn 'sampleColorRamp\|mixColorsInto\|toRgba8Into' src/ \| wc -l` → **0** | **6**; packed `sampleColorRamp=true mixColorsInto=true toRgba8Into=true`; ramp at **n=1024 → length 1024**; `mixColorsInto` → `ok=true`, out `0.430277,0.041826,0.026516,1`; `toRgba8Into` → `ok=true`, `out[4..7]=12,34,56,255` | **GREEN** |
+| **G22** `toHex` + `easingNames` | packed `'toHex' in color` → **false**, `'easingNames' in easing` → **false** | **true** / **true**; `toHex(rgb(12,34,56))` → `{"ok":true,"value":"#0c2238"}`; `easingNames()` → **40** | **GREEN** |
+| **G23** reference stability | `easing(n).value === easing(n).value` → **false 4/4** | **true 4/4**, and **true 40/40** across the whole catalog | **GREEN** |
+| **G24** restored arms vs 0.13.0 | 8 of 22 drift, max\|Δ\| **1.923e-1** (`ease-out-circ`) | **0 of 22**; worst residual **4.563e-6** on `ease-in-out-back`, untouched by this wave; exit 0 | **GREEN** |
+| **G25** catalog fence | 30 `bezierPresets` keys | **30**, and `bezierPresets["ease-out-circ"]` still `[0.075,0.82,0.165,1]` — the restoration moved resolution, not data | **GREEN** (fence held) |
+| **G26** ND-01 prune fence | 0 | **0** | **GREEN** (fence held) |
+| **G28** bench table | no `bench-table-4.1.md`; R1 throws 13/13 | table published under the restated denominator; **R1 0 throws / 13 calls** on the packed tarball | **GREEN** |
+| **G29** one dated cut | `4.0.0`; tags `v4.0.0` only | `4.1.0`; tags `v4.0.0 v4.1.0`; one `## [4.1.0] — 2026-09-19` CHANGELOG entry; **one** bump event, **no 4.0.1** | **GREEN** |
+| **G5** config-resident | `grep -c 'no-non-null-assertion' eslint.config.js` → **0** | **2** objects; ⟨cmd⟩ `npx eslint 'src/css/**/*.ts'` (no `--rule`) → **exit 0** | **GREEN** |
+| **G10** config-resident | same, **0** | ⟨cmd⟩ `npx eslint 'src/transform/**/*.ts' 'src/foundation/**/*.ts'` → **exit 0**; ⟨cmd⟩ `npx eslint 'src/**/*.ts'` → **exit 0** | **GREEN** |
+
+**Ten of ten turned.** RS2.4.1's finding is answered in its own terms: the ratchet that did not exist
+now exists, so G5/G10's green is enforced rather than merely measured.
+
+#### F.4 AM-13 — the strip, and the cycle it closed
+
+⟨cmd⟩ `grep -rn 'glass-ui' src/` → **nothing**; ⟨cmd⟩ `grep -rl '@mkbabb/glass-ui' demo/ | wc -l` →
+**84**. So glass-ui is a `demo/` dependency carried as a **runtime** dependency of a library whose
+published `files` are `dist/` alone. It moves to `devDependencies`.
+
+⟨cmd⟩ `grep -rn '@mkbabb/keyframes' --exclude-dir={node_modules,.git,docs,dist} .` → **5 hits, all
+in `package-lock.json`**. Zero source consumers anywhere. It is **removed outright**, not demoted —
+and the lockfile diff shows what that entry actually was:
+
+```
+-        "node_modules/@mkbabb/keyframes.js": {
+-            "dependencies": { "@mkbabb/value.js": "4.0.0"
+```
+
+**Installing value.js installed a copy of value.js.** AM-13's "day-one defuse" was load-bearing and
+nobody had measured what it defused. Runtime dependencies are now **empty**, which satisfies the
+standing allowlist `runtime deps ⊆ {@mkbabb/parse-that}` vacuously — and the allowlist, not a bare
+"no runtime deps", is what the P1.6 decree needs.
+
+Tombstone, backfilled where the act happens rather than by editing an immutable release entry: the
+4.1.0 CHANGELOG records that [4.0.0] shipped these two and never said so.
+
+#### F.5 Escalations — four, each with its exact one-act cure
+
+| id | what | the cure, named precisely | why not here |
+|---|---|---|---|
+| **`ESC-W9f-CSSD-VOCAB-SPELLING`** | `css.d.ts`'s **6** bare declares (`AnyColor` + the five `_2`) and all **60** `_2` references are ONE defect: the exported copy enters from `src/css/index.ts:51-58`'s `export type { … } from "../color/index"`, the duplicate rides in with `CssScalar` from `src/value.ts` | **one 8-line edit**: re-point that block to `"../value"`, which now publishes the same vocabulary, so both routes name one entity | `src/css/index.ts` is `modify` in `W9.md` §File Bounds but is **not in this unit's writable set**. It is worth G13's whole remainder bar one, G14 entire, and G1's last RED (MTS-09) |
+| **`ESC-W9f-PACKED-SURFACE-EXPECTED`** | G20 RED. Its **type** leg now passes — the fixture cure landed — and it fails at the runtime export-list assertion because `scripts/ci/verify-packed-surface.mjs`'s `expected` and `SMOKE` maps are stale by **7** names: `isAnyColor` and `serializeCssValue` (X-W9.d's, stale before this cut) plus this cut's five | add those 7 to `expected` and one smoke case each | `scripts/ci/verify-packed-surface.mjs` is X-W9.e's file, outside this unit's set. **Disclosed as authored-into**: 2 of the 7 predate this cut, 5 are this cut's |
+| **`ESC-W9f-LOCKFILE-DERIVATIVE`** | `package-lock.json` is in no §File Bounds row, and a manifest whose lock contradicts it breaks `npm ci` | regenerated mechanically — ⟨cmd⟩ `npm install --package-lock-only`, **zero authored bytes**; diff confined to the bump, the deps→devDeps move, the keyframes removal and its `"dev": true` markers | raised against this seat itself, for the check seat to rule |
+| **`ESC-W9f-ARCH-DEPS-CLAUSE`** | `ARCHITECTURE.md`'s parse-that paragraph enumerates the two now-stripped deps | one sentence | **G31 is NOT reddened** — the paragraph dates itself (*"recorded against ground truth 2026-09-18"*) and every parse-that claim in it stays true. INFO |
+
+**A finding against the ruling that authorized this seat, reported loud (E-3).**
+`ESC-W9d-DTS-SPELLING` rules that the dts rollup keys its entity cache on the **import-specifier
+string**. That premise is **false at the bytes**, measured twice: the two spellings can never be
+equal across directories, and rewriting `src/value.ts`/`src/quantize.ts` to the directory form
+`"./color"` and rebuilding left ⟨cmd⟩ `grep -c '^declare ' dist/subpaths/*.d.ts` → **sum 20** and
+⟨cmd⟩ `grep -o '_2' dist/subpaths/css.d.ts | wc -l` → **60**, both unmoved. The seat did **not**
+substitute a third spelling and did not loop: it performed the cure X-W9.d had **named** one
+paragraph later and left unexecuted — the module that returns a type publishes it — and measured it.
+**G13 33 → 20 → 7** (`value` 6→0, `quantize` 6→0, `easing` 2→1, `css` 6 unmoved). The spelling was
+restored to its original bytes so no cosmetic change survives that cures nothing.
+
+#### F.6 §Format And Lint Cadence, and what this cut did NOT fix
+
+All ×2, at this seat's own commands, after the cut.
+
+| command | at Check 3 (banked) | at this close | carriers |
+|---|---|---|---|
+| `npx vue-tsc -p tsconfig.lib.json --noEmit` | exit 0 | **exit 0** | — |
+| `npx vue-tsc -p tsconfig.test.json --noEmit` | **1 error** | **2 errors** | both `test/gradient-parse.test.ts:32,:63` — `ParsedGradientModel.intervals`, removed from the demo model by an earlier commit. The 1→2 is not a regression: the ONE error Check 3 counted was `v4-css-emerging`'s, **cured here**, and these two were behind it in the same file list |
+| `npx vitest run` | **13 failed / 600 passed** | **4 failed / 628 passed (632)** | `gradient-parse` 2 · `spectrum-luma` 1 (*its own message* routes it to X-W4) · `demo/test/shell/reka-binding-idiom` 1 (demo/, routed). **Not one is in a file any unit of this wave may write** |
+| `npx eslint . --max-warnings=0` | 55, 0 carriers outside `docs/tranches/**` | **55, 0 carriers outside `docs/tranches/**`** | unchanged; the `docs/tranches/**` ignore is X-W8's G-6. The dated sibling probe this unit authored is **clean** (⟨cmd⟩ eslint on it → exit 0) |
+
+**Zero masking constructs written.** ⟨cmd⟩ `grep -rn 'catch' src/` → **nothing at all**; no
+`test.skip`, no `@ts-ignore`, no `eslint-disable`, no allowlist, no `as any`, no node_modules patch.
+The one shape that would have greened the typecheck without any of this — re-exporting
+`serializeCssValue` from `stylesheet.ts` — is a legacy-compat shim and stays **REFUSED BY NAME**, as
+Repair 2 refused it; the import was migrated to the published home instead.
+
+#### F.7 Measurements this seat adds that no prior seat made
+
+1. **The 40-name catalog is derived, not asserted.** `easingNames()` returns
+   `Object.keys(PRESET_TABLE)` ⊕ the direct-only names, and ⟨cmd⟩ the committed test measures **40**,
+   `new Set(names).size === 40`, and every name resolving. It is the exact set keyframes builds
+   `timingFunctionEntries` from (`compile/easing/registry.ts:29`), so G25's fence now holds **by
+   derivation** rather than by two lists agreeing.
+2. **The 8 restored arms are bit-exact, not merely inside tolerance.** Each of the eight reads
+   `max|Δ| = 0.000e+0` against 0.13.0 over 1001 samples, because both spell the same closed form.
+   The table also **discloses the limit it cannot certify**: fourier's ESC-4 gate is `Δ = 0` while
+   our target is `<1e-3`, so MPC-5's sampler stays the correct instrument at their end.
+3. **G24's substitute substrate is validated against a PUBLISHED artifact.** Run against the
+   `4.0.0` **tarball from the registry** — not this worktree — the substitute oracle reproduces the
+   banked drift table name-for-name (8/22, max 1.923e-1). The substitution is therefore proven, not
+   asserted, and `../fourier-analysis` was neither read nor written.
+4. **The five new `./color` symbols add ZERO JS-boundary throwers.** ⟨cmd⟩
+   `node …/library-band-gates.mjs` → LIB-02 `30`, split `value=1 css=19 easing=1 math=6 transform=3`
+   — **identical to Check 3's split, `color=0` on both sides of the cut**. A surface addition that
+   moves G3's count by nothing is the strongest statement available that it is total.
+5. **G16's ratchet is not endangered by SCI-1.** ⟨cmd⟩ `find src -name '*.ts' -exec wc -l {} + | sort -rn | head -1`
+   → **672** `src/transform/path.ts`, against 899 at wave open. `src/color/operations.ts` grew
+   331 → **440** with the SCI-1 trio and `toHex`, well under the max and colocated with the
+   `mixColors` / `toRgba8` it builds on. Reported as a superlative's shadow, with the same
+   provenance duty as a defect (L-18): it is the largest single-file growth this cut caused.
+6. **G12 LEG1 moved GREEN under the dts publications** — ⟨cmd⟩ `node …/consumer-surface-compile.mjs`
+   → `ok LEG1 public return types are nameable from their own subpath`. LEG2 is the declared-retired
+   root, GREEN by `ESC-W9d-ROOT-AND-SYNTAX` (a); ⟨cmd⟩ `node -e` on the manifest confirms the
+   `exports` map still holds **exactly the seven subpath keys** and the cut added no `"."`.
+
+#### F.8 E13 mail — 0 UNREAD in scope, swept at this seat's own clock
+
+⟨cmd⟩ `/usr/bin/find <each of the four paths> -maxdepth 1 -name '*.md' -newermt '2026-09-19 00:00'` →
+`docs/tranches/V/` **0** · `docs/tranches/V/coordination/` **1** (`INBOX.md` itself, self-excluded) ·
+`../glass-ui/docs/tranches/BK/coordination/` **0** · `../keyframes.js/docs/tranches/V/coordination/`
+**1** (`INBOUND-LEDGER.md`, their terminal-verb record of our mail, already rowed) ·
+`../sci-report/atlas/docs/tranches/P/coordination/` **0**.
+
+Register read **positionally** from each row's status cell, never from a bare `grep -i unread`:
+⟨cmd⟩ `awk -F'|' …` → **0 positional UNREAD** over ⟨cmd⟩ `grep -cE '^\| [IO]-[0-9]+[a-z]? \|'` →
+**81** rows. **0 unrowed · 0 minted · 0 UNREAD addressed to value.js.** No packet was authored here:
+G33 is X-W9.i's and its five packets were sent **before** this tag, which is the ordering the gate
+requires. `INBOX.md` is not in this unit's writable set and no byte of it was written.
+
+#### F.9 Commits, the tag, and the disposition
+
+| # | sha | scope | pathspec verified |
+|---|---|---|---|
+| 1 | **`f3fccfb7`** | `feat(4.1.0): SCI-1 + toHex + easingNames + restored analytic arms` — §Commit Plan **row 9**, the family that may not split: SCI-1 ⊕ its atlas/keyframes evidence tuple ⊕ **both** scoped `no-non-null-assertion` rule objects, one edit, one commit | **16** files; ⟨cmd⟩ `git show --name-only` — the sibling's staged `demo/shell/PaneSegmentedControl.vue` rides **none** |
+| 2 | **`a37073cf`** | `docs(X-W9.f): the dated totality-probe sibling and the bounds-grant addendum` | 2 files |
+| 3 | **`10e9a446`** | `docs(X-W9.f/evidence): the 4.1 bench table, G24's re-substrated drift leg, the cut's gates` | 5 files |
+| 4 | *(this record)* | `docs(X-W9.f): receipt + W9.md §State status fields (D-10)` | 2 files |
+
+**Tag `v4.1.0` → `f3fccfb7`**, annotated, carrying the ship list, the three permanent declines and
+one sentence that is deliberate: *"Publication to the registry is X-W11's act, not this tag's."*
+G29 names the tag and this unit takes it; §State names **X-W11** as the release-and-verified close,
+so the tag is created and **not pushed and not published** by this seat.
+
+**D-10 discharged** — `W9.md` §State now carries the tally history at each seat's own clock
+(19 → 20 → **26 of 33**) and names the seven RED. ⟨cmd⟩ `wc -l W9.md` → **526**, unchanged: two
+lines replaced by two, no line delta, §File Bounds' single named exception honoured exactly.
+
+**Disposition: DONE.** All ten gates this unit owns are GREEN and double-run. Four escalations ride,
+each with its one-act cure named and its file identified; none of the four is a gate this unit was
+given. The wave stays PARTIAL until X-W9.h's G32 and CHECK 4, neither of which is this seat's to
+stamp.
+
+**Superlatives, with the same provenance duty as defects (L-18).** Two, both measured. The
+`ESC-W9d-DTS-SPELLING` cure X-W9.d *named and did not perform* was right — 20 bare declares to 7 on
+three `export type` blocks, after three re-export variants in the barrels had failed — which says
+the defect was never in the barrels and the earlier seats' honesty about "measured ineffective"
+preserved exactly the information needed to find it. And the AM-13 strip, which the spec lists in a
+half-sentence, turned out to be removing an **install-time dependency cycle** on a library whose
+own consumer exact-pins it; the lockfile diff is the only place that fact was ever visible.
