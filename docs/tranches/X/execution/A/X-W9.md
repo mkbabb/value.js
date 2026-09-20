@@ -5087,3 +5087,18 @@ lockfile; `a1872f19` names `LEDGER.md` alone. **Only the amended record commit w
 and only by that one path.** Standing correction for every seat after this one: a pathspec on
 `git commit` does not survive `git commit --amend` — amend with `--only -- <paths>`, or commit the
 correction as a new commit.
+
+**Erratum, same seat, same hour (E-3: stated beside, nothing rewritten).** The commit that carries
+§RP-R.9 — `d1dc8a19` — wears **another seat's subject line**
+(`fix(fourier-web): X.F.W3.e …`). Cause, measured: this seat wrote its message to
+`…/scratchpad/msg4.txt`, and the scratchpad is **shared between the four tracks' seats**, where a
+fourier seat had already written that name; `git commit -F` read their bytes. ⟨cmd⟩
+`git show --stat --format= d1dc8a19` → `docs/tranches/X/execution/A/X-W9.md | 39 +++` and **nothing
+else**, so the commit's CONTENT is this wave's and this wave's only — it is the subject line alone
+that is wrong, and no fourier byte was moved by it. The amend that would have corrected it was
+prepared with a HEAD-equality guard and the guard **fired a second time** (⟨cmd⟩ `git rev-parse
+HEAD` → `3616a2d8`, another sibling commit landed), so the line stands and is corrected **here**
+rather than by a rewrite that would drop a sibling's work. Two standing corrections for the seats
+after this one: **(1)** a pathspec on `git commit` does not survive `git commit --amend`;
+**(2)** the scratchpad is shared — write message files under a **uniquely-named** path, never
+`msg<N>.txt`.
