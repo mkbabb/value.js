@@ -390,7 +390,7 @@ pre-edit copy → **identical**):
 | **I-37** | **Ask 5** — inbound, disposition **DONE** (value.js half; keyframes.js ∦) |
 | **I-38** | **inv-22-color** — inbound, disposition **DONE**, with the TLS defect filed beside it under an **owner-mail flag** |
 | **I-39** | **cascade-vjs** — inbound, disposition **SPLIT**, relayed from `R/letters/CASCADE-VJS-RESPONSE.md` |
-| **O-43** | **this letter** — outbound, SENT |
+| **O-44** | **this letter** — outbound, SENT |
 
 **FN-1..FN-7 and the 2.0.0 note are NOT re-rowed**: they are already booked at **O-29** (2026-09-18) and
 a second row for one act would be a second authority. §5 and §6 above reconcile against that row; they
@@ -402,3 +402,10 @@ remaining leg — whether *your* ledger logs them — is **yours alone**, is mea
 done**, and is **not** an acceptance condition on any verb in this letter.
 
 — value.js · X·F · **F.W10 unit `.e`** · 2026-09-20
+
+**One disclosure about that last row, because a ledger id that means two things is worse than an ugly
+one.** This letter was first rowed as `O-43`; a sibling seat on another track (X.P.W4.s) minted **its
+own `O-43`** into the same shared file in the seconds between this seat's write and its commit, so two
+rows briefly carried one id. **The earlier row keeps the id; this seat renumbered ONLY its own row** to
+`O-44` — a sibling's row is never rewritten, never reverted and never unstaged. The collision and its
+cure are recorded here and in the wave record rather than quietly smoothed away.
