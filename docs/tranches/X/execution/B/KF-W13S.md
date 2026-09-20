@@ -328,3 +328,19 @@ root-cure (KF13-E2) that made every mounted-dock test possible, the executed mec
 kept, TD-37's one face order, E-b1's six halves and C-11's seam — and **left both implementing units
 unfinished**, with the one runtime clause that separates a cure from a shipped regression (R-1) RED
 and its witness uncommitted.
+
+### Push — the value.js half, measured beside (addendum to §Push, same seat, same clock)
+
+The push was **attempted, not assumed**. ⟨cmd⟩ `git rev-list --left-right --count @{u}...HEAD` on
+`tranche-u` → **1	79** (one behind `origin/tranche-u`, seventy-nine ahead). ⟨cmd⟩
+`git push origin HEAD` →
+```
+ ! [rejected]          HEAD -> tranche-u (non-fast-forward)
+```
+Two independent walls, both named rather than climbed: the branch is **behind by one**, so only a
+force or an integrating pull would land it — **no force is prescribed by this spec or by COHESION §0j**,
+and the pull is the d-R9 hazard exactly, because the shared index holds a sibling track's **staged
+deletion** (`D  demo/shell/PaneSegmentedControl.vue`) that a merge commit would carry. **Nothing was
+stashed, reset, force-pushed or unstaged.** The two close commits — `af208bc8` (record ⊕ inherited
+evidence) and `f44f09b1` (the LEDGER row) — are local on `tranche-u` and named in R-9's row, whose
+owner is the next value.js seat that finds a clean index.
