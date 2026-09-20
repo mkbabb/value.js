@@ -1,0 +1,42 @@
+SERVED MODEL: claude-fable-5-1
+# KF.W13.a · OP-3 — the installed glass-ui dist, READ-ONLY, double-run, 2026-09-20T04:20:25Z
+
+## run 1
+⟨cmd⟩ node -p version → 7.0.0
+⟨cmd⟩ ls node_modules/@mkbabb/glass-ui/dist/dropdown-menu-*.js → node_modules/@mkbabb/glass-ui/dist/dropdown-menu-BlbnvMaZ.js
+⟨cmd⟩ grep -c 'default: void 0' …/dropdown-menu-BlbnvMaZ.js → 3
+⟨cmd⟩ sed -n '20,31p' …/dropdown-menu-BlbnvMaZ.js →
+			type: Boolean,
+			default: void 0
+		},
+		defaultOpen: {
+			type: Boolean,
+			default: void 0
+		},
+		dir: {},
+		modal: {
+			type: Boolean,
+			default: !0
+		}
+⟨cmd⟩ grep -c 'v-model:open="open"' demo/app/dock/MbabbMenu.vue → 1
+⟨cmd⟩ sed -n '204p' demo/app/dock/MbabbMenu.vue → const open = defineModel<boolean>("open", { default: false });
+
+## run 2
+⟨cmd⟩ node -p version → 7.0.0
+⟨cmd⟩ ls node_modules/@mkbabb/glass-ui/dist/dropdown-menu-*.js → node_modules/@mkbabb/glass-ui/dist/dropdown-menu-BlbnvMaZ.js
+⟨cmd⟩ grep -c 'default: void 0' …/dropdown-menu-BlbnvMaZ.js → 3
+⟨cmd⟩ sed -n '20,31p' …/dropdown-menu-BlbnvMaZ.js →
+			type: Boolean,
+			default: void 0
+		},
+		defaultOpen: {
+			type: Boolean,
+			default: void 0
+		},
+		dir: {},
+		modal: {
+			type: Boolean,
+			default: !0
+		}
+⟨cmd⟩ grep -c 'v-model:open="open"' demo/app/dock/MbabbMenu.vue → 1
+⟨cmd⟩ sed -n '204p' demo/app/dock/MbabbMenu.vue → const open = defineModel<boolean>("open", { default: false });

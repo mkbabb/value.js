@@ -852,3 +852,159 @@ from this open's own commit. `greenBeforeCure = []` — every gate is RED at thi
 
 *(empty at open — each unit appends its own `### KF.W13.<id>` receipt here, line 1
 `SERVED MODEL: <id>`, commands double-run, SELF-COUNT, inherited paths named.)*
+
+### KF.W13.a — The Dock-Menu Packet · receipt 1 (2026-09-20) — ESCALATED at the proof
+
+SERVED MODEL: claude-fable-5-1
+
+**Status: ESCALATED — `KF13-E2`.** Zero product bytes committed; zero product bytes written in the
+sacred checkout (⟨cmd⟩ `git -C /Users/mkbabb/Programming/keyframes.js status --porcelain` at close →
+the two standing untracked mail packets only — the authored proof file was **removed from the tree
+after being banked whole** at `evidence/W13/`, see act 6). Nothing stashed, nothing restored.
+Substrate: kf `master` = ⟨cmd⟩ `git rev-parse --short=8 HEAD` → **`2736b5e5`** = `origin/master`
+(unmoved since the second-sitting open). value.js `tranche-u`.
+
+#### Act 0 — CRASH-RECOVERY (first act)
+
+⟨cmd⟩ `git -C …/keyframes.js status --porcelain` → **2 rows**, both `?? docs/tranches/V/coordination/
+VALUEJS-INBOUND-…` mail packets — outside every `.a` writable path. ⟨cmd⟩ `git -C …/value.js status
+--porcelain | grep -E 'execution/B/KF-W13|evidence/W13'` → *(no output)*. **No dirty path inside this
+seat's writable set; zero inherited hunks.** The eighteen-odd dirty rows elsewhere in value.js
+(`demo/**`, `e2e/**`, `src/css/**`, `A/X-W5.md`, `scripts/dev/dev.sh`, …) are sibling seats' and
+the unowned arrangement — untouched, unstaged.
+
+#### Act 1 — the spec read WHOLE; every `.a` anchor re-verified at the true bytes (`2736b5e5`)
+
+All 13 of the `.a` anchors the spec pins re-resolve VERBATIM — none drifted:
+- M-4's seven lines — ⟨cmd⟩ `grep -rn 'itemsPopupOpen\|items-popup-open\|mbabbPopupOpen' demo` →
+  `App.vue:29` `:items-popup-open="mbabbPopupOpen"` · `:37` `v-model:open="mbabbPopupOpen"` · `:369`
+  (prose) · `:372` `const mbabbPopupOpen = ref(false);` · `ChromeDock.vue:114` `itemsPopupOpen?:
+  boolean;` · `:237` `const isAnyOpen = computed(() => openPopup.value !== null ||
+  !!props.itemsPopupOpen);` · `MbabbMenu.vue:186` (prose) — **7 · 7**.
+- the MUST-CARRY pair — `MbabbMenu.vue:4` `<DropdownMenu v-model:open="open">` · `:204` `const open
+  = defineModel<boolean>("open", { default: false });` — ⟨cmd⟩ `grep -c 'v-model:open="open"'` →
+  **1 · 1**.
+- the false-mechanism prose — ⟨cmd⟩ `sed -n '109,113p' demo/app/dock/ChromeDock.vue | grep -c
+  'cannot hold the dock open'` → **1 · 1**; the sole demo `useOptionalDockContext` hit is that
+  comment (`ChromeDock.vue:110`) — ⟨cmd⟩ `grep -rn 'useOptionalDockContext' demo` → **1 line**.
+- the subpath — `MbabbMenu.vue:192` `import { DockTrigger } from "@mkbabb/glass-ui/dock";`; the
+  export — ⟨cmd⟩ `grep -n 'useOptionalDockContext' node_modules/@mkbabb/glass-ui/dist/components/dock/
+  index.d.ts` → **`:12`**; the context surface at `…/composables/dockContext.d.ts` — `id ·
+  orientation · layout · keepOpen() · release() · held` (READ, never edited).
+- TD-36's pair — `ChromeDock.vue:299` `… z-dock flex items-center justify-center pointer-events-none`
+  · `:302` `<div class="pointer-events-auto">` — verbatim.
+- `i-2`'s clamp — READ at the installed dist `dock.js:333-337` (the `release` body): `g.value =
+  Math.max(0, g.value - 1)` … — the undocumented clamp the register named, live in 7.0.0.
+- `wc -l` 534 · 229 · 2 · 412 — identical to §B.2.
+
+#### Act 2 — OP-3 printed (READ-ONLY dist, double-run; `evidence/W13/KF-W13a-OP-3-dist.txt`)
+
+glass-ui **7.0.0**; chunk `dropdown-menu-BlbnvMaZ.js`; ⟨cmd⟩ `grep -c 'default: void 0'` → **3 · 3**
+(`:21` `open` · `:25` `defaultOpen` · `:397` a sub-component's); `:30` `modal: { type: Boolean,
+default: !0 }`. Unchanged from the open's reading: **the producer has shipped `default: void 0` on
+`open`/`defaultOpen`** — the rider's *shape* may relax, **its obligation does not**, and the
+G-KFW13-1 MUST-CARRY byte clause is NOT relaxed by this seat (E-3). The demo premise holds: `:4` and
+`:204` verbatim.
+
+#### Act 3 — the mechanism proof AUTHORED (commit 1's file; ZERO `demo/**` bytes)
+
+`test/demo/app/dock-context-slot-resolution.test.ts` (8,335 B; `tsc -p tsconfig.test.json` → **0**
+diagnostics in it): a `SlotChild` authored as **slot content** of `<GlassDock>` (App.vue's `#items`
+shape) calls `useOptionalDockContext()`; the file asserts (1) non-null and THAT dock's `id`
+(`/^glass-dock-/`), `keepOpen`/`release` callable, `held` false at rest; (2) **observable on
+`expanded`**: `focusin` on the dock root expands it, `keepOpen()` from the slot sets `held`/`isHeld`
+true, a `focusout` to nowhere + the collapse clock run to `2 × collapseDelay` leaves `expanded`
+**TRUE**, then `release()` from the slot → `held` false → after `min(collapseDelay, 800) - 1` still
+TRUE → after `+1 + collapseDelay` **FALSE**; (3) the negative control: the same `SlotChild` with no
+`GlassDock` above it → **`null`**. It rides the dock's exported seams only (`GlassDock`,
+`useOptionalDockContext`, the public `expanded`/`isHeld` expose); one jsdom provisioning stub
+(`ResizeObserver` no-op, saved/restored — the tree's own idiom at
+`timeline-hover-preview.test.ts:390-412`; the dock constructs one unguarded at `dock.js:659`);
+`autoLuminance: false` + `backdropMode: "static"` on the mount because jsdom has no canvas 2D context
+and the sampler is not what the file proves. **No `test.skip`, no `vi.mock` of the provider.**
+
+#### Act 4 — the LITERAL gate, double-run: RED, and not for the reason the spec anticipated
+
+⟨cmd⟩ `npx vitest run --project demo test/demo/app/dock-context-slot-resolution.test.ts` →
+**`Error: Cannot find package '@mkbabb/keyframes.js' imported from …/node_modules/@mkbabb/glass-ui/
+dist/useSpring-9u2_shxV.js` · `Test Files 1 failed (1)` · `Tests no tests`** — **×2, identical**
+(`evidence/W13/KF-W13a-G-KFW13-0-literal-gate-RED.txt`). The failure is **before any test body
+runs**: the producer's dock chunk (`dock.js` → `useSpring-…js`, and six sibling chunks — ⟨cmd⟩
+`grep -l '"@mkbabb/keyframes.js"' node_modules/@mkbabb/glass-ui/dist/*.js` → **7** files) imports
+the bare `@mkbabb/keyframes.js` self-specifier. The repo's `vitest.config.ts:29-31` aliases that
+specifier to `src/animation/index.ts` — but vitest **externalizes** `node_modules` deps and loads them
+natively, so the alias never reaches the producer's chunk, and Node cannot resolve a package from
+inside a *different* package's scope (a package never installs itself). **This is the exact bound
+`sequence-instrument-truth.test.ts:29-32` already names** ("THE MOUNT BOUND … whose dist chunk imports
+the bare `@mkbabb/keyframes.js` specifier"); that file dodged it by mounting import-free leaves.
+**The dock cannot be dodged: both G-KFW13-0 and G-KFW13-1's runtime clause are, by the spec's own
+words, *mounted* renders inside a `GlassDock` provider.**
+
+#### Act 5 — the whole distance measured with a READ-ONLY probe (the repo config NOT written)
+
+A scratchpad config **outside the repo** (`mergeConfig(base, { root: <kf>, test: { server: { deps: {
+inline: [/@mkbabb\/glass-ui/] } } } })`, verbatim in the evidence file) — ⟨cmd⟩ `npx vitest run
+--config <scratchpad>/vitest.probe.config.ts --project demo test/demo/app/dock-context-slot-
+resolution.test.ts` → **`Test Files 1 passed (1)` · `Tests 3 passed (3)`** — **×2, identical**
+(`evidence/W13/KF-W13a-G-KFW13-0-probe-inline-GREEN.txt`). **The mechanism the registry's C/S-2 kill
+asserts is TRUE at the installed 7.0.0 dist**: slot content resolves the provider, `keepOpen()`
+holds `expanded` across the clock, `release()` lets it fall, and outside a dock the call is `null`.
+One inline entry is the WHOLE distance between the authored proof and a GREEN literal gate.
+
+#### Act 6 — ESCALATION `KF13-E2`, stated whole, and the tree left clean for the sibling seat
+
+**The specified cure is impossible at the bytes inside `.a`'s writable set, so it is NOT
+substituted (METHOD; §Triumvirate).** The one byte that turns G-KFW13-0 (and, downstream, G-KFW13-1's
+runtime clause) lives in **`vitest.config.ts`** — a `test.server.deps.inline` entry for
+`@mkbabb/glass-ui` (or an equivalent that lets the repo's own `@mkbabb/keyframes.js` alias reach the
+producer's dist chunks) — and that file is (a) **outside `.a`'s writable set** and (b) in the spec's
+§B.2 **Do-NOT-touch** list verbatim: *"`package.json` / `vitest.config.ts` (harness present)"*. It
+is NOT in §Triumvirate's *wave-invalidating* list (glass-ui, `node_modules`, `src/**`, the KF.W7/
+W11/W12 trees) — so the grant is an ordinary bounds carve by dated addendum-beside, not a wave kill.
+The lawful in-file alternatives were each measured or reasoned and REFUSED: `vi.mock` cannot reach an
+import made *inside* an externalized chunk; a `node:module` resolve hook or a `node_modules` symlink
+is a workaround / a `node_modules` write (HIGH defect); mocking `@mkbabb/glass-ui/dock` itself would
+mock the very provider the gate proves. **Nothing this seat could lawfully write turns the gate.**
+
+**What is locked behind it, by the spec's own law**: L-1 — *no deletion before the proof* — so M-4's
+sha (commit 2), then MM-1/MM-6's four-part sha, the 27-row family, TD-36 and the chrome roster
+(§Sequencing 2, binding order in `git log`) all wait. **Not one of them was touched**: landing them
+ahead of the proof would invert the ordered sub-gate (G-KFW13-0 → -1 → -2) and spend M-4 on a
+reading — the exact §L-18 basis (ii) the proof exists to forbid. The §0u ratchet stands at the
+banked **12** (this seat wrote no product byte; `MbabbMenu.vue(208,12)/(208,36)` are still `.a`'s 2 →
+0, owed WITH the MM-1/MM-6 cure).
+
+**Decision requested (one of):**
+1. **GRANT** `.a` a one-line carve on `vitest.config.ts`: `test.server.deps.inline` for
+   `@mkbabb/glass-ui` (root-level, inherited by all three projects through `extends: true`), as a
+   dated addendum-beside to KF-W13 §B.2, with the carve's own byte clause (`git show <sha> --stat`
+   naming `vitest.config.ts` + the test, nothing else) riding G-KFW13-0's sha — **the proof commit
+   then carries a harness byte and a test byte and still ZERO `demo/**` bytes**, which is the lock's
+   actual content; or
+2. route the harness line to its owner (KF.W4's gates/hygiene lane owned the vitest chassis —
+   `execution/B/KF-W4.md`) as a one-line repair `.a` opens on; or
+3. rule that the proof may be authored against a *different* mount surface — this seat sees none:
+   the provider IS `GlassDock`, and the gate's GREEN condition is worded on it.
+
+**Redispatch recipe for the next `.a` seat** (whichever branch is ruled): restore the banked proof
+byte-for-byte from `evidence/W13/KF-W13a-dock-context-slot-resolution.test.ts.txt` (from its line 4;
+sha256 on line 2) to `test/demo/app/dock-context-slot-resolution.test.ts`; land the granted harness
+line beside it in commit 1; re-run the literal gate double; then §Sequencing 2 in order. **The proof
+file was REMOVED from the sacred checkout after banking** (⟨cmd⟩ `rm test/demo/app/dock-context-slot-
+resolution.test.ts`) because, RED under the repo config, it would fail the sibling `.b` seat's and
+`.d`'s `npm run test:demo` runs on a cause that is not theirs; it is inherited through the evidence
+file, not through a dirty path.
+
+**Gates at this seat's close**: G-KFW13-0 **RED** (literal command, ×2 — harness-bound, mechanism
+PROVEN under the probe ×2) · G-KFW13-1 **RED** (born; untouched) · G-KFW13-2 **RED** (born;
+untouched). BEFORE → AFTER: unchanged, every one. Commits (kf): **none**. Commits (value.js): this
+receipt + `evidence/W13/` (four files), pathspec.
+
+**Producer ask recorded for `.d`'s SS-6 relay (unchanged by this seat)**: `dropdown-menu`'s
+`open`/`defaultOpen` now ship `default: void 0` at 7.0.0's rebuilt dist (Act 2) — the relay STATES the
+discharge; `modal` still ships `default: !0` (the documented reka default, now reachable).
+
+**E13**: no mail act this seat — the sitting's sweep (above, `ZERO UNREAD`, tail I-35 / O-42) stands;
+`INBOX.md` untouched. **SELF-COUNT**: ⟨cmd⟩ `ls docs/tranches/X/keyframes/evidence/W13 | wc -l` →
+**4** (four files named in this receipt: `…literal-gate-RED.txt` · `…probe-inline-GREEN.txt` ·
+`…dock-context-slot-resolution.test.ts.txt` · `…OP-3-dist.txt`).
