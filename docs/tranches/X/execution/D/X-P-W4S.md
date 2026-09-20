@@ -3037,3 +3037,262 @@ widen, retag or regenerate any instrument to move a gate, and it did not touch `
 `../glass-ui` or any producer tree. **The LEDGER status cell stays `PARTIAL`**: on this reading
 X.P.W4S is not closed, because its tenth hard-gate condition is now performable and unperformed,
 and a `CLOSED` cell over it would be exactly the laundering axis 10 forbids.
+
+---
+
+## Repair 2 — ROUND 2, on Check 2's register (C2-1 HIGH)
+
+SERVED MODEL: `claude-opus-5[1m]` · **REPAIR SEAT (round 2)**, Track D (X·P) · 2026-09-20. No byte
+above this line is rewritten (E-3); the fourth sitting's open, receipts, close, Check 1, Repair 1
+and Check 2 stand as written. **This seat cured nothing at the bytes and says so first.** Check 2's
+one blocking defect is the R-A stamp itself, and its cure — *"ONE dispatch, no cure at the bytes by
+any seat now seated"* — lies outside every seated unit's §File Bounds by three independent
+measurements. It is **ESCALATED**, with the reason measured rather than asserted, and with the
+dispatch reduced to one paste. **X.P.W4S stays PARTIAL.**
+
+**Tally: 0 cured · 2 escalated (C2-1 HIGH, C2-3 MINOR-carried) · 3 recorded (C2-2, C2-4, C2-5).**
+G-1..G-9 re-read GREEN at this seat's own clock; G-10 re-reads `5`, the open state, the act
+unperformed a fifth time.
+
+### R2.0 — CRASH-RECOVERY sweep, before any write
+
+⟨cmd⟩ `git status --porcelain -- docs/tranches/X/execution/D/X-P-W4S.md
+docs/tranches/X/execution/LEDGER.md docs/tranches/X/parse-that/` → **0 lines**. **No killed
+predecessor's partial work on this unit exists**; nothing was inherited, nothing stashed, nothing
+restored. ⟨cmd⟩ `git status --porcelain` (whole tree) → **15** rows, every one a sibling track's
+(`demo/**` · `e2e/**` · `CARRY-LEDGER.md` · `execution/A/X-W5.md` · `execution/LEDGER.md` ·
+`scripts/dev/dev.sh`, unowned and NEVER touched) — **none inside this seat's writable set, none
+touched, none staged**. ⟨cmd⟩ `git -C <p2> log --oneline -1` → **`fede7d3`** — `X.P.W4.h`'s head,
+**unmoved** since the third sitting; this repair wrote no byte there. ⟨cmd⟩ `git status
+--porcelain -- docs/tranches/X/parse-that/waves/ docs/tranches/X/COHESION.md` → **0 lines**, before
+and after.
+
+**The tree MOVED under this seat while it worked, and the shared index is not empty.** By the last
+sweep: ⟨cmd⟩ `git status --porcelain` → **17** rows — a sibling had committed its
+`execution/LEDGER.md` row away (⟨cmd⟩ `git diff --stat -- docs/tranches/X/execution/LEDGER.md` →
+empty) and had **STAGED a deletion**, ⟨cmd⟩ `git diff --cached --name-only` →
+**`demo/shell/PaneSegmentedControl.vue`**, a single row sitting in the index this seat shares with
+three other tracks. It is not this wave's, it was not touched, it was never unstaged — **and it is
+exactly why the pathspec is repeated on the commit itself**: a bare `git commit` here would have
+swept a sibling's staged deletion into an X·P commit, the contamination measured at X-W0. ⟨cmd⟩
+`git status --porcelain -- src api demo test e2e` → **13** rows (**10** `demo/**` · **3**
+`e2e/**`), unchanged across the movement.
+
+### R2.1 — Defect register, each row dispositioned
+
+| # | severity | disposition | where |
+|---|---|---|---|
+| **C2-1** | **HIGH** | **ESCALATED — no cure at the bytes is lawful for any seat now seated.** Three independent bars, each measured: the minting addendum is a **dated-spec / root-session write** (`waves/W4.md` + a new `COHESION.md §0*` section), the stamp paths are granted to a **fresh Fable adjudicator alone**, and this seat is **neither fresh nor Fable**. The dispatch is reduced to one paste at R2.2.4 | R2.2 |
+| **C2-2** | MINOR (mitigated) | **NO CURE ORDERED** by the check itself (*"Mitigation accepted … No cure ordered"*); the durable fix is Repair 1's LOCKS addendum at R1.6, already landed. **RECORDED** | R2.4 |
+| **C2-3** | MINOR (mitigated, carried) | **ESCALATION CARRIED, unmoved.** The only cure is a dated addendum to `W4.md` §6 G-2 — the same dated-spec surface C2-1's cure needs, outside every seat's bounds. Re-measured here | R2.3 |
+| **C2-4** | INFO | **RECORDED, no cure** — the suggested fix pins a variant in the **E13 idiom**, not a wave artefact and in no unit's grant. A **third** reading is measured here and agrees on the load-bearing figure | R2.4 |
+| **C2-5** | INFO | **RECORDED** — the family is at rest; §3a's third-iteration trigger has not fired. This repair adds no G-1 head: G-1 was GREEN before it and is GREEN after it | R2.4 |
+
+**No defect at ≥ MEDIUM was cured, because none at ≥ MEDIUM has a cure inside bounds.** That is the
+whole finding, and it is the same finding Check 2 reached from the other side.
+
+### R2.2 — C2-1, the escalation, measured
+
+**The defect reproduces, first.** ⟨cmd⟩ `for f in waves/W[0-4].md; do awk '/^### Four-verb
+status/{t=1;next} /^#/{t=0} t' "$f"; done | grep -c 'VERIFIED | \*\*NO\*\*'` → **5** — COHESION
+§0ab's shape-(a), the OPEN state, the act unperformed. ⟨cmd⟩ `grep -rn 'VERIFIED'
+waves/W[0-3]-CLOSE.md | wc -l` → **10**, every line a disclaimer; **no sibling self-stamps**.
+⟨cmd⟩ `git status --porcelain -- docs/tranches/X/parse-that/waves/ docs/tranches/X/COHESION.md` →
+**0 lines**. Check 2's reading, to the number.
+
+**And the relief is gone, as Check 2 says.** ⟨cmd⟩ `node scripts/seam-contract-check.mjs
+SEAM-CONTRACT.md evidence/W3/universe-52.json DIVERGENCE-LEDGER.md` → **`VERDICT: GREEN`**,
+**EXIT=0**; run 2 byte-identical; ⟨cmd⟩ `diff -q run1 run2` → **silent**. §6 G-10's falsifier
+(*"a stamp performed while any of G-1..G-9 is red fails"*) no longer bites. This seat agrees with
+Check 2 and does not re-argue it.
+
+#### R2.2.1 — Bar 1: the minting act is a dated-spec write, and this wave has no grant on it
+
+The cure Check 2 names is *"a **sixth dated addendum-beside** (the root session's act, as §0y ·
+§0aa · §0ab each were)"*. Measured at the bytes, that act is two writes, and this wave holds
+neither:
+
+- ⟨cmd⟩ `grep -cE '^\*\*ADDENDUM 2026-09-19' docs/tranches/X/parse-that/waves/W4.md` → **5** — the
+  five addenda live **inside `W4.md`**, the dated spec. `W4.md` §4 File Bounds grants this wave
+  `modify-carve` on `waves/W0.md`–`W3.md`'s **VERIFIED row only** and **no write at all on
+  `W4.md`**; E-3 makes the dated spec IMMUTABLE and its corrections the root session's addenda.
+  ⟨cmd⟩ `git log -1 --format='%h %ad %s' --date=short -- waves/W4.md` → **`e105059c` 2026-09-19**,
+  *"docs(X·exec): §0ab — … units .g ∥ .h → .f2 minted"* — **the root session's own commit**, which
+  is the precedent and also the disqualification: every one of the five was landed by that seat,
+  never by a wave unit.
+- The paired `COHESION.md` section. `W4.md` §4 grants `docs/tranches/X/COHESION.md` as
+  **`modify-carve` — §1 SS-5 status cell and §5 status board line only**, and states that *"§2's
+  edge text and §1's SS-6 row are authored by the root session and are quoted here, never
+  rewritten"*. A **new `## §0*` ruling section** is neither of the two carved cells.
+
+**This is the same surface C2-3's cure needs**, which is why the two escalations are one act for
+the root session and are stated together at R2.3.
+
+#### R2.2.2 — Bar 2: the stamp paths are granted to a fresh Fable adjudicator alone
+
+⟨quote⟩ `W4.md` §5: *"`.d` is a **fresh Fable adjudicator** (M-23 §1): the sub-tranche release
+close is an adjudication act, it is the only site that stamps VERIFIED, and the adjudicator must be
+fresh — **a seat that authored a gate cannot certify it**."* ⟨quote⟩ §4a: the four sibling waves'
+VERIFIED table rows, `INBOX.md` and the two COHESION cells are **`.d`'s** and no one else's.
+⟨quote⟩ COHESION §0y re-gives that set to **`.f`**; §0ab re-gives it to **`.f2`** — *"(fresh Fable)
+— the third addendum's `.f` stamp set … **iff G-1..G-9 GREEN at its own re-run**"*. Three grants,
+three fresh-Fable holders, **zero** of them this seat.
+
+#### R2.2.3 — Bar 3: this seat is neither fresh nor Fable, and it is now less fresh than it was
+
+**SERVED MODEL: `claude-opus-5[1m]`** — line 1 of this section, and not a Fable instance; M-23 §1's
+model seat is missed on its face. And freshness: this seat has now read Check 2's register, re-run
+nine of the ten gates, and authored these bytes. ⟨cmd⟩ `grep -n 'X.P.W4S' execution/LEDGER.md` →
+the row and the event lines record **`claude-opus-5[1m]`** at every X·P sitting since 2026-09-19 —
+open, close, Check 1, Repair 1, Check 2. §5's *"a seat that authored a gate cannot certify it"* is
+the same law that disqualified the Repair-1 seat at R1.5 and the Check-2 seat at its §6.
+
+**A fourth bar, for completeness**: even a lawful holder must satisfy §0ab's *"iff G-1..G-9 GREEN
+**at its own re-run**"*. This seat's re-run is not that seat's, and a stamp resting on a cited
+reading would be the cached-verdict failure §6 G-5's falsifier names in the neighbouring gate.
+
+**Therefore the conforming act for a seat with this seat's grants is to escalate**, and the
+non-conforming acts are enumerated so the next reader can see they were considered and refused:
+performing the stamp (bars 2 + 3), writing the addendum (bar 1), minting `.f3` without an addendum
+(a wave inventing its own unit — the exact shape Check 2 §3 declines to launder in `R-C2`), or
+writing `CLOSED` on the LEDGER row (the laundering axis 10 forbids). **None was taken.**
+
+#### R2.2.4 — the dispatch, reduced to one paste (a PROPOSAL in this record; NOT LANDED anywhere)
+
+Everything below is **text in this execution record**. It is **not** written into `W4.md`, **not**
+written into `COHESION.md`, and neither file moved: ⟨cmd⟩ `git status --porcelain -- waves/
+../COHESION.md` → **0 lines** after this repair, exactly as before it.
+
+**The collision-free section id, measured — not guessed.** ⟨cmd⟩ `grep -oE '^## §0[a-z]+'
+docs/tranches/X/COHESION.md | sort -u` → **34** ids, `§0a … §0z · §0aa · §0ab · §0ac · §0ad · §0ae
+· §0af · §0ag`. `§0ac` is **already taken** by Track A's runner ruling of 2026-09-19, so the
+"next" id a reader would reach for by counting the X·P addenda (`§0ac`) **would collide**. The
+first free id is **`§0ah`**.
+
+> **PROPOSED ADDENDUM (sixth, beside — E-3; COHESION §0ah). Unit `X.P.W4.f3` (a FRESH Fable
+> adjudicator, M-23 §1).** G-10's Check-1 relief expired with G-1's cure at `cf99b1c8`: G-1..G-9
+> read GREEN at two independent seats' own double-run clocks (Repair 1 §R1.5, Check 2 §2), the
+> R-A stamp is performable and undispatched, and every seat then seated is disqualified by
+> freshness or by model seat. `.f3` carries **`.f2`'s writable set verbatim**: the five four-verb
+> `VERIFIED` rows of `waves/W[0-4].md` (R-A, **one act**) · `COHESION.md` §1 SS-5 cell + §5 board
+> line (**both carves or neither**) · `waves/W4-CLOSE.md` (append a dated §14) ·
+> `RELEASE-PACKET.md` (dated addendum) · `registry/harvest/x-p-w4s.json` (fold/3). It re-runs
+> **G-1..G-10 at its own clock** and performs the stamp **iff G-1..G-9 read GREEN there** —
+> §0ab shape-(a) sum **5 → 0** in one act. It stamps **VERIFIED, never ACCEPTED** (§12, L-18). If
+> any of G-1..G-9 reads RED at its clock it performs nothing, records the id, and X.P.W4S stays
+> PARTIAL. The §9 `.d` commit family (five rows + two cells) **must not split**.
+
+**What the dispatching seat should know before it reads the record whole**: the stamp is the
+wave's **tenth hard-gate condition** (`W4.md` §2), not a residual; `R-C2` is a wave-invented
+routing that Check 2 §3 refused; and the act's only live precondition — G-1..G-9 GREEN — is
+satisfied at these bytes and has been re-measured at R2.5 below.
+
+### R2.3 — C2-3, the carried escalation, re-measured
+
+`W4.md` §6 G-2's literal predicate is a **working-tree** one — *"`git -C … status --porcelain --
+src api demo test e2e` is empty at **every commit**"* — and this wave reads it as a **commit**
+predicate. Re-measured at this seat, both legs:
+
+- ⟨cmd⟩ `git status --porcelain -- src api demo test e2e` → **non-empty** — **13** rows, **10**
+  under `demo/**` and **3** under `e2e/**`, every one a sibling Track-A seat's and none this
+  wave's. The literal reading is FALSE and has been FALSE at every X·P sitting.
+- ⟨cmd⟩ each of `cf99b1c8` · `91853f91` · `4558addf` · `9d16ac59` piped to
+  `git show --name-only --format='' <c> | grep -cE '^(src|demo|api|test|e2e)/'` → **0 · 0 · 0 ·
+  0**; ⟨cmd⟩ the same four grepped for `scripts/dev/dev.sh` → **0 · 0 · 0 · 0**. The commit reading
+  is TRUE, and it is the reading the gate's own *falsifier* states — *"one byte under those paths
+  **at any commit** fails the wave"*.
+
+**The cure is unchanged and still outside bounds**: a dated addendum to `W4.md` §6 G-2 naming the
+commit predicate as the gate's operative form — the same dated-spec surface R2.2.1 measures, in
+the same root-session act. ⟨cmd⟩ `git status --porcelain -- waves/W4.md` → **0 lines**, and this
+repair left it so. **ESCALATION CARRIED**, non-blocking, disclosed at every sitting since Check 1.
+
+### R2.4 — C2-2, C2-4 and C2-5, recorded
+
+**C2-2 (MINOR, mitigated).** Check 2 ordered **no cure** (*"Mitigation accepted … the LOCKS
+addendum at R1.6 is the durable fix"*), and that addendum is already landed in this record at
+`91853f91`. Re-measured here: ⟨cmd⟩ `git show --numstat --format='' cf99b1c8` → `21 7
+DIVERGENCE-LEDGER.md` · `203 0 evidence/W4/g1-repair1-2026-09-20.txt` — **2 paths, both inside the
+wave's §File Bounds writable set** (§0ab's `.h` row · §4's standing `evidence/W4/**`). Nothing to
+cure; re-opening the shape would rewrite bytes E-3 protects.
+
+**C2-4 (INFO) — a THIRD reading, and it agrees.** This seat's own row-count variant is wider than
+either of the two on the record: ⟨cmd⟩ `awk -F'|' '/^\|/{n++} END{print n}'
+docs/tranches/V/coordination/INBOX.md` → **107** (⟨cmd⟩ of which **5** are separator rows; the
+variant counts every line beginning `|`, table headers and separators included). The record's
+variants read **82** and **78**. **The file did not move**: ⟨cmd⟩ `git log -1 --format='%h'
+-- docs/tranches/V/coordination/INBOX.md` → **`422dc086`**, which predates Check 2's commit
+`9d16ac59`, and ⟨cmd⟩ `git status --porcelain -- docs/tranches/V/coordination/INBOX.md` → **0
+lines** — so the spread is **purely a counting idiom**, three variants over identical bytes.
+**The load-bearing figure is unanimous**: ⟨cmd⟩ the leading-token census → **`UNREAD_leading=0`**;
+⟨cmd⟩ the naive positional `$6 ~ /UNREAD/` → **4**, and all four printed here are cells that
+*begin* `SENT` / `FOLDED` / `READ` (`:99` SENT 2026-08-28 · `:103` FOLDED 2026-09-17 · `:105` READ
+IN FULL 2026-09-19 · `:126` SENT 2026-09-19) — the X.P.W0 D-1 trap, met a third time and caught a
+third time. **E13 is satisfied: no wave closes with UNREAD mail in scope, and none is.** The fix
+Check 2 names — pin the leading-token form in the E13 idiom — remains outside every unit's grant.
+
+**C2-5 (INFO).** The trigger is still unfired and this repair does not fire it: **this repair
+authored no gate instrument and no ledger row**, so G-1 has no fifth head. ⟨cmd⟩ `git status
+--porcelain -- docs/tranches/X/parse-that/scripts/seam-contract-check.mjs
+docs/tranches/X/parse-that/SEAM-CONTRACT.md docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md` →
+**0 lines**. G-1 was GREEN before this repair and is GREEN after it.
+
+### R2.5 — every gate a cure could move, re-read
+
+**No cure landed, so no gate could move** — and the claim is not left as an inference. This repair
+wrote **two paths**: this record and the LEDGER's own row + event line. Neither is in any gate's
+read set: G-1 reads `SEAM-CONTRACT.md` · `evidence/W3/universe-52.json` · `DIVERGENCE-LEDGER.md` ·
+`ADJUDICATION-W4.md`; G-3/G-4/G-5 read `<p2>`'s tree and the registry; G-6/G-7 read sibling specs
+and producer manifests; G-8 reads `RELEASE-PACKET.md` and `INBOX.md`; G-10 reads `waves/W[0-4].md`
+and `W[0-3]-CLOSE.md`. The fast gates were re-run anyway, at this seat's own clock:
+
+| gate | reading at this seat | ≡ |
+|---|---|---|
+| **G-1** | ⟨cmd⟩ `node scripts/seam-contract-check.mjs SEAM-CONTRACT.md evidence/W3/universe-52.json DIVERGENCE-LEDGER.md` → `SURFACE-WIDE ledger rows … S-1, S-4, R2, R3, R5, CN-1, §6.1` (no `§11.4`) · **`VERDICT: GREEN`**, **EXIT=0**; run 2 byte-identical; ⟨cmd⟩ `diff -q` **silent** | **GREEN — Repair 1's cure reproduces a third time** |
+| **G-2** | ⟨cmd⟩ the four commits of Repair 1 + Check 2 → **0** paths under `src`/`demo`/`api`/`test`/`e2e`, **0** occurrences of `scripts/dev/dev.sh`; the two commits of THIS repair re-checked at R2.6 → **0** and **0** | GREEN under the commit predicate; C2-3's disclosure carried |
+| **G-6** | ⟨cmd⟩ `grep -rn 'RC-P' docs/tranches/X/{keyframes,fourier}/waves/ \| wc -l` → **25** | GREEN, unmoved — and X·P wrote no byte in either directory |
+| **G-7** | ⟨cmd⟩ `grep -c 'parse-that' ../fourier-analysis/package.json` → **0**; `web/package.json` → **0** | GREEN — the inherited floor held; no transitive copy "cured" |
+| **G-8** | ⟨cmd⟩ `wc -c < RELEASE-PACKET.md` → **28768**; ⟨cmd⟩ leading-token census over `INBOX.md` → **`UNREAD_leading=0`** (three row-count variants, R2.4; `UNREAD=0` under all three) | GREEN, unmoved |
+| **G-10** | ⟨cmd⟩ §0ab shape-(a) → **5**; ⟨cmd⟩ `grep -rn 'VERIFIED' waves/W[0-3]-CLOSE.md \| wc -l` → **10**, all disclaimers | **RED — the open state, the act unperformed a FIFTH time. C2-1.** |
+| **G-3 · G-4 · G-5 · G-9** | **not re-burned** (STALL WATCHDOG: a long run this repair cannot move is a silent generation, not evidence). ⟨cmd⟩ `git -C <p2> log --oneline -1` → **`fede7d3`**, unmoved since `.h`; `<p2>` holds every byte those three read. Banked at Check 2 §2, re-run there at that seat's own clock: `resolved 52 of 52` · sha `004bbcce02e08b89…` · `entryCount 91` · `refusals 5` · `G3: GREEN` EXIT=0 · `0`/`0` GREEN EXIT=0 · `RC-P(4.0.0) = FALSE — 3 of 6` EXIT=1 (honestly false) · disposition **(C)** at `W4-CLOSE.md` §4 | GREEN, cited not re-claimed |
+
+**The posture is unchanged by this repair, and that is the correct outcome**: G-1..G-9 GREEN,
+G-10 RED, honest-RED set **∅**, one dispatch owed. A repair that moved a figure here would have
+moved it by writing somewhere it had no grant.
+
+### R2.6 — bounds, commits, and what this repair did not do
+
+**Writes — two paths, both this wave's own record surface.**
+`docs/tranches/X/execution/D/X-P-W4S.md` (this `## Repair 2` section, appended; **no byte above it
+rewritten**, E-3) and `docs/tranches/X/execution/LEDGER.md` (this wave's row cell, minimally
+replaced in place, plus **one appended** dated event line — re-read immediately before editing,
+per the standing law that four tracks edit it concurrently). Two commits, **one per meaning**, each
+with its own pathspec repeated **on the commit itself**; nothing else staged; the hashes are named
+on the LEDGER event line.
+
+**No write** to: `W4.md` or any `waves/*.md` · `COHESION.md` · `SEAM-CONTRACT.md` ·
+`DIVERGENCE-LEDGER.md` · `ADJUDICATION-W4.md` · `W4-CLOSE.md` · `RELEASE-PACKET.md` ·
+`RELEASE-CONDITION.md` · `scripts/seam-contract-check.mjs` · `evidence/W4/**` · `INBOX.md` · the
+registry (`harvest/**`, `DEFECT-LEDGER.md`, `adjudicated/**`) · `<p2>` · `../parse-that` ·
+`../glass-ui` · any producer tree. ⟨cmd⟩ `git status --porcelain -- docs/tranches/X/parse-that/
+docs/tranches/X/COHESION.md docs/tranches/V/coordination/INBOX.md
+docs/tranches/V/megatranche/registry/` → **0 lines**, after the repair as before it.
+`scripts/dev/dev.sh` never touched, never staged, and in **0** commits of this repair.
+
+**This repair did NOT**: perform the R-A stamp · carve either COHESION cell · move a four-verb
+`VERIFIED` row · mint `.f3` or any unit · write a spec addendum · rule a seam cell · retag
+`RULING_IDS` · touch or widen any gate instrument · write `CLOSED` on the LEDGER row · re-open a
+closed sitting · re-argue Check 2's verdict.
+
+**E13 (axis 6), swept at open and re-measured at close**: `INBOX.md` byte-clean in the working
+tree, `UNREAD_leading=0` under the leading-token census and `UNREAD=0` under all three row-count
+variants (R2.4). **No UNREAD mail in scope.**
+
+**Terminal posture. `X.P.W4S` stays `PARTIAL`.** Ten hard-gate conditions; **nine GREEN, one RED**;
+honest-RED set **∅**; the owed act is **one dispatch of a fresh Fable adjudicator `.f3`**, minted
+by a sixth dated addendum-beside at the collision-free id **`COHESION §0ah`** (R2.2.4), whose text
+is written out there in full so the root session's act is one paste. **Escalations returned by this
+seat: C2-1 (HIGH) and C2-3 (MINOR-carried) — both resolve on the same dated-spec surface, in the
+same root-session act.** Cured at the bytes by this seat: **0**, because **0** of the register's
+defects has a cure inside any seated unit's §File Bounds, and a cure invented to make the tally
+non-zero would have been the masking this wave has refused at five sittings running.
