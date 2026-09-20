@@ -143,3 +143,188 @@ src/animation/physics/smooth.ts(194,13)       TS6133 '_startLoop'               
 ## Unit receipts
 
 _(append-only; each unit writes its own, `SERVED MODEL:` named)_
+
+---
+
+## Close
+
+**Seat**: `.f` CLOSE (VERIFY-ONLY), `claude-opus-5[1m]`, 2026-09-20. **Cured nothing**: zero keyframes.js product bytes, zero glass-ui bytes, zero test bytes written at this seat. Every figure below is this seat's own double-run from the settled bytes.
+
+**Frontier at close** — keyframes.js `HEAD` = **`51f39a19`** (6 commits over the open sha `9d814f6c`); value.js `HEAD` = `35c8e1f9` at entry.
+
+**The wave did not finish.** Both implementing units were returned **DEAD** by the runner (`{"KF.W13.a2":{"status":"DEAD","commits":[]}, "KF.W13.e":{"status":"DEAD","commits":[]}}`) — **but the unit returns are wrong at the bytes**: six commits carrying those two unit ids are in `git log`, and this close audits them as landed work rather than taking the DEAD return's empty commit list. Neither unit appended a receipt to §Unit receipts, so §Unit receipts stays empty and this Close is the wave's only receipt.
+
+### Gate table — BEFORE (Baseline, kf `9d814f6c`) → AFTER (kf `51f39a19`), each double-run
+
+| Gate | Clause | BEFORE | AFTER | Verdict |
+|---|---|---|---|---|
+| **G-KFW13-0** | `npx vitest run --project demo test/demo/app/dock-context-slot-resolution.test.ts` | `No test files found` | **`Test Files 1 passed (1)` · `Tests 3 passed (3)`** · re-run `1 passed (1)` | **GREEN** |
+| | `grep -rc 'useOptionalDockContext' demo \| grep -v ':0'` (no `demo/**` byte in its sha) | `ChromeDock.vue:1` | `ChromeDock.vue:1` at `6a960349` (`git show --stat` names the created test **only**) | **GREEN** |
+| **G-KFW13-1** | `grep -rn 'itemsPopupOpen\|items-popup-open\|mbabbPopupOpen' demo \| wc -l` (must be **0**) | **7** · **7** | **0** · **0** | **GREEN** |
+| | MUST-CARRY `grep -c 'v-model:open="open"' demo/app/dock/MbabbMenu.vue` (must STILL be **1**) | **1** · **1** | **1** · **1** | **GREEN** |
+| | `sed -n '109,113p' demo/app/dock/ChromeDock.vue \| grep -c 'cannot hold the dock open'` (must be **0**) | **1** · **1** | **0** · **0** | **GREEN** |
+| | OP-8 `git show 600246c3 \| grep -c 'ComponentExposed\|Pick<'` (must be **0**) | — | **0** | **GREEN** |
+| | **runtime clause** `npx vitest run --project demo test/demo/app/mbabb-menu-self-hold.test.ts` | `No test files found` | **`Tests 3 failed \| 2 passed (5)`** · re-run `1 failed (1)` — and **the file is UNCOMMITTED** (`git status --porcelain` → `?? test/demo/app/mbabb-menu-self-hold.test.ts`) | **RED** |
+| **G-KFW13-1 overall** | byte clauses ∧ runtime clause | RED | **SPLIT — four byte clauses GREEN, the runtime clause RED** | **RED** |
+| **G-KFW13-2** | `git diff 9d814f6c..HEAD -- demo/app \| grep -c "headerLeft"` (must be **0**) | 0 by construction | **0** · **0** (no 'fill' arm; the trap was not sprung) | **GREEN limb** |
+| | the roster limb — every id of P1's 27-row family + the ChromeDock roster reads LANDED / KILLED-with-rationale / carried in a receipt | RED by construction | **RED — no roster commit exists** (`git log 9d814f6c..HEAD` carries M-4 alone from P1; MM-1/MM-6's four-part cure, MM-29, TD-36 and the chrome roster never landed; no unit receipt was written) | **RED** |
+| **G-KFW13-7** | `npm run test:demo` | `Test Files 2 failed \| 55 passed (57)` · `Tests 2 failed \| 484 passed (486)` | **`Test Files 3 failed \| 56 passed (59)` · `Tests 5 failed \| 489 passed (494)`**, reproduced twice on a warm pool | **RED** |
+| | `npx vue-tsc --noEmit -p tsconfig.json 2>&1 \| grep -c 'error TS'` (must be **0**) | **9** | **9** · **9** | **RED** |
+| | `npm run check` (exit 0) | — | **exit 2** | **RED** |
+| | `git diff 9d814f6c..HEAD -- test \| grep -c 'test.skip\|it.skip\|\.only('` (must be **0**) | — | **0** | **GREEN** |
+| | sweep `git grep -l 'btn-playback' HEAD -- demo \| wc -l` | **9** | **9** · **9** — beside RULINGS-4's **7** and the spec's **8**, **amending neither** (E-3) | **DRIFT, declared** |
+| | sweep bare `.focus-ring` class applications | **0** | **0** · **0** — beside RULINGS-4's **4** and the spec's **2**, amending neither | **DRIFT, declared** |
+| | `grep -c 'DISCHARGED by KF.W7 SWAP verdict' execution/B/KF-W13S.md` | 0 | **0** | **GREEN** |
+| **G-KFW12-4** | `css-code-editor-seam.test.ts` all green | 1 failed (KF-CE-1) | **1 failed** — `(2) KF-CE-1: expected 0 to be greater than or equal to 2` at `:216:30`, unmoved | **RED** |
+| **G-KFW12-7** | test:demo green ∧ vue-tsc 0 | RED | **RED** (both limbs above) | **RED** |
+| **G-KFW11-4** | `spring-trace-truth.test.ts` all green | 1 failed ((4b)) | **1 failed** — `SpringHeatmap.vue no longer declares DAMPING_MIN` at `:276:19`, unmoved | **RED** |
+| **G-KFW11-10** | test:demo green ∧ vue-tsc 0 | RED | **RED** | **RED** |
+
+**Score: 1 GREEN (G-KFW13-0, the wave's one real green) · 1 SPLIT (G-KFW13-1) · 6 RED.** Zero gates were argued green; zero were re-based.
+
+### The close seat's own re-run (2026-09-20, second close pass, VERIFY-ONLY)
+
+This Close's gate table above was begun by a predecessor close seat that was killed before
+the roster. **Every figure in it was re-measured at THIS seat's own double-run commands
+before the table was kept** (CRASH-RECOVERY: the inherited paths are `execution/B/KF-W13S.md`
+— the `## Close` heading through the score line — and `keyframes/evidence/W13S/KF-W13-a2-g0-proof.md`,
+which was untracked; both are inside `.f`'s writable set, both judged against the spec, and
+both are named here and committed rather than taken on their word). **All twelve figures
+reproduce**: G-KFW13-0 `Tests 3 passed (3)` · `3 passed (3)`; G-KFW13-1's runtime clause
+`Tests 3 failed | 2 passed (5)` · `3 failed | 2 passed (5)`; `itemsPopupOpen` **0** · **0**;
+MUST-CARRY **1** · **1**; the false prose **0** · **0**; `headerLeft` **0** · **0**;
+`npm run test:demo` `Test Files 3 failed | 56 passed (59)` · `Tests 5 failed | 489 passed (494)`,
+twice; `vue-tsc` **9** · **9**; `npm run check` **exit 2** · **exit 2**; `btn-playback` **9** · **9**;
+the bare `.focus-ring` class applications **0** · **0**; skip/only in the test diff **0** · **0**.
+**One correction, dated beside** (E-3, the predecessor's text is not rewritten): the two
+`MbabbMenu.vue` TS2339 rows the Baseline maps at **`(208,12)`/`(208,36)`** now read
+**`(248,12)`/`(248,36)`** — `600246c3` moved them and cured neither, which is why the OP-0 count
+is unmoved at 9.
+
+### Commit roster — six shas over `9d814f6c..51f39a19`, every path audited against §Bounds
+
+⟨cmd⟩ `git rev-list --count 9d814f6c..HEAD` → **6**. Oldest → newest:
+
+| # | sha | unit | `git show --stat` names | writable set | verdict |
+|---|---|---|---|---|---|
+| 1 | `242f3378` | `.a2` | `vitest.config.ts` (+17: one key, 16 lines of its rationale — ⟨cmd⟩ `grep -c 'inline: \["@mkbabb/glass-ui"\]'` → **1**) | the ADDENDUM's lifted key, `test.server.deps.inline` alone | **IN BOUNDS** |
+| 2 | `6a960349` | `.a2` | `test/demo/app/dock-context-slot-resolution.test.ts` (+158, create) — **and nothing else** | `.a2` create row | **IN BOUNDS · lock (i) HELD** |
+| 3 | `6ad8ea10` | `.e` | `demo/components/instrument/transport/TransportDock.vue` (+21/−4) | `.e`'s TD-37-only carve | **IN BOUNDS** |
+| 4 | `600246c3` | `.a2` | `demo/app/App.vue` (13) · `demo/app/dock/ChromeDock.vue` (36) · `demo/app/dock/MbabbMenu.vue` (54) — **ONE sha** | `.a2`'s three modify rows | **IN BOUNDS · lock (ii) HELD** |
+| 5 | `d4375768` | `.e` | `demo/styles/playback-idiom.css` (+74/−23) — **ONE sha for all six E-b1 halves** | `.e`'s E-b1 row | **IN BOUNDS** |
+| 6 | `51f39a19` | `.e` | `test/demo/instrument/channel-options-render-edge.test.ts` (+8) | `.e`'s C-11 one-line row | **IN BOUNDS** |
+
+**Zero out-of-bounds paths over the six shas** — ⟨cmd⟩ `git show --pretty=format: --name-only <sha>`
+per commit, printed above; no `src/**`, no `node_modules/**`, no glass-ui byte, no
+`demo/components/instrument/timeline/**`, no `demo/scenes/**`, no `dev.sh`, and no value.js path
+in any of the six. Every sha carries the `Claude-Session:` trailer (⟨cmd⟩
+`git log --format='%h %(trailers:key=Claude-Session,valueonly=true)'` → six non-empty values).
+**LANDED-WRONG: EMPTY at the paths.**
+
+### The declared families and locks, proven at the shas
+
+| lock | where declared | measured at the bytes | verdict |
+|---|---|---|---|
+| **(i)** commit 1 = the mechanism proof, **NO product byte** | `.a2` locks, KF-W13 §Gates `:186` | `6a960349` names the created test ONLY; ⟨cmd⟩ `grep -rc 'useOptionalDockContext' demo \| grep -v ':0'` at that sha → `ChromeDock.vue:1` (the false comment, untouched) | **HELD** |
+| **(ii)** M-4's deletion + the self-hold + the corrected `:109-113` prose + the KEPT binding = **ONE sha** | `.a2` locks; §Sequencing `:218` | `600246c3` carries all four in one commit: 7 → 0 round-trip lines, `useOptionalDockContext` now at `MbabbMenu.vue:3`, prose gone, `v-model:open="open"` still **1** | **HELD** |
+| **L-1** no deletion before the proof | §Sequencing `:211` | `git log` order: `242f3378` → `6a960349` (proof) → `600246c3` (deletion) | **HELD** |
+| **OP-8** no `ComponentExposed<>` / `Pick<>` | §0 OP-8, §Gates `:188` | ⟨cmd⟩ `git show 600246c3 \| grep -c 'ComponentExposed\|Pick<'` → **0** | **HELD** |
+| **ARB-1** no `headerLeft` 'fill' arm | §Gates G-KFW13-2 | ⟨cmd⟩ `git diff 9d814f6c..HEAD -- demo/app \| grep -c "headerLeft"` → **0** · **0** | **HELD** |
+| **TD-37 + TD-21's shared-Set rider, one family; `.stop` symmetry undisturbed** | `.e` locks | `6ad8ea10` carries both in one sha; ⟨cmd⟩ `grep -c '\.stop' TransportDock.vue` → **0**, `ChromeDock.vue` → **0** (symmetric, both passes) | **HELD** |
+| **E-b1's six halves, ONE sha by subject** | `.e` brief | `d4375768`, one file, all six subjects named in its body | **HELD** |
+| **(iii)** MM-1/MM-6's four-part cure = ONE sha | `.a2` locks | **no such sha exists** — the cure never landed | **NOT REACHED** (absence, not a split) |
+| **no masking** — no `test.skip`/`it.skip`/`.only(`, no allowlist, no `node_modules` patch, no copied producer selector | Standing law | ⟨cmd⟩ `git diff 9d814f6c..HEAD -- test \| grep -c 'test.skip\|it.skip\|\.only('` → **0**; KF13-E2 is a harness key, not a mock or a patch | **HELD** |
+
+**No declared family was split.** The two that failed did so by **never being written**, which the
+gate table records as RED rather than as a lock violation.
+
+### What never landed — the absent work, by unit
+
+**`KF.W13.a2`** (returned DEAD; four shas at the bytes): after `600246c3` the unit stops.
+Unwritten: **MM-1/MM-6's four-part cure** (repair `:100` · dispose `setPPMode` with the KF-APP-17
+sweep · the C-14 bucket split · MM-5's CheckboxItem), the **`kf-MbabbMenu.md:169` 27-row family**,
+**MM-29's `:5-14` typography/brand arm**, **TD-36's `ChromeDock.vue:299`/`:302` pointer-events pair**,
+the **kf-ChromeDock chrome roster** (M-5/C-6 … R3-8), the two `MbabbMenu.vue:248` TS2339 rows, and
+the unit receipt. **`test/demo/app/mbabb-menu-self-hold.test.ts` exists in the keyframes.js worktree
+UNCOMMITTED** (⟨cmd⟩ `git status --porcelain` → `?? test/demo/app/mbabb-menu-self-hold.test.ts`) and
+**fails 3 of its 5 cases** at this seat's double-run — so G-KFW13-1's runtime clause is RED **and its
+witness is not in the tree**. This is the L-18 (i) hazard reached from the other side: M-4's deletion
+LANDED, its byte clauses are GREEN, the MUST-CARRY binding survived — and the runtime proof that the
+menu still opens and holds the dock **is red and uncommitted**. The path is `.a2`'s, not `.f`'s: this
+seat did not touch it, stage it, or cure it.
+
+**`KF.W13.e`** (returned DEAD; two shas at the bytes): TD-37 and E-b1 and C-11 landed. Unwritten:
+`css-code-editor-seam.test.ts`'s preset double gaining `setTargets` · `demo/env.d.ts`'s five-line
+ambient monaco declaration · `CSSCodeEditor.vue`'s KF-CE-1/4 arm (b) · KF11-E2's three TS6133
+deletions · KF11-E(f1)'s `spring-trace-truth.test.ts` (4b) re-bind · KF11-E3's three-file typed seam ·
+KF11-E4's `EditorShell.vue:175` `:key` · E-c1's `parseAnimationCSS.ts` root token. **`useKeyframeOps.ts`
+was NOT touched** — the ESCALATION clause that guards it never fired, because its root cure never ran.
+
+**`KF.W13.f`**: this Close. No unit appended to `## Unit receipts`; it stays empty and says so.
+
+### Residuals — stated positively, each with a named owner
+
+| # | residual | owner |
+|---|---|---|
+| **R-1** | **G-KFW13-1's runtime clause is RED and its witness is uncommitted** — `mbabb-menu-self-hold.test.ts`, 3 failed / 2 passed (5), double-run, untracked in keyframes.js. M-4's deletion is in the tree without the runtime proof the spec's L-18 (i) names as the wave's likeliest failure. **The menu's opening is UNPROVEN at runtime, not disproven**: the four byte clauses are GREEN and OP-3's re-measurement at `600246c3` records that the producer HAS since shipped `default: void 0` on `open`/`defaultOpen`, which relaxes the rider's shape. | a re-dispatched `KF.W13.a2` (or its successor seat) — the owner rules whether the failing cases are the cure's defect or the witness's |
+| **R-2** | `.a2`'s unwritten roster: MM-1/MM-6's four-part cure, the `:169` 27-row family, MM-29's `:5-14`, TD-36's pointer-events pair, the kf-ChromeDock chrome roster, the two `MbabbMenu.vue:248` TS2339 rows | `KF.W13.a2`'s successor |
+| **R-3** | `.e`'s unwritten list: `setTargets` · `env.d.ts` · `CSSCodeEditor.vue` KF-CE-1/4 arm (b) · the three TS6133 (KF11-E2) · the (4b) re-bind (KF11-E(f1)) · KF11-E3 · KF11-E4 · E-c1 | `KF.W13.e`'s successor |
+| **R-4** | **OP-0 is not zero**: `vue-tsc` **9** · **9**. Seven rows are `.e`'s uncured list, two are `.a2`'s `MbabbMenu.vue:248`. G-KFW13-7, G-KFW12-7 and G-KFW11-10 are RED on this limb alone. | R-2 ∧ R-3's owners |
+| **R-5** | `npm run test:demo` **3 failed \| 56 passed (59)** — `mbabb-menu-self-hold.test.ts` (uncommitted, R-1), `css-code-editor-seam.test.ts` (G-KFW12-4, R-3), `spring-trace-truth.test.ts` (G-KFW11-4, R-3). `npm run check` **exit 2** (its typecheck limb is R-4). | R-1 ∧ R-3's owners |
+| **R-6** | **The unit returns contradict the bytes**: the runner returned `{"KF.W13.a2":{"status":"DEAD","commits":[]},"KF.W13.e":{"status":"DEAD","commits":[]}}`, and six commits carrying those two unit ids are in `git log`. This close audits the bytes, not the return. Neither unit wrote a receipt, so no seat's own account of its work exists. | the orchestrator / the owner |
+| **R-7** | **`§Unit receipts` is EMPTY** — the record's own append-only receipt obligation (`:115`) is unmet by both implementing units; this Close is the wave's only receipt. | as R-6 |
+| **R-8** | **The LEDGER commit carries a sibling's stranded hunk** — `LEDGER.md` held an uncommitted **Track A · X-W6 CHECK 1** row rewrite ⊕ its event line, authored at `02:07:20` and stranded by a dead seat (mtime 15 h before this close). A pathspec commit of `LEDGER.md` takes WORKING-TREE content, so that hunk rides this wave's ledger commit. It is **carried verbatim, never altered, never reverted**, and named here and in the commit body. | Track A's X-W6 seat (the text is theirs) |
+| **R-9** | **value.js is NOT pushed** — the wave's own `.f` rule (`:138`, d-R9): push value.js only when no sibling path is staged. ⟨cmd⟩ `git status --porcelain` shows `D  demo/shell/PaneSegmentedControl.vue` **staged** by a sibling track, plus nine unstaged sibling product paths. keyframes.js IS pushed (below). | the next value.js seat that finds a clean index |
+| **R-10** | Two untracked value.js-authored coordination letters sit in keyframes.js (`2026-07-24` parser-totality, `2026-07-27` library-band) — predating this wave, outside every unit's writable set, left untouched for the fourth sitting running. | the X·KF mail owner |
+
+### Escalations
+
+**EMPTY.** No write landed outside any unit's §File Bounds writable set; no glass-ui or
+`node_modules` byte; no masking fallback of any kind (no `try/catch` around a defect, no
+`test.skip`/`it.skip`/`.only(`, no allowlist, no copied producer selector, no local patch). The one
+`Do NOT touch` entry that was written — `vitest.config.ts` — is the ADDENDUM's own lifted key and
+nothing else. The `useKeyframeOps.ts` escalation clause did not fire because `.e` never reached it.
+
+### E13 — the close sweep, four paths, positional read
+
+Re-swept at this seat's own clock, after the open sweep. (1) `docs/tranches/V/**` → the only items
+newer than 2026-09-20 00:00 are **`ARCHITECTURE.md`** and **`reformation/CARRY-LEDGER.md`**, Track A's
+committed canon, **not letters and addressed to no one**. (2) `../glass-ui/docs/tranches/` → newest
+dir **`BK/`**; ⟨cmd⟩ `find BK/coordination -maxdepth 1 -name '*.md' -newermt "2026-09-19 12:00"` →
+**empty**. (3) `../keyframes.js/docs/tranches/V/coordination/` → **empty** at the same predicate.
+(4) `../sci-report/atlas/docs/tranches/P/coordination/` → **empty**. Census double-run: ⟨cmd⟩
+`grep -c '^| I-\|^| O-' INBOX.md` → **90** · **90**; positional UNREAD read → **0** · **0**.
+**ZERO unrowed letters addressed to value.js · ZERO new `I-n` minted · ZERO rows reading UNREAD.**
+**SS-6 / BH relay**: no letter is minted here. The only producer row this wave touched —
+`dropdown-menu`'s Boolean-cast defaults — was **re-measured CURED at the installed dist** by
+`600246c3` (`open`/`defaultOpen` = `{ type: Boolean, default: void 0 }`), so the ask the spec
+reserved for SS-6 has no live subject; an accretion entry is not written for a producer row the
+producer has already shipped.
+
+### Push
+
+**keyframes.js: PUSHED.** ⟨cmd⟩ `git -C ../keyframes.js push origin HEAD` →
+`9d814f6c..51f39a19  HEAD -> master`; verified after: ⟨cmd⟩ `git rev-parse --short HEAD` → `51f39a19`,
+⟨cmd⟩ `git rev-parse --short origin/master` → `51f39a19`, ⟨cmd⟩
+`git rev-list --left-right --count origin/master...HEAD` → **0	0**. No force, no pull, no merge commit;
+the two untracked coordination letters and the untracked `mbabb-menu-self-hold.test.ts` were neither
+staged nor pushed (R-1, R-10).
+**value.js: NOT PUSHED** — R-9: a sibling track's staged deletion (`D  demo/shell/PaneSegmentedControl.vue`)
+sits in the shared index, and this wave's own `.f` rule forbids the push while it does. The two value.js
+commits of this close are on the local branch `tranche-u` and are named in the LEDGER row.
+
+### The four-verb line — moved only as §State permits
+
+| verb | state | basis |
+|---|---|---|
+| **AUDITED** | **YES** | this Close: six shas audited path-by-path against §Bounds at zero out of bounds; ten of the spec's own gate clauses plus four re-read gates re-run double at a seat that cured nothing |
+| **SPECIFIED** | **YES** | `KF-W13.md` whole ⊕ the dated ADDENDUM `:299` ⊕ COHESION §0ai — unamended by this wave (E-3) |
+| **IMPLEMENTED** | **NO — PARTIAL** | §State's own condition: *"stays NO until the gates green after the sequencing head lands."* Of the four gates of record: **G-KFW13-0 GREEN · G-KFW13-1 SPLIT (four byte clauses GREEN, the runtime clause RED) · G-KFW13-2 RED · G-KFW13-7 RED**; the four re-read gates (G-KFW12-4 · -7, G-KFW11-4 · -10) are **RED, unmoved**. Six commits of real, in-bounds, unsplit work landed and are pushed; the wave did not finish |
+| **VERIFIED** | **NO** | unchanged — a successor close's act, and this seat is not designated to stamp it. **Nothing was argued green; no gate was re-based; no dated authority was amended** |
+
+**Verdict: PARTIAL.** The honest reading is that KF.W13S **advanced** the supplement — the harness
+root-cure (KF13-E2) that made every mounted-dock test possible, the executed mechanism proof
+(G-KFW13-0, the wave's one clean GREEN), M-4's round-trip deleted in ONE sha with the MUST-CARRY rider
+kept, TD-37's one face order, E-b1's six halves and C-11's seam — and **left both implementing units
+unfinished**, with the one runtime clause that separates a cure from a shipped regression (R-1) RED
+and its witness uncommitted.
