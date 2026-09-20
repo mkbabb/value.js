@@ -3414,3 +3414,162 @@ no `evidence/W4/**` file (every script was given `--out` into the scratchpad); i
 **Terminal posture at this pass. Ten hard-gate conditions: nine GREEN, one RED; honest-RED set
 `∅`; escalations returned — C3-1 (HIGH), C3-2 (MEDIUM, new), C3-3 (MINOR, carried) — all three
 resolving on the same dated-spec surface, in one root-session act.**
+
+---
+
+## Open — RESUME (FIFTH SITTING, SEAT 0, 2026-09-20; COHESION §0ah + W4.md SIXTH addendum)
+
+SERVED MODEL: claude-opus-5[1m]
+
+**Mode.** RESUME. The LEDGER row reads `PARTIAL 2026-09-20 — CHECK 3`, not CLOSED, and this
+record exists — so this sitting re-opens on `§0ah`'s plan augment, not on a bare re-seat of `.f2`
+(C3-2: §3a's third-diagnostic-iteration trigger has fired for G-10). `X.P.W4`'s own CLOSED row is
+untouched (E-3).
+
+### Crash-recovery (standing law)
+
+⟨`git -C /Users/mkbabb/Programming/value.js status --porcelain`⟩ → 16 dirty rows, ⟨`git -C
+/Users/mkbabb/Programming/parse-that status --porcelain`⟩ → 30 rows. **Not one path falls inside
+either owed unit's writable set** (`<p2>/typescript/test/css-equivalence/emit-divergence-ledger.mjs`
+· `<p2>/typescript/evidence/W4/**` · this record · `LEDGER.md` · the `.s` stamp set). The value.js
+rows are Track A's and Track C's working state plus the standing-arrangement `scripts/dev/dev.sh`;
+the `parse-that` rows are that repo's own Rust tree, which is not this wave's root (`<p2>` =
+`/Users/mkbabb/Programming/parse-that-css-totality-p2`). ⟨`git -C <p2> status --porcelain`⟩ → clean
+at the wave's paths. **No inherited partial work on either owed unit. Nothing stashed, nothing
+restored, no sibling path touched.**
+
+### Preconditions, at the bytes and in the ledger
+
+| conjunct | receipt |
+|---|---|
+| `X.P.W4` CLOSED (honest-RED) | LEDGER row present; `waves/W4-CLOSE.md` exists with §13 |
+| the six earlier units stand on commits | `<p2>`: `.e` `93bcb83` · `.e2` `43c3f48`+`49ca70b` · `.f` `f3c389c` · `.g` `ba4d148` · `.h` `fede7d3`; value.js: `.g` `31a9d5d8`/`c7d7b768`/`4075c234`, `.h` `e31b8450`/`d357aad9`, `.f2` `a6e94149`/`c1fe075f`/`cc8a4896` |
+| `.g2`'s target exists | `<p2>/typescript/test/css-equivalence/emit-divergence-ledger.mjs`, carry at `:171` |
+| `.s`'s stamp set exists | `SEAM-CONTRACT.md` · `ADJUDICATION-W4.md` · `DIVERGENCE-LEDGER.md` (§0..§11) · `W4-CLOSE.md` · `RELEASE-PACKET.md` (28768 B) · `registry/harvest/x-p-w4s.json` |
+
+**All preconditions MET.** Not blocked.
+
+### E13 Step-0 — the four-path mail sweep (read-only)
+
+Four landing paths swept at this seat's own clock and compared against **every** row of
+`docs/tranches/V/coordination/INBOX.md`. `glass-ui/docs/tranches/BK/` **confirmed still the newest**
+tranche dir (⟨`ls -dt glass-ui/docs/tranches/*/ | head -3`⟩ → `BK/` `BJ/` `BI/`).
+
+- ⟨`ROWS=$(grep -c '^| I-\|^| O-' INBOX.md)`⟩ → **82** · ⟨`wc -c < INBOX.md`⟩ → **313072**.
+- A filename-vs-ledger difference over all four paths returns **31 files not named by any row**.
+  Each was opened and classified by its own `FROM:`/title line, never by its filename prefix:
+  - the four `value-inbox-2026-07-20-*.md` (`d23-ruled-mirror-primary` · `parser-proof-evidence` ·
+    `pi-minitranche-notice` · `residual-repairs`) are **value.js-AUTHORED OUTBOUND** — each reads
+    *"→ the active V-next Codex fleet"* / *"FROM: the value.js union-apotheosis program"*. They are
+    not addressed to value.js and take no `I-n`.
+  - the remaining 27 are sibling-internal (keyframes' `GLASS-INBOUND`/`ATLAS-INBOUND`/`SPEEDTEST-
+    INBOUND` and atlas' own P-tranche register files) — addressed to keyframes.js and to atlas.
+- **Unrowed AND addressed to value.js: 0. No new `I-n` minted. No status cell reads UNREAD** (the 84
+  literal `UNREAD` hits are prose inside status-cell text and sweep lines, measured by position at
+  Check 3 and unmoved). **No UNREAD mail in scope; this open does not carry one.**
+
+A dated sweep line is appended at `INBOX.md`'s file end.
+
+## Baseline — RESUME (2026-09-20), banked BEFORE any cure
+
+Standing law at a RESUME open: **re-run at baseline only the gates the still-owed units turn; cite
+the banked baseline for the rest.** `.g2` turns G-1 (it writes the artefact G-1 reads) under the
+G-2 commit predicate; `.s` turns G-1..G-9 as its **own precondition** and G-10 as its act. So eight
+of ten are re-measured here at this seat's clock and G-3 is cited from Check 3's banked double-run
+(it packs and installs — a long gate, and `.s` re-runs it at its own clock by §0ah's own words).
+
+| gate | command (⟨cmd⟩ → output) | reading |
+|---|---|---|
+| **G-1** | ⟨`node docs/tranches/X/parse-that/scripts/seam-contract-check.mjs SEAM-CONTRACT.md evidence/W3/universe-52.json DIVERGENCE-LEDGER.md`⟩ → `VERDICT: GREEN — both set-differences ∅, no disposition contradicts a LIVE ledger row, every carried cell is terminally ruled in ADJUDICATION-W4.md, no field is blank` · `EXIT=0` · double-run identical | **GREEN** |
+| **G-2** | ⟨18 `X.P.W4S`-subject commits in `2237f305^..HEAD`, `git show --name-only` each⟩ → `grep -cE '^(src\|demo\|api\|test\|e2e)/'` → **0** | **GREEN** (commit predicate, C3-3/§0ah) |
+| **G-3** | *banked, Check 3 double-run*: `resolved 52 of 52`, tarball sha `004bbcce…`, `entryCount 91`, refusals **5**, `EXIT=0` | **GREEN** (banked; `.s` re-runs) |
+| **G-4** | ⟨`node scripts/wasm-admission.mjs ./src/css/build/ac1.wasm`⟩ → `"functionKindImportsTotal": 0`, `"unaccountedImportsTotal": 0`, `"verdict": "GREEN"`, `EXIT=0` | **GREEN** |
+| **G-5** | ⟨`node scripts/rc-p-evaluate.mjs --version 4.0.0`⟩ → `RC-P(4.0.0) = FALSE — 3 of 6 conjuncts are FALSE: 1 PUBLISHED(V) · 3 EQUIVALENCE(V) · 4 ADMITTED(V)` / `KF.W3 does NOT open` | **GREEN** (the evaluator reports honestly; conjunct 3 reads `20962 mirror-defects over V's installed /css`, the Q-RC-1 V-tarball arm live) |
+| **G-6** | ⟨`grep -rc 'RC-P' docs/tranches/X/keyframes/waves/ docs/tranches/X/fourier/waves/`⟩ → **25** hits | **GREEN** (≥2) |
+| **G-7** | ⟨`grep -c 'parse-that' fourier-analysis/package.json`⟩ → **0**; ⟨same over `web/package.json`⟩ → **0** | **GREEN** (floor held) |
+| **G-8** | ⟨`wc -c < RELEASE-PACKET.md`⟩ → **28768**; INBOX `ROWS=82`; no status cell UNREAD | **GREEN** |
+| **G-9** | *banked, Check 3*: terminal disposition **(C)**, recorded not silent | **GREEN** (banked) |
+| **G-10** | ⟨`for f in docs/tranches/X/parse-that/waves/W[0-4].md; do awk '/^### Four-verb status/{t=1;next} /^#/{t=0} t' "$f"; done \| grep -c 'VERIFIED \| \*\*NO\*\*'`⟩ → **5** | **RED** — the stamp is performable and unperformed for a SEVENTH reading; `.s` is its cure |
+
+### `.g2`'s own born-RED (ESC-W4g-1 / F-ab1's second limb)
+
+⟨`grep -c '## §10' <p2>/typescript/test/css-equivalence/emit-divergence-ledger.mjs`⟩ → **0**. The
+carry at `:171` is a SINGLE block — `previous.indexOf("\n### §6.")` sliced to the next `\n## ` —
+so `DIVERGENCE-LEDGER.md`'s `## §10 — rulingId appends, X.P.W4.f` (line 1084) and `## §11 — the NEW
+divergence X.P.W4.h` (line 1135) are **dropped by a canonical re-emission**. Born-RED, and the cure
+is §0ah's carried LIST. No regeneration is ordered; the ledger stands (E-3).
+
+### R.2 — GREEN before cure, disclosed
+
+**G-1 · G-2 · G-3 · G-4 · G-5 · G-6 · G-7 · G-8 · G-9** all read GREEN at this open while sitting in
+`.s`'s gate list. They are **inherited-GREEN from the six alreadyDone units** (`.e`/`.e2` turned
+G-3; `.f`/`.g`/`.h` and Repair 1 turned G-1), not unearned: each was born-RED on 2026-08-03 and has
+a named curing commit. `.s` does not cure them — it **re-measures them as its precondition** — so
+their GREEN is the condition for the stamp, and a RED at `.s`'s own clock means the stamp is not
+performed and the row reads `BLOCKED-ON G-n`. Disclosed here rather than left implicit.
+
+## Unit plan — RESUME (2026-09-20)
+
+**alreadyDone, never re-dispatched** (commits exist; §0ah's *"stand on their commits"*):
+`X.P.W4.e` · `X.P.W4.e2` · `X.P.W4.f` · `X.P.W4.g` · `X.P.W4.h` · `X.P.W4.f2`.
+
+**Groups (serial, ≤2 concurrent honoured trivially — `.s` is dispatched LAST AND ALONE by §0ah):**
+`[X.P.W4.g2]` → `[X.P.W4.s]`. Disjointness: `.g2` writes only inside `<p2>`; `.s` writes only
+inside value.js docs + the harvest registry. No shared modify path, and they are serial regardless
+because `.s`'s precondition is a re-run of G-1..G-9 over the artefact `.g2` may move.
+
+### `X.P.W4.g2` — Opus — ESC-W4g-1, the carried LIST
+
+*Sections*: `W4.md` SIXTH ADDENDUM 2026-09-20 (line 684, the `X.P.W4.g2` clause) · `COHESION.md`
+§0ah bullet 4 (lines 2244–2249) · `W4.md` §6 G-1 (352–370) and §6 G-2 as amended by C3-3.
+
+*Writable*: `<p2>/typescript/test/css-equivalence/emit-divergence-ledger.mjs` ·
+`<p2>/typescript/evidence/W4/**` (NEW dated files only).
+
+*Gates*: the existing idempotence check over two consecutive emissions **plus** §10's retirement
+rows surviving both; G-1 `VERDICT: GREEN` double-run unmoved; G-2 (no `src|demo|api|test|e2e` path
+in its commit).
+
+*Locks*: before `.s`, always. No regeneration of `DIVERGENCE-LEDGER.md` is ordered — the ledger
+stands byte-frozen (E-3); the cure is in the emitter, proven by emitting to a `--out` scratch path.
+
+*Brief*: `:171`'s single `previous.indexOf("\n### §6.")` block becomes a carried LIST over the two
+marks `"\n### §6."` and `"\n## §10"`, each sliced to the next level-2 heading and §10's slice taken
+as the TAIL (so §11 rides it), emitted under its own preamble **in document order**. Acceptance is
+measured, not asserted: emit twice to a scratch `--out`, diff the two emissions (idempotent), and
+grep each for §10's retirement rows and §11's heading — both must survive both emissions. Re-run
+G-1 double-run against the canonical ledger to prove nothing moved. Bank the readings as NEW dated
+files under `evidence/W4/`. One commit in `<p2>`, pathspec, `--no-verify`.
+
+### `X.P.W4.s` — fable (a FRESH Fable adjudicator, M-23 §1) — THE STAMP ACT, standalone
+
+*Sections*: `W4.md` SIXTH ADDENDUM (line 684, the `X.P.W4.s` clause) · THIRD ADDENDUM (line 678,
+the stamp set and G-10 shape (a)) · `COHESION.md` §0ah bullets 2–3 (2229–2241) · `W4.md` §6 G-1..
+G-10 (352–544) · §12 (651–673, VERIFIED never ACCEPTED) · §9 Commit Plan (581–599, the family).
+
+*Writable*: the five `### Four-verb status` `VERIFIED` rows of
+`docs/tranches/X/parse-that/waves/W{0,1,2,3,4}.md` · `docs/tranches/X/COHESION.md` (§1 SS-5 cell +
+§5 board line ONLY) · `docs/tranches/X/parse-that/waves/W4-CLOSE.md` (dated §14, append) ·
+`docs/tranches/X/parse-that/RELEASE-PACKET.md` (dated addendum section, append) ·
+`docs/tranches/V/megatranche/registry/harvest/x-p-w4s.json` (fold/3) ·
+`docs/tranches/V/coordination/INBOX.md` (mail rows) · this record (`## Unit receipts`).
+
+*Gates*: G-1 · G-2 · G-3 · G-4 · G-5 · G-6 · G-7 · G-8 · G-9 as its **precondition**, re-run at its
+own clock (G-3 backgrounded and polled ≤60 s); G-10 shape (a) **5 → 0** as its act.
+
+*Locks*: dispatched LAST AND ALONE, after `.g2` and after every check that moved a gate. The §9
+family is ONE commit and must not split: five rows + two COHESION cells + `W4-CLOSE.md` §14 +
+`RELEASE-PACKET.md` addendum + `x-p-w4s.json` fold/3.
+
+*Brief*: re-run G-1..G-9 at your own clock, double-run, long gates backgrounded and polled — never
+cite this record's table. **All nine GREEN → perform the R-A stamp as ONE act**: the five
+`### Four-verb status` rows move `IMPLEMENTED`→`VERIFIED` (shape-(a) sum 5→0, **VERIFIED never
+ACCEPTED**, §12), `COHESION.md` §1 SS-5 cell + §5 board line carve ONLY under a performed stamp,
+`W4-CLOSE.md` gains a dated §14, `RELEASE-PACKET.md` a dated addendum, `x-p-w4s.json` folds to /3
+(predecessor embedded whole). Re-measure G-10 from the settled bytes, double-run, and self-count
+the receipt. **Any gate RED at your clock → perform NOTHING**, write the reading, and the LEDGER row
+reads `BLOCKED-ON G-n` by gate id — never `PARTIAL`.
+
+## Unit receipts — RESUME (2026-09-20)
+
+*(empty at open; each unit appends its own)*
