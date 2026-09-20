@@ -3001,3 +3001,209 @@ commit `8d55a82f` carries it. The omission is recorded rather than repaired — 
 commit in an index four tracks share is the larger harm, and the standing law admits no
 `reset`/amend for this. Every path in `e69aaf95` is inside this unit's writable set and is listed
 in the commit table above.
+
+---
+
+### X.W6.b
+
+SERVED MODEL: claude-opus-5[1m]
+
+**Unit**: Gradient seat, inspector and keyboard grammar (CC-058 · MT-GRADSTOP-2), `W6.md` §5
+`:182-196`, dispatched **whole** by COHESION §0z **E1**.
+**Status**: **ESCALATED** — **b2 · b3 · b4 GREEN**; b1's product content is landed and proven, and
+its gate's two remaining legs are RED **by the probe's input state**, not by an absent binding
+(§Escalation below). Wall clock **2026-09-20**.
+**Commits**: `63713d4c` (the seat band, the inspector, the keyboard/selection contract) ·
+`7dff25f6` (the crowding fan) · `fa2466f0` (the instrument + gate transcripts) · this record.
+
+#### Act 0 — crash-recovery (standing law, before any other act)
+
+⟨cmd⟩ `git status --porcelain` at open → 21 paths. **Not one is inside this unit's writable set**:
+the shell / dock / palettes / `e2e/smoke/{dual-pane-1440,mobile/*}` rows are **X-W5's** open lane,
+`execution/{A/X-W5,B/KF-W13,C/F-W10}.md` are sibling seats' records, `CARRY-LEDGER.md` is the V
+fold, `scripts/dev/dev.sh` is the unowned NEVER-touch row, and
+`…/probes/x-w6/gate-card-rhythm.mjs` + `e2e/smoke/views/companion-pane-track-start.spec.ts` are
+`.g`'s in-flight files. ⟨cmd⟩ `git status --porcelain -- demo/workbenches/gradient e2e/smoke/oracles/o21-gradient-rail.spec.ts`
+→ **empty**. **Nothing inherited, nothing stashed, nothing restored.** Every commit below carries
+its own pathspec; ⟨cmd⟩ `git diff --cached --name-only` after the first → `demo/shell/PaneSegmentedControl.vue`
+**only**, i.e. the sibling's staged deletion, untouched.
+
+#### Act 1 — BEFORE (RESUME-mode scope law)
+
+The still-owed gates for this unit were re-run **at this sitting's own open** by SEAT 0, double-run
+byte-identical (`X-W6.md` §Baseline — RESUME, five G3 conditions pasted there), so this seat cites
+that baseline for `gate-seat.mjs` rather than re-running a third time, and takes its **own**
+before/after for the figure its cure moves:
+
+⟨cmd⟩ `node <scratchpad>/probe-clip.mjs` — the add-surface census on the ramp's own centre row
+(the gate's measure: a column counts when `document.elementFromPoint` at that pixel returns the
+ramp itself), chromium 1440×900 against a **freshly started** `:9000`:
+
+| | rail box | seat 0 box | addable |
+|---|---|---|---|
+| BEFORE | 462.0×40.0 @ (224, 209.7) | 24×24 @ (224, **217.7**) | **388 / 462 = 84.0%** (2 stops) |
+| AFTER | 462.0×40.0 @ (224, 248.2) | 24×24 @ (224, **292.2**) | **462 / 462 = 100.0%** |
+
+Banked at `W6-evidence/gradient/gates/b2-meniscus-census-2026-09-20.txt`, with the clipping census
+that had to be taken **before the cure could be designed** (the seats hang below the rail's box, so
+"does the rail clip its children" is a measurement, not an assumption): `.gradient-rail` and
+`.rail-seat` both `overflow: visible · contain: none · clip-path: none`; the nearest clipping
+ancestor is the pane Card, four levels up.
+
+#### Act 2 — the cure (`63713d4c`, then `7dff25f6`)
+
+- **b2 · the seat rail frees the meniscus.** Every seat's hit rung used to inflate **on the ramp**,
+  so the terminal seat owned the meniscus (`bar.x + 3` minted nothing) and twelve stops sterilised
+  67.7% of the add surface. Nothing about a stop requires it to sit on the ramp — its ordinal is an
+  **X**, and X is exactly what `.a`'s one axis fixes — so the seats, the caret and the ghost take
+  their own band below the ramp: `--rail-handle-top = var(--rail-height) + var(--rail-gutter) +
+  var(--rail-hit)/2`, where `--rail-hit` is the rung **actually in force** (the 24px seat on a fine
+  pointer, `--rail-touch` under `@media (pointer: coarse)`), so the ramp is free of BOTH rungs
+  rather than only the fine one. The handles stay **descendants of the rail element**, so every
+  existing oracle that scopes `[data-stop-id]` to `[data-testid="gradient-stop-bar"]` still binds.
+- **b2 · the band is reserved by the RAIL, not the seat root** — the first shape of this cure put
+  `padding-bottom` on `.rail-seat`, which reserves space *after* the inspector rather than between
+  the two; measured on the coarse cell, the seats landed **on top of** the inspector and its
+  control could not be reached. The rail's own `margin-block-end` is the reservation.
+- **b1 · the value contract.** `aria-selected` lands on the seat (selection had **no** programmatic
+  representation: G3c's own words), and the **ORDINAL now rides `aria-valuetext`** —
+  `Stop 2 of 3, position 37.5%` — not the accessible name alone. A name is announced when a control
+  takes focus; a drag that carries a stop past its neighbour changes its ordinal, and under the old
+  split that change was silent. The §5.2 keys, the Space grab and the keyboard CREATE caret were
+  landed by X-W4 · C1/C2 and are re-measured here rather than re-authored.
+- **b3 · the inspector's numeric entry.** `type="number"` + `inputmode="decimal"`, `min/max/step`,
+  bound to the selected stop and writing through **the same sole mutator** every gesture writes
+  through (`setStopPosition` via `moveStop`), so entry and paint cannot disagree.
+- **b4 · ONE removal owner.** The floating chip is **deleted**: it was the floor expressed as
+  `v-if="selectedStop && removable"` **absence** over a remover that returned in **silence**, and it
+  had to be exiled a full coarse target below the seat (and reserve that whole band) so that a tap
+  which grabbed could not destroy. The inspector's control stays at the floor, `disabled`, with its
+  reason rendered and wired as its own `aria-describedby`; a handle's Delete/Backspace routes to the
+  same `requestRemove`, which **announces** the refusal in a `role="status"` line instead of
+  returning silently. The seat now reads the model's own **`canRemove`** (`.a`'s, passed as a prop)
+  instead of re-deriving `stops.length > 2` — one rule, one author. The control keeps the accessible
+  name `Remove selected stop`, which is what `.a`'s a9/a10 arms and `gradient.spec.ts:286` bind.
+- **b2/§15 · crowding, disambiguated** (`7dff25f6`). Measured at this seat: with fifteen stops
+  inside fourteen percent of the rail, the seat at 0% **could not be pressed at all** — the seat at
+  1% covered it whole (⟨playwright⟩ *"subtree intercepts pointer events"*). §15 forbids curing that
+  by forbidding coincidence, so crowded seats **fan**: each takes the first lane of the band whose
+  last occupant is at least one seat away (greedy; capped at three lanes, then the lane whose
+  occupant is furthest behind), and the rail reserves exactly the lanes in use. The seat span is
+  read from the rail's own `--rail-inset` against its own axis via `useElementSize`, so the fan
+  follows the rail's width instead of a percentage guess. **No position is changed and no separation
+  is imposed** — only the seats move, and only on the axis the ordinal does not live on.
+
+#### Act 3 — AFTER, at the settled bytes (every reading double-run)
+
+| gate | ⟨cmd⟩ | BEFORE (SEAT 0's open, same sitting) | AFTER (this seat) |
+|---|---|---|---|
+| b1 · b2 · b4 | `node …/probes/wb-gradient-stopeditor/gate-seat.mjs` | **RED, 5 conditions** (G3c · G3d ×2 · G3f ×2) | **RED, 2 conditions** — G3c CURED, **both G3f legs CURED**; only G3d's Home/ArrowDown remain (§Escalation). Double-run **byte-identical** |
+| b1 · b2 · b3 · b4 | `node docs/tranches/X/waves/W6-evidence/gradient/gate-b-seat-inspector.mjs` (new, in bounds) | RED by absence (the instrument did not exist) | **GREEN**, `EXIT=0`, double-run **byte-identical** |
+| b3 | ⟨grep⟩ `type="number"\|NumberField\|inputmode` in `demo/workbenches/gradient/` | **0** (banked at the open) | the entry exists and round-trips: typed **37.5 → `aria-valuenow` 37.5**, painted skew **0.000px** (tolerance 1px) |
+| regression (`.a`) | `node docs/tranches/X/waves/W6-evidence/gradient/gate-a-gesture-paint.mjs` | GREEN at `.a`'s close | **GREEN** — a5 `travel@1px=0.00px` · a6 `activeElement=BUTTON` · a7 `2/2/2/2` · a8 `5 writes / 5 moves` · a9 `0 rows claimed`, reachability **3 → 2** · a10 `0 rules intersected` · a11 `15.08 : 1` and `14.59 : 1` |
+| §7 cadence | `npx vue-tsc --noEmit -p tsconfig.demo.json` · `npx eslint demo/workbenches/gradient/` · `npx prettier --check` | — | **exit 0 · exit 0 · clean** |
+
+The `gate-b-seat-inspector.mjs` arms, pasted from the run banked at
+`W6-evidence/gradient/gates/b1b2b3b4-gate-b-seat-inspector-AFTER-run{1,2}.txt`:
+
+```
+  · b1 interior stop answered all eight keys
+  · b1 a11y {"role":"slider","valuemin":"0","valuemax":"100","valuetext":"Stop 2 of 3, position 100%","selected":"true"}
+  · b1 terminal bound: Home/ArrowDown inert at 0%, ArrowUp → 1%
+  · b2 @1440px viewport: addable 462/462 with 12 stops
+  · b2 @390px viewport: addable 324/324 with 12 stops
+  · b2 meniscus press at bar.x+3: 12 → 13
+  · b3 inspector subject after selecting the interior stop: {"selected":1,"entryDisabled":false,"entryValue":"50"}
+  · b3 typed 37.5 → aria-valuenow 37.5, painted skew 0px
+  · b4 removal controls on the route: 1
+  · b4 at the floor: {"present":true,"disabled":true,"describedBy":"gradient-stop-removal-reason","reason":"A gradient needs at least two stops, so this one cannot be removed.","visible":true}
+  · b4 above the floor: 3 → 2
+
+GATE X.W6.b (seat + inspector + keyboard) — GREEN
+```
+
+#### Act 4 — two findings recorded loud (neither is this unit's cure, and neither is smoothed)
+
+1. **The gradient e2e suite is RED at HEAD for a reason outside this unit's bounds.** ⟨cmd⟩
+   `npx playwright test e2e/smoke/views/gradient.spec.ts e2e/smoke/oracles/o21-gradient-rail.spec.ts --project=smoke`
+   → **21 failed**, every one at the shared fixture's
+   `getByRole("main", { name: "Color tool panes" })` binding, which resolves to nothing. Live probe:
+   ⟨cmd⟩ the route's `[role=main]` census → **one element, `aria-label` NULL**. **Reproduced in a
+   CLEAN detached worktree at the wave's own open commit `17734065`** — not one byte of this unit
+   present — where the pre-existing spec *"pill silhouette (T-46)"* fails identically
+   (`W6-evidence/gradient/gates/b-e2e-fixture-broken-at-open-commit-17734065.txt`). The cause is
+   the shell's landed composition root (`de99ec15`, X-W5's); `demo/color-picker/App.vue` and
+   `e2e/smoke/fixtures/dock.ts` are **both outside this unit's §4 writable set** (`W6.md:120` names
+   App.vue in Do-NOT-touch), so this seat did not edit either. **Consequence**: the four ADDED specs
+   in `o21-gradient-rail.spec.ts` are authored and correct but **cannot be witnessed until the
+   fixture is repaired by its owner** — they are ADD-never-replace rows sharing the file's single
+   pre-existing failure — so b1–b4's properties are held by the in-bounds instrument above, which is
+   exactly the act `.a` took when `gate-axis.mjs` / `gate-gesture.mjs` went stale.
+2. **A harness-contention false RED, named so no later reader inherits it.** `.a`'s instrument was
+   run once **concurrently** with `gate-seat.mjs` against the one dev server and reported
+   `a9 the chip is not reachable` after `page.waitForSelector("[data-stop-id]")` timed out on the
+   coarse cell. Re-run **solo** at the same bytes: **GREEN**. This is the class
+   `playwright.config.ts:98-108` documents (`workers: 1` — concurrent software-GL contexts against
+   one dev server time out first paint); it masks no product defect and the GREEN run is the one
+   banked.
+
+#### ESCALATION — b1's two remaining G3d legs are RED **by the probe's input state**
+
+`gate-seat.mjs` G3d drives `document.querySelector("[data-stop-id]")` — the **first seat in
+document order** — and calls a key a no-op when that seat's `style.left` does not change:
+
+```
+  G3d  key "Home" is a no-op on a focused stop handle … style.left stayed "calc(var(--rail-inset) + var(--rail-track) * 0)".
+  G3d  key "ArrowDown" is a no-op on a focused stop handle … style.left stayed "calc(var(--rail-inset) + var(--rail-track) * 0)".
+```
+
+The quoted `* 0` **is the measurement**: that seat is the **0% terminal**. The route's boot model is
+exactly two stops, at 0% and 100% (`useGradientModel.ts:124-127`), and positions are clamped to the
+axis domain `[0, 100]` (`:106-108`, `.a`'s own law — *"explicitly NOT the banned neighbour clamp"*).
+So for the seat the probe drives, **Home means "go to 0%" when it is already at 0%, and ArrowDown
+means "go below the minimum"** — both correct, both inert, and `style.left` cannot change. The
+mirror holds for whichever terminal is first: an element at an axis bound fails exactly two of the
+four keys. With a two-stop seed **there is no interior stop to be first**, so no ordering of the
+seats can make all four legs write.
+
+Three exits were considered and each is refused:
+- **Change the boot seed** so the first stop is interior — that is the gate's input, not its
+  subject, and three existing e2e rows assert the two-stop seed (`o21:211`, `gradient.spec.ts:246`,
+  `o21:177`'s `[0,50,100]`), which ADD-never-replace forbids this unit from rewriting.
+- **Let positions leave `[0,100]`** so ArrowDown can write — that deletes `.a`'s axis-domain clamp
+  and paints stops off the rail.
+- **Reorder the seats** so an interior one is first — with a two-stop seed there is no interior one,
+  and DOM order is the ordinal order the ordinal announcement names.
+
+Each of those is a workaround aimed at the instrument rather than the product, which this wave bans.
+**The property b1 exists to hold is landed and measured**, by the in-bounds instrument, in both
+directions: an interior seat answers **all eight** keys (ArrowUp/Down/Left/Right, PageUp/PageDown,
+Home, End) and the terminal seat holds its bound while answering `ArrowUp` **immediately**
+(0% → 1%) — which is precisely the distinction `style.left` cannot draw: *bound* versus *unbound*.
+The instrument is `execute, no write` in §4, so per the Bounds law this seat **did not edit it** and
+halts instead.
+
+**Returned for ruling** (the shape `.a`'s a3–a7 escalation took, which §0z **E3** ruled by
+addendum): may b1's two G3d legs read on the substitute command of record —
+`node docs/tranches/X/waves/W6-evidence/gradient/gate-b-seat-inspector.mjs`, whose b1 arm holds the
+same property at strictly greater precision (`aria-valuenow`, the model's exact value, on an
+**interior** stop) and additionally prints the terminal bound — with the `gate-seat.mjs` re-point
+riding X-W11's OUT-OF-WAVE roster to the instrument's owner, as E3 did for `gate-axis.mjs` and
+`gate-gesture.mjs`?
+
+#### Residuals (carried, not smoothed)
+
+1. The four ADDED e2e specs are **authored, unwitnessed** until the `main`-name fixture is repaired
+   by its owner (Act 4 · finding 1). They are not skipped, not deleted, and not re-pointed at a
+   private fixture — their file's other 6 specs fail for the same one reason.
+2. The fan is capped at **three lanes** (`MAX_LANES`); past it the fan reuses the lane whose
+   occupant is furthest behind, so a cluster denser than three seats can still overlap partially.
+   Stated where it is written, not discovered later.
+3. `aria-selected` on `role="slider"` is the attribute G3c's own failure text names
+   (*"aria-pressed and aria-selected are both absent"*) and the one this instrument reads; ARIA 1.2
+   lists `aria-selected` under `option`/`row`/`tab`/`gridcell` rather than `slider`, and the
+   spec-global alternative (`aria-current`) is not what the gate reads. The gate's word is followed
+   and the tension is recorded here rather than resolved by this seat.
+4. `npx prettier --write` (the §7 cadence) reflowed one **pre-existing** statement in
+   `GradientVisualizer.vue` (`resetGradient`'s argument list) that this unit did not author. Inside
+   the writable set, formatting-only, named here so the diff reads honestly.
