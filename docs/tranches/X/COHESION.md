@@ -1894,3 +1894,16 @@ and measures its seat's cadence (a tool call per minute is healthy; a kill or a 
 is not). D joins when A's cadence holds for one interval, then C, then B — never above the four cap,
 and back to one whenever a synchronized kill recurs. Every track resumes in RESUME MODE on its own
 record; no spec, row, or law changes.
+
+## §0ag ADDENDUM 2026-09-20 — THE "STORM" WAS THE SUPERVISOR CRON: EVERY TICK DELIVERED TO THE ROOT SESSION INTERRUPTS EVERY IN-FLIGHT SEAT; THE CRON IS RETIRED, ALL FOUR TRACKS RETURN
+
+Measured against the root session's own transcript: the synchronized kill times are the tick
+delivery times to the second — `21:08:48` · `22:14:40` · `00:12:40/41` · `01:43:10` (and
+`22:22:25` = a workflow-completion notification at `22:22:31`). A user turn arriving in the root
+session aborts every child seat's in-flight request (`[Request interrupted by user]`), which the
+runner then books as a stalled attempt. §0ae/§0af read a throughput wall; the wall was the
+supervisor. Ruling: the session-only cron `e8961b17` is **deleted**. Supervision runs on the
+runner's own completion notifications (a dead or finished track reports itself) plus the chassis
+`withRetry` re-seats; no periodic message enters the root session while seats are live. All four
+tracks relaunch in RESUME MODE now (A live · D · C · B), inside the owner's cap. §0ae/§0af are
+superseded on their diagnosis, not on their durability posture.
