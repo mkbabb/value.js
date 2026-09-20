@@ -4133,3 +4133,44 @@ to measure that it happened and that it was earned.
 `X.P.W4`'s own CLOSED row is untouched (E-3). The supplement wave `X.P.W4S` closes **IMPLEMENTED**:
 its two owed units returned DONE on commits, and ten of ten §6 gates read GREEN at a seat that cured
 nothing.
+
+### 10. ACT 7 — the push, measured rather than asserted
+
+**`parse-that` — PUSHED (vacuously).** ⟨`git -C /Users/mkbabb/Programming/value.js/../parse-that
+push origin HEAD`⟩ → **`Everything up-to-date`**, `EXIT=0`; ⟨`git status -sb`⟩ → `## master...
+origin/master` with no ahead/behind. Correct and expected: `parse-that` is §4's **Do-NOT-touch**
+read-only root and **this wave wrote not one byte there**. The push is a receipt that it stayed
+read-only, not a delivery.
+
+**`<p2>` — UNPUSHABLE, by construction.** ⟨`git -C /Users/mkbabb/Programming/parse-that-css-totality-p2
+remote -v`⟩ → **empty**. The fresh writer root (M-22 ¶3) has no remote, so `.g2`'s `3199913` and the
+five earlier unit shas are local-only. Recorded as residual **R-6** so no later reader mistakes a
+local sha for a published one.
+
+**`value.js` — NOT PUSHED. Residual `p-R8`, with its exact cause and the exact command.**
+⟨`git push origin HEAD`⟩ → **`! [rejected] HEAD -> tranche-u (non-fast-forward)`** — the branch is
+behind by exactly **one** remote-only commit, ⟨`git rev-list --left-right --count
+origin/tranche-u...HEAD`⟩ → **`1  42`**. That commit is **`6fc1212e`**, *Track A's* X-W9 repair
+(`docs/tranches/X/execution/A/X-W9.md`), pushed from elsewhere while this wave ran. The integrating
+pull is then refused **by the working tree, not by the history**: ⟨`git pull --no-rebase origin
+tranche-u`⟩ → *"error: Your local changes to the following files would be overwritten by merge:
+`demo/shell/PaneSegmentedControl.vue`"* · `Merge with strategy ort failed.` That path is
+⟨`git status --porcelain`⟩ → **`D  demo/shell/PaneSegmentedControl.vue`** — a **sibling track's
+staged deletion**, in flight in the shared tree. **It is not this seat's to stage, unstage, restore
+or stash**, and the standing law forbids touching it. No rebase, no force, no reset was attempted or
+will be: rebasing would rewrite the shas this ledger publishes across four tracks. After the
+attempt ⟨`git status -sb`⟩ still reads `## tranche-u...origin/tranche-u [ahead 42, behind 1]` —
+**nothing was rewritten and nothing was lost**; this wave's nine value.js shas are in local history
+and publish the instant the sibling's index entry settles.
+
+This is the **same residual Track B's `X.KF.W13` close returned as `d-R9`** (LEDGER `:446`),
+re-measured here independently at a different clock and with the same cause. It is a shared-tree
+condition, not a Track D defect, and its owner is the orchestrator.
+
+---
+
+**X.P.W4S — CLOSED, `IMPLEMENTED 2026-09-17`.** Ten of ten §6 gates GREEN at a seat that cured
+nothing; both owed units DONE on commits; the R-A stamp performed by its designated seat and
+measured here from the settled bytes; **VERIFIED, never ACCEPTED** (§12 / L-18). `RC-P(4.0.0)`
+stands honestly **FALSE** — KF.W3 does not open and the X·V re-trigger does not fire, which is the
+predicate working, not failing.
