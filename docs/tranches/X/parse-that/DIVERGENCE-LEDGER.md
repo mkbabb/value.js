@@ -1140,13 +1140,27 @@ correct, consumer direction stated"*). Nothing above this line is rewritten — 
 emitter's bytes, §6.1 is `.e`'s carried block, §10 is `.f`'s. A regeneration must re-append §10 AND
 this §11 (recorded as a residual for the emitter's owner in `execution/D/X-P-W4S.md`).
 
-### §11.1 The row
+### F-w4f-1 — a declaration NAME that is not one `<ident-token>`
 
-| `rulingId` | subject | 4.0.0 | candidate (both lowerings) | disposition | consumer direction |
-|---|---|---|---|---|---|
-| **F-w4f-1** | **a declaration NAME that is not one `<ident-token>`** — css-syntax-3 §5.4.4 consumes a declaration only when the next token is an `<ident-token>`; §4.3.11 / §4.3.9 define one | **ACCEPTS** the rule and carries the malformed name through: `parseDeclarations` takes every trimmed byte before the first `:` of a `;`-split part, so `col!r`, `!color`, `color!`, `border-co+or`, `backgrou(d-color`, `(color`, `,color`, `backgro und-color`, `border-c%olor`, `border-color.` and `1color` are all NAMES there — **INCUMBENT DEFECT** (the 4.0.0 half is X·V's and rides X-W11's OUT-OF-WAVE roster by id) | **REJECTS** the sheet (`decl-name` is the `ident` continuation set behind a zero-width no-leading-digit assertion; §5.4.4's optional whitespace before the `:` is read explicitly) | **declared-divergence, candidate correct** | **NARROWS.** A consumer whose stylesheet spells a declaration name that is not one ident-token had the rule accepted with the malformed name in the tree and is now refused **whole** (the seam's ruled error posture, §10.4). A comment that OPENS a style body is the other face of it: 4.0.0 reads the comment text as the name, the candidate reads the comment as trivia and the real declaration after it — the sheet is ACCEPTED by both and the VALUE differs |
+**§11.1 — the row.** Rendered in the ledger's OWN row grammar (`### <id> — <title>`, the form
+every `§9` row carries), so `scripts/seam-contract-check.mjs:112` reads this as ledger row
+`F-w4f-1` and `SEAM-CONTRACT.md` row 19's disposition resolves to it. The three sections below
+sit one level down for the same reason — `.f`'s `#### §10.1 … #### §10.4` precedent one section
+above. **Repair 1, 2026-09-20 (Check 1 · C1-1, HIGH): a FORM cure inside `X.P.W4.h`'s own
+appended bytes.** Every field's text below is `.h`'s, moved cell-for-cell and unedited; no
+reading, no disposition and no direction changed. Nothing above `## §11` is touched (E-3).
 
-### §11.2 What it measures, at the pin
+| field | value |
+|---|---|
+| **rulingId** | `F-w4f-1` |
+| **entry** | `parseStylesheet` |
+| **subject** | **a declaration NAME that is not one `<ident-token>`** — css-syntax-3 §5.4.4 consumes a declaration only when the next token is an `<ident-token>`; §4.3.11 / §4.3.9 define one |
+| **incumbent (4.0.0)** | **ACCEPTS** the rule and carries the malformed name through: `parseDeclarations` takes every trimmed byte before the first `:` of a `;`-split part, so `col!r`, `!color`, `color!`, `border-co+or`, `backgrou(d-color`, `(color`, `,color`, `backgro und-color`, `border-c%olor`, `border-color.` and `1color` are all NAMES there — **INCUMBENT DEFECT** (the 4.0.0 half is X·V's and rides X-W11's OUT-OF-WAVE roster by id) |
+| **candidate (both lowerings)** | **REJECTS** the sheet (`decl-name` is the `ident` continuation set behind a zero-width no-leading-digit assertion; §5.4.4's optional whitespace before the `:` is read explicitly) |
+| **disposition** | **declared-divergence, candidate correct** |
+| **consumer direction** | **NARROWS.** A consumer whose stylesheet spells a declaration name that is not one ident-token had the rule accepted with the malformed name in the tree and is now refused **whole** (the seam's ruled error posture, §10.4). A comment that OPENS a style body is the other face of it: 4.0.0 reads the comment text as the name, the candidate reads the comment as trivia and the real declaration after it — the sheet is ACCEPTED by both and the VALUE differs |
+
+#### §11.2 What it measures, at the pin
 
 At the sha-asserted 27,021-row union (`evidence/W4/differential-full-surface-2026-09-19-w4h.txt`,
 double-run): `parseStylesheet`'s miss count moves **14 → 124** and the surface total **42 → 152**,
@@ -1158,14 +1172,14 @@ from its pin**. Retagging that residual class from `ID-1b` to `F-w4f-1` moves `R
 the id-set printed in the IMMUTABLE banked `evidence/W3/universe-52.json`; it is the adjudicator's
 act (`X.P.W4.f2`), named here and not reached for.
 
-### §11.3 The `ID-1b` row's `candidate` field, once more (L-14)
+#### §11.3 The `ID-1b` row's `candidate` field, once more (L-14)
 
 `ID-1b` (§9) and §10.3's amendment both record that both lowerings ACCEPTED `b { col!r: … }`. That
 reading was true at `.f`'s clock and is **superseded at the bytes from `X.P.W4.h`**: both lowerings
 now REJECT it, for the reason this §11 row states. §9 and §10.3 are not edited (E-3); this is the
 dated amendment beside.
 
-### §11.4 F-w4f-2 — DISCHARGED, so it opens no row here
+#### §11.4 F-w4f-2 — DISCHARGED, so it opens no row here
 
 `§10.1`'s cells `#40` and `#41` carried *"CANDIDATE DEFECT F-w4f-2 … mirror-defect until cured"*.
 The cure landed at `X.P.W4.h` (`<p2>` `fede7d3`) and both cells re-measure **`identical`**
