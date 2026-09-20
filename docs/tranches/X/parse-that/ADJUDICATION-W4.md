@@ -635,3 +635,138 @@ incumbent oklch range labels:
    oklch(.369 3e53 10) → {"ok":true,"value":{"space":"oklch","channels":[0.369,3e+53,10],"alpha":1},"diagnostics":[]}
    oklch(.369 0.1 7e202turn) → {"ok":true,"value":{"space":"oklch","channels":[0.369,0.1,2.52e+205],"alpha":1},"diagnostics":[]}
 ```
+
+---
+
+## ADDENDUM 2026-09-19 (dated, BESIDE — E-3; COHESION §0ab) — `X.P.W4.h`: F-w4f-2 CURED, F-w4f-1's CANDIDATE HALF LANDED
+
+**SERVED MODEL**: `claude-opus-5[1m]` · unit `X.P.W4.h` of `X.P.W4S` (third sitting) · 2026-09-19.
+Nothing above this line is edited: §6's rows **F-w4f-2** and **F-w4f-1** stand as `.f` wrote them,
+and §2.5's cells `#40` / `#41` stand as `.f` ruled them. This addendum records the **producer act**
+those two rows named as owed, and re-reads the two cells at the bytes.
+
+### §11 — F-w4f-2 (HIGH, candidate defect): the `!important` tail needs no preceding space
+
+**The mechanism, measured rather than inferred.** §6's F-w4f-2 row reads the defect at the
+declaration; the defect was one production deeper. `important()` already spelled its leading
+whitespace `WS()` = `0..∞` — it never required the space. The **value token's boundary** did:
+`NOT_TOKEN` is `SCAN("token-char", 0, 0)` ("the token ends here"), and `!` was a `token-char`, so
+in `color: red!important` the token `red` ran into the tail and the declaration — and with it the
+whole sheet — was refused. 4.0.0 cannot meet that byte at all: `parseDeclarations` strips
+`/!important\s*$/i` off the PART *before* `parseCssValue` tokenizes anything, so a value string the
+incumbent tokenizes can never end in that tail.
+
+**The cure** (`<p2>/typescript/src/css/**`, the declaration production at its realizations):
+
+| act | file | what moved |
+|---|---|---|
+| 1 | `algebra/tables.mjs` | `token-char` widens its exclusion set by `!` — the X.P.W3.j brace precedent, same argument, same row |
+| 2 | `algebra/tables.mjs` | a new `bang` byte class (`since: "X.P.W4.h"`, label `'!'` — deduped, **no L index moves**, K-10) |
+| 3 | `algebra/grammar/value.mjs` | `ITEM_SEP` = `ALT(WS1(), NOT_BANG())` replaces the bare `WS()` separator of BOTH space groups |
+| 4 | `algebra/grammar.mjs` | `WS1` joins the value grammar's notations (one word) |
+
+**Act 3 is not decoration.** A boundary is symmetric: opening `!` also lets an **abutting** `!=`
+OPERATOR begin an item, and the incumbent's splitter keeps `!` INSIDE a token, so `red!= blue` is
+the single token `red!=` there and a refusal. `ITEM_SEP` restores exactly that rule — an item is
+admitted either after AT LEAST ONE whitespace (any item, `!=` included) or with no whitespace and
+no `!` at the cursor. Measured at both lowerings against 4.0.0: `red != blue` ACCEPT · `red!= blue`
+REJECT · `red!=` REJECT · `red !=` ACCEPT · `red,!=` ACCEPT · `red/!=` ACCEPT — **0 of 6 differ**.
+The corpus carries **0** rows with a token-abutting `!=` (measured at 27,021), so the guard is
+proved by construction and by controls, not by the corpus's silence.
+
+**No ctor row moved** — `declaration` keeps arity 3 and its `leafMap`, `animation-property` keeps
+its own — so **COHESION §0s's quartet law is not triggered**: no algebra table row of `R_ctor`, no
+lowering constructor and no `bounds.mjs` byte moved. Both lowerings inherit the cure because both
+instantiate the one grammar over the one class table; the Wasm module is assembled at runtime from
+those same tables (`lowering-wasm/index.mjs`).
+
+**The two cells, re-read** (evidence `two-cell-census-2026-09-19-w4h.txt`, double-run byte-identical):
+
+| cell | input (abridged) | 4.0.0 | candidate js | candidate wasm | disposition |
+|---|---|---|---|---|---|
+| `#40` | `b { background-color: var(--brand) -!important }` | ACCEPT — value `var(--brand) -`, `important: true` | ACCEPT, same | ACCEPT, same | **`identical`** (raw-identical too) |
+| `#41` | `#d { background-color: hsl(73.416 -338 -290)!important } .c {…}` | ACCEPT, `important: true` | ACCEPT, same under the ruled reading | ACCEPT, same | **`identical`** |
+
+`#41`'s RAW values still differ in one place — `hsl(… -338 -290)` arrives clamped to `0` at the
+candidate — and that is **`GROUND-C`** (COHESION §0v, css-color-4 §4.2/§8.1 inside a declaration),
+candidate correct, already ruled and already rowed. It is **not** F-w4f-2, and the census prints it
+rather than hiding it: the `identical` column is computed through `ruledValue`, the same resolver
+`lib/differential.mjs` compares through, so this file's word means what the seam's word means.
+
+**§6's F-w4f-2 row is DISCHARGED.** `#40` and `#41` are no longer candidate mirror-defects, and
+`RC-P` conjunct 3 no longer counts them against a `V` that ships the candidate.
+
+### §12 — F-w4f-1 (MEDIUM, shared): the candidate half — a declaration NAME is ONE `<ident-token>`
+
+**The cure.** `decl-name`'s table narrows from "every byte but `:` `;` `{` `}`" — the incumbent's
+trimmed cut-at-the-colon slice, whitespace and all — to the `ident` CONTINUATION set, read behind
+`grammar/stylesheet.mjs`'s zero-width `NO_LEADING_DIGIT` assertion, with §5.4.4's optional
+whitespace before the colon now read explicitly (`WS()` between the name and `TOK(":")`). That is
+the value grammar's OWN ident spelling, re-used rather than re-litigated. `trimWs` stays in both
+lowerings' `declaration` constructor and is now a no-op: **no ctor row moved**, so §0s's quartet law
+is again not triggered.
+
+**Measured, both lowerings, against 4.0.0** (same census file):
+
+| input | 4.0.0 | candidate | reading |
+|---|---|---|---|
+| `a { col!r: red }` | ACCEPT, name `col!r` | **REJECT** | F-w4f-1, candidate correct |
+| `a { !color: red }` | ACCEPT, name `!color` | **REJECT** | F-w4f-1 |
+| `a { color!: red }` | ACCEPT, name `color!` | **REJECT** | F-w4f-1 |
+| `a { 1color: red }` | ACCEPT, name `1color` | **REJECT** | F-w4f-1 (§4.3.9 — a leading digit starts no ident) |
+| `a { color: red }` · `a { --brand: red }` · `a { color : red }` | ACCEPT | ACCEPT, identical | the controls hold |
+
+**Consumer direction: NARROWS.** A consumer whose stylesheet spells a declaration NAME that is not
+an `<ident-token>` — `col!r`, `border-co+or`, `(color`, `,color`, `backgro und-color`, `1color` —
+had that rule ACCEPTED by 4.0.0 with the malformed name carried through, and is now REFUSED whole.
+The candidate is correct (css-syntax-3 §5.4.4 consumes a declaration only when the next token is an
+`<ident-token>`; §4.3.11 defines one); the incumbent half is an **incumbent defect** and rides X·V's
+X-W11 OUT-OF-WAVE roster by id, exactly as §0ab assigns it. The row is filed in
+`DIVERGENCE-LEDGER.md` §11 with `rulingId` **F-w4f-1**.
+
+**Census movement, stated rather than smoothed.** Over the pinned 27,021-row corpus the cure turns
+**110** `parseStylesheet` cells that previously AGREED into candidate refusals: 109 sources carrying
+a non-ident NAME that both engines had accepted, plus `1color`'s family. The full differential
+therefore reads **152** miss entries where it read 42, and **every one of them carries a ruling id**
+— `NOT IN THE SET 0`. The resolver files them under **`ID-1b`**, and that is not a convenience: the
+`ID-1b` residual predicate is literally `unanchoredBangRead(src) || nonIdentDeclarationName(src)`
+and its `specCitation` is *"css-syntax-3 §5.4.4 — a declaration's name is an `<ident-token>`"*. Its
+census 117 stays under its pinned population 534, and **no population drifted from its pin**.
+
+**A RESIDUAL, named with its owner.** `test/css-totality/lib/adjudications.mjs` still carries this
+mechanism under `ID-1b`'s id rather than **F-w4f-1**'s, and `UNRULED_SHEET`'s surviving `x!imp`
+clause still withholds rulings from sheets with no token boundary before a `!` on the ground that
+the construct is *"UNADJUDICATED"* — §0ab has now adjudicated it. Re-tagging the residual class and
+retiring that clause moves `RULING_IDS`, which is the §0w id-set printed in the **immutable** banked
+`evidence/W3/universe-52.json` and read by G-1; and `adjudications.mjs` **is** the adjudicated
+registry in code, which E-3 holds IMMUTABLE — corrections are dated addenda-beside, which is what
+this section is. Owner: `X.P.W4.f2` (or the next adjudicator seat). This seat states it rather than
+reaching for it.
+
+**The measured size of that residual, so it is returned by number and not by adjective.** The same
+run reads **`ADJUDICATION_UNHONOURED 27`** at `parseStylesheet` (js and wasm alike; **0** before this
+cure). Every one of the 27 is one shape: a source a REPAIR CLASS governs for its COLOUR (`expect:
+"accept"`) that ALSO carries a second rule whose declaration NAME is not an `<ident-token>` — e.g.
+`b { background-color: hsl(.17turn 111.25…) !important } b { background-colo.r: … }`. The class was
+adjudicated while that NAME was SHARED by both engines; it is not any more. This is precisely the
+condition `outsideEveryClass`'s guard exists for — *"The guard NEVER excuses a cell: it withholds the
+RULING, and the oracle's own verdict then decides"* — and its surviving clause reaches only `!`
+forms, not `colo.r` or `backgrou(d-color`. Extending that guard is the cure, it would move the
+CLASSES' **pinned measured populations**, and both acts are the registry's, not this seat's. Filed
+here by id and by count.
+
+**`DIVERGENT_VALUE` moved 2 → 7** at the same row, and the five new cells are NOT a residual — they
+are the cure reading a sheet correctly. Each is a style body that OPENS WITH A COMMENT: 4.0.0 takes
+every byte before the first `:` as the name and so reads `/* the same set, lifted for the dark
+chocolate WELL field. */     --code-comment` as a declaration NAME; the candidate's name can no
+longer swallow a comment, so the comment is trivia and the declaration is `--code-comment`. That is
+X.P.W3.l's own F-k3 family, closed from the other side — **candidate correct, CHANGES VALUE**, and
+the resolver files it under `ID-1b` with everything else this mechanism owns.
+
+### §13 — the three gates this unit owed, as read
+
+| gate | command | reading |
+|---|---|---|
+| cells `#40` / `#41` re-measure `identical` | `node docs/tranches/X/parse-that/evidence/W4/two-cell-census-2026-09-19-w4h.mjs` | `#40 identical · #41 identical` — **GREEN**, double-run byte-identical |
+| the full differential reads 0 mirror-defects OUTSIDE ruled ids | `node test/css-equivalence/run-full-surface.mjs --pinned-value-commit 6aca8602…` | `RULING-ID 152 of 152 … NOT IN THE SET 0` — **GREEN**, double-run |
+| the W3 totality gate still TOTAL | `node scripts/css-universe.mjs --check --pinned-value-commit 6aca8602…` | `ALL 46 of 52 TOTAL` · `6 PARTIAL, 0 ABSENT`, the same six rows as banked — **UNMOVED**, double-run byte-identical |

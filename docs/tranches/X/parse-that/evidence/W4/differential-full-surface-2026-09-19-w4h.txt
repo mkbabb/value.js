@@ -1,0 +1,111 @@
+SERVED MODEL: claude-opus-5[1m]
+X.P.W4.h — the FULL DIFFERENTIAL, re-run after the two cures (gate 2). 2026-09-19. NEW, beside evidence/W3 (E-3).
+Command: node test/css-equivalence/run-full-surface.mjs --pinned-value-commit 6aca86020b6b2605e7d0f04fccb6601746e387f7
+Double-run: run 1 and run 2 differ only in the node PID inside the MODULE_TYPELESS_PACKAGE_JSON warning line.
+GATE READING: "NOT IN THE SET 0" — every one of the 152 miss entries carries a rulingId from the §0w set.
+
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/mkbabb/Programming/parse-that-css-totality-p2/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+X.P.W3.d — css-equivalence, FULL SURFACE (G-7)
+────────────────────────────────────────────────────────────────────────────────────────────────
+pin        6aca86020b6b2605e7d0f04fccb6601746e387f7
+oracle     value.js-4.0.0.tgz — 37290 B · sha256 7f80658ca4e16e99ccbb41ad6c9d8c08b2e5f86a7c951d2a833c97f89fb303ae
+           sha512-Z8ywb4htSxJlRFvoU1DNtvzr9Bsuaw9ahT/hvNlKbnRj6fTnLuXjn0itKq1Q5s6rwg24ct0zcLZ04BuR3/SzGw==
+           cross-check vs the unpacked cand-o vendor tree: AGREE (css.js + css.d.ts byte-identical)
+taxonomy   UNMOVED · sha256 554c2993cebd3ed3 · classes A DIVERGENT_VALUE / B MIS_ACCEPT / C FALSE_REJECT_IN_SHAPE
+corpus     27021 rows → 27021 distinct · run 27021 · F-c3 unwrapped 0 · replay pin AGREES
+shape      color heads [color, hsl, hwb, lab, lch, oklab, oklch, rgb] · timing heads [cubic-bezier, linear, steps]
+universe   19 runtime + 33 types = 52
+re-exports 33 frozen types, MEASURED from src/css/build/ac1.d.ts
+
+  parseCssColor               runtime  COMPARED     27021 cells × 2 lowerings · mirror-defects 1 (spec-undecided 1) · lowerings AGREE
+                                MIS_ACCEPT                    1   e.g. "rgb(.843, -0, +54, 5e498)"
+                                DECLARED_DIVERGENCE        2557   e.g. "oklch(,0% 0.15 50deg)"
+                                FIXTURE_R1                  211   e.g. "rgb()"
+  parseCssScalar              runtime  COMPARED     27021 cells × 2 lowerings · mirror-defects 1 (spec-undecided 1) · lowerings AGREE
+                                MIS_ACCEPT                    1   e.g. "rgb(.843, -0, +54, 5e498)"
+                                DECLARED_DIVERGENCE        2557   e.g. "oklch(,0% 0.15 50deg)"
+                                FIXTURE_R1                  211   e.g. "rgb()"
+  parseCssValue               runtime  COMPARED     27021 cells × 2 lowerings · mirror-defects 1 (spec-undecided 1) · lowerings AGREE
+                                MIS_ACCEPT                    1   e.g. "rgb(.843, -0, +54, 5e498)"
+                                DECLARED_DIVERGENCE        3344   e.g. "oklch(,0% 0.15 50deg)"
+                                FIXTURE_R1                  120   e.g. "rgb()"
+  parseCssValues              runtime  COMPARED     27021 cells × 2 lowerings · mirror-defects 1 (spec-undecided 1) · lowerings AGREE
+                                MIS_ACCEPT                    1   e.g. "rgb(.843, -0, +54, 5e498)"
+                                DECLARED_DIVERGENCE        3344   e.g. "oklch(,0% 0.15 50deg)"
+                                FIXTURE_R1                  120   e.g. "rgb()"
+  parseKeyframeSelector       runtime  COMPARED     27021 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  parseTimingFunction         runtime  COMPARED     27021 cells × 2 lowerings · mirror-defects 24 (spec-undecided 24) · lowerings AGREE
+                                MIS_ACCEPT                   23   e.g. "linear(174.89818022586405 7e422%, 0e356 1e-315%
+                                FALSE_REJECT_IN_SHAPE         1   e.g. "steps(1e43,, start)"
+                                DECLARED_DIVERGENCE         146   e.g. "steps(7., jump-start)"
+  serializeCssColor           runtime  COMPARED     400 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  coerceToSyntax              runtime  COMPARED     27021 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+                                DECLARED_DIVERGENCE         208   e.g. "hsl(120, 500, 50%) @ <color>"
+                                FIXTURE_R1                  120   e.g. "rgb() @ <angle>"
+  parseAnimationRange         runtime  COMPARED     27021 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  parseAnimationTimeline      runtime  COMPARED     27021 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  serializeTimelineOptions    runtime  COMPARED     200 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  collectAnimationOptions     runtime  COMPARED     400 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  collectCustomFunctions      runtime  COMPARED     400 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  collectDeclarations         runtime  COMPARED     400 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  collectKeyframes            runtime  COMPARED     400 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  collectPropertyDescriptors  runtime  COMPARED     400 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  collectStyleRules           runtime  COMPARED     400 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  collectTimelineOptions      runtime  COMPARED     400 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  parseStylesheet             runtime  COMPARED     27021 cells × 2 lowerings · mirror-defects 124 (spec-undecided 90) · lowerings AGREE
+                                DIVERGENT_VALUE               7   e.g. ".dark { /* The same set, lifted for the dark ch
+                                MIS_ACCEPT                    6   e.g. ".c ){ color: #28cA }"
+                                FALSE_REJECT_IN_SHAPE        84   e.g. "a { backgrou(d-color: red }"
+                                DECLARED_DIVERGENCE         740   e.g. ".c { color: var(--a) } a { background-color: ok
+                                ADJUDICATION_UNHONOURED      27   e.g. "b { background-color: hsl(.17turn 111.252224049
+  AnimationRangeValue         type     COMPARED     re-exported from the pinned declaration · 2 members · 0 literals
+  AnimationTimelineValue      type     COMPARED     re-exported from the pinned declaration · 5 members · 5 literals
+  AnimationTriggerValue       type     COMPARED     re-exported from the pinned declaration · 3 members · 0 literals
+  CSSAnimationOptions         type     COMPARED     re-exported from the pinned declaration · 8 members · 11 literals
+  CSSPropertyDescriptor       type     COMPARED     re-exported from the pinned declaration · 3 members · 0 literals
+  CSSTimelineOptions          type     COMPARED     re-exported from the pinned declaration · 5 members · 0 literals
+  CollectedRule               type     COMPARED     re-exported from the pinned declaration · 2 members · 0 literals
+  CssColor                    type     COMPARED     re-exported from the pinned declaration · 0 members · 0 literals
+  CssColorSpace               type     COMPARED     re-exported from the pinned declaration · 0 members · 13 literals
+  CssLinearStop               type     COMPARED     re-exported from the pinned declaration · 2 members · 0 literals
+  CssTimingFunction           type     COMPARED     re-exported from the pinned declaration · 9 members · 9 literals
+  CustomFunctionDescriptor    type     COMPARED     re-exported from the pinned declaration · 3 members · 0 literals
+  CustomFunctionParameter     type     COMPARED     re-exported from the pinned declaration · 3 members · 0 literals
+  CustomFunctionRule          type     COMPARED     re-exported from the pinned declaration · 3 members · 1 literals
+  Declaration                 type     COMPARED     re-exported from the pinned declaration · 3 members · 0 literals
+  KeyframeRule                type     COMPARED     re-exported from the pinned declaration · 4 members · 3 literals
+  KeyframeSelector            type     COMPARED     re-exported from the pinned declaration · 4 members · 6 literals
+  KeyframesBlock              type     COMPARED     re-exported from the pinned declaration · 3 members · 1 literals
+  ParseIssue                  type     COMPARED     re-exported from the pinned declaration · 5 members · 8 literals
+  ParseResult                 type     COMPARED     re-exported from the pinned declaration · 3 members · 0 literals
+  PropertyRule                type     COMPARED     re-exported from the pinned declaration · 3 members · 1 literals
+  RangeBoundary               type     COMPARED     re-exported from the pinned declaration · 2 members · 0 literals
+  RangePhase                  type     COMPARED     re-exported from the pinned declaration · 0 members · 7 literals
+  ScrollTimelineDescriptor    type     COMPARED     re-exported from the pinned declaration · 2 members · 0 literals
+  ScrollerKeyword             type     COMPARED     re-exported from the pinned declaration · 0 members · 3 literals
+  StyleRule                   type     COMPARED     re-exported from the pinned declaration · 4 members · 1 literals
+  Stylesheet                  type     COMPARED     re-exported from the pinned declaration · 0 members · 0 literals
+  StylesheetItem              type     COMPARED     re-exported from the pinned declaration · 9 members · 5 literals
+  TimelineAxis                type     COMPARED     re-exported from the pinned declaration · 0 members · 4 literals
+  TimelineScopeValue          type     COMPARED     re-exported from the pinned declaration · 2 members · 3 literals
+  TriggerType                 type     COMPARED     re-exported from the pinned declaration · 0 members · 4 literals
+  ViewInset                   type     COMPARED     re-exported from the pinned declaration · 2 members · 0 literals
+  ViewTimelineDescriptor      type     COMPARED     re-exported from the pinned declaration · 3 members · 0 literals
+
+────────────────────────────────────────────────────────────────────────────────────────────────
+rows       52 · COMPARED 52 · NO-PEER 0
+ledger     38 rows — ADJUDICATED 16 · DISSENT 4 · FIXTURE 5 · LABEL 1 · NARROWING 3 · CAPACITY 9
+           empty consumer-direction fields: 0
+           GATE-VERDICT anchors present: 5/5
+MIRROR-DEFECTS  152   (of which spec-undecided 118)
+RULING-ID       152 of 152 miss entries carry a rulingId from {ID-3 · ID-1b · ID-4 · ID-5 · GROUND-C · ID-2 · ID-1 · PB-11 · R-f1 · E-k2} · NOT IN THE SET 0
+  parseCssColor            1× GROUND-C
+  parseCssScalar           1× GROUND-C
+  parseCssValue            1× GROUND-C
+  parseCssValues           1× GROUND-C
+  parseTimingFunction      23× GROUND-C · 1× ID-2
+  parseStylesheet          117× ID-1b · 5× ID-4 · 2× GROUND-C
+
+RED — the equivalence floor is NOT held at full surface. 152 mirror-defects over 52 compared rows.
