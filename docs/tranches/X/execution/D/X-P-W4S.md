@@ -3573,3 +3573,178 @@ reads `BLOCKED-ON G-n` by gate id — never `PARTIAL`.
 ## Unit receipts — RESUME (2026-09-20)
 
 *(empty at open; each unit appends its own)*
+
+### X.P.W4.g2
+
+SERVED MODEL: claude-opus-5[1m]
+
+**Unit.** ESC-W4g-1 / F-ab1's second limb — `emit-divergence-ledger.mjs`'s single carried block
+becomes a carried LIST. Sections executed: `W4.md` SIXTH ADDENDUM 2026-09-20 (line 684, the
+`X.P.W4.g2` clause) · `COHESION.md` §0ah bullet 4 (2240–2244) · `W4.md` §6 G-1 (352–370) and §6 G-2
+as amended by C3-3. **Status: DONE.** One `<p2>` commit `3199913`; this record's commit below.
+
+#### Act 0 — crash-recovery, at the bytes (standing law)
+
+⟨`git -C /Users/mkbabb/Programming/parse-that-css-totality-p2 status --porcelain`⟩ → **1 row**,
+`?? .worktrees/` — an untracked directory of four sibling worktrees (`w2/ac1` · `w2/ac2` ·
+`w2/ac3-scan-union` · a detached `w4b`), **not** a path in this unit's writable set and not a
+killed predecessor's edit. ⟨`git -C <p2> status --porcelain -- typescript/test/css-equivalence
+typescript/evidence`⟩ → **0 rows**. **No inherited partial work on this unit.** Nothing stashed,
+nothing restored, no sibling path touched; `scripts/dev/dev.sh` never opened.
+
+⟨`git -C <p2> worktree list`⟩ → the main tree at `fede7d3 [w2/harness]`, which is `.h`'s commit —
+the unit's target file is in the MAIN tree at the branch the six prior units stand on, so this seat
+writes where the wave writes.
+
+#### Act 1 — the born-RED, measured twice: in the source and in an emission
+
+⟨`grep -c '## §10' <p2>/typescript/test/css-equivalence/emit-divergence-ledger.mjs`⟩ → **0**
+(reproduces the open's reading at this seat's own clock).
+
+The carry at `:171` read `previous.indexOf("\n### §6.")` sliced to the next `\n## ` / `\n---\n` — a
+single region — while the canonical ledger carries two sections appended **after** F-e7's cure was
+written: `## §10 — rulingId appends, X.P.W4.f` (line 1084) and `## §11 — the NEW divergence
+X.P.W4.h opens` (line 1135), 105 lines to the file's end.
+
+A source reading is not a behaviour reading, so the defect was measured as an emission, to scratch:
+
+⟨`node test/css-equivalence/emit-divergence-ledger.mjs --out <scratch>/before-1.md
+--pinned-value-commit 6aca86020b6b2605e7d0f04fccb6601746e387f7`⟩ →
+`wrote … — 131539 B · 1080 lines · 46 rows · empty directions 0 · `.e`'s §6 block carried 47 lines`,
+`EXIT=0`. Over that file: ⟨`grep -c '^## §10'`⟩ → **0** · ⟨`grep -c '^## §11'`⟩ → **0** ·
+⟨`grep -c 'RETIRED'`⟩ → **0**. **Born-RED confirmed at the bytes**, and this emission is the
+negative control for Act 3: same command, same pin, same scratch root, one commit apart.
+
+#### Act 2 — the cure, exactly as §0ah specifies it
+
+The carry is now a declared LIST of marked regions of the CANONICAL ledger (never `--out` — F-y2):
+
+```js
+const CARRIED_REGIONS = [
+    { id: "§6",  mark: "\n### §6.", toTail: false },
+    { id: "§10", mark: "\n## §10",  toTail: true  },
+];
+const sliceCarry = ({ mark, toTail }) => {
+    const at = previous.indexOf(mark);
+    if (at < 0) return [];
+    const rest = previous.slice(at + 1);
+    if (toTail) return rest.replace(/\s+$/, "").split("\n");
+    const ends = ["\n## ", "\n---\n"].map((m) => rest.indexOf(m)).filter((i) => i >= 0);
+    const block = ends.length > 0 ? rest.slice(0, Math.min(...ends)) : rest;
+    return block.replace(/\s+$/, "").split("\n");
+};
+const carries = CARRIED_REGIONS.map((r) => ({ ...r, lines: sliceCarry(r) }));
+```
+
+Three properties, each ordered and each measured, never asserted:
+
+1. **A list, not a block.** Two marks, one table, extensible by a row rather than by a second copy
+   of the slice.
+2. **Each to the next level-2 heading, EXCEPT §10's, taken as the TAIL.** §11 was appended below
+   §10; a bounded §10 slice would have carried `.f` and dropped `.h`, which is ESC-W4g-1 re-opening
+   under a new number at the next append. The tail is what makes the region, not the section, the
+   unit of carry.
+3. **Emitted under its own preamble, in document order.** §6's stays inside §6 (unmoved, same
+   end-marks, 47 lines before and after); the tail is emitted at the file's end after §9, where
+   `.f` and `.h` put it. The tail preamble sits **above** the carried `## §10` heading on purpose:
+   a preamble below it would be swallowed by the next run's slice and printed twice — the growth
+   F-e7's own first double-run measured at 47 → 286 → 525 lines.
+
+The `console.log` receipt line now reports the list (`carried regions §6 … · §10 …`) rather than one
+block, so a region that silently carries nothing is visible in the run's own output.
+
+⟨`node --check test/css-equivalence/emit-divergence-ledger.mjs`⟩ → `EXIT=0`.
+⟨`grep -c '## §10' …/emit-divergence-ledger.mjs`⟩ → **7** (born-RED **0 → 7**, read from the settled
+bytes after the last edit — SELF-COUNT LAW, not the edit's intent).
+
+**No regeneration of `DIVERGENCE-LEDGER.md` was ordered and none was performed.**
+⟨`git status --porcelain -- docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md`⟩ → **0 rows**, before
+and after. The ledger stands byte-frozen (E-3); the cure is proven by emitting to a scratch `--out`.
+
+#### Act 3 — acceptance, MEASURED (the unit's first gate)
+
+Two consecutive emissions to a scratch `--out`, same pin, nothing written into either repo:
+
+⟨`node test/css-equivalence/emit-divergence-ledger.mjs --out <scratch>/after-1.md
+--pinned-value-commit 6aca8602…`⟩ → `wrote … — 142234 B · 1197 lines · 46 rows · empty directions 0
+· carried regions §6 47 lines · §10 105 lines`, `EXIT=0`
+⟨same, `--out <scratch>/after-2.md`⟩ → byte-for-byte the same receipt line, `EXIT=0`
+
+| probe | before (Act 1) | after-1 | after-2 |
+|---|---|---|---|
+| ⟨`grep -c '^## §10'`⟩ | 0 | **1** | **1** |
+| ⟨`grep -c '^## §11'`⟩ | 0 | **1** | **1** |
+| ⟨`grep -c '^#### §10\.'`⟩ | 0 | **4** | **4** |
+| ⟨`grep -c '^#### §11\.'`⟩ | 0 | **3** | **3** |
+| ⟨`grep -c 'RETIRED'`⟩ | 0 | **4** | **4** |
+| ⟨`grep -c '^#### §10.2 … — RETIRED as coverage claims'`⟩ | 0 | **1** | **1** |
+
+**Idempotence**: ⟨`diff after-1.md after-2.md`⟩ → `EXIT=0`, **0 lines**;
+⟨`shasum -a 256 after-1.md after-2.md`⟩ → both `0d17d4bf353a0163e2dd9c7ee3870e2a2a13cee5b5a1fd1689
+32fc5dbd2e09ba`. **Exactly one** of each heading in both emissions — nothing doubles.
+
+**Verbatim, not re-rendered**: ⟨`awk '/^## §10 /{p=1} p' after-1.md`⟩ → 105 lines;
+⟨`sed -n '1084,$p' DIVERGENCE-LEDGER.md`⟩ → 105 lines; ⟨`diff canon-tail emitted-tail`⟩ → `EXIT=0`,
+**0 lines**. This program authors not one byte of §6, §10 or §11.
+
+**Fixed point** (the property F-y2 had to buy once already): applying the landed slice function to
+the canonical file and to the emitted file region-for-region →
+`§6: canonical 47 lines · emitted 47 lines · IDENTICAL=true` /
+`§10: canonical 105 lines · emitted 105 lines · IDENTICAL=true`. Idempotence therefore does **not**
+depend on `--out` pointing away from the artefact. Nothing was written to the canonical path.
+
+Banked as NEW dated evidence (E-3, beside): `<p2>/typescript/evidence/W4/carried-list-idempotence-
+2026-09-20-w4g2.txt` (8992 B) — the directory `typescript/evidence/W4/` did not exist and is opened
+by this unit.
+
+#### Act 4 — G-1 and G-2, at this seat's own clock
+
+**G-1** ⟨`node docs/tranches/X/parse-that/scripts/seam-contract-check.mjs SEAM-CONTRACT.md
+evidence/W3/universe-52.json DIVERGENCE-LEDGER.md`⟩, run twice AFTER the cure →
+`VERDICT: GREEN — both set-differences ∅, no disposition contradicts a LIVE ledger row, every
+carried cell is terminally ruled in ADJUDICATION-W4.md, no field is blank`, `EXIT=0`;
+⟨`diff run1 run2`⟩ → `EXIT=0`, 0 lines. **BEFORE → AFTER: GREEN → GREEN, UNMOVED** — which is what
+was owed: the cure lives in the generator and the artefact G-1 reads was not regenerated.
+
+**G-2** (commit predicate, C3-3 / §0ah bullet 5): ⟨`for h in $(git log --format='%H %s'
+2237f305^..HEAD | grep -iE 'x\.p\.w4|x-p-w4' | cut -d' ' -f1); do git show --name-only --format=''
+$h; done | grep -cE '^(src|demo|api|test|e2e)/'`⟩ over **24** X.P.W4-subject commits → **0**.
+**GREEN.** This unit's `<p2>` commit is inside the fresh root, not value.js; its value.js commit
+carries only `docs/` paths. Banked: `<p2>/typescript/evidence/W4/g1-g2-double-run-2026-09-20-
+w4g2.txt` (10244 B), both G-1 runs whole.
+
+#### Act 5 — the commit
+
+⟨`git -C <p2> add <3 exact paths> && git commit --no-verify --quiet -m … -- <the same 3 paths>`⟩ →
+**`3199913`** `fix(css-equivalence): the F-e7 carry becomes a carried LIST — .f's §10 and .h's §11
+survive a re-emission (ESC-W4g-1)`. ⟨`git show --name-only --format="" HEAD`⟩ → exactly three paths,
+all inside the writable set:
+`typescript/test/css-equivalence/emit-divergence-ledger.mjs` ·
+`typescript/evidence/W4/carried-list-idempotence-2026-09-20-w4g2.txt` ·
+`typescript/evidence/W4/g1-g2-double-run-2026-09-20-w4g2.txt`.
+⟨`git -C <p2> status --porcelain`⟩ after → **1 row**, the same pre-existing `?? .worktrees/`.
+One commit, one meaning. Pathspec on the commit itself.
+
+#### Gate readings — BEFORE → AFTER
+
+| gate | BEFORE (this seat's own baseline) | AFTER | verdict |
+|---|---|---|---|
+| idempotence over two emissions with §10's retirement rows surviving both | **RED** — `^## §10` 0, `^## §11` 0, `RETIRED` 0 in a scratch emission | identical bytes (one sha), `^## §10` 1/1 · `^## §11` 1/1 · `RETIRED` 4/4 · `#### §10.` 4/4 · `#### §11.` 3/3 | **GREEN** |
+| G-1 | GREEN (banked at the RESUME open) → re-measured GREEN here | `VERDICT: GREEN`, `EXIT=0`, double-run identical | **GREEN, unmoved** |
+| G-2 | GREEN (commit predicate) | 0 `src\|demo\|api\|test\|e2e` paths over 24 subject commits | **GREEN** |
+
+#### Residuals and escalations
+
+- **ESCALATIONS: none.** Every write landed inside the declared set; the two `evidence/W4/` files
+  are NEW and dated; `DIVERGENCE-LEDGER.md`, `SEAM-CONTRACT.md` and every dated spec were read only.
+- **R-C5 / R-2 are discharged AS A MECHANISM, not as ledger rows.** The residual read *"a
+  regeneration must re-append §10 and §11 or both rulings' rows are lost"*; after `3199913` a
+  regeneration re-appends them itself. The ledger's own §10 and §11 sentences saying *"a
+  regeneration must re-append this"* remain standing inside the ledger, immutable under E-3, and now
+  describe a cured defect rather than a live hazard. **No ledger byte was changed to say so.**
+- **Standing, disclosed**: the carried-list mechanism covers regions that exist at the mark. A
+  future dated section appended **above** `## §10` and below `## §9` would still fall outside both
+  regions. The tail rule covers everything appended below §10, which is where §10 and §11 both sit
+  and where an append beside (E-3) naturally lands.
+- `.s` is unblocked by this unit: its precondition re-run of G-1..G-9 reads the same canonical
+  artefacts, and G-1 is measured GREEN and unmoved above.
