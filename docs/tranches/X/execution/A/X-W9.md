@@ -1712,6 +1712,219 @@ per-tree `git status --porcelain` readings that witness RD-11.
 
 ---
 
+### X-W9.h
+
+SERVED MODEL: `claude-opus-5[1m]` · RESUME ROUND 2, dispatched under `ESC-W9R1-SEQUENCING`
+(COHESION §0ac) once X-W4 closed. Spec: §Agent Units `X.W9.h` W9.md:300-312 · G32 W9.md:374 ·
+§Commit Plan row 11 W9.md:465 · §Disjointness §4a W9.md:142-146 · §Worktree Plan W9.md:170.
+
+#### 1. The §4a precondition, re-read first
+
+FIRST ACT, before any byte: ⟨cmd⟩ `grep -n '^| X-W4 ' docs/tranches/X/execution/LEDGER.md` →
+`33:| X-W4 | X-W0 | **CLOSED 2026-09-17** — promoted at **CHECK 2** …`. The gate that held this
+unit through the close, Check 1–3, Repair 1–2 and Resume 1 is **DISCHARGED**: §Disjointness'
+*"X-W9.h sequences after X-W4 closes"* is satisfied on its first disjunct. X-W4's carve is landed
+and committed — ⟨cmd⟩ `git status --porcelain -- demo/picker/controls/ComponentSliders/ConsoleRail.vue`
+→ **empty** — so the file is no longer dirty with a live sibling's work, which is the condition
+Repair 2 §R2 recorded as blocking (`X-W9.md:2835`).
+
+CRASH-RECOVERY sweep, before any other act: ⟨cmd⟩ `git status --porcelain` in
+`/Users/mkbabb/Programming/value.js` → 17 modified + 9 untracked paths, **none inside this unit's
+writable set** (`demo/color-session/colorSpaceInfo.ts`, `ConsoleRail.vue`,
+`docs/tranches/X/waves/evidence/W9/**`, `docs/tranches/X/execution/A/X-W9.md`). **Nothing inherited;
+nothing stashed; nothing restored.** The dirty rows belong to sibling seats (`demo/shell/*`,
+`e2e/smoke/*`, `docs/tranches/X/parse-that/**`, `X-W5.md`, `KF-W13.md`) and `scripts/dev/dev.sh`,
+which is never touched.
+
+Worktree per §Worktree Plan: ⟨cmd⟩ `git worktree add /Users/mkbabb/Programming/value.js-x-w9-h
+tranche-u --detach` → `HEAD is now at f866de45`. `node_modules` symlinked to the primary's;
+`dist/` is worktree-local, which is the isolation the plan names (`npm run typecheck` resolves
+`@mkbabb/value.js/*` → `./dist/*.d.ts` per `tsconfig.demo.json`, so two seats sharing one `dist/`
+would measure each other).
+
+E13 sweep: ⟨cmd⟩ `grep -cE '\|\s*\**UNREAD\**\s*(\||$)' docs/tranches/V/coordination/INBOX.md` →
+**0**. No mail addressed to this unit's scope; no UNREAD row anywhere in the ledger.
+
+#### 2. Anchors measured at true bytes
+
+| spec anchor | measured | verdict |
+|---|---|---|
+| `ConsoleRail.vue:172-180` — `componentDescription()` prefix `find` | `:172` `function componentDescription(`, `:176-179` the `find` with `c.startsWith(upper) \|\| c.startsWith(component)`, `:180` `return match ?? component;` | **EXACT**, no drift |
+| `ChannelsBySpace` publishes `ictcp: [i, ct, cp]` / `jzazbz: [jz, az, bz]` | `src/color/model.ts:10-28`, tuple labels verbatim | **EXACT** |
+| `SpaceId` = 17 spaces | `src/color/model.ts:4-7` → 17 | **EXACT** |
+| descriptor table covers those 17 | `demo/color-session/colorSpaceInfo.ts` carried **13** rows — 12 `SpaceId`s + `hex`; `srgb-linear`, `display-p3`, `a98-rgb`, `prophoto-rgb`, `rec2020` **ABSENT** | **DRIFT — recorded, cured below** |
+
+The fourth row is the one the spec's Mechanism sentence does not name and G32's command does:
+the gate runs *"over all 17 spaces × their `ChannelsBySpace` ids"* and its falsifier is *"add a
+space to the table without descriptors for every id"*. Five offered spaces had no row at all, so
+their channels printed bare keys — the same degradation class as `jz`, fifteen pairs wide. The
+unit's Goal is *"every channel of every space resolves to exactly its own description"*; a re-key
+alone leaves it false for 15 of 49 pairs. Recorded as INTENT at the true bytes and cured.
+
+#### 3. The cure
+
+**`demo/color-session/colorSpaceInfo.ts`** — the descriptor tables are re-keyed by the library's
+exact channel ids (`{ i: "Intensity (I)", ct: "Ct (tritan)", cp: "Cp (protan)" }`,
+`{ jz: "Lightness (Jz)", az: "az (red-green)", bz: "bz (yellow-blue)" }`, and so through all 18
+display spaces). **No new library export**: the vocabulary stays `ChannelsBySpace`'s, spelled by
+the consumer, per W9.md:309.
+
+Space totality is made **structural** rather than gated: the annotation is
+`Readonly<Record<DisplayColorSpace, ChannelDescriptors>>`, so a space the product offers without a
+descriptor row is now a COMPILE ERROR. That is the X-W6 `space-catalog.ts` idiom (L-8, structure
+over gates) applied to the table that X-W6 did not reach. Id exactness cannot be made structural —
+TypeScript tuple element labels are syntax, not types — so it is measured by G32's probe instead,
+and the docstring says so rather than implying the compiler checks it.
+
+**`demo/picker/controls/ComponentSliders/ConsoleRail.vue:172-180`** — the carve, and only the
+carve. Ten lines become four:
+
+```ts
+function componentDescription(component: string): string {
+    const space = currentColorSpace.value as DisplayColorSpace;
+    return colorSpaceInfo[space].components[component] ?? component;
+}
+```
+
+The prefix `find` is deleted, and with it the `(colorSpaceInfo as any)` cast and the
+`if (!info?.components) return component` guard, which the total record makes unreachable. The
+`as DisplayColorSpace` cast at `:173` is **kept**: it is a sound widening (`currentColorSpace` is
+`ComputedRef<PickerSpace>` and `PickerSpace = SpaceId ⊂ DisplayColorSpace`), and it is the only
+use of the `DisplayColorSpace` import at `:100` — dropping it would orphan an import outside the
+`:172-180` bound. `?? component` is preserved, not as a fallback but as the honest answer for
+`"alpha"`, which is not a `ChannelsBySpace` id and resolved to `"alpha"` before this unit too.
+
+**Touched no focus, pointer, template or roving-tabindex surface.** ⟨cmd⟩ `git show --stat 95792b44`
+→ `ConsoleRail.vue | 8 +-`; the diff is `componentDescription()`'s body alone. X-W4's landed carve
+(`railTabIndex`, `onRailKeydown`, `railItemEls`, the template) is byte-untouched.
+
+#### 3a. Why the file's prose fields left with the re-key — measured, not assumed
+
+Making the table total demanded five more rows. Copying them whole from `space-catalog.ts` would
+have taken `colorSpaceInfo.ts` from 334 to ≈459 lines, **past the canon cap** — ⟨cmd⟩
+`grep -n '400' docs/tranches/V/ARCHITECTURE.md` → `:944` *"`demo/` file … stays ≤ 400 LoC"* — and
+would have deepened a duplication instead of curing one. So the file was measured before anything
+was added:
+
+- ⟨cmd⟩ `grep -rn "colorSpaceInfo" --include='*.ts' --include='*.vue' --include='*.js'
+  --include='*.mjs' --include='*.json' .` (node_modules and `docs/` excluded) → **one runtime
+  consumer**, `ConsoleRail.vue:99`, which reads **`components` only**; the sole other hit is a
+  prose comment at `demo/picker/index.ts:2`.
+- ⟨cmd⟩ node census of every field value against `space-catalog.ts`'s bytes → `colorSpaceInfo rows:
+  13 · field values checked: 358 · values NOT present verbatim in space-catalog.ts: **0**`.
+
+X-W6 (`e0e204a9`, 2026-09-19, X:CSS-1) made `SPACE_CATALOG` the one total record over
+`DisplayColorSpace` and moved `ColorNutritionLabel.vue` onto it. That left this module's
+`name`/`definition`/`whitePoint`/`gamut`/`applications`/… fields with **zero readers** and a
+docstring still claiming the nutrition label read them — a canon-truth defect of exactly G30's
+class, inside this wave's own file bounds. Of the 358 values, **37 are the descriptors** this unit
+re-keys and **321 are the dead prose**: the 321 are therefore **retired, not duplicated a second
+time**. The facts keep one home (`space-catalog.ts`), this module keeps the one field its one
+consumer reads, and the five missing spaces cost five short rows instead of 125 duplicated lines. ⟨cmd⟩ `wc -l demo/color-session/colorSpaceInfo.ts` → **334 → 124**; `ConsoleRail.vue`
+**354 → 348**; both well inside the ≤400 cap.
+
+**Stated plainly for adjudication**: the re-key and the `find` deletion are the spec's Mechanism
+verbatim. The five added rows are required by **G32's own command and falsifier**, and the 358
+retired values are the lawful way to add them under the ≤400 cap without minting a second
+authority — the very shape W9.md:309 forbids. Nothing was invented: every surviving descriptor
+string is the prose the tree already carried. If the adjudicator reads the deletion as out of
+scope, the re-key and the carve stand on their own and only §3a reverts.
+
+#### 4. G32 — BEFORE → AFTER
+
+Command of record, committed with this unit:
+⟨cmd⟩ `node docs/tranches/X/waves/evidence/W9/g32-channel-descriptors.mjs`
+
+The probe reads three live surfaces and restates none: the ids are parsed out of
+`ChannelsBySpace`'s own bytes, the table is loaded from `colorSpaceInfo.ts`, and
+**`componentDescription()` is lifted out of `ConsoleRail.vue`'s own bytes and executed** — so the
+gate measures the resolver the product ships, not a copy of it. Three legs: **L1 KEYED** (the
+space's table is keyed by exactly the library's ids), **L2 EXACT** (the resolver returns that
+table's entry for that id), **L3 HONEST** (non-empty string, not the bare id, unique within its
+space).
+
+| reading | spaces | pairs | failures | `ictcp.cp` | `jzazbz.jz` | exit |
+|---|---|---|---|---|---|---|
+| **BEFORE** (pre-cure blobs of `f866de45`, scratch tree, double-run, byte-identical) | 17 | 49 | **35** | `"Ct (tritan)"` — **ct's row** | `"jz"` — **bare key** | **1** |
+| **AFTER** (worktree `value.js-x-w9-h` @ `4c306e12`, double-run) | 17 | 49 | **0** | `"Cp (protan)"` | `"Lightness (Jz)"` | **0** |
+| **AFTER** (integrated `tranche-u` @ `e5d8f196`, double-run) | 17 | 49 | **0** | `"Cp (protan)"` | `"Lightness (Jz)"` | **0** |
+
+The BEFORE reading was **re-taken from settled bytes** (`git show f866de45:<path>` into a scratch
+tree) rather than trusted from the pre-edit worktree, and run twice — ⟨cmd⟩ `diff -q r1.txt r2.txt`
+→ identical. Its 35 failures decompose as: **17 L1** (12 spaces UNKEYED positional + 5 ABSENT),
+**18 L3** — `ictcp.cp` resolving to `ct`'s row, `jzazbz.jz` and `kelvin.kelvin` degrading to their
+bare keys, and the **15** wide-gamut pairs (`srgb-linear`/`display-p3`/`a98-rgb`/`prophoto-rgb`/
+`rec2020` × r,g,b) printing bare keys. **Both named RED witnesses reproduced exactly** as
+W9.md:374 banked them, at this seat's own command.
+
+`kelvin.kelvin` is a third defect the gate surfaced and the cure kills: its id equals its own key,
+so the prefix `find` matched `"Temperature (K)"` against neither `"K"` nor `"kelvin"` and the
+tooltip read `"kelvin"`. It now reads `"Temperature (K)"`.
+
+Both files land in **ONE commit** per §Commit Plan row 11's no-split lock. Evidence rides a second
+commit, one meaning each.
+
+**G32 GREEN.** No gate RED. Nothing inherited, nothing deferred.
+
+#### 5. Verification cadence
+
+| check | command | reading |
+|---|---|---|
+| lint | ⟨cmd⟩ `npx eslint demo/color-session/colorSpaceInfo.ts demo/picker/controls/ComponentSliders/ConsoleRail.vue --max-warnings=0` | **exit 0**, no output |
+| build | ⟨cmd⟩ `npm run build` (worktree `dist/`) | **exit 0** |
+| typecheck (demo program — the one this change is in) | ⟨cmd⟩ `npx vue-tsc -p tsconfig.demo.json --noEmit` | **exit 0** |
+
+All three were run in the **isolated worktree on a clean tree**, which is the lawful reading: the
+primary carries four sibling seats' uncommitted work (`demo/shell/*`, `demo/color-picker/App.vue`,
+`e2e/smoke/*`, …), so a typecheck there would measure their bytes, not this unit's. The integrated
+blobs are **byte-identical** to the measured ones — ⟨cmd⟩ `git rev-parse 4c306e12:<path>` vs
+`95792b44:<path>` → `93ea4495…` and `c5c2ba6f…` on both sides.
+
+`npm test` was not run: this unit touches no `src/**` and no test file, and vitest's suite does not
+cover `demo/`. G32 is this unit's gate and it is executed, double-run, on both trees.
+
+#### 6. Commits
+
+| # | tree | sha | meaning | paths |
+|---|---|---|---|---|
+| 1 | worktree | `4c306e12` | the cure | 2 |
+| 2 | worktree | `bcfdb0d0` | the evidence | 3 |
+| 3 | **`tranche-u`** | **`95792b44`** | `fix(demo/console-rail): exact channel-id descriptor lookup` (§Commit Plan row 11) | `demo/color-session/colorSpaceInfo.ts` · `demo/picker/controls/ComponentSliders/ConsoleRail.vue` |
+| 4 | **`tranche-u`** | **`e5d8f196`** | `docs(X.W9.h/evidence): G32 probe over 17 spaces x ChannelsBySpace ids, before/after` | the probe + `.before.txt` + `.after.txt` |
+
+Integration by the wave's idiom, ⟨cmd⟩ `git checkout <worktree-sha> -- <paths>` then a pathspec
+commit carrying the same paths. ⟨cmd⟩ `git show --stat 95792b44` → **2 files changed**; ⟨cmd⟩
+`git show --stat e5d8f196` → **3 files changed**. **No sibling path was swept in** — the four
+tracks share the primary's index and every commit carried its own `--` pathspec.
+
+#### 7. Residuals and escalations
+
+**Escalations: none.** No write left the writable set; the cure was possible at the bytes.
+
+1. **`colorSpaceInfo.ts` vs `SPACE_CATALOG` — one duplication survives, narrowed.** The channel
+   descriptors now exist in two places: keyed here (18 spaces, the rail's lookup) and positional in
+   `space-catalog.ts`'s `info.components` (18 spaces, read by index at
+   `ColorNutritionLabel.vue:65`). Collapsing them means re-keying `SPACE_CATALOG` and moving the
+   nutrition label off positional indexing — **both outside this unit's bounds** (`space-catalog.ts`
+   and `ColorNutritionLabel.vue` are named in neither W9.md §File Bounds nor this unit's writable
+   set), and the rail's import at `ConsoleRail.vue:99` sits outside the `:172-180` carve. Recorded
+   for X-W10/X-W11: the honest end state is one keyed table. Measured — ⟨cmd⟩ node census over
+   both blobs → `BEFORE rows 13 · field values 358 · of which descriptors 37 · non-descriptor
+   (retired) **321**` / `AFTER rows 18 · descriptor values **52**`. So **321** duplicated values
+   are gone and the duplication that survives is the descriptor prose alone, in two different
+   shapes for two different consumers.
+2. **Id exactness is probe-enforced, not compiler-enforced.** TS tuple labels are not extractable
+   as types, so `ChannelsBySpace`'s ids cannot pin the table's keys structurally. G32 is the
+   enforcement and is now committed and runnable; the docstring states the division rather than
+   implying the compiler checks it.
+3. **`hex` is outside G32's denominator by construction** — it is a `DisplayColorSpace` but not a
+   `SpaceId`, so `ChannelsBySpace` has no row for it. Its descriptors are compile-required by the
+   `Record<DisplayColorSpace, …>` annotation and carry RGB's ids (`resolveColorSpace("hex")` is
+   `"rgb"`), in Hex's own encoding terms. 49 pairs = 17 spaces' ids; the 50th..52nd are hex's and
+   are structurally, not probe-, guaranteed.
+
+---
+
 ## Close
 
 SERVED MODEL: `claude-opus-5[1m]` · **CLOSE SEAT, VERIFY-ONLY** — this seat authored **zero cure
