@@ -14,7 +14,7 @@ coordinate-only lane:
 |---|---|---|---|
 | **X·V** | value.js — library, demo, API, CI | `docs/tranches/X/waves/W0..W11.md` | **SPECIFIED** 2026-08-03 (six-pass L-20 loop, `CONFORMANCE-2026-08-03.md`) |
 | **X·KF** | keyframes.js — library + demo | `docs/tranches/X/keyframes/waves/` | FORMING (census landed; specs await the intake CARRY table) |
-| **X·F** | fourier-analysis — frontend + CRUD union | `docs/tranches/X/fourier/waves/` | FORMING (census landed; specs await the intake CARRY table) |
+| **X·F** | fourier-analysis — frontend + CRUD union | `docs/tranches/X/fourier/waves/` | **SPECIFIED** 2026-08-30 (fifteen-pass L-20 loop, §0f; canonical FROZEN `f44362757458`) · **EXECUTED 2026-09-20** — all **eleven** waves F.W0–F.W10 CLOSED under the begin-word; **the F-side of §3.1–§3.4 STAMPED at the F.W10 close** (`execution/C/F-W10.md` `g`, §5's 2026-09-20 boundary row). **§3.5's declared-Fable final pass is OWED** (unit `X.F.W10.h`), so the sub-tranche is **not** ACCEPTED and **VERIFIED stays NO** |
 | **X·P** | parse-that — the CSS-totality parser lane | `docs/tranches/X/parse-that/waves/W0..W4.md` | **SPECIFIED** 2026-08-04 (three-pass L-20 loop, fable-stamped) · **EXECUTING — W0 gates 8/8 GREEN 2026-09-17**: fresh root `parse-that-css-totality-p2` OPEN at `f5757082` (`8a83c8bb`), eighteen roots byte-unchanged (census diff empty); IMPLEMENTED is W0's close report's stamp, VERIFIED is X.P.W4's (R-A); Plane B bench bar RULED **RECORDED-NOT-GATING** (§0j.E OC-1) |
 | glass | producer; coordinate-only | batched BJ communique | O-19/I-21 ledger current; next batch assembles from CARRY rows |
 
@@ -837,6 +837,44 @@ the silence for an oversight, and carried to `X.F.W10.g` as an open bounds quest
   adjudication are still owed before ACCEPTED). `RC-P(4.0.0)` stays honestly FALSE — KF.W3 does not
   open, the X·V adoption re-trigger does not fire, S-4 stays DISPOSITION C (§0i.1). X.P.W4's CLOSED
   row untouched; `X.P.W4S`'s row is the orchestrator's.
+- 2026-09-20: **X·F BOUNDARY — F.W10 CLOSED, the LAST F wave; the F-side of §3.1–§3.4 is STAMPED
+  and §3.5 is OWED.** Seven units (`a`–`g`, `claude-opus-5[1m]`, strictly serial) over 18 pathspec
+  commits; record `execution/C/F-W10.md`. **Twelve gates re-run at the close seat's own clock,
+  every reading double-run, none argued green: 5 GREEN · 5 SPLIT · 2 honest-RED.** GREEN —
+  **G-F10-5** (the `X/fourier/LATEX-PAPER-RELAY.md` register exists, 15 carries rowed, delivery
+  point named) · **G-F10-7** (COHESION **§4.2**, the F-side NWO drain: **89 rows · 89 distinct ids
+  1–89 no gap no repeat · 89 terminal verbs · 0 rows without one**, measured from outside the file
+  twice; escape test against the frozen canonical **65 booked-or-cited · 0 escaped**) ·
+  **G-F10-8** (the corrected charter line landed at `cd4df502`; five terminal verbs; `OG-F1` and
+  `OG-F2/OG-V2` discharged **by ruling** at §0j.D and re-ruled by nobody) · **G-F10-9** (the
+  addendum-beside exists, `git diff --stat` on the dated `INTAKE-ADJUDICATION-2026-08-03.md`
+  **empty**, every surviving ask in exactly ONE register) · **G-F10-11**
+  **VERIFIED-GREEN-BY-PREDECESSOR on all three limbs, each predecessor named** — the glass dist
+  parses at the 8.0.0 pin (**40** top-level nodes, `@source` **1**) is **F.W1**'s, the landed WT
+  diff (fourier porcelain **1**) and both F8-REACH deletions (`find` → **0**) are **F.W0**'s.
+  SPLIT — **G-F10-1** (value side rowed at last, `I-36`–`I-39` + `O-44` with disposition verbs;
+  the *reply-in-fourier's-ledger* leg reads **0** and is **not this side's to turn**, COMMISSION
+  §2) · **G-F10-2** (their `CLAUDE.md` · their `INBOX.md` · facility-19 TRACKED are **F.W0**'s
+  three legs; `grep -c 'FN-'` in their ledger → **0**) · **G-F10-4** (pin leg **F.W1**'s, packets
+  **5** and rows `O-34`–`O-38` **5** **X-W9.i**'s, `npm ls` exit **0** in both trees — published
+  **PRE-WINDOW**, because calling today's exit-0 the post-window reading is the gate's own named
+  falsifier) · **G-F10-6 ≡ G-F9-21** (both splice `diff`s **empty** ×2 and the §2.2 region exactly
+  **3** hunks — E-10 holds; the corpus leg **54 / 25-of-66 / bare `F.W10` 0** reproduces and the
+  gate's own falsifier forbids curing it, *"a later seat must not read the green leg as the gate"*)
+  · **G-F10-12** (the two arms READ at the producer's path; `MetricPill` **0** · `IntersectionObserver`
+  **0** · `latex-paper` **0** across the moved denominator **12**). **honest-RED, with the failing
+  case named** — **G-F10-3**: the G24 instrument exits **1** twice, `ERR_MODULE_NOT_FOUND` on the
+  0.13-era `dist/value.js`; relayed, never repaired, cure owned by `ESC-W9-G24-SUBSTRATE` (§0ac).
+  **G-F10-10**: FR-TT-1's **17 naming legs are MEASURED CURED** (F.W4's cure, re-read at this
+  clock), **so no waiver is in play or lawful**; the close axe run is F.W9 `b.9`'s — `/paper`
+  **GREEN** · `/equation` **GREEN** · **the admin tab RED, 4 of 4, `[serious] aria-hidden-focus`
+  ×2 on glass-ui 8.0.0's `Metric` tile** — a **PRODUCER** row that rides SS-6 and **never becomes a
+  frontend hack to turn a gate green**. **S-16 RESTATED**: `22` id-rows ⊕ `4` §D entries = the O-20
+  packet's own **26**; the *"correct COHESION §4a"* instruction **stays withdrawn** and §4a's figure
+  is edited by nobody. **Bounds**: `dev.sh` in **0 of 18** commits; every commit pathspec'd; every
+  touched path inside §1a. **E13**: 0 unrowed on all four paths, 0 rows carrying a live UNREAD
+  status in scope. **VERIFIED stays NO** — §3.5's declared-Fable final pass (`X.F.W10.h`) is owed,
+  and L-18's two quartet gestalt passes are owed after it.
 
 ## §0a BOUNDARY 2026-08-25 — THE REGISTRY IS WHOLE; THE AUTHORING BLOCK OPENS
 
