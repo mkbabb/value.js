@@ -2073,3 +2073,275 @@ inventory, the mail census, and that `.e`'s four commits exist. **Refuses**: any
 `.e`'s landed four are *correct* — no gate of `.e`'s has ever run, and this seat ran no product
 code; that judgement is the resumed `.e`'s and then `.g`'s. It also refuses to re-grade `.a`–`.d`,
 to re-open CHECK 1's register, and to write one byte of keyframes.js.
+
+---
+
+### KF.W12.e
+
+**SERVED MODEL: claude-opus-5[1m]** · APPLY-UNIT, **RESUME** (third sitting, 2026-09-19).
+Opened on `.c` `c82f92ea` ⊕ `.d` `ec49bbef`, at kf HEAD **`2a0afe7a`**. Closed at kf
+**`c9346000`**. **E-3**: nothing above this line is amended; the resume section's figures stand as
+that seat wrote them, and the one correction this unit measured is written as a reading BESIDE the
+figure, never over it.
+
+#### ACT 0 — crash-recovery, and the inherited hunk judged whole (the FIRST act)
+
+⟨cmd⟩ `git -C /Users/mkbabb/Programming/keyframes.js status --porcelain` →
+`M demo/components/instrument/keyframes/KeyframesStringControls.vue` ⊕ two untracked
+`docs/tranches/V/coordination/VALUEJS-INBOUND-2026-07-*` letters (not product).
+
+**Inherited path, named as the law requires**:
+`demo/components/instrument/keyframes/KeyframesStringControls.vue` — **50 insertions, 4 deletions**,
+a killed predecessor seat's partial work on THIS unit. It was read WHOLE before a byte moved, and
+each hunk judged against §Scope 5:
+
+| hunk | row | judgement |
+|---|---|---|
+| `ref="editorWellRef"` on the editor well + its comment | D-4 | **CONFORMS in target, INCOMPLETE in cure** — rewritten (below) |
+| `onEditorChange` → `applyEditorChange` + a one-deep promise tail | **N-7** (§Scope 5 by name) | **CONFORMS — finished and landed unchanged** |
+| `void parseErrorShake.play()` | N-7's hygiene | CONFORMS (superseded by the D-4 rewrite's own call site) |
+| `presets.shake({respectReducedMotion:true})` at setup + `setTargets` in `onMounted` | D-4 ⊕ D-25 | **REWRITTEN at the root** |
+
+**The four landed shas are SUBSTRATE — inherited and KEPT, re-done by nothing here, re-decided by
+nothing here**: `5bbb7b20` (N-8, the ROUTED arm) · `30efb823` (RB-6) · `d0665322` (D-5/L-M-4/C-4) ·
+`2a0afe7a` (D-23 + the emitted-selector carve). Each was read at its bytes and measured green by the
+gate this unit then wrote; none was re-opened.
+
+#### ACT 0b — the `setTargets` error: root cause, and why the cure is where it is
+
+The resume seat handed this unit a live suite error and the instruction to cure it at the root,
+never by a try/catch, a skip or a revert-and-forget. **Measured first, decided second.**
+
+⟨cmd⟩ `grep -rn -A6 "type PresetFactory" src/` → `(options?: InputAnimationOptions) =>
+CSSKeyframesAnimation<any>`; ⟨cmd⟩ `grep -rn "setTargets" src/animation/engine/` →
+`src/animation/engine/animation.ts:484  setTargets(...targets: HTMLElement[])`, on the base class
+every preset returns, returning `this`. `InputAnimationOptions` (`constants/types.ts:242-270`) has
+**no targets member**, so *"the target passed at construction"* is not reachable through a preset
+factory: `setTargets` **is** the correct seat API, it is the folder's own idiom
+(`KeyframesEditor.vue:552` `presets.warpLeft().setTargets(leaving)`;
+`useKeyframeBrushApply.ts:62`), and the inherited call was **type-correct and runtime-correct against
+the real engine**.
+
+**The throw came from a test double, not from the product.**
+⟨cmd⟩ `sed -n '132,138p' test/demo/instrument/css-code-editor-seam.test.ts` →
+`vi.mock("@kf-engine", () => ({ kfEngine: () => ({ …, presets: { shake: () => ({ play() {} }) }, … }) }))`
+— a stub whose `shake()` answers an object with `play` alone, where the real factory answers a
+`CSSKeyframesAnimation`. That file is **`.d`'s created row and outside this unit's writable set**, so
+it is **not touched**; see §Residuals, where it is booked with its owner.
+
+Shaping the product around a stub would be the workaround the law forbids, so the cure was chosen on
+**D-4's own bytes**, and the bank states that row as TWO defects on one line
+(`kf-KeyframesStringControls.md:64`): *"constructed target-less and never given targets — the
+parse-error motion affordance animates zero elements, **while its construction cost (a full
+`fromString` parse) is paid at every setup**."* The inherited form cured the second half and left the
+first standing. **Both fall together here**: the preset is built ON the first parse failure, over the
+well, and memoized for the instance's life — a session that never fails to parse never parses the
+preset. That is `.e`'s own landed accounting at D-5 (`d0665322`: no glyph ⇒ no engine read, no parse,
+no loop), applied to its sibling row. The `1 error` disappearing is a **consequence** of that cure,
+not its motive, and the double's infidelity is **recorded, not hidden**.
+
+#### ACT 1 — N-7, landed alone · kf **`6f5929dd`**
+
+The inherited hunks were reduced to N-7's alone, verified by ⟨cmd⟩ `git diff --stat` → `23
+insertions, 2 deletions`, and committed as one meaning. The handler was `async` off
+`update:model-value`, so two edits inside one another's await window raced and the last call to
+**resolve** won rather than the last edit typed — reinstating an older buffer over a newer one in the
+animation AND in the store that path rewrites. It is now a queue of one, chained on the previous
+run's settlement, returning that settlement as the caller's handle; the tail never rejects because
+`applyEditorChange` catches every failure itself.
+
+#### ACT 2 — D-4 / L-M-3 / C-3 ⊕ D-25, the rewrite · kf **`c5b474b8`**
+
+`parseErrorShake` becomes a lazily-built, memoized animation behind one `shakeEditorWell()` seam
+called from the catch: `presets.shake({ respectReducedMotion: true }).setTargets(well)` on first
+failure only. D-25 rides with it and stops being vacuous — the bank booked D-25 INFO *because*
+neither animation rendered (D-4 here, D-5 at the brush); D-5's decoy is deleted and this one now
+renders, so `respectReducedMotion` on the standalone play path is live work. Same one PRM motion
+KF-KE-8 gave the delete choreography and this unit gave the brush. ⟨cmd⟩
+`npx vitest run --project demo test/demo/instrument/css-code-editor-seam.test.ts` →
+`Tests 1 failed | 3 passed (4)` with **no `Errors` line** — `.d`'s carried **E-d1** alone, exactly as
+the resume's banked table has it.
+
+#### ACT 3 — N-8, the arm, stated · **ROUTED**
+
+OP-4 at this unit's open, double-run: ⟨cmd⟩ `grep -c 'cssIdent' dist/keyframes.d.ts` → **2 · 2**;
+⟨cmd⟩ `grep -rc 'cssIdent' demo | grep -v ':0$'` → `helpers.ts:1` · `useKeyframesState.ts:5` ·
+`useKeyframesParsing.ts:1`, identical both runs. **The ROUTED arm was taken** — the library's own
+published `cssIdent` is the demo's ONE derivation (`useKeyframesState.ts:24` reads it at setup scope
+per KF-KE-51; `:56` is the single call), landed by the substrate commits `5bbb7b20` ⊕ `2a0afe7a`.
+**No second hand-rolled derivation exists**, and none was added.
+
+**Correction, measured (E-3 — a reading beside the resume's figure, not over it).** The resume reads
+*"two non-comment consumer files"*. ⟨cmd⟩ `grep -rn 'cssIdent' demo` resolves every hit to its line:
+`helpers.ts:10` and `useKeyframesParsing.ts:39` are **comments**, so the non-comment census is **ONE
+file, two sites** (`useKeyframesState.ts:24` · `:56`). The clause asks `≥ 1`; the arm is unchanged;
+the figure above stands as its seat wrote it.
+
+#### ACT 4 — G-KFW12-5's artefact · kf **`5198fd68`**, amended **`c9346000`**
+
+`test/demo/instrument/apply-css-identity.test.ts` created — four clauses, every one EXECUTED over the
+real seat, the real composables and the real engine with a real target in the document. Only the
+producer (`@mkbabb/glass-ui`) and the toast surface are stubbed; **`@kf-engine` deliberately is
+NOT** — the one `cssIdent` route the gate is about lives behind it, and a stub of it would be the
+gate reading itself (and would be the very infidelity ACT 0b found one file over).
+
+The strings the run itself printed, pasted (full transcript at
+`evidence/W12/KF-W12-e-gate-transcripts.md`):
+
+```
+[G-KFW12-5/N-8] class="keyframes-style-kfapply-Apply-Transform"
+                selector="keyframes-style-kfapply-Apply-Transform"
+                animation-name="keyframes-style-kfapply-Apply-Transform"
+                @keyframes="keyframes-style-kfapply-Apply-Transform"
+                cssIdent="keyframes-style-kfapply-Apply-Transform"
+[G-KFW12-5/binds] selectorText=".keyframes-style-kfapply-Spring-Keyframes"
+                  matchesTarget=true
+                  @keyframes="keyframes-style-kfapply-Spring-Keyframes"
+```
+
+Clause (2) uses L-BL-2's own shipped fixture (`"Spring Keyframes"`): the space folds to `-`,
+`classList.add` no longer throws, and the injected rule is read back through **CSSOM** and matched
+against the element (`target.matches(rule.selectorText)` → true) — a sheet that parses but selects
+nothing reds there, which is L-BL-1's whole shape. Clause (3) clicks the **ribbon's** Apply, then
+moves `selectedControl` off `keyframes` and asserts class, sheet and state all come down with the
+affordance. Clause (4) unmounts the sole holder while applied and asserts the PRIOR pause state is
+restored (`true` before, `false` applied, `true` after) with the class stripped and the sheet gone.
+
+**The bites — measured, not asserted.** The gate was born-RED as an absent file, so this unit proved
+the clauses are not vacuous by breaking the cure twice, measuring, and reverting each probe with
+`git checkout --` against that one path (no stash, no blanket restore):
+(i) restoring the audited second derivation in `useKeyframesParsing.ts` → `Tests 2 failed | 2 passed
+(4)`, `expected 'kfapply-apply-transform' to be 'keyframes-style-kfapply-Apply-Transfo…'`;
+(ii) emptying the ribbon's RB-6 watch body → `Tests 1 failed | 3 passed (4)`.
+
+`c9346000` names the seat's `defineExpose` surface as one `ApplySeat` contract: the first landing
+read `wrapper.vm.getCSSString()` and siblings directly and `tsc -p tsconfig.test.json` answered
+**TS2722 ×7** (VTU types exposed members as possibly-absent). Seven non-null assertions would have
+been the masking shape; one named contract — the same surface the ribbon consumes through
+`activeKeyframesRef?.clearAppliedCSS?.()` — is the honest one. **7 → 0**, suite unchanged 4/4.
+
+#### ACT 5 — the rest of §Scope 5, row by row
+
+| row | state | receipt |
+|---|---|---|
+| **N-8** (first, the lock) | LANDED (substrate `5bbb7b20` ⊕ `2a0afe7a`) | ROUTED arm; ACT 3; proven by clause (1) |
+| **RB-6** | LANDED (substrate `30efb823`) | proven by clause (3), first execution ever |
+| **D-2 / L-M-8** | **FOLD, not this unit's cure** | the record books it *"FOLD → banked KF-CE-36 … Identity guard — NOT re-booked"*; its rider (no dedupe `id` on this file's toasts) is **DISCHARGED at the bytes by `.d`** — `KeyframesStringControls.vue:144`/`:150` both carry `{ id: "kf-parse" }`. Zero re-booking. |
+| **N-7** | LANDED this sitting | ACT 1, `6f5929dd` |
+| **D-25** | LANDED this sitting | ACT 2, `c5b474b8`; one PRM motion with KF-KE-8 and the brush |
+| **S-6-as-corrected** | **KEPT WHOLE** | `useApplyCSS.ts:61-62`/`:72` — `prevPaused` saved and restored, never a blind resume; clause (4) executes it |
+| `:57` **N-2** | LANDED at `.c` | the refcounted sheet + one `applyStates` record per id; the mount-policy half stays banked elsewhere, not re-booked |
+| `:59` **N-5 ≡ KF-KE-12** | LANDED at `.c`, **wired to its lifetimes here** | `useApplyCSS`'s `onBeforeUnmount` ⊕ the ribbon's RB-6 branch; clause (4) |
+| `:65` **D-4 / L-M-3 / C-3** | LANDED this sitting | ACT 2 — **both limbs** |
+| `:67` **D-5 / L-M-4 / C-4** | LANDED (substrate `d0665322`) | the optional `templateRef`; no decoy, no infinite loop |
+
+**The killed scenario, named as killed**: the filed *"both animate the same target simultaneously"*
+is **DEAD at the bank (L-BL-1)**. It is cured by no commit of this unit, witnessed by no clause, and
+appears in no commit message — ⟨cmd⟩ `grep -c 'animate the same target'
+test/demo/instrument/apply-css-identity.test.ts` → **1**, the docblock's single naming of it AS
+killed. Only the residue was cured.
+
+#### Gates, BEFORE → AFTER (double-run)
+
+| gate | BEFORE (at `2a0afe7a`) | AFTER (at `c9346000`) | verdict |
+|---|---|---|---|
+| **G-KFW12-5** runtime | ⟨cmd⟩ `ls test/demo/instrument/apply-css-identity.test.ts` → `No such file or directory` · ×2 | ⟨cmd⟩ `npx vitest run --project demo test/demo/instrument/apply-css-identity.test.ts` → `Test Files 1 passed (1)` · `Tests 4 passed (4)` · ×2 | **GREEN** |
+| **G-KFW12-5** byte clause (`≥ 1` non-comment `cssIdent` consumer) | `helpers.ts:1` (comment) ⊕ `useKeyframesState.ts:5` ⊕ `useKeyframesParsing.ts:1` · ×2 | unchanged · ×2; resolved census **1 file, 2 non-comment sites** | **GREEN** (booked **`LANDED-BY 5bbb7b20 ⊕ 2a0afe7a`**, R.2 — the byte clause was green before this sitting's cure and is **claimed by neither**; only the runtime clause is claimed) |
+| **G-KFW12-5** clock clause | `grep -c 'cssIdent' dist/keyframes.d.ts` → **2 · 2** | **2 · 2** | recorded, open and close |
+| **G-KFW12-5** anti-work clause | — | the killed scenario appears nowhere as this unit's work | **GREEN** |
+| **§0u ratchet** (this unit's part (2)) | `vue-tsc` **12 · 12**; in-bounds rows **0** | **12 · 12**; in-bounds rows **0** | **MET — not raised, and every `.e` §B.2 row is at zero with no cast, no `@ts-expect-error`, no `eslint-disable`** |
+| `tsc -p tsconfig.test.json`, this unit's file | n/a (absent) | **0** (from 7 at first landing) | GREEN |
+| `eslint` over the unit's rows | — | *(no output)* | GREEN |
+| masking census | — | ⟨cmd⟩ `git diff 2a0afe7a..HEAD -- test demo \| grep -c 'test.skip\|it.skip\|\.only(\|@ts-expect-error\|eslint-disable'` → **0** | GREEN |
+
+**Not re-run here, by the resume clause**: G-KFW12-1/-2/-3/-4 are cited from the close's banked table
+(`.d`'s **E-d1** still RED); **G-KFW12-6 and G-KFW12-7 are NOT this unit's** — `.f` was writing
+`demo/scenes/cube/CubeAxisLines.vue` and `test/demo/scenes/cube-axis-reveal.test.ts` concurrently
+throughout this sitting (⟨cmd⟩ `git status --porcelain` shows both as a sibling seat's in-flight
+bytes), so a whole-suite reading taken here would measure another seat's work in motion. `.g` runs
+all seven at its own clock.
+
+#### Commits (5; every one pathspec'd on the commit itself)
+
+| sha | repo | meaning |
+|---|---|---|
+| **`6f5929dd`** | kf | N-7 — the transplants land in the order they were typed |
+| **`c5b474b8`** | kf | D-4/L-M-3/C-3 ⊕ D-25 — the parse-error shake has something to shake, and costs nothing until a parse fails |
+| **`5198fd68`** | kf | test — G-KFW12-5, four executed clauses |
+| **`c9346000`** | kf | test — the seat's exposed surface named, TS2722 ×7 → 0 |
+| **`5db5d0f0`** | value.js | `evidence/W12/KF-W12-e-gate-transcripts.md` |
+
+⊕ this receipt. Inherited-and-kept substrate (NOT re-done): `5bbb7b20` · `30efb823` · `d0665322` ·
+`2a0afe7a`. Bounds: every write landed inside this unit's §B.2 rows; **zero** `src/**`, **zero**
+`orbital-drag/**`, **zero** glass-ui, **zero** `node_modules`, `scripts/dev/dev.sh` never staged, and
+the two sibling-dirty paths (`demo/scenes/cube/CubeAxisLines.vue`, `test/demo/scenes/cube-axis-reveal.test.ts`
+— `.f`'s) never touched, never staged, never restored.
+
+#### E13 — the four-path sweep, at this seat's own clock
+
+| path | result |
+|---|---|
+| `value.js/docs/tranches/V/coordination/` | newest is the 09-18 parse-that/fourier pair; **nothing dated 2026-09-19 or -20** |
+| `../glass-ui/docs/tranches/BK/coordination/` | BK still newest; newest letter 09-18 (`…-o26-reply`), already rowed |
+| `../keyframes.js/docs/tranches/V/coordination/` | newest value-addressed item is `…-2026-09-17-o8-o11-amendment-addendum.md`, rowed |
+| `../sci-report/atlas/docs/tranches/P/coordination/` | newest 2026-07-27; nothing new |
+
+⟨cmd⟩ `ls <the four dirs> | grep -E '2026-09-(19|20)'` → *(no output)*. **INBOX**: ⟨cmd⟩
+`grep -c '^| I-\|^| O-' INBOX.md` → **81** rows; ⟨cmd⟩ `grep -n '| UNREAD\|UNREAD |\|\*\*UNREAD\*\*'
+INBOX.md` → **one hit, `:208`, inside a prose sweep line, not a status cell** — **0 rows carry UNREAD
+status**, both runs. No row owed by this unit; INBOX.md is dirty with a sibling seat's bytes and was
+**not written**.
+
+#### Residuals — each with a named owner
+
+1. **`.d`'s `@kf-engine` double is unfaithful, and it is a live trap — owner `.g` (or the next seat
+   that lawfully opens `.d`'s row).** `test/demo/instrument/css-code-editor-seam.test.ts:132-138`
+   stubs `presets` as `{ shake: () => ({ play() {} }) }`, where the real `PresetFactory` answers a
+   `CSSKeyframesAnimation` carrying `setTargets`, `pause`, `settle`, `reset` and the rest. Any
+   future seat that legitimately calls a preset method on the mount path will be told the product is
+   broken when the double is. **This unit did not touch it** (out of its writable set), did not shape
+   its own cure to satisfy it, and states the infidelity here so the next reader meets it as a
+   finding rather than as a mystery. The faithful counter-example is this unit's own test, which
+   stubs no engine at all.
+2. **`.d`'s E-d1 is carried, unweakened** — `css-code-editor-seam.test.ts (2) KF-CE-1: the tokenizer
+   the boot registered classifies 'a { color: red }'` still fails. Not this unit's row; no timeout
+   widened, no assertion touched.
+3. **The §0u floor is 12, not 0** — unchanged by this unit (**12 · 12**, in-bounds rows **0**). The
+   literal zero is KF.W13's close, per §0u part (3).
+4. **`tsconfig.test.json` carries 60 diagnostics repo-wide**, **0** of them in this unit's file (7 at
+   first landing, cured at `c9346000`). Three of the sixty are `.f`'s in-flight
+   `cube-axis-reveal.test.ts`; the rest pre-date this sitting. Not a gate of this wave; recorded so
+   the close does not read the total as a regression.
+5. **The LEDGER row is not written by this unit** (`.g`'s row, §B.2), and the file remains dirty with
+   Track A's uncommitted X-W9 hunk — the fourth withholding the resume section documents. Nothing was
+   staged, restored or unstaged.
+
+#### Escalations
+
+**None.** Every cure §Scope 5 specifies was reachable inside this unit's writable set. The one act
+that would have required a byte outside it — repairing `.d`'s engine double — is **declined and
+booked as residual 1**, not substituted and not silently worked around: the product cure was decided
+on D-4's own two limbs at the bank's bytes, and the double's infidelity is published rather than
+absorbed.
+
+#### The shas `.g` opens on
+
+keyframes.js **`c9346000`** (HEAD; **nine** commits ahead of `origin/master` `c82f92ea` — `.e`'s four
+inherited plus this sitting's four kf commits, all unpushed at this unit's close) · value.js
+`tranche-u`. `.f` was running concurrently and will move kf HEAD again; `.g` re-reads rather than
+citing this line.
+
+#### What this unit asserts, and what it refuses
+
+**Asserts**: G-KFW12-5 GREEN on every limb, double-run, by execution and not by reading — the class
+the press adds, the selector/`animation-name`/`@keyframes` the sheet carries, and `cssIdent`'s own
+answer are one string for an uppercase-bearing id; the injected rule **matches the target element**
+for a whitespace-bearing name; the applied state and the ribbon's affordance share one lifetime; and
+`clear()` runs on the sole holder's unmount and restores the prior pause state. The ROUTED arm is the
+arm of record. The inherited 50-insertion hunk is finished, rewritten where it was incomplete, and
+named.
+
+**Refuses**: any verdict on `.a`–`.d`, on `.f`, or on the wave's close; any whole-suite reading taken
+while a sibling seat's bytes are in motion; any claim on the byte clause it found already green
+(booked `LANDED-BY`); and any claim that `.d`'s test double is now correct — it is not, it is
+recorded.
