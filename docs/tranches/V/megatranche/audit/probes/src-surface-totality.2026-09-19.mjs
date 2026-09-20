@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// SERVED MODEL: claude-opus-5[1m]
 /**
  * value-src sweep seat — the library-surface gate (MTS-01..MTS-09), DATED
  * SIBLING of `src-surface-totality.mjs`, 2026-09-19. Runs against the BUILT

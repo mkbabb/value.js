@@ -1,0 +1,48 @@
+SERVED MODEL: claude-opus-5[1m]
+X-W9.f — the 4.1.0 cut's own gates, run twice at 2026-09-19, diff-identical.
+Commands are in gates.sh form; the packed oracle is mkbabb-value.js-4.1.0.tgz installed into
+a scratch consumer outside every repository (PT-08), sha256 63bf0b6f8c921ff8d0ecaee84e9280e1d597c0468d0d629c9be7355af230f2b7.
+
+=== RUN 1 ===
+G21 src grep    : 6 occurrences in src/
+G21 packed      : sampleColorRamp=true mixColorsInto=true toRgba8Into=true
+G21 ramp n=1024 : ok=true length=1024
+G21 mixInto     : ok=true out=0.430277,0.041826,0.026516,1
+G21 rgba8Into   : ok=true out[4..7]=12,34,56,255
+G22 toHex       : true -> {"ok":true,"value":"#0c2238"}
+G22 easingNames : true -> 40 names
+G23 identity    : ease=true ease-in=true ease-out=true ease-in-out=true
+G23 all 40      : true
+G25 presetKeys  : 30
+G28 R1 leg      : 0 throws / 13 calls
+G26 prune fence : 0 occurrences in src/
+G29 version     : 4.1.0
+G29 tags        : v4.0.0 v4.1.0 
+G29 changelog   : 1 entry
+G24 drift       : 0 of 22 names drift >= 1e-3; worst overall 4.563e-6 (ease-in-out-back) [exit 0]
+G5  config-res  : eslint 'src/css/**/*.ts' exit 0  (config-resident, no --rule flag)
+G10 config-res  : eslint 'src/transform/**' 'src/foundation/**' exit 0
+G5/G10 objects  : 2 rule objects in eslint.config.js
+src-wide lint   : exit 0
+
+=== RUN 2 (diff against RUN 1: empty) ===
+G21 src grep    : 6 occurrences in src/
+G21 packed      : sampleColorRamp=true mixColorsInto=true toRgba8Into=true
+G21 ramp n=1024 : ok=true length=1024
+G21 mixInto     : ok=true out=0.430277,0.041826,0.026516,1
+G21 rgba8Into   : ok=true out[4..7]=12,34,56,255
+G22 toHex       : true -> {"ok":true,"value":"#0c2238"}
+G22 easingNames : true -> 40 names
+G23 identity    : ease=true ease-in=true ease-out=true ease-in-out=true
+G23 all 40      : true
+G25 presetKeys  : 30
+G28 R1 leg      : 0 throws / 13 calls
+G26 prune fence : 0 occurrences in src/
+G29 version     : 4.1.0
+G29 tags        : v4.0.0 v4.1.0 
+G29 changelog   : 1 entry
+G24 drift       : 0 of 22 names drift >= 1e-3; worst overall 4.563e-6 (ease-in-out-back) [exit 0]
+G5  config-res  : eslint 'src/css/**/*.ts' exit 0  (config-resident, no --rule flag)
+G10 config-res  : eslint 'src/transform/**' 'src/foundation/**' exit 0
+G5/G10 objects  : 2 rule objects in eslint.config.js
+src-wide lint   : exit 0
