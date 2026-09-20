@@ -3920,3 +3920,18 @@ No `<p2>` commit, no `../parse-that` byte, no `evidence/W4/**` byte, no `ADJUDIC
 - **Measured, disclosed**: the shared-tree sweep (`a8fa79d2` carrying another seat's hunks) is the
   standing law's named hazard, observed in a *ledger* file two tracks append to concurrently; the
   cure that held was a dated erratum beside, never a rewrite of either seat's rows.
+
+#### Act 6 — a sweep of THIS seat's own making, measured and recorded (appended after `cc9b9bb3`)
+
+The LEDGER event line was committed as **`3f684528`** by pathspec on `LEDGER.md` alone — and
+⟨`git show 3f684528 -- LEDGER.md | grep '^@@'`⟩ → **two hunks**: this seat's appended line
+(`@@ -441,3 +441,4`) **and a sibling's in-place cell edit of the `KF.W11 · W12 · W13` row**
+(`@@ -53,7 +53,7`, Track B), which was sitting uncommitted in the shared working tree at the instant
+of the commit. The pre-append probe ⟨`git status --porcelain -- LEDGER.md | wc -l`⟩ had printed
+**1**, and this seat's command chain did not gate on it. The sibling's bytes are carried unchanged
+under this seat's message; nothing of theirs was altered, and nothing is reverted (a revert would
+destroy their work — the law forbids touching a sibling's hunk). **Recorded as this seat's own
+instance of the standing law's named hazard**, for the LEDGER's next reader and for Track B's seat,
+which will find its row edit already in HEAD. The four value.js commits of this seat are
+`b33e212e` · `10dc948e` · `cc9b9bb3` · `3f684528`; only the last carries a foreign hunk, and it is
+a ledger cell, never a product or spec byte (G-2 over all four → **0**).
