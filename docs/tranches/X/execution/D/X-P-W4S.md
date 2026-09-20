@@ -1871,6 +1871,224 @@ GREEN**, else **withheld by gate id**; G-10 moves **5 → 0** in shape (a).
 
 *(empty at open — each dispatched unit appends its own receipt below, SELF-COUNT LAW, quote-by-command.)*
 
+### X.P.W4.g
+
+SERVED MODEL: claude-opus-5[1m]
+
+**Status: PARTIAL — both owned gates GREEN; one specified limb returned as ESC-W4g-1 because its
+file is outside this unit's hard writable bound.** Spec executed: `W4.md:682` (FIFTH addendum, the
+`.g` sentence) · COHESION `:1757–1775` (§0ab bullet 1, **E-w4f-1** and **F-ab1**) · `W4.md` §6
+**G-1** · §0p's run-B append procedure.
+
+#### Act 0 — CRASH-RECOVERY over this unit's writable set, before any other act
+
+⟨cmd⟩ `git -C value.js status --porcelain` and ⟨cmd⟩ `git -C <p2> status --porcelain` at open. Inside
+this unit's set, three inheritances from the killed seat (ESC-W4S-r3-2), **read whole and judged hunk
+by hunk before a byte of mine moved**:
+
+| inherited path | shape at open | judgement |
+|---|---|---|
+| `scripts/seam-contract-check.mjs` | ` M`, **+177/−15**, UNRECEIPTED | **KEPT WHOLE** — every hunk conforms to §0ab bullet 1; see the hunk table below |
+| 8 × `evidence/W4/negctl-w4g-*` | untracked fixtures | **KEPT** — a complete fixture harness; verified by running it, not by reading it |
+| `<p2>/…/run-full-surface.mjs` | ` M`, **2/1** — two imports only, the `:61` literal untouched | **KEPT and COMPLETED** — the two imports (`readFileSync`, `fileURLToPath`) are exactly what the measured cure needs |
+
+Dirty paths **outside** the set — 13 value.js rows under `demo/**` · `e2e/**` · `CARRY-LEDGER.md` ·
+four sibling `execution/**` records · `LEDGER.md` · `scripts/dev/dev.sh`, and `<p2>`'s `?? .worktrees/`
+— were **not read for content, not staged, not stashed, not restored**. `scripts/dev/dev.sh` was never
+touched.
+
+**Nothing inherited was treated as done.** The checker was judged against the ruling and then
+*measured*: the four fixture runs below are this seat's, not the killed seat's.
+
+#### Act 1 — the checker learns the post-adjudication vocabulary (E-w4f-1)
+
+The inherited diff, judged against §0ab bullet 1 hunk by hunk:
+
+| hunk | what it does | ruling it implements | verdict |
+|---|---|---|---|
+| `existsSync` import | lets an ABSENT adjudication be a reading, not a crash | §0ab "G reads the adjudication" | conforms |
+| `adjudicationPath = argv[5] ?? <beside the contract>` | a FOURTH argument, **optional** | keeps §6 G-1's three-argument command **unchanged** | conforms |
+| `readRetirements()` | §10 rows whose first cell is a defined ledger id and whose remaining cells hold the standalone word `RETIRED` | check **E**: "a ledger row RETIRED in §10 does not bind its `subjects`" | conforms |
+| `readAdjudication()` | `### §2.x` subsections of `## §2`; an entry is ruled when the subsection **names it in backticks, heading OR body** | check **G**: "a carried cell ruled in `ADJUDICATION-W4.md` is terminal" | conforms — and the body-reading is **load-bearing**: `§2.1` names its four entries in its first body sentence, so a heading-only reader would leave 4 of 6 unruled |
+| check **E** split into `live` / `dead` | only LIVE rows contradict | §0ab | conforms — teeth unchanged for every live row |
+| check **G** biconditional | PENDING → RED (ruled-and-ignored, or unruled); terminal-without-a-ruling → RED; a carried id missing from the cell → RED (the §0v rider's surviving arm) | §0ab | conforms — and it is what makes control A fire |
+| the `POST-ADJUDICATION VOCABULARY` block + verdict wording | the two rulings the checker now reads are auditable **from its own output** | — | conforms |
+
+**No contract, ledger or adjudication byte was touched** (E-3): ⟨cmd⟩ `git show --stat 31a9d5d8` names
+11 paths, all in this unit's set, and `SEAM-CONTRACT.md` · `DIVERGENCE-LEDGER.md` ·
+`ADJUDICATION-W4.md` are not among them.
+#### Act 2 — the three negative controls, RUN (not asserted)
+
+§0ab: *"Negative controls must still fire."* Four runs of the CURED checker over synthetic fixtures,
+each negative contract being the base contract with **exactly one cell changed**, pasted verbatim at
+`evidence/W4/negctl-w4g-runs-2026-09-19.md`:
+
+| run | the one changed cell | verdict | exit | check fired |
+|---|---|---|---|---|
+| **0 — POSITIVE CONTROL** | (none) | **GREEN** | **0** | — |
+| **A** | row 1 publishes `PENDING-ADJUDICATION`, adjudication fixture EMPTY | **RED** | **1** | **[G]** — *"alpha: carries GROUND-C×1, publishes PENDING-ADJUDICATION, and NO ADJUDICATION-W4.md §2.x rules it"* |
+| **B** | row 3 publishes `identical` beside the **unretired** `NC-LIVE` | **RED** | **1** | **[E]** — *"gamma: disposition \"identical\" vs DIVERGENCE-LEDGER rows NC-LIVE"* |
+| **C** | row 3's disposition names `NC-GHOST` | **RED** | **1** | **[F]** — *"gamma: unknown id `NC-GHOST`"* (and **[I]** beside it) |
+
+Run B is the sharpest reading in the set: in the **same run**, row 2 publishes `identical` beside the
+**RETIRED** `NC-DEAD` and is **not** reported, while row 3 beside the **LIVE** `NC-LIVE` is. The
+ruling and its control, in one output. The positive control matters as much: without it a RED would
+prove only that the fixtures are malformed.
+
+#### Act 3 — F-ab1: the five-name literal dies (`<p2>`)
+
+⟨cmd⟩ `sed -n '61p' …/run-full-surface.mjs` (BEFORE) →
+`const candidateTypeNames = ["CssColor", "CssTimingFunction", "Stylesheet", "StyleRule", "Declaration"];`
+
+That list is a **denominator**, not a label: `lib/ledger.mjs:244` derives `CN-3`'s subjects by
+subtracting it from the frozen type universe. `.e` made the package re-export all 33 and the literal
+did not move, so a measurement program published a narrowing the producer had closed — which is why
+`.f` had to retire `CN-3` **by hand**.
+
+**MEASURED-ANCHOR NOTE (recorded, per the method's drifted-anchor clause; the addendum is NOT
+edited — E-3).** §0ab says "measured from `entry.mjs`'s exports". ⟨cmd⟩ `grep -n 'export type'
+src/css/entry.mjs` → **no match**: `entry.mjs` is the RUNTIME entry and a `.mjs` module holds no type
+export. The type re-export set the addendum means is the one the package's built entry ships beside
+it — `src/css/build/ac1.d.ts`'s single `export type { … } from "./value-css-4.0.0.js"` clause
+(emitted by `build.mjs:153`), which is what a consumer of `/css` actually resolves. **The INTENT —
+measure, never type — is served at the true bytes; the name in the addendum is not.**
+
+`measureCandidateTypeNames()` reads that clause and **throws** if it is absent or shapeless. The
+report gains `candidateTypeReExports { source, measured, names }`; the printed reading gains a
+`re-exports … MEASURED from …` line.
+
+**BEFORE → AFTER, both MEASURED** (the BEFORE bytes were restored from `<p2>` `HEAD~1` into the same
+path, run at the same pin and limit, and returned to `HEAD` immediately; `git -C <p2> status
+--porcelain` → `?? .worktrees/` only). Bounded smoke run, `--limit 5`, double-run byte-identical,
+exit 0 each — **this is not G-7**, which is `.f2`'s to re-run at full corpus:
+
+| reading | BEFORE | AFTER |
+|---|---|---|
+| type re-export set | **5**, typed | **33**, read off `src/css/build/ac1.d.ts` |
+| `rows` | 52 · COMPARED 24 · **NO-PEER 28** | 52 · **COMPARED 52 · NO-PEER 0** |
+| `CN-3`'s derived subjects | **28** | **0** |
+| NARROWING ledger ROWS | 3 | 3 — *unchanged, stated so* |
+
+**Self-correction, recorded rather than overwritten**: a first draft of that table published
+*NARROWING 4 → 3*. It was **typed, not read** — WRITE-THEN-MEASURE's own failure mode inside the
+receipt for a defect about typed numbers. Caught by running the BEFORE bytes; re-measured ⟨cmd⟩
+`narrowingRows({… realizedTypes: <5> vs <33>})` → `CN-1:0 CN-2:19 CN-3:28` and `CN-1:0 CN-2:19
+CN-3:0`. The row COUNT never moved; the SUBJECT list did.
+#### Act 4 — the `DEFECT-LEDGER.md` append, by the §0p run-B symlink only
+
+The instrument, measured before it ran: ⟨cmd⟩ `shasum -a 256 …/harvest-journals.mjs` →
+**`77a6e04c2067…`** — byte-for-byte the sha `.f` recorded; ⟨cmd⟩ `git log --oneline -1` → `c0078d96`;
+⟨cmd⟩ `git status --porcelain -- …/workflows/` → **0 lines**. **Unmodified.**
+
+**Run A (control)** — fresh mirror, script symlinked, ledger NOT symlinked: EXIT=**0**, *"harvested
+3354 agent results · 7837 defects"*; ⟨cmd⟩ `ls <mirrorA>/…/harvest | wc -l` → **167** files, **the
+F-e11 spillage contained in the mirror**; mirror ledger **120,340** lines.
+
+**The write proven LOSS-FREE before it was allowed near the repo** (E-3): ⟨cmd⟩ `diff <repo> <mirrorA>`
+→ `<` **1** · `>` **153**. The one removed line is the **census sentence** (`7813 defects` → `7837`);
+**no defect row is removed**.
+
+**Run B** — a SECOND fresh mirror with `DEFECT-LEDGER.md` symlinked into the repo, so the write is
+**the script's, through the symlink, never a hand's**:
+
+| reading | BEFORE | AFTER |
+|---|---|---|
+| sha256 | `54fd8c713e964a30…` | **`9573d226530f131a…`** |
+| bytes | 10,560,195 | **10,561,092** |
+| lines | 120,188 | **120,340** |
+
+⟨cmd⟩ `diff -q <mirrorA ledger> <repo ledger>` → **silent — run A ≡ run B, byte-identical**.
+⟨cmd⟩ `git diff --numstat` → **`153  1`**, the figure the loss-free check predicted.
+⟨cmd⟩ `git status --porcelain -- …/registry/` → **exactly one line**, the ledger: **the 167 JSONs
+stayed in mirror B.** `.f` left this append as a residual because the registry row was in no grant of
+its unit; it is in this one, and it is discharged.
+
+#### Gate readings — BEFORE → AFTER
+
+| gate | BEFORE (this wave's third-sitting baseline, re-read at this seat) | AFTER (this seat, at COMMITTED bytes, double-run) | verdict |
+|---|---|---|---|
+| **G-1** | **RED** — `[E] 37 · [G] 6`; census `identical 45 · declared-divergence 7`, ∅/∅ | ⟨cmd⟩ `node …/seam-contract-check.mjs …SEAM-CONTRACT.md …universe-52.json …DIVERGENCE-LEDGER.md` → **`VERDICT: GREEN`**, **EXIT=0** on both runs, ⟨cmd⟩ `diff -q run1 run2` **silent** | **GREEN** |
+| **three negative controls** | not run (the fixtures existed, unreceipted) | **A · B · C all RED, exit 1 each**, one named check apiece; positive control **GREEN exit 0** | **GREEN (all three fire)** |
+
+The G-1 AFTER reading is pasted whole at `evidence/W4/g1-after-w4g-2026-09-19.txt`; the census is
+unmoved (`contract 52 · universe 52 · ledger rows 47`, `identical 45 · declared-divergence 7`, both
+set-differences ∅). **The cure removed two FALSE readings and no TRUE one** — that is the whole of
+E-w4f-1.
+
+Re-run a final time after Act 4 moved `DEFECT-LEDGER.md` (a different file from `DIVERGENCE-LEDGER.md`,
+but re-measured rather than assumed): **GREEN, exit 0, twice, identical.**
+
+**G-2, measured over this unit's own commits**: ⟨cmd⟩ `git show --name-only --format= 31a9d5d8
+c1c8d775 c7d7b768 | grep -cE '^(src|demo|api|test|e2e)/'` → **0**.
+#### Commits — pathspec on the commit itself, four tracks sharing one index
+
+| repo | hash | meaning | paths |
+|---|---|---|---|
+| value.js | **`31a9d5d8`** | the checker cure **and** its negative-control fixtures + runs — **one meaning, not split**, as the locks require | 11 (`seam-contract-check.mjs` + 10 `evidence/W4/**`) |
+| `<p2>` | **`ba4d148`** | F-ab1 — the measured re-export set | 1 (`test/css-equivalence/run-full-surface.mjs`) |
+| value.js | **`c1c8d775`** | F-ab1's evidence + **ESC-W4g-1** stated at the bytes | 1 |
+| value.js | **`c7d7b768`** | the §0p run-B append + its evidence | 2 |
+
+value.js and `<p2>` took **separate** pathspec commits, as the locks require. Every commit carried
+its own `-- <the same exact paths>`; ⟨cmd⟩ `git show --stat` on each names **only** this unit's
+writable set — no sibling seat's staged bytes were swept in, and no sibling's paths were reset or
+unstaged. `scripts/dev/dev.sh` never entered a command.
+
+#### Residuals and escalations
+
+**ESC-W4g-1 — F-ab1's SECOND limb, returned unlanded (File Bounds).** §0ab: *"the emitter's carry
+gains `§10` so a regeneration never drops the retirements."* **Measured**: the carry is **not** in
+`run-full-surface.mjs`. It is `<p2>/typescript/test/css-equivalence/emit-divergence-ledger.mjs:169`
+(`const carryPath = CANONICAL_LEDGER_PATH`), and its block is bounded at `"\n### §6."` and the next
+level-2 heading — **`§6` and nothing else**. `§10` (⟨cmd⟩ `grep -n '^## §10' DIVERGENCE-LEDGER.md` →
+**1084**, `.f`'s hand-written retirements) would be dropped by a regeneration exactly as `.e`'s `§6`
+block once was (F-e7). **`emit-divergence-ledger.mjs` is not in this unit's writable set** — the set
+names one `<p2>` path — so the write was **refused, not improvised**: no local patch, no second
+carry bolted onto the wrong file, no "while I'm here". The cure is specified in full at
+`evidence/W4/fab1-w4g-reexport-measured-2026-09-19.md` so the granting seat spends no measurement on
+it: *the single carried block becomes a carried LIST — slice from each of `"\n### §6."` and
+`"\n## §10"` to the next level-2 heading and emit each under its own preamble, in document order; the
+acceptance test is the idempotence check that caught the 47→286→525 growth, plus `§10`'s rows
+surviving both emissions.*
+**Consequence, stated so it is not mistaken for a gate failure**: no regeneration is ordered, the
+ledger stands (E-3), and **G-1 reads GREEN over the ledger's committed bytes with `§10` present**.
+ESC-W4g-1 is a DURABILITY defect against a future regeneration, **not a live RED**, and it blocks
+neither `.h` nor `.f2`.
+
+**R-1 — the harvester's malformed rows, NOT hand-cured.** ⟨cmd⟩ `git diff --check | grep -c 'trailing
+whitespace'` → **48** added lines, every one of the shape ``### `` ·  · `` + `**Defect.** ` — rows
+emitted from result records whose id, severity and file are empty. **F-e11's own family.** Left
+exactly as the script wrote it, because §0ab grants this file to the harvester's write and to nothing
+else; a hand's tidy here would be the substitution the ruling forbids. Owner: **X-W11's HARVEST
+(§0k HG-7)**, beside F-e11 / K.7(i).
+
+**R-2 — `LEDGER.md`: the withholding ENDED between this wave's open and this unit's close, and the
+event line is still not this unit's to write.** This record's open withheld the X.P.W4S event line a
+fourth time because `LEDGER.md` carried a sibling Track-A seat's uncommitted `X-W9` hunks (2/1). At
+this unit's close ⟨cmd⟩ `git status --porcelain -- docs/tranches/X/execution/LEDGER.md` → **0 lines**:
+Track F's close seat landed it at `72735922` (*"the event line withheld by four consecutive resume
+seats finally lands on a clean ledger"*). So the obstruction is gone — but **`LEDGER.md` is not in
+this unit's writable set**, which names four paths and does not include it. This unit therefore does
+**not** write it, and says so rather than taking the opening: the next seat holding that grant
+(`.f2`, whose plan carries the close acts) finds a clean ledger and an X.P.W4S row that is still
+TRUE, since the wave remains OPEN in RESUME MODE with `.g` landed and `.h` ∥ `.f2` owed.
+
+**Carried, untouched and not this unit's**: `.h`'s two cells (`#40` / `#41`) and the F-w4f-1 candidate
+half; `.f2`'s stamp, still withheld by gate id. **G-1 is no longer one of the ids withholding it.**
+
+**E13 mail — swept at THIS unit's clock, read-only, not cited.** Four paths: `docs/tranches/V/`
+**10** depth-1 `.md` ⊕ `V/coordination/` **24** entries · ⟨cmd⟩ `ls -dt ../glass-ui/docs/tranches/*/ | head -1`
+→ **`BK/`** still newest, **9** entries · `../keyframes.js/docs/tranches/V/coordination/` **13** ·
+`../sci-report/atlas/docs/tranches/P/coordination/` **28**. ⟨cmd⟩ `find <the four paths> -maxdepth 1
+-type f -name '*.md' -newermt "2026-09-19 12:00"` → **no member**: nothing inbound since `.f` closed.
+**Status-cell census, positional**: ⟨cmd⟩ `awk -F'|' '/^\| *[IO]-[0-9]+ *\|/ {rows++; s=$6;
+sub(/^[ *]+/,"",s); if (s ~ /^UNREAD/) u++} END {print "ROWS="rows, "UNREAD="u+0}' INBOX.md` →
+**`ROWS=77 UNREAD=0`** — identical to this sitting's open. (`.f`'s close receipt records `ROWS=81`
+under the same command; this seat reports only what it measured, and the difference is noted rather
+than reconciled by assertion, since the arithmetic that matters — **UNREAD=0** — agrees in both.)
+**0 unrowed letters addressed to value.js · 0 UNREAD in scope · no `I-n` minted.** This unit wrote no
+`INBOX.md` byte: ⟨cmd⟩ `git status --porcelain -- docs/tranches/V/coordination/INBOX.md` → **0 lines**.
+
 ## Commit — and the LEDGER event line, WITHHELD a fourth time
 
 ⟨cmd⟩ `git status --porcelain -- docs/tranches/X/execution/LEDGER.md` → ` M …/LEDGER.md`, ⟨cmd⟩
