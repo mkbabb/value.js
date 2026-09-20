@@ -2345,3 +2345,213 @@ named.
 while a sibling seat's bytes are in motion; any claim on the byte clause it found already green
 (booked `LANDED-BY`); and any claim that `.d`'s test double is now correct — it is not, it is
 recorded.
+
+---
+
+### KF.W12.f
+
+**SERVED MODEL: claude-opus-5[1m]** · AXISLINE-UNIT, phase 3, **full dispatch — nothing
+inherited** (0 commits, 0 bytes at open, exactly as the resume seat measured). Opened at kf
+**`2a0afe7a`**; product cure at **`6db80df7`**, gate at **`2736b5e5`**. **E-3**: nothing above
+this line is amended; every correction this unit measured is written BESIDE the figure it
+corrects, never over it.
+
+#### ACT 0 — crash-recovery (standing law, first act)
+
+⟨cmd⟩ `git status --porcelain` in **keyframes.js** → ` M demo/components/instrument/keyframes/KeyframesStringControls.vue` + two 2026-07 untracked coordination letters. **Not one path inside this unit's writable set** — `demo/scenes/cube/CubeAxisLines.vue` and `test/demo/scenes/cube-axis-reveal.test.ts` were both clean (the second did not exist). The dirty SFC is the sibling `.e` seat's in-flight work and was **never read for judgement, never staged, never touched**. ⟨cmd⟩ the same in **value.js** → 17 modified + 8 untracked, of which the only path in my writable set is `docs/tranches/X/execution/B/KF-W12.md`, dirty with **`.e`'s own appended receipt** (numstat `272 0`, a pure end-append) — a sibling seat's bytes, handled at ACT 7 below. **Nothing inherited, nothing stashed, nothing restored.**
+
+#### ACT 1 — OP-1, printed at **0** first, and claimed by nobody here
+
+⟨cmd⟩ `grep -c 'useEventListener(window, "keydown"' demo/scenes/cube/orbital-drag/OrbitalDrag.vue` → **0** · **0**.
+
+**`LANDED-BY fff7232c`** (KF.W11 `.a`, the OD latch family). This is this unit's own gate's *inbound* clause and it was green before this unit existed: **GREEN-BEFORE-CURE (R.2), booked, never claimed.** Read at the bytes rather than at the ledger: the registry adoption is live at `OrbitalDrag.vue:263-300` (`registerShortcut(code, …)` ×2 per axis over an `AXIS_KEYS` tuple, `event: "keyup"` on the release arm, labelled `group: "Cube"` so the bindings reach the shortcuts modal), with the blur/visibilitychange clears at `:302-308`. **This wave wrote no `orbital-drag/**` byte** — one cure, one home.
+
+#### ACT 2 — the baseline, born-RED, and every anchor verified at TRUE bytes before an edit
+
+⟨cmd⟩ `ls test/demo/scenes/cube-axis-reveal.test.ts` → `No such file or directory` · same.
+⟨cmd⟩ `npx vitest run --project demo test/demo/scenes/cube-axis-reveal.test.ts` → `No test files found, exiting with code 1` · same. **G-KFW12-6 born-RED, unmoved since the wave opened.**
+
+| anchor the brief gave | at true bytes | disposition |
+|---|---|---|
+| `width: 1000vw` at `:63` | `63:    width: 1000vw;` | **EXACT** |
+| `rotateZ(90deg)` at `:113` | `113:        transform: rotateZ(90deg);` | **EXACT** |
+| `rotateY(90deg)` at `:117` | `117:        transform: rotateY(90deg);` | **EXACT** |
+| the reveal binds `lock.x/y/z` at `:11-14` | `:12-13` / `:17-18` / `:22-23` — the `:class` **and** a `:style` per axis | **CORRECTED, and it is the KF-AX-14 row**: the brief's single binding is two, and the second is inline |
+| `180ms` ×3 raw | ⟨cmd⟩ `grep -n '180ms'` → `:41` · `:81`, **both comments**, no declaration | **`LANDED-BY KF.W6`**, re-measured at open, never claimed |
+| `var(--axis-active, 0)` fallbacks | ⟨cmd⟩ `grep -c` → **3** · **3** | ruling 6's count re-verified a **fourth** time; the corpus's ×4 cell stays dead |
+| the frame "lives in KF.W11's `useCubeDemo.ts`" | `GRAPH_ATTITUDE` is declared at **`useCubeRelit.ts:62`** and *imported* by `useCubeDemo.ts:14` | **DRIFTED ANCHOR → INTENT at the true bytes, recorded**: the frame was read, re-derived and asserted from `useCubeRelit.ts`, READ-ONLY; neither file was edited |
+| `wc -l CubeAxisLines.vue` | **120** | the §B.2 figure, unmoved at open |
+
+#### ACT 3 — the two decisions, TAKEN AND WRITTEN BEFORE A BYTE (order 8, "the decision precedes the patch")
+
+**KF-AX-2 — what the reveal MEANS.** The record grades this MAJOR and rules β's MINOR made
+"against a third of it". Re-derived at the bytes, the row is false three ways and all three are
+live: (1) the latch gates the **FIRST** branch of **both** `drag` (`useOrbitalPointer.ts:117`)
+and `handleWheel` (`:155`) — six operations share it (drag-rotate/translate/roll ·
+wheel-rotate/translate/scale), so *"single-axis rotation"*, written twice, named one of six;
+(2) it is **ARMED, not ACTIVE** — `setAxisLatch` flips on the bare keydown with no gesture in
+flight; (3) the wheel limb is the one β never reached. **DECISION**: take the DISSENT's own
+reading — `lock` = *which axis the next constrained gesture is pinned to* — and pay it in
+**prose, not props**. The prop stays the latch, because the latch is exactly the fact; the file
+now says what the latch is and refuses the promise about rotation. **The labels limb is NOT
+cured here**: the deuteranopia rider (X-red / Y-green, no text) rides **J-lane C6's ask**, and
+DESIGN.md §8 OD-U9 already assigns the active-channel readout to the ruled `.stage-whisper`
+(KF-AX-10) — a second encoding invented here would be a third. Written in the file at the
+template docblock, so the next reader meets the decision, not the rumour.
+
+**#57 / KF-AX-5 — the Z stroke.** **DECISION: `rotateY(90deg)` STAYS.** Derived in the settled
+`rotate3d(-1,1,0,30deg)` frame the `.z` stroke reads **45.00°** at extent **0.50000/unit**,
+**49.11°** clear of *both* siblings; the degeneracy the corpus graded MAJOR "source-certain" is
+real at **exactly one frame** — mount t0, where `.z`'s screen extent is `0.00000` — and the PRM
+arm, which snaps straight to the attitude, **never shows it at all**. The corpus's cure rider
+(*a tilt would make Z lie*) is upheld as written: a tilt that kept the stroke legible at t0
+would move it off the axis it names. So the cure is the **frame stamp and the prose**, not the
+geometry. Banked whole at `docs/tranches/X/keyframes/evidence/W12/KF-W12-f-z-triptych.md`.
+
+**What that triptych is**: the **derived** triptych (three frames, closed form, from the tree's
+own `GRAPH_ATTITUDE`/`rotateByAttitude`), double-run and independently re-asserted by the gate
+test against the live function. It is **NOT** the rendered SS-13 #1 capture, which stays
+**KF.W9's** — probe parsimony §5.2, and no browser was spent. It settles all three rows SS-13 #1
+was booked to decide (the KF-AX-5 residue — *exactly nothing* at t0, so both challenge
+predictions, the "sub-pixel needle" and the "vertical flare", die at both frames; KF-AX-6's
+comparison, source-decided per ruling 7; and the β-miss-4 coupling, whose scheduling clause
+discharges because the filter gate changes what `.z` COMPOSITES, not what it PROJECTS). What
+only pixels can settle is listed in that file with **KF.W9** named against each.
+
+#### ACT 4 — the cure, row by row (22 AXISLINE-UNIT rows; `6db80df7`)
+
+| row | sev | what landed |
+|---|---|---|
+| **KF-AX-1** | MAJOR | consumer half: the reveal reads the latch **the ONE registry writes**, and the file says so instead of describing a window latch that no longer exists. Proven END TO END by the gate, not by prose. Upstream half `LANDED-BY fff7232c`. |
+| **KF-AX-2** | MAJOR | ACT 3's decision, written at the template docblock; the two *"single-axis rotation"* claims retired. |
+| **KF-AX-4** | MAJOR | **every** geometric claim in the file and the test carries its frame; the numbers are re-derived from `GRAPH_ATTITUDE`, never restated, so a frame change **reds the gate**. |
+| **KF-AX-5 · #57** | MINOR | ACT 3's decision + the triptych. |
+| **KF-AX-6** | MINOR | the ill-formed `--z-behind < --z-content` citation replaced by what is true (the only `--z-content` consumer sits two stacking contexts down; within `.graph` the sole competitor declares no z-index) and by what this comment **cannot** answer — the render, SS-13 #2. `z-index` itself unchanged: the comment was the defect. |
+| **KF-AX-7** | MINOR | the false *"PRM-respecting via the wrapper below"* retired; the **reliance STATED** — the guard is the vendor's universal `*:not([data-allow-motion])` rule, under which the reveal becomes a step and stays legible. Not duplicated demo-side (a local PRM block would be a producer behaviour re-implemented here). |
+| **KF-AX-8** | MINOR | **driver-only** transition list, the house `--lit` idiom: `transition: --axis-active …`. The derived channels recompute from the interpolating driver instead of each easing its own copy. |
+| **KF-AX-9** | MINOR | `filter` **gated** under `.axis-line--locked` — the resident pass and its three shadow buffers on a 1000vw box are gone. Ruling 8 honoured **by name**: the de-grouping benefit is **not** claimed (`opacity: 0.45` at rest is itself a grouping property), and the gate's cost — the bloom drops in one frame on release — is stated in the file rather than discovered later. |
+| **KF-AX-10** | MINOR | recorded in-file: the reveal is a second encoding beside DESIGN.md §8 OD-U9's ruled `.stage-whisper`; the reconciliation is **U.B8's** when it lands. α-3's WCAG 2.1.1 limb (keyboard **and** pointer needed together) is OrbitalDrag's surface — cured upstream with KF-AX-1's adoption, not re-booked here. |
+| **KF-AX-13** | MINOR | `border-block-start`: one logical edge, so the zero-height box stops painting a 2 px double stroke with two end caps. |
+| **KF-AX-14** | MINOR | **the class is the sole driver** — `&.axis-line--locked { --axis-active: 1 }`, and the per-axis inline `:style` is **deleted**. The reveal is finally reachable by a media query, which is what made KF-AX-17 authorable at all. |
+| **KF-AX-16** | MINOR | `lock: Pick<PressedKeys, "x" \| "y" \| "z">` sliced off the owner's type (a rename now fails the build), and the three strokes render from the owner's own `axes` tuple — the `--axis-*` namespace has a **fourth** live member (`--axis-w`, MatrixEditor), which is what made a hand-unrolled list a drift risk. |
+| **KF-AX-17** | MINOR | a `@media (forced-colors: active)` block: the halo the OS cannot recolour is dropped and the surviving tells are the ones the mode keeps — stroke style and `Highlight`. The vendor's two forced-colors blocks are class- and ARIA-keyed (ruling 3) and match none of these bare divs. |
+| **KF-AX-18** | MINOR | **CARRIED, NOT CURED — out of §Bounds.** The dead scoped-slot seam is `OrbitalDrag.vue:3-7`, i.e. `orbital-drag/**`, which this wave writes no byte of. Named owner below. |
+| **KF-AX-19** | MINOR | **CARRIED, NOT CURED — out of §Bounds.** `changeGraphPerspectiveAnim`'s missing teardown lives in `CubeScene.vue:214-216` / `useCubeDemo.ts`. Named owner below. |
+| **KF-AX-20** | INFO | `1000vw` **kept**, with the reason written: the codex charge is dead (register #10/#11) and what made the width expensive was the resident filter, now gated. |
+| **KF-AX-21** | INFO | the three unreachable `, 0` fallbacks removed — the property is registered with `initial-value: 0`. |
+| **KF-AX-22** | INFO | `defineOptions({ inheritAttrs: false })` — the fragment's attrs contract DECLARED, with the reason a single root is not available (CSS `perspective` reaches its own children only, so a wrapper would flatten every stroke). |
+| **KF-AX-23** | INFO | `aria-hidden="true"`, matching `face-relit` at `CubeTarget.vue:85-86`; the non-visual channel named (the registry's labelled bindings in the shortcuts modal). |
+| **KF-AX-28** | INFO | the four verbatim thesis restatements collapsed to **one**. Duplication was the drift mechanism that let `:44`'s claim go stale (below). |
+| **KF-AX-29** | INFO | the `rotateX(0deg)` identity's reading stated: deliberate, because any non-`none` transform makes a stacking context and a containing block, and all three strokes must be on identical terms. |
+| **KF-AX-30** | INFO | reactive props destructure (`const { lock } = defineProps<…>()`), §9.2's positive form. |
+
+#### ACT 5 — the gate, BEFORE → AFTER (`2736b5e5`)
+
+⟨cmd⟩ `npx vitest run --project demo test/demo/scenes/cube-axis-reveal.test.ts`
+**BEFORE** → `No test files found, exiting with code 1` · same.
+**AFTER** → `Test Files  1 passed (1)` / `Tests  11 passed (11)` · **identical both runs**.
+**G-KFW12-6: RED → GREEN.**
+
+Three suites, 11 cases, and **no case reads its subject's source text**: the component had zero
+coverage (KF-AX-16's last limb) and a grep-test would have proved only that the grep ran.
+
+1. **the Z stroke, frame-stamped** (5 cases) — the attitude is imported, so `the stage attitude
+   is re-derived, never restated` reds the day KF.W11's frame moves; the settled orientations
+   (175.89° / 94.11° / 45.00°) and separations (81.79° / 49.11° / 49.11°) are asserted against
+   the live `rotateByAttitude`; the mount-t0 case isolates the degeneracy to **exactly** `.z`;
+   the last case fixes the PRM arm's freedom from it.
+2. **the reveal on the ONE registry** (3 cases) — the **real** `OrbitalDrag` and the **real**
+   `CubeAxisLines` are mounted in the CubeTarget wiring, a genuine
+   `new KeyboardEvent("keydown", { code: "KeyX" })` is dispatched at `window`, and the chain
+   `registerShortcut → setAxisLatch → the emit → the lit stroke` runs unmocked. Each axis key
+   lights its own stroke and only its own; keyup clears it; no root carries an inline
+   `--axis-active`; every root is `aria-hidden`.
+3. **KF-AX-2's six operations** (3 cases) — `useOrbitalPointer` with counting stubs: the same
+   drag rotates unlatched and is constrained latched, the **wheel** path reads the same latch
+   (the limb β never reached), and the latch arms with every counter at zero.
+
+Every gate clause is mapped to the case that turns it in
+`evidence/W12/KF-W12-f-gate-transcripts.md`, beside OP-1's grep at 0 and the anchors above.
+
+#### ACT 6 — commits, bounds, and one disclosed deviation from §Commit plan
+
+| sha | message | `git show --stat` |
+|---|---|---|
+| `6db80df7` | `fix(kf/axis · X.KF.W12.f · AXISLINE-UNIT — the reveal made honest, frame-stamped)` | `demo/scenes/cube/CubeAxisLines.vue` **only** — 185 insertions, 80 deletions |
+| `2736b5e5` | `test(kf/axis · X.KF.W12.f · G-KFW12-6 — cube-axis-reveal, 11 cases, born-RED cured)` | `test/demo/scenes/cube-axis-reveal.test.ts` **only** — 290 insertions |
+
+Both pathspec'd **on the commit itself**; no sibling seat's path appears in either, and the
+`KeyframesStringControls.vue` hunk that was dirty at ACT 0 is in neither. `dev.sh`: **0**.
+`src/**`: **0**. `orbital-drag/**`: **0**. `node_modules/**`: **0**. glass-ui: **0** (its
+`a11y-overrides.css` / `accessibility.css` / `keyboard.js` were **read** to quote the guard and
+the two forced-colors keyings, never edited). Both paths are §B.2 rows of `.f`.
+
+**DISCLOSED DEVIATION.** §Commit plan expects five `.f` commits (`KF-AX-1` · `KF-AX-2` · `#57` ·
+`roster` · `test`); **two** landed. The reason is a property of this file, not a convenience:
+KF-AX-28 is *"collapse the four verbatim thesis restatements"*, and those four restatements are
+exactly the sites the other rows' comments live in — a per-row commit series would have had each
+commit edit the same four blocks and the collapse would have had to be un-done and re-done four
+times. KF-AX-14 compounds it: deleting the inline `:style` (template) and adding
+`--axis-active: 1` (style block) is **one** mechanism that cannot be halved without shipping a
+reveal that does not light. The five meanings are therefore **one** meaning at these bytes, and
+the commit message enumerates all 22 rows so the close's roster audit resolves every id. **No
+family was split**; nothing was squashed after the fact; no history was reconstructed.
+
+#### ACT 7 — the readings this unit moved, and the ones it did not
+
+| measure | reading | note |
+|---|---|---|
+| **G-KFW12-6** | `No test files found` → **11 passed (11)** ×2 | **RED → GREEN** |
+| `npm run test:demo` | `2 failed \| 52 passed (54)` / `453 passed (455)` ×2 | was `2 failed \| 50 passed (52)` / `438 passed (440)` **+ `Errors 1 error`** at the resume. The **`Errors` line is GONE** — the `.e` seat cured its own inherited hunk; **not this unit's claim.** The two failures are the two the resume named: `css-code-editor-seam.test.ts (2) KF-CE-1` (`.d`'s **E-d1**) and `spring-trace-truth.test.ts (4b)` (**KF.W11's inherited honest-RED**). |
+| `vue-tsc … grep -c 'error TS'` | **12** · **12** | the §0u ratchet's banked floor, **unmoved — neither risen nor fallen**. Filtered for this unit's two files: **no output**; neither contributes an error. |
+| `eslint` on both paths | *(no output)*, exit **0** | |
+
+**Nothing was skipped, cast, guarded, allow-listed or timed-out** to reach any reading above:
+zero `test.skip` / `it.skip` / `.only`, zero `@ts-ignore` / `@ts-expect-error` /
+`eslint-disable`, zero `as any`, zero `try/catch`, and no existing witness was modified or
+weakened. `value4-editor-boundary.test.ts` is not in this unit's diff.
+
+#### GREEN-BEFORE-CURE (R.2) — two, both booked, **neither claimed**
+
+1. **G-KFW12-6's inbound clause — `LANDED-BY fff7232c`** (KF.W11 `.a`): window-keydown **0 · 0**.
+2. **KF-AX-9's three raw `180ms` token rider — `LANDED-BY KF.W6`**: `:41` / `:81`, both comments.
+
+#### A THIRD reading, booked beside its owner's row and NOT claimed
+
+`CubeAxisLines.vue:44` asserted that `--axis-x/-y/-z` are *"three theme-INVARIANT `:root`
+literals"*. Re-measured 2026-09-19: **two of the three no longer are** — `--axis-y` and
+`--axis-z` took `light-dark()` arms at **KF.W6 (`0bd0215b`)**, `style.css:147-148`; `--axis-x`
+(`:146`) is still a single literal. **KF-AX-3 stays KF.W6's row**, its landed half is **not**
+claimed here and its open half is not cured here; only the false sentence — in *this* unit's
+file, under the law that a comment is part of the defect surface — was retired, with the
+measurement written beside it. This is exactly the drift KF-AX-28's four restatements produced.
+
+#### Residuals — each with a named owner
+
+| # | residual | owner |
+|---|---|---|
+| **f-1** | **KF-AX-18** — the dead scoped-slot seam (`OrbitalDrag.vue:3-7`; the parent consumes the `@pressedKeys` emit, so the `:pressed-keys` slot prop is unreachable for its stated use) | **`orbital-drag/**`'s owner (KF.W11 `.a`'s home)** — out of this wave's §Bounds by the same one-cure-one-home dedupe that sent KF-AX-1's upstream half there |
+| **f-2** | **KF-AX-19** — the scene's one engine animation has no teardown; re-anchored at true bytes: `CubeScene.vue:229-231` stops **only** `animationGroup` (the record's `:214-216` has drifted) | **the cube scene's owner** — `CubeScene.vue` / `useCubeDemo.ts` are outside this unit's writable set |
+| **f-3** | SS-13 **#1 · #2 · #3 · #4 · #6 · #8** — the rendered witnesses; #1 must be shot **before and after** the filter gate, which landed at `6db80df7` | **KF.W9** |
+| **f-4** | KF-AX-9's release asymmetry — the bloom now drops in one frame on unlock (a filter declaration cannot interpolate out of existence). Stated in-file; if SS-13 #8 finds it reads as a glitch, the reprice is a fade on the driver, not an ungated filter | **KF.W9 → a successor** |
+| **f-5** | KF-AX-3's open half (`--axis-x`'s missing dark arm) | **KF.W6** |
+| **f-6** | KF-AX-2's deuteranopia labels limb; KF-AX-10's two-encoding reconciliation | **J-lane C6** · **U.B8** |
+
+#### Escalations
+
+**NONE.** No §Bounds expansion was needed, no specified cure was impossible at the bytes, and no
+diagnostic loop reached three. The two out-of-bounds rows (f-1, f-2) are **carried with owners**,
+not escalated: the spec's §Bounds names `orbital-drag/**` as another wave's and this unit obeyed
+it rather than asking to widen.
+
+#### What this receipt asserts, and what it refuses
+
+**Asserts**: the readings above, each double-run at this seat's own clock and read from settled
+bytes; that G-KFW12-6 is GREEN on every clause; that the 22 AXISLINE-UNIT rows are each LANDED,
+CARRIED-with-owner or booked LANDED-BY another wave, with none silently dropped; and the two
+decisions of ACT 3 as decisions, taken before the bytes and written where the next reader meets
+them. **Refuses**: any verdict on `.a`–`.e`, on CHECK 1's register, or on whether the wave may
+leave `PARTIAL` — those are `.g`'s; any claim on the rendered SS-13 witnesses, which no
+derivation can discharge; and any claim to KF.W11's latch adoption, KF.W6's duration rung or
+KF.W6's two landed `light-dark()` arms, all three of which this unit measured and none of which
+it wrote.
