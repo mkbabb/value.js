@@ -21,7 +21,7 @@ export type EasingIssue = Readonly<{ code:
 }>;
 export type JumpPosition = "jump-start" | "jump-end" | "jump-none" | "jump-both";
 export type LinearEasingStop = Readonly<{ output: number; input: number }>;
-export type BezierPresetName = keyof typeof PRESET_TABLE;
+export type BezierPresetName = keyof typeof bezierPresets;
 
 export function linear(progress: number): number {
     return progress;
@@ -65,7 +65,7 @@ const easeInExpo: EasingFunction = (p) => p === 0 ? 0 : 2 ** (10 * p - 10);
 const easeInCirc: EasingFunction = (p) => 1 - Math.sqrt(1 - p ** 2);
 const easeOutCirc: EasingFunction = (p) => Math.sqrt(1 - (p - 1) ** 2);
 
-const PRESET_TABLE = {
+export const bezierPresets = {
     linear: [0, 0, 1, 1],
     ease: [0.25, 0.1, 0.25, 1],
     "ease-in": [0.42, 0, 1, 1],
@@ -102,7 +102,7 @@ const PRESET_TABLE = {
  * The bezier catalog as a PROTOTYPE-FREE lookup table.
  *
  * `easing(name)` takes a caller-supplied string. Against the object literal
- * above, `"constructor" in PRESET_TABLE` was TRUE through the prototype chain,
+ * above, `"constructor" in bezierPresets` was TRUE through the prototype chain,
  * and `:169` then destructured the `Object` constructor —
  * `TypeError: function is not iterable` on a public entry, for 5/5
  * `Object.prototype` keys, at MODULE EVALUATION time in keyframes
@@ -112,10 +112,9 @@ const PRESET_TABLE = {
  * `BezierPresetName`; the 30-key set is unchanged (G25's fence). X-W9.a.
  */
 const PRESETS: Readonly<Record<string, readonly [number, number, number, number]>> = Object.freeze(
-    Object.assign(Object.create(null) as Record<string, readonly [number, number, number, number]>, PRESET_TABLE),
+    Object.assign(Object.create(null) as Record<string, readonly [number, number, number, number]>, bezierPresets),
 );
 
-export const bezierPresets: Readonly<Record<BezierPresetName, readonly [number, number, number, number]>> = PRESET_TABLE;
 export const jumpTerms = ["jump-start", "jump-end", "jump-none", "jump-both"] as const;
 
 function bezierCoordinate(t: number, a: number, b: number): number {
@@ -184,8 +183,8 @@ const DIRECT_EASINGS: Readonly<Record<string, EasingFunction>> = Object.freeze(O
  * derivation rather than by a second hand-kept list.
  */
 const CATALOG: readonly string[] = Object.freeze([
-    ...Object.keys(PRESET_TABLE),
-    ...Object.keys(DIRECT_EASINGS).filter((name) => !Object.hasOwn(PRESET_TABLE, name)),
+    ...Object.keys(bezierPresets),
+    ...Object.keys(DIRECT_EASINGS).filter((name) => !Object.hasOwn(bezierPresets, name)),
 ]);
 
 /**

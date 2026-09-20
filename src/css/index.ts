@@ -48,14 +48,28 @@ export type {
     ViewTimelineDescriptor,
 } from "./types";
 export type { CssCall, CssList, CssScalar, CssValue } from "../value";
+/**
+ * PSL-2 spelling, one authority (ESC-W9f-CSSD-VOCAB-SPELLING).
+ *
+ * `./css` returns `CssScalar`, whose colour payload is an `AnyColor` over this
+ * vocabulary, so every one of these names must be nameable from `./css`. They
+ * are taken from `../value` — the same module `CssScalar` itself comes from —
+ * because a second spelling of the same declarations (`../color/index`) makes
+ * the dts rollup emit a DUPLICATE, unexported copy per name (`Alpha_2`,
+ * `Channel_2`, `ChannelsBySpace_2`, `Color_2`, `SpaceId_2` and a bare
+ * `AnyColor`): G13's bare `declare`s and G14's `_2` mangles were that split
+ * vocabulary, not a missing export. `ColorIssue` has no `../value` spelling and
+ * keeps its own.
+ */
 export type {
     Alpha,
+    AnyColor,
     Channel,
     ChannelsBySpace,
     Color,
-    ColorIssue,
     SpaceId,
-} from "../color/index";
+} from "../value";
+export type { ColorIssue } from "../color/index";
 export type { JumpPosition } from "../easing";
 export type { Result } from "../foundation/result";
 export {

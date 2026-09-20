@@ -16,7 +16,12 @@ import {
     isAnyColor,
     xyz,
 } from "../color/index";
-import type { Alpha, Channel, ChannelsBySpace, ColorIssue, SpaceId } from "../color/index";
+// One spelling for the colour vocabulary inside src/css/ (ESC-W9f-CSSD-VOCAB-SPELLING):
+// `../value` is the module `CssScalar` carries these types through, and a second
+// spelling of the same declarations re-emits them into `css.d.ts` as unexported
+// `_2` duplicates (G13 · G14 · LIB-04). `ColorIssue` has no `../value` spelling.
+import type { ColorIssue } from "../color/index";
+import type { Alpha, Channel, ChannelsBySpace, SpaceId } from "../value";
 import type { CssCall, CssList, CssScalar, CssValue } from "../value";
 import { adaptXyzD50ToD65 } from "../color/anchors";
 import type {

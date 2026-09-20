@@ -1,7 +1,8 @@
-import type { Color, ColorIssue } from "../color/index";
+// See src/css/grammar.ts: one colour-vocabulary spelling inside src/css/.
+import type { ColorIssue } from "../color/index";
 import type { Result } from "../foundation/result";
 import type { JumpPosition } from "../easing";
-import type { CssList, CssScalar, CssValue } from "../value";
+import type { Color, CssList, CssScalar, CssValue } from "../value";
 
 export type CssColorSpace =
     | "rgb" | "hsl" | "hwb" | "lab" | "lch" | "oklab" | "oklch"
