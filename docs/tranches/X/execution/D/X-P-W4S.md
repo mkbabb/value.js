@@ -2247,6 +2247,146 @@ whitespace posture; `#40`, `#41` and `color: red!important` — the three the sp
 **Escalations: none.** All three gates this unit owed read GREEN at this seat's clock, double-run,
 and every byte written lies inside the unit's writable set.
 
+### X.P.W4.f2
+
+**SERVED MODEL**: `claude-fable-5-1` · **FRESH** (M-23 §1 — this seat authored no cure byte of `.e`,
+`.e2`, `.f`, `.g` or `.h`) · **status**: **ESCALATED** (every in-bounds act performed; the R-A stamp
+**WITHHELD by gate id G-1** a THIRD time, now on `DIVERGENCE-LEDGER.md` §11's form — E-w4f2-1, a file
+outside this unit's grant) · 2026-09-19 (UTC 2026-09-20 03:38–03:50). Spec: `W4.md:682` (the `.f2`
+sentence) · `:678` (the `.f` stamp set, G-10 shape (a)) · §6 G-1..G-10 · §2 R-A · Q-RC-1 / Q-RC-2 ·
+COHESION §0y · §0ab.
+
+**CRASH-RECOVERY, first act.** ⟨cmd⟩ `git status --porcelain -- docs/tranches/X/parse-that
+docs/tranches/X/COHESION.md docs/tranches/V/coordination/INBOX.md …/harvest/x-p-w4s.json
+docs/tranches/X/execution/D/X-P-W4S.md` → **0 lines**; ⟨cmd⟩ `git -C <p2> status --porcelain` →
+`?? .worktrees/` only. **Zero inherited edits.** The tree's other dirty rows (13 × `demo/**` + `e2e/**`
++ `CARRY-LEDGER.md` + sibling `execution/{A,B,C}/**` records + the unowned `scripts/dev/dev.sh`) are
+outside every row of this set and were not read for content, staged, stashed or restored; a sibling's
+staged `D demo/shell/PaneSegmentedControl.vue` was left exactly as found (it is still staged, and no
+commit of this seat carries it). The serial lock read at the bytes: `.g` `31a9d5d8` and `.h`
+`e31b8450`/`fede7d3` both landed (PA-2 of the open is discharged). `x-p-w4s.json` measured **56673 B**,
+schema `x-p-w4s.f.harvest-fold/1`, before any write (E-3).
+
+#### Acts, in order
+
+**A-1 · The ten gates BEFORE any write, at this seat's clock, every reading double-run** (both writing
+scripts given `--out` into the scratchpad; long runs backgrounded per the STALL WATCHDOG; raw outputs
+banked afterwards as NEW dated files, `evidence/W4/gates-w4f2-2026-09-19.md` + 7). The table is
+`W4-CLOSE.md` §13.1, reproduced by verdict: **G-2 · G-3 · G-4 · G-5 · G-6 · G-7 · G-8 · G-9 GREEN;
+G-1 RED; G-10 open-state 5 (RED, withheld).** The readings that moved since the third sitting's
+close: G-3's tarball sha `f8aede11…` → **`004bbcce…`** (`fede7d3` changed the packed grammar bytes;
+still `resolved 52 of 52`, `G3 GREEN`, EXIT=0 ×2); G-1 **RED for a NEW reason** — ⟨cmd⟩
+`seam-contract-check.mjs …` → `ledger rows 48`, ∅/∅, census `identical 45 · declared-divergence 7`,
+§10's three retirements read (37 bindings released), the 6 carried rows terminal by §2 —
+**`VERDICT: RED — 2 check(s) failed`: [F] `parseStylesheet: unknown id F-w4f-1` · [J] `§11.4
+F-w4f-2`**, EXIT=1, `diff -q run1 run2` silent. G-4 `ac1.wasm` `f0d063d6…` unchanged since `93bcb83`
+(the module is assembled at runtime from the class tables `.h` moved). G-5 `RC-P(4.0.0) = FALSE — 3 of
+6` (1 · 3 at 20,962 · 4), EXIT=1 ×2, plus the negative control `0.0.0-does-not-exist` → conjuncts 1–4
+`MEASURED: NO`. G-8 `ROWS=77 UNREAD=0` ×2 before this seat's row.
+
+**A-2 · L-14 — refutation attempted on the RED before it was recorded.** Is G-1 the checker's fault
+again (E-w4f-1's shape)? ⟨cmd⟩ `grep -n '/\^### ' seam-contract-check.mjs` → `:112
+line.match(/^### (.+?) — /)` — the standing row grammar, obeyed by all 47 `§6` rows and by `.f`'s
+`#### §10.x` (dropped one level for exactly this reason, `.f`'s receipt A-2). ⟨cmd⟩ `grep -n '^### '
+DIVERGENCE-LEDGER.md | sed -n '/§11/,$p'` → `### §11.1 The row` (no ` — `: the `F-w4f-1` table under it
+is invisible to the reader, so row 19's `` `F-w4f-1` `` is an unknown id — **[F]**) and `### §11.4
+F-w4f-2 — DISCHARGED …` (matches: a phantom row that names no export and is not in the contract's
+`SURFACE-WIDE` block — **[J]**). **The RED is the ledger's form, not the checker's vocabulary**; `.g`'s
+cure and its three measured-RED controls stand. Widening the reader to parse §11.1's table would be a
+second row grammar minted to pass one gate — REFUSED (a masking cure). The other two central claims:
+**no value.js byte moved** — ⟨cmd⟩ `git show --name-only --format=` over every X.P.W4S commit
+(`93bcb83` … `d357aad9`, and this seat's) → **0** paths under `src/demo/api/test/e2e`; **RC-P is
+unarguable** — the evaluator's negative control leaves no conjunct TRUE unmeasured, and arm V reads
+`V`'s own bytes (Q-RC-1); Q-RC-2 unchanged (*"FALSE, not vacuously true"*).
+
+**A-3 · The stamp — WITHHELD by gate id G-1; the carves not performed.** §6 G-10's falsifier and
+COHESION §0y/§0ab bind. ⟨cmd⟩ the shape-(a) sum after every write of this seat → **5 ≡ 5**; ⟨cmd⟩
+`git status --porcelain -- waves/W[0-4].md docs/tranches/X/COHESION.md` → **0 lines** — no four-verb
+row and no COHESION cell was written. Both or neither: neither. X.P.W4's CLOSED row untouched.
+
+**A-4 · Adjudicative rulings recorded** (`ADJUDICATION-W4.md` is in no row of this grant; the rulings
+live in `W4-CLOSE.md` §13.3, dated): `.h`'s **R-1** — the 27 `ADJUDICATION_UNHONOURED` cells at
+`parseStylesheet` are **RULED candidate correct, `declared-divergence`, NARROWS**: mechanism
+`F-w4f-1`, census id `ID-1b` (the resolver's residual predicate names `nonIdentDeclarationName`, so
+all 27 sit inside the §0w set and `.h`'s `NOT IN THE SET 0` stands); retagging in `adjudications.mjs`
+or the banked `universe-52.json` is **REFUSED** (E-3). `.h`'s **R-3** (`red ! important`) — shared
+REJECT, no cell, no act. `.g`'s **ESC-W4g-1** — durability, not a live RED; owner unchanged.
+
+**A-5 · The close artefacts.** `waves/W4-CLOSE.md` **§13** appended (13.1 gates · 13.2 why the reason
+moved · 13.3 rulings · 13.4 the withheld stamp + E-w4f2-1's cure · 13.5 residuals with owners);
+`RELEASE-PACKET.md` **second dated addendum** (F-w4f-2 CURED, F-w4f-1 FILED with its consumer
+direction, the packed candidate's new sha, RC-P re-read — §6 items 1, 2, 4, 5 unchanged, asks nothing);
+`INBOX.md` **O-42** inserted by line directly after O-41 (the producer-cure relay, same recipients,
+delivery point in THIS repo, SS-6 batch named, **SENT — no reply owed**, O-15 not converted); ⟨cmd⟩
+the positional Status-cell awk after the row → **`ROWS=78 UNREAD=0`** ×2; `RELEASE-PACKET` 3 · `RC-P`
+3 · `SS-6` 29; ⟨cmd⟩ `git diff --check` over every written path → clean.
+
+**A-6 · The harvest — `x-p-w4s.json` fold/2 (§0p scratch-mirror, by program).** ⟨cmd⟩ `shasum -a 256
+harvest-journals.mjs` → `77a6e04c…` (unmodified; `git status --porcelain -- workflows/` → 0). Run in
+**two** fresh mirrors with the script symlinked and `DEFECT-LEDGER.md` NOT symlinked → EXIT=0 each,
+`3363 agent results · 7847 defects`, 167 files per mirror, **nothing written under the repo**. The four
+X.P.W4S run files sha256-equal across A and B: `wf_a25d7c23-90d` (8 results, `9c84cbb5…`, 28313 B —
+`.e` at index 6), `wf_7afdc968-28c` (7, `d557c966…`, 17412 B — `.e2` at index 6; **`.f`'s row ABSENT**,
+the file byte-identical to fold/1's embedding), `wf_3c0a3280-0ce` (6, `fc0ce2b8…`, 10089 B — the third
+sitting, zero unit rows), `wf_d0a271b1-356` (8, `ebb4bd6f…`, 23432 B — `.g` PARTIAL at index 6, `.h`
+DONE at index 7). Written as **fold/2** with the predecessor fold/1 embedded **whole and verbatim**
+(`predecessor.document`, sha256 `bd09f39d…`, 56673 B, commit `e456c2ff`) and all four run files
+embedded as the harvester wrote them: **147196 B**; **seatCount 4 of 6 — RED under L-13's letter**
+(`.f` returned ESCALATED at `3d4470f2` but its journal never carried a result row — a
+journal/harvester finding for X-W11's HARVEST beside F-e11; `.f2` structurally absent, W0 R-3 / W1 R-3
+/ ESC-e2 reproduced). The `DEFECT-LEDGER.md` append for `.g`/`.h`'s rows is **not written** —
+`registry/DEFECT-LEDGER.md` is in no row of this grant (residual, owner named in §13.5).
+
+**A-7 · E13, four paths at this seat's clock.** `docs/tranches/V/` **10** depth-1 ⊕ `V/coordination/`
+**24** · ⟨cmd⟩ `ls -dt ../glass-ui/docs/tranches/*/ | head -1` → **`BK/`**, **9** entries, newest
+`glass-outbound-2026-09-18-valuejs-o26-reply.md` = I-35 (rowed) · keyframes.js **13**, newest by mtime
+`INBOUND-LEDGER.md` (no new letter) · atlas **28** UNMOVED. ⟨cmd⟩ `find <the four paths> -maxdepth 1
+-type f -name '*.md' -newermt "2026-09-19 12:00" | grep -v INBOX.md` → **no member**. **0 unrowed
+letters addressed to value.js · 0 UNREAD (78 rows) · one row minted (O-42).**
+
+#### Gate readings — BEFORE → AFTER (this seat's own commands, every reading double-run)
+
+| gate | BEFORE (A-1, pre-write) | AFTER (post-write, re-run) | verdict |
+|---|---|---|---|
+| **G-1** | **RED — [F] 1 · [J] 1** (the ledger's §11 form) | unchanged — no ledger byte is this seat's to move | **RED (E-w4f2-1)** |
+| **G-2** | 13 foreign `demo/**`+`e2e/**` lines; 0 wave-commit paths | ⟨cmd⟩ `git show --name-only --format= a6e94149 c1fe075f \| grep -cE '^(src\|demo\|api\|test\|e2e)/'` → **0** | **GREEN for X·P** |
+| **G-3** | `52 of 52` · `G3 GREEN` · sha `004bbcce…` · EXIT=0 ×2 | unchanged (no `<p2>` byte moved) | **GREEN** |
+| **G-4** | GREEN, `f0d063d6…`, 0/0 | unchanged | **GREEN** |
+| **G-5** | honestly FALSE, 3 of 6, arm V 20,962; negative control clean | unchanged | **GREEN** |
+| **G-6** | 25 | 25 | **GREEN** |
+| **G-7** | 0 / 0 | 0 / 0 | **GREEN — floor held** |
+| **G-8** | packet 26645 B · 0 UNREAD / 77 | packet + second addendum (28768 B) · O-42 · **0 UNREAD / 78** | **GREEN** |
+| **G-9** | (C) recorded | unchanged; 0 paths under `docs/tranches/X/waves/` in this seat's commits | **GREEN** |
+| **G-10** (a) | 5 | 5 — the act **not performed**, withheld by gate id G-1 | **RED (withheld)** |
+
+#### Commits (pathspec on the commit itself; `dev.sh` never staged; the sibling's staged `D demo/shell/PaneSegmentedControl.vue` left exactly as found)
+
+| repo | hash | meaning |
+|---|---|---|
+| value.js | **`a6e94149`** | `docs(x-p-w4.f2/evidence)` — eight NEW dated files under `evidence/W4/` (the gate receipt, G-1's output, G-3 ×2, G-4, G-5 json+txt, G-5's negative control) |
+| value.js | **`c1fe075f`** | `docs(x-p-w4.f2/close)` — `waves/W4-CLOSE.md` §13 · `RELEASE-PACKET.md` second addendum · `INBOX.md` O-42 · `harvest/x-p-w4s.json` fold/2. The §9 `.d` family's stamp members (five VERIFIED rows, two COHESION cells) are absent **because the act was withheld**, not because the family was split |
+| value.js | *this receipt* | `docs(x-p-w4.f2)` — this section, inserted under `## Unit receipts` |
+
+No `<p2>` commit: this seat wrote no byte there. `LEDGER.md` is clean at this seat and in no row of
+this grant — not written; the X.P.W4S row stays TRUE.
+
+#### Residuals and escalations
+
+- **E-w4f2-1 (ESCALATION — the reason this unit is not DONE).** `DIVERGENCE-LEDGER.md` §11 (`.h`,
+  `e31b8450`) is not in the checker's row grammar: `### §11.4 F-w4f-2 — …` mints a phantom row ([J]);
+  the `F-w4f-1` row is a table under `### §11.1 The row` and so has no reader-visible id ([F]). Cure,
+  for the triumvirate, at that file: (a) `### §11.4` → `#### §11.4`; (b) render `F-w4f-1` as
+  `### F-w4f-1 — a declaration NAME that is not one <ident-token>` with the `| field | value |` table
+  (content lifted from §11.1), in place or as a dated §12 beside. Then G-1 re-runs; a further FRESH seat
+  stamps iff G-1..G-9 GREEN. Until then the R-A stamp stays **WITHHELD by gate id G-1** and both
+  COHESION carves unperformed.
+- **L-13 4 of 6** · **DEFECT-LEDGER append not written** · **`LEDGER.md` not this unit's** — each with
+  its owner in `W4-CLOSE.md` §13.5.
+- **No workaround anywhere**: no edit to the checker, the ledger, `ADJUDICATION-W4.md`, any four-verb
+  row, any COHESION cell, any `evidence/W4/**` file of an earlier seat, `LEDGER.md`, or `dev.sh`; no
+  re-worded heading to satisfy a grep; raw gate outputs banked verbatim (JSON cannot carry the
+  SERVED-MODEL header line; `gates-w4f2-2026-09-19.md` carries it and names them).
+
 ## Commit — and the LEDGER event line, WITHHELD a fourth time
 
 ⟨cmd⟩ `git status --porcelain -- docs/tranches/X/execution/LEDGER.md` → ` M …/LEDGER.md`, ⟨cmd⟩
