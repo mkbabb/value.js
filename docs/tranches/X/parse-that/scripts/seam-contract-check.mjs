@@ -17,7 +17,7 @@
 // Exit 0 only when every one of checks A..K is clean. Exit 1 otherwise, with each failing check
 // named and its offending rows printed by name — never a bare count.
 
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -29,6 +29,11 @@ const [contractPath, universePath, ledgerPath] = [
     process.argv[3] ?? resolve(PARSE_THAT, "evidence/W3/universe-52.json"),
     process.argv[4] ?? resolve(PARSE_THAT, "DIVERGENCE-LEDGER.md"),
 ];
+
+// X.P.W4.g — the FOURTH path, optional, so `W4.md` §6 G-1's three-argument command is unchanged:
+// the adjudication lives beside the contract it rules, and is found there unless named explicitly.
+// A fixture (a negative control) names its own, which is the only reason this is an argument at all.
+const adjudicationPath = process.argv[5] ?? resolve(dirname(contractPath), "ADJUDICATION-W4.md");
 
 /* ── §0v / §0w — the ruling ids, which are classes in COHESION.md and not rows in the ledger ──── */
 
@@ -125,6 +130,89 @@ function readLedger(path, names) {
     return ids;
 }
 
+/**
+ * X.P.W4.g — THE POST-ADJUDICATION VOCABULARY, limb 1: `DIVERGENCE-LEDGER.md` §10's RETIREMENTS.
+ *
+ * COHESION §0ab (E-w4f-1): *"a ledger row RETIRED in `DIVERGENCE-LEDGER.md` §10 does not bind its
+ * `subjects`"*. A retirement is a measured ruling that the row's PREMISE is false at the producer
+ * (F-w4a-1) — `CN-2`'s ten "absent" exports are exported, `CN-3`'s twenty-eight "undeclared" types
+ * are declared. A row whose premise is false states nothing about its subjects, so an `identical`
+ * disposition beside it is not a contradiction; it is the ruling.
+ *
+ * Read at the bytes, never from a status word: inside the `## §10` section, a table row whose FIRST
+ * cell is a backticked id the ledger itself defines and whose remaining cells contain the standalone
+ * word `RETIRED`. Rows outside §10 do not retire anything — §0–§9 are the emitter's own bytes.
+ */
+function readRetirements(path, ledgerIds) {
+    const lines = read(path).split(/\r?\n/);
+    const retired = new Map(); // id -> the ruling text that retires it
+    let inTen = false;
+    for (const line of lines) {
+        if (/^## /.test(line)) inTen = /^## §10\b/.test(line);
+        if (!inTen) continue;
+        if (!/^\|/.test(line)) continue;
+        const cells = line
+            .split(/(?<!\\)\|/)
+            .slice(1, -1)
+            .map((c) => c.trim());
+        if (cells.length < 2) continue;
+        const id = (backticked(cells[0])[0] ?? "").trim();
+        if (!id || !ledgerIds.has(id)) continue;
+        const rest = cells.slice(1).join(" | ");
+        if (!/(^|[^A-Za-z])RETIRED([^A-Za-z]|$)/.test(rest)) continue;
+        if (!retired.has(id)) retired.set(id, rest);
+    }
+    return retired;
+}
+
+/**
+ * X.P.W4.g — THE POST-ADJUDICATION VOCABULARY, limb 2: `ADJUDICATION-W4.md`.
+ *
+ * COHESION §0ab (E-w4f-1): *"a carried cell whose ruling is recorded in `ADJUDICATION-W4.md` is
+ * terminal — G reads the adjudication, not §0v's pre-adjudication rider"*. §0v's rider — *"the seam
+ * contract publishes the carried cells as PENDING-ADJUDICATION dispositions"* — is a rule for a
+ * contract that has no adjudication yet. Where one exists and rules an entry, the entry's
+ * disposition is TERMINAL and publishing it as still-pending contradicts the ruling.
+ *
+ * Read at the bytes: the `### §2.x` subsections of `## §2` are the per-cell rulings, and an entry is
+ * ruled by a subsection when that subsection NAMES it in backticks — heading OR body. The body is
+ * load-bearing and was measured before this was written: `### §2.1`'s heading reads *"`GROUND-C` on
+ * the four colour-family entries — 4 cells (`#1`–`#4`)"* and names no export at all; the four
+ * entries it rules (`parseCssColor` · `parseCssScalar` · `parseCssValue` · `parseCssValues`) appear
+ * in its first body sentence. A heading-only reader would have left 4 of the 6 carried entries
+ * unruled and reported a RED that the adjudication refutes.
+ *
+ * Absent file ⇒ nothing is ruled, every carried cell fails check G, and the run says so in its
+ * output: a close gate cannot read a ruling out of a file that does not exist.
+ */
+function readAdjudication(path, names) {
+    if (!existsSync(path)) return { present: false, ruled: new Map(), sections: 0 };
+    const lines = read(path).split(/\r?\n/);
+    const ruled = new Map(); // export name -> [§2.x subsections that rule it]
+    let inTwo = false;
+    let cur = null;
+    let sections = 0;
+    for (const line of lines) {
+        if (/^## /.test(line)) {
+            inTwo = /^## §2\b/.test(line);
+            cur = null;
+        }
+        if (!inTwo) continue;
+        const head = line.match(/^### (§2\.\d+)\s+(.*)$/);
+        if (head) {
+            cur = head[1];
+            sections++;
+        }
+        if (!cur) continue;
+        for (const tok of backticked(head ? head[2] : line)) {
+            if (!names.includes(tok)) continue;
+            if (!ruled.has(tok)) ruled.set(tok, []);
+            if (!ruled.get(tok).includes(cur)) ruled.get(tok).push(cur);
+        }
+    }
+    return { present: true, ruled, sections };
+}
+
 /** The contract's 52 rows, read from between the two anchors so no prose table can be mistaken for it. */
 function readContract(path) {
     const text = read(path);
@@ -171,6 +259,10 @@ const universe = readUniverse(universePath);
 const names = [...universe.rows.keys()];
 const ledger = readLedger(ledgerPath, names);
 const contract = readContract(contractPath);
+
+// X.P.W4.g — the post-adjudication vocabulary, read from the two files that now hold it.
+const retired = readRetirements(ledgerPath, new Set(ledger.keys()));
+const adjudication = readAdjudication(adjudicationPath, names);
 
 // export -> ledger ids, both tiers
 const tier1 = new Map();
@@ -228,20 +320,35 @@ if (badHeads.length)
         badHeads,
     );
 
-/* E — THE CONTRADICTION. `identical` while the ledger holds a row naming that export. */
+/* E — THE CONTRADICTION. `identical` while the ledger holds a LIVE row naming that export.
+ *
+ * X.P.W4.g (COHESION §0ab, E-w4f-1): *"a ledger row RETIRED in `DIVERGENCE-LEDGER.md` §10 does not
+ * bind its `subjects`"*. A retirement is a ruling that the row's PREMISE is false at the producer —
+ * `CN-2` claimed ten exports are absent from the candidate and they are exported; `CN-3` claimed
+ * twenty-eight types are undeclared and they are declared. A row that states nothing true about its
+ * subjects cannot contradict a disposition. The BINDING is what dies, not the row: §1–§9 stand
+ * unedited (E-3), and the retirement is read off §10 at the bytes on every run.
+ *
+ * The teeth are unchanged for every LIVE row — an unretired subject binding against an `identical`
+ * row is still fatal, and that is this check's negative control. */
 const contradictions = [];
+const retiredBindings = [];
 for (const r of contract.rows) {
     if (r.head !== "identical") continue;
-    const bound = tier1.get(r.name);
-    if (bound?.length)
+    const bound = tier1.get(r.name) ?? [];
+    const live = bound.filter((id) => !retired.has(id));
+    const dead = bound.filter((id) => retired.has(id));
+    if (dead.length)
+        retiredBindings.push(`${r.name}: ${dead.join(", ")} (§10, RETIRED)`);
+    if (live.length)
         contradictions.push(
-            `${r.name}: disposition "identical" vs DIVERGENCE-LEDGER rows ${bound.join(", ")}`,
+            `${r.name}: disposition "identical" vs DIVERGENCE-LEDGER rows ${live.join(", ")}`,
         );
 }
 if (contradictions.length)
     fail(
         "E",
-        "a row whose disposition contradicts DIVERGENCE-LEDGER.md",
+        "a row whose disposition contradicts a LIVE DIVERGENCE-LEDGER.md row",
         contradictions,
     );
 
@@ -261,18 +368,48 @@ if (unknownIds.length)
         unknownIds,
     );
 
-/* G — COHESION §0v's rider: every carried (non-TOTAL) universe row publishes PENDING-ADJUDICATION,
-       and its carried ids appear in the cell. */
+/* G — THE CARRIED CELLS, READ AGAINST THE ADJUDICATION.
+ *
+ * X.P.W4.g (COHESION §0ab, E-w4f-1): *"a carried cell whose ruling is recorded in
+ * `ADJUDICATION-W4.md` is terminal — G reads the adjudication, not §0v's pre-adjudication rider"*.
+ *
+ * §0v's rider — *"the seam contract publishes the carried cells as PENDING-ADJUDICATION
+ * dispositions"* — is the rule for a contract whose cells have not been ruled yet. It was never a
+ * statement that a carried cell must stay pending forever; it was the honest publication of an
+ * unfinished adjudication. Once `ADJUDICATION-W4.md` rules an entry, the entry's disposition is
+ * TERMINAL, and republishing it as PENDING contradicts the ruling exactly as an `identical`
+ * disposition beside a live ledger row contradicts that row.
+ *
+ * So the check becomes a biconditional with teeth on BOTH sides, and the §0v rider survives as the
+ * unruled arm of it:
+ *   G1  a carried cell that is still PENDING is RED — the wave cannot close on an unruled cell, and
+ *       the report names whether the adjudication rules it (a ruling ignored) or does not (a cell
+ *       nobody ruled). This is the negative control the ruling demands: *"a PENDING head with no
+ *       adjudication row"*.
+ *   G2  a carried cell published TERMINAL with no §2.x ruling is RED — a terminal disposition is
+ *       the consequence of a ruling, never a substitute for one.
+ *   G3  a carried id absent from the disposition cell is RED — unchanged from the rider, and the
+ *       leg that stops a ruling from silently dropping one of the ids it was handed. */
 const riderMisses = [];
 for (const [name, u] of universe.rows) {
     if (!u.remainder) continue;
     const r = contract.rows.find((x) => x.name === name);
     if (!r) continue; // already reported by B
-    if (r.head !== "PENDING-ADJUDICATION") {
+    const carried = Object.entries(u.remainder)
+        .map(([k, v]) => `${k}×${v}`)
+        .join(" ");
+    const rules = adjudication.ruled.get(name) ?? [];
+    if (r.head === "PENDING-ADJUDICATION") {
         riderMisses.push(
-            `${name}: carries ${Object.entries(u.remainder)
-                .map(([k, v]) => `${k}×${v}`)
-                .join(" ")} but publishes "${r.head}"`,
+            rules.length
+                ? `${name}: carries ${carried} and is RULED at ADJUDICATION-W4.md ${rules.join(", ")}, but still publishes PENDING-ADJUDICATION`
+                : `${name}: carries ${carried}, publishes PENDING-ADJUDICATION, and NO ADJUDICATION-W4.md §2.x rules it${adjudication.present ? "" : " (ADJUDICATION-W4.md is absent)"}`,
+        );
+        continue;
+    }
+    if (!rules.length) {
+        riderMisses.push(
+            `${name}: carries ${carried} and publishes terminal "${r.head}", but NO ADJUDICATION-W4.md §2.x rules it${adjudication.present ? "" : " (ADJUDICATION-W4.md is absent)"}`,
         );
         continue;
     }
@@ -287,7 +424,7 @@ for (const [name, u] of universe.rows) {
 if (riderMisses.length)
     fail(
         "G",
-        "COHESION §0v rider — a carried cell not published as PENDING-ADJUDICATION",
+        "a carried cell that is not TERMINALLY RULED in ADJUDICATION-W4.md (COHESION §0ab)",
         riderMisses,
     );
 
@@ -360,6 +497,9 @@ out.push("=".repeat(78));
 out.push(`contract   ${contractPath}`);
 out.push(`universe   ${universePath}`);
 out.push(`ledger     ${ledgerPath}`);
+out.push(
+    `adjudic.   ${adjudicationPath}${adjudication.present ? "" : "   (ABSENT — nothing is ruled)"}`,
+);
 out.push("");
 out.push(
     `rows: contract ${contract.rows.length} · universe ${names.length} · ledger rows ${ledger.size}`,
@@ -383,6 +523,28 @@ const carriedCells = carriedRows.reduce(
 out.push(
     `  (COHESION §0v carried: ${carriedCells} cells over ${carriedRows.length} rows)`,
 );
+out.push("");
+
+/* X.P.W4.g — the post-adjudication vocabulary, printed so the two rulings this checker now reads
+   are auditable from its own output rather than from this file's source. */
+out.push("POST-ADJUDICATION VOCABULARY (COHESION §0ab, E-w4f-1)");
+out.push(
+    `  DIVERGENCE-LEDGER §10 RETIRED rows: ${retired.size ? [...retired.keys()].join(", ") : "(none)"}`,
+);
+out.push(
+    `  bindings those retirements release: ${retiredBindings.length ? retiredBindings.length : 0}`,
+);
+for (const b of retiredBindings) out.push(`        ${b}`);
+out.push(
+    `  ADJUDICATION-W4.md §2 subsections: ${adjudication.present ? adjudication.sections : "(file absent)"}`,
+);
+for (const u of carriedRows) {
+    const rules = adjudication.ruled.get(u.name) ?? [];
+    const r = contract.rows.find((x) => x.name === u.name);
+    out.push(
+        `        ${u.name.padEnd(22)} ${(rules.length ? rules.join(" ") : "UNRULED").padEnd(18)} publishes "${r ? r.head : "(no row)"}"`,
+    );
+}
 out.push("");
 
 out.push(
@@ -409,10 +571,10 @@ out.push("");
 
 if (!failures.length) {
     out.push(
-        "VERDICT: GREEN — both set-differences ∅, no disposition contradicts the ledger,",
+        "VERDICT: GREEN — both set-differences ∅, no disposition contradicts a LIVE ledger row,",
     );
     out.push(
-        "         every carried cell publishes PENDING-ADJUDICATION, no field is blank.",
+        "         every carried cell is terminally ruled in ADJUDICATION-W4.md, no field is blank.",
     );
     console.log(out.join("\n"));
     process.exit(0);
