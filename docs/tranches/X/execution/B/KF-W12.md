@@ -2555,3 +2555,498 @@ leave `PARTIAL` — those are `.g`'s; any claim on the rendered SS-13 witnesses,
 derivation can discharge; and any claim to KF.W11's latch adoption, KF.W6's duration rung or
 KF.W6's two landed `light-dark()` arms, all three of which this unit measured and none of which
 it wrote.
+
+---
+
+## Close — second sitting
+
+SERVED MODEL: claude-opus-5[1m]
+
+**Seat**: KF.W12.g — **RE-CLOSE** (phase 4, serial, last; third sitting). **VERIFY-ONLY — this seat
+cured nothing, wrote ZERO keyframes.js bytes, ZERO glass-ui bytes and ZERO product bytes anywhere.**
+**Date** 2026-09-19; **sitting of record 2026-09-17** (the owner's begin-word, COHESION §0j).
+**E-3**: `## Close` (`:1320`), `## Check 1` (`:1652`), the resume section and the `.e`/`.f` receipts
+are IMMUTABLE. This block is a dated close BESIDE them; it rewrites nothing, amends nothing, and
+every correction it measures is written beside the figure it corrects, never over it.
+
+**Substrate, named, never assumed**: keyframes.js `/Users/mkbabb/Programming/keyframes.js` —
+⟨cmd⟩ `git rev-parse --short HEAD` → **`2736b5e5`**; ⟨cmd⟩ `git rev-parse --short origin/master` →
+`c82f92ea` at this seat's open (**10 unpublished**: `.e`'s eight and `.f`'s two) → **`2736b5e5`**
+after ACT 9's push. value.js `tranche-u`. **SHARED INDEX DISCLOSED**: sibling Track-A/C/D seats hold
+28 dirty product and doc rows in this same checkout throughout; every commit below carries its own
+pathspec **on the commit itself**, and nothing of a sibling's was staged, reset or unstaged.
+
+**VERDICT: CLOSED — honest-RED on G-KFW12-4 and G-KFW12-7.** Phase 3 landed. **All six product
+units have now run**; **five of seven gates are GREEN at this seat's own double-run commands**
+(G-1 · G-2 · G-3 · G-5 · G-6), and the two REDs are the two the formation already has heads for.
+**CHECK 1's BLOCKER-1 is discharged by landing, not by argument; its HIGH-1 is discharged by this
+seat's own act** (ACT 7). No RED is masked, weakened or re-described.
+
+### ACT 0 — crash-recovery (standing law, first act)
+
+⟨cmd⟩ `git -C /Users/mkbabb/Programming/keyframes.js status --porcelain` → **2 untracked rows**, both
+2026-07 `VALUEJS-INBOUND-*` coordination letters value.js authored — not product, outside every
+KF.W12 path, untouched. **The `KeyframesStringControls.vue` modification the resume section handed
+`.e` is GONE**: `.e` committed it (ACT 1/ACT 2 of its receipt, `6f5929dd` ⊕ `c5b474b8`), so the
+worktree carries **zero modified product paths**. Verified, not assumed.
+
+⟨cmd⟩ `git -C /Users/mkbabb/Programming/value.js status --porcelain -- docs/tranches/X/execution/B/KF-W12.md
+docs/tranches/X/execution/LEDGER.md docs/tranches/V/coordination/INBOX.md docs/tranches/X/COHESION.md
+docs/tranches/X/keyframes/evidence/W12/` → ***(no output)***. **Every path in this seat's writable
+set is CLEAN — zero inherited hunks, nothing finished, nothing rewritten, nothing stashed, nothing
+restored.** The 28 dirty rows elsewhere in the checkout (Track A's `execution/A/X-W5.md`, Track B's
+sibling `execution/B/KF-W13.md`, `V/reformation/CARRY-LEDGER.md`, the `demo/**`/`src/**`/`test/**`
+rows of other tracks, and `scripts/dev/dev.sh` — **unowned, never staged, never touched**) belong to
+sibling seats and were not read for judgement.
+
+**`LEDGER.md` IS CLEAN AT THIS SEAT'S CLOCK.** The resume section withheld its row edit because
+Track A's uncommitted X-W9 hunk sat in the file (numstat `2 1`, read twice). That hunk is committed;
+⟨cmd⟩ `git status --porcelain -- docs/tranches/X/execution/LEDGER.md` → *(no output)*, twice. **The
+fourth withholding is therefore DISCHARGED, not carried** — the banked text lands at ACT 11.
+
+### ACT 1 — the FULL commit roster, audited to §Bounds
+
+⟨cmd⟩ `git rev-list --count bf4a9a9c..HEAD` → **46**. SELF-COUNT by unit
+(⟨cmd⟩ `git log bf4a9a9c..HEAD --format='%s' | grep -c 'X.KF.W12.<u>'`): **`.a` 9 · `.b` 8 · `.c` 12
+· `.d` 7 · `.e` 8 · `.f` 2 · `.g` 0 = 46 ✓**. The close of record's 36 stand unchanged; the ten new
+are phase 3's.
+
+| unit | n | shas (oldest → newest) | bounds verdict (`git show --stat` each) |
+|---|---|---|---|
+| **`.a`** CARD | 9 | as `## Close` ACT 1 lists them, `e5235ca0` … `ed96f2b0` | **CLEAN**, re-verified |
+| **`.b`** OPTIONS | 8 | `98675047` … `2cd314af` | **CLEAN**, re-verified (the `EasingSidebar.vue` carve read at ACT 8 / MINOR-4) |
+| **`.c`** KFED | 12 | `1b29fb22` … `c82f92ea` | **CLEAN**, re-verified |
+| **`.d`** EDITOR | 7 | `7cda421c` … `ec49bbef` | **CLEAN**, re-verified (`helpers.ts` ALONE at `ccda20c7`) |
+| **`.e`** APPLY | **8** | `5bbb7b20` · `30efb823` · `d0665322` · `2a0afe7a` (the four inherited-and-kept) ⊕ `6f5929dd` · `c5b474b8` · `5198fd68` · `c9346000` | **CLEAN with ONE DISCLOSED CROSS-UNIT WRITE** — see below |
+| **`.f`** AXISLINE | **2** | `6db80df7` · `2736b5e5` | **CLEAN** — `CubeAxisLines.vue` alone, then `cube-axis-reveal.test.ts` alone |
+
+**The whole touched-path set, enumerated** — ⟨cmd⟩ `git log bf4a9a9c..HEAD --name-only --format='' |
+sort -u` → **30 paths** (the close's 26 ⊕ `useKeyframesParsing.ts` · `apply-css-identity.test.ts` ·
+`CubeAxisLines.vue` · `cube-axis-reveal.test.ts`), **every one a §B.2 row**.
+
+**Wave-invalidating bounds, each measured EMPTY over all 46** (⟨cmd⟩ the enumerated path list piped
+through `grep -c` per pattern): `src/**` **0** · `demo/scenes/cube/orbital-drag/**` **0** ·
+`node_modules/**` **0** · `package.json` **0** · `vitest.config.ts` **0** · every glass-ui tree **0**
+· `instrument/timeline/**` **0** · `components/playback/**` **0** · `TransportDock*` **0** ·
+`demo/app/**` **0** · `instrument/shell/**` **0** · `PlaybackRibbon.vue` **0** ·
+`monaco-themes/**` **0** (arm (b) taken; E-d2 owes them) · **`scripts/dev/dev.sh` in 0 of 46**.
+
+**DISCLOSED — one in-wave cross-unit write, found by this audit and named rather than smoothed.**
+`2a0afe7a` (an `.e` commit, one of the four the killed seat landed before the resume) touches
+`demo/components/instrument/keyframes/composables/useKeyframesEditor.ts` — a **§B.2 row, but assigned
+to `.c`**, not one of the eight `§Disjointness` serial shares. Read at the bytes: ⟨cmd⟩
+`git show 2a0afe7a --stat -- …/useKeyframesEditor.ts` → **3 insertions, 2 deletions** — the barrel's
+`getTmpAnimationName:` re-export line deleted and the docblock that describes the barrel's surface
+updated to say why. It is **not** a bounds expansion of the wave (the path is a §B.2 row), **not**
+wave-invalidating (none of §Scope's five triumvirate bounds), and **not** a collision (`.c` closed at
+`c82f92ea`, hours before `2a0afe7a` at 12:44; no seat held the file). It is the inseparable tail of
+D-23, which the commit itself states is *"one row, landed whole"*: deleting an accessor and leaving
+its barrel re-export standing does not compile. **Recorded as a deviation from the §B.2 unit
+assignment, disclosed on the record rather than left for a challenge pass to discover.**
+
+**value.js** — ⟨cmd⟩ `git log --oneline --format='%h %s' -- docs/tranches/X/execution/B/KF-W12.md
+docs/tranches/X/keyframes/evidence/W12/` → **16 commits**, oldest → newest: `beacd880` (open attempt)
+· `a9c1a6fd` (open) · `9976852f` (.a) · `c8d4c2ac` + `9615a004` (.b) · `88655c02` + `ec334c53` +
+`2b8b13c9` (.c) · `e52c2f2c` + `04cf44d4` (.d) · **`6f878106`** (the close of record) · **`57afb188`**
+(CHECK 1) · **`6afffdab`** (the resume) · **`5db5d0f0`** + **`46eb4ea5`** (`.e`) · **`3464a1c9`**
+(`.f`) ⊕ this block's below. Every one pathspec-bounded to `execution/B/KF-W12.md`,
+`keyframes/evidence/W12/**`, `LEDGER.md`, `COHESION.md` or `V/coordination/INBOX.md`. **No sibling
+path rode any commit in either repo.**
+
+### ACT 2 — all SEVEN gates, RE-RUN at this seat's own clock, double-run
+
+Per the re-close brief, **G-1..G-4 are RE-RUN here, not cited**. All commands from
+`/Users/mkbabb/Programming/keyframes.js`. BEFORE = the wave's born-RED baseline at `bf4a9a9c`.
+SELF-COUNT: ⟨cmd⟩ `grep -c '^\*\*G-KFW12-' keyframes/waves/KF-W12.md` → **7**; seven rows.
+
+| gate | BEFORE (`bf4a9a9c`) | AFTER (this seat, run 1 · run 2) | verdict |
+|---|---|---|---|
+| **G-KFW12-1** CARD | `No test files found` | **`Test Files 1 passed (1)` / `Tests 9 passed (9)`** · same | **GREEN** |
+| **G-KFW12-2** OPTIONS | `No test files found` | **`Test Files 1 passed (1)` / `Tests 5 passed (5)`** · same | **GREEN** |
+| **G-KFW12-3** KFED | `No test files found` | **`Test Files 1 passed (1)` / `Tests 7 passed (7)`** · same | **GREEN** |
+| **G-KFW12-4** EDITOR | `No test files found` | **`Test Files 1 failed (1)` / `Tests 1 failed \| 3 passed (4)`** · same | **RED — one limb of four; E-d1, honest-RED** |
+| **G-KFW12-5** APPLY | `No test files found` | **`Test Files 1 passed (1)` / `Tests 4 passed (4)`** · same | **GREEN — RED→GREEN, `.e`** |
+| **G-KFW12-6** AXISLINE | `No test files found` | **`Test Files 1 passed (1)` / `Tests 11 passed (11)`** · same | **GREEN — RED→GREEN, `.f`** |
+| **G-KFW12-7** close | RED by construction | **RED on two limbs** (ACT 3) | **RED — honest** |
+
+**The six `create` files, proven at the bytes** — ⟨cmd⟩ `ls <path>` ×6 → **all six EXIST**. The
+close of record's two `No such file or directory` readings (`apply-css-identity.test.ts`,
+`cube-axis-reveal.test.ts`) are cured at the bytes, not re-described: they are `5198fd68` and
+`2736b5e5`. **The absence that caused G-5's and G-6's born-RED is gone.**
+
+**The one failing case of G-KFW12-4, named rather than summarised**: `(2) KF-CE-1: the tokenizer the
+boot registered classifies 'a { color: red }'` — `.d`'s **E-d1**, the arm's five-line ambient
+declaration for monaco's untyped `basic-languages/css/css.js`, whose only lawful home
+(⟨cmd⟩ `find demo -name '*.d.ts' -maxdepth 2` → **`demo/env.d.ts`, the only one**) is not a §B.2 row.
+Cases (1) Tab-not-swallowed, (3) the cancelled stale emit and (4) the loud format failure are
+**GREEN**. Nothing was substituted, cast, guarded or allow-listed to reach that 3.
+
+**Byte clauses — eleven, every one re-measured double at this seat, BEFORE → AFTER:**
+
+| clause | gate | BEFORE | AFTER (run 1 · run 2) | must read | verdict |
+|---|---|---|---|---|---|
+| `grep -c 'frame.start.value = starts' KeyframesEditor.vue` | G-1 | 1 | **0 · 0** | 0 | **GREEN** |
+| `grep -rc ':is-open' channel-controls \| grep -v ':0$'` | G-2 | 4 (3+1) | **nothing · nothing** | nothing | **GREEN** |
+| `grep -c '@update:checked' LayerConfigPanel.vue` | G-2 | 1 | **0 · 0** | 0 | **GREEN** |
+| `grep -c 'parseCssScalar' KeyframesEditor.vue` | G-3 | 2 | **0 · 0** | 0 | **GREEN** |
+| `grep -c 'class="absolute top-2 right-4' KeyframeCard.vue` | G-3 | 1 | **0 · 0** | 0 | **GREEN** |
+| `grep -c 'toLowerCase()' useKeyframesState.ts` | G-3 | 1 | **0 · 0** | 0 | **GREEN** |
+| `grep -c 'tabFocusMode' CSSCodeEditor.vue` | G-4 | 0 | **2 · 2** | ≥ 1 | **GREEN** |
+| `grep -c 'isFormatting' KeyframesStringControls.vue` | G-4 | 4 | **6 · 6** | recorded | recorded |
+| `grep -c 'cssIdent' dist/keyframes.d.ts` (clock) | G-5 | 2 | **2 · 2** | printed | printed |
+| `grep -rc 'cssIdent' demo` — **non-comment** consumers | G-5 | 0 (1 comment) | **1 file, 2 sites** · same | ≥ 1 | **GREEN — RED→GREEN** |
+| `grep -c 'useEventListener(window, "keydown"' OrbitalDrag.vue` | G-6 | 1 | **0 · 0** | 0 | **GREEN (LANDED-BY KF.W11 `.a` `fff7232c`)** |
+
+**The `cssIdent` census resolved line by line at this seat, so the figure cannot be read loosely** —
+⟨cmd⟩ `grep -rn 'cssIdent' demo` → **7 hits in 3 files**: `helpers.ts:10` (comment) ·
+`useKeyframesState.ts:18`/`:31`/`:39` (comments) · **`useKeyframesState.ts:24`** (`const { cssIdent }
+= kfEngine()`) · **`:56`** (`cssIdent(\`keyframes-style-${animationUUID}\`)`) ·
+`useKeyframesParsing.ts:39` (comment). **ONE consumer file, TWO non-comment sites.** This reproduces
+`.e`'s ACT 3 correction exactly and stands beside — never over — the resume section's looser *"two
+non-comment consumer files"*.
+
+**Order and lock clauses, ALL SIX re-derived at this seat from `git log --reverse` and
+`git show --stat`, never from prose:**
+
+- **G-1 order clause (KC-34, OP-3)** — `e5235ca0` (KC-34 highlight) **precedes** `5b80d54c` (KC-8/KC-9
+  keep-mounted) in `git log --reverse`. **GREEN.**
+- **G-2 lock clause** — ⟨cmd⟩ `git show --stat 98675047` → `ChannelOptions.vue` ·
+  `LayerConfigPanel.vue` · **`ControlsPaneWrapper.vue`** (3 files, 101+/15−). LP-1's render edge is
+  in the SAME commit as the capability restorations. **GREEN.**
+- **G-2 order clause** — five steps, five commits, in sequence: `98675047` STEP 1 → `ebbc8259`
+  STEP 2 → `fcafcff8` STEP 3 → `0e31d417` STEP 4 → `b67dae6f` STEP 5. **GREEN.**
+- **`.d`'s KF-CE-3-first lock** — ⟨cmd⟩ `git log --reverse … | grep 'X.KF.W12.d' | head -1` →
+  `7cda421c` KF-CE-3. **GREEN.**
+- **`.a`'s KC-2 ≡ KF-KE-2 MUST-NOT-SPLIT** — one commit `dec084a8`, ⟨cmd⟩ `git show --stat` →
+  `KeyframesEditor.vue` **alone** (1 file). **GREEN.**
+- **`.d`'s "`debounce` lands ALONE"** — `ccda20c7`, ⟨cmd⟩ `git show --stat` → `demo/utils/helpers.ts`
+  **alone** (1 file). **GREEN.**
+
+**G-5's anti-work clause** — the killed *"both animate the same target simultaneously"* scenario:
+⟨cmd⟩ `grep -c 'animate the same target' test/demo/instrument/apply-css-identity.test.ts` → **1**,
+the docblock's single naming of it **AS killed**. It is cured by no commit, witnessed by no clause,
+and appears in no commit message. **GREEN.**
+
+### ACT 3 — G-KFW12-7, limb by limb, at this seat's own clock
+
+| limb | reading (double-run) | verdict |
+|---|---|---|
+| `npm run test:demo` — every `test/demo/**` passes | **`Test Files 2 failed \| 52 passed (54)` / `Tests 2 failed \| 453 passed (455)`** · identical both runs, **and NO `Errors` line** | **RED** on the two named below |
+| `git diff bf4a9a9c..HEAD -- test \| grep -c 'test.skip\|it.skip\|\.only('` → 0 | literal **1**; the single hit is a **docblock prose line** forbidding the practice. Disambiguated: ⟨cmd⟩ `git diff … \| grep '^+' \| grep -E '(test\|it\|describe)\.(skip\|only)\('` → *(no output)*; ⟨cmd⟩ `grep -rnE '(test\|it\|describe)\.(skip\|only)\(' test/` → *(no output)* **tree-wide** | **GREEN (0 real)** |
+| `git log bf4a9a9c..HEAD --format=%B \| grep -c 'KF-APP-41\|C-22'` → 0 | literal **5**; every hit is `C-22` inside `KF-KC-22`/`KC-22`, CARD-UNIT's own ids. Disambiguated word-bounded: ⟨cmd⟩ `… \| grep -cE '(^\|[^A-Z-])C-22'` → **0**; ⟨cmd⟩ `… \| grep -c 'KF-APP-41'` → **0** | **GREEN (0 real)** |
+| `grep -c 'DISCHARGED by KF.W7 SWAP verdict' execution/B/KF-W12.md` → 0 | **3 · 3** before this block: `:430` (the `.g` plan block quoting its own gate command) · `:1474` (the close's clause row) · `:1823` (CHECK 1's INFO-5 row). **All three are gate quotations or citations of the clause; ZERO are receipts.** Read by position, never by count — and this block's own reporting of the clause raises it again, the third seat to meet the same self-counting pathology and the third to disclose it at the append | **GREEN (0 real)** |
+| `npx vue-tsc … \| grep -c 'error TS'` → 0 | **12 · 12** | **RED under the literal clause; RELIEVED under COHESION §0u part (3) — ACT 4** |
+| the seven producer rows appear as SS-6 relay rows with their date | **ELEVEN rows appended at ACT 7** (`.b` 7 · `.d` 2 · `.a` 2); four of the spec's seven *predicted names* were surfaced by **no unit** — named as NOT-SURFACED, never invented | **PARTLY GREEN — the relay is SENT; the literal "seven" is answered with a measurement, ACT 7** |
+| zero demo-side producer workarounds in the diff | scoped-style override **0** · re-implemented primitive **0** · copied producer selector **0** · `node_modules` patch **0** | **GREEN** |
+| every id in §Carry reads LANDED / KILLED-with-rationale / carried | **all six UNITs rostered per id** — U1/U2/U3/U4 at `:786`/`:1176`/`:1250` + their receipts, **U5 at `.e`'s ACT 5 (10 rows)**, **U6 at `.f`'s ACT 4 (22 rows)** — ACT 6 | **GREEN — RED→GREEN** |
+| `value4-editor-boundary.test.ts`'s timeout NOT widened | ⟨cmd⟩ `git diff bf4a9a9c..HEAD -- test/demo/instrument/value4-editor-boundary.test.ts \| wc -l` → **0** — the file is not in the diff at all, over all 46 commits | **GREEN** |
+
+**The two `test:demo` failures, each named and owned** — neither masked, neither curable by weakening:
+1. `test/demo/instrument/css-code-editor-seam.test.ts > (2) KF-CE-1` — **`.d`'s E-d1**, this wave's,
+   escalated at its root (an ambient declaration outside every §B.2 row; owner at R-3).
+2. `test/demo/scenes/spring-trace-truth.test.ts > (4b)` — **KF.W11's carried honest-RED**
+   (ESCALATION KF11-E(j1) / j-R5), **outside every KF.W12 §B.2 row**, untouched and unweakened by
+   all 46 commits.
+
+**The denominator moved and the movement is accounted**: `48 → 52 → 54` test files and
+`415 → 440 → 455` tests across the wave — **exactly the six created gate files**, the spec's own
+arithmetic, now met by six and not by four. **The `Errors 1 error` line the resume section measured
+is GONE** — `.e` finished its own inherited hunk at `c5b474b8`; this seat measured its absence and
+claims none of the cure.
+
+### ACT 4 — the §0u ratchet, read against the banked floor
+
+⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.json 2>&1 | grep -c 'error TS'` → **12 · 12**.
+**Banked floor at the close of record: 14. Read at the resume: 12. Read here: 12. THE RATCHET HAS
+FALLEN 24 → 14 → 12 AND HAS NEVER RISEN.** Decomposition (⟨cmd⟩ `… | sed 's/(.*//' | sort | uniq -c
+| sort -rn`; SELF-COUNT 3+2+2+1+1+1+1+1 = **12 ✓**; by code ⟨cmd⟩ `… | grep -o 'error TS[0-9]*' |
+sort | uniq -c` → `5 TS6133 · 3 TS2322 · 2 TS2339 · 1 TS2345 · 1 TS2379` = **12 ✓**):
+
+| file | n | owner |
+|---|---|---|
+| `demo/components/instrument/transport/TransportDock.vue` | 3 | **KF.W13** |
+| `demo/scenes/easing/useEasingDemo.ts` | 2 | **KF11-E3** (routed at COHESION §0ad) |
+| `demo/app/dock/MbabbMenu.vue` | 2 | **KF.W13** |
+| `src/animation/{group/composite/compositor,group/waapi,physics/smooth}.ts` | 3 | **KF11-E2** (routed at §0ad; `src/**` is out of every KF.W12 bound) |
+| `demo/components/instrument/shell/EditorShell.vue` | 1 | **KF11-E4** (routed at §0ad) |
+| **`demo/components/instrument/keyframes/composables/useKeyframeOps.ts`** | **1** | **E-c1** — root `keyframes/utils/parseAnimationCSS.ts:9`, verified **NOT** a §B.2 row |
+
+**KF.W12's in-bounds §0u residue is now ONE, and it is the relieved one.** The close of record
+delivered 13 → 3; this close reads **13 → 1**. The two that fell are `KeyframesStringControls.vue`'s
+TS6133 pair, and they fell exactly as §0u part (2) requires — **WITH the cure that owns them**
+(`.e`'s `2a0afe7a`, D-23: the second name for the one name deleted), never by a cast. ⟨cmd⟩
+`npx vue-tsc … | grep 'KeyframesStringControls'` → *(no output)*. **CHECK 1's MINOR-3 is DISCHARGED
+at the bytes**, including its own words — *"the type-level shadow of KF-KE-4's unrouted half"* — the
+half is routed and the shadow is gone.
+
+**No cast, no `@ts-expect-error`, no `// eslint-disable` was written as a cure anywhere in the
+window.** ⟨cmd⟩ `git diff bf4a9a9c..HEAD -- demo test | grep '^+' | grep -E
+'ts-ignore|ts-expect-error|eslint-disable|as any|@ts-nocheck'` → **one hit, and it is prose
+forbidding the practice**: `+// narrow against the engine's own tuples (no \`as any\` — N-15).`
+Disambiguated by reading, not by count. **Zero suppressions, zero `as any`, in 46 commits.**
+The literal zero is KF.W13's close (§0u part (3)); this citation is the ruling's, not this seat's
+relief.
+
+### ACT 5 — §Verification artefacts, run as written
+
+- ⟨cmd⟩ `npm run check` → **exit 2 at leg 1** on the same **12** (the roster above verbatim); legs 2
+  and 3 not reached. Recorded, not re-described.
+- ⟨cmd⟩ `npm run test:demo` → **`2 failed | 52 passed (54)` / `2 failed | 453 passed (455)`**, twice,
+  no `Errors` line.
+- ⟨cmd⟩ `npx eslint demo/components/instrument demo/scenes/cube/CubeAxisLines.vue demo/utils/helpers.ts`
+  → **7 problems (7 errors, 0 warnings)** — **UNMOVED from the close of record's 7**, and `.f`'s file
+  contributes **0**: `vue/no-mutating-props` ×3 on `TimingFunctionPanel.vue` (`:151` · `:152` ·
+  `:156`), ×3 on `ControlsPaneWrapper.vue` (`:62` · `:328` · `:366`), `vue/valid-v-for` ×1 on
+  `TransportDock.vue:124` (a KF.W13 file, out of bounds here). **Phase 3 introduced none.** Booked as
+  `.b`'s declared CARRIED residual (KF-CO-45).
+- ⟨cmd⟩ `git diff --check bf4a9a9c..HEAD` → *(no output)*. **CLEAN over all 46.**
+- **Artefacts on disk** — ⟨cmd⟩ `ls docs/tranches/X/keyframes/evidence/W12/` → **12 files** (the
+  close of record's 9 ⊕ **`KF-W12-e-gate-transcripts.md`** ⊕ **`KF-W12-f-gate-transcripts.md`** ⊕
+  **`KF-W12-f-z-triptych.md`**). **The two the close booked ABSENT are present**: `.e`'s apply route
+  evidence with OP-4's greps, and `.f`'s Z triptych with OP-1's grep-at-0. §B.2's `evidence/W12/**`
+  row is fully spent.
+
+### ACT 6 — §Carry, read to the end: every id LANDED / KILLED-with-rationale / carried
+
+The close of record read this limb RED because *"U5 (APPLY) and U6 (AXISLINE) are entirely
+unspent"*. Both are now spent, and this seat resolves all six rosters at their headings rather than
+transcribing them (the ids are the records', for life; M-25 forbids transcription):
+
+| §Carry unit | roster of record | reading |
+|---|---|---|
+| **U1 · CARD (`.a`)** | `#### Rows LANDED — SELF-COUNT 27` ⊕ `#### Rows measured and NOT spent — each named for its owner` (`.a`'s receipt) | **COMPLETE** — 27 LANDED; seven unspent named with owners (R-9); KC-12's behavioural half DECLINED WITH REASON; KC-13 → KF.W4 |
+| **U2 · OPTIONS (`.b`)** | `#### Roster — per id` `:786` | **COMPLETE** — the five steps + KF-TFP-1 ≡ KF-ES-12 + D-B1 + KF-CO-15's options half + the KF-CO-47 decision written; KF-CO-7 → KF.W4 |
+| **U3 · KFED (`.c`)** | `#### Per-id roster` `:1250` | **COMPLETE** — open ids carried at R-9; KF-KE-2 → U1, KF-KE-14 → KF.W4, EE-03 guard-only, each stated as a dedupe not a drop |
+| **U4 · EDITOR (`.d`)** | `#### Roster — per id (U4's list; ids for life)` `:1176` | **COMPLETE** — carried KF-CE-38/-40/-43/-45/-48 named; KF-CE-16 → KF.W4; E-d1/E-d2 escalated with owners |
+| **U5 · APPLY (`.e`)** | `#### ACT 5 — the rest of §Scope 5, row by row` | **COMPLETE — NEW** — 10 rows: N-8 · RB-6 · D-2/L-M-8 (FOLD, not re-booked) · N-7 · D-25 · S-6-as-corrected KEPT · `:57` N-2 · `:59` N-5 ≡ KF-KE-12 · `:65` D-4/L-M-3/C-3 · `:67` D-5/L-M-4/C-4; **the killed scenario named as killed** |
+| **U6 · AXISLINE (`.f`)** | `#### ACT 4 — the cure, row by row (22 AXISLINE-UNIT rows)` | **COMPLETE — NEW** — 22 of 22: 20 LANDED, **KF-AX-18 and KF-AX-19 CARRIED-with-owner** (both root in `orbital-drag/**` / `CubeScene.vue`, out of §Bounds by the spec's own one-cure-one-home dedupe), KF-AX-9's `180ms` rider booked `LANDED-BY KF.W6` and never claimed |
+
+**SELF-COUNT of the §Carry denominators**: U6's roster is the spec's own ⟨cmd⟩ `grep '^| KF-AX'
+kf-CubeAxisLines.md | grep -c AXISLINE` → **22**, and `.f` answers 22. **GREEN.**
+
+**Zero re-bookings, stated positively**: ⟨cmd⟩ over all 46 commit messages → `KF-APP-41` **0**,
+kf-EditorShell `C-22` **0** (word-bounded). `KF-AX-18`/`-19` are **carried with named owners, not
+adopted**; `D-2/L-M-8` is a FOLD by reference at its banked id; the `.e` receipt states *"Zero
+re-booking"* on its own row.
+
+### ACT 7 — the SS-6 producer relay, SENT (CHECK 1's HIGH-1, discharged by act)
+
+CHECK 1 graded the deferral HIGH: *"§B.2 grants `.g` write access to `INBOX.md` and the SS-6
+accretion register; nine producer rows stand collected and written down (R-7), glass-ui stayed
+READ-ONLY, and the standing BH/BI relay law makes the relay a formation invariant, not an option."*
+**This seat appends them.** Landed at `COHESION.md` **§4a**, rows **KFW12-1 … KFW12-11**, each with
+its date, its source unit and its evidence — **ELEVEN**, not nine: R-7's enumeration folded `.a`'s
+KC-20 into prose and this seat rows it separately, as `.a`'s own receipt routes it (`… | .g / SS-6`).
+
+**Composition, measured at the unit receipts rather than restated**: `.b` **7**
+(`#### Producer rows for SS-6 (relayed at .g, not sent from here)` `:803-811`) · `.d` **2**
+(`:1202`) · `.a` **2** (KC-20's re-scoped BH relay `:927`; the `aria-valuetext` refutation `:928`).
+**`.e` surfaced none** (its residual 1 is `.d`'s own test double, a consumer artefact, not a producer
+row — relayed nowhere and booked at R-3b below). **`.f` surfaced none as an ASK**: it READ glass-ui's
+`a11y-overrides.css` / `accessibility.css` / `keyboard.js` to quote the universal PRM guard and the
+two class/ARIA-keyed `forced-colors` blocks, and **stated its reliance in-file instead of
+re-implementing it demo-side** — which is the law working, not a row.
+
+**The spec's §Scope 7 named SEVEN producer rows this wave would surface. Measured against what the
+units actually found, that prediction is 2-of-7, and this seat says so rather than inventing five
+rows to satisfy a count:**
+
+| the spec's predicted name | measured disposition |
+|---|---|
+| the preset seam | **SURFACED** — `.b`'s row 2 (`EasingPicker` `preset` field / `STEP_COUNT_MIN`-`MAX` export) = **KFW12-2** |
+| the slider readout seam | **SURFACED** — `.b`'s row 3 (`LabeledSlider` readout seam) = **KFW12-3** |
+| the keyboard registry's missing `defaultPrevented`/scope | **NOT A PRODUCER ROW at the bytes** — the registry is the **demo's own**, and the cure landed **upstream in `orbital-drag/**` at KF.W11 `.a` `fff7232c`** (`.f` ACT 1 read the adoption at `OrbitalDrag.vue:263-308`). Nothing to relay to glass-ui |
+| the viewport-gated grid | **SURFACED BY NO UNIT** — no unit's §B.2 rows reached it; not invented here |
+| the `steps(1, jump-none)` render throw | **SURFACED BY NO UNIT** — `.b`'s steps cluster (KF-CO-9 ≡ KF-TFP-6, KF-CO-10, KF-CO-40) landed without meeting it; not invented here |
+| unlayered scoped styles | **SURFACED BY NO UNIT** as a producer ask; `.f` measured the adjacent fact (the vendor's forced-colors blocks are class/ARIA-keyed) and stated it in-file |
+| the lossy `cn` table | **SURFACED BY NO UNIT**; not invented here |
+
+**This is the one limb of G-KFW12-7 that a count cannot close honestly.** The relay is **SENT** for
+every row the wave MEASURED; four of the spec's predicted names have no measured finding behind
+them, and **a relayed row nobody measured would be a fabricated producer ask** — the exact class the
+`.d.ts`-quotation law exists to forbid. Booked as residual **R-12** for a challenge pass to overturn
+at the record if it disagrees. **Glass-ui was READ-ONLY at every seat throughout** (⟨cmd⟩
+`git -C ../glass-ui status --porcelain` at `.f`'s own clock, and **0** glass-ui paths in all 46
+commits).
+
+⟨cmd⟩ `git -C /Users/mkbabb/Programming/glass-ui status --porcelain | wc -l` → **0**, at this seat's
+own clock. Glass-ui is unmodified.
+
+### ACT 8 — CHECK 1's register, head by head
+
+| # | severity | CHECK 1's claim | disposition at THIS seat's bytes |
+|---|---|---|---|
+| **1** | **BLOCKER** | phase 3 — `.e` ∥ `.f`, two of six units — never dispatched, neither blocked; G-5/G-6 born-RED unmoved; the goal criterion unmet at the bytes | **DISCHARGED BY LANDING.** ⟨cmd⟩ `git log bf4a9a9c..HEAD --format='%s' \| grep -c 'X.KF.W12.e'` → **8**; `.f` → **2**. ⟨cmd⟩ `grep -n '^### KF\.W12\.' execution/B/KF-W12.md` now returns **`.e` `:2079` and `.f` `:2351`**. Both test files EXIST. **G-KFW12-5 `4 passed (4)` ×2 · G-KFW12-6 `11 passed (11)` ×2.** ⟨cmd⟩ `grep -rn 'cssIdent' demo` → **one non-comment consumer file, two sites** (was *"2 hits, both comments"*). ⟨cmd⟩ `git log bf4a9a9c..HEAD -- demo/scenes/cube/CubeAxisLines.vue` → **`6db80df7`** (was *(no output)*). **Answered by landing, not by argument**, exactly as the resume required |
+| **2** | **HIGH** | the SS-6 relay limb was deferred although the close held both authority and evidence | **DISCHARGED BY ACT** — eleven rows appended to COHESION §4a with dates, sources and evidence; the four unmeasured spec names disclosed rather than invented (ACT 7, residual R-12) |
+| **3** | MINOR | §0u part (2) unmet for `KeyframesStringControls.vue(55,9)`/`(76,5)` — *"the type-level shadow of KF-KE-4's unrouted half"* | **DISCHARGED** — ⟨cmd⟩ `npx vue-tsc … \| grep 'KeyframesStringControls'` → *(no output)*. Both fell WITH `.e`'s D-23 cure (`2a0afe7a`), never by a cast. In-bounds residue **13 → 1**, and that one is E-c1, already relieved (ACT 4) |
+| **4** | MINOR | `EasingSidebar.vue`'s carve read generously (92/132 across three hunks) | **RE-MEASURED, UNCHANGED, STILL MITIGATED.** ⟨cmd⟩ `git diff --stat bf4a9a9c..HEAD -- demo/scenes/easing/EasingSidebar.vue` → **92 insertions / 132 deletions**, identical to both prior readings; ⟨cmd⟩ `grep -rn 'easing-editor' demo/` → *(no output)* — the dropped `container-name` still has **zero** consumers. Phase 3 wrote not one byte of this file. **Recorded a third time so a pass-2 seat may overturn it at the record; this seat does not re-grade a sibling's carve** |
+| **5** | INFO | the SWAP census figure did not reproduce (3 vs 2, a line-wrap) | **RE-MEASURED: 3 · 3** at `:430` · `:1474` · `:1823`, each read by position and each a gate quotation or a citation of the clause. **ZERO receipts.** This block's own reporting raises it again — disclosed at the append, the third seat in a row to meet and publish the same self-counting pathology |
+| **6** | INFO | the LEDGER Track-B row carries a duplicated tail fragment `… close \`6f878106\` + this row** · this row**` | **CURED at ACT 11** — this seat owns the row's cells, the file is clean at its clock, and the repair is a minimal in-place replacement of the duplicated fragment, nothing else |
+
+**CHECK 1's own refusal, answered**: *"it refuses to assert that a wave missing two of six units …
+may be read as CLOSED — under any qualifier."* **The wave is no longer missing them.** Its honest-RED
+forecast — *"the honest-RED set for a future close is, on today's bytes, exactly {G-KFW12-4}"* —
+holds at this close for the runtime gates, with G-KFW12-7 joining it on the limbs ACT 3 enumerates.
+
+### ACT 9 — KF12-E2, answered by landing; and the publication
+
+**KF12-E2 (the dispatch gap) is CLOSED.** It was returned by the close of record as an orchestration
+omission, sustained by CHECK 1 as `NOT-CONFORMANT` incompleteness under COHESION §0x
+(*"incompleteness, not relief"*), and the resume section then discovered `.e` had in fact been
+dispatched **after** the close seat sat and killed mid-work. The remedy was the one the escalation
+itself named — dispatch `[.e ∥ .f]` on the landed substrate, peak 2, nothing re-opened — and it is
+executed: **46 commits, 30 paths, zero out of bounds, zero landed bytes re-opened.**
+
+**Publication.** At this seat's open keyframes.js HEAD was **10 commits ahead of `origin/master`**
+(`.e`'s eight, `.f`'s two — both units closed before pushing, `.f`'s receipt noting `.e` would move
+HEAD again). Under the owner's 2026-09-17 begin-word (COHESION §0j, publish/push authorized) and the
+close of record's own precedent (it published the first 36), this seat pushed:
+⟨cmd⟩ `git push origin HEAD:master` → **`c82f92ea..2736b5e5  HEAD -> master`**;
+⟨cmd⟩ `git rev-parse --short origin/master` → **`2736b5e5`** = HEAD. **All 46 wave commits are
+published.** No byte was written to do it.
+
+### ACT 10 — E13, the four-path sweep, re-run at this seat's own clock
+
+Swept read-only; classification read from each row's **Status cell by position** (field 6 of
+`| # | Date | From | Letter | Status | Owner |`), never from a bare `grep -i unread`; `INBOX.md`
+self-excluded.
+
+| path | confirmed | result |
+|---|---|---|
+| `docs/tranches/V/` + `V/coordination/` | ⟨cmd⟩ `/bin/ls -t` | newest four are the **2026-09-18** 4.1.0 packets (parse-that addendum-2 · fourier facility19 delta · glassui r1 relay · atlas export-delta refresh), **all rowed**; nothing newer |
+| `../glass-ui/docs/tranches/` | ⟨cmd⟩ `/bin/ls -dt …/*/ \| head -3` → `BK/` · `BJ/` · `BI/` — **BK still newest** | newest letter `glass-outbound-2026-09-18-valuejs-o26-reply.md` = **I-35**, rowed |
+| `../keyframes.js/docs/tranches/V/coordination/` | ⟨cmd⟩ `/bin/ls -t` | newest value-addressed item `VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md`, **rowed**; `INBOUND-LEDGER.md` is keyframes' own ledger, not a letter |
+| `../sci-report/atlas/docs/tranches/P/coordination/` | ⟨cmd⟩ `/bin/ls -t` | newest **2026-07-27** (`valuejs-inbound-…-library-band-export-delta.md` = O-12, ours); path UNMOVED |
+
+⟨cmd⟩ `ls <the four dirs> | grep -E '2026-09-(19|20)'` → *(no output)* — **no mail landed anywhere
+at this seat's clock.**
+
+**INBOX census**: ⟨cmd⟩ `grep -cE '^\| [IO]-[0-9]+[a-z]? \|' INBOX.md` → **81**; tail **O-41**
+(O-41 is a sibling Track-B/X·F seat's row minted since the resume, ours, rowed). The bare
+⟨cmd⟩ `grep -c 'UNREAD' INBOX.md` → **81** is the header vocabulary and prose — exactly the false
+gate three seats have now refused. The **positional Status-cell scan** returns **four** rows whose
+Status cell *contains the word*, and every one is prose about a **prior** state: O-20 (*"two UNREAD
+glass 08-09 letters found this boundary"*), I-31 (*"Prior status, kept: **UNREAD 2026-09-17**"*),
+I-32 (*"The advance from `UNREAD` records an act already performed"*), O-39 (*"**UNANSWERED** as of
+this row"*). **ZERO rows carry UNREAD status. ZERO unrowed letters addressed to value.js. ZERO new
+`I-n` minted.** No wave scope carries unread mail; a dated sweep line is appended at `INBOX.md`'s
+end and no row's status was changed.
+
+### ACT 11 — the LEDGER
+
+**The resume section's fourth withholding is DISCHARGED, not carried.** ⟨cmd⟩
+`git status --porcelain -- docs/tranches/X/execution/LEDGER.md` → *(no output)*, read twice before
+the edit and again immediately before the commit. Track A's X-W9 hunk (numstat `2 1`) is committed;
+there is nothing of a sibling's to sweep. **Three minimal in-place acts, no rewrite:**
+
+1. the `KF.W12 = …` clause of row `KF.W11 · W12 · W13` advanced from `**PARTIAL 2026-09-19**` to the
+   second close's verdict, **preserving the whole PARTIAL history rather than regressing it**;
+2. **CHECK 1's INFO-6 cured** — the duplicated tail fragment `+ this row** · this row**` reduced to
+   one `· this row**`;
+3. one dated event line appended at the file's end.
+
+### The four-verb line — moved ONLY as §State permits
+
+The spec's verb table is a **dated spec byte and IMMUTABLE (E-3)**; this seat amends nothing there
+and records the reading here.
+
+| verb | state | basis at this close |
+|---|---|---|
+| AUDITED | **YES** | unchanged |
+| SPECIFIED | **YES** | unchanged |
+| **IMPLEMENTED** | **NO — stays NO** | §State's condition is *"stays NO until the gates green after the sequencing head lands"*. **Five of seven are GREEN; two are RED.** Honest-RED is not green, and this seat does not stamp a verb on a qualifier. **The row moves to CLOSED-honest-RED; the verb does not move.** |
+| VERIFIED | **NO** | *"a successor close's act"* — and **no adversarial CHECK has run against THIS close.** CHECK 1 read the first close and returned `NOT-CONFORMANT`; its two blocking heads are discharged above at the bytes, but a pass-1 seat that authored none of this block has not yet reproduced them. **Not this seat's to stamp.** |
+
+### Residuals — each with a named owner (the close of record's R-1..R-11, re-read, plus one new)
+
+| # | residual | state at this close | owner |
+|---|---|---|---|
+| **R-1** | `.e` APPLY-UNIT never dispatched | **DISCHARGED** — 8 commits, receipt `:2079`, G-KFW12-5 GREEN | — |
+| **R-2** | `.f` AXISLINE-UNIT never dispatched | **DISCHARGED** — 2 commits, receipt `:2351`, G-KFW12-6 GREEN | — |
+| **R-3** | **E-d1** — the five-line ambient declaration for `monaco-editor/esm/vs/basic-languages/css/css.js` (TS7016 at 0.55.1); home `demo/env.d.ts`, **not a §B.2 row**. Built hunk preserved byte-exact in `evidence/W12/KF-W12-d-born-red.md` with its measured delta. G-KFW12-4 case (2) turns GREEN on the grant | **CARRIED** — the sole cause of both RED gates' runtime limbs | owner of `demo/env.d.ts` / orchestrator KF-WRITE |
+| **R-3b** | **NEW, from `.e`** — `.d`'s `@kf-engine` double at `css-code-editor-seam.test.ts:132-138` stubs `presets` as `{ shake: () => ({ play() {} }) }` where the real `PresetFactory` answers a `CSSKeyframesAnimation`. **A live trap**: the next seat that lawfully calls a preset method on that mount path will be told the product is broken when the double is. `.e` declined to touch it (outside its set), did not shape its cure to satisfy it, and published the infidelity | **CARRIED, published not absorbed** | `.d`'s row owner / a successor seat |
+| **R-4** | **E-d2** — KF-CE-33/34/47, one key each in `Dracula.json`/`GitHub.json`; §B.2 conditions them on arm (a) and arm (b) was taken | **CARRIED** | `.d` or a widened reading |
+| **R-5** | **E-c1** — `useKeyframeOps.ts(91,13)` TS2322, rooted at `keyframes/utils/parseAnimationCSS.ts:9`. **The only in-bounds §0u diagnostic this wave owed and did not zero** — and it is relieved: the root is not a §B.2 row, the one-token cure is outside every unit's set, a downstream guard is a shim and a cast is refused | **CARRIED, relieved** | owner of `keyframes/.../utils/` |
+| **R-6** | **E-c2 · E-c3 · E-c4 · E-c6** — SPF-20/-19 · SPF-11 · the engine's draw-loop settle (→ a KF.W5 letter) · N-8's `cssIdent`-safety finding. **E-c6 is DISCHARGED**: `.e`'s `5bbb7b20` carries L-I-1/E-c6 — every non-ident byte folds to `-`, so `classList.add` no longer throws and the `#`+styleId lookup no longer parses as a descendant selector; G-KFW12-5 clause (2) executes it on `"Spring Keyframes"` | **E-c6 DISCHARGED; the rest CARRIED** | their file owners; E-c4 → KF.W5 |
+| **R-7** | the SS-6 producer relay UNSENT | **DISCHARGED** — eleven rows at COHESION §4a (ACT 7) | — |
+| **R-8** | `.b`'s render edge covers writes that CROSS the wrapper; an engine write that bypasses it needs an engine seam (`setLayerConfig` is `Object.assign` + a dirty flag with no event). **A demo-side poll was refused, not written** | **CARRIED** | KF.W5 / `.b`'s successor |
+| **R-9** | the open ids: `.c`'s (KF-KE-18 · -34 · -50 · -17 · -54 · SPF-23 · the `proof:accent-census` residue; `KeyframesAddDialog.vue` and `useToolbarKeyboard.ts` in-bounds and unwritten) · `.d`'s carried KF-CE-38/-40/-43/-45/-48 · `.a`'s seven unspent and KC-12's DECLINED half · `.f`'s **KF-AX-18** (`OrbitalDrag.vue:3-7`) and **KF-AX-19** (`CubeScene.vue:229-231`, re-anchored at true bytes from the record's drifted `:214-216`) | **CARRIED, each with an owner in its receipt** | as named |
+| **R-10** | eslint **7 · 7 UNMOVED** (5 pre-window outright; 2 lines `.b` re-touched inside a pre-existing mutation block) | **CARRIED** | KF-CO-45's owner / KF.W13 |
+| **R-11** | `KeyframeCard.vue` fails `prettier --check` on class ordering at the baseline, not reformatted; `useHighlightCSS.ts:190-203`'s theme-driver docblock re-read and left; unread `controlOptionsStore.ts` schema members named | **CARRIED** | as named |
+| **R-12** | **NEW, this close** — **four of §Scope 7's seven predicted producer rows were surfaced by NO unit** (the viewport-gated grid · `steps(1, jump-none)` · unlayered scoped styles · the lossy `cn` table), and a fifth (the keyboard registry's `defaultPrevented`/scope) is measured **not to be a producer row at all** — the registry is the demo's and its cure landed upstream at KF.W11 `.a`. **No row was invented to satisfy the count.** This is the one G-KFW12-7 limb a count cannot close honestly | **DISCLOSED** | a challenge pass, at the record |
+| **R-13** | **NEW, this close** — `.f`'s SS-13 asks: **#1 · #2 · #3 · #4 · #6 · #8**, the rendered witnesses no derivation can discharge; **#1 must be shot BEFORE and AFTER the filter gate**, which landed at `6db80df7`. Plus KF-AX-9's release asymmetry (the bloom drops in one frame on unlock, stated in-file), KF-AX-3's open half (`--axis-x`'s missing dark arm), KF-AX-2's deuteranopia labels limb, KF-AX-10's two-encoding reconciliation | **CARRIED** | **KF.W9** · **KF.W6** · **J-lane C6** · **U.B8** |
+
+### Escalations returned by this close
+
+- **NONE NEW.** No §Bounds expansion was needed, no specified cure was impossible at the bytes, no
+  diagnostic loop reached three, and this seat wrote no product byte in any repo.
+- **KF12-E2 — CLOSED** by landing (ACT 9). It is the only escalation the close of record raised and
+  it is the only one this close retires.
+- **Carried, unresolved, each already stated by its unit and none re-described here**: **E-d1**
+  (R-3) · **E-d2** (R-4) · **E-c1** (R-5) · **E-c2/-c3/-c4** (R-6; **E-c6 discharged**) · `.b`'s
+  KF-CO-9 store half, KF-CO-11/-12, KF-CO-15's options-half tail and KF-CO-36/LP-22 (all out of the
+  writable set) · **KF11-E(j1)** (the `spring-trace-truth (4b)` honest-RED, KF.W11's, carried
+  untouched and unweakened through all 46 commits).
+
+### Positive statements the close gate asks for, stated as such
+
+- **ZERO SWAP-discharge receipts** were written by any unit, `.a` through `.g`. The literal
+  `DISCHARGED by KF.W7 SWAP verdict` appears **3 · 3** in this file before this block and rises with
+  this block's own reporting; **every occurrence is a gate quotation or a citation of the clause,
+  none is a receipt** (read by position: `:430`, `:1474`, `:1823`). **The KF-AV-28 discharge alphabet
+  has zero members and nothing here wrote it** — the verdict is settled six KEEP-BESPOKE, ZERO SWAP.
+- **ZERO re-bookings**: `KF-APP-41` **0**, kf-EditorShell `C-22` **0**, word-bounded, over all 46
+  commit messages. KF-AX-18/-19 are carried with owners, not adopted; D-2/L-M-8 is a fold by
+  reference at its banked id.
+- **ZERO demo-side producer cures**: no scoped-style override, no re-implemented primitive, no copied
+  producer selector, no `node_modules` patch, in 46 commits. `.b` quoted the installed 7.0.0 `.d.ts`
+  verbatim rather than guessing a prop name; `.a` refuted `aria-valuetext` and `LabeledSlider` at the
+  installed `dist/slider-DzqeQmMu.js` and landed `LabeledField` instead of reaching into rendered
+  thumbs; `.f` **stated its reliance** on the vendor's universal PRM guard in-file rather than
+  duplicating it demo-side. **Glass-ui `status --porcelain` → 0 at this seat's own clock.**
+- **ZERO masking**: no `test.skip`/`it.skip`/`.only` anywhere in the tree, no `try/catch` around a
+  defect, no allowlist, no widened timeout. **`value4-editor-boundary.test.ts` is not in the diff at
+  all** (`wc -l` → 0) — §L-18 (iv)'s named masking class did not occur. The five added `try/catch`
+  blocks were read whole by CHECK 1 and every one surfaces its error.
+- **The killed "both animate the same target simultaneously" scenario appears nowhere as this wave's
+  work** — G-KFW12-5's anti-work clause now holds **at a run**, not vacuously: the sole occurrence is
+  `apply-css-identity.test.ts`'s docblock naming it AS killed.
+- **`scripts/dev/dev.sh`**: **0 of 46** keyframes.js commits and **0 of 20** value.js commits (⟨cmd⟩ the `--name-only` union
+over every value.js commit whose message names `x-kf-w12` → `grep -c 'dev.sh'` → **0**). Never
+  staged, never touched, never read for judgement.
+
+### What this close asserts, and what it refuses to assert
+
+**It asserts**: that **all six product units have run**; that **G-KFW12-1, -2, -3, -5 and -6 are
+GREEN on every clause, double-run, at kf `2736b5e5`**; that the spec's goal criterion is now answered
+on all six legs at the bytes — a card's offset reads, writes and removes; the options card is live in
+both directions **on a render edge in the record's fixed order**; **Apply-CSS applies something**
+(KF-KE-4's chain proven by execution with both strings pasted, and now with `cssIdent`'s own answer
+as a third string in the identity); the code editor is keyboard-escapable and fails loudly; **the
+applied stylesheet binds the class it adds under ONE `cssIdent`-derived name with ONE lifetime**
+(N-8's routed arm, RB-6's watch, `clear()` wired, the CSSOM read-back matching a real target for a
+whitespace-bearing name); and **the axis-lock reveal reveals what it claims on the demo's one
+keyboard registry** (a real `KeyboardEvent` at `window` driving `registerShortcut → setAxisLatch →
+the lit stroke`, unmocked, with every geometric assertion frame-stamped against
+`rotate3d(-1,1,0,30deg)` and re-derived from the tree's own attitude so a frame change reds the
+gate). It asserts that the bounds are clean over 46 commits and 30 paths, that nothing is masked
+anywhere in the diff, that E-3 holds, that the mail is clean, and that the four-verb line was moved
+lawfully — i.e. not at all.
+
+**It refuses to assert**: that the wave is **VERIFIED** — no adversarial CHECK has read THIS close,
+and the verb is a successor's by §State's own words. That **G-KFW12-4 or G-KFW12-7 is green** — they
+are not, and their relief is cited to named heads (E-d1's out-of-bounds home; §0u part (3)'s
+relocation of the literal zero to KF.W13's close; KF11-E(j1)'s ownership of the second `test:demo`
+failure) rather than argued. That the **SS-6 limb is literally seven-of-seven** — it is eleven
+measured rows sent and four predicted names with no finding behind them, said plainly at R-12. That
+`.e`'s cross-unit write of `useKeyframesEditor.ts` was in its own §B.2 assignment — it was not, and
+the deviation is disclosed at ACT 1 rather than smoothed. And it refuses to re-grade `.a`–`.f`, to
+re-open CHECK 1's register, to overturn a sibling's `EasingSidebar.vue` carve reading, or to write
+one byte of keyframes.js or glass-ui.
+
+### LEDGER
+
+Track B row cells and the dated event line updated by this seat: the `KF.W12 = …` clause advanced
+from `**PARTIAL 2026-09-19**` to **`CLOSED 2026-09-17 (honest-RED: G-KFW12-4 · G-KFW12-7)
+2026-09-19, SECOND CLOSE`**, with the full **46 keyframes.js + 20 value.js** commit roster, CHECK 1's BLOCKER-1/HIGH-1 both
+discharged at the bytes, and INFO-6's duplicated tail fragment repaired in place.
