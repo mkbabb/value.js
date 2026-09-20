@@ -3531,3 +3531,43 @@ probes are byte-untouched (⟨cmd⟩ `git status --porcelain -- docs/tranches/V/
 Both carry their own pathspec **on the commit itself** and the `Claude-Session` trailer;
 `scripts/dev/dev.sh` was never touched and never staged, and the sibling's staged
 `D demo/shell/PaneSegmentedControl.vue` was never swept in.
+
+### Act 12 — the push: attempted twice, BLOCKED, and disclosed rather than forced
+
+⟨cmd⟩ `git push origin HEAD` (twice, as the close's acts prescribe) →
+`! [rejected] HEAD -> tranche-u (non-fast-forward)`. ⟨cmd⟩ `git fetch origin` then
+`git rev-list --left-right --count origin/tranche-u...HEAD` → **`1  70`**: the shared branch has
+diverged — origin carries one commit this tree does not (`6fc1212e`,
+*"docs(x-w9/repair-1-resume-round)"*, a sibling track's, touching **only**
+`docs/tranches/X/execution/A/X-W9.md`), while this tree carries 70 it does not.
+
+Three integrations were considered and two refused:
+
+1. **`git merge origin/tranche-u` in the main tree — REFUSED BY GIT, and the refusal must stand.**
+   ⟨cmd⟩ → `error: Your local changes to the following files would be overwritten by merge:
+   demo/shell/PaneSegmentedControl.vue`. That path is a **sibling seat's staged deletion** (X-W5's
+   open lane). Unstaging or restoring it is exactly what the standing law forbids — *"never reset or
+   unstage another seat's paths"* — so the merge was not retried by clearing it. ⟨cmd⟩
+   `test -f .git/MERGE_HEAD` → **ABSENT**, `git log -1` unchanged: the failed attempt left **no**
+   merge state and moved no byte.
+2. **The merge in a detached scratch worktree (no main-index involvement) — ATTEMPTED, then
+   ABORTED.** ⟨cmd⟩ `git worktree add --detach <scratch> HEAD` → clean, 0 dirty rows; ⟨cmd⟩
+   `git merge --no-edit origin/tranche-u` → **`CONFLICT (content): Merge conflict in
+   docs/tranches/X/execution/A/X-W9.md`**. Resolving it is a **write to another wave's execution
+   record**, outside this seat's writable set — an ESCALATION by §4's Bounds law, not a close-seat
+   act. ⟨cmd⟩ `git merge --abort` ⊕ `git worktree remove --force` → the scratch worktree is gone and
+   the main tree is byte-identical to before (⟨cmd⟩ `git worktree list` shows only the three
+   pre-existing sibling worktrees).
+3. **`--force` / `--force-with-lease` — NOT ATTEMPTED.** The standing law admits no force-push
+   unless the spec or COHESION §0j prescribes that exact command, and neither does.
+
+**Disclosed state**: this close's two commits (`7e445639`, `f36779f2`) are **landed locally** and are
+ancestors of the branch tip (⟨cmd⟩ `git merge-base --is-ancestor f36779f2 <tip>` → yes; a sibling
+seat committed `47fafdf0` on top while this block was written). **They are not yet on origin.**
+
+**ESC-PUSH (new, returned by this close)**: the shared `tranche-u` branch needs one integration merge
+whose only conflicting path is `docs/tranches/X/execution/A/X-W9.md`. **Owner: the X-W9 seat** (two
+of its worktrees are live — ⟨cmd⟩ `git worktree list` → `value.js-x-w9-c`, `value.js-x-w9-h`), or
+whichever seat owns that record at the time. Once that one file is reconciled by its owner, `git
+push origin HEAD` carries all 70 commits — including this wave's six — with no force and no
+history rewrite.
