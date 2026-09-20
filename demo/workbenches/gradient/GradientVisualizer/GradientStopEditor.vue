@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref, computed, useTemplateRef } from "vue";
+import { ref, computed, watchEffect, useTemplateRef } from "vue";
+import { useElementSize } from "@vueuse/core";
 import { X } from "@lucide/vue";
 import { clamp, scale } from "@mkbabb/value.js/math";
 import type { GradientStop } from "../composables/useGradientModel";
@@ -43,6 +44,9 @@ const emit = defineEmits<{
 const selectedId = defineModel<string | null>("selectedId", { default: null });
 
 const barRef = useTemplateRef<HTMLDivElement>("barRef");
+// The rail's laid-out width: the seat fan below is a function of how many
+// ordinal units a seat covers, which is a function of this.
+const { width: barWidth } = useElementSize(barRef);
 const draggingId = ref<string | null>(null);
 // S.W4 / W4-3: hover state for the handle scale — the inline `transform`
 // shadows any `hover:` class utility, so hover must be modeled here and
@@ -161,6 +165,58 @@ function round1(position: number): number {
 function handleLeft(position: number): string {
     return railPosition(position / 100);
 }
+
+// ── Crowding, disambiguated (X-W6 · X.W6.b — GRADSTOP-A §15) ────────────────
+//
+// §15 forbids curing crowding by forbidding coincidence: CSS hard stops REQUIRE
+// two stops at one ordinal, and the model admits them. What crowding must not
+// do is make a stop unreachable — measured on this rail with fifteen stops
+// inside fourteen percent, where the seat at 0% could not be pressed at all
+// because its neighbour at 1% covered it whole. So crowded seats FAN: each one
+// takes the first lane of the seat band whose last occupant is at least a seat
+// away, and the band grows to hold the lanes in use. No position is changed, no
+// separation is imposed — only the seats move, and only on the axis the ordinal
+// does not live on.
+
+/** How wide a seat is, expressed in the ordinal units the stops live in. */
+const seatSpan = ref(0);
+watchEffect(() => {
+    void barWidth.value; // re-measure whenever the rail is re-laid out
+    const bar = barRef.value;
+    if (!bar) return;
+    const inset = parseFloat(getComputedStyle(bar).getPropertyValue("--rail-inset"));
+    if (!Number.isFinite(inset)) return;
+    seatSpan.value = (inset * 2 * 100) / railAxis(bar).track;
+});
+
+/** Lanes beyond this would grow the instrument without bound; past it the
+ *  fan reuses the lane whose last occupant is furthest behind. */
+const MAX_LANES = 3;
+
+const laneOf = computed(() => {
+    const lanes = new Map<string, number>();
+    const lastAt: number[] = [];
+    const span = seatSpan.value;
+    for (const stop of stops) {
+        if (span <= 0) {
+            lanes.set(stop.id, 0);
+            continue;
+        }
+        let lane = lastAt.findIndex((last) => stop.position - last >= span);
+        if (lane === -1) {
+            lane =
+                lastAt.length < MAX_LANES
+                    ? lastAt.length
+                    : lastAt.indexOf(Math.min(...lastAt));
+        }
+        lastAt[lane] = stop.position;
+        lanes.set(stop.id, lane);
+    }
+    return lanes;
+});
+
+/** The deepest lane in use — the band reserves exactly that many rows. */
+const laneCount = computed(() => Math.max(0, ...laneOf.value.values()));
 
 // Handle scale ladder: selected/dragging/grabbed (1.25) > hover (1.1) > rest (1).
 function handleScale(id: string): number {
@@ -492,7 +548,10 @@ function onCaretKeydown(e: KeyboardEvent) {
     <!-- `relative`: the remove chip anchors to the RAIL root, and the root
          RESERVES the chip's band below the rail (X-W6 · a10) so the chip can
          never paint across a sibling rule. -->
-    <div class="rail-seat relative flex flex-col gap-1">
+    <div
+        class="rail-seat relative flex flex-col gap-1"
+        :style="{ '--rail-lane-count': String(laneCount) }"
+    >
         <!-- The editing rail (T.W6-2 re-author): a pill-silhouette instrument
              (T-46 — the glass-ui slider-track rounding register) painting the
              NORMALIZED ramp projection. Its paint stack is an owned material
@@ -573,6 +632,9 @@ function onCaretKeydown(e: KeyboardEvent) {
                 :class="[selectedId === stop.id ? 'z-10' : 'z-0']"
                 :style="{
                     left: handleLeft(stop.position),
+                    /* The seat's lane on the band — the crowding cure, on the
+                       axis the ordinal does not live on (§15). */
+                    '--seat-lane': String(laneOf.get(stop.id) ?? 0),
                     /* S.W4 / W4-3: the hover scale rides the INLINE transform —
                        the `hover:scale-110` utility was DEAD, shadowed by this
                        inline `transform` (inline style always outranks the
@@ -772,6 +834,11 @@ function onCaretKeydown(e: KeyboardEvent) {
     --rail-handle-top: calc(
         var(--rail-height) + var(--rail-gutter) + var(--rail-hit) / 2
     );
+    /* One lane of the band: a seat plus the gutter that keeps two lanes from
+       sharing a row of pixels. `--rail-lane-count` is the deepest lane in use,
+       set on this element by the script. */
+    --rail-lane-step: calc(var(--rail-hit) + var(--rail-gutter));
+    --rail-lane-count: 0;
 }
 
 /* …and the band is reserved by the RAIL, not by the seat root: the seats are
@@ -782,7 +849,8 @@ function onCaretKeydown(e: KeyboardEvent) {
    everything below it starts where the seats end. */
 .gradient-rail {
     margin-block-end: calc(
-        var(--rail-handle-top) + var(--rail-hit) / 2 - var(--rail-height)
+        var(--rail-handle-top) + var(--rail-lane-count) * var(--rail-lane-step) +
+            var(--rail-hit) / 2 - var(--rail-height)
     );
 }
 
@@ -814,8 +882,16 @@ function onCaretKeydown(e: KeyboardEvent) {
    grew, which is what "the target is what must grow" means. */
 /* The seats, the caret and the ghost all sit on the ONE band (b2) — the `top`
    they used to carry as `top-1/2` is the band's own property now, so the three
-   cannot drift apart and the ramp's own rows stay free. */
-.rail-handle,
+   cannot drift apart and the ramp's own rows stay free. A crowded seat takes a
+   LANE of that band (`--seat-lane`, assigned in script): the fan is what keeps
+   a coincident stop reachable without imposing a separation the model forbids
+   (§15). The caret and the ghost are previews of the gesture, not stops, so
+   they stay on lane 0. */
+.rail-handle {
+    top: calc(var(--rail-handle-top) + var(--seat-lane, 0) * var(--rail-lane-step));
+    inline-size: var(--rail-handle-size);
+    block-size: var(--rail-handle-size);
+}
 .rail-caret {
     top: var(--rail-handle-top);
     inline-size: var(--rail-handle-size);
