@@ -5048,3 +5048,42 @@ status read **positionally** (field 6) → **0 UNREAD**; the naive whole-row gre
 four carry the word in a Status cell that is not `UNREAD` and two in an Owner cell. **No UNREAD
 mail in scope**, and this repair minted no INBOX row: it sent nothing, because every cure was
 in-tree and no peer's surface moved.
+
+### RP-R.9 This seat's own contamination, self-reported and cured forward
+
+Recorded after §Repair 1 was committed, because it happened **to** that commit and a repair seat's
+own defect is a defect.
+
+**What happened.** The record commit was created correctly with its own pathspec
+(`git commit … -- docs/tranches/X/execution/A/X-W9.md`). Its `-m` body then turned out to carry
+three backticked spans the shell had **expanded as command substitution** — one of which re-ran
+`npm pack @mkbabb/value.js@0.13.0` inside the repository and left a stray tarball (removed; ⟨cmd⟩
+`git status --porcelain | grep -i tgz` → empty). The body was corrected with
+`git commit --amend --no-verify -F <file>` — **and the amend was run WITHOUT a pathspec**, so it
+rebuilt the commit from the **shared index**, which held a sibling seat's staged deletion of
+`demo/shell/PaneSegmentedControl.vue`. ⟨cmd⟩ `git show --stat --format= 59a9e753` →
+`demo/shell/PaneSegmentedControl.vue | 52 ---------` beside the record's 206 insertions. That path
+is in **no §File Bounds row of this wave** and is X-W5's tree. This is the exact failure the
+standing law names, reached through a door its wording does not close: **`--amend` takes the index
+too, pathspec or not.**
+
+**Why it was not fixed by rewriting.** A guarded `git reset --soft HEAD~2` was prepared with a
+HEAD-equality guard, and the guard **fired**: ⟨cmd⟩ `git rev-parse HEAD` → `077d3e5f`, a sibling's
+commit landed in the interval. Rewriting would have dropped it. Four tracks share this branch;
+history rewriting at the tip is never safe here.
+
+**The cure, forward and non-invasive.** `c6275f53` restores the blob at its `2f900da0` content and
+mode (`100644 9aefbdf3`). It was built through a **temporary index** (`GIT_INDEX_FILE`) and
+installed with a compare-and-swap `git update-ref <new> <old>`, so **no sibling worktree byte and
+no shared-index entry was written** — `git checkout -- <path>` would have written a dirty path
+outside this seat's writable set, which the law forbids. Measured after: ⟨cmd⟩
+`test -f demo/shell/PaneSegmentedControl.vue` → **absent**, as the sibling left it, and ⟨cmd⟩
+`git status --porcelain` → `D  demo/shell/PaneSegmentedControl.vue` — **staged deletion, the exact
+state at this seat's open**. The deletion is theirs to commit under their own receipt.
+
+**Scope.** ⟨cmd⟩ `git show --name-only --format=` over the four cure commits and the LEDGER commit
+→ `e4f5f843 21aa8d4c b4fbfdcc 2f900da0` name **8 paths**, all §File Bounds rows plus the disclosed
+lockfile; `a1872f19` names `LEDGER.md` alone. **Only the amended record commit was contaminated,
+and only by that one path.** Standing correction for every seat after this one: a pathspec on
+`git commit` does not survive `git commit --amend` — amend with `--only -- <paths>`, or commit the
+correction as a new commit.
