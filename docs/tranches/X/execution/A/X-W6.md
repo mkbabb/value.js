@@ -2391,3 +2391,349 @@ byte-identical by single-path ⟨cmd⟩ `git checkout -- …` before any commit,
 clean afterwards. **No product byte, no gate script and no evidence file was written by this seat** —
 the two controls behind defect 3 were re-derived **in memory**, against a scratch replica of the
 gate's own L1/L2/L3 legs, with zero writes to any repo path.
+
+---
+
+## Open — RESUME 2026-09-20 (second sitting; SEAT 0, `claude-opus-5[1m]`)
+
+**SERVED MODEL: claude-opus-5[1m]** · sitting of record **2026-09-17**, the owner's begin-word
+(COHESION §0j) · ruling of record **COHESION §0z** (`732fe109`), *"E1 · re-dispatch. Seat 0 re-opens
+X-W6 in RESUME MODE and dispatches `.b .c .e .g` whole, resumes `.d` at d1 … `.h` at h1, `.i` at
+i1/i3; `.j` dispatches once X-W5 reads CLOSED"*. Track-relaunch authority: **§0ag** (the supervisor
+cron retired; all four tracks return) read with **§0af**. This block is **append-only** beside the
+2026-09-18 `## Open`, the `## Close`, and Checks 1–3 — E-3: nothing above this line is rewritten.
+
+### Crash-recovery sweep (standing law, before any other act)
+
+⟨cmd⟩ `git status --porcelain` in `/Users/mkbabb/Programming/value.js` at this open →
+
+```
+ M demo/color-picker/App.vue
+ M demo/color-picker/composables/usePaletteWiring.ts
+ M demo/palettes/usePalettePorts.ts
+ M demo/palettes/useSlugMigration.ts
+D  demo/shell/PaneSegmentedControl.vue
+ M demo/shell/dock/Dock.vue
+ M demo/shell/usePaneRouter.ts
+ M demo/shell/useViewManager.ts
+ M demo/shell/viewSchema.ts
+ M demo/styles/shell.css
+ M docs/tranches/V/reformation/CARRY-LEDGER.md
+ M docs/tranches/X/execution/A/X-W5.md
+ M docs/tranches/X/execution/C/F-W10.md
+ M e2e/smoke/dual-pane-1440.spec.ts
+ M e2e/smoke/mobile/page-load-mobile.spec.ts
+ M e2e/smoke/mobile/walk.spec.ts
+ M scripts/dev/dev.sh
+```
+
+**Zero of those seventeen paths is inside SEAT 0's writable set** (`execution/A/X-W6.md` ·
+`execution/LEDGER.md` · `coordination/INBOX.md`). Every one belongs to a sibling seat — the shell /
+dock / palettes / e2e rows are **X-W5's** open lane (`execution/A/X-W5.md` is itself dirty),
+`C/F-W10.md` is Track C, `CARRY-LEDGER.md` is the V fold, and `scripts/dev/dev.sh` is the unowned
+standing-dirty row. **Nothing inherited, nothing stashed, nothing restored, nothing staged.** This
+seat wrote no product byte and touched no path outside its three.
+
+### Preconditions, measured at the bytes AND in the LEDGER
+
+| condition | source | reading at this open |
+|---|---|---|
+| X-W6 is not CLOSED | `LEDGER.md:34` | **`PARTIAL 2026-09-19`** — resume, not re-open-from-zero |
+| the resume ruling exists | COHESION §0z (`732fe109`) | PRESENT, six escalations E1–E6 ruled; §4 addendum landed at `W6.md:479` |
+| `.a` landed | `git log` | `f90aeb02` (normalise-on-write + stop-owned easing, one axis, one gesture owner) · `c222542d` (a9 gutter) · receipt `e77650e1` |
+| `.f` landed | `git log` | `e0e204a9` (X:CSS-1) · receipt `7e5b9512` |
+| Repair 2's three landed cures | `git log` | `48d95650` (h2) · `c8111846` (d2) · `4cb294b9` (i2) |
+| X-W4 (`SceneActionSet`) | LEDGER + §0ac | **CLOSED** — §0ac, *"X-W4 IS CLOSED"* |
+| X-W5 (`.j`'s only precondition) | `LEDGER.md:37` | **`OPEN 2026-09-17`** — NOT CLOSED. Per §0z E1, `.j` is **the last unit and waits**, never skipped |
+| glass-ui 7.0.0 subpaths | installed tree | `./aurora` · `./select` · `./labeled-field` · `./number-field` present; `./input` still absent (d2's census branch stands) |
+| `motion-quarantine.md` (H2) | `9812f951` | tracked; H2's **citation** legs stay born-RED (`W6.md:338` addendum) |
+
+**Verdict: the wave resumes.** `.j` alone carries a live precondition, and it is the last group.
+
+### E13 Step-0 — the four-path mail sweep at this open
+
+Swept read-only at this seat's own clock, 2026-09-20:
+
+1. `docs/tranches/V/` — newest `ARCHITECTURE.md` (2026-09-20 00:17, a sibling's canon write, **not
+   mail**); newest *letter-shaped* item unchanged since 2026-07-17.
+2. `docs/tranches/V/coordination/` — newest five are the **2026-09-18 4.1.0 quartet + the
+   parse-that addendum-2**, every one authored by us and already rowed (O-rows); `INBOX.md` itself
+   was touched 2026-09-20 00:11 by a sibling seat's sweep line.
+3. `../glass-ui/docs/tranches/` — ⟨cmd⟩ `ls -dt …/tranches/*/` → **`BK/` is still the newest
+   tranche dir** (BK · BJ · BI · IOS27-MICRO · BH). Newest BK coordination item:
+   `glass-outbound-2026-09-18-valuejs-o26-reply.md` = **I-35**, already rowed. ⟨cmd⟩
+   `find …/BK/coordination -newermt "2026-09-18 18:00"` → **empty**.
+4. `../keyframes.js/docs/tranches/V/coordination/` — newest value-addressed item is our own
+   `VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md`; `INBOUND-LEDGER.md` (09-19) is
+   keyframes' own ledger, addressed to nobody here.
+5. `../sci-report/atlas/docs/tranches/P/coordination/` — unmoved, tail 2026-07-27.
+
+**Census**: ⟨cmd⟩ `grep -c "^| I-\|^| O-" INBOX.md` → **82 rows**; tail **I-35 / O-42** (O-41, O-42
+minted by sibling tracks since X-W6's last sitting). **Classification read BY POSITION** from each
+row's Status cell (field 6), never by bare grep — ⟨cmd⟩
+`awk -F'|' '/^\| (I|O)-[0-9]+ /{…if ($6 ~ /UNREAD/) print}'` → **4 rows contain the word**
+(O-20, I-31, I-32, O-39) and **every one describes a prior or already-answered state**: I-31
+`FOLDED 2026-09-17`, I-32 `READ IN FULL + ROUTED — TERMINAL AS MAIL 2026-09-19`, O-20 `SENT`,
+O-39 `SENT … a letter does not owe a letter back`.
+
+**Result: 0 unrowed · 0 UNREAD in X-W6's scope.** No row was minted at this open and no row's
+status was changed. **One `O-` row stays OWED inside the wave** — §0z **E5** grants it to `.d`
+(the glass-forward easing-readout ask), and `INBOX.md` is in `.d`'s writable set by that ruling,
+not this seat's to pre-empt. A dated sweep line is appended to `INBOX.md` by this seat.
+
+---
+
+## Baseline — RESUME 2026-09-20 (the owed gates only; the rest cite the banked reading)
+
+**Scope law**: at a RESUME-mode open only the gates the **still-owed** units turn are re-run at
+baseline; every gate already GREEN at a landed unit cites Check 3's 2026-09-19 reading, where **28
+of 28 claimed GREENs reproduced at an independent seat, zero divergences**. Every figure below was
+taken **read-only** — no product byte, no gate script and no evidence file was written.
+
+| gate | unit | command | reading at this open |
+|---|---|---|---|
+| b1 · b2 · b4 | `.b` | `node …/probes/wb-gradient-stopeditor/gate-seat.mjs` (:9000, playwright-webkit) | **RED, exit 1, double-run byte-identical** — 5 conditions |
+| b3 | `.b` | ⟨cmd⟩ `grep -rn "stop inspector numeric entry" e2e/` | **0 hits → RED by absence** |
+| c1 | `.c` | `node …/probes/wb-gradient-stopeditor/gate-structure.mjs` | **RED, exit 1, double-run byte-identical** — 7 conditions |
+| c2 | `.c` | `npx vitest run test/gradient-order-invariant.test.ts -t "one sampling law"` | **GREEN-BEFORE-CURE, AND VACUOUS** (see finding R.2-1) |
+| c3 | `.c` | `npx vite-node docs/tranches/X/gates/gate-literal-dialect.mjs` | instrument **ABSENT → RED** |
+| c4 | `.c` | `npx vitest run test/interpolation-subset.test.ts` | file **ABSENT → RED** |
+| d1 | `.d` | `node …/probes/x-w6/gate-easing-radius.mjs` | instrument **ABSENT → RED** |
+| d2 | `.d` | `node …/probes/x-w6/gate-easing-readout.mjs` | **GREEN** (`c8111846`), banked at Check 3 and attacked there in both directions; the **negative-control transcript re-capture is owed** (Check 3 defect 3) |
+| e1 | `.e` | new e2e `-g "gradient selector aurora"` | ⟨cmd⟩ `grep -rn "glass-ui/aurora" demo/workbenches/gradient/` → **0**; spec title **0 hits → RED** |
+| e2 | `.e` | `grep -rn "requestAnimationFrame" demo/workbenches/gradient/` + `node …/probes/x-w6/gate-prm-idiom.mjs` | **2 rAF sites** (both `EasingAuthoringStage.vue`); instrument **ABSENT → RED** |
+| g1 | `.g` | `node …/probes/x-w6/gate-card-rhythm.mjs` | instrument **ABSENT → RED** |
+| g2 | `.g` | new e2e `-g "companion panes share one track start"` | **0 hits → RED by absence** |
+| h1 | `.h` | new e2e `-g "hero blob carries current chroma"` | **0 hits → RED by absence** (restated by §0z **E6**) |
+| h2 | `.h` | `node docs/tranches/X/gates/gate-blob-pipeline.mjs` | **GREEN** (`48d95650`), banked at Check 3 — every stage at **100.0%** of the sRGB ceiling, the owner's seed **12.9×** outside it |
+| i1 | `.i` | `npx playwright test e2e/smoke/oracles/o25-atmosphere-response.spec.ts` | spec **ABSENT → RED** |
+| i2 | `.i` | `node docs/tranches/X/gates/gate-lband-door.mjs` | **GREEN** (`4cb294b9`), banked at Check 3 |
+| i3 | `.i` | `npx playwright test e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts` (E4 re-point) | spec **ABSENT → RED**; ⟨cmd⟩ `grep -rn armRuntime demo/` → **0** |
+| j1 · j2 · j3 | `.j` | `…/o29-scene-contracts.spec.ts` (E4 re-point) | spec **ABSENT → RED**; ⟨cmd⟩ `grep -c "component: Stub" demo/color-picker/router/index.ts` → **14** |
+| j4 | `.j` | same spec, `-g "short landscape"` | **GREEN at Repair 1** (`6dfdd8d2`, 4 of 4 routes at 720×450), re-witnessed at Check 3; carried, not re-measured here |
+| §7 cadence | all | `npx vitest run` | **4 failed / 628 passed (632), 3 files, exit 1** |
+
+### Pasted outputs
+
+⟨cmd⟩ `node docs/tranches/V/megatranche/audit/probes/wb-gradient-stopeditor/gate-seat.mjs` (run 1 and
+run 2, output byte-identical; the only differing line is this seat's own appended `EXIT=` label):
+
+```
+GATE G3 (stop seat) — RED
+  G3c  selection has no programmatic representation: aria-pressed and aria-selected are both absent. With exactly 2 stops the remove chip is suppressed (removable = stops.length > 2), so the ONLY selected-state cue is scale(1.25) + a border-alpha change.
+  G3d  key "Home" is a no-op on a focused stop handle (VISUAL-CONSTITUTION §5.2 requires Home=0%, End=100% and Up/Down at the same signed step; expected 0%). style.left stayed "calc(var(--rail-inset) + var(--rail-track) * 0)".
+  G3d  key "ArrowDown" is a no-op on a focused stop handle (VISUAL-CONSTITUTION §5.2 requires Home=0%, End=100% and Up/Down at the same signed step; expected -1%). style.left stayed "calc(var(--rail-inset) + var(--rail-track) * 0)".
+  G3f  a click 3px inside the rail's left edge mints nothing (n stayed 2) — with only 2 stops the terminal handle's always-on hit expander already owns the end of the rail, and there is no other add path (no numeric entry, no add button).
+  G3f  with 12 stops, only 149px of the 462px rail (32.3%) can still mint a stop — the handles' always-on hit expanders mask 67.7% of the add gesture, with no indication of why it stopped working.
+EXIT=1
+```
+
+The reading **reproduces Check 3's** (`Home`/`ArrowDown` no-ops against `style.left`; 149px of 462px
+mintable at 12 stops) at this seat's own clock, against a **freshly started** `:9000` (STALE-SERVER
+LAW) which was stopped again before this block was written.
+
+⟨cmd⟩ `node docs/tranches/V/megatranche/audit/probes/wb-gradient-stopeditor/gate-structure.mjs` →
+`GATE G4 (structure) — RED`, `EXIT=1`, double-run byte-identical, **7 condition lines**: G4a ×2 (the
+`colorAt` prop still exists — two implementations of *"the colour of this ramp at p"*; `model/sample.ts`
+absent) · G4b (**8** gradient strings emitted, none carrying an ` in <space>` clause) · G4c (2 sites
+interpolate an untrusted literal into a `background` SHORTHAND) · G4d (`defineModel("selectedStopId")`
+with no parent binding) · G4g ×2 (`model/types.ts` absent, two type-only declaration cycles; the
+7-name re-export block with **zero** consumers).
+
+⟨cmd⟩ `npx vitest run` → `Test Files  3 failed | 34 passed (37)` · `Tests  4 failed | 628 passed (632)`
+· `EXIT=1`. The four: **`test/gradient-parse.test.ts:32` and `:63`** — the two survivors §0z **E2**
+grants (`.a`'s migration: 2 stops → 1, 3 stops → 2) — plus two **foreign born-RED canaries owned by
+other waves**, `test/spectrum-luma.test.ts:109` (`C-5 · BORN-RED`) and
+`demo/test/shell/reka-binding-idiom.test.ts:77` (`NG-6`), neither in any X-W6 bounds row. Check 3 read
+`15 failed / 613 passed (628)`; the delta is sibling-track landings since, not this wave's.
+
+### R.2 findings — a GREEN before its cure
+
+- **R.2-1 · c2 is GREEN and VACUOUS.** ⟨cmd⟩
+  `npx vitest run test/gradient-order-invariant.test.ts -t "one sampling law"` → **exit 0**, but
+  `test/gradient-order-invariant.test.ts (13 tests | 13 skipped)` — ⟨cmd⟩
+  `grep -c "sampling law" test/gradient-order-invariant.test.ts` → **0**. The `-t` filter matches
+  **nothing**, so the gate's own command exits 0 with zero assertions executed. This is exactly the
+  L-18 target-1 species (*"a suite that stays green under both is not evidence"*). **`.c` must
+  author the `one sampling law` case under that exact name** before c2 may be read as GREEN; a c2
+  reported GREEN without a matching test in the file is a **false green** and the close must refuse it.
+- **R.2-2 · j4** is GREEN before its cure **by declaration** (`W6.md:323`, MEASURE-AT-OPEN) — already
+  taken and retired with its measurement at Repair 1; recorded, not re-opened.
+
+---
+
+## Unit plan — RESUME 2026-09-20 (7 owed units; `.a` and `.f` are landed and are NOT re-dispatched)
+
+**Model law M-23** (`W6.md:154`) is unchanged: **every unit is an Opus implementation seat**
+(`claude-opus-5[1m]`); **no Fable seat in this wave**; no unit authors design canon (the radius,
+spacing/shadow and Movement-of-Momentum canon are **X-W10's** — this wave applies, it never mints).
+
+**Landed, never re-dispatched**: **`.a`** (`f90aeb02` · `c222542d`, receipt `e77650e1`, 13/13 gates
+reproduced at Check 3) · **`.f`** (`e0e204a9`, receipt `7e5b9512`, 9 of 10). The three Repair-2 cures
+**h2** (`48d95650`), **d2** (`c8111846`) and **i2** (`4cb294b9`) are landed **inside** units that are
+still owed, so those units resume at their remaining gates only.
+
+**Groups (ordered; ≤2 concurrent — owner cap, §0ae/§0ag; no two concurrent units share a
+`modify` path):**
+
+| group | units | shared-path check |
+|---|---|---|
+| 1 | `.b` ∥ `.g` | `GradientStopEditor`/`GradientVisualizer`/`GradientPane` vs `ColorPicker.vue`/`AboutPane.vue` — **disjoint**; `.g` after `.f` ✓ (Lane 2 serial, `.f` landed) |
+| 2 | `.c` ∥ `.h` | model/sample/CSS/interpolation vs `HeroBlob.vue`/`useContrastSafeColor.ts` — **disjoint**; `.c` after `.b` ✓ (Lane 1 serial) and after `.f` ✓ (c4's own rider law, `W6.md:212`) |
+| 3 | `.d` ∥ `.i` | easing trio vs atmosphere trio + `AuroraPane.vue` — **disjoint**; `.d` after `.c` ✓, `.i` after `.h` ✓ (Lane 3 serial) |
+| 4 | `.e` | shares `EasingAuthoringStage.vue` with `.d` and `GradientVisualizer.vue` with `.b`/`.c` → strictly after all three; **alone** |
+| 5 | `.j` | Lane 4 — after Lanes 1–3; shares `AuroraPane.vue` with `.i`; **gated on X-W5 reading CLOSED in the LEDGER** |
+
+**Wave-level, assigned to NO unit** (`W6.md` §4a, §9 commit **#11**): H1's roster run over the wave's
+**full** commit set (§0z), H2's citation audit, H3's close sweep, H4's disposition roll-call, the gate
+transcripts in `W6-evidence/gates/`, and the status flip to **IMPLEMENTED** (never VERIFIED — X-W11's
+stamp). The close seat is dispatched separately, after group 5.
+
+**Worktrees** (`W6.md` §4b): the four sibling worktrees are **not on disk** at this open (⟨cmd⟩
+`git worktree list` → none of `value-x-w6-{gradient,catalog,atmosphere,scenes}`), and `.a`/`.f`/the
+three Repair-2 cures all landed in the main tree. With the cap at **two** concurrent and both members
+of every group path-disjoint, seats work in `/Users/mkbabb/Programming/value.js` unless a seat elects a
+worktree; **the STALE-SERVER LAW binds either way** — every literal/precision/serializer claim runs
+headless `vite-node` against the tree or a **freshly restarted** server, never a long-running one, and
+each concurrent seat takes its own port (`.b`/`.c`/`.d`/`.e` :9000, `.g`/`.h`/`.i`/`.j` :9002).
+
+### The owed units
+
+**X.W6.b** — Gradient seat, inspector and keyboard grammar (CC-058 · MT-GRADSTOP-2). **Whole.**
+§5 `W6.md:182-196`. Gates **b1 b2 b3 b4**. Commit **#2** `feat(demo/gradient-seat)`.
+Writable: `demo/workbenches/gradient/GradientVisualizer/GradientStopEditor.vue` ·
+`…/GradientVisualizer/GradientVisualizer.vue` · `demo/workbenches/gradient/GradientPane.vue` ·
+`e2e/smoke/oracles/o21-gradient-rail.spec.ts` **(ADD-never-replace)** ·
+`e2e/smoke/views/gradient.spec.ts` **(ADD-never-replace)** · `docs/tranches/X/waves/W6-evidence/**`.
+**Locks**: consumes `.a`'s `canRemove` (landed); the **D-6/D2-16 WatercolorDot-faces limb is BANKED**
+(`W6.md:428`) — importing `@mkbabb/glass-ui/watercolor-dot` here mints a seventh impostor CC-044 must
+delete; trigger = X-W0's census, receiving surface **X-W4.g**, never this wave. **GRADSTOP-A §15** —
+crowding cured by **disambiguation** (seat/fan-out/overflow), never by a minimum-ordinal-spacing rule;
+b2 must seat *every* addable ordinal at *any* rail width, so a wider hit region alone is not a cure.
+b4: **one** removal owner with an **explicit disabled state carrying its reason** — never `v-if`
+absence, never a silent early return.
+
+**X.W6.c** — Gradient sampling law, literal dialect and leaf types (CC-058 · MT-GRADSTOP-3). **Whole.**
+§5 `W6.md:198-212`. Gates **c1 c2 c3 c4**. Commit **#3** `refactor(demo/gradient-sampling)`,
+**body required**.
+Writable: `demo/workbenches/gradient/model/types.ts` **(create)** · `…/model/sample.ts` **(create)** ·
+`…/composables/useGradientModel.ts` · `…/composables/useGradientCSS.ts` ·
+`…/composables/useGradientInterpolation.ts` · `…/GradientVisualizer/GradientVisualizer.vue` ·
+`docs/tranches/X/gates/gate-literal-dialect.mjs` **(create)** · `test/interpolation-subset.test.ts`
+**(create)** · `test/gradient-order-invariant.test.ts` · `test/gradient-parse.test.ts` **(§0z E2)** ·
+`docs/tranches/X/waves/W6-evidence/**`.
+**Locks**: **strictly after `.f`** (c4's rider) and after `.b` (Lane 1); the **ordering policy does
+NOT reopen** — settled in `.a` (GRADSTOP-A §14); **STALE-SERVER LAW** on c3 (headless `vite-node`,
+never the long-running server); the paint-stack dedup rider is **two sites** (`.gradient-rail`,
+`.gradient-render-tile`) — §17 forbids citing four/six. **R.2-1 BINDS**: c2's command `-t "one
+sampling law"` matches **zero** tests today, so the unit **authors that case under that exact name**;
+reporting c2 GREEN without it is a false green. **E2's migration rides here**: §0z grants
+`test/gradient-parse.test.ts` as *"unit `.a`'s migration only"*, `.a` is landed and never
+re-dispatched, so the first still-owed Lane 1 seat carries the act — **`:32` 2 stops → 1, `:63` 3
+stops → 2**, arithmetically verified at both sites by Repair 2, **no assertion weakened and no other
+case touched**; §7's `npx vitest run` must lose those two failures. If the seat reads the grant as
+seat-scoped rather than change-scoped, it **halts under §3a and returns it** — it never widens.
+
+**X.W6.d** — Easing instrument coherence (CC-060 · MT-F030; CC-063 · MT-F037). **Resumes at d1.**
+§5 `W6.md:214-226`. Gates **d1** (+ d2's owed re-capture). Commit **#4** `style(demo/easing-register)`.
+Writable: `demo/workbenches/gradient/GradientVisualizer/GradientEasingEditor.vue` **(no `easing/`
+segment — fold §2 e.1, re-verified at the bytes)** · `…/GradientVisualizer/easing/EasingAuthoringStage.vue` ·
+`…/GradientVisualizer/easing/easingCatalogue.ts` ·
+`docs/tranches/V/megatranche/audit/probes/x-w6/gate-easing-radius.mjs` **(create)** ·
+`docs/tranches/X/waves/W6-evidence/easing/**` · `docs/tranches/V/coordination/INBOX.md` **(§0z E5 —
+mail rows only, next `O-n`)**.
+**Locks**: d2 is **already GREEN** (`c8111846`) and its branch is **settled** — the census selected the
+**dated glass-forward ask**; the unit **does not re-decide it** and does not touch
+`gate-easing-readout.mjs`'s verdict logic. Two acts are owed: (1) **d1** — one radius register derived
+from the panel's own scale, the preset chips deciding **once** between the icon-button circle and the
+shared rounded-rect; the radius **canon** is X-W10's (M-23), `.d` applies it. (2) **Check 3 defect 3**
+— `W6-evidence/easing/d2-negative-controls-2026-09-19.txt` prints `GREEN` in all four blocks where it
+must print **RED in both directions**; the transcript is **re-captured** (dated addendum-beside, E-3 —
+the stale file is not silently overwritten) so both controls print their `FAIL` lines. (3) **E5** —
+the `O-` relay row for `W6-glass-ask-easing-readout.md`, mail rows only. **glass-ui is READ-ONLY
+always**; no local restyle of the readout (M-14 cl.1).
+
+**X.W6.e** — Gradient selector aurora (CC-064 · MT-F041). **Whole.**
+§5 `W6.md:228-243`. Gates **e1 e2**. Commit **#5** `feat(demo/gradient-aurora)`.
+Writable: `demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue` ·
+`…/GradientVisualizer/easing/EasingAuthoringStage.vue` · the gradient tree's scoped styles ·
+`docs/tranches/V/megatranche/audit/probes/x-w6/gate-prm-idiom.mjs` **(create)** ·
+`e2e/smoke/views/gradient.spec.ts` **(ADD-never-replace)** · `W6-evidence/**`.
+**Locks**: consume `@mkbabb/glass-ui/aurora` (published, verified at this open) — **no new animation
+species, no private rAF loop**; PRM honoured **structurally**, inside
+`@media (prefers-reduced-motion: no-preference)`, never by leaning on the global reduce-guard; land at
+**≤2 rAF both gated, or 0**. **Repair 2 refused e2 deliberately and that refusal is inherited**: the 2
+rAF sites are one-shot post-paint `viewBox` reads (`syncVbRatio`) — a layout measurement, not a clock —
+and PRM-gating a layout read breaks the zero-letterbox law; **landing e2 while e1 is unbuilt makes e2's
+second leg vacuously true**, so **e1 lands first or with it**, never after. **MOTION-SOURCED ·
+PENDING-QUARANTINE** — every motion/PRM assertion cites `motion-quarantine.md` (`9812f951`) **and** is
+re-derived against the two guards `demo/styles/animations.css:184` ⊕
+`…/glass-ui/dist/styles/utilities/a11y-overrides.css`. After `.d` (shares `EasingAuthoringStage.vue`).
+
+**X.W6.g** — Picker card rhythm and About alignment (CC-059 · MT-F029; CC-062 · MT-F035). **Whole.**
+§5 `W6.md:267-279`. Gates **g1 g2**. Commit **#7** `fix(demo/picker-rhythm)`.
+Writable: `demo/picker/ColorPicker.vue` (card stack + scoped styles) · `demo/scenes/about/AboutPane.vue` ·
+`docs/tranches/V/megatranche/audit/probes/x-w6/gate-card-rhythm.mjs` **(create)** · a new e2e arm in
+`e2e/smoke/oracles/o21-space-catalog-truth.spec.ts` or `e2e/smoke/views/` **(ADD-never-replace)** ·
+`W6-evidence/**`.
+**Locks**: after `.f` (Lane 2 serial — shares `ColorPicker.vue` + `AboutPane.vue`, `.f` landed); the
+cure is the **shared row contract** (one grid row, one track start), **never a per-pane nudge** — g2
+asserts About **and** keeps the **OM-10 Mix control unmoved**, and a nudge passes the first while
+breaking the second; the spacing/shadow **canon** is X-W10's (M-23) — `.g` applies a censused
+disposition, it does not invent a register. g1 fails on any interval with no scale derivation,
+*including one that merely looks right*.
+
+**X.W6.h** — HeroBlob chroma fidelity (CC-061 · MT-F032). **Resumes at h1.**
+§5 `W6.md:281-293` **as restated by COHESION §0z E6** and `W6.md:479`. Gate **h1**. Commit **#8**
+`fix(demo/hero-blob-chroma)` (the census commit `48d95650` already precedes it).
+Writable: `demo/picker/visual/HeroBlob.vue` · `demo/color-session/useContrastSafeColor.ts` · a new e2e
+arm **(ADD-never-replace)** · `docs/tranches/X/waves/W6-evidence/**`.
+**Locks**: **h2 is GREEN and its census is the premise, not a question** — every pipeline stage
+delivers **100.0%** of the chroma sRGB allows at the lightness it lands on, and the owner's seed
+`lab(92% 88.8 20)` is **12.94×** outside sRGB (C 0.27245 vs ceiling 0.02105); *there is no stripper to
+cut*. **§0z E6 is the cure**: widen the **ceiling**, never the tolerance — the blob's colour resolver
+and its WebGL2 drawing buffer declare **`display-p3`** where `matchMedia('(color-gamut: p3)')` matches
+(`gl.drawingBufferColorSpace`, a `display-p3` 2D resolver canvas) and fall to **sRGB** otherwise; **h1
+= the painted dominant chroma within the stated ΔC of the current colour's chroma gamut-mapped
+(css-color-4 §13 chroma reduction) to the buffer's colour space**, and chroma beyond the display's own
+gamut is **honest-RED-by-physics, by id**. The seat lands it **inside its §4 rows or returns the exact
+path it lacks** — no local patch of `node_modules`, no consumer try/catch.
+
+**X.W6.i** — The atmosphere harness (CC-065 · CC-066 · CC-067). **Resumes at i1 and i3.**
+§5 `W6.md:295-308`. Gates **i1 i3**. Commit **#9** `feat(demo/atmosphere-oracle)`, **body required**.
+Writable: `demo/color-picker/composables/boot/useAtmosphere.ts` ·
+`demo/color-picker/composables/boot/atmosphere-calibration.ts` · `demo/test/glass/aurora-bracket.test.ts` ·
+`demo/scenes/atmosphere/AuroraPane.vue` · `e2e/smoke/oracles/o25-atmosphere-response.spec.ts`
+**(create)** · `e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts` **(create — §0z E4 re-point;
+`o26-aurora-perceptibility` and `o27-focus-affordance` already ship and are untouched)** ·
+`docs/tranches/X/waves/W6-evidence/atmosphere/**`.
+**Locks**: **the tombstone already committed FIRST** (`c2f17bad`, DR-01 retired as landed at N.W5
+`e32111c7`, carry closed at 18) and **i2 is GREEN** (`4cb294b9`) — neither reopens. **i1 reads
+COMMITTED FRAMES only**: for each of N seeds the named atoms move **≥ a stated ΔE2000**, measured from
+frames committed in this wave's own commit (force-added past `.gitignore *.png`) — *an agent's
+description cannot pass i1, and it fails equally if it could be*. **i3**: the first painted atmosphere
+equals the seeded pick on a **cold** load; ⟨cmd⟩ `grep -rn armRuntime demo/` → **0**, so the T-era
+`armRuntime({immediate:true})` cure is not in the tree. **Writes `AuroraPane.vue` before `.j`.**
+
+**X.W6.j** — Scene adoption: Gradient pilot → Mix canary → Blob/Atmosphere persistence (CC-056 · V·L3;
+CC-057 · V·L4). **LAST, and precondition-gated.**
+§5 `W6.md:310-327`. Gates **j1 j2 j3** (**j4 GREEN at Repair 1** `6dfdd8d2` — carried with its
+measurement, never re-opened). Commit **#10** `feat(demo/scene-adoption)`.
+Writable: `demo/workbenches/mix/MixPane.vue` · `…/mix/MixConfigBar.vue` · `…/mix/MixSourceSelector.vue` ·
+`…/mix/MixAnimationCanvas/MixAnimationCanvas.vue` · `…/mix/MixAnimationCanvas/composables/useMixingAnimation.ts` ·
+`demo/scenes/blob/BlobPane.vue` · `demo/scenes/atmosphere/AuroraPane.vue` · route-private scene styles ·
+`e2e/smoke/oracles/o29-scene-contracts.spec.ts` **(create — §0z E4 re-point)**.
+**HALT CONDITION (§0z E1, measured at this open)**: X-W5 reads **`OPEN 2026-09-17`** in the LEDGER, not
+CLOSED. The seat **re-reads `LEDGER.md` first**; if X-W5 is still not CLOSED it writes its receipt with
+the measurement and **returns BLOCKED-ON `X-W5` without writing a product byte** — *"`.j` is the last
+unit and waits on it, never skipped"*. When it opens: order is **Gradient → Mix → Blob/Atmosphere**,
+each route its own completable slice; **transitions are X-W5's (CC-054/CC-055) — this unit asserts NO
+transition property of its own** and its pane/sub-pane assertions inherit the **PENDING-QUARANTINE**;
+writes `MixConfigBar.vue` + `MixSourceSelector.vue` (X-W7-shared) **first** and `AuroraPane.vue` after
+`.i`; **no chassis** (H1) — two instruments' stages are never factored into one parameterised housing.
+
+---
+
+## Unit receipts — resume round 2026-09-20
+
+*(empty at this open; each dispatched seat appends its own receipt below, newest last)*
