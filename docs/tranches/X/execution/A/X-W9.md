@@ -4284,3 +4284,28 @@ the defect was never in the barrels and the earlier seats' honesty about "measur
 preserved exactly the information needed to find it. And the AM-13 strip, which the spec lists in a
 half-sentence, turned out to be removing an **install-time dependency cycle** on a library whose
 own consumer exact-pins it; the lockfile diff is the only place that fact was ever visible.
+
+#### F.10 The LEDGER act — written by this seat, CARRIED BY A SIBLING'S COMMIT (measured, reported)
+
+The four resume seats before this one **withheld** their LEDGER act because a sibling's hunk sat
+uncommitted in the shared index (§RS.7, §R.10.6). This seat hit the mirror image of that hazard and
+reports it rather than letting it pass as a clean act.
+
+⟨cmd⟩ `git status --porcelain docs/tranches/X/execution/LEDGER.md` **immediately before writing** →
+**no rows** (clean). The act was then written: one **minimal in-place** insertion into the X-W9 row's
+status cell and one appended event line — ⟨cmd⟩ `git diff --unified=0 … | grep '^@@'` → `@@ -32`,
+`@@ -418,0 +419,2`, and **`@@ -56`**, a Track B `KF.W11 · W12 · W13` edit that landed **between this
+seat's read and its write**. A pathspec commit could not have separated them, so the commit was
+**withheld** and the foreign hunk polled instead: ⟨cmd⟩ 4 polls at 15 s → `hunks=3 foreign56=1` ×3,
+then **`hunks=0`**.
+
+Zero hunks with the content still present means the file was committed by someone else. ⟨cmd⟩
+`git log --oneline -3 -- docs/tranches/X/execution/LEDGER.md` → **`3c1bcf8c`**, Track C's
+`docs(x-f-w9/repair-1/ledger)` — and ⟨cmd⟩ `git show HEAD:…/LEDGER.md | grep -c 'X-W9.f\` LANDED'` →
+**1**, with both edits intact at `:32` and `:420`.
+
+**So: the ledger act is in HEAD and readable by CHECK 4, and this seat authored no contaminated
+commit — but a sibling's did.** Four consecutive seats have now been blocked or crossed by the same
+shared index on the same file. The withholding idiom protects the *withholder* and nothing else; the
+hazard is structural and belongs to the sitting, not to any one seat. Recorded as an observation,
+not an escalation: no byte was lost and none was wrongly rewritten.
