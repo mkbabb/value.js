@@ -1,0 +1,83 @@
+SERVED MODEL: claude-fable-5-1
+# KF.W13.b — G-KFW13-3/-4/-5 AFTER transcripts, double-run, at keyframes.js 05838ebc (2026-09-20)
+
+## G-KFW13-3 run 1: npx vitest run --project demo test/demo/instrument/transport-keyboard-propagation.test.ts
+ Test Files  1 passed (1)
+      Tests  5 passed (5)
+## G-KFW13-3 run 2: npx vitest run --project demo test/demo/instrument/transport-keyboard-propagation.test.ts
+ Test Files  1 passed (1)
+      Tests  5 passed (5)
+## G-KFW13-4 run 1: npx vitest run --project demo test/demo/instrument/transport-play-actuation.test.ts test/demo/instrument/transport-icon-spin.test.ts
+## G-KFW13-4 run 2: npx vitest run --project demo test/demo/instrument/transport-play-actuation.test.ts test/demo/instrument/transport-icon-spin.test.ts
+## G-KFW13-5 run 1: npx vitest run --project demo test/demo/instrument/playback-ribbon-contract.test.ts
+ Test Files  1 passed (1)
+      Tests  13 passed (13)
+## G-KFW13-5 run 2: npx vitest run --project demo test/demo/instrument/playback-ribbon-contract.test.ts
+ Test Files  1 passed (1)
+      Tests  13 passed (13)
+
+## byte clauses (×2)
+run 1: stopTD=0 stopCD=0 space=1 instHTML=0 it=17 bos=8 aria=2 vc=3 step=2 gate=0 g6focus=1 btnpb=8 skiponly=0
+run 2: stopTD=0 stopCD=0 space=1 instHTML=0 it=17 bos=8 aria=2 vc=3 step=2 gate=0 g6focus=1 btnpb=8 skiponly=0
+
+## git diff --check + status
+diff-check rc=0
+?? docs/tranches/V/coordination/VALUEJS-INBOUND-2026-07-24-parser-totality-exposure.md
+?? docs/tranches/V/coordination/VALUEJS-INBOUND-2026-07-27-library-band-r1-widened-k1-k4.md
+
+## the sha roster (git show --stat per sha)
+31171b0e fix(kf/transport · X.KF.W13.b · TD-2+TD-38+TD-40 one propagation policy, both mirrors + composition t
+     .../useControlsKeyboardShortcuts.ts                |  42 +++-
+     .../instrument/transport/TransportDock.vue         |  23 +-
+     .../transport-keyboard-propagation.test.ts         | 259 +++++++++++++++++++++
+dafce6eb fix(kf/transport · X.KF.W13.b · TD-21+TD-41 actuation cancellation — per-control origin, release-else
+     .../instrument/transport/TransportDock.vue         |   3 +
+     .../transport/TransportDock/usePlayActuation.ts    | 114 +++++++++++++--------
+     .../instrument/transport-play-actuation.test.ts    | 102 ++++++++++++++++++
+6bbeeedd fix(kf/transport · X.KF.W13.b · TD-1+TD-4 icon spin + PRM + test): the transport's only keyframes.js 
+     .../instrument/transport/TransportDock.vue         |  12 +-
+     .../transport/TransportDock/useIconSpin.ts         |  72 ++++++++---
+     test/demo/instrument/transport-icon-spin.test.ts   | 139 +++++++++++++++++++++
+5100ea42 fix(kf/transport · X.KF.W13.b · TD-39 + TD-34/35 — one stable name, translate-not-shrink, the dock gu
+     .../instrument/transport/TransportDock.vue         | 155 ++++++---------------
+     .../transport/TransportDock/useMenubarMeasure.ts   |  23 ++-
+9a63660e fix(kf/ribbon · X.KF.W13.b · C-2 time-space contract + KF-CO-15 extension — scale and space land toge
+     .../transport/channel-controls/ChannelOptions.vue  |  22 +-
+     demo/components/playback/PlaybackRibbon.vue        |  64 ++--
+     .../instrument/playback-ribbon-contract.test.ts    | 332 +++++++++++++++++++++
+1b88a320 fix(kf/ribbon · X.KF.W13.b · D-1+C-3+C-4 name/valueCommit/step on the Slider): D-1 — the sole AT-expo
+     demo/components/playback/PlaybackRibbon.vue        | 42 ++++++++++++++-
+     .../instrument/playback-ribbon-contract.test.ts    | 63 ++++++++++++++++++++--
+8e0114d1 fix(kf/ribbon · X.KF.W13.b · D-5/D-6/L-M1 + one pressed authority): D-5 (+M-6) — the one instructiona
+     demo/components/playback/PlaybackRibbon.vue        | 76 +++++++++-------------
+     .../instrument/playback-ribbon-contract.test.ts    | 36 ++++++++++
+69fef88f fix(kf/ribbon · X.KF.W13.b · D-2 visible playhead; D-7's :deep reach dies with it): the standard vari
+     demo/components/playback/PlaybackRibbon.vue        | 45 ++++++++--------------
+     .../instrument/playback-ribbon-contract.test.ts    | 12 ++++++
+100237d9 chore(kf/ribbon · X.KF.W13.b · hygiene sweep + the five-false-comments prose pass): D-16 — the Revers
+     demo/components/playback/PlaybackRibbon.vue        | 68 +++++++++++-----------
+     .../instrument/playback-ribbon-contract.test.ts    | 22 +++++++
+d3778b52 fix(kf/ribbon · X.KF.W13.b · N-3 — the doubled press affordance deleted, census pasted): playback-idi
+     demo/styles/playback-idiom.css | 7 ++++---
+05838ebc fix(kf/ribbon · X.KF.W13.b · D-12 stopgap): the scrub rail's focus affordance under forced-colors — t
+     demo/styles/playback-idiom.css | 14 ++++++++++++++
+
+## G-KFW13-4 — re-run explicitly (the loop above passed both paths as ONE word: zsh does not word-split an unquoted variable, so vitest matched nothing and printed nothing — a harness slip, corrected here, not a gate reading)
+## G-KFW13-4 run 1: npx vitest run --project demo test/demo/instrument/transport-play-actuation.test.ts test/demo/instrument/transport-icon-spin.test.ts
+ Test Files  2 passed (2)
+      Tests  21 passed (21)
+## G-KFW13-4 run 2: npx vitest run --project demo test/demo/instrument/transport-play-actuation.test.ts test/demo/instrument/transport-icon-spin.test.ts
+ Test Files  2 passed (2)
+      Tests  21 passed (21)
+
+## roster tail — the C-11 withdrawal sha (landed after the roster above was printed)
+ce61840a chore(kf/ribbon · X.KF.W13.b · C-11 withdrawn, recorded — the shared seam stays on the root barrel): 
+     demo/components/playback/PlaybackRibbon.vue           | 9 +++++++--
+     test/demo/instrument/playback-ribbon-contract.test.ts | 8 ++++----
+
+## HEAD at close of this unit: ce61840a · commits since open: 12
+
+## roster addendum — the contract file's tsconfig.test.json fix
+05c577ed test(kf/ribbon · X.KF.W13.b · G-KFW13-5 — the contract file type-checks under tsconfig.test.json): th
+     test/demo/instrument/playback-ribbon-contract.test.ts | 6 +++---
+## FINAL HEAD of this unit: 05c577ed · commits since open: 13

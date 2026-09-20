@@ -1008,3 +1008,112 @@ discharge; `modal` still ships `default: !0` (the documented reka default, now r
 `INBOX.md` untouched. **SELF-COUNT**: ⟨cmd⟩ `ls docs/tranches/X/keyframes/evidence/W13 | wc -l` →
 **4** (four files named in this receipt: `…literal-gate-RED.txt` · `…probe-inline-GREEN.txt` ·
 `…dock-context-slot-resolution.test.ts.txt` · `…OP-3-dist.txt`).
+
+### KF.W13.b
+
+SERVED MODEL: claude-fable-5-1
+
+**Seat**: KF.W13.b · the Transport/Ribbon Packet · 2026-09-20 · keyframes.js opened at `2736b5e5` on `master` (the `.a` seat runs in its own worktree; this seat's commits are linear on this checkout). **Crash-recovery** (first act): ⟨cmd⟩ `git -C /Users/mkbabb/Programming/keyframes.js status --porcelain` → two untracked coordination letters only, **zero modified paths inside this unit's writable set** — no inherited edits; value.js likewise (no path under `execution/B/KF-W13.md` or `evidence/W13/` dirty). **Inherited paths: none.**
+
+**KF-AV-28 — KEEP, stated first (OP-1).** Six KEEP-BESPOKE, zero SWAP, discharge set EMPTY (`4c03ceda`). This receipt emits **zero** discharge receipts; every ribbon row was cured ON the `Slider` the ribbon already consumes (PR-CAUTION) — no `Slider` import replaced or wrapped: ⟨cmd⟩ `git diff 2736b5e5..HEAD -- demo/components/playback/PlaybackRibbon.vue | grep -c '^-.*import.*Slider'` → **1** (the root-barrel line, re-imported from `/slider` one line below — C-11), `grep -c '^+.*import.*Slider'` → **1**.
+
+**OP-6 — the remainder derivation, committed BEFORE any TD byte**: value.js **`e311df4f`** `docs/tranches/X/keyframes/evidence/W13/b-td-remainder-derivation.md` (Space/keyup semantics booked `LANDED-BY KF.W8`, never claimed; the remainder of TD-2/38/40, TD-21/41, TD-1/4/17 measured at the bytes double-run; the propagation policy written once at its §4; `useDragCapture`'s consumer re-measured — `383bcf3b`, surface `{ isDragging, onPointerDown }` unchanged; OP-7 read UNRULED).
+
+**OP-7 — TD-37**: ⟨cmd⟩ `grep -c 'TD-37\|face order' docs/tranches/X/COHESION.md` → **0** (1,922 L, read to the end). **NOT LANDED — `complete_with_misses` naming TD-37**: one face order is an SS-2 design decision; the seat lands nothing for it. TD-21's cure makes the stale-origin leak TD-37 converts independent of the face order.
+
+#### The `.stop` census, both mirrors, BEFORE → AFTER (G-KFW13-3's receipt clause)
+
+| mirror | BEFORE (`2736b5e5`, ×2) | AFTER (HEAD, ×2) |
+|---|---|---|
+| `TransportDock.vue` (the collapsed mirror carried all five: `@pointerdown/.up/.cancel/@keydown/@keyup.stop`) | **5 · 5** | **0 · 0** |
+| `demo/app/dock/ChromeDock.vue` (READ-ONLY, the sibling) | **0 · 0** | **0 · 0** |
+
+Symmetry 5/0 → **0/0**. LAW A (4): the five deletions rode the dock's listener-phase census (derivation §3/§4: root `onPointerdownCapture`/`onPointerCancelCapture`/`onClickCapture` capture-phase → the three pointer stops inert; the two keyboard stops no longer load-bearing once the registry is scoped; the summary layer's bubble `onClickCollapsed` is the dock's own declared meaning of a press).
+
+#### Family 1 — TD-2 + TD-38 + TD-40, ONE sha `31171b0e`
+
+⟨cmd⟩ `git show --stat 31171b0e | tail -4` → `useControlsKeyboardShortcuts.ts | 42 ++` · `TransportDock.vue | 23 +-` · `transport-keyboard-propagation.test.ts | 259 ++` — **the bundle clause: the SFC AND the registry seat AND the test, one sha.** Cure: the registry's dispatcher skips only editable targets and calls `preventDefault` BEFORE the handler (measured at `glass-ui/dist/keyboard.js`; ⟨cmd⟩ `grep -c 'BUTTON' …/dist/keyboard.js` → **0**), so the Space registration is scoped away from activation targets by an `isSpaceActivationTarget(e.target)` guard in the handler, which now owns `preventDefault` conditionally and guards `e.repeat`; the producer half (a BUTTON-target/`defaultPrevented` policy) is relayed, not patched. Composition test mounts the real `TransportDock` SFC WITH the real registry; `button`/`dock` are stubbed only at the keyframes.js-import wall X.KF.W12.b recorded (⟨cmd⟩ import-graph walk at the dist → `button.js REACHES-WALL · dock.js REACHES-WALL · tooltip/status-dot/select/slider/keyboard clean`). **Born-RED 5/5** against the pre-cure bytes (registry fired beside the local arm ×2 · `defaultPrevented` true on Reset and Collapse-timeline · repeat ×3) → **GREEN 5/5 · 5/5**. Byte clauses AFTER: `.stop` **0 · 0** / **0 · 0**; `grep -c 'registerShortcut("Space"'` **1 · 1** (scoped; the runtime clause decides).
+
+#### Family 2 — TD-21(+r2) + TD-41, ONE sha `dafce6eb`
+
+⟨cmd⟩ `git show --stat dafce6eb | tail -4` → `TransportDock.vue | 3 +` · `usePlayActuation.ts | 114 ++--` · `transport-play-actuation.test.ts | 102 ++` — the composable AND its test, one sha. Cure: per-control origin (`pointerId → currentTarget`; the Space arm is the control that armed it); release-elsewhere cleanup (a one-shot window `pointerup`/`pointercancel` listener registered at press, bubble phase); blur disarms both arms (`@blur` bound on both mirrors). Seven cases added, the existing ten untouched: ⟨cmd⟩ `grep -c 'it('` **10 → 17**; ⟨cmd⟩ `grep -c 'blur\|orphan\|stale'` **0 → 8** (≥ 3). **Born-RED 6/7** against the pre-cure composable → **GREEN 17/17 · 17/17**.
+
+#### Family 3 — TD-1 + TD-4 + PRM + test (+ TD-17), ONE sha `6bbeeedd`
+
+⟨cmd⟩ `git show --stat 6bbeeedd | tail -4` → `TransportDock.vue | 12 +-` · `useIconSpin.ts | 72 ++--` · `transport-icon-spin.test.ts | 139 ++` — the composable AND its test, one sha. Cure: the engine's target contract is `HTMLElement` (`setTargets`), so the ref lands on an HTMLElement host wrapping the lucide glyph and is PASSED IN typed (TD-17); the twist is built on the first spin, memoised, `stop()`ped on scope dispose (TD-4); `respectReducedMotion: true` explicit — measured: under an active reduce query the host paints `rotateY(-360deg) scale(1)` synchronously and never starts; free play is mid-flight one frame later with `playing()` true. ⟨cmd⟩ `grep -c 'instanceof HTMLElement' …/useIconSpin.ts` → **2 → 0 · 0**. **Born-RED 4/4** → **GREEN 4/4 · 4/4**. The head's TS6133 on `resetIconEl` fell with it.
+
+#### TD-39 + TD-34/35 (+ TD-17's `useMenubarMeasure` half, the `:95` selection typing, the TD-5/TD-28 prose pass) — `5100ea42`
+
+One stable name across both faces (the `(collapsed dock)` suffix dropped — exactly one layer is in the a11y tree); glyph nudges `translate-x-px`, not padding; the row gap `var(--dock-layer-gap, 0.375rem)` (⟨cmd⟩ `grep -c -- '--dock-layer-gap' node_modules/@mkbabb/glass-ui/dist/glass-ui.css` → 16 — the producer's token); `useMenubarMeasure(ref)` takes the SFC-owned typed ref; the Select model reads `selectedAnimation ?? ''` (the store's own nothing-selected default; `exactOptionalPropertyTypes` rejects an explicit `undefined`). Four narration blocks asserting falsified invariants replaced by checkable pointers: ⟨cmd⟩ `wc -l TransportDock.vue` **403 → 352**. **§0u: `TransportDock.vue`'s three rows 3 → 0** — ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.json 2>&1 | grep -c 'transport/TransportDock'` → **0 · 0**; total **12 → 9** (the remaining nine: MbabbMenu ×2 = `.a`'s, useEasingDemo ×2 + EditorShell = KF.W11 `.r`'s, useKeyframeOps = KF.W12's, three `src/**` = KF11-E2's). `font-roles.json` untouched (TD-39 renamed an accessible name, not the `.btn-playback` selector).
+
+#### The ribbon — C-2 ⊕ KF-CO-15, JOINT sha `9a63660e` (on KF.W12 `.b`'s `2cd314af`)
+
+⟨cmd⟩ `git merge-base --is-ancestor 2cd314af HEAD` → true (OP-2 open). ⟨cmd⟩ `git show --stat 9a63660e | tail -4` → `ChannelOptions.vue | 22 +-` · `PlaybackRibbon.vue | 64 ++--` · `playback-ribbon-contract.test.ts | 332 ++` — **the joint clause: `PlaybackRibbon.vue` AND `ChannelOptions.vue`, one sha.** The `ChannelOptions.vue` carve = KF-CO-15 only (`railDuration` published on the duration commit's accept edge + re-seated on channel switch; `:duration` on the ribbon mount; `watch` imported). The ribbon declares its time-space once (EFFECTIVE ms in, RAW `sliderUpdate.t` out, one inversion over ONE duration read with one guard — L-m9), so the signed seek (`rawT = −3000`) is impossible by construction. Cases over the real Slider + real engine + the real ChannelOptions card: reversed thumb displays the effective time it was fed, scrub emits `duration − T`, seating that raw t reads back `effectiveT` = the thumb (the ball's source agrees); no negative raw t across the rail; the ribbon edge re-scales `aria-valuemax`; the card's `'2s'` write re-scales the teleported rail to 2000 with `anim.options.duration` = 2000. **Born-RED 3/5 → GREEN 5/5 · 5/5**; `channel-options-render-edge` 5/5 unchanged. *(Receipt note: zsh consumed one backtick-quoted word in this sha's message body — "hands the ribbon a ` ` prop" reads "a  prop"; the byte is `duration`. Not amended: an amend would re-commit the shared index.)*
+
+#### D-1 + C-3 + C-4 — `1b88a320`
+
+`aria-label` through the producer's thumb forward; `:step` = the one duration read / 100 (×10 Page/Shift via reka); `@value-commit` brackets a keyboard step `scrubStart → sliderUpdate → scrubbed → scrubEnd`. **ONE SEAT PER GESTURE** (measured: reka emits `valueCommit` BEFORE `update:modelValue`) — the live update seats only inside a pointer gesture (`isDragging`), the commit seats the keyboard step; the consumer resumes only if it paused for the scrub, so a nudge while paused stays paused. L-m5 rode along (`number[] | undefined`, one guard). **Born-RED 6/8 → GREEN 8/8 · 8/8.** Byte clauses: `aria-label` **0 → 2**, `valueCommit\|value-commit` **0 → 2**, `:step` **0 → 2**.
+
+#### D-5 / D-6 / L-M1 + one pressed authority (D-15 half) — `8e0114d1`
+
+`aria-describedby` → an sr-only hint (`useId`); `:disabled="!isAnimStarted"` on the primitive (thumb out of the tab order, inert to arrows, `[data-disabled]`); the wrapper gate deleted whole with S-3's pointerType reasoning carried into the seam's law; the Reverse cell's `aria-pressed:` utilities deleted. `.is-disabled` stays on the aria-hidden visualizer twin (no `disabled` seam; KF.W11's file) — stated. **Born-RED 2/11 → GREEN 11/11 · 11/11.** Byte clause: `gatedSliderDown` **2 → 0 · 0**.
+
+#### D-2 (+ D-7 dies with it) — `69fef88f`
+
+`variant="spectrum"` — measured at the producer stylesheet: the spectrum thumb is `opacity:1`, painted from `--slider-thumb-bg`; its track is `1.5 × --slider-thumb-size` = 1.5rem at md, the very height the F4 `:deep` reach hand-set — so the reach (D-7) is deleted with its narration. **Born-RED 1/12 → GREEN 12/12 · 12/12.**
+
+#### Hygiene + the five-false-comments prose pass — `100237d9`
+
+D-16 (`h-10` + the G7 comment) · N-6 (`emphasis="secondary"` ×2, the tripled width) · D-17/N-4 (the three `icon-*` glyph utilities → the producer's `--ui-glyph` rung) · D-19 (`.timeline-green` → `.scrub-rail`; zero external consumers) · C-9 (dead `ref="sliderRef"`) · C-11 (`/button`, `/slider`, `/tooltip` — one subpath convention) · D-20/D-25 (all five: "red range fill" · "the thumb keeps its variant size" · "Non-scoped global rules" · "glass-ui 4.0.0" · "which glass-ui's Slider does NOT provide" — plus the stale K.W2 `--font-display` narration) · L-i2 · C-15. The witness case reads the SFC and asserts every falsehood absent. **Born-RED 1/13 → GREEN 13/13 · 13/13.**
+
+#### N-3 — its own sha `d3778b52`, LAW A census pasted in the message
+
+⟨cmd⟩ `git grep -l 'btn-playback' HEAD -- demo | wc -l` → **8 · 8** (the subjects; RULINGS-4's **7** quoted beside, not amended — the eighth is `KeyframeTimeline.vue`, KF.W7's, routed never edited); ⟨cmd⟩ `grep -rn 'btn-playback.*:active' demo` → the one line at `playback-idiom.css:78` before, **0** after; what remains = the producer's own spring press (`useLiquidPress` in the button chunk). The `:74-77` focus rule is untouched (`.c`'s): ⟨cmd⟩ `sed -n '74,77p' playback-idiom.css | grep -c 'focus-ring-shadow'` → **1**.
+
+#### D-12 — the stopgap, its own sha `05838ebc`
+
+`@media (forced-colors: active) { .scrub-rail:focus-within { outline: 2px solid Highlight } }` on the demo-OWNED wrapper — no producer selector reached (the `:deep(.slider-track)` form the record sketched would have copied one; the wrapper form does not). The producer half rides the BH relay at `.d`. The `:74-77` rule is untouched (⟨cmd⟩ `sed -n '74,77p' playback-idiom.css | grep -c 'focus-ring-shadow'` → **1**) and `.c`'s G-6 byte clause reads what it read at open (**1 · 1**).
+
+#### C-11 — landed, then WITHDRAWN and recorded: `ce61840a`
+
+The hygiene sha moved `Button`/`Slider` to `/button`/`/slider`; ⟨cmd⟩ `npm run test:demo` then showed **`channel-options-render-edge.test.ts` FAILED at collection** — its seam stubs this ribbon's producer reach at the ROOT barrel and the real `/button` chunk imports `@mkbabb/keyframes.js` by its published name (the wall). That file is KF.W12's, outside this unit's writable set, so the move is withdrawn in place (root barrel beside `/tooltip`, the reason written at the import) and **C-11 is a named miss**: a one-line `vi.mock("@mkbabb/glass-ui/button")` in the sibling gate lands it — its owner's act. After the withdrawal: render-edge **5/5** + contract **13/13** (double-run 18/18).
+
+#### The gates this unit owns — BEFORE → AFTER (transcripts: `evidence/W13/b-gates-AFTER.txt`, double-run at `ce61840a`)
+
+| gate | BEFORE (record's second-sitting baseline, `2736b5e5`) | AFTER (this seat, ×2) | verdict |
+|---|---|---|---|
+| **G-KFW13-3** | `No test files found` ×2; `.stop` 5/0; Space registration unscoped | `transport-keyboard-propagation.test.ts` **5/5 · 5/5**; `.stop` **0/0 · 0/0**; `registerShortcut("Space"` **1 · 1** (scoped; runtime clause GREEN); bundle sha `31171b0e` names the SFC + the registry seat + the test | **GREEN** |
+| **G-KFW13-4** | actuation 10/10, spin file ABSENT; `instanceof HTMLElement` 2; `blur\|orphan\|stale` 0 | actuation + spin **21/21 · 21/21** (17 + 4); `instanceof HTMLElement` **0 · 0**; `blur\|orphan\|stale` **8 · 8** (≥ 3); two shas `dafce6eb` / `6bbeeedd`, each naming its composable AND its test | **GREEN** |
+| **G-KFW13-5** | `No test files found` ×2; aria-label 0 · valueCommit 0 · :step 0 · gatedSliderDown 2 | `playback-ribbon-contract.test.ts` **13/13 · 13/13**; aria-label **2 · 2** · `valueCommit\|value-commit` **3 · 3** · `:step` **2 · 2** · `gatedSliderDown` **0 · 0**; joint sha `9a63660e` names `PlaybackRibbon.vue` AND `ChannelOptions.vue`; PR-CAUTION: no `Slider` import replaced or wrapped | **GREEN** |
+
+SELF-COUNT of the three gate files' cases: ⟨cmd⟩ `grep -c '^\s*it(' test/demo/instrument/{transport-keyboard-propagation,transport-icon-spin,playback-ribbon-contract}.test.ts` → **5 · 4 · 13** = the 22 this unit authored, + 7 appended to the actuation file (10 → 17).
+
+#### Residuals and escalations (returned, not worked around)
+
+1. **ESCALATION E-b1 — the playback-idiom.css halves of five §Scope 3 rows sit outside this unit's carve.** The dispatch lock reads *"playback-idiom.css = N-3's :78-80 + D-12's stopgap ONLY"*, and the spec's §Scope 3 books rows whose bytes live in that file's other rules: **D-10** (`.btn-playback-accent`'s solid `--accent-kf` plate + `--accent-kf-foreground` ink, `:30-33`), **D-13** (`.btn-playback { font-size: var(--type-body) }` → `--control-text`, `:23`), **D-16**'s css half (`height: 2rem`, `:19`), **N-1** (the dead `border-color` declarations, `:33/:48/:69/:88`), **D-8/D-15**'s css half (the pressed-state redesign at `:87-90`), and **D-20's fourth falsehood** (the header's *"imported by PlaybackRibbon.vue"*, `:12-13` — it is imported by `design-idioms.css:10`). Each SFC half that exists is LANDED (`100237d9`, `8e0114d1`); each css half is **NOT written** — the lock governs. One sha over the file's `:18-33`, `:87-90` and the header lands all six; the seat that owns it is `.c` (already serial on this file) or `.d` by ruling.
+2. **TD-37 — UNRULED (OP-7)**: `complete_with_misses`. Nothing landed.
+3. **C-11 — WITHDRAWN** (above): a one-line seam in KF.W12's gate file.
+4. **D-23** (the `source` limb's preconditions, sequenced with KF-ES-2's owner) — the one-guard half rode L-m9 (`effectiveDuration` guards the dead branch and the live one alike); the type alignment with `TransportChannel` is KF-ES-2's owner's — carried, not re-booked.
+5. **L-m6** (`KeyframesAnimation<any>` ×2) — house idiom per KF-AV-38; logged per-site, unchanged. **N-5** (the `--color-*` tokens declared in `:root` rather than `@theme`) — style.css is not this unit's; noted. **D-14/C-10/L-m1 ≡ KF-CPW** at its bank.
+6. **`.is-disabled` on the AnimationVisualizer mount** (`:96`) stays: the twin is `aria-hidden` and declares no `disabled` seam; KF.W11's file.
+7. **§0u**: this unit's three `TransportDock.vue` rows → 0; the wave's honest reach 12 → 9 at this seat (`.a`'s two MbabbMenu rows still open at this clock; the seven foreign rows as the open block names them). `npm run check` exits 2 on those nine (its vue-tsc leg); this unit's files contribute **0**.
+8. **`npm run test:demo`** at this seat's close: the two failing TESTS are the baseline's own pair (`css-code-editor-seam` (2) KF-CE-1 · `spring-trace-truth` (4b)) — neither in this unit's files; every `test/demo/**` file this unit created or extended passes. Figures in the closing line below.
+9. Receipt note on `9a63660e`'s message: zsh consumed one backtick-quoted word (the `duration` prop's name); the bytes are correct; not amended.
+
+**Locks honoured**: four MUST-NOT-SPLIT families each ONE sha (roster in the evidence file, `git show --stat` per sha); the C-2 joint sha on `2cd314af`'s descendant; KF-AV-28 KEEP first, **zero** discharge receipts (⟨cmd⟩ `grep -c 'DISCHARGED by KF.W7 SWAP verdict' execution/B/KF-W13.md` reads what the open wrote — this receipt adds **0**); N-3 its own sha with its own census; `ChannelOptions.vue` = the KF-CO-15 carve only; `playback-idiom.css` = N-3 + D-12 only (the `:74-77` rule untouched); no `Slider` swapped; no producer byte; no copied producer selector; `dev.sh` untouched; pathspec on every commit.
+
+**E13**: no mail act this seat — the sitting's sweep (`ZERO UNREAD`) stands; `INBOX.md` untouched. **SS-6 rows for `.d`'s relay** (stated, not filed here): the registry's BUTTON-target/`defaultPrevented`/`e.repeat` policy (TD-2/TD-40's producer half); the Slider's forced-colors focus selector (D-12's producer half); `aria-valuetext` on the thumb (N-2); a scroll-gate seam on Slider (C-5); the `tone` rung note (D-10).
+
+#### Format and lint cadence (spec §Format), at `ce61840a`
+
+- ⟨cmd⟩ `npm run test:demo 2>&1 | tail -3` → **`Test Files 2 failed | 55 passed (57)` · `Tests 2 failed | 482 passed (484)`** — the two failing tests are the second-sitting baseline's own pair (`css-code-editor-seam` (2) KF-CE-1 · `spring-trace-truth` (4b)); the open banked `2 failed | 52 passed (54)` / `2 failed | 453 passed (455)` — this unit adds **3 files / 29 cases**, all green, and leaves the pair where it found it (neither file is in this unit's bounds).
+- ⟨cmd⟩ `npm run check` → exit 2 at its `vue-tsc` leg on the **nine** foreign diagnostics named at §0u above (this unit's rows **0**); ⟨cmd⟩ `npm run proof:structure` → **PASS (scope=src clean, 0 violations R1–R6)**; ⟨cmd⟩ `npx tsc --noEmit -p tsconfig.test.json` → five diagnostics, all in `test/group` · `test/ingest` · `test/scroll` · `test/waapi` (library tests this unit never touched); this unit's test files: see the closing line.
+- ⟨cmd⟩ `npx eslint demo/app demo/components/instrument/transport demo/components/playback` → **7 errors, 0 in this unit's files** (`App.skeleton.vue` — `.a`'s directory; `TimingFunctionPanel.vue` ×3 and `ControlsPaneWrapper.vue` ×3 — KF.W12's rows; all pre-existing by construction, untouched by any of this unit's shas). `demo/styles` is CSS and outside eslint's config (the spec's fourth path prints eslint's "no matching configuration" notice, not a finding). Every file this unit wrote lints clean (per-sha runs above).
+- ⟨cmd⟩ `git diff --check` → clean at every sha; ⟨cmd⟩ `git diff 2736b5e5..HEAD -- test | grep -c 'test.skip\|it.skip\|\.only('` → **0 · 0**.
+- ⟨cmd⟩ `git -C /Users/mkbabb/Programming/keyframes.js status --porcelain` at close → the two untracked coordination letters only; `scripts/dev/dev.sh` untouched.
+
+**Commit roster (keyframes.js, 12 shas, linear on `master` from `2736b5e5`; `git show --stat` per sha in `evidence/W13/b-gates-AFTER.txt`)**: `31171b0e` TD-2+TD-38+TD-40 · `dafce6eb` TD-21+TD-41 · `6bbeeedd` TD-1+TD-4+PRM+test · `5100ea42` TD-39+TD-34/35 (+§0u rows) · `9a63660e` C-2 ⊕ KF-CO-15 JOINT · `1b88a320` D-1+C-3+C-4 · `8e0114d1` D-5/D-6/L-M1 (+D-15 half) · `69fef88f` D-2 (+D-7) · `100237d9` hygiene + prose pass · `d3778b52` N-3 · `05838ebc` D-12 · `ce61840a` C-11 withdrawn. **value.js**: `e311df4f` the derivation (before any TD byte) · this receipt's sha.
+
+**Status**: **PARTIAL** — G-KFW13-3 · -4 · -5 all GREEN double-run and every lock honoured; PARTIAL because §Scope 3 books six css-resident halves this unit's carve forbids (E-b1, returned), TD-37 is unruled (OP-7), and C-11 is withdrawn to a sibling wave's seam. Nothing was substituted or worked around; each is named with its owner.
+
+**Closing line (tsc, evidence, roster addendum).** ⟨cmd⟩ `npx tsc --noEmit -p tsconfig.test.json 2>&1 | grep -c 'error TS'` → **52**, of which this unit's test files **0** (was 3 — three TS2412 rows in the contract file's pointer-capture restore block, cured at `05c577ed` by stating `| undefined` on the surface type; the 52 are library tests outside this unit). **Roster addendum**: `05c577ed` test(G-KFW13-5 type-checks) — thirteen keyframes.js shas in all, HEAD `05c577ed`. **SELF-COUNT**: ⟨cmd⟩ `ls docs/tranches/X/keyframes/evidence/W13 | wc -l` → **6** (two are this unit's: `b-td-remainder-derivation.md` · `b-gates-AFTER.txt`; four are `.a`'s, named in its receipt above); ⟨cmd⟩ `grep -c '^#### ' <this receipt>` → **14** sub-heads; keyframes.js ⟨cmd⟩ `git rev-list --count 2736b5e5..05c577ed` → **13**.
