@@ -3433,3 +3433,255 @@ proven; the readings are published so a successor can refuse them (R-14). That `
 columns — they were not, and both are re-disclosed at ACT 1. And it refuses to re-grade `.a`–`.f`,
 to re-open CHECK 1's register, to overturn a sibling seat's reading, or to write one byte of
 keyframes.js or glass-ui.
+
+---
+
+## Check 1 — THE THIRD CLOSE (fresh adversarial L-20 pass 1, VERIFY-ONLY)
+
+SERVED MODEL: claude-opus-5[1m]
+
+**Seat**: an independent `claude-opus-5[1m]` that authored **no** byte of this wave's cures, of any
+unit receipt, of the first/second/third close blocks, or of the existing `## Check 1` (`:1652`,
+which read the FIRST close and is **IMMUTABLE**, E-3). **This block wrote ZERO keyframes.js bytes,
+ZERO glass-ui bytes and ZERO product bytes anywhere**; it cured nothing and re-graded no unit.
+**Date** 2026-09-19; **sitting of record 2026-09-17** (the owner's begin-word, COHESION §0j).
+**E-3**: everything above this line is immutable; this is a dated check BESIDE it.
+
+**Substrate, named**: keyframes.js ⟨cmd⟩ `git rev-parse --short HEAD` → **`2736b5e5`** =
+⟨cmd⟩ `git rev-parse --short origin/master` → **`2736b5e5`**. value.js `tranche-u`.
+Crash-recovery, first act: ⟨cmd⟩ `git -C ../keyframes.js status --porcelain` → **2 untracked
+2026-07 `VALUEJS-INBOUND-*` letters, zero modified product paths**; ⟨cmd⟩ `git status --porcelain --
+execution/B/KF-W12.md execution/LEDGER.md` → ***(no output)*** at open and again immediately before
+each write. **No inherited hunk on any path this seat writes.** The 17 dirty rows elsewhere belong
+to sibling seats and `scripts/dev/dev.sh` (**unowned — never read for judgement, never staged**).
+
+### VERDICT: **CONFORMANT-HONEST-RED** — 0 BLOCKER · 0 CRITICAL · 0 HIGH · 3 MINOR · 3 INFO
+
+**All SEVEN gate verdicts reproduce** at this seat's own double-run commands. **honest-RED set:
+`G-KFW12-4` · `G-KFW12-7`**, each relieved under axis 10 at the spec's own bytes and each
+owner-named in the record's residual register.
+
+### Axis 1 — every claimed GREEN reproduces (7 of 7 verdicts, this seat's own commands)
+
+| gate | ⟨cmd⟩ | this seat, ×2 | close's claim | verdict |
+|---|---|---|---|---|
+| **G-KFW12-1** | `npx vitest run --project demo test/demo/instrument/keyframe-card-offset-loop.test.ts` | `Test Files 1 passed (1)` · `Tests 9 passed (9)` | GREEN 9/9 | **REPRODUCES** |
+| **G-KFW12-2** | `… channel-options-render-edge.test.ts` | `Tests 5 passed (5)` | GREEN 5/5 | **REPRODUCES** |
+| **G-KFW12-3** | `… keyframes-editor-honest.test.ts` | `Tests 7 passed (7)` | GREEN 7/7 | **REPRODUCES** |
+| **G-KFW12-4** | `… css-code-editor-seam.test.ts` | `Tests 1 failed \| 3 passed (4)`, twice, same case `(2) KF-CE-1 … tokenizer` at `:216` | honest-RED, same case | **REPRODUCES** |
+| **G-KFW12-5** | `… apply-css-identity.test.ts` | `Tests 4 passed (4)` | GREEN 4/4 | **REPRODUCES** |
+| **G-KFW12-6** | `… test/demo/scenes/cube-axis-reveal.test.ts` | `Tests 11 passed (11)` | GREEN 11/11 | **REPRODUCES** |
+| **G-KFW12-7** | see axis 10 | `Test Files 2 failed \| 52 passed (54)` · `Tests 2 failed \| 453 passed (455)` | honest-RED | **REPRODUCES** |
+
+**Byte clauses — eleven, re-measured at this seat, every one as §Gates wrote it**: `frame.start.value
+= starts` **0** · `:is-open` across `channel-controls` ***(no output, exit 1)*** · `@update:checked`
+**0** · `parseCssScalar` **0** · `class="absolute top-2 right-4` **0** · `toLowerCase()` in
+`useKeyframesState.ts` **0** · `tabFocusMode` **2** (≥1) · `isFormatting` **6** (recorded) ·
+`cssIdent` in `demo` → `helpers.ts:1` + **`useKeyframesState.ts:5`** + **`useKeyframesParsing.ts:1`**
+(the ROUTED arm, ≥1 non-comment consumer) · `cssIdent` in `dist/keyframes.d.ts` **2** ·
+`useEventListener(window, "keydown"` in `OrbitalDrag.vue` **0**. **11 of 11 MET or recorded exactly.**
+
+### Axis 2 — bounds
+
+⟨cmd⟩ `git rev-list --count bf4a9a9c..HEAD` → **46**; per-unit SELF-COUNT `.a` 9 · `.b` 8 · `.c` 12 ·
+`.d` 7 · `.e` 8 · `.f` 2 · `.g` 0 = **46 ✓**. ⟨cmd⟩ `git log bf4a9a9c..HEAD --name-only --format='' |
+sort -u` → **30 paths**, and this seat read every one against §B.2: **all 30 are §B.2 rows, zero out
+of bounds.** Forbidden-prefix probe, each **0**: `src/` · `demo/scenes/cube/orbital-drag/` ·
+`node_modules` · `scripts/dev/dev.sh` · `package.json` · `vitest.config.ts` ·
+`demo/components/instrument/timeline/` · `demo/components/playback/` · `demo/app/` ·
+`demo/components/instrument/shell/`. ⟨cmd⟩ `git -C ../glass-ui status --porcelain` →
+***(no output)*** — **zero glass-ui bytes**. ⟨cmd⟩ `git diff --check` → exit **0**.
+
+**`scripts/dev/dev.sh`: 0 of 46 commits**, independently re-measured.
+
+### Axis 3 — masking census, run independently at this seat
+
+⟨cmd⟩ `git diff bf4a9a9c..HEAD -- test | grep -n 'test.skip\|it.skip\|\.only('` → **one** hit, and
+it is the docblock sentence `+ * … No test.skip, no` in `channel-options-render-edge.test.ts`.
+**Semantic skips in the tree: ZERO.**
+
+⟨cmd⟩ `git diff bf4a9a9c..HEAD -- demo | grep -nE '^\+.*(catch\s*\(|@ts-ignore|@ts-expect-error|
+eslint-disable|as any|node_modules)'` → **9 hits, every one read whole at this seat**: five
+`try/catch` blocks (`CSSCodeEditor.vue`'s boot — drops the cached dead promise, renders the failure,
+`console.error`; `KeyframesEditor.vue`'s `requireKeyframeSelector` — toasts the parser's own message;
+`KeyframesStringControls.vue`'s `formatEditor` — toast + Retry + `finally` latch release;
+`KeyframeCard.vue`'s `commitOffset` — sets a field error; `ChannelOptions.vue`'s `commitOption` —
+**re-throws** anything that is not `AnimationOptionError`), three `.catch(reportAsync(...))` whose
+handler is `console.error(\`${what} failed:\`, e)`, and one comment. **Every one is a LOUD path; not
+one swallows a defect.** Zero `@ts-ignore`, zero `@ts-expect-error`, zero `eslint-disable`, zero
+`as any` additions (the one `as any` string in the diff is a comment saying *"no `as any` — N-15"*).
+
+**No copied producer selector**: ⟨cmd⟩ the `\.glass-|\[data-reka|\.reka-|:deep\(\.` probe over the
+`demo` diff → **3 hits, all inside comments**; the D-B1 cure is the producer's own published lever
+set as an inline `:style` on `<DrawerContent>` (`ControlsPaneWrapper.vue:143`
+`'--drawer-inset-block-end': 'var(--dock-band-reserve-stable)'`), **never a scoped-selector
+declaration** — the exact form §Scope 2 and MISS-1 prescribe. **No `node_modules` path in 46
+commits. No widened timeout on an existing witness**: ⟨cmd⟩ `git log bf4a9a9c..HEAD --name-only
+--format='' | grep -c 'value4-editor-boundary'` → **0** — §L-18 base (iv)'s named masking class did
+not occur. (The new files' explicit `HEAVY = { timeout: 30_000 }` constants are on cases this wave
+authored, under the D59 precedent, with no assertion narrowed — INFO, not masking.)
+
+### Axis 4 — commit families · Axis 5 — E-3 · Axis 6 — mail · Axis 7 — the four-verb line
+
+**Axis 4.** The binding orders hold in `git log`: `.a`'s **KC-34 `e5235ca0` precedes** the
+keep-mounted `5b80d54c` (G-1's order clause); **KC-2 ≡ KF-KE-2 is ONE commit** `dec084a8`
+(*"freeze and unit in ONE motion"* — the MUST-NOT-SPLIT family, unsplit); `.b`'s five steps are five
+commits **in sequence** (`98675047` → `ebbc8259` → `fcafcff8` → `0e31d417` → `b67dae6f`) and
+⟨cmd⟩ `git show 98675047 --stat` names **`ChannelOptions.vue` · `LayerConfigPanel.vue` ·
+`ControlsPaneWrapper.vue`** — LP-1's render edge is IN the commit that turns the byte clauses green
+(G-2's **lock clause: MET**); `.d`'s **KF-CE-3 `7cda421c` is first** and the `debounce` handle
+`ccda20c7` **lands alone** (⟨cmd⟩ `--stat` → `demo/utils/helpers.ts` only, 1 file). One MINOR
+deviation (`.f` 2 commits where §Commit plan names 5) is registered below — a compression the
+receipt discloses with its mechanism, never a split.
+
+**Axis 5 — E-3 held.** ⟨cmd⟩ `git log --oneline -- docs/tranches/X/keyframes/waves/KF-W12.md` →
+the dated spec's only commit is the authoring one **`f208ff31`** — **byte-untouched by execution**.
+⟨cmd⟩ `git log --oneline -3 -- docs/tranches/V/megatranche/registry/adjudicated/` → `a94bc452` ·
+`429bf48b` · `5645e476`, all **KF.W9's / KF.W0's**, none this wave's. Conformance artifacts and
+sibling specs unmoved.
+
+**Axis 6 — mail clean.** ⟨cmd⟩ `grep -cE '^\| [IO]-[0-9]+[a-z]? \|' INBOX.md` → **82**. Positional
+Status-cell scan (field 6, ⟨cmd⟩ `awk -F'|' '$6 ~ /UNREAD/'`) → **four** rows whose cell *contains*
+the word — **O-20** (`**SENT** 2026-08-28`), **I-31** (`**FOLDED** …`), **I-32** (`**READ IN FULL +
+ROUTED — TERMINAL** …`), **O-39** (`**SENT** 2026-09-19`) — **and not one carries UNREAD status.**
+⟨cmd⟩ `/bin/ls <the coordination dirs> | grep -cE '2026-09-(19|20)'` → **0**. **Zero unread mail in
+this wave's scope.** SS-6: ⟨cmd⟩ `grep -o 'KFW12-[0-9]*' COHESION.md | sort -u` → **`KFW12-1` …
+`KFW12-11`, eleven rows present.** `INBOX.md` is **not written by this seat**.
+
+**Axis 7 — the four-verb line moved lawfully, which is to say it did not move.** §State's condition
+is *"IMPLEMENTED stays NO until the gates green"*; two gates are honest-RED, so **NO is the only
+lawful reading** and the third close took it. **VERIFIED stays NO**: §State makes it *a successor
+close's act*, and this check is adversarial, not a close — **this seat stamps no verb.** The spec's
+own verb table is an immutable dated byte and nothing in it was touched.
+
+### Axis 8 — the spec's own goal criterion, read at the bytes, not at the gate count
+
+The §Goal criterion has six legs and names three ways to fail it *"whatever its gate count says"*.
+**None of the three named failure modes occurred**, and this seat proved the headline at the bytes
+rather than at the gate:
+
+- **CARD** — *offset reads, writes, removes*: **MET** (G-1 9/9; `frame.start.value = starts` **0**;
+  the write is a whole-selector replacement and delete is keyboard-reachable in the executed cases).
+- **OPTIONS** — *dropdowns open, switch switches, widgets re-render on engine writes, and never
+  before the render edge exists (LP-1)*: **MET** (G-2 5/5; `:is-open` **gone at all four sites**;
+  `@update:checked` **0**; and the edge is in the SAME commit — *the write legs were NOT restored
+  before the render edge*, §L-18 base (i) did not occur).
+- **KFED** — *retiming retimes, Apply applies something, the action cluster is reachable*: **MET**
+  (G-3 7/7; `parseCssScalar` **0**; `class="absolute top-2 right-4` **0**).
+- **EDITOR** — *a language-aware, keyboard-escapable editor whose format path fails loudly*:
+  **TWO OF THREE MET** — escapable (case 1 GREEN, `tabFocusMode` **2**) and loud (case 4 GREEN);
+  **language-aware is NOT met** and the close **does not claim it** (its ACT 11 asserts only
+  "keyboard-escapable and fails loudly"). The shortfall is E-d1, adjudicated at axis 10.
+- **APPLY** — *the applied stylesheet binds the class it adds under ONE `cssIdent`-derived name with
+  ONE lifetime*: **MET, and verified at the source, not by the gate.** This seat read
+  `useKeyframesState.ts` whole: `const { cssIdent } = kfEngine()` at **setup** scope, then
+  `const keyframesStyleId = cssIdent(\`keyframes-style-${animationUUID}\`)` — **one const, one
+  derivation**, read by the class the Apply control adds, by the emitted `@keyframes` /
+  `animation-name` / selector, and by the `<style>` element's id. `getTmpAnimationName()` — the
+  accessor that stripped the prefix and case-folded, and is the whole of KF-KE-4 — **is deleted**
+  (`toLowerCase()` **0**). **§L-18 base (ii), "a second name derivation beside `cssIdent` for now",
+  did not occur**, and the goal's own named failure (*"`getClassName()` producing `keyframes-style-X`
+  while the injected sheet's selector is `.x`"*) is **cured at the bytes**.
+- **AXISLINE** — *the reveal reveals what it claims on the demo's one keyboard registry*: **MET**
+  (G-6 11/11; the inbound clause reads **0** — the window latch is gone by KF.W11 `.a`, and this
+  wave wrote no `orbital-drag/**` byte).
+
+**Five of six legs whole; the sixth short on one limb, disclosed and escalated rather than
+smoothed.** §L-18's other named bases were checked and none occurred: the EDITOR fork was taken **by
+receipt before the byte** (base iii), `value4-editor-boundary.test.ts` was **never touched** (base
+iv), the apply identity is proven **by execution** (base v — G-3 and G-5 both mount a real target and
+read the injected sheet back through CSSOM), `KF-APP-41` reads **0** (base vi), every cure is
+written against the **post-KF.W8 paths** (base vii), the OPTIONS order is **five commits in
+sequence** (base viii), and **no producer defect was cured demo-side** (base ix).
+
+### Axis 9 — the record's published figures reproduce (write-then-measure)
+
+Re-derived, not copied: **46** commits · **30** paths · per-unit **9·8·12·7·8·2·0** ·
+`test:demo` **54 files / 455 tests / 2 failed** · the two failing cases named at
+`spring-trace-truth.test.ts:276` and `css-code-editor-seam.test.ts:216` · `vue-tsc` **12** with the
+per-file histogram **identical** (`TransportDock.vue` 3 · `useEasingDemo.ts` 2 · `MbabbMenu.vue` 2 ·
+three `src/**` 3 · `EditorShell.vue` 1 · `useKeyframeOps.ts` 1) · eslint **7 problems (7 errors, 0
+warnings)** · `git diff --check` exit **0** · evidence ⟨cmd⟩ `ls keyframes/evidence/W12/` → **12
+files**, the same twelve names · INBOX **82** rows · SS-6 **KFW12-1..KFW12-11** · masking **1** ·
+anti-re-book **5** decomposing as ⟨cmd⟩ `grep -oE '[A-Za-z-]*C-22'` → **`2 KC-22` · `4 KF-KC-22`**
+with `KF-APP-41` **0**. **Every figure reproduces but one**, registered as INFO-1 below.
+
+### Axis 10 — HONEST-RED ADJUDICATION, gate by gate, at the spec's own bytes
+
+**`G-KFW12-4` — EDITOR. RELIEVED: bounds-expansion, by the spec's own §B.2 and the standing
+ESCALATION law. Owner named.**
+One of four cases RED, twice, the same case: `(2) KF-CE-1: the tokenizer … classifies
+\`a { color: red }\`` at `css-code-editor-seam.test.ts:216`. Cause **E-d1**, which this seat verified
+at the bytes: `demo/env.d.ts` exists and carries **no** ambient declaration for
+`monaco-editor/esm/vs/basic-languages/css/css.js`, and **`demo/env.d.ts` is not a §B.2 row of any
+unit** — §B.2's own *Do NOT touch* closes the file and the standing law makes a write there an
+ESCALATION, *"stop and return it"*. `.d`'s receipt shows the arm was **built, measured GREEN on this
+very case, its bundle delta taken (+4,255 B `vendor-monaco`, −1,054,628 B `css.worker` not
+emitted), and then taken back out** because landing it raises the §0u ratchet by one TS7016 —
+and it names the three cheap substitutes it **refused by name**: `@ts-expect-error`, an `as`
+widening, a non-literal specifier. The hunk is preserved byte-exact in
+`evidence/W12/KF-W12-d-born-red.md`. **Residual register names the owner: R-3 → owner of
+`demo/env.d.ts` / orchestrator KF-WRITE.** This is relief by the spec's own routing, not an
+argument: **honest-RED.**
+
+**`G-KFW12-7` — close. RELIEVED on every limb, each to a head outside this wave's writable set.
+Owners named.**
+
+| limb | reading, ×2 | relief, at the spec's bytes |
+|---|---|---|
+| every `test/demo/**` passes | **2 of 455 fail** | case A = `spring-trace-truth (4b)` — this seat measured ⟨cmd⟩ `git log bf4a9a9c..HEAD --name-only \| grep -c 'spring-trace-truth'` → **0**: the file is in **no** KF.W12 commit and is **no** §B.2 row; it is **KF.W11's `KF11-E(j1)`**, carried unweakened. case B = **E-d1** above. **Neither is curable inside §B.2.** |
+| `vue-tsc` → 0 | **12 · 12** | **COHESION §0u** (`:1577`, *"OP-0 … IS CIRCULAR AS A COUNT; RULED AS A RATCHET"*) relocates the literal zero to KF.W13's close and makes the reading a ratchet. **Eleven of twelve sit outside every KF.W12 writable row**; the twelfth is **R-5 (E-c1)**, `useKeyframeOps.ts`, rooted in `keyframes/utils/parseAnimationCSS.ts` — a file no unit owns — and carried **with its refusal to cast or shim stated**. Floor **12** banked by `.e`; **it did not rise**. |
+| masking census → 0 | **1 · 1** | the single hit is a **docblock sentence declaring the absence**. Semantic skips **ZERO**, re-measured here. A gate-authoring defect, **R-14 limb 1**, owner: the spec's successor conformance pass. |
+| anti-re-book → 0 | **5 · 5** | `C-22` is a **substring** that matches CARD-UNIT's own ids: `2 KC-22` + `4 KF-KC-22`, `KF-APP-41` **0**. **Zero is kf-EditorShell's `C-22`.** **R-14 limb 2.** |
+| SWAP-discharge → 0 | **5** when the close read it; **7** at this seat's clock | **self-referential**: every occurrence is a gate quotation or a clause citation, never a receipt on a row, and the census rises **by the act of reporting it** — this check's own table raises it again. **The KF-AV-28 discharge alphabet has zero members.** **R-14 limb 3.** |
+| producer rows relayed | **11 rows `KFW12-1..11`** at COHESION §4a | **SENT.** |
+
+**The honest-RED set is therefore exactly `{G-KFW12-4, G-KFW12-7}`**, both relieved, both
+owner-named in the record's own residual register (R-3 · R-5 · R-14 · KF11-E(j1)), and neither
+laundered: the close books each RED **with the command that produced it**, so a successor can refuse
+the reading. **No RED is masked, weakened, re-described or called green.**
+
+### Successor conjuncts — KF.W13's `Opens after`, checked against this wave
+
+| conjunct | state |
+|---|---|
+| **KF.W12 `.b` (OPTIONS-UNIT) CLOSED** — for W13's C-2 / KF-CO-15 joint commit only | **GREEN.** `.b` ran 8 commits to `2cd314af`, G-KFW12-2 reproduces **5/5** at this seat, and **LP-1's render edge is in STEP 1's own commit** — the precondition W13 actually needs (*"a reactive `:max` … is not live until LP-1's edge exists"*) is met at the bytes. |
+| `G-KFW4-1` lands GREEN | **RED**, and **not KF.W12's to turn** — the same §0u-ruled head, ratcheted, relocated to KF.W13's own close. |
+| KF.W7 SWAP verdicts · KF.W6 CLOSED · KF.W8 CLOSED | **GREEN** (landed `4c03ceda`; `a6418729`; `34b051eb`). |
+
+**No successor is blocked by anything KF.W12 owes.** KF.W13 is blocked only by the head conjunct it
+shares with every other X·KF wave, under a standing ruling.
+
+### Register — severity · claim · receipt · cure
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| **MINOR-1** | MINOR | **`.b`'s `EasingSidebar.vue` carve is wider than the spec's *"the two `EasingPicker` seat call-sites ONLY"***, a bound §Triumvirate lists under *"expansion invalidates the wave"*. | ⟨cmd⟩ `git log bf4a9a9c..HEAD --numstat -- demo/scenes/easing/EasingSidebar.vue` → one commit `7ff3acfa`, **92 insertions / 132 deletions** on a 238-line file. | **MITIGATED — do not repair.** This seat read the diff whole: **every hunk is the seat** — the `<EasingPicker>` binding, the seed derivation, the remount key, the live-state echo predicate, the container CSS, and the watch that re-seats. §Scope 2 names exactly those as what the composable absorbs (*"seed, key, live-state echo predicate, container CSS, one parameter for where truth lives"*), so the deletion of the local originals is intrinsic to consuming the seat. **Nothing outside the seat moved** — gallery, sliders, captions, the duration-field style all untouched. Graded MINOR-4 at the first `## Check 1` and re-disclosed by both later closes; this seat **overturns nothing and adds nothing**. |
+| **MINOR-2** | MINOR | **`.e` wrote a `.c`-column row.** | `useKeyframesEditor.ts` carries `eba0bd6b` (`.c`) **and `2a0afe7a` (`.e`)`. | **Not a bounds expansion** — the path IS a §B.2 writable row; a unit-column deviation only, and the hunk is D-23's dead-destructure limb the `.e` row makes indivisible from its carve. Disclosed at ACT 1 of both closes. **No cure owed.** |
+| **MINOR-3** | MINOR | **`.f` landed 2 commits where §Commit plan names 5** — a compression against *"one commit per meaning"*. | `6db80df7` (cure, `CubeAxisLines.vue` only) · `2736b5e5` (gate, the test only). | **MITIGATED.** The receipt's ACT 6 discloses it with a mechanism, not a convenience: KF-AX-28 *collapses the four verbatim thesis restatements* that are the very sites the other rows' comments live in, and KF-AX-14's template `:style` delete + `--axis-active: 1` addition cannot be halved without shipping a reveal that does not light. **No family was split; nothing was squashed after the fact**; the message enumerates all 22 rows so the roster audit resolves every id. |
+| **INFO-1** | INFO | **One published figure does not reproduce.** ACT 10 publishes ⟨cmd⟩ `git log bf4a9a9c..HEAD --name-only \| grep -c 'value4-editor-boundary'` → **0**; at this seat it reads **1**. | The hit is `ed96f2b0`'s **commit message** (`.a`'s gate commit), which *declares the absence* — ⟨cmd⟩ `git log … --name-only \| grep -n` → `No \`test.skip\`, no \`.only\`, no widened timeout; \`value4-editor-boundary.test.ts\``. `git log --name-only` prints message bodies beside file names. | **Substance untouched and independently re-proven here**: the FILE is in **0** of 46 commits (⟨cmd⟩ `git log bf4a9a9c..HEAD --name-only --format='' \| grep -c` → **0**), so §L-18 base (iv) did not occur. **Same self-referential class as R-14** — a declaration of absence read by a literal grep. Owner: the successor conformance pass, as an E-3 addendum-beside. |
+| **INFO-2** | INFO | **The SWAP census the third close published as 5 now reads 7**, raised by that block's own ACT 3 row and R-14 line; this check's axis-10 table raises it again. | ⟨cmd⟩ `grep -c 'DISCHARGED by KF.W7 SWAP verdict' execution/B/KF-W12.md` → **7**; read by position, every occurrence is a gate quotation or clause citation (`:430` · `:1474` · `:1823` · `:2737` · `:2994` + the third close's two). | **Already named by R-14 limb 3.** ZERO receipts applied to any row; the discharge alphabet is empty. Recorded so the next reader is not surprised by a rising literal. |
+| **INFO-3** | INFO | **The EDITOR fork's third option was never weighed**: a Monarch grammar written INLINE in `CSSCodeEditor.vue` (a §B.2 row) would satisfy G-KFW12-4 case (2) with no ambient declaration and no bounds ask. | `.d`'s fork block reasons (i)–(iv) and settles on *"the registration is ours, the grammar is monaco's"* — it never considers a locally authored grammar. | **Non-blocking, and the seat's choice is defensible**: vendoring ~200 lines of the producer's grammar data into the consumer is its own house hazard, and the seat's refusal to cast or shim is correct. Offered to **E-d1's owner** as a second in-bounds arm beside the five-line declaration, not as a defect of this wave. |
+
+**No BLOCKER, CRITICAL or HIGH survived verification.** This seat looked for each named HIGH class
+and measured its absence: no `try/catch` around a defect (all nine read whole), no `test.skip`
+(semantic **0**), no allowlist, no copied producer selector (three comment hits only), no patched
+`node_modules` (**0** paths), no silently narrowed assertion, no demo-side producer cure, no widened
+witness timeout, no `src/**` or `orbital-drag/**` or glass-ui byte.
+
+### What this check asserts, and what it refuses
+
+**It asserts** that all seven gate verdicts and eleven of eleven byte clauses reproduce at this
+seat's own double-run commands at kf `2736b5e5`; that bounds are clean over 46 commits and 30 paths
+with `dev.sh` in none; that E-3 holds at the spec and the registry; that the mail is clean by
+positional read; that the goal criterion is whole on five of six legs and honestly short on the
+sixth; and that **both remaining REDs are relieved by the spec's own bounds and routing, with owners
+named** — the bar for **CONFORMANT-HONEST-RED**.
+
+**It refuses to assert** that G-KFW12-4 or G-KFW12-7 is green — they are not. That the three
+literal-RED G-7 byte limbs read zero — they read 1, 5 and 7, and only their **substance** is proven.
+That this wave is **VERIFIED** — §State reserves that verb for a successor close, and a check is not
+a close. That `.b`'s carve width or `.e`'s column write were inside their own unit columns — they
+were not, and both stand as MINORs. And it refuses to re-open the first `## Check 1`'s register, to
+re-grade `.a`–`.f`, to overturn a sibling seat's reading, or to write one byte of keyframes.js,
+glass-ui, `INBOX.md`, or any dated spec.
