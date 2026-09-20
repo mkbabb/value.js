@@ -10,11 +10,3 @@
  * from the subpath that returns it.
  */
 export * from "../value";
-export type {
-    Alpha,
-    AnyColor,
-    Channel,
-    ChannelsBySpace,
-    Color,
-    SpaceId,
-} from "../color/index";

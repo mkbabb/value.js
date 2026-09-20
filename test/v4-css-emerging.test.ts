@@ -7,9 +7,10 @@ import {
     collectCustomFunctions,
     parseCssValue,
     parseStylesheet,
+    serializeCssValue,
     serializeTimelineOptions,
 } from "../src/subpaths/css";
-import { serializeCssValue } from "../src/css/stylesheet";
+import type { CssValue } from "../src/subpaths/value";
 
 function declarations(source: string) {
     const parsed = parseStylesheet(`.sample { ${source} }`);
@@ -18,6 +19,19 @@ function declarations(source: string) {
 }
 
 const animationOptions = (source: string) => collectAnimationOptions(declarations(source));
+
+/**
+ * `serializeCssValue` joined the `Result` idiom before it was published
+ * (X-W9.d, G15) and moved from `src/css/stylesheet.ts` to `src/css/serialize.ts`,
+ * which `./css` re-exports. This unwraps it once so the round-trip assertions
+ * below read the string they are actually about — no forwarding shim survives
+ * in `stylesheet.ts` for the old import to reach (ESC-W9d-EMERGING-SERIALIZE).
+ */
+const serialize = (value: CssValue): string => {
+    const result = serializeCssValue(value);
+    if (!result.ok) throw new Error(`serializeCssValue failed: ${result.error.code}`);
+    return result.value;
+};
 
 const valueCases = [
     "if(supports(color: red): red; else: blue)",
@@ -34,7 +48,7 @@ describe("Value 4 emerging CSS value grammar", () => {
         const parsed = parseCssValue(source);
         expect(parsed.ok).toBe(true);
         if (!parsed.ok) return;
-        const serialized = serializeCssValue(parsed.value);
+        const serialized = serialize(parsed.value);
         const reparsed = parseCssValue(serialized);
         expect(reparsed).toEqual(parsed);
     });
@@ -42,7 +56,7 @@ describe("Value 4 emerging CSS value grammar", () => {
     it("keeps calc arithmetic as one whitespace expression, not comma arguments", () => {
         const parsed = parseCssValue("calc(1px + 2px)");
         if (!parsed.ok) throw new Error("calc fixture");
-        expect(serializeCssValue(parsed.value)).toBe("calc(1px + 2px)");
+        expect(serialize(parsed.value)).toBe("calc(1px + 2px)");
     });
 
     it("captures @function name, typed/defaulted parameters, result, and declarations", () => {
@@ -61,8 +75,8 @@ describe("Value 4 emerging CSS value grammar", () => {
             },
         }]);
         const result = row?.descriptor.result;
-        expect(result && serializeCssValue(result)).toBe("calc(var(--x) + 10px)");
-        expect(result && parseCssValue(serializeCssValue(result))).toEqual({
+        expect(result && serialize(result)).toBe("calc(var(--x) + 10px)");
+        expect(result && parseCssValue(serialize(result))).toEqual({
             ok: true,
             value: result,
             diagnostics: [],
@@ -100,7 +114,7 @@ describe("Value 4 emerging CSS value grammar", () => {
             expect(parseAnimationTimeline(source).ok, source).toBe(true);
             const value = parseCssValue(source);
             expect(value.ok, source).toBe(true);
-            if (value.ok) expect(serializeCssValue(value.value)).toBe(source);
+            if (value.ok) expect(serialize(value.value)).toBe(source);
         }
 
         const parsed = parseStylesheet(".sample { animation-timeline: view(); }");

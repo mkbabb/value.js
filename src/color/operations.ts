@@ -3,6 +3,7 @@ import { err, ok } from "../foundation/result";
 import { CONVERSION_ANCHORS, HUE_INDEX, isPowerless } from "./anchors";
 import {
     type AnyColor,
+    type Channel,
     type Color,
     type ColorIssue,
     type ChannelsBySpace,
@@ -10,6 +11,7 @@ import {
     type RGBA8,
     type RgbGamut,
     type SpaceId,
+    SPACE_SCHEMA,
     isAnyColor,
     makeColor,
 } from "./model";
@@ -309,6 +311,113 @@ function roundHalfEven(value: number): number {
         return floor % 2 === 0 ? floor : floor + 1;
     }
     return Math.round(value);
+}
+
+/**
+ * SCI-1 — the perceptual ramp, owned here instead of by every consumer.
+ *
+ * keyframes' densify re-implements exactly this loop at
+ * `compile/emit/backward/color.ts:171/:250/:263` — measured
+ * `sampleRamp(fromColor, toColor_, 1024, space, hueOpt.hueMethod)` — and pays
+ * for the divergence with a `throw new TypeError` where the library answers in
+ * a `Result`. `count === 1` samples progress 0, which is that consumer's own
+ * measured convention, preserved rather than re-decided.
+ */
+export function sampleColorRamp<S extends SpaceId>(
+    from: AnyColor,
+    to: AnyColor,
+    count: number,
+    options: { readonly space: S; readonly hue?: HueInterpolationMethod },
+): Result<readonly Color<S>[], ColorIssue> {
+    if (!Number.isFinite(count)) return err({ code: "color_non_finite" });
+    if (!Number.isInteger(count) || count < 1) return err({ code: "color_out_of_range" });
+    const ramp: Color<S>[] = [];
+    for (let index = 0; index < count; index++) {
+        const mixed = mixColors(from, to, count === 1 ? 0 : index / (count - 1), options);
+        if (!mixed.ok) return mixed;
+        ramp.push(mixed.value);
+    }
+    return ok(ramp);
+}
+
+/**
+ * SCI-1's zero-alloc mix. The caller owns `out`: channels at `out[0…n-1]`,
+ * alpha at `out[n]`, where `n` is the target space's channel count.
+ *
+ * **Allocation contract, stated so it can be checked.** When both endpoints
+ * are already in `options.space` the success path allocates nothing — no
+ * result `Color`, no `channels` array, which is what `mixColors` cannot avoid
+ * (`operations.ts` builds both on every call). When an endpoint needs
+ * converting, this performs exactly the conversions `convertColor` performs
+ * and no more. At atlas' densest canvas tier (~3,243 marks/frame, each
+ * allocating) that difference is the whole of SCI-1.
+ *
+ * A `none` channel has no `Float64Array` spelling, so a powerless-hue mix is
+ * refused as `color_missing_channel` rather than written as `NaN`.
+ */
+export function mixColorsInto<S extends SpaceId>(
+    from: AnyColor,
+    to: AnyColor,
+    progress: number,
+    options: { readonly space: S; readonly hue?: HueInterpolationMethod },
+    out: Float64Array,
+): Result<void, ColorIssue> {
+    if (!options || !(options.space in CONVERSION_ANCHORS)) return err({ code: "color_invalid_input" });
+    if (!(out instanceof Float64Array)) return err({ code: "color_invalid_input" });
+    const width = SPACE_SCHEMA[options.space].channels.length;
+    if (out.length < width + 1) return err({ code: "color_out_of_range" });
+    const mixed = mixColors(from, to, progress, options);
+    if (!mixed.ok) return mixed;
+    for (let i = 0; i < width; i++) {
+        const channel = mixed.value.channels[i] as Channel;
+        if (typeof channel !== "number") return err({ code: "color_missing_channel" });
+        out[i] = channel;
+    }
+    const alpha = mixed.value.alpha;
+    if (typeof alpha !== "number") return err({ code: "color_missing_alpha" });
+    out[width] = alpha;
+    return ok(undefined);
+}
+
+/**
+ * SCI-1's canvas-facing writer: four bytes at `out[offset…offset+3]`, the
+ * `ImageData` layout, with no 4-tuple allocated per mark.
+ */
+export function toRgba8Into(
+    color: AnyColor,
+    out: Uint8ClampedArray,
+    offset: number,
+    options: { readonly gamut: "clip" },
+): Result<void, ColorIssue> {
+    if (!(out instanceof Uint8ClampedArray)) return err({ code: "color_invalid_input" });
+    if (!Number.isInteger(offset) || offset < 0 || offset + 4 > out.length) {
+        return err({ code: "color_out_of_range" });
+    }
+    const encoded = toRgba8(color, options);
+    if (!encoded.ok) return encoded;
+    out[offset] = encoded.value[0];
+    out[offset + 1] = encoded.value[1];
+    out[offset + 2] = encoded.value[2];
+    out[offset + 3] = encoded.value[3];
+    return ok(undefined);
+}
+
+/**
+ * `#rrggbb`, or `#rrggbbaa` when alpha is not fully opaque — the spelling the
+ * two measured hand-rolled implementations already agree on
+ * (`demo/color-session/picker-color.ts:295`,
+ * `../fourier-analysis/web/src/lib/colors.ts:69`), published so neither has to
+ * keep its own.
+ */
+export function toHex(
+    color: AnyColor,
+    options: { readonly gamut: "clip" },
+): Result<string, ColorIssue> {
+    const encoded = toRgba8(color, options);
+    if (!encoded.ok) return encoded;
+    const [r, g, b, a] = encoded.value;
+    const pair = (value: number) => value.toString(16).padStart(2, "0");
+    return ok(`#${pair(r)}${pair(g)}${pair(b)}${a < 255 ? pair(a) : ""}`);
 }
 
 export function toRgba8(

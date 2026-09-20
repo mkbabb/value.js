@@ -218,6 +218,36 @@ export default [
         },
     },
     {
+        // G5 (X.W9.a) — the crash SHAPE, not the instance.
+        //
+        // The shipped `parseCssColor("oklch()")` TypeError was authored by a
+        // `!` that silenced `noUncheckedIndexedAccess` on a parse-derived index
+        // (`grammar.ts:181`'s `slash[0]!`). Until this object landed, eslint had
+        // no rule that could see it: X.W9.a retired 94 assertions under
+        // `src/css/` and X.W9.b 155 under the two trees below, but a measured
+        // absence is not a ratchet — nothing stopped the next `!` from
+        // returning. Authored by X.W9.a, written here by X.W9.f, which is this
+        // file's sole writer in the wave (§Disjointness 4a).
+        files: ["src/css/**/*.ts"],
+        rules: {
+            "@typescript-eslint/no-non-null-assertion": "error",
+        },
+    },
+    {
+        // G10 (X.W9.b) — the same ratchet over the two trees whose assertions
+        // that unit retired: `src/transform/` (decompose 113 · path 35, the
+        // matrix family retiring with its module) and `src/foundation/`
+        // (math 7, retired by the stated precondition protocol at X.W9.c).
+        // Scoped, not src-wide: `src/easing.ts`'s `linearEasing` reads are
+        // bounded by its own loop conditions and are outside both authoring
+        // units' cures, so widening this glob would assert a green no unit
+        // measured. Authored by X.W9.b, written here by X.W9.f (§4a).
+        files: ["src/transform/**/*.ts", "src/foundation/**/*.ts"],
+        rules: {
+            "@typescript-eslint/no-non-null-assertion": "error",
+        },
+    },
+    {
         // G-DEMO-3b (U.W-DEMO · U-F47) — the palette-browser mega-feature is
         // reached through its BARREL SEAM (the top-level index.ts or a
         // sub-barrel it re-exports), never a raw internal `.vue` file. The seam

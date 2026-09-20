@@ -1,6 +1,15 @@
 import type { Result } from "./foundation/result";
 import { err, ok } from "./foundation/result";
 
+/**
+ * PSL-2, published from the module that RETURNS it (ESC-W9d-DTS-SPELLING —
+ * same mechanism as `src/value.ts`'s block). `easing`, `steppedEase` and
+ * `linearEasing` all answer in a `Result`, so it must be nameable from
+ * `./easing`; declared here it arrives under this module's own spelling
+ * instead of as a bare `declare` in `easing.d.ts` (G13).
+ */
+export type { Result } from "./foundation/result";
+
 export type EasingFunction = (progress: number) => number;
 export type EasingIssue = Readonly<{ code:
     | "easing_non_finite"
@@ -30,6 +39,31 @@ export const easeInOutCirc: EasingFunction = (p) => p < 0.5
     : (Math.sqrt(1 - (-2 * p + 2) ** 2) + 1) / 2;
 export const easeOutExpo: EasingFunction = (p) => p === 1 ? 1 : 1 - 2 ** (-10 * p);
 export const smoothStep3: EasingFunction = (p) => p * p * (3 - 2 * p);
+
+/**
+ * The RESTORED analytic in/out arms (RD-5, X-W9.f).
+ *
+ * Since 0.13.0 these eight names resolved through the cubic-bezier `PRESETS`
+ * table below, so `easing("ease-out-circ")` returned an APPROXIMATION of the
+ * curve its own name denotes — measured drift 8 of 22 names, max |Δ| = 0.192
+ * on `ease-out-circ` over 1001 samples. RD-5 ruled RESTORE over an
+ * `approximated: boolean` discriminant, because a discriminant labels the
+ * wrong curve instead of curing it.
+ *
+ * They are module-private on purpose: they are bound to the catalog names the
+ * 40-name fence (G25) already publishes, and exporting eight new flat symbols
+ * would grow the catalog keyframes snapshots as `timingFunctionEntries`.
+ * `bezierPresets` keeps all 30 of its keys unchanged — only `easing(name)`
+ * resolution moves.
+ */
+const easeInSine: EasingFunction = (p) => 1 - Math.cos((p * Math.PI) / 2);
+const easeOutSine: EasingFunction = (p) => Math.sin((p * Math.PI) / 2);
+const easeInQuad: EasingFunction = (p) => p * p;
+const easeOutQuad: EasingFunction = (p) => 1 - (1 - p) * (1 - p);
+const easeInCubic: EasingFunction = (p) => p ** 3;
+const easeInExpo: EasingFunction = (p) => p === 0 ? 0 : 2 ** (10 * p - 10);
+const easeInCirc: EasingFunction = (p) => 1 - Math.sqrt(1 - p ** 2);
+const easeOutCirc: EasingFunction = (p) => Math.sqrt(1 - (p - 1) ** 2);
 
 const PRESET_TABLE = {
     linear: [0, 0, 1, 1],
@@ -131,7 +165,37 @@ const DIRECT_EASINGS: Readonly<Record<string, EasingFunction>> = Object.freeze(O
     "smooth-step-3": smoothStep3,
     easeInBounce,
     "ease-in-bounce": easeInBounce,
+    "ease-in-sine": easeInSine,
+    "ease-out-sine": easeOutSine,
+    "ease-in-quad": easeInQuad,
+    "ease-out-quad": easeOutQuad,
+    "ease-in-cubic": easeInCubic,
+    "ease-in-expo": easeInExpo,
+    "ease-in-circ": easeInCirc,
+    "ease-out-circ": easeOutCirc,
 }));
+
+/**
+ * The published catalog — every name `easing()` resolves, in one authored
+ * order: the 30 `bezierPresets` keys, then the direct-only names. It is the
+ * exact 40-name set keyframes snapshots at
+ * `compile/easing/registry.ts:29` (`Object.keys(bezierPresets)` +
+ * `"ease-in-bounce"` + its 9 `DIRECT_NAMES`), so the fence G25 holds by
+ * derivation rather than by a second hand-kept list.
+ */
+const CATALOG: readonly string[] = Object.freeze([
+    ...Object.keys(PRESET_TABLE),
+    ...Object.keys(DIRECT_EASINGS).filter((name) => !Object.hasOwn(PRESET_TABLE, name)),
+]);
+
+/**
+ * The catalog, as data. fourier keeps a local 22-label list because 4.0.0
+ * published no way to ask (I-3); this is the ask. The returned array is
+ * frozen and reference-stable, so a consumer may hold it.
+ */
+export function easingNames(): readonly string[] {
+    return CATALOG;
+}
 
 export function CubicBezier(
     x1: number,
@@ -183,11 +247,26 @@ export function linearEasing(stops: readonly LinearEasingStop[]): Result<EasingF
     });
 }
 
+/**
+ * The bezier arm's memo. `DIRECT_EASINGS` already handed out one stable
+ * reference per name; the preset arm built a fresh closure on every call, so
+ * 21 of the 40 catalog names failed `easing(n).value === easing(n).value` and
+ * keyframes had to build `timingFunctionEntries` at module evaluation to make
+ * identity stable at all (K1). A `Map` is the carrier, not an object literal,
+ * for the same reason `PRESETS` is prototype-free: `name` is caller-supplied.
+ */
+const BEZIER_MEMO = new Map<string, EasingFunction>();
+
 export function easing(name: string): Result<EasingFunction, EasingIssue> {
     const direct = DIRECT_EASINGS[name];
     if (direct !== undefined) return ok(direct);
+    const memoised = BEZIER_MEMO.get(name);
+    if (memoised !== undefined) return ok(memoised);
     const preset = PRESETS[name];
     if (preset === undefined) return err({ code: "easing_name_unknown" });
     const [x1, y1, x2, y2] = preset;
-    return CubicBezier(x1, y1, x2, y2);
+    const built = CubicBezier(x1, y1, x2, y2);
+    if (!built.ok) return built;
+    BEZIER_MEMO.set(name, built.value);
+    return ok(built.value);
 }

@@ -1,5 +1,24 @@
 import type { AnyColor } from "./color/index";
 
+/**
+ * PSL-2, published from the module that RETURNS it (ESC-W9d-DTS-SPELLING).
+ *
+ * `CssScalar`'s colour payload carries an `AnyColor`, so a consumer who writes
+ * down what `CssScalar` holds must be able to name it — and its vocabulary —
+ * from `./value`. X-W9.d wrote that list into `src/subpaths/value.ts` instead
+ * and measured three re-export spellings there all emit a BARE `declare` into
+ * `value.d.ts` (G13). Published here, the declaration arrives under this
+ * module's own spelling and the subpath's `export *` carries it exported.
+ */
+export type {
+    Alpha,
+    AnyColor,
+    Channel,
+    ChannelsBySpace,
+    Color,
+    SpaceId,
+} from "./color/index";
+
 export type CssScalar = Readonly<{
     kind: "scalar";
     payload:

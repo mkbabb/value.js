@@ -1,6 +1,22 @@
 import type { Color, Result } from "./color/index";
 import { convertColor, oklab, rgb } from "./color/index";
 
+/**
+ * PSL-2, published from the module that RETURNS it (ESC-W9d-DTS-SPELLING —
+ * same mechanism as `src/value.ts`'s block, same measurement). `QuantizedColor`
+ * carries a `Color<"oklch">` and `quantizePixels` answers in a `Result`, so
+ * both must be nameable from `./quantize`; declared here, they arrive under
+ * this module's own spelling instead of as bare `declare`s (G13).
+ */
+export type {
+    Alpha,
+    Channel,
+    ChannelsBySpace,
+    Color,
+    SpaceId,
+} from "./color/index";
+export type { Result } from "./foundation/result";
+
 export type QuantizeOptions = Readonly<{
     k?: number;
     maxIterations?: number;

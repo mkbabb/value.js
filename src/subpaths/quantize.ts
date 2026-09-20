@@ -9,11 +9,3 @@
  * `Result`, so both must be nameable from the subpath that returns them.
  */
 export * from "../quantize";
-export type {
-    Alpha,
-    Channel,
-    ChannelsBySpace,
-    Color,
-    SpaceId,
-} from "../color/index";
-export type { Result } from "../foundation/result";

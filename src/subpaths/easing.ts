@@ -8,4 +8,3 @@
  * `linearEasing` all answer in it.
  */
 export * from "../easing";
-export type { Result } from "../foundation/result";

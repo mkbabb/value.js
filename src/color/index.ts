@@ -49,7 +49,11 @@ export {
     interpolateHue,
     mapColorToGamut,
     mixColors,
+    mixColorsInto,
     safeAccentColor,
+    sampleColorRamp,
+    toHex,
     toRgba8,
+    toRgba8Into,
 } from "./operations";
 export type { Result } from "../foundation/result";

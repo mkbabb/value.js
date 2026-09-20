@@ -1,5 +1,79 @@
 # Changelog
 
+## [4.1.0] — 2026-09-19
+
+The totality cut. 4.0.0's surface was not total on its own declared boundary: public `./css` entries
+threw a `TypeError` on ordinary strings, `./transform` returned values its own `.d.ts` forbade, and
+eight `easing()` names resolved to a bezier approximation of the curve they denote. 4.1.0 is one
+dated event that puts the cured surface and the eight-close SCI-1 debt in consumers' hands together.
+4.0.0 is immutable and stays so; no `4.0.1` was cut.
+
+### Added
+
+- `/color` gains **SCI-1**, the zero-alloc trio atlas asked for and keyframes had already
+  re-implemented: `sampleColorRamp(from, to, count, options)` (the perceptual ramp, in the `Result`
+  idiom instead of keyframes' `throw`), `mixColorsInto(from, to, progress, options, out)` (channels
+  then alpha into a caller-owned `Float64Array`), and
+  `toRgba8Into(color, out, offset, options)` (four bytes at `out[offset…offset+3]`, the `ImageData`
+  layout). Both `…Into` forms allocate nothing on the success path when no space conversion is
+  needed, and refuse a `none` channel rather than writing `NaN`.
+- `/color` gains `toHex(color, options)` — `#rrggbb`, or `#rrggbbaa` when alpha is not fully
+  opaque — retiring two measured hand-rolled implementations.
+- `/easing` gains `easingNames()`: the 40-name catalog as data, frozen and reference-stable.
+
+### Changed
+
+- **`easing()` is memoised.** Every catalog name now hands out ONE `EasingFunction` reference for
+  the process lifetime; the bezier arm previously built a fresh closure per call, so 21 of the 40
+  names failed `easing(n).value === easing(n).value`.
+- **The eight analytic in/out arms are restored** — `ease-in-sine`, `ease-out-sine`,
+  `ease-in-quad`, `ease-out-quad`, `ease-in-cubic`, `ease-in-expo`, `ease-in-circ`,
+  `ease-out-circ` resolve to the closed-form curve their name denotes instead of the cubic-bezier
+  approximation they have carried since 0.13.0. **This changes their shape**: the drift being
+  removed was 8 of 22 names, max |Δ| **0.192** on `ease-out-circ`, measured over 1001 samples, and
+  the restored arms now match 0.13.0 with a worst residual of **4.563e-6** across all 22. Declared
+  to consumers before the tag, not discovered in their visual diff. `bezierPresets` keeps all 30
+  keys unchanged.
+- **The runtime dependency set is empty** (AM-13). `@mkbabb/glass-ui` moves to `devDependencies` —
+  it is a `demo/` dependency, measured in 84 demo files and **0** files under `src/` — and
+  `@mkbabb/keyframes.js` is **removed outright**, measured at 0 occurrences anywhere outside the
+  lockfile. That entry also closed an install-time cycle: keyframes.js exact-pins
+  `@mkbabb/value.js`, so installing value.js installed a copy of value.js.
+  **Tombstone, backfilled:** the [4.0.0] entry below never recorded that it shipped these two as
+  runtime dependencies of a library whose published `files` are `dist/` alone.
+- Types a subpath returns are now declared by the module that returns them:
+  `./value`, `./quantize` and `./easing` publish their own colour / `Result` vocabulary instead of
+  leaving it to a hand-kept list in the subpath barrel. Bare `declare` statements in the emitted
+  `.d.ts` fall from 33 at 4.0.0 to 7.
+
+### Fixed
+
+- No public `./css` entry throws on a string. Empty-body and whitespace-body colour functions
+  (`oklch()`, `rgb()`, `hsl()`, `lab()`, `color()`, `rgba()`, `lch()`, `oklab()`, `hwb()`) return a
+  typed failure instead of `TypeError: Cannot read properties of undefined`.
+- Prototype-reachable lookup tables are prototype-free: `easing("constructor")` and the named-colour
+  and grammar tables no longer resolve an `Object.prototype` key.
+- `./transform` is total over malformed path text: `PathGeometry` accepts drawing commands before a
+  `moveto`, arcs tokenize positionally (SVG 1.1 §8.3.9, what SVGO/Figma/Illustrator emit), truncated
+  command runs are rejected rather than silently truncated, and `decomposeMatrix3D` returns `null`
+  for a singular matrix.
+- `./math` states and enforces one precondition policy; a mis-sized `lerpArray` buffer raises a
+  named `RangeError` instead of writing `NaN` frames.
+- `serializeCssValue` is published on `./css` and answers in a `Result`.
+
+### Removed
+
+- The unused transform matrix family — `decomposeMatrix2D`/`3D`, `recomposeMatrix2D`/`3D`,
+  `interpolateDecomposed`, `slerp` — against a measured zero-consumer census. No shim and no
+  forwarding export stands in its place. `PathGeometry`, `getTotalLength` and `getPointAtLength` are
+  preserved: they are the measured keyframes MorphSVG seam.
+
+### Declined, permanently
+
+- `sampleBezier` — measured zero demand.
+- `resolveCssColor` — declined with its runnable second-consumer re-trigger preserved.
+- `colorScale` / `sampleToSVGPath` — fifteen months of proposal, zero consumers.
+
 ## [4.0.0] — 2026-07-16
 
 The capability cut. Version 4 removes the omnibus package root and publishes exactly seven explicit entries:
