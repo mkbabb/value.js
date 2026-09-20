@@ -3650,3 +3650,210 @@ law's own idiom re-reads the working tree at `git commit -- <paths>`.
 `docs/tranches/V/coordination/INBOX.md` only. The LEDGER bytes stand in the working tree, readable by
 every seat, and the **next Track-A act that finds line 83 committed** commits them. No `git stash`, no
 `reset`, no unstaging of another seat's rows, no `git add -u`, no `-A`.
+
+## Resume 2 — SEAT 0, 2026-09-19 (the tracks relaunch under COHESION §0ag; §0ac's re-dispatch unchanged)
+
+SERVED MODEL: `claude-opus-5[1m]`
+
+**Authority**: COHESION **§0ac** (the re-dispatch of record, unchanged) read together with **§0ag**
+(2026-09-20), quoted: *"the synchronized kill times are the tick delivery times to the second …
+the session-only cron `e8961b17` is **deleted** … All four tracks relaunch in RESUME MODE now
+(A live · D · C · B), inside the owner's cap. §0ae/§0af are superseded on their diagnosis, not on
+their durability posture."* This seat is Track A's relaunch. The spec `docs/tranches/X/waves/W9.md`
+is **unchanged and IMMUTABLE** (E-3); this section edits no byte of it, and no byte of the prior
+`## Resume` section — it is an addendum-beside.
+
+### RS2.0 CRASH-RECOVERY sweep (standing law) — one inherited path, adopted
+
+⟨cmd⟩ `git status --porcelain` → **27 rows**. Exactly **one** is inside this seat's writable set:
+
+```
+ M docs/tranches/X/execution/LEDGER.md
+```
+
+That is **not** a killed seat's half-work — it is the prior resume seat's *deliberately withheld*
+act, documented at §RS.7: both edits written, the commit withheld because a sibling's X.P.W4S row
+sat uncommitted at line 83 and a pathspec commit would have swept it. The condition it named has
+now cleared. ⟨cmd⟩ `git diff --unified=0 docs/tranches/X/execution/LEDGER.md | grep '^@@'` →
+
+```
+@@ -32 +32 @@      <- the X-W9 status cell (RESUME-OPEN 2026-09-19)
+@@ -411,0 +412 @@  <- the resume event line
+```
+
+**Two hunks, both Track A's own.** Line 83 is gone from the diff: the sibling committed it. Every
+hunk was read whole and judged against the spec — the cell preserves `PARTIAL 2026-09-17` inside
+itself (nothing regressed, nothing deleted), the event line is append-only at the file end. Both
+**conform**; this seat **adopts them unrewritten** and commits them with its own event line beside.
+Inherited path named in this receipt: `docs/tranches/X/execution/LEDGER.md`.
+
+The two owed units' files are **clean at HEAD** — ⟨cmd⟩ `git status --porcelain` names none of
+`package.json` · `CHANGELOG.md` · `eslint.config.js` · `src/**` · `test/**` · `fixtures/**` ·
+`demo/color-session/colorSpaceInfo.ts` · `demo/picker/controls/ComponentSliders/ConsoleRail.vue`.
+**Nothing is inherited on `.f` or `.h`.** The other 26 rows belong to sibling seats by owner
+(`demo/color-picker/**` · `demo/palettes/**` · `demo/shell/**` · `demo/styles/shell.css` ·
+`e2e/smoke/**` · `docs/tranches/X/execution/A/X-W5.md` · `docs/tranches/X/execution/B/KF-W13.md` ·
+`docs/tranches/X/parse-that/**` · `docs/tranches/V/reformation/CARRY-LEDGER.md`) and
+`scripts/dev/dev.sh` (**unowned, NEVER staged, NEVER touched** — DR-24). No stash, no restore, no
+reset, no blanket add.
+
+**Substrate**: branch `tranche-u` @ ⟨cmd⟩ `git log --oneline -1` → **`7bc3cc0d`** (§0ag), node
+**v26.0.0**, darwin arm64; `dist/subpaths/` present (14 files).
+
+### RS2.1 A finding against the ruling that re-seated this track (E-3, reported loud)
+
+**§0af's parenthetical is FALSE at the bytes.** It reads *"the orchestrator **stops both runs** (A at
+X-W9's close seat with `.f` and `.h` landed …)"*. Measured here:
+
+⟨cmd⟩ `git log --oneline df721da5..HEAD` → **4** commits, all `docs(X·exec…)` chassis/COHESION acts;
+⟨cmd⟩ `git log --oneline -200 | grep -iE 'x-w9|w9\.[a-z]'` → **6** lines, **none** a `.f` or `.h`
+unit commit. §0ae's own words agree: *"`X-W9.f` burning all six attempts in 57 minutes with **zero
+receipts**"*. `X-W9.f` and `X-W9.h` have **never landed a byte**; plan rows 9 and 11 still read
+`— NEVER TAKEN —` at §C.1. The parenthetical describes a state that does not exist, and this seat
+records it **beside** the ruling rather than acting on it: the units stay owed and are re-dispatched.
+
+### RS2.2 E13 Step-0 — the four-path mail sweep, at this seat's own clock
+
+Swept read-only **2026-09-19**, compared against **every row** of
+`docs/tranches/V/coordination/INBOX.md`; classification read from each row's Status cell **by
+position**, never from a bare `grep -i unread` (X.P.W0 CHECK 1 D-1); `INBOX.md` **self-excluded**
+(SELF-COUNT law).
+
+Delta command, against the prior resume seat's banked clock:
+⟨cmd⟩ `/usr/bin/find <each path> -maxdepth 1 -name '*.md' -newermt '2026-09-19 16:00'` →
+**one hit, `docs/tranches/V/coordination/INBOX.md` itself** (self-excluded). **Delta = 0.**
+
+1. `docs/tranches/V/` + `docs/tranches/V/coordination/` — newest five packets are this wave's own
+   `.i` outbound set, rowed **O-34 · O-35 · O-36 · O-37 · O-38**: ⟨cmd⟩ `grep -c` each →
+   `keyframes-…-cut-notice` **1** · `atlas-…-export-delta-refresh` **1** ·
+   `glassui-…-4.1-r1-relay` **1** · `fourier-…-facility19-delta` **1** ·
+   `parse-that-…-evidence-addendum-2` **2**. All rowed.
+2. `../glass-ui/docs/tranches/BK/coordination/` — ⟨cmd⟩ `ls -dt ../glass-ui/docs/tranches/*/ | head -3`
+   → `BK/` · `BJ/` · `BI/`: **BK re-confirmed the newest glass tranche dir**. Newest packet
+   `glass-outbound-2026-09-18-valuejs-o26-reply.md` = **I-35**, ⟨cmd⟩ `grep -c` → **33** citations,
+   rowed READ + CONSUMED WHOLE. Delta **0**.
+3. `../keyframes.js/docs/tranches/V/coordination/` — newest is `INBOUND-LEDGER.md` (their terminal-verb
+   record of *our* mail, not a packet addressed to value.js); ⟨cmd⟩ `grep -c 'INBOUND-LEDGER'` → **16**
+   — the surface is rowed. Delta **0** since the prior clock.
+4. `../sci-report/atlas/docs/tranches/P/coordination/` — newest `valuejs-inbound-2026-07-27-…`,
+   delta **0**, all rowed.
+
+Positional read of the whole ledger: ⟨cmd⟩
+`awk -F'|' '/^\| *[IO]-[0-9]+ /{…field trimmed == "UNREAD"…}'` → **positional UNREAD rows: 0**
+(the file's 79 raw `UNREAD` occurrences are vocabulary prose and `UNREAD → READ` transitions).
+
+**Result: 0 unrowed · 0 UNREAD addressed to value.js.** No `I-n` minted. One dated sweep line
+appended at the end of `INBOX.md`.
+
+### RS2.3 Preconditions, verified at the bytes AND in the ledger
+
+| conjunct | where | measured |
+|---|---|---|
+| §2 `Opens after` **X-W0** | LEDGER row `X-W0` | **CLOSED 2026-09-17** (honest-RED close, §0k.3) — satisfied |
+| `X-W9.h` gate: X-W4 **CLOSED** (§4a) | LEDGER row `X-W4` | **CLOSED 2026-09-17**, promoted at CHECK 2 (16/16 GREEN) — the deferral gate is open |
+| `X-W9.f` gate: neither X-W4 nor X-W8 **OPEN** on `eslint.config.js` (§Disjointness) | LEDGER rows `X-W4` · `X-W8` | X-W4 **CLOSED**; X-W8 cell reads **`planned`** — **not OPEN**. §Disjointness' second arm (*"or runs while neither is open"*) satisfied |
+| `ConsoleRail.vue` free of a sibling's in-flight carve | working tree | **clean at HEAD** — absent from `git status --porcelain` |
+| the seven standing units' commits exist | ⟨cmd⟩ `git cat-file -t` ×20 | **resolved: 20/20** (11 substance + 9 receipt) — **none re-dispatched** |
+| the cron that read as a wall is gone | COHESION §0ag | cron `e8961b17` **deleted**; all four tracks relaunch inside the owner's cap |
+
+**No precondition fails. The wave resumes at the same two units.**
+
+### RS2.4 Baseline re-bank — the owed units' gates only, re-run READ-ONLY at this seat's clock
+
+RESUME LAW: only the gates `X-W9.f` and `X-W9.h` turn are re-measured here. Every other gate's
+reading is **cited from the banked §C.2 / CH3.1 / RS.3 tables**, not re-run and not re-claimed.
+Nothing below is inherited: each row names the command this seat ran, 2026-09-19.
+
+| # | gate | command (this seat) | reading | verdict |
+|---|---|---|---|---|
+| G21 | SCI-1 + atlas evidence tuple shipped | `grep -rn 'sampleColorRamp\|mixColorsInto\|toRgba8Into' src/ \| wc -l` (×2) | **0** · **0** | **RED** — unmoved (tenth reading, ninth carry) |
+| G22 | `toHex` + `easingNames()` published | `grep -rn 'toHex' src/` / `grep -rn 'easingNames' src/`; then `node -e "'toHex' in require('./dist/subpaths/color.js')"` and the same for `easingNames` on `easing.js` (×2) | source **0** / **0**; packed **`false`** / **`false`** ×2 | **RED** |
+| G23 | `easing()` reference stability | `node -e "e.easing('ease')===e.easing('ease')"` against `dist/subpaths/easing.js` (×2); `grep -n 'memo\|cache\|Map()' src/easing.ts` | **`identity false`** ×2; **0** memo constructs in source | **RED** |
+| G24 | restored analytic arms vs `0.13.0` | `ls ../fourier-analysis/web/node_modules/@mkbabb/value.js/dist/value.js` | **`No such file or directory`** — the written substrate is still absent | **RED — substrate ruled**: `ESC-W9-G24-SUBSTRATE` (§0ac) sends `.f` to the registry `0.13.0` **tarball** (`npm pack` into a scratch dir outside every repo, integrity hash into `bench-table-4.1.md`); `../fourier-analysis` **stays untouched** |
+| G25 | catalog fence (30-key `bezierPresets`) | read at the bytes | **GREEN at authorship, by the spec's own words** — the fence's RED input is a deletion | **GREEN (spec-declared)** |
+| G26 | ND-01 prune fence | banked at RS.3 (`grep` → 0 · 0) | **0** | **GREEN (spec-declared at authorship)** |
+| G28 | bench table under the restated denominator | not run here (MEASURE-AT-OPEN) | banked: R1 throws **13/13**; every 3×/2× budget restates against **1,636,680 µs** (3× = 545,560 · 2× = 818,340 vs native floor 311,883); `1,870,633 µs` stays **UNCITABLE**; no `bench-table-4.1.md` exists | **RED (unmoved)** |
+| G29 | one dated cut | `node -e "require('./package.json').version"` (×2) · `git tag --list 'v4*'` · `grep -n '"@mkbabb/value.js"' ../keyframes.js/package.json` | **`4.0.0`** ×2 · tags = **`v4.0.0`** only · keyframes pins **`"4.0.0"` at `:71`** | **RED** — the cut is still untaken |
+| G5 | `no-non-null-assertion` under `src/css/` | `npx eslint 'src/css/**/*.ts' --rule '{…:"error"}'`, exit captured **without a pipe** | **exit 0 · 0 bytes of output** | **GREEN at the source bytes · RED config-resident**: ⟨cmd⟩ `grep -c 'no-non-null-assertion' eslint.config.js` → **0** |
+| G10 | same, `src/transform/` + `src/foundation/` | same invocation, scoped, exit captured directly | **exit 0 · 0 bytes** | same split verdict — **`.f` is the config file's sole writer** |
+| G32 | channel descriptors resolve exactly | `sed -n '172,180p' demo/picker/controls/ComponentSliders/ConsoleRail.vue` · `grep -n 'ictcp:\|jzazbz:' demo/color-session/colorSpaceInfo.ts` | `componentDescription()` still prefix-matches — `info.components.find((c) => c.startsWith(upper) \|\| c.startsWith(component))`; the tables still key `ictcp:` (`:261`) and `jzazbz:` (`:287`) by description-prose | **RED** — `cp` → `"Ct (tritan)"`, `jz` → bare key |
+
+**Eleven rows, two GREEN by declaration, nine unmoved since RS.3 at a different seat's commands.**
+
+#### RS2.4.1 R.2 — every GREEN that precedes its cure, named as a finding
+
+- **G25** · **G26** — GREEN **at authorship, by the spec's own declaration** (fences, not cures).
+  Recorded for completeness; neither is evidence that anything was done.
+- **G5** · **G10** — **exit 0 at the source bytes before `X-W9.f` writes either rule object.** The
+  cleanliness is real (`.a` retired 94 assertions, `.b` 155, and `ESC-W9a-TIMELINE-NNA` was relieved
+  in bounds at Repair 2) — but **the ratchet does not exist**: `grep -c 'no-non-null-assertion'
+  eslint.config.js` → **0**, so nothing stops a `!` returning tomorrow. `.f`'s config edit is what
+  turns a measured absence into an enforced one; after it, the scoped runs must stay **exit 0** *and*
+  the grep must find **both** objects. A GREEN whose enforcement is absent is a finding, not a pass.
+
+### RS2.5 Unit plan — unchanged from RS.4: TWO units, ONE group, concurrency 2
+
+**Already done, never re-dispatched.** Seven units stand on their commits; all **20** shas re-resolved
+by object type at this seat — ⟨cmd⟩ `git cat-file -t` ×20 → **resolved = 20 · missing = 0**
+(11 substance: `c18a78f8` `97ab3991` `474846ce` `4be22189` `a692069f` `5ba934fc` `c8848bed`
+`42727db0` `df0807fe` `0e37318e` `8f0a0e79`; 9 receipt: `86461bc2` `5266ac97` `c42e245d` `efe3db89`
+`83da21d5` `4db2fb64` `4147e478` `3281fbdd` `d6065411`):
+`X-W9.a` · `X-W9.b` · `X-W9.c` · `X-W9.d` · `X-W9.e` · `X-W9.g` · `X-W9.i`.
+
+**Owed**: `X-W9.f` ∥ `X-W9.h` — the spec's own §Sequencing **group 5**, re-dispatched under the
+**unchanged** spec (§0ac). Disjoint at every path: `.f` holds `package.json` · `CHANGELOG.md` ·
+`src/**` · `eslint.config.js` · `test/**` · `fixtures/**`; `.h` holds exactly two `demo/` files.
+**Zero shared `modify` path.** Model **opus** for both (M-23 — *"every unit below is an Opus 5
+implementation seat"*; this wave names no Fable, adjudicator or design-author seat).
+
+**Groups**: `[ [X-W9.f, X-W9.h] ]` — one group, peak concurrency **2** (owner cap 4; §Disjointness
+caps this wave lower). After both land: **CHECK 4** (§0ac), which this seat does not dispatch.
+
+**Worktree idiom** (§Worktree Plan): `.h` takes `value.js-x-w9-h` — `npm run typecheck` runs
+`prepare`/`build`, so two concurrent seats sharing one `dist/` would measure each other; `.f` runs on
+integrated main as the **last** writer.
+
+**Gate guard, restated for both seats**: the first act is to re-read the LEDGER's `X-W4` row (`.h`)
+and the `X-W4` **and** `X-W8` rows (`.f`); if either reads `OPEN`, write **no byte** and return the
+deferral (§4a). Measured at this open: **X-W4 CLOSED 2026-09-17** · **X-W8 `planned`** — both seats
+are clear to write.
+
+### RS2.6 A claim in RS2.2 corrected BESIDE, not rewritten (E-3)
+
+RS2.2 above closes *"One dated sweep line appended at the end of `INBOX.md`."* **That was unrealised
+at the bytes when this seat opened.** ⟨cmd⟩ `git status --porcelain docs/tranches/V/coordination/INBOX.md`
+→ **no rows**; ⟨cmd⟩ `git log --oneline -1 -- docs/tranches/V/coordination/INBOX.md` → **`df721da5`**,
+the *prior* resume seat's commit. The Resume-2 predecessor was killed between writing its section and
+appending the line — the same shape Track C recorded at `c616ef1f` (a section claiming *published*
+that no commit carried). The predecessor's prose is **left exactly as written**; this correction sits
+beside it, and **this seat performs the append**, so the sentence becomes true by act rather than by
+edit.
+
+This seat's own sweep, re-run at its own clock (not inherited): ⟨cmd⟩
+`/usr/bin/find <each of the four paths> -maxdepth 1 -name '*.md' -newermt '2026-09-19 00:00'` →
+`docs/tranches/V/` **0** · `docs/tranches/V/coordination/` **1** (`INBOX.md` itself, **self-excluded**)
+· `../glass-ui/docs/tranches/BK/coordination/` **0** (⟨cmd⟩ `ls -dt ../glass-ui/docs/tranches/*/ | head -3`
+→ `BK/` · `BJ/` · `BI/` — **BK re-confirmed the newest glass tranche dir**) ·
+`../keyframes.js/docs/tranches/V/coordination/` **1** (`INBOUND-LEDGER.md`, keyframes' own terminal-verb
+record of *our* mail — a rowed surface, ⟨cmd⟩ `grep -c 'INBOUND-LEDGER' INBOX.md` → **16**) ·
+`../sci-report/atlas/docs/tranches/P/coordination/` **0**. Register, read positionally from each row's
+status cell and never from a bare `grep -i unread`: ⟨cmd⟩ `awk -F'|' …` → **positional UNREAD rows: 0**
+over ⟨cmd⟩ `grep -cE '^\| [IO]-[0-9]+[a-z]? \|'` → **81** rows. **0 unrowed · 0 UNREAD addressed to
+value.js · no `I-n` minted.**
+
+### RS2.7 Unit receipts (resume round 2)
+
+*(appended by each unit at its close; line 1 names the served model; every count read from the settled
+bytes and double-run; ⟨cmd⟩ … → output for every claim.)*
+
+### RS2.8 The commit this seat takes
+
+Pathspec, on the commit itself: `docs/tranches/X/execution/A/X-W9.md` ·
+`docs/tranches/X/execution/LEDGER.md` · `docs/tranches/V/coordination/INBOX.md`. The LEDGER's two
+inherited hunks are **adopted unrewritten and carried here**: ⟨cmd⟩
+`git diff --unified=0 docs/tranches/X/execution/LEDGER.md | grep '^@@'` → `@@ -32 +32 @@` (the X-W9
+status cell, `RESUME-OPEN 2026-09-19` with `PARTIAL 2026-09-17` **preserved inside the same cell**) and
+`@@ -411,0 +412 @@` (the resume event line) — **the sibling's line-83 hunk is gone**, committed by its
+own track, so RS.7's withholding condition has cleared and no foreign byte rides this commit. A second
+event line is appended for the §0ag relaunch. Nothing else is staged; no `git add -u`, no `-A`, no
+stash, no reset; `scripts/dev/dev.sh` untouched (**DR-24**).
