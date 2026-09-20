@@ -2089,6 +2089,164 @@ than reconciled by assertion, since the arithmetic that matters — **UNREAD=0**
 **0 unrowed letters addressed to value.js · 0 UNREAD in scope · no `I-n` minted.** This unit wrote no
 `INBOX.md` byte: ⟨cmd⟩ `git status --porcelain -- docs/tranches/V/coordination/INBOX.md` → **0 lines**.
 
+### X.P.W4.h
+
+**SERVED MODEL**: `claude-opus-5[1m]` · unit `X.P.W4.h` (the `!important` adjacency + the ident-token
+NAME) · 2026-09-19 · **DONE**. Spec: COHESION §0ab bullets 2–3 (`COHESION.md:1776–1790`) ·
+`waves/W4.md` FIFTH dated addendum, `.h` clause (`:682`) · `ADJUDICATION-W4.md` §6 rows F-w4f-2 /
+F-w4f-1 and cells `#40` / `#41` · css-syntax-3 §5.4.7 and §5.4.4 · COHESION §0s's quartet law.
+
+**CRASH-RECOVERY, first act.** ⟨cmd⟩ `git -C /Users/mkbabb/Programming/value.js status --porcelain`
+→ 25 rows, **none in this unit's writable set** (`demo/**`, `e2e/**`, `CARRY-LEDGER.md`, two
+sibling-track execution records, the unowned `scripts/dev/dev.sh`, and `.g`'s own
+`scripts/seam-contract-check.mjs` + eight `evidence/W4/negctl-w4g-*` files — a SIBLING's, read and
+never touched). ⟨cmd⟩ `git -C /Users/mkbabb/Programming/parse-that-css-totality-p2 status
+--porcelain` → `M typescript/test/css-equivalence/run-full-surface.mjs` (again `.g`'s, F-ab1) and
+`?? .worktrees/`. **This unit inherited nothing**: `<p2>/typescript/src/css/**`,
+`<p2>/typescript/test/css-totality/**`, `ADJUDICATION-W4.md`, `SEAM-CONTRACT.md`,
+`DIVERGENCE-LEDGER.md` and this unit's `evidence/W4/**` basenames were all clean. Nothing stashed,
+nothing restored, nothing reset; `dev.sh` never staged.
+
+#### Acts, in order
+
+**A-1 — the born-RED reproduced at this seat, then the ROOT CAUSE found one production deeper.**
+⟨cmd⟩ an import of the candidate's own `entry.mjs` (nothing written) → `#40` REJECT · `#41` REJECT ·
+`b { color: red !important }` ACCEPT · `b { color: red!important }` REJECT · `a { col!r: red }`
+ACCEPT — §0ab's born-RED, confirmed. The defect is **not** in `important()`: its leading `WS()` is
+already `0..∞`. ⟨cmd⟩ `js.parseCssValue("red!important")` →
+`REJECT … expected ["<token-boundary> (whitespace, ',', '/', ':', ';', ')', '{', '}' or the end of
+input)","<open-paren>"] actual "!important"` — **the VALUE TOKEN's boundary** eats the `!`, because
+`!` was a `token-char`. 4.0.0 cannot meet that byte at all: it strips `/!important\s*$/i` off the
+PART before `parseCssValue` tokenizes anything.
+
+**A-2 — F-w4f-2's cure, and the guard that keeps it honest.** `algebra/tables.mjs`: `token-char`
+widens its exclusion set by `!` (the X.P.W3.j brace precedent, same argument); a new `bang` class
+(`since: "X.P.W4.h"`, label `'!'` — deduped, **no L index moves**, K-10); `LATER_UNITS` and
+`UNIT_SITE_LABELS` gain the unit with an empty site list. `algebra/grammar/value.mjs`: `ITEM_SEP` =
+`ALT(WS1(), NOT_BANG())` replaces the bare `WS()` separator of **both** space groups — an item is
+admitted after at least one whitespace (any item, `!=` included) or with no whitespace and no `!` at
+the cursor, which is the incumbent splitter's own rule (`red!= blue` is ONE token there and a
+refusal). `algebra/grammar.mjs`: `WS1` joins the value grammar's notations. **Measured against
+4.0.0, both lowerings**: `red != blue` ACCEPT · `red!= blue` REJECT · `red!=` REJECT · `red !=`
+ACCEPT · `red,!=` ACCEPT · `red/!=` ACCEPT · `rgb(1!= 2)` REJECT — **0 of 6+ differ**; the corpus
+carries **0** rows with a token-abutting `!=` at 27,021, so the guard is proved by control, not by
+the corpus's silence.
+
+**A-3 — F-w4f-1's candidate half.** `algebra/tables.mjs`: `decl-name` narrows from "every byte but
+`:` `;` `{` `}`" to the `ident` continuation set (label unchanged — L does not move).
+`algebra/grammar/stylesheet.mjs`: `declName()` = `SEQ(NO_LEADING_DIGIT(), TEXT("decl-name", 1, INF))`
+and an explicit `WS()` before `TOK(":")` (§5.4.4's optional whitespace, which used to ride inside the
+name run). Both declaration arms read it. **`a { col!r: red }` · `a { !color: red }` ·
+`a { color!: red }` · `a { 1color: red }` REJECT in both lowerings; `a { color: red }` ·
+`a { --brand: red }` · `a { color : red }` · `a { animation: a 1s }` · `@keyframes s { from { color:
+red } }` ACCEPT, identical to 4.0.0.**
+
+**§0s's QUARTET LAW — NOT TRIGGERED, and that is a measurement.** No `R_ctor` row moved: `declaration`
+keeps `arity: 3` and `leafMap: ["name","value","important"]`, `animation-property` keeps its own, and
+both new grammar pieces are `DROP`ped zero-width assertions that contribute no leaf. Neither
+lowering's constructor table nor `bounds.mjs` was opened. Both lowerings inherit the cure because
+both instantiate the one grammar over the one class table (the Wasm module is assembled at runtime
+from those tables), and every probe above reads js and wasm separately and finds them equal.
+
+**A-4 — the documents, exactly the four cells the spec names.** `ADJUDICATION-W4.md` gains a dated
+addendum §11 (F-w4f-2 cured, with the mechanism and the cure table) · §12 (F-w4f-1's candidate half,
+the consumer direction, the census movement, and the residual named with its owner) · §13 (the three
+gates as read) — **nothing above the addendum is edited** (E-3). `SEAM-CONTRACT.md` row 19
+(`parseStylesheet`) moves **only** the two rulings' cells: the disposition cell drops
+`candidate-defect ×2 (F-w4f-2 …)` and gains `` `F-w4f-1` `` to its declared-divergence id list; the
+F-w4f-2 passage becomes the cured reading; the F-w4f-1 passage becomes a divergence with its
+direction. No other row, no other cell. `DIVERGENCE-LEDGER.md` is **appended** with §11 (the
+`F-w4f-1` row, its measurement at the pin, the L-14 amendment of `ID-1b`'s `candidate` field, and
+§11.4 recording that F-w4f-2 opens no row because it is a repaired candidate defect).
+
+**A-5 — evidence, all NEW dated files beside W3's (E-3; nothing under `evidence/W3/**` touched).**
+`evidence/W4/two-cell-census-2026-09-19-w4h.mjs` (the emitter; 20 rows — the two cells plus the
+controls the ruling turns on) · `…-w4h.txt` · `…-w4h.json` ·
+`evidence/W4/differential-full-surface-2026-09-19-w4h.txt` ·
+`evidence/W4/universe-totality-2026-09-19-w4h.txt`. The census computes `identical` through
+`ruledValue` — the same resolver `lib/differential.mjs` compares through — and prints the RAW
+column beside it, so `#41`'s one raw delta (`GROUND-C`'s clamp) is published rather than smoothed.
+
+#### Gate readings — BEFORE → AFTER (every reading double-run at this seat's clock)
+
+| gate | BEFORE (this seat's own open probe / the banked W3 artefact) | AFTER | verdict |
+|---|---|---|---|
+| cells `#40` / `#41` re-measure `identical` | `#40` **REJECT**, `#41` **REJECT** (both lowerings); `ADJUDICATION-W4 §10.1` carries both as *"mirror-defect until F-w4f-2 is cured"* | **`#40 identical · #41 identical`** — `cells #40/#41: #40 identical · #41 identical · rows 20 · identical 16 · declared-divergence 4 · lowerings disagree 0` | **GREEN** |
+| the full differential reads **0 mirror-defects OUTSIDE ruled ids** | banked `evidence/W3/equivalence-full-surface.json` `tally.mirrorDefects` **44**, `parseStylesheet` **16** | `MIRROR-DEFECTS 152` · **`RULING-ID 152 of 152 miss entries carry a rulingId from {ID-3 · ID-1b · ID-4 · ID-5 · GROUND-C · ID-2 · ID-1 · PB-11 · R-f1 · E-k2} · NOT IN THE SET 0`** | **GREEN** |
+| the W3 totality gate still **TOTAL** | banked `universe-52.json` tally `{"TOTAL":46,"PARTIAL":6,"ABSENT":0}` | `tally runtime 13 TOTAL / 6 PARTIAL / 0 ABSENT · types 33 / 0 / 0 · **ALL 46 of 52 TOTAL**` — the **same six** PARTIAL rows, line for line | **GREEN (UNMOVED)** |
+
+⟨cmd⟩ `node test/css-equivalence/run-full-surface.mjs --pinned-value-commit 6aca86020b6b2605e7d0f04fccb6601746e387f7`
+(run 1 and run 2) → ⟨cmd⟩ `diff final-diff-1.txt final-diff-2.txt` → **the node PID inside the
+`MODULE_TYPELESS_PACKAGE_JSON` warning line, and nothing else**.
+⟨cmd⟩ `node scripts/css-universe.mjs --check --pinned-value-commit 6aca8602…` (run 1 and run 2) →
+⟨cmd⟩ `diff -q` → **IDENTICAL**. ⟨cmd⟩ the census emitter, twice → ⟨cmd⟩ `diff -q` → **IDENTICAL**.
+Each figure published above is read from the settled bytes of those files.
+
+**The class census, read at the same clock** (`universe-totality-…-w4h.txt`): `8 residual
+predicates · 152 cells carried BY ID · **0 cells NOT attributed to a ruling id** · **0 census OVER
+its pinned population** · **0 population drifted from its pin**` — `ID-1b` 117 ≤ 534, `ID-4` 5 ≤
+1172, `GROUND-C` 29 ≤ 1069, `ID-2` 1 ≤ 45.
+
+#### Regression sweep (this unit moved a shipped grammar, so the suites were read, not assumed)
+
+⟨cmd⟩ `npx vitest run --config test/css-totality/vitest.config.ts` → **`Test Files 3 passed (3) ·
+Tests 80 passed (80)`**, with `universe.test.ts`'s own line `G-1 reading: runtime 13/6/0 · types
+33/0/0 · 46 of 52 TOTAL`. ⟨cmd⟩ `npx vitest run` (the repository root config) → `4 failed | 10
+passed (14)`, **all four pre-existing and unrelated to `src/css/**`**: `ENOENT … '../data/json/
+data-l.json'` and the CSV fixture beside it (`test/json.test.ts`, `test/csv.test.ts`,
+`test/validate-parsers.test.ts`, `test/verify-parse-output.test.ts` — the parse-that library's own
+data files, absent from this tree). ⟨cmd⟩ `npx vitest run --config test/css-equivalence/
+vitest.config.ts` → `1 failed (1) · 4 failed | 24 passed (28)`; **two of the four are the W3-era
+expectations the corpus outgrew before this unit existed** (`expected 27021 to be 26604`;
+`expected +0 to be 172`), one is **G-7's declared inherited-RED floor** (its own message: *"The floor
+was GREEN at 403-string pilot scale and is inherited as a FLOOR, not as a pass"*), and the fourth is
+this unit's own R-2 below, stated there by number.
+
+#### Commits (pathspec ON the commit, four tracks sharing one index)
+
+| repo | commit | paths |
+|---|---|---|
+| `<p2>` | **`fede7d3`** — *fix(css/algebra): the declaration production reads css-syntax-3 §5.4.7 and §5.4.4 — X.P.W4.h (F-w4f-2 · F-w4f-1)* | `typescript/src/css/algebra/{grammar.mjs, tables.mjs, grammar/value.mjs, grammar/stylesheet.mjs}` |
+| `value.js` | **`e31b8450`** — *docs(X·P/w4.h): F-w4f-2 DISCHARGED and F-w4f-1 FILED — the two seam cells move, the ledger gains §11, the census and both gate readings are banked as new dated evidence* | `ADJUDICATION-W4.md` · `SEAM-CONTRACT.md` · `DIVERGENCE-LEDGER.md` · the five `evidence/W4/…-w4h.*` files |
+
+**One commit per meaning, and the grammar commit is ONE because its two rulings are one production's
+cure over the same four files** — `tables.mjs` and `stylesheet.mjs` each carry a hunk of both, and
+splitting them would need an interactive hunk stage this environment does not have. `git add -A` /
+`-u` were never used, nothing another seat had staged was swept in, `dev.sh` was never staged, and
+`.g`'s dirty `run-full-surface.mjs` and `negctl-w4g-*` files were left exactly as found.
+
+#### Residuals and escalations
+
+**R-1 (returned by id to the adjudicator — `X.P.W4.f2`, NOT an escalation of this unit's gates).**
+The differential now reads **`ADJUDICATION_UNHONOURED 27`** at `parseStylesheet` (js and wasm alike;
+**0** before this cure), and **`DIVERGENT_VALUE` 2 → 7**. Every one of the 27 is one shape: a source
+a REPAIR CLASS governs for its COLOUR (`expect: "accept"` — `PB-04/05`, `PB-01/02`) that ALSO carries
+a rule whose declaration NAME is not an `<ident-token>`; the class was adjudicated while that NAME
+was SHARED by both engines, and it is not any more. `outsideEveryClass`'s guard exists for exactly
+this — *"The guard NEVER excuses a cell: it withholds the RULING"* — and its one surviving clause
+reaches only `!` forms, not `colo.r` or `backgrou(d-color`. Extending it, and retagging the residual
+class from `ID-1b` to `F-w4f-1`, would move both the CLASSES' **pinned measured populations** and
+`RULING_IDS` — the §0w id-set printed in the IMMUTABLE banked `evidence/W3/universe-52.json`.
+`test/css-totality/lib/adjudications.mjs` **is** the adjudicated registry in code, which **E-3 holds
+immutable**; corrections are dated addenda-beside, which is what `ADJUDICATION-W4.md` §12 now is.
+**This seat did not open that file.** The five new `DIVERGENT_VALUE` cells are NOT a residual: each
+is a style body opening with a COMMENT, which 4.0.0 reads as the declaration NAME and the candidate
+now reads as trivia — X.P.W3.l's F-k3 family closed from the other side, candidate correct.
+
+**R-2 (for the emitter's owner).** `DIVERGENCE-LEDGER.md` is generated, and its F-e7 carry lifts
+`### §6.x` subsections only. A regeneration must re-append **§10** (`.f`'s) **and §11** (this
+unit's), or both rulings' rows are lost.
+
+**R-3 (stated, not cured).** `a { color: red ! important }` and `a { color: red! important }` stay
+REJECT in both engines — 4.0.0 refuses the gap (measured) and SH-3 closed it deliberately at
+X.P.W3.l. css-syntax-3 §5.4.7 reads the pair off the last two NON-whitespace tokens and would admit
+the gap; opening it would make the candidate ACCEPT where 4.0.0 rejects, i.e. **a new unruled
+divergence §0ab does not authorise**. Returned as an observation, by id, to whoever rules the seam's
+whitespace posture; `#40`, `#41` and `color: red!important` — the three the spec names — all accept.
+
+**Escalations: none.** All three gates this unit owed read GREEN at this seat's clock, double-run,
+and every byte written lies inside the unit's writable set.
+
 ## Commit — and the LEDGER event line, WITHHELD a fourth time
 
 ⟨cmd⟩ `git status --porcelain -- docs/tranches/X/execution/LEDGER.md` → ` M …/LEDGER.md`, ⟨cmd⟩
