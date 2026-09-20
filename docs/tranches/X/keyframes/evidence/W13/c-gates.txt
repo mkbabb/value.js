@@ -1,0 +1,70 @@
+SERVED MODEL: claude-opus-5[1m]
+X.KF.W13 — REPAIR 1 (unit .c, the two-deletion act) — gate transcripts, every command double-run
+Seat clock: 2026-09-20. Substrate: keyframes.js master, open 05c577ed -> close 9d814f6c.
+All commands run from /Users/mkbabb/Programming/keyframes.js.
+
+=== G-KFW13-6 — the two-deletion act is ONE act with its ground re-derived ===
+
+(1) OP-5 receipt PRECEDES the act
+  git log --oneline -3 (value.js)  -> dc7866c2 docs(x-kf-w13/c . repair 1): G-KFW9-9's ground re-derived ...
+                                      (evidence/W13/c-op5-rederivation.md, 12,485 B)
+  the act (keyframes.js)           -> 9ceea648, authored AFTER dc7866c2 at this seat's clock
+
+(2) ONE commit naming BOTH stylesheets (K-5)
+  git show --stat --oneline 9ceea648
+    9ceea648 fix(kf/idiom . X.KF.W13.c . the two-deletion act (G-KFW9-9, K-5) ...)
+     demo/styles/design-idioms.css  | 15 +++++++++++++++
+     demo/styles/playback-idiom.css | 20 ++++++++++++++++----
+     2 files changed, 31 insertions(+), 4 deletions(-)
+  -> exactly two paths, both stylesheets, one sha. No third path. No half-act sha exists anywhere
+     in 05c577ed..HEAD: git log --oneline 05c577ed..HEAD -- demo/styles/playback-idiom.css -> 9ceea648
+                        git log --oneline 05c577ed..HEAD -- demo/styles/design-idioms.css  -> 9ceea648
+
+(3) the byte clause
+  BEFORE  grep -c 'box-shadow: var(--focus-ring-shadow)' demo/styles/playback-idiom.css -> 1 . 1
+  AFTER   grep -c 'box-shadow: var(--focus-ring-shadow)' demo/styles/playback-idiom.css -> 0 . 0
+  counterpart re-anchored (the insertion moved the forced-colors arm):
+          grep -n 'kf-focus-ring:focus-visible' demo/styles/design-idioms.css -> :106 . :127
+          sed -n '106,131p' demo/styles/design-idioms.css | grep -c 'outline' -> 6 . 6
+          (spec's born reading was sed -n '106,116p' -> 2, the record's measured drift 3; the window
+           is re-anchored, the dated spec byte-untouched -- E-3)
+  playback-idiom.css outline declarations remaining: :113 only, inside .b's D-12 .scrub-rail
+  forced-colors stopgap (:106/:75/:82/:84 are prose inside comments).
+
+(4) the runtime clause
+  npx vitest run --project demo test/demo/instrument/playback-ribbon-contract.test.ts
+  BORN-RED (authored before the cure, run against the pre-cure bytes, twice):
+    Test Files  1 failed (1) / Tests  2 failed | 13 passed (15)      [x2]
+    AssertionError: expected [ Array(1) ] to deeply equal []          (the one defeater)
+    AssertionError: expected '/* design-idioms.css ...' to contain 'G-KFW9-9'
+  GREEN after 9ceea648, twice:
+    Test Files  1 passed (1) / Tests  15 passed (15)                 [x2]
+
+(5) N-3's :active deletion is its own sha with its own census -> d3778b52 (.b), unchanged here.
+
+VERDICT G-KFW13-6: GREEN (was RED at the close and at Check 1).
+
+=== G-KFW13-5 — re-run because the cure extends its file ===
+  same command as above: Test Files 1 passed (1) / Tests 15 passed (15) . same
+  (the 13 cases .b landed are byte-untouched; 2 added. PlaybackRibbon.vue not opened by this seat.)
+  npx tsc -p tsconfig.test.json --noEmit | grep -c 'error TS' -> 52 . 52 (.b's banked library-test
+  figure, unmoved); errors in playback-ribbon-contract.test.ts -> 0 . 0
+  npx eslint test/demo/instrument/playback-ribbon-contract.test.ts -> exit 0, no output
+
+=== G-KFW13-7 — the close sweeps, re-run at this seat's clock ===
+  npm run test:demo -> Test Files 2 failed | 55 passed (57) / Tests 2 failed | 484 passed (486) . same
+    the two failures are the SAME two foreign carried honest-REDs the close and Check 1 name:
+      css-code-editor-seam.test.ts > (2) KF-CE-1        (KF.W12's G-KFW12-4)
+      spring-trace-truth.test.ts  > (4b)                (KF.W11's G-KFW11-4/-10)
+    totals moved 482 -> 484 passed / 484 -> 486 tests: this repair's two cases, both passing.
+  git diff 05c577ed..HEAD -- test | grep -c 'test.skip\|it.skip\|\.only(' -> 0 . 0
+  grep -rn 'focus-ring' demo | grep '\.vue:' | grep -v 'kf-focus-ring' | grep -v 'focus-ring-shadow' | grep -c 'class=' -> 0 . 0
+    (RULINGS-4's 4 and B.1's 2 quoted beside; neither amended -- E-3)
+  git grep -l 'btn-playback' HEAD -- demo | wc -l -> 9 . 9   *** DENOMINATOR MOVED BY THIS ACT ***
+    cause: design-idioms.css now names the deleted selector in the K-5 ledger the act is obliged to
+    leave beside the surviving half. The idiom's INVARIANT census is unmoved:
+      class applications: grep -rn 'btn-playback' demo | grep 'class' -> 7 . 7 = 5 applications + 2 prose
+      files APPLYING the class -> 3: PlaybackRibbon.vue . SpringScene.vue . StartingStyleTarget.vue
+    RULINGS-4's 7 and the close's 8 are quoted beside this 9 and neither is amended (E-3).
+    KeyframeTimeline.vue (KF.W7's) stays counted, routed, never edited.
+  vue-tsc is NOT re-run by this seat: no .ts/.vue product byte was opened (css + one test file).

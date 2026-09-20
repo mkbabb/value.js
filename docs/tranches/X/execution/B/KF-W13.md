@@ -1620,3 +1620,182 @@ line is appended. **No cure byte, no wave-spec byte, no keyframes.js byte and no
 seat.** **SELF-COUNT**: ⟨cmd⟩ `sed -n '/^## Check 1$/,$p' execution/B/KF-W13.md | grep -c '^### '` →
 **4** (axis 1 · the register · axis 10 · axes 2–9); defects **6** (1 HIGH · 2 MINOR · 3 INFO);
 gates reproduced **8 of 8**; honest-RED set **4**.
+
+---
+
+## Repair 1
+
+SERVED MODEL: claude-opus-5[1m]
+
+**Seat**: REPAIR SEAT, round 1 — dispatched against `## Check 1`'s register (1 HIGH · 2 MINOR ·
+3 INFO). It executes the unit the check found un-run: **`.c`, the two-deletion act**, Opus solo and
+serial, exactly as spec `KF-W13.md:164-168` cuts it. **Date**: 2026-09-20. **Open substrate**:
+keyframes.js `master` `05c577ed` (local == remote), value.js `tranche-u` local.
+**CRASH-RECOVERY, run first**: ⟨cmd⟩ `git -C /Users/mkbabb/Programming/keyframes.js status
+--porcelain -- demo/styles test/demo/instrument` → *(no output)*; ⟨cmd⟩ `git -C
+/Users/mkbabb/Programming/value.js status --porcelain -- docs/tranches/X/execution/B/KF-W13.md
+docs/tranches/X/keyframes/evidence/W13 docs/tranches/X/execution/LEDGER.md` → *(no output)*.
+**Zero inherited hunks in this seat's writable set**; no sibling dirty path touched, `dev.sh` never
+staged (it is in **0 of 4** of this round's shas).
+
+**Result: H-1 CURED at the bytes; the two MINOR returned as escalations with measured reasons
+(neither is a seat's act); the three INFO carried unchanged.** **G-KFW13-6 is GREEN**, double-run,
+having been RED at the close and reproduced RED at Check 1.
+
+### The register, answered
+
+| # | severity | disposition | commit(s) | receipt |
+|---|---|---|---|---|
+| **H-1** | HIGH | **CURED** — `.c` dispatched and spent whole: OP-5's re-derivation written **before** the act, ONE sha naming BOTH stylesheets (K-5), the focus-affordance case added, the AFTER witness handed to KF.W9/SS-13 by row id | value.js **`dc7866c2`** (receipt, precedes) · kf **`9ceea648`** (the act) · kf **`9d814f6c`** (the case) | `evidence/W13/c-op5-rederivation.md` · `evidence/W13/c-gates.txt` · `evidence/W13/c-after-witness-handback-G-KFW9-9.md` |
+| **M-1** | MINOR | **ESCALATED, not cured** — `useMenubarMeasure.ts`'s TD-17 row is an **adjudicator's** ratification (a dated addendum-beside to a §B.2 the seat may not edit — E-3) or a successor's revert; a revert would delete a genuine cure that zeroed a `(276,7)` diagnostic. Out of this seat's writable set either way | — | §Escalations below |
+| **M-2** | MINOR | **ESCALATED, re-measured still blocked** — the value.js half is still unpublished; the sibling's staged deletion of `demo/shell/PaneSegmentedControl.vue` still refuses the integrating pull. **keyframes.js IS published**: ⟨cmd⟩ `git push origin HEAD` → `05c577ed..9d814f6c  HEAD -> master`, then ⟨cmd⟩ `git rev-list --left-right --count origin/master...HEAD` → **0 0** | kf pushed | §Escalations below |
+| **I-1** | INFO | carried, unchanged — OP-7/TD-37 unruled (owner / SS-2) | — | d-R4 |
+| **I-2** | INFO | carried, unchanged — C-11's one-line `vi.mock` is KF.W12's file | — | d-R5 |
+| **I-3** | INFO | carried; this section adds **no** occurrence of the KF-AV-28 discharge literal | — | — |
+
+### The act — what the re-derivation found, and why the act is not two deletions
+
+**OP-5 was executed, not assumed.** The bank's ground (*"both demo copies are wholly redundant
+against producer `base.css`'s identical rule"*) was re-derived **per selector** against glass-ui
+**7.0.0**'s installed bytes, READ-ONLY, and it **split the pair**:
+
+- **`.btn-playback:focus-visible` (`playback-idiom.css:74-77`) — DELETED.** Its ground is true in a
+  **corrected** form. The producer ships no `.btn-playback` rule (KF-W9 `:130` is right about that);
+  it ships the *class the host already wears* — ⟨cmd⟩ the Button chunk's class expression reads
+  **`"button tap-squish focus-ring"`**, and ⟨cmd⟩ `dist/styles/utilities/base.css` realizes
+  `.focus-ring:focus-visible` with the ring token in `@layer components`. **All FIVE subjects are
+  producer `Button`s** (census pasted in the receipt), so the demo rule repainted the producer's own
+  token on the producer's own element: pixel-identical in ordinary mode. In forced-colors it **was
+  the defect**: ⟨cmd⟩ `grep -c '@layer' dist/styles/utilities/a11y-overrides.css` → **0 · 0**, so the
+  producer's `outline: 2px solid Highlight` restoration is **unlayered**, equal (0,2,0) specificity,
+  and **earlier** in the cascade (⟨cmd⟩ `style.css:3` producer → `:14 design-idioms.css` → `:10
+  playback-idiom.css`) — the demo's `outline: none` won and erased it. That is G-KFW9-9's WHC
+  finding, reproduced at the bytes rather than inherited.
+- **`.kf-focus-ring:focus-visible` (`design-idioms.css:106-116`) — NOT deleted, and SAID SO in the
+  file.** ⟨cmd⟩ `grep -rn 'kf-focus-ring' demo | grep -c 'class'` → **11 · 11**, and not one host is
+  a glass `Button` — they are bespoke `div`/`canvas`/rail/caret/text-entry surfaces **no producer
+  selector matches** (KF.W6's rename is precisely what took them off `.focus-ring`), and the half
+  carries its **own** forced-colors parity. So it is neither redundant nor defeating: **K-5's stated
+  ground has LAPSED for this half only**, and deleting it would have removed the only indicator
+  eleven hosts have — the failure spec `:281` (vi) names by name. **OP-5 authorises exactly this
+  shape**: *"a deletion, **or the forced-colors parity the counterpart already carries** … never a
+  silent single-file edit where the bank named two, and never a deletion of a rule KF.W6 ruled
+  load-bearing without saying so."* The counterpart's byte in the act is the **dated re-derivation
+  ledger**, written inside the carve beside the rule it rules on.
+
+**K-5, honoured at its own terms.** ⟨cmd⟩ `git show --stat 9ceea648` → **2 files**,
+`design-idioms.css` **and** `playback-idiom.css`, one sha; ⟨cmd⟩ `git log --oneline
+05c577ed..HEAD -- demo/styles/playback-idiom.css` → `9ceea648` and the same for
+`design-idioms.css` — **no half-act sha exists anywhere in the range**.
+
+### The runtime clause — a case that can fail, not a costume
+
+G-KFW13-6 requires `playback-ribbon-contract.test.ts` to assert *"a focused Play button carries a
+focus indicator under `forced-colors: active` with no demo-owned unlayered rule defeating it"*.
+`forced-colors` is a UA mode no jsdom paints, and this file's producer `Button` is stubbed at the
+KF13-E2 wall — so a mount alone cannot see the affordance. **No mock of the subject, no skip, no
+allowlist was written.** The case asserts the **three real byte-sets the affordance is made of**,
+each read at its own source and each able to fail on its own:
+
+1. **the subject, live** — the mounted ribbon's Play cell is a `BUTTON` carrying `.btn-playback`
+   (the rule's own census, executed rather than quoted);
+2. **the indicator's true producer** — the `Button` chunk's class expression contains `focus-ring`
+   (resolved through `dist/button.js`'s re-export, not a hard-coded hash), `base.css` realizes the
+   ring in `@layer components`, and `a11y-overrides.css`'s forced-colors block restores
+   `outline: 2px solid Highlight` for it;
+3. **the defeater census** — a brace-walking scan of **both** demo sheets returns **zero** unlayered
+   demo-owned `.btn-playback` `:focus-visible` rule declaring `outline: none` outside a
+   forced-colors block.
+
+A second case holds the counterpart's **two arms together** (ordinary ring + Highlight parity), so
+no successor can delete half of what KF.W6 ruled load-bearing without turning it red.
+**Born-RED, pasted**: `2 failed | 13 passed (15)` ×2 against the pre-cure bytes — *"expected
+[ Array(1) ] to deeply equal []"* (the one defeater) and the counterpart's missing ledger. **GREEN
+`15 passed (15)` ×2** after `9ceea648`. The 13 cases `.b` landed are byte-untouched; ⟨cmd⟩
+`git diff 05c577ed..HEAD -- test | grep -c '^-.*expect('` → **0 · 0**.
+
+### Gate re-readings — every gate a cure could move, double-run (`evidence/W13/c-gates.txt`)
+
+| gate | at the close / Check 1 | at this seat, run 1 · run 2 | verdict |
+|---|---|---|---|
+| **G-KFW13-6** | **RED** (`.c` never dispatched) | receipt `dc7866c2` precedes act `9ceea648`; `git show --stat` = both stylesheets, one sha; ⟨cmd⟩ `grep -c 'box-shadow: var(--focus-ring-shadow)' demo/styles/playback-idiom.css` → **0 · 0** (was 1 · 1); runtime clause **15/15 ×2**; N-3 still its own sha (`d3778b52`) | **GREEN** |
+| **G-KFW13-5** | GREEN 13/13 | **15/15 ×2** (same file, extended); ⟨cmd⟩ `npx tsc -p tsconfig.test.json --noEmit \| grep -c 'error TS'` → **52 · 52** (`.b`'s banked library-test figure, unmoved), of which **0 · 0** in this file; ⟨cmd⟩ `npx eslint test/demo/instrument/playback-ribbon-contract.test.ts` → exit 0, no output | **GREEN, unmoved** |
+| **G-KFW13-7** | RED; `2 failed \| 55 passed (57)` / `2 failed \| 482 passed (484)` | **`2 failed \| 55 passed (57)` / `2 failed \| 484 passed (486)` ×2** — the same two **foreign** carried honest-REDs (`css-code-editor-seam.test.ts > (2) KF-CE-1`, KF.W12's; `spring-trace-truth.test.ts > (4b)`, KF.W11's); the +2 tests are this round's, both passing; skips ⟨cmd⟩ → **0 · 0**; bare `.focus-ring` class sweep → **0 · 0** | **RED, unmoved and unrelieved-by-this-seat** (its owners unchanged) |
+| G-KFW13-0/-1/-2/-3/-4 | as Check 1 reproduced them | **not re-run**: this round opened no `demo/app/**`, no `transport/**` and no `.ts`/`.vue` product byte (two css files + one test file). `vue-tsc` is likewise not re-run, and no §0u figure is restated by this seat | unchanged |
+
+### Declared drift (E-3 idiom: stated beside, amending nothing)
+
+⟨cmd⟩ `git grep -l 'btn-playback' HEAD -- demo | wc -l` → **9 · 9**, where the close and Check 1
+both published **8 · 8** and RULINGS-4 R4-4 stands at **7**. **Cause, named rather than laundered**:
+`design-idioms.css` now *names* the deleted selector, in the K-5 ledger the act is obliged to leave
+beside the surviving half. **The idiom's invariant census is unmoved** — ⟨cmd⟩ `grep -rn
+'btn-playback' demo | grep 'class'` → **7 · 7** (5 class applications + 2 prose), and the files that
+**apply** the class remain **3**: `PlaybackRibbon.vue` · `SpringScene.vue` ·
+`StartingStyleTarget.vue`. `KeyframeTimeline.vue` (KF.W7's) stays **counted, routed, never edited**.
+RULINGS-4's **7** and the close's **8** are quoted here beside the **9** and **neither is amended**.
+
+### Escalations returned by this round (each with its measured reason)
+
+1. **E-b1's six `playback-idiom.css`-resident halves — NOT TAKEN, and this is the reason.** H-1's
+   cure names a **ruling** — *"rule E-b1's six css halves onto that same seat or a named
+   successor"* — and no seat holds that ruling. §B.2 `:103` grants `.c` on that file exactly *"the
+   two-deletion act's playback half at `:74-77`"*; **D-10 · D-13 · D-16's css half · N-1 ·
+   D-8/D-15's css half · D-20's fourth falsehood** are §Scope 3 **ribbon** rows whose unit (`.b`) is
+   finished. Writing them here would be an **in-bounds file, out-of-carve row** — the exact defect
+   class Check 1 registered as **M-1** — committed in the round convened to cure that register.
+   Weighed the other way before returning it: the file is open in front of this seat and the rows
+   are real; but a carve is not widened by convenience, and the spec's own §Sequencing 4 gives `.c`
+   one act. **Owner: the adjudicator, by a dated addendum-beside routing the six rows to a named
+   seat with an explicit carve** (`.d` or a redispatched `.b`); the act itself is then one commit.
+2. **M-1 — `useMenubarMeasure.ts`'s TD-17 row.** Unchanged and uncurable from here: ratification is
+   an **adjudicator's** dated addendum-beside to a §B.2 that E-3 makes immutable to every seat, and
+   the alternative (revert) would delete a genuine cure of a genuine row. **Does not block.**
+3. **M-2 / d-R9 — the value.js half is still unpublished.** Re-measured at this seat: ⟨cmd⟩
+   `git status --porcelain -- demo/shell/PaneSegmentedControl.vue` → **`D `** (a sibling seat's
+   staged deletion, still outside every KF.W13 row), so the integrating pull is still refused;
+   ⟨cmd⟩ `git rev-list --left-right --count origin/tranche-u...HEAD` → **1 ← 56 →** (39 at Check 1;
+   the growth is sibling tracks'). **No stash, no reset, no unstage of a sibling path, no
+   force-push.** **keyframes.js, by contrast, is published by this seat** — ⟨cmd⟩ `git push origin
+   HEAD` → `05c577ed..9d814f6c  HEAD -> master`; ⟨cmd⟩ `git rev-list --left-right --count
+   origin/master...HEAD` → **0 0**. The cure stays the orchestrator's one command, unchanged:
+   `git -C …/value.js pull --no-rebase origin tranche-u && git push origin HEAD`, once the sibling
+   releases that path.
+4. **Carried unchanged, owners as the close named them**: **d-R1** (the whole dock-menu packet,
+   behind **KF13-E2**) · **d-R4** (OP-7/TD-37, owner/SS-2) · **d-R5** (C-11, KF.W12's file) ·
+   **d-R6/d-R7** (§0u's nine, incl. KF11-E2's three `src/**` rows) · **d-R8**. This round touched
+   none of them and claims nothing about them.
+
+### Commit roster — 4 shas, pathspec on every one, one meaning each
+
+| # | repo | sha | meaning | paths |
+|---|---|---|---|---|
+| 1 | value.js | **`dc7866c2`** | OP-5's re-derivation, **before** the act | `evidence/W13/c-op5-rederivation.md` |
+| 2 | keyframes.js | **`9ceea648`** | the two-deletion act, K-5 | `demo/styles/playback-idiom.css` · `demo/styles/design-idioms.css` |
+| 3 | keyframes.js | **`9d814f6c`** | G-KFW13-6's runtime clause | `test/demo/instrument/playback-ribbon-contract.test.ts` |
+| 4 | value.js | *(this section + the two evidence files)* | the repair receipt | `execution/B/KF-W13.md` · `evidence/W13/c-gates.txt` · `evidence/W13/c-after-witness-handback-G-KFW9-9.md` |
+
+**Bounds**: ⟨cmd⟩ `git diff --name-only 05c577ed..9d814f6c` → **3 paths**, every one a §B.2 `.c`
+row (`playback-idiom.css` `:74-77` · `design-idioms.css` the `:106-116` counterpart ·
+`playback-ribbon-contract.test.ts` extended). **No glass-ui byte, no `node_modules` byte, no
+`src/**` byte, no `demo/app/**`, no producer selector copied, no `@ts-expect-error`, no
+`eslint-disable`, no `as any`, no skip.**
+
+### The hand-back, made rather than promised
+
+`evidence/W13/c-after-witness-handback-G-KFW9-9.md` hands the AFTER witness to **KF.W9 ·
+`G-KFW9-9`** and **KF.W9 · `D-3 + DU-M-1`**, keyed by row id, with the act's sha, the five subjects
+for the shot, the two cells KF-W9 `:238` names, and the explicit statement that **this seat does not
+shoot it, does not proxy it and marks nothing green from this end** (S-9). KF.W9 is CLOSED
+(honest-RED); the witness is owed **to** it and blocks nothing **from** it. The capture remains
+**SS-13's one shared shot**.
+
+### LEDGER disposition and SELF-COUNT
+
+The row's cells are **not** moved to `CLOSED` by this seat: **G-KFW13-7 stays RED** on nine
+foreign-owned diagnostics and two foreign test failures, and **d-R1's dock-menu packet is still
+wholly unspent behind KF13-E2** — the wave remains **PARTIAL**, now with **six of eight gates
+green** where the close and Check 1 both read five. One event line is appended to
+`execution/LEDGER.md`, nothing else in it is touched. **SELF-COUNT**: ⟨cmd⟩ `sed -n '/^## Repair
+1$/,$p' execution/B/KF-W13.md | grep -c '^### '` → **9**; shas **4** (2 kf · 2 value.js); defects
+answered **6** (1 cured · 2 escalated · 3 carried); gates re-run **3**, moved **1** (G-KFW13-6
+RED → GREEN); keyframes.js product bytes written **2 files**, test **1**, glass-ui **0**.
