@@ -2211,3 +2211,42 @@ runner's own completion notifications (a dead or finished track reports itself) 
 `withRetry` re-seats; no periodic message enters the root session while seats are live. All four
 tracks relaunch in RESUME MODE now (A live · D · C · B), inside the owner's cap. §0ae/§0af are
 superseded on their diagnosis, not on their durability posture.
+
+## §0ah ADDENDUM 2026-09-20 — X.P.W4S: NINE OF TEN GATES GREEN AT THREE INDEPENDENT SEATS; THE R-A STAMP RULED IN §3a's FORM (RESEARCH · PLAN AUGMENT · REDRESS), NOT AS A BARE RE-SEAT; ESC-W4g-1 AND C3-3 RULED
+
+Check 3 of X.P.W4S: G-1..G-9 GREEN and reproduced at three seats' own clocks (G-3 `52 of 52` at the
+same tarball sha, G-5 honestly FALSE, G-1 GREEN with three negative controls RED); the honest-RED
+set is `∅`; the one HIGH is G-10 — the stamp is performable and unperformed for a sixth reading —
+and §3a's third-iteration trigger has fired for it (C3-2). Ruled in §3a's mandatory form:
+
+- **Research — why five adjudicator seats did not perform a five-row edit.** Each fresh Fable seat
+  sat with the stamp COUPLED to the wave's unit order: `.d`/`.f`/`.f2` each measured G-1..G-9 at
+  its own clock and found a gate RED that a LATER seat cured (G-3 by `.e2` after `.f`; G-1 by
+  Repair 1 after `.f2`), and every seat that then turned the gate was an Opus repair or check seat
+  that M-23 §1 and §5 forbid to stamp. The failure is structural — the stamp was the last unit of a
+  wave whose checks and repairs can move gates after it — not a seat defect. A bare re-seat of `.f2`
+  would face the same shape.
+- **Plan augment — the stamp becomes a standalone dated act with its own precondition, surviving
+  any seat.** Unit **`X.P.W4.s`** (a FRESH Fable adjudicator, M-23 §1) is dispatched **last and
+  alone**, after every other unit and after the checks that moved gates. Its precondition is its own
+  re-run of G-1..G-9 (the long gates backgrounded and polled); GREEN at its clock → the R-A stamp
+  (shape-(a) sum 5 → 0 in one act, VERIFIED never ACCEPTED, the §9 family whole: five rows + the two
+  COHESION cells + `W4-CLOSE.md` dated §14 + `RELEASE-PACKET.md` addendum + `x-p-w4s.json` fold/3);
+  any gate RED at its clock → it performs nothing, and the LEDGER row reads **`BLOCKED-ON G-n`**
+  (the gate by id), never `PARTIAL`, so the next act is named by the row itself.
+- **Redress — the check reads the stamp as a dispatch condition.** A fresh check that finds
+  G-1..G-9 GREEN and G-10 RED with `.s` not yet seated returns the verdict with the cure
+  "dispatch `.s`", and the chassis dispatches `.s` on that verdict rather than another repair round.
+- **ESC-W4g-1 (F-ab1's second limb)** — `emit-divergence-ledger.mjs:169`'s single carried block
+  becomes a carried LIST (`\n### §6.` and `\n## §10`, each sliced to the next level-2 heading, §10's
+  slice the tail, emitted under its own preamble in document order); acceptance = the existing
+  idempotence check plus §10's retirement rows surviving two consecutive emissions. Unit
+  **`X.P.W4.g2`** (Opus), before `.s`. No regeneration is ordered; the ledger stands (E-3).
+- **C3-3** — §6 G-2's predicate is a COMMIT predicate (the wave's commits carry no path under
+  `src|demo|api|test|e2e`); the working tree is shared with Track A and is not this wave's evidence.
+  Dated addendum to `W4.md` §6.
+- **C3-4 / R-C3** — the harvest seat-count sub-gate stands owner-named (X-W11's HARVEST lane).
+
+**Mechanism.** `X.P.W4S` resumes: `.e` · `.e2` · `.f` · `.g` · `.h` · `.f2` stand on their commits;
+groups: [`.g2`] → [`.s`]. The chassis note carries the redress rule. The first free id is `§0ah`
+(Repair 2 measured the collision at `§0ac`).
