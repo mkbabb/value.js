@@ -2939,3 +2939,203 @@ glass-ui byte read as writable.** Writable set exercised: **two** paths — this
 `LEDGER.md`.
 
 **CLOSE VERDICT, SECOND SEAT: PARTIAL — SUSTAINED.**
+
+---
+
+## Check 1 — ADDENDUM C (2026-09-19, the THIRD pass-1 seat)
+
+**SERVED MODEL: `claude-opus-5[1m]`.** FRESH ADVERSARIAL CHECK (L-20, pass 1), VERIFY-ONLY, Track C
+· X·F. A third independent pass-1 seat, dispatched after `## Check 1` (`61aafe41`), `ADDENDUM A`
+(`9d7121b7`) and `## Close — ADDENDUM B` (`72735922`) had all landed. This seat authored **no** byte
+of `F-W9.md`, of any unit receipt, of `## Close`, of `## Check 1`, of either addendum, or of the
+`LEDGER.md` row it reads; it wrote **zero** fourier bytes, **zero** glass-ui bytes, **zero** product
+bytes anywhere. **E-3 held in the direction that matters: neither `## Check 1` nor `ADDENDUM A` nor
+`ADDENDUM B` is rewritten.** Everything below is an addendum **beside** them.
+
+**CRASH-RECOVERY (standing law), performed first.** ⟨cmd⟩ `git status --porcelain` in
+`/Users/mkbabb/Programming/fourier-analysis` → **`?? .worktrees/`** alone. In value.js → eighteen
+dirty rows, **none in this seat's writable set** (`execution/C/F-W9.md` ⊕ `execution/LEDGER.md`,
+both measured **clean** immediately before the first write): the `demo/**` · `e2e/**` ·
+`docs/tranches/V/.../DEFECT-LEDGER.md` · `CARRY-LEDGER.md` · `execution/A/X-W5.md` ·
+`execution/B/KF-W13.md` rows are sibling seats'; `D demo/shell/PaneSegmentedControl.vue` is **staged
+by a sibling seat** and left exactly as found; `scripts/dev/dev.sh` **NEVER touched**. **Zero
+killed-predecessor bytes inherited; nothing stashed, restored or reverted.**
+
+### C.1 VERDICT — SUSTAINED a third time, independently: **NOT-CONFORMANT**; the row stays `PARTIAL`
+
+**0 BLOCKER · 0 CRITICAL · 1 HIGH · 3 MINOR · 1 INFO.** All **23** gate verdicts re-measure
+identically at this seat's own commands, and **eleven of eleven claimed GREENs reproduce**. The
+single HIGH is `HIGH-1` (`G-F9-6`), sustained unsoftened on axis (10): a RED on an instrument this
+wave authored **inside its own §1b row**, fitting **none** of the three relief heads. Ten honest-REDs
+are relieved and owner-named; `G-F9-17` and `G-F9-11` are relieved in part. **Three MINORs are NEW at
+this seat** (`C-M1` · `C-M2` · `C-M3`), none blocking.
+
+### C.2 AXIS 1 — the eleven GREENs, re-run at this seat (double-run where load-bearing)
+
+| gate | this seat's own ⟨cmd⟩ → output | reproduces? |
+|---|---|---|
+| **G-F9-1** | ⟨cmd⟩ `npm test` → **`Test Files 13 passed (13)` · `Tests 84 passed (84)`**; ⟨cmd⟩ `node -e "…package.json"` → scripts `dev,build,preview,lint,derive:loops,test,test:watch,test:e2e,test:e2e:ui`, `vitest=5.0.1`; ⟨cmd⟩ `gh run view 35445782153 --json jobs` → step **6** *"Unit floor (X·F F.W4 G-F4-VITEST + F.W9 G-F9-1)"* **success** | **YES** |
+| **G-F9-2** | ⟨cmd⟩ `npm run lint` → **exit 1** on run 1, **exit 1** on run 2, **exit 1** on run 3 (three `no-duplicate-imports`, `Tooltip.vue:39` · `BasisCanvas.vue:15` · `:31`, all `web/src/**`); ⟨cmd⟩ `grep -c '^\s*continue-on-error:' ci.yml` → **0** | **YES** |
+| **G-F9-4** | ⟨cmd⟩ `grep -n 'paper' e2e/visualization-ux.spec.ts \| grep -i checkA11y` → `:336 await checkA11y(page, "/paper")` under `:328` *"keystone: /paper is a11y-clean"*; the 17-failure roster extracted at C.3 carries **no** `/paper` row; M2 lock held — the sole `sidebar-top-btn` occurrence is `paper-search.spec.ts:22`, inside a comment | **YES** (citation defect at `LW-5`, sustained) |
+| **G-F9-7** | ⟨cmd⟩ `grep -n 'isVisible()' e2e/gallery.spec.ts` → **5 hits, every one inside a `*` comment block or a `// Was:` note** — no live guard survives; ⟨cmd⟩ `grep -n 'glass-dock' e2e/gallery.spec.ts` → `:16` ⊕ `:238` comments and `:241` `const dock = page.locator(".controls-dock-anchor .glass-dock")`, the route that mounts one; `gallery.spec.ts` absent from the failure roster | **YES** |
+| **G-F9-9** | ⟨cmd⟩ `grep -cE 'modal\|dialog\|card\|Open Visualizer' e2e/gallery.spec.ts` → **16** | **YES** |
+| **G-F9-10** | `e2e/gallery.spec.ts:188` `const type = msg.type();` with `if (type === "error" \|\| type === "warning")` at `:189`; the replaced error-only filter is quoted in the `:176-184` comment; absent from the roster | **YES** |
+| **G-F9-12** | ⟨cmd⟩ `grep -n 'aria-label\|aria-pressed' src/components/layout/DarkModeToggle.vue` → `:27 aria-label="Dark mode"` ⊕ `:28 :aria-pressed="isDark"`; ⟨cmd⟩ `wc -l e2e/shell-header.spec.ts` → **124**; absent from the roster | **YES** |
+| **G-F9-13** | ⟨cmd⟩ `grep -n 'name:' playwright.config.ts` → **`:64 "chromium"`** ⊕ **`:107 "mobile-chromium"`**; the project **ran** in CI (failures **16)** and **17)** are its) | **YES** |
+| **G-F9-14** | `e2e/unit/figure-set-equality.vitest.ts (4 tests)` **passed** inside this seat's own `npm test` | **YES** |
+| **G-F9-16** | ⟨cmd⟩ `grep -c 'conclusion\|workflow_run\|gh run\|inv-28' scripts/deploy-hook.sh` → **15**; ⟨cmd⟩ `git show 1b46465:scripts/deploy-hook.sh \| grep -c …` → **0**. BEFORE→AFTER measured | **YES** |
+| **G-F9-20** | ⟨cmd⟩ `postcss.parse(node_modules/@mkbabb/glass-ui/dist/styles/index.css)` → **top 40 · atrule 40 · `@source` 1**, run **twice**, identical; ⟨cmd⟩ glass version → **`8.0.0`** | **YES** |
+
+**ELEVEN OF ELEVEN REPRODUCE. `gatesFailed` is EMPTY.**
+
+### C.3 The twelve REDs, re-measured — and the covering run re-read from its own log
+
+⟨cmd⟩ `gh run list --repo mkbabb/fourier-analysis --branch m/w1-bump-migration` → **exactly one
+run**, `35445782153` @ `a6f50c8bac96a5d82063024e7104b58d07e8c7ec`, conclusion **`failure`**. ⟨cmd⟩
+`gh run view 35445782153 --json jobs` → `web (vue-tsc + vite build)` **failure** (step **7**
+`Type-check`) · `api/tests (with live Mongo)` **success** · `e2e (Playwright, COMPUTE_RATE_LIMIT=
+1000)` **failure** (step **11**) · **`inv-27 evidence (covering run id + SHA)` `skipped`**. The
+fail-closed behaviour is **measured**, exactly as `c.2` claims.
+
+⟨cmd⟩ `gh run view 35445782153 --log \| grep -oE '[0-9]+\) \[[a-z-]+\] › [^ ]+' \| sort -u` → the
+**seventeen** rows print identically to the close's partition: `contrast-floor:82 ×2 · :128` **1)–3)**
+· `equation-interaction:77` **4)** · `fullscreen:40` **5)** · `gallery-admin-a11y:91/:103/:114/:125`
+**6)–9)** · `visual-checkpoint:80/:101/:122/:144/:163` **10)–14)** · `visualization-ux:286` **15)** ·
+`coarse-pointer:105` **16)** · `visual-checkpoint:182` (mobile) **17)**. Totals from the same log:
+**`17 failed` · `7 skipped` · `3 did not run` · `80 passed`**. Reasons re-read at the bytes: ⟨cmd⟩
+`grep -c 'strict mode violation: getByLabel(/Display terms/i) resolved to 3 elements'` → **3** (one
+per attempt) · `[serious] color-contrast` → **6** · `[serious] aria-hidden-focus` → **12** · ⟨cmd⟩
+`grep -oE 'checkpoint-[a-z-]+-chromium-linux\.png' \| sort -u` → **six** distinct missing references.
+
+Each RED re-measured at its own witness, nothing inherited: **G-F9-3** failures **6)–9)** ·
+**G-F9-5** failure **15)** · **G-F9-6** failure **4)** · **G-F9-8** ⟨cmd⟩ `grep -rn 'test\.fixme('
+e2e/` → **five call sites** (`ux:151 · :178 · :249 · :371` ⊕ `crud:664`), unchanged · **G-F9-11**
+failure **5)** · **G-F9-15** ⟨cmd⟩ `curl -s https://fourier.babb.dev/` → **`/assets/index-BI13Q2EH.js`**
+against a local build of `index-D59ayjJk.js` / `index-C_Uqpvlf.js`, ⟨cmd⟩ `openssl x509 -noout -dates`
+→ **`notBefore=May 28 00:12:08 2026` · `notAfter=Aug 26 00:12:07 2026 GMT`**, ⟨cmd⟩ `curl … /api/health`
+→ **exit 60** · **G-F9-17** the job sweep above · **G-F9-18** ⟨cmd⟩ `grep -n 'sun.json\|moon.json'
+src/components/layout/DarkModeToggle.vue` → **`:89` ⊕ `:90`**, ⟨cmd⟩ `ls -l dist/assets/index-D59ayjJk.js`
+→ **487,267 B** · **G-F9-19** ⟨cmd⟩ `docker ps` → *"Cannot connect to the Docker daemon"*, ⟨cmd⟩
+`command -v nginx` → **∅**, ⟨cmd⟩ `wc -l nginx/fourier.conf` → **72** beside `web/Dockerfile:42`
+`RUN printf 'server {\n\` · **G-F9-21** ⟨cmd⟩ `grep -o '^### F\.W9 — \*\*16 rows\*\*' "$C"` →
+matched, **15** records, ⟨cmd⟩ `shasum -a 256 "$C" \| cut -c1-12` → **`f44362757458`** · **G-F9-22**
+⟨cmd⟩ `EditorControlsDock.vue` **13** `aria-label` over **9** `<Tooltip>`, `FunctionInput.vue` **3**
+· **G-F9-23** ⟨cmd⟩ `ls e2e/visual-checkpoint.spec.ts-snapshots/` → **six**, every one
+`*-chromium-darwin.png`.
+
+**TALLY AT THIS SEAT: 11 GREEN · 12 honest-RED — IDENTICAL, gate for gate, to `## Close`, to
+`## Check 1` and to `ADDENDUM B`.** The `G-F9-5` re-grade is sustained a third time.
+
+### C.4 AXES 2–7, 9 — re-measured at this seat
+
+| axis | reading |
+|---|---|
+| **(2) bounds** | ⟨cmd⟩ `git log --oneline 1b46465..a6f50c8 \| wc -l` → **20**, so the range holds **exactly** the wave's fourier commits; ⟨cmd⟩ `git show --stat` over each of the 20, unioned and sorted → **30 paths**, every one a §1b table row; ⟨cmd⟩ over the union `grep -cE '^web/src/\|^docs/tranches/M/\|deploy-pages\.yml\|dev\.sh'` → **0**; ⟨cmd⟩ `git diff --name-only 1b46465..a6f50c8 -- web/src/` → **0 files**. value.js: ⟨cmd⟩ `git show --stat` over all eleven F.W9 commits → **exactly three paths**, `INBOX.md` · `execution/C/F-W9.md` · `execution/LEDGER.md`, each a §1a row; `dev.sh` appears **0** times. **One verb overrun (`LW-4`/`MINOR-4`), no bounds escape** |
+| **(3) masking** | Independent census over the whole `1b46465..a6f50c8` diff (**3,344** lines): ⟨cmd⟩ `grep -E '^\+' \| grep -E 'test\.skip\|\.skip(\|test\.fixme\|eslint-disable\|oxlint-disable\|@ts-ignore\|@ts-expect-error\|continue-on-error\|--allow\|allowlist\|node_modules'` → **8 hits, every one adjudicated**: seven are prose **forbidding** the practice (*"nothing is `continue-on-error`, nothing is skipped"* · *"No `--allow`, no ignore file, no rule disabled"* · *"NOTHING HERE IS `continue-on-error`, ALLOWLISTED OR SKIPPABLE"*), and the eighth is `"node_modules"` inside `SKIP_DIRS` — a **directory-walk exclusion in `unit-floor-population.vitest.ts`**, the census's own traversal, not a rule allowlist. ⟨cmd⟩ `grep -rn 'test\.fixme(' e2e/` → the **same five** pre-existing call sites; **none added**. The six `\|\| true` sites in `deploy-hook.sh` are **fail-closed by construction**: `probe_liveness`/`probe_readiness` capture into a variable whose `[[ ]]` test then **returns 1** on the empty capture, and the three `logger` sites sit beside a `return 1` refusal (`:200-210`). No producer selector copied, no `node_modules` patched. **CLEAN** |
+| **(4) families** | One commit per meaning across the 20. The two multi-gate commits are the spec's own pairings (`5256126` G-F9-7 ⊕ -9 in one file; `2b42f28` G-F9-11 ⊕ -12 under §4a-12's N-2 rider, whose cure half is F.W4's and already banked). `3913738` ⊕ `160f7f3` are correctly **separate**: the second cures the instrument the first landed, a distinct meaning. **No family split** |
+| **(5) E-3** | ⟨cmd⟩ `git diff --name-only 16c9bd5d~1..HEAD -- <path>` → **0 files** for **every** frozen authority: `waves/F-W9.md` · `waves/F-W10.md` · `registry/adjudicated/` · `fourier/conformance/` · `formation/fourier/` · `fourier/carry/`. **HELD as an absence** |
+| **(6) mail** | ⟨cmd⟩ `grep -cE '^\| [IO]-[0-9]+ \|' INBOX.md` → **77**; wide form → **81**. ⟨cmd⟩ a **positional** scan of the status column (field 6 of the 7-field row) → **four** rows carry the token and **all four are prose inside terminal dispositions**: `O-20` **SENT 2026-08-28** · `I-31` **FOLDED 2026-09-17** · `I-32` **READ IN FULL + ROUTED — TERMINAL** · `O-39` **SENT 2026-09-19**; the two further naive hits are `I-30` (status **ROWED 2026-08-30**, its extra pipe a backticked cell) and `I-35` (**READ + CONSUMED WHOLE**, quoting its own history). **0 UNREAD in F.W9's scope**; this seat mints no row |
+| **(7) four-verb** | **LAWFULLY UNMOVED.** The Close act at `F-W9.md:553` moves IMPLEMENTED only *"when G-F9-1..23 are GREEN — each citing a covering run id and a committed SHA"*; **11 of 23 green** and the branch's only run is a `failure`, so **both** limbs fail. `VERIFIED` is F.W10's by the spec's own words, untouched |
+| **(9) figures** | Every published figure re-derives here: **13/84** · **exit 1 ×3** · **15 vs 0** · **16** · **5** admin files · **`:64`/`:107`** · **40/40/1** · **`f44362757458`** · **15 records** · **72** · **487,267 B** · **13/9** ⊕ **3** · **six** darwin baselines · **17 failed / 80 passed** · **30** paths · **20** commits. **Not one figure fails to reproduce** |
+
+### C.5 AXIS 8 — the spec's own goal criterion, at the bytes
+
+*"…no claim in the X·F program is green by assertion — the host runs HEAD, a failed deploy is loud
+in a watched channel, every gate cites a covering run id, and the five instruments exist that make
+the packet's ungated rows falsifiable."* **1 MET · 1 RELIEVED-UNMET · 2 UNMET — SUSTAINED.**
+
+1. **the host runs HEAD** — **UNMET, RELIEVED** (operator act; cert expired, measured above).
+2. **a failed deploy is loud in a watched channel** — **MET at the tracked deploy path**, and
+   verified structurally at this seat: `require_alert_channel` **returns 1** when
+   `FOURIER_DEPLOY_ALERT_WEBHOOK` is unset (`deploy-hook.sh:200-210`), and `notify` writes stderr ⊕
+   `logger` ⊕ webhook. Host *adoption* waits on clause 1.
+3. **every gate cites a covering run id** — **UNMET.** The branch's only run is `failure`; the
+   record's own binding table publishes **OWED** in all eleven rows rather than inventing one.
+4. **the five instruments exist and falsify** — **UNMET IN PART.** The S2 `/equation` seat exists
+   and its first two legs assert live in CI, but legs **3 (budget, `FR-EQR-31`/`D-14`)** and
+   **4 (reload)** never execute. **This is where the HIGH lives.**
+
+**The goal criterion is NOT MET at the bytes — and the wave says so**: close verdict `PARTIAL`,
+IMPLEMENTED **NO**, LEDGER corrected **down**. The wave claims no completion it does not hold.
+
+### C.6 AXIS 10 — HONEST-RED ADJUDICATION, re-adjudicated at the spec's bytes
+
+**RELIEVED AND OWNER-NAMED — TEN, each head re-checked here, not inherited:**
+
+| gate | head | this seat's independent check of the head |
+|---|---|---|
+| **G-F9-3** | producer | **CONFIRMED, with its citation corrected (`C-M1`).** ⟨cmd⟩ `grep -rn 'aria-hidden' src/ \| grep -c tabindex` → **0** — no fourier byte can produce the failing node. Owner **SS-6** stands |
+| **G-F9-5** | later wave (spec's own routing) | **CONFIRMED.** §5: *"F.W3/W4 owns every cure; F.W9 owns gates only"*; the single node is a token-contrast act, the family CI reddens at `contrast-floor` **1)–3)**. Owner **R-c1 → F.W4** |
+| **G-F9-8** | named in the gate's own falsifier | **CONFIRMED at the spec's bytes** — *"The un-fixme is F.W3/W4's cure, not F.W9's"*. Owner **E-F9b-1** |
+| **G-F9-15** | outside every writable set | **CONFIRMED** — certbot renewal on a constellation-wide cert. Owner **E-F9a-1 → OPERATOR** |
+| **G-F9-18** | the gate's own second disjunct | **CONFIRMED** — baseline published with its invalidity measured; the run-id limb is G-F9-17's |
+| **G-F9-19** | capability | **CONFIRMED** — no docker daemon, no `nginx` binary, no SSH route. Owner **E-F9a-4 ⊕ -5** |
+| **G-F9-21** | forbidden by the spec's own §1c | **CONFIRMED** — §1c makes `F-W10.md` READ-ONLY while §4a-17 demands all eight in ONE commit **with** the twin. **0 bytes written at either end.** Owner **E-F9-1** |
+| **G-F9-22** | the two legs relieved above | **CONFIRMED** — measured, not argued green |
+| **G-F9-23(a)** | structurally unobtainable, and faking it is a named base | **CONFIRMED** — §4a-16 needs a capture **before** F.W1's transaction; F.W1 CLOSED 2026-09-18 |
+| **G-F9-23(b)** | capability | **CONFIRMED** — a darwin seat cannot mint `-linux` references; minting them from a CI run is the self-oracle the gate abolishes. Owner **E-F9b-3** |
+
+**RELIEVED IN PART — TWO:** `G-F9-17` (the `web/src` TS6133 limb is relieved; the `web/e2e/**` limb
+is not — `MINOR-3`) · `G-F9-11` (`MINOR-2`).
+
+**UNRELIEVED — ONE: `G-F9-6`.** Re-adjudicated from the spec's own bytes rather than from
+`## Check 1`: (a) **not producer-owned** — ⟨cmd⟩ `grep -rn 'Display terms' src/` → **one** site,
+`FunctionInput.vue:263`, a *fourier* file, and in any case the in-bounds cure does not touch it;
+(b) **not routed to a successor** — §5's routing table sends *product-source* cures to F.W3/W4 and
+*producer* rows to SS-6, and `web/e2e/**` is **§1b's own row**, assigned to unit `b` by the record's
+own unit plan; (c) **named by no honest-RED id** anywhere in `F-W9.md`. The hand-off *"whichever
+seat next opens `web/e2e/**`"* is a routing the spec does not grant.
+
+### C.7 Successor conjuncts — F.W10 is NOT blocked
+
+⟨cmd⟩ `grep -c 'Opens after' F-W10.md` → **0**: the twin declares **no** `Opens after` line, so it
+carries no conjunct written against F.W9's stamp. ⟨cmd⟩ `grep -no 'F\.W9[^|.]\{0,120\}' F-W10.md |
+grep -iE 'stamp|closed|implement|after|preced|blocks'` → **one** hit, `:494`, an errata note about a
+repair round — **not a precondition**. Its own four-verb line reads IMPLEMENTED **NO** · VERIFIED
+**NO** independently. F.W9's chain conjunct (`F-W9.md:15`, *"Opens after F.W0 → F.W1 → F.W3/W4"*)
+is **GREEN on all four**: the LEDGER rows read `CLOSED` for F.W0, F.W1, F.W3 and F.W4. Two of F.W9's
+own REDs — **E-F9-1** (the eight paired obligations) and **E-F9-2** (the §4.10 CREATE) — are
+dischargeable **only** by F.W10 opening, so **F.W10 is the relief, not the blocked party**;
+`G-F9-21`'s *"neither spec stamps before this closes"* binds the **stamp**, and F.W9 has not stamped.
+
+### C.8 DEFECT REGISTER — one HIGH sustained, three MINORs new at this seat
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| **HIGH-1** | **HIGH** | **SUSTAINED, unsoftened and unrelieved: `G-F9-6` is RED on an instrument this wave authored inside its own §1b row.** `e2e/equation-interaction.spec.ts` (`5b74d3f`, unit `b`, 180 lines) dies at `getByLabel(/Display terms/i)` resolving to **3 elements**. `ADDENDUM A`'s correction is re-verified here and adopted: the death is at **`:141`**, not before the first assertion — ⟨cmd⟩ `sed -n '139,141p'` → `const budget = page.getByLabel(/Display terms/i);` ⊕ `await expect(budget).toBeVisible();`, and ⟨cmd⟩ `grep -n 'expect(' … \| awk -F: '$1<141' \| wc -l` → **13** sites ahead of it, all executing. **Legs 3 (budget — `FR-EQR-31`/`D-14`) and 4 (reload) are caught by nothing.** The gate's falsifier names the whole chain *"compute → notation → budget → reload … mechanically catching B-1, B-2, C-29, D-07, D-14"*, so a half-live instrument does not turn it. The RED fits **none** of axis (10)'s three heads (C.6) | ⟨cmd⟩ `gh run view 35445782153 --log` → `4) [chromium] › e2e/equation-interaction.spec.ts:77:5`, and ⟨cmd⟩ `grep -oE 'equation-interaction\.spec\.ts:[0-9]+:[0-9]+' \| sort \| uniq -c` → **3 × `:141:30`** ⊕ 5 × `:77:5`; ⟨cmd⟩ `grep -c 'strict mode violation: getByLabel(/Display terms/i) resolved to 3 elements'` → **3** | Narrow the locator to the role the leg drives — `getByRole("spinbutton", { name: /display terms/i })` — in `web/e2e/equation-interaction.spec.ts`, **inside §1b's own row**; re-run and re-grade `G-F9-6` **on the measurement**. One line, in bounds, no waiver, no `web/src` byte required |
+| **C-M1** | MINOR | **NEW. `G-F9-3`'s relief cites the wrong producer artifact.** `## Close`, `## Check 1` and `ADDENDUM B` all name the failing node *"glass-ui 8.0.0's `Metric` tile"*. It is not: the axe payload's own `html` is `<span aria-hidden="true" tabindex="0" style="position: fixed; border: 0px; …">` — a **`FocusGuards` sentinel injected by reka-ui** through the dialog/popover layer, not a Metric render. **The relief HEAD survives intact** (⟨cmd⟩ `grep -rn 'aria-hidden' src/ \| grep -c tabindex` → **0**: no fourier byte can emit it), so `G-F9-3` stays an honest-RED — but an SS-6 letter written from this citation asks the wrong producer about the wrong component | ⟨cmd⟩ `gh run view … --log \| grep -o '"html": "<span aria-hidden[^"]*'` → the sentinel span with `tabindex="0"` and `position: fixed`; ⟨cmd⟩ `grep -o 'FocusGuards' node_modules/reka-ui/dist/index.js` → matched; ⟨cmd⟩ `ls node_modules/@mkbabb/glass-ui/dist/components/metric/` → `Metric.vue.d.ts` · `MetricRow.vue.d.ts` · `MetricStack.vue.d.ts` (no such markup) | Dated **addendum-beside** re-stating `E-F9b-2` as *"reka-ui `FocusGuards` sentinels rendered focusable under `aria-hidden` inside the glass overlay stack"*; the **F.W9-P1** relay carries the corrected node to SS-6. Owner unchanged: **PRODUCER** |
+| **C-M2** | MINOR | **NEW. `G-F9-2`'s CI limb did not run in the covering run**, and two receipts read as though it had. ⟨cmd⟩ the `web` job's step list → step **8** *"Lint floor (X·F F.W0, G-7)"* **`skipped`** and step **9** *"Keyed-loop + duplicate-import gate"* **`skipped`**, both short-circuited by step **7** `Type-check`'s failure. So `E-F9b-5`'s *"seven `oxlint --deny-warnings` findings … **enumerated on the CI step's face**"* and the close cell's *"roster published on the step's face"* are **false for run `35445782153`** — the roster exists only in the units' local runs. **`G-F9-2`'s GREEN is unaffected**: its falsifier is *"a lint floor exists and **fails** on a violation"*, which this seat measured **exit 1 three times** locally, with the blocking wiring verified as an absence of `continue-on-error`. **Does not block**; it is one more consequence of `E-F9-3`'s type error | ⟨cmd⟩ `gh run view 35445782153 --json jobs --jq '.jobs[] \| select(.name\|test("web \\(")) \| .steps[] \| "\(.number) \(.name) :: \(.conclusion)"'` → `7 Type-check :: failure` · `8 Lint floor (X·F F.W0, G-7) :: skipped` · `9 … :: skipped` · `10 … :: skipped` · `11 Build :: skipped` | Fold into the `MINOR-3` addendum: scope every *"on the CI step's face"* phrase to *"on the step's face **once a run reaches it**"*, and note that four `web`-job gates are unexercised by the covering run. Owner: **F.W10 / the boundary seat** |
+| **C-M3** | MINOR | **NEW, a count correction to `MINOR-3`. Nine, not eight, of the run's 17 failures are specs this wave authored.** `MINOR-3` enumerates *"equation-interaction ×1 · fullscreen ×1 · visual-checkpoint ×6"* = 8 and omits **`coarse-pointer.spec.ts:105`** (failure **16)**), which ⟨cmd⟩ `git log --diff-filter=A -1 -- web/e2e/coarse-pointer.spec.ts` → **`3913738 feat(web): X.F.W9.b — G-F9-13`** makes an F.W9-authored file. **The relief is undamaged** — that failure's cause is a 44px-floor defect in `web/src` (`E-F9b-4`), owner-named — so only the count word is wrong; but `MINOR-3`'s point (this wave's own residue sits on `G-F9-17`'s books) is **stronger**, not weaker, by one row | the 17-row roster at C.3; ⟨cmd⟩ `git log --diff-filter=A -1 -- web/e2e/coarse-pointer.spec.ts` | Same dated addendum as `MINOR-3`: read **9 of 17**, and split the ninth explicitly as *authored-here, cause-routed-elsewhere* |
+| **MINOR-2 · MINOR-3 · MINOR-4 · MINOR-5 · INFO-6 · LW-1..LW-6** | as filed | **ALL SUSTAINED WITHOUT CHANGE.** `MINOR-2` re-read at the log: attempt 1 *"element(s) not found"* at `:63`; the retry **resolves** `<button … "Exit fullscreen">` and then cannot click it — the split cure is right. `LW-5` re-verified: ⟨cmd⟩ `grep -c 'checkA11y\|AxeBuilder' e2e/paper-search.spec.ts` → **0**, and the `/paper` keystone's file was last landed by **F.W4's `05af77b`**. `LW-6` re-verified: ⟨cmd⟩ `git log --oneline -3 -- src/lib/figureDimensions.ts` → `1f2d45c` (F.W4) · `555477e` · `d4da274`, **no F.W9 sha**, and the path is absent from the 30-path union | as filed, each re-measured above | as filed |
+
+⊘ **WEIGHED AND NOT CHARGED.** `G-F9-1` and `G-F9-2` rest partly on artifacts **F.W4** landed
+(⟨cmd⟩ `git log -S'"lint":' -- web/package.json` → `f93eacc` (x-f-w4/.g); ⟨cmd⟩ `git log -S'"vitest":'`
+→ `cc6c32d` (x-f-w4/.g)), while F.W9 landed `"test": "vitest run"` and the population census
+(`8fd35a9`). This is **not** laundering: the close's own ⊘ block already records
+*"`web/eslint.config.js` carries a §1b **CREATE** and was **read, not written**"*, and neither gate's
+falsifier asks who authored the floor — only that it exists, runs, and can fail. `G-F9-20`'s green
+resting on a committed SHA rather than a run id is the record's own stated rule at `c.6` and is
+sound. The eleven greens are **not softened**; each reproduced at this seat's own command.
+
+### C.9 The honest-RED set, and the row
+
+**HONEST-RED, RELIEVED AND OWNER-NAMED (10):** `G-F9-3` (producer → SS-6 / F.W9-P1) · `G-F9-5`
+(F.W4's contrast floor / the token seat, R-c1) · `G-F9-8` (F.W3/W4, E-F9b-1) · `G-F9-15` (OPERATOR,
+E-F9a-1 / F.W9-P3) · `G-F9-18` (second disjunct discharged; run-id limb owed to G-F9-17) · `G-F9-19`
+(a host-access or staging seat, E-F9a-4 ⊕ -5) · `G-F9-21` (the wave boundary / F.W10, E-F9-1) ·
+`G-F9-22` (E-F9b-2 ⊕ R-c1) · `G-F9-23(a)` (§4a-16, on the gate's face) · `G-F9-23(b)` (a CI-capable
+seat, E-F9b-3). **RELIEVED IN PART (2):** `G-F9-17` · `G-F9-11`. **UNRELIEVED (1): `G-F9-6`.**
+
+**Because one RED carries no relief under any of axis (10)'s three heads, and because that RED is a
+HIGH, the bar is not met on either limb: this is NOT `CONFORMANT-HONEST-RED`.** Laundering
+`G-F9-6` into the relieved set would be exactly the *"green by assertion"* the wave's own goal
+criterion forbids by name — in the other direction.
+
+**LEDGER status UNCHANGED at `PARTIAL 2026-09-19.`** The vocabulary reserves `CLOSED` for
+*"verify-only close **+ fresh check CONFORMANT**"*, and this check is not that. One dated event line
+is appended; **no row cell is rewritten.** This seat **cured nothing** — `HIGH-1`'s one-line cure is
+named and left for a repair seat, because a check that fixes what it grades stops being an
+independent instrument. Writable set exercised: **two** paths, this record and `LEDGER.md`.
+
+**CHECK VERDICT, THIRD PASS-1 SEAT: NOT-CONFORMANT — 0 BLOCKER · 0 CRITICAL · 1 HIGH · 3 MINOR
+(new) · 1 INFO; the earlier register sustained entire.**
