@@ -476,3 +476,71 @@ seat (`.f3`) stamps iff G-1..G-9 GREEN. Widening the checker's reader is REFUSED
 | **DEFECT-LEDGER append** for `.g`/`.h`'s rows | not written — `registry/DEFECT-LEDGER.md` is in no row of this grant (the §0p run-B procedure is the close seat's or `.g`'s) | the orchestrator / the close seat |
 | **`LEDGER.md`** | clean at this seat; NOT in this unit's writable set; the X.P.W4S row stays TRUE (OPEN in RESUME MODE, `.f2` returned ESCALATED) | SEAT 0 (close) |
 | `.h` R-2 / ESC-W4g-1 · R-1 · R-3 | ruled or carried in §13.3 | as named there |
+
+## 14. ADDENDUM 2026-09-20 — THE R-A STAMP PERFORMED, by `X.P.W4.s` (SERVED MODEL: claude-fable-5-1, FRESH — M-23 §1; COHESION §0ah's standalone stamp act, W4.md SIXTH addendum)
+
+This section is dated and beside (E-3); §§0–13 stand as written. §13.4's *"a further fresh seat
+stamps iff G-1..G-9 GREEN"* is that seat, dispatched **last and alone** after `X.P.W4.g2` and after
+every check and repair that moved a gate (§0ah's plan augment — the stamp decoupled from the wave's
+unit order, with its own precondition).
+
+### 14.1 The precondition — G-1..G-9 at THIS seat's own clock, every reading double-run
+
+Nothing below is cited from the record's table or from Check 3. Long gates were backgrounded and
+polled; every writing script was given `--out` into the scratchpad, so no byte of `evidence/W4/**`
+or of `<p2>` moved.
+
+| gate | ⟨cmd⟩ → output (run 1 ≡ run 2 unless stated) | reading |
+|---|---|---|
+| **G-1** | `node scripts/seam-contract-check.mjs SEAM-CONTRACT.md evidence/W3/universe-52.json DIVERGENCE-LEDGER.md` → `rows: contract 52 · universe 52 · ledger rows 48` · `contract ∖ universe-52 : ∅` · `universe-52 ∖ contract : ∅` · `declared-divergence 7` · `identical 45` · `§10 RETIRED rows: CN-2, CN-3, R4` · **`VERDICT: GREEN`**, `EXIT=0`; `diff -q run1 run2` silent | **GREEN** |
+| **G-2** | 22 X.P.W4-subject commits in `2237f305^..HEAD`, `git show --name-only` each → 19 distinct paths, `grep -cE '^(src\|demo\|api\|test\|e2e)/'` → **0** ×2; `scripts/dev/dev.sh` → 0 | **GREEN** (commit predicate, C3-3) |
+| **G-3** | `node scripts/packed-candidate-surface.mjs --seam …/SEAM-CONTRACT.md --out <scratch>` in `<p2>/typescript` (backgrounded, ×2) → `"candidate": "@mkbabb/parse-that@1.0.0"` · `"tarballSha256": "004bbcce02e08b89020a74e43ce35b83dec2f6f6597204afd8b712cc9dd056ec"` · `"entryCount": 91` · `symbolCounts {runtime 19, types 33, total 52}` · `"resolved": "52 of 52"` · `"refusals": 5` · `"G3": "GREEN"` · `EXIT=0` — both runs, one sha | **GREEN** |
+| **G-4** | `node scripts/wasm-admission.mjs src/css/build/ac1.wasm` → `artifacts 1 · admitted 1 · functionKindImportsTotal 0 · unaccountedImportsTotal 0 · "verdict": "GREEN"` `EXIT=0` (runs differ only at `generatedAt`); the §6 spec-literal command → `{"total":0,"functionKind":0,"imports":[]}`, instantiation against `{}` did not throw, `EXIT=0`; `ac1.wasm` sha256 `f0d063d6…` | **GREEN** |
+| **G-5** | `node scripts/rc-p-evaluate.mjs --version 4.0.0` → six rows · `RC-P(4.0.0) = FALSE — 3 of 6 conjuncts are FALSE: 1 PUBLISHED(V) · 3 EQUIVALENCE(V) · 4 ADMITTED(V)` · `KF.W3 does NOT open.` · `EXIT=1` (runs differ only at the timestamp); negative control `--version 0.0.0-does-not-exist` → `4 of 6 FALSE` (2 TOTALITY joins) | **GREEN** — the evaluator reports honestly |
+| **G-6** | `grep -rn 'RC-P' docs/tranches/X/{keyframes,fourier}/waves/ \| wc -l` → **25** ×2; files `KF-W2 · KF-W3 · KF-W5 · KF-W10 · F-W0`; `KF-W3.md:9` carries *"opens if and only if `RC-P(V)` evaluates TRUE"* by predicate name | **GREEN** |
+| **G-7** | `grep -c 'parse-that' ../fourier-analysis/package.json` → **0**; `web/package.json` → **0** | **GREEN — floor held** |
+| **G-8** | `ls RELEASE-PACKET.md` exists, `wc -c` → **28768**; INBOX `RELEASE-PACKET` 3 · `RC-P` 3 · `SS-6` 30; `ROWS=82`; the six `UNREAD`-bearing table rows' cells split — every status cell begins `SENT` / `ROWED` / `FOLDED` / `READ IN FULL` / `READ + CONSUMED WHOLE`; **no status cell is `UNREAD`** | **GREEN** |
+| **G-9** | `grep -n 'BLOCKED-ON' waves/W4-CLOSE.md` → `:131` (§0i.1 quoted) · `:134` *"Ruled: C"* · `:148` the condition + re-trigger; 0 commit paths under `docs/tranches/X/waves/` | **GREEN — disposition (C), recorded** |
+
+**Nine of nine GREEN at this seat's clock.** §6 G-10's falsifier (*"a stamp performed while any of
+G-1..G-9 is red fails"*) does not bite; the second leg — `grep -rn 'VERIFIED' waves/W[0-3]-CLOSE.md`
+→ **10** lines, every one a disclaimer — holds; the open-state sum read **5** ×2 before any write.
+
+### 14.2 The act — ONE commit, the §9 `.d` family whole
+
+- The five `### Four-verb status` **`VERIFIED`** rows of `waves/W0.md` `:35` · `W1.md` `:37` ·
+  `W2.md` `:96` · `W3.md` `:44` · `W4.md` `:44` moved `**NO**` → `**YES — 2026-09-20, stamped by
+  X.P.W4.s at the X·P sub-tranche release close (R-A), one act over W0..W4**`, each evidence cell
+  naming this section and the record, and each reading **VERIFIED, not ACCEPTED**. No other row of
+  any table moved; the `IMPLEMENTED` rows of the dated specs are untouched (E-3 — IMPLEMENTED is
+  stamped in each wave's close report, never in its spec).
+- ⟨cmd⟩ shape (a), `for f in waves/W[0-4].md; do awk '/^### Four-verb status/{t=1;next} /^#/{t=0} t'
+  "$f"; done | grep -c 'VERIFIED | \*\*NO\*\*'` → **5 before · 0 after**, re-read from the settled
+  bytes twice. The §6 body's raw `cat … | grep -c` form reads **2** after — both hits are the
+  pattern quoted inside `W4.md` §6 and its THIRD addendum, *outside the sum by construction*
+  (F-w4c-1); no table row matches.
+- `COHESION.md` §1 **SS-5** status cell `**SPECIFIED 2026-08-04**` → `**VERIFIED 2026-09-20**` and
+  one dated **§5 board line** — the two carves, performed only under the performed stamp, and
+  nothing else in that file.
+- This §14 · `RELEASE-PACKET.md`'s third dated addendum · `registry/harvest/x-p-w4s.json` fold/3
+  (predecessor fold/2 `c1fe075f`, 147196 B, sha256 `16897fc4…`, embedded whole; five run files,
+  mirrors A ≡ B) — all in the same commit as the rows and the cells. **The family did not split.**
+
+### 14.3 What the stamp means, and what it does not
+
+**VERIFIED, never ACCEPTED** (W4.md §12, L-18). ACCEPTED waits on two challenging quartets of Opus-5
+skeptics at the three altitudes and a fresh Fable agglomeration; none has sat. `RC-P(4.0.0)` reads
+**FALSE** at this seat (3 of 6): KF.W3 does not open, the X·V adoption re-trigger does not fire, S-4
+stays DISPOSITION C (COHESION §0i.1). The stamp certifies that the X·P sub-tranche's five waves are
+implemented to their specs and that every gate this release close names was measured GREEN at an
+independent fresh seat — nothing more. X.P.W4's own CLOSED (honest-RED) LEDGER row is untouched; the
+`X.P.W4S` row is the orchestrator's.
+
+### 14.4 Residuals out of this close, each with its owner
+
+| id | residual | owner |
+|---|---|---|
+| **L-13 seat count 6 of 8** | fold/3: `.e` · `.e2` · `.g` · `.h` · `.f2` · `.g2` harvested; `.f` returned but its journal still carries NO result row (`wf_7afdc968-28c` unchanged, 7 results); `.s` structurally absent (its own harvest) | X-W11's HARVEST (§0k HG-7) beside F-e11 |
+| **DEFECT-LEDGER append** for `.f2`/`.g2`'s rows | not written — `registry/DEFECT-LEDGER.md` is in no row of this grant | the orchestrator / the close seat (§0p run-B) |
+| **ACCEPTED** | owed to L-18's two quartets + fresh Fable adjudication, post-stamp | the orchestrator |
+| **`LEDGER.md`** | this seat writes only its wave's row cells / appended lines per the standing law | SEAT 0 (close) |

@@ -34,7 +34,7 @@ item-sets by the intake-adjudication CARRY table.
 | SS-2 | **X·KF frontend design** (glass suffusion · timeline evaluate · Safari visual · mail cure → KF.W1/W6/W7/W9) | kf census + lane-frontend (shadow census S-1..S-8, phantom-dep F-1) · glass 7 receipts · I-21 rows | full X·KF wave specs (frontend half) | design waves TWICE-AUTHORED Fable∥Opus → fresh-Fable agg | AWAITS intake CARRY |
 | SS-3 | **X·F frontend design** (substrate settle · tri-package uplift · shadow retirement · frontend audit → F.W0/W1/W3/W4/W9/W10) | fourier census + lane-frontend · intake R3–R6 CARRY rows · O-14 | full X·F wave specs (frontend half) | Opus authors; uplift + suffusion design twice-authored | AWAITS intake CARRY |
 | SS-4 | **CRUD/provenance union** — fourier CRUD ∥ palette CRUD (contract v2 · defect burn-down · trie design · union prototype → F.W5–W8, + the value-side counterparty riding X·V W3/W9 surfaces) | fourier lane-crud SEAM TABLE · J-diff-shape (J-era) · TA-4 atomdiff-excision record · X-W3 P0 rows · owner rulings owed (trie-vs-KISS et al.) | the co-signed shared-provenance contract + X·F CRUD wave specs | contract design TWICE-AUTHORED; Fable adjudication; owner rulings flagged inline | AWAITS intake CARRY + owner rulings |
-| SS-5 | **X·P parser lane** (pause verify · fresh root · dual-target JS+Wasm prototype waves) | PARSER-CSS-PAUSE-HANDOFF-2026-08-02 §8/§9 · GATE-VERDICT · parser-band apotheosis · O-15 · M-22 ¶3/¶4 · PLAW-BIND routing | full X·P wave specs (W0..W4, 5 waves; W2 twice-authored) | W-architecture wave twice-authored; rest Opus; Fable L-20 | **SPECIFIED 2026-08-04** (3-pass loop) |
+| SS-5 | **X·P parser lane** (pause verify · fresh root · dual-target JS+Wasm prototype waves) | PARSER-CSS-PAUSE-HANDOFF-2026-08-02 §8/§9 · GATE-VERDICT · parser-band apotheosis · O-15 · M-22 ¶3/¶4 · PLAW-BIND routing | full X·P wave specs (W0..W4, 5 waves; W2 twice-authored) | W-architecture wave twice-authored; rest Opus; Fable L-20 | **VERIFIED 2026-09-20** (R-A stamp by `X.P.W4.s`, one act over W0..W4, G-1..G-9 GREEN at its own clock — `execution/D/X-P-W4S.md`; **not ACCEPTED**, L-18 quartets owed; `RC-P(4.0.0)` FALSE, honestly) |
 | SS-6 | **Glass communique assembly** | every CARRY row marked NEXT-COMMUNIQUE · I-21/I-21a · intake glass lane | ONE batched BJ letter at the next boundary | root-authored (Fable); E13 | ACCRETING |
 | SS-7 | **Corpus adjudication** (88 components ÷ ~10 Goldilocks batches, tri-fold each) | the 264-axis challenge corpus (r2 governs) · motion-quarantine.md · harvest defects | `registry/adjudicated/<slug>.md` ×78 + the NO-WAVE-OWNER register (§4) | 2 Opus re-readers → fresh-Fable apotheosis per component | **RUNNING** — batch 1 LANDED (8/78), batch 2 dispatched |
 | SS-8 | **Visual audit** (real-Safari matrix + UNPROVEN-NEEDS-LIVE residue) | apotheoses' UNPROVEN-NEEDS-LIVE rows · the live dev stack · owner probe-parsimony law | evidence packets keyed to apotheosis row ids | bounded live probes; parsimonious | OPEN (task #4) |
@@ -817,6 +817,26 @@ the silence for an oversight, and carried to `X.F.W10.g` as an open bounds quest
   disagreed (region, rule count, JS memory figures, cell/file/run counts — `W3-CLOSE.md` §0).
   **IMPLEMENTED is NOT stamped by this seat** (gates are not green); the four-verb line stays
   IMPLEMENTED NO pending the orchestrator's close commit; **VERIFIED is X.P.W4's alone (R-A).**
+- 2026-09-20: **X·P VERIFIED — the R-A stamp PERFORMED by `X.P.W4.s` (`claude-fable-5-1`, a FRESH
+  Fable adjudicator, M-23 §1; §0ah's standalone stamp act, dispatched last and alone after `.g2`).**
+  Precondition met at the seat's own clock, every reading double-run: G-1 `VERDICT: GREEN` EXIT=0
+  (`ledger rows 48 · declared-divergence 7 · identical 45`) · G-2 **0** paths under
+  `src|demo|api|test|e2e` over the 22 X.P.W4-subject commits (commit predicate, C3-3) · G-3
+  `resolved 52 of 52` · `G3 GREEN` · tarball `004bbcce…` · `entryCount 91` · refusals 5 · EXIT=0
+  (backgrounded, ×2 same sha) · G-4 `functionKindImportsTotal 0 · unaccountedImportsTotal 0 · GREEN`
+  and the §6 spec-literal command `{"total":0,"functionKind":0,"imports":[]}` EXIT=0, `ac1.wasm`
+  `f0d063d6…` · G-5 `RC-P(4.0.0) = FALSE — 3 of 6` (1 · 3 at 20,962 · 4) EXIT=1, negative control
+  `0.0.0-does-not-exist` → 4 of 6 FALSE · G-6 **25** `RC-P` hits across `KF-W2/W3/W5/W10` + `F-W0`
+  · G-7 **0 / 0** (floor held) · G-8 packet 28768 B, INBOX `3/3/30`, 82 rows, no status cell
+  `UNREAD` · G-9 disposition **(C)** at `W4-CLOSE.md` §4 (`:131` `:134` `:148`). **The act**: the
+  five `### Four-verb status` `VERIFIED` rows of `waves/W[0-4].md` moved `**NO**` → `**YES —
+  2026-09-20 …**` in ONE commit with the two COHESION cells (§1 SS-5 · this line), `W4-CLOSE.md`
+  §14, `RELEASE-PACKET.md`'s third dated addendum and `registry/harvest/x-p-w4s.json` fold/3
+  (predecessor fold/2 embedded whole); shape-(a) sum **5 → 0**, re-measured from the settled bytes
+  ×2. **VERIFIED, never ACCEPTED** (W4.md §12 / L-18: two Opus-5 skeptic quartets + a fresh Fable
+  adjudication are still owed before ACCEPTED). `RC-P(4.0.0)` stays honestly FALSE — KF.W3 does not
+  open, the X·V adoption re-trigger does not fire, S-4 stays DISPOSITION C (§0i.1). X.P.W4's CLOSED
+  row untouched; `X.P.W4S`'s row is the orchestrator's.
 
 ## §0a BOUNDARY 2026-08-25 — THE REGISTRY IS WHOLE; THE AUTHORING BLOCK OPENS
 

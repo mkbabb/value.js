@@ -253,3 +253,22 @@ re-trigger does NOT fire.** The R-A stamp remains **WITHHELD, by gate id G-1** �
 E-w4f2-1), not on any consumer-visible behaviour. **§6 items 1, 2, 4 and 5 stand unchanged**: this
 addendum is not a release, not a schedule, not a certification, and asks nothing of anyone. O-15
 stays what it was.
+
+## ADDENDUM 2026-09-20 (third) — the R-A stamp is PERFORMED; X·P reads VERIFIED, not ACCEPTED; `RC-P(4.0.0)` still FALSE (X.P.W4.s, SERVED MODEL: claude-fable-5-1) — dated, beside (E-3)
+
+The second addendum's *"the R-A stamp remains WITHHELD, by gate id G-1"* is superseded beside, not
+rewritten. What a recipient now reads:
+
+| what changed for a consumer | reading |
+|---|---|
+| **X·P VERIFIED** | The five X·P waves (W0..W4) carry `VERIFIED: YES — 2026-09-20` in their four-verb tables, stamped in one act by a fresh Fable adjudicator after G-1..G-9 read GREEN at its own clock, double-run (`waves/W4-CLOSE.md` §14.1). **Not ACCEPTED** (W4.md §12 / L-18) — the two skeptic quartets have not sat. |
+| **the seam** | unchanged: 52 rows, `declared-divergence 7` / `identical 45`, both set-differences ∅, `VERDICT: GREEN`; the consumer directions of §3 stand verbatim. |
+| **the packed candidate** | unchanged: `@mkbabb/parse-that@1.0.0`, `resolved 52 of 52`, `G3 GREEN`, tarball sha256 `004bbcce02e08b89…`, `entryCount 91`, 5 deep-specifier refusals; Wasm admission `0` function-kind / `0` unaccounted imports, `ac1.wasm` `f0d063d6…`. |
+
+**Operative reading, re-evaluated at this seat (double-run, scratch `--out`)**: `RC-P(4.0.0)` =
+**FALSE** — 3 of 6 TRUE (2 · 5 · 6), 3 FALSE (1 PUBLISHED · 3 EQUIVALENCE over `V`'s installed
+`/css`: 20,962 mirror-defects · 4 ADMITTED), `EXIT=1`. **KF.W3 does NOT open. The X·V adoption
+re-trigger does NOT fire.** A stamp on the producer's sub-tranche is not a release condition met at
+the consumer's coordinate; only the six commands are. **§6 items 1, 2, 4 and 5 stand unchanged**:
+this addendum is not a release, not a schedule, not a certification of a coordinate, and asks
+nothing of anyone. O-15 stays what it was.
