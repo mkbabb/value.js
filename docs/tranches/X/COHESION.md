@@ -1882,3 +1882,15 @@ until the storm receipts stop: **A** (X·V, the longest chain) and **D** (X.P.W4
 **C** (F.W9 close → F.W10) relaunches when D ends; **B** (KF.W12 → KF.W13) when C ends. The owner's
 cap of four is a ceiling, not a floor. No spec, ledger row, or seat law changes; every stopped
 track resumes in RESUME MODE on its own record.
+
+## §0af ADDENDUM 2026-09-20 — THE WALL IS NOT CONCURRENCY-BOUND: EXECUTION PAUSED, THEN RE-ENTERED ONE TRACK AT A TIME
+
+At two tracks the synchronized kills continued (`23:54:42` · `00:12:40` UTC, every seat of both
+runs each time), and the attempts between them made **two tool calls in eighteen minutes** — the
+model side of each seat is answering in tens of minutes, not the seat's generation. Under the
+durability clause the orchestrator **stops both runs** (A at X-W9's close seat with `.f` and `.h`
+landed; D at X.P.W4S's open), waits one supervisor interval, then re-enters with **Track A alone**
+and measures its seat's cadence (a tool call per minute is healthy; a kill or a ten-minute silence
+is not). D joins when A's cadence holds for one interval, then C, then B — never above the four cap,
+and back to one whenever a synchronized kill recurs. Every track resumes in RESUME MODE on its own
+record; no spec, row, or law changes.
