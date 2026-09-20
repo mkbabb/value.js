@@ -1,0 +1,19 @@
+
+RC-P(0.0.0-does-not-exist) — the release condition, six conjuncts, evaluated at 2026-09-20T03:41:06.240Z
+package @mkbabb/value.js · value repo /Users/mkbabb/Programming/value.js · <p2> /Users/mkbabb/Programming/parse-that-css-totality-p2 · universe pin 6aca8602
+────────────────────────────────────────────────────────────────────────────────────────────────────
+#  conjunct          MEASURED  VALUE   reading
+────────────────────────────────────────────────────────────────────────────────────────────────────
+1  PUBLISHED(V)      NO        FALSE   the coordinate @mkbabb/value.js@0.0.0-does-not-exist does not resolve at the registry (npm view exit 1)
+2  TOTALITY(V)       NO        FALSE   no registry-identical tarball for V — conjunct 1 did not produce one, so the probe has no subject
+3  EQUIVALENCE(V)    NO        FALSE   arm V (V's installed /css vs the sha-pinned 4.0.0 oracle) did not run — no registry-identical tarball for V — conjunct 1 did not produce one, so the arm has no subject
+4  ADMITTED(V)       NO        FALSE   no registry-identical tarball for V — there is nothing installed to inspect
+5  BAR-DISCHARGED    yes       TRUE    TRUE
+6  ROUTED(V)         yes       TRUE    TRUE
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+RC-P(0.0.0-does-not-exist) = FALSE — 4 of 6 conjuncts are FALSE: 1 PUBLISHED(V) · 2 TOTALITY(V) · 3 EQUIVALENCE(V) · 4 ADMITTED(V)
+KF.W3 does NOT open. The X·V adoption wave's re-trigger does NOT fire.
+
+wrote /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/f2/rcp-negctl.json
+EXIT=1
