@@ -121,6 +121,7 @@ the per-component apotheoses are authoritative.
 | fr-FunctionInput **L-m5** + C §0 row 7 | the `./chip`-vs-`./toggle-chip` version qualifier; the false "6× Button" budget (`lane-frontend.md:441`) | qualifier **RESOLVED at the adopted pin** (`.d` `ca8c8d2` read: `./chip` present, `./toggle-chip` absent at 8.0.0 — `Chip.tone` is the target); the "6× Button" figure is a record, superseded by measurement, never quoted |
 | fr-CanvasOverlayButton **FR-COB-7** | producer-owned cascade composite (dead border arms fleet-wide; pressed background beats hover by unlayered source order) — TOP of the FR-COB-28 packet | **DISPOSED BY THE PRODUCER**: O-20 §A-11 → I-32 **A-11a KILL** (*"the Button's own `border: 1px solid var(--button-edge)` paints"*) ⊕ **A-11b ANSWER** (*"Button is the command — no `pressed`"*); NWO-1 §2 S-1 struck it; **not re-sent** (§4a). The consumer-awareness prescription (never assume a border channel) stands as a record |
 | fr-ContourSettings **i-1** | Multi-threshold ships zero strategy-specific controls — a product-surface decision needing an authored ruling | **OWNER RULING OWED** — a formation-boundary flag; no unit executed a change (`.d` records the ruling-owed state; §0x rules i-3, not i-1) |
+| **F.W10 DRAIN 2026-09-20** (X.F.W10 `.c`, `claude-opus-5[1m]`) — the **F-side NO-WAVE-OWNER drain** (spec `fourier/waves/F-W10.md` §2.5/§2.5a/§2.5a-ii/§2.5a-iii; gate **G-F10-7**; §3.3's deadline, F.W10 being the LAST F wave). **A THIRD population, disjoint from both blocks above**: it drains the **66 `fr-*.md`** adjudicated registry, not §4's 14 intake rows (§4.1) and not F.W3's seven emitted rows. Roster **DERIVED, not adopted** — the five partition probes re-run fresh at this seat and published with their arithmetic closing | **89 rows · 89 distinct ids · 89 terminal verbs** ⊕ ONE class verb over the weak class enumerated whole (32 lines / 19 records) | **§4.2**, below |
 
 ### §4.1 — X.KF.W10 `.b` · THE NO-WAVE-OWNER SET-DIFFERENCE (G-2), ∅ IN BOTH DIRECTIONS — 2026-09-18
 
@@ -380,6 +381,292 @@ id is carried for life. **All seven §3.2 sequencing locks reproduce intact, KF-
 at this block's settled bytes** (the three commands re-run below). **This wave homed nothing and cured
 nothing**: it recorded, for every inherited NO-WAVE-OWNER row, the terminal word some other seat had already
 earned — which is the only thing a close wave may lawfully do.
+
+### §4.2 — X.F.W10 `.c` · THE F-SIDE NO-WAVE-OWNER DRAIN (G-F10-7): 89 ROWS · 89 DISTINCT IDS · 89 TERMINAL VERBS — 2026-09-20
+
+**Authority and scope.** `fourier/waves/F-W10.md` **§2.5** (`:153-184`) · **§2.5a** (`:185-233`) · **§2.5a-ii**
+(`:234-256`) · **§2.5a-iii** (`:257-319`) · gate **§3 G-F10-7** (`:442`); COHESION **§3.3** is the deadline clause
+and **F.W10 is the LAST F wave**, so nothing leaves it un-homed. **The operand distinction is kept everywhere**
+(F-W10 §1b · §2.5b): the **66 `fr-*.md` are the CORPUS** — the bytes every quotation comes from — and
+`fourier/conformance/CENSUS-CANONICAL.md` is the **CENSUS** — the rosters and homes every count comes from; a
+quotation cites the corpus, a denominator the canonical, and no third census operand appears. **This block BOOKS
+terminal verbs; it homes nothing, cures nothing and re-books nothing** — folds are by reference at the banked id,
+original ids for life (R-5). **The registry is READ-ONLY** (⟨cmd⟩ `git diff --stat -- docs/tranches/V/megatranche/registry/`
+→ **0**, twice, at this seat's settled bytes), and **producer rows never become frontend hacks**.
+
+**THE DERIVATION, RE-RUN FRESH FROM THE 66 AT THIS SEAT AND PUBLISHED — a roster asserted rather than derived is
+what three repair rounds convicted.** ⟨cmd⟩ this seat, 2026-09-20, **double-run, identical both runs**, one base
+(`docs/tranches/V/megatranche/registry/adjudicated`), pinned BSD `/usr/bin/grep`, no `-P`, no `\K`, no lookaround,
+no bounded wildcard. The three probe variables are declared once and every row re-uses them, so a re-run cannot
+silently narrow the operand:
+
+- `BOIL='Routing law|\*\*F\.W[0-9].*\*\*F\.W[0-9].*\*\*F\.W[0-9]'` — the routing-TAXONOMY shape, matched by
+  **structure** (three or more wave tokens on one line), never by a hand-listed roster of records and never by one
+  of its three spellings (*"Routing law"* · *"Routes:"* · *"Dispositions:"*).
+- `ROW='^(\||[-*] \*\*|[0-9]+\. \*\*)'` — the three row shapes (table row ⊕ id-headed bullet ⊕ numbered bullet);
+  anything else is prose and is **walked to its enclosing row id**, never dropped.
+- `STRICT='(→|⇒) *\*{0,2}NO-WAVE-OWNER|\*\*NO-WAVE-OWNER'` — both strict shapes in one alternation.
+
+| class | probe | lines | records |
+|---|---|---|---|
+| routing-law / taxonomy boilerplate | `grep -h 'NO-WAVE-OWNER' fr-*.md \| grep -cE "$BOIL"` | **31** | — |
+| row-level **STRICT** | `… \| grep -vE "$BOIL" \| grep -E "$ROW" \| grep -cE "$STRICT"` | **68** | **35** |
+| row-level **WEAK** | `… \| grep -vE "$BOIL" \| grep -E "$ROW" \| grep -cvE "$STRICT"` | **32** | **19** |
+| **prose STRICT** (walked to its row id) | `… \| grep -vE "$BOIL" \| grep -vE "$ROW" \| grep -cE "$STRICT"` | **1** | 1 |
+| prose WEAK (dated verdict bytes — immutable) | `… \| grep -vE "$BOIL" \| grep -vE "$ROW" \| grep -cvE "$STRICT"` | **33** | — |
+| **TOTAL** | `grep -h 'NO-WAVE-OWNER' fr-*.md \| wc -l` | **165** | **56** of **66** |
+
+**`31 + 68 + 32 + 1 + 33 = 165` — the partition exhausts its operand.** Strict roster = **69 dispositions across 36
+records** (the 68 row-level ⊕ the one prose-strict, `fr-PaperSearch`'s *"Infos (7 carried)"* line walked to its
+enclosing row id `L-19+C-N1`). Corroborating readings, same clock, double-run: ⟨cmd⟩ `grep -o 'NO-WAVE-OWNER' fr-*.md | wc -l`
+→ **167** occurrences · `grep -l … | wc -l` → **56** records · `ls fr-*.md | wc -l` → **66** · **the en-dash arm**
+`grep -o 'NO–WAVE' fr-*.md | wc -l` → **0** (∅ today, and it stays in the probe so it can never silently stop being ∅).
+The two per-class record counts were taken by **two independent instruments** — a filename-retaining pipeline and a
+per-file loop — which agree at **35 / 19**.
+
+**The reconciled roster, and every superseded count word named rather than replaced**: §4.2.A's **23**
+(FR-NP-32 among them as the head row, counted ONCE) ⊕ §4.2.B's **36** = **59 distinct ids** ⊕ §4.2.C's **16** = 75
+⊕ §4.2.D's **14** = **89**, plus **ONE class verb** over the weak class **enumerated whole** at §4.2.E (32 lines /
+19 records). **Never 23, never "SIXTY", never 59, never 75, never 88** — each is a reading superseded by the round
+that fixed it. **The falsifier is not the integer**: it is that every row bears a TERMINAL verb and that no verb
+reads as a decision while being a deferral.
+
+**THE CLOSED ALPHABET — five verbs, and nothing else appears in this block**: **NAMED WAVE** (incl. NAMED REGISTER)
+· **NEXT-BOUNDARY LEDGER** (`BH-RELAY` = the SS-6 glass register at §4a · `CENSUS-INPUT` = the SS-3/SS-4
+spec-authoring / census-methodology ledger) · **KILL-WITH-RATIONALE** · **CITE-CONSUMING-WAVE** · **FOLD-WITH-TARGET**
+(⊕ `EXCLUDED-WITH-REASON`, R2-6b's own verb, at the single row that takes it). *A closed question and a negative
+finding are terminal dispositions too — they are recorded, and they manufacture no work.*
+
+**Cited, never counted in**: §4's **F.W3 S-8 EMISSION 2026-09-19** block above is a **different population** (seven
+census-methodology rows F.W3 emits and does not own, post-drain) and **§4.1**'s fourteen are the X·KF/X·V
+set-difference. Neither enters this roster, and this roster enters neither.
+
+#### §4.2.A — the drain proper: 23 rows (F-W10 §2.5). **FR-NP-32 heads the table.**
+
+| # | banked id · anchor (frozen corpus) | mechanism, one line | TERMINAL VERB |
+|---|---|---|---|
+| 1 | **FR-NP-32 (≡ `fr-PaperSidebar M1`)** · fr-NotationPills:35 — **BLOCKER, the drain's head row; cite-both, never substitute** | the ADOPTED glass dist stylesheet was a CSS syntax error (dist emitter injected the AN.W1 fold-block at the first literal `@source`); `vite dev`/`vite build` RED at the 4.0.0 pin | **NAMED WAVE + BH-RELAY REGISTER**, disposition verbatim from the record: *"NO-WAVE-OWNER (producer dist emitter) + glass-ui BH relay at the TOP of the FR-COB-28 packet; F.W1 SEQUENCING GATE"* — F.W0 pre-gates, F.W1 sequences behind it, the register is **SS-6**. **Receipt READ, not asserted**: O-20 row **A-1** (`BK/coordination/…-o20-authoring-block-batch.md`) names the id and the arm; re-confirmed at NWO-1 §1 (*"CONFIRMED by your A-1; one residual, not an ask re-sent"*). Substrate VERIFIED at the 8.0.0 pin by `X.F.W10.b` |
+| 2 | **AA-45** · fr-AdminAuditLog:88 | positional `:key` FORCED by the contract (no wire identity; pydantic drops `_id`); hazard unreachable | **NEXT-BOUNDARY LEDGER** — API-contract row (identity on the wire), SS-3/SS-4 input. Its ONE home is here (R3-6.1); F.W5's A1 cites it and books nothing |
+| 3 | **AA-46** · :89 | envelope `page`/`pages` discarded and re-derived client-side; lossless round-trip today | **KILL-WITH-RATIONALE** — *"Redundancy records. NO-WAVE-OWNER."* A redundancy record: no defect, no work. Citable at F.W5 as envelope **evidence with the kill noted**, never as an operand |
+| 4 | **AA-47** · :90 | no runtime boundary validation; pydantic guarantees shape; survives as UNEVEN defensiveness | **NEXT-BOUNDARY LEDGER** — SS-4 contract input |
+| 5 | **FR-AFP-51** · fr-AdminFlaggedPanel:112 | the census ToastVariant break is **UPLIFT-TARGET**, not present-tense | **BOOKED HERE** — the tense correction **LANDED** in `formation/fourier/CENSUS-ADDENDUM-2026-08-25.md` (`X.F.W10.a`, `cd4df502`); it must reach whatever spec quotes the census break table |
+| 6 | **FR-AFP-52** · :113 | D grades a surface FR-AFP-1 proves unreachable; the corpus never states its conditional | **NEXT-BOUNDARY LEDGER** — corpus-composition input, SS-3/SS-4 |
+| 7 | **FR-AUL-16** · fr-AdminUserList:54 | the only cascade-delete surface, zero coverage of any kind; the *"un-harnessable"* defence KILLED (ruling 3e) | **NAMED WAVES, decided here**: harness decision → **F.W4** · devDependency + admin-tab axe limb → **F.W9**. If SS-4 declines the widening the decline is recorded explicitly with rationale (M-25). C-B2's BLOCKER demoted-and-folded here |
+| 8 | **`fr-App i-2`** · :143 | route-owned surface, no component-level home | **NEXT-BOUNDARY LEDGER** — the per-route challenge corpus |
+| 9 | **`fr-App C-12`** · :90/:143 | App is **API-INERT** — the negative guard | **KILL-WITH-RATIONALE — AS THE NEGATIVE RECORD, VERBATIM** (⟨cmd⟩ `grep -n 'NO leaf in this component' fr-App.md` → `:90`): *"**R6-8 and R3-7c have NO leaf in this component** — a per-component sweep must not manufacture one."* It keeps F.W5–W8's client-edge sweep off a false leaf |
+| 10 | **MG-ι**, value-side limb · fr-App:82/:143 | the `color2` dispatch mis-reads its sibling parser (`color2(parseCSSColor(x))` THROWS; the `.value` unwrap SILENTLY RETURNS WRONG CHANNELS) | **NEXT-BOUNDARY LEDGER — the V·π / parser-seam ledger, WITH THE OWNER-MAIL FLAG.** No fourier wave adopts it. **ROUTE LAW (§4a.12)**: direct parse-that → fourier FORBIDDEN; this block mints no such edge |
+| 11 | **FR-AH-30** · fr-AppHeader:88 | the D-axis's own `@layer components` remedy **REVERSES** the outcome (glass's competing rules already sit there at higher specificity — the consumer block silently LOSES) | **NAMED WAVE (cure-constraint) — F.W4**, where FR-AH-11 lands: only `@layer glass-overrides` **APPENDED AFTER `utilities`** works, and it is stated. *"Cure adjudicated separately from the defect"* |
+| 12 | **FR-AH-45** · :108 | zero props/emits/slots — a question owed an answer (*"what contract should a shell header state?"*) | **NEXT-BOUNDARY LEDGER** — SS-3/SS-4 spec-input; discharges together with FR-AH-30 |
+| 13 | **FR-CP-43** · fr-CoefficientsPanel:81 | canvas renders/hit-tests 40 units in imperative loops, no template node to key — instance censuses read 1 where there are 3 | **KILL-WITH-RATIONALE** — it **COMPLETES** R5-7/R6-6 + `fr-BasisCanvas L§R5-7`'s demand (row 13 of §4.2.D, which carries the terminal verb for that identity); discharged, no work remains |
+| 14 | **FR-CP-44** · :82 | `lane-frontend.md:443`'s metric-stack shadow candidacy seated on two hosts neither of which renders a metric | **BOOKED HERE** — census correction **LANDED** in the CENSUS-ADDENDUM (`X.F.W10.a`) **+ F.W3 CANDIDATE** for the re-seat; §4's own F.W3 row records the re-seat measured at the 8.0.0 pin |
+| 15 | **FR-CP-45** · :83 | D's line citations drift ≈−10/−2; L and C cite accurately | **ADOPTED AS LAW**, verbatim: *"take D's CLAIMS and L/C's LINES; re-resolve every anchor before quoting into a wave spec"* — binding on every anchor F-W10 quotes, **including its own**, and **DOCUMENT-scoped** per §4.2.D row 10's correction |
+| 16 | **`fr-EasingPicker D/D-21`** · :101 | empty/loading/error genuinely N/A (compile-time catalogue — CLOSED, not skipped); the focus-ring question MOOT once D-1's cure lands | **KILL-WITH-RATIONALE** — SS-13 residue only |
+| 17 | **PAW-32** · fr-PaperArticleWindow:88 | `PaperSectionBlocks.vue.d.ts` ships no `__VLS_Slots` (its sibling ships 2) — `figure.*`/`callout.*` implicit `any` | **NAMED REGISTER — LATEX-PAPER-RELAY** (F-W10 §2.6; the register is `X.F.W10.d`'s CREATE at `fourier/LATEX-PAPER-RELAY.md`, G-F10-5). Producer gap, no consumer cure |
+| 18 | **PAW-38** · :94 | un-deduplicated title slugs collide across FOUR registries at once; LATENT (93/93 unique, `uniq -d` empty) | **NAMED REGISTER — LATEX-PAPER-RELAY**, joint P-6/P-12: the cheapest guard is precisely the harness PAW-50 proves absent |
+| 19 | **PAW-39** · :95 | 51 `\section` + 31 `\subsection` flattened to one heading level; the flattener EMITS `sourceLevel` the renderer never reads | **NAMED REGISTER — LATEX-PAPER-RELAY**. **CENSUS LAW: 11 + 51 + 31 = 93 brace-anchored headings; quote 31, NEVER the readers' un-anchored 35** |
+| 20 | **PAW-42** · :98 | no empty/loading/error state — **PROVEN UNREACHABLE** (build-time `virtual:paper-content`) | **KILL-WITH-RATIONALE** — epistemic record; an unreachable state is a CLOSED question |
+| 21 | **PAW-45 / PAW-46** · :195/:196 | the module-scoped-cache trio's latex halves | **NAMED REGISTER — LATEX-PAPER-RELAY** |
+| 22 | **GAB-29** · fr-GalleryAdminBanner:74 | MetricPill is barrel-only-reachable and has **NO source at 8.0.0** (dies with MetricBadge) | **KILL-AS-DESTINATION, RECORDED AS FALSIFIER** — load-bearing for F.W1's budget; it keeps the wave off TWO dead primitives. Never a destination |
+| 23 | **FR-COB-20** · fr-CanvasOverlayButton:74 | interaction contract entirely implicit; *"dies with the file"*; the tree favoured DELETE | **NAMED WAVE — F.W0's F8-REACH-02 verb.** Ruled **DELETE** at COHESION §0j.D (`G-10`) and **EXECUTED**: `X.F.W10.b` verified both files GONE, **no HOLD surviving**. F.W10's claim is the VERIFICATION, never a re-booking |
+
+#### §4.2.B — the strict remainder RE-DERIVED FROM THE 66: 36 rows (F-W10 §2.5a)
+
+| # | banked id · anchor | mechanism, one line | TERMINAL VERB |
+|---|---|---|---|
+| 24 | **FR-NP-11** · fr-NotationPills:52 | PRM squish, unlayered-dist mechanism, harm bounded, cured at 7.0.0 | **BH-RELAY + FOLD-WITH-TARGET → banked FR-COB-12** (producer) — no new booking; rides FR-COB-12's send at O-20 **A-3**, never a second letter |
+| 25 | **FR-NP-26** · :67 | clsx + cva live runtime externals; peer enumeration corrected | **CENSUS-INPUT** — census correction, SS-3/SS-4 |
+| 26 | **MM-6** · fr-ContourEditorCanvas:92 | `lane-frontend.md:118` describes a composable with neither pan nor zoom; the row propagated into L-7's killed cure | **CENSUS-INPUT** — SS-3/SS-4 spec-authoring input |
+| 27 | **`L-§4 / R5-7`** · :96 | the `<circle`/`v-for` split defeats a same-line deriver; same-line = **8**, not 5 (K-17) | **FOLD-WITH-TARGET → intake R5-7** (identity kept), landing in **CENSUS-INPUT** |
+| 28 | **FR-EQC-15** · fr-EqCoefficientsPanel:52 | the C axis's citations into `CoefficientsSpectrum.vue` run late (+5..+11, growing down-file) on a HEAD-clean file | **CENSUS-INPUT** — and an input to **F.W0's G-11 anchor table**, quoted never re-performed |
+| 29 | **D/m-12** · :76 | 21 sites / 14 files (the shim's *"14"* and the lane's *"25"* both wrong, in opposite directions) | **CENSUS-INPUT + CITE F.W0's G-12 denominator table** — **F.W1 sizing uses 21**; this block books no re-count |
+| 30 | **FR-GIG-20** · fr-GalleryInfiniteGrid:82 | the 8-line GalleryCard binding block instantiated at 4 sites / 3 components | **CENSUS-INPUT** — SS-3/SS-4 repair-unit sizing. Its `MISS-5` restatement is the same identity, one home (§4.2.E) |
+| 31 | **FR-GV-37** · fr-GalleryView:79 | 442 lines, four responsibilities; the batch feature's only coupling is `adminMode`+`activeTab` | **CENSUS-INPUT** — an extraction seam for spec authors, not a wave's defect |
+| 32 | **`F-6 (= C-C-9 = L-15)`** · fr-GalleryDraftsSection:49 | the template-`src`-binding operation edge is structurally invisible to a function-keyed operation↔client model | **CITE-CONSUMING-WAVE — F.W5** (adopted there as the D1 register's SECOND blindness lock, beside COUNTING LOCK K-1). Terminal by citation; nothing booked |
+| 33 | **m-18** · :83 | all three axes declare `cd26c65` while reading the dirty worktree; extends banked `fr-CollapsibleSection F-1` | **CENSUS-INPUT (fleet method)**, tied to **GAB-13's F.W0 baseline ruling** — OG-F1 ruled **WORKTREE-AS-BASELINE** (§0j.D), so **the disclosure line IS the disposition** and it is written |
+| 34 | **`HLG-32 · MISSED-2`** · fr-HarmonicLevelGrid:88 | glass 4.0.0's unlayered `components.css` defeats its own `@layer components` PRM press guard | **BH-RELAY + FOLD-WITH-TARGET → banked FR-COB-8 (producer CLASS) + FR-COB-12 (the instance)** — novelty struck at its register; this component recorded as a further instance site. The class is **already disposed**: NWO-1 **S-2** (I-32 `A-3` CURE-NEXT-MAJOR) — never re-sent |
+| 35 | **FR-MSP-12** · fr-MorphShapePreview:104 | the machine-synthesized non-`color-mix` fallback paints accent-on-accent, outside any layer | **BH-RELAY + FOLD-WITH-TARGET → FR-COB-26 (new site)**. **Disposed**: NWO-1 **S-6** (I-32 `A-12` ROUTE → fourier; producer share measured zero) — the routing is the producer's answer, not a consumer cure |
+| 36 | **FR-COB-7** · fr-CanvasOverlayButton:56 | composed cascade: single-channel pressed register + dead `glass` hover/active border arms | **BH-RELAY** — packet item 1. **Disposed**: NWO-1 **S-1** (I-32 `A-11a` KILL ⊕ `A-11b` ANSWER); §4's own row records it; **not re-sent** |
+| 37 | **FR-COB-8** · :57 | glass ships pre-compiled utilities UNLAYERED, structurally outranking its own layered a11y resets | **BH-RELAY** — packet item 2, the CLASS `HLG-32` and `D-19` fold into. **Disposed**: NWO-1 **S-2**, CURE-NEXT-MAJOR at 10.0.0 |
+| 38 | **FR-COB-23** · :82 | focus-ring contrast ≈**1.94:1** against `--background`, both readers concordant | **BH-RELAY** — packet item 4. **Disposed**: NWO-1 **S-4** (I-32 `A-11c` KILL; cured above our pin) |
+| 39 | **FR-COB-26** · :85 | the generated non-`color-mix` fallback paints solid `var(--foreground)` under `text-foreground` ink | **BH-RELAY** — packet item 5; FR-MSP-12 folds here. **Disposed**: NWO-1 **S-5** (I-32 `A-11d` CURE-NOW) |
+| 40 | **FR-COB-28** · :87 | **the relay-instruction row itself** — the corpus carried ONE relay instruction where the invariant requires all | **BH-RELAY — THE PACKET.** Every BH-RELAY verb in this block resolves into it; FR-NP-32 rides at its TOP. **G-F10-12 tests the packet's RECEIPT, not its authorship** — O-20 ⊕ NWO-1 ⊕ O-30 ⊕ O-32 are the dispatched instances |
+| 41 | **M-16** (**fr-CoefficientsSpectrum**:68, record-qualified) | the corpus's producer layer is pinned to a producer that MOVED (v7.0.0-322 → -393); three tag→HEAD inversions banked | **CITE-CONSUMING-WAVE — F.W1's re-pin gate** (derive the break surface at the ADOPTED commit) **+ CENSUS-INPUT** — producer evidence carries the COMMIT HASH, never the version string (F.W0 G-13) |
+| 42 | **M-16** (**fr-MobileFloatingToc**:66, record-qualified — a **HOMONYM**, never merged) | two PaperSearch hosts over one shared state (PaperSidebar mounted at ALL viewports, CSS-only hide) | **CITE-CONSUMING-WAVE — F.W3**, settled at `F-W3.md` §X.1-v4 §5 by the file criterion. Scrim leg K-12; census leg folds to banked FV-27 — **no re-booking, never folded into the CoefficientsSpectrum homonym** |
+| 43 | **C-18** · fr-AnimationControls:120 | zero value.js colour consumption in the tree's most colour-dense transport surface (`colors.ts` honestly out of graph) | **CITE-CONSUMING-WAVE — F.W2** (the colors.ts-deletion denominator twin of D1's C-25); nothing booked |
+| 44 | **L-8** · :124 | R5-7's blind-spot class transposed: two `v-if/v-else` icon twins invisible to an `:is`-keyed budget | **CENSUS-INPUT** — a scope-of-budget claim, not a runtime defect; remainder-upheld |
+| 45 | **C-25** · fr-CanvasControlsDock:96 | zero value.js and zero keyframes.js consumption — this file's F.W2 migration cost is zero | **CITE-CONSUMING-WAVE — F.W2** (the migration-cost denominator) **+ CENSUS-INPUT** |
+| 46 | **M-10** · :100 | systematic L-axis line-citation drift against the dirty `VisualizationView.vue` | **CENSUS-INPUT + input to F.W0's G-11 anchor table** — quoted, never re-resolved here |
+| 47 | **m-14** · fr-CollapsibleSection:71 | a conditional GATE on the R5-7 derived-evidence surface with **inverted polarity** | **CENSUS-INPUT** — SS-3/SS-4 methodology; paired with `i-8`'s positive control |
+| 48 | **i-7** · :83 | the corpus never reconciled its three-way severity spread (same facts at three severities) | **CENSUS-INPUT** — corpus-composition input, the sibling of FR-AFP-52 |
+| 49 | **i-3** · fr-ContourSettings:100 | the one panel owning the compute pipeline is the one panel defaulting COLLAPSED, its body inert | **CENSUS-INPUT** — SS-3/SS-4 corpus row; no consumer cure booked. *(Distinct from §4's `fr-ContourSettings i-1` owner-ruling row and from §0x's ruled `i-3` — different axes, disclosed so neither is read onto the other)* |
+| 50 | **i-8** · :105 | the R5-7 class does not bite here (the file's one `v-for` is a component callsite) — its **dual** does | **CENSUS-INPUT** — a derivation recommendation, not a defect |
+| 51 | **D-19** · fr-ConvergenceLegend:97 | Vue scoped styles are unlayered; glass's ladder opens `@layer components` — unlayered wins categorically | **CENSUS-INPUT, verbatim**: *"the durable fix is a lint rule (unlayered-scoped-vs-system), a spec-authoring input for SS-3/SS-4, not a per-component edit"* — folds to FR-COB-8's class for the producer half |
+| 52 | **I-3** · fr-DarkModeToggle:111 | the C axis's self-repo citations drift ~10–11 lines while its `node_modules` citations are byte-exact | **CENSUS-INPUT + input to F.W0's G-11 anchor table** (one of G-11's own named drift registers) |
+| 53 | **CITE** · fr-EasingCurvePreview:68 | the D axis's provenance is systematically mis-anchored — one citation past EOF inside its highest-severity carry | **NAMED WAVE — F.W0's G-11**, which names this register by name; this block quotes the published table and re-resolves nothing |
+| 54 | **`D-2 / L-3 / C-1`** · fr-EditorControlsDock:51 | the magnet retint block is 100% dead (`--slider-scrub-*` is not a token namespace at 4.0.0; even `width:100%` a no-op per K-8) | **NAMED WAVE — F.W3**, settled at `F-W3.md` §X.1-v4 §5 (`.a` arm, one deletable block) — **cited, not re-booked**. No new F.W10 work |
+| 55 | **L-m5** · fr-FunctionInput:62 | `./chip` ABSENT at the installed 4.0.0; `./toggle-chip` present; CENSUS:100 routes NotationPills to `./chip` unqualified | **NAMED WAVE — F.W3** (the record's own routing) **+ CENSUS-INPUT** for the census cell. §4's F.W3 row records the qualifier **RESOLVED at the adopted pin** (`./chip` present, `./toggle-chip` absent at 8.0.0) |
+| 56 | **L-i1** · :82 | the R5-7 native-template-loop class does not apply (both `v-for`s are component callsites) — a **positive control** | **CENSUS-INPUT** — a negative finding is a terminal disposition; manufacture no work |
+| 57 | **`L·I-2-as-corrected / R5-7`** · fr-GalleryCard:87 | the callsite-keyed-deriver blindness is genuine but L's instance was mis-derived; corrected form recorded | **CENSUS-INPUT** — SS-3/SS-4 census-methodology |
+| 58 | **D-26** · fr-VisualizationView:99 | underline indicator element never rendered — anchor-positioning-only by construction | **BH-RELAY (producer, verbatim: *"NO-WAVE-OWNER (producer, glass BH relay)"*)**; engine matrix → SS-13. **LIVE — never sent under its own term across all fifteen outbound glass packets (measured 0, twice); it ACCRETES at §4a row `F10-1`** |
+| 59 | **★MF-7** · fr-PaperView:113 | permanent `will-change: opacity` on a fixed full-viewport overlay — a standing compositor layer for far-jump-only chrome | **CITE-CONSUMING-WAVE — F.W4** (set/clear inside `withOverlay`, per the record's own verb) **+ CENSUS-INPUT** for the referral-drop process note |
+
+#### §4.2.C — the SIXTEEN corpus-derived escapes, the rows no check file looked at: 16 (F-W10 §2.5a-ii)
+
+*Record line anchors are lawful here and only here — the registry is the **frozen corpus** (R2-2 clause 2(i)).*
+
+| # | banked id · anchor | in-record disposition, the record's own words | TERMINAL VERB |
+|---|---|---|---|
+| 60 | **`R2-missed-1`** (fr-ImageUpload's, record-qualified) · :45, MAJOR | *"The corpus never swept the adjudicated registry … → NO-WAVE-OWNER (procedural — binds SS-3/SS-4 spec authoring …: REGISTRY-FIRST is a precondition, not a courtesy)."* | **CENSUS-INPUT** — adopted in the record's own words. **This row is the mechanism of the very defect it names**, twice over, and is recorded as this drain's own falsifier. **Homonym guard**: NOT fr-UserSlugBar's lowercase `r2-MISSED-1`, an ALIAS of `FR-USB-16` cut to **F.W9** |
+| 61 | **`R1-MISSED-5`** (fr-ImageUpload's, record-qualified) · :63, INFO | *"→ NO-WAVE-OWNER (spec-authoring input: propagate, don't merely preserve)."* | **CENSUS-INPUT** — a positive census (the tree's ONLY `type="button"`). A propagation candidate is not a defect and mints no work. **Homonym guard**: NOT fr-UserSlugBar's lowercase `r1-MISSED-5` |
+| 62 | **C-3** · fr-GalleryInfiniteGrid:50, MAJOR | *"**FOLDS BY REFERENCE to banked FR-GFC-3 (→ F.W5-W8). Do NOT re-book.**… the orphan-client class … is carried NO-WAVE-OWNER → SS-3/SS-4 as census methodology."* | **FOLD-WITH-TARGET → banked FR-GFC-3** (the fold's wave is F.W5–W8, **cited never re-booked**) **+ CENSUS-INPUT** for the orphan-client grain. C's BLOCKER over the banked MAJOR carried as **preserved dissent** |
+| 63 | **M-7** · fr-SvgFilters:91, INFO | *"Two of three axes' library proof cells are not re-runnable as published. → NO-WAVE-OWNER (fleet provenance note …)."* | **EXCLUDED-WITH-REASON — fleet provenance note** (R2-6b's own verb): a re-runnability finding about the corpus's evidence, not a surface defect. Joins the provenance register as an input to **F.W0 G-11**; books no consumer work |
+| 64 | **`L:L-16`** · fr-PaperSearchDropdown:75, INFO/LATENT | *"L:L-16 — INFO, LATENT · FOLDS into banked fr-PaperSearch L-19 — NO-WAVE-OWNER.** Code-unit/code-point mismatch; 0 non-BMP code points in the live corpus… Re-measure on any paper swap."* | **NAMED FOLD → banked `fr-PaperSearch L-19`** (the target is real: `fr-PaperSearch:57`). The **re-measure trigger travels with the fold**, and the FOLD-TARGET carries its own home at row 89 |
+| 65 | **`i-1 = L-INFO-2`** · fr-BasisSelector:92, INFO | *"(census correction UPHELD)… `lane-frontend.md:87`'s 'per-basis term sliders' is wrong. → NO-WAVE-OWNER (SS-3/SS-4 census input)."* | **CENSUS-INPUT** — a lane-doc correction; it lands in the CENSUS-ADDENDUM's errata beside FR-CP-44 / FR-AFP-51, **never as a lane-doc rewrite**. ⚠ **RESIDUAL, flagged not silent**: `X.F.W10.a` landed §1a #8's own enumeration and this row's erratum is **owed and not yet written** — its landing surface is outside this unit's writable set (see §4.2.F) |
+| 66 | **`i-2 = L-INFO-1`** · fr-BasisSelector:93, INFO | *"→ NO-WAVE-OWNER (SS-3/SS-4 census methodology)."* | **CENSUS-INPUT** — the `NATIVE_TEMPLATE_LOOP` family's blindness to native NON-loop controls (a 2-of-4 undercount). `fr-BasisCanvas L§R5-7` **cited, never merged** |
+| 67 | **`§4 method row + bypass`** · fr-VisualizationView:103 | *"Method → NO-WAVE-OWNER (SS-3/SS-4); bypass → F.W1/F.W4."* | **SPLIT EXACTLY AS BANKED — two banked halves take two verbs, never one averaged verb**: method → **CENSUS-INPUT**; the `responsive` bypass → **CITE-CONSUMING-WAVE (F.W1/F.W4)**. **`fr-VisualizationView L-26` is a DIFFERENT row on a different axis** (ruled to F.W3 by the file criterion); neither homing moves the other |
+| 68 | **`i-5 = L-18`** · fr-MobileFloatingToc:93, INFO | *"INFO → NO-WAVE-OWNER (SS-3/SS-4).** `<template v-for>` (:149) is a third loop-host kind falling through both R5-7's … keying and R6-5's `NATIVE_TEMPLATE_LOOP` cure… Census methodology, not a wave row."* | **CENSUS-INPUT** — the corpus's own **third loop-host kind**, which is why the detector above is stated by SHAPE rather than assumed. *"Not a wave row"* is the record's verb and is honoured |
+| 69 | **`i-5`** · fr-CoefficientsSpectrum:101, INFO | *"(a) Callsite-keyed instance budgets understate this file ~20× … → NO-WAVE-OWNER (SS-3/SS-4)… All → F.W3/W4 as riders, none needs its own item."* | **CENSUS-INPUT** on limb (a) — an SS-3/SS-4 sizing input; limbs (b)/(c)/(d) are **CITE-CONSUMING-WAVE (F.W3)**, settled at `F-W3.md` §X.1-v4's `.d` partition. **Homonym guard: NOT fr-MobileFloatingToc's `i-5 = L-18`** |
+| 70 | **`31`** · fr-ContourPreview:64, MINOR | *"ADJUDICATED → NO-WAVE-OWNER (procedural — binds SS-3/SS-4 spec authoring)."* | **CENSUS-INPUT + input to F.W0 G-11** (this id is named in G-11's own carry roster). The block quotes G-11's published table and re-resolves nothing |
+| 71 | **`39`** · fr-ContourPreview:72, INFO | *"ADJUDICATED → NO-WAVE-OWNER (comment/cleanup if row 40's wave touches the file; the heap-correct certification is the record)."* | **KILL-WITH-RATIONALE, conditional-cleanup form**: a dead branch whose *record* is the positive certification. No wave is scheduled; if row 40's wave opens the file the comment rides free |
+| 72 | **`41`** · fr-ContourPreview:74, INFO | *"ADJUDICATED → NO-WAVE-OWNER (binds SS-3/SS-4 register)."* | **CENSUS-INPUT** — a grading-consistency rule (default-restatement is documentation-of-intent or noise, never both). Binds the register, mints no edit |
+| 73 | **`i-1 = D/i-4`** · fr-CollapsibleSection:77, INFO | *"Callsite count drift in the corpus: A8-17 says 5, design-synth says 3; the tree has **4 usages / 3 files** … → NO-WAVE-OWNER (census correction, SS-3/SS-4)."* | **CENSUS-INPUT** — **quote 4/3, never 5 or 3**. **Homonym guard: NOT fr-BasisSelector's `i-1 = L-INFO-2`** (row 65) |
+| 74 | **`FOLD — L-14`** · fr-EditorControlsDock:100 | *"…= the **intake R5-7** identity (already extended at fr-ContourEditorCanvas L-§4)… → NO-WAVE-OWNER with the intake identity."* | **FOLD-WITH-TARGET → intake R5-7** (identity kept, exactly as row 27 folds), landing in **CENSUS-INPUT**. No count row is minted |
+| 75 | **`C §0 row 7 census correction`** · fr-FunctionInput:81, INFO | *"INFO — NO-WAVE-OWNER (SS-3/SS-4 spec authoring consumes).** `lane-frontend.md:441`'s 'currently 6× Button' is false: ONE `<Button>` callsite in a `v-for` over 3 options — the F.W3 budget is 1 line, not 6."* | **CENSUS-INPUT + F.W3 SIZING CORRECTION, cited not booked**. §4's F.W3 row already records the *"6× Button"* figure as **a record superseded by measurement, never quoted** |
+
+#### §4.2.D — the FRESH DERIVATION's own landings: 14 rows (F-W10 §2.5a-iii(c))
+
+*Three are the `fr-PathPreview` escapes no check file's set C contained and **no F wave settles**; ten are rows a
+round filed under a class verb while the corpus's own detector grades them **STRICT** at the bytes; one is the
+prose-strict 69th. **A strict disposition is owed a per-id terminal verb** — today, not on some later re-grading.*
+
+| # | banked id · anchor | why it lands here | TERMINAL VERB |
+|---|---|---|---|
+| 76 | **PP-CENSUS** (L-1, census-integrity half) · fr-PathPreview:31, MINOR | arrow-form strict: *"MINOR → NO-WAVE-OWNER (M-25 errata; SS-3/SS-4 must read the registry over `lane-frontend.md:183/:366/:369/:444/:565`, which describe a dead component as a live bespoke surface)."* | **CENSUS-INPUT** — the five lane-doc errata land in the CENSUS-ADDENDUM, **never as a lane-doc rewrite**. **The drain's SECOND self-falsifier**: a row whose content is *"SS-3/SS-4 must read the registry"* is exactly the row a drain reading a check file could not see. ⚠ Same **flagged residual** as row 65 |
+| 77 | **PP-AGGLOM** · :69, INFO | arrow-form strict: *"INFO → NO-WAVE-OWNER (M-25 intake strike-list, SS-3/SS-4)."* — *"Intake MUST strike at agglomeration or F.W4 double-books."* | **CENSUS-INPUT + CITE-CONSUMING-WAVE (F.W4's strike-at-agglomeration)**: F.W4 **consumes** the strike and says so in terms (*"consumed, not settled here"*), so the **terminal** disposition books HERE and F.W4's consumption is cited, never counted as the home |
+| 78 | **PP-SEVLAW** · :70, INFO | arrow-form strict: *"INFO → NO-WAVE-OWNER (spec-authoring input)."* the remount severity law *"must not be inherited by F.W4 as present grades: the correct reading is MINOR-with-a-fork, and the wire branch is EXPENSIVE"* | **CENSUS-INPUT** — a **grading law**, its cost note travelling with it byte-true: *"Every row above marked "wire branch" prices in only there."* F.W4 is cited as the wave it binds and books nothing new |
+| 79 | **`FR-TT-21 = L-11`** · fr-Tooltip:55, INFO | **STRICT (bold-terminal)**: *"NO-WAVE-OWNER (SS-3/SS-4 spec authoring consumes the correction)."* R3-7a's *"+1/+3"* parenthetical is a grep artefact | **CENSUS-INPUT + CORRECTED DENOMINATOR, binding**: the shim budget is **35 callsites / 9 consumers** — the figure F-W10 §4b's F.W3 edge quotes. It is **a different denominator on a different axis** from FR-TT-1's **17**-trigger census; neither is quoted for the other |
+| 80 | **`FR-TT-22 = C-10`** · fr-Tooltip:56, INFO | **STRICT**: *"NO-WAVE-OWNER."* zero coupling to value.js / keyframes.js / the 45-op API; the chain terminates at reka + Vue | **CENSUS-INPUT — a NEGATIVE BUDGET STATEMENT, terminal as such**, byte-true: *"A zero-cost row on the F.W2 ledger — a negative budget statement."* Joins C-18 and C-25 as an F.W2 migration-cost input, **cited to F.W2, booked nowhere new** |
+| 81 | **`FR-USB-34 · D-i1 ⊕ r2-MISSED-3 ⊕ L-14`** · fr-UserSlugBar:77, INFO | **STRICT**: *"NO-WAVE-OWNER (epistemic record + registry correction)."* three dead guards inside `v-if="isLoggedIn"`; carries **RC-4** | **CENSUS-INPUT + REGISTRY CORRECTION carried against interest**: *"the cure prescription there survives, but its provenance points at a provably dead line; re-point."* **FR-EQR-25 is not re-graded and not re-booked** — only its provenance is corrected |
+| 82 | **`FR-USB-37 · C-i2`** · :80, INFO | **STRICT**: *"NO-WAVE-OWNER (record; FR-USB-13's cure will likely rework the attribute anyway)."* the bearer credential sits in a `title` attribute on a globally mounted element | **KILL-WITH-RATIONALE, conditional-cleanup form** (the shape row 71 takes): no wave is scheduled; if FR-USB-13's cure opens the attribute the change rides free. The record IS the disposition |
+| 83 | **`FR-USB-38 · L-16 / L-17 / D-i2 / C-i3`** · :81, INFO | **STRICT**: *"NO-WAVE-OWNER."* zero value.js / keyframes / canvas / rAF / listener / timer contact | **CENSUS-INPUT + F.W2 EXCLUSION LOCK, verbatim with the corpus's own emphasis**: *"**do NOT book this component into the F.W2 migration surface**"*. **Homonym guard**: this row's `D-i2` is fr-UserSlugBar's alias — **`D-i2` is never a bare identity** (SEVEN records carry the token) |
+| 84 | **PAW-56** · fr-PaperArticleWindow:293, INFO | **STRICT**: *"NO-WAVE-OWNER locally (latent, margin-1)"*. the `--section-color` ramp has exactly ONE spare stop and its overflow is silent and total — 13 stops vs 12 top-level entries; a thirteenth ⇒ all six heading-colour declarations drop at once | **NAMED REGISTER — LATEX-PAPER-RELAY**, joining PAW-32/38/39/45/46. It **EXTENDS PAW-1's ramp cell — new mechanism, never a re-book** — and is the producer-side twin of ★MF-10's consumer cure. **SC-3 honoured**: the anchor is `dist :1404`; no producer-src path is cited |
+| 85 | **`FR-FG-23 = DU-missed-5`** · fr-FrequencyGraph:61, INFO | **STRICT**: *"NO-WAVE-OWNER."* It restates FR-CP-45 as **document-scoped, not axis-scoped**: *"a spec applying FR-CP-45 verbatim would discard 24 good anchors to guard one."* | **CENSUS-INPUT — and a BINDING CONSTRAINT ON THE LAW ROW 15 ADOPTS.** The law as applied is **DOCUMENT-scoped**. Recorded against interest: the axis-scoped reading would have discarded 24 sound anchors |
+| 86 | **`m-4 = D/m-9 = L-10 = C-16 + D/i-3 ∘ DU-missed-5`** · fr-CollapsibleSection:61, MINOR | **STRICT, and a SPLIT ROW**: the cell routes *"→ F.W3/W4 (gap + shrink-0 land with the first consumer) + NO-WAVE-OWNER"* | **SPLIT EXACTLY AS BANKED — two halves, two verbs**: the geometry half is **CITE-CONSUMING-WAVE — F.W3** (`F-W3.md` §X.1-v4 §5's `.d` row); the **A-3-new half is CENSUS-INPUT** — the M-audit's HIGH ask rests on a premise this record falsifies, and the bank's verb is *re-argue before booking upstream*, an SS-3/SS-4 act. **Homonym guard: SEVENTEEN records head or alias an `m-4`; this one is fr-CollapsibleSection's** |
+| 87 | **`D-i2`** · fr-PaperSearchInput:82, INFO | **STRICT**: *"NO-WAVE-OWNER — SS-3/SS-4 spec-authoring input."* the focus-state CHANGE measures ≈**1.71:1**, an AAA-2.4.13-register figure | **CENSUS-INPUT, with the corrected denominator binding: quote 1.930:1 for the AA comparison; NEVER 1.71:1** — byte-true: *"Recorded so the forming specs cite each figure under its right criterion."* A criterion-attribution law, not a defect. Record-qualified against the seven-record `D-i2` class |
+| 88 | **``fr-BasisCanvas L §R5-7``** · fr-BasisCanvas:106, INFO | **STRICT (arrow-form)**: *"→ NO-WAVE-OWNER (SS-3/SS-4 spec-authoring input; census methodology, not a repair)."* a 9-line template hides N interactive controls with 0 DOM nodes | **CENSUS-INPUT — the identity row 13's FR-CP-43 folds ONTO, so this identity carries the terminal verb, once, here.** ▲ **`fr-ExportModal L-16` FOLDS HERE** (same anchor `:106`), **one home, no re-book**. **Homonym guard: `L-16` is a SIX-record banked head** — neither fr-UserSlugBar's alias (row 83) nor fr-PaperSearchDropdown's `L:L-16` (row 64) is fr-ExportModal's |
+| 89 | **``L-19+C-N1``** · fr-PaperSearch:57, INFO-rollup — **the 69th strict disposition** | **PROSE-STRICT**, the *"Infos (7 carried)"* rollup walked to its enclosing row id: *"… · L-19+C-N1 (**NO-WAVE-OWNER** bank) · …"*. It is the **surviving identity of row 64's fold, never the folded one**, and the canonical homes it as a packet row | **NEXT-BOUNDARY LEDGER — CENSUS-INPUT (SS-3/SS-4), carrying the fold's re-measure trigger**: a standing re-measure condition on a latent, currently-vacuous defect — a closed question with a named reopening trigger. **Homonym guard**: this `L-19` is fr-PaperSearch's banked row id — not the LESSON `L-19`, not fr-AdminAuditLog's alias, not fr-VisualizationView's `L-19` (canonical **F.W4**) |
+
+#### §4.2.E — the WEAK class, ENUMERATED WHOLE: 32 row-level lines / 19 records · **ONE class verb**
+
+**Enumerated so predicate and roster regenerate each other in BOTH directions** — a headline is precisely what let
+two earlier rounds pass. The class is given by `(record : line → head id)`, carried from F-W10 §2.5a-iii(d) and
+re-measured at this seat as **32 lines / 19 records** by the `$BOIL`/`$ROW`/`$STRICT` predicate above:
+
+`fr-AdminFlaggedPanel` **:112** `FR-AFP-51 · L-27` · **:113** `FR-AFP-52` — `fr-App` **:82** `MG-ι` · **:86** `i-2` ·
+**:90** `C-12` — `fr-CanvasOverlayButton` **:68** `FR-COB-14` — `fr-CoefficientsSpectrum` **:68** `M-16` —
+`fr-DarkModeToggle` **:164** *(numbered lesson 4 — **no banked row id**)* — `fr-EquationResult` **:42**
+`FR-EQR-7 = D-9` — `fr-EquationView` **:191** *(fold list; its routed limb is `C·D-28`)* — `fr-FrequencyGraph`
+**:58** `FR-FG-20 = D:i-5` — `fr-FunctionInput` **:54** `N-1` · **:62** `L-m5` · **:81** `C §0 row 7` · **:82**
+`L-i1` — `fr-GalleryCard` **:87** `L·I-2-as-corrected / R5-7` — `fr-GalleryCardModal` **:93** `GCM-42 · L-14` —
+`fr-GalleryInfiniteGrid` **:82** `FR-GIG-20` · **:112** `MISS-5` — `fr-GalleryView` **:79** `FR-GV-37 = L-20` —
+`fr-HarmonicLevelGrid` **:26** *(the STRUCK "unbanked" claim; banked identity `HLG-32 · MISSED-2`)* · **:88**
+`HLG-32 · MISSED-2` — `fr-InfoCard` **:47** `FR-IC-11` *(a five-id rollup line)* — `fr-MorphShapePreview` **:22**
+`FR-MSP-12` *(the admission)* · **:104** `FR-MSP-12` — `fr-NotationPills` **:35** `FR-NP-32` · **:52** `FR-NP-11` ·
+**:67** `FR-NP-26` — `fr-PaperArticleWindow` **:88** `PAW-32` · **:94** `PAW-38` · **:95** `PAW-39` —
+`fr-PaperSearchDropdown` **:75** `L:L-16`.
+
+**What the enumeration reveals.** **TWENTY-SIX of the 32 already carry a PER-ID TERMINAL VERB above** and are
+**cited here, re-booked nowhere**: rows 1 · 5 · 6 · 8 · 9 · 10 · 17 · 18 · 19 · 24 · 25 · 30 · 31 · 34 · 35 · 41 ·
+55 · 56 · 57 · 64 · 75 of this block, plus `GCM-42` and `C·D-28` (cut to **F.W9** at F-W10 §2.2's re-cut table),
+`MISS-5` (`FR-GIG-20`'s restatement — **one home, no re-book**; a packet-homed head id disposed only as another
+id's restatement would be a citation by demotion, so the relation is stated as a relation), and the
+`fr-HarmonicLevelGrid:26` struck-claim line whose banked identity is row 34's.
+
+**SIX take the class verb, and they are NAMED rather than left inside a headline**: **`FR-COB-14`** (fallthrough
+defeats every pinned attribute) · **`FR-EQR-7 = D-9`** (success glyph **2.101** vs the 3:1 floor; the design
+system's own light `--success` fails at **2.175** — the cure is the producer's, and it is **already disposed**:
+NWO-1 **S-11**, I-32 `C-1` ANSWER + CURE-NOW) · **`FR-FG-20 = D:i-5`** (a *stronger* census statement than D's:
+**ZERO F.W1 break surface** in this file) · **`N-1`** (the `variant="default"` CTA demoted by the 3.1→4.0 bump;
+its NO-WAVE-OWNER limb is an explicit **rider**, the DESIGN.md correction) · **`FR-IC-11`** (a MINOR-latent inside
+a five-id rollup whose routings stand) · **`fr-DarkModeToggle`'s numbered lesson 4** (*"a reader return SHOULD
+carry a 'registry collisions checked' cell"* — **no banked row id exists to book**).
+
+▲ **THE CLASS VERB, one disposition over the six**: **NEXT-BOUNDARY LEDGER — CENSUS-INPUT (SS-3/SS-4
+corpus-composition)**. **Why a class verb is lawful here and was never lawful for the ten at §4.2.D**: in every one
+of the 32, NO-WAVE-OWNER is a **rider or an in-line mention on a row whose terminal disposition is something
+else** — stated as a description of the measured class, never as a re-definition of the predicate. **Any row later
+re-graded to a strict disposition re-enters at its banked id through the §4.2.D shape.**
+
+**`MISSED-2` is RECORD-QUALIFIED and the qualification is itself a finding**: three records carry the token
+(`fr-ImageUpload`'s `R1-MISSED-2` · `fr-UserSlugBar`'s `r1-`/`r2-MISSED-2` · `fr-HarmonicLevelGrid`'s bare
+`MISSED-2`), of which only fr-HarmonicLevelGrid's carries a NO-WAVE-OWNER disposition — **and that identity is
+already booked strictly at row 34**. A bare short token is not an identity (R-5); the law reaches `MISSED-2`,
+`D-i2` (7 records), `m-4` (17), `L-19` (16), `L-16` (6), `M-16`, `i-5` and `i-1` alike, and every one of them is
+disclosed above.
+
+#### §4.2.F — the ESCAPE TEST against the CENSUS OF RECORD, and the gate reading
+
+**The census operand is named once and does not move** (F-W10 §2.5b · R4-3 · R4-10):
+`docs/tranches/X/fourier/conformance/CENSUS-CANONICAL.md`, **sha256 `f44362757458`** ⟨cmd⟩ this seat, 2026-09-20,
+`shasum -a 256 … | cut -c1-12`, **double-run, identical** — so a later rewrite of that file is detectable rather
+than deceptive. *A gate that cites another census operand is DEFECTIVE on sight.*
+
+**F.W10's record-side roster is ZERO, by the canonical's own enumeration and not by this block's assertion**:
+⟨cmd⟩ `grep -c '^### F\.W10' "$C"` → **0**, twice — §2 carries per-wave rosters for F.W0 · F.W1 · F.W2 · F.W3 ·
+F.W4 · F.W5 · F.W5-W8 · F.W9 and **no F.W10 header at all**. The drain **never was a wave-side roster**: its rows
+are terminal dispositions over rows the canonical homes at a **PACKET**.
+
+| canonical packet home | rows | this block |
+|---|---|---|
+| `NWO (packet)` | **32** | booked or cited |
+| `NWO→SS-3` | **27** | booked or cited |
+| `NWO→SS-13` | **3** | booked or cited |
+| `NWO→SS-5` | **3** | booked or cited |
+| **the drain's canonical operand** | **65** | **65 booked or cited · 0 escaped** |
+
+**The test, run record-qualified** (an id alone is not an identity, which is how two rows escaped four earlier
+passes): each of the 65 `(record, id)` pairs was read from §2's four NWO rosters at the pinned bytes and resolved
+against §4.2.A–E. **Sixty-three resolve to a per-id row above; two resolve through §4.2.E's named six** —
+**`fr-CanvasOverlayButton FR-COB-14`** (`NWO→SS-3`) and **`fr-GalleryInfiniteGrid MISS-5`** (`NWO→SS-5`, carried as
+`FR-GIG-20`'s restatement, one home) — and **both are named, not left inside a headline**, which is the whole
+reason the class was enumerated. **Zero escaped.**
+
+**FABRICATION TEST, the other direction** (*"an id booked that the canonical does not home there is that wave's
+fabrication"*): since F.W10's canonical roster is empty, every id-bearing cell of the **§2.2 re-cut table** must be
+a citation. The two that were not — `FR-TT-1` (canonical **F.W4**) and `PAW-50` (canonical **F.W9**) — are the
+spec's own disclosed **PENDING PAIRED EDITS** inside the SHARED §2.2 splice bytes, re-disclosed and **NOT applied**
+by `X.F.W10.a`; `FR-TT-1`'s half discharged at repair round 6 to cite-the-holder. **None of them is a row of this
+block**, which books only §2.5/§2.5a/§2.5a-ii/§2.5a-iii identities.
+
+**GATE — G-F10-7: RED → GREEN.** BEFORE (this wave's baseline, 2026-09-19): *"COHESION §4 is live-seeded from SS-7
+batch 1, every row an X·V slug, **ZERO fourier rows**"* — re-read at this seat's own clock and found to carry
+**one** fourier block, **F.W3's S-8 EMISSION**, a *different* population which is **cited and never counted in**;
+the F.W10 drain block was **ABSENT**. AFTER: §4 carries this fourier block and **every row of the reconciled
+89-row roster bears a TERMINAL verb** from the closed alphabet; **FR-NP-32 heads the table** (§4.2.A row 1);
+**`fr-App C-12` lands as the NEGATIVE record verbatim** (§4.2.A row 9); the weak class carries its **one class
+verb** over a roster **enumerated whole**. Against the gate's own falsifiers: the roster is **derived from the 66**,
+never from a check file; the detector is stated **inline, in both dash spellings and all three row shapes**, and
+excludes the taxonomy **by SHAPE**; the partition's arithmetic **closes** (`31 ⊕ 68 ⊕ 32 ⊕ 1 ⊕ 33 = 165`); **no
+class verb stands where the detector grades a row STRICT**; and **no roster homes a subset and calls it
+zero-left-open** — the escape test above is run against the **canonical**, record-qualified, and returns **65 · 0**.
+
+**THE ALPHABET, MEASURED OVER THE SETTLED BYTES AND DISCLOSED WHERE IT IS WIDER THAN FIVE WORDS.** ⟨cmd⟩ this
+seat, double-run, identical: over the block's **89** numbered rows, **89** carry a terminal verb and **0** carry
+none. **Seven of the 89 carry the corpus's OWN banked wording rather than a five-family spelling**, and they are
+named rather than smoothed into the alphabet: **`BOOKED HERE`** (rows 5 · 14 — a census correction landing in the
+CENSUS-ADDENDUM, i.e. a NEXT-BOUNDARY LEDGER / CENSUS-INPUT shape), **`ADOPTED AS LAW`** (row 15 — FR-CP-45, whose
+disposition is that the spec binds itself to it), **`NAMED FOLD`** (row 64 — a FOLD-WITH-TARGET at a named banked
+target), **`KILL-AS-DESTINATION`** (row 22 — a KILL-WITH-RATIONALE that survives as a falsifier), and **`SPLIT
+EXACTLY AS BANKED`** (rows 67 · 86 — **two banked halves, two verbs, never one averaged verb**). *A row's banked
+words are kept; what is measured is that every row is terminal, and the mapping is published instead of asserted.*
+
+⚠ **ONE RESIDUAL, FLAGGED RATHER THAN SILENT — it is a bounds fact, not a missing disposition.** Rows **65**
+(`i-1 = L-INFO-2`) and **76** (`PP-CENSUS`) name `formation/fourier/CENSUS-ADDENDUM-2026-08-25.md` as the landing
+surface for their lane-doc errata. Both rows carry their **terminal verb** here, which is what §3.3's deadline
+requires; what is outstanding is the **erratum text** in that addendum, whose path is **outside this unit's
+writable set** (`X.F.W10.a` wrote §1a #8's own enumeration and did not reach into a sibling unit's sections).
+**Either the close seat lands the two errata, or they are explicitly re-homed** — named here so no reader mistakes
+the silence for an oversight, and carried to `X.F.W10.g` as an open bounds question.
 
 ## §4a The SS-6 communique accretion register (producer-owned rows awaiting the ONE batched BJ letter)
 
