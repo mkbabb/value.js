@@ -86,6 +86,7 @@
     "devDependencies": {
         "@lucide/vue": "^1.16.0",
         "@mkbabb/glass-ui": "^7.0.0",
+        "@mkbabb/keyframes.js": "^6.0.0",
         "@playwright/test": "^1.60.0",
         "@tailwindcss/postcss": "^4.3.0",
         "@types/katex": "^0.16.8",
