@@ -1836,3 +1836,240 @@ bytes and whose two born-RED gates carry **no** relief the spec grants, may be r
 under any qualifier. **The LEDGER row stays PARTIAL.** `.e` and `.f` are the whole of the remaining
 work and they are unblocked; the honest-RED set for a future close is, on today's bytes, exactly
 **{G-KFW12-4}**.
+
+---
+
+## Resume — 2026-09-19, THIRD SITTING: `.e` half-landed and killed, `.f` never dispatched
+
+**SERVED MODEL: claude-opus-5[1m]** · SEAT 0 (OPEN, RESUME MODE), VERIFY-AND-BANK only — this seat
+wrote **zero** keyframes.js bytes, **zero** glass-ui bytes and **zero** product bytes anywhere.
+**E-3**: nothing above this line is amended; every figure above stands as its seat wrote it.
+**Sitting of record: 2026-09-17**, the owner's begin-word (COHESION §0j). Wall clock 2026-09-19 23:0x EDT.
+
+**Disposition**: the LEDGER cell reads `KF.W12 = OPEN 2026-09-17 → **PARTIAL 2026-09-19**` — not
+CLOSED — and this record exists, so the wave re-enters in **RESUME MODE**. `.a` · `.b` · `.c` · `.d`
+stand on their landed commits and receipts and are **NEVER re-dispatched**. Owed: **`.e`** (partial —
+four commits landed, then the seat was killed), **`.f`** (zero commits, zero bytes), **`.g`**
+(a re-close: the close of record returned `PARTIAL` on **KF12-E2**, the phase-3 dispatch gap, and
+CHECK 1 sustained it `NOT-CONFORMANT`; with phase 3 landed the wave cannot reach a verdict without a
+second close seat).
+
+### Crash-recovery (standing law, first act)
+
+⟨cmd⟩ `git -C /Users/mkbabb/Programming/keyframes.js status --porcelain` →
+`M demo/components/instrument/keyframes/KeyframesStringControls.vue` ⊕ two untracked
+`docs/tranches/V/coordination/VALUEJS-INBOUND-2026-07-*` letters (outbound copies value.js authored;
+not product). **The one modified product path is a §B.2 row owned by `.e`** (`.d` → `.e`, serial) and
+its hunks name themselves: ⟨cmd⟩ `git diff -- …/KeyframesStringControls.vue --stat` → **50 insertions,
+4 deletions**, carrying `D-4 (X.KF.W12.e)` — the editor-well shake target — and
+`N-7 (X.KF.W12.e)` — the one-deep promise queue over `onEditorChange`. **This seat does not touch it**
+(it is not SEAT 0's writable set); it is handed to the resumed `.e` under the crash-recovery law,
+named here so nothing inherits silently.
+
+**The inherited hunk is live-broken, and the baseline must not be read without it**: ⟨cmd⟩
+`grep -c 'setTargets' …/KeyframesStringControls.vue` → **3** in the worktree · ⟨cmd⟩
+`git show HEAD:…/KeyframesStringControls.vue | grep -c 'setTargets'` → **0** at HEAD. The demo suite
+therefore raises `TypeError: parseErrorShake.setTargets is not a function` at
+`KeyframesStringControls.vue:217:25` (surfaced through `css-code-editor-seam.test.ts`'s mount) —
+**a working-tree error, present in neither the committed tree nor any close reading above**.
+
+⟨cmd⟩ `git -C /Users/mkbabb/Programming/value.js status --porcelain -- docs/tranches/X/execution/ docs/tranches/V/coordination/INBOX.md`
+→ `M A/X-W5.md` · `M A/X-W9.md` · `M B/KF-W13.md` · `M LEDGER.md`. **All four are sibling seats'
+in-flight bytes** (Track A's X-W9 RESUME-OPEN row and event line are the LEDGER's dirty hunks, read
+whole before writing this line); **none is restored, stashed or staged by this seat**, and the LEDGER
+commit below is taken only against a re-read of the file (see §LEDGER at the foot).
+
+### Substrate
+
+keyframes.js `/Users/mkbabb/Programming/keyframes.js` — ⟨cmd⟩ `git rev-parse --short HEAD` →
+**`2a0afe7a`**; ⟨cmd⟩ `git rev-parse --short origin/master` → **`c82f92ea`**. **HEAD is four commits
+ahead of the remote — `.e`'s four, unpushed** (⟨cmd⟩ `git log --oneline c82f92ea..HEAD` → `5bbb7b20`
+N-8 routed arm · `30efb823` RB-6 one lifetime · `d0665322` D-5/L-M-4/C-4 optional seat ref ·
+`2a0afe7a` D-23 + the emitted-selector carve). value.js on `tranche-u`.
+
+### The finding this sitting adds — `.e` landed bytes and no receipt, and its gate is still born-RED
+
+The close of record (§Close) and CHECK 1 both measured **zero** `X.KF.W12.e` commits among 36. That
+was true at their clock and is **false now**, by four commits timestamped **10:08 · 10:09 · 10:26 ·
+12:44** — i.e. `.e` was dispatched *after* the close seat sat, and was then killed mid-work (the
+worktree's last write is **12:45**, one minute after its last commit, and nothing has moved since).
+What `.e` owes is therefore exactly what a killed seat leaves behind, measured three ways:
+
+1. **No receipt** — ⟨cmd⟩ `grep -n '^### KF\.W12\.e' execution/B/KF-W12.md` → *(no output)*, twice.
+2. **No gate artefact** — ⟨cmd⟩ `ls test/demo/instrument/apply-css-identity.test.ts` →
+   `No such file or directory`, twice. **G-KFW12-5 is still born-RED**, so nothing `.e` landed is
+   proven by execution.
+3. **Uncommitted product bytes** — the 50-insertion `KeyframesStringControls.vue` hunk above, which
+   the suite proves is not merely unfinished but **erroring**.
+
+`.e` is therefore **re-dispatched in RESUME form** — never re-run from the top. Its four landed
+commits are a **standing substrate**: the resumed seat re-does none of them, re-decides nothing they
+decided, and opens its receipt by naming them. This is the crash-recovery law applied to the one unit
+it was written for, not a re-dispatch of landed work.
+
+### E13 Step-0 — the four-path mail sweep, at this seat's own clock
+
+| path | confirmed | result |
+|---|---|---|
+| `value.js/docs/tranches/V/` + `…/V/coordination/` | yes | no letter dated 2026-09-19; the tail is the 09-18 4.1.0 packet, every file rowed |
+| `../glass-ui/docs/tranches/BK/coordination/` | **BK is still the newest** — ⟨cmd⟩ `ls -dt ../glass-ui/docs/tranches/*/ \| head -3` → `BK/` · `BJ/` · `BI/` | two `*-valuejs-*` letters (`…-09-17-o20-disposition`, `…-09-18-o26-reply`), **both already rowed** (grep hits 3 and 33) |
+| `../keyframes.js/docs/tranches/V/coordination/` | yes | newest value-addressed item `VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md` — **rowed** (36 hits) |
+| `../sci-report/atlas/docs/tranches/P/coordination/` | yes | newest is 2026-07-27; nothing new |
+
+⟨cmd⟩ `ls <the four dirs> | grep '2026-09-19'` → *(no output)* — **no mail landed anywhere today.**
+**INBOX census**: ⟨cmd⟩ `grep -c '^| I-\|^| O-' INBOX.md` → **81** rows; positional scan of the
+status column (field 6 of the `| # | Date | From | Letter | Status | Owner |` table) over every
+`I-` row → `FOLDED 16 · ROWED 9 · READ 7 · ACTED 1 · RATIFIED 1 · RECONCILED 1` — **0 UNREAD**.
+**0 unrowed · 0 UNREAD in this wave's scope.** No row was added; a dated sweep line is appended at
+the file's end.
+
+### Preconditions — re-measured at this sitting, at kf `2a0afe7a`
+
+| # | precondition | reading |
+|---|---|---|
+| **OP-0** | `G-KFW4-1` — a **RATCHET**, not a threshold (COHESION **§0u**, `085b2121`) | ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.json 2>&1 \| grep -c 'error TS'` → **12 · 12**. Banked at the re-open as **14**; the ratchet has **FALLEN by 2 and never risen** (`.e`'s D-23 zeroed its own two). **MET.** |
+| **OP-1** | KF.W11 `.a`'s OD latch family landed | ⟨cmd⟩ `grep -c 'useEventListener(window, "keydown"' demo/scenes/cube/orbital-drag/OrbitalDrag.vue` → **0 · 0**. **MET** — `.f` opens. |
+| **OP-2** | KF.W11 `.b`'s `useKeyframeOps.ts` carve | spent at `.c`; `.c` is CLOSED at `c82f92ea`. **MET, and no owed unit writes the file.** |
+| **OP-4** | the `cssIdent` publication | ⟨cmd⟩ `grep -c 'cssIdent' dist/keyframes.d.ts` → **2 · 2** (clock clause); ⟨cmd⟩ `grep -rc 'cssIdent' demo \| grep -v ':0$'` → `helpers.ts:1` (comment) · **`useKeyframesState.ts:5`** · **`useKeyframesParsing.ts:1`** — the demo now has **two non-comment consumer files**, landed by `.e`'s own `5bbb7b20`/`2a0afe7a`. **The routed arm is the arm of record**; `.e`'s receipt prints this grep. |
+| **`.e` opens after** | `.c` ⊕ `.d` | `.c` `c82f92ea` · `.d` `ec49bbef`, both recorded in their receipts. **MET.** |
+| **`.g` opens after** | `.a`..`.f` | **NOT YET** — `.g` is the last group, after `.e` and `.f` land. |
+
+### Baseline (resume) — only the gates the owed units turn, re-run READ-ONLY, double-run
+
+Per the STALL-WATCHDOG resume clause: **G-KFW12-5 · -6 · -7** are re-run at this seat's own clock;
+**G-KFW12-1 · -2 · -3 · -4** are **cited from the close's banked table** (§Close ACT 2) and re-run by
+**`.g`**, not here — no landed byte of theirs moved (`.e`'s four commits touch
+`useKeyframesState.ts`, `useApplyCSS.ts`, `useKeyframeBrushApply.ts`, `useKeyframesParsing.ts`,
+`RibbonBar.vue`, `KeyframesStringControls.vue`, all §B.2 `.e` rows).
+
+| gate | command | reading (run 1 · run 2) | verdict |
+|---|---|---|---|
+| **G-KFW12-1** CARD | banked | `9 passed (9)` · same | GREEN (cited, not re-run) |
+| **G-KFW12-2** OPTIONS | banked | `5 passed (5)` · same | GREEN (cited, not re-run) |
+| **G-KFW12-3** KFED | banked | `7 passed (7)` · same | GREEN (cited, not re-run) |
+| **G-KFW12-4** EDITOR | banked | `1 failed \| 3 passed (4)` · same | RED — E-d1 alone (cited) |
+| **G-KFW12-5** APPLY | ⟨cmd⟩ `ls test/demo/instrument/apply-css-identity.test.ts` | `No such file or directory` · same | **RED — born-RED, UNMOVED** |
+| **G-KFW12-6** AXISLINE | ⟨cmd⟩ `ls test/demo/scenes/cube-axis-reveal.test.ts` | `No such file or directory` · same | **RED — born-RED, UNMOVED** |
+| **G-KFW12-7** close | ⟨cmd⟩ `npm run test:demo 2>&1 \| tail -4` | **`Test Files 2 failed \| 50 passed (52)` · `Tests 2 failed \| 438 passed (440)` · `Errors 1 error`** — identical both runs (23:03:27 · 23:04:02) | **RED** |
+| **G-KFW12-7** `vue-tsc` limb | ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.json 2>&1 \| grep -c 'error TS'` | **12 · 12** | RED against the literal 0; **the ratchet fell 14 → 12** |
+
+**The two failing files, named, both pre-existing and owned**: `css-code-editor-seam.test.ts`
+`(2) KF-CE-1: the tokenizer the boot registered classifies 'a { color: red }'` — `.d`'s **E-d1**,
+carried; and `spring-trace-truth.test.ts` `(4b)` — **KF.W11's inherited honest-RED**, unweakened and
+not this wave's. **The `Errors 1 error` line is NEW and is the inherited worktree hunk**, not a third
+failing test: it disappears the moment `.e` finishes or reverts its own uncommitted `setTargets` call.
+Nothing was skipped, cast, guarded or allow-listed to reach any reading above.
+
+**Byte/clock clauses re-measured for the two owed product units (double-run):** `cssIdent` in `dist`
+**2 · 2**; `cssIdent` non-comment consumers in `demo` **2 files** (`useKeyframesState.ts:5`,
+`useKeyframesParsing.ts:1`); window-keydown **0 · 0**; ⟨cmd⟩
+`grep -n 'rotateY\|rotateZ\|1000vw' demo/scenes/cube/CubeAxisLines.vue` → `:63 width: 1000vw` ·
+`:113 rotateZ(90deg)` · `:117 rotateY(90deg)` — **`.f` has written nothing; all three stand as the
+spec recorded them.**
+
+### GREEN-BEFORE-CURE (R.2) at this resume — two carried, one new, none claimed
+
+1. **G-KFW12-6's inbound clause — `LANDED-BY fff7232c`** (KF.W11 `.a`). **0 · 0**, carried unchanged
+   from the re-open's booking; `.f` prints it and claims none of it.
+2. **KF-AX-9's three raw `180ms` token rider — `LANDED-BY KF.W6`**; ⟨cmd⟩
+   `grep -n '180ms' demo/scenes/cube/CubeAxisLines.vue` → `:41` · `:81`, **both comments**, no
+   declaration. Re-measured at `.f`'s open; never claimed.
+3. **NEW — G-KFW12-5's byte clause reads GREEN before its gate: `LANDED-BY 5bbb7b20` ⊕ `2a0afe7a`.**
+   The clause (`≥ 1` non-comment `cssIdent` consumer in `demo`) is satisfied by **`.e`'s own landed
+   commits**, so it is a *partial cure already banked*, **not** a green this wave inherits from
+   elsewhere — booked by sha so the resumed `.e` claims the runtime clause only, and re-proves the
+   byte clause rather than re-cutting it.
+
+**No other gate or clause reads green before its cure.**
+
+### Unit plan (resume) — 3 owed units in 2 ordered groups; the four landed units are NOT re-dispatched
+
+**`alreadyDone` — never re-dispatched, and no byte of theirs is re-opened**: `KF.W12.a` (9 commits,
+receipt `:819`) · `KF.W12.b` (8, `:719`) · `KF.W12.c` (12, `:995` + `:1216`) · `KF.W12.d` (7, `:1131`).
+⟨cmd⟩ `git log --oneline -200 | grep -o 'X\.KF\.W12\.[a-g]' | sort | uniq -c` → `9 .a · 8 .b · 12 .c
+· 7 .d · 4 .e` — and `.f` **absent**, exactly as the close measured.
+
+**Groups (spec §Sequencing, unchanged — phase 3 then phase 4; peak concurrency 2, inside the cap)**:
+
+1. **`[.e ∥ .f]`** — disjoint at the bytes: `.e` writes `…/instrument/keyframes/**` ⊕
+   `…/transport/controls-pane/RibbonBar.vue`; `.f` writes `demo/scenes/cube/CubeAxisLines.vue`.
+   **No shared modify path.** Both append their receipt to the end of THIS file under the wave's own
+   append-only law (§B.2, `every unit`) — each re-reads the file immediately before appending.
+2. **`[.g]`** — the **re-close**, serial, last.
+
+**`KF.W12.e` — RESUME (Opus).** Opens on `.c` `c82f92ea` ⊕ `.d` `ec49bbef`, at kf HEAD `2a0afe7a`.
+**First act, before any cure**: read the inherited 50-insertion `KeyframesStringControls.vue` diff
+WHOLE (D-4's `editorWellRef` shake target; N-7's `editorChangeTail` promise queue), judge every hunk
+against §Scope 5, **finish what conforms and rewrite what does not** — the `parseErrorShake.setTargets`
+call is not a function on the seat the file holds and is the suite's live `1 error`; it is cured at
+the root (the correct seat API, or the target passed at construction), **never by a try/catch, a
+skip or a revert-and-forget**. Then: print OP-4's two greps; state which N-8 arm was taken (the
+**routed** arm is landed — `useKeyframesState.ts:5` + `useKeyframesParsing.ts:1`); write
+`test/demo/instrument/apply-css-identity.test.ts` and turn **G-KFW12-5** green on every limb
+(uppercase-id `getClassName()` ≡ the selector inside `getCSSString()` via ONE `cssIdent` route; the
+target animates under the injected sheet; RB-6's one lifetime; `clear()` wired); name the killed
+"both animate the same target" scenario as killed; then append `### KF.W12.e` — the receipt the
+killed seat never wrote — naming its four landed shas as inherited-and-kept, the inherited path, and
+the §0u ratchet reading for its own §Bounds rows.
+
+**`KF.W12.f` — AXISLINE-UNIT (Opus), full dispatch, nothing inherited.** Zero commits, zero bytes,
+and its sole precondition **OP-1 is MET (0 · 0)**. Brief unchanged from `:404-422` above.
+
+**`KF.W12.g` — RE-CLOSE (Opus, VERIFY-ONLY).** The close of record stands verbatim (E-3); the
+re-close appends a dated `## Close — second sitting` that re-runs **all seven** gates at its own
+double-run clock (G-1..-4 are re-run there, not cited), audits the **full** commit roster including
+`.e`'s four and `.f`'s, re-reads the §0u ratchet against the banked floor, sails the SS-6 producer
+rows, runs E13, and moves the LEDGER cell off `PARTIAL` only if the measurements earn it. **KF12-E2
+is answered by landing, not by argument**; CHECK 1's BLOCKER-1 and HIGH-1 are addressed head-on and
+each is either discharged with its receipt or re-stated as carried.
+
+### Dispatch note (resume)
+
+Order: `[.e ∥ .f] → [.g]`. Models: **Opus** for all three (the three design-shaped units `.b`/`.c`/`.d`
+are landed; no fresh design decision is owed). `.e` and `.f` write keyframes.js product bytes plus
+their value.js receipts; `.g` writes value.js only. **The four landed units are never re-dispatched.**
+
+### LEDGER — the row edit and the event line are **WITHHELD**, and here is why, with the text banked
+
+⟨cmd⟩ `git status --porcelain -- docs/tranches/X/execution/LEDGER.md` → `M …/LEDGER.md`; ⟨cmd⟩
+`git diff --numstat -- …/LEDGER.md` → **`2 1`**, read twice at 23:0x with the same figures. The diff,
+read whole, is **Track A's**: the `X-W9` row's cell moved to `RESUME-OPEN 2026-09-19` and one X-W9
+RESUME event line appended — a sibling seat's in-flight bytes in a file four tracks share. A pathspec
+commit names paths, not hunks, so committing `LEDGER.md` here would sweep Track A's uncommitted row
+into a Track B commit. **This is the fourth withholding of the day on this exact mechanism**
+(R.9.5 · R.9.7 · §0ag); the law that forbids it is the one that produced three contaminated commits
+at X-W0. **Nothing is staged, nothing is restored, the `PARTIAL` cell is left unregressed.**
+
+**Banked, to be landed by `.g` (or by any seat that finds the file clean) — the cell edit is a
+MINIMAL in-place replacement, never a rewrite, and it PRESERVES `PARTIAL` rather than regressing it
+to `OPEN`:**
+
+> **cell** (row `KF.W11 · W12 · W13`, the `KF.W12 = …` clause): `KF.W12 = OPEN 2026-09-17 →
+> **PARTIAL 2026-09-19**` → `KF.W12 = OPEN 2026-09-17 → **PARTIAL 2026-09-19** → **RESUME-OPEN
+> 2026-09-19** (SEAT 0, third sitting: `.e` half-landed and killed, `.f` never dispatched, `.g`
+> re-closes; `.a`–`.d` stand)`
+>
+> **event line** (appended at the file end): `- 2026-09-19 — **X.KF.W12 RESUME MODE, THIRD SITTING
+> (Track B · X·KF, SEAT 0, `claude-opus-5[1m]`, VERIFY-AND-BANK — 0 product bytes).** `.a`·`.b`·`.c`·`.d`
+> are `alreadyDone` (9·8·12·7 commits, four receipts) and are NEVER re-dispatched. **`.e` is a
+> KILLED PARTIAL, discovered here**: four commits landed 10:08–12:44 (`5bbb7b20` N-8 routed ·
+> `30efb823` RB-6 · `d0665322` D-5 · `2a0afe7a` D-23) — *after* the close seat measured zero — then
+> no receipt, no `apply-css-identity.test.ts`, and **50 uncommitted insertions in
+> `KeyframesStringControls.vue`** whose `parseErrorShake.setTargets` (3 in worktree · **0 at HEAD**)
+> raises the suite's new `Errors 1 error`. `.f` is owed in full (0 commits; OP-1 **MET 0·0**).
+> Baseline re-run for the owed gates only: **G-5 RED** (`No such file or directory` ×2) · **G-6 RED**
+> (×2) · **G-7 RED** (`2 failed | 50 passed (52)` · `438 passed (440)` · `1 error`, ×2), the §0u
+> ratchet **14 → 12 · 12, fallen never risen**; G-1/-2/-3 GREEN and G-4 RED cited from the close's
+> banked table and re-run by `.g`. OP-4 re-measured: `dist` **2·2**, demo non-comment consumers
+> **2 files** — the ROUTED arm is landed. E13: four paths swept, **0 unrowed · 0 UNREAD · 81 rows**,
+> no mail dated 2026-09-19 anywhere. Dispatch `[.e ∥ .f] → [.g]`, peak 2. **The LEDGER row edit was
+> WITHHELD this sitting** — Track A's uncommitted X-W9 hunk sits in the same file (numstat `2 1`,
+> read twice) and a pathspec commit would sweep it.`
+
+### What this sitting asserts, and what it refuses
+
+**Asserts**: the four measured readings above (G-5, G-6, G-7, the ratchet), the crash-recovery
+inventory, the mail census, and that `.e`'s four commits exist. **Refuses**: any verdict on whether
+`.e`'s landed four are *correct* — no gate of `.e`'s has ever run, and this seat ran no product
+code; that judgement is the resumed `.e`'s and then `.g`'s. It also refuses to re-grade `.a`–`.d`,
+to re-open CHECK 1's register, and to write one byte of keyframes.js.
