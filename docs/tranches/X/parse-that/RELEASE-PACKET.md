@@ -233,3 +233,23 @@ re-trigger does NOT fire.** The R-A stamp remains **WITHHELD, by gate id G-1** (
 vocabulary predates the ruling — `execution/D/X-P-W4S.md`, E-w4f-1). **§6 items 1, 2, 4 and 5 stand
 unchanged**: this addendum is not a release, not a schedule, not a certification, and asks nothing
 of anyone. O-15 stays what it was.
+
+## ADDENDUM 2026-09-19 (second) — F-w4f-2 is CURED at the producer; F-w4f-1 is FILED; `RC-P(4.0.0)` re-read; the R-A stamp still WITHHELD (X.P.W4.f2, SERVED MODEL: claude-fable-5-1) — dated, beside (E-3)
+
+The first addendum's row *"two cells are CANDIDATE DEFECTS — F-w4f-2 … a grammar cure is owed at the
+producer"* is superseded beside, not rewritten. What a recipient now reads:
+
+| what changed for a consumer | rows | reading |
+|---|---|---|
+| **F-w4f-2 CURED** — the candidate accepts `!important` with no preceding space (css-syntax-3 §5.4.7) | `parseStylesheet` | cells `#40` / `#41` re-measure **`identical`** (`<p2>` `fede7d3`; `evidence/W4/two-cell-census-2026-09-19-w4h.txt`). No candidate defect remains open on the seam. |
+| **F-w4f-1 FILED** — a declaration NAME that is not one `<ident-token>` (`col!r`, `colo.r`) is REFUSED by the candidate, ACCEPTED by 4.0.0 (§5.4.4) | `parseStylesheet` | **NARROWS**: such a sheet is refused whole under the seam's ruled error posture; candidate correct, `declared-divergence`, mechanism `F-w4f-1`, census id `ID-1b` (W4-CLOSE.md §13.3). The 4.0.0 half rides X-W11's OUT-OF-WAVE roster by id. |
+| **the packed candidate** | all 52 | `resolved 52 of 52`, `G3 GREEN`, tarball sha256 `004bbcce02e08b89…` (moved with the grammar cure); Wasm admission `0` function-kind / `0` unaccounted imports, `ac1.wasm` `f0d063d6…` |
+
+**Operative reading, re-evaluated at this seat (double-run, `evidence/W4/rc-p-evaluation-2026-09-19-w4f2.json`)**:
+`RC-P(4.0.0)` = **FALSE** — 3 of 6 TRUE (2 · 5 · 6), 3 FALSE (1 PUBLISHED · 3 EQUIVALENCE over `V`'s
+installed `/css`: 20,962 mirror-defects · 4 ADMITTED). **KF.W3 does NOT open. The X·V adoption
+re-trigger does NOT fire.** The R-A stamp remains **WITHHELD, by gate id G-1** — this time on
+`DIVERGENCE-LEDGER.md` §11's heading form against the seam checker's row grammar (`W4-CLOSE.md` §13,
+E-w4f2-1), not on any consumer-visible behaviour. **§6 items 1, 2, 4 and 5 stand unchanged**: this
+addendum is not a release, not a schedule, not a certification, and asks nothing of anyone. O-15
+stays what it was.

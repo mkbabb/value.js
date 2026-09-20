@@ -387,3 +387,92 @@ ledger's regeneration without the stale `CN-2`/`CN-3` subjects, which waits on `
 | **§10 carry** | `DIVERGENCE-LEDGER.md` §10 is outside the emitter's `§6.x` carry; a regeneration must re-append it | the emitter's owner |
 | **DEFECT-LEDGER append** | the harvester's append (+114 lines, measured in the scratch mirror) was NOT written — `registry/DEFECT-LEDGER.md` is in no row of `.f`'s grant | the orchestrator / the close seat |
 | `R-w4b-2` · `R-5` · `SEAM-DRIFT` · `F-ae1 / F-p1` · the W3 rounds-6–8 set | handed to X-W11's OUT-OF-WAVE roster by id (ADJUDICATION-W4 §8) | X-W11 |
+
+## 13. ADDENDUM 2026-09-19 — the stamp re-attempted by `X.P.W4.f2` (SERVED MODEL: claude-fable-5-1, FRESH — M-23 §1); the R-A stamp WITHHELD a THIRD time, by gate id G-1, now on the ledger's §11 form
+
+Dated, beside (E-3): §§0–12 are not rewritten. `X.P.W4.g` (`31a9d5d8` · `<p2>` `ba4d148` · `c1c8d775` ·
+`c7d7b768`) cured the checker's vocabulary and `X.P.W4.h` (`<p2>` `fede7d3` · `e31b8450`) cured
+F-w4f-2 and filed F-w4f-1; this seat authored no byte of either and re-ran the ten gates at its own
+clock, every reading double-run, before any write. Full receipts: `execution/D/X-P-W4S.md`
+`### X.P.W4.f2`; the raw outputs: `evidence/W4/gates-w4f2-2026-09-19.md` and the six files it names.
+
+### 13.1 The ten gates at this seat (UTC 2026-09-20 03:39–03:41; value.js `8afe7145`, `<p2>` `fede7d3`)
+
+| gate | reading | verdict |
+|---|---|---|
+| **G-1** | ⟨cmd⟩ `seam-contract-check.mjs SEAM-CONTRACT.md universe-52.json DIVERGENCE-LEDGER.md` → `contract 52 · universe 52 · ledger rows 48`; ∅/∅; census `identical 45 · declared-divergence 7`; §10 retirements read (37 bindings released); 6 carried rows terminal by `ADJUDICATION-W4.md` §2; **`VERDICT: RED — 2 check(s) failed`**: **[F]** `parseStylesheet: unknown id F-w4f-1` · **[J]** `§11.4 F-w4f-2` names no export and is not surface-wide; **EXIT=1** ×2, identical | **RED** |
+| **G-2** | ⟨cmd⟩ `git show --name-only --format=` over every X.P.W4S commit → **0** paths under `src` `demo` `api` `test` `e2e` (the tree's 13 dirty rows are a Track-A seat's `demo/**` + `e2e/**`) | **GREEN for X·P** |
+| **G-3** | ⟨cmd⟩ `packed-candidate-surface.mjs --seam … --out <scratch>` ×2 → `tarballSha256 004bbcce…` (moved from `f8aede11…`: `fede7d3` changed the packed grammar) · `entryCount 91` · **`resolved 52 of 52`** · `refusals 5` · `G3 GREEN` · EXIT=0 | **GREEN** |
+| **G-4** | ⟨cmd⟩ `wasm-admission.mjs src/css/build/ac1.wasm` ×2 → `functionKindImportsTotal 0 · unaccountedImportsTotal 0 · GREEN`, EXIT=0; `ac1.wasm` sha `f0d063d6…` / 662339 B unchanged since `93bcb83` | **GREEN** |
+| **G-5** | ⟨cmd⟩ `rc-p-evaluate.mjs --version 4.0.0` ×2 → `RC-P(4.0.0) = FALSE — 3 of 6: 1 PUBLISHED · 3 EQUIVALENCE (arm V: 20962 over V's installed /css) · 4 ADMITTED`, EXIT=1, tables identical; negative control `0.0.0-does-not-exist` → conjuncts 1–4 `MEASURED: NO`, none TRUE unmeasured | **GREEN — honestly FALSE** |
+| **G-6** | ⟨cmd⟩ `grep -rn 'RC-P' docs/tranches/X/{keyframes,fourier}/waves/ \| wc -l` → **25** (5 files) | **GREEN** |
+| **G-7** | ⟨cmd⟩ `grep -c 'parse-that' ../fourier-analysis/package.json` → **0**; `web/package.json` → **0** | **GREEN — floor held** |
+| **G-8** | packet **26645 B**; INBOX `RELEASE-PACKET` 2 · `RC-P` 2 · `SS-6` 28; positional Status-cell awk → **`ROWS=77 UNREAD=0`** ×2; this seat mints **O-42** (below) and re-measures 0 UNREAD after it | **GREEN** |
+| **G-9** | §4 above, disposition **(C)** unchanged; **0** paths under `docs/tranches/X/waves/` in any X.P.W4S commit | **GREEN** |
+| **G-10** shape (a) | ⟨cmd⟩ the awk-narrowed sum → **5 ≡ 5**; OP-6 `1 1 1 1 1`; the W0–W3 close reports' 10 `VERIFIED` lines all disclaim the stamp. **The act is NOT performed** | **RED (withheld)** |
+
+**GREEN: G-2 · G-3 · G-4 · G-5 · G-6 · G-7 · G-8 · G-9. RED: G-1 · G-10.**
+
+### 13.2 Why the reason moved again — G-1 is RED on the LEDGER's §11 form, not on the checker
+
+`.f` withheld on G-1 because the checker predated the ruling (E-w4f-1). `.g` cured that: the checker
+now reads §10's retirements and `ADJUDICATION-W4.md` §2, with three negative controls measured RED.
+At this seat G-1 is RED for a different, narrower reason, measured at the bytes: the checker's ledger
+row reader is `^### (.+?) — ` (`seam-contract-check.mjs:112`), the grammar of every `§6` row and of
+`.f`'s `#### §10.x` (dropped one level precisely so the reader would not mint them). `.h`'s
+`DIVERGENCE-LEDGER.md` §11 (`e31b8450`) uses `###` for its four subsections: (1) the `F-w4f-1` row is a
+table under `### §11.1 The row` — no ` — `, so **no ledger row with id `F-w4f-1` exists to the
+reader**, and `SEAM-CONTRACT.md` row 19's `` `F-w4f-1` `` is an unknown id (**[F]**); (2)
+`### §11.4 F-w4f-2 — DISCHARGED …` DOES match, so a **phantom row `§11.4 F-w4f-2`** is minted that
+names no export and is absent from the contract's `SURFACE-WIDE` block (**[J]**). L-14 refutation
+attempted on the checker instead: its reader is the standing grammar, `.g`'s controls certify it, and
+reading §11.1's table would be a second row grammar minted to pass one gate — REFUSED. **The RED is
+honest and the ledger's.** Neither `DIVERGENCE-LEDGER.md` nor the checker is in this unit's writable
+set; the cure is returned by id as **E-w4f2-1** (§13.4).
+
+### 13.3 Adjudicative rulings this seat records (no file in its set holds `ADJUDICATION-W4.md`; recorded here, dated)
+
+- **`.h` R-1 — the 27 `ADJUDICATION_UNHONOURED` cells at `parseStylesheet`.** Each is a source a
+  repair class governs for its COLOUR (`expect: accept`) that also carries a declaration NAME which
+  is not one `<ident-token>`; 4.0.0 accepts the sheet, the candidate now refuses it (css-syntax-3
+  §5.4.4, `fede7d3`). **RULED: candidate correct; `declared-divergence`; consumer direction NARROWS**
+  (a sheet with a non-ident declaration NAME is refused whole under the seam's ruled error posture).
+  The resolver files the mechanism under **`ID-1b`** (its residual predicate names
+  `nonIdentDeclarationName`), so all 27 are inside the §0w set — `.h`'s `NOT IN THE SET 0` stands —
+  and **`F-w4f-1` is the named mechanism, `ID-1b` the census id**. Retagging `ID-1b → F-w4f-1` in
+  `adjudications.mjs` or the banked `universe-52.json` is **REFUSED** (E-3: pinned populations and
+  `RULING_IDS` are immutable); the class predicate's `expect: accept` is superseded at these 27
+  sources by this ruling, by dated addendum, exactly as `ADJUDICATION-W4.md` §12 already states. The
+  differential's `ADJUDICATION_UNHONOURED 27` line is therefore a vocabulary reading over a ruled
+  class, printed rather than smoothed — it is not a mirror-defect outside a ruled id.
+- **`.h` R-3 — `red ! important` / `red! important`.** REJECT in both engines: shared, no cell, no
+  divergence, no act. The seam's whitespace posture is not widened by this seat.
+- **`.g` ESC-W4g-1 — the emitter's `§10`/`§11` carry.** A durability defect against a future
+  regeneration, not a live RED: `DIVERGENCE-LEDGER.md` stands (E-3) and no regeneration is ordered.
+  Owner unchanged (`emit-divergence-ledger.mjs`, `<p2>`).
+
+### 13.4 The stamp — WITHHELD by gate id G-1; the carves not performed; the cure named
+
+§6 G-10's falsifier and COHESION §0y/§0ab bind: **no `VERIFIED` row moved** (⟨cmd⟩ the shape-(a) sum
+after every write of this seat → **5 ≡ 5**; `git status --porcelain -- waves/W[0-4].md COHESION.md` →
+0 lines), **neither COHESION carve performed** (both or neither: neither). X.P.W4's CLOSED row is
+untouched.
+
+**E-w4f2-1 (ESCALATION, for the triumvirate — `DIVERGENCE-LEDGER.md`, `.h`'s modify-append file).**
+Two byte-level acts, each a form correction of a dated section and therefore the triumvirate's to
+rule (E-3): (a) `### §11.4 …` → `#### §11.4 …` (the §10 idiom), so no phantom row is minted; (b) the
+`F-w4f-1` row rendered in the reader's grammar — `### F-w4f-1 — a declaration NAME that is not one
+<ident-token>` with the `| field | value |` table (`input(s)` · `incumbent` · `candidate` ·
+`spec citation` · `adjudication` · `consumer direction`), its content lifted from §11.1's table —
+either in place of §11.1's table or as a dated `§12` beside it. Then G-1 re-runs; a further fresh
+seat (`.f3`) stamps iff G-1..G-9 GREEN. Widening the checker's reader is REFUSED as a masking cure.
+
+### 13.5 Residuals out of this close, each with its owner
+
+| id | residual | owner |
+|---|---|---|
+| **E-w4f2-1** | the ledger's §11 form vs the checker's row grammar ([F] + [J]); the stamp withheld on it | the triumvirate → `DIVERGENCE-LEDGER.md` (`.h`'s row) |
+| **L-13 seat count 4 of 6** | `x-p-w4s.json` fold/2: `.e` · `.e2` · `.g` · `.h` harvested; `.f` returned but its journal carries NO result row (`wf_7afdc968-28c` unchanged at 7 results); `.f2` structurally absent | X-W11's HARVEST (§0k HG-7) beside F-e11 |
+| **DEFECT-LEDGER append** for `.g`/`.h`'s rows | not written — `registry/DEFECT-LEDGER.md` is in no row of this grant (the §0p run-B procedure is the close seat's or `.g`'s) | the orchestrator / the close seat |
+| **`LEDGER.md`** | clean at this seat; NOT in this unit's writable set; the X.P.W4S row stays TRUE (OPEN in RESUME MODE, `.f2` returned ESCALATED) | SEAT 0 (close) |
+| `.h` R-2 / ESC-W4g-1 · R-1 · R-3 | ruled or carried in §13.3 | as named there |

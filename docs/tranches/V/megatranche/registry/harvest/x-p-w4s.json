@@ -1,10 +1,10 @@
 {
  "servedModel": "claude-fable-5-1",
- "schema": "x-p-w4s.f.harvest-fold/1",
+ "schema": "x-p-w4s.f2.harvest-fold/2",
  "workflow": "x-p-w4s",
- "unit": "X.P.W4.f",
- "clock": "2026-09-19T14:01:50.390Z",
- "note": "FOLDED by X.P.W4.f, by program, from the UNMODIFIED harvester's own outputs (§0p scratch-mirror procedure, two mirrors, sha256-equal). `harvest-journals.mjs` names every output by runId and so cannot emit a file called x-p-w4s.json (x-p-w0/w1/w3/w4.json were filed the same way). X.P.W4S ran as TWO workflow runs: the first sitting (wf_a25d7c23-90d — `.e`, ESCALATED at 93bcb83) and the RESUME on COHESION §0aa (wf_7afdc968-28c — `.e2`, DONE at 43c3f48 + 49ca70b; `.f`, this seat). Both run files are embedded VERBATIM as the harvester wrote them (`document`), each with its sha256 and byte count. The X.P.W4.f seat's OWN result row is structurally absent — a harvesting seat cannot appear in its own harvest (X.P.W0 R-3 / X.P.W1 R-3 / ESC-e2 / X.P.W4 repair-2, reproduced again); a post-return re-harvest by the orchestrator with the same unmodified command is the only act that can read 3 of 3.",
+ "unit": "X.P.W4.f2",
+ "clock": "2026-09-20T03:42:30.170345Z",
+ "note": "FOLDED by X.P.W4.f2, by program, from the UNMODIFIED harvester's own outputs (COHESION §0p scratch-mirror procedure: two fresh mirrors with the script symlinked, DEFECT-LEDGER.md NOT symlinked; every embedded run file sha256-equal across mirrors A and B). The predecessor fold/1 (X.P.W4.f, commit e456c2ff, 56673 B) was MEASURED before this write and is embedded WHOLE and VERBATIM under `predecessor.document` (E-3: a fold never blind-creates over banked evidence). X.P.W4S has now run as FOUR workflow runs: wf_a25d7c23-90d (first sitting — `.e` ESCALATED), wf_7afdc968-28c (RESUME on §0aa — `.e2` DONE; `.f` returned ESCALATED at 3d4470f2 but its result row is ABSENT from this journal: 7 results, unchanged sha d557c966… since fold/1), wf_3c0a3280-0ce (THIRD sitting — `.g` ∥ `.h` returned DEAD, zero unit rows: 6 results, all open/close seats), wf_d0a271b1-356 (FOURTH sitting — `.g` PARTIAL at resultIndex 6, `.h` DONE at resultIndex 7; `.f2`, this seat, structurally absent). Seat count 4 of 6 — RED under L-13's letter: `.f` is a returned seat whose row the journal never carried (a harvester/journal finding, owner X-W11's HARVEST beside F-e11), `.f2` cannot appear in its own harvest (W0 R-3 / W1 R-3 / ESC-e2, reproduced).",
  "harvester": {
   "path": "docs/tranches/V/megatranche/workflows/harvest-journals.mjs",
   "sha256": "77a6e04c20674f1575891ac9f3daa8421491fc2ec98bd784dc61b4563c978a28",
@@ -12,82 +12,596 @@
   "workingTreeStatus": "git status --porcelain -- docs/tranches/V/megatranche/workflows/ → 0 lines",
   "invocation": "node docs/tranches/V/megatranche/workflows/harvest-journals.mjs",
   "session": "default (CLAUDE_SESSION_DIR unset) — /Users/mkbabb/.claude/projects/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e",
-  "cwd": "a scratch MIRROR (COHESION §0p, F-e11 / K.7(i)) whose docs/tranches/V/megatranche/workflows/harvest-journals.mjs is a SYMLINK to the repo's file and whose registry/ is empty; the script's 155-file spillage and its wholesale DEFECT-LEDGER.md rewrite land in the mirror, never in the repo",
-  "doubleRun": "run in TWO fresh mirrors (hm, hm2); every wf_*.json below is sha256-equal across the two runs; DEFECT-LEDGER.md output sha256-equal across the two runs (9092e062…), 120,302 lines vs the repo's 120,188 — NOT written to the repo (registry/DEFECT-LEDGER.md is in no row of X.P.W4.f's grant)"
+  "cwd": "two scratch MIRRORS (COHESION §0p, F-e11 / K.7(i)) with the script symlinked; 167 files written per mirror, 3363 agent results · 7847 defects, EXIT=0 both; nothing written under the repo",
+  "mirrorAgreement": "every embedded run file sha256-equal between mirror A and mirror B"
  },
  "dispatched": [
   "X.P.W4.e",
   "X.P.W4.e2",
-  "X.P.W4.f"
+  "X.P.W4.f",
+  "X.P.W4.g",
+  "X.P.W4.h",
+  "X.P.W4.f2"
  ],
- "planned": {
-  "X.P.W4.e": [
-   "packaging — F-w4b-3 cure (a): C1 manifest · C2 tsx runtime import dies · C3 in-package frozen types; gate G-3"
-  ],
-  "X.P.W4.e2": [
-   "§0aa: the arity-instantiated check line (E-w4e-1) + packratEnter/packratExit on ./packrat and bounds.mjs's loader death (E-w4e-2 cure (a)); gate G-3 + tsx-free shipped bytes"
-  ],
-  "X.P.W4.f": [
-   "the fresh Fable adjudicator (E-r2-1): the 45 PENDING cells ruled, ADJUDICATION-W4.md, G-1..G-10 re-run, the R-A stamp iff G-1..G-9 GREEN, Q-RC-1's V-tarball arm, the harvests"
-  ]
- },
  "harvested": {
-  "X.P.W4.e": [
-   {
-    "runId": "wf_a25d7c23-90d",
-    "resultIndex": 6,
-    "agentId": "a01beb2e8a221e32c",
-    "status": "ESCALATED",
-    "commits": [
-     "93bcb83 (<p2>) feat(x-p-w4.e/packed): C1 manifest + C2 site-1 loader death + C3 in-package frozen types",
-     "e9140c34 (value.js) docs(x-p-w4.e/evidence): five NEW dated files beside .b's",
-     "f170e178 (value.js) docs(x-p-w4.e): the unit receipt in execution/D/X-P-W4S.md"
-    ],
-    "gatesGreen": [],
-    "gatesRed": [
-     "G-3"
-    ],
-    "escalation": "TWO escalations, both measured, neither worked around.\n\nE-w4e-1 — G-3's TYPES half is unsatisfiable AS WRITTEN, against the frozen surface itself, and the cure is outside this unit's writable set. After the three cures landed, G-3 moved 0-of-52 -> 19-of-52 (entryCount 1 -> 91, seamSubpathDeclared false -> true, refusals 5/5, pack/declaration/install all true, double-run identical incl. tarballSha256 6b51c336...). The sole remaining failure: scripts/packed-candidate-surface.mjs:400 emits `export type __check_<N> = <N>;` for each of the 33 type names; the sha-pinned 4.0.0 declaration declares `export declare type ParseResult<T>` (css.d.ts:241) with ONE REQUIRED type parameter and NO default, so that line is TS2314 \"Generic type 'ParseResult' requires 1 type argument(s)\", and :420 (`resolved: compile.status === 0 ? true : !named(name) && diagnostics.length === 0`) converts that single diagnostic into 33 unresolved rows. It is a defect of the ASSERTION FORM, not of the tarball, and would fail for ANY candidate including @mkbabb/value.js@4.0.0. PROVEN by positive control in a staged consumer tree outside both repos, against a tarball of the SAME sha: 19/19 runtime names imported, and all 33 frozen types compiled with strict + skipLibCheck:false at EXIT=0, with only one token changed (ParseResult -> ParseResult<unknown>); negative control (one absent name) EXIT=2 / TS2305, so the green discriminates. MINIMAL CURE: instantiate a generic name in that generated line. scripts/packed-candidate-surface.mjs is X.P.W4.b's file and is in NO row of the third dated addendum's X.P.W4.e clause, so the write was STOPPED AND RETURNED. This is diagnostic iteration 1 and it was monotone, so §3a's third-iteration trigger has NOT fired.\n\nE-w4e-2 — C2's second site (bounds.mjs:834) cannot take the specified cure without a §3a File-bound expansion. Measured at the built bytes: dist/parse.js exports Parser · createParserContext · memoize · mergeMemos · resetPackrat; dist/packrat.js exports memoize · mergeMemos · resetPackrat; NEITHER carries packratEnter/packratExit, which is exactly what readPackratArmState() calls (the chunk exports them only as mangled m/i/k). arm and reset port to the built entry unchanged; the READBACK does not. A module-local \"have we armed\" flag was REFUSED: it would answer the very question latch.test.ts L-3 exists to measure, turning a MEASURED red into an ASSERTED one — the masking fallback bounds.mjs:805-806 forbids in its own words. bounds.mjs was therefore LEFT UNTOUCHED. Lawful cures, both outside these bounds: (a) add packratEnter/packratExit to typescript/src/parse/packrat-entry.ts so the built ./packrat subpath carries the reader, after which bounds.mjs imports @mkbabb/parse-that/packrat and the loader dies with the instrument's reading fully preserved; (b) rule the instrument may not read the latch and re-characterize ESC-c1's leg. Blast radius measured: the site is a LAZY require inside loadPackratInstrument(), called only by test/css-recovery/boundary/latch.test.ts and scripts/css-bench-three-leg.mjs — never by the css parse path (entry.mjs:87-89 takes only bounds tables), and G-3's resolve leg reached all 19 runtime names from the installed tarball with NO tsx present. It does not hold G-3 red.\n\nCONSEQUENCE: the serial lock stands. `.f` must not run — it requires `G3 GREEN`, and G-10's falsifier fails a stamp performed while any of G-1..G-9 is red. The unblocking act is E-w4e-1's one-token cure by a seat that owns packed-candidate-surface.mjs; after it, G-3's resolve leg is expected (and must be MEASURED, not assumed) to read 52 of 52 on the bytes already committed at 93bcb83."
-   }
-  ],
-  "X.P.W4.e2": [
-   {
-    "runId": "wf_7afdc968-28c",
-    "resultIndex": 6,
-    "agentId": "adca4a9db3952d697",
-    "status": "DONE",
-    "commits": [
-     "43c3f48 (<p2>) fix(x-p-w4.e2/packed): E-w4e-1 — the check line is INSTANTIATED to the arity the installed declaration declares [typescript/scripts/packed-candidate-surface.mjs]",
-     "49ca70b (<p2>) fix(x-p-w4.e2/packrat): E-w4e-2 cure (a) — the latch reader rides ./packrat, tsx dies from the shipped bytes [typescript/src/parse/packrat-entry.ts · typescript/src/css/bounds.mjs; ONE FAMILY, not split]",
-     "c6ec1ee6 (value.js) docs(x-p-w4.e2/evidence): five NEW dated files under evidence/W4/, 3191 insertions / 0 deletions",
-     "c5c13f83 (value.js) docs(x-p-w4.e2): the unit receipt in execution/D/X-P-W4S.md, 223 insertions / 0 deletions"
-    ],
-    "gatesGreen": [
-     "G-3 — resolved 52 of 52 (was 19 of 52) · entryCount 91 · seamSubpathDeclared true · refusals 5/5 · every verdict leg true · G3 GREEN · EXIT=0 · double-run identical but for generatedAt · re-confirmed at the committed bytes",
-     "tsx-free shipped bytes — grep -rn 'tsx' src/css/ minus comment lines → 0 code hits, in the tree AND over the unpacked tarball's package/src/css/, against installed dependencies {}",
-     "G-4 (not this unit's; re-read because dist/ was rebuilt) — functionKindImportsTotal 0 · unaccountedImportsTotal 0 · verdict GREEN · EXIT=0, on .e's UNCHANGED ac1.wasm (662339 B)",
-     "G-2 (read with attribution) — raw command 2 lines, both demo/styles/** and a concurrent Track-A seat's; git show --name-only over this unit's value.js commits → 0 src/demo/api/test/e2e paths"
-    ],
-    "gatesRed": [],
-    "escalation": null
-   }
-  ],
-  "X.P.W4.f": null
+  "X.P.W4.e": {
+   "runId": "wf_a25d7c23-90d",
+   "resultIndex": 6
+  },
+  "X.P.W4.e2": {
+   "runId": "wf_7afdc968-28c",
+   "resultIndex": 6
+  },
+  "X.P.W4.g": {
+   "runId": "wf_d0a271b1-356",
+   "resultIndex": 6
+  },
+  "X.P.W4.h": {
+   "runId": "wf_d0a271b1-356",
+   "resultIndex": 7
+  }
  },
  "seatCount": {
-  "dispatched": 3,
-  "harvestedUnitRows": 2,
+  "dispatched": 6,
+  "harvestedUnitRows": 4,
   "absent": [
-   "X.P.W4.f"
+   "X.P.W4.f",
+   "X.P.W4.f2"
   ],
   "zeroRowSeats": [],
-  "reading": "RED under L-13's letter (2 of 3): X.P.W4.f is structurally absent — a harvesting unit cannot appear in its own harvest. Every seat that has returned carries exactly one non-empty result row."
+  "reading": "RED under L-13's letter (4 of 6): X.P.W4.f returned (ESCALATED, 3d4470f2) but its journal carries no result row; X.P.W4.f2 is structurally absent — a harvesting unit cannot appear in its own harvest. Every harvested seat carries exactly one non-empty unit row."
+ },
+ "predecessor": {
+  "schema": "x-p-w4s.f.harvest-fold/1",
+  "unit": "X.P.W4.f",
+  "commit": "e456c2ff",
+  "bytes": 56673,
+  "sha256": "bd09f39d3fea5146fbcbd99f8c6029d14ca5d42a4342b8499da739d3e49d8a77",
+  "document": {
+   "servedModel": "claude-fable-5-1",
+   "schema": "x-p-w4s.f.harvest-fold/1",
+   "workflow": "x-p-w4s",
+   "unit": "X.P.W4.f",
+   "clock": "2026-09-19T14:01:50.390Z",
+   "note": "FOLDED by X.P.W4.f, by program, from the UNMODIFIED harvester's own outputs (§0p scratch-mirror procedure, two mirrors, sha256-equal). `harvest-journals.mjs` names every output by runId and so cannot emit a file called x-p-w4s.json (x-p-w0/w1/w3/w4.json were filed the same way). X.P.W4S ran as TWO workflow runs: the first sitting (wf_a25d7c23-90d — `.e`, ESCALATED at 93bcb83) and the RESUME on COHESION §0aa (wf_7afdc968-28c — `.e2`, DONE at 43c3f48 + 49ca70b; `.f`, this seat). Both run files are embedded VERBATIM as the harvester wrote them (`document`), each with its sha256 and byte count. The X.P.W4.f seat's OWN result row is structurally absent — a harvesting seat cannot appear in its own harvest (X.P.W0 R-3 / X.P.W1 R-3 / ESC-e2 / X.P.W4 repair-2, reproduced again); a post-return re-harvest by the orchestrator with the same unmodified command is the only act that can read 3 of 3.",
+   "harvester": {
+    "path": "docs/tranches/V/megatranche/workflows/harvest-journals.mjs",
+    "sha256": "77a6e04c20674f1575891ac9f3daa8421491fc2ec98bd784dc61b4563c978a28",
+    "lastCommit": "c0078d96 2026-07-27",
+    "workingTreeStatus": "git status --porcelain -- docs/tranches/V/megatranche/workflows/ → 0 lines",
+    "invocation": "node docs/tranches/V/megatranche/workflows/harvest-journals.mjs",
+    "session": "default (CLAUDE_SESSION_DIR unset) — /Users/mkbabb/.claude/projects/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e",
+    "cwd": "a scratch MIRROR (COHESION §0p, F-e11 / K.7(i)) whose docs/tranches/V/megatranche/workflows/harvest-journals.mjs is a SYMLINK to the repo's file and whose registry/ is empty; the script's 155-file spillage and its wholesale DEFECT-LEDGER.md rewrite land in the mirror, never in the repo",
+    "doubleRun": "run in TWO fresh mirrors (hm, hm2); every wf_*.json below is sha256-equal across the two runs; DEFECT-LEDGER.md output sha256-equal across the two runs (9092e062…), 120,302 lines vs the repo's 120,188 — NOT written to the repo (registry/DEFECT-LEDGER.md is in no row of X.P.W4.f's grant)"
+   },
+   "dispatched": [
+    "X.P.W4.e",
+    "X.P.W4.e2",
+    "X.P.W4.f"
+   ],
+   "planned": {
+    "X.P.W4.e": [
+     "packaging — F-w4b-3 cure (a): C1 manifest · C2 tsx runtime import dies · C3 in-package frozen types; gate G-3"
+    ],
+    "X.P.W4.e2": [
+     "§0aa: the arity-instantiated check line (E-w4e-1) + packratEnter/packratExit on ./packrat and bounds.mjs's loader death (E-w4e-2 cure (a)); gate G-3 + tsx-free shipped bytes"
+    ],
+    "X.P.W4.f": [
+     "the fresh Fable adjudicator (E-r2-1): the 45 PENDING cells ruled, ADJUDICATION-W4.md, G-1..G-10 re-run, the R-A stamp iff G-1..G-9 GREEN, Q-RC-1's V-tarball arm, the harvests"
+    ]
+   },
+   "harvested": {
+    "X.P.W4.e": [
+     {
+      "runId": "wf_a25d7c23-90d",
+      "resultIndex": 6,
+      "agentId": "a01beb2e8a221e32c",
+      "status": "ESCALATED",
+      "commits": [
+       "93bcb83 (<p2>) feat(x-p-w4.e/packed): C1 manifest + C2 site-1 loader death + C3 in-package frozen types",
+       "e9140c34 (value.js) docs(x-p-w4.e/evidence): five NEW dated files beside .b's",
+       "f170e178 (value.js) docs(x-p-w4.e): the unit receipt in execution/D/X-P-W4S.md"
+      ],
+      "gatesGreen": [],
+      "gatesRed": [
+       "G-3"
+      ],
+      "escalation": "TWO escalations, both measured, neither worked around.\n\nE-w4e-1 — G-3's TYPES half is unsatisfiable AS WRITTEN, against the frozen surface itself, and the cure is outside this unit's writable set. After the three cures landed, G-3 moved 0-of-52 -> 19-of-52 (entryCount 1 -> 91, seamSubpathDeclared false -> true, refusals 5/5, pack/declaration/install all true, double-run identical incl. tarballSha256 6b51c336...). The sole remaining failure: scripts/packed-candidate-surface.mjs:400 emits `export type __check_<N> = <N>;` for each of the 33 type names; the sha-pinned 4.0.0 declaration declares `export declare type ParseResult<T>` (css.d.ts:241) with ONE REQUIRED type parameter and NO default, so that line is TS2314 \"Generic type 'ParseResult' requires 1 type argument(s)\", and :420 (`resolved: compile.status === 0 ? true : !named(name) && diagnostics.length === 0`) converts that single diagnostic into 33 unresolved rows. It is a defect of the ASSERTION FORM, not of the tarball, and would fail for ANY candidate including @mkbabb/value.js@4.0.0. PROVEN by positive control in a staged consumer tree outside both repos, against a tarball of the SAME sha: 19/19 runtime names imported, and all 33 frozen types compiled with strict + skipLibCheck:false at EXIT=0, with only one token changed (ParseResult -> ParseResult<unknown>); negative control (one absent name) EXIT=2 / TS2305, so the green discriminates. MINIMAL CURE: instantiate a generic name in that generated line. scripts/packed-candidate-surface.mjs is X.P.W4.b's file and is in NO row of the third dated addendum's X.P.W4.e clause, so the write was STOPPED AND RETURNED. This is diagnostic iteration 1 and it was monotone, so §3a's third-iteration trigger has NOT fired.\n\nE-w4e-2 — C2's second site (bounds.mjs:834) cannot take the specified cure without a §3a File-bound expansion. Measured at the built bytes: dist/parse.js exports Parser · createParserContext · memoize · mergeMemos · resetPackrat; dist/packrat.js exports memoize · mergeMemos · resetPackrat; NEITHER carries packratEnter/packratExit, which is exactly what readPackratArmState() calls (the chunk exports them only as mangled m/i/k). arm and reset port to the built entry unchanged; the READBACK does not. A module-local \"have we armed\" flag was REFUSED: it would answer the very question latch.test.ts L-3 exists to measure, turning a MEASURED red into an ASSERTED one — the masking fallback bounds.mjs:805-806 forbids in its own words. bounds.mjs was therefore LEFT UNTOUCHED. Lawful cures, both outside these bounds: (a) add packratEnter/packratExit to typescript/src/parse/packrat-entry.ts so the built ./packrat subpath carries the reader, after which bounds.mjs imports @mkbabb/parse-that/packrat and the loader dies with the instrument's reading fully preserved; (b) rule the instrument may not read the latch and re-characterize ESC-c1's leg. Blast radius measured: the site is a LAZY require inside loadPackratInstrument(), called only by test/css-recovery/boundary/latch.test.ts and scripts/css-bench-three-leg.mjs — never by the css parse path (entry.mjs:87-89 takes only bounds tables), and G-3's resolve leg reached all 19 runtime names from the installed tarball with NO tsx present. It does not hold G-3 red.\n\nCONSEQUENCE: the serial lock stands. `.f` must not run — it requires `G3 GREEN`, and G-10's falsifier fails a stamp performed while any of G-1..G-9 is red. The unblocking act is E-w4e-1's one-token cure by a seat that owns packed-candidate-surface.mjs; after it, G-3's resolve leg is expected (and must be MEASURED, not assumed) to read 52 of 52 on the bytes already committed at 93bcb83."
+     }
+    ],
+    "X.P.W4.e2": [
+     {
+      "runId": "wf_7afdc968-28c",
+      "resultIndex": 6,
+      "agentId": "adca4a9db3952d697",
+      "status": "DONE",
+      "commits": [
+       "43c3f48 (<p2>) fix(x-p-w4.e2/packed): E-w4e-1 — the check line is INSTANTIATED to the arity the installed declaration declares [typescript/scripts/packed-candidate-surface.mjs]",
+       "49ca70b (<p2>) fix(x-p-w4.e2/packrat): E-w4e-2 cure (a) — the latch reader rides ./packrat, tsx dies from the shipped bytes [typescript/src/parse/packrat-entry.ts · typescript/src/css/bounds.mjs; ONE FAMILY, not split]",
+       "c6ec1ee6 (value.js) docs(x-p-w4.e2/evidence): five NEW dated files under evidence/W4/, 3191 insertions / 0 deletions",
+       "c5c13f83 (value.js) docs(x-p-w4.e2): the unit receipt in execution/D/X-P-W4S.md, 223 insertions / 0 deletions"
+      ],
+      "gatesGreen": [
+       "G-3 — resolved 52 of 52 (was 19 of 52) · entryCount 91 · seamSubpathDeclared true · refusals 5/5 · every verdict leg true · G3 GREEN · EXIT=0 · double-run identical but for generatedAt · re-confirmed at the committed bytes",
+       "tsx-free shipped bytes — grep -rn 'tsx' src/css/ minus comment lines → 0 code hits, in the tree AND over the unpacked tarball's package/src/css/, against installed dependencies {}",
+       "G-4 (not this unit's; re-read because dist/ was rebuilt) — functionKindImportsTotal 0 · unaccountedImportsTotal 0 · verdict GREEN · EXIT=0, on .e's UNCHANGED ac1.wasm (662339 B)",
+       "G-2 (read with attribution) — raw command 2 lines, both demo/styles/** and a concurrent Track-A seat's; git show --name-only over this unit's value.js commits → 0 src/demo/api/test/e2e paths"
+      ],
+      "gatesRed": [],
+      "escalation": null
+     }
+    ],
+    "X.P.W4.f": null
+   },
+   "seatCount": {
+    "dispatched": 3,
+    "harvestedUnitRows": 2,
+    "absent": [
+     "X.P.W4.f"
+    ],
+    "zeroRowSeats": [],
+    "reading": "RED under L-13's letter (2 of 3): X.P.W4.f is structurally absent — a harvesting unit cannot appear in its own harvest. Every seat that has returned carries exactly one non-empty result row."
+   },
+   "runs": [
+    {
+     "runId": "wf_a25d7c23-90d",
+     "sha256": "9c84cbb5e82caa1da0f37ddec4cf4d3c68da641f7c69fa0e120617ee798b569c",
+     "bytes": 28313,
+     "document": {
+      "runId": "wf_a25d7c23-90d",
+      "workflow": "wf_a25d7c23-90d",
+      "resultCount": 8,
+      "results": [
+       {
+        "agentId": "afbda172fb3ffa2c7",
+        "key": "v2:3931eba5fbfa5efe5a677afbcde98828b81fea36efc89eeeb6194630d14133b1",
+        "result": {
+         "groups": [],
+         "units": [],
+         "skip": true,
+         "alreadyDone": [
+          "X.P.W0"
+         ],
+         "greenBeforeCure": [],
+         "recordCommit": ""
+        }
+       },
+       {
+        "agentId": "ae390f565037fb658",
+        "key": "v2:6dc4705983e4e73c946098c3ccd6278e50af88a4112f36e175d3bc8f222cdadf",
+        "result": {
+         "skip": true,
+         "groups": [],
+         "units": [],
+         "alreadyDone": [],
+         "greenBeforeCure": [],
+         "recordCommit": ""
+        }
+       },
+       {
+        "agentId": "afd81f39c49e5e6ae",
+        "key": "v2:9bdc38c59ac8437499bf52d034a66b214675d4f0e1855e91fd15b041a040ea4d",
+        "result": {
+         "skip": true,
+         "groups": [],
+         "units": [],
+         "alreadyDone": [],
+         "greenBeforeCure": [],
+         "recordCommit": ""
+        }
+       },
+       {
+        "agentId": "aa3befa0149aff050",
+        "key": "v2:d4aeae2093a9e823476e6ad9a2afcf65693f5c530bc256e51900187522ad31a1",
+        "result": {
+         "skip": true,
+         "groups": [],
+         "units": [],
+         "alreadyDone": [],
+         "greenBeforeCure": [],
+         "recordCommit": ""
+        }
+       },
+       {
+        "agentId": "a31c8575f549a5aa6",
+        "key": "v2:aded80fffb3840a25766de501c13ffed308e8eafcf99f764c8949b38eecccb10",
+        "result": {
+         "skip": true,
+         "groups": [],
+         "units": [],
+         "alreadyDone": [],
+         "greenBeforeCure": [],
+         "recordCommit": ""
+        }
+       },
+       {
+        "agentId": "a37836dc3c23193e8",
+        "key": "v2:f8c32422abde148b423080124ace1521b794b1eec4104d611378f3f45485ea0a",
+        "result": {
+         "groups": [
+          [
+           "X.P.W4.e"
+          ],
+          [
+           "X.P.W4.f"
+          ]
+         ],
+         "units": [
+          {
+           "id": "X.P.W4.e",
+           "model": "opus",
+           "sections": "W4.md THIRD dated addendum (line 678, the `X.P.W4.e` clause — the unit's own bounds + gate) · §3 Scope item 3 (106-108) · §3 Prohibitions (132-140) · §4 File Bounds (162-194, as amended beside by the addendum) · §4b Worktree Plan (216-237) · §6 G-3 (383-397) · §7 Format/Lint (545-554) · §9 Commit Plan (581-598) · COHESION.md §0y F-w4b-3 (1642-1653)",
+           "writable": [
+            "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/package.json",
+            "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build.mjs",
+            "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/**",
+            "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/lowering-js/js-alg.mjs",
+            "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/bounds.mjs",
+            "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/lowering-wasm/index.mjs (the ONE artefact-loader line only, iff G-3's resolve leg names it)",
+            "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W4/** (NEW dated files beside .b's — never an overwrite)"
+           ],
+           "gates": [
+            "G-3"
+           ],
+           "locks": "Serial head of the wave: `.e` must read `G3 GREEN` before `.f` runs (G-10's falsifier: a stamp while any of G-1..G-9 is red fails). Shares no create/modify path with `.f`. `<p2>` commits and value.js commits are separate pathspec commits. `../parse-that`, `../keyframes.js`, `../fourier-analysis`, `../glass-ui` READ-ONLY; zero bytes under value.js src/demo/api/test/e2e (G-2); evidence/W4 is append-beside (E-3), never an overwrite of `.b`'s files. Third diagnostic iteration on G-3 = triumvirate escalation (§3a).",
+           "brief": "Turn G-3 by three cures, never a workaround. C1 typescript/package.json: `files` ships the css runtime AND the Wasm artefact; `exports[\"./css\"]` declares import+types. C2 the tsx/esm/api runtime import DIES (js-alg.mjs:23, bounds.mjs:834) — css imports the library through the package's own built entry; tsx as a runtime dependency is REFUSED. C3 build.mjs emits the 33 frozen types as in-package bytes, byte-copied from the sha-pinned vendored 4.0.0 decl, sha in the header; ac1.d.ts re-exports it. Run packed-candidate-surface.mjs --seam SEAM-CONTRACT.md twice -> resolved 52 of 52, entryCount>=2, G3 GREEN; positive control in a staged tree outside both repos; NEW dated evidence beside .b's."
+          },
+          {
+           "id": "X.P.W4.f",
+           "model": "fable",
+           "sections": "W4.md THIRD dated addendum (line 678, the `X.P.W4.f` clause) · §2b OP-6 (line 73) · §2 R-A (46-53) · §3 Scope items 6-10 (114-130) · §5 X.P.W4.d mechanism (293-312, the adjudicative half it inherits) · §6 G-1..G-10 (314-543), G-10 READ IN SHAPE (a) per the addendum · §8 Verification Artefacts (556-579) · §9 (581-598) · §12 L-18 rider (651-665) · COHESION.md §0y (1634-1688: E-r2-1 · F-w4c-2 · Q-RC-1 · Q-RC-2 · the two carves), §0v (1574-1584, GROUND-C), §0w (1586-1602, the id-set and each class's ruling), §0j.E (1024-1036, OP-1 + OC-1)",
+           "writable": [
+            "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/SEAM-CONTRACT.md (disposition + consumer-direction cells of the 45 PENDING-ADJUDICATION rows ONLY)",
+            "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/ADJUDICATION-W4.md (create)",
+            "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md (modify-append, rulingId fields)",
+            "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W4-CLOSE.md (append a dated §12 only)",
+            "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/RELEASE-PACKET.md (a dated addendum section only)",
+            "/Users/mkbabb/Programming/value.js/docs/tranches/V/coordination/INBOX.md (mail rows only)",
+            "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W0.md, W1.md, W2.md, W3.md, W4.md (the four-verb VERIFIED row only — R-A, ONE act, iff G-1..G-9 GREEN)",
+            "/Users/mkbabb/Programming/value.js/docs/tranches/X/COHESION.md (§1 SS-5 status cell + §5 board line ONLY, iff the stamp is performed)",
+            "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/scripts/rc-p-evaluate.mjs",
+            "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/RELEASE-CONDITION.md (§2.3 dated addendum only)",
+            "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/harvest/x-p-w3.json",
+            "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/harvest/x-p-w4s.json"
+           ],
+           "gates": [
+            "G-1",
+            "G-2",
+            "G-3",
+            "G-4",
+            "G-5",
+            "G-6",
+            "G-7",
+            "G-8",
+            "G-9",
+            "G-10"
+           ],
+           "locks": "FRESH seat (M-23 §1) — must have authored no byte of X.P.W4 or of `.e`. Opens only after `.e` lands G3 GREEN. The R-A stamp is ONE act over the five four-verb VERIFIED rows (W0-W4) and does not split; performed IFF G-1..G-9 GREEN at this seat's own re-run, else WITHHELD BY GATE ID. The two COHESION carves land only under a performed stamp — both or neither. INBOX.md is shared with X·V mail units (§4a cross-wave): never run concurrently with an open X·V mail unit; rows appended, never rewritten. E-3: SEAM-CONTRACT cells are carve-edits, W4-CLOSE/RELEASE-PACKET/RELEASE-CONDITION take dated addenda-beside, x-p-w3.json already exists (measure before writing). Zero value.js src/demo/api/test/e2e bytes (G-2, read with attribution — see record).",
+           "brief": "Rule all 45 PENDING-ADJUDICATION seam cells by the §0w id-set {GROUND-C · ID-1/ID-1b · ID-2 · ID-3 · ID-4 · ID-5 · PB-11 · R-f1 · E-k2}, GROUND-C per §0v (overflow is no syntax error; range per production). No cell left PENDING. Create ADJUDICATION-W4.md (ruling + predicate per cell); append rulingId to DIVERGENCE-LEDGER.md; re-run seam-contract-check.mjs; re-run G-1..G-10 at own clock, G-10 shape (a) 5->0; R-A stamp IFF G-1..G-9 GREEN else withhold BY GATE ID; the two COHESION carves only under a performed stamp; land Q-RC-1 V-tarball arm (rc-p-evaluate.mjs + RELEASE-CONDITION.md §2.3 addendum) or return the reason; harvests x-p-w3.json (exists—measure first) + x-p-w4s.json. L-14 refute first."
+          }
+         ],
+         "alreadyDone": [],
+         "greenBeforeCure": [
+          "G-1 — seam contract 52/52: VERDICT GREEN at open (set-differences ∅/∅; census PENDING-ADJUDICATION 45 · identical 7; universe tally TOTAL 46 / PARTIAL 6 / ABSENT 0). Spec declares it born-RED (0 of 52); it was turned by X.P.W4.a — inherited, not this wave's work; `.f` re-runs it at its own clock.",
+          "G-2 — zero value.js source bytes: 0 lines at this seat's first reading, 2 lines at the settled bytes (demo/shell/PaneSlot.vue · demo/shell/usePaneRouter.ts, mtimes 08:35/08:36, arriving with an untracked docs/tranches/X/waves/W5/). Those are a CONCURRENT TRACK-A X-W5 seat's bytes in the shared checkout, not X·P's; GREEN for X·P, and the raw command is NOT globally clean — `.f` re-runs it WITH ATTRIBUTION (the claim X·P owes is that no commit of this wave contains a src/demo/api/test/e2e path).",
+          "G-4 — Wasm zero-function-import admission: total 0 · functionKind 0, empty-import instantiation OK, verdict GREEN, exit 0 against <p2>/typescript/src/css/build/ac1.wasm. Spec declares it born-RED (no artifact existed).",
+          "G-5 — RC-P evaluator exists and reports honestly: evaluator runs, RC-P(4.0.0) = FALSE, 3 of 6 conjuncts FALSE (1 PUBLISHED · 3 EQUIVALENCE · 4 ADMITTED), exit 1. Spec declares it born-RED (no evaluator). Banks two readings for `.f`: Q-RC-2 is already discharged at the bytes (ADMITTED reads 'FALSE, not vacuously true'), and conjunct 3 still binds the harness rather than V's tarball — Q-RC-1's arm is still owed.",
+          "G-6 — reciprocity both ends: 25 RC-P hits across docs/tranches/X/{keyframes,fourier}/waves/ (≥ 2 required). Spec declares it born-RED (neither wave directory existed).",
+          "G-8 — mail closed + lawful delivery path: RELEASE-PACKET.md present; INBOX carries RELEASE-PACKET (1) · SS-6 (25) · RC-P (1); 0 UNREAD over 80 rows, double-run. Spec declares it born-RED (0 rows, no packet).",
+          "G-9 — adoption gap terminal disposition: recorded in W4-CLOSE.md §6 G-9 ('never in silence'). Spec declares it born-RED.",
+          "G-7 — forbidden edge held at zero: 0 / 0 over fourier-analysis package.json and web/package.json. Declared by the spec itself as an INHERITED-GREEN FLOOR, not a surprise; listed for completeness of the sweep."
+         ],
+         "recordCommit": "548cd0ec"
+        }
+       },
+       {
+        "agentId": "a01beb2e8a221e32c",
+        "key": "v2:ff86d26364342306320b60a485f9dce6f02a5fea2545af38acb3e9419c853de5",
+        "result": {
+         "unit": "X.P.W4.e",
+         "status": "ESCALATED",
+         "commits": [
+          "93bcb83 (<p2>) feat(x-p-w4.e/packed): C1 manifest + C2 site-1 loader death + C3 in-package frozen types",
+          "e9140c34 (value.js) docs(x-p-w4.e/evidence): five NEW dated files beside .b's",
+          "f170e178 (value.js) docs(x-p-w4.e): the unit receipt in execution/D/X-P-W4S.md"
+         ],
+         "gatesGreen": [],
+         "gatesRed": [
+          "G-3"
+         ],
+         "escalation": "TWO escalations, both measured, neither worked around.\n\nE-w4e-1 — G-3's TYPES half is unsatisfiable AS WRITTEN, against the frozen surface itself, and the cure is outside this unit's writable set. After the three cures landed, G-3 moved 0-of-52 -> 19-of-52 (entryCount 1 -> 91, seamSubpathDeclared false -> true, refusals 5/5, pack/declaration/install all true, double-run identical incl. tarballSha256 6b51c336...). The sole remaining failure: scripts/packed-candidate-surface.mjs:400 emits `export type __check_<N> = <N>;` for each of the 33 type names; the sha-pinned 4.0.0 declaration declares `export declare type ParseResult<T>` (css.d.ts:241) with ONE REQUIRED type parameter and NO default, so that line is TS2314 \"Generic type 'ParseResult' requires 1 type argument(s)\", and :420 (`resolved: compile.status === 0 ? true : !named(name) && diagnostics.length === 0`) converts that single diagnostic into 33 unresolved rows. It is a defect of the ASSERTION FORM, not of the tarball, and would fail for ANY candidate including @mkbabb/value.js@4.0.0. PROVEN by positive control in a staged consumer tree outside both repos, against a tarball of the SAME sha: 19/19 runtime names imported, and all 33 frozen types compiled with strict + skipLibCheck:false at EXIT=0, with only one token changed (ParseResult -> ParseResult<unknown>); negative control (one absent name) EXIT=2 / TS2305, so the green discriminates. MINIMAL CURE: instantiate a generic name in that generated line. scripts/packed-candidate-surface.mjs is X.P.W4.b's file and is in NO row of the third dated addendum's X.P.W4.e clause, so the write was STOPPED AND RETURNED. This is diagnostic iteration 1 and it was monotone, so §3a's third-iteration trigger has NOT fired.\n\nE-w4e-2 — C2's second site (bounds.mjs:834) cannot take the specified cure without a §3a File-bound expansion. Measured at the built bytes: dist/parse.js exports Parser · createParserContext · memoize · mergeMemos · resetPackrat; dist/packrat.js exports memoize · mergeMemos · resetPackrat; NEITHER carries packratEnter/packratExit, which is exactly what readPackratArmState() calls (the chunk exports them only as mangled m/i/k). arm and reset port to the built entry unchanged; the READBACK does not. A module-local \"have we armed\" flag was REFUSED: it would answer the very question latch.test.ts L-3 exists to measure, turning a MEASURED red into an ASSERTED one — the masking fallback bounds.mjs:805-806 forbids in its own words. bounds.mjs was therefore LEFT UNTOUCHED. Lawful cures, both outside these bounds: (a) add packratEnter/packratExit to typescript/src/parse/packrat-entry.ts so the built ./packrat subpath carries the reader, after which bounds.mjs imports @mkbabb/parse-that/packrat and the loader dies with the instrument's reading fully preserved; (b) rule the instrument may not read the latch and re-characterize ESC-c1's leg. Blast radius measured: the site is a LAZY require inside loadPackratInstrument(), called only by test/css-recovery/boundary/latch.test.ts and scripts/css-bench-three-leg.mjs — never by the css parse path (entry.mjs:87-89 takes only bounds tables), and G-3's resolve leg reached all 19 runtime names from the installed tarball with NO tsx present. It does not hold G-3 red.\n\nCONSEQUENCE: the serial lock stands. `.f` must not run — it requires `G3 GREEN`, and G-10's falsifier fails a stamp performed while any of G-1..G-9 is red. The unblocking act is E-w4e-1's one-token cure by a seat that owns packed-candidate-surface.mjs; after it, G-3's resolve leg is expected (and must be MEASURED, not assumed) to read 52 of 52 on the bytes already committed at 93bcb83.",
+         "notes": [
+          "CRASH-RECOVERY: `git -C <p2> status --porcelain` -> `?? .worktrees/` only; value.js evidence/W4 held only .b's and .d's eight committed files. ZERO inherited edits on this unit. Nothing stashed; no dirty path outside the writable set touched (demo/**, e2e/**, CARRY-LEDGER.md, workflows/gates/, scripts/dev/dev.sh all left alone).",
+          "C1 LANDED — typescript/package.json: `files` [\"./dist\"] -> [\"./dist\", \"./src/css\"] (ships the css runtime AND src/css/build/ac1.wasm); `exports` gains `./css` declaring `types` + `import`. No `./package.json` export added, so all five forbidden deep specifiers keep refusing with ERR_PACKAGE_PATH_NOT_EXPORTED.",
+          "C2 site 1 LANDED — js-alg.mjs:23 `import { tsImport } from \"tsx/esm/api\"` and `await tsImport(\"../../parse/index.ts\")` are gone; the lowering now reaches the library by the SELF-REFERENCE `@mkbabb/parse-that`, which the package's own exports[\".\"] resolves to ./dist/parse.js. `tsx` was NOT declared a runtime dependency (the ruling refuses it). Code-only grep for tsx in that file: no output, exit 1.",
+          "C3 LANDED — build.mjs byte-copies the sha-pinned vendored 4.0.0 declaration into src/css/build/value-css-4.0.0.d.ts (10910 B) beneath a header carrying source path + sha256 + byte count, and HALTS unless the source hashes to c81d095213d112c6bdbddf1ddb65da2a1286d6e2ff37f5f0ba40e78a439743d0 — the value W3's universe-52.json .frozen.sha256 and equivalence-full-surface.json .declarationSha256 both record. ac1.d.ts re-exports the 33 names from \"./value-css-4.0.0.js\"; no specifier leaves the package root any more (its predecessor climbed five directories into value.js's vendor tree).",
+          "PREREQUISITE the baseline had masked: `dist/` had NEVER been built, so the manifest already promised a consumer more than the tarball carried (declaredButAbsent [\"./dist\"], entryCount 1). `npm install --package-lock=false` (the unowned typescript/package-lock.json was NOT written) + `npm run build` (vite) were run before any gate reading.",
+          "G-4 RE-VERIFIED GREEN on the rebuilt subject — the C3 build run also regenerated ac1.wasm (636753 -> 662339 B, the artefact brought current with W3's grammar landings). `node scripts/wasm-admission.mjs src/css/build/ac1.wasm` -> total 0, functionKind 0, empty-import instantiation ok, verdict GREEN, exit 0. Banked dated as wasm-imports-2026-09-19-w4e.json; .b's wasm-imports.json untouched. Recorded for `.f`, which re-runs G-4 at its own clock.",
+          "lowering-wasm/index.mjs was NOT touched: its one-line grant was conditional (`iff G-3's resolve leg names it`) and the resolve leg named no artefact loader — the runtime half reached 19 of 19 from the installed tarball. The condition did not fire.",
+          "E-3 HELD: five NEW dated files banked under evidence/W4/ (packed-surface-2026-09-19-w4e-run1.json, -run2.json, packed-candidate-controls-2026-09-19-w4e.txt, c2-built-entry-surface-2026-09-19-w4e.txt, wasm-imports-2026-09-19-w4e.json). .b's packed-surface.json and .d's rc-p/reciprocity/seam-contract files were not opened for write.",
+          "G-2 read WITH ATTRIBUTION per this record's own WRITE-THEN-MEASURE note: the raw `git status --porcelain -- src api demo test e2e` is NOT clean in this shared checkout — it reads 20 lines (up from the 2 the wave open recorded), all demo/** and e2e/**, all Track A's open X-W5. The assertion X·P owes is checked instead over this unit's own commits: `git show --name-only` over e9140c34 and f170e178 yields ZERO paths under src/ demo/ api/ test/ e2e/, and the <p2> commit 93bcb83 touches only the six granted paths.",
+          "E13 mail: 0 UNREAD over 80 rows, double-run (0 == 0) by the positional Status-cell awk; `find docs/tranches/V/coordination -maxdepth 1 -name '*.md' -newermt '2026-09-19 08:45'` returns no member. No mail row was written by this unit.",
+          "§7 cadence: `git diff --check` in <p2> clean; `node --check` on build.mjs and js-alg.mjs OK; package.json parses. `tsc --noEmit -p tsconfig.json` reports 82 errors, ALL pre-existing and ALL under test/** (16 files; zero hits for src/css/build, js-alg or package.json) — this unit wrote no .ts byte. `npx eslint .` was not run: the fresh root carries no eslint configuration (`ls typescript/eslint.config.* typescript/.eslintrc*` -> no matches) and inventing one is outside these bounds.",
+          "Commit families: C1 + C2-site-1 + C3 were kept in ONE <p2> commit on purpose — the manifest's ./css export is only true if ac1.d.ts's specifier stays in-package and js-alg.mjs no longer needs a loader, so splitting them would publish an intermediate state in which ./css resolves to a broken graph. Pathspec given on both the `git add` and the `git commit -- <paths>`; nothing a sibling seat staged was swept in (verified by `git show --name-only`).",
+          "The wave record docs/tranches/X/execution/D/X-P-W4S.md now carries the full `### X.P.W4.e` receipt under `## Unit receipts` (acts A-0..A-7 with ⟨cmd⟩ receipts, the BEFORE->AFTER gate table, commits, residuals, both escalations). execution/LEDGER.md was deliberately NOT edited — this unit owns no row cell there and three sibling tracks write it concurrently."
+         ]
+        }
+       },
+       {
+        "agentId": "a279ebfdf7b73dc75",
+        "key": "v2:401a7b4fcc0c0b46c2098205e04ea7be2076c855565fc2b179840abe7e1001c8",
+        "result": {
+         "verdict": "PARTIAL",
+         "gatesGreen": [
+          "G-1 — seam contract 52/52: set-differences ∅/∅, census PENDING-ADJUDICATION 45 · identical 7, universe tally {TOTAL:46,PARTIAL:6,ABSENT:0}, VERDICT GREEN, EXIT=0, double-run 0≡0",
+          "G-2 — zero value.js source bytes AT THIS WAVE'S COMMITS: `git show --name-only --format=` over f170e178+e9140c34 | grep -cE '^(src|demo|api|test|e2e)/' → 0. Raw `git status --porcelain -- src api demo test e2e` reads 20 lines, ALL demo/** + e2e/** belonging to a concurrent Track-A X-W5 seat in the shared checkout — read with attribution, not smoothed to a false 0",
+          "G-4 — Wasm admission on .e's REBUILT ac1.wasm (662339 B): functionKindImportsTotal 0 · unaccountedImportsTotal 0 · functionKindZero true · emptyImportInstantiation true · everyImportAccounted true · \"verdict\": \"GREEN\" · EXIT=0, double-run",
+          "G-5 — RC-P evaluator honest: `RC-P(4.0.0) = FALSE — 3 of 6 conjuncts are FALSE: 1 PUBLISHED(V) · 3 EQUIVALENCE(V) · 4 ADMITTED(V)`, EXIT=1, double-run identical; conjunct 4 reads \"FALSE, not vacuously true\" against a Wasm-free V (Q-RC-2 discharged at the bytes)",
+          "G-6 — reciprocity both ends: grep -rn 'RC-P' docs/tranches/X/{keyframes,fourier}/waves/ | wc -l → 25 (≥2), double-run 25≡25",
+          "G-7 — forbidden edge floor held: grep -c 'parse-that' ../fourier-analysis/package.json → 0; web/package.json → 0; double-run 0/0≡0/0",
+          "G-8 — mail closed + lawful delivery path: RELEASE-PACKET.md present 23017 B; INBOX grep RELEASE-PACKET→1, SS-6→25, RC-P→1; UNREAD=0 over ROWS=80, double-run",
+          "G-9 — adoption gap terminal: W4-CLOSE.md §4 records disposition (C) BLOCKED-ON + re-trigger, quoted by id from COHESION §0i.1; `git show --name-only` over every wave commit → 0 paths under docs/tranches/X/waves/ (X·P authored no X·V wave)"
+         ],
+         "gatesRed": [
+          "G-3 — PACKED CANDIDATE: `resolved 19 of 52` (was 0 of 52) · entryCount 91 (was 1) · seamSubpathDeclared true (was false) · refusals 5/5 · tarballSha256 6b51c336… · verdict {pack:true, declaration:true, install:true, resolve:FALSE, refusals:true, G3:\"RED\"} · EXIT=1, double-run leg-for-leg identical (only generatedAt differs). The sole false leg is `resolve`, and within it the sole failure is the TYPES half — one TS2314 diagnostic on `ParseResult` unresolves all 33 type rows. Spec GREEN = `resolved 52 of 52` / EXIT 0",
+          "G-10 — THE R-A STAMP ACT: NOT PERFORMED. Shape-(a) sum reads 5 ≡ 5 (the correct open-state value; the gate requires 0 after the stamp). The stamp is WITHHELD by gate id G-3, per G-10's own falsifier (\"a stamp performed while any of G-1..G-9 is red fails\"). No sibling self-stamped: grep -rn 'VERIFIED' waves/W[0-3]-CLOSE.md shows W0/W1 explicitly deferring to X.P.W4's close and W2 restating R-A"
+         ],
+         "landedWrong": [],
+         "residuals": [
+          "ESCALATION E-w4e-1 (UPHELD — confirmed independently at this close, not accepted on report): G-3's types half is unsatisfiable AS WRITTEN. The G-3 run's legs.types carries EXACTLY ONE diagnostic — `consumer.ts(55,35): error TS2314: Generic type 'ParseResult' requires 1 type argument(s)` — while /Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/scripts/packed-candidate-surface.mjs:400 emits `export type __check_${name} = ${name};` and :420 gates on `diagnostics.length === 0`, so that one diagnostic unresolves all 33 type rows (resolve leg: 52 rows, 33 unresolved kind=types, runtime 19 of 19 resolved). The pinned source declares `241:export declare type ParseResult<T>` — one required parameter, no default. A defect of the ASSERTION FORM, not of the tarball; it would fail for any candidate. MINIMAL CURE: one token (`ParseResult<unknown>`). OWNER: a seat that owns packed-candidate-surface.mjs (X.P.W4.b's file, in no row of .e's grant). This verify-only close did NOT take it either. Diagnostic iteration 1, monotone — §3a's third-iteration trigger has NOT fired",
+          "ESCALATION E-w4e-2 (carried, unworked-around): /Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/bounds.mjs:834 cannot take C2's cure without a §3a File-bound expansion — dist/parse.js and dist/packrat.js carry neither packratEnter nor packratExit (mangled m/i/k in the chunk), which is exactly what readPackratArmState() calls. A module-local 'have we armed' flag was REFUSED (it would assert what latch.test.ts L-3 exists to measure). The file is byte-identical to its pre-wave state — absent from commit 93bcb83's file list. Lawful cures: (a) export packratEnter/packratExit from typescript/src/parse/packrat-entry.ts, or (b) rule the instrument may not read the latch",
+          "R-1 — docs/tranches/V/megatranche/registry/harvest/x-p-w4s.json was never filed and harvest-journals.mjs was never run for this wave (L-13). OWNER: X.P.W4.f (§0y F-w4c-2). A verify-only close seat does not own registry/**",
+          "R-2 — the 45 PENDING-ADJUDICATION seam cells remain PENDING; docs/tranches/X/parse-that/ADJUDICATION-W4.md remains ABSENT; DIVERGENCE-LEDGER.md carries no rulingId appends from this wave. OWNER: X.P.W4.f",
+          "R-3 — CONSUMER-VISIBLE SHADOW OF E-w4e-2: the packed tarball now ships src/css/bounds.mjs (confirmed in the install leg's 91 entries) carrying a lazy `require_(\"tsx/esm/api\")` at :834 while package.json `dependencies` is {}. LATENT, not a load failure — the require sits inside loadPackratInstrument(), entry.mjs:89 imports only bounds TABLES, and G-3's resolve leg imported 19 of 19 runtime names from the installed tarball with no tsx present. It entered the tarball because C1 landed while C2 site 2 could not. OWNER: E-w4e-2 cure (a)",
+          "R-4 — .e rebuilt ac1.wasm (636753 → 662339 B) as an unavoidable effect of the C3 build. G-4 re-reads GREEN on the new bytes at this close; .b's evidence/W4/wasm-imports.json is untouched (E-3) and therefore now describes the PREVIOUS bytes. Disclosed, not cured. Recorded for X.P.W4.f",
+          "R-5 — `npx eslint .` was not run in <p2> (§7): the fresh root carries no eslint configuration and inventing one is outside every unit's bounds. git diff --check clean; node --check OK; tsc --noEmit → 82 pre-existing errors, all under test/**, none in a file this wave wrote",
+          "R-6 — /Users/mkbabb/Programming/parse-that-css-totality-p2 has NO git remote (branch w2/harness), so commit 93bcb83 CANNOT be pushed; it lives in the local fresh root by construction (X.P.W0). Note also that the harness's PUSH act named ../parse-that (the frozen read-only root), which is 0 commits ahead of upstream — its push printed `Everything up-to-date` and published nothing",
+          "BLOCKING CONDITION / re-trigger: X.P.W4.f must NOT run. Sequence: (i) a seat owning packed-candidate-surface.mjs lands E-w4e-1's one-token cure; (ii) `node scripts/packed-candidate-surface.mjs --seam .../SEAM-CONTRACT.md` is re-run on the bytes ALREADY COMMITTED at 93bcb83 — expected `resolved 52 of 52`, and the expectation is to be MEASURED, not assumed; (iii) only with `G3 GREEN` may .f open, re-run G-1..G-10 at its own clock, rule the 45 cells and perform the R-A stamp. E-w4e-2 does not hold G-3 red and can be sequenced independently",
+          "NOT WRITTEN BY THIS CLOSE (correctly): no byte of waves/W0..W4.md four-verb tables, COHESION.md §1 SS-5 / §5, SEAM-CONTRACT.md dispositions, DIVERGENCE-LEDGER.md or INBOX.md. X.P.W4's CLOSED row is untouched. scripts/dev/dev.sh never staged; the 20 dirty demo/** + e2e/** paths and CARRY-LEDGER.md (sibling seats') were not touched, stashed or restored"
+         ],
+         "commit": "dfb9eab5 (value.js) docs(x-p-w4s/close): the push receipt read from the command; preceded by 8424a6eb docs(X·exec): X.P.W4S PARTIAL — LEDGER row + event-log append, and 2bf4b205 docs(x-p-w4s/close): the verify-only close (gate table BEFORE→AFTER, commit roster, residuals with named owners, escalations, four-verb withheld). Wave roster: 93bcb83 (<p2>, local-only, no remote) · e9140c34 · f170e178 · 2bf4b205 · 8424a6eb · dfb9eab5. PUSH: value.js a54c148a..8424a6eb then 8424a6eb..dfb9eab5 -> tranche-u (exit 0); ../parse-that `Everything up-to-date` (0 ahead, nothing published); <p2> unpushable (no remote)"
+        }
+       }
+      ]
+     }
+    },
+    {
+     "runId": "wf_7afdc968-28c",
+     "sha256": "d557c9662130f5fd7e0de2e3c466ce21c329a8a1b18e75207f21c1b72c24de98",
+     "bytes": 17412,
+     "document": {
+      "runId": "wf_7afdc968-28c",
+      "workflow": "wf_7afdc968-28c",
+      "resultCount": 7,
+      "results": [
+       {
+        "agentId": "ae0fc6fa8d08e52a6",
+        "key": "v2:3931eba5fbfa5efe5a677afbcde98828b81fea36efc89eeeb6194630d14133b1",
+        "result": {
+         "skip": true,
+         "groups": [],
+         "units": [],
+         "alreadyDone": [],
+         "greenBeforeCure": [],
+         "recordCommit": ""
+        }
+       },
+       {
+        "agentId": "a55acf74c795ceb48",
+        "key": "v2:6dc4705983e4e73c946098c3ccd6278e50af88a4112f36e175d3bc8f222cdadf",
+        "result": {
+         "skip": true,
+         "groups": [],
+         "units": [],
+         "alreadyDone": [],
+         "greenBeforeCure": [],
+         "recordCommit": ""
+        }
+       },
+       {
+        "agentId": "a1a989d62c4a7aeab",
+        "key": "v2:9bdc38c59ac8437499bf52d034a66b214675d4f0e1855e91fd15b041a040ea4d",
+        "result": {
+         "skip": true,
+         "groups": [],
+         "units": [],
+         "alreadyDone": [],
+         "greenBeforeCure": [],
+         "recordCommit": ""
+        }
+       },
+       {
+        "agentId": "ac5637add284c4a37",
+        "key": "v2:d4aeae2093a9e823476e6ad9a2afcf65693f5c530bc256e51900187522ad31a1",
+        "result": {
+         "groups": [],
+         "units": [],
+         "alreadyDone": [],
+         "greenBeforeCure": [],
+         "skip": true,
+         "recordCommit": ""
+        }
+       },
+       {
+        "agentId": "a53af8455356bb5b0",
+        "key": "v2:aded80fffb3840a25766de501c13ffed308e8eafcf99f764c8949b38eecccb10",
+        "result": {
+         "skip": true,
+         "groups": [],
+         "units": [],
+         "alreadyDone": [],
+         "greenBeforeCure": [],
+         "recordCommit": ""
+        }
+       },
+       {
+        "agentId": "a6764120cc8c50eb1",
+        "key": "v2:40b0db76ab30d83ee0a574bfb9eb6b75829fd710d6895c35210d60dc9c6f9725",
+        "result": {
+         "groups": [
+          [
+           "X.P.W4.e2"
+          ],
+          [
+           "X.P.W4.f"
+          ]
+         ],
+         "units": [
+          {
+           "id": "X.P.W4.e2",
+           "model": "opus",
+           "sections": "W4.md FOURTH dated addendum (file end, line 680 — the `X.P.W4.e2` clause, this unit's own bounds and gate) · W4.md §6 G-3 (lines 383-397) · §7 Format/Lint cadence (545-554) · §9 Commit Plan (581-598) · COHESION.md §0aa (1729-1755: E-w4e-1 the arity-reading check-line emitter, E-w4e-2 cure (a)) · COHESION.md §0y F-w4b-3 (1642-1653, the packaging ruling `.e` executed and this unit completes) · EXECUTION-RUNBOOK.md §1.4 / §3.4 / §5",
+           "writable": [
+            "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/scripts/packed-candidate-surface.mjs",
+            "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/parse/packrat-entry.ts",
+            "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/dist/**",
+            "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/bounds.mjs",
+            "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W4/**",
+            "/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/D/X-P-W4S.md"
+           ],
+           "gates": [
+            "G-3",
+            "tsx-free shipped bytes: grep -rn 'tsx' src/css/ -> 0 code hits"
+           ],
+           "locks": "Strictly serial (runbook §1.4, Track D): `.e2` runs alone; `.f` opens IFF `.e2` reads G3 GREEN (§0aa serial lock + G-10's own falsifier). `.e` (93bcb83) is alreadyDone and NEVER re-dispatched. Grants are surgical: packed-candidate-surface.mjs = the CHECK-LINE EMITTER ONLY (:400 region; :420's reading unchanged), packrat-entry.ts = EXPORT LINES ONLY. dist/ is gitignored in <p2> (.gitignore:6) — regenerating it is a build act with NO commit, so G-3 must be re-run AFTER the rebuild, never before. evidence/W4/** takes NEW dated files beside .b's and .e's — never an overwrite (E-3). Zero value.js src/**, demo/**, api/**, test/**, e2e/** bytes (G-2 asserts it at every commit). ../parse-that, ../keyframes.js, ../fourier-analysis, ../glass-ui are READ-ONLY. Pathspec commits, separately in <p2> and in value.js; <p2> has no remote (R-6), so nothing there is pushed.",
+           "brief": "E-w4e-1 + E-w4e-2 cure (a). (1) packed-candidate-surface.mjs EMITTER ONLY (:400): read each frozen name's type-param arity from the INSTALLED declaration, instantiate `unknown` per param; the negative control (absent name) must still fire. (2) packrat-entry.ts: export packratEnter/packratExit (export lines only); regenerate dist/ (gitignored). (3) bounds.mjs:834: require_(\"tsx/esm/api\") in loadPackratInstrument() DIES - the reader imports @mkbabb/parse-that/packrat; a module-local flag is REFUSED. Gate: G-3 double-run 52 of 52, entryCount>=2, G3 GREEN, exit 0, positive control in a staged tree outside both repos; grep -rn tsx src/css/ -> 0 code hits. NEW dated evidence; pathspec commits."
+          },
+          {
+           "id": "X.P.W4.f",
+           "model": "fable",
+           "sections": "W4.md THIRD dated addendum (file end, line 678 — the `X.P.W4.f` clause) · §2b OP-6 (line 73) · §3 Scope items 6-10 (114-130) · §5 the `X.P.W4.d` mechanism (293-312, the adjudicative half it inherits) · §6 G-1..G-10 (314-543), G-10 read in SHAPE (a) per the third addendum · §8 Verification Artefacts (556-579) · §9 Commit Plan (581-598) · §12 L-18 rider (651-665) · COHESION.md §0y (1634-1688: E-r2-1 · F-w4c-2 · Q-RC-1 · Q-RC-2 · the two carves), §0v (1574-1584, GROUND-C), §0w (1586-1602, the id-set + each class's ruling), §0aa (1729-1755: R-4 bank the rebuilt ac1.wasm listing dated beside .b's; R-5 rides X-W11's OUT-OF-WAVE roster; R-6 is by construction)",
+           "writable": [
+            "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/SEAM-CONTRACT.md",
+            "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/ADJUDICATION-W4.md",
+            "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md",
+            "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W4-CLOSE.md",
+            "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/RELEASE-PACKET.md",
+            "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/RELEASE-CONDITION.md",
+            "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W0.md",
+            "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W1.md",
+            "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W2.md",
+            "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W3.md",
+            "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W4.md",
+            "/Users/mkbabb/Programming/value.js/docs/tranches/X/COHESION.md",
+            "/Users/mkbabb/Programming/value.js/docs/tranches/V/coordination/INBOX.md",
+            "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/harvest/x-p-w3.json",
+            "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/harvest/x-p-w4s.json",
+            "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/scripts/rc-p-evaluate.mjs",
+            "/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/D/X-P-W4S.md"
+           ],
+           "gates": [
+            "G-1",
+            "G-2",
+            "G-3",
+            "G-4",
+            "G-5",
+            "G-6",
+            "G-7",
+            "G-8",
+            "G-9",
+            "G-10"
+           ],
+           "locks": "DISPATCH IS CONDITIONAL: `.f` opens ONLY IF `.e2` reads G3 GREEN (§0aa serial lock; G-10's own falsifier — a stamp performed while any of G-1..G-9 is red FAILS). Must be a FRESH Fable seat (M-23 §1): a seat that authored a gate cannot certify it. The R-A stamp is ONE act over the five four-verb VERIFIED rows in waves/W0..W4.md — the family does NOT split; performed iff G-1..G-9 GREEN at this seat's own re-run, else WITHHELD BY GATE ID. The two COHESION carves (§1 SS-5 status cell · §5 status-board line) land ONLY under a performed stamp — both or neither (§0y). Carves are ONE ROW each, never a prose reflow. SEAM-CONTRACT.md: disposition + consumer-direction cells of the 45 PENDING rows ONLY. W4-CLOSE.md: append a dated §12 only. RELEASE-PACKET.md / RELEASE-CONDITION.md §2.3: dated addendum sections only (E-3). INBOX.md is SHARED with X·V's mail units — rows appended, never rewritten; must not run while an X·V mail unit is open. harvest/x-p-w3.json ALREADY EXISTS (129579 B, X.P.W3.e's, 2026-09-18) — MEASURE before writing; a blind create destroys a sibling's banked evidence. X.P.W4's CLOSED LEDGER row is never rewritten. Zero value.js src/demo/api/test/e2e bytes (G-2). ../parse-that, ../keyframes.js, ../fourier-analysis, ../glass-ui READ-ONLY.",
+           "brief": "Rule all 45 PENDING-ADJUDICATION seam cells by the §0w id-set {GROUND-C, ID-1/1b, ID-2..ID-5, PB-11, R-f1, E-k2}; GROUND-C per §0v (overflow is no syntax error; range per production -> declared-divergence, direction stated). Every cell terminal. Create ADJUDICATION-W4.md (ruling+predicate); append rulingId to DIVERGENCE-LEDGER; re-run seam-contract-check.mjs; re-run G-1..G-10 at own clock, G-10 shape (a); R-A stamp IFF G-1..G-9 GREEN else withhold BY GATE ID; COHESION carves only under the stamp; land Q-RC-1's V-tarball arm in rc-p-evaluate.mjs + RELEASE-CONDITION §2.3 addendum, or return the measured reason; bank R-4 wasm; harvest x-p-w3.json (EXISTS: measure first) + x-p-w4s.json."
+          }
+         ],
+         "alreadyDone": [
+          "X.P.W4.e"
+         ],
+         "greenBeforeCure": [
+          "G-1",
+          "G-2",
+          "G-4",
+          "G-5",
+          "G-6",
+          "G-8",
+          "G-9"
+         ],
+         "recordCommit": "e4ba9f60"
+        }
+       },
+       {
+        "agentId": "adca4a9db3952d697",
+        "key": "v2:4d4aa641e8ffbef4e04f94f2894ed46578d2756f9966c5372e575715b6ab0b55",
+        "result": {
+         "unit": "X.P.W4.e2",
+         "status": "DONE",
+         "commits": [
+          "43c3f48 (<p2>) fix(x-p-w4.e2/packed): E-w4e-1 — the check line is INSTANTIATED to the arity the installed declaration declares [typescript/scripts/packed-candidate-surface.mjs]",
+          "49ca70b (<p2>) fix(x-p-w4.e2/packrat): E-w4e-2 cure (a) — the latch reader rides ./packrat, tsx dies from the shipped bytes [typescript/src/parse/packrat-entry.ts · typescript/src/css/bounds.mjs; ONE FAMILY, not split]",
+          "c6ec1ee6 (value.js) docs(x-p-w4.e2/evidence): five NEW dated files under evidence/W4/, 3191 insertions / 0 deletions",
+          "c5c13f83 (value.js) docs(x-p-w4.e2): the unit receipt in execution/D/X-P-W4S.md, 223 insertions / 0 deletions"
+         ],
+         "gatesGreen": [
+          "G-3 — resolved 52 of 52 (was 19 of 52) · entryCount 91 · seamSubpathDeclared true · refusals 5/5 · every verdict leg true · G3 GREEN · EXIT=0 · double-run identical but for generatedAt · re-confirmed at the committed bytes",
+          "tsx-free shipped bytes — grep -rn 'tsx' src/css/ minus comment lines → 0 code hits, in the tree AND over the unpacked tarball's package/src/css/, against installed dependencies {}",
+          "G-4 (not this unit's; re-read because dist/ was rebuilt) — functionKindImportsTotal 0 · unaccountedImportsTotal 0 · verdict GREEN · EXIT=0, on .e's UNCHANGED ac1.wasm (662339 B)",
+          "G-2 (read with attribution) — raw command 2 lines, both demo/styles/** and a concurrent Track-A seat's; git show --name-only over this unit's value.js commits → 0 src/demo/api/test/e2e paths"
+         ],
+         "gatesRed": [],
+         "notes": [
+          "SERIAL LOCK OPEN: §0aa's condition — '.f opens iff .e2 reads G3 GREEN' — is MET. G-10's falsifier no longer bites on G-3. .f re-runs G-1..G-10 at its own clock; nothing here is inherited as a claim.",
+          "CRASH-RECOVERY: <p2> carried `?? .worktrees/` only — zero inherited edits on any of this unit's three writable <p2> files; evidence/W4/ was clean (0 lines). value.js's 4 dirty rows at open were sibling seats' (CARRY-LEDGER, X·KF W12 evidence ×2, dev.sh). Nothing stashed, nothing restored, dev.sh never staged.",
+          "E-w4e-1 CURE, the general one and not the one-token one: readInstalledTypeArity() resolves the seam with ts.resolveModuleName from the consumer workspace and reads each export's type-parameter list via checker.getExportsOfModule — the SAME resolver the consumer compile uses, so the seam's re-export chain (ac1.d.ts → value-css-4.0.0.d.ts) is followed rather than re-implemented by a grep. :420's reading is byte-identical; only the emitter changed.",
+          "REQUIRED arity, not total — and it is MEASURED, not preferred. legs.types.arity.generics → ['CollectedRule: 0 required of 1', 'ParseResult: 1 required of 1']. A blind unknown-per-total reading would emit CollectedRule<unknown> and newly fail TS2344 on a row that passes today, contradicting §0aa's own criterion ('valid for every generic on the surface'). Rows with a required AND constrained parameter → 0, printed in the report, so `unknown` is provably valid on this surface rather than assumed.",
+          "NEGATIVE CONTROLS FIRE TWICE: (a) the gate's own emitted consumer file plus one absent name in the bare form → tsc EXIT=2, TS2305 naming it; (b) the WHOLE gate against a seam contract carrying a 53rd absent row → resolved 19 of 53, G3 RED, EXIT=1, that row reading 'named in a tsc diagnostic' and the arity table carrying 33 rows with no entry for it. A row is now written for EVERY export the installed declaration carries, so 'no arity row' means one thing only.",
+          "POSITIVE CONTROL in a staged tree outside both repos (<scratch>/pc-w4e2; prefix-checked against both roots): tarball sha f8aede11… — the same bytes the gate read; runtime 19 of 19; tsc over the gate's own emitted consumer.ts (NodeNext, strict, skipLibCheck:false) → EXIT=0.",
+          "E-w4e-2 cure (a): packrat-entry.ts re-exports packratEnter/packratExit (export lines only — packrat.ts untouched; PackratEpoch is NOT exported there, so no type re-export was added). bounds.mjs's loadPackratInstrument() now imports @mkbabb/parse-that/packrat and @mkbabb/parse-that. The module-local 'have we armed' flag was REFUSED, as §0aa and .e both name it.",
+          "THE INSTRUMENT'S READING IS PRESERVED WHOLE, measured before and after with one probe in latch.test.ts's own order: parsing-armed false/false · L-1 false/false · L-2 arms true/true · read-back true/true · L-3 after resetPackrat() true/true (ESC-c1's born-RED, still MEASURED red) · record.readable true/true · record.armed true/true · record.symmetric false/false. Field for field. The cure also made the reading STRONGER and bounds.mjs's doc comment was rewritten to say so: tsImport did not dedupe, but dist/parse.js and dist/packrat.js share one chunk (memoize identity true) and js-alg.mjs uses the same map, so the instrument now reads the latch the js lowering itself holds.",
+          "R-3 (the PARTIAL close's residual — the tarball shipping a lazy require_('tsx/esm/api') against dependencies {}) is CURED at the bytes, not carried forward.",
+          "dist/ is gitignored (.gitignore:6) and appears in NO commit; it reaches the gate only through npm pack's files list, which is why G-3 was re-run AFTER the rebuild. `npm run build` is vite build and does NOT run src/css/build.mjs, so ac1.wasm stands at .e's 662339 B and G-4's subject is unmoved — §0aa's R-4 remains .f's to bank.",
+          "REGRESSION SWEEP (this unit changed a built entry, so the suite was read): npx vitest run → 10 of 14 files passed, 124 of 126 tests passed; all 5 failures are ENOENT ../data/… (the fresh root ships no benchmark corpus; `ls -d ../data data` → absent), and none of the 4 failing files references packrat/bounds/packed-candidate. memoize + reentrancy + dist-surface → 3 passed, 20 tests passed. latch.test.ts is outside the config's include (test/*.test.ts) and is covered by the probe that reproduces its assertion order.",
+          "§7: git diff --check clean; node --check OK on both edited .mjs files; tsc --noEmit → 82 errors, all under test/**, the identical count .e measured, 0 in this unit's files. npx eslint . NOT run — no eslint config exists in <p2> (R-5, already on X-W11's OUT-OF-WAVE roster by §0aa); inventing one is outside these bounds.",
+          "E13: ROWS=80 UNREAD=0, double-run, Status cell by position; four paths swept (V/ 10⊕24 · glass-ui BK newest, 9 entries, newest = I-35 rowed · keyframes.js 13 · atlas 28); find -newermt '2026-09-19 09:10' → no member. INBOX.md not written. SELF-CORRECTION PUBLISHED: this seat's first sweep used sed 's/\\|/@PIPE@/g', which in BSD sed eats the table delimiters and returned a vacuous ROWS=0 UNREAD=0; the correct form 's/\\\\|/@PIPE@/g' reads ROWS=80. The bad reading is recorded in the receipt because a zero from an empty denominator is exactly the false green the counting laws refuse.",
+          "ESCALATIONS: NONE. No try/catch around a defect, no test.skip, no allowlist, no copied producer selector, no node_modules patch, no tsx runtime dependency, no module-local latch flag. The two refused shapes are named in the receipt with the reason each was refused.",
+          "NOT WRITTEN — outside this unit's writable set: docs/tranches/X/execution/LEDGER.md carries no row edit or event-log line from this unit (it is SEAT 0's / the close seat's, per the record's own Seat section). The W4S row still reads the RESUME state and is owed an update naming G-3 GREEN and the open serial lock. Also not pushed: value.js push is the close seat's §9 act and would publish three sibling tracks' commits without their receipt; <p2> has no remote (R-6), so 43c3f48/49ca70b are local by construction.",
+          "STANDING for .f: R-1 (harvest/x-p-w4s.json ABSENT) · R-2 (the 45 PENDING-ADJUDICATION cells, ADJUDICATION-W4.md ABSENT) · R-4 (bank the rebuilt ac1.wasm's import listing as a NEW dated file) · Q-RC-1 (conjunct 3 still binds the harness, not V's tarball). Untouched by this unit."
+         ]
+        }
+       }
+      ]
+     }
+    }
+   ],
+   "runShape": [
+    {
+     "runId": "wf_a25d7c23-90d",
+     "resultCount": 8,
+     "unitLabelled": 1,
+     "unlabelledRows": 7
+    },
+    {
+     "runId": "wf_7afdc968-28c",
+     "resultCount": 7,
+     "unitLabelled": 1,
+     "unlabelledRows": 6
+    }
+   ]
+  }
  },
  "runs": [
   {
    "runId": "wf_a25d7c23-90d",
    "sha256": "9c84cbb5e82caa1da0f37ddec4cf4d3c68da641f7c69fa0e120617ee798b569c",
    "bytes": 28313,
+   "resultCount": 8,
+   "unitRows": [
+    {
+     "resultIndex": 6,
+     "agentId": "a01beb2e8a221e32c",
+     "unit": "X.P.W4.e",
+     "status": "ESCALATED",
+     "commits": [
+      "93bcb83 (<p2>) feat(x-p-w4.e/packed): C1 manifest + C2 site-1 loader death + C3 in-package frozen types",
+      "e9140c34 (value.js) docs(x-p-w4.e/evidence): five NEW dated files beside .b's",
+      "f170e178 (value.js) docs(x-p-w4.e): the unit receipt in execution/D/X-P-W4S.md"
+     ],
+     "gatesGreen": [],
+     "gatesRed": [
+      "G-3"
+     ]
+    }
+   ],
    "document": {
     "runId": "wf_a25d7c23-90d",
     "workflow": "wf_a25d7c23-90d",
@@ -310,6 +824,28 @@
    "runId": "wf_7afdc968-28c",
    "sha256": "d557c9662130f5fd7e0de2e3c466ce21c329a8a1b18e75207f21c1b72c24de98",
    "bytes": 17412,
+   "resultCount": 7,
+   "unitRows": [
+    {
+     "resultIndex": 6,
+     "agentId": "adca4a9db3952d697",
+     "unit": "X.P.W4.e2",
+     "status": "DONE",
+     "commits": [
+      "43c3f48 (<p2>) fix(x-p-w4.e2/packed): E-w4e-1 — the check line is INSTANTIATED to the arity the installed declaration declares [typescript/scripts/packed-candidate-surface.mjs]",
+      "49ca70b (<p2>) fix(x-p-w4.e2/packrat): E-w4e-2 cure (a) — the latch reader rides ./packrat, tsx dies from the shipped bytes [typescript/src/parse/packrat-entry.ts · typescript/src/css/bounds.mjs; ONE FAMILY, not split]",
+      "c6ec1ee6 (value.js) docs(x-p-w4.e2/evidence): five NEW dated files under evidence/W4/, 3191 insertions / 0 deletions",
+      "c5c13f83 (value.js) docs(x-p-w4.e2): the unit receipt in execution/D/X-P-W4S.md, 223 insertions / 0 deletions"
+     ],
+     "gatesGreen": [
+      "G-3 — resolved 52 of 52 (was 19 of 52) · entryCount 91 · seamSubpathDeclared true · refusals 5/5 · every verdict leg true · G3 GREEN · EXIT=0 · double-run identical but for generatedAt · re-confirmed at the committed bytes",
+      "tsx-free shipped bytes — grep -rn 'tsx' src/css/ minus comment lines → 0 code hits, in the tree AND over the unpacked tarball's package/src/css/, against installed dependencies {}",
+      "G-4 (not this unit's; re-read because dist/ was rebuilt) — functionKindImportsTotal 0 · unaccountedImportsTotal 0 · verdict GREEN · EXIT=0, on .e's UNCHANGED ac1.wasm (662339 B)",
+      "G-2 (read with attribution) — raw command 2 lines, both demo/styles/** and a concurrent Track-A seat's; git show --name-only over this unit's value.js commits → 0 src/demo/api/test/e2e paths"
+     ],
+     "gatesRed": []
+    }
+   ],
    "document": {
     "runId": "wf_7afdc968-28c",
     "workflow": "wf_7afdc968-28c",
@@ -502,20 +1038,462 @@
      }
     ]
    }
-  }
- ],
- "runShape": [
-  {
-   "runId": "wf_a25d7c23-90d",
-   "resultCount": 8,
-   "unitLabelled": 1,
-   "unlabelledRows": 7
   },
   {
-   "runId": "wf_7afdc968-28c",
-   "resultCount": 7,
-   "unitLabelled": 1,
-   "unlabelledRows": 6
+   "runId": "wf_3c0a3280-0ce",
+   "sha256": "fc0ce2b872df4eb6a2edf5b62c53e63bdc42152600e80b783929c1e2a0bc68ed",
+   "bytes": 10089,
+   "resultCount": 6,
+   "unitRows": [],
+   "document": {
+    "runId": "wf_3c0a3280-0ce",
+    "workflow": "wf_3c0a3280-0ce",
+    "resultCount": 6,
+    "results": [
+     {
+      "agentId": "a609a6cbcc1c75545",
+      "key": "v2:4fc8a8afe28dbc263447727314b5f90afca8a57bd4e5c0a94c0d69c043697e7d",
+      "result": {
+       "groups": [],
+       "units": [],
+       "skip": true,
+       "alreadyDone": [],
+       "greenBeforeCure": [],
+       "recordCommit": ""
+      }
+     },
+     {
+      "agentId": "a4fe0ec147620957c",
+      "key": "v2:d0cbfb34fe46bbb5c2112164945d69149b663fd37c54f3092a3c78e0ee608e03",
+      "result": {
+       "skip": true,
+       "groups": [],
+       "units": [],
+       "alreadyDone": [],
+       "greenBeforeCure": [],
+       "recordCommit": ""
+      }
+     },
+     {
+      "agentId": "a52985fad73a9cd3d",
+      "key": "v2:b35293cdb92829e2a88d7fc8bf233440a2709f464b823d5062278f7c98532084",
+      "result": {
+       "skip": true,
+       "groups": [],
+       "units": [],
+       "alreadyDone": [],
+       "greenBeforeCure": [],
+       "recordCommit": ""
+      }
+     },
+     {
+      "agentId": "adcc9274b6958c70d",
+      "key": "v2:b1ca7ab8f35689a0532a076d0a65349eaf1d2010b723324bb968f6a8419bce07",
+      "result": {
+       "skip": true,
+       "groups": [],
+       "units": [],
+       "alreadyDone": [],
+       "greenBeforeCure": [],
+       "recordCommit": ""
+      }
+     },
+     {
+      "agentId": "af60cbcc471c30c0d",
+      "key": "v2:697308997bade636521ed40826063314838157b4fbef5b2b2290520b3164a5ad",
+      "result": {
+       "groups": [],
+       "units": [],
+       "skip": true,
+       "alreadyDone": [],
+       "greenBeforeCure": [],
+       "recordCommit": ""
+      }
+     },
+     {
+      "agentId": "aa8d7caac328c8586",
+      "key": "v2:78525e6ec72458a8763233b5281ec24be80b601177d2c7567e374a46ec3cccd2",
+      "result": {
+       "groups": [
+        [
+         "X.P.W4.g",
+         "X.P.W4.h"
+        ],
+        [
+         "X.P.W4.f2"
+        ]
+       ],
+       "units": [
+        {
+         "id": "X.P.W4.g",
+         "model": "opus",
+         "sections": "COHESION.md §0ab first bullet (lines 1770-1781) · docs/tranches/X/parse-that/waves/W4.md FIFTH dated addendum, the `.g` clause (line 682) · W4.md §6 gate G-1 (lines 389-405, the command and its three falsifiers) · COHESION.md §0p (line 1398ff) for the run-B symlink procedure",
+         "writable": [
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/scripts/seam-contract-check.mjs",
+          "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/test/css-equivalence/run-full-surface.mjs",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/DEFECT-LEDGER.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W4/** (NEW dated files only; never .b/.d/.e/.f's)"
+         ],
+         "gates": [
+          "G-1 VERDICT: GREEN, exit 0, double-run",
+          "three negative controls printed RED: a PENDING head with no adjudication row; an unretired subject binding against an `identical` row; a disposition id absent from the ledger"
+         ],
+         "locks": "parallel with X.P.W4.h (disjoint paths; evidence/W4/** are creates with `-w4g-` basenames, never a shared modify path); strictly before X.P.W4.f2; DEFECT-LEDGER.md append by the harvester through the §0p run-B symlink ONLY, never a hand's; no regeneration of DIVERGENCE-LEDGER is ordered (E-3)",
+         "brief": "Teach the checker the post-adjudication vocabulary. Check E: a DIVERGENCE-LEDGER.md §10 RETIRED row does not bind its subjects (baseline: [E] 37 rows bound to CN-2/CN-3, both retired). Check G: a carried cell whose ruling is recorded in ADJUDICATION-W4.md is terminal — read the adjudication, not §0v's pre-adjudication rider (baseline: [G] 6 rows). All three negative controls must still fire. Then F-ab1: the five-name literal at run-full-surface.mjs:60 dies — measure the candidate re-export set from entry.mjs's exports; the emitter's carry gains §10 so no regeneration drops the retirements. Append DEFECT-LEDGER.md by §0p run B (the script's write through the symlink). Evidence as NEW dated evidence/W4/** files. Gate G-1 GREEN, double-run."
+        },
+        {
+         "id": "X.P.W4.h",
+         "model": "opus",
+         "sections": "COHESION.md §0ab bullets 2-3 (lines 1782-1788, F-w4f-2 HIGH and F-w4f-1 MEDIUM) · W4.md FIFTH dated addendum, the `.h` clause (line 682) · ADJUDICATION-W4.md §6 rows F-w4f-2 / F-w4f-1 (lines 168-169) and cells #40 / #41 (lines 112-113) · COHESION.md §0s quartet law",
+         "writable": [
+          "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/** (the declaration production only)",
+          "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/test/css-totality/** (re-emission outputs as NEW dated files)",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/ADJUDICATION-W4.md (dated addendum only)",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/SEAM-CONTRACT.md (only the cells the two rulings touch — row 19 `parseStylesheet`, line 130)",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md (modify-append: the F-w4f-1 row)",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W4/** (NEW dated files only)"
+         ],
+         "gates": [
+          "cells #40 and #41 re-measure `identical`",
+          "the full differential re-run reads 0 mirror-defects outside ruled ids",
+          "X.P.W3's totality gate still TOTAL"
+         ],
+         "locks": "parallel with X.P.W4.g (disjoint paths; evidence/W4/** creates carry `-w4h-` basenames); strictly before X.P.W4.f2; COHESION §0s's quartet law binds if a ctor row changes (algebra/grammar/*.mjs · algebra/tables.mjs · both lowerings · bounds.mjs); ADJUDICATION-W4.md and SEAM-CONTRACT.md are corrected by dated addendum / named-cell move only, never rewritten (E-3)",
+         "brief": "Cure the declaration production in <p2>/typescript/src/css/**. css-syntax-3 §5.4.7: after the value, a `!` delim followed by an ident matching `important` ends the declaration, whitespace OPTIONAL on both sides — measured born-RED at this seat: `b { color: red!important }` -> ok=false while the spaced form -> ok=true; cells #40 and #41 both ok=false. css-syntax-3 §5.4.4: the NAME is one ident-token, so `a { col!r: red }` must REJECT — today ok=true (F-w4f-1's candidate half; the 4.0.0 half is X·V's, rides X-W11 by id). Land at the realizations (algebra tables/grammar + both lowerings; bounds.mjs only if a ctor row changes — §0s). Re-emit the two-cell census as NEW dated evidence beside W3's; dated addendum to ADJUDICATION-W4.md; move only the F-w4f rows' cells in SEAM-CONTRACT; append the F-w4f-1 row to DIVERGENCE-LEDGER."
+        },
+        {
+         "id": "X.P.W4.f2",
+         "model": "fable",
+         "sections": "COHESION.md §0ab final bullet (lines 1789-1792) · W4.md THIRD dated addendum, the `X.P.W4.f` stamp set (line 678) · W4.md §6 G-10 shape (a) in that same addendum · W4.md §6 gates G-1..G-9 (lines 389-545)",
+         "writable": [
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W0.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W1.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W2.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W3.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W4.md (the four-verb VERIFIED rows only — R-A, one act)",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/COHESION.md (§1 SS-5 cell + §5 board line — iff the stamp is performed)",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W4-CLOSE.md (dated §13)",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/RELEASE-PACKET.md (dated addendum)",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/harvest/x-p-w4s.json (fold/2 — EXISTS at 56673 B, measure before writing)",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/V/coordination/INBOX.md (mail rows)"
+         ],
+         "gates": [
+          "G-1",
+          "G-2",
+          "G-3",
+          "G-4",
+          "G-5",
+          "G-6",
+          "G-7",
+          "G-8",
+          "G-9",
+          "G-10 shape (a): the awk-narrowed sum, 5 at open and 0 after a performed stamp"
+         ],
+         "locks": "strictly serial AFTER both X.P.W4.g and X.P.W4.h; a FRESH seat (M-23 §1) — no carry-over from .f; the two COHESION carves only under a performed stamp; the R-A stamp is one act over the five VERIFIED rows; harvest/x-p-w4s.json is fold/2 over existing bytes (F-w4c-2, E-3) — a blind create destroys banked evidence",
+         "brief": "Fresh Fable adjudicator. Re-run G-1..G-10 at your own clock, every reading double-run, both writing scripts given --out into scratch so evidence/W4/** is not touched; G-10 in shape (a) per W4.md's third addendum. Perform the R-A stamp IFF G-1..G-9 are ALL GREEN — one act moving the five four-verb VERIFIED rows in waves/W0..W4.md (sum 5 -> 0); otherwise WITHHOLD by gate id, again, and write no stamp byte. Only under a performed stamp: COHESION §1 SS-5 cell + §5 board line. Append a dated §13 to W4-CLOSE.md and a dated addendum to RELEASE-PACKET.md; re-read RC-P at the bytes (do not read a status word). Fold x-p-w4s.json 2-of-2 over its existing 56673 B. Mail rows in INBOX. Honest-RED by id; no masking of any kind."
+        }
+       ],
+       "alreadyDone": [
+        "X.P.W4.e",
+        "X.P.W4.e2",
+        "X.P.W4.f"
+       ],
+       "greenBeforeCure": [
+        "G-2 — GREEN for X·P at .f's banked close (0 wave commits carry a src|demo|api|test|e2e path); a spec-born-RED gate, inherited, .f2 re-runs",
+        "G-4 — Wasm zero-function-import admission GREEN on .e's rebuilt ac1.wasm; inherited",
+        "G-5 — RC-P evaluator GREEN (RC-P honestly FALSE, conjunct 3 over V's own bytes, 20962); inherited",
+        "G-6 — 25 hits, unchanged; inherited",
+        "G-8 — packet + addendum, 0 UNREAD; inherited",
+        "G-9 — W4-CLOSE §4 disposition (C), 0 paths under docs/tranches/X/waves/; inherited",
+        "G-7 — declared INHERITED-GREEN FLOOR (0/0), not a born-RED gate",
+        "G-3 — GREEN (52 of 52, exit 0) by X.P.W4.e2's landed cure, not green before its cure"
+       ],
+       "recordCommit": "c5c7daad"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "runId": "wf_d0a271b1-356",
+   "sha256": "ebb4bd6fc5f1f6ff90bd6f395e9e346d51bdef0e5df193d075a881c0143227a7",
+   "bytes": 23432,
+   "resultCount": 8,
+   "unitRows": [
+    {
+     "resultIndex": 6,
+     "agentId": "aa1730b89e11c90c8",
+     "unit": "X.P.W4.g",
+     "status": "PARTIAL",
+     "commits": [
+      "31a9d5d8",
+      "ba4d148",
+      "c1c8d775",
+      "c7d7b768",
+      "4075c234"
+     ],
+     "gatesGreen": [
+      "G-1 VERDICT: GREEN, exit 0, double-run, at COMMITTED bytes (run1 ≡ run2, diff -q silent; re-verified a third time after Act 4 moved DEFECT-LEDGER.md)",
+      "three negative controls printed RED — A [G] exit 1 · B [E] exit 1 · C [F] exit 1, plus the positive control GREEN exit 0",
+      "G-2 measured over this unit's own commits: 0 paths under src|demo|api|test|e2e"
+     ],
+     "gatesRed": []
+    },
+    {
+     "resultIndex": 7,
+     "agentId": "a2d29565219d2582b",
+     "unit": "X.P.W4.h",
+     "status": "DONE",
+     "commits": [
+      "fede7d3",
+      "e31b8450",
+      "d357aad9"
+     ],
+     "gatesGreen": [
+      "cells #40 / #41 re-measure identical — `#40 identical · #41 identical`, double-run byte-identical (evidence/W4/two-cell-census-2026-09-19-w4h.txt)",
+      "full differential re-run: 0 mirror-defects outside ruled ids — `RULING-ID 152 of 152 miss entries carry a rulingId from {ID-3 · ID-1b · ID-4 · ID-5 · GROUND-C · ID-2 · ID-1 · PB-11 · R-f1 · E-k2} · NOT IN THE SET 0`, double-run",
+      "W3 totality gate still TOTAL — `ALL 46 of 52 TOTAL` / `6 PARTIAL, 0 ABSENT`, the same six rows as the banked universe-52.json, double-run byte-identical"
+     ],
+     "gatesRed": []
+    }
+   ],
+   "document": {
+    "runId": "wf_d0a271b1-356",
+    "workflow": "wf_d0a271b1-356",
+    "resultCount": 8,
+    "results": [
+     {
+      "agentId": "aee9524859dc1800c",
+      "key": "v2:4fc8a8afe28dbc263447727314b5f90afca8a57bd4e5c0a94c0d69c043697e7d",
+      "result": {
+       "skip": true,
+       "groups": [],
+       "units": [],
+       "alreadyDone": [],
+       "greenBeforeCure": [],
+       "recordCommit": ""
+      }
+     },
+     {
+      "agentId": "aafd852a1de6ad66d",
+      "key": "v2:d0cbfb34fe46bbb5c2112164945d69149b663fd37c54f3092a3c78e0ee608e03",
+      "result": {
+       "groups": [],
+       "units": [],
+       "skip": true,
+       "alreadyDone": [],
+       "greenBeforeCure": [],
+       "recordCommit": ""
+      }
+     },
+     {
+      "agentId": "a8e31f10988390395",
+      "key": "v2:b35293cdb92829e2a88d7fc8bf233440a2709f464b823d5062278f7c98532084",
+      "result": {
+       "skip": true,
+       "groups": [],
+       "units": [],
+       "alreadyDone": [],
+       "greenBeforeCure": [],
+       "recordCommit": ""
+      }
+     },
+     {
+      "agentId": "adf90026709891f60",
+      "key": "v2:b1ca7ab8f35689a0532a076d0a65349eaf1d2010b723324bb968f6a8419bce07",
+      "result": {
+       "skip": true,
+       "groups": [],
+       "units": [],
+       "alreadyDone": [],
+       "greenBeforeCure": [],
+       "recordCommit": ""
+      }
+     },
+     {
+      "agentId": "a2c0ae6e24ef74e13",
+      "key": "v2:697308997bade636521ed40826063314838157b4fbef5b2b2290520b3164a5ad",
+      "result": {
+       "skip": true,
+       "groups": [],
+       "units": [],
+       "alreadyDone": [],
+       "greenBeforeCure": [],
+       "recordCommit": ""
+      }
+     },
+     {
+      "agentId": "ae6e78d07c4f2085a",
+      "key": "v2:78525e6ec72458a8763233b5281ec24be80b601177d2c7567e374a46ec3cccd2",
+      "result": {
+       "groups": [
+        [
+         "X.P.W4.g",
+         "X.P.W4.h"
+        ],
+        [
+         "X.P.W4.f2"
+        ]
+       ],
+       "units": [
+        {
+         "id": "X.P.W4.g",
+         "model": "opus",
+         "sections": "W4.md:682 (FIFTH dated addendum, the `.g` sentence) · COHESION.md:1757-1775 (§0ab bullet 1, E-w4f-1) · W4.md §6 G-1 · §0p run-B append procedure",
+         "writable": [
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/scripts/seam-contract-check.mjs",
+          "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/test/css-equivalence/run-full-surface.mjs",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/DEFECT-LEDGER.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W4/**"
+         ],
+         "gates": [
+          "G-1 VERDICT: GREEN, exit 0, double-run, at COMMITTED bytes",
+          "three negative controls printed RED"
+         ],
+         "locks": "Parallel with .h — no shared modify path (evidence/W4/** is create-only, distinct dated names). value.js and <p2> take SEPARATE pathspec commits. The checker cure and its negative-control evidence are one meaning and must not split. DEFECT-LEDGER.md is written ONLY by the harvester through the §0p run-B symlink, never by hand.",
+         "brief": "Inherit the killed seat's uncommitted seam-contract-check.mjs (+177/-15, reads GREEN, UNRECEIPTED — ESC-W4S-r3-2): read every hunk, keep only what conforms to §0ab bullet 1; never adopt it as done. Check E: a DIVERGENCE-LEDGER §10 RETIRED row does not bind its subjects. Check G: a cell ruled in ADJUDICATION-W4.md is terminal — read the adjudication, not §0v's rider. Print three negative controls RED (PENDING head with no adjudication row; unretired subject vs an identical row; disposition id absent from the ledger). F-ab1: the five-name literal at run-full-surface.mjs:~61 dies, the re-export set measured from entry.mjs, the emitter's carry gains §10. DEFECT-LEDGER append by the §0p run-B symlink only. Gate G-1 GREEN, exit 0, double-run, at COMMITTED bytes."
+        },
+        {
+         "id": "X.P.W4.h",
+         "model": "opus",
+         "sections": "W4.md:682 (FIFTH dated addendum, the `.h` sentence) · COHESION.md:1776-1790 (§0ab bullets 2-3: F-w4f-2 HIGH, F-w4f-1 MEDIUM) · COHESION §0s quartet law · css-syntax-3 §5.4.7 and §5.4.4",
+         "writable": [
+          "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/**",
+          "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/test/css-totality/**",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/ADJUDICATION-W4.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/SEAM-CONTRACT.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W4/**"
+         ],
+         "gates": [
+          "cells #40 / #41 re-measure identical",
+          "full differential re-run: 0 mirror-defects outside ruled ids",
+          "W3 totality gate still TOTAL"
+         ],
+         "locks": "Parallel with .g — disjoint paths. §0s's QUARTET LAW: if a ctor row changes, the algebra tables, BOTH lowerings and bounds.mjs move in ONE commit and must not split. src/css/** is writable for the declaration production ONLY; SEAM-CONTRACT.md only in the cells of the F-w4f-2 / F-w4f-1 rows; DIVERGENCE-LEDGER.md append-only (the F-w4f-1 row).",
+         "brief": "Cure the declaration production in <p2>/typescript/src/css/** only. F-w4f-2 (HIGH): css-syntax-3 §5.4.7 — after the value, a `!` delim + ident `important`, whitespace OPTIONAL on both sides; cells #40/#41 and `color: red!important` must ACCEPT, the spaced control stays ACCEPT. F-w4f-1 (MED, candidate half): §5.4.4 — the NAME is one ident-token, so `a { col!r: red }` must REJECT; file the new divergence against 4.0.0 as declared-divergence, rulingId F-w4f-1, candidate correct, consumer direction stated. Re-emit the two-cell census as NEW dated evidence beside W3's; dated addendum in ADJUDICATION-W4.md; move only the two seam rows' cells. Born-RED measured at open: #40/#41 REJECT, col!r ACCEPTs."
+        },
+        {
+         "id": "X.P.W4.f2",
+         "model": "fable",
+         "sections": "W4.md:682 (FIFTH addendum, the `.f2` sentence) · W4.md:678 (THIRD addendum — the `.f` stamp set and F-w4c-1's G-10 shape (a) command) · W4.md §6 G-1..G-10 · W4.md §2 R-A · Q-RC-1 / Q-RC-2",
+         "writable": [
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W0.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W1.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W2.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W3.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W4.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/COHESION.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/W4-CLOSE.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/RELEASE-PACKET.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/V/coordination/INBOX.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/harvest/x-p-w4s.json",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W4/**"
+         ],
+         "gates": [
+          "G-1",
+          "G-2",
+          "G-3",
+          "G-4",
+          "G-5",
+          "G-6",
+          "G-7",
+          "G-8",
+          "G-9",
+          "G-10"
+         ],
+         "locks": "STRICTLY SERIAL after both .g and .h. The five VERIFIED rows move in ONE act or not at all (R-A). The two COHESION carves (§1 SS-5 cell, §5 board line) only under a PERFORMED stamp. X.P.W4's CLOSED row is NEVER rewritten. A FRESH seat (M-23 §1) that authored no cure byte of this wave.",
+         "brief": "Fresh Fable adjudicator (M-23 §1). Re-run G-1..G-10 at your own clock, every reading double-run, both writing scripts given --out into scratch so evidence/W4/** is not touched. G-10 in shape (a) — F-w4c-1's awk-scoped command (5 at open, 0 after the stamp); the §6 body's unscoped `cat | grep -c` reads 7 because W3.md's dated addenda quote the table, and shape (a) excludes them by construction. Perform the R-A stamp IFF G-1..G-9 GREEN: the five four-verb VERIFIED rows in one act; else WITHHOLD by gate id. Dated §13 in W4-CLOSE.md; dated addendum in RELEASE-PACKET.md; INBOX rows. x-p-w4s.json is fold/2 and EXISTS at 56673 B — measure before writing, never blind-create (E-3). Re-read RC-P; Q-RC-1's V-tarball arm."
+        }
+       ],
+       "alreadyDone": [
+        "X.P.W4.e",
+        "X.P.W4.e2",
+        "X.P.W4.f"
+       ],
+       "greenBeforeCure": [
+        "G-2",
+        "G-3",
+        "G-4",
+        "G-5",
+        "G-6",
+        "G-7",
+        "G-8",
+        "G-9"
+       ],
+       "recordCommit": "2237f305"
+      }
+     },
+     {
+      "agentId": "aa1730b89e11c90c8",
+      "key": "v2:f8e4cbf6ee6b00508dbdac61e2b911da5da6751da6eaac50ea4271667a91423d",
+      "result": {
+       "unit": "X.P.W4.g",
+       "status": "PARTIAL",
+       "commits": [
+        "31a9d5d8",
+        "ba4d148",
+        "c1c8d775",
+        "c7d7b768",
+        "4075c234"
+       ],
+       "gatesGreen": [
+        "G-1 VERDICT: GREEN, exit 0, double-run, at COMMITTED bytes (run1 ≡ run2, diff -q silent; re-verified a third time after Act 4 moved DEFECT-LEDGER.md)",
+        "three negative controls printed RED — A [G] exit 1 · B [E] exit 1 · C [F] exit 1, plus the positive control GREEN exit 0",
+        "G-2 measured over this unit's own commits: 0 paths under src|demo|api|test|e2e"
+       ],
+       "gatesRed": [],
+       "escalation": "ESC-W4g-1 — F-ab1's SECOND limb (\"the emitter's carry gains §10\") is IMPOSSIBLE inside this unit's hard writable bound, so it was refused rather than improvised. MEASURED: the carry is not in run-full-surface.mjs; it is at /Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/test/css-equivalence/emit-divergence-ledger.mjs:169 (`const carryPath = CANONICAL_LEDGER_PATH`), and its slice is bounded at \"\\n### §6.\" and the next level-2 heading — §6 and nothing else. §10 (DIVERGENCE-LEDGER.md:1084, .f's hand-written retirements) would be dropped by a regeneration exactly as .e's §6 block once was (F-e7). emit-divergence-ledger.mjs is NOT in the unit's writable set (which names exactly one <p2> path, test/css-equivalence/run-full-surface.mjs), so no byte of it was written. CURE, specified in full so the granting seat spends no measurement: the single carried block becomes a carried LIST — read the canonical ledger once, and for each of \"\\n### §6.\" and \"\\n## §10\" slice from the marker to the next level-2 heading (§10 being last, its slice is the tail), emitting each under its own preamble in document order; the acceptance test is the existing idempotence check that caught the 47→286→525 growth, plus §10's retirement rows surviving two consecutive emissions. CONSEQUENCE: no regeneration is ordered, the ledger stands (E-3), and G-1 reads GREEN over the ledger's committed bytes with §10 present — this is a DURABILITY defect against a future regeneration, NOT a live RED, and it blocks neither .h nor .f2.",
+       "notes": [
+        "CRASH-RECOVERY: three inheritances from the killed seat inside this unit's set were read whole and judged hunk by hunk before any byte moved. (1) seam-contract-check.mjs +177/-15, unreceipted — every hunk conforms to §0ab bullet 1 (optional 4th argv so §6 G-1's three-argument command is unchanged; readRetirements over §10; readAdjudication over §2.x heading AND body; check E split live/dead; check G made a biconditional) and was KEPT WHOLE, then MEASURED rather than trusted. (2) 8 untracked negctl-w4g-* fixtures — a complete harness, kept and verified by running it. (3) <p2> run-full-surface.mjs 2/1, two imports only with the :61 literal untouched — kept and COMPLETED; the two imports (readFileSync, fileURLToPath) are exactly what the measured cure needs. Nothing inherited was treated as done.",
+        "Check E now reads §10: in ONE fixture run, row 2 publishes `identical` beside the RETIRED NC-DEAD and is NOT reported, while row 3 beside the LIVE NC-LIVE IS — the ruling and its control in a single output. Check G now reads ADJUDICATION-W4.md, not §0v's rider; the body-reading is load-bearing (real §2.1 names its four entries in its first body sentence, so a heading-only reader would leave 4 of 6 carried entries unruled). Real-surface census unmoved: contract 52 · universe 52 · ledger rows 47 · identical 45 · declared-divergence 7 · both set-differences ∅. The cure removed two FALSE readings ([E] 37, [G] 6) and no TRUE one.",
+        "MEASURED-ANCHOR NOTE (drifted anchor, INTENT recorded at the true bytes; the addendum NOT edited, E-3): §0ab says the re-export set is measured from `entry.mjs`'s exports. `grep -n 'export type' src/css/entry.mjs` → no match — entry.mjs is the RUNTIME entry and a .mjs module holds no type export. The set the addendum means is the one the package's built entry ships beside it: src/css/build/ac1.d.ts's single `export type { … } from \"./value-css-4.0.0.js\"` clause (emitted by build.mjs:153), which is what a consumer of /css resolves. measureCandidateTypeNames() reads that clause and THROWS if absent or shapeless.",
+        "F-ab1 BEFORE→AFTER, both MEASURED (the BEFORE bytes were restored from <p2> HEAD~1 into the same path, run at the same pin 6aca8602 and --limit 5, then returned to HEAD immediately; double-run byte-identical, exit 0 each — this is a bounded smoke run, NOT G-7, which is .f2's to re-run at full corpus): re-export set 5 typed → 33 measured; rows 52 · COMPARED 24 · NO-PEER 28 → 52 · COMPARED 52 · NO-PEER 0; CN-3's derived subject list 28 → 0.",
+        "SELF-CORRECTION recorded rather than overwritten: a first draft of the F-ab1 table published 'NARROWING 4 → 3'. That figure was typed, not read — WRITE-THEN-MEASURE's own failure mode, inside the receipt for a defect about typed numbers. Caught by running the BEFORE bytes; re-measured via narrowingRows({… realizedTypes: <5> vs <33>}) → CN-1:0 CN-2:19 CN-3:28 and CN-1:0 CN-2:19 CN-3:0. The row COUNT never moved (3 in both); the SUBJECT list did.",
+        "§0p run-B append DISCHARGED — .f had left it as a residual because the registry row was in no grant of its unit. Instrument measured unmodified first (sha256 77a6e04c2067…, identical to .f's reading; last commit c0078d96; workflows/ 0 dirty lines). Run A (control, ledger NOT symlinked): exit 0, 3354 results · 7837 defects, 167 harvest JSONs CONTAINED IN THE MIRROR. Loss-free proven BEFORE the repo was touched: diff repo vs mirrorA → 1 removed line (the census sentence 7813→7837), 153 added, NO defect row removed. Run B (second fresh mirror, DEFECT-LEDGER.md symlinked into the repo): exit 0; sha 54fd8c71…→9573d226…, 10,560,195→10,561,092 B, 120,188→120,340 lines; diff -q mirrorA vs repo → silent, run A ≡ run B byte-identical; git status on registry/ → exactly one line, the ledger. The 167 JSONs never reached the repo. The write was the script's through the symlink, never a hand's.",
+        "R-1 residual, NOT hand-cured: git diff --check reports trailing whitespace on 48 added ledger lines, all of the shape '### `` ·  · ' + '**Defect.** ' — harvester rows emitted from result records with empty id/severity/file. This is F-e11's own family; left exactly as the script wrote it, because §0ab grants that file to the harvester's write and to nothing else, and a hand's tidy would be the substitution the ruling forbids. Owner: X-W11's HARVEST (§0k HG-7), beside F-e11 / K.7(i).",
+        "R-2: the LEDGER.md withholding ENDED mid-unit. This wave's open withheld the X.P.W4S event line a fourth time over a sibling Track-A X-W9 dirty hunk (2/1); at this unit's close `git status --porcelain -- docs/tranches/X/execution/LEDGER.md` → 0 lines (Track F's close seat landed it at 72735922). The obstruction is gone, but LEDGER.md is NOT in this unit's four-path writable set, so this unit did not write it and says so rather than taking the opening. The next seat holding that grant finds a clean ledger and an X.P.W4S row that is still TRUE (OPEN, RESUME MODE, .g landed, .h ∥ .f2 owed).",
+        "E13 swept at THIS unit's clock, read-only, not cited: V/ 10 depth-1 ⊕ 24 coordination · glass-ui BK still newest, 9 entries · keyframes.js 13 · atlas 28; find over the four paths -newermt '2026-09-19 12:00' → no member. Positional status-cell awk over INBOX.md → ROWS=77 UNREAD=0, identical to this sitting's open. (.f's close receipt records ROWS=81 under the same command; this seat reports only what it measured and notes the difference rather than reconciling it by assertion — the arithmetic that matters, UNREAD=0, agrees in both.) 0 unrowed letters, 0 UNREAD in scope, no I-n minted, no INBOX.md byte written.",
+        "Commit hygiene: five commits, each with its own `-- <the same exact paths>` on the commit itself; value.js and <p2> took SEPARATE pathspec commits as the locks require; the checker cure and its negative-control evidence stayed in ONE commit (31a9d5d8, 11 paths) as the family-must-not-split lock requires. git show --name-only over all five names zero paths outside this unit's writable set — no demo/, e2e/, src/ or dev.sh row, and no sibling seat's staged bytes swept in. Nothing stashed, nothing reset, no sibling path unstaged. Both trees clean inside this unit's set at close (<p2> shows only the pre-existing `?? .worktrees/`).",
+        "Evidence banked (all NEW dated creates in evidence/W4/**, no .b/.d/.e file touched, E-3): negctl-w4g-runs-2026-09-19.md (the four fixture runs verbatim) · g1-after-w4g-2026-09-19.txt (G-1's GREEN reading whole) · fab1-w4g-reexport-measured-2026-09-19.md (BEFORE→AFTER + the self-correction + ESC-W4g-1's full cure) · harvest-runB-w4g-2026-09-19.md (the run-A/run-B procedure with every sha and count).",
+        "Status is PARTIAL only because ESC-W4g-1 is returned unlanded. Every gate this unit owns reads GREEN at COMMITTED bytes, double-run. G-1 is no longer one of the ids withholding .f2's R-A stamp."
+       ]
+      }
+     },
+     {
+      "agentId": "a2d29565219d2582b",
+      "key": "v2:3cf2387441ceb09bcbe2545d46c01a985c7ce4c57184dcc70493f6ac28288649",
+      "result": {
+       "unit": "X.P.W4.h",
+       "status": "DONE",
+       "commits": [
+        "fede7d3",
+        "e31b8450",
+        "d357aad9"
+       ],
+       "gatesGreen": [
+        "cells #40 / #41 re-measure identical — `#40 identical · #41 identical`, double-run byte-identical (evidence/W4/two-cell-census-2026-09-19-w4h.txt)",
+        "full differential re-run: 0 mirror-defects outside ruled ids — `RULING-ID 152 of 152 miss entries carry a rulingId from {ID-3 · ID-1b · ID-4 · ID-5 · GROUND-C · ID-2 · ID-1 · PB-11 · R-f1 · E-k2} · NOT IN THE SET 0`, double-run",
+        "W3 totality gate still TOTAL — `ALL 46 of 52 TOTAL` / `6 PARTIAL, 0 ABSENT`, the same six rows as the banked universe-52.json, double-run byte-identical"
+       ],
+       "gatesRed": [],
+       "notes": [
+        "CRASH-RECOVERY: inherited NOTHING. value.js 25 dirty rows and <p2>'s `M typescript/test/css-equivalence/run-full-surface.mjs` + `?? .worktrees/` all lie OUTSIDE this unit's writable set (they are .g's and a sibling track's); read, never touched; nothing stashed/reset/unstaged; scripts/dev/dev.sh never staged.",
+        "ROOT CAUSE of F-w4f-2 was one production deeper than §6's row states: `important()`'s leading `WS()` is already 0..INF and never required the space — the VALUE TOKEN's boundary did. `NOT_TOKEN` = SCAN(\"token-char\",0,0) and `!` was a token-char, so `red` ran into the tail. 4.0.0 cannot meet that byte at all: it strips /!important\\s*$/i off the PART before parseCssValue tokenizes. Cure = `token-char` excludes `!` (the X.P.W3.j brace precedent) + a new `bang` class + `ITEM_SEP = ALT(WS1(), NOT_BANG())` in BOTH space groups, which restores the incumbent splitter's abutting rule so `red!= blue` stays ONE token and a refusal (0 of 6+ controls differ; corpus carries 0 token-abutting `!=` rows at 27,021).",
+        "F-w4f-1 candidate half landed: `decl-name` narrows to the `ident` continuation set behind a zero-width no-leading-digit assertion, with §5.4.4's optional whitespace before the colon read explicitly. `col!r` / `!color` / `color!` / `1color` REJECT in both lowerings; `color` / `--brand` / `color :` / `animation` / `@keyframes` controls unchanged. Filed as DIVERGENCE-LEDGER §11, rulingId F-w4f-1, declared-divergence, candidate correct, direction NARROWS, incumbent half named as X·V's on X-W11's roster.",
+        "§0s QUARTET LAW NOT TRIGGERED and that is measured: no `R_ctor` row moved (`declaration` keeps arity 3 + leafMap; `animation-property` keeps its own; both new grammar pieces are DROPped zero-width assertions with no leaf), so neither lowering's ctor table nor bounds.mjs was opened. Both lowerings inherit the cure from the one grammar over the one class table; every probe reads js and wasm separately and finds them equal.",
+        "RESIDUAL R-1, returned by id to X.P.W4.f2 (NOT an escalation of this unit's gates): the differential now reads ADJUDICATION_UNHONOURED 27 at parseStylesheet (0 before), each a repair CLASS governing a source for its COLOUR (expect accept — PB-04/05, PB-01/02) that also carries a rule whose NAME is not an ident-token; `outsideEveryClass`'s guard exists for exactly this and its surviving clause reaches only `!` forms. Curing it moves the CLASSES' pinned measured populations and `RULING_IDS` (the §0w id-set printed in the IMMUTABLE banked universe-52.json). test/css-totality/lib/adjudications.mjs IS the adjudicated registry in code, which E-3 holds immutable — corrections are dated addenda-beside, which ADJUDICATION-W4.md §12 now is. This seat did NOT open that file.",
+        "DIVERGENT_VALUE moved 2 -> 7 and those five are NOT a residual: each is a style body opening with a COMMENT, which 4.0.0 reads as the declaration NAME and the candidate now reads as trivia — X.P.W3.l's F-k3 family closed from the other side, candidate correct.",
+        "RESIDUAL R-3, stated not cured: `red ! important` / `red! important` stay REJECT in both engines. 4.0.0 refuses the gap (measured) and SH-3 closed it deliberately; §5.4.7 would admit it, but opening it would make the candidate ACCEPT where 4.0.0 rejects — a new unruled divergence §0ab does not authorise. The three inputs the spec names (#40, #41, `color: red!important`) all ACCEPT.",
+        "RESIDUAL R-2: DIVERGENCE-LEDGER.md is generated and its F-e7 carry lifts `### §6.x` only — a regeneration must re-append §10 (.f's) AND §11 (this unit's).",
+        "Regression sweep: css-totality vitest 3 files / 80 tests PASS (its own line reads `46 of 52 TOTAL`); root vitest 4 failed — all four pre-existing ENOENT data-fixture failures in the parse-that library's own tests, unrelated to src/css/**; css-equivalence vitest 4 failed — two are W3-era expectations the corpus outgrew (27021 vs 26604; 172 vs 0), one is G-7's declared inherited-RED floor, one is R-1 above.",
+        "SEAM-CONTRACT.md touched in row 19's cells ONLY (disposition cell drops `candidate-defect ×2 (F-w4f-2 …)` and gains `F-w4f-1` to the declared-divergence id list; the two rulings' passages rewritten). DIVERGENCE-LEDGER.md append-only. ADJUDICATION-W4.md dated addendum §11/§12/§13 appended, nothing above edited. Five NEW dated evidence/W4/**-w4h.* files; evidence/W3/** untouched. execution/LEDGER.md NOT touched (outside this unit's writable set).",
+        "Pinned universe check at the same clock: `8 residual predicates · 152 cells carried BY ID · 0 cells NOT attributed to a ruling id · 0 census OVER its pinned population · 0 population drifted from its pin` (ID-1b 117 <= 534)."
+       ]
+      }
+     }
+    ]
+   }
   }
  ]
 }
