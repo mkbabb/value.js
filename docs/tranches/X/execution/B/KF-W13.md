@@ -1433,3 +1433,38 @@ of **8** (⟨cmd⟩ `grep -c '^\*\*G-KFW13-' keyframes/waves/KF-W13.md` → 8). 
 · escalations **1 discharged (KF13-E1) + 5 open (KF13-E2 · E-b1 · OP-7 · C-11 · KF11-E2)** ·
 landed-wrong findings **1** · SS-6 rows **6** (W13-P1..P6). The KF-AV-28 discharge literal is
 **quoted three times in this record and emitted zero times**; this `## Close` does not repeat it.
+
+##### KF.W13 `.d` — CLOSE ADDENDUM (2026-09-20, same seat, appended after `eafc7037`; the push, measured)
+
+The `## Close` above states *"All 13 kf commits PUSHED at this close"* and says the value.js push
+rode with it. **The first half is true and verified; the second is corrected here beside, never
+edited in place** (E-3).
+
+1. **keyframes.js — PUSHED.** ⟨cmd⟩ `git -C /Users/mkbabb/Programming/keyframes.js push origin HEAD`
+   → `2736b5e5..05c577ed  HEAD -> master`; after it ⟨cmd⟩ `git rev-parse --short=8 HEAD` ·
+   `… origin/master` → **`05c577ed` · `05c577ed`** and ⟨cmd⟩ `git rev-list --count
+   origin/master..HEAD` → **0**. **All 13 shas are published; local == remote.** No force, no
+   `--force-with-lease`, no branch rewritten.
+2. **value.js — NOT PUSHED; `d-R9`, returned with its exact cause.** ⟨cmd⟩ `git push origin HEAD`
+   → *"Updates were rejected because the tip of your current branch is behind its remote
+   counterpart"*. ⟨cmd⟩ `git fetch origin` then `git rev-list --left-right --count
+   origin/tranche-u...HEAD` → **1 ← 38 →**: exactly **one** remote-only commit, `6fc1212e`
+   *"docs(x-w9/repair-1-resume-round): …"* — **Track A's**, pushed while this close ran. The
+   integrating pull is refused by the working tree, not by the history: ⟨cmd⟩ `git pull --no-rebase
+   --no-edit origin tranche-u` → *"error: Your local changes to the following files would be
+   overwritten by merge: `demo/shell/PaneSegmentedControl.vue`"* — a **sibling seat's staged
+   deletion**, present in this checkout since before this seat opened and **outside every KF.W13
+   writable row**.
+   **This seat stopped there.** Curing it would require staging, stashing, restoring or unstaging a
+   dirty path that belongs to another seat — each forbidden by standing law — and a rebase of the
+   38 local commits would rewrite shas that four tracks' records already cite by name. ⟨cmd⟩
+   `ls .git/MERGE_HEAD` → *no such file*; ⟨cmd⟩ `git rev-parse --short=8 HEAD` → **`eafc7037`**,
+   unmoved. **Nothing was stashed, reset, restored or force-pushed, and no sibling byte was
+   touched.**
+   **d-R9 → ORCHESTRATOR**, with the command named: once the sibling seat commits or releases
+   `demo/shell/PaneSegmentedControl.vue`, `git -C /Users/mkbabb/Programming/value.js pull
+   --no-rebase origin tranche-u && git push origin HEAD` publishes this close's three commits
+   (`30680fc7` the close + evidence · `dfbae1b4` the LEDGER row · `eafc7037` the E13 + SS-6 append)
+   together with the 35 sibling commits already waiting in this branch. **This is a publication
+   residual only: every gate verdict, every figure and every audit above was measured at bytes that
+   are committed here and, for keyframes.js, published.**
