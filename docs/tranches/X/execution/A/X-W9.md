@@ -4842,3 +4842,209 @@ one clause in `ARCHITECTURE.md:657` (MEDIUM-1) that HIGH-1's cure makes truthful
 needs a successor wave, a producer act or a bounds grant beyond what §0ac already wrote. This seat
 cured nothing, moved no gate verdict in either direction, minted no INBOX row and wrote no byte
 outside `X-W9.md` and `LEDGER.md`.
+
+## Repair 1 — RESUME ROUND (against `## Check 1 — RESUME ROUND`, 2026-09-20)
+
+SERVED MODEL: `claude-opus-5[1m]` · **REPAIR SEAT, round 1.** This seat authored no byte of any
+unit receipt, of any `## Close`, or of any `## Check` or `## Repair` section above. E-3: the
+2026-09-18 `## Repair 1` and `## Repair 2` sections are IMMUTABLE and are **not** rewritten; this
+section is a dated sibling beside them, because it repairs a check they could not have read.
+
+**VERDICT: ALL FOUR DEFECTS AT ≥ MEDIUM ARE CURED, at their own gates' commands.**
+`HIGH-1` · `HIGH-2` · `HIGH-3` · `MEDIUM-1` — four cures, four commits, every one inside the
+wave's own §File Bounds. **The gate tally moves 26 GREEN / 7 RED → 31 GREEN / 2 RED**, and the two
+that stay RED are exactly the two the check adjudicated RELIEVED by name (`G3` under §0ac's
+`string`-parameter binding, `G12 LEG2` under O-12's declared-retired ruling). **The five unrelieved
+REDs are gone.** The Goal criterion's third clause — *"every type a subpath returns is nameable
+from that subpath"* — is **TRUE at the bytes** for the first time in this wave.
+
+Substrate: `tranche-u`, repair commits `e4f5f843` · `21aa8d4c` · `b4fbfdcc` · `2f900da0`, node
+v26.0.0, darwin arm64, `dist/subpaths/` rebuilt by this seat, tarball packed by this seat.
+
+### RP-R.0 CRASH-RECOVERY sweep (standing law)
+
+⟨cmd⟩ `git status --porcelain` read at open, filtered to **this seat's** writable set
+(`package.json`, `package-lock.json`, `src/css/**`, `src/easing.ts`, `scripts/ci/`,
+`docs/tranches/V/ARCHITECTURE.md`, `X-W9.md`, `LEDGER.md`) → **empty**. Nothing inherited from a
+killed predecessor, nothing stashed, nothing restored. The seventeen dirty rows at open were
+sibling seats' (`demo/**`, `e2e/**`, `X-W5.md`, `KF-W13.md`, `CARRY-LEDGER.md`) and were never
+touched; `scripts/dev/dev.sh` was never touched and never staged. Every commit below carries its
+own pathspec on the commit itself.
+
+### RP-R.1 Defect → cure → commit
+
+| defect | cure performed | file(s) | commit |
+|---|---|---|---|
+| **HIGH-1** `LW-A` — the AM-13 strip DELETED `@mkbabb/keyframes.js` where it had to DEMOTE it; glass-ui statically imports it and declares it an *optional* peer, so a clean `npm ci` drops it and the demo build breaks in four `ci.yml` jobs, `deploy-pages.yml` and `release.yml` | `"@mkbabb/keyframes.js": "^6.0.0"` joins `devDependencies` beside glass-ui; lockfile regenerated mechanically. Runtime `dependencies` stays absent, so AM-13 is satisfied identically — **demote, not delete**, exactly the check's cure | `package.json`, `package-lock.json` | `e4f5f843` |
+| **HIGH-2** `G1 · G13 · G14`, one unrelieved head — 6 unexported declares + 60 `_2` references, the Goal criterion clause FALSE | **one spelling** for the colour vocabulary inside `src/css/`: `index.ts` re-exports the five names **plus `AnyColor`** from `../value`, and `grammar.ts:19` / `types.ts:1` take the same spelling. `ColorIssue` has no `../value` spelling and keeps its own. `src/easing.ts` carried the 7th bare declare for the same reason — `BezierPresetName = keyof typeof PRESET_TABLE` named an unexported const — so the authored literal **is** `export const bezierPresets` now, one binding, 30 keys byte-unchanged | `src/css/index.ts`, `src/css/grammar.ts`, `src/css/types.ts`, `src/easing.ts` | `21aa8d4c` |
+| **HIGH-3** `G20` — the shipped tarball fails the repository's own packed-surface check, wired into `ci.yml:71` and `release.yml:110`, ordered by §Format And Lint Cadence *before the tag* | the seven names the 4.1.0 cut shipped join `expected` **and** each gets one behavioural `SMOKE` case, which is the file's own documented two-edit ratchet — not a loosened assertion. The two void-Result writers are asserted on the **buffer they wrote** | `scripts/ci/verify-packed-surface.mjs` | `b4fbfdcc` |
+| **MEDIUM-1** `G31` — the wave reddened its own green gate: `ARCHITECTURE.md:657` states a dependency set the manifest does not have, G31's falsifier verbatim | one clause, not a rewrite: runtime `dependencies` is recorded ABSENT since the AM-13 strip, and the two peers recorded in `devDependencies` at `^7.0.0` / `^6.0.0` — the state HIGH-1's cure restored. Every parse-that claim in the paragraph re-measured true and left untouched | `docs/tranches/V/ARCHITECTURE.md` (`:657` carve) | `2f900da0` |
+
+### RP-R.2 Every gate a cure could move, re-run at this seat's own commands
+
+Double-run unless marked. `dist/subpaths/` rebuilt (⟨cmd⟩ `npm run build` → `✓ built in 2.75s`),
+tarball packed at this seat (⟨cmd⟩ `npm pack` → `mkbabb-value.js-4.1.0.tgz`, **20 files**).
+
+| # | before (Check 1 — RESUME ROUND) | this seat, after the cures | verdict |
+|---|---|---|---|
+| G1 | dated sibling probe exit 1 · `RED MTS-09 css.d.ts carries 6 unexported declares: Alpha_2, AnyColor, Channel_2, ChannelsBySpace_2, Color_2, SpaceId_2` | ⟨cmd⟩ `node …/src-surface-totality.2026-09-19.mjs` → **exit 0**, `ok MTS-09 no unexported declares in css.d.ts`, `GREEN` | **RED → GREEN** |
+| G13 | ⟨cmd⟩ `grep -c '^declare ' dist/subpaths/*.d.ts` summed → **7** (css 6 · easing 1) | summed → **0**, and **0 in every one of the seven** subpath `.d.ts` | **RED → GREEN** |
+| G14 | ⟨cmd⟩ `grep -o '_2' dist/subpaths/css.d.ts \| wc -l` → **60** over 26 lines | → **0** | **RED → GREEN** |
+| G20 | ⟨cmd⟩ `node scripts/ci/verify-packed-surface.mjs <tgz>` → **exit 1** at the runtime export-list assertion | → **exit 0**, `{"runtime":{"color":28,"value":1,"css":20,"easing":17,"math":9,"transform":3,"quantize":2},"runtimeExports":80,"smokeInvocations":80}` — **80 exports, 80 behavioural invocations, none skipped** | **RED → GREEN** |
+| G31 | ⟨cmd⟩ `node -e` on the manifest → `dependencies` **undefined** while `:657` read *"`dependencies` reads exactly `{…glass-ui…keyframes.js…}`"* | `dependencies` **undefined** (unchanged — AM-13 holds), `devDependencies['@mkbabb/glass-ui']` **^7.0.0**, `['@mkbabb/keyframes.js']` **^6.0.0**, `@mkbabb/parse-that` in **neither**; `:657` now states exactly that | **RED → GREEN** |
+| G17 | LIB-04 boundary leg ok; its `_2` leg named **5 duplicated colour declarations** | ⟨cmd⟩ `library-band-gates.mjs` → `ok LIB-04 no duplicated declarations in css.d.ts` **and** `ok LIB-04 colour types cross src/color/'s boundary through the barrel only` — **both legs** | **GREEN, strengthened** |
+| G3 | LIB-02 → **30**, `value=1 css=19 easing=1 math=6 transform=3` | **30**, `value=1 css=19 easing=1 math=6 transform=3` — identical | **RED, unmoved · RELIEVED (§0ac)** |
+| G12 | probe exit 1 · LEG1 ok, LEG2 `TS2307` + `ERR_PACKAGE_PATH_NOT_EXPORTED` | identical: `ok LEG1 public return types are nameable from their own subpath`; LEG2 the same two | **RED, unmoved · RELIEVED (O-12)** |
+| G2 | `test/parser-totality.test.ts` 123 passed | **123 passed** | **GREEN ✓** |
+| G4 | `ok LIB-01` + control | `ok LIB-01 easing(name) is total over the Object.prototype key set` + control | **GREEN ✓** |
+| G5 | `npx eslint 'src/css/**/*.ts'` exit 0 | **exit 0** (config-resident, no `--rule`) | **GREEN ✓** |
+| G10 | `npx eslint 'src/transform/**' 'src/foundation/**'` exit 0; `src/**` exit 0 | **exit 0** and **exit 0** | **GREEN ✓** |
+| G15 | packed `"a : b"` → `"a: b"` | packed: `'serializeCssValue' in css` **true**, `"a : b"` → `"a: b"` | **GREEN ✓** |
+| G16 | max `src/**/*.ts` = **672** (`path.ts`) | **672** (`path.ts`) — the ratchet does not rise; `grammar.ts` 539 → **544** (four comment lines) stays third | **GREEN ✓** |
+| G18 | `v4-color-behavior` 8 + `color-anchors` 12 = 20 passed | **20 passed** inside a 5-file run of **190 passed** | **GREEN ✓** |
+| G19 | `75/80 = 93.8%` · `72/80 = 90.0%` | **`75/80 = 93.8%`** · **`72/80 = 90.0%`** — both denominators unmoved at **80** runtime exports | **GREEN ✓** |
+| G21 | packed SCI-1 all three `true` | packed `sampleColorRamp=true mixColorsInto=true toRgba8Into=true`, and each now **invoked** by G20's smoke half | **GREEN, strengthened** |
+| G22 | packed `toHex` / `easingNames` true, 40 names | **true** / **true**, `easingNames().length` **40** | **GREEN ✓** |
+| G23 | `true,true,true,true` | **`true,true,true,true`** on the packed tarball | **GREEN ✓** |
+| G25 | packed `Object.keys(bezierPresets).length` → 30 | **30**, and `bezierPresets["ease-out-circ"]` → `[0.075,0.82,0.165,1]` | **GREEN ✓** |
+| G27 | packed `./transform` keys | `PathGeometry,getPointAtLength,getTotalLength` | **GREEN ✓** |
+| G30 | `grep -c 'src/parsing' …/ARCHITECTURE.md` → 0 | **0** | **GREEN ✓** |
+
+**Tally: 31 GREEN · 2 RED** (`G3` · `G12`), against the check's 26 · 7.
+
+### RP-R.3 §Format And Lint Cadence, re-run whole
+
+| command | Check 1 — RESUME ROUND | this seat | carriers |
+|---|---|---|---|
+| `npx vue-tsc -p tsconfig.lib.json --noEmit` | exit 0 | **exit 0** | — |
+| `npx vue-tsc -p tsconfig.demo.json --noEmit` | exit 0 · 0 errors | **exit 0 · 0 errors** | — |
+| `npx vue-tsc -p tsconfig.test.json --noEmit` | **2** errors | **2 errors** | the same two, `test/gradient-parse.test.ts:32,:63` — `ParsedGradientModel.intervals`. Inherited: ⟨cmd⟩ `git log --oneline -3` on both the test (`a61094e3`, V·W43) and its subject (`f90aeb02`) puts the drift **before this wave opened**, in a file no unit of this wave may write |
+| `npx vitest run` | **4 failed / 628 passed (632)** | **4 failed / 628 passed (632)** | the same three files by name: `test/gradient-parse.test.ts` **2** · `test/spectrum-luma.test.ts` **1** (routes itself to X-W4) · `demo/test/shell/reka-binding-idiom.test.ts` **1** (demo/, routed). **Zero regression: not one test moved in either direction** |
+| `npx eslint . --max-warnings=0` | **55 problems (23 errors, 32 warnings)**, carriers outside `docs/tranches/**` → 0 | **55 problems (23 errors, 32 warnings)**, ⟨cmd⟩ carriers outside `docs/tranches/**` → **0** | unchanged; the ignore is X-W8's G-6 |
+| `npm pack` → `verify-packed-surface.mjs` → `consumer-surface-compile.mjs` | pack ok · **verify exit 1** · compile LEG1 ok / LEG2 red | pack **20 files** · **verify exit 0 · 80/80** · compile LEG1 **ok** / LEG2 red (O-12) | the pre-tag cadence now passes its own middle step |
+
+One correction of this seat's own making, caught by the cadence and cured before any commit: the
+first draft of the `mixColorsInto` smoke case carried a backtick inside `SMOKE_SOURCE`, which is
+itself a template literal — ⟨cmd⟩ `npx eslint` → `146:62 Parsing error: Unexpected token undefined`,
+one error over the close's 55. Reworded, ⟨cmd⟩ `node --check` → clean, ⟨cmd⟩ `npx eslint` on the
+file → exit 0, and the suite total returned to **55 problems**. Recorded because a repair seat's
+own defect is a defect.
+
+### RP-R.4 The two REDs that remain, and why they are the check's own honest-RED set
+
+- **G3** — LIB-02 reads **30** at this seat, the same 30, split identically. COHESION §0ac binds
+  the gate to *"the entries that declare a `string` parameter"*, and the check independently
+  measured that binding sound at the bytes (12 sole-`string` entries × 7 hostile strings and
+  `coerceToSyntax` over 49 ordered pairs → **0 throwers**). Unmoved by this repair, and not this
+  repair's to move: **RELIEVED, owner: the sitting.**
+- **G12 LEG2** — `TS2307` + `ERR_PACKAGE_PATH_NOT_EXPORTED` on the root specifier. §0ac rules
+  option (ii) **declared-retired**, O-12 is the position of record, and no `"."` key is added.
+  LEG1 — *"public return types are nameable from their own subpath"* — reads `ok`, which is the
+  leg HIGH-2's cure touches. **RELIEVED, owner: O-12.**
+
+Neither is an unrelieved RED, so **the set the check called unrelieved — `G1 · G13 · G14 · G20 ·
+G31` — is empty.**
+
+### RP-R.5 Two gates re-measured because this repair touched their subject
+
+**G24 — the analytic arms, re-substrated again.** `src/easing.ts` is one of HIGH-2's four files, so
+the drift leg was re-run rather than inherited. The registry `0.13.0` tarball was **re-packed at
+this seat** (⟨cmd⟩ `npm pack @mkbabb/value.js@0.13.0` → sha256
+`b943f722a9681f698a6925ef26ae0e3638c7a4f62d4d8009bb3851bc5f1b36aa` — **the close's hash and the
+check's hash, to the byte, a third time**), installed with its `@mkbabb/parse-that` dependency, and
+compared over 1001 samples × 22 names against this seat's `dist/subpaths/easing.js`:
+**`0 of 22 names drift ≥ 1e-3; worst overall 4.563e-6 (ease-in-out-back)`** — the published figure,
+unmoved. Renaming the authored literal to `export const bezierPresets` moved **no curve**.
+(The probe's own `leg3` path stays unrunnable here: ⟨cmd⟩ `node …/fourier-value-import-drift.mjs` →
+`ERR_MODULE_NOT_FOUND …/fourier-analysis/web/node_modules/@mkbabb/value.js/dist/value.js`,
+`ESC-W9-G24-SUBSTRATE`, unchanged by this repair.)
+
+**G19 — one declared name was ADDED, and it is the cure itself.** The coverage command's second
+denominator is `^export declare ` lines across `dist/subpaths/*.d.ts`. Measured at a detached
+worktree built from `d39fe188` (the pre-repair commit) against this seat's tree:
+
+⟨cmd⟩ `git worktree add --detach <scratch> d39fe188` → `npx vite build --mode production` →
+`grep -h '^export declare ' dist/subpaths/*.d.ts | wc -l` → **164**; same command here → **165**
+(double-run). Bare declares **7 → 0** and `_2` **60 → 0** at the same two clocks, which is the
+delta's whole cause: five of the six css names already had an exported twin beside their `_2`
+duplicate, and the sixth — `AnyColor` — was bare, so publishing it is `+1`. **Recorded here rather
+than left silent, because G19's falsifier is "change the denominator without re-recording it".**
+The published coverage denominators (80 runtime exports) and both published ratios
+(`75/80 = 93.8%`, `72/80 = 90.0%`) are unmoved. The worktree was removed
+(⟨cmd⟩ `git worktree remove --force` → `git worktree list` no longer lists it).
+
+### RP-R.6 The MINOR and INFO rows
+
+- **MINOR-1 (`LW-C`, SCI-1 shipped with zero behavioural tests) — PARTIALLY DISCHARGED, by
+  HIGH-3's cure, and the remainder routed.** All three SCI-1 symbols are now **invoked** against
+  the packed tarball on every `ci.yml:71` and `release.yml:110` run, with assertions on what they
+  write: `mixColorsInto` must put the rgb midpoint `106` and alpha `1` in its `Float64Array`,
+  `toRgba8Into` must put `12,34,56,255` in its `Uint8ClampedArray`, `sampleColorRamp` must return
+  5 stops. `toHex` is pinned to `#0c2238`. That is a behavioural test per shipped symbol, on the
+  artifact a consumer receives — the check's own cure text, in the file the check named as its
+  owner (X-W9.e's row). What does **not** move is the vitest-suite reading: ⟨cmd⟩
+  `node …/coverage-by-export.mjs` still prints `color 23 / 28 uncovered: isAnyColor, mixColorsInto,
+  sampleColorRamp, toHex, toRgba8Into`, because that command measures `test/**`, not the packed
+  smoke. A `test/**` battery is not this repair's to author against a defect the check itself
+  routed to *"X-W9.e or X-W11's release battery"*; **it stays owed, now with its packed half paid.**
+- **MINOR-2 (a published figure does not reproduce) — CORRECTED, dated addendum-beside.**
+  §CL2.3 reads *"44 files + `packets/`"*. ⟨cmd⟩
+  `git ls-files docs/tranches/X/waves/evidence/W9/ | grep -v '/packets/' | wc -l` → **46** at this
+  seat, double-run. **The figure of record is 46; `packets/` holds 1 file.** E-3: §CL2.3 is not
+  rewritten — this sentence is the correction beside it. No gate moves.
+- **INFO-1 (`package-lock.json` sits in no §File Bounds row) — CARRIED AGAIN, disclosed again.**
+  HIGH-1's cure necessarily regenerates it (⟨cmd⟩ `npm install --package-lock-only`, **+24 lines**,
+  mechanical). It is `ESC-W9f-LOCKFILE-DERIVATIVE`'s exact shape and the check ruled the carry
+  correct. Re-measured: ⟨cmd⟩ `npm ci --dry-run` → **exit 0**, no `remove @mkbabb/keyframes.js`
+  line in the plan (its presence was the whole of HIGH-1). The standing ask is unchanged: the
+  lockfile should join §File Bounds beside `package.json` in the next dated addendum.
+
+### RP-R.7 Bounds and masking, measured over this repair's own commits
+
+**Bounds.** ⟨cmd⟩ `git show --name-only --format=` over `e4f5f843 21aa8d4c b4fbfdcc 2f900da0` →
+union **8 paths**: `package.json` · `package-lock.json` · `src/css/index.ts` · `src/css/grammar.ts`
+· `src/css/types.ts` · `src/easing.ts` · `scripts/ci/verify-packed-surface.mjs` ·
+`docs/tranches/V/ARCHITECTURE.md`. Seven are §File Bounds `modify` rows by name (lines 76, 79, 80,
+82, 96, 102, 105 of `W9.md`); the eighth is the disclosed `ESC-W9f-LOCKFILE-DERIVATIVE`. **Zero** writes
+outside: no `api/**`, no `e2e/**`, no `.github/**`, no `demo/**`, no `src/color/model.ts`, no peer
+repository, no sibling wave spec, no `registry/adjudicated/**`, no read-only probe. ⟨cmd⟩ the union
+grepped for `dev.sh` and `PaneSegmentedControl` → **0** and **0**; `scripts/dev/dev.sh` was never
+touched and never staged. The `ARCHITECTURE.md` carve moved **one paragraph's one clause** at
+`:657` and nothing at `:943-945` (X-W8's, CC-082). Every commit carried its own pathspec on the
+commit itself, and the seventeen sibling-seat dirty rows are untouched at close.
+
+**Masking: none.** ⟨cmd⟩ over every added line of all four commits, grepped for
+`try {|catch|@ts-ignore|@ts-expect-error|eslint-disable|.skip(|.todo(|skipIf|as any|as unknown as`
+→ **0**. ⟨cmd⟩ added `export * from` in `src/` → **0**: the `stylesheet.ts` forwarding re-export
+that would green the inherited typecheck stayed **REFUSED for a fifth sitting**, and HIGH-2 was
+cured by deleting a duplicate spelling rather than by re-exporting past it. `expected` in
+`verify-packed-surface.mjs` was **widened with its behavioural half**, never relaxed — the driver
+still refuses both an unexercised export and a stale case, and it now runs **80 invocations over 80
+exports**. No allowlist, no copied producer selector, no `patches/`, no `node_modules` write, no
+`test.skip`. Two REDs were left RED **by name** rather than cured by narrowing.
+
+### RP-R.8 Disposition
+
+**Four defects at ≥ MEDIUM, four cures, four commits, zero escalations.** Every cure was the one
+the check itself named, in the file the check itself named, inside §File Bounds. The gate tally
+reads **31 GREEN · 2 RED**, both remaining REDs carrying the check's own relief by id. The Goal
+criterion now reads **four clauses of four** at the bytes: no public entry throws on a string; no
+public signature returns a value its own `.d.ts` forbids; **every type a subpath returns is
+nameable from that subpath** (this repair); and the surface shipped as one dated 4.1.0 cut whose
+exact-pin consumers were packeted before the tag.
+
+Three things this seat did **not** do, each deliberate. (1) It did **not** move the tag or the
+version: `v4.1.0` remains `f3fccfb7`, ⟨cmd⟩ `npm view @mkbabb/value.js dist-tags` → `{ latest:
+'4.0.0' }` and ⟨cmd⟩ `npm view … versions` shows **no 4.1.0 on the registry**, so no published
+artifact is contradicted by these bytes and no second version was cut inside the wave (G29 intact).
+The repaired tree is what X-W11 publishes. (2) It did **not** promote the LEDGER row or the
+four-verb line: CHECK 4 (§0ac) has not run, and a repair seat does not stamp its own work — the row
+stays `IMPLEMENTED (PARTIAL)` with the repair commits appended for the next check to read.
+(3) It did **not** author a `test/**` battery for SCI-1 (MINOR-1's remainder), which the check
+routed to X-W9.e or X-W11.
+
+E13 mail, at this seat's own clock: ⟨cmd⟩ `grep -cE '^\| [IO]-[0-9]+[a-z]? \|'` → **82** rows;
+status read **positionally** (field 6) → **0 UNREAD**; the naive whole-row grep answers 6, of which
+four carry the word in a Status cell that is not `UNREAD` and two in an Owner cell. **No UNREAD
+mail in scope**, and this repair minted no INBOX row: it sent nothing, because every cure was
+in-tree and no peer's surface moved.
