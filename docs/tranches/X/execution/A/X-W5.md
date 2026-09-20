@@ -881,3 +881,558 @@ born-RED for B1/B2/B3 plus the B5 support reading) and
 AFTER) — **both entered git in `adc312f6`, the same commit as the cure** (§9). The paired post-cure
 JSON is quoted above rather than banked: `waves/W5/green/` is the wave close's artefact (§8, commit
 6) and is outside this unit's writable set.
+
+---
+
+## Close
+
+SERVED MODEL: claude-opus-5[1m]
+
+**Seat**: CLOSE (VERIFY-ONLY — this seat authored no product byte and cured nothing).
+**Date**: 2026-09-19. **Verdict**: **PARTIAL**.
+**HEAD at close**: `c5c7daad` (sibling Track D's X.P.W4S open; the last W5 commit is `afe230b5`,
+and ⟨cmd⟩ `git diff --name-only afe230b5..HEAD -- demo/ e2e/ plugins/ vite.config.ts` → **0** — no
+W5-bearing path has moved since, so every reading below is taken at the same bytes either way).
+
+**INHERITED WORK, declared under the crash-recovery STANDING LAW.** §§C.0–C.8 below were found
+**uncommitted** in this seat's own writable path — ⟨cmd⟩ `git diff --stat -- docs/tranches/X/execution/A/X-W5.md`
+→ `1 file changed, 266 insertions(+)`, a killed predecessor CLOSE seat's partial work on **this**
+unit. The inherited path is named here and nowhere else is claimed: `docs/tranches/X/execution/A/X-W5.md`
+(append-only at line 882; §§0–8 and every unit receipt above are byte-untouched, so E-3 holds).
+This seat **read that diff whole and re-measured every claim in it at its own clock**, double-run.
+**Every hunk conforms and is kept except one**, rewritten below and flagged where it sits: §C.3's
+vitest figure (`15 failed / 613 passed`, *"byte-identical"*) **does not reproduce** and has been
+replaced by the true double-run reading plus the flake analysis that explains it. Nothing was
+stashed, restored, reverted, or staged; the thirteen `demo/**` + `e2e/**` rows remain exactly as
+found, untouched, because they are X.W5.c's set and not this seat's.
+
+### C.0 Crash-recovery (STANDING LAW) — and the finding it produced
+
+⟨cmd⟩ `git status --porcelain` in `/Users/mkbabb/Programming/value.js`, read twice (13:0x and 13:5x) →
+
+```
+ M demo/color-picker/App.vue                          M demo/shell/useViewManager.ts
+ M demo/color-picker/composables/usePaletteWiring.ts  M demo/shell/viewSchema.ts
+ M demo/palettes/usePalettePorts.ts                   M demo/styles/shell.css
+ M demo/palettes/useSlugMigration.ts                  M e2e/smoke/dual-pane-1440.spec.ts
+D  demo/shell/PaneSegmentedControl.vue                M e2e/smoke/mobile/page-load-mobile.spec.ts
+ M demo/shell/dock/Dock.vue                           M e2e/smoke/mobile/walk.spec.ts
+ M demo/shell/usePaneRouter.ts                        ⊕ CARRY-LEDGER.md · X-P-W4S.md · scripts/dev/dev.sh
+```
+
+**Zero of these is inside the CLOSE seat's writable set** (this record, the LEDGER row, `waves/W5/`
+close artefacts). Nothing was stashed, restored, reverted or staged. `scripts/dev/dev.sh` was never
+touched (§0j.A **DR-24**); `CARRY-LEDGER.md` is in no unit's set; `X-P-W4S.md` is Track D's.
+
+But the thirteen `demo/**` + `e2e/**` rows are **exactly X.W5.c's writable set**, and
+⟨cmd⟩ `git diff --stat HEAD -- demo/ e2e/` → **13 files, 824 insertions / 816 deletions**, with
+`PaneSegmentedControl.vue` **staged-deleted but never committed**. ⟨cmd⟩ `/bin/ls -lT` puts the last
+write at **10:09:36**; ⟨cmd⟩ `git log -1 --format=%ad` puts the last commit at **10:08:12**. So:
+
+> **ESCALATION ESC-W5-3 — X.W5.c was killed mid-unit and its cure is UNCOMMITTED.** The seat landed
+> its born-RED artefacts (`afe230b5`) and then wrote its whole cure into the tree without reaching a
+> commit. A VERIFY-ONLY close **may not land a sibling unit's bytes** — the crash-recovery law scopes
+> inheritance to *"paths inside your own writable set"*, and these are not. The work is left exactly
+> as found, unstaged in the two files it was not already staged in, so its owner can resume it.
+> **L-7 governs the reading: an uncommitted cure does not exist.** Every gate below is therefore
+> measured at the **landed bytes** — `git grep`/`git show` against **HEAD**, never the dirty worktree.
+
+### C.1 Commit roster and bounds audit
+
+⟨cmd⟩ `git show --name-only --format='' c0cf27bf de99ec15 f94d22af adc312f6 2fa82bdb afe230b5 | sort -u`
+→ **46 distinct paths**, double-run.
+
+| unit | commits | exists (`git log -1`) | stat scope |
+|---|---|---|---|
+| **X.W5.a** | `c0cf27bf` · `de99ec15` · `f94d22af` | yes · yes · yes | 1 file (the S-7 addendum) · 34 files · 1 file (receipt) |
+| **X.W5.b** | `adc312f6` · `2fa82bdb` | yes · yes | 6 files · 1 file (receipt) |
+| **X.W5.c** | `afe230b5` **only** (born-RED + N11 blind matrices) | yes | 5 files, **all artefacts — no cure commit exists** |
+| **X.W5.d** | — | **NONE** | — |
+| **X.W5.e** | — | **NONE** | — |
+
+**Bounds: CLEAN.** Over all 46 paths, ⟨cmd⟩ a single ERE against the §4 *Do NOT touch* set —
+`^(src/|api/|test/|node_modules/|scripts/dev/dev\.sh|demo/ui/|demo/styles/overture\.css|demo/shell/dock/layers/ActionBarLayer\.vue|registry/|docs/tranches/V/archive/)`
+→ **zero hits**. `scripts/dev/dev.sh` re-probed **per commit** (`git show --name-only … | grep -c`)
+→ **0 · 0 · 0 · 0 · 0 · 0**. The four paths outside `W5.md` §4's own table
+(`demo/shared/ui/PaneHeader.vue`, `demo/color-session/{picker-color,useColorParsing}.ts`,
+`demo/workbenches/extract/**`, `demo/DESIGN.md`) are each a **fold BD row** (BD-06 / BD-12–14 /
+BD-10 / BD-23) whose true spelling was published in the dated `c0cf27bf` addendum **before** the bytes
+moved — in bounds under the fold's own precedence rule (`X-W5-FOLD.md:15`), not an expansion.
+
+**Landed-wrong, reported and NOT fixed here** (see §C.5).
+
+### C.2 Gate table — BEFORE (wave-open) → AFTER (landed bytes, this seat's own clock)
+
+Slate: **43 ids** — `W5.md` §6's 28 ⊕ the fold's N1..N15. (The baseline's *"33"* is §6h/§7e's
+**18 sharpened-existing + 15 new born-RED** arithmetic, a different partition of the same rows.)
+Every static figure **double-run**; every live figure from a probe run in one bounded session
+(§5.2) at `PROBE_BASE=http://localhost:9001`.
+
+⊘ **Contamination notice, stated before the readings.** The only tree a dev server can serve is the
+working tree, which carries X.W5.c's uncommitted bytes (⟨cmd⟩ `grep -c regions demo/shell/viewSchema.ts`
+→ **18**; ⟨cmd⟩ `git grep -c regions HEAD -- demo/shell/viewSchema.ts` → **0**). **Live** readings are
+therefore marked ⊘ where the uncommitted work can reach them; every **static** reading is taken from
+HEAD via `git grep`/`git show` and is clean. One further hygiene fact:
+`audit/probes/app-wave/app-shell-truth-probe.mjs:5` **hardcodes** `http://localhost:9000` and ignores
+its own documented `PROBE_BASE`, so it hit a leftover dev server (PID 44206) left by a killed seat —
+same filesystem, so the content is identical, but the probe cannot be pointed at a clean tree.
+
+#### Unit a — shell truth (LANDED)
+
+| # | BEFORE | AFTER (close seat) | verdict |
+|---|---|---|---|
+| **A1** | exit 1 · App count 7 | ⟨cmd⟩ `node -e` over `HEAD:main.ts` → `isReady true · sideEffectImports 4` → **exit 0**; `grep -cE 'useGlobalDark\|provideApiClient\|^import "\.\./styles'` over `HEAD:App.vue` → **0** | **GREEN** |
+| **A2** | `[b0,b1,b2]` terminal · blob false | marks `["b0","b1","b3","b2","b4"]` on the deep link **and on all 15 routes** ⊘; **blob `false` on `/#/generate`** and on browse/gradient/extract/atmosphere | **RED** — marks arm GREEN, blob arm RED (**ESC-W5-1**, upheld below) |
+| **A3** | `{mobile:false, desktop:true}` | **honest-RED BY RULING at the landed bytes** (§0k.3 **S-1** gives the cure to X-W8). ⊘ The live probe this pass reads `mobileRegen390 {dockChanged:true, paneChanged:true}` — that is X.W5.c's **uncommitted** fork deletion answering, exactly as `W5.md:269` predicts (*"the class dissolved with the fork"*), and it is **not** a landed-bytes reading | **honest-RED, cure X-W8** |
+| **A4** | `bindPane` 0 hits | ⟨cmd⟩ `git grep -c bindPane HEAD -- demo/` → **12** (App.vue 6 · PaneSlot.vue 1 · usePaneRouter.ts 5); `HEAD:PaneSlot.vue:105` `onMount: (instance: TInstance \| null, key: string) => void` **required + generic**, invoked `:197`. The **falsifier was not re-run by this seat**: its target (`App.vue`) carries a sibling seat's uncommitted bytes, so the delete-one-argument edit was refused; unit a's bite (`TS2554`, vue-tsc exit 2) stands as the record | **GREEN (structural); bite cited, not re-run** |
+| **A5** | `h1:0` on 15 routes | 15 routes walked: `h1===1` **all** · `main===1` **all** · visible **all** · `tabindex="-1"` **all** · `h1Text ≡ VIEW_MAP[view].label` **all** | **GREEN on the spec's four arms**; the probe's added OUTLINE arm **RED on 4 of 15** (picker · palettes · mix · blob) — residual 1 |
+| **A6** | `?space=lab&color=…` both classes | `A6 {green:true, bootSilent:true, offenders:[]}`; `urlEcho` applied 3/3 (jzazbz · display-p3 · rec2020) | **GREEN** |
+| **A7** | 3 arms false | `A7 {statusAnnounces:true, titleDistinct:true, h1Distinct:true, renderDistinct:true, mainNameTracksScene:true}`; ⟨cmd⟩ `git grep -c 'role="status"' HEAD` → **3** | **GREEN** |
+| **N1** | 0 `onDeactivated` | ⟨cmd⟩ `git grep -c onDeactivated HEAD -- demo/` → **5 files** (PaneSlot · ExtractWorkbench · ImageEyedropper · useExtractSession · useImageQuantize) | **GREEN** |
+| **N3** | untyped prop-bag seam | cited: `TS2741` on delete, `TS2561 "Did you mean to write 'onCommitEdit'?"` on typo, both quoting PalettesPane's own emits. Not re-run (same dirty-file refusal as A4) | **GREEN, bite cited** |
+| **N4** | `valueOrThrow` on every render-path reader | ⟨cmd⟩ `git grep -c valueOrThrow HEAD -- demo/` → **18, all in `picker-color.ts`** = `buildColor`'s construction switch ⊕ the helper's own declaration; **0 on the five render-path readers** | **GREEN** |
+| **N5** | 1 carrier over the whole grid | `git grep -c '<ErrorBoundary' HEAD -- App.vue` → **3**, per seat, outside KeepAlive | **RED on the ROUTE-RESET arm** (3 of 4 green) — owner **X-W7** by S-7, residual 2 |
+| **N6** | no wrapper/role/aria | region roles + names; `aria-labelledby`; `mainNameTracksScene:true` in the live walk | **GREEN** |
+| **N7** | `:max` literals 9 / 6 / 4 | ⟨cmd⟩ `git grep -nE ':max="[0-9]+"' HEAD -- demo/` → **0** in the pane-cache seam (the 4 surviving hits are `<Slider :max>` attributes, an unrelated grammar); `usePaneRouter.ts:139` records the three it replaced | **GREEN** |
+| **N8** | `interface PaneSlot` 1 | **0** | **GREEN** |
+
+#### Unit b — the block law (LANDED)
+
+| # | BEFORE | AFTER (close seat) | verdict |
+|---|---|---|---|
+| **B1** | 390: 1 exceeding, **0** scrollable | `gates.B1.pass **true**` — 8 routes in scope at 390×844, **every content-exceeding route scrolls** (`#/` 8734/844 · gradient 1499 · browse 1045 · blob 3280 · generate 1064 · mix 1126 · extract 1203 · palettes 1230); atmosphere and admin/users excluded **by the predicate** (`contentExceeds:false`) ⊘ | **GREEN** |
+| **B2** | `max-height` 832px @16/9, 608px @21/9 | `gates.B2.pass **true**` — `<main>` **and** `.pane-container` `maxHeight === "none"` on **all 10 routes at both 16/9 (2560) and 21/9 (3440)**; `contentMaxH` resolves to `""` ⊘ | **GREEN** |
+| **B3** | **45.4 %** at 3440×1440 | `#/` **99.7 %** (occupied 101.4) · `#/blob` **99.2 %** (100.3) · gradient 70.7 · atmosphere 52.0 · mix 51.1 · palettes 51.1 · extract 45.6 · browse 39.6 · generate 39.6 · admin/users 18.1 — **2 of 10 ≥ 90 %** ⊘ | **honest-RED**, reproduces unit b's reading; the rack and occupied extent agree within ~2 pts on every route, so the cap is dead and the shortfall is content |
+| **B4** | `100dvh` 1 · `svh` 0 files · cap token 13/4 files | `git grep -c 100dvh HEAD -- demo/styles/shell.css` → **0** · `git grep -l svh HEAD -- demo/` → **3 files** · `git grep -c content-max-h HEAD -- demo/` → **3, all in `demo/shell/PaneSlot.vue`, all comments** | **arms 1 & 2 GREEN; arm 3 honest-RED at 3** — residual, owner the next holder of `PaneSlot.vue` |
+| **B5** | no recorded output | re-derived from the artefact itself: `b5Support {overflow-block:true, min-block-size 100svh:true, height 100svh:true}` (WebKit); the logical spelling ships, the "if false" branch never fired | **GREEN by record** |
+| **B6** | no rationale at the site | posture unchanged (in flow), three-reason rationale **and a banked re-trigger** written at the `.dock-band` site in `shell.css` | **GREEN by record** |
+| **N9** | 2 stylesheet comments naming an absent probe | ⟨cmd⟩ `git grep -c css-emission-probe HEAD -- demo/` → **0**; STRIKE branch recorded with its two measured reasons | **GREEN** |
+| **N13** | 3 live sites | ⟨cmd⟩ `git grep -n select-font HEAD -- demo/` → **2 hits, both narrative**: `DESIGN.md:39` and `foundation.css:399` are the *record of the strike* ("the pair is gone", "ZERO occurrences"). **0 live pins, 0 live doc claims** | **GREEN** (count stated: 2 residual mentions, both the strike's own witness) |
+
+#### Unit c — one mount, one column (**NOT LANDED** — cure uncommitted)
+
+| # | BEFORE | AFTER (landed bytes) | verdict |
+|---|---|---|---|
+| **C1** | `#/` 69 vs 1751 = **3.9 %** (`afe230b5`'s born-RED) | unchanged at HEAD | **RED** |
+| **C2** | `{regenerateFound:true, specimenChanged:false}` | unchanged at HEAD | **RED** |
+| **C3** | **38** across 13 files | ⟨cmd⟩ `git grep -oE 'useBreakpoint\|isDesktop\|isMobile\|mobilePaneIndex' HEAD -- 'demo/*.vue' 'demo/*.ts' \| wc -l` → **39** / **13 files** — the census **ROSE by one** (§C.5 finding 1) | **RED** |
+| **C4** | file exists, 1,750 B | ⟨cmd⟩ `git cat-file -e HEAD:demo/shell/PaneSegmentedControl.vue` → **EXISTS**. (Absent in the worktree only — staged, never committed) | **RED** |
+| **C5** | `identityPreserved:false` (2 canvases, 1 kept, 0 roots kept) | unchanged at HEAD | **RED** |
+| **C6** | RED input by construction | the wrapper was never cut at HEAD | **RED** |
+| **C7** | **7** viewport-dimension `@media` | **6** at HEAD (ConsoleRail:348 · PaneSegmentedControl:46 · DockStatusLamp:70 · animations.css:17 · foundation.css:526 · shell.css:245); target after unit c is **3** | **RED** — and unit b's stated divergence (7→6, not 7→5) confirmed at the bytes |
+| **C8** | **13** `right:"` rows | ⟨cmd⟩ `node -e` over `HEAD:viewSchema.ts` → **13**, exit **1** | **RED** |
+| **N2** | 3 × `setActiveTab("saved")` ⊕ 1 `as ViewId` | identical at HEAD (`useSlugMigration.ts:55,69,76`; `usePalettePorts.ts` 1) | **RED** |
+| **N10** | 3 × `BouncyTabs\|lg:flex` | **3** at HEAD | **RED** |
+| **N11** | 0 mobile captures in the 3 blind states | ⟨cmd⟩ `git ls-files waves/W5/born-red/N11/` → **4 artefacts** (JSON ⊕ forced-colors / keyboard-focus / reduced-motion @390), banked in `afe230b5` **before** any deletion commit — the ordering lock is satisfied and cannot now be broken | **GREEN** — the one unit-c obligation discharged |
+| **N12** | dead `userLogout`/`ensureUser` deps | unchanged at HEAD | **RED** |
+| **N14** | 7 declaration sites, 6 invisible to `vue-tsc` | unchanged at HEAD | **RED** |
+| **N15** | admin-names mobile source order inverted | unchanged at HEAD | **RED** |
+
+#### Unit d — scene motion (**NEVER DISPATCHED**) · Unit e — the P-1 strike (**NEVER DISPATCHED**)
+
+| # | AFTER (landed bytes) | verdict |
+|---|---|---|
+| **D1** | ⟨cmd⟩ `test -e docs/tranches/V/megatranche/workflows/gates/scene-swap-budget.mjs` → **ABSENT**; the directory holds only unit a's three probes | **RED** |
+| **D2** | ⟨cmd⟩ `git ls-files --error-unmatch docs/tranches/T/audit/pi/u-gestalt/probe2-log.txt` → **exit 0** | **GREEN** (verify-only, X-W0's CC-012) |
+| **D3** | ⟨cmd⟩ `git grep -c 'pane-wrapper--left\|pane-wrapper--right' HEAD -- demo/` → **18** (App.vue 3 · animations.css 12 · shell.css 3) — unmoved | **RED** |
+| **D4** | ⟨cmd⟩ `git grep -c '<Transition ' HEAD -- MixSourceSelector.vue` → **0** | **RED** |
+| **D5** | the global guard stands: `HEAD:animations.css:184` and `:202` both `@media (prefers-reduced-motion: reduce)`; **no new scroll-driven or `animation-timeline` declaration was minted by a/b** | **GREEN** (non-regression held) |
+| **E1** | ⟨cmd⟩ `grep -rcE '64%?…66\.6666667\|33\.3333333…36'` over the four normative docs → **2 · 2 · 2 · 1 = 7**, unmoved | **RED** |
+| **E2** | the seven sentences still carry no `P122` attribution | **RED** |
+
+**Tally: 20 GREEN / 23 RED of 43.** GREEN = A1 · A4 · A5 · A6 · A7 · B1 · B2 · B5 · B6 · D2 · D5 ·
+N1 · N3 · N4 · N6 · N7 · N8 · N9 · N11 · N13.
+
+### C.3 Cadence (§7) and Verification Artefacts (§8)
+
+⟨cmd⟩ `npx vue-tsc -p tsconfig.demo.json --noEmit` → **exit 0**, zero diagnostics.
+⟨cmd⟩ `npx eslint demo/ plugins/ vite.config.ts e2e/ …/workflows/gates/ …/layout-utilization.mjs`
+→ **exit 0**, zero problems.
+⟨cmd⟩ `npx vitest run` — **REWRITTEN BY THE FINISHING CLOSE SEAT; the inherited figure does not
+reproduce and is not re-asserted.** The inherited text read *"15 failed / 613 passed … byte-identical
+to unit a's and unit b's readings, same five files."* Measured here, **double-run as the law requires**:
+
+| run | Tests | Test Files | failing roster |
+|---|---|---|---|
+| 1 | **16 failed / 612 passed** (628) | **6 failed / 31 passed** (37) | the five ⊕ `demo/test/export/byte-exact` |
+| 2 | **17 failed / 611 passed** (628) | **6 failed / 31 passed** (37) | the five ⊕ `test/view-accents`, ⊕ a 2nd `v4-c1` failure |
+
+**The two runs disagree, so no single figure may be published as the reading.** What IS stable, and
+is the arm §7 actually states, is the **roster**: both runs carry the same five files
+(`test/gradient-parse` 2 · `test/spectrum-luma` 1 · `test/v4-css-emerging` 10 · `test/v4-c1` ·
+`demo/test/shell/reka-binding-idiom` 1) — **exactly unit a's and unit b's set**. Every extra is a
+**timeout under parallel load**, not a regression, and each was falsified in isolation by this seat:
+
+- ⟨cmd⟩ `npx vitest run demo/test/export/byte-exact.test.ts` → **29 passed (29)**, 14.7 s. In the
+  covering run the same file reports **336,831 ms** and dies on `Error: Test timed out in 30000ms`
+  at `:311` — the file's own comment says *"~7s on shared CI"*. Four machine-wide `Test timed out`
+  hits in run 2, two in run 1.
+- ⟨cmd⟩ `npx vitest run test/view-accents test/preview-chips test/gamut-verdict test/value-domain-clamp`
+  → **48 passed (48)**, the four suites that consume unit a's modules — unit a's own 48/48 claim
+  reproduced exactly, and run 2's `view-accents` failure (22,430 ms) shown to be the same flake.
+
+**The §7 conclusion therefore HOLDS and is what this close certifies: the library suite did not
+move** — no failing file is one a W5 commit touched, and the five-file roster is unchanged from
+wave-open. **The *number* does not hold and is corrected here** rather than carried forward, because
+a close that republishes an unreproducible count launders a flake into a fact. Four tracks share
+this machine; the suite is load-flaky at its tail, and that is the honest reading.
+⟨cmd⟩ `git diff --check` over unit e's four docs → **clean** (they are byte-unchanged).
+`npm run gh-pages` **NOT run** — X-W1's gate, and `W5.md:303` forbids citing it here.
+
+**§8 artefacts — INCOMPLETE, itemised:**
+
+| artefact | state |
+|---|---|
+| `waves/W5/born-red/` | **11 files in git** — A2/A3/A6, A3-parity, A5/A6/A7, B1/B2/B3, C1/C2/C5, the N11 matrix ⊕ 3 PNGs, STATIC and STATIC-B | ✔ |
+| `waves/W5/green/` | **5 files** — unit a's only (A2, A3, A5/A6/A7, the portal delta, STATIC). **Unit b banked none** and c/d/e produced none | ✘ partial |
+| `audit/visual/layout/` | ⟨cmd⟩ `git ls-files` → **0 files**. The {390, 1440, 3440} × {`#/`, `#/blob`, `#/browse`} and {390, 720@2, 1440} × {`#/`, `#/generate`, `#/blob`} capture sets **were never taken** | ✘ absent |
+| `audit/probes/app-wave/pi/` | ⟨cmd⟩ `git ls-files` → **0 files**. The desktop-1440 / mobile-390 π pair and the H1 accessibility-tree dumps **were never taken** | ✘ absent |
+| `scene-swap-budget.mjs` output, before/after | script absent (D1) → **no output exists** | ✘ absent |
+| **D-E portal-integrity delta** (mandatory on the `index.html` body change) | `green/PORTAL-INTEGRITY-DELTA-2026-09-19.json` in `de99ec15`; all seven arms true BEFORE and AFTER, the one structural difference the intended `mountHostIsBody: true → false` | ✔ |
+| B5 reading · B6 rationale | quoted in unit b's receipt **and** written at their sites in `shell.css`; B5 re-derived by this seat from the artefact's own `b5Support` cells | ✔ |
+
+### C.4 E13 mail — four paths, at this seat's own clock
+
+⟨cmd⟩ `find <each of the four> -maxdepth 1 -type f -newermt "2026-09-19 10:00"` → exactly **one** hit,
+`docs/tranches/V/coordination/INBOX.md` (**self-excluded**, SELF-COUNT law). Entries: `V/coordination`
+**24** · `glass-ui BK/coordination` **9** · `keyframes.js V/coordination` **13** ·
+`sci-report/atlas P/coordination` **28**. ⟨cmd⟩ `/bin/ls -dt ../glass-ui/docs/tranches/*/ | head -3`
+→ `BK/ · BJ/ · BI/` — **BK re-confirmed**, never a pinned letter (§5.3).
+
+Register arithmetic, double-run: ⟨cmd⟩ `grep -cE '^\| [IO]-[0-9]+[a-z]? \|' INBOX.md` → **81 ≡ 81**
+(was 80 at unit b; the new row is **O-41**, Track D's X·P adjudication relay, outbound and rowed).
+Tail now **I-35 / O-41**. Classification taken **from each row's Status cell**, never a bare
+`grep -i unread`: ⟨cmd⟩ `grep -cE '\| \*\*UNREAD' INBOX.md` → **1**, and that one hit is *prose inside
+a `**Sweep …**` paragraph quoting the pattern*, not a Status cell (line 228). The four un-bolded
+`UNREAD` string hits (221 · 227 · 231 · 241) are likewise prose — seat 0's, unit a's and unit b's
+reading reproduced a fourth time. **0 unrowed · 0 UNREAD addressed to value.js in X-W5's scope ·
+0 `I-n` minted · `INBOX.md` unedited by this seat.** **No wave closes with UNREAD mail in scope — none is.**
+
+### C.5 Landed-wrong — found by this seat, reported, NOT cured
+
+1. **X.W5.a raised the census its sibling's gate must drive to zero.** ⟨cmd⟩
+   `git grep -nE '…' bd1f014f -- demo/shell/usePaneRouter.ts` → **1** hit; at HEAD → **3**
+   (`:418` and `:425`, both `viewManager.mobilePaneIndex.value = 1;`). Net over the fork census:
+   **38 → 39** (App.vue 7→6, usePaneRouter 1→3). C3 is unit **c's** gate and its target is **0 at
+   layout sites**; `de99ec15` added two new layout-fork writes to it. Not cured here (verify-only,
+   and the file carries a sibling seat's uncommitted bytes). Owner: **X.W5.c**.
+2. **A born-RED witness landed without its instrument.** `afe230b5` banks
+   `waves/W5/born-red/C1-C2-C5-2026-09-19.json` (`probe: "X.W5.c C1/C2/C5 MEASURE-AT-OPEN"`,
+   `takenAt 2026-09-19T13:53:31Z`), but ⟨cmd⟩ `ls docs/tranches/V/megatranche/workflows/gates/` →
+   **three files, none of them a C-probe**, and ⟨cmd⟩ `git ls-files` finds no such script anywhere.
+   The measurement is therefore **not re-derivable** — the same L-7 class D2 exists to refuse, one
+   level up (the number is in git; the thing that produced it is not). Owner: **X.W5.c**.
+3. **`provideApiClient()` is unreferenced** (unit a's own residual 4, re-confirmed):
+   `demo/platform/transport/**` is claimed by **no** X wave (fold W5F-60 / §4 CE-6), so its deletion
+   has no home. Owner: **unassigned — needs a ledger row**.
+4. **§8's two capture sets were never taken** (`audit/visual/layout/`, `audit/probes/app-wave/pi/`),
+   although unit a and unit b both closed. Owner: whichever seat resumes W5.
+
+### C.6 Escalations
+
+- **ESC-W5-1 — A2's blob arm is UNFALSIFIABLE AS AUTHORED** (unit a's finding, **upheld by this
+  seat's own measurement**). The arm requires `.hero-blob-anchor` on `/#/generate`, `/#/browse`,
+  `/#/gradient`, `/#/extract`, `/#/atmosphere`; that anchor exists only in `ColorPicker.vue`, and
+  `VIEW_MAP` places no color-picker pane on any of those five. Measured this pass: `blob:true` on
+  exactly the four picker-bearing routes (picker · palettes · mix · blob), `false` on the eleven
+  others. Its sibling arm (marks ⊇ {b3,b4}) is GREEN on all 15. **L-18's class**: a gate shown
+  unfalsifiable is struck and re-authored **by its owner** — not by a seat, and not by this close.
+- **ESC-W5-2 — X.W5.d and X.W5.e were NEVER DISPATCHED.** Zero commits, zero receipts, zero bytes.
+  **Neither was blocked.** Unit d's only precondition is that unit c commits (it re-keys c's class
+  names) — that is a real block, and it is **ESC-W5-3's consequence, not an independent one**. Unit
+  **e has no precondition at all**: it is four normative Markdown files, file-disjoint from every
+  other unit, with its own §9 commit 5 and its own two gates, and `W5.md:364` marks CC-052
+  **apply-never-requeue**. E1/E2 could have closed at any point in this wave and did not.
+- **ESC-W5-3 — X.W5.c's cure is uncommitted** (§C.0). An orchestration escalation, not a code one:
+  the bytes exist and typecheck (⟨cmd⟩ `vue-tsc` exit 0 over the dirty tree), but they are not in
+  git, so **none of C1–C8 / N2 / N10 / N12 / N14 / N15 may be read as cured**, and the close cannot
+  land them for their owner.
+- **ESC-W5-4 — a probe that cannot be aimed.** `app-shell-truth-probe.mjs:5` hardcodes
+  `http://localhost:9000` while its own header documents `PROBE_BASE`. It is a `W5.md` §4
+  *execute, no write* artefact, so no seat in this wave may correct it; recorded so the next owner
+  of that file does.
+- **The L-18 rider stands unspent** (`W5.md` §12): even the landed half is not ACCEPTED on its gates
+  alone — two quartet challenge passes and a fresh Fable apotheosis are owed before any ACCEPTED
+  mark. This close does not claim one.
+
+### C.7 Residuals, each with a named owner
+
+| # | residual | owner |
+|---|---|---|
+| 1 | **A5's OUTLINE arm, RED on 4 of 15 routes** — one `<h3 class="card-title readout">` in `demo/picker/`: a colour VALUE readout styled as a section heading. The pane-title half landed (`PaneHeader` emits `<h2>` via the BD-06 level seam; 11 of 15 routes are outline-clean) | **`demo/picker/**`'s next owner** — one line, outside every W5 unit's set |
+| 2 | **N5's ROUTE-RESET arm** — needs a route watch inside `ErrorBoundary.vue`'s bytes; §0k.3 **S-7** grants X-W5 the containment **altitude** only | **X-W7** |
+| 3 | **A3's cure** (dock-action parity) | **X-W8** (MT-DOCK-LAYERS-1), by §0k.3 **S-1** |
+| 4 | **B3 honest-RED, 2 of 10 ≥ 90 %** — the cap is dead; the remaining shortfall is short content, needing the scene recomposition | **X.W5.c** (`regions[]`) ⊕ **X-W6** (CC-056 / V·L3) |
+| 5 | **B4's third arm at 3** — three comment-only `content-max-h` mentions in `PaneSlot.vue`, both the paragraph and its E-3 correction now describing a dead mechanism; the **D-1 coupled-architecture lock** is why unit b could not re-word it | **the next holder of `PaneSlot.vue`** (X.W5.c / X.W5.d) |
+| 6 | **The inner scroll-wells reflowed** (W5F-42's predicted, measured consequence): `#/` renders an 8151 px document, `#/blob` 2810 px, with now-inert `overflow-y` declarations | **X.W5.c** ⊕ **X-W6** |
+| 7 | **N13's relay ask is OWED** — deleting an inert pin removes the drift, it does not ask the producer for the Select-font seam back; rides fold §6f **CE-10** | **the CE-10 relay**, next glass-ui BH letter |
+| 8 | **C3's back-gate stands** — ⟨cmd⟩ `grep -c useMediaQuery demo/shell/dock/Dock.vue` → **2** at HEAD, so **Dock G-L is still RED** and C3 may not be cited as CLOSED even once green | **X-W8** |
+| 9 | **`provideApiClient()` unreferenced**, `demo/platform/transport/**` in no wave's bounds | **unassigned** (§C.5.3) |
+
+### C.8 Four-verb status — moved exactly as §State permits, and no further
+
+`W5.md` §9 commit 6 flips IMPLEMENTED and states *"VERIFIED is stamped only at X-W11's release close."*
+This close therefore **may** move IMPLEMENTED and **may not** move VERIFIED. It moves neither:
+
+| verb | state | authority |
+|---|---|---|
+| AUDITED | **YES** | unchanged (`W5.md:15`) |
+| SPECIFIED | **YES** | unchanged (`W5.md:16`) |
+| **IMPLEMENTED** | **NO** | **Two of five units landed.** §2's goal criterion — *"every public route is one semantic scene … no physical left/right identity, no viewport-aspect cap"* — is **UNMET at the bytes**: `viewSchema.ts` still carries **13** `right:"` rows, `PaneSegmentedControl.vue` still exists at HEAD, the fork census is **39**, and the P-1 range is still **7 occurrences** in the normative canon. The flip is the close act's own condition and the condition is not met |
+| VERIFIED | **NO** | **X-W11's**, by `W5.md:335` — not this seat's to stamp under any reading |
+
+**Wave verdict: PARTIAL** — X.W5.a and X.W5.b landed and hold (20 of 43 gates GREEN at the landed
+bytes, cadence clean, bounds clean, mail clean); X.W5.c is uncommitted; X.W5.d and X.W5.e were never
+dispatched.
+
+### C.9 Finishing-seat attestation — what was re-measured, not inherited
+
+SERVED MODEL: claude-opus-5[1m]. This seat did not take §§C.0–C.8 on trust. Every figure below was
+re-run at this seat's own clock from **HEAD**, never from the dirty worktree, and double-run.
+
+**Reproduced byte-for-byte (kept):**
+
+- **Commit roster** — all six exist ⟨cmd⟩ `git log -1` each: `c0cf27bf` · `de99ec15` · `f94d22af` ·
+  `adc312f6` · `2fa82bdb` · `afe230b5`. File counts **1 · 34 · 1 · 6 · 1 · 5**.
+- **Bounds** ⟨cmd⟩ `git show --name-only --format='' <the six> | sort -u` → **46 ≡ 46** distinct
+  paths; the §4 *Do NOT touch* ERE → **0 hits**; `scripts/dev/dev.sh` per commit → **0·0·0·0·0·0**.
+- **Every static gate.** A1 `isReady true · sideEffectImports 4` exit **0**, App count **0** · A4
+  `bindPane` **12** (App 6 · PaneSlot 1 · usePaneRouter 5) · A7 `role="status"` **3** · N1 **5**
+  files · N4 **18**, all in `picker-color.ts`, **0** on the three named render-path readers · N7
+  **0** in the pane-cache seam · N8 **0** · B4 `100dvh` **0** / `svh` **3** files / cap token **3**,
+  all comments in `PaneSlot.vue` · N9 **0** · N13 **2**, both the strike's own witness · C3 **39**
+  across **13** files · C4 **EXISTS at HEAD** · C7 **6** · C8 **13**, exit **1** · N2 **3 ⊕ 1** ·
+  N10 **3** · D1 **ABSENT** · D2 exit **0** · D3 **18** (App 3 · animations 12 · shell 3) · D4 **0**
+  · D5 guard at `:184` and `:202` · E1 **1+2+2+2 = 7** · E2 no `P122` at the seven sites.
+- **Both landed-wrong findings, at the bytes.** (1) the fork census ⟨cmd⟩ at `bd1f014f` → **38**,
+  at HEAD → **39**; `usePaneRouter.ts` **1 → 3** (the two new `viewManager.mobilePaneIndex.value = 1;`
+  at `:418`/`:425`), `App.vue` **7 → 6**. (2) `git ls-files` finds **no C-probe instrument** for
+  `born-red/C1-C2-C5-2026-09-19.json` anywhere in the tree.
+- **A5 adjudicated against the SPEC's own definition, from the artefact.** `W5.md:249` names four
+  arms and its falsifier names *"four distinct ways"*; none is the outline. Re-derived over all 15
+  rows: `h1===1 && mainCount===1 && h1Visible && h1Text===expectedLabel && tabindex="-1"` → **15 of
+  15**, zero spec-arm failures. **GREEN on the gate as authored.** The probe's own `A5.green` field
+  reads `false` because unit a's instrument added a stricter OUTLINE arm (RED on picker · palettes ·
+  mix · blob). **Stated plainly so no later seat mistakes the file's `green/` folder or the probe's
+  self-verdict for the gate's**: the instrument is stricter than the gate, the extra arm is a real
+  defect, and it is carried as residual 1 with its owner — not as an A5 failure.
+- **A2/A3 from the banked green JSON.** A2 `marks = [b0,b1,b3,b2,b4]` ⊇ {b3,b4} **GREEN**;
+  `blob:false` on `/#/generate` → blob arm **RED**, ESC-W5-1 upheld a third time. A3 `mobile390
+  {dockChanged:false}` vs `desktop1440 {dockChanged:true}` → parity **still RED**, honest-RED by
+  §0k.3 **S-1**, with the witness moved (`unconditionalPaneFlip` **false**).
+- **C3's back-gate** ⟨cmd⟩ `git grep -c useMediaQuery HEAD -- demo/shell/dock/Dock.vue` → **2**;
+  Dock G-L is **RED**, so C3 may not be cited as CLOSED even when it goes green.
+- **Artefacts** — `born-red/` **11** files in git, `green/` **5**; the two §8 capture sets absent.
+- **Cadence** ⟨cmd⟩ `npx vue-tsc -p tsconfig.demo.json --noEmit` → **exit 0**, zero diagnostics;
+  ⟨cmd⟩ `npx eslint demo/ plugins/ vite.config.ts e2e/ …/gates/ …/layout-utilization.mjs` → **exit
+  0**, zero problems; ⟨cmd⟩ `git diff --check` over unit e's four docs → **clean** (byte-unchanged,
+  as a never-dispatched unit must leave them).
+- **E13, four paths, this seat's clock.** Entries **24 · 9 · 13 · 28**; ⟨cmd⟩
+  `/bin/ls -dt ../glass-ui/docs/tranches/*/ | head -3` → `BK/ · BJ/ · BI/`, **BK re-confirmed**;
+  delta since 10:00 → **one** hit, `INBOX.md` itself (**self-excluded**, SELF-COUNT). Register
+  ⟨cmd⟩ `grep -cE '^\| [IO]-[0-9]+[a-z]? \|'` → **81 ≡ 81**, tail **I-35 / O-41**. Status read
+  **positionally**, never a bare `grep -i unread` (X.P.W0 CHECK 1 **D-1**): an awk pass over every
+  register row's cells looking for one that *begins* `UNREAD` returns **ZERO**. The 78 string hits
+  are the vocabulary header, sweep prose, and `Was:`/`Prior status, kept:` narration inside Status
+  cells that have since advanced. **0 unrowed · 0 UNREAD in X-W5's scope · 0 `I-n` minted ·
+  `INBOX.md` unedited by this seat. No wave closes with UNREAD mail in scope — none is.**
+
+**Rewritten (did not conform):** §C.3's vitest figure only. See the table at its site.
+
+**The verdict is unchanged by the re-measurement: PARTIAL.** It does not rest on the corrected
+figure — it rests on four structural facts no re-run moves: `PaneSegmentedControl.vue` still exists
+at HEAD, `viewSchema.ts` still carries **13** `right:"` rows, the fork census reads **39** where C3
+demands 0, and the P-1 range still reads **7** occurrences in the normative canon. Two of five units
+landed. **20 of 43 gates GREEN.**
+
+---
+
+## RESUME OPEN 2026-09-20 — seat 0, under COHESION §0ac
+
+SERVED MODEL: claude-opus-5[1m]
+
+**Authority.** COHESION **§0ac** (2026-09-19): *"**X-W5** — RESUME MODE: units `.a`–`.e` stand on
+their commits; the close is re-seated under the watchdog-aware LAW."* Relaunch order there puts
+X-W5 after X-W9 and X-W6; **§0af** (2026-09-20) re-enters **Track A alone**. This seat re-opens the
+wave in RESUME MODE, banks a baseline for the units still owed, and re-plans **three** of the five.
+It authored no product byte and cured nothing.
+
+### R.0 Crash-recovery (STANDING LAW) — two inherited paths, one of them mine
+
+⟨cmd⟩ `git status --porcelain` in `/Users/mkbabb/Programming/value.js`, read twice → **19 M/D rows
++ 1 untracked**. Judged against **this seat's** writable set (`execution/A/X-W5.md`,
+`execution/LEDGER.md`, `V/coordination/INBOX.md`):
+
+| path | rows | inside my set? | disposition |
+|---|---|---|---|
+| `docs/tranches/X/execution/A/X-W5.md` | +363 / −0 | **YES** | **INHERITED and KEPT** — see R.0a |
+| `docs/tranches/X/execution/LEDGER.md` | +2 / −1 | file yes, **hunks NO** | **NOT TOUCHED** — see R.0b |
+| 13 × `demo/**` + `e2e/**` (incl. `D demo/shell/PaneSegmentedControl.vue`) | — | no | **X.W5.c's**, left exactly as found |
+| `docs/tranches/X/execution/A/X-W6.md` (+306), `execution/B/KF-W13S.md`, `V/reformation/CARRY-LEDGER.md`, `docs/tranches/X/keyframes/evidence/W13S/` | — | no | sibling seats' — untouched |
+| `scripts/dev/dev.sh` | — | no | **never touched** (§0j.A DR-24) |
+
+**R.0a — the inherited close.** ⟨cmd⟩ `git diff --numstat -- docs/tranches/X/execution/A/X-W5.md`
+→ **363 insertions, 0 deletions**: append-only, so §§0–8 and every unit receipt are byte-untouched
+and **E-3 holds**. The diff is the killed CLOSE seat's whole `## Close` (§§C.0–C.9, verdict
+**PARTIAL**), written 2026-09-19 and never committed — the watchdog signature §0ac names. This seat
+**read that diff whole**. Every hunk conforms: it is VERIFY-ONLY, measures at HEAD rather than at
+the dirty tree, cures nothing, names four escalations and nine owner-named residuals. **Nothing is
+rewritten.** It is committed **with this open** so that 363 lines of measured evidence stop living
+only on this disk (**L-7**: an uncommitted witness does not exist). The inherited path is named
+here and claimed nowhere else.
+
+**R.0b — the LEDGER is occupied by a sibling, and this seat refuses to sweep it.** ⟨cmd⟩
+`git diff -U1 -- docs/tranches/X/execution/LEDGER.md` → **two hunks, both X-W6's**: the `| X-W6 |`
+row rewritten to *"CHECK 1 (RESUME) … NOT-CONFORMANT"* and one 2026-09-20 event line for the same
+check — a killed **X-W6** seat's work, whose own record (`execution/A/X-W6.md`, **+306 / −0**) is
+likewise uncommitted. A pathspec commit names a *file*, not a hunk, so committing `LEDGER.md` here
+would publish a sibling wave's verdict under **this** commit's message while its evidence stayed
+out of git — precisely the contamination measured at X-W0 (*"three contaminated commits"*) and the
+reason the seat law says **never touch a dirty path outside your writable set**. Therefore:
+
+> **ESC-W5-5 — the X-W5 OPEN event line is OWED to the LEDGER and was not written.** X-W5's status
+> cell already reads **`**OPEN 2026-09-17**`** at the bytes — the exact value this open would set —
+> so the ledger's crash-survival state is **already correct** and no cell edit is owed. Only the
+> event-log line is, and it cannot be landed without carrying X-W6's uncommitted row. Owner: the
+> next seat that finds `LEDGER.md` clean (the X-W6 check seat's own commit, or this wave's close).
+
+### R.1 E13 Step-0 — the four-path mail sweep at this seat's own clock (2026-09-20)
+
+⟨cmd⟩ `find <each path> -maxdepth 1 -type f | wc -l`, double-run →
+`docs/tranches/V/coordination` **24** · `../glass-ui/docs/tranches/BK/coordination` **9** ·
+`../keyframes.js/docs/tranches/V/coordination` **12** ·
+`../sci-report/atlas/docs/tranches/P/coordination` **28**. Plus `docs/tranches/V/` root: its only
+letter-shaped file is `ATLAS-INBOUND-2026-07-17-two-atlas-disambiguation.md`, long rowed.
+⟨cmd⟩ `/bin/ls -dt ../glass-ui/docs/tranches/*/ | head -3` → `BK/ · BJ/ · BI/` — **BK re-confirmed
+the newest tranche dir**, never a pinned letter (§5.3).
+
+**Delta since the close's own sweep (§C.4, 2026-09-19 10:00).** ⟨cmd⟩
+`find <each of the four> -maxdepth 1 -type f -newermt "2026-09-19 10:00"` → **exactly one hit**,
+`docs/tranches/V/coordination/INBOX.md` itself (**self-excluded**, SELF-COUNT law). **No letter
+file has been added to any of the four paths since the close certified 0 unrowed.** One honest
+divergence: keyframes reads **12** today against the close's **13** — a file left a *sibling* repo's
+directory; a deletion there cannot mint inbound mail for value.js, and nothing is newer than the
+close's clock, so the 0-unrowed finding carries.
+
+**Register arithmetic, double-run.** ⟨cmd⟩ `grep -cE '^\| [IO]-[0-9]+[a-z]? \|' INBOX.md` →
+**90 ≡ 90** (the close read 81; nine rows have been minted by sibling tracks since). Tail now
+**I-39 / O-46**. Classification taken **positionally from each row's cells**, never a bare
+`grep -i unread`: ⟨cmd⟩ `awk -F'|' '/^\| [IO]-[0-9]+[a-z]? \|/ {…UNREAD…}' | wc -l` → **6 ≡ 6**,
+and **all six are prose inside Status/Notes cells** — `O-20` (*"two UNREAD glass 08-09 letters found
+this boundary"*), `I-30` (*"sat one day unrowed"*), `I-31`, `I-32`, `I-35`, `O-39` — **not one is a
+Status cell reading UNREAD**. ⟨cmd⟩ `grep -nE '\| \*\*UNREAD' INBOX.md` → **1 hit, line 237**, a
+`**Sweep …**` paragraph quoting the pattern.
+
+**Verdict: 0 unrowed · 0 UNREAD addressed to value.js in X-W5's scope · 0 `I-n` minted ·
+`INBOX.md` unedited by this seat.** No wave opens or closes with UNREAD mail in scope — none is.
+
+### R.2 Preconditions, re-verified in RESUME MODE
+
+`W5.md` §Opens-after is **X-W2**, verified at the bytes and in the ledger at the first open
+(`bd1f014f`, §Preconditions above, receipts unchanged). Re-confirmed this pass, cheaply:
+
+- ⟨cmd⟩ `grep -n '^| X-W2 ' docs/tranches/X/execution/LEDGER.md` → **`CLOSED 2026-09-17
+  (honest-RED: G3 · G5)`** — unmoved.
+- ⟨cmd⟩ `git ls-files --error-unmatch docs/tranches/T/audit/pi/u-gestalt/probe2-log.txt` → **exit 0**
+  (X-W0's CC-012 act still landed; D1's baseline witness is in git).
+- **§0k.3 S-1** (bindPane narrowed; A3's cure and registry row C-3 are X-W8's), **§0k.3 S-7**
+  (ErrorBoundary path + containment altitude only), **§0k.1 RS-1** (DR-14 rides `vite.config.ts`) —
+  read again to the file end, unchanged, and **no later §0k+ addendum re-opens any of them**. The
+  only later X-W5 ruling is §0ac's RESUME clause itself.
+- **The orchestrator's back-gate holds**: ⟨cmd⟩ `grep -c useMediaQuery demo/shell/dock/Dock.vue`
+  → **2** (read-only, worktree) → **Dock G-L is still RED**, so **C3 may not be cited as CLOSED even
+  when it measures green** (§C.7 residual 8; owner X-W8).
+
+**Nothing blocks the open.** Units `.d` and `.e` were never dispatched and, per **ESC-W5-2**,
+neither was ever blocked; `.e` has **no precondition at all**.
+
+### R.3 Baseline for the units still owed — read-only, double-run, 2026-09-20
+
+**Scope (RESUME rule).** Only the gates the owed units turn are re-run; every other row cites the
+banked baseline above (`## Baseline`, `bd1f014f`) and the close's AFTER table (§C.2). **Two clocks
+are reported on purpose**: **HEAD** (`git grep` / `git show` — the lawful baseline, **L-7**) and
+**worktree** (what X.W5.c's resuming seat *inherits*). A worktree figure is **never** a gate reading.
+
+| gate | unit | command (read-only) | **HEAD = baseline** | worktree (inherited) | verdict at baseline |
+|---|---|---|---|---|---|
+| **C1** | c | `waves/W5/born-red/C1-C2-C5-2026-09-19.json` (`afe230b5`) | `#/` **7.7 %** text parity | — | **RED** (banked) |
+| **C2** | c | same artefact | `specimenChanged:false` | — | **RED** (banked) |
+| **C3** | c | `git grep -oE 'useBreakpoint\|isDesktop\|isMobile\|mobilePaneIndex' HEAD -- demo` ∩ `.vue/.ts` | **39 ≡ 39** over **13 files** | 23 | **RED** (target 0 at layout sites) |
+| **C4** | c | `test ! -e demo/shell/PaneSegmentedControl.vue` | **EXISTS at HEAD** | **absent** (staged `D`, uncommitted) | **RED** |
+| **C5** | c | banked artefact | context identity lost on the v-if fork | — | **RED** (banked) |
+| **C6** | c | T-45 carrier probe | RED input (wrapper cut without re-seat) | — | **RED** (banked) |
+| **C7** | c | `git grep -oE '@media[^{]*(width\|aspect-ratio)[^{]*' HEAD -- demo` | **6** | 4 | **RED** (target 3) — capability queries at HEAD **29**, all must survive |
+| **C8** | c | `git show HEAD:demo/shell/viewSchema.ts \| grep -cE 'right:[[:space:]]*"'` | **13** | **0** | **RED** |
+| **N2** | c | `git grep -oE 'as ViewId' HEAD -- demo` | **2** | — | **RED** |
+| **N10** | c | `git show HEAD:e2e/smoke/mobile/walk.spec.ts \| sed -n '103p;113p'` | `:103` names PaneSegmentedControl; `:113` `).toBeVisible();` | — | **RED**; the carve lock stands |
+| **N11** | c | `git show --name-only afe230b5` | **banked BEFORE the deletion**: `N11-blind-matrices.json` + 3 PNGs at ≤639 px | — | **DISCHARGED at open** |
+| **N12** | c | `git grep -oE 'setActiveTab\("saved"\)' HEAD -- demo` | **3** | — | **RED** |
+| **N14** | c | declaration-site census, printed in the close | not yet printed | — | **RED** |
+| **N15** | c | `git grep -n '<SegmentedTabs' HEAD -- …/AdminNamesPanel.vue` | `:14` selector-first is **not** yet the mobile source order | — | **RED** |
+| **D1** | d | `node …/gates/scene-swap-budget.mjs` | **instrument does not exist** — `ls …/workflows/gates/` → `dock-action-parity.mjs` · `portal-integrity.mjs` · `route-scene-truth.mjs`; baseline numbers from `T/audit/pi/u-gestalt/probe2-log.txt` (71 % · 63 % · 26 % · 23 % over32) | — | **RED** |
+| **D2** | d | `git ls-files --error-unmatch …/probe2-log.txt` | **exit 0 — TRACKED** | — | **GREEN BEFORE CURE** (spec-predicted; X-W0 CC-012) |
+| **D3** | d | `git grep -oE 'pane-wrapper--left\|pane-wrapper--right' HEAD -- demo` | **18** (`App.vue` 3 · `animations.css` 12 · `shell.css` 3) | 15 | **RED** |
+| **D4** | d | `git show HEAD:demo/workbenches/mix/MixSourceSelector.vue \| grep -c '<Transition'` | **1** — and it is the inner `TransitionGroup`-class carrier, **not** the `:114` mode swap, which §6's falsifier excludes by name | — | **RED**; consumers at HEAD: `MixSourceSelector.vue` · `AdminNamesPanel.vue` · `PaneSegmentedControl.vue` |
+| **D5** | d | `sed -n '182,194p' demo/styles/animations.css` | the global `@media (prefers-reduced-motion: reduce)` guard over `*`, `*::before`, `*::after` is **present and intact** | — | **GREEN BEFORE CURE** (declared non-regression) |
+| **E1** | e | the spec's own pattern `64%?…66\.6666667\|33\.3333333…36` over the four normative docs | **8 ≡ 8 occurrences on 7 lines** — `VC:44,45` · `EV:43,47` · `OBC:39,40` · `PR:35` | — | **RED** |
+| **E2** | e | citation census in the same four | `P122` appears **7 / 2 / 16 / 9**, but **not one** of the seven range sentences cites it | — | **RED** |
+
+**The inherited worktree is NOT a green.** `C4` reads *absent*, `C8` reads **0**, `C3` reads 23,
+`C7` reads 4, `D3` reads 15 — all five only in the **uncommitted** bytes X.W5.c never reached a
+commit with (**ESC-W5-3**). Under **L-7** none of them exists; each is listed above at **HEAD**,
+where every one is RED. The resuming `.c` seat inherits those bytes under the crash-recovery law,
+must judge every hunk against the spec, and only a **commit** moves a gate.
+
+**R.3a — divergence from the spec's own arithmetic, recorded not re-adjudicated.** `W5.md` §6 E1
+says *"**7 occurrences** across 4 files"* and names **7 lines**; the same pattern counts **8**
+matches, because one line carries two. The seven lines agree exactly. Unit `.e` drives the count to
+**0** either way; the close states which arithmetic it read. (§6 C3's *"38 across 13 files"* likewise
+reads **39** at HEAD — the close already booked that as **§C.5.1 landed-wrong**, owner `.c`: unit
+`.a`'s `de99ec15` added two `viewManager.mobilePaneIndex.value = 1;` writes at `usePaneRouter.ts:418,425`.)
+
+### R.4 Resume unit plan — 2 landed, 3 owed, serial
+
+**What stands on its commits (§0ac), verified at the bytes by `git log -1` on each:**
+
+| unit | commits | receipt above | dispatch |
+|---|---|---|---|
+| **X.W5.a** | `c0cf27bf` · `de99ec15` · `f94d22af` | yes (12 gates GREEN, A3 honest-RED by S-1) | **NEVER re-dispatched** |
+| **X.W5.b** | `adc312f6` · `2fa82bdb` | yes (B3 honest-RED, 7 GREEN) | **NEVER re-dispatched** |
+| **X.W5.c** | `afe230b5` **only** — the born-RED bank + N11 blind matrices. **§9 commit 3 (the cure) DOES NOT EXIST** | none | **RE-DISPATCHED in RESUME MODE** |
+| **X.W5.d** | **none** | none | **DISPATCHED** |
+| **X.W5.e** | **none** | none | **DISPATCHED** |
+
+**Why `.c` is owed although a commit bearing its id exists.** `afe230b5` is the MEASURE-AT-OPEN
+artefact bank the N11 **ordering lock** requires *before* the deletion commit — it is the unit's
+evidence, not its cure. Its fourteen gates all read **RED at HEAD** (R.3), `W5.md` §9's commit 3 was
+never written, and the close's **ESC-W5-3** measured the cure sitting uncommitted *"so its owner can
+resume it."* A unit whose cure commit does not exist has not landed; re-dispatch is the crash-recovery
+law operating exactly as written, not a re-run of finished work.
+
+**Order: `[c] → [d] → [e]`, three groups of one. NO PARALLELISM** — `W5.md` §4a is explicit
+(*"No parallelism in this wave"*); `.d` is additionally *"sequenced strictly after X.W5.c commits"*
+because it re-keys the class names `.c` emits. `.e` is file-disjoint from both but the spec's declared
+serial order governs, and at one-track cadence (§0af) serial also costs nothing.
+
+**Sections · writable sets · gates · locks** for all three are unchanged from `## Unit plan` above
+(`### X.W5.c`, `### X.W5.d`, `### X.W5.e`) and are **not re-derived here**; the resume deltas are:
+
+- **`.c` (RESUME)** — opens by reading its **own** inherited diff whole: ⟨cmd⟩
+  `git diff HEAD -- demo/ e2e/` → **13 files, 824 insertions / 816 deletions**, `PaneSegmentedControl.vue`
+  staged-deleted and uncommitted. Every hunk is judged against §5 X.W5.c and the fold before any of it
+  is kept; the N11 matrices are **already banked** (`afe230b5`) so the ordering lock is discharged and
+  must not be re-taken after the deletion. It also owes **§C.5.1**: `usePaneRouter.ts:418,425`'s two
+  new `mobilePaneIndex` writes are inside its own set and count against C3. **C3 may not be cited as
+  CLOSED** while Dock G-L is RED (measured **2** today).
+- **`.d`** — additionally inherits **§C.7 residual 5** (`PaneSlot.vue`'s three comment-only
+  `content-max-h` mentions, B4's third arm at **3**) if `.c` does not take it: the D-1 coupled-architecture
+  lock is why unit b could not. D1's instrument must be **created** (it does not exist), and both its
+  runs committed.
+- **`.e`** — unchanged and unblocked; **CC-052 is apply-never-requeue**; its baseline is **8 matches on
+  7 lines** (R.3a).
+
+**Still owed to the wave whoever takes them** (§C.5.4): §8's two capture sets
+(`audit/visual/layout/`, `audit/probes/app-wave/pi/`) were never taken although `.a` and `.b` closed.
+
+**Open act, committed**: `docs/tranches/X/execution/A/X-W5.md` only. `LEDGER.md` deliberately not
+touched (**R.0b / ESC-W5-5**); `INBOX.md` unedited (**R.1**, nothing unrowed).
