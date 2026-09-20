@@ -871,8 +871,10 @@ the silence for an oversight, and carried to `X.F.W10.g` as an open bounds quest
   ×2 on glass-ui 8.0.0's `Metric` tile** — a **PRODUCER** row that rides SS-6 and **never becomes a
   frontend hack to turn a gate green**. **S-16 RESTATED**: `22` id-rows ⊕ `4` §D entries = the O-20
   packet's own **26**; the *"correct COHESION §4a"* instruction **stays withdrawn** and §4a's figure
-  is edited by nobody. **Bounds**: `dev.sh` in **0 of 18** commits; every commit pathspec'd; every
-  touched path inside §1a. **E13**: 0 unrowed on all four paths, 0 rows carrying a live UNREAD
+  is edited by nobody. **Bounds**, stated as a PAIRING because the auditor's own commits move the denominator: `dev.sh`
+  in **0 of 18** at the close audit's clock (the roster *before* this seat's writes) and **0 of 21**
+  including them; **0** paths outside `docs/tranches/`; every commit pathspec'd on the `commit`
+  itself. **The invariant is what travels, not the integer.** **E13**: 0 unrowed on all four paths, 0 rows carrying a live UNREAD
   status in scope. **VERIFIED stays NO** — §3.5's declared-Fable final pass (`X.F.W10.h`) is owed,
   and L-18's two quartet gestalt passes are owed after it.
 
