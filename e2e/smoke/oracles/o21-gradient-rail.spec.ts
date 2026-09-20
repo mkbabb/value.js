@@ -168,8 +168,11 @@ test("one axis: every handle centre sits where the ramp paints its own ordinal",
             const ordinal = Number(h.getAttribute("aria-valuenow"));
             return {
                 ordinal,
-                skewPx:
-                    +(hr.x + hr.width / 2 - (originX + (track * ordinal) / 100)).toFixed(3),
+                skewPx: +(
+                    hr.x +
+                    hr.width / 2 -
+                    (originX + (track * ordinal) / 100)
+                ).toFixed(3),
             };
         });
     });
@@ -201,16 +204,18 @@ test("the forward and inverse maps are inverse: a press at a handle's own pixel 
         await paneSettled(page);
         const live = bar(page.getByRole("main", { name: "Color tool panes" }));
         const ids = () =>
-            live.locator("[data-stop-id]").evaluateAll((els) =>
-                els.map((e) => e.getAttribute("data-stop-id")!),
-            );
+            live
+                .locator("[data-stop-id]")
+                .evaluateAll((els) => els.map((e) => e.getAttribute("data-stop-id")!));
 
         // The reload resets the model to its two-stop seed; wait for the rail
         // to carry them before reading, or the census below counts an empty
         // pane and the gate passes on a page that never rendered.
         await expect(live.locator("[data-stop-id]")).toHaveCount(2);
         const before = await ids();
-        const handle = live.locator(`[data-stop-id][aria-valuenow="${terminal}"]`).first();
+        const handle = live
+            .locator(`[data-stop-id][aria-valuenow="${terminal}"]`)
+            .first();
         const hb = (await handle.boundingBox())!;
         const rb = (await live.boundingBox())!;
         await page.mouse.click(hb.x + hb.width / 2, rb.y + 4);
@@ -226,7 +231,9 @@ test("the forward and inverse maps are inverse: a press at a handle's own pixel 
             }));
 
         // The pressed pixel mapped back to exactly the ordinal painted there.
-        expect(Math.abs(minted.ordinal - terminal)).toBeLessThanOrEqual(INVERSE_TOL_PCT);
+        expect(Math.abs(minted.ordinal - terminal)).toBeLessThanOrEqual(
+            INVERSE_TOL_PCT,
+        );
         // …and it is expressed in the one axis, not in a private px literal.
         expect(minted.left).toContain("var(--rail-inset)");
         expect(minted.left).toContain("var(--rail-track)");
@@ -289,3 +296,231 @@ test("type-scale containment: at rootFS 20px the terminal handles stay inside th
  * `scripts/ci/oracle-slate.mjs` section E now reds on a `getByTestId` literal
  * that appears in no product byte, so this class cannot return unobserved.
  */
+
+/**
+ * X-W6 · X.W6.b — ADDED (b1 / b2 / b3 / b4): THE SEAT, THE INSPECTOR AND THE
+ * KEYBOARD GRAMMAR. ADD-never-replace: every spec above is untouched.
+ *
+ * The rail's seats used to ride the ramp's own centre row, and each seat's hit
+ * rung masked its own width of add surface: `bar.x + 3` minted nothing (the
+ * terminal seat's rung owned the meniscus from frame one) and at 12 stops only
+ * 149px of 462 — 32.3% — could still mint, with no indication of why the
+ * gesture had stopped working. The seats now take their own band below the
+ * ramp, so the whole ramp is the add gesture's ground at every width and every
+ * stop count, and crowding is disambiguated on the seat band rather than paid
+ * for out of the add surface (GRADSTOP-A §15: never a minimum-spacing law).
+ */
+test("the seat rail frees the meniscus: every rail ordinal mints, at any rail width", async ({
+    page,
+}) => {
+    const consoleErrors = setupEnvNoise(page);
+    const main = await openGradient(page);
+    const rail = bar(main);
+    await rail.scrollIntoViewIfNeeded();
+
+    // Crowd the rail to the adjudicated census input (12 stops).
+    const box = (await rail.boundingBox())!;
+    for (const f of [0.12, 0.2, 0.28, 0.36, 0.44, 0.52, 0.6, 0.72, 0.8, 0.88]) {
+        await rail.click({ position: { x: box.width * f, y: box.height / 2 } });
+    }
+    await expect(rail.locator("[data-stop-id]")).toHaveCount(12);
+
+    // The census is the gate's own: every column of the ramp's centre row whose
+    // topmost element IS the ramp is a column that can still mint.
+    const census = (l: Locator) =>
+        l.evaluate((el) => {
+            const r = el.getBoundingClientRect();
+            const cy = r.y + r.height / 2;
+            let n = 0;
+            for (let x = 0; x < Math.floor(r.width); x++) {
+                if (document.elementFromPoint(r.x + x + 0.5, cy) === el) n++;
+            }
+            return { total: Math.round(r.width), addable: n };
+        });
+
+    // ANY rail width: the desktop cell and the narrow cell, same census.
+    for (const width of [1440, 390]) {
+        await page.setViewportSize({ width, height: 844 });
+        await rail.scrollIntoViewIfNeeded();
+        const c = await census(rail);
+        expect(c.addable).toBe(c.total);
+    }
+
+    // …and the meniscus itself: a press 3px inside the rail's left edge mints.
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await rail.scrollIntoViewIfNeeded();
+    const wide = (await rail.boundingBox())!;
+    await page.mouse.click(wide.x + 3, wide.y + wide.height / 2);
+    await expect(rail.locator("[data-stop-id]")).toHaveCount(13);
+
+    expect(consoleErrors).toEqual([]);
+});
+
+/**
+ * b3 — NUMERIC POSITION ENTRY. A stop's position existed only as a
+ * whole-percent accessible name and inside the CSS string: a user who knew the
+ * number they wanted could only approach it by aim. The inspector's field
+ * writes through the SAME sole mutator every gesture writes through, so entry
+ * and paint cannot disagree — asserted here to the axis's own tolerance.
+ */
+test("stop inspector numeric entry round-trips to the ordinal the rail paints", async ({
+    page,
+}) => {
+    const consoleErrors = setupEnvNoise(page);
+    const main = await openGradient(page);
+    const rail = bar(main);
+    await rail.scrollIntoViewIfNeeded();
+
+    const box = (await rail.boundingBox())!;
+    await rail.click({ position: { x: box.width * 0.5, y: box.height / 2 } });
+    await expect(rail.locator("[data-stop-id]")).toHaveCount(3);
+
+    // Select the interior stop; the inspector takes it as its subject.
+    const handle = rail.locator("[data-stop-id]").nth(1);
+    await handle.click();
+    const id = (await handle.getAttribute("data-stop-id"))!;
+    await expect(main.getByTestId("gradient-stop-inspector")).toContainText(
+        "Stop 2 of 3",
+    );
+
+    await main.getByTestId("gradient-stop-position").fill("37.5");
+
+    const seat = rail.locator(`[data-stop-id="${id}"]`);
+    await expect(seat).toHaveAttribute("aria-valuenow", "37.5");
+
+    // The painted centre agrees with the typed ordinal on the one axis.
+    const skewPx = await rail.evaluate((el, stopId) => {
+        const r = el.getBoundingClientRect();
+        const cs = getComputedStyle(el);
+        const inset = parseFloat(cs.getPropertyValue("--rail-inset"));
+        const bl = parseFloat(cs.borderLeftWidth);
+        const br = parseFloat(cs.borderRightWidth);
+        const originX = r.x + bl + inset;
+        const track = r.width - bl - br - inset * 2;
+        const h = el
+            .querySelector(`[data-stop-id="${stopId}"]`)!
+            .getBoundingClientRect();
+        return +(h.x + h.width / 2 - (originX + track * 0.375)).toFixed(3);
+    }, id);
+    expect(Math.abs(skewPx)).toBeLessThanOrEqual(AXIS_TOL_PX);
+
+    expect(consoleErrors).toEqual([]);
+});
+
+/**
+ * b1 — THE KEYBOARD GRAMMAR IS TOTAL, and its two BOUNDS are honest.
+ *
+ * Every §5.2 key is bound on the seat: the interior leg presses all six and
+ * reads the model's own value back. The terminal leg is the same grammar at the
+ * axis's end — `Home` on a stop already at 0% and `ArrowDown` below it are
+ * bound and CORRECT no-ops, because a value control at its minimum cannot
+ * decrease; the same seat answers `ArrowUp` immediately, which is what tells a
+ * bound apart from an absent binding. (`gate-seat.mjs` G3d reads the FIRST seat
+ * in document order — the 0% terminal of the two-stop seed — through
+ * `style.left`, so it cannot make that distinction: see the X.W6.b receipt.)
+ */
+test("keyboard grammar is total: an interior stop answers every key, a terminal holds its bound", async ({
+    page,
+}) => {
+    const consoleErrors = setupEnvNoise(page);
+    const main = await openGradient(page);
+    const rail = bar(main);
+    await rail.scrollIntoViewIfNeeded();
+
+    const box = (await rail.boundingBox())!;
+    await rail.click({ position: { x: box.width * 0.5, y: box.height / 2 } });
+    await expect(rail.locator("[data-stop-id]")).toHaveCount(3);
+    const id = (await rail
+        .locator("[data-stop-id]")
+        .nth(1)
+        .getAttribute("data-stop-id"))!;
+    const seat = rail.locator(`[data-stop-id="${id}"]`);
+
+    const press = async (key: string) => {
+        await seat.focus();
+        await page.keyboard.press(key);
+    };
+
+    for (const [key, want] of [
+        ["ArrowUp", "51"],
+        ["ArrowDown", "50"],
+        ["ArrowRight", "51"],
+        ["ArrowLeft", "50"],
+        ["PageUp", "60"],
+        ["PageDown", "50"],
+        ["Home", "0"],
+        ["End", "100"],
+    ] as const) {
+        await press(key);
+        await expect(seat).toHaveAttribute("aria-valuenow", want);
+    }
+    // The ordinal rides the VALUE, so a move re-announces it (it used to ride
+    // the NAME alone, which is announced on focus and not on change).
+    await expect(seat).toHaveAttribute("aria-valuetext", "Stop 2 of 3, position 100%");
+
+    // The bound, honestly: the terminal answers the keys that have somewhere to go.
+    const terminal = rail.locator("[data-stop-id]").first();
+    await expect(terminal).toHaveAttribute("aria-valuenow", "0");
+    const leftAt = () => terminal.evaluate((el) => (el as HTMLElement).style.left);
+    const before = await leftAt();
+    await terminal.focus();
+    await page.keyboard.press("Home");
+    await expect(terminal).toHaveAttribute("aria-valuenow", "0");
+    expect(await leftAt()).toBe(before);
+    await terminal.focus();
+    await page.keyboard.press("ArrowDown");
+    await expect(terminal).toHaveAttribute("aria-valuenow", "0");
+    expect(await leftAt()).toBe(before);
+    await terminal.focus();
+    await page.keyboard.press("ArrowUp");
+    await expect(terminal).toHaveAttribute("aria-valuenow", "1");
+    expect(await leftAt()).not.toBe(before);
+
+    expect(consoleErrors).toEqual([]);
+});
+
+/**
+ * b4 — ONE REMOVAL OWNER, AND A FLOOR THAT SAYS WHY.
+ *
+ * The rail's only remover used to be a chip that EXISTED only while removal was
+ * legal (`v-if="selectedStop && removable"`) over a remover that returned in
+ * silence — a capability expressed as absence, twice. The inspector is the one
+ * owner now: it stays, it reads as refused at the floor, and its reason is its
+ * own accessible description.
+ */
+test("one removal owner: the floor is a disabled control carrying its reason", async ({
+    page,
+}) => {
+    const consoleErrors = setupEnvNoise(page);
+    const main = await openGradient(page);
+    const rail = bar(main);
+    await rail.scrollIntoViewIfNeeded();
+
+    const remove = main.getByRole("button", { name: "Remove selected stop" });
+    // ONE removal control on the route — not one per stop, and not a second
+    // species hiding behind a gesture.
+    await expect(main.getByRole("button", { name: /remove/i })).toHaveCount(1);
+
+    // At the two-stop floor the control is PRESENT and refused, with a reason.
+    await rail.locator("[data-stop-id]").first().click();
+    await expect(remove).toBeVisible();
+    await expect(remove).toBeDisabled();
+    const reasonId = await remove.getAttribute("aria-describedby");
+    expect(reasonId).toBeTruthy();
+    await expect(main.locator(`#${reasonId}`)).toContainText("at least two stops");
+
+    // Above the floor it is the working owner.
+    const box = (await rail.boundingBox())!;
+    await rail.click({ position: { x: box.width * 0.5, y: box.height / 2 } });
+    await expect(rail.locator("[data-stop-id]")).toHaveCount(3);
+    await rail.locator("[data-stop-id]").nth(1).click();
+    await expect(remove).toBeEnabled();
+    await remove.click();
+    await expect(rail.locator("[data-stop-id]")).toHaveCount(2);
+
+    // …and it is back at the floor, still present, still saying why.
+    await rail.locator("[data-stop-id]").first().click();
+    await expect(remove).toBeDisabled();
+
+    expect(consoleErrors).toEqual([]);
+});

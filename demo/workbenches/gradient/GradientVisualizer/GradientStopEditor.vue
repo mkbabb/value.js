@@ -5,8 +5,16 @@ import { clamp, scale } from "@mkbabb/value.js/math";
 import type { GradientStop } from "../composables/useGradientModel";
 import { railPosition } from "../composables/useGradientModel";
 
-const { stops, railRamp, colorAt } = defineProps<{
+const { stops, railRamp, colorAt, canRemove } = defineProps<{
     stops: GradientStop[];
+    /**
+     * The model's OWN removal floor (X-W6 · X.W6.b — b4). The seat used to
+     * re-derive it as `stops.length > 2`: a second author of one rule, so a
+     * model that changed its floor would leave the seat offering a removal the
+     * model refuses. The rule has ONE owner now — `useGradientModel.canRemove`
+     * — and the seat reads it.
+     */
+    canRemove: boolean;
     /**
      * The rail-normalized 90° projection (`serializeRailRamp`, T.W6-2): the
      * rail ALWAYS paints this — at every type/direction — so handles,
@@ -174,17 +182,25 @@ function stopName(index: number): string {
     return `Gradient stop ${index + 1} of ${stops.length}`;
 }
 
-/** Human-readable and unit-aware — never the raw float `aria-valuenow` carries. */
-function stopValueText(stop: GradientStop): string {
-    const position = `Position ${formatPercent(stop.position)}%`;
-    return isGrabbed(stop.id) ? `${position}, grabbed` : position;
+/**
+ * Human-readable and unit-aware — never the raw float `aria-valuenow` carries.
+ *
+ * X-W6 · X.W6.b — b1: the ORDINAL rides the VALUE, unconditionally. It used to
+ * ride the accessible NAME alone, and a name is announced when a control takes
+ * focus, not when its value changes — so a drag that carried a stop PAST its
+ * neighbour changed the ordinal silently. The ordinal is a function of the
+ * position (GRADSTOP-A §14), so it belongs to the thing that is re-announced
+ * whenever the position moves.
+ */
+function stopValueText(stop: GradientStop, index: number): string {
+    const text = `Stop ${index + 1} of ${stops.length}, position ${formatPercent(stop.position)}%`;
+    return isGrabbed(stop.id) ? `${text}, grabbed` : text;
 }
 
-// A stop is removable only when more than 2 stops exist.
-const removable = computed(() => stops.length > 2);
 const selectedStop = computed(
     () => stops.find((s) => s.id === selectedId.value) ?? null,
 );
+const selectedIndex = computed(() => stops.findIndex((s) => s.id === selectedId.value));
 
 const ghostColor = computed(() =>
     hoverPos.value !== null ? colorAt(hoverPos.value) : null,
@@ -294,16 +310,74 @@ function onHandlePointerCancel() {
     draggingId.value = null;
 }
 
-function removeStop(id: string) {
-    if (!removable.value) return;
-    if (selectedId.value === id) selectedId.value = null;
-    if (isGrabbed(id)) grabbed.value = null;
-    emit("remove", id);
+// ── Removal: ONE owner, an explicit floor, a stated reason (X.W6.b — b4) ──
+//
+// The floor used to be expressed as ABSENCE (`v-if="selectedStop && removable"`
+// on the only control) plus a SILENT early return in the remover — so a user at
+// the floor was told nothing at all, and a keyboard user pressing Delete got
+// silence twice over. The floor is now a DISABLED control carrying its reason,
+// and every trigger lands in `requestRemove`.
+
+/** The seat's polite channel: the one place a refusal or a completed removal is spoken. */
+const notice = ref("");
+
+/** The refusal, or null when the removal is legal. Rendered, announced, and
+ *  used as the control's own disabled condition — one predicate, three uses. */
+function refusalFor(stop: GradientStop | null): string | null {
+    if (!stop) return "Select a stop on the rail to remove it.";
+    if (!canRemove)
+        return "A gradient needs at least two stops, so this one cannot be removed.";
+    return null;
+}
+
+const removalRefusal = computed(() => refusalFor(selectedStop.value));
+
+/**
+ * THE ONE REMOVAL OWNER. The inspector's control calls it with no argument (it
+ * acts on the selection); a handle's Delete/Backspace calls it with the stop the
+ * key was pressed on, passed BY VALUE rather than read back through the
+ * `selectedId` model — a `defineModel` write round-trips through the parent, so
+ * reading it back in the same tick is a stale read waiting to happen.
+ */
+function requestRemove(target?: GradientStop) {
+    const stop = target ?? selectedStop.value;
+    const refusal = refusalFor(stop);
+    if (refusal) {
+        notice.value = refusal; // never a silent return
+        return;
+    }
+    const doomed = stop!;
+    if (selectedId.value === doomed.id) selectedId.value = null;
+    if (isGrabbed(doomed.id)) grabbed.value = null;
+    notice.value = `Removed the stop at ${formatPercent(doomed.position)}%.`;
+    emit("remove", doomed.id);
 }
 
 function moveStop(stop: GradientStop, position: number) {
     selectedId.value = stop.id;
     emit("update:position", stop.id, round1(position));
+}
+
+/**
+ * The inspector's numeric position entry (X.W6.b — b3). Before this, a stop's
+ * position existed only as a whole-percent accessible name and inside the CSS
+ * string: a user who knew the number they wanted could only approach it by
+ * dragging at it. The field writes through the SAME sole mutator every other
+ * gesture writes through, so entry and paint cannot disagree.
+ *
+ * An empty or half-typed field is a field mid-edit, not a position: it writes
+ * nothing. That is not a masked failure — `type="number"` + `step` already
+ * refuse non-numeric text at the platform level, and the field re-renders from
+ * the model on every change, so the model is always the thing on screen.
+ */
+function onPositionInput(e: Event) {
+    const stop = selectedStop.value;
+    if (!stop) return;
+    const raw = (e.target as HTMLInputElement).value.trim();
+    if (raw === "") return;
+    const typed = Number(raw);
+    if (!Number.isFinite(typed)) return;
+    moveStop(stop, typed);
 }
 
 /**
@@ -354,7 +428,9 @@ function onHandleKeydown(e: KeyboardEvent, stop: GradientStop) {
             break;
         case "Delete":
         case "Backspace":
-            removeStop(stop.id);
+            // The keyboard's trigger for the ONE removal owner — never a second
+            // removal path, and never silent when the floor refuses (b4).
+            requestRemove(stop);
             break;
         case "Escape": {
             const grab = grabbed.value;
@@ -444,7 +520,7 @@ function onCaretKeydown(e: KeyboardEvent) {
                  affordance replaces the instruction line). -->
             <div
                 v-if="hoverPos !== null && !draggingId"
-                class="rail-ghost absolute top-1/2 rounded-full border-2 border-dashed border-white/70 opacity-80 pointer-events-none z-0"
+                class="rail-ghost absolute rounded-full border-2 border-dashed border-white/70 opacity-80 pointer-events-none z-0"
                 :style="{
                     left: handleLeft(hoverPos),
                     background: ghostColor
@@ -464,7 +540,7 @@ function onCaretKeydown(e: KeyboardEvent) {
             <button
                 type="button"
                 data-testid="gradient-stop-caret"
-                class="rail-caret absolute top-1/2 rounded-full border-2 border-dashed border-white/70 z-0"
+                class="rail-caret absolute rounded-full border-2 border-dashed border-white/70 z-0"
                 :aria-label="`Add gradient stop at ${formatPercent(caretPos)}%`"
                 :style="{
                     left: handleLeft(caretPos),
@@ -490,9 +566,10 @@ function onCaretKeydown(e: KeyboardEvent) {
                 :aria-valuemin="0"
                 :aria-valuemax="100"
                 :aria-valuenow="stop.position"
-                :aria-valuetext="stopValueText(stop)"
+                :aria-valuetext="stopValueText(stop, index)"
                 :aria-label="stopName(index)"
-                class="rail-handle absolute top-1/2 rounded-full cursor-grab active:cursor-grabbing"
+                :aria-selected="selectedId === stop.id"
+                class="rail-handle absolute rounded-full cursor-grab active:cursor-grabbing"
                 :class="[selectedId === stop.id ? 'z-10' : 'z-0']"
                 :style="{
                     left: handleLeft(stop.position),
@@ -532,31 +609,75 @@ function onCaretKeydown(e: KeyboardEvent) {
             </button>
         </div>
 
-        <!-- The remove chip (W5-11 / P1-3: remove was right-click-ONLY —
-             undiscoverable, impossible on touch). Floats BELOW the selected
-             handle whenever removal is legal, a FULL coarse touch target below
-             the handle's centre so the grab and destroy hit regions are
-             disjoint on a coarse pointer (X-W6 · a9). A SIBLING of the rail,
-             never a child: it lives OUTSIDE the rail's box, and the seat above
-             reserves its band (a10). -->
-        <button
-            v-if="selectedStop && removable"
-            type="button"
-            aria-label="Remove selected stop"
-            class="rail-remove-chip absolute rounded-full border border-card-edge bg-well text-muted-foreground flex items-center justify-center z-20 cursor-pointer hover:text-destructive hover:border-destructive/60"
-            :style="{
-                left: handleLeft(selectedStop.position),
-                transform: 'translate(-50%, 0)',
-                /* U.W-A11Y / U-F25: `--shadow-sm` + the focus ring hoisted to the
-                   scoped `.rail-remove-chip` cascade (below), same class-of-fix
-                   as the handle — the inline box-shadow clobbered the ring. */
-                transition:
-                    'color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard)',
-            }"
-            @click.stop="removeStop(selectedStop.id)"
+        <!-- ── The selected-stop inspector (X-W6 · X.W6.b — b3 / b4) ──
+             The floating remove chip is GONE. It was the rail's only removal
+             control, it existed only while removal was legal (the floor as
+             ABSENCE), it had to be exiled a full coarse target below the handle
+             so a tap that grabbed could not destroy, and it reserved that whole
+             band of the seat to do it. The inspector takes its job: it is the
+             ONE removal owner, it states its floor instead of vanishing at it,
+             and it carries the numeric position entry the rail never had — so
+             the selected stop is finally addressable by a number, not only by
+             aim. It is in normal flow, so it collides with nothing. -->
+        <div
+            class="stop-inspector flex flex-wrap items-center gap-x-3 gap-y-1"
+            data-testid="gradient-stop-inspector"
         >
-            <X class="w-3.5 h-3.5" aria-hidden="true" />
-        </button>
+            <p class="text-caption text-muted-foreground min-w-0">
+                {{
+                    selectedStop
+                        ? `Stop ${selectedIndex + 1} of ${stops.length}`
+                        : "No stop selected"
+                }}
+            </p>
+
+            <label class="stop-inspector-field flex items-center gap-1.5 text-caption">
+                <span class="text-muted-foreground">Position</span>
+                <input
+                    type="number"
+                    inputmode="decimal"
+                    data-testid="gradient-stop-position"
+                    class="stop-inspector-input"
+                    min="0"
+                    max="100"
+                    step="0.1"
+                    aria-label="Selected stop position, percent"
+                    :disabled="!selectedStop"
+                    :value="selectedStop ? formatPercent(selectedStop.position) : ''"
+                    @input="onPositionInput"
+                />
+                <span class="text-muted-foreground" aria-hidden="true">%</span>
+            </label>
+
+            <button
+                type="button"
+                aria-label="Remove selected stop"
+                class="stop-inspector-remove flex items-center gap-1 text-caption"
+                :disabled="removalRefusal !== null"
+                :aria-describedby="
+                    removalRefusal ? 'gradient-stop-removal-reason' : undefined
+                "
+                @click="requestRemove()"
+            >
+                <X class="w-3.5 h-3.5" aria-hidden="true" />
+                <span>Remove</span>
+            </button>
+
+            <!-- The floor's REASON is rendered, not implied: it is the control's
+                 own description, so it is read with the control rather than
+                 discovered by its absence. -->
+            <p
+                v-if="removalRefusal"
+                id="gradient-stop-removal-reason"
+                class="text-caption text-muted-foreground basis-full"
+            >
+                {{ removalRefusal }}
+            </p>
+
+            <!-- One polite channel for what a keyboard trigger would otherwise
+                 do in silence (a refused Delete, a completed removal). -->
+            <p class="sr-only" role="status">{{ notice }}</p>
+        </div>
     </div>
 </template>
 
@@ -621,8 +742,12 @@ function onCaretKeydown(e: KeyboardEvent) {
     --rail-handle-size: max(1.5rem, 24px);
     --rail-face-size: 1.25rem;
     --rail-height: 2.5rem;
-    --rail-chip-size: 1.5rem;
     --rail-touch: var(--touch-target, 2.75rem);
+    /* The hit rung actually in force for the pointer class in use: on a fine
+       pointer the seat IS the ≥24px box (X-W4 · C4), on a coarse one the
+       ::before below carries `--rail-touch`. One property, so the seat band's
+       geometry derives from the rung instead of guessing at it. */
+    --rail-hit: var(--rail-handle-size);
     /* The seat's own rhythm (the `gap-1` the rail and the chip band sit on),
        reused as the gutter BETWEEN the two coarse hit regions. */
     --rail-gutter: 0.25rem;
@@ -632,22 +757,41 @@ function onCaretKeydown(e: KeyboardEvent) {
        blocks — one axis, not two that happen to agree. */
     --rail-inset: calc(var(--rail-handle-size) / 2);
     --rail-track: calc(100% - 2 * var(--rail-inset));
-    /* The chip's centre sits one full coarse target PLUS that gutter below the
-       handle's. Each inflated region is `--rail-touch` tall, so centres exactly
-       one target apart would still SHARE their boundary row — and the chip,
-       the higher layer, would win it: a tap at the outer edge of the handle's
-       OWN advertised target would destroy the stop it was aiming at (measured
-       on the iPhone-14 cell: HANDLE up to +20px, CHIP from +22px, no gap).
-       The gutter is what makes the two regions disjoint rather than adjacent. */
-    --rail-chip-top: calc(
-        var(--rail-height) / 2 + var(--rail-touch) + var(--rail-gutter) -
-            var(--rail-chip-size) / 2
+    /* ── THE SEAT BAND (X-W6 · X.W6.b — b2, the freed meniscus) ──────────────
+       The handles used to ride the ramp's own centre line, and each one's hit
+       rung masked its own width of rail: at 12 stops only 149px of 462 (32.3%)
+       could still mint, and the rail's leftmost band — the meniscus — was dead
+       from frame one, because the terminal handle's rung owned it. Nothing
+       about a stop requires it to sit ON the ramp: its ordinal is an X, and X
+       is exactly what the one axis fixes (a3). So the seats take their own band
+       below the ramp, clear of it by the gutter at whatever hit rung is in
+       force, and the WHOLE ramp becomes the add gesture's ground — at every
+       rail width and every stop count. Crowding is then disambiguated on the
+       seat band (§15: never by a minimum-separation law) instead of being paid
+       for out of the add surface. */
+    --rail-handle-top: calc(
+        var(--rail-height) + var(--rail-gutter) + var(--rail-hit) / 2
     );
-    /* …and the seat reserves that band, so the chip paints on its OWN ground
-       instead of across whatever rule the next section draws. */
-    padding-bottom: calc(
-        var(--rail-chip-top) + var(--rail-chip-size) - var(--rail-height)
+}
+
+/* …and the band is reserved by the RAIL, not by the seat root: the seats are
+   absolutely positioned against the rail, so a reservation on the root would
+   reserve space after the inspector rather than between the two — measured on
+   the coarse cell, where the seats landed on top of the inspector and its
+   control could not be reached. The rail's own margin is the reservation, so
+   everything below it starts where the seats end. */
+.gradient-rail {
+    margin-block-end: calc(
+        var(--rail-handle-top) + var(--rail-hit) / 2 - var(--rail-height)
     );
+}
+
+/* The coarse rung is the one the ::before carries below; the band follows it,
+   so the ramp is free of BOTH rungs, not only of the fine one. */
+@media (pointer: coarse) {
+    .rail-seat {
+        --rail-hit: var(--rail-touch);
+    }
 }
 
 /* ── The focus affordance SYSTEM (U.W-A11Y · U-F25 · BR-1; X-W4 · C4) ──
@@ -668,13 +812,18 @@ function onCaretKeydown(e: KeyboardEvent) {
    absolute floor if the root ever shrinks below 16px. The handle's PAINT is the
    `.rail-handle-face` inside it, so the visual row is unchanged: only the seat
    grew, which is what "the target is what must grow" means. */
+/* The seats, the caret and the ghost all sit on the ONE band (b2) — the `top`
+   they used to carry as `top-1/2` is the band's own property now, so the three
+   cannot drift apart and the ramp's own rows stay free. */
 .rail-handle,
 .rail-caret {
+    top: var(--rail-handle-top);
     inline-size: var(--rail-handle-size);
     block-size: var(--rail-handle-size);
 }
 /* The ghost is a preview of the painted SILHOUETTE, not of the seat. */
 .rail-ghost {
+    top: var(--rail-handle-top);
     inline-size: var(--rail-face-size);
     block-size: var(--rail-face-size);
 }
@@ -715,12 +864,6 @@ function onCaretKeydown(e: KeyboardEvent) {
         0 0 0 3px var(--focus-ring-outer),
         var(--shadow-sm);
 }
-.rail-remove-chip {
-    inline-size: var(--rail-chip-size);
-    block-size: var(--rail-chip-size);
-    top: var(--rail-chip-top);
-    box-shadow: var(--shadow-sm);
-}
 .rail-handle:focus-visible,
 .rail-caret:focus-visible {
     outline: none;
@@ -728,12 +871,55 @@ function onCaretKeydown(e: KeyboardEvent) {
         0 0 0 1px var(--focus-ring-inner),
         0 0 0 3px var(--focus-ring-outer);
 }
-.rail-remove-chip:focus-visible {
+
+/* ── The inspector (X.W6.b — b3 / b4) ─────────────────────────────────────────
+   In normal flow, on the seat's own rhythm: it collides with nothing, so it
+   needs no exile band and no collision reservation. The entry is a real number
+   input — the platform's own decimal keypad on a coarse pointer, its own
+   step/min/max — sized to the three characters a percent needs. */
+.stop-inspector {
+    padding-top: var(--rail-gutter);
+}
+.stop-inspector-input {
+    inline-size: 5ch;
+    min-block-size: var(--rail-hit);
+    padding-inline: 0.375rem;
+    border-radius: var(--radius-sm, 0.375rem);
+    border: 1px solid var(--card-edge);
+    background: var(--well, transparent);
+    font-variant-numeric: tabular-nums;
+    text-align: end;
+}
+.stop-inspector-input:disabled {
+    opacity: 0.55;
+}
+.stop-inspector-remove {
+    min-block-size: var(--rail-hit);
+    padding-inline: 0.5rem;
+    border-radius: var(--radius-sm, 0.375rem);
+    border: 1px solid var(--card-edge);
+    color: var(--muted-foreground);
+    cursor: pointer;
+    transition:
+        color var(--duration-fast) var(--ease-standard),
+        border-color var(--duration-fast) var(--ease-standard);
+}
+.stop-inspector-remove:hover:not(:disabled) {
+    color: var(--destructive);
+    border-color: color-mix(in oklab, var(--destructive) 60%, transparent);
+}
+/* The floor, said out loud: the control STAYS and reads as refused, with its
+   reason beside it (b4 — never absence, never a silent early return). */
+.stop-inspector-remove:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+.stop-inspector-input:focus-visible,
+.stop-inspector-remove:focus-visible {
     outline: none;
     box-shadow:
         0 0 0 1px var(--focus-ring-inner),
-        0 0 0 3px var(--focus-ring-outer),
-        var(--shadow-sm);
+        0 0 0 3px var(--focus-ring-outer);
 }
 /* Forced-colors (WHCM) strips box-shadow → the ring vanishes; a real outline
    keeps the affordance (links U-F57). The scoped rule also FIRMS the UA's own
@@ -741,7 +927,8 @@ function onCaretKeydown(e: KeyboardEvent) {
 @media (forced-colors: active) {
     .rail-handle:focus-visible,
     .rail-caret:focus-visible,
-    .rail-remove-chip:focus-visible {
+    .stop-inspector-input:focus-visible,
+    .stop-inspector-remove:focus-visible {
         outline: 2px solid Highlight;
         outline-offset: 2px;
     }
@@ -753,22 +940,21 @@ function onCaretKeydown(e: KeyboardEvent) {
 }
 
 /* ── Always-on hit inflation (U.W-A11Y · U-F27 · Pole A — mount-safe; BR-3) ──
-   The handle / chip boxes under-serve the producer's 44px COARSE referent, so a
+   The handle box under-serves the producer's 44px COARSE referent, so a
    centred, transparent ::before carries the coarse rung (pointer-events left at
    its `auto` initial). On FINE pointers the seat IS the ≥24px box (X-W4 · C4),
    so `max(1.5rem, 100%)` resolves to the box and the two floors agree by
-   construction; the rule stays because the chip is still a 24px box and because
-   a rung that is only true while another rule holds is the kind that breaks
-   silently.
-   Because the pseudo belongs to the handle/chip button (data-stop-id / the
-   remove role), a tap in the inflated zone targets the button, so the bar's
-   add-on-click guard (`target.closest("[data-stop-id]")`) still treats a
-   handle-adjacent hit as a grab, never an unintended mint. The chip's own band
-   starts one full coarse target PLUS `--rail-gutter` below the handle's centre
-   (`--rail-chip-top`), so the two inflated zones share no row of pixels — not
-   even their boundary (a9). */
-.rail-handle::before,
-.rail-remove-chip::before {
+   construction; the rule stays because a rung that is only true while another
+   rule holds is the kind that breaks silently.
+
+   X-W6 · X.W6.b: the rung no longer costs the add gesture anything. It used to
+   inflate ON the ramp — which is why `bar.x + 3` minted nothing and why 12
+   stops sterilised two thirds of the rail — and it now inflates on the SEAT
+   BAND, whose whole height sits below the ramp at this rung (`--rail-hit`
+   follows the pointer class, and `--rail-handle-top` derives from it). The
+   pseudo still belongs to the handle button, so a coarse tap anywhere in the
+   rung is a grab and never an unintended mint. */
+.rail-handle::before {
     content: "";
     position: absolute;
     top: 50%;
@@ -779,8 +965,7 @@ function onCaretKeydown(e: KeyboardEvent) {
     border-radius: 9999px;
 }
 @media (pointer: coarse) {
-    .rail-handle::before,
-    .rail-remove-chip::before {
+    .rail-handle::before {
         width: var(--rail-touch);
         height: var(--rail-touch);
     }

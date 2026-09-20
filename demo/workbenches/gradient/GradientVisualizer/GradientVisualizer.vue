@@ -46,6 +46,7 @@ const {
     simpleCSS,
     railRampCSS,
     addStop,
+    canRemove,
     removeStop,
     setStopPosition,
     setStopEasing,
@@ -124,10 +125,7 @@ function seedFromPalette() {
 }
 
 function resetGradient() {
-    const seeded = setStopsFromColors([
-        "oklch(0.75 0.15 145)",
-        "oklch(0.65 0.18 265)",
-    ]);
+    const seeded = setStopsFromColors(["oklch(0.75 0.15 145)", "oklch(0.65 0.18 265)"]);
     type.value = "linear";
     direction.value = 90;
     interpolationSpace.value = "oklch";
@@ -144,19 +142,29 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
 
 <template>
     <div class="flex flex-col gap-5">
-        <GradientStopEditor
-            :stops="stops"
-            :rail-ramp="railRampCSS"
-            :color-at="colorAtPosition"
-            v-model:selected-id="selectedStopId"
-            @update:position="setStopPosition"
-            @add="onAddStop"
-            @remove="removeStop"
-        />
+        <!-- X-W6 · X.W6.b: the outline was FLAT — "Interpolation", "Easing" and
+             "CSS" each announced themselves while the instrument's protagonist,
+             the stop rail, was the one unnamed section on the route. It is named
+             here, at the same rank as the sections that serve it. -->
+        <section class="flex flex-col gap-2">
+            <h3 class="font-display text-subheading text-muted-foreground">Stops</h3>
+            <GradientStopEditor
+                :stops="stops"
+                :can-remove="canRemove"
+                :rail-ramp="railRampCSS"
+                :color-at="colorAtPosition"
+                v-model:selected-id="selectedStopId"
+                @update:position="setStopPosition"
+                @add="onAddStop"
+                @remove="removeStop"
+            />
+        </section>
 
         <!-- ── Interpolation ── -->
         <hr class="border-border" />
-        <h3 class="font-display text-subheading text-muted-foreground">Interpolation</h3>
+        <h3 class="font-display text-subheading text-muted-foreground">
+            Interpolation
+        </h3>
 
         <!-- T.W6-2 / T-21b: the controls band carries the RENDER TILE as its
              right rail — the honest surface for what Type + Direction DO
@@ -165,80 +173,139 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
              rail). One sampling law feeds both; the tile paints the
              CSS-output truth (`coalescedCSS`). -->
         <div class="grid grid-cols-[minmax(0,1fr)_auto] gap-x-3 gap-y-5">
-        <div class="grid grid-cols-3 gap-3 min-w-0">
-            <!-- W5-7 (P1-11): the per-select subtitle rows are EXCISED — they
+            <div class="grid grid-cols-3 gap-3 min-w-0">
+                <!-- W5-7 (P1-11): the per-select subtitle rows are EXCISED — they
                  truncated at every viewport and duplicated the descriptions
                  already carried inside each dropdown's items. -->
-            <LabeledField label="Type" :control-labelable="false" v-slot="{ labelledBy }">
-                <Select :model-value="type" @update:model-value="(v: AcceptableValue) => type = v as GradientType">
-                    <SelectTrigger size="sm" :aria-labelledby="labelledBy">
-                        <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                        <SelectItem v-for="t in GRADIENT_TYPES" :key="t.value" :value="t.value">
-                            {{ t.label }}
-                            <template #description>
-                                <span class="text-micro text-muted-foreground">{{ t.description }}</span>
-                            </template>
-                        </SelectItem>
-                    </SelectContent>
-                </Select>
-            </LabeledField>
+                <LabeledField
+                    label="Type"
+                    :control-labelable="false"
+                    v-slot="{ labelledBy }"
+                >
+                    <Select
+                        :model-value="type"
+                        @update:model-value="
+                            (v: AcceptableValue) => (type = v as GradientType)
+                        "
+                    >
+                        <SelectTrigger size="sm" :aria-labelledby="labelledBy">
+                            <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                            <SelectItem
+                                v-for="t in GRADIENT_TYPES"
+                                :key="t.value"
+                                :value="t.value"
+                            >
+                                {{ t.label }}
+                                <template #description>
+                                    <span class="text-micro text-muted-foreground">{{
+                                        t.description
+                                    }}</span>
+                                </template>
+                            </SelectItem>
+                        </SelectContent>
+                    </Select>
+                </LabeledField>
 
-            <LabeledField label="Space" :control-labelable="false" v-slot="{ labelledBy }">
-                <Select :model-value="interpolationSpace" @update:model-value="(v: AcceptableValue) => interpolationSpace = v as PickerSpace">
-                    <SelectTrigger size="sm" :aria-labelledby="labelledBy">
-                        <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                        <SelectItem v-for="s in INTERPOLATION_SPACES" :key="s.value" :value="s.value">
-                            {{ s.label }}
-                            <template #description>
-                                <span class="text-micro text-muted-foreground">{{ s.description }}</span>
-                            </template>
-                        </SelectItem>
-                    </SelectContent>
-                </Select>
-            </LabeledField>
+                <LabeledField
+                    label="Space"
+                    :control-labelable="false"
+                    v-slot="{ labelledBy }"
+                >
+                    <Select
+                        :model-value="interpolationSpace"
+                        @update:model-value="
+                            (v: AcceptableValue) =>
+                                (interpolationSpace = v as PickerSpace)
+                        "
+                    >
+                        <SelectTrigger size="sm" :aria-labelledby="labelledBy">
+                            <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                            <SelectItem
+                                v-for="s in INTERPOLATION_SPACES"
+                                :key="s.value"
+                                :value="s.value"
+                            >
+                                {{ s.label }}
+                                <template #description>
+                                    <span class="text-micro text-muted-foreground">{{
+                                        s.description
+                                    }}</span>
+                                </template>
+                            </SelectItem>
+                        </SelectContent>
+                    </Select>
+                </LabeledField>
 
-            <LabeledField label="Hue" :control-labelable="false" v-slot="{ labelledBy }">
-                <Select :model-value="hueMethod" @update:model-value="(v: AcceptableValue) => hueMethod = v as HueInterpolationMethod">
-                    <SelectTrigger size="sm" :aria-labelledby="labelledBy">
-                        <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                        <SelectItem v-for="m in HUE_INTERPOLATION_METHODS" :key="m.value" :value="m.value">
-                            {{ m.label }}
-                            <template #description>
-                                <span class="text-micro text-muted-foreground">{{ m.description }}</span>
-                            </template>
-                        </SelectItem>
-                    </SelectContent>
-                </Select>
-            </LabeledField>
-        </div>
+                <LabeledField
+                    label="Hue"
+                    :control-labelable="false"
+                    v-slot="{ labelledBy }"
+                >
+                    <Select
+                        :model-value="hueMethod"
+                        @update:model-value="
+                            (v: AcceptableValue) =>
+                                (hueMethod = v as HueInterpolationMethod)
+                        "
+                    >
+                        <SelectTrigger size="sm" :aria-labelledby="labelledBy">
+                            <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                            <SelectItem
+                                v-for="m in HUE_INTERPOLATION_METHODS"
+                                :key="m.value"
+                                :value="m.value"
+                            >
+                                {{ m.label }}
+                                <template #description>
+                                    <span class="text-micro text-muted-foreground">{{
+                                        m.description
+                                    }}</span>
+                                </template>
+                            </SelectItem>
+                        </SelectContent>
+                    </Select>
+                </LabeledField>
+            </div>
 
-        <!-- The render tile: type + direction APPLIED — a square-ish surface
+            <!-- The render tile: type + direction APPLIED — a square-ish surface
              spanning both control rows (an angled/radial/conic render cannot
              live in a horizontal strip). Same owned paint-stack contract as
              the rail: render layer no-repeat over the full border-box,
              alpha-checker ground beneath. -->
-        <div
-            data-testid="gradient-render-tile"
-            role="img"
-            aria-label="Gradient render with type and direction applied"
-            class="gradient-render-tile row-span-2 w-20 sm:w-24 rounded-card border border-card-edge"
-            :style="{ '--tile-render': coalescedCSS }"
-        />
+            <div
+                data-testid="gradient-render-tile"
+                role="img"
+                aria-label="Gradient render with type and direction applied"
+                class="gradient-render-tile row-span-2 w-20 sm:w-24 rounded-card border border-card-edge"
+                :style="{ '--tile-render': coalescedCSS }"
+            />
 
-        <div class="flex flex-col gap-1">
-            <div class="flex items-center justify-between">
-                <span class="section-label">Direction</span>
-                <span class="text-mono-small text-muted-foreground tabular-nums">{{ direction }}&deg;</span>
+            <div class="flex flex-col gap-1">
+                <div class="flex items-center justify-between">
+                    <span class="section-label">Direction</span>
+                    <span class="text-mono-small text-muted-foreground tabular-nums"
+                        >{{ direction }}&deg;</span
+                    >
+                </div>
+                <Slider
+                    aria-label="Gradient direction"
+                    :model-value="[direction]"
+                    :min="0"
+                    :max="360"
+                    :step="1"
+                    @update:model-value="
+                        (v: number[] | undefined) => {
+                            if (v?.[0] !== undefined) direction = v[0];
+                        }
+                    "
+                />
             </div>
-            <Slider aria-label="Gradient direction" :model-value="[direction]" :min="0" :max="360" :step="1"
-                @update:model-value="(v: number[] | undefined) => { if (v?.[0] !== undefined) direction = v[0]; }" />
-        </div>
         </div>
 
         <!-- ── Easing (R.W4 Lane D — the glass-ui <EasingPicker> consume;
@@ -279,7 +346,9 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
     background-origin: border-box;
     background-clip: border-box;
     background-repeat: no-repeat, repeat;
-    background-size: 100% 100%, 16px 16px;
+    background-size:
+        100% 100%,
+        16px 16px;
     box-shadow: var(--shadow-sm);
 }
 </style>
