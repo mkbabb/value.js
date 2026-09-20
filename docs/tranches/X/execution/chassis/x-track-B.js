@@ -1,7 +1,7 @@
 export const meta = {
   name: 'x-track-B',
   description: 'Tranche X Track B — X·KF (keyframes.js): every wave in runbook §1.2 order through the spec-driven chassis (open → units → verify-only close → fresh check → bounded repair), ≤1 waves concurrent',
-  phases: [{"title":"KF.W0"},{"title":"KF.W1"},{"title":"KF.W4"},{"title":"KF.W9"},{"title":"KF.W2"},{"title":"KF.W5"},{"title":"KF.W6"},{"title":"KF.W7"},{"title":"KF.W8"},{"title":"AUTHOR-KF-W11-13"},{"title":"KF.W10"},{"title":"KF.W11"},{"title":"KF.W12"},{"title":"KF.W13"}],
+  phases: [{"title":"KF.W0"},{"title":"KF.W1"},{"title":"KF.W4"},{"title":"KF.W9"},{"title":"KF.W2"},{"title":"KF.W5"},{"title":"KF.W6"},{"title":"KF.W7"},{"title":"KF.W8"},{"title":"AUTHOR-KF-W11-13"},{"title":"KF.W10"},{"title":"KF.W11"},{"title":"KF.W12"},{"title":"KF.W13"},{"title":"KF.W13S"}],
 }
 
 const TRACK = {
@@ -114,6 +114,13 @@ const TRACK = {
         "AUTHOR-KF-W11-13"
       ],
       "note": "authored by the SS-1/SS-2 block this run; cargo per KF-W10.md §6.D"
+    },
+    "KF.W13S": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W13.md",
+      "after": [
+        "KF.W13"
+      ],
+      "note": "THE X·KF SUPPLEMENT WAVE minted by COHESION §0ai (2026-09-20) — read §0ai whole and KF-W13.md's dated ADDENDUM 2026-09-20 at the file end: they ARE this wave's unit spec. Units: [KF.W13.a2 ∥ KF.W13.e] (both opus; disjoint sets — .a2 = vitest.config.ts test.server.deps.inline [\"@mkbabb/glass-ui\"] (KF13-E2) then the whole dock-menu packet per .a's spec, G-KFW13-0→1→2 in git-log order; .e = the addendum's listed cures: TD-37 play-leading on both faces (OP-7 RULED), E-b1's six playback-idiom.css halves, C-11 vi.mock line, css-code-editor-seam double gains setTargets, env.d.ts ambient monaco css declaration + the KF-CE-1/4 arm from the banked hunk, the three src/** TS6133 declarations die, spring-trace-truth (4b) re-bind to DAMPING_AXIS, useEasingDemo cssValue typed at source with the 3-file contract, EditorShell :key=superKey ?? \"\", parseAnimationCSS.ts type-level) → [KF.W13.f] (opus close: vue-tsc 0 asserted, test:demo green, npm run check exit 0, kf pushed; value.js pushed only when no sibling path is staged). KF.W11/W12/W13 CLOSED rows are NEVER rewritten; this wave has its own LEDGER row and record execution/B/KF-W13S.md. The writable sets are exactly the addendum's lists"
     }
   },
   "author": {
@@ -159,6 +166,9 @@ const TRACK = {
     ],
     [
       "KF.W13"
+    ],
+    [
+      "KF.W13S"
     ]
   ]
 }

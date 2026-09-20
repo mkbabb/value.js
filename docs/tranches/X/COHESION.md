@@ -2310,3 +2310,57 @@ and §3a's third-iteration trigger has fired for it (C3-2). Ruled in §3a's mand
 **Mechanism.** `X.P.W4S` resumes: `.e` · `.e2` · `.f` · `.g` · `.h` · `.f2` stand on their commits;
 groups: [`.g2`] → [`.s`]. The chassis note carries the redress rule. The first free id is `§0ah`
 (Repair 2 measured the collision at `§0ac`).
+
+## §0ai ADDENDUM 2026-09-20 — TRACK B CLOSED HONEST-RED WITH THE DOCK-MENU PACKET UNSPENT: KF13-E2 RULED (THE HARNESS ROW), TD-37 RULED (OP-7), E-b1 · C-11 · E-d1 · KF11-E2 · KF11-E(f1) · KF11-E3 · KF11-E4 · E-c1 · M-1 RULED; ONE SUPPLEMENT WAVE `KF.W13S` MINTED
+
+KF.W12 and KF.W13 CLOSED honest-RED (G-KFW12-4 · -7; G-KFW13-0 · -1 · -2 · -7). Every RED traces to a
+byte outside a unit's carve that the seats returned rather than took. Those bytes are ruled here, and
+the X·KF sub-tranche is finished by one supplement wave rather than left half-spent:
+
+- **KF13-E2 — the harness row.** glass-ui's dist chunks import the bare self-specifier
+  `@mkbabb/keyframes.js`; vitest externalizes `node_modules`, so the Vite alias never sees it and the
+  dock chunk is stranded before any test body runs. The root cure is the harness's own idiom, not a
+  mock or a patch: `vitest.config.ts` gains `test.server.deps.inline: ["@mkbabb/glass-ui"]` (the
+  producer's chunks are transformed by Vite and the S.B7 alias resolves the self-specifier). One row,
+  granted to unit **`KF.W13.a2`**, which then spends the dock-menu packet exactly as `.a`'s spec
+  reads it (G-KFW13-0 → -1 → -2 in `git log` order; M-4's round-trip, the MUST-CARRY rider, MM-1/MM-6,
+  the MbabbMenu family, TD-36, the chrome roster; no deletion on a reading).
+- **OP-7 · TD-37 — one face order: PLAY LEADING on both faces.** The faces are concentric and the
+  expanded face is the longer-lived state; the collapsed pill becomes `[play][name]` so every
+  hover-expand and idle collapse leaves the primary CTA under the reaching pointer. `.b`'s TD-37 row
+  is spent by **`KF.W13.e`** under this ruling (TD-21's shared-Set rider with it).
+- **E-b1** — the six `playback-idiom.css`-resident halves (D-10 `:30-33` · D-13 `:23` · D-16 css
+  `:19` · N-1 `:33/:48/:69/:88` · D-8/D-15 `:87-90` · D-20 `:12-13`) are carved to **`.e`** explicitly.
+  **M-1** — TD-17's landing in `useMenubarMeasure.ts` is RATIFIED beside (a genuine cure that zeroed a
+  §0u diagnostic; the carve is widened by ruling, not by convenience).
+- **C-11** — one line, `vi.mock("@mkbabb/glass-ui/button")`, in KF.W12's
+  `channel-options-render-edge.test.ts` → `.e`. **KF.W12 `.e`'s residual 1** — the
+  `css-code-editor-seam.test.ts` preset double gains the real seat API (`setTargets`) → `.e`.
+- **E-d1 / KF.W12 R-3** — `demo/env.d.ts` gains the five-line ambient declaration for monaco's
+  `basic-languages/css/css.js`, and the KF-CE-1/4 arm (b) is re-landed **byte-exact from the banked
+  hunk** `evidence/W12/KF-W12-d-born-red.md` into `CSSCodeEditor.vue` → `.e`. The bundle delta the seat
+  measured (+4,255 B vendor-monaco, −1,054,628 B css.worker) is the cure's own receipt.
+- **KF11-E2** — the three `src/**` TS6133 rows (`compositor.ts` `groupedKeys` · `waapi.ts`
+  `KeyframesAnimation` · `smooth.ts` `_startLoop`): unused declarations die with their diagnostics.
+  KF-W13 §Excluded is lifted for exactly those three declarations by the dated addendum → `.e`.
+- **KF11-E(f1)** — `spring-trace-truth.test.ts` (4b) re-binds to the shipped export
+  (`import { DAMPING_AXIS }` … `expect(DAMPING_AXIS.min).toBeGreaterThanOrEqual(PLOT_DAMPING_FLOOR)`),
+  the regex read dies → `.e`. G-KFW11-4 / -10 turn on it.
+- **KF11-E3 (keyframes half)** — `useEasingDemo.ts`'s `cssValue` getter is typed at its source: the
+  bare editor modes (`steps`, `cubic-bezier`) are translated into real CSS before the seam and the
+  getter returns the `Easing` union; the three-file easing-name contract (`EasingSidebar.vue` ·
+  `EasingTarget.vue` · `useEasingDemo.ts`) is `.e`'s carve; no cast. The value.js declaration half
+  stays X-W11's by §0ad.
+- **KF11-E4** — `EditorShell.vue:175`: `:key="superKey ?? ''"` — the remount-on-swap semantics are
+  unchanged (the key is stable while `superKey` is undefined and changes when it changes); the public
+  prop contract is untouched → `.e`.
+- **E-c1 / KF.W12 R-5** — `keyframes/utils/parseAnimationCSS.ts` is granted to `.e` for the one
+  type-level root cure (no cast, no shim).
+- **Close** — unit **`KF.W13.f`** (Opus, serial last): `vue-tsc` **0** asserted as the sub-tranche's
+  literal (§0u's ratchet ends where the count ends), `npm run test:demo` all green, `npm run check`
+  exit 0, keyframes.js pushed, the LEDGER row and the SS-6 accretion; value.js pushed when the shared
+  working tree allows (never over a sibling's staged path — d-R9's rule stands).
+
+**Mechanism.** Supplement wave **`KF.W13S`** (spec `KF-W13.md` + its dated addendum; record
+`execution/B/KF-W13S.md`; opens after KF.W13 CLOSED): groups [`.a2` ∥ `.e`] (disjoint sets) →
+[`.f`]. KF.W12's and KF.W13's CLOSED rows are never rewritten. KF.W3 stays gate-keyed on RC-P(V).
