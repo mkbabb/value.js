@@ -1,0 +1,53 @@
+SERVED MODEL: claude-opus-5[1m]
+
+G32 BEFORE — X-W9.h, measured at the pre-cure blobs of `f866de45`
+(src/color/model.ts, demo/color-session/colorSpaceInfo.ts and
+demo/picker/controls/ComponentSliders/ConsoleRail.vue extracted with
+`git show f866de45:<path>` into a scratch tree, so the reading is taken
+from settled bytes rather than from memory of the pre-edit worktree).
+
+cmd: node docs/tranches/X/waves/evidence/W9/g32-channel-descriptors.mjs
+run 1 exit 1 / run 2 exit 1 / outputs byte-identical (diff -q clean)
+
+G32 channel-descriptor resolution
+  spaces (ChannelsBySpace)  : 17
+  (space, channel id) pairs : 49
+  failures                  : 35
+  witness ictcp.cp          : "Ct (tritan)"
+  witness jzazbz.jz         : "jz"
+  FAIL L1 rgb: descriptor table is UNKEYED (positional [Red, Green, Blue]), expected keys [r, g, b]
+  FAIL L1 hsl: descriptor table is UNKEYED (positional [Hue, Saturation, Lightness]), expected keys [h, s, l]
+  FAIL L1 hsv: descriptor table is UNKEYED (positional [Hue, Saturation, Value]), expected keys [h, s, v]
+  FAIL L1 hwb: descriptor table is UNKEYED (positional [Hue, Whiteness, Blackness]), expected keys [h, w, b]
+  FAIL L1 lab: descriptor table is UNKEYED (positional [L* (Lightness), a* (Green-Red), b* (Blue-Yellow)]), expected keys [l, a, b]
+  FAIL L1 lch: descriptor table is UNKEYED (positional [L (Lightness), C (Chroma), h (hue)]), expected keys [l, c, h]
+  FAIL L1 oklab: descriptor table is UNKEYED (positional [L (Lightness), a (Green-Red), b (Blue-Yellow)]), expected keys [l, a, b]
+  FAIL L1 oklch: descriptor table is UNKEYED (positional [L (Lightness), C (Chroma), h (hue)]), expected keys [l, c, h]
+  FAIL L1 xyz: descriptor table is UNKEYED (positional [X, Y, Z]), expected keys [x, y, z]
+  FAIL L1 kelvin: descriptor table is UNKEYED (positional [Temperature (K)]), expected keys [kelvin]
+  FAIL L3 kelvin.kelvin: degrades to the bare key "kelvin"
+  FAIL L1 srgb-linear: descriptor table is ABSENT, expected keys [r, g, b]
+  FAIL L3 srgb-linear.r: degrades to the bare key "r"
+  FAIL L3 srgb-linear.g: degrades to the bare key "g"
+  FAIL L3 srgb-linear.b: degrades to the bare key "b"
+  FAIL L1 display-p3: descriptor table is ABSENT, expected keys [r, g, b]
+  FAIL L3 display-p3.r: degrades to the bare key "r"
+  FAIL L3 display-p3.g: degrades to the bare key "g"
+  FAIL L3 display-p3.b: degrades to the bare key "b"
+  FAIL L1 a98-rgb: descriptor table is ABSENT, expected keys [r, g, b]
+  FAIL L3 a98-rgb.r: degrades to the bare key "r"
+  FAIL L3 a98-rgb.g: degrades to the bare key "g"
+  FAIL L3 a98-rgb.b: degrades to the bare key "b"
+  FAIL L1 prophoto-rgb: descriptor table is ABSENT, expected keys [r, g, b]
+  FAIL L3 prophoto-rgb.r: degrades to the bare key "r"
+  FAIL L3 prophoto-rgb.g: degrades to the bare key "g"
+  FAIL L3 prophoto-rgb.b: degrades to the bare key "b"
+  FAIL L1 rec2020: descriptor table is ABSENT, expected keys [r, g, b]
+  FAIL L3 rec2020.r: degrades to the bare key "r"
+  FAIL L3 rec2020.g: degrades to the bare key "g"
+  FAIL L3 rec2020.b: degrades to the bare key "b"
+  FAIL L1 ictcp: descriptor table is UNKEYED (positional [Intensity (I), Ct (tritan), Cp (protan)]), expected keys [i, ct, cp]
+  FAIL L3 ictcp.cp: resolves to ct's row "Ct (tritan)"
+  FAIL L1 jzazbz: descriptor table is UNKEYED (positional [Lightness (Jz), az (red-green), bz (yellow-blue)]), expected keys [jz, az, bz]
+  FAIL L3 jzazbz.jz: degrades to the bare key "jz"
+G32 RED
