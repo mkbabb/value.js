@@ -1,0 +1,13 @@
+C1 · per-pane nudge on About (margin-top: 16px) — must go RED
+    FAIL  About sits ON its track start: |120.92 − 111.50| = 9.42px
+    FAIL  Picker↔About top edges: |112.00 − 120.92| = 8.92px
+    → RED (the gate catches it)
+
+C2 · per-pane nudge on the Picker — About must PASS, the Mix CONTROL must go RED
+    FAIL  Picker↔About top edges (the leg a nudge buys): |128.00 − 111.98| = 16.02px
+    FAIL  CONTROL (OM-10) Picker↔Mix top edges: |128.00 − 112.00| = 16.00px
+    FAIL  CONTROL Picker sits ON its track start: |128.00 − 112.00| = 16.00px
+    → the About leg FAILED; the control legs went RED (the gate catches the nudge)
+
+NEGATIVE CONTROLS: 2 of 2 went RED as required.
+EXIT=0
