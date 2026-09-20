@@ -171,13 +171,7 @@ function componentGlyph(component: string): string {
 // Component description from colorSpaceInfo for the tooltip.
 function componentDescription(component: string): string {
     const space = currentColorSpace.value as DisplayColorSpace;
-    const info = (colorSpaceInfo as any)[space];
-    if (!info?.components) return component;
-    const upper = component.charAt(0).toUpperCase();
-    const match = info.components.find((c: string) =>
-        c.startsWith(upper) || c.startsWith(component),
-    );
-    return match ?? component;
+    return colorSpaceInfo[space].components[component] ?? component;
 }
 
 // --- Roving tabindex (WAI-ARIA tablist; verbatim from the pre-lift rail) ---
