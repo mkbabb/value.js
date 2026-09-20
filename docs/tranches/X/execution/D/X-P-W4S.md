@@ -2746,3 +2746,174 @@ row. It did **not** take the cure it is naming (`DIVERGENCE-LEDGER.md` is in no 
 seat), and it did not widen, retag or regenerate any instrument to move a gate. The LEDGER status is
 left at **PARTIAL**: on this reading X.P.W4S is not closed, because C1-1 is owed work inside the
 wave, and a `CLOSED` cell written over an unrelieved RED would be the laundering axis 10 forbids.
+
+---
+
+## Repair 1 — ROUND 1, on Check 1's register (C1-1 HIGH)
+
+SERVED MODEL: claude-opus-5[1m] · **REPAIR SEAT (round 1)**, Track D (X·P) · 2026-09-20. No byte
+above this line is rewritten (E-3); the fourth sitting's open, receipts, close and Check 1 stand as
+written. This seat cured the ONE blocking defect at the bytes Check 1 named, re-ran every gate the
+cure could move, and **did not perform the R-A stamp** — that act is a FRESH Fable adjudicator's
+(M-23 §1), and this seat has now authored ledger bytes.
+
+### R1.0 — CRASH-RECOVERY sweep, before any write
+
+⟨cmd⟩ `git status --porcelain` (value.js) → **18** rows at open, **none inside this seat's writable
+set**: `demo/**` (**10**) · `e2e/**` (3) · `docs/tranches/V/reformation/CARRY-LEDGER.md` ·
+`docs/tranches/X/execution/{A/X-W5.md,A/X-W9.md,B/KF-W13.md}` · `scripts/dev/dev.sh` (unowned,
+NEVER touched, never staged). `docs/tranches/X/parse-that/**` carried **0** dirty rows and
+`docs/tranches/X/execution/{D/X-P-W4S.md,LEDGER.md}` **0** — no killed predecessor's partial work on
+this unit exists, nothing was inherited, nothing stashed, nothing restored, and no dirty path
+outside the set was touched or staged. The tree MOVED under this seat while it worked — by the last
+sweep a sibling track had landed `src/css/{grammar,index,types}.ts` · `src/easing.ts` ·
+`package.json` · `scripts/ci/verify-packed-surface.mjs` and had committed the `A/X-W9.md` and
+`B/KF-W13.md` rows away (⟨cmd⟩ `git status --porcelain` → **24** rows). None of them is this wave's,
+none was touched, and **0** of them appears in any commit of this repair.
+
+### R1.1 — Defect register, each row dispositioned
+
+| # | severity | disposition | where |
+|---|---|---|---|
+| **C1-1** | **HIGH** | **CURED** at the bytes, `cf99b1c8`; G-1 re-reads `VERDICT: GREEN`, `EXIT=0`, double-run identical | R1.2–R1.4 |
+| **C1-2** | MINOR (mitigated) | **NO CURE ORDERED** by the check itself; the suggested form-cure (a dated addendum to `W4.md` §6 G-2 naming the commit predicate) edits the **dated spec**, outside this seat's writable set — **ESCALATED**, with the measured reason | R1.6 |
+| **C1-3** | INFO | **RECORDED, no cure** — the suggested cure pins a variant in the **E13 idiom**, which is not a wave artefact and is in no unit's grant; both variants agree on the load-bearing figure (`UNREAD=0`), re-measured here | R1.5, R1.6 |
+| **C1-4** | INFO | **RECORDED as a standing trigger** — the fifth RED in the checker/ledger document-form family goes to the triumvirate (§3a), not to a unit. This repair is the **fourth** head's cure, not a fifth RED | R1.6 |
+
+### R1.2 — C1-1, the cure at the bytes
+
+**The defect, reproduced first.** ⟨cmd⟩ `cd docs/tranches/X/parse-that && node
+scripts/seam-contract-check.mjs SEAM-CONTRACT.md evidence/W3/universe-52.json DIVERGENCE-LEDGER.md`
+→ `VERDICT: RED — 2 check(s) failed` · `[F] parseStylesheet: unknown id `F-w4f-1`` · `[J] §11.4
+F-w4f-2`, **EXIT=1** — Check 1's reading and the close's, to the line.
+
+**The mechanism, read at the checker's own bytes.** ⟨cmd⟩ `sed -n '112p' scripts/seam-contract-check.mjs`
+→ `const head = line.match(/^### (.+?) — /)`. A ledger ROW is a level-3 heading carrying ` — `.
+`X.P.W4.h`'s append put the `F-w4f-1` field table under `### §11.1 The row` — level 3 with **no**
+` — ` — so `cur` was never set and the row did not exist for `[F]`; and it put `### §11.4 F-w4f-2 —
+DISCHARGED, so it opens no row here` at level 3 **with** ` — `, so a prose section WAS a row, named
+no export, and `[J]` fired. `.f` had already met this exact hazard one section above in the same
+file and answered it with `#### §10.1 … #### §10.4`.
+
+**The cure — a FORM cure inside `X.P.W4.h`'s own appended bytes, cell-for-cell.**
+
+1. `### §11.1 The row` → **`### F-w4f-1 — a declaration NAME that is not one `<ident-token>`**`, and
+   the 6-column table re-rendered as the ledger's `| field | value |` form with `| **entry** |
+   `parseStylesheet` |` as its declared subject field. **Every field's text is `.h`'s, moved
+   unedited** — the move was executed by a script that *splits `.h`'s own row on `|` and re-emits
+   the cells*, so no byte of the subject, incumbent, candidate, disposition or consumer-direction
+   text was retyped (`/private/tmp/.../repair1-form-cure.mjs`, scratch, uncommitted).
+2. `### §11.2` · `### §11.3` · `### §11.4` → `#### …`, `.f`'s precedent.
+
+**Nothing else moved.** No reading, no disposition, no consumer direction, no id, no census figure,
+no population, no `RULING_IDS` retag. ⟨cmd⟩ `git show --numstat --format='' cf99b1c8` → `21  7
+DIVERGENCE-LEDGER.md` (the 7 deletions are exactly 4 replaced lines — heading, table header,
+separator, the row — plus the 3 demoted headings) · `203  0
+evidence/W4/g1-repair1-2026-09-20.txt` — **2 paths, both in the fifth addendum's `.h`
+grant (`DIVERGENCE-LEDGER.md` modify-append · `evidence/W4/**` NEW dated files)**, which is the
+grant Check 1 names as the cure's rightful owner. Sections `§0`–`§10` are untouched.
+
+### R1.3 — G-1, re-run at the settled bytes, twice
+
+⟨cmd⟩ `node scripts/seam-contract-check.mjs SEAM-CONTRACT.md evidence/W3/universe-52.json
+DIVERGENCE-LEDGER.md` → `rows: contract 52 · universe 52 · **ledger rows 48**` ·
+`contract ∖ universe-52 : ∅` · `universe-52 ∖ contract : ∅` · census `declared-divergence 7 ·
+identical 45` · §0v carried `44 cells over 6 rows` · `SURFACE-WIDE ledger rows … S-1, S-4, R2, R3,
+R5, CN-1, §6.1` (**`§11.4 F-w4f-2` is gone from that list**) · **`VERDICT: GREEN`**, **EXIT=0**.
+⟨cmd⟩ run 2 → identical; ⟨cmd⟩ `diff -q run1 run2` → silent. Banked at
+`evidence/W4/g1-repair1-2026-09-20.txt`. **Ledger row count is UNMOVED at 48**: `F-w4f-1` becomes a
+row in the same act by which `§11.4` stops being one — the cure adds no row and removes none.
+
+### R1.4 — the cure is not a masking cure, and each half is falsifiable
+
+**The instrument did not move.** ⟨cmd⟩ `git status --porcelain -- scripts/seam-contract-check.mjs
+SEAM-CONTRACT.md` → **0 lines**; both are byte-unchanged by this repair. No check was widened, no
+second row grammar was minted, no id was allowlisted, no `try`/`catch`, no skip, no ghost row.
+
+**`.g`'s three negative controls still fire, re-run at this seat** — ⟨cmd⟩ `node
+scripts/seam-contract-check.mjs evidence/W4/negctl-w4g-contract-<X>-2026-09-19.md
+…universe…json …ledger…md …adjudication…md` → **base GREEN EXIT=0** · **A-pending-unruled RED
+EXIT=1** · **B-live-binding RED EXIT=1** · **C-ghost-id RED EXIT=1 (2 checks)**. The `C-ghost-id`
+control is the exact class `[F]` caught here, and it still catches it.
+
+**Each half of the cure has its own falsifier** (scratch copies of the cured ledger, never
+committed): ⟨cmd⟩ `sed 's/^### F-w4f-1 —/#### F-w4f-1 —/' DIVERGENCE-LEDGER.md > D` then the gate
+→ **RED, EXIT=1, `[F] … unknown id `F-w4f-1`` — 1**; ⟨cmd⟩ `sed 's/^#### §11.4 F-w4f-2 —/### §11.4
+F-w4f-2 —/' … > E` then the gate → **RED, EXIT=1, `[J] §11.4 F-w4f-2` — 1**. Neither half is
+decorative and neither is a narrowing: remove either and the gate returns to RED.
+
+### R1.5 — every gate a cure could move, re-read
+
+The cure touched **one markdown file in `value.js`** and one new evidence file. `<p2>`'s tree, the
+packed tarball, the Wasm artefact, the RC-P evaluator, the sibling reciprocity sentences and the
+producer package manifests are all untouched by it — so G-3/G-4/G-5 cannot move, and their close
+readings, re-reproduced independently by Check 1 §2 hours earlier at these same bytes, stand cited
+rather than re-burned. The gates this seat re-ran at its own clock:
+
+| gate | reading at this seat | ≡ |
+|---|---|---|
+| **G-1** | `VERDICT: GREEN`, **EXIT=0**, double-run identical, `diff -q` silent (R1.3) | **RED → GREEN — the defect is cured** |
+| **G-2** | ⟨cmd⟩ `git show --name-only --format='' cf99b1c8 \| grep -cE '^(src\|demo\|api\|test\|e2e)/'` → **0**; the same over every commit of this repair → **0**; `dev.sh` in **0** | GREEN, unmoved |
+| **G-6** | ⟨cmd⟩ `grep -rn 'RC-P' docs/tranches/X/{keyframes,fourier}/waves/ \| wc -l` → **25** | GREEN, unmoved |
+| **G-7** | ⟨cmd⟩ `grep -c 'parse-that' ../fourier-analysis/package.json ../fourier-analysis/web/package.json` → **0** and **0** | GREEN, the inherited floor held |
+| **G-8** | ⟨cmd⟩ `ls -l RELEASE-PACKET.md` → **28768 B**; ⟨cmd⟩ the positional column-6 awk over `INBOX.md` → **`ROWS=82 UNREAD=0`** (C1-3's variant A; variant B reads 78/0 — the two differ by 4 rows and agree on `UNREAD=0`, the only load-bearing figure) | GREEN, unmoved |
+| **G-3 · G-4 · G-5 · G-9** | not re-burned: no byte this repair wrote is in any of their read sets. Cited at Check 1 §2 — `resolved 52 of 52` sha `004bbcce…` EXIT=0 · `0`/`0` GREEN `f0d063d6…` EXIT=0 · `RC-P(4.0.0) = FALSE — 3 of 6` EXIT=1 (honestly false) · disposition (C) quoted with `BLOCKED-ON` + re-trigger | GREEN, unmoved |
+| **G-10** | ⟨cmd⟩ `for f in waves/W[0-4].md; do awk '/^### Four-verb status/{t=1;next} /^#/{t=0} t' "$f"; done \| grep -c 'VERIFIED \| \*\*NO\*\*'` → **5** — the correct **open** state; the R-A stamp is still **unperformed** | **withheld — now by freshness, not by a red gate** |
+
+**The posture after this repair: G-1..G-9 all GREEN.** G-10's shape-(a) sum is still `5`, because
+the stamp is an act, not a measurement, and this seat may not perform it: §6 G-10 and M-23 §1 give
+it to a **FRESH** adjudicator, and a seat that has just written the ledger row the stamp certifies
+is not fresh. That is **R-C2**, the owner Check 1 §3 already names — now unblocked.
+
+### R1.6 — the Locks addendum, the escalation, and the two INFO rows
+
+**LOCKS — dated addendum-beside to every unit plan in this record (C1-1, second half).** The
+fourth sitting's unit plan cleared `.g ∥ .h` as *"no shared modify path"*. That is true of **writes**
+and false of the **gate read**, and the whole of C1-1 lives in that gap. Standing from here:
+
+> **§4a's disjointness does not carry to gate reads.** A unit that WRITES a file another unit's
+> gate READS is serial behind that gate's re-run, or it owes the re-run itself. A unit returning
+> DONE must re-run every wave gate whose read set intersects its own write set, and report the
+> reading — "Escalations: none" is not a gate reading. For this wave the concrete lock is:
+> `DIVERGENCE-LEDGER.md` · `SEAM-CONTRACT.md` · `ADJUDICATION-W4.md` · `evidence/W3/universe-52.json`
+> are **G-1's read set**; any unit granted a write on one of them owes G-1 at its own clock.
+
+**ESCALATION (C1-2, MINOR-mitigated).** The check orders **no cure**; the form it suggests — *"a
+dated addendum-beside to §6 G-2 naming the commit predicate as the gate's operative form"* — is a
+write to `docs/tranches/X/parse-that/waves/W4.md`, a **dated spec**. §4 File Bounds grants this wave
+`modify-carve` on the four sibling wave files' VERIFIED rows only and no write at all on `W4.md`;
+spec addenda are the root session's act (E-3). Measured, so the reason is not an opinion: ⟨cmd⟩
+`git status --porcelain -- docs/tranches/X/parse-that/waves/W4.md` → **0 lines**, and this repair
+left it so. Recorded here; the wave's own reading of G-2 is re-measured GREEN at R1.5 under the
+commit predicate the falsifier states, with the working-tree divergence disclosed exactly as the
+open and the close disclose it: **13** such rows at this seat's open (10 `demo/**` + 3 `e2e/**`,
+a sibling Track-A seat's), and by its last sweep a sibling's `src/**` and `package.json` rows
+beside them — **0** of any of it in any commit of this wave.
+
+**C1-3 (INFO)** — no cure inside bounds: the fix is to pin one awk variant in the **E13 idiom**,
+which is not a wave artefact. Both variants are re-measured at this seat (R1.5): `ROWS=82 UNREAD=0`
+and `ROWS=78 UNREAD=0`. **`UNREAD=0` under both** — E13 is satisfied, and no wave closes with unread
+mail in scope.
+
+**C1-4 (INFO)** — accepted as a standing trigger and written down so the next seat cannot miss it:
+the four G-1 heads to date are distinct at the bytes (`resolve 19 of 52` → `[E] 37 · [G] 6` →
+`[F] 1 · [J] 1`, and this repair's GREEN). **A FIFTH RED in the checker/ledger document-form family
+is the same head recurring and goes to the triumvirate under §3a — not to another unit-local cure.**
+
+### R1.7 — bounds, commits, and what this repair did not do
+
+**Writes, all inside the fifth addendum's `.h` grant plus this record.** `DIVERGENCE-LEDGER.md`
+(modify, the form of `.h`'s own §11) · `evidence/W4/g1-repair1-2026-09-20.txt` (NEW dated file) ·
+this record. **No write** to `SEAM-CONTRACT.md`, `scripts/seam-contract-check.mjs`,
+`ADJUDICATION-W4.md`, `W4-CLOSE.md`, `RELEASE-PACKET.md`, `RELEASE-CONDITION.md`, any `waves/*.md`,
+`COHESION.md`, `INBOX.md`, the registry, `<p2>`, or any sibling repo. ⟨cmd⟩ `git status --porcelain
+-- docs/tranches/X/parse-that/` after the cure → clean but for the paths committed here. Pathspec
+commits only, the pathspec repeated on the commit itself; nothing else staged; `scripts/dev/dev.sh`
+never touched and in **0** commits.
+
+**This repair did NOT**: perform the R-A stamp · carve either COHESION cell · move a four-verb
+`VERIFIED` row · rule a seam cell · retag `RULING_IDS` or regenerate `universe-52.json` · widen or
+weaken the checker · touch a producer or a sibling tree · write a spec addendum · re-open a closed
+sitting. **X.P.W4S remains PARTIAL on the LEDGER**: nine of ten gates GREEN, G-10 withheld for the
+lawful reason that the act belongs to a fresh adjudicator (**R-C2**), who stamps iff G-1..G-9 read
+GREEN at its own commands.
