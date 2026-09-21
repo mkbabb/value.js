@@ -3571,3 +3571,547 @@ of its worktrees are live — ⟨cmd⟩ `git worktree list` → `value.js-x-w9-c
 whichever seat owns that record at the time. Once that one file is reconciled by its owner, `git
 push origin HEAD` carries all 70 commits — including this wave's six — with no force and no
 history rewrite.
+
+---
+
+## Check 1 — RESUME 2026-09-20 (L-20 fresh adversarial pass 1 over the second sitting's close)
+
+SERVED MODEL: claude-opus-5[1m]
+
+**Seat**: a fresh adversarial checker of the **2026-09-20 resume sitting's close** (`:3213`), dispatched
+under L-20 pass 1. **VERIFY-ONLY — this seat cured nothing**: it wrote no product byte, no gate script,
+no unit's evidence; its only writes are this block, this wave's own `LEDGER.md` row cell plus one
+appended event line. **Append-only beside** the 2026-09-18 `## Open`, the first `## Close`, Checks 1–3,
+Repairs 1–2, the 2026-09-20 `## Open — RESUME` and that sitting's `## Close` — **E-3: nothing above this
+line is rewritten.** Named this way because the record already carries `## Check 1`–`## Check 3` for the
+first sitting; this is pass 1 over the *second* sitting's close.
+
+**Verdict: NOT-CONFORMANT.** This seat re-ran **30 of the 50 gates** at its own commands and **30 of 30
+reproduce the close's verdict** — 12 claimed GREENs and 18 claimed REDs, several double-run
+byte-identical. Two findings block: one **CRITICAL** (12 of the 18 RED gates carry no relief of any of
+axis 10's three kinds — they are undone work, and undone work is not relief) and one **HIGH** (**a13**
+and **a2**, both banked GREEN and counted in the close's 32, are **RED at these bytes** — the close's
+own b3 row measures the break that takes them down, one file over, and did not carry the consequence).
+**The LEDGER row stays `PARTIAL`. It is not promoted.**
+
+### Act 0 — crash-recovery (standing law, before any other act)
+
+⟨cmd⟩ `git status --porcelain` at this seat's open → **17 rows**: the sixteen the close recorded plus
+`docs/tranches/X/execution/C/F-W10.md` (Track C, re-dirtied since). **Zero is inside this seat's
+writable set** (`execution/A/X-W6.md` · `execution/LEDGER.md`). Every one belongs to a sibling seat —
+the `demo/color-picker/` · `demo/shell/` · `demo/palettes/` · `demo/styles/shell.css` · `e2e/smoke/**`
+rows are **X-W5's open lane**, `CARRY-LEDGER.md` is the V fold, `execution/A/X-W5.md` and
+`execution/C/F-W10.md` are sibling records, `scripts/dev/dev.sh` is the unowned standing-dirty row.
+**Nothing inherited, nothing stashed, nothing restored, nothing staged.** No predecessor seat's partial
+work exists on any path this seat may write.
+
+### Axis 1 — 30 of the 50 gates re-run at this seat (30 of 30 reproduce; 2 banked ones do not — defect 2)
+
+A dev server was started by **this seat** on `:9000` (⟨cmd⟩ `npx vite --port 9000`, `VITE v8.0.16 ready`,
+`curl -o /dev/null -w %{http_code}` → `200`) and every live gate below was driven against it — a
+different process from the one the close used (STALE-SERVER law).
+
+| gate | ⟨cmd⟩ at this seat | reading | verdict |
+|---|---|---|---|
+| **b2** | `node …/probes/wb-gradient-stopeditor/gate-seat.mjs` | RED-set contains **no `G3f` leg** (both add-path legs absent) | **GREEN — reproduces** |
+| **b4** | same instrument, removal arm | RED-set contains **no G3-removal condition** | **GREEN — reproduces** |
+| **b1** | same instrument | **RED, exactly 2** conditions, both `G3d` (`Home`, `ArrowDown`), each quoting `style.left … * 0` — the 0% terminal. ⟨cmd⟩ run twice, ⟨cmd⟩ `diff -q` → **byte-identical** | **RED — reproduces in kind and in count** |
+| **b1–b4 (property)** | `node …/W6-evidence/gradient/gate-b-seat-inspector.mjs` | **EXIT=0, GREEN**, every line the close quotes reproduces verbatim: `interior stop answered all eight keys` · `{"role":"slider","valuemin":"0","valuemax":"100","valuetext":"Stop 2 of 3, position 100%","selected":"true"}` · `terminal bound: Home/ArrowDown inert at 0%, ArrowUp → 1%` · `462/462 @1440px` · `324/324 @390px` · `bar.x+3: 12 → 13` · removal controls **1**, floor `{"disabled":true,"describedBy":"gradient-stop-removal-reason","reason":"A gradient needs at least two stops, so this one cannot be removed."}`, above the floor `3 → 2` · `typed 37.5 → aria-valuenow 37.5, painted skew 0px` | **GREEN — reproduces** |
+| **b3 (named command)** | `npx playwright test e2e/smoke/oracles/o21-gradient-rail.spec.ts --project=smoke -g "stop inspector numeric entry"` | **1 failed** — `getByRole('main', { name: 'Color tool panes' }).getByRole('heading', { name: 'Gradient' })` *element(s) not found* at `:41`, before the first substantive assertion | **RED — reproduces, foreign fixture** |
+| **g1** | `CARD_RHYTHM_ORIGIN=http://localhost:9000 node …/probes/x-w6/gate-card-rhythm.mjs` | **EXIT=1**, `LARGEST INTERVAL: 61.22px — h3.card-title.readout content-top → span.readout-cell top → RESIDUE 61.22px undeclared` ⊕ `122.41 / 67.00 / 55.41 → INFLATED BY A QUANTITY THAT IS NOT A SPACING STEP`. **To the hundredth, from a server this seat started** | **RED — reproduces** |
+| **g2** | `npx playwright test e2e/smoke/views/companion-pane-track-start.spec.ts --project=smoke -g "companion panes share one track start"` | **1 passed (19.0s)** | **GREEN — reproduces** |
+| **f2** | `grep -rn 'colorSpaceInfo\.rgb\|(colorSpaceInfo as any)' demo \| wc -l` | **0** | **GREEN — reproduces (foreign cure, `95792b44`; the close says so plainly)** |
+| **H1** | `node docs/tranches/X/gates/gate-no-chassis.mjs <the same 18 shas>` | **EXIT=0, GREEN** — *"no added construct parameterises stage + inspector + action"*; the two new modules read and named (`space-catalog.ts` importers 3 / roots 2; `specimen-format.ts` 1 / 1) | **GREEN — reproduces over the full roster** |
+| **H3(1)** | `node --input-type=module -e "…parseCssColor('oklch()')…"` | **no throw, EXIT=0** — X-W9's cure is in `dist/`; ⟨cmd⟩ `git log f90aeb02^..HEAD -- node_modules` → nothing, no consumer try/catch added | **GREEN (swept) — reproduces** |
+| **H3(3)** | `node -p "require('./node_modules/@mkbabb/glass-ui/package.json').version"` | **7.0.0** — the Glass-8 trigger has not fired; nothing in §Blocked opened | **GREEN (swept) — reproduces** |
+| **f1** | `node docs/tranches/X/gates/gate-catalog-totality.mjs` | **EXIT=0** — `offered=18 catalogued=18 info=18 docs=11 authored + 7 decided-none = 18` | **GREEN — reproduces (banked, re-run anyway)** |
+| **f5** | `node docs/tranches/X/gates/gate-specimen-grammar.mjs` | **EXIT=0** — every row one grammar, `hex css 9ch #003abe00` the last | **GREEN — reproduces (banked, re-run anyway)** |
+| **f7·f8·f9·f10 (static legs)** | the four greps | `colorSpace: any` **0** · `as DisplayColorSpace` **0** · `tag=` **0** · `updateToColorSpace` **2** · peer watcher **0** · `from "../ui/` **0** | **GREEN — reproduce** |
+
+**The six undispatched / gated units are RED at this seat too, measured not assumed** — ⟨cmds⟩
+`test -f model/types.ts` **ABSENT** · `model/sample.ts` **ABSENT** · `grep -c "one sampling law"` **0** ·
+`gate-literal-dialect.mjs` **ABSENT** · `test/interpolation-subset.test.ts` **ABSENT** ·
+`gate-easing-radius.mjs` **ABSENT** · `grep -rn "glass-ui/aurora" demo/workbenches/gradient/` **0** ·
+`grep -rn requestAnimationFrame demo/workbenches/gradient/` **2** · `gate-prm-idiom.mjs` **ABSENT** ·
+`grep -rn "hero blob carries current chroma" e2e/` **0** · `o25-atmosphere-response.spec.ts` **ABSENT** ·
+`o28-atmosphere-coldload.spec.ts` **ABSENT** · `grep -rn armRuntime demo/` **0** ·
+`o29-scene-contracts.spec.ts` **ABSENT** · `grep -c "component: Stub"` **14** ·
+`motion-quarantine.md` **PRESENT** (H2 leg 1 GREEN, leg 2 vacuous). **The close understated nothing.**
+
+**The banked set, probed rather than trusted — and two of it fall.** The RESUME scope law lets a close
+cite Check 3's 2026-09-19 reading for gates its own units did not turn. This seat spot-checked the two
+banked gates whose **command sets touch the shell fixture the close itself reports broken**, and both
+are RED today: ⟨cmd⟩ `npx playwright test e2e/smoke/views/gradient.spec.ts
+e2e/smoke/oracles/o21-gradient-rail.spec.ts --project=smoke` (**a13**'s command of record) →
+**21 failed / 0 passed**, every spec dying at `getByRole('main', { name: 'Color tool panes' })` before
+its first assertion; ⟨cmd⟩ `… -g "neighbour-crossing drag round-trips"` (**a2**'s second leg,
+`e2e/smoke/views/gradient.spec.ts:160`) → **1 failed**, same locator. a13's other leg, ⟨cmd⟩
+`npx vitest run test/gradient-order-invariant.test.ts`, is still **13 passed (13)** — the model half of
+the gate is intact; it is the e2e half that no longer witnesses. Check 3 read a13 at **17 passed
+(1.4m)** on 2026-09-19 and `.b` reproduced the break in a clean detached worktree at the wave's own open
+commit `17734065`, so the moving part is the **sibling X-W5 lane's uncommitted bytes in this shared
+tree** — foreign, and outside `W6.md:120`'s Do-NOT-touch either way. **See defect 2.** The remaining
+eleven banked `.a` gates (a1, a3–a12) drive `vite-node`, the four `…/probes/wb-gradient-stopeditor/`
+gates or the eight `…/evidence/` probes and touch no dock fixture; this seat did not re-run them and
+does not claim to have.
+
+### Axis 2 — bounds (CLEAN, with one disclosed widening)
+
+⟨cmd⟩ `git show --stat` over the sitting's six commits → **20 file-touches**, each read against
+`W6.md` §4 and the resume unit plan's own Writable line: `GradientStopEditor.vue` (`:57`) ·
+`GradientVisualizer.vue` (`:58`) · `o21-gradient-rail.spec.ts` (`:85`) · `W6-evidence/**` (`:104`, 12
+files) · `…/probes/x-w6/gate-card-rhythm.mjs` (`:102`) · `e2e/smoke/views/companion-pane-track-start.spec.ts`
+· this record (2).
+
+⟨cmd⟩ `git log --oneline f90aeb02^..HEAD -- scripts/dev/dev.sh` → **0** — never committed, and ⟨cmd⟩
+`git status --porcelain` shows it still `M` and unstaged at this seat.
+⟨cmd⟩ `git diff f90aeb02^..HEAD --stat -- node_modules` → **empty**.
+⟨cmd⟩ `git status --porcelain -- …/probes/wb-gradient-stopeditor/ …/components/wb-gradient-stopeditor/`
+→ **0 rows**: the twelve `execute, no write` instruments are byte-untouched, so no gate was satisfied
+by editing its own instrument.
+
+**The one widening, named rather than waved through.** `e2e/smoke/views/companion-pane-track-start.spec.ts`
+is a **create** at a path §4 does not carry. It is not smuggled: `W6.md:277` states g2's command as
+*"new e2e"* and §4 carries **no row for any of the four "new e2e" gates** (g2, b3, e1, h1) — a spec gap,
+not a seat's appetite — and the resume unit plan (`:2676-2678`) grants `.g` *"a new e2e arm in
+`e2e/smoke/oracles/o21-space-catalog-truth.spec.ts` **or** `e2e/smoke/views/` (ADD-never-replace)"*.
+Recorded as **MINOR-with-mitigation**: the artefact is mandated by the gate that consumes it, the
+directory is granted by the dispatch of record, and the write is disclosed in three places in the
+record. It does not block.
+
+**ADD-never-replace, re-verified.** ⟨cmd⟩ `git show --numstat 63713d4c -- o21-gradient-rail.spec.ts` →
+**242 added / 7 deleted**; ⟨cmd⟩ `git show 17734065:… | grep -c "^test("` → **6**, ⟨cmd⟩ at HEAD → **10**.
+Each of the 7 deletions has its `+` twin in the same hunk (`skewPx:` → `skewPx: +(`; `const handle = live`
+re-wrapped; `expect(…).toBeLessThanOrEqual(INVERSE_TOL_PCT)` re-wrapped over three lines with
+`INVERSE_TOL_PCT` intact at `+86`). **No assertion weakened, none deleted, none narrowed.**
+
+### Axis 3 — masking fallbacks (NONE)
+
+⟨cmd⟩ over the sitting's product diff (`63713d4c^..7dff25f6` and `e69aaf95`) for
+`^\+.*(\.skip\(|@ts-ignore|eslint-disable|try\s*\{|catch\s*\(|test\.fixme)` restricted to `demo/` and
+`e2e/` → **0 hits**. No allowlist, no copied producer selector, no `node_modules` patch (axis-2 diff
+empty), no narrowed assertion (axis-2 numstat). The two REDs the sitting could most cheaply have
+masked — b1's `G3d` legs and g1's 61.22px — were **left RED and escalated**, and the instrument that
+would have turned b1 green by editing it (`gate-seat.mjs`) is byte-untouched. That is the opposite of
+masking.
+
+### Axis 4 — commit families (CLEAN)
+
+`W6.md` §9 assigns `.b` commit **#2** `feat(demo/gradient-seat)` and `.g` commit **#7**
+`fix(demo/picker-rhythm)`. Landed: `63713d4c` + `7dff25f6`, both `feat(demo/gradient-seat)` — two
+meanings (the seat/inspector/removal cure; the crowding fan-out), not a split family — plus their
+evidence and receipt commits, which §9 row 11 and `W6.md:104` carry. `.g` landed as
+`test(demo/picker-rhythm)` rather than `fix(…)`: **no cure landed** (g1 is ESC-g1), so `test(` is the
+honest scope and `fix(` would have overstated it — **INFO**. Runbook §3.4's same-commit locks carry
+**no X-W6 row** (the `X·V PSC deletion + C1 successor` lock is X-W5's), so no declared family exists to
+split. `e69aaf95` carries **no `Claude-Session:` trailer** (⟨cmd⟩ `git log -1 --format=%B | grep -c` →
+**0**; the other five → **1** each) — a standing-law deviation, **disclosed by the close at Act 7 item 2**
+and deliberately not repaired, since amending a landed commit in an index four tracks share is the
+larger harm. **MINOR-with-mitigation.**
+
+### Axis 5 — E-3 (HELD)
+
+⟨cmd⟩ `git diff --stat f90aeb02^..HEAD -- docs/tranches/V/megatranche/registry/adjudicated/
+docs/tranches/X/waves/W5.md docs/tranches/X/waves/W7.md
+…/audit/probes/wb-gradient-stopeditor/ …/audit/components/wb-gradient-stopeditor/` → **prints nothing**.
+The only hit in the whole immutable sweep is `docs/tranches/X/waves/W6.md | 4 ++++` — **4 insertions,
+0 deletions**, at commit `732fe109`, and the diff is exactly the `**ADDENDUM 2026-09-19 (dated, beside
+— E-3; COHESION §0z)**` appended after the file's last line. **A dated addendum-beside, appended, not a
+rewrite — E-3 satisfied on its own terms.** ⟨cmd⟩ `git log --oneline 4cb294b9..HEAD -- W6.md` names that
+one ruling commit and none of the sitting's six: the close's *"`W6.md` is byte-untouched"* holds for
+this sitting.
+
+### Axis 6 — mail (CLEAN in scope)
+
+⟨cmd⟩ `grep -c "^| I-\|^| O-" INBOX.md` → **90**, the close's figure exactly. ⟨cmd⟩ `grep -n UNREAD`
+→ every hit is either the file's own vocabulary preamble (`:4 :5 :23 :33`), a dated sweep line, or a row
+whose **Status cell, read by position**, says otherwise: **O-20 SENT** · **I-30 Routing** ·
+**I-31 Routing/FOLDED** · **I-32 Routing** · **I-35 ANSWERED** · **O-39 SENT**. The four rows minted
+since the resume open — ⟨cmd⟩ `grep -n "^| O-4[3-6]"` → **O-43** X·KF/X·F · **O-44** fourier-analysis ·
+**O-45** X·V's X-W9 gate-table seats · **O-46** the owner + the V·π ledger — **none is addressed to
+X-W6**. **0 UNREAD in scope.** The one owed `O-` row the close names (the glass-forward easing-readout
+relay) is confirmed still unminted: ⟨cmd⟩ `grep -n "easing-readout" INBOX.md` → **3 hits, all inside
+dated sweep prose, none a `| O- |` row** — **R-C2 stands, owner `.d` by §0z E5.**
+
+### Axis 7 — the four-verb line moved LAWFULLY
+
+**AUDITED yes · SPECIFIED yes · IMPLEMENTED no · VERIFIED no.** `W6.md:335` conditions the close on
+*"all 45 born-RED sub-gates GREEN by the same commands"*; **18 of 50 are RED at this seat's own
+commands**. `W6.md:387`/`:404` reserve VERIFIED for X-W11. Not moving either verb is the only lawful
+reading, and the close took it.
+
+### Axis 8 — the spec's §2a goal criterion is NOT MET at the bytes
+
+§2a requires each of **six** live instruments — Gradient, the space catalog, Easing, HeroBlob,
+Blob/Atmosphere, Mix — to own its own stage, inspector and action contract **as a routed scene**.
+⟨cmd⟩ `grep -c "component: Stub" demo/color-picker/router/index.ts` → **14**: no route owns a scene
+contract, and `.j` (the unit that adopts them) is undispatched and BLOCKED-ON X-W5. Easing (`.d`),
+HeroBlob (`.h`) and Blob/Atmosphere (`.i`) are undispatched. **2 of 6 instruments have their
+substance landed (Gradient via `.a`/`.b`; the catalog via `.f`), 0 of 6 own a routed scene contract.**
+The close states this itself (R-C6) and does not claim the goal. `W6.md:342`'s
+`complete_with_misses` clause is not even reachable yet — it presumes gates that pass.
+
+### Axis 9 — the record's published figures (all reproduce but one, and that one is defect 2)
+
+| the close's figure | ⟨cmd⟩ at this seat | reading |
+|---|---|---|
+| g1 `61.22px` ⊕ `55.41px`, double-run | the gate, on a server this seat started | **61.22 / 55.41** — identical to the hundredth |
+| b2 `462/462 @1440px` · `324/324 @390px` · `bar.x+3: 12 → 13` | the in-bounds instrument | **identical** |
+| b4 `removal controls: 1`, floor reason string, `3 → 2` | same | **identical, string for string** |
+| b1 RED **2** conditions, `G3c` cured | `gate-seat.mjs` | **identical**, and byte-identical across two runs |
+| `find W6-evidence -name "*.txt"` = 44 ⊕ 11 close transcripts | ⟨cmd⟩ | **55 total, 11 under `gates/close-2026-09-20/`** — 44 + 11, consistent |
+| `find W6-evidence -name "*.png"` = 6, all `catalog/` | ⟨cmd⟩ | **6** |
+| `owner-marks/` absent · `atmosphere/` = 2 files | ⟨cmd⟩ | **confirmed** |
+| tombstone · glass ask · blob census MET; lband letter not required | ⟨cmd⟩ `test -f` ×4 | **MET · MET · MET · absent** |
+| INBOX rows **90** | ⟨cmd⟩ | **90** |
+| `vue-tsc` EXIT=0 · `eslint` EXIT=0 · `vitest` 4 failed / 628 passed EXIT=1 | ⟨cmds⟩ | **EXIT=0 · EXIT=0 · `Test Files 3 failed \| 34 passed (37)`, `Tests 4 failed \| 628 passed (632)`** — and the four names are exactly the four the close names (`gradient-parse` ×2, `spectrum-luma` C-5, `reka-binding-idiom` NG-6) |
+| H4 roll-call 3 + 3 + 8 = **14** | re-counted against §Dispositions | **14**, every row one state |
+| SELF-COUNT `32 + 18 = 50` | re-counted | the **arithmetic** is right; the **membership** is not — see defect 2 |
+| push divergence `1  70` | ⟨cmd⟩ `git rev-list --left-right --count origin/tranche-u...HEAD` | **`1  75`** — five sibling commits have landed since; the disclosed condition is unchanged in kind and ESC-PUSH still stands |
+
+### Axis 10 — HONEST-RED ADJUDICATION, gate by gate
+
+**RELIEVED — 5**, each by one of axis 10's three kinds, each owner-named:
+
+| gate | the relief, at the spec's own bytes | owner |
+|---|---|---|
+| **b3** | its named e2e dies at `getByRole('main', { name: 'Color tool panes' })` before its first assertion. The two files that could cure it — `demo/color-picker/App.vue` and `e2e/smoke/fixtures/dock.ts` — are in `W6.md:120`'s **Do-NOT-touch** and outside §4. Reproduced by `.b` in a clean detached worktree at the wave's own open commit `17734065`, with none of this wave's bytes present, so it is **not this wave's break**. A consumer patch here would be the copied-selector defect the standing law names | **X-W5** (its landed composition root `de99ec15`) |
+| **g1** | the cure needs `demo/picker/display/ColorComponentDisplay.vue` (or `readoutReservation.ts`) **and** the retirement of `e2e/smoke/oracles/readout-seam.spec.ts:85-119`, which asserts the very band OM-3 calls the defect. **Neither is in §4**, and `W6.md:154` (M-23) assigns the spacing canon to **X-W10**, never an implementation seat | **X-W10 / the owner**, via ESC-g1 |
+| **j1 j2 j3** | `W6.md:479`'s dated addendum routes `.j` explicitly: *"`.j` after X-W5 CLOSED"*. ⟨cmd⟩ `LEDGER.md:37` → X-W5 reads **OPEN 2026-09-17**. The spec's own routing blocks the unit | **X-W5**, then the next X-W6 sitting |
+
+**PENDING A RULING — 1**: **b1**. Its RED is a true statement about the probe's *input state*, verified
+at the bytes by this seat as well (⟨cmd⟩ `sed -n '122,128p' useGradientModel.ts` → the boot model is two
+stops at 0 and 100; `gate-seat.mjs` G3d drives `document.querySelector("[data-stop-id]")`, the first
+seat in document order, and the gate's own failure text quotes `* 0`; Home and ArrowDown on a control
+already at its axis minimum cannot move `style.left`). The property is GREEN on an in-bounds instrument
+that is strictly wider (interior seat, all eight keys, **plus** the terminal bound printed). But
+**`W6.md`'s §0z addendum grants the substitute-command shape to `a3–a7` only — b1 is not named by id** —
+so b1 is an escalation awaiting the §0z ruling seat's word, **not yet relieved**. The seat's refusal to
+edit `gate-seat.mjs` (an `execute, no write` instrument) is the correct act and is confirmed at the
+bytes.
+
+**UNRELIEVED — 12**: **c1 c2 c3 c4** (`.c`) · **d1** (`.d`) · **e1 e2** (`.e`) · **h1** (`.h`) ·
+**i1 i3** (`.i`) · **H2** (its citation leg has no assertion to cite because `.e`/`.j` are unbuilt) ·
+**H4** (8 of 14 CC rows not discharged). Every one is RED because **a unit of this wave was never
+dispatched**, not because a producer owns it, not because a successor owns it, and not because the spec
+names it honest-RED by id. `W6.md:418` (COMPLETABLE C-06) is explicit that each unit's dependencies are
+MET today — ⟨cmds⟩ confirm it: glass **7.0.0** installed with every consumed subpath published, the
+parser bank **GREEN**, the quarantine record **present**. **Undone work is not relief, and this seat
+will not launder it as such.**
+
+### Successor "Opens after" conjuncts, measured against this wave
+
+| successor | its X-W6 conjunct | reading |
+|---|---|---|
+| **X-W7** (`W7.md:6`) | *"X-W3, X-W4 and **X-W6** (instruments …)"* | **RED** — X-W6 is PARTIAL; `formatSpecimen`'s digit policy exists (`.f` landed) but `.c`'s sampling law does not. **Lawfully blocked** |
+| **X-W8** (`W8.md:6`) | *"X-W5, X-W6 and X-W7 stabilize destination ownership"* | **RED** — `.c`'s destinations (`model/types.ts`, `model/sample.ts`) are **ABSENT**, so the dead doors have nowhere to land. **Lawfully blocked** |
+| **X-W10** (`W10.md:6`) | *"X-W5, X-W6, X-W7, X-W8, X-W9 stable"* | **RED**. **Lawfully blocked** — and note ESC-g1 is *routed to* X-W10, so the two are mutually waiting; that circularity is the owner's to cut, and the close names it |
+| **X-W11** (`W11.md:6`) | *"X-W0 … X-W10 are IMPLEMENTED"* | **RED** — X-W6's IMPLEMENTED is `no`. **Lawfully blocked** |
+
+**No successor is unlawfully unblocked, and no successor's conjunct is claimed GREEN anywhere in this
+close.**
+
+### Defect register — Check 1 (RESUME)
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| **1** | **CRITICAL** | **12 of the 18 RED gates carry no relief of any kind** — `c1 c2 c3 c4 d1 e1 e2 h1 i1 i3 H2 H4`. Not producer-owned, not routed to a successor by the spec, not named honest-RED by id: RED because five units of this wave were never dispatched | ⟨cmds⟩ at this seat: `model/types.ts` **ABSENT** · `model/sample.ts` **ABSENT** · `grep -c "one sampling law"` **0** · `gate-literal-dialect.mjs` **ABSENT** · `test/interpolation-subset.test.ts` **ABSENT** · `gate-easing-radius.mjs` **ABSENT** · `grep -rn "glass-ui/aurora" demo/workbenches/gradient/` **0** · `gate-prm-idiom.mjs` **ABSENT** · `grep -rn "hero blob carries current chroma" e2e/` **0** · `o25-…spec.ts` **ABSENT** · `o28-…spec.ts` **ABSENT** · H4 roll-call **8 of 14 not discharged**. Dependencies are MET: glass **7.0.0**, parser bank **GREEN**, quarantine record **PRESENT** | dispatch `.c .d .e .h .i` — `W6.md:418` states each is a completable slice and this seat confirms every dependency at the bytes. `.j` alone waits on X-W5 |
+| **2** | **HIGH** | **Two banked GREENs are RED at these bytes and are counted in the close's 32**: **a13** and **a2**. Every spec in the two files a13's command names now dies at the same foreign fixture the close's own b3 row measures — and the close did not carry that consequence one file over | ⟨cmd⟩ `npx playwright test e2e/smoke/views/gradient.spec.ts e2e/smoke/oracles/o21-gradient-rail.spec.ts --project=smoke` → **21 failed / 0 passed**, EXIT=1 (a13's vitest leg still `13 passed`). ⟨cmd⟩ `… -g "neighbour-crossing drag round-trips"` (a2's second leg) → **1 failed**, `element(s) not found`. Both die at `getByRole('main', { name: 'Color tool panes' })`. The close's SELF-COUNT should read **GREEN 30 / RED 20**, not 32 / 18 | re-read a13 and a2 at the close's own clock; move both into the **relieved** honest-RED set under **ESC-b3's owner (X-W5)** — the break is foreign and a consumer patch would be the copied-selector defect — and republish the SELF-COUNT as 30 / 20. **No cure to the product is owed; the arithmetic and the honest-RED roster are** |
+| **3** | MINOR (mitigated) | one write at a path §4 does not carry: `e2e/smoke/views/companion-pane-track-start.spec.ts` (create, `e69aaf95`) | `W6.md:277` mandates g2's *"new e2e"* and §4 carries no row for **any** of the four "new e2e" gates; the resume unit plan `:2676-2678` grants `.g` *"a new e2e arm in … **or** `e2e/smoke/views/` (ADD-never-replace)"*; disclosed three times in the record | the next E-3 addendum-beside adds the four missing §4 rows (g2 · b3 · e1 · h1) so no later seat has to reason its way to the same place |
+| **4** | MINOR (mitigated) | `e69aaf95` carries **no `Claude-Session:` trailer** | ⟨cmd⟩ `git log -1 --format=%B e69aaf95 \| grep -c "Claude-Session:"` → **0**; the other five → **1** each | none here — the close already ruled that amending a landed commit in an index four tracks share is the larger harm, and this seat agrees. The erratum is recorded twice now |
+| **5** | INFO | `.g` landed as `test(demo/picker-rhythm)` where §9 row 7 declares `fix(demo/picker-rhythm)` | ⟨cmd⟩ `git log -1 --format=%s e69aaf95` | none — **no cure landed** (g1 is ESC-g1), so `test(` is the honest scope and `fix(` would have overstated it |
+| **6** | INFO | §8's artefact rows `W6.md:358` (7 gradient PNG pairs) and `:360` (`owner-marks/`) are unmet | ⟨cmd⟩ `find W6-evidence -name "*.png"` → **6**, all `catalog/`; ⟨cmd⟩ `ls W6-evidence/owner-marks` → absent | already owner-named as **R-C1** / **R-g4**; no figure any unit cites is PNG-derived (§17), so nothing rests on them |
+
+**Weighed the other way, honestly.** This close refused three cheap greens that were available to it:
+it left `gate-seat.mjs` byte-untouched rather than re-pointing the probe that would have turned b1; it
+corrected **its own unit's** b3 verdict from GREEN down to honest-RED (Act 7 item 1) rather than
+banking the unit's word; and it recorded f2's flip as **a sibling's cure that X-W6 did not earn**.
+It also refused to force a push it could have forced. Defect 2 is the inverse of that discipline, not an
+instance of its absence: the close applied the RESUME scope law exactly as written — *cite the banked
+reading for gates the sitting's units did not turn* — and the law's blind spot is precisely a gate whose
+command set a **foreign, uncommitted** sibling lane can move under it. That is a finding about the
+banking practice as much as about this seat.
+
+### Verdict
+
+**NOT-CONFORMANT.** The bar is *zero BLOCKER/CRITICAL/HIGH and every claimed GREEN reproduces*.
+
+- **Second half — met for everything this seat re-ran, and only there**: **30 of 30** reproduce at
+  this seat's own commands, several double-run byte-identical, g1's figures to the hundredth from a
+  server this seat started itself, H1 re-run over the full 18-sha roster, and the six undispatched
+  units measured RED rather than assumed. But **2 of the banked GREENs are RED at the settled bytes**
+  (defect 2), so the published roster does not reproduce as published.
+- **First half — not met**: one **CRITICAL** (12 unrelieved REDs) and one **HIGH** (defect 2).
+
+**CONFORMANT-HONEST-RED is unavailable.** It requires *every* remaining RED to be relieved and
+owner-named. At this seat **7 are relieved** (`a2` `a13` `b3` → X-W5's fixture · `g1` → X-W10 / the
+owner · `j1 j2 j3` → X-W5, by `W6.md:479`'s own routing), **1 awaits a ruling** (`b1` — the §0z
+substitute-command shape is granted to `a3–a7` by id and not to b1), and **12 are unrelieved undone
+work**. Undone work is not relief.
+
+**What is nevertheless true of this sitting.** `.b` cured b2 and b4 at the gate's own arms — the
+meniscus is live (`462/462` at 1440, `324/324` at 390, with twelve stops on the rail), and the three
+destructive species collapsed to one owner with a disabled floor that states its reason. `.g` proved
+its shared-row contract with both negative controls RED and authored a machine gate that reds on the
+61.22px residue and **cannot be satisfied by moving it**. Nothing was masked, nothing was skipped, no
+instrument was edited to make its own gate pass, and `scripts/dev/dev.sh` was never touched. **The wave
+remains incomplete, not dishonest** — and the one figure that does not reproduce moves gates into the
+*relieved* column, not out of it.
+
+**Cure, shortest path to CONFORMANT-HONEST-RED**: dispatch `.c .d .e .h .i` (every dependency MET at
+these bytes), obtain the §0z ruling on ESC-b1, and have X-W5 repair the shell fixture's accessible name
+— which alone returns `a2`, `a13`, `b3` and `.b`'s four ADDED specs to witnessable. `.j` waits on X-W5
+by the spec's own routing.
+
+**The LEDGER row stays `PARTIAL`. It is not promoted.**
+
+### Commits
+
+| # | commit | paths | bounds row |
+|---|---|---|---|
+| 1 | this commit | `docs/tranches/X/execution/A/X-W6.md` (append-only — `## Check 1 — RESUME 2026-09-20`) · `docs/tranches/X/execution/LEDGER.md` (this wave's own row cell + one appended event line) | the record and its own row |
+
+⟨cmd⟩ `git status --porcelain` at this seat's close → the same sibling rows read and never touched, plus
+`scripts/dev/dev.sh` still `M` and **never staged**. **No product byte, no gate script, no evidence file
+and no sibling record was written by this seat**; the dev server this seat started on `:9000` was stopped
+before this block was committed. The staged `D demo/shell/PaneSegmentedControl.vue` that sits in the
+shared index is a sibling seat's and was **not** swept in: this commit carries its own pathspec on the
+commit itself.
+
+---
+
+## Open — RESUME 2026-09-21 (third sitting; SEAT 0, `claude-opus-5[1m]`)
+
+SERVED MODEL: claude-opus-5[1m]
+
+**Append-only beside** every block above — the 2026-09-18 `## Open`, the first `## Close`, Checks 1–3,
+Repairs 1–2, the 2026-09-20 `## Open — RESUME`, that sitting's `## Close` and its `## Check 1`.
+**E-3: nothing above this line is rewritten.**
+
+**Mode**: RESUME. ⟨cmd⟩ `grep -n "^| X-W6" LEDGER.md` → the row reads **PARTIAL 2026-09-20 — NOT
+PROMOTED**, not CLOSED and not OPEN, so this sitting re-opens under COHESION **§0z E1** (the re-dispatch
+ruling) as read forward by `## Check 1 — RESUME`'s cure line: *"dispatch `.c .d .e .h .i` … `.j` waits
+on X-W5 by the spec's own routing."*
+
+### Act 0 — crash-recovery (standing law, before any other act)
+
+⟨cmd⟩ `git status --porcelain` → the sibling rows this record has named since 2026-09-18 (X-W5's open
+lane under `demo/color-picker/`, `demo/shell/`, `demo/palettes/`, `demo/styles/shell.css`, `e2e/smoke/**`;
+`CARRY-LEDGER.md`, the V fold; `execution/A/X-W5.md`; `docs/tranches/X/waves/W6.md`'s sibling rows;
+`scripts/dev/dev.sh`, the unowned standing-dirty row) **plus one row inside this seat's own writable
+set**: `M docs/tranches/X/execution/A/X-W6.md`.
+
+**That row is inherited, read whole, and judged.** ⟨cmd⟩ `git diff --stat -- .../A/X-W6.md` →
+**306 insertions / 0 deletions**; ⟨cmd⟩ `git diff -- .../A/X-W6.md | head -60` → the hunk begins at the
+file's last committed line and is exactly the **`## Check 1 — RESUME 2026-09-20`** block: the L-20
+pass-1 checker's verdict, written by a seat that was killed before it could commit (the sibling commit
+`f44f09b1` records the same seat's stranded `LEDGER.md` hunk at 02:07, carried verbatim there).
+**Judged against the spec**: the block is append-only, rewrites no byte above it, claims no product
+cure, and its readings are the ones this seat re-measured below. **It conforms — it is finished by being
+committed with this open**, inside this seat's own writable set, and is named here rather than passed
+off as this sitting's authorship. Nothing stashed, nothing restored, nothing outside the writable set
+touched, nothing staged that is not on this commit's own pathspec.
+
+### Preconditions, measured at the bytes AND in the LEDGER (2026-09-21)
+
+| condition | source | measurement at this open | verdict |
+|---|---|---|---|
+| X-W0 CLOSED | `W6.md` §Opens-after chain · RUNBOOK §1.1 | ⟨cmd⟩ `grep "^| X-W0 " LEDGER.md` → `CLOSED 2026-09-17` | MET |
+| X-W1 CLOSED (visual-oracle substrate + CI) | `W6.md:398` | `CLOSED 2026-09-17`; ⟨cmd⟩ `ls e2e/visual` → PRESENT; ⟨cmd⟩ `grep -c playwright .github/workflows/ci.yml` → **12** | MET |
+| X-W4 CLOSED (`SceneActionSet`) | `W6.md:396` | `CLOSED 2026-09-17`; ⟨cmd⟩ `grep -rl SceneActionSet demo/` → **4 files** | MET |
+| installed glass 7.0.0, subpaths published | `W6.md:399` | ⟨cmd⟩ `node -p "require('./node_modules/@mkbabb/glass-ui/package.json').version"` → **7.0.0** | MET |
+| X-W5 CLOSED (binds **`.j` alone**) | `W6.md:4` · `:479` · COHESION §0z E1 | ⟨cmd⟩ `grep "^| X-W5 " LEDGER.md` → **`PARTIAL — 2026-09-21`** (`.c` DEAD twice, `.d`/`.e` never dispatched) | **NOT MET — `.j` waits, never skipped** |
+
+The **§Opens-after divergence** is unchanged from the 2026-09-18 open and is not re-litigated: `W6.md:4`
+reads *"Opens after: X-W5"*, while RUNBOOK **§1.1** places X-W6 directly under X-W0 (*"X-W6 (scenes/
+workbenches; opens against its fold) ⟂ W7 on four shared paths"*, no W5→W6 edge), COHESION **§0k.3**
+reads *"X-W6 (S-7, S-8) … may open lawfully"*, and this row's own `Opens after` cell reads **X-W0**.
+The X-W5 clause binds **unit `.j` alone** — and at this sitting `.j` is therefore **NOT DISPATCHED**,
+by COHESION **§0z E1**'s own words: *"`.j` dispatches once X-W5 reads CLOSED in the LEDGER … if it is
+not yet CLOSED at `.j`'s turn, `.j` is the last unit and waits on it, never skipped."*
+
+**Orchestrator note honoured**: W6 writes FIRST on the four paths shared with X-W7 ⟨`W7.md:607`,
+`W7.md:150-156`⟩ — `MixConfigBar.vue` and `MixSourceSelector.vue` are `.j`'s, so with `.j` deferred the
+write-order obligation is carried forward to `.j`'s sitting and X-W7 stays lawfully blocked
+⟨`W7.md:6`⟩ meanwhile.
+
+### E13 Step-0 — the four-path mail sweep at this open (2026-09-21)
+
+Swept read-only at this seat's own clock, each path compared against **every** row of
+`docs/tranches/V/coordination/INBOX.md`.
+
+1. `docs/tranches/V/` + `V/coordination/` — ⟨cmd⟩ `find docs/tranches/V -maxdepth 2 -name '*.md'
+   -newermt "2026-09-20 00:00" ! -name INBOX.md` → **`ARCHITECTURE.md`** + **`reformation/CARRY-LEDGER.md`**,
+   Track A's own canon documents, **not letters and addressed to no one** (the same two the KF.W13S
+   sweep classified on 2026-09-20). No new letter-shaped item.
+2. `../glass-ui/docs/tranches/` — ⟨cmd⟩ `ls -dt …/tranches/*/ | head -1` → **`BK/`**, re-confirmed the
+   newest glass tranche dir; ⟨cmd⟩ `find BK/coordination -maxdepth 1 -name '*.md' -newermt
+   "2026-09-20 00:00"` → **empty**. Tail letter is still `glass-outbound-2026-09-18-valuejs-o26-reply.md`
+   = **I-35, rowed**.
+3. `../keyframes.js/docs/tranches/V/coordination/` → **empty** at the same delta test.
+4. `../sci-report/atlas/docs/tranches/P/coordination/` → **empty**; tail unmoved.
+
+**Census, double-run**: ⟨cmd⟩ `grep -c '^| I-\|^| O-' INBOX.md` → **90** · **90**. Classification read
+**BY POSITION** from each row's Status/Routing cells, never by bare grep: ⟨cmd⟩
+`awk -F'|' '/^\| *[IO]-[0-9]+[a-z]? *\|/ { s=$(NF-2); t=$(NF-1); if (s ~ /^ *UNREAD/ || t ~ /^ *UNREAD/) print $2 }' | wc -l`
+→ **0**. Tail ids: **I-39** · **O-46**.
+
+**Result: 0 unrowed · 0 new `I-n` minted · 0 UNREAD in X-W6's scope.** `INBOX.md` carries **no edit at
+this open** (SELF-COUNT law; it is self-excluded from its own census). **One `O-` row stays OWED inside
+the wave and is NOT pre-empted here**: §0z **E5** grants the glass-forward easing-readout relay for
+`docs/tranches/X/waves/W6-glass-ask-easing-readout.md` to unit **`.d`** — ⟨cmd⟩
+`grep -n "easing-readout" INBOX.md` → **3 hits, all inside prior sweep prose, no `O-` row**. The grant
+is `.d`'s to spend.
+
+---
+
+## Baseline — RESUME 2026-09-21 (the owed gates only; every other gate cites the banked reading)
+
+**RESUME scope law**: only the gates the still-owed units turn are re-run at this open. The other 40
+cite the 2026-09-20 close's table as re-read by `## Check 1 — RESUME` (30 of 30 reproduced at that
+seat's own commands), **with its defect 2 standing**: `a2` and `a13` are RED at the settled bytes under
+a foreign X-W5 fixture break, and the published SELF-COUNT of record is **GREEN 30 / RED 20**, not
+32 / 18.
+
+| gate | unit | command (read-only, at this open) | BEFORE |
+|---|---|---|---|
+| c1 | `.c` | `node …/probes/wb-gradient-stopeditor/gate-structure.mjs` | **RED** — EXIT **1**, **7** `G4*` failure blocks; `model/types.ts` **ABSENT**, `model/sample.ts` **ABSENT**, the 7-name re-export door live |
+| c2 | `.c` | `grep -c "one sampling law" test/gradient-order-invariant.test.ts` | **RED** — **0**; the `-t` selector still matches no test (R.2-1 stands: `.c` authors the case under that exact name) |
+| c3 | `.c` | `ls docs/tranches/X/gates/gate-literal-dialect.mjs` | **RED** — No such file |
+| c4 | `.c` | `ls test/interpolation-subset.test.ts` | **RED** — No such file |
+| d1 | `.d` | `ls …/probes/x-w6/gate-easing-radius.mjs` | **RED** — No such file |
+| e1 | `.e` | `grep -rn "gradient selector aurora" e2e/` · `grep -rn "glass-ui/aurora" demo/workbenches/gradient/` | **RED** — **0** · **0** |
+| e2 | `.e` | `grep -rn requestAnimationFrame demo/workbenches/gradient/` · `ls …/probes/x-w6/gate-prm-idiom.mjs` | **RED** — **2** rAF sites (unchanged, both `syncVbRatio`) · probe No such file |
+| h1 | `.h` | `grep -rn "hero blob carries current chroma" e2e/` | **RED** — **0** |
+| i1 | `.i` | `ls e2e/smoke/oracles/o25-atmosphere-response.spec.ts` | **RED** — No such file |
+| i3 | `.i` | `ls e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts` · `grep -rn armRuntime demo/` | **RED** — No such file · **0** |
+
+### R.2 findings — a GREEN before its cure
+
+**NONE.** All ten owed gates measure **RED** at this open, by the same commands the spec and §0z name.
+The three Repair-2 cures that already landed inside still-owed units (**h2** `48d95650`, **d2**
+`c8111846`, **i2** `4cb294b9`) are **not re-opened and not re-counted** — they are banked GREEN and
+their units resume at their remaining gates only, exactly as the 2026-09-20 plan states.
+
+---
+
+## Unit plan — RESUME 2026-09-21 (5 owed units dispatched; `.j` deferred, 4 units landed)
+
+**Model law M-23** (`W6.md:154`) is unchanged: every unit is an **Opus implementation seat**
+(`claude-opus-5[1m]`). No Fable seat in this wave; no unit authors design canon (radius, spacing/shadow
+and Movement-of-Momentum canon are **X-W10's** — this wave applies, it never mints).
+
+**Landed, never re-dispatched** (each verified at the bytes by ⟨cmd⟩ `git log -1 --format=%s <sha>`):
+**`.a`** (`f90aeb02` · `c222542d`) · **`.f`** (`e0e204a9`) · **`.b`** (`7dff25f6`, receipt `fa2466f0`) ·
+**`.g`** (`e69aaf95`). Landed **inside** still-owed units and likewise never re-opened: **h2**
+(`48d95650`), **d2** (`c8111846`), **i2** (`4cb294b9`), the DR-01 **tombstone** (`c2f17bad`), **j4**
+(`6dfdd8d2`).
+
+**Concurrency**: the chassis clause of `346e11d1` caps a run at **maxUnits 1**, tightening §0ae/§0ag's
+two. Every group below is therefore a **single unit**, ordered by the spec's own lanes: Lane 1 serial
+`.c → .d → .e`, then Lane 3 serial `.h → .i`. No two units run concurrently, so the disjointness
+obligation is met by construction; the lane order still binds because `.d` shares
+`EasingAuthoringStage.vue` with `.e`, and `.e` shares `GradientVisualizer.vue` with `.c`.
+
+| group | unit | why here |
+|---|---|---|
+| 1 | `.c` | Lane 1, after `.b` (landed) and strictly after `.f` (c4's own rider, `W6.md:212`) |
+| 2 | `.d` | Lane 1, after `.c` |
+| 3 | `.e` | Lane 1, after `.d` (`EasingAuthoringStage.vue`) and after `.b`/`.c` (`GradientVisualizer.vue`) |
+| 4 | `.h` | Lane 3 head; shares no path with Lane 1 |
+| 5 | `.i` | Lane 3, after `.h`; writes `AuroraPane.vue` before `.j` |
+
+**`.j` is NOT DISPATCHED at this sitting.** ⟨cmd⟩ `grep "^| X-W5 " LEDGER.md` → **`PARTIAL — 2026-09-21`**,
+not CLOSED. COHESION **§0z E1**: *"`.j` dispatches once X-W5 reads CLOSED in the LEDGER … if it is not
+yet CLOSED at `.j`'s turn, `.j` is the last unit and waits on it, never skipped."* The orchestrator's
+write-first obligation on the four X-W7-shared paths (`W7.md:607`) rides with `.j` and is carried
+forward, so X-W7 stays lawfully blocked meanwhile (`W7.md:6`).
+
+**Wave-level, assigned to NO unit** (§4a, §9 commit **#11**): H1's roster run over the wave's full
+commit set, H2's citation audit, H3's bank sweep, H4's disposition roll-call, the gate transcripts in
+`W6-evidence/gates/`, and the status flip. The close seat is dispatched separately, after group 5.
+**IMPLEMENTED is the most this wave may stamp — VERIFIED is X-W11's** (`W6.md:404`).
+
+**Worktrees** (§4b): ⟨cmd⟩ `git worktree list` → none of `value-x-w6-{gradient,catalog,atmosphere,scenes}`
+on disk; with one concurrent seat every unit works in `/Users/mkbabb/Programming/value.js`. The
+**STALE-SERVER LAW** binds either way — every literal/precision/serializer claim runs headless
+`vite-node` against the tree or a **freshly restarted** server, never a long-running one.
+
+### The owed units (verbatim in substance from the 2026-09-20 plan; re-verified at these bytes)
+
+**X.W6.c** — Gradient sampling law, literal dialect and leaf types (CC-058 · MT-GRADSTOP-3). **Whole.**
+§5 `W6.md:198-212`. Gates **c1 c2 c3 c4**. Commit **#3** `refactor(demo/gradient-sampling)`, **body required**.
+Writable: `demo/workbenches/gradient/model/types.ts` (create) · `…/model/sample.ts` (create) ·
+`…/composables/useGradientModel.ts` · `…/composables/useGradientCSS.ts` ·
+`…/composables/useGradientInterpolation.ts` · `…/GradientVisualizer/GradientVisualizer.vue` ·
+`docs/tranches/X/gates/gate-literal-dialect.mjs` (create) · `test/interpolation-subset.test.ts` (create) ·
+`test/gradient-order-invariant.test.ts` · `test/gradient-parse.test.ts` (§0z E2) · `W6-evidence/**`.
+**Locks**: strictly after `.f` and `.b`; **the ordering policy does NOT reopen** (settled in `.a`,
+GRADSTOP-A §14); **STALE-SERVER LAW** on c3; the paint-stack dedup rider is **two sites** only;
+**R.2-1 binds** — c2's `-t "one sampling law"` matches zero tests, so the unit authors that case under
+that exact name; **§0z E2's migration rides here** (`test/gradient-parse.test.ts` `:32` 2→1, `:63` 3→2,
+no assertion weakened), and if the seat reads the grant as seat-scoped it halts under §3a.
+
+**X.W6.d** — Easing instrument coherence (CC-060 · MT-F030; CC-063 · MT-F037). **Resumes at d1.**
+§5 `W6.md:214-226`. Gates **d1** (+ d2's owed re-capture). Commit **#4** `style(demo/easing-register)`.
+Writable: `…/GradientVisualizer/GradientEasingEditor.vue` · `…/GradientVisualizer/easing/EasingAuthoringStage.vue` ·
+`…/GradientVisualizer/easing/easingCatalogue.ts` · `…/probes/x-w6/gate-easing-radius.mjs` (create) ·
+`docs/tranches/X/waves/W6-evidence/easing/**` · `docs/tranches/V/coordination/INBOX.md` (§0z E5 — mail rows only).
+**Locks**: **d2 is GREEN (`c8111846`) and its branch is settled** — the census selected the dated
+glass-forward ask; the unit does not re-decide it and does not touch `gate-easing-readout.mjs`'s verdict
+logic. Three acts: (1) **d1**, one radius register derived from the panel's own scale, the preset chips
+deciding **once** between the icon-button circle and the shared rounded-rect (canon is X-W10's, `.d`
+applies); (2) **Check 3 defect 3** — re-capture `d2-negative-controls` **as a dated file beside** the
+stale one (E-3, never overwritten) so both controls print their `FAIL` lines; (3) **§0z E5** — the `O-`
+relay row for `W6-glass-ask-easing-readout.md`, next `O-n` after **O-46**. glass-ui is READ-ONLY; no
+local restyle of the readout (M-14 cl.1).
+
+**X.W6.e** — Gradient selector aurora (CC-064 · MT-F041). **Whole.** §5 `W6.md:228-243`. Gates **e1 e2**.
+Commit **#5** `feat(demo/gradient-aurora)`.
+Writable: `…/GradientVisualizer/GradientVisualizer.vue` · `…/GradientVisualizer/easing/EasingAuthoringStage.vue` ·
+the gradient tree's scoped styles · `…/probes/x-w6/gate-prm-idiom.mjs` (create) ·
+`e2e/smoke/views/gradient.spec.ts` (ADD-never-replace) · `W6-evidence/**`.
+**Locks**: consume `@mkbabb/glass-ui/aurora` — **no new animation species, no private rAF loop**; PRM
+honoured **structurally** inside `@media (prefers-reduced-motion: no-preference)`, never by leaning on
+the global reduce-guard; land at **≤2 rAF both gated, or 0**. **Repair 2's refusal of e2 is inherited**:
+the two rAF sites are one-shot post-paint `viewBox` reads, a layout measurement and not a clock, and
+PRM-gating a layout read breaks the zero-letterbox law; **e1 lands first or with it** — landing e2 while
+e1 is unbuilt makes e2's second leg vacuously true. **MOTION-SOURCED · PENDING-QUARANTINE**: every
+motion/PRM assertion cites `motion-quarantine.md` (`9812f951`) **and** is re-derived against the two
+guards `demo/styles/animations.css:184` ⊕ `…/glass-ui/dist/styles/utilities/a11y-overrides.css`.
+
+**X.W6.h** — HeroBlob chroma fidelity (CC-061 · MT-F032). **Resumes at h1.** §5 `W6.md:281-293` as
+restated by **COHESION §0z E6** and `W6.md:479`. Gate **h1**. Commit **#8** `fix(demo/hero-blob-chroma)`
+(the census commit `48d95650` already precedes it).
+Writable: `demo/picker/visual/HeroBlob.vue` · `demo/color-session/useContrastSafeColor.ts` · a new e2e arm
+(ADD-never-replace) · `docs/tranches/X/waves/W6-evidence/**`.
+**Locks**: **h2 is GREEN and its census is the premise, not a question** — every stage delivers 100.0%
+of the chroma sRGB allows, and the owner's seed `lab(92% 88.8 20)` is **12.94×** outside sRGB; *there is
+no stripper to cut*. **§0z E6 is the cure**: widen the **ceiling**, never the tolerance — resolver and
+WebGL2 drawing buffer declare **`display-p3`** where `matchMedia('(color-gamut: p3)')` matches
+(`gl.drawingBufferColorSpace`, a `display-p3` 2D resolver canvas), sRGB otherwise; h1 = painted dominant
+chroma within the stated ΔC of the current colour's chroma **gamut-mapped (css-color-4 §13) to the
+buffer's space**, and chroma beyond the display's gamut is **honest-RED-by-physics, by id**. Lands
+inside its §4 rows or returns the exact path it lacks — no `node_modules` patch, no consumer try/catch.
+
+**X.W6.i** — The atmosphere harness (CC-065 · CC-066 · CC-067). **Resumes at i1 and i3.**
+§5 `W6.md:295-308`. Gates **i1 i3**. Commit **#9** `feat(demo/atmosphere-oracle)`, **body required**.
+Writable: `demo/color-picker/composables/boot/useAtmosphere.ts` · `…/boot/atmosphere-calibration.ts` ·
+`demo/test/glass/aurora-bracket.test.ts` · `demo/scenes/atmosphere/AuroraPane.vue` ·
+`e2e/smoke/oracles/o25-atmosphere-response.spec.ts` (create) ·
+`e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts` (create — §0z E4 re-point; `o26-aurora-perceptibility`
+and `o27-focus-affordance` already ship and are untouched) · `W6-evidence/atmosphere/**`.
+**Locks**: the **tombstone already committed FIRST** (`c2f17bad`) and **i2 is GREEN** (`4cb294b9`) —
+neither reopens. **i1 reads COMMITTED FRAMES only**: for each of N seeds the named atoms move **≥ a
+stated ΔE2000**, measured from frames committed in this wave's own commit (force-added past
+`.gitignore *.png`) — an agent's description cannot pass i1, and it fails equally if it could be.
+**i3**: the first painted atmosphere equals the seeded pick on a **cold** load (⟨cmd⟩ `grep -rn
+armRuntime demo/` → **0** at this open). Writes `AuroraPane.vue` **before** `.j`.
+
+**X.W6.j** — deferred, not dispatched. **BLOCKED-ON X-W5** (`PARTIAL — 2026-09-21`), §0z E1.
+
+---
+
+## Unit receipts — third sitting 2026-09-21
+
+*(empty at this open; each dispatched unit appends its own receipt below, `SERVED MODEL:` first line)*
