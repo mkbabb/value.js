@@ -5688,3 +5688,119 @@ written. C1-1 is cured in bounds: f4, f6 and f8 are GREEN ×2, and the remainder
 and escalated. C1-4 is escalated. The MEDIUM (C1-5) is escalated. Of the MINORs, C1-7 is cured, C1-6 has its double-run done
 (still flaky), and C1-8 is carried. **GREEN 35 / RED 15.** The LEDGER row is **not promoted**; it stays PARTIAL. A fresh
 check is owed.
+
+---
+
+## Check 2 — RESUME 2026-09-22 (L-20 fresh adversarial pass 2, over the fourth sitting's close + Repair 1)
+
+SERVED MODEL: claude-opus-5-5[1m]
+
+**Append-only beside** every block above (E-3). VERIFY-ONLY: this seat cures nothing. It read `W6.md` whole (both
+addenda), this record's fourth-sitting Open and Unit plan, the fourth Close, Check 1 and Repair 1, and every commit
+Repair 1 names (`7733e557` · `65a552be` · `b2bb8aab` · `97e9a4f4`).
+**Crash-recovery**: ⟨cmd⟩ `git status --porcelain` → `M docs/tranches/V/reformation/CARRY-LEDGER.md` · `M scripts/dev/dev.sh`.
+Neither is in this seat's writable set, so nothing was inherited.
+**Rulings**: ⟨cmd⟩ `grep -rln 'ESC-W6r1-f3\|ESC-W6close-1\|ESC-W6r1-i3\|ESC-W6c-b1-1' docs/tranches/X` → only `LEDGER.md` and this
+record. COHESION's newest addenda (`§0ar` · `§0as` · `§0at`) rule Track B/C rows. **None of the four W6 escalations is ruled.**
+**Live cell**: the `:9000` vite server (PID 14970, cwd = this repo, the close's fresh server; no `demo/` byte has moved since:
+⟨cmd⟩ `git diff --stat 7733e557^..HEAD -- demo src` → empty). Playwright ran on its own fresh webServers (`VJS_E2E_PORT` 8590–8594).
+Host load ⟨cmd⟩ `uptime` → **20.8 · 61.6 · 73.0** (18:40) and **25.1 · 48.1 · 64.7** (18:43).
+
+### Axis 1 — the 35 claimed GREENs, re-run at this seat's clock
+
+| gate(s) | ⟨cmd⟩ | this seat |
+|---|---|---|
+| a1 | `npx vite-node …/evidence/parse-probe.ts` → `npx vitest run test/gradient-order-invariant.test.ts` | EXIT 0 · EXIT 0 (17 tests) |
+| a5–a11 | `node docs/tranches/X/waves/W6-evidence/gradient/gate-a-gesture-paint.mjs` | `GATE X.W6.a (gesture + paint) — GREEN` (a9 `[]`, `3 → 2`) |
+| a7 arm 2 | `node …/WBGSE-O-r3-gestures.mjs` | EXIT 0, `errs: []` |
+| a12 | `node …/WBGSE-D-probe2.mjs` | EXIT 0 |
+| b2 · b4 | `node …/gate-seat.mjs` ×2 | 0 `G3e`/`G3f` lines in either run |
+| c1 · c2 · c3 · c4 | `gate-structure.mjs` · vitest `-t "one sampling law"` · `vite-node gate-literal-dialect.mjs` · `vitest run test/interpolation-subset.test.ts` | `GATE G4 (structure) — GREEN` · EXIT 0 · `GATE c3 (literal dialect) — GREEN` · EXIT 0 |
+| d1 · d2 | `EASING_RADIUS_ORIGIN=http://localhost:9000 node …/gate-easing-radius.mjs` · `gate-easing-readout.mjs` | `33 · read-only 2 · GATE d1 — GREEN` · EXIT 0, `DATED ASK`, restyle `0 line(s)` |
+| e2 | rAF grep + `gate-prm-idiom.mjs` | `0` · `GATE e2 (PRM idiom) — GREEN` |
+| f1 · f5 · h2 · i2 | the four `docs/tranches/X/gates/*.mjs` | EXIT 0 each (f1 `offered=18 catalogued=18 info=18`) |
+| f2 · f7 · f8(grep) · f9 · f10 | the spec's greps + `npx vue-tsc --noEmit -p tsconfig.demo.json` | `0` · `0 0` · `0` · `2 0` · `0` · TSC EXIT 0 |
+| f4 | `npx playwright test e2e/smoke/oracles/o22-specimen-legibility.spec.ts --project=smoke` ×2 | run 1 (`:8592`) **`1 failed`**: `locator.screenshot` 30 s test timeout *"waiting for element to be stable"*; run 2 (`:8593`) **`1 passed (29.4s)`**, `0/18 captions overflow` |
+| f6 · f8 | `o23` · `o24` (run with f4 run 1) | `2 passed` |
+| g2 | `companion-pane-track-start.spec.ts -g "companion panes share one track start"` | `1 passed (26.7s)` |
+| h1 | `webgl-blob-idle.spec.ts -g "hero blob carries current chroma" --project=smoke` ×2, each on a freshly spawned server | run 1 (`:8590`) **`1 failed · 2 passed (2.4m)`**: seed `lab(92% 88.8 20)`, *"Test timeout of 60000ms exceeded"* at `page.evaluate` (`webgl-blob-idle.spec.ts:169`), i.e. **after** the 45 s arrival wait was spent; run 2 (`:8591`) **`3 passed (1.0m)`**, ΔC 0.0251 · (≈0.006) · (≈−0.022), buffer `srgb` |
+| i1 | `o25-atmosphere-response.spec.ts` | `1 passed (4.1s)` |
+| H1 · H3 | `gate-no-chassis.mjs b2dd375c a87f8930` · the R1 one-liner + glass version | EXIT 0 · `EXIT 0` · `7.0.0` |
+| j4 | cited | no byte it reads moved (Axis 2) |
+
+**34 re-run, 1 cited (j4). 32 reproduce on every reading; f4 and h1 reproduce on 1 of 2 readings** (both failures are
+the frame/latency starvation class Repair 1 measured, at host load 20–73). The o22/o24 runs re-wrote two committed §8
+frames (`catalog/after-catalog-open.png`, `after-specimen-dots.png`) as a run side effect; both were restored to HEAD
+bytes (`git checkout -- <that path>`, the seat's own side effect only); nothing re-captured is committed.
+
+**The claimed REDs, re-read.** b1: `gate-seat.mjs` ×2 → EXIT 1 each, exactly the 2 `G3d` lines (Home · ArrowDown on the
+first stop at 0%). The rest (a2 a3 a4 a13 b3 e1 f3 i3 j1–j3 H2 H4) are cited from Repair 1's transcripts: no byte any
+of them reads has moved since (`git log 97e9a4f4..HEAD -- demo e2e test` → empty).
+
+### Axes 2–9
+
+- **(2) Bounds.** `git show --stat`: `7733e557` → `gradient.spec.ts` + `o21`–`o24` (§4, ADD-never-replace edits of a
+  retired label; 6 lines); `65a552be` → INBOX 1 line (`.h`'s mail row, §0aq); `b2bb8aab` → `e2e/smoke/webgl-blob-idle.spec.ts`
+  (`.h`'s set, §0aq); `97e9a4f4` → this record, LEDGER (+1) and 14 files under `W6-evidence/gates/repair-1-2026-09-22/`.
+  `dev.sh` untouched. **Clean.**
+- **(3) Masking.** `7733e557` re-points W6's own queries at the live landmark (`App.vue` `:aria-labelledby` the route
+  H1); the retired label is not restored — a13's own demand, not a relaxation. `b2bb8aab` widens only the canvas
+  **arrival** wait (`toBeVisible({ timeout: 45_000 })`) with its measured cause in the comment; ΔC 0.04, the seeds and
+  every chroma assertion are byte-unchanged. That is a latency wait, not a narrowed assertion, and it is attributed by
+  measurement — **not a masking act** — but it leaves 15 s of a 60 s budget for the rest of the test, and run 1 above
+  spent it (C2-5). No try/catch, skip, allowlist, copied selector or node_modules patch. **Clean.**
+- **(4) Commit families.** One commit per meaning (landmark · mail · h1 wait · record). No §9 product family split.
+- **(5) E-3.** ⟨cmd⟩ `git diff --stat 7733e557^..HEAD -- docs/tranches/X/waves/W6.md docs/tranches/V/megatranche/registry/adjudicated/ docs/tranches/V/megatranche/audit/probes/wb-gradient-stopeditor docs/tranches/V/megatranche/audit/components src api demo scripts/dev/dev.sh`
+  → **empty**. Held.
+- **(6) Mail.** ⟨cmd⟩ `grep -c '^| I-\|^| O-' INBOX.md` → **96**; `O-52` present (SENT, `W6-glass-ask-hero-blob-p3.md`). The status-cell
+  `awk -F'|' '$6 ~ /UNREAD/'` hits 4 rows (O-20 · I-31 · I-32 · O-39), each SENT/FOLDED/READ with the word in prose only.
+  **0 UNREAD in scope; the owed O- row is discharged.**
+- **(7) Four-verb.** IMPLEMENTED no, with 15 RED. Lawful; it did not move.
+- **(8) Goal §2a at the bytes.** **NOT MET.** ⟨cmd⟩ `grep -c "component: Stub" demo/color-picker/router/index.ts` → **14**;
+  `ls e2e/smoke/oracles | grep -c o29` → **0**: no instrument owns a routed scene contract yet. The cold-load truth (i3) is RED.
+- **(9) Published figures.** GREEN 35 / RED 15 = 50: the arithmetic reproduces. INBOX 96: reproduces. `61` retired-label
+  files: ⟨cmd⟩ `grep -rln "Color tool panes" e2e | wc -l` → **61**, reproduces. Repair 1's "h1 GREEN ×3" and "f4 GREEN ×2"
+  reproduce here only 1 of 2 each (C2-5, C2-6).
+
+### Axis 10 — honest-RED adjudication (every RED, at the spec bytes)
+
+| gate | relief at the spec bytes | owner in the register | verdict |
+|---|---|---|---|
+| g1 | `W6.md:484` *"**g1** honest-RED by id → X-W10 (M-23)"* | R-6 X-W10 | **HONEST-RED** |
+| j1 · j2 · j3 | `W6.md:479`/`:484` *"`.j` after X-W5 CLOSED"*; LEDGER X-W5 = **PARTIAL** | R-7 `.j` | **HONEST-RED** (successor-gated by the spec) |
+| H4 | CC-056/CC-057 land in `.j` (§Dispositions), gated as above | R-7 | **HONEST-RED** |
+| H2 | the record exists; the `.e` legs cite it; only the `.j` leg is owed, gated as above | R-8 | **HONEST-RED** |
+| a2 · a3 · a4 · a13 · b3 · e1 | **none**. W6's own gates on W6's own §4 specs; the in-bounds retired-label cure landed (`7733e557`) but the command of record has not passed whole; ESC-W6r1-f3 (frame starvation, X-W5/X-W2 bisect) is **unruled** | Repair 1 esc. 2 (proposal) | **UNRELIEVED** |
+| f3 | **none**. Attributed to frame starvation, not cured; ESC-W6r1-f3 unruled | Repair 1 esc. 2 | **UNRELIEVED** |
+| i3 | **none**. §0aq grants `.i` the `index.html` cure (a W6 duty, not relief); ESC-W6r1-i3 (does "persisted pick" cover the URL pick) is **unruled** | R-5 · esc. 4 | **UNRELIEVED** |
+| b1 | **none**. `W6.md:484` assigns the cure to `.c`; ESC-W6c-b1-1 is **unruled** (the product grammar is credibly present: o21:422 passed in Repair 1 runs 1 and 3) | R-4 · esc. 3 | **UNRELIEVED (escalated)** |
+
+**Honest-RED set: g1 · j1 · j2 · j3 · H2 · H4** (6). **9 REDs are unrelieved**: a2 a3 a4 a13 b3 e1 f3 i3 b1.
+
+### Successor "Opens after" conjuncts
+
+- **X-W7** (`W7.md:6`): X-W3 · X-W4 · **X-W6** → the X-W6 conjunct is **RED** (row PARTIAL). Blocked lawfully.
+- **X-W8** (`W8.md:6`): X-W5 · **X-W6** · X-W7 stable → RED (X-W5 and X-W6 both PARTIAL). Blocked lawfully.
+- **X-W10** (`W10.md:6`): X-W5..X-W9 stable → RED. Blocked lawfully.
+- **X-W11** (`W11.md:6`): X-W0..X-W10 IMPLEMENTED → RED. Blocked lawfully.
+No successor is unlawfully blocked; every successor is lawfully blocked on this row.
+
+### Register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C2-1 | HIGH | a2 a3 a4 a13 b3 e1 stay RED with no spec relief. The in-bounds label cure landed, but the command of record (`gradient.spec.ts` + `o21`) has not passed whole in any reading | Repair 1 `pw-run{1,2,3}.txt` (9 · 8 · 9 failed; o21 `:60` `:80` `:188` failed all three); no byte moved since | ESC-W6r1-f3 ruled (quiet-host bisect across `e0e204a9 → 50633f19 → 2183b814`, owner X-W5/X-W2); then the same command double-read GREEN. ESC-W6close-1's 61 foreign files ride the renamer |
+| C2-2 | HIGH | f3 RED and unrelieved (closed listbox stays visible; frame starvation attributed, not cured) | Repair 1 run 4 `toBeHidden` ×19 `data-state="closed"` | as C2-1 (ESC-W6r1-f3); no wait lengthened |
+| C2-3 | HIGH | i3 RED and unrelieved; the §0aq grant is a duty, and ESC-W6r1-i3 is unruled | close `o28` seeds 30 · 150 · 260 RED; Repair 1 C1-4 | COHESION rules ESC-W6r1-i3 (URL pick ∈ "persisted pick"? render-blocking boot module + X-W2 sign-off, or an E-3 re-point of o28); then `.i` re-sits |
+| C2-4 | MEDIUM | b1 RED, escalation unruled; product grammar credibly present | `gate-seat.mjs` ×2 → EXIT 1, 2 `G3d` lines each | COHESION rules ESC-W6c-b1-1 (X-W11 OUT-OF-WAVE re-point of G3d, or o21:422 as witness of record) |
+| C2-5 | MEDIUM | h1's published "GREEN ×3" reproduces 1 of 2 here: on a freshly spawned server the 45 s arrival wait consumed the 60 s test budget and `page.evaluate` timed out | run 1 `:8590` `1 failed · 2 passed (2.4m)`, `webgl-blob-idle.spec.ts:169` *"Test timeout of 60000ms exceeded"*; run 2 `:8591` `3 passed (1.0m)` | the next `.h`/close seat double-reads h1 on a cold server; if it stays split, the arrival cost is ESC-W6r1-f3's (overture DAG / frame budget), not a larger budget. Mitigation: every chroma reading that completed was inside ΔC 0.04 |
+| C2-6 | MEDIUM | f4's published "GREEN ×2" reproduces 1 of 2 here (screenshot stability timeout, the starvation class) | `:8592` `1 failed` *"waiting for element to be stable"*; `:8593` `1 passed`, `0/18 captions overflow` | rides ESC-W6r1-f3's quiet-host re-read. Mitigation: the census itself never read an overflow |
+| C2-7 | MINOR | §8 artefacts PARTIAL (gradient PNG 0, owner-marks 0, cold-load frame owed) | Close Act 4; unchanged | R-11 owners |
+| C2-8 | INFO | Bounds, masking, commit-family, E-3 and mail axes clean; O-52 discharged the owed row; four-verb line held lawfully | Axes 2–7 | none |
+
+### Verdict
+
+**NOT-CONFORMANT.** 3 HIGH · 3 MEDIUM · 1 MINOR · 1 INFO. Of 35 claimed GREENs, 34 were re-run and 1 cited (j4);
+32 reproduce on every reading, f4 and h1 on 1 of 2. Honest-RED set **g1 · j1 · j2 · j3 · H2 · H4**; **9 REDs unrelieved**
+(a2 a3 a4 a13 b3 e1 f3 i3 b1), four of them waiting on unruled escalations (ESC-W6r1-f3 · ESC-W6r1-i3 · ESC-W6c-b1-1 ·
+ESC-W6close-1). The LEDGER row is **not promoted**; it stays PARTIAL.
