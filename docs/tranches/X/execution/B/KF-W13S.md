@@ -344,3 +344,93 @@ deletion** (`D  demo/shell/PaneSegmentedControl.vue`) that a merge commit would 
 stashed, reset, force-pushed or unstaged.** The two close commits — `af208bc8` (record ⊕ inherited
 evidence) and `f44f09b1` (the LEDGER row) — are local on `tranche-u` and named in R-9's row, whose
 owner is the next value.js seat that finds a clean index.
+
+---
+
+## Close — CHECK 1 (dated addendum beside, E-3; the predecessor Close is rewritten in no byte)
+
+**Seat**: the re-dispatched `.f` CLOSE seat, CHECK 1, `claude-opus-5[1m]`, 2026-09-20, **VERIFY-ONLY**. This seat
+authored **no byte** of the six shas, of `mbabb-menu-self-hold.test.ts`, of the evidence file, or of the
+predecessor Close's text; it cured nothing in either repo. Every figure below is its own, double-run, from the
+settled bytes. The unit returns handed to this seat are the same two the predecessor read:
+`{"KF.W13.a2":{"status":"DEAD","commits":[]},"KF.W13.e":{"status":"DEAD","commits":[]}}`.
+
+**Frontier, unmoved since the Close**: keyframes.js `HEAD` = **`51f39a19`** = `origin/master`
+(⟨cmd⟩ `git rev-list --left-right --count origin/master...HEAD` → **0	0**); value.js `HEAD` = **`e675414e`**.
+⟨cmd⟩ `git rev-list --count 9d814f6c..HEAD` → **6**, the same six shas.
+
+### Gate re-reading — every clause re-run at this seat's own commands
+
+| Gate | Clause | Close published | CHECK 1 reads | Verdict |
+|---|---|---|---|---|
+| **G-KFW13-0** | `npx vitest run --project demo test/demo/app/dock-context-slot-resolution.test.ts` | `Tests 3 passed (3)` | **`Test Files 1 passed (1)` · `Tests 3 passed (3)`** · re-run **`3 passed (3)`** | **GREEN — reproduces** |
+| | `grep -rc 'useOptionalDockContext' demo \| grep -v ':0'` | `ChromeDock.vue:1` at `6a960349` | at HEAD: `MbabbMenu.vue:3` · `ChromeDock.vue:1` (the self-hold landed at `600246c3`, not in the proof's sha); ⟨cmd⟩ `git show --pretty=format: --name-only 6a960349` → the created test **alone** | **GREEN — lock (i) HELD** |
+| **G-KFW13-1** | `grep -rn 'itemsPopupOpen\|items-popup-open\|mbabbPopupOpen' demo \| wc -l` | **0** | **0** · **0** | **GREEN** |
+| | MUST-CARRY `grep -c 'v-model:open="open"' demo/app/dock/MbabbMenu.vue` | **1** | **1** · **1** | **GREEN** |
+| | `sed -n '109,113p' demo/app/dock/ChromeDock.vue \| grep -c 'cannot hold the dock open'` | **0** | **0** · **0** | **GREEN** |
+| | OP-8 `git show 600246c3 \| grep -c 'ComponentExposed\|Pick<'` | **0** | **0** | **GREEN** |
+| | **runtime clause** `npx vitest run --project demo test/demo/app/mbabb-menu-self-hold.test.ts` | `3 failed \| 2 passed (5)` | **`Tests 3 failed \| 2 passed (5)`** · re-run **`3 failed \| 2 passed (5)`**; cases (2) hold-on-open, (3) hold-through-collapse, (4) unmount-leak; ⟨cmd⟩ `git status --porcelain` → `?? test/demo/app/mbabb-menu-self-hold.test.ts` — **still UNTRACKED** | **RED — reproduces** |
+| **G-KFW13-1 overall** | byte ∧ runtime | SPLIT | **SPLIT, unmoved** | **RED** |
+| **G-KFW13-2** | `git diff 9d814f6c..HEAD -- demo/app \| grep -c "headerLeft"` | **0** | **0** · **0** — the ARB-1 trap unsprung | **GREEN limb** |
+| | the roster limb | RED (no roster sha) | **RED** — the six shas carry M-4 alone from P1; no MM-1/MM-6 sha, no `:169` family, no MM-29, no TD-36, no chrome roster, and `## Unit receipts` is still **empty** | **RED** |
+| **G-KFW13-7** | `npx vue-tsc --noEmit -p tsconfig.json 2>&1 \| grep -c 'error TS'` | **9** · **9** | **9** · **9** (the nine rows enumerated below) | **RED** |
+| | `npm run check` (exit 0) | exit **2** | **exit 2** · **exit 2**, 9 `error TS` in both | **RED** |
+| | `git diff 9d814f6c..HEAD -- test \| grep -c 'test.skip\|it.skip\|\.only('` | **0** | **0** · **0** | **GREEN** |
+| | `git grep -l 'btn-playback' HEAD -- demo \| wc -l` | **9** | **9** · **9** — beside RULINGS-4's **7** and the spec's **8**, **amending neither** (E-3) | **DRIFT, declared** |
+| | bare `.focus-ring` class applications | **0** | **0** · **0** — beside RULINGS-4's **4** and the spec's **2**, amending neither | **DRIFT, declared** |
+| | `npm run test:demo` | `3 failed \| 56 passed (59)` | **DOES NOT REPRODUCE — see CHECK 1's one correction** | **RED** |
+| **G-KFW12-4** | `css-code-editor-seam.test.ts` | 1 failed | **`Tests 1 failed \| 3 passed (4)`** — `(2) KF-CE-1: expected 0 to be greater than or equal to 2`, unmoved | **RED** |
+| **G-KFW12-7** | test:demo ∧ vue-tsc 0 | RED | **RED** | **RED** |
+| **G-KFW11-4** | `spring-trace-truth.test.ts` | 1 failed | **`Tests 1 failed \| 11 passed (12)`** — `SpringHeatmap.vue no longer declares DAMPING_MIN`, unmoved | **RED** |
+| **G-KFW11-10** | test:demo ∧ vue-tsc 0 | RED | **RED** | **RED** |
+
+**CHECK 1 score: 1 GREEN · 1 SPLIT · 6 RED — identical to the Close.** Zero gates argued green, zero re-based,
+zero dated authorities amended.
+
+*(Inherited-partial note, appended by the RESUME SEAT 0 below, 2026-09-22: the CHECK 1 section above was found UNCOMMITTED in this record — a killed VERIFY-ONLY seat's partial. It is kept verbatim and committed beside, not rewritten (E-3). It ends at its score line; the "CHECK 1's one correction" it cites for the `test:demo` row was never written. This RESUME's baseline below re-measures that row: `3 failed | 56 passed (59)` — the Close's published figure DOES reproduce at 2026-09-22.)*
+
+---
+
+## RESUME — SEAT 0 (OPEN, RESUME MODE), 2026-09-22
+
+**Seat**: SEAT 0, `claude-opus-5-5[1m]`, VERIFY-AND-BANK — zero keyframes.js bytes, zero glass-ui bytes, zero product bytes. **Sitting of record**: the owner's begin-word 2026-09-17 (COHESION §0j); the owner's 2026-09-22 relay orders every workflow re-deployed with no item deferred — so the Close's residuals R-1..R-5 (owned by "`.a2`'s / `.e`'s successor") are dispatched now, not carried.
+
+**Why RESUME**: LEDGER `:55` status cell reads **PARTIAL 2026-09-20** (not CLOSED). The record exists. ⟨cmd⟩ `git -C keyframes.js log --oneline 9d814f6c..HEAD` → six shas under the unit ids `KF.W13.a2` (`242f3378` · `6a960349` · `600246c3`) and `KF.W13.e` (`6ad8ea10` · `d4375768` · `51f39a19`). Those two ids carry commits and are therefore **alreadyDone — never re-dispatched**; their unspent lists are minted as successor units **`KF.W13.a3`** (R-1 ∧ R-2) and **`KF.W13.e2`** (R-3), and the close as **`KF.W13.f2`**, exactly as the Close's residual table names their owners. No ruling after §0ai touches this wave (⟨cmd⟩ `grep -n 'W13S' COHESION.md` → hits at `:2314`-`:2365` only; §0aj/§0ak are Track C / Track A).
+
+### CRASH-RECOVERY
+- value.js, this seat's set: ⟨cmd⟩ `git status --porcelain -- docs/tranches/X/execution/B/ docs/tranches/V/coordination/` → ` M execution/B/KF-W13S.md` — the CHECK 1 partial above (+42 lines), inherited, kept, committed with this RESUME.
+- keyframes.js: ⟨cmd⟩ `git status --porcelain` → `?? test/demo/app/mbabb-menu-self-hold.test.ts` (**`.a3`'s inherited witness**, 3 failed / 2 passed of 5 — handed to `.a3` to judge hunk-by-hunk, not touched here) · two untracked 2026-07 value.js letters (R-10, outside every set, untouched). `origin/master...HEAD` → **0 0** at `51f39a19`.
+- Sibling dirty paths in value.js (Track A/C product + `X-W5.md` + `CARRY-LEDGER.md` + the staged `D demo/shell/PaneSegmentedControl.vue` + `scripts/dev/dev.sh`) — NOT touched, NOT staged.
+
+### E13 Step-0 (four paths, 2026-09-22)
+⟨cmd⟩ `ls -dt glass-ui/docs/tranches/*/ | head -1` → `BK/` (still newest). ⟨cmd⟩ `find <path> -maxdepth 1 -name '*.md' -newermt "2026-09-20 00:00"` → `V/`: `ARCHITECTURE.md` (Track A canon, not a letter) · `V/coordination/`: `INBOX.md` (the ledger itself) · `BK/coordination`: **empty** · `keyframes.js/.../V/coordination`: **empty** · `atlas/.../P/coordination`: **empty**. Census ⟨cmd⟩ `grep -c '^| I-\|^| O-' INBOX.md` → **90**; positional UNREAD read (the Open's awk) → **0**. **0 unrowed · 0 new `I-n` · 0 UNREAD.** One sweep line appended at INBOX's end.
+
+### Baseline — RESUME, read-only, at kf `51f39a19` / vjs `7509da22` (byte clauses double-run, quoted `·`)
+
+| Gate / row | Command | Reads | Verdict |
+|---|---|---|---|
+| G-KFW13-0 | (banked GREEN at the Close, 3/3 twice; no byte moved since) | cited, not re-run | GREEN (banked) |
+| G-KFW13-1 bytes | round-trip grep · MUST-CARRY · `:109-113` prose | **0·0** · **1·1** · **0·0** | GREEN |
+| G-KFW13-1 runtime | `npm run test:demo` → `mbabb-menu-self-hold.test.ts` | cases (2) (3) (4) **FAIL**, file **untracked** | **RED** |
+| G-KFW13-2 | `git diff 9d814f6c..HEAD -- demo/app \| grep -c headerLeft` | **0·0**; no roster sha | **RED** (roster) |
+| G-KFW13-7 / OP-0 | `npx vue-tsc --noEmit -p tsconfig.json \| grep 'error TS'` | **9** — the Open's nine-row map, `MbabbMenu.vue` now `:248` ×2 | **RED** |
+| G-KFW13-7 | `npm run test:demo` | **Test Files 3 failed \| 56 passed (59)** · **Tests 5 failed \| 489 passed (494)**, EXIT 1 | **RED** |
+| G-KFW12-4 | `css-code-editor-seam.test.ts` (2) KF-CE-1 | FAIL; `grep -c setTargets` → **0·0**; `env.d.ts` `basic-languages` → **0·0** | **RED** |
+| G-KFW11-4 | `spring-trace-truth.test.ts` (4b) | FAIL; `grep -c DAMPING_AXIS` → **0·0** | **RED** |
+| KF11-E4 | `grep -n 'key=' EditorShell.vue` | `:176 :key="superKey"` | RED |
+| E-c1 | `parseAnimationCSS.ts:9` | `timingFunction?: string;` | RED |
+| skip/only | `git diff 9d814f6c..HEAD -- test \| grep -c 'test.skip\|it.skip\|\.only('` | **0·0** | GREEN |
+| drift | `git grep -l btn-playback HEAD -- demo \| wc -l` | **9·9** (beside 7/8, amending neither) | declared |
+| `npm run check` | not re-run (its typecheck limb is the 9 above) — Close's **exit 2** cited | RED (banked) |
+
+**GREEN-BEFORE-CURE: EMPTY.** Every owed row reads born-RED.
+
+### RESUME unit plan
+
+**alreadyDone** (commits exist — never re-dispatched): `KF.W13.a2` · `KF.W13.e`. **Owed**, serial, **1 concurrent** (this dispatch's cap; the sets are disjoint anyway): **[`KF.W13.a3`] → [`KF.W13.e2`] → [`KF.W13.f2`]**. All Opus (no Fable/adjudicator seat named by §0ai). Every unit appends its OWN receipt under `## Unit receipts` (R-7: the section is still empty) and banks evidence at `keyframes/evidence/W13S/**`.
+
+**`KF.W13.a3`** — successor of `.a2`: R-1 ∧ R-2. Sections: KF-W13 §Agent Units `.a` `:152-156`, §B.2 `:91-94`/`:105-106`/`:116`, §B.3 LAW A (1)(4) `:118-120`, G-KFW13-1 `:188`, G-KFW13-2 `:190`, §Carry P1 `:136`, ADDENDUM `:299`; §0ai `:2320-2327`. Writable (kf): `demo/app/dock/ChromeDock.vue` · `demo/app/dock/MbabbMenu.vue` · `demo/app/dock/index.ts` (carve) · `demo/app/App.vue` (carve) · `test/demo/app/mbabb-menu-self-hold.test.ts` (inherited untracked) · `test/demo/app/dock-context-slot-resolution.test.ts`; vjs: this record (receipt) · `evidence/W13S/**`. Gates: G-KFW13-1 runtime → GREEN; G-KFW13-2 → GREEN; the two `MbabbMenu.vue:248` TS2339 → 0. Locks: MM-1/MM-6 four-part cure ONE sha under ARB-1; `headerLeft` in diff = 0; MUST-CARRY stays 1; OP-8 `ComponentExposed|Pick<` 0; no skip/mock-masking.
+
+**`KF.W13.e2`** — successor of `.e`: R-3. Sections: ADDENDUM `:299` `.e` clause; §0ai `:2336-2358`; G-KFW12-4, G-KFW11-4/-10. Writable (kf): `test/demo/instrument/css-code-editor-seam.test.ts` · `demo/env.d.ts` · `demo/components/instrument/keyframes/CSSCodeEditor.vue` · `src/animation/group/composite/compositor.ts` · `src/animation/group/waapi.ts` · `src/animation/physics/smooth.ts` (three declarations only) · `test/demo/scenes/spring-trace-truth.test.ts` · `demo/scenes/easing/{useEasingDemo.ts,EasingSidebar.vue,EasingTarget.vue}` · `demo/components/instrument/shell/EditorShell.vue` (`:175-176` key only) · `demo/components/instrument/keyframes/utils/parseAnimationCSS.ts`; vjs: record (receipt) · `evidence/W13S/**`. Gates: G-KFW12-4 · G-KFW11-4 green; seven OP-0 rows → 0 (`useKeyframeOps.ts:91` BY ROOT — that file NOT writable). Locks: KF-CE-1/4 arm byte-exact from `evidence/W12/KF-W12-d-born-red.md` with `env.d.ts` in the same motion; no cast/shim/narrowing guard.
+
+**`KF.W13.f2`** — successor close (the `.f` clause, `:170-174`, G-KFW13-7 `:200`, §0ai `:2359-2362`). Writable (vjs): this record · LEDGER (this row's cells + appended lines) · INBOX (append) · `evidence/W13S/**`. Gates: all eight re-run double; `vue-tsc` 0; `test:demo` all green; `npm run check` exit 0; skip/only 0; kf pushed; vjs pushed only with no sibling path staged (R-9).
