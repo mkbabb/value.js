@@ -574,3 +574,107 @@ Live probes: the banked `evidence/W13T/KF-W13T-k-dock-probe.mjs` and `KF-W13T-e-
 **Escalations**: none.
 
 **Commits (kf)**: `a3fa29f9` (R-k-1) · `a4a70536` (ESC-k2-1 pair 1) · `cfecfbce` (ESC-k2-1 pair 2).
+
+### KF.W13.k4
+
+**SERVED MODEL**: `claude-opus-5-5[1m]` · 2026-09-22 · VERIFY-ONLY close seat (0 kf / glass / product bytes). **Spec**: `KF-W13.md:313` (ADDENDUM fourth, `.k4`) · COHESION §0ar "Mechanism" (read to the file end: §0as is Track C's F.W12 and rules nothing here).
+
+**Crash recovery**: ⟨cmd⟩ `git -C value.js status --porcelain` → none of this seat's three paths dirty (the dirty rows are Track A's e2e/evidence paths, `CARRY-LEDGER.md` and `scripts/dev/dev.sh`, untouched). ⟨cmd⟩ `git -C keyframes.js status --porcelain` → the two untracked `VALUEJS-INBOUND-2026-07-{24,27}-*` letters only. No prior `.k4` receipt. **No inherited paths.** kf `HEAD` = `cfecfbce`; ⟨cmd⟩ `git fetch; git rev-list --left-right --count origin/master...HEAD` → `0 0`.
+
+**Host**: our own gates ran strictly serially: probes first, then eslint, then `vue-tsc` + `check`, then `test:demo` ×2. No probe ran while `test:demo` was running. The host was shared, though: load 34 / 45 / 56, and a Track A value.js Playwright run was in flight. Every probe reading below matches its twin run exactly, and no timing threshold decides any gate.
+
+**Acts, in order**
+1. Read the spec, the record header and RESUME plan, the `.e2`/`.k3` receipts, and COHESION §0ar.
+2. Ran the banked probes, unmodified, from `evidence/W13T/`. The readings are seat-local (scratchpad `k4/`) and were not re-banked.
+   - ⟨cmd⟩ `node KF-W13T-k-dock-probe.mjs k4{a,b}` (G-1, G-7)
+   - ⟨cmd⟩ `node KF-W13T-e-probe.mjs k4{a,b}` (G-3..-6)
+   - ⟨cmd⟩ `node KF-W13T-e2-probe.mjs k4{a,b}` (G-6 persistence, R-e-2)
+   - ⟨cmd⟩ `node KF-W13T-k3-chrome-probe.mjs k4{a,b}` (G-7's names / `?` limb)
+3. Lint ×2, then `vue-tsc`, then `npm run check`, then `test:demo` ×2.
+4. Audited the roster `5e5f4028..HEAD` per sha, plus this sitting's value.js commits.
+5. Ran the E13 sweep.
+6. Wrote the Close (below), updated LEDGER row `:56` and the event line, and pushed value.js.
+
+**Gates** (BEFORE = the RESUME baseline at kf `5e5f4028`; AFTER = this seat ×2 at kf `cfecfbce`)
+
+| gate | BEFORE | AFTER run a | AFTER run b | state |
+|---|---|---|---|---|
+| **G-KFW13T-1** out-of-capsule, 1440×900 · 768×1024 · 390×844 × `#/`,`#/cube` | 0 ×6 | `out= 0` ×6 | `out= 0` ×6 | **GREEN** |
+| **G-KFW13T-2** vue-tsc 0 · `test:demo` · push | 0 · 61/61 · 501/501 | ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.json` → 0 `error TS`, EXIT 0; ⟨cmd⟩ `npx vitest run --project demo` → **63/63 · 505/505** EXIT 0 | **63/63 · 505/505** EXIT 0 | **GREEN**; kf `0 0` with origin |
+| **G-KFW13T-3** glyph rows = rows | 29/29 | `rows 29 · glyphRows 29` (glyph 25×16, row 44) | 29 · 29 | **GREEN** |
+| **G-KFW13T-4** pointer drag AND ArrowRight move `aria-valuenow`; producer paint | drag 0→795 · click 795→450 · Arrow 450→480 | drag `0→795` · click `795→450` · Arrow `450→480`; thumbBg `rgba(0, 0, 0, 0)`; 0 pageerrors | identical | **GREEN** |
+| **G-KFW13T-5** plays 500 ms, progress > 0 | clock 0→397 · 0→480 | clock `0→397.2`, clockAdvanced · tilesMoved · vizMoved true, 0 pageerrors | `0→563.5`, all true, 0 pageerrors | **GREEN** |
+| **G-KFW13T-6** hide/show AND persisted across reload | hide/show GREEN; persistence **RED** (`afterReload pressed "false"`) | e-probe: toggle 1 `Hide ball preview`, pressed false→true, visible→absent, a11y visualizer nodes 0, **`afterReload {"pressed":"true","visible":false}`**, restored. e2-probe: `hideAfterReload {"true", hidden, stored "hidden"}` · `showAfterReload {"false", visible, stored "shown"}` | identical (both probes) | **GREEN** (whole) |
+| R-e-2 paused-scrub twin repaint | ball `93→93` | keyboard `t 0→1200`, ball `translateX(220px)`; pointer `t 660`, ball `translateX(121px)`; `stillPaused true` | identical | **GREEN** |
+| **G-KFW13T-7** collisions 390×844 · 768 · 1440 × `#/`,`#/cube` | 0·0·0·0·**1**·**3** | `coll= 0` ×6 | `coll= 0` ×6 | **GREEN** |
+| G-7 names + `?` (k3-chrome-probe) | — | at each viewport: `ribbon=0`; `Share animation` · `Show keyboard shortcuts` · `Switch to … mode` = 1 each inside the dock; `outsideDock=0`; `dialog(?)=1` · `dialog(click)=1` · `sharePopover=1` | identical | **GREEN** |
+| eslint (§Verification line, no `demo/styles`) | **6** | ⟨cmd⟩ `npx eslint demo/app demo/components/instrument/transport demo/components/playback` → EXIT 0, `grep -c ' error '` **0**, warnings 0 | **0**, EXIT 0 | **GREEN** |
+| `npm run check` | exit 0 | EXIT **0**; `grep -c 'error TS'` → 0 (both vue-tsc legs); `proof:structure — PASS … 0 violations across R1–R6` | — (single run, as the gate asks) | **GREEN** |
+
+**Roster audit** (⟨cmd⟩ `git -C keyframes.js log --oneline 5e5f4028..HEAD` → **5** shas; ⟨cmd⟩ `git show --stat --format= <sha>` checked each against its unit's RESUME writable set)
+
+| unit | sha | files | bounds · family |
+|---|---|---|---|
+| `.e2` | `76f68412` (ESC-e-1) | `demo/state/controlOptionsStore.ts` (+1) · `demo/scenes/easing/EasingScene.vue` · `test/demo/scenes/easing-preview-persistence.test.ts` | in bounds. The store diff is exactly `+    easingPreview?: "shown" \| "hidden";` (one field, nothing else). Field, binding and witness sit in ONE sha |
+| `.e2` | `09846d75` (R-e-2) | `playback/AnimationVisualizer.vue` · `playback/PlaybackRibbon.vue` · `test/demo/instrument/visualizer-paused-repaint.test.ts` | in bounds; cure and witness in one sha |
+| `.k3` | `a3fa29f9` (R-k-1) | `app/dock/ChromeDock.vue` · `instrument/shell/EditorShell.vue` · `test/demo/app/chrome-dock-containment.test.ts` | in bounds; ribbon retirement, dock App zone and witness in one sha |
+| `.k3` | `a4a70536` (ESC-k2-1 pair 1) | `channel-controls/ChannelOptions.vue` · `channel-controls/TimingFunctionPanel.vue` | in bounds; the seam pair (owner + mutator) is unsplit |
+| `.k3` | `cfecfbce` (ESC-k2-1 pair 2) | `transport/AnimationControlsGroup.vue` · `controls-pane/ControlsPaneWrapper.vue` · `test/demo/instrument/channel-options-render-edge.test.ts` | in bounds; the seam pair is unsplit |
+
+**Families unsplit: 5/5.**
+
+**Masking** (⟨cmd⟩ `git diff 5e5f4028..HEAD -- test demo | grep '^+' | grep -c 'test\.skip\|it\.skip\|\.only(\|eslint-disable\|@ts-ignore\|@ts-expect-error\|as any\|as unknown\|overflow-hidden\|overflow: hidden\|catch *('`): the grep returns **1**, and that one hit is not masking.
+- The hit is test-only: `easing-preview-persistence.test.ts` contains `const { jsdom } = globalThis as unknown as { jsdom: … }`, a typed read of the vitest environment's own global so the witness can seed `localStorage`. The `.e2` receipt already disclosed it. It suppresses no defect and no assertion.
+- Product bytes contain no masking (⟨cmd⟩ `git diff 5e5f4028..HEAD -- demo | grep '^+' | grep -c ' as \(any\|unknown\)\|eslint-disable\|@ts-'` → **0**).
+- There is no try/catch around a defect, no skip, no allowlist, no copied producer selector and no `node_modules` byte.
+- ⟨cmd⟩ `git diff --check 5e5f4028..HEAD | wc -l` → 0. **Masking 0.**
+
+**E-3 and `dev.sh`**: This sitting's value.js commits are `1896bcfd` (RESUME open: this record + `INBOX.md` + `LEDGER.md`), `957b26ac` (`.e2`: this record + 4 new evidence files + 15 PNGs) and `1945cdf9` (`.k3`: this record + 3 new evidence files + 18 PNGs). Every file they touch is in its seat's set.
+- ⟨cmd⟩ `git diff 1896bcfd~1..HEAD -- docs/tranches/X/execution/B/KF-W13T.md | grep -c '^-[^-]'` → **0**: the record was append-only.
+- ⟨cmd⟩ `git diff 1896bcfd~1..HEAD -- docs/tranches/X/keyframes/waves/KF-W13.md | wc -l` → **0**: the spec is unchanged.
+- COHESION gained §0as only (`9f0614e8`, the orchestrator's Track C addendum, 12 insertions and 0 deletions).
+- The banked probes were run as they are, not edited. **E-3 diff empty.**
+- ⟨cmd⟩ `git diff 1896bcfd~1..HEAD --stat -- scripts/dev/dev.sh | wc -l` → **0**: `dev.sh` is untouched and never staged.
+
+**E13** (the four-path sweep): BK is the newest glass dir (⟨cmd⟩ `ls -d glass-ui/docs/tranches/B*` → `… BI BJ BK`). ⟨cmd⟩ `find <path> -maxdepth 1 -type f -newermt "2026-09-22 00:00"` found:
+- value.js `V/`: `EVIDENCE.md` · `VISUAL-CONSTITUTION.md` · `OPTICAL-BENCH-COMPOSITIONS.md`. These are Track A's documents, not letters.
+- `V/coordination`: `INBOX.md`.
+- BK: `glass-outbound-2026-09-22-consumers-10.0.0.md` · `fourier-to-glass-2026-09-17-nwo1-bh-relay.md` · `value-to-glassui-2026-09-DD-fw4-relay.md`, all already rowed.
+- kf `V/coordination`: empty.
+- atlas `P/coordination`: no directory.
+
+⟨cmd⟩ `grep "^| I-" INBOX.md | grep -c "| UNREAD"` → **0** (the tail is I-39). **0 UNREAD.** The mail is unmoved since the RESUME-open sweep line, so no new INBOX line is written. No producer gap was found in `.e2`/`.k3`, so no BK or SS-6 row is owed; KFW13T-BK-1/-2 were already accreted at §0ar.
+
+**Residuals (named owners, none gating)**:
+1. **Share and theme each have two faces in the dock**: the App zone, and the rows in `MbabbMenu.vue:47-80` (`.k3` residual 1). §0ar's "one home per control" ruled out the ribbon/dock duplication, and that duplication is gone (`ribbon=0`). Whether the brand menu keeps a secondary face is not a gate clause. **Owner**: the owner / KF.W9 design reading.
+2. **SharePopover's trigger renders one rung larger** than the DockControl glyphs (`.k3` residual 2). **Owner**: KF.W9's ladder. No producer gap.
+3. **`resize-tracks.test.ts` mounts the twin without `currentT`** (`.e2` residual 2). ⟨cmd⟩ `grep -c 'Missing required prop' demo1.txt` → **0** in this seat's `test:demo` output. No action.
+
+**Escalations**: none. **Commits**: value.js only (this record + LEDGER), listed in the Close.
+
+## RESUME — Close (`.k4`, 2026-09-22)
+
+**SERVED MODEL**: `claude-opus-5-5[1m]` · VERIFY-ONLY.
+
+**Gate readings**: every KF.W13T gate reads GREEN ×2 at kf `cfecfbce`.
+- **G-KFW13T-1**: out-of-capsule 0 ×6 ×2.
+- **G-KFW13T-2**: vue-tsc 0 · `test:demo` 63/63 · 505/505 ×2 · kf = origin.
+- **G-KFW13T-3**: 29/29.
+- **G-KFW13T-4**: drag · click · Arrow all move `aria-valuenow`, on producer paint.
+- **G-KFW13T-5**: the clock advances, and the subject and twin move.
+- **G-KFW13T-6**: hide/show works and persists across reload.
+- **G-KFW13T-7**: collisions 0 ×6 ×2, names and `?` intact.
+- R-e-2 is GREEN ×2.
+- The §Verification eslint line reads **0** ×2, and `npm run check` exits 0.
+
+**Audit**: roster `5e5f4028..HEAD` = 5 shas, all in bounds; 5/5 families unsplit; masking 0; E-3 diff empty; `dev.sh` untouched. E13: 0 UNREAD. kf = origin (`0 0`).
+
+**The wave**: every escalation the first close carried is spent.
+- ESC-e-1 → `76f68412`.
+- ESC-k2-1 → `a4a70536` · `cfecfbce`.
+- R-k-1 → `a3fa29f9`.
+- R-e-2 → `09846d75`.
+
+The full KF.W13T roster is `.k` (`70a9b882` · `936b8c74` · `b56e9a41`), `.e` (`b4c5dfb1` · `2141883d` · `a71efd0d` · `cbe9b904`), `.k2` (`6606ca7e`), Repair 1 (`5e5f4028`), `.e2` (`76f68412` · `09846d75`) and `.k3` (`a3fa29f9` · `a4a70536` · `cfecfbce`).
+
+**State: CLOSED** — IMPLEMENTED, with every gate green. VERIFIED: NO, because the spec designates no self-stamp; the L-18/L-20 challenge passes are the orchestrator's to seat. The residuals are the three non-gating items named in the `.k4` receipt. Per §0ar, Track B is now COMPLETE except for KF.W3, which is gate-keyed on RC-P(V) at the X-W11 coordinate.
