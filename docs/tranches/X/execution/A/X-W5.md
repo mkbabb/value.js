@@ -2153,3 +2153,56 @@ PRM run 2's `→/gradient` recorded 4 frames: the host stalled, so its *budget* 
 - **E13**: `find <4 paths> -newer X-W5.md` → 0 new, so 0 UNREAD in scope.
 
 **Commits**: `2183b814` · `5fbf6d5c` · `ae98f5a1` · `9b35754f` · this record.
+
+### X.W5.e
+
+**SERVED MODEL**: claude-opus-5-5[1m] (M-23 opus seat). Unit sections read: `W5.md` §3.5 · §5 X.W5.e · §6 unit e ·
+§7 · §9 row 5; fold `X-W5-FOLD.md` §1.G (W5F-48 · W5F-49) · §2a E1/E2 · §6d E1/E2 (W5F-75/AB-11); CONSTELLATION `P122`
+at `docs/tranches/V/coordination/CONSTELLATION.md:44` (*"default golden is exact `61.8033989/38.1966011`, preview is
+`66.6666667/33.3333333`; absent inspector makes stage 100%"*).
+
+**Act 0 — crash-recovery.** ⟨cmd⟩ `git status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` ·
+` M scripts/dev/dev.sh`. Neither is in this unit's writable set (both left untouched, never staged). **No inherited
+partial work on X.W5.e.**
+
+**Act 1 — measure before edit (anchors at true bytes, HEAD `1c853f20`).** ⟨cmd⟩ `grep -nE '64%?…66\.6666667|33\.3333333…36'`
+over the four docs → lines `VISUAL-CONSTITUTION.md:44,45` · `EVIDENCE.md:43,47` · `OPTICAL-BENCH-COMPOSITIONS.md:39,40` ·
+`proportion-register.md:35` — **all seven spec anchors hold at the same line numbers; no drift.** `-o` count = **8**
+(EVIDENCE:47 carries both arms). Note: the E1 regex misses the `%`-bearing inspector form `33.3333333%…36%`
+(VC:44/45 · OB:39/40 · PR:35); the strike covers **both** forms on every line, so the broader
+⟨cmd⟩ `grep -oE '…36|64%?…'` is also measured (BEFORE 12 → AFTER 0, below).
+
+**Act 2 — the strike.** One scripted literal substitution per anchor (`scratchpad/p1.pl`, each pattern asserted to
+occur exactly once before replacing), 7 lines + one evidence-column word on PR-16 (`protagonist bounds` →
+`exact protagonist share`, the column that named the dead range). Each replaced sentence now states: protagonist
+exactly `66.6666667%` while an inspector is selected, **100 % protagonist when none is**, inspector exactly
+`33.3333333%` — *"the `preview-dominant` posture sourced from `CONSTELLATION.md` P122, not independently derived"*.
+**Survival clauses untouched**: ⟨cmd⟩ `grep -c 'every rendered bounded palette entity slip has exactly one Card shell'
+VISUAL-CONSTITUTION.md` → HEAD 2 · worktree 2; the `:54` selection seat, OPTICAL-BENCH `:42` sequence and `:76`
+inventory lines were not in the diff. No chassis re-imported (the text names the posture, not a component). The
+witness records (`registry/adjudicated/**`, `registry/DEFECT-LEDGER.md`) are not in the diff. AB-11: the text does not
+say "restore the ratified band"; it states the posture that `regions[]` must emit.
+
+**Act 3 — gates, double-run on the settled bytes.**
+
+| gate | BEFORE (HEAD `1c853f20`) | AFTER (worktree = `e2f56558`) | reading |
+|---|---|---|---|
+| **E1** | ⟨cmd⟩ `grep -rcE '64%?…66\.6666667\|33\.3333333…36' <4 docs>` → `2·2·2·1` = 7 lines, `-o` **8** | run 1 `0·0·0·0` · run 2 `0·0·0·0`; `-o` **0** / **0** | **GREEN** |
+| E1 (broad, both `%` forms) | ⟨cmd⟩ `grep -oE '…36\|64%?…'` → **13** | **0** / **0** | GREEN |
+| **E2** | no replaced sentence exists | ⟨cmd⟩ `git diff -U0 --word-diff=plain --word-diff-regex='[^;\|]+'` → every inserted `;`-segment carrying `66.6666667`/`33.3333333` checked for `` `CONSTELLATION.md` P122 ``: run 1 **9 sentences · 9 cited · 0 bare**; run 2 identical | **GREEN** |
+| §7 `git diff --check` | — | exit **0** over the four docs | GREEN |
+
+**Act 4 — commit 5.** ⟨cmd⟩ `git add <4 docs> && git commit --no-verify --quiet -m "docs(canon): P-1 — exact Browse/Library
+posture" -m <body> -m <Claude-Session> -- <4 docs>` → **`e2f56558`**; `git show --stat` → 4 files, 7 insertions / 7 deletions,
+nothing else swept in.
+
+**Act 5 — E13.** ⟨cmd⟩ `find <path> -maxdepth 1 -type f -newer X-W5.md` over value.js `V/` (only this unit's own three
+edited docs) · `V/coordination/` (empty) · glass-ui `BK/coordination/` (empty; `BK` still newest) · keyframes.js
+`V/coordination/` (empty) · atlas `P/coordination/` (empty) → **0 UNREAD in scope**; INBOX tail still `I-39`.
+
+**Residuals**: none owned by `.e`. `VISUAL-CONSTITUTION.md:27`'s *"display-rounded protagonist law is 61.8–66.7%"*
+and its non-P122 tuning clause are not the P-1 band and are outside E1's scope; the general citation law over the rest
+of the canon is **CC-102 at X-W10**, and the three workbench corpora's `61.8033989%/38.1966011%` garnishes (W5F-48's
+mechanism note) are the routed records' own homes, not this unit's four files. **Escalations**: none.
+
+**Commits**: `e2f56558` · this record.
