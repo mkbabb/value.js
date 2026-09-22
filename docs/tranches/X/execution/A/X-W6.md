@@ -5012,3 +5012,112 @@ fixture (a2 a13 b3).
 **Honest-RED set: ∅.** gatesReproduced **20** (c1 c2 c3 c4 d1 d2 e2 f1 f2 f5 f7 f8s f9 f10 h1 h2 i2
 a1 H1 H3; the 639/641 vitest figure also reproduces) · gatesFailed = the 11 RED gates: a2 a13 b1 b3
 g1 i3 j1 j2 j3 H2 H4. The LEDGER status stays **PARTIAL**; one event line appended.
+
+---
+
+## Open — RESUME 2026-09-22 (fourth sitting; SEAT 0, `claude-opus-5-5[1m]`)
+
+SERVED MODEL: claude-opus-5-5[1m]
+
+**Append-only beside** every block above (E-3). Resume spec: COHESION **§0z** + **§0an** + **§0aq**
+and `W6.md`'s **ADDENDUM 2026-09-22** (`W6.md:483-484`), read whole. **Mode**: RESUME. ⟨cmd⟩
+`grep "^| X-W6 " LEDGER.md` → **PARTIAL 2026-09-22 — NOT PROMOTED**, not CLOSED.
+
+### Act 0 — crash-recovery
+
+⟨cmd⟩ `git status --porcelain` → `M docs/tranches/V/reformation/CARRY-LEDGER.md` · `M scripts/dev/dev.sh`.
+Neither is in this seat's writable set (this record, the LEDGER, INBOX). **Nothing inherited**; nothing
+stashed, restored or touched. ⟨cmd⟩ `git fetch -q origin; git rev-list --left-right --count HEAD...origin/tranche-u`
+→ `0 0` (ESC-PUSH discharged per §0aq holds at this clock).
+
+### Preconditions, measured at the bytes AND in the LEDGER (2026-09-22)
+
+| condition | measurement | verdict |
+|---|---|---|
+| X-W0 CLOSED | ⟨cmd⟩ `grep "^| X-W0 " LEDGER.md` → `CLOSED 2026-09-17 (honest-RED: HG-8 …)` | MET |
+| X-W1 CLOSED | `CLOSED 2026-09-17 (honest-RED: G-17 · G-19 · G-20)`; ⟨cmd⟩ `ls e2e/visual` → present | MET |
+| X-W4 CLOSED | `CLOSED 2026-09-17`; ⟨cmd⟩ `grep -rl SceneActionSet demo/ \| wc -l` → **4** | MET |
+| installed glass 7.0.0 | ⟨cmd⟩ `node -p "require('./node_modules/@mkbabb/glass-ui/package.json').version"` → **7.0.0** | MET |
+| X-W5 shell lane committed (a2/a13/b3 re-run at close, §0aq) | tree clean of X-W5 rows (Act 0); LEDGER X-W5 → `PARTIAL 2026-09-17 — RESUME 3 close 2026-09-22 … §9 commits 1–5 ALL LANDED` | MET (for the close re-run) |
+| X-W5 CLOSED (binds **`.j` alone**, §0z E1) | same cell → **PARTIAL** | **NOT MET — `.j` waits, never skipped** |
+
+### E13 Step-0 — four-path mail sweep (2026-09-22)
+
+1. value.js `V/` + `V/coordination/` — ⟨cmd⟩ `find docs/tranches/V -maxdepth 2 -name '*.md' -newermt
+   "2026-09-22 00:00" ! -name INBOX.md` → `EVIDENCE.md` · `VISUAL-CONSTITUTION.md` ·
+   `OPTICAL-BENCH-COMPOSITIONS.md` · `research/proportion-register.md` — Track A canon documents
+   (the last: *"Tranche V — Formation Proportion Register"*, `e2f56558 docs(canon)`), not letters.
+2. glass — ⟨cmd⟩ `ls -dt ../glass-ui/docs/tranches/*/ | head -1` → **`BK/`** (still newest). Newer than
+   2026-09-22: `glass-outbound-2026-09-22-consumers-10.0.0.md` (8 INBOX hits) ·
+   `fourier-to-glass-2026-09-17-nwo1-bh-relay.md` (5) · `value-to-glassui-2026-09-DD-fw4-relay.md` (7) — all rowed.
+3. keyframes `V/coordination` → **empty** at the delta. 4. atlas `P/coordination` → **empty**.
+
+Census ⟨cmd⟩ `grep -c '^| I-\|^| O-' INBOX.md` → **93** · **93**; the by-position UNREAD `awk` → **0**.
+Tail ids **I-39 · O-49**. **0 unrowed · 0 new I-n · 0 UNREAD in scope.** One `O-` row is OWED inside the
+wave and is `.h`'s to write under §0aq ("display-p3 ask by mail"): ⟨cmd⟩ `grep -c hero-blob-p3 INBOX.md`
+→ **0** for the filed `W6-glass-ask-hero-blob-p3.md` (Check 3 register #8). A dated sweep line is
+appended to INBOX.
+
+---
+
+## Baseline — RESUME 2026-09-22 (the owed units' gates only; every other gate cites Check 3's reading)
+
+Run read-only at this open; live probes against the `:9000` vite dev server (PID 43106, started
+2026-09-22 14:55, serving this tree from disk). Every other gate cites `## Check 3 — RESUME 2026-09-22`.
+
+| gate | unit | ⟨cmd⟩ | BEFORE |
+|---|---|---|---|
+| b1 | `.c` (§0aq ESC-R1-b1) | `node …/probes/wb-gradient-stopeditor/gate-seat.mjs` | **RED** — EXIT 1, `GATE G3 (stop seat) — RED`, **2** `G3d` lines: `key "Home"` and `key "ArrowDown"` are no-ops on the focused stop at 0% (`style.left` stayed `calc(var(--rail-inset) + var(--rail-track) * 0)`; expected 0% / −1%) |
+| c1 | `.c` | `node …/wb-gradient-stopeditor/gate-structure.mjs` | GREEN — EXIT 0, `GATE G4 (structure) — GREEN` (banked `e07bff63`) |
+| c2 | `.c` | `npx vitest run test/gradient-order-invariant.test.ts -t "one sampling law"` | GREEN — `4 passed \| 13 skipped (17)` |
+| c3 | `.c` | `npx vite-node docs/tranches/X/gates/gate-literal-dialect.mjs` | GREEN — `GATE c3 (literal dialect) — GREEN` |
+| c4 | `.c` | `npx vitest run test/interpolation-subset.test.ts` | GREEN — `5 passed (5)` (banked `b2dd375c`) |
+| d1 | `.d` | `node …/probes/x-w6/gate-easing-radius.mjs` | GREEN — EXIT 0; `panel surfaces measured: 33 · read-only: 2` (banked `9557e6b5`) |
+| d2 | `.d` | `node …/probes/x-w6/gate-easing-readout.mjs` | GREEN — EXIT 0; `branch … DATED ASK`, restyle `0 line(s)` |
+| e1 | `.e` | `npx playwright test e2e/smoke/views/gradient.spec.ts -g "gradient selector aurora" --project=smoke` | GREEN — `1 passed (25.3s)` (banked `3c558956` + `191d4f3a`) |
+| e2 | `.e` | `node …/probes/x-w6/gate-prm-idiom.mjs` | GREEN — EXIT 0; `requestAnimationFrame calls: 0` |
+| h1 | `.h` | `npx playwright test e2e/smoke/webgl-blob-idle.spec.ts -g "hero blob carries current chroma" --project=smoke` | GREEN on the sRGB cell — `3 passed (59.5s)`; OM-6 `lab(92% 88.8 20)` target C (gamut-mapped) **0.02105**, ΔC 0.02552 — the beyond-sRGB limb is unnamed (Check 3 #5) |
+| i1 | `.i` | `npx playwright test e2e/smoke/oracles/o25-atmosphere-response.spec.ts --project=smoke` | GREEN — `1 passed (4.7s)` |
+| i3 | `.i` | `npx playwright test e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts --project=smoke` · `grep -rn armRuntime demo/ \| wc -l` | **RED** — `1 failed`: *"oklch(0.62 0.2 30): the first painted atmosphere is not the seeded one"* (0.1595 > bound) and *oklch(0.62 0.2 150)* (0.2933); armRuntime **0** |
+
+### R.2 — a GREEN before its cure
+
+**NONE.** Every GREEN above is a cure already landed at a named sha in a prior sitting or repair
+(Check 3 reproduced each); none precedes its cure. The two RED gates (b1, i3) are exactly the two
+§0aq grants. **H1-P3** is not a gate but an honest-RED id §0aq mints; `.h` records it.
+
+---
+
+## Unit plan — RESUME 2026-09-22 (5 units re-dispatched on §0aq's grants; `.j` deferred; 4 units landed)
+
+**Model law M-23** (`W6.md:154`): every unit is an **Opus implementation seat**. No Fable seat; no
+unit mints canon. **Landed, never re-dispatched**: `.a` (`f90aeb02` · `c222542d`) · `.b` (`7dff25f6`) ·
+`.f` (`e0e204a9`) · `.g` (`e69aaf95`). **Re-dispatched by §0aq** ("RESUME dispatches [`.c`] → [`.d`] →
+[`.e`] → [`.h`] → [`.i`] (`.a` `.b` `.f` `.g` done)"), each on its residual only — the shas already
+landed inside them (`.c`: `caea9d1e` `e07bff63` `b0991fd3` `b2dd375c` · `.d`: `9557e6b5` `e6bd7fe5` ·
+`.e`: `3c558956` `191d4f3a` `3ece0690` · `.h`: `48d95650` `a87f8930` · `.i`: `c2f17bad` `4cb294b9`
+`e68e8889`) are **not reopened**. **Concurrency**: maxUnits 1; strictly serial per `W6.md:484`
+*"Order: [`.c`] → [`.d`] → [`.e`] → [`.h`] → [`.i`]"*. `.j` after X-W5 CLOSED (§0z E1) — NOT dispatched.
+**Wave-level (no unit)**: close seat after group 5 re-runs a2/a13/b3 (X-W5 shell lane committed, §0aq),
+H1–H4, and records g1 honest-RED by id → X-W10 (§0aq ESC-R1-g1) and the two vitest canaries → X-W8 `.i`.
+
+| group | unit | residual | gates |
+|---|---|---|---|
+| 1 | `.c` | b1 cure in `GradientStopEditor.vue` (commit #4, §0aq ESC-R1-b1); c1–c4 held | b1 (+ c1–c4 non-regression) |
+| 2 | `.d` | verify d1/d2 at the post-`.c` bytes; receipt | d1 d2 |
+| 3 | `.e` | verify e1/e2 at the post-`.d` bytes; receipt | e1 e2 |
+| 4 | `.h` | `H1-P3` named honest-RED-by-physics; h1 on the consumer route; `O-50` mail row for `W6-glass-ask-hero-blob-p3.md` | h1 |
+| 5 | `.i` | i3 cure: pre-module boot seed in `demo/color-picker/index.html` (§0aq ESC-R1-i3), W5.md:321 rider | i3 (+ i1 i2 held) |
+
+Unit briefs are carried verbatim in the returned plan; the writable sets are §4 ⊕ §0an ⊕ §0aq:
+- **`.c`**: `demo/workbenches/gradient/{model/types.ts,model/sample.ts,composables/useGradientModel.ts,composables/useGradientCSS.ts,composables/useGradientInterpolation.ts,composables/gradientParse.ts,GradientVisualizer/GradientVisualizer.vue,GradientVisualizer/GradientStopEditor.vue,GradientVisualizer/GradientEasingEditor.vue,GradientVisualizer/easing/easingCatalogue.ts,GradientVisualizer/easing/useSpecimenRows.ts}` · `demo/color-session/color-space-meta.ts` · `docs/tranches/X/gates/gate-literal-dialect.mjs` · `test/{interpolation-subset,gradient-order-invariant,gradient-parse}.test.ts` · `docs/tranches/X/waves/W6-evidence/**`. `gate-seat.mjs` is execute-no-write.
+- **`.d`**: `GradientEasingEditor.vue` · `easing/EasingAuthoringStage.vue` · `easing/easingCatalogue.ts` · `…/probes/x-w6/gate-easing-radius.mjs` · `W6-evidence/easing/**` · INBOX (mail rows only).
+- **`.e`**: `GradientVisualizer.vue` · `easing/EasingAuthoringStage.vue` · gradient tree scoped styles · `…/probes/x-w6/gate-prm-idiom.mjs` · `e2e/smoke/views/gradient.spec.ts` (ADD-never-replace) · `W6-evidence/**`.
+- **`.h`**: `demo/picker/visual/HeroBlob.vue` · `demo/color-session/useContrastSafeColor.ts` · `e2e/smoke/webgl-blob-idle.spec.ts` (ADD-never-replace) · `docs/tranches/X/waves/W6-glass-ask-hero-blob-p3.md` (dated addendum-beside only) · `W6-evidence/**` · INBOX (the one `O-` row, §0aq).
+- **`.i`**: `demo/color-picker/composables/boot/{useAtmosphere,atmosphere-calibration}.ts` · `demo/test/glass/aurora-bracket.test.ts` · `demo/scenes/atmosphere/AuroraPane.vue` · `e2e/smoke/oracles/{o25-atmosphere-response,o28-atmosphere-coldload}.spec.ts` · `demo/color-picker/index.html` (pre-module boot seed ONLY) · `W6-evidence/atmosphere/**`.
+
+`.j` — **BLOCKED-ON X-W5** (LEDGER `PARTIAL`), §0z E1; not dispatched.
+
+---
+
+## Unit receipts — fourth sitting 2026-09-22
