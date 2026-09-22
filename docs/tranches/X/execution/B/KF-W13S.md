@@ -1070,3 +1070,88 @@ SERVED MODEL: claude-opus-5-5[1m] (this receipt's seat)
 **Residuals**: `keyframes-editor-honest.test.ts`'s `framesOf` keeps its pre-existing `as { templateFrames }` assertion (no row; outside the 12 — named, not widened).
 
 **E13**: no mail acts in this unit's scope (the RESUME 2 Step-0 sweep stands; 0 UNREAD).
+
+## Close — `KF.W13.f2` (RESUME 2 sitting, 2026-09-22; dated addendum beside, E-3; no prior section rewritten)
+
+SERVED MODEL: claude-opus-5-5[1m] (this section's seat)
+
+**Seat**: CLOSE, VERIFY-ONLY. It wrote no keyframes.js, glass-ui, product or test bytes. **Spec**: KF-W13.md read whole, including ADDENDUM 2026-09-22 `:303` (the `.f2` clause) and COHESION §0ai's close literal under §0am. **Frontier**: kf `4815cfe8` (= origin/master, left-right count `0 0`); vjs `b2dd375c` at open. **Grant search**: ⟨cmd⟩ `grep -n '^## §0a[m-z]' COHESION.md` gives `§0am` `:2471` and `§0an` `:2509`. §0an is X-W6's. No grant answers ESC-e3-1, ESC-e3-2 or ESC-t-1.
+
+**CRASH-RECOVERY**: ⟨cmd⟩ `git status --porcelain -- docs/tranches/X/execution/B docs/tranches/X/execution/LEDGER.md` shows this set clean. The only dirty paths are siblings' (`A/X-W5.md`, `A/X-W6.md`) and were not touched. keyframes.js has only the two untracked 2026-07 letters. Nothing was inherited.
+
+### Gate table: BEFORE (RESUME 2 baseline, kf `8ae71f51`) → AFTER (kf `4815cfe8`), each run twice at this seat
+
+| Gate / limb | ⟨cmd⟩ (kf root) | BEFORE | AFTER (run 1 · run 2) | Verdict |
+|---|---|---|---|---|
+| G-KFW13-1 bytes | round-trip grep `\| wc -l` · `grep -c 'v-model:open="open"' MbabbMenu.vue` | 0·0 · 1·1 | **0·0** · **1·1** | GREEN (holds) |
+| G-KFW13-2: MM-1/MM-6 as ONE sha | `git show --stat 82c11a9c` | absent | **1 sha, 2 files** (MbabbMenu.vue, CubeScene.vue), +28 −48 | **GREEN** |
+| G-KFW13-2 fill arm | `git diff 9d814f6c..HEAD -- demo/app \| grep -c headerLeft` | 0·0 | **0·0** | GREEN |
+| MM-5 CheckboxItem | `grep -c '<DropdownMenuCheckboxItem' MbabbMenu.vue` | 0 | **1·1** | GREEN |
+| `sceneExposedApi.ts` untouched | `git diff --stat 8ae71f51..HEAD -- demo/scenes/sceneExposedApi.ts \| wc -l` | — | **0·0** | GREEN |
+| OP-8 | `git grep -c 'ComponentExposed\|Pick<' HEAD -- demo/app \| wc -l` | 0·0 | **0·0** | GREEN |
+| skip/only | `git diff 9d814f6c..HEAD -- test \| grep -c 'test.skip\|it.skip\|\.only('` | 0·0 | **0·0** | GREEN |
+| masking since baseline | `git diff 8ae71f51..HEAD \| grep -c '^+.*\(as any\|as unknown\|@ts-\|eslint-disable\|\.skip\|\.only(\)'` | — | **0** | GREEN |
+| cube + W13 batch | `vitest run --project demo test/demo/scenes/cube-*.test.ts test/demo/app/ …/transport-keyboard-propagation …/transport-play-actuation …/transport-icon-spin …/playback-ribbon-contract` | 38/38 (cube) | **10 files · 90/90 · 90/90**, exit 0 ×2 | GREEN |
+| `test:demo` | `npm run test:demo` | 59/59 · 494/494 | **59/59 · 494/494 · 59/59 · 494/494**, exit 0 ×2 | GREEN |
+| G-KFW13-7 OP-0 (§0ai literal 0) | `npx vue-tsc --noEmit -p tsconfig.json 2>&1 \| grep -c 'error TS'` | 4·4 | **1·1**: `EasingSidebar.vue(150,27)` TS2345 | **RED** (ESC-e3-1) |
+| `check` leg 2 (as ruled, `package.json:37`) | `npx vue-tsc --noEmit -p tsconfig.test.json 2>&1 \| grep -c 'error TS'` | tsc 47·47, vue-tsc 33·33 | **18·18**, same rows in both runs | **RED** (ESC-e3-1 ×1 · ESC-e3-2 ×1 · ESC-t-1 ×16) |
+| `npm run check` (§0ai literal exit 0) | `npm run check; echo $?` | exit 2 | **exit 2 · exit 2** | **RED** |
+| G-KFW13-7 sweeps | `git grep -l btn-playback HEAD -- demo \| wc -l` · bare `.focus-ring` with `class=` | 9·9 · 0·0 | **9·9 · 0·0** | Declared drift. RULINGS-4 has 7/4 and the spec has 8/2; this seat amends none of them (E-3) |
+| lint (§Verification artefacts) | `npx eslint demo/app demo/components/instrument/transport demo/components/playback demo/styles` | — | **exit 2**: every file under `demo/styles` is ignored, so ESLint aborts. Without `demo/styles`: **7 errors · 7**, all in `App.skeleton.vue`, `TimingFunctionPanel.vue` and `ControlsPaneWrapper.vue`. None of those three is in `git diff --name-only 9d814f6c..HEAD`; their last touch is `cbd87a85` (2026-09-19). On this sitting's four touched demo files: **exit 0** | Pre-existing and outside the wave; residual R-f2b-4 |
+| `git diff --check 8ae71f51..HEAD` | — | — | **exit 0** | GREEN |
+| keyframes.js pushed | `git rev-list --left-right --count origin/master...HEAD` | 0 0 | **0 0** at `4815cfe8` | GREEN |
+
+**The 18 leg-2 rows by file** (⟨cmd⟩ `… \| grep 'error TS' \| cut -d'(' -f1 \| sort \| uniq -c`): `EasingSidebar.vue` 1 · `playback-ribbon-contract.test.ts` 1 · `test/compile/diagnostics-channel` 1 · `test/compile/value4-easing-contract` 2 · `test/engine/animation` 3 · `test/engine/strict-options` 1 · `test/engine/w0-crashes` 1 · `test/group/group` 4 · `test/ingest/platform-adopt` 2 · `test/scroll/scroll-scene` 1 · `test/waapi/waapi-lifecycle` 1. This reproduces `.t`'s receipt exactly.
+
+### Commit roster: four kf shas over `8ae71f51..4815cfe8` plus four vjs receipt shas, each path checked against the §0am grants
+
+| Unit | sha | `git show --stat` | Grant | Audit |
+|---|---|---|---|---|
+| `.a4` | kf `82c11a9c` | `MbabbMenu.vue` · `CubeScene.vue` (2 files, +28 −48) | MbabbMenu whole; CubeScene `:96-97` `:129-135` `:267` + dead imports | IN BOUNDS, with one declared note (LW-a4, INFO). The CubeScene hunks are `@@ -30` (the Popover imports), `@@ -93` (`setPPMode`), `@@ -126,34` (`headerLeft`) and `@@ -264` (the export member). The `headerLeft` hunk deletes the fn's true span `:129-156`, not only the ruled `:129-135`. The ruling names the function, and deleting only its first seven lines would leave broken syntax. `.a4`'s receipt already declares this. |
+| `.e3` | kf `5149fe8e` | `EasingTarget.vue` (hunk `@@ -248`) · `easingGroups.ts` | `easingGroups.ts` · `EasingTarget.vue:251` | IN BOUNDS |
+| `.e3` | kf `781fd1d7` | `package.json` (1 line, 1 insertion, 1 deletion) | `package.json` line 37 ONLY | IN BOUNDS |
+| `.t` | kf `4815cfe8` | 5 files, all `test/demo/**` | `test/demo/**` | IN BOUNDS |
+| receipts | vjs `7aaeb8e1` · `0cb51fdb` · `a843f761` · `7aa4fe0d` | each touches `execution/B/KF-W13S.md` only | the record | IN BOUNDS |
+
+⟨cmd⟩ `git diff --name-only 8ae71f51..HEAD` lists **10** paths, and all of them appear in the rows above. `scripts/dev/dev.sh` was never staged. **Families**: MM-1/MM-6 has four parts in ONE sha (`82c11a9c`). The two `.e3` shas are two meanings (catalogue typing and leg-2 owner), and §0am rules them separately. **Landed-wrong: none.**
+
+### Residuals, each with a named owner
+
+| id | residual | owner |
+|---|---|---|
+| R-f2b-1 | **ESC-e3-1**: `EasingSidebar.vue(150,27)` TS2345. Its root is `nameForQuad` at `:128-133`, which returns `string`. Typing `animationDescriptions.ts:19` as ruled adds 4 foreign rows. This row alone holds leg 1 at **1** and one leg-2 row. | the orchestrator: a dated grant of `EasingSidebar.vue:128-133` (plus the two foreign lookups if `:19` is still to be typed), or a ruling that `nameForQuad` resolves over the typed catalogue |
+| R-f2b-2 | **ESC-e3-2**: `playback-ribbon-contract.test.ts(230,66)` TS2769. The root is the harness props bag at `:203/:207/:208`. A cure was proven and banked at the scratchpad `e3-ribbon-proven.patch`. | the orchestrator: re-home the row to a `test/demo/**` seat, or grant those lines |
+| R-f2b-3 | **ESC-t-1 (FINDING B-1)**: 16 leg-2 rows in `test/{compile,engine,group,ingest,scroll,waapi}/**`. Ten are unused bindings (TS6133/6192). Six feed a deliberately invalid easing (TS2345/2322), and their typed form needs a ruling. | the orchestrator: a dated carve grant plus that ruling |
+| R-f2b-4 | The spec's eslint command aborts on the ignored `demo/styles` glob. The same command without it reports 7 pre-existing `vue/no-mutating-props` / `multi-word-component-names` errors in three files this wave never touched. | the owners of `TimingFunctionPanel.vue` / `ControlsPaneWrapper.vue` / `App.skeleton.vue`; the spec's lint line needs a dated erratum that drops `demo/styles` (orchestrator) |
+| R-a4-1 | MbabbMenu's `superKey` prop is no longer read, but `App.vue:35` still binds it | a later grant covering `App.vue:35` together with the declaration |
+| R-a4-2 | CubeScene's hover-card state (`ppmycotaOpen`, `autoDismissTimer`, `clearAutoDismiss`, its `watch`, and the `onBeforeUnmount` call) is unreachable after the `headerLeft` delete | the orchestrator: a CubeScene carve extension (KF.W11's file, ARB-1) |
+| R-f2-4 | MbabbMenu family carries (MM-2/3/12/25), unchanged | the seams' owning waves, as `.a3` names them |
+| R-f2-6 | value.js push | see §Push below |
+
+**Discharged since the prior `.f2` Close**: R-f2-1 (ESC-a3-1) by `82c11a9c`. R-f2-2 (TD-36) by `8ae71f51`. R-f2-3 (`.e2`) by the seven Repair 1 shas. R-f2-5, the producer relay, by **O-48** (SENT, INBOX `:139`) and the COHESION §4a accretion `:716`. R-f2-7 is superseded: `check` was re-run above.
+
+### Escalations
+
+**ESC-e3-1 · ESC-e3-2 · ESC-t-1** stand exactly as their receipts state them. This seat re-measured the premise of each (the 18 rows, and leg 1 = 1), and no grant exists for any of them. None is producer-owned. The discharge set is EMPTY, stated positively.
+
+### E13: the close sweep, four paths (this seat's clock)
+
+⟨cmd⟩ `ls -dt glass-ui/docs/tranches/*/ | head -1` gives `BK/`. ⟨cmd⟩ `find <path> -maxdepth 1 -name '*.md' -newermt "2026-09-22 00:00"`:
+- value.js `V/`: empty.
+- `V/coordination`: `INBOX.md`, the ledger itself.
+- BK: `glass-outbound-2026-09-22-consumers-10.0.0.md`, addressed to slides and atlas and already classified by prior sweeps; the other two files are value.js's own outbound copies.
+- keyframes.js `V/coordination`: empty.
+- atlas (`sci-report/atlas/docs/tranches/*/coordination`): empty.
+
+Census ⟨cmd⟩ `grep -c '^| I-\|^| O-' INBOX.md` gives **93**. The positional UNREAD awk over the status column gives **0**. No UNREAD mail is in scope, and this seat made no mail act.
+
+### The four-verb line: moved only as §State permits
+
+KF.W13S is **not IMPLEMENTED**. G-KFW13-2 turned GREEN at this sitting, but G-KFW13-7's two §0ai literals still read RED at the bytes: `vue-tsc` is **1** (not 0) and `npm run check` exits **2** (not 0). Both wait on three ungranted escalations. The row stays **PARTIAL**, and VERIFIED is not this seat's to stamp.
+
+**SELF-COUNT**: ⟨cmd⟩ `sed -n '/^## Close — `KF.W13.f2` (RESUME 2/,$p' KF-W13S.md | grep -c '^| R-'` gives **8** residual rows (R-f2b-1..4 · R-a4-1 · R-a4-2 · R-f2-4 · R-f2-6).
+
+### Push
+
+- **keyframes.js**: all four unit shas were already published. ⟨cmd⟩ `git push origin HEAD` is a no-op; after `git fetch`, the left-right count is `0 0` at `4815cfe8`.
+- **value.js**: ⟨cmd⟩ `git rev-list --left-right --count origin/tranche-u...HEAD` gives **1 · 147** (the remote still carries `6fc1212e`), and the shared index still holds a sibling's staged `D demo/shell/PaneSegmentedControl.vue`. A push is therefore non-fast-forward. It is attempted without force and recorded as rejected, and nothing is pulled or merged over a sibling's stage (R-9). **R-f2-6 stands**: the orchestrator integrates once the sibling stage clears.
