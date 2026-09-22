@@ -586,3 +586,5 @@ No glass-ui, `node_modules`, `src/**`, `demo/scenes/**`, `vitest.config.ts` or `
 ### The four-verb line — moved only as §State permits
 
 KF.W13S is **not IMPLEMENTED**: G-KFW13-2 (roster, ESC-a3-1) and G-KFW13-7 (vue-tsc **9**, `test:demo` **2** failed) read RED at the bytes, and `.e2` was never dispatched. The line stays **PARTIAL** — the LEDGER row reads `PARTIAL 2026-09-22 — what remains: ESC-a3-1 (MM-1/MM-6 ONE-sha cure, CubeScene.vue grant) · ESC-a3-2 (TD-36 on TransportDock.vue) · .e2 (G-KFW12-4 · G-KFW11-4 · seven OP-0 rows)`. VERIFIED is not this seat's to stamp.
+
+- **value.js push (measured after `49b550d6` + LEDGER `a1db8d49`)**: ⟨cmd⟩ `git push origin HEAD` → **rejected, non-fast-forward** (`origin/tranche-u...HEAD` → **1 · 104**; the remote carries `6fc1212e`). Not forced; not pulled — the shared index holds a sibling track's staged `D demo/shell/PaneSegmentedControl.vue`, and `git merge` aborts on a non-clean index (R-9). **ESC-PUSH stands** → R-f2-6, owner: the orchestrator (integrate `6fc1212e` once the sibling stage clears).
