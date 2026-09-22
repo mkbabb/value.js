@@ -2792,3 +2792,18 @@ G-F12-3's full-run leg then reads: `:322` EXECUTED and green in two full nine-wo
 failure absent at `41e49af`. **Mechanism**: F.W12 RESUME (`.a` alreadyDone): [`.a2`] → [`.b2`
 verify-only close]. The J-audit PNGs rewritten by `visual-baseline` (outside every set) → the
 owner close report (a fourier evidence-home question).
+
+## §0av ADDENDUM 2026-09-22 — F.W12: `.serial` RETIRED ON PROOF (fourier `3e709e4`); ESC-F12a2-1 RULED (ii): THE FULL-RUN LEG IS MEASURED ON A QUIESCED HOST, LIKE X-W5's D1
+
+`.a2` proved all nine block tests independent (18/18 alone), retired `test.describe.serial` with no
+assertion, wait or timeout change, and the keystone (`:330`, the spec's `:290`) EXECUTED in 8/8
+full runs. Its five timeouts all came at host load ≥ 40 with a sibling track's Playwright live; at
+load 17–21 the leg was GREEN ×2 with 0 failures absent at `41e49af`. That is the instrument, not the
+product or the harness. Ruled: **(ii)** — G-F12-3's full-run leg is measured on a QUIESCED host:
+15-min load average < 20 recorded at start and end, no sibling headless Chromium live (⟨cmd⟩ `pgrep
+-fl chrom | grep -vc <own pid>` → 0), two full nine-worker runs. **(a)** stays refused; **(c)** stays
+`:109`-only. The nine-worker count against one dev server in CI is CI's own configuration → the
+owner close report (operator item, beside G-F9-23's `-linux` baselines). **Mechanism**: F.W12 RESUME
+(`.a` `.a2` alreadyDone): [`.b3`] (Opus, verify-only close; waits for quiescence in bounded
+background polling ≤ 20 min before measuring; if quiescence never arrives, records the two best
+runs with their load and closes honest-RED by instrument, id `G-F12-3-LOAD`).
