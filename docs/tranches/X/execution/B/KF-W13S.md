@@ -826,3 +826,56 @@ No cure landed, so no gate could move; kf `HEAD` is byte-identical to Check 2's 
 **Four-verb line**: **PARTIAL stands** (G-KFW13-2 and G-KFW13-7 RED on grants not yet made; no IMPLEMENTED claim). **value.js push**: withheld (C2-4). **E13**: ⟨cmd⟩ `grep -c "^| I-\|^| O-" INBOX.md` → **93** (a sibling row added since Check 2's 92); positional UNREAD awk → **0**; the BK files dated 2026-09-22 are the three Check 2 already classified (none addressed to value.js). No UNREAD mail in scope; this seat made no mail act.
 
 **SELF-COUNT**: ⟨cmd⟩ `sed -n '/^## Repair 2/,$p' KF-W13S.md | grep -c '^| C2-'` → **5** register rows; ⟨cmd⟩ `… | grep -c '^- \*\*ESC-r2-'` → **3** escalations; cured **0**.
+
+## Check 3 — fresh adversarial L-20 pass 3 of the Repair 2 close (2026-09-22; dated addendum beside, E-3; no prior section rewritten)
+
+**Seat**: CHECK (pass 3), VERIFY-ONLY, `claude-opus-5-5[1m]`. Zero keyframes.js / glass-ui / product bytes. **Crash-recovery**: ⟨cmd⟩ `git status --porcelain -- docs/tranches/X/execution/B docs/tranches/X/execution/LEDGER.md` → clean; kf ⟨cmd⟩ `git status -sb` → `## master...origin/master` + the two untracked 2026-07 value.js letters (outside every set). **Frontier**: kf `8ae71f51` (unmoved since Check 2 and Repair 2) · vjs `8d4b540d`. **Grant search**: COHESION's last section is still §0ak (⟨cmd⟩ `grep -n '^## §0a' COHESION.md | tail -1` → `:2425 §0ak`); no ruling answers ESC-r2-1/-2/-3.
+
+### Gates re-run at this seat (kf root, double-run)
+
+| Gate / limb | ⟨cmd⟩ | Run 1 | Run 2 | Verdict |
+|---|---|---|---|---|
+| G-KFW13-1 bytes | round-trip grep · `v-model:open="open"` in MbabbMenu | **0** · **1** | **0** · **1** | GREEN reproduces |
+| G-KFW13-2 fill arm | `git diff 9d814f6c..HEAD -- demo/app \| grep -c headerLeft` | **0** | **0** | clause GREEN; MM-1/MM-6 sha still absent → gate RED |
+| OP-8 | `git grep -c 'ComponentExposed\|Pick<' HEAD -- demo/app \| wc -l` | **0** | **0** | GREEN |
+| skip/only | `git diff 9d814f6c..HEAD -- test \| grep -c 'test.skip\|it.skip\|\.only('` | **0** | **0** | GREEN |
+| G-KFW13-7 sweeps | `git grep -l btn-playback HEAD -- demo \| wc -l` · bare `.focus-ring` `class=` | **9** · **0** | **9** · **0** | as banked (declared drift beside RULINGS-4's 7/4) |
+| W13 batch | `vitest run --project demo test/demo/app/ + transport-keyboard-propagation + transport-play-actuation + transport-icon-spin + playback-ribbon-contract` | **7 files · 52/52** | — | GREEN |
+| `test:demo` | `npm run test:demo` (quiet host) | **59/59 · 494/494, EXIT 0** | **59/59 · 494/494, EXIT 0** | GREEN reproduces |
+| G-KFW13-7 OP-0 | `npx vue-tsc --noEmit -p tsconfig.json 2>&1 \| grep -c 'error TS'` | **4** | **4** | **RED** (§0ai literal 0) |
+| `check` leg 2 | `npx tsc --noEmit -p tsconfig.test.json 2>&1 \| grep -c 'error TS'` | **47** | **47** | **RED** |
+| `npm run check` | `npm run check; echo $?` | **exit 2** | — | **RED** (§0ai literal exit 0) |
+
+The four `vue-tsc` rows are byte-identical to Repair 2's (`MbabbMenu.vue(333,12)`/`(333,36)` TS2339 · `EasingSidebar.vue(150,27)` · `EasingTarget.vue(251,62)` TS2345). ⟨cmd⟩ `git blame -L 332,333 demo/app/dock/MbabbMenu.vue` → `440e5c30` (2026-07-03) on `:333`: the row pre-dates this wave; not wave-introduced.
+
+**Load note (INFO)**: a first pair of `test:demo` runs, taken while `vue-tsc` ran beside it at host load **26.4**, read **2 failed | 57 passed · 2 failed | 492 passed** — both `Test timed out in 5000ms` on the first case of `typing-dots-engine-seam.test.ts` and `value4-editor-boundary.test.ts`; those two files re-run alone → **8/8 · 8/8**, and two quiet full runs → **494/494 · 494/494**. Contention, not a defect of this wave; recorded so the next seat does not mistake it.
+
+### Axes
+
+(2) Bounds: ⟨cmd⟩ `git -C keyframes.js diff --stat 9d814f6c..HEAD` → 19 paths, every one a §B.2 `.a` row or an ADDENDUM 2026-09-20 grant (`vitest.config.ts`'s diff is the one `server.deps.inline` key plus its comment); ⟨cmd⟩ `git show --stat 8d4b540d` (the only sha since Check 2) → `KF-W13S.md` + `LEDGER.md`. `scripts/dev/dev.sh` untouched. (3) Masking: added `as unknown as` hits are jsdom `ResizeObserver`/`matchMedia` shims inside test files (banked INFO at Check 2 C2-5); no try/catch around a defect, no skip, no allowlist, no node_modules byte. (4) Families: unchanged since Check 2 — no new kf sha. (5) E-3: ⟨cmd⟩ `git diff --stat 58c1ba11..HEAD -- docs/tranches/X/keyframes/waves/ docs/tranches/V/megatranche/registry/adjudicated/` → **empty**. (6) Mail: ⟨cmd⟩ `grep -c '^| I-\|^| O-' INBOX.md` → **93**; positional UNREAD awk → **0**. (7) Four-verb line: PARTIAL held at every seat since `.f2`; no IMPLEMENTED claim — lawful. (8) Goal criterion: the menu self-holds and opens (G-KFW13-1 runtime GREEN), transport/ribbon rows green; **but §0ai's close literal (`vue-tsc` 0, `check` exit 0) and the MM-1/MM-6 roster row are not met at the bytes.** (9) Published figures: Repair 2's 4·4 / 47·47 / exit 2 reproduce exactly.
+
+### (10) Honest-RED adjudication
+
+| RED gate | Relief at the spec bytes? | Verdict |
+|---|---|---|
+| G-KFW13-7 OP-0 (`vue-tsc` 4) | None. §0ai's Close asserts `vue-tsc` **0** as *"the sub-tranche's literal"*; the ADDENDUM's "all four honest-REDs" names the state KF.W13 closed in, which KF.W13S was minted to cure — it is not relief for the supplement. Not producer-owned (all four rows are consumer code), no successor wave is routed the rows. The owner/orchestrator is named only as the grant-holder of ESC-r2-1/-2. | **UNRELIEVED** |
+| G-KFW13-7 `npm run check` (exit 2, leg 2 = 47) | None. §0ai: *"`npm run check` exit 0"*. ESC-r2-3 asks for a ruling; none exists. | **UNRELIEVED** |
+| G-KFW13-2 (MM-1/MM-6 four-part ONE sha) | None. The spec's §Commit plan lists it as `.a`'s; `CubeScene.vue`'s delete arm needs a grant (ESC-r2-2) no ruling has made. | **UNRELIEVED** |
+
+**Honest-RED set: EMPTY** (no RED is relieved by the spec's own terms).
+
+### Register
+
+| # | Sev | Claim | Receipt | Cure |
+|---|---|---|---|---|
+| C3-1 | HIGH | G-KFW13-7 RED: `vue-tsc` **4** ≠ §0ai's **0** | `vue-tsc … \| grep -c 'error TS'` → 4 · 4 | owner/orchestrator grant ESC-r2-1 (easing catalogues) + ESC-r2-2 (CubeScene arm), then a seat lands both |
+| C3-2 | HIGH | G-KFW13-2 RED: MM-1/MM-6 ONE sha unspent | no roster sha in `git log 9d814f6c..HEAD`; `MbabbMenu.vue:333` TS2339 still live | ESC-r2-2 grant → `.a4` joint commit, no fill arm |
+| C3-3 | MEDIUM | `npm run check` exit 2 (leg 2 = 47), §0ai literal exit 0 | `tsc -p tsconfig.test.json` → 47 · 47; `check` → exit 2 | ESC-r2-3 ruling (leg-2 owner), then route |
+| C3-4 | INFO | `test:demo` times out 2 cases under host load 26 | see load note; quiet runs 494/494 ×2 | none owed |
+| C3-5 | INFO | value.js push still withheld (sibling staged `D demo/shell/PaneSegmentedControl.vue`) | `git status --porcelain \| grep '^[MADR]'` | orchestrator |
+
+**Successor conjuncts**: X-W11 (*"everything"*, LEDGER `:39`) carries KF.W13S's CLOSED as a conjunct — **RED**; X-W11 is **lawfully blocked** on this row. No other wave names KF.W13S in its opens-after.
+
+**Verdict: NOT-CONFORMANT.** Every claimed GREEN reproduces (10 limbs); three REDs stand with no relief at the spec's bytes; honest-RED set EMPTY; LEDGER status stays **PARTIAL** (not promoted).
+
+**SELF-COUNT**: ⟨cmd⟩ `sed -n "/^## Check 3/,$p" KF-W13S.md | grep -c "^| C3-"` → **5** · **5** register rows (2 HIGH · 1 MEDIUM · 2 INFO).
