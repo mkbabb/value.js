@@ -200,3 +200,66 @@ Load-bound flakes were observed and are recorded, not masked. The machine's load
 - **ESC-e-1 (carried from `.e`, still unruled)** — G-KFW13T-6's persistence limb: the home is `demo/state/controlOptionsStore.ts` (the scene's control-options bucket), outside every KF.W13T set.
 
 **Residuals (carried, not spent)**: R-k-1 (the 390 band collision with the header ribbon while the top dock is expanded — design/magnitude ruling; re-read 1 · 3 ×2) · R-e-2 (the paused-scrub `AnimationVisualizer` twin does not repaint) · KFW13T-BK-1/-2 (relayed, awaiting the producer).
+
+## Close
+
+**SERVED MODEL**: `claude-opus-5-5[1m]` · 2026-09-22 · the wave's CLOSE SEAT (VERIFY-ONLY; 0 kf / glass / product bytes). Spec `KF-W13.md:307` · `:309` · `:311` read whole; COHESION `grep -n 'ESC-e-1\|ESC-k2-1'` → **none** (both escalations still unruled at this clock).
+
+**Crash recovery**: ⟨cmd⟩ `git -C keyframes.js status --porcelain` → only the two untracked `VALUEJS-INBOUND-2026-07-{24,27}-*.md` letters; ⟨cmd⟩ `git -C value.js status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh` (neither in this seat's set, neither touched). **No inherited paths.** kf `HEAD` = `6606ca7e`; ⟨cmd⟩ `git fetch; git rev-list --left-right --count origin/master...HEAD` → `0 0`.
+
+### Gate table (BEFORE = the seat-0 baseline at kf `084a3679`; AFTER = this seat, ×2 at kf `6606ca7e`)
+
+| gate | spec GREEN | BEFORE | AFTER run 1 | AFTER run 2 | reading |
+|---|---|---|---|---|---|
+| **G-KFW13T-1** | 0 children outside the capsule, 3 viewports ×2 | 390 = **1** out | ⟨cmd⟩ `node KF-W13T-k-dock-probe.mjs closeR1` → `out= 0` at 1440/768/390 × `#/`,`#/cube` (6/6) | `out= 0` 6/6 | **GREEN**; witness `chrome-dock-containment.test.ts` inside 501/501. Collisions (R-k-1) 390 `#/` **1** · `#/cube` **3**, same both runs |
+| **G-KFW13T-2** | vue-tsc 0 · `test:demo` green · push | 0 · 494/494 | ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.json` → 0 `error TS`, exit 0; ⟨cmd⟩ `npm run test:demo` → **61/61 · 501/501**, exit 0 | 0 · **61/61 · 501/501**, exit 0 | **GREEN**; kf already `0 0` with origin (act 7) |
+| **G-KFW13T-3** | glyph rows = rows ×2 | 0/29 | ⟨cmd⟩ `node KF-W13T-e-probe.mjs closeR1` → `rows 29 · glyphRows 29` (glyph 25×16 in a 44 px row) | 29 · 29 | **GREEN** |
+| **G-KFW13T-4** | `aria-valuenow` moves under pointer drag AND ArrowRight | drag 0→0 · click 0→0 · Arrow 0→15 | drag `0→795` · click `795→450` · ArrowRight `450→480`; thumb bg `rgba(0, 0, 0, 0)` (producer paint); 0 pageerrors | identical | **GREEN** |
+| **G-KFW13T-5** | playback witness plays 500 ms, progress > 0, ×2 | witness absent | `easing-playback-runs.test.ts` green in 501/501; live clock `0→519.4` ms, tiles moved, visualizer `93→188`, 0 pageerrors | witness green; clock `0→363.0`, tiles + viz moved, 0 pageerrors | **GREEN** |
+| **G-KFW13T-6** | toggle hides/shows (absent from a11y tree); **persisted across reload** | absent | toggle 1 (`Hide ball preview`), `aria-pressed` false→true, visible→absent, a11y visualizer nodes 0, restored on 2nd press; **after reload `pressed "false"`, visible** | identical | **RED on persistence only** → ESC-e-1 |
+| **eslint** (§Verification line, no `demo/styles` per §0ap) | 0, or each returned by `file:line` | 7 | ⟨cmd⟩ `npx eslint demo/app demo/components/instrument/transport demo/components/playback` → **6 errors** (`TimingFunctionPanel.vue:151:9 · 152:9 · 156:5` · `ControlsPaneWrapper.vue:62:58 · 328:5 · 366:9`, all `vue/no-mutating-props`) | **6**, same positions | **RETURNED** by `file:line` (ESC-k2-1): the §0ap grant permits cure-or-return, but the six are not cured |
+| **E13** | 0 UNREAD in scope | 0 | four paths re-swept (below) | — | **GREEN** |
+
+The probes are the banked `evidence/W13T/KF-W13T-{k-dock,e}-probe.mjs`, re-run unmodified (headless chromium, kf dev `:5173`). Readings are seat-local and not re-banked.
+
+### Commit roster (⟨cmd⟩ `git show --stat --format= <sha>` per sha, against each unit's writable set)
+
+| unit | sha | files | in bounds |
+|---|---|---|---|
+| `.k` | kf `70a9b882` (R-a4-2) | `demo/scenes/cube/CubeScene.vue` (+1 −20) | yes (§0ap span grant) |
+| `.k` | kf `936b8c74` (R-a4-1) | `demo/app/App.vue` · `demo/app/dock/MbabbMenu.vue` | yes |
+| `.k` | kf `b56e9a41` (OA-6 + witness) | `demo/app/dock/ChromeDock.vue` · `test/demo/app/chrome-dock-containment.test.ts` | yes |
+| `.e` | kf `b4c5dfb1` (OA-9 + witness) | `demo/scenes/easing/EasingTarget.vue` · `test/demo/scenes/easing-playback-runs.test.ts` | yes |
+| `.e` | kf `2141883d` (OA-7 + witness) | `channel-controls/ChannelOptions.vue` · `channel-controls/composables/useTimingFunctionEditor.ts` · `test/demo/instrument/channel-options-render-edge.test.ts` | yes |
+| `.e` | kf `a71efd0d` (OA-8 + witness) | `demo/components/playback/PlaybackRibbon.vue` · `test/demo/instrument/playback-ribbon-contract.test.ts` | yes |
+| `.e` | kf `cbe9b904` (OA-10 + witness) | `PlaybackRibbon.vue` · `demo/scenes/easing/EasingScene.vue` · `playback-ribbon-contract.test.ts` | yes |
+| `.k2` | kf `6606ca7e` (eslint 1 of 7) | `demo/app/App.skeleton.vue` | yes |
+| records | vjs `390db7b5` · `ab2ab9e7` · `c33bc786` · `e14cc2d0` · `f099e975` | this record · `evidence/W13T/**` · `INBOX.md` · `LEDGER.md` | yes |
+
+⟨cmd⟩ `git log --oneline 084a3679..HEAD | wc -l` → **8** (kf). Each meaning is one sha with its witness in the same sha, so no family is split. Masking: ⟨cmd⟩ `git diff 084a3679..HEAD -- test demo | grep -c 'test.skip\|it.skip\|\.only(\|eslint-disable\|@ts-ignore\|as any\|overflow-hidden\|overflow: hidden'` → **0**. **Landed-wrong: 0.**
+
+### E13
+
+The newest glass tranche dir is still BK (⟨cmd⟩ `ls -d glass-ui/docs/tranches/B*` → `BI BJ BK`). ⟨cmd⟩ `find <path> -maxdepth 1 -type f -newermt "2026-09-22 00:00"` returned:
+- value.js `V/`: `EVIDENCE.md` · `VISUAL-CONSTITUTION.md` · `OPTICAL-BENCH-COMPOSITIONS.md` (Track A documents, not letters)
+- `V/coordination`: `INBOX.md`
+- BK/coordination: the three letters that were already rowed at `.k2`
+- kf `V/coordination`: empty
+- atlas: no `coordination` dir
+
+⟨cmd⟩ `grep "^| I-" INBOX.md | grep -c "| UNREAD"` → **0** (tail I-39). **0 UNREAD in scope.** The mail has not moved since `.k2`'s sweep line, so no new INBOX line is written.
+
+### Escalations (unruled, so the wave cannot close GREEN)
+
+- **ESC-e-1**: G-KFW13T-6's persistence limb. The toggle's state is lost on reload. Its home is `demo/state/controlOptionsStore.ts`, the scene's view-state bucket, which sits outside every KF.W13T writable set. **Asked**: a one-field grant.
+- **ESC-k2-1**: the six `vue/no-mutating-props` rows, returned by `file:line`. Their root cures need parent bytes: `ChannelOptions.vue:500-510` + `useTimingFunctionEditor.ts`, and `AnimationControlsGroup.vue:35-52` (KF.W11's file). **Asked**: a §3a carve grant (a ruling).
+
+### Residuals (named owners)
+
+- **R-k-1**: at 390×844 the expanded top dock collides with the header ribbon (1 collision at `#/`, 3 at `#/cube`). **Owner**: the orchestrator. It needs a design/magnitude ruling on either the `--dock-top-*` band (KF.W9 SS-13) or `EditorShell.vue`'s ribbon.
+- **R-e-2**: the paused-scrub `AnimationVisualizer` twin does not repaint. **Owner**: the next KF.W13T repair / KF-side wave.
+- **KFW13T-BK-1 / -2** (O-50: dock-wrap separators · a slider scrub thumb). **Owner**: glass-ui BK. The SS-6 accretion rows are owed at COHESION §4a by the orchestrator.
+
+### State
+
+The four-verb line does **not** move to IMPLEMENTED. G-KFW13T-6 is RED on persistence, and 6 of the 7 granted eslint rows are returned. **PARTIAL.** What remains: ESC-e-1 and ESC-k2-1, each awaiting a grant; once granted, a repair unit followed by a re-close. VERIFIED: NO (the spec designates no self-stamp).
