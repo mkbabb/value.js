@@ -1386,3 +1386,68 @@ No keyframes.js byte moved this round, so no other gate can have moved. `test:de
 ### Verdict of this repair
 
 Nothing was cured, because no remaining defect has an in-bounds cure. **C2-1 (HIGH) still holds the §0ai/§0am close literal, `npm run check` exit 0, at exit 2.** Its only cure needs an orchestrator grant over the 9 library test files. The LEDGER status stays **PARTIAL**; only an event line is appended.
+
+## Check 3 — fresh adversarial L-20 pass 3 of the RESUME 2 Repair 2 close (2026-09-22; dated addendum beside, E-3; no prior section rewritten)
+
+SERVED MODEL: claude-opus-5-5[1m] (this section's seat)
+
+**Seat**: VERIFY-ONLY. This seat wrote 0 keyframes.js bytes, 0 glass-ui bytes and 0 product or test bytes. It read the spec KF-W13.md whole, including ADDENDA `:299` (§0ai), `:303` (§0am), `:307` (§0ao) and `:309` (§0ao.1), and COHESION §0am `:2471-2508`. Of the record it read the section index, Check 2 (`:1278`) and Repair 2 (`:1353`). **CRASH-RECOVERY**: ⟨cmd⟩ `git status --porcelain -- docs/tranches/X/execution/` → empty. keyframes.js holds only the two untracked 2026-07 letters, so nothing was inherited. kf HEAD is `6705d4d8`; ⟨cmd⟩ `git fetch; git rev-list --left-right --count origin/master...HEAD` → `0 0`. No kf commit has landed since Check 2.
+
+**Grant search**: ⟨cmd⟩ `grep -n 'ESC-t-1\|^## §0a[p-z]' docs/tranches/X/COHESION.md` → no `ESC-t-1` ruling and no section after §0ao. §0am `:2496` still reads *"§0ai's close literal — `vue-tsc 0` · `npm run test:demo` green · `npm run check` exit 0 — STANDS"*.
+
+### Axes 1 / 9: every figure re-run at this seat, double-run (kf root)
+
+| limb | ⟨cmd⟩ | Repair 2 claims | this seat (run 1 · run 2) | reproduces |
+|---|---|---|---|---|
+| `vue-tsc` leg 1 | `npx vue-tsc --noEmit -p tsconfig.json 2>&1 \| grep -c 'error TS'` | 0 · 0 | **0 · 0** | YES (GREEN) |
+| leg 2 | `npx vue-tsc --noEmit -p tsconfig.test.json 2>&1 \| grep 'error TS' \| wc -l` | 16 · 16 | **16 · 16**; the two runs are byte-identical (`diff` → same) | RED reproduces |
+| leg 2 by file | `… \| cut -d'(' -f1 \| sort \| uniq -c` | 9 files | compile/diagnostics-channel 1 · compile/value4-easing-contract 2 · engine/animation 3 · engine/strict-options 1 · engine/w0-crashes 1 · group/group 4 · ingest/platform-adopt 2 · scroll/scroll-scene 1 · waapi/waapi-lifecycle 1; `test/demo` has 0 rows | YES |
+| `npm run check` | `npm run check; echo $?` | 2 · 2 | **2 · 2** | RED reproduces |
+| `test:demo` | `npm run test:demo` | 59/59 · 494/494 (Check 2's reading) | **59/59 · 494/494 · 59/59 · 494/494** | YES |
+| W13 + cube batch | `npx vitest run --project demo test/demo/scenes/cube-*.test.ts test/demo/app/ …/transport-{keyboard-propagation,play-actuation,icon-spin} …/playback-ribbon-contract` | 10 · 90/90 | **10 · 90/90 · 10 · 90/90** | YES |
+| G-KFW13-1 bytes | `git grep -n 'itemsPopupOpen\|isAnyOpen' HEAD -- demo/app \| wc -l` · `grep -c 'v-model:open="open"' MbabbMenu.vue` | 0 · 1 | **0 · 1 ×2** | YES |
+| G-KFW13-2 fill arm | `git diff 9d814f6c..HEAD -- demo/app \| grep -c headerLeft` | 0 | **0 ×2** | YES |
+| MM-5 | `grep -c '<DropdownMenuCheckboxItem' MbabbMenu.vue` | 1 | **1 ×2** | YES |
+| OP-8 | `git grep -c 'ComponentExposed\|Pick<' HEAD -- demo/app \| wc -l` | 0 | **0 ×2** | YES |
+| skip/only | `git diff 9d814f6c..HEAD -- test \| grep -c 'test.skip\|it.skip\|\.only('` | 0 | **0 ×2** | YES |
+| masking since `4815cfe8` | `git diff 4815cfe8..HEAD \| grep -c '^+.*\(as any\|as unknown\|@ts-\|eslint-disable\|\.skip\|\.only(\|try {\)'` | 0 | **0 ×2** | YES |
+| whitespace | `git diff --check 4815cfe8..HEAD` | exit 0 | **exit 0 ×2** | YES |
+| sweeps (declared drift) | `git grep -l btn-playback HEAD -- demo \| wc -l` | 9 | **9 ×2** | YES |
+
+**gatesReproduced = 12**: these are the twelve GREEN limbs, counted the same way Check 2 counted them. No claimed GREEN fails. The two RED figures (leg 2 = 16, `check` exit 2) reproduce exactly.
+
+### Axes 2–8
+
+- **(2) Bounds.** No kf commit has landed since Check 2; kf HEAD is still `6705d4d8`. The only value.js commit since Check 2 is Repair 2 `2c4062bd`. ⟨cmd⟩ `git show --stat 2c4062bd` → the record (+37) and `LEDGER.md` (+1), both value.js rows of §B.2. ⟨cmd⟩ `git log 58c1ba11..HEAD -- scripts/dev/dev.sh` → empty.
+- **(3) Masking.** None. No byte moved, and the masking greps above read 0.
+- **(4) Families.** Repair 2 is one meaning in one sha. No lock family is touched.
+- **(5) E-3.** ⟨cmd⟩ `git diff --stat 58c1ba11..HEAD -- docs/tranches/V/megatranche/registry/adjudicated/ docs/tranches/X/keyframes/waves/` → only `KF-W13.md | 10 +`. Those are the orchestrator's §0am and §0ao addenda (`63d56244`, `ba1b03d5`), with 0 `-` lines. The registry and sibling specs are byte-untouched.
+- **(6) Mail.** ⟨cmd⟩ `awk -F'|' '/^\| *(I|O)-/{n++; for(i=2;i<=NF;i++) if($i ~ /^ *\**UNREAD\**/) u++} END{print n, u+0}' INBOX.md` → `93 0`. 0 rows have UNREAD status.
+- **(7) Four-verb line.** Repair 2 held the row at PARTIAL and appended one event line. That is lawful.
+- **(8) Goal criterion.** The behavioural goal is MET at the bytes. The chrome a user presses does what it says: G-KFW13-0/-1/-2 and the transport, ribbon and two-deletion witnesses pass in the 90/90 batch. The §0ai/§0am close literal is met on 2 of its 3 limbs. `check` still exits 2.
+
+### Axis 10: honest-RED adjudication
+
+| RED gate | producer-owned? | routed to a later wave by the spec? | honest-RED named by id? | relief |
+|---|---|---|---|---|
+| `npm run check` exit 2: leg 2 = 16 rows (ESC-t-1) in `test/{compile,engine,group,ingest,scroll,waapi}/**` | NO. These are keyframes.js's own library tests. | NO. §0am grants `.t` only `test/demo/**`, and its RETURN clause makes the escalation lawful. It does not relieve the gate: the close literal "STANDS". §0ao/§0ao.1 route only OA-6..OA-10 to `KF.W13T`. No section after §0ao exists. | NO | **NONE** |
+
+**The honest-RED set is EMPTY.** The RED has a named owner: the orchestrator, for a dated carve grant over the 9 files plus a ruling on the 6 deliberately-invalid-easing rows (Repair 2 C2-1, R-f2b-3). It has no spec relief.
+
+### Successor "Opens after" conjuncts
+
+`KF-W13.md:307` (§0ao): *"Wave `KF.W13T` … Opens after KF.W13S CLOSED."* That conjunct is **RED**, so **KF.W13T is lawfully blocked** by this PARTIAL. The LEDGER row `:56` reads `KF.W13S CLOSED`, which agrees. No other successor waits on KF.W13S.
+
+### Register (severity · claim · receipt · cure)
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C3-1 | **HIGH** | `npm run check` exits 2, not 0. The §0ai/§0am close literal STANDS and has no spec relief. This carries forward C2-1 / C1-2. | ⟨cmd⟩ `npm run check; echo $?` → 2 · 2. Leg 2 = 16 · 16 (byte-identical runs), all in 9 library test files. | The orchestrator issues a dated grant over the 9 files and rules the 6 invalid-easing rows (TS2345/2322). A unit then cures all 16 at their typed roots, with no cast, `@ts-expect-error`, skip or loosened assertion. |
+| C3-2 | MINOR | The spec's §Verification eslint line aborts on the ignored `demo/styles` glob, and 7 pre-existing errors sit in 3 untouched files (C2-2). | Repair 2 C2-2 | A dated spec erratum (the orchestrator's). Not blocking. |
+| C3-3 | MINOR | Dead residue: `superKey` is still bound at `App.vue:35`, and CubeScene's hover-card state is dead (C2-3). | Repair 2 C2-3 | Home R-a4-1 at `KF.W13T.k` (§0ao lists `App.vue`); R-a4-2 needs a CubeScene carve extension. Not blocking. |
+
+**SELF-COUNT**: ⟨cmd⟩ `sed -n '/^## Check 3 — fresh adversarial L-20 pass 3 of the RESUME 2/,$p' KF-W13S.md | grep -c '^| C3-'` → **3**.
+
+### Verdict: **NOT-CONFORMANT**
+
+All 12 claimed GREEN limbs reproduce on a double run, and axes 2–8 hold. One HIGH remains, C3-1: `npm run check` exits 2 on ESC-t-1's 16 rows, and nothing relieves it (no producer, no successor wave, no named honest-RED). The honest-RED set is **EMPTY**. The LEDGER status stays **PARTIAL**, and only an event line is appended. KF.W13T stays lawfully blocked.
