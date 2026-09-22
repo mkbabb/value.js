@@ -2449,3 +2449,21 @@ owned by nobody. Ruled:
 **Mechanism.** `X.W11.p` (Opus) is the wave's FIRST unit, serial, before `.a`; W11.md's dated
 addendum of 2026-09-21 carries its brief and bounds grant. The A chassis is untouched — seat 0 reads
 the spec whole and every §0k+ addendum.
+
+## §0al ADDENDUM 2026-09-22 — TRACK C COMPLETE (F.W10S CLOSED honest-RED, `843062c5`); E-F10S-r1 RULED: THE ADDENDUM GOVERNS THE NOTE
+
+F.W10S closed CONFORMANT-HONEST-RED at Check 2: `.a` landed the census errata (G-S-1 0→4), `.b`
+landed six fourier cures (G-F9-17 · G-F9-5's `/equation` node · two C2-M1 roots · E-F9b-4 · four of
+five keystones un-fixme'd; `m/w1-bump-migration` pushed to `aca2580`), `.c` performed the carriage
+(glass-ui `46eec459`, G-S-2 GREEN). What stays RED is producer-owned and relayed by id: **E-F10S-b1**
+(G-F9-11 — glass-ui's dock press guard discards a click begun during the hover-expansion morph;
+relayed `A-2`) and **E-F10S-b2** (crud `:664` — `SegmentedTabs` inactive underline ink 4.33:1;
+relayed `A-3`); the `contrast-floor.spec.ts` leg belongs to F.W4's owners + GLASS-RELAY. F.W10 stays
+NOT ACCEPTED; every X·F wave is CLOSED; Track C is COMPLETE. Operator items unchanged (§0aj).
+
+**E-F10S-r1 RULED.** A `test.fixme` note is prose, not an instrument: writing the escalation id into
+it neither loosens nor removes an assertion. The RESUME lock's *"fixme removal only"* bound the
+ASSERTIONS; the addendum's *"escalation id written into the note"* governs the note. One act, one
+Opus seat, no wave: `web/e2e/visualization-crud.spec.ts` `:664` note gains one line naming
+`E-F10S-b2` and `A-3` (the stale LC-2 rationale is left in place, dated beside), pushed; a dated
+line appended to `execution/C/F-W10S.md` and one LEDGER event line. Nothing else in the file moves.
