@@ -1,7 +1,7 @@
 export const meta = {
   name: 'x-track-C',
   description: 'Tranche X Track C — X·F (fourier-analysis): every wave in runbook §1.3 order through the spec-driven chassis (open → units → verify-only close → fresh check → bounded repair), ≤1 waves concurrent',
-  phases: [{"title":"F.W0"},{"title":"F.W5"},{"title":"F.W1"},{"title":"F.W2"},{"title":"F.W4"},{"title":"F.W3"},{"title":"F.W6"},{"title":"F.W7"},{"title":"F.W8"},{"title":"F.W9"},{"title":"F.W10"}],
+  phases: [{"title":"F.W0"},{"title":"F.W5"},{"title":"F.W1"},{"title":"F.W2"},{"title":"F.W4"},{"title":"F.W3"},{"title":"F.W6"},{"title":"F.W7"},{"title":"F.W8"},{"title":"F.W9"},{"title":"F.W10"},{"title":"F.W10S"}],
 }
 
 const TRACK = {
@@ -98,6 +98,13 @@ const TRACK = {
         "F.W8"
       ],
       "note": "TERMINAL; S-16 restated (22 id-rows ⊕ 4 §D = 26) before close; reconciles against the dispatched O-20, never re-sends; shared-§2.2 change = paired edit ONE commit"
+    },
+    "F.W10S": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/fourier/waves/F-W10.md",
+      "after": [
+        "F.W10"
+      ],
+      "note": "THE SUPPLEMENT WAVE minted by COHESION §0aj (read §0aj whole and F-W10.md's ADDENDUM 2026-09-21 at the file end — they ARE this wave's unit spec; the spec's own §1c product-source exclusion is LIFTED for unit .b only, to the paths the addendum names): groups [F.W10S.a ∥ F.W10S.b] → [F.W10S.c] → [F.W10S.d]; every unit opus; unit .b writes the fourier-analysis tree (web/src + the two named specs) on a LIVE full stack; unit .c performs the glass-ui carriage hop — mail is the ONE lawful glass-ui write; F.W9/F.W10 CLOSED rows never rewritten; operator items go to the owner close report, never cured here"
     }
   },
   "stages": [
@@ -125,9 +132,8 @@ const TRACK = {
     [
       "F.W9"
     ],
-    [
-      "F.W10"
-    ]
+    ["F.W10"],
+    ["F.W10S"]
   ]
 }
 
