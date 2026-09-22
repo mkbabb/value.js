@@ -29,7 +29,7 @@ describe("parseGradientCSS — complete-model acceptance", () => {
         expect(m.direction).toBe(90);
         expect(m.stops.map((s) => s.cssColor)).toEqual(["red", "blue"]);
         expect(m.stops.map((s) => s.position)).toEqual([0, 50]);
-        expect(m.intervals).toHaveLength(1);
+        expect(m.stops.length - 1).toBe(1);
     });
 
     it("maps `to <side>` keywords to exact degrees", () => {
@@ -60,7 +60,7 @@ describe("parseGradientCSS — complete-model acceptance", () => {
             ["red", 50],
             ["blue", 100],
         ]);
-        expect(m.intervals).toHaveLength(2);
+        expect(m.stops.length - 1).toBe(2);
     });
 
     it("auto-fills missing interior positions linearly", () => {
