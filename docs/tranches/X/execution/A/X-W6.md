@@ -5470,3 +5470,221 @@ fresh server, so the STALE-SERVER LAW holds. Playwright ran on its own webServer
 **NOT-CONFORMANT.** There are 4 HIGH, 1 MEDIUM, 3 MINOR and 1 INFO. 30 of the 31 claimed GREENs reproduce (g2
 flaky). The honest-RED set is g1 · j1 · j2 · j3 · H2 · H4, and 13 REDs are unrelieved. The LEDGER row is **NOT
 promoted** and stays PARTIAL.
+
+---
+
+## Repair 1 — RESUME 2026-09-22 (REPAIR SEAT, round 1, over the Check 1 — fourth sitting register)
+
+SERVED MODEL: claude-opus-5-5[1m]
+
+**Append-only beside** every block above (E-3). Spec read whole (`W6.md`, both addenda); the record read at its
+header, the fourth-sitting Open/Baseline/Unit plan, the fourth Close's Acts 7–8 and the Check 1 above.
+**Crash-recovery**: ⟨cmd⟩ `git status --porcelain` → `M docs/tranches/V/reformation/CARRY-LEDGER.md` ·
+`M scripts/dev/dev.sh`. Neither is in this seat's writable set, so **nothing was inherited**; neither was
+touched or staged.
+
+**Host condition (binding on every e2e reading below).** ⟨cmd⟩ `uptime` across the seat → load averages
+**38 · 50 · 59** (18:00), **165 · 85 · 66** (18:11), **17 · 42 · 55** (18:23), **86 · 69 · 64** (18:26),
+**179 · 128 · 93** (18:33). Other sessions' Playwright/vite runs share the host (⟨cmd⟩ `ps aux | grep "playwright test"`
+→ runs from two foreign repos beside this seat's). Every e2e reading here was taken under that load, on a
+freshly started vite (`VJS_E2E_PORT=8290`, tree-true, the STALE-SERVER LAW held).
+
+### C1-1 (HIGH) — nine gates on retired shell DOM: W6's own limb CURED, the rest ESCALATED
+
+- **Cure (in bounds, §4 spec paths).** The six `getByRole("main", { name: "Color tool panes" })` queries in W6's
+  own specs move to the route-titled landmark, the idiom X-W5's migrated specs already use
+  (`walk.spec.ts:120`, `page-load.spec.ts:26`): `gradient.spec.ts:21` and `o21-gradient-rail.spec.ts:40/:205` →
+  `"Gradient"`; `o22:42` · `o23:190` · `o24:41` → `"Home"`. Gate a13 itself demands *"zero assertions target
+  retired DOM"*, so this is the gate's own cure, not a relaxation. The old label is not restored.
+  ⟨cmd⟩ `grep -rn "Color tool panes" e2e/smoke/views/gradient.spec.ts e2e/smoke/oracles/o2[1-5]*.ts e2e/smoke/oracles/o28*.ts | wc -l` → **0**.
+  The combobox `Select view` is **not** retired (⟨cmd⟩ `grep -rn "Select view" demo` → `demo/shell/dock/DockViewSelect.vue:68`),
+  so `fixtures/dock` needs no change for W6.
+- **Commit**: `7733e557` `test(x-w6/repair-1): W6's own specs query the route-titled main landmark`.
+- **Escalated**: the other files still on the retired label (⟨cmd⟩ `grep -rln "Color tool panes" e2e | wc -l` → **61** (66 − W6's 5 files),
+  e.g. `o26-aurora-perceptibility.spec.ts:69`, `o27-focus-affordance.spec.ts:36`) are outside §4. They belong to the
+  renamer under the no-backwards-compat law. **ESC-W6close-1 stays open for that ownership ruling.**
+- **Gate re-reading** (⟨cmd⟩ `VJS_E2E_PORT=8290 npx playwright test e2e/smoke/views/gradient.spec.ts e2e/smoke/oracles/o21-gradient-rail.spec.ts [o22 o23 o24] --project=smoke`,
+  transcripts `W6-evidence/gates/repair-1-2026-09-22/pw-run{1,2,3}.txt`):
+
+  | run | host load | result | failures, by kind |
+  |---|---|---|---|
+  | 1 (5 files, fresh spawned server) | 38–59 | `9 failed · 16 passed (8.6m)` | o21 :60–:313 ×7 at `locator.click` / `scrollIntoViewIfNeeded` timeouts on `Select view` / the bar (*"waiting for element to be visible, enabled and stable"*); a2 `mouse.move` timeout; e1 `moved` true |
+  | 2 (gradient + o21, fresh spawned) | 50–165 | `8 failed · 14 passed (8.2m)` | o21 only: `paneSettled` poll (transform ≠ none) ×2, stability timeouts, one `toHaveCount`; **all 12 `gradient.spec.ts` tests passed, a2 and e1 included** |
+  | 3 (5 files, warmed fresh server) | 17–179 | `9 failed · 16 passed (9.7m)` | option/combobox stability timeouts; `main "Gradient"` heading not found **while the view listbox was still open** (the error-context snapshot shows `- listbox:` with `option "Gradient" [selected]` beside `main "Gradient"` — reka hides the outside tree from the a11y API) |
+
+  **No failure in any run is a retired-DOM query**: every one is an actionability or settle wait. **f4 · f6 · f8 read GREEN
+  in both runs 1 and 3** (the f4 census prints `0/18 captions overflow`; the f6 census prints every out-of-gamut row
+  `MARKED`). Three o21 tests failed in **all three** runs — `:60` (terminal truth), `:80` (paint stack) and `:188`
+  (a4's inverse-map arm) — each at a `Select view`/option click, a `paneSettled` poll or a stop-count wait, never at
+  an assertion on the rail. `:60` and `:80` are the first two tests of every run. Every other o21
+  and gradient test passed in at least one run. The aggregate a2 · a3 · a4 ·
+  a13 · b3 · e1 is **not** read GREEN here: the same command did not pass whole at this host load (see C1-2 for the
+  measured mechanism).
+
+### C1-2 (HIGH) — f3: the closed listbox stays visible. ATTRIBUTED by measurement; not cured in bounds; ESCALATED
+
+- **Measured mechanism** (`probe-listbox-stuck.mjs`, readings in `…/repair-1-2026-09-22/probe-readings.txt`). After a
+  pick, reka's Select content is `data-state="closed"` and stays mounted because its exit animation
+  **`glass-reveal-out` (0.15 s) sits at `currentTime 0`, `running`**. The five `--saved-bg*` ground transitions on
+  `<html>` sit at `currentTime 0` too. The document timeline is not advancing: **rAF fired at
+  `[-5, 8989, 11762, 12610]` ms**, one frame every 3–9 s, while `page.evaluate` answered at once (the main thread
+  was free). The page has two canvases, 300×150 and 63×63. At host load 22.8 the same ten picks all closed, in
+  **10–3404 ms** (`probe-listbox-close.mjs`). So the listbox is not stuck in state; it is waiting for frames the
+  swiftshader compositor does not produce under this load. The same starvation explains `main "Gradient"` not being
+  found in run 3 (the view listbox was still open) and the o21 stability timeouts in C1-1.
+- **What is not attributed.** Whether X-W5's `50633f19`/`2183b814` raised the per-frame cost enough to turn f3 from
+  GREEN (Check 3) to RED. One A/B (`probe-raf-cadence.mjs`; `*{backdrop-filter:none}` injected in the probe page only)
+  gave idle first frames at **17198 ms as-is vs 3877 ms without backdrop-filter**. That is N=1 at load 68–86, so it is
+  not conclusive. The bisect the close asked for (`2183b814` vs `e0e204a9`) needs a quiet host, which this seat did
+  not have (load 17–179).
+- **Why no cure here.** No W6 byte produces the stall. `glass-reveal-out` is producer CSS, the ground transitions are
+  `useAtmosphere`'s by design (200 ms OKLab, F-12), and the blur carrier is X-W5's `demo/styles/shell.css`. Lengthening
+  the f3 wait would be a masking act, and it is not done.
+- **Gate re-reading**: ⟨cmd⟩ `npx playwright test e2e/smoke/oracles/o21-space-catalog-truth.spec.ts --project=smoke` (run 4,
+  load up to 179) → **RED**: `toBeHidden` failed, *"19 × locator resolved to … role="listbox" … data-state="closed""*,
+  byte-identical to the close's R-2.
+- **Escalation ESC-W6r1-f3**: a quiet-host bisect of per-frame cost across `e0e204a9 → 50633f19 → 2183b814`, owned by
+  X-W5 (the shell/motion bytes) or X-W2 (frame budget), with W6's f3 re-read after it.
+
+### C1-3 (HIGH) — h1 canvas absent on the sRGB cell: ATTRIBUTED and CURED; the O- row WRITTEN
+
+- **Measured cause** (`probe-blob-arrival.mjs`, readings in `probe-readings.txt`). The blob canvas mounts behind the
+  overture beat DAG: the `b2` field settle, then the `b4` idle slice (`useOverture.ts:169-171`, rIC ceiling 500 ms), then
+  the async HeroBlob chunk (`ColorPicker.vue:103,165`), then engine init. On a warm server it arrives **1645–6429 ms**
+  after navigation (beat marks e.g. `b1@382 b3@462 b2@1084 b4@2034`, canvas at 2052). On the **first navigation of a
+  freshly spawned vite** it arrives at **17138 ms**, with FCP alone at **13848 ms** (the dev server's on-demand
+  transform). One further warm-server outlier read 16243 ms. The h1 test waited for it with the expect default,
+  **8000 ms**. Whichever seed ran first against a cold or starved server was RED with the canvas absent. That is why
+  the count moved between **3 failed** (the close, run on fresh `:8196` servers) and **1 failed · 2 passed** (Check 1).
+  C1-7's nondeterminism is this mechanism.
+- **Cure**: the h1 arrival wait is bounded by the test's own `test.setTimeout(60_000)` budget
+  (`toBeVisible({ timeout: 45_000 })`), with the measurement in the comment. **The chroma assertions, the stated ΔC 0.04
+  and the seeds are unchanged.** Arrival latency is not what h1 asserts; the overture DAG and its perf cells own it.
+- **Commit**: `b2bb8aab` `test(x-w6/repair-1): h1 waits out the blob's measured arrival, not the 8 s expect default`.
+- **O- row**: `O-52` (INBOX) for `W6-glass-ask-hero-blob-p3.md`, **SENT**. **Commit `65a552be`.** ⟨cmd⟩ `grep -c '^| I-\|^| O-' INBOX.md` → **96**.
+- **Gate re-reading** (⟨cmd⟩ `npx playwright test e2e/smoke/webgl-blob-idle.spec.ts -g "hero blob carries current chroma" --project=smoke`):
+  run 4 → `3 passed`; run 5 → **`3 passed (1.5m)`**, OM-6 ΔC **0.02527**, `oklch(0.65 0.3 150)` ΔC **0.00538**,
+  `oklch(0.55 0.37 328)` ΔC **−0.02165**, buffer `srgb`; run 6, on a **freshly spawned** server (`VJS_E2E_PORT=8490`, the case that failed) → **`3 passed (1.1m)`**,
+  ΔC 0.02538 · 0.00592 · −0.02168. **h1 GREEN ×3**, on the warm server twice and the cold server once. The owner's OM-6
+  beyond-sRGB limb stays **`H1-P3`**, honest-RED-by-physics (§0aq).
+
+### C1-5 (MEDIUM) — b1: ESCALATED (a ruling, not a byte)
+
+⟨cmd⟩ `sed -n 97-104p …/wb-gradient-stopeditor/gate-seat.mjs` → each key reloads, then `document.querySelector("[data-stop-id]").focus()`
+selects the **first** stop, which on this route sits at 0%. There, Home (want 0%) and ArrowDown (want −1%) are identity
+moves by the bound. The instrument is `execute, no write` (§4), so re-pointing it is not this seat's to do. The in-bounds
+witness `o21-gradient-rail.spec.ts:422` (*"keyboard grammar is total: an interior stop answers every key, a terminal
+holds its bound"*) **passed in runs 1 and 3** and failed in run 2 on an actionability wait (C1-2's starvation). **ESC-W6c-b1-1
+stays open**: COHESION rules either the X-W11 OUT-OF-WAVE re-point of G3d to an interior stop, or o21:422 / `.c`'s
+Act-4 transcript as b1's witness of record.
+
+### C1-4 (HIGH) — i3 cold-load first paint: NOT CURED; ESCALATED with the measured reason
+
+- **What the oracle measures.** `o28-atmosphere-coldload.spec.ts:22,38,119-123` runs each seed in a **fresh context
+  with no storage and no ground record**; the pick exists only in the URL (`#/?space=oklch&color=…`).
+- **What the grant covers.** §0aq ESC-R1-i3: *"a `<script>` before the module entry that seeds the first-painted
+  atmosphere **from the persisted pick**"*. The boot script already seeds from the persisted record
+  (`index.html` `color-picker-ground`, the `rec.deriveVersion === VERSION` branch). On o28's cold load there is no
+  persisted pick, so a seed read from storage cannot move o28.
+- **What a URL-seeded pre-module cure would need** (read at the bytes). The settled ground is
+  `normalizeGroundStops(palette.map(oklchStopToHex))` over `guaranteeSeamOffset(resolveCalibratedAtmosphere(fieldAtoms()), seed)`
+  (light) or `deriveAurora(seed, { scheme: "dark" })` (`useAtmosphere.ts:142-143,207-211,266-293`). Its seed is
+  `cssColorOpaqueFrame` from the colour pipeline (`App.vue:291-294`), which comes from `resolveHydratedBootModel()`
+  (`boot/hydrate.ts:110`) plus the pipeline's opaque serialisation (`demo/color-session/useColorPipeline.ts`, outside
+  `.i`'s set). A classic inline script can do this only by **copying the producer's `deriveAurora`** (banned). A module
+  seed does not paint first unless it is **render-blocking** (`blocking="render"`), which puts a module graph on the
+  critical path. That is a perf-bearing design act on X-W2's LCP bar (T Q14's escalation class), and it reaches the
+  pipeline's serialisation outside the grant. §3a names *"file-bound expansion"* and *"producer-boundary surprise"* as
+  triumvirate triggers, so this seat did not author it.
+- **Gate re-reading**: not re-run. No byte it reads moved in this repair. The close's RED (seeds 30 · 150 · 260) stands.
+- **Escalation ESC-W6r1-i3**: COHESION rules (a) whether §0aq's *"persisted pick"* includes the URL-carried pick, and
+  if so (b) the render-blocking boot-seed module, its reach into `useColorPipeline.ts`'s serialisation, and X-W2's
+  sign-off on the critical-path cost. The alternative is to re-point o28 at a storage-seeded cold load; that is an E-3
+  addendum to the oracle, not this seat's.
+
+### C1-6 (MINOR) — g2 flaky: the double-run DONE, and it is still flaky
+
+⟨cmd⟩ `npx playwright test e2e/smoke/views/companion-pane-track-start.spec.ts -g "companion panes share one track start" --project=smoke` ×2
+(`pw-g2-run{1,2}.txt`, load 68–81) → run 1 **`1 passed (19.6s)`**, run 2 **`1 failed`**: *"the Picker pane never settled"*.
+Run 4 also failed with the same message. It is the same starvation as C1-2: the pane's enter transform cannot reach
+rest while frames are 3–9 s apart. g2 is **GREEN on a settled host, and not reliably GREEN at this load**. It rides
+ESC-W6r1-f3's quiet-host re-read.
+
+### C1-7 (MINOR) — h1's count was nondeterministic: ATTRIBUTED, and CURED with C1-3
+
+The 3-failed vs 1-failed spread was the first-seed-on-a-cold-server case (C1-3). After `b2bb8aab`, runs 4 · 5 · 6
+(warm, warm, cold) read `3 passed` each.
+
+### C1-8 (MINOR) — §8 artefacts PARTIAL: NOT CURED (no one-command cure)
+
+The gradient before/after PNGs, the owner-mark re-captures and the cold-load frame each need a capture seat. Before
+frames cannot be re-taken, because the cures have already landed. They stay with the R-11 owners (`.a`/`.b` evidence
+repair · `.i`). This repair's own transcripts and probes are committed under
+`W6-evidence/gates/repair-1-2026-09-22/` (⟨cmd⟩ `ls … | wc -l` → **14**).
+
+### C1-9 (INFO) — no act owed
+
+### Tally at this repair's bytes (WRITE-THEN-MEASURE; read from the transcripts above)
+
+Per-test pass/fail across runs 1 · 2 · 3 (⟨cmd⟩ a `grep "^    \[smoke\] › …"` over `pw-run{1,2,3}.txt`; G = passed, R = failed, - = not in the run):
+
+| gate · test | run 1 | run 2 | run 3 |
+|---|---|---|---|
+| a3 · o21:143 one axis | R | G | R |
+| a4 · o21:188 inverse maps | R | R | R |
+| (a13 leg) o21:60 terminal truth | R | R | R |
+| b3 · o21:366 numeric entry | G | R | G |
+| a2 · gradient:163 crossing drag | R | G | R |
+| e1 · gradient:451 aurora | R | G | G |
+| f4 · o22 | G | - | G |
+| f6 · o23 | G | - | G |
+| f8 · o24 | G | - | G |
+
+**Moved to GREEN by this repair (×2 or more, same command):** **f4 · f6 · f8** (runs 1 and 3) and **h1** (runs 4 · 5 · 6).
+**Not read GREEN:** a2 · a3 · a4 · a13 · b3 · e1. e1 and b3 passed twice in three runs, but the command of record did
+not pass whole at this host load, so they are not published GREEN (C1-2's starvation; ESC-W6r1-f3).
+
+**SELF-COUNT, counted twice.** GREEN = the close's 31 + f4 f6 f8 h1 = **35**. RED = a2 a3 a4 a13 (4) + b1 b3 (2) + e1 (1)
++ f3 (1) + g1 (1) + i3 (1) + j1 j2 j3 (3) + H2 H4 (2) = **15**. 35 + 15 = **50**. Second count, by unit: `.a` RED
+a2 a3 a4 a13 (4); `.b` RED b1 b3 (2); `.e` RED e1 (1); `.f` RED f3 (1); `.g` RED g1 (1); `.i` RED i3 (1); `.j` RED
+j1 j2 j3 (3); wave-level RED H2 H4 (2). 4+2+1+1+1+1+3+2 = **15**. g2 stays in the GREEN column (Check 1 counted it there) but
+read **1 of 2** here (C1-6).
+
+**Unrelieved RED after this repair:** a2 a3 a4 a13 b3 e1 (C1-1 remainder: in-bounds bytes cured, reading blocked by the
+host), f3 (ESC-W6r1-f3), i3 (ESC-W6r1-i3), b1 (ESC-W6c-b1-1). **Honest-RED set unchanged:** g1 · j1 · j2 · j3 · H2 · H4.
+
+### Bounds, masking, mail
+
+- ⟨cmd⟩ `git diff --stat 098ee13a..HEAD -- demo src api scripts/dev/dev.sh docs/tranches/X/waves/W6.md docs/tranches/V/megatranche/registry docs/tranches/V/megatranche/audit` → **empty**.
+  Every path this repair wrote is §4 / §0aq: `e2e/smoke/views/gradient.spec.ts` and `o21`–`o24` (§4), `e2e/smoke/webgl-blob-idle.spec.ts`
+  and INBOX (`.h`'s set, §0aq), `W6-evidence/**`, this record and the LEDGER.
+- The o23/o24 runs re-wrote two committed §8 frames (`W6-evidence/catalog/after-catalog-open.png`, `after-specimen-dots.png`) as a
+  side effect of running. Those frames are prior evidence (E-3), so both were restored to HEAD bytes and nothing re-captured
+  was committed. The scratch probe copies at the repo root were removed; their committed copies live in the evidence directory.
+- **Masking: none.** No retired label was restored. No f3 or g2 wait was lengthened. The one wait that changed (h1 arrival) is
+  attributed by measurement and leaves every chroma assertion untouched.
+- Prettier: ⟨cmd⟩ `npx prettier --check` over the six touched specs → `gradient.spec.ts` and `webgl-blob-idle.spec.ts` warn. Both warn
+  **at HEAD before this repair** too (checked via `git show HEAD:<path> | prettier --check --stdin-filepath`), so they were not
+  reformatted (ADD-never-replace). ⟨cmd⟩ `git diff --check` → clean.
+- **E13**: INBOX `O-52` written (SENT). ⟨cmd⟩ `grep -c '^| I-\|^| O-' INBOX.md` → **96**. 0 UNREAD in scope.
+
+### Escalations (for COHESION)
+
+1. **ESC-W6close-1** (open; C1-1 remainder): the owner of the **61** e2e files still on the retired `main` label, outside W6 §4.
+2. **ESC-W6r1-f3** (new; C1-2 · C1-6 · the a2–e1 reading): a quiet-host bisect of per-frame cost across `e0e204a9 → 50633f19 → 2183b814`
+   (the X-W5 shell/motion bytes), owned by X-W5 or X-W2. The frame-starvation mechanism is measured here.
+3. **ESC-W6c-b1-1** (open; C1-5): re-point G3d (X-W11 OUT-OF-WAVE) or accept o21:422 / `.c` Act-4 as b1's witness.
+4. **ESC-W6r1-i3** (new; C1-4): does §0aq's *"persisted pick"* cover the URL pick, and if so, the render-blocking boot-seed module
+   plus its reach into `useColorPipeline.ts` (X-W2 sign-off). The alternative is an E-3 re-point of o28.
+
+### Commits
+
+`7733e557` (C1-1) · `65a552be` (O-52) · `b2bb8aab` (C1-3/C1-7) · this record + the evidence directory (the commit that adds this section).
+
+### Verdict
+
+**PARTIAL — 3 of the 4 HIGH defects are attributed, and 1 HIGH is cured whole.** C1-3 is cured: h1 is GREEN ×3 and the O- row is
+written. C1-1 is cured in bounds: f4, f6 and f8 are GREEN ×2, and the remainder is host-blocked or escalated. C1-2 is attributed
+and escalated. C1-4 is escalated. The MEDIUM (C1-5) is escalated. Of the MINORs, C1-7 is cured, C1-6 has its double-run done
+(still flaky), and C1-8 is carried. **GREEN 35 / RED 15.** The LEDGER row is **not promoted**; it stays PARTIAL. A fresh
+check is owed.

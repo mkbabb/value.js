@@ -1,0 +1,264 @@
+(node:1256) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[WebServer] (node:1311) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[WebServer] (Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 22 tests using 1 worker
+
+(node:1428) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1/22] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:60:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed)
+  1) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:60:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed) 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 8000ms
+      - waiting for getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()
+
+
+      39 |     await openView(page, "Gradient");
+      40 |     const main = page.getByRole("main", { name: "Gradient" });
+    > 41 |     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
+         |                                                                          ^
+      42 |     // Pixel probes judge a surface at rest — the cold-load stall-then-resume
+      43 |     // enter transition otherwise screenshots the rail mid-flight (see
+      44 |     // paneSettled).
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:41:74)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:64:18
+
+    Error Context: test-results/oracles-o21-gradient-rail--fa6c7--s-color-no-mirrored-bleed--smoke/error-context.md
+
+
+(node:2360) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[2/22] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:80:1 › the owned paint stack: normalized 90° ramp, no-repeat, border-box origin+clip
+  2) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:80:1 › the owned paint stack: normalized 90° ramp, no-repeat, border-box origin+clip 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: false
+    Received: true
+
+    Call Log:
+    - Test timeout of 30000ms exceeded
+
+       at smoke/fixtures/dock.ts:111
+
+      109 |             { timeout: 15_000 },
+      110 |         )
+    > 111 |         .toBe(false);
+          |          ^
+      112 | }
+      113 |
+        at paneSettled (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:111:10)
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:45:11)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:84:18
+
+    Error Context: test-results/oracles-o21-gradient-rail--8acc1-peat-border-box-origin-clip-smoke/error-context.md
+
+
+(node:3369) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[3/22] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:107:1 › pill silhouette (T-46): the rail rounds on the glass-ui slider-track register
+[4/22] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:143:1 › one axis: every handle centre sits where the ramp paints its own ordinal
+[5/22] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:188:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal
+  3) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:188:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  getByRole('main', { name: 'Gradient' }).getByTestId('gradient-stop-bar').last().locator('[data-stop-id]')
+    Expected: 3
+    Received: 2
+
+    Call log:
+      - Expect "toHaveCount" with timeout 8000ms
+      - waiting for getByRole('main', { name: 'Gradient' }).getByTestId('gradient-stop-bar').last().locator('[data-stop-id]')
+        18 × locator resolved to 2 elements
+           - unexpected value "2"
+
+
+      220 |         const rb = (await live.boundingBox())!;
+      221 |         await page.mouse.click(hb.x + hb.width / 2, rb.y + 4);
+    > 222 |         await expect(live.locator("[data-stop-id]")).toHaveCount(before.length + 1);
+          |                                                      ^
+      223 |
+      224 |         const after = await ids();
+      225 |         const mintedId = after.find((id) => !before.includes(id))!;
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:222:54
+
+    Error Context: test-results/oracles-o21-gradient-rail--c9334-pixel-reads-its-own-ordinal-smoke/error-context.md
+
+
+(node:5581) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[6/22] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:245:1 › type-scale containment: at rootFS 20px the terminal handles stay inside the rail
+  4) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:245:1 › type-scale containment: at rootFS 20px the terminal handles stay inside the rail 
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 1
+    Received:    1.22
+
+      270 |         expect(v.rootFS).toBe(fs);
+      271 |         expect(v.leftOverhang).toBeLessThanOrEqual(AXIS_TOL_PX);
+    > 272 |         expect(v.rightOverhang).toBeLessThanOrEqual(AXIS_TOL_PX);
+          |                                 ^
+      273 |     }
+      274 |     await rail.evaluate(() => {
+      275 |         document.documentElement.style.fontSize = "";
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:272:33
+
+    Error Context: test-results/oracles-o21-gradient-rail--677eb-andles-stay-inside-the-rail-smoke/error-context.md
+
+
+(node:6245) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[7/22] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:313:1 › the seat rail frees the meniscus: every rail ordinal mints, at any rail width
+  5) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:313:1 › the seat rail frees the meniscus: every rail ordinal mints, at any rail width 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('main', { name: 'Gradient' }).getByTestId('gradient-stop-bar').last()
+        - locator resolved to <div role="group" data-v-0bdce0e9="" data-testid="gradient-stop-bar" aria-label="Gradient stop rail" class="gradient-rail relative select-none touch-none cursor-copy">…</div>
+      - attempting click action
+        - waiting for element to be visible, enabled and stable
+
+
+      322 |     const box = (await rail.boundingBox())!;
+      323 |     for (const f of [0.12, 0.2, 0.28, 0.36, 0.44, 0.52, 0.6, 0.72, 0.8, 0.88]) {
+    > 324 |         await rail.click({ position: { x: box.width * f, y: box.height / 2 } });
+          |                    ^
+      325 |     }
+      326 |     await expect(rail.locator("[data-stop-id]")).toHaveCount(12);
+      327 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:324:20
+
+    Error Context: test-results/oracles-o21-gradient-rail--e6126-nal-mints-at-any-rail-width-smoke/error-context.md
+
+
+(node:7269) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[8/22] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:366:1 › stop inspector numeric entry round-trips to the ordinal the rail paints
+  6) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:366:1 › stop inspector numeric entry round-trips to the ordinal the rail paints 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: false
+    Received: true
+
+    Call Log:
+    - Test timeout of 30000ms exceeded
+
+       at smoke/fixtures/dock.ts:111
+
+      109 |             { timeout: 15_000 },
+      110 |         )
+    > 111 |         .toBe(false);
+          |          ^
+      112 | }
+      113 |
+        at paneSettled (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:111:10)
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:45:11)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:370:18
+
+    Error Context: test-results/oracles-o21-gradient-rail--73481-the-ordinal-the-rail-paints-smoke/error-context.md
+
+
+(node:8604) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[9/22] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:422:1 › keyboard grammar is total: an interior stop answers every key, a terminal holds its bound
+  7) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:422:1 › keyboard grammar is total: an interior stop answers every key, a terminal holds its bound 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.scrollIntoViewIfNeeded: Test timeout of 30000ms exceeded.
+    Call log:
+      - attempting scroll into view action
+        - waiting for element to be stable
+
+
+      426 |     const main = await openGradient(page);
+      427 |     const rail = bar(main);
+    > 428 |     await rail.scrollIntoViewIfNeeded();
+          |                ^
+      429 |
+      430 |     const box = (await rail.boundingBox())!;
+      431 |     await rail.click({ position: { x: box.width * 0.5, y: box.height / 2 } });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:428:16
+
+    Error Context: test-results/oracles-o21-gradient-rail--5f1e1--a-terminal-holds-its-bound-smoke/error-context.md
+
+
+(node:9588) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[10/22] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:491:1 › one removal owner: the floor is a disabled control carrying its reason
+  8) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:491:1 › one removal owner: the floor is a disabled control carrying its reason 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('main', { name: 'Gradient' }).getByTestId('gradient-stop-bar').last().locator('[data-stop-id]').first()
+        - locator resolved to <button type="button" role="slider" aria-valuemin="0" aria-valuenow="0" data-v-0bdce0e9="" aria-valuemax="100" aria-selected="false" aria-orientation="horizontal" data-stop-id="stop-1-mud83fra" aria-label="Gradient stop 1 of 2" aria-valuetext="Stop 1 of 2, position 0%" class="rail-handle absolute rounded-full cursor-grab active:cursor-grabbing z-0">…</button>
+      - attempting click action
+        - waiting for element to be visible, enabled and stable
+
+
+      503 |
+      504 |     // At the two-stop floor the control is PRESENT and refused, with a reason.
+    > 505 |     await rail.locator("[data-stop-id]").first().click();
+          |                                                  ^
+      506 |     await expect(remove).toBeVisible();
+      507 |     await expect(remove).toBeDisabled();
+      508 |     const reasonId = await remove.getAttribute("aria-describedby");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:505:50
+
+    Error Context: test-results/oracles-o21-gradient-rail--99cb5-control-carrying-its-reason-smoke/error-context.md
+
+
+(node:10504) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[11/22] [smoke] › e2e/smoke/views/gradient.spec.ts:41:1 › gradient view renders direction slider with zero console errors
+[12/22] [smoke] › e2e/smoke/views/gradient.spec.ts:76:1 › the rail is a normalized 90° projection; the render tile carries type + direction (T-21b)
+[13/22] [smoke] › e2e/smoke/views/gradient.spec.ts:121:1 › selecting a stop marks it; Escape and re-tap release it without destroying it (P7-R1)
+[14/22] [smoke] › e2e/smoke/views/gradient.spec.ts:163:1 › neighbour-crossing drag round-trips: the emitted CSS re-applies with no verdict
+[15/22] [smoke] › e2e/smoke/views/gradient.spec.ts:209:1 › a grab is not a teleport, and no secondary button mints
+[16/22] [smoke] › e2e/smoke/views/gradient.spec.ts:243:1 › stop add (bar click mints the ramp color), drag, and touch-true remove
+[17/22] [smoke] › e2e/smoke/views/gradient.spec.ts:299:1 › round-trip: authored CSS applies atomically with literals preserved
+[18/22] [smoke] › e2e/smoke/views/gradient.spec.ts:329:1 › garbage input fails LOUD and leaves the model untouched
+[19/22] [smoke] › e2e/smoke/views/gradient.spec.ts:353:1 › radial geometry is model-or-reject, never a silent drop
+[20/22] [smoke] › e2e/smoke/views/gradient.spec.ts:367:1 › easing row carries its live ramp; steps mode lands in the literal
+[21/22] [smoke] › e2e/smoke/views/gradient.spec.ts:401:1 › no pane subtree rests on a permanent compositing transform (W5-10)
+[22/22] [smoke] › e2e/smoke/views/gradient.spec.ts:451:1 › gradient selector aurora
+  8 failed
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:60:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed) 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:80:1 › the owned paint stack: normalized 90° ramp, no-repeat, border-box origin+clip 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:188:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:245:1 › type-scale containment: at rootFS 20px the terminal handles stay inside the rail 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:313:1 › the seat rail frees the meniscus: every rail ordinal mints, at any rail width 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:366:1 › stop inspector numeric entry round-trips to the ordinal the rail paints 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:422:1 › keyboard grammar is total: an interior stop answers every key, a terminal holds its bound 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:491:1 › one removal owner: the floor is a disabled control carrying its reason 
+  14 passed (8.2m)
+EXIT 1

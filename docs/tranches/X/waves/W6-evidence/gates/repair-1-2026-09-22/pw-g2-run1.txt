@@ -1,0 +1,11 @@
+(node:59913) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:59935) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1/1] [smoke] › e2e/smoke/views/companion-pane-track-start.spec.ts:113:5 › X.W6.g · g2 — the shared row contract › companion panes share one track start
+  1 passed (19.6s)
+EXIT 0

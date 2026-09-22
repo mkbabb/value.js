@@ -1,0 +1,29 @@
+(node:60689) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:60770) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1/1] [smoke] › e2e/smoke/views/companion-pane-track-start.spec.ts:113:5 › X.W6.g · g2 — the shared row contract › companion panes share one track start
+  1) [smoke] › e2e/smoke/views/companion-pane-track-start.spec.ts:113:5 › X.W6.g · g2 — the shared row contract › companion panes share one track start 
+
+    Error: the Picker pane never settled
+
+      79 |         await page.waitForTimeout(250);
+      80 |     }
+    > 81 |     throw new Error(`the ${label} pane never settled`);
+         |           ^
+      82 | }
+      83 |
+      84 | async function readRowOnce(page: Page, label: string): Promise<TrackRow> {
+        at readRow (/Users/mkbabb/Programming/value.js/e2e/smoke/views/companion-pane-track-start.spec.ts:81:11)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/companion-pane-track-start.spec.ts:116:24
+
+    Error Context: test-results/views-companion-pane-track-0799b-panes-share-one-track-start-smoke/error-context.md
+
+
+  1 failed
+    [smoke] › e2e/smoke/views/companion-pane-track-start.spec.ts:113:5 › X.W6.g · g2 — the shared row contract › companion panes share one track start 
+EXIT 1
