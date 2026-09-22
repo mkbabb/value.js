@@ -2206,3 +2206,199 @@ of the canon is **CC-102 at X-W10**, and the three workbench corpora's `61.80339
 mechanism note) are the routed records' own homes, not this unit's four files. **Escalations**: none.
 
 **Commits**: `e2f56558` · this record.
+
+---
+
+## Close — RESUME ROUND 3, 2026-09-22 (VERIFY-ONLY close seat)
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X-W5 CLOSE, RESUME ROUND 3 · clock 2026-09-22 ~16:15–16:40 -0400 ·
+HEAD at open `4bbdd952` · date of record 2026-09-17 (begin-word, COHESION §0j). This seat cured nothing: no product,
+spec, or evidence byte was moved. It wrote this section, one GREEN JSON that §8 owes to the wave close, the LEDGER row, and nothing else.
+
+**Verdict: PARTIAL.** All five units have landed their §9 commits (1–5). Eleven gate ids are still RED or escalated,
+and each has a named owner (CL.2, CL.6). IMPLEMENTED is not stamped (CL.8).
+
+### CL.0 Crash-recovery (STANDING LAW)
+
+⟨cmd⟩ `git status --porcelain` → 2 rows: ` M docs/tranches/V/reformation/CARRY-LEDGER.md`, which belongs to a sibling seat and was left untouched, and
+` M scripts/dev/dev.sh`, which was never touched. **No path in this seat's writable set was dirty** (`execution/A/X-W5.md`,
+`execution/LEDGER.md`, `waves/W5/green/`), so there was no inherited partial. The killed RC2 partial was already committed by the R3 open.
+
+### CL.1 Commit roster and bounds audit
+
+⟨cmd⟩ `git log -1 --format=%h <sha>` → all 18 exist. ⟨cmd⟩ `git show --name-only --format='' <sha>` gives each commit's scope:
+
+| unit | commits | scope (files) | in bounds? |
+|---|---|---|---|
+| X.W5.a | `c0cf27bf` · `de99ec15` · `f94d22af` | 1 · 34 · 1 | yes (audited RC2.1, unchanged) |
+| X.W5.b | `adc312f6` · `2fa82bdb` | 6 · 1 | yes (audited RC2.1) |
+| X.W5.c | `afe230b5` (born-RED + N11) · **`50633f19`** (§9 c3) · `a1bef4f0` (GREEN JSON + 18 layout shots + MANIFEST) · `151e3e5c` (receipt) · `4c594655` (LEDGER) | 5 · 13 · 20 · 1 · 1 | yes: 10 §4 rows ⊕ fold BD-01 `usePalettePorts.ts` · BD-02 `useSlugMigration.ts` · BD-05 `usePaletteWiring.ts` (R3.4 plan fact) |
+| X.W5.d | **`2183b814`** (§9 c4) · `5fbf6d5c` (spec half 2) · `ae98f5a1` (D1/D4/D5 JSON + `app-wave/pi` pair) · `9b35754f` · `1c853f20` (receipt) | 7 · 1 · 9 · 2 · 1 | yes: all 7 are §5 X.W5.d files. ⟨cmd⟩ `git diff 4c594655 2183b814 -- App.vue` shows one `:class` binding plus its comment (class names only) |
+| X.W5.e | **`e2f56558`** (§9 c5) · `749e1335` · `4bbdd952` (receipt + erratum) | 4 · 1 · 1 | yes: the four normative docs only |
+
+**Bounds: CLEAN.** ⟨cmd⟩ the union of the 18 commits' paths → **94** distinct paths. One ERE over §4's *Do NOT touch* set
+(`^(src/|api/|test/|node_modules/|scripts/dev/dev.sh|demo/ui/|demo/styles/overture.css|…/ActionBarLayer.vue|.*registry/|docs/tranches/V/archive/)`)
+→ **0**. **Landed-wrong: none**, meaning no commit wrote outside its unit's set. Landed-by-consequence is a different class, reported in CL.6
+(o12/o16 and `e2e/visual/**`).
+
+### CL.2 Gate table: BEFORE (wave-open 2026-09-19) → AFTER (this seat's clock, at HEAD `4bbdd952`)
+
+**How these were read.** Every static gate was run from one 17-line script, `scratchpad/w5close.sh`, executed twice.
+⟨cmd⟩ `diff r1 r2` → **IDENTICAL**. The live gates were re-run by this seat, twice each, with `run_in_background` and
+polling, in one bounded chromium session per probe:
+- C1/C2/C5/C6: `c-probe.mjs`, against its own `vite --port 9011` dev server, stopped afterwards.
+- D1: `scene-swap-budget.mjs`, against a fresh `vite build --mode gh-pages --outDir <scratch>` served statically on
+  `:8093`, never the shared `dist/`.
+- B1–B3: `layout-utilization.mjs --json`, against the same bundle.
+
+The host 1-minute load average was **34–40** during the live runs, because of the sibling seats.
+
+#### Unit a (landed; not re-dispatched, §0ac)
+
+| # | BEFORE | AFTER (this seat) | verdict |
+|---|---|---|---|
+| A1 | exit 1 · App 7 | `node -e` → **exit 0**; App `useGlobalDark\|provideApiClient\|^import "../styles` → **0** | **GREEN** |
+| A2 | `[b0,b1,b2]`, blob absent | banked `green/A2-…json`: marks ⊇ {b3,b4} on 15/15; blob `false` on `/#/generate` | **marks GREEN · blob arm RED** (ESC-W5-1, standing) |
+| A3 | `{mobile:false, desktop:true}` | honest-RED **by ruling** (§0k.3 S-1: cure → X-W8). The class dissolved with `.c`'s fork, as C2 now shows live | **honest-RED, owner X-W8** |
+| A4 | `bindPane` 0 | ⟨cmd⟩ `grep -ro bindPane demo/ \| wc -l` → **10**. It was 12 at RC2 because `.c` collapsed the three call sites into one `v-for`. The bite (`TS2554`) is cited from unit a and was not re-run: a VERIFY-ONLY seat does not edit `App.vue` | **GREEN (structural; bite cited)** |
+| A5 | `<h1` 0 | ⟨cmd⟩ `grep -rn '<h1' demo/ --include='*.vue'` → **4** carriers; banked 15/15 on the spec's four arms | **GREEN as authored** (the OUTLINE arm is residual 1) |
+| A6 | `?space=…` | banked `{green:true, bootSilent:true, offenders:[]}` | **GREEN** |
+| A7 | 3 arms false | ⟨cmd⟩ `role="status"` → **3**; banked five arms all true | **GREEN** |
+| N1 · N3 · N4 · N6 · N7 · N8 | RED | `onDeactivated` **5** files · bite cited · `valueOrThrow` **18**, all `picker-color.ts` · roles + `aria-labelledby` · no `:max` literal in the pane-cache seam (the 3 live hits are `<Slider>`-grammar attributes on `GenerateControls` · `GradientVisualizer` · `ExtractControls`, and the 2 in `usePaneRouter.ts:153-154` are doc comments) · `interface PaneSlot` **0** | **GREEN** |
+| N5 | 1 carrier over the grid | ⟨cmd⟩ `grep -c '<ErrorBoundary' App.vue` → **1**. That is one template inside the `.c` `v-for`, so there is still **one per region seat, outside KeepAlive** (`App.vue:124`, wrapping `<PaneSlot>`). Its count fell from 3 by the collapse; the arm did not regress | **3/4 GREEN · ROUTE-RESET arm RED** (owner X-W7, S-7) |
+
+#### Unit b (landed; not re-dispatched)
+
+| # | BEFORE | AFTER | verdict |
+|---|---|---|---|
+| B1 · B2 · B3 | 0 scrollable · 608 px cap · 45.4 % | see CL.2b (re-run live by this seat) | see CL.2b |
+| B4 | `100dvh` 1 · `svh` 0 · cap 11/4 | ⟨cmd⟩ **0** · **3** files · **3** (all comments in `PaneSlot.vue`, inside the fold-`:41` GATING-LOCKED paragraph) | **arms 1–2 GREEN · arm 3 honest-RED at 3** |
+| B5 · B6 | no record | recorded readings stand in unit b's receipt and at the `shell.css` sites | **GREEN by record** |
+| N9 · N13 | absent probe · 3 live pins | `css-emission-probe` **0** · `select-font` **2**, both the strike's own narrative | **GREEN** |
+
+#### Unit c (landed `50633f19`)
+
+| # | BEFORE | AFTER (this seat, live ×2, identical) | verdict |
+|---|---|---|---|
+| C1 | `#/` 69/1751 = 0.0394 · 7/15 | `#/` **973/1751 = 0.5557** · **14/15** ≥ 0.9. `textContent` 4825 = 4825 (ratio 1.0), with `content-visibility:auto` ×33 at both widths | **RED** (ESC-W5c-1, §3a named trigger) |
+| C2 | false | `regenerateFound:true, specimenChanged:true, textChanged:true`, 2 regions at 390 | **GREEN** |
+| C3 | 38–39 / 13 | ⟨cmd⟩ **23 / 9 files**. Shell layout-fork sites (App · usePaneRouter · useViewManager · viewSchema · shell.css) → **0**. Dock G-L `useMediaQuery` → **2** | **RED, back-gated on G-L (X-W8); NOT CLOSED** |
+| C4 | file exists | `test ! -e …` → **0**; importers **0**; demo vue-tsc EXIT 0 | **GREEN** |
+| C5 | canvas 1/2 · roots 0/2 | `{canvasIdentitiesKept:1/1, rootIdentitiesKept:2/2}` across 1440×900 → 720×450 | **GREEN** |
+| C6 | RED input | **30/30** card rows, e.g. `cardFilters ["none","none"]`, carrier `clip inset(14px round 16px)` · `blur(7px) saturate(1.4)` | **GREEN** |
+| C7 | 7 (6 at R3 HEAD) | viewport `@media` **4** (`ConsoleRail:342` · `DockStatusLamp:70` · `animations.css:17` · `foundation.css:526`); capability queries **33 → 33** | **RED** (target 3) |
+| C8 | 13 | `node -e` → **exit 0** (0 rows) | **GREEN** |
+| N2 · N10 · N11 · N12 | RED | `as ViewId` **0** (bite EXIT 2 cited from `.c`) · `BouncyTabs\|lg:flex` **0** · `afe230b5` ⊂ `50633f19` · every dep has a reader | **GREEN** |
+| N14 | 7 sites, 6 invisible | printed by `.c`: 5 visible · 1 partial · 2 invisible (router names, `e2e/visual/census.ts`) | **RED** |
+| N15 | query before selector | unchanged, in `AdminPane.vue:11-22` vs `:44` | **ESCALATED** (ESC-W5c-2) |
+
+#### Unit d (landed `2183b814` + `5fbf6d5c`)
+
+| # | BEFORE | AFTER | verdict |
+|---|---|---|---|
+| D1 | probe2: 0.71 · 0.26 · 0.63 · 0.23 | this seat, the built bundle, `over32/frames` and median ms. **Run 1**: gradient **0.294**/9 · extract 0.140/12 · mix **0.333**/19 · generate **0.164**/9, exit 1. **Run 2**: gradient **0.371**/9 · extract 0.143/11 · mix **0.346**/30 · generate 0.138/9, exit 1. Every hop `animated:true` | **RED**. It reproduces `.d`'s 10/10 (gradient and mix breach every run), so ESC-W5d-1 (a §3a trigger) stands |
+| D2 | exit 0 | ⟨cmd⟩ `git ls-files --error-unmatch …/probe2-log.txt` → **0** | **GREEN** |
+| D3 | 18 physical | ⟨cmd⟩ `pane-wrapper--left\|--right` in `demo/` → **0**. `RegionRole = "stage" \| "inspector" \| "action"`, and `animations.css` names each role **8×** (enter-from · leave-to · enter-active · leave-active, forward + `back` arm) | **GREEN** |
+| D4 | Mix 0 `<Transition` | `MixSourceSelector.vue` → **1** (`vj-morph`, out-in, one root per branch). The census found 2 `SegmentedTabs` files; `AdminNamesPanel.vue` `<Transition ` → **0**, a bare `v-if`/`v-else` | **RED** (Mix site GREEN; AdminNamesPanel ESC-W5d-2) |
+| D5 | guard at `:184` | guard still at `:184`. ⟨cmd⟩ `git diff 4c594655 2183b814 -- demo/ \| grep '^+' \| grep -cE 'animation-timeline\|animation-range\|scroll-timeline\|view-timeline'` → **0**. Forced-PRM travel 0 ms banked (`green/D5-…json`) | **GREEN** |
+
+#### Unit e (landed `e2f56558`)
+
+| # | BEFORE | AFTER | verdict |
+|---|---|---|---|
+| E1 | 7 lines / 8 occ | ⟨cmd⟩ `grep -rcE` over the 4 docs → `0·0·0·0`; broad `%`-form → **0** | **GREEN** |
+| E2 | uncited | ⟨cmd⟩ `git show e2f56558 \| grep '^+' \| grep -E '66\.6666667\|33\.3333333'` → **7** added lines, and **7** carry `P122` (0 bare) | **GREEN** |
+
+### CL.4 E13: the four-path mail sweep at this seat's clock
+
+BK is still the newest glass tranche directory (⟨cmd⟩ `ls -t ../glass-ui/docs/tranches/ | head -1` → `BK`). ⟨cmd⟩ `find <p> -maxdepth 1 -type f
+-newer X-W5.md`, run before this section was written, was **empty** on all five paths: value.js `V/` · `V/coordination/` · glass-ui
+`BK/coordination/` · keyframes.js `V/coordination/` · atlas `P/coordination/`. ⟨cmd⟩ `grep -nE '\|\s*\**UNREAD\**\s*\|' INBOX.md`
+→ **0** rows. The tail is still **I-39**. **0 UNREAD in scope**, so E13 is satisfied.
+
+### CL.5 Landed-wrong
+
+**None.** Every commit's path set lies inside its unit's writable set (CL.1).
+
+### CL.6 Escalations (standing, re-confirmed at HEAD; none newly minted by this seat)
+
+1. **ESC-W5c-1 · C1** (§3a named trigger). The C1 reading reproduced ×2 at this seat: `#/` 0.5557, and textContent 1.0 on all 15 routes. The residue is
+   `content-visibility:auto` (×33) in AboutPane dropping off-viewport text from `innerText`. Two cures are possible, and both are
+   substitutions: re-metric the gate, or change AboutPane (out of set, and a perf decision of record). **The triumvirate rules.**
+2. **ESC-W5c-2 · N15** (bounds). Source order lives in `demo/palettes/admin/AdminPane.vue:11-22`/`:44`, which is in neither W5 §4 nor BD-22.
+   It needs either a bounds grant or a re-home to X-W7 (CE-5).
+3. **ESC-W5d-1 · D1** (§3a named trigger: "frame budget unmet after the transition re-key"). It reproduced ×2 at this seat
+   (gradient 0.294/0.371 · mix 0.333/0.346). Three rulings are owed: the instrument conditions (host load 34–40 here), the out-in
+   co-mount re-probe (the fold `:41` GATING LOCK), and Mix's own frame cost. The oracle-flake trigger is also live.
+4. **ESC-W5d-2 · D4** (bounds). `demo/palettes/browser/admin/AdminNamesPanel.vue:24/:75` has a bare `v-if`/`v-else` behind
+   `SegmentedTabs :14`, which is outside §4. It needs a bounds grant for the one-root named-`<Transition>` cure.
+5. **Landed-by-consequence** (ESC-W5c-3 + ESC-W5d-3). Re-confirmed at HEAD:
+   - `e2e/smoke/oracles/o12-blob-seat.spec.ts:68` and `o16-computed-cascade.spec.ts:158` still select `.pane-wrapper--left`. The fix is a
+     one-token re-point to `--stage`.
+   - `e2e/visual/census-parity.spec.ts:88-90,124` reads `unionMembers("RightPane")`, and ⟨cmd⟩ `grep -c RightPane viewSchema.ts` → **0**.
+   - `e2e/visual/capture.ts:560` still reads `defaultPaneIndex`.
+
+   All of these paths are outside W5 §4. The owner is X-W1's visual lane plus the X-W2 oracle holder, or a §3a grant.
+6. **ESC-W5-1 · A2 blob arm** (standing from the first close): unfalsifiable as authored. **The triumvirate rules.**
+
+### CL.7 Residuals, each with a named owner
+
+| # | residual | owner |
+|---|---|---|
+| 1 | A5's OUTLINE arm (4 of 15 routes) | X-W10 (heading-outline canon) per the first close |
+| 2 | N5's ROUTE-RESET arm (a route watch inside `ErrorBoundary.vue`) | **X-W7** (§0k.3 S-7) |
+| 3 | A3 mobile/desktop dock parity | **X-W8** (§0k.3 S-1) |
+| 4 | B3 block extent: at the first close, 2 of 10 routes ≥ 90 % (`#/` 99.7 · `#/blob` 99.2), and see CL.2b for this seat's reading. The cap is dead, and the shortfall is scene content | **X-W6** (CC-056 / V·L3, the scene compositions) |
+| 5 | B4 arm 3: 3 `content-max-h` comment mentions in `PaneSlot.vue`'s GATING-LOCKED paragraph | the out-in re-probe holder (fold `:41`), which rides ESC-W5d-1's ruling |
+| 6 | C3: 23 occurrences / 9 files remain (Dock `isDesktop` + `useMediaQuery` ×2 = G-L, plus six non-shell components) | **X-W8** (G-L) · the six components have no W5 bound, so they go to X-W6 / X-W8 per their homes |
+| 7 | C7: 4 → target 3 (`animations.css:17` `edit-drawer-in` is preserve-edict; `DockStatusLamp:70`; `ConsoleRail:342`; `foundation.css:526` is the kept `--dock-*` arm) | **X-W8** (dock/lamp) · X-W6 (ConsoleRail) |
+| 8 | N14: the router `name:` strings and `e2e/visual/census.ts`, which are invisible to vue-tsc | BD-08 owner · **X-W1** (visual lane) |
+| 9 | EB-24 / W5F-47: `ErrorBoundary` plate swap has no motion | **X-W7** (S-7) |
+| 10 | the foreign `"Color tool panes"` landmark name, in 66 `e2e/**` files | X-W1 (LEDGER `:34` ESC-b3) |
+| 11 | foreign REDs seen and not touched: vitest `spectrum-luma` C-5 and `reka-binding-idiom` NG-6; e2e tsc `o23` ×5; test tsc `space-catalog.ts` ×11 | X-W4 (C-5, fold R23) · NG-6's own route · **X-W6** (o23, space-catalog) |
+| 12 | the L-18 rider: two quartet challenge passes before ACCEPTED | the orchestrator under FORMATION-LAWS L-18 |
+
+### CL.2b Unit b's live gates, re-run by this seat (placed after CL.7 because it was measured last)
+
+⟨cmd⟩ `PROBE_BASE=http://localhost:8093 node …/audit/probes/layout-utilization.mjs --json` was run ×2. The `gates` blocks of the two runs are **identical**.
+
+| # | AFTER (runs 1 = 2) | verdict |
+|---|---|---|
+| B1 | 8 routes in scope at 390×844, and every content-exceeding route scrolls (`#/` 8754/844 · gradient 1575 · browse 1044 · blob 3283 …) | **GREEN** |
+| B2 | 20 rows (10 routes × 16/9 and 21/9): `<main>` and `.pane-container` `maxHeight === "none"`, `contentMaxH ""` | **GREEN** |
+| B3 | at 3440×1440: `#/` **99.7** · blob **99.2** · gradient 76.8 · atmosphere 52 · mix 51 · palettes 51 · extract 45.5 · browse 39.5 · generate 39.5 · admin/users 18.1. So **2 of 10** routes reach ≥ 90 %, the same as the first close | **honest-RED** (residual 4, owner X-W6) |
+| B5 | `b5Support` (webkit): `overflow-block` **true** · `min-block-size 100svh` **true** · `height 100svh` **true** | **GREEN by record** |
+
+Banked: `docs/tranches/X/waves/W5/green/B1-B2-B3-layout-utilization-2026-09-22.json`, holding both runs. It is the §8 GREEN that unit b left to the close.
+
+### CL.3 Cadence (§7) and Verification Artefacts (§8)
+
+- ⟨cmd⟩ `npx vue-tsc -p tsconfig.demo.json --noEmit` → **EXIT 0**.
+- ⟨cmd⟩ `npx eslint --max-warnings=0 <the 16 W5-touched .ts/.vue/.mjs/.spec paths>` → **EXIT 0**.
+- ⟨cmd⟩ `npx vitest run` → **639 passed / 2 failed** (38 files, 36 passing). The 2 failures are the foreign born-RED canaries C-5 and NG-6, the same pair `.c` and `.d` saw. The library suite did not move.
+- ⟨cmd⟩ `git diff --check e2f56558~1 e2f56558` → **0**.
+
+§8 artefacts, as tracked in git (⟨cmd⟩ `git ls-files`):
+
+| artefact | state |
+|---|---|
+| `waves/W5/born-red/` | A2-A3-A6 · A3 · A5-A6-A7 · B1-B2-B3 · C1-C2-C5 · D1-BEFORE · N11 · STATIC ×2. **Present** |
+| `waves/W5/green/` | A2 · A3 · A5-A6-A7 · C1-C2-C5-C6 · D1-AFTER · D4 · D5 · PORTAL-INTEGRITY-DELTA · STATIC, **plus B1-B2-B3, banked by this seat**. **Present** |
+| `audit/visual/layout/` | **19** files, the two triples (18 shots) plus `MANIFEST.json` with sha256 (`a1bef4f0`). **Present** |
+| `audit/probes/app-wave/pi/` | desktop-1440 and mobile-390 captures of `/#/generate`, plus the H1 a11y dump pair and a MANIFEST (`ae98f5a1`, `9b35754f`). **Present** |
+| `scene-swap-budget.mjs` output | BEFORE `born-red/D1-…BEFORE` and AFTER `green/D1-…AFTER` (`ae98f5a1`). **Present** |
+| D-E portal-integrity delta | `green/PORTAL-INTEGRITY-DELTA-2026-09-19.json`. **Present** |
+| B5 reading and B6 rationale | quoted in unit b's receipt and in CL.2b. **Present** |
+
+### CL.8 Four-verb status: moved exactly as §State permits, and no further
+
+| verb | state |
+|---|---|
+| AUDITED | YES (unchanged) |
+| SPECIFIED | YES (unchanged) |
+| IMPLEMENTED | **NO, not stamped.** §9 commits 1–5 have all landed, but §9 row 6 flips to IMPLEMENTED only at a close whose hard gate holds. C1 · C3 · C7 · D1 · D4 · N14 · N15 · A2-blob · B3 · B4-arm-3 · N5-reset stay RED or escalated, so the wave reads **PARTIAL** |
+| VERIFIED | NO. It is stamped only at X-W11's release close (§9 row 6) |
+
+L-18 rider: the wave cannot be ACCEPTED until its gates are GREEN and it has passed the two quartet challenge passes.
+
+**Commit roster for this close**: the record and the B1-B2-B3 GREEN JSON are committed together in one pathspec commit, and the LEDGER row goes in a second.
