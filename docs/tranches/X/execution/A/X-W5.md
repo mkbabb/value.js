@@ -1943,3 +1943,105 @@ recorded disposition at `:441`. `.c` names the path in its receipt as inherited.
 
 ## Unit receipts — RESUME ROUND 3
 
+
+### X.W5.c
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X.W5.c, RESUME ROUND 3 · 2026-09-22 · verdict **PARTIAL** (commit 3 LANDED; C3 back-gated, C1/C7/N14 honest-RED, N15 ESCALATED).
+
+#### Act 0 — crash-recovery (STANDING LAW)
+
+⟨cmd⟩ `git status --porcelain` → 15 rows. Inside this seat's writable set: the **inherited** X.W5.c cure, 12 × `M` + `D  demo/shell/PaneSegmentedControl.vue` (staged). ⟨cmd⟩ `git diff HEAD --stat -- demo/ e2e/` → `13 files changed, 831 insertions(+), 816 deletions(-)` — the RC.0a/RC2.0a/R3.0 figure, unchanged. Outside the set, untouched: `V/reformation/CARRY-LEDGER.md`, `V/coordination/INBOX.md`, `execution/C/F-W11.md` (sibling seats), `scripts/dev/dev.sh` (never touched). Inherited paths, each read per file (`git diff HEAD -- <path> | head -150`) and judged hunk by hunk against `W5.md` §5 X.W5.c + X-W5-FOLD §1.B/§1.D/§2a/§2b/§6c/§6d:
+
+| inherited path | judgement |
+|---|---|
+| `demo/shell/viewSchema.ts` | CONFORMS — `left`/`right`/`leftLabel`/`rightLabel`/`defaultPaneIndex` → ordered non-empty `regions: readonly [SceneRegion, ...SceneRegion[]]` of `{role, pane, label}` (PSC-12 pair type; PSC-3 all 14 `ViewId`s; M-DU11 admin consoles single-region) |
+| `demo/shell/usePaneRouter.ts` | CONFORMS, **one hunk rewritten**: the unchecked `key as PaneId` cast in `bindPane` removed (`onPaneMount` now takes `key: string`; App's reader compares strings) — a new cast at the seam N2 exists to kill was not admissible |
+| `demo/shell/useViewManager.ts` | CONFORMS — mobile pane index + view-tagged override deleted; `currentView` typed `ComputedRef` (PSC-15(b)) |
+| `demo/color-picker/App.vue` | CONFORMS, one hunk rewritten (the `PaneId` import dropped with the cast) — the v-if/v-else fork + `useBreakpoint` predicate deleted; one `v-for` over `regions[]`; ghost wrapper + `[data-layout]` stamp gone |
+| `demo/styles/shell.css` | CONFORMS — `auto-fit` grid; `[data-layout]` witnesses + width∧aspect dual arm retired; T-45 carrier re-seat stated at the seat (selectors unchanged, element moved) |
+| `demo/shell/dock/Dock.vue` | CONFORMS — PSC import + render site + `.dock-mobile-panes` block only; `:87` `useMediaQuery` predicate (G-L, X-W8) NOT touched |
+| `demo/shell/PaneSegmentedControl.vue` | CONFORMS — deletion (staged `D`) |
+| `demo/palettes/usePalettePorts.ts` (BD-01) · `useSlugMigration.ts` (BD-02) | CONFORM — both casts gone; `setActiveView: (id: ViewId) => void`; phantom `userLogout`/`ensureUser`/`activeTab` deleted; `useSession` hard import → injected `ensureSession` |
+| `demo/color-picker/composables/usePaletteWiring.ts` (BD-05) | CONFORMS — exactly the two compile-forced hunks (R3.4 note) |
+| `e2e/smoke/{dual-pane-1440,mobile/walk,mobile/page-load-mobile}.spec.ts` | CONFORM — presence assertions, content-landmark shape both directions plus return |
+
+**Retired spellings, quoted once here** (the source comments point at this record so C3/C8/N2/N14 census the tree, not footnotes): `left: LeftPane` · `right: RightPane` · `leftLabel` · `rightLabel: string \| null` · `defaultPaneIndex?: 0 \| 1` · `mobilePaneIndex` · `paneOverride` · `currentView as unknown as Ref<ViewId>` · `currentView as Ref<string>` · `(tab: string) => depsSwitchView(tab as ViewId)` · `setActiveTab("saved")` ×3 · `useBreakpoint("(min-width: 1024px) and (min-aspect-ratio: 1.1)")` · `:data-layout="isDesktop ? 'desktop' : 'mobile'"`.
+
+#### Act 1 — gates before the landing (worktree, background runs polled ≤60 s)
+
+- ⟨cmd⟩ `npx vue-tsc -p tsconfig.demo.json --noEmit` → **EXIT 0** (run twice: before and after the cast rewrite). `-p tsconfig.lib.json` → EXIT 0.
+- ⟨cmd⟩ `npx eslint --max-warnings=0 <the 11 touched .ts/.vue/.spec paths>` → **EXIT 0** (re-run on App.vue + usePaneRouter.ts after the rewrite → EXIT 0).
+- ⟨cmd⟩ `npx vitest run` → 639 passed / **2 failed**, both FOREIGN born-RED canaries that name their own routes: `test/spectrum-luma.test.ts` C-5 ("cure routed to X-W4 (fold R23)") and `demo/test/shell/reka-binding-idiom.test.ts` NG-6 (`SearchFilterBar.vue:52-53`). Neither file nor its subject is in this unit's set; neither reads `viewSchema`/`usePaneRouter`.
+- ⟨cmd⟩ `npx tsc -p tsconfig.e2e.json --noEmit` → EXIT 2, **5 errors, all in `e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts`** (`as never` over a `dist/subpaths/color.js` import — X-W6's `e0e204a9`). ⟨cmd⟩ `npx vue-tsc -p tsconfig.test.json --noEmit` → EXIT 2, **11 errors, all `demo/color-session/space-catalog.ts` `Cannot find module '../../assets/docs/*.md'`** (X-W6). Zero errors in any W5 path.
+- **C8** ⟨cmd⟩ the gate's `node -e` over `viewSchema.ts` → exit **0** (13 → 0). **C4** ⟨cmd⟩ `test ! -e demo/shell/PaneSegmentedControl.vue` → exit **0**; its consumer arm = demo typecheck EXIT 0.
+
+#### Act 2 — §9 commit 3, one sha: **`50633f19`** `feat(demo/shell): one mount, ordered regions`
+
+⟨cmd⟩ `git commit --no-verify -F <msg> -- <12 paths> demo/shell/PaneSegmentedControl.vue` → `13 files changed, 831 insertions(+), 816 deletions(-)` (the net of the inherited cure + this seat's cast rewrite). PSC deletion + `regions[]` + fork deaths + the T-45 re-seat + BD-01/02/05 in one meaning (C6 same-commit lock, §3.4 lock). Body carries the deletion + the broad scope. Pathspec on the commit itself; no sibling path swept.
+
+#### Act 3 — live gates over the COMMITTED bytes (one bounded chromium session, own dev server `vite --port 9010`, killed after)
+
+⟨cmd⟩ `node scratchpad/c-probe.mjs` run twice (run2, run3) → **identical verdicts and ratios**. Banked as `docs/tranches/X/waves/W5/green/C1-C2-C5-C6-2026-09-22.json`.
+
+| gate | BORN-RED (`afe230b5`, 2026-09-19) | AFTER (`50633f19`, double-run) | verdict |
+|---|---|---|---|
+| **C1** | `#/` 69/1751 = **0.0394**; 7/15 routes ≥ 0.9 | `#/` **973/1751 = 0.5557**; **14/15** routes ≥ 0.9 (every dual scene 1.0; `#/blob` 0.098 → 1.0) | **RED (literal metric), cause measured** — see below |
+| **C2** | `specimenChanged:false`, 1 region | `regenerateFound:true, specimenChanged:true, textChanged:true`, **2** regions at 390 | **GREEN** |
+| **C5** | canvas kept 1/2, roots 0/2 | before `{canvas:1, roots:2}` → after 720×450 `{canvasKept:1, rootsKept:2}` | **GREEN** |
+| **C6** | RED input by construction | **30/30** card rows (15 routes × 1440/390): every `.glass-resting` card `backdrop-filter: none`; its wrapper's `::before` has content, `clip-path` ≠ none, `backdrop-filter` ≠ none | **GREEN** |
+
+**C1 — why the one row is RED, measured, not argued.** The probe also reads `textContent`: **1.0 on 15/15 routes** (`#/` 4772 = 4772). ⟨cmd⟩ per-region split on `#/`: Picker `innerText` 54 at both widths; About `innerText` **1681 @1440 vs 903 @390**, `textContent` **4772 at both**; **33** `content-visibility: auto` elements inside `<main>` at both widths. The About region IS mounted at 390 (region box 358×7943, second grid row); its off-viewport `content-visibility:auto` sections are skipped from `innerText` — at 1440 as well (1681 of 4772). So the amputation WAS the breakpoint (69 → 973, `#/blob` 0.098 → 1.0), and what remains is the metric reading a rendering optimisation. This seat does **not** substitute a metric: C1 is recorded RED under the gate's literal text and routed to the orchestrator (ESC-W5c-1). A-4 lock honoured: no close may cite the D-15 zoom-200 kill while C1 reads RED.
+
+#### Act 4 — static gates, double-run at the settled bytes
+
+- **C3** ⟨cmd⟩ `grep -rEo 'useBreakpoint|isDesktop|isMobile|mobilePaneIndex' demo/ --include='*.vue' --include='*.ts' | sort | uniq -c` → **23 / 9 files** (HEAD-before `9d0e097f`: 39/13). **0** in `App.vue`, `usePaneRouter.ts`, `useViewManager.ts`, `viewSchema.ts`, `shell.css` (the shell layout fork). Survivors, none in this unit's set: `Dock.vue` 5 · `DockViewSelect.vue` 3 · `ActionBarToggle.vue` 3 (the dock's own `isDesktop` = G-L, X-W8) · `useHoverPopover.ts` 2 · `ConsoleRail.vue` 2 · `HeroBlob.vue` 2 · `ExtractWorkbench.vue` 2 · `useInertiaGesture.ts` 2 · `useMixingAnimation.ts` 2. **Dock G-L** ⟨cmd⟩ `grep -c useMediaQuery demo/shell/dock/Dock.vue` → **2** → RED → **C3 NOT CLOSED** (back-gate). Nothing written in Dock.vue's predicate.
+- **C7** ⟨cmd⟩ `grep -rEo '@media[^{]*\((min-|max-)?(width|aspect-ratio)' demo --include='*.vue' --include='*.css' | grep -v '^demo/ui/'` → **4** (HEAD-before 6): `ConsoleRail.vue:342` · `DockStatusLamp.vue:70` · `animations.css:17` · `foundation.css:526`. This unit retired its two (`PaneSegmentedControl:46` with the file, `shell.css`'s width∧aspect dual arm). Target 3 → **RED by 1**; the survivors sit in files outside `.c`'s set (`DockStatusLamp.vue` is in no W5 §4 row; `animations.css` is `.d`'s; `foundation.css` is `.b`'s kept `--dock-*` arm). Capability queries ⟨cmd⟩ same scope, `prefers-|forced-colors|print|pointer|hover` → **33 at HEAD-before, 33 after** — all survive. PSC-21 rider: the `css-emission-probe.mjs` naming was struck at `.b` (N9); `shell.css` names no ungated guarantor.
+- **N2** ⟨cmd⟩ `grep -c 'as ViewId' demo/palettes/usePalettePorts.ts` → **0**. Bite ⟨cmd⟩ one `setActiveView("palettes")` → `("saved")` in `useSlugMigration.ts`, `vue-tsc -p tsconfig.demo.json` → **EXIT 2** `TS2345: Argument of type '"saved"' is not assignable to parameter of type 'ViewId'`; file restored byte-exact (`git status` clean). **GREEN** (the node-run branch arm is carried: all three branches now dispatch a typed `ViewId`, no named push to an unregistered name exists).
+- **N12** ⟨cmd⟩ `grep -c "deps\.<m>"` per member → savedPalettes 3 · userLogin 2 · userRegenerate 2 · adminLogin 1 · clearUserSlug 1 · ensureSession 1 · setActiveView 3 — **every member has a reader**; `useSession` import **0** (the 1 grep hit is the doc comment). **GREEN**.
+- **N10** ⟨cmd⟩ `grep -cE 'BouncyTabs|lg:flex' e2e/smoke/mobile/walk.spec.ts` → **0**; `out-in` → 0. Carve lock: the AboutPane coverage (`"Detailed Guide"` heading visible) survives in substance at the drifted bytes — asserted at Step 2 and again on the return (Step 4). **GREEN**.
+- **N11** — the three ≤639 px matrices were banked at `afe230b5` **before** `50633f19` (ordering lock). ⟨cmd⟩ `git merge-base --is-ancestor afe230b5 50633f19` holds by history. Not re-taken. **GREEN**.
+- **C4** close statement (PSC-1 + W5F-67/68): **1** render site deleted; no `semantics="tabs"` interim was applied; **X-W10's Ad-18 marker (`W10.md:117/:354`) is SPENT by this deletion** — the survivor's terminal event.
+
+**N14 — the declaration-site census, printed.** Sites that declare the view identity today:
+1. `viewSchema.ts` `ViewId` union — the declaration. 2. `viewSchema.ts` `VIEW_MAP: Record<ViewId, PaneConfig>` — vue-tsc-exhaustive. 3. `viewSchema.ts` `isViewId` — derived from `VIEW_MAP`. 4. `usePaneRouter.ts` `VIEW_SCENES: Record<ViewId, …>` — exhaustive. 5. `useDockAdminMode.ts:27` `adminViews: ViewId[]` — checked. 6. `demo/color-picker/router/index.ts` route `name:` strings over `RouteRecordRaw[]` — **INVISIBLE** to vue-tsc. 7. `demo/palettes/admin/AdminPane.vue:91` the `subView` literal union — checked only where `adminProps(pane)` passes a narrowed `PaneId`. 8. `e2e/visual/census.ts` `ROUTE_CENSUS` — its own table, **INVISIBLE**. The pane identity (`PaneId`) adds `PANE_COMPONENTS: Record<PaneId,…>` + the exhaustive `propsFor` switch, both visible. Partition: **5 visible · 1 partially · 2 invisible**; the two invisible sites are outside `.c`'s set (router = BD-08, closed unit a; `e2e/visual/**` = X-W1). **N14 RED (printed, partitioned)**.
+
+(⟨cmd⟩ `git merge-base --is-ancestor afe230b5 50633f19` → exit **0**, run for the N11 ordering claim.)
+
+#### Act 5 — §8 artefacts owed to `.c` (R3.4): both `audit/visual/layout/` triples — **`a1bef4f0`**
+
+⟨cmd⟩ `node scratchpad/layout-cap.mjs` → **18 shots** under `docs/tranches/V/megatranche/audit/visual/layout/`: unit b {390×844, 1440×900, 3440×1440} × {`#/`, `#/blob`, `#/browse`} and unit c {390×844, 720×450@2, 1440×900} × {`#/`, `#/generate`, `#/blob`}; `MANIFEST.json` carries per-shot sha256, the `.app-layout, main` boxes, the document extent and the rendered region labels. Committed with `git add -f` (L-7) in one pathspec commit beside the GREEN JSON. Read back: 1440 `#/` = two columns (Picker | About); 390 `#/` = one column, About in row 2.
+
+#### Gate readings BEFORE → AFTER (this seat's clock)
+
+| gate | BEFORE | AFTER | state |
+|---|---|---|---|
+| C1 | 0.0394 on `#/`, 7/15 | 0.5557 on `#/`, 14/15; textContent 15/15 = 1.0 | **RED** (ESC-W5c-1) |
+| C2 | false | true | **GREEN** |
+| C3 | 39/13 | 23/9, shell fork 0 | **RED — back-gated on Dock G-L = 2 (X-W8); NOT CLOSED** |
+| C4 | file exists | absent; typecheck EXIT 0 | **GREEN** |
+| C5 | canvas 1/2, roots 0/2 | 1/1, 2/2 | **GREEN** |
+| C6 | RED input | 30/30 | **GREEN** |
+| C7 | 6 | 4 (target 3); capability 33 → 33 | **RED** (survivors outside `.c`'s set) |
+| C8 | 13 | 0 | **GREEN** |
+| N2 | 1 cast, 3 literals | 0; bite EXIT 2 | **GREEN** |
+| N10 | 3 | 0 | **GREEN** |
+| N11 | banked `afe230b5` | ordering holds | **GREEN** |
+| N12 | 3 phantom deps + hard import | 0 | **GREEN** |
+| N14 | 7 sites, 6 invisible | printed: 5 visible · 1 partial · 2 invisible | **RED** |
+| N15 | query before selector | unchanged | **ESCALATED** (ESC-W5c-2) |
+
+#### Escalations
+
+- **ESC-W5c-1 (C1, a named §3a trigger).** C1 < 0.9 on `#/` after the fork died. The measured cause is `content-visibility:auto` in the About region skipping off-viewport text from `innerText` (textContent parity 1.0; the region is mounted and laid out). The gate's own falsifier ("a route still amputates a region at 390") is not what the reading shows. Changing the metric, or striking `content-visibility` from AboutPane (a file outside `.c`'s set, and a perf decision of record), would both be substitutions. §3a makes this triumvirate business; the orchestrator rules.
+- **ESC-W5c-2 (N15, bounds).** The "query" is `SearchBar`, rendered by `demo/palettes/admin/AdminPane.vue:11-22` BEFORE `<AdminNamesPanel>` (`:44`), whose root holds the selector (`SegmentedTabs`, `AdminNamesPanel.vue:14`). Source order is decided in `AdminPane.vue`, which is in neither W5 §4 nor BD-22 ("`AdminNamesPanel.vue`, source order only"). No edit inside `AdminNamesPanel.vue` alone can put the selector before a node its parent renders first. Needs a bounds grant for `AdminPane.vue`, or a re-home to X-W7 (CE-5).
+- **ESC-W5c-3 (landed-by-consequence, outside the set).** `e2e/visual/census-parity.spec.ts:88-91,124` reads the `RightPane` union out of `viewSchema.ts` as bytes (`unionMembers("RightPane")`); that union is gone at `50633f19`, so the visual project's parity test will fail. `e2e/visual/census.ts` also still carries `CensusRightPane` + `defaultPaneIndex` rows, and `e2e/visual/capture.ts:560-583` selects a mobile pane by `defaultPaneIndex`. `e2e/visual/**` is X-W1's (`playwright.config.ts:3-9`); this seat wrote nothing there. Owner: X-W1's visual lane (or a §3a grant).
+
+#### Residuals, each with an owner
+
+C3 → X-W8 (G-L: Dock `useMediaQuery` ×2 + dock `isDesktop` ×11) and the six non-shell `useBreakpoint` components (no W5 bound). C7 → `.d` (`animations.css:17`), X-W8/DSL (`DockStatusLamp:70`), and ConsoleRail (no W5 bound). N14 → router names (BD-08 owner) + `e2e/visual/census.ts` (X-W1). D3 physical names: this unit left `--left`/`--right` modifiers beside the role classes for `.d`'s re-key (worktree D3 15). Foreign REDs seen and not touched: vitest C-5 + NG-6; e2e tsc o23; test tsc `space-catalog.ts`.
+
+#### Locks honoured
+
+§3.4 (PSC deletion + C1 successor, same wave: the presence re-point lands in `50633f19`) · C6 same-commit (`50633f19`) · N11 ordering (`afe230b5` is an ancestor) · C4 PSC-1 (no tabs interim) · C7 (33 capability queries survive) · C3 back-gate (not closed; Dock.vue's predicate untouched) · N10 (AboutPane coverage kept) · BD-05 (two hunks only) · L-7 (every figure is in git).
+
+**Commits**: `50633f19` (§9 commit 3) · `a1bef4f0` (GREEN JSON + layout triples) · this record.
