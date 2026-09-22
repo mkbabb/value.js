@@ -879,3 +879,68 @@ The four `vue-tsc` rows are byte-identical to Repair 2's (`MbabbMenu.vue(333,12)
 **Verdict: NOT-CONFORMANT.** Every claimed GREEN reproduces (10 limbs); three REDs stand with no relief at the spec's bytes; honest-RED set EMPTY; LEDGER status stays **PARTIAL** (not promoted).
 
 **SELF-COUNT**: ⟨cmd⟩ `sed -n "/^## Check 3/,$p" KF-W13S.md | grep -c "^| C3-"` → **5** · **5** register rows (2 HIGH · 1 MEDIUM · 2 INFO).
+
+---
+
+## RESUME 2 — SEAT 0 (OPEN, RESUME MODE on COHESION §0am), 2026-09-22
+
+SERVED MODEL: claude-opus-5-5[1m] (this section's seat; the file's line 1 names its creator and is not rewritten, E-3)
+
+**Seat**: SEAT 0, VERIFY-AND-BANK — zero keyframes.js bytes, zero glass-ui bytes, zero product bytes. **Sitting of record**: the owner's begin-word 2026-09-17 (COHESION §0j). **Spec of record for this resume**: KF-W13.md **ADDENDUM 2026-09-22** (`:303`) under **COHESION §0am** (`:2471-2507`, commit `63d56244`), read whole; §0ai (`:2322-2375`) still carries the close literal.
+
+**Why RESUME**: LEDGER `:55` status reads **PARTIAL 2026-09-22** (not CLOSED); this record exists. ⟨cmd⟩ `git -C keyframes.js log --oneline 9d814f6c..HEAD` → the unit ids `KF.W13.a2` (`242f3378` · `6a960349` · `600246c3`) · `KF.W13.e` (`6ad8ea10` · `d4375768` · `51f39a19`) · `KF.W13.a3` (`4bd1f8d5` … `220bd93a`, 10 shas) · `KF.W13.e2` (`6ae324c6` … `c03141bc`, 7 shas) + the Check 2 repair `8ae71f51` (TD-36). Those four ids are **alreadyDone — never re-dispatched**. No sha under `.a4` / `.e3` / `.t` exists (kf HEAD = `8ae71f51`).
+
+### CRASH-RECOVERY
+- value.js, this seat's set: ⟨cmd⟩ `git status --porcelain -- docs/tranches/X/execution/B/ docs/tranches/X/execution/LEDGER.md docs/tranches/V/coordination/` → clean. Sibling dirty paths (Track A product, `X-W5.md`, `CARRY-LEDGER.md`, the **staged** `D demo/shell/PaneSegmentedControl.vue`, `scripts/dev/dev.sh`) — NOT touched, NOT staged.
+- keyframes.js: ⟨cmd⟩ `git status --porcelain` → only the two untracked 2026-07 value.js letters (outside every set; untouched). ⟨cmd⟩ `git rev-list --left-right --count origin/master...HEAD` → **0 0** at `8ae71f51`. No inherited partial work.
+
+### E13 Step-0 (four paths, 2026-09-22)
+⟨cmd⟩ `ls -dt glass-ui/docs/tranches/*/ | head -1` → `BK/` (still newest). ⟨cmd⟩ `find <path> -maxdepth 1 -name '*.md' -newermt "2026-09-21 00:00"` → value.js `V/`: empty · `V/coordination`: `INBOX.md` (the ledger) · BK: `glass-outbound-2026-09-22-consumers-10.0.0.md` (addressed to slides + atlas; its `:87-89` reads *"value.js: zero hits"* — already noted by three prior 09-22 sweeps, ⟨cmd⟩ `grep -c glass-outbound-2026-09-22 INBOX.md` → 3) · `fourier-to-glass-…-nwo1-bh-relay.md` + `value-to-glassui-2026-09-DD-fw4-relay.md` (value.js's own outbound copies, O-23 / O-32, LANDED) · keyframes.js `V/coordination`: empty · atlas `P/coordination`: empty. Census ⟨cmd⟩ `grep -c '^| I-\|^| O-' INBOX.md` → **93**; positional UNREAD (status column) → **0**. **0 unrowed · 0 new `I-n` · 0 UNREAD in scope.** One sweep line appended at INBOX's end.
+
+### Preconditions
+- **KF.W13S's own opens-after**: KF.W13 CLOSED (honest-RED) — LEDGER `:57`; unchanged. **MET.**
+- **§0am's grants exist at the bytes**: `63d56244` (COHESION `:2471` + KF-W13.md `:303`). **MET.**
+- **ESC-a3-2 discharged**: kf `8ae71f51` is `origin/master`; TD-36 rows no longer owed. **MET.**
+- **Grant anchors re-resolved at `8ae71f51`**: `CubeScene.vue:96-98` `const setPPMode = () => {…}` · `:129-135` `const headerLeft = () => h(Popover, …, onClick: setPPMode …)` · `:267` `headerLeft,` in the export — all at the ruled offsets. `MbabbMenu.vue:331-333` `togglePpMode()` → `stored.value.ppMode` (the TS2339 pair). `demo/utils/reference-data/{easingGroups,animationDescriptions}.ts` present. `package.json:37` = `"check": "vue-tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.test.json && npm run proof:structure"`. **MET.**
+- MM-5's `CheckboxItem`: ⟨cmd⟩ `grep -c CheckboxItem demo/app/dock/MbabbMenu.vue` → **0** (born-RED, `.a4`'s to land).
+
+### Baseline — RESUME 2, read-only, at kf `8ae71f51` / vjs `e68e8889` (double-run, quoted `·`; host load 27.4)
+
+| Gate / row | ⟨cmd⟩ (kf root) | Reads | Verdict |
+|---|---|---|---|
+| G-KFW13-1 bytes | round-trip grep · `grep -c 'v-model:open="open"' MbabbMenu.vue` | **0·0** · **1·1** | GREEN (landed `.a2`/`.a3`) |
+| G-KFW13-2 fill arm | `git diff 9d814f6c..HEAD -- demo/app \| grep -c headerLeft` | **0·0** | clause GREEN; MM-1/MM-6 ONE sha absent → **RED** (`.a4`) |
+| `MbabbMenu.vue:333` TS2339 | from the `vue-tsc` run below | **2·2** (`(333,12)` · `(333,36)`) | **RED** (`.a4`) |
+| cube witnesses | `vitest run --project demo test/demo/scenes/cube-*.test.ts` | **3 files · 38/38 · 38/38** | GREEN (must stay) |
+| OP-0 / G-KFW13-7 | `npx vue-tsc --noEmit -p tsconfig.json 2>&1 \| grep -c 'error TS'` | **4·4** (MbabbMenu ×2 · `EasingSidebar.vue(150,27)` · `EasingTarget.vue(251,62)` TS2345) | **RED** (§0ai literal 0) |
+| leg 2 today | `npx tsc --noEmit -p tsconfig.test.json 2>&1 \| grep -c 'error TS'` | **47·47** | **RED** |
+| leg 2 as ruled | `npx vue-tsc --noEmit -p tsconfig.test.json 2>&1 \| grep -c 'error TS'` | **33·33** (§0am's 47 → 33 reproduces) | **RED** (`.e3` → `.t`) |
+| `test:demo` | `npm run test:demo` | **59/59 · 494/494**, twice | GREEN (must stay) |
+| `npm run check` | `npm run check; echo $?` | **exit 2** | **RED** (§0ai literal exit 0) |
+| OP-8 | `git grep -c 'ComponentExposed\|Pick<' HEAD -- demo/app \| wc -l` | **0·0** | GREEN |
+| skip/only | `git diff 9d814f6c..HEAD -- test \| grep -c 'test.skip\|it.skip\|\.only('` | **0·0** | GREEN |
+| drift | `git grep -l btn-playback HEAD -- demo \| wc -l` | **9·9** (beside RULINGS-4's 7 and the spec's 8; amends neither) | declared |
+
+**The 33 leg-2 rows, enumerated** (⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.test.json 2>&1 | grep 'error TS'`):
+- the 4 `vue-tsc` product rows above (→ `.a4` ×2, `.e3` ×2) · `test/demo/instrument/playback-ribbon-contract.test.ts(230,66)` TS2769 (→ `.e3`);
+- **inside `test/demo/**`** (12 rows / 5 files, → `.t`): `apply-css-identity.test.ts` (179,18) TS2322 · (291,17) TS2739 · `channel-options-render-edge.test.ts` (214,5) (215,5) (216,5) TS2412 · (306,14) (309,14) TS2352 · `keyframe-card-offset-loop.test.ts` (317,18) (345,18) (541,13) TS2322 · `keyframes-editor-honest.test.ts` (266,18) TS2322 · `scenes/spring-heatmap-reversibility.test.ts` (388,56) TS2339;
+- **OUTSIDE `test/demo/**`** (16 rows / 8 files): `test/compile/diagnostics-channel.test.ts` (94,51) TS2345 · `test/compile/value4-easing-contract.test.ts` (13,58) (37,60) TS2345 · `test/engine/animation.test.ts` (1,36) (19,15) (30,15) TS6133 · `test/engine/strict-options.test.ts` (55,45) TS2345 · `test/engine/w0-crashes.test.ts` (207,17) TS2322 · `test/group/group.test.ts` (1,36) (2,33) (5,1) (32,15) TS6133 · `test/ingest/platform-adopt.test.ts` (20,21) TS6133 · (32,1) TS6192 · `test/scroll/scroll-scene.test.ts` (36,5) TS6133 · `test/waapi/waapi-lifecycle.test.ts` (241,45) TS2345.
+
+**FINDING B-1 (carve vs count, recorded for the orchestrator, not re-opened)**: §0am counts *"29 rows across 12 foreign test files"* and grants `.t` **`test/demo/**`**. Measured: **28** foreign rows across **13** files, and **16 of the 28 sit outside `test/demo/**`** (the eight files above). As written, `.t` cannot lawfully write those files; its brief therefore RETURNS each by `file:line` as an escalation unless a dated grant widens the carve before `.t` dispatches. Leg 2 → 0 (and `npm run check` exit 0) cannot turn without it.
+
+**GREEN-BEFORE-CURE: EMPTY.** Every owed gate (MM-1/MM-6 sha, `vue-tsc` 0, leg 2 0, `check` exit 0) reads born-RED; the GREEN rows are prior units' landed bytes or must-stay witnesses.
+
+### RESUME 2 unit plan
+
+**alreadyDone** (commits exist — never re-dispatched): `KF.W13.a2` · `KF.W13.e` · `KF.W13.a3` · `KF.W13.e2`. **Owed, strictly serial, 1 concurrent, every seat Opus** (§0am *"Mechanism"*): **[`KF.W13.a4`] → [`KF.W13.e3`] → [`KF.W13.t`] → [`KF.W13.f2`]**. Each unit appends its OWN receipt below under `### Unit receipt — <id> (RESUME 2)`; keyframes.js pushed at every unit's close.
+
+**`KF.W13.a4`** — ADDENDUM `:303` `.a4` clause · §0am ESC-r2-2 (`:2476-2482`) · KF-W13 §Agent Units `.a` `:152-156` · G-KFW13-2 `:190` · §Commit plan `:270` (the MM-1/MM-6 subject) · §Excluded `headerLeft` fill arm. Writable (kf): `demo/app/dock/MbabbMenu.vue` · `demo/scenes/cube/CubeScene.vue` `:96-98` `:129-135` `:267` + their dead imports ONLY · MM-5's `CheckboxItem` site (inside MbabbMenu). vjs: this record. Gates: MM-1/MM-6 four-part cure ONE sha; `MbabbMenu.vue:333` TS2339 ×2 → 0; `git diff 9d814f6c..HEAD -- demo/app | grep -c headerLeft` → 0; `sceneExposedApi.ts:43` untouched; cube witnesses 38/38; `test:demo` 494/494; vue-tsc 4 → 2. Locks: ARB-1 delete-arm only; ONE sha.
+
+**`KF.W13.e3`** — ADDENDUM `.e3` clause · §0am ESC-r2-1 (`:2483-2487`) + ESC-r2-3 (`:2488-2496`). Writable (kf): `demo/utils/reference-data/easingGroups.ts` · `demo/utils/reference-data/animationDescriptions.ts` · `demo/scenes/easing/EasingSidebar.vue` `:150` · `demo/scenes/easing/EasingTarget.vue` `:251` (only if the catalogue typing demands) · `package.json` line 37 ONLY · `test/demo/instrument/playback-ribbon-contract.test.ts:230`. Gates: `vue-tsc -p tsconfig.json` → **0** ×2; leg 2 BEFORE/AFTER 47 → 33 → n banked; `test:demo` green.
+
+**`KF.W13.t`** — ADDENDUM `.t` clause · §0am ESC-r2-3 (`:2488-2496`). Writable (kf): `test/demo/**` + a demo type-declaration module where a row's root is a type declaration. Gates: leg 2 → 0 ×2; `check` exit 0 ×2; `test:demo` green ×2. **Bound note (FINDING B-1)**: the 16 rows in `test/{compile,engine,group,ingest,scroll,waapi}/**` are outside the written carve → RETURNED by `file:line` as ESCALATION unless a dated grant lands first.
+
+**`KF.W13.f2`** — ADDENDUM `.f2` clause · §0ai close (`:2367-2371`) · §0am R-f2-4/-5/-6. Writable (vjs): this record · LEDGER (row cells + appended lines) · INBOX (append) · SS-6 accretion · `keyframes/evidence/W13S/**` · the BK relay letter (mail only). VERIFY-ONLY close.
+
+### Unit receipts (RESUME 2)
+
