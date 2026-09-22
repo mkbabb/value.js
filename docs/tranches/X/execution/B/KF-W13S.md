@@ -786,3 +786,43 @@ Both REDs rest on returned escalations: ESC-r1-1 needs a `CubeScene.vue` grant, 
 | C2-5 | INFO | The `useKeyframeOps.ts:80-89` stale E-c1 narration is routed to KF.W12's successor, and its owner is named. The two Monaco theme casts are banked-hunk bytes. | Repair 1 §Residuals; `KF-W12-d-born-red.md:204/:208` | none owed here |
 
 **LEDGER**: the status cell is **unchanged** (PARTIAL stands; the CLOSED bar is not met). One event line is appended.
+
+## Repair 2 — the Check 2 register, round 2 (2026-09-22; dated addendum beside, E-3; no prior section rewritten)
+
+**Seat**: REPAIR (round 2), `claude-opus-5-5[1m]`. **Crash-recovery**: ⟨cmd⟩ `git -C keyframes.js status --porcelain` → only the two untracked 2026-07 value.js letters (outside every writable set, untouched); ⟨cmd⟩ `git status --porcelain -- docs/tranches/X/execution/B docs/tranches/X/execution/LEDGER.md` → **clean** — no inherited partial work. Sibling dirty rows (staged `D demo/shell/PaneSegmentedControl.vue`, Track A product, `X-W5.md`, `CARRY-LEDGER.md`, `dev.sh`) NOT touched, NOT staged. **Frontier**: kf `8ae71f51` (`master...origin/master` even) · vjs `3ece0690`.
+
+**Grant search (the premise of every cure owed)**: ⟨cmd⟩ `grep -n 'easingGroups\|animationDescriptions\|ESC-r1-1\|ESC-r1-2\|C2-1\|C2-2\|C2-3' COHESION.md LEDGER.md` → no grant; COHESION's last sections are §0aj (Track C, F.W10S) and §0ak (X-W9.f → X.W11.p) — **no addendum after Check 2 grants `CubeScene.vue`, the two easing catalogues, `package.json`, `demo/env.d.ts` beyond its five-line declaration, or any foreign test file to this wave.** The bounds are therefore §B.2 ⊕ the 2026-09-20 ADDENDUM exactly as Check 2 read them.
+
+### Register → cure → commit
+
+| # | Sev | Defect | Cure at this seat | Commit | Disposition |
+|---|---|---|---|---|---|
+| C2-1 | HIGH | G-KFW13-7 OP-0 limb: `vue-tsc` **4** ≠ §0ai's **0** | **None lawful in bounds.** Rows 1–2 (`MbabbMenu.vue(333,12)`/`(333,36)` TS2339, `stored.value.ppMode` on `StoredAnimationGroupControlOptions`) are the MM-1/MM-6 ONE-sha family (C2-2); a lone `:333` repair is a split family and two writers for one persisted flag (ARB-1). Rows 3–4 (`EasingSidebar.vue(150,27)` · `EasingTarget.vue(251,62)` TS2345 `string` → `EasingName`) root in `demo/utils/reference-data/animationDescriptions.ts:19` (`Record<string, …>`) and `easingGroups.ts:7` (`name: string`), outside the three-file carve; inside the carve only a cast or a narrowing type-predicate closes them, and the RESUME plan's lock (*"no cast/shim/narrowing guard"*) plus the standing no-masking law refuse both. | — | **ESCALATED (ESC-r2-1 = ESC-r1-1 ∪ ESC-r1-2)** |
+| C2-2 | HIGH | G-KFW13-2: MM-1/MM-6 four-part ONE sha unspent | **None lawful in bounds.** The delete arm (`setPPMode` `:96-97`, `headerLeft` `:129-135`, `:267`) is in `demo/scenes/cube/CubeScene.vue` — KF.W11's file, on §Scope's *"Bounds whose expansion invalidates the wave"* list; no grant exists (grant search above). | — | **ESCALATED (ESC-r2-2 = ESC-r1-1)** |
+| C2-3 | MEDIUM | `npm run check` leg 2 exit 2, **47** errors, no true owner | **None lawful in bounds** (measured below): 18 of the 47 are TS2614 *named export from a `.vue` under the default-only `*.vue` shim* (17 in `spring-heatmap-reversibility.test.ts`, KF.W11's test; 1 = this wave's (4b) `spring-trace-truth.test.ts:42`, §0ai's prescribed form). Their root is `check`'s leg 2 running plain `tsc` over SFCs (`package.json:37`) — `package.json` is Do-NOT-touch, and `demo/env.d.ts` is granted only for its five-line monaco declaration; re-pointing (4b) needs a `.ts` home for `DAMPING_AXIS` under `demo/scenes/**` (KF.W11's). The other 29 sit in 12 foreign test files. The cure is an owner ruling, which Check 2 itself names as the cure. | — | **ESCALATED (ESC-r2-3)** |
+| C2-4 | INFO | value.js push withheld (d-R9) | Re-read: ⟨cmd⟩ `git status --porcelain \| grep '^[MADR]'` → `D  demo/shell/PaneSegmentedControl.vue` — the sibling stage still stands; push stays withheld. | — | no cure owed (orchestrator) |
+| C2-5 | INFO | Monaco casts banked; `useKeyframeOps.ts:80-89` routed | — | — | no cure owed |
+
+**cured = 0.** No byte of keyframes.js was written at this seat; no masking fallback was substituted for a grant.
+
+### Gate re-reading (kf root, at `8ae71f51` = Check 2's frontier; double-run)
+
+No cure landed, so no gate could move; kf `HEAD` is byte-identical to Check 2's (`8ae71f51`), and every GREEN Check 2 reproduced (15/15) stands as banked there. The RED limbs the escalations bear on were re-read at this seat's clock:
+
+| Gate / limb | ⟨cmd⟩ | Run 1 | Run 2 |
+|---|---|---|---|
+| G-KFW13-7 OP-0 | `npx vue-tsc --noEmit -p tsconfig.json 2>&1 \| grep -c 'error TS'` | **4** (`MbabbMenu.vue(333,12)`/`(333,36)` TS2339 · `EasingSidebar.vue(150,27)` · `EasingTarget.vue(251,62)` TS2345) | **4** |
+| G-KFW13-7 `check` leg 2 | `npx tsc --noEmit -p tsconfig.test.json 2>&1 \| grep -c 'error TS'` | **47** (per file: 24 spring-heatmap-reversibility · 5 channel-options-render-edge · 4 group · 3 animation · 2 value4-easing-contract · 2 platform-adopt · 1 each diagnostics-channel, aurora-opacity-ceiling, spring-trace-truth, strict-options, w0-crashes, scroll-scene, waapi-lifecycle) | **47** |
+| G-KFW13-7 `check` | `npm run check; echo $?` | **exit 2** | **exit 2** |
+
+**Measurement banked for ESC-r2-3's ruling (informational, not a gate):** ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.test.json 2>&1 \| grep -c 'error TS'` → **33** (exit 2). Leg 2 under `vue-tsc` kills all 18 TS2614 rows (the (4b) row included) but surfaces rows plain `tsc` cannot see through the shim, among them **one in this wave's own `test/demo/instrument/playback-ribbon-contract.test.ts(230,66)` TS2769** (the listener bag `{ [x: string]: unknown }` spread into `h(PlaybackRibbon, …)`) and the 4 `vue-tsc` product rows above. Whichever form the ruling takes, that row is this wave's to cure at the ruling's clock (`.b`/`.c`'s create, in bounds).
+
+### Escalations returned (orchestrator grants / rulings; none is producer-owned)
+
+- **ESC-r2-1 (C2-1)** — grant `demo/utils/reference-data/easingGroups.ts` (`CurveGroupItem.name: EasingName`) and `demo/utils/reference-data/animationDescriptions.ts` (`NAMED_EASING_BEZIER: Partial<Record<EasingName, Quad>>`) so `EasingSidebar.vue:150` / `EasingTarget.vue:251` close by typed lookup with no cast; with ESC-r2-2 this reads `vue-tsc` **0**. Reason: the string roots are outside §0ai's three-file carve and the in-carve forms (cast, narrowing predicate) are refused by the RESUME lock and the no-masking law.
+- **ESC-r2-2 (C2-2)** — grant `demo/scenes/cube/CubeScene.vue` `:96-97` / `:129-135` / `:267` (+ its then-dead imports) to an `.a4` seat, or a joint commit with a KF.W11 seat under ARB-1; the four parts + `MbabbMenu.vue:333` land as ONE sha with no `headerLeft` fill arm. Reason: `demo/scenes/**` is on KF-W13's wave-invalidating bounds list; a lone `MbabbMenu.vue:333` repair splits the family.
+- **ESC-r2-3 (C2-3)** — name leg 2's owner: either (i) leg 2 becomes `vue-tsc -p tsconfig.test.json` (`package.json:37`, Do-NOT-touch here) — root-cures the 18 TS2614 rows, measured **47 → 33**, then the 29 residual foreign-test rows route to their test-owning waves and the one `playback-ribbon-contract.test.ts:230` row to this wave; or (ii) re-point (4b) at a `.ts` export of `DAMPING_AXIS` under `demo/scenes/**` (KF.W11's) and route the rest likewise; or (iii) rule leg 2 out of §0ai's Close literal. Reason: every arm writes outside §B.2 ⊕ ADDENDUM; nothing is narrowed or skipped.
+
+**Four-verb line**: **PARTIAL stands** (G-KFW13-2 and G-KFW13-7 RED on grants not yet made; no IMPLEMENTED claim). **value.js push**: withheld (C2-4). **E13**: ⟨cmd⟩ `grep -c "^| I-\|^| O-" INBOX.md` → **93** (a sibling row added since Check 2's 92); positional UNREAD awk → **0**; the BK files dated 2026-09-22 are the three Check 2 already classified (none addressed to value.js). No UNREAD mail in scope; this seat made no mail act.
+
+**SELF-COUNT**: ⟨cmd⟩ `sed -n '/^## Repair 2/,$p' KF-W13S.md | grep -c '^| C2-'` → **5** register rows; ⟨cmd⟩ `… | grep -c '^- \*\*ESC-r2-'` → **3** escalations; cured **0**.
