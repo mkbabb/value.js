@@ -1451,3 +1451,70 @@ SERVED MODEL: claude-opus-5-5[1m] (this section's seat)
 ### Verdict: **NOT-CONFORMANT**
 
 All 12 claimed GREEN limbs reproduce on a double run, and axes 2–8 hold. One HIGH remains, C3-1: `npm run check` exits 2 on ESC-t-1's 16 rows, and nothing relieves it (no producer, no successor wave, no named honest-RED). The honest-RED set is **EMPTY**. The LEDGER status stays **PARTIAL**, and only an event line is appended. KF.W13T stays lawfully blocked.
+
+---
+
+## RESUME 3 — SEAT 0 (OPEN, RESUME MODE on COHESION §0ap), 2026-09-22
+
+SERVED MODEL: claude-opus-5-5[1m] (this section's seat)
+
+### Open
+
+- **Mode**: RESUME 3. LEDGER row `:55` reads **PARTIAL 2026-09-22** (RESUME 2 `.f2` close; Check 3 NOT-CONFORMANT on C3-1 alone). The record exists, so this is RESUME, not a fresh open. This seat is VERIFY-AND-BANK: it wrote 0 keyframes.js bytes, 0 glass-ui bytes and 0 product or test bytes.
+- **Authority**: KF-W13.md `ADDENDUM 2026-09-22 (third)` (`:311`) and COHESION **§0ap** (`:2587-2623`, the file's last section). §0ap grants ESC-t-1 to unit **`KF.W13.t2`** over nine library test files. It rules the deliberately-invalid-input idiom: **(i)** an `unknown` ingress first, else **(ii)** `// @ts-expect-error <reason>`; `as any`, `as unknown as T`, `@ts-ignore` and loosened assertions stay forbidden. It issues the lint erratum (the eslint line is read WITHOUT the `demo/styles` glob). It homes the `.a4` residue (R-a4-1/-2) and the 7 pre-existing eslint errors at `KF.W13T.k`/`.k2`, so they are NOT this wave's. §0am `:2496`'s close literal STANDS: `vue-tsc 0` · `test:demo` green · `npm run check` exit 0.
+- **alreadyDone (commits exist, never re-dispatched)**: `.a2` (kf `242f3378` · `6a960349` · `600246c3`) · `.e` (`6ad8ea10` · `d4375768` · `51f39a19`) · `.a3` (`4bd1f8d5`…`220bd93a`) · `.e2` (`6ae324c6` · `2ee8f850` · `dc93e424` · `72e532a9` · `17d3e227` · `96079974` · `c03141bc`) · `.a4` (`82c11a9c`) · `.e3` (`5149fe8e` · `781fd1d7`) · `.t` (`4815cfe8`), plus Repair 1 (`5e3c091a` · `6705d4d8`). ⟨cmd⟩ `git -C keyframes.js log --oneline -16` → each sha above is present; HEAD is `6705d4d8`.
+- **Preconditions**: the owed chain is `.t2` → `.f2`. `.t2` opens on §0ap's grant, which is present at the bytes (`COHESION.md:2593`, `KF-W13.md:311`). Its predecessor `.t` is landed (`4815cfe8`). ⟨cmd⟩ `git fetch; git rev-list --left-right --count origin/master...HEAD` (kf) → `0 0`. **MET.**
+- **CRASH-RECOVERY**: ⟨cmd⟩ `git status --porcelain` (kf) → only the two untracked 2026-07 `VALUEJS-INBOUND-*` letters, which are not in any `.t2` path, so nothing was inherited. In value.js, `INBOX.md` and `LEDGER.md` were dirty at first read from Track C's F.W11 open seat; that seat committed them as `584a899a` seconds later. The remaining dirt is `CARRY-LEDGER.md` (not this wave's) and `scripts/dev/dev.sh` (never touched). **0 inherited paths.**
+- **E13 Step-0**: four paths swept read-only, and BK is still the newest glass tranche dir (⟨cmd⟩ `ls -d glass-ui/docs/tranches/B*` → `BI BJ BK`). ⟨cmd⟩ `find <path> -maxdepth 1 -type f -newermt "2026-09-22 00:00"` returned: value.js `V/` empty · `V/coordination` `INBOX.md` only · BK `glass-outbound-2026-09-22-consumers-10.0.0.md` · `fourier-to-glass-2026-09-17-nwo1-bh-relay.md` · `value-to-glassui-2026-09-DD-fw4-relay.md` (all already rowed or noted; ⟨cmd⟩ `grep -c` over INBOX → 12 references) · keyframes.js `V/coordination` empty · atlas `P/coordination` empty. ⟨cmd⟩ the awk row/UNREAD count → `93 0`. **0 unrowed · 0 new `I-n` · 0 UNREAD.**
+
+### Baseline — BEFORE, read-only, at kf `6705d4d8` (= origin)
+
+All commands were run from the keyframes.js root.
+
+| gate limb | ⟨cmd⟩ | run 1 · run 2 | state |
+|---|---|---|---|
+| `.t2` leg 2 | `npx vue-tsc --noEmit -p tsconfig.test.json 2>&1 \| grep -c 'error TS'` | **16 · 16** (byte-identical, `diff` → same) | RED (the cure target) |
+| leg 1 (§0ai close) | `npx vue-tsc --noEmit -p tsconfig.json 2>&1 \| grep -c 'error TS'` | **0** (banked ×2 at Check 3; re-read ×1 here) | GREEN, cured at `6705d4d8`; a preservation limb |
+| `npm run check` | `npm run check; echo $?` | **exit 2** (it stops at leg 2) | RED |
+| library tests | `CI=1 npx vitest run --project library` (the §0ap "`npm test` (library)" limb; `npm test` is a bare watch-mode `vitest`) | Test Files **113 passed \| 5 skipped (118)** · Tests **1259 passed \| 2 expected fail \| 14 skipped (1275)** · exit 0 | GREEN; a preservation limb (the 5 skipped files and 14 skips predate this wave; `.t2` may not add any) |
+| `test:demo` | `npm run test:demo` | Test Files **59 passed (59)** · Tests **494 passed (494)** · exit 0 (banked ×2 at Check 3) | GREEN; a preservation limb |
+
+**The 16 leg-2 rows, enumerated BEFORE** (⟨cmd⟩ `… \| grep 'error TS' \| cut -c1-120`):
+
+```
+test/compile/diagnostics-channel.test.ts(94,51): error TS2345: Argument of type '"definitely-not-an-easing"' is not assi
+test/compile/value4-easing-contract.test.ts(13,58): error TS2345: Argument of type 'string' is not assignable to paramet
+test/compile/value4-easing-contract.test.ts(37,60): error TS2345: Argument of type '"not-an-easing"' is not assignable t
+test/engine/animation.test.ts(1,36): error TS6133: 'beforeAll' is declared but its value is never read.
+test/engine/animation.test.ts(19,15): error TS6133: 'el' is declared but its value is never read.
+test/engine/animation.test.ts(30,15): error TS6133: 'el' is declared but its value is never read.
+test/engine/strict-options.test.ts(55,45): error TS2345: Argument of type '"bogus-easing"' is not assignable to paramete
+test/engine/w0-crashes.test.ts(207,17): error TS2322: Type '"not-a-real-easing"' is not assignable to type 'Easing | Tim
+test/group/group.test.ts(1,36): error TS6133: 'beforeEach' is declared but its value is never read.
+test/group/group.test.ts(2,33): error TS6133: 'KeyframesAnimation' is declared but its value is never read.
+test/group/group.test.ts(5,1): error TS6133: 'AnimationLayerConfig' is declared but its value is never read.
+test/group/group.test.ts(32,15): error TS6133: 'group' is declared but its value is never read.
+test/ingest/platform-adopt.test.ts(20,21): error TS6133: 'beforeEach' is declared but its value is never read.
+test/ingest/platform-adopt.test.ts(32,1): error TS6192: All imports in import declaration are unused.
+test/scroll/scroll-scene.test.ts(36,5): error TS6133: 'serializeScrollOptions' is declared but its value is never read.
+test/waapi/waapi-lifecycle.test.ts(241,45): error TS2345: Argument of type '"not-a-real-easing"' is not assignable to pa
+```
+
+The rows split **10 · 6**. **Ten** are unused bindings (TS6133 ×9, TS6192 ×1): `animation.test.ts:1/:19/:30` · `group.test.ts:1/:2/:5/:32` · `platform-adopt.test.ts:20/:32` · `scroll-scene.test.ts:36`. §0ap says to delete the binding and keep the test. **Six** are deliberately-invalid easing inputs (TS2345 ×5, TS2322 ×1): `diagnostics-channel.test.ts:94` · `value4-easing-contract.test.ts:13/:37` · `strict-options.test.ts:55` · `w0-crashes.test.ts:207` · `waapi-lifecycle.test.ts:241`. These follow §0ap's idiom (i)/(ii), recorded per row. `value4-easing-contract.test.ts:13` types its argument as `string`, not as a literal; `.t2` must read that row's subject before it picks (i) or (ii).
+
+**GREEN-BEFORE-CURE (R.2)**: **EMPTY**. Leg 1, `test:demo` and the library suite are already GREEN, but prior units cured them (leg 1 at `6705d4d8`), so they are banked preservation limbs, not premature cures. Both of `.t2`'s cure targets (leg 2, `check` exit) read RED.
+
+### Unit plan (RESUME 3; serial, 1 concurrent: [`.t2`] → [`.f2`])
+
+| unit | model | spec sections | writable (kf-relative unless marked vjs) | gates | locks / families |
+|---|---|---|---|---|---|
+| **`KF.W13.t2`** | opus | KF-W13.md `:311` (third addendum); COHESION §0ap `:2593-2608` (ESC-t-1 grant + idiom); §Standing law `:176-178`; §Commit plan `:266-273` (one commit per meaning) | `test/compile/diagnostics-channel.test.ts` · `test/compile/value4-easing-contract.test.ts` · `test/engine/animation.test.ts` · `test/engine/strict-options.test.ts` · `test/engine/w0-crashes.test.ts` · `test/group/group.test.ts` · `test/ingest/platform-adopt.test.ts` · `test/scroll/scroll-scene.test.ts` · `test/waapi/waapi-lifecycle.test.ts` · vjs `docs/tranches/X/execution/B/KF-W13S.md` (receipt, append-only) | leg 2 `npx vue-tsc --noEmit -p tsconfig.test.json` → **0** ×2 · `npm run check` exit **0** ×2 · library `vitest run --project library` green ×2 (no new skip) · `test:demo` 494/494 ×2 · leg 1 stays 0 · `git diff 6705d4d8..HEAD -- test \| grep -c 'as any\|as unknown as\|@ts-ignore\|\.skip\|\.only('` → 0 | two meanings, two shas: (1) the 10 unused bindings deleted; (2) the 6 invalid-easing rows re-expressed per the idiom. Kf pushed at close. `src/**` is NOT writable: if a row needs an `unknown` ingress that does not exist, use (ii), never a new src API. |
+| **`KF.W13.f2`** | opus | §0ai `.f` (KF-W13.md `:299`) as restated at `:303`; §Gates G-KFW13-7 `:200-202`; §Verification `:275-277` with the §0ap lint erratum; §0ap Mechanism `:2621` | vjs: this record · `docs/tranches/X/execution/LEDGER.md` (row `:55` cells + appended line only) · `docs/tranches/V/coordination/INBOX.md` (append) · the COHESION §4a SS-6 accretion (append, only if a new producer row arises) · `docs/tranches/X/keyframes/evidence/W13S/**` | the §0ai close literal ×2: leg 1 0 · `test:demo` green · `check` exit 0; G-KFW13-0..-7 re-read; sweeps 9 · 0 beside RULINGS-4's 7 · 4 (E-3); skip/only 0; eslint line WITHOUT `demo/styles` (the 7 pre-existing errors are homed at KF.W13T.k2, not this wave's); E13 0 UNREAD | VERIFY-ONLY: 0 kf bytes. R-f2-5 is already relayed (O-48); re-verify it, do not re-send. Kf push checked `0 0`. Vjs is pushed only when `git diff --cached --name-only` is empty of sibling paths and the push is fast-forward. |
+
+**Briefs.**
+
+- **`.t2`**: (1) CRASH-RECOVERY over the nine files. (2) Re-enumerate the 16 rows BEFORE. (3) Delete the 10 unused bindings only, keeping every test body, then commit `test(kf · X.KF.W13.t2 · ESC-t-1 — ten unused bindings deleted)`. (4) For each of the 6 invalid-easing rows, read the subject. If the API under test has an `unknown`-typed ingress (parse/adopt/ingest/fromString), use `const bad: unknown = …` through that ingress, which is (i). Otherwise put `// @ts-expect-error <reason>` on the call, which is (ii). Never cast, `@ts-ignore` or loosen an assertion. Record each row as (i) or (ii) with its reason, then commit. (5) Run the gates ×2 and push kf. (6) Write the receipt with the SERVED MODEL line. Any row whose root is outside the nine files is RETURNED by `file:line`.
+- **`.f2`**: VERIFY-ONLY close. Re-run the close literal ×2 (leg 1 0, `test:demo` green, `check` exit 0) and audit `.t2`'s shas (`git show --stat` in the nine files, masking greps 0). Re-read G-KFW13-0..-7, the sweeps, and eslint without `demo/styles`. Confirm O-48 still covers R-f2-5. Run E13. Set LEDGER row `:55` to CLOSED if every limb is GREEN, else PARTIAL with the measured reasons. Check the kf push is `0 0`, then push vjs only if the index holds no sibling path. Write the `## Close` receipt.
+
+## Unit receipts (RESUME 3)
+
