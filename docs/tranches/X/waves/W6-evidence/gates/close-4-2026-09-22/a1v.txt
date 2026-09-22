@@ -1,0 +1,10 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ✓ test/gradient-order-invariant.test.ts (17 tests) 10ms
+
+ Test Files  1 passed (1)
+      Tests  17 passed (17)
+   Start at  17:19:03
+   Duration  818ms (transform 64ms, setup 33ms, collect 72ms, tests 10ms, environment 403ms, prepare 70ms)
+

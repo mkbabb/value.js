@@ -1,0 +1,97 @@
+(node:49153) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[WebServer] (node:49191) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[WebServer] (Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+(node:49334) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  1 [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — lab(92% 88.8 20) (29.1s)
+(node:50338) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  2 [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — oklch(0.65 0.3 150) (13.6s)
+(node:50980) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  3 [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — oklch(0.55 0.37 328) (13.0s)
+
+
+  1) [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — lab(92% 88.8 20) 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('goo-blob-canvas').last()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 8000ms
+      - waiting for getByTestId('goo-blob-canvas').last()
+
+
+      153 |         await page.goto(`/#/?space=oklch&color=${encodeURIComponent(seed)}`);
+      154 |         const blob = page.getByTestId(GOO_BLOB_TESTID).last();
+    > 155 |         await expect(blob).toBeVisible();
+          |                            ^
+      156 |         // The buffer's colour space, READ off the blob's own WebGL2 context
+      157 |         // (`getContext` returns the context the producer already created) —
+      158 |         // never inferred. The display's gamut is printed beside it.
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts:155:28
+
+    Error Context: test-results/webgl-blob-idle-hero-blob--afbb0-nt-chroma-—-lab-92-88-8-20--smoke/error-context.md
+
+  2) [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — oklch(0.65 0.3 150) 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('goo-blob-canvas').last()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 8000ms
+      - waiting for getByTestId('goo-blob-canvas').last()
+
+
+      153 |         await page.goto(`/#/?space=oklch&color=${encodeURIComponent(seed)}`);
+      154 |         const blob = page.getByTestId(GOO_BLOB_TESTID).last();
+    > 155 |         await expect(blob).toBeVisible();
+          |                            ^
+      156 |         // The buffer's colour space, READ off the blob's own WebGL2 context
+      157 |         // (`getContext` returns the context the producer already created) —
+      158 |         // never inferred. The display's gamut is printed beside it.
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts:155:28
+
+    Error Context: test-results/webgl-blob-idle-hero-blob--fdd2c-hroma-—-oklch-0-65-0-3-150--smoke/error-context.md
+
+  3) [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — oklch(0.55 0.37 328) 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('goo-blob-canvas').last()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 8000ms
+      - waiting for getByTestId('goo-blob-canvas').last()
+
+
+      153 |         await page.goto(`/#/?space=oklch&color=${encodeURIComponent(seed)}`);
+      154 |         const blob = page.getByTestId(GOO_BLOB_TESTID).last();
+    > 155 |         await expect(blob).toBeVisible();
+          |                            ^
+      156 |         // The buffer's colour space, READ off the blob's own WebGL2 context
+      157 |         // (`getContext` returns the context the producer already created) —
+      158 |         // never inferred. The display's gamut is printed beside it.
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts:155:28
+
+    Error Context: test-results/webgl-blob-idle-hero-blob--fc274-roma-—-oklch-0-55-0-37-328--smoke/error-context.md
+
+  3 failed
+    [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — lab(92% 88.8 20) 
+    [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — oklch(0.65 0.3 150) 
+    [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — oklch(0.55 0.37 328) 
