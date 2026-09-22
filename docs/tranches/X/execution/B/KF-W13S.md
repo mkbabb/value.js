@@ -1274,3 +1274,78 @@ SERVED MODEL: claude-opus-5-5[1m] (this section's seat)
 ### Verdict of this repair
 
 Two defects are cured at their roots: C1-1 (HIGH, ESC-e3-1) and C1-3 (MEDIUM, ESC-e3-2). **Leg 1 now reads 0 ×2. Leg 2 reads 18 → 16, and ESC-t-1 holds all 16.** C1-2 remains RED on ESC-t-1 alone and is escalated. The close literal is still unmet (`check` exit 2), so the LEDGER status stays **PARTIAL**; only an event line is appended.
+
+## Check 2 — fresh adversarial L-20 pass 2 of the RESUME 2 Repair 1 close (2026-09-22; dated addendum beside, E-3; no prior section rewritten)
+
+SERVED MODEL: claude-opus-5-5[1m] (this section's seat)
+
+**Seat**: VERIFY-ONLY. It wrote no keyframes.js, glass-ui, product or test bytes. The spec KF-W13.md was read whole, including ADDENDA `:299` (§0ai) and `:303` (§0am), and COHESION §0am `:2484-2500`. The record was read at the RESUME 2 Close (`:1074`), Check 1 (`:1159`) and Repair 1 (`:1227`). **CRASH-RECOVERY**: ⟨cmd⟩ `git status --porcelain -- <record> <LEDGER>` → empty. keyframes.js holds only the two untracked 2026-07 letters. Nothing was inherited. kf `6705d4d8`; ⟨cmd⟩ `git fetch; git rev-list --left-right --count origin/master...HEAD` → `0 0`. **Concurrent note**: `COHESION.md` and `KF-W13.md` are dirty in the tree with the orchestrator's uncommitted §0ao addendum. This seat read them and did not touch them.
+
+### Axes 1 / 9: every figure re-run at this seat, double-run (kf root)
+
+| limb | ⟨cmd⟩ | Repair 1 claims | this seat (run 1 · run 2) | reproduces |
+|---|---|---|---|---|
+| `vue-tsc` leg 1 | `npx vue-tsc --noEmit -p tsconfig.json 2>&1 \| grep -c 'error TS'` | 0 · 0 | **0 · 0** | YES (GREEN) |
+| leg 2 | `npx vue-tsc --noEmit -p tsconfig.test.json 2>&1 \| grep 'error TS' \| wc -l` | 16 · 16 | **16 · 16**; the runs are byte-identical (`diff` empty) and `test/demo` has **0** rows | RED reproduces |
+| leg 2 by file | `… \| cut -d'(' -f1 \| sort \| uniq -c` | 9 files | compile/diagnostics-channel 1 · compile/value4-easing-contract 2 · engine/animation 3 · engine/strict-options 1 · engine/w0-crashes 1 · group/group 4 · ingest/platform-adopt 2 · scroll/scroll-scene 1 · waapi/waapi-lifecycle 1 | YES |
+| `npm run check` | `npm run check; echo $?` | 2 · 2 | **2 · 2** | RED reproduces |
+| `test:demo` | `npm run test:demo` | 59/59 · 494/494 ×2 | **59/59 · 494/494 · 59/59 · 494/494** | YES |
+| W13 + cube batch | `vitest run --project demo test/demo/scenes/cube-*.test.ts test/demo/app/ …/transport-{keyboard-propagation,play-actuation,icon-spin} …/playback-ribbon-contract` | 10 · 90/90 | **10 · 90/90 · 10 · 90/90** | YES |
+| G-KFW13-1 bytes | round-trip grep `\| wc -l` · `grep -c 'v-model:open="open"' MbabbMenu.vue` | 0 · 1 | **0 · 1** | YES |
+| G-KFW13-2 fill arm | `git diff 9d814f6c..HEAD -- demo/app \| grep -c headerLeft` | 0 | **0** | YES |
+| MM-5 | `grep -c '<DropdownMenuCheckboxItem' MbabbMenu.vue` | 1 | **1** | YES |
+| OP-8 | `git grep -c 'ComponentExposed\|Pick<' HEAD -- demo/app \| wc -l` | 0 | **0** | YES |
+| skip/only | `git diff 9d814f6c..HEAD -- test \| grep -c 'test.skip\|it.skip\|\.only('` | 0 | **0** | YES |
+| masking since `4815cfe8` | `git diff 4815cfe8..HEAD \| grep -c '^+.*\(as any\|as unknown\|@ts-\|eslint-disable\|\.skip\|\.only(\|try {\)'` | 0 | **0** | YES |
+| whitespace | `git diff --check 4815cfe8..HEAD` | exit 0 | **exit 0** | YES |
+| sweeps (declared drift) | `git grep -l btn-playback HEAD -- demo \| wc -l` | 9 | **9** | YES |
+
+**gatesReproduced = 12**: the twelve GREEN limbs above, excluding the two RED rows. No claimed GREEN fails. The two RED figures (leg 2 = 16, `check` exit 2) reproduce exactly.
+
+### Axes 2–7
+
+- **(2) Bounds.** ⟨cmd⟩ `git diff --name-only 4815cfe8..HEAD` → 3 paths:
+  - `5e3c091a` writes `playback-ribbon-contract.test.ts` (1 file, +5/−4). That is a §B.2 row, and §0am names its `:230`.
+  - `6705d4d8` writes `animationDescriptions.ts`, which §0am grants to `.e3` as a whole file, and `EasingSidebar.vue`. The `EasingSidebar.vue` hunks sit at the imports `:81-91` and at `nameForQuad`. That is wider than §0am's `.e3` literal `:150`. Repair 1 grounds it in §0ai's `.e` row, which lists `EasingSidebar.vue` whole as part of KF11-E3's three-file easing-name carve. §0am revokes none of §0ai's rows.
+  - This seat reads that basis as LAWFUL and records it as INFO (C2-4). Repair 1 declared it in advance.
+  - ⟨cmd⟩ `git diff --stat 58c1ba11..HEAD -- scripts/dev/dev.sh` → empty.
+- **(3) Masking.** None found. `5e3c091a` replaces `Record<string, unknown>` with `Partial<RibbonProps>` (the component's own `$props`) and adds 0 casts. `setProps` still replaces `props.value` whole (`:243`), so `shallowRef` stays reactive, and no assertion byte moves.
+  - `6705d4d8` authors the 29 entries as `readonly [EasingName, BezierQuad][]`, so a name outside the union fails at authoring. It then derives the string-keyed record from them with `Object.fromEntries`: same keys, same order, same values. The derived record stays `Record<string,…>`, which is one of the "narrower shape the data proves" forms §0am allows, since the foreign lookups key it by string. Recorded as INFO (C2-4).
+- **(4) Families.** Two shas carry two meanings (the test harness and the catalogue root). No lock family is touched or split.
+- **(5) E-3.** ⟨cmd⟩ `git diff --stat 58c1ba11..HEAD -- docs/tranches/V/megatranche/registry/adjudicated/ docs/tranches/X/keyframes/waves/` → only `KF-W13.md | 4 ++++`, which is the orchestrator's §0am addendum (`63d56244`, 0 `-` lines). The registry and the sibling specs are byte-untouched.
+- **(6) Mail.** ⟨cmd⟩ `awk -F'|' '/^\| (I|O)-/{ if ($6 ~ /UNREAD/) … }' INBOX.md` → 4 rows match. All four are prose mentions inside status cells whose status is SENT, FOLDED or READ (O-20, I-31, I-32, O-39). **0 rows have UNREAD status**, out of 93.
+- **(7) Four-verb line.** Repair 1 held the row at PARTIAL and stamped nothing. That is lawful.
+
+### Axes 8 / 10: the goal criterion and the honest-RED adjudication
+
+The behavioural goal is MET at the bytes: G-KFW13-0/-1/-2, and the transport, ribbon and two-deletion witnesses in the 90/90 batch. The §0ai close literal, restated at §0am `:2496` (*"`vue-tsc 0` · `npm run test:demo` green · `npm run check` exit 0 — STANDS"*), is now met on two of its three limbs:
+- leg 1 reads **0**;
+- `test:demo` is green;
+- `check` still exits **2**. The cause is leg 2's 16 rows, all ESC-t-1.
+
+| RED gate | producer-owned? | routed to a later wave by the spec? | honest-RED named by id? | relief |
+|---|---|---|---|---|
+| `npm run check` exit 2: leg 2 = 16 rows (ESC-t-1) in `test/{compile,engine,group,ingest,scroll,waapi}/**` | NO. These are keyframes.js library tests: 10 unused bindings and 6 deliberately invalid easings. | NO. §0am assigns *"the 29 rows across 12 foreign test files"* to `.t`, but grants `.t` only `test/demo/**`. Its RETURN clause makes the return lawful, but the literal still "STANDS". No §0an or §0ao row grants these paths. §0ao is uncommitted at this clock, and I checked its text: it routes OA-6 to `KF.W13T` only. | NO | **NONE** |
+
+**The honest-RED set is EMPTY.** The RED has a named owner, R-f2b-3 (ESC-t-1), which goes to the orchestrator for a dated carve grant plus a ruling on the invalid-easing rows. It has no spec relief.
+
+### Successor "Opens after" conjuncts
+
+⟨cmd⟩ `grep -n 'Opens after' keyframes/waves/*.md | grep -i W13` → KF-W13 `:30` (its own) and **`KF-W13.md:307`**, the §0ao addendum that is still uncommitted in the tree: *"Wave `KF.W13T` … Opens after KF.W13S CLOSED."* The conjunct **KF.W13S CLOSED** is **RED**, so **KF.W13T is lawfully blocked** by this PARTIAL. §0ao `:34` says *"B relaunches on it when KF.W13S ends"*. No other successor is gated on KF.W13S. KF-W9 `:20` routes the two-deletion act here but does not wait on it.
+
+### Register (severity · claim · receipt · cure)
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C2-1 | **HIGH** | `npm run check` exits 2, not 0. The §0ai/§0am close literal "STANDS" and has no spec relief. This carries forward C1-2. | ⟨cmd⟩ `npm run check; echo $?` → 2 · 2. Leg 2 = 16 · 16, all ESC-t-1, with the file distribution above. | The orchestrator issues a dated grant over the 9 files in `test/{compile,engine,group,ingest,scroll,waapi}/**` and rules the six invalid-easing rows. A unit then cures all 16 at their typed roots, with no cast, `@ts-expect-error`, skip or loosened assertion. |
+| C2-2 | MINOR | The spec's §Verification lint line aborts on the ignored `demo/styles` glob, and there are 7 pre-existing errors in three untouched files. This is C1-4, still escalated. | Close R-f2b-4 | A dated spec erratum (the orchestrator's). Not blocking. |
+| C2-3 | MINOR | Dead residue after `.a4`: `superKey` is still bound at `App.vue:35`, and CubeScene's hover-card state is unreachable. This is C1-5, still escalated. | Close R-a4-1 / R-a4-2 | A later carve grant. Not blocking. |
+| C2-4 | INFO | `6705d4d8`'s `EasingSidebar.vue` hunks go beyond §0am's `:150` under §0ai's three-file carve. The derived `NAMED_EASING_BEZIER` stays string-keyed. | `git show 6705d4d8` | None. The basis is lawful and was declared. |
+
+### Verdict: **NOT-CONFORMANT**
+
+All 12 claimed GREEN limbs reproduce on a double run. Repair 1 truly cured C1-1 and C1-3 at their roots:
+- `vue-tsc` went from 1 to **0**;
+- leg 2 went from 18 to **16**, and `test/demo` now has 0 rows.
+
+Bounds, masking, families, E-3, mail and the four-verb line all hold. One HIGH remains (C2-1): `npm run check` exits 2 on ESC-t-1's 16 rows, with no relief from a producer, a successor wave or a named honest-RED. The honest-RED set is **EMPTY**. The LEDGER status stays **PARTIAL**, and only an event line is appended. **KF.W13T (§0ao) is lawfully blocked on this wave's CLOSED conjunct.**
