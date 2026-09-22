@@ -1,0 +1,26 @@
+    108|                 ` — cure routed to X-W4 (fold R23)`,
+    109|         ).toEqual([]);
+       |           ^
+    110|     });
+    111| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  demo/test/shell/reka-binding-idiom.test.ts > NG-6 · the reka binding-correctness canary > a `:checked` binding drives NOTHING — the stale-binding class, caught
+AssertionError: a `:checked` binding renders as "unchecked" — glass-ui's Checkbox declares modelValue/update:modelValue and NO checked prop, so SearchFilterBar.vue:52-53's `:checked` + `@update:checked` are both stale: the box never reflects the filter and toggling it never reaches toggleTag. vue-tsc is green over this because tsconfig.demo resolves the producer through dist/ under skipLibCheck. Cure is the consumer binding — demo/, routed.: expected 'unchecked' to be 'checked' // Object.is equality
+
+Expected: [32m"checked"[39m
+Received: [31m"[7mun[27mchecked"[39m
+
+ ❯ demo/test/shell/reka-binding-idiom.test.ts:77:11
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed | 35 passed (37)
+      Tests  2 failed | 634 passed (636)
+   Start at  14:43:29
+   Duration  18.32s (transform 4.90s, setup 8.06s, collect 17.45s, tests 18.83s, environment 58.24s, prepare 9.43s)
+
+EXIT 1

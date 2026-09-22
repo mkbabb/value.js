@@ -4564,3 +4564,108 @@ close-condition dependency.
 
 **Honest-RED set: ∅.** gatesReproduced **13** · gatesFailed = the 20 RED gates: a2 a13 b1 b3 g1 c1 c2
 c3 c4 d1 e1 e2 h1 i1 i3 j1 j2 j3 H2 H4. The LEDGER status stays **PARTIAL**.
+
+## Repair 1 — 2026-09-22 (REPAIR SEAT, round 1, over the Check 1 — RESUME 2026-09-22 register)
+
+SERVED MODEL: claude-opus-5-5[1m]
+
+**Append-only beside** every block above (E-3). This seat cured the in-bounds limbs of register #1
+and escalates the rest with measured reasons. It does not promote the LEDGER status cell. It appends
+one event line.
+
+### Act 0 — crash-recovery and bounds
+
+⟨cmd⟩ `git status --porcelain` → the same 16 foreign rows Check 1 names (X-W5 shell lane,
+`CARRY-LEDGER.md`, `execution/A/X-W5.md`, `scripts/dev/dev.sh`). None of them is in this seat's
+writable set, and none was staged. ⟨cmd⟩ `git log f90aeb02^..HEAD -- scripts/dev/dev.sh | wc -l` → 0.
+
+**Bounds finding.** The Check-1 table read ESC-W6c-1 as unruled. But `X-W6-FOLD.md` §3 BoundsDelta
+(the dated addendum, which governs) already grants the `.c` paths ESC-W6c-1 asked for. The rows are
+n.1 (`GradientEasingEditor.vue`), n.4 (`GradientCodeEditor.vue`), n.5 (`EasingSpecimenStrip.vue`),
+n.6 (`useSpecimenRows.ts`), n.26 (`readoutReservation.ts`) and n.34 (`test/gradient-v4-consume.test.ts`).
+`GradientStopEditor.vue`, `gradientParse.ts` and `easingCatalogue.ts` are §4 rows. So ESC-W6c-1 is
+**retired, except for one path**: `demo/color-session/color-space-meta.ts` (c4). No BoundsDelta row
+and no §4 row names that file.
+
+### Defect → cure → commit → gate re-reading
+
+Each re-reading below was taken after the last cure landed (HEAD `191d4f3a`), and each was run twice.
+The transcripts are in `docs/tranches/X/waves/W6-evidence/gates/repair1-2026-09-22/`.
+
+| register limb | cure (the spec's own idiom) | commit(s) | gate re-reading ×2 |
+|---|---|---|---|
+| #1 · c1 (one structure) | leaf `model/types.ts`. One sampler, `model/sample.ts`: `sampleAt` / `intervalSampler` / `sampleCoalescedStops`. The css-color-4 `in <space> [<hue> hue]` clause goes on the coalesced output and the ramps. The 7-name re-export door and `interpolateStopColors` are deleted | `e07bff63` | `gate-structure.mjs` → **EXIT 0 ×2, `GATE G4 (structure) — GREEN`** |
+| #1 · c2 (two samplers → one) | ghost, rail, mint and specimen ink all read `intervalSampler`. The visualizer's `colorAtPosition` is deleted, and the bar press mints through `mintStop` | `e07bff63` · `b0991fd3` | `-t "one sampling law"` → **4 passed \| 13 skipped ×2** |
+| #1 · c3 (one literal dialect) | `formatColorLiteral` (oklch, L%, deg, fixed precision). Seeds pass through `seedLiteral`, and mints use the same dialect. New gate `docs/tranches/X/gates/gate-literal-dialect.mjs`, which includes a negative control | `e07bff63` | **EXIT 0 ×2, GREEN**. The readout prints one grammar: `oklch(75% 0.15 145deg) … oklch(67.26% 0.17323 237.93deg) 81.2% …` |
+| #1 · d1 (one radius register) | the `.easing-panel` register: `--easing-radius-outer: var(--radius-card)`, `--easing-radius-inner: var(--radius-md)`, `--easing-inset` = outer − inner. Rows, wells and the authoring well derive from it. Chips become `shape="icon"` true circles (2.75rem). New gate `probes/x-w6/gate-easing-radius.mjs`, with a classifier and a negative control | `9557e6b5` · `e6bd7fe5` | **EXIT 0 ×2, GREEN**: 33 panel surfaces, 2 read-only (the d2 ask / producer) |
+| #1 · d2 (kept GREEN) | L4 now reads the readout rail only. The old reading covered the whole panel, which made d1 and d2 mutually exclusive. In a second step, a paint *declaration* reds while a transitioned property name does not. The O-47 relay row covers §0z E5 | `78af2c6a` · `8e4785e1` · `e6bd7fe5` | **EXIT 0 ×2**, branch `DATED ASK`, restyle 0 lines. Direction 3 was re-captured at the current L4 (`W6-evidence/easing/d2-dir3-recapture-2026-09-22.txt`): markup restyle **RED**, `background:` declared in `.rail-btn` **RED**, HEAD editor **GREEN** |
+| #1 · e1 (selector aurora) | the census shows no strip-scale aurora primitive in glass 7.0.0, so the gate takes the two-way ask branch: `docs/tranches/X/waves/W6-glass-ask-gradient-aurora.md` plus INBOX **O-49 SENT**. The oracle reds the day a fitting primitive ships, and equally if the ramp animates locally | `3c558956` · `3ece0690` · **`191d4f3a`** | run 1 **RED**, and the instrument was at fault: `locator.screenshot` timed out on *"element is not stable"* while the pane settled at cold boot. Cured in `191d4f3a`: the rail's box is polled until two reads agree, then clipped frames are captured. **3 re-runs: 1 passed each.** Capture control (`e1-clip-controls.txt`): unperturbed `moved=false`, injected local animation `moved=true` |
+| #1 · e2 (no private clock; PRM structural) | the two rAF `syncVbRatio` sites become `useMutationObserver(viewBox)`. Every transition/animation in the gradient tree sits in `@media (prefers-reduced-motion: no-preference)`, and the strip uses glass `useReducedMotion`. New gate `probes/x-w6/gate-prm-idiom.mjs`, with 4 negative controls and 1 positive control | `3c558956` | rAF grep → **0**. Gate **EXIT 0 ×2**: 15 files, 8 motion declarations, all gated |
+| #1 · i1 (X:ATMO-1) | committed frames `W6-evidence/atmosphere/atmo1-{ref,h030,h120,h210,h300}.png` (checked by `git ls-tree HEAD` and hash-object match), with their capture harness. `o25-atmosphere-response.spec.ts` checks four named atoms at CIEDE2000 (Sharma-verified), with MIN_MOVE 10 | `e68e8889` | **1 passed ×2**. The 32 printed per-atom readings of ΔE2000 vs unseeded span 16.26–62.59, all at or above 10 |
+| #1 · i3 (cold-load) | born-RED oracle `o28-atmosphere-coldload.spec.ts`: a document-level MutationObserver timeline, read at the `first-paint` entry, tolerance 0.02 ΔE_OK. The cure itself is out of bounds; see ESC-R1-i3 | `e68e8889` | **RED ×2, honest.** The first-paint ground is `#b37290 #df8ea7 #ffb0b4 #ffcfc8` for every seed. First-paint vs settled ΔE_OK max 0.1595 / 0.2433 / 0.2933 |
+
+**Two defects found and cured along the way** (neither was on the register):
+
+1. **The ease-in-back tile crashed the pane.** An overshooting curve drove `mix` outside [0,1] and threw
+   `color_progress_out_of_range`. The fix clamps the codomain once, in `intervalSampler`
+   (`clamp(curve(t),0,1)`, commit `b0991fd3`), and it is falsified by the "codomain guard" case in
+   `-t "one sampling law"`.
+2. **The authoring stage's canvas selector matched nothing.** It selected `svg[role='img']`, but glass
+   7.0.0 renders `role="group"`, so every Law-3 rule and the ratio sync were dead. The selector now
+   uses the aria-label the seat itself passes (`3c558956`).
+
+### Close-bar gates a cure could move (measured after `191d4f3a`)
+
+| gate | ⟨cmd⟩ | reading |
+|---|---|---|
+| §7 vitest | `npx vitest run` | `Test Files 2 failed \| 35 passed (37)` · `Tests 2 failed \| 634 passed (636)`. That is Check 1's 630 plus the 4 new sampling-law cases. The 2 failures are the foreign canaries C-5 (`test/spectrum-luma.test.ts`) and NG-6 (`demo/test/shell/reka-binding-idiom.test.ts`), unchanged |
+| vue-tsc | `npx vue-tsc --noEmit -p tsconfig.demo.json` | EXIT 0 |
+| eslint | `npx eslint demo/workbenches/gradient` plus the two gradient tests and o25/o28 | EXIT 0 |
+| H1 | `node docs/tranches/X/gates/gate-no-chassis.mjs` over **28 shas** (the 18 of record, `caea9d1e`, and this seat's 9) ×2 | EXIT 0 ×2, byte-identical, GREEN |
+
+### Escalations (measured; each needs a path outside this wave's bounds or an act beyond this seat)
+
+- **ESC-R1-c4.** c4 (`test/interpolation-subset.test.ts` → *No test files found*, EXIT 1). The test
+  file is a §4 `create` row, but the cure is `INTERPOLATION_SPACES` derived from `SPACE_CATALOG` at
+  its single home, `demo/color-session/color-space-meta.ts`, which both Gradient and Mix
+  (`MixConfigBar.vue:27`) read. That path is in neither §4 nor the BoundsDelta. A gradient-local
+  derivation would make a third home, not cure the second. This is the residue of ESC-W6c-1: the
+  orchestrator grants that one path by dated addendum, or routes c4.
+- **ESC-R1-h1.** Per the E6 ruling, *"returns the exact path it lacks"*. The blob's colour resolver
+  is producer-side: `glass-ui/src/components/blob/composables/blobSimulation.ts:78`
+  (`oklchToGammaRgb(cssToOklch(css))`, sRGB gamma). The WebGL2 drawing buffer is also producer-side:
+  `glass-ui/src/composables/glass/webgl/useWebGLCanvas.ts:178` (`getContext("webgl2", …)`, with no
+  `drawingBufferColorSpace`), and the WebGPU twin is `…/webgpu/useGpuSubstrate.ts`.
+  ⟨cmd⟩ `grep -rn drawingBufferColorSpace` finds nothing in the glass source at 9.0.0 or in the
+  installed 7.0.0 dist, and `demo/` holds no `getContext("webgl2")`. glass-ui is READ-ONLY, and
+  §4 lists no letter file for h1 (`W6.md:363` licenses only the easing-readout and lband letters),
+  so no ask was authored. It is owed as a glass-forward ask by the orchestrator's relay.
+- **ESC-R1-i3.** RED ×2 as measured above. The first-paint ground is the pre-hydration default because
+  nothing seeds the atmosphere before the module graph boots. The cure is a pre-module boot seed in
+  `demo/color-picker/index.html`, which is outside §4. The producer's arm-replay (GAP-ARM) has
+  already shipped in 7.0.0, so this is a consumer write.
+- **ESC-R1-g1.** The 61.22px residue (ESC-g1) needs `ColorComponentDisplay.vue` **and** the
+  retirement of `e2e/smoke/oracles/readout-seam.spec.ts:85-119`. Both are out of bounds.
+  `readoutReservation.ts` is in bounds (n.26), but alone it cannot move g1, and M-23 (`W6.md:154`)
+  assigns the spacing canon to X-W10. The design ruling is owed by the owner or X-W10.
+- **ESC-R1-b1.** `gate-seat.mjs` G3d presses Home/ArrowDown on the stop at 0%. The instrument is
+  execute-no-write for this seat, and §0z E3 relieves a3–a7 only. A dated relief addendum or an
+  instrument re-author is owed by the orchestrator.
+- **ESC-R1-a2/a13/b3** (register #2). X-W5's uncommitted shell bytes break the e2e fixture
+  (`main` "Color tool panes"). The cure is in the X-W5 lane.
+- **ESC-R1-j** (register #4). j1–j3 are lawfully blocked until X-W5 reads CLOSED (it reads PARTIAL).
+- **ESC-R1-vitest** (register #5). C-5 and NG-6 are foreign canaries (X-V/W1.a successors).
+- **ESC-R1-simple-readout-clause.** The simple readout (`serializeGradient`) still omits the space
+  clause. Adding it breaks `test/gradient-parse.test.ts:86`, and the parser would have to accept
+  `in <space>`. Both are outside the §0z E2 grant, which covers the stop-count migration only.
+- **ESC-R1-paint-dedup** (MINOR rider). The `.rail-swatch` / render-tile paint-stack dedup needs a
+  shared stylesheet outside bounds.
+- **ESC-PUSH** (register #7). Still an orchestrator act.
+
+### Tally
+
+Register #1 limbs cured to GREEN: **c1, c2, c3, d1, e1, e2, i1** (7), plus 2 found defects cured
+(the back-tile crash and the dead canvas selector) and the e1 instrument flake. d2 stays GREEN,
+re-proved two-way. **Still RED:** c4 · h1 · i3 (#1, escalated), a2 · a13 · b3 (#2), b1 · g1 (#3),
+j1–j3 (#4), vitest (#5), and H2/H4, which follow. The LEDGER status stays **PARTIAL**, and this seat
+does not promote it.

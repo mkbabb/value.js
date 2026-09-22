@@ -1,0 +1,31 @@
+SERVED MODEL: claude-opus-5-5[1m]
+X.W6.d · gate d2 DIRECTION 3 re-captured (X-W6 Repair 1, 2026-09-22) at the CURRENT gate bytes (L4 precision, 8e4785e1). Scratch copy of the gate: ROOT pinned; the diff reads pre-wave editor bytes (f90aeb02^) against a PERTURBED copy of the HEAD editor. Three copies:
+  3a — markup: 'rounded-md' -> 'rounded-full ... ring-1' on the readout rail (expect RED)
+  3b — style: 'background: tomato;' declared inside .rail-btn (expect RED)
+  3c — the HEAD editor unperturbed (expect GREEN: the d1 register bytes are not a readout restyle)
+
+=== 3a
+GATE d2 (easing readout) — RED
+  installed @mkbabb/glass-ui 7.0.0; field subpaths published: ./labeled-field ./number-field; `./input` published: false
+  fitting primitives (optional label AND a leading/trailing action slot): NONE
+  branch selected by the census: DATED ASK; wave composes=false ask=true
+  local restyle of the readout in this wave's diff: 1 line(s) (readout ranges read at HEAD: 184-206 markup, 316-324 style, 325-328 style, 329-332 style, 333-335 style, 336-338 style, 352-357 style)
+  FAIL this wave added 1 styling line(s) to the readout rail — W6.md:217 bans a local restyle in favour of the dated ask: 184: +                <div class="readout-rail flex items-center gap-1.5 rounded-full bg-w
+exit=1
+
+=== 3b
+GATE d2 (easing readout) — RED
+  installed @mkbabb/glass-ui 7.0.0; field subpaths published: ./labeled-field ./number-field; `./input` published: false
+  fitting primitives (optional label AND a leading/trailing action slot): NONE
+  branch selected by the census: DATED ASK; wave composes=false ask=true
+  local restyle of the readout in this wave's diff: 1 line(s) (readout ranges read at HEAD: 184-206 markup, 316-325 style, 326-329 style, 330-333 style, 334-336 style, 337-339 style, 353-358 style)
+  FAIL this wave added 1 styling line(s) to the readout rail — W6.md:217 bans a local restyle in favour of the dated ask: 317: +    background: tomato;
+exit=1
+
+=== 3c
+GATE d2 (easing readout) — GREEN
+  installed @mkbabb/glass-ui 7.0.0; field subpaths published: ./labeled-field ./number-field; `./input` published: false
+  fitting primitives (optional label AND a leading/trailing action slot): NONE
+  branch selected by the census: DATED ASK; wave composes=false ask=true
+  local restyle of the readout in this wave's diff: 0 line(s) (readout ranges read at HEAD: 184-206 markup, 316-324 style, 325-328 style, 329-332 style, 333-335 style, 336-338 style, 352-357 style)
+exit=0

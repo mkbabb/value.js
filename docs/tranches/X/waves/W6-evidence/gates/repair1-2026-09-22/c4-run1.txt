@@ -1,0 +1,10 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+No test files found, exiting with code 1
+
+filter: test/interpolation-subset.test.ts
+include: test/**/*.test.ts, demo/test/**/*.test.ts
+exclude:  **/node_modules/**, **/cypress/**, **/.{idea,git,cache,output,temp}/**, **/{karma,rollup,webpack,vite,vitest,jest,ava,babel,nyc,cypress,tsup,build,eslint,prettier}.config.*
+
+EXIT 1
