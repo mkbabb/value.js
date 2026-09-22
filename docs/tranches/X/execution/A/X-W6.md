@@ -4115,3 +4115,102 @@ armRuntime demo/` → **0** at this open). Writes `AuroraPane.vue` **before** `.
 ## Unit receipts — third sitting 2026-09-21
 
 *(empty at this open; each dispatched unit appends its own receipt below, `SERVED MODEL:` first line)*
+
+### X.W6.c
+
+SERVED MODEL: claude-opus-5-5[1m]
+
+**Status: ESCALATED** (one lawful landing; the unit's cure needs writes outside its writable set).
+Seat opened 2026-09-22 at HEAD `7509da22`, in `/Users/mkbabb/Programming/value.js` (one concurrent seat,
+no worktree).
+
+#### Act 0 — crash-recovery
+
+⟨cmd⟩ `git status --porcelain` → 17 dirty rows, **none** inside this unit's writable set (the X-W5 shell
+rows, `scripts/dev/dev.sh`, and two sibling records). No inherited partial work; nothing touched outside
+the set.
+
+#### Act 1 — BEFORE (double-run, read-only)
+
+| gate | command | BEFORE |
+|---|---|---|
+| c1 | `node …/probes/wb-gradient-stopeditor/gate-structure.mjs` | **RED** — EXIT 1 ×2, **7** `G4*` lines ×2 (G4a ×2 · G4b · G4c · G4d · G4g ×2), identical to the 2026-09-21 baseline |
+| c2 | `grep -c "one sampling law" test/gradient-order-invariant.test.ts` | **RED** — 0 (R.2-1 stands) |
+| c3 | `ls docs/tranches/X/gates/gate-literal-dialect.mjs` | **RED** — No such file |
+| c4 | `ls test/interpolation-subset.test.ts` | **RED** — No such file |
+| §0z E2 | `npx vitest run test/gradient-parse.test.ts` | **2 failed / 17 passed (19)** — `:32` and `:63` read the deleted `m.intervals` |
+
+#### Act 2 — §0z E2, landed (`caea9d1e`)
+
+The grant reads *"unit `.a`'s migration only"*: that names the **content**, the two-line migration `.a`'s
+cure requires, and not a seat. Seat 0's plan carries it to this unit, and it is in this unit's writable
+set. **No §3a halt.** ⟨cmd⟩ `git diff` → `:32` `expect(m.intervals).toHaveLength(1)` →
+`expect(m.stops.length - 1).toBe(1)` and `:63` `…toHaveLength(2)` → `…toBe(2)`. Both expected values are
+unchanged: 2 stops give 1 interval and 3 stops give 2, as Repair 2 verified. No other case was touched.
+⟨cmd⟩ `npx vitest run test/gradient-parse.test.ts` ×2 → **19 passed (19)** both runs. `git diff --check`
+is clean. ⟨cmd⟩ `npx prettier --check test/gradient-parse.test.ts` → `[warn]`, but the parent bytes
+(`caea9d1e^`) give the same `[warn]`, so it predates this edit and is out of this unit's scope.
+Commit: `caea9d1e` `test(gradient-parse): §0z E2 — .a's interval-count migration (2 stops -> 1, 3 stops -> 2)`,
+committed with its own pathspec.
+
+#### Act 3 — the cure, measured at the bytes: IMPOSSIBLE inside the writable set (no substitute taken)
+
+Every limb of the spec's mechanism (`W6.md:200-203`) was checked against the files that import what it
+moves or deletes. ⟨cmd⟩ `grep -rnE "from ['\"][^'\"]*(useGradientModel|useGradientCSS|gradientParse|useGradientInterpolation)['\"]" demo test e2e`:
+
+| limb (spec / brief) | out-of-set files the cure has to write | measured at |
+|---|---|---|
+| **leaf `model/types.ts` FIRST**, which breaks **both** type-only cycle edges | `composables/gradientParse.ts` (edge 2: `:23` `import type { GradientType, GradientStop } from "./useGradientModel"`) · plus four other files that take the types from the factory: `GradientStopEditor.vue:6`, `GradientEasingEditor.vue:36-39`, `easing/easingCatalogue.ts:36`, `easing/useSpecimenRows.ts:17-21` | the grep above |
+| **DELETE the dead re-export block** | `GradientStopEditor.vue:7` `import { railPosition } from "../composables/useGradientModel"`. Through the door it reaches a **live** consumer, which `.a` added after the gate's "zero consumers" was measured | `sed -n 6,7p` |
+| **one `sampleAt`**, G4a "the `colorAt` prop is gone" | `GradientStopEditor.vue:9,:32,:76,:261-262` declares and consumes `colorAt` (the gate tests `/colorAt/` against the editor) | `grep -n colorAt` |
+| c1 · G4c (the untrusted literal kept out of the checker's shorthand) | `GradientStopEditor.vue:606`, `:668` | gate line G4c |
+| **two-site paint-stack dedup** (`.gradient-rail` + `.gradient-render-tile`) | `.gradient-rail` is declared at `GradientStopEditor.vue:783-797`. The only site in set is `.gradient-render-tile` (`GradientVisualizer.vue:344-353`) | `grep -rn gradient-rail demo` |
+| c4 — the interpolation set derives from the catalog | `demo/color-session/color-space-meta.ts:26` owns `INTERPOLATION_SPACES`, and `MixConfigBar.vue:27` reads the same set. That file is in **no** `W6.md` §4 row | `grep -rn INTERPOLATION_SPACES demo` |
+
+**Why none of the in-set limbs landed on its own.** The spec orders the leaf types **first** (`W6.md:201`).
+Every other limb (`sample.ts`, the space clause, `formatColorLiteral`, the door deletion) either imports
+the types or deletes an export. Without the types leaf, an in-set landing has two routes. (a) `sample.ts`
+type-imports `useGradientModel`, which adds a **third** type-only cycle edge
+(`useGradientCSS → sample → useGradientModel → useGradientCSS`). (b) `useGradientModel.ts` re-exports the
+types it moved, which is the "state factory re-exports nothing" violation that G4g exists to delete. It
+would also be a legacy-compat shim. Each route is a substitute for the specified cure, and each turns c1
+GREEN on text while the defect stays. Neither was taken. c2 was not authored alone either: its case
+imports `sampleAt` from `model/sample.ts`, and a case with nothing to import turns all of
+`gradient-order-invariant.test.ts` RED, including `.a`'s green cases. c3 and c4 are left unbuilt for the
+same reason, since each probes an artefact the cure creates. One out-of-set dependency **is** avoidable
+and is noted for the re-dispatch: `test/gradient-v4-consume.test.ts:6` imports `sampleCoalescedStops`
+from `useGradientCSS`. If the ramp builder keeps that name and position, and samples through `sampleAt`,
+that file needs no write.
+
+#### Act 4 — AFTER
+
+| gate | AFTER | moved? |
+|---|---|---|
+| c1 | RED — EXIT 1, 7 `G4*` lines (unchanged) | no |
+| c2 | RED — 0 | no |
+| c3 | RED — No such file | no |
+| c4 | RED — No such file | no |
+| §0z E2 | **19 passed (19)** ×2 | **yes** (2 of the 4 whole-suite failures `.a`'s close counted are cured) |
+
+#### Act 5 — ESCALATION `ESC-W6c-1` (§3a, a file-bound expansion)
+
+X.W6.c needs a writable-set grant before its re-dispatch. The grant falls into two classes:
+1. **Inside `W6.md` §4, outside `.c`'s unit list** (the unit list at `W6.md:203` omits them; granting them
+   takes a dated addendum only): `demo/workbenches/gradient/GradientVisualizer/GradientStopEditor.vue` (door
+   repoint, types repoint, `colorAt` → `sampleAt`, G4c ×2, `.gradient-rail` dedup) ·
+   `demo/workbenches/gradient/composables/gradientParse.ts` (cycle edge 2) ·
+   `…/GradientVisualizer/GradientEasingEditor.vue` (types repoint) · `…/GradientVisualizer/easing/easingCatalogue.ts`
+   (types repoint).
+2. **Outside `W6.md` §4 entirely** (a true §3a trigger): `demo/workbenches/gradient/GradientVisualizer/easing/useSpecimenRows.ts`
+   (types repoint) · `demo/color-session/color-space-meta.ts` (c4: `INTERPOLATION_SPACES` derived from
+   `SPACE_CATALOG`, the single home that Gradient and Mix both read).
+
+`.b` and `.f` have both landed. `GradientStopEditor.vue` has no other live Lane-1 writer until `.e`, and
+`.e` does not touch it. Every one of these writes is a one-line repoint, except the editor's and
+`color-space-meta.ts`'s. With the grant, the unit lands whole as commit #3.
+
+#### Act 6 — bounds, commits, mail
+
+⟨cmd⟩ `git show --stat caea9d1e` → `test/gradient-parse.test.ts | 4 ++--`, one path, inside the set.
+`scripts/dev/dev.sh` was not staged. This receipt is committed on its own pathspec. No mail rows were in
+scope for this unit (it touches no glass-ui surface).
