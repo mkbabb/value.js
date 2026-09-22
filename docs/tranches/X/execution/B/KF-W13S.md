@@ -991,3 +991,45 @@ Also: `const props =` unbound to `defineProps<…>()` (no reader left under `noU
 **Escalations**: none blocking. R-a4-2 is a carve-extension request, returned to the orchestrator, not an act.
 
 **Erratum to R-a4-2 (same seat, measured after the receipt commit)**: ⟨cmd⟩ `grep -n "\bref(\|watch(" demo/scenes/cube/CubeScene.vue` → `ref(` at `:71` `:72` `:101` · `watch(` at `:111` ONLY — so `ref` stays live but `watch` would become a dead import with that state; the grant R-a4-2 asks for covers the `watch` import too.
+
+### KF.W13.e3
+
+SERVED MODEL: claude-opus-5-5[1m] (this receipt's seat)
+
+**Scope**: KF-W13.md ADDENDUM 2026-09-22 `:303` `.e3` clause · COHESION §0am ESC-r2-1 (`:2483-2487`) + ESC-r2-3 (`:2488-2496`) · §0ai close literal (`:2367-2371`). Writable (kf): `easingGroups.ts` · `animationDescriptions.ts` · `EasingSidebar.vue:150` · `EasingTarget.vue:251` · `package.json:37` · `playback-ribbon-contract.test.ts:230`; vjs: this record.
+
+**CRASH-RECOVERY**: ⟨cmd⟩ `git -C keyframes.js status --porcelain` → only the two untracked 2026-07 value.js letters (outside the set, untouched); HEAD = `82c11a9c` = origin/master. No inherited partial work; no inherited paths.
+
+**BEFORE (kf `82c11a9c`, double-run `·`)**: ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.json 2>&1 | grep -c 'error TS'` → **2·2** (`EasingSidebar.vue(150,27)` · `EasingTarget.vue(251,62)` TS2345) · ⟨cmd⟩ `npx tsc --noEmit -p tsconfig.test.json … | grep -c 'error TS'` → **47·47** · ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.test.json … | grep -c 'error TS'` → **31·31** (the baseline's 33 less `.a4`'s two MbabbMenu rows).
+
+**Anchors at true bytes**: `easingGroups.ts:7` `name: string` (CurveGroupItem) + `:18` `item(name: string, …)` · `animationDescriptions.ts:19-22` `NAMED_EASING_BEZIER: Record<string, [number×4]>` · `EasingSidebar.vue:150` `demo.selectEasing(named)` where `named` ← `:148` `nameForQuad(v.points)` ← `:128-133` `Object.keys(NAMED_EASING_BEZIER).find(…)`: `string | undefined` · `EasingTarget.vue:251` `if (typeof v === "string" && v.length) demo.selectEasing(v)` (v = the ToggleGroup's untyped emission) · `package.json:37` as the RESUME 2 bank quotes · `playback-ribbon-contract.test.ts:230` `h(PlaybackRibbon, { ...props.value, ...listeners })` with `props = ref<Record<string, unknown>>` (`:208`), `over: Record<string, unknown>` (`:207`), `setProps(p: Record<string, unknown>)` (`:203`).
+
+**Acts (kf, in order, pushed)**:
+1. **ESC-r2-1, the `easingGroups.ts` half — kf `5149fe8e`**: `CurveGroupItem.name: EasingName` and `item(name: EasingName, …)` (type-only import of the `.e2` contract from `scenes/easing/useEasingDemo`). Every one of the catalogue's tile names type-checks as an `EasingName` — the data proves the subset; ripple **0** rows. `EasingTarget.vue:251` (the typing demands it: the ToggleGroup emits an untyped value) — the tile press resolves its emitted value back to the typed catalogue tile it names: `SPECIMEN_GROUPS.flatMap((g) => g.items).find((i) => i.name === v)` → `if (tile) demo.selectEasing(tile.name)`. No cast, no type predicate; the deselect toggle (empty/undefined emission) matches no tile and stays ignored (same semantics). Prettier re-wrapped the one line to `:251-253` (HEAD was prettier-clean; kept clean). ⟨cmd⟩ `git show --stat 5149fe8e` → `EasingTarget.vue | 5 ++++-` · `easingGroups.ts | 6 ++++--`.
+2. **ESC-r2-3, `package.json:37` leg 2 — kf `781fd1d7`**: `&& tsc --noEmit -p tsconfig.test.json` → `&& vue-tsc --noEmit -p tsconfig.test.json`; ⟨cmd⟩ `git show --stat 781fd1d7` → `package.json | 2 +-` (one line).
+3. Push: ⟨cmd⟩ `git push origin HEAD:master; git rev-list --left-right --count origin/master...HEAD` → **0 0** at `781fd1d7`.
+
+**Not landed (measured, returned — see Escalations)**: `animationDescriptions.ts:19` · `EasingSidebar.vue:150` · `playback-ribbon-contract.test.ts:230`.
+
+**Gates (kf root; AFTER at committed `781fd1d7`, double-run `·`)**:
+
+| Gate | ⟨cmd⟩ | BEFORE | AFTER | Verdict |
+|---|---|---|---|---|
+| vue-tsc app → 0 | `npx vue-tsc --noEmit -p tsconfig.json 2>&1 \| grep -c 'error TS'` | 2·2 | **1·1** (`EasingSidebar.vue(150,27)` TS2345) | **RED** (ESC-e3-1) |
+| `EasingTarget.vue(251,62)` | same run | 1 | **0·0** | GREEN |
+| leg 2 as it was | `npx tsc --noEmit -p tsconfig.test.json 2>&1 \| grep -c 'error TS'` | 47·47 | 47·47 (no longer the check's leg) | banked |
+| leg 2 as ruled (the check's leg now) | `npx vue-tsc --noEmit -p tsconfig.test.json 2>&1 \| grep -c 'error TS'` | 33 (bank) → 31·31 (after `.a4`) | **30·30** | banked (47 → 33 → 31 → **30**) |
+| `package.json:37` leg 2 | `sed -n 37p package.json \| grep -c 'vue-tsc --noEmit -p tsconfig.test.json'` | 0 | **1** | GREEN |
+| `playback-ribbon-contract.test.ts(230,66)` TS2769 | `… -p tsconfig.test.json 2>&1 \| grep -c 'playback-ribbon-contract.test.ts(230'` | 1 | **1·1** | **RED** (ESC-e3-2) |
+| `test:demo` | `npm run test:demo` | 59/59 · 494 | **59/59 · 494/494 · 59/59 · 494/494** | GREEN |
+| keyframes.js pushed | `git rev-list --left-right --count origin/master...HEAD` | 0 0 | **0 0** at `781fd1d7` | GREEN |
+
+The 30 leg-2 rows by file (⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.test.json 2>&1 | grep 'error TS' | cut -d: -f1 | sed 's/(.*//' | sort | uniq -c`): `EasingSidebar.vue` 1 · `playback-ribbon-contract.test.ts` 1 · `test/demo/**` other 12 (apply-css-identity 2 · channel-options-render-edge 5 · keyframe-card-offset-loop 3 · keyframes-editor-honest 1 · spring-heatmap-reversibility 1) · outside `test/demo/**` 16 (compile 3 · engine 5 · group 4 · ingest 2 · scroll 1 · waapi 1) — the RESUME 2 bank's FINDING B-1 partition reproduces.
+
+**Escalations (returned to the orchestrator; the specified cure is impossible inside the written carve — no substitute landed)**:
+- **ESC-e3-1 — `animationDescriptions.ts:19` + `EasingSidebar.vue:150`.** (a) Typing `:19` as ruled RIPPLES into foreign files. Probe (reverted, never committed): `NAMED_EASING_BEZIER: Partial<Record<EasingName, [number, number, number, number]>>` → ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.json 2>&1 | grep 'error TS'` → 6 rows: the two owed rows UNCHANGED plus **four new** — `useTimingFunctionEditor.ts(329,30)` TS7053 + `(331,13)` TS2322 (`NAMED_EASING_BEZIER[currentEasing]`, `currentEasing: string` at `:307`) · `TimingFunctionPanel.vue(117,16)` TS7053 · `EasingSidebar.vue(132,16)` TS7053 (each indexes by an `Object.keys` string). `Record<EasingName, …>` (total) is false to the data (the editor modes / step keywords have no quad). (b) Even typed, `:19` cannot cure `:150`: `named` is `nameForQuad`'s `string | undefined`, rooted at `EasingSidebar.vue:128-133` (`Object.keys(…)` is `string[]` whatever the record's key type) — outside `:150 only`, and nothing AT `:150` narrows a string to `EasingName` without a cast or a predicate. **Asked**: a dated grant widening `.e3` (or its successor) to `EasingSidebar.vue:128-133` (and, if `:19` is still to be typed, `TimingFunctionPanel.vue:115-118` + `useTimingFunctionEditor.ts:288-331` for their string-keyed lookups), or a ruling that `:19` stays string-keyed and `nameForQuad` resolves over the EasingName-typed catalogue. vue-tsc 0 (§0ai literal) cannot turn until then.
+- **ESC-e3-2 — `playback-ribbon-contract.test.ts:230` TS2769.** The row's root is the harness's props bag typing (`:203` · `:207` · `:208`, `Record<string, unknown>` lacks the four required props `currentT`/`isAnimPlaying`/`isAnimStarted`/`userReversed`), not `:230`; nothing at `:230` alone type-checks without a cast. **Cure proven by probe (reverted)**: `type RibbonProps = InstanceType<typeof PlaybackRibbon>["$props"]` after the `:127-128` import · `setProps(p: Partial<RibbonProps>)` · `mountRibbon(over: Partial<RibbonProps> = {})` · `const props = shallowRef<RibbonProps>({…})` (+ `shallowRef` at `:21`; `ref<…>` fails — it unwraps the `KeyframesAnimation` instance, measured TS2769 persisting) → the row **1 → 0**, leg 2 31 → 29 with ESC-e3-1's `:251` half, ⟨cmd⟩ `npx vitest run --project demo test/demo/instrument/playback-ribbon-contract.test.ts` → **15/15**. Patch banked at the session scratchpad `e3-ribbon-proven.patch`. **Asked**: re-home the row to `.t` (whose carve is `test/demo/**` whole) or grant `:21/:127-128/:203/:207/:208`.
+
+**Residuals**: `easingGroups.ts` imports a type from `demo/scenes/easing/useEasingDemo.ts` (the `.e2` contract's home; type-only, erased) — a utils → scene type edge; if the orchestrator prefers the contract in a neutral module, that is a move of `useEasingDemo.ts:37-53`, outside this carve.
+
+**E13**: no mail acts in this unit's scope (the RESUME 2 Step-0 sweep stands; 0 UNREAD).
