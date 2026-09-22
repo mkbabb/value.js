@@ -1,3 +1,4 @@
+SERVED MODEL: claude-opus-5-5[1m]
 # /#/generate @ mobile-390 — h1 census + main accessibility tree (playwright ariaSnapshot)
 # h1: [{"text":"Generate","visible":true,"inMain":true}]
 - main "Generate":
