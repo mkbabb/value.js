@@ -631,3 +631,10 @@ blocked.
 
 **LEDGER**: the F.W10S status is set to `CLOSED 2026-09-17 (honest-RED: G-F9-11 · G-F9-8 crud:664 · G-F9-5
 contrast-floor leg)`. One event line is appended, and the LEDGER is committed ALONE (C2-M3).
+
+## Addendum 2026-09-22 — E-F10S-r1 discharged (COHESION §0al)
+
+SERVED MODEL: claude-opus-5-5[1m]
+- Ruling: a `test.fixme` note is prose, not an instrument — the RESUME lock bound the assertions, the addendum governs the note, so the escalation id is written into it.
+- fourier `m/w1-bump-migration` `735319e` (pushed, `aca2580..735319e`): `web/e2e/visualization-crud.spec.ts` `:664` note gains one dated line naming `E-F10S-b2` / `A-3`; LC-2 rationale left in place.
+- ⟨cmd⟩ `git diff --stat` → `1 file changed, 1 insertion(+)`; no assertion, locator or other comment moved.
