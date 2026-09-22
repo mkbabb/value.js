@@ -2,6 +2,9 @@ import { test, expect } from "@playwright/test";
 import type { Locator, Page } from "@playwright/test";
 import { setupEnvNoise } from "../fixtures/env-noise";
 import { openView, paneSettled } from "../fixtures/dock";
+import { createHash } from "node:crypto";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
+import { join } from "node:path";
 
 /**
  * Smoke (D.W5 Lane A) + the S.W5 §6.1 gradient interaction spec (Lane C),
@@ -416,4 +419,105 @@ test("no pane subtree rests on a permanent compositing transform (W5-10)", async
     expect(transforms).toEqual([]);
 
     expect(consoleErrors).toEqual([]);
+});
+
+/**
+ * X-W6 · X.W6.e — gate **e1** (CC-064 · MT-F041): "the selector's ramp animates
+ * under the shared law". TWO-WAY, the d2 falsifier's shape (`W6.md` X.W6.e: "If
+ * the wave mechanism proves to belong inside the glass gradient/aurora
+ * primitive, it leaves as a marked BJ ask (same two-way falsifier as d2)").
+ *
+ *   L1 · THE CENSUS, re-run here against the INSTALLED producer: does glass
+ *        publish a strip-scale aurora motion primitive — an export or subpath
+ *        named for a strip/ramp/band/wave/veil aurora, or any `@keyframes`
+ *        of the aurora family in its stylesheet?
+ *   L2 · IF ONE FITS, the rail must COMPOSE it and the ramp must MOVE: a
+ *        settled-frame delta over N frames at the same colour, above zero.
+ *   L3 · IF NONE FITS, the dated ask must exist and CARRY this census (the
+ *        producer version, the `./aurora` declaration hash, every export row),
+ *        and the ramp must NOT move locally — no animation on the rail and a
+ *        zero settled-frame delta. A local wave would be a new animation
+ *        species, which the wave bans.
+ *
+ * It navigates by the hash route and the rail's own test id, never through the
+ * shell's `main` landmark, so it measures the rail and nothing the shell owns.
+ *
+ * MOTION-SOURCED · PENDING-QUARANTINE (`W6.md` H2): cites
+ * `docs/tranches/V/megatranche/audit/codex-provenance/motion-quarantine.md`
+ * (9812f951), re-derived against the two guards (`demo/styles/animations.css`,
+ * glass's `a11y-overrides.css`): this assertion reads a STILL on the ask
+ * branch, which neither guard can manufacture or mask.
+ */
+test("gradient selector aurora", async ({ page }) => {
+    const pkg = join(process.cwd(), "node_modules/@mkbabb/glass-ui");
+    const manifest = JSON.parse(readFileSync(join(pkg, "package.json"), "utf8")) as {
+        version: string;
+        exports: Record<string, unknown>;
+    };
+    const indexPath = join(pkg, "dist/components/aurora/index.d.ts");
+    const index = readFileSync(indexPath, "utf8");
+    const indexHash = createHash("sha256").update(index).digest("hex");
+    const exported = [...index.matchAll(/(?:default as |\b)(\w+)(?=[,\s}])/g)]
+        .map((m) => m[1]!)
+        .filter((n) => /^[A-Za-z]/.test(n) && !/^(export|type|from|default|as)$/.test(n));
+    const FIT = /Aurora(Strip|Ramp|Band|Wave|Veil)|(Strip|Ramp|Band|Wave|Veil)Aurora|aurora-(strip|ramp|band|wave|veil)/i;
+    const cssFiles: string[] = [];
+    const walk = (dir: string) => {
+        for (const e of readdirSync(dir, { withFileTypes: true })) {
+            const p = join(dir, e.name);
+            if (e.isDirectory()) walk(p);
+            else if (e.name.endsWith(".css")) cssFiles.push(p);
+        }
+    };
+    walk(join(pkg, "dist"));
+    const auroraKeyframes = cssFiles.flatMap((f) =>
+        [...readFileSync(f, "utf8").matchAll(/@keyframes\s+([\w-]*aurora[\w-]*)/gi)].map((m) => m[1]!),
+    );
+    const fitting = [
+        ...exported.filter((n) => FIT.test(n)),
+        ...Object.keys(manifest.exports).filter((k) => FIT.test(k)),
+        ...auroraKeyframes,
+    ];
+
+    await page.goto("/#/gradient");
+    const rail = page.locator('[data-testid="gradient-stop-bar"]:visible').first();
+    await expect(rail).toBeVisible({ timeout: 15000 });
+    await page.mouse.move(0, 0);
+    await page.waitForTimeout(800);
+
+    const frames: Buffer[] = [];
+    for (let i = 0; i < 5; i++) {
+        frames.push(await rail.screenshot({ animations: "allow" }));
+        await page.waitForTimeout(300);
+    }
+    const moved = frames.slice(1).some((f) => !f.equals(frames[0]!));
+    const railMotion = await rail.evaluate((el) => {
+        const cs = getComputedStyle(el);
+        return { animation: cs.animationName, children: el.querySelectorAll("*").length };
+    });
+
+    if (fitting.length > 0) {
+        // L2 — a primitive fits: composing it is the only lawful branch.
+        expect(
+            await rail.evaluate(
+                (el, names) => names.some((n) => el.querySelector(`[class*="${n.toLowerCase()}"]`)),
+                fitting,
+            ),
+            `glass ${manifest.version} publishes ${fitting.join(", ")} and the rail does not compose it`,
+        ).toBe(true);
+        expect(moved, "the composed aurora does not move the ramp").toBe(true);
+    } else {
+        // L3 — none fits: the dated ask carries the census, and nothing moves locally.
+        const askPath = join(process.cwd(), "docs/tranches/X/waves/W6-glass-ask-gradient-aurora.md");
+        expect(existsSync(askPath), "no fitting primitive and no dated ask").toBe(true);
+        const ask = readFileSync(askPath, "utf8");
+        expect(ask).toContain(`\`@mkbabb/glass-ui\` **${manifest.version}**`);
+        expect(ask, "the ask's census hash is stale — re-run the census").toContain(indexHash);
+        for (const name of ["Aurora", "useAurora", "createAurora", "paletteToCssGradient", "auroraFallbackGround"]) {
+            expect(exported, `the census row ${name} is no longer published`).toContain(name);
+            expect(ask).toContain(`\`${name}\``);
+        }
+        expect(railMotion.animation, "the ramp carries a local animation species").toBe("none");
+        expect(moved, "the ramp moves with no producer primitive composed").toBe(false);
+    }
 });

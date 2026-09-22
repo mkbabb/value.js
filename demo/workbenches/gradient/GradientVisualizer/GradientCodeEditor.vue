@@ -90,11 +90,8 @@ onMounted(() => render(modelValue));
             role="textbox"
             aria-label="Gradient CSS"
             :aria-invalid="hasError || undefined"
-            class="hljs text-mono-small leading-relaxed p-3 rounded-lg glass-wash border min-h-[5rem] max-h-[12rem] overflow-y-auto scrollbar-thin whitespace-pre-wrap break-all outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+            class="code-editor hljs text-mono-small leading-relaxed p-3 rounded-lg glass-wash border min-h-[5rem] max-h-[12rem] overflow-y-auto scrollbar-thin whitespace-pre-wrap break-all outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
             :class="[hasError ? 'border-destructive' : 'border-border/40']"
-            :style="{
-                transition: `border-color var(--duration-normal) var(--ease-standard), box-shadow var(--duration-normal) var(--ease-standard)`,
-            }"
             @input="onInput"
             @focus="onFocus"
             @blur="onBlur"
@@ -114,3 +111,15 @@ onMounted(() => render(modelValue));
         </p>
     </div>
 </template>
+
+<style scoped>
+/* The verdict edge eases in only where motion is wanted (X-W6 · X.W6.e — e2):
+   a reduced-motion reader gets the error border at once, structurally. */
+@media (prefers-reduced-motion: no-preference) {
+    .code-editor {
+        transition:
+            border-color var(--duration-normal) var(--ease-standard),
+            box-shadow var(--duration-normal) var(--ease-standard);
+    }
+}
+</style>

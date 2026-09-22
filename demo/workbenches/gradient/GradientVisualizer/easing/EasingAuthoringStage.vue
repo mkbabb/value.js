@@ -25,7 +25,8 @@
  * surface; `:readout="false"` keeps the row's literal in exactly ONE
  * place (the parent's readout rail — the one-literal law).
  */
-import { onMounted, ref, useTemplateRef, watch } from "vue";
+import { onMounted, ref, useTemplateRef } from "vue";
+import { useMutationObserver } from "@vueuse/core";
 import { EasingPicker } from "@mkbabb/glass-ui/easing";
 import type { EasingPickerValue } from "@mkbabb/glass-ui/easing";
 
@@ -44,27 +45,46 @@ const emit = defineEmits<{
 const rootEl = useTemplateRef<HTMLElement>("rootEl");
 const vbRatio = ref(1.2); // linear's padded box (1 + 2·VIEW_PAD)
 
+/**
+ * The producer's curve canvas, found by the accessible name THIS seat gives it
+ * (`:label` → the svg's `aria-label`). It used to be found by `role="img"`; the
+ * installed producer (glass 7.0.0) renders the canvas as `role="group"`, so that
+ * selector matched nothing, the ratio never synced, and every Law-3 rule below
+ * was dead (X-W6 · X.W6.e: found while removing the rAF sites, which were
+ * re-reading a node that was not there).
+ */
+function canvasSvg(): SVGSVGElement | null {
+    return (
+        rootEl.value?.querySelector<SVGSVGElement>(
+            `svg[aria-label="${CSS.escape(label)}"]`,
+        ) ?? null
+    );
+}
+
 function syncVbRatio() {
-    const vb = rootEl.value?.querySelector<SVGSVGElement>(
-        "svg[role='img']",
-    )?.viewBox.baseVal;
+    const vb = canvasSvg()?.viewBox.baseVal;
     if (!vb || vb.width <= 0 || vb.height <= 0) return;
     vbRatio.value = vb.height / vb.width;
 }
 
-// Every geometry change routes through an emission (drag / preset / steps /
-// term) — sync after each, plus mount and external model changes.
+// The ratio is read when the attribute it mirrors CHANGES (X-W6 · X.W6.e — e2).
+// It used to be read one animation frame after every emission and every
+// external model change: two animation-frame callbacks that were not a
+// clock but a guess at WHEN the producer's svg would carry its new viewBox.
+// Observing the viewBox attribute itself (and the svg's replacement, on a
+// regime flip) reads it exactly when it moves — no frame callback, nothing to
+// gate under reduced motion, and no emission path that can forget to re-sync.
 function onAuthored(v: EasingPickerValue | undefined) {
-    requestAnimationFrame(syncVbRatio);
     emit("authored", v);
 }
 
 onMounted(syncVbRatio);
-watch(
-    () => value.css,
-    () => requestAnimationFrame(syncVbRatio),
-    { flush: "post" },
-);
+useMutationObserver(rootEl, syncVbRatio, {
+    subtree: true,
+    childList: true,
+    attributes: true,
+    attributeFilter: ["viewBox"],
+});
 </script>
 
 <template>
@@ -106,16 +126,21 @@ watch(
 /* Law 3 — zero letterbox: aspect rides the live viewBox; the producer's
  * inline fixed-clamp carries the specificity, so the seat overrides carry
  * !important (retired at the P7 adopt). */
-.easing-authoring :deep(svg[role="img"]) {
+.easing-authoring :deep(svg[aria-label]) {
     inline-size: min(100%, 19rem);
     block-size: auto !important;
     aspect-ratio: calc(1 / var(--vb-ratio, 1.2)) !important;
     margin-inline: 0 !important;
-    /* The liquid morph (T-48 bar): a regime flip (linear → back → steps)
-     * re-shapes the live viewBox — the canvas EASES to its new ratio
-     * instead of lurching the layout below. The wrapper retains its prior
-     * ratio while the rAF sync reads the updated live viewBox. The global PRM carve-out
-     * (animations.css) neutralizes it under reduced motion. */
-    transition: aspect-ratio var(--duration-normal) var(--ease-standard);
+}
+
+/* The liquid morph (T-48 bar): a regime flip (linear → back → steps)
+ * re-shapes the live viewBox — the canvas EASES to its new ratio instead of
+ * lurching the layout below. PRM is honoured STRUCTURALLY (X-W6 · X.W6.e —
+ * e2): the motion is declared only where motion is wanted, so a reduced-motion
+ * reader gets the new ratio at once without leaning on the global guard. */
+@media (prefers-reduced-motion: no-preference) {
+    .easing-authoring :deep(svg[aria-label]) {
+        transition: aspect-ratio var(--duration-normal) var(--ease-standard);
+    }
 }
 </style>

@@ -9,9 +9,9 @@
  * (`--motion-accent`, inherited from the specimen row).
  */
 import { nextTick, useTemplateRef, watch } from "vue";
-import { useMediaQuery } from "@vueuse/core";
 import { FadingScroll } from "@mkbabb/glass-ui/fading-scroll";
 import { Chip } from "@mkbabb/glass-ui/chip";
+import { useReducedMotion } from "@mkbabb/glass-ui/motion-core";
 import { SPECIMEN_FAMILIES } from "./easingCatalogue";
 import type { SpecimenTile } from "./easingCatalogue";
 
@@ -44,7 +44,10 @@ function onTileToggle(tile: SpecimenTile, on: boolean) {
 // desktop flat-netting root cause. The strip owns exactly one scroll axis
 // (the FadingScroll port); it writes scrollLeft on that port and nothing
 // else, so the page can never yank by construction.
-const prefersReducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
+// The ONE reduced-motion read: the producer's shared preference (one
+// MediaQueryList listener for the whole app), never a local media query
+// (X-W6 · X.W6.e — e2, fold W6·150: "the producer door already exists").
+const prefersReducedMotion = useReducedMotion();
 const rowEl = useTemplateRef<HTMLElement>("rowEl");
 
 watch(

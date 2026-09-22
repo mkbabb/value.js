@@ -143,7 +143,7 @@ async function copyLiteral(index: number, css: string) {
                      text-mono-caption would uppercase them (P1-7). -->
                 <span class="fira-code text-mono-small text-muted-foreground truncate flex-1 min-w-0">{{ row.name }}</span>
                 <ChevronDown
-                    class="w-4 h-4 shrink-0 text-muted-foreground transition-transform"
+                    class="interval-chevron w-4 h-4 shrink-0 text-muted-foreground"
                     :class="openInterval === row.index ? 'rotate-180' : ''"
                     aria-hidden="true"
                 />
@@ -269,9 +269,6 @@ async function copyLiteral(index: number, css: string) {
 
 /* The specimen-row head: a whisper hover + the house focus register (the
  * accent-aware ring the keystone mints — never a bespoke outline). */
-.interval-head {
-    transition: background-color var(--duration-fast) var(--ease-standard);
-}
 .interval-head:hover {
     background-color: color-mix(in oklab, var(--foreground) 4%, transparent);
 }
@@ -324,9 +321,6 @@ async function copyLiteral(index: number, css: string) {
     border-radius: var(--radius-input);
     color: var(--muted-foreground);
     cursor: pointer;
-    transition:
-        color var(--duration-fast) var(--ease-standard),
-        background-color var(--duration-fast) var(--ease-standard);
 }
 .rail-btn:hover {
     color: var(--foreground);
@@ -341,5 +335,24 @@ async function copyLiteral(index: number, css: string) {
 }
 .rail-tick {
     color: var(--motion-accent, var(--foreground));
+}
+
+/* ── Motion, declared only where motion is wanted (X-W6 · X.W6.e — e2) ──
+   Every transition in the panel lives here, so a reduced-motion reader gets
+   each state change at once BY CONSTRUCTION — never by the global guard
+   zeroing durations after the fact. The readout's controls are moved, not
+   restyled: the same two eased properties, now inside the block. */
+@media (prefers-reduced-motion: no-preference) {
+    .interval-head {
+        transition: background-color var(--duration-fast) var(--ease-standard);
+    }
+    .interval-chevron {
+        transition: transform var(--duration-fast) var(--ease-standard);
+    }
+    .rail-btn {
+        transition:
+            color var(--duration-fast) var(--ease-standard),
+            background-color var(--duration-fast) var(--ease-standard);
+    }
 }
 </style>

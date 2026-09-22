@@ -651,10 +651,9 @@ function onCaretKeydown(e: KeyboardEvent) {
                        class). Selected/dragging/grabbed (1.25) outranks hover
                        (1.1). T.W5 R9 (ridden here per the cross-wave clause):
                        the handle's scale settle is SPATIAL — `--spring-snappy` @
-                       its own clock, never the squeezed generic 0.3s. */
+                       its own clock, never the squeezed generic 0.3s — declared in
+                       the stylesheet's no-preference block (X.W6.e — e2). */
                     transform: `translate(-50%, -50%) scale(${handleScale(stop.id)})`,
-                    transition:
-                        'box-shadow var(--duration-fast) var(--ease-standard), transform var(--spring-snappy-duration) var(--spring-snappy)',
                 }"
                 @pointerdown="(e) => onHandlePointerDown(e, stop.id)"
                 @pointermove="onHandlePointerMove"
@@ -915,7 +914,6 @@ function onCaretKeydown(e: KeyboardEvent) {
    the DOM — a seat that is not there cannot be Tabbed to. */
 .rail-caret {
     opacity: 0;
-    transition: opacity var(--duration-fast) var(--ease-standard);
 }
 .rail-caret:focus-visible {
     opacity: 1;
@@ -1007,9 +1005,6 @@ function onCaretKeydown(e: KeyboardEvent) {
     border: 1px solid var(--card-edge);
     color: var(--muted-foreground);
     cursor: pointer;
-    transition:
-        color var(--duration-fast) var(--ease-standard),
-        border-color var(--duration-fast) var(--ease-standard);
 }
 .stop-inspector-remove:hover:not(:disabled) {
     color: var(--destructive);
@@ -1028,6 +1023,26 @@ function onCaretKeydown(e: KeyboardEvent) {
         0 0 0 1px var(--focus-ring-inner),
         0 0 0 3px var(--focus-ring-outer);
 }
+/* ── Motion, declared only where motion is wanted (X-W6 · X.W6.e — e2) ──
+   Every transition in the seat lives in this block, so a reduced-motion reader
+   gets each state change at once BY CONSTRUCTION — not by the global guard in
+   `animations.css` zeroing durations after the fact. */
+@media (prefers-reduced-motion: no-preference) {
+    .rail-handle {
+        transition:
+            box-shadow var(--duration-fast) var(--ease-standard),
+            transform var(--spring-snappy-duration) var(--spring-snappy);
+    }
+    .rail-caret {
+        transition: opacity var(--duration-fast) var(--ease-standard);
+    }
+    .stop-inspector-remove {
+        transition:
+            color var(--duration-fast) var(--ease-standard),
+            border-color var(--duration-fast) var(--ease-standard);
+    }
+}
+
 /* Forced-colors (WHCM) strips box-shadow → the ring vanishes; a real outline
    keeps the affordance (links U-F57). The scoped rule also FIRMS the UA's own
    forced-colors focus outline into a deterministic, branded 2px. */
