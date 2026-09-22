@@ -1,0 +1,33 @@
+# /#/generate @ mobile-390 — h1 census + main accessibility tree (playwright ariaSnapshot)
+# h1: [{"text":"Generate","visible":true,"inMain":true}]
+- main "Generate":
+  - heading "Generate" [level=1]
+  - status: Generate view
+  - region "Generate":
+    - heading "Generate" [level=2]
+    - paragraph: Create pleasing random palettes with aesthetic presets.
+    - region "Generated palette":
+      - textbox "Palette name": Generated Palette
+      - text: "5"
+      - button "Regenerate":
+        - img
+        - text: Regenerate
+      - button "Save palette"
+      - button "Copy all colors"
+      - paragraph: "seed: 5847c2cd"
+    - text: Preset
+    - combobox "Preset": Vibrant
+    - text: Harmony
+    - combobox "Harmony": Golden
+    - text: "5"
+    - slider "Color count"
+  - region "Palettes":
+    - heading "My Palettes" [level=2]
+    - paragraph: Save, organize, and share your colors.
+    - searchbox "Search your palettes"
+    - text: Start a new palette
+    - list:
+      - status:
+        - paragraph: · empty plate ·
+        - paragraph: No saved palettes yet.
+        - paragraph: Add colors above, then save the set.

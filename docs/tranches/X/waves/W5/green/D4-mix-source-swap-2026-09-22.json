@@ -1,0 +1,72 @@
+{
+  "note": "SERVED MODEL: claude-opus-5-5[1m] · X.W5.d · gate D4 live arm: /#/mix, SegmentedTabs Colors→Palettes→Colors at 1440 and 390; each record = the branch root under [data-mix-direction] as it takes a vj-morph class (dir token, the inline offset it computes, the transform travel ms)",
+  "run": {
+    "390": {
+      "swaps": [
+        {
+          "ph": "vj-morph-leave-to",
+          "dir": "forward",
+          "x": "1.5rem",
+          "travelMs": 200,
+          "transform": "matrix(1, 0, 0, 1, 0, 0)"
+        },
+        {
+          "ph": "vj-morph-leave-to",
+          "dir": "forward",
+          "x": "1.5rem",
+          "travelMs": 200,
+          "transform": "matrix(1, 0, 0, 1, 0, 0)"
+        },
+        {
+          "ph": "vj-morph-leave-to",
+          "dir": "back",
+          "x": "-1.5rem",
+          "travelMs": 200,
+          "transform": "matrix(1, 0, 0, 1, 0, 0)"
+        },
+        {
+          "ph": "vj-morph-leave-to",
+          "dir": "back",
+          "x": "-1.5rem",
+          "travelMs": 200,
+          "transform": "matrix(1, 0, 0, 1, 0, 0)"
+        }
+      ],
+      "bareVIf": 2
+    },
+    "1440": {
+      "swaps": [
+        {
+          "ph": "vj-morph-leave-to",
+          "dir": "forward",
+          "x": "1.5rem",
+          "travelMs": 200,
+          "transform": "matrix(1, 0, 0, 1, 0, 0)"
+        },
+        {
+          "ph": "vj-morph-leave-to",
+          "dir": "forward",
+          "x": "1.5rem",
+          "travelMs": 200,
+          "transform": "matrix(1, 0, 0, 1, 0, 0)"
+        },
+        {
+          "ph": "vj-morph-leave-to",
+          "dir": "back",
+          "x": "-1.5rem",
+          "travelMs": 200,
+          "transform": "matrix(1, 0, 0, 1, 0, 0)"
+        },
+        {
+          "ph": "vj-morph-leave-to",
+          "dir": "back",
+          "x": "-1.5rem",
+          "travelMs": 200,
+          "transform": "matrix(1, 0, 0, 1, 0, 0)"
+        }
+      ],
+      "bareVIf": 2
+    },
+    "prm": false
+  }
+}
