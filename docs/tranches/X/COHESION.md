@@ -2505,3 +2505,25 @@ every one measured twice. Ruled under delegation (§0j):
 **Mechanism.** KF.W13S RESUME (`.a2` · `.e` · `.a3` · `.e2` alreadyDone): [`.a4`] → [`.e3`] →
 [`.t`] → [`.f2`]; every seat Opus; the chassis's verify-only close and fresh check follow. Spec =
 KF-W13.md's ADDENDUM 2026-09-22. keyframes.js is pushed at every unit's close.
+
+## §0an ADDENDUM 2026-09-22 — X-W6: ESC-W6c-1 RULED (THE §3a GRANT OF SIX PATHS TO `X.W6.c`)
+
+X-W6's third-sitting close (VERIFY-ONLY, 2026-09-22) reads GREEN 30 / RED 20 with `.c` ESCALATED on a
+writable-set expansion and `.d` `.e` `.h` `.i` still owed; `.j` BLOCKED-ON X-W5. Ruled under
+delegation (§0j), both classes GRANTED to **`X.W6.c`** for its re-dispatch:
+
+1. **Inside `W6.md` §4, outside `.c`'s unit list** — `demo/workbenches/gradient/GradientVisualizer/
+   GradientStopEditor.vue` (door repoint · types repoint · `colorAt` → `sampleAt` · G4c ×2 ·
+   `.gradient-rail` dedup) · `demo/workbenches/gradient/composables/gradientParse.ts` (cycle edge 2) ·
+   `…/GradientVisualizer/GradientEasingEditor.vue` (types repoint) ·
+   `…/GradientVisualizer/easing/easingCatalogue.ts` (types repoint).
+2. **Outside `W6.md` §4 — the §3a trigger** — `…/GradientVisualizer/easing/useSpecimenRows.ts`
+   (types repoint) · `demo/color-session/color-space-meta.ts` (c4: `INTERPOLATION_SPACES` DERIVED
+   from `SPACE_CATALOG`, the single home Gradient and Mix both read — no second list).
+
+The unit lands WHOLE as its commit #3 (one meaning, one sha; `caea9d1e` stands as #2). No other
+live Lane-1 writer touches `GradientStopEditor.vue` before `.e`, and `.e` does not touch it. The
+a2/a13/b3 REDs caused by the foreign X-W5 fixture stay X-W5's (its `.c` cure, `usePalettePorts.ts` /
+`useViewManager.ts`, is uncommitted in the shared tree under L-7 and lands when X-W5 resumes).
+**Mechanism**: Track A's chassis RESUME on X-W6 dispatches `.c` (on this grant) · `.d` · `.e` · `.h` ·
+`.i`; `.j` after X-W5 CLOSED.
