@@ -132,3 +132,164 @@ the addendum's FR-AFP-51 section ends `:271`, Scope row *"FLAGGED, NOT BOOKED"* 
 **Residuals**: none owned by this unit. `LEDGER.md`'s F.W10 row still reads *"26 commits over 8 files"*;
 per E-3 it is **not rewritten**, and CK-3's addendum-beside names the correct figure.
 **Escalations**: none.
+
+### F.W10S.b
+
+**Seat**: Opus (`claude-opus-5-5[1m]`) · clock 2026-09-22 · spec F-W10.md ADDENDUM §F.W10S.b `:538-557`
+⊕ COHESION §0aj bullet 1 (§0ak read to the file end; it binds X-W11 only, nothing here).
+
+**Crash-recovery**: ⟨cmd⟩ `git -C ../fourier-analysis status --porcelain` → `?? .worktrees/` only (outside
+the writable set; left alone). ⟨cmd⟩ `git status --porcelain docs/tranches/X/execution/C/F-W10S.md` → ∅.
+**Inherited paths: none.** Branch `m/w1-bump-migration`, HEAD `cef242d` = origin at open.
+
+**Live stack (every e2e reading below)**: `mongod` (scratchpad dbpath, :27017) ⊕ ⟨cmd⟩ `scripts/e2e.sh
+--no-tests` → uvicorn :8000 healthy · vite :3000. Probes were driven from a scratchpad Playwright
+config (`testDir` in the scratchpad); a first probe file briefly written under `web/e2e/` (untracked,
+outside the writable set) was moved out within the same minute and never staged — recorded, not hidden.
+
+**Acts, in order**
+
+1. **G-F9-17: cured.** The anchor held at the true bytes: `ContourEditorCanvas.vue:42`, where `const { dragging, …
+   } = usePointDrag(…)` was the only occurrence of `dragging`. I removed the binding from the destructure; no
+   `@ts-ignore` was added. ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.json` → exit **0**, and ⟨cmd⟩ `npm run build`
+   (`vue-tsc -b && vite build`) → exit **0 · 0**. → **`01eb722`**.
+2. **G-F9-5: cured at the token.** Before the cure, ⟨cmd⟩ `playwright test e2e/visualization-ux.spec.ts -g "/equation is"`
+   → **1 failed**, one `[serious] color-contrast` node: `.eq-toggle-icon--mono`, the inactive `SegmentedTabs`
+   option, ink `#8b7257` on the track composite `#e9e0d7` = **3.46:1**. The cause is in the tokens. The producer's
+   inactive-tab ink reads `--muted-foreground`, and glass-ui already re-binds that token to `--on-glass-muted-strong`
+   on its capsule family (`styles/glass/ladder.css`, `:where(.feedback-tone,.glass-capsule)`). That selector list
+   leaves out `.glass-capsule-track`, so the pill track was painted in the page's muted register (`--neutral-5`).
+   The cure extends the producer's own binding to that surface, at token scope: `:where(.glass-capsule-track){
+   --muted-foreground: var(--on-glass-muted-strong) }` in `@layer glass-overrides` (`web/src/style.css`). It covers
+   every capsule track and both arms, and it is not an instance override. The omission itself is the producer's
+   (GLASS-RELAY). AFTER: **1 passed · 1 passed**. → **`f45901e`**.
+3. **G-F9-11 / C2-M1: two root defects cured; one producer residual remains.** BEFORE: ⟨cmd⟩ `playwright test
+   e2e/fullscreen.spec.ts` → **1 failed** at `:63`, dialog not found. That reproduces C2-M1. I split the mechanism
+   with scratchpad probes. Instrumenting Vue's invokers showed the real click reached the button's `svg`, while the
+   button's `onClick` never ran. ⟨CDP `DOMDebugger.getEventListeners`⟩ found a capture-phase `click` listener on
+   `.glass-dock`: glass-ui's press guard (`dock.js` `ze()`), which calls `stopPropagation`+`preventDefault` on a
+   click whose press began while the dock carried `data-morphing`. A timeline probe measured hover start at
+   **9 ms**, dock expansion (`data-morphing` set) at **4043 ms**, pointerdown and click at **4355 ms**, and the morph
+   settling at **4650 ms**. It also logged a `pageerror` *"Transition was aborted because of timeout in DOM update"*.
+   The chain had three links:
+   - (a) **Root cure, `web/src/router/index.ts`.** The view-transition update callback was released on a double
+     `requestAnimationFrame`. rAF cannot fire while the browser suppresses rendering for that same callback, so
+     every `/visualize`→`/w/` upload froze the page until the **4 s** DOM-update timeout. Hover was dropped for that
+     long, and the dock expanded late. The callback is now released on `nextTick`, the `RouterView` commit.
+     AFTER: the pageerror is gone, the expansion lands at **489 ms**, and the click at **856 ms** still falls
+     before the morph settles at **1047 ms**.
+   - (b) **Root cure, `FullscreenViewer.vue`.** With a click forced after the morph settled (scratchpad copy of the
+     spec only), the dialog opened. It measured **512×46** (not fullscreen), and `.fs-controls` intercepted the
+     `Exit fullscreen` click, which is `LW-2`'s mechanism. The cause: `DialogContent` is teleported and never
+     carries this file's scope attribute, so the `.fs-dialog` rules in `<style scoped>` matched nothing. I moved
+     them to an unscoped sheet and added `translate: none`, because the chassis centres with the `translate`
+     longhand. A first attempt placed them in `@layer glass-overrides`. The measured result was that the chassis's
+     card seat is **unlayered** `:where([data-slot="dialog-content"])` (`inline-size`, `translate`), which beat the
+     layer, so the rules stay unlayered. AFTER (probe): dialog **1280×720**, `Exit fullscreen` is the hit target,
+     and the probe flow **1 passed**.
+   - (c) **RESIDUAL, producer-owned (escalated, not cured).** ⟨cmd⟩ `playwright test e2e/fullscreen.spec.ts` (spec
+     untouched, locator unchanged) → **1 failed · 1 failed** at `:63`. The spec's `click()` lands mid-morph, and
+     glass-ui's press guard discards it by design. The same guard swallowed a mouse click on the editor dock's
+     `#persistent` "Save contour" during this seat's Invariant 19 probe: the pointer's approach hover-expands the
+     dock, and the press then lands mid-morph. `GlassDock` exposes no prop that governs the guard. Neither
+     `web/src` nor this unit's writable set holds a lawful cure; `fullscreen.spec.ts` is READ-ONLY here.
+   → **`c2000a7`** (router ⊕ viewer, one head).
+4. **E-F9b-4: cured at the component token.** BEFORE: ⟨cmd⟩ `playwright test --project=mobile-chromium
+   e2e/coarse-pointer.spec.ts` → **1 failed** (`:105`: *About Fourier analysis → 20.8px · Dark mode → 40.0px*),
+   3 passed. The cure is in `AppHeader.vue`. `--toggle-size` becomes `max(rung, var(--control-floor, 0px))` at both
+   breakpoints, using the producer's own `max(scaled, floor)` shape; `--control-floor` is `0px` for a fine pointer
+   and `--touch-target` (2.75rem) for a coarse one. The logo trigger's box takes `min-inline-size`/`min-block-size:
+   var(--control-floor, 0px)`, so fine-pointer geometry is unchanged. AFTER: **4 passed · 4 passed**. Regression
+   check: ⟨cmd⟩ `e2e/shell-header.spec.ts` (chromium) → **4 passed**. → **`8e98bb8`**.
+5. **G-F9-8: 4 of 5 un-fixme'd, each named; 1 producer-owned and returned.** I ran every fixme'd keystone from a
+   scratchpad copy with `fixme` removed. None of the notes' booked `aria-hidden-focus` (`ConfiguratorLayer`)
+   reproduced at the 8.0.0 pin (`K-13`/`LC-2`'s prediction, now measured). What the runs did find:
+   - **ux `:151` keystone 1 (workspace default) · ux `:178` keystone 2 (Configurator-open) · ux `:249` keystone 4
+     (AnimationControls dropdown-open).** Keystones 1 and 2 had exactly one serious node each: `nested-interactive`
+     on `#glass-dock-…-summary`. glass-ui 8.0.0 makes the auto-posture collapsed summary the dock's disclosure
+     (`role="button"`), and this app kept its mini Play/Pause inside `#collapsed`. Keystone 4 was already clean. The
+     cure is in `AnimationControls.vue`: the play control moves to `#persistent` (never inert, rendered at both
+     poles; the precedent is `EditorControlsDock.vue`'s Save), the expanded duplicate is removed (one action, one
+     control), and it sizes to the dock posture (`play-btn--mini` while collapsed). I removed the three `fixme`s and
+     replaced their rationales with dated cure notes (LC-2's own cure: *"delete the fixme AND its rationale"*).
+     → **`4a94aa7`**.
+   - **ux `:371` Invariant 19 (`save_contour_then_recompute`).** The named defect reproduced and was worse than
+     booked. `saveContourPoints` nulled `epicycleData`/`basesData`, and the next ContourSettings trigger then
+     **re-extracted** the contour from the image (`POST …/extract-contour` ~220 ms after the save), so a saved edit
+     could be replaced by a fresh extraction. The cure is in `workspace.ts`: the save recomputes the saved contour
+     once, inside its own `computing` bracket, and keeps the previous frame until results land. The booked body
+     depended on a `window.__store` / `window.__computeCount` seam that was never built, and it called
+     `saveContourPoints()` with no points. I re-drove the test through the product (editor → Save → back, by
+     keyboard) and kept every assertion: canvas live, controls unperturbed, and one compute pass, counted from the
+     network and pinned to the saved hash. Born-RED check: the test measured **1 failed** (`+ …/extract-contour`)
+     with the store cure reverted, and **1 passed** with it re-applied. → **`aca2580`**.
+   - **crud `:664` (workspace default @ 3 viewports): STAYS `fixme`, returned as producer-owned.** Un-fixme'd on the
+     live stack: laptop and desktop **passed** (×2); mobile **failed** (×2), one `[serious] color-contrast` node.
+     That node is the `SegmentedTabs variant="underline"` inactive "Controls" tab: ink `#8b7257` on `--background`
+     `#fbfaf8` = **4.33:1**. The ink is glass-ui's `.segmented-tab` recipe, `color-mix(--muted-foreground,
+     --glass-capsule-warm 12%)` over its own page background. No consumer token governs it (unlike the capsule-track
+     case in act 2), so this is a producer rung (GLASS-RELAY). I restored the `fixme`, so the file carries zero
+     bytes of change. The escalation id is **not** written into the note: the lock allows only fixme removal in
+     this spec, which conflicts with the addendum's "escalation id written into the note". That conflict is
+     returned, not resolved by improvising.
+
+**Gates, BEFORE → AFTER** (live stack; each AFTER double-run from the settled bytes at `aca2580`)
+
+| Gate | ⟨cmd⟩ | BEFORE | AFTER run 1 · run 2 | Verdict |
+|---|---|---|---|---|
+| G-F9-17 | `npm run build` (`vue-tsc -b && vite build`) | exit 2 (banked seat 0: TS6133 `(42,9)`) | exit **0 · 0** | **GREEN** |
+| G-F9-5 | `playwright test e2e/visualization-ux.spec.ts` (the `/equation` keystone, `:194` at HEAD) | 1 failed (3.46:1, one node) | passed · passed | **GREEN** (witness = the `/equation` axe keystone) |
+| G-F9-5 (spec's leg) | `playwright test e2e/contrast-floor.spec.ts` | 3 failed (light 19/38) | 3 failed · 3 failed (light **19/38**, dark **10/38**, re-derivable list) | **RED — not G-F9-5's pairs**; see Residual R-2 |
+| G-F9-8 | full-stack run of each keystone, `grep -c "test.fixme(" …ux… …crud…` | 0 of 5 (ux 4 · crud 1) | ux **9 passed · 9 passed**; `test.fixme(` → ux **0**, crud **1** | **4 of 5**: ux `:151` · `:178` · `:249` · `:371`; crud `:664` returned |
+| G-F9-11 | `playwright test e2e/fullscreen.spec.ts` (spec and locator unchanged) | 1 failed `:63` | 1 failed · 1 failed `:63` | **RED — producer residual** (act 3c) |
+| E-F9b-4 | `playwright test --project=mobile-chromium e2e/coarse-pointer.spec.ts` | 1 failed (20.8px · 40.0px), 3 passed | 4 passed · 4 passed | **GREEN** |
+
+**Regression sweep (read-only against the suite)**: I ran ⟨cmd⟩ `playwright test --workers=4` (both projects) once at
+`aca2580` → **91 passed · 13 failed · 3 skipped**. The 13 failures:
+- contrast-floor ×3.
+- gallery-admin-a11y ×4 and visual-checkpoint ×4, 11 in all. I served `cef242d` from a scratchpad `git worktree` on
+  :3001 against the same API: the same 11 fail there with **identical** pixel counts (57/59/60/3736). They are
+  pre-existing, and not moved by this unit.
+- fullscreen ×1 (act 3c).
+- equation-interaction ×1 under 4-worker load. It passes in isolation ×3 and under ⟨cmd⟩ `--repeat-each=6
+  --workers=4` → **6 passed**, so it is a load flake, not a regression.
+
+**Side effect, cleaned**: that sweep's `visual-baseline.spec.ts` (`π capture [before]`) **rewrote 21 tracked
+PNGs** under fourier `docs/tranches/J/audit/screenshots/before/`, which is outside the writable set. They were
+this seat's own run artifacts (the tree was clean at open). I restored them by exact pathspec (`git checkout --
+<those 21 paths>`), and ⟨cmd⟩ `git status --porcelain` → `?? .worktrees/` only. The sweep was **not** re-run.
+
+**Commits (fourier-analysis, `m/w1-bump-migration`, one per head; pushed)**: `01eb722` (G-F9-17) · `f45901e`
+(G-F9-5) · `c2000a7` (G-F9-11) · `8e98bb8` (E-F9b-4) · `4a94aa7` (G-F9-8 k1/k2/k4) · `aca2580` (G-F9-8 Inv-19).
+⟨cmd⟩ `git push origin m/w1-bump-migration` → `cef242d..aca2580`; ⟨cmd⟩ `git ls-remote origin
+refs/heads/m/w1-bump-migration` → `aca25800…`; `rev-list --count origin/…..HEAD` → **0**.
+
+**Residuals**
+- **R-1 · G-F9-11 (producer, ESCALATED).** glass-ui's dock press guard (`dock.js` `ze()` → `onClickCapture`)
+  discards any click whose press began while the dock had `data-morphing`. Hover-expansion starts that morph, and it
+  runs about 560 ms. A real click that arrives right after the control becomes visible is therefore swallowed. That
+  covers `fullscreen.spec.ts`'s click and, as measured here, a mouse click on the editor dock's `#persistent` Save.
+  `web/src` holds no lawful cure (`GlassDock` exposes no knob for the guard), and the spec that could wait for the
+  settle is READ-ONLY for this unit. There are two lawful routes: a glass-ui relay (the guard should not discard a
+  press whose target is stable in the arriving layer, or `#persistent` content), or a spec-owner act on
+  `fullscreen.spec.ts` that awaits the settle. Both `web/src` defects under C2-M1 are cured: the 4 s freeze and the
+  non-fullscreen viewer.
+- **R-2 · `contrast-floor.spec.ts` (not this unit's pairs).** It stays RED on 19/38 light and 10/38 dark F.W4 pairs,
+  plus 6 un-derived expressions. Their owners are F.W4 `.a/.b/.c/.d/.e` and a GLASS-RELAY rung. The spec's own `owner`
+  column names them, and none is the `/equation` node. G-F9-5's axe witness is GREEN. The spec leg the addendum
+  quotes ("`contrast-floor.spec.ts` green") is impossible inside `.b`'s cure, so it is returned, not substituted.
+- **R-3 · crud `:664` (producer, ESCALATED).** It stays `fixme`: mobile `SegmentedTabs` underline inactive ink
+  measures 4.33:1 on `--background`, and that ink is the producer's recipe (GLASS-RELAY). Laptop and desktop are
+  green. The note is **unamended**, because the lock "crud spec = fixme removal only" contradicts the addendum's
+  "escalation id written into the note". The id is carried here and in the return instead: **`E-F10S-b1`** (dock
+  press guard, R-1) · **`E-F10S-b2`** (underline segmented-tab ink, R-3).
+- **Relay rows owed (mail, not this unit's write):** the capsule-track muted binding omission (act 2's upstream
+  half), `E-F10S-b1` and `E-F10S-b2`. Each goes to glass-ui BK by the lawful mail path.
+
+**Escalations**: `E-F10S-b1` (G-F9-11 producer press guard) · `E-F10S-b2` (crud:664 producer underline ink ⊕ the
+crud note-lock conflict) · R-2 (contrast-floor leg outside `.b`).
+**Bounds audit**: fourier writes = `web/src/{components/visualization/ContourEditorCanvas.vue, style.css,
+router/index.ts, components/visualization/FullscreenViewer.vue, components/layout/AppHeader.vue,
+components/visualization/AnimationControls.vue, stores/workspace.ts}` ⊕ `web/e2e/visualization-ux.spec.ts`, all
+inside the writable set; `visualization-crud.spec.ts` net **0 bytes**. value.js write = this record only. glass-ui
+was untouched. `scripts/dev/dev.sh` was untouched.
