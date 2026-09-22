@@ -1,0 +1,9 @@
+SERVED MODEL: claude-opus-5-5[1m]
+# c4 · 2026-09-22 · ⟨cmd⟩ npx vitest run test/interpolation-subset.test.ts
+# GREEN run 1: Test Files 1 passed (1) · Tests 5 passed (5)
+# GREEN run 2: Test Files 1 passed (1) · Tests 5 passed (5)
+# NEGATIVE CONTROL — color-space-meta.ts swapped for its HEAD (hand-kept 9-row list) bytes in the working tree only, run, restored:
+   × c4 · the interpolation set derives from the catalog > membership is exactly the catalog's interpolatable decision, in catalog order 5ms
+   × c4 · the interpolation set derives from the catalog > the module hand-keeps no membership list (source census) 1ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+      Tests  2 failed | 3 passed (5)
