@@ -2364,3 +2364,80 @@ the X·KF sub-tranche is finished by one supplement wave rather than left half-s
 **Mechanism.** Supplement wave **`KF.W13S`** (spec `KF-W13.md` + its dated addendum; record
 `execution/B/KF-W13S.md`; opens after KF.W13 CLOSED): groups [`.a2` ∥ `.e`] (disjoint sets) →
 [`.f`]. KF.W12's and KF.W13's CLOSED rows are never rewritten. KF.W3 stays gate-keyed on RC-P(V).
+
+## §0aj ADDENDUM 2026-09-21 — TRACK C: EVERY X·F WAVE CLOSED HONEST-RED WITH FOUR `web/src` HEADS, THE CENSUS ERRATA AND TWO RELAY ARMS UN-LANDED; ONE SUPPLEMENT WAVE `F.W10S` MINTED; OPERATOR ITEMS ROUTED TO THE OWNER CLOSE REPORT
+
+F.W9 (`CHECK 2`, 2026-09-20) and F.W10 (`CHECK 1`, 2026-09-20) both read CONFORMANT-HONEST-RED with
+every RED relieved and owner-named — and four of those owners read *"whichever wave next opens
+`web/src`"* or *"F.W3/W4"* (both CLOSED), i.e. nobody. Ruled under delegation (§0j):
+
+- **G-F9-5 · G-F9-8 · G-F9-11 · G-F9-17 (⊕ E-F9b-4)** — the `web/src` heads are GRANTED to one
+  fourier product unit: `/equation`'s single contrast node (a token act at the root, never a
+  per-instance override); the fullscreen dialog that never opens (C2-M1 — the control resolves
+  enabled and the product does not respond: a `web/src` defect, cured at its root, the spec
+  untouched); `ContourEditorCanvas.vue(42,9) TS6133` (the unused binding removed, never
+  `@ts-ignore`); the two shell-header controls under the 44px coarse floor (`About Fourier
+  analysis` 20.8px · `Dark mode` 40.0px — sized at the component's token, not clamped per
+  instance). **G-F9-8**: each of the five `test.fixme` keystones (`visualization-ux.spec.ts` ×4 ·
+  `visualization-crud.spec.ts:664`) is un-fixme'd ONLY by curing the product defect its in-file note
+  names, proven on a full-stack RUN; a keystone whose defect is producer-owned (glass-ui) STAYS fixme
+  with its escalation id written into the note and returned — never `test.skip`, never an assertion
+  loosened. → unit **`F.W10S.b`**.
+- **F.W10 CK-1 (MEDIUM) · CK-2 · CK-3 · CK-4** — the two census-input errata (`i-1 = L-INFO-2`,
+  `PP-CENSUS`; text at §4.2 rows 65 / 76) land in `CENSUS-ADDENDUM-2026-08-25.md` beside
+  `FR-CP-44` / `FR-AFP-51` as a dated section; CK-2 (stdout **1074**, not 0) and CK-3 (**nine**
+  files, not eight) as dated addenda-beside in `execution/C/F-W10.md`, never rewriting `C.2`/`C.7`;
+  CK-4 = one sentence in §5's boundary row. → unit **`F.W10S.a`**.
+- **G-F10-12 (O-23 · O-32 authored-not-landed) ⊕ E-F9b-2 corrected per CK-5** — the carriage
+  hop: both letters copied VERBATIM into `../glass-ui/docs/tranches/BK/coordination/` (the active
+  inbox; owner edict 2026-07-12 — **mail is the ONE lawful glass-ui write; product bytes stay
+  READ-ONLY**), plus one dated erratum beside E-F9b-2 naming reka-ui `FocusGuards`, not the `Metric`
+  tile, as the `aria-hidden-focus` payload; committed in glass-ui by pathspec of those files only and
+  pushed; INBOX rows O-23/O-32 advanced to LANDED with the glass-ui sha (rows never rewritten — a
+  dated status line beside). → unit **`F.W10S.c`**.
+- **C2-M2** — DISCHARGED at the bytes: ⟨cmd⟩ `git -C ../fourier-analysis rev-list --count
+  origin/m/w1-bump-migration..HEAD` → **0** at this sitting (`cef242d` is on the remote).
+- **G-F9-15 · G-F9-19 · G-F9-23(b)** — operator items (certbot renewal; the docker/nginx host
+  authority; `-linux` baselines need a CI-capable seat) → the OWNER CLOSE REPORT, by id; no unit.
+- **G-F10-3 · G-F10-4** — X·V's: the drift probe re-runs against the PUBLISHED 4.1.0 coordinate →
+  X-W11 (§0ak). **G-F10-6**'s corpus leg is RED by design (nobody). **G-F10-1 / -2**'s
+  fourier-ledger verbs → the fourier sub-session (R-4), owner report.
+- **C2-M3 (FORMATION)** — the shared LEDGER: pathspec-on-the-commit is necessary, not sufficient;
+  standing cure = a seat commits `LEDGER.md` ALONE, in its own commit, immediately after editing it.
+  Recorded here as law for every remaining seat; no chassis change.
+
+**Mechanism.** Supplement wave **`F.W10S`** (spec = `F-W10.md` + its dated addendum of 2026-09-21;
+record `execution/C/F-W10S.md`; opens after F.W10 CLOSED): groups [`.a` ∥ `.b`] (disjoint trees) →
+[`.c`] → [`.d` close, verify-only]; the chassis's fresh check follows. F.W9's and F.W10's CLOSED rows
+are never rewritten; F.W10's ACCEPTED is stamped by `.d` only if CK-1 measures cured AND `.b`'s
+gates read green — otherwise the row stays CLOSED honest-RED with the residue by id. Track C
+relaunches on this ruling alone (one track at a time — the §0ag regime, tightened 2026-09-21 by the
+CONTEXT ECONOMY clause `346e11d1`).
+
+## §0ak ADDENDUM 2026-09-21 — X-W9.f's FOUR ESCALATIONS RULED AS ONE X-W11 PRE-PUBLISH UNIT `X.W11.p`; THE UNPUSHED `v4.1.0` TAG RE-MINTED AT ITS CLOSE; THE FOURIER DRIFT PROBE = X-W11's HARVEST
+
+X-W9.f cut 4.1.0 (`f3fccfb7`; annotated tag `v4.1.0`, LOCAL ONLY — ⟨cmd⟩ `git ls-remote --tags
+origin 'v4.1*'` → ∅) and returned four escalations. X-W9 and X-W1 are both CLOSED, so the bytes are
+owned by nobody. Ruled:
+
+- **ESC-W9f-CSSD-VOCAB-SPELLING** — GRANTED: the 8-line re-point in `src/css/index.ts:51-58`
+  (`export type { … } from "../color/index"` → `"../value"`), the one root of `css.d.ts`'s 6 bare
+  declares and 60 `_2` references; G1's probe and MTS-09 re-run at the packed bytes.
+- **ESC-W9f-PACKED-SURFACE-EXPECTED** — GRANTED: `scripts/ci/verify-packed-surface.mjs`'s
+  `expected` + `SMOKE` maps gain the 7 names, each proven from the packed tarball's OWN export list
+  (never from the source tree); G20 re-run to GREEN.
+- **ESC-W9f-LOCKFILE-DERIVATIVE** — ACCEPTED as X-W9 ruled it at the bytes (benign); `npm ci` must
+  pass at `.p`'s close.
+- **ESC-W9f-ARCH-DEPS-CLAUSE** — one dated sentence beside the parse-that paragraph in
+  `ARCHITECTURE.md`, never rewriting the 2026-09-18 ground-truth line.
+- **The tag.** A tag that never left the machine is not evidence in the remote's eyes: `v4.1.0` is
+  deleted locally and re-minted ANNOTATED at `.p`'s last commit, X-W9.f's message preserved and one
+  dated line appended; both shas recorded in X-W11's record. Not a force-push, not a reset; G29 still
+  reads one bump, one tag, no 4.0.1. X-W9's `f3fccfb7` evidence stands as written (E-3).
+- **Harvest.** After `.c` publishes, `.e` re-runs the fourier probe
+  `fourier-value-import-drift.mjs` (locate with `git ls-files | grep drift`) against the registry
+  coordinate and records the result in FINAL as R-2's discharge (G-F10-3 / G-F10-4, owed to X·V).
+
+**Mechanism.** `X.W11.p` (Opus) is the wave's FIRST unit, serial, before `.a`; W11.md's dated
+addendum of 2026-09-21 carries its brief and bounds grant. The A chassis is untouched — seat 0 reads
+the spec whole and every §0k+ addendum.
