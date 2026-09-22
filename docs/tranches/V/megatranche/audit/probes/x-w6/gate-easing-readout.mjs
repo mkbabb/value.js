@@ -199,24 +199,90 @@ if (fitting.length > 0) {
 }
 
 // ------------------------------------------------- L4: never a local restyle
+// SCOPE (addendum 2026-09-22, X-W6 Repair 1): the leg's predicate is "added a
+// class or a style rule TO THE READOUT RAIL" (header, L4). Its first
+// implementation read EVERY styling line in `GradientEasingEditor.vue` — the
+// file that also hosts the whole easing panel — so d1's radius register (an
+// edit to the panel's rows, strip and well that never touches the readout)
+// would have read as a readout restyle, and d1 and d2 could not both be green.
+// The leg now reads what its predicate names: the readout rail's own markup
+// block and the style rules that select its parts, at the committed bytes.
+// Any added line inside either still reds, exactly as before.
+const READOUT_PARTS = /\.(readout-rail|rail-btn|rail-tick)\b/;
+
+function readoutRanges(src) {
+    const lines = src.split("\n");
+    const ranges = [];
+    const open = lines.findIndex((l) => /class="readout-rail\b/.test(l));
+    if (open >= 0) {
+        let start = open;
+        while (start > 0 && !/<div\b/.test(lines[start])) start--;
+        const indent = lines[start].match(/^\s*/)[0];
+        let end = start + 1;
+        while (end < lines.length && !lines[end].startsWith(`${indent}</div>`)) end++;
+        ranges.push([start + 1, end + 1]);
+    }
+    const styleAt = lines.findIndex((l) => /^<style\b/.test(l));
+    for (let i = Math.max(0, styleAt); styleAt >= 0 && i < lines.length; i++) {
+        if (!READOUT_PARTS.test(lines[i])) continue;
+        let j = i;
+        while (j < lines.length && !lines[j].includes("{")) j++;
+        let k = j;
+        while (k < lines.length && !/^\}/.test(lines[k])) k++;
+        ranges.push([i + 1, k + 1]);
+        i = k;
+    }
+    return ranges;
+}
+
 let touched = "";
+let headEditor = "";
 try {
-    touched = execFileSync("git", ["diff", `${WAVE_BASE}^..HEAD`, "--", EDITOR], {
-        cwd: ROOT,
-        encoding: "utf8",
-    });
+    touched = execFileSync(
+        "git",
+        ["diff", "-U0", `${WAVE_BASE}^..HEAD`, "--", EDITOR],
+        {
+            cwd: ROOT,
+            encoding: "utf8",
+        },
+    );
+    headEditor = execFileSync(
+        "git",
+        ["show", `HEAD:${EDITOR.slice(ROOT.length + 1)}`],
+        { cwd: ROOT, encoding: "utf8" },
+    );
 } catch {
     fail(`this wave's diff over ${EDITOR.slice(ROOT.length + 1)} could not be read`);
 }
-const addedStyle = touched
-    .split("\n")
-    .filter((line) => line.startsWith("+") && !line.startsWith("+++"))
-    .filter((line) =>
-        /\bclass=|\bclass:|border-radius|background|rounded-|bg-|px-|py-/.test(line),
+const ranges = readoutRanges(headEditor);
+if (ranges.length === 0) {
+    fail(
+        "the readout rail could not be located in the committed editor — L4 has nothing to read",
     );
+}
+const addedStyle = [];
+let newLine = 0;
+for (const line of touched.split("\n")) {
+    const hunk = line.match(/^@@ -\d+(?:,\d+)? \+(\d+)(?:,\d+)? @@/);
+    if (hunk) {
+        newLine = Number(hunk[1]);
+        continue;
+    }
+    if (line.startsWith("+++") || line.startsWith("---")) continue;
+    if (line.startsWith("+")) {
+        const inReadout = ranges.some(([a, b]) => newLine >= a && newLine <= b);
+        if (
+            inReadout &&
+            /\bclass=|\bclass:|border-radius|background|rounded-|bg-|px-|py-/.test(line)
+        ) {
+            addedStyle.push(`${newLine}: ${line}`);
+        }
+        newLine++;
+    }
+}
 if (addedStyle.length > 0) {
     fail(
-        `this wave added ${addedStyle.length} styling line(s) to the readout's own component — ` +
+        `this wave added ${addedStyle.length} styling line(s) to the readout rail — ` +
             `W6.md:217 bans a local restyle in favour of the dated ask: ` +
             addedStyle[0].trim().slice(0, 90),
     );
@@ -247,7 +313,8 @@ console.log(
             `${fitting.length === 0 ? "NONE" : fitting.map((r) => r.component).join(", ")}`,
         `  branch selected by the census: ${fitting.length > 0 ? "COMPOSE" : "DATED ASK"}; ` +
             `wave composes=${composes} ask=${askExists}`,
-        `  local restyle of the readout in this wave's diff: ${addedStyle.length} line(s)`,
+        `  local restyle of the readout in this wave's diff: ${addedStyle.length} line(s) ` +
+            `(readout ranges read at HEAD: ${ranges.map(([a, b]) => `${a}-${b}`).join(", ")})`,
         ...failures.map((message) => `  FAIL ${message}`),
     ].join("\n"),
 );
