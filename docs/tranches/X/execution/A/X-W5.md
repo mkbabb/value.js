@@ -2404,3 +2404,109 @@ L-18 rider: the wave cannot be ACCEPTED until its gates are GREEN and it has pas
 **Commit roster for this close**: the record and the B1-B2-B3 GREEN JSON are committed together in one pathspec commit, and the LEDGER row goes in a second.
 
 **CL.9 Push: WITHHELD, and not forced.** ⟨cmd⟩ `git push origin HEAD` was **rejected (non-fast-forward)**. ⟨cmd⟩ `git rev-list --left-right --count origin/tranche-u...HEAD` → `1  191`; the remote-only commit is `6fc1212e` (X-W9 repair-1). The old blocker, the staged `PaneSegmentedControl.vue` deletion, is gone: it landed in `50633f19`. ⟨cmd⟩ `git pull --no-rebase --no-edit origin tranche-u` → **CONFLICT (content) in `docs/tranches/X/execution/A/X-W9.md`**, which is the X-W9 record and outside this seat's writable set. The merge was aborted with ⟨cmd⟩ `git merge --abort`, and the tree is back to its 2-row baseline. The owner is the X-W9 record holder: it must reconcile the local X-W9.md appends with `6fc1212e`, and then any seat pushes.
+
+## Check 1 — L-20 fresh adversarial pass 1, 2026-09-22 (VERIFY-ONLY)
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X-W5 CHECK 1 · HEAD at open `4c779e2d` · date of record 2026-09-17. This seat authored
+none of the wave's bytes and cured nothing. It wrote this section and one LEDGER event line.
+
+**Verdict: NOT-CONFORMANT.** The row is **not promoted** and stays PARTIAL. There are 3 HIGH, 4 MEDIUM, 2 MINOR and 1 INFO defects.
+Every GREEN this seat re-ran reproduces. Three REDs, however, have no relief in the spec. Two of them (C1, D1) are gate failures that
+§3a itself names as triumvirate triggers, and the third (D4) leaves a named hard-gate clause unmet.
+
+### K1.0 Crash-recovery and inputs
+
+⟨cmd⟩ `git status --porcelain -- docs/tranches/X/execution/` → empty, so there was no inherited partial. The whole tree has 3 rows:
+`CARRY-LEDGER.md` (a sibling's), `scripts/dev/dev.sh` (never touched) and the `KF-W13T-e-probe.mjs` untracked file (a sibling's). This seat read
+`W5.md` whole (389 L). Of the record it read only the R3 open plan (`:1817-1943`) and the last Close (`:2212-2406`).
+
+### K1.1 Axis 1: the claimed GREENs, re-run at this seat's own commands
+
+One 17-reading script (`scratchpad/chk.sh`) was run twice. ⟨cmd⟩ `diff r1 r2` → **IDENTICAL**.
+- **A1**: `node -e` → exit **0**; the App grep → **0**. GREEN.
+- **A4**, structural: `bindPane` → **10**. GREEN.
+- **A5**, structural: `<h1` carriers → **4**. GREEN.
+- **A7**, grep arm: `role="status"` → **3**. GREEN.
+- **B4** arms 1 and 2: `100dvh` **0**, `svh` in **3** files. GREEN. Arm 3 is `content-max-h` **3** (RED, as the close claims).
+- **C4**: `test ! -e` → **0**. The one remaining `PaneSegmentedControl` hit is a comment at `Dock.vue:248`, not an importer. GREEN.
+- **C8**: exit **0**. GREEN.
+- **D2**: exit **0**. GREEN.
+- **D3**: **0**. GREEN.
+- **D4**, Mix arm: `<Transition ` **1**. GREEN.
+- **E1**: `0·0·0·0`. GREEN.
+- **E2**: 7 added lines, 7 of them citing `P122`. GREEN.
+- **§7 typecheck**: ⟨cmd⟩ `npx vue-tsc -p tsconfig.demo.json --noEmit` (run in the background) → **EXIT=0**.
+
+That is **12 GREEN reproduced** out of 12 claimed and re-run.
+
+The REDs also reproduce: **C3** 23 / 9 files, **C7** 4, and **D4** `AdminNamesPanel.vue` with `<Transition ` **0** and a bare `v-if` at `:24`.
+
+Live GREENs (C2 · C5 · C6 · B1 · B2 · A6 · D5) were **checked at their banked JSON and not re-probed** (§5.2 parsimony). `green/C1-C2-C5-C6-2026-09-22.json`
+carries `specimenChanged:true`, `canvasIdentitiesKept:1`, `rootIdentitiesKept:2` and `cardFilters ["none",…]`. No W5 §4 path has moved since the close
+(HEAD `4c779e2d`, whose commits after `4bbdd952` are docs-only).
+
+⟨cmd⟩ `git diff --name-only 4bbdd952..HEAD -- demo/ e2e/ plugins/ vite.config.ts` → **0**, so the bytes the close measured are the bytes at HEAD.
+
+### K1.2 Axes 2–7
+
+- **(2) Bounds.** ⟨cmd⟩ `git show --name-only` was run over the 21 wave commits (`c0cf27bf` … `4c779e2d`) → **95** distinct paths.
+  - The paths that fall outside §4 are all fold-granted BoundsDelta rows in `X-W5-FOLD.md`: BD-05 · BD-06 · BD-10 · BD-14 · BD-15 · BD-01 · BD-02, the
+    W5F-50 `picker-color.ts` row, and the W5F-18 `demo/DESIGN.md` row.
+  - `X-W5-FOLD.md` itself is touched only by `c0cf27bf`. That commit is an append-only dated §9 addendum that §0k.3 S-7 orders.
+  - **`scripts/dev/dev.sh`: absent from every commit. CLEAN.**
+- **(3) No masking fallback.** No `test.skip`, allowlist, `node_modules` patch or try/catch-around-defect was found in the W5 commits. The wave
+  withheld the cures that are out of bounds (N15, D4-Admin, C1's AboutPane) and did not substitute for them, which is the lawful posture. **CLEAN.**
+- **(4) Commit families.** §9 c1–c5 each landed as one meaning: `50633f19` carries PSC deletion + `regions[]` + the T-45 re-seat together; `2183b814` carries the
+  gate script with unit d. §9 row 6 (`3ce0f55f`) is a PARTIAL close with no status flip. **CLEAN.**
+- **(5) E-3.** ⟨cmd⟩ `git diff --stat c0cf27bf~1..HEAD -- docs/tranches/X/waves/W5.md docs/tranches/V/megatranche/registry/adjudicated/` → **empty**. **HELD.**
+- **(6) Mail.** ⟨cmd⟩ `grep -cE '\|\s*\**UNREAD\**\s*\|' INBOX.md` → **0**. **CLEAN.**
+- **(7) Four-verb.** IMPLEMENTED was not stamped because the hard gate is unmet (CL.8). **LAWFUL.**
+- **(8) Goal criterion.** **NOT MET at the bytes**, for three reasons:
+  - The criterion requires *"moving between scenes is an animated, **budgeted** … event"*, and D1 breaches the budget on 2 of 4 hops in every run.
+  - The §1 hard gate requires *"**every** pane and sub-pane swap carries a defined … motion"*, but `AdminNamesPanel.vue:24` is a bare `v-if` swap behind
+    `SegmentedTabs`.
+  - C1 (*"every region … present at 390"*) reads 0.5557 on `#/`.
+- **(9) Published figures.** C3 23/9 · C7 4 · B4 arm 3 = 3 · A4 10 · A5 4 · A7 3 · E2 7/7 all reproduce ×2. **REPRODUCE.**
+
+### K1.3 Axis 10: honest-RED adjudication, gate by gate, at the spec bytes
+
+| gate | relief in the spec or its rulings? | owner named? | adjudication |
+|---|---|---|---|
+| A3 | §0k.3 S-1, which rules the cure to X-W8 | X-W8 | **HONEST-RED** |
+| N5 ROUTE-RESET arm | §0k.3 S-7, to X-W7 | X-W7 | **HONEST-RED** |
+| B3 (2/10 routes ≥ 90 %) | the cap is dead, and the residue is scene content that X-W6's CC-056/V·L3 composes (§10 *Blocks* X-W6) | X-W6 | **HONEST-RED** |
+| A5 OUTLINE arm | the heading-outline canon is X-W10's (§10 *Blocks* X-W10) | X-W10 | **HONEST-RED** |
+| C3, Dock rows (`Dock.vue` `isDesktop`/`useMediaQuery`, `DockViewSelect`, `ActionBarToggle`) | RUNBOOK §1.1 back-gate on Dock G-L | X-W8 | **HONEST-RED** for those rows |
+| C3, non-dock rows (`ExtractWorkbench.vue:226` `isWide`, `ConsoleRail.vue:118`, `HeroBlob.vue:71`) | **none**. They are layout forks the gate's "== 0 at layout sites" covers, and they are outside §4. The close's re-home ("X-W6 / X-W8 per their homes") is the seat's own assignment, not a spec or ruling routing | seat-named only | **UNRELIEVED**: D-5 |
+| C7 (4 vs 3) | **none**. The gate is arithmetic, 7 → 5 → 3. The survivors are `ConsoleRail:342` and `DockStatusLamp:70`, both outside §4, plus `animations.css:17` (preserve edict) and `foundation.css:526` (kept by unit b's own mechanism) | seat-named only | **UNRELIEVED**: D-4 |
+| B4 arm 3 (3 comment hits in `PaneSlot.vue`) | the fold `:41` GATING-LOCK couples it to the out-in re-probe, which rides D1 | ESC-W5d-1 | not independent: follows D-1 |
+| C1 | **none**. §3a names C1 as a triumvirate trigger, not a relief | triumvirate (not yet sat) | **UNRELIEVED**: D-2 |
+| D1 | **none**. §3a names D1 as a triumvirate trigger | triumvirate (not yet sat) | **UNRELIEVED**: D-1 |
+| D4, `AdminNamesPanel` | **none**. The hard gate says *every* sub-pane swap. The path is outside §4, so a §3a bounds grant is owed | triumvirate / grant | **UNRELIEVED**: D-3 |
+| A2 blob arm | **none**. ESC-W5-1 calls it "unfalsifiable as authored", and a triumvirate re-authoring is owed | triumvirate | **UNRELIEVED**: D-6 |
+| N14 · N15 (fold gates) | N15 is a bounds escalation, ESC-W5c-2. N14 names BD-08 and X-W1 by seat assignment only | seat-named | **UNRELIEVED**: D-7 |
+
+**The honest-RED set, relieved and owner-named**: A3 · N5-reset · B3 · A5-outline · C3's dock rows.
+
+### K1.4 Register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| D-1 | **HIGH** | D1 breaches the frame budget after the re-key. This is a §3a named trigger, the §1 hard gate and the §2 goal are unmet, and no triumvirate has sat | CL.2: gradient .294/.371 and mix .333/.346 (×2), plus `.d`'s 10/10 banked in `green/D1-…AFTER` | a §3a triumvirate (research + plan augment + redress) that rules the instrument conditions, the out-in co-mount re-probe (fold `:41`) and Mix's frame cost, then a re-measure |
+| D-2 | **HIGH** | C1 content parity is RED at 390. It is a §3a named trigger with no relief | CL.2: `#/` 973/1751 = 0.5557, 14/15 routes | a §3a triumvirate ruling. The choice is between re-metricising the gate by dated addendum (textContent 1.0 on 15/15) and a bounds grant for AboutPane's `content-visibility` |
+| D-3 | **HIGH** | D4 and the hard gate's "every sub-pane swap": `AdminNamesPanel.vue:24/:43` is a bare `v-if` chain behind `SegmentedTabs` | ⟨cmd⟩ `grep -c '<Transition ' AdminNamesPanel.vue` → 0 | a §3a bounds grant (dated COHESION addendum) for that one path, then a named one-root `<Transition>`, as the Mix cure did |
+| D-4 | MEDIUM | C7 reads 4 against a spec target of 3. The spec gives no relief, and the survivors lie outside §4 or are edict-kept | ⟨cmd⟩ C7 grep → 4 | a dated addendum that re-homes one survivor (ConsoleRail → X-W6 or DockStatusLamp → X-W8) as a spec routing, or grants the bound |
+| D-5 | MEDIUM | C3's non-dock layout forks (Extract `isWide`, ConsoleRail and HeroBlob `isLgViewport`) have no spec relief. The G-L back-gate covers only the dock rows | ⟨cmd⟩ the C3 grep → 23 / 9. Three of the 9 files are capability-only queries (`prefers-reduced-motion`, `hover`) | a dated addendum that classifies the capability rows out of the gate and routes the three layout forks to a named wave |
+| D-6 | MEDIUM | A2's blob arm is RED. It is self-declared unfalsifiable and has not been re-authored | CL.6 item 6 | a triumvirate re-authoring of the arm by addendum |
+| D-7 | MEDIUM | N14 is RED and N15 is ESCALATED on bounds, both routed only by seat assignment | CL.2 unit c rows | a §3a bounds grant for `AdminPane.vue`, or a ruled re-home to X-W7 (CE-5); name BD-08's holder |
+| D-8 | MINOR | Landed-by-consequence: `o12-blob-seat:68` and `o16-computed-cascade:158` still select `.pane-wrapper--left`; `e2e/visual/census-parity` reads `RightPane`; `capture.ts:560` reads `defaultPaneIndex` | CL.6 item 5 | a grant, or X-W1/X-W2 holder rows (one-token re-points) |
+| D-9 | MINOR | B4 arm 3 has 3 comment mentions left in the in-bounds `PaneSlot.vue` | ⟨cmd⟩ → 3 | rides D-1's re-probe ruling |
+| D-10 | INFO | The push is withheld (CL.9): `6fc1212e` conflicts in `X-W9.md`, which is out of set | CL.9 | Track A merge holder |
+
+### K1.5 Successor "Opens after" conjuncts
+
+- **X-W6** (`W6.md:4`, *"X-W5"*): **NOT MET**, because X-W5 is not CLOSED. X-W6's `.j` stays lawfully BLOCKED-ON X-W5.
+- **X-W7** (X-W3 · X-W4 · X-W6): X-W3 and X-W4 are GREEN (CLOSED). X-W6 is still PARTIAL, so X-W7 is lawfully blocked, transitively through W5.
+- **X-W8** (*"X-W5, X-W6 and X-W7 stabilize"*): lawfully blocked.
+- **X-W10** (`W5…W9` stable): lawfully blocked.
+- The X-W5-side conjuncts that are already GREEN are `regions[]` (C8) and the dead block cap (B2/B4 arms 1–2). CC-056 needs both, and they are in place at the bytes. The wave-close conjunct is not.
