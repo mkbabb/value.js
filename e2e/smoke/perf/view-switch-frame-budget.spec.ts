@@ -11,7 +11,16 @@ import {
 } from "./frame-budget";
 
 /**
- * S.W3 ORACLE — TRANSITION FAMILY (b): VIEW-SWITCH (the pane-swap spring).
+ * S.W3 ORACLE — TRANSITION FAMILY (b): VIEW-SWITCH (the region-keyed scene swap).
+ *
+ * X.W5.d (gate D3) re-keyed the swap's `vj-enter` family off the physical
+ * side modifiers onto the region ROLE, with a scene-direction token stamped by
+ * `PaneSlot`. This oracle therefore also asserts WHAT it timed: the stage
+ * region's incoming pane must actually run the role-keyed enter transition
+ * (`.pane-wrapper--stage > .vj-enter-enter-active`, a non-zero computed
+ * transition, stamped `data-scene-direction="forward"` — Picker → Gradient
+ * moves forward in the scene table's order). A frame budget read over an
+ * instant cut is not a view-switch budget.
  *
  * §6.2 gates: view-switch first post-click frame ≤ 100 ms · view-switch long
  * task ≤ 50 ms. Baseline: 254.7 ms first-frame, 183 ms long task — cured by
@@ -72,8 +81,37 @@ test("view-switch frame budget: first frame ≤ 100ms · long task ≤ 50ms (bui
             __firstFrame: number | null;
             __lastTs: number;
         }
-        const w = window as unknown as FFWin;
+        const w = window as unknown as FFWin & {
+            __stageEnter: { direction: string | null; durationMs: number } | null;
+        };
         w.__firstFrame = null;
+        w.__stageEnter = null;
+        // The region-keyed swap witness: the first stage-region pane that
+        // takes the enter-active class, read at that instant.
+        const mo = new MutationObserver((records) => {
+            for (const r of records) {
+                const el = r.target as Element;
+                if (
+                    !el.classList.contains("vj-enter-enter-active") ||
+                    !el.parentElement?.classList.contains("pane-wrapper--stage")
+                )
+                    continue;
+                const durations = getComputedStyle(el)
+                    .transitionDuration.split(",")
+                    .map((t) => parseFloat(t) * (t.trim().endsWith("ms") ? 1 : 1000));
+                w.__stageEnter = {
+                    direction: el.getAttribute("data-scene-direction"),
+                    durationMs: Math.max(0, ...durations),
+                };
+                mo.disconnect();
+                return;
+            }
+        });
+        mo.observe(document.body, {
+            subtree: true,
+            attributes: true,
+            attributeFilter: ["class"],
+        });
         const onClick = () => {
             const base = w.__lastTs;
             requestAnimationFrame((n) => {
@@ -100,6 +138,29 @@ test("view-switch frame budget: first frame ≤ 100ms · long task ≤ 50ms (bui
         () => (window as unknown as { __firstFrame: number }).__firstFrame,
     );
     const longtasks = await readLongTasks(page);
+
+    // The swap that was timed is the region-keyed one, and it moved forward.
+    await page.waitForFunction(
+        () =>
+            (window as unknown as { __stageEnter: unknown }).__stageEnter != null,
+        null,
+        { timeout: 5000 },
+    );
+    const stageEnter = await page.evaluate(
+        () =>
+            (
+                window as unknown as {
+                    __stageEnter: { direction: string | null; durationMs: number };
+                }
+            ).__stageEnter,
+    );
+    expect(stageEnter.direction, "the stage pane's scene-direction token").toBe(
+        "forward",
+    );
+    expect(
+        stageEnter.durationMs,
+        "the stage region's enter transition must run (an instant cut is not a swap)",
+    ).toBeGreaterThan(0);
     const maxTask = longtasks.length ? Math.max(...longtasks) : 0;
 
     console.log(

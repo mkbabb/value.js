@@ -225,25 +225,70 @@
  * in-pane transitions. The PaneSlot <Transition> stays DEFAULT mode (the
  * R.W3 dev-safe simultaneous cross-slide — DESIGN.md §Motion).
  * ----------------------------------------------------------------------- */
-.pane-wrapper--left > .vj-enter-enter-from,
-.pane-wrapper--left > .vj-enter-leave-to {
+/* X.W5.d · gate D3 (fold W5F-45 / NEW-DU-5) — RE-KEYED onto the region ROLE.
+ * The family was keyed off the physical `--left`/`--right` wrapper modifiers,
+ * and on mobile every wrapper wore `--left`, so every swap entered from the
+ * left and left to the left: forward and back were motion-identical and the
+ * `--right` geometry was unreachable by construction. After X.W5.c a region's
+ * side is not a fact the schema states — its ROLE is (`viewSchema.ts`
+ * `RegionRole`) — so each role owns its travel, and EVERY role in the
+ * vocabulary carries an enter + leave rule, including `action`, which no route
+ * declares today (a role with no motion rule is the D3 arm-2 failure, so the
+ * vocabulary is covered whole, not the roles a census happens to see).
+ *   · stage     — the protagonist; travels on the inline-start side (the
+ *                 former `--left` geometry, byte-kept).
+ *   · inspector — the companion; travels on the inline-end side (the former
+ *                 `--right` geometry, byte-kept — reachable at every width now).
+ *   · action    — a command surface; rises from the block-end edge.
+ * Each rule below is the FORWARD reading. The DIRECTION arm follows it. */
+.pane-wrapper--stage > .vj-enter-enter-from,
+.pane-wrapper--stage > .vj-enter-leave-to {
     opacity: 1;
     transform: translateX(-110%) rotate(-2deg);
 }
-.pane-wrapper--right > .vj-enter-enter-from,
-.pane-wrapper--right > .vj-enter-leave-to {
+.pane-wrapper--inspector > .vj-enter-enter-from,
+.pane-wrapper--inspector > .vj-enter-leave-to {
     opacity: 1;
     transform: translateX(110%) rotate(2deg);
+}
+.pane-wrapper--action > .vj-enter-enter-from,
+.pane-wrapper--action > .vj-enter-leave-to {
+    opacity: 1;
+    transform: translateY(110%) rotate(0deg);
+}
+
+/* X.W5.d · gate D3's direction arm — the scene-direction token.
+ * `PaneSlot` stamps `data-scene-direction="forward" | "back"` on the entering
+ * AND the leaving pane (its before-enter / before-leave hooks), read from the
+ * route's position in the scene table's own order (`VIEW_MAP`, the dock's
+ * order): a hop to a later scene is `forward`, to an earlier one `back`. A
+ * `back` hop MIRRORS each role's travel, so the two directions are never
+ * motion-identical — at any width, the 390 column included. The forward rules
+ * above are not moved or re-valued (the preserve-animations edict: motion is
+ * added, never deleted); this block only adds the mirrored reading. */
+.pane-wrapper--stage > [data-scene-direction="back"].vj-enter-enter-from,
+.pane-wrapper--stage > [data-scene-direction="back"].vj-enter-leave-to {
+    transform: translateX(110%) rotate(2deg);
+}
+.pane-wrapper--inspector > [data-scene-direction="back"].vj-enter-enter-from,
+.pane-wrapper--inspector > [data-scene-direction="back"].vj-enter-leave-to {
+    transform: translateX(-110%) rotate(-2deg);
+}
+.pane-wrapper--action > [data-scene-direction="back"].vj-enter-enter-from,
+.pane-wrapper--action > [data-scene-direction="back"].vj-enter-leave-to {
+    transform: translateY(-110%) rotate(0deg);
 }
 
 /* W3-4 (S.W3): promote the pane to its own compositor layer for the
  * DURATION of the enter/leave transition ONLY (`*-active`) — never a
  * standing `will-change` layer. The browser drops the hint the moment the
  * transition class is removed. */
-.pane-wrapper--left > .vj-enter-enter-active,
-.pane-wrapper--left > .vj-enter-leave-active,
-.pane-wrapper--right > .vj-enter-enter-active,
-.pane-wrapper--right > .vj-enter-leave-active {
+.pane-wrapper--stage > .vj-enter-enter-active,
+.pane-wrapper--stage > .vj-enter-leave-active,
+.pane-wrapper--inspector > .vj-enter-enter-active,
+.pane-wrapper--inspector > .vj-enter-leave-active,
+.pane-wrapper--action > .vj-enter-enter-active,
+.pane-wrapper--action > .vj-enter-leave-active {
     will-change: transform;
 }
 
@@ -264,14 +309,16 @@
  * incoming pane arrived — the F2 mid-flight collision). Both rules stay
  * SCOPED to the pane wrappers: the un-scoped vj-enter family above is
  * the F6 KEEP set, untouched. */
-.pane-wrapper--left > .vj-enter-enter-active,
-.pane-wrapper--right > .vj-enter-enter-active {
+.pane-wrapper--stage > .vj-enter-enter-active,
+.pane-wrapper--inspector > .vj-enter-enter-active,
+.pane-wrapper--action > .vj-enter-enter-active {
     transition:
         opacity var(--duration-fast) var(--ease-decelerate),
         transform var(--spring-snappy-duration) var(--spring-snappy);
 }
-.pane-wrapper--left > .vj-enter-leave-active,
-.pane-wrapper--right > .vj-enter-leave-active {
+.pane-wrapper--stage > .vj-enter-leave-active,
+.pane-wrapper--inspector > .vj-enter-leave-active,
+.pane-wrapper--action > .vj-enter-leave-active {
     transition:
         opacity var(--duration-fast) var(--ease-out),
         transform var(--duration-fast) var(--ease-out);

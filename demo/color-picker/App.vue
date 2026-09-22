@@ -98,23 +98,18 @@
                  The wrapper keeps the `.pane-wrapper` class DELIBERATELY: it is
                  the T-45 oversampled-blur carrier's seat (shell.css) and the
                  device-pixel snap's query, and the carrier is re-seated on this
-                 element in this same commit (gate C6). The physical
-                 `--left`/`--right` modifiers ride beside the ROLE classes until
-                 X.W5.d's D3 re-keys the `vj-enter` family off them — that
-                 re-key is authored as one act across `animations.css`,
-                 `shell.css` and this file ("class names only — sequenced after
-                 X.W5.c commits", W5.md §5 X.W5.d). -->
+                 element in this same commit (gate C6). X.W5.d (gate D3): the
+                 wrapper carries its ROLE class and nothing physical — the
+                 `vj-enter` pane family is keyed on the role in
+                 `animations.css`, and the physical side modifiers that rode
+                 here until that re-key are retired (quoted once in the wave
+                 record, `execution/A/X-W5.md` § X.W5.d). -->
             <div ref="paneContainer" class="pane-container">
                 <div
                     v-for="region in regions"
                     :key="region.role"
                     class="pane-wrapper w-full min-w-0 min-h-0"
-                    :class="[
-                        `pane-wrapper--${region.role}`,
-                        region.role === 'stage'
-                            ? 'pane-wrapper--left'
-                            : 'pane-wrapper--right',
-                    ]"
+                    :class="`pane-wrapper--${region.role}`"
                     role="region"
                     :aria-label="region.label"
                 >

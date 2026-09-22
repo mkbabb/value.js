@@ -75,7 +75,9 @@ import {
     watch,
     type Component,
 } from "vue";
+import { useRoute } from "vue-router";
 import type { PaneRenderProps } from "./usePaneRouter";
+import { VIEW_MAP } from "./viewSchema";
 
 const {
     component,
@@ -215,12 +217,41 @@ function reportMount(instance: TInstance | null) {
 function hideLeaving(el: Element) {
     el.toggleAttribute("inert", true);
     el.setAttribute("aria-hidden", "true");
+    el.setAttribute("data-scene-direction", sceneDirection);
 }
 
 function showEntering(el: Element) {
     el.toggleAttribute("inert", false);
     el.removeAttribute("aria-hidden");
+    el.setAttribute("data-scene-direction", sceneDirection);
 }
+
+// ── The scene-direction token (X.W5.d · gate D3's direction arm) ───────────
+//
+// The `vj-enter` pane family is keyed on the region ROLE (`animations.css`),
+// and a role alone cannot say which way the user moved: before this token the
+// 390 column gave every swap the same travel, so forward and back were
+// motion-identical (fold W5F-19 / NEW-DU-5). The direction is read from the
+// route's position in the scene table's OWN order — `VIEW_MAP`'s key order, the
+// order the dock lists the scenes in — never from a copy of it: a hop to a
+// later scene is `forward`, to an earlier one `back`. It is taken on the route
+// change itself (`flush: "sync"`), which precedes the key change this slot
+// swaps on, and the hooks above stamp it on BOTH the entering and the leaving
+// pane so the two travel as one gesture. A hop that does not move in the order
+// keeps the last direction rather than inventing one.
+const SCENE_ORDER: readonly string[] = Object.keys(VIEW_MAP);
+const route = useRoute();
+let sceneDirection: "forward" | "back" = "forward";
+
+watch(
+    () => route.name,
+    (to, from) => {
+        const delta =
+            SCENE_ORDER.indexOf(String(to)) - SCENE_ORDER.indexOf(String(from));
+        if (delta !== 0) sceneDirection = delta > 0 ? "forward" : "back";
+    },
+    { flush: "sync" },
+);
 
 onBeforeUnmount(() => cancelAnimationFrame(raf));
 </script>

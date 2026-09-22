@@ -235,8 +235,9 @@
 /* X.W5.c — THE `[data-layout]` DISPLAY WITNESSES ARE GONE, all four of them.
  *
  * They were the defensive half of the single-mount fork: `[data-layout="mobile"]
- * .pane-slot-mobile {display:flex}`, `[data-layout="desktop"] .pane-wrapper--left
- * {display:flex}`, `…--right {display:block}` and `[data-layout="desktop"]
+ * .pane-slot-mobile {display:flex}`, the desktop-stamped physical left
+ * wrapper `{display:flex}`, its right twin `{display:block}` (their
+ * spellings retired with the side modifiers at X.W5.d · D3) and `[data-layout="desktop"]
  * .dock-mobile-panes {display:none}` — CSS re-stating, from a stamp App.vue
  * wrote out of its breakpoint predicate, the same verdict the `v-if` had already
  * reached. Their own comment called them "the aspect-correct defensive
