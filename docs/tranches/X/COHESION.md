@@ -720,6 +720,9 @@ the silence for an oversight, and carried to `X.F.W10.g` as an open bounds quest
 | KFW13-4 | kf-MbabbMenu **MM-2** row 2: provide a headless `DarkModeToggle` (`v-model` or an exposed `toggle()`) so that a menu item can actuate the flip | O-48 row 4 |
 | KFW13-5 | kf-ChromeDock **D-13**: `startCollapsed: { type: Boolean }` has no default, so the `?? true` arm is dead on the SFC path. Ask: `default: undefined`, or docs that match the runtime | O-48 row 5 |
 | KFW13-6 | kf-MbabbMenu **MM-28**, a STATUS NOTE and not re-sent: the `dropdown-menu` `open`/`defaultOpen` `default: undefined` is measured SHIPPED at 7.0.0. The MUST-CARRY rider's obligation holds (`v-model:open="open"` reads 1) | O-48 row 6 |
+| **KF.W13T ACCRETION 2026-09-22** (X.KF.W13T `.k2` close, `claude-opus-5[1m]`; the orchestrator's owed accretion under §0ar). The letter is **O-50** (`docs/tranches/X/execution/B/KF-W13T.md` § `### KF.W13.k2` act 6). Two rows, both asks, neither cured demo-side | | |
+| KFW13T-BK-1 | kf-ChromeDock **R-k-2**: the dock's wrap recipe hides `.dock-separator` unconditionally, even when the row fits on one line. Ask: hide only on an actual wrap, or export a seam | O-50 row 1 |
+| KFW13T-BK-2 | kf-PlaybackRibbon **R-e-1**: the producer Slider ships no visible scrub/playhead thumb on the ribbon's rail. Ask: a visible thumb variant, or the token that paints it | O-50 row 2 |
 
 ## §5 Status board (kept current at every boundary)
 
@@ -2703,3 +2706,36 @@ NG-6 cured at their roots (test-owned, W1.a born-RED) · nothing else. Bounds: t
 
 **Mechanism.** Track A relaunches (RESUME: X-W6 → X-W5 → X-W7 → X-W8 → X-W10 → X-W11); Track C
 relaunches (F.W11 RESUME: `.e` → `.d2`). Every grant above is named in the wave's dated addendum.
+
+## §0ar ADDENDUM 2026-09-22 — KF.W13S CLOSED (IMPLEMENTED at the §0ai literal); KF.W13T LANDED OA-6..OA-10 WITH ONE LIMB RED: ESC-e-1 · ESC-k2-1 · R-k-1 · R-e-2 RULED; THE SS-6 ROWS FOR O-50 ACCRETED; UNITS `.e2` → `.k3` → `.k4`
+
+KF.W13S is CLOSED at `kf 084a3679` — vue-tsc 0 · leg 2 0 · `npm run check` exit 0 · test:demo 494/494 ·
+library 1259 unchanged. KF.W13T landed the owner's docket: the dock tether spans the viewport
+(`b56e9a41`), the `.a4` residue is gone (`70a9b882` `936b8c74`), every easing row draws its curve
+from the easing it runs (`2141883d`), the scrub rail wears the producer Slider's paint (`a71efd0d`),
+the animations run (`b4c5dfb1`), the preview toggle exists (`cbe9b904`); G-KFW13T-1..5 GREEN ×2.
+Ruled:
+
+- **ESC-e-1 — GRANTED to `.e2`**: `demo/state/controlOptionsStore.ts`, ONE optional field on
+  `StoredAnimationGroupControlOptions` beside `ppMode?` — `easingPreview?: "shown" | "hidden"` —
+  read by `EasingScene.vue` through `getStoredAnimationGroupControlOptions(EASING_SCENE_ID)`; the
+  reload witness is G-KFW13T-6's persistence limb. **R-e-2** (the paused-scrub `AnimationVisualizer`
+  twin does not repaint) → `.e2`, cured at the repaint trigger, never a forced re-render loop.
+- **ESC-k2-1 — GRANTED to `.k3`**: the six `vue/no-mutating-props` rows are cured at the OWNER of
+  the state, with the parent bytes granted: `ChannelOptions.vue` (`:500-510`, `:666`) ↔
+  `TimingFunctionPanel.vue` (`:151` `:152` `:156`) and `AnimationControlsGroup.vue` (`:198`, `:213`) ↔
+  `ControlsPaneWrapper.vue` (`:62` `:328` `:366`) — `defineModel` / `emit` at the seam, the store
+  write moving to the component that holds the key; never an eslint-disable, never a prop cast.
+- **R-k-1 — DESIGN RULED (the owner's dock docket, OA-6)**: at 390 the expanded top dock and
+  `EditorShell.vue`'s header ribbon (Share · Keyboard shortcuts · theme) collide because there are TWO
+  chromes. There is one: the ribbon's controls ride the `ChromeDock` (a dock group/layer on the
+  producer's primitives, as fourier's `AppDock` absorbed its header at F.W11) and the ribbon
+  retires at every viewport — one home per control, accessible names and the `?` shortcut intact.
+  `EditorShell.vue` + `ChromeDock.vue` GRANTED to `.k3`; gate: 0 collisions at 390/768/1440 ×2.
+- **O-50's SS-6 rows** — accreted at §4a below (KFW13T-BK-1 · -BK-2), the orchestrator's owed act.
+- **`.t2`'s returned R6 blind spot** (`scripts/gates/structure/index.mjs:337` ignores dynamic
+  `import()`) → the owner close report (a gate-author item; no wave opens `scripts/gates/**`).
+
+**Mechanism.** KF.W13T RESUME (`.k` `.e` `.k2` alreadyDone): [`.e2`] → [`.k3`] → [`.k4` verify-only
+close]; spec = KF-W13.md's ADDENDUM 2026-09-22 (fourth). Then Track B is COMPLETE but for KF.W3
+(gate-keyed on RC-P(V) at the X-W11 coordinate).

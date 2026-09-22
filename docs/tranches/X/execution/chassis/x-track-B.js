@@ -127,7 +127,7 @@ const TRACK = {
       "after": [
         "KF.W13S"
       ],
-      "note": "THE OWNER AUDIT DOCKET, KF-side (COHESION §0ao + §0ao.1 and KF-W13.md ADDENDUM 2026-09-22 (KF.W13T) at the file end — they ARE this wave's unit spec; KF-W13.md's earlier units belong to KF.W13/KF.W13S and are NOT this wave's): groups [KF.W13.k] → [KF.W13.e] → [KF.W13.k2]; every seat opus; the dock must CONTAIN its elements, the easing picker must SHOW its curves, the timeline slider must DRAG, the animations must RUN — each cured at the root and measured in a live browser (bounded Playwright, screenshots committed); never overflow:hidden or a copied producer selector; producer defects ride mail to BK; keyframes.js pushed at every unit close"
+      "note": "THE OWNER AUDIT DOCKET, KF-side — RESUME 2026-09-22 on COHESION §0ar + KF-W13.md ADDENDUM 2026-09-22 (fourth) (read both; they ARE this wave's resume spec; KF-W13.md's earlier units belong to KF.W13/KF.W13S/this wave's first sitting and are NOT re-dispatched): KF.W13.k · .e · .k2 are alreadyDone; still owed, strictly serial: [KF.W13.e2] (easingPreview field grant + R-e-2 repaint) → [KF.W13.k3] (R-k-1: the ribbon's controls ride the ChromeDock, ribbon retired; ESC-k2-1: six no-mutating-props rows cured at the state owner via defineModel/emit) → [KF.W13.k4] (verify-only close); every seat opus; measured in a live browser with screenshots; producer defects ride mail to BK; keyframes.js pushed at every unit close"
     }
   },
   "author": {
