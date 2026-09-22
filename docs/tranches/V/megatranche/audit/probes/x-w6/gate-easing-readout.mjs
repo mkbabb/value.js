@@ -208,6 +208,16 @@ if (fitting.length > 0) {
 // The leg now reads what its predicate names: the readout rail's own markup
 // block and the style rules that select its parts, at the committed bytes.
 // Any added line inside either still reds, exactly as before.
+//
+// PRECISION (second addendum, 2026-09-22, X-W6 Repair 1 — `.e`'s e2): inside a
+// style rule the leg reds on an added DECLARATION of a paint or box property
+// (background*, border*, padding*, margin*, box-shadow, outline*, color, font*),
+// not on the substring "background" wherever it occurs. Moving the readout's
+// existing `transition: color …, background-color …` into a
+// `prefers-reduced-motion: no-preference` block (e2's structural PRM law)
+// restyles nothing — the continuation line `background-color var(--duration…)`
+// names a TRANSITIONED property, it paints none. In the markup block any added
+// class binding still reds.
 const READOUT_PARTS = /\.(readout-rail|rail-btn|rail-tick)\b/;
 
 function readoutRanges(src) {
@@ -220,7 +230,7 @@ function readoutRanges(src) {
         const indent = lines[start].match(/^\s*/)[0];
         let end = start + 1;
         while (end < lines.length && !lines[end].startsWith(`${indent}</div>`)) end++;
-        ranges.push([start + 1, end + 1]);
+        ranges.push([start + 1, end + 1, "markup"]);
     }
     const styleAt = lines.findIndex((l) => /^<style\b/.test(l));
     for (let i = Math.max(0, styleAt); styleAt >= 0 && i < lines.length; i++) {
@@ -229,7 +239,7 @@ function readoutRanges(src) {
         while (j < lines.length && !lines[j].includes("{")) j++;
         let k = j;
         while (k < lines.length && !/^\}/.test(lines[k])) k++;
-        ranges.push([i + 1, k + 1]);
+        ranges.push([i + 1, k + 1, "style"]);
         i = k;
     }
     return ranges;
@@ -270,11 +280,17 @@ for (const line of touched.split("\n")) {
     }
     if (line.startsWith("+++") || line.startsWith("---")) continue;
     if (line.startsWith("+")) {
-        const inReadout = ranges.some(([a, b]) => newLine >= a && newLine <= b);
-        if (
-            inReadout &&
-            /\bclass=|\bclass:|border-radius|background|rounded-|bg-|px-|py-/.test(line)
-        ) {
+        const hit = ranges.find(([a, b]) => newLine >= a && newLine <= b);
+        const body = line.slice(1);
+        const restyles =
+            hit?.[2] === "markup"
+                ? /\bclass=|\bclass:|\bstyle=|:style=/.test(body)
+                : hit?.[2] === "style"
+                  ? /^\s*(background|border|padding|margin|box-shadow|outline|color|font)[a-z-]*\s*:/.test(
+                        body,
+                    )
+                  : false;
+        if (restyles) {
             addedStyle.push(`${newLine}: ${line}`);
         }
         newLine++;
@@ -314,7 +330,7 @@ console.log(
         `  branch selected by the census: ${fitting.length > 0 ? "COMPOSE" : "DATED ASK"}; ` +
             `wave composes=${composes} ask=${askExists}`,
         `  local restyle of the readout in this wave's diff: ${addedStyle.length} line(s) ` +
-            `(readout ranges read at HEAD: ${ranges.map(([a, b]) => `${a}-${b}`).join(", ")})`,
+            `(readout ranges read at HEAD: ${ranges.map(([a, b, k]) => `${a}-${b} ${k}`).join(", ")})`,
         ...failures.map((message) => `  FAIL ${message}`),
     ].join("\n"),
 );
