@@ -1,7 +1,7 @@
 export const meta = {
   name: 'x-track-C',
   description: 'Tranche X Track C — X·F (fourier-analysis): every wave in runbook §1.3 order through the spec-driven chassis (open → units → verify-only close → fresh check → bounded repair), ≤1 waves concurrent',
-  phases: [{"title":"F.W0"},{"title":"F.W5"},{"title":"F.W1"},{"title":"F.W2"},{"title":"F.W4"},{"title":"F.W3"},{"title":"F.W6"},{"title":"F.W7"},{"title":"F.W8"},{"title":"F.W9"},{"title":"F.W10"},{"title":"F.W10S"}],
+  phases: [{"title":"F.W0"},{"title":"F.W5"},{"title":"F.W1"},{"title":"F.W2"},{"title":"F.W4"},{"title":"F.W3"},{"title":"F.W6"},{"title":"F.W7"},{"title":"F.W8"},{"title":"F.W9"},{"title":"F.W10"},{"title":"F.W10S"},{"title":"F.W11"}],
 }
 
 const TRACK = {
@@ -105,6 +105,13 @@ const TRACK = {
         "F.W10"
       ],
       "note": "THE SUPPLEMENT WAVE minted by COHESION §0aj (read §0aj whole and F-W10.md's ADDENDUM 2026-09-21 at the file end — they ARE this wave's unit spec; the spec's own §1c product-source exclusion is LIFTED for unit .b only, to the paths the addendum names): groups [F.W10S.a ∥ F.W10S.b] → [F.W10S.c] → [F.W10S.d]; every unit opus; unit .b writes the fourier-analysis tree (web/src + the two named specs) on a LIVE full stack; unit .c performs the glass-ui carriage hop — mail is the ONE lawful glass-ui write; F.W9/F.W10 CLOSED rows never rewritten; operator items go to the owner close report, never cured here"
+    },
+    "F.W11": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/fourier/waves/F-W11.md",
+      "after": [
+        "F.W10S"
+      ],
+      "note": "THE OWNER AUDIT DOCKET, F-side (COHESION §0ao — read it whole; the spec F-W11.md is complete in itself): groups [F.W11.a ∥ F.W11.b] → [F.W11.c] → [F.W11.d]; .c is FABLE (design-author: the GlassDock app chrome + the visualizer on glass-ui surfaces); every cure at the root, glass-ui READ-ONLY, gaps ride mail to BK; bounded Playwright with committed screenshots is the evidence; push m/w1-bump-migration at every unit close"
     }
   },
   "stages": [
@@ -133,7 +140,8 @@ const TRACK = {
       "F.W9"
     ],
     ["F.W10"],
-    ["F.W10S"]
+    ["F.W10S"],
+    ["F.W11"]
   ]
 }
 

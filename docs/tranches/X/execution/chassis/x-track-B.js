@@ -1,7 +1,7 @@
 export const meta = {
   name: 'x-track-B',
   description: 'Tranche X Track B — X·KF (keyframes.js): every wave in runbook §1.2 order through the spec-driven chassis (open → units → verify-only close → fresh check → bounded repair), ≤1 waves concurrent',
-  phases: [{"title":"KF.W0"},{"title":"KF.W1"},{"title":"KF.W4"},{"title":"KF.W9"},{"title":"KF.W2"},{"title":"KF.W5"},{"title":"KF.W6"},{"title":"KF.W7"},{"title":"KF.W8"},{"title":"AUTHOR-KF-W11-13"},{"title":"KF.W10"},{"title":"KF.W11"},{"title":"KF.W12"},{"title":"KF.W13"},{"title":"KF.W13S"}],
+  phases: [{"title":"KF.W0"},{"title":"KF.W1"},{"title":"KF.W4"},{"title":"KF.W9"},{"title":"KF.W2"},{"title":"KF.W5"},{"title":"KF.W6"},{"title":"KF.W7"},{"title":"KF.W8"},{"title":"AUTHOR-KF-W11-13"},{"title":"KF.W10"},{"title":"KF.W11"},{"title":"KF.W12"},{"title":"KF.W13"},{"title":"KF.W13S"},{"title":"KF.W13T"}],
 }
 
 const TRACK = {
@@ -121,6 +121,13 @@ const TRACK = {
         "KF.W13"
       ],
       "note": "THE X·KF SUPPLEMENT WAVE minted by COHESION §0ai — RESUME 2026-09-22 on COHESION §0am + KF-W13.md ADDENDUM 2026-09-22 (read both whole; they ARE this wave's unit spec): KF.W13.a2 · KF.W13.e · KF.W13.a3 · KF.W13.e2 are ALL alreadyDone (commits exist; never re-dispatched); the units still owed are [KF.W13.a4] → [KF.W13.e3] → [KF.W13.t] → [KF.W13.f2], every seat opus, strictly serial; ESC-a3-2 is DISCHARGED at kf 8ae71f51; the close literal of §0ai stands (vue-tsc 0 · test:demo green · npm run check exit 0); keyframes.js pushed at every unit's close; value.js pushed only if no sibling staged path sits in the shared index"
+    },
+    "KF.W13T": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W13.md",
+      "after": [
+        "KF.W13S"
+      ],
+      "note": "THE OWNER AUDIT DOCKET, KF-side (COHESION §0ao + §0ao.1 and KF-W13.md ADDENDUM 2026-09-22 (KF.W13T) at the file end — they ARE this wave's unit spec; KF-W13.md's earlier units belong to KF.W13/KF.W13S and are NOT this wave's): groups [KF.W13.k] → [KF.W13.e] → [KF.W13.k2]; every seat opus; the dock must CONTAIN its elements, the easing picker must SHOW its curves, the timeline slider must DRAG, the animations must RUN — each cured at the root and measured in a live browser (bounded Playwright, screenshots committed); never overflow:hidden or a copied producer selector; producer defects ride mail to BK; keyframes.js pushed at every unit close"
     }
   },
   "author": {
@@ -167,9 +174,8 @@ const TRACK = {
     [
       "KF.W13"
     ],
-    [
-      "KF.W13S"
-    ]
+    ["KF.W13S"],
+    ["KF.W13T"]
   ]
 }
 
