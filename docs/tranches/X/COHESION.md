@@ -2467,3 +2467,41 @@ ASSERTIONS; the addendum's *"escalation id written into the note"* governs the n
 Opus seat, no wave: `web/e2e/visualization-crud.spec.ts` `:664` note gains one line naming
 `E-F10S-b2` and `A-3` (the stale LC-2 rationale is left in place, dated beside), pushed; a dated
 line appended to `execution/C/F-W10S.md` and one LEDGER event line. Nothing else in the file moves.
+
+## §0am ADDENDUM 2026-09-22 — KF.W13S NOT-CONFORMANT AFTER TWO REPAIRS ON THREE UNGRANTED BYTES: ESC-r2-1 · ESC-r2-2 · ESC-r2-3 RULED; ESC-a3-2 DISCHARGED AT `8ae71f51`; UNITS `.a4` → `.e3` → `.t` → `.f2`
+
+Check 3 (2026-09-22) reads 2 HIGH · 1 MEDIUM, every one a byte outside the carves §0ai drew, and
+every one measured twice. Ruled under delegation (§0j):
+
+- **ESC-r2-2 / ESC-a3-1 — GRANTED to unit `.a4`**: `demo/scenes/cube/CubeScene.vue` `:96-97`
+  (`setPPMode`), `:129-135` (the `headerLeft` render fn), `:267` (its export) and their dead imports
+  — the delete arm of the MM-1/MM-6 four-part cure (repair `stored.value.ppMode` = the
+  `MbabbMenu.vue:333` TS2339 pair · dispose `setPPMode` with the KF-APP-17 `headerLeft` delete arm ·
+  resolve the C-14 bucket split · land MM-5's `CheckboxItem`), which lands as ONE sha under ARB-1
+  with NO `headerLeft` fill arm; `sceneExposedApi.ts:43` untouched (G-KFW13-2's grep counts deleted
+  lines). KF.W11 is CLOSED; its row is not rewritten — the sha is cited in KF.W13S's row.
+- **ESC-r2-1 — GRANTED to unit `.e3`**: `demo/utils/reference-data/easingGroups.ts:7` and
+  `animationDescriptions.ts:19` typed by `EasingName` AT THE CATALOGUE (the root; `name: string` →
+  `name: EasingName`, `Record<string,…>` → `Record<EasingName,…>` or the narrower shape the data
+  proves); `EasingSidebar.vue:150` and `EasingTarget.vue:251` then type-check with no cast and no
+  predicate. vue-tsc must read **0**.
+- **ESC-r2-3 — the harness row, same class as §0ai's vitest row**: `package.json:37`'s leg 2
+  becomes `vue-tsc --noEmit -p tsconfig.test.json` — plain `tsc` cannot see through the
+  default-only `*.vue` shim, and the 18 TS2614 rows are that defect (measured 47 → 33). The ONE line
+  is granted to `.e3`. Of the 33 residual rows, this wave's `playback-ribbon-contract.test.ts:230`
+  (TS2769) → `.e3`; the 29 rows across 12 foreign test files → unit **`.t`** (Opus, serial after
+  `.e3`): typed root cures in `test/demo/**`, and in the demo module a row's root sits in ONLY where
+  that root is a type declaration; never a cast, `@ts-expect-error`, `skip` or a loosened assertion;
+  any row whose root is product behaviour outside that carve is RETURNED by `file:line` and id.
+  §0ai's close literal — `vue-tsc 0` · `npm run test:demo` green · `npm run check` exit 0 — STANDS.
+- **ESC-a3-2 — DISCHARGED**: TD-36's real bytes (`TransportDock.vue:2-8`) were cured by the Check 2
+  repair at kf `8ae71f51` (`pointer-events-none` on the fixed host); the Close's R-f2-2 predates it.
+- **R-f2-3 — CORRECTED at the bytes**: `.e2` DID run (kf `17d3e227` · `96079974` · `c03141bc`);
+  its remaining rows are `.e3`'s. **R-f2-5** producer asks → `.f2`'s BH relay act (§0ai). **R-f2-4**
+  MM carries (SharePopover / DarkModeToggle / style.css seams) → the owner close report by id.
+  **R-f2-6** the value.js push → the orchestrator, after Track A's X-W5 seat commits its staged
+  deletion. INFO rows: none owed.
+
+**Mechanism.** KF.W13S RESUME (`.a2` · `.e` · `.a3` · `.e2` alreadyDone): [`.a4`] → [`.e3`] →
+[`.t`] → [`.f2`]; every seat Opus; the chassis's verify-only close and fresh check follow. Spec =
+KF-W13.md's ADDENDUM 2026-09-22. keyframes.js is pushed at every unit's close.
