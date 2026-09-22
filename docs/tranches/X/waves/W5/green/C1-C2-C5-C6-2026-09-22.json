@@ -1,0 +1,1182 @@
+{
+  "servedModel": "claude-opus-5-5[1m]",
+  "unit": "X.W5.c",
+  "label": "green-over-committed-bytes",
+  "note": "Measured after commit 50633f19 (W5.md §9 commit 3). ONE bounded chromium session, dev server :9010. Double-run: run3 reproduces every verdict and ratio. C1 literal metric = <main> innerText at 390x844 vs 1440x900 (born-red metric); textContent ratio and content-visibility:auto counts recorded beside it. C2 = /#/generate Regenerate at 390. C5 = #/blob canvas + region-root identity across 1440x900 -> 720x450 live resize. C6 = every .glass-resting pane card: own backdrop-filter none + carrier ::before (content, clip-path, backdrop-filter) on its wrapper, at 1440 and 390.",
+  "probe": "X.W5.c C1/C2/C5/C6 GREEN (committed bytes)",
+  "base": "http://localhost:9010",
+  "takenAt": "2026-09-22T19:48:22.894Z",
+  "C1": {
+    "rows": [
+      {
+        "route": "/",
+        "wide1440": 1751,
+        "narrow390": 973,
+        "ratio": 0.5557,
+        "textContentWide": 4825,
+        "textContentNarrow": 4825,
+        "textContentRatio": 1,
+        "cvAutoWide": 33,
+        "cvAutoNarrow": 33,
+        "pass": false,
+        "wideWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--stage pane-wrapper--left",
+            "label": "Picker",
+            "w": 512,
+            "h": 7459,
+            "y": 112
+          },
+          {
+            "cls": "pane-wrapper pane-wrapper--inspector pane-wrapper--right",
+            "label": "About",
+            "w": 512,
+            "h": 7459,
+            "y": 112
+          }
+        ],
+        "narrowWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--stage pane-wrapper--left",
+            "label": "Picker",
+            "w": 358,
+            "h": 592,
+            "y": 128
+          },
+          {
+            "cls": "pane-wrapper pane-wrapper--inspector pane-wrapper--right",
+            "label": "About",
+            "w": 358,
+            "h": 7943,
+            "y": 736
+          }
+        ],
+        "wideGridCols": "512px 512px",
+        "narrowGridCols": "358px"
+      },
+      {
+        "route": "/palettes",
+        "wide1440": 224,
+        "narrow390": 224,
+        "ratio": 1,
+        "textContentWide": 202,
+        "textContentNarrow": 202,
+        "textContentRatio": 1,
+        "cvAutoWide": 1,
+        "cvAutoNarrow": 1,
+        "pass": true,
+        "wideWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--stage pane-wrapper--left",
+            "label": "Picker",
+            "w": 512,
+            "h": 685,
+            "y": 159
+          },
+          {
+            "cls": "pane-wrapper pane-wrapper--inspector pane-wrapper--right",
+            "label": "Palettes",
+            "w": 512,
+            "h": 685,
+            "y": 159
+          }
+        ],
+        "narrowWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--stage pane-wrapper--left",
+            "label": "Picker",
+            "w": 358,
+            "h": 592,
+            "y": 128
+          },
+          {
+            "cls": "pane-wrapper pane-wrapper--inspector pane-wrapper--right",
+            "label": "Palettes",
+            "w": 358,
+            "h": 480,
+            "y": 736
+          }
+        ],
+        "wideGridCols": "512px 512px",
+        "narrowGridCols": "358px"
+      },
+      {
+        "route": "/browse",
+        "wide1440": 268,
+        "narrow390": 268,
+        "ratio": 1,
+        "textContentWide": 258,
+        "textContentNarrow": 258,
+        "textContentRatio": 1,
+        "cvAutoWide": 0,
+        "cvAutoNarrow": 0,
+        "pass": true,
+        "wideWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--stage pane-wrapper--left",
+            "label": "Browse",
+            "w": 512,
+            "h": 515,
+            "y": 244
+          },
+          {
+            "cls": "pane-wrapper pane-wrapper--inspector pane-wrapper--right",
+            "label": "Palettes",
+            "w": 512,
+            "h": 515,
+            "y": 244
+          }
+        ],
+        "narrowWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--stage pane-wrapper--left",
+            "label": "Browse",
+            "w": 358,
+            "h": 408,
+            "y": 128
+          },
+          {
+            "cls": "pane-wrapper pane-wrapper--inspector pane-wrapper--right",
+            "label": "Palettes",
+            "w": 358,
+            "h": 480,
+            "y": 551
+          }
+        ],
+        "wideGridCols": "512px 512px",
+        "narrowGridCols": "358px"
+      },
+      {
+        "route": "/extract",
+        "wide1440": 288,
+        "narrow390": 288,
+        "ratio": 1,
+        "textContentWide": 278,
+        "textContentNarrow": 278,
+        "textContentRatio": 1,
+        "cvAutoWide": 0,
+        "cvAutoNarrow": 0,
+        "pass": true,
+        "wideWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--stage pane-wrapper--left",
+            "label": "Extract",
+            "w": 512,
+            "h": 578,
+            "y": 213
+          },
+          {
+            "cls": "pane-wrapper pane-wrapper--inspector pane-wrapper--right",
+            "label": "Palettes",
+            "w": 512,
+            "h": 578,
+            "y": 213
+          }
+        ],
+        "narrowWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--stage pane-wrapper--left",
+            "label": "Extract",
+            "w": 358,
+            "h": 565,
+            "y": 128
+          },
+          {
+            "cls": "pane-wrapper pane-wrapper--inspector pane-wrapper--right",
+            "label": "Palettes",
+            "w": 358,
+            "h": 480,
+            "y": 709
+          }
+        ],
+        "wideGridCols": "512px 512px",
+        "narrowGridCols": "358px"
+      },
+      {
+        "route": "/mix",
+        "wide1440": 171,
+        "narrow390": 171,
+        "ratio": 1,
+        "textContentWide": 149,
+        "textContentNarrow": 149,
+        "textContentRatio": 1,
+        "cvAutoWide": 1,
+        "cvAutoNarrow": 1,
+        "pass": true,
+        "wideWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--stage pane-wrapper--left",
+            "label": "Picker",
+            "w": 512,
+            "h": 685,
+            "y": 159
+          },
+          {
+            "cls": "pane-wrapper pane-wrapper--inspector pane-wrapper--right",
+            "label": "Mix",
+            "w": 512,
+            "h": 685,
+            "y": 159
+          }
+        ],
+        "narrowWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--stage pane-wrapper--left",
+            "label": "Picker",
+            "w": 358,
+            "h": 592,
+            "y": 128
+          },
+          {
+            "cls": "pane-wrapper pane-wrapper--inspector pane-wrapper--right",
+            "label": "Mix",
+            "w": 358,
+            "h": 376,
+            "y": 736
+          }
+        ],
+        "wideGridCols": "512px 512px",
+        "narrowGridCols": "358px"
+      },
+      {
+        "route": "/generate",
+        "wide1440": 294,
+        "narrow390": 294,
+        "ratio": 1,
+        "textContentWide": 281,
+        "textContentNarrow": 281,
+        "textContentRatio": 1,
+        "cvAutoWide": 0,
+        "cvAutoNarrow": 0,
+        "pass": true,
+        "wideWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--stage pane-wrapper--left",
+            "label": "Generate",
+            "w": 512,
+            "h": 515,
+            "y": 244
+          },
+          {
+            "cls": "pane-wrapper pane-wrapper--inspector pane-wrapper--right",
+            "label": "Palettes",
+            "w": 512,
+            "h": 515,
+            "y": 244
+          }
+        ],
+        "narrowWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--stage pane-wrapper--left",
+            "label": "Generate",
+            "w": 358,
+            "h": 427,
+            "y": 128
+          },
+          {
+            "cls": "pane-wrapper pane-wrapper--inspector pane-wrapper--right",
+            "label": "Palettes",
+            "w": 358,
+            "h": 480,
+            "y": 570
+          }
+        ],
+        "wideGridCols": "512px 512px",
+        "narrowGridCols": "358px"
+      },
+      {
+        "route": "/gradient",
+        "wide1440": 682,
+        "narrow390": 682,
+        "ratio": 1,
+        "textContentWide": 750,
+        "textContentNarrow": 750,
+        "textContentRatio": 1,
+        "cvAutoWide": 0,
+        "cvAutoNarrow": 0,
+        "pass": true,
+        "wideWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--stage pane-wrapper--left",
+            "label": "Gradient",
+            "w": 512,
+            "h": 960,
+            "y": 112
+          },
+          {
+            "cls": "pane-wrapper pane-wrapper--inspector pane-wrapper--right",
+            "label": "Palettes",
+            "w": 512,
+            "h": 960,
+            "y": 112
+          }
+        ],
+        "narrowWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--stage pane-wrapper--left",
+            "label": "Gradient",
+            "w": 358,
+            "h": 938,
+            "y": 128
+          },
+          {
+            "cls": "pane-wrapper pane-wrapper--inspector pane-wrapper--right",
+            "label": "Palettes",
+            "w": 358,
+            "h": 480,
+            "y": 1082
+          }
+        ],
+        "wideGridCols": "512px 512px",
+        "narrowGridCols": "358px"
+      },
+      {
+        "route": "/atmosphere",
+        "wide1440": 309,
+        "narrow390": 309,
+        "ratio": 1,
+        "textContentWide": 291,
+        "textContentNarrow": 291,
+        "textContentRatio": 1,
+        "cvAutoWide": 0,
+        "cvAutoNarrow": 0,
+        "pass": true,
+        "wideWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--stage pane-wrapper--left",
+            "label": "Atmosphere",
+            "w": 1042,
+            "h": 654,
+            "y": 175
+          }
+        ],
+        "narrowWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--stage pane-wrapper--left",
+            "label": "Atmosphere",
+            "w": 358,
+            "h": 651,
+            "y": 156
+          }
+        ],
+        "wideGridCols": "1042px 0px",
+        "narrowGridCols": "358px"
+      },
+      {
+        "route": "/blob",
+        "wide1440": 704,
+        "narrow390": 704,
+        "ratio": 1,
+        "textContentWide": 617,
+        "textContentNarrow": 617,
+        "textContentRatio": 1,
+        "cvAutoWide": 1,
+        "cvAutoNarrow": 1,
+        "pass": true,
+        "wideWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--stage pane-wrapper--left",
+            "label": "Picker",
+            "w": 512,
+            "h": 2690,
+            "y": 112
+          },
+          {
+            "cls": "pane-wrapper pane-wrapper--inspector pane-wrapper--right",
+            "label": "Blob",
+            "w": 512,
+            "h": 2690,
+            "y": 112
+          }
+        ],
+        "narrowWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--stage pane-wrapper--left",
+            "label": "Picker",
+            "w": 358,
+            "h": 592,
+            "y": 128
+          },
+          {
+            "cls": "pane-wrapper pane-wrapper--inspector pane-wrapper--right",
+            "label": "Blob",
+            "w": 358,
+            "h": 2530,
+            "y": 736
+          }
+        ],
+        "wideGridCols": "512px 512px",
+        "narrowGridCols": "358px"
+      },
+      {
+        "route": "/admin/users",
+        "wide1440": 318,
+        "narrow390": 318,
+        "ratio": 1,
+        "textContentWide": 317,
+        "textContentNarrow": 317,
+        "textContentRatio": 1,
+        "cvAutoWide": 0,
+        "cvAutoNarrow": 0,
+        "pass": true,
+        "wideWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--stage pane-wrapper--left",
+            "label": "Not Found",
+            "w": 1042,
+            "h": 231,
+            "y": 387
+          }
+        ],
+        "narrowWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--stage pane-wrapper--left",
+            "label": "Not Found",
+            "w": 358,
+            "h": 251,
+            "y": 356
+          }
+        ],
+        "wideGridCols": "1042px 0px",
+        "narrowGridCols": "358px"
+      },
+      {
+        "route": "/admin/names",
+        "wide1440": 318,
+        "narrow390": 318,
+        "ratio": 1,
+        "textContentWide": 317,
+        "textContentNarrow": 317,
+        "textContentRatio": 1,
+        "cvAutoWide": 0,
+        "cvAutoNarrow": 0,
+        "pass": true,
+        "wideWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--stage pane-wrapper--left",
+            "label": "Not Found",
+            "w": 1042,
+            "h": 231,
+            "y": 387
+          }
+        ],
+        "narrowWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--stage pane-wrapper--left",
+            "label": "Not Found",
+            "w": 358,
+            "h": 251,
+            "y": 356
+          }
+        ],
+        "wideGridCols": "1042px 0px",
+        "narrowGridCols": "358px"
+      },
+      {
+        "route": "/admin/audit",
+        "wide1440": 318,
+        "narrow390": 318,
+        "ratio": 1,
+        "textContentWide": 317,
+        "textContentNarrow": 317,
+        "textContentRatio": 1,
+        "cvAutoWide": 0,
+        "cvAutoNarrow": 0,
+        "pass": true,
+        "wideWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--stage pane-wrapper--left",
+            "label": "Not Found",
+            "w": 1042,
+            "h": 231,
+            "y": 387
+          }
+        ],
+        "narrowWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--stage pane-wrapper--left",
+            "label": "Not Found",
+            "w": 358,
+            "h": 251,
+            "y": 356
+          }
+        ],
+        "wideGridCols": "1042px 0px",
+        "narrowGridCols": "358px"
+      },
+      {
+        "route": "/admin/flagged",
+        "wide1440": 320,
+        "narrow390": 320,
+        "ratio": 1,
+        "textContentWide": 319,
+        "textContentNarrow": 319,
+        "textContentRatio": 1,
+        "cvAutoWide": 0,
+        "cvAutoNarrow": 0,
+        "pass": true,
+        "wideWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--stage pane-wrapper--left",
+            "label": "Not Found",
+            "w": 1042,
+            "h": 231,
+            "y": 387
+          }
+        ],
+        "narrowWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--stage pane-wrapper--left",
+            "label": "Not Found",
+            "w": 358,
+            "h": 251,
+            "y": 356
+          }
+        ],
+        "wideGridCols": "1042px 0px",
+        "narrowGridCols": "358px"
+      },
+      {
+        "route": "/admin/tags",
+        "wide1440": 317,
+        "narrow390": 317,
+        "ratio": 1,
+        "textContentWide": 316,
+        "textContentNarrow": 316,
+        "textContentRatio": 1,
+        "cvAutoWide": 0,
+        "cvAutoNarrow": 0,
+        "pass": true,
+        "wideWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--stage pane-wrapper--left",
+            "label": "Not Found",
+            "w": 1042,
+            "h": 231,
+            "y": 387
+          }
+        ],
+        "narrowWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--stage pane-wrapper--left",
+            "label": "Not Found",
+            "w": 358,
+            "h": 251,
+            "y": 356
+          }
+        ],
+        "wideGridCols": "1042px 0px",
+        "narrowGridCols": "358px"
+      },
+      {
+        "route": "/does-not-exist",
+        "wide1440": 321,
+        "narrow390": 321,
+        "ratio": 1,
+        "textContentWide": 320,
+        "textContentNarrow": 320,
+        "textContentRatio": 1,
+        "cvAutoWide": 0,
+        "cvAutoNarrow": 0,
+        "pass": true,
+        "wideWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--stage pane-wrapper--left",
+            "label": "Not Found",
+            "w": 1042,
+            "h": 231,
+            "y": 387
+          }
+        ],
+        "narrowWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--stage pane-wrapper--left",
+            "label": "Not Found",
+            "w": 358,
+            "h": 251,
+            "y": 356
+          }
+        ],
+        "wideGridCols": "1042px 0px",
+        "narrowGridCols": "358px"
+      }
+    ],
+    "routesMeasured": 15,
+    "routesAtOrAbove0_9": 14,
+    "verdict": "RED"
+  },
+  "C6": {
+    "rows": [
+      {
+        "vp": "1440",
+        "route": "/",
+        "cards": 2,
+        "cardFilters": [
+          "none",
+          "none"
+        ],
+        "carriers": [
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          },
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          }
+        ]
+      },
+      {
+        "vp": "1440",
+        "route": "/palettes",
+        "cards": 2,
+        "cardFilters": [
+          "none",
+          "none"
+        ],
+        "carriers": [
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          },
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          }
+        ]
+      },
+      {
+        "vp": "1440",
+        "route": "/browse",
+        "cards": 2,
+        "cardFilters": [
+          "none",
+          "none"
+        ],
+        "carriers": [
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          },
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          }
+        ]
+      },
+      {
+        "vp": "1440",
+        "route": "/extract",
+        "cards": 2,
+        "cardFilters": [
+          "none",
+          "none"
+        ],
+        "carriers": [
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          },
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          }
+        ]
+      },
+      {
+        "vp": "1440",
+        "route": "/mix",
+        "cards": 2,
+        "cardFilters": [
+          "none",
+          "none"
+        ],
+        "carriers": [
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          },
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          }
+        ]
+      },
+      {
+        "vp": "1440",
+        "route": "/generate",
+        "cards": 2,
+        "cardFilters": [
+          "none",
+          "none"
+        ],
+        "carriers": [
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          },
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          }
+        ]
+      },
+      {
+        "vp": "1440",
+        "route": "/gradient",
+        "cards": 2,
+        "cardFilters": [
+          "none",
+          "none"
+        ],
+        "carriers": [
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          },
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          }
+        ]
+      },
+      {
+        "vp": "1440",
+        "route": "/atmosphere",
+        "cards": 1,
+        "cardFilters": [
+          "none"
+        ],
+        "carriers": [
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          }
+        ]
+      },
+      {
+        "vp": "1440",
+        "route": "/blob",
+        "cards": 2,
+        "cardFilters": [
+          "none",
+          "none"
+        ],
+        "carriers": [
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          },
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          }
+        ]
+      },
+      {
+        "vp": "1440",
+        "route": "/admin/users",
+        "cards": 1,
+        "cardFilters": [
+          "none"
+        ],
+        "carriers": [
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          }
+        ]
+      },
+      {
+        "vp": "1440",
+        "route": "/admin/names",
+        "cards": 1,
+        "cardFilters": [
+          "none"
+        ],
+        "carriers": [
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          }
+        ]
+      },
+      {
+        "vp": "1440",
+        "route": "/admin/audit",
+        "cards": 1,
+        "cardFilters": [
+          "none"
+        ],
+        "carriers": [
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          }
+        ]
+      },
+      {
+        "vp": "1440",
+        "route": "/admin/flagged",
+        "cards": 1,
+        "cardFilters": [
+          "none"
+        ],
+        "carriers": [
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          }
+        ]
+      },
+      {
+        "vp": "1440",
+        "route": "/admin/tags",
+        "cards": 1,
+        "cardFilters": [
+          "none"
+        ],
+        "carriers": [
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          }
+        ]
+      },
+      {
+        "vp": "1440",
+        "route": "/does-not-exist",
+        "cards": 1,
+        "cardFilters": [
+          "none"
+        ],
+        "carriers": [
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          }
+        ]
+      },
+      {
+        "vp": "390",
+        "route": "/",
+        "cards": 2,
+        "cardFilters": [
+          "none",
+          "none"
+        ],
+        "carriers": [
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          },
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          }
+        ]
+      },
+      {
+        "vp": "390",
+        "route": "/palettes",
+        "cards": 2,
+        "cardFilters": [
+          "none",
+          "none"
+        ],
+        "carriers": [
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          },
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          }
+        ]
+      },
+      {
+        "vp": "390",
+        "route": "/browse",
+        "cards": 2,
+        "cardFilters": [
+          "none",
+          "none"
+        ],
+        "carriers": [
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          },
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          }
+        ]
+      },
+      {
+        "vp": "390",
+        "route": "/extract",
+        "cards": 2,
+        "cardFilters": [
+          "none",
+          "none"
+        ],
+        "carriers": [
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          },
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          }
+        ]
+      },
+      {
+        "vp": "390",
+        "route": "/mix",
+        "cards": 2,
+        "cardFilters": [
+          "none",
+          "none"
+        ],
+        "carriers": [
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          },
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          }
+        ]
+      },
+      {
+        "vp": "390",
+        "route": "/generate",
+        "cards": 2,
+        "cardFilters": [
+          "none",
+          "none"
+        ],
+        "carriers": [
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          },
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          }
+        ]
+      },
+      {
+        "vp": "390",
+        "route": "/gradient",
+        "cards": 2,
+        "cardFilters": [
+          "none",
+          "none"
+        ],
+        "carriers": [
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          },
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          }
+        ]
+      },
+      {
+        "vp": "390",
+        "route": "/atmosphere",
+        "cards": 1,
+        "cardFilters": [
+          "none"
+        ],
+        "carriers": [
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          }
+        ]
+      },
+      {
+        "vp": "390",
+        "route": "/blob",
+        "cards": 2,
+        "cardFilters": [
+          "none",
+          "none"
+        ],
+        "carriers": [
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          },
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          }
+        ]
+      },
+      {
+        "vp": "390",
+        "route": "/admin/users",
+        "cards": 1,
+        "cardFilters": [
+          "none"
+        ],
+        "carriers": [
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          }
+        ]
+      },
+      {
+        "vp": "390",
+        "route": "/admin/names",
+        "cards": 1,
+        "cardFilters": [
+          "none"
+        ],
+        "carriers": [
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          }
+        ]
+      },
+      {
+        "vp": "390",
+        "route": "/admin/audit",
+        "cards": 1,
+        "cardFilters": [
+          "none"
+        ],
+        "carriers": [
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          }
+        ]
+      },
+      {
+        "vp": "390",
+        "route": "/admin/flagged",
+        "cards": 1,
+        "cardFilters": [
+          "none"
+        ],
+        "carriers": [
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          }
+        ]
+      },
+      {
+        "vp": "390",
+        "route": "/admin/tags",
+        "cards": 1,
+        "cardFilters": [
+          "none"
+        ],
+        "carriers": [
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          }
+        ]
+      },
+      {
+        "vp": "390",
+        "route": "/does-not-exist",
+        "cards": 1,
+        "cardFilters": [
+          "none"
+        ],
+        "carriers": [
+          {
+            "content": "\"\"",
+            "clip": "inset(14px round 16px)",
+            "filter": "blur(7px) saturate(1.4)"
+          }
+        ]
+      }
+    ],
+    "cardRoutes": 30,
+    "cardRoutesPassing": 30,
+    "verdict": "GREEN"
+  },
+  "C2": {
+    "regenerateFound": true,
+    "specimenChanged": true,
+    "textChanged": true,
+    "paneRegionsPresent": 2,
+    "verdict": "GREEN"
+  },
+  "C5": {
+    "before": {
+      "canvasCount": 1,
+      "rootCount": 2
+    },
+    "after": {
+      "canvasCount": 1,
+      "canvasIdentitiesKept": 1,
+      "rootCount": 2,
+      "rootIdentitiesKept": 2
+    },
+    "identityPreserved": true,
+    "verdict": "GREEN"
+  }
+}

@@ -1,0 +1,530 @@
+{
+  "servedModel": "claude-opus-5-5[1m]",
+  "unit": "X.W5.c",
+  "note": "W5.md §8 audit/visual/layout/ triples (unit b + unit c), chromium, dev server :9010 over committed bytes; selector .app-layout, main",
+  "takenAt": "2026-09-22T19:53:19.950Z",
+  "rows": [
+    {
+      "unit": "b",
+      "viewport": "390x844",
+      "dpr": 1,
+      "route": "/",
+      "file": "unit-b_390x844_home.png",
+      "sha256": "fd5f7777c0f7d7c1aa6a4dc27c20d519e9b2b3dc15cec93b19eeb9ffe2422758",
+      "boxes": [
+        {
+          "sel": ".app-layout",
+          "w": 390,
+          "h": 8686
+        },
+        {
+          "sel": "main",
+          "w": 358,
+          "h": 8574
+        },
+        {
+          "sel": "doc",
+          "w": 390,
+          "h": 8693
+        }
+      ],
+      "regions": [
+        "Picker",
+        "About"
+      ]
+    },
+    {
+      "unit": "b",
+      "viewport": "390x844",
+      "dpr": 1,
+      "route": "/blob",
+      "file": "unit-b_390x844_blob.png",
+      "sha256": "b8401f788b6643eb97b80e9234ba3b69e8364de7e5ccfebf1968cb57a61bc95b",
+      "boxes": [
+        {
+          "sel": ".app-layout",
+          "w": 390,
+          "h": 3274
+        },
+        {
+          "sel": "main",
+          "w": 358,
+          "h": 3162
+        },
+        {
+          "sel": "doc",
+          "w": 390,
+          "h": 3280
+        }
+      ],
+      "regions": [
+        "Picker",
+        "Blob"
+      ]
+    },
+    {
+      "unit": "b",
+      "viewport": "390x844",
+      "dpr": 1,
+      "route": "/browse",
+      "file": "unit-b_390x844_browse.png",
+      "sha256": "7f01e6497029059364ce66106f1589de1d184c6f80b6a0884c707e23ee8c7317",
+      "boxes": [
+        {
+          "sel": ".app-layout",
+          "w": 390,
+          "h": 1039
+        },
+        {
+          "sel": "main",
+          "w": 358,
+          "h": 927
+        },
+        {
+          "sel": "doc",
+          "w": 390,
+          "h": 1045
+        }
+      ],
+      "regions": [
+        "Browse",
+        "Palettes"
+      ]
+    },
+    {
+      "unit": "b",
+      "viewport": "1440x900",
+      "dpr": 1,
+      "route": "/",
+      "file": "unit-b_1440x900_home.png",
+      "sha256": "85e47f51d6692ed543982b3713f61bcf3fdbbf273d52ef661cb1437bd0bceb9b",
+      "boxes": [
+        {
+          "sel": ".app-layout",
+          "w": 1440,
+          "h": 7578
+        },
+        {
+          "sel": "main",
+          "w": 1408,
+          "h": 7482
+        },
+        {
+          "sel": "doc",
+          "w": 1440,
+          "h": 7585
+        }
+      ],
+      "regions": [
+        "Picker",
+        "About"
+      ]
+    },
+    {
+      "unit": "b",
+      "viewport": "1440x900",
+      "dpr": 1,
+      "route": "/blob",
+      "file": "unit-b_1440x900_blob.png",
+      "sha256": "b99678771e6bc3093922cfb7eb5d580ce666a21a8ac16a01f9d1999c983de400",
+      "boxes": [
+        {
+          "sel": ".app-layout",
+          "w": 1440,
+          "h": 2809
+        },
+        {
+          "sel": "main",
+          "w": 1408,
+          "h": 2713
+        },
+        {
+          "sel": "doc",
+          "w": 1440,
+          "h": 2816
+        }
+      ],
+      "regions": [
+        "Picker",
+        "Blob"
+      ]
+    },
+    {
+      "unit": "b",
+      "viewport": "1440x900",
+      "dpr": 1,
+      "route": "/browse",
+      "file": "unit-b_1440x900_browse.png",
+      "sha256": "3f17f913a85687c2fb1333e85eb4c982cebc146788723ca7483e72119d7cffd7",
+      "boxes": [
+        {
+          "sel": ".app-layout",
+          "w": 1440,
+          "h": 900
+        },
+        {
+          "sel": "main",
+          "w": 1408,
+          "h": 804
+        },
+        {
+          "sel": "doc",
+          "w": 1440,
+          "h": 900
+        }
+      ],
+      "regions": [
+        "Browse",
+        "Palettes"
+      ]
+    },
+    {
+      "unit": "b",
+      "viewport": "3440x1440",
+      "dpr": 1,
+      "route": "/",
+      "file": "unit-b_3440x1440_home.png",
+      "sha256": "3473a5dd3d9213e08f2b60a72903a916619ea48d2eb0e3ae7ec8b7db46c3619d",
+      "boxes": [
+        {
+          "sel": ".app-layout",
+          "w": 3440,
+          "h": 6373
+        },
+        {
+          "sel": "main",
+          "w": 3408,
+          "h": 6274
+        },
+        {
+          "sel": "doc",
+          "w": 3440,
+          "h": 6379
+        }
+      ],
+      "regions": [
+        "Picker",
+        "About"
+      ]
+    },
+    {
+      "unit": "b",
+      "viewport": "3440x1440",
+      "dpr": 1,
+      "route": "/blob",
+      "file": "unit-b_3440x1440_blob.png",
+      "sha256": "c3d914c7a7a1ee89fae1e235dd7780d0c673d440e9932ca2d5a877b2c8ba471d",
+      "boxes": [
+        {
+          "sel": ".app-layout",
+          "w": 3440,
+          "h": 3010
+        },
+        {
+          "sel": "main",
+          "w": 3408,
+          "h": 2911
+        },
+        {
+          "sel": "doc",
+          "w": 3440,
+          "h": 3017
+        }
+      ],
+      "regions": [
+        "Picker",
+        "Blob"
+      ]
+    },
+    {
+      "unit": "b",
+      "viewport": "3440x1440",
+      "dpr": 1,
+      "route": "/browse",
+      "file": "unit-b_3440x1440_browse.png",
+      "sha256": "054fe75abce86f48cc236904ba2aa2b7b5c351282ef4002ab1303e8c1b23a910",
+      "boxes": [
+        {
+          "sel": ".app-layout",
+          "w": 3440,
+          "h": 1440
+        },
+        {
+          "sel": "main",
+          "w": 3408,
+          "h": 1341
+        },
+        {
+          "sel": "doc",
+          "w": 3440,
+          "h": 1440
+        }
+      ],
+      "regions": [
+        "Browse",
+        "Palettes"
+      ]
+    },
+    {
+      "unit": "c",
+      "viewport": "390x844",
+      "dpr": 1,
+      "route": "/",
+      "file": "unit-c_390x844_home.png",
+      "sha256": "6dd94da7145812851b95d2900fa03984cbae98e27f1bb1783465c3463f30c39a",
+      "boxes": [
+        {
+          "sel": ".app-layout",
+          "w": 390,
+          "h": 8686
+        },
+        {
+          "sel": "main",
+          "w": 358,
+          "h": 8574
+        },
+        {
+          "sel": "doc",
+          "w": 390,
+          "h": 8693
+        }
+      ],
+      "regions": [
+        "Picker",
+        "About"
+      ]
+    },
+    {
+      "unit": "c",
+      "viewport": "390x844",
+      "dpr": 1,
+      "route": "/generate",
+      "file": "unit-c_390x844_generate.png",
+      "sha256": "f7368d08221acf4ab35be02d72097feff804ab41f489c897e7ed59c09e7c1883",
+      "boxes": [
+        {
+          "sel": ".app-layout",
+          "w": 390,
+          "h": 1058
+        },
+        {
+          "sel": "main",
+          "w": 358,
+          "h": 946
+        },
+        {
+          "sel": "doc",
+          "w": 390,
+          "h": 1064
+        }
+      ],
+      "regions": [
+        "Generate",
+        "Palettes"
+      ]
+    },
+    {
+      "unit": "c",
+      "viewport": "390x844",
+      "dpr": 1,
+      "route": "/blob",
+      "file": "unit-c_390x844_blob.png",
+      "sha256": "de2822011dbde166af73e47797f0c4135099a7514ebaf4c3b662160e2d72a789",
+      "boxes": [
+        {
+          "sel": ".app-layout",
+          "w": 390,
+          "h": 3274
+        },
+        {
+          "sel": "main",
+          "w": 358,
+          "h": 3162
+        },
+        {
+          "sel": "doc",
+          "w": 390,
+          "h": 3280
+        }
+      ],
+      "regions": [
+        "Picker",
+        "Blob"
+      ]
+    },
+    {
+      "unit": "c",
+      "viewport": "720x450",
+      "dpr": 2,
+      "route": "/",
+      "file": "unit-c_720x450@2_home.png",
+      "sha256": "d4225b7122fe91307995cbf111da8c55afaec5e5882f92c33aab3c80d9fd6a90",
+      "boxes": [
+        {
+          "sel": ".app-layout",
+          "w": 720,
+          "h": 8564
+        },
+        {
+          "sel": "main",
+          "w": 688,
+          "h": 8452
+        },
+        {
+          "sel": "doc",
+          "w": 720,
+          "h": 8570
+        }
+      ],
+      "regions": [
+        "Picker",
+        "About"
+      ]
+    },
+    {
+      "unit": "c",
+      "viewport": "720x450",
+      "dpr": 2,
+      "route": "/generate",
+      "file": "unit-c_720x450@2_generate.png",
+      "sha256": "bbdc949e12591c899f110c148ffc1f3a1ccd46be7702aad33cd425b8af7a92b1",
+      "boxes": [
+        {
+          "sel": ".app-layout",
+          "w": 720,
+          "h": 1047
+        },
+        {
+          "sel": "main",
+          "w": 688,
+          "h": 935
+        },
+        {
+          "sel": "doc",
+          "w": 720,
+          "h": 1053
+        }
+      ],
+      "regions": [
+        "Generate",
+        "Palettes"
+      ]
+    },
+    {
+      "unit": "c",
+      "viewport": "720x450",
+      "dpr": 2,
+      "route": "/blob",
+      "file": "unit-c_720x450@2_blob.png",
+      "sha256": "c285fa905180ffa9d39298fec1f6f5e031ee58e7bedd7d60dd68ddbfcab76202",
+      "boxes": [
+        {
+          "sel": ".app-layout",
+          "w": 720,
+          "h": 3332
+        },
+        {
+          "sel": "main",
+          "w": 688,
+          "h": 3220
+        },
+        {
+          "sel": "doc",
+          "w": 720,
+          "h": 3338
+        }
+      ],
+      "regions": [
+        "Picker",
+        "Blob"
+      ]
+    },
+    {
+      "unit": "c",
+      "viewport": "1440x900",
+      "dpr": 1,
+      "route": "/",
+      "file": "unit-c_1440x900_home.png",
+      "sha256": "b00f52cb7d38ac65e83139882a1204e015a0766fd087759f44e29b76fcef4f4f",
+      "boxes": [
+        {
+          "sel": ".app-layout",
+          "w": 1440,
+          "h": 7578
+        },
+        {
+          "sel": "main",
+          "w": 1408,
+          "h": 7482
+        },
+        {
+          "sel": "doc",
+          "w": 1440,
+          "h": 7585
+        }
+      ],
+      "regions": [
+        "Picker",
+        "About"
+      ]
+    },
+    {
+      "unit": "c",
+      "viewport": "1440x900",
+      "dpr": 1,
+      "route": "/generate",
+      "file": "unit-c_1440x900_generate.png",
+      "sha256": "6f47024ff0f203904f14c8a517ce3d3f5686b02ea99fbd7a32eeda089c581ec6",
+      "boxes": [
+        {
+          "sel": ".app-layout",
+          "w": 1440,
+          "h": 900
+        },
+        {
+          "sel": "main",
+          "w": 1408,
+          "h": 804
+        },
+        {
+          "sel": "doc",
+          "w": 1440,
+          "h": 900
+        }
+      ],
+      "regions": [
+        "Generate",
+        "Palettes"
+      ]
+    },
+    {
+      "unit": "c",
+      "viewport": "1440x900",
+      "dpr": 1,
+      "route": "/blob",
+      "file": "unit-c_1440x900_blob.png",
+      "sha256": "c07cef9fc15e6ff608dfc34430f7444ccce3f2132214e94ac61a08c84605744a",
+      "boxes": [
+        {
+          "sel": ".app-layout",
+          "w": 1440,
+          "h": 2809
+        },
+        {
+          "sel": "main",
+          "w": 1408,
+          "h": 2713
+        },
+        {
+          "sel": "doc",
+          "w": 1440,
+          "h": 2816
+        }
+      ],
+      "regions": [
+        "Picker",
+        "Blob"
+      ]
+    }
+  ]
+}
