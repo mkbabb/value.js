@@ -5869,3 +5869,131 @@ Transcript counts (write-then-measure, read twice): ⟨cmd⟩ `grep -c '^\[h1\]'
 1 MINOR carried (C2-7, no one-command cure) · 1 INFO.** No product, spec or test byte written. GREEN/RED arithmetic
 unchanged: **GREEN 35 / RED 15**; honest-RED **g1 · j1 · j2 · j3 · H2 · H4**; unrelieved **a2 a3 a4 a13 b3 e1 f3 i3 b1**.
 The LEDGER row stays **PARTIAL**.
+
+## Check 3 — RESUME 2026-09-22 (L-20 fresh adversarial pass 3, over the fourth sitting's close + Repairs 1–2)
+
+SERVED MODEL: claude-opus-5-5[1m]
+
+**Append-only beside** every block above (E-3). VERIFY-ONLY: this seat cures nothing. It read `W6.md` whole (both
+addenda), this record's fourth-sitting Open and Unit plan, Check 2 and Repair 2 (the last two sections), and every
+commit Repair 2 names (`6c7f56e2`).
+**Crash-recovery**: ⟨cmd⟩ `git status --porcelain` → `M docs/tranches/V/reformation/CARRY-LEDGER.md` · `M scripts/dev/dev.sh`.
+Neither is in this seat's writable set; nothing inherited, nothing touched.
+**Rulings**: ⟨cmd⟩ `grep -rln 'ESC-W6r1-f3\|ESC-W6close-1\|ESC-W6r1-i3\|ESC-W6c-b1-1' docs/tranches/X` → `LEDGER.md` · this record only;
+COHESION's newest addendum is still `§0au` (F.W12). **None of the four W6 escalations is ruled.**
+**Bytes**: ⟨cmd⟩ `git diff --stat 97e9a4f4..HEAD -- demo e2e test src api docs/tranches/X/waves/W6.md docs/tranches/V/megatranche/registry/adjudicated/ scripts/dev/dev.sh`
+→ **empty**. ⟨cmd⟩ `git show --stat 6c7f56e2` → this record (+65) · LEDGER (+1) · 1 transcript under `W6-evidence/gates/repair-2-2026-09-22/`.
+**Live cell**: `:9000` vite (PID 14970, this repo); Playwright on fresh webServers (`VJS_E2E_PORT` 8701–8722).
+Host ⟨cmd⟩ `uptime` → **29.3 · 33.4 · 46.5** (18:54) · **20.8 · 23.9 · 37.7** (19:00) · **43.2 · 39.2 · 41.3** (19:04).
+
+### Axis 1 — the 35 claimed GREENs, re-run at this seat's clock
+
+| gate(s) | ⟨cmd⟩ | this seat |
+|---|---|---|
+| a1 | `npx vite-node …/evidence/parse-probe.ts` → `npx vitest run test/gradient-order-invariant.test.ts test/interpolation-subset.test.ts` | EXIT 0 · `22 passed (22)` |
+| a5–a11 | `node docs/tranches/X/waves/W6-evidence/gradient/gate-a-gesture-paint.mjs` | `GATE X.W6.a (gesture + paint) — GREEN` |
+| a7 arm 2 · a12 | `node …/WBGSE-O-r3-gestures.mjs` · `node …/WBGSE-D-probe2.mjs` | EXIT 0 · EXIT 0 |
+| b2 · b4 | `node …/gate-seat.mjs` ×2 | 0 `G3e` / 0 `G3f` lines in both runs |
+| c1 · c2 · c3 · c4 | `gate-structure.mjs` · vitest `-t "one sampling law"` · `vite-node gate-literal-dialect.mjs` · `test/interpolation-subset.test.ts` | `GATE G4 (structure) — GREEN` · `4 passed \| 13 skipped (17)` · `GATE c3 (literal dialect) — GREEN` · (in the 22 above) |
+| d1 · d2 | `EASING_RADIUS_ORIGIN=http://localhost:9000 node …/gate-easing-radius.mjs` · `gate-easing-readout.mjs` | `GATE d1 (easing radius) — GREEN` · EXIT 0 |
+| e2 | `grep -rn requestAnimationFrame demo/workbenches/gradient/ \| wc -l` + `gate-prm-idiom.mjs` | `0` · `GATE e2 (PRM idiom) — GREEN` |
+| f1 · f5 · h2 · i2 | the four `docs/tranches/X/gates/*.mjs` | EXIT 0 each |
+| f2 · f7 · f8(grep) · f9 · f10 | the spec's greps + `npx vue-tsc --noEmit -p tsconfig.demo.json` | `0` · `0 0` + TSC EXIT 0 · `0` · `2 0` · `0` |
+| f6 · f8 · i1 | `o23` + `o24` + `o25` in one run (`:8701`) | `3 passed (19.2s)` |
+| f4 | `o22-specimen-legibility.spec.ts` ×2 (`:8713`, `:8714`) | run 1 **`1 passed (28.7s)`**, `X.W6.f f4 CENSUS — 0/18 captions overflow`; run 2 **`1 failed`** — `page.goto: Test timeout of 30000ms exceeded` at `o22:41` (cold-server first load), before the census |
+| g2 | `companion-pane-track-start.spec.ts -g "companion panes share one track start"` ×3 (`:8715` `:8716` `:8717`) | run 1 **`1 failed`** — `page.goto: Test timeout of 30000ms exceeded` at `:115` (first load, host 20–43); runs 2–3 **`1 passed (16.0s)`** · **`1 passed (15.7s)`** |
+| h1 | `webgl-blob-idle.spec.ts -g "hero blob carries current chroma"` ×2 on fresh servers (`:8711`, `:8712`) | **`3 passed (1.1m)`** · **`3 passed (2.1m)`**; ΔC 0.00607/−0.02173 · 0.00534/−0.02035 (for the 150/328 seeds; stated ±0.04), buffer `srgb` |
+| H1 · H3 | `gate-no-chassis.mjs b2dd375c a87f8930` · the R1 one-liner | EXIT 0 · EXIT 0 |
+| j4 | cited | no byte it reads moved |
+
+**34 re-run, 1 cited (j4). 32 reproduce on the first reading; g2 and f4 each lost one reading to a `page.goto` load
+timeout on a freshly spawned server** (the same host-starvation class Checks 1–2 measured, at load 20–43; no assertion
+was reached in either failing run). g2 then read GREEN ×2; f4 stays 1 of 2 on this seat (Repair 2 read it 1 of 2 as well).
+Run side effects: o24 re-wrote `catalog/after-specimen-dots.png` and o22 re-wrote `catalog/after-catalog-open.png`; each was
+restored to HEAD bytes (`git checkout -- <that path>`, this seat's own side effect only). Nothing re-captured is committed.
+
+**The claimed REDs, re-read (not cited this time).**
+
+| gate(s) | ⟨cmd⟩ | this seat |
+|---|---|---|
+| a2 · a3 · a4 · a13 · b3 · e1 | `npx playwright test e2e/smoke/views/gradient.spec.ts e2e/smoke/oracles/o21-gradient-rail.spec.ts --project=smoke` ×2 (`:8722` line, `:8723` list) | **`1 failed · 21 passed (3.7m)`** · **`1 failed · 21 passed (3.2m)`**. The one failure both times is **`o21:188`** (a4's inverse-map arm): `expect(locator).toHaveCount(expected)` *Expected: 3 · Received: 2* at `o21:222`, the post-press mint wait. Every other test passed both times: `:143` one axis (a3), `gradient.spec:163` neighbour-crossing (a2), `o21:366` numeric entry (b3), `gradient.spec:451` aurora (e1), `:60` `:80` (the Repair-1 "starvation" failures), `:422` keyboard grammar |
+| a4 — direct probe | an ad-hoc Playwright script (scratchpad, not committed) against `:9000` at 1440×900, `#/gradient`: press at each terminal handle's centre-x, rail top + 4px, as `o21:219` does | `t=0 … hit DIV.gradient-rail … stops 2->3` · `t=100 … hit DIV.gradient-rail … stops 2->3`. **The product mints at both terminals**; the handle sits at y 292–316, below the rail (248–288), so the press lands on the rail, not the grab region |
+| f3 | `o21-space-catalog-truth.spec.ts` ×2 (`:8720`, `:8724`) | **`1 passed (1.5m)`** · **`1 passed (1.6m)`**; census 18 spaces, every `created=` authored. f3 **reads GREEN ×2 at this seat** with no byte moved since Repair 1 read it RED |
+| b1 | `gate-seat.mjs` ×2 | EXIT 1 each; exactly **2** `G3d` lines each (Home · ArrowDown on the first stop at 0%) |
+| i3 | `o28-atmosphere-coldload.spec.ts` (`:8721`) · `grep -rn armRuntime demo/ \| wc -l` | **`1 failed`** — *"oklch(0.62 0.2 260): the first painted atmosphere is not the seeded one"* · `0` |
+| g1 · j1–j3 · H2 · H4 | cited | honest-RED set (Axis 10); ⟨cmd⟩ `grep -c "component: Stub" demo/color-picker/router/index.ts` → **14**; `ls e2e/smoke/oracles \| grep -c o29` → **0** |
+
+**What moved since Check 2, at the same bytes**: a2 · a3 · b3 · e1 each passed inside both suite readings (their own `-g`
+commands are subsets of this run), and f3 passed ×2. The gradient suite fell from 8–9 failures (Repair 1) to **1**, at host
+load 20–43. The one survivor is not a starvation miss. `o21:188` has failed in **every** reading on record (Repair 1 ×3 +
+this seat ×2 = 5 of 5). It fails at the same assertion each time, while its siblings `:60` and `:80` now pass. The direct
+probe mints. So the RED is in the test's own sequence (`page.reload` → `openView` → `paneSettled` → bounding boxes → press), not in the
+product. One candidate, **not measured here**: the geometry is read after a reload that drops the pre-reload
+`scrollIntoViewIfNeeded` (`o21:194`). This is **W6's own §4 file**, so ESC-W6r1-f3 does not own it.
+
+### Axes 2–9
+
+- **(2) Bounds.** The one commit since Check 2, `6c7f56e2`, touched this record (+65), LEDGER (+1) and
+  `W6-evidence/gates/repair-2-2026-09-22/h1-f4-cold-double-read.txt`. All three are in the repair seat's set. `dev.sh`
+  untouched: ⟨cmd⟩ `git log --oneline -1 -- scripts/dev/dev.sh` shows no W6 commit, and the path is still ` M` in the tree. **Clean.**
+- **(3) Masking.** No product, test or gate byte moved (the Bytes line). Repair 2 lengthened no wait and added no
+  `animations:"disabled"`. The o21-space-catalog-truth foot-note (ictcp/jzazbz URL round-trip) is a logged observation
+  from `e0e204a9`. It is not an exclusion from any f3 assertion. **Clean.**
+- **(4) Commit families.** `6c7f56e2` is one record commit. No §9 product family is split.
+- **(5) E-3.** The Bytes line prints nothing over `W6.md`, `registry/adjudicated/`, `src` and `demo`. ⟨cmd⟩
+  `git diff --stat 97e9a4f4..HEAD -- docs/tranches/V/megatranche/audit/probes/wb-gradient-stopeditor docs/tranches/V/megatranche/audit/components`
+  → empty. Held.
+- **(6) Mail.** ⟨cmd⟩ `grep -c '^| I-\|^| O-' INBOX.md` → **97** (96 at Check 2; the new row is **I-40**). The status-cell
+  `awk -F'|' '$6 ~ /UNREAD/'` hits O-20 · I-31 · I-32 · O-39 (UNREAD appears in the prose only) and **I-40**, which is
+  **UNREAD**. I-40 is scoped *"Track C (X·F) … outside F.W12 scope"*: a glass reply to O-23/O-32, the fourier relays.
+  **Outside W6's scope.** `O-52` is present. **0 UNREAD in W6's scope.**
+- **(7) Four-verb.** IMPLEMENTED no; SPECIFIED stands. Lawful, and unmoved.
+- **(8) Goal §2a at the bytes.** **NOT MET.** Stubs **14** and o29 **0**, so no instrument owns a routed scene yet (`.j` is gated
+  on X-W5). The cold-load truth (i3) is RED.
+- **(9) Published figures.** Repair 2's "h1 GREEN ×2 on cold servers" reproduces (×2 here). Its "f4 split 1 of 2"
+  reproduces (1 of 2 here). **The GREEN 35 / RED 15 arithmetic no longer describes the bytes as read at this seat:**
+  f3 read GREEN ×2, and a2 · a3 · b3 · e1 passed in both suite readings. This seat promotes nothing, because it is verify-only. The next
+  close seat owes the re-count.
+
+### Axis 10 — honest-RED adjudication (every RED left at this seat's readings, at the spec bytes)
+
+| gate | relief at the spec bytes | owner in the register | verdict |
+|---|---|---|---|
+| g1 | `W6.md:484` *"**g1** honest-RED by id → X-W10 (M-23)"* | R-6 X-W10 | **HONEST-RED** |
+| j1 · j2 · j3 | `W6.md:479`/`:484` *"`.j` after X-W5 CLOSED"*; the LEDGER X-W5 row is **PARTIAL** | R-7 `.j` | **HONEST-RED** (the spec gates it on a successor) |
+| H4 | CC-056/CC-057 land in `.j` (§Dispositions), gated as above | R-7 | **HONEST-RED** |
+| H2 | the quarantine record exists (⟨cmd⟩ `ls …/codex-provenance/motion-quarantine.md` → present) and the `.e` legs cite it; only the `.j` leg is owed, gated as above | R-8 | **HONEST-RED** |
+| a4 · a13 | **none.** These are W6's own gates on W6's own §4 spec. `o21:188` fails 5 of 5; the product mints on a direct probe; the rest of the suite is GREEN ×2. ESC-W6r1-f3 (frame starvation) does not describe this RED | none (misfiled under ESC-W6r1-f3) | **UNRELIEVED** |
+| i3 | **none.** §0aq grants `.i` the `index.html` cure; that is a W6 duty, not relief. ESC-W6r1-i3 is **unruled** | R-5 · esc. 2 | **UNRELIEVED** |
+| b1 | **none.** `W6.md:484` assigns the cure to `.c`; ESC-W6c-b1-1 is **unruled**. `o21:422` (the keyboard grammar) passed ×2 here | R-4 · esc. 3 | **UNRELIEVED (escalated)** |
+
+**Honest-RED set: g1 · j1 · j2 · j3 · H2 · H4** (6). **4 REDs are unrelieved: a4 · a13 · i3 · b1**. At this seat's readings
+a2 · a3 · b3 · e1 · f3 are GREEN (×2), so they are not REDs here. They leave the unrelieved list once a close seat re-counts them.
+
+### Successor "Opens after" conjuncts
+
+- **X-W7** (`W7.md:6`): X-W3 · X-W4 · **X-W6**. The X-W6 conjunct is **RED** (the row is PARTIAL), so X-W7 is lawfully blocked.
+- **X-W8** (`W8.md:6`): X-W5 · **X-W6** · X-W7 stable. **RED** (X-W5 and X-W6 are both PARTIAL); lawfully blocked.
+- **X-W10** (`W10.md:6`): X-W5..X-W9 stable. **RED**; lawfully blocked.
+- **X-W11** (`W11.md:6`): X-W0..X-W10 IMPLEMENTED. **RED**; lawfully blocked.
+Every successor is blocked lawfully on this row, and none unlawfully.
+
+### Register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C3-1 | HIGH | a4 (and a13, the suite that contains it) stays RED with no spec relief. `o21:188` fails 5 of 5 readings at `o21:222` (*Expected: 3 · Received: 2*), yet a direct press at the same geometry mints 2→3 at both terminals. The RED is in the test's sequence, not in starvation, and it has been filed under ESC-W6r1-f3, which does not own it | suite ×2 above (`1 failed · 21 passed` each, `:188` alone); the direct probe `stops 2->3` ×2; Repair 1 table `a4 · o21:188 \| R \| R \| R` | a repair seat diagnoses `o21:188`'s reload→openView→press sequence in bounds (`o21` is §4, ADD-never-replace: add the missing settle/scroll, never loosen the ordinal or mint assertion), and then reads the suite GREEN ×2 |
+| C3-2 | HIGH | i3 RED and unrelieved; ESC-W6r1-i3 is unruled | `o28` `1 failed` (seed 260); armRuntime `0` | COHESION rules ESC-W6r1-i3; then `.i` re-sits |
+| C3-3 | MEDIUM | b1 RED; its escalation is unruled, though the product grammar is credibly present (`o21:422` GREEN ×2) | `gate-seat.mjs` ×2, EXIT 1, 2 `G3d` lines each | COHESION rules ESC-W6c-b1-1 |
+| C3-4 | MEDIUM | f4 reproduces 1 of 2 (the second run died at `page.goto` load, before the census). g2 lost 1 of 3 readings the same way | f4 `:8714`, g2 `:8715`, each `page.goto: Test timeout of 30000ms exceeded` | rides ESC-W6r1-f3's quiet-host reading. Mitigation: no completed census read an overflow, and g2 read GREEN ×2 after the miss |
+| C3-5 | MINOR | the record's GREEN 35 / RED 15 is stale against the bytes: f3 · a2 · a3 · b3 · e1 read GREEN ×2 here | Axis 1 re-read | the next close seat re-counts at its own double reading. Nothing is promoted by a check seat |
+| C3-6 | MINOR | §8 artefacts are PARTIAL (gradient PNG 0, owner-marks 0, cold-load frame owed) | Close Act 4; unchanged | R-11 owners |
+| C3-7 | INFO | I-40 is UNREAD, but its scope is Track C (fourier O-23/O-32), outside W6 | INBOX `:135` | Track C's seat |
+| C3-8 | INFO | Bounds, masking, commit-family and E-3 axes are clean; the four-verb line held lawfully | Axes 2–7 | none |
+
+### Verdict
+
+**NOT-CONFORMANT.** 2 HIGH · 2 MEDIUM · 2 MINOR · 2 INFO. Of 35 claimed GREENs, 34 were re-run and 1 cited (j4). All 34
+reproduce. 32 did so on the first reading; g2 read GREEN on 2 of 3 and f4 on 1 of 2 (a load timeout at first navigation).
+Honest-RED set: **g1 · j1 · j2 · j3 · H2 · H4**. Unrelieved: **a4 · a13 · i3 · b1**. f3, a2, a3, b3 and e1 read GREEN ×2 at this
+seat. The LEDGER row is **not promoted**; it stays PARTIAL.
