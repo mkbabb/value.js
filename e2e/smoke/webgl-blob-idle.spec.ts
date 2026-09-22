@@ -152,7 +152,17 @@ for (const seed of H1_SEEDS) {
         await page.setViewportSize({ width: 1440, height: 900 });
         await page.goto(`/#/?space=oklch&color=${encodeURIComponent(seed)}`);
         const blob = page.getByTestId(GOO_BLOB_TESTID).last();
-        await expect(blob).toBeVisible();
+        // X-W6 Repair 1 (C1-3 / C1-7): the blob's ARRIVAL is not what h1
+        // asserts. The canvas mounts behind the overture beat DAG (b2 field
+        // settle -> b4 idle slice -> the async HeroBlob chunk -> engine init),
+        // measured 1.6-6.4 s after navigation on a warm dev server and 17.1 s
+        // on the first navigation of a freshly spawned one (FCP alone 13.8 s:
+        // the dev server's on-demand transform). The expect default (8 s) made
+        // whichever seed ran first on a cold server RED with the canvas absent
+        // - a harness latency, not a chroma reading. The arrival wait is
+        // therefore bounded by this test's own budget, and the chroma
+        // assertions below are unchanged.
+        await expect(blob).toBeVisible({ timeout: 45_000 });
         // The buffer's colour space, READ off the blob's own WebGL2 context
         // (`getContext` returns the context the producer already created) —
         // never inferred. The display's gamut is printed beside it.
