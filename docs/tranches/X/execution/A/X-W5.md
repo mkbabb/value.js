@@ -1932,5 +1932,14 @@ cure for X-W6's a2/a13/b3 fixture REDs.
 capture sets. They are assigned as follows. `.c` takes both `audit/visual/layout/` triples (unit b's and unit c's) over its committed bytes. `.d` takes the `audit/probes/app-wave/pi/` pair plus the scene-swap output pair.
 
 
+**BD-05 re-seated on `.c` (a plan fact, measured at this open).** The inherited diff touches
+`demo/color-picker/composables/usePaletteWiring.ts`: ⟨cmd⟩ `git diff HEAD -- <it> | head -60` shows two hunks, `cfg.right !== "palettes"` →
+`cfg.regions.some(…pane === "palettes")` and the deleted `viewManager.mobilePaneIndex.value = 0` write. Both are
+**compile-forced consumers of C8's `regions[]` retype and C3's fork death**. This path is **inside the wave's bounds** as
+fold **BD-05** (`modify`), whose path the fold corrected at `X-W5-FOLD.md:667`. That row was carried in unit a's list, and unit
+a is closed and will never be re-dispatched. §4a's strict serial order means no concurrent writer exists. The path therefore
+joins `.c`'s writable set for exactly those two hunks. W5F-14 (`whenColorPickerReady`'s give-up) stays X-W8's, per `.a`'s
+recorded disposition at `:441`. `.c` names the path in its receipt as inherited.
+
 ## Unit receipts — RESUME ROUND 3
 
