@@ -3574,3 +3574,7 @@ G-F9-18 · G-F9-19 · G-F9-21 · G-F9-22 · G-F9-23)`** by minimal in-place repl
 own cell, and one dated event line is appended. **This seat cured nothing, moved no verb, wrote no
 fourier byte and rewrote no cell of any row but this wave's own.** `IMPLEMENTED` stays **NO** and
 `VERIFIED` stays **NO** — both by the spec's own conditions, neither of which this check may move.
+
+## ERRATUM 2026-09-22 (X.F.W10S.c, the carriage hop; beside `E-F9b-2`; E-3 addendum-beside, no byte above rewritten)
+
+**`E-F9b-2`'s payload is reka-ui `FocusGuards`, not glass-ui's `Metric` tile (CK-5, `execution/C/F-W10.md`).** The `[serious] aria-hidden-focus` nodes are `<span aria-hidden="true" tabindex="0" style="position: fixed; …">` sentinels, injected by reka-ui `FocusGuards` through the glass overlay stack. They are not a `Metric` render. R1.2 above measured this and re-stated the row. This line carries the correction into the producer's inbox. The same erratum now sits at the tail of the O-32 copy in `../glass-ui/docs/tranches/BK/coordination/value-to-glassui-2026-09-DD-fw4-relay.md` (glass-ui `46eec459`, on `origin/master`). **The owner is unchanged (producer, SS-6).** `G-F9-3` stays honest-RED.
