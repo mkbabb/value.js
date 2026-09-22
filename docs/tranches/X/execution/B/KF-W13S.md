@@ -1223,3 +1223,54 @@ The §0ai addendum's parenthesis *"G-KFW13-0 · -1 · -2 · -7 (all four honest-
 ### Verdict: **NOT-CONFORMANT**
 
 Every claimed GREEN reproduces: 11 limbs, double-run. Bounds, masking, families, E-3, mail and the four-verb line all hold. But two HIGHs remain (C1-1, C1-2). Each is a RED that the spec's close literal says STANDS, with no producer, successor-wave or named-honest-RED relief. The honest-RED set is **EMPTY**. The LEDGER status stays **PARTIAL**; only an event line is appended.
+
+## Repair 1 — the RESUME 2 Check 1 register, round 1 (2026-09-22; dated addendum beside, E-3; no prior section rewritten)
+
+SERVED MODEL: claude-opus-5-5[1m] (this section's seat)
+
+**Seat**: REPAIR, round 1, over the Check 1 register at `:1159`. Spec KF-W13.md read whole, including §B.2 and the two ADDENDA (`:299` §0ai, `:303` §0am). COHESION §0ai KF11-E3 (`:2357-2361`) and §0am ESC-r2-1 (`:2484-2487`) read. **CRASH-RECOVERY**: ⟨cmd⟩ `git status --porcelain` in keyframes.js → only the two untracked 2026-07 letters. ⟨cmd⟩ `git status --porcelain -- <record> <LEDGER>` in value.js → empty. Nothing inherited. kf frontier at open: `4815cfe8` = origin/master.
+
+**Bounds basis, stated so a checker can test it**:
+- `test/demo/instrument/playback-ribbon-contract.test.ts` is a §B.2 row (`.b` → `.c`), and §0am names its `:230` row. The row's root is in the same file.
+- `demo/utils/reference-data/animationDescriptions.ts` is a §0am `.e3` row, granted as a whole file.
+- `demo/scenes/easing/EasingSidebar.vue` is a §0ai `.e` row. COHESION §0ai KF11-E3 rules that *"the three-file easing-name contract (`EasingSidebar.vue` · `EasingTarget.vue` · `useEasingDemo.ts`) is `.e`'s carve; no cast"*. `nameForQuad` is that contract's name resolution. §0am narrows `.e3` to `:150` but revokes no §0ai row.
+- **This reading is this seat's own.** If the orchestrator rules that §0am's `:150` supersedes the §0ai carve, `6705d4d8`'s `EasingSidebar.vue` hunk (`:81-91` imports, `:132-135` `nameForQuad`) is the one path to re-adjudicate.
+
+### Defect → cure → commit
+
+| # | sev | defect | cure (root, no cast / predicate / skip) | kf commit |
+|---|---|---|---|---|
+| C1-3 (ESC-e3-2) | MEDIUM | `playback-ribbon-contract.test.ts(230,66)` TS2769. The root is the harness props bag (`:203/:207/:208`, `Record<string, unknown>`). | The banked `.e3` probe patch, reviewed hunk by hunk and applied: `type RibbonProps = InstanceType<typeof PlaybackRibbon>["$props"]` after the component import, `setProps(p: Partial<RibbonProps>)`, `mountRibbon(over: Partial<RibbonProps> = {})`, and `shallowRef<RibbonProps>` for the bag (`ref` unwraps the animation instance). 0 casts, 0 assertions touched. | `5e3c091a` (1 file, +5/−4) |
+| C1-1 (ESC-e3-1) + its leg-2 twin | HIGH | `EasingSidebar.vue(150,27)` TS2345: `nameForQuad` returned `string`. | **At the catalogue root** (§0am ESC-r2-1): the map is authored as `NAMED_EASING_BEZIER_ENTRIES: readonly (readonly [EasingName, BezierQuad])[]`, so a name outside the union fails at authoring. `NAMED_EASING_BEZIER: Record<string, BezierQuad>` is derived from it by `Object.fromEntries`, with the same 29 keys in the same insertion order and the same values byte for byte. Because it stays string-keyed, none of the four foreign lookups that `.e3`'s probe rippled into (`useTimingFunctionEditor.ts:329/331` · `TimingFunctionPanel.vue:117` · the old `EasingSidebar.vue:132`) moves. `nameForQuad` now resolves over the typed entries: `NAMED_EASING_BEZIER_ENTRIES.find(([, quad]) => quadEq(quad, q))?.[0]` → `EasingName \| undefined`. Its first-match order is unchanged, because entries order equals `Object.keys` order. | `6705d4d8` (2 files) |
+| C1-2 (ESC-t-1 ×16) | HIGH | `check` exits 2 on leg 2's 16 rows under `test/{compile,engine,group,ingest,scroll,waapi}/**` | **ESCALATED**: no wave row grants any of those paths (§B.2 · §0ai · §0am `.t` = `test/demo/**` only) | — |
+| C1-4 | MINOR | the spec's lint line aborts on the ignored `demo/styles` glob | **ESCALATED**: the cure is a dated erratum to the spec (E-3, the orchestrator's), and the 7 errors sit in three files outside the wave's rows | — |
+| C1-5 | MINOR | `superKey` is bound at `App.vue:35`, and CubeScene's hover-card state is dead | **ESCALATED**: `App.vue:35` is not among M-4's sites (`:29 · :37 · :369 · :372`), and §0am grants CubeScene only at `:96-97 · :129-135 · :267` | — |
+| C1-6 | INFO | — | none owed | — |
+
+**Probe, reverted and never committed**: resolving `nameForQuad` over `EASING_GROUPS` tiles (the §0am alternative reading) was measured with a throwaway test and rejected. Six named quads (`ease-{in,out,in-out}-{quart,quint}`) are not catalogue tiles. A picker preset matching one of them would stop selecting its name, which would narrow reachable behaviour. The entries root keeps all 29.
+
+### Gate re-reading at the settled bytes (kf `6705d4d8` = origin/master, double-run)
+
+| limb | ⟨cmd⟩ | before (Check 1) | this seat (run 1 · run 2) |
+|---|---|---|---|
+| `vue-tsc` leg 1 (§0ai literal 0) | `npx vue-tsc --noEmit -p tsconfig.json 2>&1 \| grep -c 'error TS'` | 1 | **0 · 0**, GREEN |
+| `check` leg 2 | `npx vue-tsc --noEmit -p tsconfig.test.json 2>&1 \| grep 'error TS' \| wc -l` | 18 | **16 · 16**, all ESC-t-1: compile/diagnostics-channel 1 · compile/value4-easing-contract 2 · engine/animation 3 · engine/strict-options 1 · engine/w0-crashes 1 · group/group 4 · ingest/platform-adopt 2 · scroll/scroll-scene 1 · waapi/waapi-lifecycle 1; `test/demo` rows **0** |
+| `npm run check` | `npm run check; echo $?` | 2 · 2 | **2 · 2**, RED on ESC-t-1 alone |
+| `npm run test:demo` | — | 59/59 · 494/494 | **59/59 · 494/494 · 59/59 · 494/494** |
+| masking since `4815cfe8` | `git diff 4815cfe8..HEAD \| grep -c '^+.*\(as any\|as unknown\|@ts-\|eslint-disable\|\.skip\|\.only(\|try {\| is [A-Z]…\)'` | — | **0** |
+| whitespace | `git diff --check 4815cfe8..HEAD` | — | exit 0 |
+| entries count | `git grep -c '^    \["' HEAD -- demo/utils/reference-data/animationDescriptions.ts` | 29 keys | **29** |
+| eslint on the 3 touched files | `npx eslint <3 files>` | — | 0 problems |
+| prettier on the 3 touched files | `npx prettier --check` | HEAD `4815cfe8`: 2 of 3 already warn | the same 2 warn, on untouched template/test hunks (pre-existing drift, not introduced) |
+
+`dev.sh`: untouched. glass-ui: untouched. keyframes.js pushed (⟨cmd⟩ `git rev-list --left-right --count origin/master...HEAD` → `0 0`).
+
+### Escalations (with the measured reason)
+
+- **ESC-t-1 (C1-2)** — 16 leg-2 rows in `test/{compile,engine,group,ingest,scroll,waapi}/**`. They are the only thing still holding `npm run check` at exit 2. No §B.2, §0ai or §0am row grants those paths. **Asked**: a dated carve grant over them, plus a ruling on the deliberately-invalid-easing rows.
+- **C1-4** — the spec lint-line erratum is the orchestrator's (E-3), and the 7 eslint errors are in three files outside the wave.
+- **C1-5** — `App.vue:35` `superKey` and CubeScene's dead hover-card state lie outside the M-4 and §0am line grants.
+
+### Verdict of this repair
+
+Two defects are cured at their roots: C1-1 (HIGH, ESC-e3-1) and C1-3 (MEDIUM, ESC-e3-2). **Leg 1 now reads 0 ×2. Leg 2 reads 18 → 16, and ESC-t-1 holds all 16.** C1-2 remains RED on ESC-t-1 alone and is escalated. The close literal is still unmet (`check` exit 2), so the LEDGER status stays **PARTIAL**; only an event line is appended.
