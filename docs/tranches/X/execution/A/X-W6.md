@@ -5121,3 +5121,78 @@ Unit briefs are carried verbatim in the returned plan; the writable sets are §4
 ---
 
 ## Unit receipts — fourth sitting 2026-09-22
+
+### X.W6.c
+
+SERVED MODEL: claude-opus-5-5[1m]
+
+**Residual**: b1 (§0aq ESC-R1-b1, commit #4 in `GradientStopEditor.vue`); c1–c4 non-regression only.
+**Verdict**: **ESCALATED — ESC-W6c-b1-1: the b1 RED is the INSTRUMENT'S INPUT-STATE, not a product defect.**
+No product byte written; no commit #4 (a commit with nothing to cure would be a masking act); the gate not
+touched (execute-no-write).
+
+**Act 0 — crash-recovery.** ⟨cmd⟩ `git status --porcelain` → `M docs/tranches/V/reformation/CARRY-LEDGER.md` ·
+`M scripts/dev/dev.sh` — neither in this unit's writable set. **Nothing inherited**; nothing stashed/restored.
+
+**Act 1 — the gate at this seat's clock (b1 BEFORE, ×2).** ⟨cmd⟩ `node docs/tranches/V/megatranche/audit/probes/wb-gradient-stopeditor/gate-seat.mjs`
+→ run 1 and run 2 identical: `GATE G3 (stop seat) — RED`, EXIT 1, exactly **2** lines, both `G3d`:
+`key "Home" is a no-op … expected 0%` and `key "ArrowDown" is a no-op … expected -1%`, each with
+`style.left stayed "calc(var(--rail-inset) + var(--rail-track) * 0)"`. No G3a/G3b/G3c/G3e/G3f line
+(role / `aria-value*` / `aria-valuetext` / selected state / add path / removal arm all pass).
+
+**Act 2 — read the instrument before its output (probe-before-meaning).** ⟨cmd⟩ `sed -n 97,104p gate-seat.mjs`:
+for each of `[["Home",0],["End",100],["ArrowUp",1],["ArrowDown",-1]]` it reloads, focuses
+`document.querySelector("[data-stop-id]")` — the FIRST stop — presses the key and fails iff `style.left`
+is byte-identical before/after. The seeded route's first stop sits at **0%** (the axis floor), so:
+- `Home` → 0% on a stop already at 0% is the identity under ANY lawful grammar (§5.2: Home = 0%).
+- `ArrowDown` → −1% requires a position below the axis domain; the model's `round1` clamps to the AXIS
+  DOMAIN 0–100 (`useGradientModel.ts:60-65`, landed in `.a`, GRADSTOP-A §14 — "explicitly NOT the banned
+  neighbour clamp"), and the handle advertises `aria-valuemin="0"` (`GradientStopEditor.vue:635`).
+  `ArrowDown` at the floor is therefore also the identity. The gate's own "expected −1%" is out of domain.
+
+**Act 3 — the product grammar at the bytes.** ⟨cmd⟩ `sed -n 465,516p GradientStopEditor.vue` →
+`onHandleKeydown` owns ArrowLeft/ArrowDown (−step) · ArrowRight/ArrowUp (+step, same signed step,
+Shift = 10) · PageDown/PageUp (∓10) · Home → `moveStop(stop, 0)` · End → `moveStop(stop, 100)` · Space
+grab/drop · Escape cancel · Delete/Backspace → the one removal owner; `onCaretKeydown` (`:520-560`) is the
+keyboard CREATE path (a named caret `<button>` "Add gradient stop at N%", Enter/Space mint). Handle carries
+`role="slider"` + `aria-valuemin/max/now` + `aria-valuetext` "Stop i of n, position p%" (unconditional
+ordinal). Provenance: ⟨cmd⟩ `git log -S'case "Home":' -- GradientStopEditor.vue` → `666978d4
+feat(demo/gradient-stop-grammar)` (the X-W4 CC-042 landing). Every §5.2 row the brief lists is present.
+
+**Act 4 — discriminating probe (scratch, not committed; ran against `:9000`, PID 43106).** Same focus/press
+recipe as G3d, but reading `aria-valuenow`/`aria-valuetext` on the first AND the last stop:
+```
+init [["stop-1-…","0","0"],["stop-2-…","100","1"]]
+0  Home      ["0","Stop 1 of 2, position 0%"]     <- identity at the floor
+0  ArrowDown ["0","Stop 1 of 2, position 0%"]     <- identity at the floor (domain clamp)
+-1 Home      ["0","Stop 2 of 2, position 0%"]     <- Home ACTS: 100 -> 0
+-1 ArrowDown ["99","Stop 2 of 2, position 99%"]   <- ArrowDown ACTS: -1 step
+-1 PageDown  ["90","Stop 2 of 2, position 90%"]   <- PageDown ACTS: -10
+0  End       ["100","Stop 1 of 2, position 100%"] <- End ACTS
+0  ArrowUp   ["1","Stop 1 of 2, position 1%"]     <- ArrowUp ACTS: +1 (same signed step)
+```
+Home and ArrowDown act on every stop not already at the floor; the ordinal is announced on every move.
+(STALE-SERVER LAW: this is a behaviour witness, not a literal/precision claim; the handlers are unchanged
+since `666978d4`, long before the server's 14:55 start.)
+
+**Why no cure is admissible.** The two RED lines are satisfiable only by (i) changing the seeded first stop
+off 0% (gaming the input — masking), (ii) admitting sub-zero positions (reopens `.a`'s settled axis
+domain, GRADSTOP-A §14/§15 — forbidden to `.c`), or (iii) re-aiming the gate at a stop off the floor
+(gate-seat.mjs is execute-no-write). Per the brief: *"If the RED is the instrument's input-state (not a
+product defect) STOP and escalate — never edit the gate."* STOPPED.
+
+**Act 5 — c1–c4 non-regression (no product byte changed; read at this clock).**
+| gate | ⟨cmd⟩ | BEFORE (Baseline) → AFTER |
+|---|---|---|
+| b1 | `node …/wb-gradient-stopeditor/gate-seat.mjs` ×2 | RED (2 G3d) → **RED (2 G3d) ×2 — instrument input-state, ESC-W6c-b1-1** |
+| c1 | `node …/wb-gradient-stopeditor/gate-structure.mjs` | GREEN → GREEN (`GATE G4 (structure) — GREEN`, EXIT 0) |
+| c2 | `npx vitest run test/gradient-order-invariant.test.ts -t "one sampling law"` | GREEN → GREEN (`4 passed \| 13 skipped (17)`) |
+| c3 | `npx vite-node docs/tranches/X/gates/gate-literal-dialect.mjs` | GREEN → GREEN (`GATE c3 (literal dialect) — GREEN`) |
+| c4 | `npx vitest run test/interpolation-subset.test.ts` | GREEN → GREEN (`5 passed (5)`) |
+
+**Commits**: product none (no defect to cure); this receipt only. **Escalation ESC-W6c-b1-1** (needs a
+ruling, not a seat): b1 is to be read by a ruling that either (a) re-points G3d's Home/ArrowDown arms at a
+stop off the axis floor (instrument edit — X-W11 OUT-OF-WAVE roster, like the a3–a7 re-point R-5 in the
+2026-09-19 addendum), or (b) accepts the Act-4 transcript as the b1 witness of record. The product side of
+b1 is DONE at `666978d4` (+ `.a`'s domain clamp); `.c` holds c1–c4 GREEN.
+**SELF-COUNT**: gates read 5 (b1 c1 c2 c3 c4); GREEN 4 (c1 c2 c3 c4); RED 1 (b1, escalated). Counted twice.
