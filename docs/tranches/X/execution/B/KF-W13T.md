@@ -517,3 +517,60 @@ Live probes: the banked `evidence/W13T/KF-W13T-k-dock-probe.mjs` and `KF-W13T-e-
 **Escalations**: none.
 
 **Commits (kf)**: `76f68412` (ESC-e-1) · `09846d75` (R-e-2).
+
+### KF.W13.k3
+
+**Seat**: `claude-opus-5-5[1m]`, 2026-09-22. **Spec**: `KF-W13.md:313` (`.k3`) · COHESION §0ar (ESC-k2-1 grant + R-k-1 design ruling).
+
+**Crash recovery**: ⟨cmd⟩ `git -C keyframes.js status --porcelain` → only the two untracked `docs/tranches/V/coordination/VALUEJS-INBOUND-2026-07-{24,27}-*.md` letters, which are outside this set. Zero paths in the writable set were dirty, so nothing was inherited. kf `HEAD` = `09846d75` = `origin/master` (the `.e2` close).
+
+**Anchors at true bytes (kf `09846d75`)**: all six eslint rows reproduce at their cited lines. ⟨cmd⟩ `npx eslint demo/app demo/components/instrument/transport demo/components/playback | grep ' error '` → `TimingFunctionPanel.vue` `151:9 · 152:9 · 156:5` (`storedAnimationOptions`) and `ControlsPaneWrapper.vue` `62:58` (`animControlRefs`) · `328:5 · 366:9` (`storedControls`). Parent anchors: `ChannelOptions.vue:500-510` (the `<TimingFunctionPanel>` mount) and `:666` (`getStoredAnimationOptions`); `AnimationControlsGroup.vue:198` (`getStoredAnimationGroupControlOptions`) and `:213` (the `animControlRefs` registry). All six matched, with no drift. `EditorShell.vue` lives at `demo/components/instrument/shell/` (the writable spelling). Its ribbon was `:16-121`, and the modal and `?` registration were at `:201-203` / `:300-301`.
+
+**Producer facts consumed (read-only)**: glass-ui `dist/components/dock/` exports `GlassDock · DockControl · DockTrigger · DockSeparator · DockLayer · DockLayerGroup`. `DarkModeToggleSize` includes `"dock"`. `popover` stamps `data-glass-dock-portal` (⟨cmd⟩ `grep -l 'glass-dock-portal' dist/*.js` → `dock · dropdown-menu · popover · select`), so the Share popover's portalled content is covered by the producer's own dock-hold. Fourier's `AppDock.vue` supplied the idiom: groups are ordinary DOM delimited by a `DockSeparator`, and the dark-mode control is its own component.
+
+**Acts, in order**
+
+1. **BEFORE, banked**: ⟨cmd⟩ `node KF-W13T-k-dock-probe.mjs k3-before .` → 1440 `#/` 0 · `#/cube` 0 · 768 0 · 0 · **390 `#/` 1** (`@mbabb menu x Share animation`) · **390 `#/cube` 3** (`Controls tab x Share animation` · `Controls panel x Show keyboard shortcuts` · `Controls panel x Switch to dark mode`); out-of-capsule 0 ×6. This reproduces the RESUME baseline exactly. Screenshots: `evidence/W13T/KF-W13T-k-k3-before-*.png` (6).
+2. **R-k-1, ONE sha `a3fa29f9`** (`EditorShell.vue` · `ChromeDock.vue` · `test/demo/app/chrome-dock-containment.test.ts`):
+   - `<HeaderRibbon>` is deleted, together with its anchor pin, its unfilled `header-left`/`header-right` slots, and its imports. That retires the ribbon at every viewport.
+   - ChromeDock gains an App zone after the `@mbabb` slot: one `DockSeparator`, then `SharePopover` (restore routed through the dock's own `switchScene` emit, the same route `MbabbMenu` uses), then `DockControl shape="icon" aria-label="Show keyboard shortcuts"` inside a `Tooltip` "Keyboard shortcuts (?)", then `DarkModeToggle size="dock"`.
+   - There is no wrapper (D-22's staggered onset) and no clip: over-cap width uses the dock's existing `overflow="wrap"`.
+   - `shortcutsOpen`, `registerShortcut("?", …)` and `<KeyboardShortcutsModal>` moved to ChromeDock with the control that opens them.
+   - ⟨cmd⟩ `grep -c 'overflow-hidden\|overflow: hidden' ChromeDock.vue` → 0.
+   - Witness: case (3) pins the three names inside `.glass-dock` and asserts that `?` opens the dialog. The file now mounts ChromeDock inside a `TooltipProvider`, as `App.vue` does; cases (1)/(2) had failed with `Injection Symbol(TooltipProviderContext) not found` until then. Case (3) is absent at the pre-cure bytes: ⟨cmd⟩ `git show 09846d75:demo/app/dock/ChromeDock.vue | grep -c 'Show keyboard shortcuts\|Share animation'` → 0.
+3. **ESC-k2-1 seam pair 1, ONE sha `a4a70536`** (`TimingFunctionPanel.vue` + `ChannelOptions.vue`):
+   - The panel reads `storedAnimationOptions` and emits `authored(EasingPickerValue)`. Its `updateTimingFunction` emit and its `TimingFunctionNames` import are retired.
+   - `ChannelOptions.onEasingAuthored`, the component holding the `getStoredAnimationOptions` key, writes `stepOptions.steps/.jumpTerm` or `cubicBezierOptions.controlPoints` and then calls `updateTimingFunctionFromName(kind)`, in the same order as before.
+   - eslint 6 → 3. `channel-options-render-edge` + `playback-ribbon-contract` 24/24.
+4. **ESC-k2-1 seam pair 2, ONE sha `cfecfbce`** (`ControlsPaneWrapper.vue` + `AnimationControlsGroup.vue` + the render-edge test's host):
+   - The registry prop `animControlRefs` is retired. The pane emits `channelControlsRef(name, el: Element | ComponentPublicInstance)`, which replaces the `(el: any)` ref callback.
+   - The mount-reset and Drawer-detent writes become `emit("setControlsPanelOpen", …)`.
+   - `AnimationControlsGroup` writes `animControlRefs[name]` and `storedControls.isControlsPanelOpen`. `defineEmits` moved above its first use, the setup-time mount-reset.
+   - Reads stay on the same reactive store object, so the peek-by-default timing is unchanged. Live: 390 `#/cube` is born `controls-layout--closed`, and the dock toggle opens it. At 1440 the rail toggles open→closed. 0 pageerrors.
+   - eslint 3 → 0.
+   - No `eslint-disable` and no cast in any sha: ⟨cmd⟩ `git diff 09846d75..cfecfbce | grep -c '^+.*eslint-disable\|^+.* as any\|^+.*as unknown'` → 0.
+5. **AFTER, double-run and banked**: the readings are in `evidence/W13T/KF-W13T-k3-readings.md`, with screenshots `KF-W13T-k-k3-after{1,2}-*.png` (6 + 6). Two probes were added: `KF-W13T-k3-chrome-probe.mjs`, which checks the ribbon is gone and the names sit in the dock, then drives `?` / the dock control / Share, and `KF-W13T-k3-pane-probe.mjs`.
+6. **Push**: ⟨cmd⟩ `git push origin master` → `09846d75..cfecfbce`. ⟨cmd⟩ `git rev-list --left-right --count origin/master...HEAD` → `0 0`.
+
+**Gates (BEFORE = RESUME baseline at kf `5e5f4028`, re-read at `09846d75` · AFTER ×2 at kf `cfecfbce`)**
+
+| gate | BEFORE | AFTER run a | AFTER run b | state |
+|---|---|---|---|---|
+| **G-KFW13T-7** collisions (390×844 · 768 · 1440 × `#/`,`#/cube`) | 0·0·0·0·**1**·**3** | 0·0·0·0·0·0 | 0·0·0·0·0·0 | **GREEN** |
+| G-KFW13T-1 out-of-capsule (same 6 probes) | 0 ×6 | 0 ×6 | 0 ×6 | GREEN (holds) |
+| eslint `demo/app demo/components/instrument/transport demo/components/playback` \| `grep -c ' error '` | **6** | **0** | **0** | **GREEN** |
+| `npx vue-tsc --noEmit -p tsconfig.json` \| `grep -c 'error TS'` | 0 | 0 | 0 | GREEN |
+| `npx vitest run --project demo` | 61/61 · 501/501 (baseline; 63 · 504 at `.e2`) | 63/63 · 505/505 | 63/63 · 505/505 | GREEN |
+| `npm run check` | exit 0 | exit 0 (`proof:structure — PASS … 0 violations across R1–R6`) | — (leg 2 ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.test.json \| grep -c 'error TS'` → 0 before the pair-2 commit) | GREEN |
+| push kf | — | `origin/master` = `cfecfbce` | `0 0` | GREEN |
+
+**SELF-COUNT**: 3 kf commits, 7 gate rows, 18 new screenshots (⟨cmd⟩ `ls evidence/W13T/KF-W13T-k-k3-* | wc -l` → 18), 3 new evidence files (two probes and one readings file).
+
+**Residuals (named owners)**:
+1. **Share and theme now have two faces inside the dock**: the App zone's first-class controls, plus the `@mbabb` menu's rows (`MbabbMenu.vue:47-80`, `SharePopover` + `DarkModeToggle`). §0ar's "one home per control" retired the ribbon/dock duplication. The menu rows sit in `MbabbMenu.vue`, which is outside `.k3`'s set, so whether they stay (the menu as a secondary face) or go is a `.k4`/owner reading, not this seat's.
+2. The Share trigger keeps `SharePopover`'s own `Button size="sm"` + `icon-lg` glyph, so it renders one rung larger than the DockControl glyphs (see the after screenshots). `SharePopover.vue` is outside the set, and the rendered ladder is KF.W9's. No producer gap was found, so no BK mail is owed.
+3. The mobile Drawer-detent setter (pair 2's `:366` arm) is covered by type and lint plus the unchanged store read. The live probe drove the dock toggle, not a sheet drag.
+
+**Escalations**: none.
+
+**Commits (kf)**: `a3fa29f9` (R-k-1) · `a4a70536` (ESC-k2-1 pair 1) · `cfecfbce` (ESC-k2-1 pair 2).
