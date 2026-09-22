@@ -69,7 +69,7 @@ const TRACK = {
       "after": [
         "X-W0"
       ],
-      "note": "W6 writes FIRST on the four paths shared with X-W7 (W7.md:607)"
+      "note": "RESUME 2026-09-22 on COHESION §0z + §0an + §0aq and W6.md's ADDENDUM 2026-09-22 (read all; they ARE the resume spec): X.W6.a · .b · .f · .g are alreadyDone (never re-dispatched); still owed, strictly serial: [X.W6.c] (six-path §0an grant; also cures b1 as commit #4) → [X.W6.d] → [X.W6.e] → [X.W6.h] (H1-P3 honest-RED-by-physics; oracle on the consumer route; display-p3 ask by mail) → [X.W6.i] (index.html pre-module boot seed granted); .j only after X-W5 reads CLOSED; g1 honest-RED by route → X-W10; the two vitest canaries → X-W8 .i; X-W5's shell lane is COMMITTED so a2/a13/b3 re-run at the close; ESC-PUSH discharged (origin == HEAD at the relaunch)"
     },
     "X-W7": {
       "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W7.md",
@@ -84,7 +84,7 @@ const TRACK = {
       "after": [
         "X-W2"
       ],
-      "note": "bindPane escalation resolved at the sitting (§0j) before open; PSC deletion + C1 successor same-wave; C3 may not close while Dock G-L (an X-W8 probe) is RED — run that probe read-only"
+      "note": "RESUME 2026-09-22 on COHESION §0aq and W5.md's ADDENDUM 2026-09-22 (read both; they ARE the resume spec — the §3a triumvirate SITS as units): X.W5.a · .b · .c · .d · .e are alreadyDone (never re-dispatched); still owed, strictly serial: [X.W5.t] (FABLE — research + plan augment: D1 under the ruled instrument conditions with the out-in re-probe committed first; A2 re-authored; C1 re-metric recorded) → [X.W5.d2] (opus — redress; D1 re-measured) → [X.W5.c2] (opus — the D4/N15/N14/census-parity/o12/o16 grants); C1 reads textContent ≥ 0.9; C7 target 3 with DockStatusLamp:70 by route → X-W8 .h; C3 capability rows out, the three layout forks → X-W8 .i"
     },
     "X-W8": {
       "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W8.md",

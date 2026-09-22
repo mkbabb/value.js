@@ -2621,3 +2621,85 @@ sixteen in `test/{compile,engine,group,ingest,scroll,waapi}/**`, which no row gr
 **Mechanism.** KF.W13S RESUME 3 (`.a2` `.e` `.a3` `.e2` `.a4` `.e3` `.t` alreadyDone): [`.t2`] → [`.f2`]
 (the §0ai close: `vue-tsc 0` · `test:demo` green · `npm run check` exit 0 · R-f2-5 producer asks
 relayed to BK · push). Then `KF.W13T` (§0ao/§0ao.1). KF.W3 stays gate-keyed on RC-P(V).
+
+## §0aq ADDENDUM 2026-09-22 — TRACK A's X-W6 AND X-W5 AND TRACK C's F.W11, ALL NOT-CONFORMANT AFTER TWO REPAIRS ON UNGRANTED BYTES OR UNSAT TRIUMVIRATES: EVERY ESCALATION RULED; THE X-W5 §3a TRIUMVIRATE SAT AS UNITS `.t` → `.d2` → `.c2`; X-W6 `.c` `.d` `.e` `.h` `.i` RE-DISPATCHED ON GRANTS; F.W11 `.e` MINTED; ESC-PUSH DISCHARGED
+
+**The push.** value.js `tranche-u` was 204 ahead / 1 behind (`6fc1212e`, X-W9 repair-1 pushed from a
+sibling checkout, append-only on `X-W9.md`). Resolved as a merge commit with the remote hunk carried
+verbatim AFTER the local appends (E-3: nothing rewritten); pushed; `origin/tranche-u == HEAD`.
+ESC-PUSH (X-W5, X-W6, KF.W13S, F.W11) is DISCHARGED. X-W5's shell lane is COMMITTED (its `.c` `.d`
+`.e` shas), so X-W6's a2/a13/b3 re-run at its next close.
+
+### X-W6 (GREEN 30 / RED 20 at three checks)
+- **ESC-R1-c4** — already inside §0an's class 2 (`color-space-meta.ts`); `.c` lands it.
+- **ESC-R1-i3 — GRANTED to `.i`**: `demo/color-picker/index.html`, for the pre-module boot seed
+  ONLY (a `<script>` before the module entry that seeds the first-painted atmosphere from the
+  persisted pick); W5.md `:321`'s rider binds — the portalled-dialog ancestry is identical
+  before/after, measured. X-W5's carve on the same file is not disturbed (serial tracks).
+- **ESC-R1-b1 — CURED, not relieved**: b1 (keyboard grammar: Home/End/Up/Down/PageUp/PageDown/Space,
+  a keyboard path to CREATE a stop, the ordinal announced) is a `GradientStopEditor.vue` defect and
+  that file is `.c`'s under §0an; `.c` lands it as its commit #4 and re-runs b1's arm of
+  `gate-seat.mjs`.
+- **ESC-R1-g1 — RELIEVED BY ROUTE**: M-23 (W6.md `:154`) assigns the spacing canon to X-W10, and `.g`
+  may not mint it; g1's 61.22px readout residue is honest-RED at W6 by id, owned by **X-W10** (its
+  unit takes `ColorComponentDisplay.vue` and retires `readout-seam.spec.ts:85-119`; `readoutReservation.ts`
+  n.26 alone cannot move it).
+- **h1 — RULED**: the OM-6 beyond-sRGB limb is **honest-RED-by-physics, id `H1-P3`**,
+  cross-referenced to `waves/W6-glass-ask-hero-blob-p3.md`; `.h` writes the h1 oracle to §0z E6 on
+  the in-bounds consumer route (`HeroBlob.vue:15` / `useContrastSafeColor.ts` — `mapColorToGamut`,
+  cut at the stripper h2's census measured) and files the display-p3 drawing-buffer limb as a dated
+  glass-forward ask by mail (BK). h1's GREEN is carried by the two headroom seeds.
+- **§0z E2 full-vitest** — the two foreign W1.a born-RED canaries (`spectrum-luma` C-5,
+  `demo/test/shell/reka-binding-idiom.test.ts` NG-6) → **X-W8 `.i`** (below); W6 cites them by id.
+- **`.j`** after X-W5 CLOSED (§0z E1). **Mechanism**: RESUME dispatches [`.c`] → [`.d`] → [`.e`] →
+  [`.h`] → [`.i`] (`.a` `.b` `.f` `.g` done), then close/check.
+
+### X-W5 (§3a triumvirate triggers: D1 · C1 · A2; bounds: D4 · N15 · N14; routes: C7 · C3)
+- **The triumvirate SITS as three units** (W5.md §3a: research + plan augment + redress; the
+  failing unit is not re-dispatched alone): **`X.W5.t`** (Fable — RESEARCH + PLAN AUGMENT): D1
+  measured under RULED instrument conditions — a quiescent host (the seat runs the gate alone,
+  load < 4 recorded), ≥ 10 interleaved runs, medians — with the out-in co-mount re-probe (fold
+  `:41`) COMMITTED first under the COUPLED/GATING locks; the swap-travel root on `→/gradient` and the
+  Mix scene's own frame cost named at `file:line` with the cure plan; A2's blob arm RE-AUTHORED
+  falsifiably (dated addendum-beside); C1's re-metric recorded. → **`X.W5.d2`** (Opus — REDRESS): the
+  plan's cures, D1 re-measured by `scene-swap-budget.mjs` under the ruled conditions. → **`X.W5.c2`**
+  (Opus): the bounds grants below.
+- **C1 — RE-METRICED (dated)**: `innerText` omits `content-visibility: auto` sections that sit
+  off-viewport by specification, so the 0.5557 on `#/` at 390 measures the browser's optimisation,
+  not amputation; the `textContent` ratio (1.0 on 15/15 routes) is the content-parity the gate
+  intends. C1 reads `textContent` ≥ 0.9; rider: every About section stays reachable by scroll at
+  390 (one assertion in the same probe). Shrinking desktop is still caught by the existing clause.
+- **D4 / ESC-W5d-2 — GRANTED to `.c2`**: `demo/palettes/browser/admin/AdminNamesPanel.vue`, one named
+  one-root `<Transition>` as `MixSourceSelector` (BD-22's *"source order only"* widened for exactly
+  that).
+- **N15 / ESC-W5c-2 — GRANTED to `.c2`**: `demo/palettes/admin/AdminPane.vue` (the query before the
+  selector). **N14** (ATP-33: one view identity, declared once, type-visible) — GRANTED to `.c2` over
+  the `AdminTagsPanel` family's declaration sites (`demo/palettes/admin/**`), the census printed;
+  BD-08 (`router/index.ts`) stays read-mostly.
+- **ESC-W5c-3 + landed-by-consequence — GRANTED to `.c2`**: `e2e/visual/census-parity.spec.ts:88-90`,
+  `e2e/smoke/oracles/o12-blob-seat.spec.ts:68`, `o16-computed-cascade.spec.ts:158` (one-token
+  re-points to `--stage`).
+- **C7 — RELIEVED BY ROUTE**: `DockStatusLamp.vue:70` → **X-W8 `.h`** (the dock unit); C7's target 3
+  is read with that survivor honest-RED by route. **C3** — the capability-only rows are classified
+  OUT of the gate (dated); the three layout forks (`ExtractWorkbench:226` `isWide` ·
+  `ConsoleRail:118` · `HeroBlob:71` `isLgViewport`) → **X-W8 `.i`**.
+- **Mechanism**: RESUME dispatches [`.t`] → [`.d2`] → [`.c2`] (`.a` `.b` `.c` `.d` `.e` done), then
+  close/check; the L-18 rider's two quartet passes precede ACCEPTED as the spec says.
+
+### X-W8 gains unit `.i` — the W5/W6 carries (Opus, serial after `.h`)
+The three C3 layout forks · `DockStatusLamp.vue:70` (with `.h`) · the two vitest canaries C-5 /
+NG-6 cured at their roots (test-owned, W1.a born-RED) · nothing else. Bounds: the named files.
+
+### F.W11 (G-F11-1..5, 7 GREEN; G-F11-6's e2e leg RED on three snapshot rows) — `.e` minted
+- **ESC-F11d-1 — GRANTED to `.e`** (Opus), in this order: (1) **R-d-1 first** — the native inputs
+  (`HarmonicLevelGrid` `.level-input`, `MorphPhaseConfig` `.num-input`) and the `PaperSearchInput` /
+  `GallerySearchBar` wraps move onto glass-ui's `Input` (spec `.a`: *"local styling yields to the
+  producer's surface"*; the owner's own ask); (2) `visual-checkpoint.spec.ts` gains the item-3
+  settle-wait on the compute (the 20/10 → 8/8 capture race; NO threshold loosened); (3) the three
+  PNGs under `web/e2e/visual-checkpoint.spec.ts-snapshots/` (`:144` admin banner · `:163` disclosure ·
+  `[mobile] :182`) are re-baselined AFTER (1), each viewed and its diff described in an eye-review
+  receipt (the §0ao restyle is the cause; a behaviour change, if any, is cured not baselined).
+  G-F9-23's `-linux` caveat stands for CI (operator). Then `.d2` (verify-only close) re-runs G-F11-6.
+
+**Mechanism.** Track A relaunches (RESUME: X-W6 → X-W5 → X-W7 → X-W8 → X-W10 → X-W11); Track C
+relaunches (F.W11 RESUME: `.e` → `.d2`). Every grant above is named in the wave's dated addendum.
