@@ -44,7 +44,10 @@ test("view-switch frame budget: first frame ≤ 100ms · long task ≤ 50ms (bui
     page,
 }) => {
     await installFrameCollector(page);
-    await page.goto("/#/picker");
+    // The picker scene's address is `/#/` (router `name: "picker"`); since
+    // X-W3's G-20 `/#/picker` resolves to the `not-found` scene, so the old
+    // address timed a Not Found → Gradient hop (a BACK move in the scene order).
+    await page.goto("/#/");
 
     const renderer = await detectRenderer(page);
     const soft = isSoftwareGL(renderer);
@@ -52,7 +55,10 @@ test("view-switch frame budget: first frame ≤ 100ms · long task ≤ 50ms (bui
     // Reach the OPEN listbox via the real-user idiom, but stop short of the
     // option click so we can instrument t0 exactly at it. openView() clicks the
     // option; here we replicate its open + assert, then instrument, then click.
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    // X.W5.a named the ONE <main> by the route H1 (`aria-labelledby`), so the
+    // landmark's name is the scene's label, not a fixed string: the shell has
+    // exactly one `main` (gate A5), and that is the assertion.
+    await expect(page.getByRole("main")).toBeVisible();
     const pill = page.locator(".glass-dock.collapsed");
     if (await pill.count()) {
         await pill.click();
