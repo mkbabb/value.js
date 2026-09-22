@@ -120,7 +120,7 @@ const TRACK = {
       "after": [
         "KF.W13"
       ],
-      "note": "THE X·KF SUPPLEMENT WAVE minted by COHESION §0ai — RESUME 2026-09-22 on COHESION §0am + KF-W13.md ADDENDUM 2026-09-22 (read both whole; they ARE this wave's unit spec): KF.W13.a2 · KF.W13.e · KF.W13.a3 · KF.W13.e2 are ALL alreadyDone (commits exist; never re-dispatched); the units still owed are [KF.W13.a4] → [KF.W13.e3] → [KF.W13.t] → [KF.W13.f2], every seat opus, strictly serial; ESC-a3-2 is DISCHARGED at kf 8ae71f51; the close literal of §0ai stands (vue-tsc 0 · test:demo green · npm run check exit 0); keyframes.js pushed at every unit's close; value.js pushed only if no sibling staged path sits in the shared index"
+      "note": "THE X·KF SUPPLEMENT WAVE minted by COHESION §0ai — RESUME 3 (2026-09-22) on COHESION §0ap + KF-W13.md ADDENDUM 2026-09-22 (third): KF.W13.a2 · .e · .a3 · .e2 · .a4 · .e3 · .t are ALL alreadyDone (commits exist; never re-dispatched); the units still owed are [KF.W13.t2] → [KF.W13.f2], both opus, serial; §0ap grants the nine library test files and rules the deliberately-invalid-input idiom ((i) unknown ingress, else (ii) @ts-expect-error with reason; casts stay forbidden); the §0ai close literal stands (vue-tsc 0 · test:demo green · npm run check exit 0); the lint line is read without the demo/styles glob; keyframes.js pushed at every unit's close; value.js pushed only if no sibling staged path sits in the shared index"
     },
     "KF.W13T": {
       "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W13.md",

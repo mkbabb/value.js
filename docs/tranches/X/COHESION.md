@@ -2583,3 +2583,41 @@ Each is a defect at the root (a glyph never rendered, a pointer path never bound
 started, a raw control never placed on the producer's slider), measured in a live browser before
 and after; the toggle is a small inline control on the producer's toggle primitive, its state
 persisted where the scene's other view state lives. `KF.W13T` runs [`.k`] → [`.e`] → [`.k2`].
+
+## §0ap ADDENDUM 2026-09-22 — KF.W13S AT `vue-tsc 0`, `test:demo` 494/494, WITH ONE GATE LEFT (`npm run check` leg 2 = 16 rows in nine LIBRARY test files): ESC-t-1 RULED, THE DELIBERATELY-INVALID-INPUT IDIOM RULED, THE LINT ERRATUM ISSUED, THE `.a4` RESIDUE HOMED; UNITS `.t2` → `.f2`
+
+Resume 2 landed `.a4` (MM-1/MM-6 as ONE sha, kf `82c11a9c`), `.e3` (`EasingName` catalogue half +
+leg 2 → `vue-tsc`, `5149fe8e` · `781fd1d7`), `.t` (12 `test/demo/**` rows, `4815cfe8`), Repair 1
+(ESC-e3-1 at the root — the typed readonly `[EasingName, BezierQuad][]` entries, `6705d4d8`; ESC-e3-2
+the typed ribbon props). Three checks agree: **vue-tsc 0 · test:demo 494/494 · leg 2 = 16**, all
+sixteen in `test/{compile,engine,group,ingest,scroll,waapi}/**`, which no row granted. Ruled:
+
+- **ESC-t-1 — GRANTED to unit `.t2`** (Opus): the nine files `test/compile/diagnostics-channel.test.ts`
+  · `test/compile/value4-easing-contract.test.ts` · `test/engine/animation.test.ts` ·
+  `test/engine/strict-options.test.ts` · `test/engine/w0-crashes.test.ts` · `test/group/group.test.ts` ·
+  `test/ingest/platform-adopt.test.ts` · `test/scroll/scroll-scene.test.ts` ·
+  `test/waapi/waapi-lifecycle.test.ts`. The ten TS6133/TS6192 rows are unused bindings — deleted
+  (the binding, not the test).
+- **The deliberately-invalid-input idiom (the six TS2345/TS2322 rows).** A test whose SUBJECT is the
+  runtime's refusal of a bad easing must hand the bad value to the runtime through the boundary
+  that actually receives untrusted input. Ruled, in order: **(i)** if the API under test has an
+  `unknown`-typed ingress (`fromString` / adopt / ingest / a parse entry), the test constructs the
+  value as `const bad: unknown = …` and calls THAT ingress — the refusal is then a real runtime
+  property; **(ii)** only where no untyped ingress exists, the test asserts the COMPILE-TIME refusal
+  with `// @ts-expect-error <one-line reason>` on the call — the lawful TypeScript instrument for
+  "this must not type-check" (it fails the build if the error ever disappears). `as any`,
+  `as unknown as T`, `@ts-ignore` and loosened assertions stay forbidden. Each of the six is
+  recorded as (i) or (ii) with the reason.
+- **Lint erratum (C1-4 / C2-2 / C3-2), dated beside KF-W13.md**: the §Verification eslint line runs
+  WITHOUT the ignored `demo/styles` glob. The 7 pre-existing errors in three untouched files are
+  homed at **`KF.W13T.k2`** (the three files granted there, cure-or-return by `file:line`).
+- **`.a4` residue (C3-3)**: R-a4-1 (`superKey` bound at `App.vue:35`, declared in `MbabbMenu.vue`) →
+  **`KF.W13T.k`** (both files writable there); R-a4-2 (CubeScene's unreachable hover-card state:
+  `ppmycotaOpen`, `autoDismissTimer`, `clearAutoDismiss`, its `watch`, the `onBeforeUnmount` call,
+  the dead `watch` import) → `CubeScene.vue` GRANTED to `KF.W13T.k` for exactly those spans.
+- **C2-4 (INFO), acknowledged**: value.js `c91bf31b` (a B seat's LEDGER commit) is the CARRIER of the
+  `F.W11` and `KF.W13T` rows §0ao minted; no byte change.
+
+**Mechanism.** KF.W13S RESUME 3 (`.a2` `.e` `.a3` `.e2` `.a4` `.e3` `.t` alreadyDone): [`.t2`] → [`.f2`]
+(the §0ai close: `vue-tsc 0` · `test:demo` green · `npm run check` exit 0 · R-f2-5 producer asks
+relayed to BK · push). Then `KF.W13T` (§0ao/§0ao.1). KF.W3 stays gate-keyed on RC-P(V).
