@@ -4808,3 +4808,66 @@ The §0z E2 close condition (full vitest GREEN) stays RED at the 2 foreign canar
 **Honest-RED set: ∅.** gatesReproduced **20** (c1 c2 c3 d1 d2 e1 e2 i1 a1 f1 f2 f5 f7 f8s f9 f10 h2 i2
 H1 H3; H2-leg-1 and the 634/636 vitest figure also reproduce) · gatesFailed = the 13 RED gates: a2 a13 b1 b3 g1 c4 h1 i3
 j1 j2 j3 H2 H4. The LEDGER status stays **PARTIAL**; one event line appended.
+
+## Repair 2 — 2026-09-22 (REPAIR SEAT, round 2, over the Check 2 — RESUME 2026-09-22 register)
+
+SERVED MODEL: claude-opus-5-5[1m]
+
+**Append-only beside** every block above (E-3). Writes are inside §4 plus the FOLD §3 BoundsDelta and
+the COHESION **§0an** grant (2026-09-22, landed `57448ba0` while this seat was open: *"ESC-W6c-1
+RULED … `demo/color-session/color-space-meta.ts` (c4: `INTERPOLATION_SPACES` DERIVED from
+`SPACE_CATALOG`…)"*). That grant is the ruling Check 2 register #1 asked for, for its c4 half.
+
+### Act 0 — crash-recovery
+
+⟨cmd⟩ `git status --porcelain` → the same 16 foreign rows as Check 2 (the X-W5 shell lane,
+`CARRY-LEDGER.md`, `execution/A/X-W5.md`, `scripts/dev/dev.sh`). None is in this seat's writable
+set. Nothing inherited, stashed, restored or touched. Every e2e reading below ran over a tree that
+still carries those uncommitted X-W5 bytes; the picker and hero-blob routes loaded under them.
+
+### Defect → cure → commit → gate re-reading
+
+| # | defect (Check 2) | cure | commit | gate re-reading (this seat) |
+|---|---|---|---|---|
+| 1 · c4 | RED; `color-space-meta.ts` outside bounds, ESC-R1-c4 unruled | **Ruled by §0an; cured.** `INTERPOLATION_SPACES` = `SPACE_CATALOG_ENTRIES.filter(e => e.interpolatable)`, labelled by the catalog, in catalog order. The module keeps only the per-space behaviour line; an interpolatable space without one throws at module load. `test/interpolation-subset.test.ts` (§4 create) pins membership, labels, and the absence of a second list in the module, Gradient or Mix | `b2dd375c` | ⟨cmd⟩ `npx vitest run test/interpolation-subset.test.ts` → `Tests 5 passed (5)` ×2, **GREEN**. **Negative control**: `color-space-meta.ts` swapped for its HEAD bytes (the hand-kept list), run, restored → `2 failed \| 3 passed` (membership order and the source census). c1 `gate-structure.mjs` → GREEN ×2 and f1 `gate-catalog-totality.mjs` → GREEN ×2 (neither moved). `vue-tsc` exit 0, eslint clean, prettier clean. Transcript: `W6-evidence/gradient/c4-interpolation-subset-2026-09-22.txt` |
+| 1 · i3 | RED; the cure (a pre-module boot seed) is in `demo/color-picker/index.html`, outside §4; ESC-R1-i3 unruled | **Not cured — escalation stands.** §0an rules only ESC-W6c-1. The COHESION tail (`§0am`, `§0an`) holds no i3 ruling, and `demo/color-picker/**` sits under X-W5's shell | — | not re-run; no byte it reads moved. Check 2's `o28 … 1 failed` ×2 stands |
+| 2 · h1 | RED, no oracle; in-bounds consumer route untried; p3 buffer limb not filed | **Oracle written to the E6 restatement. The in-bounds consumer route was measured and refused. The limb is filed.** (a) The arm `hero blob carries current chroma` was added to `e2e/smoke/webgl-blob-idle.spec.ts` (FOLD n.33, ADD-never-replace; the pre-existing idle arm is byte-untouched). It reads `drawingBufferColorSpace` off the blob's own WebGL2 context and gamut-maps the current colour to that space (css-color-4 §13, the library's `mapColorToGamut`). It then asserts that the settled bead's core-median OKLCH chroma is within the stated ΔC 0.04, which is two css-color-4 JNDs: one for the mapping's own acceptance band, one for the measured frame spread (max 0.0164). (b) The consumer route Check 2 named: `<Blob :color>` fed the `mapColorToGamut` result was built in the working tree and measured. The OM-6 core C went 0.0477 → 0.0481, so h1 did not move. The base colour at the OM-6 seed fell from the producer clip's C 0.149 to 0.021, a *less* vibrant bead against the owner's own words. It was reverted and never committed; a cure that works against the defect's owner is not a cure. The h2 census stands: no stripper exists on an sRGB buffer. (c) `W6-glass-ask-hero-blob-p3.md` is filed: the 3-site producer census, `drawingBufferColorSpace` → 0 at glass 7.0.0 and 9.0.0, and a two-way falsifier | `a87f8930` | ⟨cmd⟩ `npx playwright test e2e/smoke/webgl-blob-idle.spec.ts --project=smoke` ×2 → the three h1 arms **pass ×2**. `buffer srgb (display p3: false)`. ΔC for OM-6 `lab(92% 88.8 20)` +0.0257/+0.0255; `oklch(0.65 0.3 150)` +0.0059/+0.0057; `oklch(0.55 0.37 328)` −0.0218/−0.0220. **h1 GREEN on this cell.** **Negative control** (palette chroma ×0.3, working tree only): `2 failed \| 1 passed`, ΔC −0.108 / −0.173. The OM-6 seed passes even as a ghost: its sRGB target is C 0.021, and that is the physics E6 names. Transcripts: `W6-evidence/blob/h1-{run1,run2,negative-control}-2026-09-22.txt` |
+| 3 · a2 a13 b3 | RED under X-W5's uncommitted shell bytes | **Not curable here.** §0an confirms: *"The a2/a13/b3 REDs caused by the foreign X-W5 fixture stay X-W5's (its `.c` cure … is uncommitted in the shared tree under L-7 and lands when X-W5 resumes)."* W6 writes nothing in the X-W5 shell | — | ⟨cmd⟩ `git status --porcelain` → the X-W5 rows are still uncommitted. Check 2's readings stand |
+| 4 · b1 g1 | RED, no spec relief; ESC-R1-b1 / ESC-R1-g1 unruled | **Not cured — escalation stands.** The COHESION tail at this seat (§0al · §0am · §0an) holds no b1 or g1 relief. g1 also needs the owner's or X-W10's spacing canon (M-23: `.g` applies canon, it never mints it) | — | not re-run; no byte they read moved |
+| 5 · j1–j3 | owed, lawfully blocked on X-W5 | **Lawful wait.** ⟨cmd⟩ `grep "^\| X-W5 " LEDGER.md` → `PARTIAL — 2026-09-21`. §0z E1 and §0an: `.j` dispatches after X-W5 reads CLOSED | — | — |
+| 6 · §0z E2 (full vitest) | RED at 2 foreign canaries | **Not curable here.** C-5 (`test/spectrum-luma.test.ts`) and NG-6 (`demo/test/shell/reka-binding-idiom.test.ts`) are X-V/W1.a's born-RED canaries, outside §4 | — | ⟨cmd⟩ `npx vitest run` after both cures → `Test Files 2 failed \| 36 passed (38)` · `Tests 2 failed \| 639 passed (641)` ×2. Before the cures it read `634/636` ×2. The +5 tests and +1 file are `interpolation-subset.test.ts`. The failures are still exactly C-5 and NG-6 |
+| 7 · O-49 row (MINOR) | `.e` appended INBOX O-49 outside the §0z grant | **Not curable here.** The cure is the orchestrator naming the row in a COHESION addendum, and COHESION is not in W6's writable set. The same gap now covers the h1 letter: `W6-glass-ask-hero-blob-p3.md` is filed, but its `O-` INBOX row is **not** written, because the §0z INBOX grant names `.d`'s easing-readout row only | — | — |
+| 8 · 9 (INFO) | — | none required | — | — |
+
+**Found, not on the register.** Both whole-file runs of `webgl-blob-idle.spec.ts` red its
+**pre-existing** arm, `hero blob parks its WebGL loop after N ms idle`, on `Test timeout of 30000ms
+exceeded`, inside the `waitMs(page, PARK_SETTLE_MS)` wait (`:79`). This seat's hunk only appends: the
+arm's bytes and its imports are unchanged (⟨cmd⟩ `git show a87f8930 -- e2e/smoke/webgl-blob-idle.spec.ts`
+→ `130  0`, additions only). The park-latency arithmetic is FOLD rows W6·187/W6·208
+(X-W2.b's `settled` seam plus `.h`). It is recorded, not cured, and it is not masked (no timeout raised).
+
+### Wave tally at these bytes (SELF-COUNT, counted twice)
+
+GREEN = Check 2's 37 (a1 a3–a12 · f1–f10 · b2 b4 g2 · d2 h2 i2 · j4 H1 H3 · c1 c2 c3 d1 e1 e2 i1) + **c4** +
+**h1** = **39**. RED = a2 a13 b3 (3) + b1 g1 (2) + i3 (1) + j1 j2 j3 (3) + H2 H4 (2) = **11**.
+39 + 11 = **50**. A second pass by lane (Lane 1 a/b/c/d/e: 13+4+4+2+2 = 25, with RED a2 a13 b1 b3 = 4 → 21 GREEN;
+Lane 2 f/g: 12, RED g1 → 11; Lane 3 h/i: 5, RED i3 → 4; Lane 4 j: 4, RED j1–j3 → 1; wave H1–H4: 4,
+RED H2 H4 → 2) → 21 + 11 + 4 + 1 + 2 = **39** GREEN, 4 + 1 + 1 + 3 + 2 = **11** RED. The two passes agree.
+H1 was not re-run over a widened roster: ⟨cmd⟩ `node docs/tranches/X/gates/gate-no-chassis.mjs a87f8930`
+→ *"the roster added no demo/ line"*. `b2dd375c` adds no module. It re-derives an existing export in
+place, so the housing shape the detector looks for cannot appear.
+
+### Escalations (measured; each needs a ruling or a write outside this seat's set)
+
+- **ESC-R1-i3** (unchanged). The cure is a pre-module boot seed in `demo/color-picker/index.html`, which
+  is outside §4, outside the BoundsDelta, and outside §0an.
+- **ESC-R1-b1 / ESC-R1-g1** (unchanged). No relief addendum exists. g1 also needs X-W10's or the owner's
+  spacing canon.
+- **a2 · a13 · b3.** X-W5 must land or revert its uncommitted shell lane (§0an says so itself).
+- **j1–j3.** Lawfully blocked until X-W5 reads CLOSED.
+- **§0z E2.** C-5 and NG-6 belong to the X-V/W1.a successors.
+- **INBOX rows.** O-49 (the `.e` aurora ask, already written) needs naming in a COHESION addendum. The
+  h1 p3 ask's `O-` row (`W6-glass-ask-hero-blob-p3.md`) is **unwritten** and needs the same grant
+  before E13 can row it.
+
+The LEDGER status cell stays **PARTIAL**; this seat does not promote it. One event line is appended.
