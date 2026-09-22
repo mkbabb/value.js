@@ -483,11 +483,27 @@ test("gradient selector aurora", async ({ page }) => {
     const rail = page.locator('[data-testid="gradient-stop-bar"]:visible').first();
     await expect(rail).toBeVisible({ timeout: 15000 });
     await page.mouse.move(0, 0);
-    await page.waitForTimeout(800);
+    await rail.scrollIntoViewIfNeeded();
+    // The ramp's own motion is what is measured, never the box's: the pane may still
+    // be settling after a cold boot (a locator screenshot then times out on "element
+    // is not stable"), so the box is read until two reads 250ms apart agree, and the
+    // frames are clipped to that settled box.
+    let box = await rail.boundingBox();
+    await expect
+        .poll(
+            async () => {
+                const prev = box;
+                await page.waitForTimeout(250);
+                box = await rail.boundingBox();
+                return JSON.stringify(prev) === JSON.stringify(box) && box !== null;
+            },
+            { timeout: 15000, message: "the rail's box never settled" },
+        )
+        .toBe(true);
 
     const frames: Buffer[] = [];
     for (let i = 0; i < 5; i++) {
-        frames.push(await rail.screenshot({ animations: "allow" }));
+        frames.push(await page.screenshot({ clip: box!, animations: "allow" }));
         await page.waitForTimeout(300);
     }
     const moved = frames.slice(1).some((f) => !f.equals(frames[0]!));
