@@ -2739,3 +2739,15 @@ Ruled:
 **Mechanism.** KF.W13T RESUME (`.k` `.e` `.k2` alreadyDone): [`.e2`] → [`.k3`] → [`.k4` verify-only
 close]; spec = KF-W13.md's ADDENDUM 2026-09-22 (fourth). Then Track B is COMPLETE but for KF.W3
 (gate-keyed on RC-P(V) at the X-W11 coordinate).
+
+## §0as ADDENDUM 2026-09-22 — F.W11 CLOSED CONFORMANT (`41e49af`: the Edit-contour toggle rides GlassDock's persistent slot); ITS THREE NON-GATE RESIDUALS SPENT BY ONE TAIL WAVE `F.W12`
+
+F.W11 closed CONFORMANT at Check 2 (0 HIGH; radii 0 · app-wide grid · `AppDock` · eight panels on
+producer surfaces · four fields on `Input` · snapshots re-baselined with eye review). Its residuals
+are not left to the report: **R-e-1** (arrow-key stepping lost on the numeric fields — glass-ui SHIPS
+`number-field`, so the cure is consumer-side: the five numeric sites move onto `NumberField`),
+**R-e-2** (two `contrast-pairs.ts` rows and two `style.css` comments describe retired chrome),
+**R-e-3** (the native search-cancel glyph — a producer observation, one BK relay row), and Check 2's
+MINOR (the `networkidle` readiness wait skips the `:290` keystone under load — replaced by the app's
+own readiness signal, never a longer timeout). Wave **`F.W12`** (spec `fourier/waves/F-W12.md`;
+[`.a`] → [`.b`]); Track C relaunches on it. Every X·F wave before it is CLOSED.

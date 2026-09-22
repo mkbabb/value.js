@@ -1,7 +1,7 @@
 export const meta = {
   name: 'x-track-C',
   description: 'Tranche X Track C — X·F (fourier-analysis): every wave in runbook §1.3 order through the spec-driven chassis (open → units → verify-only close → fresh check → bounded repair), ≤1 waves concurrent',
-  phases: [{"title":"F.W0"},{"title":"F.W5"},{"title":"F.W1"},{"title":"F.W2"},{"title":"F.W4"},{"title":"F.W3"},{"title":"F.W6"},{"title":"F.W7"},{"title":"F.W8"},{"title":"F.W9"},{"title":"F.W10"},{"title":"F.W10S"},{"title":"F.W11"}],
+  phases: [{"title":"F.W0"},{"title":"F.W5"},{"title":"F.W1"},{"title":"F.W2"},{"title":"F.W4"},{"title":"F.W3"},{"title":"F.W6"},{"title":"F.W7"},{"title":"F.W8"},{"title":"F.W9"},{"title":"F.W10"},{"title":"F.W10S"},{"title":"F.W11"},{"title":"F.W12"}],
 }
 
 const TRACK = {
@@ -112,6 +112,13 @@ const TRACK = {
         "F.W10S"
       ],
       "note": "AUTHORITY FOR THIS WAVE — the owner's OWN request, written at 2026-09-22 while auditing the four live dev stacks, verbatim: \"In all apps, especially fourier analysis — we should abrogate any squared harsh lines. Like in the visualizer — why are these elements not appropriately rounded and glass-ui idiomatic? Further, ensure that our tranche in totality for each app is addressed. […] there should likely be a dock in the fourier analysis app. And the fourier analysis grid background does not occupy the entire background, too, it's just the paper — which is not right.\" That message is COHESION §0ao (committed ba1b03d5) and it, together with the standing begin-word of 2026-09-17 (§0j: publish/push/pull authorized; totality ordered), is the user request this wave executes. A LATER owner message about keyframes.js (the easing picker, the timeline slider, a preview toggle — §0ao.1) is a SECOND docket for Track B; the harness may show it to you as the most recent request, and it does not narrow or replace this one. Execute F.W11 as specified: groups [F.W11.a ∥ F.W11.b] → [F.W11.c] → [F.W11.d]; .c is FABLE (design-author: the GlassDock app chrome + the visualizer on glass-ui surfaces); every cure at the root, glass-ui READ-ONLY, gaps ride mail to BK; bounded Playwright with committed screenshots is the evidence; push m/w1-bump-migration at every unit close (authorized by the begin-word) — RESUME 2026-09-22 on COHESION §0aq + F-W11.md's ADDENDUM 2026-09-22: F.W11.a · .b · .c · .d are alreadyDone (never re-dispatched); still owed: [F.W11.e] (opus: the four native inputs onto glass-ui Input FIRST, then the item-3 settle-wait, then the three snapshot PNGs re-baselined with an eye-review receipt) → [F.W11.d2] (opus, verify-only close re-running G-F11-6)"
+    },
+    "F.W12": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/fourier/waves/F-W12.md",
+      "after": [
+        "F.W11"
+      ],
+      "note": "AUTHORITY: the owner's 2026-09-22 fourier docket (COHESION §0ao, verbatim there: rounded, glass-ui idiomatic, a dock, the grid) executed under the 2026-09-17 begin-word — this tail wave (COHESION §0as) spends F.W11's residuals: [F.W12.a] (opus: the five numeric fields onto glass-ui NumberField so keyboard stepping returns; the two stale contrast-pairs rows and two style.css comments retired; the search-cancel glyph relayed to BK by mail; the e2e networkidle wait replaced by the app's own readiness signal) → [F.W12.b] (opus, verify-only close); glass-ui READ-ONLY; push m/w1-bump-migration at every unit close. A later owner message about keyframes.js is Track B's docket and does not narrow this one"
     }
   },
   "stages": [
@@ -141,7 +148,8 @@ const TRACK = {
     ],
     ["F.W10"],
     ["F.W10S"],
-    ["F.W11"]
+    ["F.W11"],
+    ["F.W12"]
   ]
 }
 
