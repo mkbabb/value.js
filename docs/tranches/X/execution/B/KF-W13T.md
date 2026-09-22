@@ -359,3 +359,19 @@ The four-verb line does **not** move to IMPLEMENTED. G-KFW13T-6 is RED on persis
 **Successors**: ⟨cmd⟩ `grep -rn 'KF.W13T' docs/tranches/X/keyframes/waves/ EXECUTION-RUNBOOK.md | grep -v waves/KF-W13.md` → none — no wave declares an "Opens after KF.W13T" conjunct, so no successor is blocked.
 
 **Verdict: NOT-CONFORMANT** — 1 HIGH (C2-1) · 1 MINOR · 1 INFO; 6/6 claimed GREENs reproduce; honest-RED set = {eslint 6 rows (ESC-k2-1)}. Row `:56` stays **PARTIAL**; the LEDGER status cell is not moved (an event line is appended). Awaits the ESC-e-1 ruling, then a repair unit and a re-close.
+
+## Repair 2
+
+**SERVED MODEL**: `claude-opus-5-5[1m]` · 2026-09-22 · REPAIR SEAT round 2 over Check 2's register (C2-1..C2-3). Spec `KF-W13.md` addenda re-read (`:307` · `:309` · `:311`); COHESION §0ao.1 `:2566-2586` re-read. Crash recovery: ⟨cmd⟩ `git -C keyframes.js status --porcelain` → the two untracked `VALUEJS-INBOUND-2026-07-{24,27}-*` letters only; value.js ` M CARRY-LEDGER.md` · ` M scripts/dev/dev.sh` — none in this seat's set, none touched; no inherited partial work. kf `HEAD` = `5e5f4028` (unchanged since Check 2).
+
+**Ruling search**: ⟨cmd⟩ `grep -n 'ESC-e-1\|controlOptionsStore' docs/tranches/X/COHESION.md docs/tranches/X/execution/LEDGER.md` → COHESION **none**; LEDGER only this wave's own row `:56` and event lines (no grant). Latest COHESION addendum is §0aq (Tracks A/C); no KF.W13T grant after §0ap `:2623`. **ESC-e-1 is still UNRULED.**
+
+| defect | cure | commit | gate re-reading |
+|---|---|---|---|
+| **C2-1** HIGH · G-KFW13T-6 persistence | **ESCALATED — ESC-e-1 unruled.** The only lawful cure is a declared view-state field in kf `demo/state/controlOptionsStore.ts` (the bucket §0ao.1 names: *"persisted where the scene's other view state lives"*), which lies outside every KF.W13T writable set (`.k` · `.e` · `.k2`). A scene-local `localStorage`/`useStorage` in `demo/scenes/easing/**` would sit in bounds but would be a second, parallel persistence home — a workaround, not the spec's cure, so it was not written | — | unchanged: no byte moved; Check 2's e-probe `afterReload pressed "false"` ×2 stands |
+| **C2-2** MINOR · R-k-1 390×844 cluster overlap | Not a one-command cure; waits on the orchestrator's ruling (`--dock-top-*` band vs `EditorShell.vue`'s ribbon). **Carried as an escalation**, with no byte | — | unchanged (`coll= 1` / `coll= 3` ×2 stands) |
+| **C2-3** INFO | none needed | — | — |
+
+**Figures (WRITE-THEN-MEASURE)**: kf bytes this seat **0**; no gate could move, so none was re-run; Check 2's banked readings at kf `5e5f4028` stand (vue-tsc 0 ×2 · `test:demo` 61/61 · 501/501 ×2). value.js bytes this seat: this section plus one LEDGER event line.
+
+**Verdict**: 0 cured this round; C2-1 (HIGH) ESCALATED on ESC-e-1, C2-2 carried. Row `:56` stays **PARTIAL**. Every further repair round is idle until the orchestrator rules ESC-e-1 (one-field grant in `controlOptionsStore.ts`); a repair unit then lands it with a reload witness, and a re-close follows.
