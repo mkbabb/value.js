@@ -37,7 +37,7 @@ const LAST_STOP: [number, number, number] = [104, 139, 243];
 async function openGradient(page: Page): Promise<Locator> {
     await page.goto("/");
     await openView(page, "Gradient");
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    const main = page.getByRole("main", { name: "Gradient" });
     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
     // Pixel probes judge a surface at rest — the cold-load stall-then-resume
     // enter transition otherwise screenshots the rail mid-flight (see
@@ -202,7 +202,7 @@ test("the forward and inverse maps are inverse: a press at a handle's own pixel 
         await page.reload({ waitUntil: "networkidle" });
         await openView(page, "Gradient");
         await paneSettled(page);
-        const live = bar(page.getByRole("main", { name: "Color tool panes" }));
+        const live = bar(page.getByRole("main", { name: "Gradient" }));
         const ids = () =>
             live
                 .locator("[data-stop-id]")

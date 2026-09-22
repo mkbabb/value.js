@@ -18,7 +18,7 @@ import { join } from "node:path";
 async function openGradient(page: Page): Promise<Locator> {
     await page.goto("/");
     await openView(page, "Gradient");
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    const main = page.getByRole("main", { name: "Gradient" });
     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
     // The swap spring must be at rest before interactions — the cold-load
     // stall-then-resume enter transition defeats Playwright's bounding-box

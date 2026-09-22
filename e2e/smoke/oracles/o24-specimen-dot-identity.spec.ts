@@ -38,7 +38,7 @@ type DotSignature = {
 
 async function openCatalog(page: Page): Promise<DotSignature[]> {
     await page.goto("/");
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    const main = page.getByRole("main", { name: "Home" });
     await expect(main).toBeVisible();
     const trigger = main.getByRole("combobox", { name: "Select color space" }).first();
     await expect(trigger).toBeVisible();
