@@ -293,3 +293,96 @@ router/index.ts, components/visualization/FullscreenViewer.vue, components/layou
 components/visualization/AnimationControls.vue, stores/workspace.ts}` ⊕ `web/e2e/visualization-ux.spec.ts`, all
 inside the writable set; `visualization-crud.spec.ts` net **0 bytes**. value.js write = this record only. glass-ui
 was untouched. `scripts/dev/dev.sh` was untouched.
+
+## Close
+
+**Seat**: `.d` VERIFY-ONLY (Opus, `claude-opus-5-5[1m]`) · clock 2026-09-22 · spec F-W10.md ADDENDUM §F.W10S.d
+`:572-576`. Cured nothing. **Crash-recovery**: ⟨cmd⟩ `git status --porcelain` (value.js): no dirty path inside
+this seat's writable set (`F-W10S.md` · `LEDGER.md` · `INBOX.md` all clean); the 20 sibling-dirty rows and
+`scripts/dev/dev.sh` were left alone. fourier → `?? .worktrees/` only (left alone). **Inherited: none.**
+
+**Unit dispatch reading**: `.a` DONE · `.b` ESCALATED (receipt `8e695c9f`) · **`.c` NEVER DISPATCHED** — no
+`### F.W10S.c` receipt in this record; ⟨cmd⟩ `ls ../glass-ui/docs/tranches/BK/coordination/ | grep -i
+'fourier\|fw4\|nwo1'` → **empty** (BK still newest: ⟨cmd⟩ `ls -dt ../glass-ui/docs/tranches/*/ | head -1` → `BK/`).
+
+### Bounds audit (⟨cmd⟩ `git show --stat` per commit)
+
+| Unit | Commit | Paths | In writable set |
+|---|---|---|---|
+| .a | `5065843c` | `CENSUS-ADDENDUM-2026-08-25.md` (+53) | YES |
+| .a | `9ed2dd07` | `execution/C/F-W10.md` (+22, append) | YES |
+| .a | `a572d15f` | `COHESION.md` (+1) | YES |
+| .a | `8b51351f` | `execution/C/F-W10S.md` (+51) | YES |
+| .a | `5b5ec858` | `execution/LEDGER.md` (+1, alone per C2-M3) | YES |
+| .b | fourier `01eb722` | `web/src/components/visualization/ContourEditorCanvas.vue` | YES |
+| .b | fourier `f45901e` | `web/src/style.css` | YES |
+| .b | fourier `c2000a7` | `web/src/components/visualization/FullscreenViewer.vue` · `web/src/router/index.ts` | YES |
+| .b | fourier `8e98bb8` | `web/src/components/layout/AppHeader.vue` | YES |
+| .b | fourier `4a94aa7` | `web/src/components/visualization/AnimationControls.vue` · `web/e2e/visualization-ux.spec.ts` | YES |
+| .b | fourier `aca2580` | `web/src/stores/workspace.ts` · `web/e2e/visualization-ux.spec.ts` | YES |
+| .b | `8e695c9f` | `execution/C/F-W10S.md` (+161) | YES |
+
+**Landed-wrong: none.** `visualization-crud.spec.ts` carries 0 bytes of change; glass-ui untouched by this wave.
+
+### Gates, re-run by this seat (BEFORE → AFTER; live stack for every e2e reading)
+
+Live stack: `mongod` (scratchpad dbpath, :27017) ⊕ ⟨cmd⟩ `scripts/e2e.sh --no-tests` (uvicorn :8000 · vite :3000),
+fourier HEAD `aca2580` = origin (⟨cmd⟩ `git ls-remote origin refs/heads/m/w1-bump-migration` → `aca25800…`); torn
+down after; ⟨cmd⟩ `git -C ../fourier-analysis status --porcelain` → `?? .worktrees/` only.
+
+| Gate | ⟨cmd⟩ | BEFORE (seat 0 / banked) | AFTER run 1 · run 2 (this seat) | Verdict |
+|---|---|---|---|---|
+| G-S-1 | `grep -c 'lane-frontend.md:183' CENSUS-ADDENDUM-2026-08-25.md`; ids `grep -c L-INFO-2` / `PP-CENSUS` | 0 · 0; ids 1 (Scope row only) | **4 · 4**; L-INFO-2 **5 · 5**, PP-CENSUS **5 · 5** | **GREEN** |
+| CK-2/CK-3 | `tail -n 25 execution/C/F-W10.md \| grep -cE '1074\|nine'` | 0 | **4 · 4** | **GREEN** |
+| CK-4 | `awk 'NR>=840 && NR<=882 && /CK-/' COHESION.md \| wc -l` | 0 | **1 · 1** | **GREEN** |
+| G-F9-17 | `cd web && npm run build` (`vue-tsc -b && vite build`) | exit 2 (TS6133 `(42,9)`) | exit **0 · 0** | **GREEN** |
+| G-F9-5 | `playwright test e2e/visualization-ux.spec.ts --project=chromium` (the `/equation` axe keystone inside) | 1 failed (3.46:1) | **9 passed · 9 passed** | **GREEN** (axe witness) |
+| G-F9-5 spec leg | `playwright test e2e/contrast-floor.spec.ts` | 3 failed | **3 failed · 3 failed** | **RED** — R-2 (F.W4 owners ⊕ GLASS-RELAY rung) |
+| G-F9-8 | `grep -c "test.fixme(" web/e2e/visualization-{ux,crud}.spec.ts` ⊕ the ux run above | ux 4 · crud 1 (0 of 5) | ux **0** · crud **1**; ux 9 passed ×2 | **4 of 5** — ux `:151` `:178` `:249` `:371`; crud `:664` RED (E-F10S-b2) |
+| G-F9-11 | `playwright test e2e/fullscreen.spec.ts --project=chromium` (spec untouched) | 1 failed `:63` | **1 failed · 1 failed** at `fullscreen.spec.ts:63:30` (`toBeVisible` — element not found) | **RED** — E-F10S-b1 (glass-ui dock press guard) |
+| E-F9b-4 | `playwright test e2e/coarse-pointer.spec.ts --project=mobile-chromium` | 1 failed (20.8px · 40.0px) | **4 passed · 4 passed** | **GREEN** |
+| G-S-2 | `ls ../glass-ui/docs/tranches/BK/coordination/ \| grep -i 'fourier\|fw4\|nwo1'`; `cmp` ×2 | empty | **empty · empty** — no copy exists to `cmp`; no INBOX LANDED line | **RED** — `.c` undispatched |
+
+**Tally (self-count)**: GREEN 6 (G-S-1 · CK-2/CK-3 · CK-4 · G-F9-17 · G-F9-5 axe · E-F9b-4); PARTIAL 1 (G-F9-8, 4/5);
+RED 3 (G-F9-5 spec leg · G-F9-11 · G-S-2).
+
+### E13 close sweep
+
+⟨cmd⟩ `find <path> -maxdepth 1 -type f -newermt "2026-09-22 00:00" ! -name INBOX.md` → value.js `V/`: empty ·
+`V/coordination`: empty · glass-ui `BK/coordination`: `glass-outbound-2026-09-22-consumers-10.0.0.md` — addressed to
+slides + atlas (the 10.0.0 name cut), NOT to value.js, already swept at `INBOX.md:374` · keyframes.js
+`V/coordination`: empty · atlas `P/coordination`: empty. **UNREAD in scope: 0.** A dated sweep line is appended at the
+INBOX tail.
+
+### Residuals (by id, with named owners)
+
+- **G-S-2 / `.c` (UNDISPATCHED)** — O-23 + O-32 not carried into glass-ui BK; the CK-5 erratum beside E-F9b-2
+  (`execution/C/F-W9.md`, O-32 copy tail) not appended; INBOX LANDED lines absent. Owner: **F.W10S.c** (chassis must
+  dispatch it; this seat cures nothing).
+- **E-F10S-b1 · G-F9-11** — glass-ui dock press guard (`dock.js` `ze()` `onClickCapture`) discards a press begun
+  during `data-morphing`. Owner: **glass-ui BK (GLASS-RELAY via `.c`'s mail hop)** or the `fullscreen.spec.ts` spec
+  owner (await settle). Both `web/src` roots under C2-M1 are cured (`c2000a7`).
+- **E-F10S-b2 · G-F9-8 crud `:664`** — mobile `SegmentedTabs variant="underline"` inactive ink 4.33:1 (producer
+  recipe). Owner: **glass-ui BK (GLASS-RELAY)**; the crud note-lock vs addendum conflict → **the spec owner (COHESION
+  ruling)**.
+- **R-2 · `contrast-floor.spec.ts`** (3 failed ×2) — F.W4 pairs (light 19/38 · dark 10/38) — owners **F.W4
+  `.a/.b/.c/.d/.e` ⊕ a GLASS-RELAY rung**; not G-F9-5's `/equation` node.
+- **Relay rows owed** (mail): the capsule-track `--muted-foreground` binding omission (act 2 upstream half) ·
+  E-F10S-b1 · E-F10S-b2 → glass-ui BK by the lawful mail path (`.c`-class hop).
+- **OWNER CLOSE REPORT (listed, not cured, per spec)**: G-F9-15 · G-F9-19 · G-F9-23(b) (operator items) · G-F10-1 /
+  G-F10-2 (fourier-ledger verbs).
+
+### Escalations
+
+`E-F10S-b1` · `E-F10S-b2` (carried from `.b`) · `E-F10S-d1` (this seat): **`.c` was never dispatched** — G-S-2 is
+unmeasurable-green by construction until the carriage hop runs.
+
+### State / four-verb
+
+The spec's `.d` stamps F.W10 **ACCEPTED only if G-S-1 GREEN ∧ `.b`'s five gates GREEN**. G-S-1 is GREEN; `.b` reads
+3 GREEN (G-F9-17 · G-F9-5 axe · E-F9b-4) + G-F9-8 4/5 + G-F9-11 RED. **F.W10 is NOT stamped ACCEPTED; its row stays
+CLOSED honest-RED** (never rewritten). F.W10S four-verb: AUDITED YES · SPECIFIED YES · **IMPLEMENTED PARTIAL** (`.a`
+whole; `.b` 4 of 5 heads + 4 of 5 keystones; `.c` not run) · VERIFIED NO (this seat is not designated to stamp it;
+the chassis's fresh check follows).
+
+**Close verdict: PARTIAL** — remains: `.c` (G-S-2) · E-F10S-b1 (G-F9-11) · E-F10S-b2 (crud `:664`) · R-2.
