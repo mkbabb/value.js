@@ -1614,3 +1614,5 @@ SERVED MODEL: claude-opus-5-5[1m] (this unit's seat)
 **Residuals (not gate-bearing)**: (R-f2c-1) `.t2`'s printed `+12/−14` is really `+14/−15`; corrected beside, at act 2. (R-f2c-2) `.t2`'s RETURNED R6 dynamic-import blind spot (`scripts/gates/structure/index.mjs:337`) stays with the next seat that has `scripts/gates/**` in carve. (R-f2c-3) The 7 eslint errors belong to KF.W13T.k2.
 
 **Escalations**: none. **Status**: DONE.
+
+**Push (value.js), after the two commits `858a8d1f` · `a46a547f`.** ⟨cmd⟩ `git diff --cached --name-only | wc -l` → 0 (no sibling path staged). ⟨cmd⟩ `git fetch origin; git rev-list --left-right --count origin/tranche-u...HEAD` → **`1 172`**: origin carries `6fc1212e` (Track A X-W9 repair record, dated 2026-09-20) that this branch does not, so a push is **not fast-forward** and was **NOT made** (the lock). No rebase, merge or force by this seat. The value.js push stays with the orchestrator (the R-f2-6 precedent). This is not a KF.W13S gate limb; the kf push reads `0 0`.
