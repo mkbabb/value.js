@@ -73,8 +73,12 @@ export function usePaletteWiring(
         },
 
         emitAddColor: (css: string) => {
+            // X.W5.c — the question is "does this scene already seat the
+            // palettes pane", which the retired `cfg.right !== "palettes"`
+            // could only ask about ONE physical side. A scene's regions answer
+            // it wherever the pane sits.
             const cfg = viewManager.currentConfig.value;
-            if (cfg.right !== "palettes") {
+            if (!cfg.regions.some((region) => region.pane === "palettes")) {
                 viewManager.switchView("palettes");
             }
             try {
@@ -108,12 +112,13 @@ export function usePaletteWiring(
             if (cur !== "picker" && cur !== "palettes") {
                 viewManager.switchView("palettes");
             }
-            // Show the picker (left pane) for the edit. The pane override is
-            // route-view-tagged (MOB-2), so it must be applied AFTER the switch
-            // settles `currentView` to the destination — set it in the same
-            // deferred tick that waits for the picker to mount.
+            // X.W5.c — the mobile pane-index write that used to open this
+            // deferred tick is GONE with the index. It made the picker visible
+            // for the edit by hiding the palettes pane the edit came FROM; both
+            // regions are on screen now, so the edit no longer costs the user
+            // sight of its own subject. The deferral stays: it waits for the
+            // picker to mount after a view switch.
             setTimeout(() => {
-                viewManager.mobilePaneIndex.value = 0;
                 whenColorPickerReady((picker) => picker.onStartEdit(target), "startEdit");
             }, 50);
         },

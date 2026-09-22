@@ -2,9 +2,10 @@
  * shell.css — the app-shell LAYOUT surface (W43 · RF-15 §b 5 split from
  * style.css). ARCHITECTURE §1 styles home: foundation.css owns global
  * reset/tokens/material/focus primitives; THIS file owns the shell's layout
- * class rules — the dock-atop band grid, the pane container/wrappers, the
- * [data-layout] display witnesses, and the T-45 pane-card oversampled-blur
- * seat. All layout TOKENS (--dock-*, --pane-*, --app-gutter, …) stay in
+ * class rules — the dock-atop band grid, the pane container and its region
+ * wrappers, and the T-45 pane-card oversampled-blur seat. (X.W5.c: the
+ * `[data-layout]` display witnesses are gone with the breakpoint fork they
+ * mirrored — see THE REGION WRAPPERS below.) All layout TOKENS (--dock-*, --pane-*, --app-gutter, …) stay in
  * foundation :root; this file consumes them. Loaded via foundation's
  * `@import "./shell.css"`. (X.W5.b: the block-axis cap token that used to sit
  * in that list no longer exists — see THE BLOCK LAW below. Its identifier is
@@ -154,10 +155,39 @@
     min-width: 0;
 }
 
+/* ── ONE COLUMN, OR AS MANY AS FIT (X.W5.c · V·L2 · gates C1/C7) ──────────
+ * The scene's regions are laid out by SPACE, not by viewport.
+ *
+ * What this replaces: `grid-template-columns: 1fr` plus a
+ * width-AND-aspect media arm (min-width 1024px, min-aspect-ratio 1.1) that switched
+ * `.pane-container--dual` to `repeat(2, minmax(var(--pane-min), 1fr))`. The
+ * media arm was the CSS half of the JS breakpoint fork — the same compound
+ * query App.vue ran through its breakpoint composable to decide which regions
+ * to MOUNT —
+ * and retiring the fork retires its stylesheet twin (gate C7's subtraction).
+ *
+ * `auto-fit` asks the only question that was ever being asked: how many
+ * `--pane-min` tracks fit in the space this container actually has? Two at
+ * 1440 (the composition is unchanged: the container clamps at ≈1050px, so the
+ * tracks land at `--pane-max` exactly as the retired `repeat(2, …)` did), one
+ * at 390 and at 720 (≡ 1440 at 200% zoom), with the second region wrapping to
+ * row 2 — the one scrolling column V·L2 asks for, on the document the block
+ * law (X.W5.b) gave us. `min(--pane-min, 100%)` is what lets a track be
+ * NARROWER than the floor when the viewport itself is: without it the grid
+ * overflows a 390px phone. `auto-fit` (not `auto-fill`) collapses the empty
+ * track, so a one-region scene — Atmosphere, the five admin consoles,
+ * Not Found — still spans the full container instead of sitting in half of it.
+ *
+ * The two gap values are the two this rule carried before, each on the axis it
+ * governed: the dual arm's `--pane-gap` between columns, the base `1rem`
+ * between stacked rows. The INLINE clamp below is untouched (EB-8): the
+ * ≈1050px owner ruling is not this wave's to move, and the ratio / ultrawide
+ * half rides CC-056 · V·L3 at X-W6. */
 .pane-container {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--pane-min), 100%), 1fr));
+    column-gap: var(--pane-gap);
+    row-gap: 1rem;
     width: 100%;
     /* The GRID owns the clamp (R.W3 Lane A / A4 — U32, "handled generally"):
      * the container grows fluidly with the viewport (minus .app-layout's
@@ -187,72 +217,41 @@
     container-type: inline-size;
 }
 
-/* W6-4 (S.W6) — the SLOT-owned cross-pane layer: the LEFT slot (the picker +
+/* W6-4 (S.W6) — the SLOT-owned cross-pane layer: the STAGE region (the picker +
  * its corner-breaking hero-blob ornament) paints above the right pane, so the
  * bead's overlap strip is never buried under the About card (the S-4 burial —
  * both glass Cards are z-auto stacking contexts, so DOM order alone painted
  * the LATER right pane over the left pane's overflowing ornament). Grid items
  * take z-index directly (no positioning needed); portaled overlays are
  * unaffected; ZERO per-instance z-index on the ornament itself (the
- * no-z-hacks law — the slot assigns the layer). */
-.pane-wrapper--left {
+ * no-z-hacks law — the slot assigns the layer). X.W5.c: keyed on the region's
+ * ROLE. The ornament overflows because of what the region IS — the protagonist
+ * carrying the hero blob — not because of which side of a grid it landed on,
+ * and after X.W5.c a region's side is not a fact the schema states. */
+.pane-wrapper--stage {
     z-index: 1;
 }
 
-/* MOB-1 (T round-4 — the C-5/D8-1 adjudication landed) — THE LAYOUT DISPLAY
- * WITNESSES key on [data-layout], the single-truth stamp App.vue sets on
- * .app-layout from `isDesktop` (= width AND landscape). The CSS witness IS the
- * JS witness: a portrait tablet ≥ 1024px wide (aspect < 1.1) stamps
- * data-layout="mobile", so the mobile slot shows and the desktop wrappers hide
- * BY CONSTRUCTION — the retired D6-03 portrait pathology needed a width-only
- * `lg:hidden` display exception here; the stamp dissolves it. The v-if
- * single-mount (App.vue X6) is the primary gate; these are the aspect-correct
- * defensive witnesses. They are intentionally UN-media'd — the JS drives the
- * breakpoint, so a media wrapper would re-introduce the width-only
- * disagreement the stamp exists to retire.
+/* X.W5.c — THE `[data-layout]` DISPLAY WITNESSES ARE GONE, all four of them.
  *
- * THESE RULES ARE NOT CI-GATED (X.W5.b · gate N9 · fold W5F-38's PSC-21
- * rider). This paragraph used to name a CI emission probe as their
- * guarantor. Measured 2026-09-19: that probe does not exist anywhere in the
- * tree, no workflow step invokes it and no package script names it — it was
- * pruned with the proof-theater at `6d6d3521` (V·W42), and the two
- * stylesheet comments citing it outlived it. N9 is an either/or (restore the
- * probe, or stop naming it); the branch taken here is the STRIKE, and the
- * reasoning is recorded in full — with the struck path quoted — in the wave
- * record at docs/tranches/X/execution/A/X-W5.md § X.W5.b, so that the claim
- * is retired from the stylesheet rather than merely reworded inside it.
- * The MECHANISM below is unchanged; what changed is that nothing here
- * asserts a gate that does not run. */
-[data-layout="mobile"] .pane-slot-mobile {
-    display: flex;
-}
-[data-layout="desktop"] .pane-wrapper--left {
-    display: flex;
-}
-[data-layout="desktop"] .pane-wrapper--right {
-    display: block;
-}
-/* The mobile pane switcher (Dock.vue's PaneSegmentedControl) is mobile-grammar
- * only — hidden on desktop, shown on the portrait band so BOTH panes stay
- * reachable at 1024×1366 (the width-only `lg:hidden` it replaced marooned the
- * second pane there). */
-[data-layout="desktop"] .dock-mobile-panes {
-    display: none;
-}
-
-/* The dual grid fires on width AND landscape (the aspect law — see the
- * desktop :root block above; portrait keeps the single-column grammar). */
-@media (min-width: 1024px) and (min-aspect-ratio: 1.1) {
-    .pane-container {
-        gap: var(--pane-gap);
-    }
-    .pane-container--dual {
-        /* Equal columns always (the kept 1fr↔1fr invariant), with the floor
-         * explicit: no card ever renders below `--pane-min` on the dual
-         * grid. */
-        grid-template-columns: repeat(2, minmax(var(--pane-min), 1fr));
-    }
-}
+ * They were the defensive half of the single-mount fork: `[data-layout="mobile"]
+ * .pane-slot-mobile {display:flex}`, `[data-layout="desktop"] .pane-wrapper--left
+ * {display:flex}`, `…--right {display:block}` and `[data-layout="desktop"]
+ * .dock-mobile-panes {display:none}` — CSS re-stating, from a stamp App.vue
+ * wrote out of its breakpoint predicate, the same verdict the `v-if` had already
+ * reached. Their own comment called them "the aspect-correct defensive
+ * witnesses" to "the primary gate". With one mount path there is no primary
+ * gate to defend, no stamp to key on, and no mobile-only switcher to hide: the
+ * regions are always mounted and the grid above arranges them from the space it
+ * has. The MECHANISM is not moved elsewhere — it is retired.
+ *
+ * ⟨PSC-21 / gate N9⟩, carried: this block used to name a CI emission probe as
+ * these rules' guarantor. X.W5.b measured that the probe does not exist
+ * anywhere in the tree and took the STRIKE branch; the rules it claimed to
+ * guard are the ones deleted here, exactly as that unit predicted. Nothing in
+ * this file asserts a gate that does not run, and the 27 capability queries
+ * (`prefers-*`, `forced-colors`, `print`, `pointer`, `hover`) are untouched —
+ * C7 subtracts viewport-DIMENSION queries and nothing else. */
 
 /* ═══ T-45 · THE PANE-CARD OVERSAMPLED-BLUR SEAT (T.W6.5 Lane M · the
  * BOOKED-SWAP demo interim; root = producer, P3 rider) ═══════════════════
@@ -281,6 +280,21 @@
  * DIRECT WRAPPER (a static box the card fills by construction): the
  * `.pane-wrapper` slot for the root-Card panes, the one-deep wrapper div
  * for the wrapped panes (the picker's `.pane-shell`, Extract/Config).
+ *
+ * ── THE RE-SEAT (X.W5.c · gate C6, SAME COMMIT as the wrapper cut) ────────
+ * The three forked wrappers this carrier sat on — the mobile single slot and
+ * the desktop left/right pair, one of which was mounted at a time — are cut
+ * to ONE region wrapper, rendered per member of the scene's `regions[]`. The
+ * carrier is re-seated on that element IN THIS COMMIT, which is the whole
+ * reason C6 exists: a cut without the re-seat hands every pane card its OWN
+ * `backdrop-filter` back, and with it the t33 edge-clamp rim the T-45 seat
+ * was built to kill. The selectors below are unchanged BY DESIGN — the region
+ * wrapper keeps the `.pane-wrapper` class, so the carrier, the
+ * `useDevicePixelSnap` measurement query and eleven e2e/probe consumers keep
+ * one seat between them instead of a rename that would have to land in files
+ * this unit may not write. What moved is the ELEMENT the class is on, from
+ * three forked wrappers to one region wrapper; what did not move is the
+ * material, the token or the clip.
  * `clip-path` clips hit-testing too, so the overshoot band can never
  * intercept a pointer. The `:not()` arm keeps the carrier SINGULAR during
  * a mixed pane swap (both structures transiently co-mounted in one slot).
@@ -310,16 +324,14 @@
      * documents), which computes `none` in Chromium — probed live on the
      * built bundle. */
     .pane-wrapper:has(> .glass-resting)::before,
-    .pane-wrapper:not(:has(> .glass-resting))
-        > div:has(> .glass-resting)::before {
+    .pane-wrapper:not(:has(> .glass-resting)) > div:has(> .glass-resting)::before {
         content: "";
         position: absolute;
         inset: calc(-2 * var(--glass-blur-resting-radius, 8px));
         pointer-events: none;
         backdrop-filter: var(--glass-blur-resting);
         clip-path: inset(
-            calc(2 * var(--glass-blur-resting-radius, 8px))
-                round var(--radius-card)
+            calc(2 * var(--glass-blur-resting-radius, 8px)) round var(--radius-card)
         );
     }
 

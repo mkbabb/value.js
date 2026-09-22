@@ -11,7 +11,6 @@ import MobileMenuDropdown from "./menus/MobileMenuDropdown.vue";
 import ProfileSection from "./menus/ProfileSection.vue";
 import DockViewSelect from "./DockViewSelect.vue";
 import DockStatusLamp from "./DockStatusLamp.vue";
-import PaneSegmentedControl from "../PaneSegmentedControl.vue";
 import { useMediaQuery } from "@vueuse/core";
 import { VIEW_MANAGER_KEY } from "../useViewManager";
 import { SESSION_PORT_KEY } from "../../palettes/usePalettePorts";
@@ -245,28 +244,30 @@ watch(
                         @toggle="toggleActionBar"
                     />
 
-                    <!-- Mobile pane toggle — Ae-5: PaneSegmentedControl owns this control (one owner).
-                             S.W7-2: the mobile separator PAIR is dropped (four vertical bars
-                             in a 312px aperture was furniture crowding the ⋮ trigger out of
-                             the pill — design-dock-shell P0-2); the control compacts at its
-                             own root below sm. -->
-                    <div
-                        v-if="viewManager.currentConfig.value.right !== null"
-                        class="dock-mobile-panes"
-                    >
-                        <PaneSegmentedControl
-                            :model-value="viewManager.mobilePaneIndex.value"
-                            :left-label="
-                                viewManager.currentConfig.value.leftLabel ?? ''
-                            "
-                            :right-label="
-                                viewManager.currentConfig.value.rightLabel ?? ''
-                            "
-                            @update:model-value="
-                                (v) => (viewManager.mobilePaneIndex.value = v)
-                            "
-                        />
-                    </div>
+                    <!-- X.W5.c · gate C4 — THE MOBILE PANE TOGGLE IS GONE, with
+                             `PaneSegmentedControl.vue` (its sole render site) and with
+                             the mobile pane index, the state it wrote. It existed to answer
+                             "which of this view's two panes may the phone see"; both are
+                             on screen now, so the control has nothing to switch.
+
+                             Three of its shipped behaviours die with it, each a finding of
+                             record: ⟨PSC-4⟩ `activation: automatic` on a two-option pill —
+                             ARROWING through an announced button group silently destroyed
+                             and rebuilt the page's main content per keypress; ⟨PSC-13⟩ the
+                             governed panel carried no `id`, no `role="tabpanel"`, no
+                             `aria-live`; ⟨PSC-9⟩ the always-expanded binding, keyed off
+                             the dock's own desktop predicate, armed the
+                             5s dock collapse exactly where this control was the only route
+                             to the second pane. ⟨PSC-1⟩'s `semantics="tabs"` interim patch
+                             is REFUSED and was not applied: it disarms the producer's own
+                             drag hit-test (keyed on `[aria-pressed="true"]`) and turns nine
+                             walk.spec assertions red — an interim that breaks two things to
+                             half-fix one. The deletion is the cure.
+
+                             X-W10's Ad-18 marker (W10.md:117/:354) is SPENT by this
+                             deletion — recorded here and in the wave record as the
+                             survivor's terminal event, so X-W10 does not close over a
+                             marker no one retired. -->
 
                     <!-- Mobile overflow menu -->
                     <MobileMenuDropdown

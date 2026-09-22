@@ -1,9 +1,12 @@
 <template>
-    <div
-        class="app-layout"
-        :data-layout="isDesktop ? 'desktop' : 'mobile'"
-        :data-view="viewManager.currentView.value"
-    >
+    <!-- X.W5.c — the `[data-layout]` stamp is GONE with the fork it mirrored.
+         It carried ONE bit ("is this viewport desktop") from the breakpoint
+         composable into the stylesheet so the CSS display witnesses could
+         agree with the JS mount condition. With one mount path there is no mount condition to
+         agree with, and the grid answers the arrangement question from the
+         space it actually has. `[data-view]` stays: the view's IDENTITY is a
+         fact about the scene, not about the viewport. -->
+    <div class="app-layout" :data-view="viewManager.currentView.value">
         <!-- W5-a11y: decorative aurora canvas — hidden from AT. W6-1 entrance
              (owner ruling §1.1): the canvas derive-fades in over the
              SAME-material `--saved-bg` ground once the field is drawable
@@ -74,132 +77,73 @@
                 {{ routeAnnouncement }}
             </p>
 
-            <!-- Two-pane grid. `paneContainer` feeds the S.W5-10 device-pixel
-             snap (card-lighting-forensics artifact 4): the flex-centering
-             remainder is nudged off fractional device pixels so the card
-             corner arcs rasterize ON the pixel grid. -->
-            <div
-                ref="paneContainer"
-                :class="[
-                    'pane-container',
-                    currentConfig.right !== null && 'pane-container--dual',
-                ]"
-            >
-                    <!-- X6: single-mount by breakpoint. Only ONE breakpoint's slots are
-                 MOUNTED at a time (v-if, not display-toggle), so exactly one live
-                 picker — and thus one live goo-blob WebGL2 context — exists at any
-                 viewport. The prior always-in-DOM display-toggle kept a hidden-
-                 but-LIVE second picker (the mobile slot at desktop, the desktop
-                 slots at mobile), doubling the WebGL contexts + the reactive
-                 subtree. MOB-1 (T round-4) SUPERSEDES the width-only lg:* display
-                 witnesses with the .app-layout [data-layout] stamp (the single
-                 isDesktop truth); the D6-03 exception + D8-1 note die — see style.css. -->
+            <!-- ═══ X.W5.c · V·L2 — ONE MOUNT PATH (gates C1/C3/C5/C8) ═══════
+                 The scene's regions, IN ORDER, every one of them, at every
+                 viewport. What stood here was a `v-if` / `v-else` fork on a
+                 desktop predicate, over THREE hand-written slots, and the fork
+                 is the defect:
+                 a region below the compound breakpoint was not hidden, it was
+                 NOT MOUNTED — so `#/` rendered 69 characters at 390 against
+                 1751 at 1440 (3.9%, gate C1's born-RED), and crossing the query
+                 destroyed every `<KeepAlive>` cache and both WebGL contexts on
+                 the way past (gate C5: canvas identity kept 1 of 2).
 
-                <!-- X.W5.a — ROLE-NAMED region wrappers. `--stage` (the
-                 protagonist) and `--inspector` (the companion) name what the
-                 region IS; the physical `--left`/`--right` names ride beside
-                 them until X.W5.d re-keys the motion family off them (D3's 18
-                 physical-name sites). The stagger is keyed by the ROLE class in
-                 the scoped block below — the former inline
-                 `--overture-appear-delay` declarations are gone, so the delay
-                 no longer travels with a physical side. Each region carries its
-                 own name: `leftLabel`/`rightLabel` shipped UNUSED in
-                 viewSchema while `<main>`'s static label named the scene for
-                 both (gate N6). -->
+                 Nothing here reads a viewport. The GRID decides how many
+                 columns the regions get (shell.css `.pane-container`, an
+                 intrinsic `auto-fit` track list), and when only one fits they
+                 stack into the one scrolling column the block law
+                 (X.W5.b) gave the document. `paneContainer` feeds the S.W5-10
+                 device-pixel snap (card-lighting-forensics artifact 4).
 
-                <!-- Mobile: single pane slot (below lg / portrait). `pane-wrapper`
-                 makes it a size container so in-card `cqi` sizing resolves on
-                 every slot (R.W3 Lane A / A4). W2-3: the slot speaks the
-                 `appear` plate-land grammar (the single plate = the left
-                 voice, +40ms). -->
+                 The wrapper keeps the `.pane-wrapper` class DELIBERATELY: it is
+                 the T-45 oversampled-blur carrier's seat (shell.css) and the
+                 device-pixel snap's query, and the carrier is re-seated on this
+                 element in this same commit (gate C6). The physical
+                 `--left`/`--right` modifiers ride beside the ROLE classes until
+                 X.W5.d's D3 re-keys the `vj-enter` family off them — that
+                 re-key is authored as one act across `animations.css`,
+                 `shell.css` and this file ("class names only — sequenced after
+                 X.W5.c commits", W5.md §5 X.W5.d). -->
+            <div ref="paneContainer" class="pane-container">
                 <div
-                    v-if="!isDesktop"
-                    class="pane-wrapper pane-wrapper--left pane-wrapper--stage pane-slot-mobile w-full max-w-md sm:max-w-lg mx-auto min-w-0 min-h-0 h-full flex flex-col items-center justify-center self-stretch"
+                    v-for="region in regions"
+                    :key="region.role"
+                    class="pane-wrapper w-full min-w-0 min-h-0"
+                    :class="[
+                        `pane-wrapper--${region.role}`,
+                        region.role === 'stage'
+                            ? 'pane-wrapper--left'
+                            : 'pane-wrapper--right',
+                    ]"
                     role="region"
-                    :aria-label="mobileRegionLabel"
+                    :aria-label="region.label"
                 >
                     <!-- U.W-A11Y · U-F58 + X.W5.a (gate N5, fold W5F-53): the
-                     boundary sits PER PANE and OUTSIDE `<KeepAlive>` (the
-                     cached-boundary cure is KILLED by R-7). One pane's throw
-                     no longer withholds the other, and the caught plate now
-                     paints inside `.pane-container`'s positioned box instead
-                     of under the atmosphere canvas — the EB-1 ink loss cured
-                     by the transposition, never by the banned
-                     `position:relative` patch. -->
+                         boundary sits PER REGION and OUTSIDE `<KeepAlive>` (the
+                         cached-boundary cure is KILLED by R-7). One region's
+                         throw no longer withholds the others, and the caught
+                         plate paints inside `.pane-container`'s positioned box
+                         instead of under the atmosphere canvas — the EB-1 ink
+                         loss cured by the transposition, never by the banned
+                         `position:relative` patch. -->
                     <ErrorBoundary>
                         <PaneSlot
-                            :component="mobile.component"
-                            :component-key="mobile.key"
-                            :component-props="mobile.props"
-                            :on-mount="bindPane('mobile')"
+                            :component="region.component"
+                            :component-key="region.key"
+                            :component-props="region.props"
+                            :on-mount="bindPane(region.role)"
                             :transition-name="viewManager.ready.value ? 'vj-enter' : ''"
-                            :max="PANE_CACHE_MAX.mobile"
+                            :max="PANE_CACHE_MAX[region.role]"
                             appear
                             :on-appeared="
                                 (el: Element | null) =>
-                                    overture.noteLeftPlateSettled(el)
+                                    region.role === 'stage'
+                                        ? overture.noteLeftPlateSettled(el)
+                                        : overture.noteRightPlateSettled()
                             "
                         />
                     </ErrorBoundary>
                 </div>
-
-                <template v-else>
-                    <!-- Desktop: the stage region (lg+) — the B3 plate (+40ms). -->
-                    <div
-                        class="pane-wrapper pane-wrapper--left pane-wrapper--stage w-full min-w-0 min-h-0 h-full flex-col justify-center"
-                        role="region"
-                        :aria-label="currentConfig.leftLabel"
-                    >
-                        <ErrorBoundary>
-                            <PaneSlot
-                                :component="desktopLeft.component"
-                                :component-key="desktopLeft.key"
-                                :component-props="desktopLeft.props"
-                                :on-mount="bindPane('left')"
-                                :transition-name="
-                                    viewManager.ready.value ? 'vj-enter' : ''
-                                "
-                                :max="PANE_CACHE_MAX.left"
-                                appear
-                                :on-appeared="
-                                    (el: Element | null) =>
-                                        overture.noteLeftPlateSettled(el)
-                                "
-                            />
-                        </ErrorBoundary>
-                    </div>
-
-                    <!-- Desktop: the inspector region (lg+) — always in DOM to
-                     preserve KeepAlive scroll position. W2-3: the right plate
-                     (+120ms) arrives through the SAME appear grammar — the
-                     About pop dies (LS-4); a late chunk materializes through
-                     the same land on resolution (work defers, appearance
-                     composes). -->
-                    <div
-                        class="pane-wrapper pane-wrapper--right pane-wrapper--inspector w-full min-w-0 min-h-0 h-full transition-opacity duration-200"
-                        :class="
-                            currentConfig.right === null ? 'pane-wrapper--ghost' : ''
-                        "
-                        role="region"
-                        :aria-label="currentConfig.rightLabel ?? undefined"
-                        :aria-hidden="currentConfig.right === null ? 'true' : undefined"
-                    >
-                        <ErrorBoundary>
-                            <PaneSlot
-                                :component="desktopRight.component"
-                                :component-key="desktopRight.key"
-                                :component-props="desktopRight.props"
-                                :on-mount="bindPane('right')"
-                                :transition-name="
-                                    viewManager.ready.value ? 'vj-enter' : ''
-                                "
-                                :max="PANE_CACHE_MAX.right"
-                                appear
-                                :on-appeared="() => overture.noteRightPlateSettled()"
-                            />
-                        </ErrorBoundary>
-                    </div>
-                </template>
             </div>
         </main>
     </div>
@@ -260,8 +204,9 @@ import {
     usePaneRouter,
     readScenePaneTarget,
     PANE_CACHE_MAX,
-    type PaneSlotId,
+    ROLE_PANES,
 } from "../shell/usePaneRouter";
+import type { RegionRole } from "../shell/viewSchema";
 import type {
     ScenePane,
     ScenePaneTargetMap,
@@ -269,7 +214,6 @@ import type {
 } from "../color-session/keys";
 import { usePaletteWiring } from "./composables/usePaletteWiring";
 import { useClipboard } from "@mkbabb/glass-ui";
-import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 import { useAtmosphereBoot } from "./composables/boot/useAtmosphereBoot";
 import { resolveHydratedBootModel } from "./composables/boot/hydrate";
 import { useOverture, OVERTURE_KEY } from "./composables/boot/useOverture";
@@ -371,14 +315,16 @@ const { prmInstant, dockRevealed, onDockMorphSettled, onDockLandEnd } = useDockA
     overture,
 );
 
-// X6: the desktop dual-pane breakpoint (Tailwind `lg` = 1024px), now guarded
-// by the aspect law (R.W3 Lane A / A4): a portrait tablet ≥ 1024px wide runs
-// the single-slot mobile grammar — the JS mount condition and the CSS dual
-// grid share one compound query, so they can never disagree. Drives the
-// single-mount v-if so only one breakpoint's pane slots are live at a time.
-const { matches: isDesktop } = useBreakpoint(
-    "(min-width: 1024px) and (min-aspect-ratio: 1.1)",
-);
+// X.W5.c · gate C3 — the compound breakpoint predicate that drove the
+// single-mount v-if (min-width 1024px AND min-aspect-ratio 1.1, read through
+// the producer's breakpoint composable) is DELETED. Its own comment argued
+// that sharing one compound query between the JS mount condition and the CSS
+// dual grid meant "they can never disagree" — true, and beside the point: the
+// two agreed perfectly on amputating a region. ⟨Dock DELTA-5 / G-L⟩'s second
+// predicate (a bare min-width 1024px media query in Dock.vue) is the OTHER
+// half of that disagreement and is X-W8's by name; C3 may not close while G-L
+// is RED. The retired spellings are quoted once in the wave record, so C3's
+// census reads zero in this file and means it.
 
 // --- Scene-target registry (X-W4 · CC-043) ---
 // ONE typed registry replaces the three `ref<any>` pane-instance refs the dock
@@ -391,6 +337,13 @@ const scenePanes = shallowRef<ScenePaneTargets>({
     gradient: null,
     mix: null,
 });
+
+/** The scenes whose pane exposes commands. Keys of the registry above. */
+const SCENE_PANES = [
+    "generate",
+    "gradient",
+    "mix",
+] as const satisfies readonly ScenePane[];
 
 /** The picker instance, read back from the slot's mount report. */
 function readColorPicker(instance: unknown): InstanceType<typeof ColorPicker> | null {
@@ -494,46 +447,44 @@ function foldColorPickerReport(
  * three seats (`usePaneRouter`), and which were structurally dead below the
  * breakpoint because the mobile slot passed no mount report at all.
  */
-function onPaneMount(slot: PaneSlotId, instance: unknown, key: string) {
-    if (slot === "left") {
+function onPaneMount(role: RegionRole, instance: unknown, key: string) {
+    // What this ROLE can ever seat, derived from the scene table. A report is
+    // only evidence about a scene the reporting seat could be showing — which
+    // is what the retired `slot === "left"` / `slot === "right"` string tests
+    // were approximating by hand, one physical side at a time.
+    const seats = ROLE_PANES[role];
+    if (seats.has("color-picker")) {
         colorPickerRef.value = foldColorPickerReport(key === "color-picker", instance);
-        publishScenePanes({
-            ...scenePanes.value,
-            generate: foldSceneReport("generate", key === "generate", instance),
-            gradient: foldSceneReport("gradient", key === "gradient", instance),
-        });
-        return;
     }
-    if (slot === "right") {
-        publishScenePanes({
-            ...scenePanes.value,
-            mix: foldSceneReport("mix", key === "mix", instance),
-        });
-    }
+    const read = <S extends ScenePane>(scene: S): ScenePaneTargetMap[S] | null =>
+        seats.has(scene)
+            ? foldSceneReport(scene, key === scene, instance)
+            : scenePanes.value[scene];
+    publishScenePanes({
+        generate: read("generate"),
+        gradient: read("gradient"),
+        mix: read("mix"),
+    });
 }
 
 // --- Pane routing — one source of truth: mobile single-slot, the two desktop
 //     slots, and the ONE scene action set all derive from one route table. ---
-const {
-    mobile,
-    desktopLeft,
-    desktopRight,
-    sceneActions,
-    bindPane,
-    commitEdit,
-    cancelEdit,
-} = usePaneRouter(viewManager, model, {
-    cssColor: () => cssColor.value,
-    savedColorStrings: () => savedColorStrings.value,
-    colorSceneTarget: () => colorPickerRef.value?.sceneActionTarget ?? null,
-    scenePanes: () => scenePanes.value,
-    onPaneMount,
-    onEditTargetChange,
-    resetToDefaults,
-    updateModel: (v: ColorModel) => {
-        model.value = v;
+const { regions, sceneActions, bindPane, commitEdit, cancelEdit } = usePaneRouter(
+    viewManager,
+    model,
+    {
+        cssColor: () => cssColor.value,
+        savedColorStrings: () => savedColorStrings.value,
+        colorSceneTarget: () => colorPickerRef.value?.sceneActionTarget ?? null,
+        scenePanes: () => scenePanes.value,
+        onPaneMount,
+        onEditTargetChange,
+        resetToDefaults,
+        updateModel: (v: ColorModel) => {
+            model.value = v;
+        },
     },
-});
+);
 
 // --- The route's voice (gates A5 / A7) ---
 // The H1 above speaks `VIEW_MAP[currentView].label`; `<main>` is named BY it;
@@ -556,12 +507,10 @@ watch(
     { immediate: true },
 );
 
-/** The mobile region's name: the single slot IS whichever pane it shows. */
-const mobileRegionLabel = computed(() =>
-    viewManager.mobilePaneIndex.value === 1 && currentConfig.value.rightLabel !== null
-        ? currentConfig.value.rightLabel
-        : currentConfig.value.leftLabel,
-);
+// X.W5.c — the mobile region's computed NAME is gone. It existed because one
+// slot wore two identities depending on a pane index; a region now carries its
+// own `label` off the schema (⟨PSC-12⟩: pane-without-label is unrepresentable),
+// so the name is read where the region is rendered and nowhere else.
 
 // --- Palette manager ---
 const paletteManager = usePaletteWiring(
@@ -647,17 +596,13 @@ onMounted(() => {
     --overture-appear-delay: var(--overture-right-delay);
 }
 
-/* Ghost pane: always in DOM to preserve scroll-timeline state, but invisible
-   and non-interactive. content-visibility:auto (W3-4) additionally drops the
-   parked subtree from layout + paint while it sits ghosted — the KeepAlive
-   scroll state is preserved, the render cost is not paid. */
-.pane-wrapper--ghost {
-    visibility: hidden;
-    position: absolute;
-    pointer-events: none;
-    opacity: 0;
-    content-visibility: auto;
-}
+/* X.W5.c — the GHOST pane is gone. It was the desktop-right wrapper rendered
+   for a view that has no companion: always in the DOM, `visibility:hidden;
+   position:absolute; opacity:0`, flipped off the INCOMING config at the START
+   of a dual→single swap so the departing pane was hidden and absolutized
+   mid-leave and the slide distance doubled (fold W5F-06). `regions[]` has no
+   empty member — a scene with one region renders one region — so the state the
+   ghost existed to paint is no longer representable. */
 </style>
 
 <!-- Global grammar homes (the W2-close PP-8 cap cure — moves, not removals):

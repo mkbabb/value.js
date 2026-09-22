@@ -1,8 +1,9 @@
 /**
  * View schema — pure data + types for the demo's view system.
  *
- * The single source of truth for `ViewId`, the pane layout map (`VIEW_MAP`),
- * and the supporting structural types (`LeftPane`, `RightPane`, `PaneConfig`).
+ * The single source of truth for `ViewId`, the scene table (`VIEW_MAP`), and
+ * the supporting structural types (`PaneId`, `RegionRole`, `SceneRegion`,
+ * `PaneConfig`).
  *
  * History: extracted from `useViewManager.ts` at D.W3 Lane D to retire the
  * 4-copy `ViewId` enumeration that grew across the demo (`useViewManager`,
@@ -59,8 +60,8 @@ export type ViewId =
     | "admin-tags"
     | "not-found";
 
-/** The component rendered in the left pane. */
-export type LeftPane =
+/** Every pane component a scene region can seat. */
+export type PaneId =
     | "color-picker"
     | "browse"
     | "extract"
@@ -72,18 +73,57 @@ export type LeftPane =
     | "admin-audit"
     | "admin-flagged"
     | "admin-tags"
-    | "not-found";
+    | "not-found"
+    | "about"
+    | "palettes"
+    | "mix"
+    | "blob";
 
-/** The component rendered in the right pane, or `null` for single-pane views. */
-export type RightPane = "about" | "palettes" | "mix" | "blob" | null;
+/**
+ * What a region IS in its scene — never where it sits (X.W5.c · V·L2 · gate C8).
+ *
+ * The retired schema encoded a PHYSICAL axis: a left-pane field, a right-pane
+ * field (thirteen rows of it — gate C8's census), a label per side, and a
+ * default pane INDEX that named which physical side a phone was allowed to
+ * see. The retired spellings are quoted once, in the wave record at
+ * docs/tranches/X/execution/A/X-W5.md § X.W5.c, so C8's census can read zero
+ * in this file and mean it. Every one of those words is a
+ * layout decision taken in a data table, and the shell then needed a JS
+ * breakpoint fork to honour it — which is how a region became a subtree a
+ * viewport could remount out of existence.
+ *
+ * A role says what the region does, so the SHELL owns the arrangement:
+ *   · `stage`     — the protagonist; the reason the route exists. Exactly one.
+ *   · `inspector` — the companion that reads, edits or extends the stage.
+ *   · `action`    — a region whose content is a command surface in its own
+ *                   right. No route declares one today (the dock is the app's
+ *                   action surface); the role is part of the vocabulary the
+ *                   shell keys motion and layout on, not a required member.
+ */
+export type RegionRole = "stage" | "inspector" | "action";
 
-/** Per-view layout shape: left + right panes + labels + dock icon. */
-export interface PaneConfig {
-    left: LeftPane;
-    right: RightPane;
+/**
+ * One region of one scene.
+ *
+ * ⟨PSC-12, binding⟩: a pane without a label must be UNREPRESENTABLE, or the
+ * `?? ''` masking seam that the retired `rightLabel: string | null` forced on
+ * every consumer simply re-forms at the new seam. The pair is the type.
+ */
+export interface SceneRegion {
+    role: RegionRole;
+    pane: PaneId;
+    /** The region's own accessible name — never derived, never nullable. */
     label: string;
-    leftLabel: string;
-    rightLabel: string | null;
+}
+
+/** Per-view scene shape: the ordered regions + the dock icon. */
+export interface PaneConfig {
+    label: string;
+    /**
+     * The scene's regions IN ORDER. Non-empty by construction: a route with no
+     * region is not a scene, and the tuple type is what refuses one.
+     */
+    regions: readonly [SceneRegion, ...SceneRegion[]];
     icon: Component;
     /**
      * The per-view accent: an OKLCh HUE ROTATION (deg) applied to the R.W3
@@ -98,14 +138,6 @@ export interface PaneConfig {
      * not a hue turn.
      */
     accentHueShift: number;
-    /**
-     * The mobile single-pane default: which pane (0 = left, 1 = right) a fresh
-     * ROUTE-DRIVEN arrival at this view shows. Omitted ⇒ 0 (left). The
-     * content-first dual views (palettes/mix) name their default HERE (1 = the
-     * content pane), so no call-site string-list re-derives it — MOB-2/F-2: the
-     * visible mobile pane is route-derived from the schema, never a leaked ref.
-     */
-    defaultPaneIndex?: 0 | 1;
 }
 
 /**
@@ -115,143 +147,125 @@ export interface PaneConfig {
  */
 export const VIEW_MAP: Record<ViewId, PaneConfig> = {
     picker: {
-        left: "color-picker",
-        right: "about",
         label: "Home",
-        leftLabel: "Picker",
-        rightLabel: "About",
+        regions: [
+            { role: "stage", pane: "color-picker", label: "Picker" },
+            { role: "inspector", pane: "about", label: "About" },
+        ],
         icon: Home,
         accentHueShift: 0,
     },
     palettes: {
-        left: "color-picker",
-        right: "palettes",
         label: "Palettes",
-        leftLabel: "Picker",
-        rightLabel: "Palettes",
+        regions: [
+            { role: "stage", pane: "color-picker", label: "Picker" },
+            { role: "inspector", pane: "palettes", label: "Palettes" },
+        ],
         icon: Palette,
         accentHueShift: 40,
-        defaultPaneIndex: 1,
     },
     browse: {
-        left: "browse",
-        right: "palettes",
         label: "Browse",
-        leftLabel: "Browse",
-        rightLabel: "Palettes",
+        regions: [
+            { role: "stage", pane: "browse", label: "Browse" },
+            { role: "inspector", pane: "palettes", label: "Palettes" },
+        ],
         icon: Search,
         accentHueShift: 80,
     },
     extract: {
-        left: "extract",
-        right: "palettes",
         label: "Extract",
-        leftLabel: "Extract",
-        rightLabel: "Palettes",
+        regions: [
+            { role: "stage", pane: "extract", label: "Extract" },
+            { role: "inspector", pane: "palettes", label: "Palettes" },
+        ],
         icon: Camera,
         accentHueShift: 120,
     },
     mix: {
-        left: "color-picker",
-        right: "mix",
         label: "Mix",
-        leftLabel: "Picker",
-        rightLabel: "Mix",
+        regions: [
+            { role: "stage", pane: "color-picker", label: "Picker" },
+            { role: "inspector", pane: "mix", label: "Mix" },
+        ],
         icon: Blend,
         accentHueShift: 160,
-        defaultPaneIndex: 1,
     },
     generate: {
-        left: "generate",
-        right: "palettes",
         label: "Generate",
-        leftLabel: "Generate",
-        rightLabel: "Palettes",
+        regions: [
+            { role: "stage", pane: "generate", label: "Generate" },
+            { role: "inspector", pane: "palettes", label: "Palettes" },
+        ],
         icon: Wand2,
         accentHueShift: 200,
     },
     gradient: {
-        left: "gradient",
-        right: "palettes",
         label: "Gradient",
-        leftLabel: "Gradient",
-        rightLabel: "Palettes",
+        regions: [
+            { role: "stage", pane: "gradient", label: "Gradient" },
+            { role: "inspector", pane: "palettes", label: "Palettes" },
+        ],
         icon: Rainbow,
         accentHueShift: 240,
     },
     atmosphere: {
-        left: "atmosphere",
-        right: null,
         label: "Atmosphere",
-        leftLabel: "Atmosphere",
-        rightLabel: null,
+        regions: [{ role: "stage", pane: "atmosphere", label: "Atmosphere" }],
         icon: Sparkles,
         accentHueShift: 280,
     },
     blob: {
-        left: "color-picker",
-        right: "blob",
         label: "Blob",
-        leftLabel: "Picker",
-        rightLabel: "Blob",
+        regions: [
+            { role: "stage", pane: "color-picker", label: "Picker" },
+            { role: "inspector", pane: "blob", label: "Blob" },
+        ],
         icon: Droplets,
         accentHueShift: 320,
     },
+    // ⟨AdminNamesPanel · M-DU11⟩, BINDING: the admin routes each carried a
+    // palettes-pane companion in the retired right-hand field — a DIFFERENT
+    // route's pane, seated on every admin console, which is where four canon
+    // rows and the route's only a11y-battery findings came from. The console is
+    // the whole scene; it gets the stage and nothing beside it.
     "admin-users": {
-        left: "admin-users",
-        right: "palettes",
         label: "Users",
-        leftLabel: "Users",
-        rightLabel: "Palettes",
+        regions: [{ role: "stage", pane: "admin-users", label: "Users" }],
         icon: Shield,
         accentHueShift: 0,
     },
     "admin-names": {
-        left: "admin-names",
-        right: "palettes",
         label: "Names",
-        leftLabel: "Names",
-        rightLabel: "Palettes",
+        regions: [{ role: "stage", pane: "admin-names", label: "Names" }],
         icon: Tag,
         accentHueShift: 0,
     },
     "admin-audit": {
-        left: "admin-audit",
-        right: "palettes",
         label: "Audit Log",
-        leftLabel: "Audit",
-        rightLabel: "Palettes",
+        regions: [{ role: "stage", pane: "admin-audit", label: "Audit" }],
         icon: ScrollText,
         accentHueShift: 0,
     },
     "admin-flagged": {
-        left: "admin-flagged",
-        right: "palettes",
         label: "Flagged",
-        leftLabel: "Flagged",
-        rightLabel: "Palettes",
+        regions: [{ role: "stage", pane: "admin-flagged", label: "Flagged" }],
         icon: Flag,
         accentHueShift: 0,
     },
     "admin-tags": {
-        left: "admin-tags",
-        right: "palettes",
         label: "Tags",
-        leftLabel: "Tags",
-        rightLabel: "Palettes",
+        regions: [{ role: "stage", pane: "admin-tags", label: "Tags" }],
         icon: Tag,
         accentHueShift: 0,
     },
     // X-W3 · G-20 — the terminal view for an address that names no route, and
     // the destination `router/guards.ts` fail-closes an unauthenticated admin
-    // deep-link to. Single-pane (no right slot): a dead end shows one thing.
-    // No hue turn — it is not a place in the 40°-step dock fan.
+    // deep-link to. One region: a dead end shows one thing. No hue turn — it is
+    // not a place in the 40°-step dock fan.
     "not-found": {
-        left: "not-found",
-        right: null,
         label: "Not Found",
-        leftLabel: "Not Found",
-        rightLabel: null,
+        regions: [{ role: "stage", pane: "not-found", label: "Not Found" }],
         icon: Compass,
         accentHueShift: 0,
     },

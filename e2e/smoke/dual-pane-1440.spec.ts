@@ -1,46 +1,51 @@
 /**
- * R.W2.4 — the in-tree 1440 dual-pane CSSOM probe (D8-1 gate split).
+ * R.W2.4 — the in-tree 1440 region CSSOM probe (D8-1 gate split), RE-POINTED
+ * at X.W5.c.
  *
- * The SHIM oracle, re-authored in-tree (the discarded `.w6a-audit*.mjs` scratch
- * never returns as tracked source). This probe records, on the live built-graph
- * demo at the 1440 dual-pane viewport, TWO facts and the causal link between
- * them:
+ * ── WHAT THIS PROBE WAS, AND WHY IT COULD NOT STAY ──────────────────────────
+ * It recorded a DEFECT and its cascade root: both desktop `.pane-wrapper`s
+ * carried `hidden lg:flex` / `hidden lg:block`, and glass-ui's build-emitted
+ * UNLAYERED `@import "./components.css"` pulled in a bare
+ * `.hidden{display:none}` that — being unlayered — beat the demo's LAYERED
+ * responsive `lg:flex`/`lg:block` (css-cascade-5), so the dual pane rendered
+ * blank at 1440. Its defect branch asserted `visibleCount < 2`, refuted a
+ * demo-side layered cure, and proved that only `display:flex !important`
+ * out-shouted the foreign rule.
  *
- *   1 · the DEFECT (runtime): both desktop `.pane-wrapper`s
- *       (`App.vue` — `hidden lg:flex` / `hidden lg:block`) compute
- *       `display:none` at 1440, so the desktop dual-pane is blank.
+ * Every one of those assertions was about a mechanism the demo no longer uses.
+ * `App.vue` renders the scene's `regions[]` once, with no display utility and
+ * no breakpoint predicate anywhere on the wrapper; the `[data-layout]` display
+ * witnesses that replaced `lg:*` at T round-4 went with the fork at X.W5.c. A
+ * pane's visibility is not decided by a `display` cascade at all any more, so
+ * the old defect branch would fail for the RIGHT reason — which is not a thing
+ * a probe may do silently.
  *
- *   2 · the CASCADE ROOT (source): glass-ui's build-emitted, UNLAYERED
- *       `@import "./components.css"` (`dist/styles/index.css:266` — the NEW
- *       site after the 15:10 producer rebuild moved `/styles` onto the emitted
- *       tree) pulls in bare Tailwind utilities whose `.hidden{display:none}` —
- *       being UNLAYERED — beats the demo's LAYERED responsive `lg:flex`/
- *       `lg:block` (css-cascade-5: an unlayered rule wins over every `@layer`'d
- *       rule regardless of specificity).
+ * ── WHAT IT IS NOW: the IMMUNITY probe, same two halves ─────────────────────
+ *   1 · the RUNTIME half — at 1440 every region of the scene is mounted AND
+ *       visible with NO shim, and no `.pane-wrapper` carries a `hidden` or
+ *       `lg:*` display utility. The second clause is the load-bearing one: it
+ *       is what makes the first clause structural rather than lucky. A future
+ *       seat that re-introduces a responsive display utility on a pane wrapper
+ *       re-enters the D8-1 blast radius, and this assertion is what says so.
+ *   2 · the SOURCE half — the producer's cascade state is still READ and still
+ *       RECORDED (layered vs unlayered import, the bare `.hidden`, the import
+ *       site, the live CSSOM's layer context for every `.hidden` rule). D8-1 is
+ *       a producer book and this is still its verify-at-consume instrument;
+ *       what changed is that the demo's PANE AXIS no longer depends on the
+ *       answer, so the reading is recorded as evidence and is no longer allowed
+ *       to gate the render assertion.
  *
- * DEFECT-TOLERANT BY CONSTRUCTION (the re-authoring, R.W2 completion lane): the
- * probe never waits on the `role="main"` landmark — the defect COLLAPSES it
- * (the bare `.hidden` white-screens the demo at ≥ lg), so a landmark wait times
- * out exactly when the defect is present (the failure the prior probe hit). It
- * instead waits on the Vue mount signal that SURVIVES the collapse (`#app` has
- * children + the dock renders), then walks the live `document.styleSheets` CSSOM
- * to record the `.hidden` rule's layer context and the winning stylesheet href.
- * It records TRUTH in BOTH worlds:
- *   - DEFECT-PRESENT → records the defect (visibleCount < 2), the unlayered root
- *     (the `:266` site), and the SHIM/REFUTE oracle.
- *   - DEFECT-CURED  → records visibleCount 2 with NO `!important` shim (the D8-1
- *     verify-at-consume instrument firing early).
+ * DEFECT-TOLERANT BY CONSTRUCTION (kept from the re-authoring): the probe never
+ * waits on the `role="main"` landmark — a cascade collapse of that class takes
+ * the landmark with it, so a landmark wait times out exactly when something is
+ * wrong. It waits on the Vue mount signal that survives (`#app` has children +
+ * the dock renders) and then measures.
  *
  * GATE SPLIT (per `dispatch-homes.md B.2` / `SYNTHESIS-v2.md §3 R.W2`):
- *   - INTERNAL (this probe, blocks R.W2): the defect + its cascade root are
- *     confirmed in-tree. R.W2 confirms the defect; it does NOT own the cure.
- *   - EXTERNAL (BOOKED, D8-1): the no-shim render gate retires when glass-ui's
- *     `layer(components)` dist lands. This probe VERIFIES-AT-CONSUME.
- *
- * The probe therefore always passes on a COHERENT substrate; it FAILS only if
- * the source root and the runtime effect disagree (an unlayered root that does
- * NOT annihilate, or a layered root that does NOT render) — i.e. if the
- * cascade-root attribution is refuted (a §Triumvirate condition).
+ *   - INTERNAL (this probe): the regions render, and the pane axis is immune by
+ *     construction to the foreign-utility cascade.
+ *   - EXTERNAL (BOOKED, D8-1): the producer's `layer(components)` cure is still
+ *     owed and is still read here at every run.
  */
 import { readFileSync, existsSync } from "node:fs";
 import { dirname, resolve } from "node:path";
@@ -53,10 +58,7 @@ import { expect, test, type Page } from "@playwright/test";
 test.use({ viewport: { width: 1440, height: 900 } });
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-const GLASS_STYLES = resolve(
-    HERE,
-    "../../node_modules/@mkbabb/glass-ui/dist/styles",
-);
+const GLASS_STYLES = resolve(HERE, "../../node_modules/@mkbabb/glass-ui/dist/styles");
 
 /** No-layer `@import "./components.css";` (the defect emission). */
 const UNLAYERED_IMPORT = /@import\s+"\.\/components\.css"\s*;/;
@@ -84,14 +86,9 @@ interface CascadeRoot {
  */
 function readCascadeRoot(): CascadeRoot {
     const index = readFileSync(resolve(GLASS_STYLES, "index.css"), "utf8");
-    const components = readFileSync(
-        resolve(GLASS_STYLES, "components.css"),
-        "utf8",
-    );
+    const components = readFileSync(resolve(GLASS_STYLES, "components.css"), "utf8");
     const deferredPath = resolve(GLASS_STYLES, "deferred.css");
-    const deferred = existsSync(deferredPath)
-        ? readFileSync(deferredPath, "utf8")
-        : "";
+    const deferred = existsSync(deferredPath) ? readFileSync(deferredPath, "utf8") : "";
 
     const importLineIdx = index
         .split("\n")
@@ -113,19 +110,37 @@ interface PaneMeasure {
     count: number;
     displays: string[];
     visible: number;
+    /** Tailwind display utilities found on the region wrappers — must be []. */
+    displayUtilities: string[];
+    /** Each region's accessible name, straight off the schema. */
+    roles: (string | null)[];
 }
 
-/** Read the RUNTIME half: computed `display` of every `.pane-wrapper`. */
+/**
+ * Read the RUNTIME half: computed `display` of every region wrapper, plus the
+ * display utilities each one carries.
+ *
+ * `displayUtilities` is the immunity reading. The D8-1 blast radius is exactly
+ * "a demo element whose visibility is decided by a Tailwind display utility a
+ * foreign unlayered rule can out-rank"; a region wrapper that carries none is
+ * outside it, whatever the producer emits.
+ */
 function measurePanes(page: Page): Promise<PaneMeasure> {
     return page.evaluate(() => {
         const wrappers = Array.from(
             document.querySelectorAll<HTMLElement>(".pane-wrapper"),
         );
         const displays = wrappers.map((el) => getComputedStyle(el).display);
+        const DISPLAY_UTILITY =
+            /^(?:(?:sm|md|lg|xl|2xl):)?(?:hidden|block|flex|grid|inline|inline-block|inline-flex|contents|table)$/;
         return {
             count: wrappers.length,
             displays,
             visible: displays.filter((d) => d !== "none").length,
+            displayUtilities: wrappers.flatMap((el) =>
+                el.className.split(/\s+/).filter((c) => DISPLAY_UTILITY.test(c)),
+            ),
+            roles: wrappers.map((el) => el.getAttribute("aria-label")),
         };
     });
 }
@@ -230,7 +245,7 @@ function walkCssom(page: Page): Promise<CssomWalk> {
     });
 }
 
-test("D8-1 · dual-pane at 1440 — defect + cascade root confirmed in-tree", async ({
+test("D8-1 · regions at 1440 — both render, and the pane axis is cascade-immune", async ({
     page,
 }, testInfo) => {
     const root = readCascadeRoot();
@@ -254,16 +269,17 @@ test("D8-1 · dual-pane at 1440 — defect + cascade root confirmed in-tree", as
         .first()
         .waitFor({ state: "attached", timeout: 30_000 });
 
-    // Both desktop pane-wrappers must exist in the DOM (they are display-toggled,
-    // never v-if'd off at ≥ lg) — the probe measures COMPUTED display, not class
-    // presence (emission ≠ effect; the P9 second life).
+    // Both of the default scene's regions must exist in the DOM. They are not
+    // display-toggled and never were v-if'd off by a breakpoint after X.W5.c —
+    // the probe measures COMPUTED display, not class presence (emission ≠
+    // effect; the P9 second life).
     const baseline = await measurePanes(page);
     expect(baseline.count).toBe(2);
 
     const cssom = await walkCssom(page);
 
     const record: Record<string, unknown> = {
-        probe: "R.W2.4 dual-pane-1440",
+        probe: "R.W2.4 regions-1440 (re-pointed X.W5.c)",
         viewport: "1440×900",
         cascadeRoot: root,
         importSiteCite: `dist/styles/index.css:${root.importSite ?? "?"}`,
@@ -271,74 +287,39 @@ test("D8-1 · dual-pane at 1440 — defect + cascade root confirmed in-tree", as
         baseline,
     };
 
-    const rootIsUnlayered =
-        root.indexUnlayered && root.componentsHasBareHidden;
+    // ── THE RUNTIME HALF — both regions render, with no shim of any kind ──
+    expect(
+        baseline.visible,
+        "every region of the scene must render at 1440 — no shim, no !important",
+    ).toBe(2);
+
+    // ── THE IMMUNITY HALF — and they render because nothing decides it ──
+    // A region wrapper carrying `hidden`/`lg:flex`/`lg:block` is back inside
+    // D8-1's blast radius: an unlayered foreign `.hidden` out-ranks every
+    // layered responsive utility regardless of specificity, which is precisely
+    // how the dual pane went blank. Zero is the assertion.
+    expect(
+        baseline.displayUtilities,
+        "no region wrapper may carry a display utility — that is what made the pane axis cascade-dependent",
+    ).toEqual([]);
+
+    // ── THE SOURCE HALF — recorded, never gating ──
+    // D8-1 is a PRODUCER book and stays open until `layer(components)` lands.
+    // The reading is taken at every run so the day it lands is dated; it no
+    // longer decides what this test asserts about the demo, because the demo's
+    // pane axis no longer depends on the answer.
+    const rootIsUnlayered = root.indexUnlayered && root.componentsHasBareHidden;
     const rootIsLayered = root.indexLayered && !root.indexUnlayered;
-
-    if (rootIsUnlayered) {
-        // ── DEFECT-PRESENT branch (the pre-cure substrate) ──
-        // The unlayered `.hidden` annihilates the layered `lg:flex`/`lg:block`.
-        expect(
-            baseline.visible,
-            "unlayered glass-ui .hidden must annihilate the layered lg:flex — desktop blank",
-        ).toBeLessThan(2);
-
-        // The CSSOM must corroborate the SOURCE: an unlayered `.hidden` exists.
-        expect(
-            cssom.anyUnlayeredHidden,
-            "the CSSOM walk must find an UNLAYERED .hidden (the runtime confirmation of the unlayered @import root)",
-        ).toBe(true);
-
-        // REFUTE: a demo-side LAYERED cure does not restore the panes (it loses
-        // to the unlayered rule) — this is why the cure is producer-owned.
-        await page.addStyleTag({
-            content:
-                "@layer r-w2-probe-refute { .pane-wrapper { display: flex; } }",
-        });
-        const refuted = await measurePanes(page);
-        record.refutedByLayeredCure = refuted;
-        expect(
-            refuted.visible,
-            "a demo-side LAYERED cure must REFUTE — layered loses to unlayered",
-        ).toBeLessThan(2);
-
-        // SHIM oracle: only `display:flex !important` out-shouts the unlayered
-        // rule (the historical w6a technique — the only thing that renders both
-        // panes today).
-        await page.addStyleTag({
-            content: ".pane-wrapper { display: flex !important; }",
-        });
-        const shimmed = await measurePanes(page);
-        record.renderedByImportantShim = shimmed;
-        expect(
-            shimmed.visible,
-            "the !important shim is the ONLY thing that renders both panes",
-        ).toBe(2);
-
-        record.verdict = "DEFECT_CONFIRMED";
-        record.note =
-            "D8-1 defect + cascade root confirmed in-tree (unlayered @import at " +
-            `dist/styles/index.css:${root.importSite ?? "?"}); no-shim render gate stays EXTERNAL-booked (glass-ui layer(components) producer cure).`;
-    } else if (rootIsLayered) {
-        // ── CURE-OBSERVED branch (D8-1 verify-at-consume fired early) ──
-        // The producer's `layer(components)` cure has landed in the resolved
-        // `file:` dist — the foreign `.hidden` is now layered and outranked, so
-        // the panes render with NO shim.
-        expect(
-            baseline.visible,
-            "layered components import — both panes must render with no shim (no !important)",
-        ).toBe(2);
-
-        record.verdict = "CURE_OBSERVED";
-        record.note =
-            "glass-ui layer(components) cure present in dist — D8-1 no-shim render book verified at consume (visibleCount 2, no !important; retire the w6a shim knowledge from the gate wording).";
-    } else {
-        throw new Error(
-            `Incoherent cascade state — attribution refuted (a §Triumvirate condition). Root: ${JSON.stringify(
-                root,
-            )}`,
-        );
-    }
+    record.d8_1 = rootIsUnlayered
+        ? "PRODUCER-DEFECT-PRESENT (unlayered @import + bare .hidden) — demo pane axis IMMUNE by construction since X.W5.c"
+        : rootIsLayered
+          ? "PRODUCER-CURE-OBSERVED (layer(components) present in dist) — D8-1 verified at consume"
+          : "PRODUCER-STATE-INDETERMINATE — neither a clean unlayered nor a clean layered import";
+    record.anyUnlayeredHidden = cssom.anyUnlayeredHidden;
+    record.verdict = "REGIONS_RENDER_CASCADE_IMMUNE";
+    record.note =
+        `Both regions render at 1440 with zero display utilities on the wrappers. Producer state: ${String(record.d8_1)} ` +
+        `(import at dist/styles/index.css:${root.importSite ?? "?"}).`;
 
     const json = JSON.stringify(record, null, 2);
     console.log(`[dual-pane-1440] ${json}`);

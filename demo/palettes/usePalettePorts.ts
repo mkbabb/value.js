@@ -16,6 +16,7 @@ import { useAdminFlagged } from "./useAdminFlagged";
 import { useAdminTags } from "./useAdminTags";
 import { useVersionHistory } from "./useVersionHistory";
 import { useTagEdit } from "./useTagEdit";
+import type { ComputedRef } from "vue";
 import type { ViewId } from "../shell/useViewManager";
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -31,7 +32,14 @@ import type { ViewId } from "../shell/useViewManager";
 // ─────────────────────────────────────────────────────────────────────────────
 
 export interface PalettePortsDeps {
-    currentView: Ref<ViewId>;
+    /**
+     * X.W5.c · gate N2 — a READ-ONLY view identity, typed as the computed it
+     * is. `useViewManager` used to hand this across as
+     * `currentView as unknown as Ref<ViewId>` (⟨PSC-15(b)⟩), advertising a
+     * read-only computed as writable; a consumer could type-check a write Vue
+     * then silently dropped.
+     */
+    currentView: ComputedRef<ViewId>;
     switchView: (id: ViewId) => void;
     savedColorStrings: Ref<string[]>;
     emitApply: (colors: string[]) => void;
@@ -75,17 +83,39 @@ export function providePalettePorts(deps: PalettePortsDeps) {
     const versions = useVersionHistory();
     const tagEdit = useTagEdit();
 
+    const ensureSession = async () => {
+        await session.ensureSession();
+    };
+
     // --- Slug migration ---
+    //
+    // X.W5.c · gate N2 — THE TWO CASTS ARE GONE. The first widened a writable,
+    // invariant `Ref<ViewId>` to `Ref<string>`; the second was a setter that
+    // took an arbitrary string and narrowed it straight back into the view
+    // union, unchecked, with no guard — while the correct predicate
+    // (`isViewId`) already shipped and was already used on the route→state
+    // leg. Between them they defeated the type system at exactly the seam where the
+    // composable then set a tab name that no route and no `ViewId` carries, and
+    // the named push it reached threw SYNCHRONOUSLY out of vue-router's
+    // resolve. (The retired literal is quoted once, in the wave record at
+    // docs/tranches/X/execution/A/X-W5.md § X.W5.c, so the call-site census
+    // reads zero in this tree and means it — a source comment that quotes the
+    // defect is a source comment that keeps the census RED forever.) Three
+    // live branches shipped
+    // through that hole: the admin switch never switched, a SUCCESSFUL
+    // user login was converted into a swallowed router error, and every
+    // palette migration reported failure after succeeding. Typed deps make the
+    // literal unspellable — `vue-tsc` is the enforcement, in all three places,
+    // for free (gate N2's own assertion; correcting the literal alone would
+    // have re-opened the hole on the next tab name).
     const migration = useSlugMigration({
         savedPalettes,
         userLogin,
-        userLogout,
         userRegenerate,
         adminLogin,
         clearUserSlug: clearSlug,
-        ensureUser,
-        activeTab: currentView as Ref<string>,
-        setActiveTab: (tab: string) => depsSwitchView(tab as ViewId),
+        ensureSession,
+        setActiveView: depsSwitchView,
     });
 
     // --- Palette actions (publish, edit, delete, expand) ---
@@ -112,10 +142,6 @@ export function providePalettePorts(deps: PalettePortsDeps) {
     const filteredSaved = useFilteredList(savedPalettes, searchQuery, (p, q) =>
         p.name.toLowerCase().includes(q) || p.slug.includes(q),
     );
-
-    const ensureSession = async () => {
-        await session.ensureSession();
-    };
 
     // --- Prune (bridges admin + panel ref) ---
     async function onPrune() {

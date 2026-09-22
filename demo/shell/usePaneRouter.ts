@@ -30,7 +30,13 @@ import { ColorPicker } from "../picker";
 import NotFoundPane from "../scenes/notfound/NotFoundPane.vue";
 import type { ColorModel, EditTarget } from "../color-session/color-model";
 import { VIEW_MAP } from "./viewSchema";
-import type { LeftPane, RightPane, ViewId, ViewManager } from "./useViewManager";
+import type {
+    PaneId,
+    RegionRole,
+    SceneRegion,
+    ViewId,
+    ViewManager,
+} from "./useViewManager";
 import type {
     ColorSceneTarget,
     SceneAction,
@@ -57,8 +63,9 @@ import {
     Camera,
 } from "@lucide/vue";
 
-/** The three seats a pane can be rendered in. */
-export type PaneSlotId = "mobile" | "left" | "right";
+// X.W5.c — the three SEATS (`"mobile" | "left" | "right"`) are gone with the
+// breakpoint fork that invented them. A seat is now a region ROLE, and the
+// schema names it: one scene, one ordered `regions[]`, one mount path.
 
 /**
  * The declared prop + listener surface of one single-file component.
@@ -127,33 +134,52 @@ export type PaneRenderProps =
  * same two-file directory, so the one module that renders slots from this
  * router's output could not import both under their own names.
  */
-export interface ResolvedPane {
-    component: Component | null;
-    key: string;
+export interface ResolvedRegion {
+    /** What this region IS in the scene (stage / inspector / action). */
+    role: RegionRole;
+    /** The region's own accessible name, straight off the schema. */
+    label: string;
+    component: Component;
+    key: PaneId;
     props: PaneRenderProps;
 }
 
 /**
- * The KeepAlive bound, DERIVED from the route table (gate **N7**).
+ * Which panes each region role can ever seat — DERIVED from the scene table.
  *
- * The three literals this replaces (`:max="9"` / `:max="6"` / `:max="4"`) were
- * hand-counted against a table in another file, and the LRU prunes the OLDEST
- * key on a miss — so an admin visit evicted the non-admin panes, the exact
- * inverse of what the comments beside them claimed. Counting the schema's own
- * distinct pane names means a route added tomorrow cannot silently re-break the
- * bound: correcting the literal would have fixed today and nothing else.
+ * Two consumers need it and neither may hand-count: the KeepAlive bound below,
+ * and App's mount-report fold, which must know what a seat could be showing to
+ * know that a report naming something else means "this seat no longer shows
+ * that pane". The retired code answered both with literals — `:max="9"` /
+ * `:max="6"` / `:max="4"` hand-counted against a table in another file, and a
+ * `slot === "left"` string test — so a route added tomorrow silently re-broke
+ * both.
  */
-export const PANE_CACHE_MAX: Record<PaneSlotId, number> = (() => {
-    const configs = Object.values(VIEW_MAP);
-    const left = new Set<string>(configs.map((c) => c.left));
-    const right = new Set<string>(
-        configs.map((c) => c.right).filter((r): r is Exclude<RightPane, null> => r !== null),
-    );
-    return {
-        left: left.size,
-        right: right.size,
-        mobile: new Set<string>([...left, ...right]).size,
+export const ROLE_PANES: Record<RegionRole, ReadonlySet<PaneId>> = (() => {
+    const acc: Record<RegionRole, Set<PaneId>> = {
+        stage: new Set(),
+        inspector: new Set(),
+        action: new Set(),
     };
+    for (const config of Object.values(VIEW_MAP)) {
+        for (const region of config.regions) acc[region.role].add(region.pane);
+    }
+    return acc;
+})();
+
+/**
+ * The KeepAlive bound, DERIVED from the scene table (gate **N7**).
+ *
+ * Counting the schema's own distinct pane names per role means a route added
+ * tomorrow cannot silently re-break the bound: correcting a literal would have
+ * fixed today and nothing else.
+ */
+export const PANE_CACHE_MAX: Record<RegionRole, number> = (() => {
+    const bound = { stage: 0, inspector: 0, action: 0 };
+    for (const role of Object.keys(bound) as RegionRole[]) {
+        bound[role] = ROLE_PANES[role].size;
+    }
+    return bound;
 })();
 
 // ── Component registry — one table, was duplicated across the two routers ──
@@ -186,16 +212,21 @@ const BlobPane = defineAsyncComponent(() => import("../scenes/blob/BlobPane.vue"
  * fail-OPEN default: a pane name the schema grew without a component here
  * silently rendered the picker, and `usePaneRouter.ts:80`'s own doc comment
  * ("`null` for an unknown name") contradicted it. The gate is STRUCTURAL rather
- * than runtime because the tail was also provably unreachable — both call sites
- * pass `currentConfig.value.left/right`, already typed `LeftPane`/`RightPane`,
- * and `useViewManager.ts:43-45` clamps the route name through `isViewId` — so no
- * runtime probe could reach it. `Record<Exclude<…, null>, Component>` is what
- * makes the totality checkable: `vue-tsc` rejects this table the moment
- * `viewSchema.ts` names a pane it does not carry, and rejects a key the unions
- * do not name. The fail-closed answer for a genuinely unknown view now comes
- * from the schema instead — `not-found` is a real view with a real component.
+ * than runtime because the tail was also provably unreachable — every call site
+ * passes a `SceneRegion.pane`, already typed `PaneId`, and
+ * `useViewManager`'s clamp runs the route name through `isViewId` — so no
+ * runtime probe could reach it. `Record<PaneId, Component>` is what makes the
+ * totality checkable: `vue-tsc` rejects this table the moment `viewSchema.ts`
+ * names a pane it does not carry, and rejects a key the union does not name.
+ * The fail-closed answer for a genuinely unknown view comes from the schema —
+ * `not-found` is a real view with a real component.
+ *
+ * X.W5.c: the `| null` arm is gone with the empty right slot. A region that
+ * exists has a pane; a region that does not exist is not in `regions[]`, so
+ * "an empty slot" is no longer a state the shell can be in — which is what
+ * retired the ghost wrapper and its `visibility:hidden` geometry.
  */
-const PANE_COMPONENTS: Record<Exclude<LeftPane | RightPane, null>, Component> = {
+const PANE_COMPONENTS: Record<PaneId, Component> = {
     "color-picker": ColorPicker,
     browse: BrowsePane,
     extract: ExtractPane,
@@ -214,9 +245,9 @@ const PANE_COMPONENTS: Record<Exclude<LeftPane | RightPane, null>, Component> = 
     "not-found": NotFoundPane,
 };
 
-/** Maps a view-config slot name to its component. `null` only for an empty slot. */
-function componentFor(name: LeftPane | RightPane): Component | null {
-    return name === null ? null : PANE_COMPONENTS[name];
+/** Maps a region's pane name to its component. TOTAL over `PaneId`. */
+function componentFor(pane: PaneId): Component {
+    return PANE_COMPONENTS[pane];
 }
 
 // ── X-W4 · CC-043 — the scene-action registry and the ONE set builder ───────
@@ -314,7 +345,11 @@ export interface PaneInstanceHandle {
     applyExternalColor: (cssColor: string) => void;
 }
 
-const PANE_INSTANCE_MEMBERS = ["commitEdit", "cancelEdit", "applyExternalColor"] as const;
+const PANE_INSTANCE_MEMBERS = [
+    "commitEdit",
+    "cancelEdit",
+    "applyExternalColor",
+] as const;
 
 /** Read a mount report as the non-command handle, or `null`. */
 export function readPaneInstanceHandle(instance: unknown): PaneInstanceHandle | null {
@@ -339,7 +374,7 @@ export interface PaneRouterDeps {
      * route-synchronous config filed the OUTGOING instance under the INCOMING
      * pane's name for a measured 1275 ms).
      */
-    onPaneMount: (slot: PaneSlotId, instance: unknown, key: string) => void;
+    onPaneMount: (role: RegionRole, instance: unknown, key: string) => void;
     onEditTargetChange: (et: EditTarget | null) => void;
     resetToDefaults: () => void;
     updateModel: (v: ColorModel) => void;
@@ -350,12 +385,11 @@ export function usePaneRouter(
     model: ShallowRef<ColorModel>,
     deps: PaneRouterDeps,
 ): {
-    mobile: ComputedRef<ResolvedPane>;
-    desktopLeft: ComputedRef<ResolvedPane>;
-    desktopRight: ComputedRef<ResolvedPane>;
+    /** The current scene's regions, IN ORDER — the shell's one mount path. */
+    regions: ComputedRef<ResolvedRegion[]>;
     sceneActions: ComputedRef<SceneActionSet | null>;
-    /** Register one slot's mount reports. Required at every `PaneSlot`. */
-    bindPane: (slot: PaneSlotId) => (instance: unknown, key: string) => void;
+    /** Register one region's mount reports. Required at every `PaneSlot`. */
+    bindPane: (role: RegionRole) => (instance: unknown, key: string) => void;
     /** The ONE edit-commit home (fold W5F-59) — the dock seat and the palettes
      *  editor both call these; there is no second wiring to drift from. */
     commitEdit: () => void;
@@ -365,29 +399,30 @@ export function usePaneRouter(
 
     // ── The non-command instance channel (S-1) ──────────────────────────────
     //
-    // `bindPane` is bound at ALL THREE seats, not at the desktop pair: the
-    // mobile slot passed no `:on-mount` at all, which is why the edit channel
-    // was structurally dead below the breakpoint — the dock's Save/Cancel
-    // settled the pane index while the edit was DISCARDED (⟨ActionBarToggle
-    // ABT-2⟩'s limb). Uniform registration is also why the KILLED cut-step
+    // `bindPane` is bound at EVERY region, not at a privileged pair: the mobile
+    // slot passed no `:on-mount` at all, which is why the edit channel was
+    // structurally dead below the breakpoint — the dock's Save/Cancel settled
+    // the pane index while the edit was DISCARDED (⟨ActionBarToggle ABT-2⟩'s
+    // limb). Uniform registration is also why the KILLED cut-step
     // ⟨GenericActionBar GAB-11⟩ ("retain the left mount callback only for
-    // `colorPickerRef`") is not what this is: no seat is privileged.
+    // `colorPickerRef`") is not what this is: no seat is privileged. With one
+    // mount path there is no second seat to privilege.
     const paneInstance = shallowRef<PaneInstanceHandle | null>(null);
-    const paneInstanceSeat = shallowRef<PaneSlotId | null>(null);
+    const paneInstanceSeat = shallowRef<RegionRole | null>(null);
 
-    function releaseSeat(slot: PaneSlotId): void {
-        if (paneInstanceSeat.value !== slot) return;
+    function releaseSeat(role: RegionRole): void {
+        if (paneInstanceSeat.value !== role) return;
         paneInstance.value = null;
         paneInstanceSeat.value = null;
     }
 
-    function bindPane(slot: PaneSlotId): (instance: unknown, key: string) => void {
+    function bindPane(role: RegionRole): (instance: unknown, key: string) => void {
         return (instance: unknown, key: string) => {
-            deps.onPaneMount(slot, instance, key);
-            // The seat no longer shows the pane that owns this channel, or an
+            deps.onPaneMount(role, instance, key);
+            // The region no longer shows the pane that owns this channel, or an
             // explicit unmount arrived → the channel is gone from this seat.
             if (key !== "color-picker" || instance === null) {
-                releaseSeat(slot);
+                releaseSeat(role);
                 return;
             }
             const handle = readPaneInstanceHandle(instance);
@@ -398,7 +433,7 @@ export function usePaneRouter(
             // carrying nothing, in one render pass).
             if (handle === null) return;
             paneInstance.value = handle;
-            paneInstanceSeat.value = slot;
+            paneInstanceSeat.value = role;
         };
     }
 
@@ -406,23 +441,28 @@ export function usePaneRouter(
      * Commit the open colour edit — ONE home.
      *
      * Fold W5F-59: this pair was implemented twice with drifted wirings (the
-     * dock seat added the pane settle, the palettes prop bag did not). The
-     * settle now RIDES the commit: with no registered pane there is nothing to
-     * commit, and the UI says nothing rather than reporting a success that did
-     * not happen (Dock structure (f) — "an absent capability is ABSENT").
+     * dock seat added the pane settle, the palettes prop bag did not). With no
+     * registered pane there is nothing to commit, and the UI says nothing
+     * rather than reporting a success that did not happen (Dock structure (f) —
+     * "an absent capability is ABSENT").
+     *
+     * X.W5.c: the pane SETTLE that used to ride these two calls
+     * (a write of the mobile pane index) is gone with the index itself. It was the
+     * visible success signal of ⟨ActionBarToggle ABT-2⟩'s limb — the UI
+     * reporting a commit by flipping which pane the phone could see, whether or
+     * not the edit landed. Both regions are on screen now, so the commit's only
+     * report is the commit.
      */
     function commitEdit(): void {
         const handle = paneInstance.value;
         if (handle === null) return;
         handle.commitEdit();
-        viewManager.mobilePaneIndex.value = 1;
     }
 
     function cancelEdit(): void {
         const handle = paneInstance.value;
         if (handle === null) return;
         handle.cancelEdit();
-        viewManager.mobilePaneIndex.value = 1;
     }
 
     // ── One typed builder per pane family (gates N3 / A4) ───────────────────
@@ -473,46 +513,69 @@ export function usePaneRouter(
         return {};
     }
 
-    /** Props for a "left" slot component (mobile single-slot and desktop-left
-     *  resolve the same way — one path). */
-    function leftProps(name: LeftPane): PaneRenderProps {
-        if (name === "color-picker") return pickerProps();
-        if (name === "extract") return extractProps();
-        if (name.startsWith("admin-")) {
-            return adminProps(name as AdminSlotProps["subView"]);
+    /**
+     * The prop bag for ONE pane — one path, TOTAL over `PaneId`.
+     *
+     * X.W5.c: `leftProps` and `rightProps` were two functions over two physical
+     * unions, and each had its own `noProps()` tail. A pane's props depend on
+     * the pane, never on which side of a grid it landed on, so the fork was
+     * never expressing anything; it was the schema's physical axis reaching
+     * into the router. The switch is exhaustive, so `vue-tsc` names the pane
+     * the day `viewSchema.ts` grows one.
+     */
+    function propsFor(pane: PaneId): PaneRenderProps {
+        switch (pane) {
+            case "color-picker":
+                return pickerProps();
+            case "extract":
+                return extractProps();
+            case "about":
+                return aboutProps();
+            case "palettes":
+                return palettesProps();
+            case "admin-users":
+            case "admin-names":
+            case "admin-audit":
+            case "admin-flagged":
+            case "admin-tags":
+                return adminProps(pane);
+            case "browse":
+            case "generate":
+            case "gradient":
+            case "atmosphere":
+            case "mix":
+            case "blob":
+            case "not-found":
+                return noProps();
         }
-        return noProps();
     }
 
-    /** Props for a "right" slot component (mobile pane-index 1 and desktop-right). */
-    function rightProps(name: Exclude<RightPane, null>): PaneRenderProps {
-        if (name === "about") return aboutProps();
-        if (name === "palettes") return palettesProps();
-        return noProps();
-    }
-
-    const desktopLeft = computed<ResolvedPane>(() => {
-        const left = currentConfig.value.left;
-        return { component: componentFor(left), key: left, props: leftProps(left) };
-    });
-
-    const desktopRight = computed<ResolvedPane>(() => {
-        const right = currentConfig.value.right;
+    /** One region, resolved. */
+    function resolveRegion(region: SceneRegion): ResolvedRegion {
         return {
-            component: componentFor(right),
-            key: right ?? "empty",
-            props: right ? rightProps(right) : {},
+            role: region.role,
+            label: region.label,
+            component: componentFor(region.pane),
+            key: region.pane,
+            props: propsFor(region.pane),
         };
-    });
+    }
 
-    const mobile = computed<ResolvedPane>(() => {
-        const cfg = currentConfig.value;
-        // pane-index 1 shows the right pane when the view has one
-        if (cfg.right !== null && viewManager.mobilePaneIndex.value === 1) {
-            return desktopRight.value;
-        }
-        return desktopLeft.value;
-    });
+    /**
+     * THE MOUNT PATH (V·L2 · gates C1/C3/C5).
+     *
+     * One computed, one order, every region of every scene. The three it
+     * replaces — `mobile`, `desktopLeft`, `desktopRight` — were one logical
+     * concern rendered through a breakpoint-predicate v-if fork, and the fork is
+     * what made a region a subtree a viewport could remount out of existence:
+     * crossing the compound query destroyed every `<KeepAlive>` cache and every
+     * WebGL context on the way past (gate C5's born-RED: canvas identity kept
+     * 1 of 2, pane-root identity 0 of 2). Nothing decides WHICH regions render
+     * any more, so nothing can decide to render fewer of them.
+     */
+    const regions = computed<ResolvedRegion[]>(() =>
+        currentConfig.value.regions.map(resolveRegion),
+    );
 
     // ── The ONE scene action set (X-W4 · CC-043) ───────────────────────────
     //
@@ -785,5 +848,5 @@ export function usePaneRouter(
         };
     });
 
-    return { mobile, desktopLeft, desktopRight, sceneActions, bindPane, commitEdit, cancelEdit };
+    return { regions, sceneActions, bindPane, commitEdit, cancelEdit };
 }
