@@ -2765,3 +2765,82 @@ The live banked readings (C1 0.5557; D1 gradient/mix hops over budget) describe 
 - **X-W8** (W4·W5·W6·W7) and **X-W10**: lawfully blocked on X-W5.
 - The W5-side substrate is GREEN at the bytes: `regions[]` (C8), the dead block cap (B2, B4 arms 1–2) and one mount path (C5). Only the wave-close
   conjunct is unmet.
+
+---
+
+## RESUME OPEN 4 — 2026-09-22, seat 0 (RESUME MODE, on COHESION §0aq + W5.md ADDENDUM 2026-09-22)
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X-W5 SEAT 0 (OPEN, RESUME 4) · HEAD at open `c9e39745` · date of record 2026-09-17 (the begin-word, COHESION §0j).
+Inputs read: `W5.md` whole (394 L, incl. its `## ADDENDUM 2026-09-22`), this record's header, `## Check 3` (`:2681-2767`), COHESION §0aq's
+X-W5 block (`COHESION.md:2660-2689`), the fold's W5F-04 row (`X-W5-FOLD.md:41`) and N14/N15 rows (`:327-328`). ⟨cmd⟩ `sed -n 2710,$ COHESION.md | grep -c W5`
+→ **0**: no addendum after §0aq touches X-W5 (§0ar..§0au are Track B/C). Ruling ids consumed: **§0aq** (the triumvirate as units; C1 re-metric; D4/N15/N14/
+ESC-W5c-3 grants to `.c2`; C7 + C3 relief by route), and — standing — §0i, §0j, §0k.1, §0k.3 (S-1, S-7).
+
+### R4.0 Crash-recovery (STANDING LAW)
+
+⟨cmd⟩ `git status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh`. Neither lies in this seat's writable set
+(`X-W5.md`, `LEDGER.md`, `INBOX.md`); `dev.sh` never touched. **No inherited partial.**
+
+### R4.1 E13 Step-0 — the four-path mail sweep (this seat's clock)
+
+⟨cmd⟩ `ls -t ../glass-ui/docs/tranches/ | head -1` → **BK** (still newest). ⟨cmd⟩ `find <path> -maxdepth 1 -type f -newer X-W5.md` over the four paths →
+value.js `V/`: empty · `V/coordination/`: `INBOX.md` only · glass `BK/coordination/`: `glass-outbound-2026-09-22-fourier-o23-o32-reply.md` — **already
+rowed I-40** (`INBOX.md:135`, status UNREAD, owner *Track C (X·F)*, addressed to fourier F.W1.b/F.W4.z: **outside X-W5 scope**) · keyframes `V/coordination/`:
+empty · atlas `P/coordination/`: empty. **0 unrowed · 0 new I-n · 0 UNREAD in X-W5 scope.** Tail stays **I-40 / O-52**. One dated sweep line appended at the
+INBOX end.
+
+### R4.2 Preconditions, re-verified (RESUME MODE)
+
+- **Opens-after** (W5.md §1): ⟨cmd⟩ LEDGER row cells → **X-W4 CLOSED 2026-09-17** (promoted at CHECK 2) · **X-W2 CLOSED 2026-09-17 (honest-RED G3·G5)** ·
+  **X-W0 CLOSED 2026-09-17**; D2's CC-012 witness ⟨cmd⟩ `git ls-files --error-unmatch …/u-gestalt/probe2-log.txt; echo $?` → **0**. **MET.**
+- **Units already landed** (never re-dispatched): ⟨cmd⟩ `git log -1 --format='%h %s' <sha>` → `.a` `c0cf27bf`(+`de99ec15` `f94d22af`) · `.b` `adc312f6` ·
+  `.c` `50633f19` (§9 c3) · `.d` `2183b814` (§9 c4) · `.e` `e2f56558` (§9 c5) — all exist (CL.1 roster, 18 commits). ⟨cmd⟩ `git log --oneline --all
+  --grep='X.W5.t\|W5.d2\|W5.c2'` → **empty**: none of the three §0aq units has landed.
+- **Resume spec**: §0aq X-W5 block + W5.md `## ADDENDUM 2026-09-22` — dispatch **[`.t`] → [`.d2`] → [`.c2`]**, strictly serial (§4a: single worktree, one
+  writer; `.d2` depends on `.t`'s committed plan and re-probe).
+
+### R4.3 Baseline for the owed units — read-only, double-run at HEAD `c9e39745`
+
+⟨cmd⟩ `sh scratchpad/w5base.sh > b1; … > b2; diff b1 b2` → **IDENTICAL**.
+
+| gate (owner unit) | reading | state |
+|---|---|---|
+| D4-Mix `grep -c '<Transition ' MixSourceSelector.vue` | 1 | GREEN (landed `.d`) |
+| D4-Admin `grep -c '<Transition ' AdminNamesPanel.vue` (`.c2`, §0aq grant) | **0** | RED |
+| D4 census (`SegmentedTabs` consumers, non-`demo/ui`) | 2 files: MixSourceSelector · AdminNamesPanel | — |
+| B4 arm 3 `grep -ro content-max-h demo/ \| wc -l` (`.d2`, rides the re-probe) | **3** (PaneSlot.vue comments) | RED |
+| C7 viewport `@media` census (§0aq: target 3, DockStatusLamp:70 → X-W8 `.h`) | 4 = 3 + the routed survivor | RED-by-route (relieved) |
+| C3 fork census (§0aq: capability rows out; 3 layout forks → X-W8 `.i`) | 23 occ / 9 files | classification owed (`.t` records it) |
+| D3 physical pane names | 0 | GREEN (held) |
+| PaneSlot.vue:12-23 (GATING LOCK bytes) | 12 lines, md5 `a7fe04be35764c9b6b293dfc5f08f523` | locked until `.t` commits the re-probe |
+| ESC-W5c-3 sites: o12 `:68` · o16 `:158` `pane-wrapper--` hits | 1 · 1 | RED (`.c2`) |
+| ESC-W5c-3 site: `census-parity.spec.ts:88-90` | reads `unionMembers("RightPane")` (0 `pane-wrapper--`) — the dead `RightPane` union | RED by construction (`.c2`) |
+| N15 (`AdminPane.vue` source order) / N14 (declaration-site census) | not re-probed; RED of record (Check 3 K3.3) | RED (`.c2`) |
+| D1 scene-swap budget (`.t` measures, `.d2` cures) | **not run here**: ⟨cmd⟩ `uptime` → load **30.10 / 30.54 / 34.13** — the §0aq ruled condition (load < 4, seat alone) is unmet at this clock, so a reading would be non-evidence. Banked: gradient .294/.371 · mix .333/.346 (CL.2) | RED |
+| C1 (§0aq re-metric: `textContent` ≥ 0.9 + About-scroll rider) | banked 1.0 on 15/15 (§0aq's own reading); `innerText` 0.5557 on `#/` | see greenBeforeCure |
+| A2 blob arm (ESC-W5-1) | unfalsifiable as authored; re-authoring owed (`.t`) | RED |
+| §7 `vue-tsc -p tsconfig.demo.json` | banked EXIT=0 (Check 3 K3.1); not re-run under load 30 | GREEN (banked) |
+
+**R.2 green-before-cure**: **C1** under the §0aq re-metric reads 1.0 (`textContent`) with no cure landed — the gate's movement to GREEN is a ruling's
+re-metric, not a byte; `.t` records the re-metric and runs the scroll-reachability rider so the GREEN is measured, not inherited.
+
+### R4.4 Resume unit plan — 5 landed, 3 owed, strictly serial `[.t] → [.d2] → [.c2]`
+
+alreadyDone: `X.W5.a` · `X.W5.b` · `X.W5.c` · `X.W5.d` · `X.W5.e` (never re-dispatched). Concurrency 1 (§4a/§4b; the three share this record and
+`.d2` consumes `.t`'s committed plan).
+
+| unit | model | executes | writable | gates it turns | locks |
+|---|---|---|---|---|---|
+| **X.W5.t** | **fable** (§0aq: RESEARCH + PLAN AUGMENT) | W5.md §3a · §6 D1/A2/C1/C3 · ADDENDUM 2026-09-22 · §0aq `:2660-2689` · fold W5F-04 `:41` | `docs/tranches/V/megatranche/workflows/gates/out-in-reprobe.mjs` (create; §4 `gates/*.mjs`) · `docs/tranches/X/waves/W5/triumvirate/**` (create: re-probe RESULTS, D1 run log, research+plan, A2 dated addendum-beside, C1 re-metric record, C3 classification) · this record (receipt append) | out-in re-probe COMMITTED first; D1 reading ≥10 interleaved runs, medians, load<4 recorded; A2 re-authored falsifiably; C1 `textContent` ≥0.9 + About-scroll rider measured; C3 capability/layout partition printed | fold `:41` GATING (PaneSlot.vue:12-23 untouched until the re-probe is in git) + COUPLED (mode · rAF mirror · loading states move together); writes NO `demo/` byte |
+| **X.W5.d2** | opus (REDRESS) | `.t`'s committed plan · W5.md §5 X.W5.d · §6 D1/D3/D5 · B4 arm 3 | `demo/shell/PaneSlot.vue` · `demo/shell/usePaneRouter.ts` · `demo/color-picker/App.vue` · `demo/styles/animations.css` · `demo/styles/shell.css` · `demo/workbenches/mix/MixSourceSelector.vue` · `docs/tranches/V/megatranche/workflows/gates/scene-swap-budget.mjs` (no budget weakening) · `e2e/smoke/perf/view-switch-frame-budget.spec.ts` · `docs/tranches/X/waves/W5/green/**` · this record | D1 (all 4 hops over32/frames ≤.15 AND median ≤20ms, under the ruled conditions) · D3 held 0 · D4-Mix held 1 · D5 forced-PRM · B4 arm 3 → 0 · §7 typecheck/lint/test | COUPLED lock (fold `:41`); W5F-07 CURE-LOCK (EB-4+EB-2 together; loading states before/with any mode change); preserve-animations edict; any cure path outside this set (e.g. Mix interior) = ESCALATION |
+| **X.W5.c2** | opus (GRANTS) | §0aq grants D4 · N15 · N14 · ESC-W5c-3 · fold N14/N15 `:327-328` | `demo/palettes/browser/admin/AdminNamesPanel.vue` · `demo/palettes/admin/AdminPane.vue` · `demo/palettes/admin/**` + `demo/palettes/browser/admin/AdminTagsPanel.vue` (N14 family declaration sites; see note) · `e2e/visual/census-parity.spec.ts` · `e2e/smoke/oracles/o12-blob-seat.spec.ts` · `e2e/smoke/oracles/o16-computed-cascade.spec.ts` · `docs/tranches/X/waves/W5/green/**` · this record | D4 census 2/2 · N15 source order selector-before-query at ≤639 · N14 census PRINTED, every site `vue-tsc`-visible · ESC-W5c-3 one-token re-points to `--stage` · §7 typecheck/lint/test | BD-08 `router/index.ts` read-mostly; N15 no `order:`/`column-reverse`; D4 one named one-root `<Transition>` as Mix |
+
+**Grant-path note (for `.c2`, recorded not ruled)**: §0aq names N14's sites as *"the `AdminTagsPanel` family's declaration sites
+(`demo/palettes/admin/**`)"*; ⟨cmd⟩ `find demo -name 'AdminTagsPanel*'` → `demo/palettes/browser/admin/AdminTagsPanel.vue` (and `demo/palettes/admin/`
+holds only `AdminPane.vue`). The plan reads the grant by its named family (AdminTagsPanel.vue included); `.c2` prints the census FIRST and returns
+an ESCALATION for any declaration site outside the two listed dirs' named files.
+
+Post-units: the verify-only close + L-20 checks; C7 and C3 read with their §0aq routes (X-W8 `.h` / `.i`); L-18 quartet passes precede ACCEPTED.
+
+## Unit receipts — RESUME ROUND 4
+
