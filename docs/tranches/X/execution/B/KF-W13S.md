@@ -434,3 +434,69 @@ zero dated authorities amended.
 **`KF.W13.e2`** — successor of `.e`: R-3. Sections: ADDENDUM `:299` `.e` clause; §0ai `:2336-2358`; G-KFW12-4, G-KFW11-4/-10. Writable (kf): `test/demo/instrument/css-code-editor-seam.test.ts` · `demo/env.d.ts` · `demo/components/instrument/keyframes/CSSCodeEditor.vue` · `src/animation/group/composite/compositor.ts` · `src/animation/group/waapi.ts` · `src/animation/physics/smooth.ts` (three declarations only) · `test/demo/scenes/spring-trace-truth.test.ts` · `demo/scenes/easing/{useEasingDemo.ts,EasingSidebar.vue,EasingTarget.vue}` · `demo/components/instrument/shell/EditorShell.vue` (`:175-176` key only) · `demo/components/instrument/keyframes/utils/parseAnimationCSS.ts`; vjs: record (receipt) · `evidence/W13S/**`. Gates: G-KFW12-4 · G-KFW11-4 green; seven OP-0 rows → 0 (`useKeyframeOps.ts:91` BY ROOT — that file NOT writable). Locks: KF-CE-1/4 arm byte-exact from `evidence/W12/KF-W12-d-born-red.md` with `env.d.ts` in the same motion; no cast/shim/narrowing guard.
 
 **`KF.W13.f2`** — successor close (the `.f` clause, `:170-174`, G-KFW13-7 `:200`, §0ai `:2359-2362`). Writable (vjs): this record · LEDGER (this row's cells + appended lines) · INBOX (append) · `evidence/W13S/**`. Gates: all eight re-run double; `vue-tsc` 0; `test:demo` all green; `npm run check` exit 0; skip/only 0; kf pushed; vjs pushed only with no sibling path staged (R-9).
+
+---
+
+## Unit receipt — KF.W13.a3
+
+### KF.W13.a3
+
+SERVED MODEL: claude-opus-5-5[1m]
+
+**Seat**: successor of `.a2` (R-1 ∧ R-2), 2026-09-22. kf `51f39a19` → `220bd93a` (10 shas, all pathspec). Spec read whole once (KF-W13.md, 299 L); record read header → Unit plan, Close §What never landed/§Residuals/§Escalations, RESUME; COHESION §0ai `:2314-2335` (no later ruling touches W13S — §0aj/§0ak are Track C/A).
+
+**CRASH-RECOVERY.** ⟨cmd⟩ `git -C keyframes.js status --porcelain` → `?? test/demo/app/mbabb-menu-self-hold.test.ts` (inherited, mine) + the two 2026-07 letters (R-10, untouched). value.js set: record + `evidence/W13S/` clean. Inherited witness judged case-by-case (below) and committed green.
+
+**Act 1 — G-KFW13-1 runtime clause (R-1).** ⟨cmd⟩ `npx vitest run --project demo test/demo/app/mbabb-menu-self-hold.test.ts` → BEFORE **3 failed | 2 passed (5)** (cases 2 `:148`, 3 `:160`, 4 `:195`). Verdict: **all three are the WITNESS's defects; the cure at `600246c3` is correct** — no product byte moved to turn it:
+- (3) `vi.useFakeTimers()` faked `Date`; runtime-dom's invoker drops an event whose `_vts` ≤ its listener's attach time (both `Date.now()`), so the trigger's capture `pointerdown` was ignored — traced: `mm.open` stayed `false` after pointerdown under fake timers, `true` under real. Cure: `toFake: ["setTimeout","clearTimeout"]`.
+- (4) `findComponent(MbabbMenu).unmount()` throws in VTU (root-only). Cure: the Host's own `menuMounted` v-if (the product's unmount shape).
+- (2) reka settles an Escape close a macrotask later (measured: `data-state="open"` two ticks after keydown, gone ≤16 ms) — flaky both ways. Cure: `await vi.waitFor(...)`, assertion unchanged. The synthetic click carries `detail: 1` (a pointer click's count).
+AFTER ⟨cmd⟩ same → **5 passed (5)** ×3 runs; `dock-context-slot-resolution` stays **3/3**. Sha **`4bd1f8d5`**.
+
+**Act 2 — the chrome roster, one sha per family (all `demo/app/**`).**
+
+| sha | family | rows |
+|---|---|---|
+| `a759f65f` | hold/hover batch | M-5/C-6 (prose → the touch-gate truth, watchdog KEPT) · RR-2 MISSED #1 (the demoting `expand()` deleted) · R3-2 (mirror HOVER = expanded ∧ ¬pinned) · C-14 (one watcher) |
+| `16dc1e33` | control zone DECIDED | M-2/C-4 (inline arm DELETED — unreachable: facets union onto the triad ⇒ tabs ≥2 or 0) · M-3 (`currentLabel` prop + App binding + orphan computed) · D-8 (dies with branch) · D-10's rider (dead CSS/rationale) |
+| `fe598702` | BLOCKER | D-18/C-1 (focusable glass `Button` in `#collapsed`; keyboard focus hands off to the expanded Scene trigger) + TD-39's rider (one stable name "Scene", no split) |
+| `22d71bd3` | panel toggle | D-20 (`:active` → aria-pressed/data-active/seat; stable name "Controls panel") · D-21 (one action grammar; mobile chevron down-when-open) |
+| `40ca9d5e` | ink + prose | D-3 (asset truth measured: 3 raster, 1 hsl, 2 tokens) · D-2-RESCOPED + RR-1 MISSED #2 (no glyph declares ink) · RR-1 MISSED #3 (aria-hidden, 13 glyph sites) · D-12 (`flex-shrink:0` in `.dock-glyph`) · m-1/C-7+m-9 (guarded icon computed) · D-16/L-i-1 (this file's stale prose) |
+| `74c6becc` | the two Selects | D-25 (sr-only `SelectLabel` ×2) · D-26 + D-28's px-3 · RR-2 MISSED #2 (`v-model:open`) · D-6 (no-op clamp) · D-11 (nav separator gated) · m-12 · m-8 · C-8 emit half (`ControlSurface`) · m-3/R3-6 (`./select`) · R3-4 (`homeScene {id,label}`, App end) |
+| `89bf55b2` | App comment | R3-8 |
+| `55ebe2ea` | MbabbMenu family | MM-7 · MM-10 · MM-11 · MM-13+MM-20+MM-42 (DS Dialog) · MM-16 · MM-17 · MM-18 · MM-21 · MM-22 · MM-24 · MM-26 (+MM-2 row 5) · MM-32 · MM-39 · MM-40 |
+| `220bd93a` | fix-forward | MM-31 held under MM-26's label (probe measured 600 → 400) |
+
+**Probe (§5.2, one dev-server session, 7 Playwright calls).** Home: after 3.5 s idle the summary layer holds a `<button data-slot="button" … data-size="sm">`; one `Tab` → activeElement = `BUTTON aria-label="Scene"` inside `.dock-layer--full.is-active` (D-18 GREEN at runtime). Menu screenshot: 28px glyph column aligned, Dark-mode subtitle, ppmycota URL on its own line, GitHub spelling. "Clear all & reload" → `role=dialog` open, focus inside (Cancel); Enter → dialog gone, `body.style.pointerEvents` = "" (no leaked lock). `#/cube`: toggle renders `aria-pressed="true" data-active aria-label="Controls panel"`; zero console errors/warnings (the one 404 is the pre-existing favicon).
+
+**Roster ledger — `kf-MbabbMenu.md:169` (27 ids + the MM-1/MM-6 cure law).** SELF-COUNT: 27 ids below.
+- **LANDED here (`55ebe2ea`/`220bd93a`)** — 16: MM-7 · MM-10 · MM-11 · MM-13 · MM-16 · MM-17 · MM-18 · MM-20 · MM-21 · MM-22 · MM-24 (Avatar's `./avatar` gap → BH relay) · MM-26 · MM-32 · MM-39 · MM-40 · MM-42 (caveat comment).
+- **LANDED-BY earlier shas (GREEN-BEFORE-CURE, never claimed)** — 6: MM-8 · MM-9 · MM-29 (`:5-14` site 1 + site 2) · MM-30 · MM-31 — `3cc7e126` (KF.W6.d); MM-19 — `998124e1` (EH-4: the `title` dropped).
+- **ESCALATED (ESC-a3-1)** — 1: MM-5 (bound into the four-part edit).
+- **CARRIED, named owner** — 4: MM-2 rows 1/2 + MM-3 (hoisting actuation to the item needs an open seam on `SharePopover.vue` [demo/components/instrument/shell, outside the set] and a headless toggle on glass `DarkModeToggle` [producer — BH relay]; row 5's arm LANDED as MM-26) · MM-12 (`.dark` `--filter-brand-color` arm or mask mark lives in `style.css`/`brand.css`) · MM-25 (one callback/emit contract across SharePopover's three consumers — EditorHeader/EditorShell outside the set; a unilateral MbabbMenu half would pre-empt the decision).
+Count: 16 + 6 + 1 + 4 = 27.
+
+**Roster ledger — kf-ChromeDock (every row of the record, `:35-100`).**
+- LANDED here: D-18/C-1 · M-5/C-6 · RR-2 M#1 · R3-2 · M-2/C-4 · M-3 · D-3 · C-8 (emit half) · D-20 · D-2-RESCOPED · RR-1 M#2 · RR-1 M#3 · RR-2 M#2 · D-6 (no-op half) · D-7/C-15 (see KILLED) · D-8 (died with branch) · D-11 · D-12 · D-25 · D-26 · m-12 · m-3/R3-6 · R3-4 · D-21 · m-1/C-7+m-9 · m-8 · D-16+L/i-1 (file half) · C-14 · R3-8 · D-28 (px-3 half).
+- LANDED-BY: M-4 + i-2 — `600246c3`; D-22 — `412b8324`; D-5 + D-10 (KF-APP-26) — `4cf174eb`; D-23/C-5 — `e64103be`; D-24 — `7b721d10`; C-2/B-2 (KF-APP-4 gate + the :128 TS2322) — `5388907b`.
+- KILLED-with-rationale: D-7/C-15 — the glyph/marker inversion died with StatusDot (`7b721d10`); the "missing `<Home v-else>`" half is refused: menu rows iterate non-home descriptors that MUST define `icon` (scenes.ts `:86-87`), so a Home fallback there would mislabel a scene as Home.
+- CARRIED (fold / outside file / measurement-owned): D-1 (≡KF-APP-6), L/B-1 (frontier-cured), M-1/C-3/D-14+R3-7 + m-2/C-13 + D-15 (≡KF-APP-13 registry cure — `surfaceTabs.ts`/`controlSurfaces.ts`), D-17 (≡KF-APP-24), D-27 (≡ACG D-3), D-9 (≡KF-APP-33), C-12 (≡KF-APP-42), C-8 prop half (needs `demo/state` store typing), D-4 (raster asset format — `assets/icons`), D-6 truncation contract + C-10 (live-overflow / computed-style witnesses the rows route to KF.W9), D-13 + RR-1 M#4 (shared collapse clock / boot posture needs `TransportDock.vue`; drift ledger → BH relay), D-16's `--z-dock` prose (`style.css`), D-28 glyph-direction note (a11y spec input).
+
+**Producer asks recorded for `.f2` (SS-6 / BH relay)**: touch gate must consult the hold counter + portal stamp (M-5); a focusable-by-construction summary layer / keyboard `onClickCollapsed` (D-18); `./avatar` subpath (MM-24); a headless `DarkModeToggle` toggle/v-model (MM-2 row 2); useDockShellProps doc drift (D-13); `dropdown-menu` Boolean defaults — measured SHIPPED at 7.0.0 (`open`/`defaultOpen` `default: void 0`), so the MUST-CARRY rider's shape is relaxed and its obligation holds (`v-model:open="open"` still 1).
+
+**Escalations.**
+- **ESC-a3-1 — MM-1/MM-6 four-part cure (ONE sha under ARB-1) + the two `MbabbMenu.vue:328` (was `:248`) TS2339 rows — NOT LANDED, no substitute.** The cure law (kf-App KF-APP-1/-17; kf-CubeScene C-1/C-14 + ARB-1) binds four parts into one edit: repair `stored.value.ppMode` (the TS2339 pair IS this line), dispose `setPPMode` WITH the KF-APP-17 `headerLeft` delete arm, resolve the C-14 bucket split, land MM-5's CheckboxItem. Measured at the bytes: ⟨cmd⟩ `grep -rn 'setPPMode\|headerLeft' demo/scenes` → `CubeScene.vue:96-97` (`setPPMode`), `:129-134` (`headerLeft` render fn), `:267` (its export) — **`demo/scenes/cube/CubeScene.vue` is KF.W11's file and outside `.a3`'s writable set.** Repairing `:328` alone lands TWO writers for one persisted flag — the exact act the law forbids — so the TS2339 rows are not typed away. Needed: `CubeScene.vue` (delete arm: `:96-97`, `:129-135`, `:267` + its dead imports) added to this unit's set for ONE joint sha with `MbabbMenu.vue`, or a joint commit with a KF.W11 seat. NB the G-KFW13-2 lock counts deletion lines too: `sceneExposedApi.ts:43`'s `headerLeft?` member must NOT be deleted in this wave's `demo/app` diff.
+- **ESC-a3-2 — TD-36.** The spec homes TD-36's bytes at `ChromeDock.vue:299/:302` (today `:309/:312`); at the true bytes that pair is the PRECEDENT guard (`pointer-events-none` host + `pointer-events-auto` child), already correct. The defect is the transport host, `TransportDock.vue:2-8` (`fixed left-0 right-0 z-dock`, no pointer-events term) — outside `.a3`'s set. Needed: that two-class carve granted to a transport seat (`.e2`/`.b`-class).
+
+**Gates (double-run, kf `220bd93a`).**
+| gate | BEFORE (RESUME baseline) | AFTER |
+|---|---|---|
+| G-KFW13-1 runtime — `mbabb-menu-self-hold.test.ts` | 3 fail / 5, untracked | **5/5 ×2, committed `4bd1f8d5`** GREEN |
+| G-KFW13-1 bytes — round-trip · MUST-CARRY · `:109-113` prose | 0 · 1 · 0 | **0·0 · 1·1 · 0·0** GREEN |
+| OP-8 — `git log -p 9d814f6c..HEAD -- demo/app test/demo/app \| grep -c 'ComponentExposed\|Pick<'` | 0 | **0·0** |
+| G-KFW13-2 — `git diff 9d814f6c..HEAD -- demo/app \| grep -c headerLeft` | 0 | **0·0**; roster spent except ESC-a3-1 → **RED on the MM-1/MM-6 sha alone** |
+| OP-0 `MbabbMenu` TS2339 ×2 | 2 | **2** RED (ESC-a3-1) · `vue-tsc` total **9·9** (the other 7 are `.e2`'s) |
+| skip/only — `git diff 9d814f6c..HEAD -- test \| grep -c 'test.skip\|it.skip\|\.only('` | 0 | **0·0** |
+| `npm run test:demo` | 3 failed files \| 5 failed tests (494) | **2 failed \| 57 passed (59) · 2 failed \| 492 passed (494)** ×2 — both `.e2`'s (G-KFW12-4 `css-code-editor-seam` (2), G-KFW11-4 `spring-trace-truth` (4b)) |
+
+Inherited path named: `test/demo/app/mbabb-menu-self-hold.test.ts`. No glass-ui/node_modules/src byte; no `vitest.config.ts` byte; `dev.sh` untouched; kf not pushed (`.f2`'s act).
