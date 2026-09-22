@@ -2510,3 +2510,50 @@ carries `specimenChanged:true`, `canvasIdentitiesKept:1`, `rootIdentitiesKept:2`
 - **X-W8** (*"X-W5, X-W6 and X-W7 stabilize"*): lawfully blocked.
 - **X-W10** (`W5…W9` stable): lawfully blocked.
 - The X-W5-side conjuncts that are already GREEN are `regions[]` (C8) and the dead block cap (B2/B4 arms 1–2). CC-056 needs both, and they are in place at the bytes. The wave-close conjunct is not.
+
+## Repair 1 — L-20 repair round 1, 2026-09-22
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X-W5 REPAIR 1 · HEAD at open `7f4d7c24` · input: `## Check 1` register (D-1..D-10).
+This seat read `W5.md` whole (389 L), the fold's §1 W5F-04 row (`X-W5-FOLD.md:41`) and its BoundsDelta tables (`:197-217`, `:342-348`),
+the record header, the ESC-W5d-1..3 paragraphs (`:2125-2130`) and `## Check 1` (`:2408-2512`). **Product bytes written: 0.**
+
+### R1.0 Crash-recovery
+
+⟨cmd⟩ `git status --porcelain` → `CARRY-LEDGER.md` (sibling's) · `scripts/dev/dev.sh` (never touched) · `KF-W13T-e-probe.mjs` (sibling's, untracked).
+No path inside this wave's writable set is dirty, so there is no inherited partial.
+
+### R1.1 Per-defect disposition — every ≥MEDIUM defect's cure lies outside this seat's lawful reach
+
+Each cure the register names is either a §3a **mandatory triumvirate** (research + plan augment + redress; *"the orchestrator may not
+redispatch the failing unit alone"*, `W5.md:73-74`), which a single repair seat re-running the failing unit's cure would be, or a
+**bounds grant** on a path that neither `W5.md` §4 nor the fold's BD-01..BD-24 grants. A write into either is an ESCALATION by the
+standing law, and an in-bounds substitute (shortening the travel, deleting the motion, re-metricising a gate by the seat's own
+addendum) is the masking cure the law names as a HIGH defect. So this round cured nothing, and every row is routed below with its measured reason.
+
+| # | sev | defect | disposition | measured reason (⟨cmd⟩ → output, double-run IDENTICAL) |
+|---|---|---|---|---|
+| D-1 | HIGH | D1 frame budget unmet after the re-key | **ESCALATED → §3a triumvirate** | `W5.md` §3a names *"D1 (frame budget unmet after the transition re-key)"* as a mandatory-triumvirate trigger. The fold `:41` COUPLED ARCHITECTURE LOCK forbids changing the simultaneous mode, the rAF mirror or the loading states in isolation, and its GATING LOCK makes the out-in re-probe precede any mode change. The Mix hop's root (0.257 with the travel suppressed, ESC-W5d-1) is not a W5 surface. ⟨cmd⟩ `git diff --name-only 4bbdd952..HEAD -- demo/ e2e/ plugins/ vite.config.ts \| wc -l` → **0**, so CL.2's readings (.294/.371 · .333/.346) stand at HEAD and were not re-probed (§5.2 parsimony, and the host-load flake is itself a §3a trigger). |
+| D-2 | HIGH | C1 parity 0.5557 on `#/` | **ESCALATED → §3a triumvirate** | §3a names C1 as a trigger. Both cures in the register lie outside the seat: a gate re-metric is a spec correction (E-3 addendum by a ruling, not by the failing unit's repairer), and `AboutPane` (`content-visibility:auto` ×33) appears in no §4 row and no BD row. ⟨cmd⟩ `sed -n 91,127p W5.md \| grep -cE 'AboutPane\|…'` → **0**. |
+| D-3 | HIGH | D4: `AdminNamesPanel.vue:24` bare `v-if` swap | **ESCALATED → bounds grant (§3a)** | ⟨cmd⟩ `grep -c '<Transition ' AdminNamesPanel.vue` → **0** (Mix arm → 1). The only grant on the path is BD-22, *"modify-carve (source order only)"* (⟨cmd⟩ `grep -c 'source order only' X-W5-FOLD.md` → 1), so a `<Transition>` there is outside the grant. The cure shape is unchanged: one named one-root `<Transition>`, as in `MixSourceSelector`. |
+| D-4 | MEDIUM | C7 = 4 vs 3 | **ESCALATED → dated routing addendum / bounds grant** | The survivors are `ConsoleRail:342` and `DockStatusLamp:70` (in no §4/BD row; BD-17 names `status-lamp.ts` read-only, owned BY NAME by X-W8), `animations.css:17` (preserve-animations edict) and `foundation.css:526` (unit b's own mechanism). Retiring an in-bounds one breaks an edict or unit b; the rest are out of bounds. |
+| D-5 | MEDIUM | C3 non-dock forks (`ExtractWorkbench:226`, `ConsoleRail:118`, `HeroBlob:71`) | **ESCALATED → dated classification + routing addendum** | ⟨cmd⟩ the spec regex → **23 / 9 files**, and widened with `isWide\|isLgViewport` → 29. BD-10 grants `ExtractWorkbench.vue` modify-carve for W5F-03/39/40/62 only, not the `isWide` fork. `ConsoleRail` and `HeroBlob` are in no row. Classifying capability rows out of the gate re-authors a gate, which is a ruling's act. |
+| D-6 | MEDIUM | A2 blob arm is RED and self-declared unfalsifiable (ESC-W5-1) | **ESCALATED → triumvirate re-authoring** | Under L-18 (`W5.md` §12), *"a gate … shown to be unfalsifiable is struck and re-authored"*. Re-authoring is not a repair of bytes, and the seat that cannot pass a gate may not re-author it. |
+| D-7 | MEDIUM | N14 RED / N15 escalated, routed only by seat assignment | **ESCALATED → bounds grant or ruled re-home** | ⟨cmd⟩ `grep -c 'AdminPane.vue' X-W5-FOLD.md` → **0**, so `AdminPane.vue` has no grant. BD-08 (`router/index.ts`) is granted, but its holder naming (the X-W1/X-W3.6 fail-closed guard) is a ruling, not a repair. |
+| D-8 | MINOR | out-of-wave oracles still read `.pane-wrapper--left` / `RightPane` / `defaultPaneIndex` | **ESCALATED → holder rows (X-W1/X-W2)** | ⟨cmd⟩ `grep -rl pane-wrapper--left e2e/` → `o12-blob-seat.spec.ts` · `o16-computed-cascade.spec.ts` · `e2e/visual/capture.ts` (**3**). The only e2e paths granted are §4's six, and these are X-W2's declared files (`W5.md:138-141`) or X-W1's. The one-token re-points are simple, but they are not in bounds. |
+| D-9 | MINOR | B4 arm 3: 3 `content-max-h` comment mentions in `PaneSlot.vue` | **ESCALATED → rides D-1's re-probe ruling** | ⟨cmd⟩ `grep -ro content-max-h demo/ \| wc -l` → **3** (`:46`, `:54`, `:55`), all inside the TRANSITION-MODE paragraph under the fold `:41` GATING LOCK (*"No wave may delete PaneSlot.vue:12-23 before [the out-in re-probe] runs"*; the paragraph has since moved to `:36-60`). The path is in bounds, but the lock is not satisfied, so a one-command delete is refused. |
+| D-10 | INFO | push withheld on the `6fc1212e` conflict in `X-W9.md` | **ESCALATED → Track A merge holder** | `X-W9.md` is outside the set, and no cure is owed at this seat. |
+
+### R1.2 Gate re-reading (WRITE-THEN-MEASURE, ×2)
+
+No cure landed, so no gate could move. The re-reading is `scratchpad/rep1.sh`, run twice. ⟨cmd⟩ `diff r1 r2` → **IDENTICAL**.
+Readings: HEAD `7f4d7c24` · W5-surface diff since `4bbdd952` **0** · D4-admin **0** · D4-mix **1** · B4 arm 3 **3** · C3 **23/9** · e2e
+`.pane-wrapper--left` files **3**. Every figure Check 1 published reproduces unchanged.
+
+### R1.3 Verdict
+
+**cured 0 · escalated 10 (D-1..D-10).** The row stays **PARTIAL**, and IMPLEMENTED is not stamped. The next lawful act belongs to the orchestrator, not to a
+further repair round. It owes two things:
+- the §3a triumvirate over D-1 · D-2 · D-6, which also releases D-9 through the out-in re-probe;
+- dated COHESION bounds grants or routing addenda for D-3 · D-4 · D-5 · D-7 · D-8.
+
+A second repair seat given the same inputs could cure nothing more.
