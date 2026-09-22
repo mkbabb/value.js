@@ -653,3 +653,56 @@ Every GREEN the close claims reproduces at the bytes. But two gates of record ar
 | D-7 | INFO | The `as unknown as` jsdom polyfills in two tests are the standing idiom, not masking | axis (3) | none |
 
 **LEDGER**: the status cell is **left unchanged** (PARTIAL stands; the bar for CLOSED is not met). One event line is appended.
+
+---
+
+## Repair 1 — the Check 1 register, cured (2026-09-22; dated addendum beside, E-3; no prior section rewritten)
+
+**Seat**: REPAIR SEAT round 1, `claude-opus-5-5[1m]`. **CRASH-RECOVERY**: ⟨cmd⟩ `git -C keyframes.js status --porcelain` → the two untracked 2026-07 value.js letters only (R-10, outside every set, untouched). There were no inherited edits in this seat's set. value.js sibling dirty rows (Track A/C product, `X-W5.md`, `F-W10S.md`, `CARRY-LEDGER.md`, the staged `D demo/shell/PaneSegmentedControl.vue`, `scripts/dev/dev.sh`) were NOT touched and NOT staged. **Frontier**: kf `220bd93a` → **`8ae71f51`** (pushed; ⟨cmd⟩ `git rev-list --left-right --count origin/master...HEAD` → `0 0`).
+
+**Bounds used**: the ADDENDUM `:299` `.e` clause (the RESUME plan's `KF.W13.e2` writable set, unchanged) for D-1. For D-3, KF-W13 §B.2's `TransportDock.vue` row: TD-36 is this wave's row, and its true bytes are in a §B.2 path. For D-4, §B.2's value.js INBOX + SS-6 register rows plus `evidence/W13S/**`.
+
+### Defect → cure → commit
+
+| Check-1 # | Sev | Cure (the spec's own idiom) | kf commit(s) | Verdict |
+|---|---|---|---|---|
+| D-1 | HIGH | **`KF.W13.e2` executed**, each row its own meaning-commit: **KF11-E2**, the three unused `src/**` declarations deleted with their TS6133 rows · **E-c1**: `parseAnimationCSS.ts`'s `timingFunction?: string` becomes `ReturnType<AnimationEngine["serializeTimingFunction"]>`, which is the serializer's own `CssEasingLiteral`. `useKeyframeOps.ts:91` closes BY ROOT, and that file is untouched · **KF11-E4**: `:key="superKey ?? ''"` · **E-d1 / R-3**: the KF-CE-1/4 arm (b) re-landed from `evidence/W12/KF-W12-d-born-red.md`, with `demo/env.d.ts`'s five-line ambient declaration in the same sha. Byte-exactness: ⟨cmd⟩ `cmp` of the applied `+`/`-` lines against the banked hunk's → **IDENTICAL, 82 lines**. Hunk 1 needed context fuzz 3, because `850b62a9`/`6f065d36` moved two import lines of context. No change line was re-derived · **KF.W12 `.e` residual 1**: the preset double gains `setTargets` · **KF11-E(f1)**: (4b) is re-bound to `import { DAMPING_AXIS }`, and the regex read dies · **KF11-E3** (keyframes half): `cssValue` is typed at its source. The editor modes are translated to real CSS, and the getter returns `NonNullable<InputAnimationOptions["timingFunction"]>`. `currentEasingName`/`selectEasing` carry an `EasingName` contract. No cast. | `6ae324c6` · `2ee8f850` · `dc93e424` · `72e532a9` · `17d3e227` · `96079974` · `c03141bc` | **CURED**, except KF11-E3's two boundary rows (**ESC-r1-2**) |
+| D-2 | HIGH | Not curable in bounds. The MM-1/MM-6 four-part ONE-sha cure needs `demo/scenes/cube/CubeScene.vue`'s delete arm (`setPPMode` `:96-97`, `headerLeft` `:129-135`, `:267`). `demo/scenes/**` is on KF-W13's *"Bounds whose expansion invalidates the wave"* list (§Scope, Triumvirate dispatch). Repairing `MbabbMenu.vue:333` alone lands two writers for one persisted flag, which ARB-1 forbids. | — | **ESCALATED (ESC-r1-1)**, carried from ESC-a3-1 unchanged |
+| D-3 | MEDIUM | **TD-36**: the ChromeDock pair adopted as ruled (`kf-TransportDock.md:84`, *"adopt the ChromeDock pair (two classes)"*). The host gets `pointer-events-none` on `fixed left-0 right-0 z-dock`, and the `GlassDock` pill is wrapped in `<div class="pointer-events-auto">`, exactly as at `ChromeDock.vue:384`/`:387`. | `8ae71f51` | **CURED** (the SS-13 #9 occluded-extent witness stays SS-13's and is not taken here) |
+| D-4 | MEDIUM | **O-48 relayed.** The letter is `keyframes/evidence/W13S/KF-W13S-bk-producer-relay-2026-09-22.md` (five asks plus one status note, each at its registry fact). The INBOX `O-48` row is SENT, with carriage on the SS-6 batch per the O-47 precedent because glass-ui is READ-ONLY. The rows accrete at COHESION §4a as `KFW13-1..6`. Nothing was cured demo-side. | vjs (this commit) | **CURED** |
+| D-5 | MINOR | **The carve reading, recorded** (Check 1's own cure): KF-W13 §B.2's `App.vue` row reads *"M-4's sites and the consumed motion"*. A prop contract changed in `ChromeDock.vue`/`MbabbMenu.vue` has its consumer end at `App.vue`, and that end is part of the same consumed motion (`16dc1e33`, `74c6becc`), so the families stay unsplit. `89bf55b2` is a comment-only R3-8 edit at the same seam. No revert is owed. | — | **CURED (recorded)** |
+| D-6 | INFO | The value.js push rule is unchanged: push only with no sibling path staged (see §Push below). | — | carried |
+| D-7 | INFO | Needs no cure. Beside it: the two `as Monaco.editor.IStandaloneThemeData` casts in `72e532a9` are **inside the banked byte-exact hunk** (KF-CE-29, which replaced `as any`). They are not a new cast of this seat. | — | none |
+
+### Gate re-reading after the cures (kf `8ae71f51`; every figure read from the settled bytes, double-run, `·` separated)
+
+| Gate / row | ⟨cmd⟩ (kf root) | Check 1 | Repair 1 |
+|---|---|---|---|
+| G-KFW13-7 / OP-0 | `npx vue-tsc --noEmit -p tsconfig.json 2>&1 \| grep -c 'error TS'` | 9 · 9 | **4 · 4**: `MbabbMenu.vue(333,12)`/`(333,36)` TS2339 (ESC-r1-1) + `EasingSidebar.vue(150,27)` · `EasingTarget.vue(251,62)` TS2345 (ESC-r1-2) |
+| G-KFW13-7 test limb | `npm run test:demo` | 2 failed \| 57 passed (59) · Tests 2 \| 492 (494) | **Test Files 59 passed (59) · Tests 494 passed (494)**, both runs |
+| G-KFW12-4 | `css-code-editor-seam.test.ts` (4 cases, incl. (2) KF-CE-1) | RED | **GREEN**, 4/4 (inside the 59/59) |
+| G-KFW11-4 | `spring-trace-truth.test.ts` (12 cases, incl. (4b)) | RED | **GREEN**, 12/12 |
+| skip/only | `git diff 9d814f6c..HEAD -- test \| grep -c 'test.skip\|it.skip\|\.only('` | 0 · 0 | **0 · 0** |
+| masking | `git diff 220bd93a..HEAD \| grep -c '^+.*\(as any\|as unknown\|@ts-\|eslint-disable\|\.skip\)'` | — | **0** (the two theme casts are D-7's banked-hunk note) |
+| byte rows | `setTargets` in the seam test · `basic-languages` in `env.d.ts` · `DAMPING_AXIS` in (4b) · `superKey ?? ` in EditorShell · `pointer-events` in TransportDock | 0 · 0 · 0 · 0 · 0 | **2 · 2 · 3 · 1 · 4**, both runs |
+| G-KFW13-2 `headerLeft` | `git diff 9d814f6c..HEAD -- demo/app \| grep -c headerLeft` | 0 · 0 | **0 · 0** |
+| sweep | `git grep -l btn-playback HEAD -- demo \| wc -l` | 9 | **9 · 9** (beside RULINGS-4's 7 and the spec's 8, amending neither) |
+| `npm run check` | exit code | not run (typecheck limb 9) | **exit 2 · exit 2**. Leg 1 (vue-tsc) is the **4** above. Leg 2 (`tsc --noEmit -p tsconfig.test.json`, run on its own) gives **47**. Of those, 46 are in test files this repair did not touch, and 24 of those 46 are `spring-heatmap-reversibility.test.ts`'s named imports from a `.vue` module under the `*.vue` shim. The one row this repair adds is the same class: (4b)'s `import { DAMPING_AXIS }`, the exact form §0ai prescribes. Leg 3 `proof:structure` → **PASS** |
+| lint | `npx eslint` over the six touched demo files · `git diff --check` | — | clean · clean |
+| `dev.sh` | `git log 58c1ba11..HEAD -- scripts/dev/dev.sh` (vjs) | empty | **empty** |
+
+### Escalations (returned; measured reasons)
+
+- **ESC-r1-1 = ESC-a3-1 (D-2), unchanged.** The MM-1/MM-6 four-part ONE-sha cure has its delete arm in `demo/scenes/cube/CubeScene.vue`. That file is KF.W11's, and `demo/scenes/**` is a bound whose expansion invalidates this wave. **Needed**: an orchestrator grant of `CubeScene.vue` `:96-97`/`:129-135`/`:267` (plus its dead imports) to an `.a4` seat, or a joint commit with a KF.W11 seat under ARB-1. It lands as ONE sha with `MbabbMenu.vue:333`, with no `headerLeft` fill arm, and `sceneExposedApi.ts:43`'s `headerLeft?` stays out of this wave's `demo/app` diff. This closes vue-tsc rows 1–2.
+- **ESC-r1-2: KF11-E3's two boundary rows.** Once `cssValue` is typed at its source, the string origin shows up at the two call sites that feed the `EasingName` contract. `EasingSidebar.vue:150` passes `nameForQuad`'s `Object.keys(NAMED_EASING_BEZIER)` key, and `NAMED_EASING_BEZIER` is `Record<string, …>` at `demo/utils/reference-data/animationDescriptions.ts:19`. `EasingTarget.vue:251` passes the tile ToggleGroup's value, and the tiles are built from `CurveGroupItem.name: string` at `demo/utils/reference-data/easingGroups.ts:7`. Both roots are **catalogue files outside the three-file carve** that §0ai grants. Inside the carve, the only way to close these rows is a type predicate or a cast at the call site, and the RESUME plan's lock (*"no cast/shim/narrowing guard"*) refuses both, so neither was landed. **Needed**: grant `easingGroups.ts` and `animationDescriptions.ts` to type their names by the `EasingName` contract (`name: EasingName` · `Partial<Record<EasingName, Quad>>`). The two sites then resolve by typed lookup (`visibleCurves.find(c => c.name === v)?.name`, and an iteration over the typed catalogue in `nameForQuad`). The row count is unchanged across this move (2 at `useEasingDemo.ts:294/:310` → 2 at the boundary), and no row lands outside the carve.
+
+### Residuals
+
+- A stale comment, which is not a defect of this wave's bytes: `useKeyframeOps.ts:80-89` still narrates E-c1 as open (*"the projection's own type … widens it to `string`"*). The file is KF.W12's Do-NOT-touch tree, and the RESUME plan bars it for `.e2`. Its prose goes to its owner (KF.W12's successor) as a one-comment correction.
+- The E-d1 bundle delta receipt (+4,255 B vendor-monaco, −1,054,628 B css.worker) is **cited from the banked measurement** and not re-measured here, because the change lines are identical to the banked hunk.
+
+### E13 · push · LEDGER
+
+- **E13**: four paths swept (the INBOX sweep line appended). UNREAD in scope: **0**. O-48 was minted outbound.
+- **Push**: keyframes.js pushed `220bd93a..8ae71f51` (fast-forward, `0 0`). value.js is pushed only if ⟨cmd⟩ `git status --porcelain | grep '^[MADR]'` shows no sibling path staged. At this seat's clock the sibling's staged `D demo/shell/PaneSegmentedControl.vue` stands, so the value.js push is **withheld** (d-R9) and the commit is local.
+- **LEDGER**: the status cell is unchanged. **PARTIAL stands**, because G-KFW13-7 (vue-tsc 4) and G-KFW13-2 (the MM-1/MM-6 sha) are still RED on ESC-r1-1 and ESC-r1-2. One event line is appended.
