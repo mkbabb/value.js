@@ -989,3 +989,5 @@ Also: `const props =` unbound to `defineProps<…>()` (no reader left under `noU
 - `sceneExposedApi.ts:6/:43` (`headerLeft` prose + optional contract member) stand per §0am; their fate rides the KF-APP-5 producer relay (ARB-1).
 
 **Escalations**: none blocking. R-a4-2 is a carve-extension request, returned to the orchestrator, not an act.
+
+**Erratum to R-a4-2 (same seat, measured after the receipt commit)**: ⟨cmd⟩ `grep -n "\bref(\|watch(" demo/scenes/cube/CubeScene.vue` → `ref(` at `:71` `:72` `:101` · `watch(` at `:111` ONLY — so `ref` stays live but `watch` would become a dead import with that state; the grant R-a4-2 asks for covers the `watch` import too.
