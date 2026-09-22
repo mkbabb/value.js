@@ -5356,3 +5356,117 @@ AUDITED yes · SPECIFIED yes · **IMPLEMENTED no** (19 RED) · VERIFIED no (X-W1
 **PARTIAL.** GREEN is 31/50 and RED is 19/50 (8 regressed from GREEN with no W6 byte moving). Landed-wrong
 is 0. There are 0 UNREAD. Two escalations are open (ESC-W6c-b1-1, ESC-W6close-1). The LEDGER row reads
 PARTIAL.
+
+## Check 1 — RESUME 2026-09-22 (L-20 fresh adversarial pass 1 over the fourth sitting's close)
+
+SERVED MODEL: claude-opus-5-5[1m]
+
+**Append-only beside** every block above (E-3). VERIFY-ONLY: this seat cures nothing. It read the spec
+`W6.md` whole (both addenda included), this record's fourth-sitting Open, Unit plan, `.c` receipt and Close, and
+every commit the close names (`0d21210f` · `d8029124` · `8865d963`).
+**Crash-recovery**: ⟨cmd⟩ `git status --porcelain` → `M docs/tranches/V/reformation/CARRY-LEDGER.md` · `M scripts/dev/dev.sh`.
+Neither path is in this seat's writable set, so nothing was inherited.
+**Live cell**: the `:9000` vite server (PID 14970, started 17:15:54, cwd = this repo). That is the close's own
+fresh server, so the STALE-SERVER LAW holds. Playwright ran on its own webServer.
+
+### Axis 1 — the claimed GREENs, re-run at this seat's clock
+
+| gate(s) | ⟨cmd⟩ | this seat |
+|---|---|---|
+| a1 | `parse-probe.ts` → `npx vitest run test/gradient-order-invariant.test.ts` | `Tests 17 passed (17)` |
+| a5–a11 | `node docs/tranches/X/waves/W6-evidence/gradient/gate-a-gesture-paint.mjs` | `GATE X.W6.a (gesture + paint) — GREEN`: `travel@1px=0.00px` · `[27.4,100] → [27.4,98]` · `before=2 middle=2 right=2 cancel=2` · 5 writes · `rules intersected: 0` · a9 `[]`, `3 → 2` |
+| a7 arm 2 | `node …/WBGSE-O-r3-gestures.mjs` | `C14 buttons: {"beforeMid":2,"afterMid":2,"afterRight":2}` |
+| a12 | `node …/WBGSE-D-probe2.mjs` | EXIT 0, `"afterOverhangPx": 0` |
+| b2 · b4 | `node …/gate-seat.mjs` ×2 | neither run prints a G3e or G3f line |
+| c1 | `gate-structure.mjs` | EXIT 0, `GATE G4 (structure) — GREEN` |
+| c2 · c4 | the vitest filters | `4 passed \| 13 skipped (17)` · `5 passed (5)` |
+| c3 | `npx vite-node …/gate-literal-dialect.mjs` | `GATE c3 (literal dialect) — GREEN` |
+| d1 | `EASING_RADIUS_ORIGIN=http://localhost:9000 node …/gate-easing-radius.mjs` | `panel surfaces measured: 33 · read-only …: 2` · `GATE d1 (easing radius) — GREEN` |
+| d2 · e2 | `gate-easing-readout.mjs` · `gate-prm-idiom.mjs` + the rAF grep | EXIT 0 GREEN each · rAF grep `0` |
+| f1 · f5 · h2 · i2 | the four `docs/tranches/X/gates/*.mjs` | EXIT 0 each, `— GREEN` |
+| f2 · f7 · f9 · f10 | the spec's `test …` greps (`W6.md:255/260/262/263`) + `npx vue-tsc --noEmit -p tsconfig.demo.json` | all four greps GREEN · `TSC EXIT 0` |
+| g2 | `companion-pane-track-start.spec.ts -g "companion panes share one track start"` | run 1 **`1 failed`**: `locator.evaluate` 30 s timeout on `region "Picker"` after `toBeVisible` passed. Run 2 **`1 passed (29.8s)`** (see C1-6) |
+| i1 | `o25-atmosphere-response.spec.ts` | `1 passed` |
+| H1 | `node docs/tranches/X/gates/gate-no-chassis.mjs b2dd375c a87f8930` | *"no added module is both housing-shaped and shared across instrument roots"* |
+| H3 | the parser R1 one-liner · glass version | `EXIT 0` · `7.0.0` |
+| j4 | cited, not re-run | no byte it reads moved in this sitting (Axis 2) |
+
+**30 of the 31 claimed GREENs reproduce** (g2 on its second run). j4 is cited, and nothing it reads has moved.
+
+**The claimed REDs, re-read.**
+- b1: `gate-seat.mjs` ×2 prints exactly the 2 `G3d` lines, Home and ArrowDown.
+- f4: `o22-specimen-legibility.spec.ts` gives **`1 failed`** at `getByRole('main', { name: 'Color tool panes' })`.
+- h1: `webgl-blob-idle.spec.ts -g "hero blob carries current chroma"` gives **`1 failed · 2 passed (1.1m)`** on
+  `getByTestId('goo-blob-canvas').last()`. The close recorded `3 failed`, so the RED is nondeterministic in its
+  count (C1-7).
+- The landmark cause is confirmed at the bytes: `App.vue:59` reads `<main class="pane-main" :aria-labelledby="ROUTE_TITLE_ID">`,
+  which is the X-W5 `50633f19` lineage. ⟨cmd⟩ `grep -rln "Color tool panes" e2e | wc -l` → **66**.
+
+### Axes 2–9
+
+- **(2) Bounds.** ⟨cmd⟩ `git diff --stat 0d21210f^..HEAD -- demo e2e test src scripts/dev/dev.sh` → **empty**.
+  `git show --stat`: `0d21210f` touches INBOX, this record and LEDGER. `d8029124` touches this record only.
+  `8865d963` touches this record, LEDGER and 27 transcripts under `W6-evidence/gates/close-4-2026-09-22/` (§4
+  `W6-evidence/**`). `dev.sh` is untouched. The result is clean.
+- **(3) Masking.** There is no product diff in this sitting. The `.c` seat refused to game b1 (seed, domain or
+  instrument edit), which is the lawful refusal. There is no masking act.
+- **(4) Commit families.** Open, receipt and close are one commit per meaning. No §9 product family was split,
+  because none landed.
+- **(5) E-3.** ⟨cmd⟩ `git diff --stat 0d21210f^..HEAD -- docs/tranches/X/waves/W6.md docs/tranches/V/megatranche/registry/adjudicated/ …/probes/wb-gradient-stopeditor …/audit/components`
+  → **empty**. The rule held.
+- **(6) Mail.** ⟨cmd⟩ `grep -c '^| I-\|^| O-' INBOX.md` → **94**. The status-cell `awk` finds 4 cells, and every one
+  is SENT, FOLDED or READ, with the word only in prose. **0 UNREAD.** The owed `O-` row for
+  `W6-glass-ask-hero-blob-p3.md` is still absent (`grep -c hero-blob-p3` → 1, the sweep prose). It is `.h`'s to
+  write and `.h` was not dispatched, so this is an outbound debt, not an unread.
+- **(7) Four-verb.** The line stays at IMPLEMENTED no. That is lawful with 19 RED.
+- **(8) Goal §2a at the bytes.** **NOT MET.** The four scene contracts are unlanded: `o29` is absent and there are
+  **14** `component: Stub` rows. The blob chroma (h1) and the cold-load (i3) are RED.
+- **(9) Published figures.**
+  - 27 transcripts: reproduces.
+  - GREEN 31 / RED 19 = 50: the arithmetic reproduces.
+  - vue-tsc EXIT 0: reproduces.
+  - INBOX 94: reproduces.
+  - h1 `3 failed` does **not** reproduce as a count (this seat got 1 failed). g2 `1 passed` is flaky (1 of 2).
+
+### Axis 10 — honest-RED adjudication (every RED, at the spec bytes)
+
+| gate | relief at the spec bytes | owner named in the register | verdict |
+|---|---|---|---|
+| g1 | `W6.md:484`: "**g1** honest-RED by id → X-W10 (M-23)" | R-6 X-W10 | **HONEST-RED** |
+| j1 · j2 · j3 | `W6.md:479`/`:484`: "`.j` after X-W5 CLOSED". LEDGER X-W5 = PARTIAL | R-7 `.j` | **HONEST-RED** (successor-gated by the spec) |
+| H4 | the CC-056/CC-057 dispositions land in `.j`, which is gated as above | R-7 | **HONEST-RED** |
+| H2 | the file is present, and the `.e` legs cite it (`gradient.spec.ts:445-446`, `gate-prm-idiom.mjs:15-16,48`). Only the `.j` leg is owed, and it is gated as above | R-8 | **HONEST-RED** |
+| a2 · a3 · a4 · a13 · b3 · e1 · f4 · f6 · f8 | **none**. These are W6's own gates on W6's own §4 spec paths. They are not producer-owned and are not routed to a successor by the spec. ESC-W6close-1 is unruled | R-1 names X-W5 plus a W6 repair, but only as a proposal | **UNRELIEVED** |
+| f3 | **none**. The cause is unattributed and the bisect is owed | R-2 (a proposed bisect) | **UNRELIEVED** |
+| h1 | **none** for this limb. §0aq relieves only `H1-P3` (OM-6 beyond-sRGB). This failure is canvas-absent on the sRGB cell | R-3 `.h` re-sit | **UNRELIEVED** |
+| i3 | **none**. §0aq *grants* `.i` the `index.html` cure, and that is a W6 duty, not relief | R-5 `.i` | **UNRELIEVED** |
+| b1 | **none**. `W6.md:484` assigns the cure to `.c`, and ESC-W6c-b1-1 is unruled. This seat confirms the instrument focuses the FIRST stop (`gate-seat.mjs:97-102`), and on this route that stop sits at the 0% floor, so `.c`'s input-state reading is credible. It is still a ruling owed, not relief | R-4 | **UNRELIEVED (escalated)** |
+
+**Honest-RED set: g1 · j1 · j2 · j3 · H2 · H4** (6). **13 REDs are unrelieved.**
+
+### Successor "Opens after" conjuncts
+
+- **X-W7** (`W7.md:6`): X-W3 · X-W4 · **X-W6**. The X-W6 conjunct is **RED** (the row is PARTIAL). Blocked lawfully.
+- **X-W8** (`W8.md:6`): X-W5 · **X-W6** · X-W7 stable. RED. Blocked lawfully.
+- **X-W10** (`W10.md:6`): X-W5..X-W9 stable. RED. Blocked lawfully.
+- **X-W11** (everything): RED. Blocked lawfully.
+
+### Register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C1-1 | HIGH | 9 W6 gates are RED with no spec relief: a2 a3 a4 a13 b3 e1 f4 f6 f8. The cause is retired shell DOM after X-W5's landmark rename | `o22` → `1 failed` at `getByRole('main', { name: 'Color tool panes' })`; `App.vue:59` `:aria-labelledby`; 66 e2e files | A ruling on ESC-W6close-1. Then a W6 repair migrates W6's own §4 spec paths to the route-titled landmark, and X-W5 migrates the shared `fixtures/dock` and the rest. Restoring the old label is banned |
+| C1-2 | HIGH | f3 is RED and unrelieved: the closed listbox stays visible | close transcript `pw-f-i.txt`; R-2 | A W6 repair bisects `2183b814` against `e0e204a9` and cures the cause at the root |
+| C1-3 | HIGH | h1 is RED and unrelieved on the sRGB cell: canvas not found. §0aq relieves only H1-P3 | `webgl-blob-idle.spec.ts -g "hero blob carries current chroma"` → `1 failed · 2 passed` | `.h` re-sit attributes and cures it, and also writes the owed `O-` row |
+| C1-4 | HIGH | i3 is RED and unrelieved. `.i` holds the §0aq `index.html` grant but was not dispatched | close `o28` 3 seeds failing; Baseline RED | `.i` re-sit with the pre-module boot seed |
+| C1-5 | MEDIUM | b1 is RED with its escalation unruled (ESC-W6c-b1-1). The product grammar is credibly present | `gate-seat.mjs` ×2 → 2 `G3d` lines; instrument focuses the first stop at 0% | A COHESION ruling: re-point the instrument (X-W11 OUT-OF-WAVE) or accept `.c`'s Act-4 transcript |
+| C1-6 | MINOR | g2 GREEN is flaky: 1 fail and 1 pass here | run 1 `locator.evaluate` 30 s timeout; run 2 `1 passed (29.8s)` | The next close double-runs g2. Mitigation: it reproduced GREEN on its second run |
+| C1-7 | MINOR | The close's h1 count `3 failed` does not reproduce (1 failed here). The RED is nondeterministic | as C1-3 | `.h` records the per-seed determinism |
+| C1-8 | MINOR | §8 artefacts are PARTIAL: gradient PNG 0, owner-marks 0, cold-load frame owed | close Act 4 | R-11 owners |
+| C1-9 | INFO | Bounds, masking, commit-family, E-3 and mail axes are clean. The four-verb line held lawfully | Axes 2–7 | none |
+
+### Verdict
+
+**NOT-CONFORMANT.** There are 4 HIGH, 1 MEDIUM, 3 MINOR and 1 INFO. 30 of the 31 claimed GREENs reproduce (g2
+flaky). The honest-RED set is g1 · j1 · j2 · j3 · H2 · H4, and 13 REDs are unrelieved. The LEDGER row is **NOT
+promoted** and stays PARTIAL.
