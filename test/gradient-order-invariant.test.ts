@@ -302,6 +302,25 @@ describe("one sampling law", () => {
         expect(minted?.cssColor).toBe(preview);
     });
 
+    it("a curve that overshoots [0, 1] holds at the endpoint colour — the codomain guard", () => {
+        // Fold W6·57 (C-01, BLOCKER): `ease-in-back` dips below 0 near t = 0.2;
+        // the ramp used to rethrow mixColors' out-of-range verdict and take the
+        // pane down. Mutation caught: deleting the clamp throws here.
+        const m = useGradientModel();
+        m.setStopEasing(m.stops.value[0]!.id, {
+            ...STEPS,
+            mode: "bezier" as const,
+            css: "cubic-bezier(0.36, 0, 0.66, -0.56)",
+            fn: easingFnOf({ css: "cubic-bezier(0.36, 0, 0.66, -0.56)" }),
+        });
+        const model = m.modelState.value;
+        expect(easingFnOf(model.stops[0]!.easing)(0.2)).toBeLessThan(0);
+        expect(() => sampleCoalescedStops(model)).not.toThrow();
+        expect(formatColorLiteral(sampleAt(model, 20))).toBe(
+            formatColorLiteral(sampleAt(model, 0)),
+        );
+    });
+
     it("just past a hard stop the ramp is the stop that opens the next span", () => {
         const m = useGradientModel();
         m.addStop(RED, 50);

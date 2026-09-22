@@ -26,6 +26,7 @@ import {
 } from "@mkbabb/value.js/easing";
 import type { EasingFunction, LinearEasingStop } from "@mkbabb/value.js/easing";
 import { parseTimingFunction } from "@mkbabb/value.js/css";
+import { clamp } from "@mkbabb/value.js/math";
 import type { CssLinearStop, CssTimingFunction } from "@mkbabb/value.js/css";
 import { parseColorIn } from "../../../color-session/color-utils";
 import type { GradientInterval, GradientSampleSource, GradientStop } from "./types";
@@ -129,6 +130,16 @@ export type IntervalSampler = (t: number) => AnyColor;
  * mixed in the model's space, at the curve that `s0` OPENS, applied to t. The
  * endpoints are parsed once per interval, so a walk of many samples pays for
  * two parses, not for two per sample.
+ *
+ * THE CODOMAIN GUARD (fold W6·57, C-01 — the BLOCKER whose lethal predicate is
+ * `range(curve) ⊄ [0, 1]`): a colour interval has no overshoot. The back family
+ * (`ease-in-back`, `ease-out-back`, …) leaves [0, 1] by design, and the shipped
+ * `mixColors` answers a progress outside it with `color_progress_out_of_range`
+ * — correctly, the library is blameless — which the ramp used to rethrow and so
+ * take the whole pane down on a single tile press. The mix progress is the
+ * curve's value clamped to the interval's own codomain: while the curve is
+ * outside [0, 1] the colour holds at the endpoint it overshot, and the curve's
+ * true shape is still what its glyph and its authoring canvas draw.
  */
 export function intervalSampler(
     s0: GradientStop,
@@ -140,7 +151,7 @@ export function intervalSampler(
     const c0 = parseColorIn(s0.cssColor, interpolationSpace);
     const c1 = parseColorIn(s1.cssColor, interpolationSpace);
     return (t) => {
-        const mixed = mixColors(c0, c1, curve(t), {
+        const mixed = mixColors(c0, c1, clamp(curve(t), 0, 1), {
             space: interpolationSpace,
             hue: hueMethod,
         });

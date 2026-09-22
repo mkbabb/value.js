@@ -11,8 +11,8 @@
 import { computed } from "vue";
 import type { ComputedRef } from "vue";
 import { useSafeAccentFn } from "../../../../color-session/useContrastSafeColor";
-import { easingFnOf } from "../../model/sample";
-import { interpolateStopColors } from "../../composables/useGradientInterpolation";
+import { easingFnOf, intervalSampler } from "../../model/sample";
+import { formatColorLiteral } from "../../composables/useGradientCSS";
 import { glyphPath, specimenNameFor, tileIdFor } from "./easingCatalogue";
 import type {
     GradientInterval,
@@ -50,13 +50,9 @@ export function useSpecimenRows(
             const interval = intervalList[i];
             if (!s0 || !s1 || !interval) continue;
             const fn = easingFnOf(interval);
-            const mid = interpolateStopColors(
-                s0.cssColor,
-                s1.cssColor,
-                fn(0.5),
-                model.interpolationSpace,
-                model.hueMethod,
-            );
+            // The eased ramp midpoint through the ONE sampling law (X.W6.c,
+            // fold W6·56): the ink is the colour the rail paints at t = 0.5.
+            const mid = formatColorLiteral(intervalSampler(s0, s1, model)(0.5));
             rows.push({
                 index: i,
                 label: `${i + 1} → ${i + 2}`,
