@@ -1033,3 +1033,40 @@ The 30 leg-2 rows by file (⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.test.json
 **Residuals**: `easingGroups.ts` imports a type from `demo/scenes/easing/useEasingDemo.ts` (the `.e2` contract's home; type-only, erased) — a utils → scene type edge; if the orchestrator prefers the contract in a neutral module, that is a move of `useEasingDemo.ts:37-53`, outside this carve.
 
 **E13**: no mail acts in this unit's scope (the RESUME 2 Step-0 sweep stands; 0 UNREAD).
+
+### KF.W13.t
+
+SERVED MODEL: claude-opus-5-5[1m] (this receipt's seat)
+
+**Spec**: KF-W13.md ADDENDUM 2026-09-22 `:303` (`.t` clause) · COHESION §0am ESC-r2-3 (`:2488-2496`) · this record's RESUME 2 baseline + FINDING B-1. **No dated grant widening the carve exists** (⟨cmd⟩ `grep -n '^## §0a[m-z]' COHESION.md` → `§0am` `:2471` · `§0an` `:2509` (X-W6's, not this wave's)) — the 16 B-1 rows are therefore RETURNED, never written.
+
+**CRASH-RECOVERY**: ⟨cmd⟩ `git -C keyframes.js status --porcelain` → only the two untracked 2026-07 value.js letters (outside the set); `test/demo/**` clean at `781fd1d7`. No inherited partial work.
+
+**Acts, in order**
+1. BEFORE ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.test.json 2>&1 | grep 'error TS'` at kf `781fd1d7` → **30** rows: the 12 of the brief (`apply-css-identity` 179/291 · `channel-options-render-edge` 214/215/216/306/309 · `keyframe-card-offset-loop` 317/345/541 · `keyframes-editor-honest` 266 · `spring-heatmap-reversibility` 388) + `EasingSidebar.vue(150,27)` (ESC-e3-1) + `playback-ribbon-contract.test.ts(230,66)` (ESC-e3-2) + the 16 B-1 rows. Every anchor verified at the true bytes; none drifted.
+2. Roots and cures (all in `test/demo/**`; no demo module touched — no row's root was a demo type declaration):
+   - `apply-css-identity:179` TS2322 — root `mountSeat(animation: unknown)`; typed `FixtureAnimation = Awaited<ReturnType<typeof buildFixture>>["animation"]`. `:291` TS2739 — root the partial `reactive({ selectedControl })` handed to `RibbonBar`'s `StoredAnimationGroupControlOptions` prop; now `reactive<StoredAnimationGroupControlOptions>({…total…})` (the idiom of `useAnimationGroupPlayback.test.ts:10-24`; `import type` from `@state`).
+   - `channel-options-render-edge:214-216` TS2412 — root the test's own `PointerCaptureSurface` declaring optional members that `afterAll` restores to a possibly-`undefined` original under `exactOptionalPropertyTypes`; members now `(…) | undefined` as well as optional. `:306/:309` TS2352 — root the assertion `mod.LabeledX as { props: Record<string, unknown> }` over a `DefineComponent` type that carries no `props` member; replaced by `declaredPropNames(component: object)`, an `in` + `typeof` narrowing (two casts retired; an absent `props` reads `[]`, which reds every `toContain` — no masking).
+   - `keyframe-card-offset-loop:317/:541` TS2322 — root the cast `animation as unknown as { templateFrames: { start: unknown }[] }` in `buildRows`; `frames` now read off the library's own `templateFrames` getter (`TemplateAnimationFrame<V>[]`), `mountList(frames: FixtureFrames, …)`; the same false typing retired at `:427`/`:461` and the three `frame.start as never` (6 casts retired). `:345` TS2322 — `mountEditor(animation: unknown)` typed `Awaited<ReturnType<typeof buildFixture>>`.
+   - `keyframes-editor-honest:266` TS2322 — `mountEditor(animation: unknown)` typed `Awaited<ReturnType<typeof buildFixture>>["animation"]`.
+   - `spring-heatmap-reversibility:388` TS2339 — `wrapper.get(sel)` is typed without `exists` (it throws when absent); the clause's intent is presence → `wrapper.find(sel).exists()` → `toBe(true)`, same assertion.
+3. Commit kf **`4815cfe8`** (one meaning: the 12 rows' typed roots; pathspec = the 5 files), pushed: ⟨cmd⟩ `git rev-list --left-right --count origin/master...HEAD` → `0 0`.
+
+**Gates (kf root, at `4815cfe8`, double-run `·`)**
+
+| Gate | ⟨cmd⟩ | BEFORE | AFTER | Verdict |
+|---|---|---|---|---|
+| the 12 `test/demo/**` rows | `npx vue-tsc --noEmit -p tsconfig.test.json 2>&1 \| grep 'error TS' \| grep -c '^test/demo/'` | 13 (12 + `:230`) | **1·1** (`playback-ribbon-contract.test.ts(230,66)` = ESC-e3-2, not `.t`'s) | GREEN for the 12 |
+| leg 2 → 0 | `npx vue-tsc --noEmit -p tsconfig.test.json 2>&1 \| grep -c 'error TS'` | 30 | **18·18** | **RED** — the 18 are named below (none in `.t`'s carve-and-brief) |
+| `npm run check` exit 0 | `npm run check; echo $?` | 2 | **2·2** (leg 1 still reads `EasingSidebar.vue(150,27)`, ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.json 2>&1 \| grep -c 'error TS'` → 1) | **RED** |
+| `test:demo` | `npm run test:demo` | 59/59 · 494/494 | **59/59 · 494/494 · 59/59 · 494/494** (exit 0 ×2) | GREEN |
+| no cast / `@ts-expect-error` / skip / loosened assertion added | `git diff 781fd1d7..4815cfe8 -- test \| grep '^+' \| grep -cE ' as [A-Za-z{(]\|@ts-expect-error\|@ts-ignore\|\.skip\|\.only\(\|\.todo'` | — | **1** — the one hit is prose (`// \`| undefined\` as well as optional`); code hits **0**; removed-line casts **8** | GREEN |
+| keyframes.js pushed | `git rev-list --left-right --count origin/master...HEAD` | 0 0 | **0 0** at `4815cfe8` | GREEN |
+
+**Escalations RETURNED (by `file:line` + id; nothing written outside the carve)**
+- **ESC-t-1 = FINDING B-1 — 16 rows outside `test/demo/**`**: `test/compile/diagnostics-channel.test.ts:94` TS2345 · `test/compile/value4-easing-contract.test.ts:13` · `:37` TS2345 · `test/engine/animation.test.ts:1` · `:19` · `:30` TS6133 · `test/engine/strict-options.test.ts:55` TS2345 · `test/engine/w0-crashes.test.ts:207` TS2322 · `test/group/group.test.ts:1` · `:2` · `:5` · `:32` TS6133 · `test/ingest/platform-adopt.test.ts:20` TS6133 · `:32` TS6192 · `test/scroll/scroll-scene.test.ts:36` TS6133 · `test/waapi/waapi-lifecycle.test.ts:241` TS2345. Two classes: 10 unused-binding rows (TS6133/6192) and 6 deliberate-invalid-easing rows (TS2345/2322 — tests that feed a bogus easing to prove the runtime refusal; their typed cure needs a ruling on how an intentionally ill-typed input is expressed without a cast). A dated grant of `test/{compile,engine,group,ingest,scroll,waapi}/**` is owed before leg 2 can read 0.
+- **Still open from `.e3`, not re-spent here**: ESC-e3-1 (`EasingSidebar.vue:150`, leg 1 and leg 2 both) and ESC-e3-2 (`playback-ribbon-contract.test.ts:230`, cure proven by `.e3`'s probe; inside `test/demo/**` but ruled `.e3`'s and awaiting the orchestrator, so not substituted here).
+
+**Residuals**: `keyframes-editor-honest.test.ts`'s `framesOf` keeps its pre-existing `as { templateFrames }` assertion (no row; outside the 12 — named, not widened).
+
+**E13**: no mail acts in this unit's scope (the RESUME 2 Step-0 sweep stands; 0 UNREAD).
