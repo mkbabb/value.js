@@ -1349,3 +1349,40 @@ All 12 claimed GREEN limbs reproduce on a double run. Repair 1 truly cured C1-1 
 - leg 2 went from 18 to **16**, and `test/demo` now has 0 rows.
 
 Bounds, masking, families, E-3, mail and the four-verb line all hold. One HIGH remains (C2-1): `npm run check` exits 2 on ESC-t-1's 16 rows, with no relief from a producer, a successor wave or a named honest-RED. The honest-RED set is **EMPTY**. The LEDGER status stays **PARTIAL**, and only an event line is appended. **KF.W13T (§0ao) is lawfully blocked on this wave's CLOSED conjunct.**
+
+## Repair 2 — the RESUME 2 Check 2 register, round 2 (2026-09-22; dated addendum beside, E-3; no prior section rewritten)
+
+SERVED MODEL: claude-opus-5-5[1m] (this section's seat)
+
+**Seat**: REPAIR, round 2, over the Check 2 register at `:1278`. I read the spec KF-W13.md whole, including §B.2 and the four ADDENDA (§0ai · §0am · §0ao · §0ao.1). I read COHESION §0am (`:2471-2508`) and searched §0an/§0ao/§0ao.1 for grants. **CRASH-RECOVERY**: ⟨cmd⟩ `git status --porcelain` in keyframes.js → only the two untracked 2026-07 coordination letters. No inherited partial work was found in this seat's writable set.
+
+**Grant search, stated so a checker can repeat it**: ⟨cmd⟩ `grep -n 'test/compile\|test/engine\|test/{compile' docs/tranches/X/COHESION.md` → **no output**. §0am grants `.t` only `test/demo/**` (`:2492-2494`). §0ao/§0ao.1 mint `KF.W13T` (`.k` · `.e`), whose writable sets name no `test/{compile,engine,group,ingest,scroll,waapi}/**` path. No dated grant covers the 9 files.
+
+### Defect → cure → commit
+
+| # | sev | defect | disposition | kf commit |
+|---|---|---|---|---|
+| C2-1 (ESC-t-1 ×16) | HIGH | `check` exits 2 on 16 leg-2 rows in 9 library test files | **ESCALATED**: the cure lies outside every granted path (grant search above). A cure written here would be an out-of-bounds write. It needs a dated carve grant plus a ruling on the 6 deliberately-invalid-easing rows (TS2345/2322). | — |
+| C2-2 | MINOR | the spec's §Verification eslint line aborts on the ignored `demo/styles` glob; 7 pre-existing errors sit in 3 untouched files | **ESCALATED**: the cure is a dated spec erratum, which belongs to the orchestrator (E-3; this seat may not amend a dated spec). The 3 files are outside every row. | — |
+| C2-3 | MINOR | `superKey` is still bound at `App.vue:35`; CubeScene's hover-card state is dead | **ESCALATED**: `App.vue:35` is not among M-4's sites (`:29 · :37 · :369 · :372`), and §0am grants CubeScene only at `:96-97 · :129-135 · :267` plus dead imports. `KF.W13T.k` (§0ao) lists `App.vue` (dock consumer end) and `MbabbMenu.vue` as writable, so R-a4-1 can be homed there. The CubeScene half (R-a4-2) still needs a carve extension. | — |
+| C2-4 | INFO | `6705d4d8`'s `EasingSidebar.vue` basis is §0ai's `.e` row | none owed | — |
+| C2-5 | INFO | value.js `c91bf31b` carried §0ao's two LEDGER rows | none owed (a naming note for the orchestrator's §0ao commit) | — |
+
+**Cures landed this round: 0.** No defect at MEDIUM or above has a cure inside the bounds. No MINOR has a one-command cure inside the bounds. No product byte was written. No cast, skip, allowlist or erratum was self-issued.
+
+### Gate re-reading at the settled bytes (kf `6705d4d8` = origin/master, double-run)
+
+| limb | ⟨cmd⟩ | before (Check 2) | this seat (run 1 · run 2) |
+|---|---|---|---|
+| `vue-tsc` leg 1 (§0ai literal 0) | `npx vue-tsc --noEmit 2>&1 \| grep -c 'error TS'` | 0 · 0 | **0 · 0**, GREEN |
+| `check` leg 2 | `npx vue-tsc --noEmit -p tsconfig.test.json 2>&1 \| grep 'error TS' \| wc -l` | 16 · 16 | **16 · 16**, all ESC-t-1 |
+| `npm run check` | `npm run check; echo $?` | 2 · 2 | **2 · 2**, RED on ESC-t-1 alone |
+| push state | `git rev-list --left-right --count origin/master...HEAD` | `0 0` | **`0 0`** |
+
+No keyframes.js byte moved this round, so no other gate can have moved. `test:demo` stands at Check 2's reading (59/59 · 494/494) and was not re-run. `dev.sh`: untouched. glass-ui: untouched.
+
+**SELF-COUNT**: ⟨cmd⟩ `sed -n '/^## Repair 2 — the RESUME 2 Check 2/,$p' KF-W13S.md | grep -c '^| C2-'` → **5** defect rows (C2-1..C2-5). Of those, 3 are escalated and 2 are INFO.
+
+### Verdict of this repair
+
+Nothing was cured, because no remaining defect has an in-bounds cure. **C2-1 (HIGH) still holds the §0ai/§0am close literal, `npm run check` exit 0, at exit 2.** Its only cure needs an orchestrator grant over the 9 library test files. The LEDGER status stays **PARTIAL**; only an event line is appended.
