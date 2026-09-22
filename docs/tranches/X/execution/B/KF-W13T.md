@@ -375,3 +375,42 @@ The four-verb line does **not** move to IMPLEMENTED. G-KFW13T-6 is RED on persis
 **Figures (WRITE-THEN-MEASURE)**: kf bytes this seat **0**; no gate could move, so none was re-run; Check 2's banked readings at kf `5e5f4028` stand (vue-tsc 0 ×2 · `test:demo` 61/61 · 501/501 ×2). value.js bytes this seat: this section plus one LEDGER event line.
 
 **Verdict**: 0 cured this round; C2-1 (HIGH) ESCALATED on ESC-e-1, C2-2 carried. Row `:56` stays **PARTIAL**. Every further repair round is idle until the orchestrator rules ESC-e-1 (one-field grant in `controlOptionsStore.ts`); a repair unit then lands it with a reload witness, and a re-close follows.
+
+## Check 3
+
+**SERVED MODEL**: `claude-opus-5-5[1m]` · 2026-09-22 · fresh adversarial L-20 pass 3 over the PARTIAL close as twice repaired (Repair 2 `aa0baee1`); VERIFY-ONLY (0 kf / glass / product bytes). Spec `KF-W13.md` read whole (addenda `:303` · `:307` · `:309` · `:311`). Crash recovery: ⟨cmd⟩ `git status --porcelain` → kf: the two untracked `VALUEJS-INBOUND-2026-07-{24,27}-*` letters only; value.js: ` M CARRY-LEDGER.md` · ` M scripts/dev/dev.sh` — none in this seat's set, none touched, no inherited partial work. kf `HEAD` `5e5f4028`; ⟨cmd⟩ `git fetch; git rev-list --left-right --count origin/master...HEAD` → `0 0`.
+
+**Ruling search**: ⟨cmd⟩ `grep -n 'ESC-e-1\|ESC-k2-1\|controlOptionsStore' docs/tranches/X/COHESION.md` → **none**; the newest addendum is still §0aq `:2625` (Tracks A/C; its only KF mention is ESC-PUSH for KF.W13S). **ESC-e-1 and ESC-k2-1 remain UNRULED.**
+
+### Axes
+
+| axis | reading (⟨cmd⟩ → output) | verdict |
+|---|---|---|
+| (1) claimed GREENs reproduce | G-1 ⟨cmd⟩ `node KF-W13T-k-dock-probe.mjs chk3{a,b}` → run a: `out= 0` at 5/6, **768×1024 `#/cube` `out= 4`** (a `div.dock-layer--summary` `[201,30,567,396]` painted mid-transition while the background `test:demo` ×2 loaded the host); run b `out= 0` 6/6; three isolated re-runs of that cell (`c3c/d/e`) → `out= 0` ×3. Collisions 390 `#/` **1** · `#/cube` **3** (= R-k-1). G-2 ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.json \| grep -c 'error TS'` → **0 · 0**; ⟨cmd⟩ `npm run test:demo` → **61/61 · 501/501**, EXIT 0, ×2. G-3..-6 ⟨cmd⟩ `node KF-W13T-e-probe.mjs c3{a,b,c}` → rows 29 · glyphRows 29; drag `0→795` · click `795→450` · ArrowRight `450→480`, thumbBg `rgba(0, 0, 0, 0)`, 0 pageerrors; clock `0→420.1`, tilesMoved · vizMoved true; toggle 1, pressed false→true, visible→absent, a11y visualizer nodes 0, **afterReload `{"pressed":"false","visible":true}`**. eslint ⟨cmd⟩ `npx eslint demo/app demo/components/instrument/transport demo/components/playback` → **6 errors** ×2 (same six positions). E13 → 0 UNREAD | 6/6 claimed GREENs reproduce (G-1 under isolation; see C3-3); G-6 persistence RED reproduces |
+| (2) bounds | kf roster unchanged since Check 2 (⟨cmd⟩ `git log --oneline 084a3679..HEAD \| wc -l` → **9**; each sha's `--stat` as Check 1/2); ⟨cmd⟩ `git log --format=%h 390db7b5^..HEAD -- scripts/dev/dev.sh` → empty | GREEN |
+| (3) masking | ⟨cmd⟩ `git diff 084a3679..HEAD -- test demo \| grep -cE '^\+.*(\.skip\|\.only\(\|eslint-disable\|@ts-ignore\|@ts-expect-error\|as any\|overflow[-: ]hidden\|!important\|catch)'` → **0** | GREEN |
+| (4) families | 9 kf shas, one meaning each, witness in the same sha | GREEN |
+| (5) E-3 | ⟨cmd⟩ `git diff --stat 390db7b5^..HEAD -- docs/tranches/X/keyframes/waves/ docs/tranches/V/megatranche/registry/adjudicated/` → empty | GREEN |
+| (6) mail | four-path sweep `-newermt 2026-09-22` → the three Track-A documents, `INBOX.md`, the three BK letters already rowed; kf coordination empty; newest glass dir BK; ⟨cmd⟩ `grep "^\| I-" INBOX.md \| grep -c "\| UNREAD"` → **0** | GREEN |
+| (7) four-verb | row `:56` = PARTIAL (not IMPLEMENTED) — lawful while ESC-e-1 is unruled | GREEN |
+| (8) goal at the bytes | OA-6 · OA-7 · OA-8 · OA-9 met; **OA-10 persistence NOT met** (the `preview` ref in `EasingScene.vue` is bound to no store; reload drops it) | PARTIAL |
+| (9) figures | Check 2 / Repair 2 figures (vue-tsc 0 · 61/61 · 501/501 · eslint 6) reproduce ×2 at `5e5f4028` | GREEN |
+
+### (10) Honest-RED adjudication
+
+| RED | spec relief | owner named | adjudication |
+|---|---|---|---|
+| eslint 6 rows (`TimingFunctionPanel.vue:151:9 · 152:9 · 156:5` · `ControlsPaneWrapper.vue:62:58 · 328:5 · 366:9`, `vue/no-mutating-props`) | **YES** — `KF-W13.md:311` (§0ap): *"(granted; cure-or-return by `file:line`)"*; returned by `file:line` at `.k2` | ESC-k2-1 → the orchestrator (§3a carve ruling) | **HONEST-RED** |
+| G-KFW13T-6 persistence limb | **NONE** — `KF-W13.md:309` puts *"persisted across reload"* inside the gate itself; it is not producer-owned, not routed to a successor, and not named honest-RED by id. The escalation is correct (the home `demo/state/controlOptionsStore.ts` is outside every KF.W13T set), but an escalation does not relieve the gate | ESC-e-1 → the orchestrator (one-field grant), still unruled | **UNRELIEVED** → C3-1 |
+
+### Register
+
+| id | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C3-1 | **HIGH** | (= C2-1 / C1-1, unchanged) G-KFW13T-6 is RED on persistence with no spec relief. OA-10 is an owner ruling, so the wave cannot close | e-probe c3c `afterReload {"pressed":"false","visible":true}`; COHESION `grep ESC-e-1` → none | the orchestrator rules ESC-e-1 (a dated grant of the view-state field in `controlOptionsStore.ts`, bound by `EasingScene.vue`'s `preview` ref); a repair unit lands it with a reload witness; then re-close |
+| C3-2 | MINOR | (= C2-2) R-k-1: at 390×844 the contained dock overlaps the top-right cluster | dock probe `coll= 1` / `coll= 3` ×2 | carried to its registered owner (the orchestrator's ruling on `--dock-top-*` vs `EditorShell.vue`'s ribbon); mitigated |
+| C3-3 | INFO | the dock probe is timing-sensitive under host load. One cell (768 `#/cube`) caught a `dock-layer--summary` mid-transition once, while `test:demo` ran concurrently. It read 0 on 4 further runs. This is not a containment defect, and the probe was not modified | chk3a vs chk3b + c3c/d/e | none. Future seats run the probe on an idle host |
+
+**Successors**: ⟨cmd⟩ `grep -rn 'KF.W13T' docs/tranches/X/keyframes/waves/ EXECUTION-RUNBOOK.md | grep -v waves/KF-W13.md` → none (as Check 2). No wave declares an "Opens after KF.W13T" conjunct, so no successor is blocked.
+
+**Verdict: NOT-CONFORMANT**: 1 HIGH (C3-1) · 1 MINOR · 1 INFO. 6/6 claimed GREENs reproduce. The honest-RED set is {eslint 6 rows (ESC-k2-1)}. Row `:56` stays **PARTIAL**, and the LEDGER status cell is not moved (an event line is appended). Three L-20 passes have now returned the same single HIGH, and it waits only on the ESC-e-1 ruling. Further check/repair rounds without that ruling cannot move it.
