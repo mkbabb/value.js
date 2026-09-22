@@ -1694,3 +1694,55 @@ kf: ⟨cmd⟩ `git push origin HEAD` → up to date (`0 0` at `084a3679`). vjs: 
 **Verdict: IMPLEMENTED** — all gates GREEN ×2; landed-wrong none; escalations none.
 
 **Act 6, value.js push: WITHHELD (after `c01377c4`).** ⟨cmd⟩ `git fetch; git rev-list --left-right --count origin/tranche-u...HEAD` → `1 174`. Origin carries Track A's `6fc1212e`, which touches only `docs/tranches/X/execution/A/X-W9.md`. This branch appended 540 lines to the same file after merge-base `9d16ac59`, and ⟨cmd⟩ `git merge-tree --write-tree HEAD origin/tranche-u` → exit 1 (a content conflict in X-W9.md). The only lawful pull is a merge whose conflict resolution writes Track A's record, which is outside this seat's writable set. It is ESCALATED to the orchestrator / Track A. This seat did no merge, rebase or force. kf push is `0 0` (Everything up-to-date).
+
+## Check 1 — fresh adversarial L-20 pass 1 of the RESUME 3 close (2026-09-22; dated addendum beside, E-3; no prior section rewritten)
+
+SERVED MODEL: claude-opus-5-5[1m] (this section's seat; authored no byte of `.t2`, `.f2`, or the wave close seat)
+
+**Seat**: VERIFY-ONLY. Wrote **0** keyframes.js, glass-ui, product or test bytes. Writes: this section, the LEDGER row `:55` status cell (minimal replacement) and one appended LEDGER event line. **CRASH-RECOVERY**: ⟨cmd⟩ `git status --porcelain` (kf) → the two untracked 2026-07 `VALUEJS-INBOUND-*` letters only · (vjs) → sibling seats' paths (`App.vue` · `PaneSlot.vue` · `animations.css` · `shell.css` · `MixSourceSelector.vue` · `CARRY-LEDGER.md` · `view-switch-frame-budget.spec.ts` · `dev.sh` · untracked `scene-swap-budget.mjs`), none in this seat's writable set. **0 inherited paths.** kf ⟨cmd⟩ `git fetch; git rev-list --left-right --count origin/master...HEAD` → `0 0` at `084a3679`.
+
+### Axis 1 / 9 — every claimed GREEN re-run at this seat, double-run (kf `084a3679`, kf root)
+
+| gate / limb | ⟨cmd⟩ | run 1 · run 2 | reproduces |
+|---|---|---|---|
+| leg 1 | `npx vue-tsc --noEmit -p tsconfig.json 2>&1 \| grep -c 'error TS'` | **0 · 0** | YES |
+| leg 2 | `npx vue-tsc --noEmit -p tsconfig.test.json 2>&1 \| grep -c 'error TS'` | **0 · 0** | YES |
+| `check` | `npm run check; echo $?` | **exit 0 · 0** | YES |
+| `test:demo` | `npm run test:demo` | **59/59 · 494/494** ×2, exit 0 ×2 | YES |
+| library | `CI=1 npx vitest run --project library` | **113 passed \| 5 skipped (118) · 1259 passed \| 2 expected fail \| 14 skipped (1275)** ×2, exit 0 | YES (identical to the banked baseline; no new skip) |
+| G-KFW13-0 | `grep -rc useOptionalDockContext demo \| grep -v ':0$'` | MbabbMenu.vue:3 · ChromeDock.vue:1 ×2 | YES |
+| G-KFW13-1 | round-trip grep `wc -l` · `v-model:open="open"` · `cannot hold the dock open` files · `ComponentExposed\|Pick<` in demo/app | **0 · 1 · 0 · 0** ×2 | YES |
+| G-KFW13-2 | `git diff 9d814f6c..HEAD -- demo/app \| grep -c headerLeft` · `<DropdownMenuCheckboxItem` | **0 · 1** ×2 | YES |
+| G-KFW13-3 | `.stop` TransportDock · ChromeDock · `registerShortcut("Space"` | **0 · 0 · 1** ×2 | YES |
+| G-KFW13-4 | `instanceof HTMLElement` useIconSpin · `blur\|orphan\|stale` actuation test | **0 · 8** ×2 | YES |
+| G-KFW13-5 | the spec's four byte clauses verbatim (`aria-label` · `valueCommit\|value-commit` · `:step` · `gatedSliderDown`) | **2 · 3 · 2 · 0** ×2 | YES (a bare `grep -c valueCommit` reads 2; the spec's own pattern `valueCommit\|value-commit` reads 3 — the record's figure is the spec's command) |
+| G-KFW13-6 | `grep -c 'box-shadow: var(--focus-ring-shadow)' demo/styles/playback-idiom.css` | **0 · 0** | YES |
+| G-KFW13-7 | `git grep -l btn-playback HEAD -- demo \| wc -l` · bare `.focus-ring` `class=` count · `git diff 9d814f6c..HEAD -- test \| grep -c 'test.skip\|it.skip\|\.only('` | **9 · 0 · 0** ×2 (beside RULINGS-4's 7 · 4, neither amended) | YES |
+
+**13 of 13 claimed GREENs reproduce; 0 fail.**
+
+### Axes 2–8, 10
+
+- **(2) Bounds.** ⟨cmd⟩ `git show --stat` → kf `aba106f6` 4 files +5/−13 · `b05e7e75` 5 files +7/−1 · `084a3679` 1 file +2/−1 — the nine §0ap library test files only; vjs `10c603d5` · `858a8d1f` · `a46a547f` · `71ecf975` · `c01377c4` · `9179dc39` → this record, `evidence/W13S/KF-W13S-f2-resume3-close-gates.md`, `LEDGER.md` only. ⟨cmd⟩ `git log --oneline -1 -- scripts/dev/dev.sh` → `85cfea2c` (T-era); dev.sh dirty in the tree only, never committed or staged. **In bounds.**
+- **(3) Masking.** ⟨cmd⟩ `git diff 6705d4d8..HEAD -- test` read whole: 10 unused bindings deleted (the `new AnimationGroup(a, b)` act kept), `it.each<TimingFunctionNames>` at `value4-easing-contract.test.ts:7` (the five names measured valid), five `// @ts-expect-error <reason>` on deliberately-invalid easing names — §0ap idiom (ii), lawful by ruling since `resolveEasingOption` / `setTimingFunction` / the options bag have no `unknown` ingress; `import type * as ReducedMotion` types the helper's return (a real edge, not a cast). `as any` / `as unknown as` / `@ts-ignore` / `.skip` / `.only(` → **0**. No assertion narrowed. **None.**
+- **(4) Families.** Three `.t2` shas, three meanings (bindings · idiom rows · R6 edge follow-through); no §Commit-plan family touches these files, so none is split. **Held.**
+- **(5) E-3.** ⟨cmd⟩ `git diff --stat 58c1ba11..HEAD -- docs/tranches/V/megatranche/registry/adjudicated/ docs/tranches/X/keyframes/conformance docs/tranches/X/conformance` → **empty**. ⟨cmd⟩ `git diff 58c1ba11..HEAD -- docs/tranches/X/keyframes/waves/KF-W13.md` → additions only (the four dated COHESION addenda `63d56244` · `ba1b03d5` · `d9bfef03`, none by this wave). **Held.**
+- **(6) Mail.** ⟨cmd⟩ awk over INBOX `I-`/`O-` rows → **93 rows · 0 UNREAD**; BK still newest (`BI BJ BK`); the three BK letters newer than 2026-09-22 are the ones every 09-22 sweep already noted; kf `V/coordination` empty. **Clean.**
+- **(7) Four-verb line.** IMPLEMENTED → YES on gates GREEN ×2; VERIFIED stays NO (§State: a successor close's act). **Lawful.**
+- **(8) Goal at the bytes.** The supplement's goal is the §0ai close literal (`vue-tsc` 0 · `test:demo` green · `check` exit 0) plus `.t2`'s leg 2 → 0 — all read at the bytes above, not merely as gate echoes. **MET.**
+- **(10) Honest-RED adjudication.** None of the eight G-KFW13 gates and no close-literal limb is RED. The only RED reading is the §Verification eslint line (⟨cmd⟩ `npx eslint demo/app demo/components/instrument/transport demo/components/playback` → `✖ 7 problems (7 errors, 0 warnings)`, files `App.skeleton.vue` · `TimingFunctionPanel.vue` · `ControlsPaneWrapper.vue`; ⟨cmd⟩ `git log 9d814f6c..HEAD -- <the three>` → 0 commits). It is a verification artefact, not a gate, and is **RELIEVED by the spec**: ADDENDUM 2026-09-22 (third) `:311` grants *"`KF.W13T.k2` additionally owns the 7 pre-existing eslint errors in the three files the lint line reports"*; the record's residual R-close-2 names that owner.
+- **Successor "Opens after".** KF.W13T (`KF-W13.md:307`, ledger row `:56`): *"Opens after KF.W13S CLOSED"* — the single conjunct is GREEN (row `:55` CLOSED, confirmed by this check). KF.W13T is **not blocked**.
+
+### Register (severity · claim · receipt · cure)
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C1R3-1 | INFO | The close's G-KFW13-5 `valueCommit` figure **3** is only reproducible with the spec's pattern; a bare `valueCommit` grep reads 2. | ⟨cmd⟩ `grep -c 'valueCommit\|value-commit' demo/components/playback/PlaybackRibbon.vue` → 3 ×2 (`:26` · `:49` `@value-commit` · `:228`) | none owed; future receipts quote the pattern whole |
+| C1R3-2 | INFO | The value.js push stays withheld (non-fast-forward on Track A's `6fc1212e`, content conflict in `execution/A/X-W9.md`); escalated to the orchestrator/Track A. The spec's push clause is conditional ("only if the shared index carries no sibling's staged path"), and the kf push is `0 0`. | the close seat's Act 6 (`merge-tree` exit 1) | orchestrator / Track A merge; not this wave's writable set |
+| C1R3-3 | INFO | `.t2`'s RETURNED R6 dynamic-import blind spot (`scripts/gates/structure/index.mjs:337`) is latent, not live (`check` exit 0 ×2). | R-close-1 | the next X·KF seat with `scripts/gates/**` in carve |
+
+**0 BLOCKER · 0 CRITICAL · 0 HIGH · 0 MINOR · 3 INFO.**
+
+**Honest-RED set**: **EMPTY among the gates.** The §Verification eslint line (7 pre-existing errors) is a non-gate artefact RELIEVED to `KF.W13T.k2` by ADDENDUM 2026-09-22 (third) `:311`; owner named in R-close-2.
+
+**Verdict: CONFORMANT.** Every claimed GREEN reproduces (13/13 ×2); bounds, masking, families, E-3 and mail hold. LEDGER row `:55` → `CLOSED 2026-09-17` (the sitting of record, COHESION §0j), minimal cell edit, plus one appended event line.
