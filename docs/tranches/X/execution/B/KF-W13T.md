@@ -725,3 +725,41 @@ Each family is one sha per meaning, and none is split. The masking scan over the
 **Escalations**: EMPTY.
 
 **Four verbs**: AUDITED YES · SPECIFIED YES · **IMPLEMENTED YES** · VERIFIED NO. The spec does not designate this seat to stamp VERIFIED; that is for the orchestrator's L-18/L-20 passes. LEDGER row `:56`'s CLOSED cell is kept and not downgraded, and one event line is appended.
+
+## Check 1 — RESUME (fresh adversarial L-20 pass 1 over the `.k4` close + WAVE CLOSE SEAT, 2026-09-22)
+
+**SERVED MODEL**: `claude-opus-5-5[1m]` · VERIFY-ONLY · 0 kf/glass/product bytes. **Crash recovery**: ⟨cmd⟩ `git status --porcelain` → kf: the two untracked `VALUEJS-INBOUND-2026-07-{24,27}-*` letters only; value.js: this record and the LEDGER clean; the dirty value.js paths (`INBOX.md` · `CARRY-LEDGER.md` · `C/F-W12.md` · W6 PNGs · six `e2e/smoke/**` specs · `scripts/dev/dev.sh` · four `.r1-*.mjs`) are sibling seats' and untouched. **Spec read**: `KF-W13.md` whole; this wave's governing text = the four dated addenda `:307` · `:309` · `:311` · `:313`. **Heading note**: this record already carries a `## Check 1` (`:267`) from the pre-RESUME sitting (E-3: not edited); this section is the first L-20 pass over the RESUME close.
+
+### Axes
+
+1. **Every claimed GREEN reproduces (kf `cfecfbce` = origin, ⟨cmd⟩ `git fetch; git rev-list --left-right --count origin/master...HEAD` → `0 0`; host idle — probes run after the test runs finished)** — **10/10**, each ×2:
+   - G-KFW13T-1: ⟨cmd⟩ `node evidence/W13T/KF-W13T-k-dock-probe.mjs c1a|c1b` → `out= 0` ×6 · ×6.
+   - G-KFW13T-2: ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.json | grep -c 'error TS'` → **0 · 0**; ⟨cmd⟩ `npx vitest run --project demo` → **63 passed (63) · 505 passed (505)** ×2; push limb `0 0`.
+   - G-KFW13T-3: `e-probe` → `rows 29 · glyphRows 29` ×2.
+   - G-KFW13T-4: `e-probe` → drag `[0,795]` · click `[795,450]` · arrow `[450,480]`, `thumbBg rgba(0, 0, 0, 0)`, pageerrors `[]` ×2.
+   - G-KFW13T-5: `e-probe` → after 500 ms `t` 362.2 · 402.4, `clockAdvanced/tilesMoved/vizMoved true` ×2 (the record's 558/552 is a host-timing figure; the gate is progress > 0 — INFO).
+   - G-KFW13T-6: `e-probe` `afterReload {"pressed":"true","visible":false}` ×2; `e2-probe` hide→reload `stored "hidden"`, show→reload `"shown"`, `green true` ×2.
+   - G-KFW13T-7: `k-dock-probe` `coll= 0` ×6 ×2; ⟨cmd⟩ `node KF-W13T-k3-chrome-probe.mjs` → 3/3 viewports `ribbon=0 · all 3 names inDock · outsideDock=0 · dialog(?)=1 · dialog(click)=1 · sharePopover=1` ×2.
+   - R-e-2: `e2-probe` `stillPaused true · keyboardMoved true (ball 93→313) · pointerMoved true (→214)` ×2.
+   - §Verification eslint (no `demo/styles`): ⟨cmd⟩ `npx eslint demo/app demo/components/instrument/transport demo/components/playback; echo EXIT $?` → **EXIT 0 · EXIT 0**.
+   - `npm run check` → **EXIT 0 · EXIT 0** (`proof:structure — PASS … 0 violations across R1–R6`).
+2. **Bounds** — ⟨cmd⟩ `git show --stat --format= <sha>` over the full KF.W13T roster (14 kf shas): `.k` `70a9b882` (CubeScene only) · `936b8c74` (App · MbabbMenu) · `b56e9a41` (ChromeDock · `test/demo/app/`); `.e` `b4c5dfb1` (`scenes/easing/` · test) · `2141883d` (`channel-controls/ChannelOptions.vue` · `channel-controls/composables/useTimingFunctionEditor.ts` · test) · `a71efd0d` · `cbe9b904` (`playback/PlaybackRibbon.vue` · `scenes/easing/EasingScene.vue` · test); `.k2` `6606ca7e` (`App.skeleton.vue`); Repair 1 `5e5f4028` (one `test/demo/**` file); `.e2` `76f68412` (`controlOptionsStore.ts` +1 line · `EasingScene.vue` · test) · `09846d75` (`AnimationVisualizer.vue` · `PlaybackRibbon.vue` · test); `.k3` `a3fa29f9` (`ChromeDock.vue` · `shell/EditorShell.vue` · test) · `a4a70536` (`ChannelOptions.vue` · `TimingFunctionPanel.vue`) · `cfecfbce` (`AnimationControlsGroup.vue` · `ControlsPaneWrapper.vue` · test). **Every path inside its unit's addendum set; 0 out of bounds.** value.js commits of this wave touch only this record, the LEDGER and `evidence/W13T/**` (75 files, all `A`); `scripts/dev/dev.sh` in none.
+3. **Masking** — ⟨cmd⟩ `git diff 5e5f4028..cfecfbce | grep '^+' | grep -nE 'eslint-disable|\.skip\(|\.only\(|as any|@ts-ignore|@ts-expect-error|overflow: *hidden|catch \(|allowlist'` → **0**. Read by hand: the two test edits (`chrome-dock-containment` mounts inside the app's one `TooltipProvider` and ADDS case (3); `channel-options-render-edge` drops the retired prop and handles the two new emits) narrow no assertion; the R-e-2 cure is a one-shot `watch` on the displayed playhead, not a loop; `easingPreview` is read from the store bucket, no scene-local copy.
+4. **Families** — R-k-1 one sha (`a3fa29f9`); ESC-k2-1 one sha per seam pair with child + parent together (`a4a70536` TFP↔ChannelOptions · `cfecfbce` CPW↔ACG); ESC-e-1 field + binding + witness one sha (`76f68412`); R-e-2 cure + witness one sha (`09846d75`). **0 split.**
+5. **E-3** — ⟨cmd⟩ `git diff --stat 0251b926^..HEAD -- docs/tranches/V/megatranche/registry/adjudicated/ docs/tranches/X/CONFORMANCE-2026-08-03.md` → empty; `keyframes/waves/` → `KF-W13.md | 2 ++` = the orchestrator's dated §0ar addendum-beside (`:313`, append-only, no line removed); `evidence/W13T/**` 75 `A`, 0 `M`.
+6. **Mail** — ⟨cmd⟩ `grep "^| I-" V/coordination/INBOX.md | grep -c "| UNREAD"` → **0**.
+7. **Four verbs** — AUDITED YES · SPECIFIED YES · IMPLEMENTED YES · VERIFIED NO: lawful (the close seat self-stamps nothing; this pass is the L-20 challenge).
+8. **Goal criterion at the bytes** — OA-6: the header ribbon is retired (⟨cmd⟩ `grep -rn 'SharePopover\|DarkModeToggle\|registerShortcut("?"' demo` → ChromeDock `:220` `:585` `:598` + MbabbMenu's pre-existing menu rows; EditorShell 0), the three names live inside the dock, 0 out-of-capsule and 0 collisions at 3 viewports; OA-7 29/29 glyphs; OA-8 pointer + keyboard on producer paint; OA-9 subject + twin move; OA-10 toggle + persistence in the scene's store bucket; R-e-2's sole `<AnimationVisualizer` mount (`PlaybackRibbon.vue:107`) passes `:current-t`. **MET.**
+9. **Published figures** — 63/63 · 505/505, vue-tsc 0, eslint 0, 29/29, drag/click/arrow triples, out/coll 0 ×6 all reproduce byte-identically; G-5's `t` is host-timed (INFO-1).
+10. **Honest-RED** — the close leaves **no RED gate**; the set is EMPTY. The four residuals are non-gating and each is owner-named (MbabbMenu second face → owner/KF.W9 · SharePopover glyph rung → KF.W9 · `resize-tracks.test.ts` missing `currentT` → next `test/demo/**` seat · Drawer-detent arm live drive → next X·KF e2e seat).
+
+**Successors**: no LEDGER row or COHESION section names KF.W13T in an "Opens after" conjunct (⟨cmd⟩ `grep -n 'W13T' execution/LEDGER.md` → row `:56` and event lines only); §0ar states Track B COMPLETE save KF.W3, gate-keyed on RC-P(V) at X-W11, which is independent of this wave. **No successor is blocked by KF.W13T.**
+
+### Register
+
+| id | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C1R-1 | INFO | G-KFW13T-5's elapsed-`t` figure is host-timed (record 558/552, this pass 362/402) | `e-probe` ×2 above | none — the gate is progress > 0 |
+| C1R-2 | INFO | `resize-tracks.test.ts` mounts `AnimationVisualizer` without the now-required `currentT` (dev warning only) | the `.k4` residual 3; `grep -rn '<AnimationVisualizer' demo` → 1 mount, passes it | owned by the next `test/demo/**` seat (named) |
+
+**0 BLOCKER · 0 CRITICAL · 0 HIGH · 0 MINOR · 2 INFO.** **Verdict: CONFORMANT.** 10/10 claimed GREENs reproduce ×2; honest-RED set EMPTY. LEDGER row `:56` keeps `CLOSED 2026-09-17` with this check noted in place; one event line appended.
