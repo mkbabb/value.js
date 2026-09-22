@@ -2527,3 +2527,59 @@ a2/a13/b3 REDs caused by the foreign X-W5 fixture stay X-W5's (its `.c` cure, `u
 `useViewManager.ts`, is uncommitted in the shared tree under L-7 and lands when X-W5 resumes).
 **Mechanism**: Track A's chassis RESUME on X-W6 dispatches `.c` (on this grant) · `.d` · `.e` · `.h` ·
 `.i`; `.j` after X-W5 CLOSED.
+
+## §0ao ADDENDUM 2026-09-22 — THE OWNER'S LIVE AUDIT DOCKET (SIX FINDINGS ACROSS THE APPS), ROUTED: `F.W11` MINTED · X-W8 GAINS `.f` `.g` `.h` · `KF.W13T` MINTED; TOTALITY PER APP RESTATED
+
+The owner audited the four dev stacks at 2026-09-22 and wrote, verbatim: *"In all apps, especially
+fourier analysis — we should abrogate any squared harsh lines. Like in the visualizer — why are these
+elements not appropriately rounded and glass-ui idiomatic? Further, ensure that our tranche in
+totality for each app is addressed. Further, the value.js picker is slow on drag of changing the
+color, and frequently the background area goes black. And the right side about the spaces is far too
+long and not clipped. And the dock for every app is not quite right — doesn't properly contain
+elements (like in keyframes.js), animate (the "login" background and transitions in value.js isn't
+right) — there should likely be a dock in the fourier analysis app. And the fourier analysis grid
+background does not occupy the entire background, too, it's just the paper — which is not right."*
+
+These are owner rulings, not seat findings. Routed by tree, each to a unit with a born-RED gate:
+
+| # | finding | tree | home | unit |
+|---|---|---|---|---|
+| OA-1 | squared harsh lines; radii and surfaces not glass-ui idiomatic (esp. the visualizer) | fourier | **`F.W11`** (new) | `.a` radii/tokens · `.c` visualizer glass idiom |
+| OA-2 | the grid background is the paper's, not the app's | fourier | `F.W11` | `.b` |
+| OA-3 | a dock for fourier | fourier | `F.W11` | `.c` (Fable, design-author; `@mkbabb/glass-ui/dock`) |
+| OA-4 | picker slow on drag; background area goes black | value.js | **X-W8** addendum | `.f` |
+| OA-5 | the right-side spaces panel too long, not clipped | value.js | X-W8 addendum | `.g` |
+| OA-6 | docks: value.js login layer background + transitions wrong; keyframes dock does not contain its elements | value.js · keyframes | X-W8 `.h` (Fable) · **`KF.W13T`** (new) `.k` | |
+
+**Law for every unit above**: measured at the bytes AND in a live browser (probe parsimony: bounded
+Playwright, ≤3 viewports, screenshots committed as evidence); the cure is at the root — a token, a
+layout, a pipeline — never a clip that hides overflow, a throttle that drops the last value, a
+`try/catch` around a shader, or a local copy of a producer component; glass-ui gaps ride mail to
+BK, never a frontend hack (§0j). **Totality restated**: the owner close report enumerates, PER APP,
+every wave's status, every honest-RED by id with its owner, and every owner-docket row OA-1..6 with
+its sha or its relay id — nothing summarized away.
+
+**Mechanism**: `F.W11` spec `fourier/waves/F-W11.md` (opens after F.W10S; Track C relaunches now);
+X-W8's dated addendum (consumed by its seat 0 in the live A run); `KF.W13T` on KF-W13.md's third
+addendum (B relaunches on it when KF.W13S ends). Rows in the LEDGER.
+
+### §0ao.1 ADDENDUM 2026-09-22 — THE OWNER'S SECOND DOCKET (keyframes.js), OA-7..OA-10, ROUTED TO `KF.W13T` UNIT `.e`
+
+The owner, with two screenshots (banked at `docs/tranches/X/keyframes/evidence/W13T/owner-2026-09-22-*.png`:
+the easing picker listing `linear · ease · ease-in · ease-out` with descriptions and NO curve glyph; a
+timeline slider with its thumb pinned at the left of a wide dark track), wrote verbatim: *"And the
+keyframes easing picker doesn't show the curves, and the slider for the timeline slider is not
+draggable, the animations don't work, and it's not styled appropriately. We should also be able to
+hide the easing ball animation preview, too, with a small inline toggle."*
+
+| # | finding | home |
+|---|---|---|
+| OA-7 | the easing picker shows no curves | `KF.W13T.e` |
+| OA-8 | the timeline slider is not draggable and not styled | `KF.W13T.e` |
+| OA-9 | the animations do not run | `KF.W13T.e` |
+| OA-10 | an inline toggle to hide the easing-ball preview | `KF.W13T.e` |
+
+Each is a defect at the root (a glyph never rendered, a pointer path never bound, a clock never
+started, a raw control never placed on the producer's slider), measured in a live browser before
+and after; the toggle is a small inline control on the producer's toggle primitive, its state
+persisted where the scene's other view state lives. `KF.W13T` runs [`.k`] → [`.e`] → [`.k2`].
