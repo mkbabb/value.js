@@ -1,0 +1,29 @@
+SERVED MODEL: claude-opus-5-5[1m]
+
+X.KF.W13T.k — probe readings (vp route capsule[l,t,r,b] out=<children outside capsule> coll=<dock buttons intersecting out-of-dock buttons> mode first-2-offenders collisions)
+
+BEFORE kf 936b8c74 (ChromeDock bytes = HEAD), run 1:
+{"vp":"1440x900","r":"#/","expanded":"glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline","capsule":[600,43,840,99],"vw":1440,"sw":1440,"bad":[],"coll":[]}
+{"vp":"1440x900","r":"#/cube","expanded":"glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline","capsule":[498,43,942,99],"vw":1440,"sw":1440,"bad":[],"coll":[]}
+{"vp":"768x1024","r":"#/","expanded":"glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline","capsule":[276,30,492,86],"vw":768,"sw":768,"bad":[],"coll":[]}
+{"vp":"768x1024","r":"#/cube","expanded":"glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline","capsule":[192,30,576,86],"vw":768,"sw":768,"bad":["button.dropdown-menu__trigger.dock-trigger.dock-dropdown-trigger [525,44,588,72]"],"coll":[]}
+{"vp":"390x844","r":"#/","expanded":"glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline","capsule":[98,30,293,80],"vw":390,"sw":390,"bad":["button.dropdown-menu__trigger.dock-trigger.dock-dropdown-trigger [237,41,297,68]"],"coll":["@mbabb menu x Share animation","@mbabb menu x Show keyboard shortcuts"]}
+{"vp":"390x844","r":"#/cube","expanded":"glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline","capsule":[98,30,293,86],"vw":390,"sw":390,"bad":["button.dock-trigger.dock-select-trigger.dock-label [233,42,355,74]","span. [265,46,331,70]","svg.lucide.lucide-chevron-down-icon.lucide-chevron-down [335,52,347,64]","path. [338,56,344,59]","div.dock-separator [36
+
+BEFORE run 2: identical per-row numbers (run 1 printed raw JSON; the 390 #/cube row lists 9 offenders: Controls tab trigger + its glyph/label/chevron, the separator, the panel toggle + glyph, the @mbabb trigger)
+
+AFTER (tether left-0 right-0 + overflow="wrap"), run 1:
+1440x900 #/ [612,43,828,99] out= 0 coll= 0 wrap [] []
+1440x900 #/cube [519,43,921,99] out= 0 coll= 0 wrap [] []
+768x1024 #/ [287,30,481,86] out= 0 coll= 0 wrap [] []
+768x1024 #/cube [201,30,567,86] out= 0 coll= 0 wrap [] []
+390x844 #/ [101,30,289,86] out= 0 coll= 1 wrap [] ["@mbabb menu x Share animation"]
+390x844 #/cube [39,30,351,116] out= 0 coll= 3 wrap [] ["Controls tab x Share animation","Controls panel x Show keyboard shortcuts","Controls panel x Switch to dark mode"]
+
+AFTER run 2:
+1440x900 #/ [612,43,828,99] out= 0 coll= 0 wrap [] []
+1440x900 #/cube [519,43,921,99] out= 0 coll= 0 wrap [] []
+768x1024 #/ [287,30,481,86] out= 0 coll= 0 wrap [] []
+768x1024 #/cube [201,30,567,86] out= 0 coll= 0 wrap [] []
+390x844 #/ [101,30,289,86] out= 0 coll= 1 wrap [] ["@mbabb menu x Share animation"]
+390x844 #/cube [39,30,351,116] out= 0 coll= 3 wrap [] ["Controls tab x Share animation","Controls panel x Show keyboard shortcuts","Controls panel x Switch to dark mode"]
