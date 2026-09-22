@@ -320,3 +320,42 @@ The four-verb line does **not** move to IMPLEMENTED. G-KFW13T-6 is RED on persis
 **Figures (WRITE-THEN-MEASURE, from the settled bytes at kf `5e5f4028`)**: `test:demo` **61 files / 501 tests** ×2; vue-tsc **0** ×2; kf product bytes this seat **0** (one test file, 6+/1−, ⟨cmd⟩ `git show --stat 5e5f4028`); value.js bytes this seat: this record section plus one LEDGER event line.
 
 **Verdict**: 1 MINOR cured (C1-2). C1-1 (HIGH) is still ESCALATED on ESC-e-1, which has no ruling. C1-3 is carried to its registered owner. Row `:56` stays **PARTIAL** until ESC-e-1 is ruled and a repair unit lands the field with a reload witness, then a re-close.
+
+## Check 2
+
+**SERVED MODEL**: `claude-opus-5-5[1m]` · 2026-09-22 · fresh adversarial L-20 pass 2 over the PARTIAL close as repaired (Repair 1, `0338eec8`); VERIFY-ONLY (0 kf / glass / product bytes). Spec `KF-W13.md` read whole (addenda `:307` · `:309` · `:311`). Crash recovery: ⟨cmd⟩ `git status --porcelain` → kf: the two untracked `VALUEJS-INBOUND-2026-07-{24,27}-*` letters only; value.js: ` M CARRY-LEDGER.md` · ` M scripts/dev/dev.sh` — none in this seat's set, none touched, no inherited partial work. kf `HEAD` `5e5f4028`; ⟨cmd⟩ `git fetch; git rev-list --left-right --count origin/master...HEAD` → `0 0`.
+
+**Ruling search**: ⟨cmd⟩ `grep -n 'ESC-e-1\|ESC-k2-1\|controlOptionsStore' docs/tranches/X/COHESION.md` → **none**; ⟨cmd⟩ `grep -n W13T COHESION.md | tail -1` → `:2623` (§0ap, unchanged since Check 1). **ESC-e-1 and ESC-k2-1 are still UNRULED.**
+
+### Axes
+
+| axis | reading (⟨cmd⟩ → output) | verdict |
+|---|---|---|
+| (1) claimed GREENs reproduce | G-KFW13T-1 ⟨cmd⟩ `node KF-W13T-k-dock-probe.mjs chk2{a,b}` → `out= 0` at 1440/768/390 × `#/`,`#/cube` (6/6 ×2); coll 390 `#/` **1** · `#/cube` **3** (= R-k-1). G-2 ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.json \| grep -c 'error TS'` → **0 · 0**, exit 0; ⟨cmd⟩ `npm run test:demo` → **61/61 · 501/501**, EXIT 0, ×2 (C1-2's flake did not recur). G-3..-6 ⟨cmd⟩ `node KF-W13T-e-probe.mjs chk2{a,b}` → rows 29 · glyphRows 29 (×2); drag `0→795` · click `795→450` · ArrowRight `450→480`, thumbBg `rgba(0, 0, 0, 0)`, 0 pageerrors (×2); clock `0→367.9` / `0→350.3`, tilesMoved · vizMoved true, 0 pageerrors; toggle 1, pressed false→true, visible→absent, a11y visualizer nodes 0, **afterReload `{"pressed":"false","visible":true}`** (×2). eslint ⟨cmd⟩ `npx eslint demo/app demo/components/instrument/transport demo/components/playback` → **6 errors** ×2, same six positions. E13 → 0 UNREAD | 6/6 claimed GREENs reproduce (G-1 · G-2 · G-3 · G-4 · G-5 · E13); G-6 persistence RED reproduces |
+| (2) bounds | ⟨cmd⟩ `git show --stat 5e5f4028` → `test/demo/instrument/typing-dots-engine-seam.test.ts` only (6+/1−; `.e`'s `test/demo/**`); the eight earlier shas as re-derived at Check 1; ⟨cmd⟩ `git log --format=%h 390db7b5^..HEAD -- scripts/dev/dev.sh` → empty | GREEN |
+| (3) masking | ⟨cmd⟩ `git diff 084a3679..HEAD -- test demo \| grep -cE '^\+.*(\.skip\|\.only\(\|eslint-disable\|@ts-ignore\|@ts-expect-error\|as any\|overflow[-: ]hidden\|!important\|catch)'` → **0**; `5e5f4028` raises a describe budget above its own 5 s poll, assertions untouched (not a narrowed assertion) | GREEN |
+| (4) families | 9 kf shas, one meaning each, witness in the same sha | GREEN |
+| (5) E-3 | ⟨cmd⟩ `git diff --stat 390db7b5^..HEAD -- docs/tranches/X/keyframes/waves/ docs/tranches/V/megatranche/registry/adjudicated/` → empty | GREEN |
+| (6) mail | four-path sweep `-newermt 2026-09-22` → the same Track-A documents, `INBOX.md`, and the three BK letters already rowed; kf coordination empty; newest glass dir BK; ⟨cmd⟩ `grep "^\| I-" INBOX.md \| grep -c "\| UNREAD"` → **0** (tail I-39) | GREEN |
+| (7) four-verb | row `:56` = PARTIAL (not IMPLEMENTED), lawful while ESC-e-1 is unruled | GREEN |
+| (8) goal at the bytes | OA-6 · OA-7 · OA-8 · OA-9 met as in Check 1; **OA-10 persistence NOT met** — ⟨cmd⟩ `grep -n 'persist\|useStorage\|localStorage' demo/scenes/easing/EasingScene.vue` → only the `:76` comment naming the home; the `preview` ref is unbound to storage | PARTIAL |
+| (9) figures | Repair 1's 61/61 · 501/501 ×2 · vue-tsc 0 ×2 · 1 file 6+/1− reproduce | GREEN |
+
+### (10) Honest-RED adjudication
+
+| RED | spec relief | owner named | adjudication |
+|---|---|---|---|
+| eslint 6 rows (`TimingFunctionPanel.vue:151:9 · 152:9 · 156:5` · `ControlsPaneWrapper.vue:62:58 · 328:5 · 366:9`, `vue/no-mutating-props`) | **YES** — `KF-W13.md:311` (§0ap): *"(granted; cure-or-return by `file:line`)"*; returned by `file:line` at `.k2` | ESC-k2-1 → the orchestrator (§3a carve ruling) | **HONEST-RED** |
+| G-KFW13T-6 persistence limb | **NONE** — `KF-W13.md:309` binds *"persisted with the scene's view state"* inside the gate itself; not producer-owned, routed to no successor, named honest-RED by no id; the home (`demo/state/controlOptionsStore.ts`) lies outside every KF.W13T set, so it is correctly ESCALATED — but an escalation is not a relief | ESC-e-1 → the orchestrator (one-field grant), still unruled | **UNRELIEVED** → C2-1 |
+
+### Register
+
+| id | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C2-1 | **HIGH** | (= C1-1, unchanged) G-KFW13T-6 RED on persistence with no spec relief; OA-10 is an owner ruling, so the wave cannot close | e-probe chk2a/chk2b `afterReload {"pressed":"false","visible":true}` ×2; COHESION `grep ESC-e-1` → none | the orchestrator rules ESC-e-1 (dated grant of the view-state field in `controlOptionsStore.ts`, bound by `EasingScene.vue`'s `preview` ref); a repair unit lands it with a reload witness; re-close |
+| C2-2 | MINOR | (= C1-3) R-k-1: 390×844 contained dock overlaps the top-right cluster | dock probe `coll= 1` / `coll= 3` ×2 | carried to its registered owner (orchestrator ruling on `--dock-top-*` vs `EditorShell.vue`'s ribbon); mitigated |
+| C2-3 | INFO | C1-2 confirmed cured: `test:demo` 501/501 ×2 this seat, no timeout | td ×2 EXIT 0 | none |
+
+**Successors**: ⟨cmd⟩ `grep -rn 'KF.W13T' docs/tranches/X/keyframes/waves/ EXECUTION-RUNBOOK.md | grep -v waves/KF-W13.md` → none — no wave declares an "Opens after KF.W13T" conjunct, so no successor is blocked.
+
+**Verdict: NOT-CONFORMANT** — 1 HIGH (C2-1) · 1 MINOR · 1 INFO; 6/6 claimed GREENs reproduce; honest-RED set = {eslint 6 rows (ESC-k2-1)}. Row `:56` stays **PARTIAL**; the LEDGER status cell is not moved (an event line is appended). Awaits the ESC-e-1 ruling, then a repair unit and a re-close.
