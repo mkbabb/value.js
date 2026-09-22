@@ -1616,3 +1616,79 @@ SERVED MODEL: claude-opus-5-5[1m] (this unit's seat)
 **Escalations**: none. **Status**: DONE.
 
 **Push (value.js), after the two commits `858a8d1f` · `a46a547f`.** ⟨cmd⟩ `git diff --cached --name-only | wc -l` → 0 (no sibling path staged). ⟨cmd⟩ `git fetch origin; git rev-list --left-right --count origin/tranche-u...HEAD` → **`1 172`**: origin carries `6fc1212e` (Track A X-W9 repair record, dated 2026-09-20) that this branch does not, so a push is **not fast-forward** and was **NOT made** (the lock). No rebase, merge or force by this seat. The value.js push stays with the orchestrator (the R-f2-6 precedent). This is not a KF.W13S gate limb; the kf push reads `0 0`.
+
+## Close — WAVE CLOSE SEAT (VERIFY-ONLY), 2026-09-22 (dated addendum beside, E-3; no prior section rewritten)
+
+SERVED MODEL: claude-opus-5-5[1m] (this section's seat)
+
+**Seat**: the wave's close seat, VERIFY-ONLY. Wrote **0** keyframes.js, glass-ui, product or test bytes. Writes: this section and one appended LEDGER event line. **CRASH-RECOVERY**: ⟨cmd⟩ `git status --porcelain` (kf) → only the two untracked 2026-07 `VALUEJS-INBOUND-*` letters · (vjs) → `App.vue` · `PaneSlot.vue` · `animations.css` · `shell.css` · `MixSourceSelector.vue` · `CARRY-LEDGER.md` · `e2e/…/view-switch-frame-budget.spec.ts` · `dev.sh` · untracked `scene-swap-budget.mjs`, none inside this seat's writable set (sibling seats' paths; untouched, unstaged). **0 inherited paths.** Frontier: kf `HEAD` = `origin/master` = **`084a3679`** (⟨cmd⟩ `git rev-list --left-right --count origin/master...HEAD` → `0 0`).
+
+### Act 1 — commit roster audited against the writable sets (`git show --stat`)
+
+| unit | sha | files · lines | in bounds |
+|---|---|---|---|
+| `.t2` | kf `aba106f6` | 4 · +5/−13 (animation · group · platform-adopt · scroll-scene tests) | YES (§0ap nine) |
+| `.t2` | kf `b05e7e75` | 5 · +7/−1 (diagnostics-channel · value4-easing-contract · strict-options · w0-crashes · waapi-lifecycle tests) | YES |
+| `.t2` | kf `084a3679` | 1 · +2/−1 (platform-adopt test) | YES |
+| `.t2` | vjs `10c603d5` | 1 (this record) | YES |
+| `.f2` | vjs `858a8d1f` | 2 (this record · `evidence/W13S/KF-W13S-f2-resume3-close-gates.md`) | YES |
+| `.f2` | vjs `a46a547f` | 1 (`LEDGER.md`, +2/−1: row `:55` + event line) | YES |
+| `.f2` | vjs `71ecf975` | 1 (this record) | YES |
+
+Sum over `.t2`'s three kf shas: 9 files · +14/−15 (matches `.f2`'s correction beside `.t2`'s printed +12/−14). Masking ⟨cmd⟩ `git diff 6705d4d8..HEAD -- test | grep -c 'as any\|as unknown as\|@ts-ignore\|\.skip\|\.only('` → **0**; `^+.*@ts-expect-error` → **5** (idiom (ii)); `git diff --check 6705d4d8..HEAD` → clean. **Landed-wrong: none.**
+
+### Act 2 — every gate re-run at this seat, double-run, kf `084a3679` (kf root)
+
+| gate / limb | ⟨cmd⟩ | BEFORE (RESUME 3 Seat 0, `6705d4d8`) | AFTER run 1 · run 2 | GREEN def met |
+|---|---|---|---|---|
+| leg 1 (G-KFW13-7) | `npx vue-tsc --noEmit -p tsconfig.json 2>&1 \| grep -c 'error TS'` | 0 | **0 · 0** | YES |
+| leg 2 (`.t2`) | `npx vue-tsc --noEmit -p tsconfig.test.json 2>&1 \| grep -c 'error TS'` | 16 | **0 · 0** | YES |
+| `check` | `npm run check; echo $?` | exit 2 | **exit 0 · 0** (`proof:structure — PASS … 0 violations across R1–R6`) | YES |
+| `test:demo` (G-KFW13-0..-7 runtime clauses) | `npm run test:demo` | 59/59 · 494/494 | **59/59 · 494/494** ×2 | YES |
+| library (preservation) | `CI=1 npx vitest run --project library` | 113 \| 5 skipped · 1259 \| 2 xfail \| 14 skipped | **identical ×2**, exit 0 | YES |
+| G-KFW13-0 | `grep -rc useOptionalDockContext demo \| grep -v ':0'` | — | ChromeDock.vue:1 · MbabbMenu.vue:3 ×2 | YES (proof sha `6a960349`, 0 demo bytes, banked) |
+| G-KFW13-1 | round-trip grep · `v-model:open="open"` · `cannot hold the dock open` · OP-8 `ComponentExposed\|Pick<` in demo/app | — | **0 · 1 · 0 · 0** ×2 | YES (MUST-CARRY kept) |
+| G-KFW13-2 | `git diff 9d814f6c..HEAD -- demo/app \| grep -c headerLeft` · `<DropdownMenuCheckboxItem` | — | **0 · 1** ×2 | YES |
+| G-KFW13-3 | `.stop` TransportDock · ChromeDock · `registerShortcut("Space"` | 5 · 0 · 1 (authoring) | **0 · 0 · 1** ×2 (symmetric; Space scoped, runtime-tested) | YES |
+| G-KFW13-4 | `instanceof HTMLElement` useIconSpin · `blur\|orphan\|stale` in actuation test | 2 · 0 (authoring) | **0 · 8** ×2 | YES |
+| G-KFW13-5 | aria-label · valueCommit · `:step` · gatedSliderDown in PlaybackRibbon.vue | 0 · 0 · — · — (authoring) | **2 · 3 · 2 · 0** ×2 | YES |
+| G-KFW13-6 | `box-shadow: var(--focus-ring-shadow)` in playback-idiom.css | 1 (authoring) | **0 · 0** (both-stylesheet act banked at `.c`) | YES |
+| G-KFW13-7 sweeps | `git grep -l btn-playback HEAD -- demo \| wc -l` · bare `.focus-ring` class= count | 8 · 2 (authoring) | **9 · 0** ×2, beside RULINGS-4's **7 · 4** — neither amended (E-3) | YES (as `.f2` banked: 9th = `.c`'s comment in design-idioms.css) |
+| G-KFW13-7 skip/only | `git diff 9d814f6c..HEAD -- test \| grep -c 'test.skip\|it.skip\|\.only('` | — | **0 · 0** | YES |
+
+### Act 3 — §Verification artefacts (as written, with the §0ap lint erratum)
+
+- `npm run check` + `npm run test:demo` at close: see Act 2 (exit 0 ×2 · 494/494 ×2).
+- ⟨cmd⟩ `npx eslint demo/app demo/components/instrument/transport demo/components/playback` (no `demo/styles`, §0ap erratum) → `✖ 7 problems (7 errors, 0 warnings)` ×2, the same 7 `.f2` enumerated; ⟨cmd⟩ `git log --oneline 9d814f6c..HEAD -- <App.skeleton.vue · TimingFunctionPanel.vue · ControlsPaneWrapper.vue>` → **0** commits: pre-existing, homed at **KF.W13T.k2** by §0ap, so relieved for this close.
+- `git diff --check` per sha: clean (Act 1).
+- The rest of the artefacts (the self-hold proof output, OP-3/OP-5/OP-6 receipts, the propagation matrix, SS-13 witnesses, SS-6 ids) are banked in this record's earlier sections and `evidence/W13/**` · `evidence/W13S/**`. They are cited, not re-stated.
+
+### Act 4 — E13 four-path sweep
+
+BK is still the newest glass tranche dir (⟨cmd⟩ `ls -d glass-ui/docs/tranches/B*` → BI BJ BK). ⟨cmd⟩ `find <path> -maxdepth 1 -type f -newermt "2026-09-22 00:00"` → value.js `V/` empty · `V/coordination` `INBOX.md` only · BK/coordination the same three letters Seat 0 and `.f2` swept (already rowed/noted) · keyframes.js `V/coordination` empty · `glass-ui/…/P/coordination` empty. ⟨cmd⟩ the INBOX status cells that begin `UNREAD` (awk over the `I-`/`O-` rows) → **0**; the literal word appears only in narrative (`Was: UNREAD`, the E13 quote). **0 UNREAD in scope.**
+
+### Residuals (named owners) · escalations
+
+- **R-close-1** — proof:structure R6's edge collector ignores dynamic `import()` (kf `scripts/gates/structure/index.mjs:337`), a latent false-positive source. Owner: the next X·KF seat with `scripts/gates/**` in carve (RETURNED by `.t2`).
+- **R-close-2** — the 7 pre-existing eslint errors. Owner: **KF.W13T.k2** (§0ap).
+- **R-close-3** — the value.js push: `.f2` withheld it (`1 172`, not fast-forward). This seat handles it in Act 6 below.
+- **Escalations**: none.
+
+### The four-verb line (moved only as KF-W13 §State permits)
+
+| verb | state | basis |
+|---|---|---|
+| AUDITED | YES | unchanged (§State) |
+| SPECIFIED | YES | unchanged (§State + the three dated addenda) |
+| IMPLEMENTED | **YES** | every gate reads GREEN ×2 at kf `084a3679` (Act 2); roster in bounds (Act 1) |
+| VERIFIED | **NO** | §State: *"a successor close's act"*. This seat is not designated to stamp it. |
+
+### Act 5 — LEDGER
+
+Row `:55` already reads **CLOSED 2026-09-22** (`.f2`, `a46a547f`). That is at or beyond IMPLEMENTED, so this seat does not rewrite or downgrade the cell (KF.W13T opens on it, §0ao). It appends one event line.
+
+### Act 6 — push
+
+kf: ⟨cmd⟩ `git push origin HEAD` → up to date (`0 0` at `084a3679`). vjs: see the line appended below this section after the push.
+
+**Verdict: IMPLEMENTED** — all gates GREEN ×2; landed-wrong none; escalations none.
