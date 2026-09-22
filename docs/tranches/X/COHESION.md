@@ -2751,3 +2751,22 @@ are not left to the report: **R-e-1** (arrow-key stepping lost on the numeric fi
 MINOR (the `networkidle` readiness wait skips the `:290` keystone under load — replaced by the app's
 own readiness signal, never a longer timeout). Wave **`F.W12`** (spec `fourier/waves/F-W12.md`;
 [`.a`] → [`.b`]); Track C relaunches on it. Every X·F wave before it is CLOSED.
+
+## §0at ADDENDUM 2026-09-22 — TRACK B COMPLETE BUT FOR KF.W3: KF.W13T CLOSED CONFORMANT (the owner's keyframes docket OA-6..OA-10 landed whole); RESIDUAL DISPOSITIONS
+
+KF.W13T closed IMPLEMENTED and Check 1 read CONFORMANT (0 defects above INFO, 10/10 GREENs ×2) at
+kf `cfecfbce` = origin: the dock contains its elements (0 outside the capsule ×6 ×2), every easing
+row draws its curve (29/29), the timeline slider drags by pointer/click/keyboard on the producer's
+paint, the animations run, the preview toggle hides and persists across reload
+(`easingPreview` in the scene's view-state bucket), the header ribbon is retired into the
+ChromeDock (0 collisions at 390/768/1440), the six prop mutations are cured at their owners,
+vue-tsc 0 · `npm run check` exit 0 · test:demo 505/505 · library unchanged. Every X·KF wave is CLOSED
+except **KF.W3**, which stays gate-keyed on RC-P(V) at the X-W11 coordinate (never scheduled).
+
+Residuals, disposed: **Share/theme also as `MbabbMenu.vue:47-80` rows** — BY DESIGN: an app menu
+enumerates the chrome's commands (the macOS convention); the dock is the primary home, the menu the
+enumeration; no second writer of state exists (measured at `.k3`). **SharePopover glyph one size step
+larger** → KF.W9's size ladder, owner close report (design note). **`resize-tracks.test.ts` mounts
+`AnimationVisualizer` without `currentT`** (dev warning only) and **the Drawer-detent setter arm not
+driven live** → the owner close report by id; neither is gate-bearing. **VERIFIED for X·KF** is an
+end-of-plan act with RC-P(V) (the orchestrator's L-18/L-20 passes), recorded then.
