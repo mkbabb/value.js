@@ -270,6 +270,58 @@ reports, so it …"* · *"The `ToastVariant` limb of the same row is F.W1's fold
 so the census's present-tense sentence is now stale **twice over** — wrong tense when written, and
 describing a symbol the tree no longer uses. **This changes no banked grading and books nothing.**
 
+### §6.5-ERRATA-S (dated 2026-09-22, `X.F.W10S.a`) — the two §2.5a census-input errata: `i-1 = L-INFO-2` · `PP-CENSUS`
+
+⟨**Addendum-beside, E-3.** Landed by `X.F.W10S.a` under COHESION **§0aj** bullet 2 (F.W10 **CK-1**,
+MEDIUM: *"The two census-input errata never landed at the surface §2.5a declares for them"*). The
+bytes above this section — FR-CP-44, FR-AFP-51, and the Scope row's *"FLAGGED, NOT BOOKED"* — are
+**not rewritten**. Like the two errata above, these are **NO-WAVE-OWNER census corrections**: they
+land **beside** the dated census; `lane-frontend.md` and `CENSUS-2026-08-03.md` are **not touched**.
+The terminal verbs stay where §4.2 booked them; this section carries only the **erratum text** that
+§4.2's RESIDUAL named as owed.⟩
+
+**The two rows, quoted VERBATIM from COHESION §4.2** — ⟨cmd⟩ `sed -n '524p;544p' docs/tranches/X/COHESION.md`
+(row 65 at `:524`, row 76 at `:544`, this seat's settled bytes, 2026-09-22):
+
+> | 65 | **`i-1 = L-INFO-2`** · fr-BasisSelector:92, INFO | *"(census correction UPHELD)… `lane-frontend.md:87`'s 'per-basis term sliders' is wrong. → NO-WAVE-OWNER (SS-3/SS-4 census input)."* | **CENSUS-INPUT** — a lane-doc correction; it lands in the CENSUS-ADDENDUM's errata beside FR-CP-44 / FR-AFP-51, **never as a lane-doc rewrite**. ⚠ **RESIDUAL, flagged not silent**: `X.F.W10.a` landed §1a #8's own enumeration and this row's erratum is **owed and not yet written** — its landing surface is outside this unit's writable set (see §4.2.F) |
+>
+> | 76 | **PP-CENSUS** (L-1, census-integrity half) · fr-PathPreview:31, MINOR | arrow-form strict: *"MINOR → NO-WAVE-OWNER (M-25 errata; SS-3/SS-4 must read the registry over `lane-frontend.md:183/:366/:369/:444/:565`, which describe a dead component as a live bespoke surface)."* | **CENSUS-INPUT** — the five lane-doc errata land in the CENSUS-ADDENDUM, **never as a lane-doc rewrite**. **The drain's SECOND self-falsifier**: a row whose content is *"SS-3/SS-4 must read the registry"* is exactly the row a drain reading a check file could not see. ⚠ Same **flagged residual** as row 65 |
+
+#### `i-1 = L-INFO-2` — BasisSelector's sliders are GLOBAL contour parameters, not per-basis
+
+**Banked, quoted from the frozen corpus** — ⟨cmd⟩ `sed -n '92p' registry/adjudicated/fr-BasisSelector.md`:
+
+> - **i-1 = L-INFO-2 — INFO (census correction UPHELD).** The sliders are GLOBAL contour parameters (VV binds the same two refs to BasisSelector and ContourSettings — my read of :260/:265-267/:270); lane-frontend.md:87's "per-basis term sliders" is wrong. → **NO-WAVE-OWNER** (SS-3/SS-4 census input).
+
+**THE CORRECTION.** `lane-frontend.md:87` reads
+`` | `components/visualization/BasisSelector.vue` | 324 | Basis toggles + per-basis term sliders | ``
+(⟨cmd⟩ `sed -n '87p' formation/fourier/lane-frontend.md`, this seat). **Read instead**: *"Basis
+toggles + the GLOBAL contour-parameter sliders"* — the two slider refs are shared with
+`ContourSettings` (the same refs bound at both hosts, per the banked read), so they are **not
+per-basis**. SS-3/SS-4 read the registry over this lane row.
+
+#### `PP-CENSUS` — `PathPreview.vue` is a dead component, not a live bespoke surface
+
+**Banked, quoted from the frozen corpus** — ⟨cmd⟩ `sed -n '31p' registry/adjudicated/fr-PathPreview.md`:
+
+> 2. **PP-CENSUS** (L-1, census-integrity half) — **MINOR → NO-WAVE-OWNER** (M-25 errata; SS-3/SS-4 must read the registry over `lane-frontend.md:183/:366/:369/:444/:565`, which describe a dead component as a live bespoke surface — the census audited the file, not the graph).
+
+**THE CORRECTION — five lane-doc sites, each annotated here and none rewritten** (⟨cmd⟩ `sed -n
+'<n>p' formation/fourier/lane-frontend.md`, this seat, for each `<n>`):
+
+| site | the lane doc says | read instead |
+|---|---|---|
+| `lane-frontend.md:183` | `` `components/ui/PathPreview.vue` · 69 · Bespoke SVG path thumb (no glass-ui analogue) `` | a **dead** component (census-integrity half of L-1): the file exists, the render graph does not reach it |
+| `lane-frontend.md:366` | *"`PathPreview.vue` is bespoke SVG"* among the 5 `src/components/ui` files | the file count stands; its standing as a live bespoke surface does not |
+| `lane-frontend.md:369` | `PathPreview.vue` (69) under *"Bespoke with no glass-ui analogue"* | strike it from the live bespoke inventory; it is dead |
+| `lane-frontend.md:444` | `` `components/ui/PathPreview.vue` · 69 · *(none)* · genuinely bespoke — no flag `` | "no flag" is wrong in kind: the flag is **dead code**, not a missing glass-ui analogue |
+| `lane-frontend.md:565` | `ui/PathPreview.vue` in the SVG-surface enumeration | not a live SVG surface |
+
+**Why the census missed it, in the banked words**: *"the census audited the file, not the graph."*
+**This section books nothing**: the terminal verbs of both rows are §4.2's (rows 65 · 76), the
+deletion or keeping of `PathPreview.vue` is not an act of this addendum, and no banked grading
+moves. It discharges only the landing §4.2's RESIDUAL declared owed (F.W10 CK-1).
+
 ---
 
 ## §6.7 — the charter line, in its CORRECTED wording
@@ -310,6 +362,7 @@ it onto the census-side surface the F specs were chartered to give it**, which i
 | Any edit to `registry/adjudicated/fr-*.md` | read-only + **anti-rename**. The re-cut is a table in two specs and this one record |
 | Any edit to `F-W10.md` or `F-W9.md` | both are outside this unit's writable set and IMMUTABLE at execution; the five paired edits at §4.11b are **disclosed, not applied** |
 | The census-input errata routed here by `F-W10.md` §2.5a's drain rows — **`i-1 = L-INFO-2`** (fr-BasisSelector:92) and **`PP-CENSUS`** (fr-PathPreview:31, the L-1 census-integrity half) | **FLAGGED, NOT BOOKED.** Both rows name this addendum as their landing surface *"beside FR-CP-44 · FR-AFP-51"*, but both are **§2.5a rows** — `X.F.W10.c`'s sections — while §1a row 8 enumerates this file's F.W10-owned content as the §4.11 re-cut record, the cut deviations, FR-CP-44, FR-AFP-51 and the §6.7 charter line. This seat writes exactly that enumeration and **does not reach into a sibling unit's sections**. **The obligation is live and is raised as a residual in `execution/C/F-W10.md` §X.F.W10.a**, so the close seat rules it rather than inheriting a silence |
+| ↳ *dated line beside the row above, 2026-09-22, `X.F.W10S.a` (COHESION §0aj bullet 2; F.W10 CK-1)* | **LANDED 2026-09-22** at **§6.5-ERRATA-S**, beside FR-CP-44 / FR-AFP-51: both errata's text quoted VERBATIM from COHESION §4.2 rows 65 / 76, with the corrections to `lane-frontend.md:87` and `lane-frontend.md:183/:366/:369/:444/:565`. The row above stands as written (E-3) — it was true at its date |
 | Terminal verbs for any NO-WAVE-OWNER row | `X.F.W10.c`'s drain into COHESION §4 — 89 rows / 89 ids / 89 terminal verbs. **This file books none of them** |
 | The re-seat of the `./metric-stack → ./metric` shadow candidacy at the tree | **F.W3's candidate act** (§4b's F.W3 row). This addendum carries the census correction; the surface act is its holder's |
 
