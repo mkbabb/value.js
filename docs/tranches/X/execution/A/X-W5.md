@@ -2045,3 +2045,111 @@ C3 → X-W8 (G-L: Dock `useMediaQuery` ×2 + dock `isDesktop` ×11) and the six 
 §3.4 (PSC deletion + C1 successor, same wave: the presence re-point lands in `50633f19`) · C6 same-commit (`50633f19`) · N11 ordering (`afe230b5` is an ancestor) · C4 PSC-1 (no tabs interim) · C7 (33 capability queries survive) · C3 back-gate (not closed; Dock.vue's predicate untouched) · N10 (AboutPane coverage kept) · BD-05 (two hunks only) · L-7 (every figure is in git).
 
 **Commits**: `50633f19` (§9 commit 3) · `a1bef4f0` (GREEN JSON + layout triples) · this record.
+
+### X.W5.d
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X.W5.d, RESUME ROUND 3 · 2026-09-22 · verdict **PARTIAL** (§9 commit 4 LANDED `2183b814`; D2 · D3 · D5 GREEN; D1 RED → §3a trigger; D4 RED on an out-of-bounds site).
+
+#### Act 0 — crash-recovery (STANDING LAW)
+
+⟨cmd⟩ `git status --porcelain` → 2 rows, `V/reformation/CARRY-LEDGER.md` (sibling) and `scripts/dev/dev.sh` (never touched). **No path inside this unit's writable set was dirty**: no predecessor partial existed, and nothing was inherited. HEAD at open was `4c594655`. `.c` had landed as `50633f19`, so the §3.4 lock "strictly after X.W5.c commits" held.
+
+#### Act 1 — anchors measured before any edit
+
+- **D3 arm 1**: ⟨cmd⟩ `grep -rEo 'pane-wrapper--left|pane-wrapper--right' demo/ | wc -l` → **15**. The spec's 18 sites have drifted by `.c`, which retired 1 of the 3 in `App.vue` and 2 of the 3 in `shell.css`. The remaining 15 are `animations.css` 12 (`:228-274`), `App.vue` 2 (`:115-116`, the physical ternary `.c` left beside the role class) and `shell.css` 1 (`:238`, a comment quoting a retired witness). Intent is unchanged at the true bytes.
+- **Roles**: ⟨cmd⟩ `sed -n '/export type RegionRole/p' demo/shell/viewSchema.ts` → `"stage" | "inspector" | "action"`. Routes seat only `stage` and `inspector`. `action` belongs to the vocabulary, so it gets rules too.
+- **D4 census**: ⟨cmd⟩ `grep -rn '<SegmentedTabs' demo/ --include='*.vue'` → **2 files**: `MixSourceSelector.vue:105` and `AdminNamesPanel.vue:14`. `PaneSegmentedControl.vue`, the spec's third file, died at `50633f19`. `<Transition ` count is **0 and 0**.
+- **D5 guard**: ⟨cmd⟩ `grep -n '@media (prefers-reduced-motion: reduce)' demo/styles/animations.css` → `:184`. The global guard is at `:184-193`, and every edit here sits below it.
+- **B4 arm 3 (residual 5)**: ⟨cmd⟩ `grep -rn content-max-h demo/` → 3 hits in the `PaneSlot.vue:46/:54/:55` comments. **I did not take them.** `:46` is inside the transition-mode paragraph that the fold's GATING LOCK protects (`X-W5-FOLD.md:41`: *"No wave may delete PaneSlot.vue:12-23 before [the out-in re-probe] runs"*), and `:54-55` are that paragraph's E-3 correction. Re-wording a locked record is not this unit's to do. Owner: whoever runs the out-in re-probe.
+- **External consumers of the physical class** (landed-by-consequence, see ESC-W5d-3): ⟨cmd⟩ `grep -rn 'pane-wrapper--' e2e/` → `oracles/o12-blob-seat.spec.ts:68` and `oracles/o16-computed-cascade.spec.ts:158` both select `.pane-wrapper--left`. `e2e/visual/capture.ts:489` is a comment.
+- **D1 instrument source**: ⟨cmd⟩ `sed -n 129,152p docs/tranches/T/audit/pi/u-gestalt/probe2.mjs` gives four hash hops from a settled `/#/`, in the order gradient · extract · mix · generate. Each hop has a 900 ms rAF window with the first 2 deltas dropped, at 1440×900 light, DPR 2. The new gate reuses this instrument byte-for-byte in method.
+
+#### Act 2 — the cure (§5 X.W5.d mechanism, as specified)
+
+1. **`animations.css` (D3)**. The pane family is re-keyed onto `.pane-wrapper--{stage,inspector,action}`. Each role carries enter-from, leave-to, enter-active and leave-active rules. The existing values are **byte-kept** as the forward reading: stage takes the former left geometry `translateX(-110%) rotate(-2deg)` and inspector the former right geometry. Action is **added** and rises from the block-end edge. The **direction arm** is also added. `[data-scene-direction="back"]` mirrors each role's travel at specificity (0,3,0). No declaration was deleted (preserve-animations edict), and the `will-change` hint and the two transition rules moved with the keys.
+2. **Retired spellings, quoted once here** so the D3 census reads zero in the tree: `App.vue` `region.role === 'stage' ? 'pane-wrapper--left' : 'pane-wrapper--right'`, and the four selectors in `animations.css`: `.pane-wrapper--left > .vj-enter-{enter-from,leave-to,enter-active,leave-active}` and `.pane-wrapper--right > …`.
+3. **`App.vue` (class names only)**. The wrapper emits `` `pane-wrapper--${region.role}` `` and nothing physical. Its comment was re-worded to match.
+4. **`shell.css`**. The retired-witness comment at `:238` was re-worded. It is a comment and has no rule.
+5. **`PaneSlot.vue` (the direction token)**. This file is in the unit's writable set. A `flush:"sync"` watch on `route.name` sets `forward` or `back` from the route's index in `Object.keys(VIEW_MAP)`, which is the scene table's own order and the dock's. The watch never works from a copy of that order. The existing `before-enter`/`before-leave` hooks stamp `data-scene-direction` on BOTH the entering pane and the leaving one. The simultaneous mode, the rAF mirror and the `:12-23` paragraph are untouched (the D-1 lock).
+6. **`MixSourceSelector.vue` (D4)**. The two `<template v-if>/<template v-else>` fragments became `<Transition name="vj-morph" mode="out-in">`, and each branch is **one root** `div.flex.flex-col.gap-3` (MSS-17). The fragments had borrowed the parent's column rhythm, and each root now carries it itself. The inner swatch `TransitionGroup` is untouched and is not what satisfies the gate. The **direction token** is `data-mix-direction` on the component root, set in the pre-flush from the tab strip's own option order. A scoped rule sets `--vj-morph-x: ±1.5rem` on the **branch root only**, and only while it carries enter-from or leave-to, so the offset cannot inherit into `PaletteCard`'s nested `vj-morph`.
+7. **`scene-swap-budget.mjs` (D1, created)**. This is the probe2 instrument plus an **adversarial motion arm**. Every `.pane-wrapper--<role> > *` that takes `vj-enter-enter-active`/`-leave-active` is logged with its role, its direction stamp and its **transform travel** duration, read as the computed duration paired with `transform`/`all` in `transition-property`. A hop with no region enter is RED whatever its frames. Under `PROBE_PRM=1` every travel must be 0. One JSON document is written to stdout, with exit 0 or 1.
+8. **`view-switch-frame-budget.spec.ts` (re-point)**. The spec asserts that the timed swap IS the stage region's role-keyed enter, stamped `forward`, with a non-zero transition. Running it exposed two stale premises at its own bytes, and both are cured in the same file: `/#/picker` is `not-found` since X-W3 G-20, so the spec had been timing Not Found → Gradient; and the landmark locator used `"Color tool panes"`, a name that `de99ec15` retired.
+
+#### Act 3 — cadence (§7) at the settled bytes
+
+- ⟨cmd⟩ `npx vue-tsc -p tsconfig.demo.json --noEmit` → **EXIT 0**.
+- ⟨cmd⟩ `npx eslint --max-warnings=0 <PaneSlot · MixSourceSelector · App · gate · spec>` → **EXIT 0**, run twice (the spec was re-linted after its second edit).
+- ⟨cmd⟩ `npx tsc -p tsconfig.e2e.json --noEmit` → EXIT 2 with **5 errors, all `o23-specimen-gamut-honesty.spec.ts`**. They are foreign and are the same 5 that `.c` saw. None of them is in `view-switch`.
+- ⟨cmd⟩ `npx vitest run` → **639 passed / 2 failed**: the same two foreign born-RED canaries (`spectrum-luma` C-5, `reka-binding-idiom` NG-6). The library suite did not move.
+- ⟨cmd⟩ `VJS_E2E_PERF_PORT=<AFTER serve> npx playwright test view-switch-frame-budget --project=smoke-perf` → **passed, passed**. Both runs took the software-GL branch: firstFrame 116.6 / 233.6 ms and maxTask 1385 / 79 ms against the SOFT_CEIL ceilings. The host load average was 23-30.
+
+#### Commits
+
+`2183b814` §9 commit 4 `feat(demo/motion): region-keyed scene transitions + swap budget` (7 paths, with a body) · `5fbf6d5c` the spec's second half (address + landmark) · `ae98f5a1` evidence: D1 BEFORE/AFTER, D4, D5 and the §8 `app-wave/pi` pair, with PNGs added via `-f` · `9b35754f` the receipt line on the two a11y dumps · this record.
+
+#### Act 4 — D1 over the built bundle (BEFORE = `4c594655` · AFTER = `2183b814`; `git diff 4c594655 2183b814~1 -- demo/` → empty)
+
+Both bundles came from `npx vite build --mode gh-pages --outDir <scratch>` and were served statically, never from the shared `dist/gh-pages`. Each run is ⟨cmd⟩ `PROBE_BASE=… node docs/tranches/V/megatranche/workflows/gates/scene-swap-budget.mjs`. The runs were interleaved: before-i, then after-i. Each cell shows `over32/frames` and then the median in ms. **Exit 1 on all 10 runs.**
+
+| run | 1-min load avg (before · after) | →/gradient B · A | →/extract B · A | →/mix B · A | →/generate B · A |
+|---|---|---|---|---|---|
+| 1 | not logged | 0.29/9 · 0.33/9 | 0.11/11 · 0.20/12 | 0.27/18 · 0.46/32 | 0.13/8 · 0.15/8 |
+| 2 | not logged (30.3 at 16:06, just after) | 0.39/13 · 0.33/8 | 0.35/12 · 0.33/17 | 0.73/51 · 0.92/54 | 0.19/9 · 0.24/9 |
+| 3 | 28.9 · 29.0 | 0.28/9 · 0.67/81 | 0.13/10 · 0.44/19 | 0.36/18 · 0.36/27 | 0.26/9 · 0.12/8 |
+| 4 | 25.8 · 24.8 | 0.21/9 · 0.19/8 | 0.12/10 · 0.14/12 | 0.33/17 · 0.25/17 | 0.12/8 · 0.14/9 |
+| 5 | 23.3 · 21.4 | 0.20/8 · 0.19/8 | 0.10/11 · 0.14/10 | 0.35/20 · 0.21/19 | 0.11/9 · 0.09/8 |
+
+The spec baseline (`probe2-log.txt`, 2026-07-12) reads 0.71 · 0.26 · 0.63 · 0.23.
+
+- **Motion arm**: every hop in all 10 runs is `animated: true`. BEFORE's stamps are `null`. AFTER's are `forward`, `back` on extract (extract comes before gradient in `VIEW_MAP`), `forward` on mix and `forward` on generate. Every enter travel is 440 ms and every leave 200 ms, on both roles.
+- **Reading**: **→/gradient and →/mix breach in every run, on both sides**. The re-key neither cures nor measurably moves them: run 4 and run 5, the least contended, sit within noise of BEFORE. →/extract and →/generate pass or fail with host load.
+- **Diagnostic, not a gate reading.** One AFTER run used an injected `[class*="pane-wrapper--"] > * { transition: none !important }`. It read gradient **0.011** · extract **0.066** · generate **0.011**, while **mix read 0.257 / median 22 and still breached**. The pane travel is therefore the jank root on gradient, but **not on mix**, where the root sits in the Mix scene's own mount/animation. The artefact is banked beside the AFTER runs, labelled.
+
+#### Gate readings — BEFORE → AFTER (this seat's clock, static arms double-run at HEAD)
+
+| gate | BEFORE | AFTER | state |
+|---|---|---|---|
+| **D1** | 4 hops, exit 1 ×5 (gradient · mix breach every run) | exit 1 ×5, gradient · mix breach every run; motion arm GREEN | **RED** → ESC-W5d-1 (§3a named trigger) |
+| **D2** | `git ls-files --error-unmatch …/probe2-log.txt` → 0 | 0 · 0 | **GREEN** (verify-only; GREEN at open, not cured here) |
+| **D3** arm 1 | 15 (spec 18, drifted by `.c`) | `git grep -Eo 'pane-wrapper--left\|pane-wrapper--right' HEAD -- demo/` → **0 · 0** | **GREEN** |
+| **D3** arm 2 | 2 of 3 roles keyed only through the physical alias | stage · inspector · action each have enter-from 1 · leave-to 1 · enter-active 2 · leave-active 2 | **GREEN** |
+| **D3** direction | mobile forward ≡ back | stamps `forward`/`back` observed live; the back rules mirror the travel sign on every role | **GREEN** |
+| **D4** Mix | `<Transition ` 0; bare `v-if` at `:114` | 1 named `vj-morph` `out-in`; `<template v-if>` 0 (the one grep hit is the comment at `:127`); live: 1 branch root under the token at 1440 and 390, leave-to `forward` `+1.5rem` / `back` `-1.5rem`, travel 200 ms | **GREEN** (this site) |
+| **D4** census | — | `AdminNamesPanel.vue:24/:75` bare `v-if`/`v-else` swap behind `SegmentedTabs` (`:14`), `<Transition ` 0 | **RED** → ESC-W5d-2 (out of bounds) |
+| **D5** | non-regression | added declarations sit below the `:184-193` guard; new `animation-timeline`/`animation-range`/`scroll-timeline`/`view-timeline` lines in the diff: **0 · 0**. Forced-PRM ×2: every region travel **0 ms** (motion arm true on 8/8 hops); Mix swap under PRM travel **0** at 1440 and 390 | **GREEN** |
+
+PRM run 2's `→/gradient` recorded 4 frames: the host stalled, so its *budget* cell is noise. D5 does not read the budget.
+
+#### Escalations
+
+- **ESC-W5d-1 (D1, the named §3a trigger).** The trigger reads *"frame budget unmet after the transition re-key"*, and it has fired. →/gradient and →/mix breach `over32/frames ≤ 0.15` in 10 of 10 runs, BEFORE and AFTER alike. The measured roots differ by hop. On **gradient (and extract · generate)** the root is the swap travel itself: with the travel suppressed they read 0.011–0.066. That travel is 440 ms and 200 ms, two panes rotated and co-mounted in-flow (the simultaneous mode), measured on a software compositor at DPR 2. On **mix** the root is NOT the swap: it still breaches with the travel suppressed (0.257, median 22). A second §3a trigger is also live: **the oracle's own flake**. Under host load 21–30 from sibling seats, runs of the same bytes disagree by up to 0.4 on a hop (before-2 vs before-4 on extract: 0.35 vs 0.12), which is beyond any usable tolerance.
+  - **No cure was improvised.** The D-1 coupled-architecture lock forbids changing the mode, the rAF mirror or the leave geometry alone. Deleting or shortening the travel is the exact move D3/D4 exist to refuse.
+  - **The triumvirate needs to rule three things**: (a) the instrument's conditions, meaning an uncontended host, or real-GPU, or `smoke-perf`'s SOFT_CEIL branching carried into D1; (b) the co-mount geometry, meaning the out-in re-probe the lock gates; and (c) the Mix scene's own frame cost, which is not a W5 surface.
+- **ESC-W5d-2 (D4, bounds).** `demo/palettes/browser/admin/AdminNamesPanel.vue:24/:75` is a bare `v-if`/`v-else` content swap behind the `SegmentedTabs` at `:14`, with `<Transition ` count 0. That is exactly D4's falsifier. The file is in neither the W5 §4 table nor this unit's writable set. BD-22 grants it to `.c` for "source order only". The cure has the same shape as the Mix one, one named `<Transition>` with each branch a single root, but it needs a bounds grant on that path.
+- **ESC-W5d-3 (landed by consequence, outside the set).** Retiring the physical modifier empties `.pane-wrapper--left` in two X-W2/X-W1 oracles.
+  - `e2e/smoke/oracles/o12-blob-seat.spec.ts:68` reads the stage width through it. The locator will time out.
+  - `e2e/smoke/oracles/o16-computed-cascade.spec.ts:158` probes the swap legs on its first child. The wrapper is `null`, so both legs read `null`.
+  - Each needs a one-token re-point to `.pane-wrapper--stage` (the legs it reads are byte-identical there), and neither path is writable here. This is the same class as `.c`'s ESC-W5c-3.
+
+#### Residuals, each with an owner
+
+- **B4 arm 3 (residual 5)** stays at 3. These are comment-only mentions inside `PaneSlot.vue`'s locked transition-mode record, and they belong to whoever runs the out-in re-probe (fold `:41` GATING LOCK).
+- **EB-24 / W5F-47.** The caught-plate swap in `ErrorBoundary.vue` has no motion. COHESION §0k.3 **S-7** gives that component's bytes to X-W7. D5 reads GREEN for the transitions this wave added, and the plate's motion is X-W7's.
+- **C7** is not moved by this unit. `animations.css:17` is the `edit-drawer-in` keyframe re-definition, which the preserve-animations edict keeps, and C7 is not a `.d` gate.
+- **The foreign `"Color tool panes"` landmark name** (retired by `de99ec15`) is still used by 66 other `e2e/**` files. This unit cured it only in its own spec. The owner is X-W5.a's successor or X-W1, as LEDGER `:34` ESC-b3 already names.
+- **Foreign REDs seen and not touched**: vitest C-5 and NG-6, and e2e tsc `o23` ×5.
+
+#### Locks honoured
+
+- **preserve-animations**: 0 motion declarations deleted, and the forward values are byte-kept.
+- **§3.4**: this unit ran after `50633f19`.
+- **App.vue class names only**: one `:class` binding and its comment.
+- **D3 direction arm**: the `back` stamp is observed live and mirrors the travel.
+- **D4**: each branch is a single root, and the inner `TransitionGroup` is not what the gate counts.
+- **D5**: no new scroll-driven or `animation-timeline` declaration.
+- **D2**: verify-only.
+- **D-1 lock**: the mode, the rAF mirror and `:12-23` are untouched.
+- **Pathspec on every commit**, and `dev.sh` was never staged.
+- **E13**: `find <4 paths> -newer X-W5.md` → 0 new, so 0 UNREAD in scope.
+
+**Commits**: `2183b814` · `5fbf6d5c` · `ae98f5a1` · `9b35754f` · this record.
