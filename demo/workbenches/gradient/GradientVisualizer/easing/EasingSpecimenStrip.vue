@@ -99,7 +99,7 @@ watch(
                         v-for="tile in fam.tiles"
                         :key="tile.id"
                         mode="selectable"
-                        shape="cell"
+                        shape="icon"
                         class="specimen-tile"
                         :model-value="tile.id === selectedId"
                         :aria-label="tile.id"
@@ -154,19 +154,29 @@ watch(
 }
 .family-tiles {
     display: flex;
+    /* Not `stretch`: a stretched cross-size is definite and overrides the
+       icon shape's aspect-square, which is what made a circle a 44×40 oval. */
+    align-items: flex-start;
     gap: 0.25rem;
 }
 
-/* The tile: a micro cell — portrait over variant label. The producer
-   Chip cell recipe (mode="selectable" shape="cell") carries press/hover
-   semantics + the pressed wash; the seat sizes it to specimen scale. */
+/* The tile: a micro cell — portrait over variant label. The producer Chip
+   (mode="selectable") carries press/hover semantics + the pressed wash; the
+   seat sizes it to specimen scale. Its SHAPE is the glass icon circle
+   (`shape="icon"`, aspect-square), chosen ONCE for every tile (X-W6 · X.W6.d —
+   d1): the `cell` shape resolved to a capsule, so a 45px-wide tile beside a
+   44px one read as a stadium beside a circle. */
 .specimen-tile {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 0.125rem;
-    padding: 0.3125rem 0.375rem 0.25rem;
-    min-width: 2.75rem;
+    /* The seat's size for the circle: both axes, so the icon shape's
+       aspect-square is honoured at the specimen scale (a 44px target). */
+    inline-size: 2.75rem;
+    block-size: 2.75rem;
+    padding: 0.25rem;
 }
 
 /* The portrait: unit-box sparkline, faint resting ink; overshoot curves

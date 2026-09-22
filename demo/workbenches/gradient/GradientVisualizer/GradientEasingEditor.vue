@@ -112,19 +112,19 @@ async function copyLiteral(index: number, css: string) {
 </script>
 
 <template>
-    <div class="flex flex-col gap-2">
+    <div class="easing-panel flex flex-col gap-2">
         <!-- Z2 in-plate specimen rows: flat on the plate, --card-edge
              hairline, no shadow (DESIGN.md § Depth); each row strokes the
              interval's OWN ink through the producer's --motion-accent door. -->
         <div
             v-for="row in specimenRows"
             :key="row.index"
-            class="rounded-card border border-card-edge overflow-hidden"
+            class="easing-row border border-card-edge overflow-hidden"
             :style="row.ink ? { '--motion-accent': row.ink } : undefined"
         >
             <button
                 type="button"
-                class="interval-head w-full flex items-center gap-2.5 px-3 py-2 text-left cursor-pointer"
+                class="interval-head w-full flex items-center gap-2.5 py-2 text-left cursor-pointer"
                 :aria-expanded="openInterval === row.index"
                 :aria-controls="`easing-interval-${row.index}`"
                 @click="toggleInterval(row.index)"
@@ -151,14 +151,14 @@ async function copyLiteral(index: number, css: string) {
             <div
                 v-show="openInterval === row.index"
                 :id="`easing-interval-${row.index}`"
-                class="px-3 pb-3 flex flex-col gap-2.5"
+                class="easing-row-body flex flex-col gap-2.5"
             >
                 <!-- The interval's live ramp (W5-9, kept verbatim): the
                      row's "ball" — its curve applied to ITS two colors,
                      sampled by the same law the gradient renders with. -->
                 <div
                     v-if="openInterval === row.index && openIntervalRamp"
-                    class="h-5 rounded-md border border-card-edge"
+                    class="easing-inner-surface h-5 border border-card-edge"
                     :style="{ background: `${openIntervalRamp}, var(--alpha-checker)` }"
                     role="img"
                     :aria-label="`Eased ramp for interval ${row.label}`"
@@ -225,6 +225,48 @@ async function copyLiteral(index: number, css: string) {
 </template>
 
 <style scoped>
+/* ── ONE RADIUS REGISTER (X-W6 · X.W6.d — d1; CC-060 · MT-F030) ──
+   The panel used to speak four unrelated radii at once (OM-4): the row card at
+   `--radius-card`, the ramp strip at a Tailwind `md`, the authoring well at a
+   second card-scale corner one inset inside the first, and capsule chips
+   beside true circles. The register is now DERIVED — two rungs and one inset,
+   related by the concentric law:
+
+     outer = the card radius                   (each interval row)
+     inner = the readout rail's radius         (every surface nested one inset
+                                                inside a row: the ramp strip,
+                                                the readout rail, the authoring
+                                                well)
+     inset = outer − inner                     (the row's own padding)
+
+   so every nested corner is concentric with its row's by construction. The
+   inner rung is the READOUT RAIL's radius and not a new one because the readout
+   is frozen: gate d2 routed its look to the dated glass-forward ask
+   (`W6-glass-ask-easing-readout.md`) and bans a local restyle of it, so the
+   register is derived AROUND it — the row's inset moves, the readout does not.
+   Everything else in the panel is a declared CIRCLE: the specimen chips
+   (`shape="icon"`, the glass icon-circle species, chosen ONCE for all of them)
+   and the endpoint dots. Canon for the radius ladder itself is X-W10's; this
+   panel applies the rungs it is given and mints none. */
+.easing-panel {
+    --easing-radius-outer: var(--radius-card);
+    --easing-radius-inner: var(--radius-md);
+    --easing-inset: calc(var(--easing-radius-outer) - var(--easing-radius-inner));
+}
+.easing-row {
+    border-radius: var(--easing-radius-outer);
+}
+.interval-head {
+    padding-inline: var(--easing-inset);
+}
+.easing-row-body {
+    padding-inline: var(--easing-inset);
+    padding-block-end: var(--easing-inset);
+}
+.easing-inner-surface {
+    border-radius: var(--easing-radius-inner);
+}
+
 /* The specimen-row head: a whisper hover + the house focus register (the
  * accent-aware ring the keystone mints — never a bespoke outline). */
 .interval-head {

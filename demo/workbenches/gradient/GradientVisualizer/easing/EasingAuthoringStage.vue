@@ -91,6 +91,11 @@ watch(
 
 /* Law 2 — wells, not cards (nothing live sits behind an in-plate fixture). */
 .easing-authoring :deep(.glass-card) {
+    /* The well is a surface nested one inset inside the interval row, so it
+       takes the panel register's INNER radius (X-W6 · X.W6.d — d1), inherited
+       from `.easing-panel` — never a second card-scale corner on a card-scale
+       surface one inset apart. */
+    border-radius: var(--easing-radius-inner);
     background: var(--well-bg);
     border: 1px solid var(--card-edge);
     box-shadow: none;
