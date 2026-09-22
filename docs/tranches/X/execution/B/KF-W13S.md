@@ -706,3 +706,83 @@ Every GREEN the close claims reproduces at the bytes. But two gates of record ar
 - **E13**: four paths swept (the INBOX sweep line appended). UNREAD in scope: **0**. O-48 was minted outbound.
 - **Push**: keyframes.js pushed `220bd93a..8ae71f51` (fast-forward, `0 0`). value.js is pushed only if ⟨cmd⟩ `git status --porcelain | grep '^[MADR]'` shows no sibling path staged. At this seat's clock the sibling's staged `D demo/shell/PaneSegmentedControl.vue` stands, so the value.js push is **withheld** (d-R9) and the commit is local.
 - **LEDGER**: the status cell is unchanged. **PARTIAL stands**, because G-KFW13-7 (vue-tsc 4) and G-KFW13-2 (the MM-1/MM-6 sha) are still RED on ESC-r1-1 and ESC-r1-2. One event line is appended.
+
+---
+
+## Check 2 — fresh adversarial L-20 pass 2 of the Repair 1 close (2026-09-22; dated addendum beside, E-3)
+
+**Seat**: independent check, `claude-opus-5-5[1m]`, VERIFY-ONLY. I wrote no byte of this wave's cures: **0** keyframes.js bytes, **0** glass-ui bytes, **0** product bytes. **Crash-recovery**: ⟨cmd⟩ `git -C keyframes.js status --porcelain` → only the two untracked 2026-07 value.js letters (R-10, untouched). ⟨cmd⟩ `git status --porcelain -- docs/tranches/X/execution/B docs/tranches/X/execution/LEDGER.md` → **clean**. Sibling dirty rows (the staged `D demo/shell/PaneSegmentedControl.vue`, `X-W5.md`, `CARRY-LEDGER.md`, `dev.sh`, Track A product) were NOT touched and NOT staged. **Frontier**: kf `8ae71f51` (`origin/master...HEAD` → **0 0**) · vjs `8bb71fda`.
+
+### Verdict: **NOT-CONFORMANT**
+
+Every GREEN that Repair 1 claims reproduces at the bytes, and Repair 1 cured Check 1's D-1, D-3, D-4 and D-5 in bounds. Two gates of record are still RED, and the spec gives neither of them relief:
+
+- **G-KFW13-7**: `vue-tsc` reads **4·4**, and `npm run check` exits **2·2**. §0ai's Close literal requires **0** and exit 0.
+- **G-KFW13-2**: the MM-1/MM-6 four-part ONE-sha cure is unspent.
+
+Both REDs rest on returned escalations: ESC-r1-1 needs a `CubeScene.vue` grant, and ESC-r1-2 needs the easing catalogues. Relief for either is an **orchestrator grant**. The spec does not route either one to a successor wave, neither is producer-owned, and the spec does not name either as honest-RED. **Honest-RED set: EMPTY.** The LEDGER status cell is left unchanged: **PARTIAL stands**.
+
+### Axes (1) and (9): the claimed GREENs and the published figures, re-run by this seat (kf root, double-run, `·` separated)
+
+| Gate / row | ⟨cmd⟩ | Record (Repair 1) | This seat | Reproduces |
+|---|---|---|---|---|
+| W13 + gates-of-record batch (G-KFW13-0/-1/-3/-4/-5 runtime · `cube-scene` · G-KFW12-4 `css-code-editor-seam` · G-KFW11-4 `spring-trace-truth`) | `npx vitest run --project demo <the 6 W13 files> css-code-editor-seam spring-trace-truth cube-scene` | 59 + 4 + 12 | **9 files / 75 tests passed · 9 / 75** | YES |
+| G-KFW13-7 test limb | `npm run test:demo` | 59/59 · 494/494 | **Test Files 59 passed (59), Tests 494 passed (494), exit 0 · same** | YES |
+| G-KFW13-1 bytes | round-trip `wc -l` · MUST-CARRY · `:109-113` prose | 0 · 1 · 0 | **0 1 0 · 0 1 0** | YES |
+| OP-8 | `git show <sha> \| grep -c 'ComponentExposed\|Pick<'` over all **24** shas `9d814f6c..HEAD` | 0 | **0 ×24** | YES |
+| G-KFW13-2 `headerLeft` | `git diff 9d814f6c..HEAD -- demo/app \| grep -c headerLeft` | 0 · 0 | **0 · 0** | YES |
+| G-KFW13-3 bytes | `.stop` TD · CD · `registerShortcut("Space"` | 0 0 1 | **0 0 1 · 0 0 1** | YES |
+| G-KFW13-4 bytes | `instanceof HTMLElement` · `blur\|orphan\|stale` | 0 · 8 | **0 8 · 0 8** | YES |
+| G-KFW13-5 bytes | `aria-label` · `valueCommit` · `:step` · `gatedSliderDown` | 2 3 2 0 | **2 3 2 0 · 2 3 2 0** | YES |
+| G-KFW13-6 bytes | focus-ring-shadow · `106,116p` outline | 0 · 1 | **0 1 · 0 1** | YES |
+| TD-36 bytes | `grep -c pointer-events TransportDock.vue` | 4 | **4 · 4** | YES |
+| skip/only | `git diff 9d814f6c..HEAD -- test \| grep -c 'test.skip\|it.skip\|\.only('` | 0 · 0 | **0 · 0** | YES |
+| sweeps | `btn-playback` files · bare `focus-ring` `class=` | 9 · 0 | **9 0 · 9 0**, declared beside RULINGS-4's 7/4 and the spec's 8/2, amending none | YES |
+| vue-tsc (RED) | `npx vue-tsc --noEmit -p tsconfig.json 2>&1 \| grep -c 'error TS'` | 4 · 4 | **4 · 4**: `MbabbMenu.vue(333,12)`/`(333,36)` TS2339 · `EasingSidebar.vue(150,27)` · `EasingTarget.vue(251,62)` TS2345 | YES (RED) |
+| `npm run check` (RED) | exit code · `npx tsc --noEmit -p tsconfig.test.json \| grep -c 'error TS'` | exit 2 · 47 | **exit 2 · exit 2 · 47** | YES (RED) |
+
+**gatesReproduced = 15** claimed-GREEN rows. **0** claimed GREEN failed to reproduce, and the RED figures reproduce exactly.
+
+### Axes (2)–(8)
+
+- **(2) Bounds**: I ran ⟨cmd⟩ `git -C keyframes.js show --stat` on all 8 Repair-1 shas `220bd93a..8ae71f51`. Each path is inside the ADDENDUM `.e` set (true-byte spellings from the Unit plan) or inside §B.2's `TransportDock.vue` row:
+  - `6ae324c6`: the three `src/**` files
+  - `2ee8f850`: `parseAnimationCSS.ts`
+  - `dc93e424`: `EditorShell.vue`
+  - `72e532a9`: `CSSCodeEditor.vue` + `env.d.ts`
+  - `17d3e227`: the seam test
+  - `96079974`: `spring-trace-truth.test.ts`
+  - `c03141bc`: `useEasingDemo.ts`
+  - `8ae71f51`: `TransportDock.vue`. The raw stat reads 190+/184−. ⟨cmd⟩ `git show -w --stat` → **7+/1−**: two classes plus the wrapper, and the rest is re-indentation.
+
+  `useKeyframeOps.ts` is untouched. ⟨cmd⟩ `git log 58c1ba11..HEAD -- scripts/dev/dev.sh` → **empty**. No glass-ui or `node_modules` byte.
+- **(3) Masking**: ⟨cmd⟩ `git diff 220bd93a..HEAD | grep '^+.*\(catch\|\.skip\|\.only(\|allowlist\| as \|@ts-\|eslint-disable\)'` → the only code casts are the two `as Monaco.editor.IStandaloneThemeData` lines. ⟨cmd⟩ `grep -n IStandaloneThemeData evidence/W12/KF-W12-d-born-red.md` → `:204`/`:208`, which is **inside the banked hunk**. They are not new. `c03141bc` adds no ` as ` or `!` in its `+` lines. E-c1 is one type-level token (`ReturnType<AnimationEngine["serializeTimingFunction"]>`). **No masking fallback.**
+- **(4) Families**: E-d1's arm and `env.d.ts` are ONE sha (`72e532a9`). Each `.e2` row is its own meaning-commit. TD-36 is ONE sha. The MM-1/MM-6 family is **unspent, not split**.
+- **(5) E-3**: ⟨cmd⟩ `git diff --stat 58c1ba11..HEAD -- docs/tranches/X/keyframes/waves/ docs/tranches/V/megatranche/registry/adjudicated/ docs/tranches/X/keyframes/conformance` → **empty**. Prior sections of this record are unrewritten.
+- **(6) Mail**: ⟨cmd⟩ `grep -c '^| I-\|^| O-' INBOX.md` → **92**. The positional UNREAD awk returns **0**. The new BK files since 2026-09-22 00:00 are the 10.0.0 consumers letter (to slides/atlas), `fourier-to-glass-…-nwo1-bh-relay.md` (fourier→glass) and our own outbound `value-to-glassui-…-fw4-relay.md`. **None is addressed to value.js, and no UNREAD mail is in scope.** O-48 is rowed SENT.
+- **(7) Four-verb line**: it stayed **PARTIAL**. That is lawful, because no IMPLEMENTED claim was made over RED gates.
+- **(8) Goal criterion**: KF-W13's chrome goal is **MET at the bytes** for the dock-menu hold (5/5 self-hold, round-trip 0, MUST-CARRY 1), the transport bundles, the ribbon, and TD-36's pointer trap. The **supplement's own goal is NOT met**: §0ai's Close literal requires `vue-tsc` **0** and `npm run check` exit 0, and these read **4** and **exit 2**.
+
+### Axis (10): honest-RED adjudication at the spec bytes
+
+| RED gate | Relief the spec gives? | Owner named? | Ruling |
+|---|---|---|---|
+| **G-KFW13-7**, OP-0 limb (`vue-tsc` **4**) | **NONE.** Rows 1–2 (`MbabbMenu.vue:333`) belong to the MM-1/MM-6 ONE sha that §Agent Units and ADDENDUM `.a2` give to **this** wave. Rows 3–4 (`EasingSidebar:150`, `EasingTarget:251`) sit in files §0ai names as **`.e`'s carve** (*"the three-file easing-name contract … is `.e`'s carve; no cast"*). Their string roots are in two catalogue files outside that carve, so ESC-r1-2 is a lawful return. §0ai's Close makes `vue-tsc` **0** the literal. No successor wave is routed and none of it is producer-owned. | ESC-r1-1 / ESC-r1-2 → "orchestrator grant" | **UNRELIEVED RED** (the escalations are lawful; the RED stands until the grants) |
+| **G-KFW13-7**, `npm run check` (exit **2**) | **NONE.** Leg 2 (`tsconfig.test.json`) reads **47**: 46 in files this wave did not touch (24 in `spring-heatmap-reversibility.test.ts`, 5 in `channel-options-render-edge.test.ts` at `:214-216`/`:306`/`:309`, which are not the C-11 line at `:103`) plus (4b)'s `import { DAMPING_AXIS } from "…SpringHeatmap.vue"` under the `*.vue` shim (TS2614). That import is §0ai's prescribed form. | **Mis-owned.** R-f2-7 says the limb *"follows R-f2-1 ∧ R-f2-3"*, but leg 2 stays **47** whatever `vue-tsc` reads. | **UNRELIEVED RED; no true owner in the register** |
+| **G-KFW13-2** (MM-1/MM-6 ONE sha) | **NONE by routing.** The delete arm is in `demo/scenes/cube/CubeScene.vue`, which is KF.W11's file and on the "expansion invalidates the wave" list. ARB-1 is shared with KF.W11, but the spec **requires** the sha in this wave's `.a` and routes it nowhere else. | ESC-r1-1 → orchestrator grant (`.a4`, or a joint commit with a KF.W11 seat) | **UNRELIEVED RED** |
+
+**Honest-RED set: EMPTY.**
+
+**Successor "Opens after"**: ⟨cmd⟩ `grep -n 'W13S' COHESION.md EXECUTION-RUNBOOK.md LEDGER.md | grep -i 'opens after'` → the only hit is KF.W13S's own conjunct (`COHESION.md:2373`, *"opens after KF.W13 CLOSED"*), which is GREEN. No wave declares KF.W13S as a conjunct. **No successor is blocked by this wave.** KF.W3 stays gate-keyed on RC-P(V), which is not this wave's conjunct.
+
+### Register (severity · claim · receipt · cure)
+
+| # | Sev | Claim | Receipt | Cure |
+|---|---|---|---|---|
+| C2-1 | **HIGH** | G-KFW13-7 is RED with no spec relief. `vue-tsc` **4** ≠ the §0ai literal **0** (ESC-r1-1 rows 1–2 · ESC-r1-2 rows 3–4). | vue-tsc 4·4, rows quoted above | The orchestrator grants `easingGroups.ts` and `animationDescriptions.ts` (type `name: EasingName` and `Partial<Record<EasingName, Quad>>`) so the two boundary rows close by typed lookup with no cast. It also grants C2-2's `CubeScene.vue` lines. Then re-close. |
+| C2-2 | **HIGH** | G-KFW13-2 is RED: the MM-1/MM-6 four-part ONE-sha cure is unspent. | ESC-r1-1; `MbabbMenu.vue(333,…)` TS2339 ×2 | Grant `CubeScene.vue` `:96-97`/`:129-135`/`:267` to an `.a4` seat, or make a joint commit with a KF.W11 seat under ARB-1. Land the four parts plus `MbabbMenu.vue:333` as ONE sha, with no `headerLeft` fill arm. |
+| C2-3 | MEDIUM | The `npm run check` limb (a §0ai Close literal) has **no true owner**. Leg 2 is **47** independent of `vue-tsc`. R-f2-7's "follows R-f2-1 ∧ R-f2-3" is false by measurement, and one of the 47 is this wave's own (4b) import under the `*.vue` shim. | `tsc -p tsconfig.test.json` → 47; per-file census above | The next close names the leg-2 owner. Either the orchestrator rules the pre-existing 46 to their test-owning waves and types the `*.vue` shim's named exports (or re-points (4b) at a `.ts` export of `DAMPING_AXIS`), or it rules the leg out of §0ai's literal. Nothing is narrowed or skipped. |
+| C2-4 | INFO | The value.js push is withheld (d-R9): a sibling's staged `D demo/shell/PaneSegmentedControl.vue` stands. | `git status --porcelain \| grep '^[MADR]'` | Orchestrator, once the stage clears. |
+| C2-5 | INFO | The `useKeyframeOps.ts:80-89` stale E-c1 narration is routed to KF.W12's successor, and its owner is named. The two Monaco theme casts are banked-hunk bytes. | Repair 1 §Residuals; `KF-W12-d-born-red.md:204/:208` | none owed here |
+
+**LEDGER**: the status cell is **unchanged** (PARTIAL stands; the CLOSED bar is not met). One event line is appended.
