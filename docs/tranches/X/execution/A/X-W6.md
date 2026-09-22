@@ -4871,3 +4871,144 @@ place, so the housing shape the detector looks for cannot appear.
   before E13 can row it.
 
 The LEDGER status cell stays **PARTIAL**; this seat does not promote it. One event line is appended.
+
+## Check 3 — RESUME 2026-09-22 (L-20 fresh adversarial pass 3, over the third sitting's close + Repairs 1–2)
+
+SERVED MODEL: claude-opus-5-5[1m]
+
+**Append-only beside** every block above (E-3). VERIFY-ONLY seat: no product byte, gate script or spec
+byte written. Writes: this block + one appended LEDGER event line (the status cell is **not** moved).
+
+**Verdict: NOT-CONFORMANT.** Every GREEN Repair 2 adds reproduces at this seat's clock (c4 ×2, h1 ×2),
+and so do the 18 banked GREENs re-run here. **11 gates stay RED**. Three of them (**b1 · g1 · i3**) have
+no relief under the spec or any dated COHESION addendum: the tail is still **§0an** (⟨cmd⟩
+`grep -n "^## §0a" COHESION.md | tail -1` → `2509: §0an`), and §0an rules ESC-W6c-1 only. The
+honest-RED set is empty; the LEDGER cell stays PARTIAL.
+
+### Act 0 — crash-recovery
+
+⟨cmd⟩ `git status --porcelain` → the same 17 foreign rows as Repair 2 (the X-W5 shell lane incl. the
+staged `D demo/shell/PaneSegmentedControl.vue`, `CARRY-LEDGER.md`, `execution/A/X-W5.md`,
+`execution/B/KF-W13S.md`, `scripts/dev/dev.sh`). None is in this seat's writable set (this record and
+the LEDGER). Nothing inherited, stashed, restored or touched.
+
+### Axes 1 + 9 — every claimed GREEN re-run at this seat's clock (20 reproduced, 0 failed)
+
+| gate | ⟨cmd⟩ (this seat) | reading |
+|---|---|---|
+| **c4** (Repair 2) | `npx vitest run test/interpolation-subset.test.ts` ×2 | `Tests 5 passed (5)` ×2 |
+| **h1** (Repair 2) | `npx playwright test e2e/smoke/webgl-blob-idle.spec.ts -g "hero blob carries current chroma" --project=smoke` ×2 | `3 passed (52.4s)` · `3 passed (42.3s)`; `buffer srgb (display p3: false)`; `oklch(0.55 0.37 328)` ΔC −0.02168 / −0.02200 (stated ±0.04) |
+| c1 | `node …/probes/wb-gradient-stopeditor/gate-structure.mjs` | EXIT 0 · `GATE G4 (structure) — GREEN` |
+| c2 | `npx vitest run test/gradient-order-invariant.test.ts -t "one sampling law"` | `4 passed \| 13 skipped (17)` |
+| c3 | `npx vite-node docs/tranches/X/gates/gate-literal-dialect.mjs` | `GATE c3 (literal dialect) — GREEN` |
+| d1 · d2 · e2 | the three `…/probes/x-w6/gate-*.mjs` + `grep -rn requestAnimationFrame demo/workbenches/gradient/ \| wc -l` | `GATE d1 … GREEN` · d2 restyle `0 line(s)` · `GATE e2 (PRM idiom) — GREEN` · rAF **0** |
+| f1 · f5 · h2 · i2 | the four `docs/tranches/X/gates/*.mjs` | EXIT 0 each |
+| f2 · f7 · f8(static) · f9 · f10 | the spec's greps + `npx vue-tsc --noEmit -p tsconfig.demo.json` | `0` · `0`/`0` + vue-tsc EXIT 0, no diagnostic · `0` · `2`/`0` · `0` |
+| a1 (end state) | `npx vitest run` (full) | `gradient-order-invariant` passes inside it |
+| H1 | `node docs/tranches/X/gates/gate-no-chassis.mjs b2dd375c a87f8930` | EXIT 0 · *"no added module is both housing-shaped and shared across instrument roots"* |
+| H3 | parser R1 one-liner · glass version | EXIT 0 (no throw) · `7.0.0` (§Blocked unopened) |
+
+**RED confirmed, not inherited**: i3 — ⟨cmd⟩ `npx playwright test e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts --project=smoke` → `1 failed` (`:148`). j1–j3 — `grep -c "component: Stub" demo/color-picker/router/index.ts` → **14**; `o29` absent.
+Not re-run (live-server probes; no byte they read moved since their dated readings): a2 a13 b3
+(Close 2026-09-22: 21 failed / 1 passed under the X-W5 fixture; the X-W5 rows are still uncommitted),
+a3–a12, b1, b2, b4, e1, f3, f4, f6, f8 e2e, g1, g2, i1, j4 — cited to Check 2 / Check 3 (2026-09-19) /
+Check 1 RESUME.
+
+§7 at the settled bytes: ⟨cmd⟩ `npx vitest run` → `Test Files 2 failed | 36 passed (38)` ·
+`Tests 2 failed | 639 passed (641)` — Repair 2's figure exactly. The failures are the foreign canaries
+C-5 (`test/spectrum-luma.test.ts`) and NG-6 (`demo/test/shell/reka-binding-idiom.test.ts`).
+
+**Published figures reproduce (axis 9).** Repair 2's c4 `5 passed`, h1 `pass ×2` with the ΔC it prints,
+and the 639/641 vitest figure all re-measure. SELF-COUNT at these bytes, counted twice:
+GREEN = a1 a3–a12 (11) + f1–f10 (10) + b2 b4 g2 (3) + c1–c4 (4) + d1 d2 (2) + e1 e2 (2) + h1 h2 (2) +
+i1 i2 (2) + j4 H1 H3 (3) = **39**; RED = a2 a13 b3 (3) + b1 g1 (2) + i3 (1) + j1 j2 j3 (3) + H2 H4 (2) =
+**11**; 39 + 11 = **50**. By unit: a 11/13 · b 2/4 · c 4/4 · d 2/2 · e 2/2 · f 10/10 · g 1/2 · h 2/2 ·
+i 2/3 · j 1/4 · H 2/4 → 11+2+4+2+2+10+1+2+2+1+2 = **39**. The two passes agree with Repair 2's 39 / 11.
+
+### Axes 2–7 — bounds, masking, families, E-3, mail, four-verb
+
+- **Bounds (2).** ⟨cmd⟩ `git show --stat` on Repair 2's four commits. `b2dd375c`:
+  `demo/color-session/color-space-meta.ts` (COHESION **§0an** item 2 grant) · `test/interpolation-subset.test.ts`
+  (§4 create) · a `W6-evidence/**` transcript. `a87f8930`: `e2e/smoke/webgl-blob-idle.spec.ts`
+  (`X-W6-FOLD.md:1048`, BoundsDelta **n.33**, ADD-never-replace; ⟨cmd⟩ its diff is `130 +, 0 −`) ·
+  `W6-glass-ask-hero-blob-p3.md` (§4 `W6-*.md` create) · three `W6-evidence/blob/**` transcripts.
+  `a243bc49` / `da9bdf0d`: the record and the LEDGER. **All in bounds.**
+  ⟨cmd⟩ `git log f90aeb02^..HEAD -- scripts/dev/dev.sh | wc -l` → **0**; the execute-no-write
+  stopeditor probes and evidence → **0** commits.
+- **Masking (3).** Read, not grepped only. `b2dd375c` throws at module load when an interpolatable
+  catalog space has no behaviour line. That is a fail-fast totality check, not a catch around a defect
+  (**INFO**). The h1 arm's `throw new Error("unparseable …")` helpers are oracle preconditions.
+  There is no `.skip`, `fixme`, raised timeout, allowlist or `catch` in either product diff.
+  The ΔC band (0.04) is derived in the spec's comment (two css-color-4 §13 JNDs) and is
+  negative-controlled. Repair 2 measured and **reverted** the consumer gamut-map route rather than
+  shipping a cure that reduced the OM-6 base chroma (0.149 → 0.021). That was honest.
+  **One finding (MEDIUM, register #5):** Repair 2's own negative control
+  (`h1-negative-control-2026-09-22.txt`, the ×0.3 ghost) fails the two in-gamut-headroom seeds but
+  **passes the owner's own seed `lab(92% 88.8 20)`**, because its sRGB gamut-mapped target is C 0.021.
+  On the sRGB cell, h1's GREEN on OM-6 therefore cannot distinguish the defect the owner named. §0z E6
+  makes chroma beyond the display's gamut **honest-RED-by-physics, by id**, but the record tallies h1 as
+  plain GREEN. It does not carry that beyond-gamut limb as a named honest-RED id beside the filed p3 ask.
+- **Families (4).** c4 lands as `b2dd375c` under #3's scope `refactor(demo/gradient-sampling)`. §0an
+  asked for `.c` "WHOLE as its commit #3 (one sha)". The c1–c3 half landed at Repair 1 (`e07bff63` +
+  `b0991fd3`) before §0an existed, so c4 is a second sha under one meaning. **MINOR**: the family is
+  not split across meanings, and the sequencing was forced by the ruling's timing. The h1 oracle landed
+  under #8 `fix(demo/hero-blob-chroma)` as `test(…)`, after the census `48d95650`. The order is kept
+  (census precedes cure).
+- **E-3 (5).** ⟨cmd⟩ `git diff --stat f90aeb02^..HEAD -- docs/tranches/V/megatranche/registry/adjudicated/
+  docs/tranches/X/CONFORMANCE-2026-08-03.md` → empty. `W6.md`'s only touch in the wave span is
+  `732fe109` (the §0z addendum, insertion-only).
+- **Mail (6).** ⟨cmd⟩ `grep -c '^| I-\|^| O-' INBOX.md` → **93**. The by-position UNREAD `awk` → **0**.
+  Glass `BK/coordination` has three files newer than 2026-09-22 12:00 (`consumers-10.0.0`,
+  `nwo1-bh-relay`, `fw4-relay`), all rowed per Check 2. keyframes V and atlas P → empty. **No UNREAD
+  in scope.** The filed `W6-glass-ask-hero-blob-p3.md` has no `O-` row (⟨cmd⟩ `grep -c hero-blob-p3
+  INBOX.md` → 0), because §0z grants INBOX to `.d`'s row only. **MINOR**, carried with O-49.
+- **Four-verb (7).** IMPLEMENTED stays **no**. The line did not move. Lawful.
+
+### Axis 8 — the §2a goal at the bytes: NOT MET (narrower again)
+
+Newly met since Check 2: the interpolation set derives from the catalog (c4). The blob carries the
+chroma its **sRGB** buffer allows on the two headroom seeds (h1). Still unmet: a cold load paints the
+default, not the pick (i3 `1 failed` here; ⟨cmd⟩ `grep -rn armRuntime demo/ | wc -l` → 0). No route
+owns a scene (14 `component: Stub`, j1–j3). The keyboard grammar is not total (b1). The card still
+carries an interval that is not on the scale (g1). The gradient specs are RED under the foreign
+fixture (a2 a13 b3).
+
+### Axis 10 — honest-RED adjudication, gate by gate (the set is EMPTY)
+
+`W6.md` §6: *"The wave closes when **all 45 born-RED sub-gates are GREEN**"*. The COHESION tail is
+§0an, which rules ESC-W6c-1 alone.
+
+| RED gate(s) | relief at the spec bytes? | owner named | adjudication |
+|---|---|---|---|
+| i3 | **none.** ESC-R1-i3's cure (a pre-module boot seed) sits in `demo/color-picker/index.html`, outside §4 and BoundsDelta and not granted by §0an. Not producer-owned, not routed to a successor, not named honest-RED | orchestrator addendum → `.i` | **UNRELIEVED — HIGH** (escalated; the halt itself is lawful) |
+| b1 · g1 | **none.** §0z E3 relieves a3–a7's instruments only. g1's canon is X-W10 content, but g1 is this wave's gate (`W6.md` §6), and M-23 forbids `.g` minting canon. ESC-R1-b1 / ESC-R1-g1 are unruled | orchestrator (b1) · owner / X-W10 (g1) | **UNRELIEVED — HIGH** |
+| a2 · a13 · b3 | **routing, not relief.** `W6.md:4` makes X-W5 this wave's predecessor. §0an names the owner (*"stay X-W5's … lands when X-W5 resumes"*). No byte is W6's to write | X-W5 (§0an) | **BLOCKED on a predecessor, owner-named — MEDIUM**. Not honest-RED: the spec still requires them GREEN |
+| j1 j2 j3 | **lawful wait**, not relief: `W6.md:4` + §0z E1 (`.j` waits, never skipped). X-W5 reads `PARTIAL — 2026-09-21` | `.j` after X-W5 CLOSED | **LAWFULLY BLOCKED — MEDIUM** |
+| H2 · H4 | H2 leg 1 met (`motion-quarantine.md` exists; e1 cites it). Leg 2 needs `.j`'s assertions. H4 follows the undischarged dispositions (CC-056, CC-057, CC-067; CC-059/CC-062 via g1; CC-058 via b1/b3/a2/a13) | `.j` · the units above | **follows** |
+
+### Successor "Opens after" conjuncts
+
+- **X-W7** (`W7.md:6`): X-W3 CLOSED ✓ · X-W4 CLOSED ✓ · **X-W6 not CLOSED ✗** → lawfully BLOCKED.
+  (The LEDGER row's `X-W1` cell is the N-1 mount-substrate conjunct and is also CLOSED ✓.) The
+  write-first obligation on the four shared Mix paths still rides with `.j`.
+- **X-W8** (W5 · W6 · W7 stable) → BLOCKED (W5 and W6 PARTIAL, W7 planned).
+- **X-W10** (W5..W9 stable) → BLOCKED. **X-W11** (X-W0..X-W10 IMPLEMENTED) → BLOCKED.
+- Every block is lawful. No successor is blocked by a defect this check could cure.
+
+### Register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| 1 | HIGH | i3 RED. Its cure needs `demo/color-picker/index.html`, outside §4/BoundsDelta, and no ruling exists | `o28` `1 failed` at this seat; COHESION tail = §0an (ESC-W6c-1 only) | orchestrator rules ESC-R1-i3 by dated addendum (grant or route); `.i` re-sits at i3 |
+| 2 | HIGH | b1 · g1 RED with no spec relief and no ruling | §0z E3 names a3–a7 only; ESC-R1-b1 / -g1 unruled at §0an | dated relief or re-point addendum for b1's instrument; the owner or X-W10 rules g1's spacing canon, then `.g` re-sits |
+| 3 | MEDIUM | a2 · a13 · b3 RED under X-W5's uncommitted shell bytes; the owner is named by §0an, but the gates are not relieved | close 2026-09-22: 21 failed / 1 passed, 40 lines quote `Color tool panes`; X-W5 rows still uncommitted at this seat | X-W5 lands or reverts its shell lane; re-run by the same commands |
+| 4 | MEDIUM | j1–j3 owed, lawfully blocked on X-W5 (`W6.md:4`, §0z E1) | LEDGER X-W5 `PARTIAL — 2026-09-21`; `component: Stub` 14 | `.j` dispatches when X-W5 reads CLOSED |
+| 5 | MEDIUM | h1's GREEN on the owner's seed is insensitive to the defect it names on the sRGB cell: the ×0.3 ghost passes OM-6 (ΔC +0.00993). The §0z E6 beyond-gamut limb is not carried as a named honest-RED id beside the p3 ask | `W6-evidence/blob/h1-negative-control-2026-09-22.txt` (`2 failed \| 1 passed`; OM-6 target C 0.02105) | the next record names the OM-6 beyond-sRGB limb honest-RED-by-physics by id (E6), cross-referenced to `W6-glass-ask-hero-blob-p3.md`; h1's GREEN is cited as carried by the two headroom seeds |
+| 6 | MEDIUM | §0z E2 close condition (full vitest) RED at the 2 foreign canaries | `2 failed \| 639 passed (641)` at this seat | X-V/W1.a successors cure C-5 and NG-6 |
+| 7 | MINOR | `.c` spans three shas (`e07bff63` `b0991fd3` `b2dd375c`) against §0an's "one sha". Forced by the ruling landing after Repair 1; one meaning, not split | `git log --oneline` | none beyond noting it in the close |
+| 8 | MINOR | INBOX has no `O-` row for the filed `W6-glass-ask-hero-blob-p3.md`, and O-49 was written outside §0z's INBOX grant | `grep -c hero-blob-p3 INBOX.md` → 0; `git show --stat 3ece0690` | the next COHESION addendum names both rows; E13 rows the p3 ask |
+| 9 | INFO | `color-space-meta.ts` throws at module load on a catalog space with no behaviour line. This is fail-fast totality, not masking | `git show b2dd375c` | none |
+
+**Honest-RED set: ∅.** gatesReproduced **20** (c1 c2 c3 c4 d1 d2 e2 f1 f2 f5 f7 f8s f9 f10 h1 h2 i2
+a1 H1 H3; the 639/641 vitest figure also reproduces) · gatesFailed = the 11 RED gates: a2 a13 b1 b3
+g1 i3 j1 j2 j3 H2 H4. The LEDGER status stays **PARTIAL**; one event line appended.
