@@ -944,3 +944,48 @@ SERVED MODEL: claude-opus-5-5[1m] (this section's seat; the file's line 1 names 
 
 ### Unit receipts (RESUME 2)
 
+
+### KF.W13.a4
+
+SERVED MODEL: claude-opus-5-5[1m] (this receipt's seat)
+
+**Scope**: KF-W13.md ADDENDUM `:303` `.a4` clause · COHESION §0am ESC-r2-2/ESC-a3-1 · §Agent Units `.a` `:152-156` · G-KFW13-2 `:190` · §Commit plan `:270` (the MM-1/MM-6 subject) · §Excluded `headerLeft` fill arm (ARB-1). Cure law read at the bank: `kf-MbabbMenu.md:47/:51/:52/:169`, `kf-App.md:41/:62` (KF-APP-1/-17), `kf-CubeScene.md:33/:48/:93` (C-1/C-14).
+
+**CRASH-RECOVERY**: ⟨cmd⟩ `git -C keyframes.js status --porcelain` → only the two untracked 2026-07 value.js letters (outside the set, untouched); ⟨cmd⟩ `git rev-parse HEAD origin/master` → `8ae71f51` both. No inherited partial work; no inherited paths.
+
+**Anchors at true bytes (`8ae71f51`)**: `MbabbMenu.vue:331-333` `togglePpMode` (`stored.value.ppMode` off the plain bucket `controlOptionsStore.ts:79-109` returns) · the ppmycota row `:107` `DropdownMenuItem … @click="togglePpMode"` (MM-5 site) · `CubeScene.vue:96-98` `setPPMode` · `:129-156` the `headerLeft` render fn (the ruled `:129-135` names its head; the fn is deleted whole — intent at the bytes) · `:267` `headerLeft,` · dead imports `Popover`/`PopoverContent`/`PopoverTrigger` (`:34-36`). ⟨cmd⟩ `grep -rn headerLeft demo test` → CubeScene `:129` `:267` + `sceneExposedApi.ts:6` (prose) `:43` (contract member) — the latter two untouched.
+
+**Acts (ONE kf sha, `82c11a9c`, pushed)** — the four parts:
+1. **MM-1 (≡ KF-APP-1) — the writer repaired**: `togglePpMode` and its `stored.value.*` deref are gone; the ppMode writer binds the store's plain bucket (`getStoredAnimationGroupControlOptions` returns the bucket, a reactive member of the persisted `useStorage` record — `StoredAnimationGroupControlOptions.ppMode?: boolean`). No cast.
+2. **KF-APP-17 delete arm — `setPPMode` disposed**: `CubeScene.vue` `setPPMode`, the `headerLeft` render fn, its `defineExpose` member and the three dead `Popover*` imports deleted (`Button` kept, now `import { Button } from "@mkbabb/glass-ui"`). **NO fill arm.** `sceneExposedApi.ts:43` untouched.
+3. **C-14 / MM-6 — the bucket split resolved at the writer**: the one writer binds `getStoredAnimationGroupControlOptions(CUBE_SCENE_ID)` (imported from `scenes/cube/cubeKeys`, the id's owner, same path idiom as `app/scene/scenes.ts:32`) — the flag's only reader (`CubeScene` → `CubeTarget :pp-mode`) keys `"cube"` wherever it mounts, home's backdrop included; the active-superKey write was inert on 6 of 7 scenes.
+4. **MM-5 — CheckboxItem**: the ppmycota row is glass-ui's exported `DropdownMenuCheckboxItem` (`@mkbabb/glass-ui/dropdown-menu`, 7.0.0 barrel) with `:model-value="cubeControls.ppMode ?? false"` + `@update:model-value="(checked: boolean) => (cubeControls.ppMode = checked)"` + the kept `@select.prevent` (menu stays open; the indicator is the feedback). A bare `v-model` was tried first and measured TS2379 under `exactOptionalPropertyTypes` (`boolean | undefined` → `CheckedState`); the explicit pair is the typed binding, no cast.
+Also: `const props =` unbound to `defineProps<…>()` (no reader left under `noUnusedLocals`); the `superKey` prop's comment corrected (see residual R-a4-1). The `v-model:open="open"` MUST-CARRY binding untouched.
+
+⟨cmd⟩ `git -C keyframes.js show --stat --oneline 82c11a9c` → `demo/app/dock/MbabbMenu.vue | 36 +++++---` · `demo/scenes/cube/CubeScene.vue | 40 +-----` · `2 files changed, 28 insertions(+), 48 deletions(-)` — the four parts in ONE sha, both paths inside the carve.
+
+**Gates (kf root; BEFORE = the RESUME 2 baseline at `8ae71f51`; AFTER at `82c11a9c`, double-run `·`)**:
+
+| Gate | ⟨cmd⟩ | BEFORE | AFTER | Verdict |
+|---|---|---|---|---|
+| MM-1/MM-6 ONE sha | `git show --stat 82c11a9c` | absent | 1 sha, 2 files | GREEN |
+| `MbabbMenu.vue(333,12)/(333,36)` TS2339 | `npx vue-tsc --noEmit -p tsconfig.json 2>&1 \| grep -c 'error TS'` | 4·4 | **2·2** (remaining: `EasingSidebar.vue(150,27)` · `EasingTarget.vue(251,62)` TS2345 → `.e3`) | GREEN (4 → 2) |
+| fill-arm clause | `git diff 9d814f6c..HEAD -- demo/app \| grep -c headerLeft` | 0·0 | **0·0** | GREEN |
+| `sceneExposedApi.ts:43` untouched | `git diff --stat 8ae71f51..HEAD -- demo/app/scene/sceneExposedApi.ts \| wc -l` | — | **0·0** | GREEN |
+| cube witnesses | `npx vitest run --project demo test/demo/scenes/cube-*.test.ts` | 38/38 | **3 files · 38/38 · 38/38** | GREEN |
+| `test:demo` | `npm run test:demo` | 59/59 · 494 | **59/59 · 494/494 · 59/59 · 494/494** | GREEN |
+| MUST-CARRY | `grep -c 'v-model:open="open"' demo/app/dock/MbabbMenu.vue` | 1 | **1·1** | GREEN |
+| OP-8 | `git grep -c 'ComponentExposed\|Pick<' HEAD -- demo/app \| wc -l` | 0 | **0·0** | GREEN |
+| MM-5 | `grep -c '<DropdownMenuCheckboxItem' demo/app/dock/MbabbMenu.vue` | 0 | **1·1** | GREEN |
+| push | `git rev-list --left-right --count origin/master...HEAD` | 0 0 | **0 0** at `82c11a9c` | GREEN |
+
+(Write-then-measure note: one comment-only rewording of the MM-5/MM-1 block — it had named the deleted fn and tripped the fill-arm grep 1·1 — landed before the commit; the grep and `vue-tsc` were both re-run double on the committed HEAD, figures above.)
+
+**G-KFW13-2 roster (this unit's share)**: MM-1 LANDED · MM-6 LANDED (C-14 resolved at the writer) · MM-5 LANDED · KF-APP-1 LANDED (≡ MM-1) · KF-APP-17 LANDED (delete arm; the contract member `sceneExposedApi.ts:43` stands by §0am's ruling). The 27-row family's other ids were spent by `.a2`/`.a3` (their receipts); `.f2` states the whole roster.
+
+**Residuals (named owners)**:
+- **R-a4-1** — `MbabbMenu`'s `superKey` prop is no longer read; `App.vue:35` still binds `:super-key`, and `App.vue` is outside this carve (an undeclared binding would fall through as a stray attr onto the renderless root, so the declaration stays, commented honestly). Owner: the next dock-menu grant (delete the prop + `App.vue:35` together).
+- **R-a4-2** — the `headerLeft` render fn's private hover-card state in `CubeScene.vue` (`ppmycotaOpen` ref, `autoDismissTimer`, `clearAutoDismiss`, its `watch`, and the `clearAutoDismiss()` call in `onBeforeUnmount`) is now unreachable: its only reader was the deleted fn. Lines outside the ruled `:96-98`/`:129-135`/`:267` + dead-imports carve, so NOT written here. Owner: the orchestrator — a dated grant extends the KF-APP-17 delete arm to that state (pure deletion; `ref`/`watch` imports stay live elsewhere).
+- `sceneExposedApi.ts:6/:43` (`headerLeft` prose + optional contract member) stand per §0am; their fate rides the KF-APP-5 producer relay (ARB-1).
+
+**Escalations**: none blocking. R-a4-2 is a carve-extension request, returned to the orchestrator, not an act.
