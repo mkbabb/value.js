@@ -465,3 +465,80 @@ honest-RED. OWNER CLOSE REPORT items (G-F9-15 · G-F9-19 · G-F9-23(b) · G-F10-
 not gated by this wave. Nothing is unlawfully blocked; the wave itself is blocked on its own `.c`.
 
 **LEDGER**: status NOT promoted (stays PARTIAL); one event line appended, committed ALONE (C2-M3).
+
+## Repair 1
+
+**Seat**: REPAIR round 1 (Opus, `claude-opus-5-5[1m]`) · clock 2026-09-22 · sitting of record 2026-09-17. Register = `## Check 1`.
+The spec was read whole (`F-W10.md`, §ADDENDUM 2026-09-21 governs), together with COHESION §0aj. **Crash-recovery**:
+⟨cmd⟩ `git status --porcelain`. value.js: no dirty path in this seat's writable set (`F-W10S.md` · `F-W9.md` · `INBOX.md` ·
+`LEDGER.md`). The sibling rows and `scripts/dev/dev.sh` were left alone. fourier: `?? .worktrees/` only, left alone. glass-ui:
+`BK/coordination/` had no dirty letter paths (its product-tree dirt belongs to the glass-ui session and was left alone).
+**Inherited: none.**
+
+### F.W10S.c — the carriage hop, dispatched here (cures HIGH-1 and MEDIUM-1)
+
+Bounds: spec §F.W10S.c `:559-570`. This seat wrote exactly the writable set: the two BK letter copies · `INBOX.md` ·
+`F-W9.md` (append only) · this record.
+
+1. **BK re-confirmed newest at this seat's clock.** ⟨cmd⟩ `ls -dt ../glass-ui/docs/tranches/*/ | head -1` → `BK/`.
+2. **Verbatim copy.** Both letters were copied with `cp` from `docs/tranches/X/coordination/`. ⟨cmd⟩ `cmp <src> <dst>` → exit
+   **0 · 0** for O-23 and exit **0 · 0** for O-32. The two copies were committed alone in glass-ui by pathspec →
+   **`b249b586`** (+473; 2 files).
+3. **Erratum ×2 (CK-5).** The first was appended at the O-32 copy's tail: "ERRATUM 2026-09-22 … beside `E-F9b-2`", naming
+   reka-ui `FocusGuards` (not the `Metric` tile) as the `aria-hidden-focus` payload. The second was appended to
+   `execution/C/F-W9.md` → value.js **`0e021210`** (+4, append only).
+4. **MEDIUM-1: the relay rows owed ride the same hop.** A dated "ADDENDUM 2026-09-22" was placed in the same O-32-copy
+   tail. It carries `A-1` (the capsule-track `--muted-foreground` binding omission, act 2's upstream half), `A-2` =
+   `E-F10S-b1` (the dock press guard) and `A-3` = `E-F10S-b2` (the underline `SegmentedTabs` inactive ink, 4.33:1), each with
+   its measured figures and an ask. **Disclosed choice**: `.c`'s writable set names only the two letter paths, so the rows
+   ride the O-32 copy's tail and no third file was minted. That keeps them in the lawful mail path with no new channel.
+   glass-ui commit, by pathspec of that one file → **`46eec459`** (+16).
+5. **The verbatim bytes survive the append.** ⟨cmd⟩ `git -C ../glass-ui show b249b586:<O-32 path> | cmp - <src>` → exit **0**;
+   ⟨cmd⟩ `head -c 14508 <O-32 copy> | cmp - <src>` → exit **0** (14508 = ⟨cmd⟩ `wc -c < <src>`). O-23's copy is unappended:
+   worktree `cmp` → exit **0**.
+6. **Push.** ⟨cmd⟩ `git -C ../glass-ui push origin master` → `e3587ec8..46eec459 master -> master`. ⟨cmd⟩ `git ls-remote
+   origin refs/heads/master` → `46eec459…` (double-run, identical). **Disclosure**: glass-ui local `master` was 2 ahead
+   of origin at open (`695d4925` · `72d8bd96`), and the glass-ui session committed `6875b1b3` between this seat's two
+   commits. A fast-forward push of `46eec459` necessarily publishes those three glass-ui-session commits (no rewrite, no
+   tag, no force). This seat did not author them or touch their paths.
+7. **INBOX.** Two dated status lines, "beside O-23" and "beside O-32" (LANDED, glass-ui shas), were appended at the tail.
+   Rows `:109`/`:119` are not rewritten → value.js **`d0077db6`** (+4).
+
+### Defect → cure → commit
+
+| Check 1 row | Cure | Commit(s) | Verdict |
+|---|---|---|---|
+| **HIGH** G-S-2 RED, `.c` undispatched | `.c` dispatched exactly per spec (steps 1–7 above) | glass-ui `b249b586` · `46eec459` (pushed) · value.js `0e021210` · `d0077db6` | **CURED**: G-S-2 GREEN (below) |
+| **MEDIUM** relay rows owed (E-F10S-b1 · E-F10S-b2 · capsule-track binding) | carried in the same mail hop as rows `A-1`/`A-2`/`A-3` of the O-32 copy's dated addendum | glass-ui `46eec459` (pushed) | **CURED** (sent; producer disposition is glass-ui's act) |
+| **MINOR** Invariant-19 keystone re-authored; "within one rAF" clause not asserted | **Recorded here as a DISCLOSED DEVIATION.** `visualization-ux.spec.ts:290` (fourier `aca2580`) was re-authored, not merely un-fixme'd. The booked body read `window.__store` / `window.__computeCount` hooks that `web/src` never exposed (⟨cmd⟩ `git grep __computeCount cef242d -- web/src` → 0, per Check 1). It is now driven through the product, and it asserts save 2xx, exactly one `/compute/bases` and one `/compute/epicycles` for the saved hash, unchanged controls, and a live canvas. The "within one rAF" timing clause is **not asserted**. The substance (one compute per kind) is kept. No code change is owed | this record | **CURED (disclosure)** |
+| **MINOR** crud `:664` note lacks the escalation id | **not curable in bounds.** `.b`'s writable set allows `visualization-crud.spec.ts` "fixme removal only", and `.c`/Repair have no fourier write at all. The id `E-F10S-b2` is carried in this record, in the Close, and now in the producer letter (`A-3`) | — | **ESCALATED** (COHESION ruling on the note-lock conflict) |
+| INFO `Promise.allSettled` in `workspace.ts` | none owed | — | stands |
+
+### Gates re-read (every gate a cure could move, double-run at the settled bytes)
+
+| Gate | ⟨cmd⟩ | Check 1 | Repair 1 run 1 · run 2 | Verdict |
+|---|---|---|---|---|
+| G-S-2 (presence) | `ls ../glass-ui/docs/tranches/BK/coordination/ \| grep -ci 'nwo1\|fw4'`; BK newest `ls -dt …/*/ \| head -1` | 0 | **2 · 2**; `BK/` · `BK/` | GREEN |
+| G-S-2 (O-23 identity) | `cmp <BK copy> <src>` | — | exit **0 · 0** | GREEN |
+| G-S-2 (O-32 identity) | `git show b249b586:<path> \| cmp - <src>`; `head -c 14508 <copy> \| cmp - <src>` | — | exit **0 · 0**; **0 · 0** | GREEN (verbatim at the carriage commit; verbatim prefix under the dated tail) |
+| G-S-2 (remote) | `git -C ../glass-ui ls-remote origin refs/heads/master`; `merge-base --is-ancestor 46eec459 origin/master` | — | `46eec459` · `46eec459`; exit **0 · 0** | GREEN |
+| G-S-2 (INBOX) | `grep -c 'Status 2026-09-22 beside O-23\|… beside O-32' INBOX.md` | 0 | **2 · 2** | GREEN |
+| CK-5 erratum (F-W9) | `grep -c 'ERRATUM 2026-09-22 (X.F.W10S.c' execution/C/F-W9.md` | 0 | **1 · 1** | GREEN |
+| G-S-1 (unmoved) | `grep -c 'lane-frontend.md:183' CENSUS-ADDENDUM-2026-08-25.md` | 4 | **4 · 4** | GREEN |
+| CK-2/CK-3 (unmoved) | `tail -n 25 execution/C/F-W10.md \| grep -cE '1074\|nine'` | 4 | **4 · 4** | GREEN |
+| CK-4 | Check 1's window `awk 'NR>=840 && NR<=882 && /CK-/'` → **0 · 0**. That is **instrument drift, not regression**: sibling seats' later COHESION insertions moved the `.a` sentence from `:883` to **`:887`**. Re-read at the baseline's own window `NR>=840 && NR<=900` → **1 · 1**; ⟨cmd⟩ `git show HEAD:docs/tranches/X/COHESION.md \| grep -n 'Dated 2026-09-22, \`X.F.W10S.a\`'` → `:887`, inside §5 (`:724`) | 1 | **1 · 1** (at the 840–900 window) | GREEN |
+| `.b` gates (G-F9-5 · G-F9-8 · G-F9-11 · G-F9-17 · E-F9b-4) | not movable by this repair: zero fourier bytes written. ⟨cmd⟩ `git -C ../fourier-analysis rev-parse --short HEAD` → `aca2580` ×2; porcelain `?? .worktrees/` only; `grep -c "test.fixme("` → ux **0** · crud **1** ×2 | banked, Check 1 | unmoved ×2 | cited from Check 1 (7/7 GREENs reproduced; RED G-F9-11 · crud `:664` · R-2) |
+
+**Tally (self-count)**: 10 rows. 9 read GREEN (the G-S-2 legs ×5 · CK-5 · G-S-1 · CK-2/CK-3 · CK-4). 1 row is the `.b` gates,
+cited unmoved from Check 1.
+
+### State after Repair 1
+
+**`.c` is DONE and G-S-2 is GREEN.** The wave's remaining REDs are the relieved, producer- or successor-owned set:
+G-F9-11 (`E-F10S-b1`, now relayed as `A-2`) · crud `:664` (`E-F10S-b2`, relayed as `A-3`) · R-2 (`contrast-floor.spec.ts`,
+F.W4 owners ⊕ GLASS-RELAY). The `.d` stamp conjunct (G-S-1 GREEN ∧ `.b`'s five GREEN) still fails at G-F9-11 and G-F9-8,
+so **F.W10 is NOT stamped ACCEPTED**. Its row stays CLOSED honest-RED and is not rewritten. F.W10S four-verb: IMPLEMENTED
+PARTIAL → **YES for `.a` and `.c`, PARTIAL for `.b`** · VERIFIED NO (the chassis's Check 2 follows).
+**Escalation**: `E-F10S-r1` = Check 1 MINOR-2. The crud `:664` note-lock (writable "fixme removal only") conflicts with
+spec act 5's "escalation id written into the note". The spec owner (COHESION) must rule on it.
+**LEDGER**: status not promoted. One event line was appended and committed ALONE (C2-M3).
