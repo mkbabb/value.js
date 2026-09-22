@@ -2170,7 +2170,7 @@ over the four docs → lines `VISUAL-CONSTITUTION.md:44,45` · `EVIDENCE.md:43,4
 `proportion-register.md:35` — **all seven spec anchors hold at the same line numbers; no drift.** `-o` count = **8**
 (EVIDENCE:47 carries both arms). Note: the E1 regex misses the `%`-bearing inspector form `33.3333333%…36%`
 (VC:44/45 · OB:39/40 · PR:35); the strike covers **both** forms on every line, so the broader
-⟨cmd⟩ `grep -oE '…36|64%?…'` is also measured (BEFORE 12 → AFTER 0, below).
+⟨cmd⟩ `grep -oE '…36|64%?…'` is also measured (BEFORE 13 → AFTER 0, below).
 
 **Act 2 — the strike.** One scripted literal substitution per anchor (`scratchpad/p1.pl`, each pattern asserted to
 occur exactly once before replacing), 7 lines + one evidence-column word on PR-16 (`protagonist bounds` →
