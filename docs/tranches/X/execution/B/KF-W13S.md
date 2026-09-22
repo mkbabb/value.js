@@ -1565,3 +1565,52 @@ SERVED MODEL: claude-opus-5-5[1m] (this unit's seat)
 - No new producer row. No new mail row. Nothing in this unit reached glass-ui.
 
 **Escalations**: none. **Status**: DONE. All six `.t2` gate limbs are GREEN ×2, so `.f2` may open.
+
+---
+
+### KF.W13.f2
+
+SERVED MODEL: claude-opus-5-5[1m] (this unit's seat)
+
+## Close — KF.W13.f2 (RESUME 3)
+
+**Seat**: VERIFY-ONLY close (KF-W13.md `:299` §0ai `.f` as restated at `:303`/`:311`; COHESION §0ap Mechanism `:2621`). This seat wrote **0** keyframes.js, glass-ui, product or test bytes. Writes: this record, `LEDGER.md` (row `:55` cell + one appended line), `evidence/W13S/KF-W13S-f2-resume3-close-gates.md` (new).
+
+**Acts, in order.**
+
+1. **CRASH-RECOVERY.** ⟨cmd⟩ `git status --porcelain` (vjs) → `CARRY-LEDGER.md` · `scripts/dev/dev.sh` · one untracked `scene-swap-budget.mjs`; none in this unit's writable set. (kf) → only the two untracked 2026-07 `VALUEJS-INBOUND-*` letters. **0 inherited paths.** ⟨cmd⟩ `git fetch; git rev-list --left-right --count origin/master...HEAD` (kf) → `0 0` at `084a3679`.
+2. **`.t2`'s shas audited.** ⟨cmd⟩ `git show --stat` → `aba106f6` 4 files +5/−13 · `b05e7e75` 5 files +7/−1 · `084a3679` 1 file +2/−1. ⟨cmd⟩ `git diff --name-only 6705d4d8..HEAD` → exactly the nine §0ap files. Each sha is one meaning (bindings · idiom rows · R6 edge); no declared family is split. Masking ⟨cmd⟩ `git diff 6705d4d8..HEAD -- test | grep -c 'as any\|as unknown as\|@ts-ignore\|\.skip\|\.only('` → **0 · 0**; `^+.*@ts-expect-error` → **5 · 5**, exactly the five idiom-(ii) rows, each carrying a one-line reason (§0ap (ii)); `git diff --check` → exit 0. **Self-count correction (dated, beside; the `.t2` receipt is not edited)**: `.t2`'s receipt prints `9 files, +12/−14`; ⟨cmd⟩ `git diff --stat 6705d4d8..HEAD | tail -1` → **`9 files changed, 14 insertions(+), 15 deletions(-)`**, which the three per-sha stats sum to. The file set is right; the line totals were mis-summed. No gate reads that figure.
+3. **The §0ai close literal ×2** (serial, logs in the seat scratchpad; transcript at `evidence/W13S/KF-W13S-f2-resume3-close-gates.md`):
+
+   | limb | ⟨cmd⟩ | BEFORE (Seat 0, `6705d4d8`) | AFTER run 1 · run 2 (`084a3679`) |
+   |---|---|---|---|
+   | leg 1 | `npx vue-tsc --noEmit -p tsconfig.json 2>&1 \| grep -c 'error TS'` | 0 | **0 · 0** |
+   | `check` | `npm run check; echo $?` | exit 2 | **exit 0 · 0** (`proof:structure — PASS … 0 violations across R1–R6`) |
+   | `test:demo` | `npm run test:demo` | 59/59 · 494/494 | **59/59 · 494/494 ×2** |
+   | library | `CI=1 npx vitest run --project library` | 113 \| 5 skipped · 1259 \| 2 xfail \| 14 skipped | **identical ×2**, exit 0 |
+
+4. **G-KFW13-0..-7 re-read** (byte clauses ×2, identical; the runtime clauses ride the `test:demo` 494/494 above, which holds every `test/demo/**` file the gates name):
+
+   | gate | byte clause ⟨cmd⟩ → reading | state |
+   |---|---|---|
+   | G-KFW13-0 | `grep -rc useOptionalDockContext demo \| grep -v ':0'` → ChromeDock.vue:1 · MbabbMenu.vue:3 (the self-hold now calls it; the proof sha `6a960349` held 0 demo bytes: ⟨cmd⟩ `git show --stat 6a960349` → one file, `test/demo/app/dock-context-slot-resolution.test.ts` +158) | GREEN |
+   | G-KFW13-1 | round-trip grep → **0** · `v-model:open="open"` → **1** (MUST-CARRY kept) · `cannot hold the dock open` → **0** · OP-8 `ComponentExposed\|Pick<` in demo/app → **0** | GREEN |
+   | G-KFW13-2 | `git diff 9d814f6c..HEAD -- demo/app \| grep -c headerLeft` → **0** · `<DropdownMenuCheckboxItem` → **1** | GREEN |
+   | G-KFW13-3 | `.stop` TransportDock **0** · ChromeDock **0** (symmetric) · `registerShortcut("Space"` **1** (scoped; runtime clause in the propagation test) | GREEN |
+   | G-KFW13-4 | `instanceof HTMLElement` in useIconSpin **0** · `blur\|orphan\|stale` in the actuation test **8** (≥3) | GREEN |
+   | G-KFW13-5 | aria-label **2** · valueCommit **3** · `:step` **2** · gatedSliderDown **0** | GREEN |
+   | G-KFW13-6 | `box-shadow: var(--focus-ring-shadow)` in playback-idiom.css → **0**; the pair deleted in one act (banked at `.c`) | GREEN |
+   | G-KFW13-7 | sweeps (below) · `test:demo` green · skip/only `git diff 9d814f6c..HEAD -- test \| grep -c 'test.skip\|it.skip\|\.only('` → **0 · 0** · leg 1 **0** · `grep -c 'DISCHARGED by KF.W7 SWAP verdict' KF-W13S.md` → **1**, and that one hit is `:177`, the gate's own command quoted in a table cell, not a discharge receipt (**0 receipts**) · producer rows relayed (act 6) | GREEN |
+
+5. **Sweeps beside RULINGS-4 (E-3; neither amended).** ⟨cmd⟩ `git grep -l 'btn-playback' HEAD -- demo | wc -l` → **9 · 9**, beside RULINGS-4 R4-4 Census 2's **7** (`conformance/PASS-4/RULINGS-4.md:112`) and the spec's authoring 8. The ninth file is `demo/styles/design-idioms.css`, whose hit is the `.c` act's explanatory comment (`:115`). `KeyframeTimeline.vue` (KF.W7's) is counted and routed, not edited. ⟨cmd⟩ `grep -rn 'focus-ring' demo | grep '\.vue:' | grep -v 'kf-focus-ring' | grep -v 'focus-ring-shadow' | grep -c 'class='` → **0 · 0**, beside RULINGS-4's **4** (`:113`) and the authoring 2. The two bare KF.W11 sites have left the class list; the only `.vue` hit is prose at `SquareScene.vue:45`. Each figure is true at its own coordinates.
+6. **Lint (§Verification, read WITHOUT `demo/styles` per the §0ap erratum).** ⟨cmd⟩ `npx eslint demo/app demo/components/instrument/transport demo/components/playback` → exit 1 · 1, **7 errors** in 3 files: `App.skeleton.vue:1` · `TimingFunctionPanel.vue:151/152/156` · `ControlsPaneWrapper.vue:62/328/366`. ⟨cmd⟩ `git log --oneline 9d814f6c..HEAD -- <the three>` → 0 commits, so they pre-exist this wave. §0ap homes them at **KF.W13T.k2**. Read as RELIEVED for this close, and not cured here.
+7. **O-48 covers R-f2-5.** ⟨cmd⟩ `grep -n 'O-48' INBOX.md` → `:139`, status **SENT** 2026-09-22, letter `evidence/W13S/KF-W13S-bk-producer-relay-2026-09-22.md`, six rows, stated to discharge the `.f2` Close's R-f2-5. The letter cites R-f2-5 at `:7`. ⟨cmd⟩ `grep -c 'KFW13-[1-6]' COHESION.md` → 7 (the §4a SS-6 accretion rows are present). **Not re-sent.** No new producer row arose at this seat, so there is no §4a append.
+8. **E13 four-path sweep.** BK is still the newest glass tranche dir (⟨cmd⟩ `ls -d glass-ui/docs/tranches/B*` → BI BJ BK). ⟨cmd⟩ `find <path> -maxdepth 1 -type f -newermt "2026-09-22 00:00"` → value.js `V/` empty · `V/coordination` `INBOX.md` only · BK/coordination the same three letters Seat 0 swept (already rowed/noted) · keyframes.js `V/coordination` empty · atlas `P/coordination` empty. ⟨cmd⟩ the awk row/UNREAD count over INBOX → **`93 0`**. 0 new rows · **0 UNREAD**.
+
+9. **Push (kf).** ⟨cmd⟩ `git fetch; git rev-list --left-right --count origin/master...HEAD` (kf) → **`0 0`** at `084a3679`. `.t2` pushed it; nothing left for this seat to push.
+
+**Verdict.** Every limb this unit turns reads GREEN ×2: the §0ai close literal (leg 1 **0** · `test:demo` **494/494** · `check` exit **0**), library **1259** unchanged, G-KFW13-0..-7, skip/only **0**, masking **0**, sweeps **9 · 0** beside RULINGS-4's **7 · 4** (E-3), lint's 7 errors homed at KF.W13T.k2 by §0ap, O-48 covering R-f2-5, E13 **0 UNREAD**, kf `0 0`. The HIGH C3-1 of Check 3 (`check` exit 2) is **cured** by `.t2` and re-measured here. LEDGER row `:55` → **CLOSED 2026-09-22**. Successor: `KF.W13T` (§0ao "Opens after KF.W13S CLOSED") is now unblocked.
+
+**Residuals (not gate-bearing)**: (R-f2c-1) `.t2`'s printed `+12/−14` is really `+14/−15`; corrected beside, at act 2. (R-f2c-2) `.t2`'s RETURNED R6 dynamic-import blind spot (`scripts/gates/structure/index.mjs:337`) stays with the next seat that has `scripts/gates/**` in carve. (R-f2c-3) The 7 eslint errors belong to KF.W13T.k2.
+
+**Escalations**: none. **Status**: DONE.
