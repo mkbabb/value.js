@@ -500,3 +500,89 @@ Count: 16 + 6 + 1 + 4 = 27.
 | `npm run test:demo` | 3 failed files \| 5 failed tests (494) | **2 failed \| 57 passed (59) · 2 failed \| 492 passed (494)** ×2 — both `.e2`'s (G-KFW12-4 `css-code-editor-seam` (2), G-KFW11-4 `spring-trace-truth` (4b)) |
 
 Inherited path named: `test/demo/app/mbabb-menu-self-hold.test.ts`. No glass-ui/node_modules/src byte; no `vitest.config.ts` byte; `dev.sh` untouched; kf not pushed (`.f2`'s act).
+
+---
+
+## Close — `KF.W13.f2` (RESUME sitting 2026-09-22; dated addendum beside, E-3 — no prior section rewritten)
+
+**Seat**: `.f2` close, `claude-opus-5-5[1m]`, **VERIFY-ONLY** — cured nothing; **0** keyframes.js bytes, **0** glass-ui bytes, **0** product bytes. Sitting of record 2026-09-17 (COHESION §0j). **Crash-recovery**: ⟨cmd⟩ `git -C keyframes.js status --porcelain` → the two untracked 2026-07 value.js letters only (R-10, outside every set, untouched); value.js paths in this seat's set (`execution/B/`, `keyframes/evidence/W13S/`, `V/coordination/`, LEDGER) → **clean**; sibling dirty rows (Track A/C product, `X-W5.md`, `CARRY-LEDGER.md`, staged `D demo/shell/PaneSegmentedControl.vue`, `dev.sh`) NOT touched, NOT staged.
+
+**Dispatch actually run this sitting**: the runner returned **one** unit, `KF.W13.a3` (`ESCALATED`). **`KF.W13.e2` was not dispatched** — ⟨cmd⟩ `git -C keyframes.js log --oneline 51f39a19..HEAD` → **10** shas, every one under the `KF.W13.a3` id; no `.e2` receipt exists in this record. Its rows (G-KFW12-4 · G-KFW11-4 · seven OP-0 rows) therefore stand exactly as the RESUME baseline read them.
+
+### Gate table — BEFORE (RESUME baseline, kf `51f39a19`) → AFTER (kf `220bd93a`), each double-run at this seat
+
+| Gate | Command (from kf root) | BEFORE | AFTER (run 1 · run 2) | Verdict |
+|---|---|---|---|---|
+| G-KFW13-0 runtime | `npx vitest run --project demo test/demo/app/dock-context-slot-resolution.test.ts` (in the 7-file batch below) | banked GREEN 3/3 | pass · pass | **GREEN** |
+| G-KFW13-0 byte | `grep -rc useOptionalDockContext demo \| grep -v :0` | `ChromeDock.vue:1` + `MbabbMenu` (a2 cure) | `MbabbMenu.vue:3` · `ChromeDock.vue:1` (both runs) | post-cure state (M-4 spent at `600246c3`) |
+| G-KFW13-1 runtime | `… test/demo/app/mbabb-menu-self-hold.test.ts` | 3 FAIL / 2 pass, untracked | 5/5 · 5/5, tracked at `4bd1f8d5` | **GREEN** |
+| G-KFW13-1 bytes | round-trip `grep -rn 'itemsPopupOpen\|items-popup-open\|mbabbPopupOpen' demo \| wc -l` · MUST-CARRY `grep -c 'v-model:open="open"' MbabbMenu.vue` · `sed -n 109,113p ChromeDock.vue \| grep -c 'cannot hold the dock open'` | 0·0 · 1·1 · 0·0 | **0·0 · 1·1 · 0·0** | **GREEN** |
+| G-KFW13-1 OP-8 | `git show <sha> \| grep -c 'ComponentExposed\|Pick<'` over all 10 `.a3` shas | — | **0** ×10 · **0** ×10 | **GREEN** |
+| G-KFW13-2 `headerLeft` | `git diff 9d814f6c..HEAD -- demo/app \| grep -c headerLeft` | 0·0 | **0·0** | clause GREEN |
+| G-KFW13-2 roster | the receipt's ledger (MbabbMenu 27 = 16 here + 6 earlier + 1 escalated + 4 carried; kf-ChromeDock roster accounted) | no roster sha | spent except **MM-1/MM-6's four-part ONE-sha cure** (ESC-a3-1) | **RED** (lawfully escalated) |
+| G-KFW13-2 witnesses | `cube-scene.test.ts` (in batch) | green | pass · pass | GREEN |
+| G-KFW13-3 | `transport-keyboard-propagation.test.ts` (batch) · bytes `.stop` TD/CD · `registerShortcut("Space"` | banked GREEN | pass · pass · **0 · 0 · 1** both runs | GREEN (unmoved) |
+| G-KFW13-4 | `transport-play-actuation` + `transport-icon-spin` (batch) · `instanceof HTMLElement` · `blur\|orphan\|stale` | banked GREEN | pass · pass · **0 · 8** both runs | GREEN (unmoved) |
+| G-KFW13-5 | `playback-ribbon-contract.test.ts` (batch) · `aria-label`/`valueCommit`/`:step`/`gatedSliderDown` | banked GREEN | pass · pass · **2 · 3 · 2 · 0** both runs | GREEN (unmoved) |
+| G-KFW13-6 | `grep -c 'box-shadow: var(--focus-ring-shadow)' playback-idiom.css` · `sed -n 106,116p design-idioms.css \| grep -c outline` | banked GREEN (Repair 1) | **0 · 1** both runs | GREEN (unmoved) |
+| 7-file batch | the six W13 witnesses + `cube-scene.test.ts` | — | **7 files / 59 tests passed** · **7 / 59** | GREEN |
+| G-KFW13-7 OP-0 | `npx vue-tsc --noEmit -p tsconfig.json 2>&1 \| grep -c 'error TS'` | 9·9 | **9 · 9** — `MbabbMenu.vue(333,12)`+`(333,36)` TS2339 (ESC-a3-1) + the seven `.e2` rows (`useKeyframeOps.ts:91` · `EditorShell.vue:175` · `useEasingDemo.ts:294`/`:310` · `compositor.ts:79` · `waapi.ts:9` · `smooth.ts:194`) | **RED** |
+| G-KFW13-7 test:demo | `npm run test:demo 2>&1 \| tail` | 3 failed files \| 5 failed (494) | **2 failed \| 57 passed (59) · Tests 2 failed \| 492 passed (494)**, EXIT 1 — both runs; the two are `spring-trace-truth (4b)` (G-KFW11-4) and `css-code-editor-seam (2)` KF-CE-1 (G-KFW12-4) — `.e2`'s | **RED** |
+| G-KFW13-7 skip/only | `git diff 9d814f6c..HEAD -- test \| grep -c 'test.skip\|it.skip\|\.only('` | 0·0 | **0·0** | GREEN |
+| G-KFW13-7 sweeps | `git grep -l btn-playback HEAD -- demo \| wc -l` · bare `focus-ring` `class=` census | 9 · — | **9 · 0** both runs — beside RULINGS-4's **7** and **4** and the spec's **8** and **2**, amending none (E-3) | declared |
+
+**Net movement this sitting**: G-KFW13-1 RED → **GREEN**; `test:demo` 5 failed → **2** failed; vue-tsc 9 → **9** (unmoved — the two `MbabbMenu` rows are escalated, the seven are `.e2`'s undispatched rows). GREEN-BEFORE-CURE: none claimed.
+
+### Commit roster — ten kf shas over `51f39a19..220bd93a` + one vjs receipt sha, every path audited against §B.2
+
+⟨cmd⟩ `git -C keyframes.js show --stat <sha>` per sha:
+
+| sha | unit | paths | in `.a3`'s set? |
+|---|---|---|---|
+| `4bd1f8d5` | `.a3` | `test/demo/app/mbabb-menu-self-hold.test.ts` (inherited) | yes |
+| `a759f65f` | `.a3` | `demo/app/dock/ChromeDock.vue` | yes |
+| `16dc1e33` | `.a3` | `ChromeDock.vue` · `demo/app/App.vue` (−2: `:current-label` binding + `currentLabel` computed) | ChromeDock yes · App.vue **see LW-1** |
+| `fe598702` | `.a3` | `ChromeDock.vue` | yes |
+| `22d71bd3` | `.a3` | `ChromeDock.vue` | yes |
+| `40ca9d5e` | `.a3` | `ChromeDock.vue` | yes |
+| `74c6becc` | `.a3` | `ChromeDock.vue` · `App.vue` (`:home-scene-id` → `:home-scene` + the `homeScene` import) | ChromeDock yes · App.vue **see LW-1** |
+| `89bf55b2` | `.a3` | `App.vue` (the R3-8 comment over `dockHoveredRef`) | **see LW-1** |
+| `55ebe2ea` | `.a3` | `demo/app/dock/MbabbMenu.vue` | yes |
+| `220bd93a` | `.a3` | `MbabbMenu.vue` | yes |
+| vjs `f4242a66` | `.a3` | this record (receipt) · `keyframes/evidence/W13S/KF-W13-a3-gates.md` | yes |
+
+No glass-ui, `node_modules`, `src/**`, `demo/scenes/**`, `vitest.config.ts` or `dev.sh` byte in any sha.
+
+**Landed-wrong (recorded, never fixed here)**:
+- **LW-1 (MINOR, self-disclosed by the receipt)** — §B.2 carves `demo/app/App.vue` to *"`:29` · `:37` · `:369` · `:372` — M-4's App sites; the KF-APP-1 motion's `:100`-class repair as consumed, delete arm only"*, and §B.2's Do-NOT-touch list names *"`App.vue` beyond M-4's sites and the consumed motion"*. `16dc1e33`, `74c6becc` and `89bf55b2` write App.vue at the ChromeDock **consumer ends** of M-3 (`currentLabel`), R3-4 (`homeScene`) and R3-8 (a comment) — none is an M-4 site or the KF-APP-1 motion. The edits are behaviour-coherent (the prop contracts they follow were changed in the same sha, so the family did not split) and vue-tsc shows no App.vue row, but they sit outside the literal carve. Owner: the Check seat adjudicates whether the carve's "consumed motion" covers a prop's other end; no revert is owed by this seat.
+- No other landed-wrong finding.
+
+### Residuals — each with a named owner
+
+| id | residual | owner |
+|---|---|---|
+| R-f2-1 | **ESC-a3-1** — MM-1/MM-6's four-part ONE-sha cure (`stored.value.ppMode` TS2339 ×2 at `MbabbMenu.vue:333`; `setPPMode` disposal + the KF-APP-17 `headerLeft` delete arm at `demo/scenes/cube/CubeScene.vue` `:96-97`/`:129-135`/`:267`; C-14 bucket; MM-5's CheckboxItem) — its delete arm is KF.W11's file | the orchestrator: grant `CubeScene.vue`'s delete-arm lines to an `.a4` seat, or a joint commit with a KF.W11 seat (ARB-1) |
+| R-f2-2 | **ESC-a3-2** — TD-36's true bytes are `TransportDock.vue:2-8` (the host's missing pointer-events term), not `ChromeDock.vue:309/:312` | a transport seat granted the two-class carve on `TransportDock.vue` |
+| R-f2-3 | **`KF.W13.e2` never dispatched** — G-KFW12-4 (`css-code-editor-seam (2)` KF-CE-1), G-KFW11-4 (`spring-trace-truth (4b)`), and the seven OP-0 rows (`useKeyframeOps.ts:91` by root · `EditorShell.vue:175` · `useEasingDemo.ts:294`/`:310` · `compositor.ts:79` · `waapi.ts:9` · `smooth.ts:194`), KF11-E4, E-c1 | `KF.W13.e2` (the RESUME plan's writable set, unchanged) — to be dispatched, not carried |
+| R-f2-4 | MbabbMenu family carries: MM-2 rows 1/2 + MM-3 (SharePopover/DarkModeToggle seams), MM-12 (`style.css`/`brand.css`), MM-25 (SharePopover three-consumer contract) | the seams' owning waves as the `.a3` receipt names them |
+| R-f2-5 | Producer asks (touch gate consults the hold counter + portal stamp; focusable collapsed summary; `./avatar` subpath; headless DarkModeToggle; `useDockShellProps` doc drift) — recorded, **not yet relayed** to BK | the BH/BK relay seat (O-n letter); none cured demo-side |
+| R-f2-6 | value.js push — see §Push | the orchestrator (R-9: a sibling path is staged in the shared index) |
+| R-f2-7 | `npm run check` not re-run at this seat — its typecheck limb is the vue-tsc **9** above, so it cannot exit 0 | follows R-f2-1 ∧ R-f2-3 |
+
+### Escalations
+
+- **ESC-a3-1** and **ESC-a3-2** stand exactly as the `.a3` receipt states them (R-f2-1, R-f2-2). This seat re-read the premise of each: ⟨cmd⟩ `grep -c 'error TS' ` over vue-tsc → the two `MbabbMenu.vue(333,…)` TS2339 rows are present (both runs), and `headerLeft` in `9d814f6c..HEAD -- demo/app` reads **0** — so the cure has lawfully NOT been substituted by a MbabbMenu-only repair (two writers for one persisted flag).
+- **ESC-f2-1 (new)** — `KF.W13.e2` was planned by the RESUME and was not dispatched in this run; the wave cannot close while R-f2-3's rows stand born-RED with no cure attempted. Dispatch `.e2` (its writable set is disjoint from `.a3`'s and from the ESC-a3-1 grant).
+
+### E13 — the close sweep, four paths (2026-09-22, this seat's clock)
+
+⟨cmd⟩ `ls -dt glass-ui/docs/tranches/*/ | head -1` → `BK/`. ⟨cmd⟩ `find <path> -maxdepth 1 -name '*.md' -newermt "2026-09-22 00:00"` → `value.js/docs/tranches/V`: **empty** · `V/coordination`: `INBOX.md` (the ledger itself) · `glass-ui/…/BK/coordination`: **`glass-outbound-2026-09-22-consumers-10.0.0.md`** — addressed *"To: slides (the feedback-coder deck) and atlas"* (the 10.0.0 cut of `ColorResolver`/`defaultBlobColorResolver`/`ringsAt`), **not addressed to value.js**, so no `I-n` is minted; noted in the sweep line · `keyframes.js/…/V/coordination`: **empty** · `atlas/…/P/coordination`: **empty**. Census ⟨cmd⟩ `grep -c '^| I-\|^| O-' INBOX.md` → **90 · 90**; positional UNREAD awk → **0 · 0**. **No UNREAD mail in scope.** One sweep line appended at INBOX's end.
+
+### Push
+
+- **keyframes.js PUSHED**: ⟨cmd⟩ `git push origin HEAD` → `51f39a19..220bd93a  HEAD -> master`; after `git fetch`, `git rev-list --left-right --count origin/master...HEAD` → **0 0**. All ten `.a3` shas published; no force.
+- **value.js**: see the addendum line below (measured after this record's commit).
+
+### The four-verb line — moved only as §State permits
+
+KF.W13S is **not IMPLEMENTED**: G-KFW13-2 (roster, ESC-a3-1) and G-KFW13-7 (vue-tsc **9**, `test:demo` **2** failed) read RED at the bytes, and `.e2` was never dispatched. The line stays **PARTIAL** — the LEDGER row reads `PARTIAL 2026-09-22 — what remains: ESC-a3-1 (MM-1/MM-6 ONE-sha cure, CubeScene.vue grant) · ESC-a3-2 (TD-36 on TransportDock.vue) · .e2 (G-KFW12-4 · G-KFW11-4 · seven OP-0 rows)`. VERIFIED is not this seat's to stamp.
