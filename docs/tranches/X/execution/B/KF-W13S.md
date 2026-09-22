@@ -588,3 +588,68 @@ No glass-ui, `node_modules`, `src/**`, `demo/scenes/**`, `vitest.config.ts` or `
 KF.W13S is **not IMPLEMENTED**: G-KFW13-2 (roster, ESC-a3-1) and G-KFW13-7 (vue-tsc **9**, `test:demo` **2** failed) read RED at the bytes, and `.e2` was never dispatched. The line stays **PARTIAL** — the LEDGER row reads `PARTIAL 2026-09-22 — what remains: ESC-a3-1 (MM-1/MM-6 ONE-sha cure, CubeScene.vue grant) · ESC-a3-2 (TD-36 on TransportDock.vue) · .e2 (G-KFW12-4 · G-KFW11-4 · seven OP-0 rows)`. VERIFIED is not this seat's to stamp.
 
 - **value.js push (measured after `49b550d6` + LEDGER `a1db8d49`)**: ⟨cmd⟩ `git push origin HEAD` → **rejected, non-fast-forward** (`origin/tranche-u...HEAD` → **1 · 104**; the remote carries `6fc1212e`). Not forced; not pulled — the shared index holds a sibling track's staged `D demo/shell/PaneSegmentedControl.vue`, and `git merge` aborts on a non-clean index (R-9). **ESC-PUSH stands** → R-f2-6, owner: the orchestrator (integrate `6fc1212e` once the sibling stage clears).
+
+---
+
+## Check 1 — fresh adversarial L-20 pass 1 of the `.f2` close (2026-09-22; dated addendum beside, E-3)
+
+**Seat**: independent check, `claude-opus-5-5[1m]`, VERIFY-ONLY. I wrote no byte of this wave's cures: **0** keyframes.js bytes, **0** glass-ui bytes, **0** product bytes. **Crash-recovery**: ⟨cmd⟩ `git -C keyframes.js status --porcelain` → only the two untracked 2026-07 value.js letters (R-10, untouched). value.js paths in my set (this record, LEDGER) → clean. Sibling dirty rows NOT touched, NOT staged. **Frontier**: kf `220bd93a` (`origin/master...HEAD` → **0 0**) · vjs `e53c7ef9`.
+
+### Verdict: **NOT-CONFORMANT**
+
+Every GREEN the close claims reproduces at the bytes. But two gates of record are still RED, and the spec gives neither of them relief. G-KFW13-7 is RED because `.e2` was never dispatched: the addendum `:299` gives its whole cure list to this wave's `.e` line, and §0ai's Close requires `vue-tsc` **0** as a literal. G-KFW13-2 is RED because the MM-1/MM-6 ONE-sha cure is unspent (ESC-a3-1). No later wave takes either one over, neither is producer-owned, and the spec does not name either as honest-RED. The addendum's "all four honest-REDs" describes the KF.W13 gates this supplement was **minted to cure**, not ones it may close on. The close's own four-verb line reads PARTIAL, and this check agrees. The LEDGER status cell is left unchanged.
+
+### Axis (1) and (9): the close's GREENs and figures, re-run by this seat (all double-run, `·` separated)
+
+| Gate | ⟨cmd⟩ (kf root) | Record | This seat | Reproduces |
+|---|---|---|---|---|
+| 7-file W13 witness batch (G-KFW13-0/-1/-3/-4/-5 runtime + `cube-scene`) | `npx vitest run --project demo <the 6 W13 files> <cube-scene.test.ts>` | 7/59 · 7/59 | **7 passed (7), 59 passed (59)** · **same** | YES |
+| G-KFW13-1 bytes | round-trip `wc -l` · MUST-CARRY · `:109-113` prose | 0·0 · 1·1 · 0·0 | **0·0 · 1·1 · 0·0** | YES |
+| G-KFW13-1 OP-8 | `git show <sha> \| grep -c 'ComponentExposed\|Pick<'` over all 16 shas `9d814f6c..HEAD` | 0 ×10 | **0 ×16** | YES |
+| G-KFW13-2 `headerLeft` | `git diff 9d814f6c..HEAD -- demo/app \| grep -c headerLeft` | 0·0 | **0·0** | YES |
+| G-KFW13-3 bytes | `.stop` TD · CD | 0·0 | **0 0 · 0 0** | YES |
+| G-KFW13-4 bytes | `instanceof HTMLElement` · `blur\|orphan\|stale` | 0 · 8 | **0 8 · 0 8** | YES |
+| G-KFW13-5 bytes | `aria-label`/`valueCommit`/`:step`/`gatedSliderDown` | 2·3·2·0 | **2 3 2 0 · 2 3 2 0** | YES |
+| G-KFW13-6 bytes | focus-ring-shadow · `106,116p` outline | 0 · 1 | **0 1 · 0 1** | YES |
+| skip/only | `git diff 9d814f6c..HEAD -- test \| grep -c 'test.skip\|it.skip\|\.only('` | 0·0 | **0·0** | YES |
+| sweeps | `btn-playback` files · bare `focus-ring` `class=` | 9 · 0 | **9 · 0** both runs (declared beside 7/4 and 8/2; amending none) | YES |
+| vue-tsc (RED) | `npx vue-tsc --noEmit -p tsconfig.json 2>&1 \| grep -c 'error TS'` | 9·9 | **9 · 9**, the same nine rows (`MbabbMenu.vue(333,12)/(333,36)` TS2339 + the seven `.e2` rows) | YES (RED) |
+| test:demo (RED) | `npm run test:demo` | 2 failed \| 57 passed (59) · 2 \| 492 (494) | **2 failed \| 57 passed (59) · Tests 2 failed \| 492 passed (494), EXIT 1**, both runs; failing: `spring-trace-truth (4b)` and `css-code-editor-seam (2) KF-CE-1` | YES (RED) |
+
+**gatesReproduced = 11** claimed GREEN rows (all of them). **0** claimed GREEN failed to reproduce. The published figures reproduce, including the RED ones.
+
+### Axes (2)–(8)
+
+- **(2) Bounds**: I ran ⟨cmd⟩ `git -C keyframes.js show --stat` on all **16** shas `9d814f6c..220bd93a`. Paths: `vitest.config.ts` (242f3378, the addendum's one-key grant) · `test/demo/app/*.test.ts` ×2 · `demo/app/dock/{ChromeDock,MbabbMenu}.vue` · `demo/app/App.vue` · `TransportDock.vue` (6ad8ea10, TD-37) · `playback-idiom.css` (d4375768) · `channel-options-render-edge.test.ts` (51f39a19). All are inside the addendum's sets except **LW-1** below. ⟨cmd⟩ `git log 58c1ba11..HEAD -- scripts/dev/dev.sh` → **empty** (`dev.sh` untouched). No glass-ui, `node_modules` or `src/**` byte.
+- **(3) Masking**: ⟨cmd⟩ `git diff 9d814f6c..HEAD | grep '^+.*\(catch\|\.skip\|allowlist\|as any\|as unknown\|@ts-\|eslint-disable\)'` → **5** hits. All five are `(window as unknown as {ResizeObserver?/matchMedia}) =` jsdom polyfills inside the two created test files. That is the repo's standing polyfill idiom, and 6a960349's body names it. They are not a masking fallback. No `try/catch`, no skip, no allowlist, no copied producer selector, no patched `node_modules`.
+- **(4) Families**: `600246c3` = M-4 deletion + self-hold + kept binding + prose, **ONE sha** (App/ChromeDock/MbabbMenu). `6a960349` (proof) has no `demo/**` byte and precedes it in `git log`. `242f3378` (KF13-E2) is its own sha. `6ad8ea10` = TD-37 with TD-21's rider in one sha. `d4375768` = E-b1's six halves in one sha. The MM-1/MM-6 four-part family was **not split**: it is **unspent** (see D-2).
+- **(5) E-3**: ⟨cmd⟩ `git diff --stat 58c1ba11..HEAD -- docs/tranches/X/keyframes/waves/ docs/tranches/V/megatranche/registry/adjudicated/ docs/tranches/X/keyframes/conformance` → **empty**. KF.W11/W12/W13 CLOSED cells are unrewritten.
+- **(6) Mail**: the `.f2` close sweep reads 90 rows / **0** UNREAD (positional awk). The one new BK letter (`glass-outbound-2026-09-22-consumers-10.0.0.md`) is addressed to slides/atlas. No UNREAD mail is in scope.
+- **(7) Four-verb line**: it stayed **PARTIAL**. That is lawful, because the close did not claim IMPLEMENTED over RED gates.
+- **(8) Goal criterion**: the dock-menu half is **MET at the bytes**: the self-hold is proven (5/5) and the round-trip is gone. The transport and ribbon halves stand GREEN from KF.W13. The **supplement's own goal is NOT met**: §0ai's Close literal (`vue-tsc` **0**, `test:demo` all green, `npm run check` exit 0) reads **9 / 2 failed / not run**.
+
+### Axis (10): honest-RED adjudication, per RED gate at the spec bytes
+
+| RED gate | Relief the spec gives? | Owner in the register? | Ruling |
+|---|---|---|---|
+| **G-KFW13-7** (vue-tsc **9**; `test:demo` **2** failed; `npm run check` not exit 0) | **NONE.** The addendum `:299` gives all seven `.e2` rows, G-KFW12-4 and G-KFW11-4 to **this wave's** `.e`. §0ai `:2360-2361` makes `vue-tsc` **0** the sub-tranche's literal. No later wave takes them over and none is producer-owned. The two `MbabbMenu.vue:333` rows are part of ESC-a3-1. | R-f2-3 / ESC-f2-1 → "`KF.W13.e2`, to be dispatched" | **UNRELIEVED RED**: an owner is named, but the owner is **this wave**, still undispatched |
+| **G-KFW12-4** · **G-KFW11-4** (gates of record the addendum re-reads) | **NONE**, for the same reason: `.e`'s list, and neither `setTargets` nor the `(4b)` re-bind was attempted | R-f2-3 | **UNRELIEVED RED** |
+| **G-KFW13-2** (roster; MM-1/MM-6 four-part ONE-sha cure; TD-36) | **Partial.** The escalation is lawful: the delete arm is in `demo/scenes/cube/CubeScene.vue`, outside §B.2, and ARB-1 is shared with KF.W11. But the spec **requires** the ONE sha in `.a` (§Agent Units `:154`, G-KFW13-2 `:190`) and routes it to no successor wave. The relief it needs is an orchestrator grant, not a spec routing. | R-f2-1 / R-f2-2 → orchestrator grant (`.a4` or a joint commit with a KF.W11 seat) | **UNRELIEVED RED** (escalation lawful; the RED stays open until the grant) |
+
+**Honest-RED set: EMPTY.** No remaining RED is relieved by the spec's own terms.
+
+**Successor "Opens after"**: ⟨cmd⟩ `grep -n 'W13S' COHESION.md LEDGER.md EXECUTION-RUNBOOK.md | grep -i 'after'` → no wave declares KF.W13S as an opens-after conjunct. KF.W3 stays gate-keyed on RC-P(V). **No successor is blocked by this wave.**
+
+### Register (severity · claim · receipt · cure)
+
+| # | Sev | Claim | Receipt | Cure |
+|---|---|---|---|---|
+| D-1 | **HIGH** | G-KFW13-7, G-KFW12-4 and G-KFW11-4 are RED with no spec relief. The `.e2` cure list (KF-CE-1 `setTargets` + `env.d.ts` arm (b), `(4b)` DAMPING_AXIS re-bind, 7 OP-0 rows, KF11-E4, E-c1) was never dispatched | vue-tsc **9·9**; test:demo **2 failed** ×2; no `.e2` sha in `9d814f6c..HEAD` | Dispatch `KF.W13.e2` on the RESUME plan's writable set, byte-exact for KF-CE-1/4 from the banked hunk; then re-close |
+| D-2 | **HIGH** | G-KFW13-2 is RED: the MM-1/MM-6 four-part ONE-sha cure (and the two `MbabbMenu.vue:333` TS2339 rows) is unspent | ESC-a3-1; vue-tsc rows `MbabbMenu.vue(333,12)/(333,36)` | Orchestrator grants `CubeScene.vue`'s delete-arm lines to an `.a4` seat (or a joint commit with a KF.W11 seat under ARB-1); land the four parts as ONE sha, with no `headerLeft` fill arm |
+| D-3 | MEDIUM | TD-36 is unspent: the true bytes are `TransportDock.vue:2-8`, outside `.a3`'s set | ESC-a3-2 | Grant the two-class carve on `TransportDock.vue` to a transport seat |
+| D-4 | MEDIUM | G-KFW13-7's "every producer row relayed" clause is unmet: R-f2-5's five producer asks are recorded but **not relayed** to BK | R-f2-5 | Relay seat: send an O-n letter to BK (no demo-side cure) |
+| D-5 | MINOR | LW-1: App.vue is written beyond §B.2's literal carve. `16dc1e33` and `74c6becc` write the consumer ends of props changed in the same sha, so the families are unsplit and vue-tsc has no App.vue row. `89bf55b2` is comment-only (R3-8) | `git show --stat` above | Mitigated. The next close records the carve reading ("consumed motion" covers a prop's other end); no revert owed |
+| D-6 | INFO | The value.js push was rejected non-fast-forward (R-9: a sibling path is staged) | e53c7ef9's body | The orchestrator integrates `6fc1212e` once the sibling stage clears |
+| D-7 | INFO | The `as unknown as` jsdom polyfills in two tests are the standing idiom, not masking | axis (3) | none |
+
+**LEDGER**: the status cell is **left unchanged** (PARTIAL stands; the bar for CLOSED is not met). One event line is appended.
