@@ -414,3 +414,67 @@ The four-verb line does **not** move to IMPLEMENTED. G-KFW13T-6 is RED on persis
 **Successors**: ⟨cmd⟩ `grep -rn 'KF.W13T' docs/tranches/X/keyframes/waves/ EXECUTION-RUNBOOK.md | grep -v waves/KF-W13.md` → none (as Check 2). No wave declares an "Opens after KF.W13T" conjunct, so no successor is blocked.
 
 **Verdict: NOT-CONFORMANT**: 1 HIGH (C3-1) · 1 MINOR · 1 INFO. 6/6 claimed GREENs reproduce. The honest-RED set is {eslint 6 rows (ESC-k2-1)}. Row `:56` stays **PARTIAL**, and the LEDGER status cell is not moved (an event line is appended). Three L-20 passes have now returned the same single HIGH, and it waits only on the ESC-e-1 ruling. Further check/repair rounds without that ruling cannot move it.
+
+## RESUME — Open (§0ar, 2026-09-22)
+
+**SERVED MODEL**: `claude-opus-5-5[1m]` · seat 0 (RESUME OPEN) · 2026-09-22. **Spec of record for this sitting**: `KF-W13.md:313` (ADDENDUM 2026-09-22, fourth — COHESION §0ar `:2710-2741`). The earlier units `.k` · `.e` · `.k2` are **alreadyDone** and are not re-dispatched (kf `70a9b882` · `936b8c74` · `b56e9a41` · `b4c5dfb1` · `2141883d` · `a71efd0d` · `cbe9b904` · `6606ca7e`, plus Repair 1 `5e5f4028`). The kf `c03141bc` "`KF.W13.e2`" subject line belongs to KF.W13S's `.e2` (§0ai). It is not this wave's `.e2`, and ⟨cmd⟩ `git log --oneline 5e5f4028..HEAD` → empty, so this wave's `.e2` / `.k3` / `.k4` have **no commits**.
+
+**Crash recovery**: ⟨cmd⟩ `git -C keyframes.js status --porcelain` → the two untracked `VALUEJS-INBOUND-2026-07-{24,27}-*` letters only. ⟨cmd⟩ `git -C value.js status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh`. Neither is in any owed unit's set, and neither was touched. **No inherited partial work.**
+
+**Preconditions**:
+
+| precondition | ledger | bytes | state |
+|---|---|---|---|
+| KF.W13S CLOSED | row `:55` `**CLOSED 2026-09-17**` | kf `084a3679` ancestor of HEAD | **MET** |
+| ESC-e-1 ruled | §0ar `:2719` "GRANTED to `.e2`" (one field `easingPreview?: "shown" \| "hidden"` beside `ppMode?`) + R-e-2 → `.e2` | ⟨cmd⟩ `grep -n "ppMode?\|easingPreview" demo/state/controlOptionsStore.ts` → `25: ppMode?: boolean;` only | **RULED; unspent** |
+| ESC-k2-1 ruled | §0ar `:2724` "GRANTED to `.k3`" (parent bytes `ChannelOptions.vue` · `AnimationControlsGroup.vue`) | the six rows are still present (eslint below) | **RULED; unspent** |
+| R-k-1 ruled | §0ar `:2729` DESIGN RULED (one chrome; the ribbon retires) + `EditorShell.vue` + `ChromeDock.vue` granted to `.k3` | collisions 1 · 3 at 390 (below) | **RULED; unspent** |
+| writable paths exist | — | all nine granted paths are present (`demo/components/instrument/shell/EditorShell.vue` is the true spelling) | **MET** |
+| kf = origin | — | ⟨cmd⟩ `git fetch; git rev-list --left-right --count origin/master...HEAD` → `0 0` at `5e5f4028` | **MET** |
+| kf dev server | — | `curl localhost:5173` → `<title>keyframes.js` | **LIVE** |
+
+**E13 Step-0**: BK is the newest glass dir (⟨cmd⟩ `ls -d glass-ui/docs/tranches/B*` → `BI BJ BK`). ⟨cmd⟩ `find <path> -maxdepth 1 -type f -newermt "2026-09-22 00:00"` found:
+- value.js `V/`: `EVIDENCE.md` · `VISUAL-CONSTITUTION.md` · `OPTICAL-BENCH-COMPOSITIONS.md`. These are Track A's working documents, not mail.
+- `V/coordination`: `INBOX.md`.
+- BK: `glass-outbound-2026-09-22-consumers-10.0.0.md` · `fourier-to-glass-2026-09-17-nwo1-bh-relay.md` · `value-to-glassui-2026-09-DD-fw4-relay.md`, all already rowed.
+- kf `V/coordination`: empty.
+- atlas `P/coordination`: empty.
+
+That makes **0 unrowed**. ⟨cmd⟩ `grep "^| I-" INBOX.md | grep -c "| UNREAD"` → **0**. A sweep line is appended to INBOX.md.
+
+## RESUME — Baseline (read-only ×2 at kf `5e5f4028`, idle host)
+
+Live probes: the banked `evidence/W13T/KF-W13T-k-dock-probe.mjs` and `KF-W13T-e-probe.mjs` were re-run unmodified against kf dev `:5173` in headless chromium light, AFTER the background gate runs had finished, so the host was idle (C3-3). The readings are seat-local (scratchpad `w13t-s0/`) and were not banked.
+
+| gate | clause (`KF-W13.md:313`) | BEFORE run a | run b | reading |
+|---|---|---|---|---|
+| **G-KFW13T-6** hide/show | toggle hides/shows the preview (absent from the a11y tree) | ⟨cmd⟩ `node KF-W13T-e-probe.mjs s0a` → `toggles 1 · pressed0 "false" · pressed1 "true" · visible1 false · a11yVisualizerNodes1 0` | `s0b` → the same | **GREEN-before-cure** (landed at `.e` `cbe9b904`) |
+| **G-KFW13T-6** persistence | persisted across reload ×2 | `afterReload {"pressed":"false","visible":true}` | the same | **RED** (the ESC-e-1 limb, `.e2`) |
+| **R-e-2** witness | the paused-scrub `AnimationVisualizer` twin repaints | ⟨cmd⟩ `grep -rln "easingPreview\|repaint" test/demo` → `spring-heatmap-reversibility.test.ts` only (unrelated); no twin-repaint witness | — | **RED by absence** (`.e2`) |
+| **G-KFW13T-7** collisions | 0 dock/ribbon collisions at 390×844 · 768 · 1440 ×2 | ⟨cmd⟩ `node KF-W13T-k-dock-probe.mjs s0a` → 1440 `#/` 0 · `#/cube` 0 · 768 0 · 0 · **390 `#/` 1** (`@mbabb menu x Share animation`) · **390 `#/cube` 3** (`Controls tab x Share animation` · `Controls panel x Show keyboard shortcuts` · `Controls panel x Switch to dark mode`) | `s0b` → identical | **RED at 390** (R-k-1, `.k3`); 1440/768 are green-before-cure |
+| G-KFW13T-1 (standing) | 0 children outside the capsule | `out= 0` ×6 | `out= 0` ×6 | GREEN (standing, `.k`) |
+| **eslint** (§Verification line, no `demo/styles`) | → **0** ×2 | ⟨cmd⟩ `npx eslint demo/app demo/components/instrument/transport demo/components/playback \| grep -c " error "` → **6**: `TimingFunctionPanel.vue:151:9 · 152:9 · 156:5` (`storedAnimationOptions`) · `ControlsPaneWrapper.vue:62:58` (`animControlRefs`) · `:328:5 · :366:9` (`storedControls`), all `vue/no-mutating-props` | **6** | **RED** (ESC-k2-1, `.k3`) |
+| vue-tsc | 0 | ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.json \| grep -c 'error TS'` → **0** | **0** | standing GREEN |
+| `npm run check` | exit 0 | exit **0** (`proof:structure — PASS … 0 violations across R1–R6`) | exit **0** | standing GREEN |
+| `test:demo` | green | ⟨cmd⟩ `npx vitest run --project demo` → **61/61 files · 501/501** | **61/61 · 501/501** | standing GREEN |
+| G-KFW13T-3 · -4 · -5 (standing) | — | 29/29 glyph · drag 0→795 / click 795→450 / Arrow 450→480, thumb bg transparent · clock 0→397 ms, tiles + viz moved, 0 pageerrors | 29/29 · the same · 0→480 ms, moved | GREEN (standing, `.e`) |
+
+**R.2 green-before-cure register**: (1) G-KFW13T-6's hide/show limb, landed at `.e`; only the persistence limb is owed. (2) G-KFW13T-7 at 1440 and 768, where 0 collisions already exist; only 390 is RED. (3) vue-tsc 0 · `check` exit 0 · `test:demo` 501/501 are standing invariants carried from `.k2` / Repair 1, which every owed unit must keep. None of these is claimed as a cure.
+
+## RESUME — Unit plan
+
+**Order (binding, `KF-W13.md:313` · §0ar "Mechanism")**: [`KF.W13.e2`] → [`KF.W13.k3`] → [`KF.W13.k4`]. Three serial groups, peak concurrency 1, every seat Opus. `.e2`'s set and `.k3`'s set share only `test/demo/**` and the record, and the serial order separates them. **alreadyDone**: `KF.W13.k` · `KF.W13.e` · `KF.W13.k2`. The kf root is `/Users/mkbabb/Programming/keyframes.js/`. Every set also includes this record and value.js `docs/tranches/X/keyframes/evidence/W13T/**`. Every unit pushes kf at its close.
+
+| unit | model | spec | writable (kf unless noted) | gates | locks / families |
+|---|---|---|---|---|---|
+| `KF.W13.e2` | opus | `KF-W13.md:313` (`.e2`) · COHESION §0ar `:2719-2723` (ESC-e-1 + R-e-2) | `demo/state/controlOptionsStore.ts` (ONE optional field `easingPreview?: "shown" \| "hidden"` beside `ppMode?`, nothing else) · `demo/scenes/easing/EasingScene.vue` · `demo/components/playback/**` · `test/demo/**` | **G-KFW13T-6** whole (hide/show ×2 AND persisted across reload ×2, Playwright witness) · R-e-2 witness green ×2 · vue-tsc 0 · `npm run check` exit 0 · `test:demo` green · push | the field is read through `getStoredAnimationGroupControlOptions(EASING_SCENE_ID)`; no scene-local storage home (refused at Repair 2); R-e-2 is cured at the repaint trigger, never with a forced re-render loop; the field and its binding go in one sha; the witness goes in the cure's sha |
+| `KF.W13.k3` | opus | `KF-W13.md:313` (`.k3`) · COHESION §0ar `:2724-2734` (ESC-k2-1 + R-k-1) | `demo/components/instrument/shell/EditorShell.vue` · `demo/app/dock/ChromeDock.vue` · `demo/components/instrument/transport/AnimationControlsGroup.vue` · `…/transport/channel-controls/ChannelOptions.vue` · `…/transport/channel-controls/TimingFunctionPanel.vue` · `…/transport/controls-pane/ControlsPaneWrapper.vue` · `test/demo/**` | **G-KFW13T-7** 0 collisions at 390×844 · 768 · 1440 ×2 (screenshots) · eslint line (no `demo/styles`) **6 → 0** ×2 · `test:demo` green ×2 · vue-tsc 0 · G-KFW13T-1 stays 0 · push | R-k-1 is one sha: the ribbon's controls ride the ChromeDock as a group/layer on the producer's dock primitives, and the ribbon retires at every viewport; accessible names and the `?` shortcut stay intact; no `overflow:hidden`. ESC-k2-1 is one sha per seam pair (`TimingFunctionPanel` ↔ `ChannelOptions`; `ControlsPaneWrapper` ↔ `AnimationControlsGroup`), with child and parent in the same sha. No `eslint-disable`, no prop cast. A producer gap goes to BK by mail. |
+| `KF.W13.k4` | opus | `KF-W13.md:313` (`.k4`, verify-only close) | value.js: this record · `execution/LEDGER.md` (row `:56` cells + an event line) · `V/coordination/INBOX.md` (sweep line / SS-6 if owed) | every G-KFW13T gate (-1..-7) re-run ×2 · eslint 0 ×2 · vue-tsc 0 · `check` exit 0 · `test:demo` green ×2 · roster bounds (`5e5f4028..HEAD`) · masking 0 · E13 0 UNREAD · kf = origin | 0 kf/product bytes; LEDGER in-place cell edits only; value.js pushed only if fast-forward with no sibling path staged |
+
+### Briefs (RESUME)
+
+- **`KF.W13.e2`**: (1) Add the one optional field `easingPreview?: "shown" | "hidden"` beside `ppMode?` in `controlOptionsStore.ts`. (2) Bind `EasingScene.vue`'s `preview` ref to `getStoredAnimationGroupControlOptions(EASING_SCENE_ID)`: read on mount, written on `update:preview`. (3) R-e-2: on `#/easing`, a PAUSED scrub must repaint the `AnimationVisualizer` twin. Cure it at the paused repaint trigger in `demo/components/playback/**` (a `progress`/`t` watch), with no forced re-render loop. (4) Commit the witnesses: a reload-persistence test plus the twin repaint test, born RED. (5) Run the `KF-W13T-e-probe.mjs` persistence limb live ×2 with screenshots. (6) Gates, then push kf.
+- **`KF.W13.k3`**: (1) R-k-1: move Share · Keyboard shortcuts · theme out of `EditorShell.vue`'s header ribbon and into `ChromeDock.vue` as a dock group/layer on the producer primitives, fourier's AppDock idiom. Retire the ribbon at every viewport. Keep the aria names and the `?` shortcut. (2) ESC-k2-1: cure the six `vue/no-mutating-props` rows at their owners. `TimingFunctionPanel` gets `defineModel`/`emit`, and `ChannelOptions` (`:500-510`, `:666`) takes the store write. `ControlsPaneWrapper` does the same, with `AnimationControlsGroup` (`:198`, `:213`) as its owner. (3) Run `KF-W13T-k-dock-probe.mjs` ×2 and bank the before/after screenshots for 390/768/1440. (4) Gates, then push kf.
+- **`KF.W13.k4`**: VERIFY-ONLY close. (1) Re-run G-KFW13T-1..-7 ×2 through the banked probes on an idle host. (2) Run eslint 0 · vue-tsc 0 · `check` 0 · `test:demo` ×2. (3) Audit the roster `5e5f4028..HEAD` against each unit's set: families unsplit, masking 0. (4) Do the E13 sweep. (5) Update LEDGER row `:56`: CLOSED if everything is GREEN, otherwise PARTIAL. (6) Push kf, and push value.js if fast-forward.
+
+## RESUME — Unit receipts
