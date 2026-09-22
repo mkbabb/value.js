@@ -4214,3 +4214,225 @@ X.W6.c needs a writable-set grant before its re-dispatch. The grant falls into t
 ⟨cmd⟩ `git show --stat caea9d1e` → `test/gradient-parse.test.ts | 4 ++--`, one path, inside the set.
 `scripts/dev/dev.sh` was not staged. This receipt is committed on its own pathspec. No mail rows were in
 scope for this unit (it touches no glass-ui surface).
+
+---
+
+## Close — RESUME 2026-09-22 (the third sitting's close; VERIFY-ONLY seat)
+
+SERVED MODEL: claude-opus-5-5[1m]
+
+**Append-only beside** every block above. E-3: nothing above this line is rewritten. This seat cured
+nothing. Its only writes are this block, the gate transcripts under
+`W6-evidence/gates/close-2026-09-22/`, and the X-W6 LEDGER row.
+
+**What this sitting's run returned.** One unit reached this close: **`.c`, ESCALATED (ESC-W6c-1)**.
+⟨cmd⟩ `grep -n "^### X.W6\." X-W6.md | tail` → the third sitting has one receipt, `### X.W6.c`.
+**`.d .e .h .i` have no receipt, no commit and no dirty path in this run.** They were planned at the
+2026-09-21 open and never dispatched, so they stay owed. `.j` stays **BLOCKED-ON X-W5** (§0z E1).
+
+### Act 0 — crash-recovery (standing law, before any other act)
+
+⟨cmd⟩ `git status --porcelain` → 16 rows: the X-W5 lane (`demo/color-picker/App.vue`,
+`…/usePaletteWiring.ts`, `demo/palettes/*`, `demo/shell/*`, `demo/styles/shell.css`, three
+`e2e/smoke/**` specs, and `execution/A/X-W5.md`), `V/reformation/CARRY-LEDGER.md`, and
+`scripts/dev/dev.sh`. **None is inside this seat's writable set** (this record, `LEDGER.md`'s X-W6
+row, `W6-evidence/**`). Nothing was inherited, stashed, restored or touched.
+
+### Act 1 — commit roster and bounds
+
+| commit | unit | ⟨cmd⟩ `git show --stat` | inside the unit's writable set? |
+|---|---|---|---|
+| `caea9d1e` test(gradient-parse): §0z E2 | `.c` | `test/gradient-parse.test.ts \| 4 ++--` | **YES**. The §0z E2 row is `W6.md:479`, carried to `.c` by the 2026-09-21 plan |
+| `c9f11e87` docs(x-w6/.c): receipt | `.c` | `execution/A/X-W6.md \| 99 +++` | **YES**. The record, append-only |
+
+⟨cmd⟩ `git log --format='%h %s' bd790e2e..HEAD -- demo test e2e docs/tranches/X/gates` → `caea9d1e` and
+nothing else from this wave. **Landed-wrong: NONE.** `git diff --check caea9d1e^ caea9d1e` is clean.
+
+**ESC-W6c-1's premise was checked at the bytes here, not taken on the seat's word.** ⟨cmd⟩ `grep -n useGradientModel`
+→ `GradientStopEditor.vue:6-7` (`GradientStop` type plus the live `railPosition` value) ·
+`gradientParse.ts:23` (type-only) · `GradientEasingEditor.vue:36-39` · `easingCatalogue.ts:36` ·
+`easing/useSpecimenRows.ts:17-21`. ⟨cmd⟩ `grep -rn INTERPOLATION_SPACES demo` →
+`mix/MixConfigBar.vue:27` reads `color-session/color-space-meta`. **The premise reproduces.** The spec
+records one more path fact: `W6.md` §4 lists `GradientVisualizer/easing/GradientEasingEditor.vue`, but
+the file is at `GradientVisualizer/GradientEasingEditor.vue` (⟨cmd⟩ `find demo -name
+GradientEasingEditor.vue`). The addendum that rules ESC-W6c-1 should name the true path.
+
+### Act 2 — gate table, BEFORE → AFTER, re-run at this seat's own clock
+
+Transcripts: `W6-evidence/gates/close-2026-09-22/` (8 files). BEFORE is the 2026-09-21 open's baseline for
+the owed gates, and `## Check 1 — RESUME`'s membership (GREEN 30 / RED 20) for the rest.
+
+**`.c`, the one unit dispatched this run. All four gates are RED, and ESC-W6c-1 is reproduced.**
+
+| gate | ⟨cmd⟩ at this seat | BEFORE | AFTER | verdict |
+|---|---|---|---|---|
+| c1 | `node …/probes/wb-gradient-stopeditor/gate-structure.mjs` ×2 | EXIT 1, 7 `G4*` lines | **EXIT 1 ×2, 7 failure lines** (G4a ×2 · G4b · G4c · G4d · G4g ×2) plus the header; `diff -q` → identical | **RED** (ESC-W6c-1) |
+| c2 | `grep -c "one sampling law" test/gradient-order-invariant.test.ts` | 0 | **0** | **RED** |
+| c3 | `test -f docs/tranches/X/gates/gate-literal-dialect.mjs` | ABSENT | **ABSENT** | **RED** |
+| c4 | `test -f test/interpolation-subset.test.ts` | ABSENT | **ABSENT** | **RED** |
+| §0z E2 (not a numbered gate) | `npx vitest run test/gradient-order-invariant.test.ts test/gradient-parse.test.ts demo/test/glass/aurora-bracket.test.ts` ×2 | gradient-parse 2 failed / 17 passed | **3 files · 41 passed (41)**, both runs | cured by `caea9d1e` |
+
+**The owed units that were not dispatched are still RED.** Each was measured with a static command,
+none inherited from the open:
+`gate-easing-radius.mjs` **ABSENT** (d1) · `grep -rn glass-ui/aurora demo/workbenches/gradient/` **0**
+and `grep -rn "gradient selector aurora" e2e/` **0** (e1) · `grep -rn requestAnimationFrame
+demo/workbenches/gradient/` **2** and `gate-prm-idiom.mjs` **ABSENT** (e2) · `grep -rn "hero blob carries
+current chroma" e2e/` **0** (h1) · `o25-atmosphere-response.spec.ts` **ABSENT** (i1) ·
+`o28-atmosphere-coldload.spec.ts` **ABSENT** and `grep -rn armRuntime demo/` **0** (i3) ·
+`o29-scene-contracts.spec.ts` **ABSENT** and `grep -c "component: Stub" router/index.ts` **14** (j1 j2 j3).
+
+**Banked GREENs this seat re-ran. All of them reproduce.**
+
+| gate | ⟨cmd⟩ | reading | verdict |
+|---|---|---|---|
+| a1 (end state) | the vitest run above | `gradient-order-invariant` inside **41/41** | GREEN |
+| f1 | `node docs/tranches/X/gates/gate-catalog-totality.mjs` | EXIT 0; `offered=18 catalogued=18 info=18 docs=11 authored + 7 decided-none = 18 decided` | GREEN |
+| f5 | `node docs/tranches/X/gates/gate-specimen-grammar.mjs` | EXIT 0; the last row is `hex css 9ch #003abe00` | GREEN |
+| f2 · f7 · f8(static) · f9 · f10 | the spec's greps | `0` · `colorSpace: any` 0, `as DisplayColorSpace` 0, and `vue-tsc -p tsconfig.demo.json` printed no diagnostic · `tag=` 0 · `updateToColorSpace` 2, peer watcher 0 · `from "../ui/` 0 | GREEN |
+| h2 | `node docs/tranches/X/gates/gate-blob-pipeline.mjs` | EXIT 0; `census 13 published figures, 12 re-derived here` | GREEN |
+| i2 | `node docs/tranches/X/gates/gate-lband-door.mjs` | EXIT 0; the calibration and bracket sites are `clean` | GREEN |
+| g2 | `npx playwright test …/companion-pane-track-start.spec.ts --project=smoke` (same run as below) | **1 passed** | GREEN |
+| **H1** | `node docs/tranches/X/gates/gate-no-chassis.mjs` over **19 shas** (the 18 of record plus `caea9d1e`) ×2 | EXIT 0 ×2, byte-identical: `GATE H1 (no copied chassis) — GREEN`, and the positive control fires first | GREEN |
+| **H3** | parser R1 `parseCssColor('oklch()')` · glass version | EXIT 0, no throw · **7.0.0**, so Glass-8 has not fired and nothing in §Blocked opened | GREEN (swept) |
+
+A note on method: the first H1 attempt passed the roster as one zsh word. git rejected it as `ambiguous
+argument` and the gate exited 1. That was this seat's quoting mistake, not a gate reading. The re-run
+passes each sha as its own argument.
+
+**Defect 2 from Check 1 still stands at these bytes: the foreign fixture break.** ⟨cmd⟩
+`VJS_E2E_PORT=9311 npx playwright test e2e/smoke/views/gradient.spec.ts
+e2e/smoke/oracles/o21-gradient-rail.spec.ts e2e/smoke/views/companion-pane-track-start.spec.ts
+--project=smoke` → **21 failed / 1 passed (7.8m)**. The run started its own server on a fresh port.
+**40** failure lines quote `getByRole('main', { name: 'Color tool panes' })`, the X-W5 lane's
+uncommitted shell bytes. So **a2** and **a13**'s e2e legs and **b3**'s named command are **RED by a
+foreign fixture**. The one pass is g2.
+
+**Not re-run at this seat. Each cites its dated banked reading.** These gates need the stopeditor
+probes and a live server, and nothing in them moved this run (`caea9d1e` changes one test file):
+a3–a12 (Check 3, 2026-09-19) · b1 (RED) · b2 · b4 (Check 1 RESUME, 2026-09-20) · g1 (RED, 61.22/55.41,
+Check 1 RESUME) · d2 (Repair 2 `c8111846`, Check 3) · f3 · f4 · f6 · f8 e2e (Check 3) · j4 (`6dfdd8d2`,
+Check 3).
+
+### Act 3 — SELF-COUNT (counted twice)
+
+**50 = 46 sub-gates + 4 wave conditions.**
+
+**GREEN 30**:
+- a1 and a3–a12 (**11**)
+- f1–f10 (**10**)
+- b2, b4, g2 (**3**)
+- d2, h2, i2 (**3**)
+- j4
+- H1
+- H3
+
+**RED 20**:
+- a2, a13 (foreign fixture)
+- b1, b3, g1
+- c1, c2, c3, c4
+- d1, e1, e2, h1, i1, i3
+- j1, j2, j3
+- H2, H4
+
+11 + 10 + 3 + 3 + 3 = **30** and 2 + 3 + 4 + 6 + 3 + 2 = **20**, so 30 + 20 = **50**. The second count
+matches. **Delta against Check 1 (RESUME): none.** This run's one landing, `caea9d1e`, cures the §0z E2
+migration, which is a §7 cadence item and not a numbered gate. It moves the vitest reading from
+4 failed to **2 failed**.
+
+**H4 roll-call over the 14 §Dispositions rows:**
+- **Discharged (3):** CC-005, CC-066, CC-068.
+- **Partly discharged (3):** CC-058, where `.c` is ESCALATED; CC-059; CC-062.
+- **Not discharged (8):** CC-056, CC-057, CC-060, CC-061, CC-063, CC-064, CC-065, CC-067.
+
+3 + 3 + 8 = **14**. Every row has one named state; none was dropped silently.
+
+### Act 4 — §8 Verification Artefacts, run as written
+
+⟨cmd⟩ `git ls-files --error-unmatch` against each named file:
+- `W6-atmosphere-tombstone.md` is **TRACKED**.
+- `W6-glass-ask-easing-readout.md` is **TRACKED**.
+- `W6-blob-pipeline-census.md` is **TRACKED**.
+- `W6-lband-letter.md` is **ABSENT**. That is lawful: i2 took the landing branch.
+
+⟨cmd⟩ `git ls-files W6-evidence/<dir> | grep -c png`:
+- `gradient/` has 34 tracked files and **0 PNG**. The before/after gradient frames are still owed.
+- `catalog/` has 9 tracked files, **6 of them PNG**.
+- `owner-marks/` has **0** tracked files, so the OM re-captures are still owed.
+- `atmosphere/` has 2 tracked files and **0 frames**, so the X:ATMO-1 frames are owed with i1.
+- `gates/` has 11 tracked files, and this close adds 8 under `close-2026-09-22/`.
+
+**§8 is PARTIAL**: the gradient, owner-marks and atmosphere frames are still owed.
+
+### Act 5 — §7 cadence at the settled bytes
+
+- ⟨cmd⟩ `npx vitest run` → `Test Files 2 failed | 35 passed (37)` · `Tests 2 failed | 630 passed (632)`,
+  EXIT 1. Both failures are the foreign born-RED canaries that X-V/W1.a added on 2026-09-18:
+  `test/spectrum-luma.test.ts` C-5 and `demo/test/shell/reka-binding-idiom.test.ts` NG-6. Neither
+  file is in X-W6's bounds.
+- ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.demo.json` printed no diagnostic.
+- ⟨cmd⟩ `git diff --check caea9d1e^ caea9d1e` is clean.
+- ⟨cmd⟩ `npx prettier --check test/gradient-parse.test.ts` gives `[warn]`, and the parent bytes
+  (`caea9d1e^`) give the same `[warn]`. The warning predates this run.
+
+### Act 6 — E13 mail, swept again at this seat's clock (read-only)
+
+1. ⟨cmd⟩ `find docs/tranches/V -maxdepth 2 -name '*.md' -newermt "2026-09-21 00:00" ! -name INBOX.md`
+   → **empty**.
+2. The newest glass tranche directory is still `BK/`, and its delta since 2026-09-21 is **empty**.
+3. The keyframes.js V coordination directory is **empty** at the same delta.
+4. The sci-report/atlas P coordination directory is **empty** at the same delta.
+
+⟨cmd⟩ `grep -c '^| I-\|^| O-' INBOX.md` → **90**, twice. The by-position UNREAD `awk` → **0**. The tail
+is **O-46**. **No UNREAD mail is in scope.** The §0z E5 `O-` relay row for the easing readout stays
+owed to `.d`, which was not dispatched. This close does not take it over.
+
+### Act 7 — escalations returned by this close
+
+- **ESC-W6c-1 (§3a file-bound expansion) is returned to the orchestrator for a dated COHESION addendum.**
+  The addendum should grant `.c` six paths:
+  - `GradientVisualizer/GradientStopEditor.vue`
+  - `composables/gradientParse.ts`
+  - `GradientVisualizer/GradientEasingEditor.vue`, at its true path (see Act 1)
+  - `GradientVisualizer/easing/easingCatalogue.ts`
+  - `GradientVisualizer/easing/useSpecimenRows.ts`
+  - `demo/color-session/color-space-meta.ts`
+
+  Once granted, `.c` is re-dispatched whole as commit #3. Two routes would turn c1 green without the
+  grant: a new type-only cycle edge, or a types re-export shim. Both turn c1 green on text while the
+  defect stays, so neither is lawful. The premise was re-verified in Act 1.
+- **ESC-PUSH / defect 2 (foreign fixture):** a2, a13 and b3 stay RED until X-W5's shell lane settles
+  `getByRole('main', { name: 'Color tool panes' })`, or the specs are re-pointed under X-W5's own
+  grant. X-W6 has no write to the X-W5 shell.
+- `.d .e .h .i` **were not dispatched in this run.** That is not an escalation of theirs. Their briefs
+  in the 2026-09-21 plan stand, and they are still owed in the order `.d → .e`, then `.h → .i`. `.e`
+  also sits after `.c`, because both write `GradientVisualizer.vue`. Each must be re-dispatched
+  whole at its resume gate.
+
+### Act 8 — residuals, each with a named owner
+
+| residual | owner |
+|---|---|
+| c1–c4 (ESC-W6c-1) | **COHESION addendum (orchestrator)** → `.c` re-dispatch |
+| d1, plus d2's dated re-capture, plus the §0z E5 `O-` relay | **`.d`** (owed, undispatched) |
+| e1 · e2, MOTION-SOURCED · PENDING-QUARANTINE | **`.e`** (after `.c` and `.d`) |
+| h1 (§0z E6 display-p3 ceiling) | **`.h`** (owed, undispatched) |
+| i1 · i3, plus the committed atmosphere frames (§8) | **`.i`** (after `.h`) |
+| j1 · j2 · j3 | **`.j`**, BLOCKED-ON X-W5 CLOSED (§0z E1) |
+| a2 · a13 · b3 (foreign fixture) | **X-W5** (shell lane) |
+| b1 (probe input at the 0% terminal) · g1 (61.22px residue) | the gates' re-point rides **X-W11's OUT-OF-WAVE roster** (b1). **`.g` / X-W10 canon** (g1) |
+| H2 leg 2 (no MOTION-SOURCED assertion to cite yet) | **`.e` / `.j`** |
+| §8 gradient before/after frames · owner-marks OM re-captures | **wave close #11, after `.c .d .e`** |
+| the two foreign vitest canaries (C-5 · NG-6) | **X-V/W1.a's successors** (not X-W6) |
+
+### Act 9 — the four-verb line after this close
+
+AUDITED yes · SPECIFIED yes · **IMPLEMENTED no**. The wave is PARTIAL: 20 of 50 gates are RED, and 5
+units are owed or blocked. **VERIFIED no**, because that is X-W11's stamp (`W6.md:404`). The line does
+not move at this close.
+
+### Act 10 — verdict
+
+**PARTIAL — NOT PROMOTED.** GREEN 30 / RED 20, unchanged from Check 1 (RESUME). This run landed
+`caea9d1e` (§0z E2, lawful and in-set) and `c9f11e87` (the `.c` receipt). **Landed-wrong: none.**
+**Escalation: ESC-W6c-1.** This close's own commits are the record block, the transcripts and the
+LEDGER cell, each committed on its own pathspec.
