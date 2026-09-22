@@ -1,13 +1,15 @@
 import { describe, expect, it } from "vitest";
 import { parseCssColor } from "@src/subpaths/css";
 import {
-    easingFnOf,
     linearInterval,
-    sampleCoalescedStops,
     serializeCoalescedGradient,
 } from "../demo/workbenches/gradient/composables/useGradientCSS";
+import {
+    easingFnOf,
+    sampleCoalescedStops,
+} from "../demo/workbenches/gradient/model/sample";
 import { interpolateStopColors } from "../demo/workbenches/gradient/composables/useGradientInterpolation";
-import type { GradientModelState } from "../demo/workbenches/gradient/composables/useGradientModel";
+import type { GradientModelState } from "../demo/workbenches/gradient/model/types";
 import { SPECIMEN_TILES } from "../demo/workbenches/gradient/GradientVisualizer/easing/easingCatalogue";
 
 const model: GradientModelState = {
@@ -46,8 +48,9 @@ describe("Gradient Value 4 capability consume", () => {
         const samples = sampleCoalescedStops(model);
         expect(samples.length).toBeGreaterThan(2);
         expect(samples.every(({ color }) => color.space === "oklch")).toBe(true);
+        // X-W6 · X.W6.c: the render CSS carries the model's space clause.
         expect(serializeCoalescedGradient(model)).toMatch(
-            /^linear-gradient\(90deg, oklch\(/,
+            /^linear-gradient\(90deg in oklch, oklch\(/,
         );
     });
 

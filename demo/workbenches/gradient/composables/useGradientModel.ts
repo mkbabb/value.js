@@ -22,70 +22,28 @@
  */
 
 import { ref, computed } from "vue";
-import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
 import { parseCssColor } from "@mkbabb/value.js/css";
 import { clamp } from "@mkbabb/value.js/math";
 import type { EasingPickerValue } from "@mkbabb/glass-ui/easing";
-import type { PickerSpace } from "../../../color-session/picker-color";
 import { useGradientInterpolation } from "./useGradientInterpolation";
-import { useGradientCSS, linearInterval } from "./useGradientCSS";
+import {
+    useGradientCSS,
+    linearInterval,
+    formatColorLiteral,
+    seedLiteral,
+} from "./useGradientCSS";
 import { parseGradientCSS } from "./gradientParse";
 import type { GradientParseResult } from "./gradientParse";
+import { sampleAt } from "../model/sample";
+import type {
+    GradientModelState,
+    GradientStop,
+    GradientType,
+} from "../model/types";
 
-// ── Re-exports (preserve public API surface) ──
-
-export { INTERPOLATION_SPACES, HUE_INTERPOLATION_METHODS } from "./useGradientInterpolation";
-export {
-    serializeGradient,
-    serializeCoalescedGradient,
-    serializeRailRamp,
-    railPosition,
-    linearInterval,
-} from "./useGradientCSS";
-export { parseGradientCSS } from "./gradientParse";
-export type { GradientParseResult, ParsedGradientModel } from "./gradientParse";
-
-// ── Types ──
-
-/**
- * A gradient interval carries the <EasingPicker> payload (the R.W4 `/easing`
- * consume — easing-disposition.md §2.3): the re-parseable CSS literal (the
- * persisted TRUTH) plus the live value.js callable and authoring parameters.
- * Literal-only reads still parse through `/css` and evaluate through
- * `/easing`; editable model state stays complete for two-way picker binding.
- * The former
- * `{easingName, easingFn}` name-catalogue shape died with the EasingSelector
- * fork — the picker's preset menu IS value.js `bezierPresets`.
- */
-export type GradientInterval = EasingPickerValue;
-
-export interface GradientStop {
-    id: string;
-    cssColor: string;
-    position: number; // 0–100%
-    /**
-     * The easing of the interval this stop OPENS — this stop to the one after
-     * it in ordinal order. Hanging the interval on its opening stop is what
-     * makes a re-sort safe: the curve travels with the stop the author drew it
-     * for, so an insert can no longer re-pair a `steps()` authored on 50→100
-     * onto 25→50. The LAST stop opens no interval and its easing is inert; it
-     * is still carried, because a stop that stops being last must already own
-     * the curve that follows it.
-     */
-    easing: GradientInterval;
-}
-
-export type GradientType = "linear" | "radial" | "conic";
-
-export interface GradientModelState {
-    type: GradientType;
-    direction: number; // degrees (for linear); ignored for radial
-    stops: GradientStop[];
-    interpolationSpace: PickerSpace;
-    hueMethod: HueInterpolationMethod;
-    // NOTE: no `resolution` — the coalesce density is the inlined
-    // COALESCE_RESOLUTION constant (W5-11 / P2-14: it never had a UI).
-}
+// X-W6 · X.W6.c: the domain types live in the leaf `../model/types`, and this
+// factory re-exports NOTHING. The seven-name "preserve public API surface"
+// block is gone — every consumer imports the module that owns the name.
 
 /** The verdict of a stop-set replacement: applied, or the reason it was not. */
 export type SetStopsResult = { ok: true } | { ok: false; reason: string };
@@ -107,6 +65,21 @@ function axisPosition(position: number): number {
     return Math.round(clamp(position, 0, 100) * 10) / 10;
 }
 
+/**
+ * The seeded pair, restated in the one literal dialect (X.W6.c — c3): the model
+ * authors these, so they print exactly as a minted stop does.
+ */
+const SEED_COLORS = ["oklch(0.75 0.15 145)", "oklch(0.65 0.18 265)"] as const;
+
+function seededStops(): GradientStop[] {
+    return SEED_COLORS.map((css, i) => ({
+        id: uid(),
+        cssColor: seedLiteral(css),
+        position: i === 0 ? 0 : 100,
+        easing: linearInterval(),
+    }));
+}
+
 /** Ordinal order. Equality is LEGAL and the sort is stable, so coincident
  *  positions (CSS hard stops) keep the order the author built them in. */
 function byPosition(a: GradientStop, b: GradientStop): number {
@@ -121,10 +94,7 @@ export function useGradientModel() {
     const direction = ref(90);
 
     // ── Stop state — the ONE source of truth: positions AND easings ──
-    const stops = ref<GradientStop[]>([
-        { id: uid(), cssColor: "oklch(0.75 0.15 145)", position: 0, easing: linearInterval() },
-        { id: uid(), cssColor: "oklch(0.65 0.18 265)", position: 100, easing: linearInterval() },
-    ]);
+    const stops = ref<GradientStop[]>(seededStops());
 
     // ── Interpolation sub-composable ──
     const { interpolationSpace, hueMethod } = useGradientInterpolation();
@@ -145,14 +115,32 @@ export function useGradientModel() {
     /** A gradient needs two stops; below that the instrument has no subject. */
     const canRemove = computed(() => stops.value.length > 2);
 
+    /**
+     * THE MINT PATH (X-W6 · X.W6.c — c3). A new stop takes the ramp's own
+     * colour at its position — through the one sampling law, so the stop lands
+     * exactly the colour the add ghost previewed — printed in the one literal
+     * dialect the seeds print in. The owner used to sample and hand the colour
+     * in, which is how a minted stop came to print in a second grammar.
+     */
+    function mintStop(position: number) {
+        const at = axisPosition(position);
+        addStop(formatColorLiteral(sampleAt(modelState.value, at)), at);
+    }
+
+    /** Insert a stop of a GIVEN colour; the sort keeps the ordinal invariant. */
     function addStop(cssColor: string, position: number) {
-        const minted: GradientStop = {
+        const added: GradientStop = {
             id: uid(),
             cssColor,
             position: axisPosition(position),
             easing: linearInterval(),
         };
-        stops.value = [...stops.value, minted].sort(byPosition);
+        stops.value = [...stops.value, added].sort(byPosition);
+    }
+
+    /** Back to the seeded pair (the Reset action). */
+    function resetStops() {
+        stops.value = seededStops();
     }
 
     function removeStop(id: string) {
@@ -245,6 +233,8 @@ export function useGradientModel() {
 
         // Actions
         addStop,
+        mintStop,
+        resetStops,
         removeStop,
         setStopPosition,
         setStopColor,

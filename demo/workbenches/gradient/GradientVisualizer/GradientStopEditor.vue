@@ -3,10 +3,13 @@ import { ref, computed, watchEffect, useTemplateRef } from "vue";
 import { useElementSize } from "@vueuse/core";
 import { X } from "@lucide/vue";
 import { clamp, scale } from "@mkbabb/value.js/math";
-import type { GradientStop } from "../composables/useGradientModel";
-import { railPosition } from "../composables/useGradientModel";
+import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
+import type { PickerSpace } from "../../../color-session/picker-color";
+import type { GradientStop } from "../model/types";
+import { sampleAt } from "../model/sample";
+import { formatColorLiteral, railPosition } from "../composables/useGradientCSS";
 
-const { stops, railRamp, colorAt, canRemove } = defineProps<{
+const { stops, railRamp, interpolationSpace, hueMethod, canRemove } = defineProps<{
     stops: GradientStop[];
     /**
      * The model's OWN removal floor (X-W6 · X.W6.b — b4). The seat used to
@@ -24,13 +27,22 @@ const { stops, railRamp, colorAt, canRemove } = defineProps<{
      */
     railRamp: string;
     /**
-     * Ramp color at a position (0–100) — previews the ghost + seeds adds.
-     * REQUIRED (X-W6 · X.W6.a): it was optional with a `?? null` default, and
-     * a masking default is how a rail silently paints an empty ghost when its
-     * owner forgets to wire the sampler.
+     * The space and hue method the ramp travels through (X-W6 · X.W6.c). With
+     * the stops they are everything the ONE sampling law reads, so the ghost
+     * and the caret sample the ramp through `sampleAt` themselves — the same
+     * law that painted `railRamp` beneath them — instead of through a sampler
+     * callback the owner re-implemented.
      */
-    colorAt: (position: number) => string;
+    interpolationSpace: PickerSpace;
+    hueMethod: HueInterpolationMethod;
 }>();
+
+/** The ramp's colour at a position (0–100), in the one literal dialect. */
+function rampColorAt(position: number): string {
+    return formatColorLiteral(
+        sampleAt({ stops, interpolationSpace, hueMethod }, position),
+    );
+}
 
 const emit = defineEmits<{
     "update:position": [id: string, position: number];
@@ -73,7 +85,7 @@ let pendingAdd: { x: number; y: number } | null = null;
 // `onBarPointerUp`) and mints at the pointer, and it mints only from the
 // keyboard, so no gesture is ever doubled.
 const caretPos = ref(50);
-const caretColor = computed(() => colorAt(caretPos.value));
+const caretColor = computed(() => rampColorAt(caretPos.value));
 
 // ── The keyboard grab (VISUAL-CONSTITUTION §5.2, the stop row) ──
 // "after Space grabs … Space drops, Escape cancels". It is the keyboard twin of
@@ -259,7 +271,7 @@ const selectedStop = computed(
 const selectedIndex = computed(() => stops.findIndex((s) => s.id === selectedId.value));
 
 const ghostColor = computed(() =>
-    hoverPos.value !== null ? colorAt(hoverPos.value) : null,
+    hoverPos.value !== null ? rampColorAt(hoverPos.value) : null,
 );
 
 // ── Bar gestures: hover ghost + click-to-add (never warp, never drag) ──
@@ -579,12 +591,10 @@ function onCaretKeydown(e: KeyboardEvent) {
                  affordance replaces the instruction line). -->
             <div
                 v-if="hoverPos !== null && !draggingId"
-                class="rail-ghost absolute rounded-full border-2 border-dashed border-white/70 opacity-80 pointer-events-none z-0"
+                class="rail-ghost rail-swatch absolute rounded-full border-2 border-dashed border-white/70 opacity-80 pointer-events-none z-0"
                 :style="{
                     left: handleLeft(hoverPos),
-                    background: ghostColor
-                        ? `linear-gradient(${ghostColor}, ${ghostColor}), var(--alpha-checker)`
-                        : 'var(--alpha-checker)',
+                    '--swatch': ghostColor ?? 'transparent',
                     transform: 'translate(-50%, -50%)',
                     boxShadow: 'var(--shadow-sm)',
                 }"
@@ -599,11 +609,11 @@ function onCaretKeydown(e: KeyboardEvent) {
             <button
                 type="button"
                 data-testid="gradient-stop-caret"
-                class="rail-caret absolute rounded-full border-2 border-dashed border-white/70 z-0"
+                class="rail-caret rail-swatch absolute rounded-full border-2 border-dashed border-white/70 z-0"
                 :aria-label="`Add gradient stop at ${formatPercent(caretPos)}%`"
                 :style="{
                     left: handleLeft(caretPos),
-                    background: `linear-gradient(${caretColor}, ${caretColor}), var(--alpha-checker)`,
+                    '--swatch': caretColor,
                     transform: 'translate(-50%, -50%)',
                 }"
                 @keydown="onCaretKeydown"
@@ -655,17 +665,14 @@ function onCaretKeydown(e: KeyboardEvent) {
                 @keydown="(e) => onHandleKeydown(e, stop)"
             >
                 <span
-                    class="rail-handle-face absolute top-1/2 left-1/2 rounded-full"
+                    class="rail-handle-face rail-swatch absolute top-1/2 left-1/2 rounded-full"
                     aria-hidden="true"
                     :style="{
-                        /* S owner-ruling 2026-07-05: the stop well paints its
-                           color as a layer OVER the `--alpha-checker` ground
-                           (background-color would sit UNDER background-image, so
-                           the color rides a const-color gradient layer). The
-                           per-stop COLOR is the only thing still inline here —
-                           it is per-stop DATA; the material lift and both rings
-                           are stylesheet contracts (U-F25 / X-W6 a11, below). */
-                        background: `linear-gradient(${stop.cssColor}, ${stop.cssColor}), var(--alpha-checker)`,
+                        /* The per-stop COLOR is the only thing inline here — it
+                           is per-stop DATA; the checker ground, the colour layer
+                           over it, the lift and both rings are stylesheet
+                           contracts (`.rail-swatch`, U-F25 / X-W6 a11, below). */
+                        '--swatch': stop.cssColor,
                     }"
                 />
             </button>
@@ -913,6 +920,30 @@ function onCaretKeydown(e: KeyboardEvent) {
 .rail-caret:focus-visible {
     opacity: 1;
 }
+/* ── The swatch paint stack (X-W6 · X.W6.c — c1 · G4c) ──
+   A stop's colour is an UNTRUSTED literal (`setStopsFromColors` writes palette
+   strings straight in), and it used to share one `background` SHORTHAND with
+   the checker ground it sits on — so an unparseable literal dropped the whole
+   declaration and took the ground with it (computed `background-image: none`):
+   an invisible stop was indistinguishable from a transparent one. The ground
+   and the colour are now two boxes. The element paints the checker from the
+   stylesheet; its `::after` paints `--swatch` over it (S owner-ruling
+   2026-07-05: the colour sits OVER the ground). A literal the browser rejects
+   invalidates only the overlay's `background-color`, which falls to its
+   initial `transparent` — the ground survives, so the failure is visible as a
+   checker, never as nothing. */
+.rail-swatch {
+    background: var(--alpha-checker);
+}
+.rail-swatch::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-color: var(--swatch);
+    pointer-events: none;
+}
+
 /* A grabbed stop says so with the cursor as well as with `aria-valuetext`. */
 .rail-handle[data-grabbed] {
     cursor: grabbing;

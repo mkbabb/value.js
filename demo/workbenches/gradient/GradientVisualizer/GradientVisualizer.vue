@@ -20,14 +20,12 @@ import { DockControl } from "@mkbabb/glass-ui/dock";
 import GradientStopEditor from "./GradientStopEditor.vue";
 import GradientCodeEditor from "./GradientCodeEditor.vue";
 import GradientEasingEditor from "./GradientEasingEditor.vue";
+import { useGradientModel } from "../composables/useGradientModel";
+import type { GradientType } from "../model/types";
 import {
-    useGradientModel,
     INTERPOLATION_SPACES,
     HUE_INTERPOLATION_METHODS,
-} from "../composables/useGradientModel";
-import type { GradientType } from "../composables/useGradientModel";
-import { interpolateStopColors } from "../composables/useGradientInterpolation";
-import { easingFnOf } from "../composables/useGradientCSS";
+} from "../../../color-session/color-space-meta";
 import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
 import type { PickerSpace } from "../../../color-session/picker-color";
 import { LIBRARY_PORT_KEY } from "../../../palettes/usePalettePorts";
@@ -45,7 +43,8 @@ const {
     coalescedCSS,
     simpleCSS,
     railRampCSS,
-    addStop,
+    mintStop,
+    resetStops,
     canRemove,
     removeStop,
     setStopPosition,
@@ -54,7 +53,10 @@ const {
     applyCSS,
 } = useGradientModel();
 
-const selectedStopId = defineModel<string | null>("selectedStopId", { default: null });
+// The selected stop is the visualizer's OWN state (X-W6 · X.W6.c — G4d): its
+// one parent binds nothing, so a `defineModel` here was a local ref wearing a
+// public-API costume.
+const selectedStopId = ref<string | null>(null);
 
 const GRADIENT_TYPES: { value: GradientType; label: string; description: string }[] = [
     { value: "linear", label: "Linear", description: "Left-to-right or angled" },
@@ -62,42 +64,11 @@ const GRADIENT_TYPES: { value: GradientType; label: string; description: string 
     { value: "conic", label: "Conic", description: "Angular sweep" },
 ];
 
-/**
- * The ramp's color at a bar position (0–100), easing included — feeds the
- * stop editor's add ghost AND the color a bar-click mints (W5-11: the old
- * fixed-teal insert is dead; an added stop is invisible until moved).
- */
-function colorAtPosition(position: number): string {
-    // The model keeps its stops ordinal-sorted and never drops below two, so
-    // this walk is TOTAL: every position falls before the first stop, after
-    // the last, or inside exactly one interval whose curve its opening stop
-    // carries. The three throws this function used to carry — "at least one
-    // stop", "interval i is missing", "no interval contains p" — each named a
-    // state the model can no longer be in (X-W6 · X.W6.a).
-    const list = stops.value;
-    const first = list[0]!;
-    const last = list[list.length - 1]!;
-    if (position <= first.position) return first.cssColor;
-    if (position >= last.position) return last.cssColor;
-    // Strictly inside the ramp: the interval that contains `position` is closed
-    // by the first stop at or past it, and opened by the stop before that —
-    // both exist, because `position` lies strictly between the two terminals.
-    const closeIdx = list.findIndex((s) => s.position >= position);
-    const s1 = list[closeIdx]!;
-    const s0 = list[closeIdx - 1]!;
-    const span = s1.position - s0.position;
-    const t = span > 0 ? (position - s0.position) / span : 0;
-    return interpolateStopColors(
-        s0.cssColor,
-        s1.cssColor,
-        easingFnOf(s0.easing)(t),
-        interpolationSpace.value,
-        hueMethod.value,
-    );
-}
-
+// A bar press mints through the model's own mint path (X-W6 · X.W6.c): the
+// model samples its ramp through the one sampling law and prints the stop in
+// the one literal dialect — the visualizer no longer carries a second sampler.
 function onAddStop(position: number) {
-    addStop(colorAtPosition(position), position);
+    mintStop(position);
 }
 
 // The one-line Fira verdict of the LAST editor parse (W5-11 / P0-1):
@@ -125,12 +96,12 @@ function seedFromPalette() {
 }
 
 function resetGradient() {
-    const seeded = setStopsFromColors(["oklch(0.75 0.15 145)", "oklch(0.65 0.18 265)"]);
+    resetStops();
     type.value = "linear";
     direction.value = 90;
     interpolationSpace.value = "oklch";
     hueMethod.value = "shorter";
-    parseVerdict.value = seeded.ok ? null : seeded.reason;
+    parseVerdict.value = null;
 }
 
 async function copyCSS() {
@@ -152,7 +123,8 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                 :stops="stops"
                 :can-remove="canRemove"
                 :rail-ramp="railRampCSS"
-                :color-at="colorAtPosition"
+                :interpolation-space="interpolationSpace"
+                :hue-method="hueMethod"
                 v-model:selected-id="selectedStopId"
                 @update:position="setStopPosition"
                 @add="onAddStop"

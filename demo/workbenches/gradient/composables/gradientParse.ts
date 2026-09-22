@@ -20,7 +20,7 @@
 
 import { parseCssColor, parseCssScalar } from "@mkbabb/value.js/css";
 import { linearInterval } from "./useGradientCSS";
-import type { GradientType, GradientStop } from "./useGradientModel";
+import type { GradientType, GradientStop } from "../model/types";
 
 
 /** UID generator for parsed stops. */

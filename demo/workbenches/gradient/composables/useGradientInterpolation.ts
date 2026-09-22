@@ -10,11 +10,11 @@ import { mixColors } from "@mkbabb/value.js/color";
 import { colorToCss, parseColorIn } from "../../../color-session/color-utils";
 import type { PickerSpace } from "../../../color-session/picker-color";
 
-// ── Shared interpolation vocabulary — moved to its neutral `@lib/` home
-// (S.W5-6 · F16: color-space facts, not gradient facts). Re-exported here so
-// the gradient tree's own consumers (`useGradientModel` → visualizer) keep
-// their import path.
-export { INTERPOLATION_SPACES, HUE_INTERPOLATION_METHODS } from "../../../color-session/color-space-meta";
+// The shared interpolation vocabulary (`INTERPOLATION_SPACES`,
+// `HUE_INTERPOLATION_METHODS`) lives in `color-session/color-space-meta` — its
+// neutral home (S.W5-6 · F16) — and every consumer imports it THERE, in one hop
+// (X-W6 · X.W6.c: the three-hop re-export chain through this file and the
+// model factory is gone).
 
 // ── Helpers ──
 

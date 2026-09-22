@@ -1,45 +1,28 @@
 /**
  * Gradient CSS generation — serializes gradient model state to CSS strings
- * (simple, coalesced, and per-interval ramps) and owns the ONE sampling law
- * (`sampleCoalescedStops`) plus the easing resolver (`easingFnOf`).
+ * (simple, coalesced, and per-interval ramps) in ONE colour-literal dialect
+ * (`formatColorLiteral`) and with the model's ` in <space>` clause.
  *
- * The strict model-or-reject PARSER lives in its own module
+ * The sampling law these serializers print is NOT here: it lives in
+ * `../model/sample` (X-W6 · X.W6.c), the one home of "the colour of this ramp
+ * at p". The strict model-or-reject PARSER lives in its own module
  * (`./gradientParse` — the S.W5-11 atomic boundary, lifted at cap-check).
  */
 
 import { computed } from "vue";
 import type { ComputedRef } from "vue";
-import type { AnyColor } from "@mkbabb/value.js/color";
-import { mixColors } from "@mkbabb/value.js/color";
-import {
-    CubicBezier,
-    easing,
-    linear,
-    linearEasing,
-    steppedEase,
-} from "@mkbabb/value.js/easing";
-import type {
-    EasingFunction,
-    LinearEasingStop,
-} from "@mkbabb/value.js/easing";
-import { parseTimingFunction } from "@mkbabb/value.js/css";
-import type {
-    CssLinearStop,
-    CssTimingFunction,
-} from "@mkbabb/value.js/css";
+import type { AnyColor, HueInterpolationMethod } from "@mkbabb/value.js/color";
+import { linear } from "@mkbabb/value.js/easing";
 import { colorToCss, parseColorIn } from "../../../color-session/color-utils";
+import { convertPickerColor } from "../../../color-session/picker-color";
+import type { PickerSpace } from "../../../color-session/picker-color";
+import { sampleCoalescedStops } from "../model/sample";
+import type { CoalescedSample } from "../model/sample";
 import type {
-    GradientModelState,
     GradientInterval,
-} from "./useGradientModel";
-
-/**
- * Sub-stops across the coalesced ramp. Inlined constant (W5-11 / P2-14): the
- * former `resolution` ref had NO UI — a dead affordance state. 32 across the
- * ramp keeps per-step Δ small enough that the browser's own linear blend
- * between adjacent sub-stops is imperceptible.
- */
-export const COALESCE_RESOLUTION = 32;
+    GradientModelState,
+    GradientSampleSource,
+} from "../model/types";
 
 // ── The linear interval seed ──
 //
@@ -61,75 +44,107 @@ export function linearInterval(): GradientInterval {
     };
 }
 
-// ── CSS timing AST → numeric easing ──
+// ── ONE colour-literal dialect (X-W6 · X.W6.c — c3) ──
 //
-// `/css` owns text and `/easing` owns numeric evaluation. The interval's CSS
-// literal is persisted truth; the picker callable is only a live cache.
+// A stop the model MINTS (a bar press, the keyboard caret) and a stop the model
+// SEEDS (the default pair, a reset) used to print in two grammars side by side
+// in one copyable readout — `oklch(74.32% 0.15204 153.16deg)` beside
+// `oklch(0.65 0.18 265)`. Every literal the model authors now prints through
+// this one function: the shipped serializer's `oklch()` grammar (L as a
+// percentage, hue in degrees), at a fixed per-channel precision. A literal the
+// USER typed is still kept verbatim (P2-15) — the dialect governs what the
+// model writes, never what it was given.
 
-const resolvedEasingCache = new Map<string, EasingFunction>();
+/** Decimal places per oklch channel: L (a 0–1 fraction → 2 places of %),
+ *  C, and hue in degrees. */
+const LITERAL_PLACES = [4, 5, 2] as const;
+const ALPHA_PLACES = 4;
 
-function easingValue(
-    result: ReturnType<typeof CubicBezier>,
-    source: string,
-): EasingFunction {
-    if (result.ok) return result.value;
-    throw new Error(`Invalid gradient easing "${source}": ${result.error.code}`);
+function roundTo(value: number, places: number): number {
+    const k = 10 ** places;
+    return Math.round(value * k) / k;
 }
 
-/** Resolve CSS linear()'s optional/double positions into numeric stops. */
-function linearStops(stops: readonly CssLinearStop[]): LinearEasingStop[] {
-    const expanded = stops.flatMap(({ output, input }) =>
-        input.length === 2
-            ? [{ output, input: input[0] }, { output, input: input[1] }]
-            : [{ output, input: input[0] ?? Number.NaN }],
-    );
-    expanded[0]!.input = Number.isNaN(expanded[0]!.input) ? 0 : expanded[0]!.input;
-    const last = expanded.length - 1;
-    expanded[last]!.input = Number.isNaN(expanded[last]!.input)
-        ? 1
-        : Math.max(expanded[last]!.input, expanded[0]!.input);
-
-    let anchor = 0;
-    for (let i = 1; i <= last; i++) {
-        if (Number.isNaN(expanded[i]!.input)) continue;
-        expanded[i]!.input = Math.max(expanded[i]!.input, expanded[anchor]!.input);
-        const span = i - anchor;
-        for (let j = 1; j < span; j++) {
-            expanded[anchor + j]!.input = expanded[anchor]!.input
-                + (expanded[i]!.input - expanded[anchor]!.input) * j / span;
-        }
-        anchor = i;
-    }
-    return expanded;
+/** The one dialect every model-authored stop literal prints in. */
+export function formatColorLiteral(color: AnyColor): string {
+    const oklch = convertPickerColor(color, "oklch");
+    const [l, c, h] = oklch.channels;
+    return colorToCss({
+        space: "oklch",
+        channels: [
+            l === "none" ? l : roundTo(l, LITERAL_PLACES[0]),
+            c === "none" ? c : roundTo(c, LITERAL_PLACES[1]),
+            h === "none" ? h : roundTo(h, LITERAL_PLACES[2]),
+        ],
+        alpha: oklch.alpha === "none" ? oklch.alpha : roundTo(oklch.alpha, ALPHA_PLACES),
+    });
 }
 
-function timingFunctionValue(ast: CssTimingFunction, source: string): EasingFunction {
-    switch (ast.kind) {
-        case "keyword":
-            return easingValue(easing(ast.name), source);
-        case "cubic-bezier":
-            return easingValue(CubicBezier(ast.x1, ast.y1, ast.x2, ast.y2), source);
-        case "steps":
-            return easingValue(steppedEase(ast.count, ast.position), source);
-        case "linear-function":
-            return easingValue(linearEasing(linearStops(ast.stops)), source);
-    }
+/** A seed literal restated in the one dialect (the model's default stops). */
+export function seedLiteral(css: string): string {
+    return formatColorLiteral(parseColorIn(css, "oklch"));
 }
 
-/** The interval's live timing function: picker cache, else parsed CSS truth. */
-export function easingFnOf(
-    interval: Pick<GradientInterval, "css"> & Partial<Pick<GradientInterval, "fn">>,
-): EasingFunction {
-    if (interval.fn) return interval.fn;
-    const cached = resolvedEasingCache.get(interval.css);
-    if (cached) return cached;
-    const parsed = parseTimingFunction(interval.css);
-    if (!parsed.ok) {
-        throw new Error(`Invalid gradient easing "${interval.css}": ${parsed.diagnostics[0].code}`);
+// ── The ` in <space>` clause (X-W6 · X.W6.c — c1 · G4b) ──
+//
+// Every serializer used to emit a bare `linear-gradient(90deg, …)` while the
+// model's interpolation space was in scope, so the browser blended each pair of
+// adjacent sub-stops in its own default space and the 32-sample density was
+// compensating for a clause the CSS was never given. The clause is the
+// css-color-4 §12 <color-interpolation-method>: the model's space under its
+// CSS name, plus the hue method when the space is polar and the method is not
+// the default `shorter`.
+
+/** The model's space under its CSS <color-space> name. A space css-color-4
+ *  cannot name (HSV; the non-CSS SpaceIds) has NO clause: the browser then
+ *  blends adjacent sub-stops in its default space, and the coalesced samples —
+ *  all taken through the model's own space by `../model/sample` — carry the
+ *  path at the coalesce density. */
+const CSS_INTERPOLATION_SPACE: Partial<Record<PickerSpace, string>> = {
+    rgb: "srgb",
+    "srgb-linear": "srgb-linear",
+    "display-p3": "display-p3",
+    "a98-rgb": "a98-rgb",
+    "prophoto-rgb": "prophoto-rgb",
+    rec2020: "rec2020",
+    lab: "lab",
+    oklab: "oklab",
+    xyz: "xyz",
+    hsl: "hsl",
+    hwb: "hwb",
+    lch: "lch",
+    oklch: "oklch",
+};
+
+/** The polar CSS spaces — the only ones a <hue-interpolation-method> may follow. */
+const POLAR_CSS_SPACES = new Set(["hsl", "hwb", "lch", "oklch"]);
+
+/** `in oklch`, `in oklch longer hue`, `in srgb` — or `""` when the space has no
+ *  CSS name. */
+export function interpolationClause(
+    space: PickerSpace,
+    hue: HueInterpolationMethod,
+): string {
+    const cssSpace = CSS_INTERPOLATION_SPACE[space];
+    if (!cssSpace) return "";
+    const hueClause = POLAR_CSS_SPACES.has(cssSpace) && hue !== "shorter" ? ` ${hue} hue` : "";
+    return `in ${cssSpace}${hueClause}`;
+}
+
+/** The gradient's first argument: geometry (angle / `from`) and the space
+ *  clause, space-separated in the one argument css-images-4 gives them. */
+function preamble(
+    model: Pick<GradientModelState, "type" | "direction" | "interpolationSpace" | "hueMethod">,
+): string | null {
+    const geometry: string[] = [];
+    if (model.type === "linear" && model.direction !== 180) {
+        geometry.push(`${model.direction}deg`);
+    } else if (model.type === "conic") {
+        geometry.push(`from ${model.direction}deg`);
     }
-    const fn = timingFunctionValue(parsed.value, interval.css);
-    resolvedEasingCache.set(interval.css, fn);
-    return fn;
+    const spaceClause = interpolationClause(model.interpolationSpace, model.hueMethod);
+    if (spaceClause) geometry.push(spaceClause);
+    return geometry.length ? geometry.join(" ") : null;
 }
 
 // ── Serialization ──
@@ -161,66 +176,18 @@ export function serializeGradient(model: GradientModelState): string {
     return `${typeName}(${parts.join(", ")})`;
 }
 
-/** One eased sub-stop of the coalesced ramp (position 0–100). */
-export interface CoalescedSample {
-    position: number;
-    /** The final color in `model.interpolationSpace`. */
-    color: AnyColor;
-}
-
-/**
- * The ONE sampling law: eased sub-stops consumed by the coalesced renderer,
- * the normalized editing rail, and each interval specimen.
- */
-export function sampleCoalescedStops(model: GradientModelState): CoalescedSample[] {
-    const { stops, interpolationSpace, hueMethod } = model;
-    if (stops.length < 2) return [];
-
-    const out: CoalescedSample[] = [];
-    const stepsPerInterval = Math.max(
-        2,
-        Math.round(COALESCE_RESOLUTION / (stops.length - 1)),
-    );
-
-    for (let i = 0; i < stops.length - 1; i++) {
-        const s0 = stops[i]!;
-        const s1 = stops[i + 1]!;
-        // The interval's curve hangs on the stop that OPENS it — there is no
-        // index-keyed lookup left to be missing, so no throw is reachable here.
-        const easing = easingFnOf(s0.easing);
-
-        const c0 = parseColorIn(s0.cssColor, interpolationSpace);
-        const c1 = parseColorIn(s1.cssColor, interpolationSpace);
-
-        const posRange = s1.position - s0.position;
-
-        for (let j = 0; j <= (i < stops.length - 2 ? stepsPerInterval - 1 : stepsPerInterval); j++) {
-            const t = j / stepsPerInterval;
-            const easedT = easing(t);
-            const pos = s0.position + t * posRange;
-
-            const mixed = mixColors(c0, c1, easedT, {
-                space: interpolationSpace,
-                hue: hueMethod,
-            });
-            if (!mixed.ok) {
-                throw new Error(`Gradient color mix failed: ${mixed.error.code}`);
-            }
-            // A runtime SpaceId keeps the discriminant/channel pair intact;
-            // TypeScript cannot distribute Color<SpaceId> back into AnyColor.
-            out.push({ position: pos, color: mixed.value as AnyColor });
-        }
-    }
-
-    return out;
+/** The 90° strip head every normalized ramp shares, space clause included. */
+function stripHead(source: GradientSampleSource): string {
+    const spaceClause = interpolationClause(source.interpolationSpace, source.hueMethod);
+    return spaceClause ? `linear-gradient(90deg ${spaceClause}, ` : "linear-gradient(90deg, ";
 }
 
 /** Format eased samples as a normalized horizontal strip (the ONE ramp form). */
-function rampGradient(samples: CoalescedSample[]): string {
-    const parts = samples.map(
-        (s) => `${colorToCss(s.color)} ${s.position.toFixed(2)}%`,
+function rampGradient(source: GradientSampleSource): string {
+    const parts = sampleCoalescedStops(source).map(
+        (s) => `${formatColorLiteral(s.color)} ${s.position.toFixed(2)}%`,
     );
-    return `linear-gradient(90deg, ${parts.join(", ")})`;
+    return `${stripHead(source)}${parts.join(", ")})`;
 }
 
 /**
@@ -246,11 +213,11 @@ export function railPosition(fraction: number): string {
 }
 
 /** The rail's ramp: the ONE map applied to every sample's position. */
-function railRampGradient(samples: CoalescedSample[]): string {
-    const parts = samples.map(
-        (s) => `${colorToCss(s.color)} ${railPosition(s.position / 100)}`,
+function railRampGradient(source: GradientSampleSource): string {
+    const parts = sampleCoalescedStops(source).map(
+        (s: CoalescedSample) => `${formatColorLiteral(s.color)} ${railPosition(s.position / 100)}`,
     );
-    return `linear-gradient(90deg, ${parts.join(", ")})`;
+    return `${stripHead(source)}${parts.join(", ")})`;
 }
 
 /**
@@ -279,7 +246,7 @@ export function serializeIntervalRamp(
         interpolationSpace: model.interpolationSpace,
         hueMethod: model.hueMethod,
     };
-    return rampGradient(sampleCoalescedStops(sub));
+    return rampGradient(sub);
 }
 
 /**
@@ -304,22 +271,20 @@ export function serializeRailRamp(model: GradientModelState): string {
     // handle paints at is the ordinal the ramp paints there. Beyond the first
     // and last stop CSS extends the terminal colour, which is what fills the
     // two inset bands the handle centres never reach.
-    return railRampGradient(sampleCoalescedStops(model));
+    return railRampGradient(model);
 }
 
 /**
  * Serialize a coalesced gradient — many intermediate stops that bake in
- * per-interval easing. This is the CSS that actually renders the gradient.
+ * per-interval easing. This is the CSS that actually renders the gradient, so
+ * it carries the model's ` in <space>` clause: between two sub-stops the
+ * browser blends in the space the model mixes in.
  */
 export function serializeCoalescedGradient(model: GradientModelState): string {
     const typeName = `${model.type}-gradient`;
     const parts: string[] = [];
-
-    if (model.type === "linear" && model.direction !== 180) {
-        parts.push(`${model.direction}deg`);
-    } else if (model.type === "conic") {
-        parts.push(`from ${model.direction}deg`);
-    }
+    const head = preamble(model);
+    if (head) parts.push(head);
 
     const { stops } = model;
 
@@ -331,7 +296,7 @@ export function serializeCoalescedGradient(model: GradientModelState): string {
     }
 
     for (const sample of sampleCoalescedStops(model)) {
-        parts.push(`${colorToCss(sample.color)} ${sample.position.toFixed(2)}%`);
+        parts.push(`${formatColorLiteral(sample.color)} ${sample.position.toFixed(2)}%`);
     }
 
     return `${typeName}(${parts.join(", ")})`;

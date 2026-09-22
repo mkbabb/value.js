@@ -36,7 +36,7 @@ import { useSpecimenRows } from "./easing/useSpecimenRows";
 import type {
     GradientModelState,
     GradientStop,
-} from "../composables/useGradientModel";
+} from "../model/types";
 
 const { stops, modelState } = defineProps<{
     stops: GradientStop[];

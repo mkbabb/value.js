@@ -22,13 +22,19 @@
  */
 
 import { describe, expect, it } from "vitest";
+import { useGradientModel } from "../demo/workbenches/gradient/composables/useGradientModel";
+import { parseGradientCSS } from "../demo/workbenches/gradient/composables/gradientParse";
 import {
-    parseGradientCSS,
+    formatColorLiteral,
     railPosition,
     serializeGradient,
-    useGradientModel,
-} from "../demo/workbenches/gradient/composables/useGradientModel";
-import { easingFnOf } from "../demo/workbenches/gradient/composables/useGradientCSS";
+    serializeRailRamp,
+} from "../demo/workbenches/gradient/composables/useGradientCSS";
+import {
+    easingFnOf,
+    sampleAt,
+    sampleCoalescedStops,
+} from "../demo/workbenches/gradient/model/sample";
 
 const GREEN = "oklch(0.75 0.15 145)";
 const BLUE = "oklch(0.65 0.18 265)";
@@ -212,7 +218,8 @@ describe("ONE axis: the rail ramp and the handle map are one expression", () => 
         for (const stop of m.stops.value) {
             expect(ramp).toContain(railPosition(stop.position / 100));
         }
-        expect(ramp).toMatch(/^linear-gradient\(90deg, /);
+        // X-W6 · X.W6.c: the strip carries the model's ` in <space>` clause.
+        expect(ramp).toMatch(/^linear-gradient\(90deg in oklch, /);
     });
 
     it("the map reads the rail's own custom properties, never a px literal", () => {
@@ -255,5 +262,57 @@ describe("setStopsFromColors is validated by the shipped parseCssColor oracle", 
         expect(curvesOf(m).every((css) => css === "cubic-bezier(0, 0, 1, 1)")).toBe(true);
         const round = parseGradientCSS(serializeGradient(m.modelState.value));
         expect(round.ok, round.ok ? "" : round.reason).toBe(true);
+    });
+});
+
+/**
+ * X-W6 · X.W6.c — c2. "The colour of this ramp at p" has ONE implementation:
+ * the add ghost and the caret sample through `sampleAt`, the rail paints
+ * `sampleCoalescedStops`, and both go through the same interval law. Mutation
+ * each case catches: re-introducing a second sampler (an exact walk beside the
+ * discretised one) diverges at a sub-stop; dropping the curve from either path
+ * diverges on the `steps()` interval; mis-owning the zero-span interval at a
+ * hard stop paints the wrong side of the edge.
+ */
+describe("one sampling law", () => {
+    it("the ghost's sampler and the rail's sub-stops agree at every sample", () => {
+        const m = useGradientModel();
+        m.addStop(RED, 40);
+        m.hueMethod.value = "longer";
+        m.setStopEasing(m.stops.value[1]!.id, STEPS);
+        const model = m.modelState.value;
+
+        const samples = sampleCoalescedStops(model);
+        expect(samples.length).toBeGreaterThan(8);
+        const ramp = serializeRailRamp(model);
+        for (const { position, color } of samples) {
+            const ghost = formatColorLiteral(sampleAt(model, position));
+            expect(ghost).toBe(formatColorLiteral(color));
+            // …and it is the literal the rail PAINTS at that ordinal.
+            expect(ramp).toContain(`${ghost} ${railPosition(position / 100)}`);
+        }
+    });
+
+    it("a minted stop is the colour the ghost previewed at that position", () => {
+        const m = useGradientModel();
+        m.setStopEasing(m.stops.value[0]!.id, STEPS);
+        const preview = formatColorLiteral(sampleAt(m.modelState.value, 37.5));
+        m.mintStop(37.5);
+        const minted = m.stops.value.find((s) => s.position === 37.5);
+        expect(minted?.cssColor).toBe(preview);
+    });
+
+    it("just past a hard stop the ramp is the stop that opens the next span", () => {
+        const m = useGradientModel();
+        m.addStop(RED, 50);
+        m.addStop(BLUE, 50); // coincident with RED: a CSS hard stop at 50
+        const model = m.modelState.value;
+        const atEdge = sampleCoalescedStops(model).filter((s) => s.position === 50);
+        // The rail paints several samples at the edge; the browser shows the
+        // LAST of them just past it — and that is what `sampleAt` returns.
+        expect(atEdge.length).toBeGreaterThan(1);
+        const past = formatColorLiteral(atEdge[atEdge.length - 1]!.color);
+        expect(formatColorLiteral(sampleAt(model, 50))).toBe(past);
+        expect(past).not.toBe(formatColorLiteral(atEdge[0]!.color));
     });
 });

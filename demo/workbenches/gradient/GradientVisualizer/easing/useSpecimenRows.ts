@@ -11,14 +11,14 @@
 import { computed } from "vue";
 import type { ComputedRef } from "vue";
 import { useSafeAccentFn } from "../../../../color-session/useContrastSafeColor";
-import { easingFnOf } from "../../composables/useGradientCSS";
+import { easingFnOf } from "../../model/sample";
 import { interpolateStopColors } from "../../composables/useGradientInterpolation";
 import { glyphPath, specimenNameFor, tileIdFor } from "./easingCatalogue";
 import type {
     GradientInterval,
     GradientModelState,
     GradientStop,
-} from "../../composables/useGradientModel";
+} from "../../model/types";
 
 export interface SpecimenRow {
     index: number;

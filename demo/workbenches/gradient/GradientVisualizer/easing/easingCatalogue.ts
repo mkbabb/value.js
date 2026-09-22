@@ -33,7 +33,7 @@ import type {
     EasingPickerValue,
     JumpTerm,
 } from "@mkbabb/glass-ui/easing";
-import type { GradientInterval } from "../../composables/useGradientModel";
+import type { GradientInterval } from "../../model/types";
 
 // ── The literal mint law (byte-identity with the picker) ────────────────────
 //
