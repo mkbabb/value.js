@@ -4445,3 +4445,122 @@ is `6fc1212e`, a sibling's X-W9 repair. The divergence is the same kind as ESC-P
 close. I did not rebase or merge the shared four-track index, which also holds X-W5's uncommitted
 shell rows, and I did not force-push. **ESC-PUSH still stands.** The fix is an orchestrator-level
 `git pull --rebase` when no seat has anything staged. The close commit is `980bbfc4`.
+
+## Check 1 — RESUME 2026-09-22 (L-20 fresh adversarial pass 1 over the third sitting's close)
+
+SERVED MODEL: claude-opus-5-5[1m]
+
+**Append-only beside** every block above (E-3). VERIFY-ONLY seat: no product byte, no gate script,
+no spec byte written. Writes: this block + one appended LEDGER event line.
+
+**Verdict: NOT-CONFORMANT.** The close itself is honest (it claims PARTIAL, not CLOSED, and every
+figure it publishes reproduces). But the wave does not meet its own §6 close bar, and 16 of the 20
+RED gates have no relief under the spec's own terms. The LEDGER status cell is **not** moved.
+
+### Act 0 — crash-recovery
+
+⟨cmd⟩ `git status --porcelain` → 16 rows, the same set the close names (X-W5 lane, `CARRY-LEDGER.md`,
+`execution/A/X-W5.md`, `scripts/dev/dev.sh`). None is in this seat's writable set (this record and the
+LEDGER). Nothing was inherited or touched.
+
+### Axis 1 + 9 — claimed GREENs re-run at this seat's clock (13 reproduced, 0 failed)
+
+| gate | ⟨cmd⟩ | reading |
+|---|---|---|
+| a1 | `npx vitest run test/gradient-order-invariant.test.ts test/gradient-parse.test.ts demo/test/glass/aurora-bracket.test.ts` | `3 passed (3)` · `41 passed (41)` |
+| f1 | `node docs/tranches/X/gates/gate-catalog-totality.mjs` | EXIT 0 · `offered=18 catalogued=18 info=18` |
+| f5 | `node docs/tranches/X/gates/gate-specimen-grammar.mjs` | EXIT 0 · last row `hex css 9ch #003abe00` |
+| f2 · f7 · f8(static) · f9 · f10 | the spec's greps + `npx vue-tsc --noEmit -p tsconfig.demo.json` | `0` · `0`/`0` + vue-tsc EXIT 0 · `0` · `2`/`0` · `0` |
+| h2 | `node docs/tranches/X/gates/gate-blob-pipeline.mjs` | EXIT 0 · `13 published figures, 12 re-derived` |
+| i2 | `node docs/tranches/X/gates/gate-lband-door.mjs` | EXIT 0 · three sites `clean` |
+| d2 | `node …/probes/x-w6/gate-easing-readout.mjs` | EXIT 0 · `branch selected by the census: DATED ASK` · restyle `0 line(s)` |
+| H1 | `node docs/tranches/X/gates/gate-no-chassis.mjs` over the 19 shas | EXIT 0 · GREEN |
+| H3 | parser R1 one-liner · glass `package.json` version | EXIT 0 · `7.0.0` |
+
+Not re-run (they need a live server and nothing they read moved since `caea9d1e`): a3–a12, b2, b4,
+f3, f4, f6, f8 e2e, g2, j4. Each cites its dated banked reading, as the close does. The published
+**GREEN 30 / RED 20** re-adds (11+10+3+3+3 / 2+3+4+6+3+2).
+
+§7 at the settled bytes: ⟨cmd⟩ `npx vitest run` → `Test Files 2 failed | 35 passed (37)` ·
+`Tests 2 failed | 630 passed (632)`. The failures are `test/spectrum-luma.test.ts` C-5 and
+`demo/test/shell/reka-binding-idiom.test.ts` NG-6, exactly as the close says.
+
+### Axes 2–7 — bounds, masking, families, E-3, mail, four-verb
+
+- **Bounds (2).** ⟨cmd⟩ `git show --stat` on all 24 wave commits (`f90aeb02` … `0f6ca611`). This
+  sitting's commits are `caea9d1e` (`test/gradient-parse.test.ts`, the §0z E2 grant),
+  `c9f11e87` / `980bbfc4` / `0f6ca611` (the record, the LEDGER cell and `W6-evidence/gates/close-2026-09-22/`).
+  All are in-set. The three older off-§4 paths (`demo/scenes/about/ColorNutritionLabel.vue`,
+  `test/gradient-v4-consume.test.ts`, `e2e/smoke/views/companion-pane-track-start.spec.ts`) were
+  adjudicated at earlier checks and are not re-opened. ⟨cmd⟩ `git log --oneline f90aeb02^..HEAD --
+  scripts/dev/dev.sh | wc -l` → **0**.
+- **Masking (3).** No try/catch, no skip, no allowlist and no node_modules patch in this sitting's diff.
+  `caea9d1e` replaces `expect(m.intervals).toHaveLength(n)` with `expect(m.stops.length - 1).toBe(n)`.
+  That is the E2 migration the addendum prescribes, because the `intervals` array no longer exists.
+  The new line restates the preceding stop-count assertion, so it adds no information, but it hides
+  nothing either (**INFO**).
+- **Families (4).** Commit #3 (`.c`) has not landed. `caea9d1e` is the E2 grant, not #3. No family
+  has been split.
+- **E-3 (5).** ⟨cmd⟩ `git diff --stat f90aeb02^..HEAD -- docs/tranches/V/megatranche/registry/adjudicated/`
+  → empty. `W6.md`'s only change in the span is `732fe109` (the orchestrator's §0z addendum), and it
+  is insertion-only (⟨cmd⟩ `git diff … | grep '^-[^-]'` → empty). `W9.md` moved under X-W9's own
+  commits, which are not this wave's.
+- **Mail (6).** ⟨cmd⟩ `grep -c '^| I-\|^| O-' INBOX.md` → **90**. ⟨cmd⟩ the awk that reads Status and
+  Routing by position → **0** UNREAD. The unanchored `/UNREAD/` match returns 6 rows (O-20, I-30, I-31,
+  I-32, I-35, O-39), but in each one the word sits in prose: the statuses are SENT, ROWED, FOLDED and
+  READ. `find docs/tranches/V -maxdepth 2 -newermt 2026-09-21 ! -name INBOX.md` → empty. **Clean.**
+  The §0z E5 `O-` relay is still owed to `.d`.
+- **Four-verb (7).** The record holds the line at IMPLEMENTED **no**, and it has not moved. That is
+  lawful.
+
+### Axis 8 — the §2a goal at the bytes: NOT MET
+
+- The Gradient sampler is still two: ⟨cmd⟩ c1 prints `model/types.ts does not exist`, the 7-name door
+  is live, and `grep -c "one sampling law"` → 0.
+- The easing radius register is unmade: `gate-easing-radius.mjs` is ABSENT.
+- There is no aurora on the ramp, and the 2 rAF sites are still ungated.
+- The blob chroma cure h1 has not landed.
+- There is no X:ATMO-1 oracle and no cold-load cure: `armRuntime` → **0**.
+- No route owns a scene: `grep -c "component: Stub" router/index.ts` → **14**.
+
+### Axis 10 — honest-RED adjudication, gate by gate (the set is EMPTY)
+
+§6 at the spec bytes says: *"The wave closes when **all 45 born-RED sub-gates are GREEN**"*. The spec
+routes none of these gates to a producer or a later wave. COHESION §0z ruled this same shape *"UNDONE
+WORK … the cure is dispatch"*.
+
+| RED gate(s) | spec relief? | owner the close names | adjudication |
+|---|---|---|---|
+| c1 c2 c3 c4 | none. `.c` is this wave's unit. ESC-W6c-1 is a §3a trigger, and its grant is unruled (no COHESION addendum after §0ak names it) | orchestrator → `.c` re-dispatch | **UNRELIEVED — HIGH** |
+| d1 · e1 · e2 · h1 · i1 · i3 | none. §0z E1 dispatched them. The close records them as *"not dispatched in this run"*. h1's display-p3 physics ceiling (E6) only relieves chroma beyond the display gamut, and that has not been measured | `.d` `.e` `.h` `.i` | **UNRELIEVED — HIGH** |
+| a2 · a13 · b3 | none. X-W5 is a predecessor, not a producer and not a successor. The break is X-W5's **uncommitted** working-tree shell bytes (`getByRole('main', {name:'Color tool panes'})`) | X-W5 | **UNRELIEVED — blocked by a foreign fixture, not relief (HIGH, cure outside W6)** |
+| b1 · g1 | none at the spec bytes. §0z E3 moves only a3–a7's instruments to X-W11. R-3 is the `ictcp`/`jzazbz` URL revert, not b1. g1's canon is X-W10 content, but the g1 gate belongs to this wave | X-W11 roster (b1) · `.g`/X-W10 (g1) | **UNRELIEVED — HIGH** |
+| j1 j2 j3 | a **lawful wait**, not relief. `W6.md:4` says Opens after X-W5, and §0z E1 says `.j` waits and is never skipped. X-W5 reads PARTIAL 2026-09-21 | `.j` after X-W5 CLOSED | **LAWFULLY BLOCKED, still owed (MEDIUM)** |
+| H2 (leg 2) · H4 | these follow from `.e`/`.j` and from the 8 undischarged dispositions | `.e`/`.j` · all units | **UNRELIEVED — follows from the above** |
+
+The §0z E2 condition (*"§7's `npx vitest run` must read GREEN before close"*) is also RED at 2
+foreign canaries (C-5, NG-6), owned by X-V/W1.a's successors. It stays **MEDIUM** here as a
+close-condition dependency.
+
+### Successor "Opens after" conjuncts
+
+- **X-W7** (`W7.md:6`): X-W3 is CLOSED (honest-RED G-21) and X-W4 is CLOSED. **X-W6 is RED.**
+  → **lawfully BLOCKED.**
+- **X-W8** needs W5·W6·W7 to stabilize, and **X-W10** needs W5..W9 stable. W5 and W6 are PARTIAL.
+  → **both lawfully BLOCKED.**
+- **X-W11** needs X-W0..X-W10 IMPLEMENTED. → **lawfully BLOCKED.**
+
+### Register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| 1 | HIGH | Ten gates are RED because units owed by this wave never sat: c1–c4 (`.c`, ESC-W6c-1) and d1 e1 e2 h1 i1 i3 (`.d .e .h .i`, not dispatched) | Axis 10 table · c1 EXIT 1 · `gate-literal-dialect.mjs`, `interpolation-subset.test.ts`, `gate-easing-radius.mjs`, `gate-prm-idiom.mjs`, o25, o28 all ABSENT · rAF 2 · `armRuntime` 0 | the orchestrator rules ESC-W6c-1 with a dated COHESION addendum (6 paths, `GradientEasingEditor.vue` at its true path), then dispatches `.c`, `.d → .e`, `.h → .i` whole per §0z E1 |
+| 2 | HIGH | a2 · a13 · b3 RED: the e2e fixture is broken by X-W5's uncommitted shell bytes | close Act 2: 21 failed / 1 passed, 40 lines quote `Color tool panes` | X-W5 lands or reverts its shell lane. Then re-run a2/a13/b3 by the same commands. No W6 write to the X-W5 shell |
+| 3 | HIGH | b1 and g1 are RED with no spec relief. Routing them to X-W11 or X-W10 is not a spec routing | `W6.md` §6 · §0z E3 names a3–a7 only | the orchestrator either rules a dated relief addendum for each, or `.b` and `.g` re-sit to GREEN |
+| 4 | MEDIUM | j1–j3 are owed and lawfully blocked on X-W5 | LEDGER X-W5 `PARTIAL — 2026-09-21` · `component: Stub` 14 | `.j` dispatches when X-W5 reads CLOSED |
+| 5 | MEDIUM | the §0z E2 close condition (full vitest GREEN) is RED at 2 foreign canaries | `2 failed \| 630 passed (632)` | X-V/W1.a's successors cure C-5 and NG-6 |
+| 6 | INFO | `caea9d1e`'s migrated assertion restates the stop count. It is spec-mandated (E2) and hides nothing | `git show caea9d1e` | none required |
+| 7 | INFO | ESC-PUSH: 1 commit behind origin (`6fc1212e`), disclosed and not forced | close Act 11 | an orchestrator `git pull --rebase` when the index is clean |
+
+**Honest-RED set: ∅.** gatesReproduced **13** · gatesFailed = the 20 RED gates: a2 a13 b1 b3 g1 c1 c2
+c3 c4 d1 e1 e2 h1 i1 i3 j1 j2 j3 H2 H4. The LEDGER status stays **PARTIAL**.
