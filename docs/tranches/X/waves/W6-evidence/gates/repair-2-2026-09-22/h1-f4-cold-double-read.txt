@@ -1,0 +1,82 @@
+=== h1 run 1 port 8681 load: 47.74 40.95 54.78
+(node:81168) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:81217) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 3 tests using 1 worker
+
+[1A[2K(node:81223) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/3] [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — lab(92% 88.8 20)
+[1A[2K[smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — lab(92% 88.8 20)
+[h1] seed lab(92% 88.8 20) L 0.9583 C 0.27245 h 9.83 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.02105 · painted core median L 0.8559 C 0.04624 h 4.78 · ΔC 0.02518 (stated ±0.04) · px 2324
+
+[1A[2K[2/3] [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — oklch(0.65 0.3 150)
+[1A[2K[smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — oklch(0.65 0.3 150)
+[h1] seed oklch(0.65 0.3 150) L 0.6500 C 0.30000 h 150.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.17901 · painted core median L 0.7364 C 0.18504 h 141.94 · ΔC 0.00603 (stated ±0.04) · px 2324
+
+[1A[2K[3/3] [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — oklch(0.55 0.37 328)
+[1A[2K[smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — oklch(0.55 0.37 328)
+[h1] seed oklch(0.55 0.37 328) L 0.5500 C 0.37000 h 328.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.25325 · painted core median L 0.6489 C 0.23160 h 321.56 · ΔC -0.02165 (stated ±0.04) · px 2324
+
+[1A[2K  3 passed (1.0m)
+=== h1 run 2 port 8682 load: 29.81 36.61 52.11
+(node:83079) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:83125) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 3 tests using 1 worker
+
+[1A[2K(node:83136) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/3] [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — lab(92% 88.8 20)
+[1A[2K[smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — lab(92% 88.8 20)
+[h1] seed lab(92% 88.8 20) L 0.9583 C 0.27245 h 9.83 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.02105 · painted core median L 0.8562 C 0.04624 h 4.81 · ΔC 0.02518 (stated ±0.04) · px 2324
+
+[1A[2K[2/3] [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — oklch(0.65 0.3 150)
+[1A[2K[smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — oklch(0.65 0.3 150)
+[h1] seed oklch(0.65 0.3 150) L 0.6500 C 0.30000 h 150.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.17901 · painted core median L 0.7391 C 0.18462 h 141.99 · ΔC 0.00561 (stated ±0.04) · px 2324
+
+[1A[2K[3/3] [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — oklch(0.55 0.37 328)
+[1A[2K[smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — oklch(0.55 0.37 328)
+[h1] seed oklch(0.55 0.37 328) L 0.5500 C 0.37000 h 328.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.25325 · painted core median L 0.6484 C 0.23158 h 321.51 · ΔC -0.02167 (stated ±0.04) · px 2324
+
+[1A[2K  3 passed (1.1m)
+=== f4 run 3 port 8683 load: 23.76 33.21 49.58
+  fits  268/268 px  31ch  lch(92% 91.02 12.69deg / 82.7%)
+  fits  302/302 px  35ch  oklab(95.83% 0.2684 0.0465 / 82.7%)
+  fits  320/320 px  37ch  oklch(95.83% 0.2725 9.834deg / 82.7%)
+  fits  328/328 px  38ch  color(xyz 1.267 0.7878 0.6296 / 82.7%)
+  fits  112/112 px  13ch  kelvin · 5309
+  fits  389/389 px  45ch  color(srgb-linear 2.58 0.2763 0.5753 / 82.7%)
+  fits  389/389 px  45ch  color(display-p3 1.402 0.6284 0.7905 / 82.7%)
+  fits  363/363 px  42ch  color(a98-rgb 1.347 0.5571 0.7701 / 82.7%)
+  fits  397/397 px  46ch  color(prophoto-rgb 1.27 0.6889 0.7346 / 82.7%)
+  fits  354/354 px  41ch  color(rec2020 1.258 0.7095 0.798 / 82.7%)
+  fits  276/276 px  32ch  ictcp · 0.5591 · 0.0437 · 0.1739
+  fits  285/285 px  33ch  jzazbz · 0.2215 · 0.1177 · 0.0428
+  fits   78/78 px   9ch  #ff8fc8d3
+
+[1A[2K  1 passed (31.5s)
+=== f4 run 4 port 8684 load: 22.11 31.97 48.57
+
+      81 |     // §8 — the AFTER frame is taken by the gate that measures it, so witness and
+      82 |     // measurement can never drift apart.
+    > 83 |     await listbox.screenshot({
+         |                   ^
+      84 |         path: "docs/tranches/X/waves/W6-evidence/catalog/after-catalog-open.png",
+      85 |     });
+      86 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o22-specimen-legibility.spec.ts:83:19
+
+    Error Context: test-results/oracles-o22-specimen-legib-1355d-ecimen-caption-fits-its-box-smoke/error-context.md
+
+
+[1A[2K  1 failed
+    [smoke] › e2e/smoke/oracles/o22-specimen-legibility.spec.ts:76:1 › every specimen caption fits its box 

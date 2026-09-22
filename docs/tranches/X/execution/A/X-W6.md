@@ -5804,3 +5804,68 @@ No successor is unlawfully blocked; every successor is lawfully blocked on this 
 32 reproduce on every reading, f4 and h1 on 1 of 2. Honest-RED set **g1 · j1 · j2 · j3 · H2 · H4**; **9 REDs unrelieved**
 (a2 a3 a4 a13 b3 e1 f3 i3 b1), four of them waiting on unruled escalations (ESC-W6r1-f3 · ESC-W6r1-i3 · ESC-W6c-b1-1 ·
 ESC-W6close-1). The LEDGER row is **not promoted**; it stays PARTIAL.
+
+## Repair 2 — RESUME 2026-09-22 (REPAIR SEAT, round 2, over the Check 2 — fourth sitting register)
+
+SERVED MODEL: claude-opus-5-5[1m]
+
+**Append-only beside** every block above (E-3). Read `W6.md` whole once (both addenda), the fourth-sitting Check 2
+register, and the Repair 1 diagnosis ranges by `grep -n`/`sed`.
+**Crash-recovery**: ⟨cmd⟩ `git status --porcelain` → `M docs/tranches/V/coordination/INBOX.md` · `M docs/tranches/V/reformation/CARRY-LEDGER.md` ·
+`M docs/tranches/X/execution/C/F-W12.md` · `M scripts/dev/dev.sh`. None is in this seat's writable set; nothing inherited, nothing touched.
+**Rulings**: ⟨cmd⟩ `grep -rln 'ESC-W6r1-f3\|ESC-W6close-1\|ESC-W6r1-i3\|ESC-W6c-b1-1' docs/tranches/X` → `LEDGER.md` · this record only.
+COHESION's newest addendum is `§0au` (F.W12). **None of the four W6 escalations is ruled.**
+**Bytes**: ⟨cmd⟩ `git log 97e9a4f4..HEAD --oneline -- demo e2e test` → empty. No product or spec byte moved since Check 2.
+**Host**: ⟨cmd⟩ `uptime` → load **54.76 · 42.04 · 55.32** (18:49). Not a quiet host.
+
+### Defect → cure → gate re-reading
+
+| # | sev | disposition | receipt |
+|---|---|---|---|
+| C2-1 (a2 a3 a4 a13 b3 e1) | HIGH | **ESCALATED — not cured.** No W6 byte produces the stall (Repair 1 C1-1/C1-2 measured it: rAF one frame every 3–9 s under load, producer `glass-reveal-out` and X-W5 `shell.css` blur carrier). The cure the register names is a COHESION ruling on ESC-W6r1-f3 + a quiet-host bisect across `e0e204a9 → 50633f19 → 2183b814` owned by X-W5/X-W2 — outside this seat's writable set. Lengthening any wait would be masking; none is done. The host stayed loaded (22–55), so no quiet-host double-read of the command of record was possible | rulings grep above; `git log 97e9a4f4..HEAD -- demo e2e test` → empty |
+| C2-2 (f3) | HIGH | **ESCALATED** — same mechanism, same ruling (ESC-W6r1-f3) | as C2-1 |
+| C2-3 (i3) | HIGH | **ESCALATED** — the cure is a COHESION ruling on ESC-W6r1-i3 (URL-carried pick ∈ "persisted pick"?): either a render-blocking boot-seed module (needs X-W2 sign-off — outside `.i`'s grant, which is the pre-module `index.html` seed only) or an E-3 re-point of o28 (a spec act, not a seat act). Repair 1 C1-4 measured why the granted seed cannot move o28 | Repair 1 C1-4 |
+| C2-4 (b1) | MEDIUM | **ESCALATED** — `gate-seat.mjs` is `execute, no write` (§4); re-pointing G3d rides X-W11's OUT-OF-WAVE roster, and accepting o21:422 as witness of record is a COHESION ruling (ESC-W6c-b1-1). Not re-run here: no byte it reads moved since Check 2's ×2 EXIT 1 | Check 2 Axis 1 |
+| C2-5 (h1) | MEDIUM | **CURED BY THE REGISTER'S OWN PRESCRIPTION** — the cure was *"run h1 twice on a cold server; if it stays split, escalate"*. Two freshly spawned servers, both GREEN; the split did not persist; no byte changed | below |
+| C2-6 (f4) | MEDIUM | **ESCALATED (rides ESC-W6r1-f3)** — the split persists (1 of 2 again): the failing run died at the §8 witness `listbox.screenshot` (`o22:83`) before the census, the frame-stability class. Adding `animations:"disabled"` or a longer timeout would mask the starvation the escalation owns; not done. Every completed census read `0/18` overflow | below |
+| C2-7 (§8 artefacts) | MINOR | **NOT CURED — no one-command cure**: the gradient BEFORE frames and the OM re-captures need the `.a/.b` evidence repair and `.i` (R-11 owners); the cold-load frame is gated on i3 | Close Act 4 |
+| C2-8 | INFO | none | — |
+
+### Gate re-readings (transcript `W6-evidence/gates/repair-2-2026-09-22/h1-f4-cold-double-read.txt`)
+
+⟨cmd⟩ `VJS_E2E_PORT=868{1,2} npx playwright test e2e/smoke/webgl-blob-idle.spec.ts -g "hero blob carries current chroma" --project=smoke --reporter=line`
+(each on its own freshly spawned webServer):
+
+| run | port | load at start | result | ΔC per seed (stated ±0.04; buffer `srgb`) |
+|---|---|---|---|---|
+| 1 | 8681 | 47.74 | **`3 passed (1.0m)`** | 0.02518 · 0.00603 · −0.02165 |
+| 2 | 8682 | 29.81 | **`3 passed (1.1m)`** | 0.02518 · 0.00561 · −0.02167 |
+
+**h1 GREEN ×2 on cold servers** (C2-5 discharged at its own terms; with Check 2's run 2 and Repair 1's three, 5 of the last 6 readings are GREEN; the one RED was the arrival-budget run).
+
+⟨cmd⟩ `VJS_E2E_PORT=868{3,4} npx playwright test e2e/smoke/oracles/o22-specimen-legibility.spec.ts --project=smoke --reporter=line`:
+
+| run | port | load at start | result |
+|---|---|---|---|
+| 3 | 8683 | 23.76 | **`1 passed (31.5s)`** — every printed census row `fits` (13 rows in the tail-capped transcript; 0 `overflow` lines) |
+| 4 | 8684 | 22.11 | **`1 failed`** at `o22:83` `listbox.screenshot(...)` (the §8 AFTER witness), before the census printed |
+
+**f4 split again (1 of 2)** → stays with ESC-W6r1-f3. Run side effect: `catalog/after-catalog-open.png` was re-written by the
+o22 run and restored to HEAD bytes (`git checkout -- <that path>`, this seat's own side effect only).
+Transcript counts (write-then-measure, read twice): ⟨cmd⟩ `grep -c '^\[h1\]'` → **6** · `grep -c '3 passed'` → **2** · `grep -c '  fits '` → **13** ·
+`grep -c '1 failed'` → **1** · `grep -c '1 passed'` → **1** · `grep -c overflow` → **0**.
+
+### Escalations (unchanged in substance; re-stated for the orchestrator)
+
+1. **ESC-W6r1-f3** — owns a2 a3 a4 a13 b3 e1 f3 and the f4 split: a COHESION ruling + a quiet-host bisect across
+   `e0e204a9 → 50633f19 → 2183b814` (X-W5/X-W2). Host load during this seat: 22–55.
+2. **ESC-W6r1-i3** — owns i3: COHESION rules the URL-pick reading (render-blocking boot module w/ X-W2 sign-off, or an E-3 o28 re-point).
+3. **ESC-W6c-b1-1** — owns b1: X-W11 OUT-OF-WAVE re-point of G3d, or o21:422 accepted as witness of record.
+4. **ESC-W6close-1** — the 61 foreign e2e files on the retired label → the renamer (ownership ruling).
+
+### Verdict
+
+**1 cured (C2-5, by re-reading at its own prescription; no byte changed) · 5 escalated (C2-1 · C2-2 · C2-3 · C2-4 · C2-6) ·
+1 MINOR carried (C2-7, no one-command cure) · 1 INFO.** No product, spec or test byte written. GREEN/RED arithmetic
+unchanged: **GREEN 35 / RED 15**; honest-RED **g1 · j1 · j2 · j3 · H2 · H4**; unrelieved **a2 a3 a4 a13 b3 e1 f3 i3 b1**.
+The LEDGER row stays **PARTIAL**.
