@@ -678,3 +678,50 @@ Live probes: the banked `evidence/W13T/KF-W13T-k-dock-probe.mjs` and `KF-W13T-e-
 The full KF.W13T roster is `.k` (`70a9b882` · `936b8c74` · `b56e9a41`), `.e` (`b4c5dfb1` · `2141883d` · `a71efd0d` · `cbe9b904`), `.k2` (`6606ca7e`), Repair 1 (`5e5f4028`), `.e2` (`76f68412` · `09846d75`) and `.k3` (`a3fa29f9` · `a4a70536` · `cfecfbce`).
 
 **State: CLOSED** — IMPLEMENTED, with every gate green. VERIFIED: NO, because the spec designates no self-stamp; the L-18/L-20 challenge passes are the orchestrator's to seat. The residuals are the three non-gating items named in the `.k4` receipt. Per §0ar, Track B is now COMPLETE except for KF.W3, which is gate-keyed on RC-P(V) at the X-W11 coordinate.
+
+## Close — WAVE CLOSE SEAT (2026-09-22, VERIFY-ONLY, over `.k4`)
+
+**SERVED MODEL**: `claude-opus-5-5[1m]`. No kf, glass or product bytes were written. The only bytes are this section and one LEDGER event line. Crash recovery: `git status --porcelain` shows nothing dirty inside this seat's writable set. The dirty value.js paths belong to sibling tracks and `dev.sh`, and none were touched.
+
+**Gates, BEFORE (RESUME baseline, kf `5e5f4028`) → AFTER (this seat, kf `cfecfbce` = origin, `0 0` after fetch), every one double-run**:
+
+| gate | before | after, run 1 · run 2 |
+|---|---|---|
+| G-KFW13T-1: children outside the capsule, 3 viewports × `#/` `#/cube` | 0 (cured at `.k`) | `k-dock-probe`: out 0 ×6 · out 0 ×6 |
+| G-KFW13T-2: vue-tsc (tsconfig.json) · `test:demo` · push | 0 · 61/61 501/501 | 0 · 0; 63/63 505/505 · 63/63 505/505; kf `0 0` |
+| G-KFW13T-3: picker rows with an `<svg><path>` glyph | 29/29 | 29/29 · 29/29 |
+| G-KFW13T-4: slider `aria-valuenow` moves by pointer and ArrowRight, on producer paint | GREEN | drag 0→795 · click 795→450 · ArrowRight 450→480; thumbBg `rgba(0, 0, 0, 0)`; 0 pageerrors (×2 identical) |
+| G-KFW13T-5: playback moves after 500 ms | GREEN | t 0→558.1 · 0→552.0 ms; tiles and twin moved (viz 93→196); 0 pageerrors |
+| G-KFW13T-6: hide/show, and persisted across reload | RED on persistence ×2 | `e2-probe` hideAfterReload pressed "true", stored "hidden"; showAfterReload "shown"; green true · true. `e-probe` afterReload pressed "true" ×2 |
+| G-KFW13T-7: dock/ribbon collisions at 390×844 · 768 · 1440 | 390 `#/` 1 · `#/cube` 3 | coll 0 ×6 · 0 ×6. `k3-chrome-probe`: ribbon 0; all 3 names in the dock; `?` and click each open the dialog; share popover opens (×3 viewports ×2) |
+| R-e-2: paused scrub repaints the twin | ball pinned at 93 | keyboard 93→313 · pointer →214, still paused (×2 identical) |
+| §Verification eslint (no `demo/styles`) | 6 | EXIT 0 · EXIT 0 |
+| `npm run check` | exit 0 | exit 0 · exit 0 (proof:structure PASS) |
+
+**Roster audit (`git show --stat`)**: `5e5f4028..HEAD` = 5 kf shas, all inside the §0ar sets.
+- `.e2` `76f68412` touched `controlOptionsStore.ts` (+1 line, the one field), `EasingScene.vue` and a test.
+- `.e2` `09846d75` touched `AnimationVisualizer.vue`, `PlaybackRibbon.vue` and a test.
+- `.k3` `a3fa29f9` touched `ChromeDock.vue`, `EditorShell.vue` and a test.
+- `.k3` `a4a70536` touched `ChannelOptions.vue` and `TimingFunctionPanel.vue`.
+- `.k3` `cfecfbce` touched `AnimationControlsGroup.vue`, `ControlsPaneWrapper.vue` and a test.
+
+Each family is one sha per meaning, and none is split. The masking scan over the added lines (`eslint-disable`, `.skip(`, `.only(`, `as any`, `@ts-ignore`, `@ts-expect-error`, `overflow: hidden`, `catch (`) returned **0**. **Landed-wrong: 0.**
+
+**E13**: BK is still the newest glass dir. Files newer than 2026-09-22 00:00:
+- value.js `V/` has `EVIDENCE.md`, `VISUAL-CONSTITUTION.md` and `OPTICAL-BENCH-COMPOSITIONS.md` (Track A documents, not letters).
+- `V/coordination` has `INBOX.md`.
+- BK `coordination/` has the same three letters, already rowed.
+- kf `V/coordination` has none.
+- atlas `P/coordination` does not exist.
+
+⟨cmd⟩ `grep "^| I-" INBOX.md | grep -c "| UNREAD"` → **0** (the tail is I-39). **0 UNREAD.**
+
+**Residuals, none gating**:
+1. Share and theme have a second face in `MbabbMenu.vue:47-80`. Owner: the owner / KF.W9's design reading.
+2. The SharePopover glyph renders one rung larger than the other dock glyphs. Owner: KF.W9's ladder.
+3. `resize-tracks.test.ts` mounts `AnimationVisualizer` without the `currentT` prop. This causes only a dev missing-prop warning. Owner: the next `test/demo/**` seat.
+4. The Drawer-detent setter arm was verified by typecheck and lint only, not driven live. Owner: the next X·KF e2e seat.
+
+**Escalations**: EMPTY.
+
+**Four verbs**: AUDITED YES · SPECIFIED YES · **IMPLEMENTED YES** · VERIFIED NO. The spec does not designate this seat to stamp VERIFIED; that is for the orchestrator's L-18/L-20 passes. LEDGER row `:56`'s CLOSED cell is kept and not downgraded, and one event line is appended.
