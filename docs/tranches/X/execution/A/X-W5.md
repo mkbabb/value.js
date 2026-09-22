@@ -2677,3 +2677,91 @@ BD-22 "source order only" **1**. No cure landed, so no gate could move. Every fi
 Check 3 run before the orchestrator acts. The next lawful act is the orchestrator's, and it has two parts:
 - sit the §3a triumvirate over D-1 · D-2 · D-6. This includes the committed out-in re-probe, which releases D-9.
 - issue dated COHESION grants or addenda for D-3 · D-4 · D-5 · D-7 · D-8.
+
+## Check 3 — L-20 fresh adversarial pass 3, 2026-09-22 (VERIFY-ONLY)
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X-W5 CHECK 3 · HEAD at open `d56d06db` · date of record 2026-09-17. This seat authored none of the
+wave's bytes and cured nothing. It wrote this section and one LEDGER event line. Inputs: `W5.md` whole (389 L), `## RESUME OPEN 3` (`:1817-1943`),
+`## Check 2` and `## Repair 2` (`:2561-2679`), and the COHESION section heads.
+
+**Verdict: NOT-CONFORMANT.** The row is **not promoted** and stays PARTIAL. Repair 2 cured 0 and escalated 10. Its R2.4 said the next lawful act
+belonged to the orchestrator. That act has not happened: ⟨cmd⟩ `grep -n '^## ' COHESION.md | tail -1` → **§0ap** (KF.W13S). No section after it
+exists, so no §3a triumvirate has sat and no grant or addendum has been issued for X-W5. ⟨cmd⟩ `git diff --name-only 4bbdd952..HEAD -- demo/ e2e/
+plugins/ vite.config.ts | wc -l` → **0**. The three HIGH defects therefore stand at the bytes.
+
+### K3.0 Crash-recovery
+
+⟨cmd⟩ `git status --porcelain` → `CARRY-LEDGER.md` · `F-W11.md` (siblings') · `scripts/dev/dev.sh` (never touched) · `KF-W13T-e-probe.mjs`
+(a sibling's, untracked). No path in this seat's writable set is dirty, so there is no inherited partial.
+
+### K3.1 Axis 1: GREENs re-run at this seat's own commands (`scratchpad/chk3.sh`, ×2, ⟨cmd⟩ `diff r1 r2` → IDENTICAL)
+
+A1 exit **0**, App grep **0** · A4 `bindPane` **10** · A5 `<h1` **4** · A7 `role="status"` **3** · B4 arms 1–2 `100dvh` **0**, `svh` **3** files ·
+C4 exit **0** · C8 exit **0** · D2 exit **0** · D3 **0** · D4-Mix `<Transition ` **1** · E1 `0 0 0 0` · E2 `P122` present in all 4 canon files
+(9 · 3 · 18 · 10) · §7 ⟨cmd⟩ `npx vue-tsc -p tsconfig.demo.json --noEmit` → **EXIT=0**. That is **13 of 13 re-run GREENs reproduced**.
+
+The REDs reproduce as well:
+- B4 arm 3 (`content-max-h`) → **3**.
+- C3 → **23 occurrences / 9 files**.
+- C7 → **4**, where the spec's target is 3.
+- D4 census: the `SegmentedTabs` consumers are `MixSourceSelector.vue` (`<Transition ` **1**) and `AdminNamesPanel.vue` (`<Transition ` **0**, a bare swap).
+- D1 AFTER JSON: `→/gradient` over32 11/33 = **.333 > .15**.
+
+The live banked readings (C1 0.5557; D1 gradient/mix hops over budget) describe HEAD, because the surface diff is 0. They were not re-probed (§5.2).
+
+### K3.2 Axes 2–9
+
+- **(2) Bounds.** ⟨cmd⟩ `git show --stat` on `83cb02f1` shows `X-W5.md` +46 only, and on `b010611e` shows `LEDGER.md` +1 only. `d56d06db` is F.W11's
+  commit. Check 1's 95-path audit over the 21 wave commits stands. `scripts/dev/dev.sh`: ⟨cmd⟩ `git log --format=%h -- scripts/dev/dev.sh | head -1` →
+  `85cfea2c` (2026-07-11), which is before the wave. **CLEAN.**
+- **(3) No masking fallback.** Nothing has moved since Check 1 found it CLEAN. **CLEAN.**
+- **(4) Commit families.** §9 c1–c5 are unsplit. c6 is not landed, because the close is not reached. **CLEAN.**
+- **(5) E-3.** ⟨cmd⟩ `git diff --stat c0cf27bf~1..HEAD -- W5.md registry/adjudicated/ | wc -l` → **0**. **HELD.**
+- **(6) Mail.** The INBOX status column has **0** UNREAD rows. Every `UNREAD` token is inside a sweep line. **CLEAN.**
+- **(7) Four-verb.** IMPLEMENTED is not stamped because the hard gate is unmet. **LAWFUL.**
+- **(8) Goal criterion.** **NOT MET**, on three counts:
+  - D1 breaches "budgeted" (2 of 4 hops are over budget).
+  - `AdminNamesPanel` breaches "every … sub-pane swap".
+  - C1 breaches "every region present at 390" (0.5557).
+- **(9) Published figures.** Every figure reproduces ×2 (K3.1).
+
+### K3.3 Axis 10: honest-RED adjudication (unchanged inputs, so Check 1 K1.3 / Check 2 K2.3 are re-affirmed)
+
+- **Relieved and owner-named**:
+  - A3 (§0k.3 S-1 → X-W8)
+  - N5 ROUTE-RESET (§0k.3 S-7 → X-W7)
+  - B3 (CC-056/V·L3 → X-W6, §3 "Not in scope" + §10 Blocks)
+  - A5 OUTLINE (→ X-W10)
+  - C3's dock rows (RUNBOOK §1.1 G-L back-gate → X-W8)
+- **Unrelieved**:
+  - D1 and C1. These are §3a named triumvirate triggers, and the triumvirate has not sat.
+  - D4-Admin. Its bounds grant has not been issued.
+  - C7 (4 ≠ 3).
+  - C3's non-dock forks.
+  - A2's blob arm (ESC-W5-1, not re-authored).
+  - N14/N15.
+  - B4 arm 3. It is GATING-LOCKed behind D1.
+
+### K3.4 Register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| D-1 | **HIGH** | D1 frame budget breached after the re-key; §3a trigger; no triumvirate sat | D1 AFTER JSON `→/gradient` 11/33; surface diff 0 | orchestrator sits the §3a triumvirate (incl. the committed out-in re-probe, fold `:41` locks), then a re-measure |
+| D-2 | **HIGH** | C1 parity 0.5557 on `#/`; §3a trigger | `C1-C2-C5-C6-2026-09-22.json`; surface diff 0 | §3a triumvirate ruling: gate re-metric by dated addendum, or an AboutPane bounds grant |
+| D-3 | **HIGH** | D4 / hard gate "every sub-pane swap": `AdminNamesPanel.vue` bare swap | ⟨cmd⟩ `grep -c '<Transition '` → 0 | dated COHESION bounds grant beyond BD-22, then one named `<Transition>` as in Mix |
+| D-4 | MEDIUM | C7 = 4 vs 3 | ⟨cmd⟩ C7 census → 4 | dated routing addendum or bounds grant |
+| D-5 | MEDIUM | C3 non-dock forks | ⟨cmd⟩ → 23 / 9 | dated classification + routing addendum |
+| D-6 | MEDIUM | A2 blob arm unfalsifiable, not re-authored | ESC-W5-1 | triumvirate re-authoring by addendum (L-18) |
+| D-7 | MEDIUM | N14 RED / N15 escalated; `AdminPane.vue` ungranted | fold grep → 0 | bounds grant or ruled re-home |
+| D-8 | MINOR | 3 out-of-wave e2e oracles read `.pane-wrapper--left/right` | Repair 2 R2.2 | holder rows at X-W1/X-W2 |
+| D-9 | MINOR | B4 arm 3: 3 comment mentions in `PaneSlot.vue` | ⟨cmd⟩ → 3 | rides D-1 (GATING LOCK) |
+| D-10 | INFO | push withheld (`X-W9.md` conflict) | CL.9 | Track A merge holder |
+| D-11 | INFO | a third Check run while the orchestrator's act is still unmade reproduces Check 2 exactly. The L-20 loop cannot advance at seat level | this section | orchestrator: §3a triumvirate over D-1/D-2/D-6 plus COHESION grants for D-3/D-4/D-5/D-7/D-8, then Check 4 |
+
+### K3.5 Successor "Opens after" conjuncts
+
+- **X-W6** (*"X-W5"*): **NOT MET**. It is lawfully BLOCKED-ON X-W5 close.
+- **X-W7**: X-W3 and X-W4 are GREEN, and X-W6 is not closed, so X-W7 is lawfully blocked.
+- **X-W8** (W4·W5·W6·W7) and **X-W10**: lawfully blocked on X-W5.
+- The W5-side substrate is GREEN at the bytes: `regions[]` (C8), the dead block cap (B2, B4 arms 1–2) and one mount path (C5). Only the wave-close
+  conjunct is unmet.
