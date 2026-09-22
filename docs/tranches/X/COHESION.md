@@ -877,6 +877,7 @@ the silence for an oversight, and carried to `X.F.W10.g` as an open bounds quest
   itself. **The invariant is what travels, not the integer.** **E13**: 0 unrowed on all four paths, 0 rows carrying a live UNREAD
   status in scope. **VERIFIED stays NO** — §3.5's declared-Fable final pass (`X.F.W10.h`) is owed,
   and L-18's two quartet gestalt passes are owed after it.
+  *(Dated 2026-09-22, `X.F.W10S.a`:)* `h` ran (NOT-CONFORMANT, one HIGH, which CHECK 1 graded MEDIUM as CK-1), and **CK-1 is cured by `F.W10S.a`**: the two census-input errata (`i-1 = L-INFO-2` · `PP-CENSUS`) are landed at `CENSUS-ADDENDUM-2026-08-25.md` §6.5-ERRATA-S, CK-2/CK-3 sit beside `execution/C/F-W10.md`, and F.W10's ACCEPTED remains `F.W10S.d`'s to stamp.
 
 ## §0a BOUNDARY 2026-08-25 — THE REGISTRY IS WHOLE; THE AUTHORING BLOCK OPENS
 
