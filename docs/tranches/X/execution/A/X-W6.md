@@ -4436,3 +4436,12 @@ not move at this close.
 `caea9d1e` (§0z E2, lawful and in-set) and `c9f11e87` (the `.c` receipt). **Landed-wrong: none.**
 **Escalation: ESC-W6c-1.** This close's own commits are the record block, the transcripts and the
 LEDGER cell, each committed on its own pathspec.
+
+### Act 11 — the push: tried twice and rejected, not forced
+
+⟨cmd⟩ `git push origin HEAD`, run twice → `! [rejected] HEAD -> tranche-u (non-fast-forward)` both times.
+⟨cmd⟩ `git rev-list --left-right --count origin/tranche-u...HEAD` → **`1  98`**. The one remote-only commit
+is `6fc1212e`, a sibling's X-W9 repair. The divergence is the same kind as ESC-PUSH at the 2026-09-20
+close. I did not rebase or merge the shared four-track index, which also holds X-W5's uncommitted
+shell rows, and I did not force-push. **ESC-PUSH still stands.** The fix is an orchestrator-level
+`git pull --rebase` when no seat has anything staged. The close commit is `980bbfc4`.
