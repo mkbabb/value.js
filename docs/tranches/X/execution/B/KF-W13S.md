@@ -1518,3 +1518,50 @@ The rows split **10 · 6**. **Ten** are unused bindings (TS6133 ×9, TS6192 ×1)
 
 ## Unit receipts (RESUME 3)
 
+
+### KF.W13.t2
+
+SERVED MODEL: claude-opus-5-5[1m] (this unit's seat)
+
+**Authority**: KF-W13.md `ADDENDUM 2026-09-22 (third)` `:311` · COHESION §0ap `:2587-2623` (ESC-t-1 grant + the deliberately-invalid-input idiom) · §Standing law `:176-178` · §Commit plan `:266-273`. Writes: the nine §0ap library test files (three of them touched twice) + this record. 0 src bytes, 0 demo bytes, 0 glass-ui bytes, 0 scripts bytes.
+
+**Acts, in order.**
+
+1. **CRASH-RECOVERY.** ⟨cmd⟩ `git -C keyframes.js status --porcelain` → only the two untracked 2026-07 `VALUEJS-INBOUND-*` letters, neither in the writable set. ⟨cmd⟩ `git -C value.js status --porcelain` → `CARRY-LEDGER.md`, `scripts/dev/dev.sh`, two untracked paths; none in the writable set. **0 inherited paths.** ⟨cmd⟩ `git fetch; git rev-list --left-right --count origin/master...HEAD` (kf) → `0 0` at `6705d4d8`.
+2. **The 16 rows re-enumerated BEFORE.** ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.test.json 2>&1 | grep 'error TS' | cut -c1-110` → **16** rows. They are byte-identical in `file(line,col)` and code to Seat 0's baseline list: 10 unused bindings plus 6 easing-argument rows. No anchor had drifted.
+3. **Commit 1: the ten unused bindings deleted** (kf `aba106f6`, 4 files, +5/−13). `animation.test.ts:1` `beforeAll` · `:19`/`:30` the two dead `const el` · `group.test.ts:1` `beforeEach` · `:2` `KeyframesAnimation` · `:5` the `AnimationLayerConfig` type import · `:32` the unread `group` binding. At `:32` only the binding was removed; the constructor call `new AnimationGroup(a, b);` STAYS, because it is the act the test's `managed === true` assertions read. `platform-adopt.test.ts:20` `beforeEach` · `:32` the all-unused `reduced-motion` import (TS6192) · `scroll-scene.test.ts:36` `serializeScrollOptions`. No test body or assertion was removed. ⟨cmd⟩ the four files under `CI=1 npx vitest run --project library …` → **4 passed · 107 passed**. Leg 2: 16 → **6**.
+4. **Commit 2: the six easing-argument rows** (kf `b05e7e75`, 5 files, +7/−1). First I read each row's subject and looked for an `unknown`-typed ingress. ⟨cmd⟩ `grep -rn ': unknown' src/animation` → no easing entry takes `unknown`. `resolveEasingOption(option: string, input: NonNullable<InputAnimationOptions["timingFunction"]>)` (`src/animation/compile/easing/option.ts:23-26`) and `setTimingFunction(timingFunction: InputAnimationOptions["timingFunction"])` (`src/animation/engine/animation.ts:279`) are typed, and so is the constructor's options bag. `fromString` does take CSS text, but it is LENIENT on an unknown per-keyframe easing (`waapi-lifecycle.test.ts:233-238` asserts `.not.toThrow()`), so it is a different subject and not an ingress for a refusal. §0ap forbids minting a new ingress (src/** is not writable).
+
+   | row | subject | idiom | reason (the comment's text, abridged) |
+   |---|---|---|---|
+   | `diagnostics-channel.test.ts:94` | `resolveEasingOption` throws `UNKNOWN_TIMING_FN` | **(ii)** | no unknown-typed ingress; the subject is the runtime throw |
+   | `value4-easing-contract.test.ts:37` | `resolveEasingOption` refuses unknown text | **(ii)** | same |
+   | `strict-options.test.ts:55` | `setTimingFunction` throws `AnimationOptionError` | **(ii)** | same |
+   | `w0-crashes.test.ts:207` (TS2322, the options-bag property) | the constructor throws `UNKNOWN_TIMING_FN` | **(ii)** | the directive sits on the property line, where the error anchors |
+   | `waapi-lifecycle.test.ts:241` | `setTimingFunction` stays strict | **(ii)** | same |
+   | `value4-easing-contract.test.ts:13` | `resolveEasingOption` RESOLVES five canonical names | **neither: measured VALID input** | see below |
+
+   **`:13` is not a deliberately-invalid input.** The row reads `Argument of type 'string'`. ⟨probe⟩ I wrote a temporary `test/__probe_t2/p.test.ts` that called `resolveEasingOption("t", <name>)` on each of the five literals (`linear` · `ease-out-cubic` · `easeOutCubic` · `smooth-step-3` · `ease-in-bounce`). ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.test.json 2>&1 | grep __probe` → **0 errors**, so all five are `TimingFunctionNames` members. The probe was deleted in the same command, and ⟨cmd⟩ `git status --porcelain test` → empty; it was never committed. The error comes from `it.each([...])` widening the table to `string[]`. A `@ts-expect-error` there would claim that five valid names "must not type-check", which is false. It would also swallow any real future error on that call. So the row is cured at its root: the table is typed `it.each<TimingFunctionNames>([...])`, a generic type argument checked per element, not a cast. The type comes from `import type { TimingFunctionNames } from "../../src/animation/constants"`, following the house precedent at `test/compile/timing-function-names.test.ts:38-41`. The row is recorded as outside §0ap's idiom domain (a test whose SUBJECT is a refusal). It travels in commit 2 under the two-meaning lock because it is one of the six rows the lock names. ⟨cmd⟩ the five files under vitest → **5 passed · 63 passed**. Leg 2: 6 → **0**.
+5. **First gate run: `npm run check` went RED on a consequence of commit 1.** ⟨cmd⟩ `npm run check; echo $?` → **exit 1** on both runs. Legs 1 and 2 were 0, and the failure was `proof:structure`: `R6 src/animation/internal/reduced-motion.ts exported symbol "onReducedMotionChange" has no consumer`. The cause was measured, not guessed. The `:32` import deleted in commit 1 was the only STATIC edge onto `reduced-motion.ts` from test/. The six `(a)`–`(f)` cases DO consume the module, through `freshReducedMotion()`'s dynamic `import("…")` (`platform-adopt.test.ts:75-78`, `vi.resetModules()` + a re-import). R6's edge collector cannot see that: `scripts/gates/structure/index.mjs:337` scans only `import … from "…"`. Restoring an unused import would re-open TS6192, and demoting the export (src) is out of carve.
+6. **Commit 3: the helper typed by its module namespace** (kf `084a3679`, 1 file, +2/−1). `import type * as ReducedMotion from "../../src/animation/internal/reduced-motion"` and `async function freshReducedMotion(): Promise<typeof ReducedMotion>`. The helper's return type now states the module contract its six cases consume. The type-only namespace import is USED (the annotation), so it is not an unused binding, and it is a real whole-module edge that R6 reads (`index.mjs:342`). No cast, no directive, no gate edit. ⟨cmd⟩ `npm run proof:structure` → `PASS: scope=src clean (0 violations across R1–R6)`; leg 2 stays 0; `platform-adopt.test.ts` → **15 passed**. It is a third sha because it is a third meaning: commit 1 is "bindings deleted", and this one is "the consumption edge made visible". It is recorded rather than folded, and no pushed history was rewritten.
+7. **Gates ×2 at the settled bytes** (kf `084a3679`, run from the kf root; logs in the seat scratchpad, figures read from them):
+
+   | gate | ⟨cmd⟩ | BEFORE (`6705d4d8`) | AFTER run 1 · run 2 |
+   |---|---|---|---|
+   | leg 2 | `npx vue-tsc --noEmit -p tsconfig.test.json 2>&1 \| grep -c 'error TS'` | 16 · 16 | **0 · 0** |
+   | leg 1 | `npx vue-tsc --noEmit -p tsconfig.json 2>&1 \| grep -c 'error TS'` | 0 | **0 · 0** |
+   | `check` | `npm run check; echo $?` | exit 2 | **0 · 0** (it was exit 1 · 1 at `b05e7e75` on R6, cured by act 6) |
+   | library | `CI=1 npx vitest run --project library` | 113 passed \| 5 skipped (118) · 1259 passed \| 2 expected fail \| 14 skipped (1275) | **identical · identical** (no new skip; exit 0 · 0) |
+   | `test:demo` | `npm run test:demo` | 59/59 · 494/494 | **59/59 · 494/494 ×2** (exit 0 · 0) |
+   | masking | `git diff 6705d4d8..HEAD -- test \| grep -c 'as any\|as unknown as\|@ts-ignore\|\.skip\|\.only('` | n/a | **0 · 0** |
+   | whitespace | `git diff --check 6705d4d8..HEAD` | n/a | clean |
+
+8. **Push.** ⟨cmd⟩ `git push origin HEAD; git fetch; git rev-list --left-right --count origin/master...HEAD` (kf) → **`0 0`** at `084a3679`.
+
+**Commits (kf, all pathspec on the commit, `Claude-Session` trailer)**: `aba106f6` (ten bindings) · `b05e7e75` (six easing rows) · `084a3679` (the R6 edge follow-through). ⟨cmd⟩ `git diff 6705d4d8..HEAD --stat` → **9 files, +12/−14**, exactly the nine §0ap files.
+
+**Residuals / RETURNED (out of carve, by `file:line`)**:
+- `keyframes.js/scripts/gates/structure/index.mjs:337` — R6's consumption-edge collector reads only static `import … from`, so a dynamic `import("…")` consumer is invisible to it. The blind spot is benign now that act 6 is in, but a future test that consumes a src module only through `vi.resetModules()` + `import()` will red R6 falsely. The owner is the next seat with `scripts/gates/**` in carve. No bytes moved here.
+- No new producer row. No new mail row. Nothing in this unit reached glass-ui.
+
+**Escalations**: none. **Status**: DONE. All six `.t2` gate limbs are GREEN ×2, so `.f2` may open.
