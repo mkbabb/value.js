@@ -263,3 +263,43 @@ The newest glass tranche dir is still BK (⟨cmd⟩ `ls -d glass-ui/docs/tranche
 ### State
 
 The four-verb line does **not** move to IMPLEMENTED. G-KFW13T-6 is RED on persistence, and 6 of the 7 granted eslint rows are returned. **PARTIAL.** What remains: ESC-e-1 and ESC-k2-1, each awaiting a grant; once granted, a repair unit followed by a re-close. VERIFIED: NO (the spec designates no self-stamp).
+
+## Check 1
+
+**SERVED MODEL**: `claude-opus-5-5[1m]` · 2026-09-22 · fresh adversarial L-20 pass 1 over the PARTIAL close (`7dbd758b`); VERIFY-ONLY (0 kf / glass / product bytes). Spec `KF-W13.md` read whole (addenda `:307` · `:309` · `:311`); COHESION §0ao/§0ao.1/§0ap read at `:2531-2623`. Crash recovery: ⟨cmd⟩ `git status --porcelain` → kf: the two untracked `VALUEJS-INBOUND-*` letters only; value.js: ` M CARRY-LEDGER.md` · ` M scripts/dev/dev.sh` + the same two letters — none in this seat's set, none touched. kf `HEAD` `6606ca7e`, ⟨cmd⟩ `git fetch; git rev-list --left-right --count origin/master...HEAD` → `0 0`.
+
+### Axes
+
+| axis | reading (⟨cmd⟩ → output) | verdict |
+|---|---|---|
+| (1) claimed GREENs reproduce | G-KFW13T-1 ⟨cmd⟩ `node KF-W13T-k-dock-probe.mjs chk{1,2}` → `out= 0` 6/6 ×2 (coll 390 `#/` 1 · `#/cube` 3, = R-k-1). G-2 ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.json \| grep -c 'error TS'` → **0 · 0**; ⟨cmd⟩ `npm run test:demo` → **61/61 · 501/501** on 4 of 7 runs, **1 failed / 500** on 3 of 7 (see C1-2). G-3/-4/-5/-6 ⟨cmd⟩ `node KF-W13T-e-probe.mjs chk{1,2}` → rows 29 · glyphRows 29; drag `0→795` · click `795→450` · ArrowRight `450→480`, thumb bg `rgba(0, 0, 0, 0)`, 0 pageerrors; clock `0→388.9` / `0→553.6`, tiles + viz moved, 0 pageerrors; toggle 1, pressed false→true, visible→absent, a11y visualizer nodes 0, **afterReload pressed "false", visible** (both runs). eslint → **6** ×2 (same six positions). E13 ⟨cmd⟩ `grep "^\| I-" INBOX.md \| grep -c "\| UNREAD"` → **0** | 6/6 claimed GREENs reproduce (G-1..-5 + E13); G-6 persistence RED reproduces as the close stated |
+| (2) bounds | ⟨cmd⟩ `git show --stat` over `084a3679..6606ca7e` (8 shas): every path is inside its unit's set (roster table above re-derived identically); vjs `390db7b5` · `ab2ab9e7` · `c33bc786` · `e14cc2d0` · `f099e975` · `7dbd758b` touch only the record, `evidence/W13T/**`, INBOX, LEDGER; `scripts/dev/dev.sh` in none | GREEN |
+| (3) masking | ⟨cmd⟩ `git diff 084a3679..HEAD \| grep -nE '^\+.*(try *\{\|catch\|\.skip\|\.only\(\|eslint-disable\|@ts-\|as any\|overflow[-: ]hidden\|!important)'` → 3 `as unknown as` window-shim casts in `chrome-dock-containment.test.ts` (a jsdom ResizeObserver/matchMedia environment shim, restored in `afterAll`) + 1 `try {` in `channel-options-render-edge.test.ts` (a mount/unmount `try/finally`) — neither wraps a defect; no product-side catch, skip, allowlist, `eslint-disable`, or copied producer selector | GREEN |
+| (4) families | 8 kf shas, one meaning each, witness in the same sha; R-a4-1 / R-a4-2 separate (per §0ap); no declared family split | GREEN |
+| (5) E-3 | ⟨cmd⟩ `git diff --stat 390db7b5^..HEAD -- docs/tranches/X/keyframes/waves/ docs/tranches/V/megatranche/registry/adjudicated/` → empty | GREEN |
+| (6) mail | 0 UNREAD (tail I-39); O-50 rowed at `e14cc2d0` | GREEN |
+| (7) four-verb | row `:56` = PARTIAL (not IMPLEMENTED), lawful for an escalated close | GREEN |
+| (8) goal at the bytes | OA-6 contained (0 out ×12); OA-7 29/29 glyphs from `resolveTimingFunction(key).easing`; OA-8 pointer + keyboard live, producer paint; OA-9 root named (`ResizeObserver.observe(Text)` aborting the mount flush) and cured at `EasingTarget.vue`; **OA-10 persistence NOT met** — COHESION §0ao.1 `:2585` rules it *"persisted where the scene's other view state lives"* | PARTIAL |
+| (9) figures | 61/61 · 501/501, 29/29, 0→795/795→450/450→480, eslint 6, 8 shas, masking 0 — reproduce | GREEN |
+
+### (10) Honest-RED adjudication
+
+| RED | spec relief | owner named | adjudication |
+|---|---|---|---|
+| eslint 6 rows (`TimingFunctionPanel.vue:151:9 · 152:9 · 156:5` · `ControlsPaneWrapper.vue:62:58 · 328:5 · 366:9`, `vue/no-mutating-props`) | **YES** — `KF-W13.md:311` (§0ap): *"the 7 pre-existing eslint errors … (granted; cure-or-return by `file:line`)"*; COHESION `:2613` same. RETURN by `file:line` is the spec's own lawful outcome | ESC-k2-1 → the orchestrator (§3a carve ruling) | **HONEST-RED** |
+| G-KFW13T-6 persistence limb (toggle state lost on reload) | **NONE** — not producer-owned, not routed to a successor, not named honest-RED by id. §0ao.1 rules the persistence home itself (`:2585`), and that home (`demo/state/controlOptionsStore.ts`) sits outside every KF.W13T set: a spec-bounds defect, correctly escalated (ESC-e-1), but an escalation is not a relief | ESC-e-1 → the orchestrator (a one-field grant) | **UNRELIEVED** → C1-1 |
+
+### Register
+
+| id | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C1-1 | **HIGH** | G-KFW13T-6 is RED on its persistence limb with no spec relief; OA-10 is an owner ruling (§0ao.1), so the wave cannot close | e-probe chk1/chk2 `afterReload {"pressed":"false","visible":true}` ×2; `grep -n 'persist' KF-W13.md:309` → *"persisted with the scene's view state"*; COHESION `:2585` | the orchestrator rules ESC-e-1 (a dated grant of the view-state field in `controlOptionsStore.ts`, read/written by `EasingScene.vue`'s existing ref); a repair unit lands it with a reload witness; re-close |
+| C1-2 | MINOR | `test:demo` is not deterministically green: `typing-dots-engine-seam.test.ts > (1)` hit the 5000 ms default timeout on 3 of 7 runs this seat (`import 266.86s` — heavy host contention; an 8th run died on host `ENOSPC` and is excluded). The file is untouched by this wave (not in the 8-sha roster) | ⟨cmd⟩ `npm run test:demo` ×7 → 501/501 ×4 · 500/501 ×3, the same test each time: `Error: Test timed out in 5000ms` at `:82` | a load-sensitive cold dynamic import; route to the next kf test-hygiene seat (an explicit per-test timeout at the witness, assertions untouched, per the V·D59 precedent). Mitigated: 4/7 clean, the close's ×2 figure reproduces |
+| C1-3 | MINOR | R-k-1: at 390×844 the contained dock still overlaps the top-right cluster (`@mbabb menu x Share animation`; 3 collisions at `#/cube`) — the part of the owner's OA-6 screenshot the containment gate does not measure | dock probe `coll= 1` / `coll= 3` ×2 | already registered with an owner (orchestrator ruling on `--dock-top-*` or `EditorShell.vue`'s ribbon); mitigated |
+| C1-4 | INFO | `chrome-dock-containment.test.ts` is a class-structural witness (jsdom cannot measure boxes); the box measurement is the banked live probe | `:82-100` asserts band classes, `dock-overflow-wrap`, no `overflow-(hidden\|clip)` | none; the live probe carries the gate |
+
+**Successors**: no wave in the LEDGER or `keyframes/waves/*.md` declares an "Opens after KF.W13T" conjunct (⟨cmd⟩ `grep -rn 'KF.W13T' keyframes/waves/ EXECUTION-RUNBOOK.md \| grep -v KF-W13.md` → none), so no successor is blocked by this wave.
+
+**Verdict: NOT-CONFORMANT** — 1 HIGH (C1-1, unrelieved G-KFW13T-6 persistence) · 2 MINOR · 1 INFO; 6/6 claimed GREENs reproduce; honest-RED set = {eslint 6 rows, ESC-k2-1}. Row `:56` stays **PARTIAL**; awaits the orchestrator's rulings on ESC-e-1 (and ESC-k2-1), then a repair unit and a re-close.
+
+**Inheritance note (crash-recovery, 2026-09-22, `claude-opus-5-5[1m]`).** This "## Check 1" and its LEDGER event line were found uncommitted (a killed predecessor Check seat's work on this same unit); inherited paths: `docs/tranches/X/execution/B/KF-W13T.md` · `docs/tranches/X/execution/LEDGER.md`. Judged hunk-by-hunk against the spec and re-measured before commit: ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.json | grep -c 'error TS'` → **0**; ⟨cmd⟩ `npx eslint demo/app demo/components/instrument/transport demo/components/playback` → **6** errors; ⟨cmd⟩ `grep "^| I-" INBOX.md | grep -c "| UNREAD"` → **0**; E-3 `git diff --stat 390db7b5^..HEAD -- keyframes/waves/ registry/adjudicated/` → empty; kf `EasingScene.vue:80` `const preview = ref<"shown" | "hidden">("shown")` — a plain scene ref, no storage binding (the persistence RED is structural, confirming C1-1); kf `origin...HEAD` `0 0`. Verdict held: **NOT-CONFORMANT**, row stays PARTIAL.
