@@ -81,3 +81,54 @@ the one lawful write, `.c` only); `scripts/dev/dev.sh` never touched.
 
 ## Unit receipts
 
+
+### F.W10S.a
+
+**Seat**: Opus (`claude-opus-5-5[1m]`) · clock 2026-09-22 · spec F-W10.md ADDENDUM §F.W10S.a `:526-536`
+⊕ COHESION §0aj bullet 2 ⊕ `execution/C/F-W10.md` CK-1..CK-4 `:2191-2194` ⊕ COHESION §4.2 rows 65/76.
+
+**Crash-recovery**: ⟨cmd⟩ `git status --porcelain | grep -E 'CENSUS-ADDENDUM|execution/C/F-W10|COHESION.md|LEDGER.md'`
+→ **∅** (no match in the writable set; the one line the loose pattern could have caught was
+`CARRY-LEDGER.md`, and the pattern did not match it either). **Inherited paths: none.**
+
+**Anchors at the true bytes (all held; no drift)**: §4.2 row 65 = COHESION `:524`, row 76 = `:544`;
+the addendum's FR-AFP-51 section ends `:271`, Scope row *"FLAGGED, NOT BOOKED"* at `:312`; F-W10 record
+`C.1` `:1921-1922`, `C.2` G-F10-3 cell `:1950`, `C.7` `:2048`; §5 F.W10 boundary entry `:840-879`.
+
+**Acts, in order**
+
+1. **CK-1 cured: census errata landed.** A new dated section **§6.5-ERRATA-S** inserted into
+   `CENSUS-ADDENDUM-2026-08-25.md` directly after FR-AFP-51 (before `---`/§6.7). It quotes §4.2 rows 65 and 76
+   VERBATIM (copied from the bytes with `sed -n '524p;544p'`, not retyped), quotes the two banked corpus
+   lines (`fr-BasisSelector.md:92` and `fr-PathPreview.md:31`), and states the corrections to
+   `lane-frontend.md:87` and `:183/:366/:369/:444/:565`. The lane doc is not touched. Separately, a
+   dated table row (`↳ … 2026-09-22`) was inserted **beside** the Scope row at `:312`, and the Scope
+   row itself is untouched. ⟨cmd⟩ `git show --stat 5065843c` → **53 insertions(+), 0 deletions**.
+   Verbatim check: ⟨cmd⟩ `grep -cxF "> $(sed -n 524p COHESION.md)" …` → **1**, and the same check
+   for `:544` → **1**. → commit **`5065843c`**.
+2. **CK-2 and CK-3 re-measured, then filed as addenda-beside** at the `execution/C/F-W10.md` tail,
+   under a new `## Addenda-beside 2026-09-22` heading. `C.1`, `C.2` and `C.7` are not rewritten.
+   CK-2: ⟨cmd⟩ cwd `fourier-analysis/web`, run twice: `node …/fourier-value-import-drift.mjs > out 2> err; echo $?; wc -c < out`
+   → **exit 1 · 1074**, both runs. CK-3: ⟨cmd⟩ run twice over `C.1`'s 26 shas:
+   `git show --name-only --format='' <sha> | sort -u | wc -l` → **9 · 9**, and `dev.sh` is not in the union.
+   → commit **`9ed2dd07`**.
+3. **CK-4 cured with one sentence.** One dated line appended at the end of COHESION §5's F.W10
+   boundary entry (after `:879`): it records that `h` ran, that CK-1 is cured by `F.W10S.a`, and that
+   ACCEPTED is still `F.W10S.d`'s to stamp. ⟨cmd⟩ `git show --stat a572d15f` → **1 insertion**.
+   → commit **`a572d15f`**.
+
+**Gates, BEFORE → AFTER (each AFTER reading taken twice from the settled bytes)**
+
+| Gate | ⟨cmd⟩ | BEFORE (seat 0) | AFTER run 1 · run 2 | Verdict |
+|---|---|---|---|---|
+| G-S-1 | `grep -c 'lane-frontend.md:183' CENSUS-ADDENDUM-2026-08-25.md` | 0 · 0 | **4 · 4** | **GREEN** (≥1) |
+| G-S-1 (ids) | `grep -c 'L-INFO-2'` / `grep -c 'PP-CENSUS'` (same file) | 1 (Scope row only) | **5 · 5** / **5 · 5** | **GREEN**: both ids in the dated section |
+| CK-2/CK-3 | `tail -n 25 execution/C/F-W10.md \| grep -c '1074\|nine'` | 0 | **4 · 4** | **GREEN** |
+| CK-4 | `awk 'NR>=840 && NR<=882 && /CK-/' COHESION.md \| wc -l` | 0 | **1 · 1** | **GREEN** |
+
+**E-3 held**: all three commits are insertion-only (53 · 22 · 1 lines added, 0 deleted — ⟨cmd⟩ `git show --shortstat --format="" 5065843c 9ed2dd07 a572d15f`).
+⟨cmd⟩ `git diff --stat HEAD~3 HEAD -- …/lane-frontend.md …/registry/` → **∅**.
+
+**Residuals**: none owned by this unit. `LEDGER.md`'s F.W10 row still reads *"26 commits over 8 files"*;
+per E-3 it is **not rewritten**, and CK-3's addendum-beside names the correct figure.
+**Escalations**: none.
