@@ -2557,3 +2557,77 @@ further repair round. It owes two things:
 - dated COHESION bounds grants or routing addenda for D-3 · D-4 · D-5 · D-7 · D-8.
 
 A second repair seat given the same inputs could cure nothing more.
+
+## Check 2 — L-20 fresh adversarial pass 2, 2026-09-22 (VERIFY-ONLY)
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X-W5 CHECK 2 · HEAD at open `dc164d7e` · date of record 2026-09-17. This seat authored none of the
+wave's bytes and cured nothing. It wrote this section and one LEDGER event line. Inputs: `W5.md` whole (389 L), the record header, `## Check 1`
+(`:2408-2512`) and `## Repair 1` (`:2514-2559`); COHESION section heads through §0ap.
+
+**Verdict: NOT-CONFORMANT.** The row is **not promoted** and stays PARTIAL. Repair 1 cured 0 and escalated 10. No COHESION addendum after
+Repair 1 rules the §3a triumvirate or grants a bound for X-W5: ⟨cmd⟩ `grep -n '^## ' COHESION.md | tail -1` → §0ap, which covers KF.W13S. The
+last X-W5-bearing ruling is §0an, and it is X-W6's grant. So the three HIGH defects of Check 1 stand at the bytes, unrelieved.
+
+### K2.0 Crash-recovery
+
+⟨cmd⟩ `git status --porcelain` → `CARRY-LEDGER.md` (a sibling's) · `scripts/dev/dev.sh` (never touched) · `KF-W13T-e-probe.mjs` (a sibling's,
+untracked). No path in this seat's writable set is dirty, so there is no inherited partial.
+
+### K2.1 Axis 1: GREENs re-run at this seat's own commands (`scratchpad/chk2.sh`, ×2, ⟨cmd⟩ `diff r1 r2` → IDENTICAL)
+
+A1 exit **0**, App grep **0** · A4 `bindPane` **10** · A5 `<h1` **4** · A7 `role="status"` **3** · B4 arms 1–2 `100dvh` **0**, `svh` **3** files ·
+C4 exit **0** · C8 exit **0** · D2 exit **0** · D3 **0** · D4-Mix `<Transition ` **1** · E1 `0 0 0 0` · §7 typecheck ⟨cmd⟩ `npx vue-tsc -p
+tsconfig.demo.json --noEmit` → **EXIT=0**. That is **12 of 12 re-run GREENs reproduced**. E2 (7/7 lines cite P122) is carried from Check 1: the four
+canon files have not moved (E-3 diff below).
+
+The REDs reproduce too: B4 arm 3 **3** · C3 **23 / 9 files** · D4-Admin `<Transition ` **0**. ⟨cmd⟩ `git diff --name-only 4bbdd952..HEAD -- demo/ e2e/
+plugins/ vite.config.ts | wc -l` → **0**, so the live readings banked at the close (C1 0.5557 on `#/`; D1 gradient .294/.371, mix .333/.346; the
+C2/C5/C6/B1/B2/A6/D5 GREEN JSON) describe HEAD. They were not re-probed (§5.2 parsimony).
+
+### K2.2 Axes 2–9
+
+- **(2) Bounds.** Check 1's 95-path audit over the 21 wave commits stands. The only commits since are `4a43ebbd`, `e7206106` and `dc164d7e`. ⟨cmd⟩ `git show
+  --stat` shows they touch only `execution/A/X-W5.md` and `execution/LEDGER.md`. `scripts/dev/dev.sh` is in no commit. **CLEAN.**
+- **(3) No masking fallback.** Nothing moved since Check 1, which found it CLEAN. Repair 1 explicitly refused the in-bounds substitutes (shortening the
+  travel, deleting the motion, re-metricising a gate by the seat's own addendum). **CLEAN.**
+- **(4) Commit families.** §9 c1–c5 are unsplit, as Check 1 K1.2 found. **CLEAN.**
+- **(5) E-3.** ⟨cmd⟩ `git diff --stat c0cf27bf~1..HEAD -- W5.md registry/adjudicated/ | wc -l` → **0**. **HELD.**
+- **(6) Mail.** ⟨cmd⟩ UNREAD rows in `INBOX.md` → **0**. **CLEAN.**
+- **(7) Four-verb.** IMPLEMENTED is not stamped because the hard gate is unmet. **LAWFUL.**
+- **(8) Goal criterion.** **NOT MET**:
+  - the "budgeted" scene move is breached, because D1 fails 2 of 4 hops;
+  - "every … sub-pane swap" is breached, because `AdminNamesPanel` is a bare `v-if`;
+  - "every region present at 390" is breached, because C1 reads 0.5557.
+- **(9) Published figures.** Every figure reproduces ×2 (K2.1).
+
+### K2.3 Axis 10: honest-RED adjudication
+
+Check 1's K1.3 table is re-affirmed row for row. Nothing has changed its inputs: no ruling, no grant and no byte.
+- **Relieved and owner-named**: A3 (§0k.3 S-1 → X-W8) · N5 ROUTE-RESET (§0k.3 S-7 → X-W7) · B3 (CC-056/V·L3 → X-W6, §10 Blocks) · A5 OUTLINE (→ X-W10,
+  §10 Blocks) · C3 dock rows (RUNBOOK §1.1 G-L back-gate → X-W8).
+- **Unrelieved**: D1 and C1, which are §3a named triumvirate triggers that have not sat. D4-Admin, whose bounds grant is not issued. C7 4≠3. C3 non-dock
+  forks. The A2 blob arm (unfalsifiable, not re-authored). N14/N15. B4 arm 3, which is GATING-LOCKed behind D1.
+
+### K2.4 Register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| D-1 | **HIGH** | D1 frame budget still breached after the re-key; §3a trigger; no triumvirate has sat | CL.2 .294/.371 · .333/.346; W5 surface diff since `4bbdd952` = 0 | the §3a triumvirate (research + plan augment + redress) per fold `:41` locks, then a re-measure |
+| D-2 | **HIGH** | C1 parity 0.5557 on `#/`; §3a trigger; unrelieved | CL.2 973/1751; surface diff 0 | a §3a triumvirate ruling: gate re-metric by dated addendum, or an AboutPane bounds grant |
+| D-3 | **HIGH** | D4 / hard gate "every sub-pane swap": `AdminNamesPanel.vue` bare `v-if` | ⟨cmd⟩ `grep -c '<Transition '` → 0 | a dated COHESION bounds grant beyond BD-22's "source order only", then one named `<Transition>` |
+| D-4 | MEDIUM | C7 = 4 vs spec 3 | Check 1 / Repair 1 readings; bytes unmoved | a dated routing addendum or bounds grant |
+| D-5 | MEDIUM | C3 non-dock layout forks unrelieved | ⟨cmd⟩ C3 → 23 / 9 | a dated classification + routing addendum |
+| D-6 | MEDIUM | A2 blob arm RED; self-declared unfalsifiable; not re-authored | ESC-W5-1 | a triumvirate re-authoring by addendum |
+| D-7 | MEDIUM | N14 RED / N15 escalated, routed by seat only | `AdminPane.vue` has no grant | a bounds grant or a ruled re-home |
+| D-8 | MINOR | out-of-wave oracles still read `.pane-wrapper--left` etc. | Repair 1: 3 e2e files | holder rows at X-W1/X-W2 |
+| D-9 | MINOR | B4 arm 3: 3 comment mentions in `PaneSlot.vue` | ⟨cmd⟩ → 3 | rides D-1 (fold `:41` GATING LOCK) |
+| D-10 | INFO | push withheld (`6fc1212e` conflict in `X-W9.md`) | CL.9 | Track A merge holder |
+| D-11 | INFO | the L-20 loop is exhausted at the seat level: Repair 1 showed that no repair seat can lawfully cure D-1..D-7 | R1.3 | an orchestrator act: sit the §3a triumvirate, issue the COHESION grants/addenda, then run a Check 3 |
+
+### K2.5 Successor "Opens after" conjuncts
+
+- **X-W6** (*"X-W5"*): **NOT MET**. X-W5 is not CLOSED, so X-W6 `.j` stays lawfully BLOCKED-ON X-W5.
+- **X-W7** (X-W3 · X-W4 · X-W6): X-W3 and X-W4 are GREEN. X-W6 is PARTIAL, so X-W7 is lawfully blocked.
+- **X-W8** (W4·W5·W6·W7) and **X-W10** (W5…W9 stable): lawfully blocked on X-W5.
+- The W5-side substrate is GREEN at the bytes: `regions[]` (C8), the dead block cap (B2, B4 arms 1–2) and one mount path (C5). Only the wave-close
+  conjunct is unmet.
