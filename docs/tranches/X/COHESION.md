@@ -2770,3 +2770,25 @@ larger** → KF.W9's size ladder, owner close report (design note). **`resize-tr
 `AnimationVisualizer` without `currentT`** (dev warning only) and **the Drawer-detent setter arm not
 driven live** → the owner close report by id; neither is gate-bearing. **VERIFIED for X·KF** is an
 end-of-plan act with RC-P(V) (the orchestrator's L-18/L-20 passes), recorded then.
+
+## §0au ADDENDUM 2026-09-22 — F.W12: THE PRODUCT LANDED (fourier `c5836a7`), ONE HARNESS COUPLING LEFT; ESC-F12a-1 RULED (b) WITH ITS PROOF OBLIGATION; UNIT `.a2` → `.b2`
+
+F.W12.a landed R-e-1 (five numeric fields on glass-ui `NumberField`, ArrowUp 5/5 ×2), R-e-2, the
+readiness signal (`networkidle` 0·0) and the O-51 relay; G-F12-1/-2/-4 GREEN. G-F12-3's full-run
+leg is RED because `visualization-ux.spec.ts`'s `test.describe.serial` block lets one load-slow test
+(`:109`/`:122`, ~30 s under nine workers against one dev server + compute backend) SKIP every later
+test, the `:322` keystone among them. Ruled on ESC-F12a-1:
+
+- **(a) REFUSED** — no `test.slow()`, no timeout raise (the lock stands).
+- **(b) GRANTED with a proof obligation** — `.serial` was added at `ca58321` without a stated reason.
+  Unit `.a2` first PROVES each test in the block independent (each run ALONE from a fresh page
+  passes ×2); any test that depends on a predecessor's state gets its OWN bootstrap (that is the
+  real cure — the coupling, not the flag); only then is `.serial` removed. No assertion, wait or
+  timeout changes.
+- **(c) applies to `:109` ALONE** — it is already in the banked load-flaky six; a timeout on it in a
+  full run is not a new failure, provided it passes alone ×2 (B-4). It does not relieve `:322`.
+
+G-F12-3's full-run leg then reads: `:322` EXECUTED and green in two full nine-worker runs, and no
+failure absent at `41e49af`. **Mechanism**: F.W12 RESUME (`.a` alreadyDone): [`.a2`] → [`.b2`
+verify-only close]. The J-audit PNGs rewritten by `visual-baseline` (outside every set) → the
+owner close report (a fourier evidence-home question).
