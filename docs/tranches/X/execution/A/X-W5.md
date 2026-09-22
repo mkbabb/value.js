@@ -2402,3 +2402,5 @@ Banked: `docs/tranches/X/waves/W5/green/B1-B2-B3-layout-utilization-2026-09-22.j
 L-18 rider: the wave cannot be ACCEPTED until its gates are GREEN and it has passed the two quartet challenge passes.
 
 **Commit roster for this close**: the record and the B1-B2-B3 GREEN JSON are committed together in one pathspec commit, and the LEDGER row goes in a second.
+
+**CL.9 Push: WITHHELD, and not forced.** ⟨cmd⟩ `git push origin HEAD` was **rejected (non-fast-forward)**. ⟨cmd⟩ `git rev-list --left-right --count origin/tranche-u...HEAD` → `1  191`; the remote-only commit is `6fc1212e` (X-W9 repair-1). The old blocker, the staged `PaneSegmentedControl.vue` deletion, is gone: it landed in `50633f19`. ⟨cmd⟩ `git pull --no-rebase --no-edit origin tranche-u` → **CONFLICT (content) in `docs/tranches/X/execution/A/X-W9.md`**, which is the X-W9 record and outside this seat's writable set. The merge was aborted with ⟨cmd⟩ `git merge --abort`, and the tree is back to its 2-row baseline. The owner is the X-W9 record holder: it must reconcile the local X-W9.md appends with `6fc1212e`, and then any seat pushes.
