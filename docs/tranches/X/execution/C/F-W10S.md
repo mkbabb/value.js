@@ -542,3 +542,92 @@ PARTIAL → **YES for `.a` and `.c`, PARTIAL for `.b`** · VERIFIED NO (the chas
 **Escalation**: `E-F10S-r1` = Check 1 MINOR-2. The crud `:664` note-lock (writable "fixme removal only") conflicts with
 spec act 5's "escalation id written into the note". The spec owner (COHESION) must rule on it.
 **LEDGER**: status not promoted. One event line was appended and committed ALONE (C2-M3).
+
+## Check 2
+
+**Seat**: L-20 fresh adversarial pass 2 · VERIFY-ONLY · `claude-opus-5-5[1m]` · clock 2026-09-22 · sitting of record
+2026-09-17. This seat authored no byte of the wave's cures, receipts, Close, Check 1 or Repair 1. **Crash-recovery**:
+⟨cmd⟩ `git status --porcelain` (value.js) → no dirty path inside this seat's writable set (`F-W10S.md` · `LEDGER.md`);
+sibling rows and `scripts/dev/dev.sh` left alone. fourier → `?? .worktrees/` only (left alone). **Inherited: none.**
+
+**Verdict: CONFORMANT-HONEST-RED** — 0 BLOCKER / CRITICAL / HIGH. Every GREEN the close and Repair 1 claim reproduces at
+this seat's own commands. The three remaining REDs are relieved and owner-named (axis 10). Check 1's HIGH (G-S-2) is
+cured at the bytes and on the glass-ui remote.
+
+### Axis 1 / 9 — GREENs re-run by this seat (double; live stack: `mongod` scratchpad dbpath :27017 ⊕ `scripts/e2e.sh --no-tests` → uvicorn :8000 · vite :3000; fourier HEAD `aca2580` = `origin/m/w1-bump-migration`; torn down after, porcelain `?? .worktrees/` only)
+
+| Gate | ⟨cmd⟩ | Run 1 · Run 2 | Verdict |
+|---|---|---|---|
+| G-S-1 | `grep -c 'lane-frontend.md:183'` / `L-INFO-2` / `PP-CENSUS` on `CENSUS-ADDENDUM-2026-08-25.md` | 4/5/5 · 4/5/5 | GREEN |
+| CK-2/CK-3 | `tail -n 25 execution/C/F-W10.md \| grep -cE '1074\|nine'` | 4 · 4 | GREEN |
+| CK-4 | `awk 'NR>=840 && NR<=900 && /CK-/' COHESION.md \| wc -l` (sentence at `:887`) | 1 · 1 | GREEN |
+| CK-5 erratum | `grep -c 'ERRATUM 2026-09-22 (X.F.W10S.c' execution/C/F-W9.md` | 1 · 1 | GREEN |
+| G-S-2 | BK newest (`ls -dt`) → `BK/`; `cmp` O-23 copy → 0 · 0; `git show b249b586:<O-32> \| cmp - <src>` → 0 · 0; `head -c <src bytes> <O-32 copy> \| cmp` → 0 · 0; `merge-base --is-ancestor 46eec459 origin/master` → 0 · 0; `ls-remote` → `46eec459…`; INBOX `Status 2026-09-22 beside O-23\|O-32` → 2 · 2 | as listed | GREEN |
+| G-F9-17 | `npx vue-tsc -b` (web) ×2; `npm run build` ×1 | exit 0 · 0; build exit 0 | GREEN |
+| G-F9-5 (axe witness) ⊕ G-F9-8 ux ×4 | `playwright test e2e/visualization-ux.spec.ts --project=chromium` | 9 passed · 9 passed | GREEN |
+| G-F9-8 count | `grep -c "test.fixme(" web/e2e/visualization-{ux,crud}.spec.ts` | ux 0 · crud 1 | 4 of 5 (crud `:664` RED, relieved) |
+| E-F9b-4 | `playwright test e2e/coarse-pointer.spec.ts --project=mobile-chromium` | 4 passed · 4 passed | GREEN |
+| G-F9-11 | `playwright test e2e/fullscreen.spec.ts --project=chromium` (spec untouched) | 1 failed · 1 failed at `:63:30` | RED (relieved) |
+| G-F9-5 spec leg | `playwright test e2e/contrast-floor.spec.ts --project=chromium` | 3 failed · 3 failed (pairs · light · dark) | RED (relieved) |
+
+**Tally (self-count)**: 11 rows. 8 GREEN gates reproduced (G-S-1 · CK-2/CK-3 · CK-4 · CK-5 · G-S-2 · G-F9-17 · G-F9-5
+axe · E-F9b-4); G-F9-8 4 of 5 reproduced; 2 RED rows reproduced (G-F9-11 · contrast-floor). No claimed GREEN failed.
+
+### Axes 2–8
+
+- **(2) Bounds.** ⟨cmd⟩ `git show --numstat` on every value.js commit: `fdf58303` (record + INBOX sweep) · `5065843c`
+  CENSUS-ADDENDUM +53/-0 · `9ed2dd07` F-W10.md +22/-0 · `a572d15f` COHESION +1/-0 · `5b5ec858` LEDGER +1 · `0e021210`
+  F-W9.md +4/-0 · `d0077db6` INBOX +4/-0 · `8e695c9f` `e620ffee` `0ddd9a32` `ee08d720` record only. fourier
+  `git diff --stat cef242d..aca2580` → 7 `web/src/**` files plus `web/e2e/visualization-ux.spec.ts`, and
+  `visualization-crud.spec.ts` untouched. glass-ui `b249b586` (the 2 letters) · `46eec459` (the O-32 copy only). All of
+  them are inside the unit writable sets. `git log fdf58303^..HEAD -- scripts/dev/dev.sh` → empty.
+- **(3) Masking.** ⟨cmd⟩ `git diff cef242d..aca2580 | grep -E '^\+.*(skip|fixme|ts-ignore|ts-expect|catch|allowlist|eslint-disable|force: *true)'`
+  → comment lines only. There is no `test.skip`, no `@ts-ignore`, no try/catch around a defect, and no node_modules patch.
+  `Promise.allSettled` in `workspace.ts` is not a mask: each `runCompute*` owns its own error state (INFO, as Check 1
+  found). The `style.css` capsule-track re-binding is judged below as a MINOR.
+- **(4) Families.** One fourier commit per head (`01eb722` G-F9-17 · `f45901e` G-F9-5 · `c2000a7` G-F9-11 · `8e98bb8`
+  E-F9b-4 · `4a94aa7` + `aca2580` G-F9-8, each with its spec change in the same commit). LEDGER edits were committed ALONE
+  (C2-M3). glass-ui has one carriage commit and one tail commit. Nothing is split.
+- **(5) E-3.** ⟨cmd⟩ `git diff --stat fdf58303^..HEAD -- docs/tranches/X/fourier/waves/ docs/tranches/V/megatranche/registry/adjudicated/ docs/tranches/X/fourier/conformance`
+  → **empty**. The dated records touched (`F-W10.md`, `F-W9.md`, CENSUS-ADDENDUM, INBOX) show `-0` deletions, so they are append-only.
+- **(6) Mail.** ⟨cmd⟩ `find <4 paths> -maxdepth 1 -type f -newermt "2026-09-22 00:00" ! -name INBOX.md` → value.js `V/` ·
+  `V/coordination` · keyframes.js · atlas all **empty**. glass-ui BK holds the two carried letters (this wave's own) and
+  `glass-outbound-2026-09-22-consumers-10.0.0.md`, which is addressed to slides and atlas and already swept at `INBOX.md:374`.
+  **UNREAD in scope: 0.**
+- **(7) Four-verb.** AUDITED YES · SPECIFIED YES · IMPLEMENTED YES for `.a` and `.c`, with the relieved residue for `.b`
+  · VERIFIED YES (this check). F.W10 is correctly **not** stamped ACCEPTED, because the §F.W10S.d conjunct fails at
+  G-F9-11 and G-F9-8. F.W10's row was not rewritten.
+- **(8) Goal at the bytes.** The census errata landed. The four `web/src` heads were cured at their roots: the unused
+  binding was removed; the capsule-track token was bound; the teleported-root styles were unscoped and the rAF freeze was
+  replaced by `nextTick`; and `--control-floor` was applied. Four of five keystones were un-fixme'd on a live run. Both
+  letters were carried verbatim and pushed. That meets the goal except for the relieved residue.
+
+### Register
+
+| Sev | Claim | Receipt | Cure |
+|---|---|---|---|
+| MINOR | Addendum act (1) states "`contrast-floor.spec.ts` green". The spec still fails 3 tests ×2, so the literal clause is unmet. Its relief is that the instrument is G-F4-CONTRAST-FLOOR, already on F.W4's honest-RED set, and the head act (the single `/equation` node) is GREEN at its axe witness. | contrast-floor run above; LEDGER `:68` F.W4 honest-RED lists `G-F4-CONTRAST-FLOOR`; `visualization-ux.spec.ts:194` `/equation` passed ×2 | F.W4 owners ⊕ GLASS-RELAY (R-2); no F.W10S act owed |
+| MINOR | G-F9-5's cure re-binds `--muted-foreground` on the producer class `:where(.glass-capsule-track)` inside the consumer's `@layer glass-overrides`. This consumer-side token act compensates for a producer omission. §0aj and the addendum sanction it ("a token act at the root, never a per-instance override"), and the upstream half was relayed as `A-1`. | fourier `f45901e` `web/src/style.css`; glass-ui `46eec459` row A-1 | Retire the rule when glass-ui adds the track to its capsule list; the relay is sent |
+| MINOR | The Invariant-19 keystone was re-authored and the "within one rAF" timing clause is not asserted. The replacement asserts something stronger (exactly one compute per kind, pinned to the saved hash). This is disclosed at Repair 1. | `git diff cef242d..aca2580 -- web/e2e/visualization-ux.spec.ts` | none owed (disclosed deviation stands) |
+| MINOR | The crud `:664` note does not carry its escalation id, because the writable set says "fixme removal only". This spec-internal conflict is escalated as `E-F10S-r1`. | `sed -n 655,672p web/e2e/visualization-crud.spec.ts`: stale LC-2 rationale, no `E-F10S` | COHESION ruling on `E-F10S-r1` |
+| INFO | G-F9-11's relief rests on the standing law (glass-ui is READ-ONLY; producer rows ride mail). §0aj ruled C2-M1 a `web/src` defect, and both `web/src` roots were cured (`c2000a7`). The residual is a different mechanism: the producer press guard discards a press begun under `data-morphing`. `GlassDock` exposes no prop for it, and the spec is read-only. | `.b` receipt act 3(c); `fullscreen.spec.ts:63:30` ×2; relay `A-2` | glass-ui BK (A-2) or the spec owner |
+| INFO | The glass-ui fast-forward push published three glass-ui-session commits. There was no rewrite and no force, and Repair 1 disclosed it. | Repair 1 step 6 | none |
+
+### Axis 10 — honest-RED adjudication (every RED gate, at the spec bytes)
+
+| Gate | Relief | Owner named | Relieved? |
+|---|---|---|---|
+| G-F9-11 (`fullscreen.spec.ts:63`) | **Producer-owned**: it can go green only upstream (glass-ui dock press guard) or through the spec owner, because the spec is READ-ONLY for every unit and its locator must stay unchanged. Both `web/src` roots are cured. A consumer patch would be a gate failure. | `E-F10S-b1` → glass-ui BK (relayed `A-2`, `46eec459`) | YES |
+| G-F9-8 crud `:664` | **Producer-owned by the spec's own clause**: "a keystone whose defect is producer-owned (glass-ui) STAYS fixme … and is returned". The defect is the underline `SegmentedTabs` inactive ink, 4.33:1. | `E-F10S-b2` → glass-ui BK (relayed `A-3`); note-id conflict → `E-F10S-r1` (COHESION) | YES |
+| G-F9-5 spec leg (`contrast-floor.spec.ts`) | **Owned by F.W4** by that wave's own honest-RED (`G-F4-CONTRAST-FLOOR`), and the `/equation` node is GREEN | R-2 → F.W4 owners ⊕ GLASS-RELAY | YES |
+
+**Honest-RED set:** G-F9-11 · G-F9-8 (crud `:664`) · G-F9-5 contrast-floor leg. **Unrelieved: none.**
+
+**Successor conjuncts.** No wave declares "Opens after F.W10S". The addendum's only downstream effect is F.W10's
+ACCEPTED stamp, and its conjunct (G-S-1 GREEN ∧ `.b`'s five GREEN) holds only at G-S-1. F.W10 therefore stays CLOSED
+honest-RED, lawfully. X-W11 ("everything") gains this close; G-F10-3/-4 go to X-W11 per §0ak and are not gated here.
+Operator items (G-F9-15 · G-F9-19 · G-F9-23(b)) and G-F10-1/-2 go to the OWNER CLOSE REPORT. No successor is unlawfully
+blocked.
+
+**LEDGER**: the F.W10S status is set to `CLOSED 2026-09-17 (honest-RED: G-F9-11 · G-F9-8 crud:664 · G-F9-5
+contrast-floor leg)`. One event line is appended, and the LEDGER is committed ALONE (C2-M3).
