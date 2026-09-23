@@ -8595,3 +8595,88 @@ command over all eight logs (⟨`grep -a -E '[0-9]+ (passed|failed)|^EXIT' …`�
 Cured **0**. Escalated **2**: `ESC-W6e1-1` (e1 → a13, compositor 1-LSB tile flip; the cure is an E-3 re-reading of e1's measure or an
 X-W1 launch-flag change) and `ESC-W6j-1` (j4, OWNER). INFO C2-4 is carried. RED = a13 · e1 · j4 · b1 · g1 · i3 = **6**, so GREEN =
 **44/50**, unchanged from Check 2. The row stays **PARTIAL**. The only commit is this record's.
+
+## Check 3 — RESUME 2026-09-23 (L-20 fresh adversarial pass 3, over the eighth sitting's close `11a82954` + Repairs 1–2 `75420aab`/`46b2cb17`/`70a27b79`/`1b4447f8`)
+
+SERVED MODEL: claude-opus-5-5[1m]
+
+VERIFY-ONLY; authored no byte of the wave. Spec read whole once (`W6.md`, 492 lines, five ADDENDA); of this record only the eighth
+Open → Unit plan (`:7824-7902`), Check 2 (`:8438-8519`) and Repair 2 (`:8521-8597`). Runs 05:03–05:08 EDT, HEAD `e3a57285`
+(⟨`uptime`⟩ → load 10.06 at the open, 18.26 at the last gate). Transcripts in this seat's scratchpad, not committed.
+
+**Crash-recovery.** ⟨`git status --porcelain`⟩ → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh` only.
+Neither is in this seat's set (this record, the LEDGER), so nothing was inherited and nothing was touched.
+
+### Axes 2/3/4/5 — bounds, masking, families, E-3
+
+Since Check 2 the only commits are `1b4447f8` and `e3a57285`. ⟨`git show --stat`⟩ → this record (+78) and the LEDGER (+1). No product,
+test or instrument byte moved. ⟨`git diff --stat 3e933c33..HEAD -- scripts/dev/dev.sh docs/tranches/X/waves/W6.md
+docs/tranches/V/megatranche/registry/adjudicated/ src api docs/tranches/X/waves/W[0-9]*.md`⟩ → **empty**. E-3 held, and dev.sh is
+untouched. Check 2's bounds, masking and family readings over `75420aab`/`46b2cb17` still hold, since no byte has moved since. Repair 2's
+temporary diagnostic was restored and never committed: ⟨`git show --stat 1b4447f8`⟩ lists the record only.
+
+### Axes 1/9 — every claimed GREEN re-run at this seat's clock
+
+| gate(s) | ⟨cmd⟩ | this seat |
+|---|---|---|
+| f1 · f5 · h2 · i2 | `node docs/tranches/X/gates/gate-{catalog-totality,specimen-grammar,blob-pipeline,lband-door}.mjs` | **GREEN**, EXIT 0 ×4, `GATE f1/f5/h2/i2 … — GREEN` |
+| c3 | `npx vite-node docs/tranches/X/gates/gate-literal-dialect.mjs` | **GREEN** `GATE c3 (literal dialect) — GREEN` |
+| c1 | `node …/wb-gradient-stopeditor/gate-structure.mjs` | **GREEN** `GATE G4 (structure) — GREEN` |
+| d2 | `node …/x-w6/gate-easing-readout.mjs` | **GREEN** `DATED ASK` · local restyle `0 line(s)` |
+| e2 | `grep -rn requestAnimationFrame demo/workbenches/gradient/ \| wc -l` · `gate-prm-idiom.mjs` | **GREEN** `0` · `GATE e2 (PRM idiom) — GREEN` |
+| a1 (vitest leg) · c2 · c4 | `npx vitest run test/gradient-order-invariant.test.ts test/interpolation-subset.test.ts` | **GREEN** `Tests 22 passed (22)` |
+| H1 | `gate-no-chassis.mjs 46b2cb17 17dd0df4 … f90aeb02` (16 shas) | **GREEN** positive control fires · `29 demo/ files over 16 commits` · EXIT 0 |
+| H2 (file) · H3 | ⟨`git ls-files …/motion-quarantine.md \| wc -l`⟩ · the parser R1 one-liner | **GREEN** `1` · EXIT `0` |
+| g2 | `VJS_E2E_PORT=9813 npx playwright test …/companion-pane-track-start.spec.ts -g "companion panes share one track start" --project=smoke` | **GREEN** `1 passed (14.9s)` EXIT 0 |
+| j1 · j2 · j3 | `VJS_E2E_PORT=9812 npx playwright test e2e/smoke/oracles/o29-scene-contracts.spec.ts --project=smoke` | **GREEN**, inside `1 failed · 5 passed (41.9s)` |
+| **j4** | same run | **RED** `[j4] blob preview@rest=0.880 … preview@last=0.000` (`Expected: > 0 · Received: 0`); atmosphere `preview@last=0.079` |
+| a2 · a3 · a4 · b3 · **e1 · a13** | `VJS_E2E_PORT=98{11,14} npx playwright test e2e/smoke/views/gradient.spec.ts e2e/smoke/oracles/o21-gradient-rail.spec.ts --project=smoke` ×2 | **GREEN ×2** `22 passed (1.9m)` · `22 passed (1.8m)` EXIT 0 (load ≈10–18) |
+
+A first o29 attempt run concurrently with the suite died at webServer start (`EADDRINUSE 127.0.0.1:8091`, two Playwright configs
+sharing one fixed port). That is an artefact of this seat's concurrency, not a gate reading. o29 was re-run serially, as above.
+
+**24 claimed GREENs reproduced · 0 claimed GREENs failed.** e1 → a13 read GREEN 2 of 2 here. That does **not** cure C2-1. The gate's
+own record at the same bytes is RED 2 of 2 at Check 2 (load ≈16) and RED 1 of 8 at Repair 2. Repair 2 measured the species (one
+4333-px, 1/255 tile re-raster at x 231–461, reverting next frame), and a flake does not become stable by passing twice more. The
+spec's close bar (§6: every born-RED gate GREEN by its command) is a stability claim. The gate is not close-stable at the bytes, and
+the escalation that would re-read it (`ESC-W6e1-1`) has no ruling.
+
+### Axes 6/7/8/10 — mail, the four-verb line, the goal, honest-RED adjudication
+
+**Mail.** ⟨`grep -n "^| [IO]-[0-9]" docs/tranches/V/coordination/INBOX.md | grep -i unread | grep -ci x-w6`⟩ → `0`, so there is
+**0 UNREAD in scope**. **Four-verb** stays `IMPLEMENTED no`; no seat moved it, which is lawful. **Owner rulings.** ⟨`grep -n
+'ESC-W6j-1\|ESC-W6e1-1' docs/tranches/X/COHESION.md docs/tranches/X/waves/W6.md`⟩ → **empty**. The last COHESION addendum is still
+`§0ba` (`:2947`, commit `277b8d25`), so neither escalation has a ruling. **Goal (§2a) at the bytes: NOT MET.** CC-057's short-landscape
+last-control proof is RED on the Blob limb (j4). H1 holds.
+
+| RED gate | relief at the spec bytes | owner in the register | adjudication |
+|---|---|---|---|
+| b1 | `W6.md:486` (second 2026-09-22 ADDENDUM): `B1-G3D` honest-RED-by-instrument → X-W11 | R-4 · X-W11 | **HONEST-RED** |
+| g1 | `W6.md:484` (2026-09-22 ADDENDUM): honest-RED by id → X-W10 (M-23) | R-6 · X-W10 | **HONEST-RED** |
+| i3 | `W6.md:492` (fifth ADDENDUM): `I3-SEED-SIZE` honest-RED with relay O-52 | R-5 · glass subpath → `.i3` re-sit | **HONEST-RED** |
+| j4 | none. §5/§6 admit j4 only as "cured or retired" with its measurement, and it measures RED (`preview@last=0.000`). `ESC-W6j-1` is open with no ruling | R-j4 · OWNER | **UNRELIEVED — HIGH** |
+| e1 (→ a13) | none. No addendum names e1 honest-RED, and `ESC-W6e1-1` is unruled. GREEN 2/2 here, but RED 2/2 at Check 2 and 1/8 at Repair 2, so it is not close-stable | ESC-W6e1-1 · OWNER (E-3 re-reading of e1's measure, or an X-W1 launch flag) | **UNRELIEVED — HIGH (flake-class; pending the ruling)** |
+
+**Successors' "Opens after".** X-W7: at the spec bytes (`W7.md:6`) it opens after X-W3, X-W4 **and X-W6**. X-W3 and X-W4 are CLOSED,
+but the X-W6 conjunct is FALSE, so X-W7 is **lawfully BLOCKED**. The LEDGER cell (`X-W1`) under-states the spec, and Check 2's
+"X-W7 GREEN, independent of this wave" is corrected here (C3-3). X-W8 (`W5 · W6 · W7`): the W6 conjunct is FALSE, so it is
+**lawfully BLOCKED**. X-W10 (`X-W5 · X-W6 · …`): **BLOCKED**. X-W11 (every wave IMPLEMENTED): **BLOCKED**.
+
+### Register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C3-1 | HIGH | j4's Blob limb is RED with no spec relief. `ESC-W6j-1` is still unruled | this seat: `[j4] blob preview@rest=0.880 … preview@last=0.000`, `Received: 0`; COHESION has no `ESC-W6j-1` row | the OWNER rules `ESC-W6j-1` (an X-W5 shell grant, or a dated E-3 re-reading of j4); then a seat cures or re-reads |
+| C3-2 | HIGH | e1 → a13 is flake-class RED with no relief. It passed 2/2 here, but the same bytes read RED 2/2 at Check 2 and 1/8 at Repair 2 (compositor 1-LSB tile re-raster). `ESC-W6e1-1` is unruled | this seat `22 passed` ×2; Check 2 `:8470` RED ×2; Repair 2 species table | the OWNER rules `ESC-W6e1-1`: a dated E-3 re-reading of what e1's `moved` measures (e.g. persistence across frames), or an X-W1 launch-flag change; then GREEN ×3 under load |
+| C3-3 | INFO | Check 2's successor line "X-W7 … GREEN, independent of this wave" is wrong at the spec bytes. `W7.md:6` names X-W6 in Opens-after, and the LEDGER cell `X-W1` under-states it | ⟨`sed -n 6p docs/tranches/X/waves/W7.md`⟩ | corrected here; the LEDGER's X-W7 cell is the COHESION seat's to align (not this seat's row) |
+| C3-4 | INFO | C2-4 (duplicate INBOX id O-52 · the `J3-WEBGPU` relay) is still owed | Repair 2 carries it | the COHESION seat, or the next INBOX-granted seat |
+
+**Honest-RED set (relieved at the spec bytes, owner-named):** b1 (`B1-G3D` → X-W11) · g1 (→ X-W10) · i3 (`I3-SEED-SIZE`, O-52).
+
+### Verdict
+
+**NOT-CONFORMANT.** 24 claimed GREENs reproduced and 0 failed. Landed-wrong 0; no masking; E-3 held; 0 UNREAD in scope; bounds clean.
+Two gates stay unrelieved and each is HIGH. j4 is RED at this seat. e1 → a13 is GREEN 2/2 here but not close-stable, and its
+escalation has no ruling. Both wait on the OWNER (`ESC-W6j-1` · `ESC-W6e1-1`), and no further repair seat can cure either inside §4.
+RED at this seat = j4 · b1 · g1 · i3 (4). With e1/a13 counted as unrelieved flake-RED, GREEN = **44/50**, the same as Check 2. The
+LEDGER row is **not promoted** and stays PARTIAL. One event line is appended.
