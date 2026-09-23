@@ -90,7 +90,8 @@ export interface User {
     createdAt: string;
     lastSeenAt?: string;
     status?: "active" | "suspended";
-    paletteCount?: number;
+    /** Always emitted by the server's roster formatter (`UserListEntry`). */
+    paletteCount: number;
 }
 
 export interface Tag {
@@ -114,12 +115,22 @@ export interface FlaggedPalette {
     flags: Flag[];
 }
 
+/**
+ * One admin audit event, AS THE WIRE CARRIES IT — X.W7.d · N-8 (fold W7.66 ·
+ * AAP-4/AAP-5): mirrored field-for-field from the server formatter
+ * (`api/src/modules/admin/service/audit.ts` `AuditEntryDTO`, seven fields). The
+ * old client type dropped `actorSlug` and `payload` and REQUIRED `ipHash` and
+ * `target`, which the server emits optionally — a type that lied in both
+ * directions. `timestamp` is the JSON serialisation of the server's `Date`.
+ */
 export interface AuditEntry {
     id: string;
     timestamp: string;
     action: string;
-    target: string;
-    ipHash: string;
+    target?: string;
+    ipHash?: string;
+    actorSlug?: string | null;
+    payload?: Record<string, unknown>;
 }
 
 export interface PaginatedResponse<T> {
