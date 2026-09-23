@@ -1068,3 +1068,74 @@ committed them below. The two remaining dirty paths are outside this seat's set 
 **Tally (by count of the rows above)**: defects 8. Cured **5**: D-1 (inherited, verified), D-2, D-3's oracle half, D-4 and
 D-7. D-6 was cured in part: the core, with R18's corrupt leg GREEN. Escalated: D-5, the G13 remainder, the G19 remainder, R18's
 valid leg and the rest of the XP-EXTRACT rows. D-8 goes to the mail seat. **Next: Check 2.**
+
+---
+
+## Check 2
+
+**Seat**: L-20 fresh adversarial pass 2, VERIFY-ONLY, `claude-opus-5-5[1m]`, wall clock 2026-09-23, HEAD `f686ad61`. Authored
+none of the wave's bytes and cured nothing. **Verdict: NOT-CONFORMANT.** The row is NOT promoted and stays `PARTIAL`.
+Read: W7.md whole, once · this record's header through §Unit plan · §Close · §Check 1 · §Repair 1 (sed ranges).
+
+**Crash-recovery** ⟨cmd⟩ `git status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh`.
+Neither is in this seat's writable set. No inherited hunk.
+
+**Machine state**: ⟨cmd⟩ `uptime` → load averages **54–63** throughout the browser runs (the other tracks are live). Every
+browser reading below carries that caveat.
+
+### Axes (1)-(9) at this seat's own commands
+
+| axis | reading | verdict |
+|---|---|---|
+| (1) claimed GREENs | ⟨cmd⟩ G1 grep → **0** · G4 `demo/palettes/export.ts` **absent**, `export/serializers` importers = `usePaletteExport.ts` + `byte-exact.test.ts` · G6 → **1** · G18 `git diff --stat e24361c6..HEAD -- src/ \| wc -l` → **0** · ⟨cmd⟩ `npx vitest run` → **2 failed / 803 passed (805)**, 54 files; the 2 are C-5 `spectrum-luma` and F-4 NG-6 (baseline). Second run of the W7 files: 185 passed, and the two browser-harness files (`palette-card-layout`, `plate-mass`) timed out at `page.goto` while an e2e server ran beside them; re-run alone → **10/10**. ⟨cmd⟩ `vue-tsc -p tsconfig.demo.json --noEmit` → **EXIT 0 ×2** (LW-1 stays cured); lib EXIT 0; `eslint demo e2e/smoke/oracles --max-warnings=0` EXIT 0; `git diff --check e24361c6..HEAD` EXIT 0 | **14/14 §6 GREENs reproduce** (G1 G2 G4 G5 G6 G7 G8 G9 G10 G12 G15 G17 G18 G20-height) |
+| (1b) browser legs | ⟨cmd⟩ `playwright test --project=smoke w7-mutation-visibility o9-shadow-palette` → **19 passed · 2 failed**; every G13 row passes. ⟨cmd⟩ `w7-destructive-seats` ×2 → **6 passed · 1 failed** both times; the failure is the first test, `color-name delete`, which never finds its seat (cold). `--grep "color-name delete" --repeat-each=2` → cold RED, warm GREEN. ⟨cmd⟩ `o9-shadow-palette` alone, then `--grep "TRUE EMPTY" --workers=1` → **`:193` Mix→Palettes and `:211` My Palettes RED in 3 of 3 runs**. Mix: the pane card never mounts (`main "Mix"` shows only its status line). My Palettes: the listbox click times out. `:223` Browse TRUE EMPTY GREEN | G13 oracles and G14's network half reproduce (G14 cold-first flake); **o9 `:193`/`:211` do NOT reproduce here** (M-4) |
+| (2) bounds | ⟨cmd⟩ `git show --stat` of the Repair 1 commits `1411a1ea` `b6d3d7af` `afa3a556` `dfbafeb5` `42bdf2a7` `95ca141e` `f686ad61` → every path is §4 (`BrowsePane.vue`, `PaletteCardGrid.vue`, `MixSourceSelector.vue`, `ColorSpaceSelector.vue`, `w7-*.spec.ts`, `demo/test/palettes/*`), B-3 (`ProfileSection.vue`), B-1 (`demo/workbenches/extract/**`) or the record, the ledger and an append-only addendum to `W7-mutation-ownership.md` (+20/−0). `2ddcd6f6` is the orchestrator's chassis commit, not a wave commit. `dev.sh` untouched | CLEAN |
+| (3) masking | ⟨cmd⟩ added-line scan of `7ae8f818..HEAD -- demo e2e` for `.skip(`/`.only(`/`ts-ignore`/`ts-expect-error`/`eslint-disable`/`as any`/`!.` → 0. There are 3 `catch` sites and 1 `as unknown as Worker`. `createImageBitmap` rejects into a typed `decode` outcome that is shown in words. The worker's throw is posted as the typed `"worker"` failure, and its prior `catch` already existed. `readAsDataUrl(...).catch(() => null)` feeds a preview that the settled `QuantizeOutcome` governs. `(self as unknown as Worker)` is pre-existing and relocated. None swallows a defect | CLEAN |
+| (4) families | Repair commits carry one meaning each (typecheck · confirm seat · oracles · eyebrows · extract seam · record · ledger) | CLEAN |
+| (5) E-3 | ⟨cmd⟩ `git diff --stat e24361c6..HEAD -- docs/tranches/X/waves/W7.md docs/tranches/X/refinement docs/tranches/V/megatranche/registry/adjudicated docs/tranches/X/CONFORMANCE-2026-08-03.md docs/tranches/X/waves/W6.md docs/tranches/X/waves/W8.md` → **empty** | CLEAN |
+| (6) mail | ⟨cmd⟩ `grep -n UNREAD INBOX.md` → the rows are O-20 · I-30..I-35 · O-39, the same set Check 1 read. None is in X-W7's scope (O-20/I-35 are KF-W7 `/timeline`) | CLEAN |
+| (7) four-verb | IMPLEMENTED held at **PARTIAL**, VERIFIED NO | LAWFUL |
+| (8) goal (§2a) | "one deliberate confirmation": **now MET**. D-2 is cured (`BrowsePane.vue` confirm; 5th network row GREEN). "every mutation … one visible result": **NOT MET**. ⟨cmd⟩ `grep -n "console.warn" demo/palettes/useBrowsePalettes.ts` → vote `:140`, delete `:151`, rename `:175` and set-visibility `:214` still swallow their failures. `W7-failure-dispositions.md` rows 14–17 rule them **SURFACE · OWED (routed)** | **NOT MET** (H-1) |
+| (9) figures | vitest 803/805 ✓ · G19 grep **8** ✓ (Repair 1's count) · G13 tally GREEN 14 · ROUTED 6 ✓ · demo tsc EXIT 0 ✓ | reproduce |
+
+### (10) Honest-RED adjudication — every gate still RED, at the spec bytes
+
+⟨cmd⟩ `grep -n "ESC-R1-G16\|ESC-W7d-INSPECTOR\|ESC-W7g-G19-BOUNDS\|ESC-R1-XP-REST\|ESC-R1-R18-SWATCH" docs/tranches/X/COHESION.md` → **0**.
+None of Repair 1's escalations has been ruled.
+
+| gate | relief at the spec bytes | owner named | adjudication |
+|---|---|---|---|
+| **G3** | §3a names G3 by id as a mandatory triumvirate trigger (290 diag / 60 files; 80 in 25 files outside §4) | triumvirate (ESC-W7a-G3) | **RELIEVED** |
+| **G11** | §6 G11 dependency note and §10: G11 alone blocks on X-W1's harness; `e2e/visual/**` is Do-NOT-touch | X-W1 (ESC-W7c-G11 / F-3) | **RELIEVED** |
+| **G14** grep clause | producer-owned: ⟨cmd⟩ installed glass-ui **7.0.0**, and no `.d.ts` declares a `deliberate` dismiss rung → glass ≥ 8.0.0 (X-W0 census → X-W4.g). The network half is GREEN, including the fifth seat | triumvirate (ESC-W7e-DISMISS-AXIS) | **RELIEVED** |
+| **G13** | none. Spec GREEN = "a browser assertion per row", and 6 rows are ROUTED to `useBrowsePalettes.ts` / `useDialogBrowseActions.ts`, which are not in §4 and not in B-1..B-6. §5.d's inspector is not built and `PaletteCard.vue` is not deleted (S-5 precondition). A bounds grant is not relief the spec routes | orchestrator (ESC-W7d-INSPECTOR, **unruled**) | **UNRELIEVED** (H-1) |
+| **G16** | none. 26 of 29 sites and 3 dead APIs lie outside §4. The in-bounds half is GREEN (`format-color.test.ts` 42/42) | orchestrator (ESC-R1-G16, **unruled**) | **UNRELIEVED, pending a ruling** (M-1) |
+| **G19** | none. ⟨cmd⟩ `grep -rn eyebrow demo/ \| grep -v node_modules` → **8**, all outside §4 and the fold packets: `DESIGN.md:37`, `GradientCodeEditor.vue:102`, `easingCatalogue.ts:81`, `EasingSpecimenStrip.vue:5,99,138,150` (a live `.family-eyebrow` element), `ParseEchoReadout.vue:15`. The structural precondition (prop and element deleted) holds | orchestrator (ESC-W7g-G19-BOUNDS, **unruled**) | **UNRELIEVED, pending a ruling** (M-2) |
+
+**Honest-RED set (relieved)**: G3 · G11 · G14 (grep clause). **Unrelieved**: G13 · G16 · G19, plus the XP-EXTRACT remainder
+(ESC-R1-XP-REST / -R18-SWATCH, unruled).
+
+### Defect register (severity · claim · receipt · cure)
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| H-1 | **HIGH** | G13 is RED with no relief, and §2a "one visible result" is unmet: 6 mutation rows (2 rename · 3 tag · 6 publish/unpublish · 7 fork · 8 vote · 11 delete) are ROUTED and have no browser row. Four of them swallow failure into `console.warn`. The inspector (§3.4/§3.8, §5.d) is not built | ⟨cmd⟩ `grep -nE "ROUTED" W7-mutation-ownership.md` → 6 · `useBrowsePalettes.ts:140,151,175,214` `console.warn` · `W7-failure-dispositions.md` rows 14–17 `OWED (routed)` · COHESION grep for ESC-W7d-INSPECTOR → 0 | the orchestrator/triumvirate rules ESC-W7d-INSPECTOR by a dated addendum, either a grant (`useBrowsePalettes.ts`, `useDialogBrowseActions.ts`, the inspector path) or a routing to a named wave. Then a repair seat surfaces rows 14–17 and authors the 6 browser rows |
+| M-1 | MEDIUM | G16 RED pending a ruling: 26 display sites and 3 dead APIs lie outside §4 | Repair 1 D-5 · COHESION grep for ESC-R1-G16 → 0 | rule ESC-R1-G16 (route to X-W5/X-W6/X-W9 or grant) |
+| M-2 | MEDIUM | G19 RED pending a ruling: 8 out-of-bounds `eyebrow` hits. One is a live element (`EasingSpecimenStrip.vue:99` `.family-eyebrow`) | ⟨cmd⟩ eyebrow grep → 8 | rule ESC-W7g-G19-BOUNDS (the owners are the gradient/easing workbench, `ParseEchoReadout`, and `DESIGN.md`) |
+| M-3 | MEDIUM | XP-EXTRACT remainder and R18's valid leg are unexecuted (B-1 is in bounds for part of it) | Repair 1 D-6 · ESC-R1-XP-REST / -R18-SWATCH unruled | a dedicated X.W7.g repair round, or a routing ruling |
+| M-4 | MEDIUM | The close claims the o9 oracle (G20's re-ruled leg) GREEN, but two of its cases do not reproduce at this seat. `:193` Mix→Palettes and `:211` My Palettes TRUE EMPTY are RED in 3 of 3 runs. The failure shape is pane or option not reached, and it ran at load 54–63. G20's numeric half (`plate-mass` 4/4) reproduces | `o9-shadow-palette.spec.ts` alone → 3 passed / 2 failed · `--grep "TRUE EMPTY" --workers=1` → 1/2 | at the next seat, re-run o9 on a quiet machine. If it is still RED, bisect `8fe6a2db..HEAD` over `MixSourceSelector.vue` / `PaletteCardGrid.vue` (`dfbafeb5` touched both) |
+| m-1 | MINOR | `BrowsePane.vue:177` has a comment containing the literal `dismiss="deliberate"`. The G14 grep now reads **1** from a comment, not from a seat, so the gate's instrument is polluted | ⟨cmd⟩ `grep -rn 'dismiss="deliberate"' demo/` → `BrowsePane.vue:177` (a comment) | reword the comment so the literal is not spelled out. The grep then reads 0 until the glass 8.0.0 rung lands |
+| m-2 | MINOR | `w7-destructive-seats` `color-name delete` is RED on a cold server (2 of 2 full runs) and GREEN warm | `--repeat-each=2` → cold RED, warm GREEN | X-W1 test hygiene (the same starvation class as the X-W6 g2/e1 legs); no product defect was shown |
+| I-1 | INFO | Glass BK relay (`.cartoon-cast` unreachable at glass 7) is still carried to the mail seat | Check 1 D-8 | orchestrator's mail seat |
+
+### Successor `Opens after` conjuncts
+
+X-W8 (`W8.md:6`: X-W5 · X-W6 · **X-W7**): X-W5 CLOSED · X-W6 CLOSED · X-W7 **PARTIAL**, so the conjunct is RED and X-W8 is
+**lawfully blocked**. X-W10 (X-W5..X-W9): X-W7 and X-W8 are RED, so it is **lawfully blocked**. X-W11 is blocked.
+
+**Loop note**: the remaining unrelieved items (H-1, M-1, M-2, M-3) are all **grant or routing rulings** owed by the orchestrator
+or triumvirate, and none can be cured inside §4. Another check with no COHESION ruling will read the same register. Route the
+four escalations to the ruling seat before Repair 2.
+
+**Tally (count of the register rows)**: 8 rows: HIGH 1 · MEDIUM 4 · MINOR 2 · INFO 1. 14 §6 GREENs were reproduced; 1 claimed
+browser leg (o9 `:193`/`:211`) was not. Honest-RED: G3 · G11 · G14-grep. **NOT-CONFORMANT.**
