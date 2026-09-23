@@ -3843,3 +3843,54 @@ Groups (serial, at most 1 concurrent; `.c3` and `.d3` share no modify path, but 
 Post-units: the verify-only close + L-20 checks; L-18 quartet passes precede ACCEPTED; then X-W6 [`.a2`] → [`.i2`] → [`.j`] per §0ay.
 
 ## Unit receipts — RESUME 6
+
+### X.W5.c3
+
+SERVED MODEL: claude-opus-5-5[1m] · unit X.W5.c3 (Opus) · executes W5.md ADDENDUM 3 (`:398`) · COHESION §0ay ESC-W5c2-1 / ESC-W5c2-2 · this record's R6.3–R6.4 · HEAD at open `545f675f`.
+
+**c3.0 Crash-recovery.** ⟨cmd⟩ `git status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M docs/tranches/X/waves/W6-evidence/catalog/after-catalog-open.png` · ` M …/after-specimen-dots.png` · ` M scripts/dev/dev.sh`. None is in this unit's writable set. **No inherited partial.** One seat slip, self-caught: a scratch probe was `cp`'d to the repo root as `./.c3-probe.tmp.mjs` and `rm`'d in the next command before any commit. ⟨cmd⟩ `git status --porcelain` → same four rows, nothing untracked. The probe then ran from the scratchpad only.
+
+**c3.1 Anchors, measured at true bytes.** ⟨cmd⟩ `sed -n 218p;266p o16-computed-cascade.spec.ts` → `expect(census.enter!["transform"]?.duration).toBe("0.4s");` · `expect(census.morph["transform"]?.duration).toBe("0.4s");`. No drift. The producer token is ⟨cmd⟩ `grep -o -- '--spring-snappy-settle: [^;]*' node_modules/@mkbabb/glass-ui/dist/styles/tokens/scheme-spring.css` → `0.44s` (glass 7.0.0). `--spring-snappy-duration` is not an `@property` (⟨cmd⟩ `grep '@property --spring-snappy' …/property-regs.css` → 0).
+
+**c3.2 Choosing the resolution instrument (read-only probe, `scratchpad/c3-probe.mjs`, Chromium with swiftshader + WebKit).** On the live pane under `vj-enter-enter-active`, `getComputedStyle(el).getPropertyValue("--spring-snappy-duration")` returns `"calc(0.44s * 1)"` in both engines, because the property is unregistered and so is not evaluated.
+- `CSSNumericValue.parse(raw).to("s")`: Chromium `0.44`; WebKit throws `Failed to parse CSS text`. **Rejected**, because o16 also runs in `oracles-safari`.
+- Setting `animation-duration: var(--spring-snappy-duration)` on the same element, then reading `getComputedStyle(el).animationDuration`: Chromium `"0.44s"`, WebKit `"0.44s"`, and on the morph probe `"0.44s"` in both. It resolves through each engine's own calc and needs no animation name, so no animation runs. The prior inline value is restored. **Adopted.**
+
+**c3.3 The byte: `8ddafa23`** `test(e2e/o16): R2 and R8 equal the RESOLVED --spring-snappy-duration`. The pathspec is exactly `e2e/smoke/oracles/o16-computed-cascade.spec.ts`: +30 / −2, and only the `:218` and `:266` statements changed. R2 reads the token on the live `.pane-wrapper--stage` child with `vj-enter-enter-active` applied. R8 reads it on a `vj-morph-enter-active` probe, which is the census's own probe shape. ⟨cmd⟩ `grep -n '"0.4s"' o16…spec.ts` → 0. There is no literal `0.44s`, no floor change, no skip and no allowlist. The R2/R8 prose comments at `:215`/`:264` ("0.4s") are outside the grant and were left as they are.
+
+**c3.4 Gate: o16 ×2.** ⟨cmd⟩ `VJS_E2E_PORT=5285 VJS_E2E_PERF_PORT=5286 npx playwright test e2e/smoke/oracles/o16-computed-cascade.spec.ts --reporter=line`
+
+| run | load (start→end) | result | R2 `transform` | first failure (smoke + oracles-safari) |
+|---|---|---|---|---|
+| 1 | 15.83 → 16.53 | 2 passed / 2 failed, EXIT=1 | `0.44s` = resolved `0.44s`, **PASS** (R3 PASS) | `:256` **R4 translate duration**: Expected `"0.3s"`, Received `undefined` |
+| 2 | 8.58 → 7.57 | 2 passed / 2 failed, EXIT=1 | **PASS** | the same, at `:256` R4 |
+
+BEFORE → AFTER: R2 went from RED (`Received "0.44s"`) to **GREEN**, and R8 is GREEN by the probe below. **The W5-census test is still RED ×2.** The R2 literal had been masking later rows, because Playwright stops at the first failed `expect`. The rest of the census was read without writing anything (⟨cmd⟩ `node scratchpad/c3-rows.mjs`, both engines, both schemes, identical results):
+
+| row | line | computed | spec target | state |
+|---|---|---|---|---|
+| R4 `cartoon-surface` probe | pre-byte `:241-244` (post-byte `:256-259`) | `all \| 0s` | translate/scale 0.3s linear, box-shadow 0.3s | RED. glass 7.0.0 `components/card/styles.css` ships `@utility cartoon-surface { position; border-width; box-shadow }` and **no transition**, so the register has left the producer |
+| R5 `btn-interactive` probe | pre-byte `:250` | `all \| 0s` | scale 0.45s | RED |
+| R5 `.channel-rail-item` | pre-byte `:255` | transform `0.12s` | 0.16s | RED |
+| R5 `.send-btn` | pre-byte `:260` (guarded `if`) | `all \| 0s` | scale 0.45s | RED if present |
+| R8 `vj-morph-enter-active` | `:266` | transform `0.44s` | the resolved token | **GREEN** (c3 byte) |
+| R11 `.pane-shell` | pre-byte `:272` | transform `0.35s` | 0.45s | RED |
+
+The rows R4, R5 and R11 hold the same class of defect as R2: literals from before the glass 7.0.0 adoption, plus one register that the producer removed. They lie outside the `:218`/`:266` lock. **Escalated: ESC-W5c3-1** (see c3.7).
+
+**c3.5 Gate: o12 O-12·3, headed on the real GPU ×2 (ESC-W5c2-2).** No change to the spec or the repo config. The instrument is `scratchpad/c3-o12-gpu-headed.config.ts`, which uses D1-of-record's launch shape (`scene-swap-budget.mjs:140`: `headless:false`, no swiftshader args): `channel:"chromium"`, `headless:false`, a 1280×720 viewport, `testDir` = the repo's `e2e/smoke/oracles`, `testMatch` o12 only, and its own vite on :5287 with `VITE_API_URL` set to the same origin. The repo's `smoke`/`oracles-*` projects launch with `--use-angle=swiftshader`, so running them `--headed` would still be software GL.
+⟨cmd⟩ `VJS_E2E_PORT=5287 npx playwright test -c scratchpad/c3-o12-gpu-headed.config.ts --reporter=line`
+
+| run | load (start→end) | renderer witness (same file) | O-12·3 hover diff | floor | other legs |
+|---|---|---|---|---|---|
+| 1 | 7.09 → 6.00 | `[o12-backing] renderer=REAL-GPU … ratio 0.999` · `[o12-hover-active] renderer=REAL-GPU p50=10.2ms` | **0.30/255** | 6/255 | ·1+2 ·4 ·5 PASS (3 passed / 1 failed) |
+| 2 | 5.92 → 5.74 | the same (REAL-GPU, ratio 0.999, p50 10.2 ms) | **0.53/255** | 6/255 | 3 passed / 1 failed |
+
+The reading of record is **below the floor on the real GPU in both runs.** It matches the headless software-GL reading class (0.11–0.83 across K1–K3), so the renderer is not the cause. Under ESC-W5c2-2 this is a blob-mood defect: **registered to X-W8 `.i` by id `O12-3-HOVER-GPU`** (O-12·3 hover-in from the parked rest state gives a 0.30 / 0.53 per-255 mean frame diff within 400 ms, headed real GPU, against the 6/255 floor; owner X-W8 `.i`). No W5 byte, and the floor is unchanged.
+
+**c3.6 Evidence.** `docs/tranches/X/waves/W5/green/c3-o16-o12-2026-09-22.json` holds both o16 runs, the latent-row probe, both headed o12 runs and the id registration. It is committed with this record.
+
+**c3.7 Gates, residuals, escalations.**
+- o16-computed-cascade GREEN ×2: **RED ×2**. The granted part is done: R2 `:218` and R8 `:266` now equal the resolved token, R2 PASS ×2 in both projects, R8 = `0.44s`. The test still fails at R4.
+- o12 O-12·3 headed real-GPU ×2, floor 6/255: **read ×2 at the instrument of record, below the floor**. Disposed under ESC-W5c2-2 to X-W8 `.i` as `O12-3-HOVER-GPU`. It is a RED reading routed by ruling, not a W5 GREEN.
+- **ESC-W5c3-1 (for COHESION).** The o16 W5-census has three more literal rows from before the glass 7.0.0 adoption. R4 is pre-byte `:241-244`: `cartoon-surface`'s transition register is **absent** from the glass 7.0.0 producer (`@utility cartoon-surface` carries no transition), so it may need a producer letter or a re-author rather than a token read. R5 is pre-byte `:250`/`:255`/`:260`: `btn-interactive` computes `0s`, and the rail press is `0.12s` against `0.16s`. R11 is pre-byte `:272`: `.pane-shell` is `0.35s` against `0.45s`. R2's literal hid all of them, so o16 cannot turn GREEN inside the `:218`/`:266` lock. The ruling needs to cover the grant of those lines (resolved-token equality, like ESC-W5c2-1), and R4's "producer removed the register" question, which may be a glass mail row.
