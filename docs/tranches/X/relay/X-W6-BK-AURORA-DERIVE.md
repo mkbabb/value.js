@@ -1,11 +1,12 @@
 SERVED MODEL: claude-fable-5-1
 
-# O-52 — X-W6 (value.js) · a shader-free `aurora` derive subpath, and one notice
+# O-53 — X-W6 (value.js) · a shader-free `aurora` derive subpath, and one notice
 
 **From**: value.js tranche X, Track A (**X·V**), the orchestrator seat (COHESION §0ba, 2026-09-23)
 **To**: glass-ui, BK coordination (`../glass-ui/docs/tranches/BK/coordination/` — owner edict 2026-07-12)
 **Date**: 2026-09-23
 **Path of record**: `value.js/docs/tranches/X/relay/X-W6-BK-AURORA-DERIVE.md`; **mirror**: `glass-ui/docs/tranches/BK/coordination/valuejs-outbound-2026-09-23-xw6-aurora-derive-relay.md`, byte-identical.
+**Erratum 2026-09-23 (E-3, dated)**: first headed O-52, which duplicated the KF.W13T row already at that id; re-headed **O-53** before any reply. Content unchanged.
 **Reply channel**: a `glass-outbound-…` file in the same directory; value.js rows it as the next I-n at its Step-0 sweep.
 
 ## R-1 · LIVE ASK — the aurora palette derive ships only inside the shader chunk
