@@ -501,3 +501,20 @@ Fresh adversarial check (L-20 pass 2), `claude-opus-5-5`, 2026-09-23 ~14:25–14
 
 ### Tally (counted from the register)
 0 BLOCKER · 0 CRITICAL · 1 HIGH · 2 MEDIUM · 2 MINOR · 1 INFO. Gates reproduced GREEN: 6 (a1 a2 b1 c1 c2 d3). RED: 6 (a3-perf d1 d2 e1 e2 close). **LEDGER status not moved** (PARTIAL stands). Next: owner act ESC-W5d-1 (tag `661b47c`) + F-W5d-1 → `.d` re-dispatch (perf read) → `.e` → Check 3.
+
+## Repair 2
+
+Repair seat (round 2), `claude-opus-5-5`, 2026-09-23 ~14:28 EDT. Read: W5.md whole (22 lines), this record's header through §Unit plan, and §Check 2. Crash-recovery: my writable set (this record, `LEDGER.md`) was clean. parse-that dirt is the July `rust/**`/`.cargo`/`README.md` set, which I left alone. parse-that master is `661b47c` (`## master...origin/master`). No COHESION ruling since §0bp touches W5: ⟨`grep -n 'W5d-1\|ESC-c1\|F-W5c-1\|R-c-2' COHESION.md`⟩ → only :805/:1825/:1913 (prior waves); §0bq..§0bt concern other tracks.
+
+**Result: 0 cured, 5 escalated, and no code commit.** Every defect at MEDIUM or above has its only cure outside this seat's reach: an owner act, an orchestrator ruling, a path outside W5's bounds, or a load condition the host does not meet. Neither MINOR has a one-command cure, because each is a ruling. I applied no masking fallback.
+
+| defect | cure attempted / reason | commit | gate re-reading (×2, settled bytes) |
+|---|---|---|---|
+| C2-1 HIGH (d1 d2 e1 e2 close) | **ESCALATED.** The publish is an OWNER ACT: ⟨`npm whoami`⟩ → `E401` ×2. A `v2.0.0` tag before the publish would claim a release that does not exist, so it stays with ESC-W5d-1 (tag at `661b47c`). `.e` is keyed on the published package (W5.md :21 "depends on the published parse-that"), and F-W5d-1 is unruled. | — | ⟨`npm view @mkbabb/parse-that dist-tags.latest`⟩ → `1.0.0` ×2 · ⟨`git tag -l 'v2*' \| wc -l`⟩ → `0` ×2 · ⟨`grep -c parse-that package.json`⟩ → `0` ×2 · ⟨`wc -l src/css/grammar.ts src/css/syntax.ts`⟩ → `544 101` ×2. RC-P is not re-run because no conjunct input moved (Check 2 banked FALSE 3/6 ×2 at the same `661b47c` + registry state). |
+| C2-2 MEDIUM (a3 perf) | **ESCALATED.** The cure needs a load average below ~4. ⟨`sysctl -n vm.loadavg`⟩ → `{ 43.50 42.79 51.33 }` ×2. A read taken under this load would repeat Repair 1's inconclusive A/B. | — | unmoved (RED) |
+| C2-3 MEDIUM (ESC-c1 latch, 2 legs) | **ESCALATED.** The cure is in `typescript/src/parse/packrat.ts` (`PACKRAT_ARMED`), which is outside every W5 unit's writable set (§Unit plan). It needs an orchestrator grant of a bounded library-seam unit, or a dated routed-carry addendum. | — | unmoved (Check 2: 473/475, both in `latch.test.ts`) |
+| C2-4 MINOR (R-c-2 / SC-2) | **ESCALATED.** Needs an orchestrator ruling (widening the frozen `CssColorSpace` is not a seat's call). | — | — |
+| C2-5 MINOR (F-W5c-1) | **ESCALATED.** Needs an orchestrator ruling. | — | — |
+| C2-6 INFO | No action required. | — | — |
+
+**Status: unmoved (PARTIAL).** Next: owner `npm login` → publish 2.0.0 → tag `v2.0.0` `661b47c` · the orchestrator rules F-W5d-1, R-c-2/SC-2, F-W5c-1 and ESC-c1 routing · `.d` re-dispatch (low-load perf read) → `.e` → RC-P ×2 → Check 3.
