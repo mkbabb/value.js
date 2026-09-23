@@ -2409,3 +2409,41 @@ twin's test handle) · `demo/test/extract/extract-session.test.ts:21-22,34,48` c
 
 **Verdict: DONE** — EC-10 ×2 GREEN · R-15 ×2 GREEN · inert 31 → 0 (probe residual = fallthrough + native `data-*` + TS2322 8 +
 `UserSortMenu:8`) · vue-tsc demo EXIT 0 ×2. Commits `04ed557d` · `26681172` · `33d52f8c` (+ this receipt).
+
+### X.W7.z3
+
+SERVED MODEL: claude-opus-5-5. Sections: COHESION §0bt.3 · §0bk.5 · W7.md §7 (`:556-565`) · ESC-W7c2-LINT (record `:1686`).
+
+**Crash-recovery** ⟨`git status --porcelain`⟩ → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh` · `?? docs/tranches/X/audit/` · `?? docs/tranches/X/execution/chassis/ui-audit.js` — none under the writable set → **no inherited hunk**. Locks: z1 + z2 landed before push (receipts `### X.W7.z1` / `### X.W7.z2`; HEAD at entry `cc2e38ba` = the z2 receipt).
+
+**Acts (in order).**
+1. BEFORE ⟨`npm run lint`⟩ → **EXIT 1**, `✖ 56 problems (24 errors, 32 warnings)`; ⟨`grep "^/" lint0.txt | grep -vc /docs/`⟩ → **0** files outside `docs/`.
+2. Anchor at true bytes: `eslint.config.js:40-41` = `"docs/precepts/**"` · `"docs/tranches/C/**"` (no drift). Cure: both collapsed into ONE entry `"docs/**"` with a two-line comment (documentation and banked tooling, not product code). No rule disabled, no `continue-on-error`.
+3. AFTER ⟨`npm run lint`⟩ ×2 → **EXIT 0** · **EXIT 0** (no problems printed). ⟨`git diff --check -- eslint.config.js`⟩ → exit 0.
+4. Commit `630f6f8d` `build(lint): ignore docs/** …` (pathspec `eslint.config.js`, one commit per the lock).
+5. ⟨`git push origin tranche-u`⟩ → `e919164d..630f6f8d  tranche-u -> tranche-u`.
+6. CI read #1: runs `35905575964` (@`630f6f8d`) and `35905825548` (@`e0fc1605`) were **cancelled** by the workflow's concurrency when sibling seats pushed docs commits; the first run to finish carrying `630f6f8d` is ⟨`gh run view 35905908229 --json jobs`⟩ (@`55dc67ea`) → `producer / Node 22` **failure** · `producer / Node 24` **failure**; ⟨failed-step query⟩ → both at `Run npm run typecheck` — **lint step now passes in CI**. Job log (⟨`gh api …/actions/jobs/107335328522/logs`⟩) → 47 `##[error]`, all `api/src/**` `TS2307: Cannot find module 'mongodb'` / `'hono'` (+ `TS7006` consequences), e.g. `api/src/modules/admin/model.ts(8,31): error TS2307: Cannot find module 'mongodb'`.
+7. Root cause: `demo/test/palettes/dto-parity.test.ts:14-20` type-imports the server DTOs from `api/src/**` (X.W7.d N-8, `eb2fae61`); those modules resolve `mongodb`/`hono` only from `api/node_modules`, which the producer job never installed (the workstation has it: ⟨`ls -d api/node_modules/mongodb node_modules/mongodb`⟩ → only the api one). Cure (`.github/workflows/ci.yml`, producer job): `npm ci --prefix api --ignore-scripts` after `npm ci` (declarations only; no mongod download), npm cache keyed on both lockfiles.
+8. Masked behind it (the `&&` chain stops at the demo program): local ⟨`npm run typecheck`⟩ → **EXIT 2**, 11× `demo/color-session/space-catalog.ts(…): error TS2307: Cannot find module '../../assets/docs/*.md'` in the **test** program (`test/interpolation-subset.test.ts:17` imports `space-catalog`, `b2dd375c`); the program lacked the `*.md` declaration at `demo/color-picker/vite.d.ts`. Cure: add it to `tsconfig.test.json:39` `include` — **adjacent edit** (same repo, same concern: the CI producer gate this unit owns). AFTER ⟨`npm run typecheck`⟩ ×2 → **EXIT 0** · **EXIT 0**; ⟨`npm run lint`⟩ → EXIT 0 (third read).
+9. Commit `31d15db7` (pathspec `.github/workflows/ci.yml tsconfig.test.json`); a sibling seat's rebase-and-push carried it to origin as **`464ff743`** (⟨`git diff 31d15db7 464ff743 -- <paths> | wc -l`⟩ → 0, identical), origin HEAD `5bd41d48`.
+10. CI read #2: runs on `5bd41d48` · `df281b84` · `15409ece` **cancelled** by concurrency (sibling pushes); ⟨`gh run view 35907885177 --json jobs`⟩ (@`dfdf16ea`, carries `630f6f8d` + `464ff743`) → `producer / Node 24` steps: `npm ci` ✓ · `npm ci --prefix api --ignore-scripts` ✓ · `npm run lint` ✓ · `npm run build` ✓ · `npm run typecheck` ✓ · **`npx playwright install --with-deps chromium` ✓ (the `.c2` step)** · **`npm test` ✗** → conclusion **failure**; `producer / Node 22` **cancelled** during `npm test`. Job log (⟨`gh api …/actions/jobs/107340430735/logs`⟩) → `Test Files 2 failed | 62 passed (64)`:
+    - `test/spectrum-luma.test.ts` › `C-5 · BORN-RED — the selected stroke clears 3:1 against the field at every hue` → *"the hue-blind regime picks an invisible stroke at: 45° → 1.65:1, 60° → 1.07:1, 120° → 1.37:1, 180° → 1.25:1 — cure routed to X-W4 (fold R23)"* (`src/`-side plate regime; X-W1 born-RED oracle `a0df89d9`/`ca1a4459`).
+    - `demo/test/shell/reka-binding-idiom.test.ts:63` › `NG-6 … a \`:checked\` binding drives NOTHING — the stale-binding class, caught` → expected `"checked"`, received `"unchecked"` (X-W1 canary; the `.z2` receipt already carries it as a residual owned by X-W1).
+    Local ⟨`npx vitest run`⟩ → the same two, `Tests 2 failed | 874 passed (876)` — not load-bound, not introduced by this unit.
+
+**Gates (BEFORE → AFTER).**
+| gate | BEFORE | AFTER |
+|---|---|---|
+| `npm run lint` ×2 | EXIT 1 (24 errors, all `docs/`) | **EXIT 0 · EXIT 0** — GREEN |
+| `git push` of tranche-u | — | `e919164d..630f6f8d`; `464ff743` on origin (sibling rebase-push) — GREEN |
+| CI producer / Node 22 + 24 | failure at `npm run lint` (`35899088286`) | lint ✓ · typecheck ✓ · `.c2` Chromium ✓ · **`npm test` ✗** (`35907885177`: 24 failure, 22 cancelled) — **RED** |
+
+**Adjacent edits**: `tsconfig.test.json:39` — `demo/color-picker/vite.d.ts` added to `include` (the test program reaches `space-catalog.ts`'s `*.md` imports; same concern: the producer typecheck step this unit owns).
+
+**ESCALATION ESC-W7z3-BORNRED-VITEST.** The producer job can go GREEN only when `npm test` does; it is RED on two X-W1 born-RED oracles whose cures sit in other waves' concerns (C-5 → the plate-luma regime, "routed to X-W4 (fold R23)", `src/`; NG-6 → the reka `:checked` canary, X-W1). Neither is lint, CI wiring or this unit's concern; editing either assertion is test/assertion deletion (forbidden), and `src/` is a Triumvirate trigger (W7.md §3a). Orchestrator: rule the owner of each (C-5's X-W4 routing is stale — X-W4 is CLOSED) or re-rule the born-RED oracles' CI disposition. Everything upstream of `npm test` in the producer job is GREEN on the pushed HEAD.
+
+**Residuals**: the two oracles above; CI concurrency cancels in-flight runs on every sibling docs push (read the newest completed run carrying the commit).
+
+**Commits**: `630f6f8d` (lint ignore) · `464ff743` (= local `31d15db7`; CI api install + test-program declaration) · this receipt.
+
+**Verdict: ESCALATED** — lint ×2 GREEN · push GREEN · producer RED at `npm test` only (ESC-W7z3-BORNRED-VITEST). `scripts/dev/dev.sh` untouched.
