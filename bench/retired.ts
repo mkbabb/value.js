@@ -13,7 +13,7 @@ import { tmpdir } from "node:os";
 import path from "node:path";
 
 import type { CssList, CssScalar, CssValue } from "../src/value";
-import type { CssColor, CssTimingFunction, KeyframeSelector, ParseResult } from "../src/css/types";
+import type { CssColor, CssTimingFunction, KeyframeSelector, ParseResult, Stylesheet } from "../src/css/types";
 
 /** The last commit whose `src/css/grammar.ts` is the shipping hand parser, and that file's blob. */
 export const RETIRED_AT = "2155142bad8b7ac8292ad2263f232a47a656f36e";
@@ -30,16 +30,25 @@ export type HandParser = Readonly<{
     parseTimingFunction(source: string): ParseResult<CssTimingFunction>;
 }>;
 
-/** Materializes `src/` at `RETIRED_AT` (once per host) and imports its hand parser. */
-export async function retiredHandParser(): Promise<HandParser> {
+/** Materializes `src/` at `RETIRED_AT` (once per host); answers the path of one of its modules. */
+export function retiredModule(relative: string): string {
     const git = (...args: string[]) => execFileSync("git", ["-C", REPO, ...args], { encoding: "utf8" }).trim();
     const blob = git("rev-parse", `${RETIRED_AT}:src/css/grammar.ts`);
     if (blob !== RETIRED_BLOB) throw new Error(`retired hand parser blob ${blob} ≠ pinned ${RETIRED_BLOB}`);
     const root = path.join(tmpdir(), `value-js-retired-${RETIRED_AT.slice(0, 12)}`);
-    const entry = path.join(root, "src", "css", "grammar.ts");
-    if (!existsSync(entry)) {
+    if (!existsSync(path.join(root, "src", "css", "grammar.ts"))) {
         mkdirSync(root, { recursive: true });
         execFileSync("sh", ["-c", `git -C "${REPO}" archive ${RETIRED_AT} src | tar -x -C "${root}"`]);
     }
-    return (await import(/* @vite-ignore */ entry)) as HandParser;
+    return path.join(root, "src", relative);
+}
+
+/** The retired hand parser's six entries. */
+export async function retiredHandParser(): Promise<HandParser> {
+    return (await import(/* @vite-ignore */ retiredModule("css/grammar.ts"))) as HandParser;
+}
+
+/** The retired stylesheet layer (`parseStylesheet` over the hand parser and its scanners). */
+export async function retiredStylesheet(): Promise<Readonly<{ parseStylesheet(source: string): ParseResult<Stylesheet> }>> {
+    return (await import(/* @vite-ignore */ retiredModule("css/stylesheet.ts"))) as { parseStylesheet(source: string): ParseResult<Stylesheet> };
 }
