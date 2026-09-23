@@ -281,3 +281,76 @@ a narrower checker setting by ruling, or ownership of the 80 out-of-bounds sites
 `demo/ui/checkbox/index.ts` · `demo/test/palettes/{checkbox-contract,mini-color-picker-capture}.test.ts` ·
 `docs/tranches/X/waves/W7-gate-log.md` · this record. **Not written**: `tsconfig.base.json` (F-1),
 `search/index.ts` (no change needed), `UserSortMenu.vue` (S-4), `reka-binding-idiom.test.ts` (F-4), `dev.sh`.
+
+### b
+
+**Seat**: X.W7.b, `claude-opus-5-5[1m]` (Opus implementation seat, M-23). Wall clock 2026-09-23.
+**Read**: W7.md whole; X-W7-FOLD §Rows X.W7.b (`:86-111`), §Gates S-4..S-7 (`:369-372`), §R1.36 N-15 (`:1626-1628`),
+§EXCLUDED (`:504-513`, L5-1 KILLED); PALETTE-CONTRACT Appendix W51 §1-§2; this record's header → Unit plan + receipt `a`;
+COHESION §0j → end by grep (§0k.3 S-4..S-7, §0bb order line — no ruling beyond the plan's).
+
+**Crash-recovery**: ⟨cmd⟩ `git status --porcelain` → only `CARRY-LEDGER.md` · `dev.sh` — **0 paths in unit b's
+writable set**; no inherited hunk.
+
+**Acts, in order**
+
+1. **Anchors verified at true bytes** (all as the spec/record name them): `usePaletteExport.ts:9` `from "./export"`
+   and `:21-23` the swallowing catch; `export.ts:9` ASCII slugify; `utils.ts:3` NFKD slugify; `serializers.ts`'s sole
+   importer `byte-exact.test.ts`; `png.ts` `WIDTH = 1200`. **Drift found**: no `Palette → ExportSnapshot` capture existed
+   anywhere (`grep -rn sourceKind demo` outside `export/` + test → 0) — the certified serializers take a snapshot, the
+   composable holds a `Palette`. Built as `export/capture.ts` (inside `demo/palettes/export/*.ts`), not improvised
+   around: Appendix §1 bounds are enforced as typed refusals, never clamps.
+2. **Commit #3 `cb03d571`** `refactor(palettes/export)`: `export/capture.ts` (local → Device Draft r1; remote → its
+   current Release `slug--r<versionCount>`, `releaseId = currentHash`; tags travel by name), `export/file.ts`
+   (exhaustive format dispatch over `canonical.ts` filename/MIME), `export/download.ts` (attached anchor, 60 s URL
+   lease), barrel `serializers.ts` re-exports them; composable repointed at `./export/serializers` only;
+   **`demo/palettes/export.ts` deleted whole**; the ONE `slugify` in `utils.ts` ruled (NFKD transliteration +
+   percent-safe UTF-8-hex fallback; `createSlug` no leading dash); G5 case in `byte-exact.test.ts`. One commit (S-6 lock).
+3. **Commit #4 `48668947`** `fix(palettes/export)`: the composable's one boundary → `ExportOutcome` + reactive
+   `failure`; `dateFormat.ts` dead catches DELETED (ECMA-402); `W7-failure-dispositions.md` (50 rows);
+   `demo/test/palettes/palette-export.test.ts` (G7 forced throw + N-15 three fixtures + PNG N-invariance).
+4. **Commit `9843b2f1`** `docs(X.W7.b)`: `W7-gate-log.md` §G4-§G7, §N-15 + integration hashes.
+
+**Gate readings BEFORE → AFTER** (after = settled bytes, double-run)
+
+| gate | BEFORE | AFTER | verdict |
+|---|---|---|---|
+| G4 | composable `from "./export"` (the file); serializer importers = test only | `export.ts` **absent**; ⟨cmd⟩ `grep -rn 'palettes/export"' demo \| wc -l` → **0**; importers of `export/serializers` = **`usePaletteExport.ts`** + test | **GREEN** |
+| G5 | `"blue"` (legacy) / `"-blue"` (survivor); 0 cases | `"e697a5e69cac-blue"`; filename `e697a5e69cac-blue-0a1b2c3d--r3.json`, `displayName` byte-exact; `Tests 31 passed (31)` ×2; falsifier → 2 failed | **GREEN** |
+| G6 | **2** | **1** ×2 (`utils.ts:12`; 0 under `export/`) | **GREEN** |
+| G7 | table absent; 38 warn / 49 catch; export swallowed | table **50 rows** (S 46 · L 1 · D 3; self-counted ×2); `palette-export.test.ts` **7 passed** ×2; falsifier (channel stubbed) → 4 failed | **RED-pending — host render owed by d (ESC-W7b-HOST)** |
+| N-15 | legacy fails all three (raw `<text>`/`fill`, width-0 SVG + null PNG, `""` → `.json`) | escaped SVG, loud zero-colour refusal (0 blobs/0 clicks), canonical stems; PNG 1200×240 at N=1/50 | **GREEN** |
+
+**Cadence (§7), settled bytes**
+
+- ⟨cmd⟩ `npx vitest run` → `Test Files 2 failed | 39 passed (41)` · `Tests 2 failed | 660 passed (662)`, ×2 identical
+  (receipt `a`'s 651 + this unit's 9). The 2 fails are the baseline's (C-5 `spectrum-luma`; NG-6 case 2, F-4).
+- ⟨cmd⟩ `npx vue-tsc -p tsconfig.demo.json --noEmit` → **EXIT 0**; ⟨cmd⟩ `npx vue-tsc -p tsconfig.test.json --noEmit
+  | grep -c "error TS"` → **11**, all `space-catalog` (F-2, pre-existing; `grep -v space-catalog` → 0 new).
+- ⟨cmd⟩ `npx eslint --max-warnings=0` over every touched file → EXIT 0; `git diff --check` → clean.
+
+**Residuals (recorded, none absorbed)**
+
+- **Capture fidelity vs Appendix §1 field grammar**: the demo has no UUIDv7 draft ids, no draft-revision ledger, no
+  tag `ResourceId`s and no server `paletteId` (K-PALID: slug-identified end to end). Capture therefore uses the
+  demo's real identities — `deviceDraftId = palette.id` at revision 1, `paletteId = slug`, `releaseId = currentHash`,
+  `tagId = label = tag name`. Serializer bytes are exact over those values; the grammar-level identities (and the
+  IndexedDB `ExportOperation` / Prepare→Download seat) remain W50's routed half (D57), unbuilt here.
+- A remote palette with `currentHash === null` (pre-version rows) refuses loudly ("no saved version to export yet")
+  rather than inventing a release id.
+- Filename change visible to users: Tailwind now ships `.tailwind.json` (data, Appendix §5), not `.tailwind.ts`.
+- W7.16 (AF-18: `formatDate` month+day in the flagged queue) is a consumer-format row at `AdminFlaggedPanel.vue` —
+  not in b's bounds; left for d/e.
+- 40 OWED disposition rows: **33 → d** (its writable set holds each file), **7 routed** (`useBrowsePalettes.ts` ×6,
+  `useDialogBrowseActions.ts` ×1 — held by no W7 unit).
+
+**Escalation — ESC-W7b-HOST (cross-unit handoff, §4a)**: G7's "visible error surface" needs the host to render the
+composable's `ExportOutcome`/`failure`. Both hosts — `BrowsePane.vue:115/:324` and `PalettesPane.vue:106/:221` — are in
+unit **d**'s writable set, not b's. b built and tested the channel; d binds it to the card feedback rail (or the
+inspector when export moves there) and adds the mounted rendered-message assertion. G7 turns GREEN at that act.
+
+**Commits**: `cb03d571` · `48668947` · `9843b2f1` (+ this receipt).
+**Paths written**: `demo/palettes/export.ts` (deleted) · `demo/palettes/usePaletteExport.ts` · `demo/palettes/utils.ts` ·
+`demo/palettes/export/{capture,file,download,serializers}.ts` · `demo/palettes/browser/dateFormat.ts` ·
+`demo/test/export/byte-exact.test.ts` · `demo/test/palettes/palette-export.test.ts` ·
+`docs/tranches/X/waves/{W7-failure-dispositions,W7-gate-log}.md` · this record. **Not written**: the panes (d's), `dev.sh`.
