@@ -67,7 +67,6 @@
                 >
                     <template #action>
                         <Button
-                            variant="outline"
                             size="sm"
                             class="font-display"
                             @click="pm.retryRemotePalettes()"
@@ -131,7 +130,6 @@
                     class="flex flex-col items-center gap-1 pt-1 pb-2"
                 >
                     <Button
-                        variant="outline"
                         size="sm"
                         class="font-display"
                         @click="onLoadMore()"

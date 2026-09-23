@@ -10,8 +10,6 @@
             <Skeleton
                 v-for="i in count"
                 :key="i"
-                surface="glass"
-                :variant="blockVariant"
                 class="h-full rounded-none"
                 :class="variant === 'developing' && 'specimen-seg skeleton-seg'"
                 :style="{
@@ -24,14 +22,10 @@
         <!-- Shadow metadata row — develops after the strip. -->
         <div class="px-3 py-2.5 flex items-center gap-2">
             <Skeleton
-                surface="glass"
-                :variant="blockVariant"
                 class="text-subheading h-[1lh] w-32 rounded-md"
                 :style="{ '--skeleton-shimmer-delay': `${count * 0.12 + 0.1}s` }"
             />
             <Skeleton
-                surface="glass"
-                :variant="blockVariant"
                 class="text-subheading h-[1lh] w-6 rounded-md"
                 :style="{ '--skeleton-shimmer-delay': `${count * 0.12 + 0.22}s` }"
             />
@@ -83,7 +77,6 @@
  * component, whose <Transition mode="out-in"> leave never completes. The
  * template now opens on its element; the note lives here.
  */
-import { computed } from "vue";
 import { Skeleton } from "../../../ui/skeleton";
 
 const { count = 5, variant = "shadow" } = defineProps<{
@@ -94,11 +87,6 @@ const { count = 5, variant = "shadow" } = defineProps<{
      *  (T.W6.5 · R12). */
     variant?: "shadow" | "developing";
 }>();
-
-// `developing` sweeps (shimmer); `shadow` breathes (the known-imminent
-// rung, calibrated below). The breath animation lives on each block, so
-// its register needs no producer seam.
-const blockVariant = computed(() => (variant === "developing" ? "shimmer" : "breath"));
 </script>
 
 <style scoped>

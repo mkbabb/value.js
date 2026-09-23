@@ -52,7 +52,7 @@
             :detail="flagged.loadError.value"
         >
             <template #action>
-                <Button variant="outline" size="sm" class="font-display" @click="flagged.loadFlagged()">
+                <Button size="sm" class="font-display" @click="flagged.loadFlagged()">
                     Retry
                 </Button>
             </template>

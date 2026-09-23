@@ -94,8 +94,6 @@
             <Skeleton
                 v-for="i in 5"
                 :key="i"
-                surface="glass"
-                variant="breath"
                 class="h-7 rounded-full"
                 :class="i % 2 ? 'w-20' : 'w-14'"
             />
@@ -109,7 +107,7 @@
             :detail="tagsApi.loadError.value"
         >
             <template #action>
-                <Button variant="outline" size="sm" class="font-display" @click="tagsApi.loadTags()">
+                <Button size="sm" class="font-display" @click="tagsApi.loadTags()">
                     Retry
                 </Button>
             </template>

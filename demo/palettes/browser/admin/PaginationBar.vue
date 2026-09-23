@@ -5,7 +5,6 @@
     >
         <!-- W5-a11y: icon-only pagination buttons need aria-labels -->
         <Button
-            variant="outline"
             size="sm"
             :disabled="!hasPrev"
             aria-label="Previous page"
@@ -19,7 +18,6 @@
         </span>
 
         <Button
-            variant="outline"
             size="sm"
             :disabled="!hasNext"
             aria-label="Next page"

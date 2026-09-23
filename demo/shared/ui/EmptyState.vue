@@ -32,9 +32,9 @@
             class="flex items-end gap-2"
             aria-hidden="true"
         >
-            <WatercolorDot color="var(--accent-live)" variant="ghost" tag="div" seed="plate-a" class="w-8 h-8 opacity-80" />
-            <WatercolorDot color="var(--accent-live)" variant="ghost" tag="div" seed="plate-b" class="w-11 h-11" />
-            <WatercolorDot color="var(--accent-live)" variant="ghost" tag="div" seed="plate-c" class="w-6 h-6 opacity-60" />
+            <WatercolorDot color="var(--accent-live)" variant="ghost" seed="plate-a" class="w-8 h-8 opacity-80" />
+            <WatercolorDot color="var(--accent-live)" variant="ghost" seed="plate-b" class="w-11 h-11" />
+            <WatercolorDot color="var(--accent-live)" variant="ghost" seed="plate-c" class="w-6 h-6 opacity-60" />
         </div>
         <!-- P4-R2 (T.W8 remediation_1): the hint threads the certified
              de-emphasis rung `--ink-muted` (boot-stamped, floor-clamped against

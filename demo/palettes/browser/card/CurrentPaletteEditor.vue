@@ -59,9 +59,9 @@
                             <div class="flex items-center gap-2">
                                 <!-- The FROM slot reads as the shipped ghost variant — the
                                      seeded dashed silhouette (A3, U22) — not an outline fork. -->
-                                <WatercolorDot :color="color" variant="ghost" tag="div" class="w-11 h-11 sm:w-12 sm:h-12 shrink-0" :seed="'edit-from-' + i" />
+                                <WatercolorDot :color="color" variant="ghost" class="w-11 h-11 sm:w-12 sm:h-12 shrink-0" :seed="'edit-from-' + i" />
                                 <span class="text-muted-foreground text-caption">&rarr;</span>
-                                <WatercolorDot :color="cssColorOpaque" tag="div" class="w-11 h-11 sm:w-12 sm:h-12 shrink-0" :seed="'edit-to-' + i" />
+                                <WatercolorDot :color="cssColorOpaque" class="w-11 h-11 sm:w-12 sm:h-12 shrink-0" :seed="'edit-to-' + i" />
                             </div>
                             <div class="flex gap-2 mt-2 self-center">
                                 <!-- W5-a11y: title is tooltip-only; add aria-label so AT reads it -->
@@ -140,7 +140,6 @@
                 @keydown.enter="saveCurrentPalette"
             />
             <Button
-                variant="outline"
                 icon-only
                 class="h-8 w-8 rounded-full cursor-pointer border-border/50 shrink-0"
                 :disabled="savedColorStrings.length === 0"
@@ -157,7 +156,6 @@
                 "{{ duplicateTarget.name }}" already exists.
             </span>
             <Button
-                variant="outline"
                 size="sm"
                 class="h-6 px-2 text-caption cursor-pointer font-display rounded-full"
                 @click="confirmUpdatePalette"
@@ -165,7 +163,6 @@
                 Update
             </Button>
             <Button
-                variant="ghost"
                 size="sm"
                 class="h-6 px-2 text-caption cursor-pointer font-display rounded-full"
                 @click="duplicateTarget = null"

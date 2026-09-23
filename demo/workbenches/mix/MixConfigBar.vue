@@ -166,12 +166,10 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
             </Select>
         </LabeledField>
 
-        <!-- The page's ONE verb — the producer's deliberate-primary register
-             (S.W5-6 · L6 rider: consumed at the root vocabulary, never a
-             per-instance costume; `default` is the quiet glass capsule and
-             read disabled-forever over the wash tier). -->
+        <!-- The page's ONE verb. glass 7 `Button` declares no `variant`, so the
+             deliberate-primary register (S.W5-6 · L6) is an X-W10 intent, not
+             a binding here (X.W7.z2: the inert prop deleted). -->
         <Button
-            variant="primary-audacious"
             :disabled="!canMix"
             class="h-10 gap-2 font-medium font-display"
             @click="emit('mix')"

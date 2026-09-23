@@ -13,7 +13,6 @@
             </span>
             <div class="flex-1" />
             <Button
-                variant="outline"
                 size="xs"
                 class="px-2.5 cursor-pointer font-display text-caption gap-1.5"
                 :disabled="!!access || emptyCount === 0 || pruning"
@@ -24,7 +23,6 @@
                 Prune empty
             </Button>
             <Button
-                variant="outline"
                 size="xs"
                 class="px-2.5 cursor-pointer font-display text-caption gap-1.5"
                 :disabled="loading || !!access"
@@ -72,7 +70,7 @@
             :detail="loadError"
         >
             <template #action>
-                <Button variant="outline" size="sm" class="font-display" @click="pm.loadAdminUsers()">
+                <Button size="sm" class="font-display" @click="pm.loadAdminUsers()">
                     Retry
                 </Button>
             </template>

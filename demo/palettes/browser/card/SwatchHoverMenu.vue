@@ -14,7 +14,6 @@
                 <WatercolorDot
                     :color="color"
                     :variant="ghost ? 'ghost' : 'solid'"
-                    tag="button"
                     :aria-label="`Color swatch ${formatCssCaption(color)}`"
                     :class="[sizeClass, 'shrink-0 cursor-pointer', swatchExtraClass]"
                 />
@@ -29,7 +28,6 @@
             <WatercolorDot
                 :color="color"
                 :variant="ghost ? 'ghost' : 'solid'"
-                tag="button"
                 :aria-label="`Color swatch ${formatCssCaption(color)}`"
                 :class="[sizeClass, 'shrink-0 cursor-pointer', swatchExtraClass]"
                 @click.stop="$emit('click')"

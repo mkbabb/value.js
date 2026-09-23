@@ -10,12 +10,12 @@
         role="status"
         aria-label="Loading"
     >
-        <Skeleton surface="glass" variant="breath" class="w-8 h-8 rounded-full shrink-0" />
+        <Skeleton class="w-8 h-8 rounded-full shrink-0" />
         <div class="flex-1 min-w-0 flex flex-col gap-1.5">
-            <Skeleton surface="glass" variant="breath" class="h-3.5 w-36 max-w-[60%] rounded-md" />
-            <Skeleton surface="glass" variant="breath" class="h-3 w-24 max-w-[40%] rounded-md" />
+            <Skeleton class="h-3.5 w-36 max-w-[60%] rounded-md" />
+            <Skeleton class="h-3 w-24 max-w-[40%] rounded-md" />
         </div>
-        <Skeleton surface="glass" variant="breath" class="h-7 w-14 rounded-full shrink-0" />
+        <Skeleton class="h-7 w-14 rounded-full shrink-0" />
     </div>
 </template>
 
