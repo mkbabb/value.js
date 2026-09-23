@@ -695,3 +695,37 @@ lookup before mount, the flake d2 recorded), passes alone ×2 (10/10 · 10/10). 
 --noEmit` ×2 → EXIT **0 · 0**; lib → EXIT **0**. ⟨cmd⟩ `npx eslint --max-warnings=0 <the 14 touched ts/vue files>` → EXIT
 0; `git diff --check` → clean. e2e not run (§7 schedules it after c, e and close); the smoke specs that read these
 strings match by prefix/regex (`/Add current color/`, `^="Color swatch "`), unchanged by the caption spelling.
+
+## X.W7.g2 — gate sections (seat `claude-opus-5-5`, 2026-09-23, COHESION §0bk.3; code commits `0354d1ff` · `813fb8f6`)
+
+### G19 — Text abrogation — **RED (ESC-W7g2-G19-PROSE · ESC-W7g2-BROWSEPANE-COPY)**
+
+- Recorded grep (the `.family-eyebrow` family label is excluded by name, per §0bk.3): ⟨cmd⟩ `grep -rn eyebrow demo/ |
+  grep -v node_modules | grep -v family-eyebrow | wc -l` → **6 · 6**. The raw grep reads **8 · 8**, the same as the
+  RESUME baseline. The survivors are prose in files outside the grant: `DESIGN.md:37` · `EasingSpecimenStrip.vue:5,138`
+  · `easingCatalogue.ts:81` · `GradientCodeEditor.vue:102` · `ParseEchoReadout.vue:15`.
+- The grant anchors (`PaletteCardGrid.vue:25`, `MixSourceSelector.vue:272`) were already cured at `dfbafeb5`, so they
+  were PRE-CURED with nothing to edit.
+- OM-15 rows 15 and 17 stay HELD. Their copy lives in `BrowsePane.vue`, which is not in the grant, so the two oracles
+  were not re-pointed (re-pointing them alone would turn both RED).
+
+### N-9 — The failure register has a home — **GREEN**
+
+⟨cmd⟩ `grep -rl --include='*.vue' -e '<m>' demo` for each of {`gap-3 py-10 px-6`, `w-7 h-7 text-destructive/80`,
+`max-w-\[28ch\]`, `max-w-\[46ch\]`} → **1 → 0** sites each (the one before was `PaneErrorPlate.vue`). `0354d1ff`:
+PaneErrorPlate renders `EmptyState variant="error"` inside its resting Card. The plate adds only the region fill and
+Reload; its `.plate-ink` clone is deleted. ⟨cmd⟩ `npx vue-tsc -p tsconfig.demo.json --noEmit` → EXIT **0**.
+
+### R14 route glob (ESC-W7g-R14-GLOB) — **glob CURED; R14 still RED at its recovery leg**
+
+- `813fb8f6`: `**/palettes*` is replaced by the REST-only predicate (the same one used by `fixtures/browse-palettes.ts`
+  and o9). The assertions are unchanged.
+- ⟨cmd⟩ `VJS_E2E_PORT=8177 npx playwright test e2e/smoke/crash-battery.spec.ts -g R14 --project=smoke` → BEFORE: RED at
+  `:58` (`mainPane` never visible, because the app did not boot). AFTER, on 2 clean runs: the app boots, the error plate
+  paints, and Retry keeps the plate. Both runs are RED at `:103` (the recovery leg). The other runs were page.goto or
+  click timeouts, with the host load average at 209–276.
+- Two causes of the `:103` RED, both outside the grant:
+  1. `route.continue()` reaches no backend under e2e, because the same-origin `/palettes` returns the SPA's HTML.
+  2. The availability latch (`demo/platform/transport/availability.ts:87` `RETRY_COOLDOWN_MS = 30_000`) blocks a
+     manual Retry for 30 s after the first network failure, so no request goes out inside the leg's 15 s window.
+  → **ESC-W7g2-R14-RECOVERY**.

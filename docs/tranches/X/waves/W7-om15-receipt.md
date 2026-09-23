@@ -150,3 +150,22 @@ functional, the grid still forwards a now-undeclared attribute) · `MixSourceSel
 · prose/unrelated: `DESIGN.md:37`, `ColorSpaceSelector.vue` ×2, `ParseEchoReadout.vue:15`, `ProfileSection.vue` ×2,
 `GradientCodeEditor.vue:102`, `EasingSpecimenStrip.vue` ×4 (a `family-eyebrow` class — a different idiom the grep
 cannot tell apart), `easingCatalogue.ts:81`. → **ESC-W7g-G19-BOUNDS.**
+
+## ADDENDUM 2026-09-23 — X.W7.g2 (COHESION §0bk.3; seat `claude-opus-5-5`)
+
+- **Grant anchors, at the true bytes.** `PaletteCardGrid.vue:25` `:eyebrow` forward and `MixSourceSelector.vue:272`
+  `eyebrow="· nothing to mix ·"` are **PRE-CURED at `dfbafeb5`** (Repair 1, D-4). ⟨cmd⟩ `grep -n eyebrow
+  demo/palettes/browser/card/PaletteCardGrid.vue demo/workbenches/mix/MixSourceSelector.vue` → **0**. The
+  MixSourceSelector empty state already speaks through EmptyState's declared `message` + `hint` props (`:270-274`), which
+  are the plate's real slots. No edit was needed.
+- **Rows 15 · 17 (HELD-ORACLE) stay HELD.** The new copy (`Couldn't load palettes.` · `Load more`) lands in
+  `demo/palettes/BrowsePane.vue:65,139`, and that file is **not** in the §0bk.3 grant. Re-pointing
+  `crash-battery.spec.ts:60` and `browse-pagination.spec.ts:62` to strings the product does not render would turn both
+  oracles RED. Neither spec was touched → **ESC-W7g2-BROWSEPANE-COPY**.
+- **`.family-eyebrow` exclusion (§0bk.3, recorded).** `EasingSpecimenStrip`'s `.family-eyebrow` is a family label, not
+  the retired `EmptyState` eyebrow. The recorded G19 grep excludes it by name:
+  ⟨cmd⟩ `grep -rn eyebrow demo/ | grep -v node_modules | grep -v family-eyebrow | wc -l` → **6 · 6** (raw grep 8 · 8).
+  All 6 survivors are prose, in files outside the grant: `DESIGN.md:37` · `EasingSpecimenStrip.vue:5,138` and
+  `easingCatalogue.ts:81` (prose naming the same family label) · `GradientCodeEditor.vue:102` · `ParseEchoReadout.vue:15`.
+  → **ESC-W7g2-G19-PROSE**. The structural precondition holds: the `eyebrow` prop, its default and its element are
+  deleted.
