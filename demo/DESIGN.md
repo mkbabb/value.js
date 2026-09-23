@@ -34,7 +34,7 @@ compiled utilities paint) and are deleted.
   fallback ships and the body paints system-ui). `--font-serif` resolves to the
   body voice via the glass-ui bridge (the demo no longer aliases serif→Fraunces).
 - **Fira Code — the readout/annotation voice.** Numeric readouts, code, admin
-  labels, plate captions/eyebrows. `--dropdown-menu-font` pins DropdownMenu
+  labels, plate captions/section labels. `--dropdown-menu-font` pins DropdownMenu
   panels to mono so numeric values read cleanly. **The Select half of that
   pair is gone** (X.W5.b · gate N13): glass-ui 7.0.0 ships no `--select-font`
   seam — zero occurrences in the installed package, measured 2026-09-19 —

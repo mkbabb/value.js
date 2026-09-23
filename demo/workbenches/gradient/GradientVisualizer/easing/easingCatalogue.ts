@@ -78,7 +78,7 @@ export function glyphPath(fn: EasingFunction, samples = 48): string {
 export interface SpecimenTile {
     /** The full curve name — the identity the head + readout speak. */
     id: string;
-    /** The family eyebrow the strip groups under. */
+    /** The family label the strip groups under. */
     family: string;
     /** The compact variant label printed under the portrait. */
     label: string;

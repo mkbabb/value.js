@@ -2,7 +2,7 @@
 /**
  * EasingSpecimenStrip (T.W6-3 / T-47) — the compact named-curve SELECTION
  * surface: one horizontal fading-scroll line of sparkline-portrait tiles,
- * family-grouped under mono eyebrows. The kf T.E6 specimen gallery
+ * family-grouped under mono family labels. The kf T.E6 specimen gallery
  * (EasingTarget.vue, assayed read-only) transposed to gradient-interval
  * scale: pressed tile IS the interval's curve; portraits are static
  * library-sampled sparklines; the strip strokes the interval's OWN ink
@@ -135,7 +135,7 @@ watch(
     padding: 2px;
 }
 
-/* Each family: a mono eyebrow over its tile trio — the kf family filter's
+/* Each family: a mono family label over its tile trio — the kf family filter's
    information architecture folded INTO the strip (compactness: no second
    control row). A hairline rules the family off its neighbor. */
 .strip-family {

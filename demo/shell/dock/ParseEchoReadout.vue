@@ -12,7 +12,7 @@
         <div class="flex flex-wrap justify-center gap-x-2 gap-y-0.5">
             <!-- D6 (T.W3-5 / A11Y-F4): the `/70` alpha-post-multiply on an
                  already-below-floor muted ink is DEAD — both spans wear the
-                 certified `--ink-muted` rung; the eyebrow keeps its quieter
+                 certified `--ink-muted` rung; the space label keeps its quieter
                  read through case + tracking, never through opacity. -->
             <span class="uppercase tracking-[0.14em] echo-ink">{{ astEcho.space }}</span>
             <span
