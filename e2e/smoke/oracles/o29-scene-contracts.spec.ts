@@ -578,6 +578,11 @@ test.describe("j4 short landscape", () => {
         test(`short landscape — ${hash}: the last control and the preview are both reachable at 720×450`, async ({
             page,
         }) => {
+            // Honest-RED carry (COHESION §0bb ESC-W6j-1): j4 RETIRED GREEN under
+            // its MEASURE-AT-OPEN clause (6dfdd8d2); the blob limb's stronger
+            // simultaneous property is shell arrangement, owned by X-W8 .i.
+            if (hash === "blob")
+                test.fail(true, "J4-SHORT-LANDSCAPE-BLOB → X-W8 .i");
             await openScene(page, hash, stageLabel);
             if (hash === "blob")
                 await expect(
