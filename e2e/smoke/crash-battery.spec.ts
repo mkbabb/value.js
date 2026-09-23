@@ -284,16 +284,22 @@ async function openExtract(page: Page) {
     ).toBeVisible({ timeout: 10_000 });
 }
 
+/**
+ * X.W7.g3 (R-16/R-17): the extract file dialog is `useFileDialog`'s, owned by
+ * the workbench — no hidden `<input>` sits in the pane any more. The file goes
+ * in the way a user's does: activate the empty drop zone, answer the chooser.
+ */
+async function chooseFile(page: Page, file: { name: string; mimeType: string; buffer: Buffer }) {
+    const chooser = page.waitForEvent("filechooser");
+    await mainPane(page).locator('[role="button"][aria-label="Upload image"]').first().click();
+    await (await chooser).setFiles(file);
+}
+
 test("R18 · a real image file develops a palette", async ({ page }) => {
     const errors = collectPageErrors(page);
     await openExtract(page);
 
-    const input = mainPane(page).locator('input[type="file"]').first();
-    await expect(
-        input,
-        "the extract route publishes a file input at all",
-    ).toBeAttached();
-    await input.setInputFiles({
+    await chooseFile(page, {
         name: "x-w1-fixture.png",
         mimeType: "image/png",
         buffer: FIXTURE_PNG,
@@ -314,10 +320,20 @@ test("R18 · a real image file develops a palette", async ({ page }) => {
     // is what this arm binds. The arm's RED must come from R18's mechanism —
     // the extract flow no gate had ever handed a file — never from a selector
     // that could not have matched under any behaviour.
+    //
+    // DEAD-LOCATOR RULING 2 (X.W7.g3, measured 2026-09-23 on the served dev
+    // page): `[aria-label^="Color swatch "]` is dead again — glass-ui 7's
+    // `WatercolorDot` is `inheritAttrs: false` and forwards only class/style
+    // (dist/watercolor-dot.js :80/:94), so the swatch's name never reaches the
+    // DOM (the swatch-name row is glass-owned, CC-044 → X-W4.g). The live
+    // consumer hook for "a palette developed" is the developed specimen's own
+    // strip — one `[data-band]` per returned colour, rendered only by a
+    // developed card (the ghost and the skeleton carry none). The minted
+    // fixture holds four distinct colours, so the strip holds four bands.
     await expect(
-        mainPane(page).locator('[aria-label^="Color swatch "]').first(),
+        mainPane(page).locator('[role="article"][aria-label^="Palette: "] [data-band]'),
         "no palette developed from a valid image: no gate had ever handed this route a file (setInputFiles was 0 repo-wide), so the whole flow was unmeasured",
-    ).toBeVisible({ timeout: 20_000 });
+    ).toHaveCount(4, { timeout: 20_000 });
 
     expect(errors, "extracting a valid image logged errors").toEqual([]);
 });
@@ -327,8 +343,7 @@ test("R18 · a corrupt file surfaces a visible error, never a silent half-state"
 }) => {
     await openExtract(page);
 
-    const input = mainPane(page).locator('input[type="file"]').first();
-    await input.setInputFiles({
+    await chooseFile(page, {
         name: "x-w1-corrupt.png",
         mimeType: "image/png",
         buffer: Buffer.from("this is not a PNG at all", "utf8"),

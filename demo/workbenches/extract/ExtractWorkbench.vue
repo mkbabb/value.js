@@ -12,17 +12,21 @@
                 class="flex flex-col gap-3"
                 :class="layout === 'split' ? 'sm:min-h-[280px]' : ''"
             >
+                <!-- Camera cluster (X.W7.g3 · XW-8/9/35): the camera is a MODE of
+                     the stage — the viewfinder takes the drop zone's seat, never
+                     a second specimen stacked under it. -->
                 <ImageDropZone
-                    ref="dropZoneRef"
+                    v-if="camera.state.value === 'off'"
                     :class="
                         layout === 'split'
                             ? 'flex-1 min-h-0 sm:max-h-[min(400px,50dvh)]'
                             : 'min-h-[180px] max-h-[min(320px,40dvh)]'
                     "
-                    :preview="session.previewDataUrl.value"
-                    :disable-click="!!session.previewDataUrl.value"
+                    :preview="session.previewUrl.value"
+                    :disabled="session.isProcessing.value"
                     @file="onFile"
-                    @click="session.previewDataUrl.value && (eyedropperActive = true)"
+                    @open="openFilePicker"
+                    @sample="session.eyedropperOpen.value = true"
                 />
 
                 <!-- Camera viewfinder (unified capability — T20).
@@ -33,26 +37,34 @@
                      backdrop-blur is TRUE glass: it floats over live video. -->
                 <Transition name="vj-enter">
                     <div
-                        v-if="cameraActive"
+                        v-if="camera.state.value !== 'off'"
                         class="relative rounded-panel overflow-hidden bg-stage shrink-0"
+                        role="group"
+                        aria-label="Camera"
+                        @keydown.esc.prevent="camera.stop"
                     >
+                        <!-- D2-23: the viewfinder shows the WHOLE frame the
+                             capture takes (contain, never a cover crop). -->
                         <video
                             ref="videoRef"
                             autoplay
                             playsinline
                             muted
-                            class="w-full max-h-[200px] object-cover"
+                            class="w-full max-h-[200px] object-contain"
                         />
-                        <div
-                            class="absolute inset-x-0 bottom-0 flex justify-center p-2.5 bg-gradient-to-t from-stage/50 to-transparent"
-                        >
+                        <!-- XW-35: the producer's own control face and hit cell
+                             (≥44px on coarse) — no compact, no hand-painted
+                             plate over live video. Cancel is the exit (XW-8). -->
+                        <div class="absolute inset-x-0 bottom-0 flex justify-center gap-2 p-2.5">
                             <DockControl
-                                compact
-                                class="p-1.5 bg-on-stage-chrome/20 hover:bg-on-stage-chrome/40 backdrop-blur-sm"
                                 title="Capture frame"
+                                :disabled="camera.state.value !== 'live'"
                                 @click="captureFrame"
                             >
-                                <Aperture class="w-4.5 h-4.5 text-on-stage-chrome" />
+                                <Aperture class="w-5 h-5" />
+                            </DockControl>
+                            <DockControl title="Cancel camera" @click="camera.stop">
+                                <X class="w-5 h-5" />
                             </DockControl>
                         </div>
                     </div>
@@ -64,19 +76,23 @@
                 <ExtractControls
                     class="shrink-0"
                     :k="session.colorCount.value"
+                    :found="session.foundCount.value"
                     :chroma-weight="session.chromaWeight.value"
                     :gradient="session.kSliderGradient.value"
                     :css-color="cssColorOpaque ?? ''"
-                    :disabled="session.isProcessing.value || cameraActive"
-                    :has-image="!!session.previewDataUrl.value"
+                    :disabled="session.isProcessing.value"
+                    :camera-live="camera.state.value !== 'off'"
+                    :has-image="!!session.previewUrl.value"
                     @update:k="session.onKChange"
                     @update:chroma-weight="session.onChromaChange"
                     @upload="openFilePicker"
-                    @camera="startCamera"
+                    @camera="toggleCamera"
                     @reset="session.onReset"
                 />
 
-                <!-- Error (error ≠ empty: an explicit destructive line) -->
+                <!-- Error (error ≠ empty: an explicit destructive line). The
+                     camera's fault is its own line, never written into the
+                     quantizer's slot (XW-10 / the camera cluster). -->
                 <div
                     v-if="session.quantizeError.value"
                     role="alert"
@@ -84,6 +100,18 @@
                 >
                     {{ session.quantizeError.value }}
                 </div>
+                <div
+                    v-if="camera.error.value"
+                    role="alert"
+                    class="text-mono-small text-destructive px-1"
+                >
+                    {{ camera.error.value }}
+                </div>
+                <!-- R-23: the extract tree's one live region — a loaded image is
+                     announced, so a healthy preview is never AT-identical to a
+                     broken one (the img's alt is presentational under the zone's
+                     button role). -->
+                <p role="status" class="sr-only">{{ intakeAnnouncement }}</p>
 
                 <!-- The result plate — D9's species grammar (T.W3-2; the T-13
                      owner overrule R7 returns the material S.W5-6 F1/F2
@@ -174,10 +202,10 @@
 
         <!-- Eyedropper overlay (unified capability — T20) -->
         <ImageEyedropper
-            v-if="eyedropperActive && session.previewDataUrl.value"
-            :image-url="session.previewDataUrl.value"
+            v-if="session.eyedropperOpen.value && session.previewUrl.value"
+            :image-url="session.previewUrl.value"
             :color-space="colorSpace"
-            @close="eyedropperActive = false"
+            @close="session.eyedropperOpen.value = false"
             @pick="(css) => emit('pick', css)"
             @add-to-palette="(css) => emit('addColor', css)"
         />
@@ -185,14 +213,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref, inject, onBeforeUnmount, onDeactivated, useTemplateRef } from "vue";
-import { Aperture } from "@lucide/vue";
+import { computed, inject, onBeforeUnmount, onDeactivated, useTemplateRef, watch } from "vue";
+import { useFileDialog } from "@vueuse/core";
+import { Aperture, X } from "@lucide/vue";
 import { DockControl } from "@mkbabb/glass-ui/dock";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 import type { SpaceId } from "@mkbabb/value.js/color";
 import { CSS_COLOR_KEY } from "../../color-session/keys";
 import { formatCssCaption } from "../../color-session/format-color";
 import { useExtractSession } from "./composables/useExtractSession";
+import { useCameraCapture } from "./composables/useCameraCapture";
 
 import ImageDropZone from "./ImageDropZone.vue";
 import ExtractControls from "./ExtractControls.vue";
@@ -220,63 +250,53 @@ const cssColorOpaque = inject(CSS_COLOR_KEY, undefined);
 
 const session = useExtractSession();
 
-const dropZoneRef = ref<InstanceType<typeof ImageDropZone> | null>(null);
 const videoRef = useTemplateRef<HTMLVideoElement>("videoRef");
-const eyedropperActive = ref(false);
-const cameraActive = ref(false);
 const { matches: isWide } = useBreakpoint("(min-width: 640px)");
 
-let cameraStream: MediaStream | null = null;
+const camera = useCameraCapture(videoRef);
+// The live stream reaches whichever <video> the viewfinder mounted.
+watch([camera.stream, videoRef], ([stream, video]) => {
+    if (video) video.srcObject = stream;
+});
+
+// R-16 / R-17 (X.W7.g3): the file dialog lives HERE, where both of its
+// triggers (the empty zone, the toolbar's Replace) live — one owner, no
+// `defineExpose` reach into a child — and it is `useFileDialog`'s, not a
+// hand-rolled hidden input inside the zone's button (whose click bubbled into
+// a sample: R-6).
+const { open: openFileDialog, onChange: onFilesChosen } = useFileDialog({
+    accept: "image/*",
+    multiple: false,
+    reset: true,
+});
+onFilesChosen((files) => {
+    const file = files?.[0];
+    if (file) void onFile(file);
+});
 
 function openFilePicker() {
-    dropZoneRef.value?.openFilePicker();
+    openFileDialog();
 }
 
+const intakeAnnouncement = computed(() =>
+    session.previewUrl.value && session.lastFile.value
+        ? `Image loaded: ${session.lastFile.value.name}`
+        : "",
+);
+
 async function onFile(file: File) {
-    stopCamera();
+    camera.stop();
     await session.onFile(file);
 }
 
-async function startCamera() {
-    try {
-        cameraActive.value = true;
-        cameraStream = await navigator.mediaDevices.getUserMedia({
-            video: {
-                facingMode: "environment",
-                width: { ideal: 640 },
-                height: { ideal: 480 },
-            },
-        });
-        await new Promise(requestAnimationFrame);
-        if (videoRef.value) videoRef.value.srcObject = cameraStream;
-    } catch (err) {
-        session.quantizeError.value = `Camera access denied: ${err}`;
-        cameraActive.value = false;
-    }
-}
-
-function stopCamera() {
-    if (cameraStream) {
-        cameraStream.getTracks().forEach((t) => t.stop());
-        cameraStream = null;
-    }
-    cameraActive.value = false;
+function toggleCamera() {
+    if (camera.state.value === "off") void camera.start();
+    else camera.stop();
 }
 
 async function captureFrame() {
-    const video = videoRef.value;
-    if (!video || video.videoWidth === 0) return;
-
-    const canvas = document.createElement("canvas");
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
-    canvas.getContext("2d")!.drawImage(video, 0, 0);
-
-    const blob = await new Promise<Blob>((resolve) => {
-        canvas.toBlob((b) => resolve(b!), "image/png");
-    });
-    const file = new File([blob], "camera-capture.png", { type: "image/png" });
-    await onFile(file);
+    const file = await camera.capture();
+    if (file) await onFile(file);
 }
 
 // X.W5.a · gate N1 — the DEACTIVATION contract (PaneSlot's header states it).
@@ -286,8 +306,8 @@ async function captureFrame() {
 // LIVE — the capture indicator on, the device held — for the rest of the
 // session. Parking releases the device; it is never silently re-acquired on
 // return, because re-opening the camera is the user's act, not the router's.
-onDeactivated(stopCamera);
-onBeforeUnmount(stopCamera);
+onDeactivated(camera.stop);
+onBeforeUnmount(camera.stop);
 </script>
 
 <style scoped>

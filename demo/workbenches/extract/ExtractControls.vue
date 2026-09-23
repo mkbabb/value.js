@@ -10,21 +10,27 @@
              turned outward), giving the component a certified identity edge
              independent of its gradient content in every state.
              The k label speaks its cluster's ONE mono voice (weight 400,
-             matching kC — E1-R1), inked at the certified de-emphasis rung. -->
+             matching kC — E1-R1), inked at the certified de-emphasis rung.
+             X.W7.g3 · EC-9: never a lying readout — when the developed palette
+             is shorter than the ask (the quantizer dedupes), the readout says
+             found/requested, and its title says it in words. -->
         <div class="flex items-center gap-2 w-full min-w-0">
-            <label class="text-mono-small plate-ink whitespace-nowrap tabular-nums w-5 text-right">
-                {{ k }}
-            </label>
+            <span
+                data-extract-k-readout
+                class="text-mono-small plate-ink whitespace-nowrap tabular-nums min-w-5 text-right"
+                :title="kReadout.title"
+            >{{ kReadout.text }}</span>
             <div class="relative flex-1 h-6 flex items-center">
                 <div
                     data-o18="extract-k-rail"
                     class="absolute inset-0 rounded-full overflow-hidden h-6"
-                    :style="{ background: gradient, backgroundColor: trackInk, boxShadow: `inset 0 0 0 1.5px ${trackInk}` }"
+                    :style="railStyle"
                 />
                 <Slider
                     aria-label="Number of colors"
                     variant="spectrum"
                     :model-value="kModel"
+                    :disabled="standDown"
                     :min="1"
                     :max="16"
                     :step="1"
@@ -37,17 +43,25 @@
 
         <!-- Controls row: upload, kC slider, reset -->
         <div class="flex items-center gap-2">
+            <!-- R-20 (X.W7.g3): one intake per state. With no image the drop
+                 zone is the intake and this control stands down (present, so
+                 the row holds its geometry); with an image it replaces it. -->
             <DockControl
-                title="Upload image"
+                :title="hasImage ? 'Replace image' : 'Upload image'"
+                :disabled="standDown || !hasImage"
                 :style="{ '--btn-hover-color': cssColor }"
                 @click="$emit('upload')"
             >
                 <Upload class="w-5 h-5 transition-colors" />
             </DockControl>
 
-            <!-- Camera capture (T20 — the unified workbench capability) -->
+            <!-- Camera capture (T20 — the unified workbench capability).
+                 X.W7.g3 (XW-8 · EC-5): a two-way door — pressed while live, and
+                 pressing it again closes the camera. -->
             <DockControl
-                title="Open camera"
+                :title="cameraLive ? 'Close camera' : 'Open camera'"
+                :active="cameraLive"
+                :disabled="disabled"
                 :style="{ '--btn-hover-color': cssColor }"
                 @click="$emit('camera')"
             >
@@ -68,6 +82,7 @@
                     aria-label="Chroma weight"
                     variant="spectrum"
                     :model-value="chromaWeightModel"
+                    :disabled="standDown"
                     :min="0"
                     :max="1.5"
                     :step="0.1"
@@ -81,7 +96,7 @@
             <DockSeparator />
 
             <DockControl
-                :disabled="disabled || !hasImage"
+                :disabled="standDown || !hasImage"
                 title="Reset"
                 :style="{ '--btn-hover-color': cssColor }"
                 @click="$emit('reset')"
@@ -100,15 +115,31 @@ import { Slider } from "../../ui/slider";
 import { useSafeAccentFn } from "../../color-session/useContrastSafeColor";
 import { GRAPHICS_CONTRAST_FLOOR } from "../../color-session/ink";
 
-const { k, chromaWeight, gradient, cssColor, disabled, hasImage } =
+const { k, found = null, chromaWeight, gradient, cssColor, disabled, hasImage, cameraLive = false } =
     defineProps<{
         k: number;
+        /** Colours the developed palette actually holds (null before a run develops). */
+        found?: number | null;
         chromaWeight: number;
-        gradient: string;
+        /** The developed palette's rail image; null when nothing has developed (EC-25). */
+        gradient: string | null;
         cssColor?: string | undefined;
+        /** A run is in flight: every control stands down (XW-8 · EC-6). */
         disabled?: boolean | undefined;
         hasImage?: boolean | undefined;
+        /** The camera is open: its own control is the exit, the rest stand down. */
+        cameraLive?: boolean;
     }>();
+
+/** XW-8: the whole-component contract — every control honours it, not one of five. */
+const standDown = computed(() => !!disabled || cameraLive);
+
+/** EC-9: the readout is the result when the result differs from the request. */
+const kReadout = computed(() =>
+    found !== null && found !== k
+        ? { text: `${found}/${k}`, title: `${found} colors found of ${k} requested` }
+        : { text: String(k), title: `${k} colors` },
+);
 
 // EC-46 (X-W7 Repair 2 · B-1): the Slider's array model is minted once per
 // value change, not once per parent render — a stable identity lets the
@@ -129,6 +160,16 @@ const { safeCss } = useSafeAccentFn("resting");
 const trackInk = computed(() =>
     cssColor ? safeCss(cssColor, GRAPHICS_CONTRAST_FLOOR) : "var(--ink-muted)",
 );
+
+// EC-25 (X.W7.g3): the rail's two layers are two properties, never one
+// shorthand racing a longhand by object key order. The certified track ink is
+// the COLOR layer in every state; the developed gradient, when there is one,
+// rides above it as the IMAGE layer.
+const railStyle = computed(() => ({
+    backgroundColor: trackInk.value,
+    ...(gradient ? { backgroundImage: gradient } : {}),
+    boxShadow: `inset 0 0 0 1.5px ${trackInk.value}`,
+}));
 
 defineEmits<{
     "update:k": [value: number];

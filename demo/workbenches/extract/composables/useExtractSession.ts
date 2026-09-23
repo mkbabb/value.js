@@ -8,9 +8,28 @@
  * survives the consumer boundary here (dominant = max-population with a
  * chroma tiebreak, derived from the RETURNED palette — never a second worker
  * call; the library's `dominantColor()` re-quantizes and is the wrong tool).
+ *
+ * X.W7.g3 (EY-12 — the altitude row): the session lives ABOVE any one mount.
+ * The shell swaps a pane between regions when the viewport crosses a
+ * breakpoint, which remounts the workbench; state held in setup scope died
+ * with it (image, palette, k, overlay). The state is created once, in a
+ * detached effect scope, and every mount is a HOLDER of it: the lifecycle
+ * releases (debounce, worker) run only when the last holder parks or leaves.
+ *
+ * EY-23 / R-24: the preview is an object URL of the user's own File — no
+ * base64 re-encode crossing four seams — revoked when replaced or cleared.
  */
 
-import { ref, shallowRef, computed, onBeforeUnmount, onDeactivated } from "vue";
+import {
+    ref,
+    shallowRef,
+    computed,
+    effectScope,
+    onActivated,
+    onBeforeUnmount,
+    onDeactivated,
+    onMounted,
+} from "vue";
 import type { QuantizedColor } from "@mkbabb/value.js/quantize";
 import { serializeCssColor } from "@mkbabb/value.js/css";
 import { useImageQuantize, type QuantizeOutcome } from "./useImageQuantize";
@@ -26,21 +45,15 @@ type PalettePresentation =
     | Readonly<{ ok: true; value: readonly PresentedColor[] }>
     | Readonly<{ ok: false; error: string }>;
 
-function readAsDataUrl(file: File): Promise<string> {
-    return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = () => resolve(reader.result as string);
-        reader.onerror = reject;
-        reader.readAsDataURL(file);
-    });
-}
-
-export function useExtractSession() {
-    const { palette, isProcessing, error: workerError, quantizeFromFile } =
+function createExtractSession() {
+    const { palette, isProcessing, error: workerError, quantizeFromFile, releaseWorker } =
         useImageQuantize();
     const { createPalette } = usePaletteStore();
 
-    const previewDataUrl = ref<string | null>(null);
+    /** An object URL of the current file; the one retained representation besides the decode. */
+    const previewUrl = ref<string | null>(null);
+    /** The eyedropper overlay is open (session state: it survives a remount). */
+    const eyedropperOpen = ref(false);
     const colorCount = ref(5);
     const chromaWeight = ref(0.5);
     const lastFile = shallowRef<File | null>(null);
@@ -100,9 +113,16 @@ export function useExtractSession() {
         };
     });
 
-    const kSliderGradient = computed(() => {
+    /** EC-9: how many colours actually came back (null until a run develops). */
+    const foundCount = computed<number | null>(() => {
         const presented = presentedPalette.value;
-        if (!presented.ok || presented.value.length === 0) return "var(--muted)";
+        return presented.ok && presented.value.length > 0 ? presented.value.length : null;
+    });
+
+    /** EC-25: the rail IMAGE, or null — never a colour token in a gradient slot. */
+    const kSliderGradient = computed<string | null>(() => {
+        const presented = presentedPalette.value;
+        if (!presented.ok || presented.value.length === 0) return null;
         const stops = presented.value.map((entry, i) => {
             const pct =
                 presented.value.length === 1
@@ -177,16 +197,18 @@ export function useExtractSession() {
     // overwrite the preview of a later file, so preview and palette always
     // describe the same image. The palette is dispatched from the same act.
     let intake = 0;
+    function setPreview(url: string | null) {
+        if (previewUrl.value) URL.revokeObjectURL(previewUrl.value);
+        previewUrl.value = url;
+        if (!url) eyedropperOpen.value = false;
+    }
     async function onFile(file: File) {
         const id = ++intake;
         lastFile.value = file;
-        const [preview, outcome] = await Promise.all([
-            readAsDataUrl(file).catch(() => null),
-            runQuantize(),
-        ]);
+        const outcome = await runQuantize();
         if (id !== intake) return;
         // An undecodable file leaves no half-state: no preview, the words only.
-        previewDataUrl.value = outcome?.kind === "failed" ? null : preview;
+        setPreview(outcome?.kind === "failed" ? null : URL.createObjectURL(file));
     }
 
     function onKChange(k: number) {
@@ -220,8 +242,11 @@ export function useExtractSession() {
         debounceTimer = null;
     }
 
-    onDeactivated(cancelPendingQuantize);
-    onBeforeUnmount(cancelPendingQuantize);
+    /** The last holder parked or left: nothing runs into an unseen pane. */
+    function release() {
+        cancelPendingQuantize();
+        releaseWorker();
+    }
 
     return {
         // quantizer state
@@ -230,13 +255,15 @@ export function useExtractSession() {
         quantizeError,
         barren,
         // session state
-        previewDataUrl,
+        previewUrl,
+        eyedropperOpen,
         colorCount,
         chromaWeight,
         lastFile,
         paletteName,
         // derived
         extractedPalette,
+        foundCount,
         kSliderGradient,
         totalPopulation,
         dominant,
@@ -248,5 +275,38 @@ export function useExtractSession() {
         onReset,
         onSave,
         onRename,
+        release,
     };
+}
+
+export type ExtractSession = ReturnType<typeof createExtractSession>;
+
+let session: ExtractSession | null = null;
+/** Mounted, active holders of the session. */
+let holders = 0;
+
+/**
+ * The ONE extract session, held by the calling component. A remount (the
+ * region swap at a breakpoint crossing) re-attaches to the same state.
+ */
+export function useExtractSession(): ExtractSession {
+    session ??= effectScope(true).run(createExtractSession)!;
+    const held = session;
+    let holding = false;
+    const hold = () => {
+        if (holding) return;
+        holding = true;
+        holders += 1;
+    };
+    const letGo = () => {
+        if (!holding) return;
+        holding = false;
+        holders -= 1;
+        if (holders === 0) held.release();
+    };
+    onMounted(hold);
+    onActivated(hold);
+    onDeactivated(letGo);
+    onBeforeUnmount(letGo);
+    return held;
 }

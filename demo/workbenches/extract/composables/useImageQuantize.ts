@@ -16,7 +16,7 @@
  * workbench owns its camera) is deleted.
  */
 
-import { ref, shallowRef, onBeforeUnmount, onDeactivated } from "vue";
+import { ref, shallowRef } from "vue";
 import type { QuantizedColor, QuantizeOptions } from "@mkbabb/value.js/quantize";
 import type {
     QuantizeWorkerRequest,
@@ -51,7 +51,7 @@ export function describeQuantizeFailure(failure: QuantizeFailure): string {
 /** Decode an image File/Blob and return its pixel data + dimensions. */
 async function imageFileToPixels(
     file: File,
-): Promise<{ pixels: Uint8ClampedArray; width: number; height: number } | null> {
+): Promise<{ pixels: Uint8ClampedArray<ArrayBuffer>; width: number; height: number } | null> {
     let bitmap: ImageBitmap;
     try {
         bitmap = await createImageBitmap(file);
@@ -166,12 +166,12 @@ export function useImageQuantize(options?: ImageQuantizeOptions) {
         if (!decoded) return apply(id, fail("decode"));
 
         const { pixels, width, height } = decoded;
-        // A fresh, transferable copy of exactly the pixel bytes.
-        const buffer = new ArrayBuffer(pixels.byteLength);
-        new Uint8ClampedArray(buffer).set(pixels);
+        // R-30 (X.W7.g3): the decoded buffer is this call's own and discardable,
+        // so it is TRANSFERRED as-is — zero-copy, as the seam's docblocks state.
+        // `ImageData.data` owns its whole buffer (offset 0, exact length).
         const outcome = await postToWorker({
             id,
-            pixels: buffer,
+            pixels: pixels.buffer,
             width,
             height,
             options: buildOptions(k, chromaWeight),
@@ -185,6 +185,8 @@ export function useImageQuantize(options?: ImageQuantizeOptions) {
     // deactivate is safe by construction: `getWorker` re-creates one on the
     // next run, so a parked pane costs nothing and a resumed pane still works.
     // A terminated job never answers, so its awaiters are settled here.
+    // X.W7.g3 (EY-12): the quantizer lives at the SESSION's altitude, above any
+    // one mount, so the session's holder binds this to its lifecycle.
     function releaseWorker() {
         worker?.terminate();
         worker = null;
@@ -195,13 +197,11 @@ export function useImageQuantize(options?: ImageQuantizeOptions) {
         }
     }
 
-    onDeactivated(releaseWorker);
-    onBeforeUnmount(releaseWorker);
-
     return {
         palette,
         isProcessing,
         error,
         quantizeFromFile,
+        releaseWorker,
     };
 }
