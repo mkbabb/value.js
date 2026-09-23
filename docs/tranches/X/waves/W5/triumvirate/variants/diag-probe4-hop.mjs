@@ -1,0 +1,18 @@
+import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright-core/index.mjs";
+const BASE = process.env.PROBE_BASE, FROM = process.env.FROM ?? "/mix", TO = process.env.TO ?? "/gradient";
+const browser = await chromium.launch({ headless: true });
+const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: "light", deviceScaleFactor: 2 });
+const page = await ctx.newPage();
+const logs = [];
+let t0 = 0;
+page.on("console", (m) => { if (m.type() !== "log" && m.type() !== "debug") logs.push([Date.now() - t0, m.type(), m.text().slice(0, 220)]); });
+page.on("pageerror", (e) => logs.push([Date.now() - t0, "pageerror", String(e.message).slice(0, 220)]));
+await page.goto(`${BASE}/#${FROM}`, { waitUntil: "load" });
+await page.waitForTimeout(7000);
+t0 = Date.now(); logs.length = 0;
+await page.evaluate((to) => { location.hash = "#" + to; }, TO);
+await page.waitForTimeout(6000);
+const s = await page.evaluate(() => { const st = document.querySelector(".pane-wrapper--stage"); return { stageKids: st?.children.length, first: st?.firstElementChild?.className?.toString().slice(0, 30), h1: document.querySelector("main h1")?.textContent, events: (window.__w5t ?? []).map((e) => e[0] + ":" + e[1]) }; });
+console.log(JSON.stringify({ base: BASE, hop: FROM + " -> " + TO, ...s }));
+for (const l of logs) console.log("  ", JSON.stringify(l));
+await browser.close();
