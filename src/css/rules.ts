@@ -11,6 +11,7 @@
  * `./stylesheet` or `./serialize`; the seam runs one way only.
  */
 import { parseCssValue, splitTopLevel } from "./bbnf/index";
+import { declaration, emptyListComma, isDashedIdent, opensTimeline } from "./bbnf/sheet";
 import { JUMP_ALIASES } from "./bbnf/value";
 import { failure, success } from "./result";
 import { parseAnimationRange, parseAnimationTimeline } from "./timeline";
@@ -35,7 +36,7 @@ export function parseTimelineScope(source: string): ParseResult<TimelineScopeVal
     const input = source.trim();
     if (input === "none" || input === "all") return success({ kind: input });
     const names = splitTopLevel(input, ",");
-    return names !== null && names.length > 0 && names.every((name) => /^--[-\w]+$/.test(name))
+    return names !== null && names.length > 0 && names.every(isDashedIdent)
         ? success({ kind: "names", names })
         : failure(source, "timeline_option_invalid", ["timeline scope"]);
 }
@@ -51,7 +52,7 @@ export function parseAnimationTrigger(source: string): ParseResult<AnimationTrig
             result.type = lower as TriggerType;
             continue;
         }
-        if (result.timeline === undefined && /^(?:auto|none|--|scroll\(|view\()/i.test(token)) {
+        if (result.timeline === undefined && opensTimeline(token)) {
             const timeline = parseAnimationTimeline(token);
             if (!timeline.ok) return timeline as ParseResult<AnimationTriggerValue>;
             result.timeline = timeline.value;
@@ -354,39 +355,15 @@ function optionDeclarationValid(name: string, value: CssValue): boolean {
     }
 }
 
-function emptyComma(source: string): number | undefined {
-    let depth = 0;
-    let quote = "";
-    let start = 0;
-    let comma = -1;
-    for (let index = 0; index < source.length; index++) {
-        const char = source.charAt(index);
-        if (quote) {
-            if (char === quote && source[index - 1] !== "\\") quote = "";
-        } else if (char === "\"" || char === "'") quote = char;
-        else if (char === "(") depth++;
-        else if (char === ")") depth--;
-        else if (char === "," && depth === 0) {
-            if (!source.slice(start, index).trim()) return index;
-            start = index + 1;
-            comma = index;
-        }
-    }
-    return comma >= 0 && !source.slice(start).trim() ? comma : undefined;
-}
-
 export function parseDeclarations(body: string): ParseResult<readonly Declaration[]> {
     const declarations: Declaration[] = [];
     const rows = splitTopLevel(body, ";");
     if (!rows) return failure(body, "css_syntax", ["declaration"]);
     for (const row of rows) {
-        const colon = row.indexOf(":");
-        if (colon <= 0) return failure(row, "css_syntax", ["declaration"]);
-        const name = row.slice(0, colon).trim().toLowerCase();
-        let source = row.slice(colon + 1).trim();
-        const important = /!important\s*$/i.test(source);
-        if (important) source = source.replace(/!important\s*$/i, "").trim();
-        const empty = name === "animation" || name.startsWith("animation-") ? emptyComma(source) : undefined;
+        const parsedRow = declaration(row);
+        if (!parsedRow) return failure(row, "css_syntax", ["declaration"]);
+        const { name, value: source, important } = parsedRow;
+        const empty = name === "animation" || name.startsWith("animation-") ? emptyListComma(source) : undefined;
         if (empty !== undefined) {
             return failure(source, "animation_option_invalid", ["nonempty animation list item"], empty, empty + 1) as ParseResult<readonly Declaration[]>;
         }

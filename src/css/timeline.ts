@@ -10,21 +10,19 @@ import type {
     TimelineScopeValue,
 } from "./types";
 import { splitTopLevel } from "./bbnf/index";
+import { isDashedIdent, isTimelineLength, timelineArgs } from "./bbnf/sheet";
 import { failure, success } from "./result";
 
 const AXES = new Set<TimelineAxis>(["block", "inline", "x", "y"]);
 const SCROLLERS = new Set(["nearest", "root", "self"] as const);
-const LENGTH_PERCENTAGE = /^auto$|^[+-]?(?:\d+\.?\d*|\.\d+)(?:%|[a-z]+)?$/i;
 export function parseAnimationTimeline(source: string): ParseResult<AnimationTimelineValue> {
     const input = source.trim();
     const lower = input.toLowerCase();
     if (lower === "auto" || lower === "none") return success({ kind: lower });
-    const scrollBody = input.match(/^scroll\((.*)\)$/i)?.[1];
-    if (scrollBody !== undefined) {
-        const args = splitTopLevel(scrollBody.replace(/,/g, " "), "space");
-        if (!args) return failure(source, "timeline_option_invalid", ["scroll timeline"]);
+    const scrollArgs = timelineArgs("scroll", input);
+    if (scrollArgs !== null) {
         const result: { kind: "scroll"; scroller?: "nearest" | "root" | "self"; axis?: TimelineAxis } = { kind: "scroll" };
-        for (const arg of args) {
+        for (const arg of scrollArgs) {
             const token = arg.toLowerCase();
             if (SCROLLERS.has(token as "nearest" | "root" | "self") && result.scroller === undefined) {
                 result.scroller = token as "nearest" | "root" | "self";
@@ -35,22 +33,20 @@ export function parseAnimationTimeline(source: string): ParseResult<AnimationTim
         }
         return success(result);
     }
-    const viewBody = input.match(/^view\((.*)\)$/i)?.[1];
-    if (viewBody !== undefined) {
-        const args = splitTopLevel(viewBody.replace(/,/g, " "), "space");
-        if (!args) return failure(source, "timeline_option_invalid", ["view timeline"]);
+    const viewArgs = timelineArgs("view", input);
+    if (viewArgs !== null) {
         const result: { kind: "view"; axis?: TimelineAxis; inset?: { start: string; end?: string } } = { kind: "view" };
         const inset: string[] = [];
-        for (const arg of args) {
+        for (const arg of viewArgs) {
             const token = arg.toLowerCase();
             if (AXES.has(token as TimelineAxis) && result.axis === undefined) result.axis = token as TimelineAxis;
-            else if (LENGTH_PERCENTAGE.test(arg) && inset.length < 2) inset.push(arg);
+            else if (isTimelineLength(arg) && inset.length < 2) inset.push(arg);
             else return failure(source, "timeline_option_invalid", ["view timeline"]);
         }
         if (inset[0]) result.inset = inset[1] ? { start: inset[0], end: inset[1] } : { start: inset[0] };
         return success(result);
     }
-    return /^--[-\w]+$/.test(input) ? success({ kind: "name", name: input }) : failure(source, "timeline_option_invalid", ["timeline"]);
+    return isDashedIdent(input) ? success({ kind: "name", name: input }) : failure(source, "timeline_option_invalid", ["timeline"]);
 }
 
 const RANGE_PHASES = new Set<RangePhase>(["normal", "cover", "contain", "entry", "exit", "entry-crossing", "exit-crossing"]);
@@ -60,9 +56,9 @@ function rangeBoundary(tokens: readonly string[]): RangeBoundary | null {
     if (RANGE_PHASES.has(phase)) {
         return tokens[1] === undefined
             ? { phase }
-            : LENGTH_PERCENTAGE.test(tokens[1]) ? { phase, offset: tokens[1] } : null;
+            : isTimelineLength(tokens[1]) ? { phase, offset: tokens[1] } : null;
     }
-    return tokens.length === 1 && tokens[0] !== undefined && LENGTH_PERCENTAGE.test(tokens[0])
+    return tokens.length === 1 && tokens[0] !== undefined && isTimelineLength(tokens[0])
         ? { offset: tokens[0] }
         : null;
 }

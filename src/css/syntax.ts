@@ -1,7 +1,11 @@
 import type { CssValue } from "../value";
 import type { ParseResult } from "./types";
 import { parseCssValue } from "./bbnf/index";
+import { syntaxComponents } from "./bbnf/sheet";
 import { failure } from "./result";
+
+/** css-values-4 §4.2: the CSS-wide keywords and `default`, never a `<custom-ident>`. */
+const RESERVED_IDENTS = new Set(["initial", "inherit", "unset", "revert", "revert-layer", "default"]);
 
 const SYNTAX_COMPONENTS = new Set([
     "<angle>",
@@ -33,8 +37,9 @@ const TRANSFORM_FUNCTIONS = new Set([
 ]);
 
 function syntaxAlternatives(syntax: string): readonly string[] | null {
-    const alternatives = syntax.split("|").map((part) => part.trim());
-    return alternatives.length > 0
+    const alternatives = syntaxComponents(syntax);
+    return alternatives !== null
+        && alternatives.length > 0
         && alternatives.every((part) => part === "*" || SYNTAX_COMPONENTS.has(part))
         ? alternatives
         : null;
@@ -62,7 +67,7 @@ function matchesSyntax(value: CssValue, component: string): boolean {
     if (component === "<custom-ident>") {
         return value.kind === "scalar"
             && value.payload.type === "keyword"
-            && !/^(?:initial|inherit|unset|revert|revert-layer|default)$/i.test(value.payload.value);
+            && !RESERVED_IDENTS.has(value.payload.value.toLowerCase());
     }
     if (component === "<transform-function>") return isTransformCall(value);
     if (component === "<transform-list>") {
