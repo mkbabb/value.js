@@ -26,6 +26,7 @@ import { PaletteColorStrip } from "../../palettes/browser/card";
 import { PreviewStrip } from "../../color-session/color-chips";
 import type { PaletteColor } from "../../palettes/types";
 import { formatCssCaption } from "../../color-session/format-color";
+import { paletteRail } from "../../color-session/palette-rail";
 import { useColorGeneration } from "./composables/useColorGeneration";
 // U.W-DEMO · U-F47: the pure generation core relocated DOWN to the shared color
 // layer; the feature consumes it UP-from-shared (feature → shared, correct).
@@ -69,15 +70,12 @@ const seedHex = computed(() => seed.value.toString(16).padStart(8, "0"));
 // S.W5-6 · F8: the count slider carries the generated ramp itself — the
 // extract k-slider pattern (the instrument shows its own state), replacing
 // the dead grey spectrum capsule.
-const countSliderGradient = computed(() => {
-    const colors = palette.value;
-    if (colors.length === 0) return "var(--muted)";
-    const stops = colors.map((css, i) => {
-        const pct = colors.length === 1 ? 50 : (i / (colors.length - 1)) * 100;
-        return `${css} ${pct.toFixed(0)}%`;
-    });
-    return `linear-gradient(to right, ${stops.join(", ")})`;
-});
+// EC-10 (X.W7.z2): the ramp is hard bands (`paletteRail`, extract's k-rail
+// builder), never an interpolation. The empty arm is generate's own: it paints
+// `var(--muted)`, where extract's rail returns null.
+const countSliderGradient = computed(() =>
+    palette.value.length === 0 ? "var(--muted)" : paletteRail(palette.value),
+);
 
 function onPresetChange(value: AcceptableValue) {
     preset.value = value as PresetName;
@@ -293,6 +291,7 @@ defineExpose({ regenerate, save, copyColors });
             <div class="relative flex-1 h-6 flex items-center">
                 <div
                     class="absolute inset-0 rounded-full overflow-hidden h-6"
+                    data-generate-count-rail
                     :style="{ background: countSliderGradient }"
                 />
                 <Slider

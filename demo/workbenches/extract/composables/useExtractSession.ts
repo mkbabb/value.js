@@ -35,6 +35,7 @@ import { serializeCssColor } from "@mkbabb/value.js/css";
 import { useImageQuantize, type QuantizeOutcome } from "./useImageQuantize";
 import { usePaletteStore } from "../../../palettes/usePaletteStore";
 import type { Palette, PaletteColor } from "../../../palettes/types";
+import { paletteRail } from "../../../color-session/palette-rail";
 
 type PresentedColor = Readonly<{
     source: QuantizedColor;
@@ -119,18 +120,13 @@ function createExtractSession() {
         return presented.ok && presented.value.length > 0 ? presented.value.length : null;
     });
 
-    /** EC-25: the rail IMAGE, or null — never a colour token in a gradient slot. */
+    /** EC-25: the rail IMAGE, or null — never a colour token in a gradient slot.
+     *  EC-10: the image is the returned palette as hard bands (`paletteRail`),
+     *  never an interpolation between the k-means results. */
     const kSliderGradient = computed<string | null>(() => {
         const presented = presentedPalette.value;
         if (!presented.ok || presented.value.length === 0) return null;
-        const stops = presented.value.map((entry, i) => {
-            const pct =
-                presented.value.length === 1
-                    ? 50
-                    : (i / (presented.value.length - 1)) * 100;
-            return `${entry.serialized} ${pct.toFixed(0)}%`;
-        });
-        return `linear-gradient(to right, ${stops.join(", ")})`;
+        return paletteRail(presented.value.map((entry) => entry.serialized));
     });
 
     // ── T19: population / dominance (from the RETURNED palette) ──

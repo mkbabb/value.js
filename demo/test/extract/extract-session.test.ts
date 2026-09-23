@@ -18,6 +18,8 @@ import { flushPromises, mount } from "@vue/test-utils";
 
 const worker = vi.hoisted(() => ({
     transfers: [] as ArrayBuffer[][],
+    /** The result palette the echo returns (null = the one-colour default). */
+    palette: null as { color: unknown; population: number }[] | null,
 }));
 
 vi.mock("../../workbenches/extract/quantize-worker?worker", () => ({
@@ -29,7 +31,7 @@ vi.mock("../../workbenches/extract/quantize-worker?worker", () => ({
             const color = { space: "oklch", channels: [0.6, 0.1, 30], alpha: 1 };
             queueMicrotask(() =>
                 this.onmessage?.({
-                    data: { id: req.id, type: "result", palette: [{ color, population: 4 }] },
+                    data: { id: req.id, type: "result", palette: worker.palette ?? [{ color, population: 4 }] },
                 } as MessageEvent),
             );
         }
@@ -43,6 +45,7 @@ const urls = { minted: [] as string[], revoked: [] as string[] };
 beforeEach(() => {
     vi.resetModules();
     worker.transfers = [];
+    worker.palette = null;
     urls.minted = [];
     urls.revoked = [];
     let n = 0;
@@ -143,5 +146,25 @@ describe("extract session", () => {
         // a transferred buffer is the decoder's own: 2×2×4 bytes, the same object
         expect(buffer!.byteLength).toBe(16);
         expect(buffer).toBe(decodedBuffers.at(-1));
+    });
+
+    it("EC-10: the k rail paints the returned palette as hard bands, and reads null before a run", async () => {
+        worker.palette = [
+            { color: { space: "oklch", channels: [0.6, 0.1, 30], alpha: 1 }, population: 4 },
+            { color: { space: "oklch", channels: [0.4, 0.12, 200], alpha: 1 }, population: 3 },
+            { color: { space: "oklch", channels: [0.8, 0.05, 90], alpha: 1 }, population: 2 },
+        ];
+        const { Host, get } = await holder();
+        mount(Host);
+        // the empty arm: no colour token, no gradient — the rail shows only its ink
+        expect(get().kSliderGradient.value).toBeNull();
+        await get().onFile(png());
+        await flushPromises();
+        const colors = get().extractedPalette.value!.colors.map((c) => c.css);
+        expect(colors).toHaveLength(3);
+        // one equal band per returned colour; each band opens where the last closed
+        expect(get().kSliderGradient.value).toBe(
+            `linear-gradient(to right, ${colors[0]} 0% 33.3333%, ${colors[1]} 33.3333% 66.6667%, ${colors[2]} 66.6667% 100%)`,
+        );
     });
 });
