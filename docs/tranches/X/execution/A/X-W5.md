@@ -4419,3 +4419,47 @@ INBOX: the one UNREAD row is still **I-40** (Track C), outside X-W5 scope. **0 U
 **Four-verb:** AUDITED YES · SPECIFIED YES · **IMPLEMENTED NO**. The ADDENDUM-4 gate set is not whole-GREEN (g2), so IMPLEMENTED is not stamped. VERIFIED NO (stamped only at the X-W11 release close, §9 c6). The line does not move.
 
 **Successors:** the ESC-W5d4-1 ruling, then X-W6 [`.a2`] → [`.i2`] (→ [`.j`] once X-W5 reads CLOSED) per §0az. X-W7 / X-W8 / X-W10 stay BLOCKED-ON the X-W5 close.
+
+## Check 1 — RESUME 7, L-20 fresh adversarial pass 1, 2026-09-23 (VERIFY-ONLY)
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X-W5 CHECK 1 (RESUME 7) · HEAD at open `102337e0` · date of record 2026-09-17 (COHESION §0j).
+This seat cured nothing. It wrote this section and one LEDGER event line. Inputs: `W5.md` whole (400 L, four ADDENDA), `## RESUME OPEN 7`, the RESUME 7 `.c4`/`.d4` receipts (read by grep), `## Close — RESUME 7`, COHESION §0az.
+Crash-recovery: ⟨cmd⟩ `git status --porcelain` → the four standing rows (`CARRY-LEDGER.md` · two W6 catalog PNGs · `scripts/dev/dev.sh`). None is in this seat's writable set. No inherited partial.
+
+**Verdict: NOT-CONFORMANT.** One gate that ADDENDUM 4 names as a `.d4` gate, *W6 g2 GREEN ×2*, reads RED ×3 at this seat. The spec gives it no relief, and its escalation is unruled: ⟨cmd⟩ `grep -c ESC-W5d4-1 docs/tranches/X/COHESION.md` → **0** (the last section is still §0az, `7ab5a3f1`). The close was honest about this: it read PARTIAL and did not stamp IMPLEMENTED. Every GREEN it claims and this seat re-ran reproduces.
+
+### K1.1 Axes
+- **(1) GREENs reproduce.** Static arms at this seat: A1 exit **0** · App grep **0** · A4 `bindPane` **10** · A7 `role="status"` **5** · B4 `100dvh` **0** / `svh` files **3** / `content-max-h` **0** · C4 **0** · C8 **0** · D2 **0** · D3 physical **0** · D4 Mix `<Transition ` **1** · E1 **0 0 0 0** · §0az lock `__asyncResolved|__asyncLoader` **0**.
+  Live arms (⟨cmd⟩ `sh scratchpad/k1.sh`: two runs, each on its own `VJS_E2E_PORT` 5701–5732; load at the end **17.82**):
+  o16 `--project=smoke` **2 passed ×2** EXIT 0 · o16 `--project=oracles-safari` **2 passed ×2** EXIT 0 · cold-nav witness **2 passed ×2** (35.8s, 37.4s) EXIT 0.
+  **14/14 reproduce.** D1 headed real-GPU and W6 a5–a12/e1 were not re-run here. Probe parsimony (§5.2) applies, and no product byte has landed since the close measured them (⟨cmd⟩ `git diff --stat c575f741..HEAD -- demo src e2e` → empty).
+- **(2) Bounds.** ⟨cmd⟩ `git show --stat` on `e2efb30a` `2d18b6da` `f55e59b7` `5a7d3113` `d6d8b38f` `c575f741` `102337e0`: every path is inside ADDENDUM 4's `.c4`/`.d4` sets or is the record, the INBOX or the LEDGER. `f55e59b7` touches exactly `usePaneRouter.ts` · `PaneSlot.vue` · `App.vue` (one line, `:134`), as a single commit, as §0az requires. `dev.sh` is untouched (not in any commit).
+- **(3) Masking.** None found. `f55e59b7` is a real structural cure: a plate phase is keyed apart from the resolved pane, readiness is published from the loader's own promise, the plate phase is excluded from KeepAlive, and nothing reads a Vue-internal field, waits on a settle or removes a class by force. In `5a7d3113` the witness gets stricter: a plate-visible arm is added, and the `networkidle` wait is kept as a separate `waitForLoadState`. In `e2efb30a`, every demo row now asserts equality with its resolved token and reads that token on the rule's own element, so no row was narrowed to the observed value. R4 is retired with a dated line, as §0az rules. See the MINOR below about R5.
+- **(4) Commit families.** `.d4` is one product commit (the family is unsplit). Witness, receipt and close each have their own commit. There is one meaning per commit.
+- **(5) E-3.** ⟨cmd⟩ `git diff --stat 12cff396..HEAD -- docs/tranches/X/waves/W5.md docs/tranches/X/waves/W6.md docs/tranches/V/megatranche/registry/adjudicated/ scripts/dev/dev.sh` → empty.
+- **(6) Mail.** INBOX's only UNREAD row is **I-40** (Track C), which is out of scope. 0 UNREAD rows are in X-W5 scope.
+- **(7) Four-verb.** AUDITED YES · SPECIFIED YES · IMPLEMENTED NO · VERIFIED NO. The close lawfully left the line where it was, because ADDENDUM 4's gate set is not whole-GREEN.
+- **(8) Goal criterion.** Met for the stuck-enter class: the witness shows 0 stuck enter states ×2 on both arms, and the plate shows. Not whole: on `/#/` the About pane's measured top sits **6.50 px** above its track start.
+- **(9) Published figures.** The close's g2 figure `Received 6.501441955566406` reproduces exactly (×3 here). o16 and cold-nav pass counts reproduce. The close's figures for D1, W6 a5–a12 and e1 are banked (not re-run, see (1)).
+- **(10) Honest-RED adjudication.** The close leaves one gate RED:
+  - **W6 g2**, run with W6's own command ⟨cmd⟩ `npx playwright test e2e/smoke/views/companion-pane-track-start.spec.ts -g "companion panes share one track start" --project=smoke`. Result: **1 failed ×3** (two runs from `k1.sh` plus one diagnostic run on `:5741`). Error: `the About pane (div.glass-resting.card) sits ON its track start … (pane 105.0298 vs track 111.53125)`, Received **6.50144**.
+    **No relief applies.** W5.md ADDENDUM 4 (`:400`) names "W6 a5–a12/e1/g2 GREEN ×2" among `.d4`'s gates. It does not route that gate to a later wave, it does not name it as a producer-owned row, and it does not carry it as an honest-RED by id.
+    The close names an owner for it (COHESION / the owner, via ESC-W5d4-1), but that ruling does not exist yet. An escalation that has not been ruled is not relief.
+    Reading at the bytes: the offset is a constant 6.5 px, it sits above the track, and `.d4` saw it pass 2 of 6. That matches the bounding box of a card that has not started its `vj-enter` pose: `.pane-wrapper--inspector > .vj-enter-enter-from` is `translateX(110%) rotate(2deg)` (`animations.css:251-254`), and at roughly the About card's width, rotating it by 2° lifts its top edge by about 6.5 px. This supports the close's diagnosis (the instrument reads the pose before `vj-enter` starts) but does not prove it, and deciding between a settle fix in the instrument and a product fix belongs to the ESC-W5d4-1 ruling.
+- **Successor "Opens after" conjuncts.**
+  - **X-W6** opens after X-W5. That conjunct is **not GREEN**, because X-W5 reads PARTIAL. §0az lawfully lets `.a2`/`.i2` proceed with `.j` OMITTED until X-W5 closes.
+  - **X-W7** opens after X-W3 + X-W4 + X-W6. It is BLOCKED on X-W6.
+  - **X-W8** opens after X-W5 + X-W6 + X-W7. It is BLOCKED.
+  - **X-W10** opens after W5 through W9. It is BLOCKED.
+  - Each of these is lawfully blocked.
+
+### K1.2 Register
+| severity | claim | receipt | cure |
+|---|---|---|---|
+| **HIGH** | ADDENDUM 4's `.d4` gate *W6 g2 GREEN ×2* is RED. The spec gives it no relief and ESC-W5d4-1 is unruled, so the wave cannot close. | g2 `1 failed` ×3 with `Received 6.501441955566406`. ⟨cmd⟩ `grep -c ESC-W5d4-1 COHESION.md` → 0 | COHESION rules ESC-W5d4-1 (a settle fix in the instrument granted to X-W6's `.g`/`.a` seat, or a product cure for the pre-start pose); then a resume unit, then a re-run of g2 ×2 |
+| MINOR | The pending g2 read also makes the e1 suite load-sensitive: `.d4` read it at 20 · 22 · 20 · 21 /22, and the close read 22/22 ×2. | close CL7.2 row | This rides the same ESC-W5d4-1 ruling |
+| MINOR | `.c4` retired R5 (the `btn-interactive` atom plus `send-btn`) under §0az's producer-removed clause. §0az itself names `send-btn` "→ its register's token". The extension is well evidenced but was not ruled word for word. | `.c4` receipt at record lines 4264–4266: glass dist `btn-interactive` count **0**, and `.send-btn` declares no transition. The close lists it as a residual. | Mitigated. On the next COHESION pass, confirm the R5 retirement in one line. |
+| MINOR | `useViewManager.ts` still exports `ready` (`:34`, `:47-49`, `:92`) but nothing reads it since the `:134` flip retired. | The close's CL7.5 row: ⟨cmd⟩ `grep -rn 'viewManager.ready\|\.ready\.value' demo/` → 0 | Owned in CL7.5 by the next writer or by X-W8 subtraction |
+| INFO | D1 headed real-GPU and W6 a5–a12/e1 are carried as banked, not re-run at this seat | `git diff --stat c575f741..HEAD -- demo src e2e` → empty | — |
+
+**Honest-RED set:** empty. g2 is RED and **unrelieved**. **Gates reproduced:** 14 · **failed:** W6 g2. The LEDGER row STAYS **PARTIAL**, and one event line is appended.
