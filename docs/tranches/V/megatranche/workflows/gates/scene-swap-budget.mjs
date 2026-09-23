@@ -29,12 +29,21 @@
 //         PROBE_PRM=1 forces `prefers-reduced-motion: reduce` (gate D5's run):
 //         the frame arm is still read; the motion arm then asserts every
 //         observed region transition computes ≈0 duration instead.
+//         PROBE_HEADED=1 launches HEADED Chromium on the host GPU (X.W5.d2 ·
+//         COHESION §0ax ESC-W5t-1: the reading OF RECORD for D1; headless
+//         Chromium rasterises and runs WebGL on the software path, SwiftShader,
+//         a cost class the user never sees). The instrument, the hops, the
+//         window and the budget are identical in both modes; the output names
+//         the WebGL renderer the page actually got and the host's load
+//         averages at launch, so a reading always carries its conditions.
 // Output: one JSON document on stdout; exit 0 when every hop holds, 1 otherwise.
 
 import { chromium } from "playwright-core";
+import { loadavg } from "node:os";
 
 const BASE = process.env.PROBE_BASE ?? "http://localhost:8091";
 const PRM = process.env.PROBE_PRM === "1";
+const HEADED = process.env.PROBE_HEADED === "1";
 const WINDOW_MS = 900;
 const HOPS = ["/gradient", "/extract", "/mix", "/generate"];
 const BUDGET = { over32Ratio: 0.15, medianMs: 20 };
@@ -96,6 +105,9 @@ function arm() {
                 direction: el.getAttribute("data-scene-direction"),
                 transformMs: travelMs(cs),
                 transform: cs.transform,
+                // X.W5.d2 — the containment arm (§0ax ESC-W5d2-2): the
+                // swap layer's computed `contain` while it travels.
+                contain: cs.contain,
             });
         }
     });
@@ -124,7 +136,8 @@ function read() {
     };
 }
 
-const browser = await chromium.launch({ headless: true });
+const loadAtLaunch = loadavg().map((l) => Number(l.toFixed(2)));
+const browser = await chromium.launch({ headless: !HEADED });
 const ctx = await browser.newContext({
     viewport: { width: 1440, height: 900 },
     colorScheme: "light",
@@ -141,6 +154,12 @@ await ctx.addInitScript(() => {
 const page = await ctx.newPage();
 await page.goto(`${BASE}/#/`, { waitUntil: "load" });
 await page.waitForTimeout(2800);
+const renderer = await page.evaluate(() => {
+    const gl = document.createElement("canvas").getContext("webgl2");
+    if (!gl) return null;
+    const ext = gl.getExtension("WEBGL_debug_renderer_info");
+    return ext ? gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER);
+});
 
 const hops = [];
 for (const hash of HOPS) {
@@ -176,6 +195,9 @@ console.log(
             at: new Date().toISOString(),
             base: BASE,
             prm: PRM,
+            headed: HEADED,
+            renderer,
+            loadAtLaunch,
             budget: BUDGET,
             hops,
             pass,
