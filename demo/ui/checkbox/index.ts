@@ -1,1 +1,1 @@
-export { Checkbox } from "@mkbabb/glass-ui";
+export { Checkbox, type CheckboxProps } from "@mkbabb/glass-ui";

@@ -45,7 +45,6 @@
                     {{ currentHex }}
                 </span>
                 <Button
-                    variant="outline"
                     size="sm"
                     class="h-6 px-2 text-micro shrink-0"
                     @click="$emit('search', currentHex)"
