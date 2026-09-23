@@ -538,3 +538,44 @@ KF.W13V: "KF.W13U CLOSED **and** both registers landed" — KF.W13U CLOSED **RED
 - Claimed GREENs re-run: **4** (w ×3 · t ×3 · e ×2 · check ×1). RED receipts re-run: probe-kbd ×2.
 - Defects: **6** (3 HIGH · 1 MEDIUM · 2 INFO).
 - LEDGER: status cell unchanged; one event line appended.
+
+## RESUME 2 — SEAT 0 (OPEN, the §0br supplement) — 2026-09-23
+
+SERVED MODEL: claude-opus-5-5 · Track B · RESUME on COHESION §0br + `KF-W13.md` KF.W13U SIXTH addendum (`:357-363`, read with the earlier KF.W13U addenda `:315-336`). E-3: every byte above this heading stands; this section is appended beside it.
+
+### Open
+
+- **LEDGER** `:58` KF.W13U status cell reads **PARTIAL** (Check 3 NOT-CONFORMANT, `:640`); record present → RESUME mode. ⟨`git -C keyframes.js log --oneline -1`⟩ → `60477b06` (= Check 3's reading; 0 kf shas since). **alreadyDone** (commits exist): `KF.W13U.w` `d78bed01` · `.t` `3c8199c5` · `.e` `cd2cd88f` + `57b4815c` · `.d` `62ecc324` (+ Repair 1 `60477b06`). ⟨`git log --oneline | grep -c 'W13U.t2\|W13U.d2\|W13U.d3\|W13U.d4\|W13U.x'`⟩ → `0`: all five §0br units still owed.
+- **Crash-recovery**: ⟨`git -C keyframes.js status --porcelain`⟩ → the two untracked `docs/tranches/V/coordination/VALUEJS-INBOUND-2026-07-{24,27}-*.md` only (in no writable set; untouched). value.js dirty = `CARRY-LEDGER.md` · `scripts/dev/dev.sh` · `docs/tranches/X/audit/` · `chassis/ui-audit.js` (sibling seats'; untouched). **0 inherited paths.**
+- **Rulings cited (never re-opened)**: §0br (the five grant units `.t2` `.d2` `.d3` `.d4` `.x`; e2e at `--workers=1` with the load average recorded; O-61) · §0bh (OA-32 gate) · §0bi (OA-33) · §0be (served-page instrument rule) · §0bd/§0bc (O-55/O-56 honest-RED). Honest-RED ids carried: `DOCK-MORPH-ROOT` · `DOCK-SCROLL-MORPH` · `GLASS-SURFACE-PAINT-CONTAIN` · `KF-TIMELINE-FILL` · `DARK-MENU-ITEM`.
+- **Preconditions**: the sixth addendum opens its units on the §0br ruling itself (no further "Opens after"); predecessor KF.W13T CLOSED (banked at the first Open above). **MET.**
+- **E13 Step-0 mail sweep** (four paths, `find -maxdepth 2 -type f -newermt "2026-09-23 12:40:00"`): value.js `V/` + `V/coordination/` → `INBOX.md` only · glass `BK/coordination/` → `valuejs-outbound-2026-09-23-kf-w13u-relay.md` (our own O-61 mirror, rowed) · glass newest tranche dir ⟨`ls -t glass-ui/docs/tranches | head -1`⟩ → `BL`; BL new = `audit/INBOUND.md` + `PROMPT-RECAP-SEED.md` at glass `fe5df357` = I-42 (rowed, READ) · keyframes `V/coordination/` → none · atlas `P/coordination/` → none. **0 unrowed, 0 new UNREAD.** Sweep line appended to `INBOX.md`.
+
+### Baseline (BEFORE — read-only; served dev `http://localhost:5173/` HTTP 200, headed Chromium via value.js Playwright; probes run from this seat's scratch, 0 bytes in `evidence/`)
+
+| gate (unit) | BEFORE ×2 (load avg beside) | reading |
+|---|---|---|
+| G-t2 (`.t2`) grep | ⟨`grep -rn isAnimStarted demo test \| wc -l`⟩ → **9** (decl `PlaybackRibbon.vue:205` + doc comment `:9`; mounts `ChannelOptions.vue:650` (spec cited `:586` — drifted), `EasingScene.vue:114`, `SpringScene.vue:196`; `ChannelOptions.vue:898` `isStarted: isAnimStarted`; test `playback-ribbon-contract.test.ts:229,418,421`) | **RED** (≠0). vue-tsc banked 0·0 at `60477b06` (Check 3), not re-run. |
+| G-d2 OA-32 (`.d2`) | ⟨`node icon.mjs`⟩ (Scene-combobox icon, `#/cube` + `#/amiga`, two screenshots 1 s apart) → `{"cube":{"pngBytesDiffer":0,"box":{…"width":20,"height":20},"anims":0},"amiga":{"pngBytesDiffer":0,…,"anims":0}}` ×2 (load 78 · 72) | **RED** — the chosen icon is static (frame-diff 0, 0 animations); icons are `?component` static SVGs bound at `scenes.ts:15-20,142..`. |
+| G-d3 ESC-d-1 (`.d3`) | ⟨`node repair1/probe-switch.mjs http://localhost:5173/ baseN`⟩ (5 switches cube>amiga>square>spring>easing>cube, per-frame) → every switch `kidsSeq "8"`, `controlsTabSeq "1"`, 181–195 frames, wMin 386.55 · wMax 418.26; `pageerrors 0` ×2 (load 104 · 86) | **GREEN-before-cure on the empty-surface limb** (R.2 finding: Repair 1 `60477b06` already cured it at `App.vue`'s feed). Unmeasured: the spec's 10-switch count and "dock width changes ONCE per switch" (the probe records min/max only) — `.d3` owes them. |
+| G-d4 OA-33 keyboard (`.d4`) | ⟨`node d/probe-kbd.mjs http://localhost:5173/`⟩ → `{"enterOnDarkRowFlips":false,"afterTab":"Dark modeLight or dark theme","enterOnShareRowOpens":0}` ×2 (load 124 · 115) | **RED** both limbs (Share row: `.d4` cure; theme row: `DARK-MENU-ITEM` honest-RED unless installed glass has the menu-item form). |
+| G-x kf e2e close clause (`.x`) | not re-run (needs a gh-pages build + the roster; > 120 s). Banked at the current bytes: Repair 1 ⟨`KF_PLAYWRIGHT_DIR=<value.js> npm run demo:correctness`⟩ at kf `60477b06` → `passed: 2/6` · ✗ usability · subject-animates · live-session · live-session-mobile (Check 1 at `62ecc324`: 3/6, subject-animates timing-dependent). kf HEAD unchanged since → the banked reading stands. | **RED** (cited). |
+
+Host load ⟨`uptime`⟩ at open: 127.06 / 176.58 / 221.79.
+
+### Unit plan (RESUME 2)
+
+Order (sixth addendum, strictly serial): **[`.t2`] → [`.d2`] → [`.d3`] → [`.d4`] → [`.x`]**, one at a time; Opus 5.5 every seat (§0br); ESCALATED units do not halt the wave. Every unit also writes this record, `docs/tranches/X/keyframes/evidence/W13U/**`, and its LEDGER cells (append-only). glass-ui READ-ONLY. All paths kf unless noted. Every served-page gate: dev `:5173` headed real GPU ×2 + gh-pages ×2 (§0be).
+
+| unit | model | spec | writable | gates | locks / families |
+|---|---|---|---|---|---|
+| `KF.W13U.t2` | opus | `:358` (R-t-1) | `demo/components/playback/PlaybackRibbon.vue` · `demo/components/instrument/transport/channel-controls/ChannelOptions.vue` · `demo/scenes/easing/EasingScene.vue` · `demo/scenes/spring/SpringScene.vue` · `test/demo/instrument/playback-ribbon-contract.test.ts` | grep `isAnimStarted` demo+test → 0; vue-tsc 0·0; test:demo green | ONE commit (decl + 3 mounts + test) |
+| `KF.W13U.d2` | opus (effort high) | `:359` + §0bh `:332` | `demo/app/scene/scenes.ts` · `demo/scenes/*/` (one mini-rendition seam each) · `demo/app/dock/ChromeDock.vue` · `test/demo/**` (witness) | OA-32 headed ×2: chosen icon frame-diff > 0 across 1 s; layers in scene order; bbox ±0.5 px; 0 px outside box; PRM → frame-diff 0; vue-tsc 0·0; test:demo green | descriptor `icon` stays the ONE binding; no dock-local registry |
+| `KF.W13U.d3` | opus | `:360` (ESC-d-1) | `demo/app/App.vue` (script `:266-276` region only) · `demo/state/controlSurfaces.ts` · `test/demo/**` | 10 switches sampled per frame: dock width + controls-pane surface set change ONCE per switch, 0 empty-surface frames, headed ×2 (+ gh-pages ×2) | GREEN-before-cure on the 5-switch empty-surface limb (Repair 1) |
+| `KF.W13U.d4` | opus | `:361` (ESC-d-3) | `demo/components/instrument/shell/SharePopover.vue` · `demo/app/dock/MbabbMenu.vue` · `test/demo/**` | keyboard probe ×2: Enter on Share row opens Share (Share URL textbox 1), Escape returns focus to `@mbabb menu`; theme row: adopt glass menu-item form if installed, else `DARK-MENU-ITEM` honest-RED | never a second `useGlobalDark` actuation (EH-4) |
+| `KF.W13U.x` | opus (effort high) | `:362` (ESC-R2-2) | `scripts/observe/demo/subject-animates.mjs` · `scripts/observe/demo/live-session.mjs` · cause owners: `demo/components/instrument/shell/EditorStartScreen.vue` (usability) + the demo file each of S4 / S5 / M1 traces to (named in the receipt; a cause outside `demo/**` → ESCALATE) · `test/demo/**` | `KF_PLAYWRIGHT_DIR=<value.js> npm run demo:correctness` 6/6 at `--workers=1` ×2, load avg recorded beside each run (§0br instrument condition); vue-tsc 0·0; test:demo green | oracle properties kept (no weakened assertion) |
+
+Close (after `.x`): `npm run check` exit 0 · vitest GREEN · kf e2e GREEN · the served-page gates of `.w .t .e .d` + the five supplements re-read by the check seat itself.
+
+### Unit receipts (RESUME 2)
+
