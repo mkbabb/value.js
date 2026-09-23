@@ -7151,3 +7151,84 @@ An ESCALATED unit does not halt the wave (§0ax chassis ruling).
 
 ## Unit receipts — sixth sitting 2026-09-23
 
+
+## Open — RESUME 2026-09-23 (seventh sitting; SEAT 0, `claude-opus-5-5[1m]`)
+
+SERVED MODEL: claude-opus-5-5[1m] (this seat's section; the file's line 1 names the file's creating seat).
+
+Opened 2026-09-23 01:22 EDT, HEAD `196c014d`, branch `tranche-u`. Resume spec = W6.md's four ADDENDA (2026-09-19 ·
+2026-09-22 ×3 · 2026-09-23 fourth) + COHESION §0z · §0an · §0aq · §0ax · §0ay · §0az (§0az is the file's last addendum;
+⟨`grep -n "^## §0" COHESION.md | tail -1`⟩ → `2918:## §0az`). The sixth sitting (open `27bd523b`) dispatched no unit — its
+receipts section is empty and ⟨`git log --oneline 52889b4f..HEAD -- e2e/smoke/oracles/o21-gradient-rail.spec.ts
+plugins/vite-ground-tokens.ts demo/color-picker/index.html demo/color-picker/composables/boot/useAtmosphere.ts`⟩ → **empty**;
+§0az ran X-W5's `.c4`/`.d4` first, so `.a2` and `.i2` are still owed and sit now.
+
+**Crash-recovery (git status --porcelain).** Dirty rows: `docs/tranches/V/reformation/CARRY-LEDGER.md` (not W6's) ·
+`scripts/dev/dev.sh` (never touched) · `docs/tranches/X/waves/W6-evidence/catalog/after-{catalog-open,specimen-dots}.png`
+(a prior check seat's o22/o24 run side effect; `.f`'s landed evidence, outside every owed unit's writable set — untouched,
+never staged). The owed units' paths (`o21-gradient-rail.spec.ts` · `plugins/vite-ground-tokens.ts` 2715 B ·
+`demo/color-picker/index.html` · `useAtmosphere.ts`) are **clean** — no inherited partial work.
+
+**Preconditions.** LEDGER `X-W6` "Opens after" cell = `X-W0` → **CLOSED 2026-09-17** (row 28). Spec `Opens after: X-W5`,
+read through §0az's order "X-W5 [`.c4`] → [`.d4`]; then X-W6 [`.a2`] → [`.i2`] (→ [`.j`] once X-W5 reads CLOSED)": X-W5
+RESUME 7 sat (`.c4` `e2efb30a`/`2d18b6da` · `.d4` `f55e59b7`/`5a7d3113`/`d6d8b38f` · close `c575f741` · Checks 1–3 ⊕
+Repairs 1–2 through `196c014d`) → `.a2`/`.i2` dispatch. **X-W5 reads PARTIAL** (LEDGER row 37; ESC-W5d4-1 unruled) →
+per §0az **`.j` is OMITTED from this plan** (never a wave-level BLOCKED; a later resume dispatches it).
+
+**E13 Step-0 mail sweep.** BK still the newest glass-ui tranche dir (⟨`ls -t glass-ui/docs/tranches | head -2`⟩ → `BK`,
+`BJ`); atlas newest dir `T` holds only `T.md` (no `coordination/`). ⟨`find <path> -maxdepth 1 -type f -newermt
+2026-09-23T01:10:33-04:00`⟩ (X-W5 RESUME 7 close `c575f741`, the last swept clock) → only `V/coordination/INBOX.md` itself
+(the close seat's own sweep line) on value.js `V/coordination`; **empty** on `V/` · glass BK `coordination` · keyframes
+`V/coordination` · atlas `{P,Q,R}/coordination` · atlas `T/` (depth 2). **0 new I-n · 0 UNREAD in X-W6 scope**; INBOX tail
+stays I-40. Sweep line appended to INBOX.md.
+
+## Baseline — RESUME 2026-09-23 seventh sitting (the owed units' gates only; every other gate cites the fifth sitting's Check 3 `19a3ac41` and X-W5 RESUME 7's close `c575f741`)
+
+Run read-only 01:22–01:30 EDT, host load 7.38 at start rising to 21.16 mid-run (⟨`uptime`⟩; sibling tracks active).
+Playwright on fresh webServers (`VJS_E2E_PORT` 8751–8752 · 8761–8762), line reporter, transcripts in the seat scratchpad
+(not committed). No run left a side effect (⟨`git status --porcelain`⟩ unchanged but for this record and INBOX.md).
+
+| gate | unit | ⟨cmd⟩ | BEFORE (run 1 · run 2) |
+|---|---|---|---|
+| a4 (`o21:188`) | `.a2` | `npx playwright test e2e/smoke/views/gradient.spec.ts e2e/smoke/oracles/o21-gradient-rail.spec.ts --project=smoke` | **GREEN · GREEN** — `o21:188` passed in both runs |
+| a13 (the suite) | `.a2` | same command + `npx vitest run test/gradient-order-invariant.test.ts` | **GREEN · GREEN** — run 1 `22 passed (2.0m)` EXIT 0 · run 2 `22 passed (2.2m)` EXIT 0; vitest `Tests 17 passed (17)` EXIT 0 ×1. The sixth sitting's cold-nav set (`o21:60` · `gradient:209` · `gradient:401`, RED 1 of 2 there) passed in both runs here |
+| i3 | `.i2` | `npx playwright test e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts --project=smoke` · `grep -rn armRuntime demo/ \| wc -l` | **RED · RED** — `1 failed` EXIT 1 ×2 (`o28:114`, `Expected: <= 0.02`): every seed paints the unseeded ground `[#b37290 #df8ea7 #ffb0b4 #ffcfc8]` at first paint (48–244 ms); first-paint vs settled ΔE_OK max **0.1595** (h30) · **0.2933** (h150) · **0.2433** (h260) — identical to the fifth and sixth sittings' readings; armRuntime **0** |
+| j1–j4 | `.j` | `o29-scene-contracts.spec.ts` | not run — `.j` OMITTED (§0az; X-W5 PARTIAL) |
+
+### R.2 — a GREEN before its cure
+
+**a4 and a13 read GREEN ×2 at this open, before `.a2` has sat.** Neither is a vacuous green; both cures predate `.a2`'s
+minting. a4 (`o21:188`): the fifth sitting's Repair 1 `df290a72` (2026-09-22 22:51, listbox-close settle, +9/−0,
+assertions untouched) — the sixth sitting read `:188` GREEN ×2 already. a13's residual cold-nav set (`o21:60` ·
+`gradient:209` · `gradient:401`): X-W5 `.d4` `f55e59b7` (§0az ESC-W5d3-1 (a) — PaneSlot keys its Transition child on
+`(pane, resolved)`) — X-W5's own close `c575f741` read "W6 a5–a11 · a12 · e1 suite GREEN ×2". `.a2` is therefore dispatched
+**VERIFY-FIRST**: read the a13 suite ≥ 3× at its own clock; GREEN every run → write no spec byte, receipt a4/a13 discharged by
+`df290a72` ⊕ `f55e59b7`; add a settle/scroll to `:188`'s reload → openView → press sequence only if `:188` fails at its
+clock; any other failure in the cold-nav enter class is X-W5's (ESC-W5d4-1) — record, escalate, never mask.
+
+## Unit plan — RESUME 2026-09-23 seventh sitting (2 owed units dispatched serially; `.j` OMITTED per §0az; 8 units landed)
+
+**alreadyDone (never re-dispatched)**: `X.W6.a` · `.b` · `.c` · `.d` · `.e` · `.f` · `.g` · `.h` (commits of record in the
+prior sittings' receipts). **Standing dispositions (not units)**: b1 = `B1-G3D` (§0ax) · g1 → X-W10 (M-23, §0an addendum) ·
+h1's beyond-sRGB limb = `H1-P3` by physics (§0aq). **`.j`**: OMITTED (§0az; W6.md fourth ADDENDUM) — X-W5 reads PARTIAL
+(LEDGER row 37); a later resume dispatches it once X-W5 reads CLOSED. Order (W6.md third + fourth ADDENDA · §0ay · §0az):
+**[`.a2`] → [`.i2`]**, one at a time (≤ 1 concurrent; the two share no path). An ESCALATED unit does not halt the wave (§0ax).
+
+| unit | model | executes | writable | gates | locks |
+|---|---|---|---|---|---|
+| `X.W6.a2` | opus | W6.md §5 `.a` a4/a13 rows (L156–180) · third ADDENDUM (L488) · COHESION §0ay a4/a13 bullet · §0ax X-W6 bullet | `e2e/smoke/oracles/o21-gradient-rail.spec.ts` (settle/scroll only, ADD-never-replace) · `docs/tranches/X/waves/W6-evidence/gates/**` · this record's receipt | a4 · a13 GREEN ×2 | assertions untouched; no settle masking an X-W5 cold-nav defect (ESC-W5d4-1 is X-W5's); one `test(e2e/o21)` commit only if a byte is owed |
+| `X.W6.i2` | opus | W6.md §5 `.i` i3 row (L295–308) · §0an addendum `.i` ⊕ `index.html` · third ADDENDUM · COHESION §0ay ESC-W6i-i3-1 (a) + perf gate | `plugins/vite-ground-tokens.ts` · `demo/color-picker/index.html` (pre-module boot seed only; dialog-ancestry rider `W5.md:321`) · `demo/color-picker/composables/boot/useAtmosphere.ts` (only to expose the `:285-293` derive as an importable single source, behaviour unchanged) · `docs/tranches/X/waves/W6-evidence/{atmosphere,gates}/**` · this record's receipt | i3 GREEN ×2 · perf: injected IIFE ≤ 12 KB gzip + LCP on `/` within 50 ms of `HEAD~` ×2 · i1 held GREEN · vue-tsc/vitest/prettier (§7) | single source by construction (no hand-copied derive = copied-producer HIGH; no `blocking="render"`); over budget → return size, i3 = `I3-SEED-SIZE`, (c) recorded |
+
+### Briefs
+
+- **`.a2`** — Verify-first. `df290a72` already added `o21:188`'s listbox settle. Run the a13 suite ≥ 3× on fresh
+  `VJS_E2E_PORT`s. `:188` GREEN every run → no byte; receipt a4 discharged by `df290a72`. `:188` fails → add only the
+  missing settle/scroll to its reload → openView → press sequence (mint/ordinal assertions untouched), commit, GREEN ×2.
+  Any other a13 failure rooted in the cold-nav enter class is X-W5's (ESC-W5d4-1): record, escalate, never mask.
+- **`.i2`** — In `plugins/vite-ground-tokens.ts`, at build AND serve, bundle (esbuild/vite API) an IIFE from the SAME
+  modules as `useAtmosphere.ts:285-293`'s derive and inject it into `index.html`'s pre-module boot seed: no persisted ground
+  → seed `--saved-bg-*` from the URL-hash pick. No hand-copied derive, no `blocking="render"`. Measure gzip (≤ 12 KB) and LCP
+  on `/` vs `HEAD~` ×2; over → return size, i3 = `I3-SEED-SIZE`. Else o28 GREEN ×2, i1 (o25) held, §7 cadence; one
+  `feat(demo/atmosphere-oracle)` commit.
+
+## Unit receipts — seventh sitting 2026-09-23
