@@ -222,8 +222,10 @@
  * slots' off-canvas slide + cartoon-swagger rotate, opacity pinned (the
  * swap reads as travel, not a fade). Direct-child (`>`) on purpose: an
  * inherited `--vj-enter-*` var would leak the pane geometry into nested
- * in-pane transitions. The PaneSlot <Transition> stays DEFAULT mode (the
- * R.W3 dev-safe simultaneous cross-slide — DESIGN.md §Motion).
+ * in-pane transitions. The PaneSlot <Transition> runs `mode="out-in"`
+ * (X.W5.d2 — the leave travels out, then the enter travels in; the former
+ * simultaneous cross-slide co-mounted two in-flow panes, fold W5F-04; the
+ * measured record is PaneSlot.vue's header).
  * ----------------------------------------------------------------------- */
 /* X.W5.d · gate D3 (fold W5F-45 / NEW-DU-5) — RE-KEYED onto the region ROLE.
  * The family was keyed off the physical `--left`/`--right` wrapper modifiers,
@@ -290,6 +292,32 @@
 .pane-wrapper--action > .vj-enter-enter-active,
 .pane-wrapper--action > .vj-enter-leave-active {
     will-change: transform;
+}
+
+/* X.W5.d2 · §0ax ESC-W5d2-2 (DESIGN RULED) — CONTAINMENT, not amputation.
+ * The →/gradient travel cost was the About pane's real content (7459 px at
+ * 1440) travelling as one promoted layer: the swap re-laid-out and re-painted
+ * the whole subtree across the travel. For the swap's duration ONLY (the same
+ * `*-active` window as the layer hint above, dropped with it), the leaving
+ * and the entering pane are `contain: layout paint`: nothing inside can move
+ * layout outside it or paint outside its box, so the travel invalidates one
+ * bounded box. The About pane's off-viewport sections keep their
+ * `content-visibility: auto` (Markdown.vue) under this containment — it is
+ * the reason they stay skipped while travelling, and nothing here overrides
+ * it. No motion is removed or retuned: the distance, the rotation, the
+ * springs and the direction arm are byte-kept (the preserve-animations
+ * edict; P-5a/P-5b REFUSED).
+ * `overflow-clip-margin` keeps the card's cartoon offset shadow unclipped by
+ * the paint containment — 10px is `--shadow-cartoon-hover`'s own reach
+ * (foundation.css), the widest the plate ever casts. */
+.pane-wrapper--stage > .vj-enter-enter-active,
+.pane-wrapper--stage > .vj-enter-leave-active,
+.pane-wrapper--inspector > .vj-enter-enter-active,
+.pane-wrapper--inspector > .vj-enter-leave-active,
+.pane-wrapper--action > .vj-enter-enter-active,
+.pane-wrapper--action > .vj-enter-leave-active {
+    contain: layout paint;
+    overflow-clip-margin: 10px;
 }
 
 /* T.W5 · R2+R3 (T-14 / D7 — the two-channel law; one moment, one clock):
