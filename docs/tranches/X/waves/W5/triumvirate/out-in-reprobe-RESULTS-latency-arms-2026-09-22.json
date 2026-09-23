@@ -1,0 +1,1545 @@
+{
+  "probe": "out-in-reprobe.mjs",
+  "servedModel": "claude-fable-5-1",
+  "unit": "X.W5.t",
+  "startedAt": "2026-09-22T23:33:21.444Z",
+  "finishedAt": "2026-09-22T23:34:55.857Z",
+  "target": "demo/shell/PaneSlot.vue",
+  "paneSlotHasModeAttrAtHead": false,
+  "hops": [
+    "/gradient",
+    "/mix",
+    "/extract",
+    "/generate",
+    "/"
+  ],
+  "settleMs": {
+    "built": 1800,
+    "dev": 4000
+  },
+  "builds": {
+    "default": {
+      "outDir": "/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/w5t-out-in-3W3kO2/dist-default",
+      "reused": true
+    },
+    "outIn": {
+      "outDir": "/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/w5t-out-in-3W3kO2/dist-out-in",
+      "reused": true
+    }
+  },
+  "verdict": {
+    "built/default": {
+      "stranded": false,
+      "strandedHops": [],
+      "coMountHops": 5,
+      "maxContainerJump": 7014,
+      "errors": 1
+    },
+    "+latency": {
+      "stranded": false,
+      "strandedHops": [],
+      "coMountHops": 0,
+      "maxContainerJump": 6499,
+      "errors": 1
+    },
+    "built/out-in": {
+      "stranded": false,
+      "strandedHops": [],
+      "coMountHops": 0,
+      "maxContainerJump": 6499,
+      "errors": 1
+    }
+  },
+  "arms": [
+    {
+      "arm": "built/default",
+      "kind": "built",
+      "base": "http://127.0.0.1:62004",
+      "latencyMs": 0,
+      "tokens": {
+        "durationFast": ".2s",
+        "springSnappyDuration": "calc(.44s * 1)",
+        "springSnappySettle": ".44s",
+        "motionTempo": "1"
+      },
+      "boot": {
+        "h1": "Home",
+        "wrappers": 2
+      },
+      "hops": [
+        {
+          "hop": "→/gradient",
+          "frames": 163,
+          "containerMaxH": 7974,
+          "containerSettledH": 960,
+          "docMaxH": 16065,
+          "docSettledH": 1085,
+          "leave": {
+            "role": "stage",
+            "transformMs": 200,
+            "opacityMs": 200,
+            "at": 2955
+          },
+          "enter": {
+            "role": "stage",
+            "transformMs": 440,
+            "at": 3050
+          },
+          "perRole": {
+            "stage": {
+              "maxChildren": 2,
+              "framesWith2Plus": 7,
+              "framesWith0": 0,
+              "maxH": 7974,
+              "settledH": 960,
+              "leaveFrames": 7,
+              "enterFrames": 12
+            },
+            "inspector": {
+              "maxChildren": 2,
+              "framesWith2Plus": 6,
+              "framesWith0": 0,
+              "maxH": 7974,
+              "settledH": 960,
+              "leaveFrames": 7,
+              "enterFrames": 13
+            }
+          },
+          "end": {
+            "stage": {
+              "label": "Gradient",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "relative w-full mx-auto h-full min-w-0",
+              "direction": "forward"
+            },
+            "inspector": {
+              "label": "Palettes",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "glass-resting card rounded-card text-card-foreground scrollb",
+              "direction": "forward"
+            }
+          },
+          "h1": "Gradient",
+          "href": "#/gradient",
+          "strandedAtSettle": false,
+          "afterGrace": null,
+          "stranded": false,
+          "coMount": true
+        },
+        {
+          "hop": "→/mix",
+          "frames": 74,
+          "containerMaxH": 1551,
+          "containerSettledH": 685,
+          "docMaxH": 3221,
+          "docSettledH": 900,
+          "leave": {
+            "role": "stage",
+            "transformMs": 200,
+            "opacityMs": 200,
+            "at": 5179
+          },
+          "enter": {
+            "role": "stage",
+            "transformMs": 440,
+            "at": 5200
+          },
+          "perRole": {
+            "stage": {
+              "maxChildren": 2,
+              "framesWith2Plus": 8,
+              "framesWith0": 0,
+              "maxH": 1551,
+              "settledH": 685,
+              "leaveFrames": 8,
+              "enterFrames": 12
+            },
+            "inspector": {
+              "maxChildren": 2,
+              "framesWith2Plus": 7,
+              "framesWith0": 0,
+              "maxH": 1551,
+              "settledH": 685,
+              "leaveFrames": 8,
+              "enterFrames": 11
+            }
+          },
+          "end": {
+            "stage": {
+              "label": "Picker",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "pane-shell flex flex-col relative min-w-0 w-full mx-auto h-a",
+              "direction": "back"
+            },
+            "inspector": {
+              "label": "Mix",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "relative w-full mx-auto h-full min-w-0",
+              "direction": "back"
+            }
+          },
+          "h1": "Mix",
+          "href": "#/mix",
+          "strandedAtSettle": false,
+          "afterGrace": null,
+          "stranded": false,
+          "coMount": true
+        },
+        {
+          "hop": "→/extract",
+          "frames": 163,
+          "containerMaxH": 1263,
+          "containerSettledH": 578,
+          "docMaxH": 2646,
+          "docSettledH": 900,
+          "leave": {
+            "role": "stage",
+            "transformMs": 200,
+            "opacityMs": 200,
+            "at": 7396
+          },
+          "enter": {
+            "role": "inspector",
+            "transformMs": 440,
+            "at": 7446
+          },
+          "perRole": {
+            "stage": {
+              "maxChildren": 2,
+              "framesWith2Plus": 5,
+              "framesWith0": 0,
+              "maxH": 1263,
+              "settledH": 578,
+              "leaveFrames": 5,
+              "enterFrames": 12
+            },
+            "inspector": {
+              "maxChildren": 2,
+              "framesWith2Plus": 5,
+              "framesWith0": 0,
+              "maxH": 1263,
+              "settledH": 578,
+              "leaveFrames": 5,
+              "enterFrames": 12
+            }
+          },
+          "end": {
+            "stage": {
+              "label": "Extract",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "relative w-full mx-auto h-full min-w-0",
+              "direction": "back"
+            },
+            "inspector": {
+              "label": "Palettes",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "glass-resting card rounded-card text-card-foreground scrollb",
+              "direction": "back"
+            }
+          },
+          "h1": "Extract",
+          "href": "#/extract",
+          "strandedAtSettle": false,
+          "afterGrace": null,
+          "stranded": false,
+          "coMount": true
+        },
+        {
+          "hop": "→/generate",
+          "frames": 194,
+          "containerMaxH": 1035,
+          "containerSettledH": 515,
+          "docMaxH": 2205,
+          "docSettledH": 900,
+          "leave": {
+            "role": "stage",
+            "transformMs": 200,
+            "opacityMs": 200,
+            "at": 9614
+          },
+          "enter": {
+            "role": "stage",
+            "transformMs": 440,
+            "at": 9646
+          },
+          "perRole": {
+            "stage": {
+              "maxChildren": 2,
+              "framesWith2Plus": 8,
+              "framesWith0": 0,
+              "maxH": 1035,
+              "settledH": 515,
+              "leaveFrames": 9,
+              "enterFrames": 20
+            },
+            "inspector": {
+              "maxChildren": 1,
+              "framesWith2Plus": 0,
+              "framesWith0": 0,
+              "maxH": 1035,
+              "settledH": 515,
+              "leaveFrames": 0,
+              "enterFrames": 0
+            }
+          },
+          "end": {
+            "stage": {
+              "label": "Generate",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "relative w-full mx-auto h-full min-w-0",
+              "direction": "forward"
+            },
+            "inspector": {
+              "label": "Palettes",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "glass-resting card rounded-card text-card-foreground scrollb",
+              "direction": "back"
+            }
+          },
+          "h1": "Generate",
+          "href": "#/generate",
+          "strandedAtSettle": false,
+          "afterGrace": null,
+          "stranded": false,
+          "coMount": true
+        },
+        {
+          "hop": "→/",
+          "frames": 54,
+          "containerMaxH": 8540,
+          "containerSettledH": 7438,
+          "docMaxH": 17199,
+          "docSettledH": 7564,
+          "leave": {
+            "role": "stage",
+            "transformMs": 200,
+            "opacityMs": 200,
+            "at": 11835
+          },
+          "enter": {
+            "role": "stage",
+            "transformMs": 440,
+            "at": 11850
+          },
+          "perRole": {
+            "stage": {
+              "maxChildren": 2,
+              "framesWith2Plus": 6,
+              "framesWith0": 0,
+              "maxH": 8540,
+              "settledH": 7438,
+              "leaveFrames": 6,
+              "enterFrames": 10
+            },
+            "inspector": {
+              "maxChildren": 2,
+              "framesWith2Plus": 6,
+              "framesWith0": 0,
+              "maxH": 8540,
+              "settledH": 7438,
+              "leaveFrames": 6,
+              "enterFrames": 10
+            }
+          },
+          "end": {
+            "stage": {
+              "label": "Picker",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "pane-shell flex flex-col relative min-w-0 w-full mx-auto h-a",
+              "direction": "back"
+            },
+            "inspector": {
+              "label": "About",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "glass-resting card rounded-card text-card-foreground scrollb",
+              "direction": "back"
+            }
+          },
+          "h1": "Home",
+          "href": "#/",
+          "strandedAtSettle": false,
+          "afterGrace": null,
+          "stranded": false,
+          "coMount": true
+        }
+      ],
+      "stranded": false,
+      "strandedHops": [],
+      "coMountHops": [
+        "→/gradient",
+        "→/mix",
+        "→/extract",
+        "→/generate",
+        "→/"
+      ],
+      "maxContainerJump": 7014,
+      "errors": [
+        "[value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:62004 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes local"
+      ]
+    },
+    {
+      "arm": "+latency",
+      "kind": "built",
+      "base": "http://127.0.0.1:62004",
+      "latencyMs": 1000,
+      "tokens": {
+        "durationFast": ".2s",
+        "springSnappyDuration": "calc(.44s * 1)",
+        "springSnappySettle": ".44s",
+        "motionTempo": "1"
+      },
+      "boot": {
+        "h1": "Home",
+        "wrappers": 2
+      },
+      "hops": [
+        {
+          "hop": "→/gradient",
+          "frames": 401,
+          "containerMaxH": 7459,
+          "containerSettledH": 960,
+          "docMaxH": 7584,
+          "docSettledH": 1085,
+          "leave": {
+            "role": "stage",
+            "transformMs": 200,
+            "opacityMs": 200,
+            "at": 11937
+          },
+          "enter": {
+            "role": "stage",
+            "transformMs": 440,
+            "at": 12996
+          },
+          "perRole": {
+            "stage": {
+              "maxChildren": 1,
+              "framesWith2Plus": 0,
+              "framesWith0": 100,
+              "maxH": 7459,
+              "settledH": 960,
+              "leaveFrames": 8,
+              "enterFrames": 27
+            },
+            "inspector": {
+              "maxChildren": 1,
+              "framesWith2Plus": 0,
+              "framesWith0": 322,
+              "maxH": 7459,
+              "settledH": 960,
+              "leaveFrames": 8,
+              "enterFrames": 31
+            }
+          },
+          "end": {
+            "stage": {
+              "label": "Gradient",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "relative w-full mx-auto h-full min-w-0",
+              "direction": "forward"
+            },
+            "inspector": {
+              "label": "Palettes",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "glass-resting card rounded-card text-card-foreground scrollb",
+              "direction": "forward"
+            }
+          },
+          "h1": "Gradient",
+          "href": "#/gradient",
+          "strandedAtSettle": false,
+          "afterGrace": null,
+          "stranded": false,
+          "coMount": false
+        },
+        {
+          "hop": "→/mix",
+          "frames": 238,
+          "containerMaxH": 1551,
+          "containerSettledH": 685,
+          "docMaxH": 2277,
+          "docSettledH": 900,
+          "leave": {
+            "role": "stage",
+            "transformMs": 200,
+            "opacityMs": 200,
+            "at": 16163
+          },
+          "enter": {
+            "role": "stage",
+            "transformMs": 440,
+            "at": 16171
+          },
+          "perRole": {
+            "stage": {
+              "maxChildren": 2,
+              "framesWith2Plus": 7,
+              "framesWith0": 0,
+              "maxH": 1551,
+              "settledH": 685,
+              "leaveFrames": 7,
+              "enterFrames": 15
+            },
+            "inspector": {
+              "maxChildren": 1,
+              "framesWith2Plus": 0,
+              "framesWith0": 66,
+              "maxH": 1551,
+              "settledH": 685,
+              "leaveFrames": 7,
+              "enterFrames": 14
+            }
+          },
+          "end": {
+            "stage": {
+              "label": "Picker",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "pane-shell flex flex-col relative min-w-0 w-full mx-auto h-a",
+              "direction": "back"
+            },
+            "inspector": {
+              "label": "Mix",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "relative w-full mx-auto h-full min-w-0",
+              "direction": "back"
+            }
+          },
+          "h1": "Mix",
+          "href": "#/mix",
+          "strandedAtSettle": false,
+          "afterGrace": null,
+          "stranded": false,
+          "coMount": true
+        },
+        {
+          "hop": "→/extract",
+          "frames": 430,
+          "containerMaxH": 926,
+          "containerSettledH": 578,
+          "docMaxH": 1973,
+          "docSettledH": 900,
+          "leave": {
+            "role": "stage",
+            "transformMs": 200,
+            "opacityMs": 200,
+            "at": 20378
+          },
+          "enter": {
+            "role": "inspector",
+            "transformMs": 440,
+            "at": 20410
+          },
+          "perRole": {
+            "stage": {
+              "maxChildren": 1,
+              "framesWith2Plus": 0,
+              "framesWith0": 91,
+              "maxH": 926,
+              "settledH": 578,
+              "leaveFrames": 6,
+              "enterFrames": 26
+            },
+            "inspector": {
+              "maxChildren": 2,
+              "framesWith2Plus": 6,
+              "framesWith0": 0,
+              "maxH": 926,
+              "settledH": 578,
+              "leaveFrames": 6,
+              "enterFrames": 27
+            }
+          },
+          "end": {
+            "stage": {
+              "label": "Extract",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "relative w-full mx-auto h-full min-w-0",
+              "direction": "back"
+            },
+            "inspector": {
+              "label": "Palettes",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "glass-resting card rounded-card text-card-foreground scrollb",
+              "direction": "back"
+            }
+          },
+          "h1": "Extract",
+          "href": "#/extract",
+          "strandedAtSettle": false,
+          "afterGrace": null,
+          "stranded": false,
+          "coMount": true
+        },
+        {
+          "hop": "→/generate",
+          "frames": 463,
+          "containerMaxH": 578,
+          "containerSettledH": 515,
+          "docMaxH": 900,
+          "docSettledH": 900,
+          "leave": {
+            "role": "stage",
+            "transformMs": 200,
+            "opacityMs": 200,
+            "at": 24598
+          },
+          "enter": {
+            "role": "stage",
+            "transformMs": 440,
+            "at": 25627
+          },
+          "perRole": {
+            "stage": {
+              "maxChildren": 1,
+              "framesWith2Plus": 0,
+              "framesWith0": 103,
+              "maxH": 578,
+              "settledH": 515,
+              "leaveFrames": 12,
+              "enterFrames": 39
+            },
+            "inspector": {
+              "maxChildren": 1,
+              "framesWith2Plus": 0,
+              "framesWith0": 0,
+              "maxH": 578,
+              "settledH": 515,
+              "leaveFrames": 0,
+              "enterFrames": 0
+            }
+          },
+          "end": {
+            "stage": {
+              "label": "Generate",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "relative w-full mx-auto h-full min-w-0",
+              "direction": "forward"
+            },
+            "inspector": {
+              "label": "Palettes",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "glass-resting card rounded-card text-card-foreground scrollb",
+              "direction": "back"
+            }
+          },
+          "h1": "Generate",
+          "href": "#/generate",
+          "strandedAtSettle": false,
+          "afterGrace": null,
+          "stranded": false,
+          "coMount": false
+        },
+        {
+          "hop": "→/",
+          "frames": 153,
+          "containerMaxH": 8540,
+          "containerSettledH": 7438,
+          "docMaxH": 17199,
+          "docSettledH": 7564,
+          "leave": {
+            "role": "stage",
+            "transformMs": 200,
+            "opacityMs": 200,
+            "at": 28827
+          },
+          "enter": {
+            "role": "stage",
+            "transformMs": 440,
+            "at": 28838
+          },
+          "perRole": {
+            "stage": {
+              "maxChildren": 2,
+              "framesWith2Plus": 7,
+              "framesWith0": 0,
+              "maxH": 8540,
+              "settledH": 7438,
+              "leaveFrames": 7,
+              "enterFrames": 11
+            },
+            "inspector": {
+              "maxChildren": 2,
+              "framesWith2Plus": 7,
+              "framesWith0": 0,
+              "maxH": 8540,
+              "settledH": 7438,
+              "leaveFrames": 7,
+              "enterFrames": 11
+            }
+          },
+          "end": {
+            "stage": {
+              "label": "Picker",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "pane-shell flex flex-col relative min-w-0 w-full mx-auto h-a",
+              "direction": "back"
+            },
+            "inspector": {
+              "label": "About",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "glass-resting card rounded-card text-card-foreground scrollb",
+              "direction": "back"
+            }
+          },
+          "h1": "Home",
+          "href": "#/",
+          "strandedAtSettle": false,
+          "afterGrace": null,
+          "stranded": false,
+          "coMount": true
+        }
+      ],
+      "stranded": false,
+      "strandedHops": [],
+      "coMountHops": [
+        "→/mix",
+        "→/extract",
+        "→/"
+      ],
+      "maxContainerJump": 6499,
+      "errors": [
+        "[value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:62004 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes local"
+      ]
+    },
+    {
+      "arm": "built/out-in",
+      "kind": "built",
+      "base": "http://127.0.0.1:62327",
+      "latencyMs": 0,
+      "tokens": {
+        "durationFast": ".2s",
+        "springSnappyDuration": "calc(.44s * 1)",
+        "springSnappySettle": ".44s",
+        "motionTempo": "1"
+      },
+      "boot": {
+        "h1": "Home",
+        "wrappers": 2
+      },
+      "hops": [
+        {
+          "hop": "→/gradient",
+          "frames": 141,
+          "containerMaxH": 7459,
+          "containerSettledH": 960,
+          "docMaxH": 7584,
+          "docSettledH": 1085,
+          "leave": {
+            "role": "stage",
+            "transformMs": 200,
+            "opacityMs": 200,
+            "at": 2969
+          },
+          "enter": {
+            "role": "stage",
+            "transformMs": 440,
+            "at": 3313
+          },
+          "perRole": {
+            "stage": {
+              "maxChildren": 1,
+              "framesWith2Plus": 0,
+              "framesWith0": 1,
+              "maxH": 7459,
+              "settledH": 960,
+              "leaveFrames": 6,
+              "enterFrames": 16
+            },
+            "inspector": {
+              "maxChildren": 1,
+              "framesWith2Plus": 0,
+              "framesWith0": 2,
+              "maxH": 7459,
+              "settledH": 960,
+              "leaveFrames": 6,
+              "enterFrames": 15
+            }
+          },
+          "end": {
+            "stage": {
+              "label": "Gradient",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "relative w-full mx-auto h-full min-w-0",
+              "direction": "forward"
+            },
+            "inspector": {
+              "label": "Palettes",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "glass-resting card rounded-card text-card-foreground scrollb",
+              "direction": "forward"
+            }
+          },
+          "h1": "Gradient",
+          "href": "#/gradient",
+          "strandedAtSettle": false,
+          "afterGrace": null,
+          "stranded": false,
+          "coMount": false
+        },
+        {
+          "hop": "→/mix",
+          "frames": 67,
+          "containerMaxH": 960,
+          "containerSettledH": 685,
+          "docMaxH": 1093,
+          "docSettledH": 900,
+          "leave": {
+            "role": "stage",
+            "transformMs": 200,
+            "opacityMs": 200,
+            "at": 5187
+          },
+          "enter": {
+            "role": "stage",
+            "transformMs": 440,
+            "at": 5520
+          },
+          "perRole": {
+            "stage": {
+              "maxChildren": 1,
+              "framesWith2Plus": 0,
+              "framesWith0": 0,
+              "maxH": 960,
+              "settledH": 685,
+              "leaveFrames": 7,
+              "enterFrames": 10
+            },
+            "inspector": {
+              "maxChildren": 1,
+              "framesWith2Plus": 0,
+              "framesWith0": 0,
+              "maxH": 960,
+              "settledH": 685,
+              "leaveFrames": 7,
+              "enterFrames": 10
+            }
+          },
+          "end": {
+            "stage": {
+              "label": "Picker",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "pane-shell flex flex-col relative min-w-0 w-full mx-auto h-a",
+              "direction": "back"
+            },
+            "inspector": {
+              "label": "Mix",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "relative w-full mx-auto h-full min-w-0",
+              "direction": "back"
+            }
+          },
+          "h1": "Mix",
+          "href": "#/mix",
+          "strandedAtSettle": false,
+          "afterGrace": null,
+          "stranded": false,
+          "coMount": false
+        },
+        {
+          "hop": "→/extract",
+          "frames": 149,
+          "containerMaxH": 685,
+          "containerSettledH": 578,
+          "docMaxH": 900,
+          "docSettledH": 900,
+          "leave": {
+            "role": "stage",
+            "transformMs": 200,
+            "opacityMs": 200,
+            "at": 7414
+          },
+          "enter": {
+            "role": "inspector",
+            "transformMs": 440,
+            "at": 7775
+          },
+          "perRole": {
+            "stage": {
+              "maxChildren": 1,
+              "framesWith2Plus": 0,
+              "framesWith0": 0,
+              "maxH": 685,
+              "settledH": 578,
+              "leaveFrames": 7,
+              "enterFrames": 18
+            },
+            "inspector": {
+              "maxChildren": 1,
+              "framesWith2Plus": 0,
+              "framesWith0": 0,
+              "maxH": 685,
+              "settledH": 578,
+              "leaveFrames": 7,
+              "enterFrames": 18
+            }
+          },
+          "end": {
+            "stage": {
+              "label": "Extract",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "relative w-full mx-auto h-full min-w-0",
+              "direction": "back"
+            },
+            "inspector": {
+              "label": "Palettes",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "glass-resting card rounded-card text-card-foreground scrollb",
+              "direction": "back"
+            }
+          },
+          "h1": "Extract",
+          "href": "#/extract",
+          "strandedAtSettle": false,
+          "afterGrace": null,
+          "stranded": false,
+          "coMount": false
+        },
+        {
+          "hop": "→/generate",
+          "frames": 187,
+          "containerMaxH": 578,
+          "containerSettledH": 515,
+          "docMaxH": 900,
+          "docSettledH": 900,
+          "leave": {
+            "role": "stage",
+            "transformMs": 200,
+            "opacityMs": 200,
+            "at": 9623
+          },
+          "enter": {
+            "role": "stage",
+            "transformMs": 440,
+            "at": 9867
+          },
+          "perRole": {
+            "stage": {
+              "maxChildren": 1,
+              "framesWith2Plus": 0,
+              "framesWith0": 0,
+              "maxH": 578,
+              "settledH": 515,
+              "leaveFrames": 12,
+              "enterFrames": 28
+            },
+            "inspector": {
+              "maxChildren": 1,
+              "framesWith2Plus": 0,
+              "framesWith0": 0,
+              "maxH": 578,
+              "settledH": 515,
+              "leaveFrames": 0,
+              "enterFrames": 0
+            }
+          },
+          "end": {
+            "stage": {
+              "label": "Generate",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "relative w-full mx-auto h-full min-w-0",
+              "direction": "forward"
+            },
+            "inspector": {
+              "label": "Palettes",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "glass-resting card rounded-card text-card-foreground scrollb",
+              "direction": "back"
+            }
+          },
+          "h1": "Generate",
+          "href": "#/generate",
+          "strandedAtSettle": false,
+          "afterGrace": null,
+          "stranded": false,
+          "coMount": false
+        },
+        {
+          "hop": "→/",
+          "frames": 68,
+          "containerMaxH": 8026,
+          "containerSettledH": 7459,
+          "docMaxH": 8151,
+          "docSettledH": 7584,
+          "leave": {
+            "role": "stage",
+            "transformMs": 200,
+            "opacityMs": 200,
+            "at": 11840
+          },
+          "enter": {
+            "role": "stage",
+            "transformMs": 440,
+            "at": 12099
+          },
+          "perRole": {
+            "stage": {
+              "maxChildren": 1,
+              "framesWith2Plus": 0,
+              "framesWith0": 0,
+              "maxH": 8026,
+              "settledH": 7459,
+              "leaveFrames": 10,
+              "enterFrames": 9
+            },
+            "inspector": {
+              "maxChildren": 1,
+              "framesWith2Plus": 0,
+              "framesWith0": 0,
+              "maxH": 8026,
+              "settledH": 7459,
+              "leaveFrames": 10,
+              "enterFrames": 9
+            }
+          },
+          "end": {
+            "stage": {
+              "label": "Picker",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "pane-shell flex flex-col relative min-w-0 w-full mx-auto h-a",
+              "direction": "back"
+            },
+            "inspector": {
+              "label": "About",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "glass-resting card rounded-card text-card-foreground scrollb",
+              "direction": "back"
+            }
+          },
+          "h1": "Home",
+          "href": "#/",
+          "strandedAtSettle": false,
+          "afterGrace": null,
+          "stranded": false,
+          "coMount": false
+        }
+      ],
+      "stranded": false,
+      "strandedHops": [],
+      "coMountHops": [],
+      "maxContainerJump": 6499,
+      "errors": [
+        "[value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:62327 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes local"
+      ]
+    },
+    {
+      "arm": "+latency",
+      "kind": "built",
+      "base": "http://127.0.0.1:62327",
+      "latencyMs": 1000,
+      "tokens": {
+        "durationFast": ".2s",
+        "springSnappyDuration": "calc(.44s * 1)",
+        "springSnappySettle": ".44s",
+        "motionTempo": "1"
+      },
+      "boot": {
+        "h1": "Home",
+        "wrappers": 2
+      },
+      "hops": [
+        {
+          "hop": "→/gradient",
+          "frames": 390,
+          "containerMaxH": 7459,
+          "containerSettledH": 960,
+          "docMaxH": 7584,
+          "docSettledH": 1085,
+          "leave": {
+            "role": "stage",
+            "transformMs": 200,
+            "opacityMs": 200,
+            "at": 11931
+          },
+          "enter": {
+            "role": "stage",
+            "transformMs": 440,
+            "at": 13224
+          },
+          "perRole": {
+            "stage": {
+              "maxChildren": 1,
+              "framesWith2Plus": 0,
+              "framesWith0": 129,
+              "maxH": 7459,
+              "settledH": 960,
+              "leaveFrames": 7,
+              "enterFrames": 23
+            },
+            "inspector": {
+              "maxChildren": 1,
+              "framesWith2Plus": 0,
+              "framesWith0": 341,
+              "maxH": 7459,
+              "settledH": 960,
+              "leaveFrames": 7,
+              "enterFrames": 30
+            }
+          },
+          "end": {
+            "stage": {
+              "label": "Gradient",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "relative w-full mx-auto h-full min-w-0",
+              "direction": "forward"
+            },
+            "inspector": {
+              "label": "Palettes",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "glass-resting card rounded-card text-card-foreground scrollb",
+              "direction": "forward"
+            }
+          },
+          "h1": "Gradient",
+          "href": "#/gradient",
+          "strandedAtSettle": false,
+          "afterGrace": null,
+          "stranded": false,
+          "coMount": false
+        },
+        {
+          "hop": "→/mix",
+          "frames": 213,
+          "containerMaxH": 960,
+          "containerSettledH": 685,
+          "docMaxH": 1094,
+          "docSettledH": 900,
+          "leave": {
+            "role": "stage",
+            "transformMs": 200,
+            "opacityMs": 200,
+            "at": 16148
+          },
+          "enter": {
+            "role": "stage",
+            "transformMs": 440,
+            "at": 16492
+          },
+          "perRole": {
+            "stage": {
+              "maxChildren": 1,
+              "framesWith2Plus": 0,
+              "framesWith0": 0,
+              "maxH": 960,
+              "settledH": 685,
+              "leaveFrames": 8,
+              "enterFrames": 20
+            },
+            "inspector": {
+              "maxChildren": 1,
+              "framesWith2Plus": 0,
+              "framesWith0": 67,
+              "maxH": 960,
+              "settledH": 685,
+              "leaveFrames": 8,
+              "enterFrames": 12
+            }
+          },
+          "end": {
+            "stage": {
+              "label": "Picker",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "pane-shell flex flex-col relative min-w-0 w-full mx-auto h-a",
+              "direction": "back"
+            },
+            "inspector": {
+              "label": "Mix",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "relative w-full mx-auto h-full min-w-0",
+              "direction": "back"
+            }
+          },
+          "h1": "Mix",
+          "href": "#/mix",
+          "strandedAtSettle": false,
+          "afterGrace": null,
+          "stranded": false,
+          "coMount": false
+        },
+        {
+          "hop": "→/extract",
+          "frames": 420,
+          "containerMaxH": 685,
+          "containerSettledH": 578,
+          "docMaxH": 900,
+          "docSettledH": 900,
+          "leave": {
+            "role": "stage",
+            "transformMs": 200,
+            "opacityMs": 200,
+            "at": 20371
+          },
+          "enter": {
+            "role": "inspector",
+            "transformMs": 440,
+            "at": 20694
+          },
+          "perRole": {
+            "stage": {
+              "maxChildren": 1,
+              "framesWith2Plus": 0,
+              "framesWith0": 110,
+              "maxH": 685,
+              "settledH": 578,
+              "leaveFrames": 7,
+              "enterFrames": 23
+            },
+            "inspector": {
+              "maxChildren": 1,
+              "framesWith2Plus": 0,
+              "framesWith0": 0,
+              "maxH": 685,
+              "settledH": 578,
+              "leaveFrames": 7,
+              "enterFrames": 47
+            }
+          },
+          "end": {
+            "stage": {
+              "label": "Extract",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "relative w-full mx-auto h-full min-w-0",
+              "direction": "back"
+            },
+            "inspector": {
+              "label": "Palettes",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "glass-resting card rounded-card text-card-foreground scrollb",
+              "direction": "back"
+            }
+          },
+          "h1": "Extract",
+          "href": "#/extract",
+          "strandedAtSettle": false,
+          "afterGrace": null,
+          "stranded": false,
+          "coMount": false
+        },
+        {
+          "hop": "→/generate",
+          "frames": 459,
+          "containerMaxH": 578,
+          "containerSettledH": 515,
+          "docMaxH": 900,
+          "docSettledH": 900,
+          "leave": {
+            "role": "stage",
+            "transformMs": 200,
+            "opacityMs": 200,
+            "at": 24589
+          },
+          "enter": {
+            "role": "stage",
+            "transformMs": 440,
+            "at": 25828
+          },
+          "perRole": {
+            "stage": {
+              "maxChildren": 1,
+              "framesWith2Plus": 0,
+              "framesWith0": 131,
+              "maxH": 578,
+              "settledH": 515,
+              "leaveFrames": 12,
+              "enterFrames": 33
+            },
+            "inspector": {
+              "maxChildren": 1,
+              "framesWith2Plus": 0,
+              "framesWith0": 0,
+              "maxH": 578,
+              "settledH": 515,
+              "leaveFrames": 0,
+              "enterFrames": 0
+            }
+          },
+          "end": {
+            "stage": {
+              "label": "Generate",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "relative w-full mx-auto h-full min-w-0",
+              "direction": "forward"
+            },
+            "inspector": {
+              "label": "Palettes",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "glass-resting card rounded-card text-card-foreground scrollb",
+              "direction": "back"
+            }
+          },
+          "h1": "Generate",
+          "href": "#/generate",
+          "strandedAtSettle": false,
+          "afterGrace": null,
+          "stranded": false,
+          "coMount": false
+        },
+        {
+          "hop": "→/",
+          "frames": 102,
+          "containerMaxH": 8026,
+          "containerSettledH": 7459,
+          "docMaxH": 8151,
+          "docSettledH": 7584,
+          "leave": {
+            "role": "stage",
+            "transformMs": 200,
+            "opacityMs": 200,
+            "at": 28811
+          },
+          "enter": {
+            "role": "stage",
+            "transformMs": 440,
+            "at": 29084
+          },
+          "perRole": {
+            "stage": {
+              "maxChildren": 1,
+              "framesWith2Plus": 0,
+              "framesWith0": 0,
+              "maxH": 8026,
+              "settledH": 7459,
+              "leaveFrames": 11,
+              "enterFrames": 9
+            },
+            "inspector": {
+              "maxChildren": 1,
+              "framesWith2Plus": 0,
+              "framesWith0": 0,
+              "maxH": 8026,
+              "settledH": 7459,
+              "leaveFrames": 11,
+              "enterFrames": 9
+            }
+          },
+          "end": {
+            "stage": {
+              "label": "Picker",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "pane-shell flex flex-col relative min-w-0 w-full mx-auto h-a",
+              "direction": "back"
+            },
+            "inspector": {
+              "label": "About",
+              "children": 1,
+              "nodeTypes": [
+                3,
+                1,
+                3
+              ],
+              "rootClass": "glass-resting card rounded-card text-card-foreground scrollb",
+              "direction": "back"
+            }
+          },
+          "h1": "Home",
+          "href": "#/",
+          "strandedAtSettle": false,
+          "afterGrace": null,
+          "stranded": false,
+          "coMount": false
+        }
+      ],
+      "stranded": false,
+      "strandedHops": [],
+      "coMountHops": [],
+      "maxContainerJump": 6499,
+      "errors": [
+        "[value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:62327 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes local"
+      ]
+    }
+  ]
+}
