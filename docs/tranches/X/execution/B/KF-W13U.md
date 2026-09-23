@@ -487,3 +487,54 @@ No cure landed, so no gate could move: the Check-2 readings (9/9 GREENs; check E
 ### Self-count
 
 kf commits **0**. Defects dispositioned **6**: cured **0** · escalated **4** (#1 · #2 · #3 · #4) · INFO **2** (#5 · #6). value.js: this section + one LEDGER event line + `evidence/W13U/repair2/rotx-run.txt` (1 file), one pathspec commit.
+
+## Check 3 — FRESH ADVERSARIAL CHECK (L-20, pass 3)
+
+SERVED MODEL: claude-opus-5-5 · 2026-09-23 · VERIFY-ONLY (0 kf / glass / product bytes). Spec read whole (`KF-W13.md`, incl. the KF.W13U addendum + OA-31..OA-34 and the KF.W13V addenda); record read header→Unit plan, `## Check 2`, `## Repair 2`. **Crash-recovery**: ⟨`git -C keyframes.js status --porcelain`⟩ → the two untracked `VALUEJS-INBOUND-2026-07-{24,27}` letters only; value.js dirty = `CARRY-LEDGER.md` · `scripts/dev/dev.sh` · `docs/tranches/X/audit/` · `chassis/ui-audit.js` (sibling seats'; untouched). **0 inherited paths.** kf HEAD ⟨`git log -1` / `rev-parse origin/master`⟩ → `60477b06` / `60477b06`; ⟨`git log --oneline 60477b06..HEAD | wc -l`⟩ → `0`. Host load ⟨`uptime`⟩ → 383–407.
+
+**Grant check.** ⟨`grep -n '^## §0b[m-z]\|^## §0c' COHESION.md | tail`⟩ → last **`§0bq`** (OA-39 → KF.W13V `.s`), the same tail Check 2 and Repair 2 read; ⟨`grep -n 'ESC-R2\|KF.W13U' COHESION.md`⟩ → no ESC-R2 hit; the KF.W13U hits are §0be..§0bj mintings only. **No grant or relief for ESC-R2-1..4 has landed.**
+
+### Axis readings
+
+| axis | reading |
+|---|---|
+| (1) claimed GREENs reproduce | **YES** (served dev `:5173` HTTP 200, headed; the banked probes run from this seat's scratch cwd — `e1` copied there — so no byte lands in `evidence/`): G-KFW13U-w ⟨`w/probe-w1.mjs`⟩ ×3 → rest `rotateX(298.4deg)` → `(355.8deg)` across 1 s, `autoPlaying:true`, paused frozen `358.887` = `358.887` · G-KFW13U-t ⟨`t/probe-t1.mjs`⟩ ×3 → boot cube/square/amiga `dis:false`, `rootOp 1`, `greyAncestor:false`; drag `now 2300 → 3800`, holds `3800` on release; cube `rotateX(155.273deg) → (317.237deg)` · G-KFW13U-e ⟨`probe-e1.mjs`⟩ ×2 → trigger `ease-in-out` + `curve-glyph` (truth 5e-4), rows 29/29/29 distinct, named 27/27 (worst 5e-4), descSeparated 29, accName 29, after-pick `ease-out-back`, pageerrors 0 · `npm run check` (kf) → `EXIT 0` ×1 (the ×2 of Check 2 at the same bytes stands). `.d` sharp/OA-33 collapse and test:demo 507/507 cited from Check 2 at `60477b06` (0 kf bytes since). |
+| (2) bounds | no new kf sha; value.js since Check 2: `6c5f2c42` (Repair 2) = this record + LEDGER + `repair2/rotx-run.txt` (3 files, in bounds). ⟨`git log --format=%h 2a987e09~1..HEAD -- scripts/dev/dev.sh \| wc -l`⟩ → `0`. **Clean.** |
+| (3) masking | no product diff since Check 2. **Clean.** |
+| (4) families | unchanged (one sha per meaning). **Clean.** |
+| (5) E-3 | ⟨`git diff --stat 2a987e09~1..HEAD -- registry/adjudicated CONFORMANCE-2026-08-03.md`⟩ → empty; ⟨`--numstat -- keyframes/waves`⟩ → `27 0 KF-W13.md` (insertions only — orchestrator addenda-beside). **Held.** |
+| (6) mail | INBOX I-40 `READ 2026-09-23 (X.F.W13.a)` (Track C) · I-41 `READ (COHESION §0bo)`. **0 UNREAD in scope.** |
+| (7) four-verb | IMPLEMENTED PARTIAL, VERIFIED NO. **Lawful.** |
+| (8) goal at the bytes | OA-27/28/29/31/34 + ESC-d-1 MET (reproduced above). **OA-32 absent**: ⟨`git diff --stat cfecfbce..HEAD -- demo/app/scene assets/icons`⟩ → empty. **OA-33 keyboard reach RED**: ⟨`node d/probe-kbd.mjs http://localhost:5173/`⟩ ×2 → `{"enterOnDarkRowFlips":false,"afterTab":"Dark modeLight or dark theme","enterOnShareRowOpens":0}` both runs. |
+| (9) published figures | every figure above reproduces; kf e2e roster not re-run (0 kf bytes since Repair 1's 2/6 and Check 1's 3/6; load 383–407 does not discriminate). |
+
+### Register (severity · claim · receipt · cure)
+
+1. **HIGH · OA-32 (living dock icons) unimplemented, no relief in the spec** — Check 2 #1 / ESC-R2-1, unchanged. Receipt: 0 kf commits since `60477b06`; no `demo/app/scene/**` or `assets/icons/**` byte in any W13U sha. **Cure**: orchestrator grant of `demo/app/scene/scenes.ts` + the `demo/scenes/*/` rendition seams to a supplement unit (or a dated COHESION relief naming OA-32 with an owner); then the OA-32 gate headed ×2.
+2. **HIGH · close clause "the kf e2e suite GREEN" RED, no relief in the spec's bytes** — Check 2 #2 / ESC-R2-2, unchanged (routing to KF.W13V is circular: W13V opens only after W13U CLOSED). **Cure**: grant `scripts/observe/demo/{subject-animates,live-session}.mjs` + cures, or a COHESION relief naming usability · S4 · S5 · M1 by id.
+3. **HIGH · OA-33 "keyboard reachable" RED** — Check 2 #3 / ESC-R2-3; re-probed ×2 at this seat (above). **Cure**: grant `SharePopover` open model (`demo/components/instrument/shell/`) + the glass `DarkModeToggle` menu-item form (O-56); keyboard-probe ×2.
+4. **MEDIUM · intermittent `var(--rotationX)` pageerror unowned at the bytes** — 0/17 reproductions (Repair 2); escalated ESC-R2-4 → KF.W13V `.k`. Non-blocking.
+5. **INFO · `DOCK-MORPH-ROOT` (O-56) / `DOCK-SCROLL-MORPH` (O-55)** — honest-RED under the addendum's own `.d` relief (owner glass BL).
+6. **INFO · test:demo load-sensitivity** — no W13U byte; not re-run.
+
+### Honest-RED adjudication (axis 10)
+
+| RED gate | relief in the spec's bytes? | owner | reading |
+|---|---|---|---|
+| `.d` two-owner pairs + in-flight blur | YES — `.d` bullet names `DOCK-MORPH-ROOT`, producer halves → O-55/O-56 | glass BL | **HONEST-RED** |
+| OA-32 gate | NO | orchestrator (ESC-R2-1) | **unrelieved → HIGH #1** |
+| close: kf e2e GREEN | NO | orchestrator (ESC-R2-2) | **unrelieved → HIGH #2** |
+| OA-33 keyboard reach | NO | orchestrator (ESC-R2-3) | **unrelieved → HIGH #3** |
+
+### Successor "Opens after"
+
+KF.W13V: "KF.W13U CLOSED **and** both registers landed" — KF.W13U CLOSED **RED** (this check) · `keyframes/audit/KF-ANIMATION-AUDIT.md` **GREEN** (present) · `docs/tranches/X/audit/UI-AUDIT-keyframes.md` **RED** (⟨`ls docs/tranches/X/audit/`⟩ → `ui-evidence` only, untracked). **KF.W13V lawfully BLOCKED.**
+
+**Verdict: NOT-CONFORMANT.** Every claimed GREEN reproduces; the three HIGHs stand because no grant or relief has landed since Check 2 (COHESION tail `§0bq`, kf bytes unchanged at `60477b06`). A third repair round without a grant cannot move them. The wave's one path to CLOSED is still the orchestrator's: grant ESC-R2-1..3, or a dated COHESION relief that names each by id with an owner.
+
+### Self-count
+
+- kf shas new since Check 2: **0**. value.js shas audited: **1** (`6c5f2c42`).
+- Claimed GREENs re-run: **4** (w ×3 · t ×3 · e ×2 · check ×1). RED receipts re-run: probe-kbd ×2.
+- Defects: **6** (3 HIGH · 1 MEDIUM · 2 INFO).
+- LEDGER: status cell unchanged; one event line appended.
