@@ -13,6 +13,8 @@ sitting of record 2026-09-17). Baselines are the open seat's (`execution/A/X-W7.
 | a | `8360760b` | #1 `fix(palettes/checkbox)` — modelValue contract at both sites + G2 test |
 | a | `3084e1fa` | #2 `build(demo/types)` — typed checkbox re-export + search-band inert `variant` cured; **strictTemplates WITHHELD** (ESC-W7a-G3) |
 | a | `0e298ec5` | N-10 `fix(palettes/search)` — MiniColorPicker guarded capture + total release |
+| b | `cb03d571` | #3 `refactor(palettes/export)` — serializers ship; `export.ts` deleted; one slug (G4/G5/G6) |
+| b | `48668947` | #4 `fix(palettes/export)` — failure surfaced + 50-row disposition table (G7, N-15) |
 
 ---
 
@@ -93,3 +95,66 @@ diagnostics — never decided at this seat).
   `hasPointerCapture` → `releasePointerCapture`; `watch(open → false)` and `onScopeDispose` both end the drag.
 - ⟨cmd⟩ `npx vitest run demo/test/palettes/mini-color-picker-capture.test.ts` → **`Tests  6 passed (6)`**,
   double-run. **Falsifier**: HEAD bytes restored → **`Tests  6 failed (6)`**; cured bytes restored → 6 passed.
+
+## G4 — The certified serializers become the shipping path (unit b)
+
+- **RED (HEAD `e24361c6`)**: ⟨cmd⟩ `grep -n 'from "./export"' demo/palettes/usePaletteExport.ts` → `:9 } from "./export";`
+  (resolves to the FILE `export.ts`, which shadows the directory); ⟨cmd⟩ `grep -rln 'export/serializers"' demo` →
+  **`demo/test/export/byte-exact.test.ts` only** — the certified tree's sole importer was its own test.
+- **GREEN (after `cb03d571`)**: ⟨cmd⟩ `test -e demo/palettes/export.ts` → **absent**; ⟨cmd⟩ `grep -rn 'palettes/export"' demo | wc -l` → **0**;
+  ⟨cmd⟩ `grep -rln 'export/serializers"' demo` → `demo/palettes/usePaletteExport.ts` (**product consumer**, the composable
+  both palette panes call) + `demo/test/export/byte-exact.test.ts`; the composable's one import is `./export/serializers`.
+  Double-run identical.
+- **Falsifier**: import any serializer module past the barrel (or restore a legacy seat) and the census drops back to the
+  test alone.
+
+## G5 — Non-ASCII names survive export (unit b)
+
+- **Ruling (once)**: the one slug is **NFKD transliteration + percent-safe fallback** — combining marks stripped
+  (`Café` → `cafe`); a letter/number with no ASCII decomposition becomes the lowercase hex of its UTF-8 bytes (its
+  percent-encoding without `%`), keeping the server grammar `^[a-z0-9][a-z0-9-]*$`; separators collapse, none leads/trails.
+  Filenames stay `canonical.ts`'s stems (Appendix W51 §2 — display names never enter a filename): a release carries
+  its slug, so the name's identity reaches the file through the slug.
+- **RED**: legacy `export.ts:9` `slugify("日本 Blue")` → **`"blue"`**; survivor `utils.ts:3` → **`"-blue"`**; byte-exact
+  test had **0** `日本` cases.
+- **GREEN**: `slugify("日本 Blue")` → **`"e697a5e69cac-blue"`**; release palette `日本 Blue` (slug
+  `e697a5e69cac-blue-0a1b2c3d`, r3) → filename **`e697a5e69cac-blue-0a1b2c3d--r3.json`**, `displayName` bytes equal
+  `UTF8("日本 Blue")` at their offset. ⟨cmd⟩ `npx vitest run demo/test/export/byte-exact.test.ts` → **`Tests  31 passed (31)`** ×2.
+- **Falsifier (run, reverted)**: the fallback replaced by `.replace(/[^a-z0-9]+/g, " ")` → **`Tests  2 failed | 29 passed (31)`**
+  (both G5 cases); cured bytes restored → 31 passed.
+
+## G6 — One slug implementation (unit b)
+
+- **RED**: ⟨cmd⟩ `grep -rn "function slugify\|const slugify" demo | grep -v node_modules | wc -l` → **2** (`utils.ts:3`, `export.ts:9`).
+- **GREEN**: → **1** ×2 — `demo/palettes/utils.ts:12`. S-6 read: *one, in `utils.ts`*; **0** under `export/`
+  (`canonical.ts` is the shipped stem path).
+
+## G7 — Failure is surfaced, not swallowed (unit b) — **table GREEN; visible surface HANDED to d (ESC-W7b-HOST)**
+
+- **RED**: table absent; `usePaletteExport.ts:21-23` wrapped the whole switch in one `try` whose `catch` was
+  `console.warn("Export failed:", e)`. ⟨cmd⟩ `git grep -n "console.warn" HEAD -- demo/palettes | wc -l` → **38**;
+  real `catch` sites → **49** (both ×2 at `e24361c6`).
+- **Table**: `docs/tranches/X/waves/W7-failure-dispositions.md` — **50 rows** (49 catch sites ∪ 1 non-catch warn;
+  S-7's failure-path set), self-counted from the settled bytes ×2: SURFACE **46** · LOG-ONLY-BY-RULING **1** · DELETE **3**;
+  CURED **3** · SURFACED **6** · KEPT **1** · OWED **40** (d **33**, routed **7**).
+- **Runtime**: ⟨cmd⟩ `npx vitest run demo/test/palettes/palette-export.test.ts` → **`Tests  7 passed (7)`** ×2 — a
+  `createObjectURL` throw resolves to `{ok:false, message:"Export failed: quota exceeded"}`, lands in the composable's
+  `failure` ref, `console.warn` is never called, nothing downloads. **Falsifier (run, reverted)**: the channel stubbed
+  (`failure.value = null`) → **`Tests  4 failed | 3 passed (7)`**; cured bytes restored → 7 passed.
+- **Why not GREEN whole**: the `failure` ref reaches the user only when the host renders it, and both hosts
+  (`BrowsePane.vue:115/324`, `PalettesPane.vue:106/221`) sit in unit **d**'s writable set, not b's (§4a disjointness).
+  **ESC-W7b-HOST → d**: bind `onExport`'s `ExportOutcome` (or `failure`) to the card feedback rail
+  (`cardRefs[…].showFeedback(message, "error")`, the rail publish/save/delete use) — or to the inspector when d moves
+  export there — and add the mounted assertion that the message is rendered.
+
+## N-15 — The export path is injection-safe, total, canonically named (fold §R1.36; unit b) — **GREEN**
+
+- **RED (legacy bytes, `e24361c6`)**: `export.ts:74` interpolated `${palette.name}` raw into `<text>` and `:68`
+  `${c.css}` raw into `fill`; a zero-colour palette produced a `width="0"` SVG and a null PNG blob (`:64`, `:93-100`);
+  `slugify("!!! ???")` → `""` → the dotfile `.json`; `:130-131` revoked the URL in the click's own tick on a never-appended
+  anchor; the `switch` had no default; every failure was `console.warn`-silent.
+- **GREEN (after `48668947`)**, same test file: (1) name `</title><script>alert("x")</script>` → SVG carries it once,
+  five-substitution escaped, **no `<script`**, exactly one `</title>`, fills in canonical `oklch(…)` spelling only;
+  (2) zero colours → every format returns `"This palette has no colors to export."`, **0** blobs, **0** clicks;
+  (3) a name that slugifies to empty → `palette-draft--local-7.json` / `k2-9f--r4.tailwind.json` — canonical stems,
+  no dotfile, no `--palette--`. Plus: the PNG IHDR is **1200 × 240 at N = 1 and N = 50** (N-invariant).
