@@ -239,3 +239,70 @@ Seat `claude-opus-5-5`, 2026-09-23 ~15:45–16:45 EDT (load 285 → 30 on 18 cor
 **Escalations.** None.
 
 **Commits (value.js, pathspec, not pushed):** `c01171b5` (bench + the harness move + the tsconfig include) · `7e60d700` (the swap) · `dff875e8` (the stylesheet layer onto `stylesheet.bbnf`) · `1e5132cf` (the stylesheet differential) · `58bbd617` (the bench reading of record) · `0eb6732e` (RC-P addendum). This receipt is the next commit.
+
+## Close
+
+Seat `claude-opus-5-5`, 2026-09-23 ~16:50–17:05 EDT, VERIFY-ONLY (cures nothing). Spec W6.md read whole (19 lines; it carries no §Gates / §Hard Gate / §Verification Artefacts heading — the gates are the per-unit "Gate:" sentences, read as the Baseline's G-r1..G-x4). Load at the readings: 1-min 26 → 64 on 18 cores (shared host; this seat's own suites plus foreign seats).
+
+**Crash-recovery.** ⟨`git status --porcelain`⟩ in value.js: nothing dirty in the close's writable set (this record, LEDGER). parse-that: `.cargo/config.toml`, `README.md`, `rust/**` dirty — foreign (named at Open), untouched, never staged. Nothing inherited.
+
+### Gate table (BEFORE → AFTER, re-read by this seat ×2 on HEAD `8ec416d6` / parse-that `92d8ea7`)
+
+| gate | BEFORE | AFTER (close reading) | verdict |
+|---|---|---|---|
+| G-r1 parse-that `npm test` | 1 failed / 153 | ⟨`npm test`⟩ ×2 → `Test Files 14 passed (14)` · `Tests 134 passed (134)` both | GREEN |
+| G-r2 parse-that `proof:all` | perf FAIL + no-css-surface missing | ⟨`npm run proof:all`⟩ ×2 → manifest · subpath · packrat-cross-input · packrat-reentrant · packrat-large-offset · packrat-armed · no-span-surface · no-dead-combinator PASS; ⟨`npm run -s proof:no-css-surface`⟩ ×2 → `GREEN — 31 runtime exports, zero CSS surface.` exit 0; `proof:perf` FAIL both runs (`json-comprehensive regressed 55.1%` / `149.7%`, load 26–52) — see PERF note below | GREEN on 9/10 legs; perf leg load-confounded |
+| G-r3 no CSS in parse-that | 27 css files · `./css` export · 59 test paths · 2 `.wasm` | ⟨`git ls-files typescript/src/css \| wc -l`⟩ → 0 · ⟨`git ls-files '*.wasm' \| wc -l`⟩ → 0 · ⟨`git ls-files 'typescript/test/css*' \| wc -l`⟩ → 0 · ⟨`grep -c '"./css"' typescript/package.json`⟩ → 0 · ⟨`git grep -lE '\.bbnf\|css' -- typescript/src`⟩ → (none) | GREEN |
+| G-b1 WPT/legacy pins | absent | ⟨`npx vitest run test/css`⟩ ×2 → `Test Files 3 passed (3)` · `Tests 34 passed (34)` both | GREEN |
+| G-b2 tsc 0 | 0 (hold) | ⟨`npx vue-tsc -p tsconfig.lib.json --noEmit \| grep -c "error TS"`⟩ ×2 → 0 · 0; ⟨`npx vue-tsc -p tsconfig.test.json --noEmit`⟩ → exit 0, 0 `error TS` (×2); ⟨`npx eslint --max-warnings=0 src/css test/css bench`⟩ → exit 0 | GREEN |
+| G-b3 grammar files the single source | absent | ⟨`ls src/css/grammar/*.bbnf`⟩ → color · math · stylesheet · tokens · value (5) | GREEN |
+| G-h1 MIRROR-DEFECTS 0 ×2 | harness absent | ⟨`npx vitest run -c bench/vitest.config.ts`⟩ ×2 → `Test Files 2 passed (2)` · `Tests 19 passed (19)` both (the moved `.h` differential + the stylesheet differential, falsifiers included) | GREEN |
+| G-x1 hand parser deleted, no shim | 544 lines | ⟨`ls src/css/grammar.ts`⟩ → `No such file or directory`; ⟨`git grep -nE 'from "\./grammar"\|css/grammar"\|splitValueTokens' -- src test bench demo`⟩ → one DATA row only (`bench/css-equivalence/real-corpus.json:1740`) | GREEN |
+| G-x2 `npm test` | 2 failed / 876 (foreign) | ⟨`npm test`⟩ ×2 → `Test Files 2 failed \| 65 passed (67)` · `Tests 2 failed \| 908 passed (910)` both; the 2 = `test/spectrum-luma.test.ts` C-5 BORN-RED + `demo/test/shell/reka-binding-idiom.test.ts` NG-6 (F-W6-open-4, foreign, unmoved) | GREEN (by the Open's reading) |
+| G-x3 bench of record | no `bench/` | `bench/records/2026-09-23-x-p-w6-x.json` present (`58bbd617`); not re-run (a record, not a pass/fail gate; the bar is OC-1) | GREEN as a RECORD |
+| G-x4 keyframes suite linked | — | not re-run by this seat (it needs the scratch linked config + two dist snapshots `.x` built); `.x`'s four identical readings (6 failed / 1774, same named set ×4) cited | GREEN (cited, `.x` receipt) |
+
+### Commit roster (⟨`git show --stat`⟩ each, bounds checked)
+
+- `.r`: value.js `822eadad` (evidence, `docs/tranches/X/parse-that/evidence/W6/retired-seam/**` only) · `3af7d88d` (same dir) · `8e3b51e3` (receipt) · parse-that `92d8ea7` (117 paths: `typescript/src/css/**`, `typescript/test/css*/**`, css-only scripts, `typescript/package.json`, `experiments/w2/ac1-tagless/**`, the declared adjacent `test/dist-surface.test.ts` comment). In bounds.
+- `.b`: `acb7dca7` (`src/css/grammar/*.bbnf`, `src/css/bbnf/**`, `test/css/**`, `package.json`/`package-lock.json`) · `4da38d2b` (`src/css/rules.ts`, `test/css/css-var-animation.test.ts`) · `20b93004` · `0b2b5d5f` (receipt). In bounds (see LW-3).
+- `.h`: `c02179fa` (declared adjacent edits in `src/css/grammar/*.bbnf` + `src/css/bbnf/*.ts`) · `e046fe43` (`test/css/equivalence/**`) · `812daa4b` (DIVERGENCE-LEDGER §15, appended) · `2155142b` (receipt). In bounds by the ADJACENT-LINE RULE.
+- `.x`: `c01171b5` (`bench/**` + the `git mv` of the harness + adjacent `tsconfig.test.json`) · `7e60d700` (18 files: `src/css/**`, adjacent `src/color/index.ts` comment, `test/v4-c1.test.ts:9`) · `dff875e8` (`src/css/**` incl. `src/css/grammar/stylesheet.bbnf`) · `1e5132cf` · `58bbd617` (`bench/**`) · `0eb6732e` (RELEASE-CONDITION addendum) · `8ec416d6` (receipt). See LW-1.
+
+### Landed-wrong findings (recorded, not fixed here)
+
+- **LW-1 (`.x`, bounds):** `7e60d700` / `dff875e8` author `src/css/grammar/stylesheet.bbnf` and edit `src/css/grammar/value.bbnf` (`badTerm`). `.x`'s dispatched set was `src/css/grammar.ts` + its importers in `src/css/**`. The `.bbnf` modules are not importers. RES-b-1 asked for a ruling ("grant `.x` the path or mint `.b2`"), and no ruling landed (the `.x` receipt measured it). `.x` took the path on its reading of the spec sentence ("parses CSS only through the BBNF grammar"). The content conforms to §The law: BBNF, no algebra, no hand scanner. The bound was stretched without a ruling. Owner: the orchestrator/owner ratifies after the fact or orders a revert.
+- **LW-2 (`.x` receipt, quote-by-command):** the `.x` receipt act 4 quotes ⟨`git grep -cE "charAt|indexOf\(|\.match\(|\.test\(|\.replace\(|\.split\(" -- 'src/css/*.ts'`⟩ → `serialize.ts:1` only. Re-run by this seat, it returns 6 files: `bbnf/color.ts:224`, `bbnf/math.ts:48`, `bbnf/mix.ts:363` (an array `indexOf`, not text), `bbnf/value.ts:67-68` and `serialize.ts:98`. The `bbnf/` lines are RES-x-3's token-classification posture, which that same receipt names, so the claim "no hand scanner survives" still reads true. The quoted output is wrong. This close is the erratum (E-3).
+- **LW-3 (`.b`, minor):** `4da38d2b` fixes `src/css/rules.ts` (`holdsVar`). That is the stylesheet layer, not "loader wiring". It is the spec's own `.b` coverage item ("`var()` in the `animation` shorthand"), and `src/css/**` is in `.b`'s set. It is noted, not faulted.
+
+### PERF note (G-r2's `proof:perf` leg)
+
+The leg benchmarks `json-comprehensive`, which is parse-that library code and was untouched by W6. At the Open (load ~8.6) it was already RED, filed as PT-PERF-LOAD (§0bx). The `.r` seat read it PASS ×2 at load ~11 (+10.2%). This seat read it FAIL ×2 at load 26–52 (+55% / +150%). A background retry gated on a 1-min load below 18 ran during the close. Its reading, if any, is appended below. The regression tracks host load and has no CSS relation, so it is carried as PT-PERF-LOAD, not as a W6 defect.
+
+### Residuals (named owners)
+
+- **RES-x-1 PERF / OC-1**: BBNF is 1.1–2.8× slower per value entry and 5.6–14.8× slower on `parseStylesheet` (`58bbd617`). Whether that meets the D-23 bar is the **owner's** call (OC-1). The levers sit with the producers (RES-b-3), below.
+- **RES-b-3**: F-b-1 `BBNFToParserFromFile`, F-b-2 `parseState` console.error, F-b-3 `regexFirstChars` flags. Producer rows for **bbnf-lang / parse-that (PT-E)**. Each needs an outbound relay, owed by the **Track D orchestrator**.
+- **RES-x-4 / RES-x-5**: the DIVERGENCE-LEDGER §15 paths name `test/css/equivalence/…`, and the harness now lives at `bench/css-equivalence/…`. SH-1 also wants a §15 row. This is a §15 dated addendum, and it is NOT written here (verify-only). **Owner: Track D's next W6 repair/rider seat** (or X-W11's RC-P reader). `real-corpus.json`'s generation note is re-pinned on its next regeneration (R-h-4).
+- **RES-x-2**: refusal spans and labels go uncompared (30 double refusals). **Owner: X-W11 RC-P reader / DIVERGENCE-LEDGER.**
+- **RES-x-6 / RES-b-2**: KFA-14 ships in value.js HEAD. keyframes' cure rides a **value.js release**, which is walled by npm auth (**owner act**).
+- **RES-b-4 / RES-b-5**: RES-b-4's divergence classes are classified by `.h` (§15). RES-b-5 covers the 38 `none`-in-xyz-d50/display-p3-linear WPT cells, which are refused because `CssColorSpace` is frozen. **Owner: a future surface-widening ruling.**
+- **R-r-1**: parse-that `harness/**` + `experiments/w2/{contract,corpus,stage0}` remain. They are AC-1 research instruments that do not ship, and `harness/equivalence/harness.ts:74` imports an absolute `~/.claude/jobs` path. **Owner: a parse-that retirement unit (Track D).**
+- **R-r-2**: parse-that `typescript/CHANGELOG.md` + `CLAUDE.md` still describe `./css`. **Owner: the parse-that docs rider (Track D).**
+- **Release**: parse-that is not published and the tag waits. package.json still reads `2.0.0`, which was never published and is superseded. This waits on the **owner's npm login**.
+- **PT-PERF-LOAD**: see the PERF note above. **Owner: §0bx (a perf reading on a quiesced host).**
+- **Relayed request (not W6's)**: the owner's sequence/easing dock-item UI ("dock items for keyframes, timeline, etc — NOT inline keyframes") is keyframes UI, **owned by KF.W13V** (per the `.b` note). It is not touched here.
+
+### Escalations
+
+None. LW-1 is a bounds finding for ratification, not a blocker, because the content obeys the owner's ruling.
+
+### E13
+
+This close swept the four paths plus the glass newest-tranche directory. Glass commits since 16:00 are `95068476` (O-62 banked, rowed as the I-45 erratum `da26879d`) and `4652670d` (BL-internal owner witness on glass's own demo SidebarDock, not in this wave's scope). keyframes.js and parse-that `docs` show no commits since 16:00. INBOX's newest rows are I-45 and its erratum, both READ. Result: **0 unrowed, 0 UNREAD in scope.**
+
+### State
+
+The spec's §State designates no seat to stamp VERIFIED, so the four-verb line moves only to **X.P.W6 IMPLEMENTED 2026-09-23**. The `.r` → `.b` → `.h` → `.x` serial chain is closed. RC-P was re-read (`0eb6732e`). VERIFIED waits for the designated reader (X-W11's RC-P coordinate).
+
+**PERF retry reading:** no window with a 1-min load under 18 opened during the close (⟨`sysctl -n vm.loadavg`⟩ read 23.84 to 64.39 from 16:52 to 17:05), so the retry produced no reading. The leg stays at the `.r` reading (PASS ×2 at load ~11) plus this seat's loaded FAIL ×2, carried as PT-PERF-LOAD.
