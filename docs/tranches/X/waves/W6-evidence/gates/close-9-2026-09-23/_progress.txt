@@ -1,0 +1,89 @@
+[05:50:39 load 4.58 8.23 10.43] start a1.txt
+[05:50:41 load 4.58 8.23 10.43] done a1.txt EXIT=0
+[05:50:41 load 4.58 8.23 10.43] start c1.txt
+[05:50:41 load 4.58 8.23 10.43] done c1.txt EXIT=0
+[05:50:41 load 4.58 8.23 10.43] start c2.txt
+[05:50:42 load 4.58 8.23 10.43] done c2.txt EXIT=0
+[05:50:42 load 4.58 8.23 10.43] start c3.txt
+[05:50:43 load 4.70 8.20 10.41] done c3.txt EXIT=0
+[05:50:43 load 4.70 8.20 10.41] start c4.txt
+[05:50:44 load 4.70 8.20 10.41] done c4.txt EXIT=0
+[05:50:44 load 4.70 8.20 10.41] start d2.txt
+[05:50:44 load 4.70 8.20 10.41] done d2.txt EXIT=0
+[05:50:44 load 4.70 8.20 10.41] start e2.txt
+[05:50:44 load 4.70 8.20 10.41] done e2.txt EXIT=0
+[05:50:44 load 4.70 8.20 10.41] start catalog-totality.txt
+[05:50:44 load 4.70 8.20 10.41] done catalog-totality.txt EXIT=0
+[05:50:44 load 4.70 8.20 10.41] start specimen-grammar.txt
+[05:50:50 load 4.80 8.16 10.38] done specimen-grammar.txt EXIT=0
+[05:50:50 load 4.80 8.16 10.38] start blob-pipeline.txt
+[05:50:50 load 4.80 8.16 10.38] done blob-pipeline.txt EXIT=0
+[05:50:50 load 4.80 8.16 10.38] start lband-door.txt
+[05:50:50 load 4.80 8.16 10.38] done lband-door.txt EXIT=0
+[05:50:50 load 4.80 8.16 10.38] start vuetsc.txt
+[05:50:53 load 4.90 8.12 10.35] done vuetsc.txt EXIT=0
+[05:50:53 load 4.90 8.12 10.35] start e2etsc-r1.txt
+[05:50:54 load 4.90 8.12 10.35] done e2etsc-r1.txt EXIT=0
+[05:50:54 load 4.90 8.12 10.35] start e2etsc-r2.txt
+[05:50:55 load 4.90 8.12 10.35] done e2etsc-r2.txt EXIT=0
+[05:50:57 load 4.90 8.12 10.35] vite up pid 2185
+[05:50:57 load 4.90 8.12 10.35] start a-gp-r1.txt
+[05:51:15 load 5.72 8.13 10.30] done a-gp-r1.txt EXIT=0
+[05:51:15 load 5.72 8.13 10.30] start a-gp-r2.txt
+[05:51:30 load 5.72 8.00 10.22] done a-gp-r2.txt EXIT=0
+[05:51:30 load 5.72 8.00 10.22] start a-gp-r3.txt
+[05:51:45 load 5.71 7.89 10.14] done a-gp-r3.txt EXIT=0
+[05:51:45 load 5.71 7.89 10.14] start a7-c14.txt
+[05:52:01 load 5.41 7.71 10.04] done a7-c14.txt EXIT=0
+[05:52:01 load 5.41 7.71 10.04] start a12-r1.txt
+[05:52:30 load 5.30 7.49 9.88] done a12-r1.txt EXIT=0
+[05:52:30 load 5.30 7.49 9.88] start a12-r2.txt
+[05:53:00 load 5.11 7.24 9.70] done a12-r2.txt EXIT=0
+[05:53:00 load 5.11 7.24 9.70] start seat-r1.txt
+[05:53:28 load 4.92 6.99 9.53] done seat-r1.txt EXIT=1
+[05:53:28 load 4.92 6.99 9.53] start seat-r2.txt
+[05:53:57 load 5.51 6.98 9.45] done seat-r2.txt EXIT=1
+[05:53:57 load 5.51 6.98 9.45] start d1-r1.txt
+[05:54:00 load 5.47 6.95 9.43] done d1-r1.txt EXIT=0
+[05:54:00 load 5.47 6.95 9.43] start d1-r2.txt
+[05:54:03 load 5.35 6.90 9.39] done d1-r2.txt EXIT=0
+[05:54:03 load 5.35 6.90 9.39] start g1.txt
+[05:54:08 load 5.33 6.87 9.37] done g1.txt EXIT=1
+[05:54:09 load 5.33 6.87 9.37] vite killed
+[05:54:09 load 5.33 6.87 9.37] start pw-grad-r1.txt
+[05:56:19 load 15.96 10.19 10.31] done pw-grad-r1.txt EXIT=0
+[05:56:19 load 15.96 10.19 10.31] start pw-grad-r2.txt
+[05:58:42 load 17.09 13.25 11.56] done pw-grad-r2.txt EXIT=0
+[05:58:42 load 17.09 13.25 11.56] start pw-grad-r3.txt
+[06:00:44 load 15.51 14.09 12.12] done pw-grad-r3.txt EXIT=0
+[06:00:44 load 15.51 14.09 12.12] start g2-r1.txt
+[06:00:58 load 14.58 13.95 12.10] done g2-r1.txt EXIT=0
+[06:00:58 load 14.58 13.95 12.10] start g2-r2.txt
+[06:01:11 load 14.54 13.95 12.12] done g2-r2.txt EXIT=0
+[06:01:11 load 14.54 13.95 12.12] start g2-r3.txt
+[06:01:25 load 14.11 13.87 12.13] done g2-r3.txt EXIT=0
+[06:01:25 load 14.11 13.87 12.13] start o29-r1.txt
+[06:02:03 load 14.69 13.96 12.23] done o29-r1.txt EXIT=0
+[06:02:03 load 14.69 13.96 12.23] start o29-r2.txt
+[06:02:41 load 13.40 13.67 12.19] done o29-r2.txt EXIT=0
+[06:02:41 load 13.40 13.67 12.19] start f3-r1.txt
+[06:04:02 load 15.72 13.90 12.39] done f3-r1.txt EXIT=0
+[06:04:02 load 15.72 13.90 12.39] start f3-r2.txt
+[06:05:24 load 13.80 13.63 12.42] done f3-r2.txt EXIT=0
+[06:05:24 load 13.80 13.63 12.42] start f468-r1.txt
+[06:05:41 load 12.88 13.43 12.36] done f468-r1.txt EXIT=0
+[06:05:41 load 12.88 13.43 12.36] start f468-r2.txt
+[06:05:57 load 10.98 12.95 12.21] done f468-r2.txt EXIT=0
+[06:05:57 load 10.98 12.95 12.21] start h1-r1.txt
+[06:06:35 load 10.76 12.69 12.15] done h1-r1.txt EXIT=0
+[06:06:35 load 10.76 12.69 12.15] start h1-r2.txt
+[06:07:13 load 16.35 13.73 12.54] done h1-r2.txt EXIT=0
+[06:07:13 load 16.35 13.73 12.54] start i1-r1.txt
+[06:07:16 load 16.35 13.73 12.54] done i1-r1.txt EXIT=0
+[06:07:16 load 16.35 13.73 12.54] start i1-r2.txt
+[06:07:18 load 15.84 13.67 12.53] done i1-r2.txt EXIT=0
+[06:07:18 load 15.84 13.67 12.53] start i3-r1.txt
+[06:07:39 load 15.38 13.69 12.56] done i3-r1.txt EXIT=1
+[06:07:39 load 15.38 13.69 12.56] start i3-r2.txt
+[06:08:01 load 14.44 13.55 12.54] done i3-r2.txt EXIT=1
+[06:08:01 load 14.44 13.55 12.54] ALL DONE
