@@ -449,3 +449,55 @@ Repair seat, round 1, `claude-opus-5-5`, 2026-09-23 ~14:00–14:25 EDT. Input: t
 
 ### Tally (self-counted from the tables above)
 Register defects: 6. D-2 is worked in three limbs (a · b · c), so there are 8 lines: **Cured in full: 3** (D-2a, D-3 with R-c-2 routed as a ruling, D-6). **Cured in part: 1** (D-2b: 19 readings and 2 suite loads cured or re-pinned; its 2 ESC-c1 legs escalated). **Escalated: 3** (D-1, D-2c perf, D-4). **No action: 1** (D-5, INFO). Gate verdicts moved to GREEN: none among d1/d2/e1/e2/close/a3-perf. The suites the Check counted against `.a`'s limb went from 17 failing tests plus 2 unloadable files to 2 failing (ESC-c1 only). LEDGER status unmoved (PARTIAL). Next: owner act → `.d` re-dispatch (PUT at `661b47c`, perf low-load read) → `.e` → Check 2.
+
+## Check 2
+
+Fresh adversarial check (L-20 pass 2), `claude-opus-5-5`, 2026-09-23 ~14:25–14:35 EDT. Read: W5.md whole (22 lines), this record's header through §Unit plan, §Close, §Check 1 and §Repair 1. Crash-recovery: my writable set (this record, `LEDGER.md`) was clean at open. parse-that dirt is the July `rust/**`/`.cargo`/`README.md` set; I did not touch it. Load was 30–54. Scratch: session scratchpad `chk2/`.
+
+**Verdict: NOT-CONFORMANT (unchanged from Check 1).** Repair 1's landed work conforms, and every claimed GREEN reproduces. But nothing has moved on D-1 since Check 1: parse-that 2.0.0 is still unpublished, value.js is still off the seam, and RC-P is still FALSE. W5.md relieves none of these five REDs.
+
+### Axes
+1. **Claimed GREENs reproduce: 6 of 6** (the same gates at parse-that master `661b47c`).
+   - a1: ⟨`git fetch ../parse-that-css-totality-p2 w2/harness; git rev-list --count master..FETCH_HEAD`⟩ → `0`, and ⟨`merge-base --is-ancestor 31999135 master`⟩ → `anc=0`.
+   - a2: ⟨`ls typescript/scripts/proof-no-css-surface.mjs`⟩ → `No such file`, and ⟨`grep -c no-css-surface typescript/package.json`⟩ → `0`.
+   - b1: ⟨`node test/css-equivalence/run-full-surface.mjs --pinned-value-commit 6aca8602…`⟩ ×2 → `MIRROR-DEFECTS 0 (of which spec-undecided 0)` · `GREEN` `EXIT=0` both times. `diff` after line 1 → 0 lines.
+   - c1/c2: ⟨`npx vitest run`⟩ → `✓ test/css-color5.test.ts (14 tests)` · `Test Files 15 passed (15) · Tests 148 passed (148)` `EXIT=0`.
+   - d3: ⟨`node scripts/rc-p-evaluate.mjs --version 4.0.0 --out chk2/rcp{1,2}.json`⟩ ×2 → `6 ROUTED(V) yes TRUE TRUE`.
+2. **Bounds: clean.** ⟨`git show --stat`⟩:
+   - `6fcc207` touches `src/css/algebra/tables.mjs`, `src/css/build/ac1.wasm`, `test/css-recovery/stylesheet-grammar.test.ts` and `CHANGELOG.md`.
+   - `661b47c` touches 10 files, all under `typescript/test/**`.
+   - value.js `052de4d6` touches only `DIVERGENCE-LEDGER.md` (+55, 0 lines removed), and `3f90c851` only this record and the LEDGER (+1).
+   - ⟨`git log 42a82e3e..HEAD -- scripts/dev/dev.sh`⟩ → 0 commits.
+3. **Masking: none found.** I sampled the Repair's re-pins at the diff. `depth.test.ts` now asserts `witnessAtDepth(depth).length > INPUT_BOUND` before it names `<input-window>`, so the new pin is a measured precondition, not a narrowed assertion, and the depth rejection keeps its own block. The latch legs (ESC-c1) stay RED and unedited, with no `skip` and no allowlist.
+4. **Commit families:** one per meaning. The cure (`6fcc207`) and the re-pins (`661b47c`) are split by meaning, which is lawful.
+5. **E-3:** ⟨`git diff --stat 42a82e3e..HEAD -- parse-that/waves/ V/megatranche/registry/adjudicated/ parse-that/RELEASE-CONDITION.md parse-that/ADJUDICATION-W4.md`⟩ → empty. DIVERGENCE-LEDGER is append-only (removed lines → `0`).
+6. **Mail:** ⟨`grep -cE '\| *UNREAD *\|' INBOX.md`⟩ → `0`. The latest sweep line (14:4x, Track A) reads `0 unrowed, 0 new UNREAD`.
+7. **Four-verb:** W5.md designates no move, and none was made. Lawful.
+8. **Goal criterion: NOT MET.** ⟨`npm view @mkbabb/parse-that dist-tags --json`⟩ → `{"latest": "1.0.0"}` · ⟨`npm whoami`⟩ → `E401 Unauthorized` · ⟨`git tag -l 'v2*'`⟩ → none · value.js ⟨`grep -c parse-that package.json`⟩ → `0` · ⟨`wc -l src/css/grammar.ts src/css/syntax.ts`⟩ → `544 · 101` · RC-P ×2 → `FALSE — 3 of 6: 1 PUBLISHED(V) · 3 EQUIVALENCE(V) · 4 ADMITTED(V)` with arm V `20962`, EXIT 1 both times.
+9. **Repair 1's figures reproduce.**
+   - css-equivalence: ⟨`npx vitest run -c test/css-equivalence/vitest.config.ts`⟩ → `28 passed (28)`.
+   - css-recovery: ⟨`… -c test/css-recovery/vitest.config.ts`⟩ → `Test Files 1 failed | 11 passed (12)` · `Tests 2 failed | 473 passed (475)`. Both failures are in `boundary/latch.test.ts` (L-3 RESETTABLE and "the whole reading"), i.e. ESC-c1 exactly.
+10. **Honest-RED adjudication:** see the register. W5.md still has no honest-RED id, no producer-owned row and no successor routing for d1, d2, e1, e2, close or a3. ⟨`grep -n 'W5d-1\|ESC-W5e-1\|F-W5c-1' COHESION.md`⟩ → no ruling since §0bp.
+
+### Register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C2-1 | **HIGH** | Carried from Check 1 D-1, unmoved. **G-W5-d1 · d2 · e1 · e2 · close are RED with no relief in W5.md.** 2.0.0 is not published, ADMITTED is FALSE, value.js is not on the seam, the hand grammar stands, and RC-P is FALSE. The escalations are named (ESC-W5d-1 as an OWNER ACT, now tagged at `661b47c`, and the F-W5d-1 ruling), but a named blocker is not a relief. There is no seat misconduct. | ⟨`npm whoami`⟩ → `E401` · ⟨`npm view … dist-tags`⟩ → `latest 1.0.0` · RC-P ×2 FALSE 3/6 · `grep -c parse-that package.json` → `0` · `544 · 101` | Owner: `npm login` → `npm publish` 2.0.0 → `git tag v2.0.0 661b47c` · orchestrator rules F-W5d-1 · re-dispatch `.e` → RC-P ×2 → Check 3 |
+| C2-2 | MEDIUM | **G-W5-a3's perf limb is still RED.** No low-load `proof:perf` read exists. Repair 1's interleaved A/B does not rule out a ~14 % regression from the merge's `src/parse/**` changes. | Repair 1 D-2c · load 30–54 at this seat | R-close-1 / ESC-R1-1: a low-load (< ~4) read by the `.d` re-dispatch seat before the PUT, with any real regression taken to its root cause |
+| C2-3 | MEDIUM | **`.a`'s "parse-that's own test suite … GREEN" is not met in full.** css-recovery has 2 RED legs (ESC-c1, the `PACKRAT_ARMED` latch in `src/parse/packrat.ts`, outside every W5 unit's bounds). Its routing is COHESION :1913 "ESC-c1 … → W4", carried. That routing is a prior wave's, not a relief in W5.md. | ⟨css-recovery vitest⟩ → `2 failed | 473 passed (475)`, both in `latch.test.ts` | The orchestrator grants a bounded library-seam unit, or rows it as a routed carry by dated addendum |
+| C2-4 | MINOR | Rulings are owed on R-c-2 (`light-dark()` evaluates only to `color_context_required`) and SC-2 (`display-p3-linear` widens the frozen `CssColorSpace`). Owners are now named (DIVERGENCE-LEDGER §13 and ESC-R1-2), so the coverage clause of the goal is mitigated but not met. | `052de4d6` §13 · Repair 1 D-3 | Orchestrator ruling, then Track D's next X·P grammar wave |
+| C2-5 | MINOR | F-W5c-1 (legacy `none` alpha under PB-01/02) is still unruled. | `test/css-color5.test.ts:210-222` | Orchestrator ruling |
+| C2-6 | INFO | Repair 1's `6fcc207` wrote a line to `typescript/CHANGELOG.md`, which is in `.d`'s writable set, not `.b`/`.c`'s. It is still inside W5's derived union, and the Repair declares it. | ⟨`git show --stat 6fcc207`⟩ | none |
+
+### Honest-RED set
+**Empty.** No RED gate is relieved by W5.md's own bytes:
+- d1, d2, e1, e2 and close wait on an owner act and a ruling.
+- a3-perf is an unproven environmental claim.
+- The ESC-c1 legs are routed only by a prior wave's text.
+
+### Successor "Opens after"
+⟨`grep -rln 'Opens after.*X\.P\.W5' docs/tranches/X`⟩ → only `parse-that/waves/W5.md` itself, so no wave declares `X.P.W5 CLOSED` as a conjunct. KF.W3 stays keyed on RC-P(V), which is FALSE ×2, so it is **lawfully blocked**. The X-W11 coordinate needs RC-P TRUE, which is not met. No successor is blocked unlawfully.
+
+### Tally (counted from the register)
+0 BLOCKER · 0 CRITICAL · 1 HIGH · 2 MEDIUM · 2 MINOR · 1 INFO. Gates reproduced GREEN: 6 (a1 a2 b1 c1 c2 d3). RED: 6 (a3-perf d1 d2 e1 e2 close). **LEDGER status not moved** (PARTIAL stands). Next: owner act ESC-W5d-1 (tag `661b47c`) + F-W5d-1 → `.d` re-dispatch (perf read) → `.e` → Check 3.
