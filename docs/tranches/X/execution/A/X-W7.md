@@ -1665,3 +1665,25 @@ crash-battery R18's valid leg.
   wears the producer face, so the cure wave measures the producer rung.
 - `dev.sh` was not touched.
 **Commits**: `26836da6` · `d106f3be` · `cb568b0a` · this record.
+
+### X.W7.c2
+
+SERVED MODEL: claude-opus-5-5 · grant COHESION §0bk.5 (ESC-W7c-CI) · lock "after g3" met (`8ce6504a` g3 receipt at HEAD on open).
+
+**Open (crash-recovery).** ⟨git status --porcelain⟩ → only `CARRY-LEDGER.md`, `scripts/dev/dev.sh`, `docs/tranches/X/audit/`, `chassis/ui-audit.js` dirty — none in this unit's writable set; nothing inherited.
+
+**Anchor.** ⟨sed -n 35,65p .github/workflows/ci.yml⟩ → producer job steps :43-58; `- run: npm run typecheck` :57, `- run: npm test` :58 — anchor matches the brief at true bytes (no drift). The e2e-smoke/visual/boot-smoke jobs already carry the identical `npx playwright install --with-deps chromium` step (:129/:193/:231 pre-edit).
+
+**Baseline (BEFORE).** ⟨gh run view 35890192344 --json jobs⟩ → `producer / Node 22 completed failure` · `producer / Node 24 completed failure`. ⟨gh api …/actions/jobs/107280968676/logs | grep problems⟩ → `✖ 55 problems (23 errors, 32 warnings)` then `##[error]Process completed with exit code 1.` — the producer job dies at **`npm run lint`**, before `npm test` is ever reached. The 23 errors are `Parsing error: 'return' outside of function` / `Unexpected token <` in tracked scripts under `docs/tranches/V/{apotheosis,megatranche}/**` and `docs/tranches/X/execution/chassis/x-{begin,track-A..D}.js`, which `eslint.config` does not ignore (it ignores `docs/precepts/**`, `docs/tranches/C/**`, … but not V/X).
+
+**Act 1 — the cure as granted.** One line inserted before `- run: npm test`:
+`- run: npx playwright install --with-deps chromium` (now :58; `npm test` :59). ⟨git diff --check⟩ → clean; ⟨python3 yaml.safe_load⟩ → YAML-OK. Commit `623feffd` `ci(producer): install Playwright Chromium before the unit job's npm test (X.W7.c2, ESC-W7c-CI)` (pathspec `.github/workflows/ci.yml`). ⟨git push origin tranche-u⟩ → `6c4535b8..623feffd`.
+
+**Gate reading (AFTER).** Run 35893289353 (`623feffd`) → `completed cancelled` (concurrency `cancel-in-progress`: a sibling push `62b5ecfd` landed seconds later). ⟨git merge-base --is-ancestor 623feffd 62b5ecfd⟩ → DESCENDANT; `62b5ecfd:.github/workflows/ci.yml:58` carries the step. Run 35893301716 (`62b5ecfd`) → `producer / Node 22=completed/failure Run npm run lint` · `producer / Node 24=completed/failure Run npm run lint`; job 107291417493 log → `✖ 55 problems (23 errors, 32 warnings)` — identical to baseline. The new install step and `npm test` are skipped behind the failed lint step.
+
+**Gate: CI producer (unit) job GREEN — RED, not by this unit's defect.** The installed step cannot be read because the job fails one step earlier (lint), a pre-existing condition present in the baseline run. Not masked: no `continue-on-error`, no lint-step reorder, no eslint ignore added (all outside the grant; `eslint.config.*` and `docs/**` scripts are not in this unit's writable set).
+
+**ESCALATION ESC-W7c2-LINT.** The producer job's `npm run lint` fails in CI on 23 parse errors in tracked workflow/probe scripts under `docs/tranches/V/**` and `docs/tranches/X/execution/chassis/*.js`. Cure needs a grant for `eslint.config.*` (ignore the non-product `docs/tranches/**` script trees, as it already does for `docs/tranches/C/**`) — orchestrator/COHESION ruling. After that lands, the §0bk.5 gate is re-read on the next push; the Chromium step is already in place.
+
+- `dev.sh` was not touched.
+**Commits**: `623feffd` · this record.
