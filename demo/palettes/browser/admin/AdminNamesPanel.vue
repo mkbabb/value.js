@@ -84,7 +84,7 @@
                                 size="xs"
                                 class="px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
                                 :aria-label="`Reject color name ${item.name}`"
-                                @click="emit('reject', item)"
+                                @click="onRejectClick(item)"
                             >
                                 <XIcon class="w-3.5 h-3.5" aria-hidden="true" />
                             </Button>
@@ -130,7 +130,7 @@
                                 size="xs"
                                 class="px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
                                 :aria-label="`Delete color name ${item.name}`"
-                                @click="emit('delete', item)"
+                                @click="onDeleteClick(item)"
                             >
                                 <Trash2 class="w-3.5 h-3.5" aria-hidden="true" />
                             </Button>
@@ -139,12 +139,44 @@
                 </div>
             </div>
         </Transition>
+
+        <!-- X.W7.e (G14 · W7.93 · D-2): Reject and Delete are irreversible — each
+             is confirmed before the command leaves the panel. The deliberate rung
+             (Esc · outside, no ✕) is spelled `:show-close="false"` at the installed
+             glass 7.0.0; the `dismiss` axis (rung `deliberate`) is the glass ≥ 8.0.0 spelling. -->
+        <Dialog v-model:open="confirmOpen">
+            <DialogContent surface="glass" :show-close="false">
+                <DialogHeader>
+                    <DialogTitle>{{ confirmRequest?.title }}</DialogTitle>
+                    <DialogDescription>
+                        {{ confirmRequest?.description }}
+                        <span class="font-mono font-medium text-foreground">{{ confirmRequest?.subject }}</span>.
+                        This cannot be undone.
+                    </DialogDescription>
+                </DialogHeader>
+                <DialogFooter>
+                    <Button emphasis="text" @click="confirmOpen = false">Cancel</Button>
+                    <Button tone="destructive" :disabled="!confirmAct" @click="onConfirm">
+                        <component :is="confirmRequest?.icon" class="w-3.5 h-3.5" aria-hidden="true" />
+                        {{ confirmRequest?.label }}
+                    </Button>
+                </DialogFooter>
+            </DialogContent>
+        </Dialog>
     </div>
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch } from "vue";
+import { computed, ref, shallowRef, watch, type Component } from "vue";
 import { SegmentedTabs } from "@mkbabb/glass-ui/tabs";
+import {
+    Dialog,
+    DialogContent,
+    DialogHeader,
+    DialogTitle,
+    DialogDescription,
+    DialogFooter,
+} from "@mkbabb/glass-ui/dialog";
 import { Button } from "../../../ui/button";
 import { Check, X as XIcon, Trash2 } from "@lucide/vue";
 import type { ProposedColorName } from "../../../color-session/color-names";
@@ -180,6 +212,67 @@ const emit = defineEmits<{
     retryPending: [];
     retryApproved: [];
 }>();
+
+// X.W7.e (G14 · N-6): the confirm holds its request for display through the
+// leave transition, and its act separately — the act is TAKEN (cleared) before
+// it runs, and any dismissal releases it, so one acceptance emits exactly once.
+interface ConfirmRequest {
+    title: string;
+    description: string;
+    subject: string;
+    label: string;
+    icon: Component;
+}
+const confirmOpen = ref(false);
+const confirmRequest = shallowRef<ConfirmRequest | null>(null);
+const confirmAct = shallowRef<(() => void) | null>(null);
+watch(
+    confirmOpen,
+    (open) => {
+        if (!open) confirmAct.value = null;
+    },
+    { flush: "sync" },
+);
+
+function askConfirm(request: ConfirmRequest, act: () => void) {
+    confirmRequest.value = request;
+    confirmAct.value = act;
+    confirmOpen.value = true;
+}
+
+function onConfirm() {
+    const act = confirmAct.value;
+    if (!act) return;
+    confirmAct.value = null;
+    confirmOpen.value = false;
+    act();
+}
+
+function onRejectClick(item: ProposedColorName) {
+    askConfirm(
+        {
+            title: "Reject color name?",
+            description: "This will permanently reject the proposed name",
+            subject: item.name,
+            label: "Reject name",
+            icon: XIcon,
+        },
+        () => emit("reject", item),
+    );
+}
+
+function onDeleteClick(item: ProposedColorName) {
+    askConfirm(
+        {
+            title: "Delete color name?",
+            description: "This will permanently delete the approved name",
+            subject: item.name,
+            label: "Delete name",
+            icon: Trash2,
+        },
+        () => emit("delete", item),
+    );
+}
 
 const namesTab = ref<string>("pending");
 

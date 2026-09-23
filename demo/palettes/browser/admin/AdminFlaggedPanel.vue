@@ -115,15 +115,27 @@
                          labeled neutral Dismiss is the primary affordance;
                          the delete is a QUIET icon (ink at rest, red only on
                          hover/focus), never its equal-weight red twin. -->
-                    <Button variant="outline" size="xs" class="px-2 text-caption font-display" @click="flagged.dismiss(item.paletteSlug)">
+                    <!-- X.W7.e (S-15 · W7.95 · AF-44): each Dismiss names the
+                         palette it acts on — N identical "Dismiss" buttons are
+                         no longer indistinguishable to AT; the visible word
+                         leads the accessible name (label-in-name). -->
+                    <Button
+                        variant="outline"
+                        size="xs"
+                        class="px-2 text-caption font-display"
+                        :aria-label="`Dismiss reports on ${item.palette?.name ?? item.paletteSlug}`"
+                        @click="flagged.dismiss(item.paletteSlug)"
+                    >
                         Dismiss
                     </Button>
+                    <!-- X.W7.e (G14 · W7.91 · AF-2): soft-deleting another user's
+                         palette is confirmed first, as the users scene does. -->
                     <Button
                         variant="ghost"
                         size="xs"
                         class="px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
                         :aria-label="`Delete palette ${item.palette?.name ?? item.paletteSlug}`"
-                        @click="flagged.deletePalette(item.paletteSlug)"
+                        @click="onDeleteClick(item.paletteSlug, item.palette?.name ?? item.paletteSlug)"
                     >
                         <Trash2 class="h-3 w-3" aria-hidden="true" />
                     </Button>
@@ -160,11 +172,42 @@
             @next="flagged.nextPage"
         />
         </template>
+
+        <!-- X.W7.e (G14): the deliberate rung (Esc · outside, no ✕) is spelled
+             `:show-close="false"` at the installed glass 7.0.0; the `dismiss` axis (rung `deliberate`)
+             is the glass ≥ 8.0.0 spelling. -->
+        <Dialog v-model:open="confirmOpen">
+            <DialogContent surface="glass" :show-close="false">
+                <DialogHeader>
+                    <DialogTitle>Delete flagged palette?</DialogTitle>
+                    <DialogDescription>
+                        This will delete the palette
+                        <span class="font-display font-medium text-foreground">{{ confirmName }}</span>
+                        for its owner and every viewer.
+                    </DialogDescription>
+                </DialogHeader>
+                <DialogFooter>
+                    <Button emphasis="text" @click="confirmOpen = false">Cancel</Button>
+                    <Button tone="destructive" :disabled="!confirmAct" @click="onConfirm">
+                        <Trash2 class="w-3.5 h-3.5" aria-hidden="true" />
+                        Delete palette
+                    </Button>
+                </DialogFooter>
+            </DialogContent>
+        </Dialog>
     </div>
 </template>
 
 <script setup lang="ts">
-import { inject, onMounted } from "vue";
+import { inject, onMounted, ref, shallowRef, watch } from "vue";
+import {
+    Dialog,
+    DialogContent,
+    DialogHeader,
+    DialogTitle,
+    DialogDescription,
+    DialogFooter,
+} from "@mkbabb/glass-ui/dialog";
 import { Button } from "../../../ui/button";
 import { Badge } from "../../../ui/badge";
 import { RefreshCw, Trash2 } from "@lucide/vue";
@@ -180,4 +223,32 @@ const pm = inject(ADMIN_PORT_KEY)!;
 const flagged = pm.flagged;
 
 onMounted(() => flagged.loadFlagged());
+
+// X.W7.e (G14 · N-6): the confirm keeps the palette's name for display through
+// the leave transition; the act is held separately, TAKEN (cleared) before it
+// runs, and released on any dismissal — one acceptance, exactly one request.
+const confirmOpen = ref(false);
+const confirmName = ref("");
+const confirmAct = shallowRef<(() => void) | null>(null);
+watch(
+    confirmOpen,
+    (open) => {
+        if (!open) confirmAct.value = null;
+    },
+    { flush: "sync" },
+);
+
+function onDeleteClick(slug: string, name: string) {
+    confirmName.value = name;
+    confirmAct.value = () => void flagged.deletePalette(slug);
+    confirmOpen.value = true;
+}
+
+function onConfirm() {
+    const act = confirmAct.value;
+    if (!act) return;
+    confirmAct.value = null;
+    confirmOpen.value = false;
+    act();
+}
 </script>

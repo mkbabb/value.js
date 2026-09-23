@@ -131,11 +131,17 @@
                         class="group flex items-center gap-1 rounded-full border border-card-edge bg-muted/30 px-2.5 py-1 text-mono-small transition-colors hover:bg-accent/50"
                     >
                         <span>{{ tag.name }}</span>
-                        <!-- W5-a11y: icon-only delete button needs accessible name -->
+                        <!-- W5-a11y: icon-only delete button needs accessible name.
+                             X.W7.e (S-14(b) · W7.90 · ATP-2): the seat is VISIBLE at
+                             rest — never an opacity-0, hover-gated box that a touch
+                             can still hit; (G14 · W7.89 · ATP-1) it opens a confirm,
+                             never the delete itself; (ATP-46) the transition names
+                             its properties; (ATP-31) the parent gap separates it. -->
                         <button
-                            class="ml-0.5 p-0.5 rounded-sm opacity-0 transition-all group-hover:opacity-100 hover:bg-accent/50 active:scale-95 active:bg-accent/70 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:opacity-100"
+                            type="button"
+                            class="p-0.5 rounded-sm transition-[background-color,transform] hover:bg-accent/50 active:scale-95 active:bg-accent/70 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                             :aria-label="`Delete tag ${tag.name}`"
-                            @click="tagsApi.deleteTag(tag.name)"
+                            @click="onDeleteClick(tag.name)"
                         >
                             <X class="h-3 w-3 text-muted-foreground hover:text-destructive transition-colors" aria-hidden="true" />
                         </button>
@@ -144,15 +150,47 @@
             </div>
         </div>
         </template>
+
+        <!-- X.W7.e (G14): the tag delete is an unbounded cross-collection write —
+             confirmed first. The deliberate rung (Esc · outside, no ✕) is spelled
+             `:show-close="false"` at the installed glass 7.0.0; the `dismiss` axis (rung `deliberate`)
+             is the glass ≥ 8.0.0 spelling. -->
+        <Dialog v-model:open="confirmOpen">
+            <DialogContent surface="glass" :show-close="false">
+                <DialogHeader>
+                    <DialogTitle>Delete tag?</DialogTitle>
+                    <DialogDescription>
+                        This will permanently delete the tag
+                        <span class="font-mono font-medium text-foreground">{{ confirmTag }}</span>
+                        and remove it from every palette that carries it. This cannot be undone.
+                    </DialogDescription>
+                </DialogHeader>
+                <DialogFooter>
+                    <Button emphasis="text" @click="confirmOpen = false">Cancel</Button>
+                    <Button tone="destructive" :disabled="!confirmAct" @click="onConfirm">
+                        <Trash2 class="w-3.5 h-3.5" aria-hidden="true" />
+                        Delete tag
+                    </Button>
+                </DialogFooter>
+            </DialogContent>
+        </Dialog>
     </div>
 </template>
 
 <script setup lang="ts">
-import { inject, onMounted } from "vue";
+import { inject, onMounted, ref, shallowRef, watch } from "vue";
+import {
+    Dialog,
+    DialogContent,
+    DialogHeader,
+    DialogTitle,
+    DialogDescription,
+    DialogFooter,
+} from "@mkbabb/glass-ui/dialog";
 import { Button } from "../../../ui/button";
 import { Input } from "../../../ui/input";
 import { Skeleton } from "../../../ui/skeleton";
-import { Plus, RefreshCw, X } from "@lucide/vue";
+import { Plus, RefreshCw, Trash2, X } from "@lucide/vue";
 import EmptyState from "../../../shared/ui/EmptyState.vue";
 import ActionFeedback from "../card/PaletteCard/ActionFeedback.vue";
 import { ADMIN_PORT_KEY } from "../../usePalettePorts";
@@ -162,4 +200,32 @@ const pm = inject(ADMIN_PORT_KEY)!;
 const tagsApi = pm.tags;
 
 onMounted(() => tagsApi.loadTags());
+
+// X.W7.e (G14 · N-6): the tag named in the confirm is kept for display through
+// the leave transition; the act is held separately, TAKEN (cleared) before it
+// runs, and released on any dismissal — one acceptance, exactly one request.
+const confirmOpen = ref(false);
+const confirmTag = ref("");
+const confirmAct = shallowRef<(() => void) | null>(null);
+watch(
+    confirmOpen,
+    (open) => {
+        if (!open) confirmAct.value = null;
+    },
+    { flush: "sync" },
+);
+
+function onDeleteClick(name: string) {
+    confirmTag.value = name;
+    confirmAct.value = () => void tagsApi.deleteTag(name);
+    confirmOpen.value = true;
+}
+
+function onConfirm() {
+    const act = confirmAct.value;
+    if (!act) return;
+    confirmAct.value = null;
+    confirmOpen.value = false;
+    act();
+}
 </script>

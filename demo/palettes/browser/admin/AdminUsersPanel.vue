@@ -126,16 +126,23 @@
                              per-row destructive is quieted to ink-at-rest —
                              red arrives on hover/focus, never as 5 resting
                              beacons down the list. -->
+                        <!-- X.W7.e (G15 · DAG §2.3 row 4): the control says what it
+                             destroys BEFORE activation — visible and accessible
+                             names both; the accessible name carries the visible
+                             words (label-in-name) plus the user it acts on. -->
                         <Button
                             v-if="user.paletteCount"
                             variant="outline"
                             size="xs"
                             class="px-2 cursor-pointer font-display text-caption"
+                            :aria-label="`Delete all palettes of ${user.slug}`"
                             @click="onDeletePalettesClick(user.slug)"
                         >
-                            <Trash2 class="w-3 h-3 mr-1" />
-                            Palettes
+                            <Trash2 class="w-3 h-3 mr-1" aria-hidden="true" />
+                            Delete all palettes
                         </Button>
+                        <!-- S-15 (W7.96 · Δ-19): the two irreversible acts no longer
+                             share one glyph — deleting the USER reads as a user act. -->
                         <Button
                             variant="ghost"
                             size="xs"
@@ -143,7 +150,7 @@
                             :aria-label="`Delete user ${user.slug}`"
                             @click="onDeleteUserClick(user.slug)"
                         >
-                            <Trash2 class="w-3 h-3" aria-hidden="true" />
+                            <UserX class="w-3 h-3" aria-hidden="true" />
                         </Button>
                     </div>
                 </div>
@@ -187,7 +194,7 @@
                                     size="xs"
                                     class="px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
                                     :aria-label="`Delete palette ${palette.name}`"
-                                    @click="pm.onAdminDeletePalette(palette)"
+                                    @click="onDeletePaletteClick(palette)"
                                 >
                                     <Trash2 class="w-3 h-3" aria-hidden="true" />
                                 </Button>
@@ -198,7 +205,10 @@
             </div>
         </div>
 
-        <!-- Confirmation dialog (Glass 7: ConfirmDialog folded onto the Dialog family) -->
+        <!-- Confirmation dialog (Glass 7: ConfirmDialog folded onto the Dialog family).
+             X.W7.e (G14 · A-3): the deliberate rung — Esc · outside, no ✕. At the
+             installed glass 7.0.0 that rung is spelled `:show-close="false"`; the
+             `dismiss` axis (rung `deliberate`) is glass ≥ 8.0.0 and re-spells at the repin. -->
         <Dialog v-model:open="confirmOpen">
             <DialogContent surface="glass" :show-close="false">
                 <DialogHeader>
@@ -216,8 +226,12 @@
                 </DialogHeader>
                 <DialogFooter>
                     <Button emphasis="text" @click="confirmOpen = false">Cancel</Button>
-                    <Button :tone="confirmDestructive ? 'destructive' : 'neutral'" @click="onConfirm">
-                        <Trash2 class="w-3.5 h-3.5" />
+                    <Button
+                        :tone="confirmDestructive ? 'destructive' : 'neutral'"
+                        :disabled="!confirmAction"
+                        @click="onConfirm"
+                    >
+                        <component :is="confirmIcon" class="w-3.5 h-3.5" aria-hidden="true" />
                         {{ confirmLabel }}
                     </Button>
                 </DialogFooter>
@@ -227,7 +241,7 @@
 </template>
 
 <script setup lang="ts">
-import { inject, ref } from "vue";
+import { inject, ref, shallowRef, watch, type Component } from "vue";
 import { SAFE_ACCENT_KEY } from "../../../color-session/keys";
 import { Button } from "../../../ui/button";
 import { Badge } from "../../../ui/badge";
@@ -239,7 +253,8 @@ import {
     DialogDescription,
     DialogFooter,
 } from "@mkbabb/glass-ui/dialog";
-import { Loader2, Trash2, Eraser, RefreshCw, Star } from "@lucide/vue";
+import { Loader2, Trash2, Eraser, RefreshCw, Star, UserX } from "@lucide/vue";
+import type { Palette } from "../../types";
 import { ADMIN_PORT_KEY } from "../../usePalettePorts";
 import { PaletteSpecimen } from "../card";
 import ActionFeedback from "../card/PaletteCard/ActionFeedback.vue";
@@ -285,7 +300,8 @@ const confirmDescription = ref("");
 const confirmSlug = ref<string | null>(null);
 const confirmLabel = ref("Confirm");
 const confirmDestructive = ref(false);
-const confirmAction = ref<(() => void) | null>(null);
+const confirmIcon = shallowRef<Component>(Trash2);
+const confirmAction = shallowRef<(() => void) | null>(null);
 
 function showConfirm(opts: {
     title: string;
@@ -293,6 +309,7 @@ function showConfirm(opts: {
     label: string;
     slug?: string;
     destructive?: boolean;
+    icon?: Component;
     action: () => void;
 }) {
     confirmTitle.value = opts.title;
@@ -300,16 +317,33 @@ function showConfirm(opts: {
     confirmSlug.value = opts.slug ?? null;
     confirmLabel.value = opts.label;
     confirmDestructive.value = opts.destructive ?? false;
+    confirmIcon.value = opts.icon ?? Trash2;
     confirmAction.value = opts.action;
     confirmOpen.value = true;
 }
 
-// Glass 7 folded ConfirmDialog onto the Dialog family: the confirm action now
-// fires from the composed footer button, then the dialog closes (the old
-// ConfirmDialog auto-close, made explicit at the call site).
+// A dismissal (Esc · outside · Cancel) releases the pending act: a closed
+// confirm holds nothing that a later activation could fire.
+watch(
+    confirmOpen,
+    (open) => {
+        if (!open) confirmAction.value = null;
+    },
+    { flush: "sync" },
+);
+
+// Glass 7 folded ConfirmDialog onto the Dialog family: the confirm action
+// fires from the composed footer button, then the dialog closes.
+// X.W7.e (N-6 · W7.92 · Δ-3): the act is TAKEN before it runs — the closure is
+// cleared synchronously, so a second activation inside the leave transition's
+// hit-testable window (271 ms chromium / 159 ms webkit) finds nothing to fire
+// and the footer button is disabled. One acceptance, exactly one request.
 function onConfirm() {
-    confirmAction.value?.();
+    const act = confirmAction.value;
+    if (!act) return;
+    confirmAction.value = null;
     confirmOpen.value = false;
+    act();
 }
 
 /**
@@ -344,7 +378,7 @@ function onDeletePalettesClick(slug: string) {
         title: "Delete all palettes?",
         description: "This will permanently delete all palettes for",
         slug,
-        label: "Delete palettes",
+        label: "Delete all palettes",
         destructive: true,
         action: () => void pm.onDeleteUserPalettes(slug),
     });
@@ -357,7 +391,21 @@ function onDeleteUserClick(slug: string) {
         slug,
         label: "Delete user",
         destructive: true,
+        icon: UserX,
         action: () => void pm.onDeleteUser(slug),
+    });
+}
+
+// X.W7.e (G14): the admin palette delete in a user's disclosure is the same
+// irreversible act as the flag queue's — it is confirmed here too.
+function onDeletePaletteClick(palette: Palette) {
+    showConfirm({
+        title: "Delete palette?",
+        description: "This will permanently delete the palette",
+        slug: palette.slug,
+        label: "Delete palette",
+        destructive: true,
+        action: () => void pm.onAdminDeletePalette(palette),
     });
 }
 
