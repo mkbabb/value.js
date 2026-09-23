@@ -119,6 +119,13 @@ const TRACK = {
         "F.W11"
       ],
       "note": "AUTHORITY: the owner's 2026-09-22 fourier docket (COHESION §0ao, verbatim there: rounded, glass-ui idiomatic, a dock, the grid) executed under the 2026-09-17 begin-word — this tail wave (COHESION §0as) spends F.W11's residuals: [F.W12.a] (opus: the five numeric fields onto glass-ui NumberField so keyboard stepping returns; the two stale contrast-pairs rows and two style.css comments retired; the search-cancel glyph relayed to BK by mail; the e2e networkidle wait replaced by the app's own readiness signal) → [F.W12.b] (opus, verify-only close); glass-ui READ-ONLY; push m/w1-bump-migration at every unit close. A later owner message about keyframes.js is Track B's docket and does not narrow this one — RESUME 2026-09-22 on COHESION §0au + F-W12.md's ADDENDUM 2026-09-22: F.W12.a is alreadyDone (never re-dispatched); still owed: [F.W12.a2] (opus: prove the visualization-ux serial block's tests independent, give any dependent one its own bootstrap, then drop test.describe.serial — no timeout, no slow(), no loosened wait) → [F.W12.b2] (opus, verify-only close) — RESUME 2 (2026-09-22) on COHESION §0av + F-W12.md's second addendum: F.W12.a and F.W12.a2 are alreadyDone (never re-dispatched); the one unit owed is [F.W12.b3] (opus, verify-only close: wait for a quiesced host in bounded background polling ≤ 20 min — load < 20, no sibling headless Chromium — then two full nine-worker runs; never a timeout change)"
+    },
+    "F.W13": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/fourier/waves/F-W13.md",
+      "after": [
+        "F.W12"
+      ],
+      "note": "AUTHORITY: the owner's 2026-09-23 fourier + dock docket, VERBATIM (it is the request this wave executes): 'The fourier analysis dock, and all docks like it on all pages, should, like in the words app hereof (floridify), ala ios 27, shrink and morph on scroll to go into a smaller state--and change on and expand on focus and hover. And the progress bar for the page scroll should be integrated into the bottom of the dock, too, and properly clip and account for rounding--this is not rounded enough and not glass-ui idiomatic, and it doesn\'t even work--this is not a circle--many of these items either don\'t work or are not glass-ui idiomatic, rounded, etc--this \"drop click to upload\" text is updlicative--we should just display the main area with no right sidebar when nothing is there, and then smoothly animate in the right sidebar when something is dragged over and dropped.--this is good, but not rounded.' The five frames are banked at docs/tranches/X/fourier/evidence/W13/owner-2026-09-23-{1..5}.png (READ each image). Minted by COHESION §0bc; every seat Opus 5.5 (owner 2026-09-23). Units strictly serial: [F.W13.a] (radius register + the CONTENTS toggle and back control that do not work; icon-only controls true circles) → [F.W13.b] (image-mode controls: each works + is the producer primitive) → [F.W13.c] (one drop affordance; no sidebar until an image; sidebar enters with producer motion on drop) → [F.W13.d] (dock compact-on-scroll + radius-clipped progress rim: adopt from glass if installable, else DOCK-SCROLL-MORPH honest-RED with relay O-55 — NO consumer copy); glass-ui READ-ONLY; ESCALATED units do not halt the wave"
     }
   },
   "stages": [
@@ -149,7 +156,8 @@ const TRACK = {
     ["F.W10"],
     ["F.W10S"],
     ["F.W11"],
-    ["F.W12"]
+    ["F.W12"],
+    ["F.W13"]
   ]
 }
 
