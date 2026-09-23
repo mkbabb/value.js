@@ -205,3 +205,91 @@ SERVED MODEL: claude-opus-5-5 (effort high). Spec: KF-W13.md ADDENDUM 2026-09-23
 **Self-count.** kf commits 1 (`62ecc324`; 3 files). value.js: this record + `INBOX.md` addendum + `evidence/W13U/d/**` (6 probes + sampler, 5 reports, 5 logs, 3 WebM sets × 6 = 18 WebMs, 23 PNGs) + LEDGER cell, in one pathspec commit. Escalations 3 (ESC-d-1 · ESC-d-2 · ESC-d-3).
 
 *Self-count erratum (same seat, WRITE-THEN-MEASURE on the settled commit `1389e4c4`):* the record commit carries 32 paths — this record, the LEDGER line, 6 probes + sampler, 5 reports, 18 WebMs. The 23 PNGs and 5 run logs stay local under `evidence/W13U/d/` (repo `.gitignore:34` `*.png`, as for `.e`'s frames). The INBOX addendum landed in the orchestrator's concurrent commit `3d004e7c` (the shared index swept the appended line); its text is this seat's, byte-for-byte.
+
+## Close — WAVE CLOSE SEAT (VERIFY-ONLY)
+
+SERVED MODEL: claude-opus-5-5 · 2026-09-23 · spec KF-W13.md ADDENDUM 2026-09-23 (KF.W13U) + its four follow-on addenda (OA-31 · OA-32 · OA-33 · OA-34) · close clause "`npm run check` exit 0, vitest GREEN, the kf e2e suite GREEN, AND the four served-page gates re-read by the check seat itself". 0 kf / glass / product bytes written.
+
+**Crash-recovery.** ⟨`git -C keyframes.js status --porcelain`⟩ → only the two untracked `V/coordination/VALUEJS-INBOUND-2026-07-{24,27}-*.md` (outside every set, untouched). value.js dirty paths are sibling tracks' (`demo/palettes/**`, `e2e/smoke/oracles/**`, `W7-*.md`, `CARRY-LEDGER.md`, `chassis/ui-audit.js`) + `scripts/dev/dev.sh`; none is this record or the LEDGER. **0 inherited paths.** kf HEAD `62ecc324` = origin/master (⟨`git rev-parse --short HEAD origin/master`⟩ → `62ecc324` ×2).
+
+**Instrument.** Every served-page reading below comes from this seat re-running the units' own banked probes (unchanged bytes, from `evidence/W13U/{w,t,e,d}/`), headed Chromium `--ignore-gpu-blocklist`, 1440×900, run twice on the dev page `http://localhost:5173/` and twice on a gh-pages build made at this seat (⟨`npm run gh-pages`⟩ → `✓ built`, EXIT 0, at `62ecc324`; the snapshot served statically on `:4187`, and the server stopped afterwards). Outputs are in the seat's scratch dir. They are not banked, because this seat's evidence is the readings pasted here.
+
+### Commit roster (act 1) — ⟨`git show --stat`⟩ per sha against each unit's writable row
+
+| unit | sha | paths (⟨`git show --stat`⟩) | in set? |
+|---|---|---|---|
+| `.w` | kf `d78bed01` | `demo/scenes/cube/{CubeScene.vue,CubeTarget.vue,useCubeDemo.ts}` · `test/demo/scenes/cube-channels-compose.test.ts` (4) | YES (`demo/scenes/**` · `test/**`) |
+| `.t` | kf `3c8199c5` | `demo/components/playback/PlaybackRibbon.vue` · `test/demo/instrument/playback-ribbon-contract.test.ts` (2) | YES |
+| `.e` | kf `cd2cd88f` | `…/channel-controls/ChannelOptions.vue` · `test/demo/instrument/{channel-options-render-edge,playback-ribbon-contract}.test.ts` (3) | YES (`channel-controls/**` · `test/demo/**`) |
+| `.e` | kf `57b4815c` | `…/channel-controls/ChannelControls.vue` (1) | YES |
+| `.d` | kf `62ecc324` | `demo/app/dock/{ChromeDock.vue,MbabbMenu.vue}` · `test/demo/app/chrome-dock-containment.test.ts` (3) | YES (`demo/app/dock/**` · `test/demo/app/**`) |
+| records | value.js `2a987e09` · `5544957c` · `0e5cb3b5` · `7ebc840d` · `b9c5832e` · `5e02e155` · `1389e4c4` · `c25f8968` | this record, the LEDGER, `evidence/W13U/**` | YES |
+
+Every kf sha is on `origin/master` (⟨`git log --oneline origin/master -5`⟩ → `62ecc324 · 57b4815c · cd2cd88f · 3c8199c5 · d78bed01`). **Landed-wrong: 0.** One value.js note, not a bounds breach: `.d`'s INBOX addendum (in `.d`'s set) was swept into the orchestrator's concurrent commit `3d004e7c` by the shared index (`.d`'s own erratum `c25f8968` records it). The text is `.d`'s, byte for byte.
+
+### Gate table (act 2) — BEFORE (SEAT 0 baseline) → AFTER (this seat, dev ×2 · gh-pages ×2)
+
+| gate | BEFORE | AFTER dev `:5173` ×2 | AFTER gh-pages `:4187` ×2 | reading |
+|---|---|---|---|---|
+| **G-KFW13U-w** (⟨`node w/probe-w1.mjs <base> <tag>`⟩): the `.cube` inline rotate across 1 s at rest | `none` → `none` | `rotateX(308.4deg)…` → `(358.5deg)…` · `(292.6)` → `(355.1)` | `(273.1)` → `(348.5)` · `(276.4)` → `(352.4)` | **GREEN** |
+| same: Pause freezes, Play resumes | Play = translateY only | paused `359.626` = `359.626` · `358.264` = `358.264`; Play `359.1 → 345.9 → 317.3` · `359.9 → 351.3 → 327.4`; `.cube-bob` bobs | paused equal ×2; Play `358.0 → 358.7 → 345.1` · `360.0 → 352.4 → 328.6` | **GREEN** |
+| same: every scene plays (⟨`node w/probe-writes.mjs`⟩, gh ×1) | not measured | — | cube writes `.cube` + `.cube-bob` 61/s at rest; amiga · square · easing · spring · sequence: frames move after Play | **GREEN** |
+| pageerrors (w) | 0 | 0 · 0 (1 `console` 404 resource per dev run, not a pageerror) | 0 · 0 | — |
+| **G-KFW13U-t** (⟨`node t/probe-t1.mjs`⟩): rail at boot on cube · square · amiga (data-disabled / thumb / range opacity / dimmed ancestor) | square + amiga `data-disabled` true | `false/false/1/false` on all three ×2 | same ×2 | **GREEN** |
+| same: the cube, Paused, dragged 20 % → 50 % → 80 % | not reachable | aria-valuenow `2300 → 3800`, holds `3800` after release; cube `rotateX(155.273deg)` → `(317.237deg)`, held ×2 | same values ×2 | **GREEN** |
+| **G-KFW13U-e** (⟨`node e/probe-e1.mjs`⟩): trigger text · trigger SVGs · glyph vs `easing("ease-in-out")` | `ease-in-outslow start & end` · chevron only | `ease-in-out` · `curve-glyph` + chevron · max \|err\| 5e-4 (64 pts) ×2 | same ×2 | **GREEN** |
+| same: rows (n / with path / distinct / named true / name-desc separated / accname exact / AX name+desc); pick `ease-out-back` | 29 / 29 / — / — / 0 | 29 / 29 / 29 / 27 of 27 (worst 5e-4) / 29 / 29 / 29; after the pick the trigger reads `ease-out-back`, 5e-4 ×2 | same ×2 | **GREEN** |
+| **G-KFW13U-d** text at rest after a morph (⟨`node d/probe-sharp.mjs`⟩, dpr 2, 61 280 px) | limb new at `.d` | 0 px differ, max Δ 0, gradient 5.992 = 5.992 ×2 | 0 px, 5.986 = 5.986 ×2 | **GREEN** |
+| same: OA-33 (⟨`node d/probe-oa33.mjs`⟩) | Share · Keyboard · theme + @mbabb, 536.49 px | children `Scene · Controls tab · Controls panel · @mbabb menu`, 402.49 px; shortcuts dialog 1, theme flips, Share popover 1, Escape returns focus to `@mbabb menu` ×2 | same ×2 | **GREEN** |
+| same: two owners per property (⟨`node d/probe-d1.mjs`⟩, dev ×2): explicit · spring+transition max per frame (expand) | 0 · 12 | **0 · 8** ×2 (hover-graze 8 · 8; collapse 2 · 2) | `.d`'s ×2 banked (0 · 8) | **honest-RED `DOCK-MORPH-ROOT` (O-56)**: all 8 remaining pairs are producer controls' own transitions |
+| same: blur frames in flight (expand · collapse · hover-graze) | 31 · 31 · 61–62 | 15 · 17 · 62 / 21 · 31 · 62 (frame totals vary with load) | `.d`'s banked | **honest-RED `DOCK-MORPH-ROOT`** (producer `morph.css` filter) |
+| same: scene-switch dock width | 352.6 – 544.4 (11 → 8 → 11) | run 1 `402.5 – 410.4` (8); run 2 `218.6 – 410.4` (8 → 5 → 8) | — | **ESC-d-1 still reproduces (1 of 2)** |
+| **close: `npm run check`** (vue-tsc ×2 configs + `proof:structure`) | banked exit 0 (W13T) | **exit 0** ×2; ⟨`grep -c 'error TS'`⟩ 0 · 0; `proof:structure — PASS: scope=src clean (0 violations across R1–R6)` | — | **GREEN** |
+| **close: vitest, demo** (⟨`npm run test:demo`⟩) | 63/63 · 505/505 (W13T) | **64 passed (64) · 507 passed (507)** ×2 | — | **GREEN** |
+| **close: vitest, library** (⟨`npm run test:lib`⟩) | — | **113 passed \| 5 skipped (118) · 1259 passed \| 2 expected fail \| 14 skipped (1275)**, exit 0 ×2 | — | **GREEN** |
+| close: eslint on the touched trees (⟨`npx eslint demo/app demo/components/instrument/transport demo/components/playback demo/scenes/cube`⟩) | — | exit 0 | — | GREEN |
+| **close: kf e2e suite** (⟨`KF_PLAYWRIGHT_DIR=<value.js> npm run demo:correctness`⟩; the retained browser roster over the built dist) | **2/6 at pre-wave `cfecfbce`** (measured at this seat in a throwaway detached worktree, removed after) | — | **2/6** ×2: ✗ usability · subject-animates · live-session · live-session-mobile | **RED** (see below) |
+
+**The e2e RED, attributed limb by limb (baseline `cfecfbce` → HEAD `62ecc324`).** The same four observations fail at both ends. None of them is a new failing observation, but two limbs inside them changed:
+1. `usability`: `EditorStartScreen.vue declares no title: default` at both ends. The file is untouched by W13U, so this is **pre-existing** and not the wave's.
+2. `subject-animates [real-cube]`: baseline `playhead stayed 1 → 1` (the OA-27 defect `.w` cured). HEAD `175.3 → 183.3` and `31.4 → 108`, with `engineWrote=true`. The engine now writes, but the oracle (`scripts/observe/demo/subject-animates.mjs:310`, `advanced = wrote && sliderAfter > 0 && sliderBefore === 0`) assumes the cube rests at boot. `.w`'s `autoPlays: true` on `#/cube` (R-w-3, the spec's "must animate on load") breaks that assumption. **The limb changed from a product defect to an out-of-date oracle.**
+3. `live-session S4`: at baseline it failed only on `ringPainted:false` (`enterToggled:true`, `spaceToggled:true`). At HEAD `enterToggled:false`, `spaceToggled:false`. The oracle (`live-session.mjs:1338-1375`) presses Enter and expects `Pause animation`. The cube is already playing, so Enter pauses it. **This is a new red limb with the same root as (2).** `ringPainted:false` is pre-existing.
+4. `live-session S5` (spring INTERACT, `only 1 distinct spring-ball position after the rail scrub`) and `live-session-mobile M1` (sheet touch-scroll moves nothing, 765 px in 704 px) fail the same way at both ends, so they are **pre-existing**.
+
+### E13 (act 4)
+
+Four paths re-swept read-only against the OPEN clock 2026-09-23 06:32:48 (⟨`find … -type f -newermt '2026-09-23 06:32:48'`⟩):
+- value.js `V/` + `V/coordination/` → `INBOX.md` only.
+- glass: newest tranche `BL` (⟨`ls -t`⟩ → `BL BK BJ`), which has no `coordination/`. BK's new files are five `valuejs-outbound-2026-09-23-*` mirrors of our own letters. BL's `audit/INBOUND.md` is glass banking O-53..O-58 + O-60, already folded as **I-41** in INBOX.
+- keyframes `V/coordination/` → none.
+- atlas: no `coordination/` directory.
+
+**0 UNREAD in scope.**
+
+### Residuals (owners named)
+
+- **RES-close-1 `KF-E2E-AUTOPLAY-PREMISE`**: two e2e oracles still assume the cube rests at boot, the T.G3 rule that `.w`'s spec-mandated autoplay overturned. They are `subject-animates.mjs:310` (`sliderBefore === 0`) and `live-session.mjs` S4 (Enter/Space expected to *start* playback). The oracles need to be re-seated on the new premise: pause first, or read a toggle rather than a start. `scripts/observe/**` was in no W13U unit's set. **Owner: KF.W13V `.k`**, whose transport matrix is {Play, Pause, Reset, Reverse, scrub} × 6 scenes. Otherwise the next harness seat.
+- **RES-close-2**: the pre-existing e2e reds. `usability` (EditorStartScreen `title:` default), S4 `ringPainted:false`, S5 spring INTERACT and mobile M1 sheet touch-scroll, all red at `cfecfbce` before this wave. **Owner: KF.W13V `.k` / `.u`** (animation and UI registers). Until then the kf e2e close clause cannot read GREEN.
+- **`DOCK-MORPH-ROOT` (O-56) · `DOCK-SCROLL-MORPH` (O-55)**: the producer halves of G-KFW13U-d (8 spring+transition pairs on producer controls, and the in-flight `blur(1.25px)`). Honest-RED; **owner glass BL**. The facts were appended beside O-56 at `.d`.
+- **ESC-d-1** (the scene-switch dock/pane flicker, rooted at `App.vue:266-276` `derivedSurfaces` null mid-swap; reproduced 1 of 2 here) · **ESC-d-2** (**OA-32, the living dock icons, is NOT IMPLEMENTED**; it needs a grant of `demo/app/scene/scenes.ts` + a per-scene mini-rendition seam) · **ESC-d-3** (Share / Dark-mode rows inside the @mbabb menu are keyboard-inert): **owner: the orchestrator / COHESION**, for a grant or a successor unit.
+- **R-t-1**: the ribbon's unread `isAnimStarted` prop and its three mounts. Nobody spent this (`.e` declined it; the mounts are outside every W13U set). **Owner: KF.W13V `.s`** (scene idiom; touches EasingScene/SpringScene) or an explicit grant.
+- **R-t-2 `KF-TIMELINE-FILL`**: the glass spectrum Slider has no range-fill hook, so enabled and disabled rails look alike apart from the thumb. Honest-RED, **owner glass BK/BL**. The BK relay is still owed; INBOX is outside this VERIFY-ONLY seat's acts, so this seat hands it to the orchestrator's next relay.
+- **R-e-1 `GLASS-SURFACE-PAINT-CONTAIN`**: `contain: paint` on glass surfaces cuts child controls' halos. Honest-RED, **owner glass BK/BL**, relay owed as above.
+- **R-t-3** (intermittent cube scrub drift 4 of 11 at `.t`): 0 of 4 here (all drags read 2300 → 3800 faithfully). **Owner: KF.W13V `.k`**.
+- **R-w-1** (the matrix channel runs identity → identity) · **R-w-2** (CubeScene `isPlaying` never written, so the will-change hint never applies): **owner KF.W13V `.k`**.
+- **R-w-3**: the `#/cube` perf-counter idle reading was not re-read at this seat. The autoplay's effect is measured instead as RES-close-1. **Owner KF.W13V `.k`**.
+
+### Escalations
+
+0 new at this seat. `.d`'s ESC-d-1..3 stand as returned.
+
+### Four-verb line
+
+KF.W13U: AUDITED YES · SPECIFIED YES · **IMPLEMENTED PARTIAL**. `.w` · `.t` · `.e` are GREEN on the served page ×4 with check and vitest GREEN. What remains:
+- the kf e2e close clause is RED (RES-close-1 is a new oracle-premise limb; RES-close-2 is pre-existing);
+- `.d`'s two-owner limb is honest-RED on the producer;
+- OA-32 is escalated and not implemented.
+
+VERIFIED: NO. The addendum names no seat of this wave to stamp it.
+
+**Self-count.** kf shas audited 5; value.js record/LEDGER shas audited 8. Gates re-run: 4 served-page gates × 4 readings (2 dev + 2 gh), 1 two-owner probe × 2 dev, check × 2, test:demo × 2, test:lib × 2, eslint × 1, e2e roster × 2 at HEAD + × 1 at baseline. Landed-wrong 0. New escalations 0. Residuals 10 bullets.
