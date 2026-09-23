@@ -9011,3 +9011,113 @@ not this seat's.
 
 **Commit roster (ninth sitting):** `13f55b73` (OPEN) · `4233e83e` `6938073f` (`.s2`) · `c121324a` `58e06db7` (`.j2`) · `b1c5ff34`
 `41f1addf` (`.a3`) · `c0c1f575` `56474acb` (`.f3`) · + this close (this record + the LEDGER row + `W6-evidence/gates/close-9-2026-09-23/`).
+
+## Check 1 — RESUME 2026-09-23 (L-20 fresh adversarial pass 1 over the ninth sitting's close `60e2206b` + `e3296eda`)
+
+SERVED MODEL: claude-opus-5-5[1m]
+
+VERIFY-ONLY seat; authored no byte of any cure, unit receipt, or `## Close`. Spec read whole once (`W6.md`, 494 lines incl. the six
+ADDENDA `:479-494`); of this record only the header, the ninth sitting's Open → Unit plan (`:8684-8766`) and its Close (`:8873-9013`).
+HEAD at entry `e3296eda`; wall 06:10–06:30 EDT, load 4.6 → 13.9 (sibling tracks active). Transcripts in the seat scratchpad (not
+committed). Every live probe ran against a **fresh** `npx vite --port 8983 --strictPort` (killed after); the two `:9000`-hard-coded
+evidence scripts ran from scratchpad `sed` copies that change only the origin (no write under `evidence/`); Playwright on fresh
+webServers (`VJS_E2E_PORT` 8712–8722, perf = port+50), one runner, strictly serial.
+
+### Act 0 — crash-recovery
+⟨`git status --porcelain`⟩ → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh` only — neither in this
+seat's writable set (this record · the LEDGER row). Nothing inherited, stashed, restored or touched. Re-run after every gate → same two
+rows (the §0ba `git status --porcelain docs/` clause holds: the catalog oracles wrote nothing under `docs/`).
+
+### Act 1 — axes 2/4/5 (bounds, families, E-3)
+⟨`git log --oneline 2898b710..HEAD | wc -l`⟩ → `12` (`4002256f` COHESION §0bb · `13f55b73` OPEN · 8 unit commits · `60e2206b` close ·
+`e3296eda` close follow-up). ⟨`git show --stat`⟩ each: `4233e83e` `gradient.spec.ts` · `c121324a` `o29-scene-contracts.spec.ts` (+5) ·
+`b1c5ff34` `GradientStopEditor.vue` + `gradient.spec.ts` · `c0c1f575` `o23-specimen-gamut-honesty.spec.ts` · receipts/close = this record,
+`LEDGER.md`, `W6-evidence/gates/close-9-2026-09-23/**` — all inside the sixth ADDENDUM's unit sets / §4's `W6-evidence/**` row.
+⟨`git log --format=%h 2898b710..HEAD -- scripts/dev/dev.sh`⟩ → empty. **Landed-wrong: 0.**
+Diff read (axis 3): `b1c5ff34` moves pointer capture from the keyed handle to the rail (`bar.setPointerCapture`) and folds the handle's
+move/up/cancel into the rail's handlers — a root cause (a keyed `v-for` re-order moves the node and drops capture), no clamp, no spacing
+rule, no try/catch. `c0c1f575` replaces two `as never` with `librarySpace()` narrowed by a `satisfies Record<SpaceId | "hex", …>` fixture;
+the throw on a non-library key is a test failure, not a mask. `4233e83e` re-reads e1's `moved` as ≥ 4 LSB over ≥ 0.5 % of the clip —
+the sixth ADDENDUM's own text (`W6.md:494`), assertions `:718/:719/:732` untouched. `c121324a`'s `test.fail(true,
+"J4-SHORT-LANDSCAPE-BLOB → X-W8 .i")` is the sixth ADDENDUM's prescribed carry verbatim, not a skip; it inverts (a passing limb fails
+the run). **Masking fallbacks: 0.**
+Families: `.s2`/`.f3` = one `test(e2e)` each (as the ninth Unit plan prescribes) · `.j2` = `feat(demo/scene-adoption)` (§9 #10) ·
+`.a3` = `fix(demo/gradient-model)` (§9 #1). The §9 #11 close family is split over `60e2206b` + `e3296eda` (the `_progress.txt` the close
+cites, force-added after) — MINOR C1-9-2 below.
+E-3: ⟨`git diff 14d83356..HEAD -- docs/tranches/X/waves/W6.md | grep '^-' | grep -v '^---' | wc -l`⟩ → `0` (addenda only, each a
+COHESION commit). ⟨`git diff --stat 2898b710..HEAD -- docs/tranches/V/megatranche/registry/adjudicated/ docs/tranches/X/CONFORMANCE-2026-08-03.md
+docs/tranches/V/megatranche/audit/probes/wb-gradient-stopeditor docs/tranches/V/megatranche/audit/components/wb-gradient-stopeditor/evidence`⟩
+→ **empty**; `docs/tranches/X/waves/` moved only by `W6-evidence/gates/close-9-*` (create) + the two ADDENDUM lines. **E-3 held.**
+
+### Act 2 — axes 6/7 (mail, four-verb)
+⟨`grep -n "^| [IO]-[0-9]" INBOX.md | grep -i unread`⟩ → O-20 · I-30 · I-31 · I-32 · I-35 · O-39 · I-40; the two naming W6 (O-20's
+`W6-AUTH-1` outbound batch item; I-35, whose cell reads **READ + CONSUMED WHOLE 2026-09-18**, "Was: UNREAD", routed X·KF) are not X-W6
+UNREAD. ⟨`find ../glass-ui/docs/tranches/BK/coordination -newermt 2026-09-23T06:00 -type f`⟩ → empty. **0 UNREAD in scope.** Four-verb:
+IMPLEMENTED (never VERIFIED) per §9 #11 — lawful.
+
+### Act 3 — axes 1/9 (every claimed GREEN re-run at this seat's own commands)
+
+| gate(s) | ⟨cmd⟩ | this seat |
+|---|---|---|
+| a1 | `npx vite-node …/evidence/parse-probe.ts && npx vitest run test/gradient-order-invariant.test.ts` | **GREEN** EXIT 0; `oklch()` → reject; `Tests 17 passed` |
+| a2 · a3 · a4 · a13 · b3 · e1 | `npx playwright test e2e/smoke/views/gradient.spec.ts e2e/smoke/oracles/o21-gradient-rail.spec.ts --project=smoke` ×2 | **GREEN ×2** `22 passed (1.8m)` ×2, EXIT 0, at load 13–14; `Vue warn` 0 |
+| a5–a11 | `GRADIENT_URL=http://localhost:8983/#/gradient node …/W6-evidence/gradient/gate-a-gesture-paint.mjs` ×2 | **GREEN ×2** `GATE X.W6.a (gesture + paint) — GREEN` |
+| a7 arm 2 | origin-only copy of `WBGSE-O-r3-gestures.mjs` | **GREEN** `C14 buttons: {"beforeMid":2,"afterMid":2,"afterRight":2}` |
+| a12 | origin-only copy of `WBGSE-D-probe2.mjs` | **GREEN** block 5 `beforeOverhangPx 0` · `afterOverhangPx 0` |
+| b2 · b4 | `gate-seat.mjs` ×2 | **GREEN ×2** — 0 `G3e` · 0 `G3f` lines |
+| c1 · c2 · c3 · c4 | the spec's four commands | **GREEN**: `GATE G4 (structure) — GREEN` · `4 passed \| 13 skipped (17)` · `GATE c3 (literal dialect) — GREEN` · `5 passed (5)` |
+| d1 · d2 | `EASING_RADIUS_ORIGIN=… gate-easing-radius.mjs` · `gate-easing-readout.mjs` | **GREEN**: `33` surfaces · `GATE d1 … GREEN` · `GATE d2 … GREEN` (local restyle `0 line(s)`) |
+| e2 | rAF grep + `gate-prm-idiom.mjs` | **GREEN** `0` · `GATE e2 (PRM idiom) — GREEN` (4 negative controls FAIL as designed) |
+| f1 · f5 | `gate-catalog-totality.mjs` · `gate-specimen-grammar.mjs` | **GREEN** both |
+| f2 · f7 · f8(grep) · f9 · f10 | the spec's greps + `npx vue-tsc --noEmit -p tsconfig.demo.json` | **GREEN** `0` · `0`/`0` + vue-tsc EXIT 0 · `0` · `2`/`0` · `0` |
+| f3 | `o21-space-catalog-truth.spec.ts` (unscoped: smoke + oracles-safari) | **GREEN** `2 passed (2.0m)` |
+| f4 · f6 · f8 | `o22` + `o23` + `o24` (unscoped) | **GREEN** `6 passed (21.1s)` |
+| e2e tsc (`.f3`) | `npx tsc -p tsconfig.e2e.json` ×2 | **GREEN ×2** EXIT 0 |
+| g2 | `companion-pane-track-start.spec.ts -g "companion panes share one track start" --project=smoke` | **GREEN** `1 passed (12.8s)` |
+| h1 · h2 | `webgl-blob-idle.spec.ts -g "hero blob carries current chroma" --project=smoke` · `gate-blob-pipeline.mjs` | **GREEN** `3 passed (36.8s)` · `GATE h2 … GREEN` |
+| i1 · i2 | `o25-atmosphere-response.spec.ts` (unscoped) · `gate-lband-door.mjs` | **GREEN** `2 passed (3.0s)` · `GATE i2 … GREEN` |
+| j1 · j2 · j3 (+ j4 carry) | `o29-scene-contracts.spec.ts --project=smoke` ×2 | **GREEN ×2** `6 passed` (37.2s · 36.5s) EXIT 0; blob limb expected-fail held (`preview@rest=1.000`, fails as carried); atmosphere limb live |
+| H1 | `gate-no-chassis.mjs` over the close's 20-commit roster | **GREEN** (positive control fires; `GATE H1 … GREEN`) |
+| H2 · H3 | `git ls-files …/motion-quarantine.md` · MOTION-SOURCED grep · parser R1 one-liner · glass version | **GREEN** `1` · `2` (o29 + gradient.spec cite it) · R1 EXIT 0 · `7.0.0` |
+| H4 | disposition table read against the close | **GREEN** (no disposition moved this sitting; J4 blob carry named) — by reading, not by command |
+
+**RED re-measured (the honest-RED set)**: b1 `gate-seat.mjs` ×2 → EXIT 1, exactly `2` `G3d` lines each (Home · ArrowDown) · g1
+`gate-card-rhythm.mjs` → `LARGEST INTERVAL: 61.22px` · `GATE g1 — RED: 2 interval(s) fail.` · i3 `o28-atmosphere-coldload.spec.ts`
+→ `2 failed` (both projects), Received `0.15948859…` · `0.29330989…` · `0.24326322…` — byte-identical to the close; ⟨`grep -rn
+armRuntime demo/ | wc -l`⟩ → `0`.
+**Published figures reproduced (axis 9)**: 46 GREEN · 1 RETIRED · 3 RED; the o23 census, the i3 Received triple, g1's 61.22 px, d1's
+33 surfaces, the G3d count 2, the vitest `2 failed | 639 passed (641)` (C-5 spectrum-luma · NG-6 reka — both non-W6 canaries, R-9-2),
+and the prettier warn on `gradient.spec.ts` + `o29-scene-contracts.spec.ts` (R-9-1) all reproduce. **0 divergences of verdict.**
+
+### Act 4 — axis 10 (honest-RED adjudication at the spec bytes) and axis 8 (goal)
+
+| gate | relief at the spec bytes | owner in the close's register (Act 4) | relieved? |
+|---|---|---|---|
+| b1 | `W6.md:486` (second 2026-09-22 ADDENDUM, §0ax): "b1 = `B1-G3D` honest-RED-by-instrument, `.c`'s probe transcript the witness of record (X-W11's roster re-points G3d)"; the sixth ADDENDUM re-lists `B1-G3D` among the close's honest-RED ids (`:494`) | X-W11 | **yes** — honest-RED by id |
+| g1 | `W6.md:484` (§0an/§0aq): "**g1** honest-RED by id → X-W10 (M-23)"; the canon it instantiates is X-W10 content by §5's M-23 law | X-W10 | **yes** — owned by a later wave by the spec's own routing |
+| i3 | `W6.md:492` (fifth, §0ba): "i3 = `I3-SEED-SIZE` honest-RED with relay O-52" (re-id O-53 by §0bb's dated erratum, `:494`); the `.i2` perf gate of `:488` named the id as the branch | glass producer via O-53; `.i3` re-sit | **yes** — producer-owned, honest-RED by id |
+| j4 (blob limb) | `W6.md:494`: j4 RETIRED under its own MEASURE-AT-OPEN clause (`6dfdd8d2`); the stronger simultaneous property `J4-SHORT-LANDSCAPE-BLOB` → X-W8 `.i`, "carried in the tree as `test.fail`" | X-W8 `.i` | **yes** — not a RED gate; a carry by id |
+| h1 beyond-sRGB | `W6.md:484`: `H1-P3` honest-RED-by-physics; h1 itself GREEN on the sRGB buffer | display-p3 ask by mail (O-52) | **yes** (h1 is GREEN) |
+
+**Unrelieved RED: 0.** **Goal (§2a) at the bytes**: j1–j3 GREEN (Gradient/Mix/Blob-Atmosphere own stage, inspector, action as routed
+scenes), f1/f7 make the catalog total at compile time, f6(ii) proves marking-not-projecting, H1 GREEN (no chassis rebuilt) — MET,
+with misses by id, i.e. `complete_with_misses` in §6's own sense, which the close states. **Successor conjuncts**: X-W7 `Opens after`
+X-W3 (CLOSED) · X-W4 (CLOSED) · X-W6 (**GREEN on this promotion**) → X-W7 is lawfully openable. X-W8 (W4·W5·W6·W7) stays lawfully
+BLOCKED on X-W7 (`planned`); X-W10 (X-W5..X-W9 stable) stays BLOCKED on X-W7 · X-W8; X-W11 (X-W0..X-W10 IMPLEMENTED) BLOCKED on the
+same. X-W6's own conjunct is GREEN in all three.
+
+### Register
+
+| id | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C1-9-1 | MINOR | `c121324a` left `o29-scene-contracts.spec.ts:584-585` off prettier (+3 deviation lines); `gradient.spec.ts` stays off prettier (pre-existing, reduced 50 → 46) | ⟨`npx prettier --check …o29… …gradient.spec.ts`⟩ → `[warn]` both | the close's R-9-1: one `style(e2e)` commit by the next seat holding the path |
+| C1-9-2 | MINOR | the §9 #11 close family is split: `60e2206b` cites `_progress.txt` which only lands in `e3296eda` (gitignored by pattern) | ⟨`git show --stat e3296eda`⟩ → the one file, +89 | mitigated — same sitting, same family label, witness now tracked; future closes force-add in the close commit |
+| C1-9-3 | INFO | the close's Act 2 command cells for f3 · f4/6/8 · i1 · i3 omit the `--project=smoke` its transcripts carry | ⟨`head -1 close-9-2026-09-23/f3-r1.txt`⟩ → `… --project=smoke …`; this seat's unscoped runs (superset) give identical verdicts | none needed; cite the transcript's command line |
+| C1-9-4 | INFO | `W6-evidence/gradient/after-cross-drag-rail-1440.png` pre-dates `.a3`'s cure | the close's R-9-3 | E-3 re-capture beside, at X-W11 |
+
+**BLOCKER 0 · CRITICAL 0 · HIGH 0 · MINOR 2 · INFO 2.**
+
+### Verdict
+**CONFORMANT-HONEST-RED** — every claimed GREEN reproduces (46: 45 by command, H4 by reading), 0 masking fallbacks, 0 landed-wrong,
+E-3 held, 0 UNREAD in scope, and every remaining RED is relieved at the spec bytes and owner-named: **b1 `B1-G3D` (X-W11) · g1 (X-W10) ·
+i3 `I3-SEED-SIZE` (glass via O-53)**. The LEDGER row is promoted to `CLOSED 2026-09-17 (honest-RED: b1 B1-G3D · g1 · i3 I3-SEED-SIZE)`.
