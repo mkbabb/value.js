@@ -3239,3 +3239,66 @@ ESC-W5c-3 re-points (⟨cmd⟩ `grep -n 'pane-wrapper--' o12 o16` → only `.pan
 **Honest-RED set (relieved, owner-named):** C7 · C3 · A3 · B3. **Unrelieved:** D1 (HIGH).
 
 **Successors:** the Opens-after lines of X-W6 (`W6.md:4`), X-W8 (`W8.md:6`) and X-W10 (`W10.md:6`) name X-W5. X-W7 names it through X-W6 and the W5 §10 Blocks line. That conjunct is **not GREEN**, so all four stay lawfully BLOCKED-ON X-W5. X-W5's own opens-after conjuncts (X-W4 · X-W2 · X-W0 CLOSED) stay GREEN. The row stays PARTIAL.
+
+## RESUME OPEN 5 — 2026-09-22, seat 0 (RESUME MODE, fifth sitting, on COHESION §0aq + §0ax and W5.md's two ADDENDA of 2026-09-22)
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X-W5 SEAT 0 (OPEN, RESUME 5) · HEAD at open `df34be29` · date of record 2026-09-17 (the begin-word, COHESION §0j).
+Inputs read: `W5.md` whole (396 L, incl. both ADDENDA 2026-09-22), this record's `## RESUME OPEN 4` (`:2771-2843`) and `## Check 3` round 4 (`:3201-3241`),
+COHESION §0aq X-W5 block (`:2660-2689`) and §0ax (`:2825-2880`, the file end). Ruling ids consumed: **§0ax** (dispatch rule: only DEAD halts; order
+[`.c2`] → [`.d2`]; ESC-W5t-1 RULED like G-F12-3-LOAD with the headed real-GPU reading of record; ESC-W5d2-2 DESIGN RULED — containment, P-5a/P-5b REFUSED;
+ESC-W5t-2/ESC-W5d2-1/ESC-W5t-3 GRANTED to `.d2`; ESC-R1-1/2/3 GRANTED to `.c2` widened; ESC-W5t-4 decided by the real-GPU read → X-W8 `.i` if a byte is owed),
+**§0aq** (D4/N15/N14/ESC-W5c-3 grants; C1 re-metric; C7/C3 relief by route), standing §0i, §0j, §0k.1, §0k.3.
+
+### R5.0 Crash-recovery (STANDING LAW)
+⟨cmd⟩ `git status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh`. Neither is in this seat's writable set
+(`X-W5.md`, `LEDGER.md`, `INBOX.md`); `dev.sh` untouched. **No inherited partial.**
+
+### R5.1 E13 Step-0 — the four-path mail sweep
+⟨cmd⟩ `ls -t ../glass-ui/docs/tranches/ | head -1` → **BK** (still newest). Newest files per path, each grepped in `INBOX.md`: glass BK
+`glass-outbound-2026-09-22-fourier-o23-o32-reply.md` (3 hits, **I-40**, UNREAD, owner Track C — outside X-W5 scope) · `glass-outbound-2026-09-22-consumers-10.0.0.md` (14) ·
+`value-to-glassui-2026-09-DD-fw4-relay.md` (12) · keyframes `INBOUND-LEDGER.md` (22) · `VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md` (38) · atlas
+`valuejs-inbound-2026-07-27-library-band-export-delta.md` (29) · value.js `V/` + `V/coordination/`: only already-rowed files. **0 unrowed · 0 new I-n · 0 UNREAD in X-W5 scope.**
+Tail stays **I-40**. One dated sweep line appended at the INBOX end.
+
+### R5.2 Preconditions (RESUME MODE)
+- **Opens-after** (W5.md §1): LEDGER cells → **X-W4 CLOSED 2026-09-17** · **X-W2 CLOSED 2026-09-17 (honest-RED G3·G5)** · **X-W0 CLOSED 2026-09-17**; D2 ⟨cmd⟩
+  `git ls-files --error-unmatch …/u-gestalt/probe2-log.txt; echo $?` → **0**. **MET.**
+- **alreadyDone** (commits exist, never re-dispatched): `.a` `c0cf27bf`(+`de99ec15` `f94d22af`) · `.b` `adc312f6` · `.c` `50633f19` · `.d` `2183b814` · `.e` `e2f56558` ·
+  `.t` `91d0e0c7` `1a6432f9` (receipt `fbb6cea0`).
+- **Owed** (§0ax): `.c2` — its §0aq subset landed in Repair 1 (`fc9c2be4` D4/N15/N14-AdminPane · `2eeb59ee` ESC-W5c-3 · `dcba5535` evidence), but the §0ax WIDENED
+  grant (landmark migration, `census.ts` not-found, the router route-name declaration) never sat; `.d2` — only its in-bounds part landed (`043a783c` PaneSlot header, B4 arm 3),
+  the coupled family P-1..P-4 + the containment cure + D1 in both instruments are owed on §0ax's grants. Order **[`.c2`] → [`.d2`]**, strictly serial (§4a/§4b).
+- **Grant-path note (recorded, not ruled)**: §0ax names `demo/shell/router/index.ts` and `demo/shell/ErrorBoundary.vue`; ⟨cmd⟩ `find demo -path '*router*' -name index.ts; find demo -name 'ErrorBoundary*'`
+  → **`demo/color-picker/router/index.ts`** and **`demo/color-picker/ErrorBoundary.vue`** (the only files of those names; the router file is Repair 1's N14 site 7, `:3097`).
+  The plan reads each grant by its unique referent; the seats write no other file of those names. The loading/error plates stay under `demo/shell/` as ruled.
+
+### R5.3 Baseline for the owed units — read-only, double-run at HEAD `df34be29`
+⟨cmd⟩ `sh scratchpad/w5r5.sh > r5a; sh scratchpad/w5r5.sh > r5b; diff r5a r5b` → **IDENTICAL**.
+
+| gate (owner unit) | reading | state |
+|---|---|---|
+| landmark `grep -rl "Color tool panes" e2e \| wc -l` (`.c2`, §0ax) | **61** files · 102 occurrences | RED (target 0) |
+| fixture `e2e/smoke/fixtures/dock.ts` exports a main-pane locator | 0 (exports `expandDock`/`openView`/`paneSettled` only) | RED |
+| `e2e/visual/census.ts` `not-found` row | **0** | RED |
+| N14 site 7 `demo/color-picker/router/index.ts` route `name:` declaration | 15 `name:` lines, INVISIBLE to vue-tsc (Repair 1 `:3097`) | RED |
+| D4 Mix · Admin `<Transition ` | 1 · 1 | GREEN (held; landed `.d` / `fc9c2be4`) |
+| o12 `:68` · o16 `:158` `.pane-wrapper--stage` | 1 · 1 (re-pointed `2eeb59ee`) — the specs still RED on the stale landmark (Check 3 K3.3) | RED of record |
+| census-parity `not-found` | RED of record (Check 2 K2.3 / Repair 2 RP2.1) | RED |
+| `ColorPicker.vue:2-4` root-level comment (`.d2`, ESC-W5t-2) | present at `:2-4`, outside the root `<div>` | RED |
+| containment `grep -rn 'contain: layout paint' demo/styles demo/shell \| wc -l` (`.d2`) | **0** | RED |
+| loading/error plates under `demo/shell/` (ESC-W5t-3) | 0 files | RED |
+| PaneSlot `:12-23` md5 | `a7fe04be35764c9b6b293dfc5f08f523` (unchanged) | — |
+| D1 scene-swap budget (`.d2`) | not run here: ⟨cmd⟩ `uptime` → load **6.03 / 8.44 / 11.87**; banked headless gradient .294/.371 · mix .333/.346 (CL.2); §0ax: `.d2` takes both instruments at the lowest attainable load, headed real-GPU = reading of record | RED |
+| §7 `vue-tsc -p tsconfig.demo.json` | banked EXIT=0 (Check 3 K3.1); no byte moved since | GREEN (banked) |
+
+**R.2 green-before-cure**: none new. D4-Admin, N15 and the ESC-W5c-3 re-points read GREEN because Repair 1 landed them (`fc9c2be4`, `2eeb59ee`) — landed cures, not unexplained greens.
+C1 stays as recorded at RESUME OPEN 4 (the §0aq re-metric, measured GREEN by `.t`).
+
+### R5.4 Resume unit plan — 7 landed, 2 owed, strictly serial `[.c2] → [.d2]`
+
+| unit | model | executes | writable | gates it turns | locks |
+|---|---|---|---|---|---|
+| **X.W5.c2** | opus | W5.md ADDENDUM 2 (`:396`) · §0ax ESC-R1-1/2/3 · §0aq grants (`:2676-2686`) | every `e2e/**` file carrying `getByRole('main',{name:'Color tool panes'})` (61) · `e2e/smoke/fixtures/dock.ts` · `e2e/visual/census.ts` · `demo/color-picker/router/index.ts` (route-name declaration only) · `demo/palettes/browser/admin/AdminNamesPanel.vue` · `demo/palettes/admin/AdminPane.vue` · `demo/palettes/browser/admin/AdminTagsPanel.vue` · `e2e/visual/census-parity.spec.ts` · `e2e/smoke/oracles/o12-blob-seat.spec.ts` · `e2e/smoke/oracles/o16-computed-cascade.spec.ts` · `docs/tranches/X/waves/W5/green/**` · this record | landmark 61→0 · D4 2/2 held · N14 census all sites vue-tsc-visible · N15 held · o12/o16/census-parity GREEN ×2 · §7 | one fixture locator, never per-file copies; BD-08 widened for the declaration only; no assertion loosened |
+| **X.W5.d2** | opus | W5.md ADDENDUM 2 · §0ax ESC-W5t-1 / ESC-W5d2-2 / grants · `.t`'s plan (`triumvirate/RESEARCH-AND-PLAN-2026-09-22.md`) | `demo/picker/ColorPicker.vue` (`:2-4` only) · `demo/color-picker/ErrorBoundary.vue` · `demo/color-picker/main.ts` · new plate files under `demo/shell/` · the swap layers' containment site (`demo/styles/animations.css` · `demo/styles/shell.css` · `demo/shell/PaneSlot.vue` · `demo/color-picker/App.vue`) · `demo/shell/usePaneRouter.ts` · `scene-swap-budget.mjs` (no weakening) · `e2e/smoke/perf/view-switch-frame-budget.spec.ts` · `docs/tranches/X/waves/W5/green/**` · this record | P-1..P-4 landed together · containment · D1 both instruments (real-GPU of record) · D3 0 · D4 held · D5 · §7 | COUPLED (fold `:41`), W5F-07 CURE-LOCK, preserve-animations; P-5a/P-5b REFUSED; ESC-W5t-4 byte → X-W8 `.i` |
+
+Post-units: the verify-only close + L-20 checks; L-18 quartet passes precede ACCEPTED.
