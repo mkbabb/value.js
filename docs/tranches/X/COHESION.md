@@ -2821,3 +2821,60 @@ count against one dev server + compute backend · G-F9-23's `-linux` baselines (
 G-F9-15 certbot renewal · G-F9-19 docker/nginx host authority · the 21 J-audit PNGs rewritten by
 `visual-baseline` on every full run (a fourier evidence-home decision) · the glass-ui relays
 A-2 (dock press guard) · A-3 / KFW13T-BK-* / FW12-BK-1 (producer surfaces) awaiting BK.
+
+## §0ax ADDENDUM 2026-09-22 — TRACK A, FIFTH SITTING: THE CHASSIS HALTED BOTH WAVES AT THE FIRST ESCALATED UNIT (X-W6 ran `.c` only; X-W5's `.c2` NEVER SAT TWICE) — THE DISPATCH RULE CORRECTED; X-W5's D1 · LEVERS · GRANTS · LANDMARK MIGRATION RULED; X-W6's b1 · a4 · f3 · h1 · i3 RULED; STAGE ORDER X-W5 BEFORE X-W6
+
+**Chassis.** The wave runner broke out of its group loop on the first `ESCALATED` unit, so every
+later group of the same wave was never dispatched (X-W6: `.d .e .h .i`; X-W5: `.c2`, twice) — an
+escalation is a RETURN to the orchestrator, not a halt. Corrected: only a `DEAD` seat halts a wave;
+escalated units are recorded and the remaining groups run. The A stage `[X-W6, X-W5]` becomes
+`[X-W5, X-W6]`: X-W5's `.c2` migrates the landmark query that turned nine W6 gates RED, and W6's `.j`
+waits on X-W5 CLOSED anyway.
+
+### X-W5
+- **ESC-W5t-1 (D1's host condition) — RULED like G-F12-3-LOAD, with the real-GPU read**: the
+  `load < 4, seat alone` bar is unreachable on a host carrying the owner's `vitest-vscode` watchers
+  (32 processes at this clock). `.d2` takes D1 in BOTH instruments at the lowest load it can wait
+  for (bounded polling ≤ 20 min, load recorded): (1) headless (software GL), the spec's command; (2)
+  **headed real-GPU Chromium** on this Mac (the `→/mix` cost is `resume-on-activate on software GL`,
+  an artefact the user never sees). The reading OF RECORD is (2); (1) is recorded beside. If (2) is
+  within budget, D1 is GREEN-by-instrument with both readings; if not, the levers below apply.
+  **Operator item**: a quiesced window (vitest-vscode closed) for a clean headless reading.
+- **ESC-W5d2-2 (the levers) — DESIGN RULED**: P-5a (`align-items: start`) is REFUSED — it breaks
+  equal-height card pairing on 6 of 7 dual routes; P-5b (`rotate 0deg`) is REFUSED — it deletes a
+  motion limb (the preserve-animations edict). The travel jank on `→/gradient` is the About pane's
+  7,459 px layer travelling: the cure is CONTAINMENT, not amputation — the leaving and entering
+  layers get `contain: layout paint` for the duration of the swap and the About pane's off-viewport
+  sections keep `content-visibility: auto` while travelling; nothing is removed. `.d2` measures.
+- **GRANTS to `.d2`**: `demo/picker/ColorPicker.vue:2-4` (the root-level comment relocated inside the
+  root div — the Vue 3.5 dev-root-fragment × `Transition mode="out-in"` continuation loss, ESC-W5t-2,
+  HIGH; the minimal repro rides a letter upstream, owner report) · `demo/shell/ErrorBoundary.vue` +
+  `demo/color-picker/main.ts` (EB-2's home, ESC-W5d2-1) · new loading/error plate files under
+  `demo/shell/` (ESC-W5t-3). The COUPLED family P-1 · P-2 · P-3 · P-4 lands together. **ESC-W5t-4**
+  (`HeroBlob.vue:246-250`, `→/mix` on software GL) → decided by the real-GPU read; a byte owed → X-W8 `.i`.
+- **ESC-R1-1 / ESC-R1-2 / ESC-R1-3 — GRANTED to `.c2` (widened)**: the landmark X.W5.a renamed
+  (`<main :aria-labelledby>` the route H1) is right; its 61 stale consumers are X-W5's consequence:
+  `e2e/**` files querying `getByRole('main',{name:'Color tool panes'})` re-pointed ONCE through the
+  fixture (`e2e/smoke/fixtures/dock.ts` exports the main-pane locator; files migrate to it —
+  never a per-file copy of the query) · `e2e/visual/census.ts` gains the `not-found` row ·
+  `demo/shell/router/index.ts`'s route-name declaration made type-visible (N14's second site; BD-08
+  widened for that declaration only). Together with D4 (`AdminNamesPanel.vue` `<Transition>`), N15
+  (`AdminPane.vue`), N14's `AdminTagsPanel` sites and the o12/o16/census-parity re-points already
+  granted (§0aq).
+- **Order**: [`.c2`] → [`.d2`] (`.t` is done: its plan and repro are the input).
+
+### X-W6
+- **ESC-W6c-b1-1 — b1 is an INSTRUMENT artefact**: `gate-seat.mjs` G3d focuses the FIRST stop, seeded
+  at 0%, where Home and ArrowDown cannot move under any lawful grammar (the axis floor, `aria-valuemin=0`).
+  The grammar is complete at `666978d4` and `.c`'s discriminating probe (last stop: Home 100→0,
+  ArrowDown 100→99, PageDown 100→90) is **b1's witness of record**; b1 reads honest-RED-by-instrument
+  `B1-G3D` until X-W11's OUT-OF-WAVE roster re-points G3d's Home/ArrowDown arms at a stop off the
+  floor (an instrument edit, like R-5). No product byte is owed.
+- **a4 / a13 (`o21:188`, 5/5 RED, a press sequence)** → the W6 repair seat, in bounds (o21 is a §4
+  file; ADD the missing settle/scroll, never loosen the mint or ordinal assertion).
+- **f3** (the space listbox stays visible > 8 s after a pick; regressed under X-W5 `2183b814`) → the
+  W6 repair seat bisects; `demo/color-session/ColorSpaceSelector.vue` GRANTED if the root lands there.
+- **h1** (`goo-blob-canvas` not found within 8 s under load; found at 6 s quiet) → `.h` re-sits on
+  the §0aq route, with the boot latency named. **i3** → `.i` on the §0aq `index.html` grant (a duty).
+- **Order (RESUME, after X-W5 CLOSED)**: [`.d`] → [`.e`] → [`.h`] → [`.i`] → [`.j`]; the nine
+  landmark REDs re-run after `.c2`.

@@ -206,8 +206,10 @@ async function runWave(w) {
     if (!todo.length) continue
     const rs = await parallel(staggered(todo.map(id => () => withRetry(w.id + ':' + id, () => agent(UNITP(w, byId[id]), UNITO(w, byId[id])))), STAGGER_MS))
     todo.forEach((id, i) => { unitResults[id] = rs[i] || { unit: id, status: 'DEAD', commits: [] } })
-    const esc = todo.map(id => unitResults[id]).find(r => r.status === 'ESCALATED' || r.status === 'DEAD')
-    if (esc) { escalated = esc; log(w.id + ': unit ' + esc.unit + ' ' + esc.status + ' — ' + (esc.escalation || '')); break }
+    const escs = todo.map(id => unitResults[id]).filter(r => r.status === 'ESCALATED' || r.status === 'DEAD')
+    for (const e of escs) { escalated = escalated || e; log(w.id + ': unit ' + e.unit + ' ' + e.status + ' — ' + (e.escalation || '')) }
+    // §0ax: an ESCALATED unit is a RETURN to the orchestrator, not a halt — later groups still run; only a DEAD seat halts the wave
+    if (escs.some(e => e.status === 'DEAD')) break
   }
   const close = await withRetry(w.id + ':close', () => agent(CLOSEP(w, unitResults), CLOSEO(w)))
   if (!close) return { id: w.id, status: 'CLOSE-DEAD', units: unitResults }

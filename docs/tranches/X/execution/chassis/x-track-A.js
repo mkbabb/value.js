@@ -69,7 +69,7 @@ const TRACK = {
       "after": [
         "X-W0"
       ],
-      "note": "RESUME 2026-09-22 on COHESION §0z + §0an + §0aq and W6.md's ADDENDUM 2026-09-22 (read all; they ARE the resume spec): X.W6.a · .b · .f · .g are alreadyDone (never re-dispatched); still owed, strictly serial: [X.W6.c] (six-path §0an grant; also cures b1 as commit #4) → [X.W6.d] → [X.W6.e] → [X.W6.h] (H1-P3 honest-RED-by-physics; oracle on the consumer route; display-p3 ask by mail) → [X.W6.i] (index.html pre-module boot seed granted); .j only after X-W5 reads CLOSED; g1 honest-RED by route → X-W10; the two vitest canaries → X-W8 .i; X-W5's shell lane is COMMITTED so a2/a13/b3 re-run at the close; ESC-PUSH discharged (origin == HEAD at the relaunch)"
+      "note": "RESUME 2026-09-22 (fifth sitting; runs AFTER X-W5 in this stage) on COHESION §0z + §0an + §0aq + §0ax and W6.md's two ADDENDA of 2026-09-22 (read all; they ARE the resume spec): X.W6.a · .b · .c · .f · .g are alreadyDone (never re-dispatched; b1 = B1-G3D honest-RED-by-instrument with .c's probe as witness); still owed, strictly serial: [X.W6.d] → [X.W6.e] → [X.W6.h] (H1-P3 by physics; the blob boot latency named) → [X.W6.i] (index.html pre-module boot seed) → [X.W6.j] (only if X-W5 reads CLOSED; else return BLOCKED-ON X-W5 for .j alone and let the close run); the nine landmark REDs re-run after X-W5.c2's migration; the repair seat owns a4/o21:188 and f3's bisect; ESCALATED units no longer halt the wave"
     },
     "X-W7": {
       "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W7.md",
@@ -84,7 +84,7 @@ const TRACK = {
       "after": [
         "X-W2"
       ],
-      "note": "RESUME 2026-09-22 on COHESION §0aq and W5.md's ADDENDUM 2026-09-22 (read both; they ARE the resume spec — the §3a triumvirate SITS as units): X.W5.a · .b · .c · .d · .e are alreadyDone (never re-dispatched); still owed, strictly serial: [X.W5.t] (FABLE — research + plan augment: D1 under the ruled instrument conditions with the out-in re-probe committed first; A2 re-authored; C1 re-metric recorded) → [X.W5.d2] (opus — redress; D1 re-measured) → [X.W5.c2] (opus — the D4/N15/N14/census-parity/o12/o16 grants); C1 reads textContent ≥ 0.9; C7 target 3 with DockStatusLamp:70 by route → X-W8 .h; C3 capability rows out, the three layout forks → X-W8 .i"
+      "note": "RESUME 2026-09-22 (fifth sitting) on COHESION §0aq + §0ax and W5.md's two ADDENDA of 2026-09-22 (read all; they ARE the resume spec): X.W5.a · .b · .c · .d · .e · .t are alreadyDone (never re-dispatched); still owed, strictly serial: [X.W5.c2] (opus — the landmark migration through the fixture across the 61 stale e2e files, census.ts not-found row, router route-name declaration, D4 AdminNamesPanel Transition, N15 AdminPane, N14 AdminTagsPanel sites, the o12/o16/census-parity oracles) → [X.W5.d2] (opus — the coupled family P-1..P-4 with the ColorPicker.vue:2-4 / ErrorBoundary.vue / main.ts / loading-error plate grants; the containment cure, NO P-5a/P-5b; D1 in both instruments at the lowest attainable load, headed real-GPU reading of record); ESCALATED units no longer halt the wave"
     },
     "X-W8": {
       "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W8.md",
@@ -125,8 +125,8 @@ const TRACK = {
       "X-W4"
     ],
     [
-      "X-W6",
-      "X-W5"
+      "X-W5",
+      "X-W6"
     ],
     [
       "X-W7"
@@ -196,8 +196,10 @@ async function runWave(w) {
     if (!todo.length) continue
     const rs = await parallel(staggered(todo.map(id => () => withRetry(w.id + ':' + id, () => agent(UNITP(w, byId[id]), UNITO(w, byId[id])))), STAGGER_MS))
     todo.forEach((id, i) => { unitResults[id] = rs[i] || { unit: id, status: 'DEAD', commits: [] } })
-    const esc = todo.map(id => unitResults[id]).find(r => r.status === 'ESCALATED' || r.status === 'DEAD')
-    if (esc) { escalated = esc; log(w.id + ': unit ' + esc.unit + ' ' + esc.status + ' — ' + (esc.escalation || '')); break }
+    const escs = todo.map(id => unitResults[id]).filter(r => r.status === 'ESCALATED' || r.status === 'DEAD')
+    for (const e of escs) { escalated = escalated || e; log(w.id + ': unit ' + e.unit + ' ' + e.status + ' — ' + (e.escalation || '')) }
+    // §0ax: an ESCALATED unit is a RETURN to the orchestrator, not a halt — later groups still run; only a DEAD seat halts the wave
+    if (escs.some(e => e.status === 'DEAD')) break
   }
   const close = await withRetry(w.id + ':close', () => agent(CLOSEP(w, unitResults), CLOSEO(w)))
   if (!close) return { id: w.id, status: 'CLOSE-DEAD', units: unitResults }
