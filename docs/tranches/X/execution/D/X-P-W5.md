@@ -268,3 +268,63 @@ Seat `claude-opus-5-5`, 2026-09-23. Mode: fresh (no prior `.e` receipt). **Outco
 - Re-dispatch `.e` once (i) lands and (ii) is ruled. Track A lock at re-dispatch: X-W12 `.l` writes `src/css/grammar.ts`. If `.l` lands first, `.e` still deletes that file, and the KFA-14 legacy comma forms must then hold through the seam, which `.c` has already covered as G-W5-c2.
 
 **Commits.** This record only.
+
+## Close
+
+Seat CLOSE (verify-only), `claude-opus-5-5`, 2026-09-23 ~13:50–14:00 EDT. Mode: fresh close. Crash-recovery: my writable set (this record, `LEDGER.md`, `V/coordination/INBOX.md`) clean at open; parse-that dirt = the July `rust/**`/`.cargo`/`README.md` + 17 untracked (not W5's; untouched). Scratch logs: session scratchpad `w5close/` (key lines pasted). Load average during the reads: 32–69.
+
+### Commit roster (act 1: exist + in bounds)
+
+⟨`git show --stat` per commit⟩ — every commit exists; every touched path is inside its unit's §Unit-plan writable set. **landed-wrong: none.**
+
+| unit | commit | paths (measured) | in bounds |
+|---|---|---|---|
+| `.a` | parse-that `4eac70c` (merge, parents `ef10d5b` + `3199913`) | first-parent diff 598 files; vs `3199913` only `A docs/css-surface-returns-2026-09-23.md` · `M typescript/package.json` · `D typescript/scripts/proof-no-css-surface.mjs` | yes |
+| `.a` | value.js `27e3da21` | this record | yes |
+| `.b` | parse-that `902172d` | `typescript/test/css-equivalence/{lib/differential.mjs,lib/ruled.mjs,run-full-surface.mjs}` | yes |
+| `.b` | value.js `481c6e70` · `fa75ff97` | `DIVERGENCE-LEDGER.md` (+95, append) · this record | yes |
+| `.c` | parse-that `ec18f4b` | 21 files, all `typescript/src/css/**` or `typescript/test/**` (css-color5 + WPT sources) | yes |
+| `.c` | value.js `684a746b` · `aac22c24` | this record | yes |
+| `.d` | parse-that `488523c` | `typescript/{CHANGELOG.md,package.json,package-lock.json}` | yes |
+| `.d` | value.js `eaa47ecb` | this record | yes |
+| `.e` | value.js `88359a9b` | this record (ESCALATED, no code) | yes |
+
+⟨`git -C parse-that status -sb`⟩ → `## master...origin/master` (all four parse-that commits pushed).
+
+### Gate table BEFORE → AFTER (act 2, re-run by this seat)
+
+| gate | BEFORE (§Baseline) | AFTER (close seat, command → output) | verdict |
+|---|---|---|---|
+| G-W5-a1 | 169 commits not on master | ⟨`git fetch ../parse-that-css-totality-p2 w2/harness; git rev-list --count master..FETCH_HEAD`⟩ → `0`; ⟨`git merge-base --is-ancestor 31999135 master`⟩ → exit `0` | **GREEN** |
+| G-W5-a2 | premise standing | ⟨`ls typescript/scripts/proof-no-css-surface.mjs`⟩ → `No such file`; ⟨`grep -c no-css-surface typescript/package.json`⟩ → `0` | **GREEN** |
+| G-W5-a3 | 124/124 | ⟨`npm run build`⟩ → `BUILD_EXIT=0`; ⟨`npx vitest run`⟩ ×2 → `Test Files 15 passed (15) · Tests 148 passed (148)` EXIT 0 both; ⟨`npm run proof:all`⟩ → manifest / subpath / packrat-* PASS–GREEN (8), then `FAIL: proof:perf — (C) json-comprehensive regressed 276.3%` EXIT 1; re-read ⟨`npm run -s proof:perf`⟩ → `445.4%` EXIT 1 (load 58–69) | **RED (perf limb only)** — suite GREEN; perf reproduces `.a`'s environmental reading (pre-merge `ef10d5b` failed equally under load, `.a` receipt); low-load re-read still owed |
+| G-W5-b1 | 152, EXIT 1 | ⟨`node test/css-equivalence/run-full-surface.mjs --pinned-value-commit 6aca8602…`⟩ ×2 (parse-that master `488523c`) → `MIRROR-DEFECTS 0 (of which spec-undecided 0)` · `GREEN — zero mirror-defects across the full surface` EXIT 0 both; outputs identical after line 1 | **GREEN** |
+| G-W5-c1 | absent | ⟨vitest⟩ → `✓ test/css-color5.test.ts (14 tests)` (both runs) | **GREEN** |
+| G-W5-c2 | `rgba(255, 0, 0, 0.5)` rejected | same file (KFA-14 WPT legacy-comma cases) 14/14 | **GREEN** (in the seam; F-W5c-1 ruling owed on the 2 PB-01/02 accepts) |
+| G-W5-d1 | registry `1.0.0` | ⟨`npm view @mkbabb/parse-that dist-tags --json`⟩ → `{"latest": "1.0.0"}`; ⟨`npm whoami`⟩ → `E401 Unauthorized` | **RED — OWNER ACT (ESC-W5d-1)** |
+| G-W5-d2 | conjunct 4 `NO FALSE` | RC-P ×2 → `4 ADMITTED(V) NO FALSE — zero .wasm artifacts` (decision SHIP landed at `488523c`; F-W5d-1 ruling owed) | **RED** |
+| G-W5-d3 | TRUE (GREEN-BEFORE-CURE) | RC-P ×2 → `6 ROUTED(V) yes TRUE TRUE` | **GREEN** (W4S's cure) |
+| G-W5-e1 | `0` | ⟨`grep -c parse-that package.json`⟩ → `0` | **RED — blocked (ESC-W5e-1)** |
+| G-W5-e2 | `544 · 101` | ⟨`wc -l src/css/grammar.ts src/css/syntax.ts`⟩ → `544 · 101` | **RED — blocked** |
+| G-W5-close | FALSE 3 of 6 ×2 | ⟨`node scripts/rc-p-evaluate.mjs --version 4.0.0 --out <scratch>`⟩ ×2 → `RC-P(4.0.0) = FALSE — 3 of 6 conjuncts are FALSE: 1 PUBLISHED(V) · 3 EQUIVALENCE(V) · 4 ADMITTED(V)` EXIT 1 both; 2/5/6 TRUE; arm V `20962` | **RED — blocked** |
+
+Tally (12 gates, counted from the table above): GREEN 6 (a1 · a2 · b1 · c1 · c2 · d3) · RED 6 (a3 on its perf limb only · d1 · d2 · e1 · e2 · close). §Verification Artefacts (act 3): W5.md has none beyond the Close line ("RC-P re-evaluated, all six conjuncts, double-run; every unit's gates") — both run above.
+
+### Residuals (named owners)
+- **R-close-1 — proof:perf low-load re-read** (`cd parse-that/typescript && npm run build && npm run proof:perf` at load < ~4). Owner: the `.d` re-dispatch seat, before the 2.0.0 PUT. No threshold/baseline touched.
+- **R-close-2 — stale comment** `parse-that/typescript/test/dist-surface.test.ts:82` still names `proof:no-css-surface` (⟨`grep -n no-css-surface test/dist-surface.test.ts`⟩ → `82`). Assertion passes. Owner: next Track D seat with `typescript/test/**` in bounds.
+- **R-b-1** css-equivalence corpus-count tests (2 failures, 26604/172 pins vs 27021/0) — owner: Track D X·P next wave. **R-b-2 / F-W5b-1** `var()` in animation shorthand — owner: `.e` re-dispatch (cure + divergence row together). **R-b-3** RC-P arm V baseline cites `902172d`+ — owner: `.e`/close re-run.
+- **R-c-1..R-c-3** (css-recovery stale failures, etc., `.c` receipt) — owner: Track D X·P next wave.
+- **F-W5d-2** `packed-candidate-surface.mjs` default `--tsc` path — owner: whoever holds `typescript/scripts/**` next.
+- `<p2>` (`parse-that-css-totality-p2`) is read-only evidence; its history is on master.
+
+### Escalations (open, unruled)
+- **ESC-W5d-1 — OWNER ACT**: npm token invalid (⟨`npm whoami`⟩ → `E401`, re-read this seat); `@mkbabb/parse-that@2.0.0` unpublished (`latest 1.0.0`). Commands: `npm login` · `cd parse-that/typescript && npm run build && npm publish --access public` · `git tag v2.0.0 488523c && git push origin v2.0.0`.
+- **ESC-W5e-1**: `.e` blocked on ESC-W5d-1 plus the **F-W5d-1** ruling (ADMITTED over a dependency's `.wasm`: (a) V ships `ac1.wasm` itself, or (b) dated RELEASE-CONDITION §2.4 addendum making the installed closure the subject). Orchestrator.
+- **F-W5c-1**: legacy none-alpha (PB-01/02) ruling request — orchestrator.
+
+### E13 (act 4)
+Four paths re-swept ~13:55 EDT: value.js `V/coordination/` (newest = 2026-09-18 set, rowed; INBOX last rows O-61 / I-42) · glass-ui BL (newest; commits since `fe5df357`=I-42 are `b7099ea6`, `6433284a`, formation-internal D1 research, no value.js letter) / BK (newest = our O-61 mirror) · keyframes.js `V/coordination/` (newest file 2026-09-19, no commit in 3 h) · atlas (no commit in 3 h). **0 unrowed, 0 UNREAD in scope.** Sweep line appended to INBOX.md.
+
+### State
+W5.md §State designates no four-verb move; none is made. **Wave status: PARTIAL** — `.a`–`.c` landed and gated GREEN (a3 perf limb excepted, environmental); `.d` landed short of the registry PUT; `.e` and the Close RC-P are **BLOCKED-ON ESC-W5d-1 (owner npm auth + publish) + the F-W5d-1 ruling**. Re-dispatch `.d` (PUT + tag + perf re-read) → `.e` → this Close's RC-P ×2 once both clear.
