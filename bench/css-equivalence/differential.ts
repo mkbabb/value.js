@@ -14,11 +14,14 @@
 //
 // THE INCUMBENT IS value.js HEAD, not the 4.0.0 tarball the seam compared against: `.h` measures the
 // grammar `.x` will swap in against the parser it retires.
+//
+// X.P.W6.x (2026-09-23): `.x` deleted the hand parser from `src/`; this harness moved from
+// `test/css/equivalence/` to `bench/css-equivalence/` with it, and the incumbent is now passed in —
+// the retired parser read back from git at its pinned commit (`bench/retired.ts`), never a copy.
 
 import { isDeepStrictEqual } from "node:util";
 
-import * as bbnf from "../../../src/css/bbnf/index";
-import * as hand from "../../../src/css/grammar";
+import * as bbnf from "../../src/css/bbnf/index";
 import { adjudicator, ruledValue } from "./lib/adjudications.mjs";
 import type { CellResult } from "./lib/ruled.mjs";
 import { resolveRuling } from "./lib/ruled.mjs";
@@ -81,7 +84,6 @@ function shapeFault(r: CellResult): string | null {
     return "`ok` is neither true nor false";
 }
 
-const INCUMBENT: Record<Entry, Fn> = hand;
 const CANDIDATE: Record<Entry, Fn> = bbnf;
 
 /** The value a ruling requires of the candidate, given the incumbent's (PB-03 · PB-04/05; identity elsewhere). */
@@ -122,8 +124,13 @@ export type Row = { entry: Entry; cells: number; tally: Record<Verdict, number>;
  * One entry over the corpus: every cell classified, a RED cell handed to the rulings, then to the W6
  * classes. `candidateFn` is the BBNF entry; the falsifier alone passes another.
  */
-export function runEntry(entry: Entry, sources: readonly string[], candidateFn: Fn = CANDIDATE[entry]): Row {
-    const inc = INCUMBENT[entry];
+export function runEntry(
+    entry: Entry,
+    sources: readonly string[],
+    incumbent: Readonly<Record<Entry, Fn>>,
+    candidateFn: Fn = CANDIDATE[entry],
+): Row {
+    const inc = incumbent[entry];
     const cand = candidateFn;
     const resolve = adjudicator(entry);
     const incumbentAccepts = (s: string) => ok(call(inc, s));
