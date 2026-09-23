@@ -124,4 +124,47 @@ test.describe("G14 · N-6 — destructive Admin seats fire nothing until accepte
         await expect(page.locator('[data-admin-palette="azure-one-11aa"]')).toBeVisible();
         await assertDeliberate(page, ledger, "Delete palette Azure One", "Delete palette", "DELETE /admin/palettes/azure-one-11aa");
     });
+
+    // X-W7 Repair 1 (§2a · ESC-W7e-AP6): the fifth seat — the browse wall's
+    // admin delete, reached through the card's menu. A menu item closes its
+    // menu on activation, so the seat is activated once; the acceptance is
+    // still the N-6 double activation.
+    test("browse-wall admin delete (card menu)", async ({ page }) => {
+        const ledger = mutationLedger(page);
+        await page.route("**/palettes?**", (route) =>
+            route.fulfill({
+                status: 200,
+                contentType: "application/json",
+                body: JSON.stringify({
+                    data: [
+                        {
+                            slug: "wall-target-5e7d",
+                            name: "Wall Target",
+                            colors: [{ css: "#abc" }],
+                            userSlug: "other-user",
+                            voteCount: 0,
+                            voted: false,
+                            isLocal: false,
+                            tier: "standard",
+                        },
+                    ],
+                    total: 1,
+                    limit: 50,
+                    offset: 0,
+                }),
+            }),
+        );
+        await page.goto("/#/browse");
+        await page.getByRole("button", { name: "Palette menu" }).filter({ visible: true }).first().click();
+        await page.getByRole("menuitem", { name: "Delete (admin)" }).click();
+        const dialog = page.getByRole("dialog");
+        await expect(dialog).toBeVisible();
+        await expect(dialog).toContainText("Wall Target");
+        expect(ledger, "requests before acceptance").toEqual([]);
+
+        await dialog.getByRole("button", { name: "Delete palette", exact: true }).dblclick();
+        await expect(dialog).toHaveCount(0);
+        await page.waitForTimeout(300);
+        expect(ledger, "requests after a double acceptance").toEqual(["DELETE /admin/palettes/wall-target-5e7d"]);
+    });
 });

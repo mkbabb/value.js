@@ -170,11 +170,44 @@
             @update:open="onFlagOpenChange"
             @submit="onFlagSubmit"
         />
+
+        <!-- X-W7 Repair 1 (§2a · ESC-W7e-AP6): the browse-wall admin delete is the
+             fifth destructive seat — confirmed first, composed exactly as the four
+             Admin seats compose it (deliberate rung `:show-close="false"` at the
+             installed glass 7.0.0; `dismiss="deliberate"` is the glass ≥ 8.0.0 spelling). -->
+        <Dialog v-model:open="deleteConfirmOpen">
+            <DialogContent surface="glass" :show-close="false">
+                <DialogHeader>
+                    <DialogTitle>Delete palette?</DialogTitle>
+                    <DialogDescription>
+                        This will delete the palette
+                        <span class="font-display font-medium text-foreground">{{ deleteConfirmName }}</span>
+                        for its owner and every viewer.
+                    </DialogDescription>
+                </DialogHeader>
+                <DialogFooter>
+                    <Button emphasis="text" @click="deleteConfirmOpen = false">Cancel</Button>
+                    <Button tone="destructive" :disabled="!deleteConfirmAct" @click="onDeleteConfirm">
+                        <Trash2 class="w-3.5 h-3.5" aria-hidden="true" />
+                        Delete palette
+                    </Button>
+                </DialogFooter>
+            </DialogContent>
+        </Dialog>
     </Card>
 </template>
 
 <script setup lang="ts">
-import { inject, reactive, ref, computed, onMounted } from "vue";
+import { inject, nextTick, reactive, ref, shallowRef, computed, onMounted, watch } from "vue";
+import {
+    Dialog,
+    DialogContent,
+    DialogHeader,
+    DialogTitle,
+    DialogDescription,
+    DialogFooter,
+} from "@mkbabb/glass-ui/dialog";
+import { Trash2 } from "@lucide/vue";
 import { Card } from "../ui/card";
 import { Button } from "../ui/button";
 import { BROWSE_PORT_KEY } from "./usePalettePorts";
@@ -267,8 +300,13 @@ const {
 const versionDrawerOpen = ref(false);
 const versionPalette = ref<Palette | null>(null);
 
-function onVersions(palette: Palette) {
+// X-W7 Repair 1 (G13 row 4): the drawer loads on its `open` TRANSITION (it has no
+// immediate load), and it is mounted by its subject (`v-if`, W7.78). Mount it
+// first, then open it, so the transition it listens for is one it can see —
+// opening in the mounting tick left every drawer at "0 versions".
+async function onVersions(palette: Palette) {
     versionPalette.value = palette;
+    await nextTick();
     versionDrawerOpen.value = true;
 }
 
@@ -336,7 +374,36 @@ async function onFeature(palette: Palette) {
     showVerdict(palette.slug, result.ok ? done : `${act} failed: ${result.message}`, result.ok);
 }
 
-async function onAdminDelete(palette: Palette) {
+// X-W7 Repair 1 (§2a · G14 · N-6): the menu opens a confirm, never the delete
+// itself. The name is kept for display through the leave transition; the act is
+// held separately, TAKEN (cleared) before it runs, and released on any dismissal
+// — one acceptance, exactly one request.
+const deleteConfirmOpen = ref(false);
+const deleteConfirmName = ref("");
+const deleteConfirmAct = shallowRef<(() => void) | null>(null);
+watch(
+    deleteConfirmOpen,
+    (open) => {
+        if (!open) deleteConfirmAct.value = null;
+    },
+    { flush: "sync" },
+);
+
+function onAdminDelete(palette: Palette) {
+    deleteConfirmName.value = palette.name;
+    deleteConfirmAct.value = () => void adminDelete(palette);
+    deleteConfirmOpen.value = true;
+}
+
+function onDeleteConfirm() {
+    const act = deleteConfirmAct.value;
+    if (!act) return;
+    deleteConfirmAct.value = null;
+    deleteConfirmOpen.value = false;
+    act();
+}
+
+async function adminDelete(palette: Palette) {
     const result = await pm.onAdminDeletePalette(palette);
     if (!result.ok) showVerdict(palette.slug, `Delete failed: ${result.message}`, false);
 }
