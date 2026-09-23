@@ -1,0 +1,36 @@
+SERVED MODEL: claude-opus-5-5 — X.W7R.v static reads of the installed glass dist (iso = glass 10.0.1, base = glass 7.0.0), 2026-09-23
+
+## DOCK-SCROLL-MORPH (O-55 R-1/R-2)
+⟨grep -n '?:' dist/components/dock/composables/useDockShellProps.d.ts⟩ (10.0.1 DockProps):
+15:    fitContent?: boolean;
+21:    backdropMode?: DockBackdropMode;
+42:    shape?: "pill" | "rounded" | "card";
+49:    orientation?: "horizontal" | "vertical";
+59:    collapse?: DockCollapse;
+66:    backgroundCanvas?: HTMLCanvasElement | (() => HTMLCanvasElement | null) | string | null;
+⟨grep -n '?: (props' dist/components/dock/GlassDock.vue.d.ts⟩ (slots):
+4:    persistent?: (props: typeof __VLS_1) => any;
+6:    default?: (props: typeof __VLS_3) => any;
+8:    collapsed?: (props: typeof __VLS_5) => any;
+10:    search?: (props: typeof __VLS_7) => any;
+12:    'persistent-end'?: (props: typeof __VLS_9) => any;
+⟨grep -rci 'scroll' dist/components/dock --include='*.d.ts' | grep -v ':0'⟩:
+dist/components/dock/constants.d.ts:1
+dist/components/dock/composables/dockCrossfadeContext.d.ts:1
+dist/components/dock/composables/useDockRun.d.ts:2
+dist/components/dock/composables/useDockSearch.d.ts:17
+⟨grep -c 'dock' dist/components/scroll-progress-rim/types.d.ts⟩: 0
+
+## I3-SEED-SIZE (O-53 R-1)
+exports map keys (10.0.1): ./aurora
+dist/aurora.js 10.0.1:   203503 B, '#version' x3
+derive-only seed ⟨esbuild --bundle --minify --format=esm (externals vue, @vueuse/core, @mkbabb/value.js) of 'import { deriveAurora, paletteToCssGradient } from "@mkbabb/glass-ui/aurora"'; gzip -9⟩ ×2:
+  base r1 raw=172921 gzip=52610 #version=2 uniform=81
+  base r2 raw=172921 gzip=52610 #version=2 uniform=81
+  iso r1 raw=172910 gzip=52781 #version=2 uniform=81
+  iso r2 raw=172910 gzip=52781 #version=2 uniform=81
+
+## O-57 R-2 .cartoon-cast
+base 7.0.0: exports['./styles'] = ./dist/styles/index.css; ⟨grep -c glass-atom dist/styles/glass.css⟩ = 0
+no glass.css
+iso 10.0.1: exports['./styles'] = ./dist/styles/index.css; ⟨grep -c glass-atom dist/styles/glass.css⟩ = 1

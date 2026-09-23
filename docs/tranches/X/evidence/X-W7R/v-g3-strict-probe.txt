@@ -1,0 +1,48 @@
+SERVED MODEL: claude-opus-5-5 — X.W7R.v G3 strict probe, 2026-09-23
+strict probe = {extends tsconfig.demo.json, vueCompilerOptions.strictTemplates:true} -> npx vue-tsc --noEmit (base = HEAD 56394291 @ glass 7.0.0; iso = same + m-repin-10.0.1-migration.patch @ glass 10.0.1)
+base r1 EXIT 2 errors 284 files       64
+base r2 EXIT 2 errors 284 files       64
+iso r1 EXIT 2 errors 279 files       64
+iso r2 EXIT 2 errors 279 files       64
+== base codes
+   8 error TS2322
+ 276 error TS2353
+== base top TS2353 keys
+ 129 and ''
+ 110 and 'onClick'
+  15 and 'title'
+   5 and 'dataAdminAccess'
+   3 and 'onKeydown'
+   2 and 'key'
+== iso codes
+   8 error TS2322
+ 271 error TS2353
+== iso top TS2353 keys
+ 118 and ''
+ 110 and 'onClick'
+  15 and 'title'
+   8 and 'size'
+   5 and 'dataAdminAccess'
+   2 and 'onKeydown'
+== base quoted-key TS2353 (aria-*/data-* etc.)
+== iso quoted-key TS2353 (aria-*/data-* etc.)
+== base TS2353 by target type (native-element attr types folded)
+  62 NonNullable<{ readonly emphasis?: ButtonEmphasis; readonly tone?: "suc
+  59 <native HTML element attrs>
+  25 NonNullable<{ readonly disabled?: boolean; readonly textValue?: string
+  24 { readonly emphasis?: ButtonEmphasis; readonly tone?: "success" | "neu
+  20 { readonly shape?: "icon" | "tab"; readonly compact?: boolean; readonl
+  19 NonNullable<{ readonly shape?: "icon" | "tab"; readonly compact?: bool
+  13 { readonly disabled?: boolean; readonly class?: ClassValue; readonly v
+   9 { readonly color: string; readonly variant?: "ghost" | "solid"; readon
+   native-element rows: 59
+== iso TS2353 by target type (native-element attr types folded)
+  62 NonNullable<{ readonly emphasis?: ButtonEmphasis; readonly tone?: Butt
+  60 <native HTML element attrs>
+  25 NonNullable<{ readonly disabled?: boolean; readonly textValue?: string
+  24 { readonly emphasis?: ButtonEmphasis; readonly tone?: ButtonTone; read
+  20 { readonly shape?: "icon" | "tab"; readonly compact?: boolean; readonl
+  19 NonNullable<{ readonly shape?: "icon" | "tab"; readonly compact?: bool
+  13 { readonly disabled?: boolean; readonly class?: ClassValue; } & VNodeP
+   9 { readonly color: string; readonly variant?: "solid" | "ghost"; readon
+   native-element rows: 60
