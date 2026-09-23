@@ -3381,3 +3381,67 @@ Site 7 cannot be vue-tsc-visible. By its own charter, `tsconfig.e2e.json` forbid
 - Landed: all 4 of §0ax's widened-grant acts (fixture export, 61-file migration → 0, census `not-found`, router route names type-visible, with the N14 census printed).
 - Held: the §0aq subset. census-parity is GREEN ×4, and §7 is clean for this seat.
 - RED ×2 and escalated: the o12/o16 "GREEN ×2" gate, on the two non-landmark legs above. Both legs were masked by the landmark before this seat and are outside its grant.
+
+### X.W5.d2
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X.W5.d2 (§0ax: OPUS redress), RESUME 5 · 2026-09-22 · verdict **DONE** (every owed gate turned; D1 GREEN-by-instrument on the ruled reading of record, headless recorded RED beside). HEAD at open `25c2ee94` (after `.c2`); commits `52dc0a5b` · `b36df565` · `bdee09ce` · `70fb89d7` · (this receipt).
+
+**Crash-recovery** ⟨cmd⟩ `git status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh`: neither in this seat's writable set. **No inherited partial.** `dev.sh` never touched.
+**Inputs**: `W5.md` whole (396 L, both ADDENDA) · this record's R5.0–R5.4 + the round-4 `.d2` receipt (`:2888-2928`) · `.t`'s plan whole (286 L) · COHESION §0aq X-W5 (`:2660-2690`) + §0ax (`:2825-2880`, file end) · fold W5F-04/-05/-07/-53 (`X-W5-FOLD.md:41,42,44,125`). Grant-path reading as R5.2: `ErrorBoundary.vue` = `demo/color-picker/ErrorBoundary.vue` (unique referent).
+
+#### Act 1 — the coupled family P-1..P-4 + EB-2, ONE commit `52dc0a5b` (fold `:41` D-1 lock · W5F-07 CURE-LOCK)
+Anchors verified at true bytes before the edit: `ColorPicker.vue:2-4` = the root-level comment, `:5` the root `<div>`; `PaneSlot.vue` `<Transition>` had no `mode`; `usePaneRouter.ts:187-204` ten bare `defineAsyncComponent(() => import(…))`; `ErrorBoundary.vue` latch cleared only by `reset()`; `main.ts` error net present (X.W5.a), no channel to the boundaries.
+- **P-4** (ESC-W5t-2): the comment moved INSIDE the root `<div>` (zero PROD bytes; the Picker stops being a dev-root fragment).
+- **P-1**: `mode="out-in"` on PaneSlot's `<Transition>` (placed after `:name`, so the re-probe's needle still matches once and its un-injected arm reads HEAD); the TRANSITION MODE header rewritten to the measured truth (co-mount cured; the dev strand's root and cure; the coupling). `:12-23` untouched ⟨cmd⟩ `sed -n 12,23p demo/shell/PaneSlot.vue | md5` → `a7fe04be35764c9b6b293dfc5f08f523` (unchanged).
+- **P-2**: the rAF mirror KEPT by decision (plan §4 P-2): under out-in its remaining work is coalescing rapid A→B→C swaps into one leave + one mount; its comment and the atomic-commit comment rewritten to say so.
+- **P-3 (EB-4)**: the ten lazy panes load through ONE factory `lazyPane(pane, load)` → `defineAsyncComponent({ loader, loadingComponent: PaneLoadingPlate, errorComponent: PaneErrorPlate, delay: 200 })`; the loader's rejection is re-raised as a typed `PaneChunkError(pane, { cause })`. New files (ESC-W5t-3 grant): `demo/shell/PaneLoadingPlate.vue` (a resting-Card plate, its own `role="status" aria-busy`, never the shell's route-settlement region — App.vue LOCK) · `demo/shell/PaneErrorPlate.vue` (the reload affordance; exports `PaneChunkError`). **No `timeout`** by decision: a slow network is not a failure, and a timed-out chunk that later arrives would already have been shown an error plate.
+- **EB-2 (W5F-53)**: `ErrorBoundary` gains (i) the ROUTE-RESET arm — prop `resetKey` (App passes `region.key`), a WATCH that clears the latch when the region's pane changes, never a `:key` (R-7); (ii) it does NOT latch over a `PaneChunkError` (R-1: the error plate owns it); (iii) it REPORTS every capture through `FAILURE_REPORTER_KEY`, which `main.ts` provides with its existing `reportFailure` (containment in the seat, reporting at the root). A1 held ⟨cmd⟩ A1's `node -e …` → exit **0** (4 CSS imports, `isReady()` await).
+- **Measured defect caught before commit (and cured, not masked)**: the first dev re-probe run read `coMountHops 1` and a Gradient root stuck on `vj-enter-enter-from` after the grace — my own plates carried their explanatory comment BESIDE the root element, i.e. the very dev-root-fragment class P-4 cures. Comments moved inside the plates' root elements; re-run clean (Act 4).
+
+#### Act 2 — the containment cure, `b36df565` (§0ax ESC-W5d2-2, DESIGN RULED; P-5a/P-5b REFUSED, not written)
+`animations.css`: for the `*-active` window only (the same window as the `will-change` hint), every `.pane-wrapper--{stage,inspector,action} > .vj-enter-{enter,leave}-active` gets `contain: layout paint` + `overflow-clip-margin: 10px` (the cartoon shadow's widest reach, `--shadow-cartoon-hover`, stays unclipped). No motion declaration removed or retuned (distance, rotation, springs, direction arm byte-kept). The stale header claim "stays DEFAULT mode" corrected to out-in. The About sections' `content-visibility: auto` lives at `demo/scenes/about/markdown/Markdown.vue:107` (not in this set) and is not overridden.
+⟨cmd⟩ `grep -rn 'contain: layout paint;' demo/styles demo/shell | wc -l` → **0 → 1** (the declaration; the comment line is not counted).
+⟨cmd⟩ `node green/d2-cv-probe.mjs` ×2 (landed) + ×1 (control, containment stripped at build) — `/`→`/gradient`, read one frame into the About pane's leave: landed `contain "layout paint"`, `overflowClipMargin 10px`, leaving box 7459 px, **33/33** sections `content-visibility: auto`, **14/17** probed sections skipped — identical to the settled `/` reading (33/33 · 14/17) and ×2 identical; control `contain "content"` (the producer Card's own). Observation recorded, not changed: on the About root the swap rule computes `layout paint` over the Card's `content` (style containment yields for ≤ 640 ms; the ruling's literal value kept).
+
+#### Act 3 — the D1 instrument, `bdee09ce` (no budget weakening)
+`scene-swap-budget.mjs` gains `PROBE_HEADED=1` (headed Chromium on the host GPU — §0ax's reading of record); the JSON now names the WebGL `renderer` and `loadAtLaunch`, and the motion log carries each swap layer's computed `contain`. `HOPS`, `WINDOW_MS`, `BUDGET {over32Ratio:0.15, medianMs:20}` unchanged ⟨cmd⟩ `git show bdee09ce | grep -c '^[-+].*BUDGET'` → 0.
+
+#### Act 4 — gates, measured (built bundle `vite build --mode gh-pages --outDir <scratch>` served statically; control bundle = the same HEAD with the two containment lines removed for its build only and restored from a byte copy, ⟨cmd⟩ `cmp` → identical)
+**D1 — bounded poll** (§0ax): `d1poll.sh` sampled the 1-min load every 20 s from 21:01 to 21:21 (20 min) and took a full set — {landed, control} × {headless, headed} × 2 runs — each time the load reached a new minimum below 9: **7 sets**, loads 8.01 → **5.88** (set 7, the lowest attainable; the host's standing load is mediaanalysisd / Backblaze / CrowdStrike / 32 `vitest-vscode` processes, none this seat's). Aggregate read ×2 from the committed JSON (⟨cmd⟩ `diff agg1 agg2` → IDENTICAL):
+
+| bundle · instrument | runs pass | →/gradient ratio · med | →/extract | →/mix | →/generate |
+|---|---|---|---|---|---|
+| **landed · headed real-GPU** (ANGLE Metal, Apple M5 Max) — **OF RECORD** | **14/14** | **0.012 · 10 ms** | **0 · 10** | **0 · 10** | **0 · 10** |
+| control · headed real-GPU | 14/14 | 0.012 · 10 | 0 · 10 | 0 · 10 | 0 · 10 |
+| landed · headless (SwiftShader) | 0/14 | 0.382 · 24 | 0.200 · 15 | 0.238 · 15 | 0.123 · 12 |
+| control · headless (SwiftShader) | 0/14 | 0.500 · 32 | 0.265 · 14 | 0.343 · 18 | 0.161 · 12 |
+
+Set 7 (load 5.88), landed, read ×2 (⟨cmd⟩ `diff d1tab1 d1tab2` → IDENTICAL): headed r1 `gradient 1/85=0.012 med10 · extract 0/88 · mix 0/88 · generate 0/88` pass · r2 `1/83 · 0/89 · 0/88 · 0/88` pass; headless r1 `10/42=0.238 med15 · 10/56=0.179 · 10/42=0.238 · 6/61=0.098` · r2 `11/35=0.314 med18 · 9/53=0.170 · 9/42=0.214 · 6/58=0.103`. Every hop `animated:true`, `motionHonest:true`, leave 200 ms / enter 440 ms, every swap layer `contain "layout paint"`.
+**Reading**: D1 **GREEN-by-instrument** (§0ax: the headed real-GPU reading is of record and is within budget on all four hops, every run); headless recorded beside, RED. Containment lowers the headless cost on every hop (gradient 0.500 → 0.382, mix 0.343 → 0.238) but does not reach budget on software raster; out-in serialises leave then enter, so more of the 900 ms window is under travel there. **ESC-W5t-4 decided by the real-GPU read**: →/mix is 0/88 over32 at 10 ms on the GPU — the software-GL `GPUTask` was the instrument's cost; **no `HeroBlob.vue` byte is owed** (nothing routed to X-W8 `.i`).
+**Operator item (carried from §0ax)**: a quiesced window (vitest-vscode closed) for a clean headless reading.
+
+**Gate table (BEFORE → AFTER, this seat's clock)**
+
+| gate | BEFORE (R5.3) | AFTER |
+|---|---|---|
+| P-1..P-4 coupled family | not landed | **one commit `52dc0a5b`** (P-1 · P-2 · P-3 · P-4 + EB-2) — GREEN |
+| `ColorPicker.vue` root comment | at `:2-4`, outside the root div | ⟨cmd⟩ `sed -n 2p demo/picker/ColorPicker.vue` → `    <div` (comment inside) — GREEN |
+| dev out-in strand ⟨cmd⟩ `REPROBE_SKIP_BUILT=1 node …/out-in-reprobe.mjs` ×2 | 5/5 stranded (`.t` §1) | `paneSlotHasModeAttrAtHead:true`; `dev/default` (= the HEAD out-in bytes) **0/5 stranded · 0/5 co-mount** ×2 identical — GREEN. The `dev/out-in` arm now double-injects `mode` (HTTP 500) and is not a reading |
+| containment `contain: layout paint` on swap layers | 0 | 1 declaration; computed `layout paint` on every observed swap layer (D1 motion log) — GREEN |
+| About off-viewport sections `content-visibility:auto` while travelling | 33/33 (not overridden) | 33/33 mid-leave, 14/17 skipped = settled — GREEN |
+| loading/error plates under `demo/shell/` | 0 | 2; ⟨cmd⟩ `node green/d2-eb-probe.mjs` ×2: slow chunk (+1.5 s) → loading plate 1 mid-hop, pane mounts after; aborted chunk → error plate "This scene could not be loaded.", boundary latched **0**, reported 1 (`pane-chunk`), →/extract then renders Extract — GREEN |
+| D1 (of record: headed real-GPU) | RED (banked headless) | **14/14 pass**, all 4 hops over32 ≤ 0.012, median 10 ms — GREEN-by-instrument; headless 0/14 recorded beside |
+| D3 ⟨cmd⟩ `grep -rE 'pane-wrapper--left\|pane-wrapper--right' demo/ \| wc -l` | 0 | **0**; each role `stage`·`inspector`·`action` has 8 enter/leave selectors in `animations.css` — GREEN (held) |
+| D4 ⟨cmd⟩ `grep -c '<Transition ' MixSourceSelector.vue AdminNamesPanel.vue` | 1 · 1 | **1 · 1** — GREEN (held) |
+| D5 ⟨cmd⟩ `PROBE_PRM=1 … scene-swap-budget.mjs` ×2 | GREEN (banked) | `pass:true` ×2; every observed region transition `transformMs 0`, all 4 hops `animated:true`; no scroll-driven / `animation-timeline` declaration added — GREEN |
+| B4 arm 3 ⟨cmd⟩ `grep -ro content-max-h demo/ \| wc -l` | 0 | **0** (held) |
+| view-switch spec ⟨cmd⟩ `VJS_E2E_PERF_PORT=<landed> npx playwright test --project=smoke-perf …/view-switch-frame-budget.spec.ts` ×2 | — | 1 passed ×2 (unmodified; software-GL branch: firstFrame 72.3 / 1019.4 ms, maxTask 184 / 754 ms — load-bound, under the freeze ceilings) |
+| §7 typecheck ⟨cmd⟩ `npx vue-tsc -p tsconfig.demo.json --noEmit` | EXIT 0 (banked) | **EXIT 0** (×2: before and after the plate fix); `npm run typecheck` EXIT 2 = 11 × `space-catalog.ts` `*.md` (foreign, banked CL.7 row 11) |
+| §7 lint ⟨cmd⟩ `npm run lint` | 23 errors, all `docs/tranches/V\|X/**` | **23 errors / 32 warnings**, 0 in any path this seat wrote (⟨cmd⟩ `grep -E '^/Users' lint.txt \| grep -E 'green/d2\|demo/\|scene-swap'` → none) |
+| §7 test ⟨cmd⟩ `npm run test` | 639/641 | **639/641**; the 2 fails = C-5 `spectrum-luma` + NG-6 `reka-binding-idiom` (foreign, routed X-W8 `.i` by §0aq) — unchanged |
+
+**Commits** (pathspec each, `dev.sh` never staged): `52dc0a5b` feat(demo/shell) coupled family (8 paths) · `b36df565` feat(demo/motion) containment · `bdee09ce` test(gates/D1) headed instrument · `70fb89d7` docs green evidence (8 files: `d2-D1-scene-swap-both-instruments` · `d2-D5-prm` · `d2-outin-reprobe-dev-HEAD` · `d2-containment-cv` + `d2-cv-probe.mjs` · `d2-EB-plates` + `d2-eb-probe.mjs` · `d2-view-switch-spec`) · this receipt.
+**Writes outside the set**: none. (A scratch copy of a probe landed at the repo root for one command, `./.eb-probe-tmp.mjs`, and was deleted in the next command — never staged, ⟨cmd⟩ `git status --porcelain` shows no such path.)
+**Residuals**: headless D1 0/14 on this host (software-GL instrument; the operator's quiesced window stays the only clean headless reading) · the out-in serialisation lengthens the swap to 200 + 440 ms by construction (the ruled mode) · upstream Vue 3.5 dev-root-fragment × `<Transition mode="out-in">` minimal repro rides the owner-report letter (§0ax), not a `node_modules` patch.
+**Escalations**: none.
+**Scratch hygiene**: static servers `:8131`/`:8132` stopped (⟨cmd⟩ `lsof -i :8131 -i :8132 -sTCP:LISTEN | wc -l` → 0).
