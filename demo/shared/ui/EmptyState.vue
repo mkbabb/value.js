@@ -15,6 +15,7 @@
            machine truth in Fira, and a real Retry in the action slot. -->
     <div
         v-if="variant === 'error'"
+        ref="root"
         class="flex flex-col items-center justify-center gap-2.5 py-8 text-center"
         role="alert"
     >
@@ -27,7 +28,7 @@
         </p>
         <slot name="action" />
     </div>
-    <div v-else class="flex flex-col items-center justify-center gap-2.5 py-8 text-center" role="status">
+    <div v-else ref="root" class="flex flex-col items-center justify-center gap-2.5 py-8 text-center" role="status">
         <!-- N-3, RE-AIMED (T.W6.5 · Lane S — R12, MANDATE §0.6
              t33-audit-08 "bring that iconset with the dashes back"): the
              clause stays TRUE — never two ghost registers at two scales —
@@ -65,6 +66,7 @@
 </template>
 
 <script setup lang="ts">
+import { useTemplateRef } from "vue";
 import { CircleAlert } from "@lucide/vue";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 
@@ -80,6 +82,14 @@ withDefaults(
     }>(),
     { variant: "empty" },
 );
+
+// The plate's rendered root. Each branch is ONE element carrying this ref, so
+// a host that owns focus (ErrorBoundary moves focus INTO its plate on catch)
+// reaches the element itself — never `$el`, which the dev build's leading
+// template comment turns into a fragment anchor. The two roots stay separate
+// elements (ES-35's lock: no single root with a patched `role`).
+const root = useTemplateRef<HTMLElement>("root");
+defineExpose({ focus: () => root.value?.focus() });
 </script>
 
 <style scoped>

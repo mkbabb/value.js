@@ -9,29 +9,31 @@
              keyboard / SR user LANDS on the recovery affordance instead of being
              stranded on the now-unmounted tree (WCAG 2.4.3 Focus Order);
            · a real recovery <button> — never a terminal dead end.
-         The plain register mirrors EmptyState's `error` variant (Q6: quiet
-         destructive glyph, Fraunces statement, the machine truth in Fira on the
-         certified `--ink-muted` de-emphasis rung — no new sub-floor detail). -->
-    <div
+         X.W7.g (N-9 · EB-9 ≡ ES-6): the plate IS EmptyState's `error`
+         variant — the one failure-register implementation, composed, never
+         cloned. The fork this replaced re-authored the same glyph / Fraunces
+         statement / Fira detail with five drifted magnitudes (gap, block and
+         inline padding, glyph size, both measure caps) and a byte-identical
+         de-emphasis-rung rule;
+         the boundary now adds only what is its own: the assertive live
+         region, the focus target, and the full-region fill. -->
+    <EmptyState
         v-if="caught"
-        ref="alertRef"
-        class="vj-error-boundary flex flex-col items-center justify-center gap-3 py-10 px-6 text-center h-full w-full min-h-0"
-        role="alert"
+        ref="plateRef"
+        variant="error"
+        class="vj-error-boundary h-full w-full min-h-0"
         aria-live="assertive"
         tabindex="-1"
+        :message="message"
+        :detail="detail ?? undefined"
     >
-        <CircleAlert class="w-7 h-7 text-destructive/80" aria-hidden="true" />
-        <p class="font-display text-heading text-foreground max-w-[28ch] text-balance leading-snug">
-            {{ message }}
-        </p>
-        <p v-if="detail" class="text-mono-small plate-ink max-w-[46ch] break-words">
-            {{ detail }}
-        </p>
-        <Button variant="outline" size="sm" class="font-display mt-1" @click="reset">
-            <RotateCcw class="w-3.5 h-3.5 mr-1.5" aria-hidden="true" />
-            {{ retryLabel }}
-        </Button>
-    </div>
+        <template #action>
+            <Button variant="outline" size="sm" class="font-display mt-1" @click="reset">
+                <RotateCcw class="w-3.5 h-3.5 mr-1.5" aria-hidden="true" />
+                {{ retryLabel }}
+            </Button>
+        </template>
+    </EmptyState>
     <slot v-else />
 </template>
 
@@ -52,8 +54,9 @@ export const FAILURE_REPORTER_KEY: InjectionKey<FailureReporter> = Symbol("failu
 
 <script setup lang="ts">
 import { ref, nextTick, onErrorCaptured, useTemplateRef, inject, watch } from "vue";
-import { CircleAlert, RotateCcw } from "@lucide/vue";
+import { RotateCcw } from "@lucide/vue";
 import { Button } from "../ui/button";
+import EmptyState from "../shared/ui/EmptyState.vue";
 import { PaneChunkError } from "../shell/PaneErrorPlate.vue";
 
 const {
@@ -82,7 +85,7 @@ const emit = defineEmits<{ reset: [] }>();
 
 const caught = ref(false);
 const detail = ref<string | null>(null);
-const alertRef = useTemplateRef<HTMLElement>("alertRef");
+const plateRef = useTemplateRef<InstanceType<typeof EmptyState>>("plateRef");
 const report = inject(FAILURE_REPORTER_KEY, null);
 
 onErrorCaptured((err, _instance, info) => {
@@ -96,7 +99,7 @@ onErrorCaptured((err, _instance, info) => {
     detail.value = err instanceof Error ? err.message : String(err);
     // Focus-manage: move focus INTO the announced boundary AFTER the fallback
     // paints, so the keyboard / SR user is never left on the unmounted subtree.
-    nextTick(() => alertRef.value?.focus());
+    nextTick(() => plateRef.value?.focus());
     // This boundary OWNS the failure — stop the throw propagating to the app
     // root (the white-screen). Returning false halts further onErrorCaptured /
     // app.config.errorHandler propagation; the report above already went out.
@@ -116,14 +119,3 @@ watch(
     },
 );
 </script>
-
-<style scoped>
-/* The machine-truth detail line threads the certified de-emphasis rung
- * (`--ink-muted` — boot-stamped, floor-clamped against the live resting plate;
- * the same rung EmptyState's error `detail` rides), so this new surface adds NO
- * sub-floor contrast debt (the U-F26 error-detail contrast lane is coordinated,
- * not double-cured here). */
-.plate-ink {
-    color: var(--ink-muted, var(--muted-foreground));
-}
-</style>
