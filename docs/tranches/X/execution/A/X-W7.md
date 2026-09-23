@@ -1481,3 +1481,56 @@ alone ×2); eslint on the 14 files EXIT 0; `git diff --check` clean. e2e not run
 - MR-35's live jump measurement (R-11) untaken (no browser probe at this seat); after the cure the row closes on the leaver's
   removal, not by a FLIP — an X-W10 motion-canon row.
 - ESC-W7f-READOUT (unit f) stands: `readoutDecimals` is still per-space, outside this grant.
+
+### X.W7.g2
+
+**Seat**: `claude-opus-5-5` · 2026-09-23 · COHESION §0bk.3 · W7.md §5.g (`:262-277`) · G19 (`:515-534`).
+**Crash-recovery**: ⟨cmd⟩ `git status --porcelain` → only ` M …/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh` · `?? docs/tranches/X/audit/` ·
+`?? …/chassis/ui-audit.js`. None of these is in the writable set, so there was **no inherited hunk**.
+
+**Acts, in order**
+
+1. **Anchors measured.** ⟨cmd⟩ `grep -n eyebrow PaletteCardGrid.vue MixSourceSelector.vue` → **0**. Both were cured at
+   `dfbafeb5` (Repair 1, D-4). MixSourceSelector's empty line already sits on EmptyState's declared `message`/`hint`
+   (`:270-274`). → **PRE-CURED, no edit.**
+2. **`0354d1ff`** `refactor(demo/failure)` — `PaneErrorPlate.vue` now composes `EmptyState variant="error"` inside its
+   resting Card. The drifted glyph, statement and detail magnitudes are gone, and so is the `.plate-ink` clone.
+   ⟨cmd⟩ drift census → **1 → 0** sites each. ⟨cmd⟩ `vue-tsc -p tsconfig.demo.json` → EXIT 0. ⟨cmd⟩ eslint on the
+   file → EXIT 0.
+3. **`813fb8f6`** `test(crash-battery/R14)` — the route glob is narrowed to a REST-only predicate (same as
+   `fixtures/browse-palettes.ts` and o9). Assertions unchanged. R14 was RED at `:58` (no boot). It is now RED at
+   `:103` on 2 clean runs: the plate paints and Retry keeps it, but the recovery leg fails.
+   I measured a `route.fulfill` for the recovery leg as a probe and reverted it before the commit, because it was
+   not in the grant.
+4. **Oracle re-points NOT made.** The new copy for OM-15 rows 15 and 17 lands in `BrowsePane.vue:65,139`, which is
+   outside the grant. Pointing `crash-battery.spec.ts:60` and `browse-pagination.spec.ts:62` at copy the product does
+   not render would turn both RED, so neither spec line was touched.
+5. **`89499f86`** `docs(X.W7.g2)` — added the W7-gate-log §X.W7.g2 section and the W7-om15-receipt ADDENDUM, including
+   the recorded `.family-eyebrow` exclusion.
+
+**Gates BEFORE → AFTER**
+
+| gate | BEFORE | AFTER | verdict |
+|---|---|---|---|
+| **G19** | raw grep **8 · 8** | recorded grep (`grep -v family-eyebrow`) **6 · 6** (raw still 8 · 8); all out of bounds, all prose | **RED — ESC-W7g2-G19-PROSE · ESC-W7g2-BROWSEPANE-COPY** |
+| N-9 | drift 1 site each (PaneErrorPlate) | **0** | GREEN |
+| R14 glob | RED `:58` (boot blocked) | boots; plate paints; Retry keeps it; RED `:103` | glob CURED · **ESC-W7g2-R14-RECOVERY** |
+
+**Escalations**
+
+- **ESC-W7g2-G19-PROSE** — the 6 hits left after the name exclusion are in files outside §0bk.3:
+  - `DESIGN.md:37`
+  - `EasingSpecimenStrip.vue:5,138` and `easingCatalogue.ts:81` (prose naming the family label)
+  - `GradientCodeEditor.vue:102`
+  - `ParseEchoReadout.vue:15`
+  
+  The cure is to widen the exclusion to the family-label prose (leaves 3) or to grant these comment files.
+- **ESC-W7g2-BROWSEPANE-COPY** — the grant covers the two oracles but not `BrowsePane.vue`, where the new copy
+  (`Couldn't load palettes.` · `Load more`) has to land. The copy and the oracle re-points must go in one commit.
+- **ESC-W7g2-R14-RECOVERY** — the recovery leg has two causes, both outside the grant:
+  - Under e2e, `route.continue()` reaches the SPA's HTML, not a backend.
+  - The availability latch (`availability.ts:87`, 30 s) holds a manual Retry past the leg's 15 s window.
+
+**Residuals**: the machine's load average was 209–276. Some R14 runs timed out at `page.goto` or `click` before any
+assertion, and they are not counted. Only the two clean runs are cited. `dev.sh` was not touched.
+**Commits**: `0354d1ff` · `813fb8f6` · `89499f86` · this record.
