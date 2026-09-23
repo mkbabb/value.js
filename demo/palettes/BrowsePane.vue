@@ -70,7 +70,7 @@
                             variant="outline"
                             size="sm"
                             class="font-display"
-                            @click="pm.loadRemotePalettes()"
+                            @click="pm.retryRemotePalettes()"
                         >
                             Retry
                         </Button>

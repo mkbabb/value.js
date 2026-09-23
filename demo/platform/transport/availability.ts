@@ -265,3 +265,21 @@ export function assertApiAttemptAllowed(): void {
     }
     throw new ApiUnavailableError();
 }
+
+/**
+ * X.W7.z1 (COHESION §0bt.1 · ESC-W7g2-R14-RECOVERY) — a user's explicit Retry
+ * IS the recovery probe. The cooldown exists to stop the app's OWN callers from
+ * bursting doomed requests at a dead backend; it must not refuse the person who
+ * asked for exactly one. Before this, a Retry pressed within `RETRY_COOLDOWN_MS`
+ * of the trip was short-circuited without a request, so the Browse wall held its
+ * error plate for up to 30 s after the backend had come back.
+ *
+ * Opening the window admits the NEXT attempt only, through the same
+ * `assertApiAttemptAllowed` branch as a scheduled probe — which re-arms the
+ * window as it admits, so the one-probe law (AP-17) holds: a failure re-trips
+ * the latch, a success releases it. A no-op unless the latch is tripped.
+ */
+export function admitRecoveryProbe(): void {
+    if (apiAvailability.value !== "unavailable") return;
+    unavailableSince = Date.now() - RETRY_COOLDOWN_MS;
+}

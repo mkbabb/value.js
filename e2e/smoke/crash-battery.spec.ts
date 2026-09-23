@@ -3,6 +3,7 @@ import type { Page } from "@playwright/test";
 import { deflateSync } from "node:zlib";
 
 import { openView, mainPane } from "./fixtures/dock";
+import type { Palette } from "../fixtures/palette-envelopes";
 
 /**
  * SERVED MODEL: claude-opus-5[1m]
@@ -46,6 +47,22 @@ function collectPageErrors(page: Page): string[] {
 // and even a backend restore), transiently in prod. `PaletteCard.vue` and
 // `PaletteCardSkeleton.vue` compile dev-fragment the same way, so the gate is
 // written against the HOST, not against one component.
+const RECOVERED_PALETTE: Palette = {
+    name: "Recovered Palette",
+    slug: "recovered-palette",
+    userSlug: "gallery",
+    colors: [
+        { css: "#e11d48", position: 0 },
+        { css: "#2563eb", position: 1 },
+    ],
+    createdAt: "2026-07-05T00:00:00.000Z",
+    updatedAt: "2026-07-05T00:00:00.000Z",
+    isLocal: false,
+    visibility: "public",
+    tier: "standard",
+    published: true,
+};
+
 test("R14 · pressing Retry on a dead Browse wall leaves a plate behind", async ({
     page,
 }) => {
@@ -60,7 +77,23 @@ test("R14 · pressing Retry on a dead Browse wall leaves a plate behind", async 
             !/\/(@fs|@id|@vite|node_modules)\//.test(url.pathname) &&
             !/\.\w+$/.test(url.pathname) &&
             /(^|\/)palettes(\/|$)/.test(url.pathname),
-        (route) => (abort ? route.abort("failed") : route.continue()),
+        // X.W7.z1 (§0bt.1 · ESC-W7g2-R14-RECOVERY): the recovered backend
+        // ANSWERS. Under e2e `VITE_API_URL` is the Vite origin itself, so a
+        // `route.continue()` reached the SPA's `index.html` (200 text/html) —
+        // there is no backend to recover. The recovered leg is the backend's
+        // JSON page, fulfilled (the `fixtures/browse-palettes.ts` idiom).
+        (route) =>
+            abort
+                ? route.abort("failed")
+                : route.fulfill({
+                      status: 200,
+                      contentType: "application/json",
+                      body: JSON.stringify({
+                          data: [RECOVERED_PALETTE],
+                          nextCursor: null,
+                          hasMore: false,
+                      }),
+                  }),
     );
 
     await page.goto("/#/browse");

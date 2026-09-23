@@ -2,6 +2,7 @@ import { ref, type Ref } from "vue";
 import { useFilteredList } from "./useFilteredList";
 import { useSession } from "../platform/auth/useSession";
 import { usePaletteStore } from "./usePaletteStore";
+import { admitRecoveryProbe } from "../platform/transport/availability";
 import {
     listPalettes,
     votePalette,
@@ -101,6 +102,16 @@ export function useBrowsePalettes(deps: {
                 sortLoading.value = false;
             }
         }
+    }
+
+    /**
+     * X.W7.z1 (COHESION §0bt.1): the wall's Retry is a person asking for one
+     * request now — it is admitted as the latch's recovery probe, never
+     * short-circuited by the automatic cooldown (see `admitRecoveryProbe`).
+     */
+    function retryRemotePalettes() {
+        admitRecoveryProbe();
+        return loadRemotePalettes();
     }
 
     /**
@@ -255,6 +266,7 @@ export function useBrowsePalettes(deps: {
         hasMore,
         filteredBrowse,
         loadRemotePalettes,
+        retryRemotePalettes,
         loadMoreRemotePalettes,
         onSortChange,
         onSaveRemote,

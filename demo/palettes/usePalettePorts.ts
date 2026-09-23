@@ -195,6 +195,7 @@ export function providePalettePorts(deps: PalettePortsDeps) {
         hasMore: browse.hasMore,
         loadingMore: browse.loadingMore,
         loadRemotePalettes: browse.loadRemotePalettes,
+        retryRemotePalettes: browse.retryRemotePalettes,
         loadMoreRemotePalettes: browse.loadMoreRemotePalettes,
         filteredBrowse: browse.filteredBrowse,
         sortMode: browse.sortMode,
