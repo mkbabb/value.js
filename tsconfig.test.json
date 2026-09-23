@@ -36,5 +36,5 @@
             "@mkbabb/value.js/css": ["./dist/subpaths/css.d.ts"]
         }
     },
-    "include": ["test/**/*.ts", "demo/test/**/*.ts", "src/vite-env.d.ts"]
+    "include": ["test/**/*.ts", "demo/test/**/*.ts", "src/vite-env.d.ts", "demo/color-picker/vite.d.ts"]
 }

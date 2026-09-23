@@ -45,7 +45,17 @@ jobs:
               with:
                   node-version: ${{ matrix.node }}
                   cache: npm
+                  cache-dependency-path: |
+                      package-lock.json
+                      api/package-lock.json
             - run: npm ci
+            # `demo/test/palettes/dto-parity.test.ts` type-imports the server's
+            # DTOs from `api/src/**` (client/server parity, X.W7.d N-8), and those
+            # modules import `mongodb` types — resolvable only from
+            # `api/node_modules`. Install the api package so the typecheck
+            # programs see the same tree the workstation does. Scripts are
+            # skipped: only the declarations are needed (no mongod binary).
+            - run: npm ci --prefix api --ignore-scripts
             - run: npm run lint
             - run: npm run build
             # X-W1 G-1 / NG-3: ONE definition of "typecheck", shared by CI and
