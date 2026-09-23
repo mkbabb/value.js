@@ -674,6 +674,15 @@
             var(--saved-bg-2, var(--saved-bg, var(--background))) 67%,
             var(--saved-bg-3, var(--saved-bg, var(--background))) 100%
         );
+        /* X.W12.a · UIA-V-57 / UIA-V-56 (OA-18): the ground is VIEWPORT-FIXED,
+         * the same box as the atmosphere canvas (App.vue). Unattached, the
+         * propagated root background's positioning area was the document:
+         * on a long page the 135deg ramp stretched over thousands of px (a
+         * flat single-stop slab wherever the field was absent) and restarted
+         * at its darkest stop past the layout (the near-black plum seam at
+         * scroll-end in dark). Fixed, it paints the whole ramp in every
+         * viewport — the W2-3 no-field terminal is the palette, never a band. */
+        background-attachment: fixed;
         color: var(--foreground);
     }
     :root {
