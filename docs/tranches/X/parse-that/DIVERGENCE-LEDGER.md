@@ -1186,3 +1186,98 @@ The cure landed at `X.P.W4.h` (`<p2>` `fede7d3`) and both cells re-measure **`id
 (`evidence/W4/two-cell-census-2026-09-19-w4h.txt`). F-w4f-2 is a candidate defect REPAIRED, not a
 divergence declared: no ledger row is owed and none is written. `§10.1`'s two rows stand as written,
 with this section as their dated disposition.
+
+---
+
+## §12 — the 152 cells at parse-that master, each dispositioned; the harness now honours the rulings (X.P.W5.b · SERVED MODEL: claude-opus-5-5 · 2026-09-23) — DATED, BESIDE (E-3)
+
+**Standing.** Appended under `waves/W5.md` §Units `.b`: *"each cured at the parser (either side) or
+rowed as an intended divergence with its spec citation; harness exit 0"*. Nothing above this line is
+rewritten. §0–§9 are the emitter's bytes, §6.1 is `.e`'s, §10 is `.f`'s, §11 is `.h`'s. A
+regeneration must re-append §10, §11 AND this §12.
+
+**What was measured.** At parse-that master `4eac70c1` (the `.a` merge of `w2/harness`),
+⟨`node test/css-equivalence/run-full-surface.mjs --pinned-value-commit 6aca8602…`⟩ (no `--limit`, no
+`--out`) printed `MIRROR-DEFECTS 152 (of which spec-undecided 118)` and exited 1. `W5.md` quotes 44;
+that figure is from before `X.P.W4.h` (§11.2 records the 42 → 152 move). **Every one of the 152 cells
+was already ruled candidate-correct.** 41 are ruled one at a time in `ADJUDICATION-W4.md` §2 (Appendix
+A `#1`–`#44`, less `#40`/`#41`, which F-w4f-2's cure made `identical`, and `#37`, which now falls under
+F-w4f-1). The other 111 are ruled as a class, F-w4f-1 (COHESION §0ab; §11 above). No cell is a
+candidate defect, so no grammar cure applies: a cure would copy the incumbent's defect into the
+candidate. The rows already existed. The gap was the INSTRUMENT: the differential honoured only the
+sixteen parser-band adjudications, so a ruled cell still counted as a defect.
+
+#### §12.1 The dispositions, by ruling — every cell `declared-divergence`, candidate correct
+
+| ruling | cells (entry × lowering-agnostic) | spec § | representative input | 4.0.0 | candidate (js ≡ wasm) | direction | ruled at |
+|---|---|---|---|---|---|---|---|
+| `GROUND-C` | 4 (`#1`–`#4`: `parseCssColor` · `parseCssScalar` · `parseCssValue` · `parseCssValues`) | css-syntax-3 §4.3.13 (overflow is not a syntax error); css-color-4 §4.2 (alpha clamps to [0,1]) | `rgb(.843, -0, +54, 5e498)` | REJECT `css_syntax` | ACCEPT `{rgb, [0.843, 0, 54], alpha 1}` | WIDENS | ADJUDICATION-W4 §2.1 |
+| `GROUND-C` | 23 (`parseTimingFunction`) | css-easing-1: only `cubic-bezier` x1/x2 are range-restricted | `cubic-bezier(.319, 1e389, .334, 28.136)` | REJECT `css_syntax` | ACCEPT, `y1: Infinity` | WIDENS | §2.2 |
+| `ID-2` | 1 (`#10`, `parseTimingFunction`) | css-syntax-3 §5.4.1 / css-values-4 §2.1 (an empty comma part is not a component value) | `steps(1e43,, start)` | ACCEPT `{steps, 1e43, jump-start}` | REJECT `[11,19) <jump-position>` | NARROWS | §2.2 |
+| `GROUND-C` | 2 (`#31`, `#33`, `parseStylesheet`) | css-color-4 §8.1 / §4.2 | `a{ color: rgb(-232, 52.305, 67, 1e327) }` | REJECT | ACCEPT `[0, 52.305, 67] / alpha 1` | WIDENS | §2.3 |
+| `ID-4` | 4 (`#29` `#34` `#38` `#42`) | css-syntax-3 §5.4.3 (a stray `)` is a prelude component value) | `.c ){ color: #28cA }` | REJECT `expected ["rule"]` | ACCEPT, selector `.c )` | WIDENS | §2.4 |
+| `ID-4` | 1 (`#39`) | css-syntax-3 §5.4.9 (a `(` block is consumed to EOF) | `.c {…} GARBAGE ) ;(#d { … }` | ACCEPT two rules | REJECT `[54,65)` + `[65,100)` | NARROWS | §2.4 |
+| `PB-12` | 3 (`#30` `#35` `#36`) | css-syntax-3 §4.3.12 (`1.` is not a number); the name is also non-ident (F-w4f-1) | `b { col!r: rgb(9. none -76 / 0.) }` | ACCEPT | REJECT | NARROWS | §2.5 |
+| `PB-09` | 1 (`#32`) | css-color-4 §7 (a percentage hue); non-ident name too | `… a { border-colo!r: hsl(50% 1e-366 67.310) }` | ACCEPT | REJECT | NARROWS | §2.5 |
+| `ID-1b` (nested rule) | 2 (`#43`, `#44`) | css-syntax-3 §5.4.4 (an `<at-keyword-token>` starts an at-rule, not a name) | `@property --ratio {…} h1, h2 {/* c */ img { @container (width > 400px) { nav {…} } … } … }` | ACCEPT, mangled names (`@container (width > 400px) { nav { margin`) | ACCEPT, `@container` a child of `img` | CHANGES VALUE | §2.5 |
+| `F-w4f-1` | 111 (`parseStylesheet`: 79 + 27 + 5 by verdict below) | css-syntax-3 §5.4.4 / §4.3.11 (a name is one `<ident-token>`); §4.3.2 (a comment is trivia) | `a { co  lor: hsl(270rad 4e-280 +61 / 2.725) }` | ACCEPT, name `co  lor` | REJECT the sheet (whole-sheet posture, §10.4) | NARROWS | COHESION §0ab · §11 |
+| `F-w4f-1` (comment-trivia face) | 5 of the 111 | css-syntax-3 §4.3.2 | ` [data-x] { /* note */opacity: 1 !important }` | ACCEPT, name `/* note */opacity` | ACCEPT, name `opacity` | CHANGES VALUE | COHESION §0ab · ADJUDICATION-W4 §12 |
+
+The 111 F-w4f-1 cells by harness verdict before this unit: 79 `FALSE_REJECT_IN_SHAPE`, 27
+`ADJUDICATION_UNHONOURED` and 5 `DIVERGENT_VALUE`. The 27 are sheets where a parser-band ruling
+(PB-04/05, PB-01/02, ADJ-3) wants the colour accepted and the candidate refuses the sheet on its NAME.
+After the repair (§12.2), the colour ruling is honoured. `#37` (PB-05) is one of them. 41 + 111 = 152.
+
+#### §12.2 How the harness honours a ruling, and why it is not an allowlist
+
+parse-that `902172d` (`typescript/test/css-equivalence/lib/ruled.mjs`, used by
+`lib/differential.mjs`'s `applyRuling`) is consulted ONLY for a cell the differential already reads as
+a RED trigger. A cell no ruling governs comes back unchanged and is still counted AGAINST the
+candidate.
+
+- **Per-cell rulings (41).** Each row carries the exact corpus input, the entries it binds, its
+  Appendix A number, its ruling id as RULED (§10.1, not the emitter's tag), the section that rules it,
+  the ruled candidate verdict and the direction. A cell is honoured only when the candidate's verdict
+  equals the ruled verdict. If the candidate moves off it, the cell reads `ADJUDICATION_UNHONOURED`,
+  which is a RED trigger.
+- **The F-w4f-1 class (111).** It is entered only where the shared predicate
+  `nonIdentDeclarationName`, the one `remainderId` files under `ID-1b`, fires. The repair rewrites
+  exactly the incumbent's mis-spelled NAME runs. Runs that cross a brace are the nested-rule reading
+  (`#43`/`#44`'s shape) and are left untouched. The cell is honoured only if every applicable
+  condition below holds:
+  - the repaired sheet reads non-RED against the same oracle and the same parser-band adjudications;
+  - for a non-ident name, the candidate REFUSES the original and ACCEPTS the repaired sheet (so a
+    sheet both engines refuse for another reason can never pass);
+  - for a comment-only run, the candidate's reading does not move when the comment goes (same tree,
+    or the same refusal code).
+
+  If any condition fails, the cell keeps its RED verdict and the reason is appended to its `why`.
+- **Negative controls, run at this seat** (a scratch driver of `resolveRuling` with synthetic
+  candidate results). A per-cell `#8` with the candidate refusing → `honoured=false`. The same input
+  at another entry → not governed. A non-ident name the candidate accepts → `false`. Both refusing the
+  repaired sheet → `false`. A repaired sheet still RED → `false`. A comment-only run whose verdict
+  flips, or whose tree moves → `false`. A nested-rule-only run → not governed. No ruling → not
+  governed. Two positives were `true`.
+
+**The reading after the unit (G-W5-b1), double-run.**
+⟨`node test/css-equivalence/run-full-surface.mjs --pinned-value-commit 6aca8602…`⟩ →
+`ledger 77 rows — … · RULED 39` · `MIRROR-DEFECTS 0 (of which spec-undecided 0)` ·
+`GREEN — zero mirror-defects across the full surface, and every declared difference is rowed.` →
+EXIT 0, both runs. The two runs differ only in the line-1 timestamp. Against the pre-unit report:
+`AGREE` is unmoved on every row and `DECLARED_DIVERGENCE` rises by exactly the prior miss count
+(`parseCssColor`/`Scalar`/`Value`/`Values` +1 each, `parseTimingFunction` +24,
+`parseStylesheet` +124) in both lowerings.
+
+#### §12.3 A SHARED departure the repair test surfaced (not a divergence; no mirror-defect)
+
+**F-W5b-1 — `var()` inside the `animation` shorthand is refused by BOTH engines.**
+`.h { animation: blob-emerge 500ms var(--ease-decelerate) backwards; }` → 4.0.0
+`animation_option_invalid` · candidate `animation_option_invalid`. css-variables-1 §3: a property
+value that contains a syntactically valid `var()` is assumed valid at parse time. The engines agree,
+so the harness has nothing to count here. The corpus cell that surfaced it
+(`.hero-blob-anchor { /* … */ animation: … var(--ease-decelerate) backwards; }`) diverged only
+because 4.0.0 read the comment as part of the NAME. It is honoured as F-w4f-1's comment-trivia face:
+the candidate's refusal code is unchanged when the comment goes. The shared departure is routed to
+the seam's next grammar unit (`X.P.W5.c` / `.e`), not cured here. Curing it only on the candidate
+would open a new divergence against the frozen 4.0.0 contract, so the cure and its row must land
+together.
