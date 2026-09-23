@@ -52,13 +52,14 @@ export function useDialogBrowseActions(deps: DialogBrowseActionsDeps) {
         try {
             await pm.ensureUser();
             await pm.ensureSession();
-            const forked = await pm.versions.fork(palette.slug);
-            if (!forked) {
-                // `useVersionHistory.fork` settles a transport failure as
-                // `undefined`; it is this act's failure, rendered here.
-                deps.onForkError(palette, "Remix failed: the fork did not reach the server.");
+            const result = await pm.versions.fork(palette.slug);
+            if (!result.ok) {
+                // `useVersionHistory.fork` settles a transport failure as a
+                // typed verdict; its reason is this act's failure, rendered here.
+                deps.onForkError(palette, `Remix failed: ${result.message}`);
                 return;
             }
+            const forked = result.palette;
             pm.remotePalettes.value = [forked, ...pm.remotePalettes.value];
             // F1: bump the source palette's fork-count badge (ported from the
             // BrowsePane copy so both hosts observe the same state).

@@ -166,6 +166,7 @@
             :current-hash="versionPalette.currentHash ?? null"
             @update:open="onVersionsOpenChange"
             @revert="onRevert"
+            @load-failed="onVersionsLoadFailed"
         />
 
         <FlagReportDialog
@@ -325,6 +326,14 @@ async function onRevert(hash: string) {
     if (idx >= 0) pm.remotePalettes.value[idx] = updated;
     versionPalette.value = updated;
     showVerdict(slug, "Reverted", true);
+}
+
+// X.W7.z1 (COHESION §0bt.1): a failed version-page load is said on the
+// inspector of the palette whose history was asked for.
+function onVersionsLoadFailed(message: string) {
+    if (versionPalette.value) {
+        showVerdict(versionPalette.value.slug, `Versions failed to load: ${message}`, false);
+    }
 }
 
 // W7.78 (VHD-35): the drawer's subject is released on close.

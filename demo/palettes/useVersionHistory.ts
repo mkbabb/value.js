@@ -21,18 +21,30 @@ export type RevertResult =
     | { readonly ok: true; readonly palette: Palette }
     | { readonly ok: false; readonly message: string };
 
+/**
+ * The fork verdict (X.W7.z1 · COHESION §0bt.1; W7-failure-dispositions row 47:
+ * SURFACE). The failure carries its reason to the host, which says it on the
+ * palette inspector's rail; nothing is swallowed.
+ */
+export type ForkResult = RevertResult;
+
+/**
+ * The version-page verdict (X.W7.z1 · COHESION §0bt.1). A failed load is a
+ * reason the drawer hands its host (said on the inspector's rail), not an
+ * empty page that reads as "0 versions".
+ */
+export type VersionsResult =
+    | { readonly ok: true; readonly page: VersionsPage }
+    | { readonly ok: false; readonly message: string };
+
 export interface UseVersionHistory {
     fetchVersions: (
         slug: string,
         limit?: number,
         offset?: number,
-    ) => Promise<VersionsPage | undefined>;
+    ) => Promise<VersionsResult>;
     revert: (slug: string, hash: string) => Promise<RevertResult>;
-    fork: (
-        slug: string,
-        name?: string,
-        forkSlug?: string,
-    ) => Promise<Palette | undefined>;
+    fork: (slug: string, name?: string, forkSlug?: string) => Promise<ForkResult>;
 }
 
 function messageOf(e: unknown, fallback: string): string {
@@ -44,13 +56,12 @@ export function useVersionHistory(): UseVersionHistory {
         slug: string,
         limit = 20,
         offset = 0,
-    ): Promise<VersionsPage | undefined> {
+    ): Promise<VersionsResult> {
         try {
             const res = await listVersions(slug, limit, offset);
-            return { data: res.data, total: res.total };
+            return { ok: true, page: { data: res.data, total: res.total } };
         } catch (e) {
-            console.warn("Failed to load versions:", e);
-            return undefined;
+            return { ok: false, message: messageOf(e, "The versions did not reach the server.") };
         }
     }
 
@@ -66,12 +77,11 @@ export function useVersionHistory(): UseVersionHistory {
         slug: string,
         name?: string,
         forkSlug?: string,
-    ): Promise<Palette | undefined> {
+    ): Promise<ForkResult> {
         try {
-            return await forkPalette(slug, name, forkSlug);
+            return { ok: true, palette: await forkPalette(slug, name, forkSlug) };
         } catch (e) {
-            console.warn("Failed to fork palette:", e);
-            return undefined;
+            return { ok: false, message: messageOf(e, "The fork did not reach the server.") };
         }
     }
 

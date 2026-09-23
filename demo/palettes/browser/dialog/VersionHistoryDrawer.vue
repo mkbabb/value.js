@@ -120,9 +120,11 @@ const { open, paletteSlug, paletteName, currentHash } = defineProps<{
     currentHash: string | null;
 }>();
 
-defineEmits<{
+const emit = defineEmits<{
     "update:open": [value: boolean];
     revert: [hash: string];
+    /** X.W7.z1 (COHESION §0bt.1): a failed page load, handed to the host's rail. */
+    "load-failed": [message: string];
 }>();
 
 // D.W3 Lane B: route the api call through pm.versions, keep per-drawer local
@@ -135,8 +137,12 @@ const loading = ref(false);
 async function loadVersions(offset = 0) {
     loading.value = true;
     try {
-        const page = await pm.versions.fetchVersions(paletteSlug, 20, offset);
-        if (!page) return;
+        const result = await pm.versions.fetchVersions(paletteSlug, 20, offset);
+        if (!result.ok) {
+            emit("load-failed", result.message);
+            return;
+        }
+        const page = result.page;
         if (offset === 0) {
             versions.value = page.data;
         } else {
