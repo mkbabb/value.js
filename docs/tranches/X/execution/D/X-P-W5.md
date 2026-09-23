@@ -518,3 +518,53 @@ Repair seat (round 2), `claude-opus-5-5`, 2026-09-23 ~14:28 EDT. Read: W5.md who
 | C2-6 INFO | No action required. | — | — |
 
 **Status: unmoved (PARTIAL).** Next: owner `npm login` → publish 2.0.0 → tag `v2.0.0` `661b47c` · the orchestrator rules F-W5d-1, R-c-2/SC-2, F-W5c-1 and ESC-c1 routing · `.d` re-dispatch (low-load perf read) → `.e` → RC-P ×2 → Check 3.
+
+## Check 3
+
+Fresh adversarial check (L-20 pass 3), `claude-opus-5-5`, 2026-09-23 ~14:30–14:40 EDT. Read: W5.md whole (22 lines), this record's header through §Unit plan, §Check 2 and §Repair 2. Crash-recovery: my writable set (this record, `LEDGER.md`) was clean at open. The parse-that dirt is still the July `rust/**`/`.cargo`/`README.md` set, which I did not touch. Load was 46–59. Scratch: session scratchpad `chk3/`.
+
+**Verdict: NOT-CONFORMANT (unchanged from Checks 1 and 2).** Nothing has moved since Repair 2:
+- parse-that master is still `661b47c` (`## master...origin/master`, 0 commits since).
+- ⟨`npm whoami`⟩ → `E401 Unauthorized`.
+- ⟨`npm view @mkbabb/parse-that dist-tags`⟩ → `latest 1.0.0`.
+- ⟨`git tag -l 'v2*'`⟩ → none.
+- COHESION's last section is still §0bt; no section after §0bp rules on F-W5d-1, ESC-c1, F-W5c-1 or R-c-2.
+
+### Axes
+1. **Claimed GREENs reproduce: 6 of 6** (a1 a2 b1 c1 c2 d3 at `661b47c`).
+   - a1: ⟨`merge-base --is-ancestor 31999135 master`⟩ → `anc=0`.
+   - a2: ⟨`ls typescript/scripts/proof-no-css-surface.mjs`⟩ → `No such file`, and ⟨`grep -c no-css-surface typescript/package.json`⟩ → `0`.
+   - b1: ⟨`run-full-surface.mjs --pinned-value-commit 6aca8602…`⟩ ×2 → `MIRROR-DEFECTS 0 (of which spec-undecided 0)` · `GREEN` `EXIT=0` both times. `diff` after line 1 → `0`.
+   - c1/c2: ⟨`npx vitest run`⟩ → `✓ test/css-color5.test.ts (14 tests)` · `Test Files 15 passed (15) · Tests 148 passed (148)` `EXIT=0`.
+   - d3: ⟨`rc-p-evaluate.mjs --version 4.0.0`⟩ ×2 → `6 ROUTED(V) yes TRUE TRUE`.
+2. **Bounds: clean.** No new code commit since Check 2. ⟨`git show --stat ce2801e9 20c70b57`⟩ → only this record and `LEDGER.md` changed. ⟨`git log 42a82e3e..HEAD -- scripts/dev/dev.sh | wc -l`⟩ → `0`.
+3. **Masking: none.** No new diff; Check 2's sample of the Repair 1 diff stands.
+4. **Commit families:** one per meaning; unchanged.
+5. **E-3:** ⟨`git diff --stat 42a82e3e..HEAD -- parse-that/waves/ V/megatranche/registry/adjudicated/ parse-that/RELEASE-CONDITION.md parse-that/ADJUDICATION-W4.md`⟩ → empty.
+6. **Mail:** ⟨`grep -cE '\| *UNREAD *\|' INBOX.md`⟩ → `0`.
+7. **Four-verb:** W5.md designates no move, and none was made. Lawful.
+8. **Goal criterion: NOT MET.**
+   - value.js ⟨`grep -c parse-that package.json`⟩ → `0`.
+   - ⟨`wc -l src/css/grammar.ts src/css/syntax.ts`⟩ → `544 · 101`.
+   - RC-P ×2 → `FALSE — 3 of 6 conjuncts are FALSE: 1 PUBLISHED(V) · 3 EQUIVALENCE(V) · 4 ADMITTED(V)`, with arm V `20962` and `EXIT=1` both times.
+9. **Figures reproduce.** Repair 2's re-reads hold: latest `1.0.0`, no v2 tag, `0`, `544/101`. The vitest `148/148` and b1 `0` reproduce.
+10. **Honest-RED adjudication:** W5.md's bytes still carry no honest-RED id, no producer-owned row and no successor routing for d1, d2, e1, e2, close or a3-perf. The Close line (:22) requires RC-P re-evaluated, and `.d`/`.e` are in-wave units.
+
+### Register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C3-1 | **HIGH** | Carried from C2-1, unmoved. **G-W5-d1 · d2 · e1 · e2 · close are RED with no relief in W5.md.** 2.0.0 is not published, ADMITTED is FALSE, value.js is not on the seam, the hand grammar stands, and RC-P is FALSE. The blockers are named (ESC-W5d-1 as an OWNER ACT, F-W5d-1 as a ruling), but a named blocker is not a relief. There is no seat misconduct. | ⟨`npm whoami`⟩ → `E401` · `latest 1.0.0` · RC-P ×2 FALSE 3/6 · `0` · `544 · 101` | Owner: `npm login` → publish 2.0.0 → `git tag v2.0.0 661b47c` · orchestrator rules F-W5d-1 · re-dispatch `.e` → RC-P ×2 → Check 4 |
+| C3-2 | MEDIUM | Carried from C2-2. The a3 perf limb has no low-load read. | ⟨`sysctl -n vm.loadavg`⟩ → `{ 59.42 46.65 52.29 }` | ESC-R1-1: a low-load read at the `.d` re-dispatch |
+| C3-3 | MEDIUM | Carried from C2-3. The ESC-c1 latch legs (2 of 475) are routed only by a prior wave's text. | Check 2 `473/475` (no new diff) | Orchestrator grant, or a dated routed-carry addendum |
+| C3-4 | MINOR | Carried from C2-4. R-c-2/SC-2 rulings are owed; owners are named. | `052de4d6` §13 | Orchestrator ruling |
+| C3-5 | MINOR | Carried from C2-5. F-W5c-1 is unruled. | `test/css-color5.test.ts:210-222` | Orchestrator ruling |
+
+### Honest-RED set
+**Empty.** No RED gate is relieved by W5.md's own bytes. d1, d2, e1, e2 and close wait on an owner act and a ruling. a3-perf is environmental and unproven.
+
+### Successor "Opens after"
+⟨`grep -rln 'Opens after.*X\.P\.W5' docs/tranches/X`⟩ → only W5.md and this record. No wave declares `X.P.W5 CLOSED` as a conjunct. KF.W3 is keyed on RC-P(V), which is FALSE ×2, so it is **lawfully blocked**. The X-W11 coordinate needs RC-P TRUE, which is not met. No successor is blocked unlawfully.
+
+### Tally (counted from the register)
+0 BLOCKER · 0 CRITICAL · 1 HIGH · 2 MEDIUM · 2 MINOR. Gates reproduced GREEN: 6 (a1 a2 b1 c1 c2 d3). RED: 6 (a3-perf d1 d2 e1 e2 close). **LEDGER status not moved** (PARTIAL stands). Next: owner act ESC-W5d-1 + F-W5d-1 ruling → `.d` re-dispatch (perf read) → `.e` → Check 4. A repair seat cannot move this wave until then.
