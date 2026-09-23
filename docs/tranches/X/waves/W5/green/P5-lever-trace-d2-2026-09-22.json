@@ -1,0 +1,1248 @@
+{
+ "servedModel": "claude-opus-5-5[1m]",
+ "unit": "X.W5.d2",
+ "instrument": "docs/tranches/X/waves/W5/triumvirate/swap-root-trace.mjs (unmodified), built bundles served statically",
+ "variants": {
+  "base": "HEAD bytes",
+  "A": "P-5a: .pane-container { align-items: start } (shell.css)",
+  "B": "P-5b: pane-family rotate(±2deg) -> rotate(0deg) (animations.css, 4 rules)"
+ },
+ "order": "interleaved base,A,B per round; 3 rounds",
+ "note": "load 9-15 throughout: ordering only, absolute ratios are non-evidence for D1",
+ "rounds": {
+  "r1": {
+   "base": {
+    "load": "20:11  up 3 hrs, 2 users, load averages: 11.45 15.04 19.96",
+    "hops": [
+     {
+      "hop": "→/gradient",
+      "travel": "on",
+      "frames": 58,
+      "over32Ratio": 0.172,
+      "median": 8,
+      "rasterMs": 629,
+      "gpuMs": 42,
+      "midGeom": [
+       "stage:512x7974",
+       "inspector:512x7974"
+      ]
+     },
+     {
+      "hop": "→/extract",
+      "travel": "on",
+      "frames": 64,
+      "over32Ratio": 0.109,
+      "median": 9,
+      "rasterMs": 262,
+      "gpuMs": 0,
+      "midGeom": [
+       "stage:512x1538",
+       "inspector:512x1538"
+      ]
+     },
+     {
+      "hop": "→/mix",
+      "travel": "on",
+      "frames": 36,
+      "over32Ratio": 0.278,
+      "median": 17,
+      "rasterMs": 397,
+      "gpuMs": 104,
+      "midGeom": [
+       "stage:512x1169",
+       "inspector:512x1169"
+      ]
+     },
+     {
+      "hop": "→/generate",
+      "travel": "on",
+      "frames": 73,
+      "over32Ratio": 0.123,
+      "median": 8,
+      "rasterMs": 348,
+      "gpuMs": 46,
+      "midGeom": [
+       "stage:512x1142",
+       "inspector:512x1142"
+      ]
+     },
+     {
+      "hop": "→/gradient",
+      "travel": "suppressed",
+      "frames": 112,
+      "over32Ratio": 0.018,
+      "median": 8,
+      "rasterMs": 151,
+      "gpuMs": 3,
+      "midGeom": [
+       "stage:512x960",
+       "inspector:512x960"
+      ]
+     },
+     {
+      "hop": "→/extract",
+      "travel": "suppressed",
+      "frames": 89,
+      "over32Ratio": 0,
+      "median": 11,
+      "rasterMs": 109,
+      "gpuMs": 0,
+      "midGeom": [
+       "stage:512x578",
+       "inspector:512x578"
+      ]
+     },
+     {
+      "hop": "→/mix",
+      "travel": "suppressed",
+      "frames": 48,
+      "over32Ratio": 0.125,
+      "median": 16,
+      "rasterMs": 240,
+      "gpuMs": 116,
+      "midGeom": [
+       "stage:512x673",
+       "inspector:512x673"
+      ]
+     },
+     {
+      "hop": "→/generate",
+      "travel": "suppressed",
+      "frames": 121,
+      "over32Ratio": 0,
+      "median": 8,
+      "rasterMs": 92,
+      "gpuMs": 11,
+      "midGeom": [
+       "stage:512x515",
+       "inspector:512x515"
+      ]
+     }
+    ]
+   },
+   "A": {
+    "load": "20:11  up 3 hrs, 2 users, load averages: 9.70 14.40 19.62",
+    "hops": [
+     {
+      "hop": "→/gradient",
+      "travel": "on",
+      "frames": 54,
+      "over32Ratio": 0.222,
+      "median": 8,
+      "rasterMs": 608,
+      "gpuMs": 37,
+      "midGeom": [
+       "stage:512x1644",
+       "inspector:512x7974"
+      ]
+     },
+     {
+      "hop": "→/extract",
+      "travel": "on",
+      "frames": 64,
+      "over32Ratio": 0.156,
+      "median": 9,
+      "rasterMs": 253,
+      "gpuMs": 0,
+      "midGeom": [
+       "stage:512x1538",
+       "inspector:512x515"
+      ]
+     },
+     {
+      "hop": "→/mix",
+      "travel": "on",
+      "frames": 43,
+      "over32Ratio": 0.233,
+      "median": 12,
+      "rasterMs": 349,
+      "gpuMs": 127,
+      "midGeom": [
+       "stage:512x1251",
+       "inspector:512x926"
+      ]
+     },
+     {
+      "hop": "→/generate",
+      "travel": "on",
+      "frames": 74,
+      "over32Ratio": 0.122,
+      "median": 8,
+      "rasterMs": 360,
+      "gpuMs": 48,
+      "midGeom": [
+       "stage:512x1142",
+       "inspector:512x926"
+      ]
+     },
+     {
+      "hop": "→/gradient",
+      "travel": "suppressed",
+      "frames": 109,
+      "over32Ratio": 0.018,
+      "median": 8,
+      "rasterMs": 229,
+      "gpuMs": 18,
+      "midGeom": [
+       "stage:512x960",
+       "inspector:512x515"
+      ]
+     },
+     {
+      "hop": "→/extract",
+      "travel": "suppressed",
+      "frames": 88,
+      "over32Ratio": 0,
+      "median": 10,
+      "rasterMs": 71,
+      "gpuMs": 0,
+      "midGeom": [
+       "stage:512x578",
+       "inspector:512x515"
+      ]
+     },
+     {
+      "hop": "→/mix",
+      "travel": "suppressed",
+      "frames": 61,
+      "over32Ratio": 0.033,
+      "median": 12,
+      "rasterMs": 242,
+      "gpuMs": 147,
+      "midGeom": [
+       "stage:512x673",
+       "inspector:512x412"
+      ]
+     },
+     {
+      "hop": "→/generate",
+      "travel": "suppressed",
+      "frames": 121,
+      "over32Ratio": 0,
+      "median": 8,
+      "rasterMs": 107,
+      "gpuMs": 15,
+      "midGeom": [
+       "stage:512x457",
+       "inspector:512x515"
+      ]
+     }
+    ]
+   },
+   "B": {
+    "load": "20:11  up 3 hrs, 2 users, load averages: 8.52 13.91 19.35",
+    "hops": [
+     {
+      "hop": "→/gradient",
+      "travel": "on",
+      "frames": 58,
+      "over32Ratio": 0.207,
+      "median": 9,
+      "rasterMs": 512,
+      "gpuMs": 45,
+      "midGeom": [
+       "stage:512x7953",
+       "inspector:512x7953"
+      ]
+     },
+     {
+      "hop": "→/extract",
+      "travel": "on",
+      "frames": 61,
+      "over32Ratio": 0.148,
+      "median": 9,
+      "rasterMs": 115,
+      "gpuMs": 0,
+      "midGeom": [
+       "stage:512x1538",
+       "inspector:512x1538"
+      ]
+     },
+     {
+      "hop": "→/mix",
+      "travel": "on",
+      "frames": 34,
+      "over32Ratio": 0.353,
+      "median": 29,
+      "rasterMs": 386,
+      "gpuMs": 104,
+      "midGeom": [
+       "stage:512x1169",
+       "inspector:512x1169"
+      ]
+     },
+     {
+      "hop": "→/generate",
+      "travel": "on",
+      "frames": 73,
+      "over32Ratio": 0.082,
+      "median": 8,
+      "rasterMs": 433,
+      "gpuMs": 56,
+      "midGeom": [
+       "stage:512x1142",
+       "inspector:512x1142"
+      ]
+     },
+     {
+      "hop": "→/gradient",
+      "travel": "suppressed",
+      "frames": 114,
+      "over32Ratio": 0.018,
+      "median": 8,
+      "rasterMs": 187,
+      "gpuMs": 3,
+      "midGeom": [
+       "stage:512x960",
+       "inspector:512x960"
+      ]
+     },
+     {
+      "hop": "→/extract",
+      "travel": "suppressed",
+      "frames": 88,
+      "over32Ratio": 0,
+      "median": 10,
+      "rasterMs": 85,
+      "gpuMs": 0,
+      "midGeom": [
+       "stage:512x578",
+       "inspector:512x578"
+      ]
+     },
+     {
+      "hop": "→/mix",
+      "travel": "suppressed",
+      "frames": 42,
+      "over32Ratio": 0.238,
+      "median": 19,
+      "rasterMs": 244,
+      "gpuMs": 109,
+      "midGeom": [
+       "stage:512x673",
+       "inspector:512x673"
+      ]
+     },
+     {
+      "hop": "→/generate",
+      "travel": "suppressed",
+      "frames": 118,
+      "over32Ratio": 0,
+      "median": 8,
+      "rasterMs": 109,
+      "gpuMs": 14,
+      "midGeom": [
+       "stage:512x515",
+       "inspector:512x515"
+      ]
+     }
+    ]
+   }
+  },
+  "r2": {
+   "base": {
+    "load": "20:12  up  3:01, 2 users, load averages: 8.53 13.33 18.92",
+    "hops": [
+     {
+      "hop": "→/gradient",
+      "travel": "on",
+      "frames": 44,
+      "over32Ratio": 0.273,
+      "median": 9,
+      "rasterMs": 559,
+      "gpuMs": 37,
+      "midGeom": [
+       "stage:512x7974",
+       "inspector:512x7974"
+      ]
+     },
+     {
+      "hop": "→/extract",
+      "travel": "on",
+      "frames": 58,
+      "over32Ratio": 0.172,
+      "median": 12,
+      "rasterMs": 222,
+      "gpuMs": 0,
+      "midGeom": [
+       "stage:512x1538",
+       "inspector:512x1538"
+      ]
+     },
+     {
+      "hop": "→/mix",
+      "travel": "on",
+      "frames": 32,
+      "over32Ratio": 0.313,
+      "median": 20,
+      "rasterMs": 349,
+      "gpuMs": 97,
+      "midGeom": [
+       "stage:512x1169",
+       "inspector:512x1169"
+      ]
+     },
+     {
+      "hop": "→/generate",
+      "travel": "on",
+      "frames": 69,
+      "over32Ratio": 0.13,
+      "median": 8,
+      "rasterMs": 334,
+      "gpuMs": 48,
+      "midGeom": [
+       "stage:512x1142",
+       "inspector:512x1142"
+      ]
+     },
+     {
+      "hop": "→/gradient",
+      "travel": "suppressed",
+      "frames": 108,
+      "over32Ratio": 0.009,
+      "median": 8,
+      "rasterMs": 202,
+      "gpuMs": 13,
+      "midGeom": [
+       "stage:512x960",
+       "inspector:512x960"
+      ]
+     },
+     {
+      "hop": "→/extract",
+      "travel": "suppressed",
+      "frames": 82,
+      "over32Ratio": 0,
+      "median": 12,
+      "rasterMs": 79,
+      "gpuMs": 0,
+      "midGeom": [
+       "stage:512x578",
+       "inspector:512x578"
+      ]
+     },
+     {
+      "hop": "→/mix",
+      "travel": "suppressed",
+      "frames": 39,
+      "over32Ratio": 0.256,
+      "median": 20,
+      "rasterMs": 242,
+      "gpuMs": 107,
+      "midGeom": [
+       "stage:512x673",
+       "inspector:512x673"
+      ]
+     },
+     {
+      "hop": "→/generate",
+      "travel": "suppressed",
+      "frames": 114,
+      "over32Ratio": 0.009,
+      "median": 8,
+      "rasterMs": 96,
+      "gpuMs": 15,
+      "midGeom": [
+       "stage:512x515",
+       "inspector:512x515"
+      ]
+     }
+    ]
+   },
+   "A": {
+    "load": "20:12  up  3:01, 2 users, load averages: 8.55 13.10 18.74",
+    "hops": [
+     {
+      "hop": "→/gradient",
+      "travel": "on",
+      "frames": 58,
+      "over32Ratio": 0.155,
+      "median": 9,
+      "rasterMs": 670,
+      "gpuMs": 37,
+      "midGeom": [
+       "stage:512x1644",
+       "inspector:512x7974"
+      ]
+     },
+     {
+      "hop": "→/extract",
+      "travel": "on",
+      "frames": 62,
+      "over32Ratio": 0.129,
+      "median": 11,
+      "rasterMs": 261,
+      "gpuMs": 0,
+      "midGeom": [
+       "stage:512x1538",
+       "inspector:512x515"
+      ]
+     },
+     {
+      "hop": "→/mix",
+      "travel": "on",
+      "frames": 42,
+      "over32Ratio": 0.214,
+      "median": 13,
+      "rasterMs": 375,
+      "gpuMs": 114,
+      "midGeom": [
+       "stage:512x1251",
+       "inspector:512x926"
+      ]
+     },
+     {
+      "hop": "→/generate",
+      "travel": "on",
+      "frames": 68,
+      "over32Ratio": 0.118,
+      "median": 9,
+      "rasterMs": 391,
+      "gpuMs": 59,
+      "midGeom": [
+       "stage:512x1142",
+       "inspector:512x926"
+      ]
+     },
+     {
+      "hop": "→/gradient",
+      "travel": "suppressed",
+      "frames": 101,
+      "over32Ratio": 0.02,
+      "median": 8,
+      "rasterMs": 267,
+      "gpuMs": 17,
+      "midGeom": [
+       "stage:512x960",
+       "inspector:512x515"
+      ]
+     },
+     {
+      "hop": "→/extract",
+      "travel": "suppressed",
+      "frames": 93,
+      "over32Ratio": 0.011,
+      "median": 10,
+      "rasterMs": 72,
+      "gpuMs": 0,
+      "midGeom": [
+       "stage:512x578",
+       "inspector:512x515"
+      ]
+     },
+     {
+      "hop": "→/mix",
+      "travel": "suppressed",
+      "frames": 61,
+      "over32Ratio": 0.049,
+      "median": 13,
+      "rasterMs": 254,
+      "gpuMs": 154,
+      "midGeom": [
+       "stage:512x674",
+       "inspector:512x412"
+      ]
+     },
+     {
+      "hop": "→/generate",
+      "travel": "suppressed",
+      "frames": 114,
+      "over32Ratio": 0,
+      "median": 8,
+      "rasterMs": 107,
+      "gpuMs": 16,
+      "midGeom": [
+       "stage:512x457",
+       "inspector:512x515"
+      ]
+     }
+    ]
+   },
+   "B": {
+    "load": "20:12  up  3:02, 2 users, load averages: 13.45 13.85 18.87",
+    "hops": [
+     {
+      "hop": "→/gradient",
+      "travel": "on",
+      "frames": 57,
+      "over32Ratio": 0.193,
+      "median": 8,
+      "rasterMs": 472,
+      "gpuMs": 34,
+      "midGeom": [
+       "stage:512x7953",
+       "inspector:512x7953"
+      ]
+     },
+     {
+      "hop": "→/extract",
+      "travel": "on",
+      "frames": 62,
+      "over32Ratio": 0.113,
+      "median": 12,
+      "rasterMs": 111,
+      "gpuMs": 0,
+      "midGeom": [
+       "stage:512x1538",
+       "inspector:512x1538"
+      ]
+     },
+     {
+      "hop": "→/mix",
+      "travel": "on",
+      "frames": 33,
+      "over32Ratio": 0.303,
+      "median": 16,
+      "rasterMs": 385,
+      "gpuMs": 106,
+      "midGeom": [
+       "stage:512x1169",
+       "inspector:512x1169"
+      ]
+     },
+     {
+      "hop": "→/generate",
+      "travel": "on",
+      "frames": 73,
+      "over32Ratio": 0.096,
+      "median": 9,
+      "rasterMs": 329,
+      "gpuMs": 43,
+      "midGeom": [
+       "stage:512x1142",
+       "inspector:512x1142"
+      ]
+     },
+     {
+      "hop": "→/gradient",
+      "travel": "suppressed",
+      "frames": 106,
+      "over32Ratio": 0.019,
+      "median": 8,
+      "rasterMs": 186,
+      "gpuMs": 3,
+      "midGeom": [
+       "stage:512x960",
+       "inspector:512x960"
+      ]
+     },
+     {
+      "hop": "→/extract",
+      "travel": "suppressed",
+      "frames": 84,
+      "over32Ratio": 0,
+      "median": 11,
+      "rasterMs": 84,
+      "gpuMs": 0,
+      "midGeom": [
+       "stage:512x578",
+       "inspector:512x578"
+      ]
+     },
+     {
+      "hop": "→/mix",
+      "travel": "suppressed",
+      "frames": 46,
+      "over32Ratio": 0.174,
+      "median": 18,
+      "rasterMs": 277,
+      "gpuMs": 127,
+      "midGeom": [
+       "stage:512x673",
+       "inspector:512x673"
+      ]
+     },
+     {
+      "hop": "→/generate",
+      "travel": "suppressed",
+      "frames": 112,
+      "over32Ratio": 0.009,
+      "median": 8,
+      "rasterMs": 130,
+      "gpuMs": 15,
+      "midGeom": [
+       "stage:512x515",
+       "inspector:512x515"
+      ]
+     }
+    ]
+   }
+  },
+  "r3": {
+   "base": {
+    "load": "20:13  up  3:02, 2 users, load averages: 14.85 14.19 18.91",
+    "hops": [
+     {
+      "hop": "→/gradient",
+      "travel": "on",
+      "frames": 47,
+      "over32Ratio": 0.255,
+      "median": 9,
+      "rasterMs": 629,
+      "gpuMs": 47,
+      "midGeom": [
+       "stage:512x7974",
+       "inspector:512x7974"
+      ]
+     },
+     {
+      "hop": "→/extract",
+      "travel": "on",
+      "frames": 61,
+      "over32Ratio": 0.098,
+      "median": 11,
+      "rasterMs": 262,
+      "gpuMs": 0,
+      "midGeom": [
+       "stage:512x1538",
+       "inspector:512x1538"
+      ]
+     },
+     {
+      "hop": "→/mix",
+      "travel": "on",
+      "frames": 32,
+      "over32Ratio": 0.281,
+      "median": 17,
+      "rasterMs": 358,
+      "gpuMs": 99,
+      "midGeom": [
+       "stage:512x1169",
+       "inspector:512x1169"
+      ]
+     },
+     {
+      "hop": "→/generate",
+      "travel": "on",
+      "frames": 71,
+      "over32Ratio": 0.085,
+      "median": 9,
+      "rasterMs": 379,
+      "gpuMs": 47,
+      "midGeom": [
+       "stage:512x1142",
+       "inspector:512x1142"
+      ]
+     },
+     {
+      "hop": "→/gradient",
+      "travel": "suppressed",
+      "frames": 102,
+      "over32Ratio": 0.01,
+      "median": 8,
+      "rasterMs": 215,
+      "gpuMs": 13,
+      "midGeom": [
+       "stage:512x960",
+       "inspector:512x960"
+      ]
+     },
+     {
+      "hop": "→/extract",
+      "travel": "suppressed",
+      "frames": 86,
+      "over32Ratio": 0,
+      "median": 11,
+      "rasterMs": 92,
+      "gpuMs": 0,
+      "midGeom": [
+       "stage:512x578",
+       "inspector:512x578"
+      ]
+     },
+     {
+      "hop": "→/mix",
+      "travel": "suppressed",
+      "frames": 46,
+      "over32Ratio": 0.174,
+      "median": 16,
+      "rasterMs": 255,
+      "gpuMs": 116,
+      "midGeom": [
+       "stage:512x673",
+       "inspector:512x673"
+      ]
+     },
+     {
+      "hop": "→/generate",
+      "travel": "suppressed",
+      "frames": 113,
+      "over32Ratio": 0,
+      "median": 8,
+      "rasterMs": 121,
+      "gpuMs": 16,
+      "midGeom": [
+       "stage:512x515",
+       "inspector:512x515"
+      ]
+     }
+    ]
+   },
+   "A": {
+    "load": "20:13  up  3:02, 2 users, load averages: 12.95 13.80 18.66",
+    "hops": [
+     {
+      "hop": "→/gradient",
+      "travel": "on",
+      "frames": 55,
+      "over32Ratio": 0.164,
+      "median": 8,
+      "rasterMs": 561,
+      "gpuMs": 41,
+      "midGeom": [
+       "stage:512x1644",
+       "inspector:512x7974"
+      ]
+     },
+     {
+      "hop": "→/extract",
+      "travel": "on",
+      "frames": 64,
+      "over32Ratio": 0.141,
+      "median": 11,
+      "rasterMs": 248,
+      "gpuMs": 0,
+      "midGeom": [
+       "stage:512x1538",
+       "inspector:512x515"
+      ]
+     },
+     {
+      "hop": "→/mix",
+      "travel": "on",
+      "frames": 41,
+      "over32Ratio": 0.22,
+      "median": 18,
+      "rasterMs": 316,
+      "gpuMs": 135,
+      "midGeom": [
+       "stage:512x1251",
+       "inspector:512x926"
+      ]
+     },
+     {
+      "hop": "→/generate",
+      "travel": "on",
+      "frames": 73,
+      "over32Ratio": 0.137,
+      "median": 8,
+      "rasterMs": 330,
+      "gpuMs": 51,
+      "midGeom": [
+       "stage:512x1142",
+       "inspector:512x926"
+      ]
+     },
+     {
+      "hop": "→/gradient",
+      "travel": "suppressed",
+      "frames": 108,
+      "over32Ratio": 0.019,
+      "median": 8,
+      "rasterMs": 201,
+      "gpuMs": 17,
+      "midGeom": [
+       "stage:512x1644",
+       "inspector:512x7974"
+      ]
+     },
+     {
+      "hop": "→/extract",
+      "travel": "suppressed",
+      "frames": 85,
+      "over32Ratio": 0.012,
+      "median": 11,
+      "rasterMs": 81,
+      "gpuMs": 0,
+      "midGeom": [
+       "stage:512x578",
+       "inspector:512x515"
+      ]
+     },
+     {
+      "hop": "→/mix",
+      "travel": "suppressed",
+      "frames": 60,
+      "over32Ratio": 0.05,
+      "median": 13,
+      "rasterMs": 253,
+      "gpuMs": 147,
+      "midGeom": [
+       "stage:512x673",
+       "inspector:512x412"
+      ]
+     },
+     {
+      "hop": "→/generate",
+      "travel": "suppressed",
+      "frames": 110,
+      "over32Ratio": 0,
+      "median": 8,
+      "rasterMs": 113,
+      "gpuMs": 16,
+      "midGeom": [
+       "stage:512x457",
+       "inspector:512x515"
+      ]
+     }
+    ]
+   },
+   "B": {
+    "load": "20:13  up  3:02, 2 users, load averages: 11.71 13.49 18.46",
+    "hops": [
+     {
+      "hop": "→/gradient",
+      "travel": "on",
+      "frames": 55,
+      "over32Ratio": 0.2,
+      "median": 8,
+      "rasterMs": 525,
+      "gpuMs": 48,
+      "midGeom": [
+       "stage:512x7953",
+       "inspector:512x7953"
+      ]
+     },
+     {
+      "hop": "→/extract",
+      "travel": "on",
+      "frames": 62,
+      "over32Ratio": 0.129,
+      "median": 10,
+      "rasterMs": 125,
+      "gpuMs": 0,
+      "midGeom": [
+       "stage:512x1538",
+       "inspector:512x1538"
+      ]
+     },
+     {
+      "hop": "→/mix",
+      "travel": "on",
+      "frames": 33,
+      "over32Ratio": 0.273,
+      "median": 16,
+      "rasterMs": 411,
+      "gpuMs": 104,
+      "midGeom": [
+       "stage:512x1169",
+       "inspector:512x1169"
+      ]
+     },
+     {
+      "hop": "→/generate",
+      "travel": "on",
+      "frames": 74,
+      "over32Ratio": 0.108,
+      "median": 9,
+      "rasterMs": 360,
+      "gpuMs": 50,
+      "midGeom": [
+       "stage:512x1142",
+       "inspector:512x1142"
+      ]
+     },
+     {
+      "hop": "→/gradient",
+      "travel": "suppressed",
+      "frames": 103,
+      "over32Ratio": 0.019,
+      "median": 8,
+      "rasterMs": 245,
+      "gpuMs": 14,
+      "midGeom": [
+       "stage:512x960",
+       "inspector:512x960"
+      ]
+     },
+     {
+      "hop": "→/extract",
+      "travel": "suppressed",
+      "frames": 80,
+      "over32Ratio": 0,
+      "median": 12,
+      "rasterMs": 84,
+      "gpuMs": 0,
+      "midGeom": [
+       "stage:512x578",
+       "inspector:512x578"
+      ]
+     },
+     {
+      "hop": "→/mix",
+      "travel": "suppressed",
+      "frames": 40,
+      "over32Ratio": 0.275,
+      "median": 17,
+      "rasterMs": 255,
+      "gpuMs": 122,
+      "midGeom": [
+       "stage:512x673",
+       "inspector:512x673"
+      ]
+     },
+     {
+      "hop": "→/generate",
+      "travel": "suppressed",
+      "frames": 113,
+      "over32Ratio": 0.009,
+      "median": 8,
+      "rasterMs": 169,
+      "gpuMs": 22,
+      "midGeom": [
+       "stage:512x515",
+       "inspector:512x515"
+      ]
+     }
+    ]
+   }
+  }
+ },
+ "cardHeights1440": {
+  "probe": "scratch geom.mjs: first .glass-resting per .pane-wrapper, 1440x900@2, 2.5 s settle",
+  "base": {
+   "/": [
+    {
+     "cls": "pane-wrapper--stage",
+     "wrap": 7459,
+     "kid": 685,
+     "card": 685
+    },
+    {
+     "cls": "pane-wrapper--inspector",
+     "wrap": 7459,
+     "kid": 7459,
+     "card": 7459
+    }
+   ],
+   "/gradient": [
+    {
+     "cls": "pane-wrapper--stage",
+     "wrap": 960,
+     "kid": 960,
+     "card": 960
+    },
+    {
+     "cls": "pane-wrapper--inspector",
+     "wrap": 960,
+     "kid": 960,
+     "card": 960
+    }
+   ],
+   "/extract": [
+    {
+     "cls": "pane-wrapper--stage",
+     "wrap": 578,
+     "kid": 578,
+     "card": 578
+    },
+    {
+     "cls": "pane-wrapper--inspector",
+     "wrap": 578,
+     "kid": 578,
+     "card": 578
+    }
+   ],
+   "/mix": [
+    {
+     "cls": "pane-wrapper--stage",
+     "wrap": 685,
+     "kid": 685,
+     "card": 685
+    },
+    {
+     "cls": "pane-wrapper--inspector",
+     "wrap": 685,
+     "kid": 685,
+     "card": 685
+    }
+   ],
+   "/generate": [
+    {
+     "cls": "pane-wrapper--stage",
+     "wrap": 515,
+     "kid": 515,
+     "card": 515
+    },
+    {
+     "cls": "pane-wrapper--inspector",
+     "wrap": 515,
+     "kid": 515,
+     "card": 515
+    }
+   ],
+   "/palettes": [
+    {
+     "cls": "pane-wrapper--stage",
+     "wrap": 685,
+     "kid": 685,
+     "card": 685
+    },
+    {
+     "cls": "pane-wrapper--inspector",
+     "wrap": 685,
+     "kid": 685,
+     "card": 685
+    }
+   ],
+   "/browse": [
+    {
+     "cls": "pane-wrapper--stage",
+     "wrap": 515,
+     "kid": 515,
+     "card": 515
+    },
+    {
+     "cls": "pane-wrapper--inspector",
+     "wrap": 515,
+     "kid": 515,
+     "card": 515
+    }
+   ],
+   "/blob": [
+    {
+     "cls": "pane-wrapper--stage",
+     "wrap": 2690,
+     "kid": 685,
+     "card": 685
+    },
+    {
+     "cls": "pane-wrapper--inspector",
+     "wrap": 2690,
+     "kid": 2690,
+     "card": 2690
+    }
+   ],
+   "/atmosphere": [
+    {
+     "cls": "pane-wrapper--stage",
+     "wrap": 654,
+     "kid": 654,
+     "card": 654
+    }
+   ]
+  },
+  "A": {
+   "/": [
+    {
+     "cls": "pane-wrapper--stage",
+     "wrap": 685,
+     "kid": 685,
+     "card": 685
+    },
+    {
+     "cls": "pane-wrapper--inspector",
+     "wrap": 7459,
+     "kid": 7459,
+     "card": 7459
+    }
+   ],
+   "/gradient": [
+    {
+     "cls": "pane-wrapper--stage",
+     "wrap": 960,
+     "kid": 960,
+     "card": 960
+    },
+    {
+     "cls": "pane-wrapper--inspector",
+     "wrap": 515,
+     "kid": 515,
+     "card": 515
+    }
+   ],
+   "/extract": [
+    {
+     "cls": "pane-wrapper--stage",
+     "wrap": 578,
+     "kid": 578,
+     "card": 578
+    },
+    {
+     "cls": "pane-wrapper--inspector",
+     "wrap": 515,
+     "kid": 515,
+     "card": 515
+    }
+   ],
+   "/mix": [
+    {
+     "cls": "pane-wrapper--stage",
+     "wrap": 685,
+     "kid": 685,
+     "card": 685
+    },
+    {
+     "cls": "pane-wrapper--inspector",
+     "wrap": 412,
+     "kid": 412,
+     "card": 412
+    }
+   ],
+   "/generate": [
+    {
+     "cls": "pane-wrapper--stage",
+     "wrap": 457,
+     "kid": 457,
+     "card": 457
+    },
+    {
+     "cls": "pane-wrapper--inspector",
+     "wrap": 515,
+     "kid": 515,
+     "card": 515
+    }
+   ],
+   "/palettes": [
+    {
+     "cls": "pane-wrapper--stage",
+     "wrap": 685,
+     "kid": 685,
+     "card": 685
+    },
+    {
+     "cls": "pane-wrapper--inspector",
+     "wrap": 515,
+     "kid": 515,
+     "card": 515
+    }
+   ],
+   "/browse": [
+    {
+     "cls": "pane-wrapper--stage",
+     "wrap": 395,
+     "kid": 395,
+     "card": 395
+    },
+    {
+     "cls": "pane-wrapper--inspector",
+     "wrap": 515,
+     "kid": 515,
+     "card": 515
+    }
+   ],
+   "/blob": [
+    {
+     "cls": "pane-wrapper--stage",
+     "wrap": 685,
+     "kid": 685,
+     "card": 685
+    },
+    {
+     "cls": "pane-wrapper--inspector",
+     "wrap": 2690,
+     "kid": 2690,
+     "card": 2690
+    }
+   ],
+   "/atmosphere": [
+    {
+     "cls": "pane-wrapper--stage",
+     "wrap": 654,
+     "kid": 654,
+     "card": 654
+    }
+   ]
+  }
+ }
+}
