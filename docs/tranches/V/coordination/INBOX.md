@@ -463,3 +463,4 @@ rewriting none.
 
 - 2026-09-23 11:4x EDT — E13 Step-0 sweep (X.F.W13 RESUME 1 open for `.e`, Track C, `claude-opus-5-5`): four paths + glass BL (now the newest glass tranche dir; letters still in BK/coordination) — 0 unrowed, 0 new UNREAD; BL `audit/INBOUND.md` last commit `bf517b61` = I-41 (rowed); O-55 banked, no disposition yet (§0bo).
 - 2026-09-23 12:4x EDT — E13 Step-0 sweep (X.P.W5 OPEN, Track D, `claude-opus-5-5`): four paths + glass BL (BL is the newest glass tranche dir; BL commits since `bf517b61` are formation-internal, no letter to value.js) — 0 unrowed, 0 new UNREAD.
+| O-61 | 2026-09-23 | **glass-ui** (BK; BL; live to glass-ui-9d) | `docs/tranches/X/relay/X-KF-BK-W13U.md` (mirror `valuejs-outbound-2026-09-23-kf-w13u-relay.md`): R-1 surface `contain: paint` cuts control halos · R-2 spectrum slider range-fill hook (timeline) · R-3 DarkModeToggle menu-item form | SENT (COHESION §0br) |
