@@ -1,6 +1,6 @@
 <template>
     <!-- S.W4 W4-1 (S-1 + S-14) — TITLE-AS-COMPONENT: the veil capsule, the
-         catalog eyebrow, and the per-row index are EXCISED. The space name is
+         catalog caption, and the per-row index are EXCISED. The space name is
          the plate TITLE — a bare ghost trigger sitting directly on the field
          like every other piece of plate typography. The Select root is
          renderless; the title IS this component's first painted node. -->
@@ -369,9 +369,9 @@ function isDisplayColorSpace(value: string | number): value is DisplayColorSpace
      *
      * `1ch` is the advance of `0`, which in a monospaced face IS the advance of
      * every glyph — so the `ch` arithmetic is exact ONLY with the caps tracking
-     * off. That tracking comes from `text-mono-caption`, the UPPERCASE EYEBROW
+     * off. That tracking comes from `text-mono-caption`, the UPPERCASE CAPTION
      * token (the row already overrides its `text-transform` with `lowercase`);
-     * an eyebrow's 0.1em letter-spacing does not belong on a lowercase mono
+     * a caption's 0.1em letter-spacing does not belong on a lowercase mono
      * DATA line, and removing it is the same correction, finished. NOTHING
      * SHRINKS: the type rung is untouched — the box grew to hold the sentence,
      * the sentence was not shrunk to fit the box. */

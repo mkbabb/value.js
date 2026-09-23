@@ -22,7 +22,6 @@
             v-if="empty"
             class="col-span-full"
             :message="emptyText"
-            :eyebrow="emptyEyebrow"
             :hint="emptyHint"
         >
             <template v-if="$slots.emptyAction" #action>
@@ -38,7 +37,6 @@ import EmptyState from "../../../shared/ui/EmptyState.vue";
 defineProps<{
     empty?: boolean;
     emptyText?: string;
-    emptyEyebrow?: string;
     emptyHint?: string;
     gridClass?: string;
 }>();

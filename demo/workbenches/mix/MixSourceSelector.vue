@@ -269,7 +269,6 @@ const swatchKeys = computed(() => {
                      is announced (F3's semantics survive, honest). -->
                 <EmptyState
                     v-if="savedPalettes.length === 0"
-                    eyebrow="· nothing to mix ·"
                     message="No saved palettes yet."
                     hint="Save two or more palettes, then pour them together here."
                 />

@@ -147,9 +147,9 @@ const { isDark, toggleDark } = useGlobalDark();
         <DropdownMenu v-model:open="mbabbMenuOpen">
             <DropdownMenuTrigger as-child>
                 <!-- S.W7-6 (design-dock-shell P1-8): the @mbabb WORDMARK, not a
-                     section eyebrow — text-mono-small is the non-transforming
+                     section caption — text-mono-small is the non-transforming
                      mono rung (the former text-mono-caption is glass-ui's
-                     eyebrow utility: mono·caption·UPPERCASE, which shouted
+                     caption utility: mono·caption·UPPERCASE, which shouted
                      "@MBABB" as generic labelware). Lowercase is the mark. -->
                 <Button
                     variant="ghost"
