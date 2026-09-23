@@ -8434,3 +8434,86 @@ the same class cured at the door) · C1-3 **escalated** (OWNER). MEDIUM C1-4 is 
 section. The honest-RED set is unchanged: b1 `B1-G3D` · g1 → X-W10 · i3 `I3-SEED-SIZE`. RED now = b1 · g1 · i3 · j4 = **4**, so
 GREEN = **46** of the §6 roster's **50**. The row stays PARTIAL until the owner rules `ESC-W6j-1` and a fresh Check reads it.
 Commits: `75420aab` · `46b2cb17` · this record's commit.
+
+## Check 2 — RESUME 2026-09-23 (L-20 fresh adversarial pass 2, over the eighth sitting's close `11a82954` + Repair 1 `75420aab`/`46b2cb17`/`70a27b79`)
+
+SERVED MODEL: claude-opus-5-5[1m]
+
+VERIFY-ONLY; authored no byte of the wave. Spec read whole once (`W6.md`, 492 lines, five ADDENDA); of this record only the eighth
+Open → Unit plan (`:7824-7902`), Check 1 (`:8296-8380`) and Repair 1 (`:8382-8436`). Transcripts in this seat's scratchpad (not
+committed). Runs 04:37–04:42 EDT (⟨`date`⟩ · ⟨`uptime`⟩ → load 16.02 at the last gate). HEAD `70a27b79`.
+
+**Crash-recovery.** ⟨`git status --porcelain`⟩ → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh` only;
+neither in this seat's set (this record, the LEDGER). Nothing inherited, nothing touched.
+
+### Axes 2/3/4/5 — bounds, masking, families, E-3
+
+⟨`git show --stat 75420aab 46b2cb17 70a27b79`⟩ → `e2e/smoke/fixtures/settle.ts` · `e2e/smoke/views/gradient.spec.ts` (the `.s` grant) ·
+`demo/workbenches/gradient/GradientPane.vue` (the `.j` grant) · this record · the LEDGER. All in bounds. ⟨`git log --oneline
+3e933c33..HEAD -- scripts/dev/dev.sh | wc -l`⟩ → `0`. ⟨`git diff --stat 3e933c33..HEAD -- scripts/dev/dev.sh docs/tranches/X/waves/W6.md
+docs/tranches/V/megatranche/registry/adjudicated/ src api` + the sibling wave specs⟩ → **empty** (E-3 held). Masking: `75420aab` adds
+two WAITS (an empty region joins `unsettled`; e1's frames wait for no finite DocumentTimeline animation) and no `-` assertion line;
+`46b2cb17` renames the ref key on both sides (`ref="gradientVisualizer"` ↔ `useTemplateRef("gradientVisualizer")`). No try/catch,
+skip, allowlist or narrowed assertion. Families: `.s` repair = one `test` commit, `.j` repair = one `fix(demo/scene-adoption)`, record
+separate — one commit per meaning.
+
+### Axes 1/9 — every claimed GREEN re-run at this seat's clock
+
+| gate(s) | ⟨cmd⟩ | this seat |
+|---|---|---|
+| f1 · f5 · h2 · i2 | `node docs/tranches/X/gates/gate-{catalog-totality,specimen-grammar,blob-pipeline,lband-door}.mjs` | **GREEN** EXIT 0 ×4, `GATE … — GREEN` |
+| c3 | `npx vite-node docs/tranches/X/gates/gate-literal-dialect.mjs` | **GREEN** |
+| c1 | `node …/wb-gradient-stopeditor/gate-structure.mjs` | **GREEN** `GATE G4 (structure) — GREEN` |
+| d2 | `node …/x-w6/gate-easing-readout.mjs` | **GREEN** `DATED ASK` · local restyle `0 line(s)` |
+| e2 | `grep -rn requestAnimationFrame demo/workbenches/gradient/ \| wc -l` · `gate-prm-idiom.mjs` | **GREEN** `0` · `GATE e2 (PRM idiom) — GREEN` |
+| a1 (vitest leg) · c2 · c4 | `npx vitest run test/gradient-order-invariant.test.ts test/interpolation-subset.test.ts` | **GREEN** `Tests 22 passed (22)` |
+| H1 | `gate-no-chassis.mjs 46b2cb17` + the close's 15 shas | **GREEN** positive control fires; `29 demo/ files over 16 commits` · `GATE H1 … — GREEN` |
+| H2 (file) · H3 | ⟨`git ls-files …/motion-quarantine.md \| wc -l`⟩ · parser R1 one-liner | **GREEN** `1` · EXIT `0` |
+| **g2** | `VJS_E2E_PORT=971{1,2} npx playwright test …/companion-pane-track-start.spec.ts -g "companion panes share one track start" --project=smoke` ×2 | **GREEN ×2** `1 passed (14.5s)` · `1 passed (14.3s)` EXIT 0 — C1-1's cure holds |
+| j1 · j2 · j3 | `VJS_E2E_PORT=9713 npx playwright test e2e/smoke/oracles/o29-scene-contracts.spec.ts --project=smoke` | **GREEN** inside `1 failed · 5 passed (41.6s)` |
+| **j4** | same run | **RED** `[j4] blob preview@rest=0.879 … preview@last=0.000` (`Expected: > 0 · Received: 0`); atmosphere `preview@last=0.079` GREEN |
+| a2 · a3 · a4 · b3 | `VJS_E2E_PORT=971{4,5} npx playwright test e2e/smoke/views/gradient.spec.ts e2e/smoke/oracles/o21-gradient-rail.spec.ts --project=smoke` ×2 | **GREEN** (inside `21 passed` ×2) |
+| **e1 (→ a13)** | same two runs | **RED ×2** — `1 failed · 21 passed (1.8m)` EXIT 1, both runs: `gradient.spec.ts:468` "gradient selector aurora", `Error: the ramp moves with no producer primitive composed` · `Expected: false · Received: true` at `:585` |
+
+**22 claimed GREENs reproduced; 2 claimed GREENs FAILED (e1 and a13 — Repair 1's "GREEN ×3" does not hold at this seat's clock,
+RED 2 of 2).** Repair 1's added wait (no running finite DocumentTimeline animation) was satisfied before the frames were taken — the
+poll passed — and the clip still differs between frame 0 and a later frame. So the page-arrival hypothesis is not the whole cause
+(or the load-16 host shows a second arrival species the bisect at load ≈11 did not see). Whatever the species, the gate is not
+close-stable. That is the same class Check 1 registered as C1-2.
+
+### Axes 6/7/8/10 — mail, the four-verb line, the goal, honest-RED adjudication
+
+**Mail.** ⟨`grep -n "^| [IO]-[0-9]" docs/tranches/V/coordination/INBOX.md | grep -i unread`⟩ → O-20 · I-30 · I-31 · I-32 · I-35 · O-39 ·
+I-36 · I-40; `| grep -ci x-w6` → `0`. **0 UNREAD in scope.** **Four-verb** stays `IMPLEMENTED no`; neither the close nor Repair 1
+moved it, which is lawful. **Owner ruling on `ESC-W6j-1`:** ⟨`grep -n 'ESC-W6j-1' docs/tranches/X/COHESION.md`⟩ → **empty**. The
+last addendum is still `§0ba` (`:2947`), so no ruling exists. **Goal (§2a) at the bytes: NOT MET.** CC-057's short-landscape
+last-control proof is RED (j4 blob), and CC-064's gradient-selector truth fails its own oracle (e1). H1 holds.
+
+| RED gate | relief at the spec bytes | owner in the register | adjudication |
+|---|---|---|---|
+| b1 | `W6.md:486` (second 2026-09-22 ADDENDUM): `B1-G3D` honest-RED-by-instrument → X-W11 | R-4 · X-W11 | **HONEST-RED** |
+| g1 | `W6.md:484` (2026-09-22 ADDENDUM): honest-RED by id → X-W10 (M-23) | R-6 · X-W10 | **HONEST-RED** |
+| i3 | `W6.md:492` (fifth ADDENDUM): `I3-SEED-SIZE` honest-RED with relay O-52 | R-5 · glass subpath → `.i3` re-sit | **HONEST-RED** |
+| e1 (→ a13) | none. §0ba routes the settle leg to `.s`; no addendum names e1 honest-RED; §6 needs every born-RED gate GREEN | C1-2 → Repair 1 (did not hold) | **UNRELIEVED — HIGH** |
+| j4 | none. §5/§6 allow j4 only "cured or retired **GREEN** with its measurement". It measures RED. `ESC-W6j-1` is an open escalation with no ruling in COHESION | R-j4 · OWNER | **UNRELIEVED — HIGH (pending the owner's ruling)** |
+
+**Successors' "Opens after".** X-W7 (`X-W1`) — GREEN, independent of this wave. X-W8 (`W4·W5·W6·W7`) — W6 is not CLOSED → **lawfully
+BLOCKED**. X-W10 (`X-W5 · X-W6 · …`) — the W6 conjunct is FALSE → **lawfully BLOCKED**. X-W11 (everything) — BLOCKED.
+
+### Register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C2-1 | HIGH | e1 (and a13 with it) is RED and unrelieved. Repair 1's "GREEN ×3" does not reproduce | this seat RED 2 of 2: `gradient.spec.ts:468` → `:585` `Received: true` (ports 9714/9715, load ≈16); the finite-animation wait had already passed when the frames were taken | a repair seat bisects **at high load**: which pixels of the clip differ, and what paints them after the wait. Candidates: a looping ground layer seen through the translucent card, which would be the ramp's backdrop and not the ramp, or compositor raster jitter. Cure at the root: either the frames exclude the backdrop by the spec's own meaning of "the ramp moves", or the paint that moves the ramp is removed. Assertions stay untouched. Suite 22/22 ×3 under load |
+| C2-2 | HIGH | j4 blob limb is RED; `ESC-W6j-1` is still open and is not a relief | this seat `[j4] blob preview@rest=0.879 … preview@last=0.000`; COHESION has no ruling | the OWNER rules `ESC-W6j-1` (an X-W5 shell grant, or a dated E-3 re-reading of j4); then cure or re-read |
+| C2-3 | INFO | C1-1 (g2), C1-4 (ref-key collision) and C1-5 (clock) are cured or corrected and hold at this seat | g2 GREEN ×2; the rename diff is symmetric | — |
+| C2-4 | INFO | duplicate INBOX id O-52 and the `J3-WEBGPU` relay are still owed (C1-6) | Repair 1 carries them | COHESION seat / the next INBOX-granted seat |
+
+**Honest-RED set (relieved at the spec bytes, owner-named):** b1 (`B1-G3D` → X-W11) · g1 (→ X-W10) · i3 (`I3-SEED-SIZE`, O-52).
+
+### Verdict
+
+**NOT-CONFORMANT.** 22 claimed GREENs reproduced, 2 failed (e1 · a13). Landed-wrong 0; no masking; E-3 held; 0 UNREAD in scope; bounds
+clean. Two gates remain RED with no relief at the spec bytes: e1→a13 (Repair 1's cure does not hold) and j4 (an open owner
+escalation). Each is HIGH. RED at this seat = a13 · e1 · j4 · b1 · g1 · i3 = **6**, so GREEN = **44/50**. The LEDGER row is **not
+promoted** and stays PARTIAL. One event line is appended.
