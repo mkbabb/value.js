@@ -4481,3 +4481,44 @@ Inputs: `W5.md` whole (400 L, four ADDENDA) and `## Check 1 — RESUME 7`.
 | INFO · D1 and W6 a5–a12/e1 are banked | None required. | — | — |
 
 **Tally:** 1 cured · 1 escalated (ESC-W5d4-1 → COHESION; the e1 MINOR rides it) · 1 MINOR carried to COHESION · 1 INFO. W6 g2 is still RED and unrelieved. The LEDGER row **stays PARTIAL**. IMPLEMENTED is not stamped.
+
+## Check 2 — RESUME 7, L-20 fresh adversarial pass 2, 2026-09-23 (VERIFY-ONLY)
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X-W5 CHECK 2 (RESUME 7) · HEAD at open `78536eb4` · date of record 2026-09-17 (COHESION §0j).
+This seat cured nothing. It wrote this section and one LEDGER event line. Inputs: `W5.md` whole (400 L, four ADDENDA), `## RESUME OPEN 7`, `## Close — RESUME 7`, `## Check 1 — RESUME 7`, `## Repair 1 — RESUME 7`, and the commits `16852e03` `78536eb4`.
+Crash-recovery: ⟨cmd⟩ `git status --porcelain` → the four standing rows (`CARRY-LEDGER.md` · two W6 catalog PNGs · `scripts/dev/dev.sh`). None is in this seat's writable set. No inherited partial.
+
+**Verdict: NOT-CONFORMANT.** ADDENDUM 4 (`W5.md:400`) names *W6 a5–a12/e1/g2 GREEN ×2* as a `.d4` gate. g2 still reads RED ×2 at this seat, and its escalation is still unruled: ⟨cmd⟩ `grep -c ESC-W5d4-1 docs/tranches/X/COHESION.md` → **0** (the last section is still §0az, `7ab5a3f1`). Every GREEN this seat re-ran reproduces. Repair 1's one cure (`16852e03`) is clean.
+
+### K2.1 Axes
+- **(1) GREENs reproduce.** Static arms at this seat: A1 exit **0** · App grep **0** · A4 `bindPane` **10** · A7 `role="status"` **5** · B4 `100dvh` **0** / `svh` files **3** / `content-max-h` **0** · C4 **0** · C8 **0** · D2 **0** · D3 physical **0** · D4 Mix `<Transition ` **1** · E1 **0 0 0 0** · §0az lock `__asyncResolved|__asyncLoader` **0**.
+  §7 over the one new product byte: ⟨cmd⟩ `npx vue-tsc -p tsconfig.demo.json --noEmit` → **TSC=0** · ⟨cmd⟩ `npx eslint demo/shell/useViewManager.ts --max-warnings=0` → **0**.
+  Live arms (⟨cmd⟩ `bash scratchpad/k2.sh`, ports 5841–5851, load at end **10.30**):
+  - cold-nav witness `--project=smoke` → **2 passed** (36.1s).
+  - o16 `--project=smoke` → **2 passed** (9.2s).
+  These live arms ran once each. The close and Check 1 had already read them ×2, and the only product byte since then is `16852e03`, which deletes code nothing read.
+  **16/16 reproduce.** D1 headed and W6 a5–a12/e1 are banked. ⟨cmd⟩ `git diff --stat 102337e0..HEAD -- demo src e2e` → only `useViewManager.ts` (−9), which is not a layout, motion or gradient surface. §5.2 parsimony applies.
+- **(2) Bounds.** ⟨cmd⟩ `git show --stat 16852e03 78536eb4`:
+  - `16852e03` touches `demo/shell/useViewManager.ts` only. That path is a §4 `modify` row.
+  - `78536eb4` touches the record only.
+  - `dev.sh` is in no commit.
+- **(3) Masking.** None. `16852e03` is a pure deletion: the `ready` field, its `ref` + `router.isReady().then` block, and the return key. `main.ts` still does `await router.isReady()` before mount (A1 exit 0), so no boot guard was lost. No test or assertion bytes moved.
+- **(4) Commit families.** Each commit has one meaning: the cure, then the record.
+- **(5) E-3.** ⟨cmd⟩ `git diff --stat 12cff396..HEAD -- docs/tranches/X/waves/W5.md docs/tranches/X/waves/W6.md docs/tranches/V/megatranche/registry/adjudicated/ scripts/dev/dev.sh` → empty.
+- **(6) Mail.** The INBOX's last lines are the RESUME 7 open and close sweeps. The only UNREAD row is I-40 (Track C), which is out of scope. **0 UNREAD in scope.**
+- **(7) Four-verb.** AUDITED YES · SPECIFIED YES · IMPLEMENTED NO · VERIFIED NO. The line did not move, and that is lawful.
+- **(8) Goal criterion.** Not whole at the bytes. g2 still measures the About pane **6.50 px** off its track start on `/#/`.
+- **(9) Published figures.** The g2 `Received 6.501441955566406` reproduces exactly, ×2. The cold-nav and o16 pass counts also reproduce.
+- **(10) Honest-RED.** **W6 g2** ⟨cmd⟩ `npx playwright test e2e/smoke/views/companion-pane-track-start.spec.ts -g "companion panes share one track start" --project=smoke` → **1 failed**, EXIT 1, ×2.
+  **No relief.** ADDENDUM 4 names g2 as a `.d4` gate. It does not route g2 to a later wave, it does not name it producer-owned, and it does not carry it as an honest-RED id. ESC-W5d4-1 is the named owner, but it is unruled (0 hits in COHESION), and an unruled escalation is not relief.
+- **Successors.** X-W6 opens after X-W5: that conjunct is **not GREEN**. §0az lawfully lets `.a2`/`.i2` run with `.j` omitted. X-W7 is blocked on X-W6, X-W8 on X-W5/6/7, and X-W10 on W5–W9. All of these blocks are lawful.
+
+### K2.2 Register
+| severity | claim | receipt | cure |
+|---|---|---|---|
+| **HIGH** | The ADDENDUM-4 `.d4` gate *W6 g2 GREEN ×2* is RED, with no spec relief. ESC-W5d4-1 is unruled. | g2 `1 failed` ×2, `Received 6.501441955566406` · ⟨cmd⟩ `grep -c ESC-W5d4-1 COHESION.md` → 0 | COHESION rules ESC-W5d4-1: either the instrument settle arm granted to X-W6 `.g`/`.a`, or a product cure for the pre-start pose. Then a resume unit, and g2 re-read ×2. |
+| MINOR | The W6 e1 suite is load-sensitive (the `.d4` readings were 20 · 22 · 20 · 21 of 22). | CL7.2 | This rides ESC-W5d4-1. |
+| MINOR | The `.c4` R5 retirement goes a step past §0az's words. | Check 1 K1.2 | Mitigated. COHESION should confirm it in one line. |
+| INFO | Repair 1 cured the dead `ready` ref cleanly. | `16852e03`: −9 lines · TSC 0 · eslint 0 | — |
+
+**Honest-RED set:** empty. g2 is unrelieved. **Gates reproduced:** 16 · **failed:** W6 g2. The LEDGER row **stays PARTIAL**, and one event line is appended.
