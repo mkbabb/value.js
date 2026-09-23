@@ -73,7 +73,7 @@ export async function captionCensus(listbox: Locator): Promise<CaptionRow[]> {
     );
 }
 
-test("every specimen caption fits its box", async ({ page }) => {
+test("every specimen caption fits its box", async ({ page }, testInfo) => {
     setupEnvNoise(page);
     const listbox = await openSpaceCatalog(page);
     const rows = await captionCensus(listbox);
@@ -81,7 +81,7 @@ test("every specimen caption fits its box", async ({ page }) => {
     // §8 — the AFTER frame is taken by the gate that measures it, so witness and
     // measurement can never drift apart.
     await listbox.screenshot({
-        path: "docs/tranches/X/waves/W6-evidence/catalog/after-catalog-open.png",
+        path: testInfo.outputPath("after-catalog-open.png"),
     });
 
     expect(rows).toHaveLength(CATALOG_SIZE);

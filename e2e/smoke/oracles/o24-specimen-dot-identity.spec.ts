@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import type { Page } from "@playwright/test";
+import type { Page, TestInfo } from "@playwright/test";
 import { setupEnvNoise } from "../fixtures/env-noise";
 
 /**
@@ -36,7 +36,7 @@ type DotSignature = {
     filterUrl: string;
 };
 
-async function openCatalog(page: Page): Promise<DotSignature[]> {
+async function openCatalog(page: Page, testInfo: TestInfo): Promise<DotSignature[]> {
     await page.goto("/");
     const main = page.getByRole("main", { name: "Home" });
     await expect(main).toBeVisible();
@@ -49,7 +49,7 @@ async function openCatalog(page: Page): Promise<DotSignature[]> {
 
     // §8 — the AFTER frame for the dot census, taken by its own gate.
     await listbox.screenshot({
-        path: "docs/tranches/X/waves/W6-evidence/catalog/after-specimen-dots.png",
+        path: testInfo.outputPath("after-specimen-dots.png"),
     });
 
     return listbox.evaluate((root) =>
@@ -72,9 +72,9 @@ async function openCatalog(page: Page): Promise<DotSignature[]> {
 
 test("every catalog row mounts its own silhouette, keyed off the seed and not the filter url", async ({
     page,
-}) => {
+}, testInfo) => {
     setupEnvNoise(page);
-    const dots = await openCatalog(page);
+    const dots = await openCatalog(page, testInfo);
     expect(dots).toHaveLength(CATALOG_SIZE);
 
     const signature = (dot: DotSignature) =>

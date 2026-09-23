@@ -108,7 +108,7 @@ async function readFacts(card: Locator): Promise<Facts> {
 
 test("every offered space states its own facts, and the guide is never a bare heading", async ({
     page,
-}) => {
+}, testInfo) => {
     test.setTimeout(180_000); // eighteen live space switches, one page
 
     setupEnvNoise(page);
@@ -179,7 +179,7 @@ test("every offered space states its own facts, and the guide is never a bare he
         if (id === "display-p3") {
             await expect(listbox).toBeHidden();
             await card.screenshot({
-                path: "docs/tranches/X/waves/W6-evidence/catalog/after-display-p3-about.png",
+                path: testInfo.outputPath("after-display-p3-about.png"),
             });
         }
 
