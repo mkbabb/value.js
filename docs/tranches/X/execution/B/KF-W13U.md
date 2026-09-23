@@ -455,3 +455,35 @@ KF.W13V (`:340`) opens after "KF.W13U CLOSED **and** both registers landed".
 - probe-kbd (the HIGH #3 receipt) ×2.
 - Defects: 6 (3 HIGH · 1 MEDIUM · 2 INFO).
 - The LEDGER status cell is unchanged (NOT-CONFORMANT), and one event line is appended.
+
+## Repair 2 — REPAIR SEAT (round 2, against Check 2)
+
+SERVED MODEL: claude-opus-5-5 · 2026-09-23. Spec read whole (`KF-W13.md`, the KF.W13U addendum + OA-31..OA-34 and the KF.W13V addenda); record read header→Unit plan, `## Repair 1` and `## Check 2`. **Crash-recovery**: ⟨`git -C keyframes.js status --porcelain`⟩ → the two untracked `VALUEJS-INBOUND-2026-07-{24,27}` letters only (outside every W13U row; untouched); value.js dirty paths `CARRY-LEDGER.md` · `scripts/dev/dev.sh` · `docs/tranches/X/audit/` · `chassis/ui-audit.js` — sibling seats', untouched. **0 inherited paths.** kf HEAD ⟨`git log -1 --format=%h` / `origin/master`⟩ → `60477b06` / `60477b06` (unchanged since Check 2). Host load ⟨`uptime`⟩ → 575–707.
+
+**Grant check.** ⟨`grep -n '^## §0b[m-z]' COHESION.md | tail`⟩ → last `§0bq` (OA-39 → KF.W13V `.s`), the same tail Check 2 read; ⟨`grep -n 'ESC-R1-[1234]\|OA-32' COHESION.md`⟩ → `:2855` (an X.W5 `.c2` grant, a different wave's ESC-R1 family) and `:3000-3001` (§0bh, OA-32's minting) only. **No grant or relief for any KF.W13U escalation has landed.** The three HIGHs' cures are, by Check 2's own pricing, orchestrator grants; a repair seat does not mint them (Repair 1 bounds reading, unchanged).
+
+### Defect → cure → commit → gate re-reading
+
+| # | Check-2 defect | disposition | commit | gate re-reading |
+|---|---|---|---|---|
+| 1 | HIGH · OA-32 living dock icons | **ESCALATED (ESC-R2-1 = ESC-R1-1)** — the icon binding (`demo/app/scene/scenes.ts`) and the per-scene rendition seams (`demo/scenes/*/`) sit in no `.d` row; a dock-local icon registry would be a second binding beside the descriptor (H.W5 D8 drift) | — | RED, unchanged (no icon/descriptor byte since `62ecc324`) |
+| 2 | HIGH · kf e2e close clause | **ESCALATED (ESC-R2-2 = ESC-R1-2)** — oracle re-seat = `scripts/observe/demo/{subject-animates,live-session}.mjs`, in no row; usability · S4 · S5 · M1 need cures outside W13U's rows or a COHESION relief by id | — | RED; not re-run (load 575–707 does not discriminate; Check 1 3/6, Repair 1 2/6 agree) |
+| 3 | HIGH · OA-33 keyboard reach | **ESCALATED (ESC-R2-3 = ESC-R1-3)** — `SharePopover` open model (`demo/components/instrument/shell/`, no row) + glass `DarkModeToggle` menu-item form (producer, O-56); a row-level `useGlobalDark` or a synthesized `.click()` forward are workarounds | — | RED, unchanged (kf bytes unchanged since Check 2's `probe-kbd` ×2) |
+| 4 | MEDIUM · `var(--rotationX)` pageerror | **NOT REPRODUCED → ESCALATED (ESC-R2-4)** — ⟨`node repair1/probe-rotx.mjs http://localhost:5173/ 8`⟩ at load 575–707 (the high-load premise the prior 9 runs lacked) → `runs with a pageerror: 0 of 8` (banked `evidence/W13U/repair2/rotx-run.txt`); cumulative 0 of 17. No stack → no writer named at the bytes; a resolver/scene guard is the forbidden masking fallback | — | not reproduced |
+| 5 | INFO · `DOCK-MORPH-ROOT` / `DOCK-SCROLL-MORPH` | honest-RED under the spec's `.d` relief; no cure owed | — | unchanged |
+| 6 | INFO · test:demo load-sensitivity | no W13U byte; no cure owed | — | not re-run (no kf byte moved) |
+
+No cure landed, so no gate could move: the Check-2 readings (9/9 GREENs; check EXIT 0; test:demo 507/507) stand at `60477b06` unchanged.
+
+### Escalations (returned)
+
+- **ESC-R2-1 (OA-32)** — needs the orchestrator's grant of `demo/app/scene/scenes.ts` + `demo/scenes/*/` rendition seams to a supplement unit; gate then measured headed ×2.
+- **ESC-R2-2 (e2e close clause)** — needs the grant of `scripts/observe/demo/{subject-animates,live-session}.mjs` + cures or a COHESION relief naming usability · S4 · S5 · M1 by id.
+- **ESC-R2-3 (OA-33 keyboard)** — needs the grant of `demo/components/instrument/shell/SharePopover*` (open model) + glass's `DarkModeToggle` menu-item form (O-56).
+- **ESC-R2-4 (`--rotationX`)** — 0 of 17 runs; owner KF.W13V `.k` (instrumented dev-build M4 at the owner seat).
+
+**The wave's one path to CLOSED remains the orchestrator's** (three grants, or a dated COHESION relief naming OA-32, the e2e clause and OA-33-keyboard by id with owners).
+
+### Self-count
+
+kf commits **0**. Defects dispositioned **6**: cured **0** · escalated **4** (#1 · #2 · #3 · #4) · INFO **2** (#5 · #6). value.js: this section + one LEDGER event line + `evidence/W13U/repair2/rotx-run.txt` (1 file), one pathspec commit.

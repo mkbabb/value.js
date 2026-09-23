@@ -1,0 +1,11 @@
+SERVED MODEL: claude-opus-5-5 — KF.W13U Repair 2: probe-rotx.mjs http://localhost:5173/ 8 at kf 60477b06, host load 575-707
+run 1: pageerrors 0
+run 2: pageerrors 0
+run 3: pageerrors 0
+run 4: pageerrors 0
+run 5: pageerrors 0
+run 6: pageerrors 0
+run 7: pageerrors 0
+run 8: pageerrors 0
+runs with a pageerror: 0 of 8
+EXIT 0
