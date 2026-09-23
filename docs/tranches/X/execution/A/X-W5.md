@@ -2884,3 +2884,45 @@ Struck: the five-picker-less-routes sentence (ESC-W5-1's unfalsifiable form). Re
 **Commits**: `91d0e0c7` (re-probe + RESULTS) · `1a6432f9` (triumvirate corpus: research+plan, A2 addendum + arm, C1 record + probe, C3 partition, trace probe + 3 JSON, variants) · this receipt (`X-W5.md`). All by pathspec; `dev.sh` untouched.
 **Escalations**: ESC-W5t-1 (D1 host) · ESC-W5t-2 (P-4 grant `ColorPicker.vue:2-4`, HIGH) · ESC-W5t-3 (P-3 component files under `demo/shell/`) · ESC-W5t-4 (P-6 `HeroBlob.vue` home) · upstream Vue note (not a producer). **Residuals**: none owned by this seat; `.d2` opens on `1a6432f9`'s plan.
 **Scratch hygiene**: all diag dev servers (`:8097-8107`) and static servers (`:8093/8104/8108`) stopped; ⟨cmd⟩ `lsof … | grep -E ':(809[3-9]|810[0-8])' | wc -l` → 0.
+
+### X.W5.d2
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X.W5.d2 (§0aq: OPUS redress), RESUME ROUND 4 · 2026-09-22 · verdict **ESCALATED** (the plan's coupled cure and its swap-travel levers are not landable inside this seat's bounds at the measured bytes; what IS in bounds landed). HEAD at open `fbb6cea0`; commits `043a783c` · `3ec79fa6` · (this receipt).
+
+**Crash-recovery** ⟨cmd⟩ `git status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh`: neither is in this seat's writable set. **No inherited partial.** `dev.sh` never touched.
+**Inputs**: `W5.md` whole (394 L, incl. ADDENDUM 2026-09-22) · this record's R4.0–R4.4 + the `.t` receipt · `triumvirate/RESEARCH-AND-PLAN-2026-09-22.md` §2–§4 · COHESION §0aq X-W5 block (`:2660-2689`; ⟨cmd⟩ `grep -n 'W5t\|W5.d2' COHESION.md` → only `:2667`, so **no ruling on ESC-W5t-1..4 exists**) · fold W5F-04/-05/-07/-53 (`X-W5-FOLD.md:41,42,44,125`). Both preconditions in git: `91d0e0c7` (re-probe) and `1a6432f9` (plan).
+
+#### Act 1 — the coupled family (P-4 → P-1 + P-2 + P-3): NOT landed, ESCALATED (ESC-W5d2-1)
+The plan's own sequencing makes P-4 (`demo/picker/ColorPicker.vue:2-4`, a GRANT) the prerequisite of P-1 (`mode="out-in"`): without it out-in strands the DEV shell 5/5 (`.t` §1a, variant K). P-3's loading/error states are CURE-LOCKed by fold W5F-07 to EB-2 (W5F-53: the per-slot boundary + shell containment in `demo/shell/ErrorBoundary.vue` + `demo/color-picker/main.ts`, both outside this set), and the D-1 lock forbids the mode or the rAF mirror moving without them. Every limb of the family therefore needs a path outside the set → nothing of it is written. The rAF mirror is kept unchanged (P-2's own recommendation). **ESC-W5d2-1**: grant `ColorPicker.vue:2-4` (P-4) and the EB-2 home (`ErrorBoundary.vue` + `main.ts`, plus any new loading/error component files under `demo/shell/`, ESC-W5t-3) to one unit, or route the family whole.
+
+#### Act 2 — the swap-travel levers P-5a / P-5b, measured before any edit: neither landed, ESCALATED (ESC-W5d2-2)
+Three built bundles into scratch (`vite build --mode gh-pages --outDir …`): **base** = HEAD · **A** = P-5a `.pane-container { align-items: start }` · **B** = P-5b the four pane-family `rotate(±2deg)` → `rotate(0deg)`; each edit made only for its build and reverted from a byte copy (⟨cmd⟩ `git status --porcelain demo/` → empty before the landing). ⟨cmd⟩ `PROBE_BASE=… node triumvirate/swap-root-trace.mjs` (unmodified), interleaved base→A→B, 3 rounds (load 9–15 throughout: the ORDER is read, the ratios are not D1 evidence). Median of 3, travel on (read ×2 from the committed JSON, `diff` IDENTICAL):
+
+| hop | base ratio · raster ms | A (P-5a) | B (P-5b) |
+|---|---|---|---|
+| →/gradient | 0.255 · 629 | 0.164 · 608 | 0.200 · 512 |
+| →/mix | 0.281 · 358 | 0.220 · 349 | 0.303 · 386 |
+| →/extract | 0.109 · 262 | 0.141 · 253 | 0.129 · 115 |
+| →/generate | 0.123 · 348 | 0.122 · 360 | 0.096 · 360 |
+
+Findings: (1) the plan's P-5a premise is **falsified at the bytes**: on `/` the Picker's own card is **685** px (not 7459); what is 7459 px is the About pane's real content, which A does not shrink (mid-swap inspector stays `512×7974` under A). (2) A **breaks the equal-height card pairing** on 6 of 7 dual routes at 1440 (card heights base→A: `/gradient` 960/960 → 960/515 · `/extract` 578/578 → 578/515 · `/mix` 685/685 → 685/412 · `/generate` 515/515 → 457/515 · `/palettes` 685/685 → 685/515 · `/browse` 515/515 → 395/515): a visible design change the plan does not authorize. (3) B removes the rotation limb (a motion deletion under the preserve-animations edict) and still leaves →/gradient at 0.200 and →/mix at 0.303. **Neither lever reaches the budget, so the plan's "winner lands" condition is not met; no substitute cure was improvised.** **ESC-W5d2-2**: the →/gradient root is the leaving About layer's real content height (7459 px) under travel, not the stretch; its cure (a content-bounded travel surface, or a ruling on the equal-height pairing / the rotation) needs a design ruling. The →/mix root stays `HeroBlob.vue:246-250` (ESC-W5t-4, out of set).
+Evidence: `green/P5-lever-trace-d2-2026-09-22.json` (3 rounds × 3 variants + the 1440 card-height table).
+
+#### Act 3 — PaneSlot's header rewritten to the truth (W5F-05; B4 arm 3) — LANDED `043a783c`
+The R.W3 "dev-only" TRANSITION MODE paragraph and its four corrections (`PaneSlot.vue:35-68` at open) are replaced by the re-probe's measured truth: the default mode co-mounts two in-flow panes (7974 = 7459 + 515) and the slot's block axis is uncapped; out-in cures the co-mount on the built bundle but strands in DEV (root `ColorPicker.vue:2-4`, ESC-W5t-2) and stays CURE-LOCKed with the rAF mirror and loading/error states (D-1; W5F-07 ≡ EB-4 with EB-2); appear hooks cannot fire for a late chunk. The `appear` prop doc's residual limb-(4) claim ("and a late async chunk's arrival") is corrected in the same edit. `:12-23` (the activation contract) untouched. The edit is comments only: ⟨cmd⟩ `diff -rq <HEAD build> <landed build>` → **no output** (byte-identical bundle).
+
+#### Gates (BEFORE → AFTER, this seat's clock)
+| gate | BEFORE | AFTER |
+|---|---|---|
+| B4 arm 3 ⟨cmd⟩ `grep -ro content-max-h demo/ \| wc -l` | 3 | **0** — GREEN (arms 1/2: `100dvh` 0 · `svh` files 3) |
+| D3 ⟨cmd⟩ physical `pane-wrapper--left\|--right` in `demo/` | 0 | **0**; every `RegionRole` (`stage`·`inspector`·`action`) has 2 enter/leave selectors in `animations.css` — GREEN (held) |
+| D4-Mix ⟨cmd⟩ `grep -c '<Transition ' MixSourceSelector.vue` | 1 | **1** — GREEN (held) |
+| D5 ⟨cmd⟩ `PROBE_PRM=1 PROBE_BASE=… node scene-swap-budget.mjs` ×2 (landed bundle) | — | `pass:true` ×2; every observed region transition `transformMs 0`, all 4 hops `animated:true` — GREEN |
+| D1 ⟨cmd⟩ `node scene-swap-budget.mjs` ×2 | RED (banked gradient .294/.371 · mix .333/.346) | **NOT TAKEABLE**: 1-min load 12.69 / 14.87 at run start (ruled: < 4). Recorded as non-evidence (gradient .25/.289 · mix .462/.417 · extract .159/.146 · generate .129/.161; motion 200/440 ms present on every hop). RED → ESC-W5t-1 stands |
+| §7 typecheck | lib · demo GREEN (banked) | lib EXIT 0 · **demo EXIT 0 (0 errors)** · test EXIT 2 (11 × `space-catalog.ts` `*.md`) · e2e EXIT 2 (5 × `o23`) — both foreign, CL.7 row 11 |
+| §7 lint | — | `eslint demo/shell/PaneSlot.vue` EXIT 0; repo-wide 23 errors, all under `docs/tranches/V|X/**` (pre-existing, record `:545`) |
+| §7 test | — | 639 / 641; the 2 fails = C-5 `spectrum-luma` + NG-6 `reka-binding-idiom` (foreign, routed to X-W8 `.i` by §0aq) |
+
+**Commits** (pathspec, `dev.sh` untouched): `043a783c` (PaneSlot header) · `3ec79fa6` (`green/` D5 ×2, D1 non-evidence ×2, P-5 lever traces) · this receipt.
+**Escalations**: **ESC-W5d2-1** (the coupled family needs P-4 `ColorPicker.vue:2-4` + the EB-2 home `ErrorBoundary.vue`/`main.ts` + loading/error component files) · **ESC-W5d2-2** (P-5a/P-5b measured insufficient; P-5a breaks equal-height pairing, P-5b deletes motion; needs a design ruling) · ESC-W5t-1 (D1 host, re-confirmed: load 12.7–15.6 across this sitting) · ESC-W5t-4 (→/mix `HeroBlob.vue:246-250`).
+**Residuals**: D1 RED (ruled instrument unavailable, and no in-set cure measured sufficient) · W5F-04 co-mount open (documented truthfully in the header). **Scratch hygiene**: static servers `:8121-8124` stopped (⟨cmd⟩ `lsof … | grep -cE ':812[1-4]'` → 0).
