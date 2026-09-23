@@ -8094,3 +8094,201 @@ Cure (`useMixingAnimation.ts`): ONE acquisition site (`arm`), the context held o
 **Four-verb line.** j1 · j2 · j3 IMPLEMENTED + VERIFIED ×2 (smoke cell); j4 MEASURED, Atmosphere GREEN, Blob ESCALATED (`ESC-W6j-1`); H1 GREEN; H2 `.j` leg GREEN; §7 GREEN (two foreign canaries routed).
 
 **Verdict: X.W6.j ESCALATED** (on j4's Blob limb only; everything else DONE). Commits: `17dd0df4` (product + o29), and the record/evidence commit carrying this receipt.
+
+## Close — RESUME 2026-09-23 (the eighth sitting's close; VERIFY-ONLY seat)
+
+SERVED MODEL: claude-opus-5-5[1m]
+
+**Append-only beside** every block above (E-3). This seat cures nothing. Transcripts:
+`docs/tranches/X/waves/W6-evidence/gates/close-8-2026-09-23/` (committed with this close). Spec read whole once (`W6.md`,
+492 lines, incl. the five ADDENDA `:479-492`); of this record only the header, the eighth sitting's Open → Baseline → Unit plan
+(`:7824-7902`), the `.j` receipt (`:8041-8096`), the seventh close's Acts 2–10 for the gate commands and residual ids, and the
+j4 retirement (`:1345-1370`) located by grep.
+
+### Act 0 — crash-recovery
+
+⟨`git status --porcelain`⟩ at open → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh` only. Neither is
+in this seat's writable set (this record, the LEDGER row, `W6-evidence/gates/close-8-2026-09-23/`). **Nothing inherited**;
+nothing stashed, restored or touched.
+
+### Act 1 — commit roster and bounds
+
+⟨`git log --oneline 3e933c33..HEAD`⟩ → **9** commits, each `git show --stat`-read:
+
+| sha | unit | paths | in bounds |
+|---|---|---|---|
+| `41413a85` | SEAT 0 (open) | this record · INBOX.md sweep line · LEDGER row | yes |
+| `201f737a` | `.s` | `e2e/smoke/fixtures/settle.ts` (new) · `o21-gradient-rail.spec.ts` · `companion-pane-track-start.spec.ts` · `gradient.spec.ts` (4 files, +104/−3) | yes (§0ba `.s` set) |
+| `9c782daa` | `.s` | this record (+75) | yes |
+| `15f9ee8e` | `.f2` | `o21-space-catalog-truth` · `o22` · `o24` specs (+9/−9) | yes (§0ba `.f2` set) |
+| `88a86cf4` | `.f2` | this record (+22) | yes |
+| `aac7e995` | `.v` | 27 paths, ⟨`git show --name-only --format= aac7e995 \| grep -vc 'W6-evidence/\(gradient\|owner-marks\)/'`⟩ → **0** outside | yes (§0ba `.v` set) |
+| `e5bb6a25` | `.v` | this record (+39) | yes |
+| `17dd0df4` | `.j` | `GradientPane.vue` · `useMixingAnimation.ts` · `MixPane.vue` · `MixSourceSelector.vue` · `o29-scene-contracts.spec.ts` (new) (+740/−63) | yes (§5 `.j` + 2026-09-19 o29 re-point) |
+| `8b30c595` | `.j` | this record (+57) · `W6-evidence/gates/j-2026-09-23/**` (8 files) | yes |
+
+**Landed-wrong (bounds): 0.** ⟨`git diff --check 3e933c33..HEAD -- . ':!*.png'`⟩ → 5 trailing-whitespace hits, all in
+`W6-evidence/gates/j-2026-09-23/{j2-before,j2-before-final,o29-after-run1}.txt` — verbatim Playwright reporter lines in
+transcripts (INFO, the R-17 species). No product byte carries one.
+
+### Act 2 — gate table, BEFORE (the seventh close `7b7947ad` · the eighth Baseline · the unit receipts) → AFTER (this seat, 03:55–04:35 EDT)
+
+Host load 4.3 at start, **22.8** peak (⟨`uptime`⟩; sibling tracks active). STALE-SERVER: `:9000` (PID 14970) is untouched; every
+live probe ran against a **fresh** `npx vite --port 8991 --strictPort` on this tree (killed at the end). `WBGSE-O-r3-gestures.mjs`
+and `WBGSE-D-probe2.mjs` hard-code `:9000`; they ran from dot-prefixed copies that changed **only the origin byte**
+(⟨`diff … | grep -c '^<'`⟩ → 1 each), deleted afterwards. Playwright on fresh webServers (`VJS_E2E_PORT` 8811–8828), line
+reporter, one runner, strictly serial. Transcript file names in parentheses.
+
+| gate | ⟨cmd⟩ (transcript) | BEFORE | AFTER |
+|---|---|---|---|
+| a1 | `npx vite-node …/evidence/parse-probe.ts` → `npx vitest run test/gradient-order-invariant.test.ts` (`a1.txt`) | GREEN | **GREEN**: probe EXIT 0; `Tests 17 passed (17)` |
+| a2 · a3 · b3 · a4 (`o21:188`) | `npx playwright test e2e/smoke/views/gradient.spec.ts e2e/smoke/oracles/o21-gradient-rail.spec.ts --project=smoke` ×3 (`pw-grad-r{1,2,3}.txt`) | GREEN | **GREEN ×3**: each passes inside every run |
+| a13 (the suite) | same ×3 + the a1 vitest | RED 1 of 3 (seventh close) · GREEN ×3 (`.s`) | **RED 1 of 3**: r1 `1 failed · 21 passed (1.8m)` EXIT 1 (`gradient.spec.ts:461` e1, below); r2 `22 passed (1.9m)` · r3 `22 passed (1.9m)` EXIT 0 |
+| e1 (`gradient:461`) | same ×3 | GREEN ×3 | **RED 1 of 3**: r1 *"the ramp moves with no producer primitive composed"* `Expected: false · Received: true` at `:547` (five clipped frames 300 ms apart differ; the L3 branch — `railMotion.animation` read `none`); r2 · r3 GREEN |
+| a5–a11 | `GRADIENT_URL=http://localhost:8991/#/gradient node …/W6-evidence/gradient/gate-a-gesture-paint.mjs` ×3 (`a-gp-r{1,2,3}.txt`) | RED 2 of 3 (seventh close) · GREEN ×3 (`.s`) | **GREEN ×3**: `GATE X.W6.a (gesture + paint) — GREEN` EXIT 0 each |
+| a7 (arm 2) | `node …/.WBGSE-O-r3-gestures.8991.mjs` (`a7-c14.txt`) | GREEN | **GREEN**: `C14 buttons: {"beforeMid":2,"afterMid":2,"afterRight":2}` |
+| a12 | `node …/.WBGSE-D-probe2.8991.mjs` ×2 (`a12-r{1,2}.txt`) | GREEN | **GREEN ×2**: block 5 `beforeOverhangPx 0` · `afterOverhangPx 0` |
+| b1 | `GRADIENT_URL=… node …/gate-seat.mjs` ×2 (`seat-r{1,2}.txt`) | RED (`B1-G3D`) | **RED ×2**: EXIT 1, exactly 2 `G3d` lines each — `B1-G3D` honest-RED-by-instrument (§0ax) |
+| b2 · b4 | same ×2 | GREEN | **GREEN ×2**: 0 `G3e` · 0 `G3f` |
+| c1 | `node …/gate-structure.mjs` (`c1.txt`) | GREEN | **GREEN**: `GATE G4 (structure) — GREEN` |
+| c2 | `npx vitest run test/gradient-order-invariant.test.ts -t "one sampling law"` (`c2.txt`) | GREEN | **GREEN**: `4 passed \| 13 skipped (17)` |
+| c3 | `npx vite-node docs/tranches/X/gates/gate-literal-dialect.mjs` (`c3.txt`) | GREEN | **GREEN**: `GATE c3 (literal dialect) — GREEN` |
+| c4 | `npx vitest run test/interpolation-subset.test.ts` (`c4.txt`) | GREEN | **GREEN**: `5 passed (5)` |
+| d1 | `EASING_RADIUS_ORIGIN=http://localhost:8991 node …/x-w6/gate-easing-radius.mjs` ×2 (`d1-r{1,2}.txt`) | GREEN | **GREEN ×2**: `panel surfaces measured: 33 · read-only (d2-ask / producer): 2` |
+| d2 | `node …/x-w6/gate-easing-readout.mjs` (`d2.txt`) | GREEN | **GREEN**: `fitting primitives …: NONE` · `DATED ASK` · local restyle `0 line(s)` |
+| e2 | `grep -rn requestAnimationFrame demo/workbenches/gradient/ \| wc -l` + `gate-prm-idiom.mjs` (`e2.txt`) | GREEN | **GREEN**: `0` · `GATE e2 (PRM idiom) — GREEN` |
+| f1 · f5 | `node docs/tranches/X/gates/gate-catalog-totality.mjs` · `gate-specimen-grammar.mjs` (`catalog-totality.txt` · `specimen-grammar.txt`) | GREEN | **GREEN**: `GATE f1 (catalog totality) — GREEN` · `GATE f5 (specimen grammar) — GREEN`, EXIT 0 each |
+| f2 · f7 · f9 · f10 | the spec's greps (`greps.txt`) + `npx vue-tsc --noEmit -p tsconfig.demo.json` (`vuetsc.txt`) | GREEN | **GREEN**: f2 `0` · f7 `0`/`0` + vue-tsc `EXIT=0` · f9 `2`/`0` · f10 `0` |
+| f3 | `npx playwright test e2e/smoke/oracles/o21-space-catalog-truth.spec.ts` ×2 (`f3-r{1,2}.txt`) | GREEN | **GREEN ×2**: `1 passed (1.2m)` each. ⟨`git status --porcelain docs/`⟩ after → no catalog path (`.f2` holds) |
+| f4 · f6 · f8 | `o22` · `o23` · `o24` ×2 (`f468-r{1,2}.txt`) + f8 ⟨`grep -c 'tag=' ColorSpaceSelector.vue`⟩ → `0` | GREEN | **GREEN ×2**: `3 passed (15.7s)` · `3 passed (16.6s)` |
+| g1 | `CARD_RHYTHM_ORIGIN=http://localhost:8991 node …/x-w6/gate-card-rhythm.mjs` (`g1.txt`) | RED | **RED**: `LARGEST INTERVAL: 61.22px` · `2 interval(s) fail` — honest-RED by id → X-W10 (§0aq, M-23) |
+| g2 | `npx playwright test e2e/smoke/views/companion-pane-track-start.spec.ts -g "companion panes share one track start" --project=smoke` ×3 (`g2-r{1,2,3}.txt`) | RED ×2 (seventh close, 6.50144) · GREEN ×3 (`.s`, `201f737a`) | **RED ×3**: each `locator.evaluate: Error: Mix region renders no pane` at `readRowOnce` (`:93`, via `:151`) — a NEW species; the 6.50 px enter-pose reading is gone. Bisect (Act 2a) |
+| h1 | `npx playwright test e2e/smoke/webgl-blob-idle.spec.ts -g "hero blob carries current chroma" --project=smoke` ×2 (`h1-r{1,2}.txt`) | GREEN | **GREEN ×2**: `3 passed (36.8s)` · `3 passed (37.0s)` (sRGB buffer; H1-P3 by id) |
+| h2 | `node docs/tranches/X/gates/gate-blob-pipeline.mjs` (`blob-pipeline.txt`) | GREEN | **GREEN**: `GATE h2 (blob pipeline census) — GREEN` |
+| i1 | `o25-atmosphere-response.spec.ts` ×2 (`i1-r{1,2}.txt`) | GREEN | **GREEN ×2**: `1 passed (2.0s)` each; no tracked byte moved |
+| i2 | `node docs/tranches/X/gates/gate-lband-door.mjs` (`lband-door.txt`) | GREEN | **GREEN**: `GATE i2 (dark lBand door) — GREEN` |
+| i3 | `o28-atmosphere-coldload.spec.ts` ×2 (`i3-r{1,2}.txt`) + ⟨`grep -rn armRuntime demo/ \| wc -l`⟩ | RED | **RED ×2**: `1 failed`, Received **0.15949 · 0.29331 · 0.24326** — byte-identical to every sitting since the fifth; armRuntime `0`. `I3-SEED-SIZE` (O-52) |
+| j1 | `npx playwright test e2e/smoke/oracles/o29-scene-contracts.spec.ts --project=smoke` ×2 (`o29-r{1,2}.txt`) — `gradient scene` | RED (o29 absent) · GREEN ×2 (`.j`) | **GREEN ×2** |
+| j2 | same — `mix canary` | RED · GREEN ×2 (`.j`) | **GREEN ×2** |
+| j3 | same — `preview survives` (blob + atmosphere) | RED · GREEN ×2 (`.j`) | **GREEN ×2** (both limbs each run; the run totals `5 passed · 1 failed` ×2) |
+| j4 | same — `short landscape` 720×450 | GREEN (retired at `6dfdd8d2`, reachable-separately reading) · blob RED ×3 (`.j`, simultaneous reading) | **RED ×2**: `[j4] blob … preview@last=0.000` (r1 `preview@rest=1.000`, r2 `0.887`) · atmosphere GREEN `preview@last=0.079` ×2 → **ESC-W6j-1** |
+| H1 | `node docs/tranches/X/gates/gate-no-chassis.mjs 17dd0df4 201f737a 15f9ee8e b2dd375c a87f8930 3c558956 b0991fd3 9557e6b5 e07bff63 7dff25f6 63713d4c adc312f6 e0e204a9 c222542d f90aeb02` (`h1-chassis.txt`) | GREEN | **GREEN**: `POSITIVE CONTROL — detector fires` then `WAVE DIFF — 29 demo/ files over 15 commits` · `GATE H1 (no copied chassis) — GREEN` |
+| H2 | ⟨`git ls-files …/codex-provenance/motion-quarantine.md \| wc -l`⟩ + ⟨`grep -rln motion-quarantine.md e2e`⟩ + ⟨`grep -c MOTION-SOURCED o29`⟩ (`greps.txt`) | RED (the `.j` leg owed) | **GREEN**: `1` · `o29-scene-contracts.spec.ts` + `gradient.spec.ts` (the `.e` leg) · o29 `2` markers, `2` cite the record |
+| H3 | parser R1 one-liner · installed glass version (`greps.txt`) | GREEN | **GREEN**: `H3 R1 EXIT=0` · `7.0.0` |
+| H4 | every row one disposition | RED (CC-056 · CC-057 unlanded) | **GREEN**: CC-056 and CC-057 land as X.W6.j `17dd0df4` (CC-057's short-landscape limb carries **ESC-W6j-1** by name, not a second disposition); the other twelve rows are unchanged since the seventh close |
+
+### Act 2a — g2's new species, bisected read-only
+
+The `.s` helper (`e2e/smoke/fixtures/settle.ts`, `regionSettled`) takes `paneRoot = region.firstElementChild` and skips a null
+root (`if (!node) continue`). A region that is **empty** at the read — the gap between the leaving and the entering pane on the
+`/#/` → `/#/mix` hop — therefore reads settled (`""`), and `readRowOnce` then throws on the missing child. To tell a `.j`
+regression from a helper gap, g2 ran in a detached sibling worktree at **`9c782daa`** (post-`.s`, pre-`.j`; `node_modules` and
+`dist/` symlinked — ⟨`git diff --stat 9c782daa HEAD -- src plugins package.json vite.config.ts playwright.config.ts`⟩ → empty),
+fresh ports 8719/8729/8739, then removed (⟨`git worktree list \| grep -c close8`⟩ → `0`; `g2-bisect-pre-j-r{1,2,3}.txt`):
+r1 `1 passed (13.9s)` · r2 and r3 `Error: … Mix region renders no pane` `1 failed`. **The species predates `.j`** (RED 2 of 3
+there, RED 3 of 3 at HEAD): the root is the helper's empty-region hole, not the Mix bytes. `.s` read GREEN ×3 at its own clock;
+this seat's clock (load up to 22.8) exposes it. Owner: a `.s` repair (settle helper only — an empty region is not settled).
+**Landed-wrong: none** — `.s`'s bytes are in bounds; the defect is recorded as a residual (R-s1), not cured here.
+
+A side observation from the same runs: every gradient-suite run at HEAD logs
+`[Vue warn]: Template ref "visualizer" used on a non-ref value. It will not work in the production build.` (⟨`grep -c`⟩ →
+24 · 24 · 12 in `pw-grad-r{1,2,3}.txt`; **0** in the seventh close's `close-7-2026-09-23/pw-grad-r1.txt`). `17dd0df4` added a
+setup binding `function visualizer()` to `GradientPane.vue` (`:28`) while the template keeps `ref="visualizer"` (`:48`) for
+`useTemplateRef(…, "visualizer")` (`:14`): the key collides with a non-ref setup binding. j1 is GREEN (the ref resolves through
+`useTemplateRef`), but the warning is new noise at every mount and names a production hazard. Residual R-j1 (a `.j` repair,
+rename one side; in bounds).
+
+### Act 3 — SELF-COUNT (counted twice)
+
+**GREEN is 43.** a1–a12 (12) · b2 b3 b4 (3) · c1–c4 (4) · d1 d2 (2) · e2 (1) · f1–f10 (10) · h1 h2 (2) · i1 i2 (2) · j1 j2 j3 (3)
+· H1–H4 (4). 12+3+4+2+1+10+2+2+3+4 = **43**.
+**RED is 7.** a13 · b1 · e1 · g1 · g2 · i3 · j4. **7**. 43 + 7 = **50** = the §6 roster.
+Recount by list (⟨`echo $G $R | tr ' ' '\n' | wc -l`⟩ → `50`; `sort | uniq -d | wc -l` → `0`; `wc -w` → G `43`, R `7`).
+Recount by unit (G/R): `.a` 12/1 · `.b` 3/1 · `.c` 4/0 · `.d` 2/0 · `.e` 1/1 · `.f` 10/0 · `.g` 0/2 · `.h` 2/0 · `.i` 2/1 ·
+`.j` 3/1 · wave H 4/0 → G 12+3+4+2+1+10+0+2+2+3+4 = **43**, R 1+1+0+0+1+0+2+0+1+1+0 = **7**. The counts agree.
+**Movement against the seventh close (33/17).** Up **12**: a5–a11 RED→GREEN ×3 (7, on `.s`'s settle helper), j1 j2 j3 (3, `.j`),
+H2 and H4 (2, `.j`). Down **2**: e1 GREEN→RED (1 of 3) and j4 GREEN→RED (o29's simultaneous reading supersedes the
+`6dfdd8d2` separate-reachability retirement). a13 stays RED (1 of 3, now on e1 alone), and g2 stays RED with a new species
+(Act 2a). 33 + 12 − 2 = **43**. Every 2-of-3 reading is counted **RED — not close-stable**, the rule every close and check since
+the fifth sitting has used.
+**Honest-RED, relieved at the spec bytes:** b1 (`B1-G3D`, `W6.md:486`) · g1 (→ X-W10, `W6.md:484`) · i3 (`I3-SEED-SIZE`,
+`W6.md:492`). **Escalated:** j4 (`ESC-W6j-1`). **Unrelieved:** a13/e1 (1 of 3) and g2 (settle-helper hole).
+
+### Act 4 — §8 Verification Artefacts, run as written
+
+⟨`git ls-files W6-evidence/<dir> | grep -c '\.png$'`⟩ → gradient **14** (7 cells × {before,after}, `.v` `aac7e995`) · catalog
+**6** · owner-marks **12** (OM-3/4/6/9/10/13 × {original, recapture-2026-09-23}; the OM-10 CONTROL included) · atmosphere **5**.
+⟨`git ls-files <doc> | wc -l`⟩ → `W6-atmosphere-tombstone.md` 1 · `W6-glass-ask-easing-readout.md` 1 (d2's census chose the ask)
+· `W6-blob-pipeline-census.md` 1 · `W6-lband-letter.md` 0 (i2 GREEN on the landed branch, so no letter is owed). ⟨`git ls-files
+W6-evidence/atmosphere | grep -i cold`⟩ → **empty**. Gate transcripts: this close's are in `W6-evidence/gates/close-8-2026-09-23/`
+and `.j`'s are in `j-2026-09-23/`. **§8 is PARTIAL, down to one item:** the cold-load first-paint capture, which is tied to i3
+(`I3-SEED-SIZE`). The gradient and owner-mark gaps from R-11 are **discharged** by `.v`.
+
+### Act 5 — §7 cadence at the settled bytes
+
+⟨`npx eslint demo`⟩ → `EXIT=0` (`eslint.txt`). ⟨`npx vue-tsc --noEmit -p tsconfig.demo.json`⟩ → `EXIT=0` (`vuetsc.txt`).
+⟨`npx vitest run`⟩ → `Test Files 2 failed | 36 passed (38)` · `Tests 2 failed | 639 passed (641)` (`vitest-full.txt`). The two
+failures are exactly **C-5** (`test/spectrum-luma.test.ts`) and **NG-6** (`demo/test/shell/reka-binding-idiom.test.ts`), the
+foreign born-RED canaries → X-W8 `.i` (§0z E2, R-12). ⟨`npx prettier --check` over the 12 e2e/demo paths this sitting touched⟩
+(`prettier.txt`) → 4 warn; the prettier delta line count at HEAD and at `3e933c33` is `GradientPane.vue` 9/9 · `MixPane.vue`
+18/18 · `MixSourceSelector.vue` 68/73 · `gradient.spec.ts` 50/50, so **no new violation** (R-d-1 predates the wave). ⟨`npx tsc
+--noEmit -p tsconfig.e2e.json`⟩ (`tsc-e2e.txt`) → 5 errors, all in `o23-specimen-gamut-honesty.spec.ts` (pre-existing, `.s`
+receipt), and **none in this sitting's specs**. ⟨`git diff --check`⟩: see Act 1.
+
+### Act 6 — E13 mail (read-only sweep, ~04:05)
+
+⟨`find <dir> -maxdepth 1 -type f -newermt 2026-09-23T02:54:00-04:00`⟩ (the eighth Open `41413a85`, the last swept clock) →
+**empty** on value.js `V/` · `V/coordination/` · glass `BK/coordination/` (⟨`ls -t glass-ui/docs/tranches | head -2`⟩ → `BK`,
+`BJ`) · keyframes `V/coordination/` · atlas (`sci-report/atlas`) `{P,Q,R}/coordination/` · `T/` (⟨`ls -t` → `T`, `Q`⟩).
+⟨`grep -c '^| I-\|^| O-' INBOX.md`⟩ → **98**. The UNREAD-status rows are O-20 · I-30 · I-31 · I-32 · I-35 · O-39 · I-40, none
+addressed to X-W6. **0 UNREAD in W6's scope.** No INBOX byte was written, because INBOX is outside this seat's set.
+INFO: the id **O-52 appears twice** (`INBOX.md:144`, the H1-P3 display-p3 ask of 2026-09-22, and `:437`, the aurora-derive
+relay of 2026-09-23, added at `277b8d25` §0ba). That breaks the ids-for-life rule, and the fix belongs to the COHESION seat
+(R-m1).
+
+### Act 7 — escalations
+
+- **ESC-W6j-1** (`.j`, j4 Blob limb). At 720×450 the shell gives the Blob scene ONE column (`shell.css` `.pane-container`
+  auto-fit over `--pane-min: 25rem`), so no scroll position shows both the blob preview and the inspector's last control:
+  `preview@last=0.000` ×2 here and ×3 at `.j`. The cure is an arrangement (a short-landscape second track or a sticky stage seat),
+  and that belongs to the shell (X-W5 / CC-054 · CC-055). `shell.css` is outside W6 §4. **OWNER** rules between an X-W5 shell
+  re-open that grants `shell.css` and an E-3 re-reading of j4 that returns to the `6dfdd8d2` separate-reachability retirement.
+- **ESC-W6i-i3-1 → `I3-SEED-SIZE`** stands (O-52 aurora-derive relay SENT, §0ba). The `.i3` re-sit waits for the subpath.
+- ESC-W6close5-1 / ESC-W5d4-1 are **relieved for a5–a11** (GREEN ×3 on `.s`'s helper). They are **not relieved for g2 or
+  a13/e1**. g2's residual is now a helper hole inside W6's own e2e set (R-s1), not the X-W5 enter pose, and e1's single RED is
+  unbisected (R-e1).
+- **No new escalation from this seat.**
+
+### Act 8 — residuals, each with a named owner
+
+| id | residual | owner |
+|---|---|---|
+| R-s1 | g2 RED ×3 `Mix region renders no pane`: `regionSettled` treats an empty region (no pane root) as settled (`settle.ts`, `if (!node) continue`); RED 2 of 3 at pre-`.j` `9c782daa` too | a `.s` repair (the settle helper, `e2e/smoke/fixtures/**`); no `demo/**` byte |
+| R-e1 | e1 (`gradient.spec.ts:461`) RED 1 of 3: clipped ramp frames differ with `animation: none`, so a13 is RED 1 of 3 on it alone | a `.s`/`.e` repair seat bisects (enter pose vs a real ramp motion); assertions untouched |
+| R-j1 | `GradientPane.vue` setup binding `visualizer()` collides with template ref key `"visualizer"`, which logs a Vue dev warning at every mount since `17dd0df4` | a `.j` repair (rename one side; in bounds) |
+| R-j4 | j4 Blob limb (`ESC-W6j-1`) | **OWNER** → X-W5 shell arrangement or an E-3 re-reading |
+| J3-WEBGPU | the real-GPU cell's forced-loss arm cannot be witnessed from a page (glass `"destroyed"` terminal) | glass BK relay. `.j` wrote no mail, and this seat cannot either (INBOX is outside its set), so the next seat granted INBOX relays it |
+| R-v1 | `.v` AFTER cross-drag: the dragged stop settles at 27.4% rather than about 10%, and the ascending/>60 assertion does not cover it | the next Check (observation; `.a` owner if confirmed) |
+| MX-3 | the colors-mode Mix seats are WatercolorDot impostors (glass 7.0.0 `inheritAttrs:false`) | X.W4.g (the glass-8 trigger-gated cut) |
+| R-4 | b1 `B1-G3D` (2 `G3d` lines ×2) | X-W11's OUT-OF-WAVE roster (§0ax) |
+| R-5 | i3 `I3-SEED-SIZE` (0.15949 · 0.29331 · 0.24326 ×2) and §8's cold-load first-paint frame | glass shader-free derive subpath (O-52 relay) → a `.i3` re-sit |
+| R-6 | g1: 61.22 px, 2 intervals fail | X-W10 (honest-RED by id, §0aq, M-23) |
+| R-12 | the vitest canaries C-5 and NG-6 (2 of 641) | X-W8 `.i` (§0z E2) |
+| R-16 | the `:9000` dev server (PID 14970) is still stale | environment (STALE-SERVER LAW) |
+| R-17 | trailing whitespace in verbatim reporter transcripts (`j-2026-09-23/*.txt`, 5 hits) | none owed (INFO) |
+| R-d-1 | the prettier debt predates the wave (no new violation) | X-W8 hygiene / the next product commit on those paths |
+| R-e2e-tsc | `tsc -p tsconfig.e2e.json` 5 errors in `o23-specimen-gamut-honesty.spec.ts` | `.f` repair (o23 is `.f`'s spec) |
+| R-m1 | duplicate id O-52 in INBOX.md (`:144` / `:437`) | COHESION seat (E-3 re-id addendum) |
+
+**Discharged here:** R-7 (j1–j3 and H4 landed by `.j`) · R-8 (the H2 `.j` leg) · R-11's gradient and owner-mark limbs (`.v`) ·
+R-15's a5–a11 limb (GREEN ×3).
+
+### Act 9 — four-verb line after this close
+
+AUDITED yes · SPECIFIED yes · **IMPLEMENTED no** (7 RED; unrelieved: g2 · a13/e1 · j4-escalated) · VERIFIED no (X-W11's stamp,
+`W6.md` §10). The line does not move.
+
+### Act 10 — verdict
+
+**PARTIAL.** GREEN 43/50, RED 7/50. Landed-wrong 0. UNREAD in scope 0. No new escalation. The LEDGER row reads **PARTIAL —
+eighth-sitting close**: 43/50, with RED = a13 · e1 (1 of 3) · g2 (R-s1) · j4 (ESC-W6j-1) · b1/g1/i3 (honest-RED by id).

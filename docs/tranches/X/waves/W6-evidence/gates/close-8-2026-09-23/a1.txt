@@ -1,0 +1,25 @@
+(node:61494) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+parseCssColor("oklch()") -> reject
+parseCssColor("rgb()") -> reject
+parseCssColor("hsl()") -> reject
+parseCssColor("lab()") -> reject
+parseCssColor("lch()") -> reject
+parseCssColor("oklab()") -> reject
+parseCssColor("hwb()") -> reject
+parseCssColor("color()") -> reject
+parseGradientCSS -> reject: stop positions must be non-decreasing (hard-stop reordering isn't modeled)  << linear-gradient(90deg, oklch(0.75 0.15 145) 74.9%, oklch(70% 0.165 205deg) 50%, oklch(0.65 0.18 265) 100%)
+parseGradientCSS -> reject: unparseable color "oklch()"  << linear-gradient(90deg, oklch(), blue)
+parseGradientCSS -> ok  << linear-gradient(90deg, red, blue)
+EXIT=0
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ✓ test/gradient-order-invariant.test.ts (17 tests) 8ms
+
+ Test Files  1 passed (1)
+      Tests  17 passed (17)
+   Start at  03:56:00
+   Duration  426ms (transform 54ms, setup 28ms, collect 62ms, tests 8ms, environment 115ms, prepare 33ms)
+
+EXIT=0

@@ -1,0 +1,11 @@
+GATE i2 (dark lBand door) — GREEN
+  probe seed oklch(0.66 0.16 28), through the producer's own resolveAtoms door:
+    plain                   L 0.5000 0.6067 0.7133 0.8200
+    lightnessScheme:"dark"  L 0.1800 0.2600 0.3400 0.4200  moves=true
+    lBand [0.1, 0.34]      L 0.1000 0.1800 0.2600 0.3400  honoured=true
+  REACHABLE = true  →  branch: LAND THE BAND
+  letter present: false
+    clean     demo/color-picker/composables/boot/useAtmosphere.ts  (carries the dated i2 correction)
+    clean     demo/color-picker/composables/boot/atmosphere-calibration.ts  (carries the dated i2 correction)
+    clean     demo/test/glass/aurora-bracket.test.ts  (carries the dated i2 correction)
+EXIT=0
