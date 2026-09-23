@@ -12,22 +12,27 @@
         <!-- ONE root element, no sibling comment: a comment beside the root
              makes a dev-root fragment, which loses the slot's out-in
              continuation (PaneSlot.vue header). -->
+        <!-- X.W7.g2 (N-9 · §0bk.3 — the drifted error-plate set, one copy):
+             the statement, glyph, detail and their magnitudes are EmptyState's
+             `error` variant — composed, never cloned (ErrorBoundary composes
+             the same plate). This plate adds only what is its own: the pane's
+             resting surface filling the region, and the reload action. -->
         <Card
             tier="resting"
-            class="w-full h-full min-w-0 flex flex-col items-center justify-center gap-3 py-10 px-6 text-center"
-            role="alert"
+            class="w-full h-full min-w-0 flex flex-col justify-center px-6"
         >
-            <CircleAlert class="w-7 h-7 text-destructive/80" aria-hidden="true" />
-            <p class="font-display text-heading text-foreground max-w-[28ch] text-balance leading-snug">
-                This scene could not be loaded.
-            </p>
-            <p v-if="detail" class="text-mono-small plate-ink max-w-[46ch] break-words">
-                {{ detail }}
-            </p>
-            <Button variant="outline" size="sm" class="font-display mt-1" @click="reload">
-                <RotateCcw class="w-3.5 h-3.5 mr-1.5" aria-hidden="true" />
-                Reload the app
-            </Button>
+            <EmptyState
+                variant="error"
+                message="This scene could not be loaded."
+                :detail="detail ?? undefined"
+            >
+                <template #action>
+                    <Button variant="outline" size="sm" class="font-display mt-1" @click="reload">
+                        <RotateCcw class="w-3.5 h-3.5 mr-1.5" aria-hidden="true" />
+                        Reload the app
+                    </Button>
+                </template>
+            </EmptyState>
         </Card>
     </div>
 </template>
@@ -54,9 +59,10 @@ export class PaneChunkError extends Error {
 
 <script setup lang="ts">
 import { computed } from "vue";
-import { CircleAlert, RotateCcw } from "@lucide/vue";
+import { RotateCcw } from "@lucide/vue";
 import { Button } from "../ui/button";
 import { Card } from "../ui/card";
+import EmptyState from "../shared/ui/EmptyState.vue";
 
 /** `defineAsyncComponent` hands its `errorComponent` the loader's error. */
 const { error } = defineProps<{ error?: unknown }>();
@@ -67,10 +73,3 @@ function reload() {
     window.location.reload();
 }
 </script>
-
-<style scoped>
-/* The certified de-emphasis rung, the same one ErrorBoundary's detail rides. */
-.plate-ink {
-    color: var(--ink-muted, var(--muted-foreground));
-}
-</style>
