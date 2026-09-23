@@ -3,6 +3,7 @@
     <Transition name="vj-celebrate">
         <div
             v-if="visible"
+            role="status"
             :class="[
                 'feedback-chip flex items-center gap-2 px-3 py-1.5 rounded-panel text-xs fira-code',
                 variant === 'success' && 'bg-green-500/10 text-green-600 dark:text-green-400',
@@ -17,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import { watch } from "vue";
+import { onBeforeUnmount, watch } from "vue";
 import { CheckCircle2, AlertCircle } from "@lucide/vue";
 
 const props = withDefaults(
@@ -45,6 +46,11 @@ watch(
         }
     },
 );
+
+// A dismissal scheduled for an unmounted chip must not fire.
+onBeforeUnmount(() => {
+    if (timer) clearTimeout(timer);
+});
 </script>
 
 <style scoped>

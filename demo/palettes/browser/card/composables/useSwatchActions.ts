@@ -89,9 +89,22 @@ export function useSwatchActions(deps: SwatchActionsDeps) {
         });
     }
 
-    function onCurrentSwatchCopy(css: string) {
+    // --- The copy verdict (fold N-11 · PC-21 ≡ PS-23) ---
+    // `writeClipboard` resolves a discriminated `CopyResult`; the verdict is
+    // bound and shown (the editor renders it through `ActionFeedback`), never
+    // discarded — a rejected clipboard write is a visible failure.
+    const copyFeedback = ref<{ message: string; variant: "success" | "error"; visible: boolean }>({
+        message: "",
+        variant: "success",
+        visible: false,
+    });
+
+    async function onCurrentSwatchCopy(css: string) {
         closeCurrentSwatchPopover();
-        void writeClipboard(css);
+        const result = await writeClipboard(css);
+        copyFeedback.value = result.ok
+            ? { message: `Copied ${css}`, variant: "success", visible: true }
+            : { message: `Could not copy ${css}`, variant: "error", visible: true };
     }
 
     function onCurrentSwatchRemove(css: string, index: number) {
@@ -106,6 +119,7 @@ export function useSwatchActions(deps: SwatchActionsDeps) {
         currentSwatchPopoverIndex,
         currentFloatingStyle,
         swatches,
+        copyFeedback,
         // Hover/popover handlers
         onCurrentSwatchHover,
         onCurrentSwatchLeave,

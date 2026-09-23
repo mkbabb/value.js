@@ -154,6 +154,7 @@
                 @popover-add="onPopoverAdd"
                 @popover-edit="onPopoverEdit"
                 @popover-copy="onPopoverCopy"
+                @copy-slug="(slug) => copyWithVerdict(slug, slug)"
             />
         </Transition>
         </div><!-- /card body -->
@@ -291,7 +292,7 @@ function handleMenuAction(action: string) {
     // `rename` opens an inline input — keep the menu open visually until the
     // input takes focus; all other actions close the menu immediately.
     const actions: Record<string, () => void> = {
-        copyAll: () => void writeClipboard(props.palette.colors.map((c) => c.css).join(", ")),
+        copyAll: () => void copyWithVerdict(props.palette.colors.map((c) => c.css).join(", "), "colors"),
         publish: () => emit("publish", props.palette),
         delete: () => emit("delete", props.palette),
         save: () => emit("save", props.palette),
@@ -330,7 +331,19 @@ function onPopoverEdit(color: PaletteColor, index: number) {
 
 function onPopoverCopy(css: string) {
     openPopoverIndex.value = null;
-    void writeClipboard(css);
+    void copyWithVerdict(css, css);
+}
+
+/**
+ * X.W7.c (fold N-11 · PC-21 ≡ PS-23 ≡ PS-32): every copy verb on the card
+ * (all colours, one colour, the slug) routes here, and the producer's
+ * discriminated `CopyResult` reaches the card's own verdict surface
+ * (`ActionFeedback`) — never discarded.
+ */
+async function copyWithVerdict(text: string, what: string): Promise<void> {
+    const result = await writeClipboard(text);
+    if (result.ok) showFeedback(`Copied ${what}`, "success");
+    else showFeedback(`Could not copy ${what}`, "error");
 }
 </script>
 

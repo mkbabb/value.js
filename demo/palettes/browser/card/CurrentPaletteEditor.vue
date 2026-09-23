@@ -111,6 +111,14 @@
                 </TooltipProvider>
             </div>
         </TransitionGroup>
+        <!-- X.W7.c (fold N-11): the swatch copy verb's verdict — the same
+             feedback chip the palette card uses, bound to the CopyResult. -->
+        <ActionFeedback
+            :message="copyFeedback.message"
+            :variant="copyFeedback.variant"
+            :visible="copyFeedback.visible"
+            @update:visible="copyFeedback.visible = $event"
+        />
         <!-- K-INV5 degraded affordance: the save surface names its state
              when the backend is down — the palette still saves locally. -->
         <ApiOfflineChip v-if="savedColorStrings.length > 0" class="self-start" />
@@ -190,6 +198,7 @@ import {
 import type { Palette, PaletteColor } from "../../types";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 import SwatchHoverMenu from "./SwatchHoverMenu.vue";
+import ActionFeedback from "./PaletteCard/ActionFeedback.vue";
 import ApiOfflineChip from "../status/ApiOfflineChip.vue";
 import { useSwatchActions } from "./composables/useSwatchActions";
 
@@ -220,6 +229,7 @@ const {
     currentSwatchPopoverIndex,
     currentFloatingStyle,
     swatches,
+    copyFeedback,
     onCurrentSwatchHover,
     onCurrentSwatchLeave,
     cancelCurrentSwatchLeave,
