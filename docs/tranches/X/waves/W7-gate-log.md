@@ -21,6 +21,13 @@ sitting of record 2026-09-17). Baselines are the open seat's (`execution/A/X-W7.
 | c | `9250dd19` | #5 `feat(palettes/specimen)` — PaletteSpecimen; priority-collapse meta; +N chip; strip (G8 · G9 · G12) |
 | c | `877710a2` | #7 `fix(palettes/card)` — cast follows silhouette; hover at root (G11 root half) |
 | c | `76a4d1cf` | #6 `test(palettes/n-fixtures)` — the arbitrary-N battery (G8 · G9 · G10 · N-13) |
+| d | `e3f3d781` | S-5 docs act — `W7-bounds-addendum-2026-09-23.md` (PaletteCard.vue gains `delete`; B-1..B-6 homing) |
+| d | `c1304cb6` | #8 `refactor(palettes/inspector)` — one owner, one verdict; DAG rows 1/3/6; N-2 · N-3 · N-4 · N-16; pre-flight; MMD-2 |
+| d | `eb2fae61` | N-8 `fix(palettes/types)` — client DTOs mirror the server formatters |
+| d | `f5b13794` | #8 (cont.) — one call site for the admin palette delete and the publish (G13) |
+| d | `5110332c` | G13 table + `w7-mutation-visibility` oracle + pre-flight battery |
+| d | `52117566` | N-7 store half — `movePalette` |
+| d | `1d4d375b` | G7 host row (ESC-W7b-HOST) + the measured early-return count |
 
 ---
 
@@ -267,3 +274,85 @@ Repo-wide residue (outside unit c): ⟨cmd⟩ `grep -rn "void writeClipboard" de
 - **RED on the prior bytes** (run before `8e023125` landed): expand OK, collapse never completes —
   `expected 1 to be +0` after 2 s.
 - **GREEN**: PRM collapse removes the swatch subtree; the animated collapse still completes.
+
+---
+
+## X.W7.d — gate sections (seat `claude-opus-5-5[1m]`, 2026-09-23, opened at HEAD `23e7fcb0`)
+
+### G13 — One owner per mutation, one visible result — **GREEN over the 11 rows it can reach; 3 OWED-ORACLE · 6 ROUTED named**
+
+- **RED (open)**: `W7-mutation-ownership.md` ABSENT; no `w7-*` oracle. Call-site census ⟨cmd⟩
+  `grep -rln "\bdeletePaletteAdmin(" demo | grep -v palettes/api/` → `useAdminFlagged.ts` · `useAdminUsers.ts` (**2**);
+  `createAndSavePalette(` → `usePaletteActions.ts` · `useSlugMigration.ts` (**2**). DAG rows 1/3/6 live (feature error
+  `console.warn`-only; the expanded list lived in the panel and no refresh reached it; admin cards rendered the full
+  `PaletteCardMenu`).
+- **GREEN**: the table — **20 rows**, one call site each (both doubles → **1** at `f5b13794`), self-counted ×2:
+  GREEN **11** · OWED-ORACLE **3** · ROUTED **6**. Unit rows ⟨cmd⟩ `npx vitest run demo/test/palettes/admin-crud.test.ts`
+  → **`Tests  12 passed (12)`** ×2. Browser rows ⟨cmd⟩ `npx playwright test --project=smoke
+  e2e/smoke/oracles/w7-mutation-visibility.spec.ts` → **13 passed** ×2 (12 at `5110332c`, +1 G7-host row).
+- **Falsifiers (run, reverted, bytes `cmp`-restored)**: verdict silenced (`useAdminNotice.settle` returns early) →
+  oracle **7 failed** (every admin row); the refresh re-read deleted → unit `row 3` **fails**.
+- **Not claimed**: DAG row 2 (server-side `$lookup` with no `deletedAt` predicate — `api/**`, ESCALATED); the
+  selected-entity inspector (ESC-W7d-INSPECTOR, record).
+
+### G7 — host half (ESC-W7b-HOST, from unit b) — **GREEN**
+
+Both hosts render the composable's `ExportOutcome` on the card feedback rail (`BrowsePane.vue` / `PalettesPane.vue`
+`onExport`). Browser row ⟨oracle `library rows › export failure`⟩: a 0-colour palette's JSON export shows
+"This palette has no colors to export." in a `role="status"` → **1 passed**. Falsifier: the host's `showFeedback`
+skipped → **1 failed**; restored → passed.
+
+### N-2 — Auth ≠ empty across all five admin panels — **GREEN (the pane-side half of S-6's seam)**
+
+- **RED**: ⟨cmd⟩ `git show 23e7fcb0:demo/palettes/<f>.ts | grep -c "if (!token"` over the five composables → users 10 ·
+  names 5 · flagged 3 · tags 3 · audit 1 = **22** (X-W3's record says 21; the 22nd is `createTagAction`'s compound
+  guard) — every one before any state write; after: **0** outside `adminCall`'s own guard. The triple
+  `(false, null, [])` painted each panel's TRUE-EMPTY plate. S-6: X-W3's route guard (`router/guards.ts`) closes
+  NAVIGATION only; this is the pane half — neither wave reports the identity closed alone.
+- **GREEN**: one seam (`api/admin-call.ts`: `adminCall` · `useAdminAccess`); five panels render
+  `[data-admin-access="signed-out"]`, no empty-species fact, **0** operable controls, **0** requests; a server 401 on a
+  held token lands in the same register (not "unreachable"). ⟨cmd⟩ `admin-crud.test.ts -t N-2` → **6 passed**. Reader
+  census ⟨cmd⟩ `grep -rn "meta.admin" demo/color-picker/router/guards.ts` → 1 reader (X-W3's).
+- **Falsifier**: the access register ignores the token (`computed(() => denial.value)`) → **all 6 N-2 cases fail**
+  (the failure also cascades through the file's later cases — recorded, not hidden).
+
+### N-3 — Prune scope — **GREEN**
+
+`emptyUserCount` reads the UNFILTERED roster; the confirm names the server-global scope ("every user with 0
+palettes on the server … not only the users shown here. 2 of the 3 loaded users are empty"). ⟨cmd⟩ `-t N-3` → passed
+×2. Falsifier: count over `filteredAdminUsers` → **1 failed**.
+
+### N-4 — One `searchQuery` per domain, reset on route change — **GREEN**
+
+- **RED**: ⟨cmd⟩ `grep -rn "searchQuery" demo/palettes/ | grep -c '= ""'` → **0**; one ref aliased into four ports.
+- **GREEN**: four refs (`librarySearch` · `browseSearch` · `adminUsersSearch` · `adminNamesSearch`), distinct-ref
+  census **4**, typing in one filters no other, a `currentView` change resets all four. ⟨cmd⟩ `-t N-4` → passed ×2;
+  ⟨cmd⟩ `grep -c '\.value = ""' demo/palettes/usePalettePorts.ts` → **4**.
+
+### N-7 — Drag order integrity — **store half GREEN · first-drag browser row OWED** (from unit c, ESC-W7c-N7)
+
+`usePaletteStore.movePalette` permutes only the visible slots (PG-2, the named-addition rider); `PalettesPane`'s one
+`onUpdate` replaces the library default that double-applied the first drag (PG-1). ⟨cmd⟩ `npx vitest run
+demo/test/palettes/palette-reorder.test.ts` → **4 passed**; falsifier (the retired hoist-and-append) → **3 failed**.
+A real-pointer drag row (Sortable in Chromium) is not authored at this seat — named, not claimed.
+
+### N-8 — The provenance field exists on both sides — **GREEN for the admin DTOs in bounds · ADJ-1 ROUTED**
+
+`dto-parity.test.ts` is a type-level key census the demo program compiles: `AuditEntry` ↔ `AuditEntryDTO`, `User` ↔
+`UserListEntry`, `FlaggedPalette`/`Flag` ↔ `flag.ts`, feature toggle ↔ `FeatureToggleResult`. ⟨cmd⟩ `npx vue-tsc -p
+tsconfig.demo.json --noEmit` → EXIT 0. Falsifier: drop `actorSlug` → `dto-parity.test.ts(28,7): error TS2322`, EXIT 2.
+`ProposedColorName.proposerSlug` (ADJ-1, D-7's precondition) is typed in `demo/color-session/color-names.ts` —
+outside X.W7.d's set; routed.
+
+### N-14 — The rejection arm — **GREEN (arm) · the preserve arm is `api/**`**
+
+A weighted palette's publish is refused before any request with "This palette carries color weights, which
+publishing would discard…" (`api/preflight.ts`), rendered on the card rail by the same path the N = 51 oracle row
+proves. ⟨cmd⟩ `npx vitest run demo/test/palettes/palette-preflight.test.ts` → **18 passed** (0 requests in every
+refusal). Carrying `weight` on the wire is `api/src/modules/palette/schema.ts` — not this unit's.
+
+### N-16 — A paged read cannot be overwritten by an older one — **GREEN**
+
+`latestRequest()` tickets on audit, flagged, tags, the name queue and the roster (last-ISSUED wins; `loading`
+clears only for the current ticket). ⟨cmd⟩ `-t N-16` (page 3 issued first and settling LAST, page 2 second) → the
+rendered page is page 2, the pager agrees, `loading` false. Falsifier: every ticket current → **1 failed**.
