@@ -122,6 +122,13 @@ const TRACK = {
       ],
       "note": "THE X·KF SUPPLEMENT WAVE minted by COHESION §0ai — RESUME 3 (2026-09-22) on COHESION §0ap + KF-W13.md ADDENDUM 2026-09-22 (third): KF.W13.a2 · .e · .a3 · .e2 · .a4 · .e3 · .t are ALL alreadyDone (commits exist; never re-dispatched); the units still owed are [KF.W13.t2] → [KF.W13.f2], both opus, serial; §0ap grants the nine library test files and rules the deliberately-invalid-input idiom ((i) unknown ingress, else (ii) @ts-expect-error with reason; casts stay forbidden); the §0ai close literal stands (vue-tsc 0 · test:demo green · npm run check exit 0); the lint line is read without the demo/styles glob; keyframes.js pushed at every unit's close; value.js pushed only if no sibling staged path sits in the shared index"
     },
+    "KF.W13U": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W13.md",
+      "after": [
+        "KF.W13T"
+      ],
+      "note": "AUTHORITY: the owner's 2026-09-23 keyframes docket, VERBATIM (it is the request this wave executes): 'Dock animations and transitions for keyframes.js are also awful, blurry, janky, and jittery. The cube doesnt\' animate, none of the animationsa re wired up -- the easing picker doesn\'t diplsay the current curve in the preview/header label or in the dropdown -- the timeline is always greyed out; the animations are all entirely broken'. Spec = KF-W13.md ADDENDUM 2026-09-23 (KF.W13U) — READ it and the two frames in docs/tranches/X/keyframes/evidence/W13U/. Minted by COHESION §0be; every seat Opus 5.5. THE INSTRUMENT RULE: every gate is read on the SERVED dev page http://localhost:5173/ in a HEADED real-GPU browser (plus the gh-pages build); KF.W13T\'s harness GREENs were contradicted by the owner\'s live surface, so a harness-only GREEN does not count; reproduce the owner\'s observation first. Strictly serial: [KF.W13U.w] (wiring: the cube and every animation run) → [KF.W13U.t] (timeline not greyed; drag scrubs) → [KF.W13U.e] (easing trigger + rows show the curve; name/description separated) → [KF.W13U.d] (dock blur/jitter cured at consumer root; producer halves DOCK-MORPH-ROOT with O-55/O-56, no consumer copy); glass-ui READ-ONLY; ESCALATED units do not halt the wave"
+    },
     "KF.W13T": {
       "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W13.md",
       "after": [
@@ -175,7 +182,8 @@ const TRACK = {
       "KF.W13"
     ],
     ["KF.W13S"],
-    ["KF.W13T"]
+    ["KF.W13T"],
+    ["KF.W13U"]
   ]
 }
 
