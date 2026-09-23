@@ -7901,3 +7901,78 @@ X-W10 (M-23) · i3 = `I3-SEED-SIZE` (O-52, §0ba) · h1's beyond-sRGB limb = `H1
 - **`.j`** — Author `o29-scene-contracts.spec.ts` (gradient scene · mix canary · preview survives · short landscape 720×450); measure j4 first. Gradient pilot → Mix canary (one interaction owner, no nested controls, 2D context/rAF torn down with the scene) → Blob/Atmosphere loss/recovery (force `WEBGL_lose_context`, assert repaint). Consume X-W4's `SceneActionSet` and X-W5's scene contract; any router/App.vue need → ESCALATE. j1–j3 ×2, §7 cadence, H1.
 
 ## Unit receipts — eighth sitting 2026-09-23
+
+### X.W6.s
+
+SERVED MODEL: claude-opus-5-5[1m] (this unit's receipt). Executes W6.md fifth ADDENDUM (L492) · COHESION §0ba ESC-W5d4-1 bullet (`:2949`).
+
+**Act 0 — crash-recovery.** ⟨`git status --porcelain`⟩ → `docs/tranches/V/reformation/CARRY-LEDGER.md` · `scripts/dev/dev.sh` only —
+neither in this unit's writable set (never touched). No inherited partial work on `e2e/smoke/fixtures/**` · `companion-pane-track-start.spec.ts`
+· `gradient.spec.ts` · `o21-gradient-rail.spec.ts`.
+
+**Act 1 — measure before editing (anchors at true bytes).** Fixtures dir: 8 files, no region settle (⟨`ls e2e/smoke/fixtures`⟩).
+`dock.ts` `paneSettled` reads `transform !== "none"` at one instant; g2's `readRow` (`companion-pane-track-start.spec.ts:66-84`) counts
+only `pane.getAnimations()` running. Anchors: `gradient.spec.ts:243` (test "stop add … drag …", the rail `box` read at `:256`, the
+failing assertion `:282` `moved.left > railWidth * 0.6`) and `:401` (the W5-10 transform audit, settled by `waitForTimeout(1200)`) —
+both at the spec's lines exactly. The pane root is the direct child of the `role="region"` `.pane-wrapper` (`App.vue:108-114`;
+`PaneSlot.vue:277` `<Transition name="vj-enter">`, no DOM wrapper between; `animations.css:246-258` keys the travel on
+`.pane-wrapper--<role> > .vj-enter-enter-from` — stage `translateX(-110%) rotate(-2deg)`).
+
+**Act 2 — bisect `gradient.spec.ts:243` (Received 12).** A read-only replay of the test's exact sequence (scratchpad
+`bisect243.cjs`, chromium 1280×720 = the smoke project's viewport, fresh `npx vite --port 9611 --strictPort`, killed after), two arms:
+CONTROL (pane at rest) and POSE (the stage pane root given `vj-enter-enter-from` while the rail box is read, removed before the click —
+the SwiftShader frame-gap pose, frozen deterministically).
+⟨`U="http://localhost:9611/#/gradient" node bisect243.cjs`⟩ →
+- `{"arm":"CONTROL","where":{"region":"… pane-wrapper--stage","pane":"DIV.relative.w-full","barAnims":[]},"verdictDuringMeasure":"|0 ; |0","boxX":145,"left":346.625,"threshold":277.2,"count":3}`
+- `{"arm":"POSE",…,"verdictDuringMeasure":"|0 ; vj-enter-enter-from|0","boxX":-430,"left":12,"threshold":277.2,"count":3}`
+
+The POSE arm reproduces the recorded failure **byte-for-byte** (Check 3 r2: *Expected > 277.2 · Received 12* — same rail width, same
+landing): the rail box is read at x = −430 on a pane parked at `translateX(-110%)`, the pane then lands, the drag aims left of the rail
+and clamps the handle to left 12. During the pose the pane root carries **0 running Animations** — an animation-only settle is blind
+to it; the class clause sees it. **Verdict: the `:243` cause IS the enter pose → the helper cures it; `ESC-W6s-1` NOT raised.**
+
+**Act 3 — the cure (one helper, four call sites; no `demo/**` byte; no assertion touched).**
+- `e2e/smoke/fixtures/settle.ts` (create) — `regionSettled(target, { timeout = 15_000 })`: `expect.poll` over `target.evaluate`; the
+  pane root = the target's ancestor-or-self whose parent is `role="region"` (a region target → its first element child); SETTLED iff on
+  the target AND its pane root (own animations, never the subtree — the atmosphere / dock lamp / ramp aurora loop forever) no
+  Animation is `running` AND no class matches `/-(enter|leave)-/`. Poll message `the region never settled`; the unsettled reason
+  (element + class / running count) is the polled value, so a timeout names what held.
+- `companion-pane-track-start.spec.ts` — `readRowOnce` awaits `regionSettled(region)` before its reading (g2). Assertions and the OM-10
+  Picker↔Mix control untouched.
+- `gradient.spec.ts` — `:243` awaits `regionSettled(bar(main))` immediately before the rail `box` the drag targets; `:401` awaits
+  `regionSettled` on every shell region (`main.locator('.pane-wrapper[role="region"]')`) in place of the fixed `waitForTimeout(1200)`
+  sleep. Both assertion sets untouched.
+- `o21-gradient-rail.spec.ts` — `openGradient` awaits `regionSettled(bar(main))` after `paneSettled`; the `:188` reload loop awaits
+  `regionSettled(live)` after its listbox-closed settle. Assertions untouched.
+
+Cadence: ⟨`npx tsc -p tsconfig.e2e.json --noEmit | grep -v o23-specimen`⟩ → empty (the only tsc errors are the pre-existing
+`o23-specimen-gamut-honesty.spec.ts:144/181` rows, not this unit's paths) · ⟨`npx eslint --max-warnings=0 <4 paths>`⟩ → EXIT 0 ·
+prettier: `settle.ts` written clean; `o21` + `companion` clean; `gradient.spec.ts` was prettier-dirty at HEAD (`:181`, `:472-484`,
+`:522-529` — not this unit's hunks) and is left as found.
+
+**Act 4 — commit.** `201f737a` `test(e2e): one region settle that sees the pre-start enter pose (X.W6.s, §0ba)` — pathspec the four
+paths (⟨`git show --stat 201f737a`⟩ → `settle.ts +79 · o21 +6 · companion +6 · gradient +13/−3`, 4 files, 104+/3−). One commit, one meaning.
+
+**Act 5 — gates, BEFORE (this sitting's baseline, above) → AFTER (this seat, 2026-09-23 03:01–03:20 EDT, load 4.3 at start, every
+run on a FRESH server; the bytes run are `201f737a`'s — the four paths were not edited after the runs began).** Runner: scratchpad
+`gates.sh`; transcripts in the scratchpad (not committed).
+
+| gate | ⟨cmd⟩ | BEFORE | AFTER |
+|---|---|---|---|
+| g2 | `VJS_E2E_PORT=97{1,2,3}1 VJS_E2E_PERF_PORT=97{1,2,3}2 npx playwright test e2e/smoke/views/companion-pane-track-start.spec.ts --project=smoke --reporter=line` ×3 | RED · GREEN (Received 6.501…) | **GREEN ×3** — `1 passed (14.5s)` · `1 passed (13.9s)` · `1 passed (13.0s)`, EXIT 0 ×3 |
+| suite (a13) | `VJS_E2E_PORT=98{1,2,3}1 VJS_E2E_PERF_PORT=98{1,2,3}2 npx playwright test e2e/smoke/views/gradient.spec.ts e2e/smoke/oracles/o21-gradient-rail.spec.ts --project=smoke --reporter=line` ×3 | 22/22 ×1 (RED 1 of 3 at Check 3, `:243` Received 12) | **22/22 ×3** — `22 passed (1.8m)` · `22 passed (1.9m)` · `22 passed (2.0m)`, EXIT 0 ×3 |
+| gesture-paint (a5–a11) | fresh `npx vite --port 99{1,2,3}1 --strictPort` each (killed after) · `GRADIENT_URL=http://localhost:99{1,2,3}1/#/gradient node docs/tranches/X/waves/W6-evidence/gradient/gate-a-gesture-paint.mjs` ×3 | GREEN ×2 | **GREEN ×3** — `GATE X.W6.a (gesture + paint) — GREEN`, EXIT 0 ×3 |
+| `:243` bisect | Act 2 | unattributed ("by species, not by trace") | **the enter pose, by trace** — POSE arm reproduces Received 12 exactly; cured by the helper |
+
+⟨`git status --porcelain`⟩ after all runs → `CARRY-LEDGER.md` · this record · `scripts/dev/dev.sh` — no run left a side effect.
+
+**Residuals.** None owned by this unit. Noted, not acted (outside the writable set / not this unit's meaning): `tsconfig.e2e.json`
+reports pre-existing errors in `o23-specimen-gamut-honesty.spec.ts:144/181` (`never` element type); `gradient.spec.ts` carries
+pre-existing prettier drift at `:181/:472-484/:522-529`. `dock.ts` `paneSettled` stays (it is the transform-rest wait `openGradient`
+uses; the new helper is added beside it, never replacing it).
+
+**Escalations.** None — `ESC-W6s-1` not raised (the `:243` cause is the enter pose).
+
+**Verdict: X.W6.s DONE** — g2 GREEN ×3 · gradient+o21 22/22 ×3 · gate-a-gesture-paint GREEN ×3 · `:243` bisected (enter pose, cured).
+Locks held: 0 `demo/**` bytes (⟨`git show --stat 201f737a -- demo`⟩ → empty); no per-pane nudge (OM-10 control intact); 0 assertions
+changed; one `test(e2e)` commit.
