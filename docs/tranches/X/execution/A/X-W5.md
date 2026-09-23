@@ -4133,3 +4133,19 @@ Crash-recovery: ⟨cmd⟩ `git status --porcelain` → the four standing rows (`
 **Unrelieved:** o16 W5-census · cold-nav witness · W6 a5–a12/e1/g2 (as `.d3` cross-gates).
 
 **Successors (Opens-after):** X-W6 [`.a2`→`.i2`→`.j`], X-W7, X-W8 and X-W10 each carry the conjunct "X-W5 closed". That conjunct is **RED**, so all four are **lawfully BLOCKED**. The W5-supplied inputs they consume (`regions[]` C8 · the dead block cap B4 · one mount path C4 · E1/E2) are GREEN at the bytes. **LEDGER row: stays PARTIAL. No promotion.**
+
+## Repair 2 — RESUME 6, L-20 repair round 2 over Check 2, 2026-09-23
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X-W5 REPAIR 2 (RESUME 6) · HEAD at open `8c411262`.
+Crash-recovery: ⟨cmd⟩ `git status --porcelain` → the four standing rows (`CARRY-LEDGER.md` · two W6 catalog PNGs · `scripts/dev/dev.sh`); none in this seat's writable set. No inherited partial.
+Inputs: `W5.md` whole (398 L, three ADDENDA), `## Repair 1 — RESUME 6`, `## Check 2 — RESUME 6`.
+
+**Precondition read (double-run):** ⟨cmd⟩ `grep -c 'ESC-W5c3-1\|ESC-W5d3-1' docs/tranches/X/COHESION.md` → **0**, **0**. The last COHESION section is still §0ay (last COHESION commit `d1bc67c3`). ⟨cmd⟩ `git diff --stat 28da478f..HEAD -- demo src e2e docs/tranches/X/waves/W5.md docs/tranches/X/COHESION.md | wc -l` → **0**, **0**. No ruling has landed and no governed byte has moved.
+
+| defect | cure | commit | gate re-reading |
+|---|---|---|---|
+| HIGH · `.c3` o16 RED at R4 (R5/R11 latent) | **ESCALATED, not cured.** Check 2's own cure starts with a COHESION ruling on ESC-W5c3-1 (a grant of R4/R5/R11 on the §0ay resolved-token pattern) plus glass mail for R4's missing `cartoon-surface` register. ADDENDUM 3 grants only o16 `:218` `:266`. R4/R5/R11 at `:251-299` are outside that grant, and the register is a producer row (glass is READ-ONLY). Relaxing R4 here would be a masking fallback. | — | not re-run (no byte moved since `28da478f`); Check 2's ×2 RED reading (2 passed / 2 failed each run) stands |
+| HIGH · `.d3` cold-nav witness RED on both arms (W6 a5–a12/e1/g2 with it) | **ESCALATED, not cured.** Check 2's cure starts with a COHESION ruling on ESC-W5d3-1, option (a): grant `demo/shell/usePaneRouter.ts` `lazyPane` inside the W5F-07 family. §4 lists `usePaneRouter.ts`, but ADDENDUM 3 narrows `.d3`'s writable set to PaneSlot · App.vue's transition-name binding · animations.css swap rules · the new witness. Writing `lazyPane` without the ruling is an out-of-grant write, which is itself an escalation. | — | not re-run (no byte moved); Check 2's ×2 RED reading (/#/ 1, /#/gradient 2, expected 0) stands |
+| INFO · the L-20 loop is stalled | no cure owed. This seat confirms the stall: nothing has moved and there are 0 rulings. No further X-W5 check or repair seat should sit until COHESION rules ESC-W5c3-1 and ESC-W5d3-1. | — | — |
+
+**Tally (self-count):** 0 cured · 2 escalated (ESC-W5c3-1, ESC-W5d3-1, both to the owner/COHESION) · 1 INFO needs no cure. The LEDGER row **stays PARTIAL**. IMPLEMENTED is not stamped.
