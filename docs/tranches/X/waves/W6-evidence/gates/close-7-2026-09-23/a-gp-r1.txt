@@ -1,0 +1,16 @@
+SERVED MODEL: claude-opus-5-5[1m]
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.waitForSelector: Timeout 20000ms exceeded.
+Call log:
+[2m  - waiting for locator('[data-stop-id]') to be visible[22m
+
+    at ready (/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W6-evidence/gradient/gate-a-gesture-paint.mjs:46:13)
+    at async file:///Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W6-evidence/gradient/gate-a-gesture-paint.mjs:297:5 {
+  name: 'TimeoutError'
+}
+
+Node.js v26.0.0
+EXIT=1

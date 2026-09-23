@@ -1,0 +1,12 @@
+SERVED MODEL: claude-opus-5-5[1m]
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ✓ test/gradient-order-invariant.test.ts (17 tests) 15ms
+
+ Test Files  1 passed (1)
+      Tests  17 passed (17)
+   Start at  01:43:28
+   Duration  1.26s (transform 114ms, setup 53ms, collect 152ms, tests 15ms, environment 551ms, prepare 100ms)
+
+EXIT=0

@@ -1,0 +1,17 @@
+SERVED MODEL: claude-opus-5-5[1m]
+
+Expected: [32m"checked"[39m
+Received: [31m"[7mun[27mchecked"[39m
+
+ ❯ demo/test/shell/reka-binding-idiom.test.ts:77:11
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed | 36 passed (38)
+      Tests  2 failed | 639 passed (641)
+   Start at  01:56:12
+   Duration  4.33s (transform 1.25s, setup 1.75s, collect 4.32s, tests 4.36s, environment 12.42s, prepare 1.87s)
+
+EXIT=
