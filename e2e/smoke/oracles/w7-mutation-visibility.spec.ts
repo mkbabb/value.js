@@ -189,3 +189,101 @@ userTest.describe("G13 · library rows", () => {
         await expect(page.locator("[data-palette-name]").filter({ hasText: "Wide Library" })).toHaveCount(0);
     });
 });
+
+/*
+ * X-W7 Repair 1 (Check 1 D-3) — the three OWED-ORACLE rows of
+ * `W7-mutation-ownership.md` (4 · 14 · 15), each asserted in the real app.
+ * The drawer (row 4) is X-W4's file: it is DRIVEN here, never written.
+ */
+adminPopulatedTest.describe("G13 · admin rows (Repair 1)", () => {
+    adminPopulatedTest("row 15 · delete user — confirmed, the row leaves, the verdict is announced", async ({ page }) => {
+        await page.goto("/#/admin/users");
+        await expect(page.getByText("azure-fox-01", { exact: true }).first()).toBeVisible();
+        await page.getByRole("button", { name: "Delete user azure-fox-01", exact: true }).first().click();
+        await page.getByRole("dialog").getByRole("button", { name: "Delete user", exact: true }).click();
+        await expect(verdict(page, "users")).toContainText("Deleted user azure-fox-01");
+        await expect(page.getByRole("button", { name: "Delete user azure-fox-01", exact: true })).toHaveCount(0);
+    });
+});
+
+const VERSIONED = { ...REMOTE, slug: "versioned-one", name: "Versioned One", versionCount: 2, currentHash: "h2" };
+
+function version(hash: string, name: string, parentHash: string | null, depth: number) {
+    return {
+        hash,
+        name,
+        colors: [{ css: "#0af", position: 0 }],
+        parentHash,
+        forkedFromHash: null,
+        authorSlug: "spammer",
+        paletteSlug: VERSIONED.slug,
+        createdAt: "2026-09-01T00:00:00.000Z",
+        rootHash: "h1",
+        depth,
+    };
+}
+
+userTest.describe("G13 · user rows (Repair 1)", () => {
+    userTest("row 4 · version revert — the card reads the server's palette and says Reverted", async ({ page }) => {
+        const reverts: string[] = [];
+        await page.route("**/palettes?**", (route) =>
+            route.fulfill({
+                status: 200,
+                contentType: "application/json",
+                body: JSON.stringify({ data: [VERSIONED], total: 1, limit: 50, offset: 0 }),
+            }),
+        );
+        await page.route((url) => url.pathname.endsWith("/palettes/versioned-one/versions"), (route) =>
+            route.fulfill({
+                status: 200,
+                contentType: "application/json",
+                body: JSON.stringify({
+                    data: [version("h2", "Versioned One", "h1", 1), version("h1", "Versioned Origin", null, 0)],
+                    total: 2,
+                    limit: 20,
+                    offset: 0,
+                }),
+            }),
+        );
+        await page.route((url) => url.pathname.endsWith("/palettes/versioned-one/revert"), (route) => {
+            reverts.push(route.request().postData() ?? "");
+            return route.fulfill({
+                status: 200,
+                contentType: "application/json",
+                body: JSON.stringify({ ...VERSIONED, name: "Versioned Origin", currentHash: "h1" }),
+            });
+        });
+        await page.goto("/#/browse");
+        await page.getByRole("button", { name: "Palette menu" }).filter({ visible: true }).first().click();
+        await page.getByRole("menuitem", { name: /Versions/ }).click();
+        const revert = page.getByRole("button", { name: "Revert" });
+        await expect(revert).toHaveCount(1);
+        await revert.click();
+        // In the drawer: the subject is the server's palette and v1 is current.
+        const drawer = page.getByRole("dialog", { name: "Version History" });
+        await expect(drawer).toContainText("Versioned Origin — 2 versions");
+        await expect(drawer).toContainText("v1 (current)");
+        // On the card, once the modal drawer is dismissed: the verdict and the name.
+        await page.keyboard.press("Escape");
+        await expect(drawer).toHaveCount(0);
+        await expect(page.getByRole("status").filter({ hasText: "Reverted" })).toBeVisible();
+        await expect(page.locator("[data-palette-name]").filter({ hasText: "Versioned Origin" }).first()).toBeVisible();
+        expect(reverts).toEqual([JSON.stringify({ hash: "h1" })]);
+    });
+});
+
+userTest.describe("G13 · library rows (Repair 1)", () => {
+    userTest("row 14 · delete-all — confirmed, then the grid is the true-empty plate", async ({ page }) => {
+        await seedLibrary(page, 3);
+        await page.goto("/#/palettes");
+        await expect(page.locator("[data-palette-name]").filter({ hasText: "Wide Library" })).toBeVisible();
+        await page.getByRole("button", { name: "Delete all saved palettes", exact: true }).click();
+        const dialog = page.getByRole("dialog");
+        await expect(dialog).toBeVisible();
+        // Nothing is destroyed before the confirm is accepted.
+        await expect(page.locator("[data-palette-name]").filter({ hasText: "Wide Library" })).toBeVisible();
+        await dialog.getByRole("button", { name: "Delete all", exact: true }).click();
+        await expect(page.locator("[data-palette-name]").filter({ hasText: "Wide Library" })).toHaveCount(0);
+        await expect(page.getByText("No saved palettes yet.")).toBeVisible();
+    });
+});
