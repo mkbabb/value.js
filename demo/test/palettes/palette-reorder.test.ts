@@ -9,7 +9,16 @@ import { beforeEach, describe, expect, it } from "vitest";
 import { usePaletteStore } from "../../palettes/usePaletteStore";
 import type { Palette } from "../../palettes/types";
 
-const local = (id: string): Palette => ({ id, name: id, slug: id, colors: [], isLocal: true }) as Palette;
+const STAMP = "2026-09-23T00:00:00.000Z";
+const local = (id: string): Palette => ({
+    id,
+    name: id,
+    slug: id,
+    colors: [],
+    isLocal: true,
+    createdAt: STAMP,
+    updatedAt: STAMP,
+});
 
 describe("N-7 · movePalette permutes only the visible slots", () => {
     const { store, movePalette } = usePaletteStore();
@@ -19,7 +28,7 @@ describe("N-7 · movePalette permutes only the visible slots", () => {
         store.value.palettes = [
             local("a"),
             local("b"),
-            { name: "remote", slug: "remote", colors: [], isLocal: false } as Palette,
+            { name: "remote", slug: "remote", colors: [], isLocal: false, createdAt: STAMP, updatedAt: STAMP },
             local("c"),
             local("d"),
         ];
