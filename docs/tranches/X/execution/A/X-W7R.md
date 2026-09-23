@@ -199,3 +199,89 @@ Product bytes: 0 touched (⟨`git status --porcelain -- demo src e2e package.jso
 #### Escalation
 
 None of this seat's own. The unit's verdicts are delivered at the true bytes, and the gap to "CURED-BY-REPIN on the served product" is `.m`'s ESC-W7Rm-1, already escalated.
+
+### X.W7R.d
+
+SERVED MODEL: claude-opus-5-5 · seat 2026-09-23 · spec W7R.md read whole (21 lines, incl. both 2026-09-23 addenda); §Units `.d` (:12); COHESION §0bs OA-41 (:3064), §0bz OA-48 (:3103), §0cb R-5, §0cf, §0ci R-5 (the hold on 7.0.0), §0cj consumed; `.m` and `.v` receipts consumed (ESC-W7Rm-1; `.v`'s DOCK-MORPH-ROOT row hands the OA-41 series to this unit).
+
+**Crash-recovery.** ⟨`git status --porcelain`⟩ → ` M .github/workflows/ci.yml` · ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M docs/tranches/X/execution/C/F-W14.md` · ` M scripts/dev/dev.sh` · `?? docs/tranches/X/keyframes/evidence/W13R/` · `?? docs/tranches/X/parse-that/evidence/W7-research/`. None is inside this unit's writable set, so there are 0 inherited edits.
+
+**Anchor drift (INTENT kept at the true bytes).** The writable set names `demo/@/components/custom/dock/**`, which does not exist: ⟨`ls demo/@`⟩ → `No such file or directory`. ⟨`find demo -iname '*dock*'`⟩ → `demo/shell/dock/` (Dock.vue, ActionBarToggle.vue, DockViewSelect.vue, …). The dock dir at the true bytes is `demo/shell/dock/**`. `demo/styles/**` exists as named. This unit wrote to neither, because no consumer-side cause was found (see below).
+
+**The precondition drift, as `.v` found it.** The product tree is held on glass **7.0.0** by §0ci R-5. The 10.0.1 reading is therefore taken on `.v`'s isolated trees, served headed on the real GPU:
+- `iso` = `git archive 56394291` + the banked `m-repin-10.0.1-migration.patch`, with glass 10.0.1 installed, on `:9017`.
+- `base` = the same archive at 7.0.0, on `:9018`.
+- ⟨`git diff --stat 56394291 HEAD -- demo/shell/dock demo/styles`⟩ → empty. The dock bytes in both trees are HEAD's dock bytes.
+
+#### Acts, in order (⟨cmd⟩ → output; every figure double-run)
+
+1. **The morph's driver, read at the 10.0.1 dist.** ⟨`grep -n 'dock-morph-t\|data-morphing' dist/dock.js`⟩ → `useDockMorph` (:398-437). The small↔large morph is a JS spring that writes `--dock-morph-t` per frame, using the `dock` preset (⟨`springPresets-*.js`⟩ → `response: .3, dampingFraction: .88, settleBand: .02`). The endpoints come from `dockMorphMeasure` (:450-460), which writes `--dock-collapsed-px` / `--dock-expanded-px`. `morph.css` has no authored blur, and `crossfade.css` clip-paths the face content by `--dock-morph-t`. The token is ⟨served `getComputedStyle(.glass-dock)`⟩ → `--spring-dock-duration: calc(0.21s * 1)` at 10.0.1 and `calc(0.19s * 1)` at 7.0.0.
+2. **The consumer's surface, read.** ⟨`grep -nE 'blur|filter|will-change|scale\(|transition|animation' demo/shell/dock/**.vue demo/styles/*.css`⟩ finds no consumer rule on `.glass-dock`, `.dock-face*`, `--dock-*-px` or `--dock-morph-t`. The dock-local motion is `.dock-settle`, the view-switch beat, which is not part of this morph. The seal is a fixed-intrinsic `aspect-ratio: 1` composition. Hover rules and `ColorInput`'s drop-shadow are the only other motion.
+3. **The instrument**, `evidence/X-W7R/d-morph-probe.ts`. Its method:
+   - Headed `chromium`, 1440×900, light theme, 8 s park.
+   - A rAF sampler records, per frame, the dock box, its class, `data-morphing` and `--dock-morph-t`.
+   - For every visible text leaf and glyph, it also records the ancestor-chain `filter: blur(>0)`, the effective scale, and the line boxes of the leaf's own text nodes.
+   - After settle, it clips 4 crops at +0/+120/+300/+600 ms and compares them with a +1500 ms reference by mean-abs diff and by gradient-energy sharpness. A crop reads blurred below 0.95 of the reference.
+   - A CDP screencast captures the frame series.
+   - Six transitions, one per producer writer: c1 idle-collapse (the first since boot), c1 hover-expand, c2 idle-collapse (the second), c2 click-expand with the pointer resting, c3 outside-click collapse, and c3 click-expand with the pointer leaving at once. The layer morph (Tools ↔ Back) is the cross-read of `.v`'s DOCK-MORPH-ROOT.
+   - Two instrument corrections were measured in-seat and are recorded in the probe:
+     (a) A free-running sampler starved the producer's idle collapse, and the dock never collapsed in 12 s. The sampler now arms on the dock's first `class` / `data-morphing` mutation.
+     (b) A range over an icon+text span counted the icon as a second "line" on `Login`, which gave a false wrap. Line boxes are now read per text node.
+4. **Runs** (load avg at launch 8.9 and 31.9): ⟨`node w7rd-probe.ts http://localhost:9017 iso <out>`⟩ ×2 and ⟨`… :9018 base …`⟩ ×2. All four runs reported `ANGLE Metal Renderer: Apple M5 Max` and `pageErrors: []`.
+   - Results: `d-result-{iso,base}-r{1,2}.json`, with the per-frame series.
+   - Summary: `d-summary.txt`. ⟨`python3 w7rd-table.py`⟩ was run twice, and ⟨`diff`⟩ → `DOUBLE-READ-IDENTICAL`.
+   - Frames: `evidence/X-W7R/d-frames/{iso,base}-r{1,2}/`, with 441/442/445/444 screencast JPEGs and 8 settled PNGs per run (44 MB). They stay local and git-excluded (⟨`.git/info/exclude`⟩ += `docs/tranches/X/evidence/X-W7R/d-frames/`), which is the §0ci R-4 frame practice. They are cited here, not committed.
+5. **The consumer bisect for the first-collapse snap** (scratch `iso` only, then restored). With Dock.vue's `:collapse="isDesktop ? 'open' : false"` replaced by a constant `collapse="open"`, the first collapse still reads `distinctW 3` (547 ms held at 483 px, then a snap). So the snap is not the consumer's binding.
+   - ⟨`w7rd-vars.ts`, the served inline style⟩ at boot → `--dock-collapsed-px: 64px; --dock-expanded-px: 483px`.
+   - At the first collapse +150 ms → **`--dock-collapsed-px: 483px`**, width 483.
+   - At +1050 ms → `56px`, width 56.
+   - The producer's measure caches the root's still-expanded width as the collapsed endpoint when the class flips (`dockMorphMeasure`, `e === "layout" && (o.value ? c = m : l = m)`). The spring therefore travels 483→483, and the box snaps to 56 at settle.
+   - At 7.0.0 the same first collapse travels to the stale default 64 px and then snaps 64→56. That is the producer's G-1 "stale endpoint", which 10.0.1 makes worse.
+
+#### B8 — the small↔large morph, headed real GPU ×2 (from `d-summary.txt`, settled bytes)
+
+| measure | 10.0.1 (`iso`, r1 / r2) | 7.0.0 (`base` = the held product, r1 / r2) |
+|---|---|---|
+| blurred-text frames **after settle** (DOM, text leaves: ancestor `blur(>0)`) | **0** in all 8 transitions per run (6 small↔large + 2 layer), ×2 runs | 0 in all 8 per run, ×2 runs |
+| blurred crops after settle (sharpness < 0.95 of the +1500 ms ref) | **0 / 24 · 0 / 24** (min ratio 0.977 / 0.978) | 0 / 24 · **3 / 24** (r2 c2 idle-collapse: 0.942-0.950, the post-settle softness of OA-41/OA-48) |
+| blurred-text frames **during** the morph | 0 in every transition | 6 (collapse) / 4 (expand) per transition, both runs (glass 7.0.0's authored morph blur, KFA-53) |
+| wrap frames / wrap-then-snap | **0 / none** in every transition ×2 | 0 / none ×2 |
+| scaled text after settle, pointer off the dock | **0** | 0 |
+| scaled text after settle, pointer resting on the dock (c1 hover, c2 click-rest) | 42 / 46 frames, `dock-icon-button.glass-specular-track` Tools @ **1.098-1.100**. This is the producer DockControl hover lift under the resting pointer, not morph residue: the crop sharpness holds at 0.977-1.009 | 45 / 49, same lift |
+| distinct widths, first collapse since boot | **3**: held 483 px for 547 / 550 ms, then a one-frame snap to 56 | 14: travels to the stale 64 px, then snaps 64→56 at settle |
+| distinct widths, every other small↔large transition | 17-18 (a real interpolation) | 14-15 |
+| `data-morphing` span (spring on, until settle) | **539.7-551.9 ms** | 492.9-501.6 ms |
+| first frame at the end width (visible travel) | 239.9-250.5 ms (the first collapse is 547.0 / 549.8, the snap) | 192.9-200.4 ms (the first collapse is 501.6 / 499.8) |
+| the token | `--spring-dock-duration` = **0.21 s** | 0.19 s |
+| layer morph (Tools ↔ Back; `.v`'s DOCK-MORPH-ROOT cross-read) | 2 widths, 483.5↔326 in one frame, 0 blur | the same |
+
+**Reading.**
+- At 10.0.1, "0 blurred-text frames after settle" and "no wrap-then-snap" are **GREEN ×2**. The during-morph blur the product shows today (4-6 frames at 7.0.0, plus the post-settle softness in 1 of 2 runs) is **gone at the 10.0.1 patch bytes**. It is uncredited: the repin is held (§0ci R-5, ESC-W7Rm-1), so the product keeps it until X-W7L lands.
+- "Token durations" is **RED and glass-owned**. The spring holds `data-morphing` for ≈ 545 ms, 2.6× the 0.21 s token. The visible travel alone takes ≈ 248 ms, 1.2× the token. The spring's `dock` preset (`response .3 · damping .88 · settleBand .02`) is not bound to `--spring-dock-duration`, and no consumer prop sets it (10.0.1 `DockProps` = `fitContent · backdropMode · shape · orientation · collapse · backgroundCanvas`).
+- The **first-collapse snap** is glass-owned. It is new-worse at 10.0.1 (act 5).
+
+#### Consumer-side causes
+
+**0 found, so 0 product edits.** The dock dir (`demo/shell/dock/**` at the true bytes) and `demo/styles/**` carry no rule on the morph's surface (act 2). The one consumer binding the morph reads, `collapse`, was bisected in scratch and does not cause the snap (act 5). Every failing residue lives in `useDockMorph` / `dockMorphMeasure` / the spring preset. Under the lock, a consumer "cure" would mean priming the collapsed endpoint or overriding `--dock-*-px`, and either would be a frontend hack over a producer defect. Neither was done. ⟨`git status --porcelain -- demo/shell/dock demo/styles package.json package-lock.json`⟩ → empty.
+
+#### Gates (BEFORE → AFTER)
+
+| gate | before | after |
+|---|---|---|
+| B8 OA-41/OA-48 dock morph, headed ×2 at 10.0.1 | RED by owner docket; 7.0.0 blur held (KFA-53) | **GREEN on its measurable clauses at the 10.0.1 patch bytes ×2**: after settle, 0 blurred-text frames (DOM 0 in 8/8 transitions per run, pixel 0/24 small↔large crops per run; ×2 runs) and 0 wrap-then-snap. **The glass-owned residue is recorded with the 10.0.1 measurement** (the gate's BL clause): token durations RED (≈545 ms `data-morphing` / ≈248 ms travel vs 0.21 s), and the first-collapse snap (3 widths, 483→56 in one frame). On the held product (7.0.0) the blur persists: 4-6 during-morph frames, and 3/24 soft post-settle crops in 1 of 2 runs. It cures at the landing repin (X-W7L), uncredited now (§0cb R-5) |
+
+#### Residuals (glass-owned → BL; relay row **O-56 G-1**, `docs/tranches/X/relay/X-V-BK-OWNER-DOCKET-2026-09-23.md:14`, "Dock morph", with O-55; the dock design family)
+
+- **RES-d-1 · first-collapse stale endpoint (G-1, measured at 10.0.1).** The first small-going morph since boot writes `--dock-collapsed-px: 483px`, which is the root's own still-expanded width, cached by `dockMorphMeasure`'s layout pass at the class flip. The spring then runs 547-550 ms with zero travel, and the box snaps 483→56 in one frame ("jittery"). Every later collapse measures 56 and interpolates (17 widths). At 7.0.0 the same moment travels to the default 64 px and snaps 64→56. Glass's round-2 G-1 names the stale endpoint on the first *expand*; the 10.0.1 reading here is the first *collapse*, and it is worse. Evidence: `d-result-iso-r{1,2}.json` `c1-large-to-small-idle-first`; frames `d-frames/iso-r*/c1-large-to-small-idle-first-f*.jpg`.
+- **RES-d-2 · morph duration off-token (OA-41 "slow").** `useDockMorph` drives the morph with the `dock` spring preset (`response .3, damping .88, settleBand .02`) in JS. It is not bound to `--spring-dock-duration` (0.21 s at 10.0.1): `data-morphing` spans 539.7-551.9 ms, and the visible travel reaches the endpoint at 239.9-250.5 ms, then a ~300 ms sub-pixel overshoot tail (`--dock-morph-t` 1.0028 peak) keeps the attribute, the clip-path and the `will-change` on. At 7.0.0: 493-502 ms vs 0.19 s. No consumer prop reaches it.
+- **RES-d-3 · the layer morph (Tools ↔ Back) still snaps** (2 widths, one frame) at both versions. This is `.v`'s DOCK-MORPH-ROOT row, re-read here ×2 and unchanged.
+- **Not a residue (recorded so no one re-files it):** the 1.098-1.100 scale on the resting-pointer control after an expand is the producer's DockControl hover lift (`dock-icon-button`), and the text stays sharp (sharpness 0.977-1.009). With the pointer off, 0 scaled frames.
+- **Filing.** The 10.0.1 figures above are a dated addendum to O-56 G-1. Writing it (`docs/tranches/X/relay/**` plus the glass BK mirror plus an INBOX row) is outside this unit's writable set, so it is **returned to the orchestrator** as `.v`'s RES-v-3 was. No local override, no relay minted without its letter.
+
+#### Escalation
+
+None of this unit's own. The specified cure ("cure consumer-side causes at the root in the dock dir; what still fails is BL's with the 10.0.1 measurement") executed at the true bytes. There were 0 consumer causes, and the residue was measured and named for BL. The gap between the patch bytes and the product is `.m`'s ESC-W7Rm-1, already ruled (§0ci R-5 hold).
+
+**Self-count** (⟨python3 over `d-result-*.json`⟩): per run 8 transitions (6 small↔large + 2 layer), 24 post-settle crops over the 6. `afterBlurText` sums iso-r1 0 · iso-r2 0 · base-r1 0 · base-r2 0; blurred crops iso-r1 0 · iso-r2 0 · base-r1 0 · base-r2 3. Screencast frames 441 · 442 · 445 · 444.
+
+Commits: this receipt + evidence (`d-morph-probe.ts`, `d-result-{iso,base}-r{1,2}.json`, `d-summary.txt`), pathspec only. Frames stay local. The scratch servers `:9017`/`:9018` were stopped at close.
