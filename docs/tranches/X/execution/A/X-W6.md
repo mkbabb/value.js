@@ -7232,3 +7232,25 @@ h1's beyond-sRGB limb = `H1-P3` by physics (§0aq). **`.j`**: OMITTED (§0az; W6
   `feat(demo/atmosphere-oracle)` commit.
 
 ## Unit receipts — seventh sitting 2026-09-23
+
+### X.W6.a2
+
+SERVED MODEL: claude-opus-5-5[1m] · 2026-09-23 01:27–01:37 EDT · HEAD at open `12bb3195` · host load 11.4 → 17.5 (⟨`uptime`⟩).
+
+**Crash-recovery.** ⟨`git status --porcelain`⟩ → dirty rows `V/reformation/CARRY-LEDGER.md` · `W6-evidence/catalog/after-{catalog-open,specimen-dots}.png` · `scripts/dev/dev.sh` — none inside `.a2`'s writable set; `o21-gradient-rail.spec.ts` clean → no inherited partial work.
+
+**Anchor at true bytes.** ⟨`sed -n 188,215p e2e/smoke/oracles/o21-gradient-rail.spec.ts`⟩ → `:188` is the a4 test ("the forward and inverse maps are inverse …"); its reload → `openView` → `paneSettled` sequence already carries `await expect(page.getByRole("listbox")).toHaveCount(0)` (Repair 1 `df290a72`, +9/−0, assertions untouched). The settle §0ay rules for `.a2` is therefore already landed; no scroll is missing (`rail.scrollIntoViewIfNeeded()` present).
+
+**Acts (verify-first; no spec byte written).**
+1. ⟨`VJS_E2E_PORT=8771 npx playwright test e2e/smoke/views/gradient.spec.ts e2e/smoke/oracles/o21-gradient-rail.spec.ts --project=smoke --reporter=line`⟩ → `22 passed (1.9m)` EXIT 0.
+2. same, `VJS_E2E_PORT=8773` → `22 passed (2.0m)` EXIT 0.
+3. same, `VJS_E2E_PORT=8775` → `22 passed (1.8m)` EXIT 0.
+4. ⟨`npx vitest run test/gradient-order-invariant.test.ts`⟩ → `Tests 17 passed (17)` EXIT 0 (run twice this seat; both 17/17).
+   `o21:188` · `o21:60` · `gradient:209` · `gradient:401` (the sixth sitting's cold-nav set) each present and passed in all three runs (⟨`grep -c "o21-gradient-rail.spec.ts:188" a13-run{1,2,3}.txt`⟩ → `1 1 1`; 0 `failed`/`✘` lines).
+5. Transcripts banked ANSI-stripped (line 1 = SERVED MODEL): `docs/tranches/X/waves/W6-evidence/gates/a2-2026-09-23/{a13-run1,a13-run2,a13-run3,a13-vitest}.txt` → commit **`f0e3eb55`** (4 files, +124).
+
+**Gates BEFORE → AFTER.** a4 (`o21:188`): GREEN ×2 at open → **GREEN ×3** this seat. a13 (suite + vitest): GREEN ×2 at open → **GREEN ×3** (22/22 each) + vitest 17/17.
+
+**Disposition.** a4/a13 **DISCHARGED** by `df290a72` (o21:188 listbox-close settle) ⊕ X-W5 `.d4` `f55e59b7` (PaneSlot Transition keyed on `(pane, resolved)` — cured the cold-nav enter class behind `o21:60`/`gradient:209`/`gradient:401`). No `test(e2e/o21)` commit owed (no byte owed; LOCK honoured). No cold-nav failure observed → nothing to record on ESC-W5d4-1 from this seat.
+
+**Residuals.** None owned. ESC-W5d4-1 stays X-W5's (not touched here). **Escalations: none.**
