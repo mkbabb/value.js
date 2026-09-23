@@ -1321,3 +1321,73 @@ None new. The three open at Close 2 are closed by the §0cd ruling:
   - w ×2 · t ×4 (2 discarded for probe misuse) · e ×4 (1 dev read with the malformed base, kept only as corroboration) · icon ×2 · kbd ×2 · kbd-esc ×2 · sharp ×1
 - New residuals: **1** (R-close3-1). New escalations: **0**.
 - LEDGER: the KF.W13U status and commit cells were replaced in place, and one event line was appended.
+
+## Check 7 — FRESH ADVERSARIAL CHECK (L-20 pass 1 on Close 3 / RESUME 3; the orchestrator's "Check 1" of this sitting)
+
+SERVED MODEL: claude-opus-5-5 · 2026-09-23 · Track B · VERIFY-ONLY, 0 kf / glass / product bytes. Read: the spec whole (`KF-W13.md`, incl. the §0cd seventh addendum `:397-417`), this record's header through `## Unit plan`, `## RESUME 3` whole (the `.d5` receipt), `## Close 3` whole; commits `febb3bcd` (kf) · `6d9171e1` · `e60f980f` · `09049bc7` (value.js). Numbered 7 because `## Check 1` already exists above (E-3: never overwritten). Instrument: served dev `http://localhost:5173/` (HTTP 200) + a fresh ⟨`npm run gh-pages`⟩ (`✓ built in 2.79s`, EXIT 0) served at `http://127.0.0.1:4196/`; headed Chromium `--ignore-gpu-blocklist`; banked probes copied to this seat's scratch (0 bytes in `evidence/`). Load (1-min) across the sitting 20.9–60.3.
+
+### Axes
+
+| # | axis | reading |
+|---|---|---|
+| 1 | claimed GREENs reproduce | **YES** — table below (12 gates). |
+| 2 | bounds | ⟨`git show --stat febb3bcd`⟩ → `demo/app/App.vue` · `demo/app/dock/ChromeDock.vue` · `demo/app/scene/scenes.ts` (3 files +77/−26) = the §0cd whole-file grant (the addendum's `demo/shell/ChromeDock.vue` is the only ChromeDock, at `demo/app/dock/`; `scenes.ts` defines `warmScene`); `demo/state/controlSurfaces.ts` absent (forbidden list held); `git diff --check` clean. value.js `6d9171e1` = record + LEDGER + INBOX (+1 sweep line) · `e60f980f` = record + LEDGER + `evidence/W13U/d5/**` · `09049bc7` = record + LEDGER. `scripts/dev/dev.sh`: dirty by standing arrangement, last commit `85cfea2c` (T era) — untouched. **Clean.** |
+| 3 | masking | ⟨`git diff 9bdcdad5 febb3bcd \| grep -c 'try {\|catch\|\.skip\|\.only('`⟩ → 0; no allowlist, no producer selector, no node_modules byte; `selectedSurfaceFrom` untouched, no per-scene table, no super-key remount (EditorShell `:super-key` reads `resolvedScene.superKey`). The cure is a Vue 3.5 previous-value `computed` holding the source projection while `!sceneBoundToCurrent` — the ruling's one commit point at its cause. **Clean.** |
+| 4 | families | one kf sha for `.d5` (one meaning); the value.js receipt/close each one sha. **Unsplit.** |
+| 5 | E-3 | ⟨`git diff --stat 6d9171e1~1..HEAD -- docs/tranches/X/keyframes/waves/ docs/tranches/V/megatranche/registry/adjudicated/`⟩ → `KF-W13.md` +23/−0 only, carried by orchestrator addenda `2b373908` (§0ce) + `ff9160bd` (§0cf) — append-only, not this wave's commits; none of this wave's 3 value.js shas touches the spec, registry or conformance paths. **Held.** |
+| 6 | mail | ⟨`grep -nE '\| *UNREAD *\|' INBOX.md`⟩ → 0 rows; Close 3's sweep (0 unrowed) stands. **Clean.** |
+| 7 | four-verb line | AUDITED/SPECIFIED YES · IMPLEMENTED YES (Close 3) · VERIFIED → this check. **Lawful.** |
+| 8 | goal at the bytes | the §0cd ruling: every scene-derived dock/pane read (Scene trigger `:current-scene-id`, `storedControls` key → `dockSelectedControl`, `currentChannels`, `:super-key`, `stageMode`, `#tabs-content`/`#ribbon-content`) now reads `resolvedScene`, which holds the source whole while pending; rows warm on `@pointerenter` + `@focus`. Measured: Scene label and Controls label change in the same frame, surface set once per differing switch, in all 9 of this seat's served runs. **MET.** |
+| 9 | published figures | Close 3's G-d5 figures, check, test:demo 66/518, vitest 1780, e2e 4/6 (S4 + M1), w/t/e/OA-32/OA-33 all reproduce (table). **Reproduce.** |
+
+### Gates re-run by this seat (kf `febb3bcd` = origin/master)
+
+| gate | this seat | reading |
+|---|---|---|
+| G-d5 change-once, dev (⟨`node probe-switch10.mjs http://localhost:5173/ dev{1,2}`⟩ + ⟨`node sum.mjs`⟩) | load 30.9 · 51.0: width `1111111111` ×2 · rev `0000000000` ×2 · surf `0011111110` ×2 · empty 0 · sceneLbl `1111111111` · pageerrors 0 | **GREEN ×2** |
+| G-d5 change-once, gh-pages (`:4196`, gh1..gh4) | load 60.3 · 37.9 · 26.9 · 21.8. gh2, gh4: identical to dev. **gh1**: width `1211111111`, rev `0100000000` — amiga>square plateaus `410.4 → 418.3 → 60`: the 60 px plateau is the COLLAPSED dock (`ChromeDock.vue:417` `:collapse-delay="2500"` landing inside the probe's 2500 ms post-click window under load) — an instrument confound, the one change 410.4→418.3 holds. **gh3**: width `1121111111`, rev `0010000000` — square>spring `413.5 → 400.4 → 401.5`, the SAME signature as Close 3's gh2 (R-close3-1): a 1.1 px spring undershoot inside one width change. surf `0011111110`, empty 0, sceneLbl `1111111111`, pageerrors 0 in all four | commit-point limbs GREEN ×4; the "no reversal" limb reads GREEN on gh2 + gh4 (the twice the gate asks) and carries the R-close3-1 undershoot on 1 run (2 of 8 gh runs across Close 3 + this seat). The morph is the producer's: 0 consumer width transitions (⟨`grep -rn 'transition.*width' demo/app/dock demo/styles`⟩ → 0), the width animation lives in installed glass 7.0.0 `dist/dock.js` → **HONEST-RED `DOCK-MORPH-ROOT`** (O-56), owner KF.W13R `.d` (MINOR C7-1) |
+| G-d5 cold (⟨`probe-switch10-cold.mjs`⟩ gh) | load 23.8: width `1111111111` · rev 0 · surf `0011111110` · empty 0 · pageerrors 0 | **GREEN** |
+| `npm run check` | EXIT 0 ×2 (`proof:structure — PASS … 0 violations`) | **GREEN** |
+| test:demo ⟨`npm run test:demo -- --no-file-parallelism`⟩ | 66 passed (66) · 518 passed (518) ×2 | **GREEN** |
+| vitest all ⟨`npx vitest run`⟩ | 181 passed + 5 skipped files · 1780 passed + 2 expected-fail + 14 skipped | **GREEN** (= Close 3) |
+| eslint (Close 3's command) | EXIT 0 | **GREEN** |
+| `.t2` ⟨`grep -rn isAnimStarted demo test \| wc -l`⟩ | 0 · 0 | **GREEN** |
+| kf e2e ⟨`KF_PLAYWRIGHT_DIR=<value.js> npm run demo:correctness -- --workers=1`⟩ | run 1 (load 20.9 → 28.5) **4/6** · run 2 (29.1 → 42.8) **4/6**; ✗ live-session = S4 `ringPainted:false` only (`enterToggled` and `spaceToggled` true, S5 PASS, error budget 0) · ✗ live-session-mobile = M1 SCROLL only; subject-animates `[real-cube]` PASS ×2 | **GREEN-WITH-HONEST-RED** for exactly `QUIET-FOCUS-RING` + `DRAWER-DETENT-REACH` (§0cd) |
+| G-KFW13U-w (⟨`probe-w1.mjs`⟩ dev + gh) | `autoPlaying:true`; cube `rotateX(278.1°)`→ … and `(250.0°)`→ … at rest, paused frames equal; gh errs 0; dev 1 console 404 resource line, 0 pageerrors (as Close 3) | **GREEN** |
+| G-KFW13U-t (⟨`probe-t1.mjs`⟩ dev + gh) | cubeAfterUp `rotateX(317.237deg)` both, stillPaused 2, errs 0 | **GREEN** |
+| G-KFW13U-e (⟨`probe-e1.mjs`⟩ dev + gh) | trigger `ease-in-out` + `curve-glyph` (truth m 5e-4) · rows 29 withPath 29 distinct 29 · named 27 | **GREEN** |
+| OA-32 (⟨`probe-icon.mjs`⟩ dev + gh) | diffInside 27–230 · diffOutside 0 · bboxDelta 0 · pageerrors 0 | **GREEN** |
+| OA-33 (⟨`probe-kbd.mjs`⟩ dev + gh) | `enterOnShareRowOpens 1` ×2 · `enterOnDarkRowFlips false` ×2 | Share **GREEN** · theme **HONEST-RED `DARK-MENU-ITEM`** (O-61) |
+
+### Register (severity · claim · receipt · cure)
+
+- **C7-1 · MINOR (mitigated, owner-named)** — G-d5's "no reversal" limb carries a 1.1 px dock-width undershoot on square>spring in 2 of 8 gh-pages runs (Close 3 gh2; this seat's gh3), signature `413.5 → 400.4 → 401.5`. Receipt: gh3 report above; 0 consumer width transitions; the width morph is installed glass 7.0.0 `dist/dock.js`. The one-commit-point limbs (width-change count, Scene/Controls label same frame, surface-set once, empty 0) hold in every run, and dev reads 0 reversals ×4 across both seats. Cure: none consumer-side (a local spring copy is a forbidden mask); relieved under the spec's own honest-RED `DOCK-MORPH-ROOT` (O-56; the `.d` unit routes dock-morph jitter to it), owner KF.W13R `.d` (dock motion at 10.0.1, whose gate forbids size overshoot) as R-close3-1 — Close 3 names it.
+- **C7-2 · INFO** — the switch probe's 2500 ms post-click window equals the dock's `:collapse-delay="2500"`; under load the idle collapse lands in-window and is counted as a reversal (gh1, plateau 60 px). Cure: the next seat to run `probe-switch10.mjs` (KF.W13R `.d`) holds the dock expanded as the cold probe already does (the 417 ms jiggle), or stops sampling before the collapse; no product defect.
+- **C7-3 · INFO** — no vitest witness landed for `.d5` (the grant carries no `test/demo/**` row; the ruling's gate is the served probe). Stated in the receipt, not masked.
+
+**BLOCKER 0 · CRITICAL 0 · HIGH 0 · MINOR 1 · INFO 2.**
+
+### Honest-RED set (each gate's relief at the spec bytes)
+
+| id | gate left red | relief | owner |
+|---|---|---|---|
+| `QUIET-FOCUS-RING` | kf e2e S4 `ringPainted` | §0cd §1 (`KF-W13.md:401`, `:403-404`), named by id | KF.W13R `.m` / `.v` |
+| `DRAWER-DETENT-REACH` | kf e2e M1 SCROLL | §0cd §1 (`:402-404`), named by id | KF.W13R `.m` / `.v` |
+| `DOCK-MORPH-ROOT` | G-KFW13U-d two owners per property; C7-1 undershoot | `.d` unit (`:327`) + §0br carried ids (`:363`); producer (O-56) | glass BL → KF.W13R `.d` |
+| `DARK-MENU-ITEM` | OA-33 theme-row keyboard | §0br `.d4` (`:361`), named by id | glass (O-61 R-3) → KF.W13R |
+| `DOCK-SCROLL-MORPH` · `GLASS-SURFACE-PAINT-CONTAIN` · `KF-TIMELINE-FILL` | carried, not turned by this sitting | §0br (`:363`), named by id | glass BL → KF.W13R `.d`/`.v` |
+
+Carried residuals with owners (not reds of this close): `R-close-2`/C6-3 `[real-cube]` intermittent → KF.W13V `.k` (KFA-17; PASS ×2 this seat) · `R-close-3` → KF.W13R `.v` · `R-d2-1` `R-d2-2` `R-x-1` → KF.W13V `.k` · `R-d2-3` → KF.W13V `.u`.
+
+### Successors
+
+- **KF.W13R** — "Opens after: KF.W13U CLOSED" (`:367`): **GREEN on this check's status move**. Lawfully open.
+- **KF.W13V** — "Opens after: KF.W13R CLOSED + the two registers" (`:367`, amending `:340`): the KF.W13U conjunct GREEN; KF.W13R CLOSED **RED** (not yet opened) → **lawfully blocked** on KF.W13R, not on this wave.
+
+### Verdict
+
+**CONFORMANT-HONEST-RED** — 0 BLOCKER/CRITICAL/HIGH; every claimed GREEN reproduces (12 gates); the remaining reds are each relieved by id at the spec bytes and owner-named: `QUIET-FOCUS-RING` · `DRAWER-DETENT-REACH` · `DOCK-MORPH-ROOT` · `DARK-MENU-ITEM`. LEDGER status → CLOSED 2026-09-17 (honest-RED).
+
+### Self-count
+
+kf shas audited 1 (`febb3bcd`) · value.js shas audited 3 (`6d9171e1` `e60f980f` `09049bc7`) · served runs: switch10 dev 2 + gh 4 + cold 1 · w 2 · t 2 · e 2 · icon 2 · kbd 2 · e2e 2 · check 2 · test:demo 2 · vitest-all 1 · eslint 1 · grep 2 · register rows 3 (MINOR 1 · INFO 2) · honest-RED rows 5 (ids 7).
