@@ -3002,3 +3002,6 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
 
 ## §0bi ADDENDUM 2026-09-23 — OA-33 (keyframes dock: one mbabb control with a dropdown) → KF.W13U `.d`
 - **Owner, verbatim**: *"mark that this should likely be one icon in the dock, just the mbabb logo, and then have a dropdown like before--it takes up too much space"* (frame banked `keyframes/evidence/W13U/owner-2026-09-23-dock-mbabb.png`) → **OA-33**: Share · Keyboard shortcuts · theme collapse into the mbabb logo trigger + dropdown on glass primitives (the `MbabbMenu` family), all three actions intact. Written into KF.W13U's fourth addendum for `.d`.
+
+## §0bj ADDENDUM 2026-09-23 — OA-34 (keyframes card shadows clipped on the left) → KF.W13U `.e`
+- **Owner, verbatim**: *"and the shadows on the left clip and are not displayed properly"* (frame `keyframes/evidence/W13U/owner-2026-09-23-shadow-clip.png`: the controls card's shadow cut by a hard left edge, bottom-left corner squared) → **OA-34**: cure the clipping ancestor at its owner, sweep every card, both themes. Written into KF.W13U's fifth addendum for `.e` (the same controls pane as OA-28/OA-31).
