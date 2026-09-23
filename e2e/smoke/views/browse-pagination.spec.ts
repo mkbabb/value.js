@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { setupEnvNoise } from "../fixtures/env-noise";
-import { openView } from "../fixtures/dock";
+import { openView, mainPane } from "../fixtures/dock";
 import {
     routeBrowsePalettes,
     PAGE1_COUNT,
@@ -24,7 +24,7 @@ test("browse wall renders a full keyset page of palettes", async ({ page }) => {
     await page.goto("/");
     await openView(page, "Browse");
 
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    const main = mainPane(page);
     await expect(main.getByRole("heading", { name: "Browse" }).last()).toBeVisible();
 
     // The wall carries the full first keyset page. Scope to the VISIBLE copy
@@ -54,7 +54,7 @@ test("browse wall pages past the 50-cap through the load-more affordance", async
     await page.goto("/");
     await openView(page, "Browse");
 
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    const main = mainPane(page);
     const cards = main.getByRole("article").filter({ visible: true });
     await expect(cards).toHaveCount(PAGE1_COUNT);
 

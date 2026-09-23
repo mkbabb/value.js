@@ -1,4 +1,5 @@
 import { adminTest as test, expect } from "../fixtures/admin-auth";
+import { mainPane } from "../../fixtures/dock";
 
 /**
  * E.W3 Lane A admin flow #11 — user-status (admin user-state change).
@@ -38,7 +39,7 @@ test("admin delete user DELETEs /admin/users/<slug>", async ({ page }) => {
     });
 
     await page.goto("/#/admin/users");
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
     await page.getByRole("button", { name: "Delete user doomed-user-one" }).last().click();
     // Confirmation dialog renders (delete is destructive); confirm via the
     // "Delete user" action button in the dialog footer.

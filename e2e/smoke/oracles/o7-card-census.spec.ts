@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { openView } from "../fixtures/dock";
+import { openView, mainPane } from "../fixtures/dock";
 
 /**
  * T.W3 W3-1 · O-7 — THE CARD-MATERIAL CENSUS, ARMED (SYNTHESIS §6.1 O-7; the
@@ -192,9 +192,7 @@ for (const scheme of ["light", "dark"] as const) {
     }, testInfo) => {
         test.setTimeout(120_000);
         await page.goto("/");
-        await expect(
-            page.getByRole("main", { name: "Color tool panes" }),
-        ).toBeVisible();
+        await expect(mainPane(page)).toBeVisible();
         if (scheme === "dark") {
             await page.evaluate(() =>
                 document.documentElement.classList.add("dark"),
@@ -208,8 +206,7 @@ for (const scheme of ["light", "dark"] as const) {
             // that is true of the previous view across the swap), then on a
             // card being visible.
             await expect(
-                page
-                    .getByRole("main", { name: "Color tool panes" })
+                mainPane(page)
                     .getByRole("heading", { name: VIEW_HEADING[view] })
                     .filter({ visible: true })
                     .last(),
@@ -402,13 +399,10 @@ test("O-7 seat row · t-mobile F-7 — the 768 frame: the cap class stays dead w
     test.setTimeout(60_000);
     await page.setViewportSize({ width: 768, height: 1024 });
     await page.goto("/");
-    await expect(
-        page.getByRole("main", { name: "Color tool panes" }),
-    ).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
     await openView(page, "Palettes");
     await expect(
-        page
-            .getByRole("main", { name: "Color tool panes" })
+        mainPane(page)
             .getByRole("heading", { name: "My Palettes" })
             .filter({ visible: true })
             .last(),
@@ -443,9 +437,7 @@ test("O-7 · t-mobile F-8 — the 390 frame: membership holds at the phone band 
     test.setTimeout(60_000);
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto("/");
-    await expect(
-        page.getByRole("main", { name: "Color tool panes" }),
-    ).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
 
     for (const scheme of ["light", "dark"] as const) {
         await page.evaluate(

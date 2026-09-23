@@ -11,6 +11,7 @@
  */
 import { resolve } from "node:path";
 import type { BrowserContext, Page } from "@playwright/test";
+import { MAIN_PANE, mainPane } from "../smoke/fixtures/dock";
 import type { CensusRoute } from "./census";
 
 /** The stylesheet Playwright injects at screenshot time. See `capture.css`. */
@@ -181,7 +182,8 @@ export async function seedAdmin(context: BrowserContext): Promise<void> {
  * Navigate to a census route and wait until the shell is a thing worth
  * photographing.
  *
- * `role=main` named "Color tool panes" is the shell's own mount proof — the
+ * The main-pane landmark (`mainPane`, the one `<main>` the route H1 names —
+ * `e2e/smoke/fixtures/dock.ts`) is the shell's own mount proof — the
  * assertion `e2e/smoke/page-load.spec.ts` has made since D.W5. Fonts are waited
  * on explicitly because a golden minted mid-swap is a golden of a fallback face
  * (and see IC-1 in the caveat register: under the dev server the production
@@ -189,7 +191,7 @@ export async function seedAdmin(context: BrowserContext): Promise<void> {
  */
 export async function gotoRoute(page: Page, path: string): Promise<void> {
     await page.goto(path, { waitUntil: "networkidle", timeout: 60_000 });
-    await page.waitForSelector('main[aria-label="Color tool panes"]', {
+    await mainPane(page).waitFor({
         state: "visible",
         timeout: 30_000,
     });
@@ -288,14 +290,14 @@ const PROOF_OF_LIFE_MIN_DESCENDANTS = 12;
 const PROOF_OF_LIFE_MIN_TEXT = 24;
 
 export async function assertRendered(page: Page, label: string): Promise<void> {
-    const state = await page.evaluate(() => {
-        const main = document.querySelector('main[aria-label="Color tool panes"]');
+    const state = await page.evaluate((selector) => {
+        const main = document.querySelector(selector);
         return {
             present: main !== null,
             descendants: main ? main.querySelectorAll("*").length : 0,
             text: (document.body.innerText ?? "").trim().length,
         };
-    });
+    }, MAIN_PANE);
     if (
         !state.present ||
         state.descendants < PROOF_OF_LIFE_MIN_DESCENDANTS ||

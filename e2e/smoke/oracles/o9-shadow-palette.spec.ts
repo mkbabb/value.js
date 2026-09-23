@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 import type { Locator, Page } from "@playwright/test";
-import { openView } from "../fixtures/dock";
+import { openView, mainPane } from "../fixtures/dock";
 
 /**
  * O-9 — THE EMPTY-STATE CENSUS, RE-AIMED (T.W6.5 · Lane S — R12, the owner
@@ -34,12 +34,10 @@ import { openView } from "../fixtures/dock";
  * so a main-wide count would conflate hosts.
  */
 
-const MAIN = { name: "Color tool panes" } as const;
 
 /** The visible pane Card hosting the named PaneHeader heading. */
 function pane(page: Page, heading: string): Locator {
-    return page
-        .getByRole("main", MAIN)
+    return mainPane(page)
         .locator('[data-slot="card"]')
         .filter({
             has: page.getByRole("heading", { name: heading, exact: true }),

@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { mainPane } from "../fixtures/dock";
 
 /**
  * T.W0 W0-5 · O-16 — COMPUTED-CASCADE CENSUS (SYNTHESIS §6.1 O-16; §1.2 T-14).
@@ -43,7 +44,7 @@ test("O-16 computed-cascade — the dist :root 150ms transition-default clobber 
     test.setTimeout(30_000);
 
     await page.goto("/");
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
 
     // The clobber SOURCE: the cascade default the ~46 dead sites resolve to.
     const defaultDur = await page.evaluate(() =>
@@ -114,7 +115,7 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
 }) => {
     test.setTimeout(45_000);
     await page.goto("/");
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
 
     for (const scheme of ["light", "dark"] as const) {
         await page.evaluate((s) => {

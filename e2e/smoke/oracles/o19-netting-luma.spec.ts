@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import type { Page } from "@playwright/test";
 import { setupEnvNoise } from "../fixtures/env-noise";
-import { openView, paneSettled } from "../fixtures/dock";
+import { openView, paneSettled, mainPane } from "../fixtures/dock";
 import { lumaDelta, screenshotPixels } from "./gradient-pixels";
 
 /**
@@ -46,7 +46,7 @@ const FLOORS = { light: 59, dark: 45 } as const;
 async function openGradient(page: Page) {
     await page.goto("/");
     await openView(page, "Gradient");
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    const main = mainPane(page);
     // X-W1 · R2 (minted at this seat): this bound
     // `getByRole("img", { name: /Perceived-space plate/ })`, an accessible name
     // that appears in NO product byte — the tile's live name is "Gradient

@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import type { Locator, Page } from "@playwright/test";
 import { setupEnvNoise } from "../fixtures/env-noise";
-import { openView, paneSettled } from "../fixtures/dock";
+import { openView, paneSettled, mainPane } from "../fixtures/dock";
 
 /**
  * U.W-A11Y · O-27 — THE A11Y-CONTROLS ORACLE (born-RED; U-F25 focus + U-F27
@@ -33,7 +33,7 @@ test.use({ deviceScaleFactor: 2 });
 async function openGradient(page: Page): Promise<Locator> {
     await page.goto("/");
     await openView(page, "Gradient");
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    const main = mainPane(page);
     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
     await paneSettled(page);
     return main;
@@ -136,11 +136,9 @@ test("BR-4 · every channel slider exposes a human-readable aria-valuetext", asy
 }) => {
     const consoleErrors = setupEnvNoise(page);
     await page.goto("/");
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
 
-    const thumbs = page
-        .getByRole("main", { name: "Color tool panes" })
-        .getByRole("slider");
+    const thumbs = mainPane(page).getByRole("slider");
     await expect(thumbs.first()).toBeVisible();
     // The demo sets `aria-valuetext` on the rendered thumb after mount (a
     // post-flush nextTick); poll until it lands before asserting the grammar.

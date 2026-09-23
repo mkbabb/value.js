@@ -1,4 +1,5 @@
 import { userTest as test, expect } from "../fixtures/user-auth";
+import { mainPane } from "../fixtures/dock";
 
 /**
  * E.W3 Lane A flow #7 — palette-flag (report a non-owned remote palette).
@@ -38,7 +39,7 @@ test("flag a remote palette POSTs /palettes/<slug>/flag with reason", async ({
     });
 
     await page.goto("/#/browse");
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    const main = mainPane(page);
     await expect(main).toBeVisible();
     await main.getByRole("button", { name: "Palette menu" }).first().click();
     await page.getByRole("menuitem", { name: /Report/ }).click();

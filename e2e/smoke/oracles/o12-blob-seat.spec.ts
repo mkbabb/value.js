@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { mainPane } from "../fixtures/dock";
 import {
     GATE,
     SOFT_CEIL,
@@ -60,7 +61,7 @@ const BACKING_RATIO_FLOOR = 0.6;
 
 async function bootWithBlob(page: import("@playwright/test").Page) {
     await page.goto("/");
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
     const blob = page.locator(BLOB_CANVAS).last();
     await expect(blob).toBeAttached({ timeout: 15_000 });
     // Wait out the emerge pose (the W2-4 settle-stamp discipline).

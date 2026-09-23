@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import type { Page } from "@playwright/test";
 import { deflateSync } from "node:zlib";
 
-import { openView } from "./fixtures/dock";
+import { openView, mainPane } from "./fixtures/dock";
 
 /**
  * SERVED MODEL: claude-opus-5[1m]
@@ -36,8 +36,6 @@ function collectPageErrors(page: Page): string[] {
     return errors;
 }
 
-const main = (page: Page) => page.getByRole("main", { name: "Color tool panes" });
-
 // ── R14 · BrowsePane M1 — the Retry gate ────────────────────────────────────
 //
 // MECHANISM (the corpus's, re-stated so a green here is readable): a leading
@@ -57,7 +55,7 @@ test("R14 · pressing Retry on a dead Browse wall leaves a plate behind", async 
     );
 
     await page.goto("/#/browse");
-    await expect(main(page)).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
 
     const errorPlate = page.getByText(/The commons is unreachable/);
     await expect(errorPlate, "the error plate paints at all").toBeVisible({
@@ -91,7 +89,7 @@ test("R14 · pressing Retry on a dead Browse wall leaves a plate behind", async 
     abort = false;
     await retry.click();
     await expect(
-        main(page).getByRole("article").first(),
+        mainPane(page).getByRole("article").first(),
         "the wall never repopulated after the backend recovered — KeepAlive is holding a stranded leave",
     ).toBeVisible({ timeout: 15_000 });
 });
@@ -112,7 +110,7 @@ test("R15 · an achromatic colour then LCh does not kill the pane grid", async (
     // Click 1 — an achromatic colour, by URL (the same seed a user reaches by
     // dragging chroma to zero; the two-click shape is preserved below).
     await page.goto("/?color=%23808080");
-    await expect(main(page)).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
 
     // Click 2 — switch the space to LCh through the app's own control.
     const spaceTrigger = page
@@ -161,7 +159,7 @@ for (const seed of BOOT_SEEDS) {
         const errors = collectPageErrors(page);
         await page.goto(`/?color=${encodeURIComponent(seed)}`);
         await expect(
-            main(page),
+            mainPane(page),
             `boot at seed "${seed}" never mounted — useColorPipeline.ts:75-76 runs unguarded in App.vue:245's setup, OUTSIDE the ErrorBoundary, and 28 of 256 greys round-trip to hsv-powerless (cure: X-W9 / X-W5)`,
         ).toBeVisible({ timeout: 20_000 });
 
@@ -189,7 +187,7 @@ for (const color of NONE_COLORS) {
         const errors = collectPageErrors(page);
         await page.goto(`/?color=${encodeURIComponent(color)}`);
         await expect(
-            main(page),
+            mainPane(page),
             `a LEGAL none-hue URL did not boot — the throw is in ROOT SETUP and ErrorBoundary sits one level too low to catch it (main.ts:5-7 mounts bare); cure halves are X-W5 (demo Result propagation) + X-W9 (library Result battery)`,
         ).toBeVisible({ timeout: 20_000 });
 
@@ -273,7 +271,7 @@ async function openExtract(page: Page) {
     await page.goto("/");
     await openView(page, "Extract");
     await expect(
-        main(page).getByRole("heading", { name: "Extract" }).last(),
+        mainPane(page).getByRole("heading", { name: "Extract" }).last(),
     ).toBeVisible({ timeout: 10_000 });
 }
 
@@ -281,7 +279,7 @@ test("R18 · a real image file develops a palette", async ({ page }) => {
     const errors = collectPageErrors(page);
     await openExtract(page);
 
-    const input = main(page).locator('input[type="file"]').first();
+    const input = mainPane(page).locator('input[type="file"]').first();
     await expect(
         input,
         "the extract route publishes a file input at all",
@@ -293,7 +291,7 @@ test("R18 · a real image file develops a palette", async ({ page }) => {
     });
 
     await expect(
-        main(page).locator("img[alt='Uploaded image']"),
+        mainPane(page).locator("img[alt='Uploaded image']"),
         "the drop zone never showed the uploaded image — the file path itself is broken",
     ).toBeVisible({ timeout: 15_000 });
 
@@ -308,7 +306,7 @@ test("R18 · a real image file develops a palette", async ({ page }) => {
     // the extract flow no gate had ever handed a file — never from a selector
     // that could not have matched under any behaviour.
     await expect(
-        main(page).locator('[aria-label^="Color swatch "]').first(),
+        mainPane(page).locator('[aria-label^="Color swatch "]').first(),
         "no palette developed from a valid image: no gate had ever handed this route a file (setInputFiles was 0 repo-wide), so the whole flow was unmeasured",
     ).toBeVisible({ timeout: 20_000 });
 
@@ -320,7 +318,7 @@ test("R18 · a corrupt file surfaces a visible error, never a silent half-state"
 }) => {
     await openExtract(page);
 
-    const input = main(page).locator('input[type="file"]').first();
+    const input = mainPane(page).locator('input[type="file"]').first();
     await input.setInputFiles({
         name: "x-w1-corrupt.png",
         mimeType: "image/png",
@@ -347,7 +345,7 @@ test.describe("R19 · the mobile menu dropdown", () => {
     }) => {
         const errors = collectPageErrors(page);
         await page.goto("/");
-        await expect(main(page)).toBeVisible();
+        await expect(mainPane(page)).toBeVisible();
 
         const trigger = page.getByRole("button", { name: "Menu" });
         await expect(

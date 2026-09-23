@@ -1,4 +1,5 @@
 import { adminTest as test, expect } from "../fixtures/admin-auth";
+import { mainPane } from "../../fixtures/dock";
 
 /**
  * E.W3 Lane A admin flow #10 — tag-delete. Seed the tag list with a
@@ -27,7 +28,7 @@ test("admin tag delete DELETEs /admin/tags/<name>", async ({ page }) => {
     });
 
     await page.goto("/#/admin/tags");
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
     // Wait for the tag pill to render (the GET /admin/tags fulfilment is
     // async; the delete button is `opacity-0` group-hover-revealed but
     // present in the DOM once the parent pill mounts — wait on the pill

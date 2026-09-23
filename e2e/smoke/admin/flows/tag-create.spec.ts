@@ -1,4 +1,5 @@
 import { adminTest as test, expect } from "../fixtures/admin-auth";
+import { mainPane } from "../../fixtures/dock";
 
 /**
  * E.W3 Lane A admin flow #9 — tag-create. Admin Tags panel: type a
@@ -34,7 +35,7 @@ test("admin tag create POSTs /admin/tags with name+category", async ({ page }) =
     });
 
     await page.goto("/#/admin/tags");
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    const main = mainPane(page);
     await expect(main).toBeVisible();
     // The Tags panel mounts in both layout slots (the off-breakpoint copy is
     // `display:none`); target the visible copy's controls rather than `.last()`

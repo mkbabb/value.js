@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import type { Locator, Page } from "@playwright/test";
 import { setupEnvNoise } from "../fixtures/env-noise";
-import { openView } from "../fixtures/dock";
+import { openView, mainPane } from "../fixtures/dock";
 
 /**
  * T.W6 W6-3 · O-17 — THE EASING COMPOSITION ORACLE (SYNTHESIS §6.1 O-17;
@@ -34,7 +34,7 @@ import { openView } from "../fixtures/dock";
 async function openEasingBench(page: Page): Promise<Locator> {
     await page.goto("/");
     await openView(page, "Gradient");
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    const main = mainPane(page);
     const head = main.locator("button[aria-controls^='easing-interval-']").first();
     await expect(head).toBeVisible();
     // The bench mounts with row 0 open; normalize in case a prior step closed it.

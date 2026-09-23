@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { mainPane } from "../fixtures/dock";
 import { setupEnvNoise } from "../fixtures/env-noise";
 import {
     routeBrowsePalettesDelayed,
@@ -21,7 +22,7 @@ test("browse mid-fetch renders developing-plate skeletons, never a spinner", asy
     // dock walk would eat the mid-fetch window before the first assertion.
     await page.goto("/#/browse");
 
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    const main = mainPane(page);
 
     // The mid-fetch state: developing plates present…
     const skeletons = main

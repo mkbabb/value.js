@@ -1,4 +1,5 @@
 import { adminTest as test, expect } from "../fixtures/admin-auth";
+import { mainPane } from "../../fixtures/dock";
 import type {
     PaginatedResponse,
     ProposedColorName,
@@ -46,7 +47,7 @@ test("admin approve color name POSTs /admin/colors/<id>/approve", async ({ page 
     });
 
     await page.goto("/#/admin/names");
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
     await page
         .getByRole("button", { name: "Approve color name ew3-approve-target" })
         .last()

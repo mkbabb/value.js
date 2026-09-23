@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { mainPane } from "../fixtures/dock";
 
 /**
  * T.W2 · O-24 — LCP IDENTITY + THE REVEAL-ONLY LAW (SYNTHESIS §6.1 O-24;
@@ -51,7 +52,7 @@ async function collectLcp(
     }, scheme);
 
     await page.goto("/");
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
     // Let the boot settle so the FINAL LCP candidate is recorded (LCP stops
     // updating on first input; we provide none).
     await page.waitForTimeout(3000);

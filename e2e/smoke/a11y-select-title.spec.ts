@@ -1,5 +1,6 @@
 // SERVED MODEL: claude-opus-5[1m]
 import { test, expect, type Page } from "@playwright/test";
+import { mainPane } from "./fixtures/dock";
 import { readFileSync, readdirSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -134,7 +135,7 @@ type TriggerRow = {
 async function ready(page: Page, route: string, view: string) {
     await page.goto("about:blank");
     await page.goto(route, { timeout: 60_000 });
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible({
+    await expect(mainPane(page)).toBeVisible({
         timeout: 20_000,
     });
     await page.waitForFunction(

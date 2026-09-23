@@ -1,6 +1,6 @@
 import type { Page } from "@playwright/test";
 import { userTest as test, expect } from "../fixtures/user-auth";
-import { expandDock } from "../fixtures/dock";
+import { expandDock, mainPane } from "../fixtures/dock";
 
 /**
  * T.W3 W3-5 · O-18 — THE POPULATION CONTRAST CENSUS (SYNTHESIS §6.1 O-18).
@@ -426,7 +426,7 @@ const IDENTITY_C_FLOOR = 0.35;
 /** Boot to the owner color and wait for the ink writers (boot contract). */
 async function bootAtOwnerColor(page: Page) {
     await page.goto(OWNER_URL);
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
     for (const token of ["--accent-live", "--ink-muted", "--ink-ambient-l"]) {
         await expect
             .poll(
@@ -448,7 +448,7 @@ async function bootAtOwnerColor(page: Page) {
  *  "lavendi") and wait for the view-accent writer to stamp `--accent-view`. */
 async function bootAtDefaultSeed(page: Page) {
     await page.goto("/");
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
     for (const token of ["--accent-view", "--accent-live", "--ink-ambient-l"]) {
         await expect
             .poll(
@@ -941,9 +941,7 @@ for (const scheme of ["light", "dark"] as const) {
             // The direct route (no admin meta): the config surface mounts
             // without the dock's admin-mode dance.
             await page.goto("/#/atmosphere");
-            await expect(
-                page.getByRole("main", { name: "Color tool panes" }),
-            ).toBeVisible();
+            await expect(mainPane(page)).toBeVisible();
             await expect(
                 page.locator(".config-console .configurator-row").first(),
             ).toBeVisible();
@@ -1100,9 +1098,7 @@ for (const scheme of ["light", "dark"] as const) {
             await page.goto(
                 "/#/extract?space=lab&color=" + encodeURIComponent(OWNER_COLOR),
             );
-            await expect(
-                page.getByRole("main", { name: "Color tool panes" }),
-            ).toBeVisible();
+            await expect(mainPane(page)).toBeVisible();
             await expect
                 .poll(
                     () =>
@@ -1172,9 +1168,7 @@ for (const scheme of ["light", "dark"] as const) {
             page,
         }) => {
             await page.goto("/#/atmosphere");
-            await expect(
-                page.getByRole("main", { name: "Color tool panes" }),
-            ).toBeVisible();
+            await expect(mainPane(page)).toBeVisible();
             await expect(
                 page.locator(".config-console .configurator-row .slider-track").first(),
             ).toBeVisible();

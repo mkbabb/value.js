@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import type { Page } from "@playwright/test";
+import { mainPane } from "./fixtures/dock";
 import {
     instrumentWebglDraws,
     canvasPresents,
@@ -77,9 +78,7 @@ for (const scheme of ["light", "dark"] as const) {
         await instrumentWebglDraws(page);
 
         await page.goto("/#/?space=oklch&color=" + encodeURIComponent(URL_GREEN));
-        await expect(
-            page.getByRole("main", { name: "Color tool panes" }),
-        ).toBeVisible();
+        await expect(mainPane(page)).toBeVisible();
 
         // The boot-material token settles on the DERIVED base stop of the URL
         // color. W2-2 note: the fouc-guard paints the (stale) persisted ground
@@ -188,7 +187,7 @@ test("the body carries the paper-field contract — no orphan amber field-floor 
     page,
 }) => {
     await page.goto("/#/?space=oklch&color=" + encodeURIComponent(URL_GREEN));
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
 
     // The field plane host: body paints the derived ground, hosts the aurora
     // canvas AND every teleported overlay — the one global [data-paper-field].

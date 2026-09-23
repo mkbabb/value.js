@@ -1,5 +1,6 @@
 // SERVED MODEL: claude-opus-5[1m]
 import { test, expect, type Locator, type Page } from "@playwright/test";
+import { mainPane } from "./fixtures/dock";
 
 /**
  * X-W4 · X.W4.c — THE GRADIENT STOP RAIL'S KEYBOARD GRAMMAR (gates C1 · C2 · C3 · C4).
@@ -65,7 +66,7 @@ declare global {
 async function openGradient(page: Page): Promise<Locator> {
     await page.goto("about:blank");
     await page.goto("/#/gradient", { timeout: 60_000 });
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    const main = mainPane(page);
     await expect(main).toBeVisible({ timeout: 30_000 });
     await expect(
         main

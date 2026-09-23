@@ -1,5 +1,6 @@
 // SERVED MODEL: claude-opus-5[1m]
 import { test, expect, type Page } from "@playwright/test";
+import { mainPane } from "../fixtures/dock";
 
 /**
  * X-W4 · X.W4.a — SHELL CONTROL TARGETS, NAMES AND THE SIZE AXIS, COARSE POINTER
@@ -94,7 +95,7 @@ async function ready(page: Page, route: string) {
     // the two URLs differ only by hash (the same-document case this cures).
     await page.goto("about:blank");
     await page.goto(route, { timeout: 60_000 });
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible({
+    await expect(mainPane(page)).toBeVisible({
         timeout: 20000,
     });
     const wanted = route.startsWith("/#") ? route.slice(2) : "/";
@@ -129,8 +130,7 @@ async function ready(page: Page, route: string) {
         // that silently under-counts is a FALSE GREEN, so the pane's own heading (the
         // idiom `e2e/smoke/views/gradient.spec.ts` already uses) is a precondition.
         await expect(
-            page
-                .getByRole("main", { name: "Color tool panes" })
+            mainPane(page)
                 .getByRole("heading", { name: pretty })
                 .filter({ visible: true })
                 .first(),

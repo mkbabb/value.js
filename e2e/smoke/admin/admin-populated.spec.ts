@@ -1,4 +1,5 @@
 import { adminPopulatedTest as test, expect, USERS, QUEUE } from "./fixtures/admin-populated";
+import { mainPane } from "../fixtures/dock";
 
 /**
  * S.W5-13 — the populated-fixture pattern, proven green.
@@ -18,7 +19,7 @@ test("admin-users renders seeded user rows", async ({ page }) => {
 
     await page.goto("/#/admin/users");
 
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
     await expect(
         page.getByRole("heading", { name: "Users" }).filter({ visible: true }),
     ).toBeVisible();
@@ -97,7 +98,7 @@ test("admin-flagged renders a seeded flagged palette + moderation actions", asyn
 
     await page.goto("/#/admin/flagged");
 
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
     await expect(page.getByRole("heading", { name: "Flagged" }).first()).toBeVisible();
 
     // The seeded flagged palette name + a moderation Dismiss action are present.

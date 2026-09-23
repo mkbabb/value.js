@@ -1,4 +1,5 @@
 import { test, expect, type Page } from "@playwright/test";
+import { mainPane } from "../fixtures/dock";
 
 /**
  * T.W6.5-P (T-33b) — THE READOUT↔RAIL SEAM measure (the wave's §Hard gate 3
@@ -88,9 +89,7 @@ test.describe("T-33b — the reserved-line band is designed air, never a dead ba
         await page.goto(
             "/#/?space=lab&color=" + encodeURIComponent("lab(38% 32 24)"),
         );
-        await expect(
-            page.getByRole("main", { name: "Color tool panes" }),
-        ).toBeVisible();
+        await expect(mainPane(page)).toBeVisible();
         const row = await measureSeam(page);
 
         // The lock itself is untouched (O-10b's row, re-asserted at the seam).
@@ -126,9 +125,7 @@ test.describe("T-33b — the reserved-line band is designed air, never a dead ba
         await page.goto(
             "/#/?space=lab&color=" + encodeURIComponent("lab(100% -125 -125)"),
         );
-        await expect(
-            page.getByRole("main", { name: "Color tool panes" }),
-        ).toBeVisible();
+        await expect(mainPane(page)).toBeVisible();
         const row = await measureSeam(page);
 
         expect(row.lock).toBe(2);
@@ -156,9 +153,7 @@ test.describe("T-33b — the reserved-line band is designed air, never a dead ba
         await page.goto(
             "/#/?space=rgb&color=" + encodeURIComponent("rgb(120 90 60)"),
         );
-        await expect(
-            page.getByRole("main", { name: "Color tool panes" }),
-        ).toBeVisible();
+        await expect(mainPane(page)).toBeVisible();
         const row = await measureSeam(page);
         expect(row.lock, "rgb is a one-line space").toBe(1);
         expect(row.deadBandBelow).toBeLessThanOrEqual(EPS);

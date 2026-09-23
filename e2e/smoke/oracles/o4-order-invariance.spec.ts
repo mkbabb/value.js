@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { mainPane } from "../fixtures/dock";
 
 /**
  * T.W0 W0-5 · O-4 — ORDER-INVARIANCE (SYNTHESIS §6.1 O-4; §3 T.W2-3 gate).
@@ -45,9 +46,7 @@ for (const throttle of [1, 6]) {
         await cdp.send("Emulation.setCPUThrottlingRate", { rate: throttle });
 
         await page.goto("/");
-        await expect(
-            page.getByRole("main", { name: "Color tool panes" }),
-        ).toBeVisible();
+        await expect(mainPane(page)).toBeVisible();
 
         // Wait for the FULL overture (B4 = the ornament's emerge) — gated
         // polling on the mark's existence, never a fixed sleep.

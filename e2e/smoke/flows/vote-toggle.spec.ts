@@ -1,4 +1,5 @@
 import { userTest as test, expect } from "../fixtures/user-auth";
+import { mainPane } from "../fixtures/dock";
 
 /**
  * E.W3 Lane A flow #1 — vote-toggle. Verifies the heart-button on a
@@ -37,7 +38,7 @@ test("vote heart on a remote palette POSTs /vote and toggles voted flag", async 
     });
 
     await page.goto("/#/browse");
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    const main = mainPane(page);
     await expect(main).toBeVisible();
 
     const voteBtn = page.getByRole("button", { name: /5 votes, click to vote/ }).first();

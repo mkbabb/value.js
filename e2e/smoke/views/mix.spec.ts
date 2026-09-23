@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { setupEnvNoise } from "../fixtures/env-noise";
-import { openView } from "../fixtures/dock";
+import { openView, mainPane } from "../fixtures/dock";
 
 /**
  * S.W3-6 / Q10 — the mix convergence flow (the first-principles re-work).
@@ -33,7 +33,7 @@ test("mix flow: convergence lands at the result plate within budget", async ({
     await page.goto("/");
     await openView(page, "Mix");
 
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    const main = mainPane(page);
 
     // Two sources: add the picker's current color twice (a valid mix).
     // ── X-W1 · R2 (SH-8 = PP-2 = A-3 = MX-3 = MSS-2 = MR-2) ─────────────────

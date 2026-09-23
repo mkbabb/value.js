@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { expandDock } from "../fixtures/dock";
+import { expandDock, mainPane } from "../fixtures/dock";
 
 /**
  * E.W3 Lane A flow #8 — color-propose (propose-mode cycle smoke).
@@ -35,7 +35,7 @@ test("propose cycle reaches 'Propose color name' state for an unnamed color", as
     page,
 }) => {
     await page.goto("/?color=%23abcdef");
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
     // Ensure the dock is expanded (desktop boots expanded post-N.W5 Defect-B;
     // `expandDock` is a no-op then, and clicks the pill on any collapsed viewport).
     await expandDock(page);
@@ -90,7 +90,7 @@ test("the sub-layer cycle keeps exactly one active layer, the other inert", asyn
     page,
 }) => {
     await page.goto("/?color=%23abcdef");
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
     await expandDock(page);
     await page.getByRole("button", { name: "Toggle action bar" }).click();
     await expect(page.locator(".glass-dock[data-morphing]")).toHaveCount(0, {
@@ -139,7 +139,7 @@ test("a successful propose returns the toolbar to its actions state", async ({
     });
 
     await page.goto("/?color=%23abcdef");
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
     await expandDock(page);
     await page.getByRole("button", { name: "Toggle action bar" }).click();
     await expect(page.locator(".glass-dock[data-morphing]")).toHaveCount(0, {

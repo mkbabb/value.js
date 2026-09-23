@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-import { openView, expandDock } from "../fixtures/dock";
+import { openView, expandDock, mainPane } from "../fixtures/dock";
 
 /**
  * T.W4 W4-6 · O-10d — THE DISPLAY-VOICE FAMILY CENSUS (SYNTHESIS §6.1 O-10d;
@@ -166,7 +166,7 @@ test("O-10d census — every heading across the 7-view walk speaks the display v
 }) => {
     test.setTimeout(120_000);
     await page.goto("/");
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    const main = mainPane(page);
     await expect(main).toBeVisible();
 
     // The instrument's own title — the ONE italic-sanctioned title surface.
@@ -219,7 +219,7 @@ test("O-10d census — user-data names (browse wall): display voice, ≤500, non
     test.setTimeout(60_000);
     await routeCensusWall(page);
     await page.goto("/");
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    const main = mainPane(page);
     await expect(main).toBeVisible();
     await openView(page, "Browse");
     await expect(
@@ -267,7 +267,7 @@ test("O-10d census — the 390 phone band: the card name clamps to TWO lines und
     await page.setViewportSize({ width: 390, height: 844 });
     await routeCensusWall(page);
     await page.goto("/");
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    const main = mainPane(page);
     await expect(main).toBeVisible();
     await openView(page, "Browse");
 
@@ -292,7 +292,7 @@ test("O-10d census — gated title surfaces: report dialog · versions drawer ·
     test.setTimeout(90_000);
     await routeCensusWall(page);
     await page.goto("/");
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    const main = mainPane(page);
     await expect(main).toBeVisible();
     await openView(page, "Browse");
     await expect(
@@ -404,7 +404,7 @@ test("O-10d census — the rename-input morph re-verified under the serif (seede
         ["Census Local Palette"],
     );
     await page.goto("/");
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    const main = mainPane(page);
     await expect(main).toBeVisible();
     await openView(page, "Palettes");
 

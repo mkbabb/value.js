@@ -1,4 +1,5 @@
 import { test, expect, type Page } from "@playwright/test";
+import { mainPane } from "./fixtures/dock";
 import { mkdirSync } from "node:fs";
 import { resolve } from "node:path";
 
@@ -26,9 +27,7 @@ const PI_DIR = resolve(process.cwd(), "docs/tranches/U/audit/w-a11y/pi");
 
 async function ready(page: Page) {
     await page.goto("/");
-    await expect(
-        page.getByRole("main", { name: "Color tool panes" }),
-    ).toBeVisible({ timeout: 20000 });
+    await expect(mainPane(page)).toBeVisible({ timeout: 20000 });
 }
 
 test("BR-10 · dir plumbing + dir=rtl layout integrity (no clipping / overflow)", async ({
@@ -74,7 +73,7 @@ test("BR-10 · dir plumbing + dir=rtl layout integrity (no clipping / overflow)"
     for (const loc of [
         page.getByRole("navigation", { name: "Application navigation" }),
         page.getByRole("combobox", { name: "Select view" }),
-        page.getByRole("main", { name: "Color tool panes" }),
+        mainPane(page),
     ]) {
         await expect(loc).toBeVisible();
         const box = await loc.boundingBox();

@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { mainPane } from "../fixtures/dock";
 import {
     instrumentWebglDraws,
     canvasPresents,
@@ -49,9 +50,7 @@ test("O-2 real-hydration — a returning-user bare reload restores the derived f
     // ── FIRST VISIT at the seed URL — the app derives + persists through its OWN
     //    write-through (no addInitScript seed; this IS the natural write path).
     await page.goto("/#/?space=oklch&color=" + encodeURIComponent(SEED));
-    await expect(
-        page.getByRole("main", { name: "Color tool panes" }),
-    ).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
     // Wait for BOTH debounced write-throughs to land: the boot GROUND record
     // (color-picker-ground — the atmosphere sink's W2-2 {stops,scheme,
     // deriveVersion} shape) AND the color store (color-picker.inputColor —
@@ -117,9 +116,7 @@ test("O-2 real-hydration — a returning-user bare reload restores the derived f
         document.addEventListener("DOMContentLoaded", push);
     });
     await page.goto("/");
-    await expect(
-        page.getByRole("main", { name: "Color tool panes" }),
-    ).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
 
     // The boot material settles on the SAME persisted derived stop (a hex, never
     // a raw session string) — hydration drove the derived field, not a default.

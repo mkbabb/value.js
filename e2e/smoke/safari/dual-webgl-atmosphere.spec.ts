@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import type { Page } from "@playwright/test";
+import { mainPane } from "../fixtures/dock";
 
 /**
  * S.W6-5 — WebKit atmosphere + hero verification (the missing Safari repro).
@@ -87,9 +88,7 @@ test.describe("S.W6-5 WebKit atmosphere + hero", () => {
         await installFailureCapture(page, failures);
 
         await page.goto(BOOT_URL);
-        await expect(
-            page.getByRole("main", { name: "Color tool panes" }),
-        ).toBeVisible();
+        await expect(mainPane(page)).toBeVisible();
 
         const atmosphere = page.getByTestId("atmosphere-canvas");
         await expect(atmosphere).toBeAttached();
@@ -164,9 +163,7 @@ test.describe("S.W6-5 WebKit atmosphere + hero", () => {
         await installFailureCapture(page, failures);
 
         await page.goto(BOOT_URL);
-        await expect(
-            page.getByRole("main", { name: "Color tool panes" }),
-        ).toBeVisible();
+        await expect(mainPane(page)).toBeVisible();
 
         // BOTH GL surfaces live — the dual-WebGL2-contention vehicle.
         const canvas = page.getByTestId("goo-blob-canvas").last();

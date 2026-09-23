@@ -31,7 +31,7 @@
  * driving the view-select.
  */
 import { expect } from "@playwright/test";
-import type { Page } from "@playwright/test";
+import type { Locator, Page } from "@playwright/test";
 
 /**
  * Ensure the dock is expanded. A real user clicks the collapsed pill before
@@ -109,4 +109,29 @@ export async function paneSettled(page: Page): Promise<void> {
             { timeout: 15_000 },
         )
         .toBe(false);
+}
+
+/**
+ * X.W5.c2 (COHESION §0ax ESC-R1-1) — THE MAIN-PANE LANDMARK, declared once.
+ *
+ * X.W5.a retired the static `aria-label` naming for the live
+ * landmark: `<main :aria-labelledby="route-title">`, named BY the route's one
+ * visible `<h1 id="route-title">` (`demo/color-picker/App.vue`), so the name
+ * now tracks the route ("Home", "Gradient", "Not Found", …) and can never
+ * announce a scene that is no longer mounted. Every spec reaches the shell's
+ * main pane through THIS export — never a per-file copy of the query — so the
+ * next landmark change is one edit, not sixty-one.
+ *
+ * The selector is the relation itself: a `<main>` labelled by `route-title`
+ * that CONTAINS that H1. A `<main>` whose label points elsewhere, or whose H1
+ * went missing, does not match. `MAIN_PANE` is exported for the in-page
+ * (`page.evaluate`) readers that cannot hold a `Locator`.
+ */
+export const ROUTE_TITLE_ID = "route-title";
+
+export const MAIN_PANE = `main[aria-labelledby="${ROUTE_TITLE_ID}"]:has(> h1#${ROUTE_TITLE_ID})`;
+
+/** The shell's main-pane landmark — the one `<main>` the route H1 names. */
+export function mainPane(page: Page): Locator {
+    return page.locator(MAIN_PANE);
 }

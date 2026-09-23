@@ -1,4 +1,5 @@
 import { adminTest as test, expect } from "../fixtures/admin-auth";
+import { mainPane } from "../../fixtures/dock";
 
 /**
  * E.W3 Lane A admin flow #14 — color-reject. Names panel pending tab:
@@ -30,7 +31,7 @@ test("admin reject color name POSTs /admin/colors/<id>/reject", async ({ page })
     });
 
     await page.goto("/#/admin/names");
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
     await page
         .getByRole("button", { name: "Reject color name ew3-reject-target" })
         .last()

@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { mainPane } from "./fixtures/dock";
 
 /**
  * Smoke: the color-space select switches the active space.
@@ -6,7 +7,7 @@ import { test, expect } from "@playwright/test";
  * trigger label updated. Role/label-based selectors only.
  */
 test("color-space select switches the active space", async ({ page }) => {
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    const main = mainPane(page);
     await page.goto("/");
     await expect(main).toBeVisible();
 

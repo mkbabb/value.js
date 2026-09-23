@@ -29,6 +29,7 @@
 // config applies no fixture of its own.
 
 import { test, expect } from "@playwright/test";
+import { mainPane } from "../fixtures/dock";
 
 /**
  * The five `meta: { admin: true }` records, each with the heading its
@@ -50,7 +51,7 @@ const NOT_FOUND_HEADING = "Not Found";
 test("G-18 — anonymous deep-link to every admin route fail-closes; AdminPane never mounts", async ({
     page,
 }) => {
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    const main = mainPane(page);
 
     for (const { path, heading } of ADMIN_ROUTES) {
         await page.goto(path);
@@ -71,7 +72,7 @@ test("G-18 — anonymous deep-link to every admin route fail-closes; AdminPane n
 test("G-20 — an unknown URL renders the source-realized not-found route, not a redirect", async ({
     page,
 }) => {
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    const main = mainPane(page);
 
     await page.goto("/#/does-not-exist");
     await expect(main).toBeVisible();

@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 import type { Page } from "@playwright/test";
-import { openView } from "../fixtures/dock";
+import { openView, mainPane } from "../fixtures/dock";
 
 /**
  * T.W3 W3-4 · O-11 — THE HEADER GATES 1–6 (SYNTHESIS §6.1 O-11;
@@ -88,9 +88,7 @@ for (const scheme of ["light", "dark"] as const) {
     }) => {
         test.setTimeout(120_000);
         await page.goto("/");
-        await expect(
-            page.getByRole("main", { name: "Color tool panes" }),
-        ).toBeVisible();
+        await expect(mainPane(page)).toBeVisible();
         if (scheme === "dark") {
             await page.evaluate(() =>
                 document.documentElement.classList.add("dark"),
@@ -126,9 +124,7 @@ test("O-11 gate 3 — the swell completes ≤64px; no naked window under the ear
 }) => {
     test.setTimeout(60_000);
     await page.goto("/");
-    await expect(
-        page.getByRole("main", { name: "Color tool panes" }),
-    ).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
 
     // About (Home right pane) + Gradient — the two earliest colliders
     // (t-header-shading F2: content reaches the title underside by ~24–48px).
@@ -167,9 +163,7 @@ test("O-11 gate 4 — compositor-only: pane-* keyframes carry ONLY transform/opa
 }, testInfo) => {
     test.setTimeout(90_000);
     await page.goto("/");
-    await expect(
-        page.getByRole("main", { name: "Color tool panes" }),
-    ).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
 
     // Structural half: walk every same-origin sheet's pane-* keyframes.
     const offenders = await page.evaluate(() => {
@@ -279,9 +273,7 @@ test("O-11 gate 5 — engine/PRM coherence: rest state identical under PRM; ever
     page,
 }) => {
     await page.goto("/");
-    await expect(
-        page.getByRole("main", { name: "Color tool panes" }),
-    ).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
     // The same mount-wait discipline as gates 1+2: `main` turns visible before
     // the pane cards finish revealing, so an un-waited read races the boot
     // reveal and returns an empty veil list (observed live at the W3 §Recovery
@@ -352,9 +344,7 @@ test("O-11 gate 6 — one grammar: no in-card sticky beyond .pane-header; nothin
 }) => {
     test.setTimeout(60_000);
     await page.goto("/");
-    await expect(
-        page.getByRole("main", { name: "Color tool panes" }),
-    ).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
     for (const view of ["Home", "Palettes", "Gradient"] as const) {
         if (view !== "Home") await openView(page, view);
         await expect(page.locator("main .pane-header").first()).toBeVisible();

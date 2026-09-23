@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { openView } from "../fixtures/dock";
+import { openView, mainPane } from "../fixtures/dock";
 
 /**
  * E.W3 Lane B — iOS-Safari sustained-30s smoke (the D-03 follow-up).
@@ -112,7 +112,7 @@ test("iOS-Safari sustained 30s: spectrum-drive + view-switch + WebGL render, zer
     const tStart = Date.now();
     await page.goto("/");
 
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    const main = mainPane(page);
     await expect(main).toBeVisible();
 
     // ── Step 1: WebGL render confirmation (goo-blob on WebKit) ─────────

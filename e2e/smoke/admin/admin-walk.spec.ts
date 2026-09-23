@@ -1,4 +1,5 @@
 import { adminTest as test, expect } from "./fixtures/admin-auth";
+import { mainPane } from "../fixtures/dock";
 
 /**
  * D.W5 Lane B — the admin-view CENSUS (the single admin mount gate).
@@ -57,7 +58,7 @@ test("walk all 5 admin views sequentially with zero console errors", async ({
     });
     page.on("pageerror", (err) => consoleErrors.push(err.message));
 
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    const main = mainPane(page);
 
     // X-W1 · G-1 — `WALK[i]` is `| undefined` under the repo's
     // `noUncheckedIndexedAccess`; `.entries()` carries the element type.

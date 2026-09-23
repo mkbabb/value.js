@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { mainPane } from "../fixtures/dock";
 import {
     installFrameCollector,
     readFrames,
@@ -87,7 +88,7 @@ test("O-5 boot pacing — no jitter spike over the boot window", async ({ page }
 
     await installFrameCollector(page);
     await page.goto("/");
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
 
     // The boot window B0→B4 — the first ~4s of real-time boot rendering.
     await waitMs(page, 4000);

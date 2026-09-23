@@ -1,4 +1,5 @@
 import { test, expect, type Page } from "@playwright/test";
+import { mainPane } from "../fixtures/dock";
 
 /**
  * T.W4 · O-10 — THE TYPE LOCKS (SYNTHESIS §6.1 O-10; the D2 ×φ recalibration's
@@ -73,9 +74,7 @@ test.describe("O-10a/e — title type locks (desktop dual grid)", () => {
         page,
     }) => {
         await page.goto("/");
-        await expect(
-            page.getByRole("main", { name: "Color tool panes" }),
-        ).toBeVisible();
+        await expect(mainPane(page)).toBeVisible();
         await expect(page.locator(PICKER_TRIGGER)).toBeVisible();
         await expect(page.locator(ABOUT_TRIGGER)).toBeVisible();
 
@@ -121,9 +120,7 @@ test.describe("O-10a/e — title type locks (desktop dual grid)", () => {
         page,
     }) => {
         await page.goto("/");
-        await expect(
-            page.getByRole("main", { name: "Color tool panes" }),
-        ).toBeVisible();
+        await expect(mainPane(page)).toBeVisible();
         const card = page.locator(".pane-shell > *").first();
         await expect(card).toBeVisible();
         // Let the plate-open choreography land before measuring.
@@ -149,7 +146,7 @@ test.describe("O-10a — the mobile matrix (390)", () => {
         page,
     }) => {
         await page.goto("/");
-        const main = page.getByRole("main", { name: "Color tool panes" });
+        const main = mainPane(page);
         await expect(main).toBeVisible();
 
         // The picker trigger keeps the plate rung (display-2 after the T-51/WR-4
@@ -205,9 +202,7 @@ test.describe("O-10c — rendered digit advance (the shipped face)", () => {
         page,
     }) => {
         await page.goto("/");
-        await expect(
-            page.getByRole("main", { name: "Color tool panes" }),
-        ).toBeVisible();
+        await expect(mainPane(page)).toBeVisible();
         const r = await page.evaluate(async () => {
             await document.fonts.load("600 55px Fraunces");
             await document.fonts.load("300 55px Fraunces");
@@ -273,9 +268,7 @@ for (const vp of [
             await page.goto(
                 `/#/?space=lab&color=${encodeURIComponent("lab(38% 32 24)")}`,
             );
-            await expect(
-                page.getByRole("main", { name: "Color tool panes" }),
-            ).toBeVisible();
+            await expect(mainPane(page)).toBeVisible();
             const trigger = page.locator(".pane-shell .space-trigger").first();
             await trigger.click();
             const optionCount = await page.locator('[role="option"]').count();
