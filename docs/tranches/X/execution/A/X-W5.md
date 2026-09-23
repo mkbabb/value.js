@@ -4463,3 +4463,21 @@ Crash-recovery: ⟨cmd⟩ `git status --porcelain` → the four standing rows (`
 | INFO | D1 headed real-GPU and W6 a5–a12/e1 are carried as banked, not re-run at this seat | `git diff --stat c575f741..HEAD -- demo src e2e` → empty | — |
 
 **Honest-RED set:** empty. g2 is RED and **unrelieved**. **Gates reproduced:** 14 · **failed:** W6 g2. The LEDGER row STAYS **PARTIAL**, and one event line is appended.
+
+## Repair 1 — RESUME 7, L-20 repair round 1 over Check 1, 2026-09-23
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X-W5 REPAIR 1 (RESUME 7) · HEAD at open `f6a37401`.
+Crash-recovery: ⟨cmd⟩ `git status --porcelain` → the four standing rows (`CARRY-LEDGER.md` · two W6 catalog PNGs · `scripts/dev/dev.sh`). None is in this seat's writable set, so there is no inherited partial.
+Inputs: `W5.md` whole (400 L, four ADDENDA) and `## Check 1 — RESUME 7`.
+
+**Precondition read:** ⟨cmd⟩ `grep -c ESC-W5d4-1 docs/tranches/X/COHESION.md` → **0**. There is no ruling yet.
+
+| defect | cure | commit | gate re-reading |
+|---|---|---|---|
+| HIGH · W6 g2 RED ×3, no relief (ESC-W5d4-1 not ruled) | **ESCALATED, not cured.** Check 1's cure begins with a COHESION ruling, and that ruling does not exist. The instrument `e2e/smoke/views/companion-pane-track-start.spec.ts` is outside W5 §4 and outside every ADDENDUM grant. A product cure to the pre-start pose (`animations.css:251-254`) is a design choice that ESC-W5d4-1 asks COHESION to rule. It is not a repair-seat call. | — | g2 not re-run: no byte a cure could move landed |
+| MINOR · W6 e1 is load-sensitive | Rides ESC-W5d4-1 (per Check 1). | — | — |
+| MINOR · `.c4` R5 retirement goes one step past §0az's words | Mitigated. Carried to the next COHESION pass for a one-line confirmation. COHESION is outside this seat's bounds. | — | — |
+| MINOR · `useViewManager.ts` `ready` is dead output | **CURED.** Removed the interface field, the `ref`/`router.isReady()` block and the return key. `useViewManager.ts` is a §4 `modify` row. | `16852e03` | ⟨cmd⟩ `grep -c ready demo/shell/useViewManager.ts` → 0 · ⟨cmd⟩ `grep -rn 'viewManager.ready\|\.ready\.value' demo/ \| wc -l` → 0 · ⟨cmd⟩ `vue-tsc -p tsconfig.demo.json --noEmit` exit 0 ×2 · ⟨cmd⟩ `eslint demo/shell/useViewManager.ts --max-warnings=0` exit 0 |
+| INFO · D1 and W6 a5–a12/e1 are banked | None required. | — | — |
+
+**Tally:** 1 cured · 1 escalated (ESC-W5d4-1 → COHESION; the e1 MINOR rides it) · 1 MINOR carried to COHESION · 1 INFO. W6 g2 is still RED and unrelieved. The LEDGER row **stays PARTIAL**. IMPLEMENTED is not stamped.
