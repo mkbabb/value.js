@@ -8765,3 +8765,31 @@ strictly serial, ≤ 1 concurrent (`.s2` and `.a3` both write `gradient.spec.ts`
 - **`.f3`** — Cure the 5 tsc errors at `o23…:144/:181` (`never`-typed channel arrays): type the deliberately-invalid inputs by the §0am idiom (explicit typed fixture, no cast-to-any), assertions untouched. e2e tsc EXIT 0 ×2; o22/o23/o24 3 passed ×2.
 
 ## Unit receipts — ninth sitting 2026-09-23
+
+### X.W6.s2
+
+SERVED MODEL: claude-opus-5-5[1m] (this seat's section; unit `.s2`, executes W6.md sixth ADDENDUM `:494` · COHESION §0bb ESC-W6e1-1 bullet `:2962` · §5 `.e` e1 row).
+
+**Crash-recovery.** ⟨`git status --porcelain`⟩ at open → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh` only; neither is in `.s2`'s writable set → **no inherited partial work**.
+
+**Act 1 — R-s1 conformance (settle.ts, no byte).** ⟨`sed -n 58-63p e2e/smoke/fixtures/settle.ts`⟩ → `if (el.getAttribute("role") === "region" && !paneRoot) unsettled.push("the region renders no pane yet");` inside `expect.poll(..., { timeout, message: "the region never settled" })` with `timeout = 15_000` default (`:38`). A region with no pane root is UNSETTLED and the poll is bounded, exactly §0bb's R-s1 → **conforms (landed `75420aab`); settle.ts untouched.** The `for` loop's `if (!node) continue` (`:64`) only skips a null node after the empty-region clause has already recorded it.
+
+**Act 2 — the `moved` instrument re-read (gradient.spec.ts).** Anchor verified at true bytes: ⟨`grep -n "const moved" e2e/smoke/views/gradient.spec.ts`⟩ at HEAD → `:557 const moved = frames.slice(1).some((f) => !f.equals(frames[0]!));`. No `pngjs` in the tree (⟨`find node_modules -maxdepth 3 -type d -name "pngjs*"`⟩ → empty), so the frames are decoded by a module-level `decodePng` over `node:zlib` `inflateSync` (8-bit non-interlaced RGB/RGBA; the five PNG row filters; any other format throws loudly — no fallback) and `movedFraction(base, frame)` counts pixels whose largest channel |Δ| ≥ `MOVED_LSB = 4`; `moved = decoded.slice(1).some((f) => movedFraction(decoded[0]!, f) >= MOVED_AREA)` with `MOVED_AREA = 0.005`. The five clip screenshots, the settle waits and both assertions (`expect(moved, "the composed aurora does not move the ramp").toBe(true)` in L2 · `expect(moved, "the ramp moves with no producer primitive composed").toBe(false)` in L3, now `:671`/`:684` after the helper insertion) are **byte-unchanged** (⟨`git show 4233e83e -- e2e | grep -c '^-[^-]'`⟩ → `1`, the old `moved` line). No `demo/**` byte.
+
+**Decoder witness (write-then-measure).** Scratch probe (seat scratchpad, not committed): chromium page with a 3-stop `linear-gradient`, clip 301×37 screenshot decoded by the spec's own `decodePng` vs the browser's `createImageBitmap` → `getImageData` of the same PNG → `w 301 h 37 ch 3 mismatch 0 self 0`.
+
+**Hygiene.** ⟨`npx tsc -p tsconfig.e2e.json | grep -c gradient.spec`⟩ → `0` (o23's 5 errors are `.f3`'s). ⟨`npx eslint e2e/smoke/views/gradient.spec.ts`⟩ → no output. Prettier: the file was not prettier-clean at HEAD (50 diff lines under ⟨`npx prettier <file> | diff - <file> | grep -c '^[<>]'`⟩); after the edit the count is still `50` — the new hunk adds none. ⟨`git diff --check -- e2e`⟩ → empty.
+
+**Act 3 — gates (serial, fresh `VJS_E2E_PORT` each, never concurrent; line reporter; transcripts in the seat scratchpad).**
+
+| gate | ⟨cmd⟩ | BEFORE (baseline `:8720`) | AFTER (`4233e83e` bytes) |
+|---|---|---|---|
+| g2 ×3 | `VJS_E2E_PORT=992{1,2,3} npx playwright test e2e/smoke/views/companion-pane-track-start.spec.ts --project=smoke` | GREEN ×1 | **GREEN ×3**: `1 passed (14.4s)` · `1 passed (13.8s)` · `1 passed (13.8s)`, EXIT 0 ×3 (load 3.37 · 5.87 · 7.23) |
+| e1 · a13 (gradient+o21) ×3 | `VJS_E2E_PORT=993{1,2,3} npx playwright test e2e/smoke/views/gradient.spec.ts e2e/smoke/oracles/o21-gradient-rail.spec.ts --project=smoke` | GREEN ×1 (flake-class: RED 2/2 Check 2, 1/8 Repair 2) | **GREEN ×3**: `22 passed (1.9m)` · `22 passed (1.9m)` · `22 passed (1.8m)`, EXIT 0 ×3 (1-min load at start 6.51 · 14.19 · 15.53 — Check 2's RED pair ran at ≈16) |
+| e1 under synthetic load | 12 × `yes` → `VJS_E2E_PORT=9941 npx playwright test e2e/smoke/views/gradient.spec.ts -g "gradient selector aurora" --project=smoke --repeat-each 6` | — | **`6 passed (1.0m)`** EXIT 0 (load 13.76 → 20.30); ⟨`pgrep -x yes \| wc -l`⟩ after → `0` |
+
+⟨`git status --porcelain`⟩ after the runs → the two standing rows + the (then-uncommitted) `gradient.spec.ts` only.
+
+**Commit.** `4233e83e` `test(e2e): e1 moved re-read above raster noise — decoded clip frames, >=4 LSB over >=0.5% (X.W6.s2, COHESION §0bb ESC-W6e1-1)` — pathspec `e2e/smoke/views/gradient.spec.ts` (1 file, +100 −1).
+
+**Residuals.** None owned. The GREEN ×3 is not a claim that the compositor tile flip is gone — the instrument now reads it as noise by the §0bb re-reading (Repair 2's signature: max Δ 1/255, far below 4 LSB). A future ramp motion under L2 must clear ≥ 0.5 % of the clip at ≥ 4 LSB to read as moved(L2 is not the live branch at glass 7.0.0; that threshold is unmeasured against a real composed aurora and is stated, not claimed). **Escalations: none.** `ESC-W6e1-1` is discharged by this landing.
