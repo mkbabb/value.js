@@ -1523,7 +1523,7 @@ alone ×2); eslint on the 14 files EXIT 0; `git diff --check` clean. e2e not run
   - `EasingSpecimenStrip.vue:5,138` and `easingCatalogue.ts:81` (prose naming the family label)
   - `GradientCodeEditor.vue:102`
   - `ParseEchoReadout.vue:15`
-  
+
   The cure is to widen the exclusion to the family-label prose (leaves 3) or to grant these comment files.
 - **ESC-W7g2-BROWSEPANE-COPY** — the grant covers the two oracles but not `BrowsePane.vue`, where the new copy
   (`Couldn't load palettes.` · `Load more`) has to land. The copy and the oracle re-points must go in one commit.
@@ -1971,3 +1971,32 @@ demo tsc — 0 divergences). The close itself read PARTIAL, honestly; this check
 bytes: **{G3 `G3-FALLTHROUGH-TYPES` · G11 → X-W10 · G14-grep → glass-8 repin}**. **Unrelieved**: G19 (H-1) · S-5 (H-2) · c2 CI (M-1) ·
 EC-10 / R-15 / R14 recovery (M-2). The LEDGER row is **NOT promoted**; it stays `PARTIAL`. Next act: the orchestrator's ruling on the
 eight RESUME escalations (+ M-3), then a repair seat, then Check 2. X-W7R · X-W12 · X-W8 · X-W10 stay lawfully blocked on `X-W7 CLOSED`.
+
+## Repair 1 (RESUME 2026-09-23 — over Check 1 (RESUME)'s register)
+
+**Seat**: REPAIR, `claude-opus-5-5`, 14:00–14:10 EDT, HEAD at entry `b116182f`. Read: W7.md whole (once, incl. `:683`) · §RESUME →
+§Unit plan → §Baseline · §Check 1 (RESUME) · the §Close (RESUME) escalation table by `grep -n`. **Crash-recovery** ⟨cmd⟩ `git status
+--porcelain` → ` M …/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh` · `?? docs/tranches/X/audit/` · `?? …/chassis/ui-audit.js` ·
+`?? …/keyframes/evidence/W13U/d2/` (a sibling's `D/X-P-W5.md` went dirty mid-seat). None in the wave's §4 set. **No inherited hunk.**
+**Rulings precondition** ⟨cmd⟩ `grep -c "ESC-W7d2\|ESC-W7g2\|ESC-W7g3\|ESC-W7c2\|ESC-W7a2" COHESION.md` → **0** (×2; §0bl..§0bs carry no
+X-W7 ruling). Every register row whose cure Check 1 itself names as *"the orchestrator rules …"* therefore stays ESCALATED.
+
+| id | defect | cure | commit | gate re-reading (×2) |
+|---|---|---|---|---|
+| **M-3** | o10d dropped `expect(title).toBeHidden()` (S.W5-7) | restored the property on the inspector, in bounds (§0bk.1 d2 grant: inspector + o10d spec; §4 create row `PaletteSpecimen.vue` + `demo/test/palettes/*.test.ts`): `PaletteSpecimen` gains the props-only `nameYielded` (`invisible` — the name yields its ink, keeps its box, no geometry jump); `PaletteInspector` binds `:name-yielded="renaming"`; o10d case 5 re-asserts `await expect(title).toBeHidden()` while the input is open; a mounted falsifier added to `palette-inspector.test.ts` | `c2dc5b40` | ⟨`npx playwright test --project=smoke o10d-display-voice-census -g "rename-input" --workers=1`⟩ → **1 passed (45.8 s) · 1 passed (29.5 s)**. Falsifier ⟨binding removed → `vitest run palette-inspector.test.ts`⟩ → `1 failed | 7 passed` (*expected [ 'palette-specimen__name', …(3) ] to include 'invisible'*); restored → **8/8 · 8/8**. (The e2e falsifier leg died twice at `:416` — the case's `openView "Palettes"` navigation, RED at baseline per the d2 receipt — so the mounted falsifier is the witness.) **GREEN** |
+| **m-3** | trailing whitespace `X-W7.md:1526` | `sed -i '' -E '1526s/[[:space:]]+$//'` | this Repair's docs commit | ⟨`grep -cE '[[:space:]]+$' X-W7.md`⟩ → **0 · 0** · **GREEN** |
+| **H-1** | G19 RED, unrelieved | **ESCALATED** — the 6 surviving hits (`DESIGN.md:37` · `GradientCodeEditor.vue:102` · `EasingSpecimenStrip.vue:5,138` · `easingCatalogue.ts:81` · `ParseEchoReadout.vue:15`) sit in files in neither W7.md §4 nor §0bk.3's grant; the cure is the orchestrator's ESC-W7g2-G19-PROSE ruling | — | ⟨`grep -rn eyebrow demo/ \| grep -v node_modules \| wc -l`⟩ → **8 · 8**; minus `family-eyebrow` **6 · 6** · RED |
+| **H-2** | S-5: `PaletteCard.vue` undeleted | **ESCALATED** — deleting the file breaks `demo/palettes/browser/index.ts:18-19` (`export { PaletteCard, … }`), a path in neither §4 nor §0bk.1; a delete without that line is a broken build, a delete with it an out-of-bounds write. ESC-W7d2-BARREL | — | ⟨`ls …/PaletteCard/PaletteCard.vue`⟩ → present · present · RED |
+| **M-1** | c2 CI producer job dies at lint | **ESCALATED** — the 24 errors are in `docs/tranches/**` scripts; the cure is an `eslint.config.*` ignore (outside §0bk.5's `ci.yml` grant). Editing `ci.yml` to skip or scope lint would be a masking fallback, not a cure. ESC-W7c2-LINT | — | cite Check 1 (`gh run view 35894983680`; `eslint.config.*` unchanged since) · RED |
+| **M-2** | EC-10 · R-15 unexecuted; R14 recovery RED | **ESCALATED** — each cure needs a path outside every grant (`GenerateControls.vue:74-79` · `demo/styles/utils.css` + `EmptyState.vue`'s ink + `ErrorBoundary.vue` · `availability.ts:87` latch + the e2e backend route). ESC-W7g3-EC10-TWIN / -R15-PLATEINK / ESC-W7g2-R14-RECOVERY | — | unchanged since Check 1 · RED |
+| **m-1** | `useVersionHistory.ts:52,73` `console.warn` | not cured here — MINOR without a one-command cure (a `fork`/`fetchVersions` verdict type change whose callers span `useDialogBrowseActions`); folds into the ESC-W7d2 ruling as Check 1 names | — | open (MINOR) |
+| **m-2** | browser legs flake under load | no cure at this seat (X-W1 readiness hygiene, ESC-R2-SEAT-COLD); this seat's e2e ran at load 50–76, `--workers=1` | — | watch |
+
+**Cadence (§7, the touched set)**: ⟨`npx vitest run demo/test/palettes demo/test/color-session demo/test/export demo/test/extract`⟩ ×2 →
+**23 files · 248/248 · 248/248** (Check 1's 247 + the new falsifier) · ⟨`npx vue-tsc -p tsconfig.demo.json --noEmit`⟩ → EXIT **0** ·
+⟨`npx eslint <the 4 touched files> --max-warnings=0`⟩ → EXIT **0** · ⟨`git diff --check`⟩ → clean · G18 ⟨`git diff --numstat
+47f222d6..HEAD -- src/ api/ \| wc -l`⟩ → **0**.
+
+**Verdict**: cured **2** (M-3 · m-3); escalated **4** register rows (H-1 · H-2 · M-1 · M-2 → ESC-W7g2-G19-PROSE · ESC-W7d2-BARREL ·
+ESC-W7c2-LINT · ESC-W7g3-EC10-TWIN / -R15-PLATEINK / ESC-W7g2-R14-RECOVERY), all orchestrator rulings; MINOR m-1/m-2 open. The LEDGER row
+stays **PARTIAL**. Next act: the orchestrator's rulings, then a repair seat, then Check 2.
