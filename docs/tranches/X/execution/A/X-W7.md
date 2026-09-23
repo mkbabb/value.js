@@ -465,3 +465,113 @@ CurrentPaletteEditor.vue}` · `…/card/PaletteCard/{PaletteCard,PaletteCardMeta
 · `…/card/composables/{useHeightTransition,useSwatchActions}.ts` · `demo/test/palettes/{n-fixtures/**,
 palette-card-layout,palette-specimen,swatch-identity-keys,copy-verdict}.test.ts` · `docs/tranches/X/waves/W7-gate-log.md`
 · this record. **Not written**: `e2e/**`, `ShadowPalette.vue`/`PaletteCardSkeleton.vue` (g's), `dev.sh`.
+
+### d
+
+**Seat**: X.W7.d, `claude-opus-5-5[1m]` · 2026-09-23 · opened at HEAD `23e7fcb0`.
+**Read**: W7.md whole · record header → Unit plan + c's receipt · X-W7-FOLD §Rows X.W7.d (`:184-243`), §Gates S-13,
+N-2..N-4, N-8, §R1.36 N-14 · N-16, §BoundsDelta B-2 · B-3 · B-6, the §R1.11/.15/.16/.19/.27/.28 · §R2.1/.3/.4/.5 ·
+§R3.1/.4 bands (grep-located headlines, rows read where cured) · COHESION §0j.B, §0k.3 S-5 · S-6 · S-7, §0bb.
+
+**Crash-recovery** ⟨cmd⟩ `git status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh`
+— **0 paths inside unit d's writable set; no inherited hunk.** Neither touched.
+
+**Anchors at the true bytes (drift recorded)**: S-5 says *three* importing consumers of `PaletteCard.vue` — measured
+**four** (`ExtractWorkbench.vue:145` · `BrowsePane.vue:92` · `PalettesPane.vue:92` · `AdminUsersPanel.vue:140`), recorded
+in the addendum. The `if (!token` census is **22**, not X-W3's 21 (users 10 · names 5 · flagged 3 · tags 3 · audit 1).
+`PaletteSlugBar.vue` is mounted **nowhere** (`slugBarRef` has no binding — `useSlugMigration`'s `setError` calls are
+dead). DAG row 2's count is computed server-side (`api/src/modules/session/repository/user.ts` `$lookup` + `$size`,
+no `deletedAt` predicate). The Admin card menu's verbs are gated inside `PaletteCardMenu.vue` (c's file).
+
+**Acts, in order**
+
+1. **S-5 docs act (FIRST commit)** `e3f3d781` — `W7-bounds-addendum-2026-09-23.md`: `PaletteCard.vue` gains `delete`;
+   S-6 / S-7 cited; B-1..B-6 homing table; §0j.B's migrate identity flow DECLINE restated; MMD-2 named distinct.
+2. **#8** `c1304cb6` — `api/admin-call.ts` (the one admin seam: `adminCall` · `useAdminAccess` · `useAdminNotice` ·
+   `latestRequest`); `useAdminUsers` owns the expanded disclosure (W7.67) and re-reads it on refresh (DAG row 3);
+   every admin mutation settles an announced verdict (DAG row 1, W7.86, S-13); `AdminUsersPanel` injects its port
+   (W7.68) and renders admin palettes as `PaletteSpecimen` + Feature/Delete only (DAG row 6); five signed-out plates
+   (N-2); unfiltered prune count + global-scope confirm (N-3); four search refs reset on route change (N-4); paged
+   reads ticketed (N-16); audit/flagged state chains own their terminal surfaces (AAP-2, AF-4); filtered-zero plates
+   (W7.83); last-page clamp (AF-28); audit debounce disposed (AAP-20); `api/preflight.ts` (G10 caps, W7.80, N-14
+   arm); hosts render export/report/revert/feature verdicts (ESC-W7b-HOST, W7.22); dialog subjects released
+   (W7.78); store factory + recovery notice (PP-26, row 45); `movePalette` + one `onUpdate` (N-7); `useSlugMigration`
+   identity state rendered at both menu twins (MMD-2, one cure applied twice) + publish-all tally (rows 39/40/42);
+   `useVersionHistory` duplicate machine deleted (W7.77); tag catalog reconciled on admin tag writes (W7.79);
+   `onDotClick` (dead, `void writeClipboard`) deleted; `cssColorOpaque` dead prop deleted (W7.69).
+3. **N-8** `eb2fae61` — `AuditEntry` mirrors the server's seven fields; `User.paletteCount` required;
+   `dto-parity.test.ts` type-level census.
+4. **G13 one-call-site** `f5b13794` — `useAdminUsers.adminDeletePalette` is the one admin delete (browse wall, user
+   row, flag queue); `usePaletteActions.onPublish` is the one publish (injected into the slug migration).
+5. `5110332c` — `W7-mutation-ownership.md` (20 rows) + `w7-mutation-visibility.spec.ts` + `palette-preflight.test.ts`.
+6. `52117566` — `palette-reorder.test.ts` (N-7 store half).
+7. `1d4d375b` — the G7 host export-failure oracle row; admin-call header count corrected to 22.
+8. `1a810c38` — `W7-gate-log.md` unit d sections + hashes.
+
+**Gate readings BEFORE → AFTER** (every AFTER double-run; every falsifier run, reverted, `cmp`-restored)
+
+| gate | BEFORE | AFTER |
+|---|---|---|
+| **G13** | table ABSENT, no `w7-*` oracle; `deletePaletteAdmin(` 2 sites, `createAndSavePalette(` 2 sites; DAG 1/3/6 live | 20 rows, 1 site each; GREEN **11** · OWED-ORACLE **3** · ROUTED **6** (self-counted ×2); unit `admin-crud.test.ts` 12/12 ×2; oracle **13/13 ×2**; falsifier (verdict silenced) → 7 failed — **GREEN over its reachable rows; DAG row 2 ESCALATED** |
+| **G7** (host half, from b) | `failure` ref rendered nowhere | both hosts render the `ExportOutcome`; oracle row passes; falsifier → 1 failed — **GREEN** |
+| **N-2** | 22 early-returns; TRUE-EMPTY plates when signed out | 5 signed-out plates, 0 operable controls, 0 requests; 401 → same register; 6/6; falsifier → 6 N-2 cases fail (cascades through the file — recorded) — **GREEN** (pane half; S-6: not reported as the identity closed alone) |
+| **N-3** | `emptyCount` over the filtered prop | unfiltered count + global scope named; falsifier → 1 failed — **GREEN** |
+| **N-4** | `grep … \| grep -c '= ""'` → 0; one aliased ref | 4 distinct refs; reset ×4 on route change — **GREEN** |
+| **N-8** | `AuditEntry` lied both ways (no `actorSlug`/`payload`; `ipHash`/`target` required) | key census compiles (vue-tsc EXIT 0); falsifier → TS2322, EXIT 2 — **GREEN for the admin DTOs; ADJ-1 (`proposerSlug`) ROUTED** |
+| **N-14** (rejection arm) | weights stripped silently on publish | refused in words before a request, rendered on the card rail; `palette-preflight.test.ts` 18/18 — **GREEN (arm)** |
+| **N-16** | no ordering on any paged read | last-issued ticket on audit/flagged/tags/names/roster; falsifier → 1 failed — **GREEN** |
+| N-7 (from c) | first drag double-applied; filtered drag relocated hidden palettes | store half 4/4, falsifier → 3 failed; one `onUpdate` replaces the default — **store half GREEN; first-drag browser row OWED** |
+| G18 | 0 | ⟨cmd⟩ `git diff --numstat 23e7fcb0..HEAD -- src/ api/ \| wc -l` → **0** |
+
+**Cadence (§7)** ⟨cmd⟩ `npx vitest run` ×2 → **2 failed / 730 passed (732)** before `52117566`'s +4 — the same two
+pre-existing fails (C-5 `spectrum-luma`, NG-6 case 2 / F-4); `npm run lint` → **55** (baseline, every problem under
+`docs/tranches/{V,X}`), ⟨cmd⟩ `npx eslint demo e2e/smoke/oracles/w7-mutation-visibility.spec.ts --max-warnings=0` → EXIT 0;
+`vue-tsc` lib EXIT 0 · demo EXIT 0 · test leg **11 × TS2307** all in `demo/color-session/space-catalog.ts` (F-2,
+unchanged); `git diff --check` clean.
+
+**Commits (unit d)**: `e3f3d781` (S-5 addendum, first) · `c1304cb6` (#8) · `eb2fae61` (N-8) · `f5b13794` (#8 cont.,
+one call site) · `5110332c` (table + oracle + pre-flight) · `52117566` (N-7 store) · `1d4d375b` (G7 host row) ·
+`1a810c38` (gate log) · this receipt.
+
+**Escalations (the orchestrator rules; none presumed)**
+- **ESC-W7d-INSPECTOR** — §5.d's selected-entity inspector "expressed in X-W4's typed `SceneActionSet`" is impossible at
+  the bytes inside d's set: `SceneActionScene` (`"color" | "generate" | "gradient" | "mix"`) and `SceneActionToken` are
+  CLOSED unions in `demo/color-session/keys.ts`; the set is built in `demo/shell/usePaneRouter.ts` and rendered by
+  `demo/shell/dock/layers/ActionBarLayer.vue` — none writable by d; and no path in d's set can hold a new inspector
+  component. No substitute was improvised. Moved: **1 of 4** consumers (`AdminUsersPanel` → `PaletteSpecimen` + the
+  Admin scene's own seat). `PaletteCard.vue` is therefore **NOT deleted** (S-5's precondition unmet: ExtractWorkbench,
+  PalettesPane, BrowsePane still import it). Deleting it would also invert unit c's G8–G12 battery, which mounts
+  `PaletteCard` under `demo/test/palettes/n-fixtures/**` (outside d's `*.test.ts` glob). Needs: a grant for
+  `keys.ts` + `usePaneRouter.ts` + `ActionBarLayer.vue` + one inspector component path + `n-fixtures/**`, or a ruling.
+- **ESC-W7d-DAG2** — DAG §2.3 row 2 (`deletedAt` count disagreement) is server-side (the roster `$lookup` lacks the
+  soft-delete predicate); `api/**` is Do-NOT-touch. Route to the API owner (X-W3's kernel).
+- **ESC-W7d-MMD2-ROOT** — MMD-2's destruction order lives in `demo/platform/auth/useUserAuth.ts` `regenerate()` (it
+  removes the persisted slug and token BEFORE `createSession()` succeeds). d cured the in-bounds half (the act can no
+  longer fail silently; both twins render the verdict); the ordering cure is outside d's set. X-W8 G-13's `C-5/L-1(a)`
+  twin is untouched (CE-5 split held).
+- **ESC-W7d-N14-PRESERVE** — N-14's preserve arm (`weight` on the wire) is `api/src/modules/palette/schema.ts`.
+
+**Residuals (named, not absorbed)**
+- `W7-failure-dispositions.md` (b's artifact, not in d's set) still reads OWED for d's rows; at the bytes after `f5b13794`
+  rows **4** (drawer read — X-W4's drawer renders it), **6** (fork — `useDialogBrowseActions`, routed), **10 · 11**
+  (tag catalog / save — the verdict is produced in `useTagEdit.error`; `TagEditPopover.vue`, X.W7.a's, must render it)
+  remain unrendered; rows 7-9, 18-27, 29-40, 42, 45 are cured (typed results, rendered verdicts); row 28 (the
+  credential-prefix log) is DELETED; `onImpersonate` itself stays for X-W8's CC-076 row 7 ruling.
+- `PaletteSlugBar.vue` is dead (no mount; `slugBarRef` never bound) — its `setError` branch and its `void
+  writeClipboard` are unreachable; deletion is X-W8's subtraction census.
+- W7.63 (nested-interactive user rows → native disclosure) not cured: `e2e/smoke/admin/a11y-authed-admin.spec.ts:84`
+  (BR-9, outside d's set) locates the row as a `div.cursor-pointer` with `role=button`; a native disclosure inverts it.
+- W7.82 (`onActivated` under KeepAlive) and the ATP-2 invisible-at-rest tag delete (X.W7.e's S-14(b)) not touched.
+- Fold bands read by headline and cured where named above; rows not named here (VHD-*, FlagReportDialog A-4..A-30,
+  MMD D-03..M-G, BrowsePane M2..M21, PaginationBar M2/D-2, AAP-8/9/14/24/29/30) are **not** claimed — they travel.
+- The first-drag N-7 browser row (a real Sortable pointer drag) is owed.
+
+**Files written**: `demo/palettes/{BrowsePane,PalettesPane}.vue` · `demo/palettes/admin/AdminPane.vue` ·
+`demo/palettes/browser/admin/{AdminUsers,AdminNames,AdminAudit,AdminFlagged,AdminTags}Panel.vue` ·
+`demo/palettes/{useAdminUsers,useAdminAudit,useAdminFlagged,useAdminTags,useColorNameQueue,usePaletteActions,
+usePalettePorts,usePaletteStore,useSlugMigration,useTagEdit,useVersionHistory}.ts` · `demo/palettes/types.ts` ·
+`demo/palettes/api/{admin-call,preflight,admin-palettes}.ts` · `demo/shell/dock/menus/{MobileMenuDropdown,ProfileSection}.vue`
+· `demo/test/palettes/{admin-crud,dto-parity,palette-preflight,palette-reorder,checkbox-contract}.test.ts` ·
+`e2e/smoke/oracles/w7-mutation-visibility.spec.ts` · `docs/tranches/X/waves/{W7-bounds-addendum-2026-09-23,
+W7-mutation-ownership,W7-gate-log}.md` · this record. **Not written**: `PaletteCard.vue` (kept — ESC-W7d-INSPECTOR),
+`ExtractWorkbench.vue`, the dialogs, `ApiOfflineChip.vue`, `viewSchema.ts`, `src/**`, `api/**`, `dev.sh`.
