@@ -2926,3 +2926,102 @@ The R.W3 "dev-only" TRANSITION MODE paragraph and its four corrections (`PaneSlo
 **Commits** (pathspec, `dev.sh` untouched): `043a783c` (PaneSlot header) · `3ec79fa6` (`green/` D5 ×2, D1 non-evidence ×2, P-5 lever traces) · this receipt.
 **Escalations**: **ESC-W5d2-1** (the coupled family needs P-4 `ColorPicker.vue:2-4` + the EB-2 home `ErrorBoundary.vue`/`main.ts` + loading/error component files) · **ESC-W5d2-2** (P-5a/P-5b measured insufficient; P-5a breaks equal-height pairing, P-5b deletes motion; needs a design ruling) · ESC-W5t-1 (D1 host, re-confirmed: load 12.7–15.6 across this sitting) · ESC-W5t-4 (→/mix `HeroBlob.vue:246-250`).
 **Residuals**: D1 RED (ruled instrument unavailable, and no in-set cure measured sufficient) · W5F-04 co-mount open (documented truthfully in the header). **Scratch hygiene**: static servers `:8121-8124` stopped (⟨cmd⟩ `lsof … | grep -cE ':812[1-4]'` → 0).
+
+## Close — RESUME ROUND 4, 2026-09-22 (VERIFY-ONLY close seat)
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X-W5 CLOSE (RESUME 4) · HEAD at open `51de649a` · wall 20:1x EDT · date of record 2026-09-17 (COHESION §0j).
+This seat cured nothing. It wrote this section, one INBOX sweep line and the LEDGER row cells. Inputs: `W5.md` whole (394 L, incl. ADDENDUM 2026-09-22), this
+record's header, `## RESUME OPEN 4` (R4.0–R4.4), the `.t` and `.d2` receipts, and `## Check 3` (the last check section).
+
+**Verdict: PARTIAL.** `.t` is PARTIAL, `.d2` is ESCALATED, and `.c2` **never sat**: ⟨cmd⟩ `git log --oneline --all --grep='W5.c2'` → **empty**. The hard gate
+is unmet: D1 is RED/untakeable, D4-Admin is RED, and N14/N15 are RED. **IMPLEMENTED is NOT stamped.**
+
+### CL4.0 Crash-recovery
+
+⟨cmd⟩ `git status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh`. Neither path is in this seat's writable set, so
+there is **no inherited partial**. `dev.sh` was never touched.
+
+### CL4.1 Commit roster and bounds (⟨cmd⟩ `git show --stat` / `--name-only` per sha)
+
+| unit | sha | paths | in writable set? |
+|---|---|---|---|
+| `.t` | `91d0e0c7` | `gates/out-in-reprobe.mjs` + 3 RESULTS JSON under `waves/W5/triumvirate/` | YES (R4.4 `.t` row) |
+| `.t` | `1a6432f9` | 18 files: 14 under `waves/W5/triumvirate/` + 4 under `triumvirate/variants/` | YES |
+| `.t` | `fbb6cea0` | `execution/A/X-W5.md` +40 | YES |
+| `.d2` | `043a783c` | `demo/shell/PaneSlot.vue` +39/−37, **comment-only** (⟨cmd⟩ non-comment `^[-+]` lines of the diff → 0 · hunks `:35` `:48` `:109`, all inside `//`/`/** */`) | YES |
+| `.d2` | `3ec79fa6` | 3 JSON under `waves/W5/green/` | YES |
+| `.d2` | `51de649a` | `execution/A/X-W5.md` +42 | YES |
+| `.c2` | — | not dispatched | — |
+
+**Landed-wrong: none.** The GATING LOCK is honoured: ⟨cmd⟩ `sed -n 12,23p demo/shell/PaneSlot.vue | md5` → `a7fe04be35764c9b6b293dfc5f08f523`, the same
+value as at R4.3. §9 c1–c5 were landed earlier and stay unsplit. §9 c6 (this close + the IMPLEMENTED flip) is **not** landed, because the gate is unmet.
+
+### CL4.2 Gates, re-run at this seat's clock (`scratchpad/w5close.sh` run ×2; ⟨cmd⟩ `diff r1 r2` → IDENTICAL)
+
+| gate | BEFORE (R4.3 / Check 3) | AFTER (this seat) | state |
+|---|---|---|---|
+| A1 main.ts exit · App grep | 0 · 0 | **0 · 0** | GREEN |
+| A4 `bindPane` hits (bite banked, Check 1) | 10 | **10** | GREEN |
+| A5 `<h1` in `.vue` | 4 | **4** | GREEN (the OUTLINE arm is routed to X-W10) |
+| A7 `role="status"` | 3 | **3** | GREEN |
+| A2 blob arm | unfalsifiable (ESC-W5-1) | re-authored by `.t`; `pass:true` ×2 (`triumvirate/A2-blob-arm-run{1,2}`) | GREEN (banked; not re-probed, §5.2) |
+| A3 | RED, relieved | — | relieved: §0k.3 S-1 → X-W8 |
+| B4 `100dvh` · `svh` files · `content-max-h` | 0 · 3 · **3** | **0 · 3 · 0** | **GREEN** (arm 3 turned by `043a783c`) |
+| B3 | relieved | — | → X-W6 (CC-056) |
+| C1 (§0aq re-metric `textContent` ≥ 0.9 + rider) | banked 1.0 | `.t`: 1.0 on 15/15, rider 16/16, ×2 | GREEN (banked) |
+| C3 fork census | 23 / 9 | **23 / 9** | partition by `.t`: 6 capability OUT · 6 layout → X-W8 `.i` · 11 dock → X-W8 `.h` → relieved by route (§0aq) |
+| C4 exit | 0 | **0** | GREEN |
+| C7 viewport `@media` | 4 | **4** (= 3 + `DockStatusLamp.vue:70`) | RED-by-route → X-W8 `.h` (§0aq) |
+| C8 exit | 0 | **0** | GREEN |
+| D1 scene-swap budget | RED (gradient .294/.371 · mix .333/.346) | **NOT TAKEABLE**: ⟨cmd⟩ `uptime` → load **12.54** / 13.32 / 17.01; `pgrep -fl vitest-vscode \| wc -l` → **27**. The ruled condition (load < 4, seat alone) is unmet, so the budget was not run | **RED** (ESC-W5t-1; `.d2`'s loaded runs are non-evidence) |
+| D2 exit | 0 | **0** | GREEN |
+| D3 physical names | 0 | **0** | GREEN |
+| D4 Mix · Admin `<Transition ` | 1 · 0 | **1 · 0** | **RED** (AdminNamesPanel: `.c2` owed) |
+| D5 forced PRM | GREEN (`.d2` ×2) | banked `green/D5-prm-scene-swap-d2-2026-09-22.json` | GREEN (banked; the landed PaneSlot delta is comment-only, so no D5 surface moved) |
+| E1 per file | 0 0 0 0 | **0 0 0 0** | GREEN |
+| E2 `P122` per file | 9 · 3 · 18 · 10 | **9 · 3 · 18 · 10** | GREEN |
+| N14 / N15 | RED | not re-probed (no byte moved; `.c2` never sat) | **RED** |
+| ESC-W5c-3 (o12 `:68` · o16 `:158` · census-parity `:88-90`) | RED | — | **RED** (`.c2`) |
+| §7 `npx vue-tsc -p tsconfig.demo.json --noEmit` | EXIT 0 | **EXIT=0** (run in the background at this seat) | GREEN |
+| §7 `npx eslint demo/shell/PaneSlot.vue` | EXIT 0 | **EXIT=0** | GREEN |
+| §7 `git diff --check` over the W5 docs + PaneSlot | — | **0** | GREEN |
+
+### CL4.3 §8 Verification Artefacts
+
+- `waves/W5/born-red/` holds **9** files (A2/A3/A6/B3/C1/C2/C5 + statics, banked at the open).
+- `waves/W5/green/` holds 14 files, including `D1-scene-swap-budget-AFTER` and `D5-prm-scene-swap-d2`.
+- `waves/W5/triumvirate/` holds the re-probe, the research and plan, and the A2/C1/C3 records.
+- The `scene-swap-budget.mjs` **after** reading for D1 is still owed. The `.d2` loaded runs are kept as non-evidence (`green/D1-…-LOADED-NONEVIDENCE`).
+- The B5/B6 readings and the portal delta are as quoted in the prior closes.
+- Nothing was re-captured here: the surface is unchanged since those captures (only the comment-only PaneSlot delta landed), so §5.2 parsimony applies.
+
+### CL4.4 E13 — the four-path sweep (this seat's clock)
+
+⟨cmd⟩ `ls -t ../glass-ui/docs/tranches/ | head -1` → **BK**.
+
+⟨cmd⟩ `find <p> -maxdepth 1 -type f -newer execution/A/X-W5.md` came back **empty on all five dirs**: value.js `V/` · `V/coordination` · BK
+`coordination` · keyframes `V/coordination` · atlas `P/coordination`.
+
+INBOX status column: the one `UNREAD` row is **I-40** (owner *Track C (X·F)*), which is outside X-W5 scope. **0 UNREAD in scope.** Tail stays **I-40 / O-52**.
+One sweep line was appended to the INBOX.
+
+### CL4.5 Residuals (named owners) and escalations
+
+**Residuals:**
+
+| gate | state | owner |
+|---|---|---|
+| **D1** | RED | **COHESION / owner**. ESC-W5t-1 asks for a ruling: (a) a quiescent host window, (b) a dedicated runner, or (c) a real-GPU read. ESC-W5d2-2 asks for a design ruling on the swap-travel lever (P-5a breaks the card pairing; P-5b deletes motion). After both rulings, a `.d2` re-measure. |
+| **W5F-04 out-in co-mount + P-1..P-3** | open | ESC-W5t-2 / ESC-W5d2-1 ask COHESION for grants: `demo/picker/ColorPicker.vue:2-4` (P-4, **HIGH**), the EB-2 home `ErrorBoundary.vue`/`main.ts`, and the P-3 loading/error files (ESC-W5t-3). |
+| **→/mix cost** | open | ESC-W5t-4: `HeroBlob.vue:246-250` needs a home (X-W2 blob seat or X-W8 `.i`). |
+| **D4-Admin · N14 · N15 · ESC-W5c-3 oracles** | RED | **`X.W5.c2`** (grants already issued by §0aq). The next orchestrator dispatch runs it. `.c2` does **not** depend on D1's escalations. |
+| **C7** | routed | X-W8 `.h` (§0aq) |
+| **C3** | routed | 6 layout rows → X-W8 `.i`; 11 dock rows → X-W8 `.h` (§0aq) |
+| A3 / B3 / A5-OUTLINE / N5 | relieved, unchanged | X-W8 / X-W6 / X-W10 / X-W7 |
+| Upstream Vue note | — | A letter (dev-root fragment × `Transition mode=out-in`), not a producer byte |
+| L-18 | — | The quartet passes follow a GREEN hard gate, so they do not open here |
+
+**Four-verb:** AUDITED YES · SPECIFIED YES · **IMPLEMENTED NO** (the hard gate is unmet: D1, D4-Admin and N14/N15 are RED) · VERIFIED NO (stamped only at the
+X-W11 release close, §9 c6). The line does not move.
+
+**Successors:** X-W6, X-W7, X-W8 and X-W10 stay lawfully BLOCKED-ON the X-W5 close.
