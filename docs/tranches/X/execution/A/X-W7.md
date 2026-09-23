@@ -2301,3 +2301,111 @@ inherited hunk.** None touched.
 
 **Escalations**: none.
 **Commits**: `d104cd5f` · `7c3b9156` · `3cd3de31` · `39ed6daa` · `ca78e91b` · this record.
+
+### X.W7.z2
+
+SERVED MODEL: claude-opus-5-5 · COHESION §0bt.2 · §0bk.4/.6 · fold EC-10 (`X-W7-FOLD.md:1796`, W7.543) · §R3.2 R-15
+(`X-W7-FOLD.md:2144`, W7.606) · C-11 (`X-W7-FOLD.md:50`) · W7.md G3 (`:307-320`) · record ESC-W7g3-EC10-TWIN /
+-R15-PLATEINK (`:1631-1645`) · ESC-W7a2-INBOUNDS (`:1743-1747`).
+
+**Open (crash-recovery).** ⟨`git status --porcelain`⟩ → ` M …/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh` · `?? docs/tranches/X/audit/`
+· `?? …/chassis/ui-audit.js` — none in this unit's writable set; **nothing inherited**. HEAD at open `1602340e` (z1 receipt).
+Anchor note: the task's "~:543 / ~:606" are fold line ids (W7.543 / W7.606), not W7.md lines — read at the fold.
+
+**Act 1 — ESC-W7a2-INBOUNDS (inert props, the `.a2` class ruling).**
+- BEFORE ⟨scratch probe `tsconfig.strictprobe.json` = `{extends tsconfig.demo.json, vueCompilerOptions.strictTemplates:true}`,
+  never committed, deleted at unit end → `npx vue-tsc -p <probe> --noEmit`⟩ → **EXIT 2 · 310 / 64** (after z1's PaletteCard
+  deletion; `.a2` read 312/65); inert keys `variant` 17 · `tag` 7 · `surface` 8 = 32 = **31 in 13 in-bounds files** +
+  `UserSortMenu.vue:8` (X-W8, §0k.3 S-4, untouched). Per file: BrowsePane 2 · AdminAuditPanel 1 · AdminFlaggedPanel 1 ·
+  AdminListSkeleton 4 · AdminNamesPanel 2 · AdminTagsPanel 2 · AdminUsersPanel 3 · PaginationBar 2 · CurrentPaletteEditor 5 ·
+  PaletteCardSkeleton 3 · SwatchHoverMenu 2 · EmptyState 3 · MixConfigBar 1 → 31.
+- Class ruling from installed glass 7.0.0 `dist`: `Skeleton.vue.d.ts` declares only `class`; `Button.vue.d.ts` no `variant`;
+  `WatercolorDot` declares `variant` ("solid" | "ghost") and no `tag`. ⟨`grep -cE "\[(variant|tag|surface)[=\]]" glass-ui.css`⟩ → 0;
+  same over `demo e2e test` → 0 selector hits ⇒ null pixel delta.
+- Cure (deletion only): Button `variant` 17 · WatercolorDot `tag` 7 · Skeleton `surface` 8, plus the probe-hidden Skeleton
+  `variant` beside each `surface` (`.a2` precedent: TS reports the first excess key only), PaletteCardSkeleton's now-dead
+  `blockVariant` computed + its `computed` import. MixConfigBar's comment claimed a variant register — reworded to say glass 7
+  `Button` has no `variant` (the register is an X-W10 intent). Kept: `TransitionGroup tag="div"` (CurrentPaletteEditor:26 —
+  functional; a first sweep hit it and was restored before commit), WatercolorDot `variant`, all fallthrough attributes.
+- ⟨`npx eslint --max-warnings=0 <13 files>`⟩ EXIT 0 · ⟨`git diff --check`⟩ clean · ⟨`vitest run` format-color · version-history ·
+  plate-mass · admin-destructive · error-boundary⟩ 94/94.
+- Commit **`04ed557d`** `fix(demo/types): delete inert glass-component props in the 13 in-bounds strict-probe files` (pathspec = 13 files).
+- AFTER ⟨probe⟩ → **283 / 64**: −31 inert, +4 revealed `aria-label` fallthrough (PaginationBar ×2, SwatchHoverMenu ×2 — the next
+  key once `variant`/`tag` left).
+
+**Act 2 — EC-10 with its twin (the two-site cure lock), one commit.**
+- BEFORE ⟨`grep -n "var(--muted)\|toFixed" demo/workbenches/generate/GenerateControls.vue`⟩ → `:74` `return "var(--muted)"` · `:77`
+  `pct.toFixed(0)` (twin at `:72-80`); extract builder at `useExtractSession.ts:123-134` (soft stops at `i/(n-1)`, singleton 50%).
+- Cure: one builder `demo/color-session/palette-rail.ts` `paletteRail(colors)` — each colour owns the band `[i/n, (i+1)/n]` with
+  two-position (hard) stops, edges to 4 decimals. `kSliderGradient` (extract) and `countSliderGradient` (generate) both call it in
+  this commit. The empty arms stay at the consumers and stay non-equivalent: extract → `null` (EC-25's rail ink only), generate →
+  `"var(--muted)"`.
+- Falsifiers (written first): `demo/test/extract/extract-session.test.ts` EC-10 (3-colour result → exact hard-band string; `null`
+  before a run) · `demo/test/generate/generate-rail.test.ts` (hard bands; empty arm paints `var(--muted)` and no gradient) ·
+  `demo/test/color-session/palette-rail.test.ts` (band continuity, singleton).
+  Born-RED ⟨`npx vitest run demo/test/generate/ demo/test/extract/ demo/test/color-session/palette-rail.test.ts`⟩ at the pre-cure
+  bytes → **3 failed** (extract received `… 0%, … 50%, … 100%`; generate rail absent). AFTER ⟨same⟩ → **28/28 · 28/28**.
+- **Adjacent edits**: `GenerateControls.vue:294` `data-generate-count-rail` (the oracle's handle on the rail element; same
+  concern); `extract-session.test.ts:21-22,34,48` the worker echo takes a configurable palette (default unchanged).
+- ⟨eslint 6 files⟩ EXIT 0 · ⟨`git diff --check`⟩ clean. Commit **`26681172`** `fix(extract/rail): the palette rails paint hard
+  bands — extract k rail and its GenerateControls twin in one step` (pathspec = 6 files).
+
+**Act 3 — R-15, one commit (`:root` + recipe + twins).**
+- BEFORE ⟨`grep -rn -- "--ink-muted:" demo | wc -l`⟩ → 0 · ⟨`grep -rln '\.plate-ink *{' demo`⟩ → 4 scoped declarations
+  (ImageDropZone:107 · ExtractWorkbench:319 · ExtractControls:195 · shared/ui/EmptyState:110), each
+  `var(--ink-muted, var(--muted-foreground))`.
+- Fifth twin located (drift recorded): §0bt's `ErrorBoundary.vue:84` no longer exists. ⟨`git show 07be9cf3 --
+  demo/color-picker/ErrorBoundary.vue | grep plate-ink`⟩ → its `.plate-ink` rule deleted at `07be9cf3` (X.W7.g, ErrorBoundary
+  composes EmptyState's error plate); ErrorBoundary + PaneErrorPlate now paint through EmptyState, hence through the global recipe.
+- Cure: `--ink-muted` declared in `demo/styles/foundation.css` `:root` (`oklch(0.369 0.004 34.6)`) and `.dark`
+  (`oklch(0.789 0.004 41.9)`) — each the value `resolveMutedInk` returns at the pre-palette ambient (`useAtmosphere`
+  `derivedLightness` = 0.5 → resting rung 0.808 light / 0.352 dark; ⟨scratch vitest over `ink.ts`, removed⟩); the boot writer's
+  root inline stamp overrides it once hydrated. One recipe `demo/styles/utils.css:192` `.plate-ink { color: var(--ink-muted); }`
+  (the bare read, C-11). The four scoped twins deleted (three whole `<style scoped>` blocks, ExtractControls' rule only).
+- Falsifier ×2 ⟨census: `grep -rn -- '--ink-muted:' demo/styles | wc -l` · `grep -rln '\.plate-ink *{' demo` ·
+  `grep -rl '\.plate-ink *{' demo --include='*.vue' | wc -l` · fallback arm in the recipe⟩ → run 1 `2 · utils.css · 0 · 0`;
+  run 2 `2 · utils.css · 0 · 0`. Mutation: a scoped twin in a temp `demo/zz-mutant.vue` → twins **1** (RED); removed → **0**.
+- Browser check (bounded, one run) ⟨`npx playwright test e2e/smoke/oracles/o18-contrast-census.spec.ts --project=smoke`⟩ →
+  18 passed · 10 failed. None of the 10 is a `.plate-ink` population (menus slug pill / profile trigger, graph nodes, dark readout
+  fracs, dark letterform caption, admin pill ×2, profile menu rows ×2). Control: the same failing rows re-run with the two new
+  `--ink-muted` declarations removed (file restored byte-exact after) → **identical Received values** (3.09 · 5.41 · 4.38 · 4.36 ·
+  4.35 · 4.13) — independent of this unit; the inks read are the boot stamp, not the new literals.
+- ⟨eslint 4 .vue⟩ EXIT 0 · ⟨`git diff --check`⟩ clean. Commit **`33d52f8c`** `fix(demo/ink): --ink-muted declared at :root; one
+  .plate-ink recipe replaces the scoped twins` (pathspec = 6 files).
+
+**Gate readings (BEFORE → AFTER, settled bytes at `33d52f8c`, each double-run).**
+
+| gate | ⟨cmd⟩ | BEFORE | AFTER | verdict |
+|---|---|---|---|---|
+| EC-10 ×2 | `vitest run demo/test/generate/ demo/test/extract/ demo/test/color-session/palette-rail.test.ts` | 3 failed (born-RED) | **28/28 · 28/28**; empty arms `null` vs `var(--muted)` asserted | **GREEN** |
+| R-15 ×2 | census (Act 3) | 0 decl · 4 scoped twins (+1 retired at `07be9cf3`) · fallback arm live | **2 decl (`:root` + `.dark`) · 1 recipe (utils.css) · 0 twins · 0 fallback** ×2 | **GREEN** |
+| strict probe ×2 | scratch probe (never committed) | EXIT 2 · 310 / 64; inert 32 (31 in-bounds + `UserSortMenu:8`) | EXIT 2 · **284 / 64** · 284 / 64 (byte-identical outputs); inert **1** = `UserSortMenu:8` (X-W8) → **31 in-bounds → 0** | **GREEN** (residual below) |
+| vue-tsc demo ×2 | `npx vue-tsc -p tsconfig.demo.json --noEmit` | EXIT 0 | **EXIT 0 · EXIT 0** | **GREEN** |
+
+Probe arithmetic: 310 − 31 inert + 4 revealed `aria-label` + 1 = 284. The +1 is the new native `data-generate-count-rail` hook
+(Act 2): the probe flags every native `data-*` attribute (`'HTMLAttributes & ReservedProps'`, the same class as
+`data-o18` / `data-extract-k-readout` / `dataAdminAccess` already in the residual). Residual composition: TS2353 276 (`onClick` 110 ·
+`aria-*` 70 · `data-*` family · `title` 15 · `onKeydown` 3 · `key` 2 · `asChild` 2 · 1 each `role`/`onSubmit`/`onFocus`/
+`onAnimationend`) + TS2322 8 (same as `.a2`) + `UserSortMenu:8`. No inert-prop key remains in W7's in-bounds files.
+
+**Cadence.** ⟨`npx vitest run demo/test`⟩ → 289/290; the 1 = `reka-binding-idiom.test.ts` NG-6 checkbox canary
+(`SearchFilterBar.vue:52-53`, X-W1 born-RED canary `a0df89d9`, also RED in isolation) — not a file this unit touched.
+
+**Adjacent edits (§0bt ADJACENT-LINE RULE).** `demo/workbenches/generate/GenerateControls.vue:294` `data-generate-count-rail` (the
+twin's test handle) · `demo/test/extract/extract-session.test.ts:21-22,34,48` configurable worker-echo palette ·
+`demo/workbenches/mix/MixConfigBar.vue:168-170` the comment that claimed the deleted `variant` register.
+
+**Residuals (each named; none absorbed).**
+- `G3-FALLTHROUGH-TYPES` (glass, O-57 R-1) — honest-RED, residual 284 / 64 pasted above; the flag stays off (lock).
+- `UserSortMenu.vue:8` inert `variant` → X-W8 (§0k.3 S-4).
+- The two-arm `var(--ink-muted, var(--muted-foreground))` still stands at 8 non-`.plate-ink` sites (ConfigSliderPane:202,205 ·
+  ColorComponentDisplay:200,205,211 · PaneHeader:136 · ColorSpaceSelector:358 · App.vue:582). With `--ink-muted` now declared the
+  fallback arm cannot fire; C-11's bare-read normalisation of those sites is outside R-15's five-twin cure → X-W10 (XP-19).
+- o18 census: 10 rows RED, independent of this unit (control run above) → the owning waves (contrast census, X-W10 / X-W7R).
+- `reka-binding-idiom` NG-6 canary RED (X-W1 / SearchFilterBar binding).
+
+**Escalations**: none. ESC-W7g3-EC10-TWIN · ESC-W7g3-R15-PLATEINK · ESC-W7a2-INBOUNDS are **discharged** by `26681172` ·
+`33d52f8c` · `04ed557d`.
+
+**Verdict: DONE** — EC-10 ×2 GREEN · R-15 ×2 GREEN · inert 31 → 0 (probe residual = fallthrough + native `data-*` + TS2322 8 +
+`UserSortMenu:8`) · vue-tsc demo EXIT 0 ×2. Commits `04ed557d` · `26681172` · `33d52f8c` (+ this receipt).
