@@ -93,3 +93,33 @@ is X-W4's file and is left for X-W4 to rule on.
 
 **Tally after this addendum** (these three rows re-read over the table above): GREEN **14** · OWED-ORACLE
 **0** · ROUTED **6** (14 + 0 + 6 = 20).
+
+## Addendum 2026-09-23 — X.W7.d2 (COHESION §0bk.1): the six ROUTED rows, and the inspector
+
+Seat `claude-opus-5-5`. The rows above stand as written (E-3). §0bk.1 granted the files the six ROUTED rows
+named (`useBrowsePalettes.ts`, `useDialogBrowseActions.ts`) and the selected-entity inspector
+(`demo/palettes/PaletteInspector.vue`, on X-W4's typed `SceneActionSet` — `keys.ts` `SceneActionScene` gains
+`"palette"`, `SceneActionToken` gains the ten `palette.*` tokens, IN PLACE). Each remote mutation now settles a
+typed `BrowseVerdict`; `BrowsePane` renders a failure on the inspector that took the act (`role="status"`).
+Browser rows: `e2e/smoke/oracles/w7-inspector-rows.spec.ts` (each act answered 500 at the network boundary).
+
+| # | the one call site (unchanged) | visible result now | oracle | state now |
+|---|---|---|---|---|
+| 2 | `useBrowsePalettes.onRename` → `renamePalette` | success: the specimen name; failure: "Rename failed: …" on the inspector rail | `six inspector rows › rename` | GREEN |
+| 3 | `useTagEdit.saveTags` (via `TagEditPopover`, unchanged) | success: the chip; failure / pre-flight refusal: `useTagEdit.error` rendered on the tagged palette's inspector rail (`BrowsePane` watches it) | `six inspector rows › tag` | GREEN |
+| 6 | `useBrowsePalettes.onSetVisibility` → `publishPalette` / `unpublishPalette` | "Published" / "Made private"; failure "Publish failed: …" / "Unpublish failed: …" | `six inspector rows › publish / unpublish` | GREEN |
+| 7 | `useDialogBrowseActions.onFork` → `useVersionHistory.fork` | success: the fork heads the wall; failure (thrown, or `fork` settling `undefined`): "Remix failed: …" — `onForkError` is now REQUIRED, the `console.warn` arm is gone | `six inspector rows › fork` | GREEN |
+| 8 | `useBrowsePalettes.onVote` → `votePalette` | success: the count/toggle; failure: "Vote failed: …" | `six inspector rows › vote` | GREEN |
+| 11 | `useBrowsePalettes.onDeleteOwned` → `deletePaletteUser` | success: the card leaves; failure: "Delete failed: …" and the card stays | `six inspector rows › delete` | GREEN |
+
+**The inspector row** (`w7-inspector-rows.spec.ts › the selected entity …`): selecting a palette (its specimen) makes
+its verbs the dock's `palette` scene — nine seats for an owned public versioned remote palette, in the builder's
+order; the `palette.rename` seat opens the inspector's own rename input (one path: the dock seat, the menu item
+and the meta-row vote all dispatch the inspector's same emit); deselecting returns the dock to the view's set.
+
+**Tally after this addendum** ⟨cmd⟩ rows re-read over the table and the Repair 1 addendum: GREEN **20** ·
+OWED-ORACLE **0** · ROUTED **0** (20 = 20). DAG row 2 stays ESCALATED server-side (ESC-W7d-DAG2, unchanged).
+
+**What this addendum does not claim**: `PaletteCard.vue` is NOT deleted — see the record's ESC-W7d2-BARREL
+(every product consumer has moved; the one remaining importer, `demo/palettes/browser/index.ts:19`, a re-export
+line, is outside the §0bk.1 grant).

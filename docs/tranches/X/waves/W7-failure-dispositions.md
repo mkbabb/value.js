@@ -99,3 +99,26 @@ A failure path need not be a `catch`. The fold names these; each is ruled by the
 - **This unit's own new paths**: capture refusals (`export/capture.ts` — empty, over-cap, name bounds, tag set, missing
   release, unparseable / out-of-contract colour), the PNG serializer's `serializer_contract`, an unknown format — all
   resolve to the same `ExportOutcome` (row 1). None `console.warn`s.
+
+## Addendum 2026-09-23 — X.W7.d2 (COHESION §0bk.1): the seven routed rows and the export host
+
+Seat `claude-opus-5-5`. The rows above stand as written (E-3); this addendum re-states the state of the rows
+§0bk.1 granted, at the settled bytes. Instrument ⟨cmd⟩ `grep -n console.warn demo/palettes/useBrowsePalettes.ts
+demo/palettes/browser/dialog/composables/useDialogBrowseActions.ts` → **0** code lines (the one hit is prose
+in `useDialogBrowseActions.ts`'s header comment naming the retired arm).
+
+| # | verb (unchanged) | how it is surfaced now | state now |
+|---|---|---|---|
+| 1 (host) | SURFACE | the export is the inspector's own act: `PaletteInspector.vue` renders `usePaletteExport`'s `failure` on its rail (`role="status"`); `BrowsePane`/`PalettesPane` hold no export copy. Mounted test `demo/test/palettes/palette-inspector.test.ts › G7` forces a thrown download and reads "Export failed: disk full" | **CURED (host)** |
+| 12 | SURFACE | the cause joins `browseError`, which the wall's error plate renders; the log beside it is gone | **CURED** |
+| 13 | SURFACE | `loadMoreRemotePalettes` settles a `BrowseVerdict`; `BrowsePane` renders a failure beside the More control (`role="status"`) | **CURED** |
+| 14 | SURFACE | `onVote` settles a `BrowseVerdict`; "Vote failed: …" on the inspector | **CURED** (oracle `vote`) |
+| 15 | SURFACE | `onDeleteOwned`: "Delete failed: …" on the inspector | **CURED** (oracle `delete`) |
+| 16 | SURFACE | `onRename` settles a `BrowseVerdict`; "Rename failed: …" on the inspector | **CURED** (oracle `rename`) |
+| 17 | SURFACE | `onSetVisibility`: "Publish failed: …" / "Unpublish failed: …" on the inspector | **CURED** (oracle `publish / unpublish`) |
+| 47 | SURFACE | `onForkError` is REQUIRED (the `else console.warn` arm deleted); a `fork` that settles `undefined` is rendered as "Remix failed: …" too | **CURED** (oracle `fork`) |
+
+Rows 10/11 (`useTagEdit` catalog / save) were produced into `useTagEdit.error` at unit d; their RENDER is now
+`BrowsePane`'s (the tagged palette's inspector rail) — oracle `tag`. Row 6 (`useVersionHistory.fork`'s own
+`console.warn`) is in a file outside §0bk.1; its failure is rendered by row 47 above, its log line stays with its
+owner (named, not absorbed).

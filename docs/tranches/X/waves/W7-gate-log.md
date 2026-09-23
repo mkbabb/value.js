@@ -597,3 +597,55 @@ holds at the atom: no consumer can be born with the caption.
 | `npm run lint` | 55 problems (23 errors, 32 warnings) | = baseline, all under `docs/tranches/{V,X}`; changed files lint 0 |
 | `vue-tsc -p tsconfig.demo.json` | 2 × TS18048 in `demo/test/palettes/admin-destructive.test.ts:261-262` | unit e's file, present before this unit's first edit; not this seat's |
 | `playwright` smoke | o9 5/5 · browse-loading 1/1 · browse-pagination green · walk.spec RED at its Generate leg (`name: "Generation preset"`, GenerateControls untouched by this seat) · crash-battery R14 (above), R18 (NO-WAVE-OWNER extract flow) RED | |
+
+## X.W7.d2 — gate sections (seat `claude-opus-5-5`, 2026-09-23, COHESION §0bk.1; code commit `495bb6ca`)
+
+### G7 — Failure is surfaced, not swallowed — **GREEN (host half, ESC-W7b-HOST closed)**
+
+- BEFORE (RESUME baseline): the `failure` ref of `usePaletteExport` rendered by no host test; the panes each held
+  an export copy poking a card ref.
+- AFTER: `PaletteInspector.vue` performs the export and renders `failure` on its rail (`role="status"`); the panes
+  hold no export code. ⟨cmd⟩ `npx vitest run demo/test/palettes/palette-inspector.test.ts` ×2 → **7/7 · 7/7**
+  (the G7 case forces a thrown `downloadFile` at the platform boundary and reads "Export failed: disk full").
+- Falsifier ⟨cmd⟩ replace the `watch(exportFailure, …)` body with `void failed` → **1 failed** (the G7 case), then
+  `cp` back, `cmp` → RESTORED.
+- Table: `W7-failure-dispositions.md` addendum X.W7.d2 — rows 1 (host) · 12-17 · 47 CURED.
+
+### G13 — One owner per mutation, one visible result — **GREEN (20/20 rows)**
+
+- BEFORE: GREEN 14 · ROUTED 6 (rows 2 · 3 · 6 · 7 · 8 · 11); ⟨cmd⟩ `grep -n console.warn
+  demo/palettes/useBrowsePalettes.ts` → `:82 :110 :140 :151 :175 :214`.
+- AFTER: ⟨cmd⟩ the same grep ×2 → **1 line, `:20`, prose** (the header naming the retired pattern); 0 calls.
+  `useDialogBrowseActions.ts` → **1 line, `:43`, prose**; 0 calls. ⟨cmd⟩ `grep -cE "^\| (2|3|6|7|8|11) \|.*\| GREEN \|$"
+  W7-mutation-ownership.md` → **6** (the X.W7.d2 addendum table) ⇒ GREEN 14 + 6 = **20**, ROUTED **0**.
+- Browser rows ⟨cmd⟩ `VJS_E2E_PORT=8193 npx playwright test e2e/smoke/oracles/w7-inspector-rows.spec.ts
+  --project=smoke --repeat-each=3` → **21 passed** (7 tests × 3; the six rows + the typed-set dock row).
+- Falsifier ⟨cmd⟩ drop `BrowsePane.onVote`'s verdict render → `-g vote` → **1 failed**; `cp` back, `cmp` → RESTORED.
+- Found and cured on the way (tag row): the non-modal tag popover raced the closing menu's focus return and was
+  dismissed (probe: 0 dialogs visible after 1.5 s in 1 of 3 runs); the inspector now dispatches Edit Tags on the
+  trigger's focus return — 21/21 after.
+
+### S-5 — `PaletteCard.vue` deletion — **RED (ESC-W7d2-BARREL)**
+
+- ⟨cmd⟩ `grep -rnE "<PaletteCard[ >]|<PaletteCard$" demo | grep -v '^demo/test' | wc -l` ×2 → **0 · 0** (BEFORE 3:
+  ExtractWorkbench · BrowsePane · PalettesPane); test importers → **0** (copy-verdict, the n-fixtures harness and
+  the specimen test read `PaletteInspector.vue`).
+- The one remaining importer is the re-export chain `demo/palettes/browser/card/index.ts:4` →
+  `demo/palettes/browser/index.ts:19` (`PaletteCard,` in the top-level seam's named re-export list; 0 consumers).
+  The second file is outside §0bk.1's grant; deleting the SFC without it breaks `vue-tsc`. Not written; escalated.
+
+### demo `vue-tsc` — **GREEN**
+
+⟨cmd⟩ `npx vue-tsc -p tsconfig.demo.json --noEmit` ×2 → EXIT **0 · 0**; lib → EXIT **0**.
+
+### Cadence (§7) at X.W7.d2
+
+⟨cmd⟩ `npx vitest run` ×2 → **2 failed / 810 passed (812)** and **3 failed / 809 passed (812)**: C-5 `spectrum-luma`
+and NG-6 `reka-binding-idiom` both runs (pre-existing, named at unit d); run 2's third, `admin-destructive ›
+color-name delete`, passes alone ×2 (10/10 · 10/10) — a load flake in a file this unit does not touch.
+⟨cmd⟩ `npx eslint <the 14 touched files> --max-warnings=0` → EXIT 0; `git diff --check` → clean.
+Adjacent e2e (65 tests, `--project=smoke`): 6 failed, each RED at the pre-change tree too (measured in a detached
+worktree at HEAD `cad16786`, port 8195): `palette-save` · o10d `:216` · o10d `:263` · `scene-action-contract` D4
+Generate/Gradient (Mix too at baseline) — and this unit's tag row, since cured. o10d case 5's own navigation
+(`openView "Palettes"`) is RED at baseline; its re-routed rename leg passes when the view is reached by URL (probe,
+not committed).
