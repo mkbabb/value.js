@@ -14,7 +14,12 @@ spaceList  = valueTerm , ( termSep >> valueTerm ) * ;
 // Juxtaposed terms are separated by whitespace, or stand directly against a `:`/`;` token.
 termSep    = /\s+|(?=[:;])|(?<=[:;])/ ;
 
-valueTerm  = colorCall | call | numeric | string | operator | identTerm ;
+valueTerm  = colorCall | varCall | call | numeric | string | operator | identTerm ;
+
+// var() / env(): the fallback is a `<declaration-value>?` (css-variables-1 §2), which may end in a
+// comma or be empty — `var(--a, red,)` and `var(--a,)` are valid; the trailing comma carries no item.
+varCall    = /(?:[vV]ar|[eE]nv)(?=\()/i , /\(\s*/ >> varBody << close ;
+varBody    = commaList << ( /\s*,/ ? ) ;
 
 // A colour function is a colour, never a generic call: `rgb(1)` is a malformed colour.
 colorCall  = relativeColor | rgbFn | hslFn | hwbFn | labFn | lchFn | oklabFn | oklchFn | colorFn | hex ;
@@ -22,7 +27,8 @@ colorHead  = /(?:[rR]gba?|[hH]sla?|[hH]wb|[lL]ab|[lL]ch|[oO]klab|[oO]klch|[cC]ol
 call       = ( callName - colorHead ) , /\(\s*/ >> ( commaList ? ) << close ;
 callName   = /(?:--[\w-]*|[a-zA-Z_-][\w-]*)(?=\()/ ;
 
-numeric    = /[+-]?(?:\d+\.?\d*|\.\d+)(?:[eE][+-]?\d+)?[%a-zA-Z-]*(?![\w\\])/ ;
+// `1.` is not a number (css-syntax-3 §4.3.12, PB-12): a numeric is never followed by a `.`.
+numeric    = /[+-]?(?:\d*\.\d+|\d+)(?:[eE][+-]?\d+)?[%a-zA-Z-]*(?![\w\\.])/ ;
 operator   = /<=|>=|==|!=|[+*<>=:;]|-(?![\w-])/ ;
 identTerm  = /[-_a-zA-Z][-_a-zA-Z\d]*(?![\w(-])/ ;
 

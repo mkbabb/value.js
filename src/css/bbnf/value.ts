@@ -151,6 +151,7 @@ export function attachValueActions(rules: Rules, color: (token: string) => Color
     on("scalarTerm", (v: ValueNode | ColorNode) =>
         v.kind === "color" || v.kind === "context" || v.kind === "invalid" ? colorScalar(v) : v);
     on("call", callValue);
+    on("varCall", callValue);
     on("spaceList", listOf("space"));
     on("slashList", listOf("slash"));
     on("commaList", listOf("comma"));

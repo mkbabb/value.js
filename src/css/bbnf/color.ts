@@ -58,6 +58,7 @@ const CONTEXT_KEYWORDS: ReadonlySet<string> = new Set([
 type Reading = Readonly<{
     percent?: number;       // the value 100% reads as; absent → a percentage is refused
     number?: number;        // a bare number's multiplier; absent → a number is refused
+    numberIsPercent?: true; // a bare number n reads exactly as n% (hsl/hwb, §7 · §8)
     angle?: boolean;        // an <angle> is admitted (hue)
     min?: number;
     max?: number;
@@ -70,9 +71,10 @@ function readChannel(component: Component, reading: Reading): Channel | ColorNod
         return component.reason === "context" ? CONTEXT_NODE : invalid(component.reason === "keyword" ? "channel keyword outside a relative colour" : "calculation type");
     }
     let value: number;
-    if (component.type === "percentage" && reading.percent !== undefined) value = (component.value * reading.percent) / 100;
-    else if (component.type === "number" && reading.number !== undefined) value = component.value * reading.number;
-    else if (component.type === "angle" && reading.angle === true) value = component.value;
+    const type = component.type === "number" && reading.numberIsPercent === true ? "percentage" : component.type;
+    if (type === "percentage" && reading.percent !== undefined) value = (component.value * reading.percent) / 100;
+    else if (type === "number" && reading.number !== undefined) value = component.value * reading.number;
+    else if (type === "angle" && reading.angle === true) value = component.value;
     else return invalid(reading.angle === true ? "<hue>" : "<number> or <percentage>");
     if (reading.angle === true) return Number.isFinite(value) ? value : 0;
     const lo = reading.min ?? -Infinity;
@@ -84,7 +86,7 @@ function readChannel(component: Component, reading: Reading): Channel | ColorNod
 const RGB: Reading = { percent: 255, number: 1, min: 0, max: 255 };
 const RGB_PCT: Reading = { percent: 255, min: 0, max: 255 };
 const RGB_NUM: Reading = { number: 1, min: 0, max: 255 };
-const UNIT: Reading = { percent: 1, number: 1 / 100, min: 0, max: 1 };
+const UNIT: Reading = { percent: 1, numberIsPercent: true, min: 0, max: 1 };
 const UNIT_PCT: Reading = { percent: 1, min: 0, max: 1 };
 const HUE: Reading = { number: 1, angle: true };
 const ALPHA: Reading = { percent: 1, number: 1, min: 0, max: 1 };

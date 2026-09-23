@@ -23,7 +23,9 @@ export const INVALID = unresolved("invalid");
 export const quantity = (type: string, value: number): Quantity => Object.freeze({ kind: "quantity", type, value });
 
 /** css-values-4 §6.1 (angles, canonical deg) and §6.2 (absolute lengths, canonical px). */
-const ANGLE: Readonly<Record<string, number>> = { deg: 1, grad: 0.9, rad: 180 / Math.PI, turn: 360 };
+const ANGLE: Readonly<Record<string, (value: number) => number>> = {
+    deg: (v) => v, grad: (v) => v * 0.9, rad: (v) => (v * 180) / Math.PI, turn: (v) => v * 360,
+};
 const ABSOLUTE_LENGTH: Readonly<Record<string, number>> = {
     px: 1, cm: 96 / 2.54, mm: 96 / 25.4, q: 96 / 101.6, in: 96, pt: 4 / 3, pc: 16,
 };
@@ -40,7 +42,7 @@ export function tokenQuantity(token: string): Numeric {
     if (unit === "") return quantity("number", value);
     if (unit === "%") return quantity("percentage", value);
     const angle = ANGLE[unit];
-    if (angle !== undefined) return quantity("angle", value * angle);
+    if (angle !== undefined) return quantity("angle", angle(value));
     const length = ABSOLUTE_LENGTH[unit];
     if (length !== undefined) return quantity("length", value * length);
     if (RELATIVE_LENGTH.test(unit)) return CONTEXT;
