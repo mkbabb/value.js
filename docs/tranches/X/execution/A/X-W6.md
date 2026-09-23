@@ -6264,3 +6264,64 @@ e1/e2 GREEN ×2 at the post-`.d` bytes and H2's `.e` legs need no citation byte 
 `:344-347`), INTENT taken; (R-e-3) the probe logs a missing guard as `MISSING` without failing — lawful, because e2's
 assertion (no-preference nesting, rAF 0) does not depend on either guard; recorded, not changed.
 **Escalations: none.** Gates: **e1 GREEN ×2 · e2 GREEN ×2 · H2 (`.e` legs) GREEN.**
+
+### X.W6.h
+
+SERVED MODEL: claude-opus-5-5[1m] · Opus implementation seat (M-23). Residual only; landed `48d95650` (h2 census) and
+`a87f8930` (h1 oracle) **not reopened**. Anchor drift: the dispatch's `W6.md:342-356` is §6/§8 at the true bytes; the
+unit is at **`W6.md:281-293`**, the h1 restatement at **`:481`**, the 2026-09-22 addenda at **`:483-486`** — INTENT taken.
+
+**Act 1 — crash-recovery.** ⟨cmd⟩ `git status --porcelain` → `M docs/tranches/V/reformation/CARRY-LEDGER.md` ·
+`M scripts/dev/dev.sh`. Neither is in `.h`'s writable set. **Nothing inherited**; nothing stashed, restored or touched.
+
+**Act 2 — `H1-P3` recorded by id** (§0aq h1). BEFORE ⟨cmd⟩ `grep -c H1-P3 docs/tranches/X/waves/W6-glass-ask-hero-blob-p3.md`
+→ **0**. A dated ADDENDUM-beside was appended (the letter's body untouched, E-3). It records the ceilings, measured
+twice with the same result (⟨cmd⟩ `node --input-type=module -e "…mapColorToGamut(parseCssColor('lab(92% 88.8 20)').value, g)…"`):
+OM-6 C **0.27245**. The sRGB ceiling is **0.02105** (**12.94×** short) and the display-p3 ceiling is **0.02768** (**9.84×** short).
+The seed is therefore outside **both** gamuts. The P3 ask widens the ceiling by 31% and cannot reach the seed, so the rest
+is physics. AFTER: the same grep → **6**. ⟨cmd⟩ `grep '^| O-52' INBOX.md | grep -o H1-P3` → present (the row already carries the id).
+The ask's content did not change, so **no new O-row was minted** and INBOX is untouched.
+
+**Act 3 — the oracle rides the consumer route, confirmed at the bytes.** `HeroBlob.vue:15` `:color="cssColorOpaque"` →
+the glass `<Blob>` → the canvas `goo-blob-canvas`. The oracle navigates `/#/?space=oklch&color=<seed>` (the product's own
+colour route) and reads `.last()` of that testid (`webgl-blob-idle.spec.ts:150-228`). ⟨cmd⟩ the boot probe's
+`document.querySelectorAll('[data-testid="goo-blob-canvas"]')` → **1 canvas**, `closest('.hero-blob-anchor')` **true**,
+on all 8 navigations. The target is `mapColorToGamut(seed, drawingBufferColorSpace)` (spec `:139-147`, css-color-4 §13),
+read off the blob's own context. h2's census measured the clamp at the producer's `defaultBlobColorResolver`
+(glass, READ-ONLY), not at `useContrastSafeColor.ts:101-105`: its 1×1 resolver is off the chroma path and writes L only
+(`resolveSurfaceLightnessLive` → `floorStops`). A consumer gamut-map at the `:color` seam was measured and refused at
+`a87f8930`, because it lowers the bead's chroma (ask §4). So the cut stays the mailed producer limb, and **no product byte moves**.
+
+**Act 4 — §0ax boot latency, MEASURED and named** (⟨cmd⟩ `node W6-evidence/blob/boot-latency.mjs <origin> <label> <n>`;
+it measures from navigation commit to `goo-blob-canvas` attached and then visible, seed OM-6, 1440×900. The load was 36
+`while :; do :; done` loops on 18 cores. Transcript: `W6-evidence/blob/boot-latency-2026-09-22.txt`):
+
+| cell | nav 1 | nav 2 | nav 3 |
+|---|---|---|---|
+| fresh server `:8741`, host quiet (load 11.6) | 2278 ms (FCP 392) | 2068 | 1984 |
+| warm server `:8741`, under load (29.6) | 2532 | 2442 | 2412 |
+| fresh server `:8742` started under load (60.2) | **18267 ms (FCP 15792)** | 3082 | — |
+
+**Named**: the blob's own mount path costs about **2.0–3.1 s** after navigation, quiet or loaded. The long pole is the
+**first navigation of a freshly spawned dev server under load**, where FCP alone is 15.8 s of the 18.3 s. That is Vite's
+on-demand transform, a harness latency and not a product one. The oracle's arrival wait is on the mount DOM fact itself:
+`await expect(blob).toBeVisible({ timeout: 45_000 })` at `:165`, a bound of 45 s against a measured worst case of
+18.3 s. §0ax's precondition ("waits on a timer shorter than boot") is **not met**, so **no spec byte is ADDed** and no
+timeout moves. The 8 s reading §0ax quotes is the pre-Repair-1 expect default, which C1-3 already replaced with this
+DOM-fact wait. The post-arrival `waitMs(PARK_SETTLE_MS)` is the park settle measured from the mounted canvas, not a boot timer.
+
+**Act 5 — gates, double-run.**
+- **h1** ⟨cmd⟩ `VJS_E2E_PORT=8743|8744 VJS_E2E_PERF_PORT=8753|8754 npx playwright test e2e/smoke/webgl-blob-idle.spec.ts -g "hero blob carries current chroma" --project=smoke`
+  (fresh webServers). BEFORE (baseline): 3 passed. AFTER: **`3 passed (39.9s)` · `3 passed (37.8s)`**. Buffer `srgb`
+  (display p3: false). ΔC OM-6 **0.02562 / 0.02552** (target 0.02105) · 150 **0.00568 / 0.00564** · 328 **−0.02274 / −0.02274**
+  (stated ±0.04). Transcripts: `W6-evidence/blob/h1-run{1,2}-2026-09-22-fifth.txt`. **GREEN ×2** at the gamut-mapped
+  predicate; the beyond-gamut limb reads `H1-P3`.
+- **h2 (held)** ⟨cmd⟩ `node docs/tranches/X/gates/gate-blob-pipeline.mjs` ×2 → EXIT 0 · `GATE h2 (blob pipeline census) — GREEN`
+  · `census 13 published figures, 12 re-derived here`, identical both runs. **GREEN ×2**.
+
+**Commits**: `03653b52` docs(x-w6/.h) — ask addendum + boot-latency probe/transcript + h1 transcripts (pathspec, 5 files).
+This receipt is a separate record commit. Commit #8's family (census precedes cure) was already honoured at `48d95650` → `a87f8930`,
+and no product byte was owed, so no `fix(demo/hero-blob-chroma)` commit is minted here.
+**Residuals**: (R-h-1) `H1-P3` beyond-gamut limb, honest-RED-by-physics. Owner: glass-ui via O-52 for the P3 widening
+(+31%); no display reaches OM-6. (R-h-2) the dev-server cold-transform pole (18.3 s under load) is a harness property
+and is recorded, not cured. **Escalations: none.** Gates: **h1 GREEN ×2 · h2 GREEN ×2.**
