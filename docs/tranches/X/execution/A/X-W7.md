@@ -2101,3 +2101,69 @@ beyond these readings. This Repair's one commit is this section.
 This is the third seat to reach the same wall. Every ≥MEDIUM cure needs a path outside every grant in §4 and §0bk, and none of the six escalations
 has been ruled. The next act is the orchestrator's, not another repair seat's: rule ESC-W7g2-G19-PROSE · ESC-W7d2-BARREL (with m-1) · ESC-W7c2-LINT ·
 ESC-W7g3-EC10-TWIN / -R15-PLATEINK · ESC-W7g2-R14-RECOVERY by dated COHESION addendum. After that, a repair seat and then Check 3 (RESUME). The LEDGER row stays `PARTIAL`.
+
+## Check 3 (RESUME 2026-09-23 — L-20 fresh adversarial pass 3 over the §0bk-supplement close + Repairs 1–2 (RESUME))
+
+**Seat**: VERIFY-ONLY, `claude-opus-5-5`, ~14:13–14:25 EDT, HEAD at entry `ce391643`. Authored no cure byte. Read: W7.md whole (once, incl.
+the `:683` ADDENDUM) · §RESUME → §Unit plan → §Baseline · §Close (RESUME) · §Check 2 (RESUME) · §Repair 2 (RESUME). **Crash-recovery**
+⟨cmd⟩ `git status --porcelain` → ` M …/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh` · `?? docs/tranches/X/audit/` ·
+`?? …/chassis/ui-audit.js` · `?? …/keyframes/evidence/W13U/d3/`. None in this seat's writable set (record · LEDGER). **No inherited hunk.**
+**Rulings precondition** ⟨cmd⟩ `grep -cE 'ESC-W7d2|ESC-W7g2|ESC-W7g3|ESC-W7c2|ESC-W7a2' docs/tranches/X/COHESION.md` → **0**; ⟨cmd⟩
+`git log --oneline -1 -- COHESION.md` → `988a2617` §0bs (the same head Repair 2 read). ⟨cmd⟩ `git show --stat ce391643` → the record only
+(27 insertions): **no product byte has moved since Check 2**. Load 58–67 (`uptime`).
+
+### Axes 1–9 (this seat's own commands)
+
+| axis | ⟨cmd⟩ → reading | verdict |
+|---|---|---|
+| 1 G1 | `grep -rn "update:checked\|:checked=" demo/ --include='*.vue' \| wc -l` → **0** | GREEN reproduces |
+| 1 G4 | `ls demo/palettes/export.ts` → No such file; `usePaletteExport.ts:9` `} from "./export/serializers";` | GREEN reproduces |
+| 1 G6 | `grep -rn "function slugify\|const slugify" demo \| grep -v node_modules \| wc -l` → **1** | GREEN reproduces |
+| 1 G16 | non-test `format-color` importers → **14** · product `toCSSColorString` → **0** · `const DIGITS` → **0** | GREEN reproduces |
+| 1 G18 | `git diff --numstat 47f222d6..HEAD -- src/ api/ \| wc -l` → **0**; `git diff --stat e24361c6..HEAD -- src/ \| wc -l` → **0** | GREEN reproduces |
+| 1 mounted (G2 G5 G7 G7-host G8 G9 G10 G12 G16 G17 G20) | `npx vitest run demo/test/palettes demo/test/color-session demo/test/export demo/test/extract` ×2 → run 1 **23 files · 248/248, EXIT 0** · run 2 **248/248 assertions pass**, EXIT 1 on two file hooks (`palette-card-layout.test.ts:30`, `plate-mass.test.ts:78` — *"Hook timed out in 10000ms"*) | GREEN reproduces (run 1); run 2 = the m-2 load class |
+| 1 demo tsc | `npx vue-tsc -p tsconfig.demo.json --noEmit` → EXIT **0** | GREEN reproduces |
+| 1 RED as claimed | G3 flag → **0** · G14 `dismiss="deliberate"` → **0** · G19 → **8** raw / **6** net of `family-eyebrow` · S-5 `ls …/PaletteCard/` → `PaletteCard.vue` **present**, `<PaletteCard` product consumers **0** · CI `gh run view 35899088286 --json jobs` → `producer / Node 22` + `/ Node 24` **failure at "Run npm run lint"** | RED, exactly as the record says |
+| 2 bounds | `git show --stat ce391643` → record only; `git log 47f222d6..HEAD -- scripts/dev/dev.sh` → empty | GREEN |
+| 3 masking | no product diff since Check 2 (whose masking scan of `c2dc5b40` was clean) | GREEN |
+| 4 families | Repair 2 = one docs commit, one meaning | GREEN |
+| 5 E-3 | `git diff --stat 47f222d6..HEAD -- …/registry/adjudicated/ scripts/dev/dev.sh \| wc -l` → **0**; `git diff --stat 3f88a4a6..HEAD -- docs/tranches/X/waves/W7.md \| wc -l` → **0** | GREEN |
+| 6 mail | INBOX UNREAD rows → O-20 · I-30 · I-31 · I-32 · I-35 · O-39 (unchanged); none in X-W7 scope | GREEN |
+| 7 four-verb | IMPLEMENTED **PARTIAL**, VERIFIED NO; LEDGER row `PARTIAL` — unmoved, lawfully | GREEN |
+| 8 goal | §2a met for specimen / N / mutation ownership; §5.d's *"`PaletteCard.vue` deletes once every consumer has moved"* still unmet | PARTIAL |
+| 9 figures | 248/248 · 14 importers · 8/6 eyebrow · 0 src/api lines · CI lint failure reproduce at this seat | GREEN |
+
+### Axis 10 — honest-RED adjudication at the spec bytes
+
+| RED gate | relief at the spec bytes | owner named? | adjudication |
+|---|---|---|---|
+| G3 (flag withheld) | W7.md:683 *"`G3-FALLTHROUGH-TYPES` (O-57)"*; §0bk.6 | YES — glass O-57 R-1 | **RELIEVED** |
+| G14 `dismiss="deliberate"` grep clause | W7.md:683 *"G14's dismiss grep (glass-8 repin)"*; network half GREEN | YES — glass repin (X-W7R, §0bs) | **RELIEVED** |
+| G11 goldens | W7.md:683 *"G11 goldens (→ X-W10)"* | YES — X-W10 | **RELIEVED** |
+| **G19** (6 net hits) | none — §0bk.3 orders G19 GREEN ×2; W7.md:683 omits it | ESC-W7g2-G19-PROSE, **unruled** | **UNRELIEVED** |
+| **S-5** (`PaletteCard.vue` present) | none — §0bk.1 *"DELETE"*; §5.d end state | ESC-W7d2-BARREL, **unruled** | **UNRELIEVED** |
+| **c2** CI producer job | none — §0bk.5 requires the job to pass | ESC-W7c2-LINT, **unruled** | **UNRELIEVED** |
+| **EC-10 · R-15 · R14 recovery** | none — §0bk.3/.4 unit gates | ESC-W7g3-EC10-TWIN / -R15-PLATEINK / ESC-W7g2-R14-RECOVERY, **unruled** | **UNRELIEVED** |
+
+An escalation still waiting for a ruling is not relief the spec grants. Since Check 2, 0 rulings have landed and 0 product bytes have moved.
+
+**Successor "Opens after"**: X-W7R (*"X-W7 CLOSED"*) · X-W12 (*"X-W7 CLOSED"*) · X-W8 (X-W5 CLOSED · X-W6 CLOSED · **X-W7 RED**) · X-W10
+(X-W5..X-W9): every successor is **lawfully blocked** on the X-W7 conjunct, which is RED. X-W7's own Opens-after (X-W3 · X-W4 · X-W6 CLOSED; X-W1 for G11) is GREEN.
+
+### Register (severity · claim · receipt · cure)
+
+| id | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| H-1 | **HIGH** | G19 RED and unrelieved (carried from Checks 1–2) | ⟨`grep -rn eyebrow demo/ \| grep -v node_modules \| grep -v family-eyebrow \| wc -l`⟩ → 6; rulings 0 | orchestrator rules ESC-W7g2-G19-PROSE by dated COHESION addendum; then G19 ×2 |
+| H-2 | **HIGH** | S-5 unexecuted: `PaletteCard.vue` stands with 0 product consumers | ⟨`ls demo/palettes/browser/card/PaletteCard/`⟩ → present | rule ESC-W7d2-BARREL (grant `browser/index.ts:18-19`); delete the file and both re-exports in one commit |
+| M-1 | MEDIUM | CI producer job RED at lint (before the c2 Chromium step) | ⟨`gh run view 35899088286 --json jobs`⟩ → 2/2 producer jobs failed at `npm run lint` | rule ESC-W7c2-LINT (`eslint.config.*` ignore grant); re-read with `gh` |
+| M-2 | MEDIUM | EC-10 · R-15 unexecuted; R14 recovery leg RED | rulings 0 | rule the three escalations; each falsifier ×2 |
+| m-1 | MINOR | `useVersionHistory.ts:52,73` `console.warn` (outside the d2 grant) | Repair 2 | fold into the ESC-W7d2 ruling |
+| m-2 | MINOR | vitest file-hook timeouts under load (run 2, 2 files); every assertion passes | this seat's run 2 | X-W1 readiness hygiene (ESC-R2-SEAT-COLD); watch |
+
+### Verdict — **NOT-CONFORMANT** (0 BLOCKER · 0 CRITICAL · **2 HIGH** · 2 MEDIUM · 2 MINOR)
+
+Every GREEN the record claims reproduces at this seat: G1 · G4 · G6 · G16 · G18 · the mounted set · demo tsc. That is 7 gate readings with 0 divergences. The spec relieves exactly
+**{G3 `G3-FALLTHROUGH-TYPES` · G11 → X-W10 · G14-grep → glass repin}**. **Unrelieved**: G19 (H-1) · S-5 (H-2) · c2 CI (M-1) · EC-10 / R-15 / R14
+recovery (M-2). The LEDGER row is **NOT promoted** and stays `PARTIAL`. This is the third check to reach the same wall. Another repair or check seat
+cannot move it; the next act is the orchestrator's dated rulings on the six open escalations.
