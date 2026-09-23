@@ -101,3 +101,33 @@ Seat `claude-opus-5-5`, 2026-09-23 ~12:43–13:00 EDT. Mode: fresh (no prior `.a
 - R-a-2: `typescript/test/dist-surface.test.ts:80-82` still has the comment "the CSS surface left for value.js … The runtime-surface gate is proof:no-css-surface". Its assertion (the root/parsers barrel names none of 9 legacy CSS symbols) still passes, because the CSS surface ships at the `./css` subpath. That file is outside `.a`'s writable set, so it is routed to `.b`/`.d` (whoever next edits `typescript/test/**`) to update the stale comment. It is not a gate.
 - R-a-3: `<p2>` (`parse-that-css-totality-p2` `w2/harness`) is now read-only evidence per §Unit plan; its history lives on master.
 - Escalations: none.
+
+### X.P.W5.b
+
+Seat `claude-opus-5-5`, 2026-09-23 ~13:00–13:25 EDT. Mode: fresh (no prior `.b` receipt).
+
+**Crash-recovery scan.** ⟨`git -C parse-that status --porcelain`⟩ → the July dirt only (`rust/**`, `.cargo/config.toml`, `README.md`, 17 untracked). 0 paths in my writable set (`typescript/src/css/**`, `typescript/test/css-equivalence/**`, `grammar/**`) are dirty. value.js: `DIVERGENCE-LEDGER.md` and this record are clean. Nothing inherited.
+
+**Acts in order.**
+1. Baseline at master `4eac70c1`: ⟨`cd parse-that/typescript && node test/css-equivalence/run-full-surface.mjs --pinned-value-commit 6aca8602…`⟩ → `MIRROR-DEFECTS 152 (of which spec-undecided 118)` · `parseCssColor 1 · parseCssScalar 1 · parseCssValue 1 · parseCssValues 1 · parseTimingFunction 24 (23 GROUND-C · 1 ID-2) · parseStylesheet 124 (117 ID-1b · 5 ID-4 · 2 GROUND-C)` → EXIT 1. This matches the §Baseline reading. For diagnosis, a separate scratch run used `--out <scratchpad>/diag.json` to list the misses; it is not the gate run.
+2. Every miss mapped to its ruling. I matched Appendix A of `ADJUDICATION-W4.md` by input prefix: 41 cells are the §2 per-cell rulings (`#1`–`#36`, `#38`, `#39`, `#42`, `#43`/`#44`). The other 111 are ID-1b-tagged (79 `FALSE_REJECT_IN_SHAPE` · 27 `ADJUDICATION_UNHONOURED` · 5 `DIVERGENT_VALUE`), i.e. `.h`'s F-w4f-1 class (COHESION §0ab; DIVERGENCE-LEDGER §11.2: 42 → 152). **Every cell was already ruled candidate-correct, so no cell is a candidate defect and no grammar cure applies.** Curing any of them would copy the incumbent's defect into the candidate. The rows existed; the defect was the instrument, which honoured only the 16 parser-band adjudications.
+3. Cure, at the instrument: new `typescript/test/css-equivalence/lib/ruled.mjs` (line 1 SERVED MODEL) holds the 41 per-cell rulings (exact corpus inputs, ruled id per §10.1, ruled verdict, section, direction) and the F-w4f-1 class with its repair test. `lib/differential.mjs` `applyRuling` consults it only for a cell already RED. `run-full-surface.mjs` counts the rows as ledger family `RULED`. The design and its fail-closed conditions are in DIVERGENCE-LEDGER §12.2. First diagnostic pass: 4 cells stayed RED. Cause: the repair was rewriting brace-crossing runs (the nested-rule reading), and a comment-only run whose candidate reading is a refusal failed the "candidate accepts repaired" limb. Fix: brace-crossing runs are left untouched, and comment-only runs are held to an invariance test (same tree or the same refusal code). No threshold or taxonomy changed.
+4. Negative controls ⟨`node <scratchpad>/w5b/negctl.mjs`⟩: 9 negatives all read `honoured=false` or not governed; 2 positives read `true` (listed in DIVERGENCE-LEDGER §12.2).
+5. Commit **parse-that `902172d`** (pathspec: the three files), then ⟨`git push origin master`⟩ → `4eac70c..902172d  master -> master`.
+6. DIVERGENCE-LEDGER.md: dated §12 appended (per-ruling table with spec §, input, both outputs and direction; the mechanism; F-W5b-1). Commit **value.js `481c6e70`**.
+
+**Gate readings (BEFORE → AFTER, at `902172d`).**
+
+| gate | BEFORE | AFTER | verdict |
+|---|---|---|---|
+| **G-W5-b1** | `MIRROR-DEFECTS 152 (of which spec-undecided 118)` · `RED` · EXIT 1 | ⟨`node test/css-equivalence/run-full-surface.mjs --pinned-value-commit 6aca86020b6b2605e7d0f04fccb6601746e387f7`⟩ ×2 (no `--limit`, no `--out`) → `ledger 77 rows — ADJUDICATED 16 · DISSENT 4 · FIXTURE 5 · LABEL 1 · NARROWING 3 · CAPACITY 9 · RULED 39` · `MIRROR-DEFECTS 0 (of which spec-undecided 0)` · `GREEN — zero mirror-defects across the full surface, and every declared difference is rowed.` · EXIT 0 both runs; the two outputs differ only in line 1 (timestamp) | **GREEN** |
+| G-W5-b1 cross-check | — | pre vs post report: `AGREE` unmoved on all 6 rows; `DECLARED_DIVERGENCE` +1/+1/+1/+1/+24/+124 in each lowering = the 152 exactly | consistent |
+| hold: parse-that `npm test` | 14 files / 134 tests (`.a`) | ⟨`npm test`⟩ → `Test Files 14 passed (14) · Tests 134 passed (134)` EXIT 0 | held |
+| css-equivalence vitest | not read at open | ⟨`npx vitest run -c test/css-equivalence/vitest.config.ts`⟩ → `Tests 2 failed / 26 passed (28)`; the in-suite **G-7 "ZERO mirror-defects" test PASSES**. The 2 failures are corpus-shape literals: `expected 27021 to be 26604` and `F-c3 … expected +0 to be 172` | pre-existing, see R-b-1 |
+
+**Residuals.**
+- **R-b-1 — two stale corpus literals in `test/css-equivalence/equivalence.test.ts` (:100, :112).** ⟨`node -e 'loadCorpus()'`⟩ → `rows 27021 unwrapped 0 shaAgrees true`. The corpus grew to 27,021 rows at X.P.W3.n (the size every `CLASSES` population is pinned against), and no r1 row arrives wrapped any more. The tests still assert `26604` and `172`. My diff does not touch `corpus.mjs` or the test file, so these failures are not from this unit. A paired pre-change run was not possible: a `git archive` copy cannot resolve the `@mkbabb/parse-that` self-import without a build. The readings are independent of classification (`loadCorpus` alone). Re-pinning the two literals changes a test's claim and needs its own measured justification, so it is not done here. Routed to whoever next owns this suite (`.c` adds WPT-derived tests under `typescript/test/**`).
+- **R-b-2 — F-W5b-1, a SHARED departure:** both engines refuse `var()` inside the `animation` shorthand (css-variables-1 §3). It is not a mirror-defect. Routed to `.c`/`.e`; the cure and its divergence row must land together (DIVERGENCE-LEDGER §12.3).
+- **R-b-3 — `rc-p-evaluate.mjs` arm V also runs `runFullSurface`,** so it now honours the same rulings over V's installed `/css`. Its reading of 20,962 at the §Baseline will move. `.d`/Close re-read RC-P and must cite this commit.
+- R-a-2 (the stale comment in `test/dist-surface.test.ts`) is outside `.b`'s writable set and is not touched; it carries forward.
+- Escalations: none.
