@@ -5,7 +5,7 @@ import { SegmentedTabs } from "@mkbabb/glass-ui/tabs";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../../ui/collapsible";
 import { LIBRARY_PORT_KEY } from "../../palettes/usePalettePorts";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
-import { PaletteCard, PaletteColorStrip } from "../../palettes/browser/card";
+import { PaletteColorStrip } from "../../palettes/browser/card";
 import EmptyState from "../../shared/ui/EmptyState.vue";
 import type { Palette } from "../../palettes/types";
 import type { SelectedColor } from "./composables/useMixingState";
@@ -286,10 +286,35 @@ watch(
                     ]"
                     @click="togglePalette(palette)"
                 >
-                    <PaletteCard
-                        :palette="palette"
-                        :css-color="''"
-                    />
+                    <!-- X-W6 · X.W6.j (gate j2, the Mix canary — CC-056 · V·L3):
+                         ONE interaction owner. This button used to host the
+                         browse route's whole PaletteCard — a surface with its
+                         own press machine and click emit, a "Palette menu"
+                         button, a rename field and swatch buttons — so one
+                         press had two owners and the tree nested controls
+                         inside a control (measured: "Palette menu" inside
+                         "Select palette …", once per card). The selection's
+                         face is the palette's STATIC identity — the same strip
+                         + name + count the "From palettes" list above draws —
+                         and every verb on the palette itself stays on its own
+                         route. -->
+                    <span
+                        class="block rounded-card border border-border/30 overflow-hidden bg-well"
+                    >
+                        <PaletteColorStrip :colors="palette.colors" />
+                        <span
+                            class="px-3 py-2 flex items-center justify-between gap-2 min-w-0"
+                        >
+                            <span
+                                class="text-small font-display font-semibold truncate"
+                                >{{ palette.name }}</span
+                            >
+                            <span
+                                class="fira-code text-micro text-muted-foreground shrink-0"
+                                >{{ palette.colors.length }}</span
+                            >
+                        </span>
+                    </span>
                 </button>
                 <!-- W5-7: the "N palettes selected" line died — the ring-lit
                      cards ARE the selection state. -->
@@ -302,7 +327,7 @@ watch(
 /* X.W5.d · gate D4 — the mode swap's travel. The direction token sets the
    `vj-morph` inline offset ON THE BRANCH ROOT ONLY and only while its
    enter-from / leave-to class is on it, so the offset never inherits into a
-   nested `vj-morph` (PaletteCard's rename unfurl) outside the swap. The leave
+   nested `vj-morph` outside the swap. The leave
    mirrors the offset (the family's `--vj-morph-exit-x` default), so the
    outgoing mode leaves toward the side the incoming one did not come from.
    Motion only: the global reduced-motion guard (animations.css) zeroes it. */
