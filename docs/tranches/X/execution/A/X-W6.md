@@ -6684,3 +6684,134 @@ e1 · g2 · i3 (13). This matches the close's own partition exactly.
 **NOT-CONFORMANT.** Every claimed GREEN this seat re-ran reproduced (27 of 30; 3 were cited). No write fell outside §4. No masking was
 found. E-3 held, and mail is clean. But **13 gates stay RED with no relief at the spec bytes** (C1-1..C1-5), and the §2a goal is unmet.
 The LEDGER row **stays PARTIAL**, and this seat makes no status edit. The honest-RED set, relieved and owner-named, is g1 · b1 · j1 · j2 · j3 · H2 · H4.
+
+## Repair 1 — RESUME 2026-09-22 (REPAIR SEAT, round 1, over the Check 1 — fifth sitting register)
+
+SERVED MODEL: claude-opus-5-5[1m]
+
+**Append-only beside** every block above (E-3). This seat read `W6.md` whole once (486 lines, both 2026-09-22 ADDENDA), and
+from this record only the header, the fifth sitting's Unit plan (`:6090-6130`) and Check 1 (`:6588-6686`). Writable set:
+§0ax's repair-seat grant (`e2e/smoke/oracles/o21-gradient-rail.spec.ts`, ADD-never-replace, settle/scroll only; and
+`ColorSpaceSelector.vue` only if f3's bisect roots there, which is not needed: f3 is not in this register) · `W6-evidence/**` ·
+this record · the LEDGER row (append only).
+
+### Axis 0 — crash-recovery
+
+⟨cmd⟩ `git status --porcelain` → ` M …/V/reformation/CARRY-LEDGER.md` · ` M …/W6-evidence/catalog/after-catalog-open.png` ·
+` M …/W6-evidence/catalog/after-specimen-dots.png` · ` M scripts/dev/dev.sh`. The two catalog PNGs are inside `W6-evidence/**`.
+They are not a killed seat's cure. Both have mtime `22:40`, which falls inside Check 1's o22/o24 run (22:36–22:48), and
+⟨cmd⟩ `grep -rln 'after-catalog-open\|after-specimen-dots' e2e` → `o22-specimen-legibility.spec.ts` · `o24-specimen-dot-identity.spec.ts`.
+So they are capture side-effects of a gate run. This seat neither restores nor commits them, and they stay the close's
+committed frames. `CARRY-LEDGER.md` and `dev.sh` are outside this set and were not touched. **No inherited cure work.**
+
+### C1-2 (HIGH) — a4 · a13, `o21:188`: CURED at `df290a72`
+
+**Diagnosis (measured before the cut).** ⟨cmd⟩ `npx playwright test e2e/smoke/oracles/o21-gradient-rail.spec.ts:188 --project=smoke`
+(fresh webServer `VJS_E2E_PORT=8971`) → `1 failed`, `o21:222` *Expected: 3 · Received: 2* (`o21-188-base.txt`). A probe
+replays the test's own sequence (`goto` → openView → reload → openView → settle → press) against a fresh vite on `:8973`
+(`o21-188-press-diag.mjs`). It logs what sits at the press pixel:
+- the plain replay → `"hit":"HTML. testid=null"` (t=0) and `"hit":"DIV.p-1 w-full text-small font-display"` (t=100); `after 2` both times.
+- the same replay, reading state before the press → `state {"lb":1,"bpe":"none"}`, then `clear after 200 ms`; the hit is now
+  `DIV.gradient-rail … testid=gradient-stop-bar` and `after 3` at both terminals.
+
+The mechanism: the reload lands back on `#/gradient`, so `openView` re-picks the view that is already mounted. No pane
+swap runs, so `paneSettled` returns at once (`settle 0`). The view-select listbox is still closing, and its dismissable
+layer still holds `body` at `pointer-events: none`. The raw `page.mouse.click` therefore reaches no element. The product
+is sound: the same press, made after the listbox closes, mints at both terminals. Check 3's candidate, the dropped
+`scrollIntoViewIfNeeded`, is refuted: `scrollY 0`, and the rail sits inside the viewport (`rb.y 244.97`, viewport height 720).
+
+**Cure (§0ax idiom: a settle ADDED, assertions untouched).** `o21:199` gains
+`await expect(page.getByRole("listbox")).toHaveCount(0);` after `paneSettled`, with a comment that names the mechanism. No
+mint, ordinal or axis assertion moved (⟨cmd⟩ `git show --stat df290a72` → `1 file changed, 9 insertions(+)`, 0 deletions).
+It masks nothing: a listbox that never closes times out and fails loudly. `npx prettier --check` → clean. `git diff --check` → clean.
+
+**Gate re-reading after the cure** (transcripts in `W6-evidence/gates/repair-1-close5-2026-09-22/`, self-counted from the
+settled bytes with `grep -c '✓'` / `grep -c '✘'`):
+
+| gate | ⟨cmd⟩ | reading |
+|---|---|---|
+| a4 (alone) | `npx playwright test e2e/smoke/oracles/o21-gradient-rail.spec.ts:188 --project=smoke` ×2 | `1 passed (17.9s)` · `1 passed (17.4s)` → **GREEN ×2** |
+| a4 · a13 (suite) | `npx playwright test e2e/smoke/views/gradient.spec.ts e2e/smoke/oracles/o21-gradient-rail.spec.ts --project=smoke` ×3 | r1 `22 passed (1.9m)` · r2 `1 failed · 21 passed (1.9m)` · r3 `22 passed (1.8m)`. `o21:188` is ✓ in **all three**. |
+| a13 (vitest leg) | `npx vitest run test/gradient-order-invariant.test.ts` ×2 | `Tests 17 passed (17)` ×2 |
+
+**a4 → GREEN** (5 of 5 readings). **a13 → GREEN on 2 of 3 suite readings, not yet stably GREEN.** r2's one failure is not
+`o21:188`. It is `gradient.spec.ts:243` (*stop add … drag …*) at `:282`: *Expected > 277.2 · Received 12*. The drag lands
+the handle at the rail's left end, and this seat's byte cannot reach that test. It is the gesture species (a5-class drag) that Check 1 C1-1
+rooted in ESC-W6close5-1, which the g2 measurement below observes directly: a scene pane resting in its enter state.
+**Not measured here**: whether the r2 drag ran on such a pane. The attribution is by species, not by trace. a13's residual
+flake is therefore filed under ESC-W6close5-1 (escalated below). No settle was added to hide it.
+
+### C1-4 (HIGH) — g2: DIAGNOSED to X-W5 bytes, ESCALATED (joins ESC-W6close5-1)
+
+⟨cmd⟩ `npx playwright test e2e/smoke/views/companion-pane-track-start.spec.ts -g "companion panes share one track start" --project=smoke`
+→ `1 failed`: *"the About pane (div.glass-resting.card) sits ON its track start … (pane 104.9516830444336 vs track 111.453125)"*,
+Received **6.501441955566406** (`g2-head.txt`).
+
+**Mechanism, measured.** An in-page probe on a fresh vite `:8973` loads `#/` and reads the About region at t = 1.5 s, 4 s and 8 s.
+All three readings are identical:
+- the About pane (`DIV.glass-resting`) → `tf=matrix(0.999391, 0.0348995, -0.0348995, 0.999391, 563.2, 0)`, `top=104.99`, `anims: []`.
+- its parent `DIV.pane-wrapper` → `tf=none top=111.58`. The Picker pane → `tf=none top=112.00`.
+- a second read of the stuck element →
+  `"cls":"… about-card pane-scroll-fade … h-full vj-enter-enter-from vj-enter-enter-active"`.
+
+The About pane never leaves Vue's `vj-enter` enter-from state (2° rotate + 563.2 px translate). Nothing is animating, so
+the state is permanent, not a slow arrival. The 6.5 px is the vertical reach of the rotated box's corner, not a layout
+offset. So g2's RED is not a W6 `.g` alignment regression. It is the same stuck scene-enter that ESC-W6close5-1 names,
+observed on a second route (`#/`) and a second pane (About).
+
+**The owner of those bytes.** The scene swap lives in `demo/shell/PaneSlot.vue` · `usePaneRouter.ts` ·
+`demo/color-picker/App.vue` · `demo/styles/animations.css`. These are the files that X-W5 `.d2` `52dc0a5b` and `b36df565` touch
+(⟨cmd⟩ `git show --stat`). They are X-W5 shell property and sit outside W6 §4 ("Do NOT touch … `demo/color-picker/App.vue`").
+
+**Bisect attempt, not completed.** Trees at `fdf3e9e0`, `52dc0a5b` and `b36df565` were extracted with `git archive` into the
+scratchpad. They did not serve faithfully: ⟨cmd⟩ at `fdf3e9e0` → `About region renders no pane` plus
+`Invalid vnode type … <HeroBlob>`, a module-resolution artefact of a tree outside the repo root. Those readings are
+**discarded, not cited**. The mechanism measurement above supersedes the bisect: it names the state (`vj-enter-enter-from`
+resting, zero animations) and who owns it. The last GREEN reading was c9e39745 (Check 3, 19:16). Since then only X-W5 commits
+touch `demo/` (⟨cmd⟩ `git log c9e39745..HEAD -- demo e2e/smoke/fixtures playwright.config.ts` → `b36df565 52dc0a5b fdf3e9e0
+ab5270b6 fc9c2be4 043a783c`). **The cause is not W6's own, so `.g` does not re-sit.**
+
+The probe's output is committed as `g2-about-stuck-probe.txt`.
+
+### C1-1 (HIGH) — a5–a11 · a12: ESCALATED (ESC-W6close5-1, X-W5 bytes)
+
+No W6 byte can cure these. The cure Check 1 names sits at X-W5's `.d2` bytes (`52dc0a5b`/`b36df565`: `PaneSlot.vue`,
+`usePaneRouter.ts`, `App.vue`, `animations.css`), and all of them fall outside W6 §4. Check 1 forbids a W6 wait or settle over
+it, and so does the masking-fallback ban. This seat adds one fact to the escalation: the g2 probe above shows the stuck
+state directly, on `#/` and on the About pane (`vj-enter-enter-from vj-enter-enter-active` held with zero running
+animations, 563.2 px off-station). So ESC-W6close5-1 is not confined to the gradient route's cold navigation. It is a
+transition that sometimes never advances past enter-from. **Re-sit trigger**: X-W5 cures ESC-W6close5-1 at its own bytes,
+then W6 re-reads a5–a12, e1, g2 and the a13 suite ×2.
+
+### C1-3 (HIGH) — i3: ESCALATED (ESC-W6i-i3-1 unruled)
+
+The cure path is a COHESION ruling on ESC-W6i-i3-1 ((a)/(b)/(c)), then a `.i` re-sit. A repair seat can author neither.
+The ruling is a COHESION act, and §0aq routes i3's cure to unit `.i`, not to this seat. i3 was not re-run, because no byte
+this seat moved can reach it (`o21` is a gradient spec). Check 1's reading stands: Received 0.1595 / 0.2933 / 0.2433
+against ≤ 0.02.
+
+### C1-5 (MEDIUM) — e1: ESCALATED under ESC-W6close5-1
+
+e1 sits inside the a13 suite this seat ran three times. `gradient.spec.ts:451` (*gradient selector aurora*) reads ✓ in
+r1, r2 and r3 (⟨cmd⟩ `grep 'spec.ts:451' a13-r*.txt`). That makes 3 of 3 here, against 1 of 2 at the close. Three readings
+cannot promote a known flake to stably GREEN: its failing reading at the close sat beside W5-10 (`gradient.spec.ts:401`,
+a pane resting on a transform), which is the ESC-W6close5-1 state. It re-reads ×2 after the X-W5 cure. No W6 byte is owed.
+
+### C1-6 (INFO) — d1's read-only count
+
+This is INFO severity and has no one-command cure. It stays with R-d1's erratum, which `.d` already owns. Not acted on.
+
+### Tally
+
+| defect | severity | disposition | commit | gate after |
+|---|---|---|---|---|
+| C1-2 | HIGH | **CURED**: a settle added in `o21:188` (the view-select listbox closes before the raw press); assertions untouched | `df290a72` | a4 **GREEN** 5/5 · a13 GREEN 2/3 (residual `gradient:243` flake → ESC-W6close5-1) |
+| C1-4 | HIGH | **ESCALATED**: mechanism measured (About pane rests in `vj-enter-enter-from`, zero animations), owned by X-W5 `.d2` bytes outside §4 | — | g2 RED (6.50) |
+| C1-1 | HIGH | **ESCALATED**: ESC-W6close5-1, X-W5 bytes | — | a5–a12 RED (not re-run; Check 1's reading stands) |
+| C1-3 | HIGH | **ESCALATED**: ESC-W6i-i3-1 needs a COHESION ruling, then a `.i` re-sit | — | i3 RED (Check 1's reading stands) |
+| C1-5 | MEDIUM | **ESCALATED** under ESC-W6close5-1 | — | e1 ✓ 3/3 here, not yet stable |
+| C1-6 | INFO | not acted on (R-d1, `.d`) | — | d1 GREEN |
+
+**Cured 1 · escalated 4 · 1 INFO left alone.** Only one product-adjacent byte moved: an e2e spec, 9 lines added, 0 removed.
+`dev.sh` was not staged. W6's unrelieved RED set falls from 13 to 12 (a4 leaves it). a13 stays in it until the suite reads
+GREEN ×2 after the X-W5 cure. **The LEDGER row stays PARTIAL.**

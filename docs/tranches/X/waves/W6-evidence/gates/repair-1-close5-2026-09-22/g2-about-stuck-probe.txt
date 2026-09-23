@@ -1,0 +1,10 @@
+Repair 1 (fifth sitting) — g2 mechanism probe, fresh vite :8973 on HEAD df290a72 (its one byte is an e2e spec; demo/ identical to 64bb0929), chromium 1280x720, goto #/.
+Per region [aria-label=Picker|About]: track = content-box top; pane = firstElementChild; chain = pane..ancestors (tag.class transform margin-top top).
+t=1500/4000/8000 ms (all three identical):
+ Picker: track 112 · paneTop 112 · anims [] · DIV.pane-shell tf=none · DIV.pane-wrapper tf=none top=112.00
+ About:  track 111.578125 · paneTop 104.99454498291016 · anims []
+         DIV.glass-resting tf=matrix(0.999391, 0.0348995, -0.0348995, 0.999391, 563.2, 0) top=104.99
+         DIV.pane-wrapper tf=none top=111.58 · DIV.pane-container tf=none top=111.59 · MAIN.pane-main tf=none top=88.00
+Second probe (t=4000): About pane className =
+ "glass-resting card rounded-card text-card-foreground scrollbar-hidden about-card pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full vj-enter-enter-from vj-enter-enter-active"
+ region className = "pane-wrapper w-full min-w-0 min-h-0 pane-wrapper--inspector"

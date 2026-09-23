@@ -1,0 +1,35 @@
+(node:90158) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[WebServer] (node:90187) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[WebServer] (Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 1 test using 1 worker
+
+(node:90301) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1/1] [smoke] › e2e/smoke/views/companion-pane-track-start.spec.ts:113:5 › X.W6.g · g2 — the shared row contract › companion panes share one track start
+  1) [smoke] › e2e/smoke/views/companion-pane-track-start.spec.ts:113:5 › X.W6.g · g2 — the shared row contract › companion panes share one track start 
+
+    Error: the About pane (div.glass-resting.card) sits ON its track start, not offset into it (pane 104.9516830444336 vs track 111.453125)
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 1
+    Received:    6.501441955566406
+
+      131 |             `the About pane (${about.pane}) sits ON its track start, not ` +
+      132 |                 `offset into it (pane ${about.paneTop} vs track ${about.trackStart})`,
+    > 133 |         ).toBeLessThanOrEqual(EPS);
+          |           ^
+      134 |         expect(
+      135 |             Math.abs(picker.paneTop - about.paneTop),
+      136 |             `Picker↔About top edges within ${EPS}px ` +
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/companion-pane-track-start.spec.ts:133:11
+
+    Error Context: ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/rep1w6/tr/views-companion-pane-track-0799b-panes-share-one-track-start-smoke/error-context.md
+
+
+  1 failed
+    [smoke] › e2e/smoke/views/companion-pane-track-start.spec.ts:113:5 › X.W6.g · g2 — the shared row contract › companion panes share one track start 
