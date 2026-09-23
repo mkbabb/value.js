@@ -1,0 +1,328 @@
+{
+ "khead": "d54a6ab8",
+ "kdirty": "2",
+ "started": "2026-09-23T22:20:41.314Z",
+ "skeletonSeenMs": 952,
+ "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+ "probe": {
+  "host": {
+   "rect": {
+    "x": 43.203125,
+    "y": 106,
+    "w": 1353.59375,
+    "h": 688
+   },
+   "transform": "matrix(1, 0, 0, 1, 0, 0)",
+   "opacity": "1",
+   "zIndex": "auto",
+   "mixBlendMode": "normal",
+   "filter": "none",
+   "position": "static",
+   "overflow": "visible",
+   "borderRadius": "0px",
+   "background": "rgba(0, 0, 0, 0)",
+   "isolation": "auto",
+   "animationName": "none",
+   "animationDuration": "0s",
+   "willChange": "auto",
+   "display": "block",
+   "className": "scene-host h-full w-full"
+  },
+  "skeleton": {
+   "rect": {
+    "x": 43.203125,
+    "y": 106,
+    "w": 1353.59375,
+    "h": 688
+   },
+   "transform": "none",
+   "opacity": "1",
+   "zIndex": "auto",
+   "mixBlendMode": "normal",
+   "filter": "none",
+   "position": "static",
+   "overflow": "visible",
+   "borderRadius": "0px",
+   "background": "rgba(0, 0, 0, 0)",
+   "isolation": "auto",
+   "animationName": "none",
+   "animationDuration": "0s",
+   "willChange": "auto",
+   "display": "grid",
+   "className": "scene-skeleton"
+  },
+  "plate": {
+   "rect": {
+    "x": 91.203125,
+    "y": 154,
+    "w": 1257.59375,
+    "h": 592
+   },
+   "transform": "none",
+   "opacity": "1",
+   "zIndex": "auto",
+   "mixBlendMode": "normal",
+   "filter": "none",
+   "position": "relative",
+   "overflow": "hidden",
+   "borderRadius": "16px",
+   "background": "color(srgb 0.20397 0.148263 0.0829736 / 0.14)",
+   "isolation": "auto",
+   "animationName": "none",
+   "animationDuration": "0s",
+   "willChange": "auto",
+   "display": "block",
+   "className": "glass-resting card scene-skeleton__plate h-full w-full"
+  },
+  "sheen": {
+   "rect": {
+    "x": 92.203125,
+    "y": 155,
+    "w": 1255.59375,
+    "h": 590
+   },
+   "transform": "none",
+   "opacity": "0.550502",
+   "zIndex": "auto",
+   "mixBlendMode": "normal",
+   "filter": "none",
+   "position": "absolute",
+   "overflow": "hidden",
+   "borderRadius": "16px",
+   "background": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+   "isolation": "isolate",
+   "animationName": "skeleton-breathe-0d5ebb1f",
+   "animationDuration": "1.1s",
+   "willChange": "auto",
+   "display": "block",
+   "className": "skeleton scene-skeleton__sheen"
+  },
+  "sheenAfter": {
+   "rect": null,
+   "transform": "none",
+   "opacity": "1",
+   "zIndex": "auto",
+   "mixBlendMode": "normal",
+   "filter": "none",
+   "position": "static",
+   "overflow": "visible",
+   "borderRadius": "0px",
+   "background": "rgba(0, 0, 0, 0)",
+   "isolation": "auto",
+   "animationName": "none",
+   "animationDuration": "0s",
+   "willChange": "auto",
+   "display": "inline",
+   "className": "::after"
+  },
+  "sheenParentIsPlate": true,
+  "plateChildren": [
+   "skeleton scene-skeleton__sheen"
+  ],
+  "shimmerToken": "5s",
+  "prm": false,
+  "anims": [
+   {
+    "name": "gl-dock-cap-inline-start",
+    "pseudo": null,
+    "target": "dock-plate",
+    "playState": "running",
+    "currentTime": {},
+    "timing": {
+     "duration": {},
+     "iterations": 1,
+     "easing": "linear",
+     "delay": 0
+    }
+   },
+   {
+    "name": "gl-dock-cap-inline-end",
+    "pseudo": null,
+    "target": "dock-plate",
+    "playState": "running",
+    "currentTime": {},
+    "timing": {
+     "duration": {},
+     "iterations": 1,
+     "easing": "linear",
+     "delay": 0
+    }
+   },
+   {
+    "name": "skeleton-breathe-0d5ebb1f",
+    "pseudo": null,
+    "target": "skeleton scene-skeleton__sheen",
+    "playState": "running",
+    "currentTime": 1149.9989999945742,
+    "timing": {
+     "duration": 1100,
+     "iterations": null,
+     "easing": "linear",
+     "delay": 0
+    }
+   }
+  ],
+  "stack": [
+   "skeleton scene-skeleton__sheen",
+   "glass-resting card scene-skeleton__plate h-full w-full",
+   "scene-skeleton",
+   "scene-host h-full w-full",
+   "stage-cell justify-self-stretch self-center min-h-0 h-full o",
+   "controls-layout justify-items-stretch items-start relative c",
+   "grid place-items-center place-self-stretch",
+   "editor-shell relative grid h-dvh max-h-dvh w-dvw overflow-hi"
+  ]
+ },
+ "raf": {
+  "frames": 181,
+  "mean": 16.642541436480556,
+  "max": 18.700000000000273,
+  "dropped": 0,
+  "drops": []
+ },
+ "liveSweep": [
+  [
+   0,
+   "none"
+  ],
+  [
+   505,
+   "none"
+  ],
+  [
+   1016,
+   "none"
+  ],
+  [
+   1525,
+   "none"
+  ],
+  [
+   2031,
+   "none"
+  ],
+  [
+   2536,
+   "none"
+  ],
+  [
+   3047,
+   "none"
+  ],
+  [
+   3550,
+   "none"
+  ],
+  [
+   4055,
+   "none"
+  ],
+  [
+   4563,
+   "none"
+  ],
+  [
+   5067,
+   "none"
+  ],
+  [
+   5575,
+   "none"
+  ],
+  [
+   6083,
+   "none"
+  ]
+ ],
+ "seek": {
+  "N": 48,
+  "dur": null,
+  "box": {
+   "x": 43.203125,
+   "y": 106,
+   "width": 1353.59375,
+   "height": 688
+  },
+  "frames": [
+   {
+    "i": 0,
+    "t": 0,
+    "n": 0,
+    "tr": "none",
+    "ps": []
+   },
+   {
+    "i": 6,
+    "t": 0,
+    "n": 0,
+    "tr": "none",
+    "ps": []
+   },
+   {
+    "i": 12,
+    "t": 0,
+    "n": 0,
+    "tr": "none",
+    "ps": []
+   },
+   {
+    "i": 18,
+    "t": 0,
+    "n": 0,
+    "tr": "none",
+    "ps": []
+   },
+   {
+    "i": 24,
+    "t": 0,
+    "n": 0,
+    "tr": "none",
+    "ps": []
+   },
+   {
+    "i": 30,
+    "t": 0,
+    "n": 0,
+    "tr": "none",
+    "ps": []
+   },
+   {
+    "i": 36,
+    "t": 0,
+    "n": 0,
+    "tr": "none",
+    "ps": []
+   },
+   {
+    "i": 42,
+    "t": 0,
+    "n": 0,
+    "tr": "none",
+    "ps": []
+   }
+  ]
+ },
+ "resolveMs": 211,
+ "after": {
+  "skeleton": false,
+  "hostStyle": "opacity: 1; transform: scale(1);",
+  "announcer": [
+   "Scene ready"
+  ]
+ },
+ "heldUrl": "http://localhost:5173/@fs/Users/mkbabb/Programming/keyframes.js/demo/scenes/spring/SpringScene.vue",
+ "logs": [
+  "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+ ],
+ "screencast": {
+  "count": 1079,
+  "byPhase": {
+   "load": 872,
+   "seek": 139,
+   "resolve": 68
+  }
+ },
+ "finished": "2026-09-23T22:21:03.167Z",
+ "khead2": "d54a6ab8",
+ "kdirty2": "2"
+}

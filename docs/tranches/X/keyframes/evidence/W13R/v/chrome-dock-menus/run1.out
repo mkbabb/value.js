@@ -1,0 +1,16 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.click: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('[data-dock-tether="top"] .glass-dock button[aria-label*="mode"]').first()[22m
+
+    at /Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/evidence/W13R/v/chrome-dock-menus/capture.mjs:223:69
+    at phase (/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/evidence/W13R/v/chrome-dock-menus/capture.mjs:95:9)
+    at async file:///Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/evidence/W13R/v/chrome-dock-menus/capture.mjs:223:14 {
+  name: 'TimeoutError'
+}
+
+Node.js v26.0.0
+EXIT 1

@@ -1,0 +1,72 @@
+{
+  "base": "http://localhost:5173",
+  "label": "dev-run1",
+  "at": "2026-09-23T22:03:41.220Z",
+  "S4": {
+    "reachedAt": 15,
+    "restPaint": {
+      "outline": "none|1.5px",
+      "boxShadow": "none"
+    },
+    "ring": {
+      "matchesFV": true,
+      "outline": "solid|2px",
+      "outlineColor": "oklab(0.216128 0.00350075 0.00518669 / 0.48)",
+      "outlineOffset": "2px",
+      "boxShadow": "none",
+      "emphasis": "quiet",
+      "ringPainted": true
+    }
+  },
+  "M1": {
+    "handle": {
+      "x": 195,
+      "y": 803
+    },
+    "peek": {
+      "detentT": "0.12",
+      "position": "relative",
+      "sheet": [
+        768,
+        939,
+        171
+      ],
+      "visFrac": 0.09,
+      "open": false,
+      "pane": {
+        "cx": 195,
+        "cy": 856,
+        "top": 825,
+        "bottom": 886,
+        "scrollH": 761,
+        "clientH": 61
+      },
+      "touchPointInViewport": false,
+      "touchPointHitsPane": false,
+      "vh": 844
+    },
+    "afterExpand": {
+      "detentT": "0.36",
+      "position": "relative",
+      "sheet": [
+        768,
+        1072,
+        304
+      ],
+      "visFrac": 0.09,
+      "open": false,
+      "pane": {
+        "cx": 195,
+        "cy": 922,
+        "top": 825,
+        "bottom": 1019,
+        "scrollH": 761,
+        "clientH": 194
+      },
+      "touchPointInViewport": false,
+      "touchPointHitsPane": false,
+      "vh": 844
+    },
+    "scrollTopAfterSwipe": null
+  }
+}

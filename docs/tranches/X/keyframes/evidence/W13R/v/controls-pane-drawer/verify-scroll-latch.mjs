@@ -1,0 +1,24 @@
+// Verifies the desktop scroll latch: .controls-pane overflow before/after one close→open, and whether overflowing content can scroll.
+import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
+import fs from "node:fs"; import { execSync } from "node:child_process";
+const OUT = new URL(".", import.meta.url).pathname;
+const kf = (c) => execSync(`git -C /Users/mkbabb/Programming/keyframes.js ${c}`).toString().trim();
+const res = { khead: kf("rev-parse --short HEAD"), kdirty: kf("status --porcelain").split("\n").filter(Boolean).length, steps: [] };
+const browser = await chromium.launch({ headless: false });
+const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
+await page.mouse.move(1300, 860);
+await page.goto("http://localhost:5173/#/cube", { waitUntil: "load" }); await page.waitForTimeout(4500);
+const probe = (tag) => page.evaluate((tag) => { const p = document.querySelector(".controls-pane-wrapper .controls-pane"); const b = p.scrollTop; p.scrollTop = 400; const moved = p.scrollTop; p.scrollTop = b;
+  return { tag, overflowY: getComputedStyle(p).overflowY, scrollH: p.scrollHeight, clientH: p.clientHeight, scrollable: moved > 0, wrapperH: p.parentElement.getBoundingClientRect().height }; }, tag);
+const toggle = async () => { await page.mouse.move(720, 72, { steps: 3 }); await page.waitForTimeout(900); await page.locator('button[aria-label="Controls panel"]').first().click(); await page.mouse.move(1300, 860, { steps: 3 }); await page.waitForTimeout(1200); };
+const adv = page.getByText("advanced", { exact: true }).first();
+await adv.click(); await page.waitForTimeout(800);
+res.steps.push(await probe("fresh + advanced open"));
+await page.screenshot({ path: OUT + "latch-fresh-advanced.png", clip: { x: 0, y: 0, width: 560, height: 900 } });
+await toggle(); await toggle();
+res.steps.push(await probe("after close→open, advanced still open"));
+await page.mouse.move(250, 500); await page.mouse.wheel(0, 400); await page.waitForTimeout(500);
+res.steps.push(await page.evaluate(() => ({ tag: "after wheel over pane", scrollTop: document.querySelector(".controls-pane-wrapper .controls-pane").scrollTop })));
+await page.screenshot({ path: OUT + "latch-after-reopen-advanced.png", clip: { x: 0, y: 0, width: 560, height: 900 } });
+fs.writeFileSync(OUT + "latch.json", JSON.stringify(res, null, 1)); console.log(JSON.stringify(res));
+await browser.close();

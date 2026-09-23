@@ -1,0 +1,12 @@
+import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
+const b = await chromium.launch({ headless: false });
+const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
+await p.goto("http://localhost:5173/#/easing", { waitUntil: "networkidle" });
+await p.waitForTimeout(2500);
+await p.screenshot({ path: "probe-00-load.png" });
+const btns = await p.$$eval("button,[role=tab]", (els) => els.map((e) => ({ t: e.tagName, role: e.getAttribute("role"), aria: e.getAttribute("aria-label"), txt: (e.textContent||"").trim().slice(0,30), pressed: e.getAttribute("aria-pressed")||e.getAttribute("aria-selected")||e.getAttribute("aria-expanded") })).filter(x=>x.aria||x.txt));
+console.log(JSON.stringify(btns));
+const gpu = await p.evaluate(() => { const c=document.createElement("canvas").getContext("webgl"); const d=c&&c.getExtension("WEBGL_debug_renderer_info"); return d? c.getParameter(d.UNMASKED_RENDERER_WEBGL):"none"; });
+console.log("GPU", gpu);
+console.log("pickers", await p.locator("[data-testid=easing-picker]").count());
+await b.close();

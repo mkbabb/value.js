@@ -1,0 +1,3095 @@
+{
+ "provenance": [
+  {
+   "khead": "d54a6ab8",
+   "kdirty": 2,
+   "at": "2026-09-23T22:16:15.107Z"
+  },
+  {
+   "khead": "d54a6ab8",
+   "kdirty": 2,
+   "at": "2026-09-23T22:16:34.850Z"
+  },
+  {
+   "khead": "d54a6ab8",
+   "kdirty": 2,
+   "at": "2026-09-23T22:17:05.040Z"
+  }
+ ],
+ "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+ "hash": "#/cube",
+ "rest": {
+  "gtc": "475.195px  878.398px",
+  "layCls": "controls-layout--open",
+  "wCls": "controls-pane--open",
+  "w": [
+   43.2,
+   54,
+   475.2,
+   632
+  ],
+  "wOp": "1",
+  "pOp": "1",
+  "pOverflow": "auto",
+  "pFade": "",
+  "stage": [
+   518.4,
+   54,
+   878.4,
+   792
+  ],
+  "cube": [
+   845,
+   338.1,
+   225,
+   225
+  ],
+  "anims": []
+ },
+ "seek": {
+  "close": {
+   "anims": [
+    {
+     "kind": "CSSTransition",
+     "prop": "opacity",
+     "target": "controls-pane group/controls min-w-0 overflow-hidden",
+     "dur": 200,
+     "delay": 0,
+     "easing": "cubic-bezier(0.4, 0, 1, 1)",
+     "ct": 0
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "t": 0,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.5,
+      337.5,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:0"
+     ]
+    },
+    {
+     "i": 1,
+     "t": 9.6,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.995518",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.5,
+      337.5,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:10"
+     ]
+    },
+    {
+     "i": 2,
+     "t": 19.1,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.983075",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.5,
+      337.5,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:19"
+     ]
+    },
+    {
+     "i": 3,
+     "t": 28.7,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.96388",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.5,
+      337.6,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:29"
+     ]
+    },
+    {
+     "i": 4,
+     "t": 38.3,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.938852",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.5,
+      337.6,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:38"
+     ]
+    },
+    {
+     "i": 5,
+     "t": 47.9,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.908707",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.5,
+      337.8,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:48"
+     ]
+    },
+    {
+     "i": 6,
+     "t": 57.4,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.874017",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.5,
+      337.9,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:57"
+     ]
+    },
+    {
+     "i": 7,
+     "t": 67,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.835244",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.5,
+      338.2,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:67"
+     ]
+    },
+    {
+     "i": 8,
+     "t": 76.6,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.792768",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.4,
+      338.4,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:77"
+     ]
+    },
+    {
+     "i": 9,
+     "t": 86.2,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.746901",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.4,
+      338.7,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:86"
+     ]
+    },
+    {
+     "i": 10,
+     "t": 95.7,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.697906",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.4,
+      339,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:96"
+     ]
+    },
+    {
+     "i": 11,
+     "t": 105.3,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.646003",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.4,
+      339.3,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:105"
+     ]
+    },
+    {
+     "i": 12,
+     "t": 114.9,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.591374",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.3,
+      339.7,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:115"
+     ]
+    },
+    {
+     "i": 13,
+     "t": 124.5,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.534173",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.3,
+      340,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:124"
+     ]
+    },
+    {
+     "i": 14,
+     "t": 134,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.474522",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.3,
+      340.4,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:134"
+     ]
+    },
+    {
+     "i": 15,
+     "t": 143.6,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.41252",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.3,
+      340.7,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:144"
+     ]
+    },
+    {
+     "i": 16,
+     "t": 153.2,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.348236",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.2,
+      341,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:153"
+     ]
+    },
+    {
+     "i": 17,
+     "t": 162.8,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.281708",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.2,
+      341.3,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:163"
+     ]
+    },
+    {
+     "i": 18,
+     "t": 172.3,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.212932",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.2,
+      341.5,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:172"
+     ]
+    },
+    {
+     "i": 19,
+     "t": 181.9,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.141839",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.2,
+      341.7,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:182"
+     ]
+    },
+    {
+     "i": 20,
+     "t": 191.5,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.0682162",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.2,
+      341.9,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:191"
+     ]
+    },
+    {
+     "i": 21,
+     "t": 201.1,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.2,
+      342,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 22,
+     "t": 210.6,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.2,
+      342.1,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 23,
+     "t": 220.2,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.2,
+      342.2,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 24,
+     "t": 229.8,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.2,
+      342.2,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 25,
+     "t": 239.4,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.2,
+      342.1,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 26,
+     "t": 248.9,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.2,
+      342,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 27,
+     "t": 258.5,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.2,
+      341.9,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 28,
+     "t": 268.1,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.2,
+      341.7,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 29,
+     "t": 277.7,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.2,
+      341.5,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 30,
+     "t": 287.2,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.2,
+      341.3,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 31,
+     "t": 296.8,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.2,
+      341,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 32,
+     "t": 306.4,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.3,
+      340.7,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 33,
+     "t": 316,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.3,
+      340.2,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 34,
+     "t": 325.5,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.3,
+      339.8,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 35,
+     "t": 335.1,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.4,
+      339.4,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 36,
+     "t": 344.7,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.4,
+      339.1,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 37,
+     "t": 354.3,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.4,
+      338.7,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 38,
+     "t": 363.8,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.4,
+      338.5,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 39,
+     "t": 373.4,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.4,
+      338.2,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 40,
+     "t": 383,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.5,
+      338,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 41,
+     "t": 392.6,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.5,
+      337.9,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 42,
+     "t": 402.1,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.5,
+      337.7,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 43,
+     "t": 411.7,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.5,
+      337.6,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 44,
+     "t": 421.3,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.5,
+      337.5,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 45,
+     "t": 430.9,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.5,
+      337.5,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 46,
+     "t": 440.4,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.5,
+      337.5,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 47,
+     "t": 450,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.5,
+      337.5,
+      225,
+      225
+     ],
+     "anims": []
+    }
+   ]
+  },
+  "open": {
+   "anims": [
+    {
+     "kind": "CSSTransition",
+     "prop": "opacity",
+     "target": "controls-pane group/controls min-w-0 overflow-hidden",
+     "dur": 300,
+     "delay": 0,
+     "easing": "cubic-bezier(0, 0, 0.2, 1)",
+     "ct": 16.029999993413924
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "t": 0,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      844.8,
+      342.1,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:0"
+     ]
+    },
+    {
+     "i": 1,
+     "t": 9.6,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.119459",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      844.8,
+      342.2,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:10"
+     ]
+    },
+    {
+     "i": 2,
+     "t": 19.1,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.213382",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      844.8,
+      342.2,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:19"
+     ]
+    },
+    {
+     "i": 3,
+     "t": 28.7,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.293891",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      844.8,
+      342.1,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:29"
+     ]
+    },
+    {
+     "i": 4,
+     "t": 38.3,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.364847",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      844.8,
+      342,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:38"
+     ]
+    },
+    {
+     "i": 5,
+     "t": 47.9,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.428323",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      844.8,
+      341.9,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:48"
+     ]
+    },
+    {
+     "i": 6,
+     "t": 57.4,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.485634",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      844.8,
+      341.6,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:57"
+     ]
+    },
+    {
+     "i": 7,
+     "t": 67,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.537699",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      844.8,
+      341.4,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:67"
+     ]
+    },
+    {
+     "i": 8,
+     "t": 76.6,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.585195",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      844.8,
+      341.1,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:77"
+     ]
+    },
+    {
+     "i": 9,
+     "t": 86.2,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.628646",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      844.9,
+      340.8,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:86"
+     ]
+    },
+    {
+     "i": 10,
+     "t": 95.7,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.668469",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      844.9,
+      340.5,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:96"
+     ]
+    },
+    {
+     "i": 11,
+     "t": 105.3,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.705001",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      844.9,
+      340.1,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:105"
+     ]
+    },
+    {
+     "i": 12,
+     "t": 114.9,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.738528",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      844.9,
+      339.7,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:115"
+     ]
+    },
+    {
+     "i": 13,
+     "t": 124.5,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.769286",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      845,
+      339.2,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:124"
+     ]
+    },
+    {
+     "i": 14,
+     "t": 134,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.79748",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      845,
+      338.9,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:134"
+     ]
+    },
+    {
+     "i": 15,
+     "t": 143.6,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.823288",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      845,
+      338.5,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:144"
+     ]
+    },
+    {
+     "i": 16,
+     "t": 153.2,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.846865",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      845,
+      338.2,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:153"
+     ]
+    },
+    {
+     "i": 17,
+     "t": 162.8,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.868346",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      845.1,
+      338,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:163"
+     ]
+    },
+    {
+     "i": 18,
+     "t": 172.3,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.887853",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      845.1,
+      337.8,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:172"
+     ]
+    },
+    {
+     "i": 19,
+     "t": 181.9,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.905495",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      845.1,
+      337.6,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:182"
+     ]
+    },
+    {
+     "i": 20,
+     "t": 191.5,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.921369",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      845.1,
+      337.6,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:191"
+     ]
+    },
+    {
+     "i": 21,
+     "t": 201.1,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.935565",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      845.1,
+      337.5,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:201"
+     ]
+    },
+    {
+     "i": 22,
+     "t": 210.6,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.948161",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      845.1,
+      337.5,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:211"
+     ]
+    },
+    {
+     "i": 23,
+     "t": 220.2,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.959232",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      845.1,
+      337.5,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:220"
+     ]
+    },
+    {
+     "i": 24,
+     "t": 229.8,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.968844",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      845.1,
+      337.6,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:230"
+     ]
+    },
+    {
+     "i": 25,
+     "t": 239.4,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.97706",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      845.1,
+      337.7,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:239"
+     ]
+    },
+    {
+     "i": 26,
+     "t": 248.9,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.983936",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      845.1,
+      337.9,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:249"
+     ]
+    },
+    {
+     "i": 27,
+     "t": 258.5,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.989525",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      845.1,
+      338.1,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:259"
+     ]
+    },
+    {
+     "i": 28,
+     "t": 268.1,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.993876",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      845,
+      338.3,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:268"
+     ]
+    },
+    {
+     "i": 29,
+     "t": 277.7,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.997034",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      845,
+      338.6,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:278"
+     ]
+    },
+    {
+     "i": 30,
+     "t": 287.2,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.999043",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      845,
+      338.9,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:287"
+     ]
+    },
+    {
+     "i": 31,
+     "t": 296.8,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.999941",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      845,
+      339.3,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:opacity:controls-pane:paused:297"
+     ]
+    },
+    {
+     "i": 32,
+     "t": 306.4,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      844.9,
+      339.7,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 33,
+     "t": 316,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      844.9,
+      340.1,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 34,
+     "t": 325.5,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      844.9,
+      340.5,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 35,
+     "t": 335.1,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      844.8,
+      340.9,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 36,
+     "t": 344.7,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      844.8,
+      341.2,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 37,
+     "t": 354.3,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      844.8,
+      341.5,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 38,
+     "t": 363.8,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      844.8,
+      341.7,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 39,
+     "t": 373.4,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      844.8,
+      341.9,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 40,
+     "t": 383,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      844.8,
+      342,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 41,
+     "t": 392.6,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      844.8,
+      342.1,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 42,
+     "t": 402.1,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      844.8,
+      342.2,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 43,
+     "t": 411.7,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      844.8,
+      342.2,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 44,
+     "t": 421.3,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      844.8,
+      342.1,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 45,
+     "t": 430.9,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      844.8,
+      342.1,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 46,
+     "t": 440.4,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      844.8,
+      341.9,
+      225,
+      225
+     ],
+     "anims": []
+    },
+    {
+     "i": 47,
+     "t": 450,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      844.8,
+      341.8,
+      225,
+      225
+     ],
+     "anims": []
+    }
+   ]
+  }
+ },
+ "final": {
+  "gtc": "475.195px  878.398px",
+  "layCls": "controls-layout--open",
+  "wCls": "controls-pane--open",
+  "w": [
+   43.2,
+   54,
+   475.2,
+   632
+  ],
+  "wOp": "1",
+  "pOp": "1",
+  "pOverflow": "hidden",
+  "pFade": "",
+  "stage": [
+   518.4,
+   54,
+   878.4,
+   792
+  ],
+  "cube": [
+   845,
+   339,
+   225,
+   225
+  ],
+  "anims": []
+ }
+}

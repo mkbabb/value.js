@@ -1,0 +1,82 @@
+[
+ {
+  "label": "Scene",
+  "outline": "solid 2px off 2px",
+  "boxShadow": "none",
+  "ringTop": 51,
+  "ringBottom": 91,
+  "rowClip": [
+   47,
+   95
+  ],
+  "rowOverflow": [
+   "auto",
+   "hidden"
+  ],
+  "x": 709.8683471679688,
+  "y": 55.45148468017578,
+  "w": 89.9117431640625,
+  "h": 31.589218139648438,
+  "clipped": false
+ },
+ {
+  "label": "Pause animation",
+  "outline": "solid 2px off 2px",
+  "boxShadow": "none",
+  "ringTop": 769,
+  "ringBottom": 817,
+  "rowClip": [
+   769,
+   817
+  ],
+  "rowOverflow": [
+   "auto",
+   "hidden"
+  ],
+  "x": 592.703125,
+  "y": 772.6484375,
+  "w": 40,
+  "h": 40,
+  "clipped": false
+ },
+ {
+  "label": "Select animation",
+  "outline": "solid 2px off 2px",
+  "boxShadow": "none",
+  "ringTop": 769,
+  "ringBottom": 816,
+  "rowClip": [
+   769,
+   817
+  ],
+  "rowOverflow": [
+   "auto",
+   "hidden"
+  ],
+  "x": 657.703125,
+  "y": 773.3828125,
+  "w": 124.59375,
+  "h": 38.5234375,
+  "clipped": false
+ },
+ {
+  "label": "Reset animation",
+  "outline": "solid 2px off 2px",
+  "boxShadow": "none",
+  "ringTop": 769,
+  "ringBottom": 817,
+  "rowClip": [
+   769,
+   817
+  ],
+  "rowOverflow": [
+   "auto",
+   "hidden"
+  ],
+  "x": 807.296875,
+  "y": 772.6484375,
+  "w": 40,
+  "h": 40,
+  "clipped": false
+ }
+]

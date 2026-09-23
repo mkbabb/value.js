@@ -1,0 +1,13 @@
+cube rest {"bboxDelta":0,"diffInside":235,"diffOutside":0,"outsideAt":[],"visible":true,"layers":["bob","pose","cube"],"live":"","tag":"span","anims":0}
+cube open {"bboxDelta":0,"diffInside":206,"diffOutside":0,"outsideAt":[],"visible":true,"layers":["bob","pose","cube"],"live":"","tag":"span","anims":0}
+amiga rest {"bboxDelta":0,"diffInside":160,"diffOutside":0,"outsideAt":[],"visible":true,"layers":["grid","shadow","ball"],"live":"","tag":"span","anims":0}
+amiga open {"bboxDelta":0,"diffInside":119,"diffOutside":0,"outsideAt":[],"visible":true,"layers":["grid","shadow","ball"],"live":"","tag":"span","anims":0}
+square rest {"bboxDelta":0,"diffInside":96,"diffOutside":0,"outsideAt":[],"visible":true,"layers":["field","box"],"live":"","tag":"span","anims":0}
+square open {"bboxDelta":0,"diffInside":103,"diffOutside":0,"outsideAt":[],"visible":true,"layers":["field","box"],"live":"","tag":"span","anims":0}
+easing rest {"bboxDelta":0,"diffInside":49,"diffOutside":0,"outsideAt":[],"visible":true,"layers":["curve","rail","ball"],"live":"","tag":"span","anims":0}
+easing open {"bboxDelta":0,"diffInside":34,"diffOutside":0,"outsideAt":[],"visible":true,"layers":["curve","rail","ball"],"live":"","tag":"span","anims":0}
+spring rest {"bboxDelta":0,"diffInside":48,"diffOutside":0,"outsideAt":[],"visible":true,"layers":["lanes","balls"],"live":"","tag":"span","anims":0}
+spring open {"bboxDelta":0,"diffInside":42,"diffOutside":0,"outsideAt":[],"visible":true,"layers":["lanes","balls"],"live":"","tag":"span","anims":0}
+sequence rest {"bboxDelta":0,"diffInside":118,"diffOutside":0,"outsideAt":[],"visible":true,"layers":["rails","travellers"],"live":"","tag":"span","anims":0}
+sequence open {"bboxDelta":0,"diffInside":69,"diffOutside":0,"outsideAt":[],"visible":true,"layers":["rails","travellers"],"live":"","tag":"span","anims":0}
+pageerrors 0 

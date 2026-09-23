@@ -1,0 +1,232 @@
+{
+ "label": "dev",
+ "rest": {
+  "picker": [
+   89.2,
+   76,
+   371.2,
+   473.8
+  ],
+  "gridCols": "none",
+  "svgs": [
+   {
+    "slot": "easing-curve",
+    "vb": "-0.1 -0.1 1.2 1.2",
+    "rect": [
+     102.2,
+     89,
+     345.2,
+     345.2
+    ],
+    "overflow": "hidden"
+   },
+   {
+    "slot": "easing-handles",
+    "vb": "-0.1 -0.1 1.2 1.2",
+    "rect": [
+     102.2,
+     89,
+     345.2,
+     345.2
+    ],
+    "overflow": "hidden"
+   },
+   {
+    "slot": "select-trigger",
+    "vb": "0 0 24 24",
+    "rect": [
+     418.4,
+     459.5,
+     16,
+     16
+    ],
+    "overflow": "hidden"
+   },
+   {
+    "slot": "button",
+    "vb": "0 0 24 24",
+    "rect": [
+     338.4,
+     508.8,
+     16,
+     16
+    ],
+    "overflow": "hidden"
+   }
+  ],
+  "handles": [
+   {
+    "rect": [
+     191.4,
+     365.2,
+     23,
+     23
+    ],
+    "role": "slider"
+   },
+   {
+    "rect": [
+     191.4,
+     106.3,
+     23,
+     23
+    ],
+    "role": "slider"
+   }
+  ]
+ },
+ "duringDrag": {
+  "picker": [
+   89.2,
+   76,
+   371.2,
+   473.8
+  ],
+  "gridCols": "none",
+  "svgs": [
+   {
+    "slot": "easing-curve",
+    "vb": "-0.1 -0.1 1.2 1.2",
+    "rect": [
+     102.2,
+     89,
+     345.2,
+     345.2
+    ],
+    "overflow": "hidden"
+   },
+   {
+    "slot": "easing-handles",
+    "vb": "-0.1 -0.1 1.2 1.2",
+    "rect": [
+     102.2,
+     89,
+     345.2,
+     345.2
+    ],
+    "overflow": "hidden"
+   },
+   {
+    "slot": "select-trigger",
+    "vb": "0 0 24 24",
+    "rect": [
+     418.4,
+     459.5,
+     16,
+     16
+    ],
+    "overflow": "hidden"
+   },
+   {
+    "slot": "button",
+    "vb": "0 0 24 24",
+    "rect": [
+     351.6,
+     508.8,
+     16,
+     16
+    ],
+    "overflow": "hidden"
+   }
+  ],
+  "handles": [
+   {
+    "rect": [
+     191.4,
+     365.2,
+     23,
+     23
+    ],
+    "role": "slider"
+   },
+   {
+    "rect": [
+     371.6,
+     78,
+     22.1,
+     22.1
+    ],
+    "role": "slider"
+   }
+  ]
+ },
+ "afterDrag": {
+  "picker": [
+   89.2,
+   76,
+   371.2,
+   473.8
+  ],
+  "gridCols": "none",
+  "svgs": [
+   {
+    "slot": "easing-curve",
+    "vb": "-0.1 -0.1 1.2 1.2",
+    "rect": [
+     102.2,
+     89,
+     345.2,
+     345.2
+    ],
+    "overflow": "hidden"
+   },
+   {
+    "slot": "easing-handles",
+    "vb": "-0.1 -0.1 1.2 1.2",
+    "rect": [
+     102.2,
+     89,
+     345.2,
+     345.2
+    ],
+    "overflow": "hidden"
+   },
+   {
+    "slot": "select-trigger",
+    "vb": "0 0 24 24",
+    "rect": [
+     418.4,
+     459.5,
+     16,
+     16
+    ],
+    "overflow": "hidden"
+   },
+   {
+    "slot": "button",
+    "vb": "0 0 24 24",
+    "rect": [
+     351.6,
+     508.8,
+     16,
+     16
+    ],
+    "overflow": "hidden"
+   }
+  ],
+  "handles": [
+   {
+    "rect": [
+     191.4,
+     365.2,
+     23,
+     23
+    ],
+    "role": "slider"
+   },
+   {
+    "rect": [
+     371.2,
+     77.5,
+     23,
+     23
+    ],
+    "role": "slider"
+   }
+  ]
+ },
+ "distinctViewBoxesDuringDrag": [
+  "-0.1 -0.1 1.2 1.2|-0.1 -0.1 1.2 1.2|0 0 24 24|0 0 24 24"
+ ],
+ "nDistinctViewBoxes": 1
+}
