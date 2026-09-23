@@ -1231,3 +1231,93 @@ Spec: `KF-W13.md` seventh addendum §2 (`:404-415`) · COHESION §0cd (`:3140-31
 7. **Static gates (on the committed bytes; the working tree = `febb3bcd` for these 3 paths).** ⟨`npx vue-tsc --noEmit -p tsconfig.json`⟩ → exit 0, no output · ⟨`npx vue-tsc --noEmit -p tsconfig.test.json`⟩ → exit 0, no output (**0 · 0**). ⟨`npm run check`⟩ → **EXIT 0** (`proof:structure — PASS: scope=src clean (0 violations across R1–R6)`). ⟨`npm run test:demo -- --no-file-parallelism`⟩ → **EXIT 0, Test Files 66 passed (66) · Tests 518 passed (518)** (= Check 6's banked 66/66 · 518/518; no witness added). ⟨`npx eslint App.vue ChromeDock.vue scenes.ts`⟩ → exit 0.
 8. **Residuals.** None owned by `.d5`. The kf e2e close clause is the close seat's (GREEN-WITH-HONEST-RED for `QUIET-FOCUS-RING` + `DRAWER-DETENT-REACH` under §0cd). The probe's pane signature stays coarse (slotted facet panels are not `tabpanel`s — `.d3`'s stated blind spot); the Scene/Controls same-frame read above is the direct check of the one commit point.
 9. **Self-count.** Acts 1–9; kf commits **1** (`febb3bcd`, pushed); record commit 1 (this receipt + LEDGER line + `evidence/W13U/d5/`: 2 probes · 1 summary reader · 10 reports = 2 before + 4 after + 4 cold). Gates: G-d5 GREEN ×8 served runs; cold leg GREEN ×4; vue-tsc 0·0; check EXIT 0; test:demo 66/66 · 518/518. Adjacent edits 0. Inherited paths 0.
+
+## Close 3 — WAVE CLOSE SEAT (RESUME 3, VERIFY-ONLY)
+
+SERVED MODEL: claude-opus-5-5 · 2026-09-23 · Track B · 0 kf / glass / product bytes. The spec was read whole (`KF-W13.md`, including the §0cd seventh addendum). From the record this seat read the header through `## Unit plan`, `## Close 2`, `## RESUME 3` whole and the `.d5` receipt. E-3 applies: every byte above this heading stands, and this section is appended beside it.
+
+- **Crash-recovery.** ⟨`git -C keyframes.js status --porcelain`⟩ → only the two untracked `VALUEJS-INBOUND-2026-07-{24,27}-*.md`. ⟨`git status --porcelain -- <record> LEDGER.md`⟩ → clean. **0 inherited paths.**
+- **Instrument.** Served dev `http://localhost:5173/` (HTTP 200) and a fresh ⟨`npm run gh-pages`⟩ (`✓ built in 6.11s`) served statically at `http://127.0.0.1:4195/`. Both were read in headed Chromium with `--ignore-gpu-blocklist`. The banked probes were copied to this seat's scratch and run from there, so no byte lands in `evidence/`. ⟨`uptime`⟩ read a 1-min load of 21–57 across the sitting. kf HEAD = `origin/master` = `febb3bcd`.
+
+### Commit roster (act 1)
+
+| unit | sha | paths (⟨`git show --stat`⟩) | against the row |
+|---|---|---|---|
+| `.d5` | kf `febb3bcd` | `demo/app/App.vue` · `demo/app/dock/ChromeDock.vue` · `demo/app/scene/scenes.ts` (3 files, +77/−26); ⟨`git diff --check febb3bcd~1 febb3bcd`⟩ clean | in bounds (the §0cd whole-file grant); `demo/state/controlSurfaces.ts` (`selectedSurfaceFrom`) is absent from the diff, as the forbidden list requires |
+| `.d5` | value.js `e60f980f` | the record · `LEDGER.md` (+1 line) · `evidence/W13U/d5/**` (2 probes, `sum.mjs`, 10 reports) | in bounds |
+
+**Landed-wrong: 0.** No kf commit after `febb3bcd` (⟨`git log --oneline febb3bcd..HEAD`⟩ → empty).
+
+### Gate table (act 2): BEFORE (RESUME 3 SEAT 0) → AFTER (this seat, at kf `febb3bcd`)
+
+| gate | BEFORE | AFTER, this seat | reading |
+|---|---|---|---|
+| G-d5 change-once (⟨`node probe-switch10.mjs <base> <tag>`⟩ + ⟨`node sum.mjs`⟩; 10 switches incl. first visits, per frame) | width `1122111111` ×2 · rev `0001000000` ×2 · surf `2222111110` ×2 | **dev ×2** (load 50.6 · 48.2): width `1111111111` · rev `0000000000` · surf `0011111110` · empty 0 · Scene-label changes `1111111111` · pageerrors 0, both runs identical. **gh ×4** (load 31.8 · 31.5 · 45.3 · 56.6): gh1, gh3 and gh4 are identical to dev. **gh2**: width `1111111111`, surf `0011111110`, empty 0, but rev **`0010000000`**. That run's square plateau read 413.5 where every other run read 418.3, and square>spring dipped to 400.4 before it settled at 401.5, a 1.1 px undershoot inside ONE width change | **GREEN** on dev ×2 and gh ×3 of 4. One gh run shows a 1.1 px morph undershoot. The count of width changes and the one-commit-point limbs hold in all 6 runs. That run is residual **R-close3-1**. |
+| G-d5 cold leg (⟨`probe-switch10-cold.mjs`⟩, the pick is a route write, so no warm happens) | — | dev ×1 (load 42.0) · gh ×1: width `1111111111` · rev 0 · surf `0011111110` · empty 0 · pageerrors 0 | **GREEN** |
+| `npm run check` | EXIT 0 (`.d5`) | **EXIT 0 ×2**, `error TS` count 0 · 0 | **GREEN** |
+| vitest ⟨`npm run test:demo -- --no-file-parallelism`⟩ | 66/66 · 518/518 | **66/66 files · 518/518 tests ×2** | **GREEN** |
+| vitest ⟨`npx vitest run`⟩ (all projects) | 1779 passed (Close 2) | **181 passed + 5 skipped files · 1780 passed + 2 expected-fail + 14 skipped tests ×2** | **GREEN** |
+| eslint ⟨`npx eslint demo/app demo/components/instrument/transport demo/components/playback demo/scenes demo/components/instrument/shell`⟩ | — | EXIT 0 | **GREEN** |
+| kf e2e ⟨`KF_PLAYWRIGHT_DIR=<value.js> npm run demo:correctness -- --workers=1`⟩ on the fresh gh-pages build | 4/6 (Check 6) | **run 1 3/6** (load 53.0 → 44.2): ✗ subject-animates `[real-cube]`, ✗ live-session (S4 `ringPainted:false` only; `enterToggled` and `spaceToggled` true, S5 PASS), ✗ live-session-mobile (M1 SCROLL only). **run 2 4/6** (load 44.2 → 43.9): ✗ live-session (S4 ring) and ✗ live-session-mobile (M1) only. **`--only=subject-animates` ×2** (load 39.8 · 40.9): PASS, then FAIL with "playhead 0 → −1266.7 → −25.1 … nodes {1,1,1}", the same signature as C6-3 | **GREEN-WITH-HONEST-RED** under §0cd: the only standing reds are S4 `QUIET-FOCUS-RING` and M1 `DRAWER-DETENT-REACH`, both owned by KF.W13R. The `[real-cube]` intermittent is C6-3 / R-close-2, which §0cd leaves with KF.W13V `.k` (KFA-17). Every other case passes at `--workers=1`. |
+| G-KFW13U-w (⟨`w/probe-w1.mjs`⟩) | GREEN | dev: rest `rotateX(260.9°) → (344.5°)` across 1 s, `autoPlaying:true`, paused frozen `348.485 = 348.485`. gh: `(253.6°) → (340.6°)`, paused `345.832 = 345.832`. The dev run logged one console 404 resource line and 0 pageerrors | **GREEN** |
+| G-KFW13U-t (⟨`t/probe-t1.mjs`⟩, boot + drag) | GREEN (Repair 3) | dev ×2 and gh ×2: boot `dis:false` on cube, amiga and square; drag mid 2300 → late 3800 → afterUp 3800; cube `rotateX(317.2°)`. Two earlier gh attempts hit a locator TimeoutError before any read. That was a probe misuse by this seat: zsh does not word-split, so the base URL argument carried " gh". Those attempts are discarded | **GREEN** |
+| G-KFW13U-e (⟨`e/probe-e1.mjs`⟩) | GREEN | dev ×2 and gh ×2: trigger `ease-in-out` + `curve-glyph` (truth 5e-4) · rows 29/29 withPath · 29 distinct · named 27/27 · descSeparated 29 · accName 29 · after-pick `ease-out-back` · pageerrors 0 | **GREEN** |
+| OA-32 (`.d2`, ⟨`d2/probe-icon.mjs`⟩) | GREEN | dev: diffInside 24–240 · diffOutside 0 · bboxΔ 0 on all 12 reads, layers in stage order. gh: diffInside 18–213 · outside 0 · bboxΔ 0. pageerrors 0 · 0 | **GREEN** |
+| OA-33 keyboard (`.d4`, ⟨`d/probe-kbd.mjs`⟩ + ⟨`d4/probe-kbd-esc.mjs`⟩) | Share GREEN · theme HONEST-RED | dev and gh: `enterOnShareRowOpens 1` · focus goes to `Share URL or hash to load` · Escape chain `["Share animation","@mbabb menu"]` · menusAfter 0 · pointer re-press closes · pageerrors 0. `enterOnDarkRowFlips false` on both | Share row **GREEN** · theme row **HONEST-RED `DARK-MENU-ITEM`** (O-61) |
+| G-KFW13U-d sharp (⟨`d/probe-sharp.mjs`⟩, unchanged) | sharpness GREEN · pixel limb confounded (R-close-3) | dev: sharpMorph 5.996 ≥ sharpNoMorph 5.951 · morph `filter:none`, `transform:none` at rest · diffPx 484 (living glyphs, per R-close-3) | **GREEN on sharpness**. The pixel limb is still R-close-3, owner KF.W13R `.v` |
+| G-KFW13U-d two owners per property | HONEST-RED `DOCK-MORPH-ROOT` | not re-run: `.d5` adds 0 dock-morph bytes | **HONEST-RED** (owner glass BL → KF.W13R `.d`) |
+| `.t2` ⟨`grep -rn isAnimStarted demo test \| wc -l`⟩ | 0 | 0 (no ribbon byte since) | **GREEN** (cited) |
+
+### Verification artefacts (act 3)
+
+The artefacts are the roster above, with ⟨`git show --stat`⟩ and `git diff --check`; the gate transcripts in the table above; and eslint clean. No new evidence file was banked. This seat's probe reports (`report-{dev1,dev2,gh1..gh4,cold-dev1,cold-gh1}.json`, `t-*.json`) and logs (`e2e.log`, `sa.log`, `check.log`) are in its scratch only, and their figures are quoted above.
+
+### E13 (act 4)
+
+A read-only sweep of the four paths against 15:40, the INBOX's previous sweep clock (⟨`find … -newermt "2026-09-23 15:40"`⟩):
+- value.js `V/` + `V/coordination/`: `INBOX.md` only.
+- glass: the newest dir is `BL`. New there are `BK/coordination/valuejs-outbound-2026-09-23-glass-veil-grey.md` (our own O-62 mirror) and `BL/audit/{INBOUND,PROMPT-RECAP-SEED,REGISTRY}.md`, which are `95068476` (I-45 plus its erratum, both rowed) and `4652670d` (the F-18 owner witness on fourier's SidebarDock, outside keyframes scope).
+- keyframes `V/coordination/`: none new.
+- atlas: no `coordination/` directory.
+
+**0 unrowed, 0 UNREAD in scope.**
+
+### Residuals (owners named)
+
+- **R-close3-1 (new, LOW): an intermittent 1.1 px dock-width undershoot on a scene switch.** It appeared on gh2 only (1 of 6 served runs), on square>spring. The dock started from a 413.5 px square plateau, where the other five runs read 418.3, dipped to 400.4 and settled at 401.5. The switch still reads ONE width change, and the Scene and Controls labels flip once. The undershoot comes from the morph spring, not from the chrome's commit point. **Owner: KF.W13R `.d`**, whose gate already forbids size overshoot at 10.0.1; this is the DOCK-MORPH-ROOT family.
+- Carried unchanged:
+  - `R-close-2` / C6-3 (`[real-cube]` intermittent, 1 of 2 in both the full and the `--only` reads) → KF.W13V `.k` (KFA-17).
+  - `R-close-3` (the sharp probe's pixel limb is confounded by the living glyphs) → KF.W13R `.v`.
+  - `R-d2-1`, `R-d2-2` and `R-x-1` → KF.W13V `.k`.
+  - `R-d2-3` → KF.W13V `.u`.
+  - `R-d4-1` → recorded.
+- **Honest-RED ids**: `DOCK-MORPH-ROOT` (O-56) · `DOCK-SCROLL-MORPH` (O-55) · `GLASS-SURFACE-PAINT-CONTAIN` · `KF-TIMELINE-FILL` · `DARK-MENU-ITEM` (O-61) · `QUIET-FOCUS-RING` · `DRAWER-DETENT-REACH` (§0cd). The first five belong to glass BL / KF.W13R `.d`/`.v`, and the last two to KF.W13R `.m`/`.v`.
+
+### Escalations
+
+None new. The three open at Close 2 are closed by the §0cd ruling:
+- ESC-d3-1 is cured at `.d5` (`febb3bcd`).
+- ESC-x-1 and ESC-x-2 are relieved as honest-RED `QUIET-FOCUS-RING` and `DRAWER-DETENT-REACH`, owned by KF.W13R.
+
+### Four-verb line (spec §State: IMPLEMENTED once the gates are green; this seat is not designated to stamp VERIFIED)
+
+| verb | state |
+|---|---|
+| AUDITED | YES (unchanged) |
+| SPECIFIED | YES (the KF.W13U addenda through §0cd) |
+| IMPLEMENTED | **YES**. `.w .t .e .d .t2 .d2 .d4 .d5` are GREEN on the served page (dev and gh-pages), and `.d3` and `.x` are closed as escalations ruled in §0cd. check, vitest and eslint are GREEN. kf e2e is GREEN-WITH-HONEST-RED for exactly S4 and M1. |
+| VERIFIED | NO (a fresh check's act) |
+
+**Verdict: IMPLEMENTED.** The KF.W13R "Opens after KF.W13U CLOSED" conjunct turns on the check that follows this close.
+
+### Self-count
+
+- kf shas audited: **1** (`febb3bcd`). value.js receipt shas audited: **1** (`e60f980f`). Landed-wrong: **0**.
+- Gate runs:
+  - switch10: dev ×2 and gh ×4
+  - cold: ×2
+  - check ×2 · test:demo ×2 · vitest all ×2 · eslint ×1
+  - e2e ×2, plus subject-animates ×2
+  - w ×2 · t ×4 (2 discarded for probe misuse) · e ×4 (1 dev read with the malformed base, kept only as corroboration) · icon ×2 · kbd ×2 · kbd-esc ×2 · sharp ×1
+- New residuals: **1** (R-close3-1). New escalations: **0**.
+- LEDGER: the KF.W13U status and commit cells were replaced in place, and one event line was appended.
