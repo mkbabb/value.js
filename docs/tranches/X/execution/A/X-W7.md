@@ -1012,3 +1012,59 @@ X-W8 (`W8.md:6`: X-W5, X-W6 **and X-W7** stabilize): X-W5 CLOSED · X-W6 CLOSED 
 
 **Tally**: gates reproduced **14** GREEN (+ 6 RED reproduced RED); gates failed to reproduce as claimed: none; unrelieved: G13 · G19 ·
 G16 (pending) · G14-AP6; typecheck LW-1. **NOT-CONFORMANT** — next: Repair 1 (D-1..D-4, D-6), then Check 2.
+
+---
+
+## Repair 1
+
+**Seat**: REPAIR round 1, `claude-opus-5-5[1m]`, wall clock 2026-09-23, opened at HEAD `1411a1ea`. The register is Check 1's
+D-1 through D-8.
+
+**Crash-recovery** ⟨cmd⟩ `git status --porcelain` → a killed predecessor repair seat left work behind. It had committed D-1
+(`1411a1ea`) and left uncommitted hunks on 6 paths inside this seat's writable set: `demo/palettes/BrowsePane.vue`,
+`demo/palettes/browser/card/PaletteCardGrid.vue`, `demo/workbenches/mix/MixSourceSelector.vue`,
+`demo/color-session/ColorSpaceSelector.vue`, `demo/shell/dock/menus/ProfileSection.vue` and
+`e2e/smoke/oracles/w7-destructive-seats.spec.ts`. I read every hunk against the spec. All of them conform: the D-2
+confirm is built the same way as `AdminNamesPanel.vue:147-165`, and the D-4 deletions are correct. I finished them and
+committed them below. The two remaining dirty paths are outside this seat's set and were left alone:
+`docs/tranches/V/reformation/CARRY-LEDGER.md` and `scripts/dev/dev.sh`.
+
+### Defect → cure → commit → gate re-reading
+
+| # | defect | cure | commit | gate re-reading (this seat's commands) |
+|---|---|---|---|---|
+| D-1 | HIGH · LW-1 demo typecheck RED | inherited: `admin-destructive.test.ts` narrows each button with `find` plus vitest `assert(cancel !== undefined && accept !== undefined, …)`. It uses no `!` and no cast. I read the diff and accepted it. | `1411a1ea` (predecessor seat) | ⟨cmd⟩ `npx vue-tsc -p tsconfig.demo.json --noEmit` → **EXIT 0**, run twice · `-p tsconfig.lib.json` → **EXIT 0** |
+| D-2 | HIGH · browse-wall admin delete fires on one click (§2a) | `BrowsePane.vue` now opens a confirm, built exactly like the four Admin seats: `:show-close="false"` (the deliberate rung at glass 7.0.0) and `Button tone="destructive"`. The act is taken before it runs, so one acceptance sends one request. `w7-destructive-seats` gains a fifth network row. | `b6d3d7af` | ⟨cmd⟩ `npx playwright test w7-destructive-seats.spec.ts --project=smoke` → **7 passed**, run twice. The fifth row sees 0 requests before acceptance and exactly `["DELETE /admin/palettes/wall-target-5e7d"]` after a double acceptance. |
+| D-3 | HIGH · G13: 3 OWED-ORACLE rows | wrote oracle rows 4 (version revert), 14 (local delete-all) and 15 (admin delete user) in `w7-mutation-visibility.spec.ts`. Row 4's first run was RED ("0 versions") and exposed a real product defect: the drawer was mounted and opened in the same tick, so it never loaded. Fixed in `BrowsePane.vue` by mounting first, then opening after `nextTick`. Added a dated addendum to `W7-mutation-ownership.md`. | `afa3a556` (oracles) · `b6d3d7af` (drawer fix) · this record's commit (addendum) | ⟨cmd⟩ both w7 oracle specs → **23 passed**, then the repair rows plus G14 again → all green. The ownership table now reads GREEN **14** · OWED **0** · ROUTED **6** = 20. **G13 is still RED**: the 6 ROUTED rows, DAG row 2 (server-side) and the undeleted `PaletteCard.vue` (ESC-W7d-INSPECTOR) need a ruling, which is escalated below. |
+| D-4 | HIGH · G19: 6 in-bounds eyebrow survivors | deleted the grid's `emptyEyebrow` prop and its binding. Deleted the `eyebrow="· nothing to mix ·"` fallthrough in MixSourceSelector (OM-15 KILL). Changed "eyebrow" to "caption" in the two comments each in ColorSpaceSelector and ProfileSection (B-3). No consumer passed `empty-eyebrow` (⟨cmd⟩ grep → 0). | `dfbafeb5` | ⟨cmd⟩ `grep -rn eyebrow demo/ \| grep -v node_modules \| wc -l` → **8**, run twice. All 8 are outside the bounds: `DESIGN.md` 1 · `ParseEchoReadout.vue` 1 · `GradientCodeEditor.vue` 1 · `EasingSpecimenStrip.vue` 4 · `easingCatalogue.ts` 1. **G19 is still RED on the out-of-bounds 8** (ESC-W7g-G19-BOUNDS). |
+| D-5 | MEDIUM · G16: 26 display sites and 3 dead APIs outside §4 | **not curable at this seat.** The sites are outside §4 and the fold's reading rule says the dated §4 governs access. Escalated for a routing or grant ruling. | — | not moved. The in-bounds half is unchanged: `format-color.test.ts` passes inside the vitest run below. |
+| D-6 | MEDIUM · XP-EXTRACT (B-1) not executed; R18 ×2 RED | cured the core of the session-correctness cluster inside B-1. The worker seam is now typed in both directions and carries a request id (XW-34a). Every run settles to a `QuantizeOutcome` value, so there is no floating rejection (XW-34b, EY-10). Failures are shown in words (EC-36). `isProcessing` is set before the decode (XW-4). Only the latest request writes state, and preview and palette always describe the same file (XW-19). Every dispatch cancels the pending debounce (EC-34). A result with zero opaque pixels shows a `barren` line (XW-22). The error line has `role="alert"` (XW-10). Dropping and picking a file follow one intake rule. The dead `quantizeFromCanvas` and `quantizeFromCamera` are deleted. | `42bdf2a7` | ⟨cmd⟩ `playwright test crash-battery.spec.ts -g R18` → the **corrupt leg is GREEN**, run twice. The **valid leg is still RED, for a reason outside this wave**: the palette does develop (0 page errors, 4 colours, `[data-palette-swatches]` present), but glass 7's `WatercolorDot` renders `<span aria-hidden="true">` and drops `tag="button"` and `aria-label`, so `[aria-label^="Color swatch "]` finds 0 nodes. That swatch belongs to CC-044 / X-W4.g ("hands its watercolor-dot palette sites there untouched"), and the locator is in `crash-battery.spec.ts`, which X-W1 owns. Escalated. The rest of the cluster was not executed here and is escalated: EC-9, EC-10, EC-25, EC-46, EY-12, EY-23, §R3.2 ImageDropZone rows, the camera-mode cluster. |
+| D-7 | MINOR · the close's G19 row says "0 inside the bounds" | **correction (addendum, not a patch):** the close's G19 row read unit g's cell. Against the wave's §4 ∪ B-3, **6** survivors were in bounds at close: `PaletteCardGrid.vue` ×1 (plus the prop), `MixSourceSelector.vue` ×1, `ColorSpaceSelector.vue` ×2, `ProfileSection.vue` ×2. They are deleted at `dfbafeb5`, and now 0 are in bounds. | this record's commit | see D-4 |
+| D-8 | INFO · glass BK relay (`.cartoon-cast`) unsent | the orchestrator's mail seat sends it. Glass is read-only for this seat. | — | — |
+
+### Cadence (§7) at the settled bytes
+
+- ⟨cmd⟩ `npx vitest run` → **2 failed / 803 passed (805)**, 54 files. The 2 are the baseline C-5 and F-4 failures
+  (`spectrum-luma` C-5, `reka-binding-idiom` NG-6), unchanged.
+- ⟨cmd⟩ `npx eslint . --max-warnings=0` → 0 errors and 32 warnings, **every one under `docs/`**. That is the docs-lint RED
+  recorded before this wave, and there are 0 warnings in `demo/` or `e2e/`. ⟨cmd⟩ `git diff --check` → clean.
+- ⟨cmd⟩ `git diff --stat e24361c6..HEAD -- src/ | wc -l` → **0** (G18 GREEN).
+- ⟨cmd⟩ `playwright test walk.spec.ts o9-shadow-palette.spec.ts --project=smoke` → 5 passed, 1 failed. The failure is walk's
+  `Generation preset` combobox, the same baseline RED the close recorded at `:770` (GenerateControls, B-6, untouched).
+
+### Escalations (the orchestrator rules)
+
+- **ESC-R1-G16** (D-5): 26 display sites and 3 dead APIs outside §4. Either route them to X-W5, X-W6 or X-W9, or grant them here.
+- **ESC-W7d-INSPECTOR** (G13): the 6 ROUTED rows and the deletion of `PaletteCard.vue` under S-5 need grants to surfaces
+  outside the bounds (`useBrowsePalettes.ts`, `useDialogBrowseActions.ts`, `TagEditPopover` render). DAG row 2 is `api/**`.
+- **ESC-W7g-G19-BOUNDS**: 8 out-of-bounds eyebrow hits. Their owners are the gradient/easing workbench, `ParseEchoReadout` and `DESIGN.md`.
+- **ESC-R1-R18-SWATCH**: R18's valid leg can only go green if the swatch gets its name back at the `WatercolorDot` site
+  (CC-044 → X-W4.g) or X-W1 re-rules the crash-battery locator. Both are outside the bounds.
+- **ESC-R1-VHD-IMMEDIATE**: `VersionHistoryDrawer.vue`'s load watch is not `immediate`. That file is X-W4's; the consumer fix
+  here keeps the drawer working until X-W4 rules.
+- **ESC-R1-XP-REST**: the rest of the XP-EXTRACT rows listed under D-6, too large for one repair round and some needing X-W10
+  design law (EC-10's discrete rail) or a layout ruling (EY-12). Send them to a dedicated X.W7.g repair round, or rule where they go.
+
+**Tally (by count of the rows above)**: defects 8. Cured **5**: D-1 (inherited, verified), D-2, D-3's oracle half, D-4 and
+D-7. D-6 was cured in part: the core, with R18's corrupt leg GREEN. Escalated: D-5, the G13 remainder, the G19 remainder, R18's
+valid leg and the rest of the XP-EXTRACT rows. D-8 goes to the mail seat. **Next: Check 2.**

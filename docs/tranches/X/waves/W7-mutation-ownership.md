@@ -73,3 +73,23 @@ ROUTED **6** (11 + 3 + 6 = 20). One call site per mutation holds on **all 20** (
   regardless of which surface hosts the controls — it is measured at the composables.
 - Table rows 2, 3, 6, 7, 8, 11 are owned by files no W7 unit holds (`useBrowsePalettes.ts`, `useDialogBrowseActions.ts`) or
   by X.W7.a's `TagEditPopover.vue`; their verdict paths are named, not absorbed.
+
+## Addendum 2026-09-23 — X-W7 Repair 1 (Check 1 D-3): the three OWED-ORACLE rows
+
+The rows above stand as written (E-3). Each OWED-ORACLE row now has its browser assertion in
+`e2e/smoke/oracles/w7-mutation-visibility.spec.ts` (commit `afa3a556`):
+
+| # | oracle | what it asserts | state now |
+|---|---|---|---|
+| 4 | `G13 · user rows (Repair 1) › row 4 · version revert` | the drawer (X-W4's file, driven, not written) shows the server's palette as subject and `v1 (current)`; on dismiss the card announces "Reverted" and reads the reverted name; exactly one `POST /revert {"hash":"h1"}` | GREEN |
+| 14 | `G13 · library rows (Repair 1) › row 14 · delete-all` | nothing is destroyed before the confirm is accepted; after it, the card is gone and the true-empty plate reads "No saved palettes yet." | GREEN |
+| 15 | `G13 · admin rows (Repair 1) › row 15 · delete user` | confirmed; "Deleted user azure-fox-01" is announced; the row's delete control leaves the roster | GREEN |
+
+Row 4 went RED on its first run: the drawer showed "0 versions". `VersionHistoryDrawer` loads when `open`
+changes, and `BrowsePane` mounted it with `open` already true, so it never saw a change (W7.78's
+release-on-close made every open a fresh mount). The fix went into `BrowsePane.vue` (§4) at `b6d3d7af`:
+mount the drawer, wait `nextTick`, then open it. Its watch not being `immediate` stays in the drawer, which
+is X-W4's file and is left for X-W4 to rule on.
+
+**Tally after this addendum** (these three rows re-read over the table above): GREEN **14** · OWED-ORACLE
+**0** · ROUTED **6** (14 + 0 + 6 = 20).
