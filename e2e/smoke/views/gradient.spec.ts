@@ -183,10 +183,13 @@ test("neighbour-crossing drag round-trips: the emitted CSS re-applies with no ve
 
     // Drag the LEFTMOST handle to ~75% — past both of its neighbours.
     const left = handles(main).first();
+    const draggedId = (await left.getAttribute("data-stop-id"))!;
     const lb = (await left.boundingBox())!;
-    await page.mouse.move(lb.x + lb.width / 2, lb.y + lb.height / 2);
+    const railY = lb.y + lb.height / 2;
+    const rightwardRelease = box.x + box.width * 0.75;
+    await page.mouse.move(lb.x + lb.width / 2, railY);
     await page.mouse.down();
-    await page.mouse.move(box.x + box.width * 0.75, lb.y + lb.height / 2, { steps: 10 });
+    await page.mouse.move(rightwardRelease, railY, { steps: 10 });
     await page.mouse.up();
 
     // The model re-sorted on the write: the ordinals the DOM carries ascend.
@@ -195,6 +198,51 @@ test("neighbour-crossing drag round-trips: the emitted CSS re-applies with no ve
     );
     expect(ordinals).toEqual([...ordinals].sort((a, b) => a - b));
     expect(Math.max(...ordinals)).toBeGreaterThan(60);
+
+    // X-W6 · X.W6.a3 (COHESION §0bb R-v1) — ADDED: the dragged stop TRACKS the
+    // pointer through the crossing and settles where it was released: its final
+    // ordinal is within 2% of the release x mapped onto the rail's own axis. The
+    // ascending read above is satisfied by a stop that stops tracking the moment
+    // it crosses (the `.v` frame: released at ~10%, settled at 27.4%), so the
+    // round trip is asserted in BOTH directions — the leftward crossing is the one
+    // whose keyed re-order moved the captured handle and dropped the gesture.
+    const ordinalAt = (clientX: number) =>
+        bar(main).evaluate((el, x) => {
+            const r = el.getBoundingClientRect();
+            const cs = getComputedStyle(el);
+            const inset = parseFloat(cs.getPropertyValue("--rail-inset"));
+            const origin = r.left + parseFloat(cs.borderLeftWidth) + inset;
+            const track =
+                r.width -
+                parseFloat(cs.borderLeftWidth) -
+                parseFloat(cs.borderRightWidth) -
+                inset * 2;
+            return ((x - origin) / track) * 100;
+        }, clientX);
+    const draggedOrdinal = async () =>
+        Number(
+            await main
+                .locator(`[data-stop-id="${draggedId}"]`)
+                .getAttribute("aria-valuenow"),
+        );
+    expect(
+        Math.abs((await draggedOrdinal()) - (await ordinalAt(rightwardRelease))),
+    ).toBeLessThanOrEqual(2);
+
+    // …and back LEFTWARD past its neighbour to ~25%.
+    const db = (await main.locator(`[data-stop-id="${draggedId}"]`).boundingBox())!;
+    const leftwardRelease = box.x + box.width * 0.25;
+    await page.mouse.move(db.x + db.width / 2, railY);
+    await page.mouse.down();
+    await page.mouse.move(leftwardRelease, railY, { steps: 10 });
+    await page.mouse.up();
+    const back = await handles(main).evaluateAll((els) =>
+        els.map((el) => Number(el.getAttribute("aria-valuenow"))),
+    );
+    expect(back).toEqual([...back].sort((a, b) => a - b));
+    expect(
+        Math.abs((await draggedOrdinal()) - (await ordinalAt(leftwardRelease))),
+    ).toBeLessThanOrEqual(2);
 
     // …and the CSS it emitted is CSS it accepts: re-feed the readout verbatim
     // and the Fira verdict line stays absent.

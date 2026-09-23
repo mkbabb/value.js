@@ -291,15 +291,22 @@ function onBarPointerDown(e: PointerEvent) {
 }
 
 function onBarPointerMove(e: PointerEvent) {
-    // A captured handle drag is the HANDLE's, whole. The bar's former fallback
-    // emit also fired on every captured move (the move bubbles here), so one
-    // gesture wrote the position twice per frame (a8).
-    if (draggingId.value) return;
+    // A live handle drag owns every move, whole: the pointer is captured on the
+    // RAIL for the gesture's life (see `onHandlePointerDown`), so its moves land
+    // here and are the drag's alone — one move, one position write (a8).
+    if (drag) {
+        dragTo(e);
+        return;
+    }
     const target = e.target as HTMLElement;
     hoverPos.value = target.closest("[data-stop-id]") ? null : barPosition(e);
 }
 
 function onBarPointerUp(e: PointerEvent) {
+    if (drag) {
+        endDrag();
+        return;
+    }
     if (!pendingAdd) return;
     const moved =
         Math.abs(e.clientX - pendingAdd.x) > DEAD_ZONE ||
@@ -310,9 +317,14 @@ function onBarPointerUp(e: PointerEvent) {
     if (position !== null) emit("add", position);
 }
 
-/** A cancelled press commits NOTHING — it only disarms (GRADSTOP-A §12). */
+/**
+ * A cancelled press or drag commits NOTHING — it only disarms (GRADSTOP-A §12):
+ * no mint, no position write, no selection change.
+ */
 function onBarPointerCancel() {
     pendingAdd = null;
+    drag = null;
+    draggingId.value = null;
 }
 
 function onBarPointerLeave() {
@@ -344,7 +356,14 @@ function onHandlePointerDown(e: PointerEvent, id: string) {
     };
     draggingId.value = id;
     selectedId.value = id;
-    seat.setPointerCapture(e.pointerId);
+    // The gesture is captured on the RAIL, never on the handle (X-W6 · X.W6.a3,
+    // COHESION §0bb R-v1). Every position write re-sorts the stops, so the keyed
+    // `v-for` MOVES a handle's node when it crosses a neighbour — and a node
+    // moved in the DOM loses pointer capture. Captured on the seat, a leftward
+    // crossing dropped the gesture at the crossing (released at ~10%, settled at
+    // 27.4%). The rail's node is the one element whose identity the re-order
+    // cannot touch, so the drag lives on it from press to release.
+    bar.setPointerCapture(e.pointerId);
     // `e.preventDefault()` is DELETED. It was what kept a real mouse press from
     // focusing the handle, so a pointer user's selection had no keyboard seat
     // (a6). Focus is taken explicitly because WebKit does not focus a button on
@@ -352,7 +371,7 @@ function onHandlePointerDown(e: PointerEvent, id: string) {
     seat.focus();
 }
 
-function onHandlePointerMove(e: PointerEvent) {
+function dragTo(e: PointerEvent) {
     if (!drag) return;
     if (!drag.moved) {
         const travelled =
@@ -364,16 +383,10 @@ function onHandlePointerMove(e: PointerEvent) {
     emit("update:position", drag.id, positionFromX(drag.axis, e.clientX - drag.grabDx));
 }
 
-function onHandlePointerUp() {
+function endDrag() {
     // A press that never became a drag ON the already-selected handle is a
     // re-tap: it deselects without moving the stop (Escape's pointer twin).
     if (drag && drag.wasSelected && !drag.moved) selectedId.value = null;
-    drag = null;
-    draggingId.value = null;
-}
-
-/** Cancel DISARMS and nothing else: no position write, no selection change. */
-function onHandlePointerCancel() {
     drag = null;
     draggingId.value = null;
 }
@@ -656,9 +669,6 @@ function onCaretKeydown(e: KeyboardEvent) {
                     transform: `translate(-50%, -50%) scale(${handleScale(stop.id)})`,
                 }"
                 @pointerdown="(e) => onHandlePointerDown(e, stop.id)"
-                @pointermove="onHandlePointerMove"
-                @pointerup="onHandlePointerUp"
-                @pointercancel="onHandlePointerCancel"
                 @pointerenter="hoveredId = stop.id"
                 @pointerleave="hoveredId = null"
                 @keydown="(e) => onHandleKeydown(e, stop)"
