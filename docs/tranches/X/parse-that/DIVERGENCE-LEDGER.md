@@ -1281,3 +1281,58 @@ the candidate's refusal code is unchanged when the comment goes. The shared depa
 the seam's next grammar unit (`X.P.W5.c` / `.e`), not cured here. Curing it only on the candidate
 would open a new divergence against the frozen 4.0.0 contract, so the cure and its row must land
 together.
+
+## §13 — X.P.W5 Repair 1: the shared Color 4/5 coverage gaps are rowed with owners, and the declaration-name class is cured for non-ASCII (SERVED MODEL: claude-opus-5-5 · 2026-09-23) — DATED, BESIDE (E-3)
+
+Nothing above this heading is edited. These are NOT ledger rows: the engines agree on SC-1/SC-2, so, like §12.3's F-W5b-1, they sit one level down, outside `seam-contract-check.mjs`'s `### <id> — ` row grammar. This section answers `execution/D/X-P-W5.md` §Check 1 D-3
+(R-c-3 had no named owner) and records one candidate-side cure that the R-c-1 re-pin surfaced.
+
+#### SC-1 — `calc()` in a colour channel: refused by BOTH engines (shared spec-coverage departure)
+
+| field | value |
+|---|---|
+| **entry** | `parseCssColor` (and every entry that reads a colour: `parseCssValue`, `parseStylesheet` declaration values) |
+| **subject** | css-color-4 §4 channel grammar admits `<number>` / `<percentage>` / `<angle>`, and css-values-4 §10 lets a math function (`calc()`, `min()`, `max()`, `clamp()` …) stand wherever such a value does |
+| **incumbent (4.0.0, MEASURED)** | ⟨`parseCssColor("rgb(calc(10) 20 30)")`⟩ → `ok:false css_syntax` · `rgb(calc(50% + 10%) 0 0)` → `ok:false` · `hsl(calc(120deg) 50% 50%)` → `ok:false` |
+| **candidate (both lowerings, MEASURED at parse-that master + this repair)** | the same three → `ok:false css_syntax`, js ≡ wasm |
+| **disposition** | **shared spec-coverage departure, not a mirror-defect**: the engines agree, so the harness counts nothing. WPT population excluded by `test/css-color5.test.ts` (R-c-3), counted from its own tallies (`:76`, `:103`, `:198`, `:220`): 18 `color-mix()` cells (10 computed + 8 valid) and 35 legacy cells (34 valid + 1 invalid) |
+| **consumer direction** | NO CHANGE against 4.0.0. A consumer who writes `calc()` in a colour channel is refused today and stays refused |
+| **owner** | **Track D, the next X·P grammar wave**: css-values-4 §10 as a production of the seam's value grammar, reachable from the colour channels, in BOTH lowerings, landed with its WPT cells un-excluded. No frozen type moves (a math function resolves to the channel's own number), so no contract ruling is needed |
+
+#### SC-2 — `color(display-p3-linear …)` as an INPUT space: refused by BOTH engines (shared; contract-gated)
+
+| field | value |
+|---|---|
+| **entry** | `parseCssColor` |
+| **subject** | css-color-4 §10 predefined `display-p3-linear`. The seam ADMITS it as a `color-mix()` interpolation space (`in display-p3-linear`), but not as a `color()` input space |
+| **incumbent (4.0.0, MEASURED)** | ⟨`parseCssColor("color(display-p3-linear 1 0 0)")`⟩ → `ok:false css_syntax`, `expected ["CSS color space"]` |
+| **candidate (MEASURED)** | `ok:false css_syntax`, js ≡ wasm |
+| **disposition** | **shared spec-coverage departure, contract-gated.** A `color()` value in this space has to be returned as a `CssColor` whose `space` is `display-p3-linear`, and that literal is not a member of the frozen 4.0.0 `CssColorSpace` union (`src/css/build/value-css-4.0.0.d.ts`). Widening it is a contract change (`W3.md` §3a), not a grammar act. WPT population excluded: 45 computed + 31 valid (8 invalid cells are refused anyway) |
+| **consumer direction** | NO CHANGE against 4.0.0 |
+| **owner** | **the orchestrator (contract ruling)**, then the Track D grammar wave that carries SC-1. Carried as escalation **ESC-R1-2** in `execution/D/X-P-W5.md` §Repair 1 |
+
+#### §13.1 A candidate-side cure beside F-w4f-1: a non-ASCII declaration name is one `<ident-token>`
+
+F-w4f-1 (§11) narrowed `decl-name` to "the `ident` continuation set". The table it used
+(`typescript/src/css/algebra/tables.mjs`, `isIdent`) is ASCII-only, while css-syntax-3 §4.2 defines
+an *ident code point* as an ident-start code point (a letter, U+005F, or a **non-ASCII** code point),
+a digit, or U+002D. Measured at parse-that master `488523c`, before the cure:
+⟨`parseStylesheet("a { Xé: red }")`⟩ → `ok:false css_syntax`, and `a { --x≡y: red }` → `ok:false`.
+Both are one `<ident-token>`, and 4.0.0 accepts both. The regression test that guarded this case
+(`test/css-recovery/stylesheet-grammar.test.ts`, J-6) read RED on master.
+The cure adds the non-ASCII marker `0xFF` to `decl-name`, the same marker `ident-start` already
+carries. After it, `a { Xé: red }` → declaration `xé` and `a { X≡Y: red }` → `x≡y`, js ≡ wasm. F-w4f-1's
+refusals are unmoved: `!color`, `border-co+or`, `backgrou(d-color`, `,ackground-color`, `/olor` and
+`backgro und-color` are still refused whole. This opens no new divergence, since it moves the
+candidate toward 4.0.0 on inputs that are ident-tokens. The full-surface harness still reads
+`MIRROR-DEFECTS 0` afterwards (the reading is in the §Repair 1 of `execution/D/X-P-W5.md`).
+
+#### §13.2 An observation for CAP-3 / CAP-4's owner (no row moved)
+
+CAP-3 and CAP-4 say "NO COORDINATE … the WINDOW cuts first". That holds for the declared witness
+family `a{c}×n`: at its largest fitting n = 3,526 it names `<mark-journal>` and never the recovery
+or diagnostic journal. But the census family `a{c;×n}` (inside one body) names
+`[marks, recoveries, D]` at 14,107 code units (measured in `capacity.test.ts` §6 at this repair).
+So both journals **are** reachable under Θ.input, just not by the declared family. The emitter's
+witness choice (`bounds.mjs` `witnessAtCapacity`) belongs to whoever next re-emits §7. It is not
+re-emitted here (E-3).
