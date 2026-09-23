@@ -6968,3 +6968,103 @@ only fresh measurements are the five commands in the table above, each run twice
 MEDIUM row C2-4 make **4** escalated. No product byte moved, and `dev.sh` was not staged. **Re-sit triggers**: (1) X-W5 cures
 ESC-W6close5-1 at its own bytes, then W6 re-reads a5–a12, a13, e1 and g2 ×2. (2) COHESION rules ESC-W6i-i3-1 (a), (b) or (c), then `.i` re-sits.
 Unrelieved RED set: **12**, unchanged. **The LEDGER row stays PARTIAL.**
+
+## Check 3 — RESUME 2026-09-22 (L-20 fresh adversarial pass 3, over the fifth sitting's close `1835ce1d` + Repairs 1–2)
+
+SERVED MODEL: claude-opus-5-5[1m]
+
+**Append-only beside** every block above (E-3). VERIFY-ONLY: this seat cures nothing. `W6.md` read whole once (486 lines, all three
+ADDENDA). Of this record: the header, the fifth sitting's Open → Unit plan (`:6003-6130`), Check 2 (`:6819-6921`) and Repair 2
+(`:6925-6970`). Transcripts in the seat's scratchpad, not committed. Fresh vite `:9355` (started and killed by this seat); fresh
+Playwright webServers `VJS_E2E_PORT` 9361 / 9371 / 9381.
+
+### Axis 0 — crash-recovery
+
+⟨cmd⟩ `git status --porcelain` → ` M …/V/reformation/CARRY-LEDGER.md` · ` M …/W6-evidence/catalog/after-catalog-open.png` ·
+` M …/W6-evidence/catalog/after-specimen-dots.png` · ` M scripts/dev/dev.sh` — identical at open and at this seat's last act (this seat
+ran no o22/o24 capture). None is in this seat's writable set (this record, the LEDGER). **Nothing inherited; nothing touched.**
+
+### Axis 2 · 4 · 5 — bounds, families, E-3 (since Check 2)
+
+⟨cmd⟩ `git log --oneline 9c5aaec2..HEAD` → `29394f55` (record, +49) · `608595e6` (LEDGER, +1) — docs only, one meaning each.
+⟨cmd⟩ `git diff --stat 9c5aaec2..HEAD -- docs/tranches/X/waves/W6.md …/W5.md …/W7.md docs/tranches/V/megatranche/registry/adjudicated/
+scripts/dev/dev.sh src demo e2e` → **empty**. Check 2's pre-sitting reading (`d7bc7bec^..HEAD` empty over the same set) stands. **Clean.**
+
+### Axis 3 — masking
+
+No product or spec byte moved since Check 2 (⟨cmd⟩ `git log --oneline 9c5aaec2..HEAD -- demo e2e test src | wc -l` → `0`); Check 2's
+read of `df290a72` (settle added, assertions untouched, +9/−0) stands. **Clean.**
+
+### Axis 1 · 9 — the gates, re-run by this seat (2026-09-22 23:03–23:20, load 4.9 → ~10)
+
+| gate(s) | ⟨cmd⟩ | this seat |
+|---|---|---|
+| a1 · c2 | `npx vitest run test/gradient-order-invariant.test.ts test/interpolation-subset.test.ts` | `Tests 22 passed (22)` → **GREEN** |
+| a2 · a3 · a4 · b3 · e1 · a13 (pw leg) | `VJS_E2E_PORT=9361 npx playwright test e2e/smoke/views/gradient.spec.ts e2e/smoke/oracles/o21-gradient-rail.spec.ts --project=smoke` | **`22 passed (2.0m)`**, EXIT 0 — `o21:188` (a4) ✓, `gradient:451` (e1) ✓ |
+| a5–a11 | `GRADIENT_URL=http://localhost:9355/#/gradient node docs/tranches/X/waves/W6-evidence/gradient/gate-a-gesture-paint.mjs` ×2 | run 1 EXIT 0 · run 2 EXIT 0, `GATE X.W6.a (gesture + paint) — GREEN`, *outside of the viewport* 0 ×2 → GREEN **2 of 2 here** (Check 2: RED 1 of 2) |
+| a12 | `WBGSE-D-probe2.mjs` via a dot-prefixed copy differing only at `:6` (`9000`→`9355`), deleted after; `git status --porcelain <evidence dir>` → empty before and after | EXIT 0, `"afterOverhangPx": 0` → GREEN 1 of 1 (close: RED 3 of 3) |
+| b2 · b4 (b1) | `GRADIENT_URL=… node …/wb-gradient-stopeditor/gate-seat.mjs` | EXIT 1, `G3d` **2**, `G3e` 0, `G3f` 0 → b2 b4 **GREEN**; b1 = `B1-G3D` |
+| c1 · c3 | `gate-structure.mjs` · `npx vite-node docs/tranches/X/gates/gate-literal-dialect.mjs` | `GATE G4 (structure) — GREEN` · `GATE c3 (literal dialect) — GREEN` |
+| d1 · d2 · e2 | `EASING_RADIUS_ORIGIN=http://localhost:9355 … gate-easing-radius.mjs` · `gate-easing-readout.mjs` · `grep -rn requestAnimationFrame demo/workbenches/gradient/ \| wc -l` + `gate-prm-idiom.mjs` | `measured: 33` `GATE d1 — GREEN` · EXIT 0 · `0` + `GATE e2 (PRM idiom) — GREEN` |
+| f1 · f5 · h2 · i2 · H1 | `node docs/tranches/X/gates/gate-{catalog-totality,specimen-grammar,blob-pipeline,lband-door}.mjs` · `gate-no-chassis.mjs b2dd375c a87f8930` | EXIT **0** ×5 |
+| H3 | the parser R1 one-liner · glass version | `R1=0` · (glass `7.0.0`, Open) |
+| i3 | `VJS_E2E_PORT=9371 npx playwright test e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts …` | **RED** — Received **0.15949 · 0.29331 · 0.24326** (≤ 0.02); ground at paint `[#b37290 #df8ea7 #ffb0b4 #ffcfc8]` for every seed |
+| g2 | `companion-pane-track-start.spec.ts -g "companion panes share one track start"` ×2 (9371, 9381) | run 1 ✓ · run 2 **RED** Received **6.50144** (≤ 1) → **RED 1 of 2** |
+| j1–j3 | `grep -c "component: Stub" demo/color-picker/router/index.ts` · `ls e2e/smoke/oracles \| grep -c o29` | `14` · `0` → RED (routed, below) |
+
+Cited, not re-run (Check 2's reading of 2026-09-22 22:55–23:00, no byte moved since): c4 · f2 · f3 · f4 · f6 · f7 · f8 · f9 · f10 · i1 ·
+h1 (close ×2) · j4 (retired). The catalog Playwright arms were not re-run here, deliberately: they re-write the tracked catalog PNGs.
+
+**Close-claimed GREENs reproduced by this seat: 19** — a1 a2 a3 a4 b2 b3 b4 c1 c2 c3 d1 d2 e2 f1 f5 h2 i2 H1 H3. Self-count:
+a1–a4 (4) + b2–b4 (3) + c1–c3 (3) + d1 d2 e2 (3) + f1 f5 (2) + h2 i2 (2) + H1 H3 (2) = **19**. **No claimed GREEN failed.** Ten
+unrelieved gates also read GREEN in this seat's run (a5–a11, a12, a13, e1); that is not a close-stable GREEN (below).
+
+### Axis 6 · 7 · 8
+
+- **(6) Mail**: ⟨cmd⟩ `grep -c '^| I-\|^| O-' INBOX.md` → **97** (unchanged); `awk -F'|' '$6 ~ /UNREAD/'` → O-20 · I-31 · I-32 · O-39 (prose
+  hits) · I-40 (Track C fourier) — the same set Check 2 read. ⟨cmd⟩ `find <V/ · V/coordination · glass BK/coordination · keyframes
+  V/coordination · atlas P/coordination> -maxdepth 1 -type f -newermt "2026-09-22 22:40" | wc -l` → **0** at all five (BK still the newest
+  glass dir). **0 UNREAD in W6's scope.**
+- **(7) Four-verb**: `IMPLEMENTED no` with RED gates unrelieved — lawfully unmoved; the LEDGER row reads PARTIAL.
+- **(8) §2a goal**: **NOT MET at the bytes** — the cold load paints the default ground, not the pick (i3); About sits 6.5 px off its
+  track on 1 of 2 reads (g2); no route owns a scene (`component: Stub` ×14); the gradient's gesture truth held here but failed at the
+  close and at Check 2 under the same X-W5 stuck-enter.
+
+### Axis 10 — honest-RED adjudication, at the spec bytes
+
+| gate | relief at the spec bytes | owner (residual register) | verdict |
+|---|---|---|---|
+| g1 | `W6.md:484` *"**g1** honest-RED by id → X-W10 (M-23)"* | R-6 → X-W10 | **RELIEVED** |
+| b1 | `W6.md:486` *"b1 = `B1-G3D` honest-RED-by-instrument"*; this seat: exactly 2 `G3d` lines | R-4 → X-W11 roster | **RELIEVED** |
+| j1 · j2 · j3 | `W6.md:479/484/486` *"`.j` after X-W5 CLOSED"*; LEDGER X-W5 = `PARTIAL — RESUME 5 close` | R-7 → `.j` | **RELIEVED** (routed behind an unmet predecessor conjunct) |
+| H4 | CC-056/CC-057 land only in `.j` (§Dispositions) | R-7 | **RELIEVED** |
+| H2 | the `.j` MOTION-SOURCED leg is `.j`'s (§5 `.j`, §6 H2) | R-8 → `.j` | **RELIEVED** |
+| i3 | **none** — §0ax routes i3 to `.i` inside THIS wave; ESC-W6i-i3-1 still unruled (⟨cmd⟩ `grep -c 'ESC-W6i-i3-1\|ESC-W6close5-1' COHESION.md` → **0**) | R-5 | **UNRELIEVED** (RED here, stable across every seat) |
+| g2 | **none** — the mechanism is X-W5 `.d2`'s stuck `vj-enter` (ESC-W6close5-1, unruled); a predecessor regression escalated is not relieved | R-15 → X-W5 | **UNRELIEVED** (RED 1 of 2 here) |
+| a5–a11 · a12 · a13 · e1 | **none** — same ESC-W6close5-1 species; no addendum names them | R-15 → X-W5 | **UNRELIEVED** (GREEN in this seat's run, but RED at the close and at Check 2 at unchanged bytes — not stably GREEN; Repair 1's own ×2-after-the-X-W5-cure bar is unmet) |
+
+**Honest-RED set (relieved, owner-named)**: g1 · b1 · j1 · j2 · j3 · H2 · H4 (7). **Unrelieved**: a5 · a6 · a7 · a8 · a9 · a10 · a11 · a12 ·
+a13 · e1 · g2 · i3 (12).
+
+### Successors' "Opens after" conjuncts against X-W6
+
+X-W7 (`W7.md:6`: X-W3 · X-W4 · **X-W6**) · X-W8 (`W8.md:6`: X-W5 · **X-W6** · X-W7) · X-W10 (`W10.md:6`: X-W5..X-W9 stable) · X-W11
+(`W11.md:6`: X-W0..X-W10 IMPLEMENTED): the X-W6 conjunct is **RED** in each — all four **lawfully BLOCKED** on this wave. X-W6's own `.j`
+conjunct (X-W5 CLOSED) is RED (LEDGER X-W5 `PARTIAL`).
+
+### Register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C3-1 | **HIGH** | i3 RED; a W6 `.i` duty (§0ax) with no relief at the spec bytes; ESC-W6i-i3-1 unruled | this seat: o28 Received 0.15949 / 0.29331 / 0.24326 (≤ 0.02); COHESION hits 0 | COHESION rules ESC-W6i-i3-1 (a)/(b)/(c); `.i` re-sits |
+| C3-2 | **HIGH** | g2 RED (not stably GREEN): About off its shared track, X-W5 stuck-enter (ESC-W6close5-1), unrelieved | this seat: run 1 ✓, run 2 Received 6.50144 (≤ 1) | X-W5 cures ESC-W6close5-1 at its own bytes; W6 re-reads g2 ×2 |
+| C3-3 | MEDIUM | a5–a11, a12, a13, e1 read GREEN in this seat (a5–a11 2 of 2, a12 1 of 1, suite 22/22) but failed at the close and at Check 2 at identical bytes; the same unrelieved species, not a close-stable GREEN | this seat's runs above; Check 2 `gate-a-gesture-paint` run 1 EXIT 1; close a12 RED 3/3 | same as C3-2; re-read ×2 after the X-W5 cure |
+| C3-4 | INFO | no claimed GREEN failed; bounds, masking, E-3, families and mail all clean since Check 2 (docs-only commits `29394f55` `608595e6`) | axes 2–6 above | none |
+
+### Verdict
+
+**NOT-CONFORMANT.** All 19 claimed GREENs this seat re-ran reproduced, and none failed. But **i3 is RED and g2 is RED 1 of 2**, and
+neither has relief at the spec bytes (C3-1 · C3-2, HIGH). The a-gesture/e1 set is still unstable across seats at unchanged bytes (C3-3),
+and the §2a goal is unmet. Honest-RED (relieved, owner-named): g1 · b1 · j1 · j2 · j3 · H2 · H4. No byte has moved since Check 2 and
+both escalations are unruled, so this pass could not have returned otherwise. The **re-sit triggers stand**: X-W5 cures ESC-W6close5-1,
+and COHESION rules ESC-W6i-i3-1. The LEDGER row **stays PARTIAL**; this seat makes no status edit and appends one event line.
