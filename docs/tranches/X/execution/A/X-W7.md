@@ -1139,3 +1139,69 @@ four escalations to the ruling seat before Repair 2.
 
 **Tally (count of the register rows)**: 8 rows: HIGH 1 · MEDIUM 4 · MINOR 2 · INFO 1. 14 §6 GREENs were reproduced; 1 claimed
 browser leg (o9 `:193`/`:211`) was not. Honest-RED: G3 · G11 · G14-grep. **NOT-CONFORMANT.**
+
+---
+
+## Repair 2
+
+**Seat**: REPAIR SEAT round 2, `claude-opus-5-5[1m]`, wall clock 2026-09-23, opened at HEAD `11fb3315`. Register = §Check 2's
+8 rows. Read: W7.md whole, once · this record's header through §Unit plan · §Check 2 · targeted `sed` ranges of §Repair 1 (D-6,
+§Escalations) and `X-W7-FOLD.md` (B-1 `:433-436`, C-10 `:48`, W7.542/.544/.547).
+
+**Crash-recovery** ⟨cmd⟩ `git status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh`.
+Neither is in the writable set. No inherited hunk.
+
+**Rulings precondition** ⟨cmd⟩ `grep -n "ESC-R1-G16\|ESC-W7d-INSPECTOR\|ESC-W7g-G19-BOUNDS\|ESC-R1-XP-REST\|ESC-R1-R18-SWATCH"
+docs/tranches/X/COHESION.md | wc -l` → **0**. None of the ruling-gated rows (H-1 · M-1 · M-2 · M-3's ruled half) has a grant or a
+routing. Their only cures lie outside §4 ∪ B-1..B-6, so this seat escalates them again and does not work around them.
+
+**Machine state**: ⟨cmd⟩ `uptime` → load **27 → 60 → 170** over the sitting (the other tracks are live). Every browser reading
+below carries that caveat. Browser runs used a private tree-true server (`VJS_E2E_PORT=8193`/`8195`, the T.W3 lane seam), never
+a sibling's `:8090`.
+
+### Defect → cure → commit → gate re-reading
+
+| # | defect | cure | commit | gate re-reading |
+|---|---|---|---|---|
+| H-1 | HIGH · G13: 6 ROUTED rows have no browser assertion; `useBrowsePalettes.ts` swallows 4 failures; §5.d inspector not built | **not curable at this seat.** ESC-W7d-INSPECTOR is still unruled. The swallow sites and the 6 rows' seats are `useBrowsePalettes.ts` / `useDialogBrowseActions.ts`, which are in neither §4 nor B-1..B-6. Surfacing them without a grant is an out-of-bounds write. | — | ⟨cmd⟩ `grep -n console.warn demo/palettes/useBrowsePalettes.ts` → `:140` vote · `:151` delete · `:175` rename · `:214` visibility (unchanged) · ⟨cmd⟩ `grep -nE "^\|.*ROUTED" W7-mutation-ownership.md` → rows 2 · 3 · 6 · 7 · 8 · 11. **RED, escalated** |
+| M-1 | MEDIUM · G16: 26 display sites and 3 dead APIs outside §4 | **not curable.** ESC-R1-G16 is still unruled | — | in-bounds half unchanged (Check 2: `format-color.test.ts` 42/42). **RED, escalated** |
+| M-2 | MEDIUM · G19: 8 out-of-bounds `eyebrow` hits | **not curable.** ESC-W7g-G19-BOUNDS is still unruled; every hit is outside §4 ∪ B-1..B-6 | — | ⟨cmd⟩ `grep -rn eyebrow demo/ \| grep -v node_modules \| wc -l` → **8 · 8**. **RED, escalated** |
+| M-3 | MEDIUM · XP-EXTRACT remainder + R18's valid leg | **cured in part inside B-1.** EC-46 (W7.547): `ExtractControls.vue` minted `[k]` / `[chromaWeight]` on every parent render. Both models are now `computed`, so a new array exists only when the value changes. The rest stays escalated (reasons below). | `d9360868` | ⟨cmd⟩ o9 `--grep "instrument face"` (the live-k slider leg) → **1 passed · 1 passed** · `plate-mass.test.ts` → **4/4 · 4/4** · demo `vue-tsc` EXIT 0 · eslint EXIT 0 |
+| M-4 | MEDIUM · o9 `:193` Mix / `:211` My Palettes TRUE EMPTY RED | **re-run and bisected; no product regression found; still RED on this machine.** ⟨cmd⟩ o9 alone, private cold server → **3 passed / 2 failed**. Warm server → **3 / 2**. `--grep "TRUE EMPTY" --workers=1` → **1 / 2**. Both failures happen before any W7 assertion: the pane Card with the route's heading is absent at the 8 s expect (`:199`, `:215`), or the dock option click is "not stable" for 30 s. The trio and filler legs are never reached. Probe (scratch script, the smoke project's `chromium` channel + SwiftShader, `/` → dock select → poll `main h2`): at HEAD the Mix pane mounts in **22.2 · 11.0 · 16.2 · 3.0 · 3.6 s** and Palettes in **6.2 · 4.6 · 4.1 s**. Bisect endpoint `8fe6a2db` (scratch worktree, removed afterwards), same probe, same load: Mix **49.3 s** and one 30 s option-click timeout. **The old tree is not faster than HEAD**, so nothing in `8fe6a2db..HEAD` shows a mount-latency regression. The RED is dock-swap latency at load 60–170 against an 8 s expect. That is the starvation class, the same as m-2. | — | **RED (environmental), escalated**. The owed act is a quiet-machine run (X-W1's readiness hygiene). The o9 file is W7's (`modify-carve`), but lengthening its timeouts would be a masking fallback, so it was not done |
+| m-1 | MINOR · the `BrowsePane.vue:177` comment spells the G14 literal | reworded to "the deliberate `dismiss` rung" | `0ad9c912` | ⟨cmd⟩ `grep -rn 'dismiss="deliberate"' demo/ \| grep -v node_modules \| wc -l` → **0 · 0**. G14's grep clause now reads a true 0 (relieved: glass ≥ 8.0.0) |
+| m-2 | MINOR · `w7-destructive-seats` `color-name delete` is RED cold and GREEN warm | **not a one-command cure.** The owner Check 2 names is X-W1 test hygiene (warm-up/readiness). A longer local timeout would mask it | — | escalated to X-W1 |
+| I-1 | INFO · glass BK relay (`.cartoon-cast`) owed | the orchestrator's mail seat. Not this seat's act | — | carried |
+
+### Escalations carried (the orchestrator or triumvirate rules)
+
+- **ESC-W7d-INSPECTOR** (H-1): unruled. The grant needed covers `useBrowsePalettes.ts`, `useDialogBrowseActions.ts`, the
+  inspector path, and S-5's deletion of `PaletteCard.vue`. The alternative is to route it to a named wave.
+- **ESC-R1-G16** (M-1) · **ESC-W7g-G19-BOUNDS** (M-2): unruled, and the figures are unchanged.
+- **ESC-R1-XP-REST** (M-3 remainder): EC-46 is now cured (`d9360868`). The remaining rows and the reason each is still open:
+  - **EC-9** (W7.542, the k readout). The fold says the readout lies. The cure has to choose what an honest readout shows:
+    the result count, "found of requested", or a title. That is a design register, which M-23 forbids an implementation seat to
+    invent, so the row goes to triumvirate or X-W10.
+  - **EC-25** (W7.544). The fold says this row "dies structurally with EC-10's `string | null` re-type IF the generate consumer
+    moves in the same step". It rides EC-10.
+  - **EC-10** needs X-W10's design law for a discrete rail.
+  - **EY-12** needs a layout ruling.
+  - **EY-23**, **§R3.2** ImageDropZone (17 rows) and the **camera-mode cluster** (XW-8/9/35) are in bounds under B-1 but did
+    not fit in this round. They need a dedicated X.W7.g round.
+- **ESC-R1-R18-SWATCH**: unchanged. The valid leg needs `WatercolorDot`'s name (CC-044 → X-W4.g) or X-W1 re-ruling the locator.
+- **ESC-R2-O9-STARVATION** (M-4) · **ESC-R2-SEAT-COLD** (m-2): both go to X-W1's readiness hygiene or a quiet-machine run.
+  The bisect found no product regression.
+
+### Cadence at close of this seat
+
+⟨cmd⟩ `npx eslint <changed files> --max-warnings=0` → EXIT 0 · ⟨cmd⟩ `npx vue-tsc -p tsconfig.demo.json --noEmit` → EXIT 0 ·
+⟨cmd⟩ `git diff --check` over the two product commits → EXIT 0 · ⟨cmd⟩ G18 `git diff --stat e24361c6..HEAD -- src/ | wc -l` → **0 · 0**.
+`dev.sh` was not touched. The ledger row stays **PARTIAL** and is not promoted, because the unrelieved set is still G13 · G16 · G19
+plus the XP remainder.
+
+**Tally (count of the table rows above)**: 8 register rows, and 1 + 1 + 5 + 1 = 8.
+- **Cured whole, 1**: m-1 (`0ad9c912`).
+- **Cured in part, 1**: M-3. Its EC-46 limb is cured (`d9360868`) and its other rows are escalated.
+- **Measured and escalated, 5**: H-1, M-1, M-2, M-4 and m-2.
+- **Carried, 1**: I-1.
+
+**Next**: the orchestrator rules the four ESC rows, then Check 3.
