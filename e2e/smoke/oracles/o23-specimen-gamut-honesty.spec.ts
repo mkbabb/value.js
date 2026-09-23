@@ -2,6 +2,7 @@ import { test, expect } from "@playwright/test";
 import type { Page } from "@playwright/test";
 import { setupEnvNoise } from "../fixtures/env-noise";
 import { convertColor } from "../../../dist/subpaths/color.js";
+import type { SpaceId } from "../../../dist/subpaths/color.js";
 import { parseCssColor } from "../../../dist/subpaths/css.js";
 
 /**
@@ -55,10 +56,14 @@ const SEED_COLOR = "lab(92% 88.8 20 / 82.70%)";
  * marks a space with no gamut boundary at all (a reference space, whose slider
  * extents are not a gamut).
  */
-const GAMUT_BOUNDS: Record<
-    string,
-    readonly (readonly [number, number] | null)[] | null
-> = {
+type GamutBounds = readonly (readonly [number, number] | null)[] | null;
+
+/**
+ * Keyed TOTALLY by the catalog's 18 members — the library's 17 `SpaceId`s plus
+ * `hex` — so this fixture is also the typed witness that a caption's
+ * `data-space` names a space the shipped library converts into.
+ */
+const GAMUT_BOUNDS: Readonly<Record<string, GamutBounds>> = {
     rgb: [
         [0, 255],
         [0, 255],
@@ -107,7 +112,18 @@ const GAMUT_BOUNDS: Record<
         [0, 255],
         [0, 255],
     ],
-};
+} satisfies Record<SpaceId | "hex", GamutBounds>;
+
+/** A catalog key the library converts into; `hex` is 8-bit sRGB, read as `rgb`. */
+function librarySpace(space: string): SpaceId {
+    if (space === "hex") return "rgb";
+    if (!isSpaceId(space)) throw new Error(`not a library space: ${space}`);
+    return space;
+}
+
+function isSpaceId(space: string): space is SpaceId {
+    return space !== "hex" && Object.hasOwn(GAMUT_BOUNDS, space);
+}
 
 /**
  * The digit policy's Lab recovery bound for the seeded colour. MEASURED, not
@@ -136,10 +152,7 @@ type Row = {
 function seedChannelsIn(space: string): readonly number[] {
     const parsed = parseCssColor(SEED_COLOR);
     if (!parsed.ok) throw new Error("seed unparseable");
-    const converted = convertColor(
-        parsed.value,
-        (space === "hex" ? "rgb" : space) as never,
-    );
+    const converted = convertColor(parsed.value, librarySpace(space));
     if (!converted.ok) throw new Error(`seed unconvertible to ${space}`);
     return converted.value.channels.map((channel) =>
         typeof channel === "number" ? channel : Number.NaN,
@@ -175,8 +188,7 @@ function leavesGamut(space: string): boolean {
     if (!bounds) return false;
     const parsed = parseCssColor(SEED_COLOR);
     if (!parsed.ok) throw new Error("seed unparseable");
-    const target = space === "hex" ? "rgb" : space;
-    const converted = convertColor(parsed.value, target as never);
+    const converted = convertColor(parsed.value, librarySpace(space));
     if (!converted.ok) throw new Error(`seed unconvertible to ${space}`);
     return converted.value.channels.some((channel, index) => {
         const bound = bounds[index];
