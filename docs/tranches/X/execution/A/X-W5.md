@@ -3445,3 +3445,115 @@ Set 7 (load 5.88), landed, read ×2 (⟨cmd⟩ `diff d1tab1 d1tab2` → IDENTICA
 **Residuals**: headless D1 0/14 on this host (software-GL instrument; the operator's quiesced window stays the only clean headless reading) · the out-in serialisation lengthens the swap to 200 + 440 ms by construction (the ruled mode) · upstream Vue 3.5 dev-root-fragment × `<Transition mode="out-in">` minimal repro rides the owner-report letter (§0ax), not a `node_modules` patch.
 **Escalations**: none.
 **Scratch hygiene**: static servers `:8131`/`:8132` stopped (⟨cmd⟩ `lsof -i :8131 -i :8132 -sTCP:LISTEN | wc -l` → 0).
+
+## Close — RESUME 5, 2026-09-22 (VERIFY-ONLY close seat)
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X-W5 CLOSE (RESUME 5) · HEAD at open `ec11f1a0` · date of record 2026-09-17 (COHESION §0j).
+This seat cured nothing. It wrote this section, one INBOX sweep line and the LEDGER row cells. Inputs: `W5.md` whole (396 L, both ADDENDA 2026-09-22), this record's
+header, `## RESUME OPEN 5` (R5.0–R5.4), the RESUME 5 `.c2` and `.d2` receipts, and `## Close — RESUME ROUND 4` (the last close section).
+
+**Verdict: PARTIAL.** `.d2` is DONE and its gates reproduce here: D1 of record (headed real-GPU) passes 2/2. `.c2` is PARTIAL. Its §0ax gate "o12/o16/census-parity
+oracles GREEN ×2" still has two RED legs at this seat's clock: o12 O-12·3 and o16 W5-census R2. Both are escalated (ESC-W5c2-1 and ESC-W5c2-2) and have no ruling yet.
+**IMPLEMENTED is NOT stamped.**
+
+### CL5.0 Crash-recovery
+⟨cmd⟩ `git status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh`. Neither path is in this seat's writable set, so there is
+**no inherited partial**. `dev.sh` was never touched.
+
+### CL5.1 Commit roster and bounds (⟨cmd⟩ `git show --name-only` per sha)
+
+| unit | sha | paths | in writable set? |
+|---|---|---|---|
+| `.c2` | `ab5270b6` | `e2e/smoke/fixtures/dock.ts` + 61 landmark files (60 `*.spec.ts` + `e2e/visual/capture.ts`) | YES. ⟨cmd⟩ `git grep -l 'Color tool panes' ab5270b6^ -- e2e` (61) `comm -3` the commit's 62 paths → only `fixtures/dock.ts` differs, and it is granted by name |
+| `.c2` | `ad93c771` | `e2e/visual/census.ts` | YES |
+| `.c2` | `fdf3e9e0` | `demo/color-picker/router/index.ts` | YES (unique referent of the §0ax grant, R5.2) |
+| `.c2` | `1b737078` | `waves/W5/green/c2-landmark-census-N14-2026-09-22.json` | YES |
+| `.c2` | `25c2ee94` | `execution/A/X-W5.md` | YES |
+| `.d2` | `52dc0a5b` | `App.vue` (+`:reset-key` and its comment) · `ErrorBoundary.vue` · `main.ts` · `ColorPicker.vue` (the `:2-4` comment moved inside the root `<div>`, and nothing else) · `PaneErrorPlate.vue` · `PaneLoadingPlate.vue` (new, under `demo/shell/`) · `PaneSlot.vue` · `usePaneRouter.ts` | YES (R5.4 `.d2` row) |
+| `.d2` | `b36df565` | `demo/styles/animations.css` | YES |
+| `.d2` | `bdee09ce` | `workflows/gates/scene-swap-budget.mjs` | YES |
+| `.d2` | `70fb89d7` | 8 files under `waves/W5/green/` | YES |
+| `.d2` | `ec11f1a0` | `execution/A/X-W5.md` | YES |
+
+**Landed-wrong: none.** The coupled family P-1..P-4 + EB-2 is one commit (`52dc0a5b`), as fold `:41` requires. ⟨cmd⟩ `sed -n 12,23p demo/shell/PaneSlot.vue | md5` →
+`a7fe04be35764c9b6b293dfc5f08f523`, unchanged from R4.3. §9 c6 (this close + the IMPLEMENTED flip) is **not** landed, because the gate is unmet.
+
+### CL5.2 Gates, re-run at this seat's clock (static arms: `scratchpad/close.sh` ×2, ⟨cmd⟩ `diff r1 r2` → IDENTICAL; live arms each run ×2)
+Live surfaces: the built bundle (`vite build --mode gh-pages --outDir scratchpad/dist`, BUILD_EXIT=0) served statically on `:8153` for D1/D5, and the tree's own
+dev server on `:9000` (the probes' default; PID 14970 serving this worktree) for A/B/C probes. The playwright oracles ran on `VJS_E2E_PORT=5197`.
+
+| gate | BEFORE (R5.3 / CL4.2) | AFTER (this seat) | state |
+|---|---|---|---|
+| A1 main.ts exit · App grep | 0 · 0 | **0 · 0** | GREEN |
+| A4 `bindPane` hits (the bite was banked at Check 1) | 10 | **10** | GREEN |
+| A5 `route-scene-truth.mjs` ×2 (core: `h1===1 && main===1 && visible && text===label`) | 15/15 (banked) | **15/15 ×2**; the probe's `green:false` comes only from the OUTLINE arm (11/15), which is routed to X-W10 | GREEN (core) |
+| A6 boot-URL silence | GREEN | **`A6.green:true` ×2** | GREEN |
+| A7 announced redirect · `role="status"` grep | 3 | **`A7.green:true` ×2** · **5** (≥1; +2 from `.d2`'s plates, each its own `role="status" aria-busy`) | GREEN |
+| A2 blob arm | re-authored by `.t`, `pass:true` ×2 | banked (`triumvirate/A2-blob-arm-run{1,2}`); not re-probed | GREEN (banked) |
+| A3 / C2 `dock-action-parity.mjs` ×2 | relieved (§0k.3 S-1 → X-W8) | **`{mobileChanged:true, zoom200Changed:true, desktopChanged:true, green:true}` ×2** | GREEN at this clock (the relief stands; this is a reading, not a cure claim) |
+| B1 · B2 `layout-utilization.mjs --assert` | GREEN | **GREEN · GREEN ×2** (verdict lines IDENTICAL across runs) | GREEN |
+| B3 | relieved | **RED ×2**: `#/gradient` 76.8% · `#/browse` 39.6% · `#/generate` 39.6% · `#/mix` 51.1% · `#/extract` 45.6% | relieved → X-W6 (CC-056) |
+| B4 `100dvh` · `svh` files · `content-max-h` | 0 · 3 · 0 | **0 · 3 · 0** | GREEN |
+| B5 | recorded | webkit `CSS.supports('overflow-block','auto')` **true** (probe line 83) | recorded |
+| C3 fork census | 23 / 9 files | **23 / 9** | routed (X-W8 `.i` / `.h`, §0aq) |
+| C4 exit | 0 | **0** | GREEN |
+| C7 viewport `@media` (source-scoped, capability queries excluded) | 4 | **3**: `DockStatusLamp.vue:70` · `animations.css:17` · `foundation.css:526` | at target 3; the `DockStatusLamp` row is still routed → X-W8 `.h` |
+| C8 exit | 0 | **0** | GREEN |
+| C1 · C5 | GREEN (banked, `.t`) | not re-probed; no region/mount byte moved except `.d2`'s out-in mode, whose co-mount/strand re-probe is GREEN below | GREEN (banked) |
+| D1 of record, headed real-GPU (ANGLE Metal, Apple M5 Max) ×2 | `.d2`: 14/14 | **run 1** (load 13.56): gradient 1/84=0.012 · extract 0/89 · mix 0/87 · generate 0/88, med 10 ms, pass · **run 2** (load 12.88): 1/83 · 0/88 · 0/88 · 0/87, med 10, pass | **GREEN-by-instrument** (§0ax) |
+| D1 headless SwiftShader ×1 (beside) | 0/14 | gradient .371 · extract .155 · mix .282 · generate .102, pass:false | RED beside, not of record |
+| D2 exit | 0 | **0** | GREEN |
+| D3 physical names · role rules | 0 · 8/8/8 | **0** · `stage` 10 · `inspector` 10 · `action` 10 selector lines | GREEN |
+| D4 Mix · Admin `<Transition ` | 1 · 1 | **1 · 1** | GREEN |
+| D5 `PROBE_PRM=1` ×2 | GREEN | **pass:true ×2**, every hop `animated:true` | GREEN |
+| E1 per file | 0 0 0 0 | **0 0 0 0** | GREEN |
+| E2 `P122` per file | 9 · 3 · 18 · 10 | **9 · 3 · 18 · 10** | GREEN |
+| landmark `grep -rl 'Color tool panes' e2e \| wc -l` | 61 | **0** | GREEN |
+| fixture exports · census `not-found` · router `ViewRoute` | 0 · 0 · 0 | **2 · 3 · 2** | GREEN |
+| N14 (router bite TS2820) · N15 | `.c2`: GREEN | banked (`.c2`); demo vue-tsc EXIT 0 below | GREEN (banked) |
+| census-parity `--project=visual` ×2 | RED | **5 passed ×2** | GREEN |
+| o12 + o16 `--project=smoke` ×2 | 6/6 FAIL at the landmark | **4 passed / 2 failed ×2**, 0 landmark failures. Fails: `o12:134` O-12·3 hover **1.03/255** · **0.19/255** vs the 6/255 floor · `o16:113` W5-census R2 expected `"0.4s"`, received **`"0.44s"`** | **RED** (ESC-W5c2-1 / -2) |
+| containment `contain: layout paint;` · plates · `ColorPicker.vue:2` | 0 · 0 · comment | **1 · 2 · `<div`** | GREEN |
+| §7 `npx vue-tsc -p tsconfig.demo.json --noEmit` | EXIT 0 | **TSC_EXIT=0** | GREEN |
+| §7 `npm run lint` | 23 errors | **23 errors / 32 warnings**, all under `docs/tranches/{V,X}` (⟨cmd⟩ error-bearing paths outside `docs/tranches` → **0**) | no W5 regression |
+| §7 `npx vitest run` | 639/641 | **639/641**. The 2 failures are foreign: NG-6 `reka-binding-idiom` and C-5 `spectrum-luma` BORN-RED | unchanged |
+
+### CL5.3 §8 Verification Artefacts
+- `waves/W5/born-red/` holds **9** files, `waves/W5/green/` **23** and `waves/W5/triumvirate/` **18**. ⟨cmd⟩ `git ls-files docs/tranches/X/waves/W5 | wc -l` → **56**, and ⟨cmd⟩ `git status --porcelain docs/tranches/X/waves/W5` → empty. Every witness is in git.
+- **D1 after** (`scene-swap-budget.mjs`, all four hops, both instruments) is committed at `green/d2-D1-scene-swap-both-instruments-2026-09-22.json`. This seat's ×2 headed reading (CL5.2) reproduces it. **D5** is at `green/d2-D5-prm-2026-09-22.json`.
+- **Portal-integrity delta** ⟨cmd⟩ `portal-integrity.mjs` ×2, with the `when` line removed, `diff` → **IDENTICAL**. The portal's `fieldAncestorIsBody` and `positioningAncestorIsBody` are both **true**.
+- **B5** reading (webkit): `overflow-block:auto` **true**, `min-block-size:100svh` **true**. **B6**: the dock-posture rationale stays at its `shell.css` site, as quoted in the prior closes. No `shell.css` byte moved this sitting (⟨cmd⟩ `git log --oneline 5ad17633..HEAD -- demo/styles/shell.css` → empty).
+- π captures and `audit/visual/layout/` were **not re-captured**. `.d2` changed swap timing (out-in) and swap containment, but no settled layout, so §5.2 parsimony applies. The settled-layout witnesses are B1/B2 and A5 above.
+
+### CL5.4 E13 — the four-path sweep (this seat's clock)
+⟨cmd⟩ `ls -t ../glass-ui/docs/tranches/ | head -1` → **BK**.
+
+⟨cmd⟩ `find <p> -maxdepth 1 -type f -newermt 2026-09-22T20:39:28-04:00`, the time of the RESUME 5 open commit `5ad17633`, came back **empty** for value.js `V/` · `V/coordination` · BK `coordination` ·
+keyframes `V/coordination` · atlas `../sci-report/atlas/docs/tranches/{P,Q,R}/coordination`.
+
+BK's own `FINAL.md` and `EXECUTION-PROGRESS.md` moved. Both are tranche records, not letters. Every `glass-outbound-2026-09-*` letter they cite is rowed in INBOX (hits 1 / 4 / 43 / 3).
+
+INBOX: the one UNREAD row is still **I-40** (owner Track C), outside X-W5 scope. **0 UNREAD in scope.** Tail stays **I-40**. One sweep line was appended to the INBOX.
+
+### CL5.5 Residuals (named owners) and escalations
+
+**Residuals:**
+
+| gate | state | owner |
+|---|---|---|
+| **o16 W5-census R2** (`o16-computed-cascade.spec.ts:218`, literal `"0.4s"` vs live `0.44s` ×2) | RED | **COHESION / owner**, ESC-W5c2-1. The ruling needed: R2 re-derives from the resolved `--spring-snappy-duration` token (recommended, not a loosening) or re-states the literal. The one-line cure then goes to an Opus repair seat with a grant on `o16:218`. ⟨cmd⟩ `grep -c 'ESC-W5c2' COHESION.md` → **0** (no ruling yet). |
+| **o12 O-12·3 hover-mood frame-diff** (`o12-blob-seat.spec.ts:134`, 1.03 · 0.19 /255 vs 6/255, headless software GL, load ≈13) | RED | **COHESION / owner**, ESC-W5c2-2 (X-W2 cl-F4, cause undetermined). Route: a headed real-GPU read of O-12·3 beside D1, the §0ax instrument. Any renderer or mood cure lies outside W5 §4. |
+| D1 headless (SwiftShader) | RED beside | Not the reading of record (§0ax). The operator item is a quiesced window (vitest-vscode closed) for a clean headless reading. |
+| B3 · A3 · A5-OUTLINE (11/15) · C3 · C7 `DockStatusLamp:70` | relieved or routed, unchanged | X-W6 (CC-056) · X-W8 · X-W10 · X-W8 `.i`/`.h` · X-W8 `.h` |
+| `not-found` visual goldens (the new census row) | owed | Visual-baseline owner (X-W1 / CI-capable seat) |
+| Upstream Vue dev-root-fragment × `<Transition mode="out-in">` | letter | Owner-report letter (§0ax); never a `node_modules` patch |
+| `npm run typecheck` 11 × `space-catalog.ts` `*.md` · vitest NG-6 / C-5 · e2e-tsc o23 ×5 | foreign | CL.7 row 11 · X-W8 `.i` · o23's owner (not W5) |
+| L-18 quartet | not opened | Follows a GREEN hard gate |
+
+**Escalations carried (no new ones from this seat):** ESC-W5c2-1 and ESC-W5c2-2 (the `.c2` receipt). Both need a COHESION ruling. Every other W5 gate is GREEN,
+relieved or routed at this clock.
+
+**Four-verb:** AUDITED YES · SPECIFIED YES · **IMPLEMENTED NO**. The addendum gate "o12/o16/census-parity GREEN ×2" still has two RED legs, so IMPLEMENTED is not
+stamped. VERIFIED NO (stamped only at the X-W11 release close, §9 c6). The line does not move.
+
+**Successors:** X-W6, X-W7, X-W8 and X-W10 stay BLOCKED-ON the X-W5 close.
