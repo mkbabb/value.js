@@ -77,7 +77,7 @@ const TRACK = {
         "X-W1",
         "X-W6"
       ],
-      "note": "N-1 mount substrate = X-W1's plugin-vue install; the four shared paths were W6's first"
+      "note": "RESUME 2026-09-23 on COHESION §0bk and W7.md\'s 2026-09-23 ADDENDUM (read both; they ARE the resume spec): units a · b · c · d · e · f · g are alreadyDone (never re-dispatched); still owed, strictly serial: [X.W7.d2] (inspector on the extended typed SceneActionSet + migrate PaletteCard\'s three consumers + DELETE PaletteCard.vue + render the export failure + six mutation rows surfacing failures with browser rows + o10d rename via the menu; G7 G13 ×2) → [X.W7.f2] (26 display sites onto formatCssCaption/formatColor, dead precision APIs deleted, .swatch-row once; G16 ×2) → [X.W7.g2] (eyebrow residue, oracle strings, PaneErrorPlate, R14 glob; G19 ×2) → [X.W7.g3] (XP-EXTRACT remainder + R18 valid leg) → [X.W7.c2] (ci.yml installs Chromium before npm test; read the CI run) → [X.W7.a2] (inert-prop class in the 25 out-of-bounds files; G3 honest-RED G3-FALLTHROUGH-TYPES with O-57). Writable sets are EXACTLY §0bk\'s grants. Honest-RED ids at close: G3-FALLTHROUGH-TYPES (O-57), G14 dismiss grep (glass-8 repin), G11 goldens (→ X-W10). Every seat Opus 5.5; ESCALATED units do not halt the wave"
     },
     "X-W5": {
       "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W5.md",
