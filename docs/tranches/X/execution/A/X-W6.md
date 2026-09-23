@@ -8292,3 +8292,89 @@ AUDITED yes · SPECIFIED yes · **IMPLEMENTED no** (7 RED; unrelieved: g2 · a13
 
 **PARTIAL.** GREEN 43/50, RED 7/50. Landed-wrong 0. UNREAD in scope 0. No new escalation. The LEDGER row reads **PARTIAL —
 eighth-sitting close**: 43/50, with RED = a13 · e1 (1 of 3) · g2 (R-s1) · j4 (ESC-W6j-1) · b1/g1/i3 (honest-RED by id).
+
+## Check 1 — RESUME 2026-09-23 (L-20 fresh adversarial pass 1 over the eighth sitting's close `11a82954`)
+
+SERVED MODEL: claude-opus-5-5[1m]
+
+VERIFY-ONLY; authored no byte of the wave. Spec read whole once (`W6.md`, 492 lines, five ADDENDA); of this record only the
+header, the eighth Open → Baseline → Unit plan (`:7824-7902`) and the eighth Close (`:8098-8294`). Transcripts in this seat's
+scratchpad (not committed). Host load 11.4 (⟨`uptime`⟩, 04:16 EDT).
+
+**Crash-recovery.** ⟨`git status --porcelain`⟩ → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh` only;
+neither is in this seat's set (this record, the LEDGER). Nothing inherited, nothing touched.
+
+### Axes 2/4/5 — bounds, families, E-3
+
+⟨`git show --stat` over `3e933c33..HEAD`, 10 commits⟩: every path sits in §4 ⊕ the §0ba grants (`201f737a` settle + 3 specs ·
+`15f9ee8e` 3 catalog oracles · `aac7e995` 27 evidence PNGs, ⟨`grep -vc 'W6-evidence/\(gradient\|owner-marks\)/'`⟩ → `0` ·
+`17dd0df4` GradientPane · useMixingAnimation · MixPane · MixSourceSelector · o29 · the rest record/LEDGER/INBOX/`W6-evidence/gates/**`).
+⟨`git diff --stat 3e933c33..HEAD -- scripts/dev/dev.sh docs/tranches/X/waves/W6.md docs/tranches/V/megatranche/registry/adjudicated/ src api`⟩
+→ **empty**. One commit per meaning; `.j` is one `feat(demo/scene-adoption)` commit (§9 #10) with its receipt beside it.
+**Masking (axis 3):** ⟨`grep -nE 'test\.(skip|fixme)|\.skip\(|catch|allowlist' o29 settle.ts`⟩ → **0**; ⟨`git show 17dd0df4 -- demo \| grep '^\+.*(catch|try \{|eslint-disable|@ts-)'`⟩ → **0**.
+`useMixingAnimation.ts`'s `release()` keeps `loop.stop()` (`:136`) — one teardown, no fallback. No masking species found.
+
+### Axes 1/9 — the close's GREENs and REDs re-run at this seat's clock
+
+| gate(s) | ⟨cmd⟩ | this seat |
+|---|---|---|
+| f1 · f5 · h2 · i2 | `node docs/tranches/X/gates/gate-{catalog-totality,specimen-grammar,blob-pipeline,lband-door}.mjs` | **GREEN** ×1 each, EXIT 0, `GATE … — GREEN` |
+| c3 | `npx vite-node docs/tranches/X/gates/gate-literal-dialect.mjs` | **GREEN** |
+| c1 | `node …/wb-gradient-stopeditor/gate-structure.mjs` | **GREEN** `GATE G4 (structure) — GREEN` |
+| d2 | `node …/x-w6/gate-easing-readout.mjs` | **GREEN** `DATED ASK` · local restyle `0 line(s)` |
+| e2 | `grep -rn requestAnimationFrame demo/workbenches/gradient/ \| wc -l` + `gate-prm-idiom.mjs` | **GREEN** `0` · `GATE e2 (PRM idiom) — GREEN` |
+| c2 · c4 · a1 (vitest leg) | `npx vitest run test/gradient-order-invariant.test.ts test/interpolation-subset.test.ts` | **GREEN** `Tests 22 passed (22)` |
+| f2 · f7 (grep legs) · f8 (grep leg) · f9 · f10 | the spec's greps | **GREEN** `0` · `0`/`0` · `0` · `2`/`0` · `0` |
+| H1 | `node docs/tranches/X/gates/gate-no-chassis.mjs <the close's 15 shas>` | **GREEN** (positive control fires; 29 demo files / 15 commits) |
+| H2 (file leg) · H3 | ⟨`git ls-files …/motion-quarantine.md \| wc -l`⟩ · parser R1 one-liner | **GREEN** `1` · EXIT `0` |
+| a2 · a3 · a4 · b3 | `npx playwright test e2e/smoke/views/gradient.spec.ts e2e/smoke/oracles/o21-gradient-rail.spec.ts --project=smoke` ×1 | **GREEN** (inside `21 passed`) |
+| **a13 · e1** | same run | **RED** `1 failed · 21 passed (1.8m)` EXIT 1 — `gradient.spec.ts:461` "gradient selector aurora", `Expected: false · Received: true` at `:547` |
+| j1 · j2 · j3 | `npx playwright test e2e/smoke/oracles/o29-scene-contracts.spec.ts --project=smoke` ×1 | **GREEN** (`5 passed (40.7s)`) |
+| **j4** | same run | **RED** blob `[j4] blob preview@rest=1.000 … preview@last=0.000`; atmosphere `preview@last=0.079` GREEN |
+| **g2** | `npx playwright test e2e/smoke/views/companion-pane-track-start.spec.ts -g "companion panes share one track start" --project=smoke` ×2 | **RED 1 of 2**: r1 `locator.evaluate: Error: Mix region renders no pane` EXIT 1 · r2 `1 passed (13.7s)` EXIT 0 |
+
+**22 claimed GREENs reproduced; 0 claimed GREEN failed.** The close's three unrelieved REDs reproduce exactly as recorded.
+R-s1 confirmed at the bytes: `e2e/smoke/fixtures/settle.ts` sets `paneRoot = el.firstElementChild` for a region and skips a null
+node (`if (!node) continue`), so an **empty** region reads settled `""`. R-j1 confirmed: `GradientPane.vue:28` `function visualizer()`
+beside `ref="visualizer"`; ⟨`grep -c 'Vue warn.*visualizer'`⟩ over this seat's suite transcript → **24**.
+Figure note (MINOR): the close's Act 2 states its runs spanned "03:55–04:35 EDT", but `11a82954` is committed at `04:11:41`
+(⟨`git log -1 --format=%ci 11a82954`⟩); the end-clock cannot be right. Counts are unaffected (43/7 re-derive from its own table).
+
+### Axes 6/7/8/10 — mail, the four-verb line, the goal, honest-RED adjudication
+
+**Mail.** ⟨`grep -n "^| [IO]-[0-9]" INBOX.md \| grep -i unread`⟩ → O-20 · I-30 · I-31 · I-32 · I-35 · O-39 · I-36 · I-40; none
+addressed to X-W6. **0 UNREAD in scope.** **Four-verb** stays `IMPLEMENTED no` (the close did not move it) — lawful.
+**Goal (§2a) at the bytes: NOT MET.** CC-057's short-landscape last-control proof is RED (j4 blob), and the gradient selector's
+aurora (CC-064) does not hold under its own oracle at every run (e1). H1 holds (no chassis).
+
+| RED gate | relief at the spec bytes | owner named in the register | adjudication |
+|---|---|---|---|
+| b1 | `W6.md:486` (second 2026-09-22 ADDENDUM): `B1-G3D` honest-RED-by-instrument → X-W11 | R-4 · X-W11 | **HONEST-RED** |
+| g1 | `W6.md:484` (2026-09-22 ADDENDUM): honest-RED by id → X-W10 (M-23) | R-6 · X-W10 | **HONEST-RED** |
+| i3 | `W6.md:492` (fifth ADDENDUM): `I3-SEED-SIZE` honest-RED with relay O-52 | R-5 · glass subpath → `.i3` re-sit | **HONEST-RED** |
+| g2 | none. §0ba routes the g2 settle read TO X-W6 `.s` (`W5D4-SETTLE-READ`) — the cure is this wave's, and `.s`'s helper carries the empty-region hole | R-s1 · a `.s` repair | **UNRELIEVED — HIGH** |
+| e1 (→ a13) | none. §0ba routes the e1 settle leg to `.s` as well; no addendum names e1 honest-RED | R-e1 · a `.s`/`.e` repair | **UNRELIEVED — HIGH** |
+| j4 | none yet. §5 `.j` allows j4 to retire only "GREEN with its measurement"; it measured RED under o29, so the spec's own rule is *cure*. `ESC-W6j-1` asks the OWNER to rule (shell re-open or an E-3 re-reading) — an open escalation, not a relief | R-j4 · OWNER | **UNRELIEVED — HIGH (pending the owner's ruling)** |
+
+**Successors' "Opens after".** X-W7 (`X-W1`) — GREEN, independent of this wave. X-W8 (`W4·W5·W6·W7`) — W4 and W5 CLOSED; **W6 not CLOSED**,
+W7 `planned` → lawfully BLOCKED. X-W10 (`X-W5 · X-W6 · … stable`) — the W6 conjunct is FALSE → lawfully BLOCKED. X-W11 (everything) —
+BLOCKED.
+
+### Register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C1-1 | HIGH | g2 is RED and unrelieved: the `.s` settle helper treats an empty region (no pane root) as settled | this seat RED 1 of 2 (`Mix region renders no pane`); the close RED ×3; `settle.ts` `if (!node) continue` | a `.s` repair in `e2e/smoke/fixtures/settle.ts`: an empty region is NOT settled (a missing pane root joins `unsettled`); g2 ×3; no `demo/**` byte, assertions untouched |
+| C1-2 | HIGH | e1 (and so a13) is RED and unrelieved | this seat `1 failed · 21 passed`, `gradient.spec.ts:461` → `:547` `Received: true`; the close RED 1 of 3 | a `.s`/`.e` repair seat bisects (enter pose vs real ramp motion under `animation: none`) and cures at the root; suite 22/22 ×3 |
+| C1-3 | HIGH | j4 blob limb is RED; `ESC-W6j-1` is open and is not a relief under §5 `.j` | this seat `[j4] blob … preview@last=0.000` | the OWNER rules `ESC-W6j-1` (X-W5 shell re-open granting `shell.css`, or a dated E-3 re-reading of j4); then cure or re-read |
+| C1-4 | MEDIUM | `GradientPane.vue` setup function `visualizer` collides with template ref key `"visualizer"` since `17dd0df4` (Vue dev warning each mount; production-build hazard) | `:28` vs the template's `ref="visualizer"`; 24 warns in this seat's suite run | a `.j` repair: rename one side (for example the ref key), keeping `useTemplateRef` in step |
+| C1-5 | MINOR | the close's clock span "03:55–04:35" contradicts its commit time `04:11:41` | ⟨`git log -1 --format=%ci 11a82954`⟩ | the next close states measured clocks only |
+| C1-6 | INFO | duplicate INBOX id O-52 (R-m1) and `J3-WEBGPU` relay still owed | the close's Act 6/8 | COHESION seat / the next INBOX-granted seat |
+
+**Honest-RED set (relieved at the spec bytes, owner-named):** b1 (`B1-G3D` → X-W11) · g1 (→ X-W10) · i3 (`I3-SEED-SIZE`, O-52).
+
+### Verdict
+
+**NOT-CONFORMANT.** 22 claimed GREENs reproduced, 0 failed; landed-wrong 0; no masking; E-3 held; 0 UNREAD in scope. Three born-RED/
+measure-at-open gates remain RED with no relief at the spec bytes (g2 · e1→a13 · j4) — each HIGH. The LEDGER row is **not promoted** and
+keeps its PARTIAL status; one event line is appended.
