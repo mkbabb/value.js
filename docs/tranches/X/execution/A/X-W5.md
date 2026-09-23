@@ -4094,3 +4094,42 @@ Inputs: `W5.md` whole (398 L, three ADDENDA), `## Check 1 — RESUME 6`.
 | INFO · R2/R8 self-referential expectation | none required (Check 1) | — | — |
 
 **Tally:** 0 cured · 2 escalated (ESC-W5c3-1, ESC-W5d3-1, both to COHESION) · 1 INFO needs no cure. The LEDGER row **stays PARTIAL**. IMPLEMENTED is not stamped.
+
+## Check 2 — RESUME 6, L-20 fresh adversarial pass 2, 2026-09-23 (VERIFY-ONLY)
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X-W5 CHECK 2 (RESUME 6) · HEAD at open `de2ea6c4` · date of record 2026-09-17 (COHESION §0j).
+This seat cured nothing. It wrote this section and one LEDGER event line. Inputs: `W5.md` whole (398 L, three ADDENDA), `## RESUME OPEN 6` (R6.0–R6.4), `## Close — RESUME 6`, `## Check 1` and `## Repair 1` (RESUME 6).
+Crash-recovery: ⟨cmd⟩ `git status --porcelain` → the four standing rows (`CARRY-LEDGER.md` · two W6 catalog PNGs · `scripts/dev/dev.sh`); none in this seat's writable set. No inherited partial.
+
+**Verdict: NOT-CONFORMANT.** Nothing changed since Check 1: ⟨cmd⟩ `grep -n 'ESC-W5c3-1\|ESC-W5d3-1' docs/tranches/X/COHESION.md` → **no hits** (the last COHESION section is still §0ay). ⟨cmd⟩ `git diff --stat 28da478f..HEAD -- demo src e2e docs/tranches/X/waves/W5.md docs/tranches/V/megatranche/registry scripts/dev/dev.sh` → **empty**. Every claimed GREEN reproduces. The two ADDENDUM-3 gates are still RED ×2, and the spec gives them no relief. **The row stays PARTIAL.**
+
+### K2.1 Axes
+- **(1) Claimed GREENs**, static arms ×2 at load 4.80: A1 **0** · App grep **0** · A4 **10** · A7 **5** · B4 **0 · 3 · 0** · C4 **0** · C8 **0** · D2 **0** · D3 **0** · D4 Mix **1** · E1 **0 0 0 0** · E2 P122 **{9, 3, 18, 10}**. Both runs are identical in value. ⟨cmd⟩ `npx vue-tsc -p tsconfig.demo.json --noEmit` → **TSC_EXIT=0**. That makes **13 of 13** reproduced. The live probes and D1 are banked lawfully, because no `demo`/`src` byte has moved since CL5.2.
+- **(2) Bounds:** ⟨cmd⟩ `git show --stat 740b5445 de2ea6c4` → only `execution/A/X-W5.md` and `LEDGER.md`. Check 1 has already read the unit commits clean (`8ddafa23` `881d3792` `b9f63632` `a072eef3` `28da478f` `f46ab34b`). `dev.sh` appears in no commit. **Clean.**
+- **(3) Masking:** there is no new diff. Check 1's reading of `8ddafa23` and the cold-nav witness stands: no skip, no allowlist, no `node_modules` byte, and the `finally` only closes contexts. **Clean.**
+- **(4) Families:** one meaning per commit. The P-1..P-4 family `52dc0a5b` is untouched. **Clean.**
+- **(5) E-3:** the spec, the registry and `dev.sh` are byte-untouched since `28da478f` (the diff above prints nothing). **Held.**
+- **(6) Mail:** ⟨cmd⟩ `sed -n 135p INBOX.md` → I-40 **UNREAD** (Track C, outside scope). Every other I-row in the tail is READ, FOLDED or ACKED. ⟨cmd⟩ `find … -newer X-W5.md` over value.js `V/` + `V/coordination`, glass BK `coordination` and keyframes → **empty**. **0 UNREAD in scope.**
+- **(7) Four-verb:** IMPLEMENTED stays NO, which is correct while the ADDENDUM-3 gates are RED. **Lawful.**
+- **(8) Goal criterion:** **NOT MET** at the bytes. On a cold navigation a pane stays in `vj-enter-enter-from/-active`, so the scene never finishes entering (K2.2 row 2).
+- **(9) Figures:** the RED figures in CL6.2 and K1.2 reproduce exactly (K2.2).
+
+### K2.2 RED gates re-run ×2 at this seat
+| gate | ⟨cmd⟩ | run 1 | run 2 | relief (axis 10) |
+|---|---|---|---|---|
+| o16 W5-census | `VJS_E2E_PORT=5582/5583 npx playwright test e2e/smoke/oracles/o16-computed-cascade.spec.ts` | 2 passed / 2 failed: `R4 translate duration · Expected "0.3s" · Received undefined` | same | **NONE.** It is ADDENDUM 3's `.c3` gate. ESC-W5c3-1 is unruled, and no spec or ruling byte routes it to another wave or to the producer |
+| cold-nav witness | `VJS_E2E_PORT=5592/5593 npx playwright test e2e/smoke/oracles/cold-nav-scene-enter.spec.ts --project=smoke` | 2 failed: `/#/` Received 1 · `/#/gradient` Received 2 | same | **NONE.** It is ADDENDUM 3's `.d3` gate. ESC-W5d3-1 is unruled, and the cure (`usePaneRouter.ts`) is outside the grant |
+| W6 a5–a12 · e1 · g2 (as `.d3` cross-gates) | banked (no product byte) | — | — | **NONE**; they turn only with the ESC-W5d3-1 cure |
+| o12 O-12·3 (headed GPU) · B3 · A3 · C3 · C7 `DockStatusLamp:70` · D1 headless | banked | — | — | **RELIEVED:** §0ay → X-W8 `.i` O12-3-HOVER-GPU · X-W6 CC-056 · X-W8 `.i`/`.h` (§0aq) · X-W8 `.h` · §0ax (headless is not of record); each is owner-named in CL6.5 |
+
+### K2.3 Register
+| severity | claim | receipt | cure |
+|---|---|---|---|
+| **HIGH** | The ADDENDUM-3 `.c3` gate "o16 GREEN ×2" is RED at R4 (R5/R11 latent), and the spec gives it no relief. | K2.2 row 1 (×2) | COHESION rules ESC-W5c3-1: grant R4/R5/R11 on the §0ay resolved-token pattern and dispose of R4's producer register (by glass mail, never a frontend hack). An Opus repair seat then brings o16 to GREEN ×2 |
+| **HIGH** | The ADDENDUM-3 `.d3` gate "0 stuck enter states ×2" is RED on both arms, which leaves W6 a5–a12/e1/g2 RED with it. The §2 goal fails at the bytes. | K2.2 row 2 (×2) | COHESION rules ESC-W5d3-1 (option (a): grant `usePaneRouter.ts` `lazyPane` inside W5F-07, key PaneSlot on `(pane, resolved)`, retire the `App.vue:134` flip). A `.d4` Opus seat then shows the witness GREEN ×2, the W6 re-reads GREEN and D1 not regressed |
+| INFO | The repair loop cannot progress without the two COHESION rulings. A third check over unchanged bytes would add no evidence. | Repair 1 tally 0 cured / 2 escalated; this seat's diff is empty | The orchestrator routes ESC-W5c3-1 and ESC-W5d3-1 to the owner/COHESION before any further W5 seat sits |
+
+**Honest-RED set (relieved, owner-named):** o12 O-12·3 → X-W8 `.i` · B3 → X-W6 CC-056 · A3 / C3 → X-W8 `.i` · C7 `DockStatusLamp:70` → X-W8 `.h` · D1 headless → §0ax.
+**Unrelieved:** o16 W5-census · cold-nav witness · W6 a5–a12/e1/g2 (as `.d3` cross-gates).
+
+**Successors (Opens-after):** X-W6 [`.a2`→`.i2`→`.j`], X-W7, X-W8 and X-W10 each carry the conjunct "X-W5 closed". That conjunct is **RED**, so all four are **lawfully BLOCKED**. The W5-supplied inputs they consume (`regions[]` C8 · the dead block cap B4 · one mount path C4 · E1/E2) are GREEN at the bytes. **LEDGER row: stays PARTIAL. No promotion.**
