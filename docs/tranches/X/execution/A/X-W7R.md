@@ -285,3 +285,57 @@ None of this unit's own. The specified cure ("cure consumer-side causes at the r
 **Self-count** (⟨python3 over `d-result-*.json`⟩): per run 8 transitions (6 small↔large + 2 layer), 24 post-settle crops over the 6. `afterBlurText` sums iso-r1 0 · iso-r2 0 · base-r1 0 · base-r2 0; blurred crops iso-r1 0 · iso-r2 0 · base-r1 0 · base-r2 3. Screencast frames 441 · 442 · 445 · 444.
 
 Commits: this receipt + evidence (`d-morph-probe.ts`, `d-result-{iso,base}-r{1,2}.json`, `d-summary.txt`), pathspec only. Frames stay local. The scratch servers `:9017`/`:9018` were stopped at close.
+
+## Close (2026-09-23, CLOSE SEAT, VERIFY-ONLY, `claude-opus-5-5`, HEAD `24e64df8`)
+
+**Crash-recovery**: `git status --porcelain` → ` M .github/workflows/ci.yml` · ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M docs/tranches/X/execution/B/KF-W13R.md` · ` M docs/tranches/X/execution/C/F-W14.md` · ` M scripts/dev/dev.sh` · `?? docs/tranches/X/keyframes/evidence/W13R/` · `?? docs/tranches/X/parse-that/evidence/W7-research/`. None is in X-W7R's writable set (they belong to sibling tracks, and dev.sh is the standing unowned row). 0 inherited edits.
+
+**Governing ruling**: W7R.md ADDENDUM (b) = COHESION §0ci R-5. ESC-W7Rm-1 is ruled a **hold on glass 7.0.0**. The 10.0.1 repin and its migration stay banked as the committed patch `d49d2238`. The close returns the tree to the committed 7.0.0 pin, and 10.0.1 is never committed here. GLASS-VEIL-GREY (O-62) is honest-RED for this wave. X-W7L mints at BL's cut and applies the banked patch on top of the veil cure.
+
+### Commit roster (⟨`git show --stat`⟩, each checked against its unit's writable set)
+
+| unit | commit | paths | in bounds |
+|---|---|---|---|
+| `.m` | `d49d2238` | record + `evidence/X-W7R/{m-D1-headed-run1,2.json, m-repin-10.0.1-migration.patch, m-smoke-classification.md}` (5 files, +2503) | yes |
+| `.v` | `2f40a015` | record + `evidence/X-W7R/v-*` (12) + `docs/tranches/V/coordination/INBOX.md` (+1, an append lawful for `.v`) (14 files) | yes |
+| `.d` | `24e64df8` | record + `evidence/X-W7R/d-*` (5) (7 files) | yes (`.d` touched no dock/styles bytes: 0 consumer causes) |
+
+**Landed-wrong: none.**
+
+### Gates (BEFORE → AFTER; the close's own readings on the tree at HEAD `24e64df8`, load 18.94–27.16)
+
+| gate | BEFORE (baseline) | AFTER (close reading) | state |
+|---|---|---|---|
+| B1 pin | `^7.0.0` / lock 7.0.0 / installed 7.0.0 | ⟨`grep -n '"@mkbabb/glass-ui"' package.json`⟩ → `88: "@mkbabb/glass-ui": "^7.0.0"`; lock `7.0.0`; installed `7.0.0`; ⟨`git diff --quiet HEAD -- package.json package-lock.json`⟩ → clean. At the patch bytes `.m` read 10.0.1 exact. | **honest-RED as ruled** (§0ci R-5 hold: the tree is on the committed 7.0.0 pin, which is the close act of ADDENDUM (b), already true, no write needed) → X-W7L |
+| B2 G14 dismiss grep | 0 | ⟨`grep -rn 'dismiss="deliberate"' demo/ \| grep -v node_modules \| wc -l`⟩ → `0` on the tree. At the patch bytes: ×6, with the w7-destructive-seats network oracle passing (`.m`). | **honest-RED** → X-W7L (banked in the patch) |
+| banked patch | n/a | ⟨`git apply --check docs/tranches/X/evidence/X-W7R/m-repin-10.0.1-migration.patch`⟩ → exit 0 (applies cleanly at HEAD `24e64df8`) | GREEN (X-W7L's input is intact) |
+| B3 vue-tsc demo | EXIT 0 ×2 | ⟨`npx vue-tsc -p tsconfig.demo.json --noEmit`⟩ → EXIT 0, EXIT 0 | GREEN (regression floor at 7.0.0) |
+| B4 vitest | 2 failed \| 910 passed (912) | ⟨`npx vitest run`⟩ ×2 → `Test Files 2 failed \| 65 passed (67)` · `Tests 2 failed \| 908 passed (910)` both runs; the 2 = `test/spectrum-luma.test.ts` C-5 (born-RED) + `demo/test/shell/reka-binding-idiom.test.ts` NG-6, the banked honest-RED only. The count moved 912→910 with sibling-track tree changes, not from this wave (this wave committed no test bytes). | GREEN (0 new) |
+| B5 smoke `--workers=1` | cited 47/47 at 7.0.0 | cited, not re-run (probe parsimony §5.2; the tree's product bytes are unchanged by this wave: the three commits touch docs/evidence/INBOX only). At the patch bytes `.m` read 71 failed / 207 passed, 45 already failing at 7.0.0, 15 repin regressions. | honest-RED at 10.0.1 → X-W7L; the 7.0.0 tree is unchanged |
+| B6 D1 headed ×2 | owed | cited from `.m`: pass true ×2, ANGLE Metal / Apple M5 Max, median 17 ms (`m-D1-headed-run{1,2}.json`), at the patch bytes | GREEN at the patch bytes (re-read at X-W7L) |
+| B7 glass-row table | not measured | cited from `.v` (`2f40a015`): 7/7 measured ×2 headed; 6 still-live → BL; O-57 R-2 CURED-AT-10.0.1, uncredited | GREEN as an instrument; rows defer to X-W7L |
+| B8 dock morph | RED (OA-41/48) | cited from `.d` (`24e64df8`): 0 blurred-text frames after settle, 0 wrap-then-snap ×2 at the patch bytes; 0 consumer causes; the residue is glass's (O-56 G-1) | GREEN on its measurable clauses at the patch bytes; the product stays on 7.0.0 |
+| GLASS-VEIL-GREY (§0cf) | light frost at 7.0.0 | `.v`: dark-ink `color(srgb 0.204 0.148 0.083 / 0.1)` at 10.0.1; relayed as O-62 (`glass-ui/docs/tranches/BK/coordination/valuejs-outbound-2026-09-23-glass-veil-grey.md` present) | **honest-RED** (O-62) as ADDENDUM (b) rules |
+
+### E13 mail sweep (close)
+⟨`find <value V/coordination · keyframes V/coordination · glass BK/coordination · glass BL> -newer INBOX.md -type f`⟩ → value 0 · keyframes 0 · BK/coordination 0 · BL: glass-internal only (`FORMATION-PROGRESS.md`, `design/structure/{RULINGS,REGISTRY}.md`, `audit/round-4/R4-01.md`, `pass-1/D1-F-critique.md`, `audit/captures/R4-01/*`; glass `519b0f27` BL cursor). None is addressed to value.js. Ledger tail I-46 READ. **0 unrowed, 0 UNREAD in scope.**
+
+### Residuals (named owners)
+- **X-W7L** (mints at BL's cut, §0ci R-5): apply `m-repin-10.0.1-migration.patch` on top of the veil cure; re-read B1, B2, B5 (the 15 repin regressions in `m-smoke-classification.md`), B6, and the B7/B8 rows on the product; credit O-57 R-2 there; RES-m-1..7 (`.m`), RES-v-1.
+- **BL / glass (O-62)**: GLASS-VEIL-GREY, the veil-ladder plate recut that makes the certified-ink instrument throw `contrast_unreachable` (ESC-W7Rm-1, the HIGH, held by ruling).
+- **BL (O-55/O-56/O-53/O-57 R-1)**: the 6 still-live B7 rows; RES-d-1 (first-collapse stale endpoint) and RES-d-2 (morph off-token, ~545 ms vs `--spring-dock-duration` 0.21 s), RES-d-3.
+- **Orchestrator (relay filing, unfiled; outside every unit's writable set)**: RES-v-3 (`text-xs`/`text-sm` un-registration, the `DialogContent` `placement`/`showClose` fold without a MIGRATION row, `--dropdown-menu-font`, slider-thumb seams) and `.d`'s O-56 G-1 10.0.1 addendum. ⟨`grep -rln 'dropdown-menu-font\|showClose' docs/tranches/X/relay/`⟩ → 0: still unfiled at close.
+- **X-W12**: proceeds on 7.0.0 (§0ci R-5); the 13 dead Button variant bindings (§0cb G-2); the HeroBlob wall-clock park (O-56 G-3 consumer half); RES-v-2 G3 attribution (60 native-attribute rows are value.js's own).
+
+### Escalations
+- ESC-W7Rm-1 (HIGH): **ruled** (§0ci R-5, hold on 7.0.0). No open escalation remains with this wave.
+
+### Four-verb line
+| verb | state at this close | basis |
+|---|---|---|
+| AUDITED | YES (unmoved) | §0bs minting |
+| SPECIFIED | YES (unmoved) | `waves/W7R.md` + ADDENDA (a), (b) |
+| **IMPLEMENTED** | **YES — 2026-09-23, as ruled** | ADDENDUM (b) reshapes the wave into hold-and-bank: the patch is committed (`d49d2238`) and applies cleanly, B7/B8 are measured ×2, and the tree is on the 7.0.0 pin. B1/B2/B5 at 10.0.1 and GLASS-VEIL-GREY are honest-RED and routed to X-W7L / O-62 |
+| VERIFIED | ✗ | the spec designates no stamp to this seat |
+
+**LEDGER**: X-W7R → `IMPLEMENTED 2026-09-17` (honest-RED per §0ci R-5); commits `d49d2238 · 2f40a015 · 24e64df8` + this close.
