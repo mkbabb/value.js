@@ -8517,3 +8517,81 @@ BLOCKED**. X-W10 (`X-W5 · X-W6 · …`) — the W6 conjunct is FALSE → **lawf
 clean. Two gates remain RED with no relief at the spec bytes: e1→a13 (Repair 1's cure does not hold) and j4 (an open owner
 escalation). Each is HIGH. RED at this seat = a13 · e1 · j4 · b1 · g1 · i3 = **6**, so GREEN = **44/50**. The LEDGER row is **not
 promoted** and stays PARTIAL. One event line is appended.
+
+## Repair 2 — RESUME 2026-09-23 (REPAIR SEAT, round 2, over the Check 2 — eighth-sitting register `62cb728f`)
+
+SERVED MODEL: claude-opus-5-5[1m]
+
+Read: the spec whole (`W6.md`, 492 lines, five ADDENDA) and, of this record, the eighth Unit plan (`:7881-7902`), Repair 1
+(`:8382-8436`) and Check 2 (`:8438-8519`). Writable set = the `.s` grant (`e2e/smoke/fixtures/**` · `gradient.spec.ts` ·
+`o21-gradient-rail.spec.ts` · `companion-pane-track-start.spec.ts`), the `.j` grant, this record, the LEDGER (append).
+**Crash-recovery.** ⟨`git status --porcelain`⟩ → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh` only;
+neither is in this seat's set, so nothing was inherited or touched. Runs 04:43–05:02 EDT (⟨`uptime`⟩ at the open: 04:43, load 9.52;
+at the last run: 05:01, load 36.89). Transcripts sit in this seat's scratchpad and are not committed. Probes ran against fresh
+`npx vite --port 9741/9742 --strictPort` servers, killed afterwards. A temporary diagnostic in `gradient.spec.ts` (frame-diff
+bbox logging plus an env-selected `caret`) was **restored byte-for-byte from the pre-edit copy and never committed**. ⟨`git status
+--porcelain`⟩ after cleanup → the two unowned rows only.
+
+### C2-1 (HIGH) — e1 → a13: the bisect under load
+
+| ⟨cmd⟩ | reading |
+|---|---|
+| `VJS_E2E_PORT=9731 npx playwright test e2e/smoke/views/gradient.spec.ts -g "gradient selector aurora" --project=smoke --repeat-each 6` (load ≈11) | `6 passed (49.0s)` EXIT 0 |
+| a frame-diff probe (the test's own settle, then its finite-arrival wait, then 5 clip frames 300 ms apart), fresh server 9742, runs 0–1 | run 1: `f2: n=4333 maxd=1 bbox=231,0-461,39` · f1/f3/f4 `n=0` |
+| same probe, `FULL=1` (10 full-viewport frames after the clip frames) | clip run 1: `f3: n=4333 maxd=1 bbox=231,0-461,39`, others 0. Full viewport: the **only** moving pixels are `bbox=1018,40-1024,46`, the dock's `lamp-dot-pulse` (an opacity loop, `DockStatusLamp.vue:110`). The rail region is still in every full frame |
+| the whole suite with a temporary per-frame diff log in e1, `VJS_E2E_PORT=975{1,2}` (load ≈11 → ≈23) | `22 passed (1.8m)` (e1 frames `0 \| 0 \| 0 \| 0`) · **`1 failed · 21 passed (2.1m)`**, e1 frames `0 \| n=4333 max=1 231,0-461,39 \| 0 \| 0` |
+| 4 suites in parallel (load ≈40): two with `caret: "initial"`, two controls (default `caret: "hide"`) | all four `22 passed (2.4–2.7m)`, e1 frames `0 \| 0 \| 0 \| 0` ×4. **The A/B does not tell the arms apart**, so the caret-hiding page mutation is **not** shown to be the trigger |
+| rail `backgroundImage` + `style` read every rAF from boot through the frames (2 runs) | **1 distinct value** per run: the 33-stop `linear-gradient(90deg in oklch, …)`, unchanged. No CSS value moves |
+| `document.fonts` `loadingdone` · `longtask` · `layout-shift` · `LCP` timestamps | the last event lands ≤ 1.9 s after navigation. No arrival lands inside the frame window |
+
+**The species, named by measurement.** It is the same signature four times, from two independent instruments: **exactly 4333 pixels,
+max Δ = 1/255, bbox x 231–461 of the 462-px clip, over the rail's full height, in ONE frame. The next frame reverts to frame 0.**
+Clip x 231 is page x 376. That is the card's left edge (x 120) plus 256: a compositor **tile boundary** of the card's layer, and
+it also sits at the ramp's 50% stop. The rail's computed paint does not change, no DOM or style arrival lands in the window, and
+the full-viewport frames show no change in that region. So the flip is **one raster tile re-rastered at 1 LSB (gradient dither/
+precision) and then restored**. That is compositor raster nondeterminism under host load. It is **not the ramp moving**, and
+Check 2's other candidate, a looping ground behind the translucent card, is **refuted**: the ground is the static CSS-gradient
+substrate (`resolveRenderMode("auto")` → `"css"` on SwiftShader, `useAtmosphere.ts:158`), and the only loop on the page is the lamp
+dot outside the clip.
+
+**Why this seat does not cure it.** No product byte causes the flip. The rail's paint value is constant, and no `demo/**` edit in the
+§4 bounds removes a raster re-issue inside Chromium's tile manager. The instrument-side options all fall outside this seat's lawful
+reach:
+(a) a noise floor, or "a frame is admitted only if it persists", **changes what `moved` measures**. That is a narrowed assertion
+(Check 2: "assertions stay untouched") and needs a dated E-3 re-reading of e1's measure;
+(b) a Chromium launch flag (e.g. disabling partial raster) lives in `playwright.config.ts`, which is **outside §4** and belongs to
+X-W1. It is also an **unverified** hypothesis at this seat: the flip reproduced 1 time in 7 suite-scale runs, too rarely to A/B a
+flag inside one seat;
+(c) the caret arm is not the trigger (see the A/B above).
+Neither (a) nor (b) is lawful here, so C2-1 is **ESCALATED as `ESC-W6e1-1`** with the measured signature above. e1 (→ a13) stays
+**RED-by-flake**: 1 failure in 8 runs at this seat (7 suite-scale runs plus the 6× repeat taken as 1 run), and 2 of 2 at Check 2's
+load ≈16.
+
+One further reading, stated rather than hidden. At synthetic overload (22 then 16 `yes` processes; ⟨`uptime`⟩ → load **75.03**), one
+suite run failed `o21-gradient-rail.spec.ts:65` with `the region never settled` (`1 failed · 21 passed (2.4m)`; e1 passed in that
+run). At that load the settle helper's bounded timeout expired. Nothing there is a wrong verdict, and it was not reproduced at
+loads ≤ 40 (the four runs above). It is recorded as a load-envelope observation, not as a defect.
+
+### C2-2 (HIGH) — j4 blob limb, `ESC-W6j-1`
+
+⟨`grep -n 'ESC-W6j-1' docs/tranches/X/COHESION.md`⟩ → **empty**. The latest COHESION commit is `277b8d25` (§0ba), so no owner ruling
+exists. Relief needs an X-W5 shell grant (`shell.css`, X-W5 property; §4 Do-NOT-touch; any write there triggers §3a) or a dated E-3
+re-reading of j4. This seat mints neither. **Carried ESCALATED, unchanged.** j4 was not re-run: no byte moved it.
+
+### C2-4 (INFO) — O-52 duplicate INBOX id · `J3-WEBGPU` relay
+
+`docs/tranches/V/coordination/INBOX.md` is not in this seat's set. **Carried** to the COHESION seat or the next seat granted INBOX
+access.
+
+### Gate re-reading
+
+**No cure landed, so no gate moved.** Every figure above was read from the settled logs, and each run's line was re-read by one
+command over all eight logs (⟨`grep -a -E '[0-9]+ (passed|failed)|^EXIT' …`⟩):
+`e1-rep 6 passed EXIT 0` · `suite-load1 1 failed 21 passed EXIT 1` · `diag1 22 passed EXIT 0` · `diag2 1 failed 21 passed EXIT 1` ·
+`Tr1/Tr2/Ct1/ct2 22 passed EXIT 0`. Every other gate cites Check 2 `62cb728f` at its clock.
+
+### Standing after Repair 2
+
+Cured **0**. Escalated **2**: `ESC-W6e1-1` (e1 → a13, compositor 1-LSB tile flip; the cure is an E-3 re-reading of e1's measure or an
+X-W1 launch-flag change) and `ESC-W6j-1` (j4, OWNER). INFO C2-4 is carried. RED = a13 · e1 · j4 · b1 · g1 · i3 = **6**, so GREEN =
+**44/50**, unchanged from Check 2. The row stays **PARTIAL**. The only commit is this record's.
