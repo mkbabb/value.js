@@ -24,7 +24,7 @@
                 <Slider
                     aria-label="Number of colors"
                     variant="spectrum"
-                    :model-value="[k]"
+                    :model-value="kModel"
                     :min="1"
                     :max="16"
                     :step="1"
@@ -67,7 +67,7 @@
                 <Slider
                     aria-label="Chroma weight"
                     variant="spectrum"
-                    :model-value="[chromaWeight]"
+                    :model-value="chromaWeightModel"
                     :min="0"
                     :max="1.5"
                     :step="0.1"
@@ -109,6 +109,12 @@ const { k, chromaWeight, gradient, cssColor, disabled, hasImage } =
         disabled?: boolean | undefined;
         hasImage?: boolean | undefined;
     }>();
+
+// EC-46 (X-W7 Repair 2 · B-1): the Slider's array model is minted once per
+// value change, not once per parent render — a stable identity lets the
+// producer's prop-identity bailouts hold.
+const kModel = computed(() => [k]);
+const chromaWeightModel = computed(() => [chromaWeight]);
 
 // T-44a (T.W6.5 row 9): the track material is CONTRACT ink — the live pick
 // certified against the rung the controls actually seat on (the extract
