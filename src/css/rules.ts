@@ -329,6 +329,15 @@ function expandAnimationShorthand(value: CssValue): ReadonlyMap<string, CssValue
     ]);
 }
 
+/** Whether `value` holds a `var()` anywhere (css-variables-1 §3), at any depth of call or list. */
+function holdsVar(value: CssValue): boolean {
+    switch (value.kind) {
+        case "call": return value.name.toLowerCase() === "var" || value.args.some(holdsVar);
+        case "list": return value.items.some(holdsVar);
+        default: return false;
+    }
+}
+
 function optionDeclarationValid(name: string, value: CssValue): boolean {
     const items = commaItems(value);
     if (items.length === 0) return false;
@@ -387,6 +396,13 @@ export function parseDeclarations(body: string): ParseResult<readonly Declaratio
         }
         const value = parseCssValue(source);
         if (!value.ok) return value as ParseResult<readonly Declaration[]>;
+        // css-variables-1 §3: "If a property contains one or more var() functions, and those
+        // functions are syntactically valid, the entire property's grammar must be assumed to be
+        // valid at parse time. It is only syntax-checked at computed-value time." (R-b-2, X.P.W6.b)
+        if (holdsVar(value.value)) {
+            declarations.push({ name, value: value.value, important });
+            continue;
+        }
         if (!optionDeclarationValid(name, value.value)) {
             const expected = name === "animation-timeline"
                 ? [`${value.value.kind === "call" && value.value.name.toLowerCase() === "view" ? "view " : value.value.kind === "call" && value.value.name.toLowerCase() === "scroll" ? "scroll " : ""}timeline`]
