@@ -575,3 +575,82 @@ usePalettePorts,usePaletteStore,useSlugMigration,useTagEdit,useVersionHistory}.t
 `e2e/smoke/oracles/w7-mutation-visibility.spec.ts` · `docs/tranches/X/waves/{W7-bounds-addendum-2026-09-23,
 W7-mutation-ownership,W7-gate-log}.md` · this record. **Not written**: `PaletteCard.vue` (kept — ESC-W7d-INSPECTOR),
 `ExtractWorkbench.vue`, the dialogs, `ApiOfflineChip.vue`, `viewSchema.ts`, `src/**`, `api/**`, `dev.sh`.
+
+### e
+
+**Seat**: X.W7.e, `claude-opus-5-5[1m]` · 2026-09-23 · opened at HEAD `8ea888dc`.
+**Read**: W7.md whole · record header → Unit plan + d's receipt · X-W7-FOLD §Rows X.W7.e (`:244-263`, W7.89–W7.97), §R1.7
+AdminNamesPanel (`:953`), §R1.20 AdminTagsPanel (`:1416`), §Gates S-14 · S-15 (`:379-380`), N-6 (`:409`), the ATP-46 rider
+(`:1868`) · COHESION §0j → §0bb (grep-located; no ruling names X.W7.e).
+
+**Crash-recovery** ⟨cmd⟩ `git status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh`
+— **0 paths inside unit e's writable set; no inherited hunk.** Neither touched.
+
+**Measured before the cure**
+- ⟨cmd⟩ `grep -rn 'window.confirm\|<ConfirmDialog\|dismiss="deliberate"' demo/ | grep -v node_modules | wc -l` → **0**.
+- ⟨cmd⟩ `grep -n dismiss node_modules/@mkbabb/glass-ui/dist/components/dialog/DialogContent.vue.d.ts` → **0** (installed `7.0.0`,
+  `package.json:88` `^7.0.0`); ⟨cmd⟩ `git -C ../glass-ui log v7.0.0..v8.0.0 -S DialogDismiss --format='%h %s' -- src/components/dialog`
+  → `b155ca4c feat(dialog): land BK #38 W-DIALOG (cut 1) — the dismiss axis …`. **The `dismiss` prop does not exist at the
+  installed producer.** Its docstring (`v8.0.0 DialogContent.vue:19-29`) rules `deliberate` = "Esc · outside" (no ✕) and *"the
+  old boolean close knob folds into it"* — i.e. glass 7's `:show-close="false"`, already the house confirm at `AdminUsersPanel.vue:203`.
+- Anchors drifted: `AdminNamesPanel:111` → `:133` (delete) / `:87` (reject); `AdminTagsPanel:101` → `:138`; `AdminUsersPanel:120/317`
+  → `:134` / `:342`. Unit d's disclosure seat `AdminUsersPanel.vue:190` fired `pm.onAdminDeletePalette` unconfirmed (a 5th panel seat).
+- Demo typecheck at open of e: ⟨cmd⟩ `npx vue-tsc -p tsconfig.demo.json --noEmit` → **EXIT 2** (TS2352 ×2, `palette-reorder.test.ts:12,22`, d's `52117566`).
+
+**Acts, in order**
+1. `73fd8ccf` — `palette-reorder.test.ts` fixtures satisfy `Palette` (no cast) → demo leg EXIT 0. (In e's `demo/test/palettes/*.test.ts` glob.)
+2. `4cb3d486` — **#9** `fix(palettes/admin)`: a confirm at Names delete + reject (W7.93), Tags delete, Flagged delete, Users disclosure
+   delete (Users delete-all / delete-user / prune already had one) — each `<DialogContent surface="glass" :show-close="false">` (the
+   deliberate rung in its glass-7 spelling) with a `<Button tone="destructive">` commit; N-6 take-before-run + sync release + `:disabled`;
+   S-14(b) tag seat visible at rest (+ ATP-46 scoped transition, ATP-31 margin deleted); G15 `Delete all palettes` / `Delete all
+   palettes of <slug>`; S-15 `Dismiss reports on <name>`, delete-user glyph `UserX`. `admin-destructive.test.ts` (10 cases).
+3. `4060ce38` — `w7-destructive-seats.spec.ts` (6 seats, network ledger) + `w7-mutation-visibility.spec.ts` G13 rows accept the new confirms.
+4. `30e1462f` — `W7-gate-log.md` unit e rows + sections.
+
+**Gate readings BEFORE → AFTER** (every AFTER double-run; every falsifier run, reverted, `cmp`-restored)
+
+| gate | BEFORE | AFTER |
+|---|---|---|
+| **G14** network | seats fire on click (Tags `:138`, Flagged `:126`, Names `:133`/`:87`, Users `:190`); no instrument | 0 requests after seat dblclick, exactly 1 after accept — e2e **6 passed** (19 with G13) ×2; unit **10/10** ×2; falsifiers RED — **GREEN** |
+| **G14** grep | **0** | **0** ×2 — **RED by producer pin → ESC-W7e-DISMISS-AXIS** (no dead `dismiss` attribute written) |
+| **N-6** | closure never cleared, commit never disabled | exactly one request per double acceptance, 7 seats (unit) / 6 (e2e); falsifier → 2 requests — **GREEN** |
+| **G15** | accessible name `Palettes` | `Delete all palettes of azure-fox-01`, visible `Delete all palettes`; falsifier → 2 failed — **GREEN** |
+| S-15 | N × `Dismiss`; shared `Trash2` | `Dismiss reports on <name>` (list-equal); `UserX` ≠ `Trash2` — **GREEN** |
+| S-14(b) | tag seat `opacity-0` at rest | `opacity: 1` at rest (e2e); falsifier → `Received "0"` — **GREEN** |
+| G18 | 0 | ⟨cmd⟩ `git diff --numstat 8ea888dc..HEAD -- src/ api/ \| wc -l` → **0** |
+
+**Cadence (§7)** ⟨cmd⟩ `npx vitest run` ×2 → **2 failed / 744 passed (746)** — the same two pre-existing fails (C-5, NG-6 case 2 / F-4);
+`vue-tsc` demo EXIT **0**; `tsc -p tsconfig.e2e.json` EXIT 0; eslint over the unit's files `--max-warnings=0` EXIT 0; `git diff --check`
+clean. `npm run lint` / test-leg typecheck: not re-litigated (docs-lint RED and F-2 unchanged by this unit — it wrote no docs-lint-scoped
+code and no `space-catalog` byte). smoke-admin: **5 failed / 16 passed**; baseline at `8ea888dc` panel bytes: the 3 `a11y-authed-admin`
+battery rows fail identically (PRE-EXISTING, `controlsChecked` 0); `flows/color-reject` + `flows/tag-delete` pass at baseline and fail
+after (below).
+
+**Commits (unit e)**: `73fd8ccf` · `4cb3d486` (#9) · `4060ce38` · `30e1462f` · this receipt.
+
+**Escalations (the orchestrator rules; none presumed)**
+- **ESC-W7e-DISMISS-AXIS** — G14's grep clause (`dismiss="deliberate"` ≥ 4) is unsatisfiable at the installed glass **7.0.0**: the
+  `dismiss` axis is glass ≥ 8.0.0 (`b155ca4c`, BK #38). W7.md §2 says the wave lands on 7.0.0; §5.e names an 8.0.0 prop — the spec
+  contradicts itself at this seat. The rung itself is composed (glass-7 spelling `:show-close="false"`, 4 dialogs) and the network
+  gate is GREEN; the spelling re-spells in one line per dialog at the 8.0.0 repin (X-W0 census → X-W4.g receiving surface). A dead
+  `dismiss` attribute was NOT written (it would pass the grep decoratively). Needs: a ruling that G14's grep reads the rung at the
+  installed pin, or the repin landing first.
+- **ESC-W7e-AP6** (S-14(c)) — `PaletteCard` survived d, so the fifth seat lives: the browse-wall admin delete (`PaletteCardMenu.vue` →
+  `BrowsePane.vue:342` `pm.onAdminDeletePalette`) remains unconfirmed. Neither path is in e's writable set. Needs a grant of those two
+  paths (or folding into ESC-W7d-INSPECTOR's inspector grant) — the cure is the same composition.
+- **ESC-W7e-FLOW-INVERSION** — `e2e/smoke/admin/flows/color-reject.spec.ts:36` and `flows/tag-delete.spec.ts:47` assert the unconfirmed
+  single-click fire (their premise inverts under G14; both pass at baseline, fail after). Outside e's set; re-rule each to accept the
+  confirm, then assert the one request. X-W1's `e2e/visual/admin-*` goldens likely diff (tag seat inked at rest; renamed delete-all) —
+  not run here; re-baseline is X-W1's.
+
+**Residuals (named, not absorbed)**
+- W7.93's "no undo / no post-fact observability" limb — the confirm cures the single-click half; an undo is not composed (no producer
+  primitive, no spec mechanism). ATP-5 (hand-rolled chip vs `Chip mode="removable"`) is BLOCKED-ON SC-1 (glass-chip.css unimported at 7).
+- VHD-2 / VHD-3 (VersionHistoryDrawer revert, invisible-at-rest) — X-W4's file, untouched. W7.56 (flagged name clipped) — the accessible
+  name carries the full name; the visual clip is not this unit's.
+- The unit-test harness stubs `matchMedia` (reduced-motion user) and `ResizeObserver` — jsdom lacks both; declared in the test header.
+
+**Files written**: `demo/palettes/browser/admin/{AdminNames,AdminTags,AdminFlagged,AdminUsers}Panel.vue` ·
+`demo/test/palettes/{admin-destructive,palette-reorder}.test.ts` · `e2e/smoke/oracles/{w7-destructive-seats,w7-mutation-visibility}.spec.ts`
+· `docs/tranches/X/waves/W7-gate-log.md` · this record. **Not written**: `PaletteCardMenu.vue`, `BrowsePane.vue`, `e2e/smoke/admin/**`,
+`e2e/visual/**`, `VersionHistoryDrawer.vue`, `src/**`, `api/**`, `dev.sh`.
