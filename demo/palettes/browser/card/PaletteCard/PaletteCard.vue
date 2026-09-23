@@ -9,7 +9,7 @@
          The root is the `palette-card` inline-size container the meta cluster's
          declared collapse priority reads (A-20's ruled consumer interim). -->
     <div
-        class="palette-card group rounded-card cartoon-surface border-card-edge bg-well cursor-pointer"
+        class="palette-card group rounded-card shadow-cartoon-md border-card-edge bg-well cursor-pointer"
         :data-layout="layout"
         role="article"
         :aria-label="`Palette: ${palette.name}`"
@@ -17,10 +17,12 @@
         :style="press.pressStyle.value"
         @click="$emit('click')"
     >
-        <!-- T.W5-R4 — the producer's inert cel cast (the exact child Card
-             emits for surface=cartoon); rides --card-press-t, PRM-zeroed. -->
-        <span class="cartoon-cast" aria-hidden="true" />
-
+        <!-- X.W7.c (G11): the cel cast is the ROOT's own box-shadow — the
+             producer's `.shadow-cartoon-md` stamp (below) — so it follows the
+             card's rounded silhouette by construction. The retired
+             `<span class="cartoon-cast">` matched no served rule: glass-ui 7
+             ships `.cartoon-cast` only in `dist/styles/glass/glass-atom.css`,
+             which neither the `./styles` entry nor the exports map reaches. -->
         <PaletteSpecimen :palette="palette" :layout="layout" />
 
         <!-- Drag handle. T.W6.5 row 8 (F-4 sweep): the muted token is the
@@ -211,12 +213,14 @@ const {
 
 const menuOpen = ref(false);
 
-// T.W5-R4 — the producer press drive (the SAME wiring <Card> carries: the
-// shared `press` spring clock, card amplitude, writing --card-press-t for
-// the caster travel/spread). CSS :active squash stays the no-JS floor;
-// this is the interruptible enhancement. PRM-instant by construction.
+// T.W5-R4 — the producer press drive (the shared `press` spring clock, card
+// amplitude): its uniform shrink `scale` is the press the card shows; CSS
+// :active squash stays the no-JS floor. PRM-instant by construction.
+// X.W7.c (fold N-12 · PC-4 ≡ PP-12 ≡ PG-17): the retired
+// `pressVar: "--card-press-t"` had no reader anywhere (the cast it was meant
+// for read `--cartoon-press-t`, and that cast is not served — see the
+// template); the composable's default drive name is left to the producer.
 const press = useLiquidPress({
-    pressVar: "--card-press-t",
     shrinkDepth: 0.02,
     maxStretch: 1.03,
 });
@@ -302,7 +306,8 @@ async function copyWithVerdict(text: string, what: string): Promise<void> {
 </script>
 
 <style scoped>
-/* X.W7.c — the card ROOT owns its geometry.
+/* X.W7.c — the card ROOT owns its geometry, its cast and its hover register
+ * (root-styling law: no consumer passes a shadow or hover override).
  *
  * Layout: a grid whose areas the specimen's strip + head (`display: contents`)
  * and the card's own grip / meta / menu / detail fill — one visual row, two
@@ -320,6 +325,12 @@ async function copyWithVerdict(text: string, what: string): Promise<void> {
         "grip head meta menu"
         "detail detail detail detail";
     align-items: center;
+    transition:
+        translate var(--duration-fast) var(--ease-cartoon-punch),
+        box-shadow var(--duration-fast) var(--ease-cartoon-punch);
+    /* The strip sits INSIDE the stamp's 2px edge: its corners take the inner
+     * radius, so no band pokes past the rounded silhouette (OM-11/OM-12). */
+    --specimen-radius: calc(var(--radius-card) - 2px);
 }
 .palette-card[data-layout="aside"] {
     grid-template-columns: auto auto minmax(0, 1fr) auto auto;
@@ -339,6 +350,25 @@ async function copyWithVerdict(text: string, what: string): Promise<void> {
 .palette-card__detail {
     grid-area: detail;
     min-inline-size: 0;
+}
+
+/* The hover register (G11 · PC-4): a designed ELEVATION shift on the
+ * producer's own cartoon ladder — the card rises one step (`translate` 0 -2px)
+ * and its cel cast deepens md → lg (`--shadow-cartoon-lg`), exactly the
+ * `.shadow-cartoon-lg` rung (the `hover:` variant of a components-layer class
+ * generates no rule — SFB-5 — so the rung is composed here, at the root).
+ * Hover-capable pointers only; reduced motion keeps the state, drops the
+ * travel. */
+@media (hover: hover) {
+    .palette-card:hover {
+        translate: 0 -2px;
+        box-shadow: var(--shadow-cartoon-lg);
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .palette-card {
+        transition: none;
+    }
 }
 
 /* vj-morph geometry for the rename unfurl: drops in from above (enter and

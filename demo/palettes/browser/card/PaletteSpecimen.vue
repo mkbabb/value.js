@@ -93,11 +93,12 @@ const { palette, layout = "default" } = defineProps<{
     display: contents;
 }
 /* The strip carries its own corners (the host does not clip — S.W5-10: a
- * card-level radius clip rasterizes 1-bit). */
+ * card-level radius clip rasterizes 1-bit). A bordered host sets
+ * `--specimen-radius` to its INNER radius; unhosted, the card radius. */
 .palette-specimen__strip {
     grid-area: strip;
     align-self: stretch;
-    --strip-r: var(--radius-card);
+    --strip-r: var(--specimen-radius, var(--radius-card));
 }
 .palette-specimen__strip[data-orientation="horizontal"] {
     border-start-start-radius: var(--strip-r);
