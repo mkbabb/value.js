@@ -88,27 +88,32 @@ function addCurrentColor() {
 // --- Palette dropdown for "From palettes" in colors mode ---
 const paletteDropdownOpen = ref(false);
 
-// --- Stable keys for TransitionGroup ---
-let swatchKeyCounter = 0;
-const swatchKeyMap = new Map<string, number>();
-const swatchKeys = computed(() =>
-    selectedColors.map((sc, i) => {
-        const mapKey = `${sc.css}::${i}`;
-        if (!swatchKeyMap.has(mapKey)) {
-            swatchKeyMap.set(mapKey, swatchKeyCounter++);
-        }
-        return swatchKeyMap.get(mapKey)!;
-    }),
-);
-watch(
-    () => selectedColors,
-    () => {
-        const validKeys = new Set(selectedColors.map((sc, i) => `${sc.css}::${i}`));
-        for (const key of swatchKeyMap.keys()) {
-            if (!validKeys.has(key)) swatchKeyMap.delete(key);
-        }
-    },
-);
+// --- Identity keys for TransitionGroup ---
+// X.W7.f (fold N-5 · MSS-3 ≡ C-9 ≡ SH-7 — the two-site cure's second site;
+// the first is `useSwatchActions`, X.W7.c): a chip's key is its IDENTITY,
+// never its index. The retired colour-plus-index key map re-minted every
+// survivor's key on any non-tail removal (each index after the cut shifts),
+// so Vue replaced chips that had not changed and the swatch-row move was
+// unreachable by construction. `SelectedColor { css, source }` carries no id,
+// so each new list is matched against the previous one BY VALUE, in order (a
+// repeated selection pairs with its earliest unclaimed predecessor): a
+// survivor keeps its key wherever it lands; only a new selection mints one.
+let nextSwatchKey = 0;
+let previousSwatches: { identity: string; key: number }[] = [];
+const swatchKeys = computed(() => {
+    const unclaimed = new Map<string, number[]>();
+    for (const { identity, key } of previousSwatches) {
+        const keys = unclaimed.get(identity);
+        if (keys) keys.push(key);
+        else unclaimed.set(identity, [key]);
+    }
+    const next = selectedColors.map((sc) => {
+        const identity = `${sc.css}\u0000${sc.source}`;
+        return { identity, key: unclaimed.get(identity)?.shift() ?? nextSwatchKey++ };
+    });
+    previousSwatches = next;
+    return next.map((swatch) => swatch.key);
+});
 </script>
 
 <template>
