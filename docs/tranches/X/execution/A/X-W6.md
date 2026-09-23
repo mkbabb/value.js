@@ -6325,3 +6325,72 @@ and no product byte was owed, so no `fix(demo/hero-blob-chroma)` commit is minte
 **Residuals**: (R-h-1) `H1-P3` beyond-gamut limb, honest-RED-by-physics. Owner: glass-ui via O-52 for the P3 widening
 (+31%); no display reaches OM-6. (R-h-2) the dev-server cold-transform pole (18.3 s under load) is a harness property
 and is recorded, not cured. **Escalations: none.** Gates: **h1 GREEN ×2 · h2 GREEN ×2.**
+
+### X.W6.i
+
+SERVED MODEL: claude-opus-5-5[1m] · RESUME residual = i3 on the §0aq `index.html` grant (§0ax: "a duty"); landed
+`c2f17bad` · `4cb294b9` · `e68e8889` not reopened. **Status: ESCALATED — no product byte moved** (the specified cure
+is impossible at the bytes without a producer-derive fork; measured below, §3a "producer-boundary surprise").
+
+**Act 0 — crash-recovery.** ⟨cmd⟩ `git status --porcelain` → `M docs/tranches/V/reformation/CARRY-LEDGER.md` ·
+`M scripts/dev/dev.sh` — neither in `.i`'s writable set. **Nothing inherited**; nothing stashed, restored or touched.
+
+**Act 1 — i3 at baseline (re-read, fresh server).** ⟨cmd⟩ `VJS_E2E_PORT=8741 npx playwright test
+e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts --project=smoke` → **`1 failed`**; *"oklch(0.62 0.2 150) … Received
+0.29330989323473755"* · *"oklch(0.62 0.2 260) … Received 0.24326322147615295"* (≤ 0.02 expected) — the Open's reading
+reproduced. o28 seeds **only through the URL hash** on a fresh context with **no storage** (`o28:37-38` `newContext`,
+`o28:121` `#/?space=oklch&color=<seed>`).
+
+**Act 2 — anchors measured at the true bytes (before any edit).**
+- The pre-module classic script the grant names **already exists**: `demo/color-picker/index.html:159-203`, module
+  entry `:205`. It seeds `--saved-bg-0..3` pre-paint from the **persisted ground record** (`localStorage
+  'color-picker-ground'`, shape/version/scheme-validated, `:186-198`) — the DERIVED stops the sink persisted
+  (`useAtmosphere.ts:277-305`, `GROUND_STORE_KEY` = `ground.ts:59`), else the first-visit constant pair. The
+  persisted-pick arm (a returning visit) is therefore already seeded with the atmosphere's own derived stops.
+- The uncured arm is the **URL-carried pick on a cold load** — exactly o28's case, and exactly the question
+  ESC-W6r1-i3 carried ("does 'persisted pick' cover the URL pick"), which §0aq/§0ax route to `.i` without ruling
+  the derive mechanism.
+- What the atmosphere paints first for a pick (the stops `--saved-bg-n` must equal): `useAtmosphere.ts:285-293`
+  writes `normalizeGroundStops(palette.map(oklchStopToHex))`, where light `palette` = `guaranteeSeamOffset(
+  resolveCalibratedAtmosphere(fieldAtoms()), seed).palette` (`:149-153`; `atmosphere-calibration.ts:105-113` →
+  glass `resolveAtoms`) and dark = glass `deriveAurora(seed, { scheme: "dark" })` (`:264-275`).
+- That chain's module graph, measured: ⟨cmd⟩ `sed -n 7,13p node_modules/@mkbabb/glass-ui/dist/aurora.js` →
+  `deriveAurora` (`aurora.js:798`) imports `cssToOklch · deriveHue · gamutMapStop · oklchStopToHex · oklchToLinear`
+  from glass `./color.js` and `interpolateHue` from `@mkbabb/value.js/color`; ⟨cmd⟩ `head -3 …/dist/color.js` → glass
+  `color.js` imports `convertColor · mapColorToGamut · toRgba8` from `@mkbabb/value.js/color` plus the value.js parser
+  chunk. The seed also crosses value.js's own 18-space parser (`hydrate.ts:95-107` `parsePickerColor` →
+  `convertPickerColor`).
+
+**Act 3 — why the specified cure cannot land inside the grant (the escalation, `ESC-W6i-i3-1`).** A classic
+`<script>` before `:205` cannot `import`. To "seed exactly the first-painted atmosphere ground" from a URL pick it
+would have to reproduce, as vanilla JS in HTML: value.js's parser + `convertColor` + `mapColorToGamut`, glass's
+`deriveAurora` (harmony hue walk, bell chroma, lightness band, the 48-step gamut descent `Ze`), glass `resolveAtoms`,
+this repo's calibration (`vividnessForSeedChroma`) and seam offset, and `oklchStopToHex`. That is a hand-copied fork of
+two producers' derive — the standing law's copied-producer class and a direct breach of the same file's U-F23 law
+(`index.html:144-158`: "Only the guard LOGIC below is mirrored"; the constants are token-injected precisely so no
+derive literal is hand-typed). It would drift silently on any glass/value.js derive change. Not authored.
+The lawful routes each need a write **outside** `.i`'s set: (a) single-source the derive into the boot script at
+build/serve time — a bundled IIFE injected by `plugins/vite-ground-tokens.ts` (render-blocking inline JS = X-W2's
+bundle/perf property); (b) make the module entry render-blocking (`<script type="module" blocking="render">` at
+`:205` — X-W5's carve + an LCP/TBT change, X-W2 sign-off), so first paint follows the hydrated sink's immediate
+write; or (c) an E-3 re-point of o28 to the persisted-pick arm the existing script already seeds (a spec act).
+**Ask**: COHESION rules ESC-W6i-i3-1 — (a) with `plugins/vite-ground-tokens.ts` granted + X-W2 sign-off, (b) with
+`index.html:205` granted + X-W2 sign-off, or (c) the E-3 re-point; then `.i` re-sits.
+
+**Act 4 — W5.md:321 dialog-ancestry rider.** No byte of `index.html` moved (⟨cmd⟩ `git diff --stat --
+demo/color-picker/index.html` → empty), so the portalled-dialog ancestry (`<body class="relative" data-paper-field>`
+over `#app`, `:228-230`) is byte-identical before/after by construction; no live before/after pair was captured
+because there is no after.
+
+**Act 5 — held gates (this seat's clock, fresh servers).**
+| gate | ⟨cmd⟩ | reading |
+|---|---|---|
+| i3 | `o28-atmosphere-coldload.spec.ts --project=smoke` (port 8741) | **RED** — `1 failed` (0.2933 · 0.2433 > 0.02), BEFORE = AFTER (no cure landed) |
+| i1 | `o25-atmosphere-response.spec.ts --project=smoke` (port 8742) | **GREEN** — `1 passed (5.5s)` |
+| i2 | `node docs/tranches/X/gates/gate-lband-door.mjs` | **GREEN** — `EXIT=0` · `GATE i2 (dark lBand door) — GREEN` |
+| vitest aurora-bracket | `npx vitest run demo/test/glass/aurora-bracket.test.ts` | `1 passed (1)` · `9 passed (9)` |
+§7 cadence: no product byte touched → prettier/eslint/vue-tsc not owed by this seat; `git diff --check` on the record commit.
+
+**Commits**: this receipt only (`docs(x-w6/.i)`). No `feat(demo/atmosphere-oracle)` commit minted (commit #9's
+tombstone-first family already landed; no cure byte exists to add). **Residuals**: (R-i-1) i3 RED, unrelieved,
+owner = COHESION ruling on ESC-W6i-i3-1. **Escalations: ESC-W6i-i3-1.**
