@@ -1,6 +1,8 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import type { RouteRecordRaw } from "vue-router";
 
+import type { ViewId } from "../../shell/viewSchema";
+
 import { installDocumentTitle } from "./useDocumentTitle";
 import { installAdminGuard } from "./guards";
 import NotFoundPane from "../../scenes/notfound/NotFoundPane.vue";
@@ -20,7 +22,15 @@ import NotFoundPane from "../../scenes/notfound/NotFoundPane.vue";
 // A stub component is needed for vue-router but never rendered.
 const Stub = { render: () => null };
 
-const routes: RouteRecordRaw[] = [
+// X.W5.c2 · N14 (ATP-33, COHESION §0ax ESC-R1-3) — one view identity, declared
+// ONCE (`ViewId`, `demo/shell/viewSchema.ts`) and type-visible here: every
+// record's `name` is a `ViewId`, so a misspelt or retired route name is a
+// `vue-tsc` error at this declaration instead of a silent `isViewId` miss in
+// `useViewManager`. (Exhaustiveness — every `ViewId` routed — is the byte-parity
+// arm `e2e/visual/census-parity.spec.ts` holds.)
+type ViewRoute = RouteRecordRaw & { readonly name: ViewId };
+
+const routes: ViewRoute[] = [
     { path: "/", name: "picker", component: Stub },
     { path: "/palettes", name: "palettes", component: Stub },
     { path: "/browse", name: "browse", component: Stub },
