@@ -4522,3 +4522,21 @@ Crash-recovery: ⟨cmd⟩ `git status --porcelain` → the four standing rows (`
 | INFO | Repair 1 cured the dead `ready` ref cleanly. | `16852e03`: −9 lines · TSC 0 · eslint 0 | — |
 
 **Honest-RED set:** empty. g2 is unrelieved. **Gates reproduced:** 16 · **failed:** W6 g2. The LEDGER row **stays PARTIAL**, and one event line is appended.
+
+## Repair 2 — RESUME 7, L-20 repair round 2 over Check 2, 2026-09-23
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X-W5 REPAIR 2 (RESUME 7) · HEAD at open `508cd041`.
+Crash-recovery: ⟨cmd⟩ `git status --porcelain` → the four standing rows (`CARRY-LEDGER.md` · two W6 catalog PNGs · `scripts/dev/dev.sh`). None is in this seat's writable set, so there is no inherited partial.
+Inputs: `W5.md` whole (400 L, four ADDENDA), `## Repair 1 — RESUME 7`, and `## Check 2 — RESUME 7`.
+
+**Precondition read:** ⟨cmd⟩ `grep -c ESC-W5d4-1 docs/tranches/X/COHESION.md` → **0**. The last COHESION section is still §0az. There is no ruling yet.
+**Nothing has moved since Check 2:** ⟨cmd⟩ `git diff --stat 508cd041..HEAD -- demo src e2e` → empty. ⟨cmd⟩ `git log --oneline 508cd041..HEAD` → empty.
+
+| defect | cure | commit | gate re-reading |
+|---|---|---|---|
+| HIGH · the ADDENDUM-4 `.d4` gate *W6 g2 GREEN ×2* is RED with no relief (ESC-W5d4-1 unruled) | **ESCALATED, not cured.** Check 2's cure starts with a COHESION ruling, and that ruling does not exist (0 hits). Both branches of the cure lie outside this seat's reach. The instrument settle arm lives in `e2e/smoke/views/companion-pane-track-start.spec.ts`, which is outside W5 §4 and outside every ADDENDUM grant (it is X-W6's `.g`/`.a` instrument). The product cure for the pre-start `vj-enter` pose (`animations.css:251-254`) is exactly the design choice ESC-W5d4-1 asks COHESION to rule between. A repair seat that picked one branch would pre-empt that ruling. | — | g2 was not re-run: no byte a cure could move has landed since Check 2 read it RED ×2 (`Received 6.501441955566406`) |
+| MINOR · W6 e1 is load-sensitive | Rides ESC-W5d4-1, as Check 2 prescribes. It has no one-command cure inside bounds. | — | — |
+| MINOR · the `.c4` R5 retirement goes one step past §0az's words | Mitigated. Carried to the next COHESION pass for a one-line confirmation. `COHESION.md` is outside this seat's bounds, and there is no in-bounds one-command cure. | — | — |
+| INFO · Repair 1's `16852e03` is clean | None required. | — | — |
+
+**Tally:** 0 cured · 1 escalated (ESC-W5d4-1 → COHESION; the e1 MINOR rides it) · 1 MINOR carried to COHESION · 1 INFO. W6 g2 is still RED and unrelieved. The LEDGER row **stays PARTIAL**. IMPLEMENTED is not stamped. The next act belongs to COHESION: rule ESC-W5d4-1, then dispatch a resume unit that re-reads g2 ×2.
