@@ -238,3 +238,33 @@ Seat `claude-opus-5-5`, 2026-09-23 ~13:40–13:55 EDT. Mode: fresh (no prior `.d
 **Residuals.** R-c-1 (css-recovery's 15 stale failures), R-c-2, R-c-3, R-b-2 and F-W5c-1 carry forward from `.c`, unmoved by this unit.
 
 **Escalation.** **ESC-W5d-1 — OWNER ACT: the npm token is invalid (E401), so `@mkbabb/parse-that@2.0.0` cannot be published.** Everything short of the PUT is landed and pushed (`488523c`). `.e` depends on the *published* parse-that (W5.md `.e`), so `.e` is blocked on this act.
+
+### X.P.W5.e
+
+Seat `claude-opus-5-5`, 2026-09-23. Mode: fresh (no prior `.e` receipt). **Outcome: ESCALATED before any code edit. The specified cure depends on a registry coordinate that does not exist.**
+
+**Crash-recovery scan.** ⟨`git status --porcelain -- package.json package-lock.json src test docs/tranches/X/execution/D/X-P-W5.md | wc -l`⟩ → `0`. Nothing inherited. The dirty `CARRY-LEDGER.md`, `scripts/dev/dev.sh` and untracked `docs/tranches/X/{audit,execution/chassis/ui-audit.js,keyframes/evidence/W13U/d2}` belong to other seats and were not touched.
+
+**Acts in order.**
+1. **Track A lock (F-open-3).** ⟨`git log --since='1 hour ago' --oneline -- src/css | wc -l`⟩ → `0`. ⟨`grep -n X-W12 LEDGER.md`⟩ → row 37 `planned`, so `.l` has not been dispatched. **Lock MET.**
+2. **Precondition for the cure: is a published parse-that carrying the CSS surface on the registry?** W5.md `.e` requires "value.js depends on the **published** parse-that". Readings:
+   - ⟨`npm view @mkbabb/parse-that dist-tags --json`⟩ → `{"latest": "1.0.0"}`. The version list ends `… 0.13.0, 1.0.0`, so 2.0.0 is absent.
+   - 1.0.0 has no `./css` surface: `.d` act 2, and `proof:no-css-surface` held at that tree.
+   - ⟨`npm whoami`⟩ → `E401 Unauthorized`. The token wall that `.d` recorded (ESC-W5d-1) is still up.
+   - COHESION §0bl..§0bs, read to the file end (3068 lines), holds no ruling that lifts the wall or allows an unpublished coordinate.
+3. **No substitute taken.** The alternatives were a `github:`, `file:` or `link:` dependency on parse-that master `488523c`, vendoring the `./css` build into value.js, or depending on 1.0.0 and keeping the hand grammar. Each one either departs from "the published parse-that" or leaves a dual path. Each is a workaround the standing law names a HIGH defect. So `src/css/grammar.ts` (544) and `syntax.ts` (101) are **not** deleted: deleting them without the seam dependency would break `npm test` and leave value.js without a parser.
+
+**Gate readings (BEFORE → AFTER).**
+
+| gate | BEFORE (§Baseline) | AFTER (this seat) | verdict |
+|---|---|---|---|
+| **G-W5-e1** | ⟨`grep -c parse-that package.json`⟩ → `0` | ⟨same⟩ → `0`. No dependency was added, because the registry carries no CSS-surfaced parse-that | **RED — blocked (ESC-W5d-1)** |
+| **G-W5-e2** | ⟨`wc -l src/css/grammar.ts src/css/syntax.ts`⟩ → `544 · 101` | ⟨same⟩ → `544 · 101` | **RED — blocked (depends on e1)** |
+| **G-W5-close** | RC-P(4.0.0) FALSE, 3 of 6 ×2 | Not re-run. value.js has not moved, so it would reproduce `.d` act 9 (`RC-P(4.0.0) = FALSE — 3 of 6: 1 PUBLISHED · 3 EQUIVALENCE · 4 ADMITTED`, ×2, parse-that `488523c`). That reading is cited as banked | **RED — blocked** |
+
+**Escalation.** **ESC-W5e-1 — blocked on ESC-W5d-1 (OWNER ACT) plus one ruling.**
+- (i) The owner must restore npm auth and publish parse-that 2.0.0. The commands, from `.d` act 8, are `npm login` · `cd parse-that/typescript && npm run build && npm publish --access public` · `git tag v2.0.0 488523c && git push origin v2.0.0`.
+- (ii) The orchestrator must rule on **F-W5d-1**, which changes what `.e` has to do. It asks whether conjunct 4 (ADMITTED) counts the `.wasm` in a dependency. Option (a): value.js ships `ac1.wasm` inside its own package. Option (b): a dated RELEASE-CONDITION §2.4 addendum makes the installed dependency closure the subject.
+- Re-dispatch `.e` once (i) lands and (ii) is ruled. Track A lock at re-dispatch: X-W12 `.l` writes `src/css/grammar.ts`. If `.l` lands first, `.e` still deletes that file, and the KFA-14 legacy comma forms must then hold through the seam, which `.c` has already covered as G-W5-c2.
+
+**Commits.** This record only.
