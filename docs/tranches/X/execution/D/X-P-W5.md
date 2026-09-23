@@ -180,3 +180,61 @@ Seat `claude-opus-5-5`, 2026-09-23 ~13:25–14:20 EDT. Mode: fresh (no prior `.c
 - **R-b-2 (F-W5b-1, var() in `animation`)** was routed to `.c`/`.e`. It is a stylesheet/value-grammar departure and not a colour one; `.c`'s writable set could land it, but its divergence row is value.js `DIVERGENCE-LEDGER.md`, outside this seat. It carries forward to `.e` intact.
 - **F-W5c-1, ruling requested.** WPT `color-invalid-rgb.html` / `color-invalid-hsl.html` refuse `rgb(255, 255, 255, none)` and `hsla(120, 100%, 50%, none)`. css-color-4 §4.2 reads `<alpha-value> = <number> | <percentage>`, and its changelog says "Made explicit that legacy forms do not support none". The seam accepts both under the standing ruling PB-01/02. The `algebra/grammar.mjs` legacy note quotes §4.2 as including `none`, and the ED does not. Measured population: ⟨corpus scan⟩ → 82 four-argument legacy forms with a `none` alpha, of which 17 the seam accepts. Curing it would flip those 17 cells against a ruled reading (E-3), so the test asserts the two WPT cells **as ruled** under that citation. The orchestrator must decide: re-rule PB-01/02 against §4.2 (then the cure is one `alpha()` → `legacyAlpha()` edit in both legacy arms plus a DIVERGENCE-LEDGER row), or confirm it.
 - Escalations: none that block. F-W5c-1 is a ruling request.
+
+### X.P.W5.d
+
+Seat `claude-opus-5-5`, 2026-09-23 ~13:40–13:55 EDT. Mode: fresh (no prior `.d` receipt).
+
+**Crash-recovery scan.** ⟨`git -C parse-that status --porcelain`⟩ → only the July dirt (`rust/**`, `.cargo/config.toml`, root `README.md`, 17 untracked). 0 dirty paths in my writable set (`typescript/package.json`, `package-lock.json`, `CHANGELOG.md`; the root `README.md` is July dirt and not my release-notes file, so I did not touch it). value.js: this record is clean. Nothing inherited.
+
+**Acts in order.**
+1. **Build** ⟨`cd typescript && npm run build`⟩ → `✓ built in 3.69s` (the `dist/` the tarball ships, from master `ec18f4b`).
+2. **Version sizing, measured and not guessed.** ⟨`npm pack @mkbabb/parse-that@1.0.0`, then diff each subpath's runtime export keys against the new `dist/`⟩ → `parse 34→31 removed: clearCollectedDiagnostics,collectDiagnostic,getCollectedDiagnostics` · `diagnostics 6→3 (the same three)` · `packrat 3→5 added: packratEnter,packratExit` · `core 18→18` · `utils 7→7`. The removals come from `de36d57` ("remove the zero-argument get/clear collection contract and its public exports"; it also deletes `Parser.state`). A removal is breaking, so the version is **major, 2.0.0**, not the minor that the added CSS surface alone would warrant. ⟨`npm view @mkbabb/parse-that versions`⟩ → the last is `1.0.0`, so 2.0.0 is free. ⟨`npm version 2.0.0 --no-git-tag-version`⟩ → `v2.0.0` (`package.json` + `package-lock.json`).
+3. **Release notes**: `typescript/CHANGELOG.md` has a `## 2.0.0 — the CSS seam` entry, covering the `./css` surface, the shipped `.wasm`, CSS Color 5, equivalence, the BREAKING removal, the `./packrat` additions, and the gates at the cut.
+4. **The `.wasm` question: SHIP IT.** Three facts decide it.
+   - SEAM-CONTRACT.md §3 binds every parser row "per lowering (js · wasm)".
+   - COHESION §0y **Q-RC-2** ruled ADMITTED "NOT vacuous — a Wasm-free V has not shipped AC-1's twin".
+   - `files: ["./dist", "./src/css"]` already packs `src/css/build/ac1.wasm`: ⟨`npm pack --dry-run --json`⟩ → 92 entries, one `.wasm`, `src/css/build/ac1.wasm`.
+
+   The TS build is therefore **not** the contract, and **no ruling-request file was written**. Admission over the PACKED artifact: ⟨`npm pack --ignore-scripts` → extract → `node scripts/wasm-admission.mjs package/src/css/build/ac1.wasm`⟩ ×2 → `"total": 0 · "functionKind": 0 · "functionKindZero": true · "verdict": "GREEN"`, EXIT 0 both runs. The packed sha256 `468d6f03…0415f04` equals the tree's and `.c`'s reproducible build.
+5. **Packed surface from a local tarball** (the registry leg is walled; see act 7). ⟨`node scripts/packed-candidate-surface.mjs --seam SEAM-CONTRACT.md --universe evidence/W3/universe-52.json`⟩ → `resolved "19 of 52"`, `G3 RED`, EXIT 1. The reason, read with `--out`: `legs.types` is `"tsc not found at /Users/mkbabb/Programming/parse-that/node_modules/typescript/bin/tsc"`. The script's default `tsc` path resolves one level above the package, which is a `<p2>`-era layout (**F-W5d-2**, instrument; the script is outside this seat's writable set). I re-ran it with the flag the script provides for naming the compiler, `--tsc typescript/node_modules/typescript/bin/tsc`, twice. Both runs gave `tarballSha256 f5ddc4a1…f0e2ba` (identical), `"resolved": "52 of 52"`, `refusals 5`, `G3 GREEN`, EXIT 0.
+6. **Holds before the cut.** ⟨`npm test`⟩ → `Test Files 15 passed (15) · Tests 148 passed (148)` EXIT 0 · `proof:manifest` → `manifest-gate GREEN` · `proof:subpath` → `proof:subpath GREEN — 4 subpaths resolve`.
+7. **Commit + publish attempt.** Commit **parse-that `488523c`**, pathspec `typescript/{package.json,package-lock.json,CHANGELOG.md}`, 3 files. ⟨`npm publish --access public`⟩ packed `shasum 8cfabf9c827fb62a0a7342419b5a1637796ea8f9`, 92 files, then → **`npm error code E404 · 404 Not Found - PUT https://registry.npmjs.org/@mkbabb%2fparse-that`**. The cause is the auth token. ⟨`npm whoami`⟩ → `E401 Unauthorized`. ⟨`npm access list packages @mkbabb`⟩ → `E401 — Unable to authenticate, your authentication token seems to be invalid`. `~/.npmrc` does carry an `_authToken` line; the registry rejects it. The last `@mkbabb` publish I can see is glass-ui at `2026-09-23T02:28:55Z`, so the token has lapsed since then. **The npm token wall is back, and clearing it is an OWNER ACT** (`npm login`). Nothing was retried, and no other registry or token was tried.
+8. **Push.** ⟨`git push origin master`⟩ → `ec18f4b..488523c  master -> master`. **The tag is HELD**, and `v2.0.0` was not created. A tag names a published coordinate, and 2.0.0 is not on the registry. The owner act, in order:
+   - `npm login`
+   - `cd parse-that/typescript && npm run build && npm publish --access public`
+   - `git tag v2.0.0 488523c && git push origin v2.0.0`
+9. **RC-P ×2.** ⟨`node scripts/rc-p-evaluate.mjs --version 4.0.0 --out <scratch>`⟩ ×2, run from parse-that master `488523c`. The brief says `--version <new>`, but at the evaluator's bytes that is a category error. `const PACKAGE = "@mkbabb/value.js"` (L97), so `V` is a **value.js** coordinate, and `--version 2.0.0` would evaluate value.js 2.0.0 (an old, real release). **INTENT at the true bytes**: I evaluated at value.js's current registry `latest`, ⟨`npm view @mkbabb/value.js dist-tags`⟩ → `4.0.0`. Both runs print the identical table (only the timestamp line differs), EXIT 1 both:
+
+   | # | conjunct | MEASURED | VALUE | reading |
+   |---|---|---|---|---|
+   | 1 | PUBLISHED(V) | yes | FALSE | `verify-packed-surface.mjs` exited 1 against V's registry tarball |
+   | 2 | TOTALITY(V) | yes | TRUE | TRUE |
+   | 3 | EQUIVALENCE(V) | yes | FALSE | arm V read 20962 mirror-defects over V's installed /css |
+   | 4 | ADMITTED(V) | NO | FALSE | V's installed bytes contain zero `.wasm` artifacts |
+   | 5 | BAR-DISCHARGED | yes | TRUE | TRUE |
+   | 6 | ROUTED(V) | yes | TRUE | TRUE |
+
+   `RC-P(4.0.0) = FALSE — 3 of 6 conjuncts are FALSE: 1 PUBLISHED(V) · 3 EQUIVALENCE(V) · 4 ADMITTED(V)`. This is the same reading as §Baseline G-W5-close. It is expected, because value.js is not on the seam until `.e`, and RC-P's subject is value.js, not parse-that.
+
+**Gate readings (BEFORE → AFTER).**
+
+| gate | BEFORE | AFTER | verdict |
+|---|---|---|---|
+| **G-W5-d1** | ⟨`npm view @mkbabb/parse-that version`⟩ → `1.0.0`, no CSS surface | release commit `488523c` (2.0.0) is pushed. The local tarball packs `./css` 52/52 (act 5, ×2). **`npm publish` → E404, and the token is invalid (E401)**. The registry still reads `latest 1.0.0` | **RED — OWNER ACT** (npm token; act 8 names the commands) |
+| **G-W5-d2** | RC-P conjunct 4 → `NO FALSE — zero .wasm artifacts` | Decision: **SHIP** (act 4). The packed `ac1.wasm` admission is GREEN ×2 (0 imports, 0 function-kind imports, instantiation OK). RC-P(4.0.0) conjunct 4 is still `NO FALSE` ×2, because V = value.js 4.0.0 ships no Wasm | **RED at the gate's own command.** The `.d` limb (the decision plus a shipped, admitted artifact) is met at the local tarball. The registry leg waits on d1. Conjunct 4 turns only at `.e`, and F-W5d-1 applies there |
+| **G-W5-d3** | `ROUTED(V) yes TRUE TRUE` (F-open-2, GREEN-BEFORE-CURE) | ×2 → `6 ROUTED(V) yes TRUE TRUE`. The legs are `RELEASE-PACKET.md` present · INBOX `RC-P` sent-rows O-41..O-43 · ⟨`grep -c parse-that fourier-analysis/{,web/}package.json`⟩ → `0 · 0`. The source is X.P.W4S, which wrote the packet; its record `execution/D/X-P-W4S.md:139` reads `6  ROUTED(V)  yes  TRUE  TRUE` | **GREEN (confirmed; W4S's cure)** |
+| hold: `npm test` | 148/148 (`.c`) | 148/148 EXIT 0 | held |
+
+**Findings.**
+- **F-W5d-1 (for `.e` and the orchestrator): conjunct 4 cannot see a dependency's `.wasm`.** `rc-p-evaluate.mjs` L304–312 sets `installRoot = <consumer>/node_modules/@mkbabb/value.js` and enumerates `.wasm` only under that root (L469). Suppose value.js takes `@mkbabb/parse-that` as a normal dependency. npm hoists it to `<consumer>/node_modules/@mkbabb/parse-that`, outside `installRoot`, so ADMITTED(V) keeps reading "zero `.wasm` artifacts" even though V's installed closure carries `ac1.wasm`. Q-RC-2 says a Wasm-free V fails, and it does not say whether a dependency's Wasm is V's. **Ruling needed before `.e` closes**, with two options:
+  - (a) V ships the artifact in its own package, bundled or copied at build, so `installRoot` sees it.
+  - (b) conjunct 4's subject is V's installed dependency closure. That is an evaluator change by dated addendum to RELEASE-CONDITION §2.4.
+
+  I have not chosen between them.
+- **F-W5d-2 (instrument):** `packed-candidate-surface.mjs`'s default `--tsc` resolves to `<repo>/node_modules/typescript`, which does not exist on master. The master layout is `<repo>/typescript/node_modules`. Without `--tsc`, the gate false-REDs at 19/52. The one-line cure is `DEFAULT_PACKAGE`-relative. It belongs to whoever owns `typescript/scripts/**` and was not taken here.
+- **Brief/anchor drift, recorded:** RC-P's `--version` is a value.js coordinate, not parse-that's (act 9).
+
+**Residuals.** R-c-1 (css-recovery's 15 stale failures), R-c-2, R-c-3, R-b-2 and F-W5c-1 carry forward from `.c`, unmoved by this unit.
+
+**Escalation.** **ESC-W5d-1 — OWNER ACT: the npm token is invalid (E401), so `@mkbabb/parse-that@2.0.0` cannot be published.** Everything short of the PUT is landed and pushed (`488523c`). `.e` depends on the *published* parse-that (W5.md `.e`), so `.e` is blocked on this act.
