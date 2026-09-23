@@ -1687,3 +1687,74 @@ SERVED MODEL: claude-opus-5-5 · grant COHESION §0bk.5 (ESC-W7c-CI) · lock "af
 
 - `dev.sh` was not touched.
 **Commits**: `623feffd` · this record.
+
+### X.W7.a2
+
+SERVED MODEL: claude-opus-5-5 · grant COHESION §0bk.6 (ESC-W7a-G3, in-house half) · W7.md G3 (`:307-319`) · last unit
+of the RESUME plan (lock "after c2" met: `7df67bf2` c2 receipt at HEAD on open).
+
+**Open (crash-recovery).** ⟨git status --porcelain⟩ → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh`
+· `?? docs/tranches/X/audit/` · `?? docs/tranches/X/execution/chassis/ui-audit.js` — none in this unit's writable set;
+**nothing inherited**. ⟨git log --oneline --all | grep -c "W7.a2"⟩ → 0 before this seat.
+
+**Read**: W7.md whole (once) · this record's RESUME header → §Unit plan → §Baseline · the c2 receipt (tail) · COHESION
+§0bk (+ §0bl..§0br scanned: no later ruling on G3/O-57) · W7-gate-log §G3 (`:65-105`).
+
+**Act 1 — baseline at the true bytes (HEAD `7df67bf2`).** ⟨scratch probe `{extends tsconfig.demo.json,
+vueCompilerOptions.strictTemplates:true}` → `npx vue-tsc -p <probe> --noEmit`⟩ → **EXIT 2 · 336 / 65** (TS2353 328 ·
+TS2322 8; `variant` 34 · `tag` 13 · `surface` 11 · `onClick` 110 · `title` 15 · `aria-*` 65). The RESUME baseline's 331
+was read at `f95a2f77`; +5 from d2…c2 — re-measured, not carried.
+
+**Act 2 — anchor drift, "the 25 out-of-bounds files".** ⟨`git archive e24361c6` → scratch probe⟩ → 296 / 61 (reproduces
+unit a). The 25-file list is not recoverable from §4 (§4 table + §5 globs → 38 out; table only → 42 out). INTENT at the
+true bytes: out-of-bounds = outside §4 table + §5 globs (`browser/card/**`, `browser/admin/*.vue`) — the narrowest write
+set → **40 files** at HEAD; the inert class inside them lives in **16** (all also out-of-bounds at `e24361c6`).
+
+**Act 3 — class ruling from the installed glass 7.0.0 `dist`.** `Button` props (`dist/button-Bu9F4uU6.js:9-33`) carry no
+`variant`; `WatercolorDot` renders a `span` with no `tag`/`as`; `Skeleton` declares only `class` (so `variant="shimmer"`
+beside `surface` is inert too — probe-hidden). ⟨`grep -cE "\[(variant|tag|surface)[=\]]" …/glass-ui.css`⟩ → 0;
+⟨same over `demo e2e test`⟩ → 0 selector hits ⇒ null pixel delta. Excluded as functional fallthrough (locks): `asChild`
+on glass `DropdownMenuItem` (attrs merged onto reka `Item`, where `asChild` is live), `:key` on lucide icons (Vue reserved
+key), `role` on `Card`. `UserSortMenu.vue:8` left per §0k.3 S-4 (X-W8 deletes; X-W7 does not write it).
+
+**Act 4 — cure (deletion, unit a's precedent; the values are X-W10 register intents, never re-spelled as
+`emphasis`/`tone` — M-23).** 35 bindings / 15 files: Button `variant` 20 · WatercolorDot `tag` 9 · Skeleton
+`surface`+`variant` 6 (per-site table: W7-gate-log §X.W7.a2). ⟨`git diff 7df67bf2 69c0d255 -- demo | grep -cE
+'^-.*(variant|tag|surface)='`⟩ → **32** lines; added lines carrying any → 0. ⟨`git diff --check`⟩ clean; ⟨`npx eslint
+--max-warnings=0 <15 files>`⟩ → EXIT 0. Commit **`69c0d255`** `fix(demo/types): delete inert glass-component props in the
+out-of-bounds strict-probe files (X.W7.a2, O-57)` (pathspec = the 15 files).
+
+**Gate readings (BEFORE → AFTER).**
+
+| gate | ⟨cmd⟩ | BEFORE | AFTER |
+|---|---|---|---|
+| G3 flag | `grep -n "vueCompilerOptions\|strictTemplates" tsconfig*.json` | 0 | **0** (not flipped — lock) |
+| G3 probe | scratch strict-probe ×2 | EXIT 2 · 336 / 65 | EXIT 2 · **312 / 65** · **312 / 65** (byte-identical output) |
+| inert keys | probe `'variant'/'tag'/'surface' does not exist` | 34 · 13 · 11 | **17 · 7 · 8** — out-of-bounds: only `UserSortMenu:8` |
+| out-of-bounds diag | probe lines in the 40-file set | 163 | **139** |
+| demo tsc | `npx vue-tsc -p tsconfig.demo.json --noEmit` | EXIT 0 | **EXIT 0** |
+
+−24 net = 26 first-reported inert keys gone − 2 revealed next keys (`aria-label` ×2, `GenerateControls`).
+**G3: honest-RED `G3-FALLTHROUGH-TYPES`** (owner glass, O-57 R-1) — residual **312 diagnostics / 65 files**: fallthrough
+`onClick` 110 · `aria-*` 67 · `data-*` 69 · `title` 15 · `onKeydown` 3 · `asChild` 2 · `key` 2 · `role`/`onSubmit`/`onFocus`/
+`onAnimationend` 1 each · TS2322 8; plus 32 inert sites outside this seat's set (below).
+
+**Residuals (each named; none absorbed).**
+- **ESC-W7a2-INBOUNDS** (orchestrator rules): 31 inert-prop sites in 13 W7-in-bounds files — `BrowsePane` ×2 ·
+  `AdminAuditPanel` · `AdminFlaggedPanel` · `AdminListSkeleton` ×4 · `AdminNamesPanel` ×2 · `AdminTagsPanel` ×2 ·
+  `AdminUsersPanel` ×3 · `PaginationBar` ×2 · `CurrentPaletteEditor` ×5 · `PaletteCardSkeleton` ×3 · `SwatchHoverMenu` ×2 ·
+  `EmptyState` ×3 · `MixConfigBar` ×1. §0bk.6 grants the out-of-bounds files only; units c/d/e/g closed without owning
+  this class. One grant (same deletion, same class ruling) closes the inert class; after it, G3's residual is pure
+  fallthrough. Not written here (writing them = outside the writable set).
+- `UserSortMenu.vue:8` — §0k.3 S-4 → X-W8.
+- Finding (not in the inert class): the `GenerateControls` palette swatch is a clickable `WatercolorDot` `span` with no
+  keyboard activation (the deleted `tag="button"` never made it a button) → UI audit / X-W12 register.
+
+**Cadence (§7).** ⟨`npx vitest run`⟩ (load 146–181) → `Test Files 6 failed | 54 passed (60)` · `Tests 4 failed | 847 passed
+| 8 skipped (859)`: C-5 `spectrum-luma` + NG-6 `reka-binding-idiom` (the pre-existing pair, Repair 1 `:1048`) and the load
+set `palette-card-layout` · `plate-mass` · `byte-exact` PNG · `admin-destructive` (30 s / 60 s timeouts; none imports a
+touched file — ⟨grep of the 15 basenames in those 4 tests⟩ → 0). ⟨`npx vitest run --maxWorkers=1 <those 4>`⟩ →
+**`Test Files 4 passed (4)` · `Tests 51 passed (51)`**. Demo vue-tsc EXIT 0; eslint on the touched files EXIT 0 (repo-wide
+lint RED is ESC-W7c2-LINT, pre-existing, docs/** scripts). Probe file lived in the scratchpad only; never committed.
+- `dev.sh` was not touched.
+**Commits**: `69c0d255` · gate log §X.W7.a2 + this record (next commit).
