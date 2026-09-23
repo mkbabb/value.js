@@ -30,8 +30,6 @@ export interface ViewManager {
     currentView: ComputedRef<ViewId>;
     previousView: Ref<ViewId | null>;
     currentConfig: ComputedRef<PaneConfig>;
-    /** False until the router has resolved the initial route */
-    ready: Ref<boolean>;
     switchView: (id: ViewId) => void;
     goBack: () => void;
     viewMap: typeof VIEW_MAP;
@@ -42,12 +40,6 @@ export const VIEW_MANAGER_KEY: InjectionKey<ViewManager> = Symbol("viewManager")
 export function useViewManager(): ViewManager {
     const router = useRouter();
     const route = useRoute();
-
-    // Suppress pane transition on initial route resolution
-    const ready = ref(false);
-    router.isReady().then(() => {
-        ready.value = true;
-    });
 
     const currentView = computed<ViewId>(() => {
         const name = route.name as string;
@@ -89,7 +81,6 @@ export function useViewManager(): ViewManager {
         currentView,
         previousView,
         currentConfig,
-        ready,
         switchView,
         goBack,
         viewMap: VIEW_MAP,
