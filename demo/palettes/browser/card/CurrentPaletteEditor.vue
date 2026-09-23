@@ -27,8 +27,8 @@
             class="swatch-row flex items-center gap-2.5 flex-wrap"
         >
             <SwatchHoverMenu
-                v-for="(color, i) in savedColorStrings"
-                :key="swatchKeys[i] ?? i"
+                v-for="({ color, key }, i) in swatches"
+                :key="key"
                 :color="color"
                 :open="currentSwatchPopoverIndex === i"
                 :can-hover="canHover"
@@ -219,7 +219,7 @@ const {
     canHover,
     currentSwatchPopoverIndex,
     currentFloatingStyle,
-    swatchKeys,
+    swatches,
     onCurrentSwatchHover,
     onCurrentSwatchLeave,
     cancelCurrentSwatchLeave,

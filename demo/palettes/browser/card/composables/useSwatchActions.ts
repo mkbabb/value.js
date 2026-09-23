@@ -1,4 +1,4 @@
-import { ref, computed, inject, watch } from "vue";
+import { ref, computed, inject } from "vue";
 import type { Ref, ShallowRef } from "vue";
 import type { EditTarget } from "../../../../color-session/color-model";
 import { EDIT_TARGET_KEY } from "../../../../color-session/keys";
@@ -39,23 +39,30 @@ export function useSwatchActions(deps: SwatchActionsDeps) {
         onSwatchClick: onCurrentSwatchClick,
     } = useHoverPopover();
 
-    // --- Stable keys for TransitionGroup ---
-    let swatchKeyCounter = 0;
-    const swatchKeyMap = new Map<string, number>();
-    const swatchKeys = computed(() =>
-        savedColorStrings.value.map((color, i) => {
-            const mapKey = `${color}::${i}`;
-            if (!swatchKeyMap.has(mapKey)) {
-                swatchKeyMap.set(mapKey, swatchKeyCounter++);
-            }
-            return swatchKeyMap.get(mapKey)!;
-        }),
-    );
-    watch(savedColorStrings, () => {
-        const validKeys = new Set(savedColorStrings.value.map((c, i) => `${c}::${i}`));
-        for (const key of swatchKeyMap.keys()) {
-            if (!validKeys.has(key)) swatchKeyMap.delete(key);
+    // --- Identity keys for TransitionGroup ---
+    // X.W7.c (fold N-5 · C-9 ≡ MSS-3 ≡ SH-7): a swatch's key is its IDENTITY,
+    // never its index. The retired colour-plus-index key map re-minted every
+    // survivor's key on any non-tail removal (every index after the cut
+    // shifts), so Vue replaced nodes that had not changed and the move
+    // transition was unreachable by construction. Here each new list is
+    // matched against the previous one BY VALUE, in order (a repeated colour
+    // pairs with its earliest unclaimed predecessor): a survivor keeps its key
+    // wherever it lands, and only a genuinely new colour mints one.
+    let nextKey = 0;
+    let previous: { color: string; key: number }[] = [];
+    const swatches = computed<{ color: string; key: number }[]>(() => {
+        const unclaimed = new Map<string, number[]>();
+        for (const { color, key } of previous) {
+            const keys = unclaimed.get(color);
+            if (keys) keys.push(key);
+            else unclaimed.set(color, [key]);
         }
+        const next = savedColorStrings.value.map((color) => ({
+            color,
+            key: unclaimed.get(color)?.shift() ?? nextKey++,
+        }));
+        previous = next;
+        return next;
     });
 
     // --- Swatch actions ---
@@ -98,7 +105,7 @@ export function useSwatchActions(deps: SwatchActionsDeps) {
         canHover,
         currentSwatchPopoverIndex,
         currentFloatingStyle,
-        swatchKeys,
+        swatches,
         // Hover/popover handlers
         onCurrentSwatchHover,
         onCurrentSwatchLeave,
