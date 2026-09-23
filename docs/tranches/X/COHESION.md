@@ -3151,3 +3151,13 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
   - Presets are glass tiles.
   - The design note comes first.
 - The addendum is in KF-W13.md. KF.W13V opens after KF.W13R, and its open seat reads the spec whole.
+
+## §0cf ADDENDUM 2026-09-23 — OA-52: the grey docks = GLASS-VEIL-GREY (O-62)
+- **Owner, verbatim:** *"why are our docks grayed out, too"* (fourier frame).
+- **Measured cause.** Glass 10.x's light-theme veil is a dark ink, `oklch(0.28 0.035 70)`, at alpha 0.1 to 0.18. Over paper it composites to grey. fourier, at 10.0.1, reads grey. value.js, at 7.0.0, reads a light cream frost at alpha 0.328. This is a producer regression and the same mechanism as OA-43.
+- **Relayed as O-62** (`relay/X-ALL-BK-GLASS-VEIL-GREY.md`, mirrored into BK/coordination), and sent live.
+- **Routing:**
+  - honest-RED **GLASS-VEIL-GREY** on F.W14.
+  - X-W7R and KF.W13R measure the plate before and after their 10.0.1 repins, and record the id if the plate turns grey.
+  - No local override anywhere.
+  - The repins proceed, because of the ring, the Sheet and the stale pin surface.

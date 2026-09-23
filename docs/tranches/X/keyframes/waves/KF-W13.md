@@ -433,3 +433,8 @@ Run `wf_82af6dba-aba` ended NOT-CONFORMANT after 2 repairs. `.t2`, `.d2` and `.d
   - **The stage shows the subject** with one primary readout. Instructions are in plain words, never code identifiers.
 - **`.y` is the design-author seat, effort high.** It first writes a short design note covering the surfaces, the idiom, the type scale and the radius canon, with 1440 and 390 mocks from the served page. Every scene is then cured onto it at the root.
 - The gate is read on the served page in headed Chromium at 1440 and 390, in both themes, with before and after frames for every scene.
+
+## KF.W13R — ADDENDUM 2026-09-23 (COHESION §0cf): GLASS-VEIL-GREY limb
+- **`.m` and `.v` measure the light-theme `.dock-plate` composite** (and every `.glass-*` surface in view) on the served page, before and after the 10.0.1 repin. Glass 10.x's light veil is a dark smoke (O-62), so after the repin the plates will likely read grey. The owner has twice objected to grey chrome.
+- If a plate turns grey, record honest-RED **GLASS-VEIL-GREY** (O-62) with the before and after composites. Never override the plate locally.
+- The repin still proceeds, because it carries the QUIET-FOCUS-RING and Sheet cures.
