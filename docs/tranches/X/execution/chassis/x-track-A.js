@@ -69,7 +69,7 @@ const TRACK = {
       "after": [
         "X-W0"
       ],
-      "note": "RESUME 2026-09-22 (sixth sitting; runs AFTER X-W5) on COHESION §0z + §0an + §0aq + §0ax + §0ay and W6.md's three ADDENDA of 2026-09-22 (read all; they ARE the resume spec): X.W6.a · .b · .c · .d · .e · .f · .g · .h are alreadyDone (never re-dispatched); still owed, strictly serial: [X.W6.a2] (opus — o21-gradient-rail.spec.ts settle/scroll only; a4/a13 GREEN ×2) → [X.W6.i2] (opus — plugins/vite-ground-tokens.ts injects the first-paint derive IIFE from the same modules; i3 GREEN ×2 under the ≤12 KB gzip / LCP-within-50 ms gate, else I3-SEED-SIZE) → [X.W6.j] (only if X-W5 reads CLOSED; else return BLOCKED-ON X-W5 for .j alone); b1 = B1-G3D, g1 → X-W10, H1-P3 by physics; ESCALATED units do not halt the wave"
+      "note": "RESUME 2026-09-23 (seventh sitting; runs AFTER X-W5) on COHESION §0z + §0an + §0aq + §0ax + §0ay + §0az and W6.md's four ADDENDA (read all; they ARE the resume spec): X.W6.a · .b · .c · .d · .e · .f · .g · .h are alreadyDone (never re-dispatched); still owed, strictly serial: [X.W6.a2] (opus — o21-gradient-rail.spec.ts settle/scroll only; a4/a13 GREEN ×2) → [X.W6.i2] (opus — plugins/vite-ground-tokens.ts injects the first-paint derive IIFE from the same modules; i3 GREEN ×2 under the ≤12 KB gzip / LCP-within-50 ms gate, else I3-SEED-SIZE); X.W6.j: if the LEDGER X-W5 row reads CLOSED add [X.W6.j] last, OTHERWISE OMIT .j from groups entirely and NEVER return blocked for it — the close runs on the units that sat; b1 = B1-G3D, g1 → X-W10, H1-P3 by physics; ESCALATED units do not halt the wave"
     },
     "X-W7": {
       "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W7.md",
@@ -84,7 +84,7 @@ const TRACK = {
       "after": [
         "X-W2"
       ],
-      "note": "RESUME 2026-09-22 (sixth sitting) on COHESION §0aq + §0ax + §0ay and W5.md's three ADDENDA of 2026-09-22 (read all; they ARE the resume spec): X.W5.a · .b · .c · .d · .e · .t · .c2 · .d2 are alreadyDone (never re-dispatched; D1 of record is GREEN on the real GPU); still owed, strictly serial: [X.W5.c3] (opus — o16 :218/:266 equality with the resolved --spring-snappy-duration; o12 O-12·3 read headed on the real GPU, floor unchanged) → [X.W5.d3] (opus — ESC-W6close5-1: the stuck vj-enter state on cold first navigation cured at its root in PaneSlot/App/animations.css with a 5-fresh-context witness; W6's a5–a12/e1/g2 re-read by W6's commands); ESCALATED units do not halt the wave"
+      "note": "RESUME 2026-09-23 (seventh sitting) on COHESION §0aq + §0ax + §0ay + §0az and W5.md's four ADDENDA (read all; they ARE the resume spec): X.W5.a · .b · .c · .d · .e · .t · .c2 · .d2 · .c3 · .d3 are alreadyDone (never re-dispatched; D1 of record GREEN on the real GPU); still owed, strictly serial: [X.W5.c4] (opus — o16 rows on the resolved-token pattern: demo rules read their tokens, producer rows assert the producer's resolved value, R4 cartoon-surface retired with a dated line; o16 GREEN ×2 both projects) → [X.W5.d4] (opus — ESC-W5d3-1 (a): lazyPane publishes readiness, PaneSlot keys its Transition child on (pane, resolved), App.vue:134 flip retired, same commit; witness 0 stuck ×2, W6 a5–a12/e1/g2 ×2, D1 headed ×2); ESCALATED units do not halt the wave"
     },
     "X-W8": {
       "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W8.md",

@@ -2914,3 +2914,32 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
   untouched; suite GREEN ×2.
 - **Order**: X-W5 [`.c3`] → [`.d3`]; then X-W6 [`.a2`] → [`.i2`] → [`.j` if X-W5 reads CLOSED].
   b1 = `B1-G3D`, g1 → X-W10, H1-P3 by physics stand.
+
+## §0az ADDENDUM 2026-09-23 — X-W5: THE STUCK-ENTER ROOT FOUND (Vue's `BaseTransition` enter guard drops the pane's enter when the async loading plate and the resolved pane swap under one Transition key) — RULED (a), UNIT `.d4`; o16's PRE-GLASS-7 ROWS RULED, UNIT `.c4`; X-W6 `.j` OMITTED (NOT BLOCKED) UNTIL X-W5 CLOSES
+
+- **ESC-W5d3-1 — RULED (a), GRANTED to `.d4`** (Opus): `demo/shell/usePaneRouter.ts` `lazyPane`
+  (`:189-223`, inside the W5F-07 family, P-1..P-4 unsplit) publishes loader readiness; `PaneSlot.vue`
+  keys its `<Transition>` child on `(pane, resolved)` so out-in runs plate-leave THEN pane-enter and
+  `leavingVNodesCache[key]` can never equal the entering vnode; the vestigial `App.vue:134`
+  transition-name flip retires in the same commit. No `__asyncResolved` read (Vue-internal), no frame
+  element. Gates: the cold-nav witness (`cold-nav-scene-enter.spec.ts`, 2 routes × 5 fresh contexts)
+  0 stuck ×2; W6's a5–a12 / e1 / g2 GREEN ×2 by W6's own commands; D1 headed ×2 unchanged; the
+  `PANE_LOAD_DELAY_MS` plate still shows on a slow chunk (witness). The DIAG instrument stays
+  read-only evidence.
+- **ESC-W5c3-1 — RULED on the resolved-token pattern, GRANTED to `.c4`** (Opus): every o16 row that
+  measures a DEMO rule asserts equality with the RESOLVED token AND the demo rule reads that token
+  (`.channel-rail-item` transform `0.12s` → `var(--spring-snappy-duration)` or the token the register
+  names; `.pane-shell` `0.35s` → its liquid-spatial token; `send-btn` `0s` → its register's token) —
+  the oracle exposes literal drift and the drift is cured at the rule, never at the assertion. Every
+  row that measures a PRODUCER register asserts the producer's resolved value; a register the
+  producer REMOVED (R4 `cartoon-surface`: glass 7.0.0 ships no transition) is RETIRED with a dated
+  line beside — if the lost motion is wanted back, that is one BK relay row, never a consumer copy.
+  Prose at `:215`/`:264` updated. Bounds: `o16-computed-cascade.spec.ts` whole · `demo/styles/**` ·
+  the demo components carrying the literals (named in the receipt). Gate: o16 GREEN ×2 in smoke AND
+  oracles-safari.
+- **O12-3-HOVER-GPU** (0.30 / 0.53 of 255 on the real GPU against the 6/255 floor) is registered to
+  X-W8 `.i` as a blob-mood defect by id — the hover response is genuinely below the floor.
+- **X-W6**: seat 0 returned a WAVE-level BLOCKED because `.j` waits on X-W5, so `.a2` and `.i2` never
+  ran. Corrected: while X-W5 is not CLOSED, `.j` is OMITTED from the plan (a later resume dispatches
+  it); the wave never blocks on `.j` alone.
+- **Order**: X-W5 [`.c4`] → [`.d4`]; then X-W6 [`.a2`] → [`.i2`] (→ [`.j`] once X-W5 reads CLOSED).
