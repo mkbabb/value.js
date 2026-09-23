@@ -37,8 +37,9 @@ export default [
             "dist/**",
             "node_modules/**",
             "coverage/**",
-            "docs/precepts/**",
-            "docs/tranches/C/**",
+            // Documentation and banked tooling (tranche workflow/probe
+            // scripts), not product code (COHESION §0bt.3).
+            "docs/**",
             ".playwright-mcp/**",
             // Session-harness worktrees + symlinks (e.g. a `keyframes.js`
             // symlink to a sibling DIRECTORY, which `eslint .` globs as a .js
