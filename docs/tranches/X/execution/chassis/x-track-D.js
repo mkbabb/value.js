@@ -46,6 +46,13 @@ const TRACK = {
       ],
       "note": ".d fresh-Fable adjudicator = the ONLY X·P VERIFIED stamp; RC-P(V) evaluated by running the six commands against the registry coordinate V; OP-1 release word RULED at §0j; G-2 zero value.js source bytes"
     },
+    "X.P.W5": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W5.md",
+      "after": [
+        "X.P.W4S"
+      ],
+      "note": "AUTHORITY: the owner 2026-09-23 — \"what\'s the status on our css parser implementation with parse-that--are we fully spec compliant and parse-that idiomatic, too?\" and \"Keep task on the other processes, too, like value.js, value.js, and parse-that.\" COHESION §0bl; the spec W5.md carries the measured starting point. Strictly serial: [X.P.W5.a] (merge w2/harness onto parse-that master, proofs GREEN, push) → [X.P.W5.b] (the 44 equivalence mismatches cured or rowed) → [X.P.W5.c] (color-mix + light-dark per CSS Color 5, WPT-derived tests) → [X.P.W5.d] (publish; the wasm/ADMITTED question) → [X.P.W5.e] (value.js onto the seam, hand grammar deleted — sequence against Track A\'s src/css writes, else ESCALATE); owner authorized publish/push; never force-push; every seat Opus 5.5; ESCALATED units do not halt the wave"
+    },
     "X.P.W4S": {
       "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W4.md",
       "after": [
@@ -70,9 +77,8 @@ const TRACK = {
     [
       "X.P.W4"
     ],
-    [
-      "X.P.W4S"
-    ]
+    ["X.P.W4S"],
+    ["X.P.W5"]
   ]
 }
 

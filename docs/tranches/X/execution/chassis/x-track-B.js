@@ -122,6 +122,13 @@ const TRACK = {
       ],
       "note": "THE X·KF SUPPLEMENT WAVE minted by COHESION §0ai — RESUME 3 (2026-09-22) on COHESION §0ap + KF-W13.md ADDENDUM 2026-09-22 (third): KF.W13.a2 · .e · .a3 · .e2 · .a4 · .e3 · .t are ALL alreadyDone (commits exist; never re-dispatched); the units still owed are [KF.W13.t2] → [KF.W13.f2], both opus, serial; §0ap grants the nine library test files and rules the deliberately-invalid-input idiom ((i) unknown ingress, else (ii) @ts-expect-error with reason; casts stay forbidden); the §0ai close literal stands (vue-tsc 0 · test:demo green · npm run check exit 0); the lint line is read without the demo/styles glob; keyframes.js pushed at every unit's close; value.js pushed only if no sibling staged path sits in the shared index"
     },
+    "KF.W13V": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W13.md",
+      "after": [
+        "KF.W13U"
+      ],
+      "note": "AUTHORITY: the owner\'s 2026-09-23 words verbatim in KF-W13.md\'s KF.W13V addendum (READ it and the frame keyframes/evidence/W13U/owner-2026-09-23-easing-page.png); COHESION §0bl. PRECONDITION: both registers exist — docs/tranches/X/keyframes/audit/KF-ANIMATION-AUDIT.md and docs/tranches/X/audit/UI-AUDIT-keyframes.md — else return blocked naming the missing one. Served-page instrument rule (§0be). Strictly serial: [KF.W13V.s] (one scene idiom: every scene on Cube/Amiga\'s regions, the shared keyframes pane only, Spring\'s inline editor and every one-off retired) → [KF.W13V.p] (multi-line tiles off rounded-full onto glass\'s card radius; O-58) → [KF.W13V.k] (every open KFA row) → [KF.W13V.u] (every UIA-KF row); glass rows routed, never copied; every seat Opus 5.5; ESCALATED units do not halt the wave"
+    },
     "KF.W13U": {
       "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W13.md",
       "after": [
@@ -183,7 +190,8 @@ const TRACK = {
     ],
     ["KF.W13S"],
     ["KF.W13T"],
-    ["KF.W13U"]
+    ["KF.W13U"],
+    ["KF.W13V"]
   ]
 }
 
