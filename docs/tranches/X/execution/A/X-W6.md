@@ -7820,3 +7820,84 @@ and X-W11 (`W11.md` "X-W0 … X-W10 are IMPLEMENTED") each carry an X-W6 conjunc
 
 **NOT-CONFORMANT.** 30 of 30 re-run claimed GREENs reproduce, 0 failed. Honest-RED set: **g1 · b1 · i3**. **Unrelieved**: g2 ·
 a5–a11 · a13 · e1 (X-W5-owned, unruled) and j1–j3 · H2 · H4 (deferred to `.j`). The LEDGER row **stays PARTIAL**; nothing promoted.
+
+## Open — RESUME 2026-09-23 (eighth sitting; SEAT 0, `claude-opus-5-5[1m]`)
+
+SERVED MODEL: claude-opus-5-5[1m] (this seat's section; the file's line 1 names the file's creating seat).
+
+Opened 2026-09-23 02:54 EDT, HEAD `3e933c33`, branch `tranche-u`, load 3.84 (⟨`uptime`⟩). Resume spec = W6.md's five ADDENDA
+(2026-09-19 · 2026-09-22 ×3 · 2026-09-23 fourth · 2026-09-23 fifth) + COHESION §0z · §0an · §0aq · §0ax · §0ay · §0az · **§0ba**
+(⟨`grep -n "^## §0" COHESION.md | tail -1`⟩ → `2947:## §0ba`, the file's last addendum). Of this record, read: the header,
+the seventh sitting's Open → Unit receipts (`:7155-7279`) and Check 3 (`:7723-7822`) only.
+
+**Crash-recovery.** ⟨`git status --porcelain`⟩ → `docs/tranches/V/reformation/CARRY-LEDGER.md` (not W6's) · `scripts/dev/dev.sh`
+(never touched) — **only**. The two `W6-evidence/catalog/after-*.png` rows the seventh sitting found dirty are clean (restored per
+§0ba). Every owed unit's writable path (`e2e/smoke/fixtures/**` · `companion-pane-track-start.spec.ts` · `gradient.spec.ts` ·
+`o21-gradient-rail.spec.ts` · the three catalog oracles · `W6-evidence/{gradient,owner-marks}/**` · the `.j` Mix/Blob/Aurora tree ·
+`o29-scene-contracts.spec.ts`) is clean → **no inherited partial work**. ⟨`git log --oneline 277b8d25..HEAD -- e2e/
+docs/tranches/X/waves/W6-evidence`⟩ → **empty**: no `.s` / `.f2` / `.v` / `.j` commit exists.
+
+**Preconditions.** LEDGER `X-W6` "Opens after" = `X-W0` → **CLOSED 2026-09-17** (row 28). Spec `Opens after: X-W5` → LEDGER row 37
+reads **CLOSED 2026-09-17 (honest-RED: g2 · B3 · A3 · C3 · C7 DockStatusLamp:70 · A5-OUTLINE · o12 O-12·3 · D1 headless)**,
+promoted at X-W5 Check 1 RESUME 8 `3e933c33`. §10 dependency X-W4 → **CLOSED 2026-09-17** (row 33). §0ba order "X-W5 (no units;
+close → check) → X-W6 [`.s`] → [`.f2`] → [`.v`] → [`.j` if X-W5 CLOSED]" — X-W5 reads CLOSED at this open → **`.j` is dispatched
+last** (§0az · §0ba · W6.md fifth ADDENDUM). Named artefacts present: `e2e/smoke/fixtures/` (8 files, no settle helper yet) ·
+`companion-pane-track-start.spec.ts` · the three catalog oracles · owner-mark originals under
+`docs/tranches/V/megatranche/audit/visual/owner-marked/` (OM-3/4/6/9/10/13 present) · pre-`.a` commit = `f90aeb02^`
+(⟨`git log --oneline -- demo/workbenches/gradient/composables/useGradientModel.ts`⟩ → `.a` = `f90aeb02`).
+
+**E13 Step-0 mail sweep.** BK still the newest glass-ui tranche dir (⟨`ls -t glass-ui/docs/tranches | head -2`⟩ → `BK`, `BJ`);
+atlas newest `T` (no `coordination/`). ⟨`find <path> -maxdepth 1 -type f -newermt 2026-09-23T02:35:32-04:00`⟩ (X-W5 RESUME 8 open
+`438fb0a2`, the last swept clock) → only `V/coordination/INBOX.md` itself (the X-W5 close seat's sweep line); **empty** on `V/` ·
+glass `BK/coordination` · keyframes `V/coordination` · atlas `{P,Q,R}/coordination` · atlas `T/`. ⟨`grep -n "^| [IO]-[0-9]"
+INBOX.md | grep UNREAD`⟩ → O-20 · I-30 · I-31 · I-32 · I-35 · O-39 · I-40 — none addressed to X-W6. **0 new I-n · 0 UNREAD in
+X-W6 scope**. Sweep line appended to INBOX.md.
+
+## Baseline — RESUME 2026-09-23 eighth sitting (the owed units' gates only; every other gate cites Check 3 `66aa3b2d`)
+
+Run read-only 02:55–03:02 EDT. Playwright on fresh webServers (`VJS_E2E_PORT` 9511 · 9521 · 9531), line reporter; the gesture gate
+against a **fresh** `npx vite --port 9591 --strictPort` (killed after). Transcripts in the seat scratchpad (not committed). No run
+left a side effect (⟨`git status --porcelain`⟩ unchanged but for this record and INBOX.md). The catalog oracles were **not** run
+here (running them is the `.f2` defect itself — they rewrite committed evidence); f2's baseline is read at the bytes.
+
+| gate | unit | ⟨cmd⟩ | BEFORE |
+|---|---|---|---|
+| g2 | `.s` | `npx playwright test e2e/smoke/views/companion-pane-track-start.spec.ts --project=smoke` ×2 | **RED · GREEN** — run 1 `1 failed` EXIT 1, `Expected: <= 1` · `Received: 6.501441955566406` (the enter-pose reading, byte-identical to Check 3); run 2 `1 passed (13.2s)` EXIT 0. Not close-stable → RED |
+| suite (a13) | `.s` | `npx playwright test e2e/smoke/views/gradient.spec.ts e2e/smoke/oracles/o21-gradient-rail.spec.ts --project=smoke` ×1 | **GREEN** `22 passed (1.9m)` EXIT 0 (`gradient.spec.ts:243` passed this run; RED 1 of 3 at Check 3, Received 12) |
+| gesture-paint (a5–a11) | `.s` | `GRADIENT_URL=http://localhost:9591/#/gradient node docs/tranches/X/waves/W6-evidence/gradient/gate-a-gesture-paint.mjs` ×2 | **GREEN · GREEN** — `GATE X.W6.a (gesture + paint) — GREEN` EXIT 0 ×2 |
+| f2-hygiene | `.f2` | ⟨`grep -n 'W6-evidence' <o21-space-catalog-truth · o22 · o24>`⟩ | **RED at the bytes** — each oracle's `screenshot({ path: "docs/tranches/X/waves/W6-evidence/catalog/after-*.png" })` (`o21-space-catalog-truth:182` · `o22:84` · `o24:52`); Check 3 C3-5 witnessed the post-run `M` |
+| §8 gradient / OM | `.v` | ⟨`git ls-files docs/tranches/X/waves/W6-evidence/gradient \| grep -c png`⟩ · ⟨`git ls-files …/W6-evidence/owner-marks \| wc -l`⟩ | **RED** `0` · `0` |
+| j1–j3 | `.j` | ⟨`grep -c "component: Stub" demo/color-picker/router/index.ts`⟩ · ⟨`ls e2e/smoke/oracles/o29*`⟩ | **RED** `14` · `no matches` (o29 absent) |
+| j4 | `.j` | `o29… -g "short landscape"` | MEASURE-AT-OPEN — o29 absent; `.j` authors it and measures before any cure (retire GREEN with its measurement, or cure) |
+| H2 (`.j` leg) · H4 | `.j` / close | `test -f …/codex-provenance/motion-quarantine.md` + `.j` citations | file present; the `.j` citation leg owed |
+
+### R.2 — a GREEN before its cure
+
+The gradient+o21 suite (22/22 ×1) and gate-a-gesture-paint (GREEN ×2) read GREEN at this open, before `.s` has sat. Neither is
+the `.s` defect's absence: `.s` cures a **flake class** (a settle check that counts only running Animations while the pane sits in
+its `*-enter-from` pose, §0ba), whose witness is stability ×3, not one run. g2 read RED 1 of 2 here (was "deterministic" at
+Check 3) — the same species at a different clock. `.s` is dispatched as ruled; its gates are ×3 at its own clock.
+
+## Unit plan — RESUME 2026-09-23 eighth sitting (4 owed units dispatched serially; 10 units landed/alreadyDone)
+
+**alreadyDone (never re-dispatched)**: `X.W6.a` · `.b` · `.c` · `.d` · `.e` · `.f` · `.g` · `.h` · `.a2` · `.i2` (commits of record
+in the prior sittings' receipts; `.i2`'s outcome = i3 `I3-SEED-SIZE` honest-RED with relay O-52, §0ba — **no `.i`/`.i3` seat sits**
+until a shader-free derive subpath is installable at the pin). **Standing dispositions (not units)**: b1 = `B1-G3D` (§0ax) · g1 →
+X-W10 (M-23) · i3 = `I3-SEED-SIZE` (O-52, §0ba) · h1's beyond-sRGB limb = `H1-P3` by physics (§0aq). Order (W6.md fifth ADDENDUM ·
+§0ba): **[`.s`] → [`.f2`] → [`.v`] → [`.j`]** strictly serial, ≤ 1 concurrent. An ESCALATED unit does not halt the wave (§0ax).
+
+| unit | model | executes | writable | gates | locks |
+|---|---|---|---|---|---|
+| `X.W6.s` | opus | fifth ADDENDUM (W6.md L492) · COHESION §0ba ESC-W5d4-1 bullet (`:2949`) | `e2e/smoke/fixtures/**` (ONE settle helper) · `e2e/smoke/views/companion-pane-track-start.spec.ts` · `e2e/smoke/views/gradient.spec.ts` · `e2e/smoke/oracles/o21-gradient-rail.spec.ts` · this record | g2 GREEN ×3 · gradient+o21 22/22 ×3 · gate-a-gesture-paint ×3 · `gradient.spec.ts:243` bisected | NO `demo/**` byte; no per-pane nudge (OM-10 control stays); assertions untouched (ADD-never-replace); non-enter-pose `:243` cause → `ESC-W6s-1`; one `test(e2e)` commit |
+| `X.W6.f2` | opus | fifth ADDENDUM · §0ba `.f2` bullet | `e2e/smoke/oracles/o21-space-catalog-truth.spec.ts` · `o22-specimen-legibility.spec.ts` · `o24-specimen-dot-identity.spec.ts` · this record | f3 · f4 · f8 held GREEN; ⟨`git status --porcelain docs/`⟩ empty after the three run | committed evidence PNGs unchanged (E-3); outputs under Playwright's `outputDir` (`testInfo.outputPath`); one commit |
+| `X.W6.v` | opus | §8 (L354–371) · fifth ADDENDUM · §0ba `.v` bullet | `docs/tranches/X/waves/W6-evidence/{gradient,owner-marks}/**` · this record | §8 gradient 7 cells × {before,after} present · OM-3/4/6/9/10/13 re-captures beside originals; force-added | BEFORE from a worktree at `f90aeb02^`; no fabricated original (dated line instead); no product byte |
+| `X.W6.j` | opus | §5 `.j` (L310–329) · §6 H2/H4 · 2026-09-19 ADDENDUM (o29 re-point) · §0az/§0ba `.j` | `demo/workbenches/mix/{MixPane,MixConfigBar,MixSourceSelector}.vue` · `demo/workbenches/mix/MixAnimationCanvas/MixAnimationCanvas.vue` · `…/composables/useMixingAnimation.ts` · `demo/scenes/blob/BlobPane.vue` · `demo/scenes/atmosphere/AuroraPane.vue` · `demo/workbenches/gradient/GradientPane.vue` · route-private scene styles · `e2e/smoke/oracles/o29-scene-contracts.spec.ts` (create) · `W6-evidence/gates/**` · this record | j1 · j2 · j3 GREEN ×2 · j4 measured (cure or retire) · H2 `.j` leg · H1 over the roster · §7 cadence | router/App.vue/shell = X-W5/X-W3 (writes there → §3a ESCALATE); H1 no parameterised housing; MOTION-SOURCED assertions cite `motion-quarantine.md`; one `feat(demo/scene-adoption)` family |
+
+### Briefs
+
+- **`.s`** — Author ONE settle helper in `e2e/smoke/fixtures/`: a region is settled when it has no running Animations AND no `*-enter-*`/`*-leave-*` class on itself or its pane root, awaited with a bounded timeout. Use it in `companion-pane-track-start.spec.ts`, `gradient.spec.ts` (`:401` and the `:243` drag) and `o21-gradient-rail.spec.ts`; assertions untouched. Bisect `:243` (Received 12): enter pose → the helper cures it; else ESCALATE `ESC-W6s-1` with the cause. g2 ×3, suite 22/22 ×3, gesture-paint ×3 on fresh ports. One pathspec commit.
+- **`.f2`** — Re-point the `screenshot({path})` in `o21-space-catalog-truth:182`, `o22:84`, `o24:52` to `testInfo.outputPath(...)` (under `test-results/`). Change no assertion. Run the three oracles (GREEN), then ⟨`git status --porcelain docs/`⟩ → empty. One commit.
+- **`.v`** — Worktree at `f90aeb02^` (sibling path, removed after) → capture the seven §8 gradient cells BEFORE (1440 / iphone14); AFTER at HEAD, same crop. Re-capture OM-3/4/6/9/10/13 at the originals' crop beside them. `git add -f`; a missing original gets a dated line, never a fabrication.
+- **`.j`** — Author `o29-scene-contracts.spec.ts` (gradient scene · mix canary · preview survives · short landscape 720×450); measure j4 first. Gradient pilot → Mix canary (one interaction owner, no nested controls, 2D context/rAF torn down with the scene) → Blob/Atmosphere loss/recovery (force `WEBGL_lose_context`, assert repaint). Consume X-W4's `SceneActionSet` and X-W5's scene contract; any router/App.vue need → ESCALATE. j1–j3 ×2, §7 cadence, H1.
+
+## Unit receipts — eighth sitting 2026-09-23
