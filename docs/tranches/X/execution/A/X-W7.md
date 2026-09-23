@@ -2167,3 +2167,48 @@ Every GREEN the record claims reproduces at this seat: G1 · G4 · G6 · G16 · 
 **{G3 `G3-FALLTHROUGH-TYPES` · G11 → X-W10 · G14-grep → glass repin}**. **Unrelieved**: G19 (H-1) · S-5 (H-2) · c2 CI (M-1) · EC-10 / R-15 / R14
 recovery (M-2). The LEDGER row is **NOT promoted** and stays `PARTIAL`. This is the third check to reach the same wall. Another repair or check seat
 cannot move it; the next act is the orchestrator's dated rulings on the six open escalations.
+
+## RESUME 2026-09-23 round 3 — the §0bt units (SEAT 0, `claude-opus-5-5`)
+
+SERVED MODEL: claude-opus-5-5 (this section's seat; the file's line 1 names the original open seat).
+
+### Open (round 3)
+
+- **Date**: 2026-09-23, HEAD at entry `1de0946d` (COHESION §0bt). Spec: W7.md whole incl. `:683` (§0bk) and `:685` (third ADDENDUM, §0bt); COHESION §0bk + §0bt read at the bytes.
+- **Crash-recovery** ⟨cmd⟩ `git status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh` · `?? docs/tranches/X/audit/` · `?? docs/tranches/X/execution/chassis/ui-audit.js`. None under `demo/**` · `e2e/**` · `eslint.config.*` · `.github/workflows/ci.yml` → **no inherited hunk**.
+- **alreadyDone** (commits verified in `git log`): a · b · c · d · e · f · g · d2 · f2 · g2 · g3 · c2 · a2 (e.g. `.a2` `69c0d255`/`8868e3d8` · `.c2` `623feffd`/`7df67bf2` · `.g3` `d106f3be`/`8ce6504a`). ⟨cmd⟩ `git log --oneline | grep -ciE 'W7\.z[123]'` → **0**: z1 · z2 · z3 are owed.
+- **Opens after** (W7.md:6: X-W3 · X-W4 · X-W6) ⟨cmd⟩ `grep -n "^| X-W[346] " LEDGER.md` → X-W3 **CLOSED 2026-09-17 (honest-RED: G-21)** · X-W4 **CLOSED 2026-09-17** · X-W6 **CLOSED 2026-09-17 (honest-RED …)** → **GREEN**. Rulings: §0bt RULES every round-3 act (the six open escalations ESC-W7d2-BARREL · ESC-W7g2-G19-PROSE · ESC-W7g2-BROWSEPANE-COPY · ESC-W7g2-R14-RECOVERY · ESC-W7g3-EC10-TWIN · ESC-W7g3-R15-PLATEINK · ESC-W7a2-INBOUNDS · ESC-W7c2-LINT, plus m-1 `useVersionHistory` warns) — none re-opened.
+- **E13 mail sweep**: four paths + glass (newest tranche dir = **BL**, not BK: ⟨cmd⟩ `ls -d ../glass-ui/docs/tranches/B?/ | tail -1` → `BL/`). Newest glass commits `fe5df357` (= I-42, rowed) · `b7099ea6` · `6433284a` (BL D1 research, formation-internal); V/coordination newest = our own 09-23 outbound mirrors (rowed O-rows); keyframes V and atlas P coordination: no commit since the 13:5x sweep. → **0 unrowed, 0 new UNREAD**; UNREAD rows unchanged (O-20 · I-30 · I-31 · I-32 · I-35 · O-39), none in X-W7 scope. Sweep line appended to INBOX.md.
+
+### Baseline (round 3; READ-ONLY, this seat's own commands unless marked banked)
+
+| gate (owner unit) | ⟨cmd⟩ | BEFORE | verdict |
+|---|---|---|---|
+| S-5 file (z1) | `ls demo/palettes/browser/card/PaletteCard/` | `PaletteCard.vue` **present** (+ 5 siblings) | RED |
+| S-5 barrels (z1) | `sed -n 4p demo/palettes/browser/card/index.ts`; `sed -n 18,19p demo/palettes/browser/index.ts` | `export { default as PaletteCard } from "./PaletteCard/PaletteCard.vue";` · `export {` / `    PaletteCard,` | RED |
+| m-1 warns (z1) | `grep -n console.warn demo/palettes/useVersionHistory.ts` | `:52` "Failed to load versions:" · `:73` "Failed to fork palette:" → **2** | RED |
+| G19 (z1) | `grep -rn eyebrow demo/ \| grep -v node_modules \| grep -v family-eyebrow \| wc -l` | **6** (DESIGN.md:37 · GradientCodeEditor.vue:102 · easingCatalogue.ts:81 · EasingSpecimenStrip.vue:5,138 · ParseEchoReadout.vue:15); raw **8** | RED |
+| R14 recovery (z1) | `crash-battery.spec.ts` R14 (banked, `.g2` receipt, record:1517) | boots · plate paints · Retry keeps it · **RED `:103`** (causes: e2e `route.continue()` reaches SPA HTML; `availability.ts:87` 30 s latch > 15 s window) | RED (banked; not re-run: load-bound Playwright, the owed unit measures ×2) |
+| vue-tsc demo (z1/z2) | `npx vue-tsc -p tsconfig.demo.json --noEmit` | **EXIT 0** | GREEN (holds; must stay 0) |
+| EC-10 (z2) | `grep -n "var(--muted)\|toFixed" demo/workbenches/generate/GenerateControls.vue` | `:74` `return "var(--muted)"` · `:77` `pct.toFixed(0)` — twin unmoved | RED |
+| R-15 (z2) | `grep -rn -- "--ink-muted:" demo \| wc -l`; `grep -rn plate-ink demo \| wc -l` | **0** `:root` declarations · **13** `plate-ink` refs across ImageDropZone · ExtractWorkbench · ExtractControls · shared/ui/EmptyState (§0bt names `ErrorBoundary.vue:84` as a fifth twin; ⟨cmd⟩ `grep -c "<style" demo/color-picker/ErrorBoundary.vue` → 0 — the line has drifted; `.z2` locates the twin by grep and records it) | RED |
+| inert props (z2) | strict probe (scratch tsconfig, `strictTemplates`) — banked `.a2` receipt | **312 / 65 files**, of which 31 inert sites in 13 in-bounds files (ESC-W7a2-INBOUNDS) | RED (banked) |
+| lint (z3) | `npm run lint` | **EXIT 1**, 56 problems (**24 errors**, 32 warnings); errors 17 `docs/tranches/V/megatranche` · 1 `docs/tranches/V/apotheosis` · 6 `docs/tranches/X/execution` (the +1 over the banked 23 is the untracked `chassis/ui-audit.js`); **0 errors outside `docs/`** | RED |
+| CI producer (z3) | `gh run list --branch tranche-u --limit 3`; `gh run view 35901359616 --json jobs` | last read run `35899088286` producer 22/24 failed at `npm run lint` (Check 3); current `35901359616` @ `1de0946d` **in_progress** (no ignore change → expected same lint wall) | RED |
+
+**greenBeforeCure**: none — every owed gate reads RED at open; demo vue-tsc EXIT 0 is a hold-condition, not a cure target.
+**Honest-RED carried at close (§0bt)**: `G3-FALLTHROUGH-TYPES` (O-57) · G11 goldens (→ X-W10) · G14 dismiss grep (→ X-W7R).
+
+### Unit plan (round 3; strictly serial, 1 concurrent — §0bt order)
+
+Writable for all three (§0bt, W7.md:685): `demo/**` · `e2e/**` · `eslint.config.*` · `.github/workflows/ci.yml` · this record. ADJACENT-LINE RULE binds every seat (never glass-ui/siblings, pins, `src/`/`api/`, test/assertion deletion, `scripts/dev/dev.sh`). Every seat Opus 5.5. ESCALATED units do not halt the wave.
+
+| order | unit | model | sections | gates | locks / families |
+|---|---|---|---|---|---|
+| 1 | **X.W7.z1** | opus | COHESION §0bt.1 · §0bk.1/.3 · W7.md §5.d (`:219-233`) S-5 · §5.g (`:262-277`) · G19 (`:515-534`) · G7/G13 (`:353`,`:442`) · `W7-om15-receipt.md` rows 15/17 | S-5 file absent + barrels 0 + vue-tsc demo 0 · `useVersionHistory` `console.warn` 0 with the verdict on the rail (mounted test) · G19 **0** ×2 (exclusion NOT widened) · R14 GREEN ×2 incl. recovery `:103` | PaletteCard.vue + `card/index.ts:4` + `browser/index.ts:18-19` = ONE commit; BrowsePane copy + its two oracles = ONE commit |
+| 2 | **X.W7.z2** | opus | §0bt.2 · §0bk.4/.6 · the fold's EC-10 (W7.543) + §R3.2 R-15 (W7.606) · G3 (`:307-320`) | EC-10 falsifier ×2 (both empty arms non-equivalent) · R-15 falsifier ×2 (`--ink-muted` at `:root`, 1 `.plate-ink` recipe, 0 scoped twins) · strict probe residual = glass fallthrough only (31 inert → 0) · vue-tsc demo 0 | EC-10 extract + `GenerateControls.vue:74-79` twin = ONE step (cure lock); R-15 `:root` + recipe + five twins = ONE commit |
+| 3 | **X.W7.z3** | opus | §0bt.3 · §0bk.5 · W7.md §7 cadence | `npm run lint` EXIT 0 ×2 · push · `gh run` producer / Node 22 + 24 GREEN on the pushed HEAD | `eslint.config.*` ignore = one commit; push only after z1/z2 land |
+
+Groups: `[[X.W7.z1],[X.W7.z2],[X.W7.z3]]`. Then close → check → X-W7R.
+
+### Unit receipts (round 3)
