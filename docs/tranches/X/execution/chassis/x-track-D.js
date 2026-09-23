@@ -46,6 +46,13 @@ const TRACK = {
       ],
       "note": ".d fresh-Fable adjudicator = the ONLY X·P VERIFIED stamp; RC-P(V) evaluated by running the six commands against the registry coordinate V; OP-1 release word RULED at §0j; G-2 zero value.js source bytes"
     },
+    "X.P.W6": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W6.md",
+      "after": [
+        "X.P.W4S"
+      ],
+      "note": "AUTHORITY: the owner\'s ruling 2026-09-23, verbatim: \"What you recommend. No custom grammar, unless it\'s BBNF.\" (the recommendation: the CSS grammar in value.js on parse-that, parse-that a general library). COHESION §0by + W6.md (READ whole; it IS the spec). X.P.W5 is STOPPED — treat it as done-by-ruling, never resume it. Strictly serial: [X.P.W6.r] (parse-that master: one ordinary commit removes the CSS surface after moving it to value.js evidence; proof:no-css-surface restored; library fixes kept; no publish without npm whoami) → [X.P.W6.b] (value.js src/css grammar authored in BBNF via the published BBNF toolchain into parse-that parsers; full CSS Color 4/5 coverage; WPT-derived tests ported) → [X.P.W6.h] (equivalence vs the shipping hand parser over the full corpus; 0 mirror-defects x2) → [X.P.W6.x] (swap: hand parser deleted, npm test GREEN, bench recorded quiesced, keyframes behaviour unchanged). NO intermediate algebra, NO bespoke DSL, NO hand-rolled scanner. Coordinate value.js src/** writes with Track A (A is in demo/** now; X-W12 .l is retired). Every seat Opus 5.5; ESCALATED units do not halt the wave"
+    },
     "X.P.W5": {
       "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W5.md",
       "after": [
@@ -78,7 +85,7 @@ const TRACK = {
       "X.P.W4"
     ],
     ["X.P.W4S"],
-    ["X.P.W5"]
+    ["X.P.W6"]
   ]
 }
 

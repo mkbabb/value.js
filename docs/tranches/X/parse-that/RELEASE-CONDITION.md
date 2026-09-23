@@ -410,3 +410,5 @@ candidate-side CLI (`44`); this addendum's conjunct 3 reads `V` (`20,962`). Both
 subject, and only the second is RC-P's.
 
 **ADDENDUM 2026-09-23 (§2.4, dated beside; COHESION §0bx — F-W5d-1 (b)).** Conjunct 4 `ADMITTED(V)`'s subject is V's installed dependency closure: a `.wasm` shipped by a dependency V declares (e.g. `@mkbabb/parse-that/**/ac1.wasm`) counts. V never vendors a dependency's artefact to satisfy this conjunct.
+
+**ADDENDUM 2026-09-23 (COHESION §0by).** The seam this predicate names is re-read as value.js's own BBNF grammar on parse-that (X.P.W6). Conjunct 4 `ADMITTED` (a `.wasm` artefact) retires with the AC-1 algebra; conjuncts 1–3, 5–6 are re-read against the value.js release that carries the BBNF grammar. The §2.4 addendum of the same date (dependency closure) is superseded with it.
