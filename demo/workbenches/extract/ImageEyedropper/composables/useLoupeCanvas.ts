@@ -3,7 +3,7 @@
  *
  * Owns the loupe canvas ref, visibility / position state, and the `drawLoupe`
  * + clearing primitives. The shell wires the image sampler's
- * `getOffscreenCanvas` + `viewportToImage` in via deps.
+ * `getImageCanvas` + `viewportToImage` in via deps.
  *
  * Extracted from `ImageEyedropper.vue` at D.W3 Lane A (De §2.4 split).
  */
@@ -12,7 +12,7 @@ import { LOUPE_SIZE, LOUPE_PIXELS } from "../constants";
 
 export interface LoupeCanvasDeps {
     /** Returns the underlying offscreen canvas (full-resolution image bitmap). */
-    getOffscreenCanvas: () => HTMLCanvasElement | null;
+    getImageCanvas: () => HTMLCanvasElement | null;
     /** Convert viewport-relative coords to image-pixel coords. */
     viewportToImage: (rx: number, ry: number) => { ix: number; iy: number };
 }
@@ -26,8 +26,8 @@ export function useLoupeCanvas(deps: LoupeCanvasDeps) {
 
     function drawLoupe(rx: number, ry: number) {
         const loupeCanvas = loupeCanvasRef.value;
-        const offscreenCanvas = deps.getOffscreenCanvas();
-        if (!loupeCanvas || !offscreenCanvas) return;
+        const imageCanvas = deps.getImageCanvas();
+        if (!loupeCanvas || !imageCanvas) return;
         const ctx = loupeCanvas.getContext("2d")!;
         const { ix, iy } = deps.viewportToImage(rx, ry);
         const half = Math.floor(LOUPE_PIXELS / 2);
@@ -39,7 +39,7 @@ export function useLoupeCanvas(deps: LoupeCanvasDeps) {
         ctx.clip();
         ctx.imageSmoothingEnabled = false;
         ctx.drawImage(
-            offscreenCanvas,
+            imageCanvas,
             ix - half,
             iy - half,
             LOUPE_PIXELS,

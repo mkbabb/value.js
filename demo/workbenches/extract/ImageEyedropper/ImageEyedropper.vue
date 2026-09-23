@@ -139,7 +139,7 @@ const sampler = useImageSampler({
 
 // --- Loupe canvas (draw + visibility/position state) ---
 const loupe = useLoupeCanvas({
-    getOffscreenCanvas: () => sampler.getOffscreenCanvas(),
+    getImageCanvas: () => sampler.getImageCanvas(),
     viewportToImage: (rx, ry) => sampler.viewportToImage(rx, ry),
 });
 
