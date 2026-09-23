@@ -1102,3 +1102,63 @@ No new mail was read at this seat. Check 5's sweep stands, and this seat touched
 - Commits: **1** (this value.js record plus the LEDGER line). kf commits: **0**.
 
 **Verdict: PARTIAL, blocked on the orchestrator.** Both remaining HIGHs need a dated relief or grant that only the orchestrator can issue. The same deadlock was returned at Repair 3 and has not changed since.
+
+## Check 6 — FRESH ADVERSARIAL CHECK (L-20, pass 3 on Close 2 / Repair 3 / Repair 4)
+
+SERVED MODEL: claude-opus-5-5 · 2026-09-23 · Track B · VERIFY-ONLY (0 kf / glass / product bytes). The dispatch calls this "Check 3" of the round. It is named "Check 6" because `## Check 1..5` already stand above (E-3). Read: the spec whole (`KF-W13.md`, 395 L), `## Check 5` and `## Repair 4` whole; everything else located by grep. Crash-recovery: ⟨`git status --porcelain -- <record> <LEDGER>`⟩ → empty; kf holds the two untracked `VALUEJS-INBOUND-*` letters only. **0 inherited paths.** kf HEAD = `origin/master` = `9bdcdad5` (unchanged since Check 5). Load ⟨`uptime`⟩ 29.5 / 61.7 / 66.2.
+
+### What moved since Check 5
+
+- kf: ⟨`git -C keyframes.js log -1 --format=%h`⟩ → `9bdcdad5`. **0 kf commits** since Check 5.
+- value.js: only `6610831e` (Repair 4: this record + one LEDGER line; 0 kf bytes).
+- Relief search: ⟨`grep -c 'QUIET-FOCUS-RING\|DRAWER-DETENT-REACH\|ESC-d3-1' COHESION.md KF-W13.md`⟩ → `0` · `0`. ⟨`git log -1 -- COHESION.md KF-W13.md`⟩ → `ddfdb9dc` (§0cc, 15:44, fourier admin). **No relief, grant or re-sequencing has been issued since Repair 4.**
+
+### Axis 1 — claimed GREENs re-run (kf `9bdcdad5`)
+
+| gate | ⟨cmd⟩ | this seat | reproduces |
+|---|---|---|---|
+| `.t2` | ⟨`grep -rn isAnimStarted demo test \| wc -l`⟩ | `0` · `0` | YES |
+| `npm run check` | ⟨`npm run check`⟩ | `proof:structure — PASS`, EXIT 0 · EXIT 0 | YES |
+| vitest demo | ⟨`npm run test:demo -- --no-file-parallelism`⟩ | `66 passed (66)` · `518 passed (518)`, EXIT 0 ×2 | YES |
+
+Cited, not re-run (0 bytes moved on their surfaces since Check 5 re-ran them): G-KFW13U-t drag limb (probe-t1 `→ 3800`, burst `→ 3950`), and from Check 4 the -w, -e, OA-32, OA-33 Share-row GREENs. The kf e2e roster (4/6, EXIT 1) is a RED, not a claimed GREEN; 0 bytes have moved since Check 5's read, so its RED stands as measured.
+
+### Axes 2–9
+
+- **(2) Bounds.** No new kf sha. `6610831e` touches this record + `LEDGER.md` only. ⟨`git log --format=%h 8868e3d8..HEAD -- scripts/dev/dev.sh \| wc -l`⟩ → `0`. **In bounds.**
+- **(3) Masking.** No new diff; Check 5's read of `9bdcdad5` stands. **0.**
+- **(4) Families.** Unchanged. **Unsplit.**
+- **(5) E-3.** ⟨`git diff --stat 8868e3d8..HEAD -- docs/tranches/V/megatranche/registry/adjudicated/`⟩ → empty. `KF-W13.md` changes are the orchestrator's append-only addenda (none a KF.W13U sha). **Held.**
+- **(6) Mail.** ⟨`grep -c '| *UNREAD *|' INBOX.md`⟩ → `0`; the newest sweeps (X.F.W14 / X-W7R OPEN) record 0 unrowed. **Clean.**
+- **(7) Four-verb.** IMPLEMENTED = PARTIAL, VERIFIED = NO; Repair 4 stamped nothing. **Lawful.**
+- **(8) Goal at the bytes.** Unchanged from Check 5: met except ESC-d3-1 change-once and the e2e close clause.
+- **(9) Figures.** Repair 4's banked figures reproduce where re-run (check EXIT 0, 518/518).
+
+### Axis 10 — honest-RED adjudication
+
+| RED gate | relief at the spec bytes? | owner | reading |
+|---|---|---|---|
+| G-KFW13U-d morph blur / two owners | YES — `DOCK-MORPH-ROOT` (O-56), `DOCK-SCROLL-MORPH` (O-55) | glass BL → KF.W13R `.d` | HONEST-RED |
+| OA-33 theme-row keyboard | YES — §0br `DARK-MENU-ITEM` (O-61 R-3) | glass BL → KF.W13R `.v` | HONEST-RED |
+| surface paint / timeline fill | YES — §0br `GLASS-SURFACE-PAINT-CONTAIN`, `KF-TIMELINE-FILL` | glass BL → KF.W13R `.v` | HONEST-RED |
+| close clause "kf e2e GREEN" (S4 ring, M1 drawer) | **NO** — §0br grants `.x` to cure S4/S5/M1; neither `QUIET-FOCUS-RING` nor `DRAWER-DETENT-REACH` is in the relieved list; the proposed owner KF.W13R opens only after this close (circular) | proposed, not ruled | **UNRELIEVED, HIGH** |
+| `.d3` ESC-d-1 change-once | **NO** — consumer gate, cause outside every grant, no id, no routing | none | **UNRELIEVED, HIGH** |
+
+### Successor "Opens after"
+
+- **KF.W13R** ("KF.W13U CLOSED") — RED; lawfully blocked.
+- **KF.W13V** ("KF.W13R CLOSED" + "KF.W13U CLOSED" + the two registers) — the registers are GREEN; both CLOSED conjuncts RED; lawfully blocked.
+- The deadlock stands for the third round: only the orchestrator can break it (a dated relief naming S4-ring + M1 with owner KF.W13R, or re-sequencing KF.W13R `.m` ahead of this close; and a dated grant + Scene-label ruling for ESC-d3-1).
+
+### Register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C6-1 | HIGH | Close clause "kf e2e GREEN" RED at 4/6 (S4 `ringPainted:false`, M1 touch scroll 0); no spec/COHESION relief names `QUIET-FOCUS-RING` / `DRAWER-DETENT-REACH` | Check 5 roster EXIT 1 (0 bytes moved since); relief grep 0 · 0 | orchestrator: dated COHESION relief with owner KF.W13R, or re-sequence KF.W13R `.m` before this close; never a consumer ring/drawer copy |
+| C6-2 | HIGH | `.d3` ESC-d-1 change-once limbs RED (width `1122111111`, surface set `2222111110`); no grant or relief | Close 2 probe-switch10; 0 bytes on `App.vue`/ChromeDock since `6d5b4288` | orchestrator: dated grant over `App.vue` `:248-250`/`:309-315`/template `:38-65` + Scene-label ruling; cure at the route-keyed reads |
+| C6-3 | MINOR | R-close-2 `[real-cube]` intermittent | 4 of last 5 PASS | KF.W13V `.k`, mitigated |
+| C6-4 | LOW | R-close-3 `probe-sharp` confounded by living glyphs | Close 2 | KF.W13R `.v` |
+
+**Verdict: NOT-CONFORMANT.** Claimed GREENs re-run 3/3 reproduce (0 fail); bounds, masking, families, E-3, mail clean. Relieved honest-RED set: `DOCK-MORPH-ROOT` · `DOCK-SCROLL-MORPH` · `DARK-MENU-ITEM` · `GLASS-SURFACE-PAINT-CONTAIN` · `KF-TIMELINE-FILL`. Two unrelieved HIGHs (C6-1, C6-2), unchanged since Check 4. LEDGER status cell unchanged; one event line appended.
+
+**Self-count.** Runs: grep ×2 · check ×2 · test:demo ×2 = 6 runs over 3 gates; reproduced **3**, failed **0**. Register rows **4** (2 HIGH · 1 MINOR · 1 LOW).
