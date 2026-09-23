@@ -55,7 +55,6 @@
                                 aria-hidden="true"
                             >
                                 <WatercolorDot
-                                    tag="div"
                                     :color="cssColorOpaque"
                                     class="rail-dot"
                                 />

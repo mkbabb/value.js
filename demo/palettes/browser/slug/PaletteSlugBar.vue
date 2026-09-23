@@ -16,7 +16,6 @@
             <!-- W5-a11y: icon-only submit / close buttons need accessible names -->
             <Button
                 type="submit"
-                variant="ghost"
                 icon-only
                 size="xs"
                 class="shrink-0"
@@ -28,7 +27,6 @@
             </Button>
             <Button
                 type="button"
-                variant="ghost"
                 icon-only
                 size="xs"
                 class="shrink-0"

@@ -35,11 +35,10 @@
             </div>
 
             <DialogFooter>
-                <Button variant="outline" @click="$emit('update:open', false)">
+                <Button @click="$emit('update:open', false)">
                     Cancel
                 </Button>
                 <Button
-                    variant="destructive"
                     :disabled="!reason || submitting"
                     @click="onSubmit"
                 >

@@ -169,14 +169,12 @@ watch(
                     <WatercolorDot
                         v-if="editTarget"
                         :color="editTarget.originalCss"
-                        tag="div"
                         class="w-7 h-7 shrink-0 opacity-50"
                         seed="edit-original"
                     />
                     <span class="text-muted-foreground text-caption">&rarr;</span>
                     <WatercolorDot
                         :color="cssColorOpaque"
-                        tag="div"
                         class="w-7 h-7 shrink-0"
                         seed="edit-new"
                     />
@@ -336,7 +334,6 @@ watch(
                 <div class="dock-seal">
                     <WatercolorDot
                         :color="cssColorOpaque"
-                        tag="div"
                         class="dock-seal-wax"
                         seed="top-dock"
                     >

@@ -74,7 +74,6 @@
                     <!-- Revert button (hidden for current version) -->
                     <Button
                         v-if="version.hash !== currentHash"
-                        variant="outline"
                         size="xs"
                         class="mt-2 text-caption opacity-0 transition-opacity group-hover:opacity-100"
                         @click="$emit('revert', version.hash)"
@@ -87,7 +86,6 @@
                 <!-- Load more -->
                 <Button
                     v-if="versions.length < total"
-                    variant="ghost"
                     size="sm"
                     class="self-center text-caption"
                     :disabled="loading"

@@ -12,7 +12,6 @@
 
             <div class="flex flex-col gap-2">
                 <Button
-                    variant="default"
                     class="cursor-pointer font-display justify-start gap-2 rounded-full"
                     @click="onRespond('publish')"
                 >
@@ -21,7 +20,6 @@
                 </Button>
                 <Button
                     v-if="mode === 'switch'"
-                    variant="outline"
                     class="cursor-pointer font-display justify-start gap-2 rounded-full"
                     @click="onRespond('transfer')"
                 >
@@ -29,7 +27,6 @@
                     Transfer to new account
                 </Button>
                 <Button
-                    variant="ghost"
                     class="cursor-pointer font-display justify-start gap-2 text-muted-foreground rounded-full"
                     @click="onRespond('discard')"
                 >

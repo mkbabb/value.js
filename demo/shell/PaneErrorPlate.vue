@@ -27,7 +27,7 @@
                 :detail="detail ?? undefined"
             >
                 <template #action>
-                    <Button variant="outline" size="sm" class="font-display mt-1" @click="reload">
+                    <Button size="sm" class="font-display mt-1" @click="reload">
                         <RotateCcw class="w-3.5 h-3.5 mr-1.5" aria-hidden="true" />
                         Reload the app
                     </Button>

@@ -27,7 +27,6 @@
                     v-else
                     color="var(--muted-foreground)"
                     variant="ghost"
-                    tag="div"
                     seed="eyedropper-empty"
                     class="w-7 h-7 shrink-0"
                 />

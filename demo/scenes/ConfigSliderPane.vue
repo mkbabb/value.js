@@ -162,11 +162,11 @@ function resetDefaults() {
                  shown when there are sliders. -->
             <div v-if="sections.length > 0" class="config-action-bar">
                 <GlassDock :always-expanded="true" :fit-content="true">
-                    <Button variant="ghost" size="sm" @click="copyAsJson">
+                    <Button size="sm" @click="copyAsJson">
                         <Copy class="w-3.5 h-3.5" />
                         Copy JSON
                     </Button>
-                    <Button variant="ghost" size="sm" @click="resetDefaults">
+                    <Button size="sm" @click="resetDefaults">
                         <RotateCcw class="w-3.5 h-3.5" />
                         Reset
                     </Button>

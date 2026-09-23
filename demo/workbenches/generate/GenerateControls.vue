@@ -162,7 +162,6 @@ defineExpose({ regenerate, save, copyColors });
                      rider — root vocabulary, no costume), AS plate chrome. -->
                 <div class="ml-auto flex items-center gap-2 shrink-0">
                     <Button
-                        variant="primary-audacious"
                         class="h-9 gap-2 font-medium font-display shrink-0"
                         @click="regenerate()"
                     >
@@ -171,7 +170,6 @@ defineExpose({ regenerate, save, copyColors });
                     </Button>
                     <Button
                         icon-only
-                        variant="ghost"
                         size="sm"
                         aria-label="Save palette"
                         class="shrink-0"
@@ -181,7 +179,6 @@ defineExpose({ regenerate, save, copyColors });
                     </Button>
                     <Button
                         icon-only
-                        variant="ghost"
                         size="sm"
                         aria-label="Copy all colors"
                         class="shrink-0"
@@ -207,7 +204,6 @@ defineExpose({ regenerate, save, copyColors });
                     v-for="(css, i) in palette"
                     :key="i"
                     :color="css"
-                    tag="button"
                     :seed="`gen-${css}-${i}`"
                     class="generate-swatch w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer active:scale-95 transition-transform focus-visible:outline-none"
                     :aria-label="`Copy ${formatCssCaption(css)}`"

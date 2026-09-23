@@ -14,7 +14,7 @@
                     to none of them — either it was mistyped, or it names a surface this
                     build does not carry.
                 </p>
-                <Button variant="ghost" size="sm" @click="goHome">
+                <Button size="sm" @click="goHome">
                     <Home class="w-4 h-4 shrink-0" />
                     Back to the picker
                 </Button>

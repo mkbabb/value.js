@@ -57,7 +57,6 @@ const { isDark, toggleDark } = useGlobalDark();
                          live-color identity stays via :style — CERTIFIED
                          against the floating rung (D6, T.W3-5). -->
                     <Button
-                        variant="outline"
                         size="xs"
                         class="gap-1.5 text-mono-small font-bold whitespace-nowrap"
                         :style="{ color: triggerInk, borderColor: triggerInk }"
@@ -128,7 +127,6 @@ const { isDark, toggleDark } = useGlobalDark();
                  already wears — so "Tools/Login CHROME keeps the live accent"
                  is live at Login too, never decorative dead code. -->
             <Button
-                variant="outline"
                 size="xs"
                 class="gap-1.5 text-mono-small font-bold whitespace-nowrap"
                 :style="{ color: triggerInk, borderColor: triggerInk }"
@@ -152,7 +150,6 @@ const { isDark, toggleDark } = useGlobalDark();
                      caption utility: mono·caption·UPPERCASE, which shouted
                      "@MBABB" as generic labelware). Lowercase is the mark. -->
                 <Button
-                    variant="ghost"
                     size="xs"
                     class="text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap"
                 >

@@ -65,7 +65,6 @@ async function onCopy() {
                 <WatercolorDot
                     :color="wellColor"
                     variant="ghost"
-                    tag="div"
                     seed="mix-result"
                     data-mix-target
                     class="shrink-0"
@@ -79,7 +78,6 @@ async function onCopy() {
                 <div v-if="result.type === 'color' && result.css" class="flex items-center gap-3">
                     <WatercolorDot
                         :color="result.css"
-                        tag="div"
                         class="w-14 h-14 shrink-0"
                         seed="mix-result"
                     />
@@ -99,7 +97,6 @@ async function onCopy() {
                             v-for="(color, i) in result.colors"
                             :key="i"
                             :color="color.css"
-                            tag="div"
                             class="w-10 h-10 shrink-0"
                             :title="formatCssCaption(color.css)"
                             :seed="i === 0 ? 'mix-result' : `mix-result-${i}`"
