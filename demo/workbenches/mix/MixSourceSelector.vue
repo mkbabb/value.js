@@ -9,6 +9,7 @@ import { PaletteColorStrip } from "../../palettes/browser/card";
 import EmptyState from "../../shared/ui/EmptyState.vue";
 import type { Palette } from "../../palettes/types";
 import type { SelectedColor } from "./composables/useMixingState";
+import { formatCssCaption } from "../../color-session/format-color";
 
 const {
     mode,
@@ -177,7 +178,7 @@ const swatchKeys = computed(() => {
                                 :color="sc.css"
                                 tag="div"
                                 class="w-11 h-11 sm:w-12 sm:h-12 shrink-0"
-                                :title="`${sc.css} (${sc.source})`"
+                                :title="`${formatCssCaption(sc.css)} (${sc.source})`"
                             />
                             <button
                                 class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-destructive text-destructive-foreground flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all cursor-pointer z-popover active:scale-95 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-30 disabled:cursor-not-allowed disabled:pointer-events-none"
@@ -244,8 +245,8 @@ const swatchKeys = computed(() => {
                                         :color="color.css"
                                         tag="button"
                                         class="w-8 h-8 shrink-0 cursor-pointer"
-                                        :title="color.css"
-                                        :aria-label="`Add color ${color.css} from ${palette.name}`"
+                                        :title="formatCssCaption(color.css)"
+                                        :aria-label="`Add color ${formatCssCaption(color.css)} from ${palette.name}`"
                                         :seed="`palette-${palette.slug}-${ci}`"
                                         @click="emit('addColor', color.css, palette.name)"
                                     />

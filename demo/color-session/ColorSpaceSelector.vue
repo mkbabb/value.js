@@ -130,7 +130,7 @@ import { computed, inject } from "vue";
 import { resolveColorSpace } from "./color-model";
 import type { DisplayColorSpace } from "./color-model";
 import { SPACE_CATALOG, SPACE_CATALOG_ENTRIES } from "./space-catalog";
-import { SPECIMEN_CHAR_BUDGET, formatSpecimen } from "./specimen-format";
+import { SPECIMEN_CHAR_BUDGET, formatSpecimen } from "./format-color";
 import { COLOR_MODEL_KEY, SAFE_ACCENT_KEY } from "./keys";
 
 const { cssColor, inline = false } = defineProps<{

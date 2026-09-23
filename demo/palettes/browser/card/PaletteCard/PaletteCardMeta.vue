@@ -59,7 +59,7 @@
                 class="w-3.5 h-3.5 transition-colors"
                 :class="palette.voted ? 'fill-red-500 text-red-500' : 'text-muted-foreground'"
             />
-            <span class="text-mono-small text-muted-foreground">{{ palette.voteCount ?? 0 }}</span>
+            <span class="text-mono-small text-muted-foreground" :title="votes.title">{{ votes.text }}</span>
         </button>
     </div>
 </template>
@@ -69,6 +69,7 @@ import { computed, ref } from "vue";
 import { Heart } from "@lucide/vue";
 import { Popover, PopoverContent, PopoverTrigger } from "../../../../ui/popover";
 import type { Palette } from "../../../types";
+import { formatCount } from "../../../../color-session/format-color";
 
 const { palette } = defineProps<{ palette: Palette }>();
 
@@ -81,6 +82,9 @@ const MAX_CHIPS = 3;
 const tags = computed(() => palette.tags ?? []);
 const shownTags = computed(() => tags.value.slice(0, MAX_CHIPS));
 const allTagsOpen = ref(false);
+
+/** X.W7.f · G17 — the count reads compact (`12.3k`); `title` keeps it exact. */
+const votes = computed(() => formatCount(palette.voteCount ?? 0));
 
 /** One `+N` label per band — the count of tags that band leaves unrendered. */
 const bands = computed(() =>
