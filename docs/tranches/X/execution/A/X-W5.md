@@ -3557,3 +3557,84 @@ relieved or routed at this clock.
 stamped. VERIFIED NO (stamped only at the X-W11 release close, §9 c6). The line does not move.
 
 **Successors:** X-W6, X-W7, X-W8 and X-W10 stay BLOCKED-ON the X-W5 close.
+
+## Check 1 — RESUME 5, L-20 fresh adversarial pass 1, 2026-09-22 (VERIFY-ONLY)
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X-W5 CHECK 1 over `## Close — RESUME 5` · HEAD at open `a1460bd3` · date of record 2026-09-17 (COHESION §0j).
+This seat authored none of the RESUME 5 bytes and cured nothing. It wrote this section and one LEDGER event line. Inputs: `W5.md` whole (396 L, both
+ADDENDA 2026-09-22), this record's header, `## RESUME OPEN 5`, and `## Close — RESUME 5`, plus every commit that close names.
+
+**Verdict: NOT-CONFORMANT.** Every GREEN the close claims reproduces at this seat's clock. The two RED legs the close itself reported are real and still have no
+relief: o16 W5-census R2 and o12 O-12·3. The spec names no honest-RED for either, routes neither to a later wave, and neither is producer-only. ⟨cmd⟩
+`grep -c 'ESC-W5c2' docs/tranches/X/COHESION.md` → **0**, so no ruling exists. The LEDGER row stays **PARTIAL**, and IMPLEMENTED stays unstamped.
+
+### K1.0 Crash-recovery
+⟨cmd⟩ `git status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh`. Neither path is in this seat's writable set
+(`X-W5.md` and `LEDGER.md`), so there is **no inherited partial**. `dev.sh` was never touched.
+
+### K1.1 Axes 1 and 9: the claimed GREENs, re-run at this seat's clock
+| gate | this seat | close claim | reproduces? |
+|---|---|---|---|
+| A1 (main.ts exit · App grep) | 0 · 0 | 0 · 0 | YES |
+| A4 `bindPane` hits | 10 | 10 | YES |
+| A7 `role="status"` grep | 5 | 5 | YES |
+| B4 (`100dvh` · `svh` files · `content-max-h`) | 0 · 3 · 0 | 0 · 3 · 0 | YES |
+| C3 fork census | 23 | 23 (routed to X-W8 `.i`/`.h`) | YES |
+| C4 · C8 · D2 exits | 0 · 0 · 0 | 0 · 0 · 0 | YES |
+| D3 physical names | 0 | 0 | YES |
+| D4 (Mix · AdminNames `<Transition`) | 1 · 1 | 1 · 1 | YES |
+| E1 ×4 files · E2 `P122` | 0 0 0 0 · 9 3 18 10 | same | YES |
+| landmark `grep -rl "Color tool panes" e2e \| wc -l` · census `not-found` | 0 · 3 | 0 · 3 | YES |
+| containment `contain: layout paint` (declaration, `animations.css:319`) | 1 decl (+1 comment line) | 1 | YES |
+| census-parity (visual) ×2 | passed ×2 (inside the 13 passed/4 failed runs below) | 5 passed ×2 | YES |
+| D1 of record, headed real-GPU (ANGLE Metal, Apple M5 Max), fresh `vite build --mode gh-pages` (BUILD=0), served on :8163, load 12.75 | run 1: gradient 1/83 · extract 0/88 · mix 0/89 · generate 0/88, median 10 ms, `pass:true`; run 2: 1/84 · 0/88 · 0/88 · 0/88, `pass:true` | 2/2 pass | YES |
+
+Neither D5 nor the A/B/C live probes were re-run here. They are banked at the close ×2, and no byte has moved since `0dd63055`.
+
+### K1.2 The RED legs, reproduced
+⟨cmd⟩ `VJS_E2E_PORT=5231 npx playwright test e2e/smoke/oracles/o12-blob-seat.spec.ts e2e/smoke/oracles/o16-computed-cascade.spec.ts e2e/visual/census-parity.spec.ts`
+run twice. Both runs gave **13 passed / 4 failed**, EXIT=1. The same two tests failed each time, once in `smoke` and once in `oracles-safari`:
+- `o16:113` W5-census R2: Expected `"0.4s"`, Received **`"0.44s"`** in both runs.
+- `o12:134` O-12·3: hover response **0.55 · 0.83 /255** (run 1) and **0.13 · 0.61 /255** (run 2), against the 6/255 floor.
+
+**Root of the o16 leg, read at the bytes.** ⟨cmd⟩ `tr ';' '\n' < node_modules/@mkbabb/glass-ui/dist/styles/tokens/scheme-spring.css | grep snappy` →
+`--spring-snappy-settle: 0.44s` · `--spring-snappy-duration: calc(var(--spring-snappy-settle) * var(--motion-tempo))`. The D1 motion rows above read
+`transformMs: 440` on every enter. The live duration therefore comes from the producer token (glass-ui 7.0.0). The literal at `o16:218` dates from
+T.W5 (`27f54cc3`, 2026-07-11). This is **not a W5 regression**. It is an oracle literal that has gone stale against the producer, and the §0ax gate
+"o12/o16/census-parity GREEN ×2" puts it inside this wave. The cure is a consumer test byte on `o16:218`. It is not producer-only. That byte needs a grant,
+which is ESC-W5c2-1, and the escalation is unruled.
+
+**o12 O-12·3.** X-W2 routed cl-F4 to **X-W5** (`X-W2.md:1238`), and §0ax makes o12 GREEN ×2 a `.c2` gate. W5 therefore owns the leg. Its cause is undetermined
+(ESC-W5c2-2, unruled).
+
+### K1.3 Axes 2–8
+- **(2) Bounds.** ⟨cmd⟩ `git show --stat` on all 12 RESUME 5 shas (`ab5270b6` … `a1460bd3`): every path is inside the R5.4 / §0ax grants. ⟨cmd⟩
+  `git diff --stat bd1f014f^..HEAD -- scripts/dev/dev.sh` is empty.
+- **(3) Masking.** None found. The EB-2 boundary in `52dc0a5b` *reports* every capture through `FAILURE_REPORTER_KEY` before it stops the throw. It is
+  the ruled containment, not a swallow. `ab5270b6` is a pure selector re-point through `mainPane()`. Its only non-selector byte is
+  `o26:… toBeVisible({ timeout: 20000 })`, a wait bound (INFO below), and no assertion was narrowed. There is no `test.skip`/`fixme`, and no `node_modules` byte.
+- **(4) Families.** P-1..P-4 + EB-2 land in one commit (`52dc0a5b`), as fold `:41` requires. There is one commit per meaning.
+- **(5) E-3.** ⟨cmd⟩ `git diff --numstat bd1f014f^..HEAD -- docs/tranches/X/waves/W5.md` → `7 0`. These are the two dated ADDENDA, append-only, from COHESION
+  commits `9c8c30d3` and `df34be29`. `registry/adjudicated/` has no RESUME 5 touch.
+- **(6) Mail.** The INBOX has one UNREAD row, I-40 (Track C), which is out of scope. **0 UNREAD in scope.**
+- **(7) Four-verb.** The line stays unmoved (IMPLEMENTED NO), and that is lawful: the addendum gate is RED.
+- **(8) Goal criterion.** Met at the bytes for the product: one H1 and one main per route (A5 core 15/15, banked), a scrolling mobile document (B1), no block
+  cap (B2/B4), regions[] (C8), and animated, budgeted, PRM-honest swaps (D1 of record, D3, D4, D5). What remains is test-oracle debt inside the §0ax gate.
+
+### K1.4 Register
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| K1-1 | **HIGH** | The §0ax `.c2` gate "o16 GREEN ×2" is RED and unrelieved. Only one fact keeps it red: `o16:218` holds the literal `"0.4s"`, while the producer token resolves to `0.44s`. | K1.2: Received `"0.44s"` ×2 runs × 2 projects. `scheme-spring.css`: `--spring-snappy-settle: 0.44s`. COHESION `ESC-W5c2` hits: 0. | COHESION rules ESC-W5c2-1. Then an Opus repair seat, granted `o16:218`, re-derives R2 from the resolved `--spring-snappy-duration` (read in-page), so R2 is not a loosened literal. Run o16 ×2. |
+| K1-2 | **HIGH** | The §0ax `.c2` gate "o12 GREEN ×2" is RED on O-12·3. X-W2 routed cl-F4 here, the cause is undetermined, and no ruling exists. | K1.2: 0.55 / 0.83 / 0.13 / 0.61 per 255 against the 6/255 floor. `X-W2.md:1238`. | COHESION rules ESC-W5c2-2. The close proposes a headed real-GPU read of O-12·3 beside D1's instrument. If that is GREEN, the ruling sets the reading of record. If it is RED, the renderer/mood root is escalated. No floor change and no skip. |
+| K1-3 | INFO | `ab5270b6` adds `toBeVisible({ timeout: 20000 })` on o26's main-pane wait. This is a wait bound, not an assertion narrowing. | `git show ab5270b6 -- e2e/smoke/oracles/o26-aurora-perceptibility.spec.ts` | none |
+| K1-4 | INFO | D1 headless SwiftShader stays RED beside, and it is not the reading of record (§0ax ESC-W5t-1). | close CL5.2 | quiesced-host operator item (already registered) |
+
+### K1.5 Axis 10: honest-RED adjudication
+- **Relieved by the spec's own routing** (owners named in CL5.5, confirmed): B3 → X-W6 CC-056 · A3/C2 → X-W8 (§0k.3 S-1; reads GREEN at the close clock anyway)
+  · A5-OUTLINE → X-W10 · C3 layout forks → X-W8 `.i` · C7 `DockStatusLamp.vue:70` → X-W8 `.h` (§0aq) · D1 headless → by-instrument (§0ax).
+- **Unrelieved:** o16 R2 (K1-1) and o12 O-12·3 (K1-2). Neither is producer-only. Neither is routed to a successor, and W5 owns cl-F4 by X-W2's routing.
+  Neither is named honest-RED by any W5 addendum. Each has an owner (COHESION, via ESC-W5c2-1/-2) but no ruling. Axis 10 is therefore NOT met.
+
+### K1.6 Successors
+X-W6, X-W7, X-W8 and X-W10 each declare X-W5's close in their Opens-after. That conjunct is **RED** (X-W5 PARTIAL), so all four remain **lawfully BLOCKED-ON X-W5**.
+X-W5's own Opens-after conjuncts (X-W4, X-W2, X-W0 CLOSED; D2 exit 0) are GREEN.
