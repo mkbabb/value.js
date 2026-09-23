@@ -44,3 +44,41 @@ Order (spec: "Units, strictly serial"): **[`.w`] → [`.t`] → [`.e`] → [`.d`
 Close (wave close seat, after `.d`): `npm run check` exit 0 · vitest GREEN · kf e2e GREEN · the four served-page gates re-read by the check seat itself (spec `:328`).
 
 ## Unit receipts
+
+### KF.W13U.w
+
+SERVED MODEL: claude-opus-5-5 · effort high · spec `KF-W13.md:324` + COHESION §0be · writable per the Unit plan row.
+
+**Crash-recovery.** ⟨`git -C keyframes.js status --porcelain`⟩ → only the two untracked `docs/tranches/V/coordination/VALUEJS-INBOUND-2026-07-{24,27}-*.md` (outside the set; untouched). **0 inherited paths.**
+
+**Acts, in order.**
+
+1. **Reproduced OA-27 on the served page** (`http://localhost:5173/`, headed Chromium, `--ignore-gpu-blocklist`; probe `evidence/W13U/w/probe-w1.mjs`, which reads the engine's INLINE write on `.cube` plus `.idle-hover`): at rest `.cube` inline `""`, computed `none` → `none`; after Play the inline write was `translateY(0.258px)` → `translateY(1.351px)` → `translateY(3.124px)` — the ONLY engine write, and it is the Hover channel's bob; no rotate component ever. `document.getAnimations()` on the cube subtree: 0 (the group paints by rAF, not WAAPI).
+2. **Named the break at the bytes.** kf `demo/scenes/cube/useCubeDemo.ts` (pre-cure `setTargets`) put all three channels — `Rotations` (`rotateX/Y/Z` list), `Matrix` (`matrix3d`), `Hover` (`presets.hover`, `translateY`) — on ONE element, `.cube`. Since the Value-4 transposition (kf `5a9183a7`) a `transform` is ONE structural key (formerly flattened per function name: `transform.rotateX` …), and `src/animation/constants/defaults.ts:94` `op: "replace"` + README `AnimationGroup` ("**replace**: highest zIndex wins") keep one writer per property per element. Scratch drive of the REAL group in the demo vitest project (deleted after): rotation alone → `rotateX(1.875deg) rotateY(0.0625turn) rotateZ(22.5deg)`; rotation + hover (either order) → `translateY(2.5px)`; the composite's grouped keys → `["transform"]`. The library honours its written contract; the demo authored three whole-transform writers on one node → **owner = the demo scene, not `src/animation/**`** (no library byte touched). Second limb: the cube never plays on entry — `useSceneMachineShellBinding.ts:206-208` PLAYs only an `autoPlays` scene or an explicit gesture, and CubeScene exposed no `autoPlays`.
+3. **Cure (kf `d78bed01`, one commit, pushed).** `CubeTarget.vue`: the die is nested `.cube-bob` › `.cube-pose` › `.cube` inside the roll element (each `preserve-3d`; the house idiom the roll's own element already follows — CubeTarget.css `:58-62`), refs exposed. `useCubeDemo.ts`: `setTargets({ cubeEl, bobEl, poseEl, graphEl }: CubeTargets)` — spin → `.cube`, pose → `.cube-pose`, bob → `.cube-bob`; the group DECLARES `singleTarget = false` (the supported opt-out, KF-W5R4(4); SquareScene precedent — the constructor derives it before any target exists and the per-child `setTargets` never re-derives). `CubeScene.vue`: `onMounted` hands the four targets; `defineExpose` gains `autoPlays: true` (spec: "the cube … must animate on load and on play"; home stays excluded by the binding's `!isHome`). Composition order is now bob · pose · spin (was the string order spin · pose · bob) — the bob reads in world space, the spin about the posed die; recorded as INTENT.
+4. **Witness** `test/demo/scenes/cube-channels-compose.test.ts` — drives the REAL `useCubeDemo` group over 0…1600 ms: `.cube` ≥3 distinct `rotateY(` lists, `.cube-bob` `translateY(` ×≥2, `.cube-pose` `matrix3d(`. Born RED: with the pre-cure targets restored in the working copy (then restored back, byte-identical) ⟨`npx vitest run --project demo test/demo/scenes/cube-channels-compose.test.ts`⟩ → `AssertionError: expected '' to match /^matrix3d\(/` (1 failed); with the declaration also reverted → `expected true to be false`. At the cure: 1 passed.
+
+**Gate readings (BEFORE → AFTER).**
+
+| gate | BEFORE (baseline, ×2) | AFTER dev `:5173` ×2 | AFTER gh-pages ×2 (`npm run gh-pages` → `dist/gh-pages/`, served statically on `:4187`) |
+|---|---|---|---|
+| G-KFW13U-w `.cube` engine write across 1 s **at rest** (`probe-w1.mjs`) | `none` → `none` | run1 `rotateX(329.621deg) rotateY(0.915613turn)…` → `rotateX(360deg) rotateY(1turn)…`; run2 `rotateX(289.458deg)…` → `rotateX(351.892deg)…` | run1 `rotateX(303.564deg)…` → `rotateX(356.044deg)…`; run2 `rotateX(277.617deg)…` → `rotateX(347.612deg)…` |
+| engine-write discrimination (Pause holds) | — | Pause → two samples 600 ms apart IDENTICAL both runs (e.g. `rotateX(359.725deg) rotateY(0.999237turn)` ×2) — the motion is the engine's, not an idle CSS bob | identical ×2 both runs |
+| G-KFW13U-w `.cube` **after Play** | `translateY` only (bob) | 3 samples over 1 s, each a distinct rotate list (e.g. `353.852°` → `332.581°` → `292.537°`), `.cube-bob` `0.35px` → `3.34px` | distinct rotate lists both runs |
+| frame diff (`.graph` clip, 1 s at rest) | identical (baseline `none`) | `dev-cube-rest-t0.png` `b135fa22` ≠ `t1` `f278fb7d` | `gh-cube-rest-t0.png` `f8cd513e` ≠ `t1` `30fa9cbb` |
+| rAF write sample (MutationObserver, 1 s, `probe-writes.mjs`) | — | at rest: `.cube` 31 · `.cube-bob` 31 writes; after Play 29 · 29 (×2) | same shape ×2 |
+| every scene plays after Play (`probe-writes.mjs` subject writes + stage frame diff; `probe-amiga.mjs` canvas clip) | cube bob-only; others unmeasured by subject | cube spin+bob · square `.demo-box` + tether · easing `.tile-ball` · spring spring/sampler/preset balls + marker · sequence `.seq-ball` · amiga canvas clip hash changes over 700 ms (`0d68c39f`→`9724b432`, `34b29317`→`03687f75`), rest clip constant — ×2 | identical verdicts ×2 (amiga `63631481`→`c6ce2d9a`, `d46e9512`→`513ae702`) |
+| pageerrors | 0 | 0 ×2 | 0 ×2 |
+| `vue-tsc` (`tsconfig.json` · `tsconfig.test.json`) | 0 · 0 | 0 · 0 | — |
+| `npm run test:demo` | 63/63 · 505/505 (banked) | **64/64 · 506/506** | — |
+| kf pushed | `cfecfbce` | `d78bed01` = `origin/master` | — |
+
+Frames: `evidence/W13U/w/{dev,gh}-cube-rest-t{0,1}.png`, `{dev,gh}{1,2}-cube-play.png`, `{dev,gh}{1,2}-amiga-canvas-play.png`; probes `probe-w1.mjs` · `probe-writes.mjs` · `probe-amiga.mjs`.
+
+**Residuals (named, not cured here — outside `.w`'s wiring cure or its gate).**
+- R-w-1: the `Matrix` channel animates `matrix3dStart` → `matrix3dEnd`, both identity until the user edits the matrix, so `.cube-pose` stays `matrix3d(1,0,…,1)` at a fresh entry — it plays (its writer runs) but has nothing to show; by construction, not a wiring break.
+- R-w-2: CubeScene's `isPlaying` ref (`CubeScene.vue`, passed to CubeTarget) is never written (the binding writes only `isStarted`), so `.idle-hover.playing .cube { will-change: transform }` (CubeTarget.css `:99`) never applies and the new `.cube-bob`/`.cube-pose` carry no transient hint. A motion-quality row → routed to `.d` (compositor promotion / blur), not changed here.
+- R-w-3: `autoPlays: true` supersedes the T.G3 "the die rests at idle" posture (CubeTarget.css `:67-76`, verdict #19) for `#/cube` by the 2026-09-23 spec; home (`#/`) still rests. The perf-counter proof's idle reading for `#/cube` is owed a re-read at the close seat.
+- Other scenes stay `autoPlays: false` (spec names the cube only); each plays on Play (table above).
+
+**Escalations**: none. **Commits**: kf `d78bed01`; this record (value.js, below).
