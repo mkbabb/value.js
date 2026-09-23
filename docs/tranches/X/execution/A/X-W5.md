@@ -3894,3 +3894,56 @@ The reading of record is **below the floor on the real GPU in both runs.** It ma
 - o16-computed-cascade GREEN ×2: **RED ×2**. The granted part is done: R2 `:218` and R8 `:266` now equal the resolved token, R2 PASS ×2 in both projects, R8 = `0.44s`. The test still fails at R4.
 - o12 O-12·3 headed real-GPU ×2, floor 6/255: **read ×2 at the instrument of record, below the floor**. Disposed under ESC-W5c2-2 to X-W8 `.i` as `O12-3-HOVER-GPU`. It is a RED reading routed by ruling, not a W5 GREEN.
 - **ESC-W5c3-1 (for COHESION).** The o16 W5-census has three more literal rows from before the glass 7.0.0 adoption. R4 is pre-byte `:241-244`: `cartoon-surface`'s transition register is **absent** from the glass 7.0.0 producer (`@utility cartoon-surface` carries no transition), so it may need a producer letter or a re-author rather than a token read. R5 is pre-byte `:250`/`:255`/`:260`: `btn-interactive` computes `0s`, and the rail press is `0.12s` against `0.16s`. R11 is pre-byte `:272`: `.pane-shell` is `0.35s` against `0.45s`. R2's literal hid all of them, so o16 cannot turn GREEN inside the `:218`/`:266` lock. The ruling needs to cover the grant of those lines (resolved-token equality, like ESC-W5c2-1), and R4's "producer removed the register" question, which may be a glass mail row.
+
+### X.W5.d3
+
+SERVED MODEL: claude-opus-5-5[1m] · unit X.W5.d3 (Opus) · executes W5.md ADDENDUM 3 (`:398`) · COHESION §0ay ESC-W6close5-1 · X-W6 record Act 2a (`X-W6.md:6480-6515`) · W6.md §6 a5–a12 / e1 / g2 · HEAD at open `881d3792`. **Status: ESCALATED (ESC-W5d3-1).** The root is proven at `file:line`. It sits in the async-pane swap that `usePaneRouter.ts`'s `lazyPane` factory builds, and that factory is W5F-07 CURE-LOCKed and outside this unit's grant. None of the three §0ay candidates is the root, so no product byte landed.
+
+**d3.0 Crash-recovery.** ⟨cmd⟩ `git status --porcelain` → the four standing rows (`CARRY-LEDGER.md` · two W6 catalog PNGs · `scripts/dev/dev.sh`). None is in the writable set. **No inherited partial.**
+
+**d3.1 The witness, authored first and banked RED.** The file is `e2e/smoke/oracles/cold-nav-scene-enter.spec.ts` (new). The first shape was `b9f63632`: 5 fresh contexts × cold first navigation to `#/gradient` at 1440×900, with the pane-chunk requests (`/(workbenches|scenes|palettes)/.*Pane.vue`) held 800 ms so each load crosses `PANE_LOAD_DELAY_MS` (200). Holding the chunk makes the cold-server condition explicit: on a freshly started vite the first run stuck **1 of 6** unheld, then **0 of 8** once warm. ⟨cmd⟩ `VJS_E2E_PORT=8893 npx playwright test e2e/smoke/oracles/cold-nav-scene-enter.spec.ts --project=smoke` ×2 → **RED ×2**, `context 0 … Received: 2`.
+The revised shape is `a072eef3`. It adds a **`#/` arm** (the eager Picker beside the lazy About) and reads only after `networkidle` and `.pane-plate` count 0. Without that wait, the `#/` poll could read 0 while About's chunk was still in flight, before the drop had happened. ⟨cmd⟩ the same, ×2 at HEAD → **RED ×2 on both arms**: `/#/gradient context 0 Received: 2` · `/#/ context 0 Received: 1`.
+
+**d3.2 The root, measured.** The instrumented class timeline (MutationObserver, element ids) on a stuck load shows the two regions' **loading plates** entering with `vj-enter`, then leaving at +690 ms when the chunk resolves. The resolved panes are inserted already carrying `vj-enter-enter-from` + `-active`, and nothing ever advances them. ⟨cmd⟩ `node docs/tranches/X/waves/W5/green/d3-enter-guard-diag.mjs` (read-only: it fulfils the dev prebundle with two logging lines in the probe browser only, and `node_modules` is untouched) →
+`DIAG beforeEnter key=gradient leaving=true same=true leavingElHasCb=false leavingEl=#comment.` → `DIAG enter-dropped key=gradient cls=… vj-enter-enter-from vj-enter-enter-active` (the same for `palettes`). At `#/`: `DIAG enter-dropped key=about` (stuck=1). With the chunk unheld: stuck=0.
+The mechanism runs as follows (Vue 3.5.35 `runtime-core` `resolveTransitionHooks`; prebundle `vue.runtime.esm-bundler-DQai_KuN.js:2790` is the beforeEnter cancel and `:2794` is the enter guard).
+1. A lazy pane that outlasts the delay renders `PaneLoadingPlate` as the async wrapper's root.
+2. It then swaps that root for the resolved pane **inside PaneSlot's one `<Transition>` child**, under the same key and the same inherited hooks. Out-in does not govern this swap.
+3. If PaneSlot re-renders while the chunk is in flight, the hooks' closure vnode keeps `el` = the wrapper's first `#comment`.
+4. At resolution the plate's leave files `leavingVNodesCache[key] = vnode`. The pane's `beforeEnter` cannot cancel that leave, because `leavingVNode.el[leaveCbKey]` is read off the `#comment`.
+5. `beforeEnter` then stamps `enter-from`/`-active`, and `enter` returns at `leavingVNodesCache[key] === vnode`. `nextFrame` never runs, so the pane holds its entry transform and the gradient rail sits at x = −351.
+An unheld warm hop (`#/generate` → `#/gradient`, chunk +800 ms, no slot re-render in the window) gives stuck=0.
+
+**d3.3 The three §0ay candidates, each tested.**
+- **`App.vue:134` (the name flip on `viewManager.ready`)** is a **trigger, not the root**. As an experiment (uncommitted, reverted), `transition-name="vj-enter"` was made constant. The held `#/gradient` repro went from **3/3 → 0/4** and the witness's gradient arm turned GREEN, but the **`#/` arm stayed RED** (`Received: 1`; `#/` held repro 4/4 at HEAD and 4/4 flipless). Landing it alone would green one arm and leave the class alive, so it was **not landed**. Separately, the flip is vestigial: `main.ts` awaits `router.isReady()` before mount, and the first mount rides `overture-appear-*`, so this is a safe cleanup inside the real cure.
+- **"PaneSlot: an enter hook that never fires"** is **the class**. It is not the out-in-with-nothing-to-leave shape, though. The lost enter is the async wrapper's internal plate → pane root swap, which lives in `demo/shell/usePaneRouter.ts:213-223` (`lazyPane`: `loadingComponent: PaneLoadingPlate`, `delay: PANE_LOAD_DELAY_MS`), and that is the W5F-07 CURE-LOCKed P-3 byte.
+- **`animations.css` `*-active` containment** is **not implicated**. The classes are never removed, and a CSS byte that neutralised `vj-enter-enter-from` would be the banned forced-state mask.
+
+**d3.4 Why no cure landed inside the grant.** The swap that loses the enter needs the Transition to see plate and pane as **two keyed children**, so that out-in sequences them: the plate leaves, then the pane enters. PaneSlot can only key on the pane's resolution if it knows when that happens. A `defineAsyncComponent` wrapper exposes that only through Vue internals (`__asyncLoader` / `__asyncResolved`, `@internal` and absent from `runtime-core.d.ts`). The only other public route is the loader, which `usePaneRouter.ts` owns. Giving the Transition a stable element frame instead would put a wrapper element between `.pane-wrapper` and every pane root. That changes what every `region.firstElementChild` oracle reads (g2 among them) and is not a "swap rules" byte. A settle, a forced class removal or a CSS neutralisation is banned. So per the seat law, the cure is **not substituted**.
+
+**d3.5 Gates: BEFORE → AFTER (HEAD unchanged in `demo/`; ⟨cmd⟩ `git diff --stat HEAD -- demo` → empty).**
+
+| gate | BEFORE | AFTER (this seat) |
+|---|---|---|
+| cold-nav witness ×2 | absent | **RED ×2** on both arms at HEAD (born RED, `b9f63632` → `a072eef3`) |
+| W6 a5–a11 (`gate-a-gesture-paint.mjs`) | RED of record | at HEAD: RED of record stands. With the flip-removal experiment: GREEN on fresh `:8895` ×2 (restarted between) and on `:9000` |
+| W6 a12 (`WBGSE-D-probe2.mjs` block 5, origin-only scratch copy) | RED of record | at the experiment: overhang **0/0** ×3 (fresh ×2, `:9000`) |
+| W6 e1 (+ X-W5 W5-10) | RED 1/2 of record | at the experiment: `-g` ×2 2 passed each; full `gradient.spec`+`o21` ×2 → **22 passed** (1.8 m) · **22 passed** (2.0 m) |
+| W6 g2 | RED of record | **bisected to the `#/` arm**: at HEAD RED ×2 (6.50 px; `Mix region renders no pane`). At the experiment GREEN, GREEN, then **RED 6.50** (About `div.glass-resting.card` 104.95 vs track 111.45). g2 reads the About pane at `#/`, the pane the diagnostic shows dropped (`enter-dropped key=about`), so the flip does not decide g2 and the root does |
+| D1 of record (headed real GPU) | GREEN 14/14 (§0ay) | **unchanged by construction** (no product byte). Not re-run |
+| D3 physical names | 0 | **0** (⟨cmd⟩ `grep -rc 'pane-wrapper--left\|pane-wrapper--right' demo/` summed) |
+| D5 PRM honesty | held | held (no `animations.css` byte) |
+| §7 | — | `vue-tsc` lib **0** · demo **0** · test **11** (`demo/color-session/space-catalog.ts` `assets/docs/*.md`, pre-existing) · `tsc -p tsconfig.e2e.json` **5** (`o23-specimen-gamut-honesty.spec.ts:144,181`, pre-existing; the witness file 0) · `npx eslint demo <witness>` EXIT 0 (repo-wide `npm run lint` EXIT 1 on `docs/tranches/V/apotheosis/v-apotheosis-workflow.js:198`, pre-existing) · vitest **639/641** (C-5, NG-6: the foreign canaries of record, §0z E2) |
+
+The witness was also read once on `oracles-safari` in its first (gradient-only) shape: 1 passed, at the experiment bytes.
+
+**d3.6 Commits.** `b9f63632` is the witness, born RED. `a072eef3` is the witness's `#/` arm with the read-after-resolve fix, plus the evidence files `docs/tranches/X/waves/W5/green/d3-cold-nav-root-2026-09-22.json` and `d3-enter-guard-diag.mjs`. Both commits carry an exact pathspec. No product byte was committed: the `App.vue` experiment and a PaneSlot header note describing it were reverted with `git checkout -- <own path>`. Self-count: 2 unit commits, plus this record's commit.
+
+**d3.7 ESC-W5d3-1 (for COHESION): the stuck enter is the async-pane plate → pane root swap under the slot's one Transition child. The cure needs one of:**
+- **(a) Grant `demo/shell/usePaneRouter.ts` (`lazyPane`, `:189-223`) inside the W5F-07 family, without splitting P-1..P-4.** The factory publishes its readiness (the loader's settled state) beside the component. PaneSlot then keys its Transition child on `(pane, resolved)`, so out-in sequences plate-leave → pane-enter. The `loadingComponent` plus `delay` contract and EB-2 stay intact. The `App.vue:134` flip retires in the same commit, as a vestigial trigger.
+- **(b) Rule that PaneSlot may read the wrapper's Vue-internal resolved state** (`__asyncResolved`). This is smaller, but it rests on an `@internal` field.
+- **(c) A stable per-pane frame element as the Transition child.** This needs grants on every `firstElementChild` oracle.
+
+(a) is recommended. In every option the witness (`cold-nav-scene-enter.spec.ts`, both arms) is the gate ×2. W6 a5–a12/e1/g2 and D1 are re-read after the landing. A Vue upstream letter may be sent on the stale closure `el` under a KeepAlive child as a note, but it is not a gate.
+
+**d3.8 E13.** No mail was swept at this seat: this is a unit seat, and the wave's R6.1 sweep covers it. No INBOX byte was written.
