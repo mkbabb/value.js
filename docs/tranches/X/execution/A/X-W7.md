@@ -2212,3 +2212,92 @@ Writable for all three (§0bt, W7.md:685): `demo/**` · `e2e/**` · `eslint.conf
 Groups: `[[X.W7.z1],[X.W7.z2],[X.W7.z3]]`. Then close → check → X-W7R.
 
 ### Unit receipts (round 3)
+
+### X.W7.z1
+
+**Seat**: X.W7.z1, `claude-opus-5-5` · 2026-09-23 · opened at HEAD `ace3a5d7`. **Read**: W7.md whole (once, incl. `:683`/`:685`
+addenda) · COHESION §0bk + §0bs/§0bt · this record's round-3 Open → Unit plan + the `.d2`/`.g2` receipts + Check 3's register ·
+`W7-om15-receipt.md` rows 15/17.
+
+**Crash-recovery** ⟨cmd⟩ `git status --porcelain` → ` M …/CARRY-LEDGER.md` · ` M …/DIVERGENCE-LEDGER.md` · ` M scripts/dev/dev.sh`
+· `?? docs/tranches/X/audit/` · `?? …/chassis/ui-audit.js` · `?? …/keyframes/evidence/W13U/d4/` — **0 paths in z1's writable set; no
+inherited hunk.** None touched.
+
+**Acts, in order**
+
+1. **S-5 (ESC-W7d2-BARREL)** — ⟨cmd⟩ `grep -rnw PaletteCard demo e2e` → the only CODE references were `card/index.ts:4` and
+   `browser/index.ts:19` (`:18` is the `export {` opener that the five other members keep, so the intent at the true bytes is
+   `:19` alone). Deleted `PaletteCard/PaletteCard.vue` (381 lines) plus both re-exports in ONE commit **`d104cd5f`**. ⟨cmd⟩
+   `npx vue-tsc -p tsconfig.demo.json --noEmit` → EXIT **0 · 0**.
+2. **m-1 (`useVersionHistory.ts:52,:73`)** — **`7c3b9156`**. Both `catch → console.warn` arms now settle typed verdicts in the
+   `RevertResult` idiom: `VersionsResult` (`{ok,page}|{ok:false,message}`) and `ForkResult`.
+   - fork: `useDialogBrowseActions.onFork` hands the reason to `onForkError`. BrowsePane renders that on the inspector rail (row 47).
+   - load: `VersionHistoryDrawer` emits `load-failed` with the reason instead of settling an empty page that reads "0 versions".
+     `BrowsePane.onVersionsLoadFailed` says `Versions failed to load: <reason>` on the inspector of the palette whose history was
+     asked for (the `.d2` `showVerdict` path).
+   - Mounted test `demo/test/palettes/version-history-verdicts.test.ts`: **7/7 ×2**, and 0 `console.warn` spied.
+   - Falsifier: the drawer emit removed → **1 failed**. Reverted and `cmp`-restored.
+3. **G19 (ESC-W7g2-G19-PROSE)** — **`3cd3de31`** (comments only). "Family label" is used where the prose names the family label:
+   `easingCatalogue.ts:81` and `EasingSpecimenStrip.vue:5,138`. At the true bytes the other three name different labels, so their
+   intent is recorded rather than mislabelled "family label":
+   - `DESIGN.md:37` → "section labels"
+   - `GradientCodeEditor.vue:102` → "caption token"
+   - `ParseEchoReadout.vue:15` → "space label"
+
+   The `.family-eyebrow` class name is left as it is (the §0bk.3 exclusion, NOT widened).
+4. **OM-15 rows 15/17 (ESC-W7g2-BROWSEPANE-COPY)** — **`39ed6daa`**, ONE commit covering the copy and its two oracles:
+   - `BrowsePane.vue:65` → `Couldn't load palettes.`
+   - `BrowsePane.vue:139` → `Load more`
+   - `crash-battery.spec.ts` (`:60` in the grant; `:69` at the true bytes) → `/Couldn't load palettes/`
+   - `browse-pagination.spec.ts:62` → `name: "Load more"`
+   - ⟨cmd⟩ `browse-pagination.spec.ts` → **2 passed ×2**.
+5. **R14 recovery (ESC-W7g2-R14-RECOVERY)** — **`ca78e91b`**. Baseline re-measured on a lane-local warm Vite (`:8190`,
+   `VJS_E2E_PORT`): **RED at `:103`** ("the wall never repopulated"). Both of `.g2`'s named causes were confirmed at the bytes, and
+   each is cured at its cause:
+   - **Harness.** ⟨cmd⟩ `curl -w '%{http_code} %{content_type}' localhost:8190/palettes?limit=50` → `200 text/html` (the SPA's
+     `index.html`). Under e2e, `VITE_API_URL` is the Vite origin, so `route.continue()` has no backend to reach. The recovered leg
+     now `route.fulfill`s the backend's JSON page, which is the `fixtures/browse-palettes.ts` idiom.
+   - **Harness cure alone → still RED** at the recovery leg. That isolates the second cause.
+   - **Product.** `availability.ts:87` has a 30 s cooldown, and inside it a user's Retry was short-circuited by
+     `ApiUnavailableError` with **no request issued**.
+     - A new `admitRecoveryProbe()` admits exactly the next attempt through `assertApiAttemptAllowed`'s probe branch. That branch
+       re-arms the window, so the AP-17 one-probe law holds.
+     - `useBrowsePalettes.retryRemotePalettes()` (admit + load) is carried on the browse port, and BrowsePane's Retry calls it.
+     - Unit test `browse-retry-probe.test.ts`: **3/3 ×2**.
+   - ⟨cmd⟩ `VJS_E2E_PORT=8190 npx playwright test crash-battery.spec.ts -g R14 --project=smoke` → **1 passed (15.2 s) · 1 passed
+     (10.4 s)**.
+   - Falsifier: Retry restored to `pm.loadRemotePalettes()` → **RED at the recovery leg** (`:136` post-edit, the same assertion as
+     the old `:103`). Reverted and `cmp`-restored.
+6. **This receipt**, committed on the record's own pathspec.
+
+**Gate readings BEFORE → AFTER** (every AFTER double-run)
+
+| gate | BEFORE | AFTER |
+|---|---|---|
+| **S-5** | `PaletteCard.vue` present; `card/index.ts:4` + `browser/index.ts:19` re-export it | file **absent ×2**; re-exports **0 · 0** ×2 — **GREEN** |
+| demo `vue-tsc` | EXIT 0 | EXIT **0 · 0** — **GREEN** (held) |
+| `useVersionHistory` `console.warn` | **2** (`:52`, `:73`) | **0 ×2**; verdicts on the rail; mounted test 7/7 ×2 — **GREEN** |
+| **G19** (`grep -rn eyebrow demo/ \| grep -v node_modules \| grep -v family-eyebrow \| wc -l`) | **6** | **0 · 0** (exclusion NOT widened) — **GREEN** |
+| **R14** incl. recovery leg | RED `:103` | **GREEN ×2** — **GREEN** |
+| G18 (`git diff --numstat ace3a5d7..HEAD -- src/ api/ \| wc -l`) | 0 | **0** |
+
+**Cadence**:
+- `npx vitest run demo/test/palettes` → 18 files · **138/138**.
+- eslint `--max-warnings=0` on every touched code file → EXIT 0.
+- `tsc -p tsconfig.e2e.json` → EXIT 0.
+- `git diff --check` → clean.
+
+**Adjacent edits** (ADJACENT-LINE RULE): none outside `demo/**` · `e2e/**`. The R14 cure's product half (`availability.ts`,
+`useBrowsePalettes.ts`, `usePalettePorts.ts`) sits inside `demo/**` and is the recovery leg's cause, the same concern.
+
+**Residuals (named, not absorbed)**
+- Two R14 runs read RED at `:103` "error plate paints at all" while the shared Vite was mid-HMR. The vite log shows `Failed to
+  reload /App.vue …` bursts from file touches outside this seat. After a server restart, 2/2 runs were green. This is recorded as a
+  harness-environment effect and is not counted in either direction.
+- The five Admin panels' own Retry controls go through the same latch but were not rewired. They are a different surface and no
+  gate asks for them. The next Admin-owning wave should consume `admitRecoveryProbe`.
+- Stale PROSE still cites the deleted SFC (`DESIGN.md:252,274,281,353,393`, `crash-battery.spec.ts:46,95` comments). It is
+  historical narration, not code, and no gate asks for it.
+
+**Escalations**: none.
+**Commits**: `d104cd5f` · `7c3b9156` · `3cd3de31` · `39ed6daa` · `ca78e91b` · this record.
