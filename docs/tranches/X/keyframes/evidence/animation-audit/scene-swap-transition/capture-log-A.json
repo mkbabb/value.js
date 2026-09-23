@@ -1,0 +1,198 @@
+{
+ "started": "2026-09-23T14:51:48.429Z",
+ "kfAtStart": {
+  "head": "d78bed01",
+  "dirty": "4"
+ },
+ "runs": [
+  {
+   "run": "A-shipped-screencast",
+   "from": "cube",
+   "to": "amiga",
+   "kf": {
+    "head": "d78bed01",
+    "dirty": "4"
+   },
+   "frames": 104,
+   "rafStats": {
+    "n": 153,
+    "over20": 7,
+    "max": "217.1",
+    "bigOnes": [
+     [
+      56,
+      33.3
+     ],
+     [
+      57,
+      33.7
+     ],
+     [
+      62,
+      217.1
+     ],
+     [
+      74,
+      66.6
+     ],
+     [
+      75,
+      33.1
+     ],
+     [
+      80,
+      150.1
+     ],
+     [
+      81,
+      33.3
+     ]
+    ]
+   },
+   "vtLog": []
+  },
+  {
+   "run": "A-shipped-screencast",
+   "from": "amiga",
+   "to": "square",
+   "kf": {
+    "head": "d78bed01",
+    "dirty": "4"
+   },
+   "frames": 57,
+   "rafStats": {
+    "n": 175,
+    "over20": 2,
+    "max": "66.3",
+    "bigOnes": [
+     [
+      44,
+      66.3
+     ],
+     [
+      49,
+      49.9
+     ]
+    ]
+   },
+   "vtLog": []
+  },
+  {
+   "run": "A-shipped-screencast",
+   "from": "square",
+   "to": "easing",
+   "kf": {
+    "head": "d78bed01",
+    "dirty": "4"
+   },
+   "frames": 58,
+   "rafStats": {
+    "n": 175,
+    "over20": 2,
+    "max": "83.3",
+    "bigOnes": [
+     [
+      43,
+      32.5
+     ],
+     [
+      48,
+      83.3
+     ]
+    ]
+   },
+   "vtLog": []
+  },
+  {
+   "run": "A-shipped-screencast",
+   "from": "easing",
+   "to": "spring",
+   "kf": {
+    "head": "d78bed01",
+    "dirty": "4"
+   },
+   "frames": 60,
+   "rafStats": {
+    "n": 171,
+    "over20": 4,
+    "max": "116.7",
+    "bigOnes": [
+     [
+      49,
+      116.7
+     ],
+     [
+      50,
+      32.6
+     ],
+     [
+      52,
+      33.4
+     ],
+     [
+      57,
+      33.9
+     ]
+    ]
+   },
+   "vtLog": []
+  },
+  {
+   "run": "A-shipped-screencast",
+   "from": "spring",
+   "to": "sequence",
+   "kf": {
+    "head": "d78bed01",
+    "dirty": "4"
+   },
+   "frames": 56,
+   "rafStats": {
+    "n": 160,
+    "over20": 3,
+    "max": "316.6",
+    "bigOnes": [
+     [
+      45,
+      33.3
+     ],
+     [
+      47,
+      34.4
+     ],
+     [
+      52,
+      316.6
+     ]
+    ]
+   },
+   "vtLog": []
+  },
+  {
+   "run": "A-shipped-screencast",
+   "from": "sequence",
+   "to": "cube",
+   "kf": {
+    "head": "d78bed01",
+    "dirty": "4"
+   },
+   "frames": 162,
+   "rafStats": {
+    "n": 173,
+    "over20": 1,
+    "max": "133.4",
+    "bigOnes": [
+     [
+      44,
+      133.4
+     ]
+    ]
+   },
+   "vtLog": []
+  }
+ ],
+ "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+ "kfAtEnd": {
+  "head": "d78bed01",
+  "dirty": "4"
+ }
+}

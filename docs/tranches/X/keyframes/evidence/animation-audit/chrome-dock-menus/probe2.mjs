@@ -1,0 +1,16 @@
+import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
+const b = await chromium.launch({ headless: false });
+const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
+await p.goto("http://localhost:5173/", { waitUntil: "networkidle" });
+await p.waitForTimeout(2000);
+const st = () => p.evaluate(() => { const d = document.querySelector('[data-dock-tether="top"] .glass-dock'); return d.className.replace(/glass-dock horizontal shape-pill layout-linear /,'') + " " + JSON.stringify(d.getBoundingClientRect().toJSON()); });
+await p.mouse.move(720, 71); await p.waitForTimeout(1500);
+console.log("hover", await st());
+await p.mouse.click(720, 71); await p.waitForTimeout(1500);
+console.log("click", await st());
+await p.screenshot({ path: "probe-expanded.png", clip: { x: 200, y: 20, width: 1040, height: 120 } });
+const r = await p.evaluate(() => [...document.querySelectorAll('[data-dock-tether="top"] .glass-dock button, [data-dock-tether="top"] .glass-dock [role=combobox]')].map(e => [(e.getAttribute("aria-label")||"").slice(0,30), JSON.stringify(e.getBoundingClientRect().toJSON()).slice(0,60), e.closest('[inert]') ? 'inert':'']));
+console.log(r.map(x=>x.join(" ")).join("\n"));
+await p.mouse.move(720, 500); await p.waitForTimeout(4000);
+console.log("away4s", await st());
+await b.close();

@@ -1,0 +1,10359 @@
+{
+ "KHEAD": "d78bed01",
+ "KDIRTY": "4",
+ "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+ "rb": {
+  "x": 583.3984375,
+  "y": 324.484375,
+  "width": 748.3984375,
+  "height": 48
+ },
+ "trackBox": {
+  "x": 682.4453125,
+  "y": 324.484375,
+  "width": 550.3046875,
+  "height": 48
+ },
+ "transport": [
+  "Play animation",
+  "Play animation"
+ ],
+ "clickX": 957.59765625,
+ "clickY": 348.484375,
+ "tClick": 255.60000000149012,
+ "consoleErr": [
+  "Failed to load resource: the server responded with a status of 404 (Not Found)"
+ ],
+ "dropped": 2,
+ "maxDelta": 166.79999999999973,
+ "nSamples": 231,
+ "index": [
+  {
+   "i": 0,
+   "name": "f000.png",
+   "tMs": 0
+  },
+  {
+   "i": 1,
+   "name": "f001.png",
+   "tMs": 311
+  },
+  {
+   "i": 2,
+   "name": "f002.png",
+   "tMs": 316
+  },
+  {
+   "i": 3,
+   "name": "f003.png",
+   "tMs": 348
+  },
+  {
+   "i": 4,
+   "name": "f004.png",
+   "tMs": 356
+  },
+  {
+   "i": 5,
+   "name": "f005.png",
+   "tMs": 366
+  },
+  {
+   "i": 6,
+   "name": "f006.png",
+   "tMs": 381
+  },
+  {
+   "i": 7,
+   "name": "f007.png",
+   "tMs": 397
+  },
+  {
+   "i": 8,
+   "name": "f008.png",
+   "tMs": 414
+  },
+  {
+   "i": 9,
+   "name": "f009.png",
+   "tMs": 437
+  },
+  {
+   "i": 10,
+   "name": "f010.png",
+   "tMs": 451
+  },
+  {
+   "i": 11,
+   "name": "f011.png",
+   "tMs": 467
+  },
+  {
+   "i": 12,
+   "name": "f012.png",
+   "tMs": 487
+  },
+  {
+   "i": 13,
+   "name": "f013.png",
+   "tMs": 498
+  },
+  {
+   "i": 14,
+   "name": "f014.png",
+   "tMs": 514
+  },
+  {
+   "i": 15,
+   "name": "f015.png",
+   "tMs": 530
+  },
+  {
+   "i": 16,
+   "name": "f016.png",
+   "tMs": 547
+  },
+  {
+   "i": 17,
+   "name": "f017.png",
+   "tMs": 565
+  },
+  {
+   "i": 18,
+   "name": "f018.png",
+   "tMs": 581
+  },
+  {
+   "i": 19,
+   "name": "f019.png",
+   "tMs": 600
+  },
+  {
+   "i": 20,
+   "name": "f020.png",
+   "tMs": 617
+  },
+  {
+   "i": 21,
+   "name": "f021.png",
+   "tMs": 635
+  },
+  {
+   "i": 22,
+   "name": "f022.png",
+   "tMs": 650
+  },
+  {
+   "i": 23,
+   "name": "f023.png",
+   "tMs": 667
+  },
+  {
+   "i": 24,
+   "name": "f024.png",
+   "tMs": 685
+  },
+  {
+   "i": 25,
+   "name": "f025.png",
+   "tMs": 700
+  },
+  {
+   "i": 26,
+   "name": "f026.png",
+   "tMs": 718
+  },
+  {
+   "i": 27,
+   "name": "f027.png",
+   "tMs": 733
+  },
+  {
+   "i": 28,
+   "name": "f028.png",
+   "tMs": 752
+  },
+  {
+   "i": 29,
+   "name": "f029.png",
+   "tMs": 766
+  },
+  {
+   "i": 30,
+   "name": "f030.png",
+   "tMs": 783
+  },
+  {
+   "i": 31,
+   "name": "f031.png",
+   "tMs": 802
+  },
+  {
+   "i": 32,
+   "name": "f032.png",
+   "tMs": 818
+  },
+  {
+   "i": 33,
+   "name": "f033.png",
+   "tMs": 833
+  },
+  {
+   "i": 34,
+   "name": "f034.png",
+   "tMs": 849
+  },
+  {
+   "i": 35,
+   "name": "f035.png",
+   "tMs": 866
+  },
+  {
+   "i": 36,
+   "name": "f036.png",
+   "tMs": 883
+  },
+  {
+   "i": 37,
+   "name": "f037.png",
+   "tMs": 898
+  },
+  {
+   "i": 38,
+   "name": "f038.png",
+   "tMs": 918
+  },
+  {
+   "i": 39,
+   "name": "f039.png",
+   "tMs": 932
+  },
+  {
+   "i": 40,
+   "name": "f040.png",
+   "tMs": 949
+  },
+  {
+   "i": 41,
+   "name": "f041.png",
+   "tMs": 965
+  },
+  {
+   "i": 42,
+   "name": "f042.png",
+   "tMs": 985
+  },
+  {
+   "i": 43,
+   "name": "f043.png",
+   "tMs": 998
+  },
+  {
+   "i": 44,
+   "name": "f044.png",
+   "tMs": 1018
+  },
+  {
+   "i": 45,
+   "name": "f045.png",
+   "tMs": 1033
+  },
+  {
+   "i": 46,
+   "name": "f046.png",
+   "tMs": 1049
+  },
+  {
+   "i": 47,
+   "name": "f047.png",
+   "tMs": 1066
+  },
+  {
+   "i": 48,
+   "name": "f048.png",
+   "tMs": 1085
+  },
+  {
+   "i": 49,
+   "name": "f049.png",
+   "tMs": 1101
+  },
+  {
+   "i": 50,
+   "name": "f050.png",
+   "tMs": 1116
+  },
+  {
+   "i": 51,
+   "name": "f051.png",
+   "tMs": 1135
+  },
+  {
+   "i": 52,
+   "name": "f052.png",
+   "tMs": 1152
+  },
+  {
+   "i": 53,
+   "name": "f053.png",
+   "tMs": 1168
+  },
+  {
+   "i": 54,
+   "name": "f054.png",
+   "tMs": 1185
+  },
+  {
+   "i": 55,
+   "name": "f055.png",
+   "tMs": 1199
+  },
+  {
+   "i": 56,
+   "name": "f056.png",
+   "tMs": 1216
+  },
+  {
+   "i": 57,
+   "name": "f057.png",
+   "tMs": 1233
+  },
+  {
+   "i": 58,
+   "name": "f058.png",
+   "tMs": 1251
+  },
+  {
+   "i": 59,
+   "name": "f059.png",
+   "tMs": 1266
+  },
+  {
+   "i": 60,
+   "name": "f060.png",
+   "tMs": 1283
+  },
+  {
+   "i": 61,
+   "name": "f061.png",
+   "tMs": 1300
+  },
+  {
+   "i": 62,
+   "name": "f062.png",
+   "tMs": 1319
+  },
+  {
+   "i": 63,
+   "name": "f063.png",
+   "tMs": 1333
+  },
+  {
+   "i": 64,
+   "name": "f064.png",
+   "tMs": 1352
+  },
+  {
+   "i": 65,
+   "name": "f065.png",
+   "tMs": 1368
+  },
+  {
+   "i": 66,
+   "name": "f066.png",
+   "tMs": 1383
+  },
+  {
+   "i": 67,
+   "name": "f067.png",
+   "tMs": 1401
+  },
+  {
+   "i": 68,
+   "name": "f068.png",
+   "tMs": 1416
+  },
+  {
+   "i": 69,
+   "name": "f069.png",
+   "tMs": 1435
+  },
+  {
+   "i": 70,
+   "name": "f070.png",
+   "tMs": 1447
+  },
+  {
+   "i": 71,
+   "name": "f071.png",
+   "tMs": 1464
+  },
+  {
+   "i": 72,
+   "name": "f072.png",
+   "tMs": 1481
+  },
+  {
+   "i": 73,
+   "name": "f073.png",
+   "tMs": 1498
+  },
+  {
+   "i": 74,
+   "name": "f074.png",
+   "tMs": 1514
+  },
+  {
+   "i": 75,
+   "name": "f075.png",
+   "tMs": 1530
+  },
+  {
+   "i": 76,
+   "name": "f076.png",
+   "tMs": 1550
+  },
+  {
+   "i": 77,
+   "name": "f077.png",
+   "tMs": 1566
+  },
+  {
+   "i": 78,
+   "name": "f078.png",
+   "tMs": 1585
+  },
+  {
+   "i": 79,
+   "name": "f079.png",
+   "tMs": 1600
+  },
+  {
+   "i": 80,
+   "name": "f080.png",
+   "tMs": 1615
+  },
+  {
+   "i": 81,
+   "name": "f081.png",
+   "tMs": 1633
+  },
+  {
+   "i": 82,
+   "name": "f082.png",
+   "tMs": 1650
+  },
+  {
+   "i": 83,
+   "name": "f083.png",
+   "tMs": 1663
+  },
+  {
+   "i": 84,
+   "name": "f084.png",
+   "tMs": 1682
+  },
+  {
+   "i": 85,
+   "name": "f085.png",
+   "tMs": 1697
+  },
+  {
+   "i": 86,
+   "name": "f086.png",
+   "tMs": 1715
+  },
+  {
+   "i": 87,
+   "name": "f087.png",
+   "tMs": 1733
+  },
+  {
+   "i": 88,
+   "name": "f088.png",
+   "tMs": 1749
+  },
+  {
+   "i": 89,
+   "name": "f089.png",
+   "tMs": 1766
+  },
+  {
+   "i": 90,
+   "name": "f090.png",
+   "tMs": 1785
+  },
+  {
+   "i": 91,
+   "name": "f091.png",
+   "tMs": 1802
+  },
+  {
+   "i": 92,
+   "name": "f092.png",
+   "tMs": 1814
+  },
+  {
+   "i": 93,
+   "name": "f093.png",
+   "tMs": 1831
+  },
+  {
+   "i": 94,
+   "name": "f094.png",
+   "tMs": 1847
+  },
+  {
+   "i": 95,
+   "name": "f095.png",
+   "tMs": 1864
+  },
+  {
+   "i": 96,
+   "name": "f096.png",
+   "tMs": 1880
+  },
+  {
+   "i": 97,
+   "name": "f097.png",
+   "tMs": 1899
+  },
+  {
+   "i": 98,
+   "name": "f098.png",
+   "tMs": 1916
+  },
+  {
+   "i": 99,
+   "name": "f099.png",
+   "tMs": 1935
+  },
+  {
+   "i": 100,
+   "name": "f100.png",
+   "tMs": 1951
+  },
+  {
+   "i": 101,
+   "name": "f101.png",
+   "tMs": 1968
+  },
+  {
+   "i": 102,
+   "name": "f102.png",
+   "tMs": 1987
+  },
+  {
+   "i": 103,
+   "name": "f103.png",
+   "tMs": 1998
+  },
+  {
+   "i": 104,
+   "name": "f104.png",
+   "tMs": 2014
+  },
+  {
+   "i": 105,
+   "name": "f105.png",
+   "tMs": 2031
+  },
+  {
+   "i": 106,
+   "name": "f106.png",
+   "tMs": 2049
+  },
+  {
+   "i": 107,
+   "name": "f107.png",
+   "tMs": 2066
+  },
+  {
+   "i": 108,
+   "name": "f108.png",
+   "tMs": 2083
+  },
+  {
+   "i": 109,
+   "name": "f109.png",
+   "tMs": 2099
+  },
+  {
+   "i": 110,
+   "name": "f110.png",
+   "tMs": 2117
+  },
+  {
+   "i": 111,
+   "name": "f111.png",
+   "tMs": 2132
+  },
+  {
+   "i": 112,
+   "name": "f112.png",
+   "tMs": 2151
+  },
+  {
+   "i": 113,
+   "name": "f113.png",
+   "tMs": 2172
+  },
+  {
+   "i": 114,
+   "name": "f114.png",
+   "tMs": 2181
+  },
+  {
+   "i": 115,
+   "name": "f115.png",
+   "tMs": 2199
+  },
+  {
+   "i": 116,
+   "name": "f116.png",
+   "tMs": 2213
+  },
+  {
+   "i": 117,
+   "name": "f117.png",
+   "tMs": 2233
+  },
+  {
+   "i": 118,
+   "name": "f118.png",
+   "tMs": 2247
+  },
+  {
+   "i": 119,
+   "name": "f119.png",
+   "tMs": 2266
+  },
+  {
+   "i": 120,
+   "name": "f120.png",
+   "tMs": 2283
+  },
+  {
+   "i": 121,
+   "name": "f121.png",
+   "tMs": 2301
+  },
+  {
+   "i": 122,
+   "name": "f122.png",
+   "tMs": 2316
+  },
+  {
+   "i": 123,
+   "name": "f123.png",
+   "tMs": 2337
+  },
+  {
+   "i": 124,
+   "name": "f124.png",
+   "tMs": 2350
+  },
+  {
+   "i": 125,
+   "name": "f125.png",
+   "tMs": 2364
+  },
+  {
+   "i": 126,
+   "name": "f126.png",
+   "tMs": 2381
+  },
+  {
+   "i": 127,
+   "name": "f127.png",
+   "tMs": 2399
+  },
+  {
+   "i": 128,
+   "name": "f128.png",
+   "tMs": 2416
+  },
+  {
+   "i": 129,
+   "name": "f129.png",
+   "tMs": 2433
+  },
+  {
+   "i": 130,
+   "name": "f130.png",
+   "tMs": 2449
+  },
+  {
+   "i": 131,
+   "name": "f131.png",
+   "tMs": 2467
+  },
+  {
+   "i": 132,
+   "name": "f132.png",
+   "tMs": 2482
+  },
+  {
+   "i": 133,
+   "name": "f133.png",
+   "tMs": 2501
+  },
+  {
+   "i": 134,
+   "name": "f134.png",
+   "tMs": 2522
+  },
+  {
+   "i": 135,
+   "name": "f135.png",
+   "tMs": 2537
+  },
+  {
+   "i": 136,
+   "name": "f136.png",
+   "tMs": 2549
+  },
+  {
+   "i": 137,
+   "name": "f137.png",
+   "tMs": 2566
+  },
+  {
+   "i": 138,
+   "name": "f138.png",
+   "tMs": 2580
+  },
+  {
+   "i": 139,
+   "name": "f139.png",
+   "tMs": 2598
+  },
+  {
+   "i": 140,
+   "name": "f140.png",
+   "tMs": 2614
+  },
+  {
+   "i": 141,
+   "name": "f141.png",
+   "tMs": 2633
+  },
+  {
+   "i": 142,
+   "name": "f142.png",
+   "tMs": 2649
+  },
+  {
+   "i": 143,
+   "name": "f143.png",
+   "tMs": 2665
+  },
+  {
+   "i": 144,
+   "name": "f144.png",
+   "tMs": 2687
+  },
+  {
+   "i": 145,
+   "name": "f145.png",
+   "tMs": 2702
+  },
+  {
+   "i": 146,
+   "name": "f146.png",
+   "tMs": 2717
+  },
+  {
+   "i": 147,
+   "name": "f147.png",
+   "tMs": 2735
+  },
+  {
+   "i": 148,
+   "name": "f148.png",
+   "tMs": 2754
+  },
+  {
+   "i": 149,
+   "name": "f149.png",
+   "tMs": 2768
+  },
+  {
+   "i": 150,
+   "name": "f150.png",
+   "tMs": 2786
+  },
+  {
+   "i": 151,
+   "name": "f151.png",
+   "tMs": 2802
+  },
+  {
+   "i": 152,
+   "name": "f152.png",
+   "tMs": 2820
+  },
+  {
+   "i": 153,
+   "name": "f153.png",
+   "tMs": 2838
+  },
+  {
+   "i": 154,
+   "name": "f154.png",
+   "tMs": 2853
+  },
+  {
+   "i": 155,
+   "name": "f155.png",
+   "tMs": 2867
+  },
+  {
+   "i": 156,
+   "name": "f156.png",
+   "tMs": 2887
+  },
+  {
+   "i": 157,
+   "name": "f157.png",
+   "tMs": 3099
+  },
+  {
+   "i": 158,
+   "name": "f158.png",
+   "tMs": 3105
+  },
+  {
+   "i": 159,
+   "name": "f159.png",
+   "tMs": 3166
+  },
+  {
+   "i": 160,
+   "name": "f160.png",
+   "tMs": 3182
+  },
+  {
+   "i": 161,
+   "name": "f161.png",
+   "tMs": 3196
+  },
+  {
+   "i": 162,
+   "name": "f162.png",
+   "tMs": 3215
+  },
+  {
+   "i": 163,
+   "name": "f163.png",
+   "tMs": 3233
+  },
+  {
+   "i": 164,
+   "name": "f164.png",
+   "tMs": 3251
+  },
+  {
+   "i": 165,
+   "name": "f165.png",
+   "tMs": 3267
+  },
+  {
+   "i": 166,
+   "name": "f166.png",
+   "tMs": 3280
+  },
+  {
+   "i": 167,
+   "name": "f167.png",
+   "tMs": 3296
+  },
+  {
+   "i": 168,
+   "name": "f168.png",
+   "tMs": 3312
+  },
+  {
+   "i": 169,
+   "name": "f169.png",
+   "tMs": 3329
+  },
+  {
+   "i": 170,
+   "name": "f170.png",
+   "tMs": 3346
+  },
+  {
+   "i": 171,
+   "name": "f171.png",
+   "tMs": 3365
+  },
+  {
+   "i": 172,
+   "name": "f172.png",
+   "tMs": 3381
+  },
+  {
+   "i": 173,
+   "name": "f173.png",
+   "tMs": 3400
+  },
+  {
+   "i": 174,
+   "name": "f174.png",
+   "tMs": 3417
+  }
+ ],
+ "samples": [
+  {
+   "t": 12.2,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(13.2353cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    664.5,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 29.8,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(13.2353cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    664.5,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 46.4,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(13.2353cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    664.5,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 62.2,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(13.2353cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    664.5,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 79.8,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(13.2353cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    664.5,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 96.5,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(13.2353cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    664.5,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 113.1,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(13.2353cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    664.5,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 129.8,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(13.2353cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    664.5,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 146.5,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(13.2353cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    664.5,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 163.2,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(13.2353cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    664.5,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 179.8,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(13.2353cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    664.5,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 196.5,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(13.2353cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    664.5,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 213.2,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(13.2353cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    664.5,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 229.8,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(13.2353cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    664.5,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 245.7,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(13.2353cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    664.5,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 263.2,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(13.2353cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    664.5,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 279.7,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(13.2353cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    664.5,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 313.1,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(13.2353cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    664.5,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 329.8,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(15.7811cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    683.5,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 346.5,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(18.3156cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    702.5,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 363.2,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(21.2492cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    724.4,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 379.8,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(24.353cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    747.7,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 396.5,
+   "lanesMounted": true,
+   "lanesOpacity": "0",
+   "lanesClass": "derby-lanes derby-enter-from derby-enter-active",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "",
+    "",
+    "",
+    ""
+   ],
+   "laneBallRect": [
+    [
+     577,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     577,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     577,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     577,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(27.4426cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    770.8,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 413.1,
+   "lanesMounted": true,
+   "lanesOpacity": "0",
+   "lanesClass": "derby-lanes derby-enter-from derby-enter-active",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(30.44cqw)",
+    "translateX(42.1674cqw)",
+    "translateX(35.8678cqw)",
+    "translateX(23.6043cqw)"
+   ],
+   "laneBallRect": [
+    [
+     774.4,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     850.4,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     809.6,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     730,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(30.44cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    793.2,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 428.8,
+   "lanesMounted": true,
+   "lanesOpacity": "0",
+   "lanesClass": "derby-lanes derby-enter-active derby-enter-to",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(33.9432cqw)",
+    "translateX(45.4852cqw)",
+    "translateX(40.0365cqw)",
+    "translateX(25.6041cqw)"
+   ],
+   "laneBallRect": [
+    [
+     797.1,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     871.9,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     836.6,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     743,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(33.2335cqw)",
+   "liveOpacity": "0.958266",
+   "liveRect": [
+    814.1,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 446.5,
+   "lanesMounted": true,
+   "lanesOpacity": "0.0158952",
+   "lanesClass": "derby-lanes derby-enter-active derby-enter-to",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(38.0629cqw)",
+    "translateX(47.9456cqw)",
+    "translateX(43.6868cqw)",
+    "translateX(27.4519cqw)"
+   ],
+   "laneBallRect": [
+    [
+     823.8,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     887.9,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     860.3,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     755,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(35.6631cqw)",
+   "liveOpacity": "0.856395",
+   "liveRect": [
+    832.3,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 463.1,
+   "lanesMounted": true,
+   "lanesOpacity": "0.0721406",
+   "lanesClass": "derby-lanes derby-enter-active derby-enter-to",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(43.1927cqw)",
+    "translateX(49.9804cqw)",
+    "translateX(47.3558cqw)",
+    "translateX(29.4572cqw)"
+   ],
+   "laneBallRect": [
+    [
+     857.1,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     901.1,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     884.1,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     768,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(38.129cqw)",
+   "liveOpacity": "0.734777",
+   "liveRect": [
+    850.8,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 479.8,
+   "lanesMounted": true,
+   "lanesOpacity": "0.194713",
+   "lanesClass": "derby-lanes derby-enter-active derby-enter-to",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(48.1483cqw)",
+    "translateX(51.2622cqw)",
+    "translateX(50.3003cqw)",
+    "translateX(31.2449cqw)"
+   ],
+   "laneBallRect": [
+    [
+     889.2,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     909.4,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     903.1,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     779.6,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(40.1709cqw)",
+   "liveOpacity": "0.625745",
+   "liveRect": [
+    866,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 496.4,
+   "lanesMounted": true,
+   "lanesOpacity": "0.386581",
+   "lanesClass": "derby-lanes derby-enter-active derby-enter-to",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(53.0455cqw)",
+    "translateX(52.0434cqw)",
+    "translateX(52.7418cqw)",
+    "translateX(32.9412cqw)"
+   ],
+   "laneBallRect": [
+    [
+     920.9,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     914.4,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     919,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     790.6,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(41.9653cqw)",
+   "liveOpacity": "0.541686",
+   "liveRect": [
+    879.5,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 513.1,
+   "lanesMounted": true,
+   "lanesOpacity": "0.577535",
+   "lanesClass": "derby-lanes derby-enter-active derby-enter-to",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(57.6739cqw)",
+    "translateX(52.4203cqw)",
+    "translateX(54.6437cqw)",
+    "translateX(34.5194cqw)"
+   ],
+   "laneBallRect": [
+    [
+     951,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     916.9,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     931.3,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     800.8,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(43.5034cqw)",
+   "liveOpacity": "0.478577",
+   "liveRect": [
+    891,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 529.8,
+   "lanesMounted": true,
+   "lanesOpacity": "0.718208",
+   "lanesClass": "derby-lanes derby-enter-active derby-enter-to",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(61.9915cqw)",
+    "translateX(53.9453cqw)",
+    "translateX(56.0433cqw)",
+    "translateX(35.9962cqw)"
+   ],
+   "laneBallRect": [
+    [
+     978.9,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     926.8,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     940.4,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     810.4,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(44.8217cqw)",
+   "liveOpacity": "0.432222",
+   "liveRect": [
+    900.8,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 546,
+   "lanesMounted": true,
+   "lanesOpacity": "0.813543",
+   "lanesClass": "derby-lanes derby-enter-active derby-enter-to",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(65.9133cqw)",
+    "translateX(57.4028cqw)",
+    "translateX(56.9605cqw)",
+    "translateX(37.3617cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1004.4,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     949.2,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     946.3,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     819.3,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(45.9313cqw)",
+   "liveOpacity": "0.399665",
+   "liveRect": [
+    909.1,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 563.2,
+   "lanesMounted": true,
+   "lanesOpacity": "0.884153",
+   "lanesClass": "derby-lanes derby-enter-active derby-enter-to",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(69.3163cqw)",
+    "translateX(61.7701cqw)",
+    "translateX(57.4328cqw)",
+    "translateX(38.5824cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1026.4,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     977.5,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     949.4,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     827.2,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(46.8294cqw)",
+   "liveOpacity": "0.375637",
+   "liveRect": [
+    915.9,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 579.8,
+   "lanesMounted": true,
+   "lanesOpacity": "0.93134",
+   "lanesClass": "derby-lanes derby-enter-active derby-enter-to",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(72.4946cqw)",
+    "translateX(66.8044cqw)",
+    "translateX(57.5421cqw)",
+    "translateX(39.7703cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1047,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1010.2,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     950.1,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     834.9,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(47.614cqw)",
+   "liveOpacity": "0.360748",
+   "liveRect": [
+    921.7,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 596.4,
+   "lanesMounted": true,
+   "lanesOpacity": "0.96349",
+   "lanesClass": "derby-lanes derby-enter-active derby-enter-to",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(75.152cqw)",
+    "translateX(71.5637cqw)",
+    "translateX(57.3259cqw)",
+    "translateX(40.8159cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1064.3,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1041,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     948.7,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     841.6,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(48.2278cqw)",
+   "liveOpacity": "0.352561",
+   "liveRect": [
+    926.3,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 613.1,
+   "lanesMounted": true,
+   "lanesOpacity": "0.984243",
+   "lanesClass": "derby-lanes derby-enter-active derby-enter-to",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(77.4312cqw)",
+    "translateX(75.9053cqw)",
+    "translateX(56.8572cqw)",
+    "translateX(41.7681cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1079.1,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1069.2,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     945.7,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     847.8,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(48.7212cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    930,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 629.8,
+   "lanesMounted": true,
+   "lanesOpacity": "0.995815",
+   "lanesClass": "derby-lanes derby-enter-active derby-enter-to",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(79.374cqw)",
+    "translateX(79.6666cqw)",
+    "translateX(56.1932cqw)",
+    "translateX(42.6376cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1091.7,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1093.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     941.4,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     853.5,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.1145cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    933,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 646.5,
+   "lanesMounted": true,
+   "lanesOpacity": "0.99994",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(81.0004cqw)",
+    "translateX(82.7383cqw)",
+    "translateX(56.1541cqw)",
+    "translateX(43.4245cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1102.2,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1113.5,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     941.1,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     858.6,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.4212cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    935.3,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 663.2,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(82.3463cqw)",
+    "translateX(85.116cqw)",
+    "translateX(57.3456cqw)",
+    "translateX(44.1351cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1110.9,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1128.9,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     948.8,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     863.2,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.6564cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    937,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 679.8,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(83.4472cqw)",
+    "translateX(86.8481cqw)",
+    "translateX(59.5083cqw)",
+    "translateX(44.7752cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1118.1,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1140.1,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     962.8,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     867.3,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.8329cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    938.3,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 696.5,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(84.3319cqw)",
+    "translateX(88.0095cqw)",
+    "translateX(62.3698cqw)",
+    "translateX(45.3475cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1123.8,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1147.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     981.4,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     871,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.9614cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    939.3,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 713.1,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(85.0423cqw)",
+    "translateX(88.7099cqw)",
+    "translateX(65.7269cqw)",
+    "translateX(45.8644cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1128.4,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1152.2,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1003.2,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     874.4,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(50.0531cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    940,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 729.8,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(85.598cqw)",
+    "translateX(89.0394cqw)",
+    "translateX(69.3253cqw)",
+    "translateX(46.3249cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1132,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1154.3,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1026.5,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     877.4,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(50.1147cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    940.5,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 746.4,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.0309cqw)",
+    "translateX(89.0966cqw)",
+    "translateX(73.0192cqw)",
+    "translateX(47.1135cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1134.8,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1154.7,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1050.4,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     882.5,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(50.1538cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    940.7,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 763.1,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.358cqw)",
+    "translateX(88.9642cqw)",
+    "translateX(76.6058cqw)",
+    "translateX(48.4568cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1136.9,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1153.8,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1073.7,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     891.2,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(50.1752cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    940.9,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 779.8,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.6025cqw)",
+    "translateX(88.7119cqw)",
+    "translateX(79.9996cqw)",
+    "translateX(50.1994cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1138.5,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1152.2,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1095.7,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     902.5,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(50.1839cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    941,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 796.5,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7789cqw)",
+    "translateX(88.3971cqw)",
+    "translateX(83.0798cqw)",
+    "translateX(52.1991cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.7,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1150.2,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1115.7,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     915.5,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(50.1831cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    941,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 813.1,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.9013cqw)",
+    "translateX(88.0634cqw)",
+    "translateX(85.7772cqw)",
+    "translateX(54.3506cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1140.5,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1148,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1133.2,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     929.4,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(50.1758cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    940.9,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 829.8,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.9813cqw)",
+    "translateX(87.7432cqw)",
+    "translateX(88.0375cqw)",
+    "translateX(56.5596cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1141,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1145.9,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1147.8,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     943.7,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(50.1644cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    940.8,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 846.5,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(87.0294cqw)",
+    "translateX(87.4528cqw)",
+    "translateX(89.8703cqw)",
+    "translateX(58.7915cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1141.3,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1144,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1159.7,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     958.2,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(50.1503cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    940.7,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 862.2,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(87.0532cqw)",
+    "translateX(87.2053cqw)",
+    "translateX(91.2635cqw)",
+    "translateX(60.9872cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1141.4,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1142.4,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1168.7,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     972.4,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(50.8527cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    946,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 879.8,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(87.0593cqw)",
+    "translateX(87.0157cqw)",
+    "translateX(92.19cqw)",
+    "translateX(62.9889cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1141.5,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1141.2,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1174.8,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     985.4,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(52.5331cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    958.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 896.3,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(87.0526cqw)",
+    "translateX(86.8525cqw)",
+    "translateX(92.8217cqw)",
+    "translateX(65.1359cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1141.4,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1140.1,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1178.8,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     999.3,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(55.1677cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    978.3,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 912.2,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(87.0376cqw)",
+    "translateX(86.7431cqw)",
+    "translateX(93.0663cqw)",
+    "translateX(67.0402cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1141.3,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.4,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1180.4,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1011.7,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(58.0488cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    999.8,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 929.5,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(87.0181cqw)",
+    "translateX(86.6723cqw)",
+    "translateX(93.0291cqw)",
+    "translateX(68.7671cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1141.2,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1180.2,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1022.9,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(60.9885cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1021.8,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 945.5,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.9936cqw)",
+    "translateX(86.6271cqw)",
+    "translateX(92.7379cqw)",
+    "translateX(70.5205cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1141.1,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1138.7,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1178.3,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1034.2,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(64.198cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1045.9,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 963.1,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.9698cqw)",
+    "translateX(86.6084cqw)",
+    "translateX(92.2861cqw)",
+    "translateX(72.0245cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1140.9,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1138.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1175.4,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1044,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(67.0662cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1067.3,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 978.9,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.9436cqw)",
+    "translateX(86.6068cqw)",
+    "translateX(91.6421cqw)",
+    "translateX(73.5501cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1140.7,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1138.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1171.2,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1053.9,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(70.0258cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1089.5,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 996.5,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.9209cqw)",
+    "translateX(86.6169cqw)",
+    "translateX(90.9779cqw)",
+    "translateX(74.8078cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1140.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1138.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1166.9,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1062,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(72.4637cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1107.7,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1012.1,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.8973cqw)",
+    "translateX(86.6359cqw)",
+    "translateX(90.189cqw)",
+    "translateX(76.0894cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1140.4,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1138.7,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1161.8,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1070.4,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(74.9091cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1126,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1029.9,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.8781cqw)",
+    "translateX(86.6563cqw)",
+    "translateX(89.4811cqw)",
+    "translateX(77.1255cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1140.3,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1138.9,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1157.2,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1077.1,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(76.8312cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1140.4,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1046.5,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.8584cqw)",
+    "translateX(86.6805cqw)",
+    "translateX(88.698cqw)",
+    "translateX(78.1999cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1140.2,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1152.1,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1084,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(78.7475cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1154.7,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1062.3,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.8422cqw)",
+    "translateX(86.702cqw)",
+    "translateX(88.0172cqw)",
+    "translateX(79.1052cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1140.1,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.2,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1147.7,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1089.9,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(80.2815cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1166.2,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1079.8,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.8287cqw)",
+    "translateX(86.7203cqw)",
+    "translateX(87.4313cqw)",
+    "translateX(79.8863cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1140,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.3,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1143.9,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1095,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(81.5311cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1175.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1096.4,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.8158cqw)",
+    "translateX(86.7374cqw)",
+    "translateX(86.8666cqw)",
+    "translateX(80.667cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.9,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.4,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1140.2,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1100,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(82.6973cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1184.3,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1113.1,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.8055cqw)",
+    "translateX(86.7504cqw)",
+    "translateX(86.4204cqw)",
+    "translateX(81.332cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.8,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.5,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1137.3,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1104.3,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(83.6144cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1191.2,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1129.8,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7967cqw)",
+    "translateX(86.7603cqw)",
+    "translateX(86.0624cqw)",
+    "translateX(81.9331cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.8,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.5,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1135,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1108.2,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(84.3739cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1196.8,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1146.4,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7894cqw)",
+    "translateX(86.7673cqw)",
+    "translateX(85.794cqw)",
+    "translateX(82.4721cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.7,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1133.3,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1111.7,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(84.9914cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1201.5,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1162.8,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7834cqw)",
+    "translateX(86.7719cqw)",
+    "translateX(85.6115cqw)",
+    "translateX(82.952cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.7,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1132.1,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1114.9,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(85.4844cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1205.2,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1179.8,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7786cqw)",
+    "translateX(86.7744cqw)",
+    "translateX(85.5067cqw)",
+    "translateX(83.3764cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.7,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1131.4,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1117.6,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(85.8713cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1208.1,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1196.5,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7747cqw)",
+    "translateX(86.7755cqw)",
+    "translateX(85.468cqw)",
+    "translateX(83.7691cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1131.2,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1120.2,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.1842cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1210.4,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1212.3,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7716cqw)",
+    "translateX(86.7754cqw)",
+    "translateX(85.4888cqw)",
+    "translateX(84.1127cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1131.3,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1122.4,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.4194cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1212.2,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1229.8,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7693cqw)",
+    "translateX(86.7746cqw)",
+    "translateX(85.5523cqw)",
+    "translateX(84.4031cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1131.7,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1124.3,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.5878cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1213.4,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1246.2,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7673cqw)",
+    "translateX(86.7732cqw)",
+    "translateX(85.6611cqw)",
+    "translateX(84.6894cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1132.4,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1126.1,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.7246cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1214.4,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1263.1,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.766cqw)",
+    "translateX(86.7717cqw)",
+    "translateX(85.7893cqw)",
+    "translateX(84.9273cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1133.3,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1127.7,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.8151cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1215.1,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1279.8,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7649cqw)",
+    "translateX(86.7702cqw)",
+    "translateX(85.9381cqw)",
+    "translateX(85.1451cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1134.2,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1129.1,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.8782cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1215.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1296.1,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7642cqw)",
+    "translateX(86.7687cqw)",
+    "translateX(86.0929cqw)",
+    "translateX(85.3358cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1135.2,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1130.3,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.9174cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1215.9,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1313.1,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7638cqw)",
+    "translateX(86.7675cqw)",
+    "translateX(86.2442cqw)",
+    "translateX(85.501cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1136.2,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1131.4,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.9387cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1216,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1329.8,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7635cqw)",
+    "translateX(86.7664cqw)",
+    "translateX(86.396cqw)",
+    "translateX(85.6536cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1137.2,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1132.4,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.9478cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1216.1,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1346.4,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7647cqw)",
+    "translateX(86.7655cqw)",
+    "translateX(86.5342cqw)",
+    "translateX(85.7861cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1138.1,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1133.2,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.9471cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1216.1,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1363.2,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7647cqw)",
+    "translateX(86.7649cqw)",
+    "translateX(86.6571cqw)",
+    "translateX(85.9026cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1138.9,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1134,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.94cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1216,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1379.8,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7647cqw)",
+    "translateX(86.7645cqw)",
+    "translateX(86.7644cqw)",
+    "translateX(86.0067cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1134.7,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.9285cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1216,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1396.5,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7647cqw)",
+    "translateX(86.7642cqw)",
+    "translateX(86.8521cqw)",
+    "translateX(86.0976cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1140.1,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1135.2,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.9146cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1215.9,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1413.1,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7647cqw)",
+    "translateX(86.7647cqw)",
+    "translateX(86.9218cqw)",
+    "translateX(86.1782cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1140.6,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1135.8,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.8993cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1215.7,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1429.8,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7647cqw)",
+    "translateX(86.7647cqw)",
+    "translateX(86.973cqw)",
+    "translateX(86.249cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1140.9,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1136.2,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.8838cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1215.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1446.5,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7647cqw)",
+    "translateX(86.7647cqw)",
+    "translateX(87.0073cqw)",
+    "translateX(86.3117cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1141.1,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1136.6,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.8685cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1215.5,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1462.6,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7647cqw)",
+    "translateX(86.7647cqw)",
+    "translateX(87.026cqw)",
+    "translateX(86.367cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1141.3,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1137,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.8541cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1215.4,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1479.8,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7647cqw)",
+    "translateX(86.7647cqw)",
+    "translateX(87.031cqw)",
+    "translateX(86.414cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1141.3,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1137.3,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.8412cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1215.3,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1496.5,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7647cqw)",
+    "translateX(86.7647cqw)",
+    "translateX(87.0246cqw)",
+    "translateX(86.4583cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1141.3,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1137.6,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.8286cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1215.2,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1513.2,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7647cqw)",
+    "translateX(86.7647cqw)",
+    "translateX(87.0089cqw)",
+    "translateX(86.4959cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1141.2,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1137.8,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.8178cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1215.1,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1529.8,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7647cqw)",
+    "translateX(86.7647cqw)",
+    "translateX(86.9861cqw)",
+    "translateX(86.5291cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1141,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1138,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.8083cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1215.1,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1546.5,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7647cqw)",
+    "translateX(86.7647cqw)",
+    "translateX(86.9586cqw)",
+    "translateX(86.558cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1140.8,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1138.2,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.8002cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1215,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1563.2,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7647cqw)",
+    "translateX(86.7647cqw)",
+    "translateX(86.928cqw)",
+    "translateX(86.5836cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1140.6,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1138.4,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.7931cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1215,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1579.6,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7647cqw)",
+    "translateX(86.7647cqw)",
+    "translateX(86.896cqw)",
+    "translateX(86.6061cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1140.4,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1138.5,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.7872cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1214.9,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1596.5,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7647cqw)",
+    "translateX(86.7647cqw)",
+    "translateX(86.8649cqw)",
+    "translateX(86.6255cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1140.2,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1138.7,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.7823cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1214.9,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1613.1,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7647cqw)",
+    "translateX(86.7647cqw)",
+    "translateX(86.8343cqw)",
+    "translateX(86.6431cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1140,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1138.8,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.7781cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1214.8,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1629.1,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7647cqw)",
+    "translateX(86.7647cqw)",
+    "translateX(86.8067cqw)",
+    "translateX(86.6582cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.8,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1138.9,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.7748cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1214.8,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1646.5,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7647cqw)",
+    "translateX(86.7647cqw)",
+    "translateX(86.7829cqw)",
+    "translateX(86.671cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.7,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.7721cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1214.8,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1663.1,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7647cqw)",
+    "translateX(86.7647cqw)",
+    "translateX(86.7608cqw)",
+    "translateX(86.6832cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.5,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.7699cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1214.8,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1678.9,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7647cqw)",
+    "translateX(86.7647cqw)",
+    "translateX(86.7436cqw)",
+    "translateX(86.6934cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.4,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.1,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.7682cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1214.8,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1696,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7647cqw)",
+    "translateX(86.7647cqw)",
+    "translateX(86.7307cqw)",
+    "translateX(86.7019cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.4,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.2,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.7669cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1214.8,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1712.7,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7647cqw)",
+    "translateX(86.7647cqw)",
+    "translateX(86.7204cqw)",
+    "translateX(86.71cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.3,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.2,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.7659cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1214.7,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1729.6,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7647cqw)",
+    "translateX(86.7647cqw)",
+    "translateX(86.714cqw)",
+    "translateX(86.7169cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.2,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.3,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.7652cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1214.7,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(86.7647cqw)"
+  },
+  {
+   "t": 1746.5,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.7647cqw)",
+    "translateX(86.7647cqw)",
+    "translateX(86.7107cqw)",
+    "translateX(86.723cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1139.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.2,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1139.3,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.7646cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1214.7,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 1762.5,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(86.0307cqw)",
+    "translateX(85.2859cqw)",
+    "translateX(85.9343cqw)",
+    "translateX(86.3458cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1134.8,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1130,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1134.2,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1136.9,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(86.0302cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1209.2,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 1779.7,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(84.2857cqw)",
+    "translateX(81.8584cqw)",
+    "translateX(83.9642cqw)",
+    "translateX(85.4129cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1123.5,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1107.8,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1121.4,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1130.8,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(84.285cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1196.2,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 1796.4,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(81.6844cqw)",
+    "translateX(76.9549cqw)",
+    "translateX(80.8212cqw)",
+    "translateX(83.9666cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1106.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1076,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1101,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1121.4,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(81.6835cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1176.7,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 1812.8,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(78.7508cqw)",
+    "translateX(71.7299cqw)",
+    "translateX(77.0513cqw)",
+    "translateX(82.2637cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1087.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1042.1,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1076.6,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1110.4,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(78.7499cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1154.8,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 1829.7,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(75.7033cqw)",
+    "translateX(66.6754cqw)",
+    "translateX(72.9264cqw)",
+    "translateX(80.4117cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1067.9,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     1009.3,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1049.8,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1098.4,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(75.7023cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1131.9,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 1846.5,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(72.5574cqw)",
+    "translateX(61.9034cqw)",
+    "translateX(68.482cqw)",
+    "translateX(78.4018cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1047.5,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     978.4,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     1021,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1085.4,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(72.5565cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1108.4,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 1862.8,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(69.5426cqw)",
+    "translateX(57.8104cqw)",
+    "translateX(64.0808cqw)",
+    "translateX(76.3674cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1027.9,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     951.8,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     992.5,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1072.2,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(69.5417cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1085.8,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 1879.8,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(66.7989cqw)",
+    "translateX(54.5503cqw)",
+    "translateX(59.9927cqw)",
+    "translateX(74.4057cqw)"
+   ],
+   "laneBallRect": [
+    [
+     1010.1,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     930.7,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     966,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1059.4,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(66.7981cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1065.3,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 1896.2,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(64.175cqw)",
+    "translateX(51.9059cqw)",
+    "translateX(56.0574cqw)",
+    "translateX(72.4086cqw)"
+   ],
+   "laneBallRect": [
+    [
+     993.1,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     913.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     940.5,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1046.5,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(64.1743cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1045.7,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 1913.2,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(61.8972cqw)",
+    "translateX(50.0386cqw)",
+    "translateX(52.6751cqw)",
+    "translateX(70.5542cqw)"
+   ],
+   "laneBallRect": [
+    [
+     978.3,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     901.4,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     918.5,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1034.5,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(61.8965cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1028.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 1929.8,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(59.8061cqw)",
+    "translateX(48.7257cqw)",
+    "translateX(49.6648cqw)",
+    "translateX(68.7248cqw)"
+   ],
+   "laneBallRect": [
+    [
+     964.8,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     892.9,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     899,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1022.6,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(59.8055cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    1013,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 1946,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(58.0247cqw)",
+    "translateX(47.9532cqw)",
+    "translateX(47.2467cqw)",
+    "translateX(67.0409cqw)"
+   ],
+   "laneBallRect": [
+    [
+     953.2,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     887.9,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     883.3,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1011.7,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(58.0242cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    999.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 1962.7,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(56.5223cqw)",
+    "translateX(47.5836cqw)",
+    "translateX(45.391cqw)",
+    "translateX(65.501cqw)"
+   ],
+   "laneBallRect": [
+    [
+     943.5,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     885.5,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     871.3,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     1001.7,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(56.5219cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    988.4,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 1978.8,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(55.2001cqw)",
+    "translateX(47.5003cqw)",
+    "translateX(43.985cqw)",
+    "translateX(64.0232cqw)"
+   ],
+   "laneBallRect": [
+    [
+     934.9,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     885,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     862.2,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     992.1,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(55.1997cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    978.5,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 1996.5,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(54.1235cqw)",
+    "translateX(47.6213cqw)",
+    "translateX(43.0868cqw)",
+    "translateX(62.7036cqw)"
+   ],
+   "laneBallRect": [
+    [
+     927.9,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     885.8,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     856.4,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     983.6,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(54.1232cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    970.5,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2013.2,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(53.1404cqw)",
+    "translateX(47.898cqw)",
+    "translateX(42.5675cqw)",
+    "translateX(61.3696cqw)"
+   ],
+   "laneBallRect": [
+    [
+     921.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     887.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     853,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     974.9,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(53.1402cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    963.1,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2029.8,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(52.3819cqw)",
+    "translateX(48.2324cqw)",
+    "translateX(42.4695cqw)",
+    "translateX(60.2191cqw)"
+   ],
+   "laneBallRect": [
+    [
+     916.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     889.7,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     852.4,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     967.5,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(52.3817cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    957.4,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2046.4,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(51.7688cqw)",
+    "translateX(48.5874cqw)",
+    "translateX(42.6874cqw)",
+    "translateX(59.1745cqw)"
+   ],
+   "laneBallRect": [
+    [
+     912.7,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     892,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     853.8,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     960.7,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(51.7687cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    952.8,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2063.1,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(51.2762cqw)",
+    "translateX(48.9315cqw)",
+    "translateX(43.157cqw)",
+    "translateX(58.2233cqw)"
+   ],
+   "laneBallRect": [
+    [
+     909.5,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     894.3,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     856.8,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     954.5,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(51.276cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    949.1,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2079.8,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(50.8834cqw)",
+    "translateX(49.245cqw)",
+    "translateX(43.8211cqw)",
+    "translateX(57.3548cqw)"
+   ],
+   "laneBallRect": [
+    [
+     906.9,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     896.3,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     861.1,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     948.9,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(50.8833cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    946.2,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2096.5,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(50.5772cqw)",
+    "translateX(49.513cqw)",
+    "translateX(44.6181cqw)",
+    "translateX(56.5686cqw)"
+   ],
+   "laneBallRect": [
+    [
+     904.9,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     898,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     866.3,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     943.8,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(50.5771cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    943.9,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2112.9,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(50.3424cqw)",
+    "translateX(49.7306cqw)",
+    "translateX(45.493cqw)",
+    "translateX(55.8589cqw)"
+   ],
+   "laneBallRect": [
+    [
+     903.4,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     899.4,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     872,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     939.2,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(50.3424cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    942.2,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2129.8,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(50.1689cqw)",
+    "translateX(49.8952cqw)",
+    "translateX(46.3813cqw)",
+    "translateX(55.2303cqw)"
+   ],
+   "laneBallRect": [
+    [
+     902.3,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     900.5,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     877.7,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     935.1,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(50.1689cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    940.9,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2146.3,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(50.0379cqw)",
+    "translateX(50.018cqw)",
+    "translateX(47.2853cqw)",
+    "translateX(54.6477cqw)"
+   ],
+   "laneBallRect": [
+    [
+     901.4,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     901.3,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     883.6,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     931.3,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(50.0379cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    939.9,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2163.2,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(49.9474cqw)",
+    "translateX(50.0979cqw)",
+    "translateX(48.1234cqw)",
+    "translateX(54.1372cqw)"
+   ],
+   "laneBallRect": [
+    [
+     900.9,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     901.8,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     889,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     928,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.9473cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    939.2,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2179.8,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(49.8847cqw)",
+    "translateX(50.146cqw)",
+    "translateX(48.9099cqw)",
+    "translateX(53.6687cqw)"
+   ],
+   "laneBallRect": [
+    [
+     900.4,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     902.1,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     894.1,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     925,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.8847cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    938.7,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2196.5,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(49.846cqw)",
+    "translateX(50.1672cqw)",
+    "translateX(49.5926cqw)",
+    "translateX(53.2571cqw)"
+   ],
+   "laneBallRect": [
+    [
+     900.2,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     902.3,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     898.6,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     922.3,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.846cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    938.4,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2213.1,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(49.8246cqw)",
+    "translateX(50.1693cqw)",
+    "translateX(50.1778cqw)",
+    "translateX(52.8871cqw)"
+   ],
+   "laneBallRect": [
+    [
+     900.1,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     902.3,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     902.3,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     919.9,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.8246cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    938.3,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2229.5,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(49.8161cqw)",
+    "translateX(50.1584cqw)",
+    "translateX(50.6526cqw)",
+    "translateX(52.5588cqw)"
+   ],
+   "laneBallRect": [
+    [
+     900,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     902.2,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     905.4,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     917.8,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.8161cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    938.2,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2246.5,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(49.8168cqw)",
+    "translateX(50.1396cqw)",
+    "translateX(51.0166cqw)",
+    "translateX(52.2695cqw)"
+   ],
+   "laneBallRect": [
+    [
+     900,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     902.1,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     907.8,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     915.9,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.8168cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    938.2,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2263.2,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(49.8242cqw)",
+    "translateX(50.116cqw)",
+    "translateX(51.2874cqw)",
+    "translateX(52.0025cqw)"
+   ],
+   "laneBallRect": [
+    [
+     900.1,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     901.9,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     909.5,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     914.2,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.8242cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    938.3,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2279.8,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(49.8358cqw)",
+    "translateX(50.0917cqw)",
+    "translateX(51.4555cqw)",
+    "translateX(51.7696cqw)"
+   ],
+   "laneBallRect": [
+    [
+     900.1,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     901.8,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     910.6,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     912.7,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.8358cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    938.4,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2296.5,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(49.8498cqw)",
+    "translateX(50.0686cqw)",
+    "translateX(51.5361cqw)",
+    "translateX(51.5638cqw)"
+   ],
+   "laneBallRect": [
+    [
+     900.2,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     901.6,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     911.2,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     911.3,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.8498cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    938.5,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2313.2,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(49.8652cqw)",
+    "translateX(50.0477cqw)",
+    "translateX(51.5421cqw)",
+    "translateX(51.3801cqw)"
+   ],
+   "laneBallRect": [
+    [
+     900.3,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     901.5,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     911.2,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     910.1,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.8652cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    938.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2329.8,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(49.8808cqw)",
+    "translateX(50.0301cqw)",
+    "translateX(51.4854cqw)",
+    "translateX(51.2173cqw)"
+   ],
+   "laneBallRect": [
+    [
+     900.4,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     901.4,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     910.8,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     909.1,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.8808cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    938.7,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2345.5,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(49.8961cqw)",
+    "translateX(50.016cqw)",
+    "translateX(51.3798cqw)",
+    "translateX(51.0738cqw)"
+   ],
+   "laneBallRect": [
+    [
+     900.5,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     901.3,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     910.1,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     908.2,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.8961cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    938.8,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2363.1,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(49.9097cqw)",
+    "translateX(50.0058cqw)",
+    "translateX(51.2462cqw)",
+    "translateX(50.9532cqw)"
+   ],
+   "laneBallRect": [
+    [
+     900.6,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     901.2,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     909.3,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     907.4,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.9097cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    938.9,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2379.8,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(49.9239cqw)",
+    "translateX(49.9976cqw)",
+    "translateX(51.07cqw)",
+    "translateX(50.8336cqw)"
+   ],
+   "laneBallRect": [
+    [
+     900.7,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     901.2,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     908.1,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     906.6,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.9239cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    939,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2396.4,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(49.936cqw)",
+    "translateX(49.9925cqw)",
+    "translateX(50.8884cqw)",
+    "translateX(50.7337cqw)"
+   ],
+   "laneBallRect": [
+    [
+     900.8,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     901.1,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     907,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     906,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.936cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    939.1,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2412.5,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(49.9468cqw)",
+    "translateX(49.9897cqw)",
+    "translateX(50.7036cqw)",
+    "translateX(50.6459cqw)"
+   ],
+   "laneBallRect": [
+    [
+     900.9,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     901.1,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     905.8,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     905.4,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.9468cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    939.2,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2429.8,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(49.956cqw)",
+    "translateX(49.9885cqw)",
+    "translateX(50.5279cqw)",
+    "translateX(50.5706cqw)"
+   ],
+   "laneBallRect": [
+    [
+     900.9,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     901.1,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     904.6,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     904.9,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.956cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    939.3,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none spring-rail--derby",
+   "badge": "derby",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2445.9,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes derby-leave-from derby-leave-active",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(49.9646cqw)",
+    "translateX(49.9886cqw)",
+    "translateX(50.35cqw)",
+    "translateX(50.4991cqw)"
+   ],
+   "laneBallRect": [
+    [
+     901,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     901.1,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     903.5,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     904.4,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.9646cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    939.3,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2462.1,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes derby-leave-from derby-leave-active",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(49.9646cqw)",
+    "translateX(49.9886cqw)",
+    "translateX(50.35cqw)",
+    "translateX(50.4991cqw)"
+   ],
+   "laneBallRect": [
+    [
+     901,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     901.1,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     903.5,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     904.4,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.9714cqw)",
+   "liveOpacity": "0.35",
+   "liveRect": [
+    939.4,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2479.4,
+   "lanesMounted": true,
+   "lanesOpacity": "1",
+   "lanesClass": "derby-lanes derby-leave-active derby-leave-to",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(49.9646cqw)",
+    "translateX(49.9886cqw)",
+    "translateX(50.35cqw)",
+    "translateX(50.4991cqw)"
+   ],
+   "laneBallRect": [
+    [
+     901,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     901.1,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     903.5,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     904.4,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.9772cqw)",
+   "liveOpacity": "0.398657",
+   "liveRect": [
+    939.4,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2496.1,
+   "lanesMounted": true,
+   "lanesOpacity": "0.98591",
+   "lanesClass": "derby-lanes derby-leave-active derby-leave-to",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(49.9646cqw)",
+    "translateX(49.9886cqw)",
+    "translateX(50.35cqw)",
+    "translateX(50.4991cqw)"
+   ],
+   "laneBallRect": [
+    [
+     901,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     901.1,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     903.5,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     904.4,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.9824cqw)",
+   "liveOpacity": "0.497898",
+   "liveRect": [
+    939.5,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2512.6,
+   "lanesMounted": true,
+   "lanesOpacity": "0.933058",
+   "lanesClass": "derby-lanes derby-leave-active derby-leave-to",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(49.9646cqw)",
+    "translateX(49.9886cqw)",
+    "translateX(50.35cqw)",
+    "translateX(50.4991cqw)"
+   ],
+   "laneBallRect": [
+    [
+     901,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     901.1,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     903.5,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     904.4,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.9865cqw)",
+   "liveOpacity": "0.618855",
+   "liveRect": [
+    939.5,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2529.7,
+   "lanesMounted": true,
+   "lanesOpacity": "0.811581",
+   "lanesClass": "derby-lanes derby-leave-active derby-leave-to",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(49.9646cqw)",
+    "translateX(49.9886cqw)",
+    "translateX(50.35cqw)",
+    "translateX(50.4991cqw)"
+   ],
+   "laneBallRect": [
+    [
+     901,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     901.1,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     903.5,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     904.4,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.9899cqw)",
+   "liveOpacity": "0.729473",
+   "liveRect": [
+    939.5,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2546.5,
+   "lanesMounted": true,
+   "lanesOpacity": "0.619008",
+   "lanesClass": "derby-lanes derby-leave-active derby-leave-to",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(49.9646cqw)",
+    "translateX(49.9886cqw)",
+    "translateX(50.35cqw)",
+    "translateX(50.4991cqw)"
+   ],
+   "laneBallRect": [
+    [
+     901,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     901.1,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     903.5,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     904.4,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.9927cqw)",
+   "liveOpacity": "0.813108",
+   "liveRect": [
+    939.5,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2563.2,
+   "lanesMounted": true,
+   "lanesOpacity": "0.426981",
+   "lanesClass": "derby-lanes derby-leave-active derby-leave-to",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(49.9646cqw)",
+    "translateX(49.9886cqw)",
+    "translateX(50.35cqw)",
+    "translateX(50.4991cqw)"
+   ],
+   "laneBallRect": [
+    [
+     901,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     901.1,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     903.5,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     904.4,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.9949cqw)",
+   "liveOpacity": "0.874966",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2579.8,
+   "lanesMounted": true,
+   "lanesOpacity": "0.285659",
+   "lanesClass": "derby-lanes derby-leave-active derby-leave-to",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(49.9646cqw)",
+    "translateX(49.9886cqw)",
+    "translateX(50.35cqw)",
+    "translateX(50.4991cqw)"
+   ],
+   "laneBallRect": [
+    [
+     901,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     901.1,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     903.5,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     904.4,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.9966cqw)",
+   "liveOpacity": "0.920127",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2595.9,
+   "lanesMounted": true,
+   "lanesOpacity": "0.189671",
+   "lanesClass": "derby-lanes derby-leave-active derby-leave-to",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(49.9646cqw)",
+    "translateX(49.9886cqw)",
+    "translateX(50.35cqw)",
+    "translateX(50.4991cqw)"
+   ],
+   "laneBallRect": [
+    [
+     901,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     901.1,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     903.5,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     904.4,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.9979cqw)",
+   "liveOpacity": "0.951852",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2613,
+   "lanesMounted": true,
+   "lanesOpacity": "0.118412",
+   "lanesClass": "derby-lanes derby-leave-active derby-leave-to",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(49.9646cqw)",
+    "translateX(49.9886cqw)",
+    "translateX(50.35cqw)",
+    "translateX(50.4991cqw)"
+   ],
+   "laneBallRect": [
+    [
+     901,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     901.1,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     903.5,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     904.4,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.9988cqw)",
+   "liveOpacity": "0.975261",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2629.4,
+   "lanesMounted": true,
+   "lanesOpacity": "0.0709138",
+   "lanesClass": "derby-lanes derby-leave-active derby-leave-to",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(49.9646cqw)",
+    "translateX(49.9886cqw)",
+    "translateX(50.35cqw)",
+    "translateX(50.4991cqw)"
+   ],
+   "laneBallRect": [
+    [
+     901,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     901.1,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     903.5,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     904.4,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(49.9996cqw)",
+   "liveOpacity": "0.989662",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2646.4,
+   "lanesMounted": true,
+   "lanesOpacity": "0.0373753",
+   "lanesClass": "derby-lanes derby-leave-active derby-leave-to",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(49.9646cqw)",
+    "translateX(49.9886cqw)",
+    "translateX(50.35cqw)",
+    "translateX(50.4991cqw)"
+   ],
+   "laneBallRect": [
+    [
+     901,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     901.1,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     903.5,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     904.4,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(50.0001cqw)",
+   "liveOpacity": "0.997745",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2663,
+   "lanesMounted": true,
+   "lanesOpacity": "0.0163798",
+   "lanesClass": "derby-lanes derby-leave-active derby-leave-to",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(49.9646cqw)",
+    "translateX(49.9886cqw)",
+    "translateX(50.35cqw)",
+    "translateX(50.4991cqw)"
+   ],
+   "laneBallRect": [
+    [
+     901,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     901.1,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     903.5,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     904.4,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(50.0005cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2679.4,
+   "lanesMounted": true,
+   "lanesOpacity": "0.00462933",
+   "lanesClass": "derby-lanes derby-leave-active derby-leave-to",
+   "lanesRect": [
+    583.4,
+    307.3,
+    748.4,
+    82.4
+   ],
+   "laneBallTx": [
+    "translateX(49.9646cqw)",
+    "translateX(49.9886cqw)",
+    "translateX(50.35cqw)",
+    "translateX(50.4991cqw)"
+   ],
+   "laneBallRect": [
+    [
+     901,
+     312.1,
+     12.8,
+     12.8
+    ],
+    [
+     901.1,
+     332.1,
+     12.8,
+     12.8
+    ],
+    [
+     903.5,
+     352.1,
+     12.8,
+     12.8
+    ],
+    [
+     904.4,
+     372.1,
+     12.8,
+     12.8
+    ]
+   ],
+   "liveTx": "translateX(50.0007cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "tracking",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2695.7,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2713,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2728.8,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2746.5,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2763.1,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2779.8,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2796.4,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2813.1,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2829.8,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2845.5,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2863.1,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2879,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2896.4,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2913.1,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2929.8,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 2946.4,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3113.2,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3129.8,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3146.4,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3163.2,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3179.8,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3196.5,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3212.2,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3229.8,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3245.7,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3262.7,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3279.8,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3296.4,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3313.2,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3328.9,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3345.8,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3362.2,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3379.4,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3395.6,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3412.4,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3428.8,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3446.5,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3462.7,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3479.5,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3496.4,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3512.2,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3529,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3546.4,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3563.1,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3579.8,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3595.6,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3613.1,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3628.8,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3646.4,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3663.1,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3679.8,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3696.4,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3713.1,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3728.8,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3746.5,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3762.7,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3778.9,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3796.4,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3812.5,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3829.8,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3846.4,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3863.1,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3879.8,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3896.5,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3913.1,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3929.8,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3945.5,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3962.7,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3978.8,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 3996.5,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  },
+  {
+   "t": 4013.2,
+   "lanesMounted": false,
+   "lanesOpacity": null,
+   "lanesClass": null,
+   "lanesRect": null,
+   "laneBallTx": [],
+   "laneBallRect": [],
+   "liveTx": "translateX(50cqw)",
+   "liveOpacity": "1",
+   "liveRect": [
+    939.6,
+    330.5,
+    36,
+    36
+   ],
+   "railClass": "spring-rail kf-focus-ring relative w-full h-12 cursor-pointer select-none",
+   "badge": "settled",
+   "markerTx": "translateX(50cqw)"
+  }
+ ]
+}

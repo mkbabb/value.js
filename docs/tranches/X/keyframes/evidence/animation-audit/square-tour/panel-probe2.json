@@ -1,0 +1,58 @@
+{
+ "afterEnter": {
+  "dur": 1000,
+  "playing": false,
+  "isPlaying": false,
+  "t1": 0,
+  "t2": 0,
+  "mode": "idle",
+  "tr": "translate(0px, 0px) rotate(0deg) skew(0deg, 0deg) ",
+  "dockBtns": [
+   "Play animation@692",
+   "Reset animation@757",
+   "Play animation@652"
+  ]
+ },
+ "afterSettle": {
+  "dur": 1000,
+  "playing": false,
+  "isPlaying": false,
+  "t1": 0,
+  "t2": 0,
+  "mode": "idle",
+  "tr": "translate(0px, 0px) rotate(0deg) skew(0deg, 0deg) ",
+  "dockBtns": [
+   "Play animation@692",
+   "Reset animation@757",
+   "Play animation@652"
+  ]
+ },
+ "afterDockPlay": {
+  "dur": 1000,
+  "playing": false,
+  "isPlaying": false,
+  "t1": 0,
+  "t2": 0,
+  "mode": "idle",
+  "tr": "translate(0px, 0px) rotate(0deg) skew(0deg, 0deg) ",
+  "dockBtns": [
+   "Play animation@666",
+   "Reset animation@732",
+   "Play animation@619"
+  ]
+ },
+ "afterPanelPlay": {
+  "dur": 1000,
+  "playing": true,
+  "isPlaying": true,
+  "t1": 233.30000000000018,
+  "t2": 532.8000000000002,
+  "mode": "playback",
+  "tr": "translate(-3.09203px, 83.8159px) rotate(183.092deg",
+  "dockBtns": [
+   "Pause animation@692",
+   "Reset animation@757",
+   "Pause animation@652"
+  ]
+ }
+}

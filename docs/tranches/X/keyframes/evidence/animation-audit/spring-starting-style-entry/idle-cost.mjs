@@ -1,0 +1,23 @@
+// Does the "playing" transport (auto-started by selecting Entry) run work while the discrete card paints nothing?
+import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
+import fs from "node:fs";
+const D = "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/evidence/animation-audit/spring-starting-style-entry";
+const browser = await chromium.launch({ headless: false });
+const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
+await page.goto("http://localhost:5173/#/spring", { waitUntil: "networkidle" }); await page.waitForTimeout(2500);
+const cdp = await page.context().newCDPSession(page); await cdp.send("Performance.enable");
+const m = async () => Object.fromEntries((await cdp.send("Performance.getMetrics")).metrics.filter(x => /RecalcStyleCount|LayoutCount|TaskDuration|ScriptDuration/.test(x.name)).map(x => [x.name, x.value]));
+const delta = async (ms) => { const a = await m(); await page.waitForTimeout(ms); const b = await m(); return Object.fromEntries(Object.keys(a).map(k => [k, +(b[k] - a[k]).toFixed(3)])); };
+const label = () => page.evaluate(() => document.querySelector('[aria-label="Pause animation"],[aria-label="Play animation"]').getAttribute("aria-label"));
+await page.mouse.move(10, 450);
+const out = { restSweep: { label: await label(), d: await delta(2000) } };
+const sel = page.locator('[aria-label="Select animation"]'); const bb = await sel.boundingBox();
+await page.mouse.move(bb.x + bb.width / 2, bb.y + bb.height / 2); await page.waitForTimeout(800);
+await sel.click(); await page.waitForTimeout(800); await page.getByRole("option", { name: "Entry" }).click();
+await page.mouse.move(10, 450); await page.waitForTimeout(1500);
+out.entrySelected = { label: await label(), d: await delta(2000) };
+await page.locator('[aria-label="Pause animation"]').first().click(); await page.mouse.move(10, 450); await page.waitForTimeout(800);
+out.entryPaused = { label: await label(), d: await delta(2000) };
+out.kf = process.env.KH;
+fs.writeFileSync(`${D}/idle-cost.json`, JSON.stringify(out, null, 1)); console.log(JSON.stringify(out));
+await browser.close();

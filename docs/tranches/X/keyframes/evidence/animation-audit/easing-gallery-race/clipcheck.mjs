@@ -1,0 +1,22 @@
+// clip attribution: Back filter, scrub to p≈0.3 (ease-in-back dip), screenshot with and without tile content-visibility.
+import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
+const OUT = new URL(".", import.meta.url).pathname;
+const browser = await chromium.launch({ headless: false });
+const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
+await page.goto("http://localhost:5173/#/easing", { waitUntil: "networkidle" });
+await page.waitForTimeout(2500);
+await page.getByRole("button", { name: "Back", exact: true }).first().click();
+await page.waitForTimeout(500);
+const thumb = page.locator('[role="slider"][aria-label="Scrub animation timeline"]').first();
+await thumb.focus(); await page.keyboard.press("Home");
+for (let i = 0; i < 6; i++) await page.keyboard.press("ArrowRight");
+await page.waitForTimeout(400);
+const clip = await page.evaluate(() => { const r=document.querySelector(".specimen-grid").getBoundingClientRect(); return {x:Math.round(r.x)-4,y:Math.round(r.y)-4,width:520,height:110}; });
+const st = await page.evaluate(() => [...document.querySelectorAll(".tile-ball")].map(b=>b.dataset.curve+":"+b.style.transform));
+await page.screenshot({ path: OUT + "11-dip-clipped.png", clip });
+await page.addStyleTag({ content: ".specimen-tile{content-visibility:visible!important}" });
+await page.waitForTimeout(200);
+await page.screenshot({ path: OUT + "11-dip-cv-visible.png", clip });
+const ov = await page.evaluate(() => { const t=document.querySelector(".specimen-tile"); const cs=getComputedStyle(t); return {contain: cs.contain, ov: cs.overflow, clipPath: cs.clipPath}; });
+console.log(JSON.stringify({ st, ov }));
+await browser.close();

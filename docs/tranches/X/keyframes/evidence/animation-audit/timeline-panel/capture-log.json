@@ -1,0 +1,680 @@
+{
+ "prov0": {
+  "khead": "3c8199c5",
+  "kdirty": 4,
+  "at": "2026-09-23T15:04:34.594Z"
+ },
+ "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+ "A_frames": 71,
+ "A_animstarts": [
+  {
+   "t": 5474.10000000149,
+   "name": "Rotations",
+   "cls": "cube preserve-3d animation relative flex items-center justify-center justify-items-center"
+  },
+  {
+   "t": 5474.10000000149,
+   "name": "Matrix",
+   "cls": "cube-pose preserve-3d"
+  },
+  {
+   "t": 5474.10000000149,
+   "name": "Hover",
+   "cls": "cube-bob preserve-3d"
+  },
+  {
+   "t": 6182,
+   "name": "gl-fade-start-in",
+   "cls": "dock-layer dock-layer--full is-leaving"
+  },
+  {
+   "t": 6993.30000000447,
+   "name": "glass-reveal-out",
+   "cls": "relative z-popover overflow-hidden rounded-panel border text-popover-foreground glass-reve"
+  },
+  {
+   "t": 6995.30000000447,
+   "name": "enter",
+   "cls": ""
+  },
+  {
+   "t": 6995.30000000447,
+   "name": "enter",
+   "cls": "animate-in fade-in slide-in-from-right-2 duration-fast"
+  }
+ ],
+ "B_rest": {
+  "stage": [
+   89,
+   128,
+   371,
+   96
+  ],
+  "subj": [
+   227,
+   133,
+   95,
+   218
+  ],
+  "subjT": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.949391, -0.0178432, 0, -",
+  "subjStyle": "transform: rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg); pointer-events: none;",
+  "playhead": "0%",
+  "diamonds": [],
+  "undo": {
+   "disabled": true,
+   "op": "0.5",
+   "color": "rgb(112, 89, 66)",
+   "ev": "none"
+  },
+  "redo": {
+   "disabled": true,
+   "op": "0.5",
+   "color": "rgb(112, 89, 66)",
+   "ev": "none"
+  },
+  "expanded": false,
+  "sceneT": "none",
+  "anims": [
+   "CSSAnimation:gl-fade-start-in:running:dock-layer dock-layer--full",
+   "CSSAnimation:gl-fade-end-out:running:dock-layer dock-layer--full"
+  ]
+ },
+ "C_after": {
+  "stage": [
+   89,
+   128,
+   371,
+   96
+  ],
+  "subj": [
+   227,
+   133,
+   95,
+   218
+  ],
+  "subjT": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.949391, -0.0178432, 0, -",
+  "subjStyle": "transform: rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg); pointer-events: none;",
+  "playhead": "50%",
+  "diamonds": [
+   "0%",
+   "50%",
+   "100%"
+  ],
+  "undo": {
+   "disabled": false,
+   "op": "1",
+   "color": "rgb(112, 89, 66)",
+   "ev": "auto"
+  },
+  "redo": {
+   "disabled": true,
+   "op": "0.5",
+   "color": "rgb(112, 89, 66)",
+   "ev": "none"
+  },
+  "expanded": false,
+  "sceneT": "none",
+  "anims": [
+   "CSSAnimation:gl-fade-start-in:running:dock-layer dock-layer--full",
+   "CSSAnimation:gl-fade-end-out:running:dock-layer dock-layer--full"
+  ]
+ },
+ "C_kfs": [
+  "0%",
+  "50%",
+  "100%"
+ ],
+ "D_clip": {
+  "x": 85,
+  "y": 124,
+  "width": 380,
+  "height": 218
+ },
+ "D_rows": [
+  {
+   "i": 0,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "0%"
+  },
+  {
+   "i": 1,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "2%"
+  },
+  {
+   "i": 2,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "4%"
+  },
+  {
+   "i": 3,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "6%"
+  },
+  {
+   "i": 4,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "8%"
+  },
+  {
+   "i": 5,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "10%"
+  },
+  {
+   "i": 6,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "12%"
+  },
+  {
+   "i": 7,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "14%"
+  },
+  {
+   "i": 8,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "16%"
+  },
+  {
+   "i": 9,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "18%"
+  },
+  {
+   "i": 10,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "20%"
+  },
+  {
+   "i": 11,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "22%"
+  },
+  {
+   "i": 12,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "24%"
+  },
+  {
+   "i": 13,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "26%"
+  },
+  {
+   "i": 14,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "28%"
+  },
+  {
+   "i": 15,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "30%"
+  },
+  {
+   "i": 16,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "32%"
+  },
+  {
+   "i": 17,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "34%"
+  },
+  {
+   "i": 18,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "36%"
+  },
+  {
+   "i": 19,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "38%"
+  },
+  {
+   "i": 20,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "40%"
+  },
+  {
+   "i": 21,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "42%"
+  },
+  {
+   "i": 22,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "44%"
+  },
+  {
+   "i": 23,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "46%"
+  },
+  {
+   "i": 24,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "48%"
+  },
+  {
+   "i": 25,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "50%"
+  },
+  {
+   "i": 26,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "52%"
+  },
+  {
+   "i": 27,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "54%"
+  },
+  {
+   "i": 28,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "56%"
+  },
+  {
+   "i": 29,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "58%"
+  },
+  {
+   "i": 30,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "60%"
+  },
+  {
+   "i": 31,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "62%"
+  },
+  {
+   "i": 32,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "64%"
+  },
+  {
+   "i": 33,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "66%"
+  },
+  {
+   "i": 34,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "68%"
+  },
+  {
+   "i": 35,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "70%"
+  },
+  {
+   "i": 36,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "72%"
+  },
+  {
+   "i": 37,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "74%"
+  },
+  {
+   "i": 38,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "76%"
+  },
+  {
+   "i": 39,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "78%"
+  },
+  {
+   "i": 40,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "80%"
+  },
+  {
+   "i": 41,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "82%"
+  },
+  {
+   "i": 42,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "84%"
+  },
+  {
+   "i": 43,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "86%"
+  },
+  {
+   "i": 44,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "88%"
+  },
+  {
+   "i": 45,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "90%"
+  },
+  {
+   "i": 46,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "92%"
+  },
+  {
+   "i": 47,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "94%"
+  },
+  {
+   "i": 48,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "96%"
+  },
+  {
+   "i": 49,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "98%"
+  },
+  {
+   "i": 50,
+   "t": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.9493",
+   "inline": "rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg)",
+   "ph": "100%"
+  }
+ ],
+ "E_transportLabels": [
+  "Share animation",
+  "Playhead — scrub the animation",
+  "Playhead — scrub the animation",
+  "Playhead — scrub the animation",
+  "Pause animation",
+  "Select animation",
+  "Reset animation",
+  "Pause animation"
+ ],
+ "E_before": {
+  "label": "as-left",
+  "distinctPlayhead": 1,
+  "distinctPreview": 1,
+  "distinctScene": 1,
+  "first": [
+   "50%",
+   "rotateX(289.421deg) rotateY(0.803948turn) ro",
+   "none"
+  ],
+  "last": [
+   "50%",
+   "rotateX(289.421deg) rotateY(0.803948turn) ro",
+   "none"
+  ]
+ },
+ "E_btn1": "Pause animation",
+ "E_after1": {
+  "label": "after-toggle-1",
+  "distinctPlayhead": 1,
+  "distinctPreview": 1,
+  "distinctScene": 1,
+  "first": [
+   "50%",
+   "rotateX(289.421deg) rotateY(0.803948turn) ro",
+   "none"
+  ],
+  "last": [
+   "50%",
+   "rotateX(289.421deg) rotateY(0.803948turn) ro",
+   "none"
+  ]
+ },
+ "E_btn2": "Pause animation",
+ "E_after2": {
+  "label": "after-toggle-2",
+  "distinctPlayhead": 1,
+  "distinctPreview": 1,
+  "distinctScene": 1,
+  "first": [
+   "50%",
+   "rotateX(289.421deg) rotateY(0.803948turn) ro",
+   "none"
+  ],
+  "last": [
+   "50%",
+   "rotateX(289.421deg) rotateY(0.803948turn) ro",
+   "none"
+  ]
+ },
+ "E_raf": {
+  "n": 181,
+  "over20": 0,
+  "max": 18
+ },
+ "E_label": "Play animation",
+ "F_found": [
+  "opacity:300:cubic-bezier(0.4, 0, 0.2, 1)",
+  "opacity:300:cubic-bezier(0.4, 0, 0.2, 1)",
+  "opacity:300:cubic-bezier(0, 0, 0.2, 1)",
+  "transform:350:linear(0 0%, 0.00287 2.041%, 0.01102 4.082%, 0.02379 6.122%, 0.04057 8.163%, 0.06079 10.204%, 0.08395 12.245%, 0.10956 14.286%, 0.13721 16.327%, 0.16649 18.367%, 0.19705 20.408%, 0.22858 22.449%, 0.26077 24.49%, 0.29338 26.531%, 0.32617 28.571%, 0.35893 30.612%, 0.39149 32.653%, 0.42368 34.694%, 0.45536 36.735%, 0.48642 38.776%, 0.51676 40.816%, 0.54628 42.857%, 0.57492 44.898%, 0.60262 46.939%, 0.62933 48.98%, 0.65501 51.02%, 0.67965 53.061%, 0.70322 55.102%, 0.72571 57.143%, 0.74713 59.184%, 0.76748 61.224%, 0.78677 63.265%, 0.80501 65.306%, 0.82223 67.347%, 0.83844 69.388%, 0.85367 71.429%, 0.86796 73.469%, 0.88132 75.51%, 0.89379 77.551%, 0.90541 79.592%, 0.91621 81.633%, 0.92623 83.673%, 0.93549 85.714%, 0.94404 87.755%, 0.9519 89.796%, 0.95912 91.837%, 0.96574 93.878%, 0.97177 95.918%, 0.97726 97.959%, 1 100%)"
+ ],
+ "F_clip": {
+  "x": 88,
+  "y": 425,
+  "width": 373,
+  "height": 344
+ },
+ "F_after": {
+  "stage": [
+   89,
+   128,
+   371,
+   96
+  ],
+  "subj": [
+   227,
+   133,
+   95,
+   218
+  ],
+  "subjT": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.949391, -0.0178432, 0, -",
+  "subjStyle": "transform: rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg); pointer-events: none;",
+  "playhead": "50%",
+  "diamonds": [
+   "0%",
+   "50%",
+   "100%"
+  ],
+  "undo": {
+   "disabled": false,
+   "op": "1",
+   "color": "rgb(112, 89, 66)",
+   "ev": "auto"
+  },
+  "redo": {
+   "disabled": true,
+   "op": "0.5",
+   "color": "rgb(112, 89, 66)",
+   "ev": "none"
+  },
+  "expanded": false,
+  "sceneT": "none",
+  "anims": [
+   "CSSAnimation:gl-fade-start-in:running:dock-layer dock-layer--full",
+   "CSSAnimation:gl-fade-end-out:running:dock-layer dock-layer--full"
+  ]
+ },
+ "G": {
+  "tip": "100%\nPreview unavailable — Attempting to parse an unsupported color function \"color\"\ntransform: matrix3d(0.38374, 0.8680",
+  "img": null
+ },
+ "H_expand_frames": 66,
+ "H_expand_anims": [
+  {
+   "t": 53393.70000000298,
+   "name": "enter",
+   "cls": "animate-in fade-in slide-in-from-right-2 duration-fast"
+  },
+  {
+   "t": 53393.70000000298,
+   "name": "enter",
+   "cls": "animate-in fade-in slide-in-from-right-2 duration-fast"
+  },
+  {
+   "t": 53393.70000000298,
+   "name": "enter",
+   "cls": "animate-in fade-in slide-in-from-right-2 duration-fast"
+  },
+  {
+   "t": 53393.70000000298,
+   "name": "bounce",
+   "cls": "[object SVGAnimatedString]"
+  }
+ ],
+ "H_expanded": {
+  "stage": [
+   60,
+   375,
+   441,
+   160
+  ],
+  "subj": [
+   233,
+   380,
+   95,
+   218
+  ],
+  "subjT": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.949391, -0.0178432, 0, -",
+  "subjStyle": "transform: rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg); pointer-events: none;",
+  "playhead": "50%",
+  "diamonds": [
+   "0%",
+   "50%",
+   "100%"
+  ],
+  "undo": {
+   "disabled": false,
+   "op": "1",
+   "color": "rgb(112, 89, 66)",
+   "ev": "auto"
+  },
+  "redo": {
+   "disabled": true,
+   "op": "0.5",
+   "color": "rgb(112, 89, 66)",
+   "ev": "none"
+  },
+  "expanded": true,
+  "sceneT": "matrix3d(0.937695, 0.181376, 0.296363, 0, -0.241709, 0.953247, 0.181376, 0, -0.2",
+  "anims": [
+   "CSSAnimation:bounce:running:[object SVGAnimatedString]",
+   "CSSAnimation:gl-fade-start-in:running:dock-layer dock-layer--full",
+   "CSSAnimation:gl-fade-end-out:running:dock-layer dock-layer--full"
+  ]
+ },
+ "H_collapse_frames": 18,
+ "H_collapse_anims": [
+  {
+   "t": 55634.80000000447,
+   "name": "enter",
+   "cls": "animate-in fade-in slide-in-from-right-2 duration-fast"
+  }
+ ],
+ "H_collapsed": {
+  "stage": [
+   89,
+   128,
+   371,
+   96
+  ],
+  "subj": [
+   227,
+   133,
+   95,
+   218
+  ],
+  "subjT": "matrix3d(0.110562, -0.0178432, 0.993709, 0, 0.313589, 0.949391, -0.0178432, 0, -",
+  "subjStyle": "transform: rotateX(289.421deg) rotateY(0.803948turn) rotateZ(289.421deg); pointer-events: none;",
+  "playhead": "50%",
+  "diamonds": [
+   "0%",
+   "50%",
+   "100%"
+  ],
+  "undo": {
+   "disabled": false,
+   "op": "1",
+   "color": "rgb(112, 89, 66)",
+   "ev": "auto"
+  },
+  "redo": {
+   "disabled": true,
+   "op": "0.5",
+   "color": "rgb(112, 89, 66)",
+   "ev": "none"
+  },
+  "expanded": false,
+  "sceneT": "none",
+  "anims": [
+   "CSSAnimation:gl-fade-start-in:running:dock-layer dock-layer--full",
+   "CSSAnimation:gl-fade-end-out:running:dock-layer dock-layer--full"
+  ]
+ },
+ "prov1": {
+  "khead": "3c8199c5",
+  "kdirty": 4,
+  "at": "2026-09-23T15:05:33.189Z"
+ }
+}

@@ -1,0 +1,239 @@
+{
+ "khead": "d78bed01",
+ "kdirty": "4",
+ "armA_resetPlay": {
+  "buttonsAtLoad": [
+   {
+    "label": "Pause animation",
+    "vis": true,
+    "rect": [
+     593,
+     773,
+     40,
+     40
+    ]
+   },
+   {
+    "label": "Pause animation",
+    "vis": false,
+    "rect": [
+     535,
+     765,
+     32,
+     40
+    ]
+   }
+  ],
+  "afterReset": {
+   "cube": "rotateX(0deg) rotateY(0turn) rotateZ(0deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1",
+   "bob": "translateY(0px)"
+  },
+  "buttonsAfterReset": [
+   {
+    "label": "Play animation",
+    "vis": true,
+    "rect": [
+     593,
+     773,
+     40,
+     40
+    ]
+   },
+   {
+    "label": "Play animation",
+    "vis": false,
+    "rect": [
+     535,
+     765,
+     32,
+     40
+    ]
+   }
+  ],
+  "clicked": {
+   "label": "Play animation",
+   "vis": true,
+   "rect": [
+    593,
+    773,
+    40,
+    40
+   ]
+  },
+  "buttonsAfterPlay": [
+   {
+    "label": "Pause animation",
+    "vis": true,
+    "rect": [
+     592,
+     771,
+     42,
+     42
+    ]
+   },
+   {
+    "label": "Pause animation",
+    "vis": false,
+    "rect": [
+     535,
+     765,
+     32,
+     40
+    ]
+   }
+  ],
+  "seriesAfterPlay": [
+   {
+    "cube": "rotateX(1.30991deg) rotateY(0.00363865turn) rotateZ(1.30991d",
+    "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1",
+    "bob": "translateY(0.0741133px)"
+   },
+   {
+    "cube": "rotateX(10.9241deg) rotateY(0.0303447turn) rotateZ(10.9241de",
+    "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1",
+    "bob": "translateY(0.629809px)"
+   },
+   {
+    "cube": "rotateX(30.4162deg) rotateY(0.0844895turn) rotateZ(30.4162de",
+    "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1",
+    "bob": "translateY(1.71303px)"
+   },
+   {
+    "cube": "rotateX(61.5576deg) rotateY(0.170993turn) rotateZ(61.5576deg",
+    "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1",
+    "bob": "translateY(3.12549px)"
+   },
+   {
+    "cube": "rotateX(100.917deg) rotateY(0.280326turn) rotateZ(100.917deg",
+    "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1",
+    "bob": "translateY(4.26445px)"
+   },
+   {
+    "cube": "rotateX(147.216deg) rotateY(0.408934turn) rotateZ(147.216deg",
+    "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1",
+    "bob": "translateY(4.88808px)"
+   }
+  ]
+ },
+ "armB_resetDragPlay": {
+  "buttonsAtLoad": [
+   {
+    "label": "Pause animation",
+    "vis": true,
+    "rect": [
+     591,
+     771,
+     43,
+     43
+    ]
+   },
+   {
+    "label": "Pause animation",
+    "vis": false,
+    "rect": [
+     535,
+     765,
+     32,
+     40
+    ]
+   }
+  ],
+  "afterReset": {
+   "cube": "rotateX(0deg) rotateY(0turn) rotateZ(0deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1",
+   "bob": "translateY(0px)"
+  },
+  "buttonsAfterReset": [
+   {
+    "label": "Play animation",
+    "vis": true,
+    "rect": [
+     593,
+     773,
+     40,
+     40
+    ]
+   },
+   {
+    "label": "Play animation",
+    "vis": false,
+    "rect": [
+     535,
+     765,
+     32,
+     40
+    ]
+   }
+  ],
+  "afterDrag": {
+   "cube": "matrix3d(0.288668, -0.356042, 0.888766, 0, -0.355092, 0.8222",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1",
+   "bob": "translateY(0px)"
+  },
+  "clicked": {
+   "label": "Play animation",
+   "vis": true,
+   "rect": [
+    654,
+    773,
+    32,
+    40
+   ]
+  },
+  "buttonsAfterPlay": [
+   {
+    "label": "Play animation",
+    "vis": true,
+    "rect": [
+     593,
+     773,
+     40,
+     40
+    ]
+   },
+   {
+    "label": "Play animation",
+    "vis": true,
+    "rect": [
+     546,
+     773,
+     32,
+     40
+    ]
+   }
+  ],
+  "seriesAfterPlay": [
+   {
+    "cube": "matrix3d(0.297374, -0.351693, 0.887627, 0, -0.350735, 0.8244",
+    "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1",
+    "bob": "translateY(0px)"
+   },
+   {
+    "cube": "matrix3d(0.303471, -0.348647, 0.886764, 0, -0.347684, 0.8259",
+    "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1",
+    "bob": "translateY(0px)"
+   },
+   {
+    "cube": "matrix3d(0.304128, -0.348319, 0.886668, 0, -0.347355, 0.8261",
+    "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1",
+    "bob": "translateY(0px)"
+   },
+   {
+    "cube": "matrix3d(0.304128, -0.348319, 0.886668, 0, -0.347355, 0.8261",
+    "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1",
+    "bob": "translateY(0px)"
+   },
+   {
+    "cube": "matrix3d(0.304128, -0.348319, 0.886668, 0, -0.347355, 0.8261",
+    "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1",
+    "bob": "translateY(0px)"
+   },
+   {
+    "cube": "matrix3d(0.304128, -0.348319, 0.886668, 0, -0.347355, 0.8261",
+    "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1",
+    "bob": "translateY(0px)"
+   }
+  ]
+ }
+}

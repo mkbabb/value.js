@@ -1,0 +1,30 @@
+import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
+import { writeFileSync } from "node:fs";
+const D = new URL(".", import.meta.url).pathname;
+const browser = await chromium.launch({ headless: false });
+const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
+const t0 = Date.now();
+await page.goto("http://localhost:5173/", { waitUntil: "domcontentloaded" });
+await page.waitForSelector(".typing-dot", { timeout: 20000 });
+await page.waitForTimeout(2500);
+const out = await page.evaluate(async () => {
+  const gl = (() => { const c = document.createElement("canvas").getContext("webgl"); const e = c && c.getExtension("WEBGL_debug_renderer_info"); return e ? c.getParameter(e.UNMASKED_RENDERER_WEBGL) : "n/a"; })();
+  const dots = [...document.querySelectorAll(".typing-dot")];
+  const h1 = document.querySelector("h1.hero-display");
+  const all = document.getAnimations();
+  const dotAnims = all.filter(a => dots.includes(a.effect?.target));
+  const info = dotAnims.map(a => ({ target: dots.indexOf(a.effect.target), playState: a.playState, currentTime: a.currentTime, startTime: a.startTime, timing: a.effect.getTiming(), kf: a.effect.getKeyframes().map(k => ({ o: k.offset, op: k.opacity, e: k.easing, c: k.composite })), id: a.id, ctor: a.constructor.name }));
+  const layers = dots.map(d => { const cs = getComputedStyle(d); const r = d.getBoundingClientRect(); return { txt: d.textContent, inlineStyle: d.getAttribute("style"), opacity: cs.opacity, transform: cs.transform, z: cs.zIndex, blend: cs.mixBlendMode, filter: cs.filter, willChange: cs.willChange, anim: cs.animationName, rect: [r.x, r.y, r.width, r.height].map(v => +v.toFixed(2)) }; });
+  const cont = document.querySelector(".typing-dots"); const cr = cont.getBoundingClientRect();
+  // live sampling 3 s
+  const samples = []; const deltas = []; let last = performance.now(); const tEnd = last + 3000;
+  await new Promise(res => { const f = (now) => { deltas.push(now - last); last = now; samples.push({ t: +now.toFixed(1), o: dots.map(d => +getComputedStyle(d).opacity), s: dots.map(d => d.style.opacity), rx: dots.map(d => +d.getBoundingClientRect().x.toFixed(3)) }); if (now < tEnd) requestAnimationFrame(f); else res(); }; requestAnimationFrame(f); });
+  return { gl, url: location.href, h1: h1?.textContent.trim().slice(0, 80), totalAnims: all.length, allSummary: all.slice(0, 40).map(a => ({ t: a.effect?.target?.className?.toString?.().slice(0, 40), n: a.animationName || a.id || a.constructor.name, ps: a.playState })), dotAnims: info, layers, container: [cr.x, cr.y, cr.width, cr.height], h1rect: (() => { const r = h1.getBoundingClientRect(); return [r.x, r.y, r.width, r.height]; })(), samples, deltas };
+});
+out.kfHead = process.env.KFHEAD; out.kfDirty = process.env.KFDIRTY;
+const drops = out.deltas.slice(1).filter(d => d > 20);
+out.dropSummary = { frames: out.deltas.length, over20: drops.length, max: Math.max(...out.deltas.slice(1)).toFixed(1), mean: (out.deltas.slice(1).reduce((a, b) => a + b, 0) / (out.deltas.length - 1)).toFixed(2) };
+writeFileSync(D + "probe.json", JSON.stringify(out, null, 1));
+await page.screenshot({ path: D + "probe-full.png" });
+await browser.close();
+console.log(JSON.stringify({ gl: out.gl, h1: out.h1, totalAnims: out.totalAnims, dotAnims: out.dotAnims, layers: out.layers, container: out.container, drop: out.dropSummary }, null, 0));

@@ -1,0 +1,63 @@
+{
+ "kfBefore": {
+  "head": "d78bed01",
+  "dirty": "4"
+ },
+ "cfg": {
+  "interactivity": {
+   "swirl": true,
+   "amplitude": 0.5
+  },
+  "medium": "crayon",
+  "drift": 0.008,
+  "keys": [
+   "palette",
+   "nuclei",
+   "softmaxBeta",
+   "valueVariance",
+   "warpAmount",
+   "warpScale",
+   "warpDrift",
+   "warpMode",
+   "noiseOctaves",
+   "medium",
+   "flow",
+   "strokeAmount",
+   "strokeScale",
+   "strokeAnisotropy",
+   "strokeLayers",
+   "strokeMode",
+   "wetEdge",
+   "granulation",
+   "impasto",
+   "brokenColor",
+   "canvasGrain",
+   "nucleiDrift",
+   "paletteDrift",
+   "breathDepth",
+   "breathPeriod",
+   "saturation",
+   "paperGrain",
+   "alpha",
+   "vividness",
+   "interactivity",
+   "strokeOrient"
+  ],
+  "alpha": 1
+ },
+ "swirlReal": {
+  "mean": 0,
+  "max": 0
+ },
+ "swirlApi": {
+  "mean": 0,
+  "max": 0
+ },
+ "listenerProbe": {
+  "n": 0
+ },
+ "kfAfter": {
+  "head": "d78bed01",
+  "dirty": "4"
+ }
+}

@@ -1,0 +1,28 @@
+{
+ "before": {
+  "x": 651.9140625,
+  "y": 772.6484375,
+  "width": 32,
+  "height": 40
+ },
+ "afterHover": {
+  "x": 665.9000244140625,
+  "y": 771.0484619140625,
+  "width": 43.199951171875,
+  "height": 43.199951171875
+ },
+ "humanClickAfterEdit": {
+  "dur": 1000,
+  "playing": true,
+  "isPlaying": true,
+  "t1": 199.70000000000073,
+  "t2": 500.10000000000036,
+  "mode": "playback",
+  "tr": "translate(-2.72253e-05px, 89.9999px) rotate(180deg",
+  "dockBtns": [
+   "Pause animation@666",
+   "Reset animation@733",
+   "Pause animation@607"
+  ]
+ }
+}

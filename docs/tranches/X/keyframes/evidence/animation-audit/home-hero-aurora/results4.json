@@ -1,0 +1,22 @@
+{
+ "kfBefore": "d78bed01 dirty=4",
+ "res": [
+  {
+   "mean": 0,
+   "max": 0
+  },
+  {
+   "mean": 0,
+   "max": 0
+  },
+  {
+   "mean": 0.955,
+   "max": 12.3
+  },
+  {
+   "mean": 0.87,
+   "max": 12.7
+  }
+ ],
+ "kfAfter": "d78bed01 dirty=4"
+}

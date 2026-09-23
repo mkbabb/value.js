@@ -1,0 +1,77 @@
+{
+ "dockBeforeSelect": [
+  "Play animation",
+  "Play animation"
+ ],
+ "dockAfterSelect": [
+  "Pause animation",
+  "Pause animation"
+ ],
+ "geoOpen": {
+  "stageH": 112,
+  "cardH": 114.46875,
+  "btnY": 348.1015625,
+  "cardDisp": "flex"
+ },
+ "rAF": {
+  "n": 262,
+  "mean": 16.6675572519084,
+  "max": 17.700000000000728,
+  "over20": 0,
+  "over20vals": []
+ },
+ "screencast": {
+  "n": 253,
+  "spanS": 4.331114053726196
+ },
+ "tail": {
+  "at300": {
+   "op": "0",
+   "d": "flex",
+   "hitIsCard": false,
+   "pe": "auto"
+  },
+  "after": {
+   "d": "none"
+  }
+ },
+ "geoClosed": {
+  "stageH": 112,
+  "cardH": 0,
+  "btnY": 348.1015625,
+  "cardDisp": "none"
+ },
+ "transport": {
+  "dockNow": [
+   "Pause animation",
+   "Pause animation"
+  ],
+  "afterClick1": [
+   "Play animation",
+   "Play animation"
+  ],
+  "cardWhile1": [
+   "1|matrix(1, 0, 0, 1, 0, 0)|flex"
+  ],
+  "afterClick2": [
+   "Pause animation",
+   "Pause animation"
+  ],
+  "cardWhile2": [
+   "1|matrix(1, 0, 0, 1, 0, 0)|flex"
+  ],
+  "resetCount": 1,
+  "cardAfterReset": [
+   "1|matrix(1, 0, 0, 1, 0, 0)|flex"
+  ],
+  "scrubbers": [
+   "?@77",
+   "?@104",
+   "Value 1 of 5@1045",
+   "Value 2 of 5@1045",
+   "Value 3 of 5@1045",
+   "Value 4 of 5@1045",
+   "Value 5 of 5@1045"
+  ]
+ }
+}

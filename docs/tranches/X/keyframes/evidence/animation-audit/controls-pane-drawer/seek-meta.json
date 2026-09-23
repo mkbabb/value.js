@@ -1,0 +1,3248 @@
+{
+ "provenance": [
+  {
+   "khead": "3c8199c5",
+   "kdirty": 4,
+   "at": "2026-09-23T15:02:55.009Z"
+  },
+  {
+   "khead": "3c8199c5",
+   "kdirty": 4,
+   "at": "2026-09-23T15:03:15.788Z"
+  },
+  {
+   "khead": "3c8199c5",
+   "kdirty": 4,
+   "at": "2026-09-23T15:03:46.129Z"
+  }
+ ],
+ "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+ "hash": "#/cube",
+ "rest": {
+  "gtc": "475.195px  878.398px",
+  "layCls": "controls-layout--open",
+  "wCls": "controls-pane--open",
+  "w": [
+   43.2,
+   54,
+   475.2,
+   632
+  ],
+  "wOp": "1",
+  "pOp": "1",
+  "pOverflow": "auto",
+  "pFade": "",
+  "stage": [
+   518.4,
+   54,
+   878.4,
+   792
+  ],
+  "cube": [
+   845.1,
+   337.7,
+   225,
+   225
+  ],
+  "anims": []
+ },
+ "seek": {
+  "close": {
+   "anims": [
+    {
+     "kind": "CSSTransition",
+     "prop": "grid-template-columns",
+     "target": "controls-layout justify-items-stretch items-start relative c",
+     "dur": 450,
+     "delay": 0,
+     "easing": "linear(0 0%, 0.00287 2.041%, 0.01102 4.0",
+     "ct": 0
+    },
+    {
+     "kind": "CSSTransition",
+     "prop": "opacity",
+     "target": "controls-pane group/controls min-w-0 overflow-hidden",
+     "dur": 200,
+     "delay": 0,
+     "easing": "cubic-bezier(0.4, 0, 1, 1)",
+     "ct": 0
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "t": 0,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      844.8,
+      340.9,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:0",
+      "CSSTransition:opacity:controls-pane:paused:0"
+     ]
+    },
+    {
+     "i": 1,
+     "t": 9.6,
+     "gtc": "473.664px  879.93px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      473.7,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.995518",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      516.9,
+      54,
+      879.9,
+      792
+     ],
+     "cube": [
+      844.1,
+      341.3,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:10",
+      "CSSTransition:opacity:controls-pane:paused:10"
+     ]
+    },
+    {
+     "i": 2,
+     "t": 19.1,
+     "gtc": "469.445px  884.148px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      469.4,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.983075",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      512.6,
+      54,
+      884.1,
+      792
+     ],
+     "cube": [
+      841.9,
+      341.5,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:19",
+      "CSSTransition:opacity:controls-pane:paused:19"
+     ]
+    },
+    {
+     "i": 3,
+     "t": 28.7,
+     "gtc": "462.875px  890.719px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      462.9,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.96388",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      506.1,
+      54,
+      890.7,
+      792
+     ],
+     "cube": [
+      838.6,
+      341.8,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:29",
+      "CSSTransition:opacity:controls-pane:paused:29"
+     ]
+    },
+    {
+     "i": 4,
+     "t": 38.3,
+     "gtc": "454.281px  899.312px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      454.3,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.938852",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      497.5,
+      54,
+      899.3,
+      792
+     ],
+     "cube": [
+      834.3,
+      342,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:38",
+      "CSSTransition:opacity:controls-pane:paused:38"
+     ]
+    },
+    {
+     "i": 5,
+     "t": 47.9,
+     "gtc": "443.969px  909.625px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      444,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.908707",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      487.2,
+      54,
+      909.6,
+      792
+     ],
+     "cube": [
+      829.2,
+      342.1,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:48",
+      "CSSTransition:opacity:controls-pane:paused:48"
+     ]
+    },
+    {
+     "i": 6,
+     "t": 57.4,
+     "gtc": "432.195px  921.398px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      432.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.874017",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      475.4,
+      54,
+      921.4,
+      792
+     ],
+     "cube": [
+      823.3,
+      342.2,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:57",
+      "CSSTransition:opacity:controls-pane:paused:57"
+     ]
+    },
+    {
+     "i": 7,
+     "t": 67,
+     "gtc": "419.219px  934.375px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      419.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.835244",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      462.4,
+      54,
+      934.4,
+      792
+     ],
+     "cube": [
+      816.8,
+      342.2,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:67",
+      "CSSTransition:opacity:controls-pane:paused:67"
+     ]
+    },
+    {
+     "i": 8,
+     "t": 76.6,
+     "gtc": "405.258px  948.336px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      405.3,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.792768",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      448.5,
+      54,
+      948.3,
+      792
+     ],
+     "cube": [
+      809.8,
+      342.1,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:77",
+      "CSSTransition:opacity:controls-pane:paused:77"
+     ]
+    },
+    {
+     "i": 9,
+     "t": 86.2,
+     "gtc": "390.516px  963.078px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      390.5,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.746901",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      433.7,
+      54,
+      963.1,
+      792
+     ],
+     "cube": [
+      802.4,
+      342,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:86",
+      "CSSTransition:opacity:controls-pane:paused:86"
+     ]
+    },
+    {
+     "i": 10,
+     "t": 95.7,
+     "gtc": "375.18px  978.414px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      375.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.697906",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      418.4,
+      54,
+      978.4,
+      792
+     ],
+     "cube": [
+      794.8,
+      341.9,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:96",
+      "CSSTransition:opacity:controls-pane:paused:96"
+     ]
+    },
+    {
+     "i": 11,
+     "t": 105.3,
+     "gtc": "359.414px  994.18px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      359.4,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.646003",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      402.6,
+      54,
+      994.2,
+      792
+     ],
+     "cube": [
+      786.9,
+      341.8,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:105",
+      "CSSTransition:opacity:controls-pane:paused:105"
+     ]
+    },
+    {
+     "i": 12,
+     "t": 114.9,
+     "gtc": "343.367px  1010.23px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      343.4,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.591374",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      386.6,
+      54,
+      1010.2,
+      792
+     ],
+     "cube": [
+      778.9,
+      341.5,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:115",
+      "CSSTransition:opacity:controls-pane:paused:115"
+     ]
+    },
+    {
+     "i": 13,
+     "t": 124.5,
+     "gtc": "327.164px  1026.43px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      327.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.534173",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      370.4,
+      54,
+      1026.4,
+      792
+     ],
+     "cube": [
+      770.8,
+      341.2,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:124",
+      "CSSTransition:opacity:controls-pane:paused:124"
+     ]
+    },
+    {
+     "i": 14,
+     "t": 134,
+     "gtc": "310.922px  1042.67px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      310.9,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.474522",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      354.1,
+      54,
+      1042.7,
+      792
+     ],
+     "cube": [
+      762.7,
+      340.9,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:134",
+      "CSSTransition:opacity:controls-pane:paused:134"
+     ]
+    },
+    {
+     "i": 15,
+     "t": 143.6,
+     "gtc": "294.758px  1058.84px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      294.8,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.41252",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      338,
+      54,
+      1058.8,
+      792
+     ],
+     "cube": [
+      754.7,
+      340.5,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:144",
+      "CSSTransition:opacity:controls-pane:paused:144"
+     ]
+    },
+    {
+     "i": 16,
+     "t": 153.2,
+     "gtc": "278.742px  1074.85px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      278.7,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.348236",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      321.9,
+      54,
+      1074.9,
+      792
+     ],
+     "cube": [
+      746.7,
+      340.1,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:153",
+      "CSSTransition:opacity:controls-pane:paused:153"
+     ]
+    },
+    {
+     "i": 17,
+     "t": 162.8,
+     "gtc": "262.977px  1090.62px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      263,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.281708",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      306.2,
+      54,
+      1090.6,
+      792
+     ],
+     "cube": [
+      738.8,
+      339.7,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:163",
+      "CSSTransition:opacity:controls-pane:paused:163"
+     ]
+    },
+    {
+     "i": 18,
+     "t": 172.3,
+     "gtc": "247.508px  1106.09px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      247.5,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.212932",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      290.7,
+      54,
+      1106.1,
+      792
+     ],
+     "cube": [
+      731.1,
+      339.4,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:172",
+      "CSSTransition:opacity:controls-pane:paused:172"
+     ]
+    },
+    {
+     "i": 19,
+     "t": 181.9,
+     "gtc": "232.391px  1121.2px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      232.4,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.141839",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      275.6,
+      54,
+      1121.2,
+      792
+     ],
+     "cube": [
+      723.6,
+      339,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:182",
+      "CSSTransition:opacity:controls-pane:paused:182"
+     ]
+    },
+    {
+     "i": 20,
+     "t": 191.5,
+     "gtc": "217.695px  1135.9px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      217.7,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.0682162",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      260.9,
+      54,
+      1135.9,
+      792
+     ],
+     "cube": [
+      716.3,
+      338.6,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:191",
+      "CSSTransition:opacity:controls-pane:paused:191"
+     ]
+    },
+    {
+     "i": 21,
+     "t": 201.1,
+     "gtc": "203.445px  1150.15px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      203.4,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      246.6,
+      54,
+      1150.1,
+      792
+     ],
+     "cube": [
+      709.2,
+      338.3,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:201"
+     ]
+    },
+    {
+     "i": 22,
+     "t": 210.6,
+     "gtc": "189.672px  1163.92px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      189.7,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      232.9,
+      54,
+      1163.9,
+      792
+     ],
+     "cube": [
+      702.3,
+      338.1,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:211"
+     ]
+    },
+    {
+     "i": 23,
+     "t": 220.2,
+     "gtc": "176.414px  1177.18px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      176.4,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      219.6,
+      54,
+      1177.2,
+      792
+     ],
+     "cube": [
+      695.7,
+      337.9,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:220"
+     ]
+    },
+    {
+     "i": 24,
+     "t": 229.8,
+     "gtc": "163.688px  1189.91px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      163.7,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      206.9,
+      54,
+      1189.9,
+      792
+     ],
+     "cube": [
+      689.3,
+      337.7,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:230"
+     ]
+    },
+    {
+     "i": 25,
+     "t": 239.4,
+     "gtc": "151.508px  1202.09px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      151.5,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      194.7,
+      54,
+      1202.1,
+      792
+     ],
+     "cube": [
+      683.2,
+      337.6,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:239"
+     ]
+    },
+    {
+     "i": 26,
+     "t": 248.9,
+     "gtc": "139.891px  1213.7px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      139.9,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      183.1,
+      54,
+      1213.7,
+      792
+     ],
+     "cube": [
+      677.4,
+      337.5,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:249"
+     ]
+    },
+    {
+     "i": 27,
+     "t": 258.5,
+     "gtc": "128.82px  1224.77px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      128.8,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      172,
+      54,
+      1224.8,
+      792
+     ],
+     "cube": [
+      671.9,
+      337.5,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:259"
+     ]
+    },
+    {
+     "i": 28,
+     "t": 268.1,
+     "gtc": "118.312px  1235.28px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      118.3,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      161.5,
+      54,
+      1235.3,
+      792
+     ],
+     "cube": [
+      666.7,
+      337.5,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:268"
+     ]
+    },
+    {
+     "i": 29,
+     "t": 277.7,
+     "gtc": "108.344px  1245.25px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      108.3,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      151.5,
+      54,
+      1245.3,
+      792
+     ],
+     "cube": [
+      661.7,
+      337.6,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:278"
+     ]
+    },
+    {
+     "i": 30,
+     "t": 287.2,
+     "gtc": "98.9219px  1254.67px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      98.9,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      142.1,
+      54,
+      1254.7,
+      792
+     ],
+     "cube": [
+      657,
+      337.6,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:287"
+     ]
+    },
+    {
+     "i": 31,
+     "t": 296.8,
+     "gtc": "90.0469px  1263.55px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      90,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      133.3,
+      54,
+      1263.5,
+      792
+     ],
+     "cube": [
+      652.5,
+      337.8,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:297"
+     ]
+    },
+    {
+     "i": 32,
+     "t": 306.4,
+     "gtc": "81.6875px  1271.91px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      81.7,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      124.9,
+      54,
+      1271.9,
+      792
+     ],
+     "cube": [
+      648.3,
+      337.9,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:306"
+     ]
+    },
+    {
+     "i": 33,
+     "t": 316,
+     "gtc": "73.8438px  1279.75px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      73.8,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      117,
+      54,
+      1279.8,
+      792
+     ],
+     "cube": [
+      644.4,
+      338.1,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:316"
+     ]
+    },
+    {
+     "i": 34,
+     "t": 325.5,
+     "gtc": "66.5px  1287.09px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      66.5,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      109.7,
+      54,
+      1287.1,
+      792
+     ],
+     "cube": [
+      640.7,
+      338.3,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:326"
+     ]
+    },
+    {
+     "i": 35,
+     "t": 335.1,
+     "gtc": "59.6328px  1293.96px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      59.6,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      102.8,
+      54,
+      1294,
+      792
+     ],
+     "cube": [
+      637.2,
+      338.5,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:335"
+     ]
+    },
+    {
+     "i": 36,
+     "t": 344.7,
+     "gtc": "53.2422px  1300.35px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      53.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      96.4,
+      54,
+      1300.4,
+      792
+     ],
+     "cube": [
+      634,
+      338.9,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:345"
+     ]
+    },
+    {
+     "i": 37,
+     "t": 354.3,
+     "gtc": "47.2969px  1306.3px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      47.3,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      90.5,
+      54,
+      1306.3,
+      792
+     ],
+     "cube": [
+      631,
+      339.1,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:354"
+     ]
+    },
+    {
+     "i": 38,
+     "t": 363.8,
+     "gtc": "41.7812px  1311.81px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      41.8,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      85,
+      54,
+      1311.8,
+      792
+     ],
+     "cube": [
+      628.2,
+      339.8,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:364"
+     ]
+    },
+    {
+     "i": 39,
+     "t": 373.4,
+     "gtc": "36.6719px  1316.92px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      36.7,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      79.9,
+      54,
+      1316.9,
+      792
+     ],
+     "cube": [
+      625.6,
+      340.1,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:373"
+     ]
+    },
+    {
+     "i": 40,
+     "t": 383,
+     "gtc": "31.9609px  1321.63px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      32,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      75.2,
+      54,
+      1321.6,
+      792
+     ],
+     "cube": [
+      623.3,
+      340.5,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:383"
+     ]
+    },
+    {
+     "i": 41,
+     "t": 392.6,
+     "gtc": "27.625px  1325.97px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      27.6,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      70.8,
+      54,
+      1326,
+      792
+     ],
+     "cube": [
+      621.1,
+      340.8,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:393"
+     ]
+    },
+    {
+     "i": 42,
+     "t": 402.1,
+     "gtc": "23.6484px  1329.95px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      23.6,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      66.9,
+      54,
+      1329.9,
+      792
+     ],
+     "cube": [
+      619.1,
+      341,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:402"
+     ]
+    },
+    {
+     "i": 43,
+     "t": 411.7,
+     "gtc": "20.0078px  1333.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      20,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      63.2,
+      54,
+      1333.6,
+      792
+     ],
+     "cube": [
+      617.2,
+      341.3,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:412"
+     ]
+    },
+    {
+     "i": 44,
+     "t": 421.3,
+     "gtc": "16.6797px  1336.91px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      16.7,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      59.9,
+      54,
+      1336.9,
+      792
+     ],
+     "cube": [
+      615.5,
+      341.5,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:421"
+     ]
+    },
+    {
+     "i": 45,
+     "t": 430.9,
+     "gtc": "13.6562px  1339.94px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      13.7,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      56.9,
+      54,
+      1339.9,
+      792
+     ],
+     "cube": [
+      614,
+      341.7,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:431"
+     ]
+    },
+    {
+     "i": 46,
+     "t": 440.4,
+     "gtc": "10.9141px  1342.68px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      10.9,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      54.1,
+      54,
+      1342.7,
+      792
+     ],
+     "cube": [
+      612.6,
+      341.9,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:440"
+     ]
+    },
+    {
+     "i": 47,
+     "t": 450,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--closed",
+     "wCls": "controls-pane--closed",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.2,
+      342,
+      225,
+      225
+     ],
+     "anims": []
+    }
+   ]
+  },
+  "open": {
+   "anims": [
+    {
+     "kind": "CSSTransition",
+     "prop": "grid-template-columns",
+     "target": "controls-layout justify-items-stretch items-start relative c",
+     "dur": 450,
+     "delay": 0,
+     "easing": "linear(0 0%, 0.00287 2.041%, 0.01102 4.0",
+     "ct": 33.299999999997
+    },
+    {
+     "kind": "CSSTransition",
+     "prop": "opacity",
+     "target": "controls-pane group/controls min-w-0 overflow-hidden",
+     "dur": 300,
+     "delay": 0,
+     "easing": "cubic-bezier(0, 0, 0.2, 1)",
+     "ct": 33.299999999997
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "t": 0,
+     "gtc": "0px  1353.59px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      0,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      43.2,
+      54,
+      1353.6,
+      792
+     ],
+     "cube": [
+      607.5,
+      338,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:0",
+      "CSSTransition:opacity:controls-pane:paused:0"
+     ]
+    },
+    {
+     "i": 1,
+     "t": 9.6,
+     "gtc": "1.52344px  1352.07px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      1.5,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.119459",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      44.7,
+      54,
+      1352.1,
+      792
+     ],
+     "cube": [
+      608.2,
+      337.8,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:10",
+      "CSSTransition:opacity:controls-pane:paused:10"
+     ]
+    },
+    {
+     "i": 2,
+     "t": 19.1,
+     "gtc": "5.75px  1347.84px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      5.8,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.213382",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      49,
+      54,
+      1347.8,
+      792
+     ],
+     "cube": [
+      610.4,
+      337.7,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:19",
+      "CSSTransition:opacity:controls-pane:paused:19"
+     ]
+    },
+    {
+     "i": 3,
+     "t": 28.7,
+     "gtc": "12.3203px  1341.27px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      12.3,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.293891",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      55.5,
+      54,
+      1341.3,
+      792
+     ],
+     "cube": [
+      613.6,
+      337.6,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:29",
+      "CSSTransition:opacity:controls-pane:paused:29"
+     ]
+    },
+    {
+     "i": 4,
+     "t": 38.3,
+     "gtc": "20.9141px  1332.68px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      20.9,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.364847",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      64.1,
+      54,
+      1332.7,
+      792
+     ],
+     "cube": [
+      618,
+      337.5,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:38",
+      "CSSTransition:opacity:controls-pane:paused:38"
+     ]
+    },
+    {
+     "i": 5,
+     "t": 47.9,
+     "gtc": "31.2266px  1322.37px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      31.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.428323",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      74.4,
+      54,
+      1322.4,
+      792
+     ],
+     "cube": [
+      623.1,
+      337.5,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:48",
+      "CSSTransition:opacity:controls-pane:paused:48"
+     ]
+    },
+    {
+     "i": 6,
+     "t": 57.4,
+     "gtc": "42.9922px  1310.6px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      43,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.485634",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      86.2,
+      54,
+      1310.6,
+      792
+     ],
+     "cube": [
+      629,
+      337.5,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:57",
+      "CSSTransition:opacity:controls-pane:paused:57"
+     ]
+    },
+    {
+     "i": 7,
+     "t": 67,
+     "gtc": "55.9688px  1297.62px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      56,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.537699",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      99.2,
+      54,
+      1297.6,
+      792
+     ],
+     "cube": [
+      635.5,
+      337.5,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:67",
+      "CSSTransition:opacity:controls-pane:paused:67"
+     ]
+    },
+    {
+     "i": 8,
+     "t": 76.6,
+     "gtc": "69.9375px  1283.66px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      69.9,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.585195",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      113.1,
+      54,
+      1283.7,
+      792
+     ],
+     "cube": [
+      642.5,
+      337.6,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:77",
+      "CSSTransition:opacity:controls-pane:paused:77"
+     ]
+    },
+    {
+     "i": 9,
+     "t": 86.2,
+     "gtc": "84.6719px  1268.92px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      84.7,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.628646",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      127.9,
+      54,
+      1268.9,
+      792
+     ],
+     "cube": [
+      649.8,
+      337.7,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:86",
+      "CSSTransition:opacity:controls-pane:paused:86"
+     ]
+    },
+    {
+     "i": 10,
+     "t": 95.7,
+     "gtc": "100.008px  1253.59px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      100,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.668469",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      143.2,
+      54,
+      1253.6,
+      792
+     ],
+     "cube": [
+      657.5,
+      337.9,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:96",
+      "CSSTransition:opacity:controls-pane:paused:96"
+     ]
+    },
+    {
+     "i": 11,
+     "t": 105.3,
+     "gtc": "115.773px  1237.82px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      115.8,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.705001",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      159,
+      54,
+      1237.8,
+      792
+     ],
+     "cube": [
+      665.3,
+      338.1,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:105",
+      "CSSTransition:opacity:controls-pane:paused:105"
+     ]
+    },
+    {
+     "i": 12,
+     "t": 114.9,
+     "gtc": "131.828px  1221.77px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      131.8,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.738528",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      175,
+      54,
+      1221.8,
+      792
+     ],
+     "cube": [
+      673.4,
+      338.3,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:115",
+      "CSSTransition:opacity:controls-pane:paused:115"
+     ]
+    },
+    {
+     "i": 13,
+     "t": 124.5,
+     "gtc": "148.031px  1205.56px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      148,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.769286",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      191.2,
+      54,
+      1205.6,
+      792
+     ],
+     "cube": [
+      681.4,
+      338.6,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:124",
+      "CSSTransition:opacity:controls-pane:paused:124"
+     ]
+    },
+    {
+     "i": 14,
+     "t": 134,
+     "gtc": "164.266px  1189.33px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      164.3,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.79748",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      207.5,
+      54,
+      1189.3,
+      792
+     ],
+     "cube": [
+      689.5,
+      338.9,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:134",
+      "CSSTransition:opacity:controls-pane:paused:134"
+     ]
+    },
+    {
+     "i": 15,
+     "t": 143.6,
+     "gtc": "180.438px  1173.16px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      180.4,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.823288",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      223.6,
+      54,
+      1173.2,
+      792
+     ],
+     "cube": [
+      697.6,
+      339.3,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:144",
+      "CSSTransition:opacity:controls-pane:paused:144"
+     ]
+    },
+    {
+     "i": 16,
+     "t": 153.2,
+     "gtc": "196.445px  1157.15px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      196.4,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.846865",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      239.6,
+      54,
+      1157.1,
+      792
+     ],
+     "cube": [
+      705.6,
+      339.6,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:153",
+      "CSSTransition:opacity:controls-pane:paused:153"
+     ]
+    },
+    {
+     "i": 17,
+     "t": 162.8,
+     "gtc": "212.219px  1141.38px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      212.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.868346",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      255.4,
+      54,
+      1141.4,
+      792
+     ],
+     "cube": [
+      713.4,
+      340,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:163",
+      "CSSTransition:opacity:controls-pane:paused:163"
+     ]
+    },
+    {
+     "i": 18,
+     "t": 172.3,
+     "gtc": "227.688px  1125.91px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      227.7,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.887853",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      270.9,
+      54,
+      1125.9,
+      792
+     ],
+     "cube": [
+      721.1,
+      340.4,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:172",
+      "CSSTransition:opacity:controls-pane:paused:172"
+     ]
+    },
+    {
+     "i": 19,
+     "t": 181.9,
+     "gtc": "242.805px  1110.79px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      242.8,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.905495",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      286,
+      54,
+      1110.8,
+      792
+     ],
+     "cube": [
+      728.7,
+      340.8,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:182",
+      "CSSTransition:opacity:controls-pane:paused:182"
+     ]
+    },
+    {
+     "i": 20,
+     "t": 191.5,
+     "gtc": "257.5px  1096.09px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      257.5,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.921369",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      300.7,
+      54,
+      1096.1,
+      792
+     ],
+     "cube": [
+      736,
+      341.1,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:191",
+      "CSSTransition:opacity:controls-pane:paused:191"
+     ]
+    },
+    {
+     "i": 21,
+     "t": 201.1,
+     "gtc": "271.75px  1081.84px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open,controls-pane--hovered",
+     "w": [
+      43.2,
+      54,
+      271.8,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.935565",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      315,
+      54,
+      1081.8,
+      792
+     ],
+     "cube": [
+      743.1,
+      341.4,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:201",
+      "CSSTransition:opacity:controls-pane:paused:201"
+     ]
+    },
+    {
+     "i": 22,
+     "t": 210.6,
+     "gtc": "285.523px  1068.07px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      285.5,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.948161",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      328.7,
+      54,
+      1068.1,
+      792
+     ],
+     "cube": [
+      750,
+      341.6,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:211",
+      "CSSTransition:opacity:controls-pane:paused:211"
+     ]
+    },
+    {
+     "i": 23,
+     "t": 220.2,
+     "gtc": "298.781px  1054.81px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      298.8,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.959232",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      342,
+      54,
+      1054.8,
+      792
+     ],
+     "cube": [
+      756.6,
+      341.8,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:220",
+      "CSSTransition:opacity:controls-pane:paused:220"
+     ]
+    },
+    {
+     "i": 24,
+     "t": 229.8,
+     "gtc": "311.508px  1042.09px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      311.5,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.968844",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      354.7,
+      54,
+      1042.1,
+      792
+     ],
+     "cube": [
+      762.9,
+      342,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:230",
+      "CSSTransition:opacity:controls-pane:paused:230"
+     ]
+    },
+    {
+     "i": 25,
+     "t": 239.4,
+     "gtc": "323.68px  1029.91px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      323.7,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.97706",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      366.9,
+      54,
+      1029.9,
+      792
+     ],
+     "cube": [
+      769,
+      342.1,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:239",
+      "CSSTransition:opacity:controls-pane:paused:239"
+     ]
+    },
+    {
+     "i": 26,
+     "t": 248.9,
+     "gtc": "335.305px  1018.29px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      335.3,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.983936",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      378.5,
+      54,
+      1018.3,
+      792
+     ],
+     "cube": [
+      774.8,
+      342.2,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:249",
+      "CSSTransition:opacity:controls-pane:paused:249"
+     ]
+    },
+    {
+     "i": 27,
+     "t": 258.5,
+     "gtc": "346.367px  1007.23px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      346.4,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.989525",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      389.6,
+      54,
+      1007.2,
+      792
+     ],
+     "cube": [
+      780.3,
+      342.2,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:259",
+      "CSSTransition:opacity:controls-pane:paused:259"
+     ]
+    },
+    {
+     "i": 28,
+     "t": 268.1,
+     "gtc": "356.883px  996.711px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      356.9,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.993876",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      400.1,
+      54,
+      996.7,
+      792
+     ],
+     "cube": [
+      785.6,
+      342.1,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:268",
+      "CSSTransition:opacity:controls-pane:paused:268"
+     ]
+    },
+    {
+     "i": 29,
+     "t": 277.7,
+     "gtc": "366.852px  986.742px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      366.9,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.997034",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      410.1,
+      54,
+      986.7,
+      792
+     ],
+     "cube": [
+      790.6,
+      342.1,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:278",
+      "CSSTransition:opacity:controls-pane:paused:278"
+     ]
+    },
+    {
+     "i": 30,
+     "t": 287.2,
+     "gtc": "376.266px  977.328px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      376.3,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.999043",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      419.5,
+      54,
+      977.3,
+      792
+     ],
+     "cube": [
+      795.3,
+      342,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:287",
+      "CSSTransition:opacity:controls-pane:paused:287"
+     ]
+    },
+    {
+     "i": 31,
+     "t": 296.8,
+     "gtc": "385.148px  968.445px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      385.1,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "0.999941",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      428.4,
+      54,
+      968.4,
+      792
+     ],
+     "cube": [
+      799.8,
+      341.8,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:297",
+      "CSSTransition:opacity:controls-pane:paused:297"
+     ]
+    },
+    {
+     "i": 32,
+     "t": 306.4,
+     "gtc": "393.508px  960.086px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      393.5,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      436.7,
+      54,
+      960.1,
+      792
+     ],
+     "cube": [
+      804,
+      341.6,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:306"
+     ]
+    },
+    {
+     "i": 33,
+     "t": 316,
+     "gtc": "401.344px  952.25px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      401.3,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      444.5,
+      54,
+      952.3,
+      792
+     ],
+     "cube": [
+      807.9,
+      341.3,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:316"
+     ]
+    },
+    {
+     "i": 34,
+     "t": 325.5,
+     "gtc": "408.695px  944.898px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      408.7,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      451.9,
+      54,
+      944.9,
+      792
+     ],
+     "cube": [
+      811.6,
+      341,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:326"
+     ]
+    },
+    {
+     "i": 35,
+     "t": 335.1,
+     "gtc": "415.555px  938.039px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      415.6,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      458.8,
+      54,
+      938,
+      792
+     ],
+     "cube": [
+      815,
+      340.7,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:335"
+     ]
+    },
+    {
+     "i": 36,
+     "t": 344.7,
+     "gtc": "421.953px  931.641px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      422,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      465.2,
+      54,
+      931.6,
+      792
+     ],
+     "cube": [
+      818.3,
+      340.3,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:345"
+     ]
+    },
+    {
+     "i": 37,
+     "t": 354.3,
+     "gtc": "427.898px  925.695px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      427.9,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      471.1,
+      54,
+      925.7,
+      792
+     ],
+     "cube": [
+      821.3,
+      339.9,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:354"
+     ]
+    },
+    {
+     "i": 38,
+     "t": 363.8,
+     "gtc": "433.414px  920.18px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      433.4,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      476.6,
+      54,
+      920.2,
+      792
+     ],
+     "cube": [
+      824.1,
+      339.6,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:364"
+     ]
+    },
+    {
+     "i": 39,
+     "t": 373.4,
+     "gtc": "438.523px  915.07px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      438.5,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      481.7,
+      54,
+      915.1,
+      792
+     ],
+     "cube": [
+      826.6,
+      339.1,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:373"
+     ]
+    },
+    {
+     "i": 40,
+     "t": 383,
+     "gtc": "443.234px  910.359px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      443.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      486.4,
+      54,
+      910.4,
+      792
+     ],
+     "cube": [
+      829,
+      338.7,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:383"
+     ]
+    },
+    {
+     "i": 41,
+     "t": 392.6,
+     "gtc": "447.57px  906.023px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      447.6,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      490.8,
+      54,
+      906,
+      792
+     ],
+     "cube": [
+      831.2,
+      338.3,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:393"
+     ]
+    },
+    {
+     "i": 42,
+     "t": 402.1,
+     "gtc": "451.547px  902.047px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      451.5,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      494.8,
+      54,
+      902,
+      792
+     ],
+     "cube": [
+      833.2,
+      338,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:402"
+     ]
+    },
+    {
+     "i": 43,
+     "t": 411.7,
+     "gtc": "455.188px  898.406px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      455.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      498.4,
+      54,
+      898.4,
+      792
+     ],
+     "cube": [
+      835.1,
+      337.7,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:412"
+     ]
+    },
+    {
+     "i": 44,
+     "t": 421.3,
+     "gtc": "458.516px  895.078px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      458.5,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      501.7,
+      54,
+      895.1,
+      792
+     ],
+     "cube": [
+      836.8,
+      337.6,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:421"
+     ]
+    },
+    {
+     "i": 45,
+     "t": 430.9,
+     "gtc": "461.539px  892.055px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      461.5,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      504.7,
+      54,
+      892.1,
+      792
+     ],
+     "cube": [
+      838.3,
+      337.5,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:431"
+     ]
+    },
+    {
+     "i": 46,
+     "t": 440.4,
+     "gtc": "464.281px  889.312px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      464.3,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      507.5,
+      54,
+      889.3,
+      792
+     ],
+     "cube": [
+      839.6,
+      337.5,
+      225,
+      225
+     ],
+     "anims": [
+      "CSSTransition:grid-template-columns:controls-layout:paused:440"
+     ]
+    },
+    {
+     "i": 47,
+     "t": 450,
+     "gtc": "475.195px  878.398px",
+     "layCls": "controls-layout--open",
+     "wCls": "controls-pane--open",
+     "w": [
+      43.2,
+      54,
+      475.2,
+      632
+     ],
+     "wOp": "1",
+     "pOp": "1",
+     "pOverflow": "hidden",
+     "pFade": "",
+     "stage": [
+      518.4,
+      54,
+      878.4,
+      792
+     ],
+     "cube": [
+      845.1,
+      337.5,
+      225,
+      225
+     ],
+     "anims": []
+    }
+   ]
+  }
+ },
+ "final": {
+  "gtc": "475.195px  878.398px",
+  "layCls": "controls-layout--open",
+  "wCls": "controls-pane--open",
+  "w": [
+   43.2,
+   54,
+   475.2,
+   632
+  ],
+  "wOp": "1",
+  "pOp": "1",
+  "pOverflow": "hidden",
+  "pFade": "",
+  "stage": [
+   518.4,
+   54,
+   878.4,
+   792
+  ],
+  "cube": [
+   844.9,
+   339.5,
+   225,
+   225
+  ],
+  "anims": []
+ }
+}

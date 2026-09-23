@@ -1,0 +1,14 @@
+import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
+import { probe } from "./lib.mjs";
+const b = await chromium.launch({ headless: false });
+const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
+await p.goto("http://localhost:5173/#/cube", { waitUntil: "networkidle" });
+await p.waitForTimeout(3000);
+const gpu = await p.evaluate(() => { const gl = document.createElement("canvas").getContext("webgl"); const ext = gl.getExtension("WEBGL_debug_renderer_info"); return gl.getParameter(ext.UNMASKED_RENDERER_WEBGL); });
+console.log("GPU", gpu, "theme-dark?", await p.evaluate(() => document.documentElement.className));
+console.log(JSON.stringify(await p.evaluate(probe), null, 0));
+const btns = await p.evaluate(() => [...document.querySelectorAll("button,[role=button],[role=slider]")].filter(b => b.offsetParent).map(b => (b.getAttribute("aria-label") || b.title || b.textContent.trim()).slice(0, 30)).join(" | "));
+console.log("BTNS", btns);
+const bb = await p.locator(".cube").boundingBox(); console.log("cubeBB", JSON.stringify(bb));
+await p.screenshot({ path: "recon-rest.png" });
+await b.close();

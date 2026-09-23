@@ -1,0 +1,461 @@
+{
+ "prov0": {
+  "khead": "cd2cd88f",
+  "kdirty": 2,
+  "at": "2026-09-23T15:09:00.241Z"
+ },
+ "afterImport": {
+  "hasAnim": true,
+  "err": null,
+  "targetIsSubject": true,
+  "paused": false,
+  "playing": false,
+  "t": 0,
+  "ph": "0%",
+  "inl": "rotateX(324.217deg) rotateY(0.900603turn) rotateZ(324.217deg",
+  "op": "1",
+  "n": 3
+ },
+ "I1": [
+  {
+   "i": 0,
+   "ph": "0%",
+   "inl": "rotateX(0deg) rotateY(0deg)",
+   "op": "1"
+  },
+  {
+   "i": 1,
+   "ph": "2%",
+   "inl": "rotateX(0.276994deg) rotateY(0.138497deg)",
+   "op": "0.998153"
+  },
+  {
+   "i": 2,
+   "ph": "4%",
+   "inl": "rotateX(1.12689deg) rotateY(0.563447deg)",
+   "op": "0.992487"
+  },
+  {
+   "i": 3,
+   "ph": "6%",
+   "inl": "rotateX(2.57588deg) rotateY(1.28794deg)",
+   "op": "0.982827"
+  },
+  {
+   "i": 4,
+   "ph": "8%",
+   "inl": "rotateX(4.6454deg) rotateY(2.3227deg)",
+   "op": "0.969031"
+  },
+  {
+   "i": 5,
+   "ph": "10%",
+   "inl": "rotateX(7.34939deg) rotateY(3.67469deg)",
+   "op": "0.951004"
+  },
+  {
+   "i": 6,
+   "ph": "12%",
+   "inl": "rotateX(10.6907deg) rotateY(5.34535deg)",
+   "op": "0.928729"
+  },
+  {
+   "i": 7,
+   "ph": "14%",
+   "inl": "rotateX(14.6571deg) rotateY(7.32854deg)",
+   "op": "0.902286"
+  },
+  {
+   "i": 8,
+   "ph": "16%",
+   "inl": "rotateX(19.2168deg) rotateY(9.6084deg)",
+   "op": "0.871888"
+  },
+  {
+   "i": 9,
+   "ph": "18%",
+   "inl": "rotateX(24.3146deg) rotateY(12.1573deg)",
+   "op": "0.837902"
+  },
+  {
+   "i": 10,
+   "ph": "20%",
+   "inl": "rotateX(29.8696deg) rotateY(14.9348deg)",
+   "op": "0.80087"
+  },
+  {
+   "i": 11,
+   "ph": "22%",
+   "inl": "rotateX(35.7745deg) rotateY(17.8872deg)",
+   "op": "0.761504"
+  },
+  {
+   "i": 12,
+   "ph": "24%",
+   "inl": "rotateX(41.8997deg) rotateY(20.9499deg)",
+   "op": "0.720668"
+  },
+  {
+   "i": 13,
+   "ph": "26%",
+   "inl": "rotateX(48.1003deg) rotateY(24.0501deg)",
+   "op": "0.679331"
+  },
+  {
+   "i": 14,
+   "ph": "28%",
+   "inl": "rotateX(54.2255deg) rotateY(27.1128deg)",
+   "op": "0.638496"
+  },
+  {
+   "i": 15,
+   "ph": "30%",
+   "inl": "rotateX(60.1304deg) rotateY(30.0652deg)",
+   "op": "0.59913"
+  },
+  {
+   "i": 16,
+   "ph": "32%",
+   "inl": "rotateX(65.6854deg) rotateY(32.8427deg)",
+   "op": "0.562098"
+  },
+  {
+   "i": 17,
+   "ph": "34%",
+   "inl": "rotateX(70.7832deg) rotateY(35.3916deg)",
+   "op": "0.528112"
+  },
+  {
+   "i": 18,
+   "ph": "36%",
+   "inl": "rotateX(75.3429deg) rotateY(37.6715deg)",
+   "op": "0.497714"
+  },
+  {
+   "i": 19,
+   "ph": "38%",
+   "inl": "rotateX(79.3093deg) rotateY(39.6546deg)",
+   "op": "0.471271"
+  },
+  {
+   "i": 20,
+   "ph": "40%",
+   "inl": "rotateX(82.6506deg) rotateY(41.3253deg)",
+   "op": "0.448996"
+  },
+  {
+   "i": 21,
+   "ph": "42%",
+   "inl": "rotateX(85.3546deg) rotateY(42.6773deg)",
+   "op": "0.430969"
+  },
+  {
+   "i": 22,
+   "ph": "44%",
+   "inl": "rotateX(87.4241deg) rotateY(43.7121deg)",
+   "op": "0.417173"
+  },
+  {
+   "i": 23,
+   "ph": "46%",
+   "inl": "rotateX(88.8731deg) rotateY(44.4366deg)",
+   "op": "0.407513"
+  },
+  {
+   "i": 24,
+   "ph": "48%",
+   "inl": "rotateX(89.723deg) rotateY(44.8615deg)",
+   "op": "0.401847"
+  },
+  {
+   "i": 25,
+   "ph": "50%",
+   "inl": "rotateX(90deg) rotateY(45deg)",
+   "op": "0.4"
+  },
+  {
+   "i": 26,
+   "ph": "52%",
+   "inl": "rotateX(90.277deg) rotateY(45.1385deg)",
+   "op": "0.401847"
+  },
+  {
+   "i": 27,
+   "ph": "54%",
+   "inl": "rotateX(91.1269deg) rotateY(45.5634deg)",
+   "op": "0.407513"
+  },
+  {
+   "i": 28,
+   "ph": "56%",
+   "inl": "rotateX(92.5759deg) rotateY(46.2879deg)",
+   "op": "0.417173"
+  },
+  {
+   "i": 29,
+   "ph": "58%",
+   "inl": "rotateX(94.6454deg) rotateY(47.3227deg)",
+   "op": "0.430969"
+  },
+  {
+   "i": 30,
+   "ph": "60%",
+   "inl": "rotateX(97.3494deg) rotateY(48.6747deg)",
+   "op": "0.448996"
+  },
+  {
+   "i": 31,
+   "ph": "62%",
+   "inl": "rotateX(100.691deg) rotateY(50.3454deg)",
+   "op": "0.471271"
+  },
+  {
+   "i": 32,
+   "ph": "64%",
+   "inl": "rotateX(104.657deg) rotateY(52.3285deg)",
+   "op": "0.497714"
+  },
+  {
+   "i": 33,
+   "ph": "66%",
+   "inl": "rotateX(109.217deg) rotateY(54.6084deg)",
+   "op": "0.528112"
+  },
+  {
+   "i": 34,
+   "ph": "68%",
+   "inl": "rotateX(114.315deg) rotateY(57.1573deg)",
+   "op": "0.562098"
+  },
+  {
+   "i": 35,
+   "ph": "70%",
+   "inl": "rotateX(119.87deg) rotateY(59.9348deg)",
+   "op": "0.59913"
+  },
+  {
+   "i": 36,
+   "ph": "72%",
+   "inl": "rotateX(125.774deg) rotateY(62.8872deg)",
+   "op": "0.638496"
+  },
+  {
+   "i": 37,
+   "ph": "74%",
+   "inl": "rotateX(131.9deg) rotateY(65.9499deg)",
+   "op": "0.679331"
+  },
+  {
+   "i": 38,
+   "ph": "76%",
+   "inl": "rotateX(138.1deg) rotateY(69.0501deg)",
+   "op": "0.720668"
+  },
+  {
+   "i": 39,
+   "ph": "78%",
+   "inl": "rotateX(144.226deg) rotateY(72.1128deg)",
+   "op": "0.761504"
+  },
+  {
+   "i": 40,
+   "ph": "80%",
+   "inl": "rotateX(150.13deg) rotateY(75.0652deg)",
+   "op": "0.80087"
+  },
+  {
+   "i": 41,
+   "ph": "82%",
+   "inl": "rotateX(155.685deg) rotateY(77.8427deg)",
+   "op": "0.837902"
+  },
+  {
+   "i": 42,
+   "ph": "84%",
+   "inl": "rotateX(160.783deg) rotateY(80.3916deg)",
+   "op": "0.871888"
+  },
+  {
+   "i": 43,
+   "ph": "86%",
+   "inl": "rotateX(165.343deg) rotateY(82.6715deg)",
+   "op": "0.902286"
+  },
+  {
+   "i": 44,
+   "ph": "88%",
+   "inl": "rotateX(169.309deg) rotateY(84.6546deg)",
+   "op": "0.928729"
+  },
+  {
+   "i": 45,
+   "ph": "90%",
+   "inl": "rotateX(172.651deg) rotateY(86.3253deg)",
+   "op": "0.951004"
+  },
+  {
+   "i": 46,
+   "ph": "92%",
+   "inl": "rotateX(175.355deg) rotateY(87.6773deg)",
+   "op": "0.969031"
+  },
+  {
+   "i": 47,
+   "ph": "94%",
+   "inl": "rotateX(177.424deg) rotateY(88.7121deg)",
+   "op": "0.982827"
+  },
+  {
+   "i": 48,
+   "ph": "96%",
+   "inl": "rotateX(178.873deg) rotateY(89.4366deg)",
+   "op": "0.992487"
+  },
+  {
+   "i": 49,
+   "ph": "98%",
+   "inl": "rotateX(179.723deg) rotateY(89.8615deg)",
+   "op": "0.998153"
+  },
+  {
+   "i": 50,
+   "ph": "100%",
+   "inl": "rotateX(180deg) rotateY(90deg)",
+   "op": "1"
+  }
+ ],
+ "clip": {
+  "x": 85,
+  "y": 124,
+  "width": 380,
+  "height": 218
+ },
+ "I2_label0": "Pause animation",
+ "I2_state0": {
+  "distinctPh": 1,
+  "distinctInl": 1,
+  "first": {
+   "hasAnim": true,
+   "err": null,
+   "targetIsSubject": true,
+   "paused": true,
+   "playing": false,
+   "t": 0,
+   "ph": "0%",
+   "inl": "rotateX(0deg) rotateY(0deg)",
+   "op": "1",
+   "n": 3
+  },
+  "last": {
+   "hasAnim": true,
+   "err": null,
+   "targetIsSubject": true,
+   "paused": true,
+   "playing": false,
+   "t": 0,
+   "ph": "0%",
+   "inl": "rotateX(0deg) rotateY(0deg)",
+   "op": "1",
+   "n": 3
+  }
+ },
+ "I2_click1": {
+  "clicked": "Pause animation",
+  "now": "Pause animation",
+  "s": {
+   "distinctPh": 1,
+   "distinctInl": 1,
+   "first": {
+    "hasAnim": true,
+    "err": null,
+    "targetIsSubject": true,
+    "paused": true,
+    "playing": false,
+    "t": 0,
+    "ph": "0%",
+    "inl": "rotateX(0deg) rotateY(0deg)",
+    "op": "1",
+    "n": 3
+   },
+   "last": {
+    "hasAnim": true,
+    "err": null,
+    "targetIsSubject": true,
+    "paused": true,
+    "playing": false,
+    "t": 0,
+    "ph": "0%",
+    "inl": "rotateX(0deg) rotateY(0deg)",
+    "op": "1",
+    "n": 3
+   }
+  }
+ },
+ "I2_click2": {
+  "clicked": "Pause animation",
+  "now": "Play animation",
+  "s": {
+   "distinctPh": 1,
+   "distinctInl": 1,
+   "first": {
+    "hasAnim": true,
+    "err": null,
+    "targetIsSubject": true,
+    "paused": true,
+    "playing": false,
+    "t": 0,
+    "ph": "0%",
+    "inl": "rotateX(0deg) rotateY(0deg)",
+    "op": "1",
+    "n": 3
+   },
+   "last": {
+    "hasAnim": true,
+    "err": null,
+    "targetIsSubject": true,
+    "paused": true,
+    "playing": false,
+    "t": 0,
+    "ph": "0%",
+    "inl": "rotateX(0deg) rotateY(0deg)",
+    "op": "1",
+    "n": 3
+   }
+  }
+ },
+ "I2_space": {
+  "distinctPh": 1,
+  "distinctInl": 1,
+  "first": {
+   "hasAnim": true,
+   "err": null,
+   "targetIsSubject": true,
+   "paused": true,
+   "playing": false,
+   "t": 0,
+   "ph": "0%",
+   "inl": "rotateX(0deg) rotateY(0deg)",
+   "op": "1",
+   "n": 3
+  },
+  "last": {
+   "hasAnim": true,
+   "err": null,
+   "targetIsSubject": true,
+   "paused": true,
+   "playing": false,
+   "t": 0,
+   "ph": "0%",
+   "inl": "rotateX(0deg) rotateY(0deg)",
+   "op": "1",
+   "n": 3
+  }
+ },
+ "errs": [
+  "Failed to load resource: the server responded with a status of 404 (Not Found)"
+ ],
+ "prov1": {
+  "khead": "cd2cd88f",
+  "kdirty": 2
+ }
+}

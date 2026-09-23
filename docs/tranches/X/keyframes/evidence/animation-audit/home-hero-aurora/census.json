@@ -1,0 +1,243 @@
+{
+ "substrate": "webgl",
+ "prmMatches": false,
+ "root": {
+  "tag": "DIV",
+  "cls": "aurora-root block h-full w-full overflow-hidden hero-aurora pointer-events-none ",
+  "opacity": "0.1",
+  "zIndex": "auto",
+  "position": "fixed",
+  "mixBlend": "normal",
+  "filter": "none",
+  "transform": "none",
+  "isolation": "auto",
+  "display": "grid",
+  "contain": "content",
+  "contentVisibility": "auto",
+  "bgImage": "none",
+  "bgColor": "rgba(0, 0, 0, 0)",
+  "rect": {
+   "x": 0,
+   "y": 0,
+   "width": 1440,
+   "height": 900,
+   "top": 0,
+   "right": 1440,
+   "bottom": 900,
+   "left": 0
+  }
+ },
+ "placeholder": {
+  "tag": "DIV",
+  "cls": "aurora-placeholder h-full min-h-0 w-full",
+  "opacity": "1",
+  "zIndex": "auto",
+  "position": "static",
+  "mixBlend": "normal",
+  "filter": "none",
+  "transform": "none",
+  "isolation": "auto",
+  "display": "block",
+  "contain": "none",
+  "contentVisibility": "visible",
+  "bgImage": "url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAA0UlEQVR4ASyOO04DUQxFz/O8xySQ0KAgUbEHOkRBxR4Qa6ClYA+shAJWABVLYA2RMqnyU2bmfRxPFNvXhX10d",
+  "bgColor": "rgb(106, 79, 212)",
+  "rect": {
+   "x": 0,
+   "y": 0,
+   "width": 1440,
+   "height": 900,
+   "top": 0,
+   "right": 1440,
+   "bottom": 900,
+   "left": 0
+  }
+ },
+ "layer": {
+  "tag": "DIV",
+  "cls": "aurora-canvas-layer h-full min-h-0 w-full aurora-canvas-layer--armed",
+  "opacity": "1",
+  "zIndex": "auto",
+  "position": "static",
+  "mixBlend": "normal",
+  "filter": "none",
+  "transform": "none",
+  "isolation": "isolate",
+  "display": "block",
+  "contain": "none",
+  "contentVisibility": "visible",
+  "bgImage": "none",
+  "bgColor": "rgba(0, 0, 0, 0)",
+  "rect": {
+   "x": 0,
+   "y": 0,
+   "width": 1440,
+   "height": 900,
+   "top": 0,
+   "right": 1440,
+   "bottom": 900,
+   "left": 0
+  }
+ },
+ "canvas": {
+  "tag": "CANVAS",
+  "cls": "aurora-canvas block h-full w-full aurora-canvas--armed",
+  "opacity": "1",
+  "zIndex": "auto",
+  "position": "static",
+  "mixBlend": "normal",
+  "filter": "none",
+  "transform": "none",
+  "isolation": "auto",
+  "display": "block",
+  "contain": "none",
+  "contentVisibility": "visible",
+  "bgImage": "none",
+  "bgColor": "rgba(0, 0, 0, 0)",
+  "rect": {
+   "x": 0,
+   "y": 0,
+   "width": 1440,
+   "height": 900,
+   "top": 0,
+   "right": 1440,
+   "bottom": 900,
+   "left": 0
+  },
+  "w": 1440,
+  "h": 900
+ },
+ "grid": {
+  "tag": "DIV",
+  "cls": "grid-background pointer-events-none fixed inset-0 h-dvh w-dvw",
+  "opacity": "1",
+  "zIndex": "auto",
+  "position": "fixed",
+  "mixBlend": "normal",
+  "filter": "none",
+  "transform": "none",
+  "isolation": "auto",
+  "display": "block",
+  "contain": "none",
+  "contentVisibility": "visible",
+  "bgImage": "linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.11) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.11 0.098 0.09 / 0.11) 1px, rgba(0, 0, 0, 0",
+  "bgColor": "rgba(0, 0, 0, 0)",
+  "rect": {
+   "x": 0,
+   "y": 0,
+   "width": 1440,
+   "height": 900,
+   "top": 0,
+   "right": 1440,
+   "bottom": 900,
+   "left": 0
+  }
+ },
+ "exposedKeys": [
+  "config",
+  "canvasRef",
+  "setCursor",
+  "clearCursor",
+  "setCursorRadius",
+  "renderAt",
+  "pause",
+  "resume",
+  "isArmed",
+  "rendererStatus"
+ ],
+ "isArmed": true,
+ "status": {
+  "phase": "ready",
+  "engine": "webgpu",
+  "adapter": "apple · metal-3"
+ },
+ "shellKids": [
+  {
+   "i": 0,
+   "cls": "aurora-root block h-full w-full overflow-hidden hero-aurora ",
+   "z": "auto",
+   "pos": "fixed"
+  },
+  {
+   "i": 1,
+   "cls": "grid-background pointer-events-none fixed inset-0 h-dvh w-dv",
+   "z": "auto",
+   "pos": "fixed"
+  },
+  {
+   "i": 2,
+   "cls": "absolute inset-0 z-controls pointer-events-none",
+   "z": "20",
+   "pos": "absolute"
+  },
+  {
+   "i": 3,
+   "cls": "sr-only",
+   "z": "auto",
+   "pos": "absolute"
+  },
+  {
+   "i": 4,
+   "cls": "grid place-items-center place-self-stretch",
+   "z": "auto",
+   "pos": "static"
+  }
+ ],
+ "pts": [
+  {
+   "x": 720,
+   "y": 450,
+   "stack": [
+    "SPAN.face-numeral.text-display-2",
+    "DIV.face-lacquer.h-full",
+    "DIV.cube-side.front",
+    "DIV.cube.preserve-3d",
+    "DIV.cube-pose.preserve-3d",
+    "DIV.cube-bob.preserve-3d",
+    "DIV.idle-hover.preserve-3d",
+    "DIV.preserve-3d.relative"
+   ]
+  },
+  {
+   "x": 60,
+   "y": 60,
+   "stack": [
+    "DIV.stage-cell.justify-self-stretch",
+    "DIV.controls-layout.justify-items-stretch",
+    "MAIN.grid.place-items-center",
+    "DIV.editor-shell.relative",
+    "DIV.",
+    "BODY.",
+    "HTML."
+   ]
+  },
+  {
+   "x": 1380,
+   "y": 840,
+   "stack": [
+    "DIV.stage-cell.justify-self-stretch",
+    "DIV.controls-layout.justify-items-stretch",
+    "MAIN.grid.place-items-center",
+    "DIV.editor-shell.relative",
+    "DIV.",
+    "BODY.",
+    "HTML."
+   ]
+  },
+  {
+   "x": 300,
+   "y": 700,
+   "stack": [
+    "DIV.grid.h-full",
+    "DIV.scene-host.h-full",
+    "DIV.stage-cell.justify-self-stretch",
+    "DIV.controls-layout.justify-items-stretch",
+    "MAIN.grid.place-items-center",
+    "DIV.editor-shell.relative",
+    "DIV.",
+    "BODY."
+   ]
+  }
+ ],
+ "dpr": 1
+}

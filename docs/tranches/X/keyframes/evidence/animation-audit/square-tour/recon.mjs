@@ -1,0 +1,22 @@
+import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
+const OUT = new URL(".", import.meta.url).pathname;
+const browser = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
+const logs = [];
+page.on("console", m => { if (m.type() === "error" || m.type() === "warning") logs.push(m.type() + ": " + m.text().slice(0, 200)); });
+await page.goto("http://localhost:5173/#/square", { waitUntil: "networkidle" });
+await page.waitForTimeout(2500);
+await page.screenshot({ path: OUT + "recon-rest.png" });
+const info = await page.evaluate(() => {
+  const gl = document.createElement("canvas").getContext("webgl2");
+  const dbg = gl && gl.getExtension("WEBGL_debug_renderer_info");
+  const r = dbg ? gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL) : null;
+  const box = document.querySelector(".demo-box");
+  const rect = box?.getBoundingClientRect();
+  const btns = [...document.querySelectorAll("button[aria-label]")].map(b => b.getAttribute("aria-label")).filter(l => /play|pause|anim/i.test(l));
+  const sliders = [...document.querySelectorAll("[role=slider]")].map(s => ({ label: s.getAttribute("aria-label"), dis: s.getAttribute("aria-disabled") ?? s.getAttribute("data-disabled"), now: s.getAttribute("aria-valuenow"), min: s.getAttribute("aria-valuemin"), max: s.getAttribute("aria-valuemax"), vis: !!s.offsetParent }));
+  return { renderer: r, hash: location.hash, rect: rect && { x: rect.x, y: rect.y, w: rect.width, h: rect.height }, text: box?.innerText.slice(0, 40), mode: box?.dataset.squareMode, transform: box && getComputedStyle(box).transform, btns, sliders, anims: document.getAnimations().length };
+});
+console.log(JSON.stringify(info, null, 1));
+console.log(logs.slice(0, 10).join("\n"));
+await browser.close();

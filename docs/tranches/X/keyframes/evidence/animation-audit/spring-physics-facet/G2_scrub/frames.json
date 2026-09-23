@@ -1,0 +1,298 @@
+{
+ "probe": [
+  {
+   "scrub": 0,
+   "sampler": 672.5,
+   "readout": "0.000",
+   "editorMut": 0,
+   "playing": false,
+   "active": "Scrub animation timeline"
+  },
+  {
+   "scrub": 28,
+   "sampler": 829.3,
+   "readout": "0.285",
+   "editorMut": 0,
+   "playing": false,
+   "active": "Scrub animation timeline"
+  },
+  {
+   "scrub": 168,
+   "sampler": 1225.4,
+   "readout": "1.005",
+   "editorMut": 0,
+   "playing": false,
+   "active": "Scrub animation timeline"
+  },
+  {
+   "scrub": 0,
+   "sampler": 672.5,
+   "readout": "0.000",
+   "editorMut": 0,
+   "playing": false,
+   "active": "Scrub animation timeline"
+  }
+ ],
+ "frames": [
+  {
+   "i": 0,
+   "t": 0,
+   "scrub": 0,
+   "sampler": 672.5,
+   "readout": "0.000",
+   "editorMut": 0,
+   "playing": false,
+   "active": "Scrub animation timeline"
+  },
+  {
+   "i": 1,
+   "t": 56,
+   "scrub": 56,
+   "sampler": 1030.7,
+   "readout": "0.651",
+   "editorMut": 20,
+   "playing": false,
+   "active": "Scrub animation timeline"
+  },
+  {
+   "i": 2,
+   "t": 112,
+   "scrub": 112,
+   "sampler": 1204.4,
+   "readout": "0.967",
+   "editorMut": 40,
+   "playing": false,
+   "active": "Scrub animation timeline"
+  },
+  {
+   "i": 3,
+   "t": 168,
+   "scrub": 168,
+   "sampler": 1225.4,
+   "readout": "1.005",
+   "editorMut": 60,
+   "playing": false,
+   "active": "Scrub animation timeline"
+  },
+  {
+   "i": 4,
+   "t": 224,
+   "scrub": 224,
+   "sampler": 1223.8,
+   "readout": "1.002",
+   "editorMut": 80,
+   "playing": false,
+   "active": "Scrub animation timeline"
+  },
+  {
+   "i": 5,
+   "t": 280,
+   "scrub": 280,
+   "sampler": 1222.9,
+   "readout": "1.000",
+   "editorMut": 100,
+   "playing": false,
+   "active": "Scrub animation timeline"
+  },
+  {
+   "i": 6,
+   "t": 336,
+   "scrub": 336,
+   "sampler": 1222.7,
+   "readout": "1.000",
+   "editorMut": 120,
+   "playing": false,
+   "active": "Scrub animation timeline"
+  },
+  {
+   "i": 7,
+   "t": 392,
+   "scrub": 392,
+   "sampler": 1222.7,
+   "readout": "1.000",
+   "editorMut": 140,
+   "playing": false,
+   "active": "Scrub animation timeline"
+  },
+  {
+   "i": 8,
+   "t": 448,
+   "scrub": 448,
+   "sampler": 1222.7,
+   "readout": "1.000",
+   "editorMut": 160,
+   "playing": false,
+   "active": "Scrub animation timeline"
+  },
+  {
+   "i": 9,
+   "t": 504,
+   "scrub": 504,
+   "sampler": 1222.7,
+   "readout": "1.000",
+   "editorMut": 180,
+   "playing": false,
+   "active": "Scrub animation timeline"
+  },
+  {
+   "i": 10,
+   "t": 560,
+   "scrub": 560,
+   "sampler": 1222.7,
+   "readout": "1.000",
+   "editorMut": 200,
+   "playing": false,
+   "active": "Scrub animation timeline"
+  },
+  {
+   "i": 11,
+   "t": 616,
+   "scrub": 616,
+   "sampler": 1222.7,
+   "readout": "1.000",
+   "editorMut": 220,
+   "playing": false,
+   "active": "Scrub animation timeline"
+  },
+  {
+   "i": 12,
+   "t": 672,
+   "scrub": 672,
+   "sampler": 1222.7,
+   "readout": "1.000",
+   "editorMut": 240,
+   "playing": false,
+   "active": "Scrub animation timeline"
+  },
+  {
+   "i": 13,
+   "t": 728,
+   "scrub": 728,
+   "sampler": 1065.8,
+   "readout": "0.715",
+   "editorMut": 260,
+   "playing": false,
+   "active": "Scrub animation timeline"
+  },
+  {
+   "i": 14,
+   "t": 784,
+   "scrub": 784,
+   "sampler": 744.2,
+   "readout": "0.130",
+   "editorMut": 280,
+   "playing": false,
+   "active": "Scrub animation timeline"
+  },
+  {
+   "i": 15,
+   "t": 840,
+   "scrub": 840,
+   "sampler": 673.2,
+   "readout": "0.001",
+   "editorMut": 300,
+   "playing": false,
+   "active": "Scrub animation timeline"
+  },
+  {
+   "i": 16,
+   "t": 896,
+   "scrub": 896,
+   "sampler": 670.3,
+   "readout": "-0.004",
+   "editorMut": 320,
+   "playing": false,
+   "active": "Scrub animation timeline"
+  },
+  {
+   "i": 17,
+   "t": 952,
+   "scrub": 952,
+   "sampler": 672,
+   "readout": "-0.001",
+   "editorMut": 340,
+   "playing": false,
+   "active": "Scrub animation timeline"
+  },
+  {
+   "i": 18,
+   "t": 1008,
+   "scrub": 1008,
+   "sampler": 672.4,
+   "readout": "-0.000",
+   "editorMut": 360,
+   "playing": false,
+   "active": "Scrub animation timeline"
+  },
+  {
+   "i": 19,
+   "t": 1064,
+   "scrub": 1064,
+   "sampler": 672.5,
+   "readout": "0.000",
+   "editorMut": 380,
+   "playing": false,
+   "active": "Scrub animation timeline"
+  },
+  {
+   "i": 20,
+   "t": 1120,
+   "scrub": 1120,
+   "sampler": 672.5,
+   "readout": "0.000",
+   "editorMut": 400,
+   "playing": false,
+   "active": "Scrub animation timeline"
+  },
+  {
+   "i": 21,
+   "t": 1176,
+   "scrub": 1176,
+   "sampler": 672.5,
+   "readout": "0.000",
+   "editorMut": 420,
+   "playing": false,
+   "active": "Scrub animation timeline"
+  },
+  {
+   "i": 22,
+   "t": 1232,
+   "scrub": 1232,
+   "sampler": 672.5,
+   "readout": "0.000",
+   "editorMut": 440,
+   "playing": false,
+   "active": "Scrub animation timeline"
+  },
+  {
+   "i": 23,
+   "t": 1288,
+   "scrub": 1288,
+   "sampler": 672.5,
+   "readout": "0.000",
+   "editorMut": 460,
+   "playing": false,
+   "active": "Scrub animation timeline"
+  },
+  {
+   "i": 24,
+   "t": 1344,
+   "scrub": 1344,
+   "sampler": 672.5,
+   "readout": "0.000",
+   "editorMut": 480,
+   "playing": false,
+   "active": "Scrub animation timeline"
+  },
+  {
+   "i": 25,
+   "t": 1400,
+   "scrub": 1400,
+   "sampler": 672.5,
+   "readout": "0.000",
+   "editorMut": 500,
+   "playing": false,
+   "active": "Scrub animation timeline"
+  }
+ ]
+}

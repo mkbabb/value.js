@@ -1,0 +1,20 @@
+import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
+const OUT = new URL(".", import.meta.url).pathname;
+const b = await chromium.launch({ headless: false });
+const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
+const logs = [];
+p.on("console", m => { if (m.type() === "error" || m.type()==="warning") logs.push(m.type()+": "+m.text().slice(0,200)); });
+await p.goto("http://localhost:5173/#/amiga", { waitUntil: "networkidle" });
+await p.waitForTimeout(2500);
+await p.screenshot({ path: OUT + "scout-0.png" });
+const info = await p.evaluate(() => {
+  const gl = document.createElement("canvas").getContext("webgl");
+  const dbg = gl && gl.getExtension("WEBGL_debug_renderer_info");
+  const r = dbg ? gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL) : "?";
+  const tgt = document.getElementById("controls-ribbon-target");
+  const tabs = [...document.querySelectorAll('[role=tab], button')].map(e => (e.getAttribute("aria-label")||e.textContent||"").trim().slice(0,30)).filter(Boolean);
+  return { r, hasTarget: !!tgt, tgtVisible: tgt ? tgt.getBoundingClientRect().toJSON() : null, tgtHTML: tgt ? tgt.innerHTML.length : 0, tabs: tabs.slice(0,80), hash: location.hash };
+});
+console.log(JSON.stringify(info, null, 1));
+console.log(logs.slice(0,20).join("\n"));
+await b.close();

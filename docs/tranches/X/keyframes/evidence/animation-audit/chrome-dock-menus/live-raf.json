@@ -1,0 +1,127 @@
+{
+ "scene-select": [
+  {
+   "k": "cd2cd88f dirty=3",
+   "n": 204,
+   "escAt": 1601,
+   "drops": [
+    {
+     "at": 105,
+     "dt": 33.1
+    }
+   ]
+  },
+  {
+   "k": "cd2cd88f dirty=3",
+   "n": 204,
+   "escAt": 1590,
+   "drops": []
+  },
+  {
+   "k": "cd2cd88f dirty=3",
+   "n": 204,
+   "escAt": 1592,
+   "drops": []
+  }
+ ],
+ "mbabb-menu": [
+  {
+   "k": "cd2cd88f dirty=3",
+   "n": 204,
+   "escAt": 1604,
+   "drops": [
+    {
+     "at": 92,
+     "dt": 33.4
+    }
+   ]
+  },
+  {
+   "k": "cd2cd88f dirty=3",
+   "n": 206,
+   "escAt": 1594,
+   "drops": []
+  },
+  {
+   "k": "cd2cd88f dirty=3",
+   "n": 205,
+   "escAt": 1655,
+   "drops": [
+    {
+     "at": 139,
+     "dt": 66.8
+    }
+   ]
+  }
+ ],
+ "share-popover": [
+  {
+   "k": "cd2cd88f dirty=3",
+   "n": 206,
+   "escAt": 1621,
+   "drops": []
+  },
+  {
+   "k": "cd2cd88f dirty=3",
+   "n": 207,
+   "escAt": 1629,
+   "drops": []
+  },
+  {
+   "k": "cd2cd88f dirty=3",
+   "n": 203,
+   "escAt": 1573,
+   "drops": []
+  }
+ ],
+ "shortcuts-modal": [
+  {
+   "k": "cd2cd88f dirty=3",
+   "n": 205,
+   "escAt": 1589,
+   "drops": []
+  },
+  {
+   "k": "cd2cd88f dirty=3",
+   "n": 203,
+   "escAt": 1571,
+   "drops": []
+  },
+  {
+   "k": "cd2cd88f dirty=3",
+   "n": 203,
+   "escAt": 1573,
+   "drops": []
+  }
+ ],
+ "controls-select": [
+  {
+   "k": "cd2cd88f dirty=3",
+   "n": 207,
+   "escAt": 1629,
+   "drops": [
+    {
+     "at": 106,
+     "dt": 33.4
+    }
+   ]
+  },
+  {
+   "k": "cd2cd88f dirty=3",
+   "n": 240,
+   "escAt": 1632,
+   "drops": [
+    {
+     "at": 110,
+     "dt": 33.9
+    }
+   ]
+  },
+  {
+   "k": "57b4815c dirty=2",
+   "n": 205,
+   "escAt": 1595,
+   "drops": []
+  }
+ ]
+}

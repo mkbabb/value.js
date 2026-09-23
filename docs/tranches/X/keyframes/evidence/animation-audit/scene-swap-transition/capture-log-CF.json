@@ -1,0 +1,264 @@
+{
+ "started": "2026-09-23T14:52:22.099Z",
+ "kfAtStart": {
+  "head": "d78bed01",
+  "dirty": "4"
+ },
+ "runs": [
+  {
+   "run": "CF-seek-cold",
+   "from": "cube",
+   "to": "amiga",
+   "kf": {
+    "head": "d78bed01",
+    "dirty": "4"
+   },
+   "total": 250,
+   "nAnims": 10,
+   "layerInfo": {
+    "groupScene": {
+     "z": "auto",
+     "blend": "normal",
+     "opacity": "1",
+     "pos": "absolute",
+     "w": "888.406px",
+     "h": "646px",
+     "transform": "matrix(1, 0, 0, 1, 508.441, 127)",
+     "iso": "auto"
+    },
+    "oldScene": {
+     "z": "auto",
+     "blend": "plus-lighter",
+     "opacity": "0.704144",
+     "pos": "absolute",
+     "w": "888.406px",
+     "h": "653.359px",
+     "transform": "none",
+     "iso": "auto"
+    },
+    "newScene": {
+     "z": "auto",
+     "blend": "plus-lighter",
+     "opacity": "0.295856",
+     "pos": "absolute",
+     "w": "888.406px",
+     "h": "629.109px",
+     "transform": "none",
+     "iso": "auto"
+    },
+    "groupRoot": {
+     "z": "auto",
+     "blend": "normal",
+     "opacity": "1",
+     "pos": "absolute",
+     "w": "1440px",
+     "h": "900px",
+     "transform": "matrix(1, 0, 0, 1, 0, 0)",
+     "iso": "auto"
+    },
+    "host": {
+     "opacity": "1",
+     "transform": "matrix(1, 0, 0, 1, 0, 0)",
+     "z": "auto",
+     "vtName": "scene-subject",
+     "rect": [
+      484.5390625,
+      127,
+      912.2578125,
+      646
+     ],
+     "child": "scene-skeleton"
+    },
+    "dock": {
+     "z": "auto",
+     "vtName": "none",
+     "rect": [
+      553.71875,
+      51.984375,
+      117.5234375,
+      38.5234375
+     ]
+    },
+    "activeTypes": [
+     "forward"
+    ]
+   },
+   "post": {
+    "vt": {
+     "t0": 5420.10000000149,
+     "types": [
+      "forward"
+     ],
+     "ready": 5535.39999999851,
+     "finished": 13528.10000000149
+    },
+    "domLog": [
+     {
+      "t": 685.8999999985099,
+      "child": "grid h-full w-full max-w-full items-center justify-center justify-items-center overflow-visible",
+      "skeleton": false,
+      "hostOpacity": "1",
+      "hostTransform": "matrix(1, 0, 0, 1, 0, 0)"
+     }
+    ]
+   }
+  },
+  {
+   "run": "CF-screencast-cold",
+   "from": "amiga",
+   "to": "square",
+   "kf": {
+    "head": "d78bed01",
+    "dirty": "4"
+   },
+   "frames": 79,
+   "rafStats": {
+    "n": 149,
+    "over20": 5,
+    "max": "183.0",
+    "bigOnes": [
+     [
+      62,
+      133.4
+     ],
+     [
+      63,
+      183
+     ],
+     [
+      75,
+      84.4
+     ],
+     [
+      80,
+      83.7
+     ],
+     [
+      89,
+      115.6
+     ]
+    ]
+   },
+   "vtLog": [
+    {
+     "t0": 5420.10000000149,
+     "types": [
+      "forward"
+     ],
+     "ready": 5535.39999999851,
+     "finished": 13528.10000000149
+    },
+    {
+     "t0": 18570.79999999702,
+     "types": [
+      "forward"
+     ],
+     "ready": 18664.10000000149,
+     "finished": 18913.29999999702
+    }
+   ]
+  },
+  {
+   "run": "CF-seek-warm",
+   "from": "square",
+   "to": "amiga",
+   "kf": {
+    "head": "d78bed01",
+    "dirty": "4"
+   },
+   "total": 250,
+   "nAnims": 10,
+   "layerInfo": {
+    "groupScene": {
+     "z": "auto",
+     "blend": "normal",
+     "opacity": "1",
+     "pos": "absolute",
+     "w": "878.391px",
+     "h": "646px",
+     "transform": "matrix(1, 0, 0, 1, 518.5, 127)",
+     "iso": "auto"
+    },
+    "oldScene": {
+     "z": "auto",
+     "blend": "plus-lighter",
+     "opacity": "1",
+     "pos": "absolute",
+     "w": "878.391px",
+     "h": "646px",
+     "transform": "none",
+     "iso": "auto"
+    },
+    "newScene": {
+     "z": "auto",
+     "blend": "plus-lighter",
+     "opacity": "0",
+     "pos": "absolute",
+     "w": "878.391px",
+     "h": "646px",
+     "transform": "none",
+     "iso": "auto"
+    },
+    "groupRoot": {
+     "z": "auto",
+     "blend": "normal",
+     "opacity": "1",
+     "pos": "absolute",
+     "w": "1440px",
+     "h": "900px",
+     "transform": "matrix(1, 0, 0, 1, 0, 0)",
+     "iso": "auto"
+    },
+    "host": {
+     "opacity": "1",
+     "transform": "matrix(1, 0, 0, 1, 0, 0)",
+     "z": "auto",
+     "vtName": "scene-subject",
+     "rect": [
+      518.3984375,
+      127,
+      878.3984375,
+      646
+     ],
+     "child": "scene-root relative h-full w-full"
+    },
+    "dock": {
+     "z": "auto",
+     "vtName": "none",
+     "rect": [
+      457.8125,
+      51.984375,
+      117.5234375,
+      38.5234375
+     ]
+    },
+    "activeTypes": [
+     "backward"
+    ]
+   },
+   "post": {
+    "vt": {
+     "t0": 24004.79999999702,
+     "types": [
+      "backward"
+     ],
+     "ready": 24207.5,
+     "finished": 30328.19999999553
+    },
+    "domLog": [
+     {
+      "t": 685.8999999985099,
+      "child": "grid h-full w-full max-w-full items-center justify-center justify-items-center overflow-visible",
+      "skeleton": false,
+      "hostOpacity": "1",
+      "hostTransform": "matrix(1, 0, 0, 1, 0, 0)"
+     }
+    ]
+   }
+  }
+ ],
+ "kfAtEnd": {
+  "head": "d78bed01",
+  "dirty": "4"
+ }
+}

@@ -1,0 +1,164 @@
+{
+ "initial": {
+  "duration": 2000,
+  "direction": "normal",
+  "fill": "forwards",
+  "iter": "Infinity",
+  "delay": 0,
+  "tf": "{\"css\":\"ease-in-out\"}",
+  "keys": "timingFunction,duration,iterationCount,delay,direction,fillMode,useWAAPI,respectReducedMotion,colorSpace",
+  "inputs": [
+   {
+    "n": "v-57-control",
+    "v": "5s"
+   },
+   {
+    "n": "v-58-control",
+    "v": "0ms"
+   },
+   {
+    "n": "v-59-control",
+    "v": "∞"
+   },
+   {
+    "n": "v-68-control",
+    "v": "0"
+   }
+  ],
+  "scrubMax": "2000",
+  "animName": "Transform"
+ },
+ "afterDuration1s": {
+  "duration": 1000,
+  "direction": "normal",
+  "fill": "forwards",
+  "iter": "Infinity",
+  "delay": 0,
+  "tf": "{\"css\":\"ease-in-out\"}",
+  "keys": "timingFunction,duration,iterationCount,delay,direction,fillMode,useWAAPI,respectReducedMotion,colorSpace",
+  "inputs": [
+   {
+    "n": "v-57-control",
+    "v": "1s"
+   },
+   {
+    "n": "v-58-control",
+    "v": "0ms"
+   },
+   {
+    "n": "v-59-control",
+    "v": "∞"
+   },
+   {
+    "n": "v-68-control",
+    "v": "0"
+   }
+  ],
+  "scrubMax": "1000",
+  "animName": "Transform"
+ },
+ "period": {
+  "wraps": [],
+  "colorSpace": "oklab",
+  "head": [
+   [
+    4,
+    0,
+    false,
+    "translate(0px, 0px) rotate(0deg) skew(0d"
+   ],
+   [
+    20,
+    0,
+    false,
+    "translate(0px, 0px) rotate(0deg) skew(0d"
+   ],
+   [
+    38,
+    0,
+    false,
+    "translate(0px, 0px) rotate(0deg) skew(0d"
+   ],
+   [
+    54,
+    0,
+    false,
+    "translate(0px, 0px) rotate(0deg) skew(0d"
+   ],
+   [
+    71,
+    0,
+    false,
+    "translate(0px, 0px) rotate(0deg) skew(0d"
+   ],
+   [
+    88,
+    0,
+    false,
+    "translate(0px, 0px) rotate(0deg) skew(0d"
+   ]
+  ],
+  "mid": [
+   [
+    4,
+    0,
+    false,
+    "translate(0px, 0px) rotate(0deg) skew(0d"
+   ],
+   [
+    504,
+    0,
+    false,
+    "translate(0px, 0px) rotate(0deg) skew(0d"
+   ],
+   [
+    1004,
+    0,
+    false,
+    "translate(0px, 0px) rotate(0deg) skew(0d"
+   ],
+   [
+    1505,
+    0,
+    false,
+    "translate(0px, 0px) rotate(0deg) skew(0d"
+   ],
+   [
+    2005,
+    0,
+    false,
+    "translate(0px, 0px) rotate(0deg) skew(0d"
+   ],
+   [
+    2504,
+    0,
+    false,
+    "translate(0px, 0px) rotate(0deg) skew(0d"
+   ],
+   [
+    3004,
+    0,
+    false,
+    "translate(0px, 0px) rotate(0deg) skew(0d"
+   ],
+   [
+    3505,
+    0,
+    false,
+    "translate(0px, 0px) rotate(0deg) skew(0d"
+   ],
+   [
+    4005,
+    0,
+    false,
+    "translate(0px, 0px) rotate(0deg) skew(0d"
+   ],
+   [
+    4504,
+    0,
+    false,
+    "translate(0px, 0px) rotate(0deg) skew(0d"
+   ]
+  ]
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "before": "translate(-74px, -34px) rotate(0deg) skew(0deg, 0deg) scale(1.0888, 1.0888)",
+ "afterPlay": {
+  "tf": "translate(-74px, -34px) rotate(0deg) skew(0deg, 0deg) scale(1.0888, 1.0888)",
+  "mode": "idle",
+  "anims": 1,
+  "read": "Transform x −0.67 y −0.31 SETTLED",
+  "tether": false
+ },
+ "box2": {
+  "x": 883.59375,
+  "y": 416
+ },
+ "takeover": {
+  "tf": "translate(-74px, -34px) rotate(0deg) skew(0deg, 0deg) scale(1.0888, 1.0888)",
+  "mode": "idle"
+ },
+ "playBtn": [
+  "Play animation",
+  "Play animation"
+ ]
+}

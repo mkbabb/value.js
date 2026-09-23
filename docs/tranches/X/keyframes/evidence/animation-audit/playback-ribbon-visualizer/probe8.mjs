@@ -1,0 +1,20 @@
+// Live playback jank without screencast: rAF deltas + long tasks over 9 s after ribbon Play.
+import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
+import fs from "node:fs";
+const b = await chromium.launch({ headless: false });
+const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
+await p.goto("http://localhost:5173/#/amiga", { waitUntil: "networkidle" }); await p.waitForTimeout(2500);
+await p.evaluate(() => { window.__D = []; window.__LT = []; new PerformanceObserver((l) => l.getEntries().forEach(e => window.__LT.push([e.startTime | 0, e.duration | 0]))).observe({ type: "longtask" });
+  let last = performance.now(); const f = (t) => { window.__D.push([t | 0, +(t - last).toFixed(1)]); last = t; if (window.__D.length < 700) requestAnimationFrame(f); }; requestAnimationFrame(f); });
+const t0 = await p.evaluate(() => performance.now());
+await p.locator("#controls-ribbon-target button", { hasText: /^\s*Play/ }).first().click();
+await p.waitForTimeout(9000);
+const r = await p.evaluate(() => ({ D: window.__D, LT: window.__LT }));
+const after = r.D.filter(d => d[0] > t0);
+const drops = after.filter(d => d[1] > 20);
+const w = after.filter(d => d[0] > t0 + 1000 && d[0] < t0 + 4000);
+console.log("frames", after.length, "drops>20ms", drops.length, JSON.stringify(drops.map(d => [d[0] - (t0 | 0), d[1]])));
+console.log("3s window (1-4s) frames", w.length, "drops", w.filter(d => d[1] > 20).length);
+console.log("longtasks after play", JSON.stringify(r.LT.filter(e => e[0] > t0).map(e => [e[0] - (t0 | 0), e[1]])));
+fs.writeFileSync(new URL("./live/raf-noscreencast.json", import.meta.url).pathname, JSON.stringify({ t0, ...r }));
+await b.close();

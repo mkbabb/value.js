@@ -1,0 +1,22 @@
+// timeline-panel — probe2: reach the Timeline tab via the top dock Control-tab select.
+import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
+const OUT = new URL(".", import.meta.url).pathname;
+const browser = await chromium.launch({ headless: false });
+const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
+await page.goto("http://localhost:5173/#/cube", { waitUntil: "load" });
+await page.waitForTimeout(5000);
+await page.mouse.move(720, 70); await page.waitForTimeout(800);
+await page.screenshot({ path: OUT + "probe2-hover.png" });
+const cb = page.locator('[aria-label="Controls tab"]');
+console.log("cb visible", await cb.isVisible());
+await cb.click({ force: true }); await page.waitForTimeout(600);
+const opts = await page.evaluate(() => [...document.querySelectorAll('[role=option]')].map(o => o.innerText.trim()));
+console.log("opts", opts);
+await page.screenshot({ path: OUT + "probe2-menu.png" });
+await page.locator('[role=option]', { hasText: /timeline/i }).first().click(); await page.waitForTimeout(1500);
+await page.mouse.move(1300, 800); await page.waitForTimeout(800);
+const st = await page.evaluate(() => { const t = document.querySelector(".timeline-track"); const s = document.querySelector(".timeline-preview-stage");
+  return { track: t && [...Object.values(t.getBoundingClientRect().toJSON())].map(Math.round), stage: s && [...Object.values(s.getBoundingClientRect().toJSON())].map(Math.round), stageKids: s?.children.length, stageHTML: s?.innerHTML.slice(0, 300) }; });
+console.log(JSON.stringify(st));
+await page.screenshot({ path: OUT + "probe2-timeline.png" });
+await browser.close();

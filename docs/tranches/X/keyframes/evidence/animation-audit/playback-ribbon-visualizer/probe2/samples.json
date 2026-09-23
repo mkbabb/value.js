@@ -1,0 +1,1104 @@
+{
+ "khead0": "3c8199c5 dirty=5",
+ "fresh": [
+  {
+   "v": 0,
+   "ballTx": null,
+   "btn": "Play",
+   "eng": {
+    "t": 0,
+    "eff": 0,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  }
+ ],
+ "A_fresh_LR": [
+  {
+   "tag": "A_fresh_LR",
+   "f": 0.1,
+   "v": 960,
+   "ballTx": 37.8,
+   "btn": "Play",
+   "eng": {
+    "t": 960,
+    "eff": 960,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "A_fresh_LR",
+   "f": 0.167,
+   "v": 960,
+   "ballTx": 37.8,
+   "btn": "Play",
+   "eng": {
+    "t": 960,
+    "eff": 960,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "A_fresh_LR",
+   "f": 0.233,
+   "v": 1440,
+   "ballTx": 56.7,
+   "btn": "Play",
+   "eng": {
+    "t": 1440,
+    "eff": 1440,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "A_fresh_LR",
+   "f": 0.3,
+   "v": 1920,
+   "ballTx": 75.6,
+   "btn": "Play",
+   "eng": {
+    "t": 1920,
+    "eff": 1920,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "A_fresh_LR",
+   "f": 0.367,
+   "v": 2480,
+   "ballTx": 97.65,
+   "btn": "Play",
+   "eng": {
+    "t": 2480,
+    "eff": 2480,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "A_fresh_LR",
+   "f": 0.433,
+   "v": 2960,
+   "ballTx": 116.55,
+   "btn": "Play",
+   "eng": {
+    "t": 2960,
+    "eff": 2960,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "A_fresh_LR",
+   "f": 0.5,
+   "v": 3440,
+   "ballTx": 135.45,
+   "btn": "Play",
+   "eng": {
+    "t": 3440,
+    "eff": 3440,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "A_fresh_LR",
+   "f": 0.567,
+   "v": 3440,
+   "ballTx": 135.45,
+   "btn": "Play",
+   "eng": {
+    "t": 3440,
+    "eff": 3440,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "A_fresh_LR",
+   "f": 0.633,
+   "v": 3440,
+   "ballTx": 135.45,
+   "btn": "Play",
+   "eng": {
+    "t": 3440,
+    "eff": 3440,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "A_fresh_LR",
+   "f": 0.7,
+   "v": 3440,
+   "ballTx": 135.45,
+   "btn": "Play",
+   "eng": {
+    "t": 3440,
+    "eff": 3440,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "A_fresh_LR",
+   "f": 0.767,
+   "v": 3440,
+   "ballTx": 135.45,
+   "btn": "Play",
+   "eng": {
+    "t": 3440,
+    "eff": 3440,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "A_fresh_LR",
+   "f": 0.833,
+   "v": 3440,
+   "ballTx": 135.45,
+   "btn": "Play",
+   "eng": {
+    "t": 3440,
+    "eff": 3440,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "A_fresh_LR",
+   "f": 0.9,
+   "v": 3440,
+   "ballTx": 135.45,
+   "btn": "Play",
+   "eng": {
+    "t": 3440,
+    "eff": 3440,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "A_fresh_LR-release",
+   "v": 3440,
+   "ballTx": 135.45,
+   "btn": "Play",
+   "eng": {
+    "t": 3440,
+    "eff": 3440,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  }
+ ],
+ "B_fresh_RL": [
+  {
+   "tag": "B_fresh_RL",
+   "f": 0.9,
+   "v": 7040,
+   "ballTx": 277.2,
+   "btn": "Play",
+   "eng": {
+    "t": 7040,
+    "eff": 7040,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "B_fresh_RL",
+   "f": 0.833,
+   "v": 6000,
+   "ballTx": 236.25,
+   "btn": "Play",
+   "eng": {
+    "t": 6000,
+    "eff": 6000,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "B_fresh_RL",
+   "f": 0.767,
+   "v": 5520,
+   "ballTx": 217.35,
+   "btn": "Play",
+   "eng": {
+    "t": 5520,
+    "eff": 5520,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "B_fresh_RL",
+   "f": 0.7,
+   "v": 4960,
+   "ballTx": 195.3,
+   "btn": "Play",
+   "eng": {
+    "t": 4960,
+    "eff": 4960,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "B_fresh_RL",
+   "f": 0.633,
+   "v": 4480,
+   "ballTx": 176.4,
+   "btn": "Play",
+   "eng": {
+    "t": 4480,
+    "eff": 4480,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "B_fresh_RL",
+   "f": 0.567,
+   "v": 4000,
+   "ballTx": 157.5,
+   "btn": "Play",
+   "eng": {
+    "t": 4000,
+    "eff": 4000,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "B_fresh_RL",
+   "f": 0.5,
+   "v": 3440,
+   "ballTx": 135.45,
+   "btn": "Play",
+   "eng": {
+    "t": 3440,
+    "eff": 3440,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "B_fresh_RL",
+   "f": 0.433,
+   "v": 2960,
+   "ballTx": 116.55,
+   "btn": "Play",
+   "eng": {
+    "t": 2960,
+    "eff": 2960,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "B_fresh_RL",
+   "f": 0.367,
+   "v": 2480,
+   "ballTx": 97.65,
+   "btn": "Play",
+   "eng": {
+    "t": 2480,
+    "eff": 2480,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "B_fresh_RL",
+   "f": 0.3,
+   "v": 1920,
+   "ballTx": 75.6,
+   "btn": "Play",
+   "eng": {
+    "t": 1920,
+    "eff": 1920,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "B_fresh_RL",
+   "f": 0.233,
+   "v": 1440,
+   "ballTx": 56.7,
+   "btn": "Play",
+   "eng": {
+    "t": 1440,
+    "eff": 1440,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "B_fresh_RL",
+   "f": 0.167,
+   "v": 960,
+   "ballTx": 37.8,
+   "btn": "Play",
+   "eng": {
+    "t": 960,
+    "eff": 960,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "B_fresh_RL",
+   "f": 0.1,
+   "v": 480,
+   "ballTx": 18.9,
+   "btn": "Play",
+   "eng": {
+    "t": 480,
+    "eff": 480,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "B_fresh_RL-release",
+   "v": 480,
+   "ballTx": 18.9,
+   "btn": "Play",
+   "eng": {
+    "t": 480,
+    "eff": 480,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  }
+ ],
+ "C_pre": [
+  {
+   "v": 2033.199999999999,
+   "ballTx": 80.0572,
+   "btn": "Play",
+   "eng": {
+    "t": 2033.199999999999,
+    "eff": 2033.199999999999,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  }
+ ],
+ "C_paused_RL": [
+  {
+   "tag": "C_paused_RL",
+   "f": 0.9,
+   "v": 7040,
+   "ballTx": 277.2,
+   "btn": "Play",
+   "eng": {
+    "t": 7040,
+    "eff": 7040,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "C_paused_RL",
+   "f": 0.833,
+   "v": 6960,
+   "ballTx": 274.05,
+   "btn": "Play",
+   "eng": {
+    "t": 6960,
+    "eff": 6960,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "C_paused_RL",
+   "f": 0.767,
+   "v": 6480,
+   "ballTx": 255.15,
+   "btn": "Play",
+   "eng": {
+    "t": 6480,
+    "eff": 6480,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "C_paused_RL",
+   "f": 0.7,
+   "v": 5920,
+   "ballTx": 233.1,
+   "btn": "Play",
+   "eng": {
+    "t": 5920,
+    "eff": 5920,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "C_paused_RL",
+   "f": 0.633,
+   "v": 5440,
+   "ballTx": 214.2,
+   "btn": "Play",
+   "eng": {
+    "t": 5440,
+    "eff": 5440,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "C_paused_RL",
+   "f": 0.567,
+   "v": 4960,
+   "ballTx": 195.3,
+   "btn": "Play",
+   "eng": {
+    "t": 4960,
+    "eff": 4960,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "C_paused_RL",
+   "f": 0.5,
+   "v": 4480,
+   "ballTx": 176.4,
+   "btn": "Play",
+   "eng": {
+    "t": 4480,
+    "eff": 4480,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "C_paused_RL",
+   "f": 0.433,
+   "v": 3920,
+   "ballTx": 154.35,
+   "btn": "Play",
+   "eng": {
+    "t": 3920,
+    "eff": 3920,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "C_paused_RL",
+   "f": 0.367,
+   "v": 3440,
+   "ballTx": 135.45,
+   "btn": "Play",
+   "eng": {
+    "t": 3440,
+    "eff": 3440,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "C_paused_RL",
+   "f": 0.3,
+   "v": 2960,
+   "ballTx": 116.55,
+   "btn": "Play",
+   "eng": {
+    "t": 2960,
+    "eff": 2960,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "C_paused_RL",
+   "f": 0.233,
+   "v": 2400,
+   "ballTx": 94.5,
+   "btn": "Play",
+   "eng": {
+    "t": 2400,
+    "eff": 2400,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "C_paused_RL",
+   "f": 0.167,
+   "v": 1920,
+   "ballTx": 75.6,
+   "btn": "Play",
+   "eng": {
+    "t": 1920,
+    "eff": 1920,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "C_paused_RL",
+   "f": 0.1,
+   "v": 1440,
+   "ballTx": 56.7,
+   "btn": "Play",
+   "eng": {
+    "t": 1440,
+    "eff": 1440,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  },
+  {
+   "tag": "C_paused_RL-release",
+   "v": 1440,
+   "ballTx": 56.7,
+   "btn": "Play",
+   "eng": {
+    "t": 1440,
+    "eff": 1440,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 0
+   }
+  }
+ ],
+ "D_pre": [
+  {
+   "v": 2450,
+   "ballTx": 96.4688,
+   "btn": "Play",
+   "eng": {
+    "t": 2450,
+    "eff": 2450,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 1
+   }
+  }
+ ],
+ "D_paused_LR": [
+  {
+   "tag": "D_paused_LR",
+   "f": 0.1,
+   "v": 960,
+   "ballTx": 37.8,
+   "btn": "Play",
+   "eng": {
+    "t": 960,
+    "eff": 960,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 1
+   }
+  },
+  {
+   "tag": "D_paused_LR",
+   "f": 0.167,
+   "v": 960,
+   "ballTx": 37.8,
+   "btn": "Play",
+   "eng": {
+    "t": 960,
+    "eff": 960,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 1
+   }
+  },
+  {
+   "tag": "D_paused_LR",
+   "f": 0.233,
+   "v": 1440,
+   "ballTx": 56.7,
+   "btn": "Play",
+   "eng": {
+    "t": 1440,
+    "eff": 1440,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 1
+   }
+  },
+  {
+   "tag": "D_paused_LR",
+   "f": 0.3,
+   "v": 1920,
+   "ballTx": 75.6,
+   "btn": "Play",
+   "eng": {
+    "t": 1920,
+    "eff": 1920,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 1
+   }
+  },
+  {
+   "tag": "D_paused_LR",
+   "f": 0.367,
+   "v": 2480,
+   "ballTx": 97.65,
+   "btn": "Play",
+   "eng": {
+    "t": 2480,
+    "eff": 2480,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 1
+   }
+  },
+  {
+   "tag": "D_paused_LR",
+   "f": 0.433,
+   "v": 2960,
+   "ballTx": 116.55,
+   "btn": "Play",
+   "eng": {
+    "t": 2960,
+    "eff": 2960,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 1
+   }
+  },
+  {
+   "tag": "D_paused_LR",
+   "f": 0.5,
+   "v": 3440,
+   "ballTx": 135.45,
+   "btn": "Play",
+   "eng": {
+    "t": 3440,
+    "eff": 3440,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 1
+   }
+  },
+  {
+   "tag": "D_paused_LR",
+   "f": 0.567,
+   "v": 4000,
+   "ballTx": 157.5,
+   "btn": "Play",
+   "eng": {
+    "t": 4000,
+    "eff": 4000,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 1
+   }
+  },
+  {
+   "tag": "D_paused_LR",
+   "f": 0.633,
+   "v": 4480,
+   "ballTx": 176.4,
+   "btn": "Play",
+   "eng": {
+    "t": 4480,
+    "eff": 4480,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 1
+   }
+  },
+  {
+   "tag": "D_paused_LR",
+   "f": 0.7,
+   "v": 4960,
+   "ballTx": 195.3,
+   "btn": "Play",
+   "eng": {
+    "t": 4960,
+    "eff": 4960,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 1
+   }
+  },
+  {
+   "tag": "D_paused_LR",
+   "f": 0.767,
+   "v": 5520,
+   "ballTx": 217.35,
+   "btn": "Play",
+   "eng": {
+    "t": 5520,
+    "eff": 5520,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 1
+   }
+  },
+  {
+   "tag": "D_paused_LR",
+   "f": 0.833,
+   "v": 6000,
+   "ballTx": 236.25,
+   "btn": "Play",
+   "eng": {
+    "t": 6000,
+    "eff": 6000,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 1
+   }
+  },
+  {
+   "tag": "D_paused_LR",
+   "f": 0.9,
+   "v": 6480,
+   "ballTx": 255.15,
+   "btn": "Play",
+   "eng": {
+    "t": 6480,
+    "eff": 6480,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 1
+   }
+  },
+  {
+   "tag": "D_paused_LR-release",
+   "v": 6480,
+   "ballTx": 255.15,
+   "btn": "Play",
+   "eng": {
+    "t": 6480,
+    "eff": 6480,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 1
+   }
+  }
+ ],
+ "E_paused_RL": [
+  {
+   "tag": "E_paused_RL",
+   "f": 0.9,
+   "v": 7040,
+   "ballTx": 277.2,
+   "btn": "Play",
+   "eng": {
+    "t": 7040,
+    "eff": 7040,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 1
+   }
+  },
+  {
+   "tag": "E_paused_RL",
+   "f": 0.833,
+   "v": 6960,
+   "ballTx": 274.05,
+   "btn": "Play",
+   "eng": {
+    "t": 6960,
+    "eff": 6960,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 1
+   }
+  },
+  {
+   "tag": "E_paused_RL",
+   "f": 0.767,
+   "v": 6480,
+   "ballTx": 255.15,
+   "btn": "Play",
+   "eng": {
+    "t": 6480,
+    "eff": 6480,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 1
+   }
+  },
+  {
+   "tag": "E_paused_RL",
+   "f": 0.7,
+   "v": 5920,
+   "ballTx": 233.1,
+   "btn": "Play",
+   "eng": {
+    "t": 5920,
+    "eff": 5920,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 1
+   }
+  },
+  {
+   "tag": "E_paused_RL",
+   "f": 0.633,
+   "v": 5440,
+   "ballTx": 214.2,
+   "btn": "Play",
+   "eng": {
+    "t": 5440,
+    "eff": 5440,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 1
+   }
+  },
+  {
+   "tag": "E_paused_RL",
+   "f": 0.567,
+   "v": 4960,
+   "ballTx": 195.3,
+   "btn": "Play",
+   "eng": {
+    "t": 4960,
+    "eff": 4960,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 1
+   }
+  },
+  {
+   "tag": "E_paused_RL",
+   "f": 0.5,
+   "v": 4480,
+   "ballTx": 176.4,
+   "btn": "Play",
+   "eng": {
+    "t": 4480,
+    "eff": 4480,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 1
+   }
+  },
+  {
+   "tag": "E_paused_RL",
+   "f": 0.433,
+   "v": 3920,
+   "ballTx": 154.35,
+   "btn": "Play",
+   "eng": {
+    "t": 3920,
+    "eff": 3920,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 1
+   }
+  },
+  {
+   "tag": "E_paused_RL",
+   "f": 0.367,
+   "v": 3440,
+   "ballTx": 135.45,
+   "btn": "Play",
+   "eng": {
+    "t": 3440,
+    "eff": 3440,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 1
+   }
+  },
+  {
+   "tag": "E_paused_RL",
+   "f": 0.3,
+   "v": 2960,
+   "ballTx": 116.55,
+   "btn": "Play",
+   "eng": {
+    "t": 2960,
+    "eff": 2960,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 1
+   }
+  },
+  {
+   "tag": "E_paused_RL",
+   "f": 0.233,
+   "v": 2400,
+   "ballTx": 94.5,
+   "btn": "Play",
+   "eng": {
+    "t": 2400,
+    "eff": 2400,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 1
+   }
+  },
+  {
+   "tag": "E_paused_RL",
+   "f": 0.167,
+   "v": 1920,
+   "ballTx": 75.6,
+   "btn": "Play",
+   "eng": {
+    "t": 1920,
+    "eff": 1920,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 1
+   }
+  },
+  {
+   "tag": "E_paused_RL",
+   "f": 0.1,
+   "v": 1440,
+   "ballTx": 56.7,
+   "btn": "Play",
+   "eng": {
+    "t": 1440,
+    "eff": 1440,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 1
+   }
+  },
+  {
+   "tag": "E_paused_RL-release",
+   "v": 1440,
+   "ballTx": 56.7,
+   "btn": "Play",
+   "eng": {
+    "t": 1440,
+    "eff": 1440,
+    "rev": false,
+    "dir": "normal",
+    "dur": 8000,
+    "iter": 1
+   }
+  }
+ ],
+ "khead1": "3c8199c5 dirty=5"
+}

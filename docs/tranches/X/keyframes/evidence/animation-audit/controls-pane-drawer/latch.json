@@ -1,0 +1,26 @@
+{
+ "khead": "3c8199c5",
+ "kdirty": 5,
+ "steps": [
+  {
+   "tag": "fresh + advanced open",
+   "overflowY": "auto",
+   "scrollH": 464,
+   "clientH": 464,
+   "scrollable": false,
+   "wrapperH": 464
+  },
+  {
+   "tag": "after close→open, advanced still open",
+   "overflowY": "hidden",
+   "scrollH": 464,
+   "clientH": 464,
+   "scrollable": false,
+   "wrapperH": 464
+  },
+  {
+   "tag": "after wheel over pane",
+   "scrollTop": 0
+  }
+ ]
+}

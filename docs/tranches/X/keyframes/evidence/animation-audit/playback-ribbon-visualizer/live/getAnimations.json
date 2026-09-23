@@ -1,0 +1,12 @@
+[
+ {
+  "n": "gl-fade-start-in",
+  "s": "running",
+  "tgt": "dock-layer dock-layer--full"
+ },
+ {
+  "n": "gl-fade-end-out",
+  "s": "running",
+  "tgt": "dock-layer dock-layer--full"
+ }
+]

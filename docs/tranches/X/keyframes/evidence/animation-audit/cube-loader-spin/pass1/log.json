@@ -1,0 +1,16 @@
+{
+ "log": [
+  {
+   "t": 11.7,
+   "src": "mo",
+   "present": false,
+   "info": null
+  }
+ ],
+ "ls": "{\"_storeTimestamp\":1790174840754,\"home\":{\"selectedControl\":\"controls\",\"selectedAnimation\":\"\",\"keyframeControls\":{\"selectedKeyframesControl\":\"keyframes\",\"dialogOpen\":false,\"keyframes\":\"\",\"addKeyframes\":\"\"},\"isTimelineExpanded\":false,\"isControlsPanelOpen\":true},\"cube\":{\"selectedControl\":\"controls\",\"selectedAnimation\":\"\",\"keyframeControls\":{\"selectedKeyframesControl\":\"keyframes\",\"dialogOpen\":false,\"keyframes\":\"\",\"addKeyframes\":\"\"},\"isTimelineExpanded\":false,\"isControlsPanelOpen\":true,\"ppMode\":false}}",
+ "now": {
+  "loader": false,
+  "cube": true,
+  "hash": "#/cube"
+ }
+}

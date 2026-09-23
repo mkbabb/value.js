@@ -1,0 +1,492 @@
+{
+ "khead": "3c8199c5",
+ "kdirty": "3",
+ "runs": {
+  "T1-play-baseline": [
+   {
+    "label": "start",
+    "t": 3090,
+    "clock": "0",
+    "master": "0.000",
+    "status": "READY",
+    "dock": "Play animation",
+    "reelBusy": null,
+    "p": [
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "label": "play+100",
+    "t": 3220,
+    "clock": "67",
+    "master": "0.034",
+    "status": "PLAYING",
+    "reelBusy": null,
+    "p": [
+     0.739,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "label": "play+800",
+    "t": 3923,
+    "clock": "766",
+    "master": "0.395",
+    "status": "PLAYING",
+    "reelBusy": null,
+    "p": [
+     1,
+     0.7,
+     0.7,
+     0.016,
+     0
+    ]
+   },
+   {
+    "label": "play+1600",
+    "t": 4724,
+    "clock": "1566",
+    "master": "0.807",
+    "status": "PLAYING",
+    "reelBusy": null,
+    "p": [
+     1,
+     1,
+     1,
+     1,
+     0.7
+    ]
+   }
+  ],
+  "T2-reel-then-play": [
+   {
+    "label": "start",
+    "t": 3046,
+    "clock": "0",
+    "master": "0.000",
+    "status": "READY",
+    "dock": "Play animation",
+    "reelBusy": null,
+    "p": [
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "label": "reel settled",
+    "t": 5012,
+    "clock": "0",
+    "master": "0.000",
+    "status": "READY",
+    "dock": "Play animation",
+    "reelBusy": null,
+    "p": [
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "label": "play+100",
+    "t": 5140,
+    "clock": "0",
+    "master": "0.000",
+    "status": "READY",
+    "dock": "Play animation",
+    "reelBusy": null,
+    "p": [
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "label": "play+800",
+    "t": 5843,
+    "clock": "0",
+    "master": "0.000",
+    "status": "READY",
+    "dock": "Play animation",
+    "reelBusy": null,
+    "p": [
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "label": "play+1600",
+    "t": 6646,
+    "clock": "0",
+    "master": "0.000",
+    "status": "READY",
+    "dock": "Play animation",
+    "reelBusy": null,
+    "p": [
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   }
+  ],
+  "T3-held-play": [
+   {
+    "label": "start",
+    "t": 3103,
+    "clock": "0",
+    "master": "0.000",
+    "status": "READY",
+    "dock": "Play animation",
+    "reelBusy": null,
+    "p": [
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "label": "play pressed mid-reel",
+    "t": 3385,
+    "clock": "0",
+    "master": "0.000",
+    "status": "READY",
+    "dock": "Play animation",
+    "reelBusy": "true",
+    "p": [
+     0.643,
+     0.796,
+     0.426,
+     0,
+     0
+    ]
+   },
+   {
+    "label": "mid-reel+800",
+    "t": 3988,
+    "clock": "0",
+    "master": "0.000",
+    "status": "READY",
+    "dock": "Play animation",
+    "reelBusy": "true",
+    "p": [
+     0.998,
+     0.987,
+     0.719,
+     0.699,
+     0.697
+    ]
+   },
+   {
+    "label": "reel settled (+1900)",
+    "t": 5092,
+    "clock": "0",
+    "master": "0.000",
+    "status": "READY",
+    "dock": "Play animation",
+    "reelBusy": null,
+    "p": [
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "label": "+2600",
+    "t": 5795,
+    "clock": "0",
+    "master": "0.000",
+    "status": "READY",
+    "dock": "Play animation",
+    "reelBusy": null,
+    "p": [
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "label": "+3300",
+    "t": 6511,
+    "clock": "0",
+    "master": "0.000",
+    "status": "READY",
+    "dock": "Play animation",
+    "reelBusy": null,
+    "p": [
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   }
+  ],
+  "T4-scrub-then-play": [
+   {
+    "label": "start",
+    "t": 3387,
+    "clock": "0",
+    "master": "0.000",
+    "status": "READY",
+    "dock": "Play animation",
+    "reelBusy": null,
+    "p": [
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "label": "scrubbed",
+    "t": 3910,
+    "clock": "970",
+    "master": "0.500",
+    "status": "READY",
+    "dock": "Play animation",
+    "reelBusy": null,
+    "p": [
+     1,
+     0.998,
+     0.7,
+     0.696,
+     0
+    ]
+   },
+   {
+    "label": "play+100",
+    "t": 4070,
+    "clock": "970",
+    "master": "0.500",
+    "status": "READY",
+    "dock": "Play animation",
+    "reelBusy": null,
+    "p": [
+     1,
+     0.998,
+     0.7,
+     0.696,
+     0
+    ]
+   },
+   {
+    "label": "play+800",
+    "t": 4778,
+    "clock": "970",
+    "master": "0.500",
+    "status": "READY",
+    "dock": "Play animation",
+    "reelBusy": null,
+    "p": [
+     1,
+     0.998,
+     0.7,
+     0.696,
+     0
+    ]
+   }
+  ],
+  "T5-scrub-reel-play": [
+   {
+    "label": "start",
+    "t": 4271,
+    "clock": "0",
+    "master": "0.000",
+    "status": "READY",
+    "dock": "Play animation",
+    "reelBusy": null,
+    "p": [
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "label": "scrubbed",
+    "t": 4861,
+    "clock": "970",
+    "master": "0.500",
+    "status": "READY",
+    "dock": "Play animation",
+    "reelBusy": null,
+    "p": [
+     1,
+     0.998,
+     0.7,
+     0.696,
+     0
+    ]
+   },
+   {
+    "label": "reel settled",
+    "t": 6901,
+    "clock": "970",
+    "master": "0.500",
+    "status": "READY",
+    "dock": "Play animation",
+    "reelBusy": null,
+    "p": [
+     1,
+     0.998,
+     0.7,
+     0.696,
+     0
+    ]
+   },
+   {
+    "label": "play+100",
+    "t": 7058,
+    "clock": "970",
+    "master": "0.500",
+    "status": "READY",
+    "dock": "Play animation",
+    "reelBusy": null,
+    "p": [
+     1,
+     0.998,
+     0.7,
+     0.696,
+     0
+    ]
+   },
+   {
+    "label": "play+800",
+    "t": 7760,
+    "clock": "970",
+    "master": "0.500",
+    "status": "READY",
+    "dock": "Play animation",
+    "reelBusy": null,
+    "p": [
+     1,
+     0.998,
+     0.7,
+     0.696,
+     0
+    ]
+   }
+  ],
+  "T6-reel-while-playing": [
+   {
+    "label": "start",
+    "t": 3468,
+    "clock": "0",
+    "master": "0.000",
+    "status": "READY",
+    "dock": "Play animation",
+    "reelBusy": null,
+    "p": [
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "label": "playing",
+    "t": 3977,
+    "clock": "366",
+    "master": "0.189",
+    "status": "PLAYING",
+    "reelBusy": null,
+    "p": [
+     0.7,
+     0.742,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "label": "reel+100",
+    "t": 4176,
+    "clock": "450",
+    "master": "0.232",
+    "status": "READY",
+    "reelBusy": "true",
+    "p": [
+     0.887,
+     0.127,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "label": "scrub attempt mid-reel",
+    "t": 4402,
+    "clock": "450",
+    "master": "0.232",
+    "status": "READY",
+    "reelBusy": "true",
+    "p": [
+     0.696,
+     0.717,
+     0.652,
+     0.862,
+     0
+    ]
+   },
+   {
+    "label": "reel settled",
+    "t": 6304,
+    "clock": "450",
+    "master": "0.232",
+    "status": "READY",
+    "dock": "Play animation",
+    "reelBusy": null,
+    "p": [
+     0.7,
+     0.696,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "label": "+800",
+    "t": 7113,
+    "clock": "450",
+    "master": "0.232",
+    "status": "READY",
+    "dock": "Play animation",
+    "reelBusy": null,
+    "p": [
+     0.7,
+     0.696,
+     0,
+     0,
+     0
+    ]
+   }
+  ]
+ }
+}

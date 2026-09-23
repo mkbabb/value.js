@@ -1,0 +1,10 @@
+import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
+const b = await chromium.launch({ headless: false });
+const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
+p.on("pageerror", e => console.log("PAGEERROR", e.message, "\n", (e.stack || "").split("\n").slice(0, 8).join("\n")));
+p.on("console", m => { if (["error", "warning"].includes(m.type())) console.log(m.type(), m.text().slice(0, 300)); });
+await p.goto("http://localhost:5173/#/spring", { waitUntil: "load" }); await p.waitForTimeout(4000);
+await p.evaluate(() => { const sec = [...document.querySelectorAll(".keyframes-section")].find(s => s.offsetParent); sec.setAttribute("data-a", 1); sec.scrollIntoView({ block: "start" }); });
+await p.locator('[data-a] button[aria-label^="Remove the keyframe"]').nth(1).click();
+await p.waitForTimeout(2000);
+await b.close();

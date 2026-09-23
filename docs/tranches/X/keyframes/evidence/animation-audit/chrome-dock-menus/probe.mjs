@@ -1,0 +1,21 @@
+import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
+const b = await chromium.launch({ headless: false });
+const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
+await p.goto("http://localhost:5173/", { waitUntil: "networkidle" });
+await p.waitForTimeout(2000);
+const info = await p.evaluate(() => {
+  const gl = document.createElement("canvas").getContext("webgl2");
+  const ext = gl && gl.getExtension("WEBGL_debug_renderer_info");
+  const r = ext ? gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) : null;
+  const tether = document.querySelector('[data-dock-tether="top"]');
+  const dock = tether?.querySelector(".glass-dock");
+  const attrs = dock ? [...dock.attributes].map(a => `${a.name}=${a.value}`) : null;
+  const btns = [...tether.querySelectorAll("button,[role=combobox]")].map(e => (e.getAttribute("aria-label") || e.textContent.trim()).slice(0,40) + (e.checkVisibility() ? "" : "(hidden)"));
+  return { r, attrs, btns, rect: dock?.getBoundingClientRect().toJSON() };
+});
+console.log(JSON.stringify(info, null, 1));
+await p.mouse.move(720, 30); await p.waitForTimeout(1200);
+const info2 = await p.evaluate(() => { const d = document.querySelector('[data-dock-tether="top"] .glass-dock'); return { attrs: [...d.attributes].map(a => `${a.name}=${a.value}`), rect: d.getBoundingClientRect().toJSON(), btns: [...d.querySelectorAll("button,[role=combobox]")].filter(e=>e.checkVisibility()).map(e => (e.getAttribute("aria-label") || e.textContent.trim()).slice(0,40)) }; });
+console.log(JSON.stringify(info2, null, 1));
+await p.screenshot({ path: "probe-expanded.png", clip: { x: 300, y: 0, width: 840, height: 120 } });
+await b.close();

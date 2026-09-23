@@ -1,0 +1,92 @@
+{
+ "kf0": {
+  "head": "3c8199c5",
+  "dirty": 3
+ },
+ "rail": {
+  "x": 583.3984375,
+  "y": 324.484375,
+  "width": 748.3984375,
+  "height": 48
+ },
+ "scenarios": {
+  "H3-pause-then-tap": {
+   "frames": 86,
+   "probeRows": 161,
+   "kf": {
+    "head": "3c8199c5",
+    "dirty": 3
+   }
+  },
+  "J-scrub-panel": {
+   "frames": 82,
+   "probeRows": 132,
+   "kf": {
+    "head": "3c8199c5",
+    "dirty": 3
+   }
+  },
+  "K-reseat-verb": {
+   "frames": 103,
+   "probeRows": 144,
+   "kf": {
+    "head": "3c8199c5",
+    "dirty": 3
+   }
+  },
+  "L-reset-pill": {
+   "frames": 23,
+   "probeRows": 100,
+   "kf": {
+    "head": "3c8199c5",
+    "dirty": 3
+   }
+  }
+ },
+ "kf1": {
+  "head": "3c8199c5",
+  "dirty": 3
+ },
+ "loaf": [
+  {
+   "start": 6,
+   "dur": 104,
+   "block": 0,
+   "render": 0,
+   "styleLayout": 0,
+   "scripts": []
+  },
+  {
+   "start": 249,
+   "dur": 126,
+   "block": 76,
+   "render": 2,
+   "styleLayout": 1,
+   "scripts": [
+    "import.then@animation/load-engine.ts:354 121ms fsl=28"
+   ]
+  },
+  {
+   "start": 403,
+   "dur": 145,
+   "block": 82,
+   "render": 4,
+   "styleLayout": 2,
+   "scripts": [
+    "import.then@scene/scenes.ts?t=1790175003460:5645 126ms fsl=45"
+   ]
+  },
+  {
+   "start": 733,
+   "dur": 156,
+   "block": 99,
+   "render": 23,
+   "styleLayout": 0,
+   "scripts": [
+    "http://localhost:5173/@fs/Users/mkbabb/Programming@deps/monaco-editor_esm_vs_editor_editor__api__js.js?v=b5f4789f:0 68ms fsl=11",
+    "import.then@keyframes/CSSCodeEditor.vue:4813 56ms fsl=28",
+    "FrameRequestCallback@deps/monaco-editor_esm_vs_editor_editor__api__js.js?v=b5f4789f:607358 22ms fsl=8"
+   ]
+  }
+ ]
+}

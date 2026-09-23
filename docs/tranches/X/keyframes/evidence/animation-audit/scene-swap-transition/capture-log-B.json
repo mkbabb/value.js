@@ -1,0 +1,77 @@
+{
+ "started": "2026-09-23T14:51:04.608Z",
+ "kfAtStart": {
+  "head": "d78bed01",
+  "dirty": "4"
+ },
+ "runs": [
+  {
+   "run": "B-shipped-seek-warm",
+   "from": "cube",
+   "to": "amiga",
+   "kf": {
+    "head": "d78bed01",
+    "dirty": "4"
+   },
+   "noViewTransition": true,
+   "vtThrows": [
+    {
+     "t": 20586.10000000149,
+     "argKind": "object"
+    },
+    {
+     "t": 20586.20000000298,
+     "argKind": "function"
+    }
+   ],
+   "vtAnims": 0
+  },
+  {
+   "run": "B-shipped-seek-warm",
+   "from": "amiga",
+   "to": "easing",
+   "kf": {
+    "head": "d78bed01",
+    "dirty": "4"
+   },
+   "noViewTransition": true,
+   "vtThrows": [
+    {
+     "t": 27144.10000000149,
+     "argKind": "object"
+    },
+    {
+     "t": 27144.10000000149,
+     "argKind": "function"
+    }
+   ],
+   "vtAnims": 0
+  },
+  {
+   "run": "D-shipped-hash",
+   "from": "amiga",
+   "to": "easing",
+   "kf": {
+    "head": "d78bed01",
+    "dirty": "4"
+   },
+   "frames": 22,
+   "rafStats": {
+    "n": 142,
+    "over20": 1,
+    "max": "82.4",
+    "bigOnes": [
+     [
+      15,
+      82.4
+     ]
+    ]
+   },
+   "vtLog": []
+  }
+ ],
+ "kfAtEnd": {
+  "head": "d78bed01",
+  "dirty": "4"
+ }
+}

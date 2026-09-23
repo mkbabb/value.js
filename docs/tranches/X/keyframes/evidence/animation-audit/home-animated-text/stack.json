@@ -1,0 +1,403 @@
+{
+ "out": [
+  {
+   "ch": "S",
+   "x": 79,
+   "y": 491,
+   "top": "div.grid.h-full < div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative",
+   "stack": [
+    "div.grid.h-full < div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative",
+    "div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "main.grid.place-items-center < div.editor-shell.relative < div#app"
+   ]
+  },
+  {
+   "ch": "e",
+   "x": 147,
+   "y": 491,
+   "top": "div.grid.h-full < div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative",
+   "stack": [
+    "div.grid.h-full < div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative",
+    "div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "main.grid.place-items-center < div.editor-shell.relative < div#app"
+   ]
+  },
+  {
+   "ch": "l",
+   "x": 198,
+   "y": 491,
+   "top": "div.grid.h-full < div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative",
+   "stack": [
+    "div.grid.h-full < div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative",
+    "div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "main.grid.place-items-center < div.editor-shell.relative < div#app"
+   ]
+  },
+  {
+   "ch": "e",
+   "x": 249,
+   "y": 491,
+   "top": "div.grid.h-full < div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative",
+   "stack": [
+    "div.grid.h-full < div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative",
+    "div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "main.grid.place-items-center < div.editor-shell.relative < div#app"
+   ]
+  },
+  {
+   "ch": "c",
+   "x": 310,
+   "y": 491,
+   "top": "div.grid.h-full < div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative",
+   "stack": [
+    "div.grid.h-full < div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative",
+    "div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "main.grid.place-items-center < div.editor-shell.relative < div#app"
+   ]
+  },
+  {
+   "ch": "t",
+   "x": 364,
+   "y": 491,
+   "top": "div.grid.h-full < div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative",
+   "stack": [
+    "div.grid.h-full < div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative",
+    "div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "main.grid.place-items-center < div.editor-shell.relative < div#app"
+   ]
+  },
+  {
+   "ch": "a",
+   "x": 466,
+   "y": 491,
+   "top": "div.grid.h-full < div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative",
+   "stack": [
+    "div.grid.h-full < div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative",
+    "div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "main.grid.place-items-center < div.editor-shell.relative < div#app"
+   ]
+  },
+  {
+   "ch": "n",
+   "x": 543,
+   "y": 491,
+   "top": "div.grid.h-full < div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative",
+   "stack": [
+    "div.grid.h-full < div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative",
+    "div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "main.grid.place-items-center < div.editor-shell.relative < div#app"
+   ]
+  },
+  {
+   "ch": "a",
+   "x": 665,
+   "y": 491,
+   "top": "span.face-numeral.text-display-2 < div.face-lacquer.h-full < div.cube-side.front < div.cube.preserve-3d < div.cube-pose.preserve-3d < div.cube-bob.preserve-3d",
+   "stack": [
+    "span.face-numeral.text-display-2 < div.face-lacquer.h-full < div.cube-side.front < div.cube.preserve-3d < div.cube-pose.preserve-3d < div.cube-bob.preserve-3d",
+    "div.face-lacquer.h-full < div.cube-side.front < div.cube.preserve-3d < div.cube-pose.preserve-3d < div.cube-bob.preserve-3d < div.idle-hover.preserve-3d",
+    "div.cube-side.front < div.cube.preserve-3d < div.cube-pose.preserve-3d < div.cube-bob.preserve-3d < div.idle-hover.preserve-3d < div.preserve-3d.relative",
+    "div.cube.preserve-3d < div.cube-pose.preserve-3d < div.cube-bob.preserve-3d < div.idle-hover.preserve-3d < div.preserve-3d.relative < div.graph.preserve-3d",
+    "div.cube-pose.preserve-3d < div.cube-bob.preserve-3d < div.idle-hover.preserve-3d < div.preserve-3d.relative < div.graph.preserve-3d < div.relative.grid"
+   ]
+  },
+  {
+   "ch": "n",
+   "x": 742,
+   "y": 491,
+   "top": "span.face-numeral.text-display-2 < div.face-lacquer.h-full < div.cube-side.front < div.cube.preserve-3d < div.cube-pose.preserve-3d < div.cube-bob.preserve-3d",
+   "stack": [
+    "span.face-numeral.text-display-2 < div.face-lacquer.h-full < div.cube-side.front < div.cube.preserve-3d < div.cube-pose.preserve-3d < div.cube-bob.preserve-3d",
+    "div.face-lacquer.h-full < div.cube-side.front < div.cube.preserve-3d < div.cube-pose.preserve-3d < div.cube-bob.preserve-3d < div.idle-hover.preserve-3d",
+    "div.cube-side.front < div.cube.preserve-3d < div.cube-pose.preserve-3d < div.cube-bob.preserve-3d < div.idle-hover.preserve-3d < div.preserve-3d.relative",
+    "div.cube.preserve-3d < div.cube-pose.preserve-3d < div.cube-bob.preserve-3d < div.idle-hover.preserve-3d < div.preserve-3d.relative < div.graph.preserve-3d",
+    "div.cube-pose.preserve-3d < div.cube-bob.preserve-3d < div.idle-hover.preserve-3d < div.preserve-3d.relative < div.graph.preserve-3d < div.relative.grid"
+   ]
+  },
+  {
+   "ch": "i",
+   "x": 803,
+   "y": 491,
+   "top": "span.face-numeral.text-display-2 < div.face-lacquer.h-full < div.cube-side.front < div.cube.preserve-3d < div.cube-pose.preserve-3d < div.cube-bob.preserve-3d",
+   "stack": [
+    "span.face-numeral.text-display-2 < div.face-lacquer.h-full < div.cube-side.front < div.cube.preserve-3d < div.cube-pose.preserve-3d < div.cube-bob.preserve-3d",
+    "div.face-lacquer.h-full < div.cube-side.front < div.cube.preserve-3d < div.cube-pose.preserve-3d < div.cube-bob.preserve-3d < div.idle-hover.preserve-3d",
+    "div.cube-side.front < div.cube.preserve-3d < div.cube-pose.preserve-3d < div.cube-bob.preserve-3d < div.idle-hover.preserve-3d < div.preserve-3d.relative",
+    "div.cube.preserve-3d < div.cube-pose.preserve-3d < div.cube-bob.preserve-3d < div.idle-hover.preserve-3d < div.preserve-3d.relative < div.graph.preserve-3d",
+    "div.cube-pose.preserve-3d < div.cube-bob.preserve-3d < div.idle-hover.preserve-3d < div.preserve-3d.relative < div.graph.preserve-3d < div.relative.grid"
+   ]
+  },
+  {
+   "ch": "m",
+   "x": 886,
+   "y": 489,
+   "top": "div.grid.h-full < div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative",
+   "stack": [
+    "div.grid.h-full < div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative",
+    "div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "main.grid.place-items-center < div.editor-shell.relative < div#app"
+   ]
+  },
+  {
+   "ch": "a",
+   "x": 983,
+   "y": 480,
+   "top": "div.grid.h-full < div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative",
+   "stack": [
+    "div.grid.h-full < div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative",
+    "div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "main.grid.place-items-center < div.editor-shell.relative < div#app"
+   ]
+  },
+  {
+   "ch": "t",
+   "x": 1042,
+   "y": 477,
+   "top": "div.grid.h-full < div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative",
+   "stack": [
+    "div.grid.h-full < div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative",
+    "div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "main.grid.place-items-center < div.editor-shell.relative < div#app"
+   ]
+  },
+  {
+   "ch": "i",
+   "x": 1085,
+   "y": 485,
+   "top": "div.grid.h-full < div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative",
+   "stack": [
+    "div.grid.h-full < div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative",
+    "div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "main.grid.place-items-center < div.editor-shell.relative < div#app"
+   ]
+  },
+  {
+   "ch": "o",
+   "x": 1141,
+   "y": 491,
+   "top": "div.grid.h-full < div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative",
+   "stack": [
+    "div.grid.h-full < div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative",
+    "div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "main.grid.place-items-center < div.editor-shell.relative < div#app"
+   ]
+  },
+  {
+   "ch": "n",
+   "x": 1218,
+   "y": 491,
+   "top": "div.grid.h-full < div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative",
+   "stack": [
+    "div.grid.h-full < div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative",
+    "div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+    "main.grid.place-items-center < div.editor-shell.relative < div#app"
+   ]
+  }
+ ],
+ "anc": [
+  {
+   "el": "div.hero-band.absolute",
+   "pos": "absolute",
+   "z": "auto",
+   "iso": "auto",
+   "tf": "none",
+   "filter": "none",
+   "blend": "normal",
+   "contain": "none"
+  },
+  {
+   "el": "div.absolute.inset-0",
+   "pos": "absolute",
+   "z": "20",
+   "iso": "auto",
+   "tf": "none",
+   "filter": "none",
+   "blend": "normal",
+   "contain": "none"
+  },
+  {
+   "el": "div.editor-shell.relative",
+   "pos": "relative",
+   "z": "auto",
+   "iso": "auto",
+   "tf": "none",
+   "filter": "none",
+   "blend": "normal",
+   "contain": "none"
+  }
+ ],
+ "canv": [
+  {
+   "el": "canvas.aurora-canvas.block < div.aurora-canvas-layer.h-full < div.aurora-root.block < div.editor-shell.relative < div#app",
+   "rect": [
+    0,
+    0,
+    1440,
+    900
+   ],
+   "pos": "static",
+   "z": "auto",
+   "anims": 0
+  },
+  {
+   "el": "div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+   "rect": [
+    43,
+    54,
+    1354,
+    792
+   ],
+   "pos": "static",
+   "z": "auto",
+   "anims": 0
+  },
+  {
+   "el": "div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative < div#app",
+   "rect": [
+    43,
+    127,
+    1354,
+    646
+   ],
+   "pos": "static",
+   "z": "auto",
+   "anims": 0
+  },
+  {
+   "el": "div.grid.h-full < div.scene-host.h-full < div.stage-cell.justify-self-stretch < div.controls-layout.justify-items-stretch < main.grid.place-items-center < div.editor-shell.relative",
+   "rect": [
+    43,
+    127,
+    1354,
+    646
+   ],
+   "pos": "static",
+   "z": "auto",
+   "anims": 0
+  },
+  {
+   "el": "div.cube-bob.preserve-3d < div.idle-hover.preserve-3d < div.preserve-3d.relative < div.graph.preserve-3d < div.relative.grid < div.grid.h-full",
+   "rect": [
+    608,
+    338,
+    225,
+    225
+   ],
+   "pos": "static",
+   "z": "auto",
+   "anims": 0
+  },
+  {
+   "el": "div.cube-pose.preserve-3d < div.cube-bob.preserve-3d < div.idle-hover.preserve-3d < div.preserve-3d.relative < div.graph.preserve-3d < div.relative.grid",
+   "rect": [
+    608,
+    338,
+    225,
+    225
+   ],
+   "pos": "static",
+   "z": "auto",
+   "anims": 0
+  },
+  {
+   "el": "div.cube.preserve-3d < div.cube-pose.preserve-3d < div.cube-bob.preserve-3d < div.idle-hover.preserve-3d < div.preserve-3d.relative < div.graph.preserve-3d",
+   "rect": [
+    608,
+    338,
+    225,
+    225
+   ],
+   "pos": "relative",
+   "z": "auto",
+   "anims": 0
+  },
+  {
+   "el": "div.cube-side.front < div.cube.preserve-3d < div.cube-pose.preserve-3d < div.cube-bob.preserve-3d < div.idle-hover.preserve-3d < div.preserve-3d.relative",
+   "rect": [
+    640,
+    370,
+    248,
+    248
+   ],
+   "pos": "absolute",
+   "z": "10",
+   "anims": 0
+  },
+  {
+   "el": "div.cube-side.right < div.cube.preserve-3d < div.cube-pose.preserve-3d < div.cube-bob.preserve-3d < div.idle-hover.preserve-3d < div.preserve-3d.relative",
+   "rect": [
+    773,
+    311,
+    115,
+    291
+   ],
+   "pos": "absolute",
+   "z": "10",
+   "anims": 0
+  },
+  {
+   "el": "div.cube-side.back < div.cube.preserve-3d < div.cube-pose.preserve-3d < div.cube-bob.preserve-3d < div.idle-hover.preserve-3d < div.preserve-3d.relative",
+   "rect": [
+    581,
+    311,
+    206,
+    206
+   ],
+   "pos": "absolute",
+   "z": "10",
+   "anims": 0
+  },
+  {
+   "el": "div.cube-side.left < div.cube.preserve-3d < div.cube-pose.preserve-3d < div.cube-bob.preserve-3d < div.idle-hover.preserve-3d < div.preserve-3d.relative",
+   "rect": [
+    581,
+    325,
+    76,
+    293
+   ],
+   "pos": "absolute",
+   "z": "10",
+   "anims": 0
+  },
+  {
+   "el": "div.cube-side.top < div.cube.preserve-3d < div.cube-pose.preserve-3d < div.cube-bob.preserve-3d < div.idle-hover.preserve-3d < div.preserve-3d.relative",
+   "rect": [
+    595,
+    311,
+    293,
+    76
+   ],
+   "pos": "absolute",
+   "z": "10",
+   "anims": 0
+  }
+ ]
+}

@@ -1,0 +1,9 @@
+{
+ "surface": "easing-gallery-race",
+ "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max) — headed Chromium, 1440x900 dpr1",
+ "method": "CDP Page.startScreencast everyNthFrame 1 (rAF-driven raw loop) + per-rAF transform sampler + keyboard/pointer transport probes",
+ "captures": {
+  "capture.mjs (frames A/D, sheets, 01-06 png)": {"khead": "d78bed01", "kdirty": 4},
+  "transport.mjs / resume.mjs / dock.mjs / dock2.mjs / clipcheck.mjs (07-11 png, *.json)": {"khead": "d78bed01 -> 3c8199c5 during run (moved files: PlaybackRibbon.vue + its test only; demo/scenes/easing unchanged)", "kdirty": "4 -> 3"}
+ }
+}

@@ -1,0 +1,2 @@
+kf HEAD d78bed01 dirty        4
+post-capture kf HEAD 3c8199c5 dirty 2 ; renderer ANGLE Metal Apple M5 Max; headed chromium 1440x900 dsf1

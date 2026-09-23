@@ -1,0 +1,53 @@
+{
+ "kf0": {
+  "head": "3c8199c5",
+  "dirty": 4
+ },
+ "rail": {
+  "x": 583.3984375,
+  "y": 324.484375,
+  "width": 748.3984375,
+  "height": 48
+ },
+ "scenarios": {
+  "M-first-tap": {
+   "frames": 84,
+   "probeRows": 114,
+   "kf": {
+    "head": "3c8199c5",
+    "dirty": 4
+   }
+  },
+  "N-reset-pill": {
+   "frames": 15,
+   "probeRows": 101,
+   "kf": {
+    "head": "3c8199c5",
+    "dirty": 4
+   }
+  },
+  "O-low-zeta-tap": {
+   "frames": 196,
+   "probeRows": 223,
+   "kf": {
+    "head": "3c8199c5",
+    "dirty": 4
+   }
+  }
+ },
+ "loafFirstTap": [
+  {
+   "start": 8665,
+   "dur": 316,
+   "block": 0,
+   "render": 1,
+   "styleLayout": 0,
+   "scripts": []
+  }
+ ],
+ "zetaAfterHome": "0.2",
+ "kf1": {
+  "head": "3c8199c5",
+  "dirty": 4
+ }
+}

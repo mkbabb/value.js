@@ -1,0 +1,14 @@
+import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
+const OUT = new URL(".", import.meta.url).pathname;
+const b = await chromium.launch({ headless: false });
+const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
+const logs=[]; p.on("console", m => { if (m.type()==="error"||m.type()==="warning") logs.push(m.type()+": "+m.text().slice(0,200)); });
+await p.goto("http://localhost:5173/#/spring", { waitUntil: "networkidle" });
+await p.waitForTimeout(2500);
+await p.screenshot({ path: OUT + "probe-00-load.png" });
+const gl = await p.evaluate(() => { const c=document.createElement("canvas").getContext("webgl"); const e=c&&c.getExtension("WEBGL_debug_renderer_info"); return e?c.getParameter(e.UNMASKED_RENDERER_WEBGL):"n/a"; });
+console.log("GPU", gl);
+const btns = await p.$$eval("button,[role=button]", els => els.map(e => (e.getAttribute("aria-label")||e.title||e.textContent.trim()).slice(0,40)).filter(Boolean));
+console.log(JSON.stringify(btns));
+console.log(logs.slice(0,10).join("\n"));
+await b.close();

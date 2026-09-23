@@ -1,0 +1,33 @@
+import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
+const D = "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/evidence/animation-audit/spring-starting-style-entry";
+const browser = await chromium.launch({ headless: false });
+const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
+const logs = [];
+page.on("console", m => { if (m.type() === "error" || m.type()==="warning") logs.push(m.type()+": "+m.text().slice(0,200)); });
+await page.goto("http://localhost:5173/#/spring", { waitUntil: "networkidle" });
+await page.waitForTimeout(2500);
+const gpu = await page.evaluate(() => { const c=document.createElement("canvas").getContext("webgl"); const e=c&&c.getExtension("WEBGL_debug_renderer_info"); return e? c.getParameter(e.UNMASKED_RENDERER_WEBGL):"none"; });
+console.log("GPU", gpu);
+await page.screenshot({ path: D + "/00-spring-landing.png" });
+const sel = page.locator('[aria-label="Select animation"]');
+console.log("select count", await sel.count());
+const bb = await sel.first().boundingBox(); console.log("trigger bb", JSON.stringify(bb), await sel.first().getAttribute("aria-expanded"), await sel.first().getAttribute("data-state"));
+await page.mouse.move(bb.x+bb.width/2, bb.y+bb.height/2); await page.waitForTimeout(800);
+await sel.first().click(); await page.waitForTimeout(1000);
+console.log("after click", await sel.first().getAttribute("aria-expanded"), await page.locator('[role="listbox"],[role="option"]').count());
+if ((await page.getByRole("option").count())===0){ await sel.first().focus(); await page.keyboard.press("Enter"); await page.waitForTimeout(800); console.log("after Enter", await page.getByRole("option").count()); }
+await page.screenshot({ path: D + "/01-select-open.png" });
+const opts = await page.getByRole("option").allInnerTexts();
+console.log("options", opts);
+await page.getByRole("option", { name: /Entry/ }).click();
+await page.waitForTimeout(1500);
+await page.screenshot({ path: D + "/02-entry-selected.png" });
+const info = await page.evaluate(() => {
+  const c = document.querySelector(".discrete-card");
+  const btns = [...document.querySelectorAll("button")].filter(b => /Reveal|Dismiss/.test(b.textContent)).map(b => ({ t: b.textContent.trim(), r: b.getBoundingClientRect().toJSON(), inCard: !!b.closest('[data-slot="card"]'), cls: b.className.slice(0,80) }));
+  const cs = c && getComputedStyle(c);
+  return { card: c && { cls: c.className, r: c.getBoundingClientRect().toJSON(), display: cs.display, op: cs.opacity, tf: cs.transform }, btns, url: location.href };
+});
+console.log(JSON.stringify(info, null, 1));
+console.log(logs.slice(0,10).join("\n"));
+await browser.close();
