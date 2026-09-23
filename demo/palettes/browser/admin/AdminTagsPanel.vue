@@ -2,18 +2,45 @@
     <div class="grid gap-3 pb-3">
         <!-- Toolbar -->
         <div class="flex items-center gap-2">
-            <span class="text-mono-small text-muted-foreground">
+            <!-- W7.61 (ATP-12): the count speaks only over a loaded ledger. -->
+            <span
+                v-if="!tagsApi.access.value && !tagsApi.loading.value && !tagsApi.loadError.value"
+                class="text-mono-small text-muted-foreground"
+            >
                 {{ tagsApi.tags.value.length }} tag{{ tagsApi.tags.value.length === 1 ? "" : "s" }}
             </span>
             <div class="flex-1" />
             <!-- W5-a11y: icon-only refresh button needs accessible name -->
-            <Button variant="outline" size="xs" class="px-2" aria-label="Refresh tags" @click="tagsApi.loadTags">
+            <Button variant="outline" size="xs" class="px-2" aria-label="Refresh tags" :disabled="!!tagsApi.access.value" @click="tagsApi.loadTags()">
                 <RefreshCw class="h-3 w-3" aria-hidden="true" />
             </Button>
         </div>
 
+        <!-- X.W7.d (S-13): the tag write's one visible result. -->
+        <div aria-live="polite" data-admin-notice="tags">
+            <ActionFeedback
+                v-if="tagsApi.notice.value"
+                :key="tagsApi.notice.value.seq"
+                :message="tagsApi.notice.value.message"
+                :variant="tagsApi.notice.value.variant"
+                :visible="true"
+                :auto-dismiss-ms="tagsApi.notice.value.variant === 'error' ? 0 : 4000"
+                @update:visible="tagsApi.dismissNotice()"
+            />
+        </div>
+
+        <!-- X.W7.d (N-2 · W7.61): signed out is its own register — no "0 tags",
+             and no operable create form. -->
+        <EmptyState
+            v-if="tagsApi.access.value"
+            variant="error"
+            data-admin-access="signed-out"
+            :message="tagsApi.access.value.message"
+            detail="Sign in with an admin token to manage tags."
+        />
+
         <!-- Create form -->
-        <div class="flex items-center gap-2">
+        <div v-if="!tagsApi.access.value" class="flex items-center gap-2">
             <!-- S.W5-3 (S-17/F-7): glass-ui Input pills, sm rung; the pair
                  sized honestly (name vs category was ~5×; the category well
                  no longer clips its own placeholder). -->
@@ -23,6 +50,8 @@
                 size="sm"
                 placeholder="Tag name..."
                 aria-label="New tag name"
+                :aria-invalid="tagsApi.newNameProblem.value ? true : undefined"
+                aria-describedby="admin-tag-name-problem"
                 class="flex-1 min-w-0 font-mono"
             />
             <Input
@@ -39,13 +68,21 @@
                 size="xs"
                 class="px-2"
                 aria-label="Create tag"
-                :disabled="!tagsApi.newName.value.trim() || !tagsApi.newCategory.value.trim() || tagsApi.creating.value"
-                @click="tagsApi.createTag"
+                :disabled="!tagsApi.newName.value.trim() || !tagsApi.newCategory.value.trim() || !!tagsApi.newNameProblem.value || tagsApi.creating.value"
+                @click="tagsApi.createTag()"
             >
                 <Plus class="h-3 w-3" aria-hidden="true" />
             </Button>
         </div>
+        <!-- W7.80 (ATP-10): the contract problem is shown before any request. -->
+        <p
+            v-if="!tagsApi.access.value"
+            id="admin-tag-name-problem"
+            class="text-small text-destructive"
+            :hidden="!tagsApi.newNameProblem.value"
+        >{{ tagsApi.newNameProblem.value }}</p>
 
+        <template v-if="!tagsApi.access.value">
         <!-- W5-1 + F-13: tag chips load as chip-shaped shadows in the ONE
              loading-ink register — never a centered generic spinner. -->
         <div
@@ -106,6 +143,7 @@
                 </div>
             </div>
         </div>
+        </template>
     </div>
 </template>
 
@@ -116,6 +154,7 @@ import { Input } from "../../../ui/input";
 import { Skeleton } from "../../../ui/skeleton";
 import { Plus, RefreshCw, X } from "@lucide/vue";
 import EmptyState from "../../../shared/ui/EmptyState.vue";
+import ActionFeedback from "../card/PaletteCard/ActionFeedback.vue";
 import { ADMIN_PORT_KEY } from "../../usePalettePorts";
 
 // D.W3 Lane B: route through pm.tags sub-object (was: direct getAdminTags/createTag/deleteTag)

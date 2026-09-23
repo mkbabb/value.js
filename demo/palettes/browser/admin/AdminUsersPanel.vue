@@ -5,24 +5,18 @@
             <!-- A-3: the count speaks only once the roster resolves — a "0
                  users" line above three loading skeletons is a self-
                  contradiction (totalUsers is 0 before the data arrives). -->
-            <span v-if="!loading" class="text-mono-small text-muted-foreground">
+            <span v-if="!loading && !access" class="text-mono-small text-muted-foreground">
                 {{ totalUsers }} user{{ totalUsers !== 1 ? 's' : '' }}
             </span>
-            <span v-if="!loading && emptyCount > 0" class="text-mono-small text-muted-foreground">
+            <span v-if="!loading && !access && emptyCount > 0" class="text-mono-small text-muted-foreground">
                 · {{ emptyCount }} empty
             </span>
             <div class="flex-1" />
-            <!-- celebration family: a one-shot action-result beat. -->
-            <Transition name="vj-celebrate">
-                <span v-if="pruneResult" class="text-mono-small text-muted-foreground italic">
-                    {{ pruneResult }}
-                </span>
-            </Transition>
             <Button
                 variant="outline"
                 size="xs"
                 class="px-2.5 cursor-pointer font-display text-caption gap-1.5"
-                :disabled="emptyCount === 0 || pruning"
+                :disabled="!!access || emptyCount === 0 || pruning"
                 @click="onPruneClick"
             >
                 <Loader2 v-if="pruning" class="w-3 h-3 animate-spin" />
@@ -33,17 +27,40 @@
                 variant="outline"
                 size="xs"
                 class="px-2.5 cursor-pointer font-display text-caption gap-1.5"
-                :disabled="loading"
-                @click="emit('refresh')"
+                :disabled="loading || !!access"
+                @click="pm.loadAdminUsers()"
             >
                 <RefreshCw class="w-3 h-3" :class="loading && 'animate-spin'" />
                 Refresh
             </Button>
         </div>
 
+        <!-- X.W7.d (S-13 · W7.64): every mutation's ONE visible result, in an
+             always-mounted live region — never a 3 s unannounced flourish. -->
+        <div aria-live="polite" data-admin-notice="users">
+            <ActionFeedback
+                v-if="notice"
+                :key="notice.seq"
+                :message="notice.message"
+                :variant="notice.variant"
+                :visible="true"
+                :auto-dismiss-ms="notice.variant === 'error' ? 0 : 4000"
+                @update:visible="pm.dismissUsersNotice()"
+            />
+        </div>
+
+        <!-- X.W7.d (N-2 · W7.61): signed out is its own register — never the
+             empty roster, never an operable control set. -->
+        <EmptyState
+            v-if="access"
+            variant="error"
+            data-admin-access="signed-out"
+            :message="access.message"
+            detail="Sign in with an admin token to see the roster."
+        />
         <!-- W5-1 + F-13: rows load as row-shaped shadows in the ONE loading
              grammar — never a centered generic spinner. -->
-        <div v-if="loading" class="grid gap-3" aria-label="Loading users">
+        <div v-else-if="loading" class="grid gap-3" aria-label="Loading users">
             <AdminListSkeleton v-for="i in 3" :key="i" />
         </div>
         <!-- W5-5 (F-2, the P0 case): error ≠ empty — a dead backend never
@@ -55,7 +72,7 @@
             :detail="loadError"
         >
             <template #action>
-                <Button variant="outline" size="sm" class="font-display" @click="emit('refresh')">
+                <Button variant="outline" size="sm" class="font-display" @click="pm.loadAdminUsers()">
                     Retry
                 </Button>
             </template>
@@ -135,21 +152,48 @@
                     <div v-if="loadingUserPalettes" class="grid gap-2" aria-label="Loading palettes">
                         <AdminListSkeleton v-for="i in 2" :key="i" />
                     </div>
+                    <!-- W7.86: a failed read is an error, never "No palettes." -->
+                    <EmptyState
+                        v-else-if="userPalettesError"
+                        variant="error"
+                        message="This user's palettes are unreachable."
+                        :detail="userPalettesError"
+                    />
                     <EmptyState v-else-if="userPalettes.length === 0" eyebrow="· none pinned ·" message="No palettes." />
-                    <div v-else class="grid gap-2">
-                        <PaletteCard
+                    <!-- X.W7.d (DAG §2.3 row 6): the Admin scene owns exactly its own
+                         verbs. The palette renders as the props-only specimen and
+                         the row's action seat carries Feature and Delete — the user
+                         verbs (Save / Remix / Export / Report) never enter it. -->
+                    <ul v-else class="grid gap-2" aria-label="Palettes">
+                        <li
                             v-for="palette in userPalettes"
                             :key="palette.slug"
-                            :palette="palette"
-                            :expanded="expandedId === palette.slug"
-                            :css-color="cssColor"
-                            is-admin
-                            show-slug
-                            @click="emit('toggleExpand', palette.slug)"
-                            @feature="(p) => emit('feature', p)"
-                            @admin-delete="emit('adminDeleteUserPalette', $event, user.slug)"
-                        />
-                    </div>
+                            class="admin-palette rounded-card border border-card-edge bg-well"
+                            :data-admin-palette="palette.slug"
+                        >
+                            <PaletteSpecimen :palette="palette" />
+                            <div class="admin-palette__actions flex items-center gap-1.5 pe-2">
+                                <Button
+                                    size="xs"
+                                    class="px-2 cursor-pointer font-display text-caption gap-1"
+                                    :aria-pressed="palette.tier === 'featured'"
+                                    :aria-label="`${palette.tier === 'featured' ? 'Unfeature' : 'Feature'} ${palette.name}`"
+                                    @click="pm.onFeaturePalette(palette)"
+                                >
+                                    <Star class="w-3 h-3" aria-hidden="true" />
+                                    {{ palette.tier === 'featured' ? 'Unfeature' : 'Feature' }}
+                                </Button>
+                                <Button
+                                    size="xs"
+                                    class="px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
+                                    :aria-label="`Delete palette ${palette.name}`"
+                                    @click="pm.onAdminDeleteUserPalette(palette, user.slug)"
+                                >
+                                    <Trash2 class="w-3 h-3" aria-hidden="true" />
+                                </Button>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -183,7 +227,7 @@
 </template>
 
 <script setup lang="ts">
-import { inject, ref, computed, Transition } from "vue";
+import { inject, ref } from "vue";
 import { SAFE_ACCENT_KEY } from "../../../color-session/keys";
 import { Button } from "../../../ui/button";
 import { Badge } from "../../../ui/badge";
@@ -195,50 +239,33 @@ import {
     DialogDescription,
     DialogFooter,
 } from "@mkbabb/glass-ui/dialog";
-import { Loader2, Trash2, Eraser, RefreshCw } from "@lucide/vue";
-import type { Palette, User } from "../../types";
+import { Loader2, Trash2, Eraser, RefreshCw, Star } from "@lucide/vue";
 import { ADMIN_PORT_KEY } from "../../usePalettePorts";
-import { PaletteCard } from "../card";
+import { PaletteSpecimen } from "../card";
+import ActionFeedback from "../card/PaletteCard/ActionFeedback.vue";
 import EmptyState from "../../../shared/ui/EmptyState.vue";
 import AdminListSkeleton from "./AdminListSkeleton.vue";
 
-const {
-    users,
-    loading,
-    loadError = null,
-    expandedId,
-    cssColor,
-    totalUsers,
-} = defineProps<{
-    users: User[];
-    loading: boolean;
-    /** W5-5 (F-2): the surfaced load failure — error ≠ empty. */
-    loadError?: string | null;
-    expandedId: string | null;
-    cssColor: string;
-    totalUsers: number;
-}>();
-
-const emit = defineEmits<{
-    deleteUserPalettes: [slug: string];
-    deleteUser: [slug: string];
-    toggleExpand: [id: string];
-    feature: [palette: Palette];
-    adminDeleteUserPalette: [palette: Palette, ownerSlug: string];
-    prune: [];
-    refresh: [];
-}>();
-
 const safeAccent = inject(SAFE_ACCENT_KEY)!;
-// D.W3 Lane B: route through pm.loadUserPalettes (was: direct getUserPalettes)
+// X.W7.d (fold W7.68 · L-2 · W7.67 · L-1): the panel reads the admin users
+// domain from its port — no forwarded props, no component instance held by the
+// composable, no imperative pokes whose results vanish behind `?.`.
 const pm = inject(ADMIN_PORT_KEY)!;
 
-const expandedUserSlug = ref<string | null>(null);
-const userPalettes = ref<Palette[]>([]);
-const loadingUserPalettes = ref(false);
-const pruning = ref(false);
+const users = pm.filteredAdminUsers;
+const loading = pm.loadingUsers;
+const loadError = pm.usersLoadError;
+const totalUsers = pm.adminUsersTotal;
+const access = pm.usersAccess;
+const notice = pm.usersNotice;
+const expandedUserSlug = pm.expandedUserSlug;
+const userPalettes = pm.userPalettes;
+const loadingUserPalettes = pm.loadingUserPalettes;
+const userPalettesError = pm.userPalettesError;
+// N-3: the count the prune confirm quotes is the UNFILTERED loaded roster's.
+const emptyCount = pm.emptyUserCount;
 
-const emptyCount = computed(() => users.filter((u) => !(u.paletteCount ?? 0)).length);
+const pruning = ref(false);
 
 // W5-12 (F-13): tail-priority slug split — the last 6 chars carry the
 // distinguishing suffix (prune candidates read `…-33` vs `…-77`, never two
@@ -285,27 +312,27 @@ function onConfirm() {
     confirmOpen.value = false;
 }
 
+/**
+ * N-3 (fold W7.60 · Δ-1): prune is a SERVER-GLOBAL delete of every user with
+ * no palettes. The confirm states that scope in words, and the number it
+ * quotes is read from the unfiltered loaded roster — never the search result.
+ */
 function onPruneClick() {
+    const n = emptyCount.value;
     showConfirm({
-        title: `Prune ${emptyCount.value} empty users?`,
-        description: `This will permanently delete ${emptyCount.value} user${emptyCount.value !== 1 ? "s" : ""} with 0 palettes and their sessions. This cannot be undone.`,
+        title: "Prune every empty user?",
+        description: `This permanently deletes every user with 0 palettes on the server, and their sessions — not only the users shown here. ${n} of the ${pm.adminUsers.value.length} loaded users ${n === 1 ? "is" : "are"} empty. This cannot be undone.`,
         label: "Prune",
         destructive: true,
-        action: () => {
+        action: async () => {
             pruning.value = true;
-            emit("prune");
+            try {
+                await pm.onPruneEmpty();
+            } finally {
+                pruning.value = false;
+            }
         },
     });
-}
-
-const pruneResult = ref<string | null>(null);
-
-function onPruneDone(count: number) {
-    pruning.value = false;
-    pruneResult.value = count > 0
-        ? `Pruned ${count} user${count !== 1 ? "s" : ""}`
-        : "No empty users to prune";
-    setTimeout(() => { pruneResult.value = null; }, 3000);
 }
 
 // W5-12 (F-8): the shift-click confirm bypass is EXCISED — an invisible,
@@ -319,7 +346,7 @@ function onDeletePalettesClick(slug: string) {
         slug,
         label: "Delete palettes",
         destructive: true,
-        action: () => emit("deleteUserPalettes", slug),
+        action: () => void pm.onDeleteUserPalettes(slug),
     });
 }
 
@@ -330,7 +357,7 @@ function onDeleteUserClick(slug: string) {
         slug,
         label: "Delete user",
         destructive: true,
-        action: () => emit("deleteUser", slug),
+        action: () => void pm.onDeleteUser(slug),
     });
 }
 
@@ -345,47 +372,28 @@ function onRowKeydown(e: KeyboardEvent, slug: string) {
     if (e.target !== e.currentTarget) return;
     if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
         e.preventDefault();
-        toggleUserExpand(slug);
+        void pm.toggleUserExpand(slug);
     }
 }
 
-async function toggleUserExpand(slug: string) {
-    if (expandedUserSlug.value === slug) {
-        expandedUserSlug.value = null;
-        userPalettes.value = [];
-        return;
-    }
-    expandedUserSlug.value = slug;
-    loadingUserPalettes.value = true;
-    try {
-        userPalettes.value = await pm.loadUserPalettes(slug);
-    } finally {
-        loadingUserPalettes.value = false;
-    }
+function toggleUserExpand(slug: string) {
+    void pm.toggleUserExpand(slug);
 }
-
-function removeUserPalette(paletteSlug: string) {
-    userPalettes.value = userPalettes.value.filter((p) => p.slug !== paletteSlug);
-}
-
-function updatePaletteTier(paletteSlug: string, tier: string) {
-    const idx = userPalettes.value.findIndex((p) => p.slug === paletteSlug);
-    const existing = userPalettes.value[idx];
-    if (idx !== -1 && existing) {
-        userPalettes.value[idx] = {
-            ...existing,
-            tier: tier as "standard" | "featured" | "archived",
-        };
-    }
-}
-
-function clearUserPalettes(slug: string) {
-    if (expandedUserSlug.value === slug) {
-        expandedUserSlug.value = null;
-        userPalettes.value = [];
-    }
-}
-
-defineExpose({ removeUserPalette, updatePaletteTier, clearUserPalettes, onPruneDone, userPalettes });
 </script>
 
+<style scoped>
+/* The admin palette row hosts the props-only specimen (strip + head) and the
+ * Admin scene's own action seat beside its head. */
+.admin-palette {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+        "strip strip"
+        "head actions";
+    align-items: center;
+    --specimen-radius: calc(var(--radius-card) - 1px);
+}
+.admin-palette__actions {
+    grid-area: actions;
+}
+</style>

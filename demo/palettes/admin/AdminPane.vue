@@ -10,8 +10,9 @@
                  the P3 seated rung / ASK-D). -->
             <SearchBar
                 v-if="subView === 'admin-users'"
-                v-model="pm.searchQuery.value"
+                v-model="pm.usersSearch.value"
                 class="search-seated"
+                aria-label="Search users"
                 placeholder="Search users..."
             >
                 <UserSortMenu
@@ -20,24 +21,22 @@
                 />
             </SearchBar>
 
-            <!-- Users sub-view -->
-            <AdminUsersPanel
-                v-if="subView === 'admin-users'"
-                ref="adminUsersPanelRef"
-                :users="pm.filteredAdminUsers.value"
-                :loading="pm.loadingUsers.value"
-                :load-error="pm.usersLoadError.value"
-                :expanded-id="pm.expandedId.value"
-                :css-color="cssColorOpaque"
-                :total-users="pm.adminUsers.value.length"
-                @delete-user-palettes="pm.onDeleteUserPalettes"
-                @delete-user="pm.onDeleteUser"
-                @toggle-expand="pm.toggleExpand"
-                @feature="pm.onFeaturePalette"
-                @admin-delete-user-palette="pm.onAdminDeleteUserPalette"
-                @prune="pm.onPrune"
-                @refresh="pm.loadAdminUsers"
-            />
+            <!-- Users sub-view. X.W7.d (fold W7.68 · L-2): the panel injects the
+                 admin port itself — no port member is forwarded as a prop. -->
+            <AdminUsersPanel v-if="subView === 'admin-users'" />
+
+            <!-- X.W7.d (S-13): the moderation act's one visible result. -->
+            <div v-if="subView === 'admin-names'" aria-live="polite" data-admin-notice="names">
+                <ActionFeedback
+                    v-if="pm.namesNotice.value"
+                    :key="pm.namesNotice.value.seq"
+                    :message="pm.namesNotice.value.message"
+                    :variant="pm.namesNotice.value.variant"
+                    :visible="true"
+                    :auto-dismiss-ms="pm.namesNotice.value.variant === 'error' ? 0 : 4000"
+                    @update:visible="pm.dismissNamesNotice()"
+                />
+            </div>
 
             <!-- Names sub-view -->
             <AdminNamesPanel
@@ -48,7 +47,8 @@
                 :loading-approved="pm.loadingApproved.value"
                 :pending-error="pm.queueLoadError.value"
                 :approved-error="pm.approvedLoadError.value"
-                :css-color-opaque="cssColorOpaque"
+                :access="pm.namesAccess.value"
+                :filtered="pm.namesSearch.value.trim() !== ''"
                 @approve="pm.onApproveColor"
                 @reject="pm.onRejectColor"
                 @delete="pm.onDeleteColor"
@@ -59,8 +59,9 @@
                      Pending | Approved selector (source order, not `order:`). -->
                 <template #query>
                     <SearchBar
-                        v-model="pm.searchQuery.value"
+                        v-model="pm.namesSearch.value"
                         class="search-seated"
+                        aria-label="Search color names"
                         placeholder="Search color names..."
                     />
                 </template>
@@ -84,7 +85,7 @@ import { Card } from "../../ui/card";
 import { Badge } from "../../ui/badge";
 
 import { ADMIN_PORT_KEY } from "../usePalettePorts";
-import { CSS_COLOR_KEY } from "../../color-session/keys";
+import ActionFeedback from "../browser/card/PaletteCard/ActionFeedback.vue";
 import {
     AdminUsersPanel,
     AdminNamesPanel,
@@ -106,7 +107,6 @@ const { subView } = defineProps<{
     subView: AdminSubView;
 }>();
 
-const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 const pm = inject(ADMIN_PORT_KEY)!;
 
 const headerTitle = computed(() => {
@@ -134,17 +134,16 @@ const adminCount = computed(() => {
         // A-3: suppress the badge while the roster/queue loads — a "0" over
         // the loading skeletons lies (the length is 0 before data arrives).
         case "admin-users":
-            return pm.loadingUsers.value ? null : pm.adminUsers.value.length;
+            // W7.62: the server's roster total, not the loaded page's length.
+            return pm.loadingUsers.value || pm.usersAccess.value ? null : pm.adminUsersTotal.value;
         // S.W5-7 (F-12): the header badge is the ACTIONABLE queue — the old
         // pending+approved sum matched neither visible list.
         case "admin-names":
-            return pm.loadingColorQueue.value
+            return pm.loadingColorQueue.value || pm.namesAccess.value
                 ? null
                 : pm.filteredColorQueue.value.length;
         default: return null;
     }
 });
 
-// Sync the admin panel ref for prune operations
-const adminUsersPanelRef = pm.adminUsersPanelRef;
 </script>

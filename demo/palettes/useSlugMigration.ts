@@ -1,5 +1,6 @@
-import { ref, type Ref, type ComputedRef } from "vue";
+import { ref, shallowRef, type Ref, type ComputedRef } from "vue";
 import { createAndSavePalette } from "./api";
+import { preflightColors } from "./api/preflight";
 import { ApiProblem } from "../platform/transport/api-problem";
 import type { Palette } from "./types";
 import type { ViewId } from "../shell/useViewManager";
@@ -37,29 +38,76 @@ export interface SlugMigrationDeps {
     setActiveView: (id: ViewId) => void;
 }
 
+/**
+ * X.W7.d · MMD-2 (the CARRY LOCK, fold W7.138 · B-3): the identity act's ONE
+ * visible state. `Regenerate slug` used to be a fire-and-forget promise from two
+ * dock-menu twins with no catch and no error surface; a failure after the old
+ * identity was cleared reached only `console.warn`. Both twins now render this
+ * state (one cure, applied twice).
+ */
+export type IdentityState =
+    | { readonly kind: "pending" }
+    | { readonly kind: "done"; readonly message: string }
+    | { readonly kind: "failed"; readonly message: string };
+
+function messageOf(e: unknown, fallback: string): string {
+    return e instanceof Error && e.message ? e.message : fallback;
+}
+
 export function useSlugMigration(deps: SlugMigrationDeps) {
 
     const showMigrateDialog = ref(false);
     const migrateMode = ref<"switch" | "regenerate">("switch");
     const pendingMigrateAction = ref<((choice: "publish" | "transfer" | "discard") => Promise<void>) | null>(null);
     const slugBarRef = ref<InstanceType<typeof PaletteSlugBar> | null>(null);
+    const identity = shallowRef<IdentityState | null>(null);
 
-    async function publishAllLocal() {
-        try {
-            await deps.ensureSession();
-            for (const palette of deps.savedPalettes.value) {
-                try {
-                    await createAndSavePalette({
-                        name: palette.name,
-                        slug: palette.slug,
-                        colors: palette.colors,
-                    });
-                } catch {
-                    // Skip failures (e.g. duplicate slugs)
-                }
+    /**
+     * Rows 39-40 (SURFACE, W7.23 / A-26): every palette's publish is attempted
+     * and the TALLY is the visible result — a failure is counted, never skipped
+     * in silence. Throws only when the session itself cannot be ensured.
+     */
+    async function publishAllLocal(): Promise<{ published: number; failed: number }> {
+        await deps.ensureSession();
+        let published = 0;
+        let failed = 0;
+        for (const palette of deps.savedPalettes.value) {
+            if (!preflightColors(palette.colors).ok) {
+                failed += 1;
+                continue;
             }
+            try {
+                await createAndSavePalette({
+                    name: palette.name,
+                    slug: palette.slug,
+                    colors: palette.colors,
+                });
+                published += 1;
+            } catch {
+                failed += 1;
+            }
+        }
+        return { published, failed };
+    }
+
+    function tallyText(t: { published: number; failed: number }): string {
+        const base = `Published ${t.published} palette${t.published === 1 ? "" : "s"}`;
+        return t.failed > 0 ? `${base}; ${t.failed} could not be published` : base;
+    }
+
+    async function regenerate(tally: string | null): Promise<void> {
+        identity.value = { kind: "pending" };
+        try {
+            const slug = await deps.userRegenerate();
+            identity.value = {
+                kind: "done",
+                message: tally ? `New slug ${slug}. ${tally}.` : `New slug ${slug}.`,
+            };
         } catch (e) {
-            console.warn("Publish all failed:", e);
+            identity.value = {
+                kind: "failed",
+                message: `The new slug was not issued: ${messageOf(e, "backend unreachable")}`,
+            };
         }
     }
 
@@ -74,13 +122,11 @@ export function useSlugMigration(deps: SlugMigrationDeps) {
         if (deps.savedPalettes.value.length > 0) {
             migrateMode.value = "switch";
             pendingMigrateAction.value = async (choice) => {
-                if (choice === "publish") {
-                    await publishAllLocal();
-                }
+                const before = choice === "publish" ? await publishAllLocal() : null;
                 await deps.userLogin(value);
-                if (choice === "transfer") {
-                    await publishAllLocal();
-                }
+                const after = choice === "transfer" ? await publishAllLocal() : null;
+                const tally = before ?? after;
+                if (tally) identity.value = { kind: "done", message: `${tallyText(tally)}.` };
                 deps.setActiveView("palettes");
             };
             showMigrateDialog.value = true;
@@ -103,18 +149,18 @@ export function useSlugMigration(deps: SlugMigrationDeps) {
         }
     }
 
-    async function onRegenerateSlug() {
+    /** Never throws: the outcome lands in `identity`, which both menu twins render. */
+    async function onRegenerateSlug(): Promise<void> {
+        if (identity.value?.kind === "pending") return;
         if (deps.savedPalettes.value.length > 0) {
             migrateMode.value = "regenerate";
             pendingMigrateAction.value = async (choice) => {
-                if (choice === "publish") {
-                    await publishAllLocal();
-                }
-                await deps.userRegenerate();
+                const tally = choice === "publish" ? tallyText(await publishAllLocal()) : null;
+                await regenerate(tally);
             };
             showMigrateDialog.value = true;
         } else {
-            await deps.userRegenerate();
+            await regenerate(null);
         }
     }
 
@@ -124,8 +170,12 @@ export function useSlugMigration(deps: SlugMigrationDeps) {
         if (action) {
             try {
                 await action(choice);
-            } catch (e: any) {
-                console.warn("Migration action failed:", e?.message);
+            } catch (e) {
+                // Row 42 (SURFACE): the migration's failure is rendered, not logged.
+                identity.value = {
+                    kind: "failed",
+                    message: `The migration did not complete: ${messageOf(e, "backend unreachable")}`,
+                };
             }
         }
     }
@@ -134,6 +184,10 @@ export function useSlugMigration(deps: SlugMigrationDeps) {
         showMigrateDialog,
         migrateMode,
         slugBarRef,
+        identity,
+        dismissIdentity: () => {
+            identity.value = null;
+        },
         onSlugSwitch,
         onRegenerateSlug,
         onMigrateRespond,

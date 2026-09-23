@@ -10,6 +10,7 @@
                 size="sm"
                 placeholder="Action..."
                 aria-label="Filter by action"
+                :disabled="!!audit.access.value"
                 class="w-32 font-mono"
             />
             <Input
@@ -18,22 +19,33 @@
                 size="sm"
                 placeholder="Target..."
                 aria-label="Filter by target"
+                :disabled="!!audit.access.value"
                 class="flex-1 min-w-[6rem] font-mono"
             />
             <div class="flex-1" />
             <!-- S.W5-7: the naked count gains its unit, matching the
                  labeled counts everywhere else ("5 users", "2 flagged"). -->
-            <span class="text-mono-small text-muted-foreground">
+            <span v-if="!audit.access.value && !audit.loading.value" class="text-mono-small text-muted-foreground">
                 {{ audit.total.value }} entr{{ audit.total.value === 1 ? "y" : "ies" }}
             </span>
             <!-- W5-a11y: icon-only refresh button needs accessible name -->
-            <Button variant="outline" size="xs" class="px-2" aria-label="Refresh audit log" @click="audit.loadAuditLog()">
+            <Button variant="outline" size="xs" class="px-2" aria-label="Refresh audit log" :disabled="!!audit.access.value" @click="audit.loadAuditLog()">
                 <RefreshCw class="h-3 w-3" aria-hidden="true" />
             </Button>
         </div>
 
+        <!-- X.W7.d (N-2 · W7.61): signed out is its own register — never a
+             clear ledger. -->
+        <EmptyState
+            v-if="audit.access.value"
+            variant="error"
+            data-admin-access="signed-out"
+            :message="audit.access.value.message"
+            detail="Sign in with an admin token to read the audit log."
+        />
+
         <!-- W5-1 + F-13: entries load as row shadows, one grammar. -->
-        <div v-if="audit.loading.value" class="grid gap-2" aria-label="Loading audit log">
+        <div v-else-if="audit.loading.value" class="grid gap-2" aria-label="Loading audit log">
             <AdminListSkeleton v-for="i in 3" :key="i" />
         </div>
 
@@ -52,10 +64,20 @@
             </template>
         </EmptyState>
 
+        <!-- W7.83 (AAP-6): a FILTERED zero is not a clear ledger. -->
+        <EmptyState
+            v-else-if="audit.entries.value.length === 0 && filtered"
+            message="No audit entries match these filters."
+        />
+
         <!-- Empty (TRUE empty — the specimen annotation survives, Q6) -->
         <EmptyState v-else-if="audit.entries.value.length === 0" eyebrow="· ledger clear ·" message="No audit entries found." />
 
-        <!-- Entries — Ag-13: primary (action+time) / secondary (target) hierarchy -->
+        <!-- Entries — Ag-13: primary (action+time) / secondary (target) hierarchy.
+             X.W7.d (W7.425 · AAP-2): the rows and the pager belong to the
+             state chain, so skeletons and the error plate never paint over a
+             retained page. -->
+        <template v-else>
         <div
             v-for="entry in audit.entries.value"
             :key="entry.id"
@@ -88,11 +110,12 @@
             @prev="audit.prevPage"
             @next="audit.nextPage"
         />
+        </template>
     </div>
 </template>
 
 <script setup lang="ts">
-import { inject, onMounted, watch } from "vue";
+import { computed, inject, onMounted, onScopeDispose, watch } from "vue";
 import { Button } from "../../../ui/button";
 import { Input } from "../../../ui/input";
 import { Badge } from "../../../ui/badge";
@@ -115,6 +138,12 @@ watch([audit.actionFilter, audit.targetFilter], () => {
         audit.loadAuditLog();
     }, 300);
 });
+
+// W7.70 (AAP-20): a debounce pending at unmount must not write the singleton
+// port's page or fire a request after the panel is gone.
+onScopeDispose(() => clearTimeout(filterTimeout));
+
+const filtered = computed(() => !!(audit.actionFilter.value || audit.targetFilter.value));
 
 onMounted(() => audit.loadAuditLog());
 </script>

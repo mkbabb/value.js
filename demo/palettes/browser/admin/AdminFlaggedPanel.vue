@@ -2,18 +2,44 @@
     <div class="grid gap-3 pb-3">
         <!-- Toolbar -->
         <div class="flex items-center gap-2">
-            <span class="text-mono-small text-muted-foreground">
+            <span
+                v-if="!flagged.access.value && !flagged.loading.value && !flagged.loadError.value"
+                class="text-mono-small text-muted-foreground"
+            >
                 {{ flagged.total.value }} flagged
             </span>
             <div class="flex-1" />
             <!-- W5-a11y: icon-only refresh button needs accessible name -->
-            <Button variant="outline" size="xs" class="px-2" aria-label="Refresh flagged palettes" @click="flagged.loadFlagged">
+            <Button variant="outline" size="xs" class="px-2" aria-label="Refresh flagged palettes" :disabled="!!flagged.access.value" @click="flagged.loadFlagged()">
                 <RefreshCw class="h-3 w-3" aria-hidden="true" />
             </Button>
         </div>
 
+        <!-- X.W7.d (S-13): the moderation act's one visible result. -->
+        <div aria-live="polite" data-admin-notice="flagged">
+            <ActionFeedback
+                v-if="flagged.notice.value"
+                :key="flagged.notice.value.seq"
+                :message="flagged.notice.value.message"
+                :variant="flagged.notice.value.variant"
+                :visible="true"
+                :auto-dismiss-ms="flagged.notice.value.variant === 'error' ? 0 : 4000"
+                @update:visible="flagged.dismissNotice()"
+            />
+        </div>
+
+        <!-- X.W7.d (N-2 · W7.61 · AF-1): signed out is its own register —
+             never a clear moderation queue. -->
+        <EmptyState
+            v-if="flagged.access.value"
+            variant="error"
+            data-admin-access="signed-out"
+            :message="flagged.access.value.message"
+            detail="Sign in with an admin token to review reports."
+        />
+
         <!-- W5-1 + F-13: flagged rows load as row shadows, one grammar. -->
-        <div v-if="flagged.loading.value" class="grid gap-2" aria-label="Loading flagged palettes">
+        <div v-else-if="flagged.loading.value" class="grid gap-2" aria-label="Loading flagged palettes">
             <AdminListSkeleton v-for="i in 2" :key="i" />
         </div>
 
@@ -40,7 +66,9 @@
             message="No flagged palettes."
         />
 
-        <!-- Flagged items -->
+        <!-- Flagged items. X.W7.d (W7.81 · AF-4): rows and pager belong to the
+             state chain — the error plate never paints beside stale rows. -->
+        <template v-else>
         <div
             v-for="item in flagged.items.value"
             :key="item.paletteSlug"
@@ -131,6 +159,7 @@
             @prev="flagged.prevPage"
             @next="flagged.nextPage"
         />
+        </template>
     </div>
 </template>
 
@@ -140,6 +169,7 @@ import { Button } from "../../../ui/button";
 import { Badge } from "../../../ui/badge";
 import { RefreshCw, Trash2 } from "@lucide/vue";
 import EmptyState from "../../../shared/ui/EmptyState.vue";
+import ActionFeedback from "../card/PaletteCard/ActionFeedback.vue";
 import AdminListSkeleton from "./AdminListSkeleton.vue";
 import PaginationBar from "./PaginationBar.vue";
 import { formatDate } from "../dateFormat";

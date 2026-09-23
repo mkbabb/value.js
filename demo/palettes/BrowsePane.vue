@@ -106,8 +106,8 @@
                         @rename="(p, name) => pm.onRename(p, name)"
                         @edit-color="(p, idx, css) => pm.onEditColor(p, idx, css)"
                         @add-color="(css) => pm.onSwatchAddColor(css)"
-                        @feature="(p) => pm.onFeaturePalette(p)"
-                        @admin-delete="(p) => pm.onAdminDeletePalette(p)"
+                        @feature="(p) => onFeature(p)"
+                        @admin-delete="(p) => onAdminDelete(p)"
                         @set-visibility="onSetVisibility"
                         @fork="(p) => onFork(p)"
                         @versions="(p) => onVersions(p)"
@@ -160,7 +160,7 @@
             :palette-slug="versionPalette.slug"
             :palette-name="versionPalette.name"
             :current-hash="versionPalette.currentHash ?? null"
-            @update:open="versionDrawerOpen = $event"
+            @update:open="onVersionsOpenChange"
             @revert="onRevert"
         />
 
@@ -169,7 +169,7 @@
             :open="flagDialogOpen"
             :palette-name="flagPalette.name"
             :palette-slug="flagPalette.slug"
-            @update:open="flagDialogOpen = $event"
+            @update:open="onFlagOpenChange"
             @submit="onFlagSubmit"
         />
     </Card>
@@ -276,11 +276,23 @@ function onVersions(palette: Palette) {
 
 async function onRevert(hash: string) {
     if (!versionPalette.value) return;
-    const updated = await pm.versions.revert(versionPalette.value.slug, hash);
-    if (!updated) return;
+    const slug = versionPalette.value.slug;
+    const result = await pm.versions.revert(slug, hash);
+    if (!result.ok) {
+        showVerdict(slug, `Revert failed: ${result.message}`, false);
+        return;
+    }
+    const updated = result.palette;
     const idx = pm.remotePalettes.value.findIndex((p) => p.slug === updated.slug);
     if (idx >= 0) pm.remotePalettes.value[idx] = updated;
     versionPalette.value = updated;
+    showVerdict(slug, "Reverted", true);
+}
+
+// W7.78 (VHD-35): the drawer's subject is released on close.
+function onVersionsOpenChange(open: boolean) {
+    versionDrawerOpen.value = open;
+    if (!open) versionPalette.value = null;
 }
 
 // --- Flag / Report ---
@@ -293,10 +305,42 @@ function onFlag(palette: Palette) {
     flagDialogOpen.value = true;
 }
 
+/**
+ * X.W7.d (fold W7.22 · FlagReportDialog A-3): the report's verdict is RENDERED —
+ * an API failure used to close the dialog exactly as a success did. The dialog
+ * closes on the verdict, and the verdict rides the card's feedback rail.
+ */
 async function onFlagSubmit(reason: string, detail: string | undefined) {
-    if (!flagPalette.value) return;
-    await pm.flagged.report(flagPalette.value.slug, reason, detail);
-    flagDialogOpen.value = false;
+    const palette = flagPalette.value;
+    if (!palette) return;
+    const result = await pm.flagged.report(palette.slug, reason, detail);
+    showVerdict(palette.slug, result.ok ? "Reported — thank you." : `Report failed: ${result.message}`, result.ok);
+    onFlagOpenChange(false);
+}
+
+// W7.78 (FlagReportDialog A-2 ≡ VHD-35): the subject is released on close, so a
+// KeepAlive'd pane does not retain the dialog and its palette for the session.
+function onFlagOpenChange(open: boolean) {
+    flagDialogOpen.value = open;
+    if (!open) flagPalette.value = null;
+}
+
+function showVerdict(slug: string, message: string, ok: boolean) {
+    cardRefs[slug]?.showFeedback(message, ok ? "success" : "error");
+}
+
+// X.W7.d (DAG §2.3 row 1): the admin mutations' verdicts are visible on the card.
+async function onFeature(palette: Palette) {
+    const result = await pm.onFeaturePalette(palette);
+    const featuring = palette.tier !== "featured";
+    const done = featuring ? "Featured" : "Unfeatured";
+    const act = featuring ? "Feature" : "Unfeature";
+    showVerdict(palette.slug, result.ok ? done : `${act} failed: ${result.message}`, result.ok);
+}
+
+async function onAdminDelete(palette: Palette) {
+    const result = await pm.onAdminDeletePalette(palette);
+    if (!result.ok) showVerdict(palette.slug, `Delete failed: ${result.message}`, false);
 }
 
 // --- Tag editing ---
@@ -321,7 +365,13 @@ function onTagsUpdated(tags: string[]) {
 
 // --- Export ---
 
-const { onExport } = usePaletteExport();
+// ESC-W7b-HOST (G7): the export's typed outcome is rendered on the card that
+// asked for it — never a `console.warn` alone.
+const { onExport: exportPalette } = usePaletteExport();
+async function onExport(palette: Palette, format: string) {
+    const outcome = await exportPalette(palette, format);
+    showVerdict(palette.slug, outcome.ok ? `Exported ${outcome.filename}` : outcome.message, outcome.ok);
+}
 
 // --- Filters ---
 // onTierChange / onTagsChange come straight from the shared composable;

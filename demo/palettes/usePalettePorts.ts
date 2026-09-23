@@ -1,4 +1,4 @@
-import { ref, computed, provide } from "vue";
+import { ref, computed, provide, watch } from "vue";
 import type { Ref, InjectionKey } from "vue";
 
 import { usePaletteStore } from "./usePaletteStore";
@@ -59,7 +59,23 @@ export function providePalettePorts(deps: PalettePortsDeps) {
         emitSetCurrentColor,
     } = deps;
 
-    const searchQuery = ref("");
+    // X.W7.d · N-4 (fold W7.7 ≡ BrowsePane M17): ONE query per domain. The four
+    // surfaces used to share a single ref, so typing in Browse filtered My
+    // Palettes and drove the admin roster, and nothing ever reset it. Every
+    // admin view seats the library pane beside it (`viewSchema.ts`), which is
+    // exactly where the bleed was visible.
+    const librarySearch = ref("");
+    const browseSearch = ref("");
+    const adminUsersSearch = ref("");
+    const adminNamesSearch = ref("");
+    // A route change resets every domain's query — a query typed for one view
+    // never filters the next one silently.
+    watch(currentView, () => {
+        librarySearch.value = "";
+        browseSearch.value = "";
+        adminUsersSearch.value = "";
+        adminNamesSearch.value = "";
+    });
 
     // --- Auth ---
     const { isAuthenticated: isAdminAuthenticated, login: adminLogin } = useAdminAuth();
@@ -67,21 +83,22 @@ export function providePalettePorts(deps: PalettePortsDeps) {
     const session = useSession();
 
     // --- Palette store ---
-    const { savedPalettes, createPalette, updatePalette, deletePalette, reorderPalettes } = usePaletteStore();
+    const { savedPalettes, createPalette, updatePalette, deletePalette, movePalette, storeRecovery } = usePaletteStore();
 
     // --- Browse palettes ---
-    const browse = useBrowsePalettes({ searchQuery });
+    const browse = useBrowsePalettes({ searchQuery: browseSearch });
 
     // --- Admin operations ---
-    const admin = useAdminUsers({ searchQuery, remotePalettes: browse.remotePalettes });
-    const colorQueue = useColorNameQueue({ searchQuery });
+    const admin = useAdminUsers({ searchQuery: adminUsersSearch, remotePalettes: browse.remotePalettes });
+    const colorQueue = useColorNameQueue({ searchQuery: adminNamesSearch });
 
     // --- Sub-composable facades (D.W3 Lane B) ---
     const audit = useAdminAudit();
     const flagged = useAdminFlagged();
-    const tags = useAdminTags();
     const versions = useVersionHistory();
     const tagEdit = useTagEdit();
+    // W7.79 (ATP-19): an admin tag write re-reads the editor's catalog.
+    const tags = useAdminTags({ onChange: () => void tagEdit.loadAllTags(true) });
 
     const ensureSession = async () => {
         await session.ensureSession();
@@ -130,24 +147,10 @@ export function providePalettePorts(deps: PalettePortsDeps) {
         emitStartEdit,
     });
 
-    // --- Search UI ---
-    const searchPlaceholder = computed(() => {
-        switch (currentView.value) {
-            case "admin-users": return "Search users...";
-            case "admin-names": return "Search color names...";
-            default: return "Search palettes...";
-        }
-    });
-
-    const filteredSaved = useFilteredList(savedPalettes, searchQuery, (p, q) =>
+    const filteredSaved = useFilteredList(savedPalettes, librarySearch, (p, q) =>
         p.name.toLowerCase().includes(q) || p.slug.includes(q),
     );
 
-    // --- Prune (bridges admin + panel ref) ---
-    async function onPrune() {
-        const pruned = await admin.onPruneEmpty();
-        admin.adminUsersPanelRef.value?.onPruneDone(pruned);
-    }
 
     // ── PORT 1 · Session — identity/auth surface ──────────────────────────────
     const sessionPort = {
@@ -157,6 +160,8 @@ export function providePalettePorts(deps: PalettePortsDeps) {
         ensureUser,
         ensureSession,
         onRegenerateSlug: migration.onRegenerateSlug,
+        identity: migration.identity,
+        dismissIdentity: migration.dismissIdentity,
         onSlugSwitch: migration.onSlugSwitch,
     };
 
@@ -164,9 +169,10 @@ export function providePalettePorts(deps: PalettePortsDeps) {
     const libraryPort = {
         savedPalettes,
         filteredSaved,
-        searchQuery,
+        searchQuery: librarySearch,
         createPalette,
-        reorderPalettes,
+        movePalette,
+        storeRecovery,
         expandedId: actions.expandedId,
         toggleExpand: actions.toggleExpand,
         onEditColor: actions.onEditColor,
@@ -206,7 +212,7 @@ export function providePalettePorts(deps: PalettePortsDeps) {
         onSwatchAddColor: actions.onSwatchAddColor,
         onFeaturePalette: admin.onFeaturePalette,
         onAdminDeletePalette: admin.onAdminDeletePalette,
-        searchQuery,
+        searchQuery: browseSearch,
         isAdminAuthenticated,
         userSlug,
         // the fork dialog action ensures a session before writing:
@@ -219,11 +225,19 @@ export function providePalettePorts(deps: PalettePortsDeps) {
 
     // ── PORT 4 · Admin — the operational-console surface ──────────────────────
     const adminPort = {
+        usersAccess: admin.access,
+        usersNotice: admin.notice,
+        dismissUsersNotice: admin.dismissNotice,
         adminUsers: admin.adminUsers,
-        adminUsersPanelRef: admin.adminUsersPanelRef,
+        adminUsersTotal: admin.adminUsersTotal,
         filteredAdminUsers: admin.filteredAdminUsers,
+        emptyUserCount: admin.emptyUserCount,
+        expandedUserSlug: admin.expandedUserSlug,
+        userPalettes: admin.userPalettes,
+        loadingUserPalettes: admin.loadingUserPalettes,
+        userPalettesError: admin.userPalettesError,
+        toggleUserExpand: admin.toggleUserExpand,
         loadAdminUsers: admin.loadAdminUsers,
-        loadUserPalettes: admin.loadUserPalettes,
         loadingUsers: admin.loadingUsers,
         usersLoadError: admin.usersLoadError,
         onDeleteUser: admin.onDeleteUser,
@@ -232,8 +246,12 @@ export function providePalettePorts(deps: PalettePortsDeps) {
         onUserSortChange: admin.onUserSortChange,
         userSortMode: admin.userSortMode,
         onFeaturePalette: admin.onFeaturePalette,
-        onPrune,
+        onPruneEmpty: admin.onPruneEmpty,
         // colour-name queue:
+        namesAccess: colorQueue.namesAccess,
+        namesNotice: colorQueue.namesNotice,
+        dismissNamesNotice: colorQueue.dismissNamesNotice,
+        busyNameIds: colorQueue.busyNameIds,
         adminColorQueue: colorQueue.adminColorQueue,
         filteredColorQueue: colorQueue.filteredColorQueue,
         loadColorQueue: colorQueue.loadColorQueue,
@@ -247,8 +265,8 @@ export function providePalettePorts(deps: PalettePortsDeps) {
         onApproveColor: colorQueue.onApproveColor,
         onRejectColor: colorQueue.onRejectColor,
         onDeleteColor: colorQueue.onDeleteColor,
-        searchQuery,
-        searchPlaceholder,
+        usersSearch: adminUsersSearch,
+        namesSearch: adminNamesSearch,
         expandedId: actions.expandedId,
         toggleExpand: actions.toggleExpand,
         audit,

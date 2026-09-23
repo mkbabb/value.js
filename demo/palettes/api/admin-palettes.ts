@@ -12,7 +12,7 @@
  * was itself excised at T.W0-3).
  */
 
-import type { FlaggedPalette, PaginatedResponse } from "../types";
+import type { FlaggedPalette, PaginatedResponse, Palette } from "../types";
 
 import { adminRequest } from "../../platform/transport/client";
 
@@ -22,7 +22,7 @@ export function setPaletteFeatured(
     token: string,
     slug: string,
     featured: boolean,
-): Promise<{ slug: string; tier: string }> {
+): Promise<{ slug: string; tier: NonNullable<Palette["tier"]> }> {
     return adminRequest(`/admin/palettes/${encodeURIComponent(slug)}/feature`, token, {
         method: "POST",
         body: JSON.stringify({ featured }),

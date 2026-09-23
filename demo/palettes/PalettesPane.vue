@@ -46,6 +46,19 @@
                 placeholder="Search your palettes..."
             />
 
+            <!-- W7-failure-dispositions row 45: an unreadable stored library is
+                 announced, never silently replaced. -->
+            <div aria-live="polite" data-library-recovery>
+                <ActionFeedback
+                    v-if="pm.storeRecovery.value"
+                    :message="pm.storeRecovery.value"
+                    variant="error"
+                    :visible="true"
+                    :auto-dismiss-ms="0"
+                    @update:visible="pm.storeRecovery.value = null"
+                />
+            </div>
+
             <!-- Current palette + saved list -->
             <div class="grid gap-3">
                 <CurrentPaletteEditor
@@ -96,7 +109,6 @@
                         :palette="palette"
                         :expanded="pm.expandedId.value === palette.id"
                         :css-color="cssColorOpaque"
-                        :editable-name="true"
                         draggable
                         @click="pm.toggleExpand(palette.id)"
                         @delete="(p) => pm.onDelete(p)"
@@ -140,7 +152,7 @@ import { Card } from "../ui/card";
 import { Button } from "../ui/button";
 import { Badge } from "../ui/badge";
 import { Trash2 } from "@lucide/vue";
-import { useSortable } from "@vueuse/integrations/useSortable";
+import { useSortable, insertNodeAt, removeNode } from "@vueuse/integrations/useSortable";
 import { LIBRARY_PORT_KEY, COLOR_TARGET_PORT_KEY } from "./usePalettePorts";
 import { CSS_COLOR_KEY } from "../color-session/keys";
 import {
@@ -160,6 +172,7 @@ import { SearchBar } from "@mkbabb/glass-ui/search";
 import PaneHeader from "../shared/ui/PaneHeader.vue";
 import type { Palette } from "./types";
 import { usePaletteExport } from "./usePaletteExport";
+import ActionFeedback from "./browser/card/PaletteCard/ActionFeedback.vue";
 
 const { savedColorStrings } = defineProps<{
     savedColorStrings: string[];
@@ -190,19 +203,28 @@ const cardRefs = reactive<Record<string, InstanceType<typeof PaletteCard>>>({});
 const sortableGridRef = ref<InstanceType<typeof PaletteCardGrid> | null>(null);
 const sortableEl = computed(() => (sortableGridRef.value as any)?.$el as HTMLElement | undefined);
 
-useSortable(sortableEl, pm.filteredSaved.value, {
+// X.W7.d · N-7 (fold W7.25 · PG-1 + PG-2 — the named-addition rider; W7.371-372).
+// ONE handler, `onUpdate`, which REPLACES the library's default — that default
+// (`moveArrayElement`) spliced the unwrapped `filteredSaved` array handed in at
+// setup and re-inserted it a tick later, so the first drag of every page load
+// double-applied the move and persisted a scrambled order. Here the DOM node the
+// drag moved is put back (Vue owns the list's DOM and re-renders it from the
+// store), and the store permutes only the slots the VISIBLE palettes occupy — a
+// palette hidden by the search keeps its place.
+useSortable(sortableEl, [], {
     handle: ".drag-handle",
     animation: 150,
     ghostClass: "opacity-30",
-    onEnd(evt) {
-        if (evt.oldIndex == null || evt.newIndex == null) return;
-        if (evt.oldIndex === evt.newIndex) return;
-        const ids = pm.filteredSaved.value.map((p) => p.id);
-        const [moved] = ids.splice(evt.oldIndex, 1);
-        if (moved) {
-            ids.splice(evt.newIndex, 0, moved);
-            pm.reorderPalettes(ids);
-        }
+    onUpdate(evt) {
+        const { oldIndex, newIndex } = evt;
+        if (oldIndex == null || newIndex == null) return;
+        removeNode(evt.item);
+        insertNodeAt(evt.from, evt.item, oldIndex);
+        pm.movePalette(
+            pm.filteredSaved.value.map((p) => p.id),
+            oldIndex,
+            newIndex,
+        );
     },
 });
 
@@ -218,5 +240,12 @@ async function onPublish(palette: Palette) {
     }
 }
 
-const { onExport } = usePaletteExport();
+// ESC-W7b-HOST (G7): the export's typed outcome is rendered on the card that
+// asked for it — never a `console.warn` alone.
+const { onExport: exportPalette } = usePaletteExport();
+async function onExport(palette: Palette, format: string) {
+    const outcome = await exportPalette(palette, format);
+    if (palette.id == null) return;
+    cardRefs[palette.id]?.showFeedback(outcome.ok ? `Exported ${outcome.filename}` : outcome.message, outcome.ok ? "success" : "error");
+}
 </script>

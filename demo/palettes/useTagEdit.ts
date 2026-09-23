@@ -12,12 +12,19 @@
  */
 import { ref, type Ref } from "vue";
 import { getTags, updatePalette } from "./api";
+import { preflightTags } from "./api/preflight";
 import type { Palette, Tag } from "./types";
 
 export interface UseTagEdit {
     allTags: Ref<Tag[]>;
     loading: Ref<boolean>;
     loaded: Ref<boolean>;
+    /**
+     * X.W7.d (W7-failure-dispositions rows 10-11): the last catalog-load or
+     * tag-save failure, in words — `null` after a success. The pre-flight's
+     * refusal (`tags ≤ 10`, the tag vocabulary) lands here before any request.
+     */
+    error: Ref<string | null>;
     loadAllTags: (force?: boolean) => Promise<void>;
     saveTags: (
         slug: string,
@@ -30,6 +37,11 @@ export function useTagEdit(): UseTagEdit {
     const allTags = ref<Tag[]>([]);
     const loading = ref(false);
     const loaded = ref(false);
+    const error = ref<string | null>(null);
+
+    function messageOf(e: unknown, fallback: string): string {
+        return e instanceof Error && e.message ? e.message : fallback;
+    }
 
     async function loadAllTags(force = false) {
         if (loaded.value && !force) return;
@@ -41,8 +53,10 @@ export function useTagEdit(): UseTagEdit {
         try {
             allTags.value = await getTags();
             loaded.value = true;
-        } catch {
-            // silent — tag catalog is best-effort
+            error.value = null;
+        } catch (e) {
+            // Row 10: the editor must not open without its catalog in silence.
+            error.value = `The tag catalog is unreachable: ${messageOf(e, "backend unreachable")}`;
         } finally {
             loading.value = false;
         }
@@ -53,15 +67,23 @@ export function useTagEdit(): UseTagEdit {
         tags: string[],
         ifMatch = "*",
     ): Promise<Palette | undefined> {
+        // G10 · N_tags = 11: refused here, in words — never a 400 round-trip.
+        const preflight = preflightTags(tags);
+        if (!preflight.ok) {
+            error.value = preflight.message;
+            return undefined;
+        }
         try {
             // K.W2: PATCH REQUIRES If-Match (428 if absent). W5-13 · F-9: the
             // caller now threads a CAPTURED validator (`paletteETag(palette)`)
             // when it holds the palette — closing the two-tab lost-update window.
             // The `"*"` RFC 7232 match-any default remains the fallback for the
             // rare caller with no palette in hand.
-            return await updatePalette(slug, { tags }, ifMatch);
+            const saved = await updatePalette(slug, { tags }, ifMatch);
+            error.value = null;
+            return saved;
         } catch (e) {
-            console.warn("Failed to update tags:", e);
+            error.value = `The tags were not saved: ${messageOf(e, "backend unreachable")}`;
             return undefined;
         }
     }
@@ -70,6 +92,7 @@ export function useTagEdit(): UseTagEdit {
         allTags,
         loading,
         loaded,
+        error,
         loadAllTags,
         saveTags,
     };

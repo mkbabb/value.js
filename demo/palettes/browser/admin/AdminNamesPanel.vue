@@ -10,7 +10,16 @@
          Ag-13: AdminListItem content slots use primary/secondary hierarchy;
          F-9: the secondary line is a CSS literal — a READOUT: Fira, never
          italic display type. -->
-    <div class="w-full grid gap-3 pb-3 min-w-0" :data-names-direction="namesDirection">
+    <!-- X.W7.d (N-2 · W7.61 · C-5/L-10): signed out is its own register — never
+         "· QUEUE CLEAR ·", a false moderation fact, over operable controls. -->
+    <EmptyState
+        v-if="access"
+        variant="error"
+        data-admin-access="signed-out"
+        :message="access.message"
+        detail="Sign in with an admin token to moderate color names."
+    />
+    <div v-else class="w-full grid gap-3 pb-3 min-w-0" :data-names-direction="namesDirection">
         <SegmentedTabs
             v-model="namesTab"
             variant="pill"
@@ -49,6 +58,8 @@
                         </Button>
                     </template>
                 </EmptyState>
+                <!-- W7.83 (D-5): a FILTERED zero is not a clear queue. -->
+                <EmptyState v-else-if="pendingItems.length === 0 && filtered" message="No pending proposals match this search." />
                 <EmptyState v-else-if="pendingItems.length === 0" eyebrow="· queue clear ·" message="No pending proposals." />
                 <div v-else class="grid gap-2 min-w-0">
                     <AdminListItem v-for="item in pendingItems" :key="item.id">
@@ -99,6 +110,7 @@
                         </Button>
                     </template>
                 </EmptyState>
+                <EmptyState v-else-if="approvedItems.length === 0 && filtered" message="No approved names match this search." />
                 <EmptyState v-else-if="approvedItems.length === 0" eyebrow="· none approved yet ·" message="No approved color names." />
                 <div v-else class="grid gap-2 min-w-0">
                     <AdminListItem v-for="item in approvedItems" :key="item.id">
@@ -140,7 +152,14 @@ import AdminListItem from "./AdminListItem.vue";
 import EmptyState from "../../../shared/ui/EmptyState.vue";
 import AdminListSkeleton from "./AdminListSkeleton.vue";
 
-const { pendingItems, approvedItems, pendingError = null, approvedError = null } = defineProps<{
+const {
+    pendingItems,
+    approvedItems,
+    pendingError = null,
+    approvedError = null,
+    access = null,
+    filtered = false,
+} = defineProps<{
     pendingItems: ProposedColorName[];
     approvedItems: ProposedColorName[];
     loadingPending: boolean;
@@ -148,7 +167,10 @@ const { pendingItems, approvedItems, pendingError = null, approvedError = null }
     /** W5-5 (F-2): surfaced load failures — error ≠ empty. */
     pendingError?: string | null;
     approvedError?: string | null;
-    cssColorOpaque: string;
+    /** N-2: why the queue is not readable (signed out / denied), else `null`. */
+    access?: { readonly message: string } | null;
+    /** W7.83: a search query is narrowing both lists. */
+    filtered?: boolean;
 }>();
 
 const emit = defineEmits<{

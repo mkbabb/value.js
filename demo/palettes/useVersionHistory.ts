@@ -1,16 +1,13 @@
 /**
- * useVersionHistory — version drawer fetch + revert + fork.
+ * useVersionHistory — version fetch + revert + fork. Exposed at the facade as
+ * `pm.versions`.
  *
- * Wraps `listVersions`, `revertPalette`, `forkPalette` and owns the
- * version-drawer state (versions list, total, loading, paletteSlug). Exposed
- * at the facade as `pm.versions`.
- *
- * Migration source: `palette-browser/VersionHistoryDrawer.vue`,
- * `palette-browser/PaletteDialog/composables/useDialogModalStack.ts` (revert),
- * `palette-browser/PaletteDialog/composables/useDialogBrowseActions.ts` (fork),
- * `palettes/BrowsePane.vue` (fork + revert).
+ * X.W7.d (fold W7.77 · VHD-8): the paging state machine this file used to carry
+ * (`versions` / `total` / `loading` / `paletteSlug` / `loadVersions` /
+ * `loadMore` / `reset`) was a line-for-line copy of the drawer's own, with zero
+ * consumers — the drawer pages through `fetchVersions`. The copy is deleted;
+ * one state machine remains, in the drawer (X-W4's file).
  */
-import { ref, type Ref } from "vue";
 import { listVersions, revertPalette, forkPalette } from "./api";
 import type { Palette, PaletteVersion } from "./types";
 
@@ -19,35 +16,30 @@ export interface VersionsPage {
     total: number;
 }
 
+/** The revert verdict (W7-failure-dispositions row 5: SURFACE). */
+export type RevertResult =
+    | { readonly ok: true; readonly palette: Palette }
+    | { readonly ok: false; readonly message: string };
+
 export interface UseVersionHistory {
-    versions: Ref<PaletteVersion[]>;
-    total: Ref<number>;
-    loading: Ref<boolean>;
-    paletteSlug: Ref<string | null>;
-    /** Fetch a single page of versions (raw; drawers manage their own list). */
     fetchVersions: (
         slug: string,
         limit?: number,
         offset?: number,
     ) => Promise<VersionsPage | undefined>;
-    /** Facade-side accumulating load (loads into the shared `versions` ref). */
-    loadVersions: (slug: string, offset?: number) => Promise<void>;
-    loadMore: () => Promise<void>;
-    revert: (slug: string, hash: string) => Promise<Palette | undefined>;
+    revert: (slug: string, hash: string) => Promise<RevertResult>;
     fork: (
         slug: string,
         name?: string,
         forkSlug?: string,
     ) => Promise<Palette | undefined>;
-    reset: () => void;
+}
+
+function messageOf(e: unknown, fallback: string): string {
+    return e instanceof Error && e.message ? e.message : fallback;
 }
 
 export function useVersionHistory(): UseVersionHistory {
-    const versions = ref<PaletteVersion[]>([]);
-    const total = ref(0);
-    const loading = ref(false);
-    const paletteSlug = ref<string | null>(null);
-
     async function fetchVersions(
         slug: string,
         limit = 20,
@@ -62,35 +54,11 @@ export function useVersionHistory(): UseVersionHistory {
         }
     }
 
-    async function loadVersions(slug: string, offset = 0) {
-        loading.value = true;
+    async function revert(slug: string, hash: string): Promise<RevertResult> {
         try {
-            paletteSlug.value = slug;
-            const page = await fetchVersions(slug, 20, offset);
-            if (!page) return;
-            if (offset === 0) {
-                versions.value = page.data;
-            } else {
-                versions.value = [...versions.value, ...page.data];
-            }
-            total.value = page.total;
-        } finally {
-            loading.value = false;
-        }
-    }
-
-    async function loadMore() {
-        if (paletteSlug.value) {
-            await loadVersions(paletteSlug.value, versions.value.length);
-        }
-    }
-
-    async function revert(slug: string, hash: string): Promise<Palette | undefined> {
-        try {
-            return await revertPalette(slug, hash);
+            return { ok: true, palette: await revertPalette(slug, hash) };
         } catch (e) {
-            console.warn("Failed to revert:", e);
-            return undefined;
+            return { ok: false, message: messageOf(e, "The revert did not reach the server.") };
         }
     }
 
@@ -107,22 +75,5 @@ export function useVersionHistory(): UseVersionHistory {
         }
     }
 
-    function reset() {
-        versions.value = [];
-        total.value = 0;
-        paletteSlug.value = null;
-    }
-
-    return {
-        versions,
-        total,
-        loading,
-        paletteSlug,
-        fetchVersions,
-        loadVersions,
-        loadMore,
-        revert,
-        fork,
-        reset,
-    };
+    return { fetchVersions, revert, fork };
 }

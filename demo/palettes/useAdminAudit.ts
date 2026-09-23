@@ -9,7 +9,7 @@
 import { ref, computed, type Ref } from "vue";
 import { getAuditLog, type AuditLogOptions } from "./api";
 import type { AuditEntry } from "./types";
-import { useAdminAuth } from "../platform/auth/useAdminAuth";
+import { useAdminAccess, latestRequest, type AdminFailure } from "./api/admin-call";
 
 export interface UseAdminAudit {
     entries: Ref<AuditEntry[]>;
@@ -19,6 +19,8 @@ export interface UseAdminAudit {
     loading: Ref<boolean>;
     /** W5-5 (F-2): load failure, surfaced — error ≠ empty at the panel. */
     loadError: Ref<string | null>;
+    /** N-2: `null` while admitted; otherwise why not (signed out / denied). */
+    access: Ref<AdminFailure | null>;
     actionFilter: Ref<string>;
     targetFilter: Ref<string>;
     pageCount: Ref<number>;
@@ -30,7 +32,9 @@ export interface UseAdminAudit {
 }
 
 export function useAdminAudit(): UseAdminAudit {
-    const { getToken } = useAdminAuth();
+    const { access, call } = useAdminAccess();
+    // N-16: only the most recently ISSUED read may paint or clear `loading`.
+    const reads = latestRequest();
 
     const entries = ref<AuditEntry[]>([]);
     const total = ref(0);
@@ -46,27 +50,24 @@ export function useAdminAudit(): UseAdminAudit {
     const hasPrev = computed(() => page.value > 1);
 
     async function loadAuditLog(opts: AuditLogOptions = {}) {
-        const token = getToken();
-        if (!token) return;
+        const ticket = reads.issue();
         loading.value = true;
-        try {
-            const merged: AuditLogOptions = {
-                limit: pageSize,
-                offset: (page.value - 1) * pageSize,
-                ...(actionFilter.value ? { action: actionFilter.value } : {}),
-                ...(targetFilter.value ? { target: targetFilter.value } : {}),
-                ...opts,
-            };
-            const res = await getAuditLog(token, merged);
-            entries.value = res.data;
-            total.value = res.total;
+        const merged: AuditLogOptions = {
+            limit: pageSize,
+            offset: (page.value - 1) * pageSize,
+            ...(actionFilter.value ? { action: actionFilter.value } : {}),
+            ...(targetFilter.value ? { target: targetFilter.value } : {}),
+            ...opts,
+        };
+        const result = await call((token) => getAuditLog(token, merged));
+        if (!reads.isCurrent(ticket)) return;
+        loading.value = false;
+        if (result.ok) {
+            entries.value = result.value.data;
+            total.value = result.value.total;
             loadError.value = null;
-        } catch (e: any) {
-            // W5-5 (F-2): never costume a dead backend as an empty ledger.
-            loadError.value = e?.message ?? "Backend unreachable";
-            console.warn("Failed to load audit log:", e);
-        } finally {
-            loading.value = false;
+        } else if (result.kind === "failed") {
+            loadError.value = result.message;
         }
     }
 
@@ -91,6 +92,7 @@ export function useAdminAudit(): UseAdminAudit {
         pageSize,
         loading,
         loadError,
+        access,
         actionFilter,
         targetFilter,
         pageCount,

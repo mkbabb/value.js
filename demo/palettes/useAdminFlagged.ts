@@ -9,15 +9,28 @@
  * `palette-browser/PaletteDialog/composables/useDialogModalStack.ts` (the
  * user-facing `flagPalette` report).
  */
-import { ref, computed, type Ref } from "vue";
+import { ref, computed, type Ref, type ShallowRef } from "vue";
 import {
     getFlaggedPalettes,
     dismissFlags,
     deletePaletteAdmin,
     flagPalette,
 } from "./api";
+import {
+    useAdminAccess,
+    useAdminNotice,
+    latestRequest,
+    type AdminFailure,
+    type AdminNotice,
+    type AdminResult,
+} from "./api/admin-call";
 import type { FlaggedPalette } from "./types";
-import { useAdminAuth } from "../platform/auth/useAdminAuth";
+import { ApiProblem } from "../platform/transport/api-problem";
+
+/** The report verdict — W7.22: an API failure is a failure, never a success. */
+export type ReportResult =
+    | { readonly ok: true; readonly flagged: boolean }
+    | { readonly ok: false; readonly message: string };
 
 export interface UseAdminFlagged {
     items: Ref<FlaggedPalette[]>;
@@ -27,23 +40,27 @@ export interface UseAdminFlagged {
     loading: Ref<boolean>;
     /** W5-5 (F-2): load failure, surfaced — error ≠ empty at the panel. */
     loadError: Ref<string | null>;
+    /** N-2: `null` while admitted; otherwise why not (signed out / denied). */
+    access: Ref<AdminFailure | null>;
+    /** S-13: the last moderation act's one visible verdict. */
+    notice: ShallowRef<AdminNotice | null>;
+    dismissNotice: () => void;
     pageCount: Ref<number>;
     hasNext: Ref<boolean>;
     hasPrev: Ref<boolean>;
     loadFlagged: () => Promise<void>;
-    dismiss: (paletteSlug: string) => Promise<void>;
-    deletePalette: (paletteSlug: string) => Promise<void>;
+    dismiss: (paletteSlug: string) => Promise<AdminResult<unknown>>;
+    deletePalette: (paletteSlug: string) => Promise<AdminResult<unknown>>;
     nextPage: () => void;
     prevPage: () => void;
-    report: (
-        paletteSlug: string,
-        reason: string,
-        detail?: string,
-    ) => Promise<{ flagged: boolean } | undefined>;
+    report: (paletteSlug: string, reason: string, detail?: string) => Promise<ReportResult>;
 }
 
 export function useAdminFlagged(): UseAdminFlagged {
-    const { getToken } = useAdminAuth();
+    const { access, call } = useAdminAccess();
+    const { notice, settle, dismiss: dismissNotice } = useAdminNotice();
+    // N-16: only the most recently ISSUED read may paint or clear `loading`.
+    const reads = latestRequest();
 
     const items = ref<FlaggedPalette[]>([]);
     const total = ref(0);
@@ -57,49 +74,50 @@ export function useAdminFlagged(): UseAdminFlagged {
     const hasPrev = computed(() => page.value > 1);
 
     async function loadFlagged() {
-        const token = getToken();
-        if (!token) return;
+        const ticket = reads.issue();
         loading.value = true;
-        try {
-            const res = await getFlaggedPalettes(
-                token,
-                pageSize,
-                (page.value - 1) * pageSize,
-            );
-            items.value = res.data;
-            total.value = res.total;
+        const offset = (page.value - 1) * pageSize;
+        const result = await call((token) => getFlaggedPalettes(token, pageSize, offset));
+        if (!reads.isCurrent(ticket)) return;
+        loading.value = false;
+        if (result.ok) {
+            items.value = result.value.data;
+            total.value = result.value.total;
             loadError.value = null;
-        } catch (e: any) {
-            // W5-5 (F-2): a dead backend must never read as a clear queue.
-            loadError.value = e?.message ?? "Backend unreachable";
-            console.warn("Failed to load flagged palettes:", e);
-        } finally {
-            loading.value = false;
+            // W7.72 (AF-28): emptying the last page must not strand the panel on
+            // an offset past the end — clamp and re-read the last real page.
+            if (items.value.length === 0 && page.value > pageCount.value) {
+                page.value = pageCount.value;
+                await loadFlagged();
+            }
+        } else if (result.kind === "failed") {
+            // W7.81 (AF-4): the error plate replaces the rows; none are retained.
+            items.value = [];
+            loadError.value = result.message;
+        }
+    }
+
+    function removeRow(paletteSlug: string) {
+        items.value = items.value.filter((i) => i.paletteSlug !== paletteSlug);
+        total.value = Math.max(0, total.value - 1);
+        if (items.value.length === 0 && page.value > pageCount.value) {
+            page.value = pageCount.value;
+            void loadFlagged();
         }
     }
 
     async function dismiss(paletteSlug: string) {
-        const token = getToken();
-        if (!token) return;
-        try {
-            await dismissFlags(token, paletteSlug);
-            items.value = items.value.filter((i) => i.paletteSlug !== paletteSlug);
-            total.value = Math.max(0, total.value - 1);
-        } catch (e) {
-            console.warn("Failed to dismiss flags:", e);
-        }
+        const result = await call((token) => dismissFlags(token, paletteSlug));
+        if (result.ok) removeRow(paletteSlug);
+        settle(result, `Dismissed the reports on ${paletteSlug}`, "Could not dismiss the reports");
+        return result;
     }
 
     async function deletePalette(paletteSlug: string) {
-        const token = getToken();
-        if (!token) return;
-        try {
-            await deletePaletteAdmin(token, paletteSlug);
-            items.value = items.value.filter((i) => i.paletteSlug !== paletteSlug);
-            total.value = Math.max(0, total.value - 1);
-        } catch (e) {
-            console.warn("Failed to delete palette:", e);
-        }
+        const result = await call((token) => deletePaletteAdmin(token, paletteSlug));
+        if (result.ok) removeRow(paletteSlug);
+        settle(result, `Deleted ${paletteSlug}`, "Could not delete the palette");
+        return result;
     }
 
     function nextPage() {
@@ -121,12 +139,18 @@ export function useAdminFlagged(): UseAdminFlagged {
         paletteSlug: string,
         reason: string,
         detail?: string,
-    ): Promise<{ flagged: boolean } | undefined> {
+    ): Promise<ReportResult> {
         try {
-            return await flagPalette(paletteSlug, reason, detail);
-        } catch (e) {
-            console.warn("Failed to flag palette:", e);
-            return undefined;
+            const res = await flagPalette(paletteSlug, reason, detail);
+            return { ok: true, flagged: res.flagged };
+        } catch (error) {
+            const message =
+                error instanceof ApiProblem
+                    ? (error.detail ?? error.title)
+                    : error instanceof Error && error.message
+                      ? error.message
+                      : "The report could not be sent.";
+            return { ok: false, message };
         }
     }
 
@@ -137,6 +161,9 @@ export function useAdminFlagged(): UseAdminFlagged {
         pageSize,
         loading,
         loadError,
+        access,
+        notice,
+        dismissNotice,
         pageCount,
         hasNext,
         hasPrev,

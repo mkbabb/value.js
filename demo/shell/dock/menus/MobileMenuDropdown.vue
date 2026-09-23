@@ -58,9 +58,28 @@ const { isDark, toggleDark } = useGlobalDark();
                     <DropdownMenuItem class="text-small gap-2 cursor-pointer" @click="pm.userLogout()">
                         <LogOut class="w-3.5 h-3.5" /> Logout
                     </DropdownMenuItem>
-                    <DropdownMenuItem class="text-small gap-2 cursor-pointer text-muted-foreground" @click="pm.onRegenerateSlug()">
-                        <RefreshCw class="w-3.5 h-3.5" /> Regenerate slug
+                    <DropdownMenuItem
+                        class="text-small gap-2 cursor-pointer text-muted-foreground"
+                        :disabled="pm.identity.value?.kind === 'pending'"
+                        @select.prevent
+                        @click="pm.onRegenerateSlug()"
+                    >
+                        <RefreshCw class="w-3.5 h-3.5" :class="pm.identity.value?.kind === 'pending' && 'animate-spin'" aria-hidden="true" />
+                        {{ pm.identity.value?.kind === 'pending' ? 'Regenerating…' : 'Regenerate slug' }}
                     </DropdownMenuItem>
+                    <!-- X.W7.d · MMD-2 (the CARRY LOCK): the identity act's verdict
+                         is rendered in the menu it was taken from — the menu stays
+                         open across the act (`@select.prevent`). One cure in
+                         `useSlugMigration`, applied identically at both twins. -->
+                    <div
+                        v-if="pm.identity.value && pm.identity.value.kind !== 'pending'"
+                        :role="pm.identity.value.kind === 'failed' ? 'alert' : 'status'"
+                        data-identity-verdict
+                        :class="[
+                            'px-2 py-1.5 text-small max-w-[16rem]',
+                            pm.identity.value.kind === 'failed' ? 'text-destructive' : 'text-muted-foreground',
+                        ]"
+                    >{{ pm.identity.value.message }}</div>
                 </template>
                 <template v-else-if="pm.isAdminAuthenticated.value">
                     <DropdownMenuLabel class="px-2 py-1.5">

@@ -84,6 +84,7 @@ describe("G2 · TagEditPopover — one click, one saveTags", () => {
                 allTags: ref(TAGS),
                 loading: ref(false),
                 loaded: ref(true),
+                error: ref<string | null>(null),
                 loadAllTags: async () => {},
                 saveTags,
             },
