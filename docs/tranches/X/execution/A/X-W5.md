@@ -3062,3 +3062,70 @@ the banked Playwright GREENs (A2, C1, D5) were not re-probed (§5.2; no surface 
 **Honest-RED set (relieved, owner-named):** C7 · C3 · A3 · B3. **Unrelieved:** D1 · D4-Admin · N14 · N15 · ESC-W5c-3.
 
 **Successors:** W6/W8/W10 `Opens after` carry X-W5 → **not GREEN**; X-W6, X-W7, X-W8 and X-W10 stay lawfully BLOCKED-ON X-W5. LEDGER row unchanged (PARTIAL).
+
+## Repair 1 — RESUME ROUND 4, L-20 repair round 1 over Check 1, 2026-09-22
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X-W5 REPAIR 1 · HEAD at open `4252e6c9` · date of record 2026-09-17. Inputs: `W5.md` whole (incl. ADDENDUM
+2026-09-22), `## RESUME OPEN 4` through R4.4, `## Close — RESUME ROUND 4` CL4.5, `## Check 1` (K4.3 register), COHESION §0aq X-W5 block, fold N14/N15
+(`X-W5-FOLD.md:327-328`). Cure idiom: Check 1's own cure for three of the five rows is "dispatch `X.W5.c2`", so this seat executes the `.c2` grants
+exactly as R4.4 plans them (writable set and gates of the `.c2` row), and nothing beyond them.
+
+### RP1.0 Crash-recovery
+⟨cmd⟩ `git status --porcelain` → ` M …/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh`; neither is in this seat's set. **No inherited partial.**
+
+### RP1.1 Defect → cure → commit
+
+| # | Check 1 defect | cure | commit |
+|---|---|---|---|
+| 1 | HIGH D4-Admin: 0 `<Transition ` in `AdminNamesPanel.vue` | The Pending/Approved swap is wrapped in one named `vj-morph` `mode="out-in"` `<Transition>`. Each branch has a single root keyed `pending` / `approved`. A `data-names-direction` token is read from the strip's own option order, and a scoped `--vj-morph-x` offset applies to the branch root only. This is the `MixSourceSelector` idiom verbatim. | `fc9c2be4` |
+| 2a | HIGH N15: query before selector | `AdminPane.vue` renders the top `SearchBar` for `admin-users` only. The names query moved into a new `#query` slot, which `AdminNamesPanel.vue` places **after** `SegmentedTabs`. The cure is source order, not `order:` or `column-reverse`. | `fc9c2be4` |
+| 2b | HIGH N14: census not printed; `AdminPane` `subView` a re-spelt literal union | The literal union is deleted and replaced by `type AdminSubView = Extract<PaneId, \`admin-${string}\`>`. The chain `PaneId` → `AdminPane` props → `AdminSlotProps` (`usePaneRouter.ts:101`) is now type-visible end to end. The census is printed at RP1.2. | `fc9c2be4` |
+| 2c | HIGH ESC-W5c-3 oracle re-points | `o12-blob-seat.spec.ts:68` and `o16-computed-cascade.spec.ts:158`: the token `.pane-wrapper--left` becomes `.pane-wrapper--stage`. `census-parity.spec.ts:88-90`: `rightPanes()` stops reading the dead `RightPane` union and reads the `role: "inspector"` panes of `VIEW_MAP` as bytes, which gives the same four surfaces (about, palettes, mix, blob). | `2eeb59ee` |
+| — | evidence | `docs/tranches/X/waves/W5/green/c2-D4-N15-N14-ESCW5c3-repair1-2026-09-22.json` (`git add -f`) | `dcba5535` |
+| 3 | HIGH D1 untakeable | **ESCALATED, not cured.** The ruled condition is load < 4 with the seat running alone. ⟨cmd⟩ `uptime` → **10.45** at open and **13.05** at 20:29. The lever-design ruling (ESC-W5d2-2) is still unissued. No byte in this seat's set moves the budget. | — |
+| 4 | MEDIUM W5F-04 out-in co-mount (`ColorPicker.vue:2-4`) | **ESCALATED.** The cure needs `demo/picker/ColorPicker.vue` and the EB-2 home, which are outside W5 §4 and outside every §0aq grant (ESC-W5t-2 / ESC-W5d2-1 still pending). | — |
+| 5 | INFO C7 / C3 routed | none (lawful) | — |
+
+### RP1.2 N14: the declaration-site census, printed (this seat's clock)
+⟨cmd⟩ `grep -rnE 'admin-audit' demo --include='*.ts' --include='*.vue' | grep -v '^demo/ui/'`, and each hit classified by reading its source:
+1. `viewSchema.ts` `ViewId` / `PaneId` unions: the declarations.
+2. `VIEW_MAP: Record<ViewId, …>`: exhaustive.
+3. `isViewId`: derived.
+4. `usePaneRouter.ts` `PANE_COMPONENTS` / `VIEW_SCENES` / `propsFor` switch: exhaustive.
+5. `useDockAdminMode.ts:27` `adminViews: ViewId[]`: checked.
+6. `AdminPane.vue` `subView`: **now derived** from `PaneId`. It was the partial site.
+7. `demo/color-picker/router/index.ts` route `name:` strings: **INVISIBLE**.
+8. `e2e/visual/census.ts` `ROUTE_CENSUS`: **INVISIBLE**.
+
+`demo/palettes/api/index.ts` hits the pattern only because of the `admin-audit.ts` module path, so it is not a site. `AdminTagsPanel.vue`: 0 hits.
+
+**Partition: 6 visible · 0 partial · 2 invisible (was 5 · 1 · 2).** The two invisible sites lie outside `.c2`'s grant: the router is under BD-08 (read-mostly), and `census.ts` belongs to X-W1. ATP-33 routes the identity-unification remainder **NO-WAVE-OWNER**. N14 therefore reads **census PRINTED; the in-grant site is cured; the arm "every surviving site visible" is RED on 2 out-of-grant sites → escalated.**
+
+### RP1.3 Gate re-reading (WRITE-THEN-MEASURE, ×2)
+⟨cmd⟩ `sh scratchpad/r1.sh > a; sh scratchpad/r1.sh > b; diff a b` → **IDENTICAL**:
+
+| gate | before (Check 1) | after | state |
+|---|---|---|---|
+| D4 census (2 `SegmentedTabs` consumer files) | Mix 1 · Admin **0** | Mix 1 · Admin **1** | **GREEN** |
+| N15 source order at 390 on `#/admin/names` | query before selector | ⟨cmd⟩ `node scratchpad/c2probe.mjs` ×2 (no-preference, reduce) → `selector-before-query` both runs. `order`/`column-reverse` declarations: 0 (the grep's 2 hits are comments at `AdminPane.vue:59` and `AdminNamesPanel.vue:170`) | **GREEN** |
+| D4 swap animates (same probe) | — | classes `vj-morph-leave-active … enter-to` observed; direction `forward`; durations `0.2s, 0.44s, 0.3s` | GREEN |
+| D5 non-regression (same probe, reduce) | — | `0.1s` opacity cross-fade. `MixSourceSelector` reads the identical `0.1s \| opacity…` under reduce (⟨cmd⟩ `node scratchpad/mixprm.mjs`). This repair adds custom-property values only, with no transition declaration. | held |
+| N14 | census unprinted; 5·1·2 | printed; 6·0·2 | in-grant arm GREEN; 2 out-of-grant sites escalated |
+| ESC-W5c-3 greps | `pane-wrapper--left` o12 1 · o16 1; `unionMembers("RightPane")` 1 | 0 · 0 · 0 | re-points landed |
+| census-parity (visual project, node-only) | reachability test RED by construction | ⟨cmd⟩ `npx playwright test e2e/visual/census-parity.spec.ts --project=visual` → reachability **PASS**. The 2 id-parity tests FAIL: `census.ts` lacks `not-found` | escalated (ESC-R1-2) |
+| o12 / o16 (smoke) | — | 6/6 FAIL at `getByRole("main",{name:"Color tool panes"})` (o12 `:63`, o16 `:46`/`:117`). The re-pointed selector itself was probed separately: 1 `.pane-wrapper--stage` on `/` at 1440, width 512, has a child; 0 `.pane-wrapper--left`. | escalated (ESC-R1-1) |
+| D3 / B4 held | 0 · `0 3 0` | 0 · `0 3 0` | held (B4 arm 2 = 3 files carrying `svh`, which is GREEN at ≥ 1) |
+| §7 `vue-tsc -p tsconfig.demo.json` | banked 0 | EXIT **0** ×2 | GREEN |
+| §7 eslint (changed files, `--max-warnings=0`) | — | EXIT 0 | GREEN |
+| §7 `tsc -p tsconfig.e2e.json` | — | 5 errors, all in `o23-specimen-gamut-honesty.spec.ts` (last touched `7733e557`, X-W6); 0 in this seat's files | not W5's |
+| §7 vitest | — | 639/641. The 2 FAILs are `test/spectrum-luma.test.ts` (C-5 BORN-RED) and `demo/test/shell/reka-binding-idiom.test.ts` (NG-6). Both are other tracks' born-RED tests, and neither imports a file this seat touched. | not W5's |
+| D1 | RED, untakeable | untakeable (load 10.45–13.05) | RED, escalated |
+
+### RP1.4 Escalations (each with its measured reason)
+- **ESC-R1-1 (o12/o16 landmark name).** Both oracles open with `getByRole("main", { name: "Color tool panes" })` (o12 `:63`; o16 `:46`, `:117`). The name no longer exists: `App.vue:59` `<main :aria-labelledby="ROUTE_TITLE_ID">`, which reads **"Home"** on `/`. This is landed-by-consequence of X.W5.a. §0aq grants only the one-token `:68` / `:158` re-points, so the rest needs a grant (or an X-W2 oracle-holder row) for the landmark query.
+- **ESC-R1-2 (census.ts `not-found`).** `census-parity` "exactly the router's table" and "exactly `ViewId`" fail on `- "not-found"`: X.W5.a added the route and the `ViewId` member, and `e2e/visual/census.ts` (X-W1's) has no row for them. This is outside every grant.
+- **ESC-R1-3 (N14 remainder).** The router `name:` strings and `census.ts` `ROUTE_CENSUS` remain invisible to `vue-tsc`. BD-08 and X-W1 own them, and ATP-33 routes the remainder NO-WAVE-OWNER.
+- **D1 (carried: ESC-W5t-1 + ESC-W5d2-2)** and **W5F-04 (carried: ESC-W5t-2 / ESC-W5d2-1)** are unchanged; see RP1.1 rows 3–4.
+
+### RP1.5 Verdict
+**Cured 4 of the 5 register rows' in-bounds content:** D4-Admin, N15, the N14 in-grant site plus the printed census, and the ESC-W5c-3 re-points. The MEDIUM row and D1 are escalated. **The row stays PARTIAL; IMPLEMENTED is NOT stamped.** D1 is RED and unrelieved, and N14 carries 2 out-of-grant invisible sites. Successors X-W6/7/8/10 stay BLOCKED-ON X-W5. `dev.sh` untouched. Commits: `fc9c2be4` `2eeb59ee` `dcba5535` + this section.
