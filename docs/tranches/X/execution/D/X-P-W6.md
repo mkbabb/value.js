@@ -47,3 +47,27 @@ Strictly serial (W6.md "Units (serial; the ADJACENT-LINE RULE binds)"): `[.r] �
 
 ## Unit receipts
 
+### X.P.W6.r
+
+Seat `claude-opus-5-5`, 2026-09-23 ~14:58–15:03 EDT. Spec: W6.md §The law + §Units `.r` (read whole).
+
+**Crash-recovery.** ⟨`git -C ../parse-that status --porcelain`⟩ → inside `.r`'s writable set, 11 MODIFIED tracked files under `typescript/src/css` (+58/−14, mtime 14:52, incl. `build/ac1.wasm` 701251→707021 B) and 2 UNTRACKED (`src/css/surface-widenings.mjs`, `src/css/build/css-surface.d.ts`) — the stopped X.P.W5.g seat's in-flight work (headers cite X.P.W5.g / SC-2), not a `.r` predecessor. Not finished (W5 is STOPPED by ruling; `.r` deletes the tree): captured whole as evidence before removal (acts 1–2). Foreign dirty rows (`.cargo/config.toml`, `README.md`, `rust/**`) untouched and never staged.
+
+**Acts, in order.**
+1. Evidence FIRST (value.js). ⟨`git archive HEAD typescript/src/css typescript/test/css* <8 css scripts> experiments/w2/ac1-tagless | tar -x -C …/evidence/W6/retired-seam`⟩ + ⟨`git diff -- typescript/src/css > uncommitted-x-p-w5-inflight.patch`⟩ → 115 files (27 src/css + 59 css tests + 8 scripts + 20 ac1-tagless + 1 patch) + `README.md` + `MANIFEST.sha256` (115 lines) → value.js **`822eadad`** (117 files).
+2. The 2 untracked W5.g files → `retired-seam/untracked-x-p-w5-inflight/` → value.js **`3af7d88d`**.
+3. parse-that master, ONE ordinary commit **`92d8ea7`** (117 files, +98/−39230): `git rm` `typescript/src/css/**` (27), `typescript/test/css*` (59: css-color5, css-equivalence, css-recovery, css-totality, css-var-animation), css-only scripts (`css-bench-three-leg`, `css-dual-target-identity`, `css-recovery-closure`, `css-universe`, `packed-candidate-surface`, `r1-anchor-candidate`, `rc-p-evaluate`, `wasm-admission`), `experiments/w2/ac1-tagless/**` (20, the second tracked `ac1.wasm` and its build inputs); `typescript/package.json` drops the `./css` export and the `./src/css` `files` entry, adds `proof:no-css-surface` and its `proof:all` leg; `scripts/proof-no-css-surface.mjs` restored from `4eac70c^1` with a dated note citing COHESION §0by + two added legs (no `src/css`; no css export/`files` entry). Kept (library, not CSS-surface): `runtime-kernel-probe.mjs`, `proof-perf.mjs` (a CSS function-name *token* corpus benchmarks `dispatch`), `f5169b1` packrat latch and every other library fix.
+   - **adjacent edits**: `typescript/test/dist-surface.test.ts:80-82` — comment cited the retired `./css` seam and the retired proof; now names `proof:no-css-surface` as its twin (same concern, comment only, no assertion changed).
+4. ⟨`git push origin master`⟩ → `2382b30..92d8ea7  master -> master`. No publish, no tag: ⟨`npm whoami`⟩ → `npm error` (E401 holds). `package.json` `version` left `2.0.0` (unpublished; superseded per W6.md — the next release is versioned by parse-that's own semver at publish time, library changes only).
+
+**Gates (BEFORE → AFTER, double-run).**
+- **G-r1** GREEN. BEFORE `1 failed | 152 passed (153)` (css-color5) → ⟨`npm run build && npm test` ×2⟩ → `Test Files 14 passed (14)` · `Tests 134 passed (134)` both runs (153 − 19 css tests; 16 − 2 css files).
+- **G-r2** GREEN. BEFORE RED (perf +21.7%; no-css-surface missing) → ⟨`npm run proof:all` ×2⟩ exit 0 both, 10 GREEN/PASS lines each incl. `proof:no-css-surface GREEN — 31 runtime exports, zero CSS surface.`; `proof:perf` PASS, json-comprehensive 1920 ns (+10.2% vs 1742) / 1831 ns. Load NOT fully quiesced (⟨`uptime`⟩ 11.9 → 11.1 1-min) — PT-PERF-LOAD: PASS under load, so a quiesced read can only be faster.
+- **G-r3** GREEN on the baselined measure. BEFORE `27` → ⟨`git ls-files typescript/src/css | wc -l`⟩ `0` ×2; tracked `.wasm` 2 → 0; `typescript/test/css*` 59 → 0; `"./css"` in package.json 1 → 0.
+
+**Residuals (not escalations; outside `.r`'s writable set, named for the orchestrator).**
+- R-r-1: parse-that `harness/**` (X.P.W1 instruments: bench/equivalence/totality/w2) and `experiments/w2/{contract,corpus,stage0}` remain — research instruments about the AC-1 seam, not the shipped library (no export, no `files` entry); `harness/equivalence/harness.ts:74` imports an absolute `~/.claude/jobs/…` path. ⟨`git grep -l -E 'parseStylesheet|collectKeyframes|AC-1|ac1\.wasm' HEAD -- ':!docs'`⟩ → 16 files there + `typescript/CHANGELOG.md` + `typescript/evidence` + the restored proof's own comment. Retiring them wants its own unit with those paths in its writable set.
+- R-r-2: `typescript/CHANGELOG.md` / `typescript/CLAUDE.md` still describe the `./css` seam (docs, outside the set).
+- R-r-3: `.b`/`.h` source the WPT cases, the differential harness and the corpus from `evidence/W6/retired-seam/typescript/test/`.
+
+Commits: value.js `822eadad`, `3af7d88d`; parse-that `92d8ea7` (pushed). This receipt: the next value.js commit.
