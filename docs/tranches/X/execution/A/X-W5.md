@@ -4585,3 +4585,52 @@ Crash-recovery: ⟨cmd⟩ `git status --porcelain` → the four standing rows (`
 | MINOR | The `.c4` R5 retirement goes one step past §0az's words. | Check 1 K1.2 | Mitigated. It needs a one-line COHESION confirmation. |
 
 **Honest-RED set: empty**, because g2 is unrelieved. **Gates reproduced:** 14 · **failed:** W6 g2. The LEDGER row **stays PARTIAL**. The next act belongs to COHESION: it must rule ESC-W5d4-1.
+
+## RESUME OPEN 8 — 2026-09-23, seat 0 (RESUME MODE, eighth sitting, on COHESION §0aq + §0ax + §0ay + §0az + §0ba and W5.md's five ADDENDA)
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X-W5 SEAT 0 (OPEN, RESUME 8) · HEAD at open `277b8d25` · date of record 2026-09-17 (the begin-word, COHESION §0j).
+Inputs read: `W5.md` whole (402 L, incl. all five ADDENDA; the fifth, 2026-09-23, is `:402`), this record's `## RESUME OPEN 7` (`:4192-4251`) and `## Check 3` RESUME 7 (`:4544-4587`),
+COHESION §0ba (`:2947-2956`, the file end), RUNBOOK §1.1 edge `X-W2 → X-W5` (`:124`). Ruling ids consumed: **§0ba** (ESC-W5d4-1 RULED (a), GRANTED to X-W6 `.s`;
+X-W5 `.d4`'s g2/e1 leg RELIEVED by route **`W5D4-SETTLE-READ`** → X-W6 `.s`; `.d4` reads IMPLEMENTED on the witness ×2 + a5–a12 ×2 + D1 headed ×2; **R5 retirement
+CONFIRMED** under §0az's producer-removed clause; residuals **`W5-READY-DEAD`** · **`W5-BTN-INTERACTIVE-DEAD`** → X-W8 `.d`; *"No unit is owed in X-W5: its resume is OPEN
+(empty plan) → close → check, and the row reads CLOSED on that adjudication"*), **§0az** (O12-3-HOVER-GPU → X-W8 `.i`), **§0ay**, **§0ax**, **§0aq**, standing §0i, §0j, §0k.1, §0k.3.
+
+### R8.0 Crash-recovery (STANDING LAW)
+⟨cmd⟩ `git status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh` — the standing rows (the two W6 catalog PNGs were restored
+to their committed bytes at §0ba). Neither is in this seat's writable set (`X-W5.md`, `LEDGER.md`, `INBOX.md`). `dev.sh` untouched. **No inherited partial.**
+
+### R8.1 E13 Step-0 — the four-path mail sweep
+⟨cmd⟩ `ls -t ../glass-ui/docs/tranches/ | head -2` → **BK**, BJ (BK still newest; atlas newest `T` has no `coordination/`, `P/coordination` swept).
+⟨cmd⟩ `find <path> -maxdepth 1 -type f -newer execution/A/X-W5.md` (the record as of Check 3 `196c014d`) over value.js `V/` · `V/coordination/` · glass `BK/coordination` ·
+keyframes `V/coordination` · atlas `P/coordination` → `V/coordination/INBOX.md` (sibling sweep lines) and glass `BK/coordination/valuejs-outbound-2026-09-23-xw6-aurora-derive-relay.md`
+— value.js's OWN outbound O-52 mirror (line 3: `# O-52 — X-W6 (value.js) · a shader-free aurora derive subpath`), already rowed (⟨cmd⟩ `grep -c` of its filename in INBOX → **1**).
+**0 new I-n · 0 UNREAD in X-W5 scope**; the only UNREAD row stays I-40 (Track C, out of scope). One dated sweep line appended at the INBOX end.
+
+### R8.2 Preconditions (RESUME MODE)
+- **Opens-after** (W5.md §1): LEDGER X-W0 **CLOSED 2026-09-17** (`:28`) · X-W2 **CLOSED 2026-09-17 (honest-RED G3·G5)** (`:30`) · X-W4 **CLOSED 2026-09-17** (`:33`);
+  D2 ⟨cmd⟩ `git ls-files --error-unmatch docs/tranches/T/audit/pi/u-gestalt/probe2-log.txt` → tracked. **MET.**
+- **alreadyDone** (commits exist, never re-dispatched): `.a` `c0cf27bf`(+`de99ec15` `f94d22af`) · `.b` `adc312f6` · `.c` `50633f19` · `.d` `2183b814` · `.e` `e2f56558` ·
+  `.t` `91d0e0c7` `1a6432f9` · `.c2` `fc9c2be4` `2eeb59ee` `ab5270b6` · `.d2` `043a783c` `52dc0a5b` `b36df565` · `.c3` `8ddafa23` (+`881d3792`) · `.d3` `b9f63632` `a072eef3` (+`28da478f`) ·
+  `.c4` `e2efb30a` · `.d4` `f55e59b7` `5a7d3113` `d6d8b38f` (IMPLEMENTED per §0ba) · repair-1 `16852e03` (dead `ready` ref).
+- **Owed**: none (§0ba; W5.md fifth ADDENDUM `:402`: *"No unit is owed; the resume is close → check."*).
+- **No product byte since Check 3**: ⟨cmd⟩ `git diff --stat 196c014d..HEAD -- demo src e2e | wc -l` → **0**; ⟨cmd⟩ `git log --oneline 196c014d..HEAD | wc -l` → 14 (X-W6 docs + §0ba ruling only).
+
+### R8.3 Baseline — banked (no owed unit turns a gate)
+Per the RESUME-mode law, only gates an owed unit turns are re-run at open; none is owed, so every reading is **cited from its bank** (no product byte moved since, R8.2):
+
+| gate | banked reading | bank |
+|---|---|---|
+| cold-nav witness `cold-nav-scene-enter.spec.ts` (both arms) | GREEN ×2 (`2 passed`) | `.d4` receipt `d6d8b38f` · Close RESUME 7 `c575f741` · Check 3 K3.1 |
+| o16 W5-census `smoke` / `oracles-safari` | GREEN ×2 both projects | `.c4` · Close RESUME 7 · Check 3 K3.1 (smoke `2 passed`) |
+| W6 a5–a11 · a12 · e1 suite | GREEN ×2 | Close RESUME 7 |
+| D1 headed real GPU (reading of record) | ×2 unchanged (gradient 1/84, median 10) | Close RESUME 7 · §0ay |
+| W6 g2 `companion-pane-track-start` | RED ×2 (`Received 6.501441955566406`) — **RELIEVED by route `W5D4-SETTLE-READ` → X-W6 `.s`** (§0ba) | Check 3 K3.1(10) |
+| static arms A1 · A4 · A7 · B4 · C4 · C8 · D2 · D3 · D4 · E1 · §0az lock | 14/14 reproduce | Check 3 K3.1(1) |
+
+**R.2 green-before-cure**: none (no cure owed at this sitting).
+
+### R8.4 Resume unit plan — 12 landed, 0 owed
+Groups: `[]`. §0ba: X-W5 (no units; close → check) → X-W6 [`.s`] → [`.f2`] → [`.v`] → [`.j` if X-W5 CLOSED]. The verify-only close adjudicates the ADDENDUM-4/5 gate set with g2/e1
+relieved by route `W5D4-SETTLE-READ`, R5 retirement CONFIRMED, `W5-READY-DEAD` / `W5-BTN-INTERACTIVE-DEAD` → X-W8 `.d`, O12-3-HOVER-GPU → X-W8 `.i`; the row reads CLOSED on a CONFORMANT check.
+
+## Unit receipts — RESUME 8
