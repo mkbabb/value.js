@@ -636,4 +636,4 @@ Spec: `KF-W13.md` sixth addendum `.d2` (`:359`, ESC-d-2) + third addendum OA-32 
    - `R-d2-2`: the miniatures are built once per mount, from the scene's data at that moment. A later edit in the controls pane (duration, easing) reaches the icon at the next mount (a scene switch), not live.
    - `R-d2-3`: the old `assets/icons/{cube,amiga,square,easing,spring,sequence}.svg` now have no importer. `assets/**` is outside this unit's set, so they stay; their deletion belongs to whoever owns `assets/`.
 9. **Escalations.** None.
-10. **Self-count.** Acts 1–10; kf commits 1 (`6d5b4288`, pushed) + this record commit (record + LEDGER cell + `evidence/W13U/d2/**`: 1 probe, 10 reports, 3 PNGs); gates 5 of 5 GREEN (frame-diff · layer order · bbox/outside · PRM · vue-tsc/test:demo/push).
+10. **Self-count.** Acts 1–10; kf commits 1 (`6d5b4288`, pushed) + this record commit (record + LEDGER line + `evidence/W13U/d2/**`: 1 probe, 10 reports; the 3 PNGs sit on disk beside them, untracked by the repo's `.gitignore:34` `*.png` rule, as every prior unit's frames); gates 5 of 5 GREEN (frame-diff · layer order · bbox/outside · PRM · vue-tsc/test:demo/push).
