@@ -87,7 +87,7 @@
                         (pm.sortLoading.value ? 'opacity-50' : '')
                     "
                 >
-                    <PaletteCard
+                    <PaletteInspector
                         v-for="palette in displayedBrowse"
                         :ref="(el: any) => el && (cardRefs[palette.slug] = el)"
                         :key="palette.slug"
@@ -100,8 +100,8 @@
                         @click="pm.toggleExpand(palette.slug)"
                         @save="(p) => onSave(p)"
                         @delete="(p) => onDeleteOwned(p)"
-                        @vote="(p) => pm.onVote(p)"
-                        @rename="(p, name) => pm.onRename(p, name)"
+                        @vote="(p) => onVote(p)"
+                        @rename="(p, name) => onRename(p, name)"
                         @edit-color="(p, idx, css) => pm.onEditColor(p, idx, css)"
                         @add-color="(css) => pm.onSwatchAddColor(css)"
                         @feature="(p) => onFeature(p)"
@@ -110,7 +110,6 @@
                         @fork="(p) => onFork(p)"
                         @versions="(p) => onVersions(p)"
                         @flag="(p) => onFlag(p)"
-                        @export="(p, fmt) => onExport(p, fmt)"
                         @edit-tags="(p) => onEditTags(p)"
                     />
                 </PaletteCardGrid>
@@ -129,16 +128,23 @@
                 </div>
                 <div
                     v-else-if="pm.hasMore.value && !pm.browsing.value && !pm.browseError.value"
-                    class="flex justify-center pt-1 pb-2"
+                    class="flex flex-col items-center gap-1 pt-1 pb-2"
                 >
                     <Button
                         variant="outline"
                         size="sm"
                         class="font-display"
-                        @click="pm.loadMoreRemotePalettes()"
+                        @click="onLoadMore()"
                     >
                         More from the commons
                     </Button>
+                    <p
+                        v-if="loadMoreFailure"
+                        role="status"
+                        class="text-caption text-destructive"
+                    >
+                        {{ loadMoreFailure }}
+                    </p>
                 </div>
             </div>
         </div>
@@ -212,11 +218,8 @@ import { Card } from "../ui/card";
 import { Button } from "../ui/button";
 import { BROWSE_PORT_KEY } from "./usePalettePorts";
 import { CSS_COLOR_KEY } from "../color-session/keys";
-import {
-    PaletteCard,
-    PaletteCardGrid,
-    PaletteCardSkeleton,
-} from "./browser/card";
+import { PaletteCardGrid, PaletteCardSkeleton } from "./browser/card";
+import PaletteInspector from "./PaletteInspector.vue";
 import EmptyState from "../shared/ui/EmptyState.vue";
 import { SearchFilterBar, TagEditPopover } from "./browser/search";
 import {
@@ -226,7 +229,6 @@ import {
 import { SearchBar } from "@mkbabb/glass-ui/search";
 import PaneHeader from "../shared/ui/PaneHeader.vue";
 import type { Palette, Tag } from "./types";
-import { usePaletteExport } from "./usePaletteExport";
 import { useDialogBrowseActions } from "./browser/dialog";
 
 const cssColorOpaque = inject(CSS_COLOR_KEY)!;
@@ -237,7 +239,7 @@ const pm = inject(BROWSE_PORT_KEY)!;
 // (the K.WP P1-4 lesson).
 const SKELETON_COUNT = 4;
 
-const cardRefs = reactive<Record<string, InstanceType<typeof PaletteCard>>>({});
+const cardRefs = reactive<Record<string, InstanceType<typeof PaletteInspector>>>({});
 // D.W3 Lane B: shared tag catalog via pm.tagEdit (was: local getTags fetch)
 // X9: coerce to an Array. `allTags` is typed `Tag[]` but the `/colors/tags`
 // read can resolve an object-shaped payload; a non-array reaching the
@@ -428,14 +430,38 @@ function onTagsUpdated(tags: string[]) {
     tagEditPalette.value = { ...tagEditPalette.value, tags };
 }
 
-// --- Export ---
+// X.W7.d2 (G7 host): export is the inspector's own act — it performs it and
+// renders `usePaletteExport`'s `failure` on its rail; the pane holds no copy.
 
-// ESC-W7b-HOST (G7): the export's typed outcome is rendered on the card that
-// asked for it — never a `console.warn` alone.
-const { onExport: exportPalette } = usePaletteExport();
-async function onExport(palette: Palette, format: string) {
-    const outcome = await exportPalette(palette, format);
-    showVerdict(palette.slug, outcome.ok ? `Exported ${outcome.filename}` : outcome.message, outcome.ok);
+// --- The mutation rows (X.W7.d2 · W7-mutation-ownership rows 2/3/6/7/8/11) ---
+// Each remote mutation settles a `BrowseVerdict`; a failure is rendered on the
+// inspector that asked for it, never dropped (W7-failure-dispositions 14-17).
+async function onVote(palette: Palette) {
+    const result = await pm.onVote(palette);
+    if (!result.success) showVerdict(palette.slug, result.message, false);
+}
+
+async function onRename(palette: Palette, name: string) {
+    const result = await pm.onRename(palette, name);
+    if (!result.success) showVerdict(palette.slug, result.message, false);
+}
+
+// Row 3 · the tag save's verdict is produced by `useTagEdit.error` (the
+// pre-flight refusal or the transport failure); it is rendered on the
+// inspector of the palette being tagged.
+watch(
+    () => pm.tagEdit.error.value,
+    (message) => {
+        const palette = tagEditPalette.value;
+        if (message !== null && palette !== null) showVerdict(palette.slug, message, false);
+    },
+);
+
+// Row 13 · a failed page load is said beside the control that asked for it.
+const loadMoreFailure = ref<string | null>(null);
+async function onLoadMore() {
+    const result = await pm.loadMoreRemotePalettes();
+    loadMoreFailure.value = result !== null && !result.success ? result.message : null;
 }
 
 // --- Filters ---

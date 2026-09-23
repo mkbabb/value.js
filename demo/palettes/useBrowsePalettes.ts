@@ -14,6 +14,21 @@ import {
 import type { ListPalettesOptions } from "./api";
 import type { Palette } from "./types";
 
+/**
+ * One browse mutation's visible result (W7-failure-dispositions rows 12-17:
+ * SURFACE). Every act on a remote palette settles one of these, and the host
+ * renders it on the inspector's rail — a failure is never a `console.warn`
+ * alone and never a success-shaped return.
+ */
+export interface BrowseVerdict {
+    readonly success: boolean;
+    readonly message: string;
+}
+
+function failureOf(e: unknown, fallback: string): string {
+    return e instanceof Error && e.message ? e.message : fallback;
+}
+
 /** The public-wall page size — the keyset cursor advances one of these at a time. */
 const BROWSE_PAGE_SIZE = 50;
 
@@ -76,10 +91,10 @@ export function useBrowsePalettes(deps: {
             hasMore.value = res.hasMore === true && res.nextCursor != null;
         } catch (e) {
             if (gen !== loadGeneration) return;
-            browseError.value = "Failed to load palettes";
+            // Row 12: the pane renders `browseError` (the wall's error plate).
+            browseError.value = `Failed to load palettes: ${failureOf(e, "backend unreachable")}`;
             nextCursor.value = null;
             hasMore.value = false;
-            console.warn("Failed to load remote palettes:", e);
         } finally {
             if (gen === loadGeneration) {
                 browsing.value = false;
@@ -94,20 +109,26 @@ export function useBrowsePalettes(deps: {
      * or a page is already in flight. A concurrent fresh load (which bumps
      * `loadGeneration`) discards this continuation's append.
      */
-    async function loadMoreRemotePalettes() {
-        if (!hasMore.value || nextCursor.value == null || loadingMore.value) return;
+    async function loadMoreRemotePalettes(): Promise<BrowseVerdict | null> {
+        if (!hasMore.value || nextCursor.value == null || loadingMore.value) return null;
         const gen = loadGeneration;
         const cursor = nextCursor.value;
         loadingMore.value = true;
         try {
             const res = await listPalettes({ ...currentFilterOpts(), cursor });
-            if (gen !== loadGeneration) return; // a fresh load superseded us
+            if (gen !== loadGeneration) return null; // a fresh load superseded us
             const page = Array.isArray(res.data) ? res.data : [];
             remotePalettes.value = [...remotePalettes.value, ...page];
             nextCursor.value = res.nextCursor ?? null;
             hasMore.value = res.hasMore === true && res.nextCursor != null;
+            return { success: true, message: `Loaded ${page.length} more` };
         } catch (e) {
-            console.warn("Failed to load more palettes:", e);
+            // Row 13: the pane renders this beside the More control.
+            if (gen !== loadGeneration) return null;
+            return {
+                success: false,
+                message: `More palettes could not load: ${failureOf(e, "backend unreachable")}`,
+            };
         } finally {
             if (gen === loadGeneration) loadingMore.value = false;
         }
@@ -123,7 +144,7 @@ export function useBrowsePalettes(deps: {
         addPublishedPalette(palette);
     }
 
-    async function onVote(palette: Palette) {
+    async function onVote(palette: Palette): Promise<BrowseVerdict> {
         try {
             await session.ensureSession();
             const result = await votePalette(palette.slug);
@@ -136,24 +157,26 @@ export function useBrowsePalettes(deps: {
                     voteCount: result.voteCount,
                 };
             }
+            return { success: true, message: result.voted ? "Voted" : "Vote removed" };
         } catch (e) {
-            console.warn("Failed to vote:", e);
+            // Row 14.
+            return { success: false, message: `Vote failed: ${failureOf(e, "backend unreachable")}` };
         }
     }
 
-    async function onDeleteOwned(palette: Palette): Promise<{ success: boolean; message: string }> {
+    async function onDeleteOwned(palette: Palette): Promise<BrowseVerdict> {
         try {
             await session.ensureSession();
             await deletePaletteUser(palette.slug);
             remotePalettes.value = remotePalettes.value.filter((p) => p.slug !== palette.slug);
             return { success: true, message: "Deleted" };
-        } catch (e: any) {
-            console.warn("Failed to delete palette:", e?.message);
-            return { success: false, message: e?.message ?? "Failed to delete" };
+        } catch (e) {
+            // Row 15.
+            return { success: false, message: `Delete failed: ${failureOf(e, "backend unreachable")}` };
         }
     }
 
-    async function onRename(palette: Palette, newName: string) {
+    async function onRename(palette: Palette, newName: string): Promise<BrowseVerdict> {
         try {
             await session.ensureSession();
             // K.W2: PATCH REQUIRES If-Match — derive the validator from the
@@ -171,8 +194,10 @@ export function useBrowsePalettes(deps: {
                     name: updated.name,
                 };
             }
-        } catch (e: any) {
-            console.warn("Failed to rename palette:", e?.message);
+            return { success: true, message: "Renamed" };
+        } catch (e) {
+            // Row 16.
+            return { success: false, message: `Rename failed: ${failureOf(e, "backend unreachable")}` };
         }
     }
 
@@ -186,7 +211,7 @@ export function useBrowsePalettes(deps: {
     async function onSetVisibility(
         palette: Palette,
         target: "public" | "private",
-    ): Promise<{ success: boolean; message: string }> {
+    ): Promise<BrowseVerdict> {
         try {
             await session.ensureSession();
             const etag = paletteETag(palette);
@@ -210,9 +235,10 @@ export function useBrowsePalettes(deps: {
                 success: true,
                 message: target === "public" ? "Published" : "Made private",
             };
-        } catch (e: any) {
-            console.warn("Failed to set visibility:", e?.message);
-            return { success: false, message: e?.message ?? "Failed to update visibility" };
+        } catch (e) {
+            // Row 17.
+            const act = target === "public" ? "Publish" : "Unpublish";
+            return { success: false, message: `${act} failed: ${failureOf(e, "backend unreachable")}` };
         }
     }
 

@@ -50,8 +50,16 @@ export const EDIT_TARGET_KEY: InjectionKey<ShallowRef<EditTarget | null>> =
 // point `picker/ColorPicker.vue` back at a module that imports the picker.
 // ───────────────────────────────────────────────────────────────────────────
 
-/** The scenes that own dock-dispatchable commands. */
-export type SceneActionScene = "color" | "generate" | "gradient" | "mix";
+/**
+ * The scenes that own dock-dispatchable commands.
+ *
+ * `palette` is the one ENTITY scene (X.W7.d2 · COHESION §0bk.1): it is not a
+ * view's scene but the selected palette's — the palette inspector
+ * (`palettes/PaletteInspector.vue`) registers it while its palette is the
+ * selected entity, and the dock renders that entity's verbs through this same
+ * contract (never a parallel type).
+ */
+export type SceneActionScene = "color" | "generate" | "gradient" | "mix" | "palette";
 
 /**
  * Every action the shell can name — a CLOSED union, never `string`.
@@ -75,7 +83,17 @@ export type SceneActionToken =
     | "gradient.seedFromPalette"
     | "mix.clearSelection"
     | "mix.startMix"
-    | "mix.copyResult";
+    | "mix.copyResult"
+    | "palette.rename"
+    | "palette.tags"
+    | "palette.versions"
+    | "palette.export"
+    | "palette.publish"
+    | "palette.visibility"
+    | "palette.fork"
+    | "palette.vote"
+    | "palette.save"
+    | "palette.delete";
 
 /**
  * A scene target's member: a user command. It may be synchronous or
@@ -112,6 +130,43 @@ export interface MixSceneTarget {
     readonly startMix: SceneCommand;
     readonly copyResult: SceneCommand;
 }
+
+/** The verbs a selected palette can offer the dock — one per `palette.*` token. */
+export type PaletteSceneVerb =
+    | "rename"
+    | "tags"
+    | "versions"
+    | "export"
+    | "publish"
+    | "visibility"
+    | "fork"
+    | "vote"
+    | "save"
+    | "delete";
+
+/**
+ * The selected palette entity's target. The inspector builds it from the one
+ * gating it applies to its own menu, so a verb the entity does not offer is
+ * ABSENT (no seat), never a dead seat.
+ */
+export interface PaletteSceneTarget {
+    /** The entity's name — the dock's Tools label while it is selected. */
+    readonly name: string;
+    /** `palette.visibility`'s direction: true ⇒ the seat makes it private. */
+    readonly isPublic: boolean;
+    /** `palette.vote`'s active member. */
+    readonly voted: boolean;
+    readonly commands: { readonly [V in PaletteSceneVerb]?: SceneCommand };
+}
+
+/**
+ * The selected-entity registry. The shell provides it (`usePaneRouter`, the
+ * action-set builder's input); an inspector pushes its target while its entity
+ * is selected and removes exactly its own on deselect / deactivation / unmount.
+ * The LAST registered target is the selected entity.
+ */
+export const SELECTED_ENTITY_KEY: InjectionKey<ShallowRef<readonly PaletteSceneTarget[]>> =
+    Symbol("SELECTED_ENTITY_KEY");
 
 /**
  * The three scenes whose target is a LAZY pane instance (`defineAsyncComponent`),

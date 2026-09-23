@@ -1,7 +1,8 @@
 /**
  * X.W7.c — the browser harness the G9/G10 layout assertions mount.
  *
- * Every named fixture case renders one real `PaletteCard` under the shipped
+ * Every named fixture case renders one real `PaletteInspector` (X.W7.d2: the
+ * selected-entity inspector that replaced `PaletteCard`) under the shipped
  * stylesheet cascade (the same three sheets `color-picker/main.ts` imports), so
  * the measured geometry is the product's, not a jsdom zero. The harness adds
  * only the page gutter; every card sits in one shipped `PaletteCardGrid`.
@@ -11,7 +12,8 @@ import { computed, createApp, h, ref } from "vue";
 import "../../../../styles/utils.css";
 import "../../../../styles/foundation.css";
 import "../../../../styles/focus-ring.css";
-import { PaletteCard, PaletteCardGrid } from "../../../../palettes/browser/card";
+import { PaletteCardGrid } from "../../../../palettes/browser/card";
+import PaletteInspector from "../../../../palettes/PaletteInspector.vue";
 import { API_CLIENT_KEY, createApiClient } from "../../../../platform/transport/useApiClient";
 import { INK_AMBIENT_KEY } from "../../../../color-session/keys";
 import { HARNESS_CASES, fixturePalette } from "../fixtures";
@@ -37,9 +39,9 @@ createApp({
             h(PaletteCardGrid, null, () =>
                 [
                     ...Object.entries(HARNESS_CASES).map(([key, make]) =>
-                        h(PaletteCard, { key, palette: make(), "data-case": key }),
+                        h(PaletteInspector, { key, palette: make(), "data-case": key }),
                     ),
-                    h(PaletteCard, {
+                    h(PaletteInspector, {
                         key: "disclosure",
                         palette: fixturePalette({ name: "Disclosure" }),
                         expanded: expanded.value,

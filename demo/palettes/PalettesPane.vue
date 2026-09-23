@@ -101,7 +101,7 @@
                     empty-text="No saved palettes yet."
                     empty-hint="Add colors, then save."
                 >
-                    <PaletteCard
+                    <PaletteInspector
                         v-for="palette in pm.filteredSaved.value"
                         :ref="(el: any) => el && (cardRefs[palette.id] = el)"
                         :key="palette.id"
@@ -114,7 +114,6 @@
                         @publish="(p) => onPublish(p)"
                         @rename="(p, name) => pm.onRenameSaved(p, name)"
                         @edit-color="(p, idx, css) => pm.onEditColor(p, idx, css)"
-                        @export="(p, fmt) => onExport(p, fmt)"
                     />
                 </PaletteCardGrid>
             </div>
@@ -156,7 +155,6 @@ import { LIBRARY_PORT_KEY, COLOR_TARGET_PORT_KEY } from "./usePalettePorts";
 import { CSS_COLOR_KEY } from "../color-session/keys";
 import {
     CurrentPaletteEditor,
-    PaletteCard,
     PaletteCardGrid,
 } from "./browser/card";
 import {
@@ -170,7 +168,7 @@ import {
 import { SearchBar } from "@mkbabb/glass-ui/search";
 import PaneHeader from "../shared/ui/PaneHeader.vue";
 import type { Palette } from "./types";
-import { usePaletteExport } from "./usePaletteExport";
+import PaletteInspector from "./PaletteInspector.vue";
 import ActionFeedback from "./browser/card/PaletteCard/ActionFeedback.vue";
 
 const { savedColorStrings } = defineProps<{
@@ -196,7 +194,7 @@ const rampTitleVars = {
     "--palettes-ramp-2": "var(--palettes-ramp-title-2, oklch(0.632 0.214 53.5))",
 } as const;
 
-const cardRefs = reactive<Record<string, InstanceType<typeof PaletteCard>>>({});
+const cardRefs = reactive<Record<string, InstanceType<typeof PaletteInspector>>>({});
 
 // Drag-to-reorder
 const sortableGridRef = ref<InstanceType<typeof PaletteCardGrid> | null>(null);
@@ -239,12 +237,6 @@ async function onPublish(palette: Palette) {
     }
 }
 
-// ESC-W7b-HOST (G7): the export's typed outcome is rendered on the card that
-// asked for it — never a `console.warn` alone.
-const { onExport: exportPalette } = usePaletteExport();
-async function onExport(palette: Palette, format: string) {
-    const outcome = await exportPalette(palette, format);
-    if (palette.id == null) return;
-    cardRefs[palette.id]?.showFeedback(outcome.ok ? `Exported ${outcome.filename}` : outcome.message, outcome.ok ? "success" : "error");
-}
+// X.W7.d2 (G7 host): export is the inspector's own act — it performs it and
+// renders `usePaletteExport`'s `failure` on its rail; the pane holds no copy.
 </script>

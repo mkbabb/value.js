@@ -18,7 +18,8 @@ import PaletteSpecimen from "../../palettes/browser/card/PaletteSpecimen.vue";
 import { g9Palette } from "./n-fixtures/fixtures";
 
 const SPECIMEN = path.resolve(import.meta.dirname, "../../palettes/browser/card/PaletteSpecimen.vue");
-const CARD = path.resolve(import.meta.dirname, "../../palettes/browser/card/PaletteCard/PaletteCard.vue");
+// X.W7.d2: the specimen's product host is the selected-entity inspector.
+const CARD = path.resolve(import.meta.dirname, "../../palettes/PaletteInspector.vue");
 
 /** The forbidden seats: palette ports/actions/store and the API transport. */
 const FORBIDDEN = [
@@ -89,7 +90,7 @@ describe("G12 · PaletteSpecimen purity", () => {
         expect(readFileSync(SPECIMEN, "utf8")).not.toMatch(/defineEmits/);
     });
 
-    it("has a product consumer — the card renders through it (L-19)", () => {
+    it("has a product consumer — the inspector renders through it (L-19)", () => {
         expect(readFileSync(CARD, "utf8")).toMatch(/<PaletteSpecimen\b/);
     });
 });

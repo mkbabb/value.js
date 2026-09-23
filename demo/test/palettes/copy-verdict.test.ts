@@ -12,7 +12,7 @@ import path from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { flushPromises, mount } from "@vue/test-utils";
 import { computed, defineComponent, h, ref } from "vue";
-import PaletteCard from "../../palettes/browser/card/PaletteCard/PaletteCard.vue";
+import PaletteInspector from "../../palettes/PaletteInspector.vue";
 import { useSwatchActions } from "../../palettes/browser/card/composables/useSwatchActions";
 import ActionFeedback from "../../palettes/browser/card/PaletteCard/ActionFeedback.vue";
 import { API_CLIENT_KEY, createApiClient } from "../../platform/transport/useApiClient";
@@ -29,6 +29,8 @@ const PALETTE: Palette = {
 };
 
 const CARD_DIR = path.resolve(import.meta.dirname, "../../palettes/browser/card");
+/** X.W7.d2: the card's host moved to the selected-entity inspector. */
+const INSPECTOR = path.resolve(import.meta.dirname, "../../palettes/PaletteInspector.vue");
 
 function files(dir: string): string[] {
     return readdirSync(dir).flatMap((f) => {
@@ -48,7 +50,7 @@ afterEach(() => {
 
 describe("N-11 · census at the card sites", () => {
     it("every writeClipboard result is bound", () => {
-        for (const file of files(CARD_DIR)) {
+        for (const file of [...files(CARD_DIR), INSPECTOR]) {
             for (const line of readFileSync(file, "utf8").split("\n")) {
                 if (!line.includes("writeClipboard(")) continue;
                 expect(line, file).not.toMatch(/void writeClipboard|^\s*(await\s+)?writeClipboard\(|"writeClipboard\(/);
@@ -69,9 +71,9 @@ describe("N-11 · the verdict renders", () => {
         ["rejected", () => Promise.reject(new Error("denied")), "Could not copy"],
         ["accepted", () => Promise.resolve(), "Copied"],
     ] as const) {
-        it(`the card's slug copy — ${label}`, async () => {
+        it(`the inspector's slug copy — ${label}`, async () => {
             withClipboard(writeText);
-            const w = mount(PaletteCard, {
+            const w = mount(PaletteInspector, {
                 props: { palette: PALETTE, expanded: true, showSlug: true },
                 global,
             });

@@ -14,6 +14,7 @@ import {
     defineAsyncComponent,
     defineComponent,
     h,
+    provide,
     shallowRef,
     type Component,
     type ComputedRef,
@@ -43,6 +44,7 @@ import type {
 } from "./useViewManager";
 import type {
     ColorSceneTarget,
+    PaletteSceneTarget,
     SceneAction,
     SceneActionScene,
     SceneActionSet,
@@ -53,6 +55,7 @@ import type {
     ScenePaneTargetMap,
     ScenePaneTargets,
 } from "../color-session/keys";
+import { SELECTED_ENTITY_KEY } from "../color-session/keys";
 import {
     RefreshCw,
     Copy,
@@ -65,6 +68,15 @@ import {
     Dices,
     Palette,
     Camera,
+    Pencil,
+    Tag,
+    History,
+    Download,
+    Globe,
+    EyeOff,
+    GitFork,
+    Heart,
+    Bookmark,
 } from "@lucide/vue";
 
 // X.W5.c — the three SEATS (`"mobile" | "left" | "right"`) are gone with the
@@ -393,6 +405,7 @@ const SCENE_ABSENT: Record<SceneActionScene, string> = {
     generate: "the Generate pane is not registered in this layout",
     gradient: "the Gradient pane is not registered in this layout",
     mix: "the Mix pane is not registered in this layout",
+    palette: "no palette is selected",
 };
 
 /**
@@ -902,7 +915,97 @@ export function usePaneRouter(
         ];
     }
 
+    // ── The selected-entity inspector (X.W7.d2 · COHESION §0bk.1) ───────────
+    //
+    // The builder's one entity input. The shell provides the registry; a
+    // palette inspector pushes its target while its palette is the selected
+    // entity and removes exactly its own when it is deselected, deactivated or
+    // unmounted. While an entity is selected, ITS verbs are the dock's set —
+    // the `palette` scene of the same typed contract, built and resolved here
+    // exactly as every other scene is, so a verb that throws is the modelled
+    // `failed` state, never a silent seat.
+    const selectedEntities = shallowRef<readonly PaletteSceneTarget[]>([]);
+    provide(SELECTED_ENTITY_KEY, selectedEntities);
+
+    function paletteActions(target: PaletteSceneTarget): SceneAction[] {
+        const { commands } = target;
+        const absent = "the palette does not offer this verb";
+        const seat = (
+            token: SceneAction["token"],
+            command: SceneCommand | undefined,
+            fields: Omit<SceneAction, "token" | "state">,
+        ): SceneAction[] =>
+            command === undefined
+                ? []
+                : [{ token, ...fields, state: resolve(token, command, absent) }];
+        return [
+            ...seat("palette.save", commands.save, {
+                icon: Bookmark,
+                title: "Save palette",
+                description: "Save this palette to your library.",
+            }),
+            ...seat("palette.rename", commands.rename, {
+                icon: Pencil,
+                title: "Rename palette",
+                description: "Rename the selected palette.",
+            }),
+            ...seat("palette.tags", commands.tags, {
+                icon: Tag,
+                title: "Edit tags",
+                description: "Edit the selected palette's tags.",
+            }),
+            ...seat("palette.versions", commands.versions, {
+                icon: History,
+                title: "Version history",
+                description: "Show the selected palette's versions.",
+            }),
+            ...seat("palette.publish", commands.publish, {
+                icon: Globe,
+                title: "Publish palette",
+                description: "Publish the selected palette.",
+            }),
+            ...seat("palette.visibility", commands.visibility, {
+                icon: target.isPublic ? EyeOff : Globe,
+                title: target.isPublic ? "Make private" : "Make public",
+                description: target.isPublic
+                    ? "Hide the selected palette from the public wall."
+                    : "Show the selected palette on the public wall.",
+            }),
+            ...seat("palette.fork", commands.fork, {
+                icon: GitFork,
+                title: "Remix palette",
+                description: "Copy the selected palette into your library.",
+            }),
+            ...seat("palette.vote", commands.vote, {
+                icon: Heart,
+                title: target.voted ? "Remove vote" : "Vote",
+                description: "Vote for the selected palette.",
+                active: target.voted,
+            }),
+            ...seat("palette.export", commands.export, {
+                icon: Download,
+                title: "Export JSON",
+                description: "Download the selected palette as JSON.",
+            }),
+            ...seat("palette.delete", commands.delete, {
+                icon: Trash2,
+                title: "Delete palette",
+                description: "Delete the selected palette.",
+            }),
+        ];
+    }
+
     const sceneActions = computed<SceneActionSet | null>(() => {
+        const entity = selectedEntities.value.at(-1);
+        if (entity !== undefined) {
+            return {
+                scene: "palette",
+                label: entity.name,
+                icon: Palette,
+                actions: paletteActions(entity),
+            };
+        }
+
         const scene = VIEW_SCENES[viewManager.currentView.value];
         if (scene === null) return null;
 

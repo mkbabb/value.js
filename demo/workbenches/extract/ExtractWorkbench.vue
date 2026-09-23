@@ -147,13 +147,12 @@
                             </span>
                         </div>
 
-                        <PaletteCard
+                        <PaletteInspector
                             :palette="session.extractedPalette.value"
                             :expanded="true"
                             :layout="layout === 'split' && isWide ? 'aside' : 'default'"
                             :css-color="cssColorOpaque ?? ''"
                             swatch-class="w-12 h-12 sm:w-14 sm:h-14"
-                            editable-name
                             @click="() => {}"
                             @save="session.onSave"
                             @rename="session.onRename"
@@ -198,11 +197,8 @@ import { useExtractSession } from "./composables/useExtractSession";
 import ImageDropZone from "./ImageDropZone.vue";
 import ExtractControls from "./ExtractControls.vue";
 import ImageEyedropper from "./ImageEyedropper/ImageEyedropper.vue";
-import {
-    PaletteCard,
-    PaletteCardSkeleton,
-    ShadowPalette,
-} from "../../palettes/browser/card";
+import { PaletteCardSkeleton, ShadowPalette } from "../../palettes/browser/card";
+import PaletteInspector from "../../palettes/PaletteInspector.vue";
 
 type DisplayColorSpace = SpaceId | "hex";
 

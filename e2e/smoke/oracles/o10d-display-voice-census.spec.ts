@@ -30,7 +30,8 @@ import { openView, expandDock, mainPane } from "../fixtures/dock";
  *       VersionHistoryDrawer's SheetTitle, the action-bar hover-card titles
  *       ("Copy color", "Enter a color") — driven open and censused rendered;
  *   5 · the rename-input morph re-verified under the serif (seeded local
- *       palette: serif title → input focused → Escape → serif title back);
+ *       palette: serif title → menu Rename → input focused → Escape → input
+ *       retired, serif title standing — X.W7.d2);
  *   6 · MigratePalettesDialog — SESSION-GATED (slug-migration flow only); a
  *       SOURCE row asserts its DialogTitle carries the register classes (the
  *       byte-honest fallback for the one surface no cheap user path reaches).
@@ -419,17 +420,25 @@ test("O-10d census — the rename-input morph re-verified under the serif (seede
     );
     expect(voice.fontStyle).toBe("normal");
 
-    // The serif title yields to the rename input (S.W5-7: never the same
-    // string twice) — the input mounts focused; Escape restores the title.
-    await title.click();
+    // X.W7.d2 (ESC-W7c-O10D, re-ruled beside the cure): the specimen's name is
+    // props-only text (G12 — zero interactive descendants), so rename is the
+    // selected-entity inspector's verb, reached through its menu's Rename item.
+    // The rename input unfurls in the inspector's detail band and mounts
+    // focused; Escape retires it, and the serif title stands throughout.
+    await main
+        .getByRole("button", { name: "Palette menu" })
+        .filter({ visible: true })
+        .first()
+        .click();
+    await page.getByRole("menuitem", { name: /Rename/ }).click();
     const renameInput = page
         .getByPlaceholder("Palette name...")
         .filter({ visible: true })
         .first();
     await expect(renameInput).toBeVisible();
     await expect(renameInput).toBeFocused();
-    await expect(title).toBeHidden();
     await renameInput.press("Escape");
+    await expect(renameInput).toBeHidden();
     await expect(
         page
             .getByText("Census Local Palette", { exact: true })
