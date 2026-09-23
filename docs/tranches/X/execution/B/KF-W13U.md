@@ -1051,3 +1051,54 @@ A relief search found no ruling. ⟨`grep -n 'QUIET-FOCUS-RING\|DRAWER-DETENT-RE
 **Verdict: NOT-CONFORMANT.** Every claimed GREEN this seat re-ran reproduces (5/5), and bounds, masking, families, E-3 and mail are clean. The spec relieves five honest-RED ids: `DOCK-MORPH-ROOT` · `DOCK-SCROLL-MORPH` · `DARK-MENU-ITEM` · `GLASS-SURFACE-PAINT-CONTAIN` · `KF-TIMELINE-FILL`. Two HIGH reds stand without relief: C5-1 (the e2e close clause) and C5-2 (ESC-d3-1). The LEDGER status cell is unchanged, and one event line is appended.
 
 **Self-count.** Gates re-run by this seat: grep ×1 · check ×2 · test:demo ×2 · probe-t1 ×2 · burst ×2 · e2e roster ×1, which is 10 runs over 6 gates. Claimed GREENs reproduced: **5**; failed: **0**. Register rows: **5** (2 HIGH · 1 MINOR · 1 LOW · 1 INFO).
+
+## Repair 4 — REPAIR SEAT (RESUME 2, round 2, against Check 5)
+
+SERVED MODEL: claude-opus-5-5 · 2026-09-23 · Track B. The orchestrator's register is headed "Check 2". Its five rows are Check 5's C5-1..C5-5 verbatim (`:990` on). This section is named "Repair 4" because `## Repair 1..3` already stand above (E-3; the same naming precedent as Repair 3). Read: the spec whole (`KF-W13.md`, 395 L), the record header through `## Unit plan`, `## Repair 3` on C4-1/C4-2/C4-4, and `## Check 5` whole. Crash-recovery: ⟨`git -C keyframes.js status --porcelain`⟩ → the two untracked `VALUEJS-INBOUND-*` letters only. The value.js dirty paths belong to sibling seats and none is in this seat's set (the record and the LEDGER). **0 inherited paths.** kf HEAD = `origin/master` = `9bdcdad5` ×2. Load ⟨`uptime`⟩ 37.3 / 70.7 / 69.4.
+
+### Relief and grant search (the precondition for both HIGHs), double-run
+
+- ⟨`grep -c 'QUIET-FOCUS-RING\|DRAWER-DETENT-REACH\|ESC-d3-1' COHESION.md KF-W13.md`⟩ → `0` · `0`, run twice with the same result.
+- COHESION's newest section is still `§0cc` (`:3136`, OA-50, fourier admin). ⟨`git log -8 -- COHESION.md KF-W13.md`⟩ shows nothing after `ddfdb9dc` (§0cc). No relief, grant or re-sequencing has been issued since Check 5.
+- ⟨`git -C keyframes.js log -1 -- demo/app/App.vue demo/app/dock/ChromeDock.vue`⟩ → `6d5b4288` (`.d2`). 0 bytes have moved on ESC-d3-1's surface since Close 2.
+
+### C5-1 (HIGH) → ESCALATED (needs an orchestrator ruling; the cause is producer-side)
+
+- S4's `ringPainted:false` comes from glass 7.0.0. There, the quiet emphasis `box-shadow:none` erases the `.focus-ring` shadow ring. This is ESC-x-1 `QUIET-FOCUS-RING`, cured in the producer at `v10.0.1:src/styles/utilities/base.css:144`.
+- M1's touch scroll of 0 comes from the glass 7.0.0 snap Drawer's detent. This is ESC-x-2 `DRAWER-DETENT-REACH`, which glass `336dacf9` replaces with the Sheet.
+- Both cures are glass bytes (READ-ONLY) or the 10.0.1 repin. The repin is KF.W13R `.m`, which is sequenced after this wave closes. A consumer ring or drawer copy is a HIGH masking defect, and this seat wrote none.
+- **Returned:** a dated COHESION relief that names S4-ring and M1 with owner KF.W13R, or a re-sequencing of KF.W13R `.m` ahead of this close.
+
+### C5-2 (HIGH) → ESCALATED (the cure lies outside every KF.W13U grant, and it needs a ruling)
+
+- ESC-d3-1's change-once limbs read width `1122111111` and surface set `2222111110`. They trace to the route-keyed reads at `App.vue` script `:248-250` / `:309-315` and template `:38-65`, and to ChromeDock's route-bound Scene label.
+- `.d3`'s grant covers only `App.vue` `:266-276` and `controlSurfaces.ts` (§0br). The `.d` row's "App.vue (dock consumer end)" carve was spent at `.d`. The Scene label needs a design ruling.
+- This seat did not widen a grant.
+- **Returned:** a dated grant over those regions, plus the ruling. After that, the gate is re-read headed ×2 on dev and on gh-pages.
+
+### C5-3 (MINOR) → CARRIED (no one-command cure), owner KF.W13V `.k` (KFA-17)
+
+`[real-cube]` is intermittent. It has passed 4 of the last 5 reads, and no reproduction exists at this clock, so there is no one-command cure. The record's owner stands.
+
+### C5-4 (LOW) · C5-5 (INFO) → not in the repair mandate (below MINOR)
+
+R-close-3 stays with KF.W13R `.v`. C5-5 (C4-3 CURED at `9bdcdad5`) needs no cure.
+
+### Gate re-reading
+
+No cure landed, so no gate could move. 0 kf bytes were written, and kf HEAD is `9bdcdad5` ×2. Check 5's banked readings stand as measured: check EXIT 0 ×2 · test:demo 66/66 · 518/518 ×2 · probe-t1 `→ 3800` ×2 · burst `→ 3950` ×2 · e2e 4/6 EXIT 1. This seat did not re-run them, because 0 bytes have moved on any surface they read since Check 5.
+
+### E13
+
+No new mail was read at this seat. Check 5's sweep stands, and this seat touched no coordination path. Nothing in scope is UNREAD.
+
+### Self-count
+
+- Defects in the register: **5**.
+- Cured: **0**.
+- Escalated: **2** (C5-1 and C5-2, both HIGH).
+- Carried: **1** (C5-3, MINOR, no one-command cure).
+- Out of mandate: **2** (C5-4 LOW, C5-5 INFO).
+- Commits: **1** (this value.js record plus the LEDGER line). kf commits: **0**.
+
+**Verdict: PARTIAL, blocked on the orchestrator.** Both remaining HIGHs need a dated relief or grant that only the orchestrator can issue. The same deadlock was returned at Repair 3 and has not changed since.
