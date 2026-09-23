@@ -3947,3 +3947,94 @@ The witness was also read once on `oracles-safari` in its first (gradient-only) 
 (a) is recommended. In every option the witness (`cold-nav-scene-enter.spec.ts`, both arms) is the gate ×2. W6 a5–a12/e1/g2 and D1 are re-read after the landing. A Vue upstream letter may be sent on the stale closure `el` under a KeepAlive child as a note, but it is not a gate.
 
 **d3.8 E13.** No mail was swept at this seat: this is a unit seat, and the wave's R6.1 sweep covers it. No INBOX byte was written.
+
+## Close — RESUME 6, 2026-09-22 (VERIFY-ONLY close seat)
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X-W5 CLOSE (RESUME 6) · HEAD at open `28da478f` · date of record 2026-09-17 (COHESION §0j).
+This seat cured nothing. It wrote this section, one INBOX sweep line and the LEDGER row cells. Inputs: `W5.md` whole (398 L, all three ADDENDA 2026-09-22),
+this record's header, `## RESUME OPEN 6` (R6.0–R6.4), the RESUME 6 `.c3` and `.d3` receipts, and `## Close — RESUME 5` (the last close section).
+
+**Verdict: PARTIAL.** Both owed units returned ESCALATED and their RED legs reproduce at this seat's clock: o16 W5-census RED ×2 (now at R4, ESC-W5c3-1),
+o12 O-12·3 headed real-GPU below floor ×2 (registered → X-W8 `.i` O12-3-HOVER-GPU under §0ay), cold-nav witness RED ×2 on both arms (ESC-W5d3-1).
+**IMPLEMENTED is NOT stamped.**
+
+### CL6.0 Crash-recovery
+⟨cmd⟩ `git status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M docs/tranches/X/waves/W6-evidence/catalog/after-catalog-open.png` ·
+` M …/after-specimen-dots.png` · ` M scripts/dev/dev.sh`. None is in this seat's writable set (`X-W5.md`, `LEDGER.md`, `INBOX.md`). **No inherited partial.** `dev.sh` untouched.
+
+### CL6.1 Commit roster and bounds (⟨cmd⟩ `git show --stat` per sha)
+
+| unit | sha | paths | in writable set? |
+|---|---|---|---|
+| `.c3` | `8ddafa23` | `e2e/smoke/oracles/o16-computed-cascade.spec.ts` (+30/−2; two hunks, `@@ -215` and `@@ -263`, i.e. the `:218` and `:266` statements only) | YES |
+| `.c3` | `881d3792` | `execution/A/X-W5.md` · `waves/W5/green/c3-o16-o12-2026-09-22.json` | YES |
+| `.d3` | `b9f63632` | `e2e/smoke/oracles/cold-nav-scene-enter.spec.ts` (new) | YES |
+| `.d3` | `a072eef3` | the same witness · `waves/W5/green/d3-cold-nav-root-2026-09-22.json` · `waves/W5/green/d3-enter-guard-diag.mjs` | YES |
+| `.d3` | `28da478f` | `execution/A/X-W5.md` | YES |
+
+⟨cmd⟩ `git diff --stat d1bc67c3..HEAD -- demo src` → empty (no product byte this sitting). **Landed-wrong: none.**
+Observation (not landed-wrong): the R2 probe (`o16:226`/`:230`) adds then removes `vj-enter-enter-active` on the live pane — the same idiom the census
+itself uses at `o16:164`/`:166` (pre-existing), and it restores `animation-duration` to its prior value. Consistent with the file; no finding.
+
+### CL6.2 Gates, re-run at this seat's clock (static arms: `scratchpad/close.sh` ×2, ⟨cmd⟩ `diff cl6a cl6b` → IDENTICAL; live arms each ×2; load 5.2 → 7.9)
+Live surfaces: playwright oracles on `VJS_E2E_PORT=5391/5393/5395` (tree-true servers); D1 against the scratch `vite build --mode gh-pages` bundle (built 21:44,
+after the last `demo`/`src` commit `b36df565` 21:00; ⟨cmd⟩ `git status --porcelain demo src` → empty, so the bundle is tree-true) served on `:8163`, `PROBE_HEADED=1`.
+
+| gate | BEFORE (CL5.2 / R6.3) | AFTER (this seat) | state |
+|---|---|---|---|
+| A1 exit · App grep | 0 · 0 | **0 · 0** | GREEN |
+| A4 `bindPane` hits | 10 | **10** | GREEN |
+| A7 `role="status"` | 5 | **5** | GREEN |
+| A2 · A3/C2 · A5 · A6 · B1/B2 · C1 · C5 (live probes) | GREEN / relieved (CL5.2) | banked — not re-probed: no `demo`/`src` byte since CL5.2's ×2 reading | banked |
+| B3 | relieved → X-W6 (CC-056) | banked | relieved |
+| B4 `100dvh` · `svh` files · `content-max-h` | 0 · 3 · 0 | **0 · 3 · 0** | GREEN |
+| B5 · B6 | recorded | unchanged (no `shell.css` byte) | recorded |
+| C3 fork census | 23 / 9 files | **23 / 9** | routed (X-W8 `.i` / `.h`, §0aq) |
+| C4 · C8 exit | 0 · 0 | **0 · 0** | GREEN |
+| C7 viewport `@media` | 3 | **3** | at target; `DockStatusLamp:70` routed → X-W8 `.h` |
+| D1 of record, headed real GPU (ANGLE Metal, Apple M5 Max) ×2 | GREEN 14/14 | **run 1** (load 6.42): gradient 1/83 · extract 0/88 · mix 0/88 · generate 0/88, median 10 ms, `pass:true` · **run 2** (load 5.89): identical | GREEN, unchanged (the `.d3` non-regression arm) |
+| D2 · D3 physical · role rules | 0 · 0 · 10/10/10 | **0 · 0 · 10/10/10** | GREEN |
+| D4 Mix · Admin `<Transition ` | 1 · 1 | **1 · 1** | GREEN |
+| D5 PRM | GREEN (CL5.2 ×2) | banked; no `animations.css` byte | GREEN (banked) |
+| E1 · E2 | 0 0 0 0 · 9 3 18 10 | **0 0 0 0 · 9 3 18 10** | GREEN |
+| landmark · fixture · census `not-found` · router `ViewRoute` · containment · plates | 0 · 2 · 3 · 2 · 1 · 2 | **0 · 2 · 3 · 2 · 1 · 2** | GREEN |
+| **o16** ⟨cmd⟩ `npx playwright test e2e/smoke/oracles/o16-computed-cascade.spec.ts` ×2 (`.c3`) | RED at R2 `"0.44s"` | **2 passed / 2 failed ×2** (smoke + oracles-safari): `Error: R4 translate duration · Expected "0.3s" · Received undefined` — R2/R8 no longer fail | **RED** (ESC-W5c3-1) |
+| **o12 O-12·3** headed real GPU ⟨cmd⟩ `npx playwright test -c scratchpad/c3-o12-gpu-headed.config.ts` ×2 (`.c3`) | 0.30 · 0.53 /255 (`.c3`) | **0.72/255 · 0.78/255** vs floor 6/255; 3 passed / 1 failed each; `renderer=REAL-GPU` in the same runs (O-12·4 p50 10.2 ms) | **RED** — registered → X-W8 `.i` O12-3-HOVER-GPU (§0ay ESC-W5c2-2), no W5 byte owed |
+| **cold-nav witness** ⟨cmd⟩ `npx playwright test e2e/smoke/oracles/cold-nav-scene-enter.spec.ts --project=smoke` ×2 (`.d3`) | RED ×2 both arms | **2 failed ×2**: `/#/gradient` `Received 2` · `/#/` `Received 1` (expected 0 stuck) | **RED** (ESC-W5d3-1) |
+| W6 a5–a11 · a12 · e1 · g2 by W6's own commands (`.d3`) | RED of record | not re-run: no product byte landed; `.d3` read them RED at HEAD, and GREEN only on an uncommitted, reverted experiment | **RED** (banked; turns only with the ESC-W5d3-1 cure) |
+| §7 `npx vue-tsc -p tsconfig.demo.json --noEmit` | 0 | **TSC_EXIT=0** | GREEN |
+| §7 lint · vitest · tsconfig.test/e2e | CL5.2 / `.d3` §7 | banked (no `demo`/`src`/`test` byte; the two new e2e bytes were linted/tsc'd by their seats) | no W5 regression |
+
+### CL6.3 §8 Verification Artefacts
+- ⟨cmd⟩ `git ls-files docs/tranches/X/waves/W5/{born-red,green,triumvirate} | wc -l` → **12 · 26 · 21**; ⟨cmd⟩ `git ls-files docs/tranches/X/waves/W5 | wc -l` → **59**
+  (recursive count; +3 since CL5 = `green/c3-o16-o12-2026-09-22.json`, `green/d3-cold-nav-root-2026-09-22.json`, `green/d3-enter-guard-diag.mjs`);
+  ⟨cmd⟩ `git status --porcelain docs/tranches/X/waves/W5` → empty. Every witness is in git.
+- D1 after, both instruments: `green/d2-D1-scene-swap-both-instruments-2026-09-22.json`; this seat's headed ×2 (CL6.2) reproduces it. D5: `green/d2-D5-prm-2026-09-22.json`.
+- Portal-integrity delta, B5 reading, B6 rationale, π captures and `audit/visual/layout/`: **unchanged since CL5.3** — no `index.html`, `shell.css` or settled-layout
+  byte landed this sitting (⟨cmd⟩ `git diff --stat d1bc67c3..HEAD -- demo` → empty), so §5.2 parsimony applies and CL5.3's readings stand.
+
+### CL6.4 E13 — the four-path sweep (this seat's clock)
+⟨cmd⟩ `ls -t ../glass-ui/docs/tranches/ | head -1` → **BK**. ⟨cmd⟩ `find <p> -maxdepth 1 -type f -newermt 2026-09-22T23:13:17-04:00` (the RESUME 6 open commit
+`545f675f`) → **empty** on value.js `V/` · `V/coordination` · BK `coordination` · keyframes `V/coordination` · atlas `{P,Q,R}/coordination`.
+INBOX: the one UNREAD row is still **I-40** (Track C), outside X-W5 scope. **0 UNREAD in scope.** Tail stays I-40. One sweep line appended to INBOX.
+
+### CL6.5 Residuals (named owners) and escalations
+
+| gate | state | owner |
+|---|---|---|
+| **o16 W5-census** (R2/R8 now GREEN on the resolved token; RED at R4 `:256` cartoon-surface translate `undefined` vs `0.3s`; R5 `:250/:255/:260` and R11 `:272` latent RED) | RED ×2 | **COHESION / owner**, **ESC-W5c3-1**: a grant of those lines on the §0ay resolved-token pattern, plus a disposition for R4's register (glass 7.0.0 `@utility cartoon-surface` ships no transition — possibly a glass mail row, never a frontend hack) → an Opus repair seat |
+| **cold-nav stuck enter** (witness both arms) + W6 a5–a11 · a12 · e1 · g2 | RED ×2 / RED of record | **COHESION / owner**, **ESC-W5d3-1**: ruling among (a, recommended) grant `usePaneRouter.ts` `lazyPane` `:189-223` inside the W5F-07 family (P-1..P-4 not split) + PaneSlot keys on `(pane, resolved)` + retire the `App.vue:134` flip · (b) `__asyncResolved` read · (c) stable frame element with `firstElementChild` oracle grants → a `.d4` Opus seat |
+| o12 O-12·3 hover frame-diff, headed real GPU (0.72 · 0.78 /255 vs 6/255) | RED, routed | **X-W8 `.i` O12-3-HOVER-GPU** (§0ay ESC-W5c2-2); no W5 byte owed |
+| D1 headless SwiftShader | RED beside, not of record | operator (quiesced window), §0ax |
+| B3 · A3 · A5-OUTLINE · C3 · C7 `DockStatusLamp:70` | relieved / routed, unchanged | X-W6 (CC-056) · X-W8 · X-W10 · X-W8 `.i`/`.h` · X-W8 `.h` |
+| `not-found` visual goldens | owed | visual-baseline owner (X-W1 / CI-capable seat) |
+| Vue upstream: dev-root-fragment × out-in; stale closure `el` under a KeepAlive async child | letter (note, not a gate) | owner-report letter; never a `node_modules` patch |
+| typecheck 11 `space-catalog.ts` `*.md` · e2e-tsc o23 ×5 · vitest NG-6/C-5 · repo lint parse error `v-apotheosis-workflow.js:198` | foreign | CL.7 row 11 · o23's owner · X-W8 `.i` · docs/V owner |
+| L-18 quartet | not opened | follows a GREEN hard gate |
+
+**Escalations carried (no new ones from this seat):** ESC-W5c3-1 and ESC-W5d3-1. ⟨cmd⟩ `grep -c 'ESC-W5c3-1\|ESC-W5d3-1' docs/tranches/X/COHESION.md` → **0** (no ruling yet).
+
+**Four-verb:** AUDITED YES · SPECIFIED YES · **IMPLEMENTED NO** — the third-ADDENDUM gates (o16 GREEN ×2; 0 stuck enter states ×2; W6 a5–a12/e1/g2 GREEN ×2)
+are RED, so IMPLEMENTED is not stamped. VERIFIED NO (stamped only at the X-W11 release close, §9 c6). The line does not move.
+
+**Successors:** X-W6 [`.a2`] → [`.i2`] → [`.j`] (§0ay order) and X-W7 / X-W8 / X-W10 stay BLOCKED-ON the X-W5 close.
