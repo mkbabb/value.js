@@ -17,11 +17,60 @@
  * `./stylesheet` are free to import it.
  */
 import type { ColorIssue } from "../color/index";
+import { isAnyColor } from "../color/index";
 import type { Result } from "../foundation/result";
-import { ok } from "../foundation/result";
-import type { CssValue } from "../value";
-import { serializeCssColor } from "./grammar";
-import type { CssColor } from "./types";
+import { err, ok } from "../foundation/result";
+import type { Alpha, Channel, CssValue } from "../value";
+import type { CssColor, CssColorSpace, KeyframeSelector } from "./types";
+
+// `serializeCssColor` and `serializeKeyframeSelector` were carried by `./grammar`, the hand-rolled
+// parser X.P.W6.x deleted; they write values and read no CSS text, so they moved here unchanged —
+// beside `serializeCssValue`, the third inverse of a `./css` parse entry.
+
+const CSS_COLOR_SPACES = new Set<CssColorSpace>([
+    "rgb", "hsl", "hwb", "lab", "lch", "oklab", "oklch", "xyz",
+    "srgb-linear", "display-p3", "a98-rgb", "prophoto-rgb", "rec2020",
+]);
+
+const format = (value: Channel): string => value === "none"
+    ? value
+    : Number(value.toFixed(12)).toString();
+const angle = (value: Channel): string => value === "none" ? value : `${format(value)}deg`;
+const alphaSuffix = (alpha: Alpha): string => alpha === 1 ? "" : ` / ${alpha === "none" ? "none" : `${format(alpha * 100)}%`}`;
+
+export function serializeCssColor(color: CssColor): Result<string, ColorIssue> {
+    if (!isAnyColor(color) || !CSS_COLOR_SPACES.has(color.space as CssColorSpace)) {
+        return err({ code: "color_invalid_input" });
+    }
+    if (color.channels.some((channel) => channel !== "none" && !Number.isFinite(channel))
+        || (color.alpha !== "none" && !Number.isFinite(color.alpha))) {
+        return err({ code: "color_non_finite" });
+    }
+    if (color.alpha !== "none" && (color.alpha < 0 || color.alpha > 1)) {
+        return err({ code: "color_out_of_range" });
+    }
+    const [a, b, c] = color.channels as readonly [Channel, Channel, Channel];
+    const alpha = alphaSuffix(color.alpha);
+    switch (color.space) {
+        case "rgb": return ok(`rgb(${format(a)} ${format(b)} ${format(c)}${alpha})`);
+        case "hsl": return ok(`hsl(${angle(a)} ${b === "none" ? b : `${format(b * 100)}%`} ${c === "none" ? c : `${format(c * 100)}%`}${alpha})`);
+        case "hwb": return ok(`hwb(${angle(a)} ${b === "none" ? b : `${format(b * 100)}%`} ${c === "none" ? c : `${format(c * 100)}%`}${alpha})`);
+        case "lab": return ok(`lab(${a === "none" ? a : `${format(a)}%`} ${format(b)} ${format(c)}${alpha})`);
+        case "lch": return ok(`lch(${a === "none" ? a : `${format(a)}%`} ${format(b)} ${angle(c)}${alpha})`);
+        case "oklab": return ok(`oklab(${a === "none" ? a : `${format(a * 100)}%`} ${format(b)} ${format(c)}${alpha})`);
+        case "oklch": return ok(`oklch(${a === "none" ? a : `${format(a * 100)}%`} ${format(b)} ${angle(c)}${alpha})`);
+        case "xyz": return ok(`color(xyz ${format(a)} ${format(b)} ${format(c)}${alpha})`);
+        default: return ok(`color(${color.space} ${format(a)} ${format(b)} ${format(c)}${alpha})`);
+    }
+}
+
+/** Internal canonical spelling used by selector round-trip probes and emitters. */
+export function serializeKeyframeSelector(selector: KeyframeSelector): string {
+    if (selector.kind === "percent") return `${format(selector.value * 100)}%`;
+    return selector.offset === undefined
+        ? selector.name
+        : `${selector.name} ${format(selector.offset * 100)}%`;
+}
 
 export function serializeCssValue(value: CssValue): Result<string, ColorIssue> {
     if (value.kind === "scalar") {

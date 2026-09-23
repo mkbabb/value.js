@@ -7,13 +7,14 @@
 
 import type { CssCall, CssScalar, CssValue } from "../../value";
 import { NAMED_COLORS } from "../named-colors";
-import type { CssLinearStop, CssTimingFunction, KeyframeSelector, ParseIssue } from "../types";
+import type { CssLinearStop, CssTimingFunction, JumpPosition, KeyframeSelector, ParseIssue } from "../types";
 import type { ColorNode } from "./color";
 import type { Rules } from "./load";
 import { ruleOf } from "./load";
 import type { Numeric, Quantity } from "./math";
 
-export type Refused = Readonly<{ kind: "refused"; code: ParseIssue["code"]; expected: string }>;
+/** A refusal; `span` (source offsets) narrows its diagnostic to the component refused. */
+export type Refused = Readonly<{ kind: "refused"; code: ParseIssue["code"]; expected: string; span?: Readonly<{ start: number; end: number }> }>;
 export type ValueNode = CssValue | Refused;
 
 export const refused = (code: ParseIssue["code"], expected: string): Refused => Object.freeze({ kind: "refused", code, expected });
@@ -95,8 +96,13 @@ export type TimingNode = CssTimingFunction | Refused;
 const timingRefused = refused("css_syntax", "timing function");
 const numberOf = (q: Numeric | undefined): number | null => (q?.kind === "quantity" && q.type === "number" ? q.value : null);
 
-/** `steps()`' position keywords (css-easing-2 §4), `start`/`end` as their `jump-` spellings. */
-const JUMP = new Map([
+/**
+ * `steps()`' position keywords (css-easing-2 §4), `start`/`end` as their `jump-` spellings, keyed by
+ * the AUTHORED token. A `Map`, never an object literal: `Map.get` reads own entries only, so a
+ * parse-derived key (`steps(2, constructor)`) cannot walk `Object.prototype` (R1 §A2). Exported so
+ * `../rules`' declaration-level twin reads this one table.
+ */
+export const JUMP_ALIASES: ReadonlyMap<string, JumpPosition> = new Map([
     ["start", "jump-start"], ["end", "jump-end"], ["jump-start", "jump-start"],
     ["jump-end", "jump-end"], ["jump-none", "jump-none"], ["jump-both", "jump-both"],
 ] as const);
@@ -117,7 +123,7 @@ function cubicBezier(args: Numeric[]): TimingNode {
 function stepsFn(v: Numeric | [Numeric, string?]): TimingNode {
     const [countQ, rawPosition] = Array.isArray(v) ? v : [v];
     const count = numberOf(countQ);
-    const position = JUMP.get((rawPosition ?? "jump-end").toLowerCase() as "end");
+    const position = JUMP_ALIASES.get((rawPosition ?? "jump-end").toLowerCase());
     return count !== null && Number.isInteger(count) && count > 0 && position !== undefined && !(position === "jump-none" && count < 2)
         ? { kind: "steps", count, position }
         : timingRefused;
@@ -152,6 +158,8 @@ export function attachValueActions(rules: Rules, color: (token: string) => Color
         v.kind === "color" || v.kind === "context" || v.kind === "invalid" ? colorScalar(v) : v);
     on("call", callValue);
     on("varCall", callValue);
+    rules.badTerm = ruleOf(rules, "badTerm").mapState((next, prev) =>
+        next.ok(Object.freeze({ ...refused("css_syntax", "scalar"), span: Object.freeze({ start: prev.offset, end: next.offset }) })));
     on("spaceList", listOf("space"));
     on("slashList", listOf("slash"));
     on("commaList", listOf("comma"));

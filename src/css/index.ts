@@ -79,8 +79,7 @@ export {
     parseCssValues,
     parseKeyframeSelector,
     parseTimingFunction,
-    serializeCssColor,
-} from "./grammar";
+} from "./bbnf/index";
 export { coerceToSyntax } from "./syntax";
 export {
     parseAnimationRange,
@@ -88,7 +87,7 @@ export {
     serializeTimelineOptions,
 } from "./timeline";
 export { collectAnimationOptions, collectDeclarations } from "./rules";
-export { serializeCssValue } from "./serialize";
+export { serializeCssColor, serializeCssValue } from "./serialize";
 export {
     collectCustomFunctions,
     collectKeyframes,

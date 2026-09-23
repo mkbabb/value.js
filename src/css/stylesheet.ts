@@ -13,14 +13,8 @@
  * Imports exactly two split siblings — `./rules` and `./serialize` — and
  * neither imports this file (the measured cycle-free seam, X-W9.d).
  */
-import {
-    failure,
-    parseCssValue,
-    parseKeyframeSelector,
-    parseTimingFunction,
-    splitTopLevel,
-    success,
-} from "./grammar";
+import { parseCssValue, parseKeyframeSelector, parseTimingFunction, splitTopLevel } from "./bbnf/index";
+import { failure, success } from "./result";
 import {
     animationCascade,
     collectDeclarations,
@@ -118,7 +112,9 @@ function parseKeyframes(name: string, body: string): ParseResult<KeyframesBlock>
     for (const row of rows.value) {
         if (row.body === null) return failure(body, "css_syntax", ["keyframe block"]);
         const selectors = [];
-        for (const token of splitTopLevel(row.prelude, ",")) {
+        const tokens = splitTopLevel(row.prelude, ",");
+        if (!tokens) return failure(row.prelude, "keyframe_selector_invalid", ["keyframe selector"]);
+        for (const token of tokens) {
             const selector = parseKeyframeSelector(token);
             if (!selector.ok) return selector as ParseResult<KeyframesBlock>;
             selectors.push(selector.value);
@@ -197,9 +193,12 @@ function parseScopePrelude(source: string): Pick<Extract<StylesheetItem, { kind:
     }
     const [root, limit] = groups;
     if (root === undefined) return null;
+    const roots = splitTopLevel(root, ",");
+    const limits = limit === undefined ? undefined : splitTopLevel(limit, ",");
+    if (!roots || limits === null) return null;
     return {
-        root: splitTopLevel(root, ","),
-        ...(limit === undefined ? {} : { limit: splitTopLevel(limit, ",") }),
+        root: roots,
+        ...(limits === undefined ? {} : { limit: limits }),
     };
 }
 
@@ -249,7 +248,9 @@ function parseFunctionPrelude(source: string): ParseResult<Readonly<{
     }
     const parameters: CustomFunctionParameter[] = [];
     const body = rawBody.trim();
-    for (const row of body ? splitTopLevel(body, ",") : []) {
+    const rows = body ? splitTopLevel(body, ",") : [];
+    if (!rows) return failure(source, "css_syntax", ["custom function parameter"]);
+    for (const row of rows) {
         const colon = topLevelColon(row);
         const head = row.slice(0, colon < 0 ? undefined : colon).trim();
         const [, parameterName, syntax] = head.match(/^(--[-\w]+)(?:\s+(.+))?$/) ?? [];
@@ -403,7 +404,9 @@ function parseItems(source: string): ParseResult<Stylesheet> {
         if (row.body === null) return failure(source, "css_syntax", ["style body"]);
         const body = parseStyleBody(row.body);
         if (!body.ok) return body as ParseResult<Stylesheet>;
-        result.push({ kind: "style", selectors: splitTopLevel(prelude, ","), ...body.value });
+        const selectors = splitTopLevel(prelude, ",");
+        if (!selectors) return failure(source, "css_syntax", ["selector list"]);
+        result.push({ kind: "style", selectors, ...body.value });
     }
     return success(result);
 }

@@ -8,8 +8,9 @@
  * `anchors.ts` and `operations.ts` keep their relative `./model` imports
  * because routing them through this barrel would cycle, and every module
  * OUTSIDE `src/color/` comes here instead. `isAnyColor` is listed for that
- * reason — `src/css/grammar.ts:326` guards `serializeCssColor` with it, and
- * at X-W9.d that import moved off `./model` and onto this barrel.
+ * reason — `src/css/serialize.ts` guards `serializeCssColor` with it (the
+ * guard moved there from the retired `grammar.ts` at X.P.W6.x), and at
+ * X-W9.d that import moved off `./model` and onto this barrel.
  */
 export type {
     Alpha,

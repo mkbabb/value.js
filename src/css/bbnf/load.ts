@@ -30,9 +30,10 @@ import tokens from "../grammar/tokens.bbnf?raw";
 import math from "../grammar/math.bbnf?raw";
 import color from "../grammar/color.bbnf?raw";
 import value from "../grammar/value.bbnf?raw";
+import stylesheet from "../grammar/stylesheet.bbnf?raw";
 
 /** The declared module order; each module references only rules of itself or an earlier one. */
-export const GRAMMAR_MODULES = Object.freeze({ tokens, math, color, value });
+export const GRAMMAR_MODULES = Object.freeze({ tokens, math, color, value, stylesheet });
 
 export type Rules = Record<string, Parser<any>>;
 

@@ -1,4 +1,4 @@
-// See src/css/grammar.ts: one colour-vocabulary spelling inside src/css/.
+// One colour-vocabulary spelling inside src/css/: `../value` (ESC-W9f-CSSD-VOCAB-SPELLING — a second spelling re-emits `_2` duplicates into css.d.ts).
 import type { ColorIssue } from "../color/index";
 import type { Result } from "../foundation/result";
 import type { JumpPosition } from "../easing";

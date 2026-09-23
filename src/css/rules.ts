@@ -10,13 +10,9 @@
  * (`collectDeclarations`, `collectAnimationOptions`). It reaches NOTHING in
  * `./stylesheet` or `./serialize`; the seam runs one way only.
  */
-import {
-    JUMP_ALIASES,
-    failure,
-    parseCssValue,
-    splitTopLevel,
-    success,
-} from "./grammar";
+import { parseCssValue, splitTopLevel } from "./bbnf/index";
+import { JUMP_ALIASES } from "./bbnf/value";
+import { failure, success } from "./result";
 import { parseAnimationRange, parseAnimationTimeline } from "./timeline";
 import type { CssScalar, CssValue } from "../value";
 import type {
@@ -39,13 +35,14 @@ export function parseTimelineScope(source: string): ParseResult<TimelineScopeVal
     const input = source.trim();
     if (input === "none" || input === "all") return success({ kind: input });
     const names = splitTopLevel(input, ",");
-    return names.length > 0 && names.every((name) => /^--[-\w]+$/.test(name))
+    return names !== null && names.length > 0 && names.every((name) => /^--[-\w]+$/.test(name))
         ? success({ kind: "names", names })
         : failure(source, "timeline_option_invalid", ["timeline scope"]);
 }
 
 export function parseAnimationTrigger(source: string): ParseResult<AnimationTriggerValue> {
     const tokens = splitTopLevel(source.trim(), "space");
+    if (!tokens) return failure(source, "timeline_option_invalid", ["animation trigger"]);
     const result: { type?: TriggerType; timeline?: AnimationTimelineValue; range?: AnimationRangeValue } = {};
     const range: string[] = [];
     for (const token of tokens) {
@@ -70,10 +67,6 @@ export function parseAnimationTrigger(source: string): ParseResult<AnimationTrig
     return Object.keys(result).length > 0
         ? success(result)
         : failure(source, "timeline_option_invalid", ["animation trigger"]);
-}
-
-function splitDeclarations(body: string): string[] {
-    return splitTopLevel(body, ";");
 }
 
 const DIRECTIONS = new Set(["normal", "reverse", "alternate", "alternate-reverse"]);
@@ -141,10 +134,11 @@ function timingFunctionValue(value: CssValue): CssTimingFunction | undefined {
         const [countArgument] = value.args;
         if (countArgument === undefined || value.args.length > 2) return undefined;
         const count = scalarNumberValue(countArgument);
-        // The TWIN of `grammar.ts`'s `steps()` alias site. It was masked: the
+        // The TWIN of the grammar's `steps()` alias site (`./bbnf/value.ts`;
+        // the retired `grammar.ts` before X.P.W6.x). It was masked: the
         // stylesheet route threw in the grammar before reaching here, so curing
         // the grammar UNMASKS this literal — which is why the band ruled the two
-        // sites land in one commit. Both now read the one exported `Map`, so a
+        // sites land in one commit. Both read the one exported `Map`, so a
         // parse-derived key cannot walk `Object.prototype` at either.
         const authoredPosition = scalarKeyword(value.args[1])?.toLowerCase();
         const position = authoredPosition === undefined
@@ -383,7 +377,9 @@ function emptyComma(source: string): number | undefined {
 
 export function parseDeclarations(body: string): ParseResult<readonly Declaration[]> {
     const declarations: Declaration[] = [];
-    for (const row of splitDeclarations(body)) {
+    const rows = splitTopLevel(body, ";");
+    if (!rows) return failure(body, "css_syntax", ["declaration"]);
+    for (const row of rows) {
         const colon = row.indexOf(":");
         if (colon <= 0) return failure(row, "css_syntax", ["declaration"]);
         const name = row.slice(0, colon).trim().toLowerCase();

@@ -9,7 +9,8 @@ import type {
     TimelineAxis,
     TimelineScopeValue,
 } from "./types";
-import { failure, splitTopLevel, success } from "./grammar";
+import { splitTopLevel } from "./bbnf/index";
+import { failure, success } from "./result";
 
 const AXES = new Set<TimelineAxis>(["block", "inline", "x", "y"]);
 const SCROLLERS = new Set(["nearest", "root", "self"] as const);
@@ -21,6 +22,7 @@ export function parseAnimationTimeline(source: string): ParseResult<AnimationTim
     const scrollBody = input.match(/^scroll\((.*)\)$/i)?.[1];
     if (scrollBody !== undefined) {
         const args = splitTopLevel(scrollBody.replace(/,/g, " "), "space");
+        if (!args) return failure(source, "timeline_option_invalid", ["scroll timeline"]);
         const result: { kind: "scroll"; scroller?: "nearest" | "root" | "self"; axis?: TimelineAxis } = { kind: "scroll" };
         for (const arg of args) {
             const token = arg.toLowerCase();
@@ -36,6 +38,7 @@ export function parseAnimationTimeline(source: string): ParseResult<AnimationTim
     const viewBody = input.match(/^view\((.*)\)$/i)?.[1];
     if (viewBody !== undefined) {
         const args = splitTopLevel(viewBody.replace(/,/g, " "), "space");
+        if (!args) return failure(source, "timeline_option_invalid", ["view timeline"]);
         const result: { kind: "view"; axis?: TimelineAxis; inset?: { start: string; end?: string } } = { kind: "view" };
         const inset: string[] = [];
         for (const arg of args) {
@@ -51,7 +54,7 @@ export function parseAnimationTimeline(source: string): ParseResult<AnimationTim
 }
 
 const RANGE_PHASES = new Set<RangePhase>(["normal", "cover", "contain", "entry", "exit", "entry-crossing", "exit-crossing"]);
-function rangeBoundary(tokens: string[]): RangeBoundary | null {
+function rangeBoundary(tokens: readonly string[]): RangeBoundary | null {
     if (tokens.length === 0 || tokens.length > 2) return null;
     const phase = tokens[0]?.toLowerCase() as RangePhase;
     if (RANGE_PHASES.has(phase)) {
@@ -66,16 +69,19 @@ function rangeBoundary(tokens: string[]): RangeBoundary | null {
 export function parseAnimationRange(source: string): ParseResult<AnimationRangeValue> {
     const input = source.trim();
     const comma = splitTopLevel(input, ",");
-    if (comma.length > 2) return failure(source, "timeline_option_invalid", ["animation range"]);
+    if (!comma || comma.length > 2) return failure(source, "timeline_option_invalid", ["animation range"]);
     // The `> 2` refusal above leaves length 0, 1 or 2, so "both halves are present"
     // is exactly the old `comma.length === 2` — carried in the type instead of an assertion.
     const [commaStart, commaEnd] = comma;
     if (commaStart !== undefined && commaEnd !== undefined) {
-        const start = rangeBoundary(splitTopLevel(commaStart, "space"));
-        const end = rangeBoundary(splitTopLevel(commaEnd, "space"));
+        const startTokens = splitTopLevel(commaStart, "space");
+        const endTokens = splitTopLevel(commaEnd, "space");
+        const start = startTokens && rangeBoundary(startTokens);
+        const end = endTokens && rangeBoundary(endTokens);
         return start && end ? success({ start, end }) : failure(source, "timeline_option_invalid", ["animation range"]);
     }
     const tokens = splitTopLevel(input, "space");
+    if (!tokens) return failure(source, "timeline_option_invalid", ["animation range"]);
     const single = rangeBoundary(tokens);
     if (single) return success({ start: single });
     for (const split of [2, 1]) {

@@ -6,7 +6,7 @@ import * as math from "../src/subpaths/math";
 import * as quantize from "../src/subpaths/quantize";
 import * as transform from "../src/subpaths/transform";
 import * as value from "../src/subpaths/value";
-import { serializeKeyframeSelector } from "../src/css/grammar";
+import { serializeKeyframeSelector } from "../src/css/serialize";
 
 const { dominantColor, quantizePixels } = quantize;
 const { isLayoutTrackingUnit } = value;

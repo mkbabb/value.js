@@ -14,7 +14,11 @@ spaceList  = valueTerm , ( termSep >> valueTerm ) * ;
 // Juxtaposed terms are separated by whitespace, or stand directly against a `:`/`;` token.
 termSep    = /\s+|(?=[:;])|(?<=[:;])/ ;
 
-valueTerm  = colorCall | varCall | call | numeric | string | operator | identTerm ;
+valueTerm  = colorCall | varCall | call | numeric | string | operator | identTerm | badTerm ;
+// A component no production above reads (`@` in `calc(1px @ 2px)`). It is matched only to be
+// REFUSED — its action answers `css_syntax` expecting a scalar, with the diagnostic spanning exactly
+// this run — so a malformed value names its offending component rather than the whole input.
+badTerm    = /[^\s(),\/:;"']+/ ;
 
 // var() / env(): the fallback is a `<declaration-value>?` (css-variables-1 §2), which may end in a
 // comma or be empty — `var(--a, red,)` and `var(--a,)` are valid; the trailing comma carries no item.

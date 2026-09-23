@@ -1,6 +1,7 @@
 import type { CssValue } from "../value";
 import type { ParseResult } from "./types";
-import { failure, parseCssValue } from "./grammar";
+import { parseCssValue } from "./bbnf/index";
+import { failure } from "./result";
 
 const SYNTAX_COMPONENTS = new Set([
     "<angle>",

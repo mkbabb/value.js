@@ -1,0 +1,22 @@
+// SERVED MODEL: claude-opus-5-5
+//
+// stylesheet.bbnf — the text the stylesheet layer (`../stylesheet.ts` · `../rules.ts` ·
+// `../timeline.ts`) reads above the component value: top-level lists split at a delimiter
+// (css-syntax-3 §5.4.8 — a delimiter inside a `()` block or a string does not separate).
+// X.P.W6.x: these rules replace the hand scanner `splitTopLevel` the retired `grammar.ts` carried.
+//
+// Every rule here yields TEXT: its leaves are the matched code units, and the action
+// (`../bbnf/stylesheet.ts`) joins them — the grammar alone decides where a run ends. `quoted` and
+// `textGroup` are this module's own leaves because `value.bbnf` gives `string` a value action.
+
+quoted     = /"(?:\\[\s\S]|[^"\\])*"|'(?:\\[\s\S]|[^'\\])*'/ ;
+textGroup  = "(" , textBody , ")" ;
+textBody   = ( /[^()"']+/ | quoted | textGroup ) * ;
+
+// ── top-level lists ──────────────────────────────────────────────────────────────────
+commaRun   = ( /[^(),"']+/ | quoted | textGroup ) * ;
+commaItems = commaRun , ( "," , commaRun ) * ;
+semiRun    = ( /[^();"']+/ | quoted | textGroup ) * ;
+semiItems  = semiRun , ( ";" , semiRun ) * ;
+spaceRun   = ( /[^()\s"']+/ | quoted | textGroup ) + ;
+spaceItems = ws , ( spaceRun , ws ) * ;

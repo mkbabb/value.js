@@ -1,17 +1,18 @@
 // SERVED MODEL: claude-opus-5-5
 //
-// X.P.W6.b — `/css`'s parse entries over the BBNF grammar (`src/css/grammar/*.bbnf`). INTERNAL:
-// nothing here is re-exported by `src/css/index.ts` — the frozen `/css` surface does not move.
-// X.P.W6.h measures these against the shipping parser (`src/css/grammar.ts`); X.P.W6.x swaps them
-// in and deletes the hand parser.
+// X.P.W6.b — `/css`'s parse entries over the BBNF grammar (`src/css/grammar/*.bbnf`).
+// X.P.W6.x swapped them in: `src/css/index.ts` re-exports the six entries from here under the
+// frozen `/css` names, and the hand-rolled `src/css/grammar.ts` is deleted. `splitTopLevel` is the
+// stylesheet layer's list reader (`stylesheet.bbnf`), internal to `src/css/`.
 
 import type { CssList, CssScalar, CssValue } from "../../value";
-import { failure, success } from "../grammar";
+import { failure, success } from "../result";
 import type { CssColor, CssTimingFunction, KeyframeSelector, ParseResult } from "../types";
 import type { ColorNode } from "./color";
 import { asColorNode, attachColorActions, keywordColor } from "./color";
 import type { Rules } from "./load";
 import { compileGrammar, ruleOf, run } from "./load";
+import { attachStylesheetActions } from "./stylesheet";
 import type { Refused, SelectorNode, TimingNode, ValueNode } from "./value";
 import { attachValueActions, keyframeSelector } from "./value";
 
@@ -23,13 +24,17 @@ export function grammar(): Rules {
         const rules = compileGrammar();
         attachColorActions(rules);
         attachValueActions(rules, keywordColor);
+        attachStylesheetActions(rules);
         compiled = rules;
     }
     return compiled;
 }
 
 const parseRule = (name: string, source: string) => run<unknown>(ruleOf(grammar(), name), source);
-const refusal = <T>(source: string, node: Refused): ParseResult<T> => failure(source, node.code, [node.expected]);
+const refusal = <T>(source: string, node: Refused): ParseResult<T> =>
+    node.span === undefined
+        ? failure(source, node.code, [node.expected])
+        : failure(source, node.code, [node.expected], node.span.start, node.span.end);
 
 function colorResult(source: string, node: ColorNode): ParseResult<CssColor> {
     switch (node.kind) {
@@ -84,4 +89,16 @@ export function parseTimingFunction(source: string): ParseResult<CssTimingFuncti
     if (!parsed.ok) return failure(source, "css_syntax", ["timing function"]);
     const node = parsed.value as TimingNode;
     return node.kind === "refused" ? refusal(source, node) : success(node);
+}
+
+const LISTS = { ",": "commaItems", ";": "semiItems", space: "spaceItems" } as const;
+
+/**
+ * A top-level list's items, trimmed, empty items dropped — split at `separator` only outside a
+ * `()` block or a string. `null` when the text is not a well-formed list (an unclosed block or
+ * string): the caller answers that with its own diagnostic.
+ */
+export function splitTopLevel(source: string, separator: keyof typeof LISTS): readonly string[] | null {
+    const parsed = run<readonly string[]>(ruleOf(grammar(), LISTS[separator]), source);
+    return parsed.ok ? parsed.value : null;
 }

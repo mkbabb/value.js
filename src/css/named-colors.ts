@@ -1,7 +1,9 @@
 /**
  * The CSS named-colour table, PROTOTYPE-FREE.
  *
- * `grammar.ts` indexes this by a parse-derived key that it lowercases first, so
+ * The BBNF colour actions (`./bbnf/color.ts`, `./bbnf/value.ts`; the retired
+ * `grammar.ts` before X.P.W6.x) index this by a parse-derived key that they
+ * lowercase first, so
  * an object literal here put every all-lowercase `Object.prototype` member in
  * reach: `NAMED_COLORS["constructor"]` was the `Object` constructor, which is
  * truthy, and `parseCssColor` then recursed on a `Function` —
