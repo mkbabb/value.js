@@ -715,3 +715,94 @@ Correction beside `b970fe96`'s body (E-3, never amended): it reads "25 censused 
 **Residuals**: OM-14 §4.7 rows 3 (interchange = W51 verbatim) and the silent compact cells (lch L; the five 0–1 RGB
 encodings at 1 dp) carry shipped/proposed values, flagged for the owner; `admin-destructive.test.ts:261-262` TS18048 (unit
 e's) keeps the demo typecheck leg RED; F-2 test leg unchanged.
+
+### g
+
+**Seat**: `claude-opus-5-5[1m]` · opened at HEAD `e9b8ad4e`, 2026-09-23 · Opus implementation seat (M-23).
+**Read**: W7.md whole · fold §Rows g (`:282-319`), §R1.4, S-19/S-20, N-9, N-17, §EXCLUDED, B-1 · COHESION §0k.3 S-7,
+§0bb · OM-15 census `TEXT-CONTRIVANCE-AUDIT.md` §1–§4.
+
+**Crash-recovery.** ⟨cmd⟩ `git status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh`
+— **0 paths inside this unit's writable set**; no inherited hunk.
+
+**Acts, in order**
+
+1. **Pre-cure plate measurement (G20 §8)** — authored `demo/test/palettes/plate-mass.test.ts` (both SFCs mounted in
+   Chromium inside the n-fixture harness page; the page imports the SFC through Vite's `/@fs` and the SAME Vue dep
+   instance). ⟨cmd⟩ `npx vitest run demo/test/palettes/plate-mass.test.ts` (measure form) → at 390: ShadowPalette /
+   Skeleton k=1·5 **142**, k=16 **254**; at 1440: **150** at every k; settled collapsed card **94.53**
+   (strip 40 + head 50.53 + 2×2 edge).
+2. **#12 `8fe6a2db`** `fix(extract/plate)` — BOTH plates cut to the settled card's collapsed silhouette (swatch row
+   deleted; meta blocks `text-subheading h-[1lh]`); `ExtractWorkbench.vue:163-166` caption deleted; o9 re-ruled in the
+   same commit (S-20: ES-4 `dots` axis deleted · ES-19/SP-25 published `data-slot` seams incl. new
+   `shadow-palette-cell` · SP-7 the live-k leg now asserts height(k=16) = height(k=5) · SP-34 position keys asserted
+   across a step · copy out of the oracle). **G20 254 → 92.5 px (budget 100, k-invariant); N-17 |Δ| 47.5 → 2.0 px
+   (tolerance 4) at 390 and 1440**; double-run 4/4 · 4/4; falsifier (pre-cure bytes) 4/4 RED. o9 **5 passed** ×3.
+3. **#11 `41002df5`** `refactor(demo/copy)` — `EmptyState` `eyebrow` prop + default + element deleted; 10 in-bounds
+   consumer eyebrows killed; metaphor/mechanics rows reduced (BrowsePane, PalettesPane, 5 admin panels, ActionToolbar,
+   ImageDropZone, AuroraPane); AuroraPane's 4 labels associated (`useId` + `aria-labelledby`); dialects on the
+   producer's `.section-label` (ExtractWorkbench `dominant`, ImageDropZone chip, AuroraPane's `.aurora-row-label`
+   deleted); `admin-crud.test.ts:108` probe re-pointed to the new failure copy. Receipt
+   `docs/tranches/X/waves/W7-om15-receipt.md` (69 rows: **45 DONE · 2 HELD-ORACLE · 5 PRE-CURED · 16 OUT · 1 KEEP**).
+   ⟨cmd⟩ `grep -rn "eyebrow" demo/ | grep -v node_modules | wc -l` → **31 → 14** (×2), **0 in bounds**.
+4. **N-9 `07be9cf3`** `refactor(demo/failure)` — `ErrorBoundary.vue` renders `EmptyState variant="error"` (S-7: this
+   wave writes the bytes); EmptyState exposes `focus()` over a per-branch root ref. Drift census 2 → 1 site each
+   (`PaneErrorPlate.vue` remains). A first `$el`-based focus regressed the C-D probe to BODY — measured and corrected
+   before commit (DIV alert, identical to pre-cure).
+5. **W7.106 / R14 `528ed4ed`** `fix(demo/plates)` — the leading template comments of `EmptyState`, `ShadowPalette`,
+   `PaletteCardSkeleton` moved into `<script setup>` (multi-root under the dev compiler → `out-in` leave stranded).
+   Probe (dev server, API-only abort, Retry ×3): plate visible 3/3; pre-cure EmptyState → wall blanks after the first
+   Retry (TimeoutError).
+6. **Gate log `274a6251`** — `W7-gate-log.md` §X.W7.g (G20 · N-17 · G19 · N-9 · R14 · cadence) + 4 hash rows.
+
+**Gates BEFORE → AFTER**
+
+| gate | BEFORE | AFTER | verdict |
+|---|---|---|---|
+| **G20** | test absent; 254 px @k=16/390 (both components) | 92.5 px at every k, both widths, both components; budget 100 | **GREEN** |
+| **N-17** | |Δ| 47.5 px (+50.2 %) | |Δ| 2.0 px @390 and @1440 (card fixture) | **GREEN** (card fixture; other witnesses out of bounds) |
+| **G19** | eyebrow grep 31 | 14, **0 in bounds**; prop+default+element deleted; 45/69 rows DONE | **RED — ESC-W7g-G19-BOUNDS** |
+| **N-9** | drifted set 2 sites each | 1 site each (`PaneErrorPlate.vue`, X-W5's) | **RED — ESC-W7g-N9-PANEPLATE** |
+
+**Cadence (§7)**: vitest ×2 → 2 failed / 803 passed (805) identical (baseline C-5 + F-4) · lint 55 = baseline (docs
+only; changed files 0) · demo typecheck 2 × TS18048 in `admin-destructive.test.ts:261-262` (unit e's, pre-existing) ·
+`git diff --check` clean · e2e smoke: o9 5/5, browse-loading, browse-pagination green; walk.spec RED at its Generate leg
+(`name: "Generation preset"` — GenerateControls untouched here); crash-battery R14 (below) and R18 ×2 RED.
+
+**Escalations**
+
+- **ESC-W7g-G19-BOUNDS** — G19's grep cannot reach 0 from this writable set: 14 survivors, all out of bounds; two are
+  functional — `PaletteCardGrid.vue:25` (`:eyebrow="emptyEyebrow"` + the grid's prop; unit c's file) and
+  `MixSourceSelector.vue:272` (`eyebrow="· nothing to mix ·"`, OM-15 §1.A #12 KILL — now falls through as a DOM
+  attribute on the plate root); twelve are prose or the unrelated `family-eyebrow` class (gradient/easing,
+  ColorSpaceSelector, ParseEchoReadout, ProfileSection, DESIGN.md). Also OUT: census rows AboutPane ×2, Markdown,
+  GeneratePane, MixSourceSelector hint, MixPane, PaletteSlugBar, ColorInput, ConfigSliderPane label, GradientVisualizer
+  direction label, 5 dialect sites (ConfigSliderPane, MixResultDisplay, PaletteCardMenu, ParseEchoReadout,
+  ApiOfflineChip), ActionButton's glyph name (S-19(c)).
+- **ESC-W7g-G19-ORACLE** — `BrowsePane.vue:65` `The commons is unreachable.` and `:142` `More from the commons` are
+  HELD: `crash-battery.spec.ts:60` / `browse-pagination.spec.ts:62` (out of bounds) assert them; the owner of those
+  oracles moves them with the strings.
+- **ESC-W7g-N9-PANEPLATE** — `demo/shell/PaneErrorPlate.vue` (X-W5 `.d2`) is the remaining re-authoring of the error
+  plate (the whole drifted set); composing it on `EmptyState variant="error"` is a one-file act outside this seat's
+  bounds.
+- **ESC-W7g-R14-GLOB** — `crash-battery.spec.ts` R14's `page.route("**/palettes*")` aborts Vite's `demo/palettes/*`
+  source modules, so the app never boots (RED at `:58` before any assertion about Retry). X-W1's oracle; the o9 filter
+  (API paths only) is the working shape. Fold note: W7.106's homing lock ("a cure in `EmptyState.vue` cannot reach this
+  defect") is contradicted by the measured probe — recorded for ruling, not silently overruled.
+- **F-g-INTENT** — ImageDropZone C6/C7 landed as `Upload image` (not the census's `Add an image`) so walk.spec's
+  `/Upload image/i` locator stays true and visible text = accessible name; owner may re-rule.
+
+**Residuals (not executed by this seat — PARTIAL)**
+
+- **XP-EXTRACT NWO session cluster** (§R2.2 W7.542–556 · §R3.2 W7.601–617 · §R1.9 · §R1.29–.31; B-1): not executed.
+  Measured today: crash-battery R18 ×2 RED — a valid 2×2 PNG reaches the drop zone (`img[alt='Uploaded image']`
+  visible) but quantize fails with `InvalidStateError` (unhandled rejection) and no swatch develops; the corrupt-file
+  leg shows no visible error (XP-2). The decode-in-worker + typed-seam cure (W7.548/W7.553) is owed.
+- §R1.4 plate rows beyond mass (SP-1/SP-2 choreography, SP-14 root clip, SP-15 edge jump, SP-18 rung contrast,
+  SP-19 disc shape, SP-22 motion tokens, SP-29 `count` domain) — register rows sequenced behind X-W10 (SP-31) or not
+  executed; §R1.13 skeleton rows beyond N-17's card fixture; §R1.14 workbench rows (XW-1 preview crop BLOCKER etc.);
+  §R1.21 EmptyState rows ES-7/ES-8 (X-W10 law), ES-16 (zero actions), M-DU5 (centre-set readout); `PreviewStrip.vue`
+  (PS-3) untouched.
+- N-17's other witnesses (`AdminListSkeleton` M-DU8, TagEditPopover TEP-15, AdminTagsPanel ATP-16) not measured.
+
+**Commits (this seat)**: `8fe6a2db` · `41002df5` · `07be9cf3` · `528ed4ed` · `274a6251` · this record.
