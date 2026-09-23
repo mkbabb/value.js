@@ -32,40 +32,41 @@
 // measured 1275 ms window (fold W5F-02). Reporting the key with the instance
 // makes that cross-wiring unrepresentable.
 //
-// TRANSITION MODE — the <Transition> below is the DEFAULT (simultaneous) mode,
-// NOT `mode="out-in"`. Under `vite` DEV, Vue 3.5's out-in machinery fails to
-// re-mount the incoming pane once the outgoing pane's leave transition has
-// completed: the internal `afterLeave → instance.update()` re-render does not
-// fire, so the slot is stranded on a bare comment placeholder forever (the
-// incoming component's setup — even a *synchronous* one — is never invoked).
-// The production build schedules the same handoff correctly, so the defect was
-// dev-only and silent (R.W3 close blocker; see docs/tranches/R/audit/
-// R.W3-visual-runtime/DELTA.md). The default mode mounts the incoming pane
-// immediately and CROSS-FADES the two slides (the Lane-E space-switch intent),
-// working identically in dev and build. The pane slots stay height-bounded
-// (min-h-0 + --content-max-h), so the brief co-mount never jumps the layout.
+// ── TRANSITION MODE — the measured truth (fold W5F-04/W5F-05; X.W5.d2) ──────
 //
-// ── CORRECTIONS TO THE PARAGRAPH ABOVE (X.W5.a, fold W5F-05; the paragraph's
-//    bytes stand because the D-1 coupled-architecture lock forbids deleting
-//    this record before the out-in re-probe runs) ─────────────────────────────
-//   (1) "CROSS-FADES" is FALSE: `animations.css` pins opacity at 1 on both
-//       sides of the vj-enter family — its own comment says "travel, not a
-//       fade". The two panes TRAVEL past each other; neither fades.
-//   (2) "height-bounded (min-h-0 + --content-max-h)" is FALSE for the case it
-//       is invoked to defend: `--content-max-h` caps `.pane-container`, not
-//       this slot, so the co-mount it claims to bound is exactly the case the
-//       token does not reach.
-//   (3) "never jumps the layout" is FALSE: no `mode`, no `position:absolute`
-//       on any leave override, and flex/block wrappers — so the default mode
-//       leaves TWO in-flow panes in one ordinary box for the whole overlap.
-//   (4) the retired claim that "a late async chunk's arrival lands through
-//       `.overture-appear-*`" is IMPOSSIBLE: appear hooks are substituted only
-//       while the instance is not yet mounted, so `@after-appear` can never
-//       fire for a chunk that resolves later. That is why settlement is ALSO
-//       state-checked below (gate A2's b3 arm).
-// The three geometry corrections are recorded, not cured, here: the mode, the
-// rAF mirror and the loading states move TOGETHER or not at all (the D-1
-// ruling), and the re-probe that unlocks them is not this unit's.
+// The <Transition> below runs in the DEFAULT (simultaneous) mode. What that
+// mode does, measured on this file by the out-in co-mount re-probe
+// (`docs/tranches/V/megatranche/workflows/gates/out-in-reprobe.mjs`, RESULTS
+// under `docs/tranches/X/waves/W5/triumvirate/`):
+//   · The incoming pane mounts at once and BOTH panes TRAVEL (the `vj-enter`
+//     pane family in `animations.css` pins opacity at 1 — travel, never a
+//     fade). For the whole overlap the slot holds TWO in-flow panes in one
+//     ordinary box: the region's block size is the SUM of the two (7974 px =
+//     7459 + 515 on a `/` → `/gradient` hop at 1440). Nothing caps the slot's
+//     block axis — the shell stopped capping it at X.W5.b — so the layout
+//     does move during the overlap. That is the fold's W5F-04 defect, open.
+//   · `mode="out-in"` cures the co-mount on the BUILT bundle (0/5 co-mounted
+//     hops, 0/5 stranded, also at +1000 ms RTT). It is NOT set here for two
+//     measured reasons:
+//       (1) under the DEV runtime it strands the slot (5/5): the Picker's
+//           root-level comment (`demo/picker/ColorPicker.vue:2-4`) makes its
+//           subtree a dev-root fragment, `setTransitionHooks` stamps out-in's
+//           `afterLeave` continuation on the fragment, and the leaving
+//           element departs with stale hooks, so the incoming pane never
+//           mounts. Moving that comment inside the root element is the cure,
+//           and it lies outside this file (ESC-W5t-2);
+//       (2) the mode, the rAF mirror below and per-pane loading/error states
+//           move TOGETHER or not at all (the D-1 coupled-architecture lock),
+//           and the loading/error states must land with the per-slot error
+//           boundary (fold W5F-07 ≡ EB-4, CURE-LOCKed to EB-2 / W5F-53) —
+//           under out-in the slot is EMPTY while a chunk loads, and that
+//           empty frame needs an honest occupant first.
+//   · Appear hooks run only while the <Transition> is not yet mounted, so
+//     `@after-appear` can never fire for an async chunk that resolves later.
+//     Settlement is therefore ALSO state-checked (gate A2's b3 arm), never
+//     inferred from the appear hook alone.
+// The paragraph this block replaces (the R.W3 "dev-only defect" record and
+// its four corrections) is retired: the re-probe it waited on is committed.
 
 import {
     nextTick,
@@ -106,10 +107,11 @@ const {
      */
     onMount: (instance: TInstance | null, key: string) => void;
     /**
-     * W2-3 (T.W2) — the pane-slot APPEAR grammar (LS-4): first-mount (and a
-     * late async chunk's arrival) lands through the shell's plate-land
-     * family via the dedicated `.overture-appear-*` classes (App.vue owns
-     * them; transform-only — the LCP reveal-only law). View swaps keep the
+     * W2-3 (T.W2) — the pane-slot APPEAR grammar (LS-4): the slot's FIRST
+     * mount lands through the shell's plate-land family via the dedicated
+     * `.overture-appear-*` classes (App.vue owns them; transform-only — the
+     * LCP reveal-only law). A late async chunk's arrival does NOT: appear
+     * hooks run only before the <Transition> mounts (see the header). View swaps keep the
      * vj-enter family untouched; the two grammars never share classes.
      */
     appear?: boolean;
