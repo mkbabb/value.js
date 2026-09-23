@@ -579,3 +579,17 @@ Close (after `.x`): `npm run check` exit 0 · vitest GREEN · kf e2e GREEN · th
 
 ### Unit receipts (RESUME 2)
 
+
+#### KF.W13U.t2 — R-t-1: retire the unread `isAnimStarted` prop (SERVED MODEL: claude-opus-5-5)
+
+1. **Crash-recovery.** ⟨`git -C keyframes.js status --porcelain`⟩ → only two untracked `docs/tranches/V/coordination/VALUEJS-INBOUND-*` (outside this unit's set; untouched). No inherited edits in the writable set.
+2. **Measured anchors (BEFORE).** ⟨`grep -rn isAnimStarted demo test | wc -l`⟩ → **9**: `PlaybackRibbon.vue:9` (doc comment) · `:205` (declaration) · `ChannelOptions.vue:650` (mount; spec cited `:586` — drifted, intent applied at the true bytes) · `ChannelOptions.vue:898` (`isStarted: isAnimStarted` — its only reader was the `:650` mount) · `EasingScene.vue:114` · `SpringScene.vue:196` · `playback-ribbon-contract.test.ts:229,418,421`. ⟨`grep -rn isStarted demo`⟩: the scenes' own `isStarted` refs (Easing `:50`/expose `:134`, Spring `:117`/expose `:273`) are the scene expose surface (also exposed by Cube/Sequence) — NOT isStarted-for-the-prop plumbing; kept.
+3. **Cure (one commit, spec's lock).** Deleted the declaration + its OA-29 retirement docblock; the header comment reworded without the name ("derived from the animation's started flag"); ChannelOptions drops the `:is-anim-started` binding and the `isStarted: isAnimStarted` destructure from `useAnimationSync` (the composable still returns it; its file is outside this set); EasingScene drops `isAnimStarted: true`; SpringScene drops `isAnimStarted: isStarted.value` and its KF-SS-34 comment. Test: `mountRibbon`'s default drops the field; the D-6→OA-29 case keeps every before-start assertion and now pins its precondition on the animation itself — `expect(seat.anim.started).toBe(false)` (the mounted `CSSKeyframesAnimation` is never played) — instead of a flag.
+4. **Commit.** kf **`531aa3f1`** (5 paths, +11/−27), pushed `60477b06..531aa3f1 master -> master`.
+5. **Gates (AFTER, read on the committed bytes).**
+   - ⟨`grep -rn isAnimStarted demo test | wc -l`⟩ ×2 → **0 · 0** (BEFORE 9). GREEN.
+   - ⟨`npx vue-tsc --noEmit -p tsconfig.json`; `-p tsconfig.test.json`⟩ → exit **0 · 0** (pre- and post-commit). GREEN.
+   - `test:demo`: ⟨`npm run test:demo -- --no-file-parallelism`⟩ → **64/64 files · 507/507 tests**, load avg 131→78. GREEN. Two parallel runs beforehand at load avg 94–148 went RED on TIMEOUTS ONLY, and different files each time (run 1: 9 files — 7 `Hook timed out in 10000ms`, 1 `Test timed out in 5000ms`, 1 typing-dots paint assertion; run 2 `--maxWorkers=4`: 4 files, all timeouts). Every one passed on a serial re-run (10 files 94/94; 4 files 35/35). This is the load family the wave's instrument condition names, not a RED.
+6. **Residuals.** None owned. (Noted, not acted on: `useAnimationSync` still returns `isStarted`; ChannelOptions no longer reads it. Whether anything else consumes it belongs to whoever owns `channel-controls/composables/**`.)
+7. **Escalations.** None.
+8. **Self-count.** Acts 1–8; commits 1 kf (`531aa3f1`) + this record commit; gates 3 of 3 GREEN (+ push).
