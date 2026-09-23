@@ -12,6 +12,8 @@
 import {
     computed,
     defineAsyncComponent,
+    defineComponent,
+    h,
     shallowRef,
     type Component,
     type ComputedRef,
@@ -206,21 +208,72 @@ export const PANE_CACHE_MAX: Record<RegionRole, number> = (() => {
 // No `timeout`: a slow network is not a failure, and a timed-out chunk that
 // arrives later would be shown an error plate it had already outrun — the
 // loading plate stays until the browser itself resolves or rejects the import.
+//
+// X.W5.d4 (COHESION §0az · ESC-W5d3-1, ruled (a)): the factory also PUBLISHES
+// the loader's readiness. Before, one async wrapper swapped its loading plate
+// for the resolved pane as its own root, inside the slot's ONE `<Transition>`
+// child and under ONE key — out-in never governed that swap, and on a cold
+// navigation Vue's enter guard (`leavingVNodesCache[key] === vnode`, the
+// plate's leave filed under the pane's own key) dropped the pane's enter: the
+// pane held `vj-enter-enter-from` for good (the gradient rail at x = −351).
+// Now a lazy pane has two phases the slot keys apart (`PaneSlot`,
+// `(pane, resolved)`), so out-in runs plate-leave THEN pane-enter:
+//   · the PLATE PHASE — the component this factory returns, the table's entry
+//     and the slot's occupant while the chunk is unresolved. It carries the
+//     whole P-3 contract above unchanged (`loadingComponent` + `delay`,
+//     `errorComponent`, the typed `PaneChunkError`), and it ENDS ON THE PLATE:
+//     its wrapper resolves to `PaneLoadingPlate`, never to the pane, so a
+//     leaving plate phase can never grow the pane inside itself (measured: a
+//     wrapper that resolved to the pane under the pending key mounted the pane
+//     inside its own leave — `insertBefore` NotFoundError, both regions latched
+//     to their boundary). It is named `PANE_PLATE_PHASE`, which the slot's
+//     `<KeepAlive>` excludes: a transient occupant is never cached;
+//   · the RESOLVED PANE — the module's component, published through
+//     `resolvedPane` the moment the loader's promise fulfils (the loader
+//     itself, never a Vue-internal field of the wrapper).
 const PANE_LOAD_DELAY_MS = 200;
+
+/** The name every lazy pane's plate phase carries — `PaneSlot`'s `<KeepAlive>` excludes it. */
+export const PANE_PLATE_PHASE = "PanePlatePhase";
+
+/** Plate phase → its pane's resolution (`null` until the loader fulfils). */
+const PANE_RESOLUTION = new WeakMap<Component, Readonly<ShallowRef<Component | null>>>();
+
+/**
+ * The pane a table entry renders as, REACTIVELY: an eager pane is itself; a
+ * lazy pane's plate phase is its resolved pane once the loader has fulfilled,
+ * and `null` until then (the slot then renders the plate phase).
+ */
+export function resolvedPane(component: Component): Component | null {
+    const resolution = PANE_RESOLUTION.get(component);
+    return resolution === undefined ? component : resolution.value;
+}
 
 function lazyPane<T extends Component>(
     pane: string,
     load: () => Promise<{ default: T }>,
 ): Component {
-    return defineAsyncComponent({
+    const resolution = shallowRef<T | null>(null);
+    const plate = defineAsyncComponent({
         loader: () =>
-            load().catch((cause: unknown) =>
-                Promise.reject(new PaneChunkError(pane, { cause })),
+            load().then(
+                (module) => {
+                    resolution.value = module.default;
+                    return PaneLoadingPlate;
+                },
+                (cause: unknown) =>
+                    Promise.reject(new PaneChunkError(pane, { cause })),
             ),
         loadingComponent: PaneLoadingPlate,
         errorComponent: PaneErrorPlate,
         delay: PANE_LOAD_DELAY_MS,
     });
+    const platePhase = defineComponent({
+        name: PANE_PLATE_PHASE,
+        setup: () => () => h(plate),
+    });
+    PANE_RESOLUTION.set(platePhase, resolution);
+    return platePhase;
 }
 
 const AboutPane = lazyPane("about", () => import("../scenes/about/AboutPane.vue"));

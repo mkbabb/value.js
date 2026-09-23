@@ -67,6 +67,7 @@
 //     inferred from the appear hook alone.
 
 import {
+    computed,
     nextTick,
     onBeforeUnmount,
     ref,
@@ -75,7 +76,7 @@ import {
     type Component,
 } from "vue";
 import { useRoute } from "vue-router";
-import type { PaneRenderProps } from "./usePaneRouter";
+import { PANE_PLATE_PHASE, resolvedPane, type PaneRenderProps } from "./usePaneRouter";
 import { VIEW_MAP } from "./viewSchema";
 
 const {
@@ -132,6 +133,21 @@ const {
 const liveComponent = shallowRef(component);
 const liveKey = ref(componentKey);
 const liveProps = shallowRef(componentProps);
+
+// X.W5.d4 (COHESION §0az · ESC-W5d3-1, ruled (a)) — the Transition child is
+// keyed on `(pane, resolved)`. A lazy pane renders as its PLATE PHASE (key
+// `<pane>:plate`, never cached — `PANE_PLATE_PHASE` is the KeepAlive
+// `exclude`) until `usePaneRouter`'s loader publishes the resolved pane, then
+// as the pane itself (key `<pane>`, cached as before). The key change is a real
+// swap to `out-in`: the plate leaves, THEN the pane mounts and enters. The one
+// thing that could never be allowed again is the old shape — the plate and the
+// pane as two roots of ONE child under ONE key — because Vue's enter guard
+// (`leavingVNodesCache[key] === vnode`) drops the pane's enter there. Only the
+// resolved pane carries the mount report and the pane props: a plate is
+// neither a registration target nor a settled plate (gate A2).
+const livePane = computed(() =>
+    liveComponent.value === null ? null : resolvedPane(liveComponent.value),
+);
 
 let raf = 0;
 
@@ -269,13 +285,15 @@ onBeforeUnmount(() => cancelAnimationFrame(raf));
         @before-leave="hideLeaving"
         @after-appear="settleAppear"
     >
-        <KeepAlive :max="max">
+        <KeepAlive :max="max" :exclude="PANE_PLATE_PHASE">
             <component
-                :is="liveComponent"
+                :is="livePane"
+                v-if="livePane"
                 :key="liveKey"
                 :ref="(el: unknown) => reportMount(el as TInstance | null)"
                 v-bind="liveProps"
             />
+            <component :is="liveComponent" v-else :key="`${liveKey}:plate`" />
         </KeepAlive>
     </Transition>
 </template>

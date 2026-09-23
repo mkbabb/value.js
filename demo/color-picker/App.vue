@@ -131,7 +131,7 @@
                             :component-key="region.key"
                             :component-props="region.props"
                             :on-mount="bindPane(region.role)"
-                            :transition-name="viewManager.ready.value ? 'vj-enter' : ''"
+                            transition-name="vj-enter"
                             :max="PANE_CACHE_MAX[region.role]"
                             appear
                             :on-appeared="
