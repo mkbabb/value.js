@@ -3142,3 +3142,12 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
   - **C6-1 is relieved.** QUIET-FOCUS-RING and DRAWER-DETENT-REACH are honest-RED ids owned by KF.W13R. Glass 7.0.0 is the cause, and 10.0.1 carries the ring cure and the Sheet. `.m` migrates and `.v` re-reads on the served page. The relief is dated before the re-close, so the routing is no longer circular.
   - **C6-2 is granted.** `KF.W13U.d5` holds every scene-derived dock and pane read, the Scene label included, to one commit point at resolve, and adds warm-on-intent. App.vue and ChromeDock.vue are granted as whole files, with the ADJACENT-LINE RULE.
 - Track B resumes from `wf_82af6dba-aba`. The closed waves' open seats replay from cache.
+
+## §0ce ADDENDUM 2026-09-23 — OA-51: a total redesign of the keyframes scene editor UIs
+- **Owner, verbatim:** *"this UI is awful. And we need the separate keyframes input, controls, etc. Total redesign of these sort of UIs"* (frame: the Spring scene).
+- Routed to KF.W13V, where `.s` and `.y` become one total redesign across all six scenes:
+  - Keyframes, Controls, the scene facet and Timeline are separate dock items opening shared panes.
+  - There is one control idiom.
+  - Presets are glass tiles.
+  - The design note comes first.
+- The addendum is in KF-W13.md. KF.W13V opens after KF.W13R, and its open seat reads the spec whole.

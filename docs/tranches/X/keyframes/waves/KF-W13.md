@@ -415,3 +415,21 @@ Run `wf_82af6dba-aba` ended NOT-CONFORMANT after 2 repairs. `.t2`, `.d2` and `.d
 - **Gate, unchanged in wording:** dock width changes once per switch, with no reversal, and the controls surface set changes once per switch. Run `probe-switch10.mjs` over 10 switches, first visits included, headed, twice on dev and twice on gh-pages, with the load recorded.
 - **Still forbidden:** changing `selectedSurfaceFrom`'s fallback, and a static per-scene surface table.
 - **Owed, strictly serial:** `[KF.W13U.d5]`, then close, under this addendum. alreadyDone: `.w .t .e .d .t2 .d2 .d4`. `.d3` and `.x` are closed as escalations ruled here, and are never re-dispatched.
+
+## KF.W13V — ADDENDUM 2026-09-23 (b) (COHESION §0ce): OA-51, a total redesign of the scene editor UIs
+- **Owner, verbatim:** *"this UI is awful. And we need the separate keyframes input, controls, etc. Total redesign of these sort of UIs"*. Frame: `keyframes/evidence/W13U/owner-2026-09-23-spring-page.png`, the Spring scene.
+- **What the frame shows in the left pane.** One pane holds everything:
+  - The response and damping sliders render as orange bars with no thumb and no value.
+  - The parameter-space chart has a wrapped title and a legend that wraps into three lines.
+  - The four preset cards are stadium pills, each holding its own inert mini-slider, and "Gentle" is laid out differently from the other three.
+  - An inline `@keyframes (editable)` editor shows its offset truncated to "0…" and a declaration row whose `f 0 / s 0%` spills below it.
+  - The pane's left shadow is clipped (OA-34).
+  - On the stage, the prose instruction names code identifiers (`response / dampingFraction`), and the three stacked readouts compete, with no hierarchy.
+- **Ruling: KF.W13V `.s` and `.y` become one total redesign of every scene's editor UI.** This covers Spring, Easing, Sequence, Square, Cube and Amiga.
+  - **Separate surfaces, each a dock item that opens a shared pane:** Keyframes (the keyframes input), Controls (the scene's parameters), the scene facet (Physics for Spring, Curve for Easing), and Timeline. No scene pane mixes them, and no scene has an inline keyframes editor.
+  - **One control idiom** (OA-45/OA-47): the label and value on one line, a real slider with a visible thumb beneath, and a divider between groups.
+  - **Presets are a glass segmented or tile control** on `--radius-field`, with no sliders inside them (O-58 for any glass half).
+  - **Figures, such as the parameter space and the trace,** get one title line, one legend line and axis labels on the type scale.
+  - **The stage shows the subject** with one primary readout. Instructions are in plain words, never code identifiers.
+- **`.y` is the design-author seat, effort high.** It first writes a short design note covering the surfaces, the idiom, the type scale and the radius canon, with 1440 and 390 mocks from the served page. Every scene is then cured onto it at the root.
+- The gate is read on the served page in headed Chromium at 1440 and 390, in both themes, with before and after frames for every scene.
