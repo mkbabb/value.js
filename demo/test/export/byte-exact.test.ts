@@ -2,6 +2,8 @@ import { beforeAll, describe, expect, it } from "vitest";
 
 import {
     canonicalColor,
+    captureSnapshot,
+    exportFile,
     computeContentDigest,
     computeSnapshotDigest,
     filenameFor,
@@ -21,6 +23,8 @@ import {
     type ExportSnapshot,
     type SnapshotSource,
 } from "../../palettes/export/serializers";
+import type { Palette } from "../../palettes/types";
+import { slugify } from "../../palettes/utils";
 
 // V.W51 (F5) — the byte-exactness regression lock for the five export
 // serializers. Byte authority: docs/tranches/V/PALETTE-CONTRACT.md Appendix W51.
@@ -449,5 +453,49 @@ describe("reload identity (pure half; the routed seat is W50/W44-gated)", () => 
         const bytes = snapshotBytes(release);
         const result = await reloadSnapshot(bytes, "f".repeat(64));
         expect(result.ok).toBe(false);
+    });
+});
+
+// X.W7.b · G5 — a non-ASCII palette name survives export. The ruled slug
+// (NFKD transliteration + percent-safe fallback, `palettes/utils.ts`) keeps
+// `日本` as the hex of its UTF-8 bytes; the filename is the canonical stem of
+// the palette's own slug (Appendix §2 — the display name never enters it), and
+// the payload's `displayName` is the name byte-for-byte.
+describe("G5 — non-ASCII names survive export", () => {
+    const NAME = "日本 Blue";
+
+    it("the one slug keeps the name's identity (was 'blue' / '-blue')", () => {
+        expect(slugify(NAME)).toBe("e697a5e69cac-blue");
+        expect(slugify("Café  Noir")).toBe("cafe-noir");
+        expect(slugify("--Blue--")).toBe("blue");
+    });
+
+    it("the exported filename carries the slug, and displayName is byte-exact", async () => {
+        const slug = `${slugify(NAME)}-0a1b2c3d`;
+        const palette: Palette = {
+            name: NAME,
+            slug,
+            colors: [{ css: "oklch(0.92 0.012345 88.8)", position: 0 }],
+            createdAt: "2026-09-23T00:00:00.000Z",
+            updatedAt: "2026-09-23T00:00:00.000Z",
+            isLocal: false,
+            versionCount: 3,
+            currentHash: "h",
+        };
+        const captured = await captureSnapshot(palette);
+        expect(captured.ok).toBe(true);
+        if (!captured.ok) return;
+        const json = exportFile(captured.snapshot, "json");
+        expect(json.ok).toBe(true);
+        if (!json.ok) return;
+        expect(json.file.filename).toBe("e697a5e69cac-blue-0a1b2c3d--r3.json");
+        const text = decode(json.file.bytes);
+        expect(text).toContain('"displayName":"日本 Blue"');
+        expect(JSON.parse(text).displayName).toBe(NAME);
+        const nameBytes = new TextEncoder().encode('"displayName":"日本 Blue"');
+        const hay = json.file.bytes;
+        const at = text.indexOf('"displayName"');
+        const prefixBytes = new TextEncoder().encode(text.slice(0, at)).length;
+        expect([...hay.slice(prefixBytes, prefixBytes + nameBytes.length)]).toEqual([...nameBytes]);
     });
 });
