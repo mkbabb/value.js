@@ -86,10 +86,17 @@ const TRACK = {
       ],
       "note": "RESUME 2026-09-23 (eighth sitting) on COHESION §0aq + §0ax + §0ay + §0az + §0ba and W5.md's five ADDENDA (read all; they ARE the resume spec): X.W5.a · .b · .c · .d · .e · .t · .c2 · .d2 · .c3 · .d3 · .c4 · .d4 are ALL alreadyDone (never re-dispatched; .d4 = f55e59b7 + 5a7d3113 + d6d8b38f, IMPLEMENTED per §0ba); NO unit is owed — return groups: [] and let the close and the check adjudicate: the .d4 g2/e1 leg is relieved by route W5D4-SETTLE-READ → X-W6 .s (§0ba, axis 10); the witness ×2 + a5–a12 ×2 + D1 headed ×2 are the .d4 gates; R5 retirement CONFIRMED §0ba; W5-READY-DEAD / W5-BTN-INTERACTIVE-DEAD → X-W8 .d; O12-3-HOVER-GPU → X-W8 .i; the row reads CLOSED on a CONFORMANT check"
     },
+    "X-W7R": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W7R.md",
+      "after": [
+        "X-W7"
+      ],
+      "note": "AUTHORITY: COHESION §0bs + W7R.md (READ whole). Strictly serial: [X.W7R.m] (pin @mkbabb/glass-ui 10.0.1 exact; read the 8/9/10 CHANGELOG + migration notes whole; migrate at the root incl. the dismiss axis, no shims; vue-tsc demo 0, vitest, smoke --workers=1 with load, D1 headed x2) → [X.W7R.v] (re-read every glass-owned value.js honest-RED id and relay row at 10.0.1 on :9000 headed: CURED-BY-REPIN or still-live) → [X.W7R.d] (OA-41 dock morph at 10.0.1). Every seat Opus 5.5; ESCALATED units do not halt the wave"
+    },
     "X-W12": {
       "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W12.md",
       "after": [
-        "X-W7"
+        "X-W7R"
       ],
       "note": "AUTHORITY: the owner's value.js dockets, VERBATIM in W12.md §Authority (2026-09-22 and 2026-09-23 — READ both and the four frames docs/tranches/X/waves/owner-2026-09-23/frame-{1..4}.png); minted by COHESION §0bd; every seat Opus 5.5 (owner 2026-09-23). Strictly serial: [X.W12.l] (FIRST — KFA-14: src/css/grammar.ts accepts legacy rgb()/rgba()/hsl()/hsla() comma syntax per CSS Color 4, WPT-derived tests, npm test GREEN; W12.md ADDENDUM §0bn) → [X.W12.a] (black ground bisect + aurora artefacts + drag frame budget) → [X.W12.b] (motion census: one owner per element per property; boot overture; never regress X-W5 cold-nav) → [X.W12.c] (About pane = Picker pane height, inner scroll clipped by radius) → [X.W12.d] (Picker card hierarchy + whether the blob animates; consumer cause cured, producer cause → O-56) → [X.W12.e] (dock pills + layer morph on glass primitives; else DOCK-MORPH-ROOT honest-RED with O-55/O-56); glass-ui READ-ONLY, no consumer copies of producer behaviour; ESCALATED units do not halt the wave"
     },
@@ -137,6 +144,7 @@ const TRACK = {
       "X-W6"
     ],
     ["X-W7"],
+    ["X-W7R"],
     ["X-W12"],
     ["X-W8"],
     [
