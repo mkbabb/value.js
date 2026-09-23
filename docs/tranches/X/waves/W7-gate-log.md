@@ -729,3 +729,56 @@ Reload; its `.plate-ink` clone is deleted. ⟨cmd⟩ `npx vue-tsc -p tsconfig.de
   2. The availability latch (`demo/platform/transport/availability.ts:87` `RETRY_COOLDOWN_MS = 30_000`) blocks a
      manual Retry for 30 s after the first network failure, so no request goes out inside the leg's 15 s window.
   → **ESC-W7g2-R14-RECOVERY**.
+
+## X.W7.g3 — gate sections (seat `claude-opus-5-5`, 2026-09-23, COHESION §0bk.4; code commits `26836da6` · `d106f3be`)
+
+Falsifier suite: `demo/test/extract/` (5 files, 22 tests); each test is one row's own falsifier. BEFORE = the
+suite run against the pre-cure bytes (tests written first; only `useCameraCapture.ts` existed, as a new file):
+⟨cmd⟩ `npx vitest run demo/test/extract/` → **18 failed · 4 passed** (the 4 = the new camera composable's own
+tests; the camera cluster's RED-before is the XW-8 rows in `extract-controls.test.ts`). AFTER ⟨same cmd⟩ →
+**22/22 · 22/22** (two runs).
+
+| row | falsifier | BEFORE | AFTER ×2 |
+|---|---|---|---|
+| EC-9 (W7.542) | `extract-controls` EC-9 ×2: readout `10/16` + title "10 colors found of 16 requested"; exact or undeveloped → `16` | RED | GREEN · GREEN |
+| EC-10 (W7.543) | none written | RED | **ESCALATED — ESC-W7g3-EC10-TWIN** |
+| EC-25 (W7.544) | `extract-controls` EC-25 ×2: empty rail has no `var(--muted)`, no `background` shorthand, colour layer only; developed rail puts the gradient on `background-image` | RED | GREEN · GREEN |
+| EY-12 (W7.555) | `extract-session` EY-12: unmount then remount re-attaches image, palette, k and overlay | RED | GREEN · GREEN |
+| EY-23 (W7.556) | `image-sampler`: 0 canvases minted by `loadImage`, the visible canvas is the one read · `extract-session` EY-23/R-24: object URL, prior URL revoked | RED | GREEN · GREEN |
+| §R3.2 R-5 · R-17 | `image-drop-zone`: enter, enter, leave keeps the highlight; the drop lands | RED | GREEN · GREEN |
+| §R3.2 R-8 · R-27 | `image-drop-zone`: badge not `aria-hidden`; no `opacity-0` / `group-hover` / `bg-background/85` | RED | GREEN · GREEN |
+| §R3.2 R-11 · R-22 · R-25 | `image-drop-zone`: no `transition-all`, no inline duration, img on `rounded-panel` | RED | GREEN · GREEN |
+| §R3.2 R-12 | `image-drop-zone`: disabled → no `open`, no `file`, `aria-disabled="true"` | RED | GREEN · GREEN |
+| §R3.2 R-14 | `image-drop-zone`: empty zone wears `.dashed-well`; no `bg-primary/5` | RED | GREEN · GREEN |
+| §R3.2 R-16 (+ R-6) | `image-drop-zone`: no file input inside the zone; a click emits `open`, never `sample` | RED | GREEN · GREEN |
+| §R3.2 R-19 | `image-drop-zone`: populated → one act (`sample`); no `disableClick` prop | RED | GREEN · GREEN |
+| §R3.2 R-20 | `extract-controls`: with no image the toolbar Upload stands down (present, disabled) | RED | GREEN · GREEN |
+| §R3.2 R-23 | source read: the workbench's one `role="status"` intake line | 0 live regions | 1 |
+| §R3.2 R-24 | = EY-23's object-URL test | RED | GREEN · GREEN |
+| §R3.2 R-29 | pre-cured at `42bdf2a7` (request-id map) | GREEN at open | GREEN |
+| §R3.2 R-30 | `extract-session` R-30: the transferred buffer is the decoder's own | RED | GREEN · GREEN |
+| §R3.2 R-15 | none written | RED | **ESCALATED — ESC-W7g3-R15-PLATEINK** |
+| camera XW-8 | `extract-controls` XW-8 ×2: `disabled` reaches all five controls; live camera → its control pressed, the rest stand down · `camera-capture`: stop releases every track | RED | GREEN · GREEN |
+| camera XW-9 | `camera-capture`: a second press mints no second stream (`getUserMedia` ×1, 1 live track); a late stream is released | new owner | GREEN · GREEN |
+| camera XW-35 | source: the capture chip is the producer `DockControl` face (no `compact`, no hand paint); viewfinder `object-contain`; the camera takes the zone's seat (one specimen) | RED | cured in source |
+
+
+**EY-12 on the served page** (scratch probe, private vite `:8349`; image loaded at 1100×800, then resized): 1000×640 · 390×844 ·
+1280×720 → drop zone present, **the same DOM node** (a tag set before the resize survives), img present, 4 bands. The r3
+trigger (a breakpoint-crossing remount) does **not** reproduce at HEAD. X-W5 retired the shell's breakpoint `v-if`
+fork (`usePaneRouter.ts:670-680`, gate C5). The session-altitude cure is what the unit falsifier measures, and it
+holds under any remount.
+
+### R18 — crash-battery, the valid leg (§0bk.4)
+
+- **BEFORE** (HEAD `f322a48f`, scratch probe on `/#/extract`, real input, minted 2×2 PNG): the palette developed —
+  `Palette: Extracted Palette` with **4** `[data-band]`, **0** page errors — and `[aria-label^="Color swatch "]` → **0**.
+  The `InvalidStateError` is not live: it was cured at its cause at `42bdf2a7` (the typed quantize seam). The leg was RED
+  on a dead locator: glass `WatercolorDot` is `inheritAttrs: false` (`dist/watercolor-dot.js:80`), so the swatch name
+  never reaches the DOM (CC-044 → X-W4.g).
+- **Cure** (`d106f3be`): DEAD-LOCATOR RULING 2 — the leg binds the developed strip,
+  `[role="article"][aria-label^="Palette: "] [data-band]`, with `toHaveCount(4)`. The file goes in through the real
+  chooser, since the pane no longer holds a DOM input.
+- **AFTER, the spec** (`npx playwright test e2e/smoke/crash-battery.spec.ts --project=smoke --grep R18 --workers=1`,
+  private port): attempts 1–6 at load 190–780 each exhausted the 30 s test budget before the leg could settle (`page.goto` ×3, the dock option click, the pane mount at `:284`, and one run that ran out while waiting on `:311`); no run failed on an R18 assertion with budget left. Attempts 7 and 8 on the warmed server at load 131 / 112 → **2 passed (26.4 s) · 2 passed (25.3 s)** — **GREEN ×2**, both legs.
+- **AFTER, the same assertions** (scratch probe, long timeouts): 3 runs. The first → `VALID RED bands 0 errors 1` (a dev-server artifact: the first import of `@mkbabb/glass-ui/badge` made vite re-optimize dependencies mid-session — vite log `12:57:16 ✨ new dependencies optimized: @mkbabb/glass-ui/badge … reloading` — and the reload loaded a second Vue: `renderSlot … reading 'ce'`); then `VALID GREEN bands 4 errors 0 · CORRUPT GREEN` ×2 on the optimized server. A cold server discovers the subpath in its startup scan.
