@@ -9,7 +9,7 @@
 //         the two irreversible user acts no longer share one glyph.
 // `fetch` is stubbed at the platform boundary — no composable, panel or port is mocked.
 import { flushPromises, mount, type VueWrapper } from "@vue/test-utils";
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, assert, beforeEach, describe, expect, it, vi } from "vitest";
 import { computed, defineComponent, h, provide, ref } from "vue";
 
 import AdminPane from "../../palettes/admin/AdminPane.vue";
@@ -255,9 +255,10 @@ describe("G14 · N-6 — a destructive seat fires nothing until accepted, then e
         byName("Delete tag moody")!.click();
         await flushPromises();
         const dialog = document.body.querySelector('[role="dialog"]')!;
-        const [cancel, accept] = ["Cancel", "Delete tag"].map((label) =>
-            [...dialog.querySelectorAll<HTMLButtonElement>("button")].find((b) => b.textContent?.trim() === label)!,
-        );
+        const buttons = [...dialog.querySelectorAll<HTMLButtonElement>("button")];
+        const cancel = buttons.find((b) => b.textContent?.trim() === "Cancel");
+        const accept = buttons.find((b) => b.textContent?.trim() === "Delete tag");
+        assert(cancel !== undefined && accept !== undefined, "the confirm renders both Cancel and Delete tag");
         cancel.click();
         accept.click();
         await flushPromises();
