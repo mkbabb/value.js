@@ -205,3 +205,79 @@ F-3 (G11 golden enrollment, X-W1-owned, at `c`) · F-4 (NG-6 case 2 disposition,
 
 ## Unit receipts
 
+
+### a
+
+**Seat**: X.W7.a, `claude-opus-5-5[1m]` (Opus implementation seat, M-23). Wall clock 2026-09-23.
+**Read**: W7.md whole; X-W7-FOLD §Rows X.W7.a (`:60-85`), §R1.3, §R1.6, §R1.17, §Gates S-1..S-3, N-1, §R1.36 N-10;
+this record's header → Unit plan; COHESION §0j → end (grep for W7: §0k.3 S-4..S-7, §0bb order line — no new W7 ruling).
+
+**Crash-recovery**: ⟨cmd⟩ `git status --porcelain` → only `CARRY-LEDGER.md` · `dev.sh` — **0 paths in unit a's
+writable set**; no inherited hunk.
+
+**Acts, in order**
+
+1. **Anchors verified at true bytes**: `SearchFilterBar.vue:52-53` and `TagEditPopover.vue:28-29` exactly as the
+   spec names them; glass-ui installed **7.0.0**, `Checkbox.vue.d.ts` = `modelValue?: CheckedState | null`,
+   emit `update:modelValue: (value: CheckedState)`; `CheckedState` is not a root export (reached via
+   `CheckboxProps["modelValue"]`); root `index.d.ts` re-exports `CheckboxProps`.
+2. **Commit #1 `8360760b`** `fix(palettes/checkbox)`: SearchFilterBar binds `:model-value`/`@update:model-value`
+   and discards the payload (`toggleTag` derives the next array); TagEditPopover consumes `v === true`.
+   Authored `demo/test/palettes/checkbox-contract.test.ts` (6 cases, real SFCs × real glass-ui 7, port supplied).
+3. **Commit #2 `3084e1fa`** `build(demo/types)`: `demo/ui/checkbox/index.ts` →
+   `export { Checkbox, type CheckboxProps } from "@mkbabb/glass-ui";` (the badge barrel's idiom); the three inert
+   `variant=` attributes in the search band deleted (`SearchFilterBar.vue:5,:112`, `MiniColorPicker.vue:48`;
+   ⟨cmd⟩ `grep -rn "\[variant" demo/` → 0, glass-ui.css → 0 ⇒ null pixel delta; register → X-W10 per S-4's shape).
+   **`tsconfig.base.json` NOT written — the flag is withheld over a red program (F-1).**
+4. **Mandatory G3 falsifier** run and reverted (output in `W7-gate-log.md` §G3).
+5. **Commit `0e298ec5`** `fix(palettes/search)` (N-10): MiniColorPicker's drag record is written only after a
+   guarded `setPointerCapture` succeeds; pointerup / pointercancel / lostpointercapture / `open → false` /
+   `onScopeDispose` all end it through `endDrag` (releases the held capture). Authored
+   `demo/test/palettes/mini-color-picker-capture.test.ts` (6 cases; minimal capture platform, since jsdom 26.1.0
+   has no PointerEvent and no pointer capture).
+6. **Commit `3b659152`** `docs(X.W7.a)`: created `docs/tranches/X/waves/W7-gate-log.md` (G1 · G2 · G3 · N-10).
+
+**Gate readings BEFORE → AFTER**
+
+| gate | BEFORE | AFTER | verdict |
+|---|---|---|---|
+| G1 | ⟨cmd⟩ `grep -rn "update:checked\|:checked=" demo/ --include='*.vue' \| wc -l` → **4** (2 files) | **0** · 0 (double-run) | **GREEN** |
+| G2 | test absent; falsifier (HEAD bindings) → `Tests  6 failed (6)` | ⟨cmd⟩ `npx vitest run demo/test/palettes/checkbox-contract.test.ts` → `Tests  6 passed (6)` ×2 | **GREEN** |
+| G3 | flag absent; strict-probe EXIT 2, **296 / 61** (216/36 in-bounds · 80/25 out) | flag absent (withheld); strict-probe EXIT 2, **290 / 60** ×2 (282 TS2353 · 8 TS2322; **210/35 in · 80/25 out**); falsifier: strict EXIT 2 at `TagEditPopover.vue(28,30)` TS2353 `'checked'`, flag-off demo leg EXIT 0 | **RED → ESC-W7a-G3** |
+| N-10 | `setPointerCapture` **2** unguarded vs cancel/lost **0** | **1** guarded call · **4** cancel/lost bindings · release on up/cancel/lost/close/dispose; ⟨cmd⟩ `npx vitest run demo/test/palettes/mini-color-picker-capture.test.ts` → `Tests  6 passed (6)` ×2; HEAD bytes → `6 failed (6)` | **GREEN** |
+
+**Cadence (§7), settled bytes**
+
+- ⟨cmd⟩ `npx vitest run` → `Test Files 2 failed | 38 passed (40)` · `Tests 2 failed | 651 passed (653)`, double-run
+  identical (baseline 639/641 + this unit's 12). The 2 fails are the baseline's: `test/spectrum-luma.test.ts` C-5
+  (born-RED, not W7's) and `demo/test/shell/reka-binding-idiom.test.ts` NG-6 case 2 (F-4 — it measures the
+  producer's absent `checked` prop and cannot be turned by the consumer cure; **file not edited**, X-W1's).
+- ⟨cmd⟩ `npx vue-tsc -p tsconfig.demo.json --noEmit` → **EXIT 0**; ⟨cmd⟩ `npx vue-tsc -p tsconfig.test.json --noEmit`
+  → EXIT 2, **11** × TS2307 all `space-catalog` (F-2, pre-existing; `grep -v space-catalog` → 0 new).
+- ⟨cmd⟩ `npx eslint --max-warnings=0 demo/palettes/browser/search/ demo/ui/checkbox/index.ts demo/test/palettes/` → EXIT 0.
+
+**Residuals**
+
+- G3's search-band residual **6** in-file diagnostics are producer-shaped fallthrough/typing
+  (`SearchFilterBar.vue:5` aria-label on Button, `:89` TS2322 Input `string | number` model, `:93` aria-label ·
+  `:95` onKeydown on Input, `:114` onClick on Button; `MiniColorPicker.vue:50` onClick on Button) + `UserSortMenu.vue:8`
+  `variant` (S-4-locked, not written). None is curable consumer-side without masking.
+- The fold's other §R1.3/§R1.6/§R1.17 rows (SFB-2 colour search, SFB-7/MCP-13 pending fiction, MCP-2 hex echo,
+  TEP-5/6/15/16 …) are NOT in unit a's seat-0 brief and are not landed here; they remain on the fold for
+  the wave's remaining units / close.
+
+**Escalation — ESC-W7a-G3 (W7.md §3a, record F-1)**: `strictTemplates: true` cannot be set GREEN from inside
+W7's bounds. Settled census **290 diagnostics / 60 files** (EXIT 2, double-run), **80 / 25 outside** W7's bounds
+(`Dock.vue` 10 · `MixResultDisplay.vue` 9 · `ColorNutritionLabel.vue` 8 · gradient 4 files 14 · `SlugEditLayer.vue` 5 ·
+`ConfigSliderPane.vue` 5 · shell plates/layers …, unchanged from open), and the dominant class (`onClick` 100 ·
+`aria-*` 56 · `data-*` 35 · `title` 14) is fallthrough onto glass-ui components whose published `.d.ts` declare
+no fallthrough surface — a producer typing row (glass READ-ONLY; relay-shaped), not a consumer drift. The
+inert-prop class G3 targets (`variant` 37 · `tag` 13 · `surface` 12) is the minority. The falsifier proves the
+flag catches the class when on. The triumvirate must rule the path (producer relay for typed fallthrough,
+a narrower checker setting by ruling, or ownership of the 80 out-of-bounds sites); this seat decided none.
+
+**Commits**: `8360760b` · `3084e1fa` · `0e298ec5` · `3b659152` (+ this receipt).
+**Paths written**: `demo/palettes/browser/search/{SearchFilterBar,TagEditPopover,MiniColorPicker}.vue` ·
+`demo/ui/checkbox/index.ts` · `demo/test/palettes/{checkbox-contract,mini-color-picker-capture}.test.ts` ·
+`docs/tranches/X/waves/W7-gate-log.md` · this record. **Not written**: `tsconfig.base.json` (F-1),
+`search/index.ts` (no change needed), `UserSortMenu.vue` (S-4), `reka-binding-idiom.test.ts` (F-4), `dev.sh`.
