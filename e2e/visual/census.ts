@@ -28,7 +28,7 @@
  * The axes below are product-consumer axes. Each combination is one a real user
  * reaches, and no combination is minted because a cross-product could produce it:
  *
- *  · ROUTE — the 14 names `demo/color-picker/router/index.ts` declares. Not a
+ *  · ROUTE — the 15 names `demo/color-picker/router/index.ts` declares. Not a
  *    generated space: the router's own table, guarded for parity below.
  *  · VIEWPORT — 390 / 1024 / 3440, the three W1.md names.
  *  · SCHEME — light / dark, the two the app ships (`useGlobalDark`).
@@ -69,7 +69,7 @@ export interface CensusRoute {
 }
 
 /**
- * THE CENSUS — all 14, in router declaration order.
+ * THE CENSUS — all 15, in router declaration order.
  *
  * Bare-path navigation is a trap this repo has already sprung once: the demo is
  * a hash router, so `/browse` renders the DEFAULT view with the path intact and
@@ -188,6 +188,18 @@ export const ROUTE_CENSUS: readonly CensusRoute[] = [
         left: "admin-tags",
         right: "palettes",
         admin: true,
+        defaultPaneIndex: 0,
+    },
+    // X.W5.c2 (COHESION §0ax ESC-R1-2) — `not-found`: X-W3's catch-all record,
+    // made a full `ViewId` by X.W5.a. It has no path of its own (it is
+    // `/:pathMatch(.*)*`), so the canonical deep link is an address the router
+    // does not declare — the same one gate A7 announces.
+    {
+        id: "not-found",
+        path: "/#/does-not-exist",
+        left: "not-found",
+        right: null,
+        admin: false,
         defaultPaneIndex: 0,
     },
 ];
