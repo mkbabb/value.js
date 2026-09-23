@@ -7589,3 +7589,98 @@ No product, spec or test byte moved: ⟨`git diff --stat 3cd0224e -- demo e2e te
 therefore stands as the record figure. This seat measured one new instability, e1 at 2 of 3 (R1-1), and hands it to the next
 check without re-counting the close. Self-count: **cured 0** (C1-1 · C1-2 · C1-3 escalated to X-W5 / `.j`; C1-4 is not a
 one-command cure; C1-5 · C1-6 are INFO, none owed). **Escalated 3**, and R1-1 joins C1-2's escalation. The row stays **PARTIAL**.
+
+## Check 2 — RESUME 2026-09-23 (L-20 fresh adversarial pass 2, over the seventh sitting's close `7b7947ad` + Repair 1 `919a860d`)
+
+SERVED MODEL: claude-opus-5-5[1m] · VERIFY-ONLY · 2026-09-23 ~02:10–02:25 EDT · HEAD `919a860d` · load 6.8 at open (⟨`uptime`⟩).
+Spec read whole once (`W6.md`, 490 L, four ADDENDA). Of this record: the seventh Close (`:7280-7451`), Check 1 (`:7452-7543`)
+and Repair 1 (`:7544-7591`) only.
+
+**Crash-recovery.** ⟨`git status --porcelain`⟩ → `V/reformation/CARRY-LEDGER.md` · `W6-evidence/catalog/after-{catalog-open,
+specimen-dots}.png` · `scripts/dev/dev.sh`. These are the same three rows every seat since the seventh Open has found. None is in
+this seat's writable set (this record and the LEDGER). Nothing was inherited, touched or staged.
+
+**Movement since Check 1.** ⟨`git log --oneline 7b7947ad..HEAD`⟩ → `3cd0224e` · `919a860d`. Both are record+LEDGER only
+(⟨`git show --stat`⟩: `X-W6.md` +92/+49, `LEDGER.md` +1/±1). ⟨`grep -n "^## §0" COHESION.md | tail -1`⟩ → `2918:## §0az`, so
+there is no new ruling. ⟨`grep -c ESC-W5d4-1 COHESION.md`⟩ → `0`. The LEDGER row for X-W5 still reads **PARTIAL — RESUME 7 close**.
+No product, spec or ruling byte has moved since the close.
+
+### Axis 1 — the claimed GREENs, re-run at this seat's clock
+
+| gate | ⟨cmd⟩ | this seat |
+|---|---|---|
+| a1 | `npx vite-node …/evidence/parse-probe.ts` → `npx vitest run test/gradient-order-invariant.test.ts` | probe EXIT 0 · `Tests 17 passed (17)` |
+| a2 · a3 · a4 · b3 · e1 | `VJS_E2E_PORT=9111 npx playwright test e2e/smoke/views/gradient.spec.ts e2e/smoke/oracles/o21-gradient-rail.spec.ts --project=smoke` | `1 failed · 21 passed (2.1m)` EXIT 1. Every a2/a3/a4/b3/e1 leg passed. The one failure is **`o21:60`** (*"terminal truth…"*, Expected < 123.88 · Received **167.09**), an a13 suite leg, byte-identical to the close's r1 |
+| c1 | `node …/gate-structure.mjs` | `GATE G4 (structure) — GREEN` |
+| c2 | `npx vitest run … -t "one sampling law"` | `4 passed \| 13 skipped (17)` |
+| c3 | `npx vite-node docs/tranches/X/gates/gate-literal-dialect.mjs` | `GATE c3 (literal dialect) — GREEN` |
+| c4 | `npx vitest run test/interpolation-subset.test.ts` | `5 passed (5)` |
+| d2 | `node …/x-w6/gate-easing-readout.mjs` | `DATED ASK` · local restyle `0 line(s)` |
+| e2 | rAF grep + `gate-prm-idiom.mjs` | `0` · `GATE e2 (PRM idiom) — GREEN` |
+| f1 · f5 · h2 · i2 | `gate-{catalog-totality,specimen-grammar,blob-pipeline,lband-door}.mjs` | EXIT 0 ×4 |
+| f2 · f7 · f8(grep) · f9 · f10 | the spec's greps (`W6.md:255-263`) + `npx vue-tsc --noEmit -p tsconfig.demo.json` | `0` · `0`/`0` + `vuetsc=0` · `0` · `2`/`0` · `0` |
+| f4 · f6 · f8 · i1 | `VJS_E2E_PORT=9131 npx playwright test o28 o25 o22 o23 o24 --project=smoke` | `4 passed` (o25 · o22 · o23 · o24); o28 is the 1 failure (i3, below) |
+| H1 | `node docs/tranches/X/gates/gate-no-chassis.mjs b2dd375c a87f8930` | `GATE H1 (no copied chassis) — GREEN` |
+| H3 | the R1 one-liner · glass `package.json` | `R1=0` · `7.0.0` |
+
+**26 claimed GREENs reproduce** (counted twice): a1 a2 a3 a4 b3 e1 c1 c2 c3 c4 d2 e2 f1 f2 f4 f5 f6 f7 f8 f9 f10 h2 i1 i2 H1 H3.
+**0 failed.** Each of these was cited from the close and not re-run: a12 · b2 · b4 · d1 · f3 · h1 · j4, plus the a5–a11 gesture-paint script.
+**The REDs reproduce.** i3: `o28` Received **0.15949 · 0.29331 · 0.24326** (byte-identical). g2: ⟨`VJS_E2E_PORT=9141 npx playwright
+test e2e/smoke/views/companion-pane-track-start.spec.ts -g "companion panes share one track start" --project=smoke`⟩ →
+*pane 105.2173 vs track 111.71875*, Received **6.50144** (deterministic). The first attempt at port 9121 died on
+`EADDRINUSE 127.0.0.1:8091`, a collision between this seat's own concurrent webServers, and was re-run alone. a13: `o21:60` RED on
+1 of 1 here. j1–j3: ⟨`grep -c "component: Stub" demo/color-picker/router/index.ts`⟩ → `14`; ⟨`ls e2e/smoke/oracles | grep -c o29`⟩ → `0`.
+H2: `motion-quarantine.md` is present, and the `.j` leg is owed.
+
+### Axes 2–9
+
+- **(2) Bounds.** Since the close, the only commits are `3cd0224e` and `919a860d`: record + LEDGER, 0 product bytes. The close's own
+  roster (`196c014d..7b7947ad`, 6 commits) was re-read by Check 1, and every path in it is inside bounds. `scripts/dev/dev.sh` is in no commit.
+- **(3) Masking.** There is no product diff this sitting. The `.i2` cure sits unlanded as a banked `.patch`, and Repair 1 added no settle or
+  wait. **0 masking hunks.**
+- **(4) Families.** No §9 product family was minted. The check and repair commits are one meaning each.
+- **(5) E-3.** ⟨`git diff --stat 196c014d..HEAD -- docs/tranches/X/waves/W6.md docs/tranches/V/megatranche/registry/adjudicated/
+  'docs/tranches/X/waves/W[0-9]*.md' scripts/dev/dev.sh`⟩ → **empty**.
+- **(6) Mail.** ⟨`grep -n "^| [IO]-[0-9]" INBOX.md | grep UNREAD`⟩ → O-20 · I-30 · I-31 · I-32 · I-35 · O-39 · I-40, the same set as the
+  close. None is addressed to X-W6: O-20 is a SENT glass row, and I-35 is KF.W6's. **0 UNREAD in scope.**
+- **(7) Four-verb.** The line holds at IMPLEMENTED **no**, which is lawful with RED gates standing. It did not move.
+- **(8) Goal §2a.** It is **not met** at the bytes. The routed-scene arm is 0 of 4 routes (`Stub` ×14, o29 absent), and the
+  first-paint atmosphere arm (i3) is unmet.
+- **(9) Figures.** The close's 33/17 re-sums from its lists (5+3+4+2+2+10+2+2+1+2 · 7+1+1+2+1+3+2), and both Received triplets and
+  6.50144 reproduce. **But the 33 counts e1**, and Repair 1 read e1 at 2 of 3 (R1-1). Under the close's own "not close-stable → RED"
+  rule, the lawful figure is **GREEN 32 / RED 18**. This seat read e1 GREEN on 1 of 1, which is not a stability reading. The
+  figure is registered below as a correction, not re-written into the close (E-3).
+
+### Axis 10 — RED adjudication at the spec bytes
+
+| gate | relief | owner | verdict |
+|---|---|---|---|
+| g1 | `W6.md:484` "**g1** honest-RED by id → X-W10 (M-23)" | X-W10 (R-6) | **HONEST-RED** |
+| b1 | `W6.md:486` "b1 = `B1-G3D` honest-RED-by-instrument" | X-W11 roster (R-4) | **HONEST-RED** |
+| i3 | COHESION §0ay: over budget → "closes i3 honest-RED by id `I3-SEED-SIZE`" (measured 50989 B > 12288 B, ×2) | OWNER (R-5) | **HONEST-RED** |
+| j1 · j2 · j3 · H4 · H2 (`.j` leg) | `W6.md:490` / §0az: `.j` OMITTED "on a later resume". This is a deferral **inside** the wave, not an id, and §6 lists no j-gate among its reliefs | `.j` after X-W5 CLOSED (R-7/R-8) | **UNRELIEVED — deferred, owned** |
+| g2 | None in W6.md. §0az gives X-W5 `.d4` the "W6 g2 GREEN ×2" duty, and ESC-W5d4-1 is unruled (0 hits) | X-W5 (R-15) | **UNRELIEVED** |
+| a5–a11 · a13 · e1 | The X-W5 cold-nav enter class (§0ay `COHESION.md:2898`). Nothing relieves it by id. a13 is RED 1 of 1 here | X-W5 (R-15) | **UNRELIEVED** |
+
+### Successor "Opens after" conjuncts
+
+X-W7 (`W7.md:6`), X-W8 (`W8.md:6`), X-W10 (`W10.md:6`) and X-W11 (`W11.md:6`) each carry an X-W6 conjunct, and each is **RED**
+(row PARTIAL, IMPLEMENTED no). All four are **lawfully blocked** by their own spec bytes, with X-W5 PARTIAL beside them. No
+conjunct on X-W6 is GREEN.
+
+### Register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C2-1 | HIGH | g2 is RED deterministically, and no spec byte relieves it (carries C1-1) | companion-pane `-g …` → Received 6.50144; `grep -c ESC-W5d4-1 COHESION.md` → 0 | an X-W5 ruling and cure, then W6 reads g2 ×2. No W6 settle |
+| C2-2 | HIGH | a5–a11, a13 and e1 are not close-stable, and nothing relieves them (carries C1-2 + R1-1) | `o21:60` RED 1 of 1 here (167.09); Repair 1's e1 read was 2 of 3 | the X-W5 cold-nav cure, then W6 reads ×3 |
+| C2-3 | MEDIUM | j1–j3, H4 and H2's `.j` leg are deferred inside the wave; the §2a routed-scene arm is unmet (carries C1-3) | `Stub` 14 · o29 0 · `W6.md:490` | `.j` on the resume after X-W5 CLOSES |
+| C2-4 | MEDIUM | the close's figure counts e1 GREEN although it is 2 of 3; the lawful figure is 32/18 | Repair 1 R1-1 · close Act 3 | the next close counts e1 RED until it reads ×3 GREEN |
+| C2-5 | MINOR | §8 artefacts are partial: gradient PNGs 0, owner-marks 0, no cold-load frame (carries C1-4) | close Act 4 | `.a`/`.b` evidence repair · `.i` re-sit (R-11) |
+| C2-6 | INFO | i3 `I3-SEED-SIZE` is lawfully honest-RED and waits on the OWNER | o28 triplet reproduces | owner: accept (a) · BK relay · (c) |
+
+### Verdict
+
+**NOT-CONFORMANT.** 26 of 26 re-run claimed GREENs reproduce and 0 failed. The honest-RED set is **g1 · b1 · i3**.
+**Unrelieved**: g2 · a5–a11 · a13 · e1, all X-W5-owned and unruled, with j1–j3 · H2 · H4 deferred to `.j`. The LEDGER row
+**stays PARTIAL** and nothing is promoted.
