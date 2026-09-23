@@ -2074,3 +2074,30 @@ Repair 1 lint and whitespace cures. That is 10 gate readings with 0 divergences.
 G14-grep → glass repin}**. **Unrelieved**: G19 (H-1) · S-5 (H-2) · c2 CI (M-1) · EC-10 / R-15 / R14 recovery (M-2). The LEDGER row is **NOT
 promoted** and stays `PARTIAL`. Next act: the orchestrator's rulings on ESC-W7g2-G19-PROSE · ESC-W7d2-BARREL · ESC-W7c2-LINT ·
 ESC-W7g3-EC10-TWIN / -R15-PLATEINK · ESC-W7g2-R14-RECOVERY, then a repair seat, then Check 3 (RESUME).
+
+## Repair 2 (RESUME 2026-09-23 — over Check 2 (RESUME)'s register)
+
+**Seat**: REPAIR, `claude-opus-5-5`, HEAD at entry `9b8fb106`. Read: W7.md §4 / the `:683` ADDENDUM · COHESION §0bk (`:3009-3019`) ·
+this record's §Check 2 (RESUME). **Crash-recovery** ⟨cmd⟩ `git status --porcelain` → ` M …/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh` ·
+`?? docs/tranches/X/audit/` · `?? …/chassis/ui-audit.js` · `?? …/keyframes/evidence/W13U/d3/`. None in this seat's writable set. **No inherited hunk.**
+**Rulings precondition** ⟨cmd⟩ `grep -nE 'ESC-W7d2|ESC-W7g2|ESC-W7g3|ESC-W7c2|ESC-W7a2' COHESION.md` → **0 lines** (×2). ⟨cmd⟩ `git log --oneline -3 -- COHESION.md`
+→ `988a2617` §0bs · `6c4535b8` §0br · `ca76f6ad` §0bq. None of them rules a RESUME escalation. The grants stand exactly as Check 2 read them.
+
+| id | defect | cure attempted | commit | gate re-reading (this seat) |
+|---|---|---|---|---|
+| H-1 | G19 RED, unrelieved | none lawful: the 6 net hits sit in `DESIGN.md:37`, `GradientCodeEditor.vue:102`, `EasingSpecimenStrip.vue:5,138`, `easingCatalogue.ts:81`, `ParseEchoReadout.vue:15`. None is in §0bk.3's `.g2` grant, and a widened exclusion is a spec addendum, not a seat act | — | ⟨`grep -rn eyebrow demo/ \| grep -v node_modules \| grep -v family-eyebrow \| wc -l`⟩ → **6** · **6** · **RED**, ESCALATED |
+| H-2 | S-5: `PaletteCard.vue` present | none lawful: the deletion also needs `browser/index.ts:18-19` and `card/index.ts:4` (the sub-barrel re-export) edited, and neither barrel is in §0bk.1's `.d2` list. Deleting the file alone breaks the barrel's type-check | — | ⟨`ls demo/palettes/browser/card/PaletteCard/`⟩ → `PaletteCard.vue` **present** · **RED**, ESCALATED |
+| M-1 | c2 CI producer job RED | none lawful: the cure is an `eslint.config.js` ignore grant, which is outside §0bk.5's `.c2` grant (`ci.yml` only). Scoping lint in `ci.yml` would mask | — | ⟨`gh run view 35899088286 --json jobs`⟩ → `producer / Node 22` **failure** at *"Run npm run lint"* · `producer / Node 24` **failure** at the same step · **RED** (fresh run, same cause), ESCALATED |
+| M-2 | EC-10 · R-15 unexecuted; R14 recovery leg RED | none lawful: each cure needs a path in no grant (Repair 1 (RESUME) table) | — | rulings 0 → **RED**, ESCALATED |
+| m-1 | `useVersionHistory.ts:52,73` `console.warn` | none: the file is outside the d2 grant. It folds into the ESC-W7d2 ruling | — | ESCALATED |
+| m-2 | vitest file-hook load flake | no one-command cure in bounds (X-W1 readiness hygiene, ESC-R2-SEAT-COLD) | — | watch; no gate moved |
+
+**Figures (WRITE-THEN-MEASURE, ×2)**: 6 net eyebrow hits (6 · 6) · `PaletteCard.vue` present (×2) · COHESION RESUME-escalation rulings **0** (0 · 0) ·
+CI `35899088286` producer jobs 2/2 failed at lint. **Cured: 0.** Nothing changed in the product tree, so no gate moved and no gate re-run was owed
+beyond these readings. This Repair's one commit is this section.
+
+### Verdict — **NO CURE LANDED; 6 of 6 rows ESCALATED** (2 HIGH · 2 MEDIUM · 2 MINOR)
+
+This is the third seat to reach the same wall. Every ≥MEDIUM cure needs a path outside every grant in §4 and §0bk, and none of the six escalations
+has been ruled. The next act is the orchestrator's, not another repair seat's: rule ESC-W7g2-G19-PROSE · ESC-W7d2-BARREL (with m-1) · ESC-W7c2-LINT ·
+ESC-W7g3-EC10-TWIN / -R15-PLATEINK · ESC-W7g2-R14-RECOVERY by dated COHESION addendum. After that, a repair seat and then Check 3 (RESUME). The LEDGER row stays `PARTIAL`.
