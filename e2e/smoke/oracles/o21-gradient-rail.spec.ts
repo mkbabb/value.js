@@ -202,6 +202,15 @@ test("the forward and inverse maps are inverse: a press at a handle's own pixel 
         await page.reload({ waitUntil: "networkidle" });
         await openView(page, "Gradient");
         await paneSettled(page);
+        // The reload lands back on `#/gradient`, so `openView` re-picks the
+        // view already mounted: no pane swap runs and `paneSettled` returns at
+        // once, while the view-select listbox is still closing. Until it has
+        // closed, the select's dismissable layer holds `body` at
+        // `pointer-events: none` and the raw `page.mouse.click` below reaches
+        // no element (measured: `elementFromPoint` → HTML, stops stay 2). Let
+        // the listbox close before pressing — a settle, not a relaxation: a
+        // listbox that never closes times this out and fails loudly.
+        await expect(page.getByRole("listbox")).toHaveCount(0);
         const live = bar(page.getByRole("main", { name: "Gradient" }));
         const ids = () =>
             live
