@@ -14,3 +14,8 @@ The owner's dock/morph/blob/aurora findings (OA-6, OA-18..25, OA-41) are measure
 ## ADDENDUM 2026-09-23 (COHESION §0cf): GLASS-VEIL-GREY limb
 - The repin measures the light-theme `.dock-plate` composite and every glass surface in view on the served page, before and after. Today, at 7.0.0, it reads `color(srgb 0.916 0.870 0.829 / 0.328)`, a light frost.
 - If it turns grey at 10.0.1, record honest-RED **GLASS-VEIL-GREY** (O-62). Never override locally.
+
+## ADDENDUM 2026-09-23 (b) — ESC-W7Rm-1 ruled (COHESION §0ci R-5)
+- **Hold on glass 7.0.0.** The 10.0.1 repin and its consumer migration stay banked as the committed patch (`d49d2238`). X-W7R's close returns the working tree's `package.json` and `package-lock.json` to the committed 7.0.0 pin. It never commits 10.0.1.
+- **GLASS-VEIL-GREY (O-62) is honest-RED for this wave.** The landing-repin wave X-W7L mints at BL's cut and applies the banked patch on top of the veil cure.
+- `.v` re-reads what it can at 7.0.0 and records each row as "defers to X-W7L".

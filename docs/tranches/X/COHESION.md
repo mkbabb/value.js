@@ -3181,3 +3181,30 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
   - An author, who writes `parse-that/waves/W7.md` (X.P.W7, BBNF SPEED UPLIFT) and `evidence/W7-research/BRIEF.md`.
 - **Law:** parse-that and bbnf-lang are read-only for this run. Their programs are surveyed, not written. Prototypes live under `evidence/W7-research/`.
 - **Cap:** Track D (X.P.W6R) was stopped at `.c` to free the fourth slot. It resumes from `wf_41f62d34-81d` when this run completes, then X.P.W7 follows. The stopped seat's `ci.yml` line is its inherited path.
+
+## §0ci ADDENDUM 2026-09-23 — owner acts discharged; the delegated rulings; OA-54
+- **Owner, verbatim:** *"npm login is done, the typescript compiler should be in BBNF-lang--then use your logic to ratify the rest"*. `npm whoami` reads `mkbabb` (verified).
+- **R-1, publishing is unwalled. The E401 owner item retires.**
+  - parse-that 2.x and the TypeScript `@mkbabb/bbnf-lang` publish inside X.P.W7, where the compiler depends on the published parse-that.
+  - value.js publishes at X-W11, after X.P.W7. Consumers never receive the slower parser.
+  - Every publish follows `npm whoami`, a clean tree and its package's own release gate.
+- **R-2, BBNF-TS-TOOLCHAIN is ruled by the owner. The TypeScript BBNF compiler lives in bbnf-lang** and is the maintained source of `@mkbabb/bbnf-lang`, on parse-that 2.x.
+  - bbnf-lang master carries 243 uncommitted paths of its own program (sk-v25). X.P.W7 works only on branch `x-p-w7-typescript`, in its own worktree beside the repo, and never touches master's worktree.
+  - At the wave's close the branch merges into master with a merge commit. Master is never rewritten.
+  - F-b-1..3 are cured at the compiler's root, and value.js's three call-site workarounds are removed in the same wave. That discharges "NO workarounds".
+  - The research run (`wf_aabc0842-0cc`) still picks the route on measured numbers. Whichever route wins, its compiler and emitter live in bbnf-lang.
+- **R-3, OC-1's speed bar is the owner's: faster than the retired hand parser on every bench entry.**
+  - The instrument is the paired, interleaved, same-process ratio, with load recorded.
+  - A ratio is robust to host load, so **PT-PERF-LOAD retires into it**. The quiesced-machine owner act is withdrawn.
+- **R-4, the audit frames.** 7,841 images, from the UI audit and the animation audit, are on disk and were verified byte-identical against the backup ref's tree. They stay local, git-excluded, in their evidence dirs, where the registers cite them.
+  - The backup ref `refs/backup/ui-audit-with-images-2026-09-23` is retired.
+  - **Erratum to §0ca:** the ref pointed at `31d15db7`, the pre-rewrite tip, not at `1288e433`. The verification read that ref's own tree.
+  - The branch reflog still reaches the old objects. Routine reflog expiry and gc reclaim them, so no racy reflog surgery is done while seats commit.
+- **R-5, the glass repins converge at BL's cut.**
+  - **value.js: X-W7R `.m` ESC-W7Rm-1 is ruled as a hold.** Glass 10's veil recut, which is GLASS-VEIL-GREY (O-62), turns value.js's plates into a dark-ink wash, and the certified-ink instrument throws `contrast_unreachable`. value.js stays on glass 7.0.0. The repin and its migration stay banked as the committed patch, and the working tree returns to the committed pin at X-W7R's close.
+  - **A landing-repin wave, X-W7L, mints when BL names its version.** It applies the banked patch on top of the veil cure.
+  - **X-W12 proceeds on 7.0.0.**
+  - **keyframes** keeps its landed 10.0.1, whose gates are green. KF.W13R measures the plates, and GLASS-VEIL-GREY stays honest-RED until the cut.
+  - **fourier** keeps 10.0.1 and carries the same id.
+- **R-6, the remaining operator items** (certbot, docker/nginx and the `-linux` baselines) belong to the deploy waves X-W10 and X-W11, which hold the deploy authority from the begin-word. They are not owner acts.
+- **OA-54 (owner, verbatim):** *"too gray, and the large dropdowns should not be so rounded. Perhaps for these, the large color space dropdowns, it should just be text, too."* Frame: `audit/owner-2026-09-23-colorspace-dropdown.png`, value.js's "Lab" colour-space trigger. Routed to X-W12 as unit `.t`, with the addendum in W12.md.
