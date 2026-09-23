@@ -10,117 +10,128 @@
          Ag-13: AdminListItem content slots use primary/secondary hierarchy;
          F-9: the secondary line is a CSS literal — a READOUT: Fira, never
          italic display type. -->
-    <div class="w-full grid gap-3 pb-3 min-w-0">
+    <div class="w-full grid gap-3 pb-3 min-w-0" :data-names-direction="namesDirection">
         <SegmentedTabs
             v-model="namesTab"
             variant="pill"
             class="w-full font-display"
-            :options="[
-                { label: `Pending · ${pendingItems.length}`, value: 'pending' },
-                { label: `Approved · ${approvedItems.length}`, value: 'approved' },
-            ]"
+            :options="namesTabOptions"
         />
 
-        <div v-if="namesTab === 'pending'" class="min-w-0">
-            <!-- W5-1 + F-13: the queue loads as row shadows, one grammar. -->
-            <div v-if="loadingPending" class="grid gap-2" aria-label="Loading pending proposals">
-                <AdminListSkeleton v-for="i in 3" :key="i" />
-            </div>
-            <!-- W5-5 (F-2): error ≠ empty — plain register (Q6). -->
-            <EmptyState
-                v-else-if="pendingError"
-                variant="error"
-                message="The proposal queue is unreachable."
-                :detail="pendingError"
-            >
-                <template #action>
-                    <Button variant="outline" size="sm" class="font-display" @click="emit('retryPending')">
-                        Retry
-                    </Button>
-                </template>
-            </EmptyState>
-            <EmptyState v-else-if="pendingItems.length === 0" eyebrow="· queue clear ·" message="No pending proposals." />
-            <div v-else class="grid gap-2 min-w-0">
-                <AdminListItem v-for="item in pendingItems" :key="item.id">
-                    <template #swatch>
-                        <div class="w-8 h-8 rounded-full border border-card-edge" :style="{ backgroundColor: item.css }" />
-                    </template>
-                    <template #content>
-                        <!-- primary line -->
-                        <span class="text-small font-medium truncate">{{ item.name }}</span>
-                        <!-- secondary line — a CSS literal is a readout (F-9) -->
-                        <span class="text-mono-small text-muted-foreground truncate">{{ item.css }}</span>
-                    </template>
-                    <template #actions>
-                        <Button variant="outline" size="xs" class="px-2 cursor-pointer" :aria-label="`Approve color name ${item.name}`" @click="emit('approve', item)">
-                            <Check class="w-3.5 h-3.5" aria-hidden="true" />
-                        </Button>
-                        <!-- W5-12 (F-8): destructive quieted to ink-at-rest;
-                             red arrives on hover/focus, never as a resting
-                             beacon on every row. -->
-                        <Button
-                            variant="ghost"
-                            size="xs"
-                            class="px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
-                            :aria-label="`Reject color name ${item.name}`"
-                            @click="emit('reject', item)"
-                        >
-                            <XIcon class="w-3.5 h-3.5" aria-hidden="true" />
-                        </Button>
-                    </template>
-                </AdminListItem>
-            </div>
-        </div>
+        <!-- X.W5.c2 · gate N15 (fold W5F-72 · D-misc-mobile-order): the
+             decided composition is SELECTOR before QUERY, in source order —
+             what AT and sequential focus follow. The parent supplies the
+             query here, below the strip, never above this panel. -->
+        <slot name="query" />
 
-        <div v-else class="min-w-0">
-            <div v-if="loadingApproved" class="grid gap-2" aria-label="Loading approved names">
-                <AdminListSkeleton v-for="i in 3" :key="i" />
-            </div>
-            <!-- W5-5 (F-2): error ≠ empty — plain register (Q6). -->
-            <EmptyState
-                v-else-if="approvedError"
-                variant="error"
-                message="The approved list is unreachable."
-                :detail="approvedError"
-            >
-                <template #action>
-                    <Button variant="outline" size="sm" class="font-display" @click="emit('retryApproved')">
-                        Retry
-                    </Button>
-                </template>
-            </EmptyState>
-            <EmptyState v-else-if="approvedItems.length === 0" eyebrow="· none approved yet ·" message="No approved color names." />
-            <div v-else class="grid gap-2 min-w-0">
-                <AdminListItem v-for="item in approvedItems" :key="item.id">
-                    <template #swatch>
-                        <div class="w-8 h-8 rounded-full border border-card-edge" :style="{ backgroundColor: item.css }" />
-                    </template>
-                    <template #content>
-                        <!-- primary line -->
-                        <span class="text-small font-medium truncate">{{ item.name }}</span>
-                        <!-- secondary line — a CSS literal is a readout (F-9) -->
-                        <span class="text-mono-small text-muted-foreground truncate">{{ item.css }}</span>
-                    </template>
-                    <template #actions>
-                        <!-- W5-12 (F-8): quiet destructive — ink at rest. -->
-                        <Button
-                            variant="ghost"
-                            size="xs"
-                            class="px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
-                            :aria-label="`Delete color name ${item.name}`"
-                            @click="emit('delete', item)"
-                        >
-                            <Trash2 class="w-3.5 h-3.5" aria-hidden="true" />
+        <!-- X.W5.c2 · gate D4 (COHESION §0aq, ESC-W5d-2): the Pending |
+             Approved swap is a NAMED transition, never a bare `v-if` cut —
+             one root per branch, `vj-morph` out-in, as MixSourceSelector's
+             mode swap. The direction token (`data-names-direction` above,
+             read from the strip's own option order) sets which way the
+             content travels. -->
+        <Transition name="vj-morph" mode="out-in">
+            <div v-if="namesTab === 'pending'" key="pending" class="min-w-0">
+                <!-- W5-1 + F-13: the queue loads as row shadows, one grammar. -->
+                <div v-if="loadingPending" class="grid gap-2" aria-label="Loading pending proposals">
+                    <AdminListSkeleton v-for="i in 3" :key="i" />
+                </div>
+                <!-- W5-5 (F-2): error ≠ empty — plain register (Q6). -->
+                <EmptyState
+                    v-else-if="pendingError"
+                    variant="error"
+                    message="The proposal queue is unreachable."
+                    :detail="pendingError"
+                >
+                    <template #action>
+                        <Button variant="outline" size="sm" class="font-display" @click="emit('retryPending')">
+                            Retry
                         </Button>
                     </template>
-                </AdminListItem>
+                </EmptyState>
+                <EmptyState v-else-if="pendingItems.length === 0" eyebrow="· queue clear ·" message="No pending proposals." />
+                <div v-else class="grid gap-2 min-w-0">
+                    <AdminListItem v-for="item in pendingItems" :key="item.id">
+                        <template #swatch>
+                            <div class="w-8 h-8 rounded-full border border-card-edge" :style="{ backgroundColor: item.css }" />
+                        </template>
+                        <template #content>
+                            <!-- primary line -->
+                            <span class="text-small font-medium truncate">{{ item.name }}</span>
+                            <!-- secondary line — a CSS literal is a readout (F-9) -->
+                            <span class="text-mono-small text-muted-foreground truncate">{{ item.css }}</span>
+                        </template>
+                        <template #actions>
+                            <Button variant="outline" size="xs" class="px-2 cursor-pointer" :aria-label="`Approve color name ${item.name}`" @click="emit('approve', item)">
+                                <Check class="w-3.5 h-3.5" aria-hidden="true" />
+                            </Button>
+                            <!-- W5-12 (F-8): destructive quieted to ink-at-rest;
+                                 red arrives on hover/focus, never as a resting
+                                 beacon on every row. -->
+                            <Button
+                                variant="ghost"
+                                size="xs"
+                                class="px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
+                                :aria-label="`Reject color name ${item.name}`"
+                                @click="emit('reject', item)"
+                            >
+                                <XIcon class="w-3.5 h-3.5" aria-hidden="true" />
+                            </Button>
+                        </template>
+                    </AdminListItem>
+                </div>
             </div>
-        </div>
+
+            <div v-else key="approved" class="min-w-0">
+                <div v-if="loadingApproved" class="grid gap-2" aria-label="Loading approved names">
+                    <AdminListSkeleton v-for="i in 3" :key="i" />
+                </div>
+                <!-- W5-5 (F-2): error ≠ empty — plain register (Q6). -->
+                <EmptyState
+                    v-else-if="approvedError"
+                    variant="error"
+                    message="The approved list is unreachable."
+                    :detail="approvedError"
+                >
+                    <template #action>
+                        <Button variant="outline" size="sm" class="font-display" @click="emit('retryApproved')">
+                            Retry
+                        </Button>
+                    </template>
+                </EmptyState>
+                <EmptyState v-else-if="approvedItems.length === 0" eyebrow="· none approved yet ·" message="No approved color names." />
+                <div v-else class="grid gap-2 min-w-0">
+                    <AdminListItem v-for="item in approvedItems" :key="item.id">
+                        <template #swatch>
+                            <div class="w-8 h-8 rounded-full border border-card-edge" :style="{ backgroundColor: item.css }" />
+                        </template>
+                        <template #content>
+                            <!-- primary line -->
+                            <span class="text-small font-medium truncate">{{ item.name }}</span>
+                            <!-- secondary line — a CSS literal is a readout (F-9) -->
+                            <span class="text-mono-small text-muted-foreground truncate">{{ item.css }}</span>
+                        </template>
+                        <template #actions>
+                            <!-- W5-12 (F-8): quiet destructive — ink at rest. -->
+                            <Button
+                                variant="ghost"
+                                size="xs"
+                                class="px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
+                                :aria-label="`Delete color name ${item.name}`"
+                                @click="emit('delete', item)"
+                            >
+                                <Trash2 class="w-3.5 h-3.5" aria-hidden="true" />
+                            </Button>
+                        </template>
+                    </AdminListItem>
+                </div>
+            </div>
+        </Transition>
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref, watch } from "vue";
 import { SegmentedTabs } from "@mkbabb/glass-ui/tabs";
 import { Button } from "../../../ui/button";
 import { Check, X as XIcon, Trash2 } from "@lucide/vue";
@@ -129,7 +140,7 @@ import AdminListItem from "./AdminListItem.vue";
 import EmptyState from "../../../shared/ui/EmptyState.vue";
 import AdminListSkeleton from "./AdminListSkeleton.vue";
 
-const { pendingError = null, approvedError = null } = defineProps<{
+const { pendingItems, approvedItems, pendingError = null, approvedError = null } = defineProps<{
     pendingItems: ProposedColorName[];
     approvedItems: ProposedColorName[];
     loadingPending: boolean;
@@ -149,4 +160,35 @@ const emit = defineEmits<{
 }>();
 
 const namesTab = ref<string>("pending");
+
+const namesTabOptions = computed(() => [
+    { label: `Pending · ${pendingItems.length}`, value: "pending" },
+    { label: `Approved · ${approvedItems.length}`, value: "approved" },
+]);
+
+// X.W5.c2 · gate D4 — the swap's direction token, read from the strip's OWN
+// option order: a move to a later tab is `forward`, to an earlier one `back`.
+// Updated in the pre-flush, so the token and the swap render together.
+const namesDirection = ref<"forward" | "back">("forward");
+watch(namesTab, (to, from) => {
+    const order = namesTabOptions.value.map((o) => o.value);
+    namesDirection.value = order.indexOf(to) >= order.indexOf(from) ? "forward" : "back";
+});
 </script>
+
+<style scoped>
+/* X.W5.c2 · gate D4 — the swap's travel, the MixSourceSelector idiom: the
+   direction token sets the `vj-morph` inline offset ON THE BRANCH ROOT ONLY,
+   only while its enter-from / leave-to class is on it; the leave mirrors it.
+   Motion only: the global reduced-motion guard (animations.css) zeroes it. */
+[data-names-direction="forward"] > .vj-morph-enter-from,
+[data-names-direction="forward"] > .vj-morph-leave-to {
+    --vj-morph-x: 1.5rem;
+    --vj-morph-y: 0px;
+}
+[data-names-direction="back"] > .vj-morph-enter-from,
+[data-names-direction="back"] > .vj-morph-leave-to {
+    --vj-morph-x: -1.5rem;
+    --vj-morph-y: 0px;
+}
+</style>

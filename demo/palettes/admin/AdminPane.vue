@@ -9,13 +9,12 @@
                  register (utils.css `.search-seated`; interim, booked onto
                  the P3 seated rung / ASK-D). -->
             <SearchBar
-                v-if="subView === 'admin-users' || subView === 'admin-names'"
+                v-if="subView === 'admin-users'"
                 v-model="pm.searchQuery.value"
                 class="search-seated"
-                :placeholder="subView === 'admin-users' ? 'Search users...' : 'Search color names...'"
+                placeholder="Search users..."
             >
                 <UserSortMenu
-                    v-if="subView === 'admin-users'"
                     :sort="pm.userSortMode.value"
                     @update:sort="pm.onUserSortChange"
                 />
@@ -55,7 +54,17 @@
                 @delete="pm.onDeleteColor"
                 @retry-pending="pm.loadColorQueue"
                 @retry-approved="pm.loadApprovedColors"
-            />
+            >
+                <!-- X.W5.c2 · gate N15: the names query seats BELOW the
+                     Pending | Approved selector (source order, not `order:`). -->
+                <template #query>
+                    <SearchBar
+                        v-model="pm.searchQuery.value"
+                        class="search-seated"
+                        placeholder="Search color names..."
+                    />
+                </template>
+            </AdminNamesPanel>
 
             <!-- Audit log sub-view -->
             <AdminAuditPanel v-if="subView === 'admin-audit'" />
@@ -86,9 +95,15 @@ import {
 import { UserSortMenu } from "../browser/search";
 import { SearchBar } from "@mkbabb/glass-ui/search";
 import PaneHeader from "../../shared/ui/PaneHeader.vue";
+import type { PaneId } from "../../shell/viewSchema";
+
+// X.W5.c2 · gate N14 (ATP-33): the admin view identity is DECLARED ONCE, in
+// viewSchema.ts's `PaneId` union; this pane derives its sub-view set from it
+// instead of re-spelling a sixth literal union vue-tsc could not relate.
+type AdminSubView = Extract<PaneId, `admin-${string}`>;
 
 const { subView } = defineProps<{
-    subView: "admin-users" | "admin-names" | "admin-audit" | "admin-flagged" | "admin-tags";
+    subView: AdminSubView;
 }>();
 
 const cssColorOpaque = inject(CSS_COLOR_KEY)!;
