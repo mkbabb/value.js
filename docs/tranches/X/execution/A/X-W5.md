@@ -3710,3 +3710,16 @@ D1 of record (headed real-GPU) was not re-run here. It is banked 2/2 at the clos
 X-W6 and X-W8 list X-W5 directly in their Opens-after, and X-W10 lists X-W5 among its conjuncts. X-W7 reaches X-W5 through X-W6. The X-W5 conjunct is **RED** (PARTIAL), so all four remain **lawfully BLOCKED-ON X-W5**. X-W5's own Opens-after conjuncts are GREEN: X-W4, X-W2 and X-W0 are CLOSED, and D2 exits 0.
 
 Self-count: 14 claimed GREENs re-run and reproduced (A1 · A4 · A7 · B4 · C4 · C8 · D2 · D3 · D4 · E1 · E2 · landmark · containment · census-parity ×2) · 2 RED legs reproduced ×2 · 2 HIGH · 1 INFO.
+
+## Repair 2 — RESUME 5, L-20 repair round 2 over Check 2, 2026-09-22
+
+SERVED MODEL: claude-opus-5-5[1m] (Opus repair seat). Crash-recovery: ⟨cmd⟩ `git status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh`. Both are outside this seat's writable set, so there is no inherited partial work.
+Inputs: `W5.md` whole (396 L, both ADDENDA), `## Repair 1` and `## Check 2` (RESUME 5). ⟨cmd⟩ `git diff --stat 725e26dc..HEAD -- demo e2e src vite.config.ts docs/tranches/X/COHESION.md docs/tranches/X/waves/W5.md` → empty. ⟨cmd⟩ `git log -1 --oneline -- docs/tranches/X/COHESION.md` → `df34be29` (§0ax). ⟨cmd⟩ `grep -c ESC-W5c2 docs/tranches/X/COHESION.md` → **0**.
+
+| defect | cure | commit | gate re-reading |
+|---|---|---|---|
+| K2-1 HIGH: o16 R2 literal vs producer `0.44s` | **None landed. ESCALATED.** ESC-W5c2-1 is still unruled (grep → 0). The literal also sits outside every grant. ⟨cmd⟩ `grep -n '"0.4s"' e2e/smoke/oracles/o16-computed-cascade.spec.ts` → `:218` (R2 enter) and `:266` (morph). §0aq/§0ax grant only `o16:158`. (Check 2 cited the literal at `:217`, but that line is the `log("R2 enter", …)` call; the literal is on the next line.) ⟨cmd⟩ `grep -o -- '--spring-snappy-settle: [^;]*' …/glass-ui/dist/styles/tokens/scheme-spring.css` → `0.44s`. | — | unchanged: RED (Check 2 K2.2 ×2 stands) |
+| K2-2 HIGH: o12 O-12·3 hover frame-diff < 6/255 | **None landed. ESCALATED.** ESC-W5c2-2 is still unruled. The only o12 grant is `o12:68`, and a renderer or mood-root cure lies outside W5 §4 (§3a). No floor change and no skip. | — | unchanged: RED |
+| K2-3 INFO: D1 headless SwiftShader | none required (operator item, already registered) | — | — |
+
+No cure landed and no byte moved, so no gate was re-run. The Check 2 double-run readings stand as the figures of record. Self-count: 0 cured · 2 escalated · 1 INFO with no action. The row stays **PARTIAL**, and IMPLEMENTED stays unstamped, until COHESION rules ESC-W5c2-1 (with a grant for `o16:218` and `:266`) and ESC-W5c2-2.
