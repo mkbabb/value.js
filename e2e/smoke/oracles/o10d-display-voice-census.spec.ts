@@ -30,8 +30,8 @@ import { openView, expandDock, mainPane } from "../fixtures/dock";
  *       VersionHistoryDrawer's SheetTitle, the action-bar hover-card titles
  *       ("Copy color", "Enter a color") — driven open and censused rendered;
  *   5 · the rename-input morph re-verified under the serif (seeded local
- *       palette: serif title → menu Rename → input focused → Escape → input
- *       retired, serif title standing — X.W7.d2);
+ *       palette: serif title → menu Rename → input focused, title yielded →
+ *       Escape → input retired, serif title back — X.W7.d2);
  *   6 · MigratePalettesDialog — SESSION-GATED (slug-migration flow only); a
  *       SOURCE row asserts its DialogTitle carries the register classes (the
  *       byte-honest fallback for the one surface no cheap user path reaches).
@@ -424,7 +424,8 @@ test("O-10d census — the rename-input morph re-verified under the serif (seede
     // props-only text (G12 — zero interactive descendants), so rename is the
     // selected-entity inspector's verb, reached through its menu's Rename item.
     // The rename input unfurls in the inspector's detail band and mounts
-    // focused; Escape retires it, and the serif title stands throughout.
+    // focused while the serif title yields; Escape retires it and restores
+    // the title.
     await main
         .getByRole("button", { name: "Palette menu" })
         .filter({ visible: true })
@@ -437,6 +438,9 @@ test("O-10d census — the rename-input morph re-verified under the serif (seede
         .first();
     await expect(renameInput).toBeVisible();
     await expect(renameInput).toBeFocused();
+    // S.W5-7 (never the same string twice): the serif title yields while the
+    // input shows the name; Escape restores it (asserted below).
+    await expect(title).toBeHidden();
     await renameInput.press("Escape");
     await expect(renameInput).toBeHidden();
     await expect(

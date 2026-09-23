@@ -23,6 +23,7 @@
             <span
                 data-palette-name
                 class="palette-specimen__name font-display font-medium text-subheading"
+                :class="{ invisible: nameYielded }"
                 :title="palette.name"
             >{{ palette.name }}</span>
             <!-- S.W7-7: the featured badge's gold TEXT shimmer consumes the
@@ -82,10 +83,18 @@ import type { Palette } from "../../types";
 import { formatCount } from "../../../color-session/format-color";
 import PaletteColorStrip from "./PaletteColorStrip.vue";
 
-const { palette, layout = "default" } = defineProps<{
+const {
+    palette,
+    layout = "default",
+    nameYielded = false,
+} = defineProps<{
     palette: Palette;
     /** "default" = strip on top; "aside" = vertical strip on the left. */
     layout?: "default" | "aside";
+    /** S.W5-7 (never the same string twice): the host sets this while its
+     *  rename input shows the name, so the name yields its ink but keeps its
+     *  box (no geometry jump). */
+    nameYielded?: boolean;
 }>();
 </script>
 

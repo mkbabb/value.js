@@ -148,3 +148,21 @@ describe("the selected entity rides X-W4's typed SceneActionSet", () => {
         wrapper.unmount();
     });
 });
+
+describe("S.W5-7 · never the same string twice (Repair 1, Check 1 M-3)", () => {
+    it("the specimen's name yields while the rename input shows it, and returns on cancel", async () => {
+        const { wrapper, registry } = mountInspector(SAVED);
+        const name = () => wrapper.find("[data-palette-name]");
+        expect(name().classes()).not.toContain("invisible");
+        void registry.value[0]?.commands.rename?.();
+        await flushPromises();
+        const input = wrapper.find('input[placeholder="Palette name..."]');
+        expect(input.exists()).toBe(true);
+        expect(name().classes()).toContain("invisible");
+        await input.trigger("keydown", { key: "Escape" });
+        await flushPromises();
+        expect(wrapper.find('input[placeholder="Palette name..."]').exists()).toBe(false);
+        expect(name().classes()).not.toContain("invisible");
+        wrapper.unmount();
+    });
+});

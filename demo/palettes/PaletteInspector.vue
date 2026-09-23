@@ -28,7 +28,11 @@
              `<span class="cartoon-cast">` matched no served rule: glass-ui 7
              ships `.cartoon-cast` only in `dist/styles/glass/glass-atom.css`,
              which neither the `./styles` entry nor the exports map reaches. -->
-        <PaletteSpecimen :palette="palette" :layout="layout" />
+        <PaletteSpecimen
+            :palette="palette"
+            :layout="layout"
+            :name-yielded="renaming"
+        />
 
         <!-- Drag handle. T.W6.5 row 8 (F-4 sweep): the muted token is the
              de-emphasis rung. -->
