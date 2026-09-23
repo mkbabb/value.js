@@ -16,7 +16,6 @@
 // the tree-shake-honest reach.
 
 export {
-    PaletteCard,
     PaletteCardGrid,
     PaletteCardSkeleton,
     ShadowPalette,
