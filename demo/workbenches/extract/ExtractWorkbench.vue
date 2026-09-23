@@ -309,14 +309,3 @@ async function captureFrame() {
 onDeactivated(camera.stop);
 onBeforeUnmount(camera.stop);
 </script>
-
-<style scoped>
-/* E1-R1 (T.W8 remediation_1): the dominance row + the undeveloped-plate ghost
- * caption thread the certified de-emphasis rung (`--ink-muted` — boot-stamped,
- * floor-clamped against the live resting plate; D6), never the STATIC
- * `text-muted-foreground` that failed the text floor over the live-ambient
- * plate in light. */
-.plate-ink {
-    color: var(--ink-muted, var(--muted-foreground));
-}
-</style>

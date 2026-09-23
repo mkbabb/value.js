@@ -97,14 +97,3 @@ const { isOverDropZone } = useDropZone(zoneRef, {
     },
 });
 </script>
-
-<style scoped>
-/* E1-R1 (T.W8 remediation_1): the drop-zone caption family (placeholder icon +
- * prompt) threads the certified de-emphasis rung (`--ink-muted` — boot-stamped,
- * floor-clamped against the live resting plate; D6) instead of the STATIC
- * `text-muted-foreground` that failed the text floor over the live-ambient
- * plate in light. */
-.plate-ink {
-    color: var(--ink-muted, var(--muted-foreground));
-}
-</style>

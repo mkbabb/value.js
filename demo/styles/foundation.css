@@ -250,6 +250,15 @@
      * surface, no demo-local glass recipe). */
     --accent-live: oklch(0.632 0.214 13.5);
 
+    /* ── The de-emphasis rung (X.W7.z2 · R-15 ≡ C-11) ──
+     * `--ink-muted` is the certified plate-caption ink: `useAtmosphereBoot`
+     * stamps the live value on the root (`resolveMutedInk`, floor-clamped
+     * against the resting plate). This is its stylesheet declaration, so the
+     * pre-boot read is never the sub-floor `--muted-foreground`: the value
+     * `resolveMutedInk` yields at the pre-palette ambient (L 0.5 → resting
+     * rung 0.808). The dark arm lives in `.dark` below. */
+    --ink-muted: oklch(0.369 0.004 34.6);
+
     /* ── The per-view accent (S.W7 · W7-4 — navigation reads chromatically,
      * gamut-guaranteed). The former CSS relative-color derivation
      * (`oklch(from var(--accent-live) l c calc(h + shift))`) trusted the
@@ -572,6 +581,10 @@
      * glass-ui's dark arm re-declares --focus-ring-color to warm gray; re-pin
      * it to the accent axis (`--accent-live` is contrast-guarded per scheme). */
     --focus-ring-color: var(--accent-live);
+
+    /* The de-emphasis rung's dark arm (X.W7.z2 · R-15): `resolveMutedInk`
+     * at the pre-palette ambient (resting rung 0.352); boot overwrites it. */
+    --ink-muted: oklch(0.789 0.004 41.9);
 }
 
 /* ── The text-selection ink (T.W8 · P11-R1/T-24) ──

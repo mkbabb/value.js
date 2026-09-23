@@ -98,16 +98,3 @@ withDefaults(
 const root = useTemplateRef<HTMLElement>("root");
 defineExpose({ focus: () => root.value?.focus() });
 </script>
-
-<style scoped>
-/* P4-R2 + P11-R3 (T.W8 remediation_1): the shared empty/error plate's captions
- * — the hint, the error detail line — thread the certified
- * de-emphasis rung (`--ink-muted` — boot-stamped, floor-clamped against the
- * live resting plate; D6). This is the ONE shared empty atom (8 consumers incl.
- * the admin walls), so every consumer inherits the cure. The primary display
- * line drops its `/85` guard-then-alpha (D6 retires the class by name) to the
- * full certified `--foreground`. */
-.plate-ink {
-    color: var(--ink-muted, var(--muted-foreground));
-}
-</style>

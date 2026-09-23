@@ -187,12 +187,4 @@ defineEmits<{
 .touch-gate-target {
     border-radius: var(--radius-pill);
 }
-
-/* E1-R1 (T.W8 remediation_1): the extract plate's labels/readouts thread the
- * certified de-emphasis rung (`--ink-muted` — boot-stamped, floor-clamped
- * against the live resting plate; D6), never the STATIC `text-muted-foreground`
- * that composited 2.82–3.08:1 over the live-ambient plate in light. */
-.plate-ink {
-    color: var(--ink-muted, var(--muted-foreground));
-}
 </style>

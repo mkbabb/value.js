@@ -181,6 +181,18 @@
     --vj-enter-scale: 0;
 }
 
+/* The plate ink (X.W7.z2 · R-15 ≡ C-11) — the ONE recipe for the plate
+ * captions (ImageDropZone, ExtractWorkbench, ExtractControls, EmptyState, and
+ * through EmptyState the ErrorBoundary and PaneErrorPlate plates): the
+ * certified de-emphasis rung `--ink-muted` (declared at `:root` in
+ * foundation.css, boot-stamped live), never the STATIC `text-muted-foreground`
+ * that failed the text floor over the live-ambient plate. A shared recipe
+ * (4 consumers) per DESIGN.md's global-utility rule; the bare read, no
+ * masking fallback. */
+.plate-ink {
+    color: var(--ink-muted);
+}
+
 /* THE GUARDED LETTERFORM RAMP recipe (T.W6 · W6-4 — Q5 RULED, owner-verbatim:
  * "Only palettes should be rainbow--the letterforms dropdown and the title";
  * T-43 owner-CONFIRMS). The ONE recipe for the exactly-TWO consume sites
