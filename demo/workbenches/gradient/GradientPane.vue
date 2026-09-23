@@ -11,7 +11,7 @@ import GradientVisualizer from "./GradientVisualizer/GradientVisualizer.vue";
 // would have turned a missing provider into a silent `undefined` rather than
 // the loud failure the key's owner intends.
 const visualizerRef =
-    useTemplateRef<InstanceType<typeof GradientVisualizer>>("visualizer");
+    useTemplateRef<InstanceType<typeof GradientVisualizer>>("gradientVisualizer");
 
 /**
  * X-W6 · X.W6.j (the Gradient PILOT, CC-056 · V·L3) — the pane adopts the
@@ -45,7 +45,7 @@ defineExpose({
                 Gradient
             </PaneHeader>
             <div class="flex flex-col gap-4 pb-4 px-4 sm:px-6 pt-2">
-                <GradientVisualizer ref="visualizer" />
+                <GradientVisualizer ref="gradientVisualizer" />
             </div>
         </Card>
     </div>
