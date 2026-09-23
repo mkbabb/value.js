@@ -408,3 +408,5 @@ tarball for V"*; no conjunct returns TRUE unmeasured.
 vacuously true"*). **§4's evaluation of record is not rewritten** — its conjunct 3 read the
 candidate-side CLI (`44`); this addendum's conjunct 3 reads `V` (`20,962`). Both are true of their
 subject, and only the second is RC-P's.
+
+**ADDENDUM 2026-09-23 (§2.4, dated beside; COHESION §0bx — F-W5d-1 (b)).** Conjunct 4 `ADMITTED(V)`'s subject is V's installed dependency closure: a `.wasm` shipped by a dependency V declares (e.g. `@mkbabb/parse-that/**/ac1.wasm`) counts. V never vendors a dependency's artefact to satisfy this conjunct.

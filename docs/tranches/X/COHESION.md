@@ -3087,3 +3087,9 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
 
 ## §0bw ADDENDUM 2026-09-23 — OA-44 (fourier visualizations blurry) · OA-45 (control hierarchy/spacing needs total reconfiguration, every page) → F.W14 `.p` + `.h`
 - **Owner, verbatim**: *"The epicycles and viz areas are very vlurry and not high res; and the design hireachy and spacing of these elements and sliders, likely on every page, too, is not optimal and needs total reconfiguration"* (frames `fourier/evidence/W14/owner-2026-09-23-{blurry,hierarchy}.png`) → **OA-44** device-pixel-ratio-correct canvases everywhere (`.p`); **OA-45** one control-row idiom + page hierarchy across every fourier page (`.h`, design seat, effort high; missing primitive → BL). The same control-row question for value.js and keyframes rides X-W12 `.d` and KF.W13V `.u` via the UI audit's registers.
+
+## §0bx ADDENDUM 2026-09-23 — X.P.W5: parse-that's CSS surface merged, equivalence 0 defects, `color-mix()` to WPT; 2.0.0 released but UNPUBLISHED (npm token E401 = OWNER ACT); rulings F-W5c-1 (spec), F-W5d-1 (b), ESC-c1 granted, full Color 4/5 coverage ordered
+- Landed and pushed in parse-that: `4eac70c1` (merge), `902172d` (the 152 "mismatches" were already-ruled cells the harness ignored → 0), `ec18f4b` (`color-mix()`, legacy comma forms), `488523c` (2.0.0 release commit).
+- **OWNER ACT (the only blocker on publishing)**: `npm whoami` → E401 on this host. The owner runs `npm login`; the resumed `.d` then builds, publishes and tags.
+- Rulings (W5.md addendum): F-W5c-1 → the spec (legacy syntax refuses `none`); F-W5d-1 → (b) dependency closure (RELEASE-CONDITION §2.4 addendum); ESC-c1 → `.f`; SC-1 `calc()` in channels, SC-2 `display-p3-linear`, R-c-2 `light-dark()` via the existing context path, R-b-2 `var()` in `animation` → `.g`; perf → `PT-PERF-LOAD` (quiesced read by the orchestrator).
+- Track D relaunched.
