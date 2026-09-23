@@ -306,3 +306,76 @@ This close swept the four paths plus the glass newest-tranche directory. Glass c
 The spec's §State designates no seat to stamp VERIFIED, so the four-verb line moves only to **X.P.W6 IMPLEMENTED 2026-09-23**. The `.r` → `.b` → `.h` → `.x` serial chain is closed. RC-P was re-read (`0eb6732e`). VERIFIED waits for the designated reader (X-W11's RC-P coordinate).
 
 **PERF retry reading:** no window with a 1-min load under 18 opened during the close (⟨`sysctl -n vm.loadavg`⟩ read 23.84 to 64.39 from 16:52 to 17:05), so the retry produced no reading. The leg stays at the `.r` reading (PASS ×2 at load ~11) plus this seat's loaded FAIL ×2, carried as PT-PERF-LOAD.
+
+## Check 1
+
+Fresh adversarial check (L-20, pass 1). Seat `claude-opus-5-5`, 2026-09-23 ~16:55–17:10 EDT. The seat read the spec W6.md whole (19 lines), plus this record's header through the Unit plan and the Close. Every named commit was `git show --stat`-ed. HEAD was value.js `228e6c27` and parse-that `92d8ea7` (= `origin/master`). Load averaged 24–34 (1-min) over 18 cores. Crash-recovery found nothing dirty in this seat's writable set (this record, LEDGER). The parse-that `rust/**`, `.cargo/config.toml` and `README.md` rows are foreign and were left untouched.
+
+### Gates re-run by this seat (write-then-measure, ×2 where the close claims ×2)
+
+| gate | command (this seat) | reading | verdict |
+|---|---|---|---|
+| G-r1 | parse-that ⟨`cd typescript && npm test`⟩ ×2 | `Test Files 14 passed (14)` · `Tests 134 passed (134)` both | GREEN, reproduces |
+| G-r2 | ⟨`npm run proof:all`⟩ + ⟨`npm run -s proof:no-css-surface`⟩ | manifest · subpath · packrat-cross-input · packrat-reentrant · packrat-large-offset · packrat-armed · no-span-surface · no-dead-combinator · no-css-surface all GREEN/PASS (9 legs); `proof:no-css-surface GREEN — 31 runtime exports, zero CSS surface.` exit 0; `proof:perf` FAIL `json-comprehensive regressed 16.7% vs baseline (threshold 15%)` at 1-min load 24.5 | 9/10 GREEN, reproduces; perf = honest-RED (below) |
+| G-r3 | ⟨`git grep -lE '\.bbnf\|css' -- typescript/src`⟩; `./css` export diff of `92d8ea7` | (none); `-"./css"` export and `-"./src/css"` files entry removed | GREEN, reproduces |
+| G-b1 | ⟨`npx vitest run test/css`⟩ ×2 | `Test Files 3 passed (3)` · `Tests 34 passed (34)` both | GREEN, reproduces |
+| G-b2 | ⟨`npx vue-tsc -p tsconfig.lib.json --noEmit \| grep -c "error TS"`⟩ ×2; ⟨`npx vue-tsc -p tsconfig.test.json --noEmit`⟩ | `0` · `0`; exit 0 | GREEN, reproduces |
+| G-b3 | ⟨`ls src/css/grammar/`⟩ | color · math · stylesheet · tokens · value `.bbnf` (5) | GREEN, reproduces |
+| G-h1 | ⟨`npx vitest run -c bench/vitest.config.ts`⟩ ×2 | `Test Files 2 passed (2)` · `Tests 19 passed (19)` both | GREEN, reproduces |
+| G-x1 | ⟨`ls src/css/grammar.ts`⟩; ⟨`git grep -nE 'from "\./grammar"\|css/grammar"\|splitValueTokens' -- src test bench demo`⟩ | `No such file or directory`; one DATA row, `bench/css-equivalence/real-corpus.json:1740` | GREEN, reproduces |
+| G-x2 | ⟨`npm test`⟩ ×2 | `Test Files 2 failed \| 65 passed (67)` · `Tests 2 failed \| 908 passed (910)` both; the 2 = `test/spectrum-luma.test.ts` C-5 BORN-RED and `demo/test/shell/reka-binding-idiom.test.ts` NG-6 | reproduces; the 2 are foreign (below) |
+| G-x3 | ⟨`ls bench/records`⟩ | `2026-09-23-x-p-w6-x.json` (`58bbd617`) | RECORD present |
+| G-x4 | ⟨`VALUE_DIST=…/kf/dist-after-c npx vitest run --config …/kf/vitest.linked.mts`⟩ in keyframes.js (HEAD now `febb3bcd`; `git diff dff875e8..HEAD -- src` is empty) | `Tests 6 failed \| 1774 passed \| 2 expected fail \| 14 skipped (1796)`: the same 6 named failures as `.x`'s before-set (4 × timeline-hover-preview, easing-identity K1, grammar-fuzz G-W2-5) | GREEN (unchanged), reproduces on a newer keyframes HEAD |
+
+Gates reproduced: 11 of 11 as claimed (G-r2 at 9/10 legs, as claimed).
+
+### Axes
+
+1. **GREENs reproduce.** Every GREEN the close claims reproduces (table above).
+2. **Bounds.** Every value.js and parse-that commit on the Close roster was `--stat`-ed. The paths sit in the unit plan's writable sets plus the declared adjacent edits (`tsconfig.test.json`, `src/color/index.ts` comment, `test/v4-c1.test.ts:9`, parse-that `test/dist-surface.test.ts` comment). The single stretch is LW-1, registered below. ⟨`git diff --stat ecd13d47..HEAD -- scripts/dev/dev.sh`⟩ prints nothing: dev.sh is untouched.
+3. **No masking.** ⟨`git diff ecd13d47..HEAD -- src test bench … \| grep -E '^\+.*(\.skip\|\.todo\|\.fails\|try \{\|catch\|allowlist\|eslint-disable\|@ts-ignore\|@ts-expect-error\|as any)'`⟩ returns 3 `try/catch` only, and each is instrumentation:
+   - `bench/css-equivalence/build-corpus.mjs` counts unreadable postcss input.
+   - The same file's `decode()` counts non-JSON literals.
+   - The differential's `call()` records a candidate throw as a RED verdict.
+   None wraps a defect. The WPT scoping in `test/css/css-color5.test.ts` is **not** a silent narrowing: each out-of-scope class is named, and its count is asserted (`{ in: 931, concrete: 26, context: 1 }` of 958, among others). The loader drives `Parser.reset()` + `call()`, not `parse()`. This avoids a producer `console.error` side effect (F-b-2) and suppresses nothing.
+4. **Commit families.** There is one commit per meaning, and no declared family is split: `.r` evidence→removal, `.b` grammar→fix→receipt, `.h` cure→harness→ledger→receipt, and `.x` bench→swap→stylesheet→differential→record→RC-P→receipt.
+5. **E-3.** ⟨`git diff --stat ecd13d47..HEAD -- scripts/dev/dev.sh docs/tranches/X/parse-that/waves/ docs/tranches/V/megatranche/registry/adjudicated/`⟩ prints nothing. The DIVERGENCE-LEDGER (`812daa4b`) and RELEASE-CONDITION (`0eb6732e`) changes are pure appends (0 removed lines each).
+6. **Mail.** INBOX has no `| UNREAD |` row. The newest rows, I-45 and its erratum, are READ. Glass's commits since 16:00 are `95068476` (rowed) and `4652670d` (BL-internal). keyframes.js and parse-that have no coordination commit since 16:00. Result: 0 UNREAD in scope.
+7. **Four-verb line.** The line moved to IMPLEMENTED at the Close, which is lawful because the spec names no VERIFIED seat. This check moves the LEDGER to CLOSED per its charge.
+8. **Goal at the bytes.**
+   - The grammar is value.js's own BBNF: 5 modules, compiled by the published `@mkbabb/bbnf-lang@0.1.4` `BBNFToParser` onto `@mkbabb/parse-that@0.8.2`. The path was measured and named in `src/css/bbnf/load.ts`.
+   - The hand parser is deleted with no shim. The retired incumbent is read back from git only, by `bench/retired.ts` (`git archive` of pinned blob `320b47af`), and never enters the tree.
+   - The AC-1 algebra, its reifier and its Wasm emitter have left parse-that (`92d8ea7`).
+   - The actions in `src/css/bbnf/*.ts` classify tokens the grammar already lexed. Example: `math.ts`/`value.ts` `NUMERIC` splits a dimension token's number from its unit. `mix.ts` is §3/§13/§18 arithmetic over parsed values.
+   - No algebra, DSL or hand scanner survives. The goal is MET.
+9. **Published figures.** Every count in the Close's gate table reproduces at the bytes: 134/134 · 34/34 · 19/19 · 908/910 · 0 · 5 · 6/1774.
+10. **Honest-RED adjudication.** See the set below.
+
+### Honest-RED set (each relieved and owner-named)
+
+- **G-r2 `proof:perf` leg.** It read FAIL (+16.7% at load 24.5). **Relief:** COHESION §0bx rules perf "→ `PT-PERF-LOAD` (quiesced read by the orchestrator)", and W5.md:29 says "honest-RED by instrument … Not a gate on publish". The leg benchmarks `json-comprehensive`, which is parse-that library code untouched by `92d8ea7` (the commit's paths are CSS-only plus `package.json` export/scripts). It was already RED at this wave's Baseline (+21.7%), and `.r` read PASS ×2 at load ~11. **Owner:** the Track D orchestrator (a quiesced read). The record's residual register names it.
+- **G-x2's two failures.** These are `test/spectrum-luma.test.ts` C-5 BORN-RED and `demo/test/shell/reka-binding-idiom.test.ts` NG-6. **Relief:** both are foreign-owned, born RED by other tracks' specs (F-W6-open-4), identical at Baseline and after the swap, and neither is a CSS-parser test. **Owner:** their own tracks (C-5 on the spectrum/luma wave, NG-6 on the reka-idiom canary).
+
+### Register
+
+| severity | claim | receipt | cure |
+|---|---|---|---|
+| MINOR | LW-1: `.x` authored `src/css/grammar/stylesheet.bbnf` and edited `value.bbnf` outside its dispatched set, without the RES-b-1 ruling | `7e60d700` / `dff875e8` `--stat`; `.bbnf` sits in `.b`'s set | Ratification after the fact by the orchestrator/owner. The content is lawful (BBNF, same wave, same concern), so it does not block. |
+| MINOR | The `.h` differential moved from `test/css/equivalence/` into `bench/css-equivalence/` (`c01171b5`), so MIRROR-DEFECTS no longer runs in `npm test`/CI. W6.md `.h` says "into value.js tests". | ⟨`bench/vitest.config.ts`⟩ includes `bench/**/*.measure.test.ts`, while the root config collects `test/**` + `demo/test/**` only | Mitigation: runnable on demand, 19/19 ×2. Next W6 rider: wire `vitest run -c bench/vitest.config.ts` into a CI step or an `npm test:equivalence` script. Folds with RES-x-4. |
+| INFO | LW-2: the `.x` receipt's scanner-grep quote was wrong | re-run gives 6 files, all token-classification or array ops | The Close is the erratum. |
+| INFO | RES-x-4: DIVERGENCE-LEDGER §15 cites `test/css/equivalence/…` paths | §15 vs `bench/css-equivalence/` | §15 dated addendum by the Track D rider. |
+| INFO | RES-b-5: 26 + 12 `none`-in-xyz-d50/display-p3-linear WPT cells are refused | the counts are asserted in `css-color5.test.ts` | The frozen `/css` surface (W6.md §The law) is the relief. A future surface-widening ruling owns it. |
+| INFO | RES-x-1: BBNF runs 1.1–2.8× slower per value and 5.6–14.8× slower on `parseStylesheet` | `bench/records/2026-09-23-x-p-w6-x.json` | OC-1 (owner). The producer levers are RES-b-3, relayed by the Track D orchestrator. |
+
+No BLOCKER, CRITICAL or HIGH.
+
+### Successors
+
+- The KF.W3 RC-P conjunct is GREEN: the re-read is dated beside at `0eb6732e`, the seam is value.js's BBNF grammar, and the Wasm conjunct has retired. KF.W3 stays gate-keyed at X-W11's coordinate, which is lawfully not yet reached.
+- X-W12 `.l` (the legacy-form `none` refusal) is discharged into `.b`: the F-W5c-1 cells assert `css_syntax`, GREEN.
+- keyframes' consumption of KFA-14 is lawfully blocked on a value.js release. That is walled by npm auth, an OWNER ACT (RES-x-6).
+- parse-that's library release is lawfully blocked on the owner's npm login.
+
+### Verdict
+
+**CONFORMANT-HONEST-RED** (honest-RED: G-r2 `proof:perf` = PT-PERF-LOAD; G-x2's 2 foreign born-RED tests). LEDGER → CLOSED.
