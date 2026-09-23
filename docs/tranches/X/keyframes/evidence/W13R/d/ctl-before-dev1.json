@@ -1,0 +1,34 @@
+{
+ "tag": "before-dev1",
+ "base": "http://localhost:5173",
+ "load": "129.99 129.20 152.23",
+ "rest": {
+  "transition": "all",
+  "tProp": "all",
+  "tDur": "0s",
+  "tEase": "ease",
+  "cols": "[rail] 475.195px [stage] 878.398px",
+  "springDock": "linear(0,0.00382 2.041%,0.01450 4.082%,0",
+  "springSmooth": ""
+ },
+ "legs": {
+  "close": {
+   "frames": 145,
+   "from": 475.195,
+   "to": 0,
+   "changingFrames": 1,
+   "spanMs": 30.7,
+   "maxJump": 475.19,
+   "transitions": []
+  },
+  "open": {
+   "frames": 151,
+   "from": 0,
+   "to": 475.195,
+   "changingFrames": 1,
+   "spanMs": 25.9,
+   "maxJump": 475.19,
+   "transitions": []
+  }
+ }
+}
