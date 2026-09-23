@@ -3785,3 +3785,61 @@ D1 of record (headed real-GPU) was not re-run. It is banked 2/2 at the close and
 X-W6 (`Opens after: X-W5`), X-W8 (X-W5 · X-W6 · X-W7) and X-W10 (X-W5 among its conjuncts) all name X-W5 directly. X-W7 reaches it through X-W6. The X-W5 conjunct is **RED** (PARTIAL), so all four remain **lawfully BLOCKED-ON X-W5**. X-W5's own Opens-after conjuncts are GREEN: X-W4, X-W2 and X-W0 are CLOSED in LEDGER, and D2 exits 0.
 
 Self-count: 15 claimed GREENs re-run and reproduced (A1 · A4 · A7 · B4 · C3-count · C4 · C8 · D2 · D3 · D4 · E1 · E2 · landmark · containment · census-parity ×2) · 0 GREEN failed · 2 RED legs reproduced ×2 · 2 HIGH · 2 INFO. **This is the third consecutive check with a byte-identical finding. The wave cannot move until COHESION rules ESC-W5c2-1/-2, and a further check or repair seat before that ruling will produce the same result.**
+
+## RESUME OPEN 6 — 2026-09-22, seat 0 (RESUME MODE, sixth sitting, on COHESION §0aq + §0ax + §0ay and W5.md's three ADDENDA of 2026-09-22)
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X-W5 SEAT 0 (OPEN, RESUME 6) · HEAD at open `d1bc67c3` · date of record 2026-09-17 (the begin-word, COHESION §0j).
+Inputs read: `W5.md` whole (398 L, incl. all three ADDENDA 2026-09-22), this record's `## RESUME OPEN 5` (`:3243-3305`) and `## Check 3` RESUME 5 (`:3727-3787`),
+COHESION §0ay (`:2882-2916`, the file end). Ruling ids consumed: **§0ay** (ESC-W5c2-1 GRANTED to `.c3` — o16 `:218`/`:266` equality with the RESOLVED
+`--spring-snappy-duration`, not a loosening; ESC-W5c2-2 RULED like D1 — o12 O-12·3 read HEADED on the real GPU, 6/255 floor unchanged, below-floor → X-W8 `.i` by id;
+ESC-W6close5-1 = X-W5's own defect → unit `.d3`, root cure, never a settle, never a forced class removal; order X-W5 [`.c3`] → [`.d3`], then X-W6 [`.a2`] → [`.i2`] → [`.j`]),
+**§0ax** (dispatch rule: only DEAD halts; D1 headed real-GPU = reading of record), **§0aq**, standing §0i, §0j, §0k.1, §0k.3.
+
+### R6.0 Crash-recovery (STANDING LAW)
+⟨cmd⟩ `git status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M docs/tranches/X/waves/W6-evidence/catalog/after-catalog-open.png` ·
+` M docs/tranches/X/waves/W6-evidence/catalog/after-specimen-dots.png` · ` M scripts/dev/dev.sh`. None is in this seat's writable set (`X-W5.md`, `LEDGER.md`,
+`INBOX.md`), nor in `.c3`/`.d3`'s (the two PNGs are X-W6 evidence — a sibling's). `dev.sh` untouched. **No inherited partial.**
+
+### R6.1 E13 Step-0 — the four-path mail sweep
+⟨cmd⟩ `ls -t ../glass-ui/docs/tranches/ | head -1` → **BK** (still newest). ⟨cmd⟩ `find <path> -maxdepth 1 -type f -newer execution/A/X-W5.md` over the four paths →
+value.js `V/` · `V/coordination/`: only `INBOX.md` itself · keyframes `V/coordination`: empty · atlas `P/coordination`: empty · glass BK: **one** —
+`chicago-inbound-2026-09-22-button-stadium-pad.md` (⟨cmd⟩ `grep -c` in INBOX → 0). Read: *"chicago → glass-ui · Button stadium pad (POST-CLOSE patch → 10.0.1)"* —
+a chicago consumer's inbound to glass-ui, **not addressed to value.js**; no row owed (recorded in the sweep line). **0 new I-n · 0 UNREAD in X-W5 scope**; tail stays
+**I-40** (Track C, out of scope). One dated sweep line appended at the INBOX end.
+
+### R6.2 Preconditions (RESUME MODE)
+- **Opens-after** (W5.md §1): LEDGER `:28` X-W0 **CLOSED 2026-09-17** · `:30` X-W2 **CLOSED 2026-09-17 (honest-RED G3·G5)** · `:33` X-W4 **CLOSED 2026-09-17**;
+  D2 ⟨cmd⟩ `git ls-files --error-unmatch docs/tranches/T/audit/pi/u-gestalt/probe2-log.txt; echo $?` → **0**. **MET.**
+- **alreadyDone** (commits exist, never re-dispatched): `.a` `c0cf27bf`(+`de99ec15` `f94d22af`) · `.b` `adc312f6` · `.c` `50633f19` · `.d` `2183b814` · `.e` `e2f56558` ·
+  `.t` `91d0e0c7` `1a6432f9` · `.c2` `fc9c2be4` `2eeb59ee` `ab5270b6` · `.d2` `043a783c` `52dc0a5b` `b36df565`.
+- **Owed** (§0ay, third ADDENDUM): `.c3` and `.d3` — ⟨cmd⟩ `git log --oneline -60 | grep -iE '\.c3|\.d3'` → only the §0ay ruling commit `d1bc67c3`; no unit byte.
+- ⟨cmd⟩ `git diff --stat 7a4c98e1..HEAD -- demo e2e src` → only `e2e/smoke/oracles/o21-gradient-rail.spec.ts` (+9, X-W6 repair `df290a72`, §0ax a4) — no W5 byte moved since Check 3.
+
+### R6.3 Baseline for the owed units — read-only, double-run at HEAD `d1bc67c3`
+⟨cmd⟩ `sh scratchpad/w5r6.sh > r6a; sh scratchpad/w5r6.sh > r6b; diff r6a r6b` → **IDENTICAL**. ⟨cmd⟩ `uptime` → load **2.93 / 5.67 / 8.61**.
+
+| gate (owner unit) | reading | state |
+|---|---|---|
+| o16 `:218`/`:266` literal `toBe("0.4s")` (`.c3`) | **2** literals · producer ⟨cmd⟩ `grep -o -- '--spring-snappy-settle: [^;]*' node_modules/@mkbabb/glass-ui/dist/styles/tokens/scheme-spring.css` → `0.44s` (glass 7.0.0; `--spring-snappy-duration: calc(var(--spring-snappy-settle) * var(--motion-tempo))`) | RED of record ×2 (Check 3 K3.2, `Received "0.44s"`); no o16 byte moved since → banked, not re-run |
+| o12 O-12·3 hover frame-diff, HEADED real GPU (`.c3`, ESC-W5c2-2) | never read headed; headless software-GL 0.51 · 0.11 /255 vs floor 6/255 (K3.2) | UNREAD at the instrument of record (RED headless, banked) |
+| cold-nav witness under `e2e/smoke/oracles/` (`.d3`) | **0** files (`o2-real-hydration-coldload`, `o28-atmosphere-coldload` exist; neither is the 5-context stuck-enter witness) | RED (absent) |
+| stuck `vj-enter-enter-from/-active` on cold first navigation (`.d3`) | 1 of 5 fresh browsers, gradient rail x = −351, held 12 s (X-W6 fifth-sitting close `1835ce1d`, Act 2a) | RED of record (banked) |
+| `App.vue:134` `:transition-name="viewManager.ready.value ? 'vj-enter' : ''"` | **1** — the §0ay suspect #1 (name flip during an in-flight enter) is live | — (diagnostic, not a gate) |
+| containment `contain: layout paint;` decl · D3 physical names | 1 · 0 | GREEN (held; `.d2` `b36df565`, `.d` `2183b814`) |
+| W6 a5–a11 · a12 · e1 · g2 by W6's own commands (`.d3`) | RED of record at X-W6 Check 3 `19a3ac41` (g2 1/2; a5–a13/e1 unstable) | RED (banked) |
+| D1 of record, headed real GPU (`.d3` non-regression) | GREEN 14/14, all hops over32 ≤ 0.012, median 10 ms (§0ay; close RESUME 5 2/2, Check 1 2/2) | GREEN (banked) |
+| md5 `PaneSlot.vue` · `animations.css` | `ab9df0f6c78d8cc8fd7524708f145dbb` · `4d0f1ed5dc67267efe6d53100193052f` | — (pre-`.d3` fingerprint) |
+
+**R.2 green-before-cure**: none. The held GREENs (containment, D3, D1) are landed cures of `.d`/`.d2`, not unexplained greens.
+
+### R6.4 Resume unit plan — 9 landed, 2 owed, strictly serial `[.c3] → [.d3]`
+
+| unit | model | executes | writable | gates it turns | locks |
+|---|---|---|---|---|---|
+| **X.W5.c3** | opus | W5.md ADDENDUM 3 (`:398`) · §0ay ESC-W5c2-1 / ESC-W5c2-2 | `e2e/smoke/oracles/o16-computed-cascade.spec.ts` (`:218` `:266` only) · the o12 headed reading (no spec byte) · `docs/tranches/X/waves/W5/green/**` · this record | o16 GREEN ×2 (R2/R8 equal the resolved `--spring-snappy-duration` read by `getComputedStyle` on the rule's own element) · o12 O-12·3 headed real-GPU ×2, floor 6/255 unchanged | no literal swap `0.4s`→`0.44s` (would re-hard-code the producer); no floor change, no skip; below-floor on the GPU → registered to X-W8 `.i` by id, no W5 byte |
+| **X.W5.d3** | opus | W5.md ADDENDUM 3 · §0ay ESC-W6close5-1 | `demo/shell/PaneSlot.vue` · `demo/color-picker/App.vue` (the transition-name binding) · `demo/styles/animations.css` (the swap rules) · `e2e/smoke/oracles/**` (one new cold-navigation witness file) · `docs/tranches/X/waves/W5/green/**` · this record | 5 fresh contexts × cold navigation → 0 stuck enter states ×2 · W6 a5–a11/a12/e1/g2 re-read GREEN ×2 by W6's own commands (g2 bisected) · D1 of record re-read ×2 unchanged (headed real GPU) · D3 0 · D5 · §7 | root cure only — never a settle/wait, never a forced class removal; preserve-animations (motion added, never deleted); P-1..P-4 coupled family `52dc0a5b` not split; W5F-07 CURE-LOCK |
+
+Groups (serial, at most 1 concurrent; `.c3` and `.d3` share no modify path, but §0ay orders them): `[[X.W5.c3], [X.W5.d3]]`.
+Post-units: the verify-only close + L-20 checks; L-18 quartet passes precede ACCEPTED; then X-W6 [`.a2`] → [`.i2`] → [`.j`] per §0ay.
+
+## Unit receipts — RESUME 6
