@@ -50,8 +50,17 @@ test("R14 · pressing Retry on a dead Browse wall leaves a plate behind", async 
     page,
 }) => {
     let abort = true;
-    await page.route("**/palettes*", (route) =>
-        abort ? route.abort("failed") : route.continue(),
+    // X.W7.g2 (§0bk.3 · ESC-W7g-R14-GLOB): the REST path only. The former glob
+    // `**/palettes*` also aborted Vite's `demo/palettes/*` source modules, so
+    // the app never booted and the gate read RED before any Retry. Same guard
+    // as `fixtures/browse-palettes.ts` and o9: Vite's own prefixes and any
+    // path with a file extension are never the API.
+    await page.route(
+        (url) =>
+            !/\/(@fs|@id|@vite|node_modules)\//.test(url.pathname) &&
+            !/\.\w+$/.test(url.pathname) &&
+            /(^|\/)palettes(\/|$)/.test(url.pathname),
+        (route) => (abort ? route.abort("failed") : route.continue()),
     );
 
     await page.goto("/#/browse");
