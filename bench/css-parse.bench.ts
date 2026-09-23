@@ -6,17 +6,20 @@
 // entries both carry. One iteration parses EVERY distinct source of the differential corpus
 // (`css-equivalence/`: the assay union, 27,021 rows, and the real-CSS arms, 3,049 rows) through one
 // entry — the same inputs the equivalence harness classifies, so speed and agreement are read over
-// one population. Run at a quiesced load: `npx vitest bench --run -c bench/vitest.config.ts`.
+// one population; `parseStylesheet` reads the same sources as sheets. Run at a quiesced load:
+// `npx vitest bench --run -c bench/vitest.config.ts`.
 
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import { bench, describe } from "vitest";
 
 import * as bbnf from "../src/css/bbnf/index";
+import { parseStylesheet } from "../src/css/index";
 import { ENTRIES } from "./css-equivalence/differential";
-import { RETIRED_AT, retiredHandParser } from "./retired";
+import { RETIRED_AT, retiredHandParser, retiredStylesheet } from "./retired";
 
 const hand = await retiredHandParser();
+const handSheet = await retiredStylesheet();
 
 type Row = { s: string | { src: string } };
 const corpus = (file: string): string[] => {
@@ -38,3 +41,14 @@ for (const entry of ENTRIES) {
         }, { time: 2_000, warmupTime: 500 });
     });
 }
+
+// The stylesheet layer swapped with the value grammar (`stylesheet.bbnf`): the same sources, each
+// read as a sheet, through HEAD's `parseStylesheet` and the retired layer's.
+describe(`parseStylesheet × ${INPUTS.length} sources`, () => {
+    bench("BBNF grammar (src/css/grammar/*.bbnf)", () => {
+        for (const source of INPUTS) parseStylesheet(source);
+    }, { time: 2_000, warmupTime: 500 });
+    bench(`retired stylesheet layer (src/css/stylesheet.ts @ ${RETIRED_AT.slice(0, 8)})`, () => {
+        for (const source of INPUTS) handSheet.parseStylesheet(source);
+    }, { time: 2_000, warmupTime: 500 });
+});
