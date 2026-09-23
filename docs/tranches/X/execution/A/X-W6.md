@@ -6192,3 +6192,75 @@ minted** — no product byte moved (d1 and d2 GREEN at the bytes; landed `9557e6
 a formatting pass belongs to whichever seat owns a tree-wide prettier sweep, not a GREEN-gated RESUME residual;
 (R-d-2) the writable-set anchor for `GradientEasingEditor.vue` names `easing/`, the bytes live one level up.
 **Escalations: none.** Gates: **d1 GREEN ×2 · d2 GREEN ×2** (both-direction falsifiers RED).
+
+### X.W6.e
+
+SERVED MODEL: claude-opus-5-5[1m] · RESUME residual only (verify-and-bank); landed `3c558956` · `191d4f3a` · `3ece0690`
+not reopened. Spec read whole once: `W6.md` §5 X.W6.e (true bytes **`:228-242`**; the dispatch's `:270-285` anchor has
+drifted to §COMPLETABLE/§Blocked — INTENT taken at `:228`) + H2 (true bytes **`:338`**; dispatch `:410` drifted) +
+ADDENDA 2026-09-22 (true bytes **`:344-347`**; dispatch `:483-486` drifted — the file is 486 lines with the 09-19
+addendum's body elided at `:340`). COHESION §0z E2 · §0an · §0aq · §0ax read for rulings `.e` consumes: order
+[`.d`] → [`.e`] → [`.h`] → [`.i`]; nothing else rules on `.e`.
+
+**Act 1 — crash-recovery.** ⟨cmd⟩ `git status --porcelain` → `M docs/tranches/V/reformation/CARRY-LEDGER.md` ·
+`M scripts/dev/dev.sh` — neither in `.e`'s writable set. **Nothing inherited**; nothing stashed, restored or touched.
+
+**Act 2 — e1 · e2 ×2 at the post-`.d` bytes (HEAD `1a4efe67`).**
+
+| gate | ⟨cmd⟩ | BEFORE (fifth-sitting baseline) | AFTER (this seat, run 1 · run 2) |
+|---|---|---|---|
+| e1 | `VJS_E2E_PORT=8761\|8762 npx playwright test e2e/smoke/views/gradient.spec.ts -g "gradient selector aurora" --project=smoke` (fresh webServer each; ⟨cmd⟩ `lsof -iTCP:<p> -sTCP:LISTEN \| wc -l` → 0 · 0 before) | GREEN (inside the landmark-set run) | **GREEN · GREEN** — `1 passed (14.2s)` EXIT 0 · `1 passed (11.7s)` EXIT 0; `gradient.spec.ts:451:1 › gradient selector aurora` |
+| e2 | `grep -rn requestAnimationFrame demo/workbenches/gradient/ \| wc -l` + `node docs/tranches/V/megatranche/audit/probes/x-w6/gate-prm-idiom.mjs` | GREEN | **GREEN · GREEN** — rAF **0** · **0**; probe exit 0 ×2, outputs byte-IDENTICAL (`diff` → empty): `negative control: ctl-style.vue → FAIL · ctl-inline.vue → FAIL · ctl-utility.vue → FAIL · ctl-read.vue → FAIL` · `positive control: … → clean` · `quarantine record: present` · both guards `present (a reduce block)` · `files scanned: 15 · requestAnimationFrame calls: 0 · CSS motion declarations: 8` · `GATE e2 (PRM idiom) — GREEN` |
+
+**Act 3 — H2's `.e` legs: citation + re-derivation against the two guards.**
+- **Leg 1 (record present).** ⟨cmd⟩ `test -f docs/tranches/V/megatranche/audit/codex-provenance/motion-quarantine.md` → exit 0
+  (the probe prints `quarantine record: present` ×2, and FAILs when absent — `gate-prm-idiom.mjs:188-194`).
+- **Leg 2 (every MOTION-SOURCED assertion in e1/e2 cites it).** ⟨cmd⟩ `grep -n "motion-quarantine\|MOTION-SOURCED" e2e/smoke/views/gradient.spec.ts`
+  → `:445` `MOTION-SOURCED · PENDING-QUARANTINE (W6.md H2): cites` · `:446` the record's path — the e1 test's own doc
+  block (e1 is the file's only MOTION-SOURCED assertion). ⟨cmd⟩ same grep over `gate-prm-idiom.mjs` → `:15` marker ·
+  `:16` path (header) · `:46-49` the `QUARANTINE` constant the run reads. **Both e-gates cite it.**
+- **The reduce guard re-located after X-W5 `.d2` (`b36df565`).** ⟨cmd⟩ `grep -n "prefers-reduced-motion" demo/styles/animations.css`
+  → `:43` no-preference · **`:184` `@media (prefers-reduced-motion: reduce)`** (the global guard, header `:177`) · `:202`
+  (the B.W1 overlay carve-out). ⟨cmd⟩ `git show b36df565 -- demo/styles/animations.css` → hunks at `@@ -222` and `@@ -292`
+  only, both BELOW the guard: **the guard did not move; `W6.md:240/:338`'s `:184` still reads true at the bytes.**
+  Glass's guard: ⟨cmd⟩ `grep -n prefers-reduced-motion node_modules/@mkbabb/glass-ui/dist/styles/utilities/a11y-overrides.css`
+  → `:1` (a reduce block; minified, installed 7.0.0).
+- **No citation byte owed.** Neither e-gate reads a line number: the probe's `GUARDS` (`:50-55`) are file paths and the
+  presence check is the regex `/prefers-reduced-motion:\s*reduce/` (`:195-199`); the spec's doc block cites the two
+  files by path. So the probe (this unit's script) and the spec are **left byte-unchanged**.
+- **Re-derivation — can either guard manufacture or mask the e-assertions?** e2 asserts every gradient-tree motion
+  declaration is nested in `@media (prefers-reduced-motion: no-preference)` and rAF = 0 — a source-structure fact
+  independent of both guards (a guard zeroing a stray transition cannot make it nest). e1's ask branch asserts
+  `animationName === "none"` on the rail **and** a zero settled-frame delta over 5 frames. The reduce guards set
+  `animation-duration`/`transition-duration` only, never `animation-name`, so the name leg cannot be manufactured by
+  either guard; and both guards are inert in e1's cell: ⟨cmd⟩ `grep -rn reducedMotion playwright.config.ts e2e` → only
+  `o11:289/302` · `o9:161/163` (scoped `emulateMedia`) and `e2e/visual/modality` — **the `smoke` project emulates no
+  reduce**, so the still frames are the ramp's, not a guard's. **H2 `.e` legs: GREEN.**
+
+**Act 4 — mail (E13, read-only).** ⟨cmd⟩ `grep -c gradient-aurora docs/tranches/V/coordination/INBOX.md` → **1**; `:141` =
+**O-49** · status **SENT** 2026-09-22 (carriage rides SS-6). ⟨cmd⟩ `ls -dt ../glass-ui/docs/tranches/*/ | head -1` → `BK/`;
+⟨cmd⟩ `grep -rln "gradient-aurora\|strip-scale aurora" ../glass-ui/docs/tranches/BK/coordination/` → **0 files** (no reply
+yet; nothing in X-W6 waits on it — e1's L3 branch is the two-way falsifier). **0 UNREAD in `.e`'s scope; no INBOX byte.**
+Glass installed ⟨cmd⟩ `node -p "require('./node_modules/@mkbabb/glass-ui/package.json').version"` → 7.0.0 (e1 re-checks
+the ask's census hash against the installed `aurora/index.d.ts` on every run — GREEN ×2 above, so the census is current).
+
+**Act 5 — §7 cadence on the `.e` files** (the six product files `3c558956` touched + the probe + the spec).
+- ⟨cmd⟩ `npx eslint <the six .vue>` → exit **0** ×2.
+- ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.demo.json` → exit **0**, 0 output lines.
+- ⟨cmd⟩ `npx vitest run` → exit 1 ×2, **`Tests 2 failed | 639 passed (641)`** · `Test Files 2 failed | 36 passed (38)` ×2:
+  `test/spectrum-luma.test.ts` C-5 and `demo/test/shell/reka-binding-idiom.test.ts` NG-6 — the two foreign W1.a born-RED
+  canaries §0z E2 / §0aq (COHESION `:2655-2656`) routes to **X-W8 `.i`**; cited by id, not `.e`'s.
+- ⟨cmd⟩ `npx prettier --check <probe> <spec> <six .vue>` → exit 1: probe · `GradientVisualizer.vue` · `GradientStopEditor.vue`
+  clean; WARN on `gradient.spec.ts` · `EasingAuthoringStage.vue` · `GradientCodeEditor.vue` · `GradientEasingEditor.vue` ·
+  `EasingSpecimenStrip.vue`. **Pre-existing, not `.e`'s:** ⟨cmd⟩ `git show <rev>:<f> | npx prettier --check --stdin-filepath <f>`
+  → WARN (exit 1) for all five at **`3c558956^`** (pre-`.e`) and at HEAD — the same tree-wide debt `.d` recorded as R-d-1.
+- ⟨cmd⟩ `git diff --check` → empty (no product byte moved).
+
+**Commits.** This receipt (record commit) only. **Commit #5 `feat(demo/gradient-aurora)` NOT minted** — no byte moves:
+e1/e2 GREEN ×2 at the post-`.d` bytes and H2's `.e` legs need no citation byte (the guard did not move; nothing reads its line).
+
+**Residuals.** (R-e-1) prettier WARN on five `.e`-touched files since before `.e` — folds into R-d-1's tree-wide sweep owner;
+(R-e-2) dispatch anchors `:270-285` / `:410` / `:483-486` drifted against the 486-line `W6.md` (true `:228-242` / `:338` /
+`:344-347`), INTENT taken; (R-e-3) the probe logs a missing guard as `MISSING` without failing — lawful, because e2's
+assertion (no-preference nesting, rAF 0) does not depend on either guard; recorded, not changed.
+**Escalations: none.** Gates: **e1 GREEN ×2 · e2 GREEN ×2 · H2 (`.e` legs) GREEN.**
