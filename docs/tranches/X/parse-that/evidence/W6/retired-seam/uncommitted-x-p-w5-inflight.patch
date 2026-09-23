@@ -1,0 +1,246 @@
+diff --git a/typescript/src/css/algebra/grammar.mjs b/typescript/src/css/algebra/grammar.mjs
+index 8ec0e28..f43c186 100644
+--- a/typescript/src/css/algebra/grammar.mjs
++++ b/typescript/src/css/algebra/grammar.mjs
+@@ -419,6 +419,7 @@ export function buildGrammar(A) {
+         "space-srgb": spaceSrgb(),
+         "space-srgb-linear": space("srgb-linear", cch)(),
+         "space-display-p3": space("display-p3", cch)(),
++        "space-display-p3-linear": space("display-p3-linear", cch)(), //  X.P.W5.g — SC-2
+         "space-a98-rgb": space("a98-rgb", cch)(),
+         "space-prophoto-rgb": space("prophoto-rgb", cch)(),
+         "space-rec2020": space("rec2020", cch)(),
+diff --git a/typescript/src/css/algebra/tables.mjs b/typescript/src/css/algebra/tables.mjs
+index 8b08c9a..152d2d1 100644
+--- a/typescript/src/css/algebra/tables.mjs
++++ b/typescript/src/css/algebra/tables.mjs
+@@ -494,6 +494,7 @@ export const R_disp = {
+             srgb: "space-srgb",
+             "srgb-linear": "space-srgb-linear",
+             "display-p3": "space-display-p3",
++            "display-p3-linear": "space-display-p3-linear", //  X.P.W5.g — SC-2 (COHESION §0bx)
+             "a98-rgb": "space-a98-rgb",
+             "prophoto-rgb": "space-prophoto-rgb",
+             rec2020: "space-rec2020",
+@@ -557,6 +558,9 @@ export const R_ctor = {
+     xyz: { label: "color(xyz)", code: "css_syntax", labels: ["<finite-number>"], arity: 4, leafMap: ["c1", "c2", "c3", "alpha"], space: "xyz", since: "X.P.W3.h" },
+     "srgb-linear": { label: "color(srgb-linear)", code: "css_syntax", labels: ["<finite-number>"], arity: 4, leafMap: ["c1", "c2", "c3", "alpha"], space: "srgb-linear", since: "X.P.W3.h" },
+     "display-p3": { label: "color(display-p3)", code: "css_syntax", labels: ["<finite-number>"], arity: 4, leafMap: ["c1", "c2", "c3", "alpha"], space: "display-p3", since: "X.P.W3.h" },
++    //  X.P.W5.g — SC-2 (COHESION §0bx): css-color-4 §10.4 `display-p3-linear` as a `color()` INPUT
++    //  space; its row writes the widened `CssColorSpace` member (`build.mjs`'s declared widening).
++    "display-p3-linear": { label: "color(display-p3-linear)", code: "css_syntax", labels: ["<finite-number>"], arity: 4, leafMap: ["c1", "c2", "c3", "alpha"], space: "display-p3-linear", since: "X.P.W5.g" },
+     "a98-rgb": { label: "color(a98-rgb)", code: "css_syntax", labels: ["<finite-number>"], arity: 4, leafMap: ["c1", "c2", "c3", "alpha"], space: "a98-rgb", since: "X.P.W3.h" },
+     "prophoto-rgb": { label: "color(prophoto-rgb)", code: "css_syntax", labels: ["<finite-number>"], arity: 4, leafMap: ["c1", "c2", "c3", "alpha"], space: "prophoto-rgb", since: "X.P.W3.h" },
+     rec2020: { label: "color(rec2020)", code: "css_syntax", labels: ["<finite-number>"], arity: 4, leafMap: ["c1", "c2", "c3", "alpha"], space: "rec2020", since: "X.P.W3.h" },
+@@ -766,7 +770,7 @@ export const R_ctor = {
+  * against a label an earlier pass carries (`value-color-head` is `<color-function>`, `ident-start`
+  * is `ident`), so only a genuinely new label takes a new index.
+  */
+-const LATER_UNITS = ["X.P.W3.h", "X.P.W3.i", "X.P.W3.j", "X.P.W3.l", "X.P.W3.n", "X.P.W4.h", "X.P.W5.c"];
++const LATER_UNITS = ["X.P.W3.h", "X.P.W3.i", "X.P.W3.j", "X.P.W3.l", "X.P.W3.n", "X.P.W4.h", "X.P.W5.c", "X.P.W5.g"];
+ 
+ /** The `EXPECT` / `FAIL` labels each later unit's grammar names, in that grammar's own order. */
+ const UNIT_SITE_LABELS = {
+@@ -791,6 +795,9 @@ const UNIT_SITE_LABELS = {
+     //  through `REF("color-body")`, whose `<color>` EXPECT is already L[0]; only the four keyword
+     //  tables' and the four constructors' own labels are appended, at the END (K-10).
+     "X.P.W5.c": [],
++    //  X.P.W5.g names no new EXPECT/FAIL site: SC-2's `display-p3-linear` row carries the
++    //  `<finite-number>` label every `color()` row already put in L, so it dedupes (K-10).
++    "X.P.W5.g": [],
+ };
+ 
+ const collectLabels = () => {
+diff --git a/typescript/src/css/bounds.mjs b/typescript/src/css/bounds.mjs
+index aaed3a2..865809a 100644
+--- a/typescript/src/css/bounds.mjs
++++ b/typescript/src/css/bounds.mjs
+@@ -233,6 +233,7 @@ const CTOR_ALLOC = Object.freeze({
+     xyz: { fixed: 24 + 32, rate: 0 },
+     "srgb-linear": { fixed: 24 + 32, rate: 0 },
+     "display-p3": { fixed: 24 + 32, rate: 0 },
++    "display-p3-linear": { fixed: 24 + 32, rate: 0 }, //  X.P.W5.g — SC-2, the same shape as its gamma-encoded sibling
+     "a98-rgb": { fixed: 24 + 32, rate: 0 },
+     "prophoto-rgb": { fixed: 24 + 32, rate: 0 },
+     rec2020: { fixed: 24 + 32, rate: 0 },
+@@ -308,7 +309,7 @@ const CTOR_SCRATCH_CELLS = Object.freeze({
+     "style-rule": 6, declaration: 6, "value-color": 6, stylesheet: 0,
+     //  X.P.W3.h: colorOf rows 6; `scalarRec` nests 2 + (2·pairs) cells — number 2 + 6, keyword /
+     //  operator / string 2 + 4 (the string's mkStr is a value, not a cell); call / list `rec(3)` 6
+-    hwb: 6, lab: 6, lch: 6, oklab: 6, xyz: 6, "srgb-linear": 6, "display-p3": 6, "a98-rgb": 6, "prophoto-rgb": 6, rec2020: 6,
++    hwb: 6, lab: 6, lch: 6, oklab: 6, xyz: 6, "srgb-linear": 6, "display-p3": 6, "display-p3-linear": 6, "a98-rgb": 6, "prophoto-rgb": 6, rec2020: 6,
+     "xyz-d50": 6, "value-number": 8, "value-keyword": 6, "value-operator": 6, "value-string": 6, "value-call": 6, "value-args": 1, "value-group": 7, "value-wrap": 7,
+     //  X.P.W3.i: `rec(pairs)` holds 2·pairs cells over a reset base; `recDyn` holds at most its
+     //  maximum pair count; `timeline-view` nests the inset record inside the outer one (6 + 4); the
+diff --git a/typescript/src/css/build.mjs b/typescript/src/css/build.mjs
+index 0bd8890..02d3dd6 100644
+--- a/typescript/src/css/build.mjs
++++ b/typescript/src/css/build.mjs
+@@ -16,6 +16,7 @@ import path from "node:path";
+ import { fileURLToPath } from "node:url";
+ 
+ import { buildModule } from "./lowering-wasm/index.mjs";
++import { SURFACE_WIDENINGS, widenSurface } from "./surface-widenings.mjs";
+ 
+ const HERE = path.dirname(fileURLToPath(import.meta.url));
+ const OUT = path.join(HERE, "build");
+@@ -50,6 +51,10 @@ const VENDORED_CSS_DTS_SHA256 = "c81d095213d112c6bdbddf1ddb65da2a1286d6e2ff37f5f
+ /** The in-package name of the copy; `.js` is how a NodeNext `.d.ts` addresses a sibling `.d.ts`. */
+ const FROZEN_DTS_BASENAME = "value-css-4.0.0.d.ts";
+ const FROZEN_DTS_SPECIFIER = "./value-css-4.0.0.js";
++//  X.P.W5.g — SC-2: the declared widening of the pinned declaration (`surface-widenings.mjs`).
++const SURFACE_DTS_BASENAME = "css-surface.d.ts";
++const SURFACE_DTS_SPECIFIER = "./css-surface.js";
++
+ 
+ mkdirSync(OUT, { recursive: true });
+ 
+@@ -123,6 +128,22 @@ writeFileSync(
+ );
+ writeFileSync(path.join(OUT, FROZEN_DTS_BASENAME), frozenBytes, { flag: "a" });
+ 
++//  X.P.W5.g — SC-2: the package's own surface = the pinned bytes + the declared widenings.
++writeFileSync(
++    path.join(OUT, SURFACE_DTS_BASENAME),
++    `// SERVED MODEL: claude-opus-5-5
++//
++// GENERATED by \`build.mjs\` (X.P.W5.g, SC-2 — COHESION §0bx). The package's type surface: the
++// sha-pinned 4.0.0 declaration (byte-copied beside this file as \`${FROZEN_DTS_BASENAME}\`, sha256
++// ${frozenSha256}) with EXACTLY the ${SURFACE_WIDENINGS.length} declared substitutions of
++// \`src/css/surface-widenings.mjs\` applied, each to the one line it anchors. Nothing else differs.
++//
++//   ${SURFACE_WIDENINGS.map((w) => `${w.ruling}: ${w.why}`).join("\n//   ")}
++
++`,
++);
++writeFileSync(path.join(OUT, SURFACE_DTS_BASENAME), widenSurface(frozenBytes.toString("utf8")), { flag: "a" });
++
+ /** The frozen type names the artifact re-exports — the slice's five, X.P.W3.h's four, X.P.W3.i's fifteen. */
+ const TYPE_EXPORTS = [
+     "CssColor", "CssTimingFunction", "Stylesheet", "StyleRule", "Declaration",
+@@ -149,12 +170,17 @@ writeFileSync(
+ // directories into another repository's vendor tree, which resolved in this working copy and in no
+ // tarball — so the thirty-three frozen types type-checked here and vanished in a consumer. A
+ // package's declaration may only address bytes the package ships.
++//
++// X.P.W5.g / SC-2 (COHESION §0bx): the re-export reads \`${SURFACE_DTS_BASENAME}\` — those same pinned
++// bytes with ${SURFACE_WIDENINGS.length} declared substitutions (\`src/css/surface-widenings.mjs\`): \`CssColorSpace\`
++// gains \`display-p3-linear\`, and \`CssColor\` with it (2.0.0 is a major).
+ 
+-export type { ${TYPE_EXPORTS.join(", ")} } from "${FROZEN_DTS_SPECIFIER}";
++export type { ${TYPE_EXPORTS.join(", ")} } from "${SURFACE_DTS_SPECIFIER}";
+ `,
+ );
+ 
+ console.log(`ac1.wasm   ${built.bytes.length} bytes · ${built.builder.funcs.length} functions · ${built.staticBytes} bytes of static data`);
+ console.log(`ac1.js     ${built.entries.join(" · ")}`);
+ console.log(`${FROZEN_DTS_BASENAME}   ${frozenBytes.length} bytes byte-copied · sha256 ${frozenSha256}`);
+-console.log(`ac1.d.ts   ${TYPE_EXPORTS.length} frozen types re-exported from ${FROZEN_DTS_SPECIFIER}`);
++console.log(`${SURFACE_DTS_BASENAME}   the pinned bytes + ${SURFACE_WIDENINGS.length} declared widening(s)`);
++console.log(`ac1.d.ts   ${TYPE_EXPORTS.length} types re-exported from ${SURFACE_DTS_SPECIFIER}`);
+diff --git a/typescript/src/css/build/ac1.d.ts b/typescript/src/css/build/ac1.d.ts
+index 51766f2..b1c46b1 100644
+--- a/typescript/src/css/build/ac1.d.ts
++++ b/typescript/src/css/build/ac1.d.ts
+@@ -8,5 +8,9 @@
+ // directories into another repository's vendor tree, which resolved in this working copy and in no
+ // tarball — so the thirty-three frozen types type-checked here and vanished in a consumer. A
+ // package's declaration may only address bytes the package ships.
++//
++// X.P.W5.g / SC-2 (COHESION §0bx): the re-export reads `css-surface.d.ts` — those same pinned
++// bytes with 3 declared substitutions (`src/css/surface-widenings.mjs`): `CssColorSpace`
++// gains `display-p3-linear`, and `CssColor` with it (2.0.0 is a major).
+ 
+-export type { CssColor, CssTimingFunction, Stylesheet, StyleRule, Declaration, CssColorSpace, CssLinearStop, ParseIssue, ParseResult, AnimationRangeValue, AnimationTimelineValue, AnimationTriggerValue, CSSAnimationOptions, CSSTimelineOptions, KeyframeSelector, RangeBoundary, RangePhase, ScrollTimelineDescriptor, ScrollerKeyword, TimelineAxis, TimelineScopeValue, TriggerType, ViewInset, ViewTimelineDescriptor, CollectedRule, KeyframeRule, KeyframesBlock, PropertyRule, StylesheetItem, CSSPropertyDescriptor, CustomFunctionDescriptor, CustomFunctionParameter, CustomFunctionRule } from "./value-css-4.0.0.js";
++export type { CssColor, CssTimingFunction, Stylesheet, StyleRule, Declaration, CssColorSpace, CssLinearStop, ParseIssue, ParseResult, AnimationRangeValue, AnimationTimelineValue, AnimationTriggerValue, CSSAnimationOptions, CSSTimelineOptions, KeyframeSelector, RangeBoundary, RangePhase, ScrollTimelineDescriptor, ScrollerKeyword, TimelineAxis, TimelineScopeValue, TriggerType, ViewInset, ViewTimelineDescriptor, CollectedRule, KeyframeRule, KeyframesBlock, PropertyRule, StylesheetItem, CSSPropertyDescriptor, CustomFunctionDescriptor, CustomFunctionParameter, CustomFunctionRule } from "./css-surface.js";
+diff --git a/typescript/src/css/build/ac1.wasm b/typescript/src/css/build/ac1.wasm
+index cca00fd..5e739ca 100644
+Binary files a/typescript/src/css/build/ac1.wasm and b/typescript/src/css/build/ac1.wasm differ
+diff --git a/typescript/src/css/color-mix.mjs b/typescript/src/css/color-mix.mjs
+index 335d983..4132ac9 100644
+--- a/typescript/src/css/color-mix.mjs
++++ b/typescript/src/css/color-mix.mjs
+@@ -24,11 +24,13 @@
+ //                      transcribed from it, not re-derived.
+ //
+ // THE RESULT'S SPACE. The frozen `CssColorSpace` (value.js 4.0.0) has thirteen members; four of the
+-// sixteen interpolation spaces are not among them, and each is written in the frozen space that
++// sixteen interpolation spaces were not among them (three since SC-2), and each is written in the frozen space that
+ // represents it exactly — the reading `color()` already gives the same spaces (`tables.mjs`):
+-//   srgb → `rgb` (channels ×255) · xyz / xyz-d65 → `xyz` · xyz-d50 → `xyz` (D50→D65, §18) ·
+-//   display-p3-linear → `xyz` (its linear matrix, §18). css-color-4 §13.2: a missing component is
+-//   0 through a conversion, so a `none` in those three linear results converts as 0.
++//   srgb → `rgb` (channels ×255) · xyz / xyz-d65 → `xyz` · xyz-d50 → `xyz` (D50→D65, §18).
++//   css-color-4 §13.2: a missing component is 0 through a conversion, so a `none` in the
++//   adapted xyz-d50 result converts as 0. X.P.W5.g (SC-2, COHESION §0bx): `display-p3-linear` IS
++//   now a `CssColorSpace` member (2.0.0's declared widening, `build.mjs`), so a mix in it is written
++//   in its own space, as a `color(display-p3-linear …)` input is.
+ // Legacy hsl/hwb results stay `hsl`/`hwb` (the frozen space has both); their sRGB reading is one
+ // `hslToRgb` away and is what the WPT expectations print.
+ 
+@@ -425,7 +427,6 @@ function toCssColor({ ch, alpha }, space) {
+         case "srgb": return { space: "rgb", channels: ch.map((x) => (x === null ? "none" : x * 255)), alpha: none(alpha) };
+         case "xyz-d65": return { space: "xyz", channels: ch.map(none), alpha: none(alpha) };
+         case "xyz-d50": return linear(D50_TO_D65);
+-        case "display-p3-linear": return linear(P3_TO_XYZ);
+         default: return { space, channels: ch.map(none), alpha: none(alpha) };
+     }
+ }
+diff --git a/typescript/src/css/diagnostics.mjs b/typescript/src/css/diagnostics.mjs
+index ce196a2..899abc1 100644
+--- a/typescript/src/css/diagnostics.mjs
++++ b/typescript/src/css/diagnostics.mjs
+@@ -133,7 +133,7 @@ export const PRODUCTION_LABELS = Object.freeze({
+     "double quote": "<double-quote> ('\"')",
+     "single quote": "<single-quote> (\"'\")",
+     "string text": "<string-text> (any character but the closing quote or '\\')",
+-    "<color-space>": "<color-space> (srgb, srgb-linear, display-p3, a98-rgb, prophoto-rgb, rec2020, xyz, xyz-d50 or xyz-d65)",
++    "<color-space>": "<color-space> (srgb, srgb-linear, display-p3, display-p3-linear, a98-rgb, prophoto-rgb, rec2020, xyz, xyz-d50 or xyz-d65)",
+     "concrete xyz-d50": "<xyz-d50-channel> (a number; 'none' cannot be adapted to D65)",
+     "<function-arguments>": "<function-arguments> (none for sibling-index()/sibling-count(); at least one otherwise, except --*, scroll() and view())",
+     "<value-list>": "<value-list>",
+diff --git a/typescript/src/css/entry.mjs b/typescript/src/css/entry.mjs
+index bcb17bb..99d907c 100644
+--- a/typescript/src/css/entry.mjs
++++ b/typescript/src/css/entry.mjs
+@@ -229,10 +229,13 @@ const coercerOver = (parseValue) => (source, syntax) => {
+         : Object.freeze({ ok: false, diagnostics: Object.freeze([sourceIssue(source, "syntax_mismatch", alternatives)]) });
+ };
+ 
+-/** The thirteen frozen `CssColorSpace` members (`types.ts`), the serializer's domain. */
++/**
++ * The `CssColorSpace` members, the serializer's domain: 4.0.0's thirteen (`types.ts`) and, since
++ * X.P.W5.g (SC-2, COHESION §0bx — 2.0.0 is a major), css-color-4 §10.4's `display-p3-linear`.
++ */
+ const CSS_COLOR_SPACES = Object.freeze([
+     "rgb", "hsl", "hwb", "lab", "lch", "oklab", "oklch", "xyz",
+-    "srgb-linear", "display-p3", "a98-rgb", "prophoto-rgb", "rec2020",
++    "srgb-linear", "display-p3", "display-p3-linear", "a98-rgb", "prophoto-rgb", "rec2020",
+ ]);
+ 
+ /** `model.ts` isAnyColor, restricted to the thirteen: three channels, each a number or `none`. */
+diff --git a/typescript/src/css/lowering-js/js-alg.mjs b/typescript/src/css/lowering-js/js-alg.mjs
+index d8dff9b..2df02fa 100644
+--- a/typescript/src/css/lowering-js/js-alg.mjs
++++ b/typescript/src/css/lowering-js/js-alg.mjs
+@@ -261,6 +261,7 @@ const CTORS = {
+     xyz: (a) => (a.every(finite) ? colorOf("xyz", a[0], a[1], a[2], a[3]) : GUARD),
+     "srgb-linear": (a) => (a.every(finite) ? colorOf("srgb-linear", a[0], a[1], a[2], a[3]) : GUARD),
+     "display-p3": (a) => (a.every(finite) ? colorOf("display-p3", a[0], a[1], a[2], a[3]) : GUARD),
++    "display-p3-linear": (a) => (a.every(finite) ? colorOf("display-p3-linear", a[0], a[1], a[2], a[3]) : GUARD), // X.P.W5.g SC-2
+     "a98-rgb": (a) => (a.every(finite) ? colorOf("a98-rgb", a[0], a[1], a[2], a[3]) : GUARD),
+     "prophoto-rgb": (a) => (a.every(finite) ? colorOf("prophoto-rgb", a[0], a[1], a[2], a[3]) : GUARD),
+     rec2020: (a) => (a.every(finite) ? colorOf("rec2020", a[0], a[1], a[2], a[3]) : GUARD),
+diff --git a/typescript/src/css/lowering-wasm/wasm-alg.mjs b/typescript/src/css/lowering-wasm/wasm-alg.mjs
+index ff16e42..4d90665 100644
+--- a/typescript/src/css/lowering-wasm/wasm-alg.mjs
++++ b/typescript/src/css/lowering-wasm/wasm-alg.mjs
+@@ -687,7 +687,7 @@ export function emitCtors(env) {
+ 
+     //  X.P.W3.h: the slice's three heads and the ten the value grammar's landing added (E-h1) — one
+     //  shape, `{space, channels, alpha}` over finite leaves, the row's own `space`
+-    for (const rowName of ["rgb", "hsl", "oklch", "hwb", "lab", "lch", "oklab", "xyz", "srgb-linear", "display-p3", "a98-rgb", "prophoto-rgb", "rec2020"]) {
++    for (const rowName of ["rgb", "hsl", "oklch", "hwb", "lab", "lch", "oklab", "xyz", "srgb-linear", "display-p3", "display-p3-linear", "a98-rgb", "prophoto-rgb", "rec2020"]) {
+         const space = R_ctor[rowName].space;
+         declare(rowName, (c) => {
+             finiteGuard(c, 4);
