@@ -2807,3 +2807,17 @@ owner close report (operator item, beside G-F9-23's `-linux` baselines). **Mecha
 (`.a` `.a2` alreadyDone): [`.b3`] (Opus, verify-only close; waits for quiescence in bounded
 background polling ≤ 20 min before measuring; if quiescence never arrives, records the two best
 runs with their load and closes honest-RED by instrument, id `G-F12-3-LOAD`).
+
+## §0aw ADDENDUM 2026-09-22 — TRACK C COMPLETE: F.W12 CLOSED honest-RED BY INSTRUMENT (`G-F12-3-LOAD`); THE X·F OPERATOR ITEMS COLLECTED FOR THE OWNER CLOSE REPORT
+
+F.W12 closed (Check 1 CONFORMANT-HONEST-RED, 3 INFO): every product gate GREEN ×2 (five fields on
+`NumberField` stepping, rows retired, `networkidle` gone, O-51 sent); the full-run leg is RED by
+instrument alone — the §0av bar (15-min load < 20 at start AND end of two nine-worker runs, no
+sibling headless Chromium) was never met on a host shared with a csc411 workflow's periodic
+Playwright probes; the keystone executed and passed whenever the host was quiet. Every X·F wave is
+CLOSED (F.W0–F.W12 with F.W10S). **Operator items (X·F), by id, for the owner close report**:
+G-F12-3-LOAD (a dedicated quiesced window or host for the two-run reading) · the nine-worker CI
+count against one dev server + compute backend · G-F9-23's `-linux` baselines (a CI-capable seat) ·
+G-F9-15 certbot renewal · G-F9-19 docker/nginx host authority · the 21 J-audit PNGs rewritten by
+`visual-baseline` on every full run (a fourier evidence-home decision) · the glass-ui relays
+A-2 (dock press guard) · A-3 / KFW13T-BK-* / FW12-BK-1 (producer surfaces) awaiting BK.
