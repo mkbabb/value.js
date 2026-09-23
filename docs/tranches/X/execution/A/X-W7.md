@@ -1278,3 +1278,76 @@ curable inside §4 ∪ B-1..B-6, so a Repair 3 without a ruling cannot move them
 **Tally (count of the register rows)**: 8 rows: HIGH 1 · MEDIUM 3 · MINOR 1 · INFO 3 = 8. §6 GREENs reproduced: **14 of 14**,
 plus the browser legs (23/23) and o9 (5/5). Honest-RED (relieved): G3 · G11 · G14-grep. Unrelieved: G13 · G16 · G19.
 **Verdict: NOT-CONFORMANT.** The ledger row stays `PARTIAL` and is not promoted.
+
+---
+
+## RESUME 2026-09-23 — the §0bk supplement units (SEAT 0, `claude-opus-5-5`)
+
+Resume spec: `COHESION.md` §0bk (ruled 2026-09-23, `3f88a4a6`) and `W7.md:683` ADDENDUM 2026-09-23 — the nine
+escalations (ESC-W7d-INSPECTOR · ESC-W7b-HOST · ESC-W7e-AP6 · ESC-W7c-O10D · ESC-W7f-SITES · -DEADAPI · -MSS16 ·
+ESC-W7g-G19-BOUNDS/-ORACLE/-PANEPLATE/-R14-GLOB · XP-EXTRACT remainder · ESC-W7c-CI · ESC-W7a-G3) are **GRANTS**
+to six serial Opus units. Confirmed at §0bk (never re-opened): ESC-W7e-DISMISS-AXIS (G14 grep honest-RED until
+the glass-8 repin) · ESC-W7c-G11 → X-W10's visual canon, retargeted to `PaletteSpecimen` · O-57 R-1/R-2.
+Read at this seat: W7.md whole (once) · this record's header through §Unit plan · §Check 3 · COHESION §0bk ·
+`W7-bounds-addendum-2026-09-23.md`. Nothing else read whole.
+
+### Open
+
+- **Crash-recovery** ⟨cmd⟩ `git status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` ·
+  ` M scripts/dev/dev.sh` · `?? docs/tranches/X/keyframes/evidence/animation-audit/`. None is in any §0bk grant
+  or in this seat's writable set (record · LEDGER · INBOX). **No inherited hunk.**
+- **Units already done (commits exist, never re-dispatched)**: a · b · c · d · e · f · g — receipts above
+  (`3084e1fa`…`109bd4b4`; Repairs 1–2 `95ca141e` `600525f5`). ⟨cmd⟩ `git log --oneline --all | grep -iE
+  "W7\.(d2|f2|g2|g3|c2|a2)"` → **0**: no supplement unit has a commit.
+- **Preconditions (ledger + bytes)**: X-W3 `CLOSED 2026-09-17 (honest-RED: G-21)` (LEDGER:31) · X-W4 `CLOSED
+  2026-09-17` (:33) · X-W6 `CLOSED 2026-09-17 (honest-RED: b1 · g1 · i3)` (:34; §0bk) · X-W1 `CLOSED` (:29).
+  Bytes: `demo/color-session/keys.ts:54` `export type SceneActionScene = "color" | "generate" | "gradient" |
+  "mix"` and `:64` `SceneActionToken` (X-W4's typed set — `.d2` extends both IN PLACE) · `PaletteSpecimen.vue`
+  present · `format-color.ts` present · `PaletteCard/PaletteCard.vue` present (`.d2` deletes it). **ALL GREEN.**
+- **E13 Step-0** ⟨cmd⟩ `find <path> -maxdepth 1 -type f -newermt "2026-09-23 06:30"` at 11:02 EDT:
+  (1) `V/` → none · `V/coordination/` → `INBOX.md` only (self) · (2) glass: ⟨cmd⟩ `ls -t glass-ui/docs/tranches`
+  → `BL BK BJ`; BL has no `coordination/` (⟨cmd⟩ `ls -d …/BL/coordination` → No such file) → **BK stays the live
+  inbox**; BK new = our own outbound mirrors only (`…-o58-preset-tile-shape-relay.md` · `…-dock-scroll-morph-relay.md`
+  · `…-xw7-fallthrough-types-relay.md` · `…-owner-docket-relay.md` = O-58 · O-55 · O-57 · O-56, all rowed SENT);
+  BL `CHARTER.md` + `FORMATION-PROGRESS.md` = glass's own formation docs (noted by the X.F.W13 sweep) ·
+  (3) keyframes `V/coordination/` → none · (4) atlas `P/coordination/` → none. **0 new inbound; nothing rowed.**
+  UNREAD set unchanged (O-20 · I-30 · I-31 · I-32 · I-35 · O-39), none in X-W7 scope (Check 3 axis 6).
+
+### Unit plan (RESUME — §0bk supplements; 6 units, strictly serial, 1 concurrent, every seat Opus 5.5)
+
+Groups: `[d2] → [f2] → [g2] → [g3] → [c2] → [a2]` → close → check. Writable sets are **exactly §0bk's grants**
+(COHESION `:3011-3019`), plus each unit's gate-log/receipt lines in `docs/tranches/X/waves/W7-gate-log.md` /
+`W7-mutation-ownership.md` / `W7-failure-dispositions.md` / `W7-om15-receipt.md` (the §4 `W7-*.md` create row)
+and its receipt appended to this record. ESCALATED units do not halt the wave.
+
+| unit | executes | writable (§0bk) | gates | locks |
+|---|---|---|---|---|
+| **d2** | §0bk.1 · W7.md §5.d (`:219-232`) · G7 (`:353-364`) · G13 (`:442-455`) · bounds addendum §1 (S-5) | `demo/color-session/keys.ts` (extend `SceneActionScene`/`SceneActionToken` IN PLACE) · `demo/shell/usePaneRouter.ts` (action-set builder only) · `demo/shell/dock/layers/ActionBarLayer.vue` · `demo/palettes/useBrowsePalettes.ts` · `useDialogBrowseActions.ts` · new inspector under the owning scene dir · `BrowsePane.vue` · `PalettesPane.vue` · `ExtractWorkbench.vue` (PaletteCard import + `editable-name` only) · `e2e/smoke/**/o10d-display-voice-census.spec.ts` · PaletteCard battery under `demo/test/**` · `PaletteCard/PaletteCard.vue` (**delete**) · `browser/card/index.ts` · `e2e/smoke/oracles/w7-*.spec.ts` | G7 · G13 ×2 · demo `vue-tsc` 0 | S-5 delete only after every consumer moved; no parallel type; no `console.warn` swallow |
+| **f2** | §0bk.2 · §5.f (`:246-260`) · G16 (`:479-493`) | the 26 named display sites (ColorInput · ExtractWorkbench A10/A11 · ImageEyedropper · CurrentPaletteEditor · MixResultDisplay · AdminNamesPanel · PaletteCardSwatches · SwatchHoverMenu · GenerateControls · ColorPicker.vue model write-back) for the ONE change · `color-model.ts` · `useColorPipeline.ts` · `useSliderGradients.ts` (+ callers moved) · `demo/styles/utils.css:177-179` · `demo/test/color-session/format-color.test.ts` | G16 ×2 (29/29 sites, 0 dead APIs) · G18 | `src/` untouched (G18); `exact` register untouched |
+| **g2** | §0bk.3 · §5.g (`:262-277`) · G19 (`:515-534`) | `PaletteCardGrid.vue:25` · `MixSourceSelector.vue:272` · `demo/shell/PaneErrorPlate.vue` · `crash-battery.spec.ts:60` + R14 route glob · `browse-pagination.spec.ts:62` · `W7-om15-receipt.md` | G19 ×2 (`.family-eyebrow` excluded by name, recorded) | re-point oracle strings, same property asserted |
+| **g3** | §0bk.4 · fold §R XP-EXTRACT rows EC-9 · EC-10 · EC-25 · EY-12 · EY-23 · §R3.2 `ImageDropZone` · camera cluster · crash-battery R18 valid leg | the extract workbench's files (`demo/workbenches/extract/**`) + their tests (+ crash-battery R18 leg) | each row's own falsifier ×2 · R18 valid leg | `InvalidStateError` cured at its cause, no try/catch mask |
+| **c2** | §0bk.5 | `.github/workflows/ci.yml` | CI producer job GREEN on the pushed branch (read by `gh run`) | one step, before `npm test` |
+| **a2** | §0bk.6 · G3 (`:307-319`) | the 25 out-of-bounds files — INERT-PROP class only (`variant` · `tag` · `surface` + kin) | G3 honest-RED `G3-FALLTHROUGH-TYPES` (O-57 R-1), residual count pasted | fallthrough attrs on glass components NOT touched; `strictTemplates` NOT flipped |
+
+### Baseline (RESUME — only the gates the six owed units turn; the rest cite Check 3's banked 14/14)
+
+| gate (unit) | ⟨cmd⟩ | BEFORE | reading |
+|---|---|---|---|
+| G13 (d2) | `grep -n console.warn demo/palettes/useBrowsePalettes.ts` | `:82 :110 :140 :151 :175 :214` — vote/delete/rename/visibility swallow | RED |
+| G13 (d2) | `grep -cE "^\|.*ROUTED" docs/tranches/X/waves/W7-mutation-ownership.md` | **6** (rename · tag · publish/unpublish · fork · vote · delete) | RED |
+| S-5 (d2) | `grep -rnE "<PaletteCard[ >]\|<PaletteCard$" demo \| grep -v '^demo/test'` | **3** — `ExtractWorkbench.vue:150` · `BrowsePane.vue:90` · `PalettesPane.vue:104` (AdminUsersPanel moved at d); `PaletteCard/PaletteCard.vue` present; test importers `copy-verdict.test.ts:15` · `n-fixtures/harness/main.ts:14` | RED |
+| G7 host (d2) | `npx vitest run demo/test/palettes demo/test/color-session demo/test/export` | **17 files · 193/193, EXIT 0** (in-bounds half incl. b's export-throw test); the `failure` host render is ESC-W7b-HOST, unbuilt | in-bounds GREEN (banked at b) · host RED |
+| demo tsc | `npx vue-tsc -p tsconfig.demo.json --noEmit` | EXIT **0** | GREEN (cadence) |
+| G16 (f2) | `grep -rln format-color demo --include='*.vue' --include='*.ts' \| grep -v '^demo/test'` | **4** importers (MixSourceSelector · ColorSpaceSelector · PaletteSpecimen · PaletteCardMeta) of 29 sites | RED |
+| G16 dead APIs (f2) | `grep -rn toCSSColorString demo --include='*.ts' --include='*.vue' \| wc -l` · `grep -n "const DIGITS" useColorPipeline.ts useSliderGradients.ts` | **6** lines · `DIGITS = 2` at `useColorPipeline.ts:28`, `useSliderGradients.ts:14` | RED (3 dead APIs live) |
+| G19 (g2) | `grep -rn eyebrow demo/ \| grep -v node_modules \| wc -l` (×2) | **8 · 8** (DESIGN.md:37 · GradientCodeEditor:102 · EasingSpecimenStrip:5,99,138,150 · easingCatalogue:81 · ParseEchoReadout:15) | RED |
+| c2 | `sed -n 40,58p .github/workflows/ci.yml` | producer job: `npm ci → lint → build → typecheck → npm test` — **no** `playwright install` before `npm test` (installs only at `:129 :159 :193 :231`, other jobs) | RED |
+| G3 (a2) | scratch probe `{extends tsconfig.demo.json, vueCompilerOptions.strictTemplates:true}` → `npx vue-tsc -p <probe> --noEmit` (probe file removed after) | EXIT **2** · **331** diagnostics / **65** files · TS2353 323 · TS2322 8 · inert class: `variant` **34** · `tag` **13** · `surface` **11**; fallthrough: `onClick` 110 · `title` 14 · aria/data rest | RED (was 290/60 at `a`; the tree grew) |
+| G3 flag | `grep -n "vueCompilerOptions\|strictTemplates" tsconfig*.json` | 0 | RED (flag withheld; honest-RED id `G3-FALLTHROUGH-TYPES`, O-57) |
+| g3 | XP-EXTRACT remainder + R18 valid leg | unexecuted (Check 3 M-3) — each row's own falsifier is born-RED at the unit's open | RED |
+
+**R.2 (GREEN before cure)**: none. G7's in-bounds half and demo `vue-tsc` are GREENs banked by earlier units,
+not born-RED gates of the supplements. **Honest-RED ids expected at close**: `G3-FALLTHROUGH-TYPES` (O-57) ·
+G14 dismiss grep (glass-8 repin) · G11 goldens (→ X-W10).
+
+## Unit receipts (RESUME)
