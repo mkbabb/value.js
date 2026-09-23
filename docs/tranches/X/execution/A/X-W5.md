@@ -3638,3 +3638,16 @@ which is ESC-W5c2-1, and the escalation is unruled.
 ### K1.6 Successors
 X-W6, X-W7, X-W8 and X-W10 each declare X-W5's close in their Opens-after. That conjunct is **RED** (X-W5 PARTIAL), so all four remain **lawfully BLOCKED-ON X-W5**.
 X-W5's own Opens-after conjuncts (X-W4, X-W2, X-W0 CLOSED; D2 exit 0) are GREEN.
+
+## Repair 1 — RESUME 5, L-20 repair round 1 over Check 1, 2026-09-22
+
+SERVED MODEL: claude-opus-5-5[1m] (Opus repair seat). Crash-recovery: ⟨cmd⟩ `git status --porcelain` → only `docs/tranches/V/reformation/CARRY-LEDGER.md` and `scripts/dev/dev.sh`, both outside this seat's writable set, so there is no inherited partial work.
+
+| defect | cure | commit | gate re-reading |
+|---|---|---|---|
+| K1-1 HIGH: o16 R2 literal `"0.4s"` vs live `0.44s` | **None landed. ESCALATED.** Two things block it. First, the cure's precondition is a COHESION ruling on ESC-W5c2-1, and ⟨cmd⟩ `grep -c ESC-W5c2 docs/tranches/X/COHESION.md` → **0**. Second, `o16-computed-cascade.spec.ts:218` is outside W5 §4 and both ADDENDA. §0aq/§0ax grant only `o16:158`, a one-token re-point (⟨cmd⟩ `sed -n 2683p COHESION.md`). Re-read facts: ⟨cmd⟩ `sed -n 217p o16` → `toBe("0.4s")`, and ⟨cmd⟩ `grep -o -- '--spring-snappy-[a-z]*: [^;]*' …/scheme-spring.css` → `settle: 0.44s` and `duration: calc(var(--spring-snappy-settle) * var(--motion-tempo))`. | — | unchanged: RED (Check 1 K1.2 reading of record stands, since no byte moved) |
+| K1-2 HIGH: o12 O-12·3 hover frame-diff below 6/255 | **None landed. ESCALATED.** The cure's precondition is a COHESION ruling on ESC-W5c2-2, and the grep above gives **0**. A renderer or mood-root cure lies outside W5 §4 (see the §3a list: `src/` and the blob interiors). The only o12 grant is `o12:68`. Changing the floor or skipping the test would mask the defect, so neither is done. | — | unchanged: RED |
+| K1-3 INFO (o26 wait bound) | none required | — | — |
+| K1-4 INFO (D1 SwiftShader beside the reading of record) | none required (operator item, already registered) | — | — |
+
+No cure landed, so no gate could move. Nothing was re-run, and the Check 1 double-run readings stand as the figures of record. Self-count: 0 cured, 2 escalated, 2 INFO with no action. The wave stays PARTIAL until COHESION rules ESC-W5c2-1 and ESC-W5c2-2.
