@@ -347,9 +347,18 @@ export function useAtmosphere(
     // placeholder IS a complete render, so it arrives immediately (no WebGL
     // arming to wait for). PRM honesty lives in App.vue's CSS (reduce → no
     // transition, a static state change).
+    //
+    // X.W12.a · UIA-V-191: `isArmed` alone reads "the runtime armed once" —
+    // it stayed true while an oversized swapchain raised a validation error
+    // every frame, so the canvas arrived (opacity 1) painting nothing and
+    // the page went black (OA-18). The producer's `rendererStatus` is the
+    // live health: an `error` phase keeps the canvas on the ground (the
+    // W2-3 honest terminal) instead of presenting a dead field.
     const auroraArrived = computed(
         () =>
-            (auroraRenderMode === "css" || aurora.isArmed.value) &&
+            (auroraRenderMode === "css" ||
+                (aurora.isArmed.value &&
+                    aurora.rendererStatus.value.phase !== "error")) &&
             !contextLost.value,
     );
 
