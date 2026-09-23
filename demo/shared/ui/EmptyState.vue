@@ -1,18 +1,4 @@
 <template>
-    <!-- S.W5-5: TWO species, never conflated (SYNTHESIS §2.4 — loading ≠
-         empty, error ≠ empty).
-
-         · empty (default) — the R.W4 specimen-plate invitation: seeded
-           WatercolorDot ghosts reading the LIVE accent, a Fraunces display
-           line, optional hint + CTA slot. X.W7.g (OM-15 §1.A #2/#13 · G19):
-           the Fira caps caption prop — a DEFAULT that birthed a contrived
-           caption restating the message at every consumer, and an announced
-           string inside this polite region (ES-11) — is deleted as prop,
-           default AND element, so the idiom cannot regrow.
-         · error — the PLAIN register (Q6: error surfaces DROP the
-           annotations; no ghosts, never a second invitation): a
-           quiet destructive glyph, the Fraunces statement of failure, the
-           machine truth in Fira, and a real Retry in the action slot. -->
     <div
         v-if="variant === 'error'"
         ref="root"
@@ -66,6 +52,27 @@
 </template>
 
 <script setup lang="ts">
+/*
+ * S.W5-5: TWO species, never conflated (SYNTHESIS §2.4 — loading ≠
+ * empty, error ≠ empty).
+ *
+ * · empty (default) — the R.W4 specimen-plate invitation: seeded
+ * WatercolorDot ghosts reading the LIVE accent, a Fraunces display
+ * line, optional hint + CTA slot. X.W7.g (OM-15 §1.A #2/#13 · G19):
+ * the Fira caps caption prop — a DEFAULT that birthed a contrived
+ * caption restating the message at every consumer, and an announced
+ * string inside this polite region (ES-11) — is deleted as prop,
+ * default AND element, so the idiom cannot regrow.
+ * · error — the PLAIN register (Q6: error surfaces DROP the
+ * annotations; no ghosts, never a second invitation): a
+ * quiet destructive glyph, the Fraunces statement of failure, the
+ * machine truth in Fira, and a real Retry in the action slot.
+ *
+ * X.W7.g (crash-battery R14 · ES-2): this note lived as a leading <template>
+ * comment, which the dev compiler turns into a sibling root — a multi-root
+ * component, whose <Transition mode="out-in"> leave never completes. The
+ * template now opens on its element; the note lives here.
+ */
 import { useTemplateRef } from "vue";
 import { CircleAlert } from "@lucide/vue";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";

@@ -1,40 +1,4 @@
 <template>
-    <!-- S.W5 Lane A / W5-1 (S-10): the loading grammar re-pointed to the
-         `ec1b200` register — ONE muted-ink family (`--skeleton-ink`, a single
-         `color-mix` recipe, scheme-true through the muted tokens), opaque
-         enough to read unambiguously as SHADOW against the field, never as
-         content. The shell speaks the same card grammar as PaletteCard
-         (hairline + glass rung + chip-scale cartoon stamp) so the ghost reads
-         as "a palette card developing", not a foreign grey box.
-
-         Two temporal registers (S-10.4, re-cut on D9's MOTION axis at
-         T.W3-2 — this component is the LOADING family only):
-         · shadow     — flat unified ink blocks on the breath rung (D9
-                        calibration below); the KNOWN-IMMINENT wait — local
-                        compute, seconds away (extract's plate developing).
-         · developing — + the specimen accent seams + the sequential
-                        top-to-bottom sweep for the unknown-duration NETWORK
-                        wait (Browse). The stagger rides the producer's
-                        `--skeleton-shimmer-delay` / `--skeleton-shimmer-tint`
-                        seams (letter L9): custom properties inherit into
-                        `::after`, so the choreography goes live the day
-                        glass-ui's shimmer reads them — never re-defined here
-                        (§No-workaround).
-         The third S.W5-1 register — `specimen`, "the ghost OF a palette" —
-         moved OUT of the loading family at T.W3-2 and OFF the sibling
-         `ShadowPalette` at T.W6.5 (R12: the species was redesigned onto the
-         genesis muted register, LIVING pulse, and seats solely at Extract's
-         standing-instrument face; true-empty hosts speak the EmptyState dot
-         trio instead). loading ≠ empty now splits on ANNOUNCEMENT, not
-         motion: this shell keeps `role="status"` + "Loading palette"
-         because HERE work IS happening; the aria-hidden ghost announces
-         nothing. -->
-    <!-- X.W7.g (G20 · N-17): the loading shell is the silhouette of the
-         SETTLED collapsed card it stands in for — strip + meta row. The
-         swatch row it carried is a region the collapsed card never renders
-         (+50 % height at 390 px, PCS-4) and grew with k (254 px at k = 16);
-         it is deleted, the meta blocks take the specimen name's own line box
-         (`text-subheading` · `1lh`), and the height is k-invariant. -->
     <div
         data-slot="palette-card-skeleton"
         class="skeleton-ink-register rounded-card border border-card-edge bg-well overflow-hidden shadow-cartoon-sm"
@@ -76,6 +40,49 @@
 </template>
 
 <script setup lang="ts">
+/*
+ * S.W5 Lane A / W5-1 (S-10): the loading grammar re-pointed to the
+ * `ec1b200` register — ONE muted-ink family (`--skeleton-ink`, a single
+ * `color-mix` recipe, scheme-true through the muted tokens), opaque
+ * enough to read unambiguously as SHADOW against the field, never as
+ * content. The shell speaks the same card grammar as PaletteCard
+ * (hairline + glass rung + chip-scale cartoon stamp) so the ghost reads
+ * as "a palette card developing", not a foreign grey box.
+ *
+ * Two temporal registers (S-10.4, re-cut on D9's MOTION axis at
+ * T.W3-2 — this component is the LOADING family only):
+ * · shadow     — flat unified ink blocks on the breath rung (D9
+ * calibration below); the KNOWN-IMMINENT wait — local
+ * compute, seconds away (extract's plate developing).
+ * · developing — + the specimen accent seams + the sequential
+ * top-to-bottom sweep for the unknown-duration NETWORK
+ * wait (Browse). The stagger rides the producer's
+ * `--skeleton-shimmer-delay` / `--skeleton-shimmer-tint`
+ * seams (letter L9): custom properties inherit into
+ * `::after`, so the choreography goes live the day
+ * glass-ui's shimmer reads them — never re-defined here
+ * (§No-workaround).
+ * The third S.W5-1 register — `specimen`, "the ghost OF a palette" —
+ * moved OUT of the loading family at T.W3-2 and OFF the sibling
+ * `ShadowPalette` at T.W6.5 (R12: the species was redesigned onto the
+ * genesis muted register, LIVING pulse, and seats solely at Extract's
+ * standing-instrument face; true-empty hosts speak the EmptyState dot
+ * trio instead). loading ≠ empty now splits on ANNOUNCEMENT, not
+ * motion: this shell keeps `role="status"` + "Loading palette"
+ * because HERE work IS happening; the aria-hidden ghost announces
+ * nothing.
+ * X.W7.g (G20 · N-17): the loading shell is the silhouette of the
+ * SETTLED collapsed card it stands in for — strip + meta row. The
+ * swatch row it carried is a region the collapsed card never renders
+ * (+50 % height at 390 px, PCS-4) and grew with k (254 px at k = 16);
+ * it is deleted, the meta blocks take the specimen name's own line box
+ * (`text-subheading` · `1lh`), and the height is k-invariant.
+ *
+ * X.W7.g (crash-battery R14 · ES-2): this note lived as a leading <template>
+ * comment, which the dev compiler turns into a sibling root — a multi-root
+ * component, whose <Transition mode="out-in"> leave never completes. The
+ * template now opens on its element; the note lives here.
+ */
 import { computed } from "vue";
 import { Skeleton } from "../../../ui/skeleton";
 

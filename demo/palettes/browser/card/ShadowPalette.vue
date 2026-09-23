@@ -1,51 +1,4 @@
 <template>
-    <!-- T.W6.5 · Lane S — THE SHADOW-PALETTE SPECIES, redesigned from first
-         principles (R12: the owner overrule of the landed W3-2/D9 design;
-         MANDATE §0.6 t33-audit-07/11 — "poorly designed and do not shimmer
-         properly as a proper skeleton" · "The style we had many many
-         versions ago, when the extract feature was first introduced, was
-         closer to what we want").
-
-         The GENESIS register, assayed directly (`ec1b200`, 2026-03-20 —
-         t33-research §2.2): card-true material with a SOLID hairline edge;
-         count equal-width muted cells, each `animate-pulse` on a staggered
-         `animation-delay` — a LIVING cascading shimmer that travels the
-         plate (strip → meta, one wave); meta blocks at 60/40 of the muted
-         ink. The dashed-edge still-species this
-         replaces retired with R12; its as-filler deployment at the empty
-         hosts died with it (TRUE EMPTY speaks the EmptyState dot trio —
-         N-3 re-aimed).
-
-         ONE seat: the standing INSTRUMENT face — Extract's k-threaded
-         undeveloped plate, where the ghost is the instrument showing its
-         output shape before any image exists (the live-k leg: turn k and
-         the plate re-segments). The living register belongs HERE because
-         the plate is a standing instrument face, not a filler; PRM degrades
-         it static for free (`animate-pulse` rides the global
-         prefers-reduced-motion guard, animations.css).
-
-         Materials in TODAY'S grammar, not a xerox: the genesis `bg-card` +
-         `border-border/50` reads as the developed PaletteCard's own ratified
-         seat (Q4: PaletteCard = well) — `bg-well` + the solid `--card-edge`
-         hairline + `rounded-card` + the chip-scale cartoon stamp — so
-         ghost → skeleton → card stays ONE plate developing in place. The
-         genesis `hsl(var(--muted))` block ink reads through the house's ONE
-         loading-ink recipe (`--skeleton-ink`, utils.css — "the ec1b200
-         register, modernized"), scheme-true through the muted tokens.
-
-         Semantics — R7's SURVIVING stack (announcement, NOT motion): the
-         ghost is `aria-hidden`, carries NO role="status" and NO "Loading"
-         label (nothing is loading — a shimmering aria-hidden plate does not
-         lie to AT); the host's seated caption carries the text. Error
-         states never wear this species: error ≠ empty stands. -->
-    <!-- X.W7.g (G20 · OM-15 §3.3): the plate is the SETTLED CARD's collapsed
-         silhouette — strip + meta row — never a 1:1 replica of the expanded
-         result. The k full-scale swatch discs restated the k strip cells at
-         ~5× the height (254 px at k = 16, 390 px); the strip alone carries
-         the live-k readout, so the plate's height no longer depends on k.
-         The meta blocks take the specimen name's own line box
-         (`text-subheading` · `1lh`), so ghost → skeleton → card keep one
-         height. -->
     <div
         data-slot="shadow-palette"
         class="shadow-palette skeleton-ink-register rounded-card border border-card-edge bg-well overflow-hidden shadow-cartoon-sm"
@@ -80,6 +33,60 @@
 </template>
 
 <script setup lang="ts">
+/*
+ * T.W6.5 · Lane S — THE SHADOW-PALETTE SPECIES, redesigned from first
+ * principles (R12: the owner overrule of the landed W3-2/D9 design;
+ * MANDATE §0.6 t33-audit-07/11 — "poorly designed and do not shimmer
+ * properly as a proper skeleton" · "The style we had many many
+ * versions ago, when the extract feature was first introduced, was
+ * closer to what we want").
+ *
+ * The GENESIS register, assayed directly (`ec1b200`, 2026-03-20 —
+ * t33-research §2.2): card-true material with a SOLID hairline edge;
+ * count equal-width muted cells, each `animate-pulse` on a staggered
+ * `animation-delay` — a LIVING cascading shimmer that travels the
+ * plate (strip → meta, one wave); meta blocks at 60/40 of the muted
+ * ink. The dashed-edge still-species this
+ * replaces retired with R12; its as-filler deployment at the empty
+ * hosts died with it (TRUE EMPTY speaks the EmptyState dot trio —
+ * N-3 re-aimed).
+ *
+ * ONE seat: the standing INSTRUMENT face — Extract's k-threaded
+ * undeveloped plate, where the ghost is the instrument showing its
+ * output shape before any image exists (the live-k leg: turn k and
+ * the plate re-segments). The living register belongs HERE because
+ * the plate is a standing instrument face, not a filler; PRM degrades
+ * it static for free (`animate-pulse` rides the global
+ * prefers-reduced-motion guard, animations.css).
+ *
+ * Materials in TODAY'S grammar, not a xerox: the genesis `bg-card` +
+ * `border-border/50` reads as the developed PaletteCard's own ratified
+ * seat (Q4: PaletteCard = well) — `bg-well` + the solid `--card-edge`
+ * hairline + `rounded-card` + the chip-scale cartoon stamp — so
+ * ghost → skeleton → card stays ONE plate developing in place. The
+ * genesis `hsl(var(--muted))` block ink reads through the house's ONE
+ * loading-ink recipe (`--skeleton-ink`, utils.css — "the ec1b200
+ * register, modernized"), scheme-true through the muted tokens.
+ *
+ * Semantics — R7's SURVIVING stack (announcement, NOT motion): the
+ * ghost is `aria-hidden`, carries NO role="status" and NO "Loading"
+ * label (nothing is loading — a shimmering aria-hidden plate does not
+ * lie to AT); the host's seated caption carries the text. Error
+ * states never wear this species: error ≠ empty stands.
+ * X.W7.g (G20 · OM-15 §3.3): the plate is the SETTLED CARD's collapsed
+ * silhouette — strip + meta row — never a 1:1 replica of the expanded
+ * result. The k full-scale swatch discs restated the k strip cells at
+ * ~5× the height (254 px at k = 16, 390 px); the strip alone carries
+ * the live-k readout, so the plate's height no longer depends on k.
+ * The meta blocks take the specimen name's own line box
+ * (`text-subheading` · `1lh`), so ghost → skeleton → card keep one
+ * height.
+ *
+ * X.W7.g (crash-battery R14 · ES-2): this note lived as a leading <template>
+ * comment, which the dev compiler turns into a sibling root — a multi-root
+ * component, whose <Transition mode="out-in"> leave never completes. The
+ * template now opens on its element; the note lives here.
+ */
 const { count = 5 } = defineProps<{
     /** Ghost segment count — Extract threads the LIVE k here, so the
      *  instrument shows its output shape before any image exists. */
