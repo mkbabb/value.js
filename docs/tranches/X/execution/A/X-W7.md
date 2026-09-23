@@ -2447,3 +2447,89 @@ SERVED MODEL: claude-opus-5-5. Sections: COHESION §0bt.3 · §0bk.5 · W7.md §
 **Commits**: `630f6f8d` (lint ignore) · `464ff743` (= local `31d15db7`; CI api install + test-program declaration) · this receipt.
 
 **Verdict: ESCALATED** — lint ×2 GREEN · push GREEN · producer RED at `npm test` only (ESC-W7z3-BORNRED-VITEST). `scripts/dev/dev.sh` untouched.
+
+## Close (RESUME round 3 2026-09-23 — the §0bt units)
+
+SERVED MODEL: claude-opus-5-5. **Seat**: close seat of round 3, VERIFY-ONLY, wall clock 2026-09-23 ~15:2x–15:4x EDT, HEAD at
+entry `83767d99` (= origin). Cured nothing. Read: W7.md whole (once, incl. `:683` §0bk and `:685` §0bt) · this record's header ·
+round-3 §Open/§Baseline/§Unit plan · the three round-3 receipts · the prior § Close (RESUME) for form. Load 25–31 (⟨`uptime`⟩).
+
+**Crash-recovery** ⟨`git status --porcelain`⟩ → ` M …/V/reformation/CARRY-LEDGER.md` · ` M package-lock.json` · ` M package.json`
+· ` M scripts/dev/dev.sh` · `?? src/css/bbnf/` · `?? src/css/grammar/` · `?? test/css/` (mid-seat also ` M src/css/rules.ts` and
+` M …/execution/B/KF-W13U.md` — sibling tracks). None in this seat's writable set (record · LEDGER). **No inherited hunk.**
+
+### Act 1: commit roster and bounds (`git show --name-only`)
+
+| unit | commits | paths outside `demo/**`·`e2e/**`·`eslint.config.*`·`ci.yml`·record | bounds |
+|---|---|---|---|
+| z1 | `d104cd5f` (S-5, 3 paths, one commit per lock) · `7c3b9156` · `3cd3de31` · `39ed6daa` (BrowsePane + 2 oracles, one commit) · `ca78e91b` · `1602340e` (receipt) | none | IN |
+| z2 | `04ed557d` (13 files) · `26681172` (EC-10 + twin, one step) · `33d52f8c` (R-15, one commit) · `cc2e38ba` (receipt) | none | IN |
+| z3 | `630f6f8d` (`eslint.config.js` only) · `464ff743` (= local `31d15db7`; `ci.yml` + `tsconfig.test.json`) · `83767d99` (receipt) | `tsconfig.test.json` — declared **adjacent edit** in the z3 receipt (same concern: the producer typecheck step) | IN (§0bt adjacent-line rule) |
+
+13 commits, one meaning each. ⟨per-commit `git show --stat -- src api | wc -l`⟩ → **0**. Masking scan ⟨added lines of the 12
+product/CI commits matching `.skip(`/`.only(`/`ts-ignore`/`ts-expect-error`/`eslint-disable`/`as any`/`continue-on-error`⟩ → **0**.
+`dev.sh` never staged. **Landed-wrong: none.**
+
+### Act 2: gates re-run at this seat (BEFORE = round-3 §Baseline / prior § Close (RESUME); AFTER = this seat)
+
+| gate | ⟨cmd⟩ (this seat) | BEFORE | AFTER | verdict |
+|---|---|---|---|---|
+| G1 | `grep -rn "update:checked\|:checked=" demo/ --include='*.vue' \| grep -v node_modules \| wc -l` | 0 | **0** | GREEN |
+| G2 G5 G7 G8 G9 G10 G12 G17 G20 + z1 verdicts + z2 EC-10/R-15 (mounted) | `npx vitest run` whole repo ×2 | 857/859 | **874 passed · 2 failed** ×2 (fail = C-5 `spectrum-luma`, NG-6 `reka-binding-idiom` only; run 1 also a transient load error for a sibling's untracked `test/css/explore.test.ts`, gone in run 2) | GREEN (W7 files all pass) |
+| G3 flag | `grep -n "vueCompilerOptions\|strictTemplates" tsconfig*.json \| wc -l` | 0 | **0** | honest-RED `G3-FALLTHROUGH-TYPES` (O-57) |
+| G3 probe | scratch `{extends tsconfig.demo.json, strictTemplates:true}` → `vue-tsc --noEmit` (scratch removed) | 312 / 65 | **EXIT 2 · 284 errors / 64 files** (= z2's reading) | inert class 31 → 0; residual = glass fallthrough |
+| G4 | `ls demo/palettes/export.ts`; importers of `export/serializers` | absent | absent; `usePaletteExport.ts` (product) + byte-exact test | GREEN |
+| G6 | `grep -rn "function slugify\|const slugify" demo \| grep -v node_modules \| wc -l` | 1 | **1** | GREEN |
+| G11 | X-W1 goldens | routed | routed X-W10 (§0bk) | honest-RED (X-W10) |
+| G13 · G14 network · G15 | `playwright --project=smoke` w7-destructive-seats · w7-inspector-rows · w7-mutation-visibility (with R14 + pagination, one run, port 8241) | GREEN | **33 passed (3.5m), EXIT 0** | GREEN |
+| G14 grep | `grep -rn 'dismiss="deliberate"' demo/ \| grep -v node_modules \| wc -l` | 0 | **0** | honest-RED (glass-8 repin) |
+| G16 | `grep -rln format-color demo \| grep -v node_modules \| grep -v ^demo/test \| wc -l` | 14 | **14** | GREEN |
+| G18 | `git diff --stat e24361c6..HEAD -- src/ \| wc -l` | 0 | **0** | GREEN |
+| G19 | `grep -rn eyebrow demo/ \| grep -v node_modules \| grep -v family-eyebrow \| wc -l` (raw) | 6 (raw 8) | **0** (raw 2, both `family-eyebrow`) | **GREEN** |
+| S-5 | `ls …/card/PaletteCard/`; `grep -n PaletteCard\b` in both barrels | present; 2 re-exports | **absent**; barrels carry only PaletteCardGrid/Skeleton | **GREEN** |
+| m-1 | `grep -c console.warn demo/palettes/useVersionHistory.ts` | 2 | **0** | GREEN |
+| R14 recovery · Load-more | `crash-battery.spec.ts:66` + `views/browse-pagination.spec.ts` | RED `:103` | run 1 (8241) GREEN · run 3 (fresh 8251) **3 passed** — ×2 GREEN. Run 2 (8241 reused) 3 failed with `Failed to fetch dynamically imported module` while a sibling seat's `src/css/rules.ts` edit landed mid-run (HMR class z1 recorded); not counted | GREEN |
+| EC-10 · R-15 | `grep -rn -- "--ink-muted:" demo`; `grep -rn "\.plate-ink" demo` (css/vue) | 0 · 13 refs | **2** (`foundation.css:260` `:root`, `:587` dark) · **1** recipe `utils.css:192` | GREEN |
+| lint | `npm run lint` | EXIT 1 (24 docs errors) | EXIT 1: **0 errors, 3 warnings, all in sibling-owned UNTRACKED `src/css/bbnf/load.ts` + `test/css/wpt-cases.ts`**; tracked tree ⟨`npx eslint . --max-warnings=0 --ignore-pattern` the three untracked dirs⟩ ×2 → **EXIT 0 · EXIT 0** | GREEN at the committed bytes |
+| typecheck | `npm run typecheck` ×2 | EXIT 0 | **EXIT 0 · EXIT 0** | GREEN |
+| CI producer | run `35908473889` @ `83767d99` (HEAD) | lint ✗ | producer / Node 22 + 24: lint ✓ · typecheck ✓ · Chromium ✓ · **`npm test` ✗** (`Test Files 2 failed \| 62 passed (64)`: C-5 + NG-6) | **RED** (ESC-W7z3-BORNRED-VITEST) |
+
+### Act 3: §8 verification artefacts
+
+`W7-gate-log.md` · `W7-failure-dispositions.md` · `W7-mutation-ownership.md` · `W7-om15-receipt.md` present (⟨`ls docs/tranches/X/waves/W7-*.md`⟩);
+`demo/test/palettes/n-fixtures/` passes inside both vitest runs; `e2e/visual/` goldens = X-W10 (G11). Integration hashes: Act 1.
+
+### Act 4: E13 close sweep (read-only)
+
+`INBOX.md` last row = the 15:1x X.F.W14 sweep (I-43 · I-44 rowed); glass `BL` newest, last commit `7362b3bf` (= I-44, rowed);
+⟨`git log -1 --since='2026-09-23 15:15'`⟩ in keyframes.js · atlas · fourier-analysis · glass-ui → **none**. **0 unrowed, 0 new UNREAD**;
+standing UNREAD rows (O-20 · I-30 · I-31 · I-32 · I-35 · O-39) are outside X-W7 scope.
+
+### Act 5: escalations (open; orchestrator rules)
+
+- **ESC-W7z3-BORNRED-VITEST** (z3): CI producer `npm test` RED on C-5 `test/spectrum-luma.test.ts` (plate-luma regime, `src/`-side,
+  routed "X-W4 (fold R23)" — X-W4 is CLOSED, the routing is stale) and NG-6 `demo/test/shell/reka-binding-idiom.test.ts:63` (X-W1
+  canary). Neither is X-W7's concern; editing either assertion is forbidden. Needs an owner per oracle, or a ruling on born-RED
+  oracles' CI disposition.
+
+### Residuals (each with a named owner)
+
+- G3 `G3-FALLTHROUGH-TYPES` (284/64 glass fallthrough) → O-57 / glass. G11 goldens → X-W10. G14 grep → glass-8 repin (X-W7R).
+- The five Admin panel Retry controls stay behind the availability latch cooldown (no gate owns them) → X-W7R.
+- Stale prose citing the deleted `PaletteCard.vue`: `e2e/smoke/crash-battery.spec.ts:350` comment, DESIGN.md → X-W7R (docs/comments only).
+- Two-arm `var(--ink-muted, var(--muted-foreground))` at 8 non-plate sites → X-W10 XP-19.
+- CI concurrency cancels in-flight runs on sibling docs pushes; e2e reuse of a shared dev server is vulnerable to out-of-tree
+  `src/` HMR (run 2 above) → X-W1 harness watch.
+- Untracked sibling `src/css/bbnf/` · `src/css/grammar/` · `test/css/` carry 3 lint warnings; they would redden `npm run lint` if
+  committed as-is → their owning Track D seat.
+
+### Four-verb line (§2; moved only as §9 #13 allows)
+
+| verb | state |
+|---|---|
+| AUDITED | YES |
+| SPECIFIED | YES |
+| IMPLEMENTED | **PARTIAL** — every round-3 wave-owned gate GREEN at the settled bytes; the §0bt z3 CI gate is RED only at `npm test` on two out-of-wave born-RED oracles (ESC-W7z3-BORNRED-VITEST) |
+| VERIFIED | NO (stamped only at X-W11's release close) |
+
+**Verdict: PARTIAL** — z1 · z2 DONE; z3 ESCALATED. Honest-RED carried: G3 · G11 · G14 grep. Landed-wrong 0. UNREAD 0.
