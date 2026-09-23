@@ -55,6 +55,7 @@ jobs:
             # `npm run typecheck` now runs FOUR programs; inlining any subset
             # here would be the drift this replaces.
             - run: npm run typecheck
+            - run: npx playwright install --with-deps chromium
             - run: npm test
             - name: pack producer bytes
               id: pack
