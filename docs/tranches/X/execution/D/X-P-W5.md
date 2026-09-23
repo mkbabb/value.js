@@ -70,3 +70,34 @@ Strictly serial, 5 units, every seat Opus 5.5 (W5.md §State "Model"; §0bc "Opu
 
 ## Unit receipts
 
+
+### X.P.W5.a
+
+Seat `claude-opus-5-5`, 2026-09-23 ~12:43–13:00 EDT. Mode: fresh (no prior `.a` receipt).
+
+**Crash-recovery scan.** ⟨`git -C parse-that status --porcelain`⟩ → 14 tracked (13 `M` + 1 `D`, all `rust/**`, `.cargo/config.toml`, `README.md`) + 17 untracked = the July dirt named in §Open; 0 paths inside my writable set dirty; no inherited edits. value.js record clean.
+
+**Acts in order.**
+1. ⟨`git fetch ../parse-that-css-totality-p2 w2/harness; git rev-parse FETCH_HEAD`⟩ → `31999135c8b75a8c2cac969ad97db02c9727ac81`; ⟨`rev-list --count master..FETCH_HEAD`⟩ → `169`; ⟨`FETCH_HEAD..master`⟩ → `0`; ⟨`merge-base --is-ancestor ef10d5b FETCH_HEAD`⟩ → ANCESTOR (fast-forward-able); ⟨`diff --name-only master FETCH_HEAD | wc -l`⟩ → `596`.
+2. Overlap re-measured at file level: tracked-dirty ∩ incoming ⟨`git diff --name-only | grep -Fxf - incoming`⟩ → `0`; untracked files that an incoming path would overwrite ⟨loop: exists ∧ not ls-files⟩ → `0`. (A prefix grep shows 10+ hits under `docs/tranches/B/**` — those are different files inside an untracked directory, not collisions.)
+3. Merge commit chosen over fast-forward: the lock requires the premise retirement IN the merge commit; a fast-forward cannot carry it. ⟨`git merge --no-ff --no-commit FETCH_HEAD`⟩ → "Automatic merge went well"; 596 staged.
+4. Retirement: `typescript/package.json` — removed `"proof:no-css-surface"` and its `npm run proof:no-css-surface && ` link in `proof:all` (python exact-count-1 replace); ⟨`git rm scripts/proof-no-css-surface.mjs`⟩; new dated note `docs/css-surface-returns-2026-09-23.md` (cites COHESION §0bl; line 1 SERVED MODEL). Index ⟨`diff --cached --name-only | wc -l`⟩ → `598` = 596 + note + script deletion; ⟨`grep -vxFf incoming staged`⟩ → exactly those 2; July dirt unstaged (14).
+5. Commit **`4eac70c1`** (parse-that master) — parents `ef10d5b7` + `31999135`. **Deviation, recorded:** git refuses a pathspec commit during a merge ("cannot do a partial commit during a merge"), so the commit ran without a pathspec; the index was verified at 598 = exactly the merge + my 2 paths first. parse-that's index is Track D's alone (no other seat stages there).
+6. ⟨`git push origin master`⟩ → `ef10d5b..4eac70c  master -> master`; ⟨`git status -sb`⟩ → `## master...origin/master`.
+
+**Gate readings (BEFORE → AFTER, post-commit at `4eac70c1`).**
+
+| gate | BEFORE | AFTER | verdict |
+|---|---|---|---|
+| G-W5-a1 | 169 commits of `w2/harness` not on master | ⟨`merge-base --is-ancestor 31999135 HEAD`⟩ → yes; ⟨`rev-list --count ef10d5b..HEAD`⟩ → `170` (169 incoming + the merge); `origin/master` = `4eac70c1` | **GREEN** |
+| G-W5-a2 | `proof:no-css-surface GREEN — 34 runtime exports, zero CSS surface.` | ⟨`npm run proof:no-css-surface`⟩ → `npm error Missing script: "proof:no-css-surface"` exit 1; ⟨`git ls-files typescript/scripts/proof-no-css-surface.mjs`⟩ → 0; retired in `4eac70c1` itself with the dated note | **GREEN** |
+| G-W5-a3 (tests) | vitest 13 files / 124 tests | ⟨`npm test`⟩ ×2 → `Test Files 14 passed (14) · Tests 134 passed (134)` EXIT=0 both (the +1 file/+10 tests are `w2/harness`'s) | GREEN |
+| G-W5-a3 (proofs) | not read at open | ⟨`npm run proof:all`⟩ (after `npm run build` — the July-29 `dist/` was stale; the proofs import `dist/parse.js`) → 8 of 9 GREEN (`manifest · subpath · packrat-cross-input · packrat-reentrant · packrat-large-offset · packrat-armed · no-span-surface · no-dead-combinator`), **`proof:perf` FAIL** → exit 1 | **RED (environmental)** |
+
+**proof:perf is a load reading, not a merge regression — paired evidence.** The gate compares json-comprehensive ns/parse against the checked-in 1742 ns baseline (15 % threshold). Machine load during this seat: ⟨`uptime`⟩ 298 → 233 → 663 → 778 (four tracks + their builds). Paired interleaved runs, pre-merge master `ef10d5b` built from ⟨`git archive ef10d5b typescript`⟩ into the scratchpad vs merged tree: pre 33031 ns (+1796 %) · merged 23686 ns (+1259 %) · pre 16535 ns (+849 %) · merged 9236 ns (+430 %); later merged-only runs 7277 ns (+318 %) and 6881 ns (+295 %). Pre-merge master fails the gate as badly under the same load, and the merged tree is never slower in a pair, so the merge adds no regression. The gate cannot be read GREEN on this machine at load ≫ core count. No threshold, baseline or script was changed (that would mask it).
+
+**Residuals.**
+- R-a-1: **`proof:perf` must be re-read at low load** (or on CI) — ⟨`cd parse-that/typescript && npm run build && npm run proof:perf`⟩, pass = regression ≤ 15 %. Owed before `.d` publishes (G-W5-a3 holds as a hold gate through `.d`).
+- R-a-2: `typescript/test/dist-surface.test.ts:80-82` still has the comment "the CSS surface left for value.js … The runtime-surface gate is proof:no-css-surface". Its assertion (the root/parsers barrel names none of 9 legacy CSS symbols) still passes, because the CSS surface ships at the `./css` subpath. That file is outside `.a`'s writable set, so it is routed to `.b`/`.d` (whoever next edits `typescript/test/**`) to update the stale comment. It is not a gate.
+- R-a-3: `<p2>` (`parse-that-css-totality-p2` `w2/harness`) is now read-only evidence per §Unit plan; its history lives on master.
+- Escalations: none.
