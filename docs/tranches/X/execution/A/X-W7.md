@@ -2533,3 +2533,70 @@ standing UNREAD rows (O-20 · I-30 · I-31 · I-32 · I-35 · O-39) are outside 
 | VERIFIED | NO (stamped only at X-W11's release close) |
 
 **Verdict: PARTIAL** — z1 · z2 DONE; z3 ESCALATED. Honest-RED carried: G3 · G11 · G14 grep. Landed-wrong 0. UNREAD 0.
+
+## Check 1 (RESUME round 3 2026-09-23 — L-20 fresh adversarial pass 1 over the round-3 § Close)
+
+SERVED MODEL: claude-opus-5-5. **Seat**: VERIFY-ONLY check seat, wall clock 2026-09-23 ~15:30–15:5x EDT, HEAD at entry
+`4da38d2b` (round-3 close `11866136` + two Track D `src/css` commits `acb7dca7` · `4da38d2b`, X.P.W6.b — not this wave's). Load 33–68
+(⟨`uptime`⟩). Read: W7.md whole once (incl. `:683` §0bk and `:685` §0bt) · COHESION §0bt · this record's round-3 §Open/§Baseline/
+§Unit plan · the round-3 § Close · Check 3 (RESUME)'s register · every round-3 commit by `git show`.
+**Crash-recovery** ⟨`git status --porcelain`⟩ → ` M …/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh` — neither in this
+seat's writable set (record · LEDGER). **No inherited hunk.**
+
+### Axes 1–9 (this seat's own commands)
+
+| axis | ⟨cmd⟩ → reading | verdict |
+|---|---|---|
+| 1 G1 · G6 · G4 · G16 · G19 · G14-grep · G3-flag | `grep -rn "update:checked\|:checked=" demo/ --include='*.vue' \| grep -v node_modules \| wc -l` → **0** · `grep -rn "function slugify\|const slugify" demo \| grep -v node_modules \| wc -l` → **1** · `ls demo/palettes/export.ts` → absent; importers of the export seat = `usePaletteExport.ts` (product) + `byte-exact.test.ts` · `grep -rln format-color demo \| grep -v node_modules \| grep -v ^demo/test \| wc -l` → **14** · G19 net → **0** (raw 2, both `family-eyebrow`) · dismiss grep → 0 · strictTemplates flag → 0 | claimed GREENs reproduce; G14-grep / G3 RED as claimed |
+| 1 S-5 · m-1 · EC-10 · R-15 | `ls …/card/PaletteCard/` → no `PaletteCard.vue` (5 siblings); `grep -n "PaletteCard\b"` both barrels → 0 · `grep -c console.warn demo/palettes/useVersionHistory.ts` → **0** · `grep -rn -- "--ink-muted:" demo` → `foundation.css:260` (`:root`) · `:587` (dark); `grep -rn "\.plate-ink" demo --include='*.css' --include='*.vue'` → **1** (`utils.css:192`) · `GenerateControls.vue:77` routes through `paletteRail` | GREEN |
+| 1 lint · typecheck | `npm run lint` ×2 → **EXIT 0 · EXIT 0** (the three sibling files are now committed and clean) · `npm run typecheck` ×2 → **EXIT 0 · EXIT 0** | GREEN |
+| 1 vitest (whole) | `npx vitest run` ×2 → run 1 `2 failed \| 900 passed \| 8 skipped (910)`, 4 files failed: C-5 · NG-6 + `palette-card-layout` / `plate-mass` `beforeAll` `page.goto: Timeout 30000ms` (load 46–68; the 8 skips are that hook's) · run 2 `3 failed \| 907 passed (910)`: C-5 · NG-6 + `generate-rail` EC-10 case 1 `timed out in 5000ms` | W7 files GREEN on the rerun below; load-bound timeouts → m-2 |
+| 1 vitest (W7 dirs) | `npx vitest run demo/test/{generate,extract,palettes,color-session,export}/` ×2 → `1 failed \| 263 passed` (the same `generate-rail` 5 s timeout) · **`264 passed (264)`** | GREEN ×2 over the two full + two subset runs for every W7 file (each file passed in ≥2 of 4) |
+| 1 browser | `VJS_E2E_PORT=8263 npx playwright test --project=smoke` w7-destructive-seats · w7-inspector-rows · w7-mutation-visibility · crash-battery (whole, incl. R14 recovery) · views/browse-pagination → **47 passed (2.3m), EXIT 0** (one bounded run, fresh port) | G13 · G14-network · G15 · R14 · Load-more GREEN |
+| 1 CI | `gh run view 35908473889` (@ `83767d99`) producer / Node 22 steps: npm ci ✓ · api ci ✓ · lint ✓ · build ✓ · typecheck ✓ · Chromium install ✓ · **npm test ✗** — log: `FAIL test/spectrum-luma.test.ts` (C-5) · `FAIL demo/test/shell/reka-binding-idiom.test.ts` (NG-6) · `Test Files 2 failed \| 62 passed (64)` | reproduces the close's RED exactly |
+| 2 bounds | `git show --name-only` over the 14 round-3 commits: every path under `demo/**` · `e2e/**` · `eslint.config.js` · `ci.yml` · the record, except `tsconfig.test.json` (`464ff743`, one include entry — the adjacent edit the z3 receipt declares, same concern: the producer typecheck program) and `LEDGER.md` (`11866136`, the close's own cell) · `git show --stat -- src api` per W7 commit → 0 · `dev.sh` never staged | IN |
+| 3 masking | added lines of the 10 product/CI commits vs `catch\|\.skip(\|\.only(\|ts-ignore\|ts-expect-error\|eslint-disable\|as any\|continue-on-error\|allowlist\|timeout` → 1 hit, a doc-comment naming the retired `catch → console.warn` arms (`7c3b9156`). `ca78e91b` (R14): `admitRecoveryProbe()` re-opens the latch window for one person-initiated attempt through the same admission branch — a root cure of the 30 s latch, not a bypass; the e2e recovered leg now `route.fulfill`s the backend's JSON (the old `route.continue()` reached SPA HTML) — an oracle premise corrected, assertions intact. `630f6f8d` widens the eslint ignore to `docs/**` exactly as §0bt.3 rules | 0 masking |
+| 4 families | S-5 (`d104cd5f`: file + both barrels, 3 paths) · BrowsePane rows 15/17 + 2 oracles (`39ed6daa`) · EC-10 + `GenerateControls` twin (`26681172`) · R-15 `:root` + recipe + twins (`33d52f8c`) each ONE commit | held |
+| 5 E-3 | `git diff --stat e24361c6..HEAD -- docs/tranches/V/megatranche/registry/adjudicated/ docs/tranches/X/CONFORMANCE-2026-08-03.md` → empty; `W7.md` touched only by `3f88a4a6` (§0bk) and `1de0946d` (§0bt), each **0 removed lines** (appended addenda, orchestrator seats) | held |
+| 6 mail | `grep -n UNREAD INBOX.md` rows = I-30 (:102) · I-32 (:105) · I-35 (:115) · O-39 (:126) — within the close's standing set, none X-W7 scope; glass newest `7362b3bf` 15:13 (= I-44, rowed); keyframes `3b1dbd8f` 14:37 · fourier `216ffbd` 11:50 — nothing new since the close's sweep | clean |
+| 7 four-verb | AUDITED YES · SPECIFIED YES · IMPLEMENTED PARTIAL · VERIFIED NO — moved only as §9 #13 allows (VERIFIED reserved for X-W11) | lawful |
+| 8 goal | the specimen is props-only (G12 in the mounted set), counts/tags true across the N battery (G8/G10 in the W7 dirs, GREEN), every mutation one owner + visible verdict (G13 browser GREEN), destructive seats confirmed before any request (G14-network GREEN); the last dead seat (`PaletteCard.vue`) is gone and `useVersionHistory` no longer swallows | MET at the bytes |
+| 9 figures | close's vitest "874/876" read at `83767d99`; this HEAD carries two Track D commits (+34 tests) → 907/910; the 2 non-load failures are the same two ids. Browser "33 passed" (close's filter) ⊂ this seat's 47 (whole crash battery). All other published counts reproduce exactly | reproduce |
+
+**G18 note (INFO).** `git diff --stat e24361c6..HEAD -- src/` is no longer empty: `acb7dca7` · `4da38d2b` (Track D, X.P.W6.b) landed
+*after* the close. `git diff --stat e24361c6..11866136 -- src/ | wc -l` → **0**, and no W7-tagged commit touches `src/` — G18 holds for this
+wave's range.
+
+### Axis 10 — honest-RED adjudication at the spec bytes
+
+| RED gate | relief at the spec bytes | owner named? | adjudication |
+|---|---|---|---|
+| G3 (flag withheld; probe 284/64 = glass fallthrough) | W7.md:683 *"`G3-FALLTHROUGH-TYPES` (O-57)"*; §0bt *"Honest-RED at close: `G3-FALLTHROUGH-TYPES` (O-57)"* | YES — glass O-57 | **RELIEVED** (producer-owned) |
+| G11 goldens | W7.md:683 *"G11 goldens (→ X-W10)"*; §0bt | YES — X-W10 | **RELIEVED** (later wave) |
+| G14 `dismiss="deliberate"` grep clause (network half GREEN) | W7.md:683 *"G14's dismiss grep (glass-8 repin)"*; §0bt *"discharged at X-W7R"* | YES — X-W7R | **RELIEVED** (later wave) |
+| §0bt.3 CI producer job — `npm test` step only (lint · build · typecheck · Chromium steps ✓) | the two failing oracles are X-W1's born-RED canaries, not W7 gates: COHESION §0z E2 (`COHESION.md:2655-2656`) *"the two foreign W1.a born-RED canaries (`spectrum-luma` C-5, `…reka-binding-idiom.test.ts` NG-6) → **X-W8 `.i`**"*; `W8.md:526` (§0aq) *"the two vitest canaries … cured at their roots. Gate G-W8-i1 … full `npx vitest run` GREEN ×2"*. The concern §0bt.3 grants (ESC-W7c2-LINT, the lint wall) is fully cured on CI | YES — X-W8 `.i` (gate G-W8-i1) | **RELIEVED** (later wave by standing routing; editing either assertion here is forbidden) |
+
+No other gate is RED. Check 3 (RESUME)'s unrelieved set — G19 (H-1) · S-5 (H-2) · c2 CI lint (M-1) · EC-10 / R-15 / R14 (M-2) · m-1 —
+is **all GREEN at this seat** (axis 1).
+
+### Register (severity · claim · receipt · cure)
+
+| id | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| m-1 | MINOR | Close Act 5 calls the C-5/NG-6 routing "stale" and asks for an owner; an owner and a gate already exist | `COHESION.md:2655-2656` (§0z E2) → X-W8 `.i`; `W8.md:526` G-W8-i1. (The C-5 assertion string still says "routed to X-W4 (fold R23)" — test text, X-W8 `.i`'s to rewrite with its cure) | this Check names the owner; ESC-W7z3-BORNRED-VITEST discharged to X-W8 `.i` by standing routing — no new ruling needed |
+| m-2 | MINOR | EC-10 oracle `demo/test/generate/generate-rail.test.ts` case 1 cold-imports `GenerateControls` inside the test body (4.0–4.5 s at load 33–68) against vitest's 5 s default → timed out 2 of 4 runs here; plus `palette-card-layout` / `plate-mass` `beforeAll` `page.goto` 30 s timeouts in 1 of 2 full runs | this seat's full run 1/2 + subset run 1; every file GREEN in ≥2 of 4 runs and on CI run `35908473889` | hoist the import to `beforeAll` (or an explicit per-test budget, the D59 precedent) — never a skip; the X-W1 readiness watch §0bt names, first touch X-W7R |
+| i-1 | INFO | G18 range reading drifted non-zero after the close | `acb7dca7` · `4da38d2b` (Track D) — `e24361c6..11866136 -- src/` → 0 | none; cite the close-sha range |
+| i-2 | INFO | other CI jobs red on `35908473889` (oracle slate · deploy-age · lhci) | `gh run view … --json jobs` | not a §0bt gate (producer only); owners outside X-W7 |
+
+### Successor `Opens after` conjuncts
+
+X-W7's own Opens-after (X-W3 · X-W4 · X-W6 CLOSED) **GREEN**. On this promotion: **X-W7R** (*"X-W7 CLOSED"*, `W7R.md:4`) → **GREEN, may open**;
+**X-W12** (*"X-W7 CLOSED"*, `W12.md:4`) → X-W7 conjunct GREEN, but §0bt's order runs X-W7R → X-W12 (X-W7R *"Blocks: X-W12"*) → **lawfully
+blocked on X-W7R**. **X-W8** (W4 · W5 · W6 · W7) → all four GREEN, but X-W12 *"Blocks: X-W8"* → **lawfully blocked on X-W12**. **X-W10**
+→ still blocked on X-W8 stable. **X-W11** → everything.
+
+### Verdict — **CONFORMANT-HONEST-RED** (0 BLOCKER · 0 CRITICAL · 0 HIGH · 0 MEDIUM · 2 MINOR · 2 INFO)
+
+Every claimed GREEN reproduces at this seat (17 gate readings, 0 divergences). The remaining RED set is relieved and owner-named:
+**{G3 `G3-FALLTHROUGH-TYPES` → O-57 · G11 → X-W10 · G14-grep → X-W7R · CI producer `npm test` (C-5 · NG-6) → X-W8 `.i`}**. LEDGER row →
+`CLOSED 2026-09-17 (honest-RED: G3, G11, G14-grep, CI-npm-test C-5/NG-6)`.
