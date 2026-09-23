@@ -34,6 +34,8 @@ adminPopulatedTest.describe("G13 · admin rows", () => {
     adminPopulatedTest("admin delete — the row leaves and the verdict is announced", async ({ page }) => {
         await openUserPalettes(page);
         await page.getByRole("button", { name: "Delete palette Azure One" }).click();
+        // X.W7.e (G14): the delete is deliberate — accepted in its confirm.
+        await page.getByRole("dialog").getByRole("button", { name: "Delete palette" }).click();
         await expect(page.locator('[data-admin-palette="azure-one-11aa"]')).toHaveCount(0);
         await expect(verdict(page, "users")).toContainText("Deleted “Azure One”");
     });
@@ -44,8 +46,9 @@ adminPopulatedTest.describe("G13 · admin rows", () => {
             .getByText("azure-fox-01", { exact: true })
             .first()
             .locator('xpath=ancestor::div[contains(@class,"cursor-pointer")][1]');
-        await row.getByRole("button", { name: "Palettes", exact: true }).click();
-        await page.getByRole("dialog").getByRole("button", { name: "Delete palettes" }).click();
+        // X.W7.e (G15): the control is named for what it destroys.
+        await row.getByRole("button", { name: "Delete all palettes of azure-fox-01", exact: true }).click();
+        await page.getByRole("dialog").getByRole("button", { name: "Delete all palettes" }).click();
         await expect(verdict(page, "users")).toContainText("Deleted 1 palette of azure-fox-01");
     });
 
@@ -66,11 +69,10 @@ adminPopulatedTest.describe("G13 · admin rows", () => {
 
     adminPopulatedTest("tag delete — the chip leaves and the verdict is announced", async ({ page }) => {
         await page.goto("/#/admin/tags");
-        // The seat is revealed on hover/focus (ATP-2 is X.W7.e's); the keyboard
-        // path is the one every user has.
-        const del = page.getByRole("button", { name: "Delete tag moody" });
-        await del.focus();
-        await del.press("Enter");
+        // X.W7.e (S-14(b)): the seat is visible at rest; (G14) the delete is
+        // deliberate — accepted in its confirm.
+        await page.getByRole("button", { name: "Delete tag moody" }).filter({ visible: true }).click();
+        await page.getByRole("dialog").getByRole("button", { name: "Delete tag" }).click();
         await expect(verdict(page, "tags")).toContainText("Deleted tag “moody”");
     });
 
