@@ -3050,3 +3050,6 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
 - **Erratum-beside (E-3) to F-W13.md's §0bm addendum**: the baseline-RED list also carries `gallery-admin-a11y` :91 :103 :114 :125 (RED at `3e709e4`; F.W4's honest-RED `G-F4-ADMIN-AXE`). The full-suite 30 s timeouts under load averages 120–250 are the `G-F12-3-LOAD` instrument family (each GREEN ×2 at `--workers=2`).
 - Fourier residuals for the next X·F wave (with the UI audit's UIA-F rows): the desktop ToC's lost scroll-to-top, `.sidebar-link` radius, `.c` r1–r4, and the unstaged J-audit PNG rewrites.
 - Track D launched for **X.P.W5** (parse-that CSS seam).
+
+## §0bq ADDENDUM 2026-09-23 — OA-39 (keyframes mobile landing not centred) → KF.W13V `.s`
+- **Owner, verbatim**: *"Mobile ladning page is not centred properly"* (frame `keyframes/evidence/W13U/owner-2026-09-23-mobile-landing.png`): the idle cube sits ≈65 % down and overlaps the left-aligned headline. → **OA-39**, written into KF.W13V's fourth addendum under `.s` (the scene-shell unit) with centring and non-overlap gates at 390/360 px, both themes. The running UI audit covers the same page; its UIA-KF row, if any, is the same defect.
