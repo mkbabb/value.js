@@ -638,3 +638,29 @@ alreadyDone: `X.P.W5.a` · `X.P.W5.b` · `X.P.W5.c` (commits on parse-that `orig
 - **.e** — Only if `npm view @mkbabb/parse-that@2.0.0` resolves, and only if the Track A lock is clear. Depend on `@mkbabb/parse-that@^2.0.0`. `src/css/*` parses through its `./css` surface. Delete `src/css/grammar.ts` + `syntax.ts` with no shim. vitest + BBNF equivalence GREEN. Close: RC-P ×2, all six conjuncts.
 
 ## Unit receipts (RESUME)
+
+### X.P.W5.f
+
+Seat `claude-opus-5-5`, 2026-09-23 ~14:4x EDT. Read: W5.md whole (30 lines; ESC-c1 at :27), COHESION §0bx (to the file end, :3091–:3095), this record's RESUME header through §Unit plan (RESUME). Crash-recovery: ⟨`git -C parse-that status --porcelain`⟩ → only the July `rust/**` · `.cargo/config.toml` · `README.md` dirt and untracked docs; `typescript/src/parse/packrat.ts` clean → nothing inherited.
+
+**Anchors at the true bytes** (parse-that `661b47c`): `let PACKRAT_ARMED = false` :158 · `packratEnter` reader :224 · `resetPackrat` early-out :273 · `makeMemoized` arm :297 — all as briefed, no drift. **Wasm twin:** ⟨`grep -rln 'ARMED' rust/ typescript/src`⟩ → only `packrat.ts`, `packrat-entry.ts` (re-export comment), `css/bounds.mjs` (instrument), `css/diagnostics.mjs` (prose) — the Wasm lowering keeps no latch, so no adjacent edit.
+
+**Acts.**
+1. `typescript/src/parse/packrat.ts`: `resetPackrat()` now ends with `PACKRAT_ARMED = false` after clearing MEMO/HEADS/GROWING/LR_STACK/CURRENT_SRC (the unarmed early-out kept).
+2. Same file, INTENT recorded: the latch's own comment (:147–:152) and `latch.test.ts`'s header both state that a bare disarm is a PT-B1/PT-Q1 soundness regression — a memoizer built before a reset and invoked after it would run epoch-less, so a nested `.parse(differentSrc)` in its `.map` could overwrite the outer grow's cells. The arming path therefore stays the memoizer's own and covers that case: `memoizeFn` sets `PACKRAT_ARMED = true` inside its existing `if (CURRENT_SRC === undefined)` anchor. `resetPackrat()` clears `CURRENT_SRC` in the same act that disarms, so the first memoized node of an epoch-less parse re-arms before any nested parse can run. That costs one store per epoch and nothing per node, and the armed path is otherwise byte-identical. Comments at :139–:158 and :297 were updated to match. No test edited.
+3. `npm run build` (the instrument reads `@mkbabb/parse-that/packrat` via the package self-reference → `dist/`, git-ignored).
+
+**Commit (parse-that):** `f5169b1` fix(packrat): resetPackrat() disarms the PACKRAT_ARMED latch; a memoizer invoked after a reset re-arms it … (X.P.W5.f · ESC-c1). ⟨`git push origin master`⟩ → `661b47c..f5169b1  master -> master` (no force).
+
+**Gates BEFORE → AFTER (double-run at `f5169b1`):**
+
+| gate | command | BEFORE | AFTER ×2 |
+|---|---|---|---|
+| G-W5-f1 | ⟨`npx vitest run -c test/css-recovery/vitest.config.ts test/css-recovery/boundary/latch.test.ts`⟩ | `Tests 2 failed \| 5 passed (7)` | `Test Files 1 passed (1)` · `Tests 7 passed (7)` ×2 — **GREEN** |
+| G-W5-f2 | ⟨`npx vitest run -c test/css-recovery/vitest.config.ts`⟩ | `Tests 2 failed \| 473 passed (475)` EXIT=1 | `Test Files 12 passed (12)` · `Tests 475 passed (475)` EXIT=0 ×2 — **GREEN** |
+| npm test hold | ⟨`npm test`⟩ | `Tests 148 passed (148)` | `Test Files 15 passed (15)` · `Tests 148 passed (148)` ×2 EXIT=0 — **hold** |
+| proof:packrat-* hold | ⟨`npm run -s proof:packrat-{cross-input,reentrant,large-offset,armed}`⟩ | — | 4 × `PASS:` (armed: "5000 non-memoized parses allocate FLAT … Isolation self-check GREEN") — **hold** |
+
+`tsc --noEmit`: 0 errors under `src/parse` (the pre-existing `test/css-totality/**` implicit-any errors are unmoved and outside this unit).
+
+**Adjacent edits:** none. **Residuals:** none from `.f`. The latch.test.ts header prose still calls L-3 "BORN-RED". It is an oracle file, locked as unedited, so the prose stays for `.g`/a later seat to retire under its own bounds. **Escalations:** none. ESC-c1 is CLOSED.
