@@ -5,6 +5,7 @@ import { computed, TransitionGroup } from "vue";
 import { useClipboard } from "@mkbabb/glass-ui";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 import type { MixResult } from "./composables/useMixingState";
+import { formatCssCaption } from "../../color-session/format-color";
 
 /**
  * The result plate — the DESTINATION of the mix convergence (S.W3-6 / Q10).
@@ -83,7 +84,7 @@ async function onCopy() {
                         seed="mix-result"
                     />
                     <span class="text-mono-small text-foreground select-all break-all">
-                        {{ result.css }}
+                        {{ formatCssCaption(result.css) }}
                     </span>
                 </div>
 
@@ -100,7 +101,7 @@ async function onCopy() {
                             :color="color.css"
                             tag="div"
                             class="w-10 h-10 shrink-0"
-                            :title="color.css"
+                            :title="formatCssCaption(color.css)"
                             :seed="i === 0 ? 'mix-result' : `mix-result-${i}`"
                         />
                     </TransitionGroup>

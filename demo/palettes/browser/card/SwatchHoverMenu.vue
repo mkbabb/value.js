@@ -15,7 +15,7 @@
                     :color="color"
                     :variant="ghost ? 'ghost' : 'solid'"
                     tag="button"
-                    :aria-label="`Color swatch ${color}`"
+                    :aria-label="`Color swatch ${formatCssCaption(color)}`"
                     :class="[sizeClass, 'shrink-0 cursor-pointer', swatchExtraClass]"
                 />
             </PopoverTrigger>
@@ -30,7 +30,7 @@
                 :color="color"
                 :variant="ghost ? 'ghost' : 'solid'"
                 tag="button"
-                :aria-label="`Color swatch ${color}`"
+                :aria-label="`Color swatch ${formatCssCaption(color)}`"
                 :class="[sizeClass, 'shrink-0 cursor-pointer', swatchExtraClass]"
                 @click.stop="$emit('click')"
             />
@@ -60,6 +60,7 @@
 import type { CSSProperties } from "vue";
 import { Popover, PopoverContent, PopoverTrigger } from "../../../ui/popover";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
+import { formatCssCaption } from "../../../color-session/format-color";
 
 /** Shared panel layout — applied to both PopoverContent and the hover Teleport
  *  panel so the two paths cannot drift. */

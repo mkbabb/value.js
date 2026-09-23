@@ -40,21 +40,21 @@
                     <!-- W5-a11y: icon-only buttons need explicit aria-label -->
                     <button
                         v-if="!isLocal"
-                        :aria-label="`Add ${color.css} to current palette`"
+                        :aria-label="`Add ${formatCssCaption(color.css)} to current palette`"
                         class="p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                         @click="$emit('popoverAdd', color.css)"
                     >
                         <Plus class="w-4 h-4" aria-hidden="true" />
                     </button>
                     <button
-                        :aria-label="`Edit color ${color.css}`"
+                        :aria-label="`Edit color ${formatCssCaption(color.css)}`"
                         class="p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                         @click="$emit('popoverEdit', color, i)"
                     >
                         <Pencil class="w-4 h-4" aria-hidden="true" />
                     </button>
                     <button
-                        :aria-label="`Copy color ${color.css}`"
+                        :aria-label="`Copy color ${formatCssCaption(color.css)}`"
                         class="p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                         @click="$emit('popoverCopy', color.css)"
                     >
@@ -70,6 +70,7 @@
 import { Copy, Pencil, Plus } from "@lucide/vue";
 import type { PaletteColor } from "../../../types";
 import SwatchHoverMenu from "../SwatchHoverMenu.vue";
+import { formatCssCaption } from "../../../../color-session/format-color";
 
 defineProps<{
     colors: readonly PaletteColor[];

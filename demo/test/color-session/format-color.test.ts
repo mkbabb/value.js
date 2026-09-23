@@ -4,7 +4,8 @@
  * One exact-string case per register per channel class. The falsifier: change
  * any per-channel decimal in `CHANNEL_DECIMALS` / `INTERCHANGE_DECIMALS` and an
  * exact string below fails. The import census closes the gate's second half:
- * every censused display site inside X.W7.f's bounds reads through the module.
+ * all 29 OM-14 raw-12dp sites (17 text + 11 ARIA + 1 model write-back) read
+ * through the module, and the 3 dead precision APIs are deleted (X.W7.f2).
  */
 import { readFileSync } from "node:fs";
 import path from "node:path";
@@ -123,24 +124,92 @@ describe("G16 — stored CSS strings in the caption register", () => {
     });
 });
 
-describe("G16 — import census (the sites inside X.W7.f's bounds)", () => {
+describe("G16 — import census: the 29 OM-14 sites read through the facility", () => {
     const root = path.resolve(import.meta.dirname, "../..");
-    const SITES = [
-        "color-session/ColorSpaceSelector.vue",
-        "workbenches/mix/MixSourceSelector.vue",
-        "palettes/browser/card/PaletteCard/PaletteCardMeta.vue",
-        "palettes/browser/card/PaletteSpecimen.vue",
+    const read = (file: string) => readFileSync(path.join(root, file), "utf8");
+    const FACILITY_IMPORT = /from "(?:\.\.\/)*(?:\.\/)?(?:[\w-]+\/)*format-color"/;
+
+    const CI = "shell/dock/ColorInput.vue";
+    const CPE = "palettes/browser/card/CurrentPaletteEditor.vue";
+    const PCS = "palettes/browser/card/PaletteCard/PaletteCardSwatches.vue";
+    const SHM = "palettes/browser/card/SwatchHoverMenu.vue";
+    const MRD = "workbenches/mix/MixResultDisplay.vue";
+    const MSS = "workbenches/mix/MixSourceSelector.vue";
+    const EXW = "workbenches/extract/ExtractWorkbench.vue";
+    const ANP = "palettes/browser/admin/AdminNamesPanel.vue";
+
+    /** [OM-14 id, file under demo/, the routed expression at the site, occurrences]. */
+    const SITES: readonly (readonly [string, string, string, number])[] = [
+        // §2.A — visible text (17; A2 is the 4dp INCONSIST row, not a raw-12 site)
+        ["A1", "color-session/ColorSpaceSelector.vue", "formatSpecimen(colorModel.model.value.color, entry.id)", 1],
+        ["A3", CI, '{{ formatColor(currentPhysicalColor, "caption") }}', 1],
+        ["A4-A6·A8", CI, "innerText = formatCssCaption(formattedCurrentColor.value)", 4],
+        ["A7", CI, "innerText = formatCssCaption(text)", 1],
+        ["A9", CI, "{{ formatCssCaption(currentColorMeta.css) }}", 1],
+        ["A10", EXW, ">{{ formatCssCaption(session.dominant.value.serialized) }}<", 1],
+        ["A11", EXW, ':title="formatCssCaption(session.dominant.value.serialized)"', 1],
+        ["A12", "workbenches/extract/ImageEyedropper/ImageEyedropper.vue", "formattedColor ? formatCssCaption(formattedColor)", 1],
+        ["A13", CPE, "Add current color ({{ formatCssCaption(cssColorOpaque) }})", 1],
+        ["A14", MRD, "{{ formatCssCaption(result.css) }}", 1],
+        ["A15", MRD, ':title="formatCssCaption(color.css)"', 1],
+        ["A16", MSS, ":title=\"`${formatCssCaption(sc.css)} (${sc.source})`\"", 1],
+        ["A17·A18", ANP, "{{ formatCssCaption(item.css) }}", 2],
+        // §2.B — ARIA (11)
+        ["B1", CPE, "`Add current color ${formatCssCaption(cssColorOpaque)} to palette`", 1],
+        ["B2", CPE, "`Edit color ${formatCssCaption(color)}`", 1],
+        ["B3", CPE, "`Copy color ${formatCssCaption(color)}`", 1],
+        ["B4", CPE, "`Remove color ${formatCssCaption(color)} from palette`", 1],
+        ["B5", PCS, "`Add ${formatCssCaption(color.css)} to current palette`", 1],
+        ["B6", PCS, "`Edit color ${formatCssCaption(color.css)}`", 1],
+        ["B7", PCS, "`Copy color ${formatCssCaption(color.css)}`", 1],
+        ["B8·B9", SHM, "`Color swatch ${formatCssCaption(color)}`", 2],
+        ["B10", "workbenches/generate/GenerateControls.vue", "`Copy ${formatCssCaption(css)}`", 1],
+        ["B11", MSS, "`Add color ${formatCssCaption(color.css)} from ${palette.name}`", 1],
+        // §5 — the model write-back (1)
+        ["WB", "picker/ColorPicker.vue", "updateModel({ inputColor: formatCssCaption(formattedCurrentColor.value) })", 1],
     ];
-    for (const site of SITES) {
-        it(`${site} reads through format-color`, () => {
-            const bytes = readFileSync(path.join(root, site), "utf8");
-            expect(bytes).toMatch(/from "(?:\.\.\/)*(?:\.\/)?(?:[\w-]+\/)*format-color"/);
+
+    it("the census is the OM-14 denominator: 17 text + 11 ARIA + 1 write-back = 29", () => {
+        expect(SITES.reduce((n, [, , , count]) => n + count, 0)).toBe(29);
+    });
+    for (const [id, file, expression, count] of SITES) {
+        it(`${id} · ${file} reads through format-color`, () => {
+            const bytes = read(file);
+            expect(bytes).toMatch(FACILITY_IMPORT);
             expect(bytes).not.toMatch(/from "\.\/specimen-format"/);
+            expect(bytes.split(expression).length - 1).toBe(count);
         });
     }
-    it("no raw colour string is interpolated into a title or aria-label in MixSourceSelector", () => {
-        const bytes = readFileSync(path.join(root, "workbenches/mix/MixSourceSelector.vue"), "utf8");
-        expect(bytes).not.toMatch(/:(?:title|aria-label)="[^"]*\$\{(?:sc|color)\.css\}/);
-        expect(bytes).not.toMatch(/:title="(?:sc|color)\.css"/);
+    it("no raw colour string is interpolated into a title or aria-label at a censused file", () => {
+        for (const file of new Set(SITES.map(([, f]) => f))) {
+            const bytes = read(file);
+            expect(bytes, file).not.toMatch(/:(?:title|aria-label)="[^"]*\$\{(?:sc\.css|color\.css|color|css|cssColorOpaque)\}/);
+            expect(bytes, file).not.toMatch(/:title="(?:sc|color)\.css"/);
+        }
     });
+});
+
+describe("G16 — the three dead precision APIs are deleted (OM-14 §3.14)", () => {
+    const root = path.resolve(import.meta.dirname, "../..");
+    const read = (file: string) => readFileSync(path.join(root, file), "utf8");
+    it("toCSSColorString(_digits) is gone from color-model.ts", () => {
+        expect(read("color-session/color-model.ts")).not.toMatch(/toCSSColorString/);
+    });
+    it("the two DIGITS constants are gone", () => {
+        expect(read("color-session/useColorPipeline.ts")).not.toMatch(/\bDIGITS\b/);
+        expect(read("color-session/useSliderGradients.ts")).not.toMatch(/\bDIGITS\b/);
+    });
+});
+
+describe("G17 — the compact-count sites read through the facility", () => {
+    const root = path.resolve(import.meta.dirname, "../..");
+    for (const site of [
+        "palettes/browser/card/PaletteCard/PaletteCardMeta.vue",
+        "palettes/browser/card/PaletteSpecimen.vue",
+    ]) {
+        it(`${site} reads formatCount through format-color`, () => {
+            const bytes = readFileSync(path.join(root, site), "utf8");
+            expect(bytes).toMatch(/import \{[^}]*\bformatCount\b[^}]*\} from "(?:\.\.\/)+color-session\/format-color"/);
+        });
+    }
 });

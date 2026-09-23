@@ -51,7 +51,7 @@
                                         by {{ currentColorMeta.contributor }}
                                     </span>
                                     <span class="text-muted-foreground">
-                                        {{ currentColorMeta.css }}
+                                        {{ formatCssCaption(currentColorMeta.css) }}
                                     </span>
                                 </div>
                             </TooltipContent>
@@ -101,7 +101,7 @@
                 <Separator class="my-2" />
 
                 <div class="fira-code w-full flex justify-center">
-                    {{ serializePickerColor(currentPhysicalColor) }}
+                    {{ formatColor(currentPhysicalColor, "caption") }}
                 </div>
 
                 <!-- E4 (Q10): the Parse-Lab echo (AST + gamut verdict). -->
@@ -133,6 +133,7 @@ import { proposeColorName } from "../../color-session/color-names";
 import { useSession } from "../../platform/auth/useSession";
 import type { EditTarget } from "../../color-session/color-model";
 import { serializePickerColor } from "../../color-session/picker-color";
+import { formatColor, formatCssCaption } from "../../color-session/format-color";
 import { COLOR_MODEL_KEY, SAFE_ACCENT_KEY } from "../../color-session/keys";
 
 const { proposeMode } = defineProps<{
@@ -188,7 +189,7 @@ const onInputBlur = () => {
     // the (reset) model value — the `formattedCurrentColor` watch skips repaint
     // while focused, leaving stale text without this snap-back.
     if (!proposeMode && inputColorRef.value) {
-        inputColorRef.value.innerText = formattedCurrentColor.value;
+        inputColorRef.value.innerText = formatCssCaption(formattedCurrentColor.value);
     }
 };
 const onInputInput = (e: Event) => {
@@ -237,7 +238,7 @@ async function submitProposedName() {
         proposedName.value = "";
         // Signal parent to exit propose mode
         if (inputColorRef.value) {
-            inputColorRef.value.innerText = formattedCurrentColor.value;
+            inputColorRef.value.innerText = formatCssCaption(formattedCurrentColor.value);
         }
     } catch (e: any) {
         console.warn("[ColorInput] Failed to propose name:", e?.message);
@@ -262,20 +263,20 @@ watch(() => proposeMode, (propose) => {
         requestAnimationFrame(() => inputColorRef.value?.focus());
     } else {
         inputColorRef.value.removeAttribute("data-placeholder");
-        inputColorRef.value.innerText = formattedCurrentColor.value;
+        inputColorRef.value.innerText = formatCssCaption(formattedCurrentColor.value);
     }
 });
 
 // Sync displayed text when not focused (only in color mode)
 watch(formattedCurrentColor, (text) => {
     if (!proposeMode && !inputIsFocused.value && inputColorRef.value) {
-        inputColorRef.value.innerText = text;
+        inputColorRef.value.innerText = formatCssCaption(text);
     }
 });
 
 onMounted(() => {
     if (inputColorRef.value) {
-        inputColorRef.value.innerText = formattedCurrentColor.value;
+        inputColorRef.value.innerText = formatCssCaption(formattedCurrentColor.value);
     }
 });
 

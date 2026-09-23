@@ -70,7 +70,7 @@
                             <!-- primary line -->
                             <span class="text-small font-medium truncate">{{ item.name }}</span>
                             <!-- secondary line — a CSS literal is a readout (F-9) -->
-                            <span class="text-mono-small text-muted-foreground truncate">{{ item.css }}</span>
+                            <span class="text-mono-small text-muted-foreground truncate">{{ formatCssCaption(item.css) }}</span>
                         </template>
                         <template #actions>
                             <Button variant="outline" size="xs" class="px-2 cursor-pointer" :aria-label="`Approve color name ${item.name}`" @click="emit('approve', item)">
@@ -121,7 +121,7 @@
                             <!-- primary line -->
                             <span class="text-small font-medium truncate">{{ item.name }}</span>
                             <!-- secondary line — a CSS literal is a readout (F-9) -->
-                            <span class="text-mono-small text-muted-foreground truncate">{{ item.css }}</span>
+                            <span class="text-mono-small text-muted-foreground truncate">{{ formatCssCaption(item.css) }}</span>
                         </template>
                         <template #actions>
                             <!-- W5-12 (F-8): quiet destructive — ink at rest. -->
@@ -180,6 +180,7 @@ import {
 import { Button } from "../../../ui/button";
 import { Check, X as XIcon, Trash2 } from "@lucide/vue";
 import type { ProposedColorName } from "../../../color-session/color-names";
+import { formatCssCaption } from "../../../color-session/format-color";
 import AdminListItem from "./AdminListItem.vue";
 import EmptyState from "../../../shared/ui/EmptyState.vue";
 import AdminListSkeleton from "./AdminListSkeleton.vue";

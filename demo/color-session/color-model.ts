@@ -9,7 +9,6 @@ import {
     convertPickerColor,
     parsePickerColor,
     pickerColorToHex,
-    serializePickerColor,
     type PickerColor,
     type PickerSpace,
 } from "./picker-color";
@@ -58,13 +57,6 @@ export function colorToHexString(
     color: PickerColor,
 ): string {
     return pickerColorToHex(color);
-}
-
-export function toCSSColorString(
-    color: PickerColor,
-    _digits: number = 2,
-): string {
-    return serializePickerColor(color);
 }
 
 /* X-W6.f · X:CSS-1 — `DISPLAY_COLOR_SPACE_NAMES` and `CSS_NATIVE_SPACES` are

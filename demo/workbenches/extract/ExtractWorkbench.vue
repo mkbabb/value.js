@@ -136,13 +136,12 @@
                                     class="section-label plate-ink shrink-0"
                                     >dominant</span
                                 >
-                                <!-- truncate may trim trailing digits at narrow
-                                     widths; the full readout rides title +
-                                     select-all (never a lying readout). -->
+                                <!-- the caption register (format-color): the readout
+                                     and its title read the same bounded spelling. -->
                                 <code
                                     class="fira-code text-mono-small plate-ink truncate select-all"
-                                    :title="session.dominant.value.serialized"
-                                    >{{ session.dominant.value.serialized }}</code
+                                    :title="formatCssCaption(session.dominant.value.serialized)"
+                                    >{{ formatCssCaption(session.dominant.value.serialized) }}</code
                                 >
                             </span>
                         </div>
@@ -192,6 +191,7 @@ import { DockControl } from "@mkbabb/glass-ui/dock";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 import type { SpaceId } from "@mkbabb/value.js/color";
 import { CSS_COLOR_KEY } from "../../color-session/keys";
+import { formatCssCaption } from "../../color-session/format-color";
 import { useExtractSession } from "./composables/useExtractSession";
 
 import ImageDropZone from "./ImageDropZone.vue";

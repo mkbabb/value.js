@@ -33,7 +33,7 @@
                 />
 
                 <span class="text-mono-small text-muted-foreground truncate select-all">
-                    {{ formattedColor ?? 'Tap to sample' }}
+                    {{ formattedColor ? formatCssCaption(formattedColor) : 'Tap to sample' }}
                 </span>
 
                 <!-- Spacer -->
@@ -99,6 +99,7 @@ import { useInertiaGesture } from "./composables/useInertiaGesture";
 import { useImageSampler, type DisplayColorSpace } from "./composables/useImageSampler";
 import { useLoupeCanvas } from "./composables/useLoupeCanvas";
 import { LOUPE_SIZE } from "./constants";
+import { formatCssCaption } from "../../../color-session/format-color";
 
 const { imageUrl, colorSpace = "hex" } = defineProps<{
     imageUrl: string;

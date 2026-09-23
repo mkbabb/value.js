@@ -25,6 +25,7 @@ import { PaletteColorStrip } from "../../palettes/browser/card";
 // N's queue — recorded in both lane logs.
 import { PreviewStrip } from "../../color-session/color-chips";
 import type { PaletteColor } from "../../palettes/types";
+import { formatCssCaption } from "../../color-session/format-color";
 import { useColorGeneration } from "./composables/useColorGeneration";
 // U.W-DEMO · U-F47: the pure generation core relocated DOWN to the shared color
 // layer; the feature consumes it UP-from-shared (feature → shared, correct).
@@ -209,7 +210,7 @@ defineExpose({ regenerate, save, copyColors });
                     tag="button"
                     :seed="`gen-${css}-${i}`"
                     class="generate-swatch w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer active:scale-95 transition-transform focus-visible:outline-none"
-                    :aria-label="`Copy ${css}`"
+                    :aria-label="`Copy ${formatCssCaption(css)}`"
                     @click="copyColor(css)"
                 />
             </div>

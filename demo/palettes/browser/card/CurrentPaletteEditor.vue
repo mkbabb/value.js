@@ -43,13 +43,13 @@
             >
                 <template #actions>
                     <!-- W5-a11y: icon-only swatch action buttons need accessible names -->
-                    <button :aria-label="`Edit color ${color}`" @click="onCurrentSwatchEdit(color, i)" class="p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
+                    <button :aria-label="`Edit color ${formatCssCaption(color)}`" @click="onCurrentSwatchEdit(color, i)" class="p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
                         <Pencil class="w-4 h-4" aria-hidden="true" />
                     </button>
-                    <button :aria-label="`Copy color ${color}`" @click="onCurrentSwatchCopy(color)" class="p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
+                    <button :aria-label="`Copy color ${formatCssCaption(color)}`" @click="onCurrentSwatchCopy(color)" class="p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
                         <Copy class="w-4 h-4" aria-hidden="true" />
                     </button>
-                    <button :aria-label="`Remove color ${color} from palette`" @click="onCurrentSwatchRemove(color, i)" class="p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
+                    <button :aria-label="`Remove color ${formatCssCaption(color)} from palette`" @click="onCurrentSwatchRemove(color, i)" class="p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
                         <Trash2 class="w-4 h-4 text-destructive" aria-hidden="true" />
                     </button>
                 </template>
@@ -98,14 +98,14 @@
                                 tag="button"
                                 seed="add-current-slot"
                                 class="add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer"
-                                :aria-label="`Add current color ${cssColorOpaque} to palette`"
+                                :aria-label="`Add current color ${formatCssCaption(cssColorOpaque)} to palette`"
                                 @click="addCurrentColor"
                             >
                                 <Plus class="w-5 h-5 text-primary/60 pointer-events-none" aria-hidden="true" />
                             </WatercolorDot>
                         </TooltipTrigger>
                         <TooltipContent class="text-mono-small">
-                            Add current color ({{ cssColorOpaque }})
+                            Add current color ({{ formatCssCaption(cssColorOpaque) }})
                         </TooltipContent>
                     </Tooltip>
                 </TooltipProvider>
@@ -179,6 +179,7 @@
 <script setup lang="ts">
 import { inject, ref, toRef, TransitionGroup } from "vue";
 import { SAFE_ACCENT_KEY } from "../../../color-session/keys";
+import { formatCssCaption } from "../../../color-session/format-color";
 import { Input } from "../../../ui/input";
 import { Button } from "../../../ui/button";
 import {

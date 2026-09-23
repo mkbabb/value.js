@@ -131,7 +131,8 @@ import {
 import { useMagicKeys } from "@vueuse/core";
 import { useIdleReady } from "@mkbabb/glass-ui/dom";
 import type { ColorModel, EditTarget } from "../color-session/color-model";
-import { toCSSColorString } from "../color-session/color-model";
+import { serializePickerColor } from "../color-session/picker-color";
+import { formatCssCaption } from "../color-session/format-color";
 import { COLOR_MODEL_KEY } from "../color-session/keys";
 import type { ColorSceneTarget } from "../color-session/keys";
 import { OVERTURE_KEY } from "../color-picker/composables/boot/useOverture";
@@ -297,7 +298,7 @@ function onStartEdit(target: EditTarget) {
 
 function commitEdit() {
     if (!editTarget.value || !paletteManager) return;
-    const newCss = toCSSColorString(model.value.color);
+    const newCss = serializePickerColor(model.value.color);
     paletteManager.commitColorEdit(
         editTarget.value.paletteId,
         editTarget.value.colorIndex,
@@ -332,7 +333,7 @@ const sceneActionTarget: ColorSceneTarget = {
     paletteActive,
     reset: () => emit("reset"),
     copy: () => {
-        updateModel({ inputColor: formattedCurrentColor.value });
+        updateModel({ inputColor: formatCssCaption(formattedCurrentColor.value) });
         void writeClipboard(formattedCurrentColor.value);
     },
     random: () => setCurrentColor(generateRandomColor(model.value.selectedColorSpace)),
