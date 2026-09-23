@@ -2844,3 +2844,43 @@ Post-units: the verify-only close + L-20 checks; C7 and C3 read with their §0aq
 
 ## Unit receipts — RESUME ROUND 4
 
+
+### X.W5.t
+
+SERVED MODEL: claude-fable-5-1 · seat: X.W5.t (§0aq: FABLE research + plan augment), RESUME ROUND 4 · 2026-09-22 · verdict **PARTIAL** (5 of 6 gates turned; D1's ruled reading not takeable on this host → ESC-W5t-1). HEAD at open `ad65d992`; commits `91d0e0c7` · `1a6432f9` · (this receipt).
+
+**Crash-recovery** ⟨cmd⟩ `git status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh` — neither in this seat's writable set; no inherited partial. `dev.sh` never touched.
+**Inputs**: `W5.md` whole (394 L) · this record's header, R4.0–R4.4 and `## Check 3` · COHESION §0aq `:2660-2689` (⟨cmd⟩ `awk 'NR>2700' COHESION.md | grep -c 'W5'` → 0 later rulings) · fold W5F-04 `:41` · the spec's `§3a`, `§6` D1/A2/C1/C3, `ADDENDUM 2026-09-22`.
+**Locks**: ⟨cmd⟩ `sed -n 12,23p demo/shell/PaneSlot.vue | md5` → `a7fe04be35764c9b6b293dfc5f08f523` at open AND at close (GATING LOCK held); ⟨cmd⟩ `git status --porcelain -- demo/ plugins/ vite.config.ts e2e/ src/ api/ test/ | wc -l` → **0** (no demo byte written; every variant was a Vite load-hook in a temp config).
+
+#### Act 1 — the out-in co-mount re-probe, COMMITTED FIRST (`91d0e0c7`)
+`docs/tranches/V/megatranche/workflows/gates/out-in-reprobe.mjs` (390 L): six arms of the REAL app at HEAD — built/default · built/out-in · each +1000 ms emulated RTT · dev/default · dev/out-in — `mode="out-in"` injected at build/serve time by a `load` hook (needle asserted ×1), real `--duration-fast` (`.2s`) and `--spring-snappy` (`calc(.44s*1)`) read from computed style, the real ten `defineAsyncComponent` panes, the rAF mirror as shipped; per hop a rAF geometry sampler + end-state read. ⟨cmd⟩ `node …/out-in-reprobe.mjs` ×2 (run 2 = fresh builds) → verdicts IDENTICAL: **built/out-in stranded 0/5, co-mount 0/5 (also at +1000 ms RTT) · built/default co-mount 5/5 (container 7974→960 on →/gradient) · dev/out-in stranded 5/5**. RESULTS ×3 JSON committed beside the script (`triumvirate/out-in-reprobe-RESULTS-{run1,run2,latency-arms}-2026-09-22.json`).
+
+#### Act 2 — the dev strand ROOTED at file:line and cured falsifiably (`triumvirate/RESEARCH-AND-PLAN-2026-09-22.md` §1a, `variants/`)
+Load-time bisection (no demo byte): C rAF mirror removed · D Picker async · E `:ref` channel removed · F inert hooks removed · G `<KeepAlive>` removed · I HeroBlob stubbed · J SpectrumCanvas stubbed — ALL still strand; H = the production bundle built with Vue's DEV runtime — strands (so: Vue dev-runtime path, not Vite's server); **K = the root-level comment at `demo/picker/ColorPicker.vue:2-4` stripped — CURED** (Gradient mounts on `/`→gradient and `/mix`→gradient). Mechanism: DEV keeps the comment → the Picker's subtree is a DEV_ROOT_FRAGMENT; `setTransitionHooks` (`runtime-core.cjs.js:1652-1662`) stamps the out-in `afterLeave` continuation (`:1416-1423`) on the fragment, the leaving `<div>` departs with stale hooks, `state.isLeaving` stays true for the slot's life. Pane-root census: 12 roots, exactly one dev fragment (the Picker). Upstream-repro config banked.
+
+#### Act 3 — D1 under the ruled conditions: NOT MEASURABLE, recorded, escalated (§2)
+⟨cmd⟩ `uptime` polled 13× across the sitting (1-min load): 21.54 · 34.47 · 13.84 · 44.23 · 53.79 · 32.50 · 25.29 · 16.29 · 21.48 · 13.15 · 44.09 · 30.93 · 12.13 · 11.84 · **7.07** (min; 5-min min 10.75) — never < 4; `pgrep -fl vitest-vscode` → 6 sibling workers. `scene-swap-budget.mjs` NOT run (a reading here is non-evidence by §0aq's own terms). **ESC-W5t-1**: options (a) quiescent window (b) dedicated runner for the ratios (c) real-GPU read.
+
+#### Act 4 — the two roots named at file:line (§3; `triumvirate/swap-root-trace.mjs`, CDP `devtools.timeline` ×2 + built/out-in)
+**→/gradient (and extract · generate) = LAYER AREA**: RasterTask **746 / 730 ms** of the 900 ms window with the travel on vs 327 / 339 suppressed; mid-swap wrappers 512×7974 (default, co-mounted) / 512×7459 (out-in). Sites: `shell.css:186-210` (`.pane-container` grid, default `align-items: stretch` → the Picker's wrapper stretched to About's 7459 px) · the pane roots' `h-full` (`GradientPane.vue` et al., `MixPane.vue:61`) · `animations.css:286-293` (`will-change: transform` promotes the 512×7459 element) · `animations.css:244-257, 269-279` (`rotate(∓2deg)` makes the layer non-axis-aligned → re-raster across the 440 ms spring). Measured after the plan: out-in alone leaves →/gradient raster at **887 ms** (single 7459 px layer) — the mode is NOT the raster lever; P-5a (area) / P-5b (rotation) are. **→/mix = the Picker's GPU engine re-arming, not Mix**: Commit+GPUTask 102+98 / 114+111 ms persists with the travel suppressed (127+120 / 159+164); 54 live animations vs 27–31; site `demo/picker/visual/HeroBlob.vue:246-250` (`onActivated → blobRef.value?.resume()` on software GL) + the WatercolorDot filter stagger `MixSourceSelector.vue:120,171-201,236-240`; the Mix convergence canvas is idle at the swap.
+**Cure plan for `.d2` (§4)**: ONE coupled landing — P-1 `mode="out-in"` (`PaneSlot.vue:260`, header `:35-68` rewritten to the measured truth, B4 arm 3 → 0) + P-2 rAF-mirror decision by measurement (keep; variant C proves it is not the trigger) + P-3 loading/error states at `usePaneRouter.ts:187-204` (W5F-07) — preceded by **P-4** (`ColorPicker.vue:2-4` comment relocation, **GRANT**, HIGH: without it out-in ships dev-broken) — then P-5a/P-5b measured by the trace, winner landed; P-6 (`HeroBlob.vue` resume gate) routed after a real-GPU read. Sequencing, falsifiers and the `green/` banking list are in §4/§9.
+
+#### Act 5 — A2's blob arm re-authored falsifiably (`triumvirate/A2-BLOB-ARM-ADDENDUM-2026-09-22.md` + `a2-blob-arm.mjs`)
+Struck: the five-picker-less-routes sentence (ESC-W5-1's unfalsifiable form). Re-authored: (I) schema truth `blobPresent === pickerPanePresent` on 15/15 cold routes, anchor inside `.pane-wrapper--stage` · (II) deep link on each of the five → `/#/` mounts the anchor with a sized canvas within 8 s · (III) canvas non-zero. ⟨cmd⟩ `PROBE_BASE=… node a2-blob-arm.mjs` ×2 → `pass:true` ×2: I 15/15 · II 5/5 (0.3–1.3 s) · III 4/4 (180×180). Instrument lesson recorded (document-lifetime `performance.mark`s; cold context per route).
+
+#### Act 6 — C1 re-metric + rider, C3 partition
+**C1** (`triumvirate/C1-REMETRIC-2026-09-22.md`, `c1-remetric.mjs` ×2 IDENTICAL): `textContent` 390/1440 = **1.0 on 15/15** (`/` 4825/4825; `innerText` 0.5557 beside, 34 `content-visibility:auto` carriers both widths), no desktop shrink vs the banked 1440 figures; About-scroll rider **16/16** sections in-viewport with rendered text, document scroller. **GREEN, measured.** **C3** (`triumvirate/C3-PARTITION-2026-09-22.md`): 23/9 = 6 capability-only (PRM ×2 files, `hover` ×1 — OUT, dated) + 6 layout forks → X-W8 `.i` (`ExtractWorkbench.vue:226` · `ConsoleRail.vue:118` · `HeroBlob.vue:71` + imports) + 11 dock `isDesktop` → X-W8 `.h` (G-L back-gate); 0 unrouted in W5's surface. Honest-RED by route.
+
+#### Gates (BEFORE → AFTER)
+| gate | BEFORE (R4.3) | AFTER (this seat) |
+|---|---|---|
+| out-in re-probe committed first | absent | **`91d0e0c7`** (script + RESULTS ×3) — GREEN |
+| D1 (≥10 interleaved runs, medians, load<4, seat alone) | not run, load 30 | **not takeable** (load min 7.07) — RED → ESC-W5t-1; categorical roots banked ×2 |
+| A2 blob arm re-authored falsifiably | unfalsifiable (ESC-W5-1) | dated addendum + instrument, **GREEN ×2** |
+| C1 `textContent` ≥ 0.9 + About rider at 390 | banked 1.0, rider unmeasured | **1.0 15/15 + rider 16/16, ×2** — GREEN |
+| C3 partition printed | 23/9 unclassified | **6 / 6 / 11 printed, routed** — GREEN (gate itself honest-RED by route) |
+
+**Commits**: `91d0e0c7` (re-probe + RESULTS) · `1a6432f9` (triumvirate corpus: research+plan, A2 addendum + arm, C1 record + probe, C3 partition, trace probe + 3 JSON, variants) · this receipt (`X-W5.md`). All by pathspec; `dev.sh` untouched.
+**Escalations**: ESC-W5t-1 (D1 host) · ESC-W5t-2 (P-4 grant `ColorPicker.vue:2-4`, HIGH) · ESC-W5t-3 (P-3 component files under `demo/shell/`) · ESC-W5t-4 (P-6 `HeroBlob.vue` home) · upstream Vue note (not a producer). **Residuals**: none owned by this seat; `.d2` opens on `1a6432f9`'s plan.
+**Scratch hygiene**: all diag dev servers (`:8097-8107`) and static servers (`:8093/8104/8108`) stopped; ⟨cmd⟩ `lsof … | grep -E ':(809[3-9]|810[0-8])' | wc -l` → 0.
