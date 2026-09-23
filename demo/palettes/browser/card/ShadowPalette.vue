@@ -10,8 +10,8 @@
          t33-research §2.2): card-true material with a SOLID hairline edge;
          count equal-width muted cells, each `animate-pulse` on a staggered
          `animation-delay` — a LIVING cascading shimmer that travels the
-         plate (strip → meta → swatches, one wave); meta blocks at 60/40,
-         swatches at 30 of the muted ink. The dashed-edge still-species this
+         plate (strip → meta, one wave); meta blocks at 60/40 of the muted
+         ink. The dashed-edge still-species this
          replaces retired with R12; its as-filler deployment at the empty
          hosts died with it (TRUE EMPTY speaks the EmptyState dot trio —
          N-3 re-aimed).
@@ -38,6 +38,14 @@
          label (nothing is loading — a shimmering aria-hidden plate does not
          lie to AT); the host's seated caption carries the text. Error
          states never wear this species: error ≠ empty stands. -->
+    <!-- X.W7.g (G20 · OM-15 §3.3): the plate is the SETTLED CARD's collapsed
+         silhouette — strip + meta row — never a 1:1 replica of the expanded
+         result. The k full-scale swatch discs restated the k strip cells at
+         ~5× the height (254 px at k = 16, 390 px); the strip alone carries
+         the live-k readout, so the plate's height no longer depends on k.
+         The meta blocks take the specimen name's own line box
+         (`text-subheading` · `1lh`), so ghost → skeleton → card keep one
+         height. -->
     <div
         data-slot="shadow-palette"
         class="shadow-palette skeleton-ink-register rounded-card border border-card-edge bg-well overflow-hidden shadow-cartoon-sm"
@@ -52,6 +60,7 @@
             <div
                 v-for="i in count"
                 :key="i"
+                data-slot="shadow-palette-cell"
                 class="shadow-seg animate-pulse h-full min-w-0 flex-1"
                 :style="{ animationDelay: `${((i - 1) * 0.12).toFixed(2)}s` }"
             />
@@ -59,23 +68,12 @@
         <!-- The imagined metadata row — the wave arrives after the strip. -->
         <div class="px-3 py-2.5 flex items-center gap-2">
             <div
-                class="shadow-block-name animate-pulse h-5 w-32 rounded-md"
+                class="shadow-block-name animate-pulse text-subheading h-[1lh] w-32 rounded-md"
                 :style="{ animationDelay: `${(count * 0.12 + 0.1).toFixed(2)}s` }"
             />
             <div
-                class="shadow-block-count animate-pulse h-5 w-6 rounded-md"
+                class="shadow-block-count animate-pulse text-subheading h-[1lh] w-6 rounded-md"
                 :style="{ animationDelay: `${(count * 0.12 + 0.22).toFixed(2)}s` }"
-            />
-        </div>
-        <!-- The imagined swatches — the wave's last exposure pass. -->
-        <div class="px-3 pb-3 flex flex-wrap gap-2">
-            <div
-                v-for="i in count"
-                :key="i"
-                class="shadow-swatch animate-pulse w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded-badge"
-                :style="{
-                    animationDelay: `${(count * 0.12 + 0.34 + (i - 1) * 0.1).toFixed(2)}s`,
-                }"
             />
         </div>
     </div>
@@ -83,15 +81,15 @@
 
 <script setup lang="ts">
 const { count = 5 } = defineProps<{
-    /** Ghost segment/swatch count — Extract threads the LIVE k here, so the
+    /** Ghost segment count — Extract threads the LIVE k here, so the
      *  instrument shows its output shape before any image exists. */
     count?: number;
 }>();
 </script>
 
 <style scoped>
-/* The genesis ink ladder (`ec1b200`: strip = muted · meta = muted/60,/40 ·
- * swatches = muted/30), spoken through the ONE loading-ink recipe root
+/* The genesis ink ladder (`ec1b200`: strip = muted · meta = muted/60,/40),
+ * spoken through the ONE loading-ink recipe root
  * (`--skeleton-ink`, utils.css `.skeleton-ink-register`). E1-R2 (T.W8
  * remediation_1): that recipe now CERTIFIES the block as a bounded tone-step
  * of this plate's `bg-well` ground, so the "hairline of the well ground
@@ -108,8 +106,5 @@ const { count = 5 } = defineProps<{
 }
 .shadow-block-count {
     background: color-mix(in oklab, var(--skeleton-ink) 40%, transparent);
-}
-.shadow-swatch {
-    background: color-mix(in oklab, var(--skeleton-ink) 30%, transparent);
 }
 </style>

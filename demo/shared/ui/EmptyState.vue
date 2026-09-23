@@ -34,10 +34,11 @@
              invitation, `4d8ad79`). The card-scale ShadowPalette no
              longer seats at empty hosts (it is solely the Extract
              standing-instrument face), so the trio is the one ghost
-             voice of every true-empty plate; `dots` sheds it ONLY where
-             a card-scale instrument ghost seats beside this caption. -->
+             voice of every true-empty plate. X.W7.g (ES-4): the `dots`
+             axis that could shed it was never set by any consumer and only
+             an oracle held it in place; it is deleted with that oracle's
+             re-ruling. -->
         <div
-            v-if="dots"
             data-slot="empty-state-trio"
             class="flex items-end gap-2"
             aria-hidden="true"
@@ -80,14 +81,8 @@ withDefaults(
         hint?: string | undefined;
         /** The machine truth (error variant) — the caught message, in Fira. */
         detail?: string | undefined;
-        /** The dot-scale ghost trio (empty variant) — TRUE EMPTY's one
-         *  ghost register by owner ruling (R12/t33-audit-08). Shed
-         *  (`false`) ONLY where a card-scale instrument ghost seats
-         *  beside this caption — N-3 re-aimed: never two ghost registers
-         *  at two scales. */
-        dots?: boolean | undefined;
     }>(),
-    { variant: "empty", eyebrow: "· empty plate ·", dots: true },
+    { variant: "empty", eyebrow: "· empty plate ·" },
 );
 </script>
 

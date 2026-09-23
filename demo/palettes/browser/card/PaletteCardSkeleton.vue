@@ -29,6 +29,12 @@
          motion: this shell keeps `role="status"` + "Loading palette"
          because HERE work IS happening; the aria-hidden ghost announces
          nothing. -->
+    <!-- X.W7.g (G20 · N-17): the loading shell is the silhouette of the
+         SETTLED collapsed card it stands in for — strip + meta row. The
+         swatch row it carried is a region the collapsed card never renders
+         (+50 % height at 390 px, PCS-4) and grew with k (254 px at k = 16);
+         it is deleted, the meta blocks take the specimen name's own line box
+         (`text-subheading` · `1lh`), and the height is k-invariant. -->
     <div
         data-slot="palette-card-skeleton"
         class="skeleton-ink-register rounded-card border border-card-edge bg-well overflow-hidden shadow-cartoon-sm"
@@ -56,25 +62,14 @@
             <Skeleton
                 surface="glass"
                 :variant="blockVariant"
-                class="h-5 w-32 rounded-md"
+                class="text-subheading h-[1lh] w-32 rounded-md"
                 :style="{ '--skeleton-shimmer-delay': `${count * 0.12 + 0.1}s` }"
             />
             <Skeleton
                 surface="glass"
                 :variant="blockVariant"
-                class="h-5 w-6 rounded-md"
+                class="text-subheading h-[1lh] w-6 rounded-md"
                 :style="{ '--skeleton-shimmer-delay': `${count * 0.12 + 0.22}s` }"
-            />
-        </div>
-        <!-- Shadow swatches — the last exposure pass. -->
-        <div class="px-3 pb-3 flex flex-wrap gap-2">
-            <Skeleton
-                v-for="i in count"
-                :key="i"
-                surface="glass"
-                :variant="blockVariant"
-                class="w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded-badge"
-                :style="{ '--skeleton-shimmer-delay': `${count * 0.12 + 0.34 + (i - 1) * 0.1}s` }"
             />
         </div>
     </div>

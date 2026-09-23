@@ -96,9 +96,13 @@
                      breath register, local compute — never the network
                      `developing` sweep, whose name the old key mis-wore);
                      the developed card (F7's one-card story) lands in the
-                     same seat. The caption carries the text for AT (the
-                     ghost is aria-hidden); the error line above stays its
-                     own explicit register (error ≠ empty). -->
+                     same seat. The ghost is aria-hidden and needs no
+                     caption: the drop zone beside it is the pane's one
+                     empty-state affordance and carries its accessible name
+                     (X.W7.g · OM-15 §1.A #1 KILL — the caption restated the
+                     drop zone, a third ghost register in one column); the
+                     error line above stays its own explicit register
+                     (error ≠ empty). -->
                 <Transition name="vj-morph" mode="out-in">
                     <PaletteCardSkeleton
                         v-if="session.isProcessing.value"
@@ -155,16 +159,7 @@
                             @add-color="(css) => emit('addColor', css)"
                         />
                     </div>
-                    <div v-else key="shadow" class="flex flex-col gap-2">
-                        <ShadowPalette :count="session.colorCount.value" />
-                        <!-- The resurrected `ec1b200` caption — the AT text
-                             for the aria-hidden ghost above. -->
-                        <p
-                            class="text-mono-caption uppercase tracking-[0.18em] plate-ink text-center"
-                        >
-                            · undeveloped plate — feed it an image ·
-                        </p>
-                    </div>
+                    <ShadowPalette v-else key="shadow" :count="session.colorCount.value" />
                 </Transition>
             </div>
         </div>
