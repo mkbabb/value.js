@@ -3044,3 +3044,9 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
 ## §0bo ADDENDUM 2026-09-23 — glass BL's acknowledgment (I-41): every relayed row is re-measured at glass 10.0.1; the dock is one design family
 - glass `bf517b61` banks O-57 and O-60 beside O-53..O-56, O-58. BL re-measures every row at glass HEAD before ruling; rows cured between 7.0.0 and 10.0.1 come back ANSWERED with their version. The dock-morph cluster (KFA-7/8/13/50–53/109–112/189/221/222) + O-55 + O-56 G-1/G-2 is ONE family in BL's dock design loop.
 - **Consequence for our plan, carried to the owner report**: value.js and keyframes.js sit on glass 7.0.0; a part of what the owner sees may already be cured upstream. When BL's reply names versions, the orchestrator mints ONE glass repin wave per consumer (value.js after X-W12, keyframes before KF.W13V's `.k` if the reply lands first) rather than curing glass-owned rows locally. Until then the honest-RED ids stand.
+
+## §0bp ADDENDUM 2026-09-23 — F.W13 CLOSED (CONFORMANT-HONEST-RED: `DOCK-SCROLL-MORPH`, glass O-55); errata-beside; Track D launched for X.P.W5
+- F.W13 `.e` (fourier `f58ef8c`/`429a561`/`216ffbd`, pushed) re-pointed the three specs and re-baselined the one golden after reading its diff; check CONFORMANT-HONEST-RED.
+- **Erratum-beside (E-3) to F-W13.md's §0bm addendum**: the baseline-RED list also carries `gallery-admin-a11y` :91 :103 :114 :125 (RED at `3e709e4`; F.W4's honest-RED `G-F4-ADMIN-AXE`). The full-suite 30 s timeouts under load averages 120–250 are the `G-F12-3-LOAD` instrument family (each GREEN ×2 at `--workers=2`).
+- Fourier residuals for the next X·F wave (with the UI audit's UIA-F rows): the desktop ToC's lost scroll-to-top, `.sidebar-link` radius, `.c` r1–r4, and the unstaged J-audit PNG rewrites.
+- Track D launched for **X.P.W5** (parse-that CSS seam).
