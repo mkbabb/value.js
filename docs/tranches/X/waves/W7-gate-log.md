@@ -15,6 +15,12 @@ sitting of record 2026-09-17). Baselines are the open seat's (`execution/A/X-W7.
 | a | `0e298ec5` | N-10 `fix(palettes/search)` — MiniColorPicker guarded capture + total release |
 | b | `cb03d571` | #3 `refactor(palettes/export)` — serializers ship; `export.ts` deleted; one slug (G4/G5/G6) |
 | b | `48668947` | #4 `fix(palettes/export)` — failure surfaced + 50-row disposition table (G7, N-15) |
+| c | `8e023125` | N-13 `fix(palettes/card)` — reduced-motion disclosure completes |
+| c | `94e06196` | N-5 `fix(palettes/card)` — swatch keys are identities |
+| c | `e7b4d894` | N-11 `fix(palettes/card)` — every card copy verb reaches its verdict |
+| c | `9250dd19` | #5 `feat(palettes/specimen)` — PaletteSpecimen; priority-collapse meta; +N chip; strip (G8 · G9 · G12) |
+| c | `877710a2` | #7 `fix(palettes/card)` — cast follows silhouette; hover at root (G11 root half) |
+| c | `76a4d1cf` | #6 `test(palettes/n-fixtures)` — the arbitrary-N battery (G8 · G9 · G10 · N-13) |
 
 ---
 
@@ -158,3 +164,106 @@ diagnostics — never decided at this seat).
   (2) zero colours → every format returns `"This palette has no colors to export."`, **0** blobs, **0** clicks;
   (3) a name that slugifies to empty → `palette-draft--local-7.json` / `k2-9f--r4.tailwind.json` — canonical stems,
   no dotfile, no `--palette--`. Plus: the PNG IHDR is **1200 × 240 at N = 1 and N = 50** (N-invariant).
+
+## G9 — Meta row does not overflow inside the legal bound (unit c) — **GREEN**
+
+⟨cmd⟩ `npx vitest run demo/test/palettes/palette-card-layout.test.ts` (Playwright Chromium, 390×844)
+
+**Instrument** (unit c; the pre-cure capture ran on it before any cure byte was committed):
+`demo/test/palettes/n-fixtures/harness/` serves every fixture case as a real `PaletteCard`, all inside ONE
+shipped `PaletteCardGrid`, through the repo's own `vite.config.ts` (dev mode: the demo's PostCSS/Tailwind
+pipeline and the three shipped sheets). jsdom has no layout (`scrollWidth` reads 0), so a jsdom G9 is vacuous.
+
+**Sharpening recorded (R.2)**: the grid is `grid-cols-1` = `minmax(auto, 1fr)`; a card that cannot shrink can
+WIDEN its column, where `card.scrollWidth <= card.clientWidth` passes vacuously. The gate asserts all four:
+card `scrollWidth <= clientWidth`, card width `<=` its grid column, `documentElement.scrollWidth <=` viewport,
+name rendered width `> 0`.
+
+- **RED — pre-cure (HEAD `8bd15c1b` card bytes, fixture `g9`: 3 tags × 30 chars + featured + fork +
+  4–5-digit counts — a legal payload)**, double-run identical (`PRE {…}` × 2):
+  `card clientWidth 354 · scrollWidth 941 · grid 358 · name width 0` → **overflow 941 − 354 = 587 px**; the
+  name collapses to zero. Heights across 7 fixture cases: **{100, 125}** (the height law also broken).
+- **GREEN (2026-09-23, after `9250dd19` + `877710a2`)**: `g9` → scrollWidth 354 = clientWidth 354, card 358 ≤
+  grid 358, doc 390 ≤ 390, name width **93 px** (> 0); suite double-run 6/6 · 6/6.
+- **Falsifier (run, reverted)**: strip the specimen head's clip + yield rules and set the name `flex: 0 0 auto`
+  → G9 and G10 RED: `expected 522 to be less than or equal to 354`.
+- Note (S-9(b)): the chips no longer carry `shrink-0` inside an unclipped row; the compaction G17 adds (unit f)
+  lands on this same surface.
+  Height law (14 cases, double-run): **{95}** — one height.
+
+## G8 — Tag truth (unit c) — **GREEN**
+
+⟨cmd⟩ `npx vitest run demo/test/palettes/n-fixtures/` (the tag block asserts at N_tags ∈ {0,1,2,3,10,11}, which
+covers the spec's 4-and-10 cells by the ledger's own boundaries)
+
+- **RED (open)**: `PaletteCardMeta.vue:37` `v-for="tag in (palette.tags ?? []).slice(0, 3)"` — tags 4–10 rendered
+  nowhere (no `+N`, no tooltip).
+- **GREEN (after `9250dd19`)**: at every N_tags the chips render the leading tags in order with full titles, one
+  `+N` label per declared band (`+n−min(k,n)`), and the `+N` chip's popover reveals the **whole** set (reachable
+  set == fixture set). ⟨cmd⟩ `grep -rn "slice(0, *[35])" demo/palettes` → 1 line, `AdminFlaggedPanel.vue:54`
+  (colours, the sibling instance — outside unit c's bounds; handed to d/e).
+- **Falsifier**: reintroduce a bare slice → the popover's revealed set loses a named tag → the equality fails.
+
+## G10 — The N-fixture battery (unit c) — **GREEN**
+
+⟨cmd⟩ `npx vitest run demo/test/palettes/n-fixtures/` → **21/21** (double-run 21 · 21); layout half in
+`palette-card-layout.test.ts` → 6/6 (double-run).
+
+- **RED (open)**: dir ABSENT; census: tags drop at N ≥ 4; colours clip at N > 200 (`Math.max(100/n, 0.5)`,
+  201 × 0.5% = 100.5%); weight floor renormalised away (PCS-1).
+- **GREEN**: displayed colour count == N at 0,1,2,5,50,200,201; one band per colour below N = 100 (flex share,
+  no % width), a summary gradient carrying all N colours at N ≥ 100; 8% floor a real min size; every tag reachable;
+  PNG 1200×240 at N = 1..50, loud refusal (`snapshot_empty` / `snapshot_over_cap`) outside; no fixture overflows;
+  one card height across the set.
+
+## G11 — Shadow silhouette and hover register (unit c) — **root half GREEN · golden half ESCALATED (F-3)**
+
+- **Measured at open**: `.cartoon-cast` and `.cartoon-surface` match **no served rule** — glass-ui 7 ships
+  `.cartoon-cast` only in `dist/styles/glass/glass-atom.css`, reached by neither the `./styles` entry
+  (`dist/styles/index.css` → `glass.css` import list) nor the exports map; `--card-press-t` had no reader.
+- **Cure (`877710a2`)**: the root takes the producer's `.shadow-cartoon-md` stamp (box-shadow follows
+  border-radius); the dead span dies; the strip takes the inner radius; hover = translate 0 −2px +
+  `--shadow-cartoon-lg`, hover-capable pointers only, PRM drops the travel.
+- **Root half** ⟨cmd⟩ `palette-card-layout.test.ts` G11 case → GREEN (root box-shadow ≠ none, radius > 0,
+  0 `.cartoon-cast` children, hover changes shadow and translate).
+- **Golden half**: `e2e/visual/` has no PaletteCard rest/hover cell (F-3) and is Do-NOT-touch → **ESC-W7c-G11**.
+
+## G12 — Specimen purity (unit c) — **GREEN**
+
+⟨cmd⟩ `npx vitest run demo/test/palettes/palette-specimen.test.ts` → 4/4 (double-run).
+
+- **RED (open)**: component ABSENT.
+- **GREEN (after `9250dd19`)**: transitive import closure excludes ports/actions/store/export/transport;
+  0 interactive descendants at the richest fixture; no emits; the card renders through it.
+- **Falsifiers (run, reverted)**: a `<button>` in the name row → "mounts with zero interactive descendants" RED;
+  a `usePalettePorts` import → "imports no port…" RED.
+
+## N-5 — Identity keys, the `useSwatchActions` site (unit c) — **GREEN at unit c's site**
+
+⟨cmd⟩ `grep -rn '::\${i}\|:key="[^"]*index' demo/ --include='*.vue' --include='*.ts' | wc -l`
+
+- **RED (open)**: **7** (useSwatchActions 2 · MixSourceSelector 2 · ColorNutritionLabel 2 · GradientEasingEditor 1).
+- **After `94e06196`**: **5** — unit c's 2 cured; `MixSourceSelector` is X.W7.f's (the fold's two-site lock);
+  the other two sit outside W7's bounds.
+- **Removal test** ⟨cmd⟩ `npx vitest run demo/test/palettes/swatch-identity-keys.test.ts` → 3/3; on the prior
+  bytes 3/3 RED (survivor nodes replaced).
+
+## N-7 — Drag order integrity — **RED, handed to X.W7.d (ESC-W7c-N7)**
+
+The cure seat is `PalettesPane.vue:193-206` (`useSortable(sortableEl, pm.filteredSaved.value, …)` + `onEnd`
+index splice over the FILTERED list) and `usePaletteStore.ts:153-167` (`reorderPalettes` appends unlisted
+palettes en bloc) — both X.W7.d's writable set, not unit c's. No born-RED test was committed (a red suite would
+break the §7 cadence); the gate and its named-addition rider travel with the cure to d.
+
+## N-11 — No fallible copy discards its `CopyResult`, card sites (unit c) — **GREEN at the card sites**
+
+⟨cmd⟩ `grep -rn "void writeClipboard" demo/palettes/browser/card | wc -l` → **0** (open: 3 + 1 bare call).
+⟨cmd⟩ `npx vitest run demo/test/palettes/copy-verdict.test.ts` → 5/5 (census + rejected/accepted verdicts).
+Repo-wide residue (outside unit c): ⟨cmd⟩ `grep -rn "void writeClipboard" demo/ | wc -l` → **7**.
+
+## N-13 — The reduced-motion transition completes (unit c) — **GREEN**
+
+⟨cmd⟩ `palette-card-layout.test.ts` N-13 cases (PRM emulated in Chromium).
+- **RED on the prior bytes** (run before `8e023125` landed): expand OK, collapse never completes —
+  `expected 1 to be +0` after 2 s.
+- **GREEN**: PRM collapse removes the swatch subtree; the animated collapse still completes.
