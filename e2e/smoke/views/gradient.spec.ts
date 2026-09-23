@@ -25,6 +25,13 @@ async function openGradient(page: Page): Promise<Locator> {
     // stall-then-resume enter transition defeats Playwright's bounding-box
     // stability check (see paneSettled).
     await paneSettled(page);
+    // Repair 1 (X-W6, Check 1 → a13) — `paneSettled` counts running Animations
+    // only, so it hands back a stage pane still parked in its pre-start
+    // `vj-enter-enter-from` pose (0 Animations). Measured: `:210`'s grab read the
+    // handle's centre in that pose and the pane then travelled 586 px under the
+    // pointer. Every test here reads rail geometry, so the rail's region is
+    // settled once, at the door, by the one region settle (§0ba).
+    await regionSettled(bar(main));
     return main;
 }
 
@@ -510,6 +517,37 @@ test("gradient selector aurora", async ({ page }) => {
             { timeout: 15000, message: "the rail's box never settled" },
         )
         .toBe(true);
+    // The rail's card is translucent glass, so the ground behind it shows through the
+    // clip: the atmosphere canvas's one-shot boot fade (`opacity 0.9s`, measured at the
+    // repair-1 bisect still running for ~1 s after the box settles) repaints the clip by
+    // 1/255 per channel between the first frame and the rest. That is the page arriving,
+    // not the ramp moving — so the frames wait until no FINITE animation on the document
+    // timeline is still running. Looping animations (an aurora, a lamp) and
+    // scroll-driven ones never finish and are not arrivals; they stay in the frames.
+    await expect
+        .poll(
+            () =>
+                page.evaluate(() =>
+                    document
+                        .getAnimations()
+                        .filter(
+                            (a) =>
+                                a.playState === "running" &&
+                                a.timeline instanceof DocumentTimeline &&
+                                a.effect?.getComputedTiming().endTime !== Infinity,
+                        )
+                        .map((a) => {
+                            const t = (a.effect as KeyframeEffect | null)?.target;
+                            const name =
+                                (a as CSSAnimation).animationName ??
+                                (a as CSSTransition).transitionProperty;
+                            return `${name} on ${t?.tagName.toLowerCase()}.${[...(t?.classList ?? [])].slice(0, 2).join(".")}`;
+                        })
+                        .join("; "),
+                ),
+            { timeout: 15000, message: "the page never finished arriving" },
+        )
+        .toBe("");
 
     const frames: Buffer[] = [];
     for (let i = 0; i < 5; i++) {

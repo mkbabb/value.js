@@ -26,6 +26,8 @@ import type { Locator } from "@playwright/test";
  *      and are not this pane's arrival);
  *   2. no `*-enter-*` / `*-leave-*` transition class is present (the pre-start
  *      pose, and the whole of an in-flight enter or leave).
+ *   3. (a region target) the region HAS a pane root: an empty slot is a swap
+ *      between an out-in leave and the incoming mount, never a settled pane.
  *
  * This is a WAIT, never a relaxation: it asserts nothing about the caller's
  * geometry, and a pane that never leaves its transition classes times the poll
@@ -53,6 +55,11 @@ export async function regionSettled(
                     }
                     const TRANSITION_CLASS = /-(enter|leave)-/;
                     const unsettled: string[] = [];
+                    // An EMPTY region has not arrived: between an out-in leave's
+                    // end and the incoming pane's mount the slot holds no pane
+                    // root at all — that is the swap still in flight, not rest.
+                    if (el.getAttribute("role") === "region" && !paneRoot)
+                        unsettled.push("the region renders no pane yet");
                     for (const node of new Set([el, paneRoot])) {
                         if (!node) continue;
                         const name = `${node.tagName.toLowerCase()}.${[
