@@ -339,3 +339,49 @@ Commits: this receipt + evidence (`d-morph-probe.ts`, `d-result-{iso,base}-r{1,2
 | VERIFIED | ✗ | the spec designates no stamp to this seat |
 
 **LEDGER**: X-W7R → `IMPLEMENTED 2026-09-17` (honest-RED per §0ci R-5); commits `d49d2238 · 2f40a015 · 24e64df8` + this close.
+
+## Check 1 (2026-09-23, L-20 fresh adversarial pass 1, VERIFY-ONLY, `claude-opus-5-5`, HEAD `a9d3a666`)
+
+**Verdict: CONFORMANT-HONEST-RED** — 0 BLOCKER · 0 CRITICAL · 0 HIGH · 0 MEDIUM · 1 MINOR · 3 INFO. Every GREEN the close claims reproduces.
+
+**Crash-recovery**: `git status --porcelain` → ` M .github/workflows/ci.yml` · ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M docs/tranches/X/execution/B/KF-W13R.md` · ` M docs/tranches/X/execution/C/F-W14.md` · ` M scripts/dev/dev.sh` · two untracked sibling evidence dirs — none in this check's writable set (record + LEDGER). 0 inherited edits.
+
+### Reproduced (this seat's own runs, load 22.57/27.76/27.21)
+- B1 hold state: ⟨`grep -n '"@mkbabb/glass-ui"' package.json`⟩ → `88: "@mkbabb/glass-ui": "^7.0.0"`; lock + installed → `7.0.0 7.0.0`; ⟨`git diff --quiet HEAD -- package.json package-lock.json`⟩ → clean. The ADDENDUM (b) close act holds.
+- B2 on the tree: ⟨`grep -rn 'dismiss="deliberate"' demo/ | grep -v node_modules | wc -l`⟩ → `0` (honest-RED as the close says).
+- Banked patch: ⟨`git apply --check …/m-repin-10.0.1-migration.patch`⟩ → exit 0 (51 file diffs).
+- B3: ⟨`npx vue-tsc -p tsconfig.demo.json --noEmit`⟩ ×2 → EXIT 0, EXIT 0.
+- B4: ⟨`npx vitest run`⟩ ×2 → `Test Files 2 failed | 65 passed (67)` · `Tests 2 failed | 908 passed (910)` both runs; FAIL set = `test/spectrum-luma.test.ts` C-5 + `demo/test/shell/reka-binding-idiom.test.ts` NG-6 only.
+- O-62 relay: `glass-ui/docs/tranches/BK/coordination/valuejs-outbound-2026-09-23-glass-veil-grey.md` present.
+- Mail: INBOX tail I-46 READ; no UNREAD row in scope.
+
+### Axes
+1. Claimed GREENs reproduce: yes (patch-apply, B3 ×2, B4 ×2; B6/B7/B8 are cited from committed evidence at the patch bytes and are re-read at X-W7L by the close's own routing).
+2. Bounds: ⟨`git show --stat`⟩ `d49d2238` (record + 4 `evidence/X-W7R/m-*`) · `2f40a015` (record + 12 `v-*` + INBOX +1) · `24e64df8` (record + 5 `d-*`) · `a9d3a666` (record + LEDGER). All in bounds. ⟨`git log a994800c..HEAD -- scripts/dev/dev.sh`⟩ → empty; dev.sh untouched.
+3. Masks: the wave lands no product bytes. The banked patch: ⟨grep `^+` for `test.skip|.fixme|try {|catch (|allowlist|glass-ui/src`⟩ → 0. The one `node_modules/…/glass-ui/dist/components/slider/styles.css` hit is a read path in an existing fence that follows glass 10's stylesheet relocation, not a patch of node_modules. The 4 changed `expect(` lines move `disabled` → `aria-disabled`, which glass 10's Button change requires. They are equivalent, not narrowed.
+4. Commit families: one commit per unit plus the close; the pin+lock+migration family stays whole inside one patch file. Not split.
+5. E-3: no wave commit touches `waves/`, `docs/tranches/V/megatranche/registry/adjudicated/`, conformance artifacts or sibling specs. Addenda (a)/(b) in W7R.md came from orchestrator commits `ff9160bd` (§0cf) and `eeb28a33` (§0ci) as dated addenda-beside.
+6. Mail: clean (above).
+7. Four-verb line: IMPLEMENTED as ruled (hold-and-bank); VERIFIED ✗. Lawful.
+8. Goal at the bytes: under ADDENDUM (b), the goal is to bank the repin and hold the tree on 7.0.0. The patch is committed and applies clean, and the tree is on 7.0.0. `.v` and `.d` measured the glass rows and OA-41 at 10.0.1 ×2. MET.
+9. Published figures: B4 908/910 and the vue-tsc EXIT 0 figures reproduce. The patch applies at HEAD `a9d3a666`.
+10. Honest-RED adjudication, each gate checked against the spec bytes:
+   - **B1 pin 10.0.1**: ADDENDUM (b) says the close "never commits 10.0.1". Relieved by the spec and owned by X-W7L (§0ci R-5).
+   - **B2 G14 dismiss grep**: the six seats ride inside the banked patch, and ADDENDUM (b) routes landing that patch to X-W7L. Relieved and owned by X-W7L.
+   - **B5 smoke at 10.0.1**: 15 repin regressions, part of the banked landing. Owned by X-W7L (RES-m-7). They are also producer-bound through RES-m-1..5 to BL.
+   - **GLASS-VEIL-GREY (O-62)**: ADDENDUM (b) names it honest-RED for this wave. Producer-owned: glass BL (I-45 banked).
+   - B6, B7 and B8 are GREEN at the patch bytes, and their product re-read is routed to X-W7L in the residual register. Not a RED of this wave.
+
+### Register
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C1-1 | MINOR | `.m` measured 45 smoke failures on the held 7.0.0 tree at HEAD `56394291` (`m-smoke-classification.md` §"the 71 re-run at base 7.0.0"). The close discloses them ("45 already failing at 7.0.0") but names no owner, and the baseline cited only the 47/47 subset | `m-smoke-classification.md:4-50`; Close §Residuals has no row for them | The orchestrator routes the 45 (many are load-sensitive oracles run at `--workers=1`, load 17-25) to the owning waves (X-W12 / X-W8 .i). This does not block: X-W7R wrote no product bytes, so it caused none of them |
+| C1-2 | INFO | The `.v` table verdicts read "still-live → BL", where ADDENDUM (b) asks for "defers to X-W7L" | record :169-190; the close reconciles ("rows defer to X-W7L") | none |
+| C1-3 | INFO | W7R.md has no §File Bounds; the Unit plan derived the writable sets | record :14 | none (all commits are docs/evidence) |
+| C1-4 | INFO | The LEDGER row read `IMPLEMENTED 2026-09-17` before this check | LEDGER :36 | this check sets it to CLOSED |
+
+### Successors
+- **X-W12** opens after X-W7 CLOSED (GREEN) and, per the W12.md ADDENDUM §0bs, X-W7R. X-W7R is CLOSED at this check, and §0ci R-5 has X-W12 proceed on 7.0.0. **Not blocked.**
+- **X-W7L** is not yet minted. It mints at BL's cut (§0ci R-5), so it is producer-gated and lawfully blocked. The patch it consumes applies clean.
+
+**LEDGER**: X-W7R → `CLOSED 2026-09-17 (honest-RED: B1-pin-10.0.1, B2-G14-grep, B5-smoke@10.0.1, GLASS-VEIL-GREY O-62)`.
