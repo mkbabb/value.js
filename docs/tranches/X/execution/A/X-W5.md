@@ -4038,3 +4038,43 @@ INBOX: the one UNREAD row is still **I-40** (Track C), outside X-W5 scope. **0 U
 are RED, so IMPLEMENTED is not stamped. VERIFIED NO (stamped only at the X-W11 release close, §9 c6). The line does not move.
 
 **Successors:** X-W6 [`.a2`] → [`.i2`] → [`.j`] (§0ay order) and X-W7 / X-W8 / X-W10 stay BLOCKED-ON the X-W5 close.
+
+## Check 1 — RESUME 6, L-20 fresh adversarial pass 1, 2026-09-23 (VERIFY-ONLY)
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X-W5 CHECK 1 (RESUME 6) · HEAD at open `f46ab34b` · date of record 2026-09-17 (COHESION §0j).
+This seat cured nothing. It wrote this section and one LEDGER event line. Inputs: `W5.md` whole (398 L, all three ADDENDA), `## RESUME OPEN 6`, the RESUME 6 `.c3`/`.d3` receipts, `## Close — RESUME 6`.
+Crash-recovery: ⟨cmd⟩ `git status --porcelain` → the four standing rows (`CARRY-LEDGER.md` · two W6 catalog PNGs · `scripts/dev/dev.sh`); none in this seat's writable set. No inherited partial.
+
+**Verdict: NOT-CONFORMANT.** Every GREEN the close claims reproduces, and every RED it reports reproduces as RED. Two of the third ADDENDUM's gates are RED with no relief in the spec: they are escalated (ESC-W5c3-1, ESC-W5d3-1), and COHESION has not ruled on either (⟨cmd⟩ `grep -c 'ESC-W5c3-1\|ESC-W5d3-1' docs/tranches/X/COHESION.md` → **0**). The record is honest (PARTIAL, IMPLEMENTED not stamped). The row stays PARTIAL.
+
+### K1.1 Axes
+- **(1) Claimed GREENs, at this seat's clock:** A1 exit **0** · App grep **0** · A4 `bindPane` **10** · A7 `role="status"` **5** · B4 **0 · 3 · 0** · C4 exit **0** · C8 exit **0** · D2 exit **0** · D3 **0** · D4 Mix `<Transition ` **1** · E1 **0 0 0 0** · E2 P122 **9 3 10 18** · C3 **23** (routed, as stated) · §7 ⟨cmd⟩ `npx vue-tsc -p tsconfig.demo.json --noEmit` → **0**. 14 of 14 static and typecheck readings agree with CL6.2. D1 (headed real GPU) and the live probes are banked, which is lawful: ⟨cmd⟩ `git diff --stat d1bc67c3..HEAD -- demo src` → empty.
+- **(2) Bounds:** ⟨cmd⟩ `git show --stat` on `8ddafa23` `881d3792` `b9f63632` `a072eef3` `28da478f` `f46ab34b` `545f675f` → only the o16 spec, the new cold-nav witness, `waves/W5/green/**`, this record, INBOX and LEDGER. All of these are inside §0ay's `.c3`/`.d3` grants or the seat set. `dev.sh`: not in any commit. **Clean.**
+- **(3) Masking:** `8ddafa23` swaps the R2/R8 literals for a resolved-token read (no `0.44s` literal, no skip). The witness's `try{…}finally{ctx.close()}` is cleanup and swallows nothing. There is no `test.skip`, allowlist or `node_modules` byte. **Clean.** INFO: R2 and R8 compare against a value read through the same cascade. If the token failed to resolve, both sides would read `0s`, but R3's leave row and the `linear(` timing assertion keep the census from being vacuous.
+- **(4) Families:** each commit carries one meaning. P-1..P-4 `52dc0a5b` untouched. **Clean.**
+- **(5) E-3:** ⟨cmd⟩ `git diff --stat d1bc67c3..HEAD -- docs/tranches/X/waves/W5.md docs/tranches/V/megatranche/registry/ src scripts/dev/dev.sh` → empty. **Held.**
+- **(6) Mail:** the only UNREAD row is I-40 (Track C). CL6.4's sweep has nothing newer. **0 UNREAD in scope.**
+- **(7) Four-verb:** unchanged. IMPLEMENTED is NO, which is correct while the ADDENDUM-3 gates are RED. **Lawful.**
+- **(8) Goal criterion:** NOT MET at the bytes. "Moving between scenes is an animated … event": on a cold navigation, a pane is left frozen in `vj-enter-enter-from/-active` (the gradient rail sits off-screen). That is a scene that never finishes entering.
+- **(9) Figures:** 59 tracked W5 artefacts (CL6.3) were not recounted; no W5 path moved since. The RED figures reproduce (below).
+
+### K1.2 RED gates, re-run ×2 at this seat (load ≈ 4.6–7.2)
+| gate | ⟨cmd⟩ | run 1 | run 2 | relief under axis (10) |
+|---|---|---|---|---|
+| o16 W5-census | `VJS_E2E_PORT=5471/5477 npx playwright test e2e/smoke/oracles/o16-computed-cascade.spec.ts` | 2 passed / 2 failed, `R4 translate duration Expected "0.3s" Received undefined` | same | **NONE.** ADDENDUM 3 names it as `.c3`'s gate ("o16 GREEN ×2"). ESC-W5c3-1 is unruled. No later wave is routed it by the spec. R4's register may be producer-owned (glass 7.0.0 `@utility cartoon-surface` ships no transition), but no spec or ruling byte says so yet |
+| cold-nav witness (both arms) | `VJS_E2E_PORT=5475/5479 npx playwright test e2e/smoke/oracles/cold-nav-scene-enter.spec.ts --project=smoke` | 2 failed: `/#/gradient` Received 2 · `/#/` Received 1 | same (1 · 2) | **NONE.** ADDENDUM 3 `.d3` gate ("0 stuck enter states ×2"). ESC-W5d3-1 is unruled, and the cure needs `usePaneRouter.ts`, which is outside the grant |
+| W6 a5–a11 · a12 · e1 · g2 (by W6's commands) | not re-run (no product byte; `.d3` read them RED at HEAD) | — | — | **NONE.** ADDENDUM 3 `.d3` gate. Turns only with the ESC-W5d3-1 cure |
+| o12 O-12·3 headed real GPU | banked (CL6.2 0.72 · 0.78 /255) | — | — | **RELIEVED:** §0ay ESC-W5c2-2 routes it to X-W8 `.i` as O12-3-HOVER-GPU, and the residual register names that owner |
+| B3 · A3 · C3 · C7 `DockStatusLamp:70` · D1 headless | banked | — | — | **RELIEVED:** X-W6 CC-056 (§3) · X-W8 `.i`/`.h` (§0aq, first ADDENDUM) · §0ax (D1 headed = the reading of record) |
+
+### K1.3 Register
+| severity | claim | receipt | cure |
+|---|---|---|---|
+| **HIGH** | The ADDENDUM-3 `.c3` gate "o16 GREEN ×2" is RED with no spec relief: the census now fails at R4, and R5/R11 are latent. | K1.2 row 1 (×2); `c3.4` table | COHESION rules ESC-W5c3-1: grant R4/R5/R11 on the §0ay resolved-token pattern, and dispose of R4's missing producer register (a glass mail row, never a frontend hack). Then an Opus repair seat, with o16 GREEN ×2 |
+| **HIGH** | The ADDENDUM-3 `.d3` gate "5 fresh contexts × cold navigation → 0 stuck enter states ×2" is RED on both arms, and with it W6 a5–a12/e1/g2. The §2 goal criterion (animated scene entry) fails at the bytes. | K1.2 row 2 (×2); `d3.2` root at Vue `resolveTransitionHooks` enter guard | COHESION rules ESC-W5d3-1 (option (a) recommended: grant `usePaneRouter.ts` `lazyPane` inside the W5F-07 family, PaneSlot keys on `(pane, resolved)`, retire the `App.vue:134` flip). Then a `.d4` Opus seat; witness ×2 plus the W6 re-reads plus D1 non-regression |
+| INFO | R2/R8 read their expectation through the live cascade. This is sound under §0ay, but a token that failed to resolve would give `0s` on both sides. | `8ddafa23` diff | none required; the other census rows guard it |
+
+**Honest-RED set (relieved):** o12 O-12·3 → X-W8 `.i` (O12-3-HOVER-GPU, §0ay) · B3 → X-W6 CC-056 · A3 / C3 → X-W8 `.i` · C7 `DockStatusLamp:70` → X-W8 `.h` · D1 headless → §0ax (not of record).
+**Unrelieved:** o16 W5-census · cold-nav witness · W6 a5–a12/e1/g2 (as `.d3` cross-gates).
+
+**Successors (Opens-after):** X-W6 [`.a2`→`.i2`→`.j`] (§0ay order), X-W7, X-W8 and X-W10 each carry the conjunct "X-W5 closed". That conjunct is **RED**, so all four are **lawfully BLOCKED**. Their other conjuncts from W5 (`regions[]`, the dead block cap, one mount path, E1/E2) are GREEN at the bytes. **LEDGER row: stays PARTIAL. No promotion.** One event line is appended.
