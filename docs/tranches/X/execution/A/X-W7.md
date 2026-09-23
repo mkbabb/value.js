@@ -654,3 +654,64 @@ after (below).
 `demo/test/palettes/{admin-destructive,palette-reorder}.test.ts` · `e2e/smoke/oracles/{w7-destructive-seats,w7-mutation-visibility}.spec.ts`
 · `docs/tranches/X/waves/W7-gate-log.md` · this record. **Not written**: `PaletteCardMenu.vue`, `BrowsePane.vue`, `e2e/smoke/admin/**`,
 `e2e/visual/**`, `VersionHistoryDrawer.vue`, `src/**`, `api/**`, `dev.sh`.
+
+### f
+
+**Seat**: X.W7.f, `claude-opus-5-5[1m]`, 2026-09-23, opened at HEAD `fe009763`. Spec: `W7.md` §5.f · G16–G18 · §10
+CC-070/CC-115; fold §Rows X.W7.f (W7.98–W7.105), S-16..S-18, N-5 (+ W7.37/W7.38 MSS-3/MSS-16), CE-1, CE-8; OM-14
+`FORMAT-AUDIT.md` §2–§5 (the census of record). COHESION §0j..§0bb grepped for W7/format/OM-14/lch/MSS-16: no ruling
+consumed beyond S-4..S-7 (none touches f's files).
+
+**Crash-recovery**: ⟨cmd⟩ `git status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh`
+— neither in f's writable set; no inherited hunk.
+
+**Acts, in order**
+1. **Census at post-W6 bytes** (OM-14 §5: 29 = 17 text + 11 ARIA + 1 write-back). A1 `ColorSpaceSelector.vue:91` has
+   DRIFTED: X-W6 already routes the row through `formatSpecimen` (`:180`, import `:133`) — the 17× `rgb(154.0298…)` is gone at
+   the bytes; intent at the true bytes = route the import through the facility. In f's writable set: **3** (A1, A16
+   `MixSourceSelector.vue:181`, B11 `:249`). Outside: **26** — ColorInput.vue A3–A9 (7, outside W7) · ExtractWorkbench A10/A11
+   (g's) · ImageEyedropper A12 (B-1, g's) · CurrentPaletteEditor A13 + B1–B4 (c's B-5) · MixResultDisplay A14/A15 (outside W7) ·
+   AdminNamesPanel A17/A18 (d/e's) · PaletteCardSwatches B5–B7 (c's) · SwatchHoverMenu B8/B9 (c's B-5) · GenerateControls B10
+   (B-6, d's) · `ColorPicker.vue:300/335` model write-back (outside W7). MixConfigBar: 0 censused sites (untouched).
+2. **Facility** `demo/color-session/format-color.ts` (new, beside `picker-color.ts`, imports `PICKER_CHANNELS`): `compact` =
+   per-channel `CHANNEL_DECIMALS` (OM-14 §4.2 compact column; silent cells carry the shipped per-space value);
+   **lch C = `LCH_C_COMPACT_RULING` OWNER-RULING marker** (shipped 0); `caption` = X-W6 `formatSpecimen` re-exported (CE-1:
+   no second digit policy — W6.md:401 "reuses formatSpecimen's digit policy"); `interchange` = W51 counts in OKLCh;
+   `exact` = `canonicalColor` re-exported untouched. `formatChannel`, `formatColor`, `formatCssCaption`, `formatCount`.
+3. **Routes**: ColorSpaceSelector import → facility; MixSourceSelector titles + aria-label → `formatCssCaption`.
+4. **Compact counts**: `formatCount` on PaletteCardMeta's vote count and PaletteSpecimen's colour/fork/version counts
+   (anchors drifted — c moved fork/version into the specimen; intent at the new bytes). No `shrink-0` added.
+5. **N-5** MixSourceSelector key identity (value-match in order, css+source), mirroring c's `useSwatchActions` site.
+6. **OM-14 §4 [VERIFY] re-check** (published text, drafts.csswg.org): CSS Color 4 §16.2.2 — *"Implementations should honor
+   the precision of the component as authored or calculated wherever possible"*; legacy syntax minimum precision *"8 bits
+   per component"*. OM-14's claim that legacy `rgb()` **serializes rounded to integers** is **NOT SUPPORTED** — the rgb 0-dp
+   cell stands as a display ruling (INTEGER_LEAST_COUNT), not as a normative requirement. CSSOM `<number>` rule: fetch
+   truncated → **UNVERIFIED, not consumed as authority**. Nothing in the facility rests on either citation.
+
+**Commits**: `ae9a3a48` (N-5) · `b970fe96` (#10) · `9ac71bf0` (gate log) · this record.
+Correction beside `b970fe96`'s body (E-3, never amended): it reads "25 censused sites outside"; the settled count is **26**.
+
+**Gates BEFORE → AFTER** (double-run)
+| gate | before | after |
+|---|---|---|
+| G16 | facility absent; census 5 RED | **42/42 GREEN** in bounds; falsifier (oklch.c 3→4) reds 3; 26 sites + 3 dead APIs ESCALATED |
+| G17 | 0 helpers; mounted 3 RED | **11/11 GREEN** — `12.3k` / `title="12345"` |
+| G18 | 0 | **0** (`git diff --stat e24361c6..HEAD -- src/`) |
+| N-5 | grep 5 (post-c); removal test 2 RED | grep **3** (all outside W7); removal **2 GREEN** |
+| cadence | 2 failed / 639 | **2 failed / 799 passed (801)** — same C-5 + NG-6; eslint 0; gate-specimen-grammar exit 0 |
+
+**Escalations**
+- **ESC-W7f-SITES** — 26 of the 29 raw-12dp sites lie outside f's writable set (list act 1); each needs a grant (or its
+  owning unit) to read `formatCssCaption`/`formatColor(…, "caption")`. `ColorInput.vue`'s contenteditable is safe to round
+  (OM-14 §4.6) — its clipboard/API legs take `interchange`.
+- **ESC-W7f-DEADAPI** — `toCSSColorString(_digits)` (`color-model.ts:63`), `DIGITS` (`useColorPipeline.ts:28`,
+  `useSliderGradients.ts:14`): outside W7 bounds; not deleted.
+- **ESC-W7f-MSS16** — the `.swatch-row` leave recipe (`demo/styles/utils.css:177-179`) is outside f's writable set; the
+  fold lock forbids a per-consumer patch. MR-35's pre-cure measurement untaken (no live probe; MCP down) — measurable at `fe009763`.
+- **ESC-W7f-READOUT** — OM-14 §4.5 has `readoutDecimals` re-exported FROM the table (`readoutReservation.ts`, outside W7):
+  until then the hero/meter compact readout (per-space) and the table's compact column (per-channel) differ at
+  oklab a/b, oklch C/h, ictcp, jzazbz.
+
+**Residuals**: OM-14 §4.7 rows 3 (interchange = W51 verbatim) and the silent compact cells (lch L; the five 0–1 RGB
+encodings at 1 dp) carry shipped/proposed values, flagged for the owner; `admin-destructive.test.ts:261-262` TS18048 (unit
+e's) keeps the demo typecheck leg RED; F-2 test leg unchanged.
