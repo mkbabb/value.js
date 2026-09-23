@@ -1,0 +1,14 @@
+⟨cmd⟩ echo f2 $(grep -rn 'colorSpaceInfo\.rgb\|(colorSpaceInfo as any)' demo | wc -l); echo f7a $(grep -rn 'colorSpace: any' demo | wc -l); echo f7b $(grep -c 'as DisplayColorSpace' demo/color-session/ColorSpaceSelector.vue); echo f8tag $(grep -c 'tag=' demo/color-session/ColorSpaceSelector.vue); echo f9a $(grep -c 'updateToColorSpace' demo/color-session/ColorSpaceSelector.vue); echo f9b $(grep -A3 -n 'watch(' demo/picker/ColorPicker.vue | grep -c 'selectedColorSpace'); echo f10 $(grep -rn 'from "\.\./ui/' demo/color-session/ | wc -l); echo e2raf $(grep -rn requestAnimationFrame demo/workbenches/gradient/ | wc -l); echo i3arm $(grep -rn armRuntime demo/ | wc -l); echo stubs $(grep -c 'component: Stub' demo/color-picker/router/index.ts); echo o29 $(ls e2e/smoke/oracles | grep -c o29); echo H2file $(ls docs/tranches/V/megatranche/audit/codex-provenance/motion-quarantine.md)
+f2 0
+f7a 0
+f7b 0
+f8tag 0
+f9a 2
+f9b 0
+f10 0
+e2raf 0
+i3arm 0
+stubs 14
+o29 0
+H2file docs/tranches/V/megatranche/audit/codex-provenance/motion-quarantine.md
+EXIT=0

@@ -1,0 +1,25 @@
+⟨cmd⟩ node docs/tranches/V/megatranche/audit/components/wb-gradient-stopeditor/evidence/WBGSE-D-probe2.mjs, origin :9000→:8891 (scratch copy, origin byte only) — run 2
+== 1 settled focus ==
+{
+ "boxShadow": "rgba(0, 0, 0, 0.85) 0px 0px 0px 1px, rgba(255, 255, 255, 0.92) 0px 0px 0px 3px",
+ "outline": "rgb(28, 25, 23) none 3px",
+ "inner": "rgba(0, 0, 0, 0.85)",
+ "outer": "rgba(255, 255, 255, 0.92)",
+ "ring": ""
+}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.screenshot: Clipped area is either empty or outside the resulting image
+Call log:
+[2m  - taking page screenshot[22m
+[2m  - waiting for fonts to load...[22m
+[2m  - fonts loaded[22m
+
+    at /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/wb-gradient-stopeditor/evidence/.WBGSE-D-probe2.close5.mjs:42:14 {
+  name: 'Error'
+}
+
+Node.js v26.0.0
+EXIT=1
