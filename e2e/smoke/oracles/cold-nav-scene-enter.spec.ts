@@ -26,6 +26,7 @@ import type { Browser } from "@playwright/test";
  *     the general form of the trigger.
  *
  * The assertions, per context:
+ *   · the loading plate SHOWS while the held chunk is in flight (X.W5.d4);
  *   · no element keeps a `vj-enter-enter-from` / `vj-enter-enter-active` class
  *     within `SETTLE_BOUND_MS`;
  *   · on `#/gradient`, within the same bound, the gradient rail is on-screen
@@ -54,10 +55,17 @@ async function coldNavigate(browser: Browser, hash: string) {
         await route.continue();
     });
     const page = await ctx.newPage();
+    await page.goto(hash, { waitUntil: "commit", timeout: 60_000 });
+    // X.W5.d4 — the plate arm: the held chunk outlasts `PANE_LOAD_DELAY_MS`, so
+    // the region's loading plate must SHOW before the pane arrives. The cure
+    // keys the plate and the pane apart; it must not have keyed the plate away.
+    await expect(page.locator(".pane-plate").first(), "the loading plate shows on a slow chunk").toBeVisible({
+        timeout: 30_000,
+    });
     // `networkidle` outlasts the held chunks, so every pane has RESOLVED before
     // the stuck-state poll starts. Without it the poll can read 0 while a lazy
     // pane is still in flight, before the dropped enter has happened at all.
-    await page.goto(hash, { waitUntil: "networkidle", timeout: 60_000 });
+    await page.waitForLoadState("networkidle", { timeout: 60_000 });
     await expect(page.locator(".pane-plate"), "no region still shows its loading plate").toHaveCount(0, {
         timeout: 30_000,
     });
