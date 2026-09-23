@@ -954,3 +954,61 @@ row under feedback-glassui-bhbi-relay. It is recorded below as a residual; this 
 | VERIFIED | NO. Only X-W11's release close stamps it (§9 #13). |
 
 **Close verdict: PARTIAL.** The LEDGER row is set to `PARTIAL — …` with the commit list.
+
+---
+
+## Check 1
+
+**Seat**: L-20 fresh adversarial pass 1, VERIFY-ONLY, `claude-opus-5-5[1m]`, wall clock 2026-09-23, HEAD `a5ac590c`.
+Authored none of the wave's bytes; cured nothing. **Verdict: NOT-CONFORMANT** — the row is NOT promoted and stays `PARTIAL`.
+
+**Crash-recovery** ⟨cmd⟩ `git status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh` —
+neither in this seat's writable set; no inherited hunk.
+
+### Axes (1)-(9) at this seat's own commands
+
+| axis | reading | verdict |
+|---|---|---|
+| (1) claimed GREENs | ⟨cmd⟩ G1 grep → **0** · G4 `export.ts` **absent**, serializer importers = `usePaletteExport.ts` + `byte-exact.test.ts` · G6 → **1** · G18 `git diff --stat e24361c6..HEAD -- src/` → **0** · ⟨cmd⟩ `npx vitest run` → **2 failed / 803 passed (805)**, 54 files — the 2 = C-5 + F-4 (pre-existing, baseline); every W7 gate file (G2 G5 G7 G8 G9 G10 G12 G15 G17 G20) passes | **14/14 claimed GREENs reproduce** |
+| (2) bounds | ⟨cmd⟩ `git diff --name-only e24361c6..HEAD` → 90 paths; every non-§4 path lands in fold §BoundsDelta B-5 (`types.ts`, `api/**`, `useAdmin*`, `useColorNameQueue`, `dateFormat.ts`) / B-6 (`shell/dock/menus/**`, `useSlugMigration.ts`) / S-7 (`ErrorBoundary.vue`) / B-1 (`ImageDropZone.vue`); Do-NOT-touch diff = only `demo/ui/checkbox/index.ts` (the §4 carve); `dev.sh` untouched | CLEAN |
+| (3) masking | ⟨cmd⟩ added-line scan for `.skip(`/`.only(`/`@ts-ignore`/`@ts-expect-error`/`eslint-disable`/`as any` → **0**; the 4 added `catch` blocks (`api/admin-call.ts`, `useAdminFlagged.ts`, `useSlugMigration.ts`, `useTagEdit.ts`) each **surface** the failure into a typed result/visible error (G7's law), none swallows | CLEAN |
+| (4) commit families | 45 commits, one meaning each; §9 families #1-#12 not split across unrelated scopes | CLEAN |
+| (5) E-3 | ⟨cmd⟩ `git diff --stat e24361c6..HEAD -- docs/tranches/X/waves/W7.md docs/tranches/X/refinement docs/tranches/V/megatranche/registry` → **empty** | CLEAN |
+| (6) mail | INBOX UNREAD rows O-20 · I-35 remain out of scope (KF-W7 `/timeline`), as classified at open | CLEAN |
+| (7) four-verb | IMPLEMENTED held at **PARTIAL**, VERIFIED NO — lawful (§9 #13 withholds the stamp over RED gates) | LAWFUL |
+| (8) goal criterion (§2a) | "where it destroys — one deliberate confirmation": **FAILS** at the bytes — `BrowsePane.vue:339-342` `onAdminDelete` → `pm.onAdminDeletePalette` on one menu click (ESC-W7e-AP6); both files are §4 paths | **NOT MET** |
+| (9) published figures | vitest 803/805 reproduces; G19 **14** reproduces; typecheck regression LW-1 reproduces (below) | reproduce |
+
+### (10) Honest-RED adjudication — every RED gate at the spec bytes
+
+| gate | relief at the spec bytes | owner named | adjudication |
+|---|---|---|---|
+| **G3** | `W7.md` §3a names G3 by id as a mandatory triumvirate trigger when the strict population exceeds the wave's absorption (290 diag / 60 files, 80 in 25 files outside §4) | triumvirate (ESC-W7a-G3) | **RELIEVED (honest-RED)** |
+| **G11** | §6 G11 dependency note: G11 blocks on X-W1's harness; `e2e/visual/**` is Do-NOT-touch; ⟨cmd⟩ goldens with `card` → 0 | X-W1 (ESC-W7c-G11) | **RELIEVED (honest-RED)** |
+| **G14** grep clause | §2 assumed the `dismiss` axis at glass 7.0.0; ⟨cmd⟩ installed glass-ui **7.0.0**, no `dismiss` prop with a `deliberate` rung in its declarations — producer-owned (glass ≥ 8.0.0 → X-W0 census → X-W4.g) | triumvirate (ESC-W7e-DISMISS-AXIS) | **RELIEVED for the grep clause only** — the fifth seat (AP6) is NOT relieved: in-bounds, see D-2 |
+| **G13** | no spec relief for the **3 OWED-ORACLE rows** — `e2e/smoke/oracles/w7-*.spec.ts` is a §4 `create` path; the inspector half (ESC-W7d-INSPECTOR) needs out-of-bounds grants (§3a-shaped) | X.W7.d repair (oracles) · orchestrator (inspector) | **UNRELIEVED** (D-3) |
+| **G16** | 26 of 29 sites + 3 dead APIs lie outside §4 (fold reading rule: dated §4 governs access) — relief is a grant, not spec routing to a later wave; in-bounds half GREEN | orchestrator (ESC-W7f-SITES · -DEADAPI) | **PENDING RULING** — not an honest-RED until the grant/routing is ruled (D-5) |
+| **G19** | ⟨cmd⟩ `grep -rn eyebrow demo/ \| grep -v node_modules` → **14**, of which **6 are in §4 / fold bounds**: `PaletteCardGrid.vue:25` (§4) · `MixSourceSelector.vue:272` (§4; the OM-15 KILL string now falls through as a DOM attribute on the plate root) · `ColorSpaceSelector.vue:3,374` (§4) · `ProfileSection.vue:150,152` (B-6). The close's "0 inside the bounds" reads unit g's cell, not the wave's §4 | X.W7.c/f/g repair | **UNRELIEVED** (D-4) |
+
+**Honest-RED set (relieved)**: G3 · G11 · G14 (grep clause). **Unrelieved**: G13 · G16 (pending ruling) · G19 · G14's AP6 seat.
+
+### Defect register (severity · claim · receipt · cure)
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| D-1 | **HIGH** | LW-1: the wave regressed the demo typecheck GREEN → RED; §7 "No unit closes on a red typecheck" broken | ⟨cmd⟩ `npx vue-tsc -p tsconfig.demo.json --noEmit` → `admin-destructive.test.ts(261,9)` + `(262,9)` **TS18048**, **EXIT 2** (baseline EXIT 0) | type-honest destructure at `demo/test/palettes/admin-destructive.test.ts:261-262` (narrow via an explicit guard/`expect(...).toBeDefined()` + typed tuple), no `!`, no cast |
+| D-2 | **HIGH** | §2a goal "where it destroys — one deliberate confirmation" not met: the browse-wall admin delete fires on one click | `BrowsePane.vue:339-342` `onAdminDelete` → `pm.onAdminDeletePalette(palette)` directly; ESC-W7e-AP6 open; `BrowsePane.vue` + `PaletteCardMenu.vue` are §4 paths | compose the confirm at the browse-wall seat (same composition as the four admin seats) and extend `w7-destructive-seats` with a fifth network row |
+| D-3 | **HIGH** | G13 RED without spec relief: 3 mutation rows lack their browser assertion; `PaletteCard.vue` undeleted (S-5 precondition unmet) | close Act 2 G13 row; `W7-mutation-ownership.md` 3 OWED-ORACLE | X.W7.d repair authors the 3 oracle rows in `e2e/smoke/oracles/w7-mutation-visibility.spec.ts`; orchestrator rules ESC-W7d-INSPECTOR |
+| D-4 | **HIGH** | G19 RED with in-bounds survivors; one is a live fallthrough of a deleted prop | ⟨cmd⟩ eyebrow grep → 14; `MixSourceSelector.vue:272` `eyebrow="· nothing to mix ·"`, `PaletteCardGrid.vue:25` `:eyebrow="emptyEyebrow"` (+ `:41` prop) | repair seat deletes the 6 in-bounds hits (and the grid's `emptyEyebrow` prop); rule the 8 out-of-bounds via ESC-W7g-G19-BOUNDS |
+| D-5 | MEDIUM | G16 RED over out-of-bounds sites awaits a grant/routing ruling, not yet an honest-RED | close Act 5 ESC-W7f-SITES · -DEADAPI | orchestrator rules the 26 sites + 3 dead APIs to their owning waves (X-W5/W6/W9) or grants them |
+| D-6 | MEDIUM | XP-EXTRACT cluster (B-1) not executed; crash-battery R18 ×2 RED | close Residuals | X.W7.g repair inside B-1 |
+| D-7 | MINOR | the close's G19 row says "0 inside the bounds" — reads unit g's cell, not the wave's §4 | this check's G19 reading | correct in the repair's receipt (addendum, not a patch) |
+| D-8 | INFO | glass BK relay (`.cartoon-cast` unreachable at glass 7) owed, unsent | close Residuals | orchestrator's mail seat |
+
+### Successor `Opens after` conjuncts
+
+X-W8 (`W8.md:6`: X-W5, X-W6 **and X-W7** stabilize): X-W5 CLOSED · X-W6 CLOSED · **X-W7 PARTIAL → the conjunct is RED**; X-W8 is
+**lawfully blocked**. X-W10 (X-W5..X-W9 stable): X-W7 and X-W8 RED → **lawfully blocked**. X-W11: blocked (everything).
+
+**Tally**: gates reproduced **14** GREEN (+ 6 RED reproduced RED); gates failed to reproduce as claimed: none; unrelieved: G13 · G19 ·
+G16 (pending) · G14-AP6; typecheck LW-1. **NOT-CONFORMANT** — next: Repair 1 (D-1..D-4, D-6), then Check 2.
