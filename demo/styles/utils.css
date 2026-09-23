@@ -167,15 +167,18 @@
 /* Swatch-row list idiom (R.W4 Lane B / B1) — shared by the three swatch
  * TransitionGroups (CurrentPaletteEditor, MixSourceSelector,
  * MixResultDisplay): dots pop in/out on the enter/exit family with
- * scale-only geometry, neighbours reflow on the family move class, and the
- * leaving dot is lifted out of flow so the row closes smoothly. A shared
- * recipe (3 consumers) per DESIGN.md's global-utility rule. */
+ * scale-only geometry and neighbours reflow on the family move class. A
+ * shared recipe (3 consumers) per DESIGN.md's global-utility rule.
+ *
+ * The leaving dot stays IN FLOW and scales out in its own slot (X.W7.f2 ·
+ * MSS-16/MR-35). It is never lifted out with `position: absolute`: Vue writes
+ * no coordinates to a leaving element, and CSS Flexbox L1 §4.1 places an
+ * abspos child with auto insets as if it were the SOLE flex item — the row's
+ * main-start edge, not its former slot — so the lifted dot teleported to the
+ * leading edge before it shrank. Fixed here once, never per consumer. */
 .swatch-row {
     --vj-enter-y: 0px;
     --vj-enter-scale: 0;
-}
-.swatch-row > .vj-enter-leave-active {
-    position: absolute;
 }
 
 /* THE GUARDED LETTERFORM RAMP recipe (T.W6 · W6-4 — Q5 RULED, owner-verbatim:
