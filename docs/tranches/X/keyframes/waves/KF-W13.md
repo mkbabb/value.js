@@ -387,3 +387,9 @@ Units, serial:
 
 ## ADDENDUM 2026-09-23 — UI-audit fold into KF.W13V `.u` (COHESION §0ca)
 - `.u` also covers the audit critic's keyframes gaps. The catch-all route was never visited, so visit it and audit it. Every UIA-KF row with no frame gets one on the served page before its cure.
+
+## ADDENDUM 2026-09-23 (b) — glass BL round-2 interim facts (COHESION §0cb)
+- Glass measured O-60 at glass HEAD. **Five rows are keyframes-side consumer defects:** KFA-61, KFA-95, KFA-134, KFA-136 and KFA-228. They join KF.W13V `.u` and are cured at keyframes' root.
+- **13 rows are still live in the producer:** KFA-7, 8, 13, 23, 50, 53, 74, 110, 115, 132, 133, 163 and 168. KFA-23 and KFA-74 are one defect. These stay relay-only.
+- **12 are cured at glass HEAD:** KFA-11, 27, 37, 51, 52, 78, 109, 111, 202, 221 and 222, and KFA-188 in part. They verify after the landing repin.
+- **3 did not reproduce or were reframed:** KFA-112, 164 in part, and 189. Each is re-read on keyframes' served page before it closes.

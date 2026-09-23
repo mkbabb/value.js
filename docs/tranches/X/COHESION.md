@@ -3116,3 +3116,19 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
 - **The audit's `dropped` list is a bookkeeping error.** It lists all 97 pages, but the registers show that none went unaudited.
 - **The critic's coverage gaps are routed.** value goes to X-W12, keyframes to KF.W13V `.u`, and fourier to F.W14 `.u`. Each spec has a dated addendum.
 - **Track C was launched** as `wf_c7aa48ac-f02` for F.W14, now that its precondition register exists.
+
+## §0cb ADDENDUM 2026-09-23 — glass BL round-2 interim facts (glass master `9831f0e4`, R2-02/R2-03)
+- Glass sent measurements only. Its rulings and landing versions come later in one outbound reply.
+- **Glass-side (producer, relay only):**
+  - G-1: DockCrossfade resizes the box in one frame, and the first expand starts from a stale endpoint.
+  - G-2 glass half: the dock's content-box background-clip applies to every filled capsule inside it.
+  - G-3: the matte blob look.
+  - O-58: tiles use `--radius-pill`.
+  - O-60: 13 rows still live.
+- **Consumer halves, verified here and routed:**
+  - G-2: 13 dead Button `variant` bindings in 7 files, against the installed 7.0.0's `emphasis`/`tone`. Routed to X-W12.
+  - G-3: HeroBlob parks on a wall clock. Routed to X-W12.
+  - G-4: the black ground is value.js's to bisect, because glass measures maroon. Routed to X-W12.
+  - KFA-61, 95, 134, 136 and 228 are keyframes-side. Routed to KF.W13V `.u`.
+  - Each has a dated spec addendum.
+- **R-5: pinning 10.0.1 cures no docket row, and the likely landing is glass 11.0.0.** The 10.0.1 repins (X-W7R, KF.W13R, F.W14 `.m`) still stand, because each retires stale pin surface and shrinks the landing repin. They are not credited as curing any glass row. A landing repin wave for all three apps is minted when BL's reply names the version. fourier's `^8` moves explicitly, never by range drift.
