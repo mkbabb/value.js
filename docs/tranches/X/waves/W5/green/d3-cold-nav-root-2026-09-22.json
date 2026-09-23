@@ -1,0 +1,53 @@
+{
+  "SERVED_MODEL": "claude-opus-5-5[1m]",
+  "unit": "X.W5.d3",
+  "status": "ESCALATED (root proven; the root cure is outside .d3's grant or needs a Vue-internal read)",
+  "rulings": ["COHESION §0ay ESC-W6close5-1", "W5.md ADDENDUM 2026-09-22 (third)"],
+  "head_at_open": "881d3792",
+  "witness": {
+    "file": "e2e/smoke/oracles/cold-nav-scene-enter.spec.ts",
+    "born_red_commit": "b9f63632",
+    "shape": "2 routes (#/gradient, #/) x 5 fresh contexts; pane chunks held 800 ms (> PANE_LOAD_DELAY_MS 200); goto waitUntil networkidle; .pane-plate count 0; then poll stuck vj-enter-enter-from/-active == 0 within 8 s; gradient arm also polls rail x >= 0",
+    "at_HEAD_x2": ["/#/gradient ctx0 Received 2 + /#/ ctx0 Received 1 (2 failed)", "same (2 failed)"],
+    "App_vue_134_flip_removed_experiment_x1": "/#/gradient PASS, /#/ ctx0 Received 1 (1 failed, 1 passed) — the flip is A trigger, not the root",
+    "oracles_safari_x1_gradient_only_version": "1 passed"
+  },
+  "root": {
+    "statement": "A lazy pane whose chunk outlasts PANE_LOAD_DELAY_MS renders PaneLoadingPlate as the async wrapper's root, then swaps it for the resolved pane INSIDE PaneSlot's one <Transition> child (same vnode key). Both roots inherit the same Transition hooks. When PaneSlot re-renders while the chunk is in flight (the App.vue:134 name flip on viewManager.ready at #/gradient; the eager Picker's mount beside About at #/), the hooks' closure vnode is left with el = the wrapper's initial #comment. On resolution the plate's leave files leavingVNodesCache[key] = that vnode; the pane's beforeEnter cannot cancel it (leavingVNode.el[leaveCbKey] is read off the #comment) and stamps vj-enter-enter-from/-active; BaseTransition.enter then returns at its guard `leavingVNodesCache[key] === vnode`, so nextFrame never removes enter-from and no transitionend resolves enter-active.",
+    "vue": "3.5.35 — node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js resolveTransitionHooks: beforeEnter cancel line + enter guard (prebundle node_modules/.vite/deps/vue.runtime.esm-bundler-DQai_KuN.js:2790,2794)",
+    "diag_readings": {
+      "gradient_800ms_HEAD": "DIAG beforeEnter key=gradient leaving=true same=true leavingElHasCb=false leavingEl=#comment. -> DIAG enter-dropped key=gradient (cls ... vj-enter-enter-from vj-enter-enter-active); same for key=palettes; stuck=2",
+      "root_800ms_HEAD": "DIAG enter-dropped key=about; stuck=1",
+      "root_0ms_HEAD": "stuck=0 (fast chunk: no plate, no internal swap)",
+      "warm_nav_generate_to_gradient_800ms": "stuck=0 (no slot re-render inside the pending window)"
+    },
+    "repro_counts": {
+      "cold_dev_server_first_run_no_hold": "1 of 6 (x = -351), then 0 of 8 once warm",
+      "gradient_hold_800_HEAD": "3 of 3",
+      "gradient_hold_800_flipless": "0 of 4",
+      "root_hold_800_HEAD": "4 of 4",
+      "root_hold_800_flipless": "4 of 4"
+    },
+    "candidates_of_0ay": {
+      "App.vue:134 transition-name flip": "a trigger for the #/gradient arm only (removing it leaves #/ RED)",
+      "PaneSlot enter hook never fires": "THE CLASS — but the swap that loses it lives inside the async wrapper built by usePaneRouter.ts lazyPane (loadingComponent + delay, :213-223), W5F-07 CURE-LOCKed",
+      "animations.css *-active containment": "not implicated (the classes are never removed; no CSS byte can remove them without masking)"
+    }
+  },
+  "w6_gates_at_the_flipless_experiment_NOT_landed": {
+    "note": "read with App.vue:134 set to transition-name=\"vj-enter\" (uncommitted, reverted); these are trigger-removal readings, not a landed cure",
+    "a5_a11_gate_a_gesture_paint": ["fresh :8895 run 1 GREEN (a5 travel@1px=0.00px)", "fresh :8895 (restarted) run 2 GREEN", ":9000 GREEN"],
+    "a12_WBGSE_D_probe2_block5": ["fresh :8895 overhang 0/0", "fresh :8895 overhang 0/0", ":9000 overhang 0/0"],
+    "e1_plus_W5_10": ["-g x2: 2 passed, 2 passed", "full gradient.spec+o21 suite x2: 22 passed (1.8m), 22 passed (2.0m)"],
+    "g2": ["flipless: 1 passed, 1 passed, then 1 failed Received 6.50 (About div.glass-resting.card 104.95 vs track 111.45)", "HEAD (bisect arm): 1 failed Received 6.50; 1 failed 'Mix region renders no pane'"],
+    "g2_bisect": "g2 reads the About pane at #/ — the same pane the witness's #/ arm finds stuck in vj-enter-enter-from (DIAG enter-dropped key=about). g2's 6.5 px is that held entry transform; the flip does not decide it (RED at HEAD and on 1 of 3 flipless reads)."
+  },
+  "D1": "not re-read: no product byte landed (HEAD unchanged in demo/), so D1 of record GREEN 14/14 headed real GPU (§0ay) stands by construction",
+  "D3": 0,
+  "D5": "no animations.css byte moved",
+  "s7": {
+    "typecheck": "lib 0 · demo 0 · test 11 (demo/color-session/space-catalog.ts missing assets/docs/*.md — pre-existing, outside .d3) · e2e 5 (o23-specimen-gamut-honesty.spec.ts:144,181 — pre-existing); the witness file 0",
+    "lint": "npx eslint demo + witness EXIT 0; repo-wide `npm run lint` EXIT 1 on docs/tranches/V/apotheosis/v-apotheosis-workflow.js:198 parse error (pre-existing)",
+    "vitest": "639/641 — C-5 (test/spectrum-luma.test.ts) and NG-6 (demo/test/shell/reka-binding-idiom.test.ts), the foreign canaries of record (§0z E2 -> X-W8 .i)"
+  }
+}
