@@ -3129,3 +3129,44 @@ exactly as R4.4 plans them (writable set and gates of the `.c2` row), and nothin
 
 ### RP1.5 Verdict
 **Cured 4 of the 5 register rows' in-bounds content:** D4-Admin, N15, the N14 in-grant site plus the printed census, and the ESC-W5c-3 re-points. The MEDIUM row and D1 are escalated. **The row stays PARTIAL; IMPLEMENTED is NOT stamped.** D1 is RED and unrelieved, and N14 carries 2 out-of-grant invisible sites. Successors X-W6/7/8/10 stay BLOCKED-ON X-W5. `dev.sh` untouched. Commits: `fc9c2be4` `2eeb59ee` `dcba5535` + this section.
+
+## Check 2 — RESUME ROUND 4, L-20 fresh adversarial pass 2, 2026-09-22 (VERIFY-ONLY)
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X-W5 CHECK 2 (over the RESUME 4 close as Repair 1 left it) · HEAD at open `40201ac8` · date of record 2026-09-17.
+Cured nothing. Wrote this section and one LEDGER event line. Inputs: `W5.md` whole (incl. ADDENDUM 2026-09-22), `## RESUME OPEN 4`, `## Close — RESUME ROUND 4`,
+`## Check 1` and `## Repair 1` (round 4), and the 5 commits Repair 1 names (`fc9c2be4` `2eeb59ee` `dcba5535` `e639ec38` `40201ac8`).
+
+**Verdict: NOT-CONFORMANT.** Repair 1's in-grant cures reproduce. D1 is still RED, and no spec byte or COHESION ruling relieves it. The row is NOT promoted.
+
+### K2.0 Crash-recovery
+⟨cmd⟩ `git status --porcelain` → ` M …/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh`. Neither is in this seat's set, so there is no inherited partial.
+
+### K2.1 Gates reproduced (spec §6 commands; ⟨cmd⟩ `sh scratchpad/k2.sh` ×2 → `diff` IDENTICAL)
+A1 `0`·`0` · A4 bindPane 10 · A5 `<h1` 4 · A7 status 3 · B4 `0 · 3 · 0` · C3 23 · C4 0 · C8 0 · D2 0 · D3 0 · **D4 Mix 1 · Admin 1** · E1 `0 0 0 0` ·
+E2 P122 `9 3 18 10` · ESC-W5c-3 greps `0 0 0` · PaneSlot `:12-23` md5 `a7fe04be…` (GATING LOCK held) · §7 ⟨cmd⟩ `npx vue-tsc -p tsconfig.demo.json --noEmit` → **EXIT=0**.
+**16 gates reproduce GREEN.** Not re-probed (§5.2; no surface byte moved except the admin names panel, which Repair 1 probed ×2): A2, C1, D5, N15.
+⟨cmd⟩ `uptime` → load **11.29** / 13.03 / 14.86. §0aq's ruled D1 condition (load < 4, seat alone) is unmet, so **D1 is not takeable at this clock**.
+
+### K2.2 Axes
+- (2) Bounds: ⟨cmd⟩ `git show --stat` on the 5 commits. `fc9c2be4` touches `AdminPane.vue` and `AdminNamesPanel.vue`, and `2eeb59ee` touches o12, o16 and census-parity. All of these are named §0aq/R4.4 `.c2` grant paths. `dcba5535` is under `waves/W5/green/`, and the other two are the record and the ledger. ⟨cmd⟩ `git log c9e39745..HEAD -- scripts/dev/dev.sh` → empty. **CLEAN.**
+- (3) Masking: ⟨cmd⟩ `git show fc9c2be4 | grep -E '^\+.*(try|catch|skip|allow|as any|ts-ignore|eslint-disable)'` → only the two `Retry` button lines, which are UI rather than masking. The `2eeb59ee` diff is 2 one-token re-points plus `rightPanes()` reading `role: "inspector"` from `viewSchema.ts` bytes. No assertion was narrowed. **CLEAN.**
+- (4) Families: one commit per meaning (product / e2e / evidence / record / ledger). §9 c1–c5 are unsplit, and c6 is correctly not landed.
+- (5) E-3: ⟨cmd⟩ `git log c9e39745..HEAD -- W5.md registry/adjudicated/` → empty. **CLEAN.**
+- (6) Mail: the INBOX status column's one UNREAD row is I-40 (Track C), so **0 are in scope**.
+- (7) Four-verb: unmoved (IMPLEMENTED NO). That is lawful, because the hard gate is unmet.
+- (8) Goal criterion: "a measured frame budget" (§1 hard gate / §2) is **NOT MET at the bytes**, because D1 has no GREEN reading.
+- (9) Figures: Repair 1's RP1.3 static figures reproduce exactly (D4 1·1, ESC `0·0·0`, B4 `0 3 0`, D3 0).
+
+### K2.3 Register
+
+| severity | claim | receipt | cure |
+|---|---|---|---|
+| HIGH | D1 (scene-swap frame budget) is RED and untakeable. It is W5's own §6 gate and the §1 hard gate's "measured frame budget" clause. W5.md routes it to no later wave and names no honest-RED for it, and §0aq only rules the *instrument conditions*. ⟨cmd⟩ `grep -n 'ESC-W5t-1\|ESC-W5d2-2' COHESION.md` → no ruling after §0aq (§0ar..§0aw are Tracks B/C). An escalation is a request, not a relief. | load 11.29 at this clock; banked gradient .294/.371 · mix .333/.346 (not GREEN) | owner/COHESION ruling on ESC-W5t-1 (quiescent window / dedicated runner / real GPU) + ESC-W5d2-2 (swap-travel lever), then a `.d2` re-measure under the ruled conditions |
+| MEDIUM | N14's arm "every surviving site `vue-tsc`-visible" is RED on 2 out-of-grant sites: `router/index.ts` names (BD-08) and `e2e/visual/census.ts` (X-W1). ATP-33 marks it NO-WAVE-OWNER, so no owner is named yet. | RP1.2 census 6·0·2 | COHESION grant or an owner route (ESC-R1-3) |
+| MEDIUM | X.W5.a's landmark rename (`de99ec15`: `<main :aria-labelledby>`) leaves `getByRole("main",{name:"Color tool panes"})` stale in 61 `e2e/**` files, including o12/o16, which fail 6/6 per RP1.3. It is owner-routed to X-W1 (LEDGER `:34` ESC-b3; record `:2357` row 10) and ESC-R1-1, and census-parity `not-found` → ESC-R1-2. | ⟨cmd⟩ `grep -rln 'Color tool panes' e2e \| wc -l` → 61; `grep -rn 'Color tool panes' demo` → comment only | the X-W1 / COHESION grant as escalated |
+| MEDIUM | W5F-04 out-in co-mount (`ColorPicker.vue:2-4`, P-4) needs out-of-set grants. | ESC-W5t-2 / ESC-W5d2-1 | COHESION grant |
+| INFO | C7 → X-W8 `.h` and C3 → X-W8 `.i`/`.h` (§0aq routes). A3 → X-W8 (§0k.3 S-1) · B3 → X-W6 (CC-056) · A5-OUTLINE → X-W10. All are relieved and owner-named. | close CL4.2/CL4.5 | none |
+
+**Honest-RED set (relieved, owner-named):** C7 · C3 · A3 · B3. **Unrelieved:** D1 (HIGH).
+
+**Successors:** the `Opens after` lines of X-W6/X-W7/X-W8/X-W10 carry the X-W5 close conjunct, which is **not GREEN**, so all four stay lawfully BLOCKED-ON X-W5. The X-W5 opens-after conjuncts themselves (X-W4 · X-W2 · X-W0 CLOSED) remain GREEN. The LEDGER row status is unchanged (PARTIAL), and one event line is appended.
