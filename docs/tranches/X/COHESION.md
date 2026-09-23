@@ -3161,3 +3161,12 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
   - X-W7R and KF.W13R measure the plate before and after their 10.0.1 repins, and record the id if the plate turns grey.
   - No local override anywhere.
   - The repins proceed, because of the ring, the Sheet and the stale pin surface.
+
+## §0cg ADDENDUM 2026-09-23 — X.P.W6 CLOSED (CONFORMANT-HONEST-RED); X.P.W6R minted; BBNF-TS-TOOLCHAIN to the owner
+- **X.P.W6 closed** in Track D run `wf_41f62d34-81d`. value.js parses CSS only through BBNF: five modules under `src/css/grammar/`, compiled by `@mkbabb/bbnf-lang` 0.1.4 onto parse-that 0.8.2. `grammar.ts` is deleted with no shim. MIRROR-DEFECTS reads 0 twice, and `npm test` reads 908/910. The two failures are the foreign F-W6-open-4 pair. parse-that is a general library again (`92d8ea7`).
+- **Honest-RED:** PT-PERF-LOAD, and RES-x-1 (BBNF runs 1.11–2.79× slower than the retired hand parser). Both are under OC-1, an owner item.
+- **Ruled:**
+  - LW-1, `.x`'s edits to `stylesheet.bbnf` and `value.bbnf`, is ratified under the ADJACENT-LINE RULE.
+  - The differential leaving CI, RES-x-4, and parse-that's R-r-1/R-r-2 become **X.P.W6R** (`.c`, `.l`, `.p`).
+- **To the owner: BBNF-TS-TOOLCHAIN.** The published TypeScript BBNF compiler has no maintained source and sits on parse-that 0.8.2. Its three defects, F-b-1..3, are worked around and documented at value.js's call sites. The owner's "NO workarounds" needs a root, and choosing the toolchain's home is the owner's decision. The id stays honest-RED until then. No live bbnf-lang session exists to relay to.
+- **Release:** the BBNF parser reaches keyframes and consumers at value.js's next publish. That publish is walled by npm E401, which is the standing owner act (`npm login`).

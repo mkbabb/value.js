@@ -46,6 +46,13 @@ const TRACK = {
       ],
       "note": ".d fresh-Fable adjudicator = the ONLY X·P VERIFIED stamp; RC-P(V) evaluated by running the six commands against the registry coordinate V; OP-1 release word RULED at §0j; G-2 zero value.js source bytes"
     },
+    "X.P.W6R": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W6R.md",
+      "after": [
+        "X.P.W6"
+      ],
+      "note": "AUTHORITY: COHESION §0cg + W6R.md (READ whole; it IS the spec). Strictly serial: [X.P.W6R.c] (the bench/css-equivalence differential returns to CI via a named npm script run in the producer CI job; 19/19 x2) → [X.P.W6R.l] (DIVERGENCE-LEDGER §15 dated addendum: paths re-pointed, SH-1 row, badTerm row; E-3 never rewrite) → [X.P.W6R.p] (parse-that: AC-1 research instruments harness/** + experiments/w2/{contract,corpus,stage0} moved to value.js evidence with MANIFEST then removed; CHANGELOG Unreleased + CLAUDE.md drop the ./css seam; npm test + proof:all GREEN x2; no publish without npm whoami). BBNF-TS-TOOLCHAIN is an OWNER item, not a unit: never patch @mkbabb/bbnf-lang or node_modules. Every seat Opus 5.5; ESCALATED units do not halt the wave"
+    },
     "X.P.W6": {
       "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W6.md",
       "after": [
@@ -85,7 +92,8 @@ const TRACK = {
       "X.P.W4"
     ],
     ["X.P.W4S"],
-    ["X.P.W6"]
+    ["X.P.W6"],
+    ["X.P.W6R"]
   ]
 }
 
