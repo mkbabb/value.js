@@ -1,0 +1,1965 @@
+SERVED MODEL: claude-opus-5-5
+X.W7R.m — the glass 10.0.1 repin + consumer migration, NOT LANDED (ESCALATED; see the record's X.W7R.m receipt). Base: HEAD 56394291. Apply: git apply docs/tranches/X/evidence/X-W7R/m-repin-10.0.1-migration.patch && npm install
+
+diff --git a/demo/DESIGN.md b/demo/DESIGN.md
+index a1553d9d..21193292 100644
+--- a/demo/DESIGN.md
++++ b/demo/DESIGN.md
+@@ -106,7 +106,7 @@ rung routes to ratification; off-ladder material mints are prohibited
+ | **4 · STAGE** | the named near-black pair `--stage`/`--on-stage-chrome` (warm stone, **scheme-invariant** — a photograph's ground never flips) | the extract camera/image stage, its caption veil, on-stage chrome chips |
+ 
+ The PaneHeader veil is rung-1's material at a scroll-earned intensity
+-(`--glass-bg-resting` + `--glass-blur-resting` + rest floor — see
++(`--glass-plate-resting` + `--glass-blur-resting` + rest floor — see
+ `PaneHeader.vue`; C2's reconciliation, the CC-3 bespoke recipe retired).
+ **THE REGISTER LAW (W3-3, landed)**: *fields on paper wear paper; fields on
+ glass stay glass.* glass-ui's `.input-bar` is CHROME (rung-3 dock furniture —
+@@ -198,7 +198,7 @@ Dark mode lightens the cartoon rung (style.css:146-147) by dropping the shadow-c
+ Role-bearing tokens (glass-ui DESIGN.md §Border Radius):
+ 
+ - `rounded-card` (= `--radius-card` = 16 px) — Card surfaces, palette cards, gradient swatch.
+-- `rounded-input` (= `--radius-input` = 8 px) — text inputs.
++- `rounded-input` (= `--radius-media` = 8 px) — text inputs.
+ - `rounded-pill` / `rounded-full` — chips, slug pills, dock control.
+ - `rounded-panel` (= 12 px) — popovers, bulk-action toolbar, eyedropper overlay.
+ 
+@@ -232,7 +232,7 @@ Glass-ui ships two parallel duration token families (DESIGN.md §Duration, §Eas
+ 
+ The two families coexist by design — Family A is the everyday rhythm (where the demo lives); Family B is the celebratory grammar (reserved for staged-reveal sites the demo doesn't yet author).
+ 
+-**§ Easings.** `var(--ease-standard)` (decel cubic, default), `var(--ease-decelerate)` / `var(--ease-accelerate)` (entry/exit), `var(--spring-snappy)` / `var(--spring-smooth)` / `var(--ease-spring)` (spring physics for transforms). The `--motion-ease-*` aliases (`--motion-ease-standard`, etc.) point at the same curves; the unprefixed names are the consumer-facing surface.
++**§ Easings.** `var(--ease-standard)` (decel cubic, default), `var(--ease-decelerate)` / `var(--ease-accelerate)` (entry/exit), `var(--spring-present)` / `var(--spring-present)` / `var(--spring-present)` (spring physics for transforms). The `--motion-ease-*` aliases (`--motion-ease-standard`, etc.) point at the same curves; the unprefixed names are the consumer-facing surface.
+ 
+ **§ The liquid two-channel law (T.W5 — T-14/D7, the motion table of record).**
+ SPATIAL (translate/scale travel) = a spring at ITS OWN clock (`--spring-<name>` @
+@@ -247,15 +247,15 @@ cards consume the cartoon register (`cartoon-surface` + `.cartoon-cast` +
+ 
+ | Register (T.W5 row) | Site | Pairing | Status |
+ |---|---|---|---|
+-| Pane swap ENTER (R2) | `animations.css` `.pane-wrapper--* > .vj-enter-enter-active` | transform `--spring-snappy` @ `--spring-snappy-duration` (PKT-2 arm (i) — the ~0.3s preset unanswered at this cut) | landed |
++| Pane swap ENTER (R2) | `animations.css` `.pane-wrapper--* > .vj-enter-enter-active` | transform `--spring-present` @ `--spring-present-duration` (PKT-2 arm (i) — the ~0.3s preset unanswered at this cut) | landed |
+ | Pane swap LEAVE (R3) | same block, leave-active | opacity+transform `--duration-fast` `--ease-out` — the exit law | landed |
+ | Card cartoon (R4) | `PaletteCard.vue` root | producer `cartoon-surface` register: translate/scale `--ease-cartoon-punch` @ `--duration-normal`, shadow `--ease-standard`, press squash + lagging caster | landed |
+-| Interactive scales (R5) | editor buttons, add-slot, send-btn (`btn-interactive`); `.channel-rail-item` press leg (`--spring-press` @ 0.16s) | `--transition-liquid-spatial` @ `--spring-smooth-duration`; press @ its own clock | landed |
++| Interactive scales (R5) | editor buttons, add-slot, send-btn (`btn-interactive`); `.channel-rail-item` press leg (`--spring-press` @ 0.16s) | `--transition-liquid-spatial` @ `--spring-present-duration`; press @ its own clock | landed |
+ | Skeleton settle (R8) | `BrowsePane.vue` state chain; extract already settled (W3-2) | `vj-morph` out-in; stagger dormant on the PKT-4 seams | landed |
+-| `.pane-shell` nudge (R11) | `ColorPicker.vue` | `--transition-liquid-spatial` @ `--spring-smooth-duration` | landed |
++| `.pane-shell` nudge (R11) | `ColorPicker.vue` | `--transition-liquid-spatial` @ `--spring-present-duration` | landed |
+ | Bare-utility default (R1) | 37-file census | `--duration-fast` + `--ease-standard` via the `@theme` alias (style.css:119) — DEAD until PKT-1 clears the dist `:root` 150ms clobber; NO demo cascade arms-race | producer-gated (O-16 row EXPECTED-RED) |
+ | Collapse legs (R6/R7 — Tranche B) | `vj-morph`/`vj-celebrate` `max-height` legs; dock action-bar grid slot | compositor re-cut per the PKT-3 recipe; NEVER retimed on layout properties (PI-5) | PKT-3-gated, untouched |
+-| Gradient stop handle (R9) | `GradientStopEditor.vue` | `--spring-snappy` @ `--spring-snappy-duration` — the retime rides INSIDE W6-2's re-author (T-46); W5's O-16 census owns the row's verification | handed across → W6-2 |
++| Gradient stop handle (R9) | `GradientStopEditor.vue` | `--spring-present` @ `--spring-present-duration` — the retime rides INSIDE W6-2's re-author (T-46); W5's O-16 census owns the row's verification | handed across → W6-2 |
+ | Dialog scrim (R10) | ~~`PaletteDialog.vue:310`~~ | the 0.55s scrim DIED with the W0-3 CC-6 PaletteDialog excision; the live dialogs are glass-ui re-exports on the producer bloom clock (F6 KEEP) | discharged by excision |
+ | **KEEP** — view-accent sweep (F7.3) | `DockViewSelect.vue` `--accent-view` @ `--duration-panel` (0.55s) `--ease-standard` | EFFECTS-on-bezier, correct channel; the 0.55s is a DELIBERATE stately sweep (W7-4's surviving voice) — kept, stated here so it never reads as a stray | KEEP, do not retime |
+ | **KEEP** — tracked canvas (F7.4) | `ImageEyedropper.vue` `.eyedropper-canvas` transform `--duration-fast` `--ease-decelerate` | canon "tracked = bezier": a position-TRACKED transform follows the pointer/gesture, it does not travel on its own — a spring here would fight the hand | KEEP, do not retime |
+@@ -278,7 +278,7 @@ reveal/dock/tabs registers, the atmosphere arrival fade, and the PRM guard chain
+ 
+ Custom keyframes live in `demo/@/styles/animations.css` (`edit-drawer-in`, with a mobile media-query restate at ≤ 639 px — see comment at animations.css:12-16 for the intentional inheritance break) + colocated `<style scoped>` blocks (per-component animations). Shared keyframes (dialog, floating-panel, card-menu, shimmer) come from `@mkbabb/glass-ui/styles/animations.css`.
+ 
+-**§ Canonical motion recipe** — when in doubt, reach for `var(--duration-normal) var(--ease-standard)` on a transition; for entry-from-rest use `--ease-decelerate`, for exit-to-rest use `--ease-accelerate`. Spring curves (`--spring-snappy`, `--spring-smooth`) are reserved for transforms that read physically; PaletteCard.vue's golden-text-shimmer demonstrates the cubic-bezier path, ActionBarLayer.vue the duration-fast path.
++**§ Canonical motion recipe** — when in doubt, reach for `var(--duration-normal) var(--ease-standard)` on a transition; for entry-from-rest use `--ease-decelerate`, for exit-to-rest use `--ease-accelerate`. Spring curves (`--spring-present`, `--spring-present`) are reserved for transforms that read physically; PaletteCard.vue's golden-text-shimmer demonstrates the cubic-bezier path, ActionBarLayer.vue the duration-fast path.
+ 
+ **§ Pane-swap transition mode — NOT `out-in` (dev-vs-build divergence).** The
+ per-slot `<Transition>` in `demo/shell/PaneSlot.vue` (re-pointed at X.W5.a — the
+@@ -394,7 +394,7 @@ Explicit. A change-list reviewer should flag any of these.
+ - **No numeric `z-[NN]` literals** in `demo/@/components/custom/` or `demo/color-picker/` — route through `--z-*` tokens via `z-dock`, `z-popover`, etc. Tailwind utilities (post-Lane A) or `z-[var(--z-popover)]` arbitrary reach.
+ - **No `100vh`** — use `100dvh` for mobile-safe viewports. The dock-band math depends on this; `100vh` would clip on iOS Safari with the URL bar collapsed.
+ - **No hand-rolled Alert** — consume `Alert` / `AlertTitle` / `AlertDescription` from `@components/ui/alert`, which re-exports glass-ui's primitive (B.W2 idiomatic-gestalt finding N1). The barrel exists for ergonomics; the implementation is upstream.
+-- **No magic `[var(--…)]` reaches when a Tailwind utility exists** — post-D.W4 Lane A, ~43 sites collapse to first-class utilities (`z-dock` instead of `z-[var(--z-dock)]`, `duration-fast` instead of `duration-[var(--duration-fast)]`, `rounded-input` instead of `rounded-[var(--radius-input)]`). Truly-bespoke residuals (≤ 5) carry an inline rationale.
++- **No magic `[var(--…)]` reaches when a Tailwind utility exists** — post-D.W4 Lane A, ~43 sites collapse to first-class utilities (`z-dock` instead of `z-[var(--z-dock)]`, `duration-fast` instead of `duration-[var(--duration-fast)]`, `rounded-input` instead of `rounded-[var(--radius-media)]`). Truly-bespoke residuals (≤ 5) carry an inline rationale.
+ - **No `button:has(> .lucide-x)` or similar markup-coupled selectors** — use role/label or a stable `data-*` (Lane A fix in `PaletteDialog.vue`).
+ - **No parallel `design-idioms.css`** — tokens live in `style.css :root` + the glass-ui-published surface; recipes stay colocated in their components' `<style scoped>` blocks. A second CSS file would create a cascade-order split-brain (glass-ui DESIGN.md §Token Architecture → Feature token home rule warns against the same shape; research/Df-styling.md §6 settled the verdict).
+ - **No new global utility class for one consumer** — colocate to the component's `<style scoped>` (post-D.W4 Lane A: `.pane-scroll-fade`, the touch-gate cluster, `.palette-tab-content`, `.palette-card-grid` moved out of `style.css`). The shared survivors (`.slug-pill`, `.app-layout`, `.pane-container`, `.underline-tabs`) are true cross-feature recipes; each carries a comment justifying its global residence.
+diff --git a/demo/color-picker/composables/boot/overture.css b/demo/color-picker/composables/boot/overture.css
+index c1902666..fae821e0 100644
+--- a/demo/color-picker/composables/boot/overture.css
++++ b/demo/color-picker/composables/boot/overture.css
+@@ -11,7 +11,7 @@
+  * chain — cascade order preserved. ═══ */
+ 
+ :root {
+-    /* B1 · the plate-land family (440ms --spring-snappy; staggers per the
++    /* B1 · the plate-land family (440ms --spring-panel; staggers per the
+      * beat sheet: dock +0 · left +40ms · right +120ms). */
+     --overture-plate-land: 440ms;
+     --overture-dock-delay: 0ms;
+@@ -66,7 +66,7 @@
+     transform: translateY(-12px) rotate(-0.6deg);
+ }
+ .overture-appear-active {
+-    transition: transform var(--overture-plate-land) var(--spring-snappy);
++    transition: transform var(--overture-plate-land) var(--spring-panel);
+     transition-delay: var(--overture-appear-delay, 0ms);
+ }
+ .overture-appear-to {
+@@ -101,7 +101,7 @@
+  * beat retires; it does not squat on the compositor. */
+ .overture-dock-land {
+     animation: overture-plate-land var(--overture-plate-land)
+-        var(--spring-snappy) var(--overture-dock-delay) backwards;
++        var(--spring-dock) var(--overture-dock-delay) backwards;
+ }
+ 
+ /* ── B1 · the picker plate's editorial signature (R.W3 Lane E / E1 beat
+@@ -128,7 +128,7 @@
+          * box-shadow IS var(--shadow-cartoon) (probed computed-equal), so the
+          * release at animationend is seamless. */
+         animation: plate-land var(--overture-plate-land, 440ms)
+-            var(--spring-snappy) var(--overture-appear-delay, 0ms) backwards;
++            var(--spring-present) var(--overture-appear-delay, 0ms) backwards;
+     }
+ }
+ 
+diff --git a/demo/color-session/ColorSpaceSelector.vue b/demo/color-session/ColorSpaceSelector.vue
+index a3e893c0..ee4a7be0 100644
+--- a/demo/color-session/ColorSpaceSelector.vue
++++ b/demo/color-session/ColorSpaceSelector.vue
+@@ -125,7 +125,7 @@ import {
+     SelectTrigger,
+     SelectValue,
+ } from "@mkbabb/glass-ui/select";
+-import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
++import { WatercolorDot } from "../shared/ui/watercolor-dot";
+ import { computed, inject } from "vue";
+ import { resolveColorSpace } from "./color-model";
+ import type { DisplayColorSpace } from "./color-model";
+diff --git a/demo/color-session/useContrastSafeColor.ts b/demo/color-session/useContrastSafeColor.ts
+index 94a6f8b2..d6b82ca3 100644
+--- a/demo/color-session/useContrastSafeColor.ts
++++ b/demo/color-session/useContrastSafeColor.ts
+@@ -48,8 +48,8 @@ import {
+ // O-18 census enforces the live path in the real browser.
+ 
+ const TIER_BG_TOKEN: Partial<Record<InkSurface, string>> = {
+-    resting: "--glass-bg-resting",
+-    floating: "--glass-bg-floating",
++    resting: "--glass-plate-resting",
++    floating: "--glass-plate-floating",
+     well: "--well-bg",
+ };
+ 
+diff --git a/demo/palettes/BrowsePane.vue b/demo/palettes/BrowsePane.vue
+index 32377d2e..528f7f25 100644
+--- a/demo/palettes/BrowsePane.vue
++++ b/demo/palettes/BrowsePane.vue
+@@ -7,11 +7,14 @@
+                  T.W3-3 (T-12): a field on paper wears paper — the seated
+                  register (utils.css `.search-seated`; interim, booked onto
+                  the P3 seated rung / ASK-D). -->
+-            <SearchBar
+-                v-model="pm.searchQuery.value"
+-                class="search-seated"
+-                placeholder="Search palettes..."
+-            >
++            <div class="input-bar search-seated">
++                <Search class="size-(--search-icon-size) text-muted-foreground shrink-0" aria-hidden="true" />
++                <input
++                    v-model="pm.searchQuery.value"
++                    type="search"
++                    placeholder="Search palettes..."
++                    class="input-bar-field"
++                />
+                 <SearchFilterBar
+                     :sort="pm.sortMode.value"
+                     :tier="pm.tierFilter.value"
+@@ -24,7 +27,7 @@
+                     @color-search="onColorSearch"
+                     @clear-color-search="onClearColorSearch"
+                 />
+-            </SearchBar>
++            </div>
+ 
+             <div class="grid gap-3 pb-3">
+                 <!-- T.W5-R8 (T-14 / D7 · F5): skeleton→content is "ONE
+@@ -178,10 +181,9 @@
+ 
+         <!-- X-W7 Repair 1 (§2a · ESC-W7e-AP6): the browse-wall admin delete is the
+              fifth destructive seat — confirmed first, composed exactly as the four
+-             Admin seats compose it (deliberate rung `:show-close="false"` at the
+-             installed glass 7.0.0; the deliberate `dismiss` rung is the glass ≥ 8.0.0 spelling). -->
++             Admin seats compose it (the `dismiss="deliberate"` rung, glass 10.0.1). -->
+         <Dialog v-model:open="deleteConfirmOpen">
+-            <DialogContent surface="glass" :show-close="false">
++            <DialogContent surface="glass" dismiss="deliberate">
+                 <DialogHeader>
+                     <DialogTitle>Delete palette?</DialogTitle>
+                     <DialogDescription>
+@@ -212,7 +214,7 @@ import {
+     DialogDescription,
+     DialogFooter,
+ } from "@mkbabb/glass-ui/dialog";
+-import { Trash2 } from "@lucide/vue";
++import { Search, Trash2 } from "@lucide/vue";
+ import { Card } from "../ui/card";
+ import { Button } from "../ui/button";
+ import { BROWSE_PORT_KEY } from "./usePalettePorts";
+@@ -225,7 +227,6 @@ import {
+     VersionHistoryDrawer,
+     FlagReportDialog,
+ } from "./browser/dialog";
+-import { SearchBar } from "@mkbabb/glass-ui/search";
+ import PaneHeader from "../shared/ui/PaneHeader.vue";
+ import type { Palette, Tag } from "./types";
+ import { useDialogBrowseActions } from "./browser/dialog";
+diff --git a/demo/palettes/PalettesPane.vue b/demo/palettes/PalettesPane.vue
+index f5f5da2f..21a53776 100644
+--- a/demo/palettes/PalettesPane.vue
++++ b/demo/palettes/PalettesPane.vue
+@@ -32,19 +32,20 @@
+                  the P3 seated rung / ASK-D). -->
+             <!-- X-W4 · A4 (CC-041): the field's NAME, measured desktop-only
+                  (`/#/gradient`, smoke 1280×720: `input.input-bar-field` 414.1×26.2,
+-                 computed name ""). `placeholder` is not a name. The producer's
+-                 `SearchBar` publishes no `label`/`ariaLabel` prop, but it sets
+-                 `inheritAttrs: false` and splits ONLY `class` off `$attrs`, spreading
+-                 the remainder straight onto its own `<input>` (`dist/search.js`:
+-                 `o = computed(() => { let { class: _, ...t } = useAttrs(); return t; })`,
+-                 then `b("input", w({…}, o.value, {…}))`), so `aria-label` lands on the
+-                 input itself. No producer byte, no wrapper, no copied selector. -->
+-            <SearchBar
+-                v-model="pm.searchQuery.value"
+-                class="search-seated"
+-                aria-label="Search your palettes"
+-                placeholder="Search your palettes..."
+-            />
++                 computed name ""). `placeholder` is not a name, so the
++                 input carries `aria-label` itself. X-W7R (glass 10.0.1): glass 9.0.0
++                 deleted `SearchBar`; the field composes the producer's `.input-bar`
++                 recipe with its own input (glass MIGRATION.md 9.0.0). -->
++            <div class="input-bar search-seated">
++                <Search class="size-(--search-icon-size) text-muted-foreground shrink-0" aria-hidden="true" />
++                <input
++                    v-model="pm.searchQuery.value"
++                    type="search"
++                    aria-label="Search your palettes"
++                    placeholder="Search your palettes..."
++                    class="input-bar-field"
++                />
++            </div>
+ 
+             <!-- W7-failure-dispositions row 45: an unreadable stored library is
+                  announced, never silently replaced. -->
+@@ -120,7 +121,7 @@
+ 
+             <!-- Delete all confirmation (Glass 7: ConfirmDialog folded onto the Dialog family) -->
+             <Dialog v-model:open="pm.showDeleteAllConfirm.value">
+-                <DialogContent surface="glass" :show-close="false">
++                <DialogContent surface="glass" dismiss="deliberate">
+                     <DialogHeader>
+                         <DialogTitle>Delete all saved palettes?</DialogTitle>
+                         <DialogDescription>
+@@ -149,7 +150,7 @@ import { inject, reactive, ref, computed, watch, onMounted, nextTick } from "vue
+ import { Card } from "../ui/card";
+ import { Button } from "../ui/button";
+ import { Badge } from "../ui/badge";
+-import { Trash2 } from "@lucide/vue";
++import { Search, Trash2 } from "@lucide/vue";
+ import { useSortable, insertNodeAt, removeNode } from "@vueuse/integrations/useSortable";
+ import { LIBRARY_PORT_KEY, COLOR_TARGET_PORT_KEY } from "./usePalettePorts";
+ import { CSS_COLOR_KEY } from "../color-session/keys";
+@@ -165,7 +166,6 @@ import {
+     DialogDescription,
+     DialogFooter,
+ } from "@mkbabb/glass-ui/dialog";
+-import { SearchBar } from "@mkbabb/glass-ui/search";
+ import PaneHeader from "../shared/ui/PaneHeader.vue";
+ import type { Palette } from "./types";
+ import PaletteInspector from "./PaletteInspector.vue";
+diff --git a/demo/palettes/admin/AdminPane.vue b/demo/palettes/admin/AdminPane.vue
+index 8fb569f5..37d8d918 100644
+--- a/demo/palettes/admin/AdminPane.vue
++++ b/demo/palettes/admin/AdminPane.vue
+@@ -8,18 +8,23 @@
+             <!-- T.W3-3 (T-12): a field on paper wears paper — the seated
+                  register (utils.css `.search-seated`; interim, booked onto
+                  the P3 seated rung / ASK-D). -->
+-            <SearchBar
++            <div
+                 v-if="subView === 'admin-users'"
+-                v-model="pm.usersSearch.value"
+-                class="search-seated"
+-                aria-label="Search users"
+-                placeholder="Search users..."
++                class="input-bar search-seated"
+             >
++                <Search class="size-(--search-icon-size) text-muted-foreground shrink-0" aria-hidden="true" />
++                <input
++                    v-model="pm.usersSearch.value"
++                    type="search"
++                    aria-label="Search users"
++                    placeholder="Search users..."
++                    class="input-bar-field"
++                />
+                 <UserSortMenu
+                     :sort="pm.userSortMode.value"
+                     @update:sort="pm.onUserSortChange"
+                 />
+-            </SearchBar>
++            </div>
+ 
+             <!-- Users sub-view. X.W7.d (fold W7.68 · L-2): the panel injects the
+                  admin port itself — no port member is forwarded as a prop. -->
+@@ -58,12 +63,16 @@
+                 <!-- X.W5.c2 · gate N15: the names query seats BELOW the
+                      Pending | Approved selector (source order, not `order:`). -->
+                 <template #query>
+-                    <SearchBar
+-                        v-model="pm.namesSearch.value"
+-                        class="search-seated"
+-                        aria-label="Search color names"
+-                        placeholder="Search color names..."
+-                    />
++                    <div class="input-bar search-seated">
++                        <Search class="size-(--search-icon-size) text-muted-foreground shrink-0" aria-hidden="true" />
++                        <input
++                            v-model="pm.namesSearch.value"
++                            type="search"
++                            aria-label="Search color names"
++                            placeholder="Search color names..."
++                            class="input-bar-field"
++                        />
++                    </div>
+                 </template>
+             </AdminNamesPanel>
+ 
+@@ -80,6 +89,7 @@
+ </template>
+ 
+ <script setup lang="ts">
++import { Search } from "@lucide/vue";
+ import { inject, computed } from "vue";
+ import { Card } from "../../ui/card";
+ import { Badge } from "../../ui/badge";
+@@ -94,7 +104,6 @@ import {
+     AdminTagsPanel,
+ } from "../browser/admin";
+ import { UserSortMenu } from "../browser/search";
+-import { SearchBar } from "@mkbabb/glass-ui/search";
+ import PaneHeader from "../../shared/ui/PaneHeader.vue";
+ import type { PaneId } from "../../shell/viewSchema";
+ 
+diff --git a/demo/palettes/browser/admin/AdminFlaggedPanel.vue b/demo/palettes/browser/admin/AdminFlaggedPanel.vue
+index 97ce8a0a..cbc4f254 100644
+--- a/demo/palettes/browser/admin/AdminFlaggedPanel.vue
++++ b/demo/palettes/browser/admin/AdminFlaggedPanel.vue
+@@ -172,11 +172,10 @@
+         />
+         </template>
+ 
+-        <!-- X.W7.e (G14): the deliberate rung (Esc · outside, no ✕) is spelled
+-             `:show-close="false"` at the installed glass 7.0.0; the `dismiss` axis (rung `deliberate`)
+-             is the glass ≥ 8.0.0 spelling. -->
++        <!-- X.W7.e (G14): the deliberate rung (Esc · outside, no ✕) is the
++             `dismiss="deliberate"` rung (glass 10.0.1, X-W7R). -->
+         <Dialog v-model:open="confirmOpen">
+-            <DialogContent surface="glass" :show-close="false">
++            <DialogContent surface="glass" dismiss="deliberate">
+                 <DialogHeader>
+                     <DialogTitle>Delete flagged palette?</DialogTitle>
+                     <DialogDescription>
+diff --git a/demo/palettes/browser/admin/AdminNamesPanel.vue b/demo/palettes/browser/admin/AdminNamesPanel.vue
+index 0740bbab..34e780eb 100644
+--- a/demo/palettes/browser/admin/AdminNamesPanel.vue
++++ b/demo/palettes/browser/admin/AdminNamesPanel.vue
+@@ -142,10 +142,10 @@
+ 
+         <!-- X.W7.e (G14 · W7.93 · D-2): Reject and Delete are irreversible — each
+              is confirmed before the command leaves the panel. The deliberate rung
+-             (Esc · outside, no ✕) is spelled `:show-close="false"` at the installed
+-             glass 7.0.0; the `dismiss` axis (rung `deliberate`) is the glass ≥ 8.0.0 spelling. -->
++             (Esc · outside, no ✕) is the `dismiss="deliberate"` rung
++             (glass 10.0.1, X-W7R). -->
+         <Dialog v-model:open="confirmOpen">
+-            <DialogContent surface="glass" :show-close="false">
++            <DialogContent surface="glass" dismiss="deliberate">
+                 <DialogHeader>
+                     <DialogTitle>{{ confirmRequest?.title }}</DialogTitle>
+                     <DialogDescription>
+diff --git a/demo/palettes/browser/admin/AdminTagsPanel.vue b/demo/palettes/browser/admin/AdminTagsPanel.vue
+index 2feaf99c..54bc28e7 100644
+--- a/demo/palettes/browser/admin/AdminTagsPanel.vue
++++ b/demo/palettes/browser/admin/AdminTagsPanel.vue
+@@ -150,11 +150,10 @@
+         </template>
+ 
+         <!-- X.W7.e (G14): the tag delete is an unbounded cross-collection write —
+-             confirmed first. The deliberate rung (Esc · outside, no ✕) is spelled
+-             `:show-close="false"` at the installed glass 7.0.0; the `dismiss` axis (rung `deliberate`)
+-             is the glass ≥ 8.0.0 spelling. -->
++             confirmed first. The deliberate rung (Esc · outside, no ✕) is the
++             `dismiss="deliberate"` rung (glass 10.0.1, X-W7R). -->
+         <Dialog v-model:open="confirmOpen">
+-            <DialogContent surface="glass" :show-close="false">
++            <DialogContent surface="glass" dismiss="deliberate">
+                 <DialogHeader>
+                     <DialogTitle>Delete tag?</DialogTitle>
+                     <DialogDescription>
+diff --git a/demo/palettes/browser/admin/AdminUsersPanel.vue b/demo/palettes/browser/admin/AdminUsersPanel.vue
+index c9b06cba..951acc75 100644
+--- a/demo/palettes/browser/admin/AdminUsersPanel.vue
++++ b/demo/palettes/browser/admin/AdminUsersPanel.vue
+@@ -204,11 +204,10 @@
+         </div>
+ 
+         <!-- Confirmation dialog (Glass 7: ConfirmDialog folded onto the Dialog family).
+-             X.W7.e (G14 · A-3): the deliberate rung — Esc · outside, no ✕. At the
+-             installed glass 7.0.0 that rung is spelled `:show-close="false"`; the
+-             `dismiss` axis (rung `deliberate`) is glass ≥ 8.0.0 and re-spells at the repin. -->
++             X.W7.e (G14 · A-3): the deliberate rung — Esc · outside, no ✕ — the
++             `dismiss="deliberate"` rung (glass 10.0.1, X-W7R). -->
+         <Dialog v-model:open="confirmOpen">
+-            <DialogContent surface="glass" :show-close="false">
++            <DialogContent surface="glass" dismiss="deliberate">
+                 <DialogHeader>
+                     <DialogTitle>{{ confirmTitle }}</DialogTitle>
+                     <DialogDescription>
+diff --git a/demo/palettes/browser/card/CurrentPaletteEditor.vue b/demo/palettes/browser/card/CurrentPaletteEditor.vue
+index 61bd53a3..bd1d4f59 100644
+--- a/demo/palettes/browser/card/CurrentPaletteEditor.vue
++++ b/demo/palettes/browser/card/CurrentPaletteEditor.vue
+@@ -69,7 +69,7 @@
+                                      (transition-all + hover:scale-110/active:scale-95 on the
+                                      dead 150ms bare-utility default — F3) retire onto the
+                                      producer's `btn-interactive` atom: the scale leg rides
+-                                     --transition-liquid-spatial @ --spring-smooth-duration
++                                     --transition-liquid-spatial @ --spring-present-duration
+                                      (inherited, never re-implemented), press/hover magnitudes
+                                      + the house focus register come with it. -->
+                                 <button class="btn-interactive p-2 rounded-full bg-foreground/5 hover:bg-accent/50 cursor-pointer" title="Save edit" aria-label="Save edit" @click.stop="emit('commitEdit')">
+@@ -194,7 +194,7 @@ import {
+     Undo2,
+ } from "@lucide/vue";
+ import type { Palette, PaletteColor } from "../../types";
+-import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
++import { WatercolorDot } from "../../../shared/ui/watercolor-dot";
+ import SwatchHoverMenu from "./SwatchHoverMenu.vue";
+ import ActionFeedback from "./PaletteCard/ActionFeedback.vue";
+ import ApiOfflineChip from "../status/ApiOfflineChip.vue";
+@@ -287,7 +287,7 @@ function confirmUpdatePalette() {
+ <style scoped>
+ /* R.W4 Lane A / A3 (U18/U22): the former `.swatch-editing` dashed-outline +
+  * `.swatch-cutout` forks are DELETED — the being-edited slot and the edit
+- * overlay's FROM slot now consume the glass-ui WatercolorDot ghost variant
++ * overlay's FROM slot now consume the WatercolorDot ghost variant (relocated from glass-ui at X-W7R)
+  * (the seeded dashed silhouette; one shape source, producer-owned). */
+ 
+ /* The add-slot ghost hosts a centred Plus glyph in its default slot. */
+diff --git a/demo/palettes/browser/card/PaletteCard/ActionFeedback.vue b/demo/palettes/browser/card/PaletteCard/ActionFeedback.vue
+index c643bb0c..36f7dd6c 100644
+--- a/demo/palettes/browser/card/PaletteCard/ActionFeedback.vue
++++ b/demo/palettes/browser/card/PaletteCard/ActionFeedback.vue
+@@ -5,7 +5,7 @@
+             v-if="visible"
+             role="status"
+             :class="[
+-                'feedback-chip flex items-center gap-2 px-3 py-1.5 rounded-panel text-xs fira-code',
++                'feedback-chip flex items-center gap-2 px-3 py-1.5 rounded-panel text-caption fira-code',
+                 variant === 'success' && 'bg-green-500/10 text-green-600 dark:text-green-400',
+                 variant === 'error' && 'bg-destructive/10 text-destructive',
+             ]"
+diff --git a/demo/palettes/browser/card/SwatchHoverMenu.vue b/demo/palettes/browser/card/SwatchHoverMenu.vue
+index 33119dfb..728042f6 100644
+--- a/demo/palettes/browser/card/SwatchHoverMenu.vue
++++ b/demo/palettes/browser/card/SwatchHoverMenu.vue
+@@ -57,7 +57,7 @@
+ <script setup lang="ts">
+ import type { CSSProperties } from "vue";
+ import { Popover, PopoverContent, PopoverTrigger } from "../../../ui/popover";
+-import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
++import { WatercolorDot } from "../../../shared/ui/watercolor-dot";
+ import { formatCssCaption } from "../../../color-session/format-color";
+ 
+ /** Shared panel layout — applied to both PopoverContent and the hover Teleport
+diff --git a/demo/palettes/browser/dialog/MigratePalettesDialog.vue b/demo/palettes/browser/dialog/MigratePalettesDialog.vue
+index a4d66fb6..63601cf6 100644
+--- a/demo/palettes/browser/dialog/MigratePalettesDialog.vue
++++ b/demo/palettes/browser/dialog/MigratePalettesDialog.vue
+@@ -1,6 +1,6 @@
+ <template>
+     <Dialog v-model:open="open">
+-        <DialogContent class="rounded-dialog max-w-sm">
++        <DialogContent class="max-w-sm">
+             <DialogHeader>
+                 <!-- T.W4-6 (T-15/F7): dialog headers are title surfaces —
+                      display voice at the subheading rung, ≤500 non-bold. -->
+diff --git a/demo/palettes/browser/dialog/VersionHistoryDrawer.vue b/demo/palettes/browser/dialog/VersionHistoryDrawer.vue
+index c1f70c3d..a1540508 100644
+--- a/demo/palettes/browser/dialog/VersionHistoryDrawer.vue
++++ b/demo/palettes/browser/dialog/VersionHistoryDrawer.vue
+@@ -1,11 +1,12 @@
+ <template>
+     <Dialog :open="open" @update:open="$emit('update:open', $event)">
+-        <DialogContent placement="right" class="w-[380px] sm:max-w-[420px] flex flex-col">
++        <SheetContent side="right" class="w-[380px] sm:max-w-[420px] flex flex-col">
+             <DialogHeader class="shrink-0">
+                 <!-- T.W4-6 (T-15/F7): the producer DialogTitle default is the
+                      body-voice `text-subheading` — drawer headers join the
+                      display voice (≤500 non-bold), same register as the
+-                     dialog headers. Glass 7 folded Sheet onto Dialog placement. -->
++                     dialog headers. Glass 8 folded the side placement into
++                     `<SheetContent side>` (the Drawer/Sheet fold). -->
+                 <DialogTitle class="font-display font-medium">Version History</DialogTitle>
+                 <DialogDescription>
+                     {{ paletteName }} &mdash; {{ total }} version{{ total === 1 ? "" : "s" }}
+@@ -94,15 +95,15 @@
+                     Load older versions
+                 </Button>
+             </div>
+-        </DialogContent>
++        </SheetContent>
+     </Dialog>
+ </template>
+ 
+ <script setup lang="ts">
+ import { inject, ref, watch } from "vue";
++import { SheetContent } from "@mkbabb/glass-ui/sheet";
+ import {
+     Dialog,
+-    DialogContent,
+     DialogDescription,
+     DialogHeader,
+     DialogTitle,
+diff --git a/demo/palettes/browser/slug/PaletteSlugBar.vue b/demo/palettes/browser/slug/PaletteSlugBar.vue
+index 175a2c1f..3f04fa5c 100644
+--- a/demo/palettes/browser/slug/PaletteSlugBar.vue
++++ b/demo/palettes/browser/slug/PaletteSlugBar.vue
+@@ -2,17 +2,23 @@
+     <div class="flex items-center gap-1.5 mb-2 pt-0.5 relative min-h-9">
+         <!-- Edit mode: slug input form -->
+         <Transition name="vj-morph" mode="out-in">
+-        <SearchBar
++        <!-- glass 9.0.0 deleted `SearchBar`; the field composes the producer's
++             `.input-bar` recipe with its own input (glass MIGRATION.md 9.0.0). -->
++        <form
+             v-if="slugEditMode"
+-            ref="searchBarRef"
+             key="slug-edit"
+-            tag="form"
+-            v-model="slugInput"
+-            :icon="LogIn"
+-            placeholder="enter slug..."
++            class="input-bar"
+             @submit.prevent="onSlugSwitch"
+-            @keydown.escape.stop="slugEditMode = false"
+         >
++            <LogIn class="size-(--search-icon-size) text-muted-foreground shrink-0" aria-hidden="true" />
++            <input
++                ref="slugInputRef"
++                v-model="slugInput"
++                type="search"
++                placeholder="enter slug..."
++                class="input-bar-field"
++                @keydown.escape.stop="slugEditMode = false"
++            />
+             <!-- W5-a11y: icon-only submit / close buttons need accessible names -->
+             <Button
+                 type="submit"
+@@ -35,7 +41,7 @@
+             >
+                 <XIcon class="w-3.5 h-3.5 text-muted-foreground" aria-hidden="true" />
+             </Button>
+-        </SearchBar>
++        </form>
+ 
+         <!-- Default mode -->
+         <div v-else key="slug-default" class="flex items-center gap-1.5">
+@@ -127,7 +133,6 @@
+ 
+ <script setup lang="ts">
+ import { ref, nextTick } from "vue";
+-import { SearchBar } from "@mkbabb/glass-ui/search";
+ import { Button } from "../../../ui/button";
+ import { Popover, PopoverContent, PopoverTrigger } from "../../../ui/popover";
+ import {
+@@ -161,7 +166,7 @@ const slugMenuOpen = ref(false);
+ const slugInput = ref("");
+ const slugSwitching = ref(false);
+ const slugError = ref("");
+-const searchBarRef = ref<InstanceType<typeof SearchBar> | null>(null);
++const slugInputRef = ref<HTMLInputElement | null>(null);
+ 
+ function onCopySlug() {
+     if (userSlug) void writeClipboard(userSlug);
+@@ -174,7 +179,7 @@ function onStartSlugEdit() {
+     setTimeout(() => {
+         slugEditMode.value = true;
+         nextTick(() => {
+-            searchBarRef.value?.inputRef?.focus();
++            slugInputRef.value?.focus();
+         });
+     }, 50);
+ }
+diff --git a/demo/picker/ColorPicker.vue b/demo/picker/ColorPicker.vue
+index 48d74649..3d976612 100644
+--- a/demo/picker/ColorPicker.vue
++++ b/demo/picker/ColorPicker.vue
+@@ -413,10 +413,10 @@ onUnmounted(() => {
+        morphs forced a reflow every frame of the swap. Transform only now.
+        T.W5-R11 (T-14 / D7): the nudge is a SPATIAL travel — it rides
+        `--transition-liquid-spatial` at the spring's OWN clock
+-       (`--spring-smooth-duration`), never a bezier on a generic clock; the
++       (`--spring-present-duration`), never a bezier on a generic clock; the
+        producer's PRM carve re-aliases the token to `--ease-standard` under
+        reduced motion. */
+-    transition: transform var(--spring-smooth-duration) var(--transition-liquid-spatial);
++    transition: transform var(--spring-present-duration) var(--transition-liquid-spatial);
+ }
+ 
+ /* T.W4-5 — THE SEAT lives in the colocated grammar sheet (./seat.css —
+diff --git a/demo/picker/controls/ComponentSliders/ComponentSliders.vue b/demo/picker/controls/ComponentSliders/ComponentSliders.vue
+index 8558afe0..bb42d876 100644
+--- a/demo/picker/controls/ComponentSliders/ComponentSliders.vue
++++ b/demo/picker/controls/ComponentSliders/ComponentSliders.vue
+@@ -26,7 +26,6 @@
+         surface="veil"
+         tier="quiet"
+         :shadow="false"
+-        :grain="false"
+         class="sliders-console rounded-panel"
+     >
+         <div class="flex gap-x-2.5 items-stretch">
+@@ -189,12 +188,12 @@ const thumbInk = computed(() => {
+ // on the track, the LIVE color on the thumb, the value-aware needle ink on
+ // the border. Touch-action rides the same gate as the spectrum plate.
+ // The ALPHA row's ramp composes the house `--alpha-checker` ground UNDER it
+-// via the producer's own `--slider-track-bg` seam.
++// via the producer's own `--glass-slider-track-background` seam.
+ function sliderVars(component: string): Record<string, string | undefined> {
+     const stops = componentsSlidersStyle.value[component];
+     const ramp = stops ? `linear-gradient(to right, ${stops.join(", ")})` : undefined;
+     return {
+-        "--slider-track-bg":
++        "--glass-slider-track-background":
+             ramp && component === "alpha"
+                 ? `${ramp}, var(--alpha-checker)`
+                 : ramp,
+@@ -284,10 +283,12 @@ useSliderAnnouncements({
+     padding: 0.75rem 0.875rem;
+     /* T.W8-WR-3 (T-50) — THE VEIL-SIGNAL CALIBRATION: the landed quiet-glass α
+      * (0.50 light / 0.58 dark) read OPAQUE — only ~15% of the surviving field
+-     * variation survives the blur. The console tint α is lowered here (a
+-     * DIRECT `--glass-bg-quiet` override on the veil element, unambiguous
+-     * across the substitution chain — veil-surface reads `var(--glass-bg-quiet)`
+-     * for its `--veil-bg`) so more variation reads as glass. The D6 ink
++     * variation survives the blur. The console tint α is lowered here so more
++     * variation reads as glass. X-W7R (glass 10.0.1): the veil surface now picks
++     * its α off the veil ladder (`[data-surface="veil"]` sets
++     * `--glass-veil-tier: var(--glass-veil-quiet)`, `glass-plate` reads it), and
++     * `--glass-plate-quiet` has no declaration; the one-rung-lower α is the ladder's
++     * own `wash` rung, which re-resolves per scheme (the old `.dark` arm folds in). The D6 ink
+      * referent re-threads BY THE LIVE PROBE, not an ink.ts edit: the rail's
+      * `resolveMutedInk` reads this lowered-α veil recipe and walks its rest
+      * ink to floor against the now-more-ambient ground (O-18 W4 rail-letter
+@@ -296,10 +297,7 @@ useSliderAnnouncements({
+      * PLATE behind the console so the blur has a live-field backdrop, not the
+      * opaque cartoon plate — needs `ColorPicker.vue` (out of this lane's tree),
+      * booked as the picker-plate half. */
+-    --glass-bg-quiet: color-mix(in srgb, var(--card) 42%, transparent);
+-}
+-.dark .sliders-console {
+-    --glass-bg-quiet: color-mix(in srgb, var(--card) 50%, transparent);
++    --glass-veil-tier: var(--glass-veil-wash);
+ }
+ 
+ /* ── THE METER (W4-3) — the strip's persistent live reading ──────────────
+diff --git a/demo/picker/controls/ComponentSliders/ConsoleRail.vue b/demo/picker/controls/ComponentSliders/ConsoleRail.vue
+index 76d1187b..a4e8bee7 100644
+--- a/demo/picker/controls/ComponentSliders/ConsoleRail.vue
++++ b/demo/picker/controls/ComponentSliders/ConsoleRail.vue
+@@ -87,7 +87,7 @@ import {
+     TooltipProvider,
+     TooltipTrigger,
+ } from "../../../ui/tooltip";
+-import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
++import { WatercolorDot } from "../../../shared/ui/watercolor-dot";
+ import { useGlobalDark } from "@mkbabb/glass-ui/dark";
+ import { useBreakpoint } from "@mkbabb/glass-ui/dom";
+ import { contrastInkFor, resolveMutedInk } from "../../../color-session/ink";
+diff --git a/demo/picker/controls/SpectrumCanvas/SpectrumCanvas.vue b/demo/picker/controls/SpectrumCanvas/SpectrumCanvas.vue
+index 84a11adb..f42cc670 100644
+--- a/demo/picker/controls/SpectrumCanvas/SpectrumCanvas.vue
++++ b/demo/picker/controls/SpectrumCanvas/SpectrumCanvas.vue
+@@ -35,7 +35,7 @@
+ <script setup lang="ts">
+ import { computed, inject, onUnmounted, ref, useTemplateRef, watch } from "vue";
+ import { clamp } from "@mkbabb/value.js/math";
+-import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
++import { WatercolorDot } from "../../../shared/ui/watercolor-dot";
+ import { useTouchGate } from "@mkbabb/glass-ui";
+ import { channelNumber, withChannel } from "../../../color-session/picker-color";
+ import { POINTER_DEBUG_KEY } from "../../composables/usePointerDebug";
+diff --git a/demo/picker/header.css b/demo/picker/header.css
+index e7630004..b8e5cbb3 100644
+--- a/demo/picker/header.css
++++ b/demo/picker/header.css
+@@ -46,7 +46,7 @@
+ }
+ 
+ /* ── Row B · THE BACKGROUND BAND (§0.8 "background band") ─────────────────
+- * The strip's veil: the plate's rung-1 material (`--glass-bg-resting` +
++ * The strip's veil: the plate's rung-1 material (`--glass-plate-resting` +
+  * `--glass-blur-resting`, the PaneHeader idiom — DESIGN §Surfaces "the veil is
+  * the plate's own rung-1 material at a scroll-earned intensity") at 0 opacity
+  * AT REST (the header stays transparent-on-plate — T-23 at-rest STANDS) and
+@@ -59,7 +59,7 @@
+     inset: 0 0 -12px 0;
+     z-index: -1;
+     pointer-events: none;
+-    background: var(--glass-bg-resting);
++    background: var(--glass-plate-resting);
+     -webkit-backdrop-filter: var(--glass-blur-resting);
+     backdrop-filter: var(--glass-blur-resting);
+     -webkit-mask-image: linear-gradient(
+diff --git a/demo/scenes/ConfigSliderPane.vue b/demo/scenes/ConfigSliderPane.vue
+index 62132afc..ae995d7b 100644
+--- a/demo/scenes/ConfigSliderPane.vue
++++ b/demo/scenes/ConfigSliderPane.vue
+@@ -161,7 +161,7 @@ function resetDefaults() {
+                  path, so it no longer floats over the last rows (W6-6). Only
+                  shown when there are sliders. -->
+             <div v-if="sections.length > 0" class="config-action-bar">
+-                <GlassDock :always-expanded="true" :fit-content="true">
++                <GlassDock :collapse="false" :fit-content="true">
+                     <Button size="sm" @click="copyAsJson">
+                         <Copy class="w-3.5 h-3.5" />
+                         Copy JSON
+@@ -194,12 +194,12 @@ function resetDefaults() {
+      * `.slider-range` is transparent by recipe so no filled/unfilled split
+      * reads either. The W6.5 GRAPHICS cure (T-44a) covered the EXTRACT tracks
+      * only. Here the config population re-inks its track via the SAME cure
+-     * class (the eb7bb2c-era `--slider-track-bg` feed, no `ui/slider` edit):
++     * class (the eb7bb2c-era `--glass-slider-track-background` feed, no `ui/slider` edit):
+      * the certified de-emphasis rung `--ink-muted` (the D6 contract's stamped
+      * token — the exact material ExtractControls falls to when no live pick
+      * threads) is ≥3:1 on the well by construction. o18-contrast-census's new
+      * config GRAPHICS leg is this row's born-RED gate. */
+-    --slider-track-bg: var(--ink-muted, var(--muted-foreground));
++    --glass-slider-track-background: var(--ink-muted, var(--muted-foreground));
+ }
+ .config-console :deep(.configurator-row .font-mono) {
+     color: var(--ink-muted, var(--muted-foreground));
+diff --git a/demo/scenes/about/markdown/Markdown.vue b/demo/scenes/about/markdown/Markdown.vue
+index 2bebe735..28c2d65d 100644
+--- a/demo/scenes/about/markdown/Markdown.vue
++++ b/demo/scenes/about/markdown/Markdown.vue
+@@ -238,7 +238,7 @@ onUpdated(() => {
+     }
+ 
+     code {
+-        @apply text-xs font-mono bg-well rounded;
++        @apply text-caption font-mono bg-well rounded;
+     }
+ 
+     /* Inline code — the markdown accent voice (D6, T.W3-5): inline code joins
+@@ -363,18 +363,18 @@ onUpdated(() => {
+         padding-top: var(--phi-3);
+ 
+         ol {
+-            @apply text-sm;
++            @apply text-small;
+         }
+     }
+ 
+     /* Footnote links */
+     .footnote-ref {
+-        @apply text-xs;
++        @apply text-caption;
+     }
+ 
+     /* Footnote definitions */
+     .footnote-item {
+-        @apply text-sm;
++        @apply text-small;
+     }
+ 
+     /* Tables of contents — T.W3-4 (the F6 ONE-grammar law): the sticky
+diff --git a/demo/shared/ui/EmptyState.vue b/demo/shared/ui/EmptyState.vue
+index 176bb05f..96c641e9 100644
+--- a/demo/shared/ui/EmptyState.vue
++++ b/demo/shared/ui/EmptyState.vue
+@@ -75,7 +75,7 @@
+  */
+ import { useTemplateRef } from "vue";
+ import { CircleAlert } from "@lucide/vue";
+-import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
++import { WatercolorDot } from "./watercolor-dot";
+ 
+ withDefaults(
+     defineProps<{
+diff --git a/demo/shared/ui/PaneHeader.vue b/demo/shared/ui/PaneHeader.vue
+index 87c1733e..8651a0ab 100644
+--- a/demo/shared/ui/PaneHeader.vue
++++ b/demo/shared/ui/PaneHeader.vue
+@@ -98,7 +98,7 @@ const { level = 2 } = defineProps<{
+     inset: 0 0 -14px 0;
+     z-index: -1;
+     pointer-events: none;
+-    background: var(--glass-bg-resting);
++    background: var(--glass-plate-resting);
+     -webkit-backdrop-filter: var(--glass-blur-resting);
+     backdrop-filter: var(--glass-blur-resting);
+     mask-image: linear-gradient(to bottom, black calc(100% - 14px), transparent);
+diff --git a/demo/shell/PaneSlot.vue b/demo/shell/PaneSlot.vue
+index ad3173c3..ad1cf9da 100644
+--- a/demo/shell/PaneSlot.vue
++++ b/demo/shell/PaneSlot.vue
+@@ -36,7 +36,7 @@
+ //
+ // The <Transition> below runs `mode="out-in"`: the leaving pane travels out
+ // (`--duration-fast`), THEN the incoming pane mounts and travels in
+-// (`--spring-snappy`). Measured on this file by the out-in co-mount re-probe
++// (`--spring-panel`). Measured on this file by the out-in co-mount re-probe
+ // (`docs/tranches/V/megatranche/workflows/gates/out-in-reprobe.mjs`, RESULTS
+ // under `docs/tranches/X/waves/W5/triumvirate/`):
+ //   · The default (simultaneous) mode held TWO in-flow panes in one ordinary
+diff --git a/demo/shell/dock/ColorInput.vue b/demo/shell/dock/ColorInput.vue
+index 10f2d4d5..586a303d 100644
+--- a/demo/shell/dock/ColorInput.vue
++++ b/demo/shell/dock/ColorInput.vue
+@@ -60,7 +60,7 @@
+ 
+                     <!-- Inline send button — T.W5-R5: the spatial hover/press
+                          legs come from the producer `btn-interactive` atom
+-                         (scale @ --spring-smooth-duration on
++                         (scale @ --spring-present-duration on
+                          --transition-liquid-spatial, house press/hover
+                          magnitudes + focus register); .send-btn keeps only
+                          seat geometry (see the scoped block). -->
+@@ -329,7 +329,7 @@ defineExpose({
+  * (scale 1.1/0.95 composed into `transform` @ --duration-fast --ease-standard
+  * — the F3 spatial-on-bezier stray) is RETIRED onto the producer
+  * `btn-interactive` atom (template class): the scale longhand rides
+- * --transition-liquid-spatial @ --spring-smooth-duration, press/hover
++ * --transition-liquid-spatial @ --spring-present-duration, press/hover
+  * magnitudes + focus ring + disabled opacity are the house registers. This
+  * block keeps ONLY the seat geometry — the static translateY(-50%) transform
+  * composes cleanly under the atom's `scale` longhand. */
+@@ -351,7 +351,7 @@ defineExpose({
+     right: 0.5rem;
+     top: 50%;
+     transform: translateY(-50%);
+-    @apply text-xs;
++    @apply text-caption;
+     line-height: 1;
+     padding: 0.2rem 0.4rem;
+     border-radius: var(--radius-sm);
+diff --git a/demo/shell/dock/Dock.vue b/demo/shell/dock/Dock.vue
+index 427c2c27..8e49bfbb 100644
+--- a/demo/shell/dock/Dock.vue
++++ b/demo/shell/dock/Dock.vue
+@@ -3,7 +3,7 @@ import { computed, inject, ref, watch, useTemplateRef } from "vue";
+ import { Check, Undo2, ArrowLeft, Paintbrush } from "@lucide/vue";
+ import { GlassDock, DockLayerGroup, DockLayer } from "./";
+ import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";
+-import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
++import { WatercolorDot } from "../../shared/ui/watercolor-dot";
+ import ActionBarToggle from "./ActionBarToggle.vue";
+ import ActionBarLayer from "./layers/ActionBarLayer.vue";
+ import SlugEditLayer from "./layers/SlugEditLayer.vue";
+@@ -158,12 +158,10 @@ watch(
+     <div :class="dockSettle && 'dock-settle'" @animationend.self="dockSettle = false">
+         <GlassDock
+             ref="dockRef"
+-            :collapse-delay="5000"
+-            :start-collapsed="false"
++            :collapse="isDesktop ? 'open' : false"
+             :fit-content="true"
+-            :always-expanded="!isDesktop"
+         >
+-            <DockLayerGroup v-model:active="activeLayer" :show-rail="false">
++            <DockLayerGroup v-model:active="activeLayer" :show-switcher="false">
+                 <!-- Mobile edit layer -->
+                 <DockLayer id="mobile-edit" class="justify-center">
+                     <WatercolorDot
+@@ -367,7 +365,7 @@ watch(
+ /* The B3 settle beat — the vj-settle keyframe lives in animations.css
+    (keyframes are global); the class is dock-local. */
+ .dock-settle {
+-    animation: vj-settle var(--spring-snappy-duration) var(--spring-snappy);
++    animation: vj-settle var(--spring-dock-duration) var(--spring-dock);
+ }
+ 
+ /* The action-bar toggle slot machine (S.W7-6 boot seat · W6-8 T-29 settle
+diff --git a/demo/styles/animations.css b/demo/styles/animations.css
+index 4d08bccc..3416bc53 100644
+--- a/demo/styles/animations.css
++++ b/demo/styles/animations.css
+@@ -83,7 +83,7 @@
+ .vj-enter-enter-active {
+     transition:
+         opacity var(--duration-normal) var(--ease-decelerate),
+-        transform var(--spring-smooth-duration) var(--spring-smooth);
++        transform var(--spring-present-duration) var(--spring-present);
+ }
+ .vj-enter-leave-active {
+     transition:
+@@ -97,14 +97,14 @@
+         rotate(var(--vj-enter-rot, 0deg)) scale(var(--vj-enter-scale, 1));
+ }
+ .vj-enter-move {
+-    transition: transform var(--spring-smooth-duration) var(--spring-smooth);
++    transition: transform var(--spring-present-duration) var(--spring-present);
+ }
+ 
+ /* ── Family 2 · morph ── */
+ .vj-morph-enter-active {
+     transition:
+         opacity var(--duration-fast) var(--ease-decelerate),
+-        transform var(--spring-snappy-duration) var(--spring-snappy),
++        transform var(--spring-present-duration) var(--spring-present),
+         max-height var(--duration-normal) var(--ease-decelerate);
+     overflow: hidden;
+ }
+@@ -135,14 +135,14 @@
+     max-height: var(--vj-morph-expanded, none);
+ }
+ .vj-morph-move {
+-    transition: transform var(--spring-snappy-duration) var(--spring-snappy);
++    transition: transform var(--spring-present-duration) var(--spring-present);
+ }
+ 
+ /* ── Family 3 · celebration ── */
+ .vj-celebrate-enter-active {
+     transition:
+         opacity var(--duration-fast) var(--ease-decelerate),
+-        transform var(--spring-bouncy-duration) var(--spring-bouncy),
++        transform var(--spring-present-duration) var(--spring-present),
+         max-height var(--duration-normal) var(--ease-decelerate);
+     overflow: hidden;
+ }
+@@ -321,14 +321,16 @@
+ }
+ 
+ /* T.W5 · R2+R3 (T-14 / D7 — the two-channel law; one moment, one clock):
+- * the pane swap is a SPATIAL travel, so the ENTER rides `--spring-snappy`
++ * the pane swap is a SPATIAL travel, so the ENTER rides `--spring-panel`
+  * at the spring's OWN clock. The superseded W3-5 retune kept the smooth
+  * curve but squeezed it onto `--duration-normal` — the named
+  * normalized-spring-on-generic-clock anti-pattern (a spring linear()
+  * reaches ~0.5 by ~6% of ANY clock → all travel in the first ~60ms,
+  * then dead air; t-transitions-liquid F2). PKT-2 (the ~0.3s preset) is
+  * unanswered at this cut, so the swap lands on arm (i) —
+- * `--spring-snappy` @ `--spring-snappy-duration` (0.4s true settle);
++ * `--spring-panel` @ `--spring-panel-duration` (0.45s settle at glass 10.0.1;
++ * the panel role is glass's successor for the retired 0.44s `--spring-snappy`
++ * pane clock — X-W7R, mapped by intent per glass MIGRATION §8.0.0);
+  * decision recorded on the T.md §7.2 book row.
+  * The LEAVE is the exit law: strictly SHORTER than the enter, bezier
+  * `--ease-out`, never an overshoot — the outgoing plate is gone before
+@@ -342,7 +344,7 @@
+ .pane-wrapper--action > .vj-enter-enter-active {
+     transition:
+         opacity var(--duration-fast) var(--ease-decelerate),
+-        transform var(--spring-snappy-duration) var(--spring-snappy);
++        transform var(--spring-panel-duration) var(--spring-panel);
+ }
+ .pane-wrapper--stage > .vj-enter-leave-active,
+ .pane-wrapper--inspector > .vj-enter-leave-active,
+diff --git a/demo/test/extract/extract-controls.test.ts b/demo/test/extract/extract-controls.test.ts
+index 47f5d25c..b1357118 100644
+--- a/demo/test/extract/extract-controls.test.ts
++++ b/demo/test/extract/extract-controls.test.ts
+@@ -50,10 +50,12 @@ describe("ExtractControls", () => {
+         expect((rail.element as HTMLElement).style.backgroundImage).toContain("linear-gradient");
+     });
+ 
++    // glass 10.0.1 DockControl: a disabled control stays PRESENT and FOCUSABLE —
++    // it stamps `aria-disabled="true"`, never the native `disabled` (X-W7R).
+     it("XW-8: `disabled` reaches all five controls", () => {
+         const w = mount(ExtractControls, { props: { ...base, found: null, disabled: true } });
+         const buttons = w.findAll("button").filter((b) => b.attributes("title"));
+-        expect(buttons.map((b) => [b.attributes("title"), b.attributes("disabled") !== undefined])).toEqual([
++        expect(buttons.map((b) => [b.attributes("title"), b.attributes("aria-disabled") === "true"])).toEqual([
+             ["Replace image", true],
+             ["Open camera", true],
+             ["Reset", true],
+@@ -67,12 +69,12 @@ describe("ExtractControls", () => {
+         const w = mount(ExtractControls, { props: { ...base, found: null, cameraLive: true } });
+         const camera = w.get('button[title="Close camera"]');
+         expect(camera.attributes("aria-pressed")).toBe("true");
+-        expect(camera.attributes("disabled")).toBeUndefined();
+-        expect(w.get('button[title="Replace image"]').attributes("disabled")).toBeDefined();
++        expect(camera.attributes("aria-disabled")).not.toBe("true");
++        expect(w.get('button[title="Replace image"]').attributes("aria-disabled")).toBe("true");
+     });
+ 
+     it("R-20: with no image the drop zone is the one intake; the toolbar control is present but stands down", () => {
+         const w = mount(ExtractControls, { props: { ...base, hasImage: false, found: null } });
+-        expect(w.get('button[title="Upload image"]').attributes("disabled")).toBeDefined();
++        expect(w.get('button[title="Upload image"]').attributes("aria-disabled")).toBe("true");
+     });
+ });
+diff --git a/demo/test/palettes/admin-destructive.test.ts b/demo/test/palettes/admin-destructive.test.ts
+index 3a0d3607..a6479103 100644
+--- a/demo/test/palettes/admin-destructive.test.ts
++++ b/demo/test/palettes/admin-destructive.test.ts
+@@ -87,11 +87,15 @@ beforeEach(() => {
+             disconnect() {}
+         },
+     );
++    // jsdom ships no `Element.prototype.scrollIntoView`; glass 10.0.1's tab strip
++    // scrolls the pressed tab into view on click (X-W7R).
++    Element.prototype.scrollIntoView = () => {};
+     useAdminAuth().login("t");
+ });
+ afterEach(() => {
+     useAdminAuth().logout();
+     vi.unstubAllGlobals();
++    delete (Element.prototype as Partial<Element>).scrollIntoView;
+     while (mounted.length) mounted.pop()!.unmount();
+     document.body.innerHTML = "";
+ });
+diff --git a/demo/ui/input/index.ts b/demo/ui/input/index.ts
+index 05bba0f3..66dc95ef 100644
+--- a/demo/ui/input/index.ts
++++ b/demo/ui/input/index.ts
+@@ -1 +1 @@
+-export { Input } from "@mkbabb/glass-ui/forms";
++export { Input } from "@mkbabb/glass-ui/input";
+diff --git a/demo/workbenches/extract/ExtractControls.vue b/demo/workbenches/extract/ExtractControls.vue
+index b95a9e47..88022ab2 100644
+--- a/demo/workbenches/extract/ExtractControls.vue
++++ b/demo/workbenches/extract/ExtractControls.vue
+@@ -35,7 +35,7 @@
+                     :max="16"
+                     :step="1"
+                     class="relative w-full"
+-                    :style="{ '--slider-track-bg': 'transparent' }"
++                    :style="{ '--glass-slider-track-background': 'transparent' }"
+                     @update:model-value="(v: number[] | undefined) => v && $emit('update:k', v[0]!)"
+                 />
+             </div>
+@@ -71,7 +71,7 @@
+             <DockSeparator />
+ 
+             <!-- Chroma weight slider. T-44a (T.W6.5 row 9 · §6.7): the former
+-                 `--slider-track-bg: var(--muted)` was dark-on-dark against
++                 `--glass-slider-track-background: var(--muted)` was dark-on-dark against
+                  the plate ground ("These sliders are un-readable", §0.6
+                  t33-audit-11) — the track re-inks with the CONTRACT: the
+                  live pick certified against its rung at the WCAG 1.4.11
+@@ -87,7 +87,7 @@
+                     :max="1.5"
+                     :step="0.1"
+                     class="flex-1"
+-                    :style="{ '--slider-track-bg': trackInk }"
++                    :style="{ '--glass-slider-track-background': trackInk }"
+                     @update:model-value="(v: number[] | undefined) => v && $emit('update:chromaWeight', v[0]!)"
+                 />
+                 <span class="fira-code text-micro plate-ink tabular-nums w-5">{{ chromaWeight.toFixed(1) }}</span>
+diff --git a/demo/workbenches/extract/ImageEyedropper/ImageEyedropper.vue b/demo/workbenches/extract/ImageEyedropper/ImageEyedropper.vue
+index f2abcb27..2c9bc33a 100644
+--- a/demo/workbenches/extract/ImageEyedropper/ImageEyedropper.vue
++++ b/demo/workbenches/extract/ImageEyedropper/ImageEyedropper.vue
+@@ -92,7 +92,7 @@
+ import { ref, onMounted, onActivated, onBeforeUnmount, onDeactivated, computed, watch, nextTick, useTemplateRef } from "vue";
+ import { X, Plus, Check } from "@lucide/vue";
+ import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";
+-import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
++import { WatercolorDot } from "../../../shared/ui/watercolor-dot";
+ 
+ import { useInertiaGesture } from "./composables/useInertiaGesture";
+ import { useImageSampler, type DisplayColorSpace } from "./composables/useImageSampler";
+@@ -305,7 +305,7 @@ watch(() => imageUrl, () => { loadAndFit(); });
+ .swatch-pulse {
+     width: 1.75rem;
+     height: 1.75rem;
+-    animation: swatch-pop 0.65s var(--ease-spring) forwards;
++    animation: swatch-pop 0.65s var(--spring-present) forwards;
+ }
+ 
+ @keyframes swatch-pop {
+diff --git a/demo/workbenches/generate/GenerateControls.vue b/demo/workbenches/generate/GenerateControls.vue
+index cf073e7a..a4288f35 100644
+--- a/demo/workbenches/generate/GenerateControls.vue
++++ b/demo/workbenches/generate/GenerateControls.vue
+@@ -18,7 +18,7 @@ import { writeClipboard } from "@mkbabb/glass-ui";
+ // the marginalia captions below stop floating unassociated and the duplicated
+ // literal `aria-label` retires.
+ import { LabeledField } from "@mkbabb/glass-ui/labeled-field";
+-import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
++import { WatercolorDot } from "../../shared/ui/watercolor-dot";
+ import { PaletteColorStrip } from "../../palettes/browser/card";
+ // T.W6 · W6-4→N (T-17, the intra-wave single-writer clause): Lane D authored
+ // the chip module + spec; the GenerateControls consume routes through Lane
+@@ -302,7 +302,7 @@ defineExpose({ regenerate, save, copyColors });
+                     :max="12"
+                     :step="1"
+                     class="relative w-full"
+-                    :style="{ '--slider-track-bg': 'transparent' }"
++                    :style="{ '--glass-slider-track-background': 'transparent' }"
+                     @update:model-value="(v: number[] | undefined) => { if (v?.[0] !== undefined) count = v[0]; }"
+                 />
+             </div>
+diff --git a/demo/workbenches/gradient/GradientVisualizer/GradientEasingEditor.vue b/demo/workbenches/gradient/GradientVisualizer/GradientEasingEditor.vue
+index e6cad5b8..b0c7ec75 100644
+--- a/demo/workbenches/gradient/GradientVisualizer/GradientEasingEditor.vue
++++ b/demo/workbenches/gradient/GradientVisualizer/GradientEasingEditor.vue
+@@ -318,7 +318,7 @@ async function copyLiteral(index: number, css: string) {
+     align-items: center;
+     justify-content: center;
+     padding: 0.3125rem;
+-    border-radius: var(--radius-input);
++    border-radius: var(--radius-media);
+     color: var(--muted-foreground);
+     cursor: pointer;
+ }
+diff --git a/demo/workbenches/gradient/GradientVisualizer/GradientStopEditor.vue b/demo/workbenches/gradient/GradientVisualizer/GradientStopEditor.vue
+index a0664dd7..adb44131 100644
+--- a/demo/workbenches/gradient/GradientVisualizer/GradientStopEditor.vue
++++ b/demo/workbenches/gradient/GradientVisualizer/GradientStopEditor.vue
+@@ -663,7 +663,7 @@ function onCaretKeydown(e: KeyboardEvent) {
+                        inline `transform` (inline style always outranks the
+                        class). Selected/dragging/grabbed (1.25) outranks hover
+                        (1.1). T.W5 R9 (ridden here per the cross-wave clause):
+-                       the handle's scale settle is SPATIAL — `--spring-snappy` @
++                       the handle's scale settle is SPATIAL — `--spring-present` @
+                        its own clock, never the squeezed generic 0.3s — declared in
+                        the stylesheet's no-preference block (X.W6.e — e2). */
+                     transform: `translate(-50%, -50%) scale(${handleScale(stop.id)})`,
+@@ -1041,7 +1041,7 @@ function onCaretKeydown(e: KeyboardEvent) {
+     .rail-handle {
+         transition:
+             box-shadow var(--duration-fast) var(--ease-standard),
+-            transform var(--spring-snappy-duration) var(--spring-snappy);
++            transform var(--spring-present-duration) var(--spring-present);
+     }
+     .rail-caret {
+         transition: opacity var(--duration-fast) var(--ease-standard);
+diff --git a/demo/workbenches/gradient/GradientVisualizer/easing/EasingAuthoringStage.vue b/demo/workbenches/gradient/GradientVisualizer/easing/EasingAuthoringStage.vue
+index b7f0dccb..6fba70df 100644
+--- a/demo/workbenches/gradient/GradientVisualizer/easing/EasingAuthoringStage.vue
++++ b/demo/workbenches/gradient/GradientVisualizer/easing/EasingAuthoringStage.vue
+@@ -95,7 +95,6 @@ useMutationObserver(rootEl, syncVbRatio, {
+     >
+         <EasingPicker
+             :model-value="value"
+-            :readout="false"
+             :playback="false"
+             :label="label"
+             @update:model-value="onAuthored"
+diff --git a/demo/workbenches/mix/MixResultDisplay.vue b/demo/workbenches/mix/MixResultDisplay.vue
+index efd1f9f0..c628ab56 100644
+--- a/demo/workbenches/mix/MixResultDisplay.vue
++++ b/demo/workbenches/mix/MixResultDisplay.vue
+@@ -3,7 +3,7 @@ import { Copy, Check, Save, RotateCcw } from "@lucide/vue";
+ import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";
+ import { computed, TransitionGroup } from "vue";
+ import { useClipboard } from "@mkbabb/glass-ui";
+-import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
++import { WatercolorDot } from "../../shared/ui/watercolor-dot";
+ import type { MixResult } from "./composables/useMixingState";
+ import { formatCssCaption } from "../../color-session/format-color";
+ 
+diff --git a/demo/workbenches/mix/MixSourceSelector.vue b/demo/workbenches/mix/MixSourceSelector.vue
+index 8ef99ddc..58dcd29c 100644
+--- a/demo/workbenches/mix/MixSourceSelector.vue
++++ b/demo/workbenches/mix/MixSourceSelector.vue
+@@ -4,7 +4,7 @@ import { Plus, X, ChevronDown } from "@lucide/vue";
+ import { SegmentedTabs } from "@mkbabb/glass-ui/tabs";
+ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../../ui/collapsible";
+ import { LIBRARY_PORT_KEY } from "../../palettes/usePalettePorts";
+-import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
++import { WatercolorDot } from "../../shared/ui/watercolor-dot";
+ import { PaletteColorStrip } from "../../palettes/browser/card";
+ import EmptyState from "../../shared/ui/EmptyState.vue";
+ import type { Palette } from "../../palettes/types";
+diff --git a/e2e/smoke/a11y-select-title.spec.ts b/e2e/smoke/a11y-select-title.spec.ts
+index d637bfc5..77a21f07 100644
+--- a/e2e/smoke/a11y-select-title.spec.ts
++++ b/e2e/smoke/a11y-select-title.spec.ts
+@@ -66,10 +66,10 @@ import { fileURLToPath } from "node:url";
+  * reads ZERO producer-internal slider variables. "Producer-internal" is given a
+  * re-runnable definition rather than a list — a variable the producer DECLARES is its
+  * own state; one it only READS through `var()` is a consumer feed seam (measured in the
+- * receipt: `--slider-range-origin` is declared 3× by the producer; `--slider-track-bg`,
++ * receipt: `--slider-range-origin` is declared 3× by the producer; `--glass-slider-track-background`,
+  * `--slider-thumb-bg` and `--slider-thumb-border-color` are declared 0×).
+  *
+- * `--slider-track-bg`'s consumer reads are NOT this gate's failure: `W4.md:89-90` books
++ * `--glass-slider-track-background`'s consumer reads are NOT this gate's failure: `W4.md:89-90` books
+  * them (CC-105) to `X.W4.g`, "never before, never by shim", and that unit is closed. The
+  * fence reads the producer-DECLARED set, which is the set CC-046 is about.
+  */
+@@ -519,8 +519,10 @@ test("B3 · slider seam consumed as published — the A-16 receipt exists and th
+     // (ii) Zero consumer reads of a PRODUCER-DECLARED slider variable. The set is read
+     // off the installed producer at run time rather than hard-coded, so a producer that
+     // grows a new internal grows this fence with it.
++    // glass 10.0.1 ships the slider's stylesheet beside its component
++    // (`dist/components/slider/styles.css`), no longer inside `dist/glass-ui.css` (X-W7R).
+     const producerCss = readFileSync(
+-        resolve(REPO_ROOT, "node_modules/@mkbabb/glass-ui/dist/glass-ui.css"),
++        resolve(REPO_ROOT, "node_modules/@mkbabb/glass-ui/dist/components/slider/styles.css"),
+         "utf8",
+     );
+     const sliderVars = Array.from(
+diff --git a/e2e/smoke/oracles/cold-nav-scene-enter.spec.ts b/e2e/smoke/oracles/cold-nav-scene-enter.spec.ts
+index cbb31d1c..59613ce7 100644
+--- a/e2e/smoke/oracles/cold-nav-scene-enter.spec.ts
++++ b/e2e/smoke/oracles/cold-nav-scene-enter.spec.ts
+@@ -40,7 +40,7 @@ const PANE_CHUNK = /\/(workbenches|scenes|palettes)\/.*Pane\.vue/;
+ /**
+  * How long a reading may take to come true. The stuck state is permanent (the
+  * classes are never removed), so any bound fails it. The bound only has to
+- * cover the enter itself (`--spring-snappy`, 0.44 s) plus the software-GL frame
++ * cover the enter itself (`--spring-panel`, 0.45 s) plus the software-GL frame
+  * stall at boot: under the suite's swiftshader launch the renderer produced no
+  * frame for ~2 s after the pane mounted (rAF 0/s, `document.timeline` frozen),
+  * which holds a live transition mid-travel without anything being stuck.
+diff --git a/e2e/smoke/oracles/o16-computed-cascade.spec.ts b/e2e/smoke/oracles/o16-computed-cascade.spec.ts
+index e3552b63..4b5b11c6 100644
+--- a/e2e/smoke/oracles/o16-computed-cascade.spec.ts
++++ b/e2e/smoke/oracles/o16-computed-cascade.spec.ts
+@@ -92,8 +92,8 @@ test("O-16 computed-cascade — the dist :root 150ms transition-default clobber
+  * the RESULT, never trusts the declaration).
+  *
+  * Row map (t-transitions-liquid §2 · the retune table of record):
+- *   R2  pane-swap ENTER  — transform `--spring-snappy` @ the RESOLVED
+- *       `--spring-snappy-duration` (own clock)
++ *   R2  pane-swap ENTER  — transform `--spring-panel` @ the RESOLVED
++ *       `--spring-panel-duration` (own clock)
+  *   R3  pane-swap LEAVE  — opacity+transform `--ease-out` @ the RESOLVED
+  *       `--duration-fast`; STRICTLY shorter than the enter (the exit law,
+  *       gate 5)
+@@ -108,9 +108,9 @@ test("O-16 computed-cascade — the dist :root 150ms transition-default clobber
+  *       The live rail-item press leg — transform `--spring-press` @ the
+  *       RESOLVED `--spring-press-duration` (the rule reads that token).
+  *   R8  skeleton settle  — the vj-morph enter family (transform snappy @ the
+- *       RESOLVED `--spring-snappy-duration`)
++ *       RESOLVED `--spring-present-duration`)
+  *   R11 .pane-shell nudge — transform `--transition-liquid-spatial` @ the
+- *       RESOLVED `--spring-smooth-duration` (the rule reads that token)
++ *       RESOLVED `--spring-present-duration` (the rule reads that token)
+  *   Resolved-token pattern (§0az): every row measuring a DEMO rule asserts
+  *   equality with the token's value resolved by getComputedStyle on the
+  *   rule's own element, and the rule reads that token — drift is cured at
+@@ -230,10 +230,10 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
+             // R11 — the live .pane-shell nudge.
+             const shell = document.querySelector(".pane-shell");
+             const paneShell = shell ? readLegs(shell) : null;
+-            // The .pane-shell rule reads `--spring-smooth-duration` /
++            // The .pane-shell rule reads `--spring-present-duration` /
+             // `--transition-liquid-spatial`.
+             const shellTok = shell
+-                ? resolve(shell, "--spring-smooth-duration", "--transition-liquid-spatial")
++                ? resolve(shell, "--spring-present-duration", "--transition-liquid-spatial")
+                 : null;
+ 
+             // R9 — RECORDED (handed across to W6-2): the current handle, if
+@@ -260,11 +260,11 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
+         const log = (row: string, v: unknown) =>
+             console.log(`[O-16·W5·${scheme}] ${row}: ${JSON.stringify(v)}`);
+ 
+-        // R2 — enter transform: snappy spring @ its OWN clock, the resolved
+-        // `--spring-snappy-duration` (0.44s at glass 7.0.0 — never a literal).
++        // R2 — enter transform: the panel spring @ its OWN clock, the resolved
++        // `--spring-panel-duration` (0.45s at glass 10.0.1 — never a literal).
+         expect(census.enter, "R2: no pane wrapper child found").toBeTruthy();
+         log("R2 enter", census.enter);
+-        // ESC-W5c2-1 (COHESION §0ay): equal to the RESOLVED `--spring-snappy-duration`,
++        // ESC-W5c2-1 (COHESION §0ay): equal to the RESOLVED `--spring-panel-duration`,
+         // read by getComputedStyle on the rule's own element (the live pane under
+         // `vj-enter-enter-active`) — never a literal of the producer's clock.
+         expect(census.enter!["transform"]?.duration).toBe(
+@@ -273,7 +273,7 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
+                     .firstElementChild as HTMLElement;
+                 const prev = el.style.getPropertyValue("animation-duration");
+                 el.classList.add("vj-enter-enter-active");
+-                el.style.setProperty("animation-duration", "var(--spring-snappy-duration)");
++                el.style.setProperty("animation-duration", "var(--spring-panel-duration)");
+                 const resolved = getComputedStyle(el).animationDuration;
+                 el.style.setProperty("animation-duration", prev);
+                 el.classList.remove("vj-enter-enter-active");
+@@ -327,9 +327,9 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
+         expect(census.rail!["transform"]?.timing).toMatch(/^linear\(/);
+ 
+         // R8 — the settle family: vj-morph enter transform snappy @ the
+-        // resolved `--spring-snappy-duration` (0.44s at glass 7.0.0).
++        // resolved `--spring-present-duration` (0.44s at glass 7.0.0).
+         log("R8 vj-morph enter", census.morph);
+-        // ESC-W5c2-1 (COHESION §0ay): equal to the RESOLVED `--spring-snappy-duration`,
++        // ESC-W5c2-1 (COHESION §0ay): equal to the RESOLVED `--spring-present-duration`,
+         // read by getComputedStyle on the rule's own element (the census's
+         // `vj-morph-enter-active` probe, through the real cascade).
+         expect(census.morph["transform"]?.duration).toBe(
+@@ -337,7 +337,7 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
+                 const el = document.createElement("div");
+                 el.className = "vj-morph-enter-active";
+                 document.body.appendChild(el);
+-                el.style.setProperty("animation-duration", "var(--spring-snappy-duration)");
++                el.style.setProperty("animation-duration", "var(--spring-present-duration)");
+                 const resolved = getComputedStyle(el).animationDuration;
+                 el.remove();
+                 return resolved;
+@@ -346,7 +346,7 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
+         expect(census.morph["transform"]?.timing).toMatch(/^linear\(/);
+ 
+         // R11 — the shell nudge: `--transition-liquid-spatial` @ the RESOLVED
+-        // `--spring-smooth-duration` — the tokens its rule reads (§0az).
++        // `--spring-present-duration` — the tokens its rule reads (§0az).
+         expect(census.paneShell, "R11: .pane-shell not found").toBeTruthy();
+         log("R11 pane-shell", census.paneShell);
+         log("R11 resolved tokens", census.shellTok);
+@@ -359,7 +359,7 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
+             "R9 gradient-stop handle",
+             census.r9Present
+                 ? "present on this view (verify at W6-2 merge)"
+-                : "HANDED-ACROSS → W6-2 (T-46); target --spring-snappy @ --spring-snappy-duration; census owns the row at merge",
++                : "HANDED-ACROSS → W6-2 (T-46); target --spring-present @ --spring-present-duration; census owns the row at merge",
+         );
+ 
+         // R10 — DISCHARGED BY EXCISION (W0-3 CC-6): no 0.55s scrim exists;
+diff --git a/e2e/smoke/oracles/o18-contrast-census.spec.ts b/e2e/smoke/oracles/o18-contrast-census.spec.ts
+index 1948fd47..c7e786e9 100644
+--- a/e2e/smoke/oracles/o18-contrast-census.spec.ts
++++ b/e2e/smoke/oracles/o18-contrast-census.spec.ts
+@@ -528,7 +528,7 @@ for (const scheme of ["light", "dark"] as const) {
+                 const probe = document.createElement("div");
+                 probe.style.cssText =
+                     "position:absolute;width:0;height:0;visibility:hidden;pointer-events:none";
+-                probe.style.background = "var(--glass-bg-resting)";
++                probe.style.background = "var(--glass-plate-resting)";
+                 document.body.appendChild(probe);
+                 const tint = resolve(getComputedStyle(probe).backgroundColor);
+                 probe.remove();
+@@ -849,7 +849,7 @@ for (const scheme of ["light", "dark"] as const) {
+                 const probe = document.createElement("div");
+                 probe.style.cssText =
+                     "position:absolute;width:0;height:0;visibility:hidden;pointer-events:none";
+-                probe.style.background = "var(--glass-bg-resting)";
++                probe.style.background = "var(--glass-plate-resting)";
+                 document.body.appendChild(probe);
+                 const tint = resolve(getComputedStyle(probe).backgroundColor);
+                 probe.remove();
+@@ -1155,7 +1155,7 @@ for (const scheme of ["light", "dark"] as const) {
+ // 1.4.11 wants ≥3:1 for the control's extent), and the spectrum `.slider-range`
+ // is transparent by recipe so no filled/unfilled split reads either. This leg
+ // is the cure's BORN-RED gate: born red against the pre-cure `--secondary`
+-// track, green against the `--slider-track-bg: var(--ink-muted)` re-ink
++// track, green against the `--glass-slider-track-background: var(--ink-muted)` re-ink
+ // (ConfigSliderPane — the SAME certified-material class as the eb7bb2c Extract
+ // re-ink). The census extension is the W6.5 precedent (a bounds extension, not
+ // a weakening — the GRAPHICS floor is unchanged).
+diff --git a/package-lock.json b/package-lock.json
+index b24cd1ee..160b8b58 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -14,7 +14,7 @@
+             },
+             "devDependencies": {
+                 "@lucide/vue": "^1.16.0",
+-                "@mkbabb/glass-ui": "^7.0.0",
++                "@mkbabb/glass-ui": "10.0.1",
+                 "@mkbabb/keyframes.js": "^6.0.0",
+                 "@playwright/test": "^1.60.0",
+                 "@tailwindcss/postcss": "^4.3.0",
+@@ -1297,9 +1297,9 @@
+             }
+         },
+         "node_modules/@mkbabb/glass-ui": {
+-            "version": "7.0.0",
+-            "resolved": "https://registry.npmjs.org/@mkbabb/glass-ui/-/glass-ui-7.0.0.tgz",
+-            "integrity": "sha512-iK2DaPNbnEOkcI6deSyYZ1mCbDyHCY+IGFeKtsKb800WzApX0uL/Pq6FA9EomqCcBWWDrPSa7iydk7kg9sH2ww==",
++            "version": "10.0.1",
++            "resolved": "https://registry.npmjs.org/@mkbabb/glass-ui/-/glass-ui-10.0.1.tgz",
++            "integrity": "sha512-cevbnaY/EhQoZzm0lWjHyvgAH+eTMxPPizYxSUN5XKdGU8wUrhvaJHAZEuh+OjAPUU3HfbJGHMs2fUvTAe8SOA==",
+             "dev": true,
+             "license": "MIT",
+             "workspaces": [
+@@ -1311,35 +1311,21 @@
+             "peerDependencies": {
+                 "@lucide/vue": "^1.16.0",
+                 "@mkbabb/keyframes.js": "^6.0.0",
+-                "@mkbabb/pencil-boil": "^0.9.2",
+                 "@mkbabb/value.js": "^4.0.0",
+                 "@vueuse/core": "^14.0",
+-                "embla-carousel": "^8.0",
+-                "embla-carousel-vue": "^8.0",
+                 "reka-ui": "^2.0",
+                 "tailwindcss": "^4.0",
+                 "tw-animate-css": "^1.2.5",
+-                "vue": "^3.5"
++                "vue": "^3.5",
++                "vue-component-type-helpers": "^3.0.3"
+             },
+             "peerDependenciesMeta": {
+-                "@mkbabb/keyframes.js": {
+-                    "optional": true
+-                },
+-                "@mkbabb/pencil-boil": {
+-                    "optional": true
+-                },
+                 "@mkbabb/value.js": {
+                     "optional": true
+                 },
+                 "@vueuse/core": {
+                     "optional": true
+                 },
+-                "embla-carousel": {
+-                    "optional": true
+-                },
+-                "embla-carousel-vue": {
+-                    "optional": true
+-                },
+                 "tw-animate-css": {
+                     "optional": true
+                 }
+diff --git a/package.json b/package.json
+index 3125b97a..b5d5bd90 100644
+--- a/package.json
++++ b/package.json
+@@ -85,7 +85,7 @@
+     "homepage": "https://github.com/mkbabb/value.js#readme",
+     "devDependencies": {
+         "@lucide/vue": "^1.16.0",
+-        "@mkbabb/glass-ui": "^7.0.0",
++        "@mkbabb/glass-ui": "10.0.1",
+         "@mkbabb/keyframes.js": "^6.0.0",
+         "@playwright/test": "^1.60.0",
+         "@tailwindcss/postcss": "^4.3.0",
+diff --git a/demo/shared/ui/watercolor-dot/WatercolorDot.vue b/demo/shared/ui/watercolor-dot/WatercolorDot.vue
+new file mode 100644
+index 00000000..2ff30304
+--- /dev/null
++++ b/demo/shared/ui/watercolor-dot/WatercolorDot.vue
+@@ -0,0 +1,315 @@
++<script setup lang="ts">
++import { computed, toRef, useAttrs, useId, type HTMLAttributes } from "vue";
++import { useWatercolorBlob } from "./useWatercolorBlob";
++import { hashString } from "./prng";
++
++defineOptions({ inheritAttrs: false });
++
++/**
++ * WatercolorDot — an organic pastel blob swatch. A CSS/SVG primitive (NO drawing
++ * context — no WebGL/WebGPU/Canvas2D; the deliberate suite counterexample, the mark
++ * that documents WHY it is not a GPU context): the blob shape is a deterministic
++ * `border-radius` silhouette (seeded by `color + seed`), and the wet, bleeding
++ * edge is an SVG turbulence + displacement filter that is INTERNALISED — the component
++ * mounts its own namespaced `<filter>` so there is zero consumer plumbing. Mount the
++ * dot and the filter just works.
++ *
++ * Safari-safe by construction (USER-DEFECTS §H): the SVG `<filter>` rasterizes ONCE
++ * + caches (the HandMark `texture.ts` idiom) and NEVER re-rasterizes per frame; the
++ * `animate` liveness rides a seeded COMPOSITOR `transform` wobble the compositor
++ * accelerates without touching the filter graph (a per-frame `border-radius` paint
++ * under the filter is the §H Safari flash, retired here). The filter `seed` is
++ * per-instance off `hashString(color + seed)` so each dot's wet edge is uniquely
++ * displaced (no twelve-clones).
++ *
++ * Color arrives as a CSS string painted straight onto the swatch background — the
++ * dot needs no resolver because it does not feed a shader; the injected-color seam
++ * shape is "pass the CSS color in". Warm-cream identity by default (the dot bakes no
++ * hue; the demo palette is presets-in-consumers).
++ */
++const props = withDefaults(
++    defineProps<{
++        /** CSS color painted as the swatch background (any CSS color form). */
++        color: string;
++        /**
++         * Render mode:
++         *   `solid` (default) — the filled organic blob (the swatch background IS the
++         *                       color; the existing register, unchanged).
++         *   `ghost`  — the SAME seeded blob SILHOUETTE traced as a DASHED outline: a
++         *              dashed CSS BORDER reading the SAME seeded `border-radius`
++         *              silhouette the solid dot fills (`borderRadius`), carrying
++         *              the SAME wet `feDisplacementMap` filter so the displacement
++         *              wobbles the dashed border INTO the seeded organic outline. A
++         *              CSS dashed border hugs its own `border-radius`, so the outline
++         *              follows the seeded blob EXACTLY — NOT an ellipse, NOT a circle,
++         *              NOT a dashed rectangle. A low-alpha `color` fill is kept behind
++         *              the border. A `ghost` of a given `color + seed` traces the SAME
++         *              outline the `solid` dot of that seed fills (both read the same
++         *              `useWatercolorBlob` silhouette — the ONE shape source). The empty-
++         *              palette-slot / placeholder affordance.
++         */
++        variant?: "solid" | "ghost";
++        /** Run the rAF-driven compositor transform wobble (default false → static). */
++        animate?: boolean;
++        /** Base morph cycle duration in ms (default 4000). */
++        cycleDuration?: number;
++        /** Border-radius range [lo, hi] as percentages (default [20, 80]). */
++        range?: [number, number];
++        /** Extra seed string mixed into the shape + wet-edge PRNG for uniqueness. */
++        seed?: string;
++    }>(),
++    {
++        variant: "solid",
++        animate: false,
++        cycleDuration: 4000,
++        range: () => [20, 80],
++        seed: "",
++    },
++);
++
++// A WatercolorDot is paint, never the seat. Suppress every semantic/action
++// fallthrough attribute and forward only the two visual composition channels.
++const attrs = useAttrs();
++const visualClass = computed(() => attrs.class as HTMLAttributes["class"]);
++const visualStyle = computed(() => attrs.style as HTMLAttributes["style"]);
++
++// Per-instance namespaced filter id — internalises the SVG filter with zero global
++// state and zero cross-mount coupling. Sanitised for a CSS `url(#…)` reference.
++const filterId = `watercolor-filter-${useId().replace(/[^a-zA-Z0-9_-]/g, "")}`;
++const filterUrl = computed(() => `url(#${filterId})`);
++
++// Per-instance wet-edge seed — derived off the SAME PRNG hash (./prng.ts, the single
++// source) the shape morph uses. A shared hardcoded `seed` would make
++// every dot share ONE wet-edge displacement (twelve clones); deriving it off
++// `hashString(color + seed)` gives each dot a unique wet edge coherent with its
++// silhouette. % 256 keeps it in the feTurbulence seed's comfortable integer range.
++const filterSeed = computed(() => hashString(props.color + props.seed) % 256);
++
++const colorRef = toRef(props, "color");
++const { borderRadius, transform } = useWatercolorBlob(colorRef, {
++    animate: props.animate,
++    cycleDuration: props.cycleDuration,
++    range: props.range,
++    seed: props.seed,
++});
++</script>
++
++<template>
++    <span
++        aria-hidden="true"
++        :class="[visualClass, 'watercolor-swatch', animate && 'watercolor-animated']"
++        data-testid="watercolor-swatch"
++        :data-variant="variant"
++        :style="[
++            visualStyle,
++            {
++                // The solid register fills with the color; the ghost register keeps a
++                // low-alpha fill (the CSS half) and traces the silhouette as a dashed
++                // BORDER reading the SAME seeded `border-radius` silhouette the solid
++                // fills. The SILHOUETTE (`borderRadius`) is the SAME seeded blob in both
++                // — a ghost of a given seed traces the solid dot's outline (the ONE shape
++                // source). The animate wobble rides `--watercolor-wobble` (a compositor
++                // transform, NOT a per-frame radius paint under the filter).
++                backgroundColor: variant === 'ghost' ? undefined : color,
++                borderRadius,
++                pointerEvents: 'none',
++                '--watercolor-color': color,
++                '--watercolor-filter': filterUrl,
++                '--watercolor-wobble': transform,
++            },
++        ]"
++    >
++        <!--
++          Internalised watercolor filter — namespaced per instance, auto-mounted,
++          zero-wiring. The wet edge is fractal-noise turbulence displacing the
++          source graphic. STATIC + cached: it rasterizes once per (mount, resize,
++          scheme-flip) and NEVER re-rasterizes per frame (the §H Safari fix — the
++          liveness is the compositor transform wobble, never a per-frame paint under
++          this filter). Sits in a zero-size hidden <svg> so it only contributes the
++          filter def, never layout.
++        -->
++        <svg class="watercolor-filter-host" aria-hidden="true" focusable="false">
++            <defs>
++                <!--
++                  Device-px-resolved wet edge. The displacement
++                  keeps the hand-painted wet bleed crisp:
++                  • linearRGB filter math → smoother edge antialiasing on Chrome/FF.
++                    CAVEAT (WebKit): Safari renders SVG filters in sRGB regardless of
++                    `color-interpolation-filters` (a known WebKit limitation), so the
++                    smooth-AA edge is a Chrome/FF nicety only — never trust it on
++                    Safari. The finer-noise + small scale=1.3 keep the sRGB edge
++                    acceptable for a soft decorative mark.
++                  • 5 octaves at a slightly higher base frequency → FINER noise, so
++                    the displacement perturbs in small smooth steps. Octave 6 is
++                    practically imperceptible (Codrops) + pure Safari raster cost.
++                  • stitchTiles="stitch" → seamless tiled noise (no per-tile
++                    discontinuity flecks at the filter-region boundary).
++                  • scale 1.3 keeps the wet amplitude; the finer noise spreads it
++                    smoothly.
++                  • seed is PER-INSTANCE (off hashString(color+seed)) so each dot's
++                    wet edge is uniquely displaced (no twelve-clones).
++                  The widened −15%/130% region holds the wet bleed clear of the
++                  filter edge (the cross-Safari tiling-seam mitigation, the pre-26.4
++                  feDisplacementMap reference-filter tiling-gap bug). Border-radius
++                  seeded-prng identity is untouched.
++                -->
++                <filter
++                    :id="filterId"
++                    x="-15%"
++                    y="-15%"
++                    width="130%"
++                    height="130%"
++                    color-interpolation-filters="linearRGB"
++                >
++                    <feTurbulence
++                        type="fractalNoise"
++                        baseFrequency="0.05"
++                        numOctaves="5"
++                        :seed="filterSeed"
++                        stitchTiles="stitch"
++                        result="noise"
++                    />
++                    <feDisplacementMap
++                        in="SourceGraphic"
++                        in2="noise"
++                        scale="1.3"
++                        xChannelSelector="R"
++                        yChannelSelector="G"
++                    />
++                </filter>
++            </defs>
++        </svg>
++        <!--
++          The GHOST register — the seeded
++          blob silhouette traced as a DASHED outline that FOLLOWS THE SAME SHAPE the solid
++          dot fills. ONE shape source: this dashed BORDER `<span>` reads `borderRadius`
++          — the SAME seeded 8-value `border-radius` superellipse the solid box takes from
++          `useWatercolorBlob` — and a CSS dashed border hugs its OWN `border-radius` exactly,
++          so the outline traces the seeded organic blob BY CONSTRUCTION (never an ellipse,
++          never a circle, never a dashed rect — a hardcoded `<ellipse rx=46 ry=46>`
++          + random noise is a noise-jittered CIRCLE geometrically disconnected from the
++          silhouette). The wet `feDisplacementMap` filter wobbles the dashed border INTO the
++          hand-painted organic edge (the design intent). Static → PRM-neutral.
++        -->
++        <span
++            v-if="variant === 'ghost'"
++            class="watercolor-ghost-stroke"
++            aria-hidden="true"
++            :style="{ borderRadius, filter: filterUrl }"
++        />
++    </span>
++</template>
++
++<style scoped>
++/* Watercolor swatch — organic pastel blobs. */
++.watercolor-swatch {
++    display: inline-block;
++    border-radius: 48% 52% 55% 45% / 52% 48% 45% 55%;
++    filter: var(--watercolor-filter);
++    /* The animate-mode liveness — a seeded COMPOSITOR transform wobble (identity when
++       static). It is GPU-accelerated and never re-rasters the cached filter graph;
++       the per-frame `border-radius` paint under the filter (the §H Safari flash) is
++       retired in favour of this. */
++    transform: var(--watercolor-wobble, none);
++    /* Walls the residual Safari `border-radius`+transform flicker into the swatch's
++       own stacking context (Apple Dev Forums 705172). Safe here — no `multiply`
++       blend to wall (unlike HandMark's highlighter). */
++    isolation: isolate;
++    box-shadow:
++        inset 0 0 6px color-mix(in srgb, var(--background) 35%, transparent),
++        inset 0 -2px 4px color-mix(in srgb, var(--foreground) 6%, transparent),
++        0 2px 6px color-mix(in srgb, var(--foreground) 10%, transparent);
++    transition:
++        transform var(--duration-fast) var(--ease-standard),
++        border-radius 0.6s var(--ease-standard),
++        filter var(--duration-fast) var(--ease-standard),
++        box-shadow var(--duration-fast) var(--ease-standard);
++    position: relative;
++    /* The ghost dashed-outline axis (ghost-only): the hand-drawn-placeholder dash
++       pattern, tunable per consumer. The CSS dashed border's pitch is UA-derived, so
++       these document the dash register + carry the OPTION-B path-stroke escape; the
++       border WEIGHT is the load-bearing knob. */
++    --watercolor-dash: 8px;
++    --watercolor-gap: 5px;
++    --watercolor-ghost-weight: 2px;
++}
++
++/* The GHOST register — the box keeps the SAME seeded
++   `border-radius` silhouette the solid dot of that seed renders (set inline by
++   useWatercolorBlob), plus a low-alpha `--watercolor-color` fill BEHIND the dashed
++   stroke overlay. NO solid box border, NO dashed box border — the silhouette is
++   traced by the `.watercolor-ghost-stroke` SVG <ellipse> `stroke-dasharray` overlay
++   (a dashed OUTLINE following the silhouette). */
++.watercolor-swatch[data-variant="ghost"] {
++    background-color: color-mix(in srgb, var(--watercolor-color) 12%, transparent);
++    box-shadow:
++        inset 0 0 6px color-mix(in srgb, var(--background) 25%, transparent),
++        0 1px 4px color-mix(in srgb, var(--foreground) 6%, transparent);
++    /* X6 (value.js P5 rider) — make the ghost swatch a size-query container so the
++       ring can firm to SOLID at the small sizes these dots live at. `inline-size`
++       containment only (the swatch is consumer-sized + carries no in-flow content,
++       so no intrinsic collapse) — the filter/isolation stacking context is
++       untouched. */
++    container-type: inline-size;
++}
++
++/* X6 — the ring register is SOLID at ≤48px: a dashed hairline at swatch sizes
++   degrades to 3-4 sparse ticks that read as noise, not a traced silhouette (their
++   sizing law — a solid ring is the floor). Above 48px the dash pattern has room to
++   read as the hand-drawn placeholder, so it keeps the dashed register there. */
++@container (max-width: 48px) {
++    .watercolor-ghost-stroke {
++        border-style: solid;
++    }
++}
++
++/* The GHOST dashed outline — a span clipped to the SAME seeded
++   `border-radius` silhouette the solid dot fills (the ONE shape source: it reads
++   `borderRadius` inline, the SAME value the solid box takes). A dashed
++   CSS border hugs its own border-radius, so the outline traces the seeded organic blob
++   EXACTLY — never an ellipse, never a circle, never a dashed rectangle. The wet
++   `feDisplacementMap` filter (set inline) wobbles the dashed border into the hand-painted
++   organic edge. Static → PRM-neutral. */
++.watercolor-ghost-stroke {
++    position: absolute;
++    inset: 0;
++    border: var(--watercolor-ghost-weight, 2px) dashed var(--watercolor-color);
++    /* border-radius is the same seeded silhouette as the solid face. */
++    pointer-events: none;
++}
++
++/* Under prefers-reduced-transparency the low-alpha ghost fill firms up so the dashed
++   outline still reads (mirrors the glass legibility brackets). */
++@media (prefers-reduced-transparency: reduce) {
++    .watercolor-swatch[data-variant="ghost"] {
++        background-color: color-mix(in srgb, var(--watercolor-color) 24%, transparent);
++    }
++}
++
++/* Animated blobs: the seeded silhouette is STATIC; the liveness is the compositor
++   `--watercolor-wobble` transform. Disable the border-radius CSS transition (the
++   radius does not change per frame) — the transform legs stay on the smooth clock. */
++.watercolor-swatch.watercolor-animated {
++    transition:
++        transform var(--duration-fast) var(--ease-standard),
++        filter var(--duration-fast) var(--ease-standard),
++        box-shadow var(--duration-fast) var(--ease-standard);
++}
++
++/* Under reduced motion the wobble drops to a single static frame; the filter is
++   static either way. */
++@media (prefers-reduced-motion: reduce) {
++    .watercolor-swatch.watercolor-animated {
++        transform: none;
++    }
++}
++
++/* The internalised filter host contributes no layout — it only carries the def. */
++.watercolor-filter-host {
++    position: absolute;
++    width: 0;
++    height: 0;
++    overflow: hidden;
++    pointer-events: none;
++}
++</style>
+diff --git a/demo/shared/ui/watercolor-dot/index.ts b/demo/shared/ui/watercolor-dot/index.ts
+new file mode 100644
+index 00000000..95ea277f
+--- /dev/null
++++ b/demo/shared/ui/watercolor-dot/index.ts
+@@ -0,0 +1 @@
++export { default as WatercolorDot } from "./WatercolorDot.vue";
+diff --git a/demo/shared/ui/watercolor-dot/prng.ts b/demo/shared/ui/watercolor-dot/prng.ts
+new file mode 100644
+index 00000000..f9882482
+--- /dev/null
++++ b/demo/shared/ui/watercolor-dot/prng.ts
+@@ -0,0 +1,40 @@
++// WatercolorDot's seeded PRNG — relocated from glass-ui 7.0.0 when glass 8.0.0 deleted
++// the `./watercolor-dot` door ("the ornament itself RELOCATED to value.js", glass
++// MIGRATION.md 8.0.0 `_Deleted — WatercolorDot_`). A dot keyed by `color + seed`
++// reproduces the same organic blob shape across mounts; `mulberry32` + `hashString`
++// are byte-identical to glass's internal procedural PRNG leaf.
++
++/** Mulberry32 — fast 32-bit seeded PRNG. Returns a `() => number` in [0, 1). */
++export function mulberry32(seed: number): () => number {
++    return () => {
++        seed |= 0;
++        seed = (seed + 0x6d2b79f5) | 0;
++        let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
++        t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
++        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
++    };
++}
++
++/** Simple string → u32 hash (djb2). */
++export function hashString(str: string): number {
++    let hash = 5381;
++    for (let i = 0; i < str.length; i++) {
++        hash = ((hash << 5) + hash + str.charCodeAt(i)) | 0;
++    }
++    return hash >>> 0;
++}
++
++
++/** Generate 8 random border-radius percentages in [lo, hi] using the given PRNG. */
++export function randomRadii(rng: () => number, lo: number, hi: number): number[] {
++    const out: number[] = [];
++    for (let i = 0; i < 8; i++) {
++        out.push(lo + rng() * (hi - lo));
++    }
++    return out;
++}
++
++/** Serialise 8 radii into a CSS `border-radius` shorthand (4 corners / 4 corners). */
++export function radiiToCSS(r: number[]): string {
++    return `${r[0]}% ${r[1]}% ${r[2]}% ${r[3]}% / ${r[4]}% ${r[5]}% ${r[6]}% ${r[7]}%`;
++}
+diff --git a/demo/shared/ui/watercolor-dot/useWatercolorBlob.ts b/demo/shared/ui/watercolor-dot/useWatercolorBlob.ts
+new file mode 100644
+index 00000000..1471ad85
+--- /dev/null
++++ b/demo/shared/ui/watercolor-dot/useWatercolorBlob.ts
+@@ -0,0 +1,166 @@
++import { ref, watch, type Ref } from "vue";
++import { mulberry32, hashString, randomRadii, radiiToCSS } from "./prng";
++// the animate-mode wobble rides the library's ONE rAF loop
++// (`useRAFLoop`), NEVER a hand-rolled self-scheduling `requestAnimationFrame(tick)`.
++// The loop parks the frame schedule when the tab is backgrounded (`pauseWhenHidden`)
++// and freezes under `prefers-reduced-motion` (`respectReducedMotion`, live-monitored),
++// so the zombie rAF — a wobble loop that ran forever in a hidden tab AND ignored
++// reduce — is retired. The loop owns its teardown via `onScopeDispose`, so no manual
++// `cancelAnimationFrame` survives here.
++import { useRAFLoop } from "@mkbabb/glass-ui/motion-core";
++
++export interface UseWatercolorBlobOptions {
++    /** Enable the rAF animation loop (drives a COMPOSITOR transform wobble). */
++    animate?: boolean;
++    /** Base cycle duration in ms (default 4000). */
++    cycleDuration?: number;
++    /** Border-radius range [lo, hi] as percentages (default [20, 80]). */
++    range?: [number, number];
++    /** Extra seed string mixed into the hash for unique shapes. */
++    seed?: string;
++}
++
++/**
++ * Per-channel wobble state — each of the transform channels (scaleX/scaleY/skewX/
++ * skewY/rotate) animates independently with its own timing, producing organic
++ * sub-perceptual motion the compositor handles WITHOUT re-rastering the SVG filter.
++ */
++interface ChannelState {
++    from: number;
++    to: number;
++    startTime: number;
++    duration: number;
++    /** The peak amplitude this channel oscillates within (sub-perceptual). */
++    amp: number;
++}
++
++// The transform-wobble channels. The amplitudes are deliberately SMALL — a soft
++// organic breathing, never a taffy-pull (the §6 calm register). scale stays near 1,
++// skew/rotate stay near-zero degrees, so the seeded silhouette reads STILL but alive.
++const CHANNELS = ["scaleX", "scaleY", "skewX", "skewY", "rotate"] as const;
++const CHANNEL_AMP: Record<(typeof CHANNELS)[number], number> = {
++    scaleX: 0.045, // ±4.5% width
++    scaleY: 0.045, // ±4.5% height
++    skewX: 1.6, // ±1.6deg
++    skewY: 1.6, // ±1.6deg
++    rotate: 1.4, // ±1.4deg
++};
++
++/**
++ * Drives a watercolor dot's organic blob shape. Deterministic given `color + seed`
++ * (seeds the PRNG), so the same color reproduces the same shape across mounts. The
++ * seeded `border-radius` silhouette is set ONCE (the dot's identity) and is STATIC —
++ * the box never re-paints its radius per frame (the §H Safari fix: a per-frame
++ * `border-radius` write under the SVG filter forces the filter graph to RE-RASTERIZE
++ * every frame, which flashes Safari). In `animate` mode the liveness rides a seeded
++ * COMPOSITOR `transform` wobble (scale/skew/rotate) the compositor handles WITHOUT
++ * touching the cached filter — the HandMark static-filter idiom. The wobble is driven
++ * by the library's ONE `useRAFLoop` — parked when the tab is
++ * hidden, frozen under `prefers-reduced-motion` — never a hand-rolled zombie rAF.
++ */
++export function useWatercolorBlob(
++    color: Ref<string> | (() => string),
++    options: UseWatercolorBlobOptions = {},
++) {
++    const {
++        animate = false,
++        cycleDuration = 4000,
++        range = [20, 80],
++        seed = "",
++    } = options;
++
++    const borderRadius = ref("");
++    // The seeded COMPOSITOR transform wobble (the animate-mode liveness; default
++    // identity so a static dot reads untransformed).
++    const transform = ref("none");
++
++    const getColor = typeof color === "function" ? color : () => color.value;
++
++    // Deterministic initial shape from color string + optional seed.
++    const rng = mulberry32(hashString(getColor() + seed));
++    const initial = randomRadii(rng, range[0], range[1]);
++    borderRadius.value = radiiToCSS(initial);
++
++    // Re-seed when color changes (non-animated mode).
++    if (!animate) {
++        if (typeof color !== "function") {
++            watch(color, (c) => {
++                const r = mulberry32(hashString(c + seed));
++                borderRadius.value = radiiToCSS(randomRadii(r, range[0], range[1]));
++            });
++        }
++        return { borderRadius, transform };
++    }
++
++    // --- Per-channel independent COMPOSITOR transform wobble ---
++    // The seeded `border-radius` silhouette stays STATIC (`borderRadius.value` is
++    // set once above); the liveness is a seeded transform the compositor accelerates,
++    // so the SVG filter never re-rasterizes per frame (the §H Safari flash fix).
++
++    const channels: ChannelState[] = [];
++    for (let i = 0; i < CHANNELS.length; i++) {
++        const name = CHANNELS[i] ?? "scaleX";
++        const amp = CHANNEL_AMP[name];
++        const durationMul = 0.5 + rng() * 1.3;
++        const phaseOffset = rng();
++        channels.push({
++            from: 0,
++            to: -1 + rng() * 2, // a normalized target in [-1, 1]; * amp at composeTransform
++            startTime: -phaseOffset * cycleDuration * durationMul,
++            duration: cycleDuration * durationMul,
++            amp,
++        });
++    }
++
++    const current = channels.map(() => 0);
++
++    function composeTransform(): string {
++        // Map each normalized channel value (* its amplitude) onto a CSS transform.
++        // scaleX/scaleY are 1 + v*amp; skew/rotate are v*amp degrees.
++        const sx = 1 + current[0]! * channels[0]!.amp;
++        const sy = 1 + current[1]! * channels[1]!.amp;
++        const kx = current[2]! * channels[2]!.amp;
++        const ky = current[3]! * channels[3]!.amp;
++        const rot = current[4]! * channels[4]!.amp;
++        return `scale(${sx.toFixed(4)}, ${sy.toFixed(4)}) skew(${kx.toFixed(3)}deg, ${ky.toFixed(3)}deg) rotate(${rot.toFixed(3)}deg)`;
++    }
++
++    function tick(now: number) {
++        for (let i = 0; i < channels.length; i++) {
++            const c = channels[i];
++            if (!c) continue;
++            let t = (now - c.startTime) / c.duration;
++
++            if (t >= 1) {
++                c.from = c.to;
++                c.to = -1 + rng() * 2;
++                c.duration = cycleDuration * (0.5 + rng() * 1.3);
++                c.startTime = now;
++                t = 0;
++            }
++
++            // Sinusoidal ease — smoother and more organic than quadratic.
++            const ease = 0.5 - 0.5 * Math.cos(Math.PI * t);
++            current[i] = c.from + ease * (c.to - c.from);
++        }
++
++        // The COMPOSITOR transform wobble — never a per-frame border-radius paint
++        // under the filter (the §H Safari flash fix; the seeded silhouette is static).
++        // No self-reschedule — `useRAFLoop` owns the cadence + the park/PRM gate.
++        transform.value = composeTransform();
++    }
++
++    // The ONE rAF loop drives the wobble. `pauseWhenHidden` parks the schedule when
++    // the tab is backgrounded; `respectReducedMotion` (live-monitored) freezes it to a
++    // single static frame under `prefers-reduced-motion: reduce`. The loop registers
++    // `onScopeDispose`, so it tears its own frame down when the host unmounts — no
++    // hand-rolled `cancelAnimationFrame`.
++    useRAFLoop((timing) => tick(timing.now), {
++        pauseWhenHidden: true,
++        respectReducedMotion: true,
++    });
++
++    return { borderRadius, transform };
++}
++
++export type WatercolorBlob = ReturnType<typeof useWatercolorBlob>;
