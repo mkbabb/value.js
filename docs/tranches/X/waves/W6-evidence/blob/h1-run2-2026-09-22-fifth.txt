@@ -1,0 +1,7 @@
+SERVED MODEL: claude-opus-5-5[1m]
+X.W6.h fifth sitting 2026-09-22 — h1 run 2: VJS_E2E_PORT=8744 npx playwright test e2e/smoke/webgl-blob-idle.spec.ts -g "hero blob carries current chroma" --project=smoke --reporter=line (fresh webServer)
+[h1] seed lab(92% 88.8 20) L 0.9583 C 0.27245 h 9.83 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.02105 · painted core median L 0.8504 C 0.04658 h 4.45 · ΔC 0.02552 (stated ±0.04) · px 2324
+[h1] seed oklch(0.65 0.3 150) L 0.6500 C 0.30000 h 150.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.17901 · painted core median L 0.7336 C 0.18465 h 141.59 · ΔC 0.00564 (stated ±0.04) · px 2324
+[h1] seed oklch(0.55 0.37 328) L 0.5500 C 0.37000 h 328.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.25325 · painted core median L 0.6436 C 0.23050 h 321.01 · ΔC -0.02274 (stated ±0.04) · px 2324
+3 passed (37.8s)
+EXIT 0

@@ -85,3 +85,29 @@ only. The consumer does not gamut-map on its own side of the `<Blob :color>` sea
 OM-6 seed that would swap the producer clip's C 0.149 at L 0.786 for C 0.021 at L 0.958 — a *less*
 vibrant bead — and it did not move h1's core reading (measured 0.0477 → 0.0481 in the working tree,
 never committed). A cure that works against the owner's words is not a cure.
+
+---
+
+## ADDENDUM 2026-09-22 (dated, beside — E-3; COHESION §0aq h1 + §0ax h1) — `H1-P3`, recorded by id
+
+SERVED MODEL: claude-opus-5-5[1m] (X.W6.h, fifth sitting). The letter above is unchanged; this block
+records the ruling it now carries.
+
+**Id**: **`H1-P3`** — honest-RED-by-physics. COHESION §0aq: *"the OM-6 beyond-sRGB limb is
+honest-RED-by-physics, id `H1-P3`, cross-referenced to `waves/W6-glass-ask-hero-blob-p3.md`"*. Mail row:
+**INBOX `O-52`** (this letter; the row already names `H1-P3`). The ask content is unchanged, so no new
+`O-` row is minted.
+
+**What `H1-P3` is, measured** (⟨cmd⟩ `node --input-type=module -e "…mapColorToGamut(parseCssColor('lab(92% 88.8 20)').value, g)…"`
+against `dist/subpaths/{color,css}.js`, run twice, identical):
+
+| gamut | chroma ceiling at the seed's L and h (css-color-4 §13 map) | seed C 0.27245 ÷ ceiling |
+|---|---|---|
+| sRGB | **0.02105** | **12.94×** |
+| display-p3 | **0.02768** | **9.84×** |
+
+OM-6's `lab(92% 88.8 20)` lies outside sRGB **and** outside display-p3 at its own lightness. This
+letter's ask widens the ceiling from 0.02105 to 0.02768 on a P3 display (+31%); it does not, and no
+display can, paint the seed's own chroma. That remainder is `H1-P3`: physics, not a defect in either
+repo. h1's GREEN is carried by the gamut-mapped predicate (`W6.md` addendum 2026-09-19) and the two
+headroom seeds `oklch(0.65 0.3 150)` / `oklch(0.55 0.37 328)` (§0aq).
