@@ -1,5 +1,5 @@
 <template>
-    <div @click.stop class="overflow-hidden">
+    <div data-palette-swatches @click.stop class="overflow-hidden">
         <!-- User slug display -->
         <div
             v-if="displaySlug"

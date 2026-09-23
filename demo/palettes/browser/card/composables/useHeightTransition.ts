@@ -9,6 +9,30 @@ const DEFAULT_COLLAPSE_DURATION = 250;
 const EXPAND_EASING = "cubic-bezier(0.16, 1, 0.3, 1)"; // matches --ease-out-expo
 const COLLAPSE_EASING = "cubic-bezier(0.4, 0, 0.2, 1)"; // matches --ease-standard
 
+/**
+ * Resolve a height morph's `done` from the transition the engine ACTUALLY runs.
+ *
+ * X.W7.c (fold N-13 · PC-1 ≡ PS-4): `done` used to wait on a `height`
+ * `transitionend` — but under `prefers-reduced-motion` the central guard
+ * rewrites the transition set without `height` (author-`!important` beats the
+ * inline shorthand), so no height transition ever starts, the event never
+ * fires, and Vue waits on the 2-arity hook forever: the collapse never
+ * completes and the subtree is never unmounted. The cure reads the engine's own
+ * record: if a `height` CSSTransition is running, `done` rides its `finished`
+ * (settled either way — a cancelled morph also ends); if none started, the
+ * morph is already at its end state and `done` runs now.
+ */
+function settleHeight(el: HTMLElement, done: () => void): void {
+    const morph = el
+        .getAnimations()
+        .find((a) => a instanceof CSSTransition && a.transitionProperty === "height");
+    if (!morph) {
+        done();
+        return;
+    }
+    morph.finished.then(done, done);
+}
+
 export function useHeightTransition(options?: {
     expandDuration?: number;
     collapseDuration?: number;
@@ -32,11 +56,7 @@ export function useHeightTransition(options?: {
         void htmlEl.offsetHeight;
         htmlEl.style.height = `${targetHeight}px`;
         htmlEl.style.opacity = "1";
-        htmlEl.addEventListener("transitionend", function handler(e) {
-            if (e.propertyName !== "height") return;
-            htmlEl.removeEventListener("transitionend", handler);
-            done();
-        });
+        settleHeight(htmlEl, done);
     }
 
     function onAfterEnter(el: Element) {
@@ -63,11 +83,7 @@ export function useHeightTransition(options?: {
         void htmlEl.offsetHeight;
         htmlEl.style.height = "0";
         htmlEl.style.opacity = "0";
-        htmlEl.addEventListener("transitionend", function handler(e) {
-            if (e.propertyName !== "height") return;
-            htmlEl.removeEventListener("transitionend", handler);
-            done();
-        });
+        settleHeight(htmlEl, done);
     }
 
     function onAfterLeave(el: Element) {
