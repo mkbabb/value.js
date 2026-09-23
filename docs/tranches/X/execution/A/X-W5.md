@@ -4634,3 +4634,82 @@ Groups: `[]`. §0ba: X-W5 (no units; close → check) → X-W6 [`.s`] → [`.f2`
 relieved by route `W5D4-SETTLE-READ`, R5 retirement CONFIRMED, `W5-READY-DEAD` / `W5-BTN-INTERACTIVE-DEAD` → X-W8 `.d`, O12-3-HOVER-GPU → X-W8 `.i`; the row reads CLOSED on a CONFORMANT check.
 
 ## Unit receipts — RESUME 8
+
+(none — RESUME 8 owed no unit, §0ba / W5.md fifth ADDENDUM `:402`.)
+
+## Close — RESUME 8, 2026-09-23 (VERIFY-ONLY close seat)
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X-W5 CLOSE (RESUME 8) · HEAD at open `438fb0a2` · date of record 2026-09-17 (COHESION §0j).
+This seat cured nothing. It wrote this section, one INBOX sweep line and the LEDGER row cells. Inputs: `W5.md` whole (402 L, all five ADDENDA; the fifth, §0ba, at `:402`),
+this record's header, `## RESUME OPEN 8` (R8.0–R8.4), the empty `## Unit receipts — RESUME 8`, and `## Check 3 — RESUME 7` (the last close/check section).
+
+### CL8.0 Crash-recovery
+⟨cmd⟩ `git status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh`. Neither is in this seat's writable set (`X-W5.md`, `LEDGER.md`, `INBOX.md`). **No inherited partial.** `dev.sh` untouched.
+
+### CL8.1 Commit roster and bounds
+⟨cmd⟩ `git log -1 --format=%s <sha>` + `git show --stat --format= <sha>` over all 25 unit shas R8.2 names → **25/25 exist**. Units `.a`…`.d4` were rostered and bounds-checked at CL1…CL7 (landed-wrong: none at each); this seat re-read the stat lines and they match those rosters.
+The only commit that touches a product byte since Close — RESUME 7 (`c575f741`) is repair-1 **`16852e03`** `refactor(X-W5 repair 1): drop useViewManager's dead ready ref` → `demo/shell/useViewManager.ts` (−9), a §4 `modify` row (in bounds; one meaning).
+⟨cmd⟩ `git diff --stat 196c014d..HEAD -- demo src e2e | wc -l` → **0**; ⟨cmd⟩ `git log --oneline 196c014d..HEAD | wc -l` → **15** (X-W6 docs, the §0ba ruling `277b8d25`, the RESUME 8 open `438fb0a2`). **Landed-wrong: none.**
+
+### CL8.2 Gates, re-run at this seat's clock
+Static arms: ⟨cmd⟩ `bash scratchpad/static.sh` ×2, ⟨cmd⟩ `diff s1.txt s2.txt` → **IDENTICAL**. Live arms each ×2: the playwright oracles on distinct `VJS_E2E_PORT` (5921–5962, tree-true dev servers); W6 a5–a11 / a12 against `npx vite --port 9411`
+(a12 = the scratch copy of `WBGSE-D-probe2.mjs`, ⟨cmd⟩ `diff` vs the evidence file → only `:6` `9000`→`9411`); D1 against a fresh scratch `vite build --mode gh-pages --outDir scratchpad/cl8-dist` (BUILD_EXIT=0;
+⟨cmd⟩ `git status --porcelain demo src | wc -l` → 0, so the bundle is tree-true at `438fb0a2`) served on `:8193`, `PROBE_HEADED=1`. Load 3.8 at open → 13.6 peak (e1 suite) → 6.1 (D1).
+
+| gate | BEFORE (R8.3 bank / CL7.2) | AFTER (this seat) | state |
+|---|---|---|---|
+| A1 exit · App grep | 0 · 0 | **0 · 0** | GREEN |
+| A4 `bindPane` hits · A5 `<h1` sites · A7 `role="status"` | 10 · — · 5 | **10 · 4 · 5** | GREEN (A4's bite and A5's live walk banked, CL5.2; no `demo/shell` byte but `16852e03`'s dead-ref deletion) |
+| A2 · A3/C2 · A5 walk · A6 · B1/B2 · C1 · C5 (live probes) | GREEN / relieved (CL5.2) | banked — ⟨cmd⟩ `git diff --stat 196c014d..HEAD -- demo src e2e` → empty; the surfaces are re-read live through the witness, a5–a12, e1 and D1 below | banked |
+| B4 `100dvh` · `svh` files · `content-max-h` | 0 · 3 · 0 | **0 · 3 · 0** | GREEN |
+| B5 · B6 | recorded (CL5.3) | unchanged (no `shell.css` byte) | recorded |
+| C3 fork census · C7 viewport `@media` | 23 / 9 files · 3 | **23 / 9 files** · 3 (banked, no CSS byte) | routed (X-W8 `.i` / `.h`, §0aq) · at target |
+| C4 · C8 exit | 0 · 0 | **0 · 0** | GREEN |
+| D2 · D3 physical | 0 · 0 | **0 · 0** | GREEN |
+| D4 Mix · Admin `<Transition ` | 1 · 1 | **1 · 1** | GREEN |
+| D5 PRM | GREEN (banked) | banked: no `demo/styles` byte since `7ab5a3f1` | GREEN (banked) |
+| E1 · E2 (P122 cites) | 0 0 0 0 · 9 3 18 10 | **0 0 0 0 · 9 3 18 10** | GREEN |
+| landmark `Color tool panes` · §0az lock `__asyncResolved\|__asyncLoader` · `ready` readers | 0 · 0 · 0 | **0 · 0 · 0** | GREEN |
+| **cold-nav witness** ⟨cmd⟩ `npx playwright test e2e/smoke/oracles/cold-nav-scene-enter.spec.ts --project=smoke` ×2 | GREEN ×2 | **2 passed** (36.1s) · **2 passed** (37.4s), EXIT 0 ×2 | **GREEN ×2 both arms** |
+| **o16 W5-census** ⟨cmd⟩ `npx playwright test e2e/smoke/oracles/o16-computed-cascade.spec.ts --project=<p>` ×2 | GREEN ×2 both projects | `smoke` **2 passed** (8.4s) · **2 passed** (8.7s) · `oracles-safari` **2 passed** (6.3s) · **2 passed** (6.2s), EXIT 0 ×4 | **GREEN ×2 both projects** |
+| W6 a5–a11 ⟨cmd⟩ `GRADIENT_URL=http://localhost:9411/#/gradient node docs/tranches/X/waves/W6-evidence/gradient/gate-a-gesture-paint.mjs` ×2 | GREEN ×2 | EXIT 0 ×2 · `GATE X.W6.a (gesture + paint) — GREEN` ×2 · *outside of the viewport* 0 ×2 | **GREEN ×2** |
+| W6 a12 (`WBGSE-D-probe2.mjs` block 5) ×2 | GREEN ×2 | EXIT 0 ×2 · `"afterOverhangPx": 0` ×2 | **GREEN ×2** |
+| W6 e1 + suite ⟨cmd⟩ `npx playwright test e2e/smoke/views/gradient.spec.ts e2e/smoke/oracles/o21-gradient-rail.spec.ts --project=smoke` ×2 | GREEN ×2 (load-sensitive) | **22 passed** (1.9m, load 13.6) · **22 passed** (1.8m, load 12.2), EXIT 0 ×2 | **GREEN ×2** (the load-sensitive class rides `W5D4-SETTLE-READ`) |
+| W6 g2 ⟨cmd⟩ `npx playwright test e2e/smoke/views/companion-pane-track-start.spec.ts -g "companion panes share one track start" --project=smoke` ×2 | RED ×2 (6.50) | **1 failed** ×2, EXIT 1 ×2, each `Received: 6.501441955566406` | **RED ×2 — RELIEVED BY ROUTE `W5D4-SETTLE-READ` → X-W6 `.s`** (COHESION §0ba `:2949-2950`; W5.md fifth ADDENDUM `:402`) |
+| **D1 of record, headed real GPU** ⟨cmd⟩ `PROBE_HEADED=1 PROBE_BASE=http://localhost:8193 node docs/tranches/V/megatranche/workflows/gates/scene-swap-budget.mjs` ×2 | GREEN ×2 (gradient 1/84 · 0/88 ×3, median 10) | run 1 `pass:true`: →/gradient 1/84 · →/extract 0/88 · →/mix 0/88 · →/generate 0/88, median 10 ×4 · run 2 `pass:true`: identical; `animated:true` · `motionHonest:true` | **GREEN ×2, unchanged** |
+| §7 ⟨cmd⟩ `npx vue-tsc -p tsconfig.demo.json --noEmit` · `npx tsc -p tsconfig.e2e.json --noEmit` | 0 · 5 (o23) | **TSC_EXIT=0** · EXIT 2, **5** errors, all in `e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts` (pre-existing, not a W5 path) | GREEN / foreign |
+| §7 vitest · repo-wide lint | no W5 regression (CL7.2) | banked: ⟨cmd⟩ `git diff --stat 196c014d..HEAD -- demo src test e2e` → empty | no W5 regression |
+
+**Reading:** every ADDENDUM-4/5 gate reads GREEN ×2 at this seat (cold-nav witness · o16 both projects · a5–a11 · a12 · the e1 suite · D1 headed), and the static arms reproduce 17/17. The one RED, W6 g2, is relieved by route `W5D4-SETTLE-READ` → X-W6 `.s` (§0ba).
+
+### CL8.3 §8 Verification Artefacts
+- ⟨cmd⟩ `git ls-files docs/tranches/X/waves/W5/{born-red,green,triumvirate} | wc -l` → **12 · 28 · 21**; ⟨cmd⟩ `git ls-files docs/tranches/X/waves/W5 | wc -l` → **61** (unchanged since CL7.3); ⟨cmd⟩ `git status --porcelain docs/tranches/X/waves/W5 | wc -l` → **0**. Every witness is in git.
+- D1 after, both instruments: `green/d2-D1-scene-swap-both-instruments-2026-09-22.json`; this seat's headed ×2 reproduces it at the `438fb0a2` bytes. D5: `green/d2-D5-prm-2026-09-22.json`.
+- Portal-integrity delta, B5 reading, B6 rationale, π captures and `audit/visual/layout/`: unchanged since CL5.3. No `index.html`, `shell.css` or `demo/styles` byte landed since (⟨cmd⟩ `git diff --stat d6d8b38f..HEAD -- demo` → `useViewManager.ts` −9 only), so §5.2 parsimony applies and CL5.3's readings stand.
+
+### CL8.4 E13 — the four-path sweep (this seat's clock)
+⟨cmd⟩ `ls -t ../glass-ui/docs/tranches/ | head -2` → **BK**, BJ. ⟨cmd⟩ `find <p> -maxdepth 1 -type f -newermt 2026-09-23T02:35:32-04:00` (the RESUME 8 open `438fb0a2`) → **empty** on value.js `V/` · `V/coordination` · BK `coordination` · keyframes `V/coordination` · atlas `{P,Q,R}/coordination` (atlas newest `T` has no `coordination/`).
+INBOX: the one UNREAD row is still **I-40** (Track C), outside X-W5 scope. **0 UNREAD in scope.** One sweep line appended to INBOX.
+
+### CL8.5 Residuals (named owners) and escalations
+
+| item | state | owner |
+|---|---|---|
+| W6 g2 companion-pane track start (`Received 6.501441955566406` ×2) + the e1 suite's load sensitivity (22/22 ×2 here) | RED ×2 / GREEN ×2 — relieved by route | **X-W6 `.s`**, id **`W5D4-SETTLE-READ`** (§0ba, ESC-W5d4-1 RULED (a)) |
+| `W5-READY-DEAD` (`useViewManager.ts` `ready` ref) | **discharged at the bytes** by repair-1 `16852e03` (⟨cmd⟩ `grep -n ready demo/shell/useViewManager.ts` → 0 lines) | X-W8 `.d` confirms and strikes the id |
+| `W5-BTN-INTERACTIVE-DEAD` (⟨cmd⟩ `grep -rn btn-interactive demo/ \| wc -l` → **10**) | residual, no computed effect | **X-W8 `.d`** (§0ba); the motion question rides O-52 R-2 (NOTICE) |
+| o12 O-12·3 hover frame-diff, headed real GPU | RED, routed | **X-W8 `.i`** `O12-3-HOVER-GPU` (§0ay/§0az) |
+| D1 headless SwiftShader | RED beside, not of record | operator (quiesced window), §0ax |
+| B3 · A3 · A5-OUTLINE · C3 · C7 `DockStatusLamp:70` | relieved / routed, unchanged | X-W6 (CC-056) · X-W8 · X-W10 · X-W8 `.i`/`.h` · X-W8 `.h` |
+| `not-found` visual goldens | owed | visual-baseline owner (X-W1 / CI-capable seat) |
+| Vue upstream notes (dev-root-fragment × out-in; `defineAsyncComponent` re-render of a deactivated instance) | letter, not a gate | owner-report letter; never a `node_modules` patch |
+| e2e-tsc o23 ×5 · vitest NG-6/C-5 · repo lint `v-apotheosis-workflow.js:198` | foreign | o23's owner · X-W8 `.i` · docs/V owner |
+| L-18 quartet (two passes) | not opened — follows this GREEN hard gate | L-18 seat (FORMATION-LAWS) |
+
+**Escalations:** none new. ESC-W5d4-1 is RULED at §0ba (route `W5D4-SETTLE-READ`); ESC-W5c3-1 / ESC-W5d3-1 were discharged at CL7.
+
+**Verdict: IMPLEMENTED.** Every hard gate of W5.md §6 as amended by ADDENDA 1–5 reads GREEN, recorded, or relieved/routed by a named ruling at this seat's own clock. The last unrelieved RED of Check 3 RESUME 7 (g2) now has route relief under §0ba.
+
+**Four-verb:** AUDITED YES · SPECIFIED YES · **IMPLEMENTED YES (2026-09-17 date of record; close RESUME 8)** · VERIFIED NO (stamped only at the X-W11 release close, §9 c6). Per §0ba, the row reads CLOSED only on the L-20 check's adjudication, not on this close.
+
+**Successors:** L-20 check over this close; then X-W6 [`.s`] → [`.f2`] → [`.v`] → [`.j` if X-W5 CLOSED] (§0ba). X-W7 / X-W8 / X-W10 stay BLOCKED-ON the X-W5 CLOSED stamp.
