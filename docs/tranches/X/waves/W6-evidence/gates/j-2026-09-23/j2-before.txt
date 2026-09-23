@@ -1,0 +1,57 @@
+SERVED MODEL: claude-opus-5-5[1m]
+X.W6.j — j2 BEFORE, FIRST instrument (read at the region-label flip), HEAD bytes of the Mix tree
+Running 1 test using 1 worker
+[1/1] [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:213:1 › mix canary — one interaction owner, no nested controls, the narration canvas bound to its scene
+  1) [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:213:1 › mix canary — one interaction owner, no nested controls, the narration canvas bound to its scene 
+    Error: palettes mode
+    expect(received).toEqual(expected) // deep equality
+    - Expected  - 1
+    + Received  + 4
+    - Array []
+    + Array [
+    +   "button[Palette menu] inside button[Select palette Dawn]",
+    +   "button[Palette menu] inside button[Select palette Dusk]",
+    + ]
+      230 |     const dusk = mix.getByRole("button", { name: /palette Dusk/ });
+      231 |     await expect(dawn).toBeVisible();
+    > 232 |     expect.soft(await nestedControls(mix), "palettes mode").toEqual([]);
+          |                                                             ^
+      233 |
+      234 |     // The palette choice is ONE owner's toggle: the pressed state is the
+      235 |     // button's own, and a press toggles it — never a nested card's machine.
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o29-scene-contracts.spec.ts:232:61
+    Error: a narration clock outlived its scene
+    expect(received).toEqual(expected) // deep equality
+    - Expected  - 1
+    + Received  + 1
+      Array [
+    -   1,
+    +   9,
+      ]
+      264 |     await page.waitForTimeout(1_500);
+      265 |     const later = await mixContexts(page);
+    > 266 |     expect.soft(later.map((c) => c.ops), "a narration clock outlived its scene").toEqual(
+          |                                                                                  ^
+      267 |         left.map((c) => c.ops),
+      268 |     );
+      269 |     expect.soft(later.map((c) => c.backing), "a narration backing store outlived its scene").toEqual(
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o29-scene-contracts.spec.ts:266:82
+    Error: a narration backing store outlived its scene
+    expect(received).toEqual(expected) // deep equality
+    - Expected  - 1
+    + Received  + 1
+      Array [
+    -   0,
+    +   363120,
+      ]
+      267 |         left.map((c) => c.ops),
+      268 |     );
+    > 269 |     expect.soft(later.map((c) => c.backing), "a narration backing store outlived its scene").toEqual(
+          |                                                                                              ^
+      270 |         later.map(() => 0),
+      271 |     );
+      272 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o29-scene-contracts.spec.ts:269:94
+    Error Context: test-results/oracles-o29-scene-contract-2a7d3-n-canvas-bound-to-its-scene-smoke/error-context.md
+  1 failed
+    [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:213:1 › mix canary — one interaction owner, no nested controls, the narration canvas bound to its scene 

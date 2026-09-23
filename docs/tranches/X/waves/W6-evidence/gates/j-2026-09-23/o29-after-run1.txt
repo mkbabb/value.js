@@ -1,0 +1,32 @@
+SERVED MODEL: claude-opus-5-5[1m]
+X.W6.j — o29 full, smoke cell (chromium + SwiftShader), run 1, settled bytes (pre-commit tree == the feat commit's bytes)
+cmd: VJS_E2E_PORT=9651 npx playwright test e2e/smoke/oracles/o29-scene-contracts.spec.ts --project=smoke --reporter=line
+Running 6 tests using 1 worker
+[1/6] [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:109:1 › gradient scene — the Gradient stage owns its authoring stage, its selected-stop inspector and its stable actions
+[2/6] [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:233:1 › mix canary — one interaction owner, no nested controls, the narration canvas bound to its scene
+[3/6] [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:379:5 › preview survives — blob: the preview repaints after a forced WebGL context loss
+[4/6] [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:379:5 › preview survives — atmosphere: the preview repaints after a forced WebGL context loss
+[5/6] [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:578:9 › j4 short landscape › short landscape — blob: the last control and the preview are both reachable at 720×450
+[smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:578:9 › j4 short landscape › short landscape — blob: the last control and the preview are both reachable at 720×450
+[j4] blob preview@rest=0.881 last="Reset" inViewport=true hit=true rect={"x":383.4375,"y":378.953125,"w":84.03125,"h":36} preview@last=0.000
+  1) [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:578:9 › j4 short landscape › short landscape — blob: the last control and the preview are both reachable at 720×450 
+    Error: the preview is not reachable beside the last control
+    expect(received).toBeGreaterThan(expected)
+    Expected: > 0
+    Received:   0
+      599 |                 withLast,
+      600 |                 "the preview is not reachable beside the last control",
+    > 601 |             ).toBeGreaterThan(0);
+          |               ^
+      602 |         });
+      603 |     }
+      604 | });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o29-scene-contracts.spec.ts:601:15
+    Error Context: test-results/oracles-o29-scene-contract-1e91c-e-both-reachable-at-720×450-smoke/error-context.md
+[6/6] [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:578:9 › j4 short landscape › short landscape — atmosphere: the last control and the preview are both reachable at 720×450
+[smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:578:9 › j4 short landscape › short landscape — atmosphere: the last control and the preview are both reachable at 720×450
+[j4] atmosphere preview@rest=0.164 last="Reset" inViewport=true hit=true rect={"x":383.4375,"y":378.96875,"w":84.03125,"h":36} preview@last=0.079
+  1 failed
+    [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:578:9 › j4 short landscape › short landscape — blob: the last control and the preview are both reachable at 720×450 
+  5 passed (37.6s)
+EXIT 1

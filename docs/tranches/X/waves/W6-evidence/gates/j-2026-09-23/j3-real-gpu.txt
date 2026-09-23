@@ -1,0 +1,7 @@
+SERVED MODEL: claude-opus-5-5[1m]
+X.W6.j — j3 REAL-GPU cell (headed chromium, no swiftshader args; docs/tranches/X/waves/W6-evidence/gates/j-2026-09-23/o29-gpu-headed.config.ts), 2026-09-23 03:49 EDT
+substrate probe (non-mutating getContext per type on a canvas that already holds one):
+blob {"w":180,"h":180,"bg":"","webgpu":"ctx","webgl2":null,"webgl":null,"2d":null,"bitmaprenderer":null}
+atmosphere {"w":1440,"h":900,"bg":"","webgpu":"ctx","webgl2":null,"webgl":null,"2d":null,"bitmaprenderer":null}
+o29 -g 'preview survives' on this cell: 2 failed at the first draws poll (Received 0) — no WebGL surface exists; both previews render on glass's WebGPU substrate.
+glass 7.0.0 dist color.wgsl-Ct5o9dpf.js useWebGPUCanvas: device.lost with reason "destroyed" -> terminal (onInitError), any other reason -> re-request device + re-arm. A page can force only "destroyed" (GPUDevice.destroy()); no page API forces an 'unknown'-reason loss. => the forced-loss arm is not witnessable on this cell (J3-WEBGPU).
