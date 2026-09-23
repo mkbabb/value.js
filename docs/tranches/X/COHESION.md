@@ -3102,3 +3102,17 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
 
 ## §0bz ADDENDUM 2026-09-23 — OA-47 (controls-pane rows: label + control on one line, divider above easing) · OA-48 (dock transitions still blurry) · OA-49 (Easing/Sequence/Spring UIs too rounded, not keyframes-idiomatic)
 - **Owner, verbatim** in KF-W13.md's addendum (frame `keyframes/evidence/W13U/owner-2026-09-23-controls-space.png`). Routed: **OA-47** → KF.W13V `.c` (one control-row idiom in the Controls pane, divider above the easing group); **OA-48** → KF.W13R `.d` / X-W7R `.d` at glass 10.0.1, BL's dock family; **OA-49** → KF.W13V `.y` (design-author redesign of Easing, Sequence, Spring on the Cube/Amiga idiom and glass's radius canon). KF.W13V order `.s` → `.c` → `.y` → `.p` → `.k` → `.u`.
+
+## §0ca ADDENDUM 2026-09-23 — the full UI audit landed (OA-37) · the image-history rewrite · the critic's gaps routed · Track C launched
+- **The audit landed.** Run `wf_64896923-d72` audited 97 pages across the three apps. The registers are `audit/UI-AUDIT-{value,keyframes,fourier}.md`. The 290 glass rows went to glass as O-59 (`relay/X-ALL-BK-UI-AUDIT.md`).
+
+  | app | rows | BROKEN | HIGH | MEDIUM | LOW |
+  |---|---|---|---|---|---|
+  | value.js | 676 | 54 | 131 | 275 | 216 |
+  | keyframes | 322 | 43 | 57 | 121 | 101 |
+  | fourier | 256 | 51 | 70 | 93 | 42 |
+
+- **The history was rewritten before any push.** The audit's commit seat force-added 7,150 frames (3.6 GB) in `1288e433`, which was never pushed. It was rebuilt without them as `372b4d41`, and Track A's CI commit was replayed on top as `464ff743`. The original is kept at `refs/backup/ui-audit-with-images-2026-09-23`. The frames stay on disk, and `.git/info/exclude` covers them. **Owner/operator item:** choose an archive home for these frames and the animation audit's 8.4 GB. Until then, the backup ref is what keeps the local pack at 3.66 GiB.
+- **The audit's `dropped` list is a bookkeeping error.** It lists all 97 pages, but the registers show that none went unaudited.
+- **The critic's coverage gaps are routed.** value goes to X-W12, keyframes to KF.W13V `.u`, and fourier to F.W14 `.u`. Each spec has a dated addendum.
+- **Track C was launched** as `wf_c7aa48ac-f02` for F.W14, now that its precondition register exists.
