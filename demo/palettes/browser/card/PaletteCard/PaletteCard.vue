@@ -2,23 +2,15 @@
     <!-- W5-a11y: role="article" provides a landmark for each palette; button semantics on the card
          are omitted because inner interactive controls must be reachable — using article + click is
          the correct pattern for a card container that also houses nested interactive elements. -->
+    <!-- X.W7.c: the card is a HOST around the props-only `PaletteSpecimen`
+         (strip + name + counts). The root is a grid whose areas the specimen's
+         two parts (`display: contents`) and the card's own controls fill, so the
+         specimen subtree holds no control and the row still reads as one line.
+         The root is the `palette-card` inline-size container the meta cluster's
+         declared collapse priority reads (A-20's ruled consumer interim). -->
     <div
-        :class="[
-            // T.W5-R4 (T-14 / D7): the producer CARTOON REGISTER — the
-            // `cartoon-surface` atom owns the hover/press choreography
-            // (translate/scale on --ease-cartoon-punch @ --duration-normal,
-            // shadow bezier md→lg, :active squash, 2px border) + the lagging
-            // .cartoon-cast child below. The hand-rolled shadow-only hover on
-            // the dead 150ms default (F1/F3) is retired. NOT <Card
-            // surface=cartoon>: the ratified Q4/T.W3-1 rung-2 WELL material
-            // (bg-well) stands — cartoon-surface is decoration-only by
-            // producer design, so the motion register lands tier-agnostic.
-            // NO overflow-hidden (S.W5-10 / S-15-A): a card-level radius clip
-            // rasterizes 1-bit at compositing-layer bounds; the strip clips
-            // its OWN corners below — an interior clip keeps normal AA.
-            'group rounded-card cartoon-surface border-card-edge bg-well cursor-pointer',
-            layout === 'aside' && 'flex',
-        ]"
+        class="palette-card group rounded-card cartoon-surface border-card-edge bg-well cursor-pointer"
+        :data-layout="layout"
         role="article"
         :aria-label="`Palette: ${palette.name}`"
         v-bind="press.handlers"
@@ -28,84 +20,48 @@
         <!-- T.W5-R4 — the producer's inert cel cast (the exact child Card
              emits for surface=cartoon); rides --card-press-t, PRM-zeroed. -->
         <span class="cartoon-cast" aria-hidden="true" />
-        <!-- Color strip — the card's only full-bleed child; it carries the
-             corner radius itself now that the card no longer clips. -->
-        <PaletteColorStrip
-            :colors="palette.colors"
-            :orientation="layout === 'aside' ? 'vertical' : 'horizontal'"
-            :class="layout === 'aside' ? 'rounded-l-card' : 'rounded-t-card'"
+
+        <PaletteSpecimen :palette="palette" :layout="layout" />
+
+        <!-- Drag handle. T.W6.5 row 8 (F-4 sweep): the muted token is the
+             de-emphasis rung. -->
+        <GripVertical
+            v-if="draggable"
+            class="palette-card__grip drag-handle w-4 h-4 text-muted-foreground shrink-0 cursor-grab active:cursor-grabbing"
         />
 
-        <!-- Card body (flex-1 in aside layout so it sits next to the vertical strip) -->
-        <div :class="layout === 'aside' && 'flex-1 min-w-0'">
+        <!-- Tag chips (+N) and the vote control — the card's, not the specimen's. -->
+        <PaletteCardMeta :palette="palette" @vote="emit('vote', $event)" />
 
-        <!-- Metadata row -->
-        <div class="px-3 py-2.5 flex items-center justify-between gap-2 min-w-0">
-            <div class="flex items-center gap-2 min-w-0">
-                <!-- Drag handle. T.W6.5 row 8 (F-4 sweep): the /40 post-hoc
-                     alpha dies — the muted token is the de-emphasis rung. -->
-                <GripVertical
-                    v-if="draggable"
-                    class="drag-handle w-4 h-4 text-muted-foreground shrink-0 cursor-grab active:cursor-grabbing"
-                />
-                <!-- S.W5-7: the title hides while renaming (never twice on one
-                     card). T.W4-6 (T-15/F7): display voice, ≤500, non-italic. -->
-                <span
-                    v-if="!renaming"
-                    class="font-display font-medium text-subheading line-clamp-2 sm:line-clamp-1"
-                    :class="editableName && 'cursor-text hover:underline decoration-dashed underline-offset-4'"
-                    :title="palette.name"
-                    @click.stop="editableName && startRenaming()"
-                >{{ palette.name }}</span>
-                <!-- S.W7-7: the featured badge's gold TEXT shimmer consumes the
-                     producer's ONE metal register (glass-ui `.gold-shimmer` —
-                     gradient-clip + metal-shimmer-sweep, PRM-gated); the local
-                     `golden-text-shimmer` keyframe fork is retired. -->
-                <Badge v-if="palette.tier === 'featured'" variant="outline" class="featured-badge gold-shimmer text-mono-small shrink-0 gap-1 border-gold">
-                    <!-- Wrapper class lets the scoped `.featured-badge__icon`
-                         selector style the icon without :deep(svg) reach. -->
-                    <span class="featured-badge__icon inline-flex">
-                        <Award class="w-3 h-3" />
-                    </span>
-                    Featured
-                </Badge>
-                <Badge variant="secondary" class="text-mono-small shrink-0">
-                    {{ palette.colors.length }}
-                </Badge>
-
-                <!-- Metadata chips (fork/version/tags/vote) — colocated lift
-                     (T.W5 PP-8 cap cure; the H.W3 sub-component precedent). -->
-                <PaletteCardMeta :palette="palette" @vote="emit('vote', $event)" />
-            </div>
-
-            <!-- Dropdown menu -->
-            <div class="flex items-center gap-1" @click.stop>
-                <PaletteCardMenu
-                    :palette="palette"
-                    :palette-kind="kind"
-                    :menu-open="menuOpen"
-                    :is-owned="isOwned"
-                    :is-admin="isAdmin"
-                    @update-open="menuOpen = $event"
-                    @action="handleMenuAction"
-                >
-                    <template #trigger>
-                        <!-- S.W5-4: 3rd copy of the hand-rolled icon-trigger
-                             recipe dies onto the glass-ui atom; the sm square
-                             also cures the ~24px touch target. -->
-                        <Button
-                            icon-only
-                            variant="ghost"
-                            size="sm"
-                            aria-label="Palette menu"
-                            class="shrink-0"
-                        >
-                            <MoreHorizontal class="w-4 h-4 text-muted-foreground" aria-hidden="true" />
-                        </Button>
-                    </template>
-                </PaletteCardMenu>
-            </div>
+        <!-- Dropdown menu -->
+        <div class="palette-card__menu flex items-center gap-1" @click.stop>
+            <PaletteCardMenu
+                :palette="palette"
+                :palette-kind="kind"
+                :menu-open="menuOpen"
+                :is-owned="isOwned"
+                :is-admin="isAdmin"
+                @update-open="menuOpen = $event"
+                @action="handleMenuAction"
+            >
+                <template #trigger>
+                    <!-- S.W5-4: the glass-ui atom; the sm square cures the
+                         ~24px touch target. -->
+                    <Button
+                        icon-only
+                        variant="ghost"
+                        size="sm"
+                        aria-label="Palette menu"
+                        class="shrink-0"
+                    >
+                        <MoreHorizontal class="w-4 h-4 text-muted-foreground" aria-hidden="true" />
+                    </Button>
+                </template>
+            </PaletteCardMenu>
         </div>
+
+        <!-- The detail band: rename, feedback, and the expandable swatches. -->
+        <div class="palette-card__detail">
 
         <!-- Inline rename input — morph family with a height morph (the row
              unfurls in place; geometry vars on .rename-morph below). -->
@@ -157,15 +113,14 @@
                 @copy-slug="(slug) => copyWithVerdict(slug, slug)"
             />
         </Transition>
-        </div><!-- /card body -->
+        </div><!-- /detail band -->
     </div>
 </template>
 
 <script setup lang="ts">
 import { ref, computed } from "vue";
-import { Badge } from "../../../../ui/badge";
 import { Button } from "../../../../ui/button";
-import { Award, MoreHorizontal, GripVertical } from "@lucide/vue";
+import { MoreHorizontal, GripVertical } from "@lucide/vue";
 import type { Palette, PaletteColor } from "../../../types";
 import { getPaletteKind, type PaletteKind } from "../../../utils";
 import { writeClipboard } from "@mkbabb/glass-ui";
@@ -173,7 +128,7 @@ import { useLiquidPress } from "@mkbabb/glass-ui/motion";
 import { useSafeAccentFn } from "../../../../color-session/useContrastSafeColor";
 import { useHoverPopover } from "../composables/useHoverPopover";
 import { useHeightTransition } from "../composables/useHeightTransition";
-import PaletteColorStrip from "../PaletteColorStrip.vue";
+import PaletteSpecimen from "../PaletteSpecimen.vue";
 import PaletteCardMenu from "./PaletteCardMenu.vue";
 import PaletteCardMeta from "./PaletteCardMeta.vue";
 import PaletteCardSwatches from "./PaletteCardSwatches.vue";
@@ -186,7 +141,6 @@ const props = withDefaults(
         expanded?: boolean | undefined;
         cssColor?: string | undefined;
         isOwned?: boolean | undefined;
-        editableName?: boolean | undefined;
         isAdmin?: boolean | undefined;
         showSlug?: boolean | undefined;
         draggable?: boolean | undefined;
@@ -348,22 +302,43 @@ async function copyWithVerdict(text: string, what: string): Promise<void> {
 </script>
 
 <style scoped>
-/* S.W7-7 (god-module census §2.2): the badge's gold text shimmer is the
- * producer's `.gold-shimmer` metal register (see the template class); this
- * scoped block keeps only what the register doesn't own — the outline hue
- * and the icon ink. The local `golden-text-shimmer` keyframe fork is
- * retired onto glass-ui's `metal-shimmer-sweep` (moved, not lost). */
-.featured-badge {
-    border-color: var(--color-gold);
+/* X.W7.c — the card ROOT owns its geometry.
+ *
+ * Layout: a grid whose areas the specimen's strip + head (`display: contents`)
+ * and the card's own grip / meta / menu / detail fill — one visual row, two
+ * owners. The root is also the `palette-card` inline-size container: the
+ * card's width never follows its content (G9), and the meta cluster's
+ * declared collapse priority reads it. */
+.palette-card {
+    position: relative;
+    isolation: isolate;
+    container: palette-card / inline-size;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto auto;
+    grid-template-areas:
+        "strip strip strip strip"
+        "grip head meta menu"
+        "detail detail detail detail";
+    align-items: center;
 }
-/* Featured-badge icon — selector-stable replacement for the prior
- * `.featured-badge :deep(svg)` reach (D.W4 Lane A §3). The wrapper span
- * carries the `.featured-badge__icon` class; targeting via that wrapper
- * survives lucide-vue API shifts and avoids the deep-piercing.
- * Specificity may shift by 0 or 1 — accepted per the wave-spec drift list. */
-.featured-badge__icon svg {
-    stroke: var(--color-gold);
-    filter: drop-shadow(0 0 1px color-mix(in srgb, var(--color-gold) 40%, transparent));
+.palette-card[data-layout="aside"] {
+    grid-template-columns: auto auto minmax(0, 1fr) auto auto;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "strip grip head meta menu"
+        "strip detail detail detail detail";
+}
+.palette-card__grip {
+    grid-area: grip;
+    margin-inline: 0.75rem -0.25rem;
+}
+.palette-card__menu {
+    grid-area: menu;
+    margin-inline: 0.5rem 0.75rem;
+}
+.palette-card__detail {
+    grid-area: detail;
+    min-inline-size: 0;
 }
 
 /* vj-morph geometry for the rename unfurl: drops in from above (enter and

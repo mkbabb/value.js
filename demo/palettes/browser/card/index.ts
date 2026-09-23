@@ -2,6 +2,7 @@
 // NAMED re-exports only (PI-6: never a star re-export — SFC scoped <style> is a side-effecting
 // import; named re-exports let the bundler tree-shake unused members per consumer).
 export { default as PaletteCard } from "./PaletteCard/PaletteCard.vue";
+export { default as PaletteSpecimen } from "./PaletteSpecimen.vue";
 export { default as PaletteCardGrid } from "./PaletteCardGrid.vue";
 export { default as PaletteCardSkeleton } from "./PaletteCardSkeleton.vue";
 export { default as ShadowPalette } from "./ShadowPalette.vue";
