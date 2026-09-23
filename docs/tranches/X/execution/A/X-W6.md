@@ -8845,3 +8845,27 @@ SERVED MODEL: claude-opus-5-5[1m] · executes COHESION §0bb R-v1 (`:2963`) · W
 (An earlier a2/a3 ×3 on the pre-prettier bytes also read `2 passed` ×3; superseded by the table's post-format runs — WRITE-THEN-MEASURE.) ⟨`git status --porcelain`⟩ after the runs → the two standing rows only (+ this record before its commit).
 
 **Residuals**: none owned. W6-evidence frames untouched (E-3): `after-cross-drag-rail-1440.png` still shows the 27.4 % settle of the pre-cure bytes; a re-capture is not in `.a3`'s writable set — the next capturer run (check or close) will show the cure. **Escalations**: none.
+
+### X.W6.f3
+
+SERVED MODEL: claude-opus-5-5[1m] · executes COHESION §0bb o23-tsc bullet (`:2964`) · §0am idiom · writable = `e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts` · this record.
+
+**Crash-recovery.** ⟨`git status --porcelain`⟩ at open → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh` only; nothing inherited inside the writable set.
+
+**Root, measured at the bytes (INTENT recorded).** ⟨`npx tsc -p tsconfig.e2e.json`⟩ → EXIT 2, 5 errors ×2 (`(144,37)` TS2339 `map` on `never` · `(144,42)` TS7006 · `(181,37)` TS2339 `some` on `never` · `(181,43)`/`(181,52)` TS7006). Cause: `seedChannelsIn` and `leavesGamut` passed `(space === "hex" ? "rgb" : space) as never` / `target as never` to `convertColor<S extends SpaceId>` (`dist/subpaths/color.d.ts:43`), so `S = never`, `Color<never>["channels"]` = `never`. The inputs are **not** deliberately invalid: every catalog `data-space` is one of the library's 17 `SpaceId`s or `hex` (the `GAMUT_BOUNDS` keys, measured total: 17 + hex = 18 = `CATALOG_SIZE`). So §0am's idiom applies as its root form — a type declaration at the fixture, never a cast.
+
+**Acts.**
+1. `import type { SpaceId }` from `dist/subpaths/color.js`; `GAMUT_BOUNDS` keeps its `Readonly<Record<string, GamutBounds>>` read type and gains `satisfies Record<SpaceId | "hex", GamutBounds>` — the fixture is total by construction.
+2. `isSpaceId(space): space is SpaceId` = `space !== "hex" && Object.hasOwn(GAMUT_BOUNDS, space)`; `librarySpace(space): SpaceId` maps `hex` → `rgb`, throws on an unknown key (the same failure the old path reached as "seed unconvertible").
+3. Both `as never` sites → `convertColor(parsed.value, librarySpace(space))`. ⟨`grep -n "as never\|as any\|ts-ignore\|ts-expect" o23…`⟩ → no output. ⟨`git diff -U0 -- o23… | grep -c expect`⟩ → `0` (assertions untouched; test body untouched).
+4. Hygiene: ⟨`npx prettier --check o23…`⟩ → clean · ⟨`npx eslint o23…`⟩ → no output · `git diff --check` → clean.
+5. Commit `c0c1f575` `test(e2e)` — pathspec `e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts` (1 file, +23 −11).
+
+**Gates, BEFORE → AFTER** (settled bytes of `c0c1f575`)
+
+| gate | ⟨cmd⟩ | BEFORE | AFTER |
+|---|---|---|---|
+| e2e tsc ×2 | `npx tsc -p tsconfig.e2e.json` | **RED** EXIT 2 · 5 errors ×2 (baseline) | **GREEN** EXIT 0 ×2 (pre-commit) + EXIT 0 ×1 post-commit |
+| o22/o23/o24 ×2 | `VJS_E2E_PORT=996{1,2} npx playwright test e2e/smoke/oracles/o22-specimen-legibility.spec.ts e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts e2e/smoke/oracles/o24-specimen-dot-identity.spec.ts --project=smoke --reporter=line` (fresh webServers) | GREEN (Check 3) | **GREEN ×2**: `3 passed (16.5s)` · `3 passed (17.7s)`; o23's own census line both runs: `worst un-projected Lab recovery 7.517e-1 (hsl); bound 1; clipped control (hex) 4.061e+1` — unchanged readings |
+
+⟨`git status --porcelain`⟩ after the runs → the two standing rows only (no `docs/` side effect). **Residuals**: none. **Escalations**: none.
