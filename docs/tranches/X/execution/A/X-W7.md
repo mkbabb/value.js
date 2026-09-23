@@ -1426,3 +1426,58 @@ exactly those two paths — never committed.
 - o10d case 5's navigation (`openView "Palettes"`) is RED at baseline (dock select option never stable) — not d2's.
 - The specimen name stays visible while the rename input is open (the specimen is props-only; the inspector unfurls
   the input beneath it) — the old "never the same string twice" swap is an X-W10 design row, not re-authored here.
+
+### X.W7.f2
+
+**Seat**: X.W7.f2, `claude-opus-5-5` · 2026-09-23 · opened at HEAD `f95a2f77`. **Read**: W7.md whole (once) · this record's
+header → RESUME §Unit plan/§Baseline · unit f's receipt · the X.W7.d2 receipt · COHESION §0bk → file end (§0bo) · OM-14
+`FORMAT-AUDIT.md` §2.A/§2.B/§3.14/§4.5–§4.7/§5 · fold W7.38 + N-5 · MSS-16 / MR-35 adjudicated rows.
+
+**Crash-recovery** ⟨cmd⟩ `git status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh`
+· `?? docs/tranches/X/audit/` · `?? docs/tranches/X/execution/chassis/ui-audit.js` — **0 paths in f2's writable set; no
+inherited hunk.** None touched.
+
+**Anchors at the true bytes (intent recorded)**: OM-14 lines drifted; the sites were located by expression — ColorInput A3
+`:104` · A4–A8 `:191 :240 :265 :272 :278` · A9 `:54`; ExtractWorkbench A10/A11 `:144-145`; ImageEyedropper A12 `:36`;
+CurrentPaletteEditor B2–B4 `:46 :49 :52` · B1 `:101` · A13 `:108`; MixResultDisplay A14 `:86` · A15 `:103`; AdminNamesPanel A17/A18
+`:73 :124`; PaletteCardSwatches B5–B7 `:43 :50 :57`; SwatchHoverMenu B8/B9 `:18 :33`; GenerateControls B10 `:212`; the
+write-back = OM-14 C2 (`ColorPicker.vue:324` then) = the copy handler's `updateModel({ inputColor })` at `:335`. The
+`toCSSColorString` caller at `ColorPicker.vue:300` (`commitEdit`) is a palette-storage fidelity surface, moved — not re-registered.
+
+**Acts, in order**
+1. Dead APIs: `toCSSColorString(_digits)` deleted (`color-model.ts`, and its now-unused `serializePickerColor` import);
+   `DIGITS` deleted at `useColorPipeline.ts:28` + its return member (0 consumers) and `useSliderGradients.ts:14`. Callers
+   moved to `serializePickerColor` (the bytes they already produced): `useColorPipeline.ts` duplicate check ×2,
+   `ColorPicker.vue` `commitEdit`.
+2. The 26 sites, one change each, `caption` register (OM-14 §4.5): `formatCssCaption(…)` on stored strings,
+   `formatColor(currentPhysicalColor, "caption")` at A3. The write-back reads `formatCssCaption(formattedCurrentColor.value)`
+   (keeps hex / custom-name spellings and the colour's own space; the `inputColor` watcher re-parses in the same space).
+3. `demo/styles/utils.css` — the `.swatch-row` abspos leave limb dropped, once (MR-35's second ruled option).
+4. `format-color.test.ts` — census extended to 29/29 by site id + routed expression + count; dead-API absence; G17 importers kept.
+5. Commits: **`6283637a`** (sites + dead APIs + census, one meaning) · **`a7a1cea4`** (the recipe) · **`b63de8ef`** (gate log)
+   · this receipt.
+
+**Gate readings BEFORE → AFTER** (every AFTER double-run; falsifiers run, reverted, `cmp`-restored)
+
+| gate | BEFORE | AFTER |
+|---|---|---|
+| **G16** sites | 4 importers; 3/29 routed | 14 · 14 importers; census **29/29**; test **67/67 · 67/67**; falsifier (B8 bypass) → 2 failed — **GREEN ×2** |
+| **G16** dead APIs | `toCSSColorString` 6 lines; `DIGITS` ×2 | product `toCSSColorString` **0 · 0**; `DIGITS` **0 · 0**; falsifier (DIGITS re-added) → 1 failed — **GREEN ×2** |
+| **G18** | 0 | `e24361c6..HEAD -- src/` **0 · 0**; `47f222d6..HEAD -- src/ api/` **0** — **GREEN** |
+| demo / lib `vue-tsc` | EXIT 0 | EXIT **0 · 0** / **0** |
+
+**Cadence (§7)**: vitest ×2 → 834/837 · 835/837 (C-5 + NG-6 pre-existing; run 1's `admin-destructive` load flake passes
+alone ×2); eslint on the 14 files EXIT 0; `git diff --check` clean. e2e not run (not a §7 e2e point).
+
+**Escalations**: none.
+
+**Residuals (named, not absorbed)**
+- C1/C3 clipboard legs (`ColorPicker.vue:336`, `ColorInput.vue:222`) still copy `formattedCurrentColor` at 12 dp — OM-14 §2.C
+  fidelity surfaces, not among the 29 and not granted; `interchange` there awaits OM-14 §4.7 row 3 (owner). Since the copy
+  handler's write-back now carries the caption, the model snaps to caption precision on Copy while the clipboard holds the
+  pre-snap 12 dp string (invisible; the two agree once the clipboard takes a declared register).
+- `formatCssCaption` spells a CSS named keyword as `rgb(…)`; a custom colour name that coincides with a CSS keyword would
+  display as `rgb(…)` in the dock field (custom names that are not CSS keywords pass through unchanged).
+- MR-35's live jump measurement (R-11) untaken (no browser probe at this seat); after the cure the row closes on the leaver's
+  removal, not by a FLIP — an X-W10 motion-canon row.
+- ESC-W7f-READOUT (unit f) stands: `readoutDecimals` is still per-space, outside this grant.
