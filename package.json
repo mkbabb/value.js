@@ -119,5 +119,9 @@
         "vue-eslint-parser": "^10.4.0",
         "vue-router": "^5.1.0",
         "vue-tsc": "^3.3.1"
+    },
+    "dependencies": {
+        "@mkbabb/bbnf-lang": "0.1.4",
+        "@mkbabb/parse-that": "0.8.2"
     }
 }
