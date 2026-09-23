@@ -3170,3 +3170,30 @@ E2 P122 `9 3 18 10` · ESC-W5c-3 greps `0 0 0` · PaneSlot `:12-23` md5 `a7fe04b
 **Honest-RED set (relieved, owner-named):** C7 · C3 · A3 · B3. **Unrelieved:** D1 (HIGH).
 
 **Successors:** the `Opens after` lines of X-W6/X-W7/X-W8/X-W10 carry the X-W5 close conjunct, which is **not GREEN**, so all four stay lawfully BLOCKED-ON X-W5. The X-W5 opens-after conjuncts themselves (X-W4 · X-W2 · X-W0 CLOSED) remain GREEN. The LEDGER row status is unchanged (PARTIAL), and one event line is appended.
+
+## Repair 2 — RESUME ROUND 4, L-20 repair round 2 over Check 2, 2026-09-22
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X-W5 REPAIR 2 · HEAD at open `7b287079` · date of record 2026-09-17.
+Inputs: `W5.md` whole (394 L, incl. ADDENDUM 2026-09-22) · COHESION §0aq X-W5 block (`:2660-2689`) · this record's `## Check 2` (round 4) · the ESC rows at `:2863`, `:2885`, `:2927`, `:3014-3015`, `:3085-3086`.
+
+### RP2.0 Crash-recovery
+⟨cmd⟩ `git status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh`. Neither path is in W5 §4 or a §0aq grant, so there is **no inherited partial**. Both paths were left untouched.
+
+### RP2.1 Rulings sought (double-run, IDENTICAL)
+- ⟨cmd⟩ `grep -c 'ESC-W5t-1\|ESC-W5d2-2\|ESC-W5t-2\|ESC-W5d2-1\|ESC-R1-[123]' docs/tranches/X/COHESION.md` → **0** ×2. The last addendum is still §0aw (`:2811`, Track C). **No ruling or grant has been issued on any open X-W5 escalation.**
+- ⟨cmd⟩ `uptime` → load **8.56** / 12.36 / 14.44 ×2 · ⟨cmd⟩ `pgrep -fl vitest | wc -l` → **32**. §0aq's ruled D1 condition (load < 4, seat alone) is **unmet**.
+- ⟨cmd⟩ `grep -rln 'Color tool panes' e2e | wc -l` → **61** ×2 · ⟨cmd⟩ `grep -rn 'Color tool panes' demo | wc -l` → **1** (a comment) ×2.
+
+### RP2.2 Register → disposition
+
+| # | sev | defect | disposition | commit |
+|---|---|---|---|---|
+| 1 | HIGH | D1 untakeable and RED | **ESCALATED, not cured.** The ruled instrument condition is unmet (load 8.56, 32 vitest processes). No lever-design ruling exists on ESC-W5d2-2: P-5a breaks the equal-height pairing, and P-5b deletes motion, which the preserve-animations edict forbids. Running the gate on a loaded host would be non-evidence under §0aq's own terms. Carried: ESC-W5t-1 + ESC-W5d2-2. | — |
+| 2 | MEDIUM | N14 is invisible on 2 sites (`router/index.ts` BD-08 · `e2e/visual/census.ts`) | **ESCALATED.** Both paths are outside W5 §4. §0aq keeps BD-08 "read-mostly", and `census.ts` belongs to X-W1. Carried: ESC-R1-3. | — |
+| 3 | MEDIUM | 61 e2e files still query the stale `'Color tool panes'` landmark; o12/o16 and census-parity `not-found` fail | **ESCALATED.** §0aq granted only the one-token re-points (landed in `2eeb59ee`). The other 59 files, and a re-query of the landmark in o12/o16/census-parity, are outside §4 and outside every grant. Owner route X-W1 (LEDGER ESC-b3). Carried: ESC-R1-1 / ESC-R1-2. | — |
+| 4 | MEDIUM | W5F-04 out-in co-mount (`ColorPicker.vue:2-4`, P-4) | **ESCALATED.** The cure needs `demo/picker/ColorPicker.vue` plus the EB-2 home (`demo/shell/ErrorBoundary.vue`), and neither is in §4 or granted. Carried: ESC-W5t-2 / ESC-W5d2-1. | — |
+| 5 | INFO | C7 · C3 · A3 · B3 RED by route | relieved and owner-named; no act | — |
+
+**Cured: 0.** No byte in this seat's writable set moves any open defect, so no gate was re-run beyond the RP2.1 readings. Check 2's K2.1 gate readings stand at `7b287079`.
+
+**Row status:** PARTIAL (unchanged). X-W5 cannot close until COHESION rules ESC-W5t-1, ESC-W5d2-2, ESC-W5t-2 / ESC-W5d2-1 and ESC-R1-1..3.
