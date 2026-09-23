@@ -174,7 +174,7 @@
         <!-- X-W7 Repair 1 (§2a · ESC-W7e-AP6): the browse-wall admin delete is the
              fifth destructive seat — confirmed first, composed exactly as the four
              Admin seats compose it (deliberate rung `:show-close="false"` at the
-             installed glass 7.0.0; `dismiss="deliberate"` is the glass ≥ 8.0.0 spelling). -->
+             installed glass 7.0.0; the deliberate `dismiss` rung is the glass ≥ 8.0.0 spelling). -->
         <Dialog v-model:open="deleteConfirmOpen">
             <DialogContent surface="glass" :show-close="false">
                 <DialogHeader>
