@@ -6,6 +6,7 @@ import { regionSettled } from "../fixtures/settle";
 import { createHash } from "node:crypto";
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
+import { inflateSync } from "node:zlib";
 
 /**
  * Smoke (D.W5 Lane A) + the S.W5 §6.1 gradient interaction spec (Lane C),
@@ -465,6 +466,101 @@ test("no pane subtree rests on a permanent compositing transform (W5-10)", async
  * glass's `a11y-overrides.css`): this assertion reads a STILL on the ask
  * branch, which neither guard can manufacture or mask.
  */
+/**
+ * e1's `moved` instrument (COHESION §0bb, ESC-W6e1-1 — E-3 re-reading): raster
+ * noise is not motion. Repair 2 measured the only frame delta under load as ONE
+ * compositor tile re-rastered at 1/255 and restored the next frame; a byte
+ * inequality reads that as the ramp moving. The PNG frames are therefore
+ * DECODED (no perceptual library) and a later frame has moved only when at
+ * least `MOVED_AREA` of the clip's pixels differ from frame 0 by at least
+ * `MOVED_LSB` in some channel.
+ */
+const MOVED_LSB = 4;
+const MOVED_AREA = 0.005;
+
+/** Decode an 8-bit, non-interlaced RGB/RGBA PNG (what `page.screenshot` emits). */
+function decodePng(png: Buffer): {
+    width: number;
+    height: number;
+    channels: number;
+    data: Buffer;
+} {
+    let off = 8;
+    let width = 0;
+    let height = 0;
+    let channels = 0;
+    const idat: Buffer[] = [];
+    while (off < png.length) {
+        const len = png.readUInt32BE(off);
+        const type = png.toString("latin1", off + 4, off + 8);
+        const body = png.subarray(off + 8, off + 8 + len);
+        if (type === "IHDR") {
+            width = body.readUInt32BE(0);
+            height = body.readUInt32BE(4);
+            const [depth, colorType, , , interlace] = body.subarray(8, 13);
+            channels = colorType === 6 ? 4 : colorType === 2 ? 3 : 0;
+            if (depth !== 8 || channels === 0 || interlace !== 0)
+                throw new Error(
+                    `unsupported PNG: depth ${depth} colorType ${colorType} interlace ${interlace}`,
+                );
+        } else if (type === "IDAT") idat.push(body);
+        else if (type === "IEND") break;
+        off += 12 + len;
+    }
+    const raw = inflateSync(Buffer.concat(idat));
+    const stride = width * channels;
+    const data = Buffer.alloc(stride * height);
+    for (let y = 0; y < height; y++) {
+        const filter = raw[y * (stride + 1)]!;
+        const src = raw.subarray(y * (stride + 1) + 1, (y + 1) * (stride + 1));
+        const row = y * stride;
+        for (let x = 0; x < stride; x++) {
+            const a = x >= channels ? data[row + x - channels]! : 0;
+            const b = y > 0 ? data[row - stride + x]! : 0;
+            const c = x >= channels && y > 0 ? data[row - stride + x - channels]! : 0;
+            let pred = 0;
+            if (filter === 1) pred = a;
+            else if (filter === 2) pred = b;
+            else if (filter === 3) pred = (a + b) >> 1;
+            else if (filter === 4) {
+                const p = a + b - c;
+                const pa = Math.abs(p - a);
+                const pb = Math.abs(p - b);
+                const pc = Math.abs(p - c);
+                pred = pa <= pb && pa <= pc ? a : pb <= pc ? b : c;
+            } else if (filter !== 0)
+                throw new Error(`unsupported PNG row filter ${filter}`);
+            data[row + x] = (src[x]! + pred) & 0xff;
+        }
+    }
+    return { width, height, channels, data };
+}
+
+/** The fraction of pixels whose largest channel delta against `base` is ≥ `MOVED_LSB`. */
+function movedFraction(
+    base: ReturnType<typeof decodePng>,
+    frame: ReturnType<typeof decodePng>,
+): number {
+    if (
+        base.width !== frame.width ||
+        base.height !== frame.height ||
+        base.channels !== frame.channels
+    )
+        throw new Error("clip frames differ in geometry");
+    const pixels = base.width * base.height;
+    let changed = 0;
+    for (let i = 0; i < pixels; i++) {
+        const o = i * base.channels;
+        for (let ch = 0; ch < base.channels; ch++) {
+            if (Math.abs(base.data[o + ch]! - frame.data[o + ch]!) >= MOVED_LSB) {
+                changed++;
+                break;
+            }
+        }
+    }
+    return changed / pixels;
+}
+
 test("gradient selector aurora", async ({ page }) => {
     const pkg = join(process.cwd(), "node_modules/@mkbabb/glass-ui");
     const manifest = JSON.parse(readFileSync(join(pkg, "package.json"), "utf8")) as {
@@ -554,7 +650,10 @@ test("gradient selector aurora", async ({ page }) => {
         frames.push(await page.screenshot({ clip: box!, animations: "allow" }));
         await page.waitForTimeout(300);
     }
-    const moved = frames.slice(1).some((f) => !f.equals(frames[0]!));
+    const decoded = frames.map(decodePng);
+    const moved = decoded
+        .slice(1)
+        .some((f) => movedFraction(decoded[0]!, f) >= MOVED_AREA);
     const railMotion = await rail.evaluate((el) => {
         const cs = getComputedStyle(el);
         return { animation: cs.animationName, children: el.querySelectorAll("*").length };
