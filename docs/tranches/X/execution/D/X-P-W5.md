@@ -375,3 +375,77 @@ The RC-P ×2 readings are identical: `6 ROUTED(V) yes TRUE TRUE` and `RC-P(4.0.0
 
 ### Tally (counted from the register)
 0 BLOCKER · 0 CRITICAL · 1 HIGH · 2 MEDIUM · 1 MINOR · 2 INFO. Gates reproduced GREEN 6 (a1 a2 b1 c1 c2 d3). RED 6 (a3 d1 d2 e1 e2 close). **The LEDGER status is not moved** (PARTIAL stands). Next: owner act ESC-W5d-1 + F-W5d-1 → `.e` → Check 2.
+
+## Repair 1
+
+Repair seat, round 1, `claude-opus-5-5`, 2026-09-23 ~14:00–14:25 EDT. Input: the register in §Check 1. Crash-recovery: in parse-that `typescript/**`, my writable set, `git status --porcelain` was clean at open. The parse-that dirt is the July `rust/**`/`.cargo`/`README.md` set plus 17 untracked paths, none of which are W5's, and I did not touch them. The value.js paths I write (this record, `DIVERGENCE-LEDGER.md`) were clean. Load average during the work was 48–77. Scratch: session scratchpad `rep1/`. Bounds: `.b`'s and `.c`'s writable sets (§Unit plan), which cover parse-that `typescript/src/css/**`, `typescript/test/**` and `grammar/**`, plus the DIVERGENCE-LEDGER append. The CHANGELOG line sits in `.d`'s set and describes the unpublished 2.0.0.
+
+### Commits
+| repo | commit | meaning | paths |
+|---|---|---|---|
+| parse-that | `6fcc207` | cure: a non-ASCII declaration name is one `<ident-token>` (css-syntax-3 §4.2) | `src/css/algebra/tables.mjs` · `src/css/build/ac1.wasm` (rebuilt by `node src/css/build.mjs`, reproducible, sha256 `acf8ff7e…` ×2) · `test/css-recovery/stylesheet-grammar.test.ts` · `CHANGELOG.md` |
+| parse-that | `661b47c` | the stale-test re-pins, each with its measured cause, plus the stale-comment retirement | 10 files under `typescript/test/**` |
+| value.js | `052de4d6` | DIVERGENCE-LEDGER §13, appended; 0 lines removed | `docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md` |
+| value.js | (this section) | record | this file |
+
+⟨`git push origin master`⟩ → `488523c..661b47c  master -> master` (no force).
+
+### Defect → cure
+| # | sev | cure | status |
+|---|---|---|---|
+| D-1 | HIGH | Not curable from a seat. ⟨`npm whoami`⟩ → `E401 Unauthorized` (re-read 14:01) · ⟨`npm view @mkbabb/parse-that dist-tags --json`⟩ → `{"latest": "1.0.0"}`. The PUT is an owner act and F-W5d-1 is the orchestrator's to rule. **The release commit has moved**: 2.0.0 is still unpublished, and parse-that master is now `661b47c`, which carries this repair's grammar cure. The owner's commands (ESC-W5d-1) therefore read `git tag v2.0.0 661b47c`, not `488523c` | **ESCALATED** (ESC-W5d-1 + F-W5d-1, unmoved) |
+| D-2a | MEDIUM | **R-b-1**, the two css-equivalence corpus literals, re-pinned from the bytes. `26604 → 27021` and `unwrapped 172 → 0`. Cause, measured at the commits: `92ed4cc^` holds 26,604 rows with 172 wrapped; `92ed4cc` (W3.l) adds the 470-row stylesheet band, giving 27,074; `fb45434` (W3.n, BND-1) hands r1 its string, so 53 r1 sources dedupe, giving 27,021 with 0 wrapped (⟨`git show <c>:…/corpus.json \| node …`⟩ → `27074 172` · `27021 0`). The replay digest test is unmoved and passes | **CURED** `661b47c` |
+| D-2b | MEDIUM | **R-c-1**: css-recovery's 15 failing tests, plus 2 suites that did not load and hid 6 more failures (`labels.test.ts`: `tsx/esm/api` is not a dependency; `capacity.test.ts`: a module-level throw). See the table below. 19 readings were re-pinned or cured and 2 real defects surfaced. One of them is cured (`decl-name` non-ASCII, `6fcc207`). The other is ESC-c1, the `PACKRAT_ARMED` one-way latch in `src/parse/packrat.ts`, outside W5's bounds: its 2 legs stay RED **honestly** | **CURED** except the 2 ESC-c1 legs (**ESCALATED**) |
+| D-2c | MEDIUM | **`proof:perf`** (R-close-1). No low-load read was possible: the load held at 48–77 all session. In its place, an **interleaved A/B** under the same load, pre-merge `ef10d5b` against master (both `npm run build`), ⟨`npm run -s proof:perf`⟩, clause (C) ns/parse over 4 pairs: pre-merge `2630 · 3138 · 2878 · 2757` (median 2818) and master `3374 · 2839 · 4702 · 3075` (median 3225). Both trees **FAIL** against the 1,742 ns baseline, so the absolute gate cannot be passed at this load by either tree. The medians differ by ~14 %, inside the run-to-run spread (2630→3138 on the SAME tree). The merge does touch `src/parse/**` (`parser.ts` +/-279 lines), so a real regression of that size is not excluded | **ESCALATED**: the low-load read stays owed before the PUT (R-close-1, unchanged) |
+| D-3 | MEDIUM | R-c-3 now has named owners. The coverage gaps are rowed, dated and appended in **DIVERGENCE-LEDGER §13** as shared departures, since both engines refuse them (measured with the pinned 4.0.0 oracle against js/wasm): **SC-1** `calc()` in colour channels, owned by Track D's next X·P grammar wave (no frozen type moves); **SC-2** `color(display-p3-linear …)`, owned by the orchestrator (a contract ruling widening the frozen `CssColorSpace`), then the same wave. They sit as non-row `####` sections: as `###` rows they turned `seam-contract-check.mjs` RED (`[I] … SC-1 is not named in its disposition` ×4), and SEAM-CONTRACT.md lies outside my bounds. Now ⟨`node scripts/seam-contract-check.mjs`⟩ → `VERDICT: GREEN`, ledger rows 48, unmoved. **R-c-2** (`light-dark()` evaluates to `color_context_required`) is an API widening for the orchestrator | **CURED** (owners named + rowed); R-c-2 **ESCALATED** (ruling) |
+| D-4 | MINOR | F-W5c-1 is a ruling request. No one-command cure is lawful (E-3: 17 corpus cells ride PB-01/02) | **ESCALATED** (orchestrator) |
+| D-5 | INFO | none | — |
+| D-6 | INFO | R-close-2: the `test/dist-surface.test.ts:82` comment now names the retired proof as retired | **CURED** `661b47c` |
+
+### R-c-1, reading by reading (each re-pin cites the bytes that moved it)
+| file · test | was | measured cause | now |
+|---|---|---|---|
+| `labels.test.ts` (suite did not load) | `Cannot find package 'tsx/esm/api'` | `tsx` is in no `package.json` of this package; Vitest transforms TS itself | direct `await import("../../src/parse/utils.ts")` → 11/11 |
+| `boundary/capacity.test.ts` (suite did not load) | module-level `the 'recoveries' witness family never names its region up to 8192` | Θ.input is DERIVED and moved 65,458 → 14,107 at W3.h (CAP-1). `a{c}×n` fits only to n = 3,526, where `<mark-journal>` fires first. That is CAP-3/CAP-4's own "NO COORDINATE … the WINDOW cuts first" (the `ledger.mjs` `measureCapacityRow` case b) | a `windowLimited` reading: the largest fitting witness names `[<mark-journal>]` and never recoveries/D; one past it is the input-window rejection |
+| ↳ hidden behind the load failure: marks census pin | `marks.n = 16382` | `a{}` records more marks per rule since W3.l; CAP-2 binary-searches **1,724** | `1724` |
+| ↳ "nine labels sit AFTER `<string>`" | `L.slice(at+1)` = the nine; `L.length = 60` | LATER_UNITS append blocks after the nine (`collectLabels`); `L.length` = 134 | the nine = `L.slice(51, 60)` |
+| ↳ NEGATIVE CONTROL vstack | `K: 2` expected to overflow | `2 × 14,107 + 1,270 < 65,536` at the derived window | `K` derived: `⌊(VSTACK_CAP − S)/Θ.input⌋ + 1` |
+| ↳ census "one-cell-per-code-unit" | `;×n` peak ≥ 14,107 · refused | W3.l `wsSemi()` reads a top-level `;` as trivia, so `;×14107` is **ok:true**, peak 3. The densest family is now `a{c:1 ×n}` (7,073), and `a{c;×n}` names `[marks, recoveries, D]` | `;×n` accepted with a static peak; densest ≤ K·Θ.input + S; `a{c;×n}` answered by the journals |
+| ↳ band-shape (`recoveries AT/PAST`) | names by pair | the recovery pair is window-limited | `recoveries WINDOW` / `PAST-WINDOW` |
+| `boundary/depth.test.ts` ×4 (PT-04 7,761/7,762, js+wasm) | `<nesting-depth>` | the witness is 15,525 / 15,527 code units, over Θ.input, and the window is checked before the run | still `not.toThrow` + `css_syntax`; `expected[0]` = `<input-window>` |
+| `boundary/no-throw.test.ts` | `27074 · 172` | as R-b-1 (`fb45434`) | `27021 · 0` |
+| `boundary/boundary.test.ts` unrealized | six named | `entry.mjs` `UNREALIZED_ENTRIES = []` since W3.i | list `[]`; the six asserted PRESENT as functions on both surfaces |
+| `closure.test.ts` BORN RED ⊇ | `frozen \ emitted = [syntax_descriptor_invalid, syntax_mismatch]` | both are `coerceToSyntax`'s codes, a surface composition with no production (COHESION §0s E-h3; `entry.mjs` §THE TWO COMPOSITIONS) | six codes by production over the corpus, plus the two by `coerceToSyntax` on both surfaces; `missing = []` |
+| `value-grammar.test.ts` label tail | `L`'s whole tail = 16, `L.length = 76` | later units append | the W3.h block = `L[60..75]` |
+| `at-rule-grammar.test.ts` F-k3 | name `/* c */ color` | F-w4f-1 (§11): the comment is trivia before one `<ident-token>` | `color` |
+| `at-rule-grammar.test.ts` F-k2 ×2 | mixed-type / `none`-channel legacy forms ACCEPTED | W3.n re-landed the §8.1 cure with ID-5 (COHESION §0w; the `grammar.mjs` F-k2 note) | those forms REFUSED; the well-formed alpha tail and the GROUND-C cell `rgb(.843, -0, +54, 5e498)` unmoved |
+| `stylesheet-grammar.test.ts` J-2 six shapes | carried as names | F-w4f-1 (§11): NARROWS | each REFUSED whole, js ≡ wasm |
+| `stylesheet-grammar.test.ts` **J-6** | `x≡y` accepted | **NOT stale, a real defect**: W4.h's `decl-name` used ASCII `isIdent`. css-syntax-3 §4.2 includes non-ASCII, and `a { Xé: red }` was refused | **CURED** at the class (`6fcc207`); the test is unedited and passes |
+| `boundary/latch.test.ts` ×2 (L-3, record) | BORN-RED | **NOT stale**: ESC-c1 (O-15 PT-03). `resetPackrat()` never disarms `PACKRAT_ARMED` (`src/parse/packrat.ts:273/297`), outside W5's bounds (library seam; COHESION :1913 "ESC-c1 … → W4", carried) | **RED, unedited**: ESCALATED |
+
+### Gate re-readings after the cures (parse-that master `661b47c`, double-run)
+| gate / suite | command | run 1 | run 2 | vs Close |
+|---|---|---|---|---|
+| G-W5-a3 suite | ⟨`npm test`⟩ | `Tests 148 passed (148)` | `148 passed (148)` | unmoved GREEN |
+| css-equivalence | ⟨`npx vitest run -c test/css-equivalence/vitest.config.ts`⟩ | `28 passed (28)` | `28 passed (28)` | **26/28 → 28/28** |
+| css-recovery | ⟨`npx vitest run -c test/css-recovery/vitest.config.ts`⟩ | `Test Files 1 failed \| 11 passed (12)` · `Tests 2 failed \| 473 passed (475)` | identical | **15 failed + 2 files unloadable (414 run) → 2 failed (ESC-c1) of 475** |
+| css-totality | ⟨`npx vitest run -c test/css-totality/vitest.config.ts`⟩ | `80 passed (80)` | `80 passed (80)` | not read before; GREEN |
+| G-W5-b1 | ⟨`node test/css-equivalence/run-full-surface.mjs --pinned-value-commit 6aca8602…`⟩ | `MIRROR-DEFECTS 0` · `GREEN` EXIT 0 | same, identical after line 1 | unmoved GREEN |
+| G-W5-c1/c2 | inside `npm test`: `test/css-color5.test.ts` | 14/14 | 14/14 | unmoved GREEN |
+| wasm admission | ⟨`node scripts/wasm-admission.mjs src/css/build/ac1.wasm`⟩ | `"verdict": "GREEN"` EXIT 0 | — (sha256 identical across two rebuilds) | unmoved GREEN |
+| seam-contract-check (value.js) | ⟨`node docs/tranches/X/parse-that/scripts/seam-contract-check.mjs`⟩ | `VERDICT: GREEN`, ledger rows 48 | GREEN | unmoved |
+| G-W5-a3 perf | ⟨`npm run -s proof:perf`⟩ ×4 interleaved A/B | FAIL (both trees) | — | **RED, ESCALATED** (load) |
+| G-W5-d1/d2/e1/e2/close | ⟨`node scripts/rc-p-evaluate.mjs --version 4.0.0 --out <scratch>/rcp{1,2}.json`⟩ | `RC-P(4.0.0) = FALSE — 3 of 6 conjuncts are FALSE: 1 PUBLISHED(V) · 3 EQUIVALENCE(V) · 4 ADMITTED(V)`; 2/5/6 TRUE; arm V `20962` | identical | unmoved RED (ESC-W5d-1 / F-W5d-1) |
+
+`tsc --noEmit` over `typescript/` is not a W5 gate. ⟨`npx tsc --noEmit -p . | grep -c "error TS"`⟩ reads `92` at a `488523c` worktree and `94` ×2 after this repair. The +2 are two TS7016 lines (implicit-`any` `.mjs` module) at new import sites in `depth.test.ts` (`diagnostics.mjs`) and `closure.test.ts` (`entry.mjs`). That is the class every existing `.mjs` import in those files already carries. My edits add no new error class: two `${region}` template errors I introduced were cured in place, and `capacity.test.ts` holds at 18 → 18.
+
+### Escalations (open)
+- **ESC-W5d-1 (OWNER ACT), amended**: the tag target is now **`661b47c`**. The commands are `npm login` · `cd parse-that/typescript && npm run build && npm publish --access public` · `git tag v2.0.0 661b47c && git push origin v2.0.0`.
+- **F-W5d-1** (ADMITTED over a dependency's `.wasm`): orchestrator ruling; unmoved.
+- **ESC-R1-1, perf**: a low-load (< ~4) `proof:perf` read before the PUT. The A/B above does not exclude a real ~14 % regression from the merge's `src/parse/**` changes. Owner: the `.d` re-dispatch seat (R-close-1).
+- **ESC-R1-2, SC-2**: `display-p3-linear` as a `color()` input needs the frozen `CssColorSpace` widened. Orchestrator ruling; also **R-c-2** (`light-dark()` scheme-resolving surface).
+- **ESC-c1** (carried, library seam): the `PACKRAT_ARMED` one-way latch. 2 css-recovery legs stay RED. `src/parse/packrat.ts` lies outside every W5 unit's bounds.
+- **F-W5c-1**: legacy `none` alpha (PB-01/02). Orchestrator ruling.
+
+### Tally (self-counted from the tables above)
+Register defects: 6. D-2 is worked in three limbs (a · b · c), so there are 8 lines: **Cured in full: 3** (D-2a, D-3 with R-c-2 routed as a ruling, D-6). **Cured in part: 1** (D-2b: 19 readings and 2 suite loads cured or re-pinned; its 2 ESC-c1 legs escalated). **Escalated: 3** (D-1, D-2c perf, D-4). **No action: 1** (D-5, INFO). Gate verdicts moved to GREEN: none among d1/d2/e1/e2/close/a3-perf. The suites the Check counted against `.a`'s limb went from 17 failing tests plus 2 unloadable files to 2 failing (ESC-c1 only). LEDGER status unmoved (PARTIAL). Next: owner act → `.d` re-dispatch (PUT at `661b47c`, perf low-load read) → `.e` → Check 2.
