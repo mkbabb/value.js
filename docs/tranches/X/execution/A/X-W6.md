@@ -8793,3 +8793,28 @@ SERVED MODEL: claude-opus-5-5[1m] (this seat's section; unit `.s2`, executes W6.
 **Commit.** `4233e83e` `test(e2e): e1 moved re-read above raster noise — decoded clip frames, >=4 LSB over >=0.5% (X.W6.s2, COHESION §0bb ESC-W6e1-1)` — pathspec `e2e/smoke/views/gradient.spec.ts` (1 file, +100 −1).
 
 **Residuals.** None owned. The GREEN ×3 is not a claim that the compositor tile flip is gone — the instrument now reads it as noise by the §0bb re-reading (Repair 2's signature: max Δ 1/255, far below 4 LSB). A future ramp motion under L2 must clear ≥ 0.5 % of the clip at ≥ 4 LSB to read as moved(L2 is not the live branch at glass 7.0.0; that threshold is unmeasured against a real composed aurora and is stated, not claimed). **Escalations: none.** `ESC-W6e1-1` is discharged by this landing.
+
+### X.W6.j2
+
+SERVED MODEL: claude-opus-5-5[1m] · executes W6.md sixth ADDENDUM (`:494`) · COHESION §0bb ESC-W6j-1 (`:2961`) · §5 `.j` j4 row (`:323`).
+
+**Acts, in order**
+
+1. Crash-recovery ⟨`git status --porcelain`⟩ → the two standing rows only (`CARRY-LEDGER.md`, `scripts/dev/dev.sh`); no inherited edit in the writable set.
+2. Anchor verify ⟨`grep -c "test.fail" e2e/smoke/oracles/o29-scene-contracts.spec.ts`⟩ → `0`; the j4 block at `:571-604` loops `["blob","Picker"]`, `["atmosphere","Atmosphere"]` under `test.use({ viewport: 720×450 })`.
+3. Cure: at the top of the j4 test body, `if (hash === "blob") test.fail(true, "J4-SHORT-LANDSCAPE-BLOB → X-W8 .i");` with a 3-line comment citing §0bb / `6dfdd8d2`. Blob limb ONLY; atmosphere limb untouched and live; no assertion changed (5 insertions, 0 deletions).
+4. R-j1 re-measure: ⟨`grep -n visualizer demo/workbenches/gradient/GradientPane.vue`⟩ → `:13-14 useTemplateRef(... "gradientVisualizer")` · `:28 function visualizer()` — the key no longer collides since `46b2cb17` (Repair 1, which renamed the ref key rather than the setup binding). Probe (scratch Playwright script, chromium 1440×900 → `#/gradient`, 6 s, count console lines containing `Vue warn`) against a fresh `npx vite --port 9924 --strictPort` (killed after; the probe copy placed at the repo root for module resolution removed) → `vue-warns=0` · `vue-warns=0`. GREEN ×2 → per the brief, **no GradientPane byte written**; the cure of record is `46b2cb17`.
+5. Commit `c121324a` `feat(demo/scene-adoption)` — pathspec `e2e/smoke/oracles/o29-scene-contracts.spec.ts` only.
+
+**Gates, BEFORE → AFTER** (serial, fresh webServers `VJS_E2E_PORT` 9921 · 9922, line reporter)
+
+| gate | BEFORE (baseline) | AFTER run 1 | AFTER run 2 |
+|---|---|---|---|
+| ⟨`npx playwright test e2e/smoke/oracles/o29-scene-contracts.spec.ts --project=smoke`⟩ | RED `1 failed · 5 passed` EXIT 1 | `6 passed (37.9s)` EXIT 0 | `6 passed (36.8s)` EXIT 0 |
+| blob limb (expected-fail) | `preview@last=0.000` RED | `preview@rest=0.879 … preview@last=0.000` → expected-fail held | `preview@rest=1.000 … preview@last=0.000` → expected-fail held |
+| atmosphere limb (live) | `preview@last=0.079` GREEN | `preview@rest=0.164 … preview@last=0.079` GREEN | `preview@rest=0.164 … preview@last=0.079` GREEN |
+| 0 Vue warnings on `#/gradient` | `vue-warns=0` ×2 | `vue-warns=0` | `vue-warns=0` |
+
+⟨`git status --porcelain`⟩ after the runs → the two standing rows only.
+
+**Residuals**: `J4-SHORT-LANDSCAPE-BLOB` honest-RED in the tree as `test.fail` → X-W8 `.i` (flips when X-W8 lands the arrangement; Playwright will then report the unexpected pass). The §0bb wording "rename the setup binding" was discharged in effect by `46b2cb17`'s ref-key rename; no revert-and-rename churn (brief R.2). **Escalations**: none.
