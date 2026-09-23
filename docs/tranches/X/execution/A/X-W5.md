@@ -4078,3 +4078,19 @@ Crash-recovery: ⟨cmd⟩ `git status --porcelain` → the four standing rows (`
 **Unrelieved:** o16 W5-census · cold-nav witness · W6 a5–a12/e1/g2 (as `.d3` cross-gates).
 
 **Successors (Opens-after):** X-W6 [`.a2`→`.i2`→`.j`] (§0ay order), X-W7, X-W8 and X-W10 each carry the conjunct "X-W5 closed". That conjunct is **RED**, so all four are **lawfully BLOCKED**. Their other conjuncts from W5 (`regions[]`, the dead block cap, one mount path, E1/E2) are GREEN at the bytes. **LEDGER row: stays PARTIAL. No promotion.** One event line is appended.
+
+## Repair 1 — RESUME 6, L-20 repair round 1 over Check 1, 2026-09-23
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X-W5 REPAIR 1 (RESUME 6) · HEAD at open `740b5445`.
+Crash-recovery: ⟨cmd⟩ `git status --porcelain` → the four standing rows (`CARRY-LEDGER.md` · two W6 catalog PNGs · `scripts/dev/dev.sh`); none in this seat's writable set. No inherited partial.
+Inputs: `W5.md` whole (398 L, three ADDENDA), `## Check 1 — RESUME 6`.
+
+**Precondition read:** ⟨cmd⟩ `grep -n 'ESC-W5c3-1\|ESC-W5d3-1' docs/tranches/X/COHESION.md` → **no hits**. The last COHESION section is still §0ay (`d1bc67c3`). Both HIGH cures in Check 1 start with a COHESION ruling, and neither ruling exists.
+
+| defect | cure | commit | gate re-reading |
+|---|---|---|---|
+| HIGH · `.c3` o16 RED at R4 (R5/R11 latent) | **ESCALATED, not cured.** ADDENDUM 3 grants only o16 `:218` `:266` (the R2/R8 resolved-token equality, already landed at `8ddafa23`). R4/R5/R11 sit at `:251-299`, outside that grant. R4's `cartoon-surface` register is not shipped by glass 7.0.0, so it is a producer row that must go by mail. Relaxing R4 without a ruling would be a masking fallback. ESC-W5c3-1 is still owed a ruling. | — | not re-run (no byte moved); Check 1's K1.2 ×2 RED reading stands |
+| HIGH · `.d3` cold-nav witness RED on both arms (W6 a5–a12/e1/g2 with it) | **ESCALATED, not cured.** The root (`d3.2`) is the async-pane plate→pane swap inside PaneSlot's `<Transition>`. The cure is at `demo/shell/usePaneRouter.ts` `lazyPane` `:189-223`, which ADDENDUM 3's `.d3` writable set does not grant (PaneSlot · App.vue transition-name binding · animations.css swap rules · the new witness). ESC-W5d3-1 is still owed a ruling; option (a) is still recommended. | — | not re-run (no byte moved); Check 1's K1.2 ×2 RED reading stands |
+| INFO · R2/R8 self-referential expectation | none required (Check 1) | — | — |
+
+**Tally:** 0 cured · 2 escalated (ESC-W5c3-1, ESC-W5d3-1, both to COHESION) · 1 INFO needs no cure. The LEDGER row **stays PARTIAL**. IMPLEMENTED is not stamped.
