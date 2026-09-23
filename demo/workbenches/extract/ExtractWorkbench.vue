@@ -79,6 +79,7 @@
                 <!-- Error (error ≠ empty: an explicit destructive line) -->
                 <div
                     v-if="session.quantizeError.value"
+                    role="alert"
                     class="text-mono-small text-destructive px-1"
                 >
                     {{ session.quantizeError.value }}
@@ -159,6 +160,15 @@
                             @add-color="(css) => emit('addColor', css)"
                         />
                     </div>
+                    <!-- X-W7 Repair 1 (XW-22): a developed run with no opaque pixel is
+                         said, never shown as the pre-image ghost beside the image. -->
+                    <p
+                        v-else-if="session.barren.value"
+                        key="barren"
+                        class="text-mono-small text-muted-foreground px-1"
+                    >
+                        This image has no opaque pixels to sample.
+                    </p>
                     <ShadowPalette v-else key="shadow" :count="session.colorCount.value" />
                 </Transition>
             </div>

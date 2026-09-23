@@ -1,33 +1,73 @@
 /**
  * Composable for image → palette extraction via Web Worker.
  *
- * Provides: quantizeFromFile, quantizeFromCanvas, quantizeFromCamera
- * All run quantization off main thread with Transferable ArrayBuffer.
+ * X-W7 Repair 1 (D-6 · B-1 XP-EXTRACT session core — W7.545/.548/.550/.553/.554,
+ * EC-36): one typed seam, end to end.
+ *   - The REQUEST direction is typed (`satisfies QuantizeWorkerRequest`) and
+ *     carries a request id; the response echoes it (XW-34a).
+ *   - Every run SETTLES to a `QuantizeOutcome` — a worker-reported failure or
+ *     an undecodable file is a value, never a floating rejection (XW-34b, EY-10).
+ *   - `isProcessing` is armed BEFORE the decode, the one phase that freezes the
+ *     main thread (XW-4).
+ *   - Only the LATEST request writes state; a superseded run settles
+ *     `superseded` and touches nothing (XW-19's request identity).
+ *   - Failure is words, not library enum codes (EC-36).
+ * The dead `quantizeFromCanvas` / `quantizeFromCamera` pair (no consumer; the
+ * workbench owns its camera) is deleted.
  */
 
 import { ref, shallowRef, onBeforeUnmount, onDeactivated } from "vue";
 import type { QuantizedColor, QuantizeOptions } from "@mkbabb/value.js/quantize";
-import type { QuantizeWorkerResponse } from "../quantize-worker";
+import type {
+    QuantizeWorkerRequest,
+    QuantizeWorkerResponse,
+    QuantizeFailure,
+} from "../quantize-worker";
 import QuantizeWorkerURL from "../quantize-worker?worker";
 
 function createWorker(): Worker {
     return new QuantizeWorkerURL();
 }
 
-/** Load an image File/Blob onto a canvas and return pixel data + dimensions. */
-async function imageFileToPixels(file: File): Promise<{ pixels: Uint8ClampedArray; width: number; height: number }> {
-    const bitmap = await createImageBitmap(file);
-    const canvas = new OffscreenCanvas(bitmap.width, bitmap.height);
-    const ctx = canvas.getContext("2d")!;
-    ctx.drawImage(bitmap, 0, 0);
-    bitmap.close();
-    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    return { pixels: imageData.data, width: canvas.width, height: canvas.height };
+export type QuantizeOutcome =
+    | Readonly<{ kind: "developed"; palette: readonly QuantizedColor[] }>
+    | Readonly<{ kind: "failed"; message: string }>
+    | Readonly<{ kind: "superseded" }>;
+
+/** The one presentation of a quantize failure — plain words (EC-36). */
+export function describeQuantizeFailure(failure: QuantizeFailure): string {
+    switch (failure) {
+        case "decode":
+            return "This file could not be read as an image.";
+        case "quantize_invalid_dimensions":
+            return "This image has no pixels to sample.";
+        case "quantize_pixel_length_mismatch":
+        case "quantize_invalid_option":
+        case "worker":
+            return "Could not extract colors from this image.";
+    }
 }
 
-/** Grab pixel data from a canvas element. */
-function canvasToPixels(canvas: HTMLCanvasElement): { pixels: Uint8ClampedArray; width: number; height: number } {
-    const ctx = canvas.getContext("2d")!;
+/** Decode an image File/Blob and return its pixel data + dimensions. */
+async function imageFileToPixels(
+    file: File,
+): Promise<{ pixels: Uint8ClampedArray; width: number; height: number } | null> {
+    let bitmap: ImageBitmap;
+    try {
+        bitmap = await createImageBitmap(file);
+    } catch {
+        // `createImageBitmap` rejects (InvalidStateError) on an undecodable
+        // file; that is the "decode" outcome, carried as a value.
+        return null;
+    }
+    const canvas = new OffscreenCanvas(bitmap.width, bitmap.height);
+    const ctx = canvas.getContext("2d");
+    if (!ctx) {
+        bitmap.close();
+        return null;
+    }
+    ctx.drawImage(bitmap, 0, 0);
+    bitmap.close();
     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     return { pixels: imageData.data, width: canvas.width, height: canvas.height };
 }
@@ -48,53 +88,63 @@ export function useImageQuantize(options?: ImageQuantizeOptions) {
     const error = ref<string | null>(null);
 
     let worker: Worker | null = null;
-    let pendingResolve: ((value: readonly QuantizedColor[]) => void) | null = null;
-    let pendingReject: ((reason: unknown) => void) | null = null;
+    /** The latest request's id; only it may write state. */
+    let latest = 0;
+    /** In-flight worker jobs, keyed by request id. */
+    const pending = new Map<number, (outcome: QuantizeOutcome) => void>();
+
+    function settle(id: number, outcome: QuantizeOutcome) {
+        pending.get(id)?.(outcome);
+        pending.delete(id);
+    }
+
+    function failAll() {
+        for (const id of [...pending.keys()]) {
+            settle(id, id === latest ? fail("worker") : { kind: "superseded" });
+        }
+    }
+
+    function fail(failure: QuantizeFailure): QuantizeOutcome {
+        return { kind: "failed", message: describeQuantizeFailure(failure) };
+    }
+
+    /** The one writer of state: the latest request's outcome, and only it. */
+    function apply(id: number, outcome: QuantizeOutcome): QuantizeOutcome {
+        if (id !== latest) return { kind: "superseded" };
+        if (outcome.kind === "developed") palette.value = outcome.palette;
+        if (outcome.kind === "failed") {
+            palette.value = [];
+            error.value = outcome.message;
+        }
+        isProcessing.value = false;
+        return outcome;
+    }
 
     function getWorker(): Worker {
         if (!worker) {
             worker = workerFactory();
             worker.onmessage = (e: MessageEvent<QuantizeWorkerResponse>) => {
-                if (e.data.type === "result") {
-                    palette.value = e.data.palette;
-                    pendingResolve?.(palette.value);
-                } else {
-                    error.value = e.data.error;
-                    pendingReject?.(new Error(error.value));
-                }
-                isProcessing.value = false;
-                pendingResolve = null;
-                pendingReject = null;
+                const res = e.data;
+                settle(
+                    res.id,
+                    res.type === "result"
+                        ? { kind: "developed", palette: res.palette }
+                        : fail(res.error),
+                );
             };
-            worker.onerror = (e) => {
-                error.value = e.message;
-                isProcessing.value = false;
-                pendingReject?.(e);
-                pendingResolve = null;
-                pendingReject = null;
+            worker.onerror = () => {
+                worker?.terminate();
+                worker = null;
+                failAll();
             };
         }
         return worker;
     }
 
-    function runQuantize(
-        pixels: Uint8ClampedArray,
-        width: number,
-        height: number,
-        options?: Partial<QuantizeOptions>,
-    ): Promise<readonly QuantizedColor[]> {
-        error.value = null;
-        isProcessing.value = true;
-
-        return new Promise<readonly QuantizedColor[]>((resolve, reject) => {
-            pendingResolve = resolve;
-            pendingReject = reject;
-
-            const buffer = pixels.buffer.slice(0);
-            getWorker().postMessage(
-                { pixels: buffer, width, height, options },
-                [buffer],
-            );
+    function postToWorker(request: QuantizeWorkerRequest): Promise<QuantizeOutcome> {
+        return new Promise<QuantizeOutcome>((resolve) => {
+            pending.set(request.id, resolve);
+            getWorker().postMessage(request, [request.pixels]);
         });
     }
 
@@ -102,47 +152,31 @@ export function useImageQuantize(options?: ImageQuantizeOptions) {
     const buildOptions = (k: number, chromaWeight?: number): Partial<QuantizeOptions> =>
         chromaWeight === undefined ? { k } : { k, chromaWeight };
 
-    async function quantizeFromFile(file: File, k: number, chromaWeight?: number): Promise<readonly QuantizedColor[]> {
-        const { pixels, width, height } = await imageFileToPixels(file);
-        return runQuantize(pixels, width, height, buildOptions(k, chromaWeight));
-    }
+    async function quantizeFromFile(
+        file: File,
+        k: number,
+        chromaWeight?: number,
+    ): Promise<QuantizeOutcome> {
+        const id = ++latest;
+        error.value = null;
+        isProcessing.value = true;
 
-    async function quantizeFromCanvas(canvas: HTMLCanvasElement, k: number, chromaWeight?: number): Promise<readonly QuantizedColor[]> {
-        const { pixels, width, height } = canvasToPixels(canvas);
-        return runQuantize(pixels, width, height, buildOptions(k, chromaWeight));
-    }
+        const decoded = await imageFileToPixels(file);
+        if (id !== latest) return { kind: "superseded" };
+        if (!decoded) return apply(id, fail("decode"));
 
-    async function quantizeFromCamera(k: number, chromaWeight?: number): Promise<{ palette: readonly QuantizedColor[]; stop: () => void }> {
-        const stream = await navigator.mediaDevices.getUserMedia({
-            video: { facingMode: "environment", width: { ideal: 640 }, height: { ideal: 480 } },
-        });
-
-        const video = document.createElement("video");
-        video.srcObject = stream;
-        video.playsInline = true;
-        await video.play();
-
-        // Wait for video to have actual dimensions
-        await new Promise<void>((resolve) => {
-            if (video.videoWidth > 0) return resolve();
-            video.onloadeddata = () => resolve();
-        });
-
-        const canvas = document.createElement("canvas");
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
-        const ctx = canvas.getContext("2d")!;
-        ctx.drawImage(video, 0, 0);
-
-        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        const result = await runQuantize(imageData.data, canvas.width, canvas.height, buildOptions(k, chromaWeight));
-
-        const stop = () => {
-            stream.getTracks().forEach((t) => t.stop());
-            video.srcObject = null;
-        };
-
-        return { palette: result, stop };
+        const { pixels, width, height } = decoded;
+        // A fresh, transferable copy of exactly the pixel bytes.
+        const buffer = new ArrayBuffer(pixels.byteLength);
+        new Uint8ClampedArray(buffer).set(pixels);
+        const outcome = await postToWorker({
+            id,
+            pixels: buffer,
+            width,
+            height,
+            options: buildOptions(k, chromaWeight),
+        } satisfies QuantizeWorkerRequest);
+        return apply(id, outcome);
     }
 
     // X.W5.a · gate N1 — the DEACTIVATION contract (see PaneSlot's header).
@@ -150,9 +184,15 @@ export function useImageQuantize(options?: ImageQuantizeOptions) {
     // quantize kept a worker thread alive for the session. Terminating on
     // deactivate is safe by construction: `getWorker` re-creates one on the
     // next run, so a parked pane costs nothing and a resumed pane still works.
+    // A terminated job never answers, so its awaiters are settled here.
     function releaseWorker() {
         worker?.terminate();
         worker = null;
+        for (const id of [...pending.keys()]) settle(id, { kind: "superseded" });
+        if (isProcessing.value) {
+            latest += 1;
+            isProcessing.value = false;
+        }
     }
 
     onDeactivated(releaseWorker);
@@ -163,7 +203,5 @@ export function useImageQuantize(options?: ImageQuantizeOptions) {
         isProcessing,
         error,
         quantizeFromFile,
-        quantizeFromCanvas,
-        quantizeFromCamera,
     };
 }

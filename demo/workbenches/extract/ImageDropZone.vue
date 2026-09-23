@@ -91,10 +91,10 @@ function onFileSelected(e: Event) {
 
 function onDrop(e: DragEvent) {
     dragging.value = false;
+    // X-W7 Repair 1 (EY-10): one intake rule for both paths. A non-image is
+    // not silently dropped here; the decode verdict says so in words.
     const file = e.dataTransfer?.files[0];
-    if (file?.type.startsWith("image/")) {
-        emit("file", file);
-    }
+    if (file) emit("file", file);
 }
 </script>
 

@@ -13,7 +13,7 @@
 import { ref, shallowRef, computed, onBeforeUnmount, onDeactivated } from "vue";
 import type { QuantizedColor } from "@mkbabb/value.js/quantize";
 import { serializeCssColor } from "@mkbabb/value.js/css";
-import { useImageQuantize } from "./useImageQuantize";
+import { useImageQuantize, type QuantizeOutcome } from "./useImageQuantize";
 import { usePaletteStore } from "../../../palettes/usePaletteStore";
 import type { Palette, PaletteColor } from "../../../palettes/types";
 
@@ -45,6 +45,8 @@ export function useExtractSession() {
     const chromaWeight = ref(0.5);
     const lastFile = shallowRef<File | null>(null);
     const paletteName = ref("Extracted Palette");
+    /** XW-22: the latest run developed, and found no opaque pixel to sample. */
+    const barren = ref(false);
 
     let debounceTimer: ReturnType<typeof setTimeout> | null = null;
 
@@ -150,21 +152,41 @@ export function useExtractSession() {
 
     // ── Quantize orchestration ──
 
-    function runQuantize() {
-        if (lastFile.value) {
-            quantizeFromFile(lastFile.value, colorCount.value, chromaWeight.value);
-        }
+    // X-W7 Repair 1 (D-6 · XP-EXTRACT): every dispatch goes through here and
+    // first cancels the pending debounce (EC-34: one intent, one worker job).
+    // The quantizer settles a typed outcome and writes its own state (only the
+    // latest request may), so nothing here floats a rejection.
+    async function runQuantize(): Promise<QuantizeOutcome | null> {
+        cancelPendingQuantize();
+        const file = lastFile.value;
+        if (!file) return null;
+        barren.value = false;
+        const outcome = await quantizeFromFile(file, colorCount.value, chromaWeight.value);
+        // XW-22: a success with zero opaque pixels is its own state, never
+        // the pre-image ghost beside the image just fed.
+        if (outcome.kind === "developed") barren.value = outcome.palette.length === 0;
+        return outcome;
     }
 
     function debouncedReQuantize() {
         if (debounceTimer) clearTimeout(debounceTimer);
-        debounceTimer = setTimeout(runQuantize, 300);
+        debounceTimer = setTimeout(() => void runQuantize(), 300);
     }
 
+    // XW-19: an intake is identified; a slower earlier read can never
+    // overwrite the preview of a later file, so preview and palette always
+    // describe the same image. The palette is dispatched from the same act.
+    let intake = 0;
     async function onFile(file: File) {
+        const id = ++intake;
         lastFile.value = file;
-        previewDataUrl.value = await readAsDataUrl(file);
-        runQuantize();
+        const [preview, outcome] = await Promise.all([
+            readAsDataUrl(file).catch(() => null),
+            runQuantize(),
+        ]);
+        if (id !== intake) return;
+        // An undecodable file leaves no half-state: no preview, the words only.
+        previewDataUrl.value = outcome?.kind === "failed" ? null : preview;
     }
 
     function onKChange(k: number) {
@@ -180,7 +202,7 @@ export function useExtractSession() {
     function onReset() {
         colorCount.value = 5;
         chromaWeight.value = 0.5;
-        if (lastFile.value) runQuantize();
+        void runQuantize();
     }
 
     function onSave(p: Palette) {
@@ -206,6 +228,7 @@ export function useExtractSession() {
         palette,
         isProcessing,
         quantizeError,
+        barren,
         // session state
         previewDataUrl,
         colorCount,
