@@ -1534,3 +1534,134 @@ alone ×2); eslint on the 14 files EXIT 0; `git diff --check` clean. e2e not run
 **Residuals**: the machine's load average was 209–276. Some R14 runs timed out at `page.goto` or `click` before any
 assertion, and they are not counted. Only the two clean runs are cited. `dev.sh` was not touched.
 **Commits**: `0354d1ff` · `813fb8f6` · `89499f86` · this record.
+
+### X.W7.g3
+
+**Seat**: `claude-opus-5-5` · 2026-09-23 · COHESION §0bk.4 (`:3016`) · fold §R2.2 (EC-9 W7.542 · EC-10 W7.543 · EC-25 W7.544 ·
+EY-12 W7.555 · EY-23 W7.556) · §R3.2 (W7.601–617, `ImageDropZone`) · the camera cluster (XW-8 / XW-9 / XW-35, fold W7.121) ·
+crash-battery R18's valid leg.
+**Crash-recovery**: ⟨cmd⟩ `git status --porcelain` → ` M …/CARRY-LEDGER.md` · ` M …/B/KF-W13U.md` · ` M scripts/dev/dev.sh` ·
+`?? docs/tranches/X/audit/` · `?? …/chassis/ui-audit.js`. None is in the writable set: **no inherited hunk**.
+
+**Acts, in order**
+
+1. **Anchors measured.** Every extract anchor the rows cite was read at the true bytes. Drift recorded:
+   `ImageDropZone` R-5's `:23-25` and R-19's `:10/:20/:61` sit at `:23-25` / `:10/:20/:59`; R-29 was already cured by
+   `42bdf2a7` (request-id map), so it is GREEN at open. XW-11's dead camera copy is gone (⟨cmd⟩ `grep -rln getUserMedia demo`
+   → only `ExtractWorkbench.vue`).
+2. **R18 valid leg — measured before any edit.** ⟨cmd⟩ R18 ×1 on a private port at load ≈ 277 → **2 failed**, both at
+   `openView`'s click (30 s budget, starvation), before any R18 assertion. The fix-the-cause probe therefore went
+   around the dock. A scratch Playwright script drove `/#/extract` on a private vite, handed the minted 2×2 PNG to the
+   real file input, and waited 25 s.
+   - ⟨probe⟩ `createImageBitmap(<minted PNG File>)` → `[2,2]`; `<img>.decode()` → `[2,2]`. The fixture decodes.
+   - ⟨probe⟩ the real flow at HEAD `f322a48f` → `img: true`, the developed card `Palette: Extracted Palette` present
+     with **4** `[data-band]`, **0** page errors, **0** `role=alert`, and `[aria-label^="Color swatch "]` → **0**.
+   - The `InvalidStateError` on quantize is **not live at HEAD**. It was cured at its cause at `42bdf2a7`: the typed
+     seam settles a decode outcome, and a valid file decodes. What kept the valid leg RED was the locator.
+     glass-ui 7's `WatercolorDot` is `inheritAttrs: false` and forwards only class and style
+     (⟨cmd⟩ `grep -n inheritAttrs node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js` → `:80`), so the swatch's name
+     never reaches the DOM. That row is glass-owned (CC-044 → X-W4.g).
+   - **Cure inside the grant (R18 leg):** DEAD-LOCATOR RULING 2. The leg now binds the developed specimen's own strip,
+     `[role="article"][aria-label^="Palette: "] [data-band]`. Only a developed card renders `[data-band]`: ⟨cmd⟩
+     `grep -rn "data-band" demo | grep -v demo/test` → `PaletteColorStrip.vue:27` only, and the ghost and skeleton do
+     not use it. The leg asserts `toHaveCount(4)`, one band per fixture colour. That is stronger than the old
+     `.first()` visibility check.
+3. **Falsifiers written first, run RED.** Five test files under `demo/test/extract/`, 22 tests. ⟨cmd⟩
+   `npx vitest run demo/test/extract/` against the pre-cure bytes → **18 failed · 4 passed**. The 4 passes are the new
+   camera composable's own tests.
+4. **`26836da6`** `refactor(extract/eyedropper)` — EY-23's third representation dies. The visible canvas is now the
+   sampled canvas, created with `willReadFrequently`, and the native-resolution offscreen twin is gone. The loupe reads
+   `getImageCanvas()`. ⟨cmd⟩ `image-sampler.test.ts` → RED → **GREEN ×2**.
+5. **`d106f3be`** `fix(extract)`. One commit, because these pieces share `ExtractWorkbench.vue` and `useExtractSession.ts`:
+   the session's `previewUrl` rename runs through every consumer, and R18's intake follows the file-dialog move.
+   - **EY-12** (the altitude row). The session is created once, in a detached `effectScope`. Each mount is a holder of it,
+     and the debounce/worker release runs only when the last holder parks or leaves. The quantizer returns
+     `releaseWorker` instead of binding hooks itself. The overlay-open flag also moved into the session.
+     Provenance: the row carries its own caveat (`r3-only`, `ADMITTED`). The shell's breakpoint `v-if` fork was already
+     retired at X-W5 (`usePaneRouter.ts:670-680`, gate C5). This cure holds for ANY remount of the workbench, which
+     that fork was only one example of.
+   - **EY-23 / R-24**: the preview is `URL.createObjectURL(file)`, and the prior URL is revoked when replaced or cleared.
+     The FileReader base64 read is deleted, so a file is read one fewer time.
+   - **R-30**: the decoded `ImageData` buffer is transferred as-is, and its type (`Uint8ClampedArray<ArrayBuffer>`) is
+     carried, not cast.
+   - **§R3.2 `ImageDropZone`**:
+     - `useDropZone` replaces the hand-rolled drag handlers (R-5, R-17).
+     - The zone owns no file input. It emits `open` (empty) or `sample` (populated), and the workbench owns
+       `useFileDialog` (R-16, R-17). That kills R-6: the old input's click bubbled into the sample handler.
+     - `disableClick` is deleted (R-19).
+     - A `disabled` contract is added (R-12).
+     - `transition-colors` replaces `transition-all`, and both inline durations are deleted (R-11, R-22).
+     - The img uses `rounded-panel` (R-25).
+     - The empty zone wears `.dashed-well`; the drag tint stays semantic (R-14).
+     - The hover-only, `aria-hidden` chip becomes a persistent glass `Badge variant="secondary"` on its own opaque ground
+       (R-8, R-27).
+     - The toolbar Upload stands down (present, disabled) while the zone is the intake, and reads "Replace image" once
+       an image exists (R-20).
+     - One `role="status"` intake line (R-23).
+   - **EC-9**: `ExtractControls` takes `found`. The readout shows `found/k` with a worded title when they differ, and `k`
+     otherwise.
+   - **EC-25**: `kSliderGradient` is `string | null`. The rail binds `backgroundColor` (the certified ink) and, only when
+     developed, `backgroundImage`. No shorthand races a longhand any more.
+   - **Camera cluster**: new `useCameraCapture`.
+     - `start` is idempotent (XW-9), and a stream that arrives late is released on arrival.
+     - `stop` is the exit (XW-8, EC-5).
+     - The Camera control is `active` while live and closes the camera on a second press. Cancel and Escape exit.
+     - `disabled` reaches all five controls, and while the camera is live the other four stand down (XW-8, EC-6).
+     - The viewfinder takes the zone's seat, so one specimen shows, and uses `object-contain` (D2-23).
+     - The capture chip is the producer's `DockControl` face: no `compact`, no hand-painted plate (XW-35).
+     - Camera faults are their own `role=alert` line, never written into the quantizer's slot.
+   - **R18** (`crash-battery.spec.ts`, the grant's R18 leg): both legs hand in their file through the real chooser
+     (`page.waitForEvent("filechooser")` on the empty zone), because the pane no longer holds a DOM input. The valid leg
+     binds the developed strip (act 2). Assertions are otherwise unchanged.
+6. **Cadence at the settled bytes.**
+   - ⟨cmd⟩ `npx vitest run demo/test/extract/` → **22/22 · 22/22**.
+   - ⟨cmd⟩ `npx vue-tsc -p tsconfig.demo.json --noEmit` → **EXIT 0**. The first try was EXIT 2 with 1 error:
+     `useFileDialog`'s `input` option rejects a nullable template ref under `exactOptionalPropertyTypes`. The cure was to
+     adopt vueuse's own detached input, not to cast.
+   - ⟨cmd⟩ `npx eslint demo/workbenches/extract demo/test/extract e2e/smoke/crash-battery.spec.ts --max-warnings=0` →
+     **EXIT 0**.
+   - ⟨cmd⟩ `npx vitest run demo/test` → 4 failed / 259 passed / 10 skipped across 6 failing files. Those files are
+     `palette-card-layout`, `plate-mass`, `byte-exact` PNG, `admin-destructive`, `mini-color-picker-capture` and
+     `reka-binding-idiom`. Their causes: `page.goto` timeouts ×3, a 30 s and a 5 s test timeout, one vitest-worker RPC
+     timeout, jsdom's missing canvas, and the checkbox canary.
+   - ⟨cmd⟩ `grep -ln workbenches/extract <those 6>` → **0**. None of them reaches the extract tree.
+
+**Escalations** (each cure lies outside §0bk.4's grant, "the extract workbench's files and their tests")
+
+- **ESC-W7g3-EC10-TWIN** (EC-10, W7.543): the fold carries a two-site cure lock verbatim: *"the twin builder in
+  GenerateControls:65-73 … must move in the same step"*, with the two empty arms kept non-equivalent. The twin is at
+  `demo/workbenches/generate/GenerateControls.vue:74-79` (⟨cmd⟩ `grep -n "var(--muted)\|toFixed" …/GenerateControls.vue`
+  → `:74`, `:77`), which is outside the grant. Curing only the extract half (hard stops) would break the lock, so EC-10
+  is **not executed**. EC-25's re-type (`string | null`) landed on the extract side and needs no generate consumer:
+  `kSliderGradient` has one consumer, ⟨cmd⟩ `grep -rn kSliderGradient demo` → the workbench only.
+  **Needed**: a grant of `GenerateControls.vue`'s rail builder for the one hard-stop change, or a routing.
+- **ESC-W7g3-R15-PLATEINK** (§R3.2 R-15, W7.606): the cure is to *"declare `--ink-muted` in CSS at `:root` + one global
+  recipe"* across five scoped twins. Those twins are `ImageDropZone` · `ExtractWorkbench` · `ExtractControls` ·
+  `EmptyState.vue:102` · `ErrorBoundary.vue:84`. The `:root` declaration and the global recipe live in `demo/styles/`,
+  and two of the twins sit outside the grant, so R-15 is **not executed**. The three extract twins are left byte-identical
+  so that one sweep can retire all five. **Needed**: a grant of `demo/styles/utils.css` + `EmptyState.vue` +
+  `ErrorBoundary.vue` for the one change. X-W10 owns `.plate-ink` as XP-19, so the row may route there.
+
+**Gates BEFORE → AFTER** (full per-row table: `W7-gate-log.md` § X.W7.g3)
+
+| gate | BEFORE | AFTER | verdict |
+|---|---|---|---|
+| EC-9 | readout = request (`{{ k }}`); test RED | `found/k` + worded title; test GREEN ×2 | **GREEN** |
+| EC-10 | continuous interpolation | unchanged | **ESCALATED — ESC-W7g3-EC10-TWIN** |
+| EC-25 | `"var(--muted)"` in the gradient slot, certified only by key order; test RED | `string \| null`, colour + image layers; test GREEN ×2 | **GREEN** |
+| EY-12 | session in setup scope; test RED | session above the mount; test GREEN ×2; served page: same node across 1000×640 · 390×844 · 1280×720 | **GREEN** |
+| EY-23 | 3 representations (base64 + 2 native canvases); tests RED | object URL + 1 canvas; tests GREEN ×2 | **GREEN** |
+| §R3.2 (17 rows) | 10 falsifiers RED; R-29 pre-cured | 15 of 17 cured, R-29 GREEN at open, 10 falsifiers GREEN ×2; R-15 escalated | **GREEN except R-15 — ESC-W7g3-R15-PLATEINK** |
+| camera cluster (XW-8/9/35) | one-way door, double stream, stacked specimens; XW-8 tests RED | `useCameraCapture`; tests GREEN ×2 | **GREEN** |
+| R18 valid leg | RED (dead swatch locator; `InvalidStateError` not live since `42bdf2a7`) | `2 passed` ×2 (attempts 7–8, load 131/112; attempts 1–6 starved at load 190–780) | **GREEN ×2** |
+| demo `vue-tsc` | EXIT 0 | EXIT 0 | GREEN (cadence) |
+| eslint (unit files) | — | EXIT 0 | GREEN (cadence) |
+
+**Residuals**:
+- the eyedropper's zoom and pan (EY-12 names them) live in `ImageEyedropper`'s own setup. The overlay-open flag, image
+  and palette now survive a remount, but zoom and pan reset if the eyedropper remounts. The served page shows no
+  remount at HEAD.
+- XW-35(b)'s glyph-over-video contrast is not measured here: no probe environment has a camera grant. The chip now
+  wears the producer face, so the cure wave measures the producer rung.
+- `dev.sh` was not touched.
+**Commits**: `26836da6` · `d106f3be` · `cb568b0a` · this record.
