@@ -280,3 +280,96 @@ A predecessor `.v` seat was killed after Act 4; its receipt text (above) and the
 **Escalations.** (1) `REPIN-SPRING-SMOOTH-DEAD` (KFA-168 re-read): a consumer migration break of the repin, not curable in a VERIFY-ONLY seat → `.d` or KF.W13V `.c`, cure at `AnimationControlsGroup.css:57` onto the 10.0.1 role rung. (2) the `.d2` gh open-clause RED ×2 → `.d` (attributed to the hovered trigger capsule, not proven).
 
 **Commits.** This record plus the committed `v/**` evidence (scripts `.mjs`/`.js`/`.py`, JSON reads, `.out` logs) in one record commit; frames `*.png`/`*.jpg` and `*.log` local. Hash in the ledger line.
+
+### KF.W13R.d
+
+SERVED MODEL: claude-opus-5-5 · seat `KF.W13R.d` (OA-41 + OA-48 dock motion at 10.0.1; effort high), 2026-09-23 · keyframes.js `d54a6ab8` → **`d94017ff`** · glass-ui **10.0.1** installed (⟨`node_modules/@mkbabb/glass-ui/package.json`⟩ → `"version": "10.0.1"`) · 0 glass product bytes (one BK mail file only).
+
+**Crash-recovery.** ⟨`git -C keyframes.js status --porcelain`⟩ → the two untracked coordination letters only (pre-existing, not this wave's); ⟨`git -C value.js status --porcelain | grep -E "W13R/d|KF-W13R|relay/X-KF-BK-W13R|INBOX"`⟩ → empty. No inherited partial work.
+**Read.** Spec `KF-W13.md` (the KF.W13R addendum `:365-373`, OA-40/41 `:375-381`, §0bz OA-48 `:383-386`, the KF.W13U `.d` row + OA-32/33 `:315-336`, §0cb/§0cd/§0cf/§0cj); this record's header → Unit plan, and `.v`'s receipt (its two escalations name `.d`: REPIN-SPRING-SMOOTH-DEAD and the `.d2` gh open clause); COHESION §0bs · §0bz · §0cb (R-5: the repin credits no row) · §0ci (R-5: kf keeps 10.0.1) · §0cj; KF-W13U.md Close 3 `:1287` (R-close3-1) and Check 7 `:1364` (C7-1).
+**Instrument.** Dev = the owner's surface `http://localhost:5173/`; gh-pages = ⟨`npm run gh-pages`⟩ (`.v`'s build at `d54a6ab8` for BEFORE; rebuilt at `d94017ff`, `✓ built in 4.27s`, for AFTER), served as a snapshot on `http://localhost:5199/` by `v/serve-gh.mjs`. Headed Chromium, 1440×900, renderer ⟨probe⟩ → `ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)`. ⟨`d/morph-probe.mjs <base> <tag>`⟩ drives three contexts per run, each recorded to WebM: `top-expand-collapse` and `bottom-expand-collapse` (`/#/cube`, hover-expand then pointer-away collapse, ×2 each) and `top-scene-switch` (`/#/square`, Scene select square→spring→square→spring = R-close3-1's pair). ⟨`d/sampler.js`⟩ reads per rAF on each dock: width/height, `data-morphing`, `--dock-morph-t`, dock and plate `border-radius`, `filter`/`backdrop-filter` on every text-bearing element's chain up to the dock, a non-identity `scale`/`transform` on that chain, the visible row count (child centres banded ±12 px), and two running animations on one target|property. ⟨`d/sum.py <tags>`⟩ prints one line per segment. Glass motion tokens read on the page: `--spring-dock-duration` `calc(0.21s * 1)` · `--spring-dock-settle` `0.21s` · `--duration-panel` `0.55s` · `--motion-tempo` `1`; the morph's spring is glass's `dock` preset (⟨`dist/participation-*.js`⟩ `response: e("dock").response` → `springPresets-*.js` `dock: response .3, dampingFraction .88`). Load ⟨`uptime`⟩ per run in each report (34–138; an aborted first attempt at load 374 was discarded with its superseded row metric).
+
+#### Act 1 — BEFORE: the morph measured at `d54a6ab8` (dev ×2 + gh ×2, headed; reports `d/report-before-{dev1,gh1,dev2,gh2}.json`, loads 77.4 · 46.6 · 77.0 · 66.1)
+
+| read (per morph segment, 8 per run) | dev1 | gh1 | dev2 | gh2 |
+|---|---|---|---|---|
+| text frames with `filter`/`backdrop-filter` blur — in morph · after settle | 0 · 0 | 0 · 0 | 0 · 0 | 0 · 0 |
+| rows per visible frame (`rowsOverRest`) · dock height | 1 (0) · 56 every frame | same | same | same |
+| min radius dock · plate | 9999px · 50px | same | same | same |
+| top expand 1 (mounted `collapse="closed"`): 56 → 454.49 largest single-frame step | **398.49** | **398.49** | **398.49** | **398.49** |
+| transport collapse 1 (mounted expanded): 278.59 → 56 largest step | **223** | **220** (from 276.27) | **223** | **223** |
+| later morphs: width travel · largest step | 240–249 ms · 36–67 px | 244–257 · 19–35 | 225–248 · 32–68 | 235–253 · 20–39 |
+| overshoot past target: top · transport expand 2 | 0 · **0.41 px** + 1 reversal | 0 · 0 | 0 · **0.41** | 0 · **0.41** |
+| `data-morphing` window | 540–553 ms | 538–550 | 533–551 | 538–550 |
+| text under non-identity scale/transform: morph · settle | 5–46 · 0 | 6–55 · 0 | 4–45 · 0 | 6–54 · 0 |
+| two owners of one target|property (frames) | `.dock-select-trigger::before` opacity, 29, first expand only | 31 | 27 | 31 |
+| scene switch square↔spring (3 per run): step · morph frames | 16.79 px one frame · 0 ×3 | **465.5 → 453.47, 1.06 px past the target, 1 reversal** · then 16.79 ×2 | 16.79 · 0 ×3 | 16.79 · 0 ×3 |
+
+**Consumer census (why nothing above is a consumer byte).** ⟨`grep -rnE '^\s*(transition|animation)\s*:' demo/app/dock demo/app/App.vue demo/styles demo/components/instrument/transport`⟩ → no rule targets a dock element: `tab-idiom.css:29` (tabs), `playback-idiom.css:64,98` (`.btn-playback*`, used only in scenes/timeline/PlaybackRibbon — ⟨`grep -rln btn-playback demo`⟩), `ChannelOptions.vue:1008,1023` and `ControlsPaneWrapper.css:102-154` (the controls pane), `AnimationControlsGroup.css:57` (the `.controls-layout` grid — below). ⟨`grep -rn '::before\|dock-select-trigger' demo/app demo/styles demo/components/instrument/transport`⟩ → one comment line (`ChromeDock.vue:62`); the double-owned `::before` is glass's specular (`dist/…` `.dock-select-trigger::before` in the `glass-*::before` family). The width morph is `dist/dock.js` `useDockMorph` (`:398-424`, `playTo(i, 1, …)` writing `--dock-morph-t`); no keyframes byte animates the dock box, its plate, its layers or its text.
+
+#### Act 2 — the one consumer cause in bounds: REPIN-SPRING-SMOOTH-DEAD (`.v` escalation 1, KFA-168 re-read), cured at its root
+
+`.v` measured it and escalated it to this unit or KF.W13V `.c`. The site `demo/components/instrument/transport/AnimationControlsGroup.css:57` is inside this unit's writable set (`transport/**`), and it is the pane motion that runs beside the dock, so it is cured here, once.
+- **Bytes.** ⟨`grep -rnoE -- '--(ease-)?spring-(smooth|snappy|bouncy|gentle|orb-drop)[a-z-]*' demo src`⟩ → one declaration, `AnimationControlsGroup.css:57` `transition: grid-template-columns var(--duration-slow) var(--spring-smooth)` (`:54-56` and `SpringTarget.vue:602` are comments). ⟨`grep -rhoE -- '--spring-[a-z-]+:' node_modules/@mkbabb/glass-ui/dist/styles | sort -u`⟩ → the six role rungs only (`bloom · dock · panel · present · press · world`, each with `-duration` · `-exit-duration` · `-settle`). The authority is glass `d27ec5dc` (BK #26 W-SPRING-RETUNE), whose RECORD maps the retired presets by intent: *"travel / indicator / extent | snappy | **dock**"* and *"anchored entrances | smooth/snappy/bouncy | **present**"*. `node_modules/@mkbabb/glass-ui/MIGRATION.md:946-955` says to read each rung with its own clock.
+- **Choice (recorded).** The rail track open/close is an EXTENT, not an anchored entrance, so it lands on `--spring-dock`, which has a fast attack and a dead landing. That is also the "calmer curve" R.W6 C.5 meant. `--spring-panel` was rejected because its row is the one whose rebound is intended (ζ 0.71), and a rebounding grid track reflows the stage twice. The duration is the rung's own `--spring-dock-duration`, never a borrowed `--duration-slow`.
+- **Landing.** keyframes.js **`d94017ff`** `fix(kf/transport · X.KF.W13R.d · REPIN-SPRING-SMOOTH-DEAD …)`. It is 1 file, a pathspec commit, and it contains the declaration plus the comment that says why.
+- **Gate.** ⟨`node d/ctl-probe.mjs <base> <tag>`⟩ samples the `.controls-layout` rail track every rAF across Controls panel close then open, headed on `/#/cube`:
+
+| read | BEFORE dev1 · dev2 | AFTER dev1 · dev2 | AFTER gh1 · gh2 |
+|---|---|---|---|
+| computed `transition` (property · duration) | `all` · `0s` (invalid at computed-value time) | `grid-template-columns` · `0.21s` `linear(0 0%, 0.00382 2.041%, …)` | same |
+| close 475.195 → 0: frames changing · span · largest step | **1** · 30.7/32.2 ms · **475.19 px** | 18/17 · 215.6/206.0 ms · 79.06/73.33 px | 21/21 · 214.0/213.7 ms · 41.86/43.71 px |
+| open 0 → 475.195 | **1** · 25.9/26.5 ms · **475.19 px** | 19/20 · 211.5/212.5 ms · 79.29/74.90 px | 21/21 · 211.9/211.9 ms · 43.65/43.81 px |
+
+  Regression guards at `d94017ff`: ⟨`npm run check`⟩ → `PASS: scope=src clean (0 violations across R1–R6)`, EXIT 0 ×2. ⟨`npx vitest run --project demo`⟩ → `Test Files 66 passed (66)` · `Tests 518 passed (518)`, EXIT 0 ×2. This is the same count as `.m`'s baseline.
+
+#### Act 3 — AFTER at `d94017ff`: the morph re-read (dev ×2 + gh ×2, headed; `d/report-after-{dev1,gh1,dev2,gh2}.json`, loads 58.8 · 40.3 · 45.6 · 34.0; pageerrors 0 in every run)
+
+| read | dev1 | gh1 | dev2 | gh2 |
+|---|---|---|---|---|
+| text blur frames — morph · settle | 0 · 0 | 0 · 0 | 0 · 0 | 0 · 0 |
+| rows over rest · max dock height | 0 · 56 | 0 · 56 | 0 · 56 | 0 · 56 |
+| min radius dock · plate | 9999px · 50px | same | same | same |
+| top expand 1 largest step · transport collapse 1 largest step | **398.49** · **223** | **398.49** · **223** | **398.49** · **223** | **398.49** · **223** |
+| later morphs: width travel · largest step | 231–257 ms · 32–69 px | 236–255 · 20–36 | 235–253 · 19–68 | 236–256 · 21–41 |
+| overshoot: top · transport expand 2 | 0 · **0.41 px** + 1 reversal | 0 · **0.41** | 0 · **0.41** | 0 · **0.41** |
+| `data-morphing` window | 540–551 ms | 538–548 | 534–553 | 547–548 |
+| text under scale/transform: morph · settle | 5–45 · 0 | 6–55 · 0 | 6–55 · 0 | 6–55 · 0 |
+| double owner `.dock-select-trigger::before` opacity (first expand) | 29 frames | 31 | 31 | 31 |
+| scene switch ×3: step · morph frames · past target | 16.79 · 0 · 0 (×3) | same | same | same |
+
+The morph is byte-for-byte the same before and after, as expected: the one consumer cure touches no dock byte. **WebM** per transition (before and after): `d/webm-{before,after}-{dev1,gh1}/{top-expand-collapse,bottom-expand-collapse,top-scene-switch}.webm` are committed. The dev2 and gh2 WebMs stay local, and their reports are committed.
+
+**R-close3-1 re-read (C7-1, the 1.1 px undershoot).** Across 24 served switches (8 runs × 3, square↔spring), 23 read one 16.79 px width step with 0 morph frames and 0 px past the target. One read on gh, before-run 1, first switch, starts from a **465.5 px** plateau rather than the 470.26 rest, dips **1.06 px** past 453.47 and reverses once. That is the 7.0.0 signature (`413.5 → 400.4 → 401.5`, 1.1 px) at 10.0.1, still gh-only and intermittent (1/24). ⟨consumer census, Act 1⟩ → 0 consumer width transitions, so the cause is the producer's width morph. → DOCK-MORPH-ROOT R-2 (relayed).
+
+**The `.d2` gh open-clause re-read (`.v` escalation 2).** ⟨`node d/probe-icon-open-attrib.mjs http://localhost:5199/ icon-gh{1,2}`⟩ is a copy of `.v`'s `probe-icon-rest5500.mjs` with the gate logic unchanged. It adds one attribution read: the Scene trigger's `:hover` and its running animations, including pseudo-elements. Results (diffOutside, gh1/gh2): cube 191/191 · amiga 0/530 · square 306/531 · easing 309/152 · spring 0/0 · sequence 0/311. bboxDelta is 0 everywhere. The Scene trigger reads **`running: []` at every site**, and it reads **`hovered: false` on cube/amiga/square/easing/spring**. Sequence is hovered in both runs and reads 0 on one and 311 on the other, so hover does not predict the diff. The earlier "hovered capsule" attribution therefore does not hold. ⟨`node d/probe-ring-under.mjs <base>`⟩ at a ring pixel (glyph y − 5) reads the same stack on dev and gh: `button.dock-select-trigger → .dock-layer--full → .dock-layers → .dock-plate (backdrop-filter; running gl-dock-cap-inline-start|end, scroll-timeline)`. No consumer element paints in the ring, and the change is attributed (not proven) to the plate re-sampling what lies behind it. The row stays honest-RED inside DOCK-MORPH-ROOT (R-6), and no consumer byte is written.
+
+#### Act 4 — the remainder is producer: honest-RED `DOCK-MORPH-ROOT`, the 10.0.1 measurement relayed to BL
+
+- Relay letter **O-64** is `docs/tranches/X/relay/X-KF-BK-W13R-DOCK-MORPH.md`. Its mirror is `glass-ui/docs/tranches/BK/coordination/valuejs-outbound-2026-09-23-kf-w13r-dock-morph.md` (⟨`cmp`⟩ → identical). The mirror is left untracked in glass-ui for BL to bank, as O-61/O-62/O-63 were, and 0 glass product bytes were written.
+- The letter credits what 10.0.1 already cured: 0 blur on text, no wrap, no negative radius, and no top-dock overshoot.
+- It relays what is still live:
+  - **R-1** — the first-morph stale endpoint (one-frame 398.49 / 223 px, 8/8).
+  - **R-2** — an expanded content-width change is not morphed (16.79 px in one frame, 23/24), and R-close3-1 appears at 1.06 px on gh, 1 time in 24.
+  - **R-3** — a transport 0.41 px overshoot, 7/8.
+  - **R-4** — the width travel takes 225–257 ms against `--spring-dock-duration` 0.21 s, the morph window runs 533–553 ms, and text sits under scale for up to 55 frames of it.
+  - **R-5** — a double owner of the `.dock-select-trigger::before` opacity.
+  - **R-6** — the `.d2` gh ring diff.
+- **INBOX**: the E13 sweep line (0 unrowed, 0 UNREAD; the glass BL files newer than the ledger are internal `audit/round-4/R4-02.md` and `design/structure/pass-2/G-research.md`) and the **O-64** row are appended.
+- Masks refused: no consumer copy of glass's morph CSS/JS, no local spring, no `transition: none` on the dock, no plate override (§0cf), and no instrument moved to hide a row (§0cd).
+
+#### Gates (BEFORE `d54a6ab8` → AFTER `d94017ff`; each read headed on dev ×2 and gh-pages ×2)
+
+| gate | BEFORE | AFTER | reading |
+|---|---|---|---|
+| 0 settle frames with `filter`/backdrop blur on text | 0 settle · 0 in-morph (×4) | 0 · 0 (×4) | **GREEN** (credit: 10.0.1's `blur(0px)` morph; KFA-53 stays cured) |
+| no wrap-then-snap (row count per frame monotone) | rows over rest 0; h 56 every frame (×4) | same (×4) | **GREEN**. The per-frame sequence `1 > 0 > 1` is the crossfade's all-transparent frames (0 visible children), never a second row |
+| no size overshoot to a negative radius | radius ≥ 50px/9999px every frame; overshoot top 0, transport 0.41 px (3/4) | same; transport 0.41 px (4/4) | **GREEN** on the clause (no negative radius, no visible overshoot). The sub-pixel overshoot (R-3) is honest-RED in DOCK-MORPH-ROOT |
+| R-close3-1 1.1 px undershoot re-read | 1.06 px on gh before-run 1 (1 of 12 switches) | 0 of 12 | re-read: **still intermittent at 10.0.1** (1/24, gh only); producer → DOCK-MORPH-ROOT R-2 |
+| duration within glass motion tokens | width travel 225–257 ms vs `--spring-dock-duration` 0.21 s; window 533–553 ms | 231–257 ms; 534–553 ms | **RED → honest-RED `DOCK-MORPH-ROOT`** (R-4; the morph's own `dock` spring clock, `dist/dock.js` `useDockMorph`) |
+| first-morph snap (the owner's "jittery") | 398.49 px / 223 px in one frame (4/4) | same (4/4) | **RED → honest-RED `DOCK-MORPH-ROOT`** (R-1, G-1/KFA-8) |
+| WebM before/after committed; remainder relayed | — | 12 WebMs committed; O-64 filed + mirrored + INBOX row | **GREEN** |
+| REPIN-SPRING-SMOOTH-DEAD (`.v` esc. 1) | rail 475 px in 1 frame, `transition: all 0s` | 17–21 frames over 206–216 ms on `--spring-dock` | **GREEN** (cured, `d94017ff`) |
+| `.d2` gh open clause (`.v` esc. 2) | diffOutside 191–309 (`.v`) | 0–531, trigger not animating | **honest-RED** (R-6; the capsule attribution is refuted; the plate re-sample is attributed, not proven) |
+
+**Adjacent edits (§0bt):** none. **Escalations:** none. **Residuals:** DOCK-MORPH-ROOT R-1..R-6 (O-64 → BL; re-read at the landing repin per §0cb R-5); the owner's OA-41/OA-48 "slow · jittery" is the R-1 + R-4 pair. **Commits:** keyframes.js `d94017ff` (the cure). value.js `8b419438` (evidence `W13R/d/**` incl. 12 WebMs · relay O-64 · INBOX sweep + O-64 row, 46 paths) and this record commit (hash in the ledger line). Frames that are not WebM, and the dev2/gh2 WebMs, stay local.
