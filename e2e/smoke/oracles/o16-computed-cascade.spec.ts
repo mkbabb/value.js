@@ -155,7 +155,7 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
             // R2/R3 — the pane-swap legs on the REAL pane wrapper child
             // (direct-child scoped rules; the probe class rides the live
             // element so the `.pane-wrapper--* >` combinator binds).
-            const wrapper = document.querySelector(".pane-wrapper--left");
+            const wrapper = document.querySelector(".pane-wrapper--stage");
             const pane = wrapper?.firstElementChild ?? null;
             let enter: ReturnType<typeof readLegs> | null = null;
             let leave: ReturnType<typeof readLegs> | null = null;

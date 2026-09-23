@@ -85,9 +85,21 @@ function viewIds(): string[] {
     return unionMembers("ViewId");
 }
 
-/** The `RightPane` union members — the pane-hosted surfaces R34 names. */
+/**
+ * The inspector-role panes — the pane-hosted surfaces R34 names. X.W5.c2
+ * (ESC-W5c-3): the physical `RightPane` union died with the pane axis
+ * (X.W5.c, gate C8); the same surfaces are now the `inspector` regions of
+ * `VIEW_MAP`, read from `viewSchema.ts` as bytes like every other set here.
+ */
 function rightPanes(): string[] {
-    return unionMembers("RightPane");
+    const src = readFileSync(VIEW_SCHEMA, "utf8");
+    return [
+        ...new Set(
+            [...src.matchAll(/role: "inspector", pane: "([a-z][a-z-]*)"/g)].map((m) =>
+                required(m[1], "viewSchema.ts inspector region: a pane matched with no capture"),
+            ),
+        ),
+    ];
 }
 
 test("the visual census is exactly the router's route table", () => {
@@ -109,7 +121,7 @@ test("the visual census is exactly viewSchema's ViewId union", () => {
 
 test("every pane-hosted surface is reachable by some cell", () => {
     // R34's Katex R6 limb: About is a PANE, not a route, so a route-only matrix
-    // can never photograph it. Each RightPane member must be the `right` of at
+    // can never photograph it. Each inspector pane must be the `right` of at
     // least one census route, and at 390 that pane must get its own cell.
     // `Set<string>`, not `Set<CensusRightPane>`: the members come from the
     // product's own source text (`rightPanes()` reads `viewSchema.ts` as bytes),
@@ -124,7 +136,7 @@ test("every pane-hosted surface is reachable by some cell", () => {
     for (const pane of rightPanes()) {
         expect(
             reachable.has(pane),
-            `RightPane "${pane}" is hosted by no census route — it cannot be photographed`,
+            `inspector pane "${pane}" is hosted by no census route — it cannot be photographed`,
         ).toBe(true);
     }
 

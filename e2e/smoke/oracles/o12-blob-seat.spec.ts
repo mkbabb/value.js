@@ -65,7 +65,7 @@ async function bootWithBlob(page: import("@playwright/test").Page) {
     await expect(blob).toBeAttached({ timeout: 15_000 });
     // Wait out the emerge pose (the W2-4 settle-stamp discipline).
     const pane = await page
-        .locator(".pane-wrapper--left")
+        .locator(".pane-wrapper--stage")
         .first()
         .evaluate((el) => el.clientWidth);
     const fp = seatFootprintPx(pane);
