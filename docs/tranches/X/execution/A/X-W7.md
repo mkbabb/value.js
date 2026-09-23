@@ -1351,3 +1351,78 @@ not born-RED gates of the supplements. **Honest-RED ids expected at close**: `G3
 G14 dismiss grep (glass-8 repin) · G11 goldens (→ X-W10).
 
 ## Unit receipts (RESUME)
+
+### X.W7.d2
+
+**Seat**: X.W7.d2, `claude-opus-5-5` · 2026-09-23 · opened at HEAD `47f222d6`. **Read**: W7.md whole (once) · this
+record's header → RESUME §Unit plan/§Baseline + unit d's receipt · COHESION §0bk (+ §0bl to the file end) ·
+`W7-bounds-addendum-2026-09-23.md` · `W7-mutation-ownership.md` · `W7-failure-dispositions.md`.
+
+**Crash-recovery** ⟨cmd⟩ `git status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M
+scripts/dev/dev.sh` · `?? docs/tranches/X/execution/chassis/ui-audit.js` · `?? docs/tranches/X/keyframes/evidence/
+animation-audit/` — **0 paths in d2's writable set; no inherited hunk.** None touched.
+
+**Anchors at the true bytes (intent recorded)**: `useDialogBrowseActions.ts` lives at
+`demo/palettes/browser/dialog/composables/useDialogBrowseActions.ts` (the grant's bare name). The PaletteCard
+consumers sit at `ExtractWorkbench.vue:150` · `BrowsePane.vue:90` · `PalettesPane.vue:104` (as the RESUME baseline
+measured). The "owning scene dir" for the new inspector = `demo/palettes/` (beside `BrowsePane`/`PalettesPane`).
+`ActionBarLayer.vue` needed no byte: it renders any `SceneActionSet` through `GenericActionBar`, so the `palette`
+scene rides it unchanged (not written).
+
+**Acts, in order**
+
+1. `keys.ts` — `SceneActionScene` += `"palette"`, `SceneActionToken` += ten `palette.*` tokens, IN PLACE;
+   `PaletteSceneVerb` · `PaletteSceneTarget` · `SELECTED_ENTITY_KEY` beside them.
+2. `usePaneRouter.ts` (the builder) — provides the selected-entity registry; while an entity is selected the set is
+   its `palette` scene (seats built only for the verbs it offers, each resolved through the same total
+   `resolve`/`failed` path); `SCENE_ABSENT.palette` added (the `Record<SceneActionScene,…>` totality).
+3. `demo/palettes/PaletteInspector.vue` (new) — the entity host around the props-only `PaletteSpecimen`: rename ·
+   menu · feedback rail · versions · tags · export · publication · vote · feature · delete; registers its offered
+   verbs while selected (`expanded`), removes exactly its own on deselect / `onDeactivated` / unmount; performs export
+   itself and renders `usePaletteExport`'s `failure` (G7 host); the dock seat, the menu item and the meta vote all
+   dispatch the one emit. DOM contracts kept (`role="article"`, `Palette: <name>`, "Palette menu").
+4. Consumers moved (3/3): `BrowsePane`, `PalettesPane` (export copies deleted), `ExtractWorkbench` (import + the
+   inert `editable-name` attr dropped). Test importers moved (copy-verdict, n-fixtures harness, specimen test).
+5. `useBrowsePalettes.ts` — vote/rename/delete/visibility/load-more settle `BrowseVerdict`s; 0 `console.warn` calls;
+   `useDialogBrowseActions.ts` — `onForkError` required, `fork → undefined` rendered. `BrowsePane` renders each
+   failure on the inspector, `useTagEdit.error` on the tagged palette, load-more beside its control.
+6. Tag-row defect found by the oracle and cured at the inspector: Edit Tags dispatched on the menu trigger's focus
+   return (the non-modal popover was dismissed by it in 1 of 3 runs).
+7. Oracles: `palette-inspector.test.ts` (7) · `w7-inspector-rows.spec.ts` (7: six rows + the dock row) · o10d case 5
+   re-ruled (rename via the menu's Rename item).
+8. Commits: **`495bb6ca`** (code family, one meaning) · **`503694a1`** (gate log + two table addenda) · this receipt.
+
+**Gate readings BEFORE → AFTER** (every AFTER double-run; falsifiers run, reverted, `cmp`-restored)
+
+| gate | BEFORE | AFTER |
+|---|---|---|
+| **G7** (host) | `failure` rendered by no host test (ESC-W7b-HOST) | inspector renders it; unit 7/7 ×2; falsifier → 1 failed — **GREEN** |
+| **G13** | GREEN 14 · ROUTED 6; `console.warn` at `:82 :110 :140 :151 :175 :214` | GREEN **20** · ROUTED 0; 0 calls (1 prose line each file); oracle 21/21 (×3); falsifier → 1 failed — **GREEN ×2** |
+| demo `vue-tsc` | EXIT 0 | EXIT **0 · 0**; lib 0 — **GREEN** |
+| S-5 | 3 consumers; `PaletteCard.vue` present | **0** consumers · **0** test importers; file **present** — **RED (ESC-W7d2-BARREL)** |
+| G18 | 0 | ⟨cmd⟩ `git diff --numstat 47f222d6..503694a1 -- src/ api/ \| wc -l` → **0** |
+
+**Cadence (§7)**: vitest ×2 → 810/812 · 809/812 (C-5 + NG-6 pre-existing; run 2's `admin-destructive` load flake
+passes alone ×2); eslint on the 14 files EXIT 0; `git diff --check` clean. Adjacent e2e reds (palette-save · o10d
+`:216`/`:263` · scene-action-contract D4) are RED at the pre-change tree too (detached worktree at `cad16786`,
+removed after); gate log §Cadence at X.W7.d2 carries the list. My e2e run rewrote two X-W4 evidence PNGs
+(`evidence/W4/action-bar-mix-{390,desktop}.png`, the §8 artefact spec writes them); restored by `git checkout` of
+exactly those two paths — never committed.
+
+**Escalation (the orchestrator rules; none presumed)**
+- **ESC-W7d2-BARREL** — `PaletteCard.vue`'s deletion (S-5) needs ONE line outside §0bk.1's grant:
+  `demo/palettes/browser/index.ts:19` (`PaletteCard,` in the top-level seam's re-export list, 0 consumers), plus the
+  granted `browser/card/index.ts:4`. Deleting the SFC without it breaks `vue-tsc`. Every product consumer and test
+  importer has moved, so the cure is exactly: delete `PaletteCard/PaletteCard.vue`, `card/index.ts:4`,
+  `browser/index.ts:19`. Not written (no out-of-bounds write, no alias shim).
+
+**Residuals (named, not absorbed)**
+- `PaletteCard.vue` stands with zero consumers until ESC-W7d2-BARREL is ruled (a corpse the addendum forbids —
+  recorded loud, not hidden).
+- The dock's `palette` verb gating restates `PaletteCardMenu.vue`'s (c's file) in `offeredCommands()`; one source
+  would need the menu to read the inspector's offers (outside the grant).
+- `useVersionHistory.ts:73` (fork) and `:52` (load) still `console.warn` in a file outside §0bk.1; row 47 renders the
+  fork failure regardless.
+- o10d case 5's navigation (`openView "Palettes"`) is RED at baseline (dock select option never stable) — not d2's.
+- The specimen name stays visible while the rename input is open (the specimen is props-only; the inspector unfurls
+  the input beneath it) — the old "never the same string twice" swap is an X-W10 design row, not re-authored here.
