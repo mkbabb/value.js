@@ -1758,3 +1758,135 @@ touched file — ⟨grep of the 15 basenames in those 4 tests⟩ → 0). ⟨`npx
 lint RED is ESC-W7c2-LINT, pre-existing, docs/** scripts). Probe file lived in the scratchpad only; never committed.
 - `dev.sh` was not touched.
 **Commits**: `69c0d255` · gate log §X.W7.a2 + this record (next commit).
+
+## Close (RESUME 2026-09-23 — the §0bk supplements)
+
+**Seat**: close seat of the RESUME round, VERIFY-ONLY, `claude-opus-5-5`, wall clock 2026-09-23 13:30–13:5x EDT, HEAD at entry
+`8868e3d8`. Cured nothing. Read: W7.md whole (once) · this record's RESUME header → §Unit plan → §Baseline · §Check 3 · the
+six supplement receipts (by `sed` range) · COHESION §0bk. Machine load 38–137 across the sitting (⟨cmd⟩ `uptime`).
+
+**Crash-recovery** ⟨cmd⟩ `git status --porcelain` → ` M …/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh` ·
+`?? docs/tranches/X/audit/` · `?? …/chassis/ui-audit.js` (later also `?? docs/tranches/X/keyframes/evidence/W13U/d2/`, a
+sibling track's). None is in this seat's writable set (record · LEDGER). **No inherited hunk.**
+
+**Rulings precondition** ⟨cmd⟩ `grep -n "ESC-W7d2\|ESC-W7g2\|ESC-W7g3\|ESC-W7c2\|ESC-W7a2" docs/tranches/X/COHESION.md` → **0**.
+None of the supplement escalations has been ruled yet.
+
+### Act 1: commit roster and bounds (`git show --name-only`, `47f222d6..8868e3d8`)
+
+| unit | commits | paths | bounds (§0bk grant) |
+|---|---|---|---|
+| d2 | `495bb6ca` · `503694a1` · `f95a2f77` | keys.ts · usePaneRouter.ts · useBrowsePalettes.ts · useDialogBrowseActions.ts · new `demo/palettes/PaletteInspector.vue` · BrowsePane · PalettesPane · ExtractWorkbench · o10d spec · PaletteCard battery (copy-verdict, n-fixtures harness, palette-specimen test) + new palette-inspector test + new `w7-inspector-rows` oracle · W7-*.md addenda · record | IN (§0bk.1; §4 `demo/test/palettes/*.test.ts` + `w7-*.spec.ts` create rows) |
+| f2 | `6283637a` · `a7a1cea4` · `b63de8ef` · `5ac82779` | the 26 named sites (ColorInput · ExtractWorkbench · ImageEyedropper · CurrentPaletteEditor · MixResultDisplay · AdminNamesPanel · PaletteCardSwatches · SwatchHoverMenu · GenerateControls · ColorPicker.vue) · color-model.ts · useColorPipeline.ts · useSliderGradients.ts · utils.css · format-color.test.ts · gate log · record | IN (§0bk.2) |
+| g2 | `0354d1ff` · `813fb8f6` · `89499f86` · `f322a48f` | PaneErrorPlate.vue · crash-battery.spec.ts · gate log · om15 receipt · record | IN (§0bk.3) |
+| g3 | `26836da6` · `d106f3be` · `cb568b0a` · `8ce6504a` | `demo/workbenches/extract/**` + `demo/test/extract/*` + crash-battery.spec.ts (R18 leg) · gate log · record | IN (§0bk.4) |
+| c2 | `623feffd` · `7df67bf2` | `.github/workflows/ci.yml` · record | IN (§0bk.5) |
+| a2 | `69c0d255` · `8868e3d8` | 15 out-of-bounds demo files (inert-prop deletions only) · gate log · record | IN (§0bk.6) |
+
+19 commits, one meaning each. ⟨cmd⟩ `git diff --numstat 47f222d6..HEAD -- src/ api/ | wc -l` → **0**. `dev.sh` never staged.
+**Landed-wrong: none.** Masking scan ⟨cmd⟩ added lines of `git diff 47f222d6..HEAD -- demo e2e .github` matching
+`.skip(`/`.only(`/`ts-ignore`/`ts-expect-error`/`eslint-disable`/`as any`/`continue-on-error` → **0**. The 4 added `catch`
+blocks (useBrowsePalettes rows 15–17, useCameraCapture) each return or render a visible verdict; they are the cure, not a mask.
+E-3: ⟨cmd⟩ `git diff --stat 47f222d6..HEAD -- W7.md refinement/ registry/` → empty. W7-*.md changes are dated addenda-beside.
+One cosmetic finding: ⟨cmd⟩ `git diff --check 47f222d6..HEAD` → `X-W7.md:1526: trailing whitespace` (g2 receipt; docs-only, MINOR).
+
+### Act 2: every §6 gate re-run at this seat (BEFORE = RESUME §Baseline / Check 3; AFTER = this seat's reading)
+
+| gate | ⟨cmd⟩ (this seat) | BEFORE | AFTER | verdict |
+|---|---|---|---|---|
+| G1 | `grep -rn "update:checked\|:checked=" demo/ --include='*.vue' \| wc -l` | 0 | **0** | GREEN |
+| G2 G5 G7 G8 G9 G10 G12 G17 G20 (mounted) | `npx vitest run demo/test/palettes demo/test/color-session demo/test/export demo/test/extract` ×2 | 193/193 (17 files, no extract) | **23 files · 247/247, EXIT 0 · 247/247, EXIT 0** | GREEN |
+| G3 flag | `grep -n "vueCompilerOptions\|strictTemplates" tsconfig*.json \| wc -l` | 0 | **0** | honest-RED `G3-FALLTHROUGH-TYPES` (O-57) |
+| G3 probe | scratch `{extends tsconfig.demo.json, strictTemplates:true}` → `vue-tsc --noEmit` ×2 | EXIT 2 · 331/65 | **EXIT 2 · 312 / 65 · 312 / 65** (`cmp` identical) | reproduces a2 |
+| G4 | `ls demo/palettes/export.ts`; importers of `export/serializers` | legacy absent | absent; `usePaletteExport.ts:9` imports `./export/serializers` (product) | GREEN |
+| G6 | `grep -rn "function slugify\|const slugify" demo \| wc -l` | 1 | **1** | GREEN |
+| G7 host | `palette-inspector.test.ts` (in the vitest run above) | host RED | GREEN ×2 | **GREEN** |
+| G11 | X-W1 goldens | routed | routed to X-W10 (§0bk) | honest-RED (X-W10) |
+| G13 | `grep -n console.warn useBrowsePalettes.ts useDialogBrowseActions.ts` · browser `w7-inspector-rows` + `w7-mutation-visibility` | 6 swallows · ROUTED 6 | **0 calls** (1 prose line each) · addendum §X.W7.d2 20/20 · oracles GREEN in run 1 (below) | **GREEN** |
+| G14 grep | `grep -rn 'dismiss="deliberate"' demo/ \| wc -l` | 0 | **0** | honest-RED (glass-8 repin) |
+| G14 network · G15 | `w7-destructive-seats` (smoke) | 23/23 at Check 3 | run 1: 2 cold-first fails (`:53` dblclick timeout, `:84` count 1≠0) at load 105–137; reruns ×2: **all destructive rows passed** | GREEN (cold-first flake m-2 recurs; X-W1 watch) |
+| G16 | `grep -rln format-color demo … \| grep -v ^demo/test \| wc -l` · `toCSSColorString` · `const DIGITS` | 4 importers · 6 · 2 | **14** importers · **0 product** (2 lines, both the test's own absence assertion) · **0** · census test 67/67 in the vitest run | **GREEN** |
+| G18 | `git diff --stat e24361c6..HEAD -- src/ \| wc -l` · `git diff --numstat 47f222d6..HEAD -- src/ api/ \| wc -l` | 0 | **0 · 0** | GREEN |
+| G19 | `grep -rn eyebrow demo/ \| grep -v node_modules \| wc -l` (raw · minus `family-eyebrow`) | 8 · — | **8 · 6** (DESIGN.md:37 · GradientCodeEditor:102 · EasingSpecimenStrip:5,138 · easingCatalogue:81 · ParseEchoReadout:15; all prose/comments outside §0bk.3) | **RED** (ESC-W7g2-G19-PROSE) |
+| S-5 | `ls PaletteCard/PaletteCard.vue`; `<PaletteCard` product consumers | present · 3 | present · **0**; `browser/index.ts:19` + `card/index.ts:4` re-exports remain | **RED** (ESC-W7d2-BARREL) |
+| c2 (CI) | `gh run view 35894983680` (HEAD `988a2617`, carries `623feffd`) | no Chromium step | step present; `producer / Node 22` + `/ Node 24` **failure at `npm run lint`** | **RED** (ESC-W7c2-LINT) |
+| demo tsc · lib tsc | `npx vue-tsc -p tsconfig.demo.json --noEmit` · `-p tsconfig.lib.json` | EXIT 0 | **EXIT 0 · EXIT 0** | GREEN |
+| eslint (touched) | the 49 existing demo `.ts`/`.vue` files changed in `47f222d6..HEAD` → `npx eslint --max-warnings=0` | — | **EXIT 0**, no output | GREEN |
+
+**Browser legs** ⟨cmd⟩ `VJS_E2E_PORT=8231 VJS_E2E_PERF_PORT=8232 npx playwright test --project=smoke` over `w7-mutation-visibility`
+· `w7-destructive-seats` · `w7-inspector-rows` · `o9-shadow-palette` → run 1 (load 105–137): **30 passed · 5 failed** — o9 `:145`
+(Extract pane not found in 30 s), `:193`, `:211` (click/locator timeouts) and destructive `:53`, `:84` (cold first). Rerun of
+o9 + destructive ×2 (load 47–68): **10 passed · 2 failed** (o9 `:193` `:211`, pane card not mounted in time) and **11 passed ·
+1 failed** (o9 `:211`). Isolation ⟨cmd⟩ `… o9-shadow-palette.spec.ts:211 …:193 --repeat-each=2 --workers=1` → **4 passed, EXIT 0**.
+So o9 fails only under parallel workers on a loaded host. The page snapshot shows `Palettes [selected]` with only the Picker region
+mounted, i.e. the lazy pane had not arrived yet. That is the starvation class Check 3 recorded (M-4), not a product defect.
+`w7-inspector-rows` and `w7-mutation-visibility` passed in full in run 1. ⟨cmd⟩ `git status --porcelain` after the runs shows no
+tracked evidence PNG rewritten.
+
+### Act 3: §7 cadence and §8 verification artefacts
+
+- ⟨cmd⟩ `npx vitest run` (whole repo; a private log dir, because the session scratchpad is shared with sibling seats) →
+  `Test Files 2 failed | 58 passed (60)` · `Tests 2 failed | 857 passed (859)`. The 2 failures are C-5 `spectrum-luma` and
+  NG-6 `reka-binding-idiom`, the pre-existing pair (Repair 1 `:1048`, a2 cadence). No W7 file is among them.
+- ⟨cmd⟩ `npm run lint` → EXIT 1, `56 problems (24 errors, 32 warnings)`. Every error is in a `docs/tranches/**` script
+  (23 tracked, plus the untracked sibling `chassis/ui-audit.js`). There are 0 in `demo/`, `src/`, `e2e/`, `test/` or `api/`.
+  This is ESC-W7c2-LINT, pre-existing. The touched-file eslint above is EXIT 0.
+- ⟨cmd⟩ `npx vue-tsc -p tsconfig.demo.json --noEmit` re-run in the foreground → EXIT 0. `git diff --check` → the one docs
+  whitespace line (Act 1).
+- §8 artefacts present: `W7-gate-log.md` (sections §X.W7.d2 · f2 · g2 · g3 · a2) · `W7-failure-dispositions.md` (d2 addendum) ·
+  `W7-mutation-ownership.md` (Addendum §X.W7.d2, 20/20 rows) · `W7-om15-receipt.md` (g2 ADDENDUM, the recorded
+  `.family-eyebrow` exclusion) · `demo/test/palettes/n-fixtures/` · `W7-bounds-addendum-2026-09-23.md`. PaletteCard goldens:
+  routed to X-W10 (§0bk).
+
+### Act 4: E13 close sweep (read-only)
+
+⟨cmd⟩ `find <path> -maxdepth 1 -type f -newermt "2026-09-23 11:00"`: (1) `V/`: none. `V/coordination/`: `INBOX.md` only (self).
+(2) glass `BK/coordination/`: only our own `valuejs-outbound-*` mirrors (o58 · xw7-fallthrough-types · kf-w13u · kf-animation-audit).
+`BL/` new = `FORMATION-PROGRESS.md` + `audit/{INBOUND,REGISTRY,PROMPT-RECAP-SEED}.md`. BL's INBOUND is glass's own register of
+our O-53..O-57 letters, not mail addressed to value.js. (3) keyframes `V/coordination/`: none. (4) atlas
+`sci-report/atlas/docs/tranches/*/coordination`: none. **0 new inbound, nothing rowed.** ⟨cmd⟩ `grep -n UNREAD INBOX.md` → O-20
+· I-30 · I-31 · I-32 · I-35 · O-39. This is the set Checks 1–3 read, and none of it is in X-W7 scope. **No UNREAD mail in scope.**
+
+### Act 5: escalations (none ruled yet; they go to the orchestrator)
+
+| id | unit | what the cure needs | owner |
+|---|---|---|---|
+| **ESC-W7d2-BARREL** | d2 | grant `demo/palettes/browser/index.ts:19` (the 0-consumer `PaletteCard,` re-export), then delete `PaletteCard/PaletteCard.vue` + `card/index.ts:4` in one commit (S-5) | orchestrator |
+| **ESC-W7g2-G19-PROSE** | g2 | widen G19's recorded exclusion to the family-label prose, or grant the 5 comment/prose files (6 hits) | orchestrator |
+| **ESC-W7g2-BROWSEPANE-COPY** | g2 | grant `BrowsePane.vue:65,139` so the OM-15 rows 15/17 copy and the `crash-battery:60` / `browse-pagination:62` re-points land in one commit | orchestrator |
+| **ESC-W7g2-R14-RECOVERY** | g2 | R14 recovery leg (`crash-battery:103`): under e2e `route.continue()` reaches the SPA's HTML, not a backend, and the `availability.ts:87` 30 s latch outlasts the 15 s window. Both are outside the grant | orchestrator |
+| **ESC-W7g3-EC10-TWIN** | g3 | EC-10's two-site cure lock requires the twin rail builder at `GenerateControls.vue:74-79` (outside the extract grant) to move in the same step. Needs a grant of that builder or a routing | orchestrator |
+| **ESC-W7g3-R15-PLATEINK** | g3 | §R3.2 R-15: `--ink-muted` at `:root` + one global recipe over five twins. Needs `demo/styles/utils.css` + `EmptyState.vue` + `ErrorBoundary.vue` granted, or routing to X-W10 (XP-19) | orchestrator / X-W10 |
+| **ESC-W7c2-LINT** | c2 | the CI producer job dies at `npm run lint` (23 parse errors in `docs/tranches/**` scripts) before the new Chromium step runs. Needs an `eslint.config.*` ignore grant | orchestrator |
+| **ESC-W7a2-INBOUNDS** | a2 | 31 inert-prop sites in 13 W7-in-bounds files. One grant with the same class ruling makes G3's residual pure fallthrough | orchestrator |
+
+Confirmed and relieved at §0bk (not re-opened): G3 → `G3-FALLTHROUGH-TYPES` (O-57 R-1) · G14 grep → glass-8 repin · G11 → X-W10.
+
+### Residuals (each has a named owner; none absorbed)
+
+- `PaletteCard/PaletteCard.vue` stays with 0 product consumers until ESC-W7d2-BARREL is ruled (orchestrator). After that, S-5 is a three-line deletion.
+- G19: 6 prose hits (ESC-W7g2-G19-PROSE) and the BrowsePane copy re-point (ESC-W7g2-BROWSEPANE-COPY), both orchestrator.
+- R14 recovery leg RED at `crash-battery:103` (ESC-W7g2-R14-RECOVERY, orchestrator).
+- EC-10 unexecuted (ESC-W7g3-EC10-TWIN) · R-15 unexecuted (ESC-W7g3-R15-PLATEINK, orchestrator or X-W10 XP-19).
+- CI producer job RED at lint (ESC-W7c2-LINT, orchestrator: an `eslint.config.*` ignore for `docs/tranches/**` scripts).
+- G3 residual 312 diagnostics / 65 files: `G3-FALLTHROUGH-TYPES` (glass, O-57 R-1), plus ESC-W7a2-INBOUNDS (31 inert sites, orchestrator) and `UserSortMenu.vue:8` (X-W8, §0k.3 S-4).
+- G14 grep clause: glass-8 repin (X-W0 census → X-W4.g). G11 goldens: X-W10 (retarget to `PaletteSpecimen`).
+- `useVersionHistory.ts:52,73` still call `console.warn` (outside the §0bk.1 grant; d2 residual, orchestrator).
+- The dock's verb gating repeats PaletteCardMenu's gating (d2). The rename name/input swap is an X-W10 design row.
+- `GenerateControls`' clickable `WatercolorDot` span has no keyboard activation (a2 finding → UI audit / X-W12).
+- Flake watch: `w7-destructive-seats` cold-first (`:53`, `:84`) and o9 `:145/:193/:211` fail under parallel workers at load ≥ 50. They pass on rerun and in isolation (4/4, 1 worker). This is Check 3's M-4 / m-2 starvation class (X-W1 readiness hygiene, ESC-R2-SEAT-COLD).
+- MINOR: trailing whitespace at `X-W7.md:1526` (g2 receipt), docs-only.
+
+### Four-verb line (§2; moved only as §9 #13 allows)
+
+| verb | state | basis |
+|---|---|---|
+| AUDITED | YES | unchanged |
+| SPECIFIED | YES | unchanged (+ ADDENDUM 2026-09-23 §0bk) |
+| IMPLEMENTED | **PARTIAL** | §9 #13 requires "gates green + bytes landed". The §0bk supplements turned G7-host, G13 and G16 GREEN. Still unrelieved: S-5 (PaletteCard deletion), G19, R14 recovery, EC-10 / R-15 and the CI producer job, each escalated above. Honest-RED (relieved): G3 · G11 · G14-grep |
+| VERIFIED | NO | stamped only at X-W11's release close |
+
+**Tally (self-count of Act 2's rows)**: 18 rows = 11 GREEN (G1 · mounted set · G4 · G6 · G7-host · G13 · G14-network/G15 · G16 · G18 · demo+lib tsc · eslint-touched) + 1 reading (G3 probe, 312/65 reproduces a2) + 3 honest-RED (G3 flag · G11 · G14 grep) + 3 RED unrelieved (G19 · S-5 · CI producer); 11 + 1 + 3 + 3 = 18. The §6 union: G1 G2 G4 G5 G6 G7 G8 G9 G10 G12 G13 G15 G16 G17 G18 G20 **GREEN (16 of 20)** · G3 G11 G14 honest-RED · **G19 RED**.
+**Verdict: PARTIAL.** Remaining: S-5 · G19 · R14 recovery · EC-10 · R-15 · CI producer lint. The LEDGER row reads `PARTIAL — …`, and the next act is the orchestrator's ruling on the eight escalations.
+
+---
