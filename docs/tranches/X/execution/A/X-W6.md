@@ -5997,3 +5997,135 @@ Every successor is blocked lawfully on this row, and none unlawfully.
 reproduce. 32 did so on the first reading; g2 read GREEN on 2 of 3 and f4 on 1 of 2 (a load timeout at first navigation).
 Honest-RED set: **g1 · j1 · j2 · j3 · H2 · H4**. Unrelieved: **a4 · a13 · i3 · b1**. f3, a2, a3, b3 and e1 read GREEN ×2 at this
 seat. The LEDGER row is **not promoted**; it stays PARTIAL.
+
+---
+
+## Open — RESUME 2026-09-22 (fifth sitting; SEAT 0, `claude-opus-5-5[1m]`)
+
+SERVED MODEL: claude-opus-5-5[1m]
+
+**Append-only beside** every block above (E-3). Resume spec: COHESION **§0z** + **§0an** + **§0aq** + **§0ax**
+and `W6.md`'s two **ADDENDA 2026-09-22** (`W6.md:483-486`), read whole. **Mode**: RESUME. ⟨cmd⟩
+`grep "^| X-W6 " LEDGER.md` → **PARTIAL 2026-09-22 — fourth-sitting close**, not CLOSED. §0ax corrected the
+chassis (an ESCALATED unit is a return, not a halt) and set the stage order X-W5 → X-W6; X-W5 RESUME 5 ran
+first (`5ad17633` … `7a4c98e1`).
+
+### Act 0 — crash-recovery
+
+⟨cmd⟩ `git status --porcelain` → `M docs/tranches/V/reformation/CARRY-LEDGER.md` · `M scripts/dev/dev.sh`.
+Neither is in this seat's writable set (this record, the LEDGER, INBOX). **Nothing inherited**; nothing
+stashed, restored or touched.
+
+### Already done — never re-dispatched
+
+`.a` (`f90aeb02` · `c222542d`) · `.b` (`7dff25f6`) · `.f` (`e0e204a9`) · `.g` (`e69aaf95`; g1 honest-RED by id →
+X-W10, §0aq ESC-R1-g1) · `.c` (`caea9d1e` `e07bff63` `b0991fd3` `b2dd375c` + the b1 grammar at `666978d4`; b1 =
+**`B1-G3D` honest-RED-by-instrument**, `.c`'s discriminating probe the witness of record, §0ax ESC-W6c-b1-1).
+
+### Preconditions, measured at the bytes AND in the LEDGER (2026-09-22 21:58)
+
+| condition | measurement | verdict |
+|---|---|---|
+| X-W0 CLOSED | ⟨cmd⟩ `grep "^| X-W0 " LEDGER.md` → `CLOSED 2026-09-17 (honest-RED: HG-8's literal byte-diff clause — ESC-N1)` | MET |
+| X-W1 CLOSED | `CLOSED 2026-09-17 (honest-RED: G-17 · G-19 · G-20)`; ⟨cmd⟩ `ls e2e/visual \| head -1` → `admin-populated.visual.spec.ts` | MET |
+| X-W4 CLOSED | `CLOSED 2026-09-17`; ⟨cmd⟩ `grep -rl SceneActionSet demo/ \| wc -l` → **4** | MET |
+| installed glass 7.0.0 | ⟨cmd⟩ `node -p "require('./node_modules/@mkbabb/glass-ui/package.json').version"` → **7.0.0** | MET |
+| X-W5 `.c2` landmark migration landed (the nine landmark REDs re-run after it, §0ax) | ⟨cmd⟩ `grep -rln "Color tool panes" e2e \| wc -l` → **0**; shas `ab5270b6` · `ad93c771` · `fdf3e9e0` | MET |
+| X-W5 CLOSED (binds **`.j` alone**, §0z E1 · §0aq · §0ax) | ⟨cmd⟩ `grep "^| X-W5 " LEDGER.md` → `PARTIAL — RESUME 5 close 2026-09-22` (Check 3 `7a4c98e1` NOT-CONFORMANT, ESC-W5c2-1/-2 unruled) | **NOT MET — `.j` BLOCKED-ON X-W5, never skipped** |
+
+**Reading of §0ax's "Order (RESUME, after X-W5 CLOSED)"**: §0z E1, §0aq and §0an each bind X-W5 CLOSED to
+`.j` alone, and §0ax's own stated reason for the stage swap is that `.c2` migrates the landmark query (now
+landed, 0 hits) and that "`.j` waits on X-W5 CLOSED anyway". The orchestrator's dispatch note for this sitting
+reads it the same way: `.d` → `.e` → `.h` → `.i` run now; `.j` returns BLOCKED-ON X-W5 and the close runs.
+
+### E13 Step-0 — four-path mail sweep (2026-09-22 21:58)
+
+⟨cmd⟩ `find <dir> -maxdepth 1 -type f -newermt "2026-09-22 21:30"` over value.js `V/` · `V/coordination/` ·
+glass `BK/coordination/` (⟨cmd⟩ `ls -dt ../glass-ui/docs/tranches/*/ | head -1` → **`BK/`**, still newest) ·
+keyframes `V/coordination/` · atlas `P/coordination/` → only `INBOX.md` itself (the X-W5 close seat's sweep line).
+Census ⟨cmd⟩ `grep -c '^| I-\|^| O-' INBOX.md` → **97**; tail **I-40 · O-52**. Status-column UNREAD
+(`awk -F'|' '$6 ~ /UNREAD/'`) → O-20 · I-31 · I-32 · O-39 (prose hits) and **I-40** (UNREAD, Track C fourier
+O-23/O-32 reply — **outside W6's scope**). `O-52` = `W6-glass-ask-hero-blob-p3.md`, the §0aq display-p3 ask,
+already rowed (⟨cmd⟩ `grep -c hero-blob-p3 INBOX.md` → **2**). **0 unrowed · 0 new I-n · 0 UNREAD in scope.**
+A dated sweep line is appended to INBOX.
+
+---
+
+## Baseline — RESUME 2026-09-22 fifth sitting (the owed units' gates + the nine landmark REDs; every other gate cites Check 3)
+
+Run read-only at this open (21:58–22:03), host load 11.5 → 24.9. Static/live probes against the `:9000` vite
+dev server (PID 14970, this repo, the same server Check 3 read). Playwright on fresh webServers
+(`VJS_E2E_PORT` 8731–8735). Transcripts kept in the seat's scratchpad, not committed; the two catalog PNGs
+o22/o24 re-wrote as a run side effect were restored to HEAD bytes (`git checkout -- <path>`, this seat's own
+side effect only).
+
+| gate | unit | ⟨cmd⟩ | BEFORE |
+|---|---|---|---|
+| d1 | `.d` | `EASING_RADIUS_ORIGIN=http://localhost:9000 node …/probes/x-w6/gate-easing-radius.mjs` | **GREEN** — EXIT 0; `panel surfaces measured: 33 · read-only (d2-ask / producer): 1` · `GATE d1 (easing radius) — GREEN` |
+| d2 | `.d` | `node …/probes/x-w6/gate-easing-readout.mjs` | **GREEN** — EXIT 0; `fitting primitives …: NONE` · `branch selected by the census: DATED ASK` · local restyle `0 line(s)` |
+| e2 | `.e` | `grep -rn requestAnimationFrame demo/workbenches/gradient/ \| wc -l` + `node …/probes/x-w6/gate-prm-idiom.mjs` | **GREEN** — `0`; `files scanned: 15 · requestAnimationFrame calls: 0 · CSS motion declarations: 8` · `GATE e2 (PRM idiom) — GREEN` |
+| a2 · a3 · a4 · a13 · b3 · e1 (landmark set) | `.e` (e1) · repair seat (a4/a13, §0ax) | `npx playwright test e2e/smoke/views/gradient.spec.ts e2e/smoke/oracles/o21-gradient-rail.spec.ts --project=smoke` | **`1 failed · 21 passed (2.2m)`** — the one failure is **`o21:188`** (a4's inverse-map arm), *Expected: 3 · Received: 2* at `o21:222:54`, the same reading as Check 3 (now 6 of 6). a2 · a3 · b3 · e1 pass inside this run; a13 (the suite) is RED on `:188` alone |
+| f4 · f6 · f8 (landmark set) | wave-level (`.f` landed) | `npx playwright test e2e/smoke/oracles/o22-… o23-… o24-… --project=smoke` | **`3 passed (19.7s)`** |
+| i1 | `.i` | `npx playwright test e2e/smoke/oracles/o25-atmosphere-response.spec.ts --project=smoke` | **GREEN** — `1 passed (2.1s)` |
+| i3 | `.i` | `npx playwright test e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts --project=smoke` · `grep -rn armRuntime demo/ \| wc -l` | **RED** — `1 failed`: every seed paints the unseeded ground `[#b37290 #df8ea7 #ffb0b4 #ffcfc8]` at first paint; first-paint vs settled ΔE_OK max **0.1595** (h30) · **0.2933** (h150) · **0.2433** (h260); armRuntime **0** |
+| h1 | `.h` | `npx playwright test e2e/smoke/webgl-blob-idle.spec.ts -g "hero blob carries current chroma" --project=smoke` | **GREEN on the sRGB buffer** — `3 passed (40.3s)`; OM-6 `lab(92% 88.8 20)` C 0.27245 → target C (gamut-mapped) **0.02105**, painted 0.04662, ΔC 0.02557 · `oklch(0.65 0.3 150)` ΔC 0.00564 (stated ±0.04), `buffer srgb (display p3: false)`. The beyond-sRGB limb = **`H1-P3`** (honest-RED-by-physics, §0aq), not yet recorded in the ask by id (⟨cmd⟩ `grep -c H1-P3 docs/tranches/X/waves/W6-glass-ask-hero-blob-p3.md` → **0**); the boot latency §0ax names is not yet measured |
+
+**Cited, not re-run** (⟨cmd⟩ `git diff --stat 1474b27b..HEAD -- demo e2e test src` → 73 files, all X-W5 `.c2`/`.d2`:
+the `e2e/**` landmark re-point through the fixture, `demo/shell/**`, `demo/color-picker/{App.vue,ErrorBoundary.vue,main.ts,router/index.ts}`,
+`demo/styles/animations.css` (swap containment) and `demo/picker/ColorPicker.vue:2-4` (§0ax grant to `.d2`); no W6 §4 file
+other than that granted comment relocation; the close seat re-reads these at its own double-run):
+a1 · a5–a12 · b1 (`B1-G3D`) · b2 · b4 · c1–c4 · f1 · f2 · f5 · f7 · f9 · f10 · g1 (→ X-W10) · g2 · h2 · i2 · H1 ·
+H3 · j1–j3 (BLOCKED-ON X-W5) · j4 · H2 · H4 · f3 (Check 3: GREEN ×2; §0ax's bisect is the repair seat's).
+
+### R.2 — a GREEN before its cure
+
+**NONE.** d1 · d2 · e2 · i1 · h1(sRGB) are cures landed in prior sittings at named shas (`.d` `9557e6b5`
+`e6bd7fe5` · `.e` `3c558956` `191d4f3a` `3ece0690` · `.h` `48d95650` `a87f8930` · `.i` `c2f17bad` `4cb294b9`
+`e68e8889`). a2 · a3 · b3 · e1 · f4 · f6 · f8 went GREEN on X-W5 `.c2`'s landmark migration (`ab5270b6`),
+the cure §0ax named for exactly those nine. The RED gates are i3 (`.i`'s §0aq duty) and a4/a13 (`o21:188`,
+the repair seat's by §0ax).
+
+---
+
+## Unit plan — RESUME 2026-09-22 fifth sitting (4 owed units dispatched serially; `.j` BLOCKED-ON X-W5; 5 units landed)
+
+**Model law M-23** (`W6.md:154`): every unit is an **Opus implementation seat**; no Fable seat, no canon minted.
+**alreadyDone (never re-dispatched)**: `X.W6.a` · `X.W6.b` · `X.W6.c` · `X.W6.f` · `X.W6.g` (shas in the Open).
+**Chassis (§0ax)**: an ESCALATED unit is recorded and the next group runs; only a DEAD seat halts. **Concurrency**:
+maxUnits 1, strictly serial per `W6.md:486` *"[`.d`] → [`.e`] → [`.h`] → [`.i`] → [`.j`]"*. Landed shas inside each
+unit are **not reopened**; each unit works its residual only.
+**Wave-level (no unit)**: the repair seat owns a4 / a13 (`o21:188`, settle/scroll ADDED, mint/ordinal assertions
+untouched) and f3's bisect (`ColorSpaceSelector.vue` granted if rooted there), §0ax. The close seat re-reads the
+nine landmark gates, H1 over the full roster, g1 → X-W10 by id, b1 = `B1-G3D`, the §0z E2 canaries → X-W8 `.i`.
+
+| group | unit | residual | gates |
+|---|---|---|---|
+| 1 | `.d` | re-verify d1/d2 at the post-`.c` bytes; d2 both-direction negative controls re-read; §7 cadence; receipt (commit #4 only if a byte must move) | d1 d2 |
+| 2 | `.e` | re-verify e1/e2 at the post-`.d` bytes; H2 citation legs for e1/e2 re-derived against the two guards (`animations.css` moved under X-W5 `.d2`: re-locate the reduce guard's line); receipt | e1 e2 (H2 `.e` legs) |
+| 3 | `.h` | `H1-P3` recorded by id (dated addendum-beside in `W6-glass-ask-hero-blob-p3.md`, `O-52` cross-ref); the consumer-route oracle confirmed; the blob boot latency MEASURED and named; h1 ×2 on fresh servers | h1 (+ h2 held) |
+| 4 | `.i` | i3 cure: the pre-module boot seed in `demo/color-picker/index.html` (§0aq ESC-R1-i3), `W5.md:321` dialog-ancestry rider measured; i1/i2 held | i3 (+ i1 i2) |
+| — | `.j` | **BLOCKED-ON X-W5** (LEDGER `PARTIAL — RESUME 5 close`; Check 3 `7a4c98e1` NOT-CONFORMANT). Not dispatched | j1 j2 j3 (j4 measured) |
+
+**Writable sets** (§4 ⊕ §0z ⊕ §0an ⊕ §0aq ⊕ §0ax):
+- **`.d`**: `…/easing/GradientEasingEditor.vue` · `…/easing/EasingAuthoringStage.vue` · `…/easing/easingCatalogue.ts` ·
+  `docs/tranches/V/megatranche/audit/probes/x-w6/{gate-easing-radius,gate-easing-readout}.mjs` ·
+  `docs/tranches/X/waves/W6-glass-ask-easing-readout.md` (dated addendum-beside only) · `W6-evidence/easing/**` ·
+  `docs/tranches/V/coordination/INBOX.md` (mail rows only).
+- **`.e`**: `…/GradientVisualizer/GradientVisualizer.vue` · `…/easing/EasingAuthoringStage.vue` · gradient-tree scoped
+  styles · `…/probes/x-w6/gate-prm-idiom.mjs` · `e2e/smoke/views/gradient.spec.ts` (ADD-never-replace) ·
+  `docs/tranches/X/waves/W6-glass-ask-gradient-aurora.md` (addendum-beside only) · `W6-evidence/**`.
+- **`.h`**: `demo/picker/visual/HeroBlob.vue` · `demo/color-session/useContrastSafeColor.ts` ·
+  `e2e/smoke/webgl-blob-idle.spec.ts` (ADD-never-replace) · `docs/tranches/X/waves/W6-glass-ask-hero-blob-p3.md`
+  (dated addendum-beside only) · `docs/tranches/X/waves/W6-blob-pipeline-census.md` (addendum-beside only) ·
+  `W6-evidence/blob/**` · INBOX (mail rows only).
+- **`.i`**: `demo/color-picker/composables/boot/{useAtmosphere,atmosphere-calibration}.ts` ·
+  `demo/test/glass/aurora-bracket.test.ts` · `demo/scenes/atmosphere/AuroraPane.vue` ·
+  `e2e/smoke/oracles/{o25-atmosphere-response,o28-atmosphere-coldload}.spec.ts` · `demo/color-picker/index.html`
+  (the pre-module boot seed ONLY) · `W6-evidence/atmosphere/**`.
+
+Every unit appends its own receipt under `## Unit receipts — fifth sitting 2026-09-22` below (its own `###` block).
+
+---
+
+## Unit receipts — fifth sitting 2026-09-22
+
