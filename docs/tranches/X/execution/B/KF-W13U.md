@@ -1162,3 +1162,39 @@ Cited, not re-run (0 bytes moved on their surfaces since Check 5 re-ran them): G
 **Verdict: NOT-CONFORMANT.** Claimed GREENs re-run 3/3 reproduce (0 fail); bounds, masking, families, E-3, mail clean. Relieved honest-RED set: `DOCK-MORPH-ROOT` · `DOCK-SCROLL-MORPH` · `DARK-MENU-ITEM` · `GLASS-SURFACE-PAINT-CONTAIN` · `KF-TIMELINE-FILL`. Two unrelieved HIGHs (C6-1, C6-2), unchanged since Check 4. LEDGER status cell unchanged; one event line appended.
 
 **Self-count.** Runs: grep ×2 · check ×2 · test:demo ×2 = 6 runs over 3 gates; reproduced **3**, failed **0**. Register rows **4** (2 HIGH · 1 MINOR · 1 LOW).
+
+## RESUME 3 — SEAT 0 (OPEN, the §0cd seventh addendum) — 2026-09-23
+
+SERVED MODEL: claude-opus-5-5 · Track B · RESUME on COHESION §0cd (`:3140-3144`, the file's last addendum) + `KF-W13.md` KF.W13U SEVENTH addendum (`:397-417`), read with the earlier KF.W13U addenda (`:315-336`, `:357-363`). E-3: every byte above this heading stands; this section is appended beside it.
+
+### Open
+
+- **LEDGER** `:59` KF.W13U status cell reads **PARTIAL** (Check 6 NOT-CONFORMANT, `:673`); record present → RESUME mode. ⟨`git -C keyframes.js log --oneline -1`⟩ → `9bdcdad5` (= origin/master; = Check 6's reading).
+- **alreadyDone** (commits exist, never re-dispatched): `.w` `d78bed01` · `.t` `3c8199c5` · `.e` `cd2cd88f`+`57b4815c` · `.d` `62ecc324` (+ Repair 1 `60477b06`) · `.t2` `531aa3f1` · `.d2` `6d5b4288` · `.d4` `9aa93cae` (+ Repair 3 `9bdcdad5`). **Closed as escalations ruled in §0cd** (never re-dispatched): `.d3` (ESC-d3-1 → `.d5`) · `.x` (kf `c1ce06e8` `68c80e79` `d2bc0f76` `3b1dbd8f`; its producer reds → honest-RED `QUIET-FOCUS-RING` + `DRAWER-DETENT-REACH`, owner KF.W13R `.m`/`.v`).
+- **Crash-recovery**: ⟨`git -C keyframes.js status --porcelain`⟩ → the two untracked `docs/tranches/V/coordination/VALUEJS-INBOUND-2026-07-{24,27}-*.md` only (in no writable set; untouched). ⟨`git log --oneline 6d5b4288..HEAD -- demo/app/App.vue demo/app/dock/ChromeDock.vue demo/app/scene/scenes.ts | wc -l`⟩ → `0`. value.js record/evidence/INBOX paths clean (dirty `X-W7R.md` is Track A's). **0 inherited paths.**
+- **Rulings cited (never re-opened)**: §0cd (C6-1 relieved → honest-RED QUIET-FOCUS-RING + DRAWER-DETENT-REACH owned by KF.W13R; C6-2 granted → `.d5`, whole files `App.vue` + `ChromeDock.vue` + the `warmScene` module, ADJACENT-LINE RULE) · §0bt (ADJACENT-LINE RULE) · §0br (e2e at `--workers=1`, load recorded) · §0be (served-page instrument rule) · §0bc/§0bd/O-61 (the five earlier honest-RED ids). The `[real-cube]` intermittent (C6-3) stays with KF.W13V `.k` (KFA-17).
+- **Preconditions**: the seventh addendum opens `.d5` on the §0cd ruling itself (no further "Opens after"); predecessor KF.W13T CLOSED (banked at the first Open). **MET.**
+- **E13 Step-0 mail sweep** (four paths, `find -maxdepth 2 -type f -newermt "2026-09-23 14:30"`; INBOX last touched 15:40): value.js `V/` + `V/coordination/` → `INBOX.md` only · glass `BK/coordination/` → `valuejs-outbound-2026-09-23-ui-audit-relay.md` (15:03, our own O-59 mirror, rowed) · glass newest tranche ⟨`ls -t glass-ui/docs/tranches | head -1`⟩ → `BL`: `FORMATION-PROGRESS.md` / `audit/INBOUND.md` / `audit/REGISTRY.md` (15:10–15:13 = `7362b3bf`, I-44, rowed); untracked `round-3/` + `design/structure/pass-1/` are glass-internal · keyframes `V/coordination/` → none · atlas `P/coordination/` → none. **0 unrowed, 0 new UNREAD** (tail I-44). Sweep line appended to `INBOX.md`.
+
+### Baseline (BEFORE — read-only; served dev `http://localhost:5173/` HTTP 200, headed Chromium `--ignore-gpu-blocklist` via value.js Playwright; the probe copied to this seat's scratch, 0 bytes in `evidence/`)
+
+| gate | BEFORE (load avg beside) | reading |
+|---|---|---|
+| G-d5 change-once (⟨`node probe-switch10.mjs http://localhost:5173/ base-dev{1,2}`⟩, 10 switches `cube>amiga>square>spring>easing>cube>spring>amiga>easing>square>cube`, per frame) | dev1 (load 52.0) · dev2 (load 35.1): width changes `1122111111` · `1122111111`; reversals `0001000000` ×2 (spring>easing); surface-set changes `2222111110` ×2; Controls-label changes `0012111110` ×2; empty-surface frames 0 · 0; pageerrors 0 · 0; exit 0 · 0 | **RED ×2** (width-once + surface-set-once on first visits) — reproduces `.d3`'s `report-before-dev{1,2}` byte-for-byte figures. gh-pages leg: cited, not re-run (App.vue / ChromeDock.vue / scenes.ts unmoved since `6d5b4288`, 0 commits): `.d3` gh1 `1112111111` · gh2 `1111111111`, reversal `0001000000` ×2, surface `2222111110` ×2 → RED. |
+| e2e close clause (⟨`KF_PLAYWRIGHT_DIR=<value.js> npm run demo:correctness`⟩ `--workers=1`) | not re-run (> 120 s; `.d5` does not turn it). Banked Check 6 at kf `9bdcdad5` (unmoved): 4/6, ✗ S4 `ringPainted` + ✗ M1 | Under §0cd both fails are honest-RED `QUIET-FOCUS-RING` / `DRAWER-DETENT-REACH` (owner KF.W13R) → the clause reads **GREEN-WITH-HONEST-RED** at the close if every other case passes at `--workers=1` with the load recorded. Not a GREEN-before-cure (ruling, not cure). |
+| `.w .t .e .t2 .d2 .d4` served gates · `npm run check` · test:demo · vitest | banked Check 6 at `9bdcdad5` (unmoved): `.t2` grep 0 ×2 · check EXIT 0 ×2 · test:demo 66/66 · 518/518 ×2 | GREEN (cited; the close seat re-reads) |
+
+Host load ⟨`uptime`⟩ at open: 54.91 / 51.85 / 58.69. greenBeforeCure: none (the empty-surface limb, GREEN since Repair 1 `60477b06`, is already banked as R.2 at RESUME 2 and is not a `.d5` limb).
+
+### Unit plan (RESUME 3)
+
+Order (seventh addendum, strictly serial): **[`KF.W13U.d5`]**, then close. Opus 5.5 (§0cd). glass-ui READ-ONLY. Paths kf unless noted. The seat also writes this record + its LEDGER cells (append-only).
+
+| unit | model | spec | writable | gates | locks / families |
+|---|---|---|---|---|---|
+| `KF.W13U.d5` | opus (effort high) | `KF-W13.md` seventh addendum §2 (`:404-415`) + `.d3` receipt cause (a)(b)(c) (this record `:642-...` step 5) | `demo/app/App.vue` (whole) · `demo/app/dock/ChromeDock.vue` (whole; the scene-menu rows live here) · `demo/app/scene/scenes.ts` (whole; defines `warmScene`) · value.js `docs/tranches/X/keyframes/evidence/W13U/d5/**` · ADJACENT-LINE RULE (§0bt) | `probe-switch10.mjs` (copied into `d5/`, unchanged logic) 10 switches incl. first visits, headed: width changes `1111111111`, reversals 0, surface-set changes once per switch (the home-return 0 allowed as today), empty-surface 0, pageerrors 0 — dev ×2 + gh-pages ×2, load recorded; also a cold-read (no hover warm) leg; vue-tsc 0·0; `npm run check` 0; test:demo green | ONE commit point: every scene-derived read flips at resolve on `sceneBoundToCurrent`; forbidden: changing `selectedSurfaceFrom`'s fallback, a static per-scene surface table, a route super-key remount while pending |
+
+Close (after `.d5`): `npm run check` exit 0 · vitest GREEN · kf e2e GREEN-WITH-HONEST-RED for exactly S4 `QUIET-FOCUS-RING` + M1 `DRAWER-DETENT-REACH` (every other case green at `--workers=1`, load recorded) · the served-page gates of `.w .t .e .d .t2 .d2 .d4 .d5` re-read by the check seat itself. Honest-RED ids: `DOCK-MORPH-ROOT` · `DOCK-SCROLL-MORPH` · `GLASS-SURFACE-PAINT-CONTAIN` · `KF-TIMELINE-FILL` · `DARK-MENU-ITEM` · `QUIET-FOCUS-RING` · `DRAWER-DETENT-REACH`.
+
+### Unit receipts (RESUME 3)
+
