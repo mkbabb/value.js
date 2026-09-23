@@ -4713,3 +4713,73 @@ INBOX: the one UNREAD row is still **I-40** (Track C), outside X-W5 scope. **0 U
 **Four-verb:** AUDITED YES · SPECIFIED YES · **IMPLEMENTED YES (2026-09-17 date of record; close RESUME 8)** · VERIFIED NO (stamped only at the X-W11 release close, §9 c6). Per §0ba, the row reads CLOSED only on the L-20 check's adjudication, not on this close.
 
 **Successors:** L-20 check over this close; then X-W6 [`.s`] → [`.f2`] → [`.v`] → [`.j` if X-W5 CLOSED] (§0ba). X-W7 / X-W8 / X-W10 stay BLOCKED-ON the X-W5 CLOSED stamp.
+
+## Check 1 — RESUME 8, L-20 fresh adversarial pass 1, 2026-09-23 (VERIFY-ONLY)
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X-W5 CHECK 1 (RESUME 8) · HEAD at open `db3605d4` · date of record 2026-09-17 (COHESION §0j).
+Inputs: `W5.md` whole (402 L, five ADDENDA), this record's header, `## RESUME OPEN 8`, the empty `## Unit receipts — RESUME 8`, `## Close — RESUME 8` (`45d25fd1`), COHESION §0ba (`:2947-`). This seat cured nothing.
+
+### K1.0 Crash-recovery
+⟨cmd⟩ `git status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh` — neither in this seat's writable set (`X-W5.md`, `LEDGER.md`). **No inherited partial.** `dev.sh` untouched (⟨cmd⟩ `git log --oneline bd1f014f^..HEAD -- scripts/dev/dev.sh | wc -l` → 0).
+
+### K1.1 Axis (1) — the close's GREENs re-run at this seat's clock
+Static arms: ⟨cmd⟩ `bash scratchpad/static.sh` ×2 → `diff` **IDENTICAL**: A1 exit 0 · App grep 0 · A4 `bindPane` 10 · A5 `<h1` 4 · A7 `role="status"` 5 · B4 `100dvh` 0 / `svh` files 3 / `content-max-h` 0 · C4 exit 0 · C8 exit 0 · D2 exit 0 · D3 physical 0 · D4 Mix 1 · Admin 1 · E1 0 0 0 0 · E2 P122 9 3 18 10 · landmark 0 · §0az lock 0 · `ready` 0 · C3 23 (routed). **17/17 reproduce the close's figures.**
+Live arms (distinct `VJS_E2E_PORT` 6031–6071, tree-true dev servers; load 3.97 at open):
+
+| gate | close (CL8.2) | this seat | state |
+|---|---|---|---|
+| cold-nav witness `cold-nav-scene-enter.spec.ts --project=smoke` ×2 | 2 passed ×2 | **2 passed** (35.8s) · **2 passed**, EXIT 0 ×2 | GREEN ×2 |
+| o16 `--project=smoke` ×2 · `--project=oracles-safari` ×2 | 2 passed ×4 | **2 passed** (8.4s / 8.8s) · **2 passed** (6.1s / 6.2s), EXIT 0 ×4 | GREEN ×2 both projects |
+| W6 a5–a11 `gate-a-gesture-paint.mjs` (vite `:9417`) ×2 | GREEN ×2 | `GATE X.W6.a (gesture + paint) — GREEN` ×2, EXIT 0 ×2 | GREEN ×2 |
+| D1 headed real GPU, fresh `vite build --mode gh-pages --outDir scratchpad/k1-dist` (BUILD_EXIT 0; `git status --porcelain demo src` → 0) on `:8197`, `PROBE_HEADED=1` ×2 | pass:true ×2 | top-level `"pass": true` ×2, EXIT 0 ×2; →/generate 0/88 median 10 ×2 | GREEN ×2 |
+| §7 `npx vue-tsc -p tsconfig.demo.json --noEmit` | 0 | **TSC_EXIT 0** | GREEN |
+| W6 g2 `companion-pane-track-start.spec.ts -g "companion panes share one track start"` ×2 | RED ×2 (6.5014) | **1 failed** ×2, `Received: 6.501441955566406` ×2 | RED ×2 — relieved (K1.6) |
+| W6 e1 suite `gradient.spec.ts` + `o21-gradient-rail.spec.ts --project=smoke` ×1 | 22 passed ×2 | **22 passed** (1.9m) ×1 (not double-run at this seat; the close's ×2 stands, the class is load-sensitive and rides `W5D4-SETTLE-READ`) | GREEN (×1 here) |
+
+Not re-run (banked by the close, no product byte since — ⟨cmd⟩ `git diff --stat 196c014d..HEAD -- demo src e2e` → empty): a12 `WBGSE-D-probe2.mjs`, A2/A3/A5-walk/A6/B1/B2/C1/C5 live probes, D5, vitest/lint. **Every GREEN this seat re-ran reproduces; 0 divergences of verdict.**
+
+### K1.2 Axis (2) bounds · (3) masking · (4) families · (5) E-3
+- ⟨cmd⟩ `git show --name-only` over the 25 unit shas R8.2 names: every product path is a §4 row, a record-declared fold BD carve (record `:215-227`, `:284-292`: `demo/DESIGN.md` BD-23, `picker-color.ts` BD-12, `useColorParsing.ts` BD-13/14, `PaneHeader.vue` BD-06, `ParseEchoReadout.vue` BD-15, extract/* BD-10, `usePalettePorts.ts` BD-01, `useSlugMigration.ts` BD-02, `usePaletteWiring.ts` BD-05), or an ADDENDUM 1–4 grant (`AdminPane.vue`/`AdminNamesPanel.vue`, the 61 landmark re-points + `fixtures/dock.ts`, `PaneLoadingPlate.vue`/`PaneErrorPlate.vue`, `ColorPicker.vue`, `ErrorBoundary.vue` at the S-7-corrected path `demo/color-picker/`, the cold-nav witness). Repair-1 `16852e03` → `useViewManager.ts` (§4 modify). **No write outside bounds.** `dev.sh` untouched.
+- ⟨cmd⟩ `git show` over the 17 product/test commits `| grep -E '^\+.*(test\.skip|\.skip\(|fixme|catch\s*\(|allowlist|node_modules/@mkbabb)'` → 4 hits, each judged: `layout-utilization.mjs` `goto(...).catch(() => {})` (probe navigation under `networkidle`, not a gate assertion; the assertion reads the settled DOM after) · two `node_modules/@mkbabb/glass-ui` READ references in record prose / a read-only stylesheet path (no write) · `52dc0a5b` `load().catch(cause => …)` (the declared error-plate state of the P-1..P-4 family, surfaces the cause, not a swallow). **No masking fallback.**
+- §9 families: commit 1 `de99ec15` (unit a, born-RED JSON in git), 2 `adc312f6`, 3 `50633f19` (PaneSegmentedControl delete + T-45 re-seat in one commit, `shell.css` in the same stat), 4 `2183b814` (gate script included), 5 `e2f56558`; the addenda units are one meaning per commit. **Not split.**
+- E-3: ⟨cmd⟩ `git diff --numstat bd1f014f^..HEAD -- docs/tranches/X/waves/W5.md` → `13 0` — append-only dated ADDENDA via COHESION commits (`9c8c30d3` `df34be29` `d1bc67c3` `7ab5a3f1` `277b8d25`), lawful beside. ⟨cmd⟩ `git log bd1f014f^..HEAD -- registry/DEFECT-LEDGER.md docs/tranches/X/waves/W9.md` → `c7d7b768` (X·P/W4.g), `cf8c54b4`/`4b51a447`/`27ebc255` (X-W9) — **no X-W5 commit**; `registry/adjudicated/` and `V/archive/` → empty. **E-3 held by this wave.**
+
+### K1.3 Axes (6)–(9)
+- (6) Mail: ⟨cmd⟩ `awk -F'|' '/^\| I-[0-9]+/' INBOX.md | grep -i unread` → only **I-40** (fourier O-23/O-32 reply, Track C) — **0 UNREAD in X-W5 scope.**
+- (7) Four-verb: AUDITED YES · SPECIFIED YES · IMPLEMENTED YES (close RESUME 8, `45d25fd1`; LEDGER `:37` `db3605d4`) · VERIFIED NO (X-W11, §9 c6). The spec's own §1 table stays `planned` under E-3 (the verb lives in the record + LEDGER). **Lawful.**
+- (8) Goal criterion at the bytes: one visible H1 per route (A5 4 sites, A5 walk banked GREEN), one `role="status"` (A7 5), one mount + ordered `regions[]` with no physical side (C8 0, C4 deleted, D3 0), no block cap (B4 0/3/0, B2 banked), swaps animated on budget and PRM-honest (D1 `animated:true`·`motionHonest:true`·`pass:true` ×2 headed, D4 1·1, D5 banked). **MET**, with the residual layout forks (C3) and the inline-axis half routed by the spec's own §3 / ADDENDUM 1.
+- (9) Published figures: every CL8.2 number this seat re-read reproduces byte-for-byte (static 17/17; witness 2/2; o16 2/2 ×2 projects; a5–a11 GREEN; D1 pass; g2 6.501441955566406; e1 22/22). **0 divergent figures.**
+
+### K1.4 Register
+
+| severity | claim | receipt | cure |
+|---|---|---|---|
+| INFO | Unit c `50633f19` carved `demo/palettes/usePaletteWiring.ts`, a path the record lists under unit a's fold BD-05 carves rather than unit c's writable list. | record `:222` (BD-05 under unit a) vs `:284-292`; `git show --name-only 50633f19` | none — within the wave's declared writable union; checked at CL3 and every prior check. |
+| INFO | The close banked several live probes (a12, A2/A3/A5-walk/A6/B1/B2/C1/C5, D5) rather than re-running them. | CL8.2 "banked" rows; ⟨cmd⟩ `git diff --stat 196c014d..HEAD -- demo src e2e` → empty | none — RESUME-mode law; no product byte moved. |
+| INFO | This seat ran the load-sensitive e1 suite ×1, not ×2. | K1.1 | none — the close's ×2 stands, and the class rides `W5D4-SETTLE-READ`. |
+
+**No BLOCKER / CRITICAL / HIGH / MEDIUM / MINOR.**
+
+### K1.5 Honest-RED set (axis 10) — every RED relieved by the spec's own routing or a named ruling
+
+| gate | reading | relief (cited) | owner |
+|---|---|---|---|
+| W6 g2 `companion-pane-track-start` | RED ×2 at this seat (6.501441955566406) | W5.md fifth ADDENDUM `:402`; COHESION §0ba route **`W5D4-SETTLE-READ`** (ESC-W5d4-1 RULED (a)) — an instrument reading the pre-start enter pose, cure = one settle helper, no product byte | X-W6 `.s` |
+| B3 block extent | RED, banked | inline-axis/extent half rides CC-056 / V·L3 (W5.md §3 "Not in scope"; record `:3706`) | X-W6 (CC-056) |
+| A3 dock-action parity (+ C2 mobile liveness) | WITNESS / RED, banked | §0k.3 **S-1** (A3 = witness only; its cure is X-W8's) | X-W8 |
+| C3 fork census (23; three layout forks) | routed | W5.md ADDENDUM 1 `:394` ("the three layout forks → X-W8 `.i`"; capability rows classified out) | X-W8 `.i` |
+| C7 `DockStatusLamp.vue:70` | at target 3, the one row honest-RED by route | W5.md ADDENDUM 1 `:394` | X-W8 `.h` |
+| A5-OUTLINE | routed | record CL5.5 / `:3706` | X-W10 |
+| o12 O-12·3 hover frame-diff (headed GPU) | RED, routed | §0ay / §0az `O12-3-HOVER-GPU` | X-W8 `.i` |
+| D1 headless SwiftShader | RED beside, not the reading of record (headed D1 GREEN ×2 here) | §0ax | operator (quiesced window) |
+
+No RED gate lacks relief; every one names an owner in CL8.5.
+
+### K1.6 Successor "Opens after" conjuncts
+- **X-W6** (`W6.md:4` "X-W5"): GREEN on this stamp; per §0ba `.s` → `.f2` → `.v` → `.j`, and `.j`'s conjunct "LEDGER X-W5 row reads CLOSED" turns GREEN with this check.
+- **X-W7** (`W7.md:6` X-W3 · X-W4 · X-W6): X-W3 and X-W4 CLOSED; **lawfully BLOCKED on X-W6** (PARTIAL).
+- **X-W8** (`W8.md:6` X-W5 · X-W6 · X-W7): the X-W5 conjunct is GREEN; **lawfully BLOCKED on X-W6 / X-W7**.
+- **X-W10** (`W10.md:6` X-W5…X-W9 stable): the X-W5 conjunct is GREEN; **lawfully BLOCKED on X-W6…X-W9**.
+
+### K1.7 Verdict — **CONFORMANT-HONEST-RED**
+Zero BLOCKER/CRITICAL/HIGH. Every GREEN this seat re-ran reproduces: 17 static arms, plus 7 live gates (the cold-nav witness, o16 smoke, o16 safari, a5–a11, D1 headed, vue-tsc, e1). **24 reproduced · 0 failed.** Honest-RED set: **g2 (`W5D4-SETTLE-READ` → X-W6 `.s`) · B3 · A3 · C3 · C7 `DockStatusLamp:70` · A5-OUTLINE · o12 O-12·3 · D1 headless**, each relieved and owner-named. LEDGER X-W5 → **CLOSED 2026-09-17 (honest-RED: …)**.
