@@ -28,6 +28,9 @@ sitting of record 2026-09-17). Baselines are the open seat's (`execution/A/X-W7.
 | d | `5110332c` | G13 table + `w7-mutation-visibility` oracle + pre-flight battery |
 | d | `52117566` | N-7 store half — `movePalette` |
 | d | `1d4d375b` | G7 host row (ESC-W7b-HOST) + the measured early-return count |
+| e | `73fd8ccf` | `test(palettes/reorder)` — N-7 fixtures satisfy `Palette` (demo-leg TS2352 ×2 → 0) |
+| e | `4cb3d486` | #9 `fix(palettes/admin)` — deliberate dismissal ×5 seats; N-6 take-before-run; S-14(b); G15 · S-15 naming |
+| e | `4060ce38` | G14 · N-6 · S-14 browser oracle `w7-destructive-seats` + G13 rows re-ruled onto the confirms |
 
 ---
 
@@ -356,3 +359,84 @@ refusal). Carrying `weight` on the wire is `api/src/modules/palette/schema.ts` �
 `latestRequest()` tickets on audit, flagged, tags, the name queue and the roster (last-ISSUED wins; `loading`
 clears only for the current ticket). ⟨cmd⟩ `-t N-16` (page 3 issued first and settling LAST, page 2 second) → the
 rendered page is page 2, the pager agrees, `loading` false. Falsifier: every ticket current → **1 failed**.
+
+---
+
+## X.W7.e — gate sections (seat `claude-opus-5-5[1m]`, 2026-09-23, opened at HEAD `8ea888dc`)
+
+### G14 — Deliberate dismissal at destructive seats — **network half GREEN (5 seats + reject) · grep clause ESCALATED (ESC-W7e-DISMISS-AXIS)**
+
+⟨cmd⟩ `grep -rn 'window.confirm\|<ConfirmDialog\|dismiss="deliberate"' demo/ | grep -v node_modules | wc -l`
+- **RED (open)**: **0**. At the bytes: `AdminTagsPanel.vue:138` `@click="tagsApi.deleteTag(tag.name)"`; `AdminFlaggedPanel.vue:126`
+  `@click="flagged.deletePalette(…)"`; `AdminNamesPanel.vue:133` `@click="emit('delete', item)"` (and `:87` reject);
+  `AdminUsersPanel.vue:190` `@click="pm.onAdminDeletePalette(palette)"` (unit d's disclosure seat, unconfirmed). Delete-all
+  (`:134`) was already behind the panel's confirm.
+- **The spelling is impossible at the installed producer.** ⟨cmd⟩ `grep -n "dismiss" node_modules/@mkbabb/glass-ui/dist/components/dialog/DialogContent.vue.d.ts`
+  → **0** (7.0.0 carries `showClose?: boolean`); ⟨cmd⟩ `git -C ../glass-ui grep -n "DialogDismiss" v7.0.0 -- src/components/dialog` → **0**;
+  `v8.0.0:src/components/dialog/DialogContent.vue:30` `export type DialogDismiss = "free" | "deliberate" | "locked";` landed at
+  `b155ca4c` (2026-08-05, BK #38 W-DIALOG). The producer's own docstring: *"The old boolean close knob folds into it"* —
+  `deliberate` ≡ Esc · outside, no ✕ ≡ glass 7's `:show-close="false"`, the house pattern already at `AdminUsersPanel.vue:203`.
+  Writing `dismiss="deliberate"` on glass 7 would be an undeclared fall-through attribute (a decorative grep-pass, the exact
+  shape G14's falsifier names) — **not written**. The rung is composed in its glass-7 spelling at all four dialogs
+  (⟨cmd⟩ `grep -c '<DialogContent surface="glass" :show-close="false">' Admin{Names,Tags,Flagged,Users}Panel.vue` → 1·1·1·1)
+  with `<Button tone="destructive">` commits (Names `:159` · Tags `:170` · Flagged `:191` · Users `:230` `:tone`).
+- **AFTER grep**: **0** (double-run 0 · 0) — **RED by the producer pin, ESC-W7e-DISMISS-AXIS**; re-spells at the 8.0.0 repin
+  (X-W0 census / X-W4.g receiving surface), exactly as fourier's F-W1 M-α re-spelled `showClose`.
+- **Network (the gate proper)** ⟨cmd⟩ `VJS_E2E_PORT=8190 npx playwright test --project=smoke e2e/smoke/oracles/w7-destructive-seats.spec.ts`
+  → **6 passed** (in the pair run with G13: **19 passed ×2**). Unit half ⟨cmd⟩ `npx vitest run demo/test/palettes/admin-destructive.test.ts`
+  → **10 passed ×2** (7 seats incl. delete-user, + dismissal-releases-act, + 2 naming).
+- **Falsifiers (run, reverted, `cmp`-restored)**: tag seat back to direct fire → vitest `requests before acceptance: ['DELETE /admin/tags/moody', …]`;
+  flagged seat direct fire → e2e dialog never visible (red); both RED for the named reason.
+- **Anchor drift (INTENT at the true bytes)**: spec/brief anchors `AdminNamesPanel:111` · `AdminTagsPanel:101` · `AdminUsersPanel:120/317`
+  read `:133` · `:138` · `:134` (control) / `:342` (confirm opts) at `8ea888dc`.
+
+### N-6 — Exactly one request per destructive commit — **GREEN**
+
+- **RED (open)**: no instrument (ABSENT). At the bytes `AdminUsersPanel.vue` `onConfirm` ran `confirmAction.value?.()` then closed;
+  the closure was never cleared and the footer commit had no `:disabled` (fold W7.92 · Δ-3).
+- **Cure**: every confirm TAKES its act before running it (`const act = …; if (!act) return; … = null; open = false; act()`), a
+  `flush: "sync"` watcher releases the act on any dismissal (Esc · outside · Cancel), and the commit is `:disabled` while empty.
+- **GREEN**: e2e — accept `dblclick()` (second press inside the 159–271 ms window), then 300 ms past it → ledger **exactly
+  `[expected]`** at all 6 seats, ×2. Unit — two synchronous `.click()`s on the accept → **1** request at all 7 seats, ×2; Cancel then
+  accept → **0**.
+- **Falsifier**: `AdminUsersPanel` reverted to the born-RED `onConfirm` (no take, no release, no `:disabled`) → vitest **3 failed**
+  (`expected [ …(2) ] to have a length of 1 but got 2`: delete-all · disclosure delete · delete user) and e2e **2 failed**
+  (delete-all · disclosure delete: `requests after a double acceptance`). Restored, `cmp` clean.
+
+### G15 — Destructive naming — **GREEN** (+ S-15)
+
+⟨cmd⟩ accessible-name assertion (`admin-destructive.test.ts` G15 · `w7-destructive-seats.spec.ts` delete-all row)
+- **RED (open)**: visible text **`Palettes`**, no `aria-label` → accessible name `Palettes`; meaning disclosed only by the confirm title.
+- **GREEN**: visible **`Delete all palettes`**; accessible name **`Delete all palettes of azure-fox-01`** (the visible words lead it —
+  label-in-name); `byName("Palettes")` → none. ×2 (unit), ×2 (e2e).
+- **S-15**: Flagged `Dismiss` ×N → `aria-label` **`Dismiss reports on Sunset Riot`** / **`… Shady Spam`** (asserted list-equal);
+  delete-user glyph `UserX` vs delete-all `Trash2` (asserted unequal `svg` class).
+- **Falsifier**: visible text reverted to `Palettes` and the label removed → **2 failed** (G15 · S-15). Restored, `cmp` clean.
+
+### S-14 — the three sharpenings
+
+- **(a)** exactly one request — N-6 above (the e2e asserts `toEqual([expected])`, never "none before").
+- **(b)** tag seat visible at rest — `opacity-0 … group-hover:opacity-100 … focus-visible:opacity-100` deleted; e2e asserts
+  `toHaveCSS("opacity", "1")` with the pointer parked at (0,0) and no focus. Falsifier: the three classes restored → **failed**
+  (`Expected "1" · Received "0"`). ATP-46 rider (property list scoped to `background-color, transform`) and ATP-31 (`ml-0.5`) ride the same line.
+- **(c)** the fifth seat — `PaletteCard` survived unit d (ESC-W7d-INSPECTOR), so AP-6's seat lives on: the browse-wall admin
+  delete reaches `pm.onAdminDeletePalette` from `BrowsePane.vue:342` via `PaletteCardMenu.vue` — **neither path is in unit e's
+  writable set** → **ESC-W7e-AP6** (routed; not claimed). VHD-2 (VersionHistoryDrawer revert) is X-W4's file — not touched.
+
+### Cadence (§7) at unit e
+
+⟨cmd⟩ `npx vitest run` ×2 → **2 failed / 744 passed (746)** both runs — the same two pre-existing fails (C-5 `spectrum-luma`,
+NG-6 case 2 / F-4). ⟨cmd⟩ `npx vue-tsc -p tsconfig.demo.json --noEmit` → EXIT **0** (was EXIT 2 at open of e: TS2352 ×2 in
+`palette-reorder.test.ts`, cured `73fd8ccf`). ⟨cmd⟩ `npx tsc -p tsconfig.e2e.json --noEmit` → EXIT 0. ⟨cmd⟩ `npx eslint
+demo/palettes/browser/admin demo/test/palettes/{admin-destructive,palette-reorder}.test.ts e2e/smoke/oracles/w7-*.spec.ts
+--max-warnings=0` → EXIT 0. `git diff --check` clean. G18 ⟨cmd⟩ `git diff --numstat 8ea888dc..HEAD -- src/ api/ | wc -l` → **0**.
+Strict-probe (F-1 instrument, scratch tsconfig) on the four panels: every diagnostic is F-1's producer-typing class (TS2353
+`onClick`/`aria-label`/`variant` on glass `Button`, 2 pre-existing TS2322 on the tag `Input`s); no new class.
+- **smoke-admin** ⟨cmd⟩ `npx playwright test --project=smoke-admin` → **5 failed / 16 passed**. Baseline with the four panels
+  at `8ea888dc` bytes (same run shape) → the 3 `a11y-authed-admin` battery rows fail identically (`controlsChecked` 0 —
+  PRE-EXISTING, not unit e's); `flows/color-reject.spec.ts` and `flows/tag-delete.spec.ts` **passed at baseline and fail
+  after** — both assert the single-click, unconfirmed fire that G14 cures (born-RED witnesses whose premise inverts). They sit
+  outside unit e's writable set → **ESC-W7e-FLOW-INVERSION** (re-rule: accept the confirm, then assert the one request).
+- **Not run at this seat (named, not claimed)**: X-W1's `e2e/visual/admin-*.visual.spec.ts` goldens — the tag seat is now
+  inked at rest and the delete-all control reads `Delete all palettes`, so those cells are expected to diff; `e2e/visual/**` is
+  X-W1-owned (Do-NOT-touch) → re-baseline rides ESC-W7e-FLOW-INVERSION's routing to its owner.
