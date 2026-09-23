@@ -7998,3 +7998,42 @@ SERVED MODEL: claude-opus-5-5[1m] · unit X.W6.f2 (Opus) · W6.md fifth ADDENDUM
 **Escalations.** None.
 
 **Verdict: X.W6.f2 DONE.** f3/f4/f8 GREEN ×2 · 0 new `docs/` entries · committed evidence PNGs unchanged · one `test(e2e)` commit.
+
+### X.W6.v
+
+SERVED MODEL: claude-opus-5-5[1m]. Executes W6.md §8 (L354–371) · fifth ADDENDUM · COHESION §0ba `.v` bullet. Writable: `W6-evidence/{gradient,owner-marks}/**` · this record.
+
+**Crash-recovery.** ⟨`git status --porcelain`⟩ → `CARRY-LEDGER.md` · `scripts/dev/dev.sh` only; ⟨`ls W6-evidence/owner-marks`⟩ → absent; `W6-evidence/gradient/` held no PNG → **no inherited partial work**.
+
+**Acts, in order.**
+1. ⟨`git worktree add --detach /Users/mkbabb/Programming/value-x-w6-v-before f90aeb02^`⟩ → `HEAD is now at c4d686af` (pre-`.a`; ⟨`git log -1 f90aeb02^`⟩ → `c4d686af … 2026-09-19 05:23`). `node_modules` symlinked from the main tree (⟨`git diff f90aeb02^ HEAD -- package.json`⟩ → the same `@mkbabb/glass-ui ^7.0.0` / `keyframes.js ^6.0.0`, moved deps→devDeps only). The first server start failed `UNLOADABLE_DEPENDENCY … dist/subpaths/color.js` (the tree resolves `@mkbabb/value.js/*` from `dist/`); ⟨`npx vite build --mode production`⟩ in the worktree → `✓ built in 1.97s`, then a fresh `npx vite --port 9741 --strictPort` (STALE-SERVER law; the long-running :9000 was not used).
+2. Authored ONE capturer `W6-evidence/gradient/capture-v.mjs` (line 1 `SERVED MODEL`), run unchanged against both trees: chromium 1440×900 @2x; `webkit` `devices["iPhone 14"]` for the touch cell; one crop formula per cell anchored on `[data-testid="gradient-stop-bar"]` (bar ± 24 px × bar.top − 24 … +150, viewport-clamped); settle = no running finite Animation up the anchor's ancestry and no `*-enter-*`/`*-leave-*` class (the §0ba pose law). Overlays (axis lines, press dots) are capture-only fixed divs, no product byte.
+3. First pass exposed two capturer defects (mine, fixed before any commit): presses at the bar's vertical centre missed the handle row at HEAD (the `.b` seat rail moved handles below the ramp), and the axis overlay assumed the pre-`.a` border-box ramp. Cured: presses at the handle's own centre-y; the ramp line reads each tree's own paint geometry (`--rail-inset` registered → padding-box + inset + track·p; else border box, as `gate-axis.mjs` measured). Both trees re-captured with the cured file.
+4. BEFORE ⟨`node capture-v.mjs http://localhost:9741 before`⟩ → 7 frames; server killed.
+5. AFTER on a fresh HEAD server ⟨`node capture-v.mjs http://localhost:9742 after --owner-marks`⟩ → 7 frames + 6 OM re-captures (HEAD `dist/` built 2026-09-23 00:58, newer than the last `src/` commit 2026-09-20). OM-9 first attempt used `#/about` → timeout (About is a companion of `#/`, per `companion-pane-track-start.spec.ts:121`); re-pointed to `#/?space=lab&color=lab(92% 88.8 20)`.
+6. ⟨`rm node_modules symlink; rm -rf dist; git worktree remove /Users/mkbabb/Programming/value-x-w6-v-before`⟩ → `removed`; ⟨`git worktree list | grep -c v-before`⟩ → `0`.
+7. Originals copied beside: ⟨`cp owner-marked/<id>.png owner-marks/<id>.original.png` ; `cmp`⟩ → all 6 **byte-identical**; all 6 originals exist in the tree → **no dated missing-original line owed**.
+
+**The seven cells — capturer log, BEFORE (`f90aeb02^`) → AFTER (HEAD `88a86cf4`), same crop (px sizes equal pairwise: 1020×300 ×5, 1252×300 rootfs20, 1116×450 iPhone-14).**
+
+| cell | gate | BEFORE | AFTER |
+|---|---|---|---|
+| cross-drag-rail-1440 | a2 | stops `[0,29.1,8.2,100]` — DOM order unsorted | `[0,27.4,28.9,100]` — sorted |
+| axis-overlay-1440 | a3/a4 | border-box: centre/ramp `235/224 · 455/455 · 675/686` (±11) | padding-box+`--rail-inset`: `236/236 · 455/455 · 674/674` (0) |
+| grab-teleport-1440 | a5 | 8 px off-centre press + 1 px → travel **10.11 px**, 0→2.3 | travel **0**, 0→0 |
+| touch-delete-iphone14 | a9 | tap handle-centre+20 → stops **3→2** | **3→3** |
+| chip-hr-1440 | a10 | frame (chip on the rule) | frame (inspector row) |
+| white-ramp-contrast-1440 | a11 | frame (`#ffffff→#fafafa`) | frame |
+| rootfs20-overhang-1440 | a12 | frame (root 20 px) | frame |
+
+The BEFORE readings reproduce the adjudicated RED inputs byte-for-number (±11.0 px, 10.11 px, 3→2).
+
+**Owner marks (HEAD, crop = original px ÷ 2 at the original's anchor offset, sizes equal pairwise):** OM-3 1186×592 · OM-4 1012×540 · OM-6 342×318 · OM-9 2288×1190 · OM-10 2302×700 · OM-13 946×112. Anchors: the `Picker` region's pane (OM-3/6/9/10), `.readout-rail` (OM-4/13).
+
+**Commit.** `aac7e995` `docs(x-w6 .v): §8 gradient before/after frames (7 cells) + OM-3/4/6/9/10/13 re-captures beside originals` — 27 files (14 gradient PNG + 12 OM PNG + `capture-v.mjs`), `git add -f`, pathspec on the commit.
+
+**Gates (WRITE-THEN-MEASURE, ×2).** ⟨`git ls-files W6-evidence/gradient | grep -c '\.png$'`⟩ → `14` · `14` (BEFORE `0`) — **GREEN**. ⟨`git ls-files W6-evidence/owner-marks | grep -c '\.png$'`⟩ → `12` · `12` (6 originals + 6 re-captures; BEFORE `0`) — **GREEN**.
+
+**Residuals.** (R-v1, observation only, no product byte at this seat) the AFTER cross-drag sweep (62.7 → 10 % target, 14 steps) settled the dragged stop at **27.4 %**, just past its 28.9 % neighbour, not at ~10 %: the drag appears to stop tracking once the stop crosses a neighbour. The frame still shows a sorted, crossed rail (a2's property); `gradient.spec.ts` "neighbour-crossing" asserts ascent + `max > 60`, which this does not test. Routed to the next Check for adjudication. (R-v2) the §8 catalog/atmosphere artefacts are not `.v`'s (catalog = `.f`/`.f2`; atmosphere cold-load frame rides `.i3` per §0ba).
+
+**Escalations.** None. **Verdict: X.W6.v DONE.**
