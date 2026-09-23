@@ -92,16 +92,29 @@ test("O-16 computed-cascade — the dist :root 150ms transition-default clobber 
  * the RESULT, never trusts the declaration).
  *
  * Row map (t-transitions-liquid §2 · the retune table of record):
- *   R2  pane-swap ENTER  — transform `--spring-snappy` @ 0.4s (own clock)
- *   R3  pane-swap LEAVE  — opacity+transform 0.2s `--ease-out`; STRICTLY
- *       shorter than the enter (the exit law, gate 5)
- *   R4  card cartoon     — translate/scale `--ease-cartoon-punch` @ 0.3s,
- *       box-shadow bezier @ 0.3s (the producer cartoon-surface register)
- *   R5  interactive scales — btn-interactive scale @ `--spring-smooth-duration`
- *       0.45s on `--transition-liquid-spatial`; rail-item press leg
- *       `--spring-press` @ 0.16s
- *   R8  skeleton settle  — the vj-morph enter family (transform snappy @ 0.4s)
- *   R11 .pane-shell nudge — transform liquid-spatial @ 0.45s
+ *   R2  pane-swap ENTER  — transform `--spring-snappy` @ the RESOLVED
+ *       `--spring-snappy-duration` (own clock)
+ *   R3  pane-swap LEAVE  — opacity+transform `--ease-out` @ the RESOLVED
+ *       `--duration-fast`; STRICTLY shorter than the enter (the exit law,
+ *       gate 5)
+ *   R4  RETIRED 2026-09-23 (COHESION §0az ESC-W5c3-1) — the producer
+ *       `cartoon-surface` register: glass 7.0.0 ships the utility with NO
+ *       transition, so there is no producer value to assert. Recorded, never
+ *       re-authored in the consumer; a wanted-back motion is one BK relay row.
+ *   R5  btn-interactive atom + send-btn — RETIRED 2026-09-23 (§0az, the same
+ *       producer-removed clause): glass 7.0.0 ships no `btn-interactive`
+ *       utility at all (0 dist hits), and `.send-btn` carries no transition of
+ *       its own — its scale leg WAS the atom. Recorded only.
+ *       The live rail-item press leg — transform `--spring-press` @ the
+ *       RESOLVED `--spring-press-duration` (the rule reads that token).
+ *   R8  skeleton settle  — the vj-morph enter family (transform snappy @ the
+ *       RESOLVED `--spring-snappy-duration`)
+ *   R11 .pane-shell nudge — transform `--transition-liquid-spatial` @ the
+ *       RESOLVED `--spring-smooth-duration` (the rule reads that token)
+ *   Resolved-token pattern (§0az): every row measuring a DEMO rule asserts
+ *   equality with the token's value resolved by getComputedStyle on the
+ *   rule's own element, and the rule reads that token — drift is cured at
+ *   the rule, never by copying an observed literal into the assertion.
  *   R9  RECORDED, not gated here: the retime rides INSIDE W6-2's gradient
  *       re-author (T-46); this census owns the row's verification and flips
  *       to a hard assert when the re-authored instrument merges.
@@ -142,6 +155,26 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
                 return legs;
             };
 
+            // §0az resolved-token pattern: the value a rule's token RESOLVES to
+            // on the rule's own element. The motion tokens are unregistered
+            // custom properties (`calc(<settle> * <tempo>)`), so the raw
+            // custom-prop read is unevaluated; parking the token in the
+            // element's animation-duration / animation-timing-function and
+            // reading them back resolves it through each engine's own calc
+            // (no animation-name, so nothing runs). Prior inline values restored.
+            const resolve = (el: Element, duration: string, curve: string) => {
+                const h = el as HTMLElement;
+                const prevD = h.style.getPropertyValue("animation-duration");
+                const prevT = h.style.getPropertyValue("animation-timing-function");
+                h.style.setProperty("animation-duration", `var(${duration})`);
+                h.style.setProperty("animation-timing-function", `var(${curve})`);
+                const cs = getComputedStyle(h);
+                const out = { duration: cs.animationDuration, timing: cs.animationTimingFunction };
+                h.style.setProperty("animation-duration", prevD);
+                h.style.setProperty("animation-timing-function", prevT);
+                return out;
+            };
+
             // Class-probe: computed read through the REAL cascade (utility +
             // family registers) — a dist clobber trips it identically.
             const probe = (className: string) => {
@@ -160,12 +193,15 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
             const pane = wrapper?.firstElementChild ?? null;
             let enter: ReturnType<typeof readLegs> | null = null;
             let leave: ReturnType<typeof readLegs> | null = null;
+            let leaveTok: ReturnType<typeof resolve> | null = null;
             if (pane) {
                 pane.classList.add("vj-enter-enter-active");
                 enter = readLegs(pane);
                 pane.classList.remove("vj-enter-enter-active");
                 pane.classList.add("vj-enter-leave-active");
                 leave = readLegs(pane);
+                // R3's rule reads `--duration-fast` / `--ease-out`.
+                leaveTok = resolve(pane, "--duration-fast", "--ease-out");
                 pane.classList.remove("vj-enter-leave-active");
             }
 
@@ -181,6 +217,10 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
             const btnAtom = probe("btn-interactive");
             const railItem = document.querySelector(".channel-rail-item");
             const rail = railItem ? readLegs(railItem) : null;
+            // The rail rule reads `--spring-press-duration` / `--spring-press`.
+            const railTok = railItem
+                ? resolve(railItem, "--spring-press-duration", "--spring-press")
+                : null;
             const sendBtn = document.querySelector(".send-btn");
             const send = sendBtn ? readLegs(sendBtn) : null;
 
@@ -190,6 +230,11 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
             // R11 — the live .pane-shell nudge.
             const shell = document.querySelector(".pane-shell");
             const paneShell = shell ? readLegs(shell) : null;
+            // The .pane-shell rule reads `--spring-smooth-duration` /
+            // `--transition-liquid-spatial`.
+            const shellTok = shell
+                ? resolve(shell, "--spring-smooth-duration", "--transition-liquid-spatial")
+                : null;
 
             // R9 — RECORDED (handed across to W6-2): the current handle, if
             // this view hosts one (picker view: none — logged as absent).
@@ -198,13 +243,16 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
             return {
                 enter,
                 leave,
+                leaveTok,
                 cartoon,
                 liveCards,
                 btnAtom,
                 rail,
+                railTok,
                 send,
                 morph,
                 paneShell,
+                shellTok,
                 r9Present: r9 != null,
             };
         });
@@ -212,7 +260,8 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
         const log = (row: string, v: unknown) =>
             console.log(`[O-16·W5·${scheme}] ${row}: ${JSON.stringify(v)}`);
 
-        // R2 — enter transform: snappy spring @ its OWN 0.4s clock.
+        // R2 — enter transform: snappy spring @ its OWN clock, the resolved
+        // `--spring-snappy-duration` (0.44s at glass 7.0.0 — never a literal).
         expect(census.enter, "R2: no pane wrapper child found").toBeTruthy();
         log("R2 enter", census.enter);
         // ESC-W5c2-1 (COHESION §0ay): equal to the RESOLVED `--spring-snappy-duration`,
@@ -233,11 +282,14 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
         );
         expect(census.enter!["transform"]?.timing).toMatch(/^linear\(/);
 
-        // R3 — leave: 0.2s bezier on BOTH legs; never a spring on an exit.
+        // R3 — leave: `--ease-out` @ `--duration-fast` on BOTH legs; never a
+        // spring on an exit. §0az: equal to the RESOLVED tokens the rule reads.
         log("R3 leave", census.leave);
+        log("R3 resolved tokens", census.leaveTok);
         for (const legName of ["opacity", "transform"]) {
             const leg = census.leave![legName];
-            expect(leg?.duration, `R3 ${legName} duration`).toBe("0.2s");
+            expect(leg?.duration, `R3 ${legName} duration`).toBe(census.leaveTok!.duration);
+            expect(leg?.timing, `R3 ${legName} curve`).toBe(census.leaveTok!.timing);
             expect(leg?.timing, `R3 ${legName} curve`).toMatch(/^cubic-bezier\(/);
         }
         // Gate 5 — the exit law: leave strictly shorter than the enter.
@@ -248,35 +300,34 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
             parseFloat(census.enter!["transform"]!.duration),
         );
 
-        // R4 — cartoon register: translate/scale on the punch curve @ 0.3s,
-        // box-shadow on a bezier @ 0.3s (SPATIAL+EFFECTS split).
-        log("R4 cartoon-surface", census.cartoon);
-        for (const legName of ["translate", "scale"]) {
-            const leg = census.cartoon[legName];
-            expect(leg?.duration, `R4 ${legName} duration`).toBe("0.3s");
-            expect(leg?.timing, `R4 ${legName} curve`).toMatch(/^linear\(/);
-        }
-        expect(census.cartoon["box-shadow"]?.duration).toBe("0.3s");
-        expect(census.cartoon["box-shadow"]?.timing).toMatch(/^cubic-bezier\(/);
+        // R4 — RETIRED 2026-09-23 (COHESION §0az ESC-W5c3-1). The row asserted
+        // the producer `cartoon-surface` register (translate/scale @ 0.3s on the
+        // punch curve, box-shadow @ 0.3s). glass 7.0.0 ships `@utility
+        // cartoon-surface` with NO transition (components/card/styles.css), so
+        // the register has no producer value left to assert. The reading stays
+        // RECORDED; the lost motion is never copied into the consumer — wanted
+        // back, it is one BK relay row.
+        log("R4 cartoon-surface (RETIRED 2026-09-23, §0az)", census.cartoon);
         log("R4 live cards", census.liveCards.length);
 
-        // R5 — the atom: scale @ the smooth spring's OWN 0.45s clock.
-        log("R5 btn-interactive", census.btnAtom);
-        expect(census.btnAtom["scale"]?.duration).toBe("0.45s");
-        expect(census.btnAtom["scale"]?.timing).toMatch(/^linear\(/);
-        // The live rail-item press leg: --spring-press @ 0.16s.
+        // R5 — the btn-interactive atom + the live send-btn: RETIRED 2026-09-23
+        // (§0az, the same producer-removed clause). glass 7.0.0 ships no
+        // `btn-interactive` utility (0 hits in the dist), and `.send-btn`
+        // declares no transition of its own — its scale leg WAS the atom. The
+        // readings stay RECORDED; no consumer copy of the removed atom.
+        log("R5 btn-interactive (RETIRED 2026-09-23, §0az)", census.btnAtom);
+        if (census.send) log("R5 send-btn (RETIRED 2026-09-23, §0az)", census.send);
+        // The live rail-item press leg: `--spring-press` @ the RESOLVED
+        // `--spring-press-duration` — the tokens its rule reads (§0az).
         expect(census.rail, "R5: .channel-rail-item not found").toBeTruthy();
         log("R5 rail-item", census.rail);
-        expect(census.rail!["transform"]?.duration).toBe("0.16s");
+        log("R5 rail-item resolved tokens", census.railTok);
+        expect(census.rail!["transform"]?.duration).toBe(census.railTok!.duration);
+        expect(census.rail!["transform"]?.timing).toBe(census.railTok!.timing);
         expect(census.rail!["transform"]?.timing).toMatch(/^linear\(/);
-        // The live send-btn rides the atom (scale leg present at 0.45s).
-        if (census.send) {
-            log("R5 send-btn", census.send);
-            expect(census.send["scale"]?.duration).toBe("0.45s");
-            expect(census.send["scale"]?.timing).toMatch(/^linear\(/);
-        }
 
-        // R8 — the settle family: vj-morph enter transform snappy @ 0.4s.
+        // R8 — the settle family: vj-morph enter transform snappy @ the
+        // resolved `--spring-snappy-duration` (0.44s at glass 7.0.0).
         log("R8 vj-morph enter", census.morph);
         // ESC-W5c2-1 (COHESION §0ay): equal to the RESOLVED `--spring-snappy-duration`,
         // read by getComputedStyle on the rule's own element (the census's
@@ -294,10 +345,13 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
         );
         expect(census.morph["transform"]?.timing).toMatch(/^linear\(/);
 
-        // R11 — the shell nudge: liquid-spatial @ the smooth clock.
+        // R11 — the shell nudge: `--transition-liquid-spatial` @ the RESOLVED
+        // `--spring-smooth-duration` — the tokens its rule reads (§0az).
         expect(census.paneShell, "R11: .pane-shell not found").toBeTruthy();
         log("R11 pane-shell", census.paneShell);
-        expect(census.paneShell!["transform"]?.duration).toBe("0.45s");
+        log("R11 resolved tokens", census.shellTok);
+        expect(census.paneShell!["transform"]?.duration).toBe(census.shellTok!.duration);
+        expect(census.paneShell!["transform"]?.timing).toBe(census.shellTok!.timing);
         expect(census.paneShell!["transform"]?.timing).toMatch(/^linear\(/);
 
         // R9 — RECORDED, not gated: the row rides W6-2's re-author (T-46).
