@@ -440,3 +440,49 @@ Strict-probe (F-1 instrument, scratch tsconfig) on the four panels: every diagno
 - **Not run at this seat (named, not claimed)**: X-W1's `e2e/visual/admin-*.visual.spec.ts` goldens — the tag seat is now
   inked at rest and the delete-all control reads `Delete all palettes`, so those cells are expected to diff; `e2e/visual/**` is
   X-W1-owned (Do-NOT-touch) → re-baseline rides ESC-W7e-FLOW-INVERSION's routing to its owner.
+
+## X.W7.f — gate sections (seat `claude-opus-5-5[1m]`, 2026-09-23, opened at HEAD `fe009763`)
+
+Commits: `ae9a3a48` (N-5, MixSourceSelector site) · `b970fe96` (#10, the facility + compact counts).
+
+### G16 — The formatting facility owns display precision — **GREEN inside X.W7.f's bounds · 26 of 29 sites + 3 dead APIs ESCALATED (ESC-W7f-SITES)**
+
+- ⟨cmd⟩ `npx vitest run demo/test/color-session/format-color.test.ts` → BEFORE (facility absent at open; census half
+  on the prior consumer bytes): **5 RED** (4 import-census + 1 raw-interpolation) · AFTER **42/42 GREEN** (double-run 42 · 42).
+- Exact strings per register per channel class (10 classes × compact/caption/interchange + `exact` identity with
+  `canonicalColor`); table totality over every `PICKER_CHANNELS` channel; the lch C compact cell is the
+  `LCH_C_COMPACT_RULING` OWNER-RULING marker (shipped 0).
+- Falsifier ⟨cmd⟩ `oklch.c: 3 → 4` in `CHANNEL_DECIMALS` → **3 RED** (oklch compact · kelvin compact · formatChannel); reverted.
+- `caption` = X-W6 `formatSpecimen` RE-EXPORTED (CE-1, one digit policy); ⟨cmd⟩ `node docs/tranches/X/gates/gate-specimen-grammar.mjs` → exit **0** after the reroute.
+- Census at post-W6 bytes (OM-14 §2.A/§2.B/§5; 29 = 17 text + 11 ARIA + 1 write-back): routed here **3** — A1
+  `ColorSpaceSelector.vue:180` (already W6-cured; now imports the facility) · A16 `MixSourceSelector.vue:181` · B11 `:249`
+  (+ the uncensused `:248` title). **26 outside X.W7.f's writable set** → ESC-W7f-SITES (not written).
+- Dead precision APIs (OM-14 §3.14): `color-model.ts:63 toCSSColorString(_digits)` · `useColorPipeline.ts:28 DIGITS` ·
+  `useSliderGradients.ts:14 DIGITS` — **all three outside W7 bounds** → ESC-W7f-DEADAPI (not deleted).
+
+### G17 — Compact counts — **GREEN**
+
+- ⟨cmd⟩ `npx vitest run demo/test/palettes/compact-counts.test.ts` → BEFORE **3 RED** (mounted, prior bytes) · AFTER **11/11 GREEN**.
+- Fixture `g9Palette()` (`voteCount = 12345`): vote count text `12.3k`, `title="12345"`; specimen forks `12.3k` /
+  `title="12345 remixes"`, versions `4.3k` / `title="4321 versions"`. No `shrink-0` added (G9 ≡ G17 one cure surface).
+
+### G18 — `src/` containment — **GREEN**
+
+- ⟨cmd⟩ `git diff --stat e24361c6..HEAD -- src/ | wc -l` → **0** (double-run 0 · 0); working tree `git diff --stat -- src/` → 0.
+
+### N-5 — No index in keys — **GREEN at the two-site lock · 3 repo residue outside W7 · MSS-16 ESCALATED**
+
+- ⟨cmd⟩ `grep -rn '::\${i}\|:key="[^"]*index' demo/ --include='*.vue' --include='*.ts' | wc -l` → BEFORE (post-c) **5** · AFTER **3**
+  (double-run 3 · 3): `GradientEasingEditor.vue:121`, `ColorNutritionLabel.vue:57,107` — outside W7.
+- Removal falsifier on the REAL SFC (`swatch-identity-keys.test.ts`, 2 new cases): prior bytes **2 RED** → **2 GREEN**.
+- MSS-16 (`.swatch-row > .vj-enter-leave-active { position: absolute }`, `demo/styles/utils.css:177-179`): fold lock
+  "fix the recipe ONCE — never per consumer"; `utils.css` is outside X.W7.f's writable set → **ESC-W7f-MSS16**.
+  MR-35's pre-cure teleport measurement was NOT taken (no live browser probe at this seat; Playwright/DevTools MCP
+  failed to connect) — the pre-cure bytes remain measurable at `fe009763`.
+
+### Cadence (§7) at unit f
+
+- `npx vitest run` → **2 failed / 799 passed (801)**, 53 files, double-run identical; the 2 = the baseline C-5 and NG-6 (F-4).
+- `eslint --max-warnings=0` on the 8 touched files → exit 0; `git diff --check` → clean.
+- `vue-tsc -p tsconfig.demo.json` → 2 × TS18048 in `admin-destructive.test.ts:261,262` (unit e's file, not touched here);
+  strict-probe: 0 new TS2353/TS2322 in f's files (the one new `data-count` attribute was withdrawn before commit).
