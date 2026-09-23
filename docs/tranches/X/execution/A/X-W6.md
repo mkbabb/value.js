@@ -6129,3 +6129,66 @@ Every unit appends its own receipt under `## Unit receipts — fifth sitting 202
 
 ## Unit receipts — fifth sitting 2026-09-22
 
+
+### X.W6.d
+
+SERVED MODEL: claude-opus-5-5[1m] · RESUME residual only (verify-and-bank); landed `9557e6b5` · `e6bd7fe5` not reopened.
+Spec read: `W6.md` §5 X.W6.d (true bytes `:214-227`; the dispatch's `:252-268` anchor has drifted to X.W6.f — INTENT
+taken at `:214`) + ADDENDUM 2026-09-19 (`:479`) + ADDENDA 2026-09-22 (`:483-486`); COHESION §0z E1/E5 · §0aq · §0ax.
+
+**Act 1 — crash-recovery.** ⟨cmd⟩ `git status --porcelain` → `M docs/tranches/V/reformation/CARRY-LEDGER.md` ·
+`M scripts/dev/dev.sh` — neither in `.d`'s writable set. **Nothing inherited.** Anchor drift recorded: the writable
+set names `…/GradientVisualizer/easing/GradientEasingEditor.vue`; the true bytes are
+`demo/workbenches/gradient/GradientVisualizer/GradientEasingEditor.vue` (⟨cmd⟩ `ls …/GradientVisualizer/` → present
+there, absent under `easing/`), which is also the gate's `EDITOR` constant. No byte of it was written.
+
+**Act 2 — d1 · d2 ×2 at the post-`.c` bytes (HEAD `d7bc7bec`; `:9000` → HTTP 200).**
+
+| gate | ⟨cmd⟩ | BEFORE (fifth-sitting baseline) | AFTER (this seat, run 1 · run 2) |
+|---|---|---|---|
+| d1 | `EASING_RADIUS_ORIGIN=http://localhost:9000 node docs/tranches/V/megatranche/audit/probes/x-w6/gate-easing-radius.mjs` | GREEN | **GREEN · GREEN** — exit 0 ×2, outputs byte-IDENTICAL (`diff` → empty); `panel surfaces measured: 33 · read-only (d2-ask / producer): 2` · `GATE d1 (easing radius) — GREEN` |
+| d2 | `node docs/tranches/V/megatranche/audit/probes/x-w6/gate-easing-readout.mjs` | GREEN | **GREEN · GREEN** — exit 0 ×2, IDENTICAL; `fitting primitives …: NONE` · `branch selected by the census: DATED ASK; wave composes=false ask=true` · `local restyle … 0 line(s)` |
+
+Erratum-beside on the baseline row (not rewritten, E-3): the Baseline cell prints d1 `read-only (d2-ask / producer): 1`;
+the settled bytes print **2** (`button.rail-btn` d2-ask + `button.control-surface` producer), identical to the committed
+`W6-evidence/easing/d1-gate-2026-09-22.txt:17/:33` → a transcription slip at the baseline, not a regression.
+
+**Act 3 — d2's negative controls re-read, both directions, at the post-`.c` bytes.** Scratch copies of the committed
+gate (ROOT pinned; one perturbation each; gate/ask/editor never edited). Committed transcript
+`docs/tranches/X/waves/W6-evidence/easing/d2-negative-controls-2026-09-22-fifth-sitting.txt` (beside the 09-19 and
+09-22 files, E-3), commit **`58faba6f`**.
+
+| direction | perturbation | reading |
+|---|---|---|
+| control | ROOT-pinned copy, unperturbed | GREEN, exit 0; `diff` vs the committed gate's run 1 → IDENTICAL |
+| A (the letter carries the census) | ask copy, `:61` LabeledField row loses `` `error` `` | **RED** exit 1 — `the ask states \`LabeledField\` without its shipped slot \`error\`` |
+| **B (fitting primitive present + letter → RED)** | `ACTION_SLOT` widened to accept `default` | **RED** exit 1 — `branch selected by the census: COMPOSE` · `a fitting published primitive EXISTS (NumberField …) and the readout does not compose it` |
+| **C1 (local restyle → RED)** | editor copy `:184` `rounded-md bg-well` → `rounded-full ring-1 bg-well`, L4 diffed vs `f90aeb02^` | **RED** exit 1 — `added 1 styling line(s) to the readout rail … 184: +…rounded-full ring` |
+| C2 (local restyle, style block) | `background: tomato;` inside `.rail-btn` (after `:316`) | **RED** exit 1 — `317: +    background: tomato;` |
+| C3 control | same harness, HEAD editor unperturbed | GREEN exit 0 — the C-reds are the perturbations', not the harness's |
+
+⟨cmd⟩ `grep -c 'GATE d2 (easing readout) — RED' <transcript>` → **4** · `— GREEN` → **3** (control · C3 · committed gate).
+
+**Act 4 — the O-row stays rowed.** ⟨cmd⟩ `grep -c easing-readout docs/tranches/V/coordination/INBOX.md` → **4**;
+`:139` = **O-47** · 2026-09-22 · glass-ui (BK coordination) · `W6-glass-ask-easing-readout.md` · status **SENT**
+(carriage rides SS-6; nothing in X-W6 waits on the reply). ⟨cmd⟩ `ls -dt ../glass-ui/docs/tranches/*/ | head -1` → `BK/`;
+the one new glass outbound (`glass-outbound-2026-09-22-consumers-10.0.0.md`) reads `value.js: zero hits` and is already
+swept in INBOX (`:380`…`:412`). **0 UNREAD in `.d`'s scope; no INBOX byte written.**
+
+**Act 5 — §7 cadence on the `.d` files.**
+- ⟨cmd⟩ `npx eslint GradientEasingEditor.vue easing/EasingAuthoringStage.vue easing/easingCatalogue.ts` → exit **0** ×2.
+- ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.demo.json` → exit **0** ×2, no diagnostics.
+- ⟨cmd⟩ `npx prettier --check` over the three product files + the two probes → exit **1** ×2: the two probes are clean;
+  `GradientEasingEditor.vue` · `EasingAuthoringStage.vue` · `easingCatalogue.ts` warn. **Pre-existing, not `.d`'s:**
+  ⟨cmd⟩ `git show <rev>:<f> | npx prettier --check --stdin-filepath <f>` → WARN for all three at **`f90aeb02^`**
+  (pre-wave), at `9557e6b5^`, at `9557e6b5` and at HEAD; and ⟨cmd⟩ `npx prettier --list-different "demo/workbenches/**/*.{vue,ts}" | wc -l`
+  → **27** of 38 files — a tree-wide formatting debt, not a `.d` byte. Held as a residual (below), not cured here:
+  the dispatch binds "no product byte unless a gate reads RED", and d1/d2 read GREEN.
+
+**Commits.** `58faba6f` (the d2 transcript) · this receipt (record commit). **Commit #4 `style(demo/easing-register)` NOT
+minted** — no product byte moved (d1 and d2 GREEN at the bytes; landed `9557e6b5`/`c8111846`/`e6bd7fe5` stand).
+
+**Residuals.** (R-d-1) prettier warns on the three easing files since before the wave (27/38 workbench files tree-wide) —
+a formatting pass belongs to whichever seat owns a tree-wide prettier sweep, not a GREEN-gated RESUME residual;
+(R-d-2) the writable-set anchor for `GradientEasingEditor.vue` names `easing/`, the bytes live one level up.
+**Escalations: none.** Gates: **d1 GREEN ×2 · d2 GREEN ×2** (both-direction falsifiers RED).
