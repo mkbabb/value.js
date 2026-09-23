@@ -12,10 +12,19 @@
              SAME-material `--saved-bg` ground once the field is drawable
              (`auroraArrived`), so the load carries no dark→light snap. W7-3: the
              `data-glass-field-canvas` stamp threads the live field to samplers —
-             the full luma-truth rationale lives with useAtmosphereBoot. -->
+             the full luma-truth rationale lives with useAtmosphereBoot.
+             X.W12.a · UIA-V-1 / OA-18 — the field is VIEWPORT-FIXED
+             (`fixed inset-x-0 top-0 h-lvh`), never document-sized. As an
+             `absolute inset-0` child of the growing `.app-layout` it measured
+             1440×7578 CSS px on `/` (the About pane), a 2160×11368 backing
+             store at the producer's 1.5 DPR cap, past WebGPU's 8192
+             `maxTextureDimension2D`: every frame raised a GPUValidationError
+             and the field froze or died. The atmosphere is a backdrop, so it
+             belongs to the viewport; `lvh` (not `inset-0`'s dynamic height)
+             keeps the backing store stable while mobile toolbars retract. -->
         <canvas
             ref="atmosphereCanvas"
-            class="atmosphere-canvas absolute inset-0 w-full h-full pointer-events-none"
+            class="atmosphere-canvas fixed inset-x-0 top-0 w-full h-lvh pointer-events-none"
             :class="overture.b2.value && 'atmosphere-canvas--arrived'"
             :style="
                 auroraCssGradient ? { backgroundImage: auroraCssGradient } : undefined
