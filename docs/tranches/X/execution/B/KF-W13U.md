@@ -399,3 +399,59 @@ Probe `evidence/W13U/repair1/probe-switch.mjs` (reuses `d/sampler.js`; 1440×900
 ### Self-count
 
 kf commits **1** (`60477b06`, 1 path `demo/app/App.vue`, pushed). Defects dispositioned **7**: cured **2** (#6 ESC-d-1 · #4 figure addendum) · escalated **4** (#1 · #2 · #3 · #5) · INFO **1** (#7, no cure owed). value.js: this section + one LEDGER event line + `evidence/W13U/repair1/` (2 probes + 5 reports), in one pathspec commit.
+
+## Check 2 — FRESH ADVERSARIAL CHECK (L-20, pass 2)
+
+SERVED MODEL: claude-opus-5-5 · 2026-09-23 · VERIFY-ONLY (0 kf / glass / product bytes). Spec read: `KF-W13.md` KF.W13U addendum + OA-31..OA-34 follow-ons (`:315-336`) and the KF.W13V "Opens after" (`:340`); record read header→Unit plan, `## Close`, `## Check 1`, `## Repair 1`. Crash-recovery: ⟨`git -C keyframes.js status --porcelain`⟩ → the two untracked `VALUEJS-INBOUND-2026-07-{24,27}` letters only; value.js dirty paths are sibling tracks' (`demo/workbenches/extract/**`, `demo/test/extract/`, `CARRY-LEDGER.md`, `docs/tranches/X/audit/`, `chassis/ui-audit.js`) + `scripts/dev/dev.sh` (untouched). **0 inherited paths.** kf HEAD `60477b06` = origin/master (Repair 1's tip). COHESION after Repair 1: ⟨`grep -n '^## §0b[m-z]' COHESION.md`⟩ → last `§0bq` (OA-39 → KF.W13V `.s`); ⟨`grep -n 'ESC-R1-[123]\|OA-32\|KF-E2E-AUTOPLAY\|ESC-d-3'`⟩ → no grant or relief for any W13U escalation. Load note: the host ran at load average 226–540 during this seat (⟨`uptime`⟩), sibling seats live.
+
+**Verdict: NOT-CONFORMANT.** Every GREEN the close and Repair 1 claim reproduces; the three HIGHs of Check 1 stand unchanged: Repair 1 escalated them, and no COHESION grant or relief has landed since.
+
+### Axis readings
+
+| axis | reading |
+|---|---|
+| (1) claimed GREENs reproduce | **YES, 9 of 9** (served dev `:5173`, headed, banked probes run ×2 from the scratch cwd, the probe outputs this seat wrote into `evidence/W13U/` deleted after): G-KFW13U-w ⟨`probe-w1.mjs`⟩ → rest `rotateX(358.0)`…, Play `360 → 352.9 → 330.6` · run 2 `324.3 → 283.1 → 227.0` · G-KFW13U-t ⟨`probe-t1.mjs`⟩ ×2 → `dis:false`, drag `now 2300 → 3800`, holds `3800`, cube `rotateX(155.273deg) → (317.237deg)` · G-KFW13U-e ⟨`probe-e1.mjs`⟩ ×2 → trigger `ease-in-out` + `curve-glyph`, rows 29/29/29 distinct, named 27/27 (worst 5e-4), desc-separated 29, accname 29, after-pick `ease-out-back` · `.d` sharp ⟨`probe-sharp.mjs`⟩ ×2 → `diffPx 0`, 5.992 = 5.992 · `.d` OA-33 collapse ⟨`probe-oa33.mjs`⟩ ×2 → 402.49 px, `Scene · Controls tab · Controls panel · @mbabb menu`, dialog 1, theme flips, share 1, Escape → `@mbabb menu` · Repair-1 ESC-d-1 ⟨`repair1/probe-switch.mjs`⟩ ×2 → kids `8`, controls-tab `1` on 5/5 switches, pageerrors 0 · ⟨`npm run check`⟩ ×2 → EXIT 0, `error TS` 0 · 0 · ⟨`npm run test:demo`⟩ → **64/64 · 507/507 EXIT 0** on 1 of 4 full runs. The other 3 ran at load 250–540 and failed 1–5 tests: 7 hook timeouts at 10 s + `typing-dots-engine-seam` (2), the only assertion failure. Both recurring files pass isolated 8/8 (⟨`npx vitest run --project demo <the two files>`⟩); neither file nor its subject is touched by any W13U sha → load, not the wave (INFO #6). test:lib and eslint cited, not re-run. |
+| (2) bounds | 6 kf shas ⟨`git show --stat`⟩: the five of the close (in their rows, per Check 1) + `60477b06` = `demo/app/App.vue` only (1 file, +19 −1), which is in `.d`'s row (the dock consumer end). The Repair seat stated why it read the surface feed as dock consumer end, and the reading holds. value.js `42a82e3e` = this record + LEDGER + `evidence/W13U/repair1/**` (9 files). `scripts/dev/dev.sh` is in no W13U commit. **Clean.** |
+| (3) masking | ⟨`git diff 62ecc324..60477b06 -- demo`⟩: one `computed` predicate gating `setActiveSurfaces`, with no try/catch, skip or allowlist. It gates on the scene binding's own `superKey`, which is a root cause (a pending state was read as empty), not a suppression. Repair 1 declined the `--rotationX` resolver guard as masking, and that was correct. **Clean.** |
+| (4) families | one sha per meaning (`60477b06` = ESC-d-1 only). **Clean.** |
+| (5) E-3 | ⟨`git diff --stat 2a987e09~1..HEAD -- docs/tranches/X/keyframes/waves docs/tranches/V/megatranche/registry/adjudicated docs/tranches/X/CONFORMANCE-2026-08-03.md`⟩ → `KF-W13.md | 27 +` (insertions only; orchestrator addenda §0bg..§0bq), registry 0. Repair 1's figure correction is an addendum-beside RES-close-1. **Held.** |
+| (6) mail | INBOX I-n status cells: I-40 `READ 2026-09-23` (Track C) · I-41 `READ (COHESION §0bo)`. **0 UNREAD in scope.** |
+| (7) four-verb | IMPLEMENTED PARTIAL, VERIFIED NO. **Lawful.** |
+| (8) goal at the bytes | OA-27/28/29/31/34 MET; ESC-d-1 (part of OA-26's "jittery") now MET. OA-26's in-flight blur and two-owner pairs are relieved as producer-owned. **OA-32 is absent from the bytes** (no icon or scene-descriptor byte changed since `62ecc324`). **OA-33's "keyboard reachable" is still RED**: ⟨`node d/probe-kbd.mjs`⟩ ×2 → `{"enterOnDarkRowFlips":false,"afterTab":"Dark modeLight or dark theme","enterOnShareRowOpens":0}`. |
+| (9) published figures | Every served-page, check and test:demo figure reproduces (above). The e2e roster was **not re-run at this seat**: under a host load of 226–540 it would not discriminate, and Check 1 at `62ecc324` (3/6) and Repair 1 at `60477b06` (2/6) agree that it is RED. The addendum-beside figure "2/6–3/6, subject-animates timing-dependent" stands. |
+
+### Register (severity · claim · receipt · cure)
+
+1. **HIGH · OA-32 (the living dock icons) is not implemented and has no relief in the spec.** This is Check 1 #1, unchanged. Receipt: ⟨`git diff 62ecc324..60477b06 --stat`⟩ → `demo/app/App.vue` only; there is no `demo/app/scene/scenes.ts` or icon byte in any W13U sha. The COHESION tail holds no grant. **Cure**: the orchestrator grants `demo/app/scene/scenes.ts` + the `demo/scenes/*/` mini-rendition seams to a supplement unit (ESC-R1-1), and the OA-32 gate is then measured headed ×2.
+2. **HIGH · The close clause "the kf e2e suite GREEN" is RED with no relief in the spec's bytes.** This is Check 1 #2, unchanged. It includes the wave-caused limb S4 `enterToggled:false` (the autoplay premise). Routing it to KF.W13V is still circular, because KF.W13V opens only after KF.W13U CLOSED. **Cure**: grant `scripts/observe/demo/{subject-animates,live-session}.mjs` (ESC-R1-2). Then either cure the pre-existing four (usability `title:` · S4 `ringPainted` · S5 spring · M1 touch-scroll) or have COHESION relieve them by id.
+3. **HIGH · OA-33's "keyboard reachable" clause is RED, and it is a regression from `62ecc324`.** This is Check 1 #3, unchanged. Receipt: ⟨`node d/probe-kbd.mjs :5173`⟩ ×2 → Enter on the Dark-mode row does not flip, and Enter on the Share row opens 0. **Cure**: grant ESC-R1-3. `SharePopover` exposes its open model, and the theme row takes glass's menu-item form of `DarkModeToggle`, which rides O-56. Then keyboard-probe ×2.
+4. **MEDIUM · the intermittent HARD `var(--rotationX)` pageerror (Check 1 #5) is still unowned at the bytes.** Repair 1 did not reproduce it in 0 of 9 runs and escalated it to KF.W13V `.k`, and this seat did not re-run the mobile battery. It is non-blocking at MEDIUM. **Cure**: an instrumented M4 run on a dev build at the owner seat.
+5. **INFO · `DOCK-MORPH-ROOT` (O-56) / `DOCK-SCROLL-MORPH` (O-55)** are honest-RED under the spec's own `.d` relief (owner glass BL).
+6. **INFO · test:demo is load-sensitive.** At host load 250–540, 3 of 4 full runs failed: 7 hook timeouts at 10 s, and `typing-dots-engine-seam` (2), which is timing-sensitive under load. Both pass isolated, and the full suite goes green at lower load. No W13U byte is involved. No cure is owed by this wave.
+
+### Honest-RED adjudication (axis 10)
+
+| RED gate | relief in the spec's bytes? | owner named? | reading |
+|---|---|---|---|
+| `.d` two animation owners per property (8 producer pairs) + in-flight blur | **YES**: the addendum's `.d` bullet names honest-RED `DOCK-MORPH-ROOT` and routes producer causes to O-55/O-56 | glass BL | **HONEST-RED** |
+| OA-32 gate (third addendum) | NO | orchestrator (ESC-d-2 / ESC-R1-1) | **unrelieved → HIGH #1** |
+| close: kf e2e suite GREEN | NO | the record names KF.W13V `.k`/`.u`, which is circular | **unrelieved → HIGH #2** |
+| OA-33 keyboard reachable | NO | orchestrator (ESC-d-3 / ESC-R1-3) | **unrelieved → HIGH #3** |
+
+### Successor "Opens after"
+
+KF.W13V (`:340`) opens after "KF.W13U CLOSED **and** both registers landed".
+- KF.W13U CLOSED: **RED** (this check).
+- `docs/tranches/X/keyframes/audit/KF-ANIMATION-AUDIT.md`: **GREEN** (present).
+- `docs/tranches/X/audit/UI-AUDIT-keyframes.md`: **RED** (⟨`ls docs/tranches/X/audit/`⟩ → `ui-evidence` only; the directory is untracked).
+
+**KF.W13V is lawfully BLOCKED.** The one wave-owned path to CLOSED is the orchestrator's: either the three grants (ESC-R1-1..3) to a supplement unit, or a dated COHESION relief that names OA-32, the e2e clause and OA-33-keyboard by id and gives each an owner.
+
+### Self-count
+
+- kf shas audited: 6 (5 close + `60477b06`).
+- value.js shas audited: 1 new (`42a82e3e`).
+- Claimed GREENs re-run: 9, and 7 of them ×2 (5 served-page probe families + the ESC-d-1 switch probe + check). test:demo ran 4 full times (1 clean) plus 1 isolated run; eslint and test:lib were cited.
+- probe-kbd (the HIGH #3 receipt) ×2.
+- Defects: 6 (3 HIGH · 1 MEDIUM · 2 INFO).
+- The LEDGER status cell is unchanged (NOT-CONFORMANT), and one event line is appended.
