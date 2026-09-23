@@ -3084,3 +3084,6 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
 
 ## §0bv ADDENDUM 2026-09-23 — OA-43 (fourier sidebars and controls look greyed out) → F.W14 `.g`
 - **Owner, verbatim**: *"mark, too, why is the controls items, these sidebars and elements, so gray and grayed out?"* (frame `fourier/evidence/W14/owner-2026-09-23-grayed.png`) → **OA-43**, F.W14 unit `.g` (cause at the bytes; opacity/filter/inert/surface-token gates in both themes; glass-owned tone → BL).
+
+## §0bw ADDENDUM 2026-09-23 — OA-44 (fourier visualizations blurry) · OA-45 (control hierarchy/spacing needs total reconfiguration, every page) → F.W14 `.p` + `.h`
+- **Owner, verbatim**: *"The epicycles and viz areas are very vlurry and not high res; and the design hireachy and spacing of these elements and sliders, likely on every page, too, is not optimal and needs total reconfiguration"* (frames `fourier/evidence/W14/owner-2026-09-23-{blurry,hierarchy}.png`) → **OA-44** device-pixel-ratio-correct canvases everywhere (`.p`); **OA-45** one control-row idiom + page hierarchy across every fourier page (`.h`, design seat, effort high; missing primitive → BL). The same control-row question for value.js and keyframes rides X-W12 `.d` and KF.W13V `.u` via the UI audit's registers.
