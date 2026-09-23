@@ -13,3 +13,5 @@ Source: parse-that master `2382b30ec2bb5054f6af8c2e99c7c7304419be47` (bytes via 
 - `uncommitted-x-p-w5-inflight.patch` — the stopped X.P.W5 seat's uncommitted edits to `typescript/src/css` (11 files, +58/−14), captured before deletion so nothing is lost
 
 `MANIFEST.sha256` lists every file's sha256. `.b`/`.h` port the WPT cases and the harness/corpus from here into value.js tests.
+
+- `untracked-x-p-w5-inflight/` — two UNTRACKED files the stopped X.P.W5.g seat left in `typescript/src/css` (`surface-widenings.mjs`, `build/css-surface.d.ts`), captured before removal (not in `MANIFEST.sha256`, which covers the tracked bytes)
