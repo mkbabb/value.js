@@ -806,3 +806,151 @@ only; changed files 0) · demo typecheck 2 × TS18048 in `admin-destructive.test
 - N-17's other witnesses (`AdminListSkeleton` M-DU8, TagEditPopover TEP-15, AdminTagsPanel ATP-16) not measured.
 
 **Commits (this seat)**: `8fe6a2db` · `41002df5` · `07be9cf3` · `528ed4ed` · `274a6251` · this record.
+
+---
+
+## Close
+
+**Seat**: CLOSE (VERIFY-ONLY), `claude-opus-5-5[1m]`, wall clock 2026-09-23, opened at HEAD `109bd4b4`. Sitting of record
+2026-09-17. This seat changed no product, test or oracle file. It wrote this section, the LEDGER row and one INBOX sweep line.
+**Read**: W7.md whole, once · this record's header through §Unit plan · unit receipts a–g, located with grep and read in
+`sed` ranges · `W7-gate-log.md` headers.
+
+**Crash-recovery** ⟨cmd⟩ `git status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh`.
+Neither path is in the close seat's writable set, so there is no inherited hunk and this seat touched neither file.
+
+### Act 1: commit roster and bounds (git log + `git show --name-only`, `e24361c6..109bd4b4`)
+
+⟨cmd⟩ `git log --reverse --format='%h %s' e24361c6..HEAD` → **45 commits**: 1 open, then units a 5 · b 4 · c 9 · d 9 ·
+e 5 · f 4 · g 6. Every unit's commits are present in the log. Every file each commit touched was checked against
+that unit's writable cell in §Unit plan (§4 ∪ fold BoundsDelta ∪ §0k.3 S-5/S-7):
+
+| unit | commits | files outside the cell |
+|---|---|---|
+| a | `8360760b` · `3084e1fa` · `0e298ec5` · `3b659152` · `3243435c` | 0 (`MiniColorPicker.vue` is fold N-10, in the cell) |
+| b | `cb03d571` · `48668947` · `9843b2f1` · `8bd15c1b` | 0 (`export/{capture,download,file}.ts` fall under `export/*.ts`; `dateFormat.ts` is B-2) |
+| c | `8e023125` · `94e06196` · `e7b4d894` · `9250dd19` · `877710a2` · `76a4d1cf` · `124a5cf1` · `609dcacf` · `23e7fcb0` | 0 |
+| d | `e3f3d781` · `c1304cb6` · `eb2fae61` · `f5b13794` · `5110332c` · `52117566` · `1d4d375b` · `1a810c38` · `8ea888dc` | 0 (`demo/shell/dock/menus/*` is B-3; `api/{admin-call,admin-palettes,preflight}.ts` fall under `demo/palettes/api/**`) |
+| e | `73fd8ccf` · `4cb3d486` · `4060ce38` · `30e1462f` · `fe009763` | 0 |
+| f | `ae9a3a48` · `b970fe96` · `9ac71bf0` · `e9b8ad4e` | 0 (`PaletteSpecimen.vue` is the post-d successor of the count surface) |
+| g | `8fe6a2db` · `41002df5` · `07be9cf3` · `528ed4ed` · `274a6251` · `109bd4b4` | 0 (`ErrorBoundary.vue` is S-7) |
+
+⟨cmd⟩ `git diff --stat e24361c6..HEAD -- src/ api/ node_modules scripts/dev/dev.sh tsconfig.base.json e2e/visual demo/ui` →
+only `demo/ui/checkbox/index.ts | 2 +-`, which is the §4 carve. **Do-NOT-touch paths: 0 bytes changed.**
+
+**Landed wrong, recorded and not cured here**:
+- **LW-1 · `4cb3d486` (unit e) turns the demo typecheck RED.** The commit adds `demo/test/palettes/admin-destructive.test.ts`,
+  and lines 261-262 destructure `find(...)!` results into `cancel`/`accept` via `.map`. `vue-tsc -p tsconfig.demo.json`
+  then reports **2 × TS18048** (`'cancel' is possibly 'undefined'` and the same for `accept`). Unit e's receipt says
+  "`vue-tsc` demo EXIT **0**", but the bytes it landed contradict that. Units f and g both recorded the RED and neither
+  cured it. This breaks §7 ("No unit closes on a red typecheck"). The owner is unit e's file (a repair seat under the
+  `demo/test/palettes/*.test.ts` glob). The fix is a type-honest destructure, not a `!` or a cast.
+
+### Act 2: every §6 gate re-run at this seat (BEFORE = §Baseline, AFTER = this seat's reading)
+
+Unit tests: ⟨cmd⟩ `npx vitest run` ×2 → **`Tests 2 failed | 803 passed (805)`**, 54 files, identical both runs. The 2 failures
+are the baseline's pre-existing ones: C-5 `test/spectrum-luma.test.ts` and F-4 `reka-binding-idiom.test.ts` NG-6 case 2.
+Every W7 gate file passes in both runs. Browser tests: ⟨cmd⟩ `VJS_E2E_PORT=8190 npx playwright test --project=smoke
+e2e/smoke/oracles/{w7-destructive-seats,w7-mutation-visibility,o9-shadow-palette}.spec.ts` ×2 → **24 passed** (run 1),
+**24 passed** (run 2), EXIT 0 both.
+
+| gate | BEFORE | AFTER (close seat) | verdict |
+|---|---|---|---|
+| G1 | 4 lines / 2 files | ⟨cmd⟩ `grep -rn "update:checked\|:checked=" demo/ --include='*.vue' \| wc -l` → **0** | GREEN |
+| G2 | file absent | `checkbox-contract.test.ts` **6/6** ×2 | GREEN |
+| G3 | no flag; strict-probe 296/61 | ⟨cmd⟩ `grep -n "vueCompilerOptions\|strictTemplates" tsconfig*.json` → **no match**; flag not set | **RED, ESC-W7a-G3** (§3a triumvirate) |
+| G4 | legacy `./export` import; serializers imported only by their own test | `export.ts` **absent**; `usePaletteExport.ts:4-9` imports only from `./export/serializers`; importers = `usePaletteExport.ts` (the product) + `byte-exact.test.ts` | GREEN |
+| G5 | `"blue"` | `byte-exact.test.ts` **31/31** ×2, with 4 `日本` cases | GREEN |
+| G6 | 2 | ⟨cmd⟩ `grep -rn "function slugify\|const slugify" demo \| wc -l` → **1** | GREEN |
+| G7 | table absent; export failures swallowed | `W7-failure-dispositions.md` present; `palette-export.test.ts` **7/7** ×2; the host row passes in the e2e runs | GREEN (d's residual: rows 4/6/10/11 not rendered) |
+| G8 | `slice(0, 3)` | no tag slice left; n-fixtures tag cases pass. `AdminFlaggedPanel.vue:81` still has `slice(0, 5)`, but over **colors** | GREEN (sibling residual) |
+| G9 | 587 px overflow; name 0 | `palette-card-layout.test.ts` **6/6** ×2 | GREEN |
+| G10 | dir absent | `n-fixtures.test.ts` **21/21** ×2 | GREEN |
+| G11 | no cast, no hover | root half GREEN (n-fixtures case); ⟨cmd⟩ `ls e2e/visual/goldens \| grep -ic card` → **0** | **RED, golden half blocked-on-harness-cell (F-3 / ESC-W7c-G11)** |
+| G12 | component absent | `palette-specimen.test.ts` **4/4** ×2 | GREEN |
+| G13 | table and oracle absent | table 20 rows; oracle rows pass in the e2e runs; `admin-crud.test.ts` **12/12** ×2; per d: **11 GREEN · 3 OWED-ORACLE · 6 ROUTED**; DAG row 2 is server-side | **RED (partial)**: "a browser assertion per row" is not met for 3 rows; the inspector is not built (ESC-W7d-INSPECTOR) |
+| G14 | 0 / fires on click | network half: `w7-destructive-seats` passes in both e2e runs, `admin-destructive.test.ts` **10/10** ×2; grep ⟨cmd⟩ `grep -rn 'dismiss="deliberate"' demo/ \| wc -l` → **0** | **RED on the grep clause, ESC-W7e-DISMISS-AXIS** (the axis only exists at glass ≥ 8.0.0); network half GREEN; the fifth seat (ESC-W7e-AP6) is still unconfirmed |
+| G15 | name `Palettes` | `admin-destructive.test.ts` G15 case passes ×2 | GREEN |
+| G16 | facility absent | `format-color.test.ts` **42/42** ×2; 26 of 29 sites and all 3 dead APIs sit outside the bounds | **RED, ESC-W7f-SITES · ESC-W7f-DEADAPI** (in-bounds half GREEN) |
+| G17 | 0 helpers | `compact-counts.test.ts` **11/11** ×2 | GREEN |
+| G18 | 0 | ⟨cmd⟩ `git diff --stat e24361c6..HEAD -- src/ \| wc -l` → **0** | GREEN |
+| G19 | 31 | ⟨cmd⟩ `grep -rn "eyebrow" demo/ \| grep -v node_modules \| wc -l` → **14** (0 inside the bounds; prop and element deleted) | **RED, ESC-W7g-G19-BOUNDS · -ORACLE** |
+| G20 | 254 px @ k=16 | `plate-mass.test.ts` **4/4** ×2 (92.5 px, budget 100); o9 passes in the e2e runs | GREEN |
+
+**Fold gates, summarised from the receipts** (their tests pass in both full runs above): N-2 · N-3 · N-4 · N-5 (at the lock) ·
+N-6 · N-8 (admin DTOs) · N-10 · N-11 (sites) · N-13 · N-14 (arm) · N-15 · N-16 · N-17 (card fixture) are **GREEN**.
+N-7 is RED: the store half is GREEN, but the first-drag browser row is still owed. N-9 is RED (ESC-W7g-N9-PANEPLATE). N-1 was
+GREEN before any cure (X-W1).
+
+**Tally**: §6 gates **14 GREEN** (G1 G2 G4 G5 G6 G7 G8 G9 G10 G12 G15 G17 G18 G20) · **6 RED** (G3 G11 G13 G14 G16 G19), each
+with a named escalation.
+
+### Act 3: §7 cadence and §8 verification artefacts
+
+| instrument | reading (close seat) | vs baseline |
+|---|---|---|
+| `npm run lint` | **55 problems (23 errors, 32 warnings)**; ⟨cmd⟩ `npx eslint demo e2e/smoke/oracles --max-warnings=0` → EXIT 0 | same as baseline (the 55 are all docs; X-W1 G-17 routed) |
+| `vue-tsc -p tsconfig.lib.json` | EXIT 0 | same |
+| `vue-tsc -p tsconfig.demo.json` | **EXIT 2, 2 × TS18048** at `admin-destructive.test.ts:261,262` | **REGRESSED: baseline EXIT 0 → RED (LW-1)** |
+| `vue-tsc -p tsconfig.test.json` | EXIT 2: 11 × TS2307 (F-2, `space-catalog.ts`) + the same 2 × TS18048 | F-2 unchanged, plus LW-1 |
+| `npx vitest run` ×2 | 2 failed / 803 passed (805) | the same 2 pre-existing failures |
+| `git diff --check e24361c6..HEAD` | EXIT 0 | clean |
+
+§8 artefacts, checked with ⟨cmd⟩ `ls docs/tranches/X/waves/ | grep W7`: `W7-gate-log.md` (G1–G20 sections, integration-hash header,
+§G3 falsifier, §G9 and §G20 pre- and post-cure) · `W7-failure-dispositions.md` · `W7-mutation-ownership.md` · `W7-om15-receipt.md`
+(69 rows) · `W7-bounds-addendum-2026-09-23.md` are all **present**. `demo/test/palettes/n-fixtures/` is **present**. The
+**PaletteCard goldens in `e2e/visual/` are ABSENT** (F-3; owned by X-W1).
+
+### Act 4: E13 close sweep
+
+Reference clock is the last INBOX commit, `5547766b` (2026-09-23T06:32:48). ⟨cmd⟩ `find <p> -maxdepth 1 -type f -newermt …`
+over `docs/tranches/V` · `V/coordination` · `../glass-ui/docs/tranches/BK/coordination` · `../keyframes.js/docs/tranches/V/coordination` ·
+`../sci-report/atlas/docs/tranches/{P,Q,R}/coordination` · `…/T` found only `INBOX.md` itself (mtime only; `git status` shows it clean).
+BK and T are still the newest directories. The newest BK files are our own O-53/O-54 mirrors. **0 new I-n; 0 UNREAD in X-W7's
+scope** (O-20 and I-35 were classified out of scope at open, and that still holds). One outbound relay is **owed but unsent**:
+unit c's producer note (`.cartoon-cast` / `.cartoon-surface` cannot be reached in glass 7's served cascade) is a BK-inbox
+row under feedback-glassui-bhbi-relay. It is recorded below as a residual; this seat does not write it.
+
+### Act 5: escalations (all still open; they go to the triumvirate or orchestrator)
+
+| ID | gate | what it needs | owner |
+|---|---|---|---|
+| ESC-W7a-G3 | G3 | 290 strict diagnostics in 60 files (80 in 25 files outside the bounds; mostly glass-ui fallthrough typing). Pick one: producer relay, a narrower checker setting by ruling, or ownership of the 80 sites | triumvirate (§3a) |
+| ESC-W7c-G11 (F-3) | G11 | enrol PaletteCard rest+hover goldens in `e2e/visual/` | X-W1 |
+| ESC-W7c-O10D · ESC-W7c-CI | — | re-route o10d case 5 through the menu; add `playwright install chromium` to CI's unit job | X-W1 / CI owner |
+| ESC-W7d-INSPECTOR | G13 · §3.4/§3.8 | a grant for `keys.ts`, `usePaneRouter.ts`, `ActionBarLayer.vue`, an inspector path and `n-fixtures/**`; `PaletteCard.vue` stays undeleted until then (S-5 precondition unmet) | orchestrator / triumvirate |
+| ESC-W7d-DAG2 · -N14-PRESERVE | G13 row 2 · N-14 | the `deletedAt` predicate on the roster `$lookup`; `weight` on the wire | API owner (`api/**`) |
+| ESC-W7d-MMD2-ROOT | MMD-2 | the destruction order in `useUserAuth.regenerate()` | X-W8 / auth owner |
+| ESC-W7e-DISMISS-AXIS | G14 grep | a ruling that the grep reads the rung at the installed pin, or the glass 8.0.0 repin (X-W0 census → X-W4.g) | triumvirate |
+| ESC-W7e-AP6 | G14 | the browse-wall admin delete (`PaletteCardMenu.vue` → `BrowsePane.vue:342`) is unconfirmed; fold it into the inspector grant | orchestrator |
+| ESC-W7e-FLOW-INVERSION | — | re-rule `smoke/admin/flows/{color-reject,tag-delete}.spec.ts` so they accept the confirm | X-W1 |
+| ESC-W7f-SITES · -DEADAPI · -MSS16 · -READOUT | G16 · N-5 | grants for 26 display sites and 3 dead APIs, plus `utils.css` `.swatch-row` and `readoutReservation.ts` | orchestrator (sites in X-W5/X-W6/X-W9 files) |
+| ESC-W7g-G19-BOUNDS · -ORACLE | G19 | 14 eyebrow survivors outside the bounds (two are functional: `PaletteCardGrid.vue:25`, `MixSourceSelector.vue:272`); the oracle strings in `crash-battery` and `browse-pagination` | orchestrator / X-W1 |
+| ESC-W7g-N9-PANEPLATE | N-9 | recompose `PaneErrorPlate.vue` on `EmptyState variant="error"` | X-W5 |
+| ESC-W7g-R14-GLOB | — | the `**/palettes*` route glob in crash-battery R14 aborts source modules | X-W1 |
+
+### Residuals (each has a named owner; none absorbed)
+
+- **LW-1**: demo typecheck RED from `4cb3d486` (above). Owner: a unit-e repair seat. This must be cured before any CHECK.
+- **XP-EXTRACT NWO session cluster** (§R2.2 · §R3.2 · §R1.9 · §R1.29–.31; B-1): not executed. crash-battery R18 ×2 is RED
+  (`InvalidStateError` on quantize). Owner: X.W7.g repair (inside the bounds, via B-1).
+- **N-7 first-drag browser row**: owed (X.W7.d repair). **G13**: 3 OWED-ORACLE rows (X.W7.d repair).
+- `W7-failure-dispositions.md` rows 4/6/10/11 are not rendered (the `TagEditPopover` verdict is unit a's file; row 4 is X-W4's drawer).
+- G8 sibling `AdminFlaggedPanel.vue:81` `slice(0, 5)` over colors (X.W7.d/e panel). N-5 repo residue (3 sites, outside W7).
+  N-11 repo residue `void writeClipboard` ×7.
+- Search-band strict diagnostics ×6 (glass typing); fold rows SFB/MCP/TEP not executed (X.W7.a repair or the G3 ruling).
+- §R1.4 / §R1.13 / §R1.14 / §R1.21 register rows are sequenced behind X-W10; N-17's other witnesses are unmeasured.
+- OM-14 §4.7 owner-ruling cells (the `lch C` compact cell and the silent compact cells) are flagged for the **owner**.
+- Glass BK relay owed (`.cartoon-cast` unreachable at glass 7), under feedback-glassui-bhbi-relay. Owner: the orchestrator's mail seat.
+- L-18 rider: two quartet challenge passes and a fresh Fable apotheosis before any unit is ACCEPTED (CHECK seats).
+
+### Four-verb line (§2; moved only as §9 #13 allows)
+
+| verb | state |
+|---|---|
+| AUDITED | YES (unchanged) |
+| SPECIFIED | YES (unchanged) |
+| **IMPLEMENTED** | **PARTIAL.** 45 commits landed in bounds and 14 of 20 gates are GREEN. It is not stamped IMPLEMENTED because §9 #13 requires "gates green + bytes landed", and 6 gates are RED with open escalations, one landed-wrong typecheck regression (LW-1) exists, and the XP-EXTRACT cluster is unexecuted. |
+| VERIFIED | NO. Only X-W11's release close stamps it (§9 #13). |
+
+**Close verdict: PARTIAL.** The LEDGER row is set to `PARTIAL — …` with the commit list.
