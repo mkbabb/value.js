@@ -13,7 +13,6 @@ import { ref, computed, type Ref, type ShallowRef } from "vue";
 import {
     getFlaggedPalettes,
     dismissFlags,
-    deletePaletteAdmin,
     flagPalette,
 } from "./api";
 import {
@@ -56,7 +55,13 @@ export interface UseAdminFlagged {
     report: (paletteSlug: string, reason: string, detail?: string) => Promise<ReportResult>;
 }
 
-export function useAdminFlagged(): UseAdminFlagged {
+/**
+ * The flag queue. The palette delete is NOT owned here: `deletePalette` is the
+ * admin users domain's one delete (G13 — one call site per mutation), injected.
+ */
+export function useAdminFlagged(deps: {
+    deletePalette: (slug: string) => Promise<AdminResult<unknown>>;
+}): UseAdminFlagged {
     const { access, call } = useAdminAccess();
     const { notice, settle, dismiss: dismissNotice } = useAdminNotice();
     // N-16: only the most recently ISSUED read may paint or clear `loading`.
@@ -114,9 +119,10 @@ export function useAdminFlagged(): UseAdminFlagged {
     }
 
     async function deletePalette(paletteSlug: string) {
-        const result = await call((token) => deletePaletteAdmin(token, paletteSlug));
+        const label = items.value.find((i) => i.paletteSlug === paletteSlug)?.palette?.name ?? paletteSlug;
+        const result = await deps.deletePalette(paletteSlug);
         if (result.ok) removeRow(paletteSlug);
-        settle(result, `Deleted ${paletteSlug}`, "Could not delete the palette");
+        settle(result, `Deleted “${label}”`, "Could not delete the palette");
         return result;
     }
 

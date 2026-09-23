@@ -1,6 +1,4 @@
 import { ref, shallowRef, type Ref, type ComputedRef } from "vue";
-import { createAndSavePalette } from "./api";
-import { preflightColors } from "./api/preflight";
 import { ApiProblem } from "../platform/transport/api-problem";
 import type { Palette } from "./types";
 import type { ViewId } from "../shell/useViewManager";
@@ -36,6 +34,8 @@ export interface SlugMigrationDeps {
     clearUserSlug: () => void;
     ensureSession: () => Promise<void>;
     setActiveView: (id: ViewId) => void;
+    /** G13: the ONE publish call site (`usePaletteActions.onPublish`), injected. */
+    publish: (palette: Palette) => Promise<{ success: boolean; message: string }>;
 }
 
 /**
@@ -72,20 +72,9 @@ export function useSlugMigration(deps: SlugMigrationDeps) {
         let published = 0;
         let failed = 0;
         for (const palette of deps.savedPalettes.value) {
-            if (!preflightColors(palette.colors).ok) {
-                failed += 1;
-                continue;
-            }
-            try {
-                await createAndSavePalette({
-                    name: palette.name,
-                    slug: palette.slug,
-                    colors: palette.colors,
-                });
-                published += 1;
-            } catch {
-                failed += 1;
-            }
+            const result = await deps.publish(palette);
+            if (result.success) published += 1;
+            else failed += 1;
         }
         return { published, failed };
     }

@@ -159,23 +159,25 @@ export function useAdminUsers(deps: {
         return result;
     }
 
-    async function onAdminDeletePalette(palette: Palette): Promise<AdminResult<unknown>> {
-        const result = await call((token) => deletePaletteAdmin(token, palette.slug));
-        if (result.ok) dropPalette(palette.slug);
-        settle(result, `Deleted “${palette.name}”`, "Could not delete the palette");
+    /**
+     * G13 — the ONE call site of the admin palette delete. The browse wall, the
+     * expanded user row and the flag queue all delete through here, so every
+     * list that shows the palette drops it in the same act.
+     */
+    async function adminDeletePalette(slug: string): Promise<AdminResult<unknown>> {
+        const result = await call((token) => deletePaletteAdmin(token, slug));
+        if (result.ok) {
+            const owner = userPalettes.value.some((p) => p.slug === slug) ? expandedUserSlug.value : null;
+            dropPalette(slug);
+            const user = owner ? adminUsers.value.find((u) => u.slug === owner) : undefined;
+            if (user && user.paletteCount) user.paletteCount--;
+        }
         return result;
     }
 
-    async function onAdminDeleteUserPalette(
-        palette: Palette,
-        ownerSlug: string,
-    ): Promise<AdminResult<unknown>> {
-        const result = await call((token) => deletePaletteAdmin(token, palette.slug));
-        if (result.ok) {
-            dropPalette(palette.slug);
-            const user = adminUsers.value.find((u) => u.slug === ownerSlug);
-            if (user && user.paletteCount) user.paletteCount--;
-        }
+    /** The users scene's delete: the one delete, plus this scene's verdict. */
+    async function onAdminDeletePalette(palette: Palette): Promise<AdminResult<unknown>> {
+        const result = await adminDeletePalette(palette.slug);
         settle(result, `Deleted “${palette.name}”`, "Could not delete the palette");
         return result;
     }
@@ -253,8 +255,8 @@ export function useAdminUsers(deps: {
         loadAdminUsers,
         onImpersonate,
         onFeaturePalette,
+        adminDeletePalette,
         onAdminDeletePalette,
-        onAdminDeleteUserPalette,
         onDeleteUserPalettes,
         onDeleteUser,
         onPruneEmpty,

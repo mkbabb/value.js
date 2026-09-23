@@ -187,7 +187,7 @@
                                     size="xs"
                                     class="px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
                                     :aria-label="`Delete palette ${palette.name}`"
-                                    @click="pm.onAdminDeleteUserPalette(palette, user.slug)"
+                                    @click="pm.onAdminDeletePalette(palette)"
                                 >
                                     <Trash2 class="w-3 h-3" aria-hidden="true" />
                                 </Button>

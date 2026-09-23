@@ -94,7 +94,7 @@ export function providePalettePorts(deps: PalettePortsDeps) {
 
     // --- Sub-composable facades (D.W3 Lane B) ---
     const audit = useAdminAudit();
-    const flagged = useAdminFlagged();
+    const flagged = useAdminFlagged({ deletePalette: admin.adminDeletePalette });
     const versions = useVersionHistory();
     const tagEdit = useTagEdit();
     // W7.79 (ATP-19): an admin tag write re-reads the editor's catalog.
@@ -103,6 +103,18 @@ export function providePalettePorts(deps: PalettePortsDeps) {
     const ensureSession = async () => {
         await session.ensureSession();
     };
+
+    // --- Palette actions (publish, edit, delete, expand) ---
+    const actions = usePaletteActions({
+        savedPalettes,
+        savedColorStrings,
+        createPalette,
+        updatePalette,
+        deletePalette,
+        emitApply,
+        emitAddColor,
+        emitStartEdit,
+    });
 
     // --- Slug migration ---
     //
@@ -133,19 +145,9 @@ export function providePalettePorts(deps: PalettePortsDeps) {
         clearUserSlug: clearSlug,
         ensureSession,
         setActiveView: depsSwitchView,
+        publish: actions.onPublish,
     });
 
-    // --- Palette actions (publish, edit, delete, expand) ---
-    const actions = usePaletteActions({
-        savedPalettes,
-        savedColorStrings,
-        createPalette,
-        updatePalette,
-        deletePalette,
-        emitApply,
-        emitAddColor,
-        emitStartEdit,
-    });
 
     const filteredSaved = useFilteredList(savedPalettes, librarySearch, (p, q) =>
         p.name.toLowerCase().includes(q) || p.slug.includes(q),
@@ -242,7 +244,7 @@ export function providePalettePorts(deps: PalettePortsDeps) {
         usersLoadError: admin.usersLoadError,
         onDeleteUser: admin.onDeleteUser,
         onDeleteUserPalettes: admin.onDeleteUserPalettes,
-        onAdminDeleteUserPalette: admin.onAdminDeleteUserPalette,
+        onAdminDeletePalette: admin.onAdminDeletePalette,
         onUserSortChange: admin.onUserSortChange,
         userSortMode: admin.userSortMode,
         onFeaturePalette: admin.onFeaturePalette,
