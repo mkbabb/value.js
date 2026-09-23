@@ -1,0 +1,18 @@
+SERVED MODEL: claude-opus-5-5[1m]
+# o28 read ONCE with the UNLANDED cure applied (dev serve, port 8781) — a functional witness for the owner's (a)-vs-(c) decision, NOT a GREEN of record (the cure is not in the tree).
+⟨VJS_E2E_PORT=8781 npx playwright test e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts --project=smoke --reporter=line⟩
+
+
+Running 1 test using 1 worker
+
+
+[1/1] [smoke] › e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:114:1 › the first painted atmosphere is the seeded pick's, on a cold load
+[smoke] › e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:114:1 › the first painted atmosphere is the seeded pick's, on a cold load
+oklch(0.62 0.2 30): first-paint 40ms, ground at paint [#a73581 #e54562 #ff7929 #ffb431] → settled [rgb(167, 53, 129) rgb(229, 69, 98) rgb(255, 121, 41) rgb(255, 180, 49)]; first-paint vs settled ΔE_OK max 0.0000; settled vs unseeded max 0.1845
+
+oklch(0.62 0.2 150): first-paint 44ms, ground at paint [#5f721d #3ba124 #31c585 #38e9cb] → settled [rgb(95, 114, 29) rgb(59, 161, 36) rgb(49, 197, 133) rgb(56, 233, 203)]; first-paint vs settled ΔE_OK max 0.0000; settled vs unseeded max 0.3699
+
+oklch(0.62 0.2 260): first-paint 44ms, ground at paint [#207295 #268ce4 #8c9cff #e2b1ff] → settled [rgb(32, 114, 149) rgb(38, 140, 228) rgb(140, 156, 255) rgb(226, 177, 255)]; first-paint vs settled ΔE_OK max 0.0000; settled vs unseeded max 0.2938
+
+  1 passed (20.1s)
+EXIT 0

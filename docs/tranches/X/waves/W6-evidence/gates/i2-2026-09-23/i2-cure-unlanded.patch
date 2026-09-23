@@ -1,0 +1,349 @@
+SERVED MODEL: claude-opus-5-5[1m]
+# X.W6.i2 — the ESC-W6i-i3-1 (a) cure as built and measured, NOT LANDED (over the §0ay perf gate: I3-SEED-SIZE).
+# Base: HEAD 00bae0ff. Apply with: git apply <this file> (after stripping these 4 header lines).
+#
+diff --git a/demo/color-picker/composables/boot/useAtmosphere.ts b/demo/color-picker/composables/boot/useAtmosphere.ts
+index e65bc6c6..de53c562 100644
+--- a/demo/color-picker/composables/boot/useAtmosphere.ts
++++ b/demo/color-picker/composables/boot/useAtmosphere.ts
+@@ -109,6 +109,68 @@ function guaranteeSeamOffset(config: AuroraConfig, seed: AuroraAtoms["seed"]): A
+     };
+ }
+ 
++// --- X-W6 · X.W6.i2 (i3 · COHESION §0ay ESC-W6i-i3-1 (a)): THE GROUND DERIVE,
++// IMPORTABLE. The first-painted ground (`--saved-bg-0..3`) is written by the
++// boot-material sink below from these pure functions — and by NOTHING else's
++// copy: `plugins/vite-ground-tokens.ts` bundles `deriveGroundStops` (this
++// module, glass `aurora`/`color`, value.js `/color`) into an IIFE injected into
++// index.html's pre-module boot seed, so a cold URL-carried pick paints its own
++// ground at first paint. One derive, two call sites, zero hand-copied logic —
++// the composable consumes exactly these functions, so the two cannot drift.
++
++/** The atoms door, seeded: the defaults with `seed` set iff it parses (the
++ *  one validated boundary — `deriveAurora` throws on an un-parseable seed). */
++export function seededAuroraAtoms(seed: string): AuroraAtoms {
++    const atoms = structuredClone(DEFAULT_AURORA_ATOMS);
++    try {
++        deriveAurora(seed); // throws iff un-parseable
++        atoms.seed = seed;
++    } catch {
++        /* un-parseable seed — the atoms keep the default (the seed watch guards) */
++    }
++    return atoms;
++}
++
++/** The atoms the FIELD resolves over (see the dark lBand door in the composable). */
++export function fieldAtomsFor(atoms: AuroraAtoms, dark: boolean): AuroraAtoms {
++    return !dark || atoms.lightnessScheme !== undefined || atoms.lBand !== undefined
++        ? atoms
++        : { ...atoms, lightnessScheme: "dark" };
++}
++
++/** The calibrated, seam-guarded field config — the ONE place the field resolves. */
++export function fieldConfigFor(atoms: AuroraAtoms, dark: boolean): AuroraConfig {
++    return guaranteeSeamOffset(resolveCalibratedAtmosphere(fieldAtomsFor(atoms, dark)), atoms.seed);
++}
++
++/** The ground's palette: the field's in light; the raw producer dark band in dark. */
++export function groundPaletteFor(
++    fieldPalette: AuroraConfig["palette"],
++    seed: AuroraAtoms["seed"],
++    dark: boolean,
++): AuroraConfig["palette"] {
++    if (!dark) return fieldPalette;
++    if (typeof seed !== "string") return fieldPalette;
++    try {
++        return deriveAurora(seed, { scheme: "dark" });
++    } catch {
++        return fieldPalette;
++    }
++}
++
++/** The four ground stops (hex) a derived palette paints. */
++export function groundStopsFor(palette: NonNullable<AuroraConfig["palette"]>): string[] {
++    return normalizeGroundStops(palette.map(oklchStopToHex));
++}
++
++/** The first-painted ground for a pick at boot — what the sink's immediate write
++ *  paints for `seed` under `dark`, with the default atoms (the boot state). */
++export function deriveGroundStops(seed: string, dark: boolean): string[] | null {
++    const atoms = seededAuroraAtoms(seed);
++    const palette = groundPaletteFor(fieldConfigFor(atoms, dark).palette, atoms.seed, dark);
++    return palette?.length ? groundStopsFor(palette) : null;
++}
++
+ export function useAtmosphere(
+     atmosphereCanvas: Readonly<ShallowRef<HTMLCanvasElement | null>>,
+     // W3-1 (S.W3): the rAF-COALESCED opaque colour (`pipeline.cssColorOpaqueFrame`),
+@@ -125,7 +187,7 @@ export function useAtmosphere(
+     // the palette via `deriveAurora(seed)`, which THROWS on an un-parseable
+     // seed — so the seed write below is the one validated boundary, and this
+     // getter stays throw-free.
+-    const auroraAtoms = reactive<AuroraAtoms>(structuredClone(DEFAULT_AURORA_ATOMS));
++    const auroraAtoms = reactive<AuroraAtoms>(seededAuroraAtoms(atmosphereColor.value));
+     provide(AURORA_ATOMS_KEY, auroraAtoms);
+ 
+     // --- W2-1 (T.W2) — the WRITER-ORDER half of hydration-before-derivation:
+@@ -138,12 +200,7 @@ export function useAtmosphere(
+     // the model before construction (boot/hydrate), so `atmosphereColor` here
+     // is the true seed at setup; this line makes the ORDER structural rather
+     // than flush-timing-dependent (E-3: a transposition, not a flush patch).
+-    try {
+-        deriveAurora(atmosphereColor.value); // throws iff un-parseable
+-        auroraAtoms.seed = atmosphereColor.value;
+-    } catch {
+-        /* un-parseable seed — the atoms keep the default (the seed watch guards) */
+-    }
++    // (`seededAuroraAtoms` above: the seed is set before construction.)
+ 
+     // Adaptive substrate (glass-ui's `resolveRenderMode("auto")`): on a
+     // low-power or SOFTWARE-WebGL device (SwiftShader / llvmpipe / MS Basic
+@@ -186,16 +243,10 @@ export function useAtmosphere(
+     // `lBand` authored in AuroraPane WINS, because this only supplies the
+     // band the shell implies when the atoms have not spoken. The ground's own
+     // scheme-banding (below) is a separate contract and is untouched.
+-    const fieldAtoms = (): AuroraAtoms =>
+-        !isDark.value ||
+-        auroraAtoms.lightnessScheme !== undefined ||
+-        auroraAtoms.lBand !== undefined
+-            ? auroraAtoms
+-            : { ...auroraAtoms, lightnessScheme: "dark" };
+-
++    // (`fieldAtomsFor` / `fieldConfigFor` above — importable single source.)
+     const aurora = useAurora(
+         atmosphereCanvas,
+-        () => guaranteeSeamOffset(resolveCalibratedAtmosphere(fieldAtoms()), auroraAtoms.seed),
++        () => fieldConfigFor(auroraAtoms, isDark.value),
+         { onInitError: (err) => console.warn("[aurora] init failed:", err) },
+         { renderMode: auroraRenderMode },
+     );
+@@ -204,11 +255,7 @@ export function useAtmosphere(
+     // fallback below AND the W6-1 boot-material sink. Recomputes at most once
+     // per frame under a drag (the seed is the rAF-coalesced colour), so the
+     // extra resolve here stays off the per-event hot path.
+-    const resolvedPalette = computed(
+-        () =>
+-            guaranteeSeamOffset(resolveCalibratedAtmosphere(fieldAtoms()), auroraAtoms.seed)
+-                .palette,
+-    );
++    const resolvedPalette = computed(() => fieldConfigFor(auroraAtoms, isDark.value).palette);
+ 
+     // --- M-15 (T.W2-routed cross-wave hunk; D6 THE INK-ON-TIER CONTRACT) ---
+     // The atmosphere EXPOSES its live derived lightness — the mean OKLab L of
+@@ -263,16 +310,10 @@ export function useAtmosphere(
+     // the ground is pinned to the RAW producer derive by the
+     // FIRST_VISIT_GROUND byte-identity above, while the field rides the
+     // calibrated base; collapsing them would silently re-point that pin.
++    // (`groundPaletteFor` above — importable single source.)
+     const groundPalette = computed(() => {
+         const fieldPalette = resolvedPalette.value; // tracks seed/atom edits
+-        if (!isDark.value) return fieldPalette;
+-        const seed = auroraAtoms.seed;
+-        if (typeof seed !== "string") return fieldPalette;
+-        try {
+-            return deriveAurora(seed, { scheme: "dark" });
+-        } catch {
+-            return fieldPalette;
+-        }
++        return groundPaletteFor(fieldPalette, auroraAtoms.seed, isDark.value);
+     });
+     const persistGround = debounce(
+         (record: GroundRecord) => {
+@@ -288,7 +329,7 @@ export function useAtmosphere(
+         [groundPalette, isDark],
+         ([palette, dark]) => {
+             if (!palette?.length) return;
+-            const stops = normalizeGroundStops(palette.map(oklchStopToHex));
++            const stops = groundStopsFor(palette);
+             const root = document.documentElement.style;
+             stops.forEach((stop, i) => root.setProperty(`--saved-bg-${i}`, stop));
+             const base = stops[0];
+diff --git a/demo/color-picker/index.html b/demo/color-picker/index.html
+index d5cf04c3..4ff0edbc 100644
+--- a/demo/color-picker/index.html
++++ b/demo/color-picker/index.html
+@@ -155,7 +155,13 @@
+              `groundRecordInject` → `injectGroundTokens`), so a
+              GROUND_RECORD_VERSION bump propagates here automatically and can no
+              longer strand the boot. Only the guard LOGIC below is mirrored
+-             (inherent to a pre-module reader that cannot import). -->
++             (inherent to a pre-module reader that cannot import).
++             X.W6.i2 (i3 · COHESION §0ay ESC-W6i-i3-1 (a)): with NO persisted
++             ground, a URL-carried pick paints its OWN ground at first paint —
++             `__GROUND_SEED__` is the app's own derive (useAtmosphere
++             `deriveGroundStops` + boot/hydrate), BUNDLED as an IIFE by
++             `plugins/vite-ground-tokens.ts` at build/serve time: no derive is
++             hand-copied here, and the script stays non-render-blocking. -->
+         <script>
+             (function() {
+                 // B0 — the ground beat (the overture's origin mark; O-4 reads it).
+@@ -183,6 +189,7 @@
+                 var VERSION = __GROUND_RECORD_VERSION__;
+                 var scheme = dark ? 'dark' : 'light';
+                 var stops = FIRST_VISIT[scheme];
++                var persisted = false;
+                 try {
+                     var rec = JSON.parse(localStorage.getItem('color-picker-ground'));
+                     if (rec && rec.deriveVersion === VERSION &&
+@@ -190,8 +197,16 @@
+                         Array.isArray(rec.stops) && rec.stops.length === __GROUND_STOP_COUNT__ &&
+                         rec.stops.every(function (x) { return /^#[0-9a-fA-F]{6}$/.test(String(x)); })) {
+                         stops = rec.stops;
++                        persisted = true;
+                     }
+                 } catch (e) { /* malformed record → the constants */ }
++                // No persisted ground → the URL-carried pick's derived ground
++                // (null when the address carries no pick: the constants stand).
++                if (!persisted) {
++                    __GROUND_SEED__
++                    var picked = groundSeed.urlGround(dark);
++                    if (picked) stops = picked;
++                }
+                 for (var i = 0; i < __GROUND_STOP_COUNT__; i++) {
+                     s.setProperty('--saved-bg-' + i, stops[i]);
+                 }
+diff --git a/plugins/vite-ground-tokens.ts b/plugins/vite-ground-tokens.ts
+index 245e5c77..34d77fc8 100644
+--- a/plugins/vite-ground-tokens.ts
++++ b/plugins/vite-ground-tokens.ts
+@@ -21,10 +21,24 @@
+  * constants therefore DERIVE from that module by construction: bump one there
+  * and the injected boot guard tracks automatically.
+  *
++ * X-W6 · X.W6.i2 (i3 · COHESION §0ay ESC-W6i-i3-1 (a)): THE FIRST-PAINT
++ * DERIVE. A cold load of a URL-carried pick (`#/?space=…&color=…`) with no
++ * persisted ground used to paint the first-visit constants until the app's
++ * sink wrote the pick's ground. The boot seed cannot import, and a hand-typed
++ * derive in HTML is the copied-producer class — so the derive is BUNDLED, at
++ * build and serve, from the SAME modules the sink runs (`useAtmosphere.ts`'s
++ * exported `deriveGroundStops` over glass `aurora`/`color` + value.js
++ * `/color`, and `boot/hydrate`'s own URL→model resolver) into a minified IIFE,
++ * resolved through THIS config's own `resolve` (the value.js self-alias set +
++ * dedupe), and injected at `__GROUND_SEED__`. Single source by construction:
++ * there is no second copy to drift. Never `blocking="render"` — the seed runs
++ * inside the existing synchronous pre-module script.
++ *
+  * `transformIndexHtml` fires only where an index.html exists (dev + gh-pages);
+  * the library build has none.
+  */
+-import type { Plugin } from "vite";
++import path from "path";
++import { build, type Plugin, type ResolvedConfig } from "vite";
+ 
+ import {
+     FIRST_VISIT_GROUND,
+@@ -32,9 +46,13 @@ import {
+     GROUND_STOP_COUNT,
+ } from "../demo/color-picker/composables/boot/ground";
+ 
+-/** Resolve every `__GROUND_*__` token in the boot HTML against the record. */
+-export function injectGroundTokens(html: string): string {
++/** Resolve every `__GROUND_*__` token in the boot HTML against the record;
++ *  `seedIife` is the bundled first-paint derive (`bundleGroundSeed`). */
++export function injectGroundTokens(html: string, seedIife: string): string {
++    // A function replacer: the bundled code is inserted verbatim (a string
++    // replacement would interpret `$&`/`$'` sequences inside it).
+     let out = html
++        .replaceAll("__GROUND_SEED__", () => seedIife)
+         .replaceAll("__GROUND_RECORD_VERSION__", String(GROUND_RECORD_VERSION))
+         .replaceAll("__GROUND_STOP_COUNT__", String(GROUND_STOP_COUNT))
+         .replaceAll("__GROUND_FIRST_VISIT__", JSON.stringify(FIRST_VISIT_GROUND));
+@@ -47,11 +65,96 @@ export function injectGroundTokens(html: string): string {
+     return out;
+ }
+ 
++const BOOT_DIR = path.resolve(import.meta.dirname, "../demo/color-picker/composables/boot");
++const SEED_ENTRY = "virtual:ground-seed";
++/** The IIFE's global — scoped: the boot script inlines the IIFE inside its own
++ *  function, so this `var` never reaches `window`. */
++const SEED_GLOBAL = "groundSeed";
++
++/** The entry: the boot resolver's own URL→model read, the pipeline's opaque
++ *  serialisation, and the sink's own derive — imported, never re-stated. */
++const SEED_ENTRY_SOURCE = `
++import { resolveHydratedBootModel } from ${JSON.stringify(path.join(BOOT_DIR, "hydrate.ts"))};
++import { deriveGroundStops } from ${JSON.stringify(path.join(BOOT_DIR, "useAtmosphere.ts"))};
++import { serializePickerColor, withAlpha } from ${JSON.stringify(
++    path.resolve(BOOT_DIR, "../../../color-session/picker-color.ts"),
++)};
++/** The URL-carried pick's first-painted ground stops, or null (no URL pick). */
++export function urlGround(dark) {
++    const boot = resolveHydratedBootModel();
++    if (boot.source !== "url") return null;
++    return deriveGroundStops(serializePickerColor(withAlpha(boot.model.color, 1)), dark);
++}
++`;
++
++export interface GroundSeedBundle {
++    code: string;
++    /** Absolute ids of every module the IIFE was built from (dev invalidation). */
++    modules: string[];
++}
++
++/** Bundle the first-paint derive as a minified IIFE through `config.resolve`. */
++export async function bundleGroundSeed(config: ResolvedConfig): Promise<GroundSeedBundle> {
++    const out = await build({
++        configFile: false,
++        logLevel: "silent",
++        root: config.root,
++        mode: "production",
++        resolve: { alias: config.resolve.alias, dedupe: config.resolve.dedupe },
++        // lib mode leaves `process.env.NODE_ENV` unreplaced; the app build's
++        // production value lets the dependency graph tree-shake as it does there.
++        define: { "process.env.NODE_ENV": JSON.stringify("production") },
++        plugins: [
++            {
++                name: "value-js:ground-seed-entry",
++                enforce: "pre",
++                // lib mode root-resolves the entry before plugins see it.
++                resolveId: (id) => (id.endsWith(SEED_ENTRY) ? "\0" + SEED_ENTRY : null),
++                load: (id) => (id === "\0" + SEED_ENTRY ? SEED_ENTRY_SOURCE : null),
++            },
++        ],
++        build: {
++            write: false,
++            copyPublicDir: false,
++            reportCompressedSize: false,
++            minify: true,
++            lib: { entry: SEED_ENTRY, formats: ["iife"], name: SEED_GLOBAL },
++        },
++    });
++    const outputs = (Array.isArray(out) ? out : [out]) as { output: unknown[] }[];
++    const chunk = outputs
++        .flatMap((o) => o.output)
++        .find((c): c is { type: "chunk"; code: string; moduleIds: string[] } =>
++            (c as { type?: string }).type === "chunk",
++        );
++    if (!chunk) throw new Error("[ground-seed] the IIFE build emitted no chunk");
++    // Inlined into a classic <script>: a literal closing tag would end it early.
++    if (/<\/script/i.test(chunk.code)) {
++        throw new Error("[ground-seed] the IIFE contains a </script> sequence");
++    }
++    return { code: chunk.code.trim(), modules: chunk.moduleIds };
++}
++
+ export function groundTokensPlugin(): Plugin {
++    let config: ResolvedConfig;
++    let bundle: Promise<GroundSeedBundle> | null = null;
++    const seed = () => (bundle ??= bundleGroundSeed(config));
+     return {
+         name: "value-js:ground-record-inject",
+-        transformIndexHtml(html) {
+-            return injectGroundTokens(html);
++        configResolved(resolved) {
++            config = resolved;
++        },
++        configureServer(server) {
++            // Serve: a change to any module the IIFE was built from re-bundles
++            // on the next index.html request (the derive never goes stale).
++            server.watcher.on("change", (file) => {
++                void bundle?.then(({ modules }) => {
++                    if (modules.includes(path.resolve(file))) bundle = null;
++                });
++            });
++        },
++        async transformIndexHtml(html) {
++            return injectGroundTokens(html, (await seed()).code);
+         },
+     };
+ }

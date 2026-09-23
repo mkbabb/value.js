@@ -1,0 +1,47 @@
+SERVED MODEL: claude-opus-5-5[1m]
+⟨npx vite-node measure-seed.ts⟩ (resolveConfig gh-pages/build → bundleGroundSeed(config) → gzipSync level 9), run ×2 on the settled patch bytes:
+run 1 → {"ms":33,"raw":144706,"gzip":50989,"modules":21}
+run 2 → {"ms":33,"raw":144706,"gzip":50989,"modules":21}
+
+⟨shasum -a 256 seed1.js seed2.js⟩
+5e7b8c2d742a22874be0e284245f6b4e6bf0be72620df3ceda686f94effe1f98  seed1.js
+5e7b8c2d742a22874be0e284245f6b4e6bf0be72620df3ceda686f94effe1f98  seed2.js
+⟨gzip -9 -c seed1.js | wc -c⟩ → 50998
+
+Per-module rendered length (pre-minify, rolldown chunk.modules), same entry + same build call:
+157687 node_modules/@mkbabb/glass-ui/dist/aurora.js
+14287 dist/anchors-DtONOvhx.js
+13292 dist/subpaths/css.js
+13131 node_modules/@mkbabb/glass-ui/dist/color.wgsl-Ct5o9dpf.js
+4838 demo/color-session/picker-color.ts
+3453 dist/operations-CeP11Miy.js
+2004 demo/color-picker/composables/boot/useAtmosphere.ts
+1730 node_modules/@mkbabb/glass-ui/dist/color.js
+1564 demo/color-picker/composables/boot/hydrate.ts
+1450 node_modules/@mkbabb/glass-ui/dist/flow.wgsl-Cd2GUkPx.js
+876 node_modules/@mkbabb/glass-ui/dist/value-DMhh2R94.js
+828 demo/color-picker/composables/boot/atmosphere-calibration.ts
+529 demo/color-session/color-model.ts
+507 demo/color-picker/composables/boot/ground.ts
+
+Cross-check, esbuild (bundle+minify+tree-shake, NODE_ENV=production, same alias set) — bytesInOutput per input:
+{"raw":204099,"gzip":65439}
+160526 node_modules/@mkbabb/glass-ui/dist/aurora.js
+12893 node_modules/@mkbabb/glass-ui/dist/color.wgsl-Ct5o9dpf.js
+9345 dist/subpaths/css.js
+9321 dist/anchors-DtONOvhx.js
+2730 demo/color-session/picker-color.ts
+2447 dist/operations-CeP11Miy.js
+1498 node_modules/@mkbabb/glass-ui/dist/flow.wgsl-Cd2GUkPx.js
+1137 node_modules/@mkbabb/glass-ui/dist/color.js
+864 demo/color-picker/composables/boot/useAtmosphere.ts
+836 demo/color-picker/composables/boot/hydrate.ts
+593 node_modules/@mkbabb/glass-ui/dist/value-DMhh2R94.js
+350 demo/color-picker/composables/boot/atmosphere-calibration.ts
+
+Why aurora.js dominates — the producer dist's GLSL/WGSL shader sources survive tree-shaking (declared in one top-level var chain with template-literal interpolation, aurora.js:122ff), measured in the emitted IIFE:
+⟨grep -o '#version' seed1.js | wc -l⟩ → 1
+⟨grep -o 'uniform ' seed1.js | wc -l⟩ → 53
+⟨grep -o 'vec3 ' seed1.js | wc -l⟩ → 109
+⟨grep -o 'gl_Position' seed1.js | wc -l⟩ → 0
+Budget (COHESION §0ay): ≤ 12 KB gzip (12288 B). Measured 50989 B = 4.15× over → I3-SEED-SIZE.

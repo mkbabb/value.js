@@ -1,0 +1,106 @@
+SERVED MODEL: claude-opus-5-5[1m]
+# HEAD bytes (cure NOT landed; product paths clean): i1 held, i3 RED as at baseline.
+⟨VJS_E2E_PORT=8783 npx playwright test e2e/smoke/oracles/o25-atmosphere-response.spec.ts e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts --project=smoke --reporter=line⟩ → EXIT 1
+
+
+Running 2 tests using 1 worker
+
+
+[1/2] [smoke] › e2e/smoke/oracles/o25-atmosphere-response.spec.ts:124:1 › X:ATMO-1 — the named atoms move with the seed, read from committed frames
+[smoke] › e2e/smoke/oracles/o25-atmosphere-response.spec.ts:124:1 › X:ATMO-1 — the named atoms move with the seed, read from committed frames
+h030 · north-west field: ΔE2000 vs unseeded 16.26 · vs h120 51.72
+
+h030 · west field: ΔE2000 vs unseeded 16.52 · vs h120 51.95
+
+h030 · east field: ΔE2000 vs unseeded 16.86 · vs h120 52.59
+
+h030 · south-east field: ΔE2000 vs unseeded 16.87 · vs h120 52.80
+
+h120 · north-west field: ΔE2000 vs unseeded 61.42 · vs h210 29.83
+
+h120 · west field: ΔE2000 vs unseeded 61.98 · vs h210 30.10
+
+h120 · east field: ΔE2000 vs unseeded 62.59 · vs h210 32.01
+
+h120 · south-east field: ΔE2000 vs unseeded 62.33 · vs h210 32.73
+
+h210 · north-west field: ΔE2000 vs unseeded 40.37 · vs h300 30.35
+
+h210 · west field: ΔE2000 vs unseeded 40.40 · vs h300 30.70
+
+h210 · east field: ΔE2000 vs unseeded 44.93 · vs h300 31.71
+
+h210 · south-east field: ΔE2000 vs unseeded 47.55 · vs h300 31.83
+
+h300 · north-west field: ΔE2000 vs unseeded 32.91 · vs h030 34.92
+
+h300 · west field: ΔE2000 vs unseeded 32.11 · vs h030 34.30
+
+h300 · east field: ΔE2000 vs unseeded 29.25 · vs h030 33.46
+
+h300 · south-east field: ΔE2000 vs unseeded 28.91 · vs h030 33.74
+
+[2/2] [smoke] › e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:114:1 › the first painted atmosphere is the seeded pick's, on a cold load
+[smoke] › e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:114:1 › the first painted atmosphere is the seeded pick's, on a cold load
+oklch(0.62 0.2 30): first-paint 236ms, ground at paint [#b37290 #df8ea7 #ffb0b4 #ffcfc8] → settled [rgb(167, 53, 129) rgb(229, 69, 98) rgb(255, 121, 41) rgb(255, 180, 49)]; first-paint vs settled ΔE_OK max 0.1595; settled vs unseeded max 0.1845
+
+oklch(0.62 0.2 150): first-paint 48ms, ground at paint [#b37290 #df8ea7 #ffb0b4 #ffcfc8] → settled [rgb(95, 114, 29) rgb(59, 161, 36) rgb(49, 197, 133) rgb(56, 233, 203)]; first-paint vs settled ΔE_OK max 0.2933; settled vs unseeded max 0.3699
+
+oklch(0.62 0.2 260): first-paint 40ms, ground at paint [#b37290 #df8ea7 #ffb0b4 #ffcfc8] → settled [rgb(32, 114, 149) rgb(38, 140, 228) rgb(140, 156, 255) rgb(226, 177, 255)]; first-paint vs settled ΔE_OK max 0.2433; settled vs unseeded max 0.2938
+
+  1) [smoke] › e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:114:1 › the first painted atmosphere is the seeded pick's, on a cold load 
+
+    Error: oklch(0.62 0.2 30): the first painted atmosphere is not the seeded one
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 0.02
+    Received:    0.15948859187521458
+
+      146 |                 `${seed}: the first painted atmosphere is not the seeded one`,
+      147 |             )
+    > 148 |             .toBeLessThanOrEqual(FIRST_PAINT_TOLERANCE);
+          |              ^
+      149 |     }
+      150 | });
+      151 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:148:14
+
+    Error: oklch(0.62 0.2 150): the first painted atmosphere is not the seeded one
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 0.02
+    Received:    0.29330989323473755
+
+      146 |                 `${seed}: the first painted atmosphere is not the seeded one`,
+      147 |             )
+    > 148 |             .toBeLessThanOrEqual(FIRST_PAINT_TOLERANCE);
+          |              ^
+      149 |     }
+      150 | });
+      151 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:148:14
+
+    Error: oklch(0.62 0.2 260): the first painted atmosphere is not the seeded one
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 0.02
+    Received:    0.24326322147615295
+
+      146 |                 `${seed}: the first painted atmosphere is not the seeded one`,
+      147 |             )
+    > 148 |             .toBeLessThanOrEqual(FIRST_PAINT_TOLERANCE);
+          |              ^
+      149 |     }
+      150 | });
+      151 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:148:14
+
+    Error Context: test-results/oracles-o28-atmosphere-col-2c82e-eeded-pick-s-on-a-cold-load-smoke/error-context.md
+
+
+  1 failed
+    [smoke] › e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:114:1 › the first painted atmosphere is the seeded pick's, on a cold load 
+  1 passed (21.3s)
