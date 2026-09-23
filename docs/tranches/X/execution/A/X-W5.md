@@ -3302,3 +3302,82 @@ C1 stays as recorded at RESUME OPEN 4 (the §0aq re-metric, measured GREEN by `.
 | **X.W5.d2** | opus | W5.md ADDENDUM 2 · §0ax ESC-W5t-1 / ESC-W5d2-2 / grants · `.t`'s plan (`triumvirate/RESEARCH-AND-PLAN-2026-09-22.md`) | `demo/picker/ColorPicker.vue` (`:2-4` only) · `demo/color-picker/ErrorBoundary.vue` · `demo/color-picker/main.ts` · new plate files under `demo/shell/` · the swap layers' containment site (`demo/styles/animations.css` · `demo/styles/shell.css` · `demo/shell/PaneSlot.vue` · `demo/color-picker/App.vue`) · `demo/shell/usePaneRouter.ts` · `scene-swap-budget.mjs` (no weakening) · `e2e/smoke/perf/view-switch-frame-budget.spec.ts` · `docs/tranches/X/waves/W5/green/**` · this record | P-1..P-4 landed together · containment · D1 both instruments (real-GPU of record) · D3 0 · D4 held · D5 · §7 | COUPLED (fold `:41`), W5F-07 CURE-LOCK, preserve-animations; P-5a/P-5b REFUSED; ESC-W5t-4 byte → X-W8 `.i` |
 
 Post-units: the verify-only close + L-20 checks; L-18 quartet passes precede ACCEPTED.
+
+## Unit receipts — RESUME 5
+
+### X.W5.c2
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X.W5.c2 (RESUME 5, Opus) · HEAD at open `5ad17633` · date of record 2026-09-17.
+Inputs: `W5.md` whole (396 L, both ADDENDA), this record's `## RESUME OPEN 5` (R5.0-R5.4) and `## Repair 1` (RP1.1-RP1.5, the §0aq subset's landing), COHESION §0aq (`:2676-2686`) and §0ax (`:2825-2880`, the file end).
+
+**Acts, in order**
+1. **Crash-recovery.** ⟨cmd⟩ `git status --porcelain` → ` M …/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh`. Neither path is in this seat's set, so there is **no inherited partial**. `dev.sh` was not touched.
+2. **§0aq subset held, not redone.** ⟨cmd⟩ `git log --oneline fc9c2be4..HEAD -- AdminPane.vue AdminNamesPanel.vue AdminTagsPanel.vue MixSourceSelector.vue` → *(empty)*.
+   - D4: ⟨cmd⟩ `grep -c '<Transition '` on Mix and on Admin → **1 · 1**.
+   - N15: `AdminNamesPanel.vue` has `<SegmentedTabs` at `:14` before `<slot name="query" />` at `:25`.
+   - ESC-W5c-3 re-points: `2eeb59ee` is unchanged.
+3. **Fixture export (ESC-R1-1).** `e2e/smoke/fixtures/dock.ts` now exports `ROUTE_TITLE_ID`, `MAIN_PANE`, and `mainPane(page)`.
+   - The selector is `main[aria-labelledby="route-title"]:has(> h1#route-title)`. It encodes the live landmark's relation: a `<main>` labelled by the route H1, which it contains (`App.vue:59,66`).
+   - `MAIN_PANE` is exported for in-page readers (`page.evaluate`), which cannot hold a Locator.
+4. **Migration: 61 files, one idiom.** A scripted rewrite covered every shape found: `page.getByRole(main,{name})` (inline and chained across lines), `waitForSelector('main[aria-label=…]')` → `mainPane(page).waitFor({…})`, and `capture.ts`'s `document.querySelector` → `(selector)=>…, MAIN_PANE`.
+   - Two local aliases were deleted rather than copied: `crash-battery`'s `main()` and o9's `MAIN` const.
+   - Formatting: prettier `--write` on the 34 files that were prettier-clean at HEAD. On the 28 files that were already dirty at HEAD, only this seat's `expect(\n mainPane(page),\n)` hunks were collapsed. After that, ⟨cmd⟩ `prettier <f> | diff <f> -` shows no diff hunk at any `mainPane`/`MAIN_PANE` site.
+   - No assertion changed.
+5. **census.ts (ESC-R1-2).** Added the `not-found` row: `path "/#/does-not-exist"` (the address A7 announces), `left "not-found"`, `right null`, non-admin. The header counts go 14 → 15.
+6. **Router (ESC-R1-3 / N14).** `demo/color-picker/router/index.ts` gets `import type { ViewId }`, `type ViewRoute = RouteRecordRaw & { readonly name: ViewId }`, and `const routes: ViewRoute[]`. This is a declaration-only change; the `name: "…"` spellings stay, so census-parity's byte reader is unchanged.
+   - Bite test: renaming `admin-tags` → `admin-tag` makes ⟨cmd⟩ `vue-tsc -p tsconfig.demo.json` fail with **1 error, TS2820 at `:47`**. The file was restored and `grep -c 'name: "admin-tags"'` → 1.
+
+**Commits:** `ab5270b6` (fixture + 61 files, one family, 62 files) · `ad93c771` (census `not-found`) · `fdf3e9e0` (router route-name typing) · `1b737078` (evidence `waves/W5/green/c2-landmark-census-N14-2026-09-22.json`, `git add -f`) · this receipt.
+
+**N14 census, printed at this seat's clock.** ⟨cmd⟩ `grep -rnE 'admin-audit' demo --include='*.ts' --include='*.vue' | grep -v '^demo/ui/'`, with each hit classified:
+
+| # | site | state |
+|---|---|---|
+| 1 | `viewSchema.ts:58,73` `ViewId` / `PaneId` | declared |
+| 2 | `viewSchema.ts:244` `VIEW_MAP` | exhaustive `Record<ViewId,…>` |
+| 3 | `usePaneRouter.ts:242,285,538` | exhaustive |
+| 4 | `useDockAdminMode.ts:27` `adminViews: ViewId[]` | checked |
+| 5 | `AdminPane.vue:70,116,126` (`subView: Extract<PaneId,…>`) | checked |
+| 6 | **`router/index.ts:45`** `name:` | **now checked** (bite-tested) |
+| 7 | `e2e/visual/census.ts` `ROUTE_CENSUS` | test mirror, **parity-guarded**, not vue-tsc-visible |
+
+`demo/palettes/api/index.ts` matches only through a module path, so it is not a site.
+
+Partition: **6 vue-tsc-visible · 0 invisible product sites · 1 parity-guarded test mirror**. Before this seat it was 6 · 0 · 2 invisible.
+
+Site 7 cannot be vue-tsc-visible. By its own charter, `tsconfig.e2e.json` forbids e2e importing `demo/`, so its identity parity is held by `census-parity.spec.ts`, which is GREEN ×4.
+
+**Gates BEFORE → AFTER (WRITE-THEN-MEASURE; each reading double-run):**
+
+| gate | before | after | state |
+|---|---|---|---|
+| `grep -rl 'Color tool panes' e2e \| wc -l` | 61 (102 occ) | **0** (0 occ) | GREEN |
+| `dock.ts` exports main-pane locator; migrated files import it | 0 | `MAIN_PANE` + `mainPane`; 61/61 import from `fixtures/dock` | GREEN |
+| `census.ts` `not-found` row | 0 | 1 | GREEN |
+| N14 router declaration vue-tsc-visible | INVISIBLE | visible, bite TS2820 | GREEN (census above) |
+| D4 Mix · Admin | 1 · 1 | 1 · 1 | held |
+| N15 | selector-before-query | unchanged | held |
+| census-parity (`--project=visual`) | 2 FAIL (id parity) | **5/5 PASS ×4** (2 pre-commit, 2 on settled bytes) | GREEN |
+| o12 + o16 (`--project=smoke`) | 6/6 FAIL at the landmark | **4 PASS / 2 FAIL ×2**: 0 landmark failures; o12·1+2, ·4, ·5 and o16 clobber leg PASS | RED (2 non-landmark legs, below) |
+| §7 `vue-tsc -p tsconfig.demo.json` | 0 (banked) | EXIT 0 ×2 | GREEN |
+| §7 eslint | — | changed files (64) EXIT 0; full `eslint .` 0 errors / 32 warnings, none in this seat's files (docs probes) | GREEN for this seat |
+| §7 `tsc -p tsconfig.e2e.json` | 5 errors (o23) | same 5, all `o23-specimen-gamut-honesty.spec.ts` | not W5's |
+| §7 vitest | 639/641 | 639/641 (C-5 `spectrum-luma` BORN-RED + NG-6 `reka-binding-idiom`, other tracks) | unchanged |
+
+**Residual REDs, escalated. Both are uncovered now that the landmark no longer fails first, and neither is the landmark's consequence.**
+
+- **ESC-W5c2-1 (o16 W5 census R2, `o16-computed-cascade.spec.ts:218`).** The spec asserts `enter.transform.duration === "0.4s"`, a literal; the live value is **`0.44s`** ×2.
+  - Root: the demo rule is correct. `animations.css` `.pane-wrapper--stage > .vj-enter-enter-active` carries `transform var(--spring-snappy-duration) var(--spring-snappy)`, R2's own "spring @ its OWN clock" law.
+  - The producer changed the value. glass-ui 7.0.0 `dist/styles/tokens/scheme-spring.css` sets `--spring-snappy-settle: 0.44s` (× `--motion-tempo: 1`).
+  - ⟨cmd⟩ `git log -S'toBe("0.4s")' -- o16…` → `27f54cc3 2026-07-11`, which predates the glass 7 adoption (W44, 2026-07-17). So this leg has been RED since glass 7, masked by the landmark failure.
+  - Why it is not cured here: the cure is an assertion edit. It would either re-derive R2 from the producer token (`getComputedStyle(root).getPropertyValue('--spring-snappy-duration')`) or re-state the literal. The §0aq/§0ax grant on o16 is the `:158` one-token re-point plus the landmark, so this seat did not substitute.
+  - Needs a ruling on which form R2 takes. The token-derived equality is recommended: it is the oracle's stated intent, and it is not a loosening.
+- **ESC-W5c2-2 (o12 O-12·3 hover-mood frame-diff, `o12-blob-seat.spec.ts:134`).** Hover response **0.06/255** and **0.14/255** against the 6/255 floor, headless software GL, load ⟨cmd⟩ `uptime` → ~12.
+  - This is X-W2's cl-F4 (`X-W2.md:1165`: 0.05 and 0.01/255, cause UNDETERMINED, owner X-W5, re-trigger at a quiescent bench or on the ubuntu job).
+  - The cure, if one is owed, lies in the blob mood/renderer, outside `.c2`'s set. Route: `.d2`'s headed real-GPU instrument (§0ax ESC-W5t-1 / ESC-W5t-4) should read O-12·3 beside D1.
+- **Visual matrix consequence (named, not a defect of this seat).** `routes.visual.spec.ts` / `modality.visual.spec.ts` iterate `ROUTE_CENSUS`, so the new row mints `not-found` cells that have no golden yet. The goldens are minted by the visual-baseline owner (X-W1 / CI-capable seat).
+
+**Verdict: PARTIAL.**
+- Landed: all 4 of §0ax's widened-grant acts (fixture export, 61-file migration → 0, census `not-found`, router route names type-visible, with the N14 census printed).
+- Held: the §0aq subset. census-parity is GREEN ×4, and §7 is clean for this seat.
+- RED ×2 and escalated: the o12/o16 "GREEN ×2" gate, on the two non-landmark legs above. Both legs were masked by the landmark before this seat and are outside its grant.
