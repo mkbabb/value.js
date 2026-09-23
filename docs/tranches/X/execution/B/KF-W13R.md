@@ -157,3 +157,5 @@ Logs: `evidence/W13R/m/e2e-roster.run{1,2,3}.log`.
 - **GLASS-VEIL-GREY (§0cf)** — BEFORE banked; AFTER and the id (if grey) are `.v`'s.
 
 **Escalations**: none for a cure this seat was granted. R-m-1/R-m-4 are producer (BL) rows; R-m-3 is a KF.W13V `.c` row; the unpushed HEAD is the orchestrator's call.
+
+Note (self-count): the record commit `4bd9bef8` carries the receipt + 10 evidence files (probes + JSON reads); the three `*.png` frames and the three `e2e-roster.run{1,2,3}.log` roster logs are on disk in `evidence/W13R/m/` but git-excluded by the repo's `.gitignore` (`*.png` :34, `*.log` :44 — the §0ci R-4 local-frames rule), so they are cited, not committed.
