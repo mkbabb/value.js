@@ -701,3 +701,41 @@ Spec: `KF-W13.md` sixth addendum `.d4` (`:361`, ESC-d-3) + fourth addendum OA-33
 9. **Residuals.** `DARK-MENU-ITEM` (O-61 R-3, producer; the theme row stays keyboard-inert until glass ships a `DarkModeToggle` menu-item form — KF.W13R's 10.0.1 repin re-reads it). `R-d4-1` (recorded, not a gate): after Escape from the popover, focus rests on the nested `Share animation` button inside the row, not on the row itself; one more Escape closes the menu to `@mbabb menu`. That is also the pointer path's chain, so it is kept for parity.
 10. **Escalations.** None.
 11. **Self-count.** Acts 1–11; kf commits 1 (`9aa93cae`, pushed); record commit 1 (this receipt + LEDGER line + `evidence/W13U/d4/`: 1 probe, 4 reports); gates: Share-row GREEN ×4 reads, Escape→`@mbabb menu` GREEN ×4, theme row honest-RED `DARK-MENU-ITEM`, vue-tsc 0·0, test:demo GREEN.
+
+#### KF.W13U.x — ESC-R2-2: the kf e2e close clause (SERVED MODEL: claude-opus-5-5)
+
+Spec `KF-W13.md` sixth addendum `.x` (`:362`) + the instrument condition; COHESION §0br; record Close `:251-272` (RES-close-1/-2) and Repair 1 Check-1 #4 (`:384-386`). Writable set: `scripts/observe/demo/{subject-animates,live-session}.mjs` · `EditorStartScreen.vue` · the demo cause-owner of S4/S5/M1 · `test/demo/**` · this record · `evidence/W13U/**` · LEDGER (own cells).
+
+1. **Crash-recovery.** ⟨`git -C keyframes.js status --porcelain`⟩ → the two untracked `VALUEJS-INBOUND-2026-07-{24,27}-*.md` only. value.js dirty paths are all outside this set (sibling seats' work plus `dev.sh`). **0 inherited paths.**
+2. **Baseline (BEFORE).** ⟨`npm run gh-pages`⟩ exit 0 at kf `9aa93cae`. Then ⟨`KF_PLAYWRIGHT_DIR=<value.js> npm run demo:correctness -- --workers=1`⟩ → **passed 3/6** · ✗ usability · live-session (`S5` spring `only 1 distinct spring-ball positions`; `S4` `ringPainted:false, enterToggled:false, spaceToggled:false`) · live-session-mobile (`M1 sheet SCROLL … scrollTop=0; 765px content in a 704px body`). subject-animates PASSED on this read, but its corroborator read `0 distinct transforms` (the race Check-1 #4 named). ⟨`uptime`⟩ load 26.00 at start → 47.09 at end. Banked 2/6 at `60477b06` (Repair 1).
+3. **Cause derivation.** Read-only probes, recorded in `evidence/W13U/x/causes.md` with `p-cube.mjs`, `p-ring3.mjs` and `p-m1.mjs`:
+   - usability → the demo (`EditorStartScreen.vue`, KF-EST-3's inlined literal).
+   - subject-animates + S4 Enter/Space → the oracles' boot-at-rest premise, which `.w`'s autoplay overturned.
+   - S5 → the oracle's `style.left` read, stale since T.G4 `562ced31` moved the painter to `transform`.
+   - **S4 `ringPainted` → producer.** In glass 7.0.0, `.button[data-emphasis="quiet"]{box-shadow:none}` beats `.focus-ring:focus-visible{box-shadow:var(--focus-ring-shadow)}` at equal specificity. `p-ring3` shows quiet/text → `none`, primary/secondary/tertiary/unset → the ring.
+   - **M1 → producer.** glass 7.0.0's snap Drawer is a full-height sheet translated to the detent. At the 0.36 maximum detent, `.controls-pane` spans y 524–1228 on an 844 px viewport. The oracle's swipe at the pane centre (y 876) lands off-screen. At a visible point the pane scrolls its full 61 px (`p-m1`), but about 384 px of it never enter the viewport.
+4. **usability cure** — kf **`c1ce06e8`**: the hero title is declared once as `const hero = { title: "Select an animation" }`. The template renders `hero.title`, and (2c)'s declared-title read finds it. No prop is reintroduced, and the rendered bytes are unchanged.
+5. **subject-animates re-seat** — kf **`68c80e79`**. The property is kept: from rest, Play advances the playhead and the frame reaches the real subject.
+   - Rest is now established: the autoplay is paused, the playhead holds, and every engine-written node holds one transform.
+   - The subject is read on `.cube-bob > .cube-pose > .cube`, replacing the `.graph > div` corroborator that read 0.
+   - To pass, the playhead must leave rest, move again, and one node must show ≥ 3 distinct transforms.
+6. **live-session S4 re-seat** — kf **`d2bc0f76`**. Each Enter must flip the focused face (Play ↔ Pause). Liveness is read on the Enter that lands on playing. The walk parks play OFF before the unchanged global-Space clause. The rest paint accepts either face. The ring clause is untouched.
+7. **live-session S5 re-seat** — kf **`3b1dbd8f`**: the churn reads the balls' inline `transform` inside `.spring-rail`. The ≥ 3 threshold and the scrub gesture are unchanged. **No product byte.** kf pushed: ⟨`git push origin master`⟩ → `9aa93cae..3b1dbd8f`.
+8. **Gates (AFTER)** — ⟨`npm run gh-pages`⟩ exit 0 at the cured bytes, then the roster at `--workers=1` ×2 with the load beside each run:
+   | run | load at start → end (⟨`uptime`⟩ 1-min) | reading |
+   |---|---|---|
+   | 1 | 72.10 → 24.36 | **passed 4/6** · ✗ live-session (S4 `ringPainted:false` only; `enterToggled:true, enterLive:153, spaceToggled:true`; S5 PASS `sceneFails []`) · ✗ live-session-mobile (M1 SCROLL only) |
+   | 2 | 23.13 → 17.64 | **passed 4/6** · the same two limbs (`enterLive:157`) · usability PASS · subject-animates PASS (`rest {1,1,1} → playing {bob 40, pose 1, spin 40}`) |
+   Neither remaining red is the load family: both are deterministic assertion reds with no timeout.
+   - ⟨`npx vue-tsc --noEmit -p tsconfig.json`⟩ / ⟨`… tsconfig.test.json`⟩ → **0 · 0**, run twice.
+   - ⟨`npm run test:demo`⟩ → **66/66 files · 517/517 tests**.
+   Gate figure: `demo:correctness` **3/6 (this seat's baseline; banked 2/6) → 4/6 ×2**. **6/6 is NOT reached.**
+9. **Escalations (returned; the lock says a cause outside `demo/**` → ESCALATE, and no masking was spent):**
+   - **ESC-x-1 `QUIET-FOCUS-RING`** (S4 `ringPainted`) — a producer defect in glass 7.0.0 `components/button`: the quiet/text emphasis subtraction erases the `.focus-ring` box-shadow ring on every quiet Button. It is cured in the producer's own bytes at `v10.0.1:src/styles/utilities/base.css:144`, where the ring is an `outline`. **Owner: KF.W13R `.v`** (re-read after the 10.0.1 repin). Relay to glass is not owed, since the defect is already cured at HEAD.
+   - Rejected demo-side alternatives:
+     - Re-declaring Play's emphasis to dodge the cascade: this is a copied-producer workaround, and it would bring in primary's capsule material.
+     - A local `:focus-visible` rule: this is the `.btn-playback` copy that K-5 deleted.
+   - **ESC-x-2 `DRAWER-DETENT-REACH`** (M1) — a producer defect in glass 7.0.0's snap Drawer: it is a full-height sheet translated to the detent, so at the demo's 0.36 maximum detent about 384 px of the body are below the viewport at every scroll position. glass `336dacf9` (W-DIALOG-DETENT, "the detent is a size") is an ancestor of `v10.0.1` and replaces the Drawer with the Sheet. **Owner: KF.W13R `.m`/`.v`** (the migration re-seats the controls sheet and re-reads M1).
+   - Also rejected: moving the oracle's touch into the visible band. It would green M1 while the content stays unreachable, and `live-session-mobile.mjs` is outside this unit's set anyway.
+10. **Residuals.** `R-x-1` (recorded, not a gate; `p-cube`): after **Reset animation** while paused, the playhead readout stays at its paused value (4841.6) until Play, which then resumes from about 0. Run 1 also read pause-at-4.6 → Play → 0. This is the seek/resume family (KFA-17). **Owner: KF.W13V `.k`.** Honest-RED ids carried unchanged: `DOCK-MORPH-ROOT` · `DOCK-SCROLL-MORPH` · `GLASS-SURFACE-PAINT-CONTAIN` · `KF-TIMELINE-FILL` · `DARK-MENU-ITEM`.
+11. **Self-count.** Acts 1–11. kf commits: 4 (`c1ce06e8` · `68c80e79` · `d2bc0f76` · `3b1dbd8f`, pushed). Record commit: 1 (this receipt, the LEDGER line, and `evidence/W13U/x/` with 1 table and 3 probes). Roster reads: 3 (1 baseline + 2 after), plus 4 vue-tsc reads and 1 test:demo read. Escalations: 2. Residuals: 1 new.
