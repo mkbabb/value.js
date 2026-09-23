@@ -3723,3 +3723,65 @@ Inputs: `W5.md` whole (396 L, both ADDENDA), `## Repair 1` and `## Check 2` (RES
 | K2-3 INFO: D1 headless SwiftShader | none required (operator item, already registered) | — | — |
 
 No cure landed and no byte moved, so no gate was re-run. The Check 2 double-run readings stand as the figures of record. Self-count: 0 cured · 2 escalated · 1 INFO with no action. The row stays **PARTIAL**, and IMPLEMENTED stays unstamped, until COHESION rules ESC-W5c2-1 (with a grant for `o16:218` and `:266`) and ESC-W5c2-2.
+
+## Check 3 — RESUME 5, L-20 fresh adversarial pass 3, 2026-09-22 (VERIFY-ONLY)
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X-W5 CHECK 3 over `## Close — RESUME 5` as `## Repair 2` (RESUME 5) left it · HEAD at open `85469fba` · date of record 2026-09-17 (COHESION §0j).
+This seat cured nothing. It wrote this section and one LEDGER event line. Inputs: `W5.md` whole (396 L, both ADDENDA), `## Close — RESUME 5`, `## Check 2` and `## Repair 2` (RESUME 5), and the commits they name.
+
+**Verdict: NOT-CONFORMANT.** Every claimed static GREEN reproduces ×2 (byte-identical runs), and census-parity reproduces GREEN ×2. The two RED legs of the §0ax `.c2` gate, o16 R2 and o12 O-12·3, reproduce ×2 and still have no relief. ⟨cmd⟩ `grep -c 'ESC-W5c2' docs/tranches/X/COHESION.md` → **0**, and ⟨cmd⟩ `git log -1 --oneline -- docs/tranches/X/COHESION.md` → `df34be29` (§0ax), unchanged. The row stays **PARTIAL**, and IMPLEMENTED stays unstamped.
+
+### K3.0 Crash-recovery
+⟨cmd⟩ `git status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh`. Both are outside this seat's writable set, so there is **no inherited partial**. `dev.sh` was not touched.
+
+### K3.1 Axes 1 and 9: static gates (`scratchpad/k3static.sh` ×2, ⟨cmd⟩ `diff s1 s2` → IDENTICAL)
+⟨cmd⟩ `git diff --stat 85469fba..HEAD -- demo e2e src docs/tranches/X/COHESION.md docs/tranches/X/waves/W5.md` → empty. No product, test or ruling byte has moved since Repair 2.
+
+| gate | this seat | close claim | reproduces? |
+|---|---|---|---|
+| A1 (main.ts exit · App grep) | 0 · 0 | 0 · 0 | YES |
+| A4 `bindPane` hits | 10 | 10 | YES |
+| A7 `role="status"` | 5 | 5 | YES |
+| B4 (`100dvh` · `svh` files · `content-max-h`) | 0 · 3 · 0 | 0 · 3 · 0 | YES |
+| C4 · C8 · D2 exits | 0 · 0 · 0 | 0 · 0 · 0 | YES |
+| C3 fork census | 23 | 23 (routed) | YES |
+| D3 physical names | 0 (role-name grep hits in `animations.css`: stage 11 · inspector 11 · action 12, every role present) | 0 | YES |
+| D4 (Mix · AdminNames `<Transition `) | 1 · 1 | 1 · 1 | YES |
+| E1 ×4 · E2 `P122` | 0 0 0 0 · 9 3 18 10 | same | YES |
+| landmark `grep -rl "Color tool panes" e2e \| wc -l` | 0 | 0 | YES |
+| containment `contain: layout paint;` decl | 1 | 1 | YES |
+
+### K3.2 The live oracles, ×2 (load average 10.4 at start → 16.3 at end)
+⟨cmd⟩ `VJS_E2E_PORT=5261|5263 npx playwright test e2e/smoke/oracles/o12-blob-seat.spec.ts e2e/smoke/oracles/o16-computed-cascade.spec.ts e2e/visual/census-parity.spec.ts --reporter=line` was run twice. Both runs gave **10 passed / 7 failed**, EXIT=1.
+- census-parity: 0 failures in both runs, so it is **GREEN ×2**.
+- `o16:113` W5-census R2 failed in both projects in both runs at `:218`: Expected `"0.4s"`, Received **`"0.44s"`**. ⟨cmd⟩ `git blame -L 218,218 e2e/smoke/oracles/o16-computed-cascade.spec.ts` → `27f54cc36` (2026-07-11), a pre-W5 literal. ⟨cmd⟩ `grep -o -- '--spring-snappy-settle: [^;]*' node_modules/@mkbabb/glass-ui/dist/styles/tokens/scheme-spring.css` → `0.44s` (glass-ui 7.0.0). W5's `.d2` animations bytes consume `var(--spring-snappy-duration)` and write no literal, so the drift is the producer token against a hard-coded oracle literal. The cure is a consumer test byte (re-derive R2/R8 from the resolved token), not an upstream-only fix, and it needs a grant on `o16:218` and `:266`.
+- `o12:134` O-12·3 [smoke] failed in both runs: hover response **0.51 /255** (run 1) and **0.11 /255** (run 2) against the 6/255 floor, on software GL.
+- **New divergence from Check 2 (INFO, environment):** in both runs, the four `[oracles-safari]` o12 legs (·1+2, ·3, ·4, ·5) failed at `bootWithBlob` (`o12:66`, `[data-testid="goo-blob-canvas"]` not attached within 15 s). Check 2 had only O-12·3 failing in safari. No demo or e2e byte moved between the two checks (K3.1), and the load was 16, so this is attributed to the environment (webkit WebGL boot under load), not to a W5 byte. It is registered, not weighed. It does not change the verdict, because O-12·3 is RED either way.
+
+D1 of record (headed real-GPU) was not re-run. It is banked 2/2 at the close and 2/2 at Check 1, and no byte has moved since.
+
+### K3.3 Axes 2–8
+- **(2) Bounds.** The four commits since the close (`7ca62fd0` · `725e26dc` · `7a5d368d` · `85469fba`) touch only `execution/A/X-W5.md` and `execution/LEDGER.md` (⟨cmd⟩ `git show --stat`). The RESUME 5 product shas were bounds-checked at Check 2 K2.3 and have not moved. ⟨cmd⟩ `git log --oneline 0afc25c3^..HEAD -- scripts/dev/dev.sh | wc -l` → **0**.
+- **(3) Masking.** None. The o16 literal and the o12 floor are unchanged. There is no skip, no allowlist and no `node_modules` byte.
+- **(4) Families.** Unchanged since Check 2: P-1..P-4 + EB-2 are one commit (`52dc0a5b`).
+- **(5) E-3.** ⟨cmd⟩ `git diff --stat 5ad17633..HEAD -- docs/tranches/X/waves/W5.md docs/tranches/X/waves/W6.md docs/tranches/X/waves/W7.md docs/tranches/X/waves/W8.md docs/tranches/X/waves/W10.md docs/tranches/V/megatranche/registry/adjudicated/` → empty.
+- **(6) Mail.** ⟨cmd⟩ `ls -t ../glass-ui/docs/tranches | head -1` → BK. ⟨cmd⟩ `find <value.js V · V/coordination · BK coordination · keyframes V/coordination> -maxdepth 1 -type f -newer execution/A/X-W5.md` → empty. INBOX has one UNREAD row, **I-40**, which belongs to Track C and is out of scope. **0 UNREAD in scope.**
+- **(7) Four-verb.** Unmoved (IMPLEMENTED NO). That is lawful while the addendum gate is RED.
+- **(8) Goal criterion.** Met at the product bytes, as Check 1 found and K3.1 re-reads. The remainder is test-oracle debt inside the §0ax gate.
+
+### K3.4 Register
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| K3-1 | **HIGH** | The §0ax `.c2` gate "o16 GREEN ×2" is RED and unrelieved. The pre-W5 oracle literal `"0.4s"` at `o16:218` (and `:266`) disagrees with the producer token `--spring-snappy-settle: 0.44s`. The fix needs a test byte that no grant covers. | K3.2 ×2 runs × 2 projects · `ESC-W5c2` hits in COHESION: 0 | COHESION rules ESC-W5c2-1 and grants `o16:218`/`:266`. Then an Opus repair seat re-derives R2/R8 from the resolved `--spring-snappy-duration`. Run o16 ×2. |
+| K3-2 | **HIGH** | The §0ax `.c2` gate "o12 GREEN ×2" is RED on O-12·3 (0.51 · 0.11 /255 against 6/255). It is unruled, and no W5 addendum names it honest-RED. | K3.2 | COHESION rules ESC-W5c2-2, for example a headed real-GPU reading of record as §0ax does for D1. No floor change and no skip. |
+| K3-3 | INFO | The `[oracles-safari]` o12 legs could not boot the blob canvas ×2 at load 16. Check 2 did not see this, and no byte moved in between. | K3.2 | Re-read in a quiesced window at the next oracle run. Attributed to the environment. |
+| K3-4 | INFO | D1 headless SwiftShader stays RED beside the record. It is not the reading of record (§0ax). | close CL5.2 | operator item (registered) |
+
+### K3.5 Axis 10: honest-RED adjudication
+- **Relieved by the spec's own routing** (owners named in CL5.5): B3 → X-W6 CC-056 · A3/C2 → X-W8 (§0k.3 S-1) · A5-OUTLINE → X-W10 · C3 layout forks → X-W8 `.i` · C7 `DockStatusLamp.vue:70` → X-W8 `.h` (§0aq) · D1 headless → by-instrument (§0ax).
+- **Unrelieved:** o16 R2 (K3-1) and o12 O-12·3 (K3-2). Neither is producer-only, because each cure is a consumer test byte or a ruling. Neither is routed to a successor, and no addendum names either one honest-RED. Each has an owner, COHESION via ESC-W5c2-1/-2, but neither has a ruling. **Axis 10 is NOT met.**
+
+### K3.6 Successors
+X-W6 (`Opens after: X-W5`), X-W8 (X-W5 · X-W6 · X-W7) and X-W10 (X-W5 among its conjuncts) all name X-W5 directly. X-W7 reaches it through X-W6. The X-W5 conjunct is **RED** (PARTIAL), so all four remain **lawfully BLOCKED-ON X-W5**. X-W5's own Opens-after conjuncts are GREEN: X-W4, X-W2 and X-W0 are CLOSED in LEDGER, and D2 exits 0.
+
+Self-count: 15 claimed GREENs re-run and reproduced (A1 · A4 · A7 · B4 · C3-count · C4 · C8 · D2 · D3 · D4 · E1 · E2 · landmark · containment · census-parity ×2) · 0 GREEN failed · 2 RED legs reproduced ×2 · 2 HIGH · 2 INFO. **This is the third consecutive check with a byte-identical finding. The wave cannot move until COHESION rules ESC-W5c2-1/-2, and a further check or repair seat before that ruling will produce the same result.**
