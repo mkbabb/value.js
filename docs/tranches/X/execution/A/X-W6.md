@@ -8378,3 +8378,59 @@ BLOCKED.
 **NOT-CONFORMANT.** 22 claimed GREENs reproduced, 0 failed; landed-wrong 0; no masking; E-3 held; 0 UNREAD in scope. Three born-RED/
 measure-at-open gates remain RED with no relief at the spec bytes (g2 · e1→a13 · j4) — each HIGH. The LEDGER row is **not promoted** and
 keeps its PARTIAL status; one event line is appended.
+
+## Repair 1 — RESUME 2026-09-23 (REPAIR SEAT, round 1, over the Check 1 — eighth-sitting register `738244a7`)
+
+SERVED MODEL: claude-opus-5-5[1m]
+
+Read: the spec whole (`W6.md`, 492 lines, five ADDENDA) and, of this record, the header, the eighth Open → Unit plan
+(`:7824-7902`) and Check 1 (`:8296-8380`). Writable set = the `.s` grant (`e2e/smoke/fixtures/**` · `gradient.spec.ts` ·
+`o21-gradient-rail.spec.ts` · `companion-pane-track-start.spec.ts`), the `.j` grant (`GradientPane.vue`), this record, the LEDGER
+(append). **Crash-recovery.** ⟨`git status --porcelain`⟩ → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh`
+only — neither in this seat's set; nothing inherited, nothing touched. Transcripts in the seat scratchpad (not committed); probes
+ran against a fresh `npx vite --port 9611 --strictPort` (killed after) and the e2e webServers on fresh ports 9621–9656.
+
+### Defect → cure → commit
+
+| # | defect | root cause (bisected at this seat) | cure | commit |
+|---|---|---|---|---|
+| C1-1 HIGH | g2 RED (`Mix region renders no pane`) | `settle.ts` skipped a null pane root (`if (!node) continue`), so a region between an out-in leave and the incoming mount read settled `""` | a `role="region"` target with no pane root pushes `"the region renders no pane yet"` to `unsettled` (condition 3 in the helper's contract); the helper still waits, never relaxes | `75420aab` |
+| C1-2 HIGH | e1 (→ a13) RED 1 of 3, `:547` `moved` true under `animation: none` | **NOT the enter pose.** On 6 fresh loads the rail's ancestors carried 0 running Animations and 0 `-enter-/-leave-` classes at frame 0, yet frame 0 ≠ frames 1–4 (all equal to each other) by **maxd 1/255** across the clip. A 40×40 clip of the page corner (no pane) moved the same way, and a 3 s wait before frame 0 gave 0 diffs on 4 of 4 loads. Cause: `canvas.atmosphere-canvas` runs a one-shot `opacity 0.9s` boot fade (sampled `op=0.725` → `0.991` → `1` at 1.7–2.5 s, then still) behind the translucent card (`oklab(… / 0.664)`). That is the page arriving, not the ramp moving | e1's frames now wait until the document runs no FINITE Animation on the `DocumentTimeline` (looping and scroll-driven ones stay in the frames, so a composed aurora still reads as motion) | `75420aab` |
+| a13 (found by this seat's run 3) | `gradient.spec.ts:210` RED 1 of 3: `Expected <= 2 · Received 586.18` | the same enter-pose species `.s` bisected at `:243`: `openGradient` awaited `paneSettled` (running Animations only), so the grab read the handle in `vj-enter-enter-from` and the pane then travelled 586 px | `openGradient` settles the rail's region once with `regionSettled(bar(main))`, curing every test that opens through the door; the `:261` call stays (ADD-never-replace) | `75420aab` |
+| C1-4 MEDIUM | `GradientPane.vue` `function visualizer()` beside `ref="visualizer"` | Vue resolves the string ref against the setup binding of the same name | ref key renamed to `gradientVisualizer`, and `useTemplateRef("gradientVisualizer")` reads the same key | `46b2cb17` |
+| C1-5 MINOR | the close's "03:55–04:35 EDT" end clock is later than its own commit `04:11:41` | a stated span rather than a measured one | **correction line (E-3, beside):** the eighth-sitting close's measured end clock is bounded by its commit, ⟨`git log -1 --format=%ci 11a82954`⟩ → `2026-09-23 04:11:41 -0400`, so its runs span **03:55–≤04:11 EDT**. Counts unaffected. This seat states only clocks it measured (04:18 open by ⟨`uptime`⟩ · 04:36 last gate by ⟨`date`⟩) | this record |
+
+No assertion was changed (⟨`git show 75420aab \| grep -E '^[-+]\s*expect\('`⟩ → the only `+` lines are the new `expect.poll(...)` waits
+and their `.toBe("")`; no `-` line). No `demo/**` byte in `75420aab`; no `e2e/**` byte in `46b2cb17`. No masking species:
+⟨`git show 75420aab 46b2cb17 \| grep -cE '^\+.*(test\.skip|fixme|catch|allowlist|eslint-disable|@ts-)'`⟩ → `0`.
+
+### Gate re-reading (every gate a cure could move; each read from the settled log, twice where a figure is published)
+
+| gate | ⟨cmd⟩ | reading |
+|---|---|---|
+| **g2** | `npx playwright test e2e/smoke/views/companion-pane-track-start.spec.ts -g "companion panes share one track start" --project=smoke` ×3 | **GREEN ×3** — `1 passed (14.2s)` · `1 passed (13.0s)` · `1 passed (12.9s)`, EXIT 0 ×3 |
+| **a13 · e1** (+ a2 · a3 · a4 · b3 in the same suite) | `npx playwright test e2e/smoke/views/gradient.spec.ts e2e/smoke/oracles/o21-gradient-rail.spec.ts --project=smoke` | before the `:210` door cure: `22 passed (1.8m)` · `22 passed (1.8m)` · **`1 failed · 21 passed (1.9m)`** (`:210`, Received 586.18) → after `75420aab`'s final bytes: **GREEN ×3** `22 passed (1.8m)` · `22 passed (1.7m)` · `22 passed (1.8m)`, EXIT 0 ×3 |
+| j1 · j2 · j3 | `npx playwright test e2e/smoke/oracles/o29-scene-contracts.spec.ts --project=smoke` ×2 (moved by `46b2cb17`) | **GREEN ×2** inside `1 failed · 5 passed (42.2s)` · `1 failed · 5 passed (40.1s)`; the one failure both times is j4 |
+| **j4** | same runs | **RED ×2** — blob `preview@rest=0.881` / `0.879` → `preview@last=0.000`; atmosphere `preview@last=0.079` GREEN. Unchanged — ESCALATED below |
+| C1-4 witness | a console probe on `/#/gradient` (fresh e2e server 9654) counting `Template ref "visualizer"` | `visualizer-ref warns=0 vue-warns-total=0` ×2 (Check 1 counted 24 at `738244a7`) |
+| §7 cadence | `npx vue-tsc --noEmit -p tsconfig.demo.json` · `npx eslint demo/workbenches/gradient/GradientPane.vue` · `git diff --check` on the 3 paths | EXIT 0 · EXIT 0 · clean. `prettier --check` flags pre-existing drift in `gradient.spec.ts` / `GradientPane.vue` at lines this seat did not touch (verified against `HEAD~2`'s bytes: EXIT 1 before the repair) — not reformatted (one commit per meaning) |
+
+Not moved by any cure and so cited, not re-run: gate-a-gesture-paint (a node probe that reads neither `settle.ts` nor the ref key;
+GREEN ×2 at Check 1's clock) and every other GREEN Check 1 reproduced.
+
+### Escalation
+
+- **C1-3 (HIGH) — j4 blob limb, `ESC-W6j-1`.** Its cure is not inside this seat's bounds. Measured twice above, `preview@last=0.000`: at
+  720×450, once the last control (`Reset`) is reached, the blob preview is out of view. `ESC-W6j-1` names the shell arrangement
+  (`shell.css`, X-W5 property; §4 Do-NOT-touch `App.vue`/router, and §3a treats any write to a shell tree as a triumvirate trigger).
+  Relief needs an OWNER ruling: re-open X-W5 to grant the arrangement, or issue a dated E-3 re-reading of j4. This seat mints neither.
+- **C1-6 (INFO)** — the O-52 re-id belongs to the COHESION seat, and the `J3-WEBGPU` relay belongs to the next seat granted INBOX
+  access. Neither lies in this seat's set. They are carried unchanged.
+
+### Standing after Repair 1
+
+The Check 1 register's unrelieved HIGHs: C1-1 **cured** (g2 GREEN ×3) · C1-2 **cured** (a13/e1 22/22 ×3, with the `:210` sibling of
+the same class cured at the door) · C1-3 **escalated** (OWNER). MEDIUM C1-4 is cured. MINOR C1-5 is corrected beside, in this
+section. The honest-RED set is unchanged: b1 `B1-G3D` · g1 → X-W10 · i3 `I3-SEED-SIZE`. RED now = b1 · g1 · i3 · j4 = **4**, so
+GREEN = **46** of the §6 roster's **50**. The row stays PARTIAL until the owner rules `ESC-W6j-1` and a fresh Check reads it.
+Commits: `75420aab` · `46b2cb17` · this record's commit.
