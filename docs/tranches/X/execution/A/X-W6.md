@@ -7684,3 +7684,38 @@ conjunct on X-W6 is GREEN.
 **NOT-CONFORMANT.** 26 of 26 re-run claimed GREENs reproduce and 0 failed. The honest-RED set is **g1 · b1 · i3**.
 **Unrelieved**: g2 · a5–a11 · a13 · e1, all X-W5-owned and unruled, with j1–j3 · H2 · H4 deferred to `.j`. The LEDGER row
 **stays PARTIAL** and nothing is promoted.
+
+## Repair 2 — RESUME 2026-09-23 (REPAIR SEAT, round 2, over the Check 2 — seventh sitting register `c9ec0909`)
+
+SERVED MODEL: claude-opus-5-5[1m] · 2026-09-23 ~02:14 EDT · HEAD `c9ec0909` · load 6.53 at open (⟨`uptime`⟩).
+Spec read whole once (`W6.md`, 490 L, four ADDENDA). Of this record: Check 2 (`:7593-7686`) and Repair 1 (`:7544-7591`), with
+the close's Act 3 read by sed range (`:7364-7369`) only.
+
+**Crash-recovery.** ⟨`git status --porcelain`⟩ → `V/reformation/CARRY-LEDGER.md` · `W6-evidence/catalog/after-{catalog-open,
+specimen-dots}.png` · `scripts/dev/dev.sh`. These are the same three rows every seat since the seventh Open has found, and none of
+them is in this seat's writable set. Nothing was inherited, touched or staged.
+
+**Rulings since Check 2.** ⟨`git log --oneline c9ec0909..HEAD`⟩ → empty. ⟨`grep -c ESC-W5d4-1 COHESION.md`⟩ → `0`. The last
+addendum is still `2918:## §0az`, and the LEDGER X-W5 row still reads **PARTIAL — RESUME 7 close**. ⟨`git diff --stat c9ec0909 --
+demo e2e test src plugins`⟩ → empty. No product, spec or ruling byte has moved.
+
+### Defect → cure → commit → gate re-reading
+
+| # | sev | defect | cure at this seat | commit | gate re-reading |
+|---|---|---|---|---|---|
+| C2-1 | HIGH | g2 is RED deterministically (6.50144), and nothing relieves it | **ESCALATED, no W6 byte.** §0ay rules the cold-nav stuck enter to X-W5. §0az gives X-W5 `.d4` the "W6 g2 GREEN ×2" duty, and ESC-W5d4-1 is still unruled (0 hits). The only W6-side moves are a settle in the companion-pane spec, which the spec bans as masking, or a per-pane nudge in `AboutPane.vue`, which g2's own OM-10 control falsifies. | none | not re-run, because no byte moved. Check 2's reading is cited: Received 6.50144 |
+| C2-2 | HIGH | a5–a11, a13 and e1 are not close-stable, and nothing relieves them | **ESCALATED, no W6 byte.** This is the X-W5 cold-nav enter class (`COHESION.md:2898` names a5–a12, e1 and g2). Adding a settle here would mask X-W5's defect. | none | not re-run, because no byte moved. The cited readings are a13 at 2 of 3 and a5–a11 at 3 of 3 (Repair 1), and `o21:60` at 1 of 1 RED (Check 2) |
+| C2-3 | MEDIUM | j1–j3, H4 and H2's `.j` leg are deferred inside the wave, so the §2a routed-scene arm is unmet | **ESCALATED, no W6 byte.** §0az (`W6.md:490`) omits `.j` while X-W5 is not CLOSED, and X-W5 reads PARTIAL. Dispatching `.j` from this seat would breach the ruled order. | none | ⟨`grep -c "component: Stub" demo/color-picker/router/index.ts`⟩ → `14` · ⟨`ls e2e/smoke/oracles \| grep -c o29`⟩ → `0` |
+| C2-4 | MEDIUM | the close's 33/17 counts e1 GREEN, but e1 reads GREEN on only 2 of 3 runs | **CURED at the record (E-3: stated beside the close, not re-written into it).** The figure of record for the seventh sitting is now **GREEN 32 / RED 18**, with e1 moved to RED under the close's own rule that a gate not stable at close is RED. It stays RED until it reads GREEN ×3 after the X-W5 cure. | this Repair 2 commit | the re-sum is below and was double-run |
+| C2-5 | MINOR | the §8 artefacts are partial | **Not a one-command cure, so it is left to its owners.** The gradient frames need the pre-`.a` BEFORE tree plus seven capture cells. The owner-mark re-crops need the owner's crops. The cold-load frame rides the `.i` re-sit, which waits on I3-SEED-SIZE (R-11). | none | ⟨`git ls-files W6-evidence/gradient \| grep -c png`⟩ → `0` · ⟨`git ls-files W6-evidence/owner-marks \| wc -l`⟩ → `0` |
+| C2-6 | INFO | i3 `I3-SEED-SIZE` waits on the owner | nothing is owed (it is an owner act) | none | cited from Check 2: o28 received 0.15949 · 0.29331 · 0.24326 |
+
+### Figures (WRITE-THEN-MEASURE, double-run)
+
+**GREEN is 32.** a1 a2 a3 a4 a12 (5) · b2 b3 b4 (3) · c1–c4 (4) · d1 d2 (2) · e2 (1) · f1–f10 (10) · h1 h2 (2) · i1 i2 (2) · j4 (1) ·
+H1 H3 (2). ⟨`echo $((5+3+4+2+1+10+2+2+1+2))`⟩ ×2 → `32` · `32`.
+**RED is 18.** a5–a11 (7) · a13 (1) · b1 (1) · e1 (1) · g1 g2 (2) · i3 (1) · j1 j2 j3 (3) · H2 H4 (2).
+⟨`echo $((7+1+1+1+2+1+3+2))`⟩ ×2 → `18` · `18`. 32 + 18 = **50**, which is the §6 roster.
+
+Self-count: **cured 1** (C2-4). **Escalated 3**: C2-1 and C2-2 go to X-W5 (ESC-W6close5-1 / ESC-W5d4-1), and C2-3 goes to `.j`
+after X-W5 CLOSES. C2-5 is not a one-command cure, and C2-6 is INFO with nothing owed. The row stays **PARTIAL** at GREEN 32 / RED 18.
