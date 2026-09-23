@@ -8680,3 +8680,88 @@ Two gates stay unrelieved and each is HIGH. j4 is RED at this seat. e1 → a13 i
 escalation has no ruling. Both wait on the OWNER (`ESC-W6j-1` · `ESC-W6e1-1`), and no further repair seat can cure either inside §4.
 RED at this seat = j4 · b1 · g1 · i3 (4). With e1/a13 counted as unrelieved flake-RED, GREEN = **44/50**, the same as Check 2. The
 LEDGER row is **not promoted** and stays PARTIAL. One event line is appended.
+
+## Open — RESUME 2026-09-23 (ninth sitting; SEAT 0, `claude-opus-5-5[1m]`)
+
+SERVED MODEL: claude-opus-5-5[1m] (this seat's section; the file's line 1 names the file's creating seat).
+
+Opened 2026-09-23 05:14 EDT, HEAD `4002256f`, branch `tranche-u`, load 15.99 (⟨`uptime`⟩). Resume spec = W6.md's six ADDENDA
+(sixth = `:494`, COHESION §0bb) + COHESION §0z · §0an · §0aq · §0ax · §0ay · §0az · §0ba · **§0bb** (⟨`grep -n "^## §0" COHESION.md
+| tail -1`⟩ → `2958:## §0bb`, the file's last addendum; file ends `:2968`). Of this record, read: the header, the eighth sitting's
+Open → Unit plan (`:7824-7902`) and Check 3 (`:8599-8682`) only.
+
+**Crash-recovery.** ⟨`git status --porcelain`⟩ → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh` —
+**only**; neither is in any owed unit's writable set (`e2e/smoke/fixtures/settle.ts` · `e2e/smoke/views/gradient.spec.ts` ·
+`e2e/smoke/oracles/o29-scene-contracts.spec.ts` · `demo/workbenches/gradient/GradientPane.vue` · the `.a` set ·
+`e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts`) → **no inherited partial work**. ⟨`git log --oneline 4002256f^..HEAD -- e2e
+demo`⟩ → **empty**: no `.s2` / `.j2` / `.a3` / `.f3` commit exists.
+
+**Preconditions.** Spec `Opens after: X-W5` → LEDGER row reads **CLOSED** (§0bb: `45d25fd1` close, `db3605d4` LEDGER; check
+CONFORMANT-HONEST-RED). LEDGER `X-W6` "Opens after" = `X-W0` → CLOSED 2026-09-17. §10 dependency X-W4 → CLOSED. §0bb order
+"X-W6 [`.s2`] → [`.j2`] → [`.a3`] → [`.f3`] → close → check". **alreadyDone** (commits of record in prior receipts): `.a` · `.b` ·
+`.c` · `.d` · `.e` · `.f` · `.g` · `.h` · `.a2` · `.i2` · `.s` (`201f737a`) · `.f2` · `.v` · `.j` (`17dd0df4`). Named artefacts present:
+`settle.ts` (86 lines) · `o29-scene-contracts.spec.ts` · `W6-evidence/gradient/capture-v.mjs` · `o23-specimen-gamut-honesty.spec.ts`.
+
+**Bytes already moved by the eighth sitting's Repair 1 (read at open, not re-dispatched as a claim).** `75420aab` added the
+empty-region clause to `settle.ts` (⟨`sed -n 58-63p settle.ts`⟩ → `if (el.getAttribute("role") === "region" && !paneRoot)
+unsettled.push("the region renders no pane yet");`, inside a bounded `expect.poll`) — §0bb's R-s1 cure reads present at the bytes;
+`46b2cb17` renamed the template ref key `visualizer` → `gradientVisualizer` (⟨`git show 46b2cb17`⟩), so `function visualizer()`
+(`GradientPane.vue:28`) no longer collides. §0bb's R-j1 prescription ("rename the setup binding; the ref key is the contract") is
+therefore met in effect by the opposite rename; `.j2` measures and records, and moves a GradientPane byte only if its gate reads RED.
+Neither is a unit's commit; `.s2`'s owed act is the e1 `moved` re-reading, `.j2`'s the o29 `test.fail` carry.
+
+**E13 Step-0 mail sweep.** BK still the newest glass-ui tranche dir (⟨`ls -t glass-ui/docs/tranches | head -2`⟩ → `BK`, `BJ`);
+atlas newest `T` (no `coordination/`). ⟨`find <path> -maxdepth 1 -type f -newermt 2026-09-23T02:54:00`⟩ (the eighth open's clock)
+→ `V/coordination/INBOX.md` itself · glass `BK/coordination/valuejs-outbound-2026-09-23-xw6-{webgpu-loss,aurora-derive}-relay.md`
+(our own outbound mirrors, rowed O-54 · O-53 — ⟨`grep -c` both names in INBOX⟩ → `3`); **empty** on `V/` · keyframes
+`V/coordination` · atlas `{P,Q,R}/coordination` · atlas `T/`. ⟨`grep -n "^| [IO]-[0-9]" INBOX.md | grep UNREAD`⟩ → O-20 · I-30 ·
+I-31 · I-32 · I-35 · O-39 · I-40 — none addressed to X-W6. **0 new I-n · 0 UNREAD in X-W6 scope**. Sweep line appended to INBOX.md.
+
+## Baseline — RESUME 2026-09-23 ninth sitting (the owed units' gates only; every other gate cites Check 3 `2898b710`)
+
+Run read-only 05:15–05:24 EDT (load 11–16). Playwright on fresh webServers (`VJS_E2E_PORT` 9911 · 9912 · 9913), line reporter,
+serially (Check 3 measured `EADDRINUSE 127.0.0.1:8091` when two configs overlap). The Vue-warning probe ran a scratch script
+against a fresh `npx vite --port 9914 --strictPort` (killed after; the copy placed at the repo root for module resolution was
+removed). Transcripts in the seat scratchpad (not committed). ⟨`git status --porcelain`⟩ after every run → the two standing rows only.
+
+| gate | unit | ⟨cmd⟩ | BEFORE |
+|---|---|---|---|
+| g2 | `.s2` | `npx playwright test e2e/smoke/views/companion-pane-track-start.spec.ts --project=smoke` ×1 | **GREEN** `1 passed (12.9s)` EXIT 0 (R-s1's empty-region clause present since `75420aab`; ×3 owed at `.s2`'s clock) |
+| e1 · a13 · a2 · a3 (suite) | `.s2` · `.a3` | `npx playwright test e2e/smoke/views/gradient.spec.ts e2e/smoke/oracles/o21-gradient-rail.spec.ts --project=smoke` ×1 | **GREEN** `22 passed (2.0m)` EXIT 0 — e1 is flake-class at these bytes (RED 2/2 Check 2, 1/8 Repair 2); `gradient.spec.ts:557` still reads `moved = frames.slice(1).some((f) => !f.equals(frames[0]!))` — the §0bb re-reading (≥ 4 LSB over ≥ 0.5 % of the clip) is NOT in the tree |
+| o29 blob limb (J4-SHORT-LANDSCAPE-BLOB) · atmosphere limb | `.j2` | `npx playwright test e2e/smoke/oracles/o29-scene-contracts.spec.ts --project=smoke` ×1 | **RED** `1 failed · 5 passed (40.3s)` EXIT 1 — `[j4] blob preview@rest=1.000 last="Reset" … preview@last=0.000` · `Expected: > 0 · Received: 0`; atmosphere `preview@rest=0.164 … preview@last=0.079` (GREEN). ⟨`grep -c "test.fail" o29-scene-contracts.spec.ts`⟩ → `0`: the §0bb carry is not in the tree |
+| R-j1 · 0 Vue warnings | `.j2` | scratch probe: chromium 1440×900 → `#/gradient`, 6 s, count `console` lines matching `Vue warn` ×2 | **GREEN** `vue-warns=0` · `vue-warns=0` (cured in effect by `46b2cb17`) |
+| R-v1 falsifier (release-x within 2 %) | `.a3` | ⟨`grep -n "release" e2e/smoke/views/gradient.spec.ts`⟩ at the a2 test (`:171`) | **ABSENT** — the a2 test asserts ascending order + CSS re-apply only; the 27.4 % settle is reproduced by `.a3` with `capture-v.mjs` |
+| f3 · e2e tsc | `.f3` | `npx tsc -p tsconfig.e2e.json` ×2 | **RED** EXIT 2 · `5` errors ×2 — `o23-specimen-gamut-honesty.spec.ts(144,37)` TS2339 `'map' does not exist on type 'never'` · `(144,42)` TS7006 · `(181,37)` TS2339 `'some'` · `(181,43)` · `(181,52)` TS7006 |
+
+### R.2 — a GREEN before its cure
+
+- **g2** reads GREEN at open: `.s2`'s settle clause (R-s1) already landed at Repair 1 `75420aab`; `.s2` owes g2 ×3 at its own clock
+  and does not re-author the clause if it conforms (a region with no pane root is unsettled, polled with a bound).
+- **e1 / a13** read GREEN ×1: a flake class, not a cure — its §0bb re-reading is not in the tree; ×3 under load owed.
+- **R-j1 (0 Vue warnings)** reads GREEN ×2: `46b2cb17` renamed the ref key instead of the setup binding. `.j2` re-measures ×2; if
+  GREEN it cites `46b2cb17` and writes no GradientPane byte (a revert-and-rename would be churn with no failing input).
+- **a2 / a3** read GREEN ×1: R-v1 is a missing falsifier, not a RED gate; `.a3` authors the falsifier and reproduces first.
+
+## Unit plan — RESUME 2026-09-23 ninth sitting (4 owed units dispatched serially; 14 units landed/alreadyDone)
+
+**alreadyDone (never re-dispatched)**: `X.W6.a` · `.b` · `.c` · `.d` · `.e` · `.f` · `.g` · `.h` · `.a2` · `.i2` · `.s` · `.f2` · `.v` ·
+`.j`. **Standing dispositions (not units)**: i3 = `I3-SEED-SIZE` (O-53, §0ba/§0bb) · b1 = `B1-G3D` (§0ax) · g1 → X-W10 (M-23) ·
+j4 RETIRED under MEASURE-AT-OPEN (`6dfdd8d2`, §0bb) with the blob limb `J4-SHORT-LANDSCAPE-BLOB` → X-W8 `.i` · `J3-WEBGPU` (O-54) ·
+h1's beyond-sRGB limb `H1-P3` by physics (§0aq). Order (W6.md sixth ADDENDUM · §0bb): **[`.s2`] → [`.j2`] → [`.a3`] → [`.f3`]**
+strictly serial, ≤ 1 concurrent (`.s2` and `.a3` both write `gradient.spec.ts`). An ESCALATED unit does not halt the wave (§0ax).
+
+| unit | model | executes | writable | gates | locks |
+|---|---|---|---|---|---|
+| `X.W6.s2` | opus | sixth ADDENDUM (W6.md `:494`) · COHESION §0bb ESC-W6e1-1 bullet (`:2962`) · e1 row (§5 `.e`) | `e2e/smoke/fixtures/settle.ts` · `e2e/smoke/views/gradient.spec.ts` (the `moved` instrument only) · this record | g2 ×3 · e1/a13 (gradient+o21 22/22) ×3 under load | NO `demo/**` byte; assertions untouched; no perceptual library (decode PNGs); one `test(e2e)` commit |
+| `X.W6.j2` | opus | sixth ADDENDUM · §0bb ESC-W6j-1 bullet (`:2961`) · §5 `.j` j4 row (`:323`) | `e2e/smoke/oracles/o29-scene-contracts.spec.ts` · `demo/workbenches/gradient/GradientPane.vue` · this record | o29 atmosphere limb GREEN ×2 (blob limb expected-fail) · 0 Vue warnings ×2 | `test.fail(true, "J4-SHORT-LANDSCAPE-BLOB → X-W8 .i")` verbatim; no shell/`shell.css`/`viewSchema.ts` byte; `feat(demo/scene-adoption)` family |
+| `X.W6.a3` | opus | §0bb R-v1 bullet (`:2963`) · §5 `.a` (`:156-181`, a2/a3 rows) · GRADSTOP-A §14/§15 laws | the `.a` set: `demo/workbenches/gradient/composables/{useGradientModel,useGradientCSS,gradientParse}.ts` · `demo/workbenches/gradient/GradientVisualizer/{GradientStopEditor,GradientVisualizer}.vue` · `…/easing/GradientEasingEditor.vue` · `demo/workbenches/gradient/GradientPane.vue` · `test/gradient-order-invariant.test.ts` · `test/gradient-parse.test.ts` · `e2e/smoke/views/gradient.spec.ts` (ONE new falsifier) · `e2e/smoke/oracles/o21-gradient-rail.spec.ts` · this record | a2 · a3 ×3 · suite 22/22 ×3 (+ the new falsifier) | no clamp on the sole mutator, no min-spacing (§14/§15); capturer-caused → record + no product byte; ascending assertion stays; `fix(demo/gradient-model)` family |
+| `X.W6.f3` | opus | §0bb o23-tsc bullet (`:2964`) · §0am deliberately-invalid-input idiom | `e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts` · this record | `tsc -p tsconfig.e2e.json` EXIT 0 ×2 · o22/o23/o24 3 passed ×2 | assertions untouched; no `@ts-ignore`/`any` masking; one `test(e2e)` commit |
+
+### Briefs
+
+- **`.s2`** — Re-read `settle.ts`: R-s1 (empty region unsettled, bounded poll) landed at `75420aab`; confirm, touch only if non-conforming. Re-author `gradient.spec.ts:557` `moved` per §0bb: decode the clipped PNG frames (pngjs if present, else Playwright pixel read — no perceptual lib), moved = any later frame with ≥ 0.5 % of pixels differing by ≥ 4 LSB in a channel vs frame 0. Assertions (`:572`/`:585`) untouched. g2 ×3, gradient+o21 22/22 ×3 under load, fresh ports serially. One pathspec commit.
+- **`.j2`** — Carry the o29 blob short-landscape limb as `test.fail(true, "J4-SHORT-LANDSCAPE-BLOB → X-W8 .i")` (only that limb; atmosphere stays live). Re-measure R-j1 ×2 (0 Vue warnings on `#/gradient`): GREEN at open via `46b2cb17` → cite it, no GradientPane byte; RED → rename the setup binding. o29 exit 0 ×2.
+- **`.a3`** — Reproduce R-v1 with `W6-evidence/gradient/capture-v.mjs` (stop settles 27.4 % vs ≈10 % after crossing). Rail stops tracking → cure at the rail in the `.a` set (no clamp, no spacing law). Capturer's pointer path → record with the frame, no product byte. Either way ADD one falsifier to the a2 test: dragged stop final position within 2 % of the release x; ascending assertion stays. a2/a3 ×3, suite ×3.
+- **`.f3`** — Cure the 5 tsc errors at `o23…:144/:181` (`never`-typed channel arrays): type the deliberately-invalid inputs by the §0am idiom (explicit typed fixture, no cast-to-any), assertions untouched. e2e tsc EXIT 0 ×2; o22/o23/o24 3 passed ×2.
+
+## Unit receipts — ninth sitting 2026-09-23
