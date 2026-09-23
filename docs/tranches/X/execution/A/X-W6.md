@@ -7540,3 +7540,52 @@ unlawfully blocked by this wave, because the block comes from each spec's own co
 **NOT-CONFORMANT.** 26 of 26 re-run claimed GREENs reproduce and 0 failed. The honest-RED set is **g1 · b1 · i3**.
 **Unrelieved**: g2 · a5–a11 · a13 (X-W5-owned, unruled), with j1–j3 · H2 · H4 deferred to `.j`. The LEDGER row **stays
 PARTIAL**, the close's verdict is **confirmed**, and nothing is promoted.
+
+## Repair 1 — RESUME 2026-09-23 (REPAIR SEAT, round 1, over the Check 1 — seventh sitting register `3cd0224e`)
+
+SERVED MODEL: claude-opus-5-5[1m] · 2026-09-23 ~02:00 EDT · HEAD `3cd0224e` · load 6.34 at open (⟨`uptime`⟩).
+Spec read whole once (`W6.md`, 490 L, four ADDENDA). Of this record: the seventh Open → Unit plan (`:7155-7233`) and Check 1
+(`:7452-7542`) only; the close by grep/sed range.
+
+**Crash-recovery.** ⟨`git status --porcelain`⟩ → `V/reformation/CARRY-LEDGER.md` · `W6-evidence/catalog/after-{catalog-open,
+specimen-dots}.png` · `scripts/dev/dev.sh`. The same three rows Check 1 found. None lies in a writable set this seat can claim
+for a cure (the two PNGs are `.f`'s landed evidence and the prior o22/o24 run's side effect). Nothing was inherited, and
+nothing was touched or staged.
+
+**Rulings since Check 1.** ⟨`git log --oneline 7b7947ad..HEAD`⟩ → `3cd0224e` only (Check 1 itself). ⟨`grep -n "^## §0"
+COHESION.md | tail -1`⟩ → `2918:## §0az` (no new addendum). ⟨`grep -c ESC-W5d4-1 COHESION.md`⟩ → `0`. LEDGER row X-W5 still
+PARTIAL. So no X-W5 byte and no ruling has moved since the close. Every HIGH/MEDIUM cure Check 1 names sits at X-W5's bytes
+or on `.j`, which §0az omits while X-W5 is PARTIAL.
+
+### Defect → cure → commit → gate re-reading
+
+| # | sev | defect | cure at this seat | commit | gate re-reading |
+|---|---|---|---|---|---|
+| C1-1 | HIGH | g2 RED deterministically (6.50144), unrelieved | **ESCALATED, no W6 byte.** §0ay (`COHESION.md:2896`) rules the cold-nav stuck enter (ESC-W6close5-1) to X-W5. §0az gave X-W5 `.d4` the "W6 g2 GREEN ×2" duty. ⟨`grep -c ESC-W5d4-1 COHESION.md`⟩ → `0`, so X-W5's residual is still unruled. The only W6-side move would be a settle or animation disable in the companion-pane spec or a per-pane nudge in `AboutPane.vue`. The spec bans the first (masking) and g2's own falsifier bans the second ("a per-pane nudge passes the About assertion and breaks the control"). | none | not re-run: no byte moved since Check 1, which read `1 failed`, Received 6.50144 at `3cd0224e` |
+| C1-3 | MEDIUM | j1–j3 · H4 · H2's `.j` leg are deferred inside the wave; the §2a routed-scene arm is unmet | **ESCALATED, no W6 byte.** `W6.md:490` (fourth ADDENDUM) and §0az omit `.j` while X-W5 is not CLOSED, and the LEDGER X-W5 row reads PARTIAL. A repair seat that dispatched `.j` would breach the ruled order. The cure is `.j` on the resume after X-W5 CLOSES. | none | ⟨`grep -c "component: Stub" demo/color-picker/router/index.ts`⟩ → `14`; ⟨`ls e2e/smoke/oracles \| grep -c o29`⟩ → `0` (unchanged) |
+| C1-4 | MINOR | §8 artefacts partial | **Not a one-command cure. Left to its owners.** Re-measured: ⟨`git ls-files W6-evidence/gradient \| grep -c png`⟩ → `0` · ⟨`git ls-files W6-evidence/owner-marks \| wc -l`⟩ → `0`. The gradient before/after frames require BEFORE bytes (the pre-`.a` tree) plus seven capture cells. The owner-mark re-crops need the owner's crops. The cold-load first-paint frame rides the `.i` re-sit, which is gated on the owner's I3-SEED-SIZE choice (R-11). Each is a unit's work, not a one-command cure. | none | — |
+| C1-5 | INFO | i3 = `I3-SEED-SIZE` awaits OWNER | none owed (owner act) | none | cited: Check 1 o28 Received 0.15949 · 0.29331 · 0.24326 |
+| C1-6 | INFO | two trailing-whitespace lines in `i2-held-at-head.txt` | none owed (a verbatim reporter transcript, and E-3 bars editing prior evidence) | none | — |
+| C1-2 | HIGH | a5–a11 · a13 not close-stable, unrelieved | **ESCALATED, no W6 byte.** This is the same cold-nav enter class §0ay ruled to X-W5 (`COHESION.md:2898` names "a5–a12, e1 and g2"). No X-W5 byte has landed since the close, so any W6-side settle would mask X-W5's defect (the `.a2` lock). This seat took the stability reading Check 1 said was missing (below). | none | a13 suite **GREEN 2 of 3** · a5–a11 **GREEN 3 of 3** (table below) |
+
+### The stability reading (read-only, fresh servers, 2026-09-23 02:03–02:13 EDT, load 6.3 at start)
+
+| gate | ⟨cmd⟩ | r1 | r2 | r3 |
+|---|---|---|---|---|
+| a13 suite (a2 · a3 · a4 · b3 · e1 legs) | `VJS_E2E_PORT=897{1,2,3} npx playwright test e2e/smoke/views/gradient.spec.ts e2e/smoke/oracles/o21-gradient-rail.spec.ts --project=smoke --reporter=line` | `22 passed (1.9m)` EXIT 0 | `22 passed (1.9m)` EXIT 0 | `1 failed · 21 passed (1.9m)` EXIT 1: **`gradient.spec.ts:451` (e1)** *"the ramp moves with no producer primitive composed"*, Expected false · Received true (`:537`) |
+| a5–a11 | fresh `npx vite --port 8979 --strictPort`; `GRADIENT_URL=http://localhost:8979/#/gradient node docs/tranches/X/waves/W6-evidence/gradient/gate-a-gesture-paint.mjs` ×3 | `GATE X.W6.a (gesture + paint) — GREEN` EXIT 0 | GREEN EXIT 0 | GREEN EXIT 0 |
+
+**New finding for the next check (R1-1, MEDIUM).** The close read **e1 GREEN ×3** (`:7330`) and counted it in the 33.
+Here e1 failed on 1 of 3 runs at unchanged bytes, and it failed in the same species the fifth sitting's close recorded at
+`:6449` (RED 1 of 2 there). §0ay (`COHESION.md:2898`) places e1 in the X-W5 cold-nav regression set with a5–a12 and g2. So
+e1 is **not close-stable** by the rule the close applied to a5–a11 and a13. Moving it from GREEN to RED is the next check's
+job: this seat does not rewrite the close's count (E-3). The cure is the same X-W5 escalation (ESC-W6close5-1 /
+ESC-W5d4-1), after which W6 re-reads e1 ×3. **This seat does not own a W6-side cure**: the "no motion" leg is exactly what a
+late scene-enter transition inside the clip box would trip, and a settle would mask it.
+
+### Figures (WRITE-THEN-MEASURE)
+
+No product, spec or test byte moved: ⟨`git diff --stat 3cd0224e -- demo e2e test src plugins`⟩ → empty. The close's 33 / 17
+therefore stands as the record figure. This seat measured one new instability, e1 at 2 of 3 (R1-1), and hands it to the next
+check without re-counting the close. Self-count: **cured 0** (C1-1 · C1-2 · C1-3 escalated to X-W5 / `.j`; C1-4 is not a
+one-command cure; C1-5 · C1-6 are INFO, none owed). **Escalated 3**, and R1-1 joins C1-2's escalation. The row stays **PARTIAL**.
