@@ -1,0 +1,133 @@
+{
+ "base": "http://localhost:5173/",
+ "reduce": false,
+ "scenes": {
+  "cube": {
+   "box0": {
+    "x": 673.1796875,
+    "y": 52.5078125,
+    "width": 20,
+    "height": 20
+   },
+   "box1": {
+    "x": 673.1796875,
+    "y": 52.5078125,
+    "width": 20,
+    "height": 20
+   },
+   "bboxDelta": 0,
+   "diffInside": 0,
+   "diffOutside": 0,
+   "tag": "svg",
+   "layers": [],
+   "anims": 0,
+   "live": null
+  },
+  "amiga": {
+   "box0": {
+    "x": 669.2421875,
+    "y": 52.5078125,
+    "width": 20,
+    "height": 20
+   },
+   "box1": {
+    "x": 669.2421875,
+    "y": 52.5078125,
+    "width": 20,
+    "height": 20
+   },
+   "bboxDelta": 0,
+   "diffInside": 0,
+   "diffOutside": 0,
+   "tag": "svg",
+   "layers": [],
+   "anims": 0,
+   "live": null
+  },
+  "square": {
+   "box0": {
+    "x": 665.296875,
+    "y": 52.5078125,
+    "width": 20,
+    "height": 20
+   },
+   "box1": {
+    "x": 665.296875,
+    "y": 52.5078125,
+    "width": 20,
+    "height": 20
+   },
+   "bboxDelta": 0,
+   "diffInside": 0,
+   "diffOutside": 0,
+   "tag": "svg",
+   "layers": [],
+   "anims": 0,
+   "live": null
+  },
+  "easing": {
+   "box0": {
+    "x": 667.875,
+    "y": 52.5078125,
+    "width": 20,
+    "height": 20
+   },
+   "box1": {
+    "x": 667.875,
+    "y": 52.5078125,
+    "width": 20,
+    "height": 20
+   },
+   "bboxDelta": 0,
+   "diffInside": 0,
+   "diffOutside": 0,
+   "tag": "svg",
+   "layers": [],
+   "anims": 0,
+   "live": null
+  },
+  "spring": {
+   "box0": {
+    "x": 668.3046875,
+    "y": 52.5078125,
+    "width": 20,
+    "height": 20
+   },
+   "box1": {
+    "x": 668.3046875,
+    "y": 52.5078125,
+    "width": 20,
+    "height": 20
+   },
+   "bboxDelta": 0,
+   "diffInside": 0,
+   "diffOutside": 0,
+   "tag": "svg",
+   "layers": [],
+   "anims": 0,
+   "live": null
+  },
+  "sequence": {
+   "box0": {
+    "x": 650.1015625,
+    "y": 52.5078125,
+    "width": 20,
+    "height": 20
+   },
+   "box1": {
+    "x": 650.1015625,
+    "y": 52.5078125,
+    "width": 20,
+    "height": 20
+   },
+   "bboxDelta": 0,
+   "diffInside": 0,
+   "diffOutside": 0,
+   "tag": "svg",
+   "layers": [],
+   "anims": 0,
+   "live": null
+  }
+ },
+ "pageerrors": []
+}

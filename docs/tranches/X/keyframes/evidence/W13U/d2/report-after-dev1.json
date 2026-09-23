@@ -1,0 +1,265 @@
+{
+ "base": "http://localhost:5173/",
+ "reduce": false,
+ "scenes": {
+  "cube": {
+   "rest": {
+    "box0": {
+     "x": 710,
+     "y": 61.25,
+     "width": 20,
+     "height": 20
+    },
+    "bboxDelta": 0,
+    "diffInside": 224,
+    "diffOutside": 0,
+    "outsideAt": [],
+    "tag": "span",
+    "visible": true,
+    "layers": [
+     "bob",
+     "pose",
+     "cube"
+    ],
+    "anims": 0,
+    "live": ""
+   },
+   "open": {
+    "box0": {
+     "x": 536.75,
+     "y": 61.2421875,
+     "width": 20,
+     "height": 20
+    },
+    "bboxDelta": 0,
+    "diffInside": 257,
+    "diffOutside": 0,
+    "outsideAt": [],
+    "tag": "span",
+    "visible": true,
+    "layers": [
+     "bob",
+     "pose",
+     "cube"
+    ],
+    "anims": 0,
+    "live": ""
+   }
+  },
+  "amiga": {
+   "rest": {
+    "box0": {
+     "x": 710,
+     "y": 61.25,
+     "width": 20,
+     "height": 20
+    },
+    "bboxDelta": 0,
+    "diffInside": 150,
+    "diffOutside": 0,
+    "outsideAt": [],
+    "tag": "span",
+    "visible": true,
+    "layers": [
+     "grid",
+     "shadow",
+     "ball"
+    ],
+    "anims": 0,
+    "live": ""
+   },
+   "open": {
+    "box0": {
+     "x": 532.8125,
+     "y": 61.2421875,
+     "width": 20,
+     "height": 20
+    },
+    "bboxDelta": 0,
+    "diffInside": 139,
+    "diffOutside": 0,
+    "outsideAt": [],
+    "tag": "span",
+    "visible": true,
+    "layers": [
+     "grid",
+     "shadow",
+     "ball"
+    ],
+    "anims": 0,
+    "live": ""
+   }
+  },
+  "square": {
+   "rest": {
+    "box0": {
+     "x": 710,
+     "y": 61.25,
+     "width": 20,
+     "height": 20
+    },
+    "bboxDelta": 0,
+    "diffInside": 144,
+    "diffOutside": 0,
+    "outsideAt": [],
+    "tag": "span",
+    "visible": true,
+    "layers": [
+     "field",
+     "box"
+    ],
+    "anims": 0,
+    "live": ""
+   },
+   "open": {
+    "box0": {
+     "x": 528.8671875,
+     "y": 61.2421875,
+     "width": 20,
+     "height": 20
+    },
+    "bboxDelta": 0,
+    "diffInside": 111,
+    "diffOutside": 0,
+    "outsideAt": [],
+    "tag": "span",
+    "visible": true,
+    "layers": [
+     "field",
+     "box"
+    ],
+    "anims": 0,
+    "live": ""
+   }
+  },
+  "easing": {
+   "rest": {
+    "box0": {
+     "x": 710,
+     "y": 61.25,
+     "width": 20,
+     "height": 20
+    },
+    "bboxDelta": 0,
+    "diffInside": 37,
+    "diffOutside": 0,
+    "outsideAt": [],
+    "tag": "span",
+    "visible": true,
+    "layers": [
+     "curve",
+     "rail",
+     "ball"
+    ],
+    "anims": 0,
+    "live": ""
+   },
+   "open": {
+    "box0": {
+     "x": 544.71875,
+     "y": 61.2421875,
+     "width": 20,
+     "height": 20
+    },
+    "bboxDelta": 0,
+    "diffInside": 32,
+    "diffOutside": 0,
+    "outsideAt": [],
+    "tag": "span",
+    "visible": true,
+    "layers": [
+     "curve",
+     "rail",
+     "ball"
+    ],
+    "anims": 0,
+    "live": ""
+   }
+  },
+  "spring": {
+   "rest": {
+    "box0": {
+     "x": 710,
+     "y": 61.25,
+     "width": 20,
+     "height": 20
+    },
+    "bboxDelta": 0,
+    "diffInside": 88,
+    "diffOutside": 0,
+    "outsideAt": [],
+    "tag": "span",
+    "visible": true,
+    "layers": [
+     "lanes",
+     "balls"
+    ],
+    "anims": 0,
+    "live": ""
+   },
+   "open": {
+    "box0": {
+     "x": 537.265625,
+     "y": 61.2421875,
+     "width": 20,
+     "height": 20
+    },
+    "bboxDelta": 0,
+    "diffInside": 34,
+    "diffOutside": 0,
+    "outsideAt": [],
+    "tag": "span",
+    "visible": true,
+    "layers": [
+     "lanes",
+     "balls"
+    ],
+    "anims": 0,
+    "live": ""
+   }
+  },
+  "sequence": {
+   "rest": {
+    "box0": {
+     "x": 710,
+     "y": 61.25,
+     "width": 20,
+     "height": 20
+    },
+    "bboxDelta": 0,
+    "diffInside": 79,
+    "diffOutside": 0,
+    "outsideAt": [],
+    "tag": "span",
+    "visible": true,
+    "layers": [
+     "rails",
+     "travellers"
+    ],
+    "anims": 0,
+    "live": ""
+   },
+   "open": {
+    "box0": {
+     "x": 609.578125,
+     "y": 61.2421875,
+     "width": 20,
+     "height": 20
+    },
+    "bboxDelta": 0,
+    "diffInside": 17,
+    "diffOutside": 0,
+    "outsideAt": [],
+    "tag": "span",
+    "visible": true,
+    "layers": [
+     "rails",
+     "travellers"
+    ],
+    "anims": 0,
+    "live": ""
+   }
+  }
+ },
+ "pageerrors": []
+}
