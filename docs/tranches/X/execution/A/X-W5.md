@@ -4188,3 +4188,65 @@ Crash-recovery: ⟨cmd⟩ `git status --porcelain` → the four standing rows (`
 **Unrelieved:** o16 W5-census · cold-nav witness · W6 a5–a12/e1/g2 (as `.d3` cross-gates).
 
 **Successors (Opens-after):** X-W6, X-W7, X-W8 and X-W10 each carry the conjunct "X-W5 closed". That conjunct is **RED**, so all four are **lawfully BLOCKED**. The W5 inputs they consume are GREEN at the bytes: C8 `regions[]` · B4 dead block cap · C4 one mount path · E1/E2. **LEDGER row: stays PARTIAL. No promotion.**
+
+## RESUME OPEN 7 — 2026-09-23, seat 0 (RESUME MODE, seventh sitting, on COHESION §0aq + §0ax + §0ay + §0az and W5.md's four ADDENDA)
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X-W5 SEAT 0 (OPEN, RESUME 7) · HEAD at open `7ab5a3f1` · date of record 2026-09-17 (the begin-word, COHESION §0j).
+Inputs read: `W5.md` whole (400 L, incl. all four ADDENDA; the fourth, 2026-09-23, is `:400`), this record's `## RESUME OPEN 6` (`:3789-3844`) and `## Check 3` RESUME 6 (`:4153-4190`),
+COHESION §0az (`:2918-2945`, the file end). Ruling ids consumed: **§0az** (ESC-W5d3-1 RULED (a), GRANTED to `.d4`: `lazyPane` publishes loader readiness, `PaneSlot`
+keys its `<Transition>` child on `(pane, resolved)`, the `App.vue:134` transition-name flip retires in the same commit, no `__asyncResolved` read, no frame element;
+ESC-W5c3-1 RULED on the resolved-token pattern, GRANTED to `.c4`: demo rules read their tokens, producer rows assert the producer's resolved value, R4 `cartoon-surface`
+RETIRED with a dated line beside, a wanted-back motion is one BK relay row never a consumer copy; O12-3-HOVER-GPU → X-W8 `.i`; order X-W5 [`.c4`] → [`.d4`]),
+**§0ay**, **§0ax** (only DEAD halts; D1 headed real-GPU = reading of record), **§0aq**, standing §0i, §0j, §0k.1, §0k.3.
+
+### R7.0 Crash-recovery (STANDING LAW)
+⟨cmd⟩ `git status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` · ` M docs/tranches/X/waves/W6-evidence/catalog/after-catalog-open.png` ·
+` M docs/tranches/X/waves/W6-evidence/catalog/after-specimen-dots.png` · ` M scripts/dev/dev.sh` — the four standing rows. None is in this seat's writable set
+(`X-W5.md`, `LEDGER.md`, `INBOX.md`) nor in `.c4`/`.d4`'s. `dev.sh` untouched. **No inherited partial.**
+
+### R7.1 E13 Step-0 — the four-path mail sweep
+⟨cmd⟩ `ls -t ../glass-ui/docs/tranches/ | head -2` → **BK**, BJ (BK still newest). ⟨cmd⟩ `find <path> -maxdepth 1 -type f -newer execution/A/X-W5.md` (the record as of
+Check 3 `52889b4f`) over value.js `V/` · `V/coordination/` · glass `BK/coordination` · keyframes `V/coordination` · atlas `P/coordination` → only `V/coordination/INBOX.md`
+itself (the X-W6 RESUME OPEN sweep line of 2026-09-23). **0 new I-n · 0 UNREAD in X-W5 scope**; the only UNREAD row stays I-40 (Track C, out of scope). One dated sweep
+line appended at the INBOX end.
+
+### R7.2 Preconditions (RESUME MODE)
+- **Opens-after** (W5.md §1): LEDGER X-W0 **CLOSED 2026-09-17** · X-W2 **CLOSED 2026-09-17 (honest-RED G3·G5)** · X-W4 **CLOSED 2026-09-17** (unchanged since R6.2);
+  D2 `probe2-log.txt` tracked (R6.2, no commit since touched it). **MET.**
+- **alreadyDone** (commits exist, never re-dispatched): `.a` `c0cf27bf`(+`de99ec15` `f94d22af`) · `.b` `adc312f6` · `.c` `50633f19` · `.d` `2183b814` · `.e` `e2f56558` ·
+  `.t` `91d0e0c7` `1a6432f9` · `.c2` `fc9c2be4` `2eeb59ee` `ab5270b6` · `.d2` `043a783c` `52dc0a5b` `b36df565` · `.c3` `8ddafa23` (+receipt `881d3792`) ·
+  `.d3` `b9f63632` `a072eef3` (+receipt `28da478f`; ESCALATED, its witness file is the `.d4` gate).
+- **Owed** (§0az, fourth ADDENDUM): `.c4` → `.d4`. ⟨cmd⟩ `git log --oneline -80 | grep -E '\.c4|\.d4'` → only the §0az ruling commit `7ab5a3f1`; no unit byte.
+  ⟨cmd⟩ `git diff --stat f46ab34b..HEAD -- demo e2e src` → empty — no W5 product byte moved since the RESUME 6 close.
+- Pre-unit fingerprint ⟨cmd⟩ `md5 -q`: `PaneSlot.vue` `ab9df0f6c78d8cc8fd7524708f145dbb` · `usePaneRouter.ts` `225cd3e0c9242a415717673f6ebf83b3` ·
+  `App.vue` `c13690d9f20895c2b266357af59fcba5` · `o16-computed-cascade.spec.ts` `d911011970d33c88e2b076eecaf40d59`.
+- Line drift noted: §0az cites `lazyPane` at `usePaneRouter.ts:189-223`; the bytes read `PANE_LOAD_DELAY_MS` `:209`, `function lazyPane` `:211`, call sites `:226-238`.
+  `App.vue:134` = `:transition-name="viewManager.ready.value ? 'vj-enter' : ''"` (the flip `.d4` retires) — matches.
+
+### R7.3 Baseline for the owed units — read-only, double-run at HEAD `7ab5a3f1`
+⟨cmd⟩ `sh scratchpad/w5r7.sh` (runs 1 and 2 in one script: o16 `--project=smoke` · o16 `--project=oracles-safari` · `cold-nav-scene-enter.spec.ts --project=smoke`,
+distinct `VJS_E2E_PORT` per run) → load at end **9.47 / 9.47 / 9.62**.
+
+| gate (owner unit) | run 1 | run 2 | state |
+|---|---|---|---|
+| o16 W5-census, `smoke` (`.c4`) | 1 passed / 1 failed — `R4 translate duration · Expected "0.3s" · Received undefined` (census `R4 cartoon-surface: {"all":{"duration":"0s","timing":"ease"}}`) | same (1/1) | **RED ×2** |
+| o16 W5-census, `oracles-safari` (`.c4`) | 1 passed / 1 failed — same R4 assertion | same (1/1) | **RED ×2** |
+| cold-nav witness `cold-nav-scene-enter.spec.ts` (`.d4`) | 2 failed — `/#/gradient` Received **2** · `/#/` Received **1** (expected 0) | same (2, 1) | **RED ×2 both arms** |
+| W6 a5–a12 · e1 · g2 (`.d4` cross-gates) | banked RED (X-W6 Check 3 `19a3ac41`; no product byte since) | — | RED (banked) |
+| D1 of record, headed real GPU (`.d4` non-regression) | banked GREEN 14/14 (§0ay; RESUME 6 close 2/2) | — | GREEN (banked; no product byte since) |
+| `App.vue:134` transition-name flip | present (diagnostic) | — | — |
+
+Figures match Check 3 K3.2 exactly (o16 R4 `undefined`; cold-nav 2 / 1). R5/R11 stay latent behind R4 (the test aborts at the first failing expect).
+**R.2 green-before-cure**: none. The o16 test that passes is the sibling test `:30` (the dist `:root` 150ms clobber check), not the W5 census `:113`; the held GREENs (containment, D3, D1) are landed cures of `.d`/`.d2`.
+
+### R7.4 Resume unit plan — 11 landed, 2 owed, strictly serial `[.c4] → [.d4]`
+
+| unit | model | executes | writable | gates it turns | locks |
+|---|---|---|---|---|---|
+| **X.W5.c4** | opus | W5.md ADDENDUM 4 (`:400`) · COHESION §0az ESC-W5c3-1 | `e2e/smoke/oracles/o16-computed-cascade.spec.ts` (whole) · `demo/styles/**` · the demo components carrying the literals the rows expose (named in the receipt: `.channel-rail-item` `0.12s`, `.pane-shell` `0.35s`, `send-btn` `0s`) · `docs/tranches/X/waves/W5/green/**` · this record | o16 GREEN ×2 in `smoke` AND `oracles-safari`; every demo-rule row asserts equality with the RESOLVED token AND the rule reads that token; producer rows assert the producer's resolved value; R4 `cartoon-surface` RETIRED with a dated line beside; prose `:215`/`:264` updated | the drift is cured at the rule, never at the assertion; no literal swap to the observed value; no consumer copy of the producer's removed motion (a wanted-back motion = one BK relay row); glass-ui READ-ONLY; preserve-animations |
+| **X.W5.d4** | opus | W5.md ADDENDUM 4 (`:400`) · COHESION §0az ESC-W5d3-1 (a) | `demo/shell/usePaneRouter.ts` (`lazyPane`, now `:209-238`) · `demo/shell/PaneSlot.vue` · `demo/color-picker/App.vue` (`:134`) · `e2e/smoke/oracles/cold-nav-scene-enter.spec.ts` · `docs/tranches/X/waves/W5/green/**` · this record | the cold-nav witness (2 routes × 5 fresh contexts) 0 stuck ×2 both arms · W6 a5–a12 / e1 / g2 GREEN ×2 by W6's own commands · D1 headed real-GPU ×2 unchanged · the `PANE_LOAD_DELAY_MS` plate still shows on a slow chunk (witness) · D3 0 · D5 · §7 | ONE commit: readiness publish + `(pane, resolved)` Transition-child key + the `App.vue:134` flip retirement; no `__asyncResolved` read, no frame element, no settle/wait, no forced class removal; W5F-07 family P-1..P-4 (`52dc0a5b`) unsplit; CURE-LOCK; DIAG instrument read-only |
+
+Groups (serial, at most 1 concurrent; §0az orders them; the two share no modify path): `[[X.W5.c4], [X.W5.d4]]`.
+Post-units: the verify-only close + L-20 checks; L-18 quartet passes precede ACCEPTED; then X-W6 [`.a2`] → [`.i2`] (→ [`.j`] once X-W5 reads CLOSED) per §0az.
+
+## Unit receipts — RESUME 7
